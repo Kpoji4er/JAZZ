@@ -110,7 +110,7 @@ function AICalcAttacksAndAim(context, ap, target)
 
 	if target then
 		if context.force_max_aim 
-		or (IsKindOfClasses(context.weapon,"SniperRifle","MachineGun") and (ap - cost * max_aim) > 0 and unit:GetDist(target) >= 2*const.SlabSizeX)
+		or (IsKindOfClasses(context.weapon,"SniperRifle","MachineGun") and (ap - cost * max_aim) > 0 and unit:GetDist(target) >= 4*const.SlabSizeX)
 		or ((IsKindOf(context.weapon,"AssaultRifle")) and (ap - cost * max_aim) > 0 and unit:GetDist(target) >= (8) * const.SlabSizeX) 
 		   then
 			num_attacks = Min(Max(1,(ap / (cost + aim_cost * max_aim))), context.max_attacks)
