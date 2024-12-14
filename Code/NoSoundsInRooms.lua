@@ -1,0 +1,32 @@
+if FirstLoad then
+	s_DrySoundCache = {}
+end
+
+local pos_volume_offset = point(0, 0, const.vsInsideVolumeZOffset)
+
+function ActionFXSound:GetProjectReplace(sound, actor)
+	local pos = IsValid(actor) and IsKindOf(actor, "Object") and actor:GetPos() or actor
+	if not IsPoint(pos) then
+		return sound
+	end
+	
+	local cached_sound = s_DrySoundCache[sound]
+	if cached_sound then
+		return cached_sound
+	end
+	
+	pos = pos + pos_volume_offset
+	if GetReverbIndex(pos) == 1 then
+		for _, group in ipairs(Presets.SoundPreset) do
+			if table.find(group, "id", sound) then
+				local room_sound = sound -- .. "-room"
+				if table.find(group, "id", room_sound) then
+					s_DrySoundCache[sound] = room_sound
+					return room_sound
+				end
+			end
+		end
+	end
+	
+	return sound
+end

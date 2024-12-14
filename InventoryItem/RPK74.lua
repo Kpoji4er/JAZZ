@@ -1,0 +1,116 @@
+UndefineClass('RPK74')
+DefineClass.RPK74 = {
+	__parents = { "MachineGun" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T3-",
+	object_class = "MachineGun",
+	ScrapParts = 16,
+	Reliability = 95,
+	Icon = "Mod/e6L4ECj/WeaponIcons/RPK74.png",
+	DisplayName = T(679005533471, --[[ModItemInventoryItemCompositeDef RPK74 DisplayName]] "РПК-74"),
+	DisplayNamePlural = T(500616509541, --[[ModItemInventoryItemCompositeDef RPK74 DisplayNamePlural]] "РПК-74"),
+	Description = T(897065949753, --[[ModItemInventoryItemCompositeDef RPK74 Description]] "РПК-74 - это разработанный в пару автомату АК-74 ручной пулемет под новый тогда малоимпульсный патрон 5.45х39. Как и РПК, от базового автомата отличается усиленной ствольной коробкой и тяжелым стволом, что расширяет дальность огневого поражения отделения до 600 метров."),
+	AdditionalHint = T(317702044957, --[[ModItemInventoryItemCompositeDef RPK74 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Легкий"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 75000,
+	CanAppearInShop = true,
+	Tier = 2,
+	MaxStock = 2,
+	RestockWeight = 30,
+	CategoryPair = "MachineGuns",
+	Caliber = "JAZZ_Caliber_545",
+	Damage = 26,
+	ObjDamageMod = 50,
+	AimAccuracy = 22,
+	CritChance = 10,
+	MagazineSize = 30,
+	WeaponRange = 50,
+	PointBlankBonus = 1,
+	Noise = 45,
+	HandSlot = "TwoHanded",
+	Entity = "Weapon_RPK74",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Bipod",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Bipod",
+			},
+			'DefaultComponent', "Bipod",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Barrel",
+			'AvailableComponents', {
+				"BarrelNormal",
+				"BarrelNormalImproved",
+			},
+			'DefaultComponent', "BarrelNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagNormal",
+				"MagLarge_30_45",
+			},
+			'DefaultComponent', "MagLarge_30_45",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Handguard",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"RPK74_Hanguard_Basic",
+				"RPK74_VerticalGrip",
+			},
+			'DefaultComponent', "RPK74_Hanguard_Basic",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Compensator",
+			},
+			'DefaultComponent', "Compensator",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Stock",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"StockNormal",
+				"StockLight",
+			},
+			'DefaultComponent', "StockNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"LROptics",
+				"ReflexSight",
+				"ScopeCOG",
+				"ThermalScope",
+				"LROpticsAdvanced",
+				"ScopeCOGQuick",
+				"ReflexSightAdvanced",
+			},
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	PreparedAttackType = "Machine Gun",
+	AvailableAttacks = {
+		"MGBurstFire",
+		"BurstFire",
+	},
+	ShootAP = 5000,
+	ReloadAP = 5000,
+	Recoil = 5,
+	BurstShots = 4,
+	AutoShots = 4,
+	Handling = 70,
+	BulletDropRange = 19,
+	Grouping = 295,
+	BaseJamChance = -30,
+}
+

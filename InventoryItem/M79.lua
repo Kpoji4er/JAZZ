@@ -1,0 +1,37 @@
+UndefineClass('M79')
+DefineClass.M79 = {
+	__parents = { "GrenadeLauncher" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "GrenadeLauncher",
+	ScrapParts = 16,
+	Reliability = 50,
+	Caliber = "JAZZ_Caliber_40mmGrenade",
+	BombardRadius = 3,
+	ComponentSlots = {},
+	Entity = "M79",
+	Icon = "Mod/e6L4ECj/WeaponIcons/M79.png",
+	DisplayName = T(971400395106, --[[ModItemInventoryItemCompositeDef M79 DisplayName]] "M79"),
+	DisplayNamePlural = T(989047236569, --[[ModItemInventoryItemCompositeDef M79 DisplayNamePlural]] "M79"),
+	Description = T(769570824531, --[[ModItemInventoryItemCompositeDef M79 Description]] 'Легендарный американский 40 мм пехотный гранатомет времен войны во Вьетнаме, являющийся пращуром современных "подствольников". На прикладе ножом в спешке вырезано "Джонни, они на деревьях!"'),
+	AdditionalHint = T(397383171067, --[[ModItemInventoryItemCompositeDef M79 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Стреляет дальнобойными 40-мм гранатами\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вероятность неудачи растет с увеличением расстояния"),
+	LargeItem = 1,
+	UnitStat = "Explosives",
+	Valuable = 1,
+	Cost = 5000,
+	CanAppearInShop = true,
+	MaxStock = 1,
+	RestockWeight = 20,
+	CategoryPair = "HeavyWeapons",
+	ObjDamageMod = 25,
+	CritChanceScaled = 0,
+	WeaponRange = 45,
+	HandSlot = "TwoHanded",
+	HolsterSlot = "Shoulder",
+	PreparedAttackType = "None",
+	ShootAP = 4000,
+	ReloadAP = 6000,
+	Handling = 85,
+}
+

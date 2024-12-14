@@ -1,0 +1,33 @@
+UndefineClass('JazzArmor_ZylonHelmHeavy')
+DefineClass.JazzArmor_ZylonHelmHeavy = {
+	__parents = { "Armor" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Class2 H",
+	object_class = "Armor",
+	ScrapParts = 6,
+	Degradation = 30,
+	Icon = "Mod/e6L4ECj/ArmorIcons/ZylonHelmH.png",
+	DisplayName = T(239198807680, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonHelmHeavy DisplayName]] "Шлем Зилон, Тяжелый"),
+	DisplayNamePlural = T(467593179208, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonHelmHeavy DisplayNamePlural]] "Шлемы Зилон, Тяжелый"),
+	Description = T(764012338960, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonHelmHeavy Description]] "Тяжелый арамидный шлем Зилон с баллистическим забралом из бронестекла. Предлагается для проведения штурмовых операций в замкнутых пространствах."),
+	AdditionalHint = T(365960477733, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonHelmHeavy AdditionalHint]] "Модульный камуфляжный шлем, тяжелый вариант"),
+	Valuable = 1,
+	Cost = 3500,
+	CanAppearInShop = true,
+	Tier = 2,
+	RestockWeight = 5,
+	CategoryPair = "Heavy",
+	Slot = "Head",
+	PenetrationClass = 2,
+	DamageReduction = 20,
+	AdditionalReduction = 60,
+	ProtectedBodyParts = set( "Head", "Neck" ),
+	ArmorRating = 35,
+	MeleeArmorRating = 5,
+	CamouflagePercent = 3,
+	Weight = 4,
+	Vision = -5,
+}
+

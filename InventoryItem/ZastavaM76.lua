@@ -1,0 +1,83 @@
+UndefineClass('ZastavaM76')
+DefineClass.ZastavaM76 = {
+	__parents = { "SniperRifle" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T1+",
+	object_class = "SniperRifle",
+	ScrapParts = 14,
+	Reliability = 75,
+	Icon = "Mod/e6L4ECj/WeaponIcons/ZastavaM76.png",
+	DisplayName = T(641866672184, --[[ModItemInventoryItemCompositeDef ZastavaM76 DisplayName]] "Zastava M76"),
+	DisplayNamePlural = T(774803615619, --[[ModItemInventoryItemCompositeDef ZastavaM76 DisplayNamePlural]] "Zastava M76"),
+	Description = T(703830100383, --[[ModItemInventoryItemCompositeDef ZastavaM76 Description]] 'Югославская снайперская винтовка, базируется на конструкции советского автомата Калашникова, адаптированной под существенно более мощный патрон 8мм Маузер. Для "натянутого на глобус" калаша стреляет неплохо, но до настоящей СВД еще далеко.'),
+	AdditionalHint = T(957180678257, --[[ModItemInventoryItemCompositeDef ZastavaM76 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Полуавтоматическая\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Интегрированный прицел"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 8000,
+	CanAppearInShop = true,
+	CategoryPair = "Rifles",
+	Caliber = "JAZZ_Caliber_792",
+	Damage = 39,
+	ObjDamageMod = 80,
+	AimAccuracy = 32,
+	CritChanceScaled = 20,
+	MagazineSize = 10,
+	WeaponRange = 65,
+	OverwatchAngle = 900,
+	Noise = 85,
+	HandSlot = "TwoHanded",
+	Entity = "m76",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Stock",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"StockNormal",
+			},
+			'DefaultComponent', "StockNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'Modifiable', false,
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"MagNormal",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Scope_ZRAK",
+			},
+			'DefaultComponent', "JAZZ_Scope_ZRAK",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Barrel",
+			'Modifiable', false,
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"BarrelsDefs",
+			},
+			'DefaultComponent', "BarrelsDefs",
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	PreparedAttackType = "Both",
+	AvailableAttacks = {
+		"SingleShot",
+		"CancelShot",
+	},
+	ShootAP = 6000,
+	ReloadAP = 5000,
+	BurstShots = 1,
+	AutoShots = 1,
+	Handling = 40,
+	BulletDropRange = 25,
+	Grouping = 340,
+	BaseJamChance = -10,
+}
+

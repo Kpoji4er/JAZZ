@@ -1,0 +1,33 @@
+UndefineClass('JazzArmor_ZylonMedium')
+DefineClass.JazzArmor_ZylonMedium = {
+	__parents = { "Armor" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Class3 M T4",
+	object_class = "Armor",
+	ScrapParts = 4,
+	Degradation = 40,
+	Icon = "Mod/e6L4ECj/ArmorIcons/ZylonM.png",
+	DisplayName = T(572857584976, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonMedium DisplayName]] "Бронежилет Зилон, Средний"),
+	DisplayNamePlural = T(488516896300, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonMedium DisplayNamePlural]] "Бронежилеты Зилон, Средний"),
+	Description = T(764470828294, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonMedium Description]] "Средний бронежилет Зилон с защитой паха и шеи в камуфляжой раскраске. Имеет большу крепость на разрыв, чем другие типы брони, но быстрее приходит в негодность."),
+	AdditionalHint = T(429017233141, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonMedium AdditionalHint]] "Модульный бронежилет. Средний вариант"),
+	Cost = 6500,
+	CanAppearInShop = true,
+	Tier = 2,
+	MaxStock = 2,
+	RestockWeight = 25,
+	CategoryPair = "Medium",
+	PenetrationClass = 3,
+	AdditionalReduction = 40,
+	ProtectedBodyParts = set( "Groin", "Neck", "Torso" ),
+	Coverage = 65,
+	ArmorRating = 12,
+	MeleeArmorRating = 5,
+	ExplosiveArmorRating = 20,
+	CamouflagePercent = 10,
+	CanHoldPlate = true,
+	Weight = 3,
+}
+

@@ -1,0 +1,37 @@
+UndefineClass('Knife_Balanced')
+DefineClass.Knife_Balanced = {
+	__parents = { "StackableMeleeWeapon" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "StackableMeleeWeapon",
+	ScrapParts = 1,
+	Reliability = 50,
+	Icon = "UI/Icons/Weapons/Combat Knife Balanced",
+	SubIcon = "UI/Icons/Weapons/balanced",
+	DisplayName = T(558360625902, --[[ModItemInventoryItemCompositeDef Knife_Balanced DisplayName]] "Сбалансированный нож"),
+	DisplayNamePlural = T(288113994061, --[[ModItemInventoryItemCompositeDef Knife_Balanced DisplayNamePlural]] "Сбалансированные ножи"),
+	Description = T(816876181011, --[[ModItemInventoryItemCompositeDef Knife_Balanced Description]] "Что может быть лучше ближнего боя?"),
+	AdditionalHint = T(337666095722, --[[ModItemInventoryItemCompositeDef Knife_Balanced AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сбалансированное: увеличенная дальность броска\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сбалансированное: увеличенная эффективность прицеливания\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая цена атаки"),
+	UnitStat = "Dexterity",
+	Cost = 1200,
+	CanAppearInShop = true,
+	Tier = 2,
+	MaxStock = 1,
+	RestockWeight = 15,
+	BaseChanceToHit = 100,
+	CritChanceScaled = 20,
+	BaseDamage = 22,
+	AimAccuracy = 20,
+	PenetrationClass = 4,
+	DamageMultiplier = 90,
+	CanThrow = true,
+	WeaponRange = 10,
+	AttackAP = 3000,
+	MaxAimActions = 1,
+	Noise = 1,
+	Entity = "Weapon_FC_AMZ_Knife_01",
+	HolsterSlot = "Leg",
+	CanAppearUsed = false,
+}
+

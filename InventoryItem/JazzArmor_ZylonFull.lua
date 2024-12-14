@@ -1,0 +1,33 @@
+UndefineClass('JazzArmor_ZylonFull')
+DefineClass.JazzArmor_ZylonFull = {
+	__parents = { "Armor" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Class3 H T4",
+	object_class = "Armor",
+	ScrapParts = 4,
+	Degradation = 40,
+	Icon = "Mod/e6L4ECj/ArmorIcons/ZylonH.png",
+	DisplayName = T(733671653739, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonFull DisplayName]] "Бронежилет Зилон, Тяжелый"),
+	DisplayNamePlural = T(846025204149, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonFull DisplayNamePlural]] "Бронежилет Зилон, Тяжелый"),
+	Description = T(758339612573, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonFull Description]] "Тяжелый штурмовой бронежилет Зилон с защитой шеи, паха и рук в камуфляжой раскраске. Имеет большу крепость на разрыв, чем другие типы брони, но быстрее приходит в негодность"),
+	AdditionalHint = T(564290283324, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonFull AdditionalHint]] "Модульный бронежилет. Штурмовой вариант"),
+	Cost = 7500,
+	CanAppearInShop = true,
+	Tier = 2,
+	MaxStock = 1,
+	RestockWeight = 25,
+	CategoryPair = "Heavy",
+	PenetrationClass = 3,
+	AdditionalReduction = 40,
+	ProtectedBodyParts = set( "Arms", "Groin", "Neck", "Torso" ),
+	Coverage = 95,
+	ArmorRating = 14,
+	MeleeArmorRating = 10,
+	ExplosiveArmorRating = 32,
+	CamouflagePercent = 5,
+	CanHoldPlate = true,
+	Weight = 4,
+}
+

@@ -1,0 +1,78 @@
+UndefineClass('P226')
+DefineClass.P226 = {
+	__parents = { "Pistol" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T3 9mm",
+	object_class = "Pistol",
+	ScrapParts = 6,
+	RepairCost = 70,
+	Reliability = 30,
+	Icon = "Mod/e6L4ECj/WeaponIcons/P226.png",
+	DisplayName = T(218461390224, --[[ModItemInventoryItemCompositeDef P226 DisplayName]] "P-226"),
+	DisplayNamePlural = T(532649443806, --[[ModItemInventoryItemCompositeDef P226 DisplayNamePlural]] "P-226"),
+	Description = T(337830409983, --[[ModItemInventoryItemCompositeDef P226 Description]] "Простой, точный и надежный, как швейцарские часы, парень очень хотел стать новым пистолетом для американской армии. Конкурс он проиграл, но не расстроился и занял оружейные почти всех остальных силовых структур Европы и США."),
+	AdditionalHint = T(186387032377, --[[ModItemInventoryItemCompositeDef P226 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая точность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Возможность модификаций"),
+	UnitStat = "Marksmanship",
+	Cost = 3000,
+	CanAppearInShop = true,
+	Tier = 2,
+	CategoryPair = "Handguns",
+	Caliber = "JAZZ_Caliber_9x19",
+	Damage = 19,
+	ObjDamageMod = 25,
+	AimAccuracy = 9,
+	CritChance = 5,
+	CritChanceScaled = 25,
+	MagazineSize = 15,
+	WeaponRange = 14,
+	OverwatchAngle = 5400,
+	Noise = 30,
+	Entity = "p226",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"MagNormal",
+				"MagLarge",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'Modifiable', false,
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"ImprovisedSuppressor",
+				"PistolSuppressor",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Freeswap",
+			'AvailableComponents', {
+				"Freeswap",
+			},
+			'DefaultComponent', "Freeswap",
+		}),
+	},
+	HolsterSlot = "Leg",
+	AvailableAttacks = {
+		"SingleShot",
+		"DualShot",
+		"CancelShot",
+		"MobileShot",
+	},
+	ShootAP = 3000,
+	ReloadAP = 3000,
+	MaxAimActions = 2,
+	Recoil = 1,
+	AutoShots = 3,
+	Handling = 98,
+	BulletDropRange = 6,
+	Grouping = 88,
+	BaseJamChance = -100,
+	CanAppearUsed = false,
+}
+

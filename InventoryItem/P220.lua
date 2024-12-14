@@ -1,0 +1,84 @@
+UndefineClass('P220')
+DefineClass.P220 = {
+	__parents = { "Pistol" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T2 45acp",
+	object_class = "Pistol",
+	ScrapParts = 6,
+	RepairCost = 70,
+	Reliability = 20,
+	Icon = "Mod/e6L4ECj/WeaponIcons/P220.png",
+	DisplayName = T(291513194954, --[[ModItemInventoryItemCompositeDef P220 DisplayName]] "P-220"),
+	DisplayNamePlural = T(336303546958, --[[ModItemInventoryItemCompositeDef P220 DisplayNamePlural]] "P-220"),
+	Description = T(977047112542, --[[ModItemInventoryItemCompositeDef P220 Description]] "Если вам требуется хороший пистолет, первым в очереди из претендентов всегда будет стоять пистолет из Швейцарии. Там принято делать простое и надежное оружие. Конечно, там еще принято делать простое и надежное дорогое оружие, но для себя не жаль никаких денег."),
+	AdditionalHint = T(541758722141, --[[ModItemInventoryItemCompositeDef P220 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокий урон и шанс критического попадания"),
+	UnitStat = "Marksmanship",
+	Cost = 2200,
+	CanAppearInShop = true,
+	CategoryPair = "Handguns",
+	Caliber = "JAZZ_Caliber_45ACP",
+	Damage = 24,
+	ObjDamageMod = 25,
+	AimAccuracy = 7,
+	CritChance = 15,
+	CritChanceScaled = 40,
+	MagazineSize = 8,
+	WeaponRange = 13,
+	OverwatchAngle = 5400,
+	Noise = 35,
+	Entity = "p220",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"MagNormal",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"ImprovisedSuppressor",
+				"PistolSuppressor",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Side",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Flashlight",
+				"LaserDot",
+				"UVDot",
+				"FlashlightDot",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Freeswap",
+			'AvailableComponents', {
+				"Freeswap",
+			},
+			'DefaultComponent', "Freeswap",
+		}),
+	},
+	HolsterSlot = "Leg",
+	AvailableAttacks = {
+		"SingleShot",
+		"DualShot",
+		"CancelShot",
+		"MobileShot",
+	},
+	ShootAP = 3000,
+	ReloadAP = 3000,
+	MaxAimActions = 2,
+	Recoil = 1,
+	AutoShots = 3,
+	Handling = 97,
+	BulletDropRange = 5,
+	Grouping = 88,
+	BaseJamChance = -20,
+}
+

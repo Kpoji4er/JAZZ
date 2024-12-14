@@ -1,0 +1,36 @@
+UndefineClass('M16Bayonet')
+DefineClass.M16Bayonet = {
+	__parents = { "StackableMeleeWeapon" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "StackableMeleeWeapon",
+	ScrapParts = 1,
+	Reliability = 50,
+	Icon = "UI/Icons/Weapons/Combat Knife Balanced",
+	SubIcon = "UI/Icons/Weapons/balanced",
+	DisplayName = T(926739605099, --[[ModItemInventoryItemCompositeDef M16Bayonet DisplayName]] "Штык-Нож от М16"),
+	DisplayNamePlural = T(605385928975, --[[ModItemInventoryItemCompositeDef M16Bayonet DisplayNamePlural]] "Штык-Нож от М16"),
+	Description = T(102640462094, --[[ModItemInventoryItemCompositeDef M16Bayonet Description]] "Что может быть лучше ближнего боя?"),
+	AdditionalHint = T(474449232676, --[[ModItemInventoryItemCompositeDef M16Bayonet AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сбалансированное: увеличенная дальность броска\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сбалансированное: увеличенная эффективность прицеливания\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая цена атаки"),
+	UnitStat = "Dexterity",
+	Cost = 1200,
+	CanAppearInShop = true,
+	Tier = 2,
+	MaxStock = 1,
+	RestockWeight = 15,
+	BaseChanceToHit = 100,
+	BaseDamage = 22,
+	AimAccuracy = 20,
+	PenetrationClass = 4,
+	DamageMultiplier = 100,
+	CanThrow = true,
+	WeaponRange = 10,
+	AttackAP = 3000,
+	MaxAimActions = 1,
+	Noise = 1,
+	Entity = "M16bayonet_weapon",
+	HolsterSlot = "Leg",
+	CanAppearUsed = false,
+}
+

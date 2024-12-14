@@ -1,0 +1,40 @@
+UndefineClass('PipeBomb')
+DefineClass.PipeBomb = {
+	__parents = { "ThrowableTrapItem" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "ThrowableTrapItem",
+	Repairable = false,
+	Reliability = 100,
+	Icon = "UI/Icons/Weapons/PipeBomb",
+	ItemType = "Grenade",
+	DisplayName = T(584678244008, --[[ModItemInventoryItemCompositeDef PipeBomb DisplayName]] "Самодельная бомба"),
+	DisplayNamePlural = T(604631052255, --[[ModItemInventoryItemCompositeDef PipeBomb DisplayNamePlural]] "Самодельные бомбы"),
+	AdditionalHint = T(738342557339, --[[ModItemInventoryItemCompositeDef PipeBomb AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается через 1 ход (или 5 секунд не в бою)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает кровотечение"),
+	UnitStat = "Explosives",
+	Cost = 100,
+	CanAppearInShop = true,
+	RestockWeight = 50,
+	CategoryPair = "Grenade",
+	MinMishapChance = 0,
+	MaxMishapChance = 60,
+	MinMishapRange = 1,
+	MaxMishapRange = 9,
+	CenterUnitDamageMod = 130,
+	CenterAppliedEffects = {
+		"Bleeding",
+	},
+	Scatter = 8,
+	AttackAP = 3000,
+	BaseRange = 2,
+	ThrowMaxRange = 16,
+	InaccurateMinOffset = 4000,
+	InaccurateMaxOffset = 10000,
+	ThrowNoise = 8,
+	Entity = "Explosive_TNT",
+	ActionIcon = "UI/Icons/Hud/pipe_bomb",
+	TriggerType = "Timed",
+	ExplosiveType = "BlackPowder",
+}
+

@@ -1,0 +1,26 @@
+UndefineClass('ShamanHelmet')
+DefineClass.ShamanHelmet = {
+	__parents = { "Armor" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Class3 H",
+	object_class = "Armor",
+	ScrapParts = 6,
+	Degradation = 16,
+	Icon = "UI/Icons/Items/shaman_helmet",
+	DisplayName = T(334357176944, --[[ModItemInventoryItemCompositeDef ShamanHelmet DisplayName]] "Шлем «Отряда смерти»"),
+	DisplayNamePlural = T(619349093375, --[[ModItemInventoryItemCompositeDef ShamanHelmet DisplayNamePlural]] "Шлемы «Отряда смерти»"),
+	Description = T(821984487782, --[[ModItemInventoryItemCompositeDef ShamanHelmet Description]] 'Личный шлем шамана Сангомы, принадлежавший ему еще в тот период, когда Сангома был в составе печального известного "Отряда Смерти". К обычному военному шлему добавлена баллистическая маска в агрессивной раскраске в форме черепа, призванная оказывать психологический эффект на противников Сангомы.'),
+	AdditionalHint = "",
+	Valuable = 1,
+	RestockWeight = 0,
+	Slot = "Head",
+	PenetrationClass = 3,
+	DamageReduction = 20,
+	AdditionalReduction = 60,
+	ProtectedBodyParts = set( "Head" ),
+	ArmorRating = 40,
+	Weight = 4,
+}
+

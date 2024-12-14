@@ -1,0 +1,75 @@
+UndefineClass('APS')
+DefineClass.APS = {
+	__parents = { "Pistol" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T3 9x18",
+	object_class = "Pistol",
+	ScrapParts = 6,
+	RepairCost = 50,
+	Reliability = 80,
+	Icon = "Mod/e6L4ECj/WeaponIcons/APS.png",
+	DisplayName = T(762855095908, --[[ModItemInventoryItemCompositeDef APS DisplayName]] "Пистолет Стечкина"),
+	DisplayNamePlural = T(791550858652, --[[ModItemInventoryItemCompositeDef APS DisplayNamePlural]] "Пистолеты Стечкина"),
+	Description = T(803787536304, --[[ModItemInventoryItemCompositeDef APS Description]] "Маленькая ручная гаубица. Большой и серьезный советский пистолет, для офицеров, экипажей техники, артиллеристов и прочих, кому пистолета мало, а автомат не положен."),
+	AdditionalHint = T(501438291047, --[[ModItemInventoryItemCompositeDef APS AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Особый режим стрельбы: короткая очередь"),
+	UnitStat = "Marksmanship",
+	Cost = 6000,
+	CanAppearInShop = true,
+	Tier = 2,
+	CategoryPair = "Handguns",
+	CanAppearStandard = false,
+	Caliber = "JAZZ_Caliber_9x18",
+	Damage = 18,
+	ObjDamageMod = 20,
+	AimAccuracy = 8,
+	CritChance = 5,
+	MagazineSize = 18,
+	WeaponRange = 13,
+	OverwatchAngle = 5400,
+	Entity = "APS",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"MagNormal",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'AvailableComponents', {
+				"ImprovisedSuppressor",
+				"PistolSuppressor",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Freeswap",
+			'AvailableComponents', {
+				"Freeswap",
+			},
+			'DefaultComponent', "Freeswap",
+		}),
+	},
+	HolsterSlot = "Leg",
+	AvailableAttacks = {
+		"SingleShot",
+		"BurstFire",
+		"DualShot",
+		"CancelShot",
+		"MobileShot",
+	},
+	ShootAP = 3000,
+	ReloadAP = 3000,
+	MaxAimActions = 2,
+	Recoil = 5,
+	BurstShots = 6,
+	AutoShots = 6,
+	Handling = 90,
+	BulletDropRange = 6,
+	Grouping = 93,
+	BaseJamChance = -20,
+}
+

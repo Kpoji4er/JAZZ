@@ -1,0 +1,35 @@
+UndefineClass('TimedC4')
+DefineClass.TimedC4 = {
+	__parents = { "ThrowableTrapItem" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "ThrowableTrapItem",
+	Repairable = false,
+	Reliability = 100,
+	Icon = "UI/Icons/Items/timed_c4",
+	ItemType = "Grenade",
+	DisplayName = T(979574564839, --[[ModItemInventoryItemCompositeDef TimedC4 DisplayName]] "C4 с таймером"),
+	DisplayNamePlural = T(678721366861, --[[ModItemInventoryItemCompositeDef TimedC4 DisplayNamePlural]] "C4 с таймером"),
+	AdditionalHint = T(565078880187, --[[ModItemInventoryItemCompositeDef TimedC4 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается через 1 ход (или 5 секунд не в бою)"),
+	UnitStat = "Explosives",
+	Cost = 800,
+	CanAppearInShop = true,
+	Tier = 2,
+	MaxStock = 1,
+	RestockWeight = 10,
+	CategoryPair = "Grenade",
+	MinMishapChance = -2,
+	MaxMishapChance = 18,
+	MaxMishapRange = 6,
+	AttackAP = 4000,
+	BaseRange = 3,
+	CanBounce = false,
+	IgnoreCoverReduction = 1,
+	Noise = 30,
+	Entity = "Explosive_C4",
+	ActionIcon = "UI/Icons/Hud/throw_timed_explosives",
+	TriggerType = "Timed",
+	ExplosiveType = "C4",
+}
+

@@ -1,0 +1,66 @@
+UndefineClass('M45')
+DefineClass.M45 = {
+	__parents = { "SubmachineGun" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "9mm T1",
+	object_class = "SubmachineGun",
+	ScrapParts = 8,
+	Reliability = 65,
+	Icon = "Mod/e6L4ECj/WeaponIcons/CarlGustaf.png",
+	DisplayName = T(519964585006, --[[ModItemInventoryItemCompositeDef M45 DisplayName]] "Carl Gustaf M/45"),
+	DisplayNamePlural = T(178177064561, --[[ModItemInventoryItemCompositeDef M45 DisplayNamePlural]] "Carl Gustaf M/45"),
+	Description = T(562922376716, --[[ModItemInventoryItemCompositeDef M45 Description]] "Этот автомат хоть и выглядит, как продукт инженерии военного времени, сделанный из водопроводной трубы и листового металла, простоял на вооружении армии Швеции вплоть до начала 20-го века. И повезло ему, что пришлось просто стоять."),
+	AdditionalHint = T(539332597589, --[[ModItemInventoryItemCompositeDef M45 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая эффективность стрельбы навскидку"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 1700,
+	CanAppearInShop = true,
+	RestockWeight = 50,
+	CategoryPair = "SubmachineGuns",
+	Caliber = "JAZZ_Caliber_9x19",
+	Damage = 20,
+	ObjDamageMod = 20,
+	AimAccuracy = 12,
+	MagazineSize = 32,
+	WeaponRange = 21,
+	OverwatchAngle = 4320,
+	Noise = 30,
+	HandSlot = "TwoHanded",
+	Entity = "M45",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"MagNormal",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Stock",
+			'AvailableComponents', {
+				"StockLightUnFolded",
+				"StockLightFolded",
+			},
+			'DefaultComponent', "StockLightUnFolded",
+		}),
+	},
+	HolsterSlot = "Leg",
+	AvailableAttacks = {
+		"BurstFire",
+		"AutoFire",
+		"RunAndGun",
+		"CancelShot",
+	},
+	ShootAP = 4000,
+	ReloadAP = 4000,
+	Recoil = 4,
+	AutoShots = 6,
+	Handling = 86,
+	BulletDropRange = 12,
+	Grouping = 89,
+	BaseJamChance = -20,
+}
+

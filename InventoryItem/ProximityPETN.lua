@@ -1,0 +1,34 @@
+UndefineClass('ProximityPETN')
+DefineClass.ProximityPETN = {
+	__parents = { "ThrowableTrapItem" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "ThrowableTrapItem",
+	Repairable = false,
+	Reliability = 100,
+	Icon = "UI/Icons/Items/proximity_petn",
+	ItemType = "Grenade",
+	DisplayName = T(917845283476, --[[ModItemInventoryItemCompositeDef ProximityPETN DisplayName]] "Бесконтактная ТЭН"),
+	DisplayNamePlural = T(360505828879, --[[ModItemInventoryItemCompositeDef ProximityPETN DisplayNamePlural]] "Бесконтактная ТЭН"),
+	AdditionalHint = T(372377025892, --[[ModItemInventoryItemCompositeDef ProximityPETN AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается, когда враг подходит к заряду на близкое расстояние"),
+	UnitStat = "Explosives",
+	Cost = 800,
+	CanAppearInShop = true,
+	Tier = 3,
+	MaxStock = 1,
+	RestockWeight = 10,
+	CategoryPair = "Grenade",
+	MinMishapChance = -2,
+	MaxMishapChance = 18,
+	MaxMishapRange = 6,
+	AttackAP = 4000,
+	BaseRange = 3,
+	CanBounce = false,
+	Noise = 30,
+	Entity = "Explosive_PETN",
+	ActionIcon = "UI/Icons/Hud/throw_proximity_explosive",
+	TriggerType = "Proximity",
+	ExplosiveType = "PETN",
+}
+

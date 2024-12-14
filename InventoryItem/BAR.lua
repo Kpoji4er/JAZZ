@@ -1,0 +1,58 @@
+UndefineClass('BAR')
+DefineClass.BAR = {
+	__parents = { "MachineGun" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T1-",
+	object_class = "MachineGun",
+	ScrapParts = 12,
+	Reliability = 30,
+	Icon = "Mod/e6L4ECj/WeaponIcons/BAR.png",
+	DisplayName = T(265028974011, --[[ModItemInventoryItemCompositeDef BAR DisplayName]] "BAR"),
+	DisplayNamePlural = T(414328375447, --[[ModItemInventoryItemCompositeDef BAR DisplayNamePlural]] "BAR"),
+	Description = T(588154036612, --[[ModItemInventoryItemCompositeDef BAR Description]] 'Джон Мозес Браунинг конечно гений, и все такой, но вот с разработкой BAR он явно опоздал. Концепция "ружья-пулемета", как в автомате Федорова или пулемете Гочкисса к началу 30-х годов уже безнадежно устарела, и потому BAR выглядит как неуклюжий косплей ручного пулемета, будучи слишком тяжелым для автоматической винтовки. Говорят, с тех пор американцы делать пулеметы так и не научились.'),
+	AdditionalHint = T(657931851868, --[[ModItemInventoryItemCompositeDef BAR AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Легкий\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая эффективность стрельбы навскидку"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 3000,
+	CanAppearInShop = true,
+	Tier = 2,
+	MaxStock = 1,
+	RestockWeight = 40,
+	CategoryPair = "MachineGuns",
+	CanAppearStandard = false,
+	Caliber = "JAZZ_Caliber_3006",
+	Damage = 34,
+	ObjDamageMod = 80,
+	AimAccuracy = 16,
+	MagazineSize = 20,
+	WeaponRange = 52,
+	Noise = 80,
+	HandSlot = "TwoHanded",
+	Entity = "BAR",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Bipod",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"Bipod",
+			},
+			'DefaultComponent', "Bipod",
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	PreparedAttackType = "Machine Gun",
+	AvailableAttacks = {
+		"MGBurstFire",
+	},
+	ShootAP = 5000,
+	ReloadAP = 5000,
+	Recoil = 16,
+	BurstShots = 5,
+	AutoShots = 5,
+	Handling = 70,
+	BulletDropRange = 24,
+	Grouping = 275,
+}
+

@@ -1,0 +1,34 @@
+UndefineClass('TimedPETN')
+DefineClass.TimedPETN = {
+	__parents = { "ThrowableTrapItem" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "ThrowableTrapItem",
+	Repairable = false,
+	Reliability = 100,
+	Icon = "UI/Icons/Items/timed_petn",
+	ItemType = "Grenade",
+	DisplayName = T(599762689963, --[[ModItemInventoryItemCompositeDef TimedPETN DisplayName]] "ТЭН с таймером"),
+	DisplayNamePlural = T(396320092919, --[[ModItemInventoryItemCompositeDef TimedPETN DisplayNamePlural]] "ТЭН с таймером"),
+	AdditionalHint = T(365135300124, --[[ModItemInventoryItemCompositeDef TimedPETN AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается через 1 ход (или 5 секунд не в бою)"),
+	UnitStat = "Explosives",
+	Cost = 800,
+	CanAppearInShop = true,
+	Tier = 3,
+	MaxStock = 1,
+	RestockWeight = 10,
+	CategoryPair = "Grenade",
+	MinMishapChance = -2,
+	MaxMishapChance = 18,
+	MaxMishapRange = 6,
+	AttackAP = 4000,
+	BaseRange = 3,
+	CanBounce = false,
+	Noise = 30,
+	Entity = "Explosive_PETN",
+	ActionIcon = "UI/Icons/Hud/throw_timed_explosives",
+	TriggerType = "Timed",
+	ExplosiveType = "PETN",
+}
+

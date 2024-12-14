@@ -1,0 +1,56 @@
+UndefineClass('Mosin')
+DefineClass.Mosin = {
+	__parents = { "SniperRifle" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T1+",
+	object_class = "SniperRifle",
+	ScrapParts = 8,
+	Reliability = 95,
+	Icon = "Mod/e6L4ECj/WeaponIcons/Mosin.png",
+	DisplayName = T(415053102324, --[[ModItemInventoryItemCompositeDef Mosin DisplayName]] "Винтовка Мосина"),
+	DisplayNamePlural = T(826420490062, --[[ModItemInventoryItemCompositeDef Mosin DisplayNamePlural]] "Винтовки Мосина"),
+	Description = T(105734133486, --[[ModItemInventoryItemCompositeDef Mosin Description]] "Основная винтовка советского солдата РККА во время ВОВ. Максимально стрательно была приведена к вариации СН - снят штык, загнута вниз рукоять затвора, приварено посадочное место для прицела. Однако, отсутствие маркировки на стволе выдает самозванку."),
+	AdditionalHint = T(191648401008, --[[ModItemInventoryItemCompositeDef Mosin AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Продольно-скользящий затвор - высокие затраты ОД на выстрел\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая дальность, но низкая точность"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	CategoryPair = "Rifles",
+	CanAppearStandard = false,
+	Caliber = "JAZZ_Caliber_762x54R",
+	Damage = 40,
+	ObjDamageMod = 80,
+	AimAccuracy = 25,
+	CritChanceScaled = 40,
+	MagazineSize = 5,
+	WeaponRange = 70,
+	OverwatchAngle = 300,
+	Noise = 85,
+	HandSlot = "TwoHanded",
+	Entity = "Mosin",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Scope_PU",
+			},
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	ModifyRightHandGrip = true,
+	PreparedAttackType = "Both",
+	AvailableAttacks = {
+		"SingleShot",
+		"CancelShot",
+	},
+	ShootAP = 7000,
+	ReloadAP = 7000,
+	MaxAimActions = 4,
+	BurstShots = 1,
+	AutoShots = 1,
+	Handling = 28,
+	BulletDropRange = 25,
+	Grouping = 380,
+}
+

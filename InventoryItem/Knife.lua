@@ -1,0 +1,34 @@
+UndefineClass('Knife')
+DefineClass.Knife = {
+	__parents = { "StackableMeleeWeapon" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "StackableMeleeWeapon",
+	ScrapParts = 1,
+	Reliability = 50,
+	Icon = "UI/Icons/Weapons/Combat Knife Balanced",
+	DisplayName = T(513530474047, --[[ModItemInventoryItemCompositeDef Knife DisplayName]] "Боевой нож"),
+	DisplayNamePlural = T(892808638928, --[[ModItemInventoryItemCompositeDef Knife DisplayNamePlural]] "Боевые ножи"),
+	Description = T(529156987983, --[[ModItemInventoryItemCompositeDef Knife Description]] "Что может быть лучше ближнего боя?"),
+	AdditionalHint = T(867511028817, --[[ModItemInventoryItemCompositeDef Knife AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая цена атаки"),
+	UnitStat = "Dexterity",
+	Cost = 150,
+	CanAppearInShop = true,
+	MaxStock = 5,
+	RestockWeight = 200,
+	CategoryPair = "MeleeWeapons",
+	BaseChanceToHit = 100,
+	BaseDamage = 22,
+	AimAccuracy = 15,
+	PenetrationClass = 4,
+	DamageMultiplier = 90,
+	CanThrow = true,
+	AttackAP = 3000,
+	MaxAimActions = 1,
+	Noise = 1,
+	Entity = "Weapon_FC_AMZ_Knife_01",
+	HolsterSlot = "Leg",
+	CanAppearUsed = false,
+}
+

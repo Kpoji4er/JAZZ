@@ -1,0 +1,58 @@
+UndefineClass('TexRevolver')
+DefineClass.TexRevolver = {
+	__parents = { "Revolver" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "Revolver",
+	ScrapParts = 8,
+	RepairCost = 50,
+	Reliability = 95,
+	Icon = "Mod/e6L4ECj/WeaponIcons/Tex.png",
+	DisplayName = T(578697354182, --[[ModItemInventoryItemCompositeDef TexRevolver DisplayName]] "Именной револьвер"),
+	DisplayNamePlural = T(139286543074, --[[ModItemInventoryItemCompositeDef TexRevolver DisplayNamePlural]] "Именные револьверы"),
+	Description = T(231593273381, --[[ModItemInventoryItemCompositeDef TexRevolver Description]] "Изготовленный на заказ револьвер с удлинённым стволом, рукояткой из слоновой кости и гравировкой золотыми буквами: «ТЕКС»."),
+	AdditionalHint = T(916092268607, --[[ModItemInventoryItemCompositeDef TexRevolver AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокий шанс критического попадания"),
+	UnitStat = "Marksmanship",
+	Cost = 2000,
+	locked = true,
+	CategoryPair = "Handguns",
+	Caliber = "JAZZ_Caliber_44CAL",
+	Damage = 35,
+	ObjDamageMod = 40,
+	AimAccuracy = 10,
+	CritChance = 10,
+	CritChanceScaled = 60,
+	MagazineSize = 6,
+	WeaponRange = 15,
+	PointBlankBonus = 1,
+	OverwatchAngle = 5400,
+	Noise = 40,
+	Entity = "Tex_Rev",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Freeswap",
+			'AvailableComponents', {
+				"Freeswap",
+			},
+			'DefaultComponent', "Freeswap",
+		}),
+	},
+	HolsterSlot = "Leg",
+	AvailableAttacks = {
+		"SingleShot",
+		"DualShot",
+		"CancelShot",
+		"MobileShot",
+	},
+	ShootAP = 4000,
+	ReloadAP = 5000,
+	MaxAimActions = 2,
+	Recoil = 1,
+	AutoShots = 3,
+	Handling = 100,
+	BulletDropRange = 7,
+	Grouping = 90,
+	BaseJamChance = -100,
+}
+

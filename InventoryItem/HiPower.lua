@@ -1,0 +1,88 @@
+UndefineClass('HiPower')
+DefineClass.HiPower = {
+	__parents = { "Pistol" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T1",
+	object_class = "Pistol",
+	ScrapParts = 6,
+	RepairCost = 70,
+	Reliability = 60,
+	Icon = "Mod/e6L4ECj/WeaponIcons/Hipower.png",
+	DisplayName = T(348898367603, --[[ModItemInventoryItemCompositeDef HiPower DisplayName]] "Hi-Power"),
+	DisplayNamePlural = T(765614045230, --[[ModItemInventoryItemCompositeDef HiPower DisplayNamePlural]] "Hi-Power"),
+	Description = T(644234035738, --[[ModItemInventoryItemCompositeDef HiPower Description]] "Если 1911 - это прадедушка всех пистолетов в мире, то Хай-Пауэр - это их двоюродный дедушка. Считается одним из самых безопасных пистолетов в мире из-за  наличия одинарного УСМ, которое исключает выстрел без предварительного взвода курка."),
+	AdditionalHint = T(361743792592, --[[ModItemInventoryItemCompositeDef HiPower AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный "),
+	UnitStat = "Marksmanship",
+	Cost = 500,
+	CanAppearInShop = true,
+	CategoryPair = "Handguns",
+	CanAppearStandard = false,
+	Caliber = "JAZZ_Caliber_9x19",
+	Damage = 22,
+	ObjDamageMod = 20,
+	AimAccuracy = 5,
+	CritChance = 5,
+	CritChanceScaled = 20,
+	MagazineSize = 13,
+	WeaponRange = 14,
+	OverwatchAngle = 5400,
+	Noise = 30,
+	Entity = "Weapon_Browning_HP",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"ImprovisedSuppressor",
+				"Compensator",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagNormalFine",
+				"MagNormal",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Barrel",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"BarrelNormal",
+				"BarrelNormalImproved",
+				"BarrelShort",
+				"BarrelShortImproved",
+				"BarrelLong",
+				"BarrelLongImproved",
+			},
+			'DefaultComponent', "BarrelNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Freeswap",
+			'AvailableComponents', {
+				"Freeswap",
+			},
+			'DefaultComponent', "Freeswap",
+		}),
+	},
+	HolsterSlot = "Leg",
+	AvailableAttacks = {
+		"SingleShot",
+		"DualShot",
+		"CancelShot",
+		"MobileShot",
+	},
+	ShootAP = 3000,
+	ReloadAP = 3000,
+	MaxAimActions = 2,
+	Recoil = 1,
+	AutoShots = 3,
+	Handling = 89,
+	BulletDropRange = 6,
+	Grouping = 87,
+	BaseJamChance = -10,
+}
+

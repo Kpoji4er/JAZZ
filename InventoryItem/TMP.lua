@@ -1,0 +1,76 @@
+UndefineClass('TMP')
+DefineClass.TMP = {
+	__parents = { "SubmachineGun" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "SubmachineGun",
+	ScrapParts = 8,
+	Reliability = 85,
+	Icon = "Mod/e6L4ECj/WeaponIcons/TMP.png",
+	ItemType = "SMG",
+	DisplayName = T(408152361455, --[[ModItemInventoryItemCompositeDef TMP DisplayName]] "TMP"),
+	DisplayNamePlural = T(432962097320, --[[ModItemInventoryItemCompositeDef TMP DisplayNamePlural]] "TMP"),
+	Description = T(484204389251, --[[ModItemInventoryItemCompositeDef TMP Description]] 'Современный "маленький да удаленький" ПП австрийского производства. Изготовлен из высокопрочных полимеров, и является очень удобным оружием, хорошо контролируемым при автоматической стрельбе.'),
+	AdditionalHint = T(887308010165, --[[ModItemInventoryItemCompositeDef TMP AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноручное\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая эффективность на ближних дистанциях\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая скорострельность"),
+	UnitStat = "Marksmanship",
+	Cost = 28000,
+	CanAppearInShop = true,
+	Tier = 2,
+	RestockWeight = 40,
+	CategoryPair = "SubmachineGuns",
+	Caliber = "JAZZ_Caliber_9x19",
+	Damage = 20,
+	ObjDamageMod = 20,
+	AimAccuracy = 7,
+	MagazineSize = 30,
+	WeaponRange = 16,
+	OverwatchAngle = 4920,
+	Noise = 10,
+	HandSlot = "TwoHanded",
+	Entity = "TMP",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagSmall30_15",
+				"MagNormal",
+			},
+			'DefaultComponent', "MagSmall30_15",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "General",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"HolsterBelt",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"PistolSuppressor",
+			},
+		}),
+	},
+	HolsterSlot = "Leg",
+	AvailableAttacks = {
+		"BurstFire",
+		"AutoFire",
+		"SingleShot",
+		"RunAndGun",
+		"CancelShot",
+		"DualShot",
+	},
+	ShootAP = 3000,
+	ReloadAP = 3000,
+	MaxAimActions = 2,
+	Recoil = 6,
+	BurstShots = 5,
+	AutoShots = 9,
+	Handling = 90,
+	BulletDropRange = 7,
+	Grouping = 88,
+	BaseJamChance = -30,
+}
+

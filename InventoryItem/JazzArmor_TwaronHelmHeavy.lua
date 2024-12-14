@@ -1,0 +1,33 @@
+UndefineClass('JazzArmor_TwaronHelmHeavy')
+DefineClass.JazzArmor_TwaronHelmHeavy = {
+	__parents = { "Armor" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Class2 H",
+	object_class = "Armor",
+	ScrapParts = 6,
+	Degradation = 30,
+	Icon = "Mod/e6L4ECj/ArmorIcons/TwaronHelmH.png",
+	DisplayName = T(964124006795, --[[ModItemInventoryItemCompositeDef JazzArmor_TwaronHelmHeavy DisplayName]] "Шлем Тварон, Тяжелый"),
+	DisplayNamePlural = T(696326635294, --[[ModItemInventoryItemCompositeDef JazzArmor_TwaronHelmHeavy DisplayNamePlural]] "Шлемы Тварон, Тяжелый"),
+	Description = T(889128024610, --[[ModItemInventoryItemCompositeDef JazzArmor_TwaronHelmHeavy Description]] "Твароновый шлем с бронещитком, защищающим лицо и глаза бойца. Предлагает отличную защиту при приемлемом весе."),
+	AdditionalHint = T(377018690641, --[[ModItemInventoryItemCompositeDef JazzArmor_TwaronHelmHeavy AdditionalHint]] "Модульный шлем, тяжелый вариант"),
+	Valuable = 1,
+	Cost = 3000,
+	CanAppearInShop = true,
+	Tier = 2,
+	RestockWeight = 1,
+	CategoryPair = "Heavy",
+	Slot = "Head",
+	PenetrationClass = 2,
+	DamageReduction = 20,
+	AdditionalReduction = 60,
+	ProtectedBodyParts = set( "Head", "Neck" ),
+	ArmorRating = 32,
+	MeleeArmorRating = 10,
+	BlockFaceSlot = true,
+	Weight = 4,
+	Vision = -5,
+}
+

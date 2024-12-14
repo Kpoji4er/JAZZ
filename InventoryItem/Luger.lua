@@ -1,0 +1,66 @@
+UndefineClass('Luger')
+DefineClass.Luger = {
+	__parents = { "Pistol" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T1 9mm",
+	object_class = "Pistol",
+	ScrapParts = 6,
+	RepairCost = 70,
+	Reliability = 15,
+	Icon = "Mod/e6L4ECj/WeaponIcons/Luger.png",
+	DisplayName = T(446454386055, --[[ModItemInventoryItemCompositeDef Luger DisplayName]] "Люгер"),
+	DisplayNamePlural = T(354444193888, --[[ModItemInventoryItemCompositeDef Luger DisplayNamePlural]] "Люгер"),
+	Description = T(849584895715, --[[ModItemInventoryItemCompositeDef Luger Description]] '"Пионер" от мира  полуавтоматических пистолетов, кроме собственно распространения полуавтоматических пистолетов, послуживший принятию на вооружение патрона 9мм Люгер/Парабеллум. Para bellum! Всегда Para bellum!\n'),
+	AdditionalHint = T(405838814570, --[[ModItemInventoryItemCompositeDef Luger AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ржавый"),
+	UnitStat = "Marksmanship",
+	Cost = 500,
+	CategoryPair = "Handguns",
+	CanAppearStandard = false,
+	Caliber = "JAZZ_Caliber_9x19",
+	Damage = 20,
+	ObjDamageMod = 20,
+	AimAccuracy = 6,
+	CritChance = 5,
+	CritChanceScaled = 20,
+	MagazineSize = 8,
+	WeaponRange = 14,
+	OverwatchAngle = 5400,
+	Noise = 30,
+	Entity = "Luger",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"MagNormal",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Freeswap",
+			'AvailableComponents', {
+				"Freeswap",
+			},
+			'DefaultComponent', "Freeswap",
+		}),
+	},
+	HolsterSlot = "Leg",
+	AvailableAttacks = {
+		"SingleShot",
+		"DualShot",
+		"CancelShot",
+		"MobileShot",
+	},
+	ShootAP = 3000,
+	ReloadAP = 3000,
+	MaxAimActions = 2,
+	Recoil = 1,
+	AutoShots = 3,
+	Handling = 93,
+	BulletDropRange = 6,
+	Grouping = 95,
+	BaseJamChance = 10,
+}
+

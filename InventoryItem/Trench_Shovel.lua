@@ -1,0 +1,36 @@
+UndefineClass('Trench_Shovel')
+DefineClass.Trench_Shovel = {
+	__parents = { "MeleeWeapon" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "MeleeWeapon",
+	ScrapParts = 2,
+	Reliability = 50,
+	Icon = "Mod/e6L4ECj/WeaponIcons/TrenchShovel.png",
+	DisplayName = T(434069324472, --[[ModItemInventoryItemCompositeDef Trench_Shovel DisplayName]] "Саперная лопата"),
+	DisplayNamePlural = T(433782108861, --[[ModItemInventoryItemCompositeDef Trench_Shovel DisplayNamePlural]] "Саперная лопата"),
+	Description = T(512339624175, --[[ModItemInventoryItemCompositeDef Trench_Shovel Description]] "Мультитул советского солдата. Эффективен как в проведении инженерных работ, так и в качестве холодного оружия."),
+	AdditionalHint = T(746132783887, --[[ModItemInventoryItemCompositeDef Trench_Shovel AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенный доп. урон от силы"),
+	UnitStat = "Dexterity",
+	Cost = 250,
+	CanAppearInShop = true,
+	Tier = 2,
+	CategoryPair = "MeleeWeapons",
+	BaseChanceToHit = 100,
+	CritChanceScaled = 30,
+	BaseDamage = 25,
+	AimAccuracy = 15,
+	PenetrationClass = 4,
+	DamageMultiplier = 150,
+	WeaponRange = 6,
+	Charge = true,
+	AttackAP = 4000,
+	MaxAimActions = 1,
+	Noise = 1,
+	NeckAttackType = "lethal",
+	Entity = "Trench_Shovel1",
+	HolsterSlot = "Shoulder",
+	CanAppearUsed = false,
+}
+

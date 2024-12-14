@@ -1,0 +1,78 @@
+UndefineClass('MAC10')
+DefineClass.MAC10 = {
+	__parents = { "SubmachineGun" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "45ACP T1+",
+	object_class = "SubmachineGun",
+	ScrapParts = 6,
+	Reliability = 70,
+	Icon = "Mod/e6L4ECj/WeaponIcons/MAC10.png",
+	DisplayName = T(612255777676, --[[ModItemInventoryItemCompositeDef MAC10 DisplayName]] "MAC-10"),
+	DisplayNamePlural = T(799100522418, --[[ModItemInventoryItemCompositeDef MAC10 DisplayNamePlural]] "MAC-10"),
+	Description = T(500943915358, --[[ModItemInventoryItemCompositeDef MAC10 Description]] "Компактный скорострельный американский автомат, сделанный под влиянием УЗИ. Его качества делают его максимально удобным для действий в замкнутых пространствах, заполненных людьми. Например, при захвате заложников в самолете. В смысле, освобождении захваченного самолета."),
+	AdditionalHint = T(104635909892, --[[ModItemInventoryItemCompositeDef MAC10 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокий урон\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноручное\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая скорострельность"),
+	UnitStat = "Marksmanship",
+	Cost = 3000,
+	CanAppearInShop = true,
+	MaxStock = 5,
+	RestockWeight = 150,
+	CategoryPair = "SubmachineGuns",
+	Caliber = "JAZZ_Caliber_45ACP",
+	Damage = 25,
+	ObjDamageMod = 25,
+	AimAccuracy = 6,
+	CritChance = 5,
+	CritChanceScaled = 30,
+	MagazineSize = 30,
+	WeaponRange = 13,
+	OverwatchAngle = 4680,
+	Noise = 40,
+	Entity = "MAC10",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"MagNormal",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"PistolSuppressor",
+				"Compensator",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Stock",
+			'AvailableComponents', {
+				"StockLightUnFolded",
+				"StockLightFolded",
+			},
+			'DefaultComponent', "StockLightFolded",
+		}),
+	},
+	HolsterSlot = "Leg",
+	AvailableAttacks = {
+		"BurstFire",
+		"AutoFire",
+		"SingleShot",
+		"DualShot",
+		"RunAndGun",
+		"CancelShot",
+	},
+	ShootAP = 4000,
+	ReloadAP = 4000,
+	MaxAimActions = 2,
+	Recoil = 9,
+	BurstShots = 5,
+	Handling = 85,
+	BulletDropRange = 5,
+	Grouping = 70,
+	BaseJamChance = -20,
+}
+

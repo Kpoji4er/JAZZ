@@ -1,0 +1,5 @@
+--config.InfiniteLoopMaxCounter = 1000000
+--config.InfiniteLoopMinInstructions = 30000000000
+--config.InfiniteLoopMinLines = 30000000000
+--config.InfiniteLoopThreadChanges = 3000000
+--config.InfiniteLoopThreadSleeps = 3000000

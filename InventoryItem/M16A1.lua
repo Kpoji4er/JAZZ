@@ -1,0 +1,98 @@
+UndefineClass('M16A1')
+DefineClass.M16A1 = {
+	__parents = { "AssaultRifle" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T1",
+	object_class = "AssaultRifle",
+	ScrapParts = 10,
+	Icon = "Mod/e6L4ECj/WeaponIcons/M16A1.png",
+	DisplayName = T(775007485793, --[[ModItemInventoryItemCompositeDef M16A1 DisplayName]] "M16A1"),
+	DisplayNamePlural = T(720763685329, --[[ModItemInventoryItemCompositeDef M16A1 DisplayNamePlural]] "M16A1"),
+	Description = T(291276979254, --[[ModItemInventoryItemCompositeDef M16A1 Description]] "Ранний вариант винтовки М16 (AR15), принятый на вооружение US Army в далеком 1967 году. Из-за стремления этой самой US Army сэкономить, винтовка получила кучу проблем с надежностью, отмыть от которых репутацию она не может до сих пор."),
+	AdditionalHint = T(242556118888, --[[ModItemInventoryItemCompositeDef M16A1 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая точность и низкая отдача"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 3500,
+	CanAppearInShop = true,
+	Tier = 2,
+	CategoryPair = "AssaultRifles",
+	Caliber = "JAZZ_Caliber_556",
+	Damage = 20,
+	ObjDamageMod = 50,
+	AimAccuracy = 20,
+	CritChance = 5,
+	CritChanceScaled = 20,
+	MagazineSize = 30,
+	WeaponRange = 46,
+	OverwatchAngle = 1560,
+	Noise = 50,
+	HandSlot = "TwoHanded",
+	Entity = "M16A1",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Side",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"LaserDot",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Handguard",
+			'AvailableComponents', {
+				"Handguard",
+				"M16A1LaunchHandGuard",
+			},
+			'DefaultComponent', "Handguard",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagNormal",
+				"MagSmall30_20",
+			},
+			'DefaultComponent', "MagSmall30_20",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "General",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"HolsterBelt",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Reflex_Aimpoint5000",
+				"JAZZ_Reflex_Closed",
+				"JAZZ_Reflex_Eotech",
+				"JAZZ_Reflex_M68",
+				"JAZZ_CombatScope_2x",
+				"JAZZ_CombatScope_3x",
+				"JAZZ_CombatScope_ACOG",
+				"JAZZ_NightScope",
+				"JAZZ_Scope_6x",
+				"JAZZ_Scope_12x",
+				"JAZZ_Scope_Scout",
+			},
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	AvailableAttacks = {
+		"BurstFire",
+		"SingleShot",
+		"AutoFire",
+	},
+	ShootAP = 5000,
+	ReloadAP = 5000,
+	Recoil = 11,
+	BurstShots = 4,
+	AutoShots = 8,
+	Handling = 72,
+	BulletDropRange = 16,
+	Grouping = 280,
+	BaseJamChance = 5,
+}
+

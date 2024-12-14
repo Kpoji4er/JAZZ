@@ -1,0 +1,33 @@
+UndefineClass('JazzArmor_UHMWPELegs')
+DefineClass.JazzArmor_UHMWPELegs = {
+	__parents = { "Armor" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Class3 M",
+	object_class = "Armor",
+	ScrapParts = 6,
+	Degradation = 60,
+	Icon = "Mod/e6L4ECj/ArmorIcons/UHMWPELegs.png",
+	DisplayName = T(635127575401, --[[ModItemInventoryItemCompositeDef JazzArmor_UHMWPELegs DisplayName]] "Штаны СВМПЭ"),
+	DisplayNamePlural = T(560866529525, --[[ModItemInventoryItemCompositeDef JazzArmor_UHMWPELegs DisplayNamePlural]] "Штаны СВМПЭ"),
+	Description = T(310424595544, --[[ModItemInventoryItemCompositeDef JazzArmor_UHMWPELegs Description]] "Современные коммерческие  поножи с защитой паха из сверхплотного высокомолекулярного полиэтилена (СВМПЭ). Дорогие и серьезные бронештаны для Ночных Операций."),
+	AdditionalHint = T(600243739593, --[[ModItemInventoryItemCompositeDef JazzArmor_UHMWPELegs AdditionalHint]] "Штаны из сверхплотного высокомолекулярного полиэтилена"),
+	Valuable = 1,
+	Cost = 40000,
+	CanAppearInShop = true,
+	Tier = 3,
+	RestockWeight = 3,
+	CategoryPair = "Medium",
+	Slot = "Legs",
+	PenetrationClass = 3,
+	DamageReduction = 20,
+	AdditionalReduction = 60,
+	ProtectedBodyParts = set( "Groin", "Legs" ),
+	Coverage = 90,
+	ArmorRating = 20,
+	MeleeArmorRating = 30,
+	ExplosiveArmorRating = 40,
+	Weight = 3,
+}
+

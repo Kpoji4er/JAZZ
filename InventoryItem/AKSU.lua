@@ -1,0 +1,98 @@
+UndefineClass('AKSU')
+DefineClass.AKSU = {
+	__parents = { "SubmachineGun" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T2+",
+	object_class = "SubmachineGun",
+	ScrapParts = 10,
+	RepairCost = 50,
+	Reliability = 80,
+	Icon = "Mod/e6L4ECj/WeaponIcons/AKSU.png",
+	DisplayName = T(577304701436, --[[ModItemInventoryItemCompositeDef AKSU DisplayName]] "АКС-74У"),
+	DisplayNamePlural = T(414808149310, --[[ModItemInventoryItemCompositeDef AKSU DisplayNamePlural]] "АКС-74У"),
+	Description = T(215661822488, --[[ModItemInventoryItemCompositeDef AKSU Description]] "Укороченная версия AK-74, предназначенная для бойцов спецназа и экипажей техники. Для нее пришлось разработать новый газовый двигатель и дульное устройство-дожигатель. Американцы называют эту модель «Krinkov», но у русских в ходу более звучные названия - «Ксюха», а иногда и «Сучка». И да, для АКСУ существует набедренная кобура."),
+	AdditionalHint = T(925607521276, --[[ModItemInventoryItemCompositeDef AKSU AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Можно использовать для стрельбы на бегу\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая отдача\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая точность при стрельбе навскидку\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокий шанс критического попадания"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Valuable = 1,
+	Cost = 28000,
+	CanAppearInShop = true,
+	RestockWeight = 40,
+	CategoryPair = "SubmachineGuns",
+	Caliber = "JAZZ_Caliber_545",
+	Damage = 24,
+	ObjDamageMod = 45,
+	AimAccuracy = 16,
+	CritChance = 10,
+	CritChanceScaled = 20,
+	MagazineSize = 30,
+	WeaponRange = 38,
+	OverwatchAngle = 2700,
+	Noise = 55,
+	HandSlot = "TwoHanded",
+	Entity = "Weapon_AKS74U",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Barrel",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"BarrelNormal",
+			},
+			'DefaultComponent', "BarrelNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Handguard",
+			'AvailableComponents', {
+				"AKSU_Hanguard_Basic",
+				"AKSU_VerticalGrip",
+			},
+			'DefaultComponent', "AKSU_Hanguard_Basic",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagNormal",
+				"MagLarge_30_45",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Side",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Flashlight",
+				"LaserDot",
+				"FlashlightDot",
+				"UVDot",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Compensator",
+				"ImprovisedSuppressor",
+			},
+			'DefaultComponent', "Compensator",
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	AvailableAttacks = {
+		"BurstFire",
+		"AutoFire",
+		"SingleShot",
+		"RunAndGun",
+		"CancelShot",
+	},
+	ShootAP = 4000,
+	ReloadAP = 5000,
+	Recoil = 12,
+	AutoShots = 6,
+	Handling = 78,
+	BulletDropRange = 14,
+	Grouping = 200,
+	BaseJamChance = -50,
+}
+

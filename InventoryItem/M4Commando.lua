@@ -1,0 +1,107 @@
+UndefineClass('M4Commando')
+DefineClass.M4Commando = {
+	__parents = { "SubmachineGun" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Убираем",
+	object_class = "SubmachineGun",
+	ScrapParts = 10,
+	Reliability = 80,
+	Icon = "UI/Icons/Weapons/Commando",
+	DisplayName = T(426920004036, --[[ModItemInventoryItemCompositeDef M4Commando DisplayName]] "ОТКЛЮЧЕНО"),
+	DisplayNamePlural = T(903389608798, --[[ModItemInventoryItemCompositeDef M4Commando DisplayNamePlural]] "ОТКЛЮЧЕНО"),
+	Description = T(323992115622, --[[ModItemInventoryItemCompositeDef M4Commando Description]] "Вопрос: как можно сделать короткоствольную М16 оружием, а не карикатурой? Ответ: снизить дульную скорость пули и раздуть до неприличия дульное пламя."),
+	AdditionalHint = T(682701716433, --[[ModItemInventoryItemCompositeDef M4Commando AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокий шанс критического попадания\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенная эффективность прицеливания"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Valuable = 1,
+	Cost = 8700,
+	Tier = 3,
+	RestockWeight = 40,
+	CategoryPair = "SubmachineGuns",
+	Caliber = "556",
+	AimAccuracy = 4,
+	CritChanceScaled = 30,
+	MagazineSize = 30,
+	WeaponRange = 27,
+	PointBlankBonus = 1,
+	OverwatchAngle = 1440,
+	Noise = 15,
+	HandSlot = "TwoHanded",
+	Entity = "Weapon_CAR15",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Under",
+			'AvailableComponents', {
+				"Handguard_Commando",
+				"VerticalGrip_Commando",
+				"GrenadeLauncher_Commando",
+			},
+			'DefaultComponent', "Handguard_Commando",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagNormal",
+				"MagNormalFine",
+				"MagLarge",
+				"MagLargeFine",
+				"MagQuick",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Stock",
+			'AvailableComponents', {
+				"StockNormal",
+				"StockLight",
+			},
+			'DefaultComponent', "StockNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Side",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Flashlight",
+				"LaserDot",
+				"FlashlightDot",
+				"UVDot",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"LROptics",
+				"ReflexSight",
+				"ScopeCOG",
+				"ThermalScope",
+				"ReflexSightAdvanced",
+				"ScopeCOGQuick",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Compensator",
+				"MuzzleBooster",
+				"Suppressor",
+				"ImprovisedSuppressor",
+			},
+			'DefaultComponent', "Compensator",
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	AvailableAttacks = {
+		"BurstFire",
+		"AutoFire",
+		"SingleShot",
+		"RunAndGun",
+		"CancelShot",
+	},
+	ShootAP = 5000,
+	ReloadAP = 3000,
+}
+

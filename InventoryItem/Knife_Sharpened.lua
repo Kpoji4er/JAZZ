@@ -1,0 +1,36 @@
+UndefineClass('Knife_Sharpened')
+DefineClass.Knife_Sharpened = {
+	__parents = { "StackableMeleeWeapon" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "StackableMeleeWeapon",
+	ScrapParts = 1,
+	Reliability = 50,
+	Icon = "UI/Icons/Weapons/Combat Knife Balanced",
+	SubIcon = "UI/Icons/Weapons/sharpened",
+	DisplayName = T(515703351409, --[[ModItemInventoryItemCompositeDef Knife_Sharpened DisplayName]] "Заточенный нож"),
+	DisplayNamePlural = T(589780714318, --[[ModItemInventoryItemCompositeDef Knife_Sharpened DisplayNamePlural]] "Заточенные ножи"),
+	Description = T(995060755349, --[[ModItemInventoryItemCompositeDef Knife_Sharpened Description]] "Что может быть лучше ближнего боя?"),
+	AdditionalHint = T(481262160237, --[[ModItemInventoryItemCompositeDef Knife_Sharpened AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Заточенное: высокий урон\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая цена атаки"),
+	UnitStat = "Dexterity",
+	Cost = 1200,
+	CanAppearInShop = true,
+	Tier = 2,
+	MaxStock = 1,
+	RestockWeight = 15,
+	BaseChanceToHit = 100,
+	CritChance = 5,
+	BaseDamage = 24,
+	AimAccuracy = 15,
+	PenetrationClass = 4,
+	DamageMultiplier = 90,
+	CanThrow = true,
+	AttackAP = 3000,
+	MaxAimActions = 1,
+	Noise = 1,
+	Entity = "Weapon_FC_AMZ_Knife_01",
+	HolsterSlot = "Leg",
+	CanAppearUsed = false,
+}
+

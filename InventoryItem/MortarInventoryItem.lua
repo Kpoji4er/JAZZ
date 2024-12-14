@@ -1,0 +1,38 @@
+UndefineClass('MortarInventoryItem')
+DefineClass.MortarInventoryItem = {
+	__parents = { "Mortar" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "Mortar",
+	ScrapParts = 16,
+	Reliability = 50,
+	Caliber = "JAZZ_Caliber_MortarShell",
+	Entity = "Weapon_M224",
+	Icon = "UI/Icons/Weapons/M224",
+	DisplayName = T(479364677300, --[[ModItemInventoryItemCompositeDef MortarInventoryItem DisplayName]] "Миномет"),
+	DisplayNamePlural = T(420609454415, --[[ModItemInventoryItemCompositeDef MortarInventoryItem DisplayNamePlural]] "Минометы"),
+	Description = T(812627409916, --[[ModItemInventoryItemCompositeDef MortarInventoryItem Description]] "60 мм ротный пехотный миномет производства США. Хорошо, когда он на твоей стороне. И плохо, когда не на твоей."),
+	AdditionalHint = T(532362056983, --[[ModItemInventoryItemCompositeDef MortarInventoryItem AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> После небольшой задержки обстреливает указанную область вдалеке\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения)"),
+	LargeItem = 1,
+	Cumbersome = 1,
+	UnitStat = "Explosives",
+	Valuable = 1,
+	Cost = 120000,
+	CanAppearInShop = true,
+	Tier = 2,
+	MaxStock = 1,
+	RestockWeight = 40,
+	CategoryPair = "HeavyWeapons",
+	ObjDamageMod = 50,
+	CritChanceScaled = 0,
+	PenetrationClass = 2,
+	WeaponRange = 70,
+	Noise = 50,
+	HandSlot = "TwoHanded",
+	HolsterSlot = "Shoulder",
+	PreparedAttackType = "None",
+	ShootAP = 6000,
+	Handling = 60,
+}
+

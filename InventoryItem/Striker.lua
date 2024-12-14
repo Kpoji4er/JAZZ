@@ -1,0 +1,57 @@
+UndefineClass('Striker')
+DefineClass.Striker = {
+	__parents = { "Shotgun" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T2+",
+	object_class = "Shotgun",
+	ScrapParts = 10,
+	RepairCost = 50,
+	Reliability = 45,
+	Icon = "Mod/e6L4ECj/WeaponIcons/Striker.png",
+	DisplayName = T(870530490577, --[[ModItemInventoryItemCompositeDef Striker DisplayName]] "Страйкер"),
+	DisplayNamePlural = T(211226270708, --[[ModItemInventoryItemCompositeDef Striker DisplayNamePlural]] "Страйкеры"),
+	Description = T(873779807013, --[[ModItemInventoryItemCompositeDef Striker Description]] 'Большой 12-ти зарядный гладкоствольный револьвер 12 калибра. "Барабан" неотъемный, заряжается и разряжается по одному патрону серез специальное окно, взводится вручную отдельной боевой пружиной. Получилась огромная устрашающего вида гаргалыга, весьма популярная у полицейских формирований в Африке. '),
+	AdditionalHint = T(957689538876, --[[ModItemInventoryItemCompositeDef Striker AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьверный - высокие од на перезарядку\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокий бонус навскидку"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 12000,
+	CanAppearInShop = true,
+	CategoryPair = "Shotguns",
+	Caliber = "JAZZ_Caliber_12gauge",
+	Damage = 4,
+	ObjDamageMod = 50,
+	AimAccuracy = 7,
+	MagazineSize = 12,
+	PointBlankBonus = 1,
+	OverwatchAngle = 2160,
+	BuckshotConeAngle = 300,
+	BuckshotFalloffDamage = 10,
+	HandSlot = "TwoHanded",
+	Entity = "Striker",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Stock",
+			'AvailableComponents', {
+				"StockLightUnFolded",
+				"StockLightFolded",
+			},
+			'DefaultComponent', "StockLightUnFolded",
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	AvailableAttacks = {
+		"Buckshot",
+		"CancelShot",
+	},
+	ShootAP = 5000,
+	ReloadAP = 3000,
+	BurstShots = 1,
+	AutoShots = 1,
+	Handling = 80,
+	BulletDropRange = 7,
+	Grouping = 130,
+	BaseJamChance = -20,
+}
+

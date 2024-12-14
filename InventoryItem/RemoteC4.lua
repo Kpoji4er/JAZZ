@@ -1,0 +1,35 @@
+UndefineClass('RemoteC4')
+DefineClass.RemoteC4 = {
+	__parents = { "ThrowableTrapItem" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "ThrowableTrapItem",
+	Repairable = false,
+	Reliability = 100,
+	Icon = "UI/Icons/Items/remote_c4",
+	ItemType = "Grenade",
+	DisplayName = T(973362572578, --[[ModItemInventoryItemCompositeDef RemoteC4 DisplayName]] "Дистанционная С4"),
+	DisplayNamePlural = T(272349746839, --[[ModItemInventoryItemCompositeDef RemoteC4 DisplayNamePlural]] "Дистанционная С4"),
+	AdditionalHint = T(470045243392, --[[ModItemInventoryItemCompositeDef RemoteC4 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Заряд подрывается с помощью пульта ДУ"),
+	UnitStat = "Explosives",
+	Cost = 800,
+	CanAppearInShop = true,
+	Tier = 2,
+	MaxStock = 1,
+	RestockWeight = 10,
+	CategoryPair = "Grenade",
+	MinMishapChance = -2,
+	MaxMishapChance = 18,
+	MaxMishapRange = 6,
+	AttackAP = 4000,
+	BaseRange = 3,
+	CanBounce = false,
+	IgnoreCoverReduction = 1,
+	Noise = 30,
+	Entity = "Explosive_C4",
+	ActionIcon = "UI/Icons/Hud/throw_remote_explosive",
+	TriggerType = "Remote",
+	ExplosiveType = "C4",
+}
+

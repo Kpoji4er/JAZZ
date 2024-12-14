@@ -1,0 +1,87 @@
+UndefineClass('MP5SD')
+DefineClass.MP5SD = {
+	__parents = { "SubmachineGun" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "9mm T2+",
+	object_class = "SubmachineGun",
+	ScrapParts = 8,
+	Reliability = 85,
+	Icon = "Mod/e6L4ECj/WeaponIcons/MP5SD.png",
+	DisplayName = T(617738837415, --[[ModItemInventoryItemCompositeDef MP5SD DisplayName]] "MP5SD"),
+	DisplayNamePlural = T(440607563310, --[[ModItemInventoryItemCompositeDef MP5SD DisplayNamePlural]] "MP5SD"),
+	Description = T(636898111204, --[[ModItemInventoryItemCompositeDef MP5SD Description]] "Автомат MP5SD5 изготовлен на основе MP5A4. В конструкцию внесен неотьемный разборный глушитель, позволяющий вести полностью автоматический огонь обычным 9мм боеприпасом. Мечта каждого уважающего себя стелс-пихотинца."),
+	AdditionalHint = T(327400248650, --[[ModItemInventoryItemCompositeDef MP5SD AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая точность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бесшумное"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 25000,
+	CanAppearInShop = true,
+	Tier = 3,
+	RestockWeight = 60,
+	CategoryPair = "SubmachineGuns",
+	Caliber = "JAZZ_Caliber_9x19",
+	Damage = 21,
+	ObjDamageMod = 20,
+	AimAccuracy = 13,
+	MagazineSize = 30,
+	WeaponRange = 19,
+	OverwatchAngle = 4320,
+	Noise = 3,
+	HandSlot = "TwoHanded",
+	Entity = "MP5SD",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagNormal",
+				"MagSmall30_15",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"ReflexSight",
+				"ReflexSightAdvanced",
+				"ScopeCOG",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Stock",
+			'AvailableComponents', {
+				"StockNormal",
+				"StockLightFolded",
+				"StockLightUnFolded",
+			},
+			'DefaultComponent', "StockNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"SuppressorIntegrated",
+			},
+			'DefaultComponent', "SuppressorIntegrated",
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	AvailableAttacks = {
+		"BurstFire",
+		"AutoFire",
+		"SingleShot",
+		"RunAndGun",
+		"CancelShot",
+	},
+	ShootAP = 4000,
+	ReloadAP = 4000,
+	Recoil = 3,
+	AutoShots = 8,
+	Handling = 92,
+	BulletDropRange = 11,
+	Grouping = 85,
+	BaseJamChance = -30,
+	CanAppearUsed = false,
+}
+

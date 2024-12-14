@@ -1,0 +1,36 @@
+UndefineClass('Machete')
+DefineClass.Machete = {
+	__parents = { "MacheteWeapon" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "MacheteWeapon",
+	ScrapParts = 2,
+	Reliability = 50,
+	Icon = "UI/Icons/Weapons/Machete",
+	DisplayName = T(661067714356, --[[ModItemInventoryItemCompositeDef Machete DisplayName]] "Мачете"),
+	DisplayNamePlural = T(272155767129, --[[ModItemInventoryItemCompositeDef Machete DisplayNamePlural]] "Мачете"),
+	Description = T(530829517031, --[[ModItemInventoryItemCompositeDef Machete Description]] "Хозяйственный инструмент для прокладывания дороги через джунги, рубки тростника или бананов. Или людей."),
+	AdditionalHint = T(785348621490, --[[ModItemInventoryItemCompositeDef Machete AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенный доп. урон от силы"),
+	LargeItem = 1,
+	UnitStat = "Dexterity",
+	Cost = 250,
+	CanAppearInShop = true,
+	Tier = 2,
+	CategoryPair = "MeleeWeapons",
+	BaseChanceToHit = 100,
+	BaseDamage = 17,
+	AimAccuracy = 15,
+	PenetrationClass = 4,
+	DamageMultiplier = 250,
+	WeaponRange = 0,
+	Charge = true,
+	AttackAP = 4000,
+	MaxAimActions = 1,
+	Noise = 1,
+	NeckAttackType = "lethal",
+	Entity = "Weapon_Machete_01",
+	HolsterSlot = "Shoulder",
+	CanAppearUsed = false,
+}
+

@@ -1,0 +1,53 @@
+--DefineModItemPreset("Caliber", { EditorName = "Caliber mod", EditorSubmenu = "Weapons" })
+DefineModItemPreset("CombatAction", { EditorName = "Combat Actions", EditorSubmenu = "Gameplay" })
+
+--DefineModItemPreset("WeaponComponentEffects", { EditorName = "Weapon Component Effects", EditorSubmenu = "Item" })
+--DefineModItemPreset("WeaponComponentSlot", { EditorName = "Weapon Component Slot", EditorSubmenu = "Item" })
+
+DefineModItemPreset("WeaponComponentEffect", { EditorName = "Modification Effects", EditorSubmenu = "Weapons" })
+DefineModItemPreset("CombatStance", { EditorName = "Combat Stance", EditorSubmenu = "Stance" })
+DefineModItemPreset("StanceToStanceAP", { EditorName = "StanceToStanceAP", EditorSubmenu = "Stance" })
+DefineModItemPreset("Email", { EditorName = "Email", EditorSubmenu = "Other" })
+DefineModItemPreset("GuardpostObjective", { EditorName = "GuardpostObjectives", EditorSubmenu = "Enemy" })
+DefineModItemPreset("QuestsDef", { EditorName = "QuestsEditor", EditorSubmenu = "Other" })
+DefineModItemPreset("TargetBodyPart", { EditorName = "TargetBodyPart", EditorSubmenu = "Other" })
+DefineModItemPreset("RecipeDef", { EditorName = "Recipes", EditorSubmenu = "Other" })
+DefineModItemPreset("GameRuleDef", { EditorName = "GameRuleDefs", EditorSubmenu = "Other" })
+DefineModItemPreset("GameStateDef", { EditorName = "GameStateDef", EditorSubmenu = "Other" })
+DefineModItemPreset("EnemySquads", { EditorName = "Enemy Squads", EditorSubmenu = "Enemy" })
+DefineModItemPreset("AIArchetype", { EditorName = "AIArchetype", EditorSubmenu = "Enemy" })
+DefineModItemPreset("EnemyRole", { EditorName = "EnemyRole", EditorSubmenu = "Enemy" })
+DefineModItemPreset("BobbyRayShopCategory", { EditorName = "Shop category", EditorSubmenu = "Bobby Ray" })
+DefineModItemPreset("BobbyRayShopSubCategory", { EditorName = "Shop subcategory", EditorSubmenu = "Bobby Ray" })
+DefineModItemPreset("BobbyRayShopDeliveryDef", { EditorName = "Shop Delivery Def", EditorSubmenu = "Bobby Ray" })
+DefineModItemPreset("AnimationStyle", { EditorName = "Animation Style", EditorSubmenu = "Animation" })
+DefineModItemPreset("InventoryTab", { EditorName = "Inventory Tab", EditorSubmenu = "Inventory" })
+DefineModItemPreset("LootDef", { EditorName = "LootDef", EditorSubmenu = "Inventory" })
+DefineModItemPreset("MercTiers", { EditorName = "Merc Tiers", EditorSubmenu = "Mercs" })
+DefineModItemPreset("StatGainingPrerequisite", { EditorName = "StatGainingPrerequisites", EditorSubmenu = "Mercs" })
+DefineModItemPreset("MercSpecializations", { EditorName = "Merc Specializations", EditorSubmenu = "Mercs" })
+DefineModItemPreset("SectorOperation", { EditorName = "Sector Operation", EditorSubmenu = "Satellite" })
+DefineModItemPreset("EventOperationOutcome", { EditorName = "Event Operation Outcome", EditorSubmenu = "Satellite" })
+DefineModItemPreset("SatelliteTimelineEventDef", { EditorName = "Event Operation Outcome", EditorSubmenu = "Satellite" })
+DefineModItemPreset("ClassDef", { EditorName = "ClassDef", EditorSubmenu = "Weapons" })
+DefineModItemPreset("GameTerm", { EditorName = "Gameterm", EditorSubmenu = "Other" })
+DefineModItemPreset("ChanceToHitModifier", { EditorName = "ChanceToHitModifier", EditorSubmenu = "ChanceToHitModifier" })
+DefineModItemPreset("ObjMaterial", { EditorName = "ObjMaterial", EditorSubmenu = "Other" })
+
+
+
+
+
+--DefineModItemPreset("SoundSamples", { EditorName = "SoundBank", EditorSubmenu = "Sound" })
+--DefineModItemPreset("SoundCandidates", { EditorName = "Sound Bank Candidates", EditorSubmenu = "Sound" })
+--DefineModItemPreset("MapDataPreset", { EditorName = "Map data preset def", EditorSubmenu = "Satellite" })
+
+--DefineModItemPreset("Sector", { EditorName = "Satellite Sectors", EditorSubmenu = "Satellite" })
+
+
+DefineModItemPreset("WeaponPropertyDef", { EditorName = "WeaponPropertyDef", EditorSubmenu = "Weapons" })
+DefineModItemPreset("WeaponComponent", { EditorName = "Weapon Component", EditorSubmenu = "Weapons" })
+DefineModItemPreset("WeaponUpgradeSlot", { EditorName = "Weapon Upgrade Slot", EditorSubmenu = "Weapons" })
+DefineModItemPreset("WeaponType", { EditorName = "Weapon Type", EditorSubmenu = "Weapons" })
+
+DefineModItemPreset("AnimMetadata", { EditorName = "Anim Metadata", EditorSubmenu = "Animation" })

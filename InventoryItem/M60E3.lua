@@ -1,0 +1,88 @@
+UndefineClass('M60E3')
+DefineClass.M60E3 = {
+	__parents = { "MachineGun" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T2",
+	object_class = "MachineGun",
+	ScrapParts = 16,
+	Reliability = 65,
+	Icon = "Mod/e6L4ECj/WeaponIcons/M60E3.png",
+	DisplayName = T(566971066898, --[[ModItemInventoryItemCompositeDef M60E3 DisplayName]] "M60E3"),
+	DisplayNamePlural = T(799534164629, --[[ModItemInventoryItemCompositeDef M60E3 DisplayNamePlural]] "M60E3"),
+	Description = T(355056223930, --[[ModItemInventoryItemCompositeDef M60E3 Description]] "Американский единый пулемет, принятый на вооружение Армии и Флота США в 1957 году. Оказался не слишком удачным, что не помешало ему стать основным оружием поддержки американской пехоты в ходе войны во Вьетнаме. На безрыбье и свин - пулемет."),
+	AdditionalHint = T(992340160044, --[[ModItemInventoryItemCompositeDef M60E3 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тяжелый"),
+	LargeItem = 1,
+	Cumbersome = 1,
+	UnitStat = "Marksmanship",
+	Cost = 16000,
+	CanAppearInShop = true,
+	Tier = 2,
+	MaxStock = 1,
+	RestockWeight = 40,
+	CategoryPair = "MachineGuns",
+	Caliber = "JAZZ_Caliber_762x51",
+	Damage = 35,
+	ObjDamageMod = 80,
+	AimAccuracy = 20,
+	MagazineSize = 100,
+	WeaponRange = 56,
+	OverwatchAngle = 1800,
+	Noise = 80,
+	HandSlot = "TwoHanded",
+	Entity = "M60E3",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Bipod",
+			'AvailableComponents', {
+				"Bipod",
+			},
+			'DefaultComponent', "Bipod",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagNormal",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Mount",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"M60E3HandGrip",
+				"M60E4ModernMount",
+			},
+			'DefaultComponent', "M60E3HandGrip",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'Modifiable', false,
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"LROptics",
+				"LROpticsAdvanced",
+				"ReflexSight",
+				"ReflexSightAdvanced",
+				"ScopeCOG",
+				"ScopeCOGQuick",
+				"ThermalScope",
+			},
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	PreparedAttackType = "Machine Gun",
+	AvailableAttacks = {
+		"MGBurstFire",
+	},
+	ShootAP = 6000,
+	ReloadAP = 7000,
+	Recoil = 18,
+	BurstShots = 5,
+	AutoShots = 5,
+	Handling = 64,
+	BulletDropRange = 20,
+	Grouping = 285,
+}
+

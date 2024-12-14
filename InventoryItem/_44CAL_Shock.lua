@@ -1,0 +1,39 @@
+UndefineClass('_44CAL_Shock')
+DefineClass._44CAL_Shock = {
+	__parents = { "Ammo" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Disabled",
+	object_class = "Ammo",
+	Icon = "Mod/e6L4ECj/Ammopics/TEST.png",
+	DisplayName = T(724757939121, --[[ModItemInventoryItemCompositeDef _44CAL_Shock DisplayName]] ".44, ШОК Отключено"),
+	DisplayNamePlural = T(526557400231, --[[ModItemInventoryItemCompositeDef _44CAL_Shock DisplayNamePlural]] ".44, ШОК Отключено"),
+	colorStyle = "AmmoHPColor",
+	Description = T(374067063962, --[[ModItemInventoryItemCompositeDef _44CAL_Shock Description]] "Шоковый боеприпас для револьверов и винтовок калибра .44."),
+	AdditionalHint = T(357179315416, --[[ModItemInventoryItemCompositeDef _44CAL_Shock AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сниженная дальнобойность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокий шанс критического попадания\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Пораженные цели получают статус «<color EmStyle>Вне укрытия</color>» и лишаются его преимуществ\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>кровотечение</color>"),
+	Cost = 180,
+	Tier = 2,
+	MaxStock = 5,
+	RestockWeight = 25,
+	CategoryPair = "44CAL",
+	ShopStackSize = 12,
+	MaxStacks = 500,
+	Caliber = "",
+	Modifications = {
+		PlaceObj('CaliberModification', {
+			mod_add = 50,
+			target_prop = "CritChance",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = -4,
+			target_prop = "WeaponRange",
+		}),
+	},
+	AppliedEffects = {
+		"Exposed",
+		"Bleeding",
+	},
+	ammo_type_icon = "UI/Icons/Items/ta_shock.png",
+}
+

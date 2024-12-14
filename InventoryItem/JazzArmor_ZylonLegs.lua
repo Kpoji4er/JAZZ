@@ -1,0 +1,34 @@
+UndefineClass('JazzArmor_ZylonLegs')
+DefineClass.JazzArmor_ZylonLegs = {
+	__parents = { "Armor" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Class2 M",
+	object_class = "Armor",
+	ScrapParts = 6,
+	Degradation = 30,
+	Icon = "Mod/e6L4ECj/ArmorIcons/ZylonLegs.png",
+	DisplayName = T(335456547949, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonLegs DisplayName]] "Легкая броня для ног Зилон"),
+	DisplayNamePlural = T(293103118663, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonLegs DisplayNamePlural]] "Легкая броня для ног Зилон"),
+	Description = T(310028584083, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonLegs Description]] "Набедренные щитки Зилон в камуфляжной раскраске. По сравнению с другими типами брони - быстрее изнашиваются, в остальном - обеспечивают защиту на уровне."),
+	AdditionalHint = T(633146469558, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonLegs AdditionalHint]] "Легкия броня для ног"),
+	Valuable = 1,
+	Cost = 2500,
+	CanAppearInShop = true,
+	Tier = 2,
+	RestockWeight = 3,
+	CategoryPair = "Medium",
+	Slot = "Legs",
+	PenetrationClass = 3,
+	DamageReduction = 20,
+	AdditionalReduction = 60,
+	ProtectedBodyParts = set( "Legs" ),
+	Coverage = 50,
+	ArmorRating = 12,
+	MeleeArmorRating = 3,
+	ExplosiveArmorRating = 5,
+	CamouflagePercent = 5,
+	Weight = 3,
+}
+

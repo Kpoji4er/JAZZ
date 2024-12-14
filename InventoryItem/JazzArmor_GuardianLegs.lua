@@ -1,0 +1,33 @@
+UndefineClass('JazzArmor_GuardianLegs')
+DefineClass.JazzArmor_GuardianLegs = {
+	__parents = { "Armor" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Class3 M",
+	object_class = "Armor",
+	ScrapParts = 6,
+	Degradation = 30,
+	Icon = "Mod/e6L4ECj/ArmorIcons/GuardianLegs.png",
+	DisplayName = T(380511796147, --[[ModItemInventoryItemCompositeDef JazzArmor_GuardianLegs DisplayName]] "Легкая броня для ног Гвардиан"),
+	DisplayNamePlural = T(971224406774, --[[ModItemInventoryItemCompositeDef JazzArmor_GuardianLegs DisplayNamePlural]] "Легкая броня для ног Гвардиан"),
+	Description = T(430793741456, --[[ModItemInventoryItemCompositeDef JazzArmor_GuardianLegs Description]] 'Легкая защита для ног производства фирмы "Guardian". Хорошее соотношение веса и защищенности'),
+	AdditionalHint = T(918989925083, --[[ModItemInventoryItemCompositeDef JazzArmor_GuardianLegs AdditionalHint]] "Легкая броня для ног. "),
+	Valuable = 1,
+	Cost = 7000,
+	CanAppearInShop = true,
+	Tier = 3,
+	RestockWeight = 0,
+	CategoryPair = "Medium",
+	Slot = "Legs",
+	PenetrationClass = 3,
+	DamageReduction = 20,
+	AdditionalReduction = 60,
+	ProtectedBodyParts = set( "Legs" ),
+	Coverage = 50,
+	ArmorRating = 12,
+	MeleeArmorRating = 5,
+	ExplosiveArmorRating = 8,
+	Weight = 3,
+}
+

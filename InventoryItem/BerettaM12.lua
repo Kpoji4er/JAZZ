@@ -1,0 +1,76 @@
+UndefineClass('BerettaM12')
+DefineClass.BerettaM12 = {
+	__parents = { "SubmachineGun" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T1+",
+	object_class = "SubmachineGun",
+	ScrapParts = 6,
+	Reliability = 75,
+	Icon = "Mod/e6L4ECj/WeaponIcons/BerettaM12.png",
+	DisplayName = T(470598723767, --[[ModItemInventoryItemCompositeDef BerettaM12 DisplayName]] "Беретта М12"),
+	DisplayNamePlural = T(102731784616, --[[ModItemInventoryItemCompositeDef BerettaM12 DisplayNamePlural]] "Беретты М12"),
+	Description = T(374530148771, --[[ModItemInventoryItemCompositeDef BerettaM12 Description]] "Хороший итальянский послевоенный пистолет-пулемет, вобравший в себя весь накопленный в ходе ВМВ опыт. Может похвастаться отличной точностью и надежностью при использовании в широком круге условий."),
+	AdditionalHint = T(526790348080, --[[ModItemInventoryItemCompositeDef BerettaM12 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая точность прицельной стрельбы\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не очень удобен при стрельбе навскидку"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 2800,
+	CanAppearInShop = true,
+	MaxStock = 5,
+	RestockWeight = 150,
+	CategoryPair = "SubmachineGuns",
+	Caliber = "JAZZ_Caliber_9x19",
+	Damage = 20,
+	ObjDamageMod = 20,
+	AimAccuracy = 12,
+	MagazineSize = 32,
+	WeaponRange = 21,
+	OverwatchAngle = 4200,
+	Noise = 30,
+	Entity = "BerettaM12",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"MagNormal",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"ImprovisedSuppressor",
+				"PistolSuppressor",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Stock",
+			'AvailableComponents', {
+				"StockLightUnFolded",
+				"StockLightFolded",
+			},
+			'DefaultComponent', "StockLightUnFolded",
+		}),
+	},
+	HolsterSlot = "Leg",
+	AvailableAttacks = {
+		"BurstFire",
+		"AutoFire",
+		"SingleShot",
+		"RunAndGun",
+		"CancelShot",
+	},
+	ShootAP = 4000,
+	ReloadAP = 4000,
+	Recoil = 3,
+	BurstShots = 2,
+	AutoShots = 6,
+	Handling = 90,
+	BulletDropRange = 10,
+	Grouping = 94,
+	BaseJamChance = -30,
+}
+

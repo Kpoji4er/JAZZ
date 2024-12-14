@@ -1,0 +1,78 @@
+UndefineClass('Type56')
+DefineClass.Type56 = {
+	__parents = { "AssaultRifle" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T1-",
+	object_class = "AssaultRifle",
+	ScrapParts = 10,
+	RepairCost = 20,
+	Reliability = 30,
+	Icon = "Mod/e6L4ECj/WeaponIcons/Type56.png",
+	DisplayName = T(250655452748, --[[ModItemInventoryItemCompositeDef Type56 DisplayName]] "Type 56"),
+	DisplayNamePlural = T(153918269049, --[[ModItemInventoryItemCompositeDef Type56 DisplayNamePlural]] "Type 56"),
+	Description = T(110936392470, --[[ModItemInventoryItemCompositeDef Type56 Description]] "Пиратская, в смысле, китайская копия советского автомата АКС. Имеет складной вниз, либо фиксированный деревянный приклад и фрезерованную ствольную коробку. Качество разнится от нестреляющей рухляди до вполне приличного автомата. Длинный игольчатый штык призван делать канапе из лаоваев."),
+	AdditionalHint = T(202927839636, --[[ModItemInventoryItemCompositeDef Type56 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая надежность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая эффективность автоматической и прицельной стрельбы"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 1500,
+	CanAppearInShop = true,
+	MaxStock = 5,
+	RestockWeight = 150,
+	CategoryPair = "AssaultRifles",
+	Caliber = "JAZZ_Caliber_762x39",
+	Damage = 27,
+	ObjDamageMod = 50,
+	AimAccuracy = 19,
+	CritChance = 5,
+	MagazineSize = 30,
+	WeaponRange = 38,
+	OverwatchAngle = 1800,
+	Noise = 60,
+	HandSlot = "TwoHanded",
+	Entity = "Type56",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"ImprovisedSuppressor",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"MagNormal",
+				"MagLarge_30_40",
+				"MagDrum_30-75",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Under",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"Type56Bayo",
+				"Type56BayoF",
+			},
+			'DefaultComponent', "Type56BayoF",
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	AvailableAttacks = {
+		"BurstFire",
+		"AutoFire",
+		"SingleShot",
+		"CancelShot",
+	},
+	ShootAP = 5000,
+	ReloadAP = 5000,
+	Recoil = 16,
+	AutoShots = 6,
+	Handling = 70,
+	BulletDropRange = 13,
+	Grouping = 180,
+}
+

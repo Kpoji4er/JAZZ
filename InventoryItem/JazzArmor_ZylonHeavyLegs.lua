@@ -1,0 +1,34 @@
+UndefineClass('JazzArmor_ZylonHeavyLegs')
+DefineClass.JazzArmor_ZylonHeavyLegs = {
+	__parents = { "Armor" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Class2 H",
+	object_class = "Armor",
+	ScrapParts = 6,
+	Degradation = 30,
+	Icon = "Mod/e6L4ECj/ArmorIcons/ZylonLegsH.png",
+	DisplayName = T(564749293082, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonHeavyLegs DisplayName]] "Тяжелая броня для ног Зилон"),
+	DisplayNamePlural = T(829489550929, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonHeavyLegs DisplayNamePlural]] "Тяжелая броня для ног Зилон"),
+	Description = T(589323078459, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonHeavyLegs Description]] "Тяжелая защита ног Зилон в камуфляжной раскраске.Представлена набедренниками и наголенниками. По сравнению с другими типами брони - быстрее изнашиваются, в остальном - обеспечивают защиту на уровне."),
+	AdditionalHint = T(783639536840, --[[ModItemInventoryItemCompositeDef JazzArmor_ZylonHeavyLegs AdditionalHint]] "Тяжелая броня для ног"),
+	Valuable = 1,
+	Cost = 3500,
+	CanAppearInShop = true,
+	Tier = 2,
+	RestockWeight = 3,
+	CategoryPair = "Heavy",
+	Slot = "Legs",
+	PenetrationClass = 3,
+	DamageReduction = 20,
+	AdditionalReduction = 60,
+	ProtectedBodyParts = set( "Legs" ),
+	Coverage = 70,
+	ArmorRating = 14,
+	MeleeArmorRating = 15,
+	ExplosiveArmorRating = 10,
+	CamouflagePercent = 3,
+	Weight = 4,
+}
+

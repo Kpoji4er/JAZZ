@@ -1,0 +1,107 @@
+UndefineClass('M60E4')
+DefineClass.M60E4 = {
+	__parents = { "MachineGun" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T2+",
+	object_class = "MachineGun",
+	ScrapParts = 16,
+	Reliability = 70,
+	Icon = "Mod/e6L4ECj/WeaponIcons/M60E4.png",
+	DisplayName = T(922904580421, --[[ModItemInventoryItemCompositeDef M60E4 DisplayName]] "M60E4"),
+	DisplayNamePlural = T(403738538284, --[[ModItemInventoryItemCompositeDef M60E4 DisplayNamePlural]] "M60E4"),
+	Description = T(137876769017, --[[ModItemInventoryItemCompositeDef M60E4 Description]] 'Последняя на данный момент попытка сделать-таки из "свина" нормальный единый пулемет. Но нет, М60 все так же тяжел, капризен, требователен к патронам. Это пулемет-то, требователен к патронам...'),
+	AdditionalHint = T(617668119774, --[[ModItemInventoryItemCompositeDef M60E4 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тяжелый\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Возможность модификаций"),
+	LargeItem = 1,
+	Cumbersome = 1,
+	UnitStat = "Marksmanship",
+	Cost = 25000,
+	CanAppearInShop = true,
+	Tier = 2,
+	MaxStock = 1,
+	RestockWeight = 40,
+	CategoryPair = "MachineGuns",
+	Caliber = "JAZZ_Caliber_762x51",
+	Damage = 35,
+	ObjDamageMod = 80,
+	AimAccuracy = 20,
+	MagazineSize = 100,
+	WeaponRange = 56,
+	OverwatchAngle = 1800,
+	Noise = 80,
+	HandSlot = "TwoHanded",
+	Entity = "M60E4",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Bipod",
+			'AvailableComponents', {
+				"Bipod",
+			},
+			'DefaultComponent', "Bipod",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagNormal",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Mount",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"M60E3HandGrip",
+				"M60E4ModernMount",
+			},
+			'DefaultComponent', "M60E4ModernMount",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Reflex_Aimpoint5000",
+				"JAZZ_Reflex_Closed",
+				"JAZZ_Reflex_Eotech",
+				"JAZZ_Reflex_M68",
+				"JAZZ_CombatScope_2x",
+				"JAZZ_CombatScope_ACOG",
+				"JAZZ_NightScope",
+				"JAZZ_Scope_6x",
+				"JAZZ_Scope_12x",
+				"JAZZ_Scope_Scout",
+			},
+			'DefaultComponent', "JAZZ_Scope_6x",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Side",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Flashlight",
+				"FlashlightDot",
+				"LaserDot",
+				"UVDot",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Under",
+			'AvailableComponents', {
+				"VerticalGrip",
+			},
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	PreparedAttackType = "Machine Gun",
+	AvailableAttacks = {
+		"MGBurstFire",
+	},
+	ShootAP = 6000,
+	ReloadAP = 7000,
+	Recoil = 18,
+	BurstShots = 5,
+	AutoShots = 5,
+	Handling = 68,
+	BulletDropRange = 20,
+	Grouping = 290,
+}
+

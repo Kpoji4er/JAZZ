@@ -1,0 +1,35 @@
+UndefineClass('ProximityC4')
+DefineClass.ProximityC4 = {
+	__parents = { "ThrowableTrapItem" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "ThrowableTrapItem",
+	Repairable = false,
+	Reliability = 100,
+	Icon = "UI/Icons/Items/proximity_c4",
+	ItemType = "Grenade",
+	DisplayName = T(864420169145, --[[ModItemInventoryItemCompositeDef ProximityC4 DisplayName]] "Бесконтактная С4"),
+	DisplayNamePlural = T(821178275283, --[[ModItemInventoryItemCompositeDef ProximityC4 DisplayNamePlural]] "Бесконтактная С4"),
+	AdditionalHint = T(493304565684, --[[ModItemInventoryItemCompositeDef ProximityC4 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается, когда враг подходит к заряду на близкое расстояние"),
+	UnitStat = "Explosives",
+	Cost = 800,
+	CanAppearInShop = true,
+	Tier = 2,
+	MaxStock = 1,
+	RestockWeight = 10,
+	CategoryPair = "Grenade",
+	MinMishapChance = -2,
+	MaxMishapChance = 18,
+	MaxMishapRange = 6,
+	AttackAP = 4000,
+	BaseRange = 3,
+	CanBounce = false,
+	IgnoreCoverReduction = 1,
+	Noise = 30,
+	Entity = "Explosive_C4",
+	ActionIcon = "UI/Icons/Hud/throw_proximity_explosive",
+	TriggerType = "Proximity",
+	ExplosiveType = "C4",
+}
+

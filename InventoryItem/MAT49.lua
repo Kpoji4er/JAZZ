@@ -1,0 +1,67 @@
+UndefineClass('MAT49')
+DefineClass.MAT49 = {
+	__parents = { "SubmachineGun" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "9mm T1-",
+	object_class = "SubmachineGun",
+	ScrapParts = 6,
+	Reliability = 15,
+	Icon = "Mod/e6L4ECj/WeaponIcons/MAT49.png",
+	DisplayName = T(892229243751, --[[ModItemInventoryItemCompositeDef MAT49 DisplayName]] "MAT-49"),
+	DisplayNamePlural = T(714310548316, --[[ModItemInventoryItemCompositeDef MAT49 DisplayNamePlural]] "MAT-49"),
+	Description = T(303318756297, --[[ModItemInventoryItemCompositeDef MAT49 Description]] "Небольшой послевоенный французский автомат, широко распространенный в бывших французких колониях. Ничем особо примечательным не выделяется, нареканий особых тоже не имеет. Стреляет, и ладно."),
+	AdditionalHint = T(561861858971, --[[ModItemInventoryItemCompositeDef MAT49 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ржавый\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Складной приклад"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 500,
+	CategoryPair = "SubmachineGuns",
+	CanAppearStandard = false,
+	Caliber = "JAZZ_Caliber_9x19",
+	Damage = 19,
+	ObjDamageMod = 20,
+	AimAccuracy = 10,
+	MagazineSize = 32,
+	WeaponRange = 19,
+	OverwatchAngle = 3960,
+	Noise = 30,
+	HandSlot = "TwoHanded",
+	Entity = "MAT49",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"MagNormal",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Stock",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"StockLightFolded",
+				"StockLightUnFolded",
+			},
+			'DefaultComponent', "StockLightUnFolded",
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	AvailableAttacks = {
+		"BurstFire",
+		"AutoFire",
+		"RunAndGun",
+		"CancelShot",
+	},
+	ShootAP = 4000,
+	ReloadAP = 4000,
+	MaxAimActions = 2,
+	Recoil = 5,
+	AutoShots = 6,
+	Handling = 76,
+	BulletDropRange = 8,
+	Grouping = 70,
+	BaseJamChance = 50,
+}
+

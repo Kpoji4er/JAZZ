@@ -1,0 +1,38 @@
+sep=,
+ID,Text,Translation,VoiceActor,Context
+732215446558,Marksman,Снайпер,,,OK,,,,,Trunk\Zulu/Data/MercSpecializations.lua(00034),MercSpecializations Default Marksmen name,,,,,,,,
+394807232613,Red Dot,Лазерный целеуказатель,,,OK,,,,,Trunk\Zulu/Data/WeaponComponentSharedClass.lua(05572),WeaponComponent LaserDot DisplayName,,,,,,,,
+844523910352,Sniper Scope x5,Оптический прицел,,,OK,,,,,Trunk\Zulu/Data/WeaponComponentSharedClass.lua(04188),WeaponComponent LROptics DisplayName,,,,,,,,
+756379377948,Sniper Scope x10,Снайперский прицел с 10-кратным увеличением,,,OK,,,,,Trunk\Zulu/Data/WeaponComponentSharedClass.lua(04322),WeaponComponent LROpticsAdvanced DisplayName,,,,,,,,
+997246680419,Compact Reflex Sight,Коллиматор,,,OK,,,,,Trunk\Zulu/Data/WeaponComponentSharedClass.lua(04446),WeaponComponent ReflexSight DisplayName,,,,,,,,
+828562540830,Reflex Sight,Штурмовой коллиматор,,,OK,,,,,Trunk\Zulu/Data/WeaponComponentSharedClass.lua(04624),WeaponComponent ReflexSightAdvanced DisplayName,,,,,,,,
+334947143407,Prism Scope ,Прицел малой кратности,,,OK,,,"Trailing whitespace differs - original \s, translated ",,Trunk\Zulu/Data/WeaponComponentSharedClass.lua(04783),WeaponComponent ScopeCOG DisplayName,,,,,,,,
+739676174855,Quick Prism Scope ,Штурмовой прицел,,,OK,,,"Trailing whitespace differs - original \s, translated ",,Trunk\Zulu/Data/WeaponComponentSharedClass.lua(04936),WeaponComponent ScopeCOGQuick DisplayName,,,,,,,,
+835203483425,Thermal Scope,Ночной прицел,,,OK,,,,,Trunk\Zulu/Data/WeaponComponentSharedClass.lua(05076),WeaponComponent ThermalScope DisplayName,,,,,,,,
+928205349561,HIDDEN,СКРЫТНОСТЬ,,,OK,,,,,Trunk\Zulu/Lua/UI/CombatBadge.lua(00011),,,,,,,,,
+414351298167,All-Rounder,Ближний бой,,,OK,,,,,Trunk\Zulu/Data/MercSpecializations.lua(00006),MercSpecializations Default AllRounder name,,,,,,,,
+791397549885,This merc is an excellent all-rounder.,Этот наемник обучен ближнему бою.,,,OK,,,,,Trunk\Zulu/Data/MercSpecializations.lua(00007),MercSpecializations Default AllRounder rolloverText,,,,,,,,
+562386972389,Penetration Protection,Класс защиты,,,OK,,,,,Trunk\Zulu/Lua/XTemplates/RolloverInventoryWeaponBase.lua(00258),,,,,,,,,
+938747433410,Reduced <em>Accuracy</em> penalty when using <em>Burst Fire</em> or <em>Full Auto</em>.,Увеличивает количество выстрелов"," на которые не действует <GameTerm('Recoil')>"," на 1 в режиме очереди и на 2 в режиме автоогня..,,,OK,,,,,Trunk\Zulu/Lua/CharacterEffectCompositeDef/AutoWeapons.generated.lua(00022),CharacterEffectCompositeDef AutoWeapons Description,,,,,,,,
+662768584689,Attacks and <GameTerm('Setup')> with <em>Heavy Weapons</em> and <em>Machine Guns</em> have reduced <em>AP</em> cost.,Уменьшен расход <em>ОД</em> на атаки из <em>тяжелого вооружения</em> и <em>пулеметов</em> и приведение его в <GameTerm('Setup')>. Кроме того"," увеличивает количество выстрелов, на которые не действует <GameTerm('Recoil')>, на 1 при стрельбе из пулеметов.,,,OK,,,,,Trunk\Zulu/Lua/CharacterEffectCompositeDef/HeavyWeaponsTraining.generated.lua(00023),CharacterEffectCompositeDef HeavyWeaponsTraining Description,,,,,,,,
+515755043627,"Can <em>Sneak</em> while standing.
+
+Gains <em><gritOnStealthKill></em> <GameTerm('Grit')> on successful <GameTerm('StealthKills')>.","Умеет <em>красться</em> стоя.
+
+Получает <GameTerm('Grit')> (<em><gritOnStealthKill></em>), выполняя успешные <GameTerm('StealthKills')>.","Can <em>Sneak</em> while standing.
+
+No movement penalties while <GameTerm('Sneaking')>.
+
+Gains <em><gritOnStealthKill></em> <GameTerm('Grit')> on successful <GameTerm('StealthKills')>.","Умеет <em>красться</em> стоя. Имеет свою маскировку. Бонус к скрытности не зависит от положения тела.
+
+Нет штрафов к перемещению в состоянии «<GameTerm('Sneaking')>».
+
+Получает <GameTerm('Grit')> (<em><gritOnStealthKill></em>), выполняя успешные <GameTerm('StealthKills')>.",OK,,,,,Trunk\Zulu/Lua/CharacterEffectCompositeDef/FleetingShadow.generated.lua(00021),CharacterEffectCompositeDef FleetingShadow Description,,,,,,,,
+
+317905531555,Handguns,Пистолет,,,OK,,,,,Trunk\Zulu/Data/WeaponType.lua(00006),WeaponType Default Handgun Name,,,,,,,,
+861547101159,Shotguns,Дробовик,,,OK,,,,,Trunk\Zulu/Data/WeaponType.lua(00014),WeaponType Default Shotgun Name,,,,,,,,
+987446796163,Assault Rifles,Штурмовая винтовка,,,OK,,,,,Trunk\Zulu/Data/WeaponType.lua(00022),WeaponType Default AssaultRifle Name,,,,,,,,
+731752089698,Submachine Guns,Пистолет-пулемет,,,OK,,,,,Trunk\Zulu/Data/WeaponType.lua(00110),WeaponType Default SMG Name,,,,,,,,
+823987842090,Machine Guns,Пулемет,,,OK,,,,,Trunk\Zulu/Data/WeaponType.lua(00078),WeaponType Default MachineGun Name,,,,,,,,
+30158603055711,Bullet Drop,Падение пули,,,OK,,,,,Trunk\Zulu/Lua/Tactical/Unit.lua(07184),,,,,,,,,
+276992233611,Jammed weapon was <em>damaged in attempt to fix</em> by <DisplayName> (<Mechanical> Mechanical): <condLoss> condition lost,<DisplayName> <em>было повреждено</em> (механика: <Mechanical>) при попытке починить заклинившее оружие. Состояние ухудшается на <condLoss>,,,OK,,,,,Trunk\Zulu/Lua/Tactical/Weapon.lua(01016),,,,,,,,,

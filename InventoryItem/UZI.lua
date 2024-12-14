@@ -1,0 +1,88 @@
+UndefineClass('UZI')
+DefineClass.UZI = {
+	__parents = { "SubmachineGun" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "9mm T1+",
+	object_class = "SubmachineGun",
+	ScrapParts = 6,
+	Reliability = 70,
+	Icon = "Mod/e6L4ECj/WeaponIcons/UZI.png",
+	DisplayName = T(919841472744, --[[ModItemInventoryItemCompositeDef UZI DisplayName]] "Узи Полноразмерный"),
+	DisplayNamePlural = T(837213181188, --[[ModItemInventoryItemCompositeDef UZI DisplayNamePlural]] "Узи Полноразмерные"),
+	Description = T(228733015650, --[[ModItemInventoryItemCompositeDef UZI Description]] "Пистолет-пулемет, разработанный в Израиле как персональное оружие самообороны для солдат тылового эшелона. Задумывался для ведения стрельбы с упором в плечо, однако нередко используется и просто одной рукой. Обладает высокой скорострельностью, но и удручающе высоким рассеиванием."),
+	AdditionalHint = T(924238872935, --[[ModItemInventoryItemCompositeDef UZI AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Возможность модификаций"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 2400,
+	CanAppearInShop = true,
+	MaxStock = 5,
+	RestockWeight = 150,
+	CategoryPair = "SubmachineGuns",
+	Caliber = "JAZZ_Caliber_9x19",
+	Damage = 21,
+	ObjDamageMod = 20,
+	AimAccuracy = 8,
+	MagazineSize = 32,
+	WeaponRange = 21,
+	OverwatchAngle = 4080,
+	Noise = 30,
+	HandSlot = "TwoHanded",
+	Entity = "UziFull",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagNormal",
+				"MagDrum_30-50",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Reflex_Closed",
+				"JAZZ_Reflex_Eotech",
+				"JAZZ_Reflex_M68",
+				"JAZZ_Reflex_Open",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"PistolSuppressor",
+				"Compensator",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Stock",
+			'AvailableComponents', {
+				"StockLightUnFolded",
+				"StockLightFolded",
+				"StockNormal",
+			},
+			'DefaultComponent', "StockLightUnFolded",
+		}),
+	},
+	Color = "Black",
+	HolsterSlot = "Leg",
+	AvailableAttacks = {
+		"BurstFire",
+		"AutoFire",
+		"SingleShot",
+		"RunAndGun",
+		"CancelShot",
+	},
+	ShootAP = 4000,
+	ReloadAP = 4000,
+	Recoil = 4,
+	AutoShots = 6,
+	Handling = 85,
+	BulletDropRange = 10,
+	Grouping = 85,
+	BaseJamChance = -20,
+}
+

@@ -1,0 +1,35 @@
+UndefineClass('RemotePETN')
+DefineClass.RemotePETN = {
+	__parents = { "ThrowableTrapItem" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "ThrowableTrapItem",
+	Repairable = false,
+	Reliability = 100,
+	Icon = "UI/Icons/Items/remote_petn",
+	ItemType = "Grenade",
+	DisplayName = T(765803616147, --[[ModItemInventoryItemCompositeDef RemotePETN DisplayName]] "Дистанционная ТЭН"),
+	DisplayNamePlural = T(617943142815, --[[ModItemInventoryItemCompositeDef RemotePETN DisplayNamePlural]] "Дистанционная ТЭН"),
+	AdditionalHint = T(886952365002, --[[ModItemInventoryItemCompositeDef RemotePETN AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Заряд подрывается с помощью пульта ДУ"),
+	UnitStat = "Explosives",
+	Cost = 800,
+	CanAppearInShop = true,
+	Tier = 3,
+	MaxStock = 1,
+	RestockWeight = 10,
+	CategoryPair = "Grenade",
+	MinMishapChance = -2,
+	MaxMishapChance = 18,
+	MaxMishapRange = 6,
+	AttackAP = 4000,
+	BaseRange = 3,
+	ThrowMaxRange = 12,
+	CanBounce = false,
+	Noise = 30,
+	Entity = "Explosive_PETN",
+	ActionIcon = "UI/Icons/Hud/throw_remote_explosive",
+	TriggerType = "Remote",
+	ExplosiveType = "PETN",
+}
+

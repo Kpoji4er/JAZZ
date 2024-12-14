@@ -1,0 +1,65 @@
+UndefineClass('M60')
+DefineClass.M60 = {
+	__parents = { "MachineGun" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T1",
+	object_class = "MachineGun",
+	ScrapParts = 16,
+	Reliability = 60,
+	Icon = "Mod/e6L4ECj/WeaponIcons/M60.png",
+	DisplayName = T(341695303297, --[[ModItemInventoryItemCompositeDef M60 DisplayName]] 'M60 "Свинья"'),
+	DisplayNamePlural = T(391588411003, --[[ModItemInventoryItemCompositeDef M60 DisplayNamePlural]] 'M60 "Свиньи"'),
+	Description = T(559259765691, --[[ModItemInventoryItemCompositeDef M60 Description]] "Американский единый пулемет, принятый на вооружение Армии и Флота США в 1957 году. Оказался не слишком удачным, что не помешало ему стать основным оружием поддержки американской пехоты в ходе войны во Вьетнаме. На безрыбье и свин - пулемет."),
+	AdditionalHint = T(529371457427, --[[ModItemInventoryItemCompositeDef M60 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тяжелый"),
+	LargeItem = 1,
+	Cumbersome = 1,
+	UnitStat = "Marksmanship",
+	Cost = 15000,
+	CanAppearInShop = true,
+	Tier = 2,
+	MaxStock = 1,
+	RestockWeight = 40,
+	CategoryPair = "MachineGuns",
+	Caliber = "JAZZ_Caliber_762x51",
+	Damage = 35,
+	ObjDamageMod = 80,
+	AimAccuracy = 20,
+	MagazineSize = 100,
+	WeaponRange = 55,
+	OverwatchAngle = 1800,
+	Noise = 80,
+	HandSlot = "TwoHanded",
+	Entity = "M60",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Bipod",
+			'AvailableComponents', {
+				"Bipod",
+			},
+			'DefaultComponent', "Bipod",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagNormal",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	PreparedAttackType = "Machine Gun",
+	AvailableAttacks = {
+		"MGBurstFire",
+	},
+	ShootAP = 6000,
+	ReloadAP = 7000,
+	Recoil = 18,
+	BurstShots = 5,
+	AutoShots = 5,
+	Handling = 64,
+	BulletDropRange = 20,
+	Grouping = 280,
+}
+

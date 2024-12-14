@@ -1,0 +1,96 @@
+UndefineClass('Glock17')
+DefineClass.Glock17 = {
+	__parents = { "Pistol" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T3",
+	object_class = "Pistol",
+	ScrapParts = 6,
+	RepairCost = 70,
+	Reliability = 80,
+	Icon = "Mod/e6L4ECj/WeaponIcons/Glock17.png",
+	DisplayName = T(464861298445, --[[ModItemInventoryItemCompositeDef Glock17 DisplayName]] "Glock 17"),
+	DisplayNamePlural = T(134481114957, --[[ModItemInventoryItemCompositeDef Glock17 DisplayNamePlural]] "Glock 17"),
+	Description = T(219478192607, --[[ModItemInventoryItemCompositeDef Glock17 Description]] "Glock 17"),
+	AdditionalHint = T(593063289584, --[[ModItemInventoryItemCompositeDef Glock17 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бонус при стрельбе навскидку\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая надежность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Возможность модификаций"),
+	UnitStat = "Marksmanship",
+	Cost = 7000,
+	CanAppearInShop = true,
+	Tier = 2,
+	RestockWeight = 40,
+	CategoryPair = "Handguns",
+	Caliber = "JAZZ_Caliber_9x19",
+	Damage = 20,
+	ObjDamageMod = 15,
+	AimAccuracy = 7,
+	CritChance = 5,
+	MagazineSize = 17,
+	WeaponRange = 14,
+	OverwatchAngle = 5400,
+	Noise = 30,
+	Entity = "Glock_17",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"ReflexSight",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"ImprovisedSuppressor",
+				"PistolSuppressor",
+				"Compensator",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagLarge",
+				"MagNormal",
+				"MagNormalG18",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Side",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Flashlight",
+				"LaserDot",
+				"FlashlightDot",
+				"UVDot",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Freeswap",
+			'AvailableComponents', {
+				"Freeswap",
+			},
+			'DefaultComponent', "Freeswap",
+		}),
+	},
+	HolsterSlot = "Leg",
+	AvailableAttacks = {
+		"SingleShot",
+		"DualShot",
+		"CancelShot",
+		"MobileShot",
+	},
+	ShootAP = 3000,
+	ReloadAP = 3000,
+	MaxAimActions = 2,
+	Recoil = 9,
+	BurstShots = 1,
+	AutoShots = 1,
+	Handling = 100,
+	BulletDropRange = 6,
+	Grouping = 88,
+	BaseJamChance = -20,
+	CanAppearUsed = false,
+}
+

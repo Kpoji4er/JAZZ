@@ -1,0 +1,33 @@
+UndefineClass('JazzArmor_AltynHelm')
+DefineClass.JazzArmor_AltynHelm = {
+	__parents = { "Armor" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Class2 SH",
+	object_class = "Armor",
+	ScrapParts = 6,
+	Degradation = 30,
+	Icon = "Mod/e6L4ECj/ArmorIcons/Altyn.png",
+	DisplayName = T(153423704820, --[[ModItemInventoryItemCompositeDef JazzArmor_AltynHelm DisplayName]] "Шлем Алтын"),
+	DisplayNamePlural = T(138620573973, --[[ModItemInventoryItemCompositeDef JazzArmor_AltynHelm DisplayNamePlural]] "Шлемы Алтын"),
+	Description = T(274222442493, --[[ModItemInventoryItemCompositeDef JazzArmor_AltynHelm Description]] "Легендарный шлем совесткого и российского спецназовца. Титановый купол в три миллиметра толщиной и забрало из бронестекла обеспечивают замечательную противопульную защиту, но большой вес и размеры делают шлем очень неудобным. По медицинским рекомендациям, постоянное ношение шлема должно осуществляться не более трех часов подряд."),
+	AdditionalHint = T(820509954217, --[[ModItemInventoryItemCompositeDef JazzArmor_AltynHelm AdditionalHint]] "Тяжелый советский шлем"),
+	Valuable = 1,
+	Cost = 10000,
+	CanAppearInShop = true,
+	MaxStock = 1,
+	RestockWeight = 1,
+	CategoryPair = "Heavy",
+	Slot = "Head",
+	PenetrationClass = 2,
+	DamageReduction = 20,
+	AdditionalReduction = 60,
+	ProtectedBodyParts = set( "Head", "Neck" ),
+	ArmorRating = 50,
+	MeleeArmorRating = 10,
+	BlockFaceSlot = true,
+	Weight = 5,
+	Vision = -15,
+}
+

@@ -1,0 +1,125 @@
+UndefineClass('MP5K')
+DefineClass.MP5K = {
+	__parents = { "SubmachineGun" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "9mm T2",
+	object_class = "SubmachineGun",
+	ScrapParts = 8,
+	Reliability = 85,
+	Icon = "Mod/e6L4ECj/WeaponIcons/MP5K.png",
+	DisplayName = T(294278763005, --[[ModItemInventoryItemCompositeDef MP5K DisplayName]] "MP5K"),
+	DisplayNamePlural = T(568806073246, --[[ModItemInventoryItemCompositeDef MP5K DisplayNamePlural]] "MP5K"),
+	Description = T(544608570700, --[[ModItemInventoryItemCompositeDef MP5K Description]] "Максимально укороченная версия MP5, созданная для боя на ближних дистанциях и самообороны. Для него даже есть специальный чехол-чемоданчик со спусковым крючком в ручке - на случай секретных операций."),
+	AdditionalHint = T(713555595193, --[[ModItemInventoryItemCompositeDef MP5K AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноручное\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Возможности модификаций"),
+	UnitStat = "Marksmanship",
+	Cost = 4200,
+	CanAppearInShop = true,
+	RestockWeight = 40,
+	CategoryPair = "SubmachineGuns",
+	Caliber = "JAZZ_Caliber_9x19",
+	Damage = 20,
+	ObjDamageMod = 20,
+	AimAccuracy = 6,
+	MagazineSize = 30,
+	WeaponRange = 19,
+	OverwatchAngle = 4680,
+	Noise = 35,
+	Entity = "Weapon_MP5",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Under",
+			'AvailableComponents', {
+				"VerticalGrip",
+			},
+			'DefaultComponent', "VerticalGrip",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Barrel",
+			'AvailableComponents', {
+				"BarrelShort",
+			},
+			'DefaultComponent', "BarrelShort",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagNormal",
+				"MagSmall30_15",
+			},
+			'DefaultComponent', "MagSmall30_15",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Stock",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"StockNormal",
+				"StockHeavy",
+				"StockNo",
+			},
+			'DefaultComponent', "StockNo",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Side",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Flashlight",
+				"LaserDot",
+				"FlashlightDot",
+				"UVDot",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Reflex_Aimpoint5000",
+				"JAZZ_Reflex_Closed",
+				"JAZZ_Reflex_Open",
+				"JAZZ_Reflex_M68",
+				"JAZZ_Reflex_Eotech",
+				"JAZZ_CombatScope_2x",
+				"JAZZ_CombatScope_FeroZ24",
+				"JAZZ_Scope_DA15_6x",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Compensator",
+				"PistolSuppressor",
+				"ImprovisedSuppressor",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Freeswap",
+			'AvailableComponents', {
+				"Freeswap",
+			},
+			'DefaultComponent', "Freeswap",
+		}),
+	},
+	HolsterSlot = "Leg",
+	AvailableAttacks = {
+		"BurstFire",
+		"AutoFire",
+		"SingleShot",
+		"RunAndGun",
+		"CancelShot",
+		"DualShot",
+	},
+	ShootAP = 4000,
+	ReloadAP = 4000,
+	MaxAimActions = 2,
+	Recoil = 7,
+	BurstShots = 4,
+	AutoShots = 9,
+	Handling = 89,
+	BulletDropRange = 7,
+	Grouping = 80,
+	BaseJamChance = -30,
+	CanAppearUsed = false,
+}
+

@@ -1,0 +1,104 @@
+UndefineClass('MicroUZI')
+DefineClass.MicroUZI = {
+	__parents = { "SubmachineGun" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "9mm T1 - MICRO",
+	object_class = "SubmachineGun",
+	ScrapParts = 6,
+	Reliability = 50,
+	Icon = "Mod/e6L4ECj/WeaponIcons/MicroUZI.png",
+	DisplayName = T(551535604372, --[[ModItemInventoryItemCompositeDef MicroUZI DisplayName]] "Мини Узи"),
+	DisplayNamePlural = T(492773756154, --[[ModItemInventoryItemCompositeDef MicroUZI DisplayNamePlural]] "Мини Узи"),
+	Description = T(111329132858, --[[ModItemInventoryItemCompositeDef MicroUZI Description]] 'Максимально компактный и скорострельный израильский пистолет-пулемет. На тот случай, если вы должны кому-то денег и "гости" приехали на лифте. Не сметь работать в шабат!'),
+	AdditionalHint = T(305727013459, --[[ModItemInventoryItemCompositeDef MicroUZI AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноручное\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая скорострельность"),
+	UnitStat = "Marksmanship",
+	Cost = 2200,
+	CanAppearInShop = true,
+	MaxStock = 5,
+	RestockWeight = 150,
+	CategoryPair = "SubmachineGuns",
+	Caliber = "JAZZ_Caliber_9x19",
+	Damage = 19,
+	ObjDamageMod = 20,
+	AimAccuracy = 7,
+	MagazineSize = 20,
+	WeaponRange = 17,
+	OverwatchAngle = 4920,
+	Noise = 35,
+	Entity = "Weapon_Uzi",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Barrel",
+			'AvailableComponents', {
+				"BarrelNormal",
+				"BarrelNormalImproved",
+			},
+			'DefaultComponent', "BarrelNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagNormal",
+				"MagLarge_20_30",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Side",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Flashlight",
+				"LaserDot",
+				"FlashlightDot",
+				"UVDot",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Reflex_Pistol",
+				"JAZZ_Reflex_Closed",
+				"JAZZ_Reflex_Eotech",
+				"JAZZ_Reflex_M68",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Compensator",
+				"PistolSuppressor",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Freeswap",
+			'AvailableComponents', {
+				"Freeswap",
+			},
+			'DefaultComponent', "Freeswap",
+		}),
+	},
+	HolsterSlot = "Leg",
+	AvailableAttacks = {
+		"BurstFire",
+		"AutoFire",
+		"SingleShot",
+		"DualShot",
+		"RunAndGun",
+		"CancelShot",
+	},
+	ShootAP = 3000,
+	ReloadAP = 4000,
+	MaxAimActions = 2,
+	Recoil = 7,
+	BurstShots = 6,
+	AutoShots = 12,
+	Handling = 82,
+	BulletDropRange = 7,
+	Grouping = 75,
+	BaseJamChance = -10,
+}
+

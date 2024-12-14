@@ -1,0 +1,106 @@
+UndefineClass('FAMAS')
+DefineClass.FAMAS = {
+	__parents = { "AssaultRifle" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T1-",
+	object_class = "AssaultRifle",
+	ScrapParts = 10,
+	Reliability = 50,
+	Icon = "Mod/e6L4ECj/WeaponIcons/Famas.png",
+	DisplayName = T(730384992135, --[[ModItemInventoryItemCompositeDef FAMAS DisplayName]] "FAMAS"),
+	DisplayNamePlural = T(514684930452, --[[ModItemInventoryItemCompositeDef FAMAS DisplayNamePlural]] "FAMAS"),
+	Description = T(141454068995, --[[ModItemInventoryItemCompositeDef FAMAS Description]] "Вся утилитарность и эргономичность буллпап-дизайна. Конструкторы планировали, что магазины для винтовки будут одноразовые и выбрасываться после использования, но даже самый лучший план не в состоянии пережить встречи с реальностью: солдаты начали повторно использовать магазины, что, разумеется, привело к куче разных проблем. Поэтому позже пришлось разрабатывать более прочный магазин."),
+	AdditionalHint = T(998151280081, --[[ModItemInventoryItemCompositeDef FAMAS AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Отсечка по 3 патрона\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая скорострельность при стрельбе в автоматическом огне"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 2500,
+	CanAppearInShop = true,
+	CategoryPair = "AssaultRifles",
+	Caliber = "JAZZ_Caliber_556",
+	Damage = 18,
+	ObjDamageMod = 50,
+	AimAccuracy = 17,
+	CritChance = 5,
+	CritChanceScaled = 20,
+	MagazineSize = 25,
+	WeaponRange = 38,
+	OverwatchAngle = 1680,
+	Noise = 50,
+	HandSlot = "TwoHanded",
+	Entity = "Weapon_FAMAS",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Under",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"VerticalGrip",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Bipod",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Bipod",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Side",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Flashlight",
+				"LaserDot",
+				"FlashlightDot",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Reflex_Aimpoint5000",
+				"JAZZ_Reflex_Closed",
+				"JAZZ_Reflex_Eotech",
+				"JAZZ_Reflex_M68",
+				"JAZZ_CombatScope_2x",
+				"JAZZ_CombatScope_ACOG",
+				"JAZZ_NightScope",
+				"JAZZ_Scope_6x",
+				"JAZZ_Scope_12x",
+				"JAZZ_Scope_Scout",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'AvailableComponents', {
+				"Compensator",
+				"Suppressor",
+				"ImprovisedSuppressor",
+			},
+			'DefaultComponent', "Compensator",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'Modifiable', false,
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"MagNormal",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	AvailableAttacks = {
+		"BurstFire",
+		"AutoFire",
+		"SingleShot",
+		"CancelShot",
+	},
+	ShootAP = 4000,
+	ReloadAP = 5000,
+	Recoil = 10,
+	Handling = 74,
+	BulletDropRange = 15,
+	Grouping = 235,
+}
+

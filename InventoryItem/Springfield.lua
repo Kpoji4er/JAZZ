@@ -1,0 +1,57 @@
+UndefineClass('Springfield')
+DefineClass.Springfield = {
+	__parents = { "SniperRifle" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T1-",
+	object_class = "SniperRifle",
+	ScrapParts = 8,
+	Reliability = 30,
+	Icon = "Mod/e6L4ECj/WeaponIcons/Springfield.png",
+	DisplayName = T(376570929427, --[[ModItemInventoryItemCompositeDef Springfield DisplayName]] "Springfield 1903"),
+	DisplayNamePlural = T(124159407418, --[[ModItemInventoryItemCompositeDef Springfield DisplayNamePlural]] "Springfield 1903"),
+	Description = T(319092420696, --[[ModItemInventoryItemCompositeDef Springfield Description]] "Винтовка Спрингфилд 1903 во многом повторяет констукцию винтовок Маузер 98. Собственно, чего нового можно придумать с продольно скользящим поворотным затвором?"),
+	AdditionalHint = T(402827245243, --[[ModItemInventoryItemCompositeDef Springfield AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Продольно-скользящий затвор - высокие затраты ОД на выстрел\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая точность"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 1100,
+	CategoryPair = "Rifles",
+	CanAppearStandard = false,
+	Caliber = "JAZZ_Caliber_3006",
+	Damage = 36,
+	ObjDamageMod = 80,
+	AimAccuracy = 26,
+	CritChanceScaled = 40,
+	MagazineSize = 5,
+	WeaponRange = 64,
+	OverwatchAngle = 420,
+	Noise = 85,
+	HandSlot = "TwoHanded",
+	Entity = "M1903",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Scope_Springfield",
+			},
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	ModifyRightHandGrip = true,
+	PreparedAttackType = "Both",
+	AvailableAttacks = {
+		"SingleShot",
+		"CancelShot",
+	},
+	ShootAP = 7000,
+	ReloadAP = 7000,
+	MaxAimActions = 4,
+	BurstShots = 1,
+	AutoShots = 1,
+	Handling = 33,
+	BulletDropRange = 23,
+	Grouping = 379,
+}
+

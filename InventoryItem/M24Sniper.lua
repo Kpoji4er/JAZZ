@@ -1,0 +1,106 @@
+UndefineClass('M24Sniper')
+DefineClass.M24Sniper = {
+	__parents = { "SniperRifle" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T2+",
+	object_class = "SniperRifle",
+	ScrapParts = 14,
+	Reliability = 80,
+	Icon = "Mod/e6L4ECj/WeaponIcons/M24.png",
+	DisplayName = T(594362204689, --[[ModItemInventoryItemCompositeDef M24Sniper DisplayName]] "M24"),
+	DisplayNamePlural = T(331702918062, --[[ModItemInventoryItemCompositeDef M24Sniper DisplayNamePlural]] "M24"),
+	Description = T(756650917281, --[[ModItemInventoryItemCompositeDef M24Sniper Description]] "Снайперская система армии США, заменившая М21 (которая, в свою очередь, базировалась на М14). Похоже, самозарядные винтовки так и не смогли обеспечить надежность и точность, которые дает старый добрый продольно-скользящий затвор."),
+	AdditionalHint = T(268336330579, --[[ModItemInventoryItemCompositeDef M24Sniper AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Продольно-скользящий затвор - высокие затраты ОД на выстрел\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выскоая дальность и точность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ужасная эффективность стрельбы навскидку"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 35000,
+	CanAppearInShop = true,
+	Tier = 2,
+	CategoryPair = "Rifles",
+	Caliber = "JAZZ_Caliber_762x51",
+	Damage = 37,
+	ObjDamageMod = 80,
+	AimAccuracy = 30,
+	CritChanceScaled = 40,
+	MagazineSize = 5,
+	WeaponRange = 75,
+	OverwatchAngle = 360,
+	Noise = 80,
+	HandSlot = "TwoHanded",
+	Entity = "Weapon_M24",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Stock",
+			'AvailableComponents', {
+				"StockHeavy",
+				"StockLight",
+				"StockNormal",
+			},
+			'DefaultComponent', "StockNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Bipod",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Bipod",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagNormal",
+				"MagLarge_5_10",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_CombatScope_2x",
+				"JAZZ_CombatScope_ACOG",
+				"JAZZ_NightScope",
+				"JAZZ_Scope_6x",
+				"JAZZ_Scope_12x",
+				"JAZZ_Scope_Scout",
+			},
+			'DefaultComponent', "JAZZ_Scope_6x",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Suppressor",
+				"SuppressorImproved",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Side",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Flashlight",
+				"FlashlightDot",
+				"LaserDot",
+				"UVDot",
+			},
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	PreparedAttackType = "Both",
+	AvailableAttacks = {
+		"SingleShot",
+		"CancelShot",
+	},
+	ShootAP = 7000,
+	ReloadAP = 7000,
+	MaxAimActions = 4,
+	BurstShots = 1,
+	AutoShots = 1,
+	Handling = 37,
+	BulletDropRange = 23,
+	Grouping = 450,
+	BaseJamChance = -20,
+}
+

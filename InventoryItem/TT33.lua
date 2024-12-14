@@ -1,0 +1,70 @@
+UndefineClass('TT33')
+DefineClass.TT33 = {
+	__parents = { "Pistol" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T1 7.62x25",
+	object_class = "Pistol",
+	ScrapParts = 6,
+	RepairCost = 70,
+	Reliability = 35,
+	Icon = "Mod/e6L4ECj/WeaponIcons/TT.png",
+	DisplayName = T(143708290099, --[[ModItemInventoryItemCompositeDef TT33 DisplayName]] "Пистолет ТТ"),
+	DisplayNamePlural = T(377868313170, --[[ModItemInventoryItemCompositeDef TT33 DisplayNamePlural]] "Пистолеты ТТ"),
+	Description = T(492983145408, --[[ModItemInventoryItemCompositeDef TT33 Description]] 'Пистолет "Тульский-Токарева" представляет собой очередную вариацию схемы Браунинга на избитую советскую тему "у нас есть куча патронов на складах, нужно оружие для них".'),
+	AdditionalHint = T(998090805654, --[[ModItemInventoryItemCompositeDef TT33 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Пробивает броню 2 класса\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая эффективность стрельбы навскидку"),
+	UnitStat = "Marksmanship",
+	Cost = 350,
+	CanAppearInShop = true,
+	CategoryPair = "Handguns",
+	CanAppearStandard = false,
+	Caliber = "JAZZ_Caliber_762x25",
+	Damage = 19,
+	ObjDamageMod = 20,
+	AimAccuracy = 5,
+	CritChance = 5,
+	MagazineSize = 8,
+	WeaponRange = 14,
+	OverwatchAngle = 5280,
+	Noise = 35,
+	Entity = "TT33f",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"MagNormal",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'Modifiable', false,
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Freeswap",
+			'AvailableComponents', {
+				"Freeswap",
+			},
+			'DefaultComponent', "Freeswap",
+		}),
+	},
+	HolsterSlot = "Leg",
+	AvailableAttacks = {
+		"SingleShot",
+		"DualShot",
+		"CancelShot",
+		"MobileShot",
+	},
+	ShootAP = 3000,
+	ReloadAP = 3000,
+	MaxAimActions = 2,
+	Recoil = 1,
+	AutoShots = 3,
+	Handling = 88,
+	BulletDropRange = 7,
+	Grouping = 80,
+	BaseJamChance = -10,
+}
+

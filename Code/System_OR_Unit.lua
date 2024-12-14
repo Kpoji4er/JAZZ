@@ -1,0 +1,1141 @@
+local function add_weapon_attacks(actions, unit, weapon)
+	if IsKindOf(weapon, "MachineGun") and not unit:HasStatusEffect("StationedMachineGun") then
+		table.insert_unique(actions, "MGSetup")
+	elseif IsKindOf(weapon, "HeavyWeapon") then
+		table.insert_unique(actions, weapon:GetBaseAttack())
+	elseif IsKindOf(weapon, "Firearm") then
+		for _, id in ipairs(weapon.AvailableAttacks or empty_table) do
+			table.insert_unique(actions, id)
+		end
+	elseif IsKindOf(weapon, "MeleeWeapon") then
+		if weapon.Charge then
+			table.insert_unique(actions, "Charge")
+		else
+			table.insert_unique(actions, "Brutalize")
+		end
+	elseif not weapon then
+		table.insert_unique(actions, "Brutalize")
+	end
+end
+
+
+local _resolve_default_firing_mode_actions = {}
+local _is_attack_available_units = {}
+
+function Unit:ResolveDefaultFiringModeAction(firingMode, ui, sync)
+	local actions = _resolve_default_firing_mode_actions
+	table.iclear(actions)
+	local firing_id = firingMode.id
+
+	local weapon = firingMode:GetAttackWeapons(self)
+	if IsKindOf(weapon, "Firearm") then
+		for _, id in ipairs(weapon.AvailableAttacks) do
+			if CombatActions[id].FiringModeMember == firing_id then
+				actions[#actions + 1] = CombatActions[id]
+			end
+		end
+	else
+		for id, action in pairs(CombatActions) do
+			if action.FiringModeMember == firing_id then
+				actions[#actions + 1] = action
+			end
+		end
+	end
+
+	-- special casea
+	if firing_id == "AttackDual" then
+		table.insert_unique(actions, CombatActions.LeftHandShot)
+		table.insert_unique(actions, CombatActions.RightHandShot)
+	elseif firing_id == "Attack" and weapon:HasComponent("EnableFullAuto") then
+		table.insert_unique(actions, CombatActions.AutoFire)
+	elseif firing_id == "Attack" and weapon:HasComponent("TwoHanded") then
+		if table.find(actions, "id", "AttackDual") then
+		table.remove(actions, CombatActions.AttackDual) end
+	end
+	table.sort(actions, function(a, b)
+		return a.SortKey < b.SortKey
+	end)
+
+	if  weapon:HasComponent("EnableRunNGun") then
+		table.insert_unique(actions, CombatActions.RunAndGun)
+	end
+
+	if self:HasStatusEffect("Hidden") then
+		if table.find(actions, "id", "SingleShot") then
+			return "SingleShot", actions
+		end
+	end
+	_is_attack_available_units[1] = self
+	if ui and self.lastFiringMode and table.find(actions, "id", self.lastFiringMode) then
+		local action = CombatActions[self.lastFiringMode]
+		if action:GetUIState(_is_attack_available_units) == "enabled" then
+			if self:HasAP(action:GetAPCost(self), action.id) then
+				return action.id, actions
+			end
+		end
+	end
+	for _, action in ipairs(actions) do
+		if action:GetUIState(_is_attack_available_units) == "enabled" then
+			if not ui or self:HasAP(action:GetAPCost(self), action.id) then
+				return action.id, actions
+			end
+		end
+	end
+	return actions[1] and actions[1].id, actions
+end
+
+
+
+function Unit:GetSightRadius(other, base_sight, step_pos)
+	-- base sight radius, based on awareness (in-combat only) and illumination	
+	local modifier = 100
+	local camo = 0
+	local visionbonus = 0
+	local DustStormProtection = 0
+
+	local other_is_unit = other and IsKindOf(other, "Unit") or false
+	local hidden = other_is_unit and other:HasStatusEffect("Hidden")
+	local sight = base_sight or (not hidden and self:IsAware() and const.Combat.AwareSightRange or const.Combat.UnawareSightRange)
+	local night_time = GameState.Night or GameState.Underground
+	if night_time and other and IsIlluminated(other, nil, nil, step_pos) then
+		night_time = false
+	end
+
+	if HasPerk(self, "Jazz_Perk_Lynx") then
+		sight = sight + 6
+	end
+
+	local force_min_sight = self:CallReactions_Or("OnCheckForceMinSight", self, other, step_pos, night_time)
+	force_min_sight = force_min_sight or (IsKindOf(other, "Unit") and other:CallReactions_Or("OnCheckForceMinSight", self, other, step_pos, night_time))
+	if force_min_sight then
+		return MulDivRound(sight, const.Combat.SightModMinValue, 100) * const.SlabSizeX, hidden, night_time
+	end
+	modifier = self:CallReactions_Modify("OnCalcSightModifier", modifier, self, other, step_pos, night_time)
+	if IsKindOf(other, "Unit") then
+		modifier = other:CallReactions_Modify("OnCalcSightModifier", modifier, self, other, step_pos, night_time)
+	end
+	
+	if other_is_unit and not other:IsDead() and not other:IsDowned() then
+		if hidden then
+			-- add (clamped) attrib difference as modifier
+			local steath_mod = Max(0, MulDivRound(other.Agility - self.Wisdom, const.Combat.SightModStealthStatDiff, 100))		
+
+			modifier = modifier - steath_mod
+		end
+
+
+		if other:HasStatusEffect("FleetingShadow") then 
+			camo = camo + 20
+		end
+
+
+	
+		other:ForEachItem("Armor", function(item, slot)
+			if slot ~= "Inventory" 	and item.CamouflagePercent then camo = camo + MulDivRound(item.CamouflagePercent,item:GetConditionPercent()-item.Deterioration,100)
+			end
+		end)
+		
+
+--		if (armor and armor.Camouflage) or other:HasStatusEffect("FleetingShadow") then
+
+--		end
+
+	end
+
+	self:ForEachItem("Armor", function(item, slot)
+		if slot ~= "Inventory" and item.Vision then visionbonus = visionbonus + MulDivRound(item.Vision,item:GetConditionPercent()-item.Deterioration,100) end
+	end)
+
+
+
+	-- environmental factors
+	if other then
+		local env_factors = GetVoxelStealthParams(step_pos or other) or 0
+		if band(env_factors, const.vsFlagTallGrass) ~= 0 then
+			modifier = modifier + const.EnvEffects.BrushSightMod
+
+			if hidden then
+				modifier = modifier - camo
+			else
+				modifier = modifier - camo/2
+			end
+
+			if other.stance == "Prone" then
+				modifier = modifier - const.Combat.SightModHiddenProne
+			end
+
+		else
+			if hidden then
+				modifier = modifier - camo/3
+			else
+				modifier = modifier - camo/5
+			end
+
+			if other.stance == "Prone" then
+				modifier = modifier - const.Combat.SightModHiddenProne/3
+			end
+		end
+	end
+	if night_time and other then
+		local darknessMod = const.EnvEffects.DarknessSightMod
+		if self:HasNightVision() then
+			local penaltyReduce = 0
+			if HasPerk(self, "NightOps") then
+				penaltyReduce = CharacterEffectDefs.NightOps:ResolveValue("night_vision_penalty_reduction")
+			end
+			self:ForEachItem("Armor", function(item, slot)
+				if slot ~= "Inventory" and item.NightVision then
+					 penaltyReduce = penaltyReduce + MulDivRound(item.NightVision,item:GetConditionPercent()-item.Deterioration,100) end
+			end)
+
+			if penaltyReduce > 100 then penaltyReduce = 100 end
+			--penaltyReduce = 100 - penaltyReduce
+			darknessMod = MulDivRound(darknessMod, 100-penaltyReduce, 100)
+		end
+		modifier = modifier + darknessMod
+		--if visionbonus < 0 then modifier = modifier + visionbonus end
+	else
+		modifier = modifier + visionbonus
+	end	
+	if GameState.Fog then
+		modifier = modifier + const.EnvEffects.FogSightMod
+	end
+	if GameState.DustStorm then
+
+		self:ForEachItem("Armor", function(item, slot)
+			if slot ~= "Inventory" and item.DustStormProtection then DustStormProtection = DustStormProtection + MulDivRound(item.DustStormProtection,item.Condition,100) end
+		end)
+		modifier = modifier + const.EnvEffects.DustStormSightMod + DustStormProtection
+	end
+	if GameState.FireStorm then
+		modifier = modifier + const.EnvEffects.FireStormSightMod
+	end
+	if other_is_unit then	-- height difference check
+		local ox, oy, oz
+		if step_pos then
+			ox, oy, oz = PosToGridCoords(step_pos:xyz())
+		else
+			ox, oy, oz = other:GetGridCoords()
+		end
+		local x, y, z = self:GetGridCoords()
+		if oz >= z + const.EnvEffects.SightHeightDiffThreshold then
+			modifier = modifier + const.EnvEffects.SightHeightDiffMod
+		elseif g_Exploration and oz + const.EnvEffects.SightHeightDiffThreshold < z  then
+			modifier = modifier + -(const.EnvEffects.SightHeightDiffMod * 2)
+		end
+	end
+	
+	--print(modifier)
+	--print(camo)
+	modifier = Clamp(modifier, const.Combat.SightModMinValue, const.Combat.SightModMaxValue)
+	
+	local sightAmount = MulDivRound(sight, modifier, 100) * const.SlabSizeX
+	
+	-- Prevent going in and out of sus state due to Pos/VisualPos differences.
+	if self.command == "IdleSuspicious" then
+		sightAmount = sightAmount + const.SlabSizeX / 4
+	end
+	
+	return sightAmount, hidden, night_time
+end
+
+function Unit:OnGearChanged(isLoad)
+	self.using_cumbersome = false
+	NetUpdateHash("CumbersomeReset", self)
+	self:ForEachItem(false, function(item, slot)
+		
+		if slot ~= "Inventory" and item:IsCumbersome() and not (item:IsKindOf("MachineGun") and HasPerk(self, "Merc_SamuelNkosi_Perk")) then
+			self.using_cumbersome = true
+			NetUpdateHash("CumbersomeSet", self)
+		end
+		item:ApplyModifiersList(item.applied_modifiers)
+	end)
+	Msg("UnitAPChanged", self)
+	ObjModified(self)
+	ObjModified(self.Inventory)
+end
+
+
+
+
+function UnitProperties:EquipStartingGear(items)
+	local func = empty_func
+	if IsKindOf(self, "UnitData") then
+		local template= UnitDataDefs[self.class]
+		func = template and template.CustomEquipGear or self.CustomEquipGear
+	end
+	
+	-- priority custom gearing rules
+	func(self, items)
+	
+	-- default gearing rules:
+	-- make sure there's an equipped weapon if possible
+	if not self:GetItemInSlot("Handheld A", "BaseWeapon") then
+		local has_weapon = self:TryEquip(items, "Handheld A", "Firearm")
+		has_weapon = has_weapon or self:TryEquip(items, "Handheld A", "MeleeWeapon")
+		has_weapon = has_weapon or self:TryEquip(items, "Handheld A", "HeavyWeapon")
+	end
+
+	if not self:GetItemInSlot("Handheld B", "BaseWeapon") then
+		local has_weapon = self:TryEquip(items, "Handheld B", "Firearm")
+		has_weapon = has_weapon or self:TryEquip(items, "Handheld B", "MeleeWeapon")
+		has_weapon = has_weapon or self:TryEquip(items, "Handheld B", "HeavyWeapon")
+	end
+	
+	local equipped = {}
+	-- locked items that are not weapons add to the first inventory slot
+	for i, item in ipairs(items) do
+		if item.locked and not item:IsWeapon() and not IsKindOf(item, "Armor") then -- lock to the first inventory slot
+			if self:CanAddItem("Inventory", item) then
+				self:AddItem("Inventory", item)
+				equipped[i] = true
+			end
+		end				
+	end
+	-- equip the rest of the equppable items when possible
+	
+	for i, item in ipairs(items) do
+		if not equipped[i] then
+			local slot
+			if IsKindOf(item, "QuickSlotItem") then
+				if self:CanAddItem("Handheld A", item) then
+					slot = "Handheld A"
+				elseif self:CanAddItem("Handheld B", item) then
+					slot = "Handheld B"
+				end
+			elseif IsKindOf(item, "Armor") and not self:GetItemInSlot(item.Slot) then
+				slot = item.Slot
+			end
+			if slot and self:CanAddItem(slot, item) then
+				self:AddItem(slot, item)
+				equipped[i] = true
+			end
+		end
+	end
+	
+	-- make sure all equipped firearms have ammo
+	local function reload_weapon(weapon)
+		if not weapon.ammo or weapon.ammo.Amount <= 0 then
+			local ammo = GetAmmosWithCaliber(weapon.Caliber, "sort")[1]
+			if ammo then
+				local tempAmmo = PlaceInventoryItem(ammo.id)
+				tempAmmo.Amount = tempAmmo.MaxStacks
+			--	weapon:Reload(tempAmmo, "suspend_fx")
+				DoneObject(tempAmmo)
+			end
+		end
+	end
+	self:ForEachItemInSlot("Handheld A", "Firearm", reload_weapon)
+	self:ForEachItemInSlot("Handheld B", "Firearm", reload_weapon)
+	
+	-- place the rest in Inventory slot
+	for i, item in ipairs(items) do
+		if not equipped[i] then
+			local pos, reason = self:AddItem("Inventory", item)
+			if not pos then
+				print("Couldn't add starting item \'", item.class, "\' to unit", self.class, "because", reason, "max slots", self:GetMaxTilesInSlot("Inventory"))
+			end		
+		end
+	end
+end
+
+function Unit:GetAttackAPCost(action, weapon, action_ap_cost, aim, delta)
+	if not weapon then 
+		return 0
+	end
+	
+	local min, max = self:GetBaseAimLevelRange(action, weapon)
+	aim = Clamp(aim or 0, min, max) - min -- only charge for aiming above min level
+	delta = delta or 0
+	local aimCost = const.Scale.AP
+	local rain_penalty = GameState.RainHeavy and not self.indoors
+	--if rain_penalty then
+	--	aimCost = MulDivRound(aimCost, 100 + const.EnvEffects.RainAimingMultiplier, 100)
+	--end
+	
+	local ap = action_ap_cost or weapon.AttackAP or weapon.ShootAP or 0
+	ap = ap + delta 
+	ap = self:CallReactions_Modify("OnCalcAPCost", ap, action, weapon, aim)
+
+	if IsKindOf(weapon, "HeavyWeapon") then
+	elseif IsKindOf(weapon, "Firearm") or IsKindOf(weapon, "Grenade") or IsKindOf(weapon, "MeleeWeapon") then
+		ap = ap + aim * aimCost
+	else
+		ap = -1
+	end
+	
+	-- legal cheat: during heavy rain last possible aim costs 1 AP regardless of the penalty
+	local remainingAP = (self:GetUIActionPoints() / 1000) * 1000
+	if rain_penalty and ap > remainingAP and aim > 0 then 
+		local diff = abs(remainingAP - ap)
+		if diff < aimCost and diff >= const.Scale.AP then
+			ap = remainingAP
+			aimCost = 1000
+		end
+	end
+	
+	return ap, aimCost
+end
+
+
+function Unit:CalcChanceToHit(target, action, args, chance_only)
+	-- Argument validation and fallbacks
+	if not (IsPoint(target) or IsValid(target) and IsKindOf(target, "CombatObject")) then
+		return 0
+	end
+	local weapon1, weapon2 = action:GetAttackWeapons(self)
+	local weapon = args and args.weapon or weapon1
+	if not weapon or IsKindOf(weapon, "Medicine") then
+		return 0
+	end
+
+	local modifiers = not chance_only and {}
+	
+	if CheatEnabled("AlwaysHit") then
+		if modifiers then 
+			modifiers[#modifiers + 1] = {
+				name = T(521586645369, "Cheat: Always Hit"),
+				value = 100,
+				id = "cheat"
+			}
+		end
+		return 100, 100, modifiers
+	elseif CheatEnabled("AlwaysMiss") then
+		if modifiers then
+			modifiers[#modifiers + 1] = {
+				name = T(455715392693, "Cheat: Always Miss"),
+				value = 0,
+				id = "cheat"
+			}
+		end
+		return 0, 0, modifiers
+	end
+
+	local target_spot_group = args and args.target_spot_group or nil
+	if type(target_spot_group) == "table" then
+		target_spot_group = target_spot_group.id
+	end
+	target_spot_group = target_spot_group or g_DefaultShotBodyPart
+	if type(target_spot_group) == "string" then
+		target_spot_group = Presets.TargetBodyPart.Default[target_spot_group]
+	end
+
+	local aim = args and args.aim or 0
+	local opportunity_attack = args and args.opportunity_attack
+	local attacker_pos = args and (args.step_pos or args.goto_pos) or self:GetPos()
+	local target_pos = args and args.target_pos or IsPoint(target) and target or target:GetPos()
+
+	local handling = weapon.Handling
+
+	local base = 0
+
+	-- Base CTH
+	local skill = (self[weapon.base_skill]+self["Dexterity"]*2+self:GetLevel()*10)/3
+	if IsKindOf(weapon, "MachineGun") then local skill = (self[weapon.base_skill]*2+self["Dexterity"]+self["Strength"]+self:GetLevel()*10)/4 end
+--	if aim == 0 then
+--		skill = MulDivRound(skill,0.8*handling,100)
+--	else
+	if handling then 
+		skill = MulDivRound(skill,handling,100)
+	end
+--	end
+
+	if action.id == "SteroidPunch" then
+		skill = self["Strength"]
+	end
+	base = base + skill
+	
+	if args and not args.prediction then
+		local effects = {}
+		for i, effect in ipairs(self.StatusEffects) do
+			effects[i] = effect.class
+		end
+		effects = table.concat(effects, ",")
+		local target_effects = "-"
+		if IsKindOf(target, "Unit") then
+			target_effects = {}
+			for i, effect in ipairs(target.StatusEffects) do
+				target_effects[i] = effect.class
+			end
+			target_effects = table.concat(target_effects, ",")
+		end
+		NetUpdateHash("CalcChanceToHit_Base", self, target, action.id, weapon.class, weapon.id, base, effects, target_effects,
+			weapon1 and weapon1.class, weapon1 and weapon1.id, weapon1 and weapon1.Condition, weapon1 and weapon1.MaxCondition,
+			weapon2 and weapon2.class, weapon2 and weapon2.id, weapon2 and weapon2.Condition, weapon2 and weapon2.MaxCondition
+		)
+	end
+	
+	if modifiers then
+		self.combat_cache = self.combat_cache or {}
+		local key = "base_cth_" .. weapon.base_skill
+		local skillmod = self.combat_cache[key]
+		if not skillmod then
+			local prop_meta = self:GetPropertyMetadata(weapon.base_skill)
+			if prop_meta then
+				--print(prop_meta)
+				if prop_meta.id=="Marksmanship" then
+					skillmod =
+					{
+						name = T(4621434559001, "Базовый шанс (от эргономики)"),
+						value = skill
+					}
+--				elseif prop_meta.id=="Marksmanship" and aim > 0 then
+--					skillmod =
+--					{
+--						name = T(4621434559001, "Базовый шанс (100% от эргономики)"),
+--						value = skill
+--					}
+				else
+					skillmod =
+					{
+						name = prop_meta.name,
+						value = skill
+					}
+				end
+			else
+				assert(false, "weapon base skill '" .. weapon.base_skill .. "' property metadata not found!")
+				skillmod =
+				{
+					name = T(462143455900, "Marksmanship"),
+					value = skill
+				}
+			end
+			self.combat_cache[key] = skillmod
+		end
+		table.insert(modifiers, skillmod)
+	end
+
+	local mod_data = {
+		attacker = self,
+		target = target,
+		target_spot_group = target_spot_group,
+		action = action, 
+		weapon1 = weapon1, 
+		weapon2 = weapon2, 
+		aim = aim, 
+		opportunity_attack = opportunity_attack, 
+		attacker_pos = attacker_pos, 
+		target_pos = target_pos,
+		min = 0,
+		max = 100,
+	}
+
+
+	-- Evaluate all modifiers
+	ForEachPreset("ChanceToHitModifier", function(mod)
+		if mod.RequireTarget and not IsValidTarget(target) then
+			return
+		end
+		local req_action = mod.RequireActionType
+		if req_action == "Any Attack" then
+			if action.ActionType == "Other" then
+				return
+			end
+		elseif req_action == "Any Melee Attack" then
+			if action.ActionType ~= "Melee Attack" then
+				return
+			end
+		elseif req_action == "Any Ranged Attack" then
+			if action.ActionType ~= "Ranged Attack" then
+				return
+			end
+		elseif req_action ~= action.id then
+			return
+		end
+		
+		local lof = false -- Currently unused by any modifier
+		local apply, value, nameOverride, metaText, idOverride = mod:CalcValue(self, target, target_spot_group, action, weapon, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
+		if args and not args.prediction then
+			NetUpdateHash("CalcChanceToHit_Modifier", mod.id, apply, value)
+		end
+		if not apply then
+			return
+		end
+		-- automated GatherCTHModifications provide a standard mechanism for replacing display name & adding meta text (only for the applicable mods)
+		mod_data.display_name = nameOverride or mod.display_name
+		mod_data.meta_text = (IsT(metaText) and {metaText} or metaText) or nil
+		value = self:GatherCTHModifications(mod.id, value, mod_data)
+		if args and not args.prediction then
+			NetUpdateHash("CalcChanceToHit_Modifier_Mods", mod.id, value)
+		end
+		local nameOverride = mod_data.display_name
+		local metaText = #mod_data.meta_text > 0 and mod_data.meta_text
+		base = base + value
+		if mod_data.enabled and modifiers then
+			table.insert(modifiers, 
+			{ 
+				name = nameOverride or mod.display_name,
+				value = value,
+				id = idOverride or mod.id,
+				metaText = metaText
+			})
+		end
+	end)
+	
+	-- cycle status effects, running GatherCTHModifications() for every one of them, using the effect class/id as mod id
+		-- this way status effects can implement their own cth modifiers via the same mechanism
+	for _, effect in ipairs(self.StatusEffects) do
+		mod_data.display_name = effect.DisplayName
+		mod_data.meta_text = nil
+		local value = self:GatherCTHModifications(effect.class, 0, mod_data)
+		if args and not args.prediction then
+			NetUpdateHash("CalcChanceToHit_Effect_Mods", effect.class, value)
+		end
+		if value and value ~= 0 then
+			base = base + value
+			if mod_data.enabled and modifiers then
+				table.insert(modifiers, 
+				{ 
+					name = mod_data.display_name,
+					value = value,
+					id = effect.id,
+					metaText = mod_data.meta_text
+				})
+			end
+		end
+	end
+	
+	-- process weaponcomponenteffects
+	mod_data.weapon1 = nil
+	mod_data.weapon2 = nil
+	local weapons = {weapon1, weapon2}
+	for _, weapon in ipairs(weapons) do
+		if IsKindOf(weapon, "Firearm") then		
+			for slot_id, component_id in sorted_pairs(weapon.components) do
+				local def = WeaponComponents[component_id]
+				local effects = def and def.ModificationEffects or empty_table
+				if next(effects) ~= nil then
+					mod_data.weapon1 = weapon
+					mod_data.display_name = def.DisplayName
+					mod_data.meta_text = nil
+					local value = self:GatherCTHModifications(component_id, 0, mod_data)
+					if args and not args.prediction then
+						NetUpdateHash("CalcChanceToHit_Component_Mods", weapon.id, component_id, value)
+					end
+					if value and value ~= 0 then
+						base = base + value
+						if mod_data.enabled and modifiers then
+							table.insert(modifiers, 
+							{ 
+								name = mod_data.display_name,
+								value = value,
+								id = component_id,
+								metaText = mod_data.meta_text
+							})
+						end
+					end
+				end
+			end
+		end
+	end
+	
+	mod_data.modifiers = modifiers
+	self:CallReactions("OnCalcChanceToHit", self, action, target, weapon1, weapon2, mod_data)
+	if IsKindOf(target, "Unit") then
+		target:CallReactions("OnCalcChanceToHit", self, action, target, weapon1, weapon2, mod_data)
+	end
+	base = Max(0, mod_data.enabled and MulDivRound(base + mod_data.mod_add, mod_data.mod_mul, 100) or 0)
+
+	local dist = Max(1,attacker_pos:Dist(target_pos)/const.SlabSizeX)
+
+	local MaxCTH = 100
+
+	if weapon1 and weapon1.Grouping then
+		local groupingPerSlab = weapon1.Grouping * 10 * weapon1:GetConditionPercent()/100 * (100-weapon1.Deterioration)/100
+		local groupingResult = DivRound(groupingPerSlab, dist)
+
+		
+		if groupingResult < 100 then
+			MaxCTH = groupingResult
+			--print(MaxCTH)
+		end
+	end
+
+	local target_pos = IsPoint(target) and target or target:GetPos()
+	local knife_throw = IsKindOf(weapon, "MeleeWeapon") and (action.ActionType == "Ranged Attack")
+	local penalty = weapon:GetAccuracy(attacker_pos:Dist(target_pos), self, action, knife_throw) - 100
+	local final = Clamp(base + penalty, 0, MaxCTH)
+	final = Clamp(final, mod_data.min, mod_data.max)
+		
+
+
+
+	if args and not args.prediction then
+		NetUpdateHash("CalcChanceToHit_Final", final)
+	end
+	
+	if chance_only then
+		return final
+	end
+	if penalty < 0 then
+		if action.ActionType == "Melee Attack" then
+			modifiers[#modifiers + 1] = {
+				name = T(660754354729, "Weapon Accuracy"),
+				value = penalty,
+				id = "Accuracy"
+			}
+		elseif penalty <= -100 then
+			modifiers[#modifiers + 1] = {
+				name = T(162704513413, "Out of Range"),
+				value = penalty,
+				id = "Range"
+			}
+		else
+			modifiers[#modifiers + 1] = {
+				name = T(30158603055711, "Bullet Drop"),
+				value = penalty,
+				id = "Range"
+			}
+		end
+	end
+	return final, base, modifiers, penalty
+end
+
+
+function Unit:GetInteractionPosWith(target, ignore_occupied)
+	if not target then return end
+	if  not target:GetInteractionPos(self) then return end
+	local positions = target:GetInteractionPos(self)
+	if not positions then
+		return
+	end
+	if type(positions) == "table" then
+		if #positions == 0 then
+			return
+		end
+		if ignore_occupied == nil then
+			ignore_occupied = positions.ignore_occupied
+		end
+	end
+	local pfflags = self:GetPathFlags()
+	if ignore_occupied then
+		pfflags = pfflags & ~const.pfmDestlock
+	end
+	local has_path, closest_pos = pf.HasPosPath(self, positions, nil, 0, 0, self, 0, nil, pfflags)
+	-- Could path to
+	if has_path and closest_pos then
+		if closest_pos == positions or type(positions) == "table" and table.find(positions, closest_pos) then
+			return closest_pos
+		-- Couldnt path, but unit is close enough
+		elseif self:CloseEnoughToInteract(positions, target) then
+			return closest_pos
+		end
+	end
+end
+
+
+
+function UnitBase:GetPersonalMorale()
+	local teamMorale = self.team and self.team.morale or 0
+	local personalMorale = 0
+	
+	--reduce morale for at least one disliked merc in team
+	local isDisliking = false
+	for _, dislikedMerc in ipairs(self.Dislikes) do
+		local dislikedIndex = table.find(self.team.units, "session_id", dislikedMerc)
+		if dislikedIndex and not self.team.units[dislikedIndex]:IsDead() then
+			personalMorale = personalMorale - 1
+			isDisliking = true
+			break
+		end
+	end
+	--increase morale for no disliked and at least one liked merc
+	--if not isDisliking then
+		for _, likedMerc in ipairs(self.Likes) do
+			local likedIndex = table.find(self.team.units, "session_id", likedMerc)
+			if likedIndex and not self.team.units[likedIndex]:IsDead()  then
+				personalMorale = personalMorale + 1
+				break
+			end
+		end
+	--end
+	--lower morale if below 50% or 3+ wounds (REVERT for psycho perk)
+	local isWounded = false
+	local idx = self:HasStatusEffect("Wounded")
+	if idx and self.StatusEffects[idx].stacks >= 3 then
+		isWounded = true
+	end
+	if self.HitPoints then
+		if self.HitPoints < MulDivRound(self.MaxHitPoints, 50, 100) or isWounded then
+			if HasPerk(self, "Psycho") then
+				personalMorale = personalMorale + 1
+			else
+				personalMorale = personalMorale - 1
+			end
+		end
+	end
+	--lower morale if liked merc has died recently
+	for _, likedMerc in ipairs(self.Likes) do
+		local ud = gv_UnitData[likedMerc]
+		if ud and ud.HireStatus == "Dead" then
+			local deathDay = ud.HiredUntil
+			if deathDay + 7 * const.Scale.day > Game.CampaignTime then
+				personalMorale = personalMorale - 1
+				break
+			end
+		end
+	end
+	
+	personalMorale = self:CallReactions_Modify("OnCalcPersonalMorale", personalMorale)
+	
+	return Clamp(personalMorale + teamMorale, -3, 3)
+end
+
+function UnitProperties:GetMaxActionPoints()
+	local base = 8 * const.Scale.AP
+
+	local level = self:GetLevel()
+	local agi = MulDivRound(self:GetProperty("Agility"),1,10)
+	--local hp = MulDivRound(self:GetProperty("Health"),1,10)
+	local hp = MulDivRound(self:GetProperty("Health"),1,10)
+	if self.HitPoints then
+		local hp = MulDivRound(self.HitPoints,1,10)
+	end
+
+
+	local statsScale = MulDivRound(2*agi+1*hp,const.Scale.AP,3)
+	local statsScaleAP = MulDivRound(statsScale,level,10)
+
+	local ap = base + MulDivRound(statsScale,7,10) + MulDivRound(statsScaleAP,3,10)
+
+	--print(base.."Stats "..statsScale.."agi "..agi.."HP "..hp.."AP "..ap)
+	return ap
+	--return ((3 + self:GetProperty("Agility") / 10) + (level / 3)) * const.Scale.AP
+end
+
+
+
+function Unit:CalculateArmorWeight()
+	local TotalAPDebuff = const.Scale.AP
+	local TotalFreeMoveDebuff = 0
+		self:ForEachItem("Armor", function(item, slot)
+			--print(item)
+			if slot ~= "Inventory" and item.Weight then
+				--print(item)
+				--print(item.Weight)
+				 if item.Weight == 2 then 
+					TotalAPDebuff = TotalAPDebuff + 0.25 * const.Scale.AP
+					TotalFreeMoveDebuff = TotalFreeMoveDebuff + 0.5
+				 end
+				 if item.Weight == 3 then 
+					TotalAPDebuff = TotalAPDebuff + 0.5 * const.Scale.AP
+					TotalFreeMoveDebuff = TotalFreeMoveDebuff + 1 
+				 end
+				 if item.Weight == 4 then 
+					TotalAPDebuff = TotalAPDebuff + 1 * const.Scale.AP
+					TotalFreeMoveDebuff = TotalFreeMoveDebuff + 2
+				 end
+				 if item.Weight == 5 then 
+					TotalAPDebuff = TotalAPDebuff + 1.5 * const.Scale.AP
+					TotalFreeMoveDebuff = TotalFreeMoveDebuff + 3
+				 end
+			end
+		end)
+	--print(TotalAPDebuff..".."..TotalFreeMoveDebuff.."..")
+	if HasPerk(self, "Ironclad") then 
+		TotalAPDebuff = TotalAPDebuff/2
+		TotalFreeMoveDebuff = TotalFreeMoveDebuff/2 
+	end
+	if HasPerk(self, "KillingWind") then 
+		TotalAPDebuff = TotalAPDebuff/5
+		TotalFreeMoveDebuff = TotalFreeMoveDebuff/5 end
+	return TotalAPDebuff, TotalAPDebuff
+end
+
+function Unit:BeginTurn(new_turn)	
+	
+	NetUpdateHash("BeginTurn_Start")
+	self:SetAttackReason()
+	local should_interrupt = true
+	local pindown = g_Pindown[self]
+	local overwatch = g_Overwatch[self]
+	if pindown and IsValidTarget(pindown.target) and self:HasPindownLine(pindown.target, pindown.target_spot_group) then
+		-- pindown will be handled differently when the attack is executed
+		should_interrupt = false
+	elseif overwatch and (overwatch.permanent or not g_Combat or overwatch.expiration_turn > g_Combat.current_turn) then
+		should_interrupt = false
+	elseif self.prepared_bombard_zone then
+		should_interrupt = false
+	end	
+	if new_turn and should_interrupt then 
+		self:InterruptPreparedAttack("begin turn")
+		pindown = false
+	end
+	self:UpdateMeleeTrainingVisual()
+	self:IsThreatened() -- update the is_melee_aim_last_turn flag for the vr
+	
+	if self.is_melee_aim_last_turn and IsMerc(self) then		
+		PlayVoiceResponse(self, "MeleeEnemiesClosing")
+		self.is_melee_aim_last_turn = false
+	end
+
+	self.perks_activated = {}
+	NetUpdateHash("BeginTurn_Progress")
+	if new_turn then
+		self:RemoveStatusEffect("FreeMove")
+		if g_Overwatch[self] and not g_Overwatch[self].permanent then
+			self.ActionPoints = 0 -- special-case for carrying an overwatch from exploration mode
+		else
+			local ap = self:GetMaxActionPoints()
+			ap = self:CallReactions_Modify("OnCalcStartTurnAP", ap)
+			self.ActionPoints = Max(0, ap)
+			
+--			if g_Combat.current_turn == 1 and self:IsMerc() then --use this to test lower AP during the first turn
+--				self.ActionPoints = MulDivRound(self.ActionPoints, 75, 100)
+--			end
+		end
+		if g_Overwatch[self] then
+			table.clear(g_Overwatch[self].triggered_by) -- reset triggers in case somebody already triggered in our turn
+			if self:HasStatusEffect("ManningEmplacement") or self:HasStatusEffect("StationedMachineGun") then
+				g_Overwatch[self].num_attacks = self:GetNumMGInterruptAttacks()
+				self:UpdateOverwatchVisual()
+			end
+		end
+		g_Pindown[self] = nil -- clear from the global table to stop the prepared attack blocking any AP gains
+		self.ui_reserved_ap = 0
+		
+		if self:GetEffectValue("missed_by_kill_shot") and not self:IsDead() and not self:IsDowned() then
+			PlayVoiceResponse(self, "MissedByKillShot")
+			self:SetEffectValue("missed_by_kill_shot", nil)
+		end
+		
+		self:UpdateHidden()
+		
+		local voxels = self:GetVisualVoxels()
+		local fire, dist = AreVoxelsInFireRange(voxels)
+		if fire then
+			local min, max = const.BurnDamageMin, const.BurnDamageMax
+			local damage = self:RandRange(min, max)
+			self:TakeDirectDamage(damage)
+			if not self:IsIncapacitated() and not self:HasStatusEffect("Unconscious") and not RollSkillCheck(self, "Health") then
+				self:ChangeTired(1)
+			end
+			if dist < const.SlabSizeX then
+				self:AddStatusEffect("Burning")
+			end
+		end
+		
+		self.attacked_this_turn = false
+		self.hit_this_turn = false
+		self.wounded_this_turn = false
+		NetUpdateHash("BeginTurn", self, self.using_cumbersome, HasPerk(self, "KillingWind"),
+								HasPerk(self, "Ironclad"))
+
+		local TotalAPDebuff, TotalFreeMoveDebuff = self:CalculateArmorWeight()
+		if self.using_cumbersome then TotalFreeMoveDebuff = MulDivRound(TotalFreeMoveDebuff,1,2) end
+		
+		if not self.using_cumbersome or HasPerk(self, "KillingWind") then
+			self:AddStatusEffect("FreeMove")
+		elseif self:CanUseIroncladPerk() then
+			self:AddStatusEffect("FreeMove")
+			--self:ConsumeAP(DivRound(self.free_move_ap, 2), "Move")
+		end
+--
+		--self:ForEachItem("Armor", function(item, slot)
+		--	print(item)
+		--end)
+
+		--print(TotalFreeMoveDebuff)
+		--TotalFreeMoveDebuff = MulDivRound(TotalFreeMoveDebuff,50,100-self.Strength)
+		--TotalAPDebuff = MulDivRound(TotalAPDebuff,50,100-self.Strength)
+		
+		if self.Strength > 60 then
+			local StrBuff = MulDivRound(self.Strength-60,const.Scale.AP,20)
+			TotalFreeMoveDebuff = TotalFreeMoveDebuff - StrBuff 
+			TotalAPDebuff = TotalAPDebuff - StrBuff * 2 
+		end
+
+		TotalAPDebuff = floatfloor(TotalAPDebuff)
+		TotalFreeMoveDebuff = floatfloor(TotalFreeMoveDebuff)
+
+		--print(TotalFreeMoveDebuff..TotalAPDebuff)
+
+		TotalFreeMoveDebuff = Clamp(TotalFreeMoveDebuff, 0, 12*const.Scale.AP)
+		TotalAPDebuff = Clamp(TotalAPDebuff, 0, 5*const.Scale.AP)
+
+		--print(TotalFreeMoveDebuff..TotalAPDebuff)
+		
+		self:ConsumeAP(TotalFreeMoveDebuff, "Move")
+		self:ConsumeAP(Min(self.ActionPoints, TotalAPDebuff))
+		
+		local armor = self:GetItemInSlot("Torso", "Armor")
+		local plate = self:GetItemInSlot("Torso", "ArmorPlate") or armor
+		local armorclass = 1
+		local plateclass = 1
+		if armor then armorclass = armor.PenetrationClass end
+		if plate and plate.Condition > 0 then plateclass = plate.PenetrationClass  or 0 end
+ 		
+		armorclass = Max(armorclass,plateclass)
+
+
+
+		self:RemoveStatusEffect("Weight_1Class", "all")
+		self:RemoveStatusEffect("Weight_2Class", "all")
+		self:RemoveStatusEffect("Weight_3Class", "all")
+		self:RemoveStatusEffect("Weight_4Class", "all")
+		self:RemoveStatusEffect("Weight_5Class", "all")
+
+
+
+		if TotalFreeMoveDebuff/const.Scale.AP > 0 then
+			local count = floatfloor(TotalFreeMoveDebuff/const.Scale.AP)
+			--print(count)
+			for i = 1, count do
+				self:AddStatusEffect("Weight_"..armorclass.."Class")
+			end
+		end
+		
+		-- ConsumeAP will flag this only when an action is given, so it is safe to mark this a bit earlier to allow OnBeginTurn effects to alter it
+		self.performed_action_this_turn = false
+		
+		Msg("UnitBeginTurn", self)
+		self:CallReactions("OnBeginTurn")
+		
+		local morale = self:GetPersonalMorale()
+		if morale > 0 then
+			self:GainAP(morale * const.Scale.AP)
+		elseif morale < 0 then
+			self:ConsumeAP(Min(self.ActionPoints, -morale * const.Scale.AP))
+		end
+		
+		if self:GetItemInSlot("HeadGear", "GasMaskBase") then
+			self:ConsumeAP(const.Scale.AP)
+		end
+
+		-- special-case: if the unit dies as a result of a status effect, show them and wait the command to end
+		-- doing this here makes sure the camera will not immediately jump to another unit (dying or selected)
+		-- similarly, executing the pindown attack has to be waited until it finishes
+		if self.command == "Die" then
+			SnapCameraToObj(self)
+			while self.command == "Die" do
+				WaitMsg("UnitDied", 20) -- can also go in VillainDefeat instead, so wait with timeout
+			end
+		elseif pindown then
+			pindown.target:ProvokeOpportunityAttack_Pindown(self, pindown)
+		elseif self.prepared_bombard_zone then
+			self:StartBombard()
+		end
+	end
+	
+	if self.dummy or self:IsDowned() then
+		self.ActionPoints = 0
+	end
+
+	self.start_turn_pos = self:GetVisualPos()
+		
+	NetUpdateHash("BeginTurn", self, self:GetPos())
+	
+	Msg("UnitAPChanged", self)
+end
+
+
+function Unit:MGSetup(action_id, cost_ap, args)
+	local target = args.target or self
+	self.interruptable = false
+	local cover, any, coverage = self:GetCoverPercentage(target)
+	local halfcover = cover and cover == const.CoverLow and coverage > 80
+	--print(coverage)
+	if halfcover then self:AddStatusEffect("BipodUnfolded") else self:RemoveStatusEffect("BipodUnfolded")  end
+	if self.stance ~= "Prone" and not halfcover then
+		self:DoChangeStance("Prone")
+	end
+	self:AddStatusEffect("StationedMachineGun")
+	self:UpdateHidden()
+	self:FlushCombatCache()
+	self:RecalcUIActions(true)
+	ObjModified(self)
+	return self:MGTarget(action_id, cost_ap, args)
+end 		
+
+function Unit:MGPack()
+	self:InterruptPreparedAttack()
+	self:RemoveStatusEffect("StationedMachineGun")
+	self:RemoveStatusEffect("BipodUnfolded")
+	self:UpdateHidden()
+	self:FlushCombatCache()
+	self:RecalcUIActions(true)
+	if HasPerk(self, "KillingWind") then
+		self:RemoveStatusEffect("FreeMove")
+		self:AddStatusEffect("FreeMove")
+	end
+	ObjModified(self)
+end
+
+function Unit:UpdateMeleeTrainingVisual()
+	local contour_visible
+	if g_Combat and #GetEnemies(self) > 0 and not HasCombatActionInProgress(self) then
+		contour_visible = self:CanUseMeleeTraining() and (self:IsNPC() or IsCompetitiveGame() and NetPlayerSide() ~= self.team.side and (self:SeenByTeam("player1") or self:SeenByTeam("player2")))
+	end
+	
+	if contour_visible then
+		local pos = self:GetPos()
+		if not IsValid(self.melee_threat_contour) or self.melee_threat_contour:GetDist(pos) > 0 then
+			local voxels = GetMeleeRangePositions(self)
+			voxels = voxels or { }
+			table.insert(voxels, point_pack(self:GetPos()))
+			local is_ally = self.team.side == "player1" or self.team.side == "player2"
+			if not IsValid(self.melee_threat_contour) then
+				self.melee_threat_contour = MeleeAOEVisuals:new({vstate = "Deployed"}, nil, {voxels = voxels, pos = pos, mode =  is_ally and "Ally" or "Enemy"})
+			else
+				self.melee_threat_contour:Init({voxels = voxels, pos = pos, mode =  is_ally and "Ally" or "Enemy"})
+			end
+		end
+	elseif not contour_visible and IsValid(self.melee_threat_contour) then
+		DoneObject(self.melee_threat_contour)
+		self.melee_threat_contour = nil
+	end
+end
+
+function Unit:GetOverwatchAttacksAndAim(action, args, unit_ap)
+	action = action or CombatActions.Overwatch
+	local weapon = action:GetAttackWeapons(self)
+	local attack = self:GetDefaultAttackAction()
+	unit_ap = unit_ap or (g_Combat and self:GetUIActionPoints() or self:GetMaxActionPoints())
+	args = table.copy(args)
+	args.action_cost_only = true
+
+
+	local minAim, maxAim = self:GetBaseAimLevelRange(attack)
+
+	local aim = Min(minAim + 1,maxAim)
+
+--	if IsKindOf(weapon, "SniperRifle") then
+--		aim = maxAim
+--	end
+
+	if IsKindOf(weapon, "AssaultRifle") then
+		aim = Min(aim + 1,maxAim)
+	end
+	if IsKindOfClasses(weapon, "MachineGun", "SniperRifle") then
+		aim = Min(aim + 2,maxAim)
+	end
+
+
+
+
+
+
+	local cost = action:GetAPCost(self, args) 
+	if cost < 0 then
+		return 1
+	end
+
+	args.aim = aim
+
+
+	local ap = unit_ap - cost
+	--local atk_cost = attack:GetAPCost(self, args) 
+	local atk_cost = attack:GetAPCost(self, args) 
+	--print(atk_cost)
+
+	local attacks = 1 + ap / atk_cost
+
+	if IsKindOf(weapon, "SniperRifle") then
+		attacks = 1
+	end
+	attacks = self:CallReactions_Modify("OnCalcOverwatchAttacks", attacks, action, args)
+
+	--print(weapon.DisplayName..' aim '..aim.." maxAim "..maxAim)
+	
+	return attacks, aim or minAim or 0
+end

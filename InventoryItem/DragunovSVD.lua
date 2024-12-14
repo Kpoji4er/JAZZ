@@ -1,0 +1,98 @@
+UndefineClass('DragunovSVD')
+DefineClass.DragunovSVD = {
+	__parents = { "SniperRifle" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T2",
+	object_class = "SniperRifle",
+	ScrapParts = 14,
+	Reliability = 85,
+	Icon = "Mod/e6L4ECj/WeaponIcons/SVD.png",
+	DisplayName = T(515926068469, --[[ModItemInventoryItemCompositeDef DragunovSVD DisplayName]] "СВД"),
+	DisplayNamePlural = T(613799960953, --[[ModItemInventoryItemCompositeDef DragunovSVD DisplayNamePlural]] "СВД"),
+	Description = T(560979101811, --[[ModItemInventoryItemCompositeDef DragunovSVD Description]] "Не то, чем кажется на первый взгляд. Выглядит похожей на «калаш», но внутри у нее - газовый поршень короткого хода, снижающий отдачу и позволяющий точнее выполнять последующие выстрелы. Это даже не снайперская винтовка, это - высокоточное оружие поддержки на средних дистанциях."),
+	AdditionalHint = T(725637424386, --[[ModItemInventoryItemCompositeDef DragunovSVD AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Полуавтоматическая\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поддерживает большинство прицелов\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая надежность"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 16000,
+	CanAppearInShop = true,
+	Tier = 2,
+	CategoryPair = "Rifles",
+	Caliber = "JAZZ_Caliber_762x54R",
+	Damage = 38,
+	ObjDamageMod = 80,
+	AimAccuracy = 34,
+	CritChanceScaled = 20,
+	MagazineSize = 10,
+	WeaponRange = 66,
+	OverwatchAngle = 900,
+	Noise = 85,
+	HandSlot = "TwoHanded",
+	Entity = "Weapon_Dragunov",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Stock",
+			'AvailableComponents', {
+				"StockLight",
+				"StockNormal",
+			},
+			'DefaultComponent', "StockNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Bipod",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Bipod",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagNormal",
+				"MagLarge_10_20",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Scope_PSO",
+				"JAZZ_Reflex_Cobra",
+				"JAZZ_CombatScope_1P29",
+				"JAZZ_NightScope_NSPU",
+				"JAZZ_CombatScope_ACOG",
+				"JAZZ_Reflex_PKAS",
+				"JAZZ_NightScope",
+				"JAZZ_Scope_6x",
+				"JAZZ_Scope_12x",
+				"JAZZ_Scope_Scout",
+			},
+			'DefaultComponent', "JAZZ_Scope_PSO",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Compensator",
+			},
+			'DefaultComponent', "Compensator",
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	PreparedAttackType = "Both",
+	AvailableAttacks = {
+		"SingleShot",
+		"CancelShot",
+	},
+	ShootAP = 6000,
+	ReloadAP = 5000,
+	BurstShots = 1,
+	AutoShots = 1,
+	Handling = 45,
+	BulletDropRange = 24,
+	Grouping = 370,
+	BaseJamChance = -30,
+}
+

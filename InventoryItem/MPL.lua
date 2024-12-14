@@ -1,0 +1,68 @@
+UndefineClass('MPL')
+DefineClass.MPL = {
+	__parents = { "SubmachineGun" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "9mm T1",
+	object_class = "SubmachineGun",
+	ScrapParts = 8,
+	Reliability = 70,
+	Icon = "Mod/e6L4ECj/WeaponIcons/MPL.png",
+	DisplayName = T(555365819120, --[[ModItemInventoryItemCompositeDef MPL DisplayName]] "Walther MP"),
+	DisplayNamePlural = T(324062013193, --[[ModItemInventoryItemCompositeDef MPL DisplayNamePlural]] "Walther MP"),
+	Description = T(932330768724, --[[ModItemInventoryItemCompositeDef MPL Description]] 'Пистолет-пулемет Вальтер MPL имеет вполне удачную конструкцию со свободным затвором с применением штамповки деталей. Сразу видно, что конструкторами был принят во внимание опыт ВОВ. Однако, потенциальными пользователями тоже был принят во внимание опыт ВОВ и оружие под маркой "Вальтер" просто не имело никакого шанса на успех на рынке.'),
+	AdditionalHint = T(929080238056, --[[ModItemInventoryItemCompositeDef MPL AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая точность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сниженная эффективность стрельбы навскидку с разложенным прикладом"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 1800,
+	CanAppearInShop = true,
+	RestockWeight = 50,
+	CategoryPair = "SubmachineGuns",
+	Caliber = "JAZZ_Caliber_9x19",
+	Damage = 21,
+	ObjDamageMod = 20,
+	AimAccuracy = 12,
+	MagazineSize = 30,
+	WeaponRange = 21,
+	OverwatchAngle = 4320,
+	Noise = 30,
+	HandSlot = "TwoHanded",
+	Entity = "MPL",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"MagNormal",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Stock",
+			'AvailableComponents', {
+				"StockLightFolded",
+				"StockLightUnFolded",
+			},
+			'DefaultComponent', "StockLightUnFolded",
+		}),
+	},
+	HolsterSlot = "Leg",
+	AvailableAttacks = {
+		"BurstFire",
+		"AutoFire",
+		"SingleShot",
+		"RunAndGun",
+		"CancelShot",
+	},
+	ShootAP = 4000,
+	ReloadAP = 4000,
+	Recoil = 4,
+	BurstShots = 2,
+	AutoShots = 6,
+	Handling = 84,
+	BulletDropRange = 9,
+	Grouping = 92,
+	BaseJamChance = -10,
+}
+
