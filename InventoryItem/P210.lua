@@ -65,7 +65,7 @@ DefineClass.P210 = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 98,
-	BulletDropRange = 6,
+	BulletDropRange = 7,
 	Grouping = 95,
 	BaseJamChance = -50,
 }

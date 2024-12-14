@@ -110,8 +110,8 @@ function AICalcAttacksAndAim(context, ap, target)
 
 	if target then
 		if context.force_max_aim 
-		or (IsKindOfClasses(context.weapon,"SniperRifle","MachineGun") and (ap - cost * max_aim) > 0 and unit:GetDist(target) >= 2*const.SlabSizeX)
-		or ((IsKindOf(context.weapon,"AssaultRifle")) and (ap - cost * max_aim) > 0 and unit:GetDist(target) >= (8) * const.SlabSizeX) 
+		or (IsKindOf(context.weapon,"SniperRifle") and (ap - cost * max_aim) > 0 and unit:GetDist(target) >= 8*const.SlabSizeX)
+		or ((IsKindOf(context.weapon,"AssaultRifle") or IsKindOf(context.weapon,"MachineGun")) and (ap - cost * max_aim) > 0 and unit:GetDist(target) >= (18+unit:Random(12)) * const.SlabSizeX) 
 		   then
 			num_attacks = Min(Max(1,(ap / (cost + aim_cost * max_aim))), context.max_attacks)
 			local aim = max_aim
@@ -651,3 +651,47 @@ function AIPrecalcDamageScore(context, destinations, preferred_target, debug_dat
 	end
 end
 
+
+function AIActionMGSetup:PrecalcAction(context, action_state)
+	if not context.unit:HasStatusEffect("StationedMachineGun") then
+		-- setup
+
+		local cover, any, coverage = context.unit:GetCoverPercentage(attack_pos, target_pos)
+
+		if cover and cover ~= const.CoverLow then 
+		action_state.stance = "Prone" -- MGSetup will change the stance so we need to check LOS in that stance
+		end
+		AIActionBaseConeAttack.PrecalcAction(self, context, action_state)
+	else
+		local curr_target_pt = g_Overwatch[context.unit] and g_Overwatch[context.unit].target_pos
+		local zones = AIPrecalcConeTargetZones(context, self.action_id, curr_target_pt)
+		local cur_zone = zones[#zones]
+		if not cur_zone then
+			return
+		end
+		cur_zone.score_mod = self.cur_zone_mod
+		local zone, best_score = self:EvalZones(context, zones)
+	
+		-- check best zone:
+		if not zone then -- no suitable zone, pack up
+			action_state.action_id = "MGPack"
+		elseif zone ~= cur_zone then -- another best zone, rotate
+			action_state.action_id = "MGRotate"
+			action_state.target_pos = zone.target_pos
+		end
+
+		if action_state.action_id then
+			action_state.score = best_score
+			action_state.target_pos = zone and zone.target_pos
+			
+			local caction = CombatActions[action_state.action_id]
+			if not caction then return end
+			
+			local args, has_ap = AIGetAttackArgs(context, caction, nil, "None")
+			action_state.has_ap = has_ap
+			if has_ap then 
+				g_LastSelectedZone = zone
+			end
+		end
+	end
+end

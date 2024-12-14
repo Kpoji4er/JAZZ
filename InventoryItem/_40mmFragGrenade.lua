@@ -26,7 +26,7 @@ DefineClass._40mmFragGrenade = {
 	PenetrationClass = 4,
 	DeathType = "BlowUp",
 	Caliber = "40mmGrenade",
-	BaseDamage = 80,
+	BaseDamage = 60,
 	Entity = "Weapon_MilkorMGL_Shell",
 }
 

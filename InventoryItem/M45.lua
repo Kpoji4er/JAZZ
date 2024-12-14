@@ -59,7 +59,7 @@ DefineClass.M45 = {
 	Recoil = 4,
 	AutoShots = 6,
 	Handling = 86,
-	BulletDropRange = 12,
+	BulletDropRange = 10,
 	Grouping = 89,
 	BaseJamChance = -20,
 }

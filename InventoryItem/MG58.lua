@@ -23,7 +23,7 @@ DefineClass.MG58 = {
 	ObjDamageMod = 80,
 	AimAccuracy = 15,
 	MagazineSize = 50,
-	WeaponRange = 56,
+	WeaponRange = 46,
 	OverwatchAngle = 1800,
 	Noise = 80,
 	HandSlot = "TwoHanded",
@@ -53,8 +53,8 @@ DefineClass.MG58 = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 7000,
-	Handling = 65,
-	BulletDropRange = 26,
+	Handling = 50,
+	BulletDropRange = 36,
 	Grouping = 292,
 }
 

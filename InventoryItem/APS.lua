@@ -68,7 +68,7 @@ DefineClass.APS = {
 	BurstShots = 6,
 	AutoShots = 6,
 	Handling = 90,
-	BulletDropRange = 6,
+	BulletDropRange = 7,
 	Grouping = 93,
 	BaseJamChance = -20,
 }

@@ -26,7 +26,7 @@ DefineClass.M21 = {
 	AimAccuracy = 25,
 	CritChanceScaled = 20,
 	MagazineSize = 20,
-	WeaponRange = 58,
+	WeaponRange = 48,
 	OverwatchAngle = 1080,
 	Noise = 80,
 	HandSlot = "TwoHanded",
@@ -121,7 +121,7 @@ DefineClass.M21 = {
 	BurstShots = 1,
 	AutoShots = 1,
 	Handling = 62,
-	BulletDropRange = 21,
+	BulletDropRange = 30,
 	Grouping = 278,
 	BaseJamChance = -10,
 }

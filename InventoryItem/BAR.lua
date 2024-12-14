@@ -27,7 +27,7 @@ DefineClass.BAR = {
 	ObjDamageMod = 80,
 	AimAccuracy = 16,
 	MagazineSize = 20,
-	WeaponRange = 52,
+	WeaponRange = 42,
 	Noise = 80,
 	HandSlot = "TwoHanded",
 	Entity = "BAR",
@@ -51,8 +51,8 @@ DefineClass.BAR = {
 	Recoil = 16,
 	BurstShots = 5,
 	AutoShots = 5,
-	Handling = 70,
-	BulletDropRange = 24,
+	Handling = 62,
+	BulletDropRange = 29,
 	Grouping = 275,
 }
 

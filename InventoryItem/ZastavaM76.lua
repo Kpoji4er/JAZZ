@@ -24,7 +24,7 @@ DefineClass.ZastavaM76 = {
 	AimAccuracy = 32,
 	CritChanceScaled = 20,
 	MagazineSize = 10,
-	WeaponRange = 65,
+	WeaponRange = 55,
 	OverwatchAngle = 900,
 	Noise = 85,
 	HandSlot = "TwoHanded",
@@ -76,7 +76,7 @@ DefineClass.ZastavaM76 = {
 	BurstShots = 1,
 	AutoShots = 1,
 	Handling = 40,
-	BulletDropRange = 25,
+	BulletDropRange = 33,
 	Grouping = 340,
 	BaseJamChance = -10,
 }

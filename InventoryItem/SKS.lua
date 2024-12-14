@@ -30,7 +30,7 @@ DefineClass.SKS = {
 	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 10,
-	WeaponRange = 40,
+	WeaponRange = 35,
 	PointBlankBonus = 1,
 	OverwatchAngle = 1500,
 	Noise = 55,
@@ -49,7 +49,7 @@ DefineClass.SKS = {
 	BurstShots = 1,
 	AutoShots = 1,
 	Handling = 62,
-	BulletDropRange = 15,
+	BulletDropRange = 18,
 	Grouping = 265,
 	BaseJamChance = -30,
 }

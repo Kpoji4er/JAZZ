@@ -91,7 +91,7 @@ DefineClass.Bereta92 = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 99,
-	BulletDropRange = 6,
+	BulletDropRange = 7,
 	Grouping = 89,
 	BaseJamChance = -10,
 }

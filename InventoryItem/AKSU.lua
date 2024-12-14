@@ -28,7 +28,7 @@ DefineClass.AKSU = {
 	CritChance = 10,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
-	WeaponRange = 38,
+	WeaponRange = 34,
 	OverwatchAngle = 2700,
 	Noise = 55,
 	HandSlot = "TwoHanded",
@@ -91,7 +91,7 @@ DefineClass.AKSU = {
 	Recoil = 12,
 	AutoShots = 6,
 	Handling = 78,
-	BulletDropRange = 14,
+	BulletDropRange = 19,
 	Grouping = 200,
 	BaseJamChance = -50,
 }

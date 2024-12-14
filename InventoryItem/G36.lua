@@ -28,7 +28,7 @@ DefineClass.G36 = {
 	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
-	WeaponRange = 44,
+	WeaponRange = 37,
 	PointBlankBonus = 1,
 	OverwatchAngle = 1920,
 	Noise = 50,
@@ -122,7 +122,7 @@ DefineClass.G36 = {
 	BurstShots = 4,
 	AutoShots = 8,
 	Handling = 74,
-	BulletDropRange = 16,
+	BulletDropRange = 23,
 	Grouping = 275,
 	BaseJamChance = -10,
 }

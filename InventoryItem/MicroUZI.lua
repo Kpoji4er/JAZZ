@@ -97,7 +97,7 @@ DefineClass.MicroUZI = {
 	BurstShots = 6,
 	AutoShots = 12,
 	Handling = 82,
-	BulletDropRange = 7,
+	BulletDropRange = 8,
 	Grouping = 75,
 	BaseJamChance = -10,
 }

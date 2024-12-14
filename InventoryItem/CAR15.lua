@@ -26,7 +26,7 @@ DefineClass.CAR15 = {
 	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
-	WeaponRange = 40,
+	WeaponRange = 33,
 	OverwatchAngle = 2220,
 	Noise = 55,
 	HandSlot = "TwoHanded",
@@ -96,7 +96,7 @@ DefineClass.CAR15 = {
 	BurstShots = 4,
 	AutoShots = 8,
 	Handling = 79,
-	BulletDropRange = 15,
+	BulletDropRange = 20,
 	Grouping = 220,
 }
 

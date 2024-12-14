@@ -28,7 +28,7 @@ DefineClass.G3SniperV1 = {
 	AimAccuracy = 26,
 	CritChanceScaled = 20,
 	MagazineSize = 20,
-	WeaponRange = 62,
+	WeaponRange = 52,
 	OverwatchAngle = 1200,
 	Noise = 80,
 	HandSlot = "TwoHanded",
@@ -87,7 +87,7 @@ DefineClass.G3SniperV1 = {
 	BurstShots = 1,
 	AutoShots = 1,
 	Handling = 62,
-	BulletDropRange = 20,
+	BulletDropRange = 30,
 	Grouping = 310,
 	BaseJamChance = -30,
 }

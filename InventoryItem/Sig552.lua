@@ -28,7 +28,7 @@ DefineClass.Sig552 = {
 	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
-	WeaponRange = 40,
+	WeaponRange = 34,
 	OverwatchAngle = 2280,
 	Noise = 50,
 	HandSlot = "TwoHanded",
@@ -108,7 +108,7 @@ DefineClass.Sig552 = {
 	Recoil = 9,
 	AutoShots = 7,
 	Handling = 85,
-	BulletDropRange = 16,
+	BulletDropRange = 22,
 	Grouping = 250,
 	BaseJamChance = -30,
 }

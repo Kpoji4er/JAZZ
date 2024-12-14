@@ -25,7 +25,7 @@ DefineClass.FNFAL = {
 	ObjDamageMod = 80,
 	AimAccuracy = 24,
 	MagazineSize = 20,
-	WeaponRange = 56,
+	WeaponRange = 46,
 	OverwatchAngle = 1200,
 	Noise = 80,
 	HandSlot = "TwoHanded",
@@ -133,7 +133,7 @@ DefineClass.FNFAL = {
 	Recoil = 22,
 	AutoShots = 6,
 	Handling = 60,
-	BulletDropRange = 21,
+	BulletDropRange = 32,
 	Grouping = 285,
 	BaseJamChance = -10,
 }

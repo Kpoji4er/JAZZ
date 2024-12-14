@@ -65,11 +65,11 @@ DefineClass.BerettaM12 = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 4000,
-	Recoil = 3,
+	Recoil = 5,
 	BurstShots = 2,
 	AutoShots = 6,
 	Handling = 90,
-	BulletDropRange = 10,
+	BulletDropRange = 12,
 	Grouping = 94,
 	BaseJamChance = -30,
 }

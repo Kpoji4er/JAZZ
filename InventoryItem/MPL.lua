@@ -61,7 +61,7 @@ DefineClass.MPL = {
 	BurstShots = 2,
 	AutoShots = 6,
 	Handling = 84,
-	BulletDropRange = 9,
+	BulletDropRange = 11,
 	Grouping = 92,
 	BaseJamChance = -10,
 }

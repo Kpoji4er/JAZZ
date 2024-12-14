@@ -51,7 +51,7 @@ DefineClass.TexRevolver = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 100,
-	BulletDropRange = 7,
+	BulletDropRange = 9,
 	Grouping = 90,
 	BaseJamChance = -100,
 }

@@ -59,7 +59,7 @@ DefineClass.ColtPeacemaker = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 94,
-	BulletDropRange = 7,
+	BulletDropRange = 8,
 	Grouping = 92,
 	BaseJamChance = -100,
 }

@@ -63,7 +63,7 @@ DefineClass.TT33 = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 88,
-	BulletDropRange = 7,
+	BulletDropRange = 8,
 	Grouping = 80,
 	BaseJamChance = -10,
 }

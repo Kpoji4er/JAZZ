@@ -65,7 +65,7 @@ DefineClass.Makarov = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 95,
-	BulletDropRange = 6,
+	BulletDropRange = 7,
 	Grouping = 85,
 	BaseJamChance = -100,
 }

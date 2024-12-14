@@ -102,9 +102,9 @@ function FirearmBase:GetJamChance(attacker, condition)
 	--IsPlayerEnemy
 	--local base = item.JamChance + DivRound(item.Deterioration,10)
 	--local jam_chance = ((100 - condition))*2 + item.BaseJamChance + (200-item.Reliability*2)*(Max(item.Deterioration,10)/10)
-	local jam_chance = (98 - condition + .0)*(100-item.Reliability) + item.BaseJamChance - (attacker.Mechanical*3)
+	local jam_chance = 5*(100-item.Reliability) + item.BaseJamChance*2 - (attacker.Mechanical*3)
 	if IsMerc(attacker) then 
-		jam_chance = (((95 - condition + .0))*(100-item.Reliability)/4 + (item.Deterioration-5)*(100-item.Reliability)/2) + item.BaseJamChance - (attacker.Mechanical*2 + attacker.Marksmanship)*2/3
+		jam_chance = (((100 - condition + .0))*(100-item.Reliability)/4 + (item.Deterioration-2)*(100-item.Reliability)/2) + item.BaseJamChance - (attacker.Mechanical*2 + attacker.Marksmanship)*2/3
 	end
 	print(jam_chance)
 	if (GameState.RainHeavy or GameState.RainLight) and not attacker.indoors then
@@ -142,13 +142,10 @@ function FirearmBase:ReliabilityCheck(attacker, num_shots)
 
 
 
-
 		--if item.num_safe_attacks <= 0 and condition < const.Weapons.ItemConditionUsed and jam_roll < jam_chance then
 		local jam_chance = item:GetJamChance(attacker, condition)
 		local seed = Unit:Random()
 		local random = BraidRandomCreate(seed)
-
-		loss = loss + Min(1,0.1*MulDivRound(random(100-item.Reliability),1,10))
 
 		if num_shots == 1 then jam_chance = jam_chance/2 end
 		--if num_shots < 3 then jam_chance = jam_chance/2 end
@@ -176,7 +173,7 @@ function FirearmBase:ReliabilityCheck(attacker, num_shots)
 				--print(condition_roll5)
 			--	if (condition_roll < (item.Reliability - item.Deterioration*0.5)) or condition_roll2 < (item.Reliability - item.Deterioration*0.5) or condition_roll3 < (item.Reliability - item.Deterioration*0.5) or condition_roll4 < (item.Reliability - item.Deterioration*0.5)
 			--	then loss = 0 end; --Adding chance to not loose condition
-				if condition_roll > (item.Reliability - Min(deterioration,90)) and num_shots <= 6 then
+				if condition_roll > (item.Reliability - deterioration*0.5) then
 					condition = Max(0, condition - loss)
 				end
 
@@ -451,7 +448,7 @@ if ScopeAimLevel and shot_attack_args.aim >= ScopeAimLevel then
 	cth_loss_per_shot = cth_loss_per_shot * Max(ScopeMagn/2,1)
 end
 if SmallAimLevel and shot_attack_args.aim >= SmallAimLevel then 
-	cth_loss_per_shot = cth_loss_per_shot * Max(SmallMagn/2,1)
+	cth_loss_per_shot = cth_loss_per_shot * Max(SmallMagnMin/2,1)
 end
 
 	for i = 1, num_shots do

@@ -81,7 +81,7 @@ DefineClass.HiPower = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 89,
-	BulletDropRange = 6,
+	BulletDropRange = 7,
 	Grouping = 87,
 	BaseJamChance = -10,
 }

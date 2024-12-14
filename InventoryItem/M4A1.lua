@@ -26,7 +26,7 @@ DefineClass.M4A1 = {
 	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
-	WeaponRange = 42,
+	WeaponRange = 35,
 	OverwatchAngle = 1920,
 	Noise = 55,
 	HandSlot = "TwoHanded",
@@ -108,7 +108,7 @@ DefineClass.M4A1 = {
 	BurstShots = 4,
 	AutoShots = 8,
 	Handling = 82,
-	BulletDropRange = 16,
+	BulletDropRange = 22,
 	Grouping = 240,
 	BaseJamChance = -10,
 }

@@ -50,11 +50,11 @@ DefineClass.SpectreM4 = {
 	ShootAP = 3000,
 	ReloadAP = 4000,
 	MaxAimActions = 2,
-	Recoil = 5,
+	Recoil = 3,
 	BurstShots = 4,
 	AutoShots = 9,
 	Handling = 85,
-	BulletDropRange = 9,
+	BulletDropRange = 11,
 	Grouping = 80,
 	BaseJamChance = -20,
 }

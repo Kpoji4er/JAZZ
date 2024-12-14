@@ -71,7 +71,7 @@ DefineClass.MAC10 = {
 	Recoil = 9,
 	BurstShots = 5,
 	Handling = 85,
-	BulletDropRange = 5,
+	BulletDropRange = 6,
 	Grouping = 70,
 	BaseJamChance = -20,
 }

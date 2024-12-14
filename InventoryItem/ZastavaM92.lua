@@ -27,7 +27,7 @@ DefineClass.ZastavaM92 = {
 	AimAccuracy = 14,
 	CritChance = 5,
 	MagazineSize = 30,
-	WeaponRange = 37,
+	WeaponRange = 32,
 	OverwatchAngle = 2160,
 	Noise = 60,
 	HandSlot = "TwoHanded",
@@ -72,7 +72,7 @@ DefineClass.ZastavaM92 = {
 	Recoil = 18,
 	AutoShots = 6,
 	Handling = 76,
-	BulletDropRange = 13,
+	BulletDropRange = 16,
 	Grouping = 195,
 	BaseJamChance = -20,
 }

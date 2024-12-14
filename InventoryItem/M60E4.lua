@@ -27,7 +27,7 @@ DefineClass.M60E4 = {
 	ObjDamageMod = 80,
 	AimAccuracy = 20,
 	MagazineSize = 100,
-	WeaponRange = 56,
+	WeaponRange = 46,
 	OverwatchAngle = 1800,
 	Noise = 80,
 	HandSlot = "TwoHanded",
@@ -100,8 +100,8 @@ DefineClass.M60E4 = {
 	Recoil = 18,
 	BurstShots = 5,
 	AutoShots = 5,
-	Handling = 68,
-	BulletDropRange = 20,
+	Handling = 60,
+	BulletDropRange = 33,
 	Grouping = 290,
 }
 

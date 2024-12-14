@@ -66,7 +66,7 @@ DefineClass.Scorpion = {
 	BurstShots = 4,
 	AutoShots = 8,
 	Handling = 88,
-	BulletDropRange = 6,
+	BulletDropRange = 7,
 	Grouping = 70,
 }
 

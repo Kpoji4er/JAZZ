@@ -26,7 +26,7 @@ DefineClass.M16A4 = {
 	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
-	WeaponRange = 48,
+	WeaponRange = 40,
 	OverwatchAngle = 1560,
 	Noise = 50,
 	HandSlot = "TwoHanded",
@@ -99,7 +99,7 @@ DefineClass.M16A4 = {
 	Recoil = 8,
 	AutoShots = 8,
 	Handling = 73,
-	BulletDropRange = 17,
+	BulletDropRange = 25,
 	Grouping = 298,
 	BaseJamChance = -20,
 }

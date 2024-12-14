@@ -4,7 +4,7 @@ const.AIFriendlyFire_LOFConeNear = 1500*guic 				-- same as above for cone attac
 const.AIFriendlyFire_LOFConeFar = 2000*guic 				-- same as above for cone attacks (far side of the cone, positioned at AIFriendlyFire_MaxRange)
 const.AIFriendlyFire_ScoreMod = 1							-- % of damage score evaluation remanining when an ally is in danger
 
-const.AIDecisionThreshold = 80 -- targets/locations up to this percent of max scored target/location can be selected
+const.AIDecisionThreshold = 50 -- targets/locations up to this percent of max scored target/location can be selected
 
 
 local function lClearPredictedExplosions(list)
@@ -91,9 +91,9 @@ function AICreateContext(unit, context)
 	context.weapon = weapon
 	context.default_attack = default_attack
 	context.default_attack_cost = default_attack:GetAPCost(unit)
-	context.EffectiveRange = IsKindOf(weapon, "Firearm") and MulDivRound(weapon.BulletDropRange, 125, 100) or MulDivRound(weapon.WeaponRange, 50, 100) or 1 
+	context.EffectiveRange = IsKindOf(weapon, "Firearm") and MulDivRound(weapon.WeaponRange, 75, 100) or 1 
 	--context.EffectiveRange = IsKindOf(weapon, "Firearm") and GetAccuracy80DistAim(weapon,unit) or 1
-	context.ExtremeRange = IsKindOf(weapon, "Firearm") and weapon.WeaponRange or 50
+	context.ExtremeRange = IsKindOf(weapon, "Firearm") and weapon.WeaponRange * 1.2 or 50
 	context.enemies = enemies
 	context.enemy_visible = {} -- [enemy] -> true/false
 	context.enemy_visible_by_team = {} -- [enemy] -> true/false
@@ -625,7 +625,7 @@ end
 function AIEnumValidDests(context)
     PauseInfiniteLoopDetection("AiCalc")
 	local unit = context.unit
-	local r = context.archetype.OptLocSearchRadius * const.SlabSizeX
+	local r = context.archetype.OptLocSearchRadius * const.SlabSizeX * 2
 	local ux, uy, uz = point_unpack(context.unit_grid_voxel)
 	local px, py, pz = VoxelToWorld(ux, uy, uz)
 	local bbox = box(px - r, py - r, 0, px + r + 1, py + r + 1, MapSlabsBBox_MaxZ)
@@ -634,7 +634,7 @@ function AIEnumValidDests(context)
 	local function push_dest(x, y, z, context, dests, dest_added, ux, uy, uz)
 		local gx, gy, gz = WorldToVoxel(x, y, z)
 		
-		if not IsCloser(gx, gy, gz, ux, uy, uz, context.archetype.OptLocSearchRadius) then
+		if not IsCloser(gx, gy, gz, ux, uy, uz, context.archetype.OptLocSearchRadius * 2) then
             ResumeInfiniteLoopDetection("AiCalc")
 			return
 		end
@@ -691,7 +691,7 @@ function AIFindOptimalLocation(context, dest_score_details)
 	local unit = context.unit
 	context.best_dests = {}
 
-	local r = context.archetype.OptLocSearchRadius * const.SlabSizeX
+	local r = context.archetype.OptLocSearchRadius * const.SlabSizeX * 2
 	local ux, uy, uz = point_unpack(context.unit_grid_voxel)
 	local px, py, pz = VoxelToWorld(ux, uy, uz)
 	local bbox = box(px - r, py - r, 0, px + r + 1, py + r + 1, MapSlabsBBox_MaxZ)

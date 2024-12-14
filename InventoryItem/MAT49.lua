@@ -60,7 +60,7 @@ DefineClass.MAT49 = {
 	Recoil = 5,
 	AutoShots = 6,
 	Handling = 76,
-	BulletDropRange = 8,
+	BulletDropRange = 10,
 	Grouping = 70,
 	BaseJamChance = 50,
 }

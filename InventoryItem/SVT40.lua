@@ -22,7 +22,7 @@ DefineClass.SVT40 = {
 	AimAccuracy = 30,
 	CritChanceScaled = 40,
 	MagazineSize = 10,
-	WeaponRange = 64,
+	WeaponRange = 54,
 	OverwatchAngle = 900,
 	Noise = 85,
 	HandSlot = "TwoHanded",
@@ -55,7 +55,7 @@ DefineClass.SVT40 = {
 	BurstShots = 1,
 	AutoShots = 1,
 	Handling = 30,
-	BulletDropRange = 24,
+	BulletDropRange = 33,
 	Grouping = 255,
 }
 

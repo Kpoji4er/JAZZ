@@ -59,7 +59,7 @@ DefineClass.Luger = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 93,
-	BulletDropRange = 6,
+	BulletDropRange = 7,
 	Grouping = 95,
 	BaseJamChance = 10,
 }

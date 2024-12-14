@@ -27,7 +27,7 @@ DefineClass.Type56 = {
 	AimAccuracy = 19,
 	CritChance = 5,
 	MagazineSize = 30,
-	WeaponRange = 38,
+	WeaponRange = 34,
 	OverwatchAngle = 1800,
 	Noise = 60,
 	HandSlot = "TwoHanded",
@@ -72,7 +72,7 @@ DefineClass.Type56 = {
 	Recoil = 16,
 	AutoShots = 6,
 	Handling = 70,
-	BulletDropRange = 13,
+	BulletDropRange = 17,
 	Grouping = 180,
 }
 

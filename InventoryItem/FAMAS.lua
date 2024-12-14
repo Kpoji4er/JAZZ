@@ -25,7 +25,7 @@ DefineClass.FAMAS = {
 	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 25,
-	WeaponRange = 38,
+	WeaponRange = 33,
 	OverwatchAngle = 1680,
 	Noise = 50,
 	HandSlot = "TwoHanded",
@@ -100,7 +100,7 @@ DefineClass.FAMAS = {
 	ReloadAP = 5000,
 	Recoil = 10,
 	Handling = 74,
-	BulletDropRange = 15,
+	BulletDropRange = 23,
 	Grouping = 235,
 }
 
