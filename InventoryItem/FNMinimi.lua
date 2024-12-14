@@ -28,7 +28,7 @@ DefineClass.FNMinimi = {
 	AimAccuracy = 24,
 	CritChance = 5,
 	MagazineSize = 100,
-	WeaponRange = 42,
+	WeaponRange = 54,
 	OverwatchAngle = 2700,
 	Noise = 45,
 	HandSlot = "TwoHanded",
@@ -96,8 +96,8 @@ DefineClass.FNMinimi = {
 	ReloadAP = 6000,
 	Recoil = 6,
 	BurstShots = 10,
-	Handling = 67,
-	BulletDropRange = 27,
+	Handling = 72,
+	BulletDropRange = 17,
 	Grouping = 298,
 }
 

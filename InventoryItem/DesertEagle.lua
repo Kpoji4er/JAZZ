@@ -89,7 +89,7 @@ DefineClass.DesertEagle = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 82,
-	BulletDropRange = 9,
+	BulletDropRange = 7,
 	Grouping = 80,
 	CanAppearUsed = false,
 }

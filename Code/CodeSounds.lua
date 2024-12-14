@@ -245,7 +245,7 @@ PlaceObj('ActionFXSound', {
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "Luger_shot",
-	Target = "Basic",
+	Target = "any",
 	group = "Default",
 	id = "fxLuger",
 })
@@ -312,7 +312,7 @@ PlaceObj('ActionFXSound', {
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "P210_shot",
-	Target = "Basic",
+	Target = "any",
 	group = "Default",
 	id = "fxP210",
 })
@@ -352,7 +352,7 @@ PlaceObj('ActionFXSound', {
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "P226_shot",
-	Target = "Basic",
+	Target = "any",
 	group = "Default",
 	id = "fxP226",
 })
@@ -1734,15 +1734,16 @@ PlaceObj('ActionFXRemove', {
 	group = "Weapons VFX",
 	id = "8612833909699323100",
 })
+
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
 	Actor = "SKS",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "SKS_shot",
-	Target = "Basic",
+	Target = "any",
 	group = "Default",
-	id = "fxSKS1",
+	id = "fxSKS",
 })
 
 PlaceObj('ActionFXSound', {
@@ -1879,7 +1880,7 @@ PlaceObj('ActionFXSound', {
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "Mosin_shot",
-	Target = "Basic",
+	Target = "any",
 	group = "Default",
 	id = "fxMosin",
 })
@@ -1891,7 +1892,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "Mosin_reload",
 	Delay = 2200,
-	Target = "Basic",
+	Target = "any",
 	group = "Default",
 	id = "fxMosin",
 })
@@ -1915,7 +1916,7 @@ PlaceObj('ActionFXSound', {
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "Mosin_boltopen",
-	Target = "Basic",
+	Target = "any",
 	group = "Default",
 	GameTime = true,
 	id = "fxMosin",
@@ -1929,7 +1930,7 @@ PlaceObj('ActionFXSound', {
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "Mosin_clipout",
-	Target = "Basic",
+	Target = "any",
 	group = "Default",
 	GameTime = true,
 	id = "fxMosin",
@@ -1942,7 +1943,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "Mosin_clipin",
 	Delay = 2200,
-	Target = "Basic",
+	Target = "any",
 	group = "Default",
 	GameTime = true,
 	id = "fxMosin",
@@ -1955,7 +1956,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "Mosin_boltclose",
 	Delay = 4200,
-	Target = "Basic",
+	Target = "any",
 	group = "Default",
 	GameTime = true,
 	id = "fxMosin",
@@ -2105,6 +2106,17 @@ PlaceObj('ActionFXSound', {
 	id = "fxZastavaM76",
 })
 
+--PlaceObj('ActionFXSound', {
+--	Action = "WeaponFire",
+--	Actor = "M24Sniper",
+--	DetailLevel = 100,
+--	Moment = "start",
+--	Sound = "M24Sniper_shot",
+--	Target = "any",
+--	group = "Default",
+--	id = "fxM24Sniper",
+--})
+
 PlaceObj('ActionFXInherit_Actor', {
 	Actor = "ScoutSniper",
 	Inherit = "M24Sniper",
@@ -2127,12 +2139,17 @@ PlaceObj('ActionFXInherit_Actor', {
 })
 
 
+
 PlaceObj('ActionFXInherit_Actor', {
 	Actor = "FRF2",
 	Inherit = "M24Sniper",
 	group = "Weapons VFX",
 	id = "fxFRF2",
 })
+
+
+
+
 
 PlaceObj('ActionFXInherit_Actor', {
 	Actor = "SVU",
@@ -2154,7 +2171,7 @@ PlaceObj('ActionFXSound', {
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "SVU_shot",
-	Target = "Basic",
+	Target = "any",
 	group = "Default",
 	id = "fxSVU",
 })
@@ -2329,6 +2346,39 @@ PlaceObj('ActionFXInherit_Actor', {
 })
 
 
+
+PlaceObj('ActionFXSound', {
+	Action = "WeaponFire",
+	Actor = "BrowningM2HMG",
+	DetailLevel = 100,
+	Moment = "start",
+	Sound = "BrowningM2HMG_shot_single",
+	Target = "any",
+	group = "Default",
+	id = "fxBrowningM2HMG",
+})
+
+PlaceObj('ActionFXSound', {
+	Action = "WeaponFire",
+	Actor = "MG42",
+	DetailLevel = 100,
+	Moment = "start",
+	Sound = "MG42_shot_single",
+	Target = "any",
+	group = "Default",
+	id = "fxMG42",
+})
+
+PlaceObj('ActionFXSound', {
+	Action = "WeaponFire",
+	Actor = "MG58",
+	DetailLevel = 100,
+	Moment = "start",
+	Sound = "MG42_shot_single",
+	Target = "any",
+	group = "Default",
+	id = "fxMG58",
+})
 
 
 PlaceObj('ActionFXInherit_Actor', {
@@ -2613,6 +2663,17 @@ PlaceObj('ActionFXInherit_Actor', {
 	id = "fxStoeger",
 })
 
+PlaceObj('ActionFXSound', {
+	Action = "WeaponBuckshot",
+	Actor = "Stoeger",
+	DetailLevel = 100,
+	Moment = "start",
+	Sound = "ShotgunDouble_shot",
+	Target = "any",
+	group = "Default",
+	id = "fxStoeger",
+})
+
 
 PlaceObj('ActionFXInherit_Actor', {
 	Actor = "Striker",
@@ -2870,7 +2931,7 @@ PlaceObj('ActionFXSound', {
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "dp27_shot",
-	Target = "Basic",
+	Target = "any",
 	group = "Default",
 	id = "fxDP27",
 })
@@ -2895,7 +2956,7 @@ PlaceObj('ActionFXSound', {
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "dp27_clipout",
-	Target = "Basic",
+	Target = "any",
 	group = "Default",
 	GameTime = true,
 	id = "fxDP27",
@@ -2908,7 +2969,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "dp27_clipin",
 	Delay = 2200,
-	Target = "Basic",
+	Target = "any",
 	group = "Default",
 	GameTime = true,
 	id = "fxDP27",
@@ -2921,7 +2982,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "dp27_reload",
 	Delay = 4200,
-	Target = "Basic",
+	Target = "any",
 	group = "Default",
 	GameTime = true,
 	id = "fxDP27",
@@ -3145,7 +3206,7 @@ PlaceObj('ActionFXInherit_Actor', {
 })
 
 PlaceObj('ActionFXInherit_Actor', {
-	Actor = "ZastavaM70",
+	Actor = "Zastava_M70",
 	Inherit = "AK47",
 	group = "Weapons VFX",
 	id = "fxZastavaM70",
@@ -3461,4 +3522,60 @@ PlaceObj('ActionFXInherit_Actor', {
 	Inherit = "M21",
 	group = "Weapons VFX",
 	id = "fxM1A",
+})
+
+PlaceObj('ActionFXInherit_Actor', {
+	Actor = "JAZZ_AMMO_MortarShell_HE",
+	Inherit = "MortarShell_HE",
+	group = "Weapons VFX",
+	id = "fxJAZZ_MortarShell_HE",
+})
+
+PlaceObj('ActionFXInherit_Actor', {
+	Actor = "JAZZ_AMMO_MortarShell_Gas",
+	Inherit = "MortarShell_Gas",
+	group = "Weapons VFX",
+	id = "fxJAZZ_MortarShell_Gas",
+})
+
+PlaceObj('ActionFXInherit_Actor', {
+	Actor = "JAZZ_AMMO_MortarShell_Smoke",
+	Inherit = "MortarShell_Smoke",
+	group = "Weapons VFX",
+	id = "fxJAZZ_MortarShell_Smoke",
+})
+
+PlaceObj('ActionFXInherit_Actor', {
+	Actor = "JAZZ_AMMO_MortarShell_HE",
+	Inherit = "MortarShell_HE",
+	group = "Weapons VFX",
+	id = "fxJAZZ_MortarShell_HE",
+})
+
+PlaceObj('ActionFXInherit_Actor', {
+	Actor = "JAZZ_AMMO_MortarShell_Gas",
+	Inherit = "MortarShell_Gas",
+	group = "Weapons VFX",
+	id = "fxJAZZ_MortarShell_Gas",
+})
+
+PlaceObj('ActionFXInherit_Actor', {
+	Actor = "JAZZ_AMMO_MortarShell_Smoke",
+	Inherit = "MortarShell_Smoke",
+	group = "Weapons VFX",
+	id = "fxJAZZ_MortarShell_Smoke",
+})
+
+PlaceObj('ActionFXInherit_Actor', {
+	Actor = "JAZZ_AMMO_40mmFragGrenade",
+	Inherit = "_40mmFragGrenade",
+	group = "Weapons VFX",
+	id = "fxJAZZ_40mmFragGrenade",
+})
+
+PlaceObj('ActionFXInherit_Actor', {
+	Actor = "JAZZ_AMMO_40mmFlashbangGrenade",
+	Inherit = "_40mmFlashbangGrenade",
+	group = "Weapons VFX",
+	id = "fxJAZZ_40mmFlashbangGrenade",
 })

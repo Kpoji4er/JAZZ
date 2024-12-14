@@ -36,6 +36,8 @@ DefineModItemPreset("ObjMaterial", { EditorName = "ObjMaterial", EditorSubmenu =
 
 
 
+
+
 --DefineModItemPreset("SoundSamples", { EditorName = "SoundBank", EditorSubmenu = "Sound" })
 --DefineModItemPreset("SoundCandidates", { EditorName = "Sound Bank Candidates", EditorSubmenu = "Sound" })
 --DefineModItemPreset("MapDataPreset", { EditorName = "Map data preset def", EditorSubmenu = "Satellite" })

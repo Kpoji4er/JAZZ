@@ -26,7 +26,7 @@ DefineClass.M1A = {
 	AimAccuracy = 24,
 	CritChanceScaled = 20,
 	MagazineSize = 20,
-	WeaponRange = 48,
+	WeaponRange = 58,
 	OverwatchAngle = 1200,
 	Noise = 80,
 	HandSlot = "TwoHanded",
@@ -125,7 +125,7 @@ DefineClass.M1A = {
 	BurstShots = 1,
 	AutoShots = 1,
 	Handling = 68,
-	BulletDropRange = 29,
+	BulletDropRange = 20,
 	Grouping = 340,
 	BaseJamChance = -30,
 }

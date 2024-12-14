@@ -28,7 +28,7 @@ DefineClass.AUG = {
 	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
-	WeaponRange = 37,
+	WeaponRange = 46,
 	OverwatchAngle = 1920,
 	Noise = 55,
 	HandSlot = "TwoHanded",
@@ -125,7 +125,7 @@ DefineClass.AUG = {
 	Recoil = 9,
 	BurstShots = 4,
 	Handling = 78,
-	BulletDropRange = 24,
+	BulletDropRange = 16,
 	Grouping = 290,
 	BaseJamChance = -20,
 }

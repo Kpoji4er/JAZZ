@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/3NHHXrHA2D",
 	},
-	'last_changes', "Багофиксы",
+	'last_changes', "Ребаланс оружия и расчета шансов попадания - в сторону уменьшения точности на дистанции\nРебаланс овервотча - меньше действий, но выше уровень прицеливания",
 	'dependencies', {
 		PlaceObj('ModDependency', {
 			'id', "pDGDhr",
@@ -28,7 +28,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 3,
-	'version', 4246,
+	'version', 4303,
 	'lua_revision', 233360,
 	'saved_with_revision', 350233,
 	'code', {
@@ -128,9 +128,9 @@ return PlaceObj('ModDef', {
 		"InventoryItem/_50BMG_HE.lua",
 		"InventoryItem/_50BMG_Incendiary.lua",
 		"InventoryItem/_50BMG_SLAP.lua",
-		"InventoryItem/_MortarShell_Gas.lua",
-		"InventoryItem/_MortarShell_HE.lua",
-		"InventoryItem/_MortarShell_Smoke.lua",
+		"InventoryItem/MortarShell_Gas.lua",
+		"InventoryItem/MortarShell_HE.lua",
+		"InventoryItem/MortarShell_Smoke.lua",
 		"InventoryItem/_40mmFlashbangGrenade.lua",
 		"InventoryItem/_40mmFragGrenade.lua",
 		"Code/CodeSounds.lua",
@@ -169,9 +169,9 @@ return PlaceObj('ModDef', {
 		"InventoryItem/Agram2000.lua",
 		"InventoryItem/MicroUZI.lua",
 		"InventoryItem/MPL.lua",
-		"InventoryItem/PPS43.lua",
 		"InventoryItem/M45.lua",
 		"InventoryItem/Sterling.lua",
+		"InventoryItem/PPS43.lua",
 		"InventoryItem/UZI.lua",
 		"InventoryItem/MAC10.lua",
 		"InventoryItem/BerettaM12.lua",
@@ -580,8 +580,8 @@ return PlaceObj('ModDef', {
 	},
 	'default_options', {},
 	'has_data', true,
-	'saved', 1733265265,
-	'code_hash', 7879760407843085325,
+	'saved', 1734176696,
+	'code_hash', 2456246298227031977,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -7790,17 +7790,17 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
-			'Id', "_MortarShell_Gas",
+			'Id', "MortarShell_Gas",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
-			'Id', "_MortarShell_HE",
+			'Id', "MortarShell_HE",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
-			'Id', "_MortarShell_Smoke",
+			'Id', "MortarShell_Smoke",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -7846,6 +7846,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "SoundPreset",
 			'Id', "AK74_shot_single",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "AN94_shot",
 			'ClassDisplayName', "Sound",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -7946,6 +7951,16 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "SoundPreset",
 			'Id', "ColtPeacemaker_shot-room",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "HighCalRev_shot",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "Colt1911_shot",
 			'ClassDisplayName', "Sound",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -9015,17 +9030,17 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
-			'Id', "PPS43",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
 			'Id', "M45",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "Sterling",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "PPS43",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -10266,6 +10281,31 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "WeaponComponentEffect",
 			'Id', "GripHandlingIncrease",
+			'ClassDisplayName', "Modification Effects",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponentEffect",
+			'Id', "MagazineHandlingIncrease",
+			'ClassDisplayName', "Modification Effects",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponentEffect",
+			'Id', "MagazineHandlingDecrease",
+			'ClassDisplayName', "Modification Effects",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponentEffect",
+			'Id', "BipodsHandlingDecrease",
+			'ClassDisplayName', "Modification Effects",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponentEffect",
+			'Id', "GLHandlingDecrease",
+			'ClassDisplayName', "Modification Effects",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponentEffect",
+			'Id', "ChangeCaliberToBMG",
 			'ClassDisplayName', "Modification Effects",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -13513,16 +13553,6 @@ return PlaceObj('ModDef', {
 			'Class', "ObjMaterial",
 			'Id', "Explosive_Vehicle",
 			'ClassDisplayName', "ObjMaterial",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "AIArchetype",
-			'Id', "HeavyGunner",
-			'ClassDisplayName', "AIArchetype",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "WeaponComponentEffect",
-			'Id', "ChangeCaliberToBMG",
-			'ClassDisplayName', "Modification Effects",
 		}),
 	},
 	'steam_id', "3321938203",

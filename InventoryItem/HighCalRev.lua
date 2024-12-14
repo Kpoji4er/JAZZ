@@ -62,7 +62,7 @@ DefineClass.HighCalRev = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 92,
-	BulletDropRange = 11,
+	BulletDropRange = 10,
 	Grouping = 85,
 	BaseJamChance = -50,
 }

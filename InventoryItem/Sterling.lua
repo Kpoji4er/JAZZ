@@ -53,7 +53,7 @@ DefineClass.Sterling = {
 	BurstShots = 2,
 	AutoShots = 6,
 	Handling = 80,
-	BulletDropRange = 11,
+	BulletDropRange = 10,
 	Grouping = 88,
 	BaseJamChance = -20,
 }

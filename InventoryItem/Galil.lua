@@ -26,7 +26,7 @@ DefineClass.Galil = {
 	ObjDamageMod = 80,
 	AimAccuracy = 22,
 	MagazineSize = 25,
-	WeaponRange = 44,
+	WeaponRange = 54,
 	OverwatchAngle = 1440,
 	Noise = 75,
 	HandSlot = "TwoHanded",
@@ -117,7 +117,7 @@ DefineClass.Galil = {
 	Recoil = 27,
 	AutoShots = 6,
 	Handling = 65,
-	BulletDropRange = 29,
+	BulletDropRange = 20,
 	Grouping = 280,
 }
 

@@ -28,7 +28,7 @@ DefineClass.PSG1 = {
 	AimAccuracy = 35,
 	CritChanceScaled = 40,
 	MagazineSize = 5,
-	WeaponRange = 65,
+	WeaponRange = 75,
 	OverwatchAngle = 900,
 	Noise = 75,
 	HandSlot = "TwoHanded",
@@ -107,7 +107,7 @@ DefineClass.PSG1 = {
 	BurstShots = 1,
 	AutoShots = 1,
 	Handling = 48,
-	BulletDropRange = 32,
+	BulletDropRange = 22,
 	Grouping = 400,
 	BaseJamChance = -20,
 }

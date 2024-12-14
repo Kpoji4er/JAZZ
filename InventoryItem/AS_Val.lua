@@ -26,7 +26,7 @@ DefineClass.AS_Val = {
 	AimAccuracy = 16,
 	CritChance = 10,
 	MagazineSize = 10,
-	WeaponRange = 26,
+	WeaponRange = 32,
 	OverwatchAngle = 2160,
 	Noise = 5,
 	HandSlot = "TwoHanded",
@@ -102,7 +102,7 @@ DefineClass.AS_Val = {
 	BurstShots = 4,
 	AutoShots = 9,
 	Handling = 80,
-	BulletDropRange = 15,
+	BulletDropRange = 12,
 	Grouping = 200,
 	BaseJamChance = -30,
 }

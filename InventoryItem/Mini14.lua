@@ -25,7 +25,7 @@ DefineClass.Mini14 = {
 	AimAccuracy = 22,
 	CritChanceScaled = 20,
 	MagazineSize = 20,
-	WeaponRange = 38,
+	WeaponRange = 48,
 	OverwatchAngle = 1500,
 	Noise = 80,
 	HandSlot = "TwoHanded",
@@ -83,7 +83,7 @@ DefineClass.Mini14 = {
 	BurstShots = 1,
 	AutoShots = 1,
 	Handling = 70,
-	BulletDropRange = 25,
+	BulletDropRange = 16,
 	Grouping = 275,
 	BaseJamChance = -10,
 }

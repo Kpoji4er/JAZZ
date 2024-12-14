@@ -26,7 +26,7 @@ DefineClass.Sig550 = {
 	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
-	WeaponRange = 40,
+	WeaponRange = 48,
 	OverwatchAngle = 1800,
 	Noise = 50,
 	HandSlot = "TwoHanded",
@@ -105,7 +105,7 @@ DefineClass.Sig550 = {
 	Recoil = 8,
 	AutoShots = 6,
 	Handling = 74,
-	BulletDropRange = 25,
+	BulletDropRange = 17,
 	Grouping = 300,
 	BaseJamChance = -30,
 }

@@ -46,12 +46,10 @@ DefineClass.JAZZ_AMMO_45ACP_P = {
 		}),
 		PlaceObj('CaliberModification', {
 			mod_add = 2,
-			mod_mul = 0,
 			target_prop = "WeaponRange",
 		}),
 		PlaceObj('CaliberModification', {
 			mod_add = 1,
-			mod_mul = 0,
 			target_prop = "BulletDropRange",
 		}),
 	},

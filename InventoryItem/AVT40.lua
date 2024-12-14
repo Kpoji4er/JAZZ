@@ -22,7 +22,7 @@ DefineClass.AVT40 = {
 	AimAccuracy = 30,
 	CritChanceScaled = 40,
 	MagazineSize = 15,
-	WeaponRange = 54,
+	WeaponRange = 64,
 	OverwatchAngle = 900,
 	Noise = 85,
 	HandSlot = "TwoHanded",
@@ -50,7 +50,7 @@ DefineClass.AVT40 = {
 	Recoil = 35,
 	AutoShots = 7,
 	Handling = 30,
-	BulletDropRange = 33,
+	BulletDropRange = 24,
 	Grouping = 225,
 	BaseJamChance = 5,
 }

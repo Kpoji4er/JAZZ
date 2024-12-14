@@ -20,10 +20,10 @@ DefineClass.M1Garand = {
 	Caliber = "JAZZ_Caliber_3006",
 	Damage = 38,
 	ObjDamageMod = 80,
-	AimAccuracy = 32,
+	AimAccuracy = 28,
 	CritChanceScaled = 40,
 	MagazineSize = 8,
-	WeaponRange = 50,
+	WeaponRange = 60,
 	OverwatchAngle = 840,
 	Noise = 85,
 	HandSlot = "TwoHanded",
@@ -58,7 +58,7 @@ DefineClass.M1Garand = {
 	BurstShots = 1,
 	AutoShots = 1,
 	Handling = 42,
-	BulletDropRange = 29,
+	BulletDropRange = 23,
 	Grouping = 220,
 }
 

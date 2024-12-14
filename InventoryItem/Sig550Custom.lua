@@ -29,7 +29,7 @@ DefineClass.Sig550Custom = {
 	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
-	WeaponRange = 40,
+	WeaponRange = 48,
 	OverwatchAngle = 1800,
 	Noise = 50,
 	HandSlot = "TwoHanded",
@@ -120,7 +120,7 @@ DefineClass.Sig550Custom = {
 	BurstShots = 1,
 	AutoShots = 8,
 	Handling = 74,
-	BulletDropRange = 25,
+	BulletDropRange = 17,
 	Grouping = 300,
 	BaseJamChance = -30,
 }

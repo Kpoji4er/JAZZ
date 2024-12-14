@@ -75,7 +75,7 @@ DefineClass.ColtAnaconda = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 89,
-	BulletDropRange = 8,
+	BulletDropRange = 7,
 	Grouping = 91,
 	BaseJamChance = -100,
 }

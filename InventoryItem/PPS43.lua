@@ -57,7 +57,7 @@ DefineClass.PPS43 = {
 	Recoil = 7,
 	AutoShots = 7,
 	Handling = 80,
-	BulletDropRange = 14,
+	BulletDropRange = 11,
 	Grouping = 82,
 	BaseJamChance = -10,
 }

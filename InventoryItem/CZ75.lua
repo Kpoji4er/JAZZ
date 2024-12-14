@@ -70,7 +70,7 @@ DefineClass.CZ75 = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 98,
-	BulletDropRange = 7,
+	BulletDropRange = 6,
 	Grouping = 94,
 	BaseJamChance = -20,
 }

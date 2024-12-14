@@ -69,7 +69,7 @@ DefineClass.TMP = {
 	BurstShots = 5,
 	AutoShots = 9,
 	Handling = 90,
-	BulletDropRange = 8,
+	BulletDropRange = 7,
 	Grouping = 88,
 	BaseJamChance = -30,
 }

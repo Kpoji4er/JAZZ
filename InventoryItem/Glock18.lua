@@ -97,7 +97,7 @@ DefineClass.Glock18 = {
 	BurstShots = 4,
 	AutoShots = 4,
 	Handling = 100,
-	BulletDropRange = 7,
+	BulletDropRange = 6,
 	Grouping = 78,
 	CanAppearUsed = false,
 }

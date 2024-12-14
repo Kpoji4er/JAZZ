@@ -52,7 +52,7 @@ DefineClass.MP40 = {
 	BurstShots = 2,
 	AutoShots = 5,
 	Handling = 78,
-	BulletDropRange = 12,
+	BulletDropRange = 10,
 	Grouping = 80,
 	BaseJamChance = 30,
 }

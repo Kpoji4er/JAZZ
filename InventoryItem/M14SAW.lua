@@ -23,7 +23,7 @@ DefineClass.M14SAW = {
 	ObjDamageMod = 80,
 	AimAccuracy = 20,
 	MagazineSize = 20,
-	WeaponRange = 47,
+	WeaponRange = 62,
 	OverwatchAngle = 1440,
 	Noise = 80,
 	HandSlot = "TwoHanded",
@@ -118,9 +118,9 @@ DefineClass.M14SAW = {
 	ReloadAP = 5000,
 	Recoil = 25,
 	BurstShots = 4,
-	AutoShots = 25,
+	AutoShots = 7,
 	Handling = 62,
-	BulletDropRange = 30,
+	BulletDropRange = 21,
 	Grouping = 242,
 }
 

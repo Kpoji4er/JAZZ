@@ -25,7 +25,7 @@ DefineClass.DragunovSVD = {
 	AimAccuracy = 34,
 	CritChanceScaled = 20,
 	MagazineSize = 10,
-	WeaponRange = 60,
+	WeaponRange = 66,
 	OverwatchAngle = 900,
 	Noise = 85,
 	HandSlot = "TwoHanded",
@@ -91,7 +91,7 @@ DefineClass.DragunovSVD = {
 	BurstShots = 1,
 	AutoShots = 1,
 	Handling = 45,
-	BulletDropRange = 33,
+	BulletDropRange = 24,
 	Grouping = 370,
 	BaseJamChance = -30,
 }

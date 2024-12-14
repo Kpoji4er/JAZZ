@@ -431,7 +431,7 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 
 	-- Base CTH
 	local skill = (self[weapon.base_skill]+self["Dexterity"]*2+self:GetLevel()*10)/3
-	if IsKindOf(weapon, "MachineGun") then local skill = (self[weapon.base_skill]*2+self["Dexterity"]+self["Strength"]*2+self:GetLevel()*10)/5 end
+	if IsKindOf(weapon, "MachineGun") then local skill = (self[weapon.base_skill]*2+self["Dexterity"]+self["Strength"]+self:GetLevel()*10)/4 end
 --	if aim == 0 then
 --		skill = MulDivRound(skill,0.8*handling,100)
 --	else
@@ -1084,4 +1084,58 @@ function Unit:UpdateMeleeTrainingVisual()
 		DoneObject(self.melee_threat_contour)
 		self.melee_threat_contour = nil
 	end
+end
+
+function Unit:GetOverwatchAttacksAndAim(action, args, unit_ap)
+	action = action or CombatActions.Overwatch
+	local weapon = action:GetAttackWeapons(self)
+	local attack = self:GetDefaultAttackAction()
+	unit_ap = unit_ap or (g_Combat and self:GetUIActionPoints() or self:GetMaxActionPoints())
+	args = table.copy(args)
+	args.action_cost_only = true
+
+
+	local minAim, maxAim = self:GetBaseAimLevelRange(attack)
+
+	local aim = Min(minAim + 1,maxAim)
+
+--	if IsKindOf(weapon, "SniperRifle") then
+--		aim = maxAim
+--	end
+
+	if IsKindOf(weapon, "AssaultRifle") then
+		aim = Min(aim + 1,maxAim)
+	end
+	if IsKindOfClasses(weapon, "MachineGun", "SniperRifle") then
+		aim = Min(aim + 2,maxAim)
+	end
+
+
+
+
+
+
+	local cost = action:GetAPCost(self, args) 
+	if cost < 0 then
+		return 1
+	end
+
+	args.aim = aim
+
+
+	local ap = unit_ap - cost
+	--local atk_cost = attack:GetAPCost(self, args) 
+	local atk_cost = attack:GetAPCost(self, args) 
+	--print(atk_cost)
+
+	local attacks = 1 + ap / atk_cost
+
+	if IsKindOf(weapon, "SniperRifle") then
+		attacks = 1
+	end
+	attacks = self:CallReactions_Modify("OnCalcOverwatchAttacks", attacks, action, args)
+
+	--print(weapon.DisplayName..' aim '..aim.." maxAim "..maxAim)
+	
+	return attacks, aim or minAim or 0
 end

@@ -27,7 +27,7 @@ DefineClass.Zastava_M70 = {
 	AimAccuracy = 19,
 	CritChance = 5,
 	MagazineSize = 30,
-	WeaponRange = 34,
+	WeaponRange = 38,
 	OverwatchAngle = 1800,
 	Noise = 60,
 	HandSlot = "TwoHanded",
@@ -86,7 +86,7 @@ DefineClass.Zastava_M70 = {
 	Recoil = 15,
 	AutoShots = 6,
 	Handling = 70,
-	BulletDropRange = 17,
+	BulletDropRange = 14,
 	Grouping = 238,
 	BaseJamChance = -20,
 }

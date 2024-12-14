@@ -25,7 +25,7 @@ DefineClass.AR10 = {
 	ObjDamageMod = 80,
 	AimAccuracy = 22,
 	MagazineSize = 20,
-	WeaponRange = 44,
+	WeaponRange = 54,
 	OverwatchAngle = 1560,
 	Noise = 80,
 	HandSlot = "TwoHanded",
@@ -68,7 +68,7 @@ DefineClass.AR10 = {
 	Recoil = 22,
 	AutoShots = 7,
 	Handling = 68,
-	BulletDropRange = 31,
+	BulletDropRange = 20,
 	Grouping = 278,
 	BaseJamChance = -10,
 }

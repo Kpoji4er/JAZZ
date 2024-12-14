@@ -85,7 +85,7 @@ DefineClass.MP7 = {
 	Recoil = 6,
 	BurstShots = 5,
 	Handling = 87,
-	BulletDropRange = 12,
+	BulletDropRange = 10,
 	Grouping = 80,
 	BaseJamChance = -30,
 }

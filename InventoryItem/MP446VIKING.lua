@@ -83,7 +83,7 @@ DefineClass.MP446VIKING = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 95,
-	BulletDropRange = 7,
+	BulletDropRange = 6,
 	Grouping = 88,
 	BaseJamChance = -20,
 }

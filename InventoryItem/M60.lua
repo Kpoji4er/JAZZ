@@ -27,7 +27,7 @@ DefineClass.M60 = {
 	ObjDamageMod = 80,
 	AimAccuracy = 20,
 	MagazineSize = 100,
-	WeaponRange = 45,
+	WeaponRange = 55,
 	OverwatchAngle = 1800,
 	Noise = 80,
 	HandSlot = "TwoHanded",
@@ -58,8 +58,8 @@ DefineClass.M60 = {
 	Recoil = 18,
 	BurstShots = 5,
 	AutoShots = 5,
-	Handling = 55,
-	BulletDropRange = 31,
+	Handling = 64,
+	BulletDropRange = 20,
 	Grouping = 280,
 }
 

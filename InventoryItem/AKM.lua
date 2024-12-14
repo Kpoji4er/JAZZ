@@ -28,7 +28,7 @@ DefineClass.AKM = {
 	AimAccuracy = 20,
 	CritChance = 5,
 	MagazineSize = 30,
-	WeaponRange = 35,
+	WeaponRange = 39,
 	OverwatchAngle = 1800,
 	Noise = 60,
 	HandSlot = "TwoHanded",
@@ -127,7 +127,7 @@ DefineClass.AKM = {
 	Recoil = 15,
 	AutoShots = 6,
 	Handling = 70,
-	BulletDropRange = 18,
+	BulletDropRange = 14,
 	Grouping = 250,
 	BaseJamChance = -50,
 }

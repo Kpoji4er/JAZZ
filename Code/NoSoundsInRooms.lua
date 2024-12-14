@@ -1,3 +1,9 @@
+--if FirstLoad then
+--	s_DrySoundCache = {}
+--end
+--
+--local pos_volume_offset = point(0, 0, const.vsInsideVolumeZOffset)
+--
 --function ActionFXSound:GetProjectReplace(sound, actor)
 --	local pos = IsValid(actor) and IsKindOf(actor, "Object") and actor:GetPos() or actor
 --	if not IsPoint(pos) then

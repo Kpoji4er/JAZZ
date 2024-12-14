@@ -27,7 +27,7 @@ DefineClass.SVU = {
 	AimAccuracy = 30,
 	CritChanceScaled = 20,
 	MagazineSize = 10,
-	WeaponRange = 55,
+	WeaponRange = 65,
 	OverwatchAngle = 1200,
 	Noise = 40,
 	HandSlot = "TwoHanded",
@@ -72,7 +72,7 @@ DefineClass.SVU = {
 	Recoil = 25,
 	AutoShots = 6,
 	Handling = 60,
-	BulletDropRange = 32,
+	BulletDropRange = 24,
 	Grouping = 380,
 	BaseJamChance = -20,
 }

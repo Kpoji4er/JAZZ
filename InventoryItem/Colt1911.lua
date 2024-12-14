@@ -66,7 +66,7 @@ DefineClass.Colt1911 = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 92,
-	BulletDropRange = 6,
+	BulletDropRange = 5,
 	Grouping = 92,
 	BaseJamChance = -10,
 }

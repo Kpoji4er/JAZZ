@@ -28,7 +28,7 @@ DefineClass.VSS = {
 	CritChance = 10,
 	CritChanceScaled = 20,
 	MagazineSize = 20,
-	WeaponRange = 28,
+	WeaponRange = 34,
 	OverwatchAngle = 1800,
 	Noise = 5,
 	HandSlot = "TwoHanded",
@@ -75,7 +75,7 @@ DefineClass.VSS = {
 	Recoil = 8,
 	AutoShots = 9,
 	Handling = 75,
-	BulletDropRange = 15,
+	BulletDropRange = 12,
 	Grouping = 235,
 	BaseJamChance = -30,
 }

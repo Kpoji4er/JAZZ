@@ -25,7 +25,7 @@ DefineClass.M16A1 = {
 	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
-	WeaponRange = 35,
+	WeaponRange = 46,
 	OverwatchAngle = 1560,
 	Noise = 50,
 	HandSlot = "TwoHanded",
@@ -91,7 +91,7 @@ DefineClass.M16A1 = {
 	BurstShots = 4,
 	AutoShots = 8,
 	Handling = 72,
-	BulletDropRange = 24,
+	BulletDropRange = 16,
 	Grouping = 280,
 	BaseJamChance = 5,
 }

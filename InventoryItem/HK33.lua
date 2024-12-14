@@ -28,7 +28,7 @@ DefineClass.HK33 = {
 	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
-	WeaponRange = 39,
+	WeaponRange = 46,
 	PointBlankBonus = 1,
 	OverwatchAngle = 2100,
 	Noise = 50,
@@ -137,7 +137,7 @@ DefineClass.HK33 = {
 	BurstShots = 4,
 	AutoShots = 7,
 	Handling = 73,
-	BulletDropRange = 24,
+	BulletDropRange = 16,
 	Grouping = 260,
 	BaseJamChance = -30,
 }

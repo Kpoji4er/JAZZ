@@ -24,7 +24,7 @@ DefineClass.AK47 = {
 	ObjDamageMod = 50,
 	AimAccuracy = 20,
 	MagazineSize = 30,
-	WeaponRange = 35,
+	WeaponRange = 38,
 	OverwatchAngle = 1800,
 	HandSlot = "TwoHanded",
 	Entity = "J_AK47",
@@ -73,7 +73,7 @@ DefineClass.AK47 = {
 	ReloadAP = 3000,
 	AutoShots = 6,
 	Handling = 70,
-	BulletDropRange = 18,
+	BulletDropRange = 14,
 	Grouping = 240,
 	BaseJamChance = -10,
 }

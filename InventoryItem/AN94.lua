@@ -29,7 +29,7 @@ DefineClass.AN94 = {
 	CritChance = 10,
 	CritChanceScaled = 30,
 	MagazineSize = 30,
-	WeaponRange = 39,
+	WeaponRange = 49,
 	OverwatchAngle = 1680,
 	Noise = 50,
 	HandSlot = "TwoHanded",
@@ -83,7 +83,7 @@ DefineClass.AN94 = {
 	BurstShots = 2,
 	AutoShots = 6,
 	Handling = 69,
-	BulletDropRange = 26,
+	BulletDropRange = 18,
 	Grouping = 275,
 	BaseJamChance = -20,
 }

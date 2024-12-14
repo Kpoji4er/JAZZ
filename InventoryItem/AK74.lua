@@ -29,7 +29,7 @@ DefineClass.AK74 = {
 	CritChance = 10,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
-	WeaponRange = 38,
+	WeaponRange = 48,
 	OverwatchAngle = 1800,
 	Noise = 50,
 	HandSlot = "TwoHanded",
@@ -105,7 +105,7 @@ DefineClass.AK74 = {
 	Recoil = 7,
 	AutoShots = 6,
 	Handling = 70,
-	BulletDropRange = 26,
+	BulletDropRange = 18,
 	Grouping = 270,
 	BaseJamChance = -50,
 }

@@ -29,7 +29,7 @@ DefineClass.BarretM82 = {
 	CritChance = 30,
 	CritChanceScaled = 20,
 	MagazineSize = 5,
-	WeaponRange = 75,
+	WeaponRange = 85,
 	OverwatchAngle = 360,
 	Noise = 100,
 	HandSlot = "TwoHanded",
@@ -88,7 +88,7 @@ DefineClass.BarretM82 = {
 	BurstShots = 1,
 	AutoShots = 1,
 	Handling = 20,
-	BulletDropRange = 38,
+	BulletDropRange = 30,
 	Grouping = 420,
 	BaseJamChance = -20,
 }

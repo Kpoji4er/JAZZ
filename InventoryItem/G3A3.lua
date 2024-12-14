@@ -26,7 +26,7 @@ DefineClass.G3A3 = {
 	ObjDamageMod = 80,
 	AimAccuracy = 24,
 	MagazineSize = 20,
-	WeaponRange = 48,
+	WeaponRange = 58,
 	OverwatchAngle = 1200,
 	Noise = 80,
 	HandSlot = "TwoHanded",
@@ -84,7 +84,7 @@ DefineClass.G3A3 = {
 	ReloadAP = 5000,
 	AutoShots = 6,
 	Handling = 63,
-	BulletDropRange = 30,
+	BulletDropRange = 20,
 	Grouping = 296,
 	BaseJamChance = -30,
 }
