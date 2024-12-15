@@ -34820,6 +34820,10 @@ return {
 								Vars = set({
 	YoungHearts = false,
 }),
+								__eval = function ()
+									local quest = gv_Quests['PantagruelDramas'] or QuestGetState('PantagruelDramas')
+									return not quest.YoungHearts
+								end,
 							}),
 						},
 						guaranteed = true,
@@ -34834,6 +34838,10 @@ return {
 								Vars = set({
 	YoungHearts = false,
 }),
+								__eval = function ()
+									local quest = gv_Quests['PantagruelDramas'] or QuestGetState('PantagruelDramas')
+									return not quest.YoungHearts
+								end,
 							}),
 						},
 						loot_def = "Noob_9x18",
@@ -34843,6 +34851,10 @@ return {
 							PlaceObj('QuestIsVariableBool', {
 								QuestId = "PantagruelDramas",
 								Vars = set( "YoungHearts" ),
+								__eval = function ()
+									local quest = gv_Quests['PantagruelDramas'] or QuestGetState('PantagruelDramas')
+									return quest.YoungHearts
+								end,
 							}),
 						},
 						item = "AKSU",
@@ -34854,6 +34866,10 @@ return {
 							PlaceObj('QuestIsVariableBool', {
 								QuestId = "PantagruelDramas",
 								Vars = set( "YoungHearts" ),
+								__eval = function ()
+									local quest = gv_Quests['PantagruelDramas'] or QuestGetState('PantagruelDramas')
+									return quest.YoungHearts
+								end,
 							}),
 						},
 						guaranteed = true,
@@ -38038,9 +38054,9 @@ return {
 					'Id', "Warhead_Frag",
 					'object_class', "Ordnance",
 					'Icon', "UI/Icons/Items/warhead_frag",
-					'DisplayName', T(938082134003, --[[ModItemInventoryItemCompositeDef Warhead_Frag DisplayName]] "О/ф гранатом. снаряд"),
-					'DisplayNamePlural', T(520121604271, --[[ModItemInventoryItemCompositeDef Warhead_Frag DisplayNamePlural]] "О/ф гранатом. снаряды"),
-					'Description', T(340753503694, --[[ModItemInventoryItemCompositeDef Warhead_Frag Description]] "Осколочно-фугасный боеприпас для реактивных гранатометов."),
+					'DisplayName', T(938082134003, --[[ModItemInventoryItemCompositeDef Warhead_Frag DisplayName]] "ПГ-7В"),
+					'DisplayNamePlural', T(520121604271, --[[ModItemInventoryItemCompositeDef Warhead_Frag DisplayNamePlural]] "ПГ-7В"),
+					'Description', T(340753503694, --[[ModItemInventoryItemCompositeDef Warhead_Frag Description]] "Кумулятивный боеприпас для реактивных гранатометов."),
 					'AdditionalHint', T(944051778480, --[[ModItemInventoryItemCompositeDef Warhead_Frag AdditionalHint]] '<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В центре взрыва вызывает эффект «Горение»\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В радиусе взрыва вызывает эффект "Подавление"'),
 					'Cost', 750,
 					'CanAppearInShop', true,
@@ -38054,16 +38070,16 @@ return {
 						"Burning",
 						"Exposed",
 					},
-					'AreaUnitDamageMod', 10,
-					'AreaObjDamageMod', 50,
+					'AreaUnitDamageMod', 70,
 					'AreaAppliedEffects', {
 						"Exposed",
 					},
 					'PenetrationClass', 4,
+					'coneShaped', true,
 					'DeathType', "BlowUp",
 					'Caliber', "JAZZ_Caliber_Warhead",
-					'BaseDamage', 100,
-					'Noise', 30,
+					'BaseDamage', 150,
+					'Noise', 100,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Ammo - Ordnance",
@@ -55370,7 +55386,7 @@ return {
 					'MaxMishapChance', 30,
 					'MaxMishapRange', 16,
 					'Caliber', "JAZZ_Caliber_Warhead",
-					'AttackAP', 7000,
+					'AttackAP', 8000,
 					'Entity', "Weapon_RPG7_Copy",
 					'Icon', "UI/Icons/Weapons/RPG-7",
 					'DisplayName', T(127122189693, --[[ModItemInventoryItemCompositeDef RPG7 DisplayName]] "РПГ-7"),
@@ -77873,22 +77889,6 @@ return {
 				'AdditionalHint', T(833018739707, --[[ModItemInventoryItemCompositeDef FirstAidKit AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует состояние умирающих персонажей\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Требуется для использования перевязки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится при каждом употреблении, но запас медикаментов можно восполнить\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, просто находясь в инвентаре"),
 				'UnitStat', "Medical",
 				'Cost', 300,
-				'AttachEntries', {
-					PlaceObj('BodyPartData', {
-						'Slot', "",
-						'Gender', "Male",
-						'Entity', "Faction_Acc_Medic",
-						'Spot', "Groin",
-					}),
-					PlaceObj('BodyPartData', {
-						'Slot', "",
-						'Gender', "Female",
-						'Entity', "Faction_Acc_Medic",
-						'Spot', "Groin",
-						'X', 49,
-						'Scale', 76,
-					}),
-				},
 				'CanAppearInShop', true,
 				'RestockWeight', 150,
 				'CategoryPair', "Medicine",
@@ -77916,16 +77916,6 @@ return {
 				'AdditionalHint', T(655535396072, --[[ModItemInventoryItemCompositeDef Medkit AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует состояние умирающих персонажей\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Требуется для использования перевязки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка восстанавливает на 25% ОЗ больше\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится при каждом употреблении, но запас медикаментов можно восполнить\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, просто находясь в инвентаре"),
 				'UnitStat', "Medical",
 				'Cost', 500,
-				'AttachEntries', {
-					PlaceObj('BodyPartData', {
-						'Slot', "",
-						'Entity', "Faction_BagMedic_01",
-						'Spot', "Torso",
-						'Angle', 10800,
-						'X', -99,
-						'Offset', 928,
-					}),
-				},
 				'CanAppearInShop', true,
 				'Tier', 2,
 				'CategoryPair', "Medicine",
@@ -80393,20 +80383,6 @@ return {
 					'Description', T(346368526537, --[[ModItemInventoryItemCompositeDef JazzArmor_CamoBalaclava Description]] "ШПС-ка, она же шапка-пи... пряталка спецназовская. Тканевая маска, скрывающая лицо, с прорезями для глаз и рта. Камуфляжная раскраска помогает хозяину прятать свое лицо еще лучше."),
 					'AdditionalHint', T(557858399256, --[[ModItemInventoryItemCompositeDef JazzArmor_CamoBalaclava AdditionalHint]] "Помогает лучше прятаться"),
 					'Cost', 500,
-					'AttachEntries', {
-						PlaceObj('BodyPartData', {
-							'EditableColor1', RGBA(27, 75, 10, 255),
-							'EditableColor2', RGBA(36, 117, 11, 255),
-							'Slot', "HeadGear",
-							'Gender', "Male",
-							'Entity', "Faction_Thugs_Mask_01",
-							'Spot', "Origin",
-							'X', 5,
-							'Hide', {
-								"Hair",
-							},
-						}),
-					},
 					'CanAppearInShop', true,
 					'Tier', 2,
 					'MaxStock', 1,
@@ -80430,27 +80406,6 @@ return {
 					'Description', T(126940066148, --[[ModItemInventoryItemCompositeDef JazzArmor_Sunglasses Description]] "Красивые и модные солнцезащитные очки. Мало того, что в солнечных очках наемник выглядит круче, так еще и, в качестве бонуса, очки могут поймать шальной осколок, предназначавшийся глазу."),
 					'AdditionalHint', T(424825139337, --[[ModItemInventoryItemCompositeDef JazzArmor_Sunglasses AdditionalHint]] "Улучшают видимость днем, но ухудшают ночью"),
 					'Cost', 300,
-					'AttachEntries', {
-						PlaceObj('BodyPartData', {
-							'Slot', "HeadGear",
-							'Appearance', "Igor",
-							'Entity', "EquipmentLen_Glasses",
-							'Spot', "Head",
-							'Z', -25,
-						}),
-						PlaceObj('BodyPartData', {
-							'Slot', "HeadGear",
-							'Gender', "Male",
-							'Entity', "EquipmentLen_Glasses",
-							'Spot', "Head",
-						}),
-						PlaceObj('BodyPartData', {
-							'Slot', "HeadGear",
-							'Gender', "Female",
-							'Entity', "EquipmentEmma_Glasses",
-							'Spot', "Head",
-						}),
-					},
 					'CanAppearInShop', true,
 					'MaxStock', 1,
 					'RestockWeight', 5,

@@ -23,16 +23,6 @@ DefineClass.Medkit = {
 	AdditionalHint = T(655535396072, --[[ModItemInventoryItemCompositeDef Medkit AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует состояние умирающих персонажей\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Требуется для использования перевязки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка восстанавливает на 25% ОЗ больше\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится при каждом употреблении, но запас медикаментов можно восполнить\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, просто находясь в инвентаре"),
 	UnitStat = "Medical",
 	Cost = 500,
-	AttachEntries = {
-		PlaceObj('BodyPartData', {
-			'Slot', "",
-			'Entity', "Faction_BagMedic_01",
-			'Spot', "Torso",
-			'Angle', 10800,
-			'X', -99,
-			'Offset', 928,
-		}),
-	},
 	CanAppearInShop = true,
 	Tier = 2,
 	CategoryPair = "Medicine",

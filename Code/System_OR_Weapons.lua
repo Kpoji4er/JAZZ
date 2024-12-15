@@ -102,7 +102,7 @@ function FirearmBase:GetJamChance(attacker, condition)
 	--IsPlayerEnemy
 	--local base = item.JamChance + DivRound(item.Deterioration,10)
 	--local jam_chance = ((100 - condition))*2 + item.BaseJamChance + (200-item.Reliability*2)*(Max(item.Deterioration,10)/10)
-	local jam_chance = (98 - condition + .0)*(100-item.Reliability) + item.BaseJamChance - (attacker.Mechanical*3)
+	local jam_chance = (98 - condition + .0)*(100-item.Reliability)/4 + item.BaseJamChance - (attacker.Mechanical*3)
 	if IsMerc(attacker) then 
 		jam_chance = (((95 - condition + .0))*(100-item.Reliability)/4 + (item.Deterioration-5)*(100-item.Reliability)/2) + item.BaseJamChance - (attacker.Mechanical*2 + attacker.Marksmanship)*2/3
 	end
@@ -148,7 +148,7 @@ function FirearmBase:ReliabilityCheck(attacker, num_shots)
 		local seed = Unit:Random()
 		local random = BraidRandomCreate(seed)
 
-		closs = loss + Min(1,0.1*MulDivRound(random(100-item.Reliability),1,10))
+		loss = loss + Max(2,0.1*MulDivRound(random(100-item.Reliability),1,10))
 
 		if num_shots == 1 then jam_chance = jam_chance/2 end
 		--if num_shots < 3 then jam_chance = jam_chance/2 end

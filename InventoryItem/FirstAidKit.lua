@@ -13,22 +13,6 @@ DefineClass.FirstAidKit = {
 	AdditionalHint = T(833018739707, --[[ModItemInventoryItemCompositeDef FirstAidKit AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует состояние умирающих персонажей\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Требуется для использования перевязки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится при каждом употреблении, но запас медикаментов можно восполнить\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, просто находясь в инвентаре"),
 	UnitStat = "Medical",
 	Cost = 300,
-	AttachEntries = {
-		PlaceObj('BodyPartData', {
-			'Slot', "",
-			'Gender', "Male",
-			'Entity', "Faction_Acc_Medic",
-			'Spot', "Groin",
-		}),
-		PlaceObj('BodyPartData', {
-			'Slot', "",
-			'Gender', "Female",
-			'Entity', "Faction_Acc_Medic",
-			'Spot', "Groin",
-			'X', 49,
-			'Scale', 76,
-		}),
-	},
 	CanAppearInShop = true,
 	RestockWeight = 150,
 	CategoryPair = "Medicine",

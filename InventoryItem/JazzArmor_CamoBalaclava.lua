@@ -13,20 +13,6 @@ DefineClass.JazzArmor_CamoBalaclava = {
 	Description = T(346368526537, --[[ModItemInventoryItemCompositeDef JazzArmor_CamoBalaclava Description]] "ШПС-ка, она же шапка-пи... пряталка спецназовская. Тканевая маска, скрывающая лицо, с прорезями для глаз и рта. Камуфляжная раскраска помогает хозяину прятать свое лицо еще лучше."),
 	AdditionalHint = T(557858399256, --[[ModItemInventoryItemCompositeDef JazzArmor_CamoBalaclava AdditionalHint]] "Помогает лучше прятаться"),
 	Cost = 500,
-	AttachEntries = {
-		PlaceObj('BodyPartData', {
-			'EditableColor1', RGBA(27, 75, 10, 255),
-			'EditableColor2', RGBA(36, 117, 11, 255),
-			'Slot', "HeadGear",
-			'Gender', "Male",
-			'Entity', "Faction_Thugs_Mask_01",
-			'Spot', "Origin",
-			'X', 5,
-			'Hide', {
-				"Hair",
-			},
-		}),
-	},
 	CanAppearInShop = true,
 	Tier = 2,
 	MaxStock = 1,

@@ -13,27 +13,6 @@ DefineClass.JazzArmor_Sunglasses = {
 	Description = T(126940066148, --[[ModItemInventoryItemCompositeDef JazzArmor_Sunglasses Description]] "Красивые и модные солнцезащитные очки. Мало того, что в солнечных очках наемник выглядит круче, так еще и, в качестве бонуса, очки могут поймать шальной осколок, предназначавшийся глазу."),
 	AdditionalHint = T(424825139337, --[[ModItemInventoryItemCompositeDef JazzArmor_Sunglasses AdditionalHint]] "Улучшают видимость днем, но ухудшают ночью"),
 	Cost = 300,
-	AttachEntries = {
-		PlaceObj('BodyPartData', {
-			'Slot', "HeadGear",
-			'Appearance', "Igor",
-			'Entity', "EquipmentLen_Glasses",
-			'Spot', "Head",
-			'Z', -25,
-		}),
-		PlaceObj('BodyPartData', {
-			'Slot', "HeadGear",
-			'Gender', "Male",
-			'Entity', "EquipmentLen_Glasses",
-			'Spot', "Head",
-		}),
-		PlaceObj('BodyPartData', {
-			'Slot', "HeadGear",
-			'Gender', "Female",
-			'Entity', "EquipmentEmma_Glasses",
-			'Spot', "Head",
-		}),
-	},
 	CanAppearInShop = true,
 	MaxStock = 1,
 	RestockWeight = 5,
