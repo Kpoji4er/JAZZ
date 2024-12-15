@@ -30,7 +30,6 @@ DefineClass.RPG7 = {
 	CategoryPair = "HeavyWeapons",
 	ObjDamageMod = 600,
 	CritChanceScaled = 0,
-	PenetrationClass = 5,
 	WeaponRange = 45,
 	HandSlot = "TwoHanded",
 	HolsterSlot = "Shoulder",

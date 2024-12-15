@@ -624,7 +624,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "Makarov_clipout",
 	Source = "Camera",
-	Target = "Makarov",
+	Target = "any",
 	group = "Default",
 	id = "fxMakarov",
 })
@@ -637,7 +637,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "Makarov_clipin",
 	Source = "Camera",
 	Delay = 2200,
-	Target = "Makarov",
+	Target = "any",
 	group = "Default",
 	id = "fxMakarov",
 })
@@ -650,7 +650,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "Makarov_reload",
 	Source = "Camera",
 	Delay = 4200,
-	Target = "Makarov",
+	Target = "any",
 	group = "Default",
 	id = "fxMakarov",
 })
@@ -785,7 +785,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "PYA_clipout",
 	Source = "Camera",
-	Target = "PYA",
+	Target = "any",
 	group = "Default",
 	id = "fxPYA",
 })
@@ -798,7 +798,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "PYA_clipin",
 	Source = "Camera",
 	Delay = 2200,
-	Target = "PYA",
+	Target = "any",
 	group = "Default",
 	id = "fxPYA",
 })
@@ -811,7 +811,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "PYA_reload",
 	Source = "Camera",
 	Delay = 4200,
-	Target = "PYA",
+	Target = "any",
 	group = "Default",
 	id = "fxPYA",
 })
@@ -1805,7 +1805,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "SKS_clipout",
 	Source = "Camera",
-	Target = "SKS",
+	Target = "any",
 	group = "Default",
 	id = "fxSKS",
 })
@@ -1818,7 +1818,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "SKS_clipin",
 	Source = "Camera",
 	Delay = 4000,
-	Target = "SKS",
+	Target = "any",
 	group = "Default",
 	id = "fxSKS",
 })
@@ -1831,7 +1831,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "SKS_reload",
 	Source = "Camera",
 	Delay = 4200,
-	Target = "SKS",
+	Target = "any",
 	group = "Default",
 	id = "fxSKS",
 })
@@ -1969,7 +1969,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "Mosin_clipout",
 	Source = "Camera",
-	Target = "Mosin",
+	Target = "any",
 	group = "Default",
 	id = "fxMosin",
 })
@@ -1982,7 +1982,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "Mosin_clipin",
 	Source = "Camera",
 	Delay = 4000,
-	Target = "Mosin",
+	Target = "any",
 	group = "Default",
 	id = "fxMosin",
 })
@@ -1995,7 +1995,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "Mosin_reload",
 	Source = "Camera",
 	Delay = 4200,
-	Target = "Mosin",
+	Target = "any",
 	group = "Default",
 	id = "fxMosin",
 })
@@ -2255,7 +2255,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "VSS_clipout",
 	Source = "Camera",
-	Target = "VSS",
+	Target = "any",
 	group = "Default",
 	id = "fxVSS",
 })
@@ -2268,7 +2268,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "VSS_clipin",
 	Source = "Camera",
 	Delay = 2200,
-	Target = "VSS",
+	Target = "any",
 	group = "Default",
 	id = "fxVSS",
 })
@@ -2281,7 +2281,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "VSS_reload",
 	Source = "Camera",
 	Delay = 4200,
-	Target = "VSS",
+	Target = "any",
 	group = "Default",
 	id = "fxVSS",
 })
@@ -2995,7 +2995,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "dp27_clipout",
 	Source = "Camera",
-	Target = "DP27",
+	Target = "any",
 	group = "Default",
 	id = "fxDP27",
 })
@@ -3008,7 +3008,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "dp27_clipin",
 	Source = "Camera",
 	Delay = 2200,
-	Target = "DP27",
+	Target = "any",
 	group = "Default",
 	id = "fxDP27",
 })
@@ -3021,7 +3021,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "dp27_reload",
 	Source = "Camera",
 	Delay = 4200,
-	Target = "DP27",
+	Target = "any",
 	group = "Default",
 	id = "fxDP27",
 })

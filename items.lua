@@ -34820,10 +34820,6 @@ return {
 								Vars = set({
 	YoungHearts = false,
 }),
-								__eval = function ()
-									local quest = gv_Quests['PantagruelDramas'] or QuestGetState('PantagruelDramas')
-									return not quest.YoungHearts
-								end,
 							}),
 						},
 						guaranteed = true,
@@ -34838,10 +34834,6 @@ return {
 								Vars = set({
 	YoungHearts = false,
 }),
-								__eval = function ()
-									local quest = gv_Quests['PantagruelDramas'] or QuestGetState('PantagruelDramas')
-									return not quest.YoungHearts
-								end,
 							}),
 						},
 						loot_def = "Noob_9x18",
@@ -34851,10 +34843,6 @@ return {
 							PlaceObj('QuestIsVariableBool', {
 								QuestId = "PantagruelDramas",
 								Vars = set( "YoungHearts" ),
-								__eval = function ()
-									local quest = gv_Quests['PantagruelDramas'] or QuestGetState('PantagruelDramas')
-									return quest.YoungHearts
-								end,
 							}),
 						},
 						item = "AKSU",
@@ -34866,10 +34854,6 @@ return {
 							PlaceObj('QuestIsVariableBool', {
 								QuestId = "PantagruelDramas",
 								Vars = set( "YoungHearts" ),
-								__eval = function ()
-									local quest = gv_Quests['PantagruelDramas'] or QuestGetState('PantagruelDramas')
-									return quest.YoungHearts
-								end,
 							}),
 						},
 						guaranteed = true,
@@ -44213,7 +44197,7 @@ return {
 				'Cost', 600,
 				'CanAppearInShop', true,
 				'Tier', 2,
-				'Caliber', "Flare",
+				'Caliber', "JAZZ_Caliber_Flare",
 				'ObjDamageMod', 0,
 				'CritChanceScaled', 0,
 				'WeaponRange', 35,
@@ -55405,7 +55389,6 @@ return {
 					'CategoryPair', "HeavyWeapons",
 					'ObjDamageMod', 600,
 					'CritChanceScaled', 0,
-					'PenetrationClass', 5,
 					'WeaponRange', 45,
 					'HandSlot', "TwoHanded",
 					'HolsterSlot', "Shoulder",
@@ -86764,6 +86747,12 @@ return {
 						return false, 0
 					end
 					
+					if not isMerc(attacker) then return true, self:ResolveValue("Penalty")*1.5 end
+					
+					if IsKindOf(weapon1, "RocketLauncher")  then
+						return true, self:ResolveValue("Penalty")*5
+					end
+					
 					return true, self:ResolveValue("Penalty")
 				end,
 				Parameters = {
@@ -113624,6 +113613,632 @@ return {
 		'ReloadAP', 3000,
 		'BurstShots', 1,
 		'AutoShots', 1,
+	}),
+	PlaceObj('ModItemAIArchetype', {
+		BaseAttackTargeting = set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso", "Trap" ),
+		BaseAttackWeight = 140,
+		BaseMovementWeight = 150,
+		Behaviors = {
+			PlaceObj('StandardAI', {
+				'EndTurnPolicies', {
+					PlaceObj('AIPolicyDealDamage', {
+						'RequiredKeywords', {
+							"Gunner",
+						},
+						'Weight', 1000,
+					}),
+					PlaceObj('AIPolicyWeaponRange', {
+						'RequiredKeywords', {
+							"Gunner",
+						},
+						'RangeMin', 30,
+						'RangeMax', 80,
+					}),
+				},
+				'SignatureActions', {
+					PlaceObj('AIActionMGSetup', {
+						'Priority', true,
+						'team_score', 0,
+						'min_score', 100,
+						'cur_zone_mod', 140,
+					}),
+					PlaceObj('AIActionMGBurstFire', {
+						'AttackTargeting', set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso" ),
+					}),
+				},
+				'TakeCoverChance', 0,
+				'override_attack_id', "BurstFire",
+				'override_cost_id', "MGSetup",
+			}),
+			PlaceObj('PositioningAI', {
+				'BiasId', "Flanking",
+				'Weight', 200,
+				'OnActivationBiases', {
+					PlaceObj('AIBiasModification', {
+						'BiasId', "MGBurst",
+						'Effect', "priority",
+						'Value', 200,
+						'Period', 2,
+						'ApplyTo', "Team",
+					}),
+				},
+				'RequiredKeywords', {
+					"Control",
+				},
+				'turn_phase', "Late",
+				'EndTurnPolicies', {
+					PlaceObj('AIPolicyTakeCover', {
+						'Weight', 150,
+					}),
+				},
+			}),
+		},
+		OptLocPolicies = {
+			PlaceObj('AIPolicyWeaponRange', {
+				'RequiredKeywords', {
+					"Gunner",
+				},
+				'Weight', 700,
+				'RangeMin', 40,
+				'RangeMax', 80,
+			}),
+			PlaceObj('AIPolicyWeaponRange', {
+				'RequiredKeywords', {
+					"Gunner",
+				},
+				'Weight', 600,
+				'RangeMin', 60,
+				'RangeMax', 100,
+			}),
+			PlaceObj('AIPolicyLosToEnemy', {
+				'RequiredKeywords', {
+					"Gunner",
+				},
+				'Weight', 600,
+			}),
+		},
+		OptLocSearchRadius = 100,
+		PrefStance = "Prone",
+		SignatureActions = {
+			PlaceObj('AIActionMGBurstFire', {
+				'Weight', 200,
+				'OnActivationBiases', {
+					PlaceObj('AIBiasModification', {
+						'BiasId', "Overwatch",
+						'Value', 50,
+					}),
+				},
+				'Aiming', "Remaining AP",
+				'AttackTargeting', set( "Arms", "BlindFire", "InCover", "Legs", "Torso" ),
+			}),
+		},
+		TargetChangePolicy = "restart",
+		TargetScoreRandomization = 10,
+		group = "Simplified",
+		id = "HeavyGunner",
+	}),
+	PlaceObj('ModItemAIArchetype', {
+		BaseAttackTargeting = set( "Arms", "BlindFire", "InCover", "Legs", "Torso", "Trap" ),
+		BaseMovementWeight = 90,
+		Behaviors = {
+			PlaceObj('StandardAI', {
+				'OptLocWeight', 70,
+				'EndTurnPolicies', {
+					PlaceObj('AIPolicyDealDamage', nil),
+					PlaceObj('AIPolicyTakeCover', {
+						'Weight', 50,
+					}),
+				},
+				'TakeCoverChance', 50,
+			}),
+			PlaceObj('PositioningAI', {
+				'BiasId', "Flanking",
+				'Weight', 500,
+				'Fallback', false,
+				'RequiredKeywords', {
+					"Flank",
+				},
+				'OptLocWeight', 20,
+				'EndTurnPolicies', {
+					PlaceObj('AIPolicyFlanking', {
+						'Weight', 1000,
+						'Required', true,
+						'ReserveAttackAP', true,
+					}),
+					PlaceObj('AIPolicyDealDamage', nil),
+				},
+				'TakeCoverChance', 0,
+				'VoiceResponse', "AIFlanking",
+			}),
+		},
+		Comment = "Keywords: Flank, Explosives",
+		OptLocPolicies = {
+			PlaceObj('AIPolicyWeaponRange', {
+				'Weight', 300,
+				'RangeBase', "Absolute",
+				'RangeMin', 4,
+				'RangeMax', 12,
+			}),
+			PlaceObj('AIPolicyLosToEnemy', {
+				'Weight', 250,
+			}),
+			PlaceObj('AIPolicyTakeCover', {
+				'RequiredKeywords', {
+					"Control",
+				},
+				'Weight', 90,
+			}),
+		},
+		OptLocSearchRadius = 50,
+		PrefStance = "Crouch",
+		SignatureActions = {
+			PlaceObj('AIActionMobileShot', {
+				'Weight', 150,
+				'Priority', true,
+				'NotificationText', "",
+				'RequiredKeywords', {
+					"RunAndGun",
+				},
+				'action_id', "RunAndGun",
+			}),
+			PlaceObj('AIActionMobileShot', {
+				'Weight', 200,
+				'Priority', true,
+				'NotificationText', "",
+				'RequiredKeywords', {
+					"MobileShot",
+				},
+			}),
+			PlaceObj('AIActionThrowGrenade', {
+				'BiasId', "AssaultGrenadeThrow",
+				'Weight', 200,
+				'OnActivationBiases', {
+					PlaceObj('AIBiasModification', {
+						'BiasId', "AssaultGrenadeThrow",
+						'Effect', "disable",
+					}),
+					PlaceObj('AIBiasModification', {
+						'BiasId', "AssaultGrenadeThrow",
+						'Value', -50,
+						'Period', 0,
+						'ApplyTo', "Team",
+					}),
+				},
+				'RequiredKeywords', {
+					"Explosives",
+				},
+				'AllowedAoeTypes', set( "fire", "none", "teargas", "toxicgas" ),
+				'TargetLastAttackPos', true,
+			}),
+			PlaceObj('AIActionThrowGrenade', {
+				'BiasId', "AssaultGrenadeThrow",
+				'Weight', 200,
+				'OnActivationBiases', {
+					PlaceObj('AIBiasModification', {
+						'BiasId', "AssaultGrenadeThrow",
+						'Effect', "disable",
+					}),
+					PlaceObj('AIBiasModification', {
+						'BiasId', "AssaultGrenadeThrow",
+						'Value', -50,
+						'Period', 0,
+						'ApplyTo', "Team",
+					}),
+				},
+				'RequiredKeywords', {
+					"Explosives",
+				},
+				'AllowedAoeTypes', set( "fire", "none", "teargas", "toxicgas" ),
+			}),
+		},
+		TargetChangePolicy = "restart",
+		TargetScoreRandomization = 10,
+		TargetingPolicies = {
+			PlaceObj('AITargetingEnemyHealth', {
+				'Health', 90,
+			}),
+		},
+		group = "Simplified",
+		id = "Skirmisher",
+	}),
+	PlaceObj('ModItemAIArchetype', {
+		BaseAttackTargeting = set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso", "Trap" ),
+		BaseAttackWeight = 120,
+		BaseMovementWeight = 40,
+		Behaviors = {
+			PlaceObj('StandardAI', {
+				'BiasId', "Standard",
+				'Weight', 150,
+				'EndTurnPolicies', {
+					PlaceObj('AIPolicyTakeCover', {
+						'Weight', 90,
+						'visibility_mode', "team",
+					}),
+					PlaceObj('AIPolicyDealDamage', nil),
+				},
+				'TakeCoverChance', 60,
+			}),
+		},
+		Comment = "Keywords: Soldier, Sniper, Control, Ordnance, Smoke, Explosives",
+		OptLocPolicies = {
+			PlaceObj('AIPolicyTakeCover', {
+				'Weight', 90,
+			}),
+			PlaceObj('AIPolicyHighGround', {
+				'RequiredKeywords', {
+					"Sniper",
+				},
+				'Weight', 200,
+			}),
+			PlaceObj('AIPolicyHighGround', {
+				'RequiredKeywords', {
+					"Soldier",
+				},
+			}),
+			PlaceObj('AIPolicyLosToEnemy', {
+				'Weight', 300,
+			}),
+			PlaceObj('AIPolicyWeaponRange', {
+				'RequiredKeywords', {
+					"Soldier",
+				},
+				'Weight', 60,
+				'RangeMin', 10,
+				'RangeMax', 25,
+			}),
+			PlaceObj('AIPolicyWeaponRange', {
+				'RequiredKeywords', {
+					"Soldier",
+				},
+				'Weight', 180,
+				'RangeMin', 26,
+				'RangeMax', 49,
+			}),
+			PlaceObj('AIPolicyWeaponRange', {
+				'RequiredKeywords', {
+					"Soldier",
+				},
+				'RangeMin', 50,
+				'RangeMax', 100,
+			}),
+		},
+		OptLocSearchRadius = 80,
+		PrefStance = "Prone",
+		SignatureActions = {
+			PlaceObj('AIAttackSingleTarget', {
+				'BiasId', "Autofire",
+				'Weight', 150,
+				'OnActivationBiases', {
+					PlaceObj('AIBiasModification', {
+						'BiasId', "Autofire",
+						'Effect', "disable",
+						'Period', 0,
+						'ApplyTo', "Team",
+					}),
+				},
+				'NotificationText', T(784570352729, --[[ModItemAIArchetype Soldier NotificationText]] "Автоматический огонь"),
+				'RequiredKeywords', {
+					"Soldier",
+				},
+				'action_id', "AutoFire",
+				'AttackTargeting', set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso", "Trap" ),
+			}),
+			PlaceObj('AIActionPinDown', {
+				'BiasId', "PinDownAttack",
+				'Weight', 80,
+				'OnActivationBiases', {
+					PlaceObj('AIBiasModification', {
+						'BiasId', "PinDownAttack",
+						'Value', -50,
+						'ApplyTo', "Team",
+					}),
+				},
+				'RequiredKeywords', {
+					"Sniper",
+				},
+			}),
+			PlaceObj('AIActionThrowGrenade', {
+				'BiasId', "AssaultGrenadeThrow",
+				'OnActivationBiases', {
+					PlaceObj('AIBiasModification', {
+						'BiasId', "AssaultGrenadeThrow",
+						'Effect', "disable",
+					}),
+					PlaceObj('AIBiasModification', {
+						'BiasId', "AssaultGrenadeThrow",
+						'Effect', "disable",
+						'Period', 0,
+						'ApplyTo', "Team",
+					}),
+				},
+				'RequiredKeywords', {
+					"Explosives",
+				},
+				'self_score_mod', -1000,
+				'AllowedAoeTypes', set( "fire", "none", "teargas", "toxicgas" ),
+			}),
+			PlaceObj('AIActionThrowGrenade', {
+				'BiasId', "SmokeGrenade",
+				'OnActivationBiases', {
+					PlaceObj('AIBiasModification', {
+						'BiasId', "SmokeGrenade",
+						'Effect', "disable",
+					}),
+					PlaceObj('AIBiasModification', {
+						'BiasId', "SmokeGrenade",
+						'Effect', "disable",
+						'Period', 0,
+						'ApplyTo', "Team",
+					}),
+				},
+				'RequiredKeywords', {
+					"Smoke",
+				},
+				'enemy_score', 0,
+				'team_score', 100,
+				'self_score_mod', 100,
+				'MinDist', 0,
+				'AllowedAoeTypes', set( "smoke" ),
+			}),
+			PlaceObj('AIActionHeavyWeaponAttack', {
+				'BiasId', "LauncherFire",
+				'OnActivationBiases', {
+					PlaceObj('AIBiasModification', {
+						'BiasId', "LauncherFire",
+						'Effect', "disable",
+						'Period', 0,
+					}),
+					PlaceObj('AIBiasModification', {
+						'BiasId', "LauncherFire",
+						'Value', -50,
+						'Period', 0,
+						'ApplyTo', "Team",
+					}),
+				},
+				'RequiredKeywords', {
+					"Ordnance",
+				},
+				'self_score_mod', -1000,
+				'MinDist', 5000,
+				'LimitRange', true,
+				'MaxTargetRange', 30,
+			}),
+			PlaceObj('AIActionHeavyWeaponAttack', {
+				'BiasId', "RocketFire",
+				'Weight', 200,
+				'OnActivationBiases', {
+					PlaceObj('AIBiasModification', {
+						'BiasId', "RocketFire",
+						'Effect', "disable",
+					}),
+				},
+				'RequiredKeywords', {
+					"Ordnance",
+				},
+				'self_score_mod', -1000,
+				'MinDist', 5000,
+				'action_id', "RocketLauncherFire",
+				'LimitRange', true,
+				'MaxTargetRange', 30,
+			}),
+			PlaceObj('AIAttackSingleTarget', {
+				'BiasId', "GroinShot",
+				'OnActivationBiases', {
+					PlaceObj('AIBiasModification', {
+						'BiasId', "GroinShot",
+						'Effect', "disable",
+						'Period', 0,
+						'ApplyTo', "Team",
+					}),
+					PlaceObj('AIBiasModification', {
+						'BiasId', "GroinShot",
+						'Effect', "disable",
+					}),
+				},
+				'RequiredKeywords', {
+					"Sniper",
+				},
+				'Aiming', "Remaining AP",
+				'AttackTargeting', set( "Groin" ),
+			}),
+			PlaceObj('AIConeAttack', {
+				'BiasId', "Overwatch",
+				'OnActivationBiases', {
+					PlaceObj('AIBiasModification', {
+						'BiasId', "Overwatch",
+						'Value', -50,
+						'ApplyTo', "Team",
+					}),
+					PlaceObj('AIBiasModification', {
+						'BiasId', "Overwatch",
+						'Effect', "disable",
+						'Value', -50,
+						'Period', 2,
+					}),
+				},
+				'RequiredKeywords', {
+					"Soldier",
+				},
+				'team_score', 0,
+				'min_score', 300,
+				'action_id', "Overwatch",
+			}),
+			PlaceObj('AIConeAttack', {
+				'BiasId', "SpamOverwatch",
+				'Weight', 200,
+				'OnActivationBiases', {
+					PlaceObj('AIBiasModification', {
+						'BiasId', "SpamOverwatch",
+						'Effect', "disable",
+						'Value', -50,
+						'ApplyTo', "Team",
+					}),
+				},
+				'RequiredKeywords', {
+					"Control",
+				},
+				'team_score', 0,
+				'min_score', 100,
+				'action_id', "Overwatch",
+			}),
+		},
+		TargetChangePolicy = "restart",
+		TargetScoreRandomization = 10,
+		group = "Simplified",
+		id = "Soldier",
+	}),
+	PlaceObj('ModItemAIArchetype', {
+		BaseAttackTargeting = set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso", "Trap" ),
+		BaseAttackWeight = 140,
+		Behaviors = {
+			PlaceObj('StandardAI', {
+				'BiasId', "Standard",
+				'Weight', 150,
+				'EndTurnPolicies', {
+					PlaceObj('AIPolicyTakeCover', {
+						'Weight', 50,
+						'visibility_mode', "team",
+					}),
+					PlaceObj('AIPolicyDealDamage', {
+						'Weight', 150,
+					}),
+				},
+				'TakeCoverChance', 70,
+			}),
+		},
+		Comment = "Keywords: Soldier, Sniper, Control, Ordnance, Smoke, Explosives",
+		MoveStance = "Crouch",
+		OptLocPolicies = {
+			PlaceObj('AIPolicyTakeCover', {
+				'RequiredKeywords', {
+					"Soldier",
+				},
+			}),
+			PlaceObj('AIPolicyHighGround', {
+				'RequiredKeywords', {
+					"Sniper",
+				},
+				'Weight', 200,
+			}),
+			PlaceObj('AIPolicyLosToEnemy', {
+				'RequiredKeywords', {
+					"Soldier",
+				},
+				'Weight', 300,
+			}),
+			PlaceObj('AIPolicyWeaponRange', {
+				'Weight', 110,
+				'RangeMin', 10,
+				'RangeMax', 25,
+			}),
+			PlaceObj('AIPolicyWeaponRange', {
+				'Weight', 150,
+				'RangeMin', 26,
+				'RangeMax', 49,
+			}),
+			PlaceObj('AIPolicyWeaponRange', {
+				'RequiredKeywords', {
+					"Soldier",
+				},
+				'Weight', 160,
+				'RangeMin', 50,
+			}),
+		},
+		OptLocSearchRadius = 80,
+		PrefStance = "Prone",
+		SignatureActions = {
+			PlaceObj('AIAttackSingleTarget', {
+				'BiasId', "GroinShot",
+				'OnActivationBiases', {
+					PlaceObj('AIBiasModification', {
+						'BiasId', "GroinShot",
+						'Effect', "disable",
+						'Period', 0,
+						'ApplyTo', "Team",
+					}),
+					PlaceObj('AIBiasModification', {
+						'BiasId', "GroinShot",
+						'Effect', "disable",
+					}),
+				},
+				'RequiredKeywords', {
+					"Sniper",
+				},
+				'Aiming', "Remaining AP",
+				'AttackTargeting', set( "Groin" ),
+			}),
+			PlaceObj('AIConeAttack', {
+				'BiasId', "Overwatch",
+				'Weight', 130,
+				'OnActivationBiases', {
+					PlaceObj('AIBiasModification', {
+						'BiasId', "Overwatch",
+						'Value', -50,
+						'ApplyTo', "Team",
+					}),
+					PlaceObj('AIBiasModification', {
+						'BiasId', "Overwatch",
+						'Effect', "disable",
+						'Value', -50,
+					}),
+				},
+				'RequiredKeywords', {
+					"Soldier",
+				},
+				'team_score', 0,
+				'min_score', 300,
+				'action_id', "Overwatch",
+			}),
+			PlaceObj('AIConeAttack', {
+				'BiasId', "SpamOverwatch",
+				'Weight', 200,
+				'OnActivationBiases', {
+					PlaceObj('AIBiasModification', {
+						'BiasId', "SpamOverwatch",
+						'Effect', "disable",
+						'Value', -50,
+						'ApplyTo', "Team",
+					}),
+				},
+				'RequiredKeywords', {
+					"Control",
+				},
+				'team_score', 0,
+				'min_score', 100,
+				'action_id', "Overwatch",
+			}),
+			PlaceObj('AIActionBasicAttack', {
+				'BiasId', "Standard",
+				'OnActivationBiases', {
+					PlaceObj('AIBiasModification', {
+						'BiasId', "Standard",
+						'Value', 50,
+					}),
+				},
+			}),
+		},
+		TargetChangePolicy = "restart",
+		TargetScoreRandomization = 10,
+		TargetingPolicies = {
+			PlaceObj('AITargetingEnemyWeapon', {
+				'Weight', 150,
+				'EnemyWeapon', "Sniper",
+			}),
+			PlaceObj('AITargetingEnemyWeapon', {
+				'Weight', 140,
+				'EnemyWeapon', "MachineGun",
+			}),
+			PlaceObj('AITargetingEnemyWeapon', {
+				'Weight', 130,
+				'EnemyWeapon', "HeavyWeapon",
+			}),
+			PlaceObj('AITargetingEnemyHealth', {
+				'Weight', 150,
+				'Health', 70,
+			}),
+		},
+		group = "Simplified",
+		id = "Soldier_Sniper",
 	}),
 	PlaceObj('ModItemFolder', {
 		'name', "ObjMaterials",

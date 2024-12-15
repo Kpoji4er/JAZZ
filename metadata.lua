@@ -28,7 +28,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 3,
-	'version', 4309,
+	'version', 4321,
 	'lua_revision', 233360,
 	'saved_with_revision', 350233,
 	'code', {
@@ -580,8 +580,8 @@ return PlaceObj('ModDef', {
 	},
 	'default_options', {},
 	'has_data', true,
-	'saved', 1734255824,
-	'code_hash', 7379164373086808607,
+	'saved', 1734279128,
+	'code_hash', -4830165762596701393,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -12331,7 +12331,7 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "Bandage",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CharacterEffectCompositeDef",
@@ -12426,107 +12426,107 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "FoldStock",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "UnFoldStock",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "FlashlightOn",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "FlashlightOff",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "Unjam",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "Overwatch",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "SingleShot",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "BurstFire",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "AbakanBurst",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "AutoFire",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "AbakanAutoFire",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "MobileShot",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "DualShot",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "MGBurstFire",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "Buckshot",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "BuckshotBurst",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "DoubleBarrel",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "CancelShotCone",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "AttackShotgun",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "PinDown",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "Bolting",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CharacterEffectCompositeDef",
@@ -12582,7 +12582,7 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "Jazz_Perk_00",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CharacterEffectCompositeDef",
@@ -12592,7 +12592,7 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "Jazz_Perk_Lynx",
-			'ClassDisplayName', "Combat Actions",
+			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CharacterEffectCompositeDef",
@@ -12602,112 +12602,112 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "GameTerm",
 			'Id', "Recoil",
-			'ClassDisplayName', "Gameterm",
+			'ClassDisplayName', "Game Term",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "GameTerm",
 			'Id', "BulletDropRange",
-			'ClassDisplayName', "Gameterm",
+			'ClassDisplayName', "Game Term",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "GameTerm",
 			'Id', "Handling",
-			'ClassDisplayName', "Gameterm",
+			'ClassDisplayName', "Game Term",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "GameTerm",
 			'Id', "Grouping",
-			'ClassDisplayName', "Gameterm",
+			'ClassDisplayName', "Game Term",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "RangeAttackTargetStanceCover",
-			'ClassDisplayName', "ChanceToHitModifier",
+			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "Autofire",
-			'ClassDisplayName', "ChanceToHitModifier",
+			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "Aim",
-			'ClassDisplayName', "ChanceToHitModifier",
+			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "Laser",
-			'ClassDisplayName', "ChanceToHitModifier",
+			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "PointBlank",
-			'ClassDisplayName', "ChanceToHitModifier",
+			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "Distance",
-			'ClassDisplayName', "ChanceToHitModifier",
+			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "Grouping",
-			'ClassDisplayName', "ChanceToHitModifier",
+			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "SeenBySpotter",
-			'ClassDisplayName', "ChanceToHitModifier",
+			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "NoLineOfSight",
-			'ClassDisplayName', "ChanceToHitModifier",
+			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "MeleeStealthStrike",
-			'ClassDisplayName', "ChanceToHitModifier",
+			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "Bipod",
-			'ClassDisplayName', "ChanceToHitModifier",
+			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "TrainingAdvantage",
-			'ClassDisplayName', "ChanceToHitModifier",
+			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "TrainingDisadvantage",
-			'ClassDisplayName', "ChanceToHitModifier",
+			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "Darkness",
-			'ClassDisplayName', "ChanceToHitModifier",
+			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "OpportunityAttack",
-			'ClassDisplayName', "ChanceToHitModifier",
+			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "PinDown",
-			'ClassDisplayName', "ChanceToHitModifier",
+			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "RunAndGun",
-			'ClassDisplayName', "ChanceToHitModifier",
+			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "WeaponCondition",
-			'ClassDisplayName', "ChanceToHitModifier",
+			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "WeaponPropertyDef",
@@ -13503,6 +13503,26 @@ return PlaceObj('ModDef', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "Auto5_quest",
 			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "AIArchetype",
+			'Id', "HeavyGunner",
+			'ClassDisplayName', "AI Archetype",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "AIArchetype",
+			'Id', "Skirmisher",
+			'ClassDisplayName', "AI Archetype",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "AIArchetype",
+			'Id', "Soldier",
+			'ClassDisplayName', "AI Archetype",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "AIArchetype",
+			'Id', "Soldier_Sniper",
+			'ClassDisplayName', "AI Archetype",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ObjMaterial",

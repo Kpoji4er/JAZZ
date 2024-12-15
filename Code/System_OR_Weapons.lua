@@ -148,7 +148,7 @@ function FirearmBase:ReliabilityCheck(attacker, num_shots)
 		local seed = Unit:Random()
 		local random = BraidRandomCreate(seed)
 
-		loss = loss + Max(2,0.1*MulDivRound(random(100-item.Reliability),1,10))
+		loss = loss + Max(1,0.1*MulDivRound(random(100-item.Reliability),1,10))
 
 		if num_shots == 1 then jam_chance = jam_chance/2 end
 		--if num_shots < 3 then jam_chance = jam_chance/2 end
@@ -176,7 +176,7 @@ function FirearmBase:ReliabilityCheck(attacker, num_shots)
 				--print(condition_roll5)
 			--	if (condition_roll < (item.Reliability - item.Deterioration*0.5)) or condition_roll2 < (item.Reliability - item.Deterioration*0.5) or condition_roll3 < (item.Reliability - item.Deterioration*0.5) or condition_roll4 < (item.Reliability - item.Deterioration*0.5)
 			--	then loss = 0 end; --Adding chance to not loose condition
-				if condition_roll > (item.Reliability - Min(deterioration,90)) and num_shots <= 6 then
+				if condition_roll > (item.Reliability - Min(deterioration,90)) and num_shots <= 4 then
 					condition = Max(0, condition - loss)
 				end
 
