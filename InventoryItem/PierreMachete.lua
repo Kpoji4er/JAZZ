@@ -14,7 +14,6 @@ DefineClass.PierreMachete = {
 	LargeItem = 1,
 	UnitStat = "Dexterity",
 	Cost = 150,
-	locked = true,
 	RestockWeight = 0,
 	BaseChanceToHit = 100,
 	CritChanceScaled = 30,

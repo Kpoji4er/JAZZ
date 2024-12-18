@@ -255,8 +255,17 @@ function Unit:OnGearChanged(isLoad)
 	ObjModified(self.Inventory)
 end
 
-
-
+function OnMsg.MercHireStatusChanged(unit_data, previousState, newState)
+	if previousState == "Available" and newState == "Hired" then
+		local merc_id = unit_data.session_id
+		if merc_id and unit_data.Squad then
+			--MoveItemsToSquadBag(merc_id, unit_data.Squad)
+		end
+	end
+end
+function MoveItemsToSquadBag(unit_id,squad_id)	
+	return
+end
 
 function UnitProperties:EquipStartingGear(items)
 	local func = empty_func
@@ -283,16 +292,26 @@ function UnitProperties:EquipStartingGear(items)
 	end
 	
 	local equipped = {}
+
+	self:TryEquip(items, "AmmoInventory", "Ammo")
+	self:TryEquip(items, "GrenadesInventory", "Grenade")
+	self:TryEquip(items, "OrdnanceInventory", "ThrowableTrapItem")
+	self:TryEquip(items, "MedicalInventory", "Medicine")
+	self:TryEquip(items, "PocketInventory", "ToolItem")
+	self:TryEquip(items, "KnifeInventory", "StackableMeleeWeapon")
+
 	-- locked items that are not weapons add to the first inventory slot
-	for i, item in ipairs(items) do
-		if item.locked and not item:IsWeapon() and not IsKindOf(item, "Armor") then -- lock to the first inventory slot
-			if self:CanAddItem("Inventory", item) then
-				self:AddItem("Inventory", item)
-				equipped[i] = true
-			end
-		end				
-	end
+	--for i, item in ipairs(items) do
+	--	if item.locked and not item:IsWeapon() and not IsKindOf(item, "Armor") then -- lock to the first inventory slot
+	--		if self:CanAddItem("Inventory", item) then
+	--			self:AddItem("Inventory", item)
+	--			equipped[i] = true
+	--		end
+	--	end				
+	--end
 	-- equip the rest of the equppable items when possible
+
+	
 	
 	for i, item in ipairs(items) do
 		if not equipped[i] then
@@ -315,12 +334,12 @@ function UnitProperties:EquipStartingGear(items)
 	
 	-- make sure all equipped firearms have ammo
 	local function reload_weapon(weapon)
-		if not weapon.ammo or weapon.ammo.Amount <= 0 then
+		if not IsMerc(self) and not weapon.ammo or weapon.ammo.Amount <= 0 then
 			local ammo = GetAmmosWithCaliber(weapon.Caliber, "sort")[1]
 			if ammo then
 				local tempAmmo = PlaceInventoryItem(ammo.id)
 				tempAmmo.Amount = tempAmmo.MaxStacks
-			--	weapon:Reload(tempAmmo, "suspend_fx")
+				weapon:Reload(tempAmmo, "suspend_fx")
 				DoneObject(tempAmmo)
 			end
 		end

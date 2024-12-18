@@ -16,7 +16,6 @@ DefineClass.JAZZ_AMMO_50BMG_Basic = {
 	MaxStock = 10,
 	CategoryPair = "50BMG",
 	ShopStackSize = 10,
-	MaxStacks = 5000,
 	Caliber = "JAZZ_Caliber_50BMG",
 }
 

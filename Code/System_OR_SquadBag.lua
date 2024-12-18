@@ -53,6 +53,7 @@ UndefineClass("SquadBag")
 DefineClass.SquadBag = {
 	__parents = { "Inventory" },
 	inventory_slots = {
+--		{slot_name = "Inventory",  width = 7,large_with = 9, height = 1, base_class = "InventoryItem", enabled = true },
 		{slot_name = "Inventory",  width = 7,large_with = 9, height = 1, base_class = "SquadBagItem", enabled = true },
 	},
 	squad_id = false,

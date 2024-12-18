@@ -19,7 +19,7 @@ DefineClass.JAZZ_AMMO_9x39_SP6 = {
 	RestockWeight = 10,
 	CategoryPair = "556",
 	ShopStackSize = 30,
-	MaxStacks = 5000,
+	MaxStacks = 60,
 	Caliber = "JAZZ_Caliber_9x39",
 	Modifications = {
 		PlaceObj('CaliberModification', {

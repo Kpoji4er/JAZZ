@@ -18,6 +18,7 @@ DefineClass.ConcussiveGrenade = {
 	Tier = 2,
 	RestockWeight = 25,
 	CategoryPair = "Grenade",
+	MaxStacks = 5,
 	MinMishapChance = 1,
 	MaxMishapChance = 50,
 	MinMishapRange = 1,

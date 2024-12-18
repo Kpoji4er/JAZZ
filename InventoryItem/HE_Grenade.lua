@@ -17,6 +17,7 @@ DefineClass.HE_Grenade = {
 	CanAppearInShop = true,
 	Tier = 2,
 	CategoryPair = "Grenade",
+	MaxStacks = 3,
 	MinMishapChance = 0,
 	MaxMishapChance = 50,
 	MinMishapRange = 1,

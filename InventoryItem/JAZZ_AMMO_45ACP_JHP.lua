@@ -17,7 +17,7 @@ DefineClass.JAZZ_AMMO_45ACP_JHP = {
 	RestockWeight = 25,
 	CategoryPair = "45ACP",
 	ShopStackSize = 30,
-	MaxStacks = 5000,
+	MaxStacks = 80,
 	Caliber = "JAZZ_Caliber_45ACP",
 	Modifications = {
 		PlaceObj('CaliberModification', {

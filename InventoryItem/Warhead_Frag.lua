@@ -16,7 +16,7 @@ DefineClass.Warhead_Frag = {
 	MaxStock = 16,
 	RestockWeight = 50,
 	CategoryPair = "Ordnance",
-	MaxStacks = 100,
+	MaxStacks = 3,
 	CenterObjDamageMod = 500,
 	CenterAppliedEffects = {
 		"Burning",

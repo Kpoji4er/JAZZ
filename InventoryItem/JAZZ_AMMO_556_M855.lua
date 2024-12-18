@@ -19,7 +19,7 @@ DefineClass.JAZZ_AMMO_556_M855 = {
 	RestockWeight = 25,
 	CategoryPair = "556",
 	ShopStackSize = 30,
-	MaxStacks = 5000,
+	MaxStacks = 90,
 	Caliber = "JAZZ_Caliber_556",
 	Modifications = {
 		PlaceObj('CaliberModification', {

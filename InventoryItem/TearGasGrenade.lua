@@ -18,6 +18,7 @@ DefineClass.TearGasGrenade = {
 	Tier = 2,
 	RestockWeight = 25,
 	CategoryPair = "Grenade",
+	MaxStacks = 2,
 	MinMishapChance = 2,
 	MaxMishapChance = 50,
 	MinMishapRange = 1,

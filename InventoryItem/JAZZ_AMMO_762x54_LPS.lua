@@ -18,7 +18,7 @@ DefineClass.JAZZ_AMMO_762x54_LPS = {
 	MaxStock = 5,
 	CategoryPair = "762x54",
 	ShopStackSize = 30,
-	MaxStacks = 5000,
+	MaxStacks = 40,
 	Caliber = "JAZZ_Caliber_762x54R",
 	Modifications = {
 		PlaceObj('CaliberModification', {

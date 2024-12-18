@@ -18,6 +18,7 @@ DefineClass.GlowStick = {
 	Tier = 2,
 	RestockWeight = 50,
 	CategoryPair = "Grenade",
+	MaxStacks = 3,
 	MinMishapChance = 2,
 	MaxMishapChance = 50,
 	MinMishapRange = 1,

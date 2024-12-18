@@ -16,6 +16,7 @@ DefineClass.ShapedCharge = {
 	Cost = 1500,
 	CanAppearInShop = true,
 	RestockWeight = 0,
+	MaxStacks = 2,
 	MinMishapChance = 2,
 	MaxMishapChance = 60,
 	MaxMishapRange = 6,

@@ -16,7 +16,7 @@ DefineClass.JAZZ_AMMO_545_HP = {
 	CanAppearInShop = true,
 	CategoryPair = "545",
 	ShopStackSize = 30,
-	MaxStacks = 5000,
+	MaxStacks = 90,
 	Caliber = "JAZZ_Caliber_545",
 	Modifications = {
 		PlaceObj('CaliberModification', {

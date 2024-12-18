@@ -18,6 +18,7 @@ DefineClass.SmokeGrenade = {
 	Tier = 2,
 	RestockWeight = 25,
 	CategoryPair = "Grenade",
+	MaxStacks = 2,
 	MinMishapChance = -2,
 	MaxMishapChance = 40,
 	MinMishapRange = 1,

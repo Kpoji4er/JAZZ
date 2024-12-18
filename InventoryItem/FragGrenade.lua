@@ -17,6 +17,7 @@ DefineClass.FragGrenade = {
 	Cost = 300,
 	CanAppearInShop = true,
 	CategoryPair = "Grenade",
+	MaxStacks = 3,
 	MinMishapChance = 0,
 	MaxMishapChance = 40,
 	MinMishapRange = 1,

@@ -17,6 +17,7 @@ DefineClass.Molotov = {
 	CanAppearInShop = true,
 	RestockWeight = 50,
 	CategoryPair = "Grenade",
+	MaxStacks = 1,
 	MinMishapChance = 2,
 	MaxMishapChance = 60,
 	MinMishapRange = 1,

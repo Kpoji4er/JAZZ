@@ -18,7 +18,6 @@ DefineClass.JAZZ_AMMO_50BMG_Incendiary = {
 	RestockWeight = 25,
 	CategoryPair = "50BMG",
 	ShopStackSize = 10,
-	MaxStacks = 5000,
 	Caliber = "JAZZ_Caliber_50BMG",
 	Modifications = {},
 	AppliedEffects = {
