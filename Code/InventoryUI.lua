@@ -303,3 +303,72 @@ function HighlightWeaponsForAmmo(ammo, bShow)
 		end	
 	end
 end
+
+function InventoryIsValidTargetForUnit(ctrl_context)
+	local unit = GetInventoryUnit()
+	if gv_SatelliteView and IsKindOf(ctrl_context, "SectorStash") then	
+		if not InventoryIsValidTargetForUnitInTransit(ctrl_context) then			
+			return false,T(257112039195, "<style InventoryHintTextRed>In transit")
+		end
+		if unit and unit.Squad and gv_Squads[unit.Squad] and ctrl_context.sector_id ~= gv_Squads[unit.Squad].CurrentSector then
+			return false,T(212348537316, "<style InventoryHintTextRed>Not on sector")
+		end	
+	end
+
+	if InventoryIsCombatMode() and IsKindOf(ctrl_context, "SquadBag") then			
+		return false,T(25711203919511, "<style InventoryHintTextRed>В бою")
+	end
+
+	if IsKindOfClasses(ctrl_context, "Unit", "UnitData") and not ctrl_context:IsDead() then	
+		local ctrl_context_unit = ctrl_context.session_id and g_Units[ctrl_context.session_id]
+		if ctrl_context:HasStatusEffect("BandageInCombat") then
+			return false, T(107419565286, "Character is busy bandaging")
+		elseif ctrl_context:IsDowned() then
+			return false, T(360582491602, "Character is Downed")
+		elseif ctrl_context:HasStatusEffect("Unconscious") then
+			return false, T(894812059755, "Character is Unconscious")
+		elseif g_Overwatch[ctrl_context] or g_Pindown[ctrl_context] then
+			return false, T(462153644901, "Character is busy")
+		elseif ctrl_context_unit and g_Overwatch[ctrl_context_unit] or g_Pindown[ctrl_context_unit] then
+			return false, T(462153644901, "Character is busy")
+		elseif ctrl_context.retreat_to_sector then	
+			return false, T(462153644901, "Character is busy")
+		end
+	end
+
+	return true
+end	
+
+
+function InventoryGetTargetsForGiveAction(context)
+	if not InventoryIsContainerOnSameSector(context) then
+		return {}
+	end	
+	local targets = table.copy(GetValidMercsToTakeItem(context))
+	if      IsKindOf(context.item, "SquadBagItem") 
+		--and not IsKindOf(context.context,"SquadBag") 
+		and InventoryIsValidTargetForUnitInTransit(context.context) 
+	then	
+		targets[#targets+1] = context.unit.Squad
+	end
+	return targets
+end
+
+function InventoryGetTargetsForGiveToSquadAction(context)
+	local ctx = context.context
+	local sector_id 
+	if IsKindOf(ctx, "SectorStash") then
+		sector_id = ctx.sector_id
+	else
+		local unit_squad = context.unit and context.unit.Squad 
+		sector_id = gv_Squads[unit_squad].CurrentSector
+	end
+
+	local unit = context.context
+	local unit_squad = unit.Squad or unit.squad_id --the second part is a squad bag
+	local squads = GetCurrentSectorPlayerSquads(sector_id)
+
+	local unit = context.unit
+	table.remove_entry(squads, "UniqueId", unit.Squad or "")
+	return squads
+end

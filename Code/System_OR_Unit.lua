@@ -1636,3 +1636,36 @@ function Unit:GetActiveWeapons(class, strict_order)
 	
 	return weapons[1], weapons[2], weapons
 end
+
+
+local function lGetUnitQuickSlotItem(unit, item_id)
+	l_get_unit_quick_slot_item = nil
+	
+	local filter = function(o)
+		if o.Condition > 0 and (not l_get_unit_quick_slot_item or o.Condition < l_get_unit_quick_slot_item.Condition) then
+			l_get_unit_quick_slot_item = o
+		end
+	end
+	
+	unit:ForEachItemInSlot("Handheld A", item_id, filter)
+	unit:ForEachItemInSlot("Handheld B", item_id, filter)
+	unit:ForEachItemInSlot("Inventory", item_id, filter)
+	unit:ForEachItemInSlot("PocketInventory", item_id, filter)
+	
+	return l_get_unit_quick_slot_item
+end
+
+function GetUnitLockpick(unit)
+	local tool = lGetUnitQuickSlotItem(unit, "LockpickBase")
+	return tool and not tool:IsCondition("Broken") and tool
+end
+
+function GetUnitCrowbar(unit)
+	local tool = lGetUnitQuickSlotItem(unit, "CrowbarBase")
+	return tool and not tool:IsCondition("Broken") and tool
+end
+
+function GetUnitWirecutter(unit)
+	local tool = lGetUnitQuickSlotItem(unit, "WirecutterBase")
+	return tool and not tool:IsCondition("Broken") and tool
+end

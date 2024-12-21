@@ -82380,7 +82380,7 @@ return {
 					'AdditionalReduction', 60,
 					'ProtectedBodyParts', set( "Groin", "Legs" ),
 					'Coverage', 30,
-					'ArmorRating', 12,
+					'ArmorRating', 8,
 					'MeleeArmorRating', 5,
 					'CamouflagePercent', 10,
 					'Weight', 2,
@@ -91153,7 +91153,8 @@ return {
 									self.idPropVal:SetNameText(T(8182360763020011, "Износ"))
 									local condition_percent = cnt.Deterioration
 									local text = cnt:GetDeteriorationKeywordNoPrefix()
-									self.idPropVal:SetValueText(T{541139041647, "<keyword> (<percent(condPercent)>)",  keyword = text, condPercent = condition_percent})
+									--self.idPropVal:SetValueText(T{541139041647, "<keyword> (<percent(condPercent)>)",  keyword = text, condPercent = condition_percent})
+									self.idPropVal:SetValueText(T{5411390416471, "<keyword>",  keyword = text})
 								end,
 							}),
 							}),
@@ -110663,6 +110664,12 @@ return {
 												'__class', "XContentTemplate",
 												'Id', "idSquadBag",
 												'Margins', box(24, 0, 24, 0),
+												'OnLayoutComplete', function (self)
+													if InventoryIsCombatMode() then
+														self:SetTransparency(150)
+														return "hidden"
+														end
+												end,
 												'LayoutMethod', "VList",
 												'RespawnOnContext', false,
 											}, {

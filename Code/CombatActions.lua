@@ -3,9 +3,9 @@ function GetMeleeAttackAPCost(action, unit, args)
 	if action.CostBasedOnWeapon then
 		local weapon = action:GetAttackWeapons(unit, args)	
 		local knife = unit:GetItemInSlot("KnifeInventory", "StackableMeleeWeapon", 1, 1)
-		--if knife then weapon = knife 
-		print(knife)
-		cost = (knife.weapon or weapon) and unit:GetAttackAPCost(action, weapon, nil, args and args.aim or 0, action.ActionPointDelta) or -1
+		if knife then weapon = knife end
+		--print(knife)
+		cost = (weapon) and unit:GetAttackAPCost(action, weapon, nil, args and args.aim or 0, action.ActionPointDelta) or -1
 	else
 		cost = action.ActionPoints
 	end
