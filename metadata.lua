@@ -28,7 +28,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 3,
-	'version', 4374,
+	'version', 4419,
 	'lua_revision', 233360,
 	'saved_with_revision', 350233,
 	'code', {
@@ -530,6 +530,7 @@ return PlaceObj('ModDef', {
 		"CharacterEffect/Slowed.lua",
 		"CharacterEffect/Unconscious.lua",
 		"Code/CombatBadge_DeathRoll.lua",
+		"Code/CombatActions.lua",
 		"CharacterEffect/TakeAim.lua",
 		"CharacterEffect/SteadyBreathing.lua",
 		"CharacterEffect/BipodUnfolded.lua",
@@ -580,8 +581,8 @@ return PlaceObj('ModDef', {
 	},
 	'default_options', {},
 	'has_data', true,
-	'saved', 1734551504,
-	'code_hash', -4404865237861667782,
+	'saved', 1734775629,
+	'code_hash', 3391474373040181266,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -12525,7 +12526,42 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
+			'Id', "ThrowGrenadeAG",
+			'ClassDisplayName', "Combat Action",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "ThrowGrenadeBG",
+			'ClassDisplayName', "Combat Action",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "ThrowGrenadeCG",
+			'ClassDisplayName', "Combat Action",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "ThrowGrenadeDG",
+			'ClassDisplayName', "Combat Action",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "ThrowGrenadeAO",
+			'ClassDisplayName', "Combat Action",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "ThrowGrenadeBO",
+			'ClassDisplayName', "Combat Action",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
 			'Id', "Bolting",
+			'ClassDisplayName', "Combat Action",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "MeleeAttack",
 			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {

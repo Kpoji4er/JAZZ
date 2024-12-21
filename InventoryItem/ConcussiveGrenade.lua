@@ -1,10 +1,10 @@
 UndefineClass('ConcussiveGrenade')
 DefineClass.ConcussiveGrenade = {
-	__parents = { "Grenade" },
+	__parents = { "GrenadeItem" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	object_class = "Grenade",
+	object_class = "GrenadeItem",
 	Repairable = false,
 	Reliability = 100,
 	Icon = "UI/Icons/Weapons/ConcussiveGrenade",
@@ -28,13 +28,12 @@ DefineClass.ConcussiveGrenade = {
 	CenterAppliedEffects = {
 		"Exposed",
 		"Blinded",
-		"CancelShot",
 	},
 	CenterAreaOfEffect = 2,
 	AreaUnitDamageMod = 0,
 	AreaObjDamageMod = 0,
 	AreaAppliedEffects = {
-		"Blinded",
+		"CancelShot",
 	},
 	PenetrationClass = 1,
 	BurnGround = false,

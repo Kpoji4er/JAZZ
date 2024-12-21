@@ -5,7 +5,7 @@ DefineClass.ItemContainer = {
 	__parents = { "SectorInventoryObj", "Lockpickable", "BoobyTrappable" },
 	flags = { efSelectable = true },
 	inventory_slots = {
-		{ slot_name = "Inventory", width = 9, height = 2, base_class = "InventoryItem", enabled = true, dont_save = true },
+		{ slot_name = "Inventory", width = 7, height = 2, base_class = "InventoryItem", enabled = true, dont_save = true },
 	},
 	bOpened = false,
 	interacting_unit = false,
@@ -310,7 +310,7 @@ UndefineClass('SectorStash')
 DefineClass.SectorStash = {
 	__parents = { "Inventory" },
 	inventory_slots = {
-		{slot_name = "Inventory",  width = 9, height = 1, base_class = "InventoryItem", enabled = true },
+		{slot_name = "Inventory",  width = 7, height = 1, base_class = "InventoryItem", enabled = true },
 	},
 	sector_id = false,
 	pickup_netsent = false,

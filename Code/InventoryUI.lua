@@ -291,7 +291,7 @@ function HighlightWeaponsForAmmo(ammo, bShow)
 			end
 			if not IsKindOf(target, "SquadBag") and slot_wnd and not IsEquipSlot(slot_name) and (IsKindOf(target, "Unit") and not target:IsDead()) and (found or not bShow or h_members[target]) then
 				local name = slot_wnd.parent.idName
-				print(slot_wnd.parent.idName)
+				--print(slot_wnd.parent.idName)
 				if name then
 					name:SetHightlighted(bShow)
 				end

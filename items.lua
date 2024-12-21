@@ -38044,12 +38044,13 @@ return {
 					'MaxStock', 16,
 					'RestockWeight', 50,
 					'CategoryPair', "Ordnance",
-					'MaxStacks', 3,
+					'MaxStacks', 1,
 					'CenterObjDamageMod', 500,
 					'CenterAppliedEffects', {
 						"Burning",
 						"Exposed",
 					},
+					'AreaOfEffect', 2,
 					'AreaUnitDamageMod', 70,
 					'AreaAppliedEffects', {
 						"Exposed",
@@ -55465,7 +55466,7 @@ return {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Grenade - Explosive",
 					'Id', "FragGrenade",
-					'object_class', "Grenade",
+					'object_class', "GrenadeItem",
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/Frag Grenade",
@@ -55484,6 +55485,11 @@ return {
 					'MinMishapRange', 1,
 					'MaxMishapRange', 8,
 					'CenterObjDamageMod', 50,
+					'CenterAppliedEffects', {
+						"Headshot",
+						"Armsshot",
+						"Legsshot",
+					},
 					'AreaOfEffect', 4,
 					'CenterAreaOfEffect', 2,
 					'AreaUnitDamageMod', 50,
@@ -55505,7 +55511,7 @@ return {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Grenade - Explosive",
 					'Id', "HE_Grenade",
-					'object_class', "Grenade",
+					'object_class', "GrenadeItem",
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/HEGrenade",
@@ -55524,6 +55530,11 @@ return {
 					'MinMishapRange', 1,
 					'MaxMishapRange', 8,
 					'CenterObjDamageMod', 50,
+					'CenterAppliedEffects', {
+						"Armsshot",
+						"Headshot",
+						"Legsshot",
+					},
 					'AreaOfEffect', 5,
 					'CenterAreaOfEffect', 2,
 					'AreaUnitDamageMod', 50,
@@ -55580,7 +55591,7 @@ return {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Grenade - Throwable",
 					'Id', "ConcussiveGrenade",
-					'object_class', "Grenade",
+					'object_class', "GrenadeItem",
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/ConcussiveGrenade",
@@ -55604,13 +55615,12 @@ return {
 					'CenterAppliedEffects', {
 						"Exposed",
 						"Blinded",
-						"CancelShot",
 					},
 					'CenterAreaOfEffect', 2,
 					'AreaUnitDamageMod', 0,
 					'AreaObjDamageMod', 0,
 					'AreaAppliedEffects', {
-						"Blinded",
+						"CancelShot",
 					},
 					'PenetrationClass', 1,
 					'BurnGround', false,
@@ -55708,7 +55718,7 @@ return {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Grenade - Throwable",
 					'Id', "Molotov",
-					'object_class', "Grenade",
+					'object_class', "GrenadeItem",
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/Molotov",
@@ -55747,7 +55757,7 @@ return {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Grenade - Throwable",
 					'Id', "SmokeGrenade",
-					'object_class', "Grenade",
+					'object_class', "GrenadeItem",
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/SmokeGrenade",
@@ -55786,7 +55796,7 @@ return {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Grenade - Throwable",
 					'Id', "TearGasGrenade",
-					'object_class', "Grenade",
+					'object_class', "GrenadeItem",
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/TearGasGrenade",
@@ -55825,7 +55835,7 @@ return {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Grenade - Throwable",
 					'Id', "ToxicGasGrenade",
-					'object_class', "Grenade",
+					'object_class', "GrenadeItem",
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/ToxicGrenade",
@@ -55861,7 +55871,7 @@ return {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Personal - Equipment",
 					'Id', "ShapedCharge",
-					'object_class', "Grenade",
+					'object_class', "GrenadeItem",
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/ShapedCharge",
@@ -56196,7 +56206,6 @@ return {
 					'CenterObjDamageMod', 50,
 					'CenterAppliedEffects', {
 						"Bleeding",
-						"KnockDown",
 					},
 					'AreaOfEffect', 4,
 					'CenterAreaOfEffect', 2,
@@ -85900,6 +85909,460 @@ return {
 					id = "PinDown",
 				}),
 				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Grenades",
+			}, {
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Ranged Attack",
+					AimType = "parabola aoe",
+					AlwaysHits = true,
+					ConfigurableKeybind = false,
+					DisplayName = T(802529854667, --[[ModItemCombatAction ThrowGrenadeAG DisplayName]] "Grenade"),
+					Execute = function (self, units, args)
+						local unit = units[1]
+						local ap = self:GetAPCost(unit, args)
+						NetStartCombatAction(self.id, unit, ap, args)
+					end,
+					GetAPCost = function (self, unit, args)
+						local grenade = self:GetAttackWeapons(unit)
+						return grenade and unit:GetAttackAPCost(self, grenade, false, args and args.aim or 0) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit)
+						local base = unit:GetBaseDamage(weapon)
+						local bonus = GetGrenadeDamageBonus(unit)
+						return MulDivRound(base, Max(0, 100 + bonus), 100)
+					end,
+					GetActionDescription = function (self, units)
+						return CombatActionGrenadeDescription(self, units)
+					end,
+					GetActionDisplayName = function (self, units)
+						local unit = units[1]
+						if unit then
+							local weapon = self:GetAttackWeapons(unit)
+							if weapon then
+								return T{355482653923, "Throw <name>", name = weapon.DisplayName}
+							end
+						end
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return name
+					end,
+					GetActionIcon = function (self, units)
+						return GetThrowItemIcon(self, units and units[1])
+					end,
+					GetActionResults = function (self, unit, args)
+						return CombatActions.ThrowGrenadeA.GetActionResults(self, unit, args)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						local weapon = unit:GetItemInSlot("GrenadesInventory", "Grenade", 1, 1)
+						return weapon
+					end,
+					GetMaxAimRange = function (self, unit, weapon)
+						local maxRange = weapon:GetMaxAimRange(unit)
+						if HasPerk(unit, "Throwing") then
+							maxRange = maxRange + CharacterEffectDefs.Throwing:ResolveValue("RangeIncrease")
+						end
+						return maxRange
+					end,
+					GetUIState = function (self, units, args)
+						return CombatActions.ThrowGrenadeA.GetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/throw_grenade",
+					IdDefault = "ThrowGrenadeAGdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectThrowGrenade",
+					MultiSelectBehavior = "first",
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("ThrowGrenade", self.id, ap, ...)
+					end,
+					SortKey = 5,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAreaAim")
+					end,
+					group = "Consumables",
+					id = "ThrowGrenadeAG",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Ranged Attack",
+					AimType = "parabola aoe",
+					AlwaysHits = true,
+					ConfigurableKeybind = false,
+					DisplayName = T(238574955470, --[[ModItemCombatAction ThrowGrenadeBG DisplayName]] "Grenade"),
+					Execute = function (self, units, args)
+						local unit = units[1]
+						local ap = self:GetAPCost(unit, args)
+						NetStartCombatAction(self.id, unit, ap, args)
+					end,
+					GetAPCost = function (self, unit, args)
+						local grenade = self:GetAttackWeapons(unit)
+						return grenade and unit:GetAttackAPCost(self, grenade, false, args and args.aim or 0) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit)
+						local base = unit:GetBaseDamage(weapon)
+						local bonus = GetGrenadeDamageBonus(unit)
+						return MulDivRound(base, Max(0, 100 + bonus), 100)
+					end,
+					GetActionDescription = function (self, units)
+						return CombatActionGrenadeDescription(self, units)
+					end,
+					GetActionDisplayName = function (self, units)
+						local unit = units[1]
+						if unit then
+							local weapon = self:GetAttackWeapons(unit)
+							if weapon then
+								return T{355482653923, "Throw <name>", name = weapon.DisplayName}
+							end
+						end
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return name
+					end,
+					GetActionIcon = function (self, units)
+						return GetThrowItemIcon(self, units and units[1])
+					end,
+					GetActionResults = function (self, unit, args)
+						return CombatActions.ThrowGrenadeA.GetActionResults(self, unit, args)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						local weapon = unit:GetItemInSlot("GrenadesInventory", "Grenade", 2, 1)
+						return weapon
+					end,
+					GetMaxAimRange = function (self, unit, weapon)
+						local maxRange = weapon:GetMaxAimRange(unit)
+						if HasPerk(unit, "Throwing") then
+							maxRange = maxRange + CharacterEffectDefs.Throwing:ResolveValue("RangeIncrease")
+						end
+						return maxRange
+					end,
+					GetUIState = function (self, units, args)
+						return CombatActions.ThrowGrenadeA.GetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/throw_grenade",
+					IdDefault = "ThrowGrenadeBGdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectThrowGrenade",
+					MultiSelectBehavior = "first",
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("ThrowGrenade", self.id, ap, ...)
+					end,
+					SortKey = 6,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAreaAim")
+					end,
+					group = "Consumables",
+					id = "ThrowGrenadeBG",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Ranged Attack",
+					AimType = "parabola aoe",
+					AlwaysHits = true,
+					ConfigurableKeybind = false,
+					DisplayName = T(759436350229, --[[ModItemCombatAction ThrowGrenadeCG DisplayName]] "Grenade"),
+					Execute = function (self, units, args)
+						local unit = units[1]
+						local ap = self:GetAPCost(unit, args)
+						NetStartCombatAction(self.id, unit, ap, args)
+					end,
+					GetAPCost = function (self, unit, args)
+						local grenade = self:GetAttackWeapons(unit)
+						return grenade and unit:GetAttackAPCost(self, grenade, false, args and args.aim or 0) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit)
+						local base = unit:GetBaseDamage(weapon)
+						local bonus = GetGrenadeDamageBonus(unit)
+						return MulDivRound(base, Max(0, 100 + bonus), 100)
+					end,
+					GetActionDescription = function (self, units)
+						return CombatActionGrenadeDescription(self, units)
+					end,
+					GetActionDisplayName = function (self, units)
+						local unit = units[1]
+						if unit then
+							local weapon = self:GetAttackWeapons(unit)
+							if weapon then
+								return T{355482653923, "Throw <name>", name = weapon.DisplayName}
+							end
+						end
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return name
+					end,
+					GetActionIcon = function (self, units)
+						return GetThrowItemIcon(self, units and units[1])
+					end,
+					GetActionResults = function (self, unit, args)
+						return CombatActions.ThrowGrenadeA.GetActionResults(self, unit, args)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						local weapon = unit:GetItemInSlot("GrenadesInventory", "Grenade", 3, 1)
+						return weapon
+					end,
+					GetMaxAimRange = function (self, unit, weapon)
+						local maxRange = weapon:GetMaxAimRange(unit)
+						if HasPerk(unit, "Throwing") then
+							maxRange = maxRange + CharacterEffectDefs.Throwing:ResolveValue("RangeIncrease")
+						end
+						return maxRange
+					end,
+					GetUIState = function (self, units, args)
+						return CombatActions.ThrowGrenadeA.GetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/throw_grenade",
+					IdDefault = "ThrowGrenadeCGdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectThrowGrenade",
+					MultiSelectBehavior = "first",
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("ThrowGrenade", self.id, ap, ...)
+					end,
+					SortKey = 6,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAreaAim")
+					end,
+					group = "Consumables",
+					id = "ThrowGrenadeCG",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Ranged Attack",
+					AimType = "parabola aoe",
+					AlwaysHits = true,
+					ConfigurableKeybind = false,
+					DisplayName = T(716048130364, --[[ModItemCombatAction ThrowGrenadeDG DisplayName]] "Grenade"),
+					Execute = function (self, units, args)
+						local unit = units[1]
+						local ap = self:GetAPCost(unit, args)
+						NetStartCombatAction(self.id, unit, ap, args)
+					end,
+					GetAPCost = function (self, unit, args)
+						local grenade = self:GetAttackWeapons(unit)
+						return grenade and unit:GetAttackAPCost(self, grenade, false, args and args.aim or 0) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit)
+						local base = unit:GetBaseDamage(weapon)
+						local bonus = GetGrenadeDamageBonus(unit)
+						return MulDivRound(base, Max(0, 100 + bonus), 100)
+					end,
+					GetActionDescription = function (self, units)
+						return CombatActionGrenadeDescription(self, units)
+					end,
+					GetActionDisplayName = function (self, units)
+						local unit = units[1]
+						if unit then
+							local weapon = self:GetAttackWeapons(unit)
+							if weapon then
+								return T{355482653923, "Throw <name>", name = weapon.DisplayName}
+							end
+						end
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return name
+					end,
+					GetActionIcon = function (self, units)
+						return GetThrowItemIcon(self, units and units[1])
+					end,
+					GetActionResults = function (self, unit, args)
+						return CombatActions.ThrowGrenadeA.GetActionResults(self, unit, args)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						local weapon = unit:GetItemInSlot("GrenadesInventory", "Grenade", 4, 1)
+						return weapon
+					end,
+					GetMaxAimRange = function (self, unit, weapon)
+						local maxRange = weapon:GetMaxAimRange(unit)
+						if HasPerk(unit, "Throwing") then
+							maxRange = maxRange + CharacterEffectDefs.Throwing:ResolveValue("RangeIncrease")
+						end
+						return maxRange
+					end,
+					GetUIState = function (self, units, args)
+						return CombatActions.ThrowGrenadeA.GetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/throw_grenade",
+					IdDefault = "ThrowGrenadeDGdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectThrowGrenade",
+					MultiSelectBehavior = "first",
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("ThrowGrenade", self.id, ap, ...)
+					end,
+					SortKey = 6,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAreaAim")
+					end,
+					group = "Consumables",
+					id = "ThrowGrenadeDG",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Ranged Attack",
+					AimType = "parabola aoe",
+					AlwaysHits = true,
+					ConfigurableKeybind = false,
+					DisplayName = T(405554936480, --[[ModItemCombatAction ThrowGrenadeAO DisplayName]] "Grenade"),
+					Execute = function (self, units, args)
+						local unit = units[1]
+						local ap = self:GetAPCost(unit, args)
+						NetStartCombatAction(self.id, unit, ap, args)
+					end,
+					GetAPCost = function (self, unit, args)
+						local grenade = self:GetAttackWeapons(unit)
+						return grenade and unit:GetAttackAPCost(self, grenade, false, args and args.aim or 0) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit)
+						local base = unit:GetBaseDamage(weapon)
+						local bonus = GetGrenadeDamageBonus(unit)
+						return MulDivRound(base, Max(0, 100 + bonus), 100)
+					end,
+					GetActionDescription = function (self, units)
+						return CombatActionGrenadeDescription(self, units)
+					end,
+					GetActionDisplayName = function (self, units)
+						local unit = units[1]
+						if unit then
+							local weapon = self:GetAttackWeapons(unit)
+							if weapon then
+								return T{355482653923, "Throw <name>", name = weapon.DisplayName}
+							end
+						end
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return name
+					end,
+					GetActionIcon = function (self, units)
+						return GetThrowItemIcon(self, units and units[1])
+					end,
+					GetActionResults = function (self, unit, args)
+						return CombatActions.ThrowGrenadeA.GetActionResults(self, unit, args)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						local weapon = unit:GetItemInSlot("OrdnanceInventory", "Grenade", 1, 1)
+						return weapon
+					end,
+					GetMaxAimRange = function (self, unit, weapon)
+						local maxRange = weapon:GetMaxAimRange(unit)
+						if HasPerk(unit, "Throwing") then
+							maxRange = maxRange + CharacterEffectDefs.Throwing:ResolveValue("RangeIncrease")
+						end
+						return maxRange
+					end,
+					GetUIState = function (self, units, args)
+						return CombatActions.ThrowGrenadeA.GetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/throw_grenade",
+					IdDefault = "ThrowGrenadeAOdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectThrowGrenade",
+					MultiSelectBehavior = "first",
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("ThrowGrenade", self.id, ap, ...)
+					end,
+					SortKey = 5,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAreaAim")
+					end,
+					group = "Consumables",
+					id = "ThrowGrenadeAO",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Ranged Attack",
+					AimType = "parabola aoe",
+					AlwaysHits = true,
+					ConfigurableKeybind = false,
+					DisplayName = T(815075531261, --[[ModItemCombatAction ThrowGrenadeBO DisplayName]] "Grenade"),
+					Execute = function (self, units, args)
+						local unit = units[1]
+						local ap = self:GetAPCost(unit, args)
+						NetStartCombatAction(self.id, unit, ap, args)
+					end,
+					GetAPCost = function (self, unit, args)
+						local grenade = self:GetAttackWeapons(unit)
+						return grenade and unit:GetAttackAPCost(self, grenade, false, args and args.aim or 0) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit)
+						local base = unit:GetBaseDamage(weapon)
+						local bonus = GetGrenadeDamageBonus(unit)
+						return MulDivRound(base, Max(0, 100 + bonus), 100)
+					end,
+					GetActionDescription = function (self, units)
+						return CombatActionGrenadeDescription(self, units)
+					end,
+					GetActionDisplayName = function (self, units)
+						local unit = units[1]
+						if unit then
+							local weapon = self:GetAttackWeapons(unit)
+							if weapon then
+								return T{355482653923, "Throw <name>", name = weapon.DisplayName}
+							end
+						end
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return name
+					end,
+					GetActionIcon = function (self, units)
+						return GetThrowItemIcon(self, units and units[1])
+					end,
+					GetActionResults = function (self, unit, args)
+						return CombatActions.ThrowGrenadeA.GetActionResults(self, unit, args)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						local weapon = unit:GetItemInSlot("OrdnanceInventory", "Grenade", 2, 1)
+						return weapon
+					end,
+					GetMaxAimRange = function (self, unit, weapon)
+						local maxRange = weapon:GetMaxAimRange(unit)
+						if HasPerk(unit, "Throwing") then
+							maxRange = maxRange + CharacterEffectDefs.Throwing:ResolveValue("RangeIncrease")
+						end
+						return maxRange
+					end,
+					GetUIState = function (self, units, args)
+						return CombatActions.ThrowGrenadeA.GetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/throw_grenade",
+					IdDefault = "ThrowGrenadeBOdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectThrowGrenade",
+					MultiSelectBehavior = "first",
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("ThrowGrenade", self.id, ap, ...)
+					end,
+					SortKey = 6,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAreaAim")
+					end,
+					group = "Consumables",
+					id = "ThrowGrenadeBO",
+				}),
+				}),
 			PlaceObj('ModItemCombatAction', {
 				ActivePauseBehavior = "queue",
 				Description = T(744710149249, --[[ModItemCombatAction Bolting Description]] "Передернуть затвор"),
@@ -85963,6 +86426,163 @@ return {
 				SortKey = 10,
 				group = "Default",
 				id = "Bolting",
+			}),
+			PlaceObj('ModItemCombatAction', {
+				ActionType = "Melee Attack",
+				AimType = "melee",
+				ConfigurableKeybind = false,
+				CostBasedOnWeapon = true,
+				Description = T(305356869820, --[[ModItemCombatAction MeleeAttack Description]] "Враг, находящийся в укрытии, получает статус «<GameTerm('Exposed')>»."),
+				DisplayName = T(296828702350, --[[ModItemCombatAction MeleeAttack DisplayName]] "Рукопашная атака"),
+				EvalTarget = function (self, units, target, args)
+					local unit = units[1]
+					if (not args or not args.goto_pos) and (not IsValid(target) or not unit:GetClosestMeleeRangePos(target)) then
+						return 0
+					end
+					return unit:CalcChanceToHit(target, self, args)
+				end,
+				GetAPCost = function (self, unit, args)
+					return GetMeleeAttackAPCost(self, unit, args)
+				end,
+				GetActionDamage = function (self, unit, target, args)
+					local weapon = self:GetAttackWeapons(unit, args)
+					if not weapon then return 0 end
+					
+					local base = unit:GetBaseDamage(weapon)
+					local mod = 100 + MulDivRound(unit.Strength, weapon.DamageMultiplier, 100)
+					local damage = MulDivRound(base, mod, 100)
+					
+					return damage, damage, damage - base
+				end,
+				GetActionDescription = function (self, units)
+					local unit = units[1]
+					local action = GetMeleeAttackAction(self, unit)
+					if action ~= self and action:GetUIState(units) == "enabled" then
+						return action:GetActionDescription(units)
+					end
+					local damage, base, bonus = self:GetActionDamage(unit)
+					
+					local descr 
+					if LastLoadedOrLoadingIMode == "IModeCombatMelee" then
+						descr = T{652639293521, "Select a unit to attack.", damage = damage}
+					else
+						descr = T{self.Description, damage = damage, basedamage = base, bonusdamage = bonus}
+					end
+					
+					descr = CombatActionsAppendFreeAimDescription(self, unit, descr)
+					return descr
+				end,
+				GetActionDisplayName = function (self, units)
+					local unit = units[1]
+					local action = GetMeleeAttackAction(self, unit)
+					if action ~= self and action:GetUIState(units) == "enabled" then
+						return action:GetActionDisplayName(units)
+					end
+					local name = self.DisplayName
+					if (name or "") == "" then
+						name = Untranslated(self.id)
+					end
+					return CombatActionsAppendFreeAimActionName(self, unit, name)
+				end,
+				GetActionIcon = function (self, units)
+					local unit = units[1]
+					local action = GetMeleeAttackAction(self, unit)
+					if action ~= self and action:GetUIState(units) == "enabled" then
+						return action:GetActionIcon(units)
+					end
+					return self.Icon
+				end,
+				GetActionResults = function (self, unit, args)
+					local args = table.copy(args)
+					args.num_shots = 0
+					args.weapon = self:GetAttackWeapons(unit, args)
+					if IsKindOf(args.weapon, "GutHookKnife") then
+						args.applied_status = { "Bleeding" }
+					end
+					local attack_args = unit:PrepareAttackArgs(self.id, args)
+					local results = attack_args.weapon:GetAttackResults(self, attack_args)
+					return results, attack_args
+				end,
+				GetAnyTarget = function (self, units)
+					local unit = units[1]
+					return CombatActionGetOneAttackableEnemy(self, unit, nil, CombatActionTargetFilters.MeleeAttack, unit)
+				end,
+				GetAttackWeapons = function (self, unit, args)
+					if args and args.weapon then return args.weapon end
+					local weapon =  unit:GetActiveWeapons("MeleeWeapon")
+					if weapon then return weapon end
+					local knife = unit:GetItemInSlot("KnifeInventory", "StackableMeleeWeapon", 1, 1)
+					if knife then return knife end
+				end,
+				GetDefaultTarget = function (self, unit)
+					local units = {unit}
+					local targets = self:GetTargets(units)
+					local weapon = self:GetAttackWeapons(unit)
+					local nearest, min_dist
+					
+					for _, target in ipairs(targets) do
+						if unit:IsOnEnemySide(target) and HasVisibilityTo(unit.team, target) then
+							local pos = unit:GetClosestMeleeRangePos(target)
+							local dist
+							if not g_Combat or unit:CanAttack(target, weapon, self, 0, pos) then
+								dist = pos and unit:GetDist(pos)
+							end
+							if dist and (not min_dist or dist < min_dist) then
+								nearest, min_dist = target, dist
+							end
+						end
+					end
+					
+					return nearest, min_dist
+				end,
+				GetTargets = function (self, units)
+					local unit = units[1]
+					return CombatActionGetAttackableEnemies(self, unit, nil, CombatActionTargetFilters.MeleeAttack, unit)
+				end,
+				GetUIState = function (self, units, args)
+					local unit = units[1]
+					args = args or {}
+					args.ap_cost_breakdown = args.ap_cost_breakdown or {}
+					
+					local cost = self:GetAPCost(unit, args)
+					
+					if cost < 0 then
+					print("hidden") return "hidden" end
+					if not unit:UIHasAP(cost, self.id, args) then
+						return "disabled", AttackDisableReasons.NoAP
+					end
+					return "enabled"
+				end,
+				Icon = "UI/Icons/Hud/melee",
+				IdDefault = "MeleeAttackdefault",
+				IsTargetableAttack = true,
+				KeybindingFromAction = "actionRedirectBasicAttack",
+				MoveStep = true,
+				MultiSelectBehavior = "first",
+				RequireState = "any",
+				RequireWeapon = true,
+				Run = function (self, unit, ap, ...)
+					unit:SetActionCommand("MeleeAttack", self.id, ap, ...)
+				end,
+				SortKey = 3,
+				StealthAttack = true,
+				UIBegin = function (self, units, args)
+					if not args or not args.free_aim then
+						local action = GetMeleeAttackAction(self, units[1])
+						if action ~= self and action:GetUIState(units) == "enabled" then
+							return action:UIBegin(units, args)
+						end
+					end
+					CombatActionAttackStart(self, units, args, "IModeCombatMelee", "attack")
+				end,
+				UseFreeMove = true,
+				basicAttack = true,
+				group = "WeaponAttacks",
+				id = "MeleeAttack",
+			}),
+			PlaceObj('ModItemCode', {
+				'name', "CombatActions",
+				'CodeFileName', "Code/CombatActions.lua",
 			}),
 			}),
 		PlaceObj('ModItemFolder', {
@@ -95018,7 +95638,7 @@ return {
 																	args.item = InventoryDragItem
 																	MoveItem(args)
 																end
-																--CancelDrag(dlg)
+																CancelDrag(dlg)
 																return
 															end
 														end
@@ -95056,7 +95676,7 @@ return {
 													dlg:OnContextUpdate(context)
 													dlg.idUnitInfo:RespawnContent()
 													dlg:CompareWeaponSetUI()
-													--dlg:ActionsUpdated()
+													dlg:ActionsUpdated()
 													-- move selected unit backpack into view
 													local ctrl_right_area = dlg.idScrollArea --= ScrollIntoView
 													for _, wnd in ipairs(ctrl_right_area) do
@@ -95090,7 +95710,7 @@ return {
 													if InventoryDragItem and not InventoryDragItems then
 														HighlightEquipSlots(InventoryDragItem, true)
 														HighlightWeaponsForAmmo(InventoryDragItem, true)
-														--HighlightAPCost(InventoryDragItem, true, StartDragSource)
+														HighlightAPCost(InventoryDragItem, true, StartDragSource)
 													end
 												end,
 											}),
@@ -95103,38 +95723,50 @@ return {
 											PlaceObj('XTemplateFunc', {
 												'name', "OnDropEnter(self, draw_win, pt, drag_source)",
 												'func', function (self, draw_win, pt, drag_source)
-													--self:SetRollover(true)
-													--local valid, mouse_text = InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext())
-													--if (not gv_SatelliteView or InventoryIsCombatMode()) and not valid then
-													--	InventoryShowMouseText(true,mouse_text)
-													--	return
-													--end
-													--if InventoryDragItem and g_Combat and IsCoOpGame() and not self.context:IsLocalPlayerControlled() then
-													--	mouse_text = T(406257152368, "Cannot pick").."\n"..T(341907478094, "Controlled by <OtherPlayerName()>")
-													--elseif InventoryDragItem then											
-													--	mouse_text = InventoryGetMoveIsInvalidReason(self.context, InventoryStartDragContext)
-													--	if not mouse_text then
-													--		local ap_cost, unit_ap, action_name = InventoryItemsAPCost(self.context, "Inventory", false, false)
-													--		mouse_text = action_name or ""
-													--		if InventoryIsCombatMode() and ap_cost and ap_cost>0 then
-													--			mouse_text = InventoryFormatAPMouseText(unit_ap, ap_cost, mouse_text)
-													--		end
-													--	end
-													--end	
-													--InventoryShowMouseText(not not mouse_text,mouse_text)
+													self:SetRollover(true)
+													local valid, mouse_text = InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext())
+													if (not gv_SatelliteView or InventoryIsCombatMode()) and not valid then
+														InventoryShowMouseText(true,mouse_text)
+														return
+													end
+													if InventoryDragItem and g_Combat and IsCoOpGame() and not self.context:IsLocalPlayerControlled() then
+														mouse_text = T(406257152368, "Cannot pick").."\n"..T(341907478094, "Controlled by <OtherPlayerName()>")
+													elseif InventoryDragItem then											
+														mouse_text = InventoryGetMoveIsInvalidReason(self.context, InventoryStartDragContext)
+														if not mouse_text then
+															local ap_cost, unit_ap, action_name = InventoryItemsAPCost(self.context, "Inventory", false, false)
+															mouse_text = action_name or ""
+															if InventoryIsCombatMode() and ap_cost and ap_cost>0 then
+																mouse_text = InventoryFormatAPMouseText(unit_ap, ap_cost, mouse_text)
+															end
+														end
+													end	
+													InventoryShowMouseText(not not mouse_text,mouse_text)
 												end,
 											}),
 											PlaceObj('XTemplateFunc', {
 												'name', "OnDropLeave(self, drag_win)",
 												'func', function (self, drag_win)
-													--self:SetRollover(false)
+													self:SetRollover(false)
 													InventoryShowMouseText(false)
 												end,
 											}),
 											PlaceObj('XTemplateFunc', {
 												'name', "OnDrop(self, drag_win, pt, drag_source_win)",
 												'func', function (self, drag_win, pt, drag_source_win)
-													--self:SelectUnit()
+													if (not gv_SatelliteView or InventoryIsCombatMode()) and not InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()) then
+														PlayFX("IactDisabled", "start", InventoryDragItem)
+														return true
+													end
+													if InventoryUnitCanUseItem(self.context, InventoryDragItem) and (not g_Combat or self.context:HasAP(InventoryDragItem.APCost * const.Scale.AP)) then
+														InventoryUseItem(self.context, InventoryDragItem, InventoryStartDragContext,InventoryStartDragSlotName )								
+														if InventoryDragItem and StartDragSource then
+														StartDragSource:ClearDragState(drag_win)
+														end
+													else
+														PlayFX("IactDisabled", "start", InventoryDragItem)
+													end
+													self:SelectUnit()
 													return "not valid target"
 												end,
 											}),
@@ -95235,7 +95867,7 @@ return {
 											PlaceObj('XTemplateFunc', {
 												'name', "SetSelected(self, selected)",
 												'func', function (self, selected)
-													--if self.selected == selected then return false end
+													if self.selected == selected then return false end
 													self.selected = selected
 													self:SetupStyle()
 												end,
@@ -108229,8 +108861,8 @@ return {
 						'Margins', box(-398, 50, 0, 75),
 						'HAlign', "left",
 						'VAlign', "top",
-						'MinWidth', 924,
-						'MaxWidth', 924,
+						'MinWidth', 1100,
+						'MaxWidth', 1100,
 						'ScaleModifier', point(900, 900),
 						'LayoutMethod', "HList",
 						'RespawnOnContext', false,
@@ -108241,7 +108873,7 @@ return {
 							'Margins', box(0, 0, 0, 30),
 							'Dock', "left",
 							'HAlign', "left",
-							'VAlign', "center",
+							'VAlign', "top",
 							'ScaleModifier', point(900, 900),
 							'RespawnOnContext', false,
 						}, {
@@ -108635,7 +109267,7 @@ return {
 							'Margins', box(-35, 0, 0, 30),
 							'Dock', "left",
 							'HAlign', "left",
-							'VAlign', "center",
+							'VAlign', "top",
 							'ScaleModifier', point(800, 800),
 							'RespawnOnContext', false,
 						}, {
@@ -108746,7 +109378,7 @@ return {
 							'Margins', box(10, 0, 0, 30),
 							'Dock', "left",
 							'HAlign', "left",
-							'VAlign', "center",
+							'VAlign', "top",
 							'ScaleModifier', point(800, 800),
 							'LayoutMethod', "VList",
 							'RespawnOnContext', false,
@@ -108758,7 +109390,7 @@ return {
 								'Dock', "top",
 								'HAlign', "left",
 								'VAlign', "top",
-								'ScaleModifier', point(950, 950),
+								'ScaleModifier', point(920, 920),
 								'LayoutMethod', "VList",
 								'RespawnOnContext', false,
 							}, {
@@ -108792,7 +109424,6 @@ return {
 									'Dock', "top",
 									'HAlign', "left",
 									'VAlign', "top",
-									'ScaleModifier', point(990, 990),
 									'UniformColumnWidth', true,
 									'UniformRowHeight', true,
 									'OnContextUpdate', function (self, context, ...)
@@ -108826,11 +109457,11 @@ return {
 							PlaceObj('XTemplateWindow', {
 								'__class', "XContentTemplate",
 								'IdNode', false,
-								'Margins', box(0, 0, 0, 30),
+								'Margins', box(0, -20, 0, 30),
 								'Dock', "top",
 								'HAlign', "left",
 								'VAlign', "top",
-								'ScaleModifier', point(950, 950),
+								'ScaleModifier', point(920, 920),
 								'LayoutMethod', "VList",
 								'RespawnOnContext', false,
 							}, {
@@ -108841,6 +109472,7 @@ return {
 									'Dock', "top",
 									'HAlign', "left",
 									'VAlign', "top",
+									'ScaleModifier', point(900, 900),
 									'LayoutMethod', "HWrap",
 									'RespawnOnContext', false,
 								}, {
@@ -108947,7 +109579,7 @@ return {
 							PlaceObj('XTemplateWindow', {
 								'__class', "XContentTemplate",
 								'IdNode', false,
-								'Margins', box(0, 0, 0, 30),
+								'Margins', box(0, -20, 0, 30),
 								'Dock', "top",
 								'HAlign', "left",
 								'VAlign', "top",
@@ -109157,7 +109789,7 @@ return {
 						}),
 					PlaceObj('XTemplateWindow', {
 						'comment', "right - backpacks",
-						'Margins', box(-838, 520, 32, 32),
+						'Margins', box(-938, 540, 32, 32),
 						'HAlign', "left",
 						'VAlign', "top",
 						'MinWidth', 924,
@@ -109418,7 +110050,7 @@ return {
 							'MinHeight', 942,
 							'MaxWidth', 810,
 							'MaxHeight', 939,
-							'ScaleModifier', point(800, 800),
+							'ScaleModifier', point(700, 700),
 							'OnContextUpdate', function (self, context, ...)
 								if self.RespawnOnContext then
 									if self.window_state == "open" then

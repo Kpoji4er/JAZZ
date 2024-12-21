@@ -334,7 +334,7 @@ function UnitProperties:EquipStartingGear(items)
 	
 	-- make sure all equipped firearms have ammo
 	local function reload_weapon(weapon)
-		if not IsMerc(self) and not weapon.ammo or weapon.ammo.Amount <= 0 then
+		if  (not weapon.ammo or weapon.ammo.Amount <= 0) and not IsMerc(self) then
 			local ammo = GetAmmosWithCaliber(weapon.Caliber, "sort")[1]
 			if ammo then
 				local tempAmmo = PlaceInventoryItem(ammo.id)
@@ -1157,4 +1157,482 @@ function Unit:GetOverwatchAttacksAndAim(action, args, unit_ap)
 	--print(weapon.DisplayName..' aim '..aim.." maxAim "..maxAim)
 	
 	return attacks, aim or minAim or 0
+end
+
+local l_get_throwable_knife
+
+function Unit:GetThrowableKnife()
+	l_get_throwable_knife = nil
+	self:ForEachItemInSlot(self.current_weapon, function(item)
+		if IsKindOf(item, "MeleeWeapon") and item.CanThrow then
+			l_get_throwable_knife = item
+			return "break"
+		end
+	end)
+	if not l_get_throwable_knife then
+		local alt_set = self.current_weapon == "Handheld A" and "Handheld B" or "Handheld A"
+		self:ForEachItemInSlot(alt_set, function(item)
+			if IsKindOf(item, "MeleeWeapon") and item.CanThrow then
+				l_get_throwable_knife = item
+				return "break"
+			end
+		end)
+		self:ForEachItemInSlot("KnifeInventory", function(item)
+			if IsKindOf(item, "MeleeWeapon") and item.CanThrow then
+				l_get_throwable_knife = item
+				return "break"
+			end
+		end)
+
+		
+	end
+	return l_get_throwable_knife
+end
+
+itemCombatSkillsList = {
+	"ThrowGrenadeA",
+	"ThrowGrenadeB",
+	"ThrowGrenadeC",
+	"ThrowGrenadeD",
+	"ThrowGrenadeAG",
+	"ThrowGrenadeBG",
+	"ThrowGrenadeCG",
+	"ThrowGrenadeDG",
+	"ThrowGrenadeAO",
+	"ThrowGrenadeBO",
+	"Bandage",
+	"ChangeWeapon",
+	"RemoteDetonation"
+}
+
+
+function Unit:EnumUIActions()
+	local actions = {}
+	
+	if g_Combat or (IsUnitPrimarySelectionCoOpAware(self) and not g_Overwatch[self]) then
+		-- weapon attacks (from first weapon only)
+		local action = self:GetDefaultAttackAction()
+		actions[1] = action.id
+		
+		local main_weapon, offhand_weapon = self:GetActiveWeapons()		
+		add_weapon_attacks(actions, self, main_weapon)
+		
+		-- allow dual-wielding with a flare gun
+		if IsKindOf(main_weapon, "FlareGun") or IsKindOf(offhand_weapon, "FlareGun") then
+			add_weapon_attacks(actions, self, offhand_weapon)
+		end
+		
+		if self:GetThrowableKnife() then
+			actions[#actions + 1] = "KnifeThrow"
+		end
+		
+		if table.find(actions, "DualShot") then
+			-- special case: add left/right hand shot modes automatically
+			table.insert_unique(actions, "LeftHandShot")
+			table.insert_unique(actions, "RightHandShot")
+		end
+		
+		if IsKindOf(main_weapon, "FirearmBase") then
+			for slot, sub in sorted_pairs(main_weapon.subweapons) do
+				add_weapon_attacks(actions, self, sub)
+			end
+			if main_weapon:HasComponent("EnableFullAuto") then
+				table.insert_unique(actions, "AutoFire")
+			end
+		end
+				
+		if #actions == 0 then
+			actions[1] = "UnarmedAttack"
+		end
+	end
+	
+	-- add signature abilities (if any)
+	for _, skill in ipairs(Presets.CombatAction.SignatureAbilities) do
+		local id = skill.id
+		if string.match(id, "DoubleToss") then 
+			id = "DoubleToss"
+		end
+		if id and self:HasStatusEffect(id) then
+			actions[#actions + 1] = skill.id
+		end
+	end
+	
+	-- common actions
+	ForEachPresetInGroup("CombatAction", "Default", function(def)
+		actions[#actions + 1] = def.id
+	end)
+
+	if g_Combat or IsUnitPrimarySelectionCoOpAware(self) then
+		-- actions from consumables
+		if self:GetItemInSlot("Handheld A", "Grenade", 1, 1) then actions[#actions + 1] = "ThrowGrenadeA" end
+		if self:GetItemInSlot("Handheld A", "Grenade", 2, 1) then actions[#actions + 1] = "ThrowGrenadeB" end
+		if self:GetItemInSlot("Handheld B", "Grenade", 1, 1) then actions[#actions + 1] = "ThrowGrenadeC" end
+		if self:GetItemInSlot("Handheld B", "Grenade", 2, 1) then actions[#actions + 1] = "ThrowGrenadeD" end
+		if self:GetItemInSlot("GrenadesInventory", "Grenade", 1, 1) then actions[#actions + 1] = "ThrowGrenadeAG" end
+		if self:GetItemInSlot("GrenadesInventory", "Grenade", 2, 1) then actions[#actions + 1] = "ThrowGrenadeBG" end
+		if self:GetItemInSlot("GrenadesInventory", "Grenade", 3, 1) then actions[#actions + 1] = "ThrowGrenadeCG" end
+		if self:GetItemInSlot("GrenadesInventory", "Grenade", 4, 1) then actions[#actions + 1] = "ThrowGrenadeDG" end
+		if self:GetItemInSlot("OrdnanceInventory", "Grenade", 1, 1) then actions[#actions + 1] = "ThrowGrenadeAO" end
+		if self:GetItemInSlot("OrdnanceInventory", "Grenade", 2, 1) then actions[#actions + 1] = "ThrowGrenadeBO" end
+
+		if GetUnitEquippedMedicine(self) then
+			actions[#actions + 1] = "Bandage"
+		end
+		
+		if GetUnitEquippedDetonator(self) then
+			actions[#actions + 1] = "RemoteDetonation"
+		end
+		
+		-- todo: merc-related actions (perk/adrenaline skills)
+	end
+
+	actions[#actions + 1] = "ItemSkills"
+	
+	return actions
+end
+
+function Unit:RecalcUIActions(force)
+	local actions
+	
+	if self:GetBandageTarget() then
+		actions = { "StopBandaging" }
+	elseif self:HasStatusEffect("StationedMachineGun") or self:HasStatusEffect("ManningEmplacement") then
+		actions = {}
+		local action = self:GetDefaultAttackAction()
+		actions[#actions + 1] = action.id
+		ForEachPresetInGroup("CombatAction", "MachineGun", function(def)
+			if def.id ~= "MGSetup" then
+				actions[#actions + 1] = def.id
+			end
+		end)
+		
+		-- additional available actions
+		actions[#actions + 1] = "Reload"
+		actions[#actions + 1] = "Unjam"
+	else
+		actions = self:EnumUIActions() 
+		if not actions then -- EnumUIActions decided to swap
+			return
+		end
+	end
+	
+	-- move hidden actions to the back and mark actions visible in ui
+	local ui_actions = {}
+	local vis_idx = 1
+	local old_actions = self.ui_actions
+	self.ui_actions = ui_actions
+
+	if actions then
+		table.sort(actions, function(a, b)
+			local actionA = CombatActions[a]
+			local actionB = CombatActions[b]
+			return actionA.SortKey < actionB.SortKey
+		end)
+
+		-- First pass, find actions which combine into firing modes.
+		-- This should setup the right default attack action as well.
+		local firingModes = {}
+		for i = 1, #actions do
+			local id = actions[i]
+			local caction = CombatActions[id]
+			local state = "hidden"
+			
+			local firingModeId = caction.FiringModeMember
+			if not firingModeId then goto continue end
+
+			if caction.ShowIn == "CombatActions" and (g_Combat or (#(Selection or empty_table) == 1 or caction.MultiSelectBehavior ~= "hidden")) then
+				local target = caction.RequireTargets and caction:GetDefaultTarget(self)
+				state = caction:GetVisibility({self}, target)
+			end
+
+			if state ~= "hidden" then
+				if not firingModes[firingModeId] then
+					firingModes[firingModeId] = {}
+				end
+				table.insert(firingModes[firingModeId], id)
+				ui_actions[id] = state
+			end
+
+			::continue::
+		end
+		
+		-- Check if dual shot attack mode is active.
+		-- This has higher priotity because it disables other firing modes
+		local dual_shot_state
+		for modeName, mode in pairs(firingModes) do
+			if modeName == "AttackDual" then
+				for i, m in ipairs(mode) do
+					if ui_actions[m] == "enabled" then
+						dual_shot_state = "enabled"
+					end
+				end
+			end
+		end
+		
+		-- Show firing mode action only if more than one action is available.
+		for modeName, mode in pairs(firingModes) do
+			local defaultFireMode = mode[1]
+			if #mode > 1 and (modeName ~= "AttackDual" or dual_shot_state ~= "hidden") then
+				ui_actions[modeName] = "enabled"
+				
+				-- Weapon default
+				local defaultAction = self:GetDefaultAttackAction(false, "force_ungrouped")
+				if defaultAction.FiringModeMember == modeName and ui_actions[defaultAction.id] == "enabled" then
+					defaultFireMode = defaultAction.id
+				else
+					-- First enabled.
+					for i, m in ipairs(mode) do
+						if ui_actions[m] == "enabled" then
+							defaultFireMode = m
+							break
+						end
+					end
+				end
+			else
+				ui_actions[modeName] = "disabled"
+			end
+			
+			-- When showing dual attacking hide other firing modes
+			if modeName ~= "AttackDual" and dual_shot_state == "enabled" then
+				ui_actions[modeName] = "hidden"
+				for i, m in ipairs(mode) do
+					ui_actions[m] = "hidden"
+				end
+			elseif dual_shot_state ~= "enabled" and modeName == "AttackDual" then
+				for i, m in ipairs(mode) do
+					ui_actions[m] = "hidden"
+				end
+			end
+
+			mode.take_idx_from = mode[1]
+			ui_actions[modeName .. "default"] = defaultFireMode
+			assert(ui_actions[modeName .. "default"])	
+		end
+
+		local doubleTossCount = 0
+		local grenadeModes = {}
+		for i = 1, #actions do
+			local id = actions[i]
+			local caction = CombatActions[id]
+			
+			local state = "hidden"
+			if caction.ShowIn == "CombatActions" or caction.ShowIn == "SignatureAbilities" then
+				if ui_actions[id] then
+					state = ui_actions[id]
+				elseif g_Combat or (#(Selection or empty_table) == 1 or caction.MultiSelectBehavior ~= "hidden") then
+					local target = caction.RequireTargets and CombatActionGetOneAttackableEnemy(caction, self)
+					state = caction:GetVisibility({self}, target)
+				end
+			end
+
+			-- special-case grenade throws in case multiple identical grenades are equipped
+			if state ~= "hidden" then -- todo: remove this special case, make it generic, it causes issues with displaying signatures
+				local action_type
+				if string.match(id, "DoubleToss") then 
+					action_type = "DoubleToss"
+				elseif string.match(id, "ThrowGrenade") then
+					action_type = "ThrowGrenade"
+				end
+				if action_type then
+					grenadeModes[action_type] = grenadeModes[action_type] or {}
+					local weapon = caction:GetAttackWeapons(self)
+					if not weapon or grenadeModes[action_type][weapon.class] then
+						state = "hidden"
+						if action_type == "DoubleToss" then
+							doubleTossCount = doubleTossCount + 1
+							if doubleTossCount == 4 then
+								state = "disabled"
+							end
+						end
+					end
+					if weapon then
+						grenadeModes[action_type][weapon.class] = grenadeModes[action_type][weapon.class] or {}
+						local equipped = self.current_weapon == "Handheld A" and (id == "ThrowGrenadeA" or  id == "ThrowGrenadeB") or
+						                 self.current_weapon == "Handheld B" and (id == "ThrowGrenadeC" or  id == "ThrowGrenadeD") or
+										 (id == "ThrowGrenadeAG" or  id == "ThrowGrenadeBG" or  id == "ThrowGrenadeCG" or  id == "ThrowGrenadeDG"
+										or id == "ThrowGrenadeAO" or  id == "ThrowGrenadeBO")
+						grenadeModes[action_type][weapon.class][id] = equipped
+					end
+				end
+			end
+
+			if state ~= "hidden" then
+				local firingModeId = caction.FiringModeMember
+				if firingModeId and ui_actions[firingModeId] == "enabled" then
+					-- Firing mode actions are shown in the position of the first action in the mode,
+					-- the mode actions themselves are not shown.
+					if firingModes[firingModeId].take_idx_from == id then
+						table.insert(ui_actions, vis_idx, firingModeId)
+						vis_idx = vis_idx + 1
+					end
+				elseif CombatActions[id].group ~= "Hidden" then
+					table.insert(ui_actions, vis_idx, id)
+					vis_idx = vis_idx + 1
+				end
+				ui_actions[id] = state
+			elseif caction.ShowIn ~= "Special" and not caction.ShowIn then
+				ui_actions[#ui_actions + 1] = id
+			end
+		end
+		
+		--go through the grenade modes to place equipped in ui_actions with priority (to first consume from equipped nades)
+		for action, _ in pairs(grenadeModes) do
+			for grenadeType, _ in pairs(grenadeModes[action]) do
+				for actionName, _ in pairs (grenadeModes[action][grenadeType]) do
+					if grenadeModes[action][grenadeType][actionName] and not table.find(ui_actions, actionName) then
+						for otherActionName, _ in pairs (grenadeModes[action][grenadeType]) do
+							if table.find(ui_actions, otherActionName) then
+								ui_actions[otherActionName] = nil
+								ui_actions[actionName] = "enabled"
+								ui_actions[table.find(ui_actions, otherActionName)] = actionName
+								break
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+	
+	-- Put the signature ability in the 13th place always
+	for i, id in ipairs(ui_actions) do 
+		local caction = CombatActions[id]
+		if caction.group == "SignatureAbilities" then
+			if ui_actions[13] then
+				local swapped = table.remove(ui_actions, 13)
+				ui_actions[i] = swapped
+				ui_actions[13] = id
+			else
+				table.remove(ui_actions, i)
+				if #ui_actions < 12 then
+					for j = #ui_actions + 1, 12 do
+						ui_actions[j] = "empty"
+					end
+				end
+				ui_actions[13] = id
+			end
+			break
+		end
+	end
+	
+	if vis_idx >30 then
+		-- Remove item skills. They will be represented by ItemSkills.
+		for i, itemSkill in ipairs(itemCombatSkillsList) do
+			if ui_actions[itemSkill] then
+				local actionIdx = table.find(ui_actions, itemSkill)
+				if actionIdx then
+					table.remove(ui_actions, actionIdx)
+					vis_idx = vis_idx - 1
+				end
+			end
+		end
+		vis_idx = vis_idx + 1
+	else
+		ui_actions["ItemSkills"] = false
+	end
+	
+	assert(vis_idx <= 30, "This unit has too many actions - they cant fit on the UI! (12)")
+
+	if self == Selection[1] then
+		local allMatch = false
+		-- Verify that any actions have changed.
+		if old_actions then
+			allMatch = true
+			for i, a in ipairs(old_actions) do
+				if ui_actions[i] ~= a or old_actions[a] ~= ui_actions[a] then
+					allMatch = false
+					break
+				end
+			end
+		end
+		if not allMatch or force then ObjModified("combat_bar") end
+	end
+	return ui_actions
+end
+
+function Unit:GetActiveWeapons(class, strict_order)
+	if class == "UnarmedWeapon" then
+		self.unarmed_weapon = self.unarmed_weapon or g_UnarmedWeapon
+		return self.unarmed_weapon, nil, { self.unarmed_weapon }
+	end
+
+	if self:GetStatusEffect("ManningEmplacement") then
+		local handle = self:GetEffectValue("hmg_emplacement")
+		local obj = HandleToObject[handle]
+		if obj and obj.weapon and (not class or IsKindOf(obj.weapon, class)) then
+			obj.weapon.emplacement_weapon = true
+			return obj.weapon, nil, { obj.weapon }
+		end
+	end
+	
+	local slot
+	if IsSetpiecePlaying() and IsSetpieceActor(self) then
+		slot = "SetpieceWeapon"
+	else
+		slot = self.current_weapon
+	end
+
+	self.combat_cache = self.combat_cache or {}
+	local key = string.format("%s_%s%s", slot, class or "all", strict_order and "-strict" or "")
+	local weapons = self.combat_cache[key]
+	if not weapons then
+		weapons = {}
+		local firearms = {}
+		self.combat_cache[key] = weapons
+		local equipped = self:GetEquippedWeapons(slot)
+		if slot == "SetpieceWeapon" and (#(equipped or empty_table) == 0) then
+			equipped = self:GetEquippedWeapons(self.current_weapon)
+		end
+
+		--local knife = self:GetEquippedWeapons("KnifeInventory")
+
+		for _, o in ipairs(equipped) do
+			local match = not class or (class ~= "Firearm") or not IsKindOfClasses(o, "HeavyWeapon", "FlareGun")
+			match = match and (not class or IsKindOf(o, class))
+			if match then
+				table.insert(weapons, o)
+			end
+			if IsKindOf(o, "FirearmBase") then
+				table.insert(firearms, o)
+			end
+		end		
+
+		--if knife 
+		--	for _, o in ipairs(knife) do
+		--		local match = not class or (class ~= "Firearm") or not IsKindOfClasses(o, "HeavyWeapon", "FlareGun")
+		--		match = match and (not class or IsKindOf(o, class))
+		--		if match then
+		--			table.insert(weapons, o)
+		--		end
+		--		if IsKindOf(o, "FirearmBase") then
+		--			table.insert(firearms, o)
+		--		end
+		--	end	
+		--end
+		-- second pass to add subweapons at the end of the list
+		for _, item in ipairs(firearms) do
+			for slot, weapon in sorted_pairs(item.subweapons) do
+				local match = not class or not IsKindOfClasses(weapon, "HeavyWeapon", "FlareGun")
+				match = match and (not class or IsKindOf(weapon, class))
+				if match then
+					table.insert(weapons, weapon)
+				end
+			end
+		end
+
+	end
+	
+	-- If weapon1 is exhausted and weapon 2 isnt then weapon2 is the main weapon
+	if not strict_order then
+		local weapon1Exhausted = not self:CanUseWeapon(weapons[1])
+		local weapon2Exhausted = not self:CanUseWeapon(weapons[2])
+		local weapon2IsntSubWeapon = weapons[1] and weapons[2] and not weapons[2].parent_weapon
+		if weapons[1] and weapons[2] and weapon1Exhausted and not weapon2Exhausted and weapon2IsntSubWeapon then
+			weapons[1], weapons[2] = weapons[2], weapons[1]
+		end
+	end
+
+	--print(weapons)
+	
+	return weapons[1], weapons[2], weapons
 end

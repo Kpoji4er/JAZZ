@@ -1,10 +1,10 @@
 UndefineClass('TearGasGrenade')
 DefineClass.TearGasGrenade = {
-	__parents = { "Grenade" },
+	__parents = { "GrenadeItem" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	object_class = "Grenade",
+	object_class = "GrenadeItem",
 	Repairable = false,
 	Reliability = 100,
 	Icon = "UI/Icons/Weapons/TearGasGrenade",
