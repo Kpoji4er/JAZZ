@@ -67,6 +67,7 @@ DefineClass.G3SniperV1 = {
 				"JAZZ_CombatScope_FeroZ24",
 				"JAZZ_Scope_DA15_6x",
 			},
+			'DefaultComponent', "JAZZ_Scope_DA15_6x",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
