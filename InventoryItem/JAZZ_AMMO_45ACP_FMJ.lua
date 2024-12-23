@@ -16,7 +16,7 @@ DefineClass.JAZZ_AMMO_45ACP_FMJ = {
 	MaxStock = 50,
 	CategoryPair = "45ACP",
 	ShopStackSize = 12,
-	MaxStacks = 5000,
+	MaxStacks = 80,
 	Caliber = "JAZZ_Caliber_45ACP",
 }
 

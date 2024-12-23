@@ -16,7 +16,7 @@ DefineClass.JAZZ_AMMO_792_FMJ = {
 	MaxStock = 5,
 	CategoryPair = "792",
 	ShopStackSize = 30,
-	MaxStacks = 5000,
+	MaxStacks = 40,
 	Caliber = "JAZZ_Caliber_792",
 	Modifications = {
 		PlaceObj('CaliberModification', {

@@ -19,7 +19,6 @@ DefineClass.BlackPowder = {
 	CenterObjDamageMod = 50,
 	CenterAppliedEffects = {
 		"Bleeding",
-		"KnockDown",
 	},
 	AreaOfEffect = 4,
 	CenterAreaOfEffect = 2,

@@ -1,10 +1,10 @@
 UndefineClass('SmokeGrenade')
 DefineClass.SmokeGrenade = {
-	__parents = { "Grenade" },
+	__parents = { "GrenadeItem" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	object_class = "Grenade",
+	object_class = "GrenadeItem",
 	Repairable = false,
 	Reliability = 100,
 	Icon = "UI/Icons/Weapons/SmokeGrenade",
@@ -18,6 +18,7 @@ DefineClass.SmokeGrenade = {
 	Tier = 2,
 	RestockWeight = 25,
 	CategoryPair = "Grenade",
+	MaxStacks = 2,
 	MinMishapChance = -2,
 	MaxMishapChance = 40,
 	MinMishapRange = 1,

@@ -32,5 +32,6 @@ DefineClass.M16Bayonet = {
 	Entity = "M16bayonet_weapon",
 	HolsterSlot = "Leg",
 	CanAppearUsed = false,
+	MaxStacks = 3,
 }
 

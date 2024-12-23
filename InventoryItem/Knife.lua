@@ -30,5 +30,6 @@ DefineClass.Knife = {
 	Entity = "Weapon_FC_AMZ_Knife_01",
 	HolsterSlot = "Leg",
 	CanAppearUsed = false,
+	MaxStacks = 3,
 }
 

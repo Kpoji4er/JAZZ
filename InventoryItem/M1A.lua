@@ -112,7 +112,6 @@ DefineClass.M1A = {
 				"JAZZ_Scope_12x",
 				"JAZZ_Scope_Scout",
 			},
-			'DefaultComponent', "JAZZ_Scope_6x",
 		}),
 	},
 	HolsterSlot = "Shoulder",

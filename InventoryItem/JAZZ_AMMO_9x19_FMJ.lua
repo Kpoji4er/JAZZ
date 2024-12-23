@@ -15,7 +15,7 @@ DefineClass.JAZZ_AMMO_9x19_FMJ = {
 	MaxStock = 50,
 	CategoryPair = "9mm",
 	ShopStackSize = 30,
-	MaxStacks = 5000,
+	MaxStacks = 120,
 	Caliber = "JAZZ_Caliber_9x19",
 	Modifications = {},
 }

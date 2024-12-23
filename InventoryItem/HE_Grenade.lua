@@ -1,10 +1,10 @@
 UndefineClass('HE_Grenade')
 DefineClass.HE_Grenade = {
-	__parents = { "Grenade" },
+	__parents = { "GrenadeItem" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	object_class = "Grenade",
+	object_class = "GrenadeItem",
 	Repairable = false,
 	Reliability = 100,
 	Icon = "UI/Icons/Weapons/HEGrenade",
@@ -17,11 +17,17 @@ DefineClass.HE_Grenade = {
 	CanAppearInShop = true,
 	Tier = 2,
 	CategoryPair = "Grenade",
+	MaxStacks = 3,
 	MinMishapChance = 0,
 	MaxMishapChance = 50,
 	MinMishapRange = 1,
 	MaxMishapRange = 8,
 	CenterObjDamageMod = 50,
+	CenterAppliedEffects = {
+		"Armsshot",
+		"Headshot",
+		"Legsshot",
+	},
 	AreaOfEffect = 5,
 	CenterAreaOfEffect = 2,
 	AreaUnitDamageMod = 50,

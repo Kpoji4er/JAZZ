@@ -1,10 +1,10 @@
 UndefineClass('Molotov')
 DefineClass.Molotov = {
-	__parents = { "Grenade" },
+	__parents = { "GrenadeItem" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	object_class = "Grenade",
+	object_class = "GrenadeItem",
 	Repairable = false,
 	Reliability = 100,
 	Icon = "UI/Icons/Weapons/Molotov",
@@ -17,6 +17,7 @@ DefineClass.Molotov = {
 	CanAppearInShop = true,
 	RestockWeight = 50,
 	CategoryPair = "Grenade",
+	MaxStacks = 1,
 	MinMishapChance = 2,
 	MaxMishapChance = 60,
 	MinMishapRange = 1,

@@ -17,7 +17,7 @@ DefineClass.JAZZ_AMMO_762x39_FMJ = {
 	RestockWeight = 150,
 	CategoryPair = "762WP",
 	ShopStackSize = 30,
-	MaxStacks = 5000,
+	MaxStacks = 60,
 	Caliber = "JAZZ_Caliber_762x39",
 	Modifications = {
 		PlaceObj('CaliberModification', {

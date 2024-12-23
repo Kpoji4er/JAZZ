@@ -17,7 +17,7 @@ DefineClass.JAZZ_AMMO_556_MK262 = {
 	Tier = 3,
 	CategoryPair = "556",
 	ShopStackSize = 30,
-	MaxStacks = 5000,
+	MaxStacks = 90,
 	Caliber = "JAZZ_Caliber_556",
 	Modifications = {
 		PlaceObj('CaliberModification', {

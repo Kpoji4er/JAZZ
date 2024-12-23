@@ -1,0 +1,502 @@
+--
+--function SpawnSquads(squad_ids, spawn_mode, spawn_markers, force_test_map, enter_sector)
+--	local remove_dead = not not enter_sector
+--
+--	g_GroupedSquadUnits = {}
+--	local squads_to_spawn = {}
+--	local map_combat_units = MapGet("map", "Unit") or empty_table
+--	
+--	-- remove map objs for mercs which are no longer with the squad saved on the sector, also all dead bodies on map reenter
+--	for i = #map_combat_units, 1, -1 do
+--		local obj = map_combat_units[i]
+--		local session_id = obj.session_id
+--		local delete_obj
+--		if not obj.spawner or obj.Squad then -- don't remove spawner units, except those who joined a squad
+--			-- unit was on this map once and either died here (which why they have no squad), or their squad isnt here anymore.
+--			local squad = gv_Squads[obj.Squad]
+--			local squad_units = table.find(squad_ids, obj.Squad) and squad and squad.units or empty_table
+--			local missing = (remove_dead or not obj:IsDead()) and not table.find(squad_units, session_id)
+--			
+--			-- unit was on this map once and has returned after having been somewhere else, it needs to be respawned (lUpdateSquadCurrentSector)
+--			local should_respawn = gv_UnitData[session_id] and not gv_UnitData[session_id].already_spawned_on_map
+--			
+--			-- Enemies will always redeploy (211594) to simulate time passing,
+--			-- if they are part of a squad.
+--			if enter_sector and squad and squad.Side == "enemy1" then
+--				should_respawn = true
+--			end
+--			
+--			delete_obj = missing or should_respawn or not obj
+--		elseif remove_dead and obj.spawner and obj:IsDead() and not obj:IsPersistentDead() then
+--			if obj:HasPassedTimeAfterDeath(const.Satellite.RemoveDeadBodiesAfter) then
+--				delete_obj = true
+--			end
+--		end
+--		if delete_obj then
+--			-- drop loot here
+--			if obj:IsDead() then
+--				-- Unit:DropLoot() should have been already called at this point from somewhere else.
+--				local sector = gv_Sectors[gv_CurrentSectorId]
+--				local diedHere = next(sector.dead_units) and table.find(sector.dead_units, session_id)
+--				if diedHere then
+--					table.remove_value(sector.dead_units, obj.session_id)
+--					obj:DropAllItemsInAContainer()
+--				end
+--				obj:Despawn()-- also remove UnitData and do not save it in savegame
+--			else
+--				DoneObject(obj)
+--			end
+--			table.remove(map_combat_units, i)
+--		end
+--	end
+--	
+--	-- add map objs for mercs which were not with the squad saved on the sector
+--	for _, squad_id in ipairs(squad_ids) do
+--		local squad = gv_Squads[squad_id]
+--		assert(squad) -- false when squad exists in SquadArray but not in gv_Squads
+--		for _, session_id in ipairs(squad and squad.units) do
+--			if gv_UnitData[session_id] then
+--				if not table.find_value(map_combat_units, "session_id", session_id) and not gv_UnitData[session_id].retreat_to_sector then
+--					squads_to_spawn[squad_id] = squads_to_spawn[squad_id] or {}
+--					if squads_to_spawn[squad_id] then
+--					 table.insert(squads_to_spawn[squad_id], session_id)
+--					end
+--				end
+--			else 
+--				RemoveSquad(squad)
+--				RemoveSquadsFromLists(squad)
+--				--delete_obj = true
+--			end
+--		end
+--	end
+--	
+--	if spawn_mode then
+--		local markers_info = {defend_priority = {}, defend = {}, entrance = {}}
+--		local sorted_group_on_markers = {}
+--		if spawn_mode == "explore" then
+--			FillMarkerInfoExplore(markers_info, squads_to_spawn)
+--		else
+--			for squad_id, session_ids in sorted_pairs(squads_to_spawn) do
+--				local squad = gv_Squads[squad_id]
+--								
+--				if spawn_markers and spawn_markers[squad_id] then -- if spawn_markers is specified for this squad, use that instead of the standard logic
+--					local marker_type, marker_group = table.unpack(spawn_markers[squad_id])
+--					local markers = MapGetMarkers(marker_type, marker_group, function(m) return m:IsMarkerEnabled() end)
+--					local _, positions, marker_angle = GetRandomSpawnMarkerPositions(markers, #session_ids)
+--					SpawnSquadUnits(session_ids, positions, marker_angle)
+--				elseif (squad.Side == "enemy1" or squad.Side == "enemy2") and spawn_mode == "defend" then -- enemies attacking, group them in small batches of 2-4 units
+--					local markers = GetAvailableEntranceMarkers(gv_UnitData[session_ids[1]].arrival_dir)
+--					local idx = 0
+--					while idx < #session_ids do
+--						local marker = table.interaction_rand(markers, "SpawnEnemies")
+--						local count = Min(InteractionRandRange(2, 4), #session_ids - idx)
+--						if idx + count == #session_ids - 1 then -- don't leave one unit alone for the last group
+--							count = count + 1
+--						end
+--						local group_on_marker = {marker}
+--						table.insert(sorted_group_on_markers, group_on_marker)
+--						for i = idx + 1, idx + count do
+--							InsertMarkerInfo(markers_info, "entrance", #sorted_group_on_markers, session_ids[i])
+--							idx = idx + 1
+--						end
+--					end
+--				else
+--					for _, session_id in ipairs(session_ids) do
+--						local unit_data = gv_UnitData[session_id]
+--						if force_test_map then
+--							unit_data.arrival_dir = "North"
+--						end
+--						-- militia and enemy mercs use priority defender markers first, villain have special defender priority markers
+--						if (spawn_mode == "defend" and (squad.Side == "player1" or squad.Side == "ally") and squad.militia) or (spawn_mode == "attack" and squad.Side ~= "player1") then
+--							InsertMarkerInfo(markers_info, "defend_priority", squad_id, session_id)
+--						elseif spawn_mode == "defend" and squad.Side == "player1" then
+--							InsertMarkerInfo(markers_info, "defend", squad_id, session_id)
+--						else
+--							InsertMarkerInfo(markers_info, "entrance", unit_data.arrival_dir, session_id)
+--						end
+--					end
+--				end
+--			end
+--		end
+--		
+--		local occupied_priority_markers = {}
+--		for squad_id, session_ids in sorted_pairs(markers_info.defend_priority) do
+--			local spawn_positions, spawn_angles, spawn_markers = {}, {}, {}
+--			local remaining = SpawnOnDefenderPriorityMarkerPositions(session_ids)
+--			
+--			-- Add remaning units to the normal defender marker deploy
+--			if #remaining > 0 then
+--				local squadUnits = markers_info.defend[squad_id]
+--				if not squadUnits then
+--					markers_info.defend[squad_id] = remaining
+--				else
+--					local list = markers_info.defend[squad_id]
+--					for i, session_id in ipairs(remaining) do
+--						list[#list + 1] = session_id
+--					end
+--				end
+--			end
+--		end
+--		
+--		-- Deploy all enemies together as a single squad to better spread them out.
+--		local allSquadsFlattened = {}
+--		for squad_id, session_ids in sorted_pairs(markers_info.defend) do
+--			table.iappend(allSquadsFlattened, session_ids)
+--		end
+--		
+--		if true then
+--			local spawn_positions, spawn_angles, spawn_markers = {}, {}, {}
+--			FillDefenderMarkerPositions(#allSquadsFlattened, spawn_positions, spawn_angles, spawn_markers)
+--			SpawnSquadUnits(allSquadsFlattened, spawn_positions, spawn_angles, spawn_markers)
+--		end
+--		
+----[[		for squad_id, session_ids in sorted_pairs(markers_info.defend) do
+--			local spawn_positions, spawn_angles, spawn_markers = {}, {}, {}
+--			FillDefenderMarkerPositions(#session_ids, spawn_positions, spawn_angles, spawn_markers)
+--			SpawnSquadUnits(session_ids, spawn_positions, spawn_angles, spawn_markers)
+--		end]]
+--		
+--		local positions_per_marker = {}
+--		for key, session_ids in sorted_pairs(markers_info.entrance) do
+--			local markers
+--			local marker, positions, marker_angle
+--			if type(key) == "string" then
+--				markers = MapGetMarkers("Entrance", key, function(marker) return SnapToPassSlab(marker) end)
+--				if not markers or #markers == 0 then
+--					StoreErrorSource(session_ids, string.format("No enabled Entrance markers found on map '%s' with key '%s' - trying random entrance marker instead!", GetMapName(), key))
+--					markers = MapGetMarkers("Entrance")
+--					if not markers or #markers == 0 then
+--						StoreErrorSource(session_ids, string.format("No enabled Entrance markers found on map '%s'!", GetMapName()))
+--						return
+--					end
+--				end
+--				--temp 0210007
+--				NetUpdateHash("GetRandomSpawnMarkerPositions1", #session_ids, table.unpack(markers))
+--				marker, positions, marker_angle = GetRandomSpawnMarkerPositions(markers, #session_ids, "around_center")
+--				NetUpdateHash("GetRandomSpawnMarkerPositions2", table.unpack(positions))
+--			elseif type(key) == "number" or type(key) == "boolean" then
+--				if not key then
+--					markers = MapGetMarkers("Entrance")
+--				else
+--					markers = sorted_group_on_markers[key]
+--				end
+--				if not markers or #markers == 0 then
+--					StoreErrorSource(session_ids, string.format("No enabled Entrance markers found on map '%s'!", GetMapName()))
+--					markers = MapGetMarkers("Entrance")
+--				end
+--				
+--				marker, positions, marker_angle = GetRandomPositionsFromSpawnMarkersMaxDistApart(markers, #session_ids, positions_per_marker)
+--				-- add grouped units in global var
+--				g_GroupedSquadUnits[#g_GroupedSquadUnits + 1] = session_ids
+--			else
+--				assert(false, "sorted_pairs with weirdo key types is an async op!")
+--			end
+--			SpawnSquadUnits(session_ids, positions, marker_angle, nil, marker)
+--		end
+--	elseif spawn_markers then
+--		for squad_id, session_ids in sorted_pairs(squads_to_spawn) do
+--			local marker_type, marker_group = table.unpack(spawn_markers[squad_id] or empty_table)
+--			local markers = MapGetMarkers(marker_type, marker_group, function(m) return m:IsMarkerEnabled() end)
+--			local _, positions, marker_angle = GetRandomSpawnMarkerPositions(markers, #session_ids)
+--			SpawnSquadUnits(session_ids, positions, marker_angle)
+--		end
+--	end
+--end
+--
+--
+--function ApplyAutoResolveOutcome(sector, playerOutcome)
+--	local playerWins = IsOutcomeWin(playerOutcome)
+--	local enemyOutcome = GetOppositeOutcome(playerOutcome)
+--	local playerSquads, enemySquads = GetSquadsInSector(sector.Id, "excludeTravelling", not "includeMilitia", "excludeArriving", "excludeRetreating")
+--	local items = {}
+--	
+--	-- Militia outcome
+--	local militiaSquads = GetMilitiaSquads(sector)
+--	local militiaUnitsCount = CountUnitsInSquads(militiaSquads)
+--	local militiaKilled = 0
+--	for i = #militiaSquads, 1, -1 do
+--		local squad = militiaSquads[i]
+--		for j = #squad.units, 1, -1 do
+--			local id = squad.units[j]
+--			local unit = gv_UnitData[id]
+--			local damage = 0
+--			
+--			-- When the unit appears twice in a squad (due to another bug), this will error.
+--			if not unit then goto continue end
+--			
+--			if not playerWins then -- all militia die if the player loses;
+--				damage = unit.HitPoints
+--			else
+--				local deathRoll = InteractionRand(100, "AutoResolve")
+--				local deathChance = playerOutcome == "decisive_win" and const.AutoResolveDamage.NPCDeathChanceOnDecisiveWin or const.AutoResolveDamage.NPCDeathChanceOnWin
+--				if deathRoll < deathChance then
+--					damage = unit.HitPoints
+--				else
+--					damage = CalculateAutoResolveUnitDamage(unit, playerOutcome, "militia")
+--					local militiaDamageMultiplier = const.AutoResolveDamage.MilitiaDamageTakenMod -- percent
+--					damage = MulDivRound(damage, 100 + militiaDamageMultiplier, 100)
+--				end
+--			end
+--			
+--			unit.HitPoints = Max(unit.HitPoints - damage, 0)
+--			unit:AccumulateDamageTaken(damage)
+--			
+--			if playerWins and #playerSquads <= 0 and (militiaKilled == militiaUnitsCount - 1) then -- let the last militia survive when defending with no mercs
+--				unit.HitPoints = 1
+--			end
+--			
+--			if unit.HitPoints <= 0 then
+--				militiaKilled = militiaKilled + 1
+--				unit:Die()
+--				Unit.DropLoot(unit)
+--				if playerWins then
+--					unit:ForEachItem(function(item, slot_name, left, top, items)
+--						items[#items + 1] = item
+--						unit:RemoveItem(slot_name, item)
+--					end, items)
+--				end
+--			end
+--			
+--			::continue::
+--		end
+--	end
+--	
+--	-- Enemies outcome
+--	g_AccumulatedTeamXP = {}
+--	local totalDamageToEnemy = 0
+--	for i = #enemySquads, 1, -1 do
+--		for j = #enemySquads[i].units, 1, -1 do
+--			local id = enemySquads[i].units[j]
+--			local unit = gv_UnitData[id]
+--			local damage = 0
+--			if unit then
+--				if playerWins and unit then -- all enemies die if the player wins;
+--					damage = unit.HitPoints
+--				else
+--					local deathRoll = InteractionRand(100, "AutoResolve")
+--					local deathChance = enemyOutcome == "decisive_win" and const.AutoResolveDamage.NPCDeathChanceOnDecisiveWin or const.AutoResolveDamage.NPCDeathChanceOnWin
+--					if deathRoll < deathChance then
+--						damage = unit.HitPoints
+--					else
+--						damage = CalculateAutoResolveUnitDamage(unit, enemyOutcome, "enemy")
+--					end
+--				end
+--				
+--				unit.HitPoints = Max(unit.HitPoints - damage, 0)
+--				--unit:AccumulateDamageTaken(damage)
+--				
+--				if unit.villain and not playerWins then -- don't kill the villain
+--					unit.HitPoints = 1
+--				end
+--			
+--				if unit.HitPoints <= 0 then
+--					unit:Die()
+--				end
+--				
+--				totalDamageToEnemy = totalDamageToEnemy + damage
+--				
+--				if playerWins then -- Generate loot
+--					Unit.DropLoot(unit)
+--					unit:ForEachItem(function(item, slot_name, left, top, items)
+--						items[#items + 1] = item
+--						unit:RemoveItem(slot_name, item)
+--					end, items)
+--				end
+--			else
+--				RemoveSquad(enemySquads[i])
+--				RemoveSquadsFromLists(gv_Squads[enemySquads[i]])
+--			end
+--
+--			
+--		end
+--	end
+--	
+--	-- Player outcome
+--	-- Consume Resources
+--	if #playerSquads > 0 then -- Militia only autoresolve
+--		AutoResolveUseAmmo(playerSquads, totalDamageToEnemy)
+--	end
+--	
+--	-- Damage Units
+--	local playerUnitsCount = CountUnitsInSquads(playerSquads)
+--	local mercsKilled = 0
+--	for i = #playerSquads, 1, -1 do
+--		local squad = playerSquads[i]
+--		for j = #squad.units, 1, -1 do
+--			local id = squad.units[j]
+--			local unit = gv_UnitData[id]
+--			local damage = 0
+--			local injury
+--			
+--			damage, injury = CalculateAutoResolveUnitDamage(unit, playerOutcome, "player")
+--			
+--			if injury then
+--				AutoResolveArmorDegradation(unit, injury)
+--			end
+--			
+--			if injury == "seriousInjury" and unit.Tiredness < 1 then
+--				unit:SetTired(unit.Tiredness + 1)
+--			end
+--			
+--			unit.HitPoints = Max(unit.HitPoints - damage, 0)
+--			unit:AccumulateDamageTaken(damage)
+--			
+--			if playerWins and (mercsKilled == playerUnitsCount - 1) then -- let the last Merc survive
+--				unit.HitPoints = 1
+--			end
+--			
+--			if unit.HitPoints <= 0 then
+--				mercsKilled = mercsKilled + 1
+--				unit:Die()
+--			end
+--		end
+--	end
+--	--AutoResolveUseMeds(playerSquads)
+--	
+--	if #items > 0 then
+--		SortItemsArray(items)
+--	end
+--	LogAccumulatedTeamXP("short")
+--	
+--	return items
+--end
+--
+--
+--function RemoveSquad(squad)
+--	local units = squad.units or empty_table
+--	for i = #units, 1, -1 do
+--		if gv_UnitData[units[i]] then
+--			RemoveUnitFromSquad(gv_UnitData[units[i]])
+--		end
+--	end
+--end
+--
+--function SatelliteUnitsTick(squad)
+--	local player_squad = IsPlayer1Squad(squad)
+--	local nonTireTravel = IsSquadWaterTravelling(squad) or IsTraversingShortcut(squad)
+--	local squadUnits = table.copy(squad.units) -- Arriving activty will modify squad list
+--	local sector = gv_Sectors[squad.CurrentSector]
+--	local sector_id = sector.Id
+--	for _, id in ipairs(squadUnits) do
+--		local unit_data = 
+--		if not unit_data then RemoveUnitFromSquad(gv_UnitData[id]) end
+--		local operation_id = unit_data.Operation
+--		local is_operation_started = operation_id=="Idle" or operation_id=="Traveling" or operation_id=="Arriving" or sector and sector.started_operations and sector.started_operations[operation_id]
+--
+--		if not squad.Sleep then
+--			SatelliteTickPerSectorActivityCalled[sector_id]  = SatelliteTickPerSectorActivityCalled[sector_id] or {}
+--			if not SatelliteTickPerSectorActivityCalled[sector_id][operation_id] then
+--				SatelliteTickPerSectorActivityCalled[sector_id][operation_id] = true
+--				local sector = gv_Sectors[squad.CurrentSector]
+--				if is_operation_started then
+--					SectorOperations[operation_id]:SectorMercsTick(unit_data)
+--					is_operation_started = operation_id=="Idle" or operation_id=="Traveling" or operation_id=="Arriving" or sector and sector.started_operations and sector.started_operations[operation_id]
+--					
+--				else
+--					RecalcOperationETAs(sector,operation_id, "stopped")	
+--				end
+--			end
+--			if (player_squad or squad.villain) and is_operation_started and unit_data.Operation==operation_id then
+--				SectorOperations[operation_id]:Tick(unit_data)	
+--				
+--				local excludingActivity = operation_id ~= "Idle" and operation_id ~= "Traveling" and operation_id ~= "Arriving" and operation_id ~= "RAndR"
+--				local excludingProf = unit_data.OperationProfession ~= "Student" and unit_data.OperationProfession ~= "Patient"
+--				if excludingActivity and excludingProf and is_operation_started then
+--					if not squad.vrForActivity or not squad.vrForActivity[operation_id] or not squad.vrForActivity[operation_id].isPlayed then
+--						local remainingTimeH = (GetOperationTimerETA(unit_data) or 0)/ const.Scale.h
+--						local activityTimeH = (unit_data.OperationInitialETA or 0)/ const.Scale.h
+--						local passedTimeH = activityTimeH - remainingTimeH
+--						if remainingTimeH>0 and  passedTimeH >= const.Satellite.BusySatViewHours then 
+--							squad.vrForActivity = squad.vrForActivity or {}
+--							squad.vrForActivity[operation_id] = squad.vrForActivity[operation_id] or {}
+--							table.insert_unique(squad.vrForActivity[operation_id], id) 
+--						end
+--					end
+--				end
+--			end	
+--		end
+--		if unit_data.TravelTimerStart>0 then
+--			if not nonTireTravel then
+--				unit_data.TravelTime = unit_data.TravelTime + (Game.CampaignTime - unit_data.TravelTimerStart)
+--			end
+--			DbgTravelTimerPrint("update travel: ", unit_data.session_id, (unit_data.TravelTime)/const.Scale.h)
+--			unit_data.TravelTimerStart = Game.CampaignTime
+--		end	
+--		if player_squad then			
+--			if (SatelliteUnitRestTimeRemaining(unit_data, "next_step_only") or 1) <= 0 then				
+--				unit_data:SetTired(unit_data.Tiredness>0 and Max(unit_data.Tiredness - 1, 0) or unit_data.Tiredness)
+--				unit_data.RestTimer = Game.CampaignTime
+--				unit_data.TravelTimerStart = 0
+--				unit_data.TravelTime = 0
+--				DbgTravelTimerPrint(id, "rest", "travel:",(unit_data.TravelTime)/const.Scale.h, " rest ", (Game.CampaignTime - unit_data.RestTimer)/const.Scale.h)
+--			end
+--		end
+--		--NetUpdateHash("SatelliteUnitsTick", unit_data.session_id, unit_data.RestTimer, unit_data.Tiredness, unit_data.TravelTimerStart, unit_data.TravelTime)
+--		unit_data:Tick()
+--	end
+--
+--	for operation_id, units in pairs(squad.vrForActivity) do
+--	 local is_operation_started = sector and sector.started_operations and sector.started_operations[operation_id]
+--		if is_operation_started and not squad.vrForActivity[operation_id].isPlayed then
+--			local randUnit = table.rand(units)
+--			PlayVoiceResponse(randUnit, "BusySatView")
+--			squad.vrForActivity[operation_id].isPlayed = true
+--		end
+--	end
+--	for _, id in ipairs(squad.units) do
+--		ObjModified(gv_UnitData[id])
+--	end
+--	if squad.arrive_in_sector and squad.arrive_in_sector.time <= Game.CampaignTime then
+--		local sector_id = squad.arrive_in_sector.sector_id
+--		SetSatelliteSquadCurrentSector(squad, sector_id, nil, "teleport")
+--	end
+--end
+--
+--function RemoveUnitFromSquad(unit_data, reason)
+--	local squad_id = unit_data.Squad
+--	local squad = gv_Squads[squad_id]
+--	unit_data.OldSquad = squad_id
+--	unit_data.Squad = false
+--	if g_Units[unit_data.session_id] then
+--		-- Mercs will be automatically despawned when their UnitData doesn't have an associated squad.
+--		local unit = g_Units[unit_data.session_id]
+--		if not unit return end
+--		unit.OldSquad = squad_id
+--		if reason=="despawn" then
+--			unit.session_id = false
+--		end
+--		-- We want to show dead mercs on the map as part of the squad (if they are not the last member of that squad)
+--		if not (unit:IsDead() and unit:IsMerc() and squad and #squad.units > 1) then
+--			unit.Squad = false
+--		else
+--			unit_data.Squad = squad_id
+--		end
+--	end
+--	
+--	if not squad then
+--		return
+--	end
+--
+--	table.remove_value(squad.units, unit_data.session_id)
+--	
+--	-- There is some bug with millitia units being present twice in 
+--	-- their squad for some reason 0.0
+--	while table.find(squad.units, unit_data.session_id) do
+--		assert(false) -- Unit was in the squad twice+ 0.0
+--		table.remove_value(squad.units, unit_data.session_id)
+--	end
+--	
+--	if not squad.units or #squad.units == 0 then
+--		Msg("PreSquadDespawned", squad_id, squad.CurrentSector, reason)
+--		if squad.militia then
+--			local sector = gv_Sectors[squad.CurrentSector]
+--			if sector then
+--				sector.militia_squad_id = false
+--			end
+--		end
+--		RemoveSquadsFromLists(gv_Squads[squad_id])
+--		gv_Squads[squad_id] = nil
+--		Msg("SquadDespawned", squad_id, squad.CurrentSector, squad.Side)
+--	end
+--	ObjModified(squad)
+--end

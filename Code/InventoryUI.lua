@@ -55,7 +55,7 @@ function InventoryEquipAPText(bShow, text)
 end
 
 local equip_slot_images = {
-	["ArmorPlate"]  = "Mod/e6L4ECj/ArmorTypes/ArmorPlates.png",	
+	["ArmorPlate"]  = "Mod/e6L4ECj/ArmorTypes/ArmorPlate.png",	
     ["HeadGear"]  = "Mod/e6L4ECj/ArmorTypes/night_vision.png",	
 	["Head"]  = "UI/Icons/Items/background_helmet",	
 	["Legs"]  = "UI/Icons/Items/background_pants", 
@@ -64,10 +64,16 @@ local equip_slot_images = {
 	["Handheld B"]  = "UI/Icons/Items/background_weapon",
 	["Handheld A Big"]  = "UI/Icons/Items/background_weapon_big",
 	["Handheld B Big"]  = "UI/Icons/Items/background_weapon_big", 
-	["Vest"]  = "Mod/e6L4ECj/ArmorTypes/vest.png",	
-	["Belt1"]  = "Mod/e6L4ECj/ArmorTypes/belt.png",	
-	["Belt2"]  = "Mod/e6L4ECj/ArmorTypes/holster.png",	
-	["Backpack"]  = "Mod/e6L4ECj/ArmorTypes/backpack.png",	
+--	["Vest"]  = "Mod/e6L4ECj/ArmorTypes/vest.png",	
+--	["Belt1"]  = "Mod/e6L4ECj/ArmorTypes/belt.png",	
+--	["Belt2"]  = "Mod/e6L4ECj/ArmorTypes/holster.png",	
+--	["Backpack"]  = "Mod/e6L4ECj/ArmorTypes/backpack.png",	
+	["PocketInventory"]  = "Mod/e6L4ECj/ArmorTypes/pocket.png",	
+	["AmmoInventory"]  = "Mod/e6L4ECj/ArmorTypes/ammo.png",	
+	["GrenadesInventory"]  = "Mod/e6L4ECj/ArmorTypes/granate.png",	
+	["OrdnanceInventory"]  = "Mod/e6L4ECj/ArmorTypes/C4.png",	
+	["MedicalInventory"]  = "Mod/e6L4ECj/ArmorTypes/med.png",	
+	["KnifeInventory"]  = "Mod/e6L4ECj/ArmorTypes/knife.png",	
 }
 
 local tile_size = 90
@@ -224,3 +230,145 @@ function EquipInventorySlot:SpawnTile(slot_name)
 	return XInventoryTile:new({slot_image = equip_slot_images[slot_name]}, self)
 end
 
+function HighlightWeaponsForAmmo(ammo, bShow)
+	local dlg = GetMercInventoryDlg()
+	if not dlg or not ammo then
+		return 
+	end
+	if dlg.compare_mode then
+		bShow = false
+	end	
+	-- squad bag	
+	local h_members = {}	
+	local is_bag_item = ammo:IsKindOf("SquadBagItem")
+	if is_bag_item then
+		local bag = gv_SquadBag
+		h_members[bag] = true
+	end
+	local is_ammo = IsKindOf(ammo, "Ammo")
+	local is_ordnance = IsKindOf(ammo,"Ordnance")
+	if not (is_ammo or is_ordnance) and not is_bag_item then
+		return
+	end
+	
+	local weapon_class = is_ammo and "Firearm" or "HeavyWeapon"
+	-- Highlight portraits
+	local left = dlg:ResolveId("idPartyContainer")						
+	local squad_list = left.idParty and left.idParty.idContainer or empty_table
+	for _, button in ipairs(squad_list) do	
+		local member = button:GetContext()
+		if (is_ammo or is_ordnance) and member then
+			for _, slot_data in ipairs(member.inventory_slots) do
+				local slot_name = slot_data.slot_name
+				if IsEquipSlot(slot_name) then
+					local result = member:ForEachItemInSlot(slot_name, weapon_class, function(witem, slot, left, top, caliber)
+						if witem.Caliber == caliber then
+							return "break"
+						end
+					end, ammo.Caliber)
+					if result == "break" then
+						-- head
+						button:SetHighlightedStatOrIcon(bShow and "UI/Icons/Rollover/ammo")
+						-- backpack
+						h_members[member] = true
+					end
+				end
+			end
+		end
+
+		--Highlight weapons
+		local all_slots = dlg:GetSlotsArray()
+		for slot_wnd in pairs(all_slots) do
+			local slot_name = slot_wnd.slot_name
+			local target = slot_wnd:GetContext()
+			local found =  false
+			for wnd, witem in pairs(slot_wnd.item_windows or empty_table) do
+				if (is_ammo or is_ordnance) and IsKindOf(witem,weapon_class) and ammo.Caliber == witem.Caliber then
+					wnd:OnSetRollover(bShow)
+					HighlihgtRollover(witem:GetUIWidth() ,wnd, bShow)
+					found =  true
+				end
+			end
+			if not IsKindOf(target, "SquadBag") and slot_wnd and not IsEquipSlot(slot_name) and (IsKindOf(target, "Unit") and not target:IsDead()) and (found or not bShow or h_members[target]) then
+				local name = slot_wnd.parent.idName
+				--print(slot_wnd.parent.idName)
+				if name then
+					name:SetHightlighted(bShow)
+				end
+			end
+		end	
+
+		if not bShow then
+			button:SetHighlighted(bShow)
+		end	
+	end
+end
+
+function InventoryIsValidTargetForUnit(ctrl_context)
+	local unit = GetInventoryUnit()
+	if gv_SatelliteView and IsKindOf(ctrl_context, "SectorStash") then	
+		if not InventoryIsValidTargetForUnitInTransit(ctrl_context) then			
+			return false,T(257112039195, "<style InventoryHintTextRed>In transit")
+		end
+		if unit and unit.Squad and gv_Squads[unit.Squad] and ctrl_context.sector_id ~= gv_Squads[unit.Squad].CurrentSector then
+			return false,T(212348537316, "<style InventoryHintTextRed>Not on sector")
+		end	
+	end
+
+	if InventoryIsCombatMode() and IsKindOf(ctrl_context, "SquadBag") then			
+		return false,T(25711203919511, "<style InventoryHintTextRed>В бою")
+	end
+
+	if IsKindOfClasses(ctrl_context, "Unit", "UnitData") and not ctrl_context:IsDead() then	
+		local ctrl_context_unit = ctrl_context.session_id and g_Units[ctrl_context.session_id]
+		if ctrl_context:HasStatusEffect("BandageInCombat") then
+			return false, T(107419565286, "Character is busy bandaging")
+		elseif ctrl_context:IsDowned() then
+			return false, T(360582491602, "Character is Downed")
+		elseif ctrl_context:HasStatusEffect("Unconscious") then
+			return false, T(894812059755, "Character is Unconscious")
+		elseif g_Overwatch[ctrl_context] or g_Pindown[ctrl_context] then
+			return false, T(462153644901, "Character is busy")
+		elseif ctrl_context_unit and g_Overwatch[ctrl_context_unit] or g_Pindown[ctrl_context_unit] then
+			return false, T(462153644901, "Character is busy")
+		elseif ctrl_context.retreat_to_sector then	
+			return false, T(462153644901, "Character is busy")
+		end
+	end
+
+	return true
+end	
+
+
+function InventoryGetTargetsForGiveAction(context)
+	if not InventoryIsContainerOnSameSector(context) then
+		return {}
+	end	
+	local targets = table.copy(GetValidMercsToTakeItem(context))
+	if      IsKindOf(context.item, "SquadBagItem") 
+		--and not IsKindOf(context.context,"SquadBag") 
+		and InventoryIsValidTargetForUnitInTransit(context.context) 
+	then	
+		targets[#targets+1] = context.unit.Squad
+	end
+	return targets
+end
+
+function InventoryGetTargetsForGiveToSquadAction(context)
+	local ctx = context.context
+	local sector_id 
+	if IsKindOf(ctx, "SectorStash") then
+		sector_id = ctx.sector_id
+	else
+		local unit_squad = context.unit and context.unit.Squad 
+		sector_id = gv_Squads[unit_squad].CurrentSector
+	end
+
+	local unit = context.context
+	local unit_squad = unit.Squad or unit.squad_id --the second part is a squad bag
+	local squads = GetCurrentSectorPlayerSquads(sector_id)
+
+	local unit = context.unit
+	table.remove_entry(squads, "UniqueId", unit.Squad or "")
+	return squads
+end

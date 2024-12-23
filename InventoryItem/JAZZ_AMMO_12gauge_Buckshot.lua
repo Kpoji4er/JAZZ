@@ -17,7 +17,7 @@ DefineClass.JAZZ_AMMO_12gauge_Buckshot = {
 	MaxStock = 30,
 	RestockWeight = 25,
 	ShopStackSize = 12,
-	MaxStacks = 5000,
+	MaxStacks = 20,
 	Caliber = "JAZZ_Caliber_12gauge",
 	Modifications = {
 		PlaceObj('CaliberModification', {

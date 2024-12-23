@@ -5,11 +5,7 @@ local equip_slots = {
 	["HeadGear"] = true,    
 	["ArmorPlate"] = true,  
 	["Torso"] = true,
-	["Legs"] = true,
-	["Vest"] = true,    
-	["Belt1"] = true,
-	["Belt2"] = true,
-	["Backpack"] = true,
+	["Legs"] = true, 
 }
 
 function IsEquipSlot(slot_name)
@@ -40,8 +36,8 @@ UndefineClass('UnitInventory')
 DefineClass.UnitInventory = {
 	__parents = { "Inventory" },
 	inventory_slots = {
-		{ slot_name = "Inventory",     width = 4, height = 5, base_class = "InventoryItem", enabled = true },
-		{ slot_name = "InventoryDead", width = 7, height = 3, base_class = "InventoryItem", enabled = true },
+		{ slot_name = "Inventory",     width = 4, height = 5, large_with = 4, base_class = "InventoryItem", enabled = true },
+		{ slot_name = "InventoryDead", width = 7, height = 2, base_class = "InventoryItem", enabled = true },
 		{ slot_name = "Pick",          width = 2, height = 1, base_class = "InventoryItem", enabled = true },
 		{ slot_name = "Handheld A",    width = 2, height = 1, base_class = {"Firearm","MeleeWeapon","HeavyWeapon","QuickSlotItem"}, enabled = true },
 		{ slot_name = "Handheld B",    width = 2, height = 1, base_class = {"Firearm","MeleeWeapon","HeavyWeapon","QuickSlotItem"}, enabled = true },
@@ -51,11 +47,16 @@ DefineClass.UnitInventory = {
 		{ slot_name = "Torso",         width = 1, height = 1, base_class = "Armor", check_slot_name = true, enabled = true },
 		{ slot_name = "Legs",          width = 1, height = 1, base_class = "Armor", check_slot_name = true, enabled = true },
 		{ slot_name = "SetpieceWeapon",width = 2, height = 1, base_class = {"Firearm","MeleeWeapon","HeavyWeapon"}, enabled = true },
-		{ slot_name = "Vest",      width = 1, height = 1, base_class = "Vest", check_slot_name = true, enabled = true },   
---		{ slot_name = "InventoryVest",     width = 0, height = 0, base_class = "InventoryItem", enabled = true },    
-		{ slot_name = "Belt1",         width = 1, height = 1, base_class = {"Armor","MeleeWeapon","QuickSlotItem"}, check_slot_name = true, enabled = true },
-		{ slot_name = "Belt2",          width = 1, height = 1, base_class = {"Armor","MeleeWeapon","QuickSlotItem"}, check_slot_name = true, enabled = true },
-		{ slot_name = "Backpack",	width = 1, height = 1, base_class = {"Vest"}, check_slot_name = true, enabled = true },
+--		{ slot_name = "Vest",      width = 1, height = 1, base_class = "Vest", check_slot_name = true, enabled = true },   
+		{ slot_name = "AmmoInventory",     width = 8, height = 1, base_class = "Ammo", enabled = true },    
+		{ slot_name = "GrenadesInventory",     width = 4, height = 1, base_class = {"GrenadeItem","Flare"}, enabled = true },    
+		{ slot_name = "OrdnanceInventory",     width = 2, height = 1, base_class = {"GrenadeItem","Flare","ThrowableTrapItem"}, enabled = true },  
+		{ slot_name = "MedicalInventory",     width = 3, height = 1, base_class = "Medicine", enabled = true },  
+		{ slot_name = "PocketInventory",     width = 3, height = 1, base_class = "ToolItem", enabled = true },
+		{ slot_name = "KnifeInventory",     width = 1, height = 1, base_class = "StackableMeleeWeapon", enabled = true },      
+--		{ slot_name = "Belt1",         width = 1, height = 1, base_class = {"Armor","MeleeWeapon","QuickSlotItem"}, check_slot_name = true, enabled = true },
+--		{ slot_name = "Belt2",          width = 1, height = 1, base_class = {"Armor","MeleeWeapon","QuickSlotItem"}, check_slot_name = true, enabled = true },
+--		{ slot_name = "Backpack",	width = 1, height = 1, base_class = {"Vest"}, check_slot_name = true, enabled = true },
 
 	},
 	properties = {
@@ -64,9 +65,18 @@ DefineClass.UnitInventory = {
 	pick_slot_item_src = false,
 }
 
+DefineClass.GrenadeItem = {
+	__parents = { "Grenade" },
+}
+
+
+
 function UnitInventory:GetMaxTilesInSlot(slot_name)
-	if slot_name=="Inventory" then
-		return self:GetInventoryMaxSlots()
+	if slot_name=="Inventory" or slot_name=="AmmoInventory" or 
+	slot_name=="GrenadesInventory" or slot_name=="OrdnanceInventory" or 
+	slot_name=="MedicalInventory" or slot_name=="PocketInventory" or 
+	slot_name=="KnifeInventory" then
+		return self:GetInventoryMaxSlots(slot_name)
 	elseif slot_name=="InventoryDead" then
 		local max_slots = 21--self.max_dead_slot_tiles or 28
 		local rem = max_slots % 7
@@ -80,9 +90,41 @@ function UnitInventory:GetMaxTilesInSlot(slot_name)
 	end
 end
 
-function UnitProperties:GetInventoryMaxSlots()
-	return IsMerc(self) and Max(4, (self.Strength - 30)/5) or self.max_dead_slot_tiles or 20
+function UnitProperties:GetInventoryMaxSlots(slot_name)
+	--print(slot_name)
+	if slot_name == "Inventory" then
+		return IsMerc(self) and Max(4, (self.Strength - 30)/5) or self.max_dead_slot_tiles or 20
+		--return IsMerc(self) and Max(1, (self.Strength - 30)/10) or self.max_dead_slot_tiles or 20 --- DEV
+	end
+	if slot_name == "AmmoInventory" then
+		local slots =  (self.Marksmanship+self.Strength - 60)/30 or 0
+		if (HasPerk(self, "AutoWeapons")) then slots = slots + 2 end
+		if (HasPerk(self, "HeavyWeaponsTraining")) then slots = slots + 2 end
+
+		return IsMerc(self) and Max(1, slots) or 1
+	end
+	if slot_name == "GrenadesInventory" then
+		return IsMerc(self) and Max(0, (self.Explosives-10)/20) or 0 
+	end
+	if slot_name == "OrdnanceInventory" then
+		return IsMerc(self) and Max(0, (self.Explosives - 70)/10) or 0
+	end
+	if slot_name == "MedicalInventory" then
+		return IsMerc(self) and Max(0, (self.Medical - 20)/20) or 0
+	end
+	if slot_name == "PocketInventory" then
+		return IsMerc(self) and Max(0, (self.Mechanical-30)/20) or 0
+	end
+	if slot_name == "KnifeInventory" then
+		local slots =  0
+		if (HasPerk(self, "NightOps") or HasPerk(self, "Stealthy")) then slots = slots + 1 end
+		if (HasPerk(self, "Throwing")) then slots = slots + 1 end
+
+		return IsMerc(self) and Max(0, slots) or 0
+		--return IsMerc(self) and (HasPerk(self, "NightOps") or HasPerk(self, "Stealthy")) and 1 or 0
+	end
 end
+
 
 function UnitInventory:GetEquipedArmour()
 	local slots = {"Head", "Torso", "Legs", "HeadGear", "ArmorPlate"}
@@ -327,6 +369,7 @@ function UnitInventory:GetAvailableAmmos(weapon, ammo_type, unique)
 	local slots = {}
 
 	local slot_name = GetContainerInventorySlotName(self)
+	if ammo_class == "Ammo" then slot_name = "AmmoInventory" end
 	local caliber = weapon.Caliber
 	self:ForEachItemInSlot(slot_name, ammo_class, function(ammo, slot_name, left, top, types, ammo_type, caliber, unique)
 		if (not ammo_type or ammo.class == ammo_type) and ammo.Caliber == caliber then
@@ -340,15 +383,15 @@ function UnitInventory:GetAvailableAmmos(weapon, ammo_type, unique)
 		slots[i] = slot_name
 	end
 
-	local bag = GetSquadBag(self.Squad)	
-	for _, ammo in ipairs(bag) do
-		if IsKindOf(ammo, ammo_class)and (not ammo_type or ammo.class == ammo_type) and ammo.Caliber == caliber then
-			if not unique or not table.find(types, "class", ammo.class) then
-				table.insert(types, ammo)
-				table.insert(containers, bag)
-			end
-		end
-	end
+	--local bag = GetSquadBag(self.Squad)	
+	--for _, ammo in ipairs(bag) do
+	--	if IsKindOf(ammo, ammo_class)and (not ammo_type or ammo.class == ammo_type) and ammo.Caliber == caliber then
+	--		if not unique or not table.find(types, "class", ammo.class) then
+	--			table.insert(types, ammo)
+	--			table.insert(containers, bag)
+	--		end
+	--	end
+	--end
 	return types, containers, slots
 end
 
@@ -357,18 +400,18 @@ local l_count_available_ammo
 -- count available ammo im mercs backpack and squads backpack
 function UnitInventory:CountAvailableAmmo(ammo_type)
 	l_count_available_ammo = 0
-	local slot_name = GetContainerInventorySlotName(self)
+	local slot_name = "AmmoInventory"
 	self:ForEachItemInSlot(slot_name, ammo_type, function(ammo, slot, left, top, ammo_type)
 		if (not ammo_type or ammo.class == ammo_type) then
 			l_count_available_ammo = l_count_available_ammo + ammo.Amount
 		end
 	end, ammo_type)
-	local bag = GetSquadBag(self.Squad)
-	for _, ammo in ipairs(bag) do
-		if (not ammo_type or ammo.class == ammo_type) then
-			l_count_available_ammo = l_count_available_ammo + ammo.Amount
-		end
-	end
+	--local bag = GetSquadBag(self.Squad)
+	--for _, ammo in ipairs(bag) do
+	--	if (not ammo_type or ammo.class == ammo_type) then
+	--		l_count_available_ammo = l_count_available_ammo + ammo.Amount
+	--	end
+	--end
 	return l_count_available_ammo
 end
 
@@ -419,6 +462,10 @@ function UnitInventory:ReloadWeapon(gun, ammo_type, delayed_fx, ai)
 		ai = false	
 		reloaded = true	
 		local slot_name = GetContainerInventorySlotName(self)
+
+		local ammo_class = IsKindOfClasses(gun, "HeavyWeapon", "FlareGun") and "Ordnance" or "Ammo"
+		if ammo_class == "Ammo" then slot_name = "AmmoInventory" end
+
 		if ammo.Amount <= 0 then
 			self:RemoveItem(slot_name, ammo)	
 			if bag then
@@ -432,7 +479,9 @@ function UnitInventory:ReloadWeapon(gun, ammo_type, delayed_fx, ai)
 			if prev.Amount == 0 then
 				DoneObject(prev)
 			else
-				bag:AddAndStackItem(prev)
+				if self:CanAddItem(slot_name, ammo)	then self:TryEquip(slot_name, ammo)
+				else bag:AddAndStackItem(prev) end
+				--
 			end
 		end
 	end
@@ -450,6 +499,7 @@ function UnitInventory:ReloadWeapon(gun, ammo_type, delayed_fx, ai)
 end
 
 function UnitInventory:GetEquippedWeaponSlot(weapon)
+	--print(weapon)
 	if self:FindItemInSlot("Handheld A", function(item, weapon) return item == weapon end, weapon) then
 		return "Handheld A"
 	elseif self:FindItemInSlot("Handheld B", function(item, weapon) return item == weapon end, weapon) then
@@ -465,6 +515,11 @@ function UnitInventory:GetEquippedWeapons(slot_name, class)
 			weapons[#weapons + 1] = item
 		end	
 	end, weapons, class)
+--	self:ForEachItemInSlot("KnifeInventory",function(item, s, l,t, weapons, class)
+--		if item:IsWeapon() and (not class or IsKindOf(item, class)) then
+--			weapons[#weapons + 1] = item
+--		end	
+--	end, weapons, class)
 	return weapons
 end
 
@@ -640,14 +695,14 @@ function NpcUnitGiveItem:__exec(obj, context)
 			unit:AddItem("ArmorPlate", item)	
 		elseif unit:CanAddItem("Legs", item) then
 			unit:AddItem("Legs", item)
-		elseif unit:CanAddItem("Vest", item) then
-			unit:AddItem("Vest", item)
-		elseif unit:CanAddItem("Backpack", item) then
-			unit:AddItem("Backpack", item)
-		elseif unit:CanAddItem("Belt1", item) then
-			unit:AddItem("Belt1", item)
-		elseif unit:CanAddItem("Belt2", item) then
-			unit:AddItem("Belt2", item)
+		elseif unit:CanAddItem("AmmoInventory", item) then
+			unit:AddItem("AmmoInventory", item)
+		elseif unit:CanAddItem("GrenadesInventory", item) then
+			unit:AddItem("GrenadesInventory", item)
+		elseif unit:CanAddItem("PocketInventory", item) then
+			unit:AddItem("PocketInventory", item)
+		elseif unit:CanAddItem("MedicalInventory", item) then
+			unit:AddItem("MedicalInventory", item)
 		else
 			unit:AddItem("Inventory", item)
 		end

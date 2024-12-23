@@ -191,3 +191,232 @@ function XDragContextWindow:OnDragDrop(target, drag_win, drop_res, pt)
 	ObjModified(target_queue)
 	ObjModified(self_queue)
 end
+
+local priority_slots = {"Handheld A", "Handheld B", "Head", "Torso", "Legs", "HeadGear", "PocketInventory"}
+function SectorOperationFillItemsToRepair(sector_id, mercs, check_only)
+	-- priority of mercs whose item will be repaired:
+	--[[
+		1. My personal equipped Weapons
+		2. My personal Armor items
+		3. My squadmates equipped Weapons
+		4. My squadmates equipped Armor items
+		5. Weapons in the bag of any merc (starting form first bag on down)
+		6. Armor items in merc bags
+		7. Other squad on sector - weapons
+		8. Other squad on sector - armor
+		9. Sector stash - weapons
+		10. Sector stash - armor
+	--]]
+	-- remove queued items
+	local queue = gv_Sectors[sector_id].sector_repair_items_queued
+	if not check_only  then
+		gv_Sectors[sector_id].sector_repair_items  = {}
+	end 
+	local all_to_repair = gv_Sectors[sector_id].sector_repair_items or {}
+	local chek_only_var = {var_bool=false}
+	--equipped weapons and armors 
+	local act_mercs ={}
+	for _, slot in ipairs(priority_slots) do
+		for _,merc in ipairs(mercs) do
+			act_mercs[merc.session_id] = true
+			merc:ForEachItemInSlot(slot, "ItemWithCondition", function(item, slot_name, left, top, all_to_repair, chek_only_var)
+				if item and not item:IsMaxCondition() and item.Repairable then
+				   if check_only then
+						chek_only_var.var_bool =  true
+						return "break"
+					end
+					if not table.find(all_to_repair, "id", item.id) and not table.find(queue, "id", item.id) then
+						table.insert(all_to_repair,{ unit = merc.session_id, id = item.id, slot = slot, pos_left = left, pos_top = top})
+					end
+				end
+			end,all_to_repair,chek_only_var)	
+		end
+	end
+	
+	if chek_only_var.var_bool then
+		return true
+	end	
+
+	local all_sector_mercs = GetPlayerSectorUnits(sector_id)	
+	all_sector_mercs = table.ifilter(all_sector_mercs, function(idx,m) return m.Operation~="Traveling" and m.Operation~= "Arriving" end)
+	--squadmates equipped weapons and armors 
+	for _, slot in ipairs(priority_slots) do
+		for _,merc in ipairs(mercs) do
+			table.remove_value(all_sector_mercs, "session_id", merc.session_id)
+			local squad = merc.Squad
+			local units = gv_Squads[squad].units
+			for _, unit_id in ipairs(units) do
+				if not act_mercs[unit_id] then
+					table.remove_value(all_sector_mercs, "session_id", unit_id)
+					local unit = gv_UnitData[unit_id]
+					unit:ForEachItemInSlot(slot, "ItemWithCondition", function(item, slot_name, left, top, all_to_repair, chek_only_var)
+						if item and not item:IsMaxCondition() and item.Repairable then
+							if check_only then
+								chek_only_var.var_bool =  true
+								return "break"
+							end
+							if not table.find(all_to_repair, "id", item.id) and not table.find(queue, "id", item.id) then
+								table.insert(all_to_repair,{ unit = unit_id,  id = item.id, slot = slot, pos_left = left, pos_top = top})
+							end
+						end
+					end,all_to_repair,chek_only_var)
+				end
+			end
+		end
+	end
+	
+	if chek_only_var.var_bool then
+		return true
+	end	
+
+	-- in inventory weapons than armors
+	for _,merc in ipairs(mercs) do
+		local squad = merc.Squad
+		local units = gv_Squads[squad].units
+		for _, unit_id in ipairs(units) do
+			local unit = gv_UnitData[unit_id]
+			local slot = GetContainerInventorySlotName(unit)
+			unit:ForEachItemInSlot(slot, "ItemWithCondition", function(item, slot_name, left, top, all_to_repair, chek_only_var)
+				if not item:IsMaxCondition() and item.Repairable and item:IsWeapon() then
+					if check_only then 
+						chek_only_var.var_bool =  true
+						return "break" 
+					end
+					if not table.find(all_to_repair, "id", item.id) and not table.find(queue, "id", item.id) then
+						table.insert(all_to_repair,{ unit = unit_id, id = item.id, slot = slot, pos_left = left, pos_top = top})
+					end	
+				end
+			end, all_to_repair,chek_only_var)
+		end
+	end
+	
+	if chek_only_var.var_bool then
+		return true
+	end	
+	
+	for _,merc in ipairs(mercs) do
+		local squad = merc.Squad
+		local units = gv_Squads[squad].units
+		for _, unit_id in ipairs(units) do
+			local unit = gv_UnitData[unit_id]
+			local slot = GetContainerInventorySlotName(unit)
+			unit:ForEachItemInSlot(slot, "ItemWithCondition", function(item, slot_name, left, top,all_to_repair,chek_only_var)
+				if not item:IsMaxCondition() and item.Repairable and not item:IsWeapon() then
+					if check_only then 
+						chek_only_var.var_bool =  true
+						return "break" 
+					end
+					if not table.find(all_to_repair, "id", item.id) and not table.find(queue, "id", item.id)  then
+						table.insert(all_to_repair,{ unit = unit_id, id = item.id, slot = slot, pos_left = left, pos_top = top})
+					end
+				end
+			end,all_to_repair,chek_only_var)
+		end
+	end
+	
+	if chek_only_var.var_bool then
+		return true
+	end	
+	
+	-- mercs from other squads on sector equipped
+	-- equipped
+	for _, slot in ipairs(priority_slots) do
+		for _,merc in ipairs(all_sector_mercs) do
+			merc:ForEachItemInSlot(slot, "ItemWithCondition", function(item, slot_name, left, top, all_to_repair, chek_only_var)
+				if item and not item:IsMaxCondition() and item.Repairable then
+				   if check_only then
+						chek_only_var.var_bool =  true
+						return "break"
+					end
+					if not table.find(all_to_repair, "id", item.id) and not table.find(queue, "id", item.id) then
+						table.insert(all_to_repair,{ unit = merc.session_id, id = item.id, slot = slot, pos_left = left, pos_top = top})
+					end
+				end
+			end,all_to_repair,chek_only_var)	
+		end
+	end
+	
+	if chek_only_var.var_bool then
+		return true
+	end	
+	
+	-- other squads bags -  weapons
+	for _,unit in ipairs(all_sector_mercs) do
+		local slot = GetContainerInventorySlotName(unit)
+		unit:ForEachItemInSlot(slot, "ItemWithCondition", function(item, slot_name, left, top,all_to_repair,chek_only_var)
+			if not item:IsMaxCondition() and item.Repairable and item:IsWeapon() then
+				if check_only then 
+					chek_only_var.var_bool =  true
+					return "break" 
+				end
+				if not table.find(all_to_repair, "id", item.id) and not table.find(queue, "id", item.id)  then
+					table.insert(all_to_repair,{ unit = unit.session_id, id = item.id, slot = slot, pos_left = left, pos_top = top})
+				end
+			end
+		end,all_to_repair,chek_only_var)
+	end
+
+	if chek_only_var.var_bool then
+		return true
+	end	
+-- other squads bags -  armors
+	for _,unit in ipairs(all_sector_mercs) do
+		local slot = GetContainerInventorySlotName(unit)
+		unit:ForEachItemInSlot(slot, "ItemWithCondition", function(item, slot_name, left, top,all_to_repair,chek_only_var)
+			if not item:IsMaxCondition() and item.Repairable and not item:IsWeapon() then
+				if check_only then 
+					chek_only_var.var_bool =  true
+					return "break" 
+				end
+				if not table.find(all_to_repair, "id", item.id) and not table.find(queue, "id", item.id)  then
+					table.insert(all_to_repair,{ unit = unit.session_id, id = item.id, slot = slot, pos_left = left, pos_top = top})
+				end
+			end
+		end,all_to_repair,chek_only_var)
+	end
+
+	if chek_only_var.var_bool then
+		return true
+	end	
+
+	-- sector stash
+	local stash = gv_Sectors[sector_id].sector_inventory or empty_table
+	for cidx, container in ipairs(stash) do
+		if container[2] then -- is opened
+			local items = container[3] or empty_table
+			for idx, item in ipairs(items) do			
+				if not item:IsMaxCondition() and item.Repairable then
+					if check_only then 
+						chek_only_var.var_bool =  true
+						break 
+					end
+					if not table.find(all_to_repair, "id", item.id) and not table.find(queue, "id", item.id)  then
+						table.insert(all_to_repair,{ unit = "stash", id = item.id})
+					end
+				end	
+			end
+		end
+	end
+
+	if chek_only_var.var_bool then
+		return true
+	end
+	
+	if check_only then 
+		return false
+	end
+	
+	gv_Sectors[sector_id].sector_repair_items = all_to_repair
+	return all_to_repair
+end
+
+function AreAllEquippedItemsRepaired(merc)
+	for i = 1, #priority_slots do
+		local item, left, top = merc:GetItemInSlot(priority_slots[i])
+		if item and not item:IsMaxCondition() then
+			return false
+		end
+	end
+	
+	return true
+end

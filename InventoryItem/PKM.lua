@@ -66,7 +66,6 @@ DefineClass.PKM = {
 				"JAZZ_Scope_12x",
 				"JAZZ_Scope_Scout",
 			},
-			'DefaultComponent', "JAZZ_Scope_6x",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",

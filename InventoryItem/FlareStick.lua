@@ -18,6 +18,7 @@ DefineClass.FlareStick = {
 	Tier = 2,
 	RestockWeight = 25,
 	CategoryPair = "Grenade",
+	MaxStacks = 5,
 	MinMishapChance = 10,
 	MaxMishapChance = 50,
 	MinMishapRange = 1,

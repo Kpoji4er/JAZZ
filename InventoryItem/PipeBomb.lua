@@ -17,6 +17,7 @@ DefineClass.PipeBomb = {
 	CanAppearInShop = true,
 	RestockWeight = 50,
 	CategoryPair = "Grenade",
+	MaxStacks = 5,
 	MinMishapChance = 0,
 	MaxMishapChance = 60,
 	MinMishapRange = 1,

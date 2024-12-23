@@ -16,12 +16,13 @@ DefineClass.Warhead_Frag = {
 	MaxStock = 16,
 	RestockWeight = 50,
 	CategoryPair = "Ordnance",
-	MaxStacks = 100,
+	MaxStacks = 1,
 	CenterObjDamageMod = 500,
 	CenterAppliedEffects = {
 		"Burning",
 		"Exposed",
 	},
+	AreaOfEffect = 2,
 	AreaUnitDamageMod = 70,
 	AreaAppliedEffects = {
 		"Exposed",

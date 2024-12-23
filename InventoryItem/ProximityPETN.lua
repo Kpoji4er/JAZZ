@@ -19,6 +19,7 @@ DefineClass.ProximityPETN = {
 	MaxStock = 1,
 	RestockWeight = 10,
 	CategoryPair = "Grenade",
+	MaxStacks = 2,
 	MinMishapChance = -2,
 	MaxMishapChance = 18,
 	MaxMishapRange = 6,

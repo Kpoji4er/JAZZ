@@ -12258,7 +12258,7 @@ return {
 						id = "RPG7Ammo",
 						PlaceObj('LootEntryInventoryItem', {
 							item = "Warhead_Frag",
-							stack_max = 3,
+							stack_max = 1,
 							stack_min = 1,
 						}),
 					}),
@@ -36298,7 +36298,7 @@ return {
 					'MaxStock', 5,
 					'RestockWeight', 30,
 					'CategoryPair', "UtilityAmmo",
-					'MaxStacks', 500,
+					'MaxStacks', 3,
 					'AreaOfEffect', 5,
 					'PenetrationClass', 1,
 					'Caliber', "JAZZ_Caliber_Flare",
@@ -36319,7 +36319,7 @@ return {
 					'MaxStock', 50,
 					'CategoryPair', "9mm",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 120,
 					'Caliber', "JAZZ_Caliber_9x19",
 					'Modifications', {},
 				}),
@@ -36339,7 +36339,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "9mm",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 120,
 					'Caliber', "JAZZ_Caliber_9x19",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36372,7 +36372,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "9mm",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 120,
 					'Caliber', "JAZZ_Caliber_9x19",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36406,7 +36406,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "9mm",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 120,
 					'Caliber', "JAZZ_Caliber_9x19",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36430,7 +36430,7 @@ return {
 					'MaxStock', 50,
 					'CategoryPair', "9x18",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 120,
 					'Caliber', "JAZZ_Caliber_9x18",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36454,7 +36454,7 @@ return {
 					'MaxStock', 50,
 					'CategoryPair', "45ACP",
 					'ShopStackSize', 12,
-					'MaxStacks', 5000,
+					'MaxStacks', 80,
 					'Caliber', "JAZZ_Caliber_45ACP",
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -36473,7 +36473,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "45ACP",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 80,
 					'Caliber', "JAZZ_Caliber_45ACP",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36506,7 +36506,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "45ACP",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 80,
 					'Caliber', "JAZZ_Caliber_45ACP",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36561,7 +36561,7 @@ return {
 					'MaxStock', 50,
 					'CategoryPair', "762x25",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 120,
 					'Caliber', "JAZZ_Caliber_762x25",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36585,7 +36585,7 @@ return {
 					'MaxStock', 50,
 					'CategoryPair', "44CAL",
 					'ShopStackSize', 12,
-					'MaxStacks', 5000,
+					'MaxStacks', 80,
 					'Caliber', "JAZZ_Caliber_44CAL",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36610,7 +36610,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "44CAL",
 					'ShopStackSize', 12,
-					'MaxStacks', 5000,
+					'MaxStacks', 80,
 					'Caliber', "JAZZ_Caliber_44CAL",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36644,7 +36644,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "44CAL",
 					'ShopStackSize', 12,
-					'MaxStacks', 5000,
+					'MaxStacks', 80,
 					'Caliber', "JAZZ_Caliber_44CAL",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36677,7 +36677,7 @@ return {
 					'MaxStock', 5,
 					'CategoryPair', "57",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "JAZZ_Caliber_57",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36691,10 +36691,10 @@ return {
 					'Id', "JAZZ_AMMO_46_FMJ",
 					'object_class', "Ammo",
 					'Icon', "Mod/e6L4ECj/Ammopics/46.png",
-					'DisplayName', T(111421465880, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ DisplayName]] "5,7 мм, S109"),
-					'DisplayNamePlural', T(171557918481, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ DisplayNamePlural]] "5,7 мм, S109"),
+					'DisplayName', T(111421465880, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ DisplayName]] "4,6 мм, FMJ"),
+					'DisplayNamePlural', T(171557918481, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ DisplayNamePlural]] "4,6 мм, FMJ"),
 					'colorStyle', "AmmoBasicColor",
-					'Description', T(468404152064, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ Description]] "Боеприпас калибра 5.7мм"),
+					'Description', T(468404152064, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ Description]] "Боеприпас калибра 4.6мм"),
 					'AdditionalHint', T(500579793552, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Обеспечивает уверенное поражение целей обладающих 3-м классом брони"),
 					'Cost', 500,
 					'CanAppearInShop', true,
@@ -36702,7 +36702,7 @@ return {
 					'MaxStock', 5,
 					'CategoryPair', "57",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "JAZZ_Caliber_46",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36727,7 +36727,7 @@ return {
 					'Tier', 3,
 					'CategoryPair', "556",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 90,
 					'Caliber', "JAZZ_Caliber_556",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36779,7 +36779,7 @@ return {
 					'RestockWeight', 50,
 					'CategoryPair', "556",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 90,
 					'Caliber', "JAZZ_Caliber_556",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36827,7 +36827,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "556",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 90,
 					'Caliber', "JAZZ_Caliber_556",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36854,7 +36854,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "556",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 90,
 					'Caliber', "JAZZ_Caliber_556",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36882,7 +36882,7 @@ return {
 					'CanAppearInShop', true,
 					'CategoryPair', "545",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 90,
 					'Caliber', "JAZZ_Caliber_545",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36909,7 +36909,7 @@ return {
 					'RestockWeight', 50,
 					'CategoryPair', "545",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 90,
 					'Caliber', "JAZZ_Caliber_545",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36936,7 +36936,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "545",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 90,
 					'Caliber', "JAZZ_Caliber_545",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -36969,7 +36969,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "545",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 90,
 					'Caliber', "JAZZ_Caliber_545",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37004,7 +37004,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "545",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 90,
 					'Caliber', "JAZZ_Caliber_545",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37032,7 +37032,7 @@ return {
 					'RestockWeight', 150,
 					'CategoryPair', "762WP",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "JAZZ_Caliber_762x39",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37079,7 +37079,7 @@ return {
 					'MaxStock', 10,
 					'CategoryPair', "762WP",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "JAZZ_Caliber_762x39",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37109,7 +37109,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "762WP",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "JAZZ_Caliber_762x39",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37164,7 +37164,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "762WP",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "JAZZ_Caliber_762x39",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37198,7 +37198,7 @@ return {
 					'MaxStock', 5,
 					'CategoryPair', "762x54",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 40,
 					'Caliber', "JAZZ_Caliber_762x54R",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37229,7 +37229,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "762x54",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 40,
 					'Caliber', "JAZZ_Caliber_762x54R",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37276,7 +37276,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "762x54",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 40,
 					'Caliber', "JAZZ_Caliber_762x54R",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37306,7 +37306,7 @@ return {
 					'RestockWeight', 10,
 					'CategoryPair', "762x54",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 40,
 					'Caliber', "JAZZ_Caliber_762x54R",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37354,7 +37354,7 @@ return {
 					'MaxStock', 5,
 					'CategoryPair', "792",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 40,
 					'Caliber', "JAZZ_Caliber_792",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37380,7 +37380,7 @@ return {
 					'MaxStock', 20,
 					'CategoryPair', "556",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "JAZZ_Caliber_9x39",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37407,7 +37407,7 @@ return {
 					'RestockWeight', 10,
 					'CategoryPair', "556",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "JAZZ_Caliber_9x39",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37437,7 +37437,7 @@ return {
 					'RestockWeight', 50,
 					'CategoryPair', "3006",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 40,
 					'Caliber', "JAZZ_Caliber_3006",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37464,7 +37464,7 @@ return {
 					'RestockWeight', 150,
 					'CategoryPair', "762NATO",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 40,
 					'Caliber', "JAZZ_Caliber_762x51",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37511,7 +37511,7 @@ return {
 					'RestockWeight', 50,
 					'CategoryPair', "762NATO",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 40,
 					'Caliber', "JAZZ_Caliber_762x51",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37538,7 +37538,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "762NATO",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 40,
 					'Caliber', "JAZZ_Caliber_762x51",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37574,7 +37574,7 @@ return {
 					'RestockWeight', 10,
 					'CategoryPair', "762NATO",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 40,
 					'Caliber', "JAZZ_Caliber_762x51",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37626,7 +37626,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "762NATO",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 40,
 					'Caliber', "JAZZ_Caliber_762x51",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37655,7 +37655,7 @@ return {
 					'MaxStock', 50,
 					'RestockWeight', 80,
 					'ShopStackSize', 12,
-					'MaxStacks', 5000,
+					'MaxStacks', 20,
 					'Caliber', "JAZZ_Caliber_12gauge",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37687,7 +37687,7 @@ return {
 					'MaxStock', 30,
 					'RestockWeight', 25,
 					'ShopStackSize', 12,
-					'MaxStacks', 5000,
+					'MaxStacks', 20,
 					'Caliber', "JAZZ_Caliber_12gauge",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37716,7 +37716,7 @@ return {
 					'MaxStock', 20,
 					'RestockWeight', 80,
 					'ShopStackSize', 12,
-					'MaxStacks', 5000,
+					'MaxStacks', 20,
 					'Caliber', "JAZZ_Caliber_12gauge",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37768,7 +37768,7 @@ return {
 					'MaxStock', 5,
 					'RestockWeight', 80,
 					'ShopStackSize', 12,
-					'MaxStacks', 5000,
+					'MaxStacks', 20,
 					'Caliber', "JAZZ_Caliber_12gauge",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37819,7 +37819,7 @@ return {
 					'MaxStock', 5,
 					'RestockWeight', 80,
 					'ShopStackSize', 12,
-					'MaxStacks', 5000,
+					'MaxStacks', 20,
 					'Caliber', "JAZZ_Caliber_12gauge",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37866,7 +37866,6 @@ return {
 					'MaxStock', 10,
 					'CategoryPair', "50BMG",
 					'ShopStackSize', 10,
-					'MaxStacks', 5000,
 					'Caliber', "JAZZ_Caliber_50BMG",
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -37886,7 +37885,6 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "50BMG",
 					'ShopStackSize', 10,
-					'MaxStacks', 5000,
 					'Caliber', "JAZZ_Caliber_50BMG",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37917,7 +37915,6 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "50BMG",
 					'ShopStackSize', 10,
-					'MaxStacks', 5000,
 					'Caliber', "JAZZ_Caliber_50BMG",
 					'Modifications', {},
 					'AppliedEffects', {
@@ -37943,7 +37940,6 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "50BMG",
 					'ShopStackSize', 10,
-					'MaxStacks', 5000,
 					'Caliber', "JAZZ_Caliber_50BMG",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -37974,7 +37970,7 @@ return {
 					'MaxStock', 10,
 					'RestockWeight', 25,
 					'CategoryPair', "Ordnance",
-					'MaxStacks', 100,
+					'MaxStacks', 3,
 					'PenetrationClass', 1,
 					'BurnGround', false,
 					'Caliber', "JAZZ_Caliber_MortarShell",
@@ -37999,7 +37995,7 @@ return {
 					'MaxStock', 25,
 					'RestockWeight', 50,
 					'CategoryPair', "Ordnance",
-					'MaxStacks', 100,
+					'MaxStacks', 3,
 					'CenterObjDamageMod', 500,
 					'AreaOfEffect', 2,
 					'AreaObjDamageMod', 500,
@@ -38025,7 +38021,7 @@ return {
 					'MaxStock', 10,
 					'RestockWeight', 25,
 					'CategoryPair', "Ordnance",
-					'MaxStacks', 100,
+					'MaxStacks', 3,
 					'PenetrationClass', 1,
 					'BurnGround', false,
 					'Caliber', "JAZZ_Caliber_MortarShell",
@@ -38048,12 +38044,13 @@ return {
 					'MaxStock', 16,
 					'RestockWeight', 50,
 					'CategoryPair', "Ordnance",
-					'MaxStacks', 100,
+					'MaxStacks', 1,
 					'CenterObjDamageMod', 500,
 					'CenterAppliedEffects', {
 						"Burning",
 						"Exposed",
 					},
+					'AreaOfEffect', 2,
 					'AreaUnitDamageMod', 70,
 					'AreaAppliedEffects', {
 						"Exposed",
@@ -38080,7 +38077,7 @@ return {
 					'MaxStock', 10,
 					'RestockWeight', 25,
 					'CategoryPair', "Ordnance",
-					'MaxStacks', 100,
+					'MaxStacks', 6,
 					'CenterUnitDamageMod', 130,
 					'CenterObjDamageMod', 10,
 					'CenterAppliedEffects', {
@@ -38113,7 +38110,7 @@ return {
 					'MaxStock', 25,
 					'RestockWeight', 50,
 					'CategoryPair', "Ordnance",
-					'MaxStacks', 100,
+					'MaxStacks', 6,
 					'CenterUnitDamageMod', 130,
 					'CenterObjDamageMod', 500,
 					'CenterAppliedEffects', {
@@ -48690,7 +48687,7 @@ return {
 					'Recoil', 8,
 					'BurstShots', 4,
 					'AutoShots', 9,
-					'Handling', 80,
+					'Handling', 90,
 					'BulletDropRange', 12,
 					'Grouping', 200,
 					'BaseJamChance', -30,
@@ -51579,7 +51576,6 @@ return {
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
 							},
-							'DefaultComponent', "JAZZ_Scope_6x",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -51835,6 +51831,7 @@ return {
 								"JAZZ_CombatScope_FeroZ24",
 								"JAZZ_Scope_DA15_6x",
 							},
+							'DefaultComponent', "JAZZ_Scope_DA15_6x",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
@@ -52204,7 +52201,7 @@ return {
 					'ReloadAP', 5000,
 					'Recoil', 8,
 					'AutoShots', 9,
-					'Handling', 75,
+					'Handling', 85,
 					'BulletDropRange', 12,
 					'Grouping', 235,
 					'BaseJamChance', -30,
@@ -53722,7 +53719,6 @@ return {
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
 							},
-							'DefaultComponent', "JAZZ_Scope_6x",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
@@ -53811,7 +53807,6 @@ return {
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
 							},
-							'DefaultComponent', "JAZZ_Scope_6x",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
@@ -54023,7 +54018,6 @@ return {
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
 							},
-							'DefaultComponent', "JAZZ_Scope_6x",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
@@ -54114,7 +54108,6 @@ return {
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
 							},
-							'DefaultComponent', "JAZZ_Scope_6x",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
@@ -54221,7 +54214,6 @@ return {
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
 							},
-							'DefaultComponent', "JAZZ_Scope_6x",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
@@ -54320,7 +54312,6 @@ return {
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
 							},
-							'DefaultComponent', "JAZZ_Scope_6x",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
@@ -54415,7 +54406,7 @@ return {
 					'AimAccuracy', 18,
 					'CritChance', 10,
 					'MagazineSize', 100,
-					'WeaponRange', 75,
+					'WeaponRange', 95,
 					'OverwatchAngle', 3600,
 					'Noise', 100,
 					'HandSlot', "TwoHanded",
@@ -55225,6 +55216,9 @@ return {
 					'object_class', "GrenadeLauncher",
 					'ScrapParts', 16,
 					'Reliability', 50,
+					'MinMishapChance', -5,
+					'MaxMishapChance', 40,
+					'MaxMishapRange', 6,
 					'Caliber', "JAZZ_Caliber_40mmGrenade",
 					'AttackAP', 4000,
 					'BombardRadius', 3,
@@ -55248,7 +55242,7 @@ return {
 					'ObjDamageMod', 25,
 					'CritChanceScaled', 0,
 					'MagazineSize', 6,
-					'WeaponRange', 45,
+					'WeaponRange', 40,
 					'HandSlot', "TwoHanded",
 					'HolsterSlot', "Shoulder",
 					'PreparedAttackType', "None",
@@ -55262,6 +55256,9 @@ return {
 					'object_class', "GrenadeLauncher",
 					'ScrapParts', 16,
 					'Reliability', 50,
+					'MinMishapChance', -5,
+					'MaxMishapChance', 40,
+					'MaxMishapRange', 6,
 					'Caliber', "JAZZ_Caliber_40mmGrenade",
 					'BombardRadius', 3,
 					'ComponentSlots', {},
@@ -55281,7 +55278,7 @@ return {
 					'CategoryPair', "HeavyWeapons",
 					'ObjDamageMod', 25,
 					'CritChanceScaled', 0,
-					'WeaponRange', 45,
+					'WeaponRange', 40,
 					'HandSlot', "TwoHanded",
 					'HolsterSlot', "Shoulder",
 					'PreparedAttackType', "None",
@@ -55295,6 +55292,9 @@ return {
 					'object_class', "GrenadeLauncher",
 					'ScrapParts', 16,
 					'Reliability', 50,
+					'MinMishapChance', -3,
+					'MaxMishapChance', 40,
+					'MaxMishapRange', 6,
 					'Caliber', "JAZZ_Caliber_40mmGrenade",
 					'AttackAP', 4000,
 					'BombardRadius', 3,
@@ -55317,8 +55317,7 @@ return {
 					'CategoryPair', "HeavyWeapons",
 					'CritChanceScaled', 0,
 					'MagazineSize', 3,
-					'PenetrationClass', 4,
-					'WeaponRange', 45,
+					'WeaponRange', 40,
 					'HandSlot', "TwoHanded",
 					'HolsterSlot', "Shoulder",
 					'PreparedAttackType', "None",
@@ -55332,6 +55331,8 @@ return {
 					'object_class', "Mortar",
 					'ScrapParts', 16,
 					'Reliability', 50,
+					'MinMishapChance', 2,
+					'MaxMishapChance', 60,
 					'Caliber', "JAZZ_Caliber_MortarShell",
 					'Entity', "Weapon_M224",
 					'Icon', "UI/Icons/Weapons/M224",
@@ -55366,8 +55367,8 @@ return {
 					'object_class', "RocketLauncher",
 					'ScrapParts', 16,
 					'Reliability', 50,
-					'MinMishapChance', -12,
-					'MaxMishapChance', 30,
+					'MinMishapChance', 0,
+					'MaxMishapChance', 60,
 					'MaxMishapRange', 16,
 					'Caliber', "JAZZ_Caliber_Warhead",
 					'AttackAP', 8000,
@@ -55389,7 +55390,7 @@ return {
 					'CategoryPair', "HeavyWeapons",
 					'ObjDamageMod', 600,
 					'CritChanceScaled', 0,
-					'WeaponRange', 45,
+					'WeaponRange', 40,
 					'HandSlot', "TwoHanded",
 					'HolsterSlot', "Shoulder",
 					'PreparedAttackType', "None",
@@ -55404,6 +55405,9 @@ return {
 					'Id', "UnderslungGrenadeLauncher",
 					'object_class', "GrenadeLauncher",
 					'Reliability', 98,
+					'MinMishapChance', -6,
+					'MaxMishapChance', 45,
+					'MaxMishapRange', 6,
 					'Caliber', "JAZZ_Caliber_40mmGrenade",
 					'AttackAP', 4000,
 					'Icon', "UI/Icons/Upgrades/m16_grenade_launcher",
@@ -55416,8 +55420,7 @@ return {
 					'CategoryPair', "HeavyWeapons",
 					'ObjDamageMod', 25,
 					'CritChanceScaled', 0,
-					'PenetrationClass', 2,
-					'WeaponRange', 45,
+					'WeaponRange', 40,
 					'HandSlot', "TwoHanded",
 					'fxClass', "MGL",
 					'PreparedAttackType', "None",
@@ -55440,7 +55443,7 @@ return {
 					'AdditionalHint', T(980300816631, --[[ModItemInventoryItemCompositeDef M72LAW AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстреливает снаряд, летящий по прямой до цели\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Наносит небольшой урон стоящим позади стрелка\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вероятность неудачи растет с увеличением расстояния\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения)"),
 					'LargeItem', 1,
 					'Cumbersome', 1,
-					'UnitStat', "Explosives",
+					'UnitStat', "Mechanical",
 					'Valuable', 1,
 					'Cost', 14000,
 					'CanAppearInShop', true,
@@ -55469,7 +55472,7 @@ return {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Grenade - Explosive",
 					'Id', "FragGrenade",
-					'object_class', "Grenade",
+					'object_class', "GrenadeItem",
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/Frag Grenade",
@@ -55482,11 +55485,17 @@ return {
 					'Cost', 300,
 					'CanAppearInShop', true,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 3,
 					'MinMishapChance', 0,
 					'MaxMishapChance', 40,
 					'MinMishapRange', 1,
 					'MaxMishapRange', 8,
 					'CenterObjDamageMod', 50,
+					'CenterAppliedEffects', {
+						"Headshot",
+						"Armsshot",
+						"Legsshot",
+					},
 					'AreaOfEffect', 4,
 					'CenterAreaOfEffect', 2,
 					'AreaUnitDamageMod', 50,
@@ -55508,7 +55517,7 @@ return {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Grenade - Explosive",
 					'Id', "HE_Grenade",
-					'object_class', "Grenade",
+					'object_class', "GrenadeItem",
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/HEGrenade",
@@ -55521,11 +55530,17 @@ return {
 					'CanAppearInShop', true,
 					'Tier', 2,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 3,
 					'MinMishapChance', 0,
 					'MaxMishapChance', 50,
 					'MinMishapRange', 1,
 					'MaxMishapRange', 8,
 					'CenterObjDamageMod', 50,
+					'CenterAppliedEffects', {
+						"Armsshot",
+						"Headshot",
+						"Legsshot",
+					},
 					'AreaOfEffect', 5,
 					'CenterAreaOfEffect', 2,
 					'AreaUnitDamageMod', 50,
@@ -55558,6 +55573,7 @@ return {
 					'CanAppearInShop', true,
 					'RestockWeight', 50,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 5,
 					'MinMishapChance', 0,
 					'MaxMishapChance', 60,
 					'MinMishapRange', 1,
@@ -55581,7 +55597,7 @@ return {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Grenade - Throwable",
 					'Id', "ConcussiveGrenade",
-					'object_class', "Grenade",
+					'object_class', "GrenadeItem",
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/ConcussiveGrenade",
@@ -55595,6 +55611,7 @@ return {
 					'Tier', 2,
 					'RestockWeight', 25,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 5,
 					'MinMishapChance', 1,
 					'MaxMishapChance', 50,
 					'MinMishapRange', 1,
@@ -55604,13 +55621,12 @@ return {
 					'CenterAppliedEffects', {
 						"Exposed",
 						"Blinded",
-						"CancelShot",
 					},
 					'CenterAreaOfEffect', 2,
 					'AreaUnitDamageMod', 0,
 					'AreaObjDamageMod', 0,
 					'AreaAppliedEffects', {
-						"Blinded",
+						"CancelShot",
 					},
 					'PenetrationClass', 1,
 					'BurnGround', false,
@@ -55642,6 +55658,7 @@ return {
 					'Tier', 2,
 					'RestockWeight', 25,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 5,
 					'MinMishapChance', 10,
 					'MaxMishapChance', 50,
 					'MinMishapRange', 1,
@@ -55680,6 +55697,7 @@ return {
 					'Tier', 2,
 					'RestockWeight', 50,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 3,
 					'MinMishapChance', 2,
 					'MaxMishapChance', 50,
 					'MinMishapRange', 1,
@@ -55706,7 +55724,7 @@ return {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Grenade - Throwable",
 					'Id', "Molotov",
-					'object_class', "Grenade",
+					'object_class', "GrenadeItem",
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/Molotov",
@@ -55719,6 +55737,7 @@ return {
 					'CanAppearInShop', true,
 					'RestockWeight', 50,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 1,
 					'MinMishapChance', 2,
 					'MaxMishapChance', 60,
 					'MinMishapRange', 1,
@@ -55744,7 +55763,7 @@ return {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Grenade - Throwable",
 					'Id', "SmokeGrenade",
-					'object_class', "Grenade",
+					'object_class', "GrenadeItem",
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/SmokeGrenade",
@@ -55758,6 +55777,7 @@ return {
 					'Tier', 2,
 					'RestockWeight', 25,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 2,
 					'MinMishapChance', -2,
 					'MaxMishapChance', 40,
 					'MinMishapRange', 1,
@@ -55782,7 +55802,7 @@ return {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Grenade - Throwable",
 					'Id', "TearGasGrenade",
-					'object_class', "Grenade",
+					'object_class', "GrenadeItem",
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/TearGasGrenade",
@@ -55796,6 +55816,7 @@ return {
 					'Tier', 2,
 					'RestockWeight', 25,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 2,
 					'MinMishapChance', 2,
 					'MaxMishapChance', 50,
 					'MinMishapRange', 1,
@@ -55820,7 +55841,7 @@ return {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Grenade - Throwable",
 					'Id', "ToxicGasGrenade",
-					'object_class', "Grenade",
+					'object_class', "GrenadeItem",
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/ToxicGrenade",
@@ -55831,6 +55852,7 @@ return {
 					'UnitStat', "Explosives",
 					'Tier', 3,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 2,
 					'MinMishapChance', 2,
 					'MaxMishapChance', 50,
 					'MinMishapRange', 1,
@@ -55855,7 +55877,7 @@ return {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Personal - Equipment",
 					'Id', "ShapedCharge",
-					'object_class', "Grenade",
+					'object_class', "GrenadeItem",
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/ShapedCharge",
@@ -55867,6 +55889,7 @@ return {
 					'Cost', 1500,
 					'CanAppearInShop', true,
 					'RestockWeight', 0,
+					'MaxStacks', 2,
 					'MinMishapChance', 2,
 					'MaxMishapChance', 60,
 					'MaxMishapRange', 6,
@@ -55909,6 +55932,7 @@ return {
 					'MaxStock', 1,
 					'RestockWeight', 10,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 2,
 					'MinMishapChance', -2,
 					'MaxMishapChance', 18,
 					'MaxMishapRange', 6,
@@ -55940,6 +55964,7 @@ return {
 					'MaxStock', 1,
 					'RestockWeight', 10,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 2,
 					'MinMishapChance', -2,
 					'MaxMishapChance', 18,
 					'MaxMishapRange', 6,
@@ -55970,6 +55995,7 @@ return {
 					'MaxStock', 1,
 					'RestockWeight', 10,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 2,
 					'MinMishapChance', 2,
 					'MaxMishapChance', 30,
 					'MaxMishapRange', 6,
@@ -55999,6 +56025,7 @@ return {
 					'MaxStock', 1,
 					'RestockWeight', 10,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 2,
 					'MinMishapChance', -2,
 					'MaxMishapChance', 18,
 					'MaxMishapRange', 6,
@@ -56030,6 +56057,7 @@ return {
 					'MaxStock', 1,
 					'RestockWeight', 10,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 2,
 					'MinMishapChance', -2,
 					'MaxMishapChance', 18,
 					'MaxMishapRange', 6,
@@ -56061,6 +56089,7 @@ return {
 					'MaxStock', 1,
 					'RestockWeight', 10,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 2,
 					'MinMishapChance', 2,
 					'MaxMishapChance', 30,
 					'MaxMishapRange', 6,
@@ -56090,6 +56119,7 @@ return {
 					'MaxStock', 1,
 					'RestockWeight', 10,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 2,
 					'MinMishapChance', -2,
 					'MaxMishapChance', 18,
 					'MaxMishapRange', 6,
@@ -56121,6 +56151,7 @@ return {
 					'MaxStock', 1,
 					'RestockWeight', 10,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 2,
 					'MinMishapChance', -2,
 					'MaxMishapChance', 18,
 					'MaxMishapRange', 6,
@@ -56151,6 +56182,7 @@ return {
 					'MaxStock', 1,
 					'RestockWeight', 10,
 					'CategoryPair', "Grenade",
+					'MaxStacks', 2,
 					'MinMishapChance', 2,
 					'MaxMishapChance', 30,
 					'MaxMishapRange', 6,
@@ -56180,7 +56212,6 @@ return {
 					'CenterObjDamageMod', 50,
 					'CenterAppliedEffects', {
 						"Bleeding",
-						"KnockDown",
 					},
 					'AreaOfEffect', 4,
 					'CenterAreaOfEffect', 2,
@@ -59173,7 +59204,7 @@ return {
 					id = "SilencerHandlingReduce",
 				}),
 				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(560577297344, --[[ModItemWeaponComponentEffect StockHandlingIncrease Description]] "Ствол: Увеличивает эргономику на <StockHandlingIncrease>"),
+					Description = T(560577297344, --[[ModItemWeaponComponentEffect StockHandlingIncrease Description]] "Приклад: Увеличивает эргономику на <StockHandlingIncrease>"),
 					Parameters = {
 						PlaceObj('PresetParamNumber', {
 							'Name', "BarrelHandlingIncrease",
@@ -61170,12 +61201,18 @@ return {
 						ModificationDifficulty = 20,
 						ModificationEffects = {
 							"RecoilIncrease",
+							"StockHandlingIncrease",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
 								'Name', "Recoil",
 								'Value', 1,
 								'Tag', "<Recoil>",
+							}),
+							PlaceObj('PresetParamNumber', {
+								'Name', "StockHandlingIncrease",
+								'Value', 5,
+								'Tag', "<StockHandlingIncrease>",
 							}),
 						},
 						Slot = "Stock",
@@ -70253,6 +70290,12 @@ return {
 								Slot = "Mount1",
 								param_bindings = false,
 							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "DragunovSVD",
+								Entity = "WeaponAttA_MountDragunov_01",
+								Slot = "Mount",
+								param_bindings = false,
+							}),
 						},
 						group = "Scope",
 						id = "JAZZ_CombatScope_2x",
@@ -70749,6 +70792,12 @@ return {
 								Slot = "Mount1",
 								param_bindings = false,
 							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "DragunovSVD",
+								Entity = "WeaponAttA_MountDragunov_01",
+								Slot = "Mount",
+								param_bindings = false,
+							}),
 						},
 						group = "Scope",
 						id = "JAZZ_CombatScope_ACOG",
@@ -71147,6 +71196,12 @@ return {
 								Slot = "Mount1",
 								param_bindings = false,
 							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "DragunovSVD",
+								Entity = "WeaponAttA_MountDragunov_01",
+								Slot = "Mount",
+								param_bindings = false,
+							}),
 						},
 						group = "Scope",
 						id = "JAZZ_Scope_12x",
@@ -71337,6 +71392,12 @@ return {
 								ApplyTo = "G36",
 								Entity = "WeaponAttA_MountHKG36_01",
 								Slot = "Mount1",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "DragunovSVD",
+								Entity = "WeaponAttA_MountDragunov_01",
+								Slot = "Mount",
 								param_bindings = false,
 							}),
 						},
@@ -71734,6 +71795,12 @@ return {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "Gewehr98",
 								Entity = "WeaponAttA_MountGewehr",
+								Slot = "Mount",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "DragunovSVD",
+								Entity = "WeaponAttA_MountDragunov_01",
 								Slot = "Mount",
 								param_bindings = false,
 							}),
@@ -77593,6 +77660,7 @@ return {
 				'Entity', "Weapon_FC_AMZ_Knife_01",
 				'HolsterSlot', "Leg",
 				'CanAppearUsed', false,
+				'MaxStacks', 3,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "MeleeWeapon - Stackable",
@@ -77626,6 +77694,7 @@ return {
 				'Entity', "Weapon_FC_AMZ_Knife_01",
 				'HolsterSlot', "Leg",
 				'CanAppearUsed', false,
+				'MaxStacks', 3,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "MeleeWeapon - Stackable",
@@ -77658,6 +77727,7 @@ return {
 				'Entity', "Weapon_FC_AMZ_Knife_01",
 				'HolsterSlot', "Leg",
 				'CanAppearUsed', false,
+				'MaxStacks', 3,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Personal - Weapons",
@@ -77718,6 +77788,7 @@ return {
 				'Entity', "M16bayonet_weapon",
 				'HolsterSlot', "Leg",
 				'CanAppearUsed', false,
+				'MaxStacks', 3,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "MeleeWeapon",
@@ -77791,7 +77862,6 @@ return {
 				'LargeItem', 1,
 				'UnitStat', "Dexterity",
 				'Cost', 150,
-				'locked', true,
 				'RestockWeight', 0,
 				'BaseChanceToHit', 100,
 				'CritChanceScaled', 30,
@@ -82352,7 +82422,7 @@ return {
 					'AdditionalReduction', 60,
 					'ProtectedBodyParts', set( "Groin", "Legs" ),
 					'Coverage', 30,
-					'ArmorRating', 12,
+					'ArmorRating', 8,
 					'MeleeArmorRating', 5,
 					'CamouflagePercent', 10,
 					'Weight', 2,
@@ -85881,6 +85951,460 @@ return {
 					id = "PinDown",
 				}),
 				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Grenades",
+			}, {
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Ranged Attack",
+					AimType = "parabola aoe",
+					AlwaysHits = true,
+					ConfigurableKeybind = false,
+					DisplayName = T(802529854667, --[[ModItemCombatAction ThrowGrenadeAG DisplayName]] "Grenade"),
+					Execute = function (self, units, args)
+						local unit = units[1]
+						local ap = self:GetAPCost(unit, args)
+						NetStartCombatAction(self.id, unit, ap, args)
+					end,
+					GetAPCost = function (self, unit, args)
+						local grenade = self:GetAttackWeapons(unit)
+						return grenade and unit:GetAttackAPCost(self, grenade, false, args and args.aim or 0) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit)
+						local base = unit:GetBaseDamage(weapon)
+						local bonus = GetGrenadeDamageBonus(unit)
+						return MulDivRound(base, Max(0, 100 + bonus), 100)
+					end,
+					GetActionDescription = function (self, units)
+						return CombatActionGrenadeDescription(self, units)
+					end,
+					GetActionDisplayName = function (self, units)
+						local unit = units[1]
+						if unit then
+							local weapon = self:GetAttackWeapons(unit)
+							if weapon then
+								return T{355482653923, "Throw <name>", name = weapon.DisplayName}
+							end
+						end
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return name
+					end,
+					GetActionIcon = function (self, units)
+						return GetThrowItemIcon(self, units and units[1])
+					end,
+					GetActionResults = function (self, unit, args)
+						return CombatActions.ThrowGrenadeA.GetActionResults(self, unit, args)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						local weapon = unit:GetItemInSlot("GrenadesInventory", "Grenade", 1, 1)
+						return weapon
+					end,
+					GetMaxAimRange = function (self, unit, weapon)
+						local maxRange = weapon:GetMaxAimRange(unit)
+						if HasPerk(unit, "Throwing") then
+							maxRange = maxRange + CharacterEffectDefs.Throwing:ResolveValue("RangeIncrease")
+						end
+						return maxRange
+					end,
+					GetUIState = function (self, units, args)
+						return CombatActions.ThrowGrenadeA.GetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/throw_grenade",
+					IdDefault = "ThrowGrenadeAGdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectThrowGrenade",
+					MultiSelectBehavior = "first",
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("ThrowGrenade", self.id, ap, ...)
+					end,
+					SortKey = 5,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAreaAim")
+					end,
+					group = "Consumables",
+					id = "ThrowGrenadeAG",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Ranged Attack",
+					AimType = "parabola aoe",
+					AlwaysHits = true,
+					ConfigurableKeybind = false,
+					DisplayName = T(238574955470, --[[ModItemCombatAction ThrowGrenadeBG DisplayName]] "Grenade"),
+					Execute = function (self, units, args)
+						local unit = units[1]
+						local ap = self:GetAPCost(unit, args)
+						NetStartCombatAction(self.id, unit, ap, args)
+					end,
+					GetAPCost = function (self, unit, args)
+						local grenade = self:GetAttackWeapons(unit)
+						return grenade and unit:GetAttackAPCost(self, grenade, false, args and args.aim or 0) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit)
+						local base = unit:GetBaseDamage(weapon)
+						local bonus = GetGrenadeDamageBonus(unit)
+						return MulDivRound(base, Max(0, 100 + bonus), 100)
+					end,
+					GetActionDescription = function (self, units)
+						return CombatActionGrenadeDescription(self, units)
+					end,
+					GetActionDisplayName = function (self, units)
+						local unit = units[1]
+						if unit then
+							local weapon = self:GetAttackWeapons(unit)
+							if weapon then
+								return T{355482653923, "Throw <name>", name = weapon.DisplayName}
+							end
+						end
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return name
+					end,
+					GetActionIcon = function (self, units)
+						return GetThrowItemIcon(self, units and units[1])
+					end,
+					GetActionResults = function (self, unit, args)
+						return CombatActions.ThrowGrenadeA.GetActionResults(self, unit, args)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						local weapon = unit:GetItemInSlot("GrenadesInventory", "Grenade", 2, 1)
+						return weapon
+					end,
+					GetMaxAimRange = function (self, unit, weapon)
+						local maxRange = weapon:GetMaxAimRange(unit)
+						if HasPerk(unit, "Throwing") then
+							maxRange = maxRange + CharacterEffectDefs.Throwing:ResolveValue("RangeIncrease")
+						end
+						return maxRange
+					end,
+					GetUIState = function (self, units, args)
+						return CombatActions.ThrowGrenadeA.GetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/throw_grenade",
+					IdDefault = "ThrowGrenadeBGdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectThrowGrenade",
+					MultiSelectBehavior = "first",
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("ThrowGrenade", self.id, ap, ...)
+					end,
+					SortKey = 6,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAreaAim")
+					end,
+					group = "Consumables",
+					id = "ThrowGrenadeBG",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Ranged Attack",
+					AimType = "parabola aoe",
+					AlwaysHits = true,
+					ConfigurableKeybind = false,
+					DisplayName = T(759436350229, --[[ModItemCombatAction ThrowGrenadeCG DisplayName]] "Grenade"),
+					Execute = function (self, units, args)
+						local unit = units[1]
+						local ap = self:GetAPCost(unit, args)
+						NetStartCombatAction(self.id, unit, ap, args)
+					end,
+					GetAPCost = function (self, unit, args)
+						local grenade = self:GetAttackWeapons(unit)
+						return grenade and unit:GetAttackAPCost(self, grenade, false, args and args.aim or 0) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit)
+						local base = unit:GetBaseDamage(weapon)
+						local bonus = GetGrenadeDamageBonus(unit)
+						return MulDivRound(base, Max(0, 100 + bonus), 100)
+					end,
+					GetActionDescription = function (self, units)
+						return CombatActionGrenadeDescription(self, units)
+					end,
+					GetActionDisplayName = function (self, units)
+						local unit = units[1]
+						if unit then
+							local weapon = self:GetAttackWeapons(unit)
+							if weapon then
+								return T{355482653923, "Throw <name>", name = weapon.DisplayName}
+							end
+						end
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return name
+					end,
+					GetActionIcon = function (self, units)
+						return GetThrowItemIcon(self, units and units[1])
+					end,
+					GetActionResults = function (self, unit, args)
+						return CombatActions.ThrowGrenadeA.GetActionResults(self, unit, args)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						local weapon = unit:GetItemInSlot("GrenadesInventory", "Grenade", 3, 1)
+						return weapon
+					end,
+					GetMaxAimRange = function (self, unit, weapon)
+						local maxRange = weapon:GetMaxAimRange(unit)
+						if HasPerk(unit, "Throwing") then
+							maxRange = maxRange + CharacterEffectDefs.Throwing:ResolveValue("RangeIncrease")
+						end
+						return maxRange
+					end,
+					GetUIState = function (self, units, args)
+						return CombatActions.ThrowGrenadeA.GetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/throw_grenade",
+					IdDefault = "ThrowGrenadeCGdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectThrowGrenade",
+					MultiSelectBehavior = "first",
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("ThrowGrenade", self.id, ap, ...)
+					end,
+					SortKey = 6,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAreaAim")
+					end,
+					group = "Consumables",
+					id = "ThrowGrenadeCG",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Ranged Attack",
+					AimType = "parabola aoe",
+					AlwaysHits = true,
+					ConfigurableKeybind = false,
+					DisplayName = T(716048130364, --[[ModItemCombatAction ThrowGrenadeDG DisplayName]] "Grenade"),
+					Execute = function (self, units, args)
+						local unit = units[1]
+						local ap = self:GetAPCost(unit, args)
+						NetStartCombatAction(self.id, unit, ap, args)
+					end,
+					GetAPCost = function (self, unit, args)
+						local grenade = self:GetAttackWeapons(unit)
+						return grenade and unit:GetAttackAPCost(self, grenade, false, args and args.aim or 0) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit)
+						local base = unit:GetBaseDamage(weapon)
+						local bonus = GetGrenadeDamageBonus(unit)
+						return MulDivRound(base, Max(0, 100 + bonus), 100)
+					end,
+					GetActionDescription = function (self, units)
+						return CombatActionGrenadeDescription(self, units)
+					end,
+					GetActionDisplayName = function (self, units)
+						local unit = units[1]
+						if unit then
+							local weapon = self:GetAttackWeapons(unit)
+							if weapon then
+								return T{355482653923, "Throw <name>", name = weapon.DisplayName}
+							end
+						end
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return name
+					end,
+					GetActionIcon = function (self, units)
+						return GetThrowItemIcon(self, units and units[1])
+					end,
+					GetActionResults = function (self, unit, args)
+						return CombatActions.ThrowGrenadeA.GetActionResults(self, unit, args)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						local weapon = unit:GetItemInSlot("GrenadesInventory", "Grenade", 4, 1)
+						return weapon
+					end,
+					GetMaxAimRange = function (self, unit, weapon)
+						local maxRange = weapon:GetMaxAimRange(unit)
+						if HasPerk(unit, "Throwing") then
+							maxRange = maxRange + CharacterEffectDefs.Throwing:ResolveValue("RangeIncrease")
+						end
+						return maxRange
+					end,
+					GetUIState = function (self, units, args)
+						return CombatActions.ThrowGrenadeA.GetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/throw_grenade",
+					IdDefault = "ThrowGrenadeDGdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectThrowGrenade",
+					MultiSelectBehavior = "first",
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("ThrowGrenade", self.id, ap, ...)
+					end,
+					SortKey = 6,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAreaAim")
+					end,
+					group = "Consumables",
+					id = "ThrowGrenadeDG",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Ranged Attack",
+					AimType = "parabola aoe",
+					AlwaysHits = true,
+					ConfigurableKeybind = false,
+					DisplayName = T(405554936480, --[[ModItemCombatAction ThrowGrenadeAO DisplayName]] "Grenade"),
+					Execute = function (self, units, args)
+						local unit = units[1]
+						local ap = self:GetAPCost(unit, args)
+						NetStartCombatAction(self.id, unit, ap, args)
+					end,
+					GetAPCost = function (self, unit, args)
+						local grenade = self:GetAttackWeapons(unit)
+						return grenade and unit:GetAttackAPCost(self, grenade, false, args and args.aim or 0) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit)
+						local base = unit:GetBaseDamage(weapon)
+						local bonus = GetGrenadeDamageBonus(unit)
+						return MulDivRound(base, Max(0, 100 + bonus), 100)
+					end,
+					GetActionDescription = function (self, units)
+						return CombatActionGrenadeDescription(self, units)
+					end,
+					GetActionDisplayName = function (self, units)
+						local unit = units[1]
+						if unit then
+							local weapon = self:GetAttackWeapons(unit)
+							if weapon then
+								return T{355482653923, "Throw <name>", name = weapon.DisplayName}
+							end
+						end
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return name
+					end,
+					GetActionIcon = function (self, units)
+						return GetThrowItemIcon(self, units and units[1])
+					end,
+					GetActionResults = function (self, unit, args)
+						return CombatActions.ThrowGrenadeA.GetActionResults(self, unit, args)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						local weapon = unit:GetItemInSlot("OrdnanceInventory", "Grenade", 1, 1)
+						return weapon
+					end,
+					GetMaxAimRange = function (self, unit, weapon)
+						local maxRange = weapon:GetMaxAimRange(unit)
+						if HasPerk(unit, "Throwing") then
+							maxRange = maxRange + CharacterEffectDefs.Throwing:ResolveValue("RangeIncrease")
+						end
+						return maxRange
+					end,
+					GetUIState = function (self, units, args)
+						return CombatActions.ThrowGrenadeA.GetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/throw_grenade",
+					IdDefault = "ThrowGrenadeAOdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectThrowGrenade",
+					MultiSelectBehavior = "first",
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("ThrowGrenade", self.id, ap, ...)
+					end,
+					SortKey = 5,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAreaAim")
+					end,
+					group = "Consumables",
+					id = "ThrowGrenadeAO",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Ranged Attack",
+					AimType = "parabola aoe",
+					AlwaysHits = true,
+					ConfigurableKeybind = false,
+					DisplayName = T(815075531261, --[[ModItemCombatAction ThrowGrenadeBO DisplayName]] "Grenade"),
+					Execute = function (self, units, args)
+						local unit = units[1]
+						local ap = self:GetAPCost(unit, args)
+						NetStartCombatAction(self.id, unit, ap, args)
+					end,
+					GetAPCost = function (self, unit, args)
+						local grenade = self:GetAttackWeapons(unit)
+						return grenade and unit:GetAttackAPCost(self, grenade, false, args and args.aim or 0) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit)
+						local base = unit:GetBaseDamage(weapon)
+						local bonus = GetGrenadeDamageBonus(unit)
+						return MulDivRound(base, Max(0, 100 + bonus), 100)
+					end,
+					GetActionDescription = function (self, units)
+						return CombatActionGrenadeDescription(self, units)
+					end,
+					GetActionDisplayName = function (self, units)
+						local unit = units[1]
+						if unit then
+							local weapon = self:GetAttackWeapons(unit)
+							if weapon then
+								return T{355482653923, "Throw <name>", name = weapon.DisplayName}
+							end
+						end
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return name
+					end,
+					GetActionIcon = function (self, units)
+						return GetThrowItemIcon(self, units and units[1])
+					end,
+					GetActionResults = function (self, unit, args)
+						return CombatActions.ThrowGrenadeA.GetActionResults(self, unit, args)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						local weapon = unit:GetItemInSlot("OrdnanceInventory", "Grenade", 2, 1)
+						return weapon
+					end,
+					GetMaxAimRange = function (self, unit, weapon)
+						local maxRange = weapon:GetMaxAimRange(unit)
+						if HasPerk(unit, "Throwing") then
+							maxRange = maxRange + CharacterEffectDefs.Throwing:ResolveValue("RangeIncrease")
+						end
+						return maxRange
+					end,
+					GetUIState = function (self, units, args)
+						return CombatActions.ThrowGrenadeA.GetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/throw_grenade",
+					IdDefault = "ThrowGrenadeBOdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectThrowGrenade",
+					MultiSelectBehavior = "first",
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("ThrowGrenade", self.id, ap, ...)
+					end,
+					SortKey = 6,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAreaAim")
+					end,
+					group = "Consumables",
+					id = "ThrowGrenadeBO",
+				}),
+				}),
 			PlaceObj('ModItemCombatAction', {
 				ActivePauseBehavior = "queue",
 				Description = T(744710149249, --[[ModItemCombatAction Bolting Description]] "Передернуть затвор"),
@@ -85944,6 +86468,163 @@ return {
 				SortKey = 10,
 				group = "Default",
 				id = "Bolting",
+			}),
+			PlaceObj('ModItemCombatAction', {
+				ActionType = "Melee Attack",
+				AimType = "melee",
+				ConfigurableKeybind = false,
+				CostBasedOnWeapon = true,
+				Description = T(305356869820, --[[ModItemCombatAction MeleeAttack Description]] "Враг, находящийся в укрытии, получает статус «<GameTerm('Exposed')>»."),
+				DisplayName = T(296828702350, --[[ModItemCombatAction MeleeAttack DisplayName]] "Рукопашная атака"),
+				EvalTarget = function (self, units, target, args)
+					local unit = units[1]
+					if (not args or not args.goto_pos) and (not IsValid(target) or not unit:GetClosestMeleeRangePos(target)) then
+						return 0
+					end
+					return unit:CalcChanceToHit(target, self, args)
+				end,
+				GetAPCost = function (self, unit, args)
+					return GetMeleeAttackAPCost(self, unit, args)
+				end,
+				GetActionDamage = function (self, unit, target, args)
+					local weapon = self:GetAttackWeapons(unit, args)
+					if not weapon then return 0 end
+					
+					local base = unit:GetBaseDamage(weapon)
+					local mod = 100 + MulDivRound(unit.Strength, weapon.DamageMultiplier, 100)
+					local damage = MulDivRound(base, mod, 100)
+					
+					return damage, damage, damage - base
+				end,
+				GetActionDescription = function (self, units)
+					local unit = units[1]
+					local action = GetMeleeAttackAction(self, unit)
+					if action ~= self and action:GetUIState(units) == "enabled" then
+						return action:GetActionDescription(units)
+					end
+					local damage, base, bonus = self:GetActionDamage(unit)
+					
+					local descr 
+					if LastLoadedOrLoadingIMode == "IModeCombatMelee" then
+						descr = T{652639293521, "Select a unit to attack.", damage = damage}
+					else
+						descr = T{self.Description, damage = damage, basedamage = base, bonusdamage = bonus}
+					end
+					
+					descr = CombatActionsAppendFreeAimDescription(self, unit, descr)
+					return descr
+				end,
+				GetActionDisplayName = function (self, units)
+					local unit = units[1]
+					local action = GetMeleeAttackAction(self, unit)
+					if action ~= self and action:GetUIState(units) == "enabled" then
+						return action:GetActionDisplayName(units)
+					end
+					local name = self.DisplayName
+					if (name or "") == "" then
+						name = Untranslated(self.id)
+					end
+					return CombatActionsAppendFreeAimActionName(self, unit, name)
+				end,
+				GetActionIcon = function (self, units)
+					local unit = units[1]
+					local action = GetMeleeAttackAction(self, unit)
+					if action ~= self and action:GetUIState(units) == "enabled" then
+						return action:GetActionIcon(units)
+					end
+					return self.Icon
+				end,
+				GetActionResults = function (self, unit, args)
+					local args = table.copy(args)
+					args.num_shots = 0
+					args.weapon = self:GetAttackWeapons(unit, args)
+					if IsKindOf(args.weapon, "GutHookKnife") then
+						args.applied_status = { "Bleeding" }
+					end
+					local attack_args = unit:PrepareAttackArgs(self.id, args)
+					local results = attack_args.weapon:GetAttackResults(self, attack_args)
+					return results, attack_args
+				end,
+				GetAnyTarget = function (self, units)
+					local unit = units[1]
+					return CombatActionGetOneAttackableEnemy(self, unit, nil, CombatActionTargetFilters.MeleeAttack, unit)
+				end,
+				GetAttackWeapons = function (self, unit, args)
+					if args and args.weapon then return args.weapon end
+					local weapon =  unit:GetActiveWeapons("MeleeWeapon")
+					if weapon then return weapon end
+					local knife = unit:GetItemInSlot("KnifeInventory", "StackableMeleeWeapon", 1, 1)
+					if knife then return knife end
+				end,
+				GetDefaultTarget = function (self, unit)
+					local units = {unit}
+					local targets = self:GetTargets(units)
+					local weapon = self:GetAttackWeapons(unit)
+					local nearest, min_dist
+					
+					for _, target in ipairs(targets) do
+						if unit:IsOnEnemySide(target) and HasVisibilityTo(unit.team, target) then
+							local pos = unit:GetClosestMeleeRangePos(target)
+							local dist
+							if not g_Combat or unit:CanAttack(target, weapon, self, 0, pos) then
+								dist = pos and unit:GetDist(pos)
+							end
+							if dist and (not min_dist or dist < min_dist) then
+								nearest, min_dist = target, dist
+							end
+						end
+					end
+					
+					return nearest, min_dist
+				end,
+				GetTargets = function (self, units)
+					local unit = units[1]
+					return CombatActionGetAttackableEnemies(self, unit, nil, CombatActionTargetFilters.MeleeAttack, unit)
+				end,
+				GetUIState = function (self, units, args)
+					local unit = units[1]
+					args = args or {}
+					args.ap_cost_breakdown = args.ap_cost_breakdown or {}
+					
+					local cost = self:GetAPCost(unit, args)
+					
+					if cost < 0 then
+					print("hidden") return "hidden" end
+					if not unit:UIHasAP(cost, self.id, args) then
+						return "disabled", AttackDisableReasons.NoAP
+					end
+					return "enabled"
+				end,
+				Icon = "UI/Icons/Hud/melee",
+				IdDefault = "MeleeAttackdefault",
+				IsTargetableAttack = true,
+				KeybindingFromAction = "actionRedirectBasicAttack",
+				MoveStep = true,
+				MultiSelectBehavior = "first",
+				RequireState = "any",
+				RequireWeapon = true,
+				Run = function (self, unit, ap, ...)
+					unit:SetActionCommand("MeleeAttack", self.id, ap, ...)
+				end,
+				SortKey = 3,
+				StealthAttack = true,
+				UIBegin = function (self, units, args)
+					if not args or not args.free_aim then
+						local action = GetMeleeAttackAction(self, units[1])
+						if action ~= self and action:GetUIState(units) == "enabled" then
+							return action:UIBegin(units, args)
+						end
+					end
+					CombatActionAttackStart(self, units, args, "IModeCombatMelee", "attack")
+				end,
+				UseFreeMove = true,
+				basicAttack = true,
+				group = "WeaponAttacks",
+				id = "MeleeAttack",
+			}),
+			PlaceObj('ModItemCode', {
+				'name', "CombatActions",
+				'CodeFileName', "Code/CombatActions.lua",
 			}),
 			}),
 		PlaceObj('ModItemFolder', {
@@ -89290,6 +89971,760 @@ return {
 			id = "PDABrowserFlavorMediumRed",
 		}),
 		PlaceObj('ModItemXTemplate', {
+			__is_kind_of = "XContentTemplate",
+			group = "Zulu",
+			id = "UIWeaponDisplay",
+			PlaceObj('XTemplateWindow', {
+				'__context', function (parent, context) return "hud weapon context" end,
+				'__class', "XContentTemplate",
+				'Id', "idWeaponUI",
+				'HAlign', "left",
+			}, {
+				PlaceObj('XTemplateWindow', {
+					'comment', "selection observer",
+					'__context', function (parent, context) return "hud_squads" end,
+					'__class', "XContextWindow",
+					'ZOrder', 99,
+					'OnContextUpdate', function (self, context, ...)
+						self.parent:OnContextUpdate(self.parent.context)
+					end,
+				}),
+				PlaceObj('XTemplateWindow', {
+					'comment', "inventory observer",
+					'__context', function (parent, context) return Selection and Selection[1] and Selection[1].Inventory end,
+					'__class', "XContextWindow",
+					'ZOrder', 98,
+					'OnContextUpdate', function (self, context, ...)
+						self.parent:OnContextUpdate(self.parent.context)
+					end,
+				}),
+				PlaceObj('XTemplateWindow', {
+					'comment', "unit observer",
+					'__context', function (parent, context) return Selection and Selection[1] and Selection[1] end,
+					'__class', "XContextWindow",
+					'ZOrder', 98,
+					'OnContextUpdate', function (self, context, ...)
+						self.parent:OnContextUpdate(self.parent.context)
+					end,
+				}),
+				PlaceObj('XTemplateWindow', {
+					'__context', function (parent, context) return Selection and #Selection > 0 and IsKindOf(Selection[1], "Unit") and Selection[1] end,
+					'__condition', function (parent, context) return context end,
+					'__class', "XContextWindow",
+					'LayoutMethod', "VList",
+				}, {
+					PlaceObj('XTemplateWindow', {
+						'__context', function (parent, context) return GetUnitWeapons(context, "otherSet") end,
+						'__class', "XContextWindow",
+						'Id', "idOtherSets",
+						'BorderWidth', 2,
+						'HAlign', "left",
+						'LayoutMethod', "HList",
+						'Visible', false,
+						'BorderColor', RGBA(52, 55, 61, 180),
+						'Background', RGBA(32, 35, 47, 180),
+					}, {
+						PlaceObj('XTemplateForEach', {
+							'comment', "weapon",
+							'array', function (parent, context) return #context == 0 and {Selection[1]:GetActiveWeapons("UnarmedWeapon")} or context end,
+							'condition', function (parent, context, item, i) return item end,
+							'__context', function (parent, context, item, i, n) return item end,
+							'run_after', function (child, context, item, i, n, last)
+								local itemIcon = child.idIcon
+								itemIcon:SetImage(item.Icon)
+								itemIcon:SetMinHeight(HUDButtonHeight)
+								itemIcon:SetMaxHeight(HUDButtonHeight)
+								
+								local warningText = child.idWarningText
+								local button = child.idFrame
+								if item:IsLargeItem() then
+									itemIcon:SetMaxWidth(155)
+								else
+									itemIcon:SetMaxWidth(77)
+								end
+								warningText:SetMaxWidth(itemIcon.MaxWidth)
+								
+								local reloadables = GetReloadOptionsForWeapon(item, false, "skipSubWeapon")
+								local count = GetBulletCount(item)
+								local is_firearm = IsKindOf(item, "Firearm")
+								if is_firearm and item.jammed and not item:IsCondition("Broken") then
+									warningText:SetText(T(276505585210, "JAMMED"))
+									itemIcon:SetDesaturation(255)
+									itemIcon:SetTransparency(50)
+									warningText:SetVisible(true)
+								elseif is_firearm and item:IsCondition("Broken") then
+									warningText:SetText(T(623193685060, "BROKEN"))
+									itemIcon:SetDesaturation(255)
+									itemIcon:SetTransparency(50)
+									warningText:SetVisible(true)
+								elseif count and count == 0 then
+									if not reloadables or #reloadables == 0 then
+										warningText:SetText(T(669866061827, "No Ammo"))
+										itemIcon:SetDesaturation(255)
+										itemIcon:SetTransparency(50)
+									else
+										warningText:SetText(T(402669531723, "RELOAD"))
+										itemIcon:SetDesaturation(255)
+										itemIcon:SetTransparency(50)
+									end
+									warningText:SetVisible(true)
+								elseif is_firearm and item:GetSubweapon("GrenadeLauncher") and GetBulletCount(item:GetSubweapon("GrenadeLauncher")) == 0 then
+									warningText:SetText(T(693636719988, "NO GRENADE"))
+									itemIcon:SetDesaturation(255)
+									itemIcon:SetTransparency(50)
+									warningText:SetVisible(true)
+								end
+							end,
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'__class', "XContextWindow",
+								'IdNode', true,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'__class', "XImage",
+									'RolloverTemplate', "RolloverInventory",
+									'RolloverAnchor', "custom",
+									'RolloverText', T(980711730163, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "затычка"),
+									'RolloverOffset', box(0, 0, 0, 20),
+									'Id', "idIcon",
+									'Padding', box(5, 0, 5, 0),
+									'HandleMouse', true,
+									'ImageFit', "width",
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__condition', function (parent, context) return context:IsWeapon() and context.ComponentSlots and #context.ComponentSlots>0 and CountWeaponUpgrades(context)>0 end,
+										'__class', "XImage",
+										'RolloverText', T(222984534204, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "затычка"),
+										'Id', "idModIcon",
+										'Margins', box(5, 8, 0, 0),
+										'HAlign', "left",
+										'VAlign', "top",
+										'ScaleModifier', point(600, 600),
+										'Image', "UI/Inventory/w_mod",
+									}),
+									}),
+								PlaceObj('XTemplateWindow', {
+									'__class', "XContextWindow",
+									'Margins', box(0, 0, 3, 0),
+									'HAlign', "right",
+									'VAlign', "bottom",
+									'LayoutMethod', "VList",
+									'LayoutVSpacing', -5,
+								}, {
+									PlaceObj('XTemplateForEach', {
+										'comment', "subweapons",
+										'array', function (parent, context) return IsKindOf(context, "FirearmBase") and table.values(context.subweapons) end,
+										'condition', function (parent, context, item, i) return context end,
+										'__context', function (parent, context, item, i, n) return item end,
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'__class', "XContextWindow",
+											'IdNode', true,
+										}, {
+											PlaceObj('XTemplateWindow', {
+												'__class', "XText",
+												'Padding', box(2, 2, 2, 0),
+												'HAlign', "right",
+												'TextStyle', "HUDHeader",
+												'Translate', true,
+												'Text', T(425029539528, --[[ModItemXTemplate UIWeaponDisplay Text]] "<bullets()>"),
+											}),
+											}),
+										}),
+									PlaceObj('XTemplateWindow', {
+										'__class', "XText",
+										'Id', "idAmmo",
+										'Padding', box(2, 2, 2, 0),
+										'TextStyle', "HUDHeader",
+										'Translate', true,
+										'Text', T(950060314213, --[[ModItemXTemplate UIWeaponDisplay Text]] "<bullets()>"),
+									}),
+									}),
+								PlaceObj('XTemplateWindow', {
+									'__class', "XTextWithStyleBasedOnSize",
+									'Id', "idWarningText",
+									'HAlign', "center",
+									'VAlign', "center",
+									'MaxWidth', 200,
+									'Visible', false,
+									'DrawOnTop', true,
+									'HandleMouse', false,
+									'TextStyle', "DescriptionTextRedGlow16",
+									'Translate', true,
+									'TextHAlign', "center",
+									'TextVAlign', "bottom",
+									'TextStyleSmall', "DescriptionTextRedGlow_Small",
+								}),
+								}),
+							}),
+						}),
+					PlaceObj('XTemplateWindow', {
+						'__class', "XContextWindow",
+						'Id', "idEquippedSet",
+						'IdNode', true,
+						'VAlign', "bottom",
+						'LayoutMethod', "HList",
+						'LayoutHSpacing', 10,
+					}, {
+						PlaceObj('XTemplateTemplate', {
+							'__template', "GenericHUDButtonFrame",
+							'Id', "idFrame",
+							'IdNode', false,
+							'VAlign', "stretch",
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'Id', "idButtons",
+								'Margins', box(0, 0, -2, -2),
+								'Dock', "right",
+								'LayoutMethod', "Grid",
+								'UniformRowHeight', true,
+								'Background', RGBA(52, 55, 60, 255),
+								'BackgroundRectGlowSize', 1,
+								'BackgroundRectGlowColor', RGBA(52, 55, 60, 255),
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'__context', function (parent, context) return { action = CombatActions.ChangeWeapon } end,
+									'__class', "XButton",
+									'RolloverTemplate', "CombatActionRollover",
+									'RolloverAnchor', "bottom-right",
+									'RolloverAnchorId', "idWeaponUI",
+									'RolloverOffset', box(20, 0, 0, 0),
+									'Id', "idSwitch",
+									'Margins', box(0, -2, 0, 0),
+									'BorderWidth', 2,
+									'Padding', box(3, 0, 3, 0),
+									'MinWidth', 25,
+									'BorderColor', RGBA(52, 55, 61, 255),
+									'Background', RGBA(32, 35, 47, 255),
+									'OnContextUpdate', function (self, context, ...)
+										local combat_action = self.context.action
+										local rolloverText = combat_action:GetActionDescription(Selection)
+										self:SetRolloverText(rolloverText)
+										
+										local actionName = combat_action:GetActionDisplayName(Selection)
+										self:SetRolloverTitle(actionName)
+										self:SetEnabled(combat_action:GetUIState(Selection) == "enabled")
+										
+										if true then return end -- 211473
+										
+										local unit = Selection and Selection[1]
+										local firstSet = unit and unit.current_weapon == "Handheld A"
+										if firstSet then
+											self.idIcon:SetImage("UI/Hud/weapon_loadout_2")
+										else
+											self.idIcon:SetImage("UI/Hud/weapon_loadout_1")
+										end
+									end,
+									'FXMouseIn', "buttonRollover",
+									'FXPress', "ChangeWeapon",
+									'FXPressDisabled', "IactDisabled",
+									'FocusedBackground', RGBA(0, 0, 0, 0),
+									'DisabledBorderColor', RGBA(52, 55, 61, 255),
+									'DisabledBackground', RGBA(32, 35, 47, 125),
+									'OnPress', function (self, gamepad)
+										if #(Selection or "") > 0 then self.context.action:UIBegin({Selection[1]}) end
+									end,
+									'RolloverBackground', RGBA(0, 0, 0, 0),
+									'PressedBackground', RGBA(0, 0, 0, 0),
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__class', "XImage",
+										'Id', "idIcon",
+										'HAlign', "center",
+										'VAlign', "center",
+										'Image', "UI/Hud/weapon_switch",
+										'ImageColor', RGBA(195, 189, 172, 255),
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "OnSetRollover(self, rollover)",
+										'func', function (self, rollover)
+											local node = self:ResolveId("node"):ResolveId("node")
+											if node.idOtherSets then
+												node.idOtherSets:SetVisible(rollover)
+												if rollover then
+													HideCombatLog(true)
+												end
+											end
+											XButton.OnSetRollover(self, rollover)
+										end,
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "SetEnabled(self, enabled)",
+										'func', function (self, enabled)
+											XButton.SetEnabled(self, enabled)
+											self.idIcon:SetTransparency(enabled and 0 or 160)
+										end,
+									}),
+									}),
+								PlaceObj('XTemplateForEach', {
+									'comment', "weapon, for reload buttons",
+									'array', function (parent, context) return GetUnitWeapons(context) end,
+									'condition', function (parent, context, item, i) return item and not not GetBulletCount(item) and item:IsWeapon() and not item.parent_weapon and item.ReloadAP end,
+									'__context', function (parent, context, item, i, n) return item end,
+									'run_after', function (child, context, item, i, n, last)
+										child:SetGridY(#child.parent)
+									end,
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__class', "XContextWindow",
+										'IdNode', true,
+										'LayoutMethod', "Grid",
+									}, {
+										PlaceObj('XTemplateForEach', {
+											'comment', "subweapons",
+											'array', function (parent, context) return IsKindOf(context, "FirearmBase") and table.values(context.subweapons) end,
+											'condition', function (parent, context, item, i) return context end,
+											'__context', function (parent, context, item, i, n) return item end,
+											'run_after', function (child, context, item, i, n, last)
+												child:SetGridY(1 + i)
+											end,
+										}, {
+											PlaceObj('XTemplateWindow', {
+												'__class', "XContextWindow",
+												'IdNode', true,
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'__context', function (parent, context) return { action = CombatActions.Reload, item_id = parent.context and parent.context.id } end,
+													'__class', "XButton",
+													'RolloverTemplate', "CombatActionRollover",
+													'RolloverAnchor', "bottom-right",
+													'RolloverAnchorId', "idWeaponUI",
+													'RolloverOffset', box(20, 0, 0, 0),
+													'RolloverTitle', T(283921836958, --[[ModItemXTemplate UIWeaponDisplay RolloverTitle]] "Перезарядить"),
+													'Id', "idSubReloadButton",
+													'Margins', box(0, -2, 0, 0),
+													'BorderWidth', 2,
+													'Padding', box(3, 0, 3, 0),
+													'MinWidth', 25,
+													'BorderColor', RGBA(52, 55, 61, 255),
+													'Background', RGBA(32, 35, 47, 255),
+													'OnContextUpdate', function (self, context, ...)
+														local weapon = self:ResolveId("node").context
+														local wepIdx, ammo = GetQuickReloadWeaponAndAmmo(self, weapon)
+														local bullets = GetBulletCount(weapon)
+														local item = weapon
+														while item.parent_weapon do
+															item = item.parent_weapon
+														end
+														local units = Selection
+														if item and item.owner then
+															local owner = g_Units[item.owner]
+															if owner then
+																units = {owner}
+															end
+														end
+														local full = bullets == weapon.MagazineSize
+														local canReload = not full and wepIdx
+														local enabled = canReload and CombatActions.Reload:GetVisibility(units) == "enabled"
+														self:SetEnabled(enabled)
+													end,
+													'FXMouseIn', "buttonRollover",
+													'FXPress', "buttonPressGeneric",
+													'FXPressDisabled', "IactDisabled",
+													'FocusedBorderColor', RGBA(0, 0, 0, 0),
+													'FocusedBackground', RGBA(0, 0, 0, 0),
+													'DisabledBorderColor', RGBA(52, 55, 61, 255),
+													'DisabledBackground', RGBA(32, 35, 47, 125),
+													'OnPress', function (self, gamepad)
+														local weapon = self:ResolveId("node").context
+														QuickReloadButton(self, weapon)
+													end,
+													'RolloverBackground', RGBA(0, 0, 0, 0),
+													'PressedBackground', RGBA(0, 0, 0, 0),
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'__class', "XImage",
+														'Id', "idIcon",
+														'HAlign', "center",
+														'VAlign', "center",
+														'Image', "UI/Hud/weapon_reload",
+														'ImageColor', RGBA(195, 189, 172, 255),
+													}),
+													PlaceObj('XTemplateFunc', {
+														'name', "SetEnabled(self, enabled)",
+														'func', function (self, enabled)
+															XButton.SetEnabled(self, enabled)
+															self.idIcon:SetTransparency(enabled and 0 or 160)
+														end,
+													}),
+													PlaceObj('XTemplateFunc', {
+														'name', "GetRolloverText(self)",
+														'func', function (self)
+															local weapon = self:ResolveId("node").context
+															local wepIdx, ammo = GetQuickReloadWeaponAndAmmo(self, weapon)
+															if not wepIdx then return "placeholder" end
+															return T{432670943615, "Reload with <DisplayName>", ammo}
+														end,
+													}),
+													PlaceObj('XTemplateFunc', {
+														'name', "GetRolloverTitle(self)",
+														'func', function (self)
+															local weapon = self:ResolveId("node").context
+															return T{470526619797, "Reload <DisplayName>", weapon}
+														end,
+													}),
+													PlaceObj('XTemplateFunc', {
+														'name', "GetRolloverHint(self)",
+														'func', function (self)
+															local weapon = self:ResolveId("node").context
+															local wepIdx, err = GetQuickReloadWeaponAndAmmo(self, weapon)
+															if not wepIdx and err then return err end
+															local state, err = CombatActions.Reload:GetVisibility({SelectedObj})
+															return state ~= "enabled" and err
+														end,
+													}),
+													}),
+												}),
+											}),
+										PlaceObj('XTemplateWindow', {
+											'__context', function (parent, context) return { action = CombatActions.Reload, item_id = parent.context and parent.context.id } end,
+											'__class', "XButton",
+											'RolloverTemplate', "CombatActionRollover",
+											'RolloverAnchor', "bottom-right",
+											'RolloverAnchorId', "idWeaponUI",
+											'RolloverOffset', box(20, 0, 0, 0),
+											'Id', "idReloadButton",
+											'Margins', box(0, -2, 0, 0),
+											'BorderWidth', 2,
+											'Padding', box(3, 0, 3, 0),
+											'MinWidth', 25,
+											'FoldWhenHidden', true,
+											'BorderColor', RGBA(52, 55, 61, 255),
+											'Background', RGBA(32, 35, 47, 255),
+											'OnContextUpdate', function (self, context, ...)
+												local weaponContainer = self:ResolveId("node")
+												local unitContainer = weaponContainer:ResolveId("node")
+												local unit = unitContainer.context
+												local weapon = weaponContainer.context
+												local wepIdx, ammo = GetQuickReloadWeaponAndAmmo(self, weapon)
+												local bullets = GetBulletCount(weapon)
+												local full = bullets == weapon.MagazineSize
+												local canReload = not full and wepIdx
+												local enabled = canReload and CombatActions.Reload:GetVisibility({unit}) == "enabled"
+												self:SetEnabled(enabled)
+												self:SetGridY(#self.parent + 1) -- Last
+											end,
+											'FXMouseIn', "buttonRollover",
+											'FXPress', "buttonPressGeneric",
+											'FXPressDisabled', "IactDisabled",
+											'FocusedBorderColor', RGBA(0, 0, 0, 0),
+											'FocusedBackground', RGBA(0, 0, 0, 0),
+											'DisabledBorderColor', RGBA(52, 55, 61, 255),
+											'DisabledBackground', RGBA(32, 35, 47, 125),
+											'OnPress', function (self, gamepad)
+												local weapon = self:ResolveId("node").context
+												QuickReloadButton(self, weapon)
+											end,
+											'RolloverBackground', RGBA(0, 0, 0, 0),
+											'PressedBackground', RGBA(0, 0, 0, 0),
+										}, {
+											PlaceObj('XTemplateWindow', {
+												'__class', "XImage",
+												'Id', "idIcon",
+												'HAlign', "center",
+												'VAlign', "center",
+												'Image', "UI/Hud/weapon_reload",
+												'ImageColor', RGBA(195, 189, 172, 255),
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "SetEnabled(self, enabled)",
+												'func', function (self, enabled)
+													XButton.SetEnabled(self, enabled)
+													self.idIcon:SetTransparency(enabled and 0 or 160)
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "GetRolloverText(self)",
+												'func', function (self)
+													local weapon = self:ResolveId("node").context
+													local wepIdx, ammo = GetQuickReloadWeaponAndAmmo(self, weapon)
+													if not wepIdx then return "placeholder" end
+													return T{432670943615, "Reload with <DisplayName>", ammo}
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "GetRolloverTitle(self)",
+												'func', function (self)
+													local weapon = self:ResolveId("node").context
+													return T{470526619797, "Reload <DisplayName>", weapon}
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "GetRolloverHint(self)",
+												'func', function (self)
+													local weapon = self:ResolveId("node").context
+													local wepIdx, err = GetQuickReloadWeaponAndAmmo(self, weapon)
+													if not wepIdx and err then return err end
+													local state, err = CombatActions.Reload:GetVisibility({SelectedObj})
+													return state ~= "enabled" and err
+												end,
+											}),
+											}),
+										PlaceObj('XTemplateCode', {
+											'run', function (self, parent, context)
+												parent:SetGridHeight(#parent)
+											end,
+										}),
+										}),
+									}),
+								PlaceObj('XTemplateWindow', {
+									'__condition', function (parent, context) return #parent == 1 end,
+									'__class', "XContextWindow",
+									'IdNode', true,
+									'GridY', 2,
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__class', "XButton",
+										'RolloverTemplate', "CombatActionRollover",
+										'RolloverAnchor', "right",
+										'RolloverAnchorId', "idWeapon",
+										'RolloverOffset', box(20, 0, 0, 0),
+										'Margins', box(0, -2, 0, 0),
+										'BorderWidth', 2,
+										'Padding', box(3, 0, 3, 0),
+										'MinWidth', 25,
+										'Visible', false,
+										'BorderColor', RGBA(52, 55, 61, 255),
+										'Background', RGBA(32, 35, 47, 255),
+										'Enabled', false,
+										'FocusedBorderColor', RGBA(0, 0, 0, 0),
+										'FocusedBackground', RGBA(0, 0, 0, 0),
+										'DisabledBorderColor', RGBA(52, 55, 61, 255),
+										'DisabledBackground', RGBA(32, 35, 47, 125),
+										'RolloverBackground', RGBA(0, 0, 0, 0),
+										'PressedBackground', RGBA(0, 0, 0, 0),
+									}),
+									}),
+								}),
+							PlaceObj('XTemplateWindow', {
+								'__context', function (parent, context) return GetUnitWeapons(context) end,
+								'__class', "XContextWindow",
+								'Dock', "box",
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'LayoutMethod', "HList",
+								}, {
+									PlaceObj('XTemplateForEach', {
+										'comment', "weapon",
+										'array', function (parent, context) return #context == 0 and {Selection[1]:GetActiveWeapons("UnarmedWeapon")} or context end,
+										'condition', function (parent, context, item, i) return not item.parent_weapon end,
+										'__context', function (parent, context, item, i, n) return item end,
+										'run_after', function (child, context, item, i, n, last)
+											local itemIcon = child.idIcon
+											itemIcon:SetImage(item.Icon)
+											itemIcon:SetMinHeight(HUDButtonHeight)
+											itemIcon:SetMaxHeight(HUDButtonHeight)
+											
+											local warningText = child.idWarningText
+											local button = child.idFrame
+											local sideButtonsSize = 0
+											if item:IsLargeItem() then
+												itemIcon:SetMaxWidth(154 + sideButtonsSize)
+											else
+												itemIcon:SetMaxWidth(77 + sideButtonsSize)
+											end
+											warningText:SetMaxWidth(itemIcon.MaxWidth)
+											
+											local reloadables = GetReloadOptionsForWeapon(item, false, "skipSubWeapon")
+											local count = GetBulletCount(item)
+											local is_firearm = IsKindOf(item, "Firearm")
+											if is_firearm and item.jammed and not item:IsCondition("Broken") then
+												warningText:SetText(T(276505585210, "JAMMED"))
+												itemIcon:SetDesaturation(255)
+												itemIcon:SetTransparency(50)
+												warningText:SetVisible(true)
+											elseif is_firearm and item:IsCondition("Broken") then
+												warningText:SetText(T(623193685060, "BROKEN"))
+												itemIcon:SetDesaturation(255)
+												itemIcon:SetTransparency(50)
+												warningText:SetVisible(true)
+											elseif count and count == 0 then
+												if not reloadables or #reloadables == 0 then
+													warningText:SetText(T(669866061827, "No Ammo"))
+													itemIcon:SetDesaturation(255)
+													itemIcon:SetTransparency(50)
+												else
+													warningText:SetText(T(402669531723, "RELOAD"))
+													itemIcon:SetDesaturation(255)
+													itemIcon:SetTransparency(50)
+													rawset(child, "weapon-click", "reload")
+												end
+												warningText:SetVisible(true)
+											elseif is_firearm and item:GetSubweapon("GrenadeLauncher") and GetBulletCount(item:GetSubweapon("GrenadeLauncher")) == 0 then
+												warningText:SetText(T(693636719988, "NO GRENADE"))
+												itemIcon:SetDesaturation(255)
+												itemIcon:SetTransparency(50)
+												warningText:SetVisible(true)
+											end
+										end,
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'__class', "XContextWindow",
+											'RolloverTemplate', "RolloverInventory",
+											'RolloverAnchor', "custom",
+											'RolloverText', T(625499865681, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "затычка"),
+											'RolloverOffset', box(0, 0, 0, 10),
+											'IdNode', true,
+										}, {
+											PlaceObj('XTemplateWindow', {
+												'__class', "XButton",
+												'IdNode', false,
+												'Background', RGBA(0, 0, 0, 0),
+												'FocusedBorderColor', RGBA(255, 255, 255, 255),
+												'FocusedBackground', RGBA(0, 0, 0, 0),
+												'DisabledBorderColor', RGBA(0, 0, 0, 0),
+												'OnPress', function (self, gamepad)
+													local node = self:ResolveId("node")
+													local weaponClick = rawget(node, "weapon-click")
+													local weapon = node.context
+													if weaponClick == "reload" then
+														QuickReloadButton(self, weapon)
+													else
+														-- try to find the ui action that uses this weapon first
+														local unit = Selection[1]
+														local action
+														for _, action_id in ipairs(unit.ui_actions) do
+															local ca = CombatActions[action_id]
+															if unit.ui_actions[action_id] == "enabled" then
+																local w1, w2, wl = ca:GetAttackWeapons(unit)
+																if w1 == weapon or w2 == weapon then
+																	action = ca
+																	break
+																end
+																for _, wpn in ipairs(wl) do
+																	if wpn == weapon then
+																		action = ca
+																	end
+																end
+															end
+															if action then break end
+														end
+														
+														-- use default attack action if the action was not found
+														local action = action or unit:GetDefaultAttackAction("ranged")
+														CombatActionAttackStart(action, Selection, { free_aim = true }, "IModeCombatFreeAim")
+													end
+												end,
+												'AltPress', true,
+												'OnAltPress', function (self, gamepad)
+													if not GetDialog("PDADialogSatellite") and not Selection[1]:CanBeControlled() then
+														return
+													end
+													OpenInventory(Selection[1])
+												end,
+												'RolloverBackground', RGBA(0, 0, 0, 0),
+												'PressedBackground', RGBA(0, 0, 0, 0),
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'__class', "XImage",
+													'RolloverTemplate', "RolloverInventory",
+													'RolloverAnchor', "center-top",
+													'RolloverText', T(344059506942, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "затычка"),
+													'RolloverOffset', box(0, 0, 0, 20),
+													'Id', "idIcon",
+													'Padding', box(5, 0, 5, 0),
+													'HandleMouse', true,
+													'ImageFit', "width",
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'__condition', function (parent, context) return context:IsWeapon() and context.ComponentSlots and #context.ComponentSlots>0 and CountWeaponUpgrades(context)>0 end,
+														'__class', "XImage",
+														'RolloverText', T(635343119975, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "затычка"),
+														'Id', "idModIcon",
+														'Margins', box(5, 8, 0, 0),
+														'HAlign', "left",
+														'VAlign', "top",
+														'ScaleModifier', point(600, 600),
+														'Image', "UI/Inventory/w_mod",
+													}),
+													}),
+												}),
+											PlaceObj('XTemplateWindow', {
+												'__class', "XContextWindow",
+												'Margins', box(0, 0, 3, 0),
+												'HAlign', "right",
+												'VAlign', "bottom",
+												'LayoutMethod', "VList",
+												'LayoutVSpacing', -5,
+											}, {
+												PlaceObj('XTemplateForEach', {
+													'comment', "subweapons",
+													'array', function (parent, context) return IsKindOf(context, "FirearmBase") and table.values(context.subweapons) end,
+													'condition', function (parent, context, item, i) return context end,
+													'__context', function (parent, context, item, i, n) return item end,
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'__class', "XContextWindow",
+														'IdNode', true,
+													}, {
+														PlaceObj('XTemplateWindow', {
+															'__class', "XText",
+															'Padding', box(2, 2, 2, 0),
+															'HAlign', "right",
+															'TextStyle', "HUDHeader",
+															'Translate', true,
+															'Text', T(640228732655, --[[ModItemXTemplate UIWeaponDisplay Text]] "<bullets()>"),
+														}),
+														}),
+													}),
+												PlaceObj('XTemplateWindow', {
+													'__class', "XText",
+													'Id', "idAmmo",
+													'Padding', box(2, 2, 2, 0),
+													'TextStyle', "HUDHeader",
+													'Translate', true,
+													'Text', T(955143813467, --[[ModItemXTemplate UIWeaponDisplay Text]] "<bullets()>"),
+													'TextVAlign', "center",
+												}),
+												}),
+											PlaceObj('XTemplateWindow', {
+												'__class', "XTextWithStyleBasedOnSize",
+												'Id', "idWarningText",
+												'HAlign', "center",
+												'VAlign', "center",
+												'MaxWidth', 200,
+												'Visible', false,
+												'DrawOnTop', true,
+												'HandleMouse', false,
+												'TextStyle', "DescriptionTextRedGlow16",
+												'Translate', true,
+												'TextHAlign', "center",
+												'TextVAlign', "bottom",
+												'TextStyleSmall', "DescriptionTextRedGlow_Small",
+											}),
+											PlaceObj('XTemplateWindow', {
+												'__condition', function (parent, context) return context.Repairable end,
+												'__class', "XText",
+												'Id', "idCondText",
+												'Padding', box(0, 2, 2, 0),
+												'HAlign', "right",
+												'VAlign', "top",
+												'ScaleModifier', point(800, 800),
+												'DrawOnTop', true,
+												'HandleMouse', false,
+												'TextStyle', "InventoryItemsCount",
+												'Translate', true,
+												'Text', T(812137287750, --[[ModItemXTemplate UIWeaponDisplay Text]] "<percent(Condition)>"),
+												'TextHAlign', "right",
+											}),
+											}),
+										}),
+									}),
+								PlaceObj('XTemplateWindow', {
+									'__condition', function (parent, context) return #parent[1] == 2 end,
+									'Margins', box(0, 5, -4, 5),
+									'HAlign', "center",
+									'MinWidth', 2,
+									'MaxWidth', 2,
+									'Background', RGBA(52, 55, 61, 255),
+								}),
+								}),
+							}),
+						}),
+					}),
+				}),
+		}),
+		PlaceObj('ModItemXTemplate', {
 			__is_kind_of = "XContextControl",
 			group = "Zulu",
 			id = "RolloverInventoryBase",
@@ -90514,7 +91949,8 @@ return {
 									self.idPropVal:SetNameText(T(8182360763020011, "Износ"))
 									local condition_percent = cnt.Deterioration
 									local text = cnt:GetDeteriorationKeywordNoPrefix()
-									self.idPropVal:SetValueText(T{541139041647, "<keyword> (<percent(condPercent)>)",  keyword = text, condPercent = condition_percent})
+									--self.idPropVal:SetValueText(T{541139041647, "<keyword> (<percent(condPercent)>)",  keyword = text, condPercent = condition_percent})
+									self.idPropVal:SetValueText(T{5411390416471, "<keyword>",  keyword = text})
 								end,
 							}),
 							}),
@@ -91062,7 +92498,7 @@ return {
 		PlaceObj('ModItemXTemplate', {
 			__is_kind_of = "XContextWindow",
 			group = "Zulu Satellite UI",
-			id = "SquadsAndMercs",
+			id = "SquadsAndMercs2",
 			PlaceObj('XTemplateWindow', {
 				'__class', "SquadsAndMercsClass",
 				'Id', "idPartyContainer",
@@ -91151,7 +92587,7 @@ return {
 								'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeCommonUnitControl") or IsKindOf(GetDialog(parent), "IModeDeployment") end,
 								'__class', "XContextWindow",
 								'RolloverTemplate', "RolloverGeneric",
-								'RolloverTitle', T(362204247435, --[[ModItemXTemplate SquadsAndMercs RolloverTitle]] "Morale"),
+								'RolloverTitle', T(362204247435, --[[ModItemXTemplate SquadsAndMercs2 RolloverTitle]] "Morale"),
 								'Id', "idMorale",
 								'Margins', box(7, 1, 0, 0),
 								'Dock', "left",
@@ -91193,7 +92629,7 @@ return {
 										'__class', "XImage",
 										'RolloverTemplate', "RolloverGeneric",
 										'RolloverOffset', box(10, 0, 0, 0),
-										'RolloverTitle', T(679215652471, --[[ModItemXTemplate SquadsAndMercs RolloverTitle]] "Morale"),
+										'RolloverTitle', T(679215652471, --[[ModItemXTemplate SquadsAndMercs2 RolloverTitle]] "Morale"),
 										'Id', "idMoraleIcon",
 										'IdNode', false,
 										'HAlign', "center",
@@ -91584,7 +93020,7 @@ return {
 													'RolloverTemplate', "PDAOperationRollover",
 													'RolloverAnchor', "right",
 													'RolloverAnchorId', "idContent",
-													'RolloverText', T(615377721869, --[[ModItemXTemplate SquadsAndMercs RolloverText]] "placeholder"),
+													'RolloverText', T(615377721869, --[[ModItemXTemplate SquadsAndMercs2 RolloverText]] "placeholder"),
 													'Id', "idOperationContainer",
 													'Margins', box(-5, 4, 0, 0),
 													'Dock', "bottom",
@@ -92197,7 +93633,7 @@ return {
 															XContextControl.OnContextUpdate(self, context)
 														end,
 														'Translate', true,
-														'Text', T(580982509124, --[[ModItemXTemplate SquadsAndMercs Text]] "<apn(GetUIActionPoints())>"),
+														'Text', T(580982509124, --[[ModItemXTemplate SquadsAndMercs2 Text]] "<apn(GetUIActionPoints())>"),
 													}),
 													}),
 												}),
@@ -92389,7 +93825,7 @@ return {
 													'__class', "XImage",
 													'RolloverTemplate', "RolloverGeneric",
 													'RolloverAnchor', "right",
-													'RolloverText', T(638571901171, --[[ModItemXTemplate SquadsAndMercs RolloverText]] "Wounds are being bandaged."),
+													'RolloverText', T(638571901171, --[[ModItemXTemplate SquadsAndMercs2 RolloverText]] "Wounds are being bandaged."),
 													'RolloverOffset', box(15, 0, 0, 0),
 													'Id', "idBeingBandagedIndicator",
 													'HAlign', "center",
@@ -92514,7 +93950,7 @@ return {
 														XContextControl.OnContextUpdate(self, context)
 													end,
 													'Translate', true,
-													'Text', T(531913452382, --[[ModItemXTemplate SquadsAndMercs Text]] "<apn(GetUIActionPoints())>"),
+													'Text', T(531913452382, --[[ModItemXTemplate SquadsAndMercs2 Text]] "<apn(GetUIActionPoints())>"),
 												}),
 												PlaceObj('XTemplateWindow', {
 													'__class', "XImage",
@@ -92528,7 +93964,7 @@ return {
 												'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeDeployment") end,
 												'RolloverTemplate', "SmallRolloverGeneric",
 												'RolloverAnchor', "top",
-												'RolloverText', T(961263404010, --[[ModItemXTemplate SquadsAndMercs RolloverText]] "Аwaiting deployment"),
+												'RolloverText', T(961263404010, --[[ModItemXTemplate SquadsAndMercs2 RolloverText]] "Аwaiting deployment"),
 												'RolloverOffset', box(-15, 0, 0, -15),
 												'Id', "idDeployed",
 												'Margins', box(-5, 0, 0, -5),
@@ -92596,6 +94032,3190 @@ return {
 												self:SetVisible(UnitsSusBeingRaised and obj and UnitsSusBeingRaised[obj.handle])
 											end,
 										}),
+										}),
+									}),
+								}),
+							}),
+						PlaceObj('XTemplateFunc', {
+							'name', "RespawnContent(self, ...)",
+							'func', function (self, ...)
+								-- This will prevent the tactical view party from updating during satellite gameplay.
+								-- The UI is then refreshed upon exiting satellite view.
+								if not self:IsVisible() and not GetParentOfKind(self, "PDAClass") then return end
+								if UIRebuildSpam then
+									DbgUIRebuild("party inner")
+								end
+								XContentTemplate.RespawnContent(self)
+							end,
+						}),
+						}),
+					PlaceObj('XTemplateFunc', {
+						'name', "UpdateMeasure(self, max_width, max_height)",
+						'func', function (self, max_width, max_height)
+							if not self.measure_update then return end
+							
+							self:SetScaleModifier(point(1000, 1000))
+							local _, yM = ScaleXY(self.parent.scale, 0, 150) -- command button and snype roughly
+							max_height = max_height - yM
+							
+							XControl.UpdateMeasure(self, max_width, max_height)
+							if self.measure_height < max_height then
+								return
+							end
+							
+							local one = point(1000, 1000)
+							for _, child in ipairs(self) do
+								child:SetOutsideScale(one)
+							end
+							self.scale = one
+							XControl.UpdateMeasure(self, 1000000, 1000000)
+							local content_width, content_height = ScaleXY(self.parent.scale, self.measure_width, self.measure_height)
+							assert(content_width > 0 and content_height > 0)
+							if content_width == 0 or content_height == 0 then
+								XControl.UpdateMeasure(self, max_width, max_height)
+								return
+							end
+							local scale_x = max_width * 1000 / content_width
+							local scale_y = max_height * 1000 / content_height
+							scale_x = scale_y
+							
+							self:SetScaleModifier(point(scale_x, scale_y))
+							XControl.UpdateMeasure(self, max_width, max_height)
+						end,
+					}),
+					}),
+				}),
+		}),
+		PlaceObj('ModItemXTemplate', {
+			__is_kind_of = "XContextWindow",
+			group = "Zulu Satellite UI",
+			id = "SquadsAndMercs_copy",
+			PlaceObj('XTemplateWindow', {
+				'__class', "SquadsAndMercsClass",
+				'Id', "idPartyContainer",
+				'HAlign', "left",
+				'VAlign', "top",
+			}, {
+				PlaceObj('XTemplateWindow', {
+					'__class', "XContextWindow",
+					'Dock', "top",
+				}, {
+					PlaceObj('XTemplateWindow', {
+						'__context', function (parent, context)
+							return context
+						end,
+						'__class', "XContextWindow",
+						'Id', "idTitle",
+						'Margins', box(-10, -5, 0, 0),
+						'VAlign', "top",
+						'LayoutMethod', "VList",
+						'ContextUpdateOnOpen', true,
+						'OnContextUpdate', function (self, context, ...)
+							local node = self:ResolveId("node")
+							local selectedSquad = node.selected_squad
+							local nameWnd = node.idName
+							nameWnd:SetContext(selectedSquad)
+							nameWnd:SetText(T{183209563903, "<u(Name)> [<u(SquadMemberCount())>]", selectedSquad})
+							
+							local moraleUI = self:ResolveId("idMorale")
+							
+							local selScale = point(670, 670)
+							local unSelScale = point(670, 670)
+							local transSel = 0
+							local transUnSel = 100
+							for i, sB in ipairs(node.idSquadButtons) do
+								if sB == moraleUI then goto continue end
+							
+								local selected = sB.context and sB.context.UniqueId == g_CurrentSquad
+								
+								sB.OnSetRollover = function(s, r)
+									if not selected then
+										s:SetTransparency(r and 0 or transUnSel)
+									end
+								end
+								
+								if not sB.idSelected then goto continue end
+								
+								sB.idSelected:SetVisible(selected)
+								sB:SetTransparency(selected and transSel or transUnSel)
+								sB:SetScaleModifier(selected and selScale or unSelScale)
+								
+								::continue::
+							end
+						end,
+					}, {
+						PlaceObj('XTemplateWindow', {
+							'__context', function (parent, context)
+								return context
+							end,
+							'__class', "XText",
+							'Id', "idName",
+							'Margins', box(5, 0, 0, 0),
+							'Clip', false,
+							'UseClipBox', false,
+							'TextStyle', "PartyUISelectedSquad",
+							'OnContextUpdate', function (self, context, ...)
+								local limit = self.UpdateTimeLimit
+								if limit == 0 or (RealTime() - self.last_update_time) >= limit then
+									self:SetText(self.Text)
+								elseif not self:GetThread("ContextUpdate") then
+									self:CreateThread("ContextUpdate", function(self)
+										Sleep(self.last_update_time + self.UpdateTimeLimit - RealTime())
+										self:OnContextUpdate()
+									end, self)
+								end
+							end,
+							'Translate', true,
+						}),
+						PlaceObj('XTemplateWindow', {
+							'Id', "idSquadButtons",
+							'LayoutMethod', "HList",
+							'LayoutHSpacing', -10,
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'comment', "morale icon container",
+								'__context', function (parent, context) return Selection end,
+								'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeCommonUnitControl") or IsKindOf(GetDialog(parent), "IModeDeployment") end,
+								'__class', "XContextWindow",
+								'RolloverTemplate', "RolloverGeneric",
+								'RolloverTitle', T(399146812726, --[[ModItemXTemplate SquadsAndMercs_copy RolloverTitle]] "Morale"),
+								'Id', "idMorale",
+								'Margins', box(7, 1, 0, 0),
+								'Dock', "left",
+								'VAlign', "top",
+								'FoldWhenHidden', true,
+								'BackgroundRectGlowSize', 1,
+								'BackgroundRectGlowColor', RGBA(32, 35, 47, 255),
+								'HandleMouse', true,
+								'MouseCursor', "UI/Cursors/Hand.tga",
+								'ContextUpdateOnOpen', true,
+								'OnContextUpdate', function (self, context, ...)
+									local icon = self:ResolveId("idMoraleIcon")
+									local team = GetPoVTeam()
+									local morale = team and team.morale or 0
+									
+									local text = self:ResolveId("idMoraleText")
+									text:SetText(morale)
+									text:SetVisible(morale ~= 0)
+									
+									--icon:SetImage(MoraleLevelIcon[morale])
+									if team then
+										self:SetRolloverText(team:GetMoraleLevelAndEffectsText())
+										self.OnMouseButtonDown = function() return "break" end
+									end
+									self:SetVisible(not not g_Combat)
+								end,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'BorderWidth', 2,
+									'MinWidth', 80,
+									'MinHeight', 46,
+									'MaxWidth', 80,
+									'MaxHeight', 46,
+									'BorderColor', RGBA(52, 55, 61, 230),
+									'Background', RGBA(32, 35, 47, 215),
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'comment', "morale indicator",
+										'__class', "XImage",
+										'RolloverTemplate', "RolloverGeneric",
+										'RolloverOffset', box(10, 0, 0, 0),
+										'RolloverTitle', T(817404388036, --[[ModItemXTemplate SquadsAndMercs_copy RolloverTitle]] "Morale"),
+										'Id', "idMoraleIcon",
+										'IdNode', false,
+										'HAlign', "center",
+										'VAlign', "center",
+										'Image', "UI/Hud/morale_normal",
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'__class', "XText",
+											'Id', "idMoraleText",
+											'Margins', box(-2, -2, 0, 0),
+											'HAlign', "center",
+											'VAlign', "center",
+											'TextStyle', "PartyUIMoraleText",
+										}),
+										}),
+									}),
+								}),
+							PlaceObj('XTemplateForEach', {
+								'__context', function (parent, context, item, i, n) return item end,
+								'run_after', function (child, context, item, i, n, last)
+									local image = item.image or "UI/Icons/SquadLogo/squad_logo_01"
+									child.idSquadIcon:SetImage(image .. "_s")
+									child.drop_reason = false
+								end,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) ~= GetDialog("FullscreenGameDialogs") end,
+									'__class', "XButton",
+									'VAlign', "top",
+									'BorderColor', RGBA(0, 0, 0, 0),
+									'Background', RGBA(0, 0, 0, 0),
+									'BackgroundRectGlowColor', RGBA(0, 0, 0, 0),
+									'OnContextUpdate', function (self, context, ...)
+										
+									end,
+									'FocusedBorderColor', RGBA(0, 0, 0, 0),
+									'FocusedBackground', RGBA(0, 0, 0, 0),
+									'DisabledBorderColor', RGBA(0, 0, 0, 0),
+									'OnPress', function (self, gamepad)
+										local dlg = GetDialog(self)
+										local deploymentOrCommonUnit = IsKindOf(dlg, "IModeCommonUnitControl") or
+											   														IsKindOf(dlg, "IModeDeployment")
+										
+										if deploymentOrCommonUnit and self.context.UniqueId == g_CurrentSquad then
+											ToggleAllUnitsSelectionInSquad(true)
+										else
+											local node = self:ResolveId("node")
+											node:SelectSquad(self.context)
+											ObjModified(self.context)
+										end
+									end,
+									'RolloverBackground', RGBA(0, 0, 0, 0),
+									'PressedBackground', RGBA(0, 0, 0, 0),
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__class', "XImage",
+										'Image', "UI/Icons/SateliteView/merc_squad_2",
+									}),
+									PlaceObj('XTemplateWindow', {
+										'__class', "XImage",
+										'Id', "idSquadIcon",
+										'Margins', box(0, 4, 0, 0),
+										'HAlign', "center",
+										'VAlign', "top",
+										'ScaleModifier', point(800, 800),
+									}),
+									PlaceObj('XTemplateWindow', {
+										'__class', "XImage",
+										'Id', "idSelected",
+										'HAlign', "center",
+										'VAlign', "center",
+										'Visible', false,
+										'Image', "UI/Icons/SateliteView/squad_selection",
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "OnMouseButtonDoubleClick(self, pt, button)",
+										'func', function (self, pt, button)
+											if not IsKindOf(GetDialog(self), "XSatelliteDialog") then return end
+											
+											local squad = self.context
+											SatelliteSetCameraDest(squad.CurrentSector, 300)
+										end,
+									}),
+									}),
+								PlaceObj('XTemplateWindow', {
+									'comment', "inventory",
+									'__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) == GetDialog("FullscreenGameDialogs") end,
+									'__class', "XButton",
+									'VAlign', "top",
+									'BorderColor', RGBA(0, 0, 0, 0),
+									'Background', RGBA(0, 0, 0, 0),
+									'BackgroundRectGlowColor', RGBA(0, 0, 0, 0),
+									'OnContextUpdate', function (self, context, ...)
+										
+									end,
+									'FocusedBorderColor', RGBA(0, 0, 0, 0),
+									'FocusedBackground', RGBA(0, 0, 0, 0),
+									'DisabledBorderColor', RGBA(0, 0, 0, 0),
+									'OnPress', function (self, gamepad)
+										local dlg = GetDialog(self)
+										InventoryClosePopup(dlg)
+										local deploymentOrCommonUnit = IsKindOf(dlg, "IModeCommonUnitControl") or
+											   														IsKindOf(dlg, "IModeDeployment")
+										
+										if deploymentOrCommonUnit and self.context.UniqueId == g_CurrentSquad then
+											ToggleAllUnitsSelectionInSquad(true)
+										else
+											local node = self:ResolveId("node")
+											node:SelectSquad(self.context)
+											ObjModified(self.context)
+										end
+									end,
+									'RolloverBackground', RGBA(0, 0, 0, 0),
+									'PressedBackground', RGBA(0, 0, 0, 0),
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__class', "XImage",
+										'Image', "UI/Icons/SateliteView/merc_squad_2",
+									}),
+									PlaceObj('XTemplateWindow', {
+										'__class', "XImage",
+										'Id', "idSquadIcon",
+										'Margins', box(0, 4, 0, 0),
+										'HAlign', "center",
+										'VAlign', "top",
+										'ScaleModifier', point(800, 800),
+									}),
+									PlaceObj('XTemplateWindow', {
+										'__class', "XImage",
+										'Id', "idSelected",
+										'HAlign', "center",
+										'VAlign', "center",
+										'Visible', false,
+										'Image', "UI/Icons/SateliteView/squad_selection",
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "OnMouseButtonDoubleClick(self, pt, button)",
+										'func', function (self, pt, button)
+											if not IsKindOf(GetDialog(self), "XSatelliteDialog") then return end
+											
+											local squad = self.context
+											SatelliteSetCameraDest(squad.CurrentSector, 300)
+										end,
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "IsDropTarget(self, draw_win, pt)",
+										'func', function (self, draw_win, pt)
+											if InventoryIsCombatMode() 
+												or not InventoryStartDragContext 
+												or InventoryStartDragContext.Squad == self.context.UniqueId 
+											then
+												return false
+											end										
+											local cur_sector
+											if IsKindOf(InventoryStartDragContext, "SectorStash") then
+												cur_sector = InventoryStartDragContext.sector_id
+											elseif IsKindOf(InventoryStartDragContext, "ItemContainer") then	
+												cur_sector = self:GetContext().CurrentSector
+											else									
+												local squad_id = IsKindOf(InventoryStartDragContext, "SquadBag") and InventoryStartDragContext.squad_id or InventoryStartDragContext.Squad
+												cur_sector = squad_id and gv_Squads[squad_id].CurrentSector or self.context.CurrentSector
+											end
+											local drag_sector = self.context.CurrentSector
+											return cur_sector==drag_sector
+										end,
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "OnDropEnter(self, draw_win, pt, drag_source)",
+										'func', function (self, draw_win, pt, drag_source)
+											self:SetRollover(true)
+											local squad = self:GetContext()
+											local mouse_text 
+											mouse_text =  T{386181237071, "Give to <merc>",merc = squad.Name}
+											local r1 = InventoryDropMoveItemsToSquad(squad, "check_only")
+											self.drop_reason = r1 or "ok" 
+											if r1 then
+												mouse_text = mouse_text.."\n".. Untranslated("<style InventoryHintTextRed>")..T(719913116871, "Not enough space")										
+											end
+											InventoryShowMouseText(not not mouse_text,mouse_text)
+										end,
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "OnDropLeave(self, drag_win)",
+										'func', function (self, drag_win)
+											self:SetRollover(false)
+											InventoryShowMouseText(false)
+											self.drop_reason = false
+										end,
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "OnDrop(self, drag_win, pt, drag_source_win)",
+										'func', function (self, drag_win, pt, drag_source_win)
+											self.drop_reason = self.drop_reason or InventoryDropMoveItemsToSquad(self.context, "check_only")
+											if self.drop_reason=="ok" then 	
+												InventoryDropMoveItemsToSquad(self.context)
+												self.drop_reason = false
+											end
+											return "not valid target"
+										end,
+									}),
+									}),
+								}),
+							PlaceObj('XTemplateWindow', {
+								'comment', "add squad",
+								'__condition', function (parent, context) return not IsKindOf(GetDialog(parent), "IModeDeployment") and not (GetDialog(GetDialog(parent).parent) == GetDialog("FullscreenGameDialogs")) end,
+								'__class', "XButton",
+								'VAlign', "top",
+								'ScaleModifier', point(666, 666),
+								'BorderColor', RGBA(0, 0, 0, 0),
+								'Background', RGBA(0, 0, 0, 0),
+								'BackgroundRectGlowColor', RGBA(0, 0, 0, 0),
+								'Transparency', 100,
+								'FocusedBorderColor', RGBA(0, 0, 0, 0),
+								'FocusedBackground', RGBA(0, 0, 0, 0),
+								'DisabledBorderColor', RGBA(0, 0, 0, 0),
+								'OnPress', function (self, gamepad)
+									InvokeShortcutAction(GetDialog("PDADialogSatellite"), "idSquadManagement", false, true)
+								end,
+								'RolloverBackground', RGBA(0, 0, 0, 0),
+								'PressedBackground', RGBA(0, 0, 0, 0),
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'__class', "XImage",
+									'Image', "UI/Icons/SateliteView/merc_squad_add_2",
+								}),
+								}),
+							}),
+						}),
+					}),
+				PlaceObj('XTemplateWindow', {
+					'__class', "XFitContent",
+					'IdNode', false,
+					'Dock', "box",
+					'Fit', "height",
+				}, {
+					PlaceObj('XTemplateWindow', {
+						'comment', "Mercs Themselves (Updates on Sel Squad Change)",
+						'__context', function (parent, context) return parent.parent.selected_squad end,
+						'__class', "XContentTemplate",
+						'Id', "idParty",
+						'HAlign', "left",
+						'VAlign', "top",
+						'LayoutMethod', "VList",
+					}, {
+						PlaceObj('XTemplateWindow', {
+							'Margins', box(0, 0, 25, 0),
+							'Dock', "box",
+							'HandleMouse', true,
+						}, {
+							PlaceObj('XTemplateFunc', {
+								'name', "OnMouseButtonDown(self, pos, button)",
+								'func', function (self, pos, button)
+									-- click eater for misclick prevention
+									return "break"
+								end,
+							}),
+							}),
+						PlaceObj('XTemplateWindow', {
+							'Id', "idContainer",
+							'LayoutMethod', "VList",
+							'LayoutVSpacing', 3,
+							'UseClipBox', false,
+							'BorderColor', RGBA(0, 0, 0, 0),
+						}, {
+							PlaceObj('XTemplateGroup', {
+								'__condition', function (parent, context) return context and IsKindOf(GetDialog(parent), "XSatelliteDialog") end,
+							}, {
+								PlaceObj('XTemplateForEach', {
+									'comment', "Mercs in the Current Team",
+									'array', function (parent, context) return context and context.units end,
+									'__context', function (parent, context, item, i, n) return gv_UnitData[item] end,
+								}, {
+									PlaceObj('XTemplateTemplate', {
+										'__template', "HUDMerc",
+										'OnContextUpdate', function (self, context, ...)
+											self.idOperationContainer.idProgressBarContainer:SetVisible(context.Operation~="Idle")
+										end,
+										'FXMouseIn', "MercPortraitRolloverPDA",
+										'FXPress', "MercPortraitPressPDA",
+										'OnPress', function (self, gamepad)
+											local prev
+											if g_SatelliteUI.context_menu then
+												local prev_context = g_SatelliteUI.context_menu[1].context
+												prev = prev_context and prev_context.unit_id
+												g_SatelliteUI:RemoveContextMenu()
+											end
+										end,
+										'AltPress', true,
+										'OnAltPress', function (self, gamepad)
+											local prev
+											if g_SatelliteUI.context_menu then
+												local prev_context = g_SatelliteUI.context_menu[1].context
+												prev = prev_context and prev_context.unit_id
+												g_SatelliteUI:RemoveContextMenu()
+											end
+											local unit = self.context
+											if prev and prev==unit.session_id then
+												return
+											end	
+											local squad_id = unit.Squad
+											local squad = gv_Squads[squad_id]
+											local sector_id = squad and squad.CurrentSector
+											if not sector_id then
+												return
+											end	
+											self:SetRollover(false)
+											g_SatelliteUI:OpenContextMenu(self, sector_id, unit.Squad, unit.session_id)
+										end,
+										'ClassIconOnRollover', true,
+									}, {
+										PlaceObj('XTemplateFunc', {
+											'name', "OnMouseButtonDoubleClick(self, pt, button)",
+											'func', function (self, pt, button)
+												local selectedUnit = self.context
+												if not IsKindOf(selectedUnit, "UnitData") or not g_SatelliteUI then return end
+												
+												local squad = selectedUnit.Squad
+												squad = squad and gv_Squads[squad]
+												SatelliteSetCameraDest(squad.CurrentSector, 300)
+											end,
+										}),
+										PlaceObj('XTemplateWindow', {
+											'comment', "context menu observer",
+											'__context', function (parent, context) return "satellite_context_menu" end,
+											'__class', "XContextWindow",
+											'ContextUpdateOnOpen', true,
+											'OnContextUpdate', function (self, context, ...)
+												local hasMenu = g_SatelliteUI and g_SatelliteUI.context_menu
+												hasMenu = hasMenu and hasMenu.window_state ~= "destroying" and hasMenu.idContent
+												local isOnMe = hasMenu and hasMenu.context.unit_id == self.parent.context.session_id
+												self.parent:SetSelected(isOnMe)
+											end,
+										}),
+										PlaceObj('XTemplateWindow', {
+											'HAlign', "right",
+											'MaxHeight', 105,
+											'LayoutMethod', "VList",
+										}, {
+											PlaceObj('XTemplateWindow', {
+												'comment', "only shows wounded and tired effect",
+												'__context', function (parent, context) return context.StatusEffects end,
+												'__class', "XContentTemplate",
+												'Id', "idStatusEffectsContainer",
+												'Margins', box(-3, 5, 0, 0),
+												'Dock', "top",
+												'HAlign', "left",
+												'VAlign', "top",
+												'MaxHeight', 80,
+												'LayoutMethod', "VList",
+												'LayoutVSpacing', -2,
+												'UseClipBox', false,
+												'FoldWhenHidden', true,
+												'HandleMouse', true,
+												'MouseCursor', "UI/Cursors/Cursor.tga",
+											}, {
+												PlaceObj('XTemplateForEach', {
+													'comment', "status effect",
+													'array', function (parent, context) return table.ifilter(context or empty_table, "ShownSatelliteView") end,
+													'__context', function (parent, context, item, i, n) return item end,
+												}, {
+													PlaceObj('XTemplateTemplate', {
+														'__template', "StatusEffectIcon",
+													}),
+													}),
+												PlaceObj('XTemplateFunc', {
+													'name', "OnMouseButtonDown(self, pos, button)",
+													'func', function (self, pos, button)
+														return "break"
+													end,
+												}),
+												PlaceObj('XTemplateTemplate', {
+													'comment', "contract warning",
+													'__context', function (parent, context) return parent:ResolveId("node").context end,
+													'__template', "MercContractWarningIcon",
+													'Dock', "left",
+												}),
+												}),
+											PlaceObj('XTemplateWindow', {
+												'Dock', "bottom",
+												'HAlign', "left",
+												'VAlign', "bottom",
+												'LayoutMethod', "VList",
+												'LayoutVSpacing', 2,
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'__class', "XButton",
+													'RolloverTemplate', "PDAOperationRollover",
+													'RolloverAnchor', "right",
+													'RolloverAnchorId', "idContent",
+													'RolloverText', T(115318172545, --[[ModItemXTemplate SquadsAndMercs_copy RolloverText]] "placeholder"),
+													'Id', "idOperationContainer",
+													'Margins', box(-5, 4, 0, 0),
+													'Dock', "bottom",
+													'HAlign', "left",
+													'VAlign', "bottom",
+													'MinWidth', 30,
+													'MinHeight', 30,
+													'MaxWidth', 30,
+													'MaxHeight', 30,
+													'Background', RGBA(30, 37, 47, 255),
+													'BackgroundRectGlowSize', 1,
+													'BackgroundRectGlowColor', RGBA(30, 37, 47, 255),
+													'OnContextUpdate', function (self, context, ...)
+														local sector = context:GetSector()
+														self:SetVisible(true)
+														local operation_id = self.context.Operation
+														local is_operation_started = operation_id=="Idle" or operation_id=="Traveling" or operation_id=="Arriving" or sector and sector.started_operations and sector.started_operations[operation_id]
+														
+														if not is_operation_started then
+															self:SetVisible(false)
+															return
+														end
+														local operation = SectorOperations[self.context.Operation]
+														local icon = operation and operation.icon or ""
+														if self.idOperation.Image ~= icon then
+															self.idOperation:SetImage(icon)
+														end
+														self.idOperation:SetImageColor(GameColors.J)
+														-- Released merc.
+														if not context.Squad then return end
+																									
+														-- top parts are 1/8; side and bottom - 1/4
+														local progress_top_left, progress_top_right, progress_left, progress_right, progress_bottom = 0, 0, 0, 0, 0
+														local max_progress = context.OperationInitialETA or 0
+														if max_progress > 0 then
+															local current = max_progress -  GetOperationTimerETA(context, "prediction")--GetOperationTimeLeft(context, context.Operation)
+															local perc = MulDivRound(current or 0, 100, max_progress)
+															progress_top_right = Min(perc, 12)
+															perc = Max(perc - progress_top_right, 0)
+															progress_right = Min(perc, 25)
+															perc = Max(perc - progress_right, 0)
+															progress_bottom = Min(perc, 25)
+															perc = Max(perc - progress_bottom, 0)
+															progress_left = Min(perc, 25)
+															perc = Max(perc - progress_left, 0)
+															progress_top_left = Min(perc, 13)
+														end
+														self.idTopLeft:SetProgress(progress_top_left)
+														self.idTopRight:SetProgress(progress_top_right)
+														self.idLeft:SetProgress(progress_left)
+														self.idRight:SetProgress(progress_right)
+														self.idBottom:SetProgress(progress_bottom)
+													end,
+													'FocusedBackground', RGBA(30, 37, 47, 255),
+													'OnPress', function (self, gamepad)
+														InvokeShortcutAction(false, "idOperations")
+													end,
+													'RolloverBackground', RGBA(30, 37, 47, 255),
+													'PressedBackground', RGBA(30, 37, 47, 255),
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'comment', "operation icon",
+														'__class', "XImage",
+														'Id', "idOperation",
+														'HAlign', "center",
+														'VAlign', "center",
+														'MinWidth', 24,
+														'MinHeight', 24,
+														'MaxWidth', 24,
+														'MaxHeight', 24,
+														'Image', "UI/Icons/unknown_add",
+														'ImageFit', "stretch",
+														'ImageColor', RGBA(61, 122, 153, 255),
+													}),
+													PlaceObj('XTemplateWindow', {
+														'Id', "idProgressBarContainer",
+														'MouseCursor', "UI/Cursors/Pda_Hand.tga",
+													}, {
+														PlaceObj('XTemplateWindow', {
+															'__class', "OperationProgressBarSection",
+															'Id', "idTopLeft",
+															'HAlign', "left",
+															'VAlign', "top",
+															'MinWidth', 15,
+															'MinHeight', 2,
+															'MaxWidth', 15,
+															'MaxHeight', 2,
+															'UseClipBox', false,
+															'MaxProgress', 13,
+														}),
+														PlaceObj('XTemplateWindow', {
+															'__class', "OperationProgressBarSection",
+															'Id', "idTopRight",
+															'Margins', box(15, 0, 0, 0),
+															'HAlign', "left",
+															'VAlign', "top",
+															'MinWidth', 15,
+															'MinHeight', 2,
+															'MaxWidth', 15,
+															'MaxHeight', 2,
+															'UseClipBox', false,
+															'MaxProgress', 12,
+														}),
+														PlaceObj('XTemplateWindow', {
+															'__class', "OperationProgressBarSection",
+															'Id', "idRight",
+															'HAlign', "right",
+															'VAlign', "top",
+															'MinWidth', 2,
+															'MinHeight', 30,
+															'MaxWidth', 2,
+															'MaxHeight', 30,
+															'UseClipBox', false,
+															'Horizontal', false,
+															'MaxProgress', 25,
+														}),
+														PlaceObj('XTemplateWindow', {
+															'__class', "OperationProgressBarSection",
+															'Id', "idBottom",
+															'HAlign', "right",
+															'VAlign', "bottom",
+															'MinWidth', 30,
+															'MinHeight', 2,
+															'MaxWidth', 30,
+															'MaxHeight', 2,
+															'UseClipBox', false,
+															'MaxProgress', 25,
+														}),
+														PlaceObj('XTemplateWindow', {
+															'__class', "OperationProgressBarSection",
+															'Id', "idLeft",
+															'HAlign', "left",
+															'VAlign', "bottom",
+															'MinWidth', 2,
+															'MinHeight', 30,
+															'MaxWidth', 2,
+															'MaxHeight', 30,
+															'UseClipBox', false,
+															'Horizontal', false,
+															'MaxProgress', 25,
+														}),
+														}),
+													PlaceObj('XTemplateFunc', {
+														'name', "OnMousePos",
+														'func', function (self, ...)
+															return "break"
+														end,
+													}),
+													PlaceObj('XTemplateFunc', {
+														'name', "Open(self)",
+														'func', function (self)
+															self.idTopLeft:SetProgress(0)
+															self.idTopRight:SetProgress(0)
+															self.idLeft:SetProgress(0)
+															self.idRight:SetProgress(0)
+															self.idBottom:SetProgress(0)
+															XContextWindow.Open(self)
+														end,
+													}),
+													}),
+												}),
+											}),
+										}),
+									}),
+								}),
+							PlaceObj('XTemplateGroup', {
+								'__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) == GetDialog("FullscreenGameDialogs") end,
+							}, {
+								PlaceObj('XTemplateForEach', {
+									'comment', "Mercs in the Current Team",
+									'array', function (parent, context) return context and context.units end,
+									'__context', function (parent, context, item, i, n)
+										local unit = g_Units[item]
+										if unit and InventoryIsCombatMode(unit) then 
+											return unit
+										end
+										return gv_SatelliteView and  gv_UnitData[item] or g_Units[item] or gv_UnitData[item]
+									end,
+									'run_after', function (child, context, item, i, n, last)
+										child.unit = context
+										child:SetContext(child.unit)
+										child.idx = i
+									end,
+								}, {
+									PlaceObj('XTemplateTemplate', {
+										'__template', "HUDMerc",
+										'RolloverAnchorId', "idParty",
+										'OnContextUpdate', function (self, context, ...)
+											HUDMercClass.OnContextUpdate(self, context, ...)
+											self.unit = context
+										end,
+										'OnPress', function (self, gamepad)
+											self:SelectUnit()
+										end,
+									}, {
+										PlaceObj('XTemplateFunc', {
+											'name', "Open(self)",
+											'func', function (self)
+												local noClr = const.PDAUIColors.noClr
+												self.idContent:SetBackground(noClr)
+												self.idContent:SetBackgroundRectGlowSize(0)
+												local dlg = GetDialog(self)
+												local ctx = self:GetContext()
+												if ctx and dlg.selected_unit and dlg.selected_unit.session_id == ctx.session_id then
+													self:SetSelected(true)
+												end
+												HUDMercClass.Open(self)
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "SelectUnit(self)",
+											'func', function (self)
+												local dlg = GetDialog(self)
+												local myUnit = self.unit
+												local invUnit = dlg.selected_unit
+												if IsCoOpGame() then
+													if not myUnit:IsLocalPlayerControlled() then											
+														if InventoryIsValidGiveDistance(InventoryStartDragContext, myUnit)then
+															local args = { src_container = InventoryStartDragContext, src_slot = InventoryStartDragSlotName,
+																			dest_container = myUnit, dest_slot = GetContainerInventorySlotName(myUnit)}
+															if InventoryDragItems then
+																args.multi_items = true
+																for i, item in ipairs(InventoryDragItems) do		
+																	args.item = item
+																	args.no_ui_respawn = i~=#InventoryDragItems
+																	local r1, r2  = MoveItem(args) --this will merge stacks and move, if you want only move use amount = item.Amount				
+																	--		print(item.class, r1, r2)
+																end															
+																InventoryDeselectMultiItems()
+																PlayFX("GiveItem", "start",  GetInventoryItemDragDropFXActor(item))
+															elseif InventoryDragItem then
+																--give drag item
+																args.item = InventoryDragItem
+																MoveItem(args)
+															end
+															--CancelDrag(dlg)
+															return
+														end
+													end
+												end
+												
+												self:SetSelected(true)
+												if myUnit and invUnit and myUnit.session_id == invUnit.session_id then
+													return
+												end
+												
+												local tacticalUnit = g_Units[myUnit.session_id]
+												if tacticalUnit and tacticalUnit:CanBeControlled() then
+													SelectObj(g_Units[myUnit.session_id])
+												end
+												
+												local win, button 
+												if IsEquipSlot(InventoryStartDragSlotName) then
+													local slot_ctrl = dlg:GetSlotByName(InventoryStartDragSlotName)
+													win  = slot_ctrl.drag_win
+													button = slot_ctrl.drag_button
+													slot_ctrl.drag_win = false
+													local desktop = slot_ctrl.desktop
+													if desktop:GetMouseCapture()==slot_ctrl then
+														desktop:SetMouseCapture(false)	
+													end
+												end
+												
+												local prev_unit_id = invUnit.session_id
+												dlg.selected_unit = myUnit
+												dlg.compare_mode_weaponslot = self.unit.current_weapon=="Handheld A" and 1 or 2
+												local context = dlg:GetContext()
+												context.unit = myUnit
+												InventoryClosePopup(dlg)
+												dlg:SetContext(context)
+												dlg:OnContextUpdate(context)
+												dlg.idUnitInfo:RespawnContent()
+												dlg:CompareWeaponSetUI()
+												--dlg:ActionsUpdated()
+												-- move selected unit backpack into view
+												local ctrl_right_area = dlg.idScrollArea --= ScrollIntoView
+												for _, wnd in ipairs(ctrl_right_area) do
+													local wcontext = wnd:GetContext()
+													local wnd_id = wnd:GetContext().session_id
+													local is_grayouted = InventoryUIGrayOut(wcontext)
+													wnd:SetTransparency(is_grayouted and 150 or 0)
+													if wnd and wnd_id then
+														if wnd_id==prev_unit_id then
+															wnd.idName:SetHightlighted(false)
+														end	
+														if wnd_id==context.unit.session_id then
+															ctrl_right_area:ScrollIntoView(wnd)
+															wnd.idName:SetHightlighted(true)
+														end
+													end	
+												end
+												
+												for _, wnd in ipairs(self.parent) do
+													wnd:SetSelected(self==wnd)
+												end
+												
+												if IsEquipSlot(InventoryStartDragSlotName) then
+													local dlg = GetDialog(self)
+													local slot_ctrl = dlg:GetSlotByName(InventoryStartDragSlotName)
+													slot_ctrl.drag_win = win
+													slot_ctrl.drag_button = button
+													DragSource = slot_ctrl
+													slot_ctrl.desktop:SetMouseCapture(slot_ctrl)
+												end
+												if InventoryDragItem and not InventoryDragItems then
+													HighlightEquipSlots(InventoryDragItem, true)
+													HighlightWeaponsForAmmo(InventoryDragItem, true)
+													--HighlightAPCost(InventoryDragItem, true, StartDragSource)
+												end
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "IsDropTarget(self, draw_win, pt)",
+											'func', function (self, draw_win, pt)
+												return true
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "OnDropEnter(self, draw_win, pt, drag_source)",
+											'func', function (self, draw_win, pt, drag_source)
+												self:SetRollover(true)
+												local valid, mouse_text = InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext())
+												if (not gv_SatelliteView or InventoryIsCombatMode()) and not valid then
+													InventoryShowMouseText(true,mouse_text)
+													return
+												end
+												if InventoryDragItem and g_Combat and IsCoOpGame() and not self.context:IsLocalPlayerControlled() then
+													mouse_text = T(406257152368, "Cannot pick").."\n"..T(341907478094, "Controlled by <OtherPlayerName()>")
+												elseif InventoryDragItem then											
+													mouse_text = InventoryGetMoveIsInvalidReason(self.context, InventoryStartDragContext)
+													if not mouse_text then
+														local ap_cost, unit_ap, action_name = InventoryItemsAPCost(self.context, "Inventory", false, false)
+														mouse_text = action_name or ""
+														if InventoryIsCombatMode() and ap_cost and ap_cost>0 then
+															mouse_text = InventoryFormatAPMouseText(unit_ap, ap_cost, mouse_text)
+														end
+													end
+												end	
+												InventoryShowMouseText(not not mouse_text,mouse_text)
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "OnDropLeave(self, drag_win)",
+											'func', function (self, drag_win)
+												self:SetRollover(false)
+												InventoryShowMouseText(false)
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "OnDrop(self, drag_win, pt, drag_source_win)",
+											'func', function (self, drag_win, pt, drag_source_win)
+												self:SelectUnit()
+												return "not valid target"
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "SetHighlighted(self, selected)",
+											'func', function (self, selected)
+												if type(selected) == "string" then
+													local stat = Presets.MercStat.Default[selected]
+													if stat then
+														local icon = stat.Icon
+														local value = self.context[selected]
+														self.idStatIcon:SetImage(icon)
+														self.idStatCount:SetText(value)
+													else
+														selected = true
+													end
+												end
+												
+												self.highlighted = selected
+												--self:OnSetRollover()
+												if self.ClassIconOnRollover then
+													self.idClass:SetVisible(self.rollover or selected)
+												end	
+												self:SetupStyle(self.rollover or selected)
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "SetHighlightedStatOrIcon(self, selected)",
+											'func', function (self, selected)
+												if type(selected) == "string" then
+													local stat = Presets.MercStat.Default[selected]
+													if stat then
+														local icon = stat.Icon
+														local value = self.context[selected]
+														self.idStatIcon:SetImage(icon)
+														self.idStatCount:SetText(value)
+														self.idStatIcon:SetImageColor(GameColors.J)
+													else
+														self.idStatIcon:SetImage(selected)
+														self.idStatCount.parent:SetVisible(false)
+														self.idStatIcon:SetImageColor(GameColors.J)
+													end
+												end
+												
+												self.highlighted = selected
+												if self.ClassIconOnRollover then
+													self.idClass:SetVisible(self.rollover or selected)
+												end	
+												
+												if type(self.highlighted) == "string" then
+													self.idBar:SetVisible(false)
+													self.idStatHighlight:SetVisible(true)
+												else
+													self.idBar:SetVisible(true)
+													self.idStatCount.parent:SetVisible(true)
+													self.idStatHighlight:SetVisible(false)
+												end
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "SetupStyle(self, rollover)",
+											'func', function (self, rollover)
+												if not self.idContent then
+													return
+												end
+												local hightlighted_string = type(self.highlighted) == "string"
+												local selected = self.selected or (self.highlighted and not hightlighted_string)or rollover
+												local noClr = const.PDAUIColors.noClr
+												local selectedColored =const.HUDUIColors.selectedColored
+												local defaultColor = const.HUDUIColors.defaultColor
+												self.idContent:SetImage(selected and "UI/PDA/os_portrait_selection" or "")
+												self.idBottomPart:SetBackground(selected and noClr or defaultColor)
+												self.idBottomPart:SetBackgroundRectGlowColor(selected and noClr or defaultColor)
+												self.idContent:SetBackground(selected and RGBA(255,255,255,255) or noClr)
+												
+												if hightlighted_string then
+													self.idBar:SetVisible(false)
+													self.idStatHighlight:SetVisible(true)
+												else
+													self.idBar:SetVisible(true)
+													self.idStatHighlight:SetVisible(false)
+												end
+												--self.idContent:SetFocusedBackground(noClr)
+												--self.idContent:SetBackgroundRectGlowColor(selected and selectedColored or noClr)
+												local name = self:ResolveId("idName")
+												if name then
+													self.idName:SetTextStyle(selected and "PDAMercNameCard" or "PDAMercNameCard_Light")
+												end
+												
+												if self.idAPIndicator then
+													self.idAPIndicator:SetBackground(selected and selectedColored or defaultColor)
+													self.idAPIndicator:SetBackgroundRectGlowSize(selected and 0 or 1)
+													self.idAPIndicator:SetBackgroundRectGlowColor(selected and selectedColored or defaultColor)
+													self.idAPText:SetTextStyle(selected and "HUDHeaderDark" or "HUDHeader")
+												end
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "SetSelected(self, selected)",
+											'func', function (self, selected)
+												--if self.selected == selected then return false end
+												self.selected = selected
+												self:SetupStyle()
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "OnSetRollover(self, rollover)",
+											'func', function (self, rollover)
+												HUDMercClass.OnSetRollover(self, rollover)
+												self:SetupStyle(rollover)
+											end,
+										}),
+										PlaceObj('XTemplateCode', {
+											'comment', "OnMsg.StatusEffectAdded/Removed",
+											'run', function (self, parent, context)
+												function OnMsg.StatusEffectAdded(unit, status, stacks, reason)
+													if status ~= "Hidden" then return end
+													if parent.context ~= unit then return end
+													HUDMercClass.SetupStyle(parent)
+												end
+												
+												function OnMsg.StatusEffectRemoved(unit, status, stacks, reason)
+													if status ~= "Hidden" then return end
+													if parent.context ~= unit then return end
+													HUDMercClass.SetupStyle(parent)
+												end
+											end,
+										}),
+										PlaceObj('XTemplateWindow', {
+											'__parent', function (parent, context) return parent.idPortraitBG end,
+											'Id', "idStatHighlight",
+											'Dock', "box",
+											'VAlign', "bottom",
+											'FoldWhenHidden', true,
+											'DrawOnTop', true,
+										}, {
+											PlaceObj('XTemplateWindow', {
+												'HAlign', "left",
+												'VAlign', "bottom",
+												'LayoutMethod', "HList",
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'Padding', box(2, 2, 2, 2),
+													'HAlign', "right",
+													'VAlign', "bottom",
+													'MinWidth', 24,
+													'MinHeight', 24,
+													'MaxWidth', 24,
+													'MaxHeight', 24,
+													'Background', RGBA(32, 35, 47, 255),
+													'BackgroundRectGlowColor', RGBA(32, 35, 47, 255),
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'__class', "XImage",
+														'Id', "idStatIcon",
+														'Image', "UI/Icons/st_marksmanship",
+														'ImageFit', "stretch",
+														'ImageColor', RGBA(130, 128, 120, 255),
+													}),
+													}),
+												PlaceObj('XTemplateWindow', {
+													'HAlign', "right",
+													'VAlign', "bottom",
+													'MinWidth', 24,
+													'MinHeight', 24,
+													'MaxHeight', 24,
+													'Background', RGBA(32, 35, 47, 255),
+													'BackgroundRectGlowColor', RGBA(32, 35, 47, 255),
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'__class', "XText",
+														'Id', "idStatCount",
+														'HAlign', "center",
+														'VAlign', "center",
+														'FoldWhenHidden', true,
+														'TextStyle', "HUDHeaderSmallLight",
+														'ContextUpdateOnOpen', true,
+													}),
+													}),
+												}),
+											}),
+										PlaceObj('XTemplateWindow', {
+											'HAlign', "right",
+										}, {
+											PlaceObj('XTemplateWindow', {
+												'Id', "idStatusHighlighter",
+												'VAlign', "top",
+												'LayoutMethod', "VList",
+												'Visible', false,
+												'FoldWhenHidden', true,
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'comment', "only shows wounded effect",
+													'__context', function (parent, context) return context.StatusEffects end,
+													'__class', "XContentTemplate",
+													'Id', "idStatusEffectsContainer",
+													'Margins', box(0, 5, 0, 0),
+													'HAlign', "left",
+													'VAlign', "top",
+													'LayoutMethod', "VWrap",
+													'LayoutVSpacing', -2,
+													'UseClipBox', false,
+													'FoldWhenHidden', true,
+												}, {
+													PlaceObj('XTemplateForEach', {
+														'comment', "status effect",
+														'array', function (parent, context) return context.Wounded and { context[context.Wounded] } or empty_table end,
+														'condition', function (parent, context, item, i) return item end,
+														'__context', function (parent, context, item, i, n) return item end,
+													}, {
+														PlaceObj('XTemplateTemplate', {
+															'__condition', function (parent, context) return context end,
+															'__template', "StatusEffectIcon",
+															'VAlign', "top",
+														}),
+														}),
+													}),
+												}),
+											PlaceObj('XTemplateWindow', {
+												'__condition', function (parent, context) return IsKindOf(context, "Unit") and g_Combat end,
+												'VAlign', "bottom",
+												'LayoutMethod', "VList",
+												'LayoutVSpacing', 2,
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'Id', "idAPIndicator",
+													'Margins', box(-5, 0, 0, 0),
+													'Padding', box(2, 2, 2, 2),
+													'HAlign', "left",
+													'VAlign', "bottom",
+													'MinWidth', 30,
+													'MinHeight', 30,
+													'MaxWidth', 30,
+													'MaxHeight', 30,
+													'Background', RGBA(230, 222, 203, 255),
+													'BackgroundRectGlowColor', RGBA(230, 222, 203, 255),
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'__class', "XText",
+														'Id', "idAPText",
+														'HAlign', "center",
+														'VAlign', "center",
+														'FoldWhenHidden', true,
+														'TextStyle', "HUDHeaderDark",
+														'ContextUpdateOnOpen', true,
+														'OnContextUpdate', function (self, context, ...)
+															if not IsKindOf(context, "Unit") then return end
+															self.parent:SetVisible(not not g_Combat and not context:IsDead() and not context:IsDowned())
+															self:SetText(self.Text)
+															XContextControl.OnContextUpdate(self, context)
+														end,
+														'Translate', true,
+														'Text', T(788717079012, --[[ModItemXTemplate SquadsAndMercs_copy Text]] "<apn(GetUIActionPoints())>"),
+													}),
+													}),
+												}),
+											}),
+										}),
+									}),
+								}),
+							PlaceObj('XTemplateGroup', {
+								'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeCommonUnitControl") or IsKindOf(GetDialog(parent), "IModeDeployment") end,
+							}, {
+								PlaceObj('XTemplateForEach', {
+									'comment', "Mercs in the Current Team",
+									'array', function (parent, context) return context and context.units end,
+									'condition', function (parent, context, item, i) return IsKindOf(item, "Unit") and item.team and item.team.control == "UI" end,
+									'__context', function (parent, context, item, i, n) return item end,
+								}, {
+									PlaceObj('XTemplateTemplate', {
+										'__template', "HUDMerc",
+										'OnContextUpdate', function (self, context, ...)
+											local unit = self.context
+											local unitSelected = not not table.find(Selection, unit)
+											self:SetSelected(Selection[1] == unit and "full" or unitSelected)
+											self:SetupStyle()
+											local showActionInfo = SelectedObj and IsCombatActionForAlly(GetDialog(self).action)
+											self.dontShowRollover = showActionInfo
+										end,
+										'OnPress', function (self, gamepad)
+											local selectedUnit = self.context
+											local igim = GetInGameInterfaceModeDlg()
+											
+											if IsCombatActionForAlly(igim.action) and (igim.action.ActionType ~= "Ranged Attack") and (igim.action.ActionType ~= "Melee Attack") then
+												if SelectedObj and not SelectedObj.move_attack_target then
+													local targets = igim.action:GetTargets({SelectedObj})
+													if table.find(targets, selectedUnit) then
+														local _, err = CanBandageUI(SelectedObj, { target = selectedUnit })
+														if igim.action:GetUIState({SelectedObj}) == "enabled" and not err then
+															igim:StartMoveAndAttack(SelectedObj, igim.action, selectedUnit, SelectedObj:GetClosestMeleeRangePos(selectedUnit), {target = selectedUnit})
+														end
+													end
+												end
+												return "break"
+											end
+											
+											local canBeControlled, reason = selectedUnit:CanBeControlled()
+											if not canBeControlled and reason ~= "not_local_turn" then
+												return "break"
+											end
+											
+											if selectedUnit == SelectedObj and not IsPointInsidePoly2D(selectedUnit:GetVisualPos(), CalcCombatZone()) or
+												cameraTac.GetFloor() ~= GetStepFloor(selectedUnit) then
+												SnapCameraToObj(selectedUnit, nil, GetStepFloor(selectedUnit))
+											end
+											
+											if g_Combat and not gv_DeploymentStarted and not IsKindOf(igim, "IModeCombatMovement") then
+												SetInGameInterfaceMode("IModeCombatMovement")
+												SelectObj(selectedUnit)
+											elseif IsKindOf(igim, "IModeExploration") then
+												igim:HandleUnitSelection({selectedUnit})
+											else -- Deployment
+												SelectObj(selectedUnit)
+											end
+											
+											return "break"
+										end,
+										'AltPress', true,
+										'OnAltPress', function (self, gamepad)
+											local selectedUnit = self.context						
+											local igim = GetInGameInterfaceModeDlg()
+											
+											local squad = gv_Squads[self.context.Squad]	
+											local context = {
+												sector_id = squad.CurrentSector,
+												squad_id = squad.UniqueId,
+												actions = { "idInventory", "actionOpenCharacterContextMenu", "actionLevelUpViewContextMenu" },
+												unit_id = selectedUnit.session_id
+											}
+											local ctxMenu = XTemplateSpawn("SatelliteViewMapContextMenu", igim, context)
+											ctxMenu:SetZOrder(999)
+											ctxMenu:SetAnchor(self.box)
+											ctxMenu:Open()
+											self.desktop:SetModalWindow(ctxMenu)
+										end,
+										'ClassIconOnRollover', true,
+									}, {
+										PlaceObj('XTemplateFunc', {
+											'name', "OnMouseButtonDoubleClick(self, pt, button)",
+											'func', function (self, pt, button)
+												local selectedUnit = self.context
+												if not IsKindOf(selectedUnit, "Unit") or ActionCameraPlaying then return end
+												
+												SnapCameraToObj(selectedUnit, "force", GetStepFloor(selectedUnit))
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "OnSetRollover(self, rollover)",
+											'func', function (self, rollover)
+												local context = self.context								
+												
+												local igim = GetInGameInterfaceModeDlg()
+												if igim and IsCombatActionForAlly(igim.action) then
+													if igim.action.id == "Bandage" then
+														local _, err = CanBandageUI(SelectedObj, { target = context })
+														local bandageError = err and Untranslated(_InternalTranslate(err, { ["flavor"] = "", ["/flavor"] = "" }))
+														SetAPIndicator(bandageError and 0 or false, "bandage-error", bandageError, nil, "force")
+														context:SetHighlightReason("bandage-target", not err)
+													end
+													SetAPIndicator(false, "melee-attack")
+													SetAPIndicator(false, "unreachable")
+												end
+												
+												local noRollover = context:IsDead() or not context:IsLocalPlayerControlled()
+												if rollover and not noRollover then
+													SetActiveBadgeExclusive(self.context)
+												elseif context.ui_badge then
+													context.ui_badge:SetActive(false, "exclusive")
+													context:SetHighlightReason("bandage-target", false)
+												end
+												
+												if noRollover then
+													rollover = false
+												end
+												
+												HUDMercClass.OnSetRollover(self, rollover)
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "SetupStyle(self, ...)",
+											'func', function (self, ...)
+												if IsKindOf(GetDialog(self.parent), "IModeDeployment") then
+													local deployed = IsUnitDeployed(self.context)
+													if not deployed then
+														self.idPortrait:SetEnabled(false)
+														self.idBar.HPColor = GameColors.D
+													else
+														self.idPortrait:SetEnabled(true)
+														self.idBar.HPColor = GameColors.Player
+													end
+												end
+												HUDMercClass.SetupStyle(self, ...)
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "GetMouseCursor(self)",
+											'func', function (self)
+												local igim = GetInGameInterfaceModeDlg()
+												if igim.action and igim.action.id == "Bandage" then
+													if CanBandageUI(SelectedObj, { target = self.context }) then
+														return "UI/Cursors/Healing_on.tga"
+													else
+														return "UI/Cursors/Healing_off.tga"
+													end
+												end
+												
+												return "UI/Cursors/Hand.tga"
+											end,
+										}),
+										PlaceObj('XTemplateCode', {
+											'comment', "OnMsg.StatusEffectAdded/Removed",
+											'run', function (self, parent, context)
+												function OnMsg.StatusEffectAdded(unit, status, stacks, reasons)
+													if status ~= "Hidden" then return end
+													if parent.context ~= unit then return end
+													HUDMercClass.SetupStyle(parent)
+												end
+												
+												function OnMsg.StatusEffectRemoved(unit, status, stacks, reason)
+													if status ~= "Hidden" then return end
+													if parent.context ~= unit then return end
+													HUDMercClass.SetupStyle(parent)
+												end
+											end,
+										}),
+										PlaceObj('XTemplateWindow', {
+											'HAlign', "right",
+											'VAlign', "bottom",
+											'LayoutMethod', "VList",
+										}, {
+											PlaceObj('XTemplateWindow', nil, {
+												PlaceObj('XTemplateWindow', {
+													'__class', "XImage",
+													'RolloverTemplate', "RolloverGeneric",
+													'RolloverAnchor', "right",
+													'RolloverText', T(301759703755, --[[ModItemXTemplate SquadsAndMercs_copy RolloverText]] "Wounds are being bandaged."),
+													'RolloverOffset', box(15, 0, 0, 0),
+													'Id', "idBeingBandagedIndicator",
+													'HAlign', "center",
+													'VAlign', "top",
+													'MinWidth', 25,
+													'MinHeight', 25,
+													'MaxWidth', 25,
+													'MaxHeight', 25,
+													'Visible', false,
+													'HandleMouse', true,
+													'Image', "UI/Hud/hud_bandaging",
+													'ImageFit', "stretch",
+													'ImageScale', point(900, 900),
+												}),
+												PlaceObj('XTemplateWindow', {
+													'__context', function (parent, context) return context.StatusEffects end,
+													'__class', "XContentTemplate",
+													'Id', "idWounded",
+													'Margins', box(3, 0, 0, 0),
+													'LayoutMethod', "HList",
+													'HandleMouse', true,
+													'MouseCursor', "UI/Cursors/Cursor.tga",
+												}, {
+													PlaceObj('XTemplateTemplate', {
+														'__context', function (parent, context) return table.find_value(context, "class", "Wounded") end,
+														'__condition', function (parent, context) return not not context end,
+														'__template', "StatusEffectIcon",
+													}),
+													PlaceObj('XTemplateTemplate', {
+														'__context', function (parent, context) return table.find_value(context, "class", "Tired") or table.find_value(context, "class", "Exhausted") end,
+														'__condition', function (parent, context) return not not context end,
+														'__template', "StatusEffectIcon",
+													}),
+													PlaceObj('XTemplateFunc', {
+														'name', "OnMouseButtonDown(self, pos, button)",
+														'func', function (self, pos, button)
+															return "break"
+														end,
+													}),
+													}),
+												}),
+											PlaceObj('XTemplateWindow', {
+												'__context', function (parent, context) return "combat_bar_enemies" end,
+												'__condition', function (parent, context) return not IsKindOf(GetDialog(parent), "IModeDeployment") end,
+												'__class', "XContextWindow",
+												'RolloverTemplate', "RolloverGeneric",
+												'RolloverAnchor', "right",
+												'RolloverOffset', box(10, 0, 0, 0),
+												'IdNode', true,
+												'HAlign', "left",
+												'VAlign', "bottom",
+												'ContextUpdateOnOpen', true,
+												'OnContextUpdate', function (self, context, ...)
+													local partyMemberWnd = self:ResolveId("node")
+													local member = partyMemberWnd.context
+													local targets = GetTargetsToShowInPartyUI(member)
+													local targetCount = #targets
+													self:SetVisible(targetCount > 0 and not gv_Deployment)
+													rawset(self[1], "enemies", targets)
+													self:SetRolloverText(T{914820786173, "Visible Enemies: <enemyCount>", enemyCount = targetCount})
+													self.idCount:SetText(targetCount)
+												end,
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'__class', "XImage",
+													'IdNode', false,
+													'HandleMouse', true,
+													'Image', "UI/Hud/enemies_in_range",
+													'Columns', 2,
+													'ImageScale', point(900, 900),
+												}, {
+													PlaceObj('XTemplateFunc', {
+														'name', "OnMouseButtonDown(self, pos, button)",
+														'func', function (self, pos, button)
+															local enemies = rawget(self, "enemies")
+															if not enemies or #enemies == 0 then return end
+															local lastTarget = rawget(self, "target")
+															if not lastTarget or lastTarget == #enemies then lastTarget = 0 end
+															lastTarget = lastTarget + 1
+															rawset(self, "target", lastTarget)
+															SnapCameraToObj(enemies[lastTarget], nil, GetStepFloor(enemies[lastTarget]))
+															return "break"
+														end,
+													}),
+													PlaceObj('XTemplateWindow', {
+														'__class', "XText",
+														'Id', "idCount",
+														'HAlign', "right",
+														'VAlign', "top",
+														'Clip', false,
+														'UseClipBox', false,
+														'FoldWhenHidden', true,
+														'TextStyle', "VisibleEnemiesUICount",
+													}),
+													}),
+												}),
+											PlaceObj('XTemplateWindow', {
+												'Id', "idAPIndicator",
+												'Margins', box(-5, 0, 0, 0),
+												'Padding', box(2, 2, 2, 2),
+												'HAlign', "left",
+												'VAlign', "bottom",
+												'MinWidth', 30,
+												'MinHeight', 30,
+												'MaxWidth', 30,
+												'MaxHeight', 30,
+												'Background', RGBA(230, 222, 203, 255),
+												'BackgroundRectGlowColor', RGBA(230, 222, 203, 255),
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'__class', "XText",
+													'Id', "idAPText",
+													'HAlign', "center",
+													'VAlign', "center",
+													'FoldWhenHidden', true,
+													'TextStyle', "HUDHeaderDark",
+													'ContextUpdateOnOpen', true,
+													'OnContextUpdate', function (self, context, ...)
+														if not IsKindOf(context, "Unit") then return end
+														self.parent:SetVisible(not not g_Combat and not context:IsDead() and not context:IsDowned())
+														self:SetText(self.Text)
+														XContextControl.OnContextUpdate(self, context)
+													end,
+													'Translate', true,
+													'Text', T(348547901304, --[[ModItemXTemplate SquadsAndMercs_copy Text]] "<apn(GetUIActionPoints())>"),
+												}),
+												PlaceObj('XTemplateWindow', {
+													'__class', "XImage",
+													'Id', "idBandageIndicator",
+													'Visible', false,
+													'Image', "UI/Hud/Status effects/treating",
+													'ImageFit', "stretch",
+												}),
+												}),
+											PlaceObj('XTemplateWindow', {
+												'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeDeployment") end,
+												'RolloverTemplate', "SmallRolloverGeneric",
+												'RolloverAnchor', "top",
+												'RolloverText', T(251040816715, --[[ModItemXTemplate SquadsAndMercs_copy RolloverText]] "Аwaiting deployment"),
+												'RolloverOffset', box(-15, 0, 0, -15),
+												'Id', "idDeployed",
+												'Margins', box(-5, 0, 0, -5),
+												'HAlign', "right",
+												'VAlign', "bottom",
+												'HandleMouse', true,
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'__class', "XContextImage",
+													'FoldWhenHidden', true,
+													'Image', "UI/Hud/notification",
+													'ContextUpdateOnOpen', true,
+													'OnContextUpdate', function (self, context, ...)
+														if not IsKindOf(context, "Unit") then return end
+														local deployed = IsUnitDeployed(context)
+														self.parent:SetVisible(not deployed)
+														XContextControl.OnContextUpdate(self, context)
+													end,
+												}),
+												}),
+											}),
+										PlaceObj('XTemplateWindow', {
+											'comment', "sus bar",
+											'__parent', function (parent, context) return parent.idBottomPart end,
+											'__condition', function (parent, context) return not g_Combat end,
+											'__class', "SmoothBar",
+											'Margins', box(0, 0, 0, -3),
+											'Dock', "top",
+											'VAlign', "top",
+											'MinHeight', 3,
+											'MaxHeight', 3,
+											'Background', RGBA(52, 55, 61, 255),
+											'BindTo', "suspicion",
+											'FillColor', RGBA(222, 60, 75, 255),
+										}, {
+											PlaceObj('XTemplateFunc', {
+												'name', "Open(self)",
+												'func', function (self)
+													self.MaxValue = SuspicionThreshold
+													SmoothBar.Open(self)
+												end,
+											}),
+											}),
+										PlaceObj('XTemplateWindow', {
+											'comment', "sus indicator",
+											'__context', function (parent, context) return "UnitsSusBeingRaised" end,
+											'__parent', function (parent, context) return parent.idPortraitBG end,
+											'__condition', function (parent, context) return not g_Combat end,
+											'__class', "XContextImage",
+											'Id', "idSusIndicator",
+											'Margins', box(0, 0, 5, 0),
+											'HAlign', "right",
+											'MinWidth', 15,
+											'MinHeight', 20,
+											'MaxWidth', 15,
+											'MaxHeight', 20,
+											'Visible', false,
+											'DrawOnTop', true,
+											'Image', "UI/Hud/enemy_detection",
+											'ImageFit', "width",
+											'ContextUpdateOnOpen', true,
+											'OnContextUpdate', function (self, context, ...)
+												local obj = self:ResolveId("node")
+												obj = obj and obj.context
+												self:SetVisible(UnitsSusBeingRaised and obj and UnitsSusBeingRaised[obj.handle])
+											end,
+										}),
+										}),
+									}),
+								}),
+							}),
+						PlaceObj('XTemplateFunc', {
+							'name', "RespawnContent(self, ...)",
+							'func', function (self, ...)
+								-- This will prevent the tactical view party from updating during satellite gameplay.
+								-- The UI is then refreshed upon exiting satellite view.
+								if not self:IsVisible() and not GetParentOfKind(self, "PDAClass") then return end
+								if UIRebuildSpam then
+									DbgUIRebuild("party inner")
+								end
+								XContentTemplate.RespawnContent(self)
+							end,
+						}),
+						}),
+					PlaceObj('XTemplateFunc', {
+						'name', "UpdateMeasure(self, max_width, max_height)",
+						'func', function (self, max_width, max_height)
+							if not self.measure_update then return end
+							
+							self:SetScaleModifier(point(1000, 1000))
+							local _, yM = ScaleXY(self.parent.scale, 0, 150) -- command button and snype roughly
+							max_height = max_height - yM
+							
+							XControl.UpdateMeasure(self, max_width, max_height)
+							if self.measure_height < max_height then
+								return
+							end
+							
+							local one = point(1000, 1000)
+							for _, child in ipairs(self) do
+								child:SetOutsideScale(one)
+							end
+							self.scale = one
+							XControl.UpdateMeasure(self, 1000000, 1000000)
+							local content_width, content_height = ScaleXY(self.parent.scale, self.measure_width, self.measure_height)
+							assert(content_width > 0 and content_height > 0)
+							if content_width == 0 or content_height == 0 then
+								XControl.UpdateMeasure(self, max_width, max_height)
+								return
+							end
+							local scale_x = max_width * 1000 / content_width
+							local scale_y = max_height * 1000 / content_height
+							scale_x = scale_y
+							
+							self:SetScaleModifier(point(scale_x, scale_y))
+							XControl.UpdateMeasure(self, max_width, max_height)
+						end,
+					}),
+					}),
+				}),
+		}),
+		PlaceObj('ModItemXTemplate', {
+			__is_kind_of = "XContextWindow",
+			group = "Zulu Satellite UI",
+			id = "SquadsAndMercs",
+			PlaceObj('XTemplateWindow', {
+				'__class', "SquadsAndMercsClass",
+				'Id', "idPartyContainer",
+				'HAlign', "left",
+				'VAlign', "top",
+			}, {
+				PlaceObj('XTemplateWindow', {
+					'__class', "XContextWindow",
+					'Dock', "top",
+				}, {
+					PlaceObj('XTemplateWindow', {
+						'__context', function (parent, context)
+							return context
+						end,
+						'__class', "XContextWindow",
+						'Id', "idTitle",
+						'Margins', box(-10, -5, 0, 0),
+						'VAlign', "top",
+						'LayoutMethod', "VList",
+						'ContextUpdateOnOpen', true,
+						'OnContextUpdate', function (self, context, ...)
+							local node = self:ResolveId("node")
+							local selectedSquad = node.selected_squad
+							local nameWnd = node.idName
+							nameWnd:SetContext(selectedSquad)
+							nameWnd:SetText(T{183209563903, "<u(Name)> [<u(SquadMemberCount())>]", selectedSquad})
+							
+							local moraleUI = self:ResolveId("idMorale")
+							
+							local selScale = point(670, 670)
+							local unSelScale = point(670, 670)
+							local transSel = 0
+							local transUnSel = 100
+							for i, sB in ipairs(node.idSquadButtons) do
+								if sB == moraleUI then goto continue end
+							
+								local selected = sB.context and sB.context.UniqueId == g_CurrentSquad
+								
+								sB.OnSetRollover = function(s, r)
+									if not selected then
+										s:SetTransparency(r and 0 or transUnSel)
+									end
+								end
+								
+								if not sB.idSelected then goto continue end
+								
+								sB.idSelected:SetVisible(selected)
+								sB:SetTransparency(selected and transSel or transUnSel)
+								sB:SetScaleModifier(selected and selScale or unSelScale)
+								
+								::continue::
+							end
+						end,
+					}, {
+						PlaceObj('XTemplateWindow', {
+							'__context', function (parent, context)
+								return context
+							end,
+							'__class', "XText",
+							'Id', "idName",
+							'Margins', box(5, 0, 0, 0),
+							'Clip', false,
+							'UseClipBox', false,
+							'TextStyle', "PartyUISelectedSquad",
+							'OnContextUpdate', function (self, context, ...)
+								local limit = self.UpdateTimeLimit
+								if limit == 0 or (RealTime() - self.last_update_time) >= limit then
+									self:SetText(self.Text)
+								elseif not self:GetThread("ContextUpdate") then
+									self:CreateThread("ContextUpdate", function(self)
+										Sleep(self.last_update_time + self.UpdateTimeLimit - RealTime())
+										self:OnContextUpdate()
+									end, self)
+								end
+							end,
+							'Translate', true,
+						}),
+						PlaceObj('XTemplateWindow', {
+							'Id', "idSquadButtons",
+							'LayoutMethod', "HList",
+							'LayoutHSpacing', -10,
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'comment', "morale icon container",
+								'__context', function (parent, context) return Selection end,
+								'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeCommonUnitControl") or IsKindOf(GetDialog(parent), "IModeDeployment") end,
+								'__class', "XContextWindow",
+								'RolloverTemplate', "RolloverGeneric",
+								'RolloverTitle', T(626890466814, --[[ModItemXTemplate SquadsAndMercs RolloverTitle]] "Morale"),
+								'Id', "idMorale",
+								'Margins', box(7, 1, 0, 0),
+								'Dock', "left",
+								'VAlign', "top",
+								'FoldWhenHidden', true,
+								'BackgroundRectGlowSize', 1,
+								'BackgroundRectGlowColor', RGBA(32, 35, 47, 255),
+								'HandleMouse', true,
+								'MouseCursor', "UI/Cursors/Hand.tga",
+								'ContextUpdateOnOpen', true,
+								'OnContextUpdate', function (self, context, ...)
+									local icon = self:ResolveId("idMoraleIcon")
+									local team = GetPoVTeam()
+									local morale = team and team.morale or 0
+									
+									local text = self:ResolveId("idMoraleText")
+									text:SetText(morale)
+									text:SetVisible(morale ~= 0)
+									
+									--icon:SetImage(MoraleLevelIcon[morale])
+									if team then
+										self:SetRolloverText(team:GetMoraleLevelAndEffectsText())
+										self.OnMouseButtonDown = function() return "break" end
+									end
+									self:SetVisible(not not g_Combat)
+								end,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'BorderWidth', 2,
+									'MinWidth', 80,
+									'MinHeight', 46,
+									'MaxWidth', 80,
+									'MaxHeight', 46,
+									'BorderColor', RGBA(52, 55, 61, 230),
+									'Background', RGBA(32, 35, 47, 215),
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'comment', "morale indicator",
+										'__class', "XImage",
+										'RolloverTemplate', "RolloverGeneric",
+										'RolloverOffset', box(10, 0, 0, 0),
+										'RolloverTitle', T(223227921982, --[[ModItemXTemplate SquadsAndMercs RolloverTitle]] "Morale"),
+										'Id', "idMoraleIcon",
+										'IdNode', false,
+										'HAlign', "center",
+										'VAlign', "center",
+										'Image', "UI/Hud/morale_normal",
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'__class', "XText",
+											'Id', "idMoraleText",
+											'Margins', box(-2, -2, 0, 0),
+											'HAlign', "center",
+											'VAlign', "center",
+											'TextStyle', "PartyUIMoraleText",
+										}),
+										}),
+									}),
+								}),
+							PlaceObj('XTemplateForEach', {
+								'__context', function (parent, context, item, i, n) return item end,
+								'run_after', function (child, context, item, i, n, last)
+									local image = item.image or "UI/Icons/SquadLogo/squad_logo_01"
+									child.idSquadIcon:SetImage(image .. "_s")
+									child.drop_reason = false
+								end,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) ~= GetDialog("FullscreenGameDialogs") end,
+									'__class', "XButton",
+									'VAlign', "top",
+									'BorderColor', RGBA(0, 0, 0, 0),
+									'Background', RGBA(0, 0, 0, 0),
+									'BackgroundRectGlowColor', RGBA(0, 0, 0, 0),
+									'OnContextUpdate', function (self, context, ...)
+										
+									end,
+									'FocusedBorderColor', RGBA(0, 0, 0, 0),
+									'FocusedBackground', RGBA(0, 0, 0, 0),
+									'DisabledBorderColor', RGBA(0, 0, 0, 0),
+									'OnPress', function (self, gamepad)
+										local dlg = GetDialog(self)
+										local deploymentOrCommonUnit = IsKindOf(dlg, "IModeCommonUnitControl") or
+											   														IsKindOf(dlg, "IModeDeployment")
+										
+										if deploymentOrCommonUnit and self.context.UniqueId == g_CurrentSquad then
+											ToggleAllUnitsSelectionInSquad(true)
+										else
+											local node = self:ResolveId("node")
+											node:SelectSquad(self.context)
+											ObjModified(self.context)
+										end
+									end,
+									'RolloverBackground', RGBA(0, 0, 0, 0),
+									'PressedBackground', RGBA(0, 0, 0, 0),
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__class', "XImage",
+										'Image', "UI/Icons/SateliteView/merc_squad_2",
+									}),
+									PlaceObj('XTemplateWindow', {
+										'__class', "XImage",
+										'Id', "idSquadIcon",
+										'Margins', box(0, 4, 0, 0),
+										'HAlign', "center",
+										'VAlign', "top",
+										'ScaleModifier', point(800, 800),
+									}),
+									PlaceObj('XTemplateWindow', {
+										'__class', "XImage",
+										'Id', "idSelected",
+										'HAlign', "center",
+										'VAlign', "center",
+										'Visible', false,
+										'Image', "UI/Icons/SateliteView/squad_selection",
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "OnMouseButtonDoubleClick(self, pt, button)",
+										'func', function (self, pt, button)
+											if not IsKindOf(GetDialog(self), "XSatelliteDialog") then return end
+											
+											local squad = self.context
+											SatelliteSetCameraDest(squad.CurrentSector, 300)
+										end,
+									}),
+									}),
+								PlaceObj('XTemplateWindow', {
+									'comment', "inventory",
+									'__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) == GetDialog("FullscreenGameDialogs") end,
+									'__class', "XButton",
+									'VAlign', "top",
+									'BorderColor', RGBA(0, 0, 0, 0),
+									'Background', RGBA(0, 0, 0, 0),
+									'BackgroundRectGlowColor', RGBA(0, 0, 0, 0),
+									'OnContextUpdate', function (self, context, ...)
+										
+									end,
+									'FocusedBorderColor', RGBA(0, 0, 0, 0),
+									'FocusedBackground', RGBA(0, 0, 0, 0),
+									'DisabledBorderColor', RGBA(0, 0, 0, 0),
+									'OnPress', function (self, gamepad)
+										local dlg = GetDialog(self)
+										InventoryClosePopup(dlg)
+										local deploymentOrCommonUnit = IsKindOf(dlg, "IModeCommonUnitControl") or
+											   														IsKindOf(dlg, "IModeDeployment")
+										
+										if deploymentOrCommonUnit and self.context.UniqueId == g_CurrentSquad then
+											ToggleAllUnitsSelectionInSquad(true)
+										else
+											local node = self:ResolveId("node")
+											node:SelectSquad(self.context)
+											ObjModified(self.context)
+										end
+									end,
+									'RolloverBackground', RGBA(0, 0, 0, 0),
+									'PressedBackground', RGBA(0, 0, 0, 0),
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__class', "XImage",
+										'Image', "UI/Icons/SateliteView/merc_squad_2",
+									}),
+									PlaceObj('XTemplateWindow', {
+										'__class', "XImage",
+										'Id', "idSquadIcon",
+										'Margins', box(0, 4, 0, 0),
+										'HAlign', "center",
+										'VAlign', "top",
+										'ScaleModifier', point(800, 800),
+									}),
+									PlaceObj('XTemplateWindow', {
+										'__class', "XImage",
+										'Id', "idSelected",
+										'HAlign', "center",
+										'VAlign', "center",
+										'Visible', false,
+										'Image', "UI/Icons/SateliteView/squad_selection",
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "OnMouseButtonDoubleClick(self, pt, button)",
+										'func', function (self, pt, button)
+											if not IsKindOf(GetDialog(self), "XSatelliteDialog") then return end
+											
+											local squad = self.context
+											SatelliteSetCameraDest(squad.CurrentSector, 300)
+										end,
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "IsDropTarget(self, draw_win, pt)",
+										'func', function (self, draw_win, pt)
+											if InventoryIsCombatMode() 
+												or not InventoryStartDragContext 
+												or InventoryStartDragContext.Squad == self.context.UniqueId 
+											then
+												return false
+											end										
+											local cur_sector
+											if IsKindOf(InventoryStartDragContext, "SectorStash") then
+												cur_sector = InventoryStartDragContext.sector_id
+											elseif IsKindOf(InventoryStartDragContext, "ItemContainer") then	
+												cur_sector = self:GetContext().CurrentSector
+											else									
+												local squad_id = IsKindOf(InventoryStartDragContext, "SquadBag") and InventoryStartDragContext.squad_id or InventoryStartDragContext.Squad
+												cur_sector = squad_id and gv_Squads[squad_id].CurrentSector or self.context.CurrentSector
+											end
+											local drag_sector = self.context.CurrentSector
+											return cur_sector==drag_sector
+										end,
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "OnDropEnter(self, draw_win, pt, drag_source)",
+										'func', function (self, draw_win, pt, drag_source)
+											self:SetRollover(true)
+											local squad = self:GetContext()
+											local mouse_text 
+											mouse_text =  T{386181237071, "Give to <merc>",merc = squad.Name}
+											local r1 = InventoryDropMoveItemsToSquad(squad, "check_only")
+											self.drop_reason = r1 or "ok" 
+											if r1 then
+												mouse_text = mouse_text.."\n".. Untranslated("<style InventoryHintTextRed>")..T(719913116871, "Not enough space")										
+											end
+											InventoryShowMouseText(not not mouse_text,mouse_text)
+										end,
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "OnDropLeave(self, drag_win)",
+										'func', function (self, drag_win)
+											self:SetRollover(false)
+											InventoryShowMouseText(false)
+											self.drop_reason = false
+										end,
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "OnDrop(self, drag_win, pt, drag_source_win)",
+										'func', function (self, drag_win, pt, drag_source_win)
+											self.drop_reason = self.drop_reason or InventoryDropMoveItemsToSquad(self.context, "check_only")
+											if self.drop_reason=="ok" then 	
+												InventoryDropMoveItemsToSquad(self.context)
+												self.drop_reason = false
+											end
+											return "not valid target"
+										end,
+									}),
+									}),
+								}),
+							PlaceObj('XTemplateWindow', {
+								'comment', "add squad",
+								'__condition', function (parent, context) return not IsKindOf(GetDialog(parent), "IModeDeployment") and not (GetDialog(GetDialog(parent).parent) == GetDialog("FullscreenGameDialogs")) end,
+								'__class', "XButton",
+								'VAlign', "top",
+								'ScaleModifier', point(666, 666),
+								'BorderColor', RGBA(0, 0, 0, 0),
+								'Background', RGBA(0, 0, 0, 0),
+								'BackgroundRectGlowColor', RGBA(0, 0, 0, 0),
+								'Transparency', 100,
+								'FocusedBorderColor', RGBA(0, 0, 0, 0),
+								'FocusedBackground', RGBA(0, 0, 0, 0),
+								'DisabledBorderColor', RGBA(0, 0, 0, 0),
+								'OnPress', function (self, gamepad)
+									InvokeShortcutAction(GetDialog("PDADialogSatellite"), "idSquadManagement", false, true)
+								end,
+								'RolloverBackground', RGBA(0, 0, 0, 0),
+								'PressedBackground', RGBA(0, 0, 0, 0),
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'__class', "XImage",
+									'Image', "UI/Icons/SateliteView/merc_squad_add_2",
+								}),
+								}),
+							}),
+						}),
+					}),
+				PlaceObj('XTemplateWindow', {
+					'__class', "XFitContent",
+					'IdNode', false,
+					'Dock', "box",
+					'Fit', "height",
+				}, {
+					PlaceObj('XTemplateWindow', {
+						'comment', "Mercs Themselves (Updates on Sel Squad Change)",
+						'__context', function (parent, context) return parent.parent.selected_squad end,
+						'__class', "XContentTemplate",
+						'Id', "idParty",
+						'HAlign', "left",
+						'VAlign', "top",
+						'LayoutMethod', "VList",
+					}, {
+						PlaceObj('XTemplateWindow', {
+							'Margins', box(0, 0, 25, 0),
+							'Dock', "box",
+							'HandleMouse', true,
+						}, {
+							PlaceObj('XTemplateFunc', {
+								'name', "OnMouseButtonDown(self, pos, button)",
+								'func', function (self, pos, button)
+									-- click eater for misclick prevention
+									return "break"
+								end,
+							}),
+							}),
+						PlaceObj('XTemplateWindow', {
+							'Id', "idContainer",
+							'LayoutMethod', "VList",
+							'LayoutVSpacing', 3,
+							'UseClipBox', false,
+							'BorderColor', RGBA(0, 0, 0, 0),
+						}, {
+							PlaceObj('XTemplateGroup', {
+								'__condition', function (parent, context) return context and IsKindOf(GetDialog(parent), "XSatelliteDialog") end,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'Id', "idContainer",
+									'ScaleModifier', point(800, 800),
+									'LayoutMethod', "VWrap",
+									'LayoutVSpacing', 3,
+									'UseClipBox', false,
+									'BorderColor', RGBA(0, 0, 0, 0),
+								}, {
+									PlaceObj('XTemplateForEach', {
+										'comment', "Mercs in the Current Team",
+										'array', function (parent, context) return context and context.units end,
+										'__context', function (parent, context, item, i, n) return gv_UnitData[item] end,
+									}, {
+										PlaceObj('XTemplateTemplate', {
+											'__template', "HUDMerc",
+											'OnContextUpdate', function (self, context, ...)
+												self.idOperationContainer.idProgressBarContainer:SetVisible(context.Operation~="Idle")
+											end,
+											'FXMouseIn', "MercPortraitRolloverPDA",
+											'FXPress', "MercPortraitPressPDA",
+											'OnPress', function (self, gamepad)
+												local prev
+												if g_SatelliteUI.context_menu then
+													local prev_context = g_SatelliteUI.context_menu[1].context
+													prev = prev_context and prev_context.unit_id
+													g_SatelliteUI:RemoveContextMenu()
+												end
+											end,
+											'AltPress', true,
+											'OnAltPress', function (self, gamepad)
+												local prev
+												if g_SatelliteUI.context_menu then
+													local prev_context = g_SatelliteUI.context_menu[1].context
+													prev = prev_context and prev_context.unit_id
+													g_SatelliteUI:RemoveContextMenu()
+												end
+												local unit = self.context
+												if prev and prev==unit.session_id then
+													return
+												end	
+												local squad_id = unit.Squad
+												local squad = gv_Squads[squad_id]
+												local sector_id = squad and squad.CurrentSector
+												if not sector_id then
+													return
+												end	
+												self:SetRollover(false)
+												g_SatelliteUI:OpenContextMenu(self, sector_id, unit.Squad, unit.session_id)
+											end,
+											'ClassIconOnRollover', true,
+										}, {
+											PlaceObj('XTemplateFunc', {
+												'name', "OnMouseButtonDoubleClick(self, pt, button)",
+												'func', function (self, pt, button)
+													local selectedUnit = self.context
+													if not IsKindOf(selectedUnit, "UnitData") or not g_SatelliteUI then return end
+													
+													local squad = selectedUnit.Squad
+													squad = squad and gv_Squads[squad]
+													SatelliteSetCameraDest(squad.CurrentSector, 300)
+												end,
+											}),
+											PlaceObj('XTemplateWindow', {
+												'comment', "context menu observer",
+												'__context', function (parent, context) return "satellite_context_menu" end,
+												'__class', "XContextWindow",
+												'ContextUpdateOnOpen', true,
+												'OnContextUpdate', function (self, context, ...)
+													local hasMenu = g_SatelliteUI and g_SatelliteUI.context_menu
+													hasMenu = hasMenu and hasMenu.window_state ~= "destroying" and hasMenu.idContent
+													local isOnMe = hasMenu and hasMenu.context.unit_id == self.parent.context.session_id
+													self.parent:SetSelected(isOnMe)
+												end,
+											}),
+											PlaceObj('XTemplateWindow', {
+												'HAlign', "right",
+												'MaxHeight', 105,
+												'LayoutMethod', "VList",
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'comment', "only shows wounded and tired effect",
+													'__context', function (parent, context) return context.StatusEffects end,
+													'__class', "XContentTemplate",
+													'Id', "idStatusEffectsContainer",
+													'Margins', box(-3, 5, 0, 0),
+													'Dock', "top",
+													'HAlign', "left",
+													'VAlign', "top",
+													'MaxHeight', 80,
+													'LayoutMethod', "VList",
+													'LayoutVSpacing', -2,
+													'UseClipBox', false,
+													'FoldWhenHidden', true,
+													'HandleMouse', true,
+													'MouseCursor', "UI/Cursors/Cursor.tga",
+												}, {
+													PlaceObj('XTemplateForEach', {
+														'comment', "status effect",
+														'array', function (parent, context) return table.ifilter(context or empty_table, "ShownSatelliteView") end,
+														'__context', function (parent, context, item, i, n) return item end,
+													}, {
+														PlaceObj('XTemplateTemplate', {
+															'__template', "StatusEffectIcon",
+														}),
+														}),
+													PlaceObj('XTemplateFunc', {
+														'name', "OnMouseButtonDown(self, pos, button)",
+														'func', function (self, pos, button)
+															return "break"
+														end,
+													}),
+													PlaceObj('XTemplateTemplate', {
+														'comment', "contract warning",
+														'__context', function (parent, context) return parent:ResolveId("node").context end,
+														'__template', "MercContractWarningIcon",
+														'Dock', "left",
+													}),
+													}),
+												PlaceObj('XTemplateWindow', {
+													'Dock', "bottom",
+													'HAlign', "left",
+													'VAlign', "bottom",
+													'LayoutMethod', "VList",
+													'LayoutVSpacing', 2,
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'__class', "XButton",
+														'RolloverTemplate', "PDAOperationRollover",
+														'RolloverAnchor', "right",
+														'RolloverAnchorId', "idContent",
+														'RolloverText', T(265053006937, --[[ModItemXTemplate SquadsAndMercs RolloverText]] "placeholder"),
+														'Id', "idOperationContainer",
+														'Margins', box(-5, 4, 0, 0),
+														'Dock', "bottom",
+														'HAlign', "left",
+														'VAlign', "bottom",
+														'MinWidth', 30,
+														'MinHeight', 30,
+														'MaxWidth', 30,
+														'MaxHeight', 30,
+														'Background', RGBA(30, 37, 47, 255),
+														'BackgroundRectGlowSize', 1,
+														'BackgroundRectGlowColor', RGBA(30, 37, 47, 255),
+														'OnContextUpdate', function (self, context, ...)
+															local sector = context:GetSector()
+															self:SetVisible(true)
+															local operation_id = self.context.Operation
+															local is_operation_started = operation_id=="Idle" or operation_id=="Traveling" or operation_id=="Arriving" or sector and sector.started_operations and sector.started_operations[operation_id]
+															
+															if not is_operation_started then
+																self:SetVisible(false)
+																return
+															end
+															local operation = SectorOperations[self.context.Operation]
+															local icon = operation and operation.icon or ""
+															if self.idOperation.Image ~= icon then
+																self.idOperation:SetImage(icon)
+															end
+															self.idOperation:SetImageColor(GameColors.J)
+															-- Released merc.
+															if not context.Squad then return end
+																										
+															-- top parts are 1/8; side and bottom - 1/4
+															local progress_top_left, progress_top_right, progress_left, progress_right, progress_bottom = 0, 0, 0, 0, 0
+															local max_progress = context.OperationInitialETA or 0
+															if max_progress > 0 then
+																local current = max_progress -  GetOperationTimerETA(context, "prediction")--GetOperationTimeLeft(context, context.Operation)
+																local perc = MulDivRound(current or 0, 100, max_progress)
+																progress_top_right = Min(perc, 12)
+																perc = Max(perc - progress_top_right, 0)
+																progress_right = Min(perc, 25)
+																perc = Max(perc - progress_right, 0)
+																progress_bottom = Min(perc, 25)
+																perc = Max(perc - progress_bottom, 0)
+																progress_left = Min(perc, 25)
+																perc = Max(perc - progress_left, 0)
+																progress_top_left = Min(perc, 13)
+															end
+															self.idTopLeft:SetProgress(progress_top_left)
+															self.idTopRight:SetProgress(progress_top_right)
+															self.idLeft:SetProgress(progress_left)
+															self.idRight:SetProgress(progress_right)
+															self.idBottom:SetProgress(progress_bottom)
+														end,
+														'FocusedBackground', RGBA(30, 37, 47, 255),
+														'OnPress', function (self, gamepad)
+															InvokeShortcutAction(false, "idOperations")
+														end,
+														'RolloverBackground', RGBA(30, 37, 47, 255),
+														'PressedBackground', RGBA(30, 37, 47, 255),
+													}, {
+														PlaceObj('XTemplateWindow', {
+															'comment', "operation icon",
+															'__class', "XImage",
+															'Id', "idOperation",
+															'HAlign', "center",
+															'VAlign', "center",
+															'MinWidth', 24,
+															'MinHeight', 24,
+															'MaxWidth', 24,
+															'MaxHeight', 24,
+															'Image', "UI/Icons/unknown_add",
+															'ImageFit', "stretch",
+															'ImageColor', RGBA(61, 122, 153, 255),
+														}),
+														PlaceObj('XTemplateWindow', {
+															'Id', "idProgressBarContainer",
+															'MouseCursor', "UI/Cursors/Pda_Hand.tga",
+														}, {
+															PlaceObj('XTemplateWindow', {
+																'__class', "OperationProgressBarSection",
+																'Id', "idTopLeft",
+																'HAlign', "left",
+																'VAlign', "top",
+																'MinWidth', 15,
+																'MinHeight', 2,
+																'MaxWidth', 15,
+																'MaxHeight', 2,
+																'UseClipBox', false,
+																'MaxProgress', 13,
+															}),
+															PlaceObj('XTemplateWindow', {
+																'__class', "OperationProgressBarSection",
+																'Id', "idTopRight",
+																'Margins', box(15, 0, 0, 0),
+																'HAlign', "left",
+																'VAlign', "top",
+																'MinWidth', 15,
+																'MinHeight', 2,
+																'MaxWidth', 15,
+																'MaxHeight', 2,
+																'UseClipBox', false,
+																'MaxProgress', 12,
+															}),
+															PlaceObj('XTemplateWindow', {
+																'__class', "OperationProgressBarSection",
+																'Id', "idRight",
+																'HAlign', "right",
+																'VAlign', "top",
+																'MinWidth', 2,
+																'MinHeight', 30,
+																'MaxWidth', 2,
+																'MaxHeight', 30,
+																'UseClipBox', false,
+																'Horizontal', false,
+																'MaxProgress', 25,
+															}),
+															PlaceObj('XTemplateWindow', {
+																'__class', "OperationProgressBarSection",
+																'Id', "idBottom",
+																'HAlign', "right",
+																'VAlign', "bottom",
+																'MinWidth', 30,
+																'MinHeight', 2,
+																'MaxWidth', 30,
+																'MaxHeight', 2,
+																'UseClipBox', false,
+																'MaxProgress', 25,
+															}),
+															PlaceObj('XTemplateWindow', {
+																'__class', "OperationProgressBarSection",
+																'Id', "idLeft",
+																'HAlign', "left",
+																'VAlign', "bottom",
+																'MinWidth', 2,
+																'MinHeight', 30,
+																'MaxWidth', 2,
+																'MaxHeight', 30,
+																'UseClipBox', false,
+																'Horizontal', false,
+																'MaxProgress', 25,
+															}),
+															}),
+														PlaceObj('XTemplateFunc', {
+															'name', "OnMousePos",
+															'func', function (self, ...)
+																return "break"
+															end,
+														}),
+														PlaceObj('XTemplateFunc', {
+															'name', "Open(self)",
+															'func', function (self)
+																self.idTopLeft:SetProgress(0)
+																self.idTopRight:SetProgress(0)
+																self.idLeft:SetProgress(0)
+																self.idRight:SetProgress(0)
+																self.idBottom:SetProgress(0)
+																XContextWindow.Open(self)
+															end,
+														}),
+														}),
+													}),
+												}),
+											}),
+										}),
+									}),
+								}),
+							PlaceObj('XTemplateGroup', {
+								'__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) == GetDialog("FullscreenGameDialogs") end,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'Id', "idContainer",
+									'LayoutMethod', "VList",
+									'LayoutVSpacing', 3,
+									'UseClipBox', false,
+									'BorderColor', RGBA(0, 0, 0, 0),
+								}, {
+									PlaceObj('XTemplateForEach', {
+										'comment', "Mercs in the Current Team",
+										'array', function (parent, context) return context and context.units end,
+										'__context', function (parent, context, item, i, n)
+											local unit = g_Units[item]
+											if unit and InventoryIsCombatMode(unit) then 
+												return unit
+											end
+											return gv_SatelliteView and  gv_UnitData[item] or g_Units[item] or gv_UnitData[item]
+										end,
+										'run_after', function (child, context, item, i, n, last)
+											child.unit = context
+											child:SetContext(child.unit)
+											child.idx = i
+										end,
+									}, {
+										PlaceObj('XTemplateTemplate', {
+											'__template', "HUDMerc",
+											'RolloverAnchorId', "idParty",
+											'OnContextUpdate', function (self, context, ...)
+												HUDMercClass.OnContextUpdate(self, context, ...)
+												self.unit = context
+											end,
+											'OnPress', function (self, gamepad)
+												self:SelectUnit()
+											end,
+										}, {
+											PlaceObj('XTemplateFunc', {
+												'name', "Open(self)",
+												'func', function (self)
+													local noClr = const.PDAUIColors.noClr
+													self.idContent:SetBackground(noClr)
+													self.idContent:SetBackgroundRectGlowSize(0)
+													local dlg = GetDialog(self)
+													local ctx = self:GetContext()
+													if ctx and dlg.selected_unit and dlg.selected_unit.session_id == ctx.session_id then
+														self:SetSelected(true)
+													end
+													HUDMercClass.Open(self)
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "SelectUnit(self)",
+												'func', function (self)
+													local dlg = GetDialog(self)
+													local myUnit = self.unit
+													local invUnit = dlg.selected_unit
+													if IsCoOpGame() then
+														if not myUnit:IsLocalPlayerControlled() then											
+															if InventoryIsValidGiveDistance(InventoryStartDragContext, myUnit)then
+																local args = { src_container = InventoryStartDragContext, src_slot = InventoryStartDragSlotName,
+																				dest_container = myUnit, dest_slot = GetContainerInventorySlotName(myUnit)}
+																if InventoryDragItems then
+																	args.multi_items = true
+																	for i, item in ipairs(InventoryDragItems) do		
+																		args.item = item
+																		args.no_ui_respawn = i~=#InventoryDragItems
+																		local r1, r2  = MoveItem(args) --this will merge stacks and move, if you want only move use amount = item.Amount				
+																		--		print(item.class, r1, r2)
+																	end															
+																	InventoryDeselectMultiItems()
+																	PlayFX("GiveItem", "start",  GetInventoryItemDragDropFXActor(item))
+																elseif InventoryDragItem then
+																	--give drag item
+																	args.item = InventoryDragItem
+																	MoveItem(args)
+																end
+																CancelDrag(dlg)
+																return
+															end
+														end
+													end
+													
+													self:SetSelected(true)
+													if myUnit and invUnit and myUnit.session_id == invUnit.session_id then
+														return
+													end
+													
+													local tacticalUnit = g_Units[myUnit.session_id]
+													if tacticalUnit and tacticalUnit:CanBeControlled() then
+														SelectObj(g_Units[myUnit.session_id])
+													end
+													
+													local win, button 
+													if IsEquipSlot(InventoryStartDragSlotName) then
+														local slot_ctrl = dlg:GetSlotByName(InventoryStartDragSlotName)
+														win  = slot_ctrl.drag_win
+														button = slot_ctrl.drag_button
+														slot_ctrl.drag_win = false
+														local desktop = slot_ctrl.desktop
+														if desktop:GetMouseCapture()==slot_ctrl then
+															desktop:SetMouseCapture(false)	
+														end
+													end
+													
+													local prev_unit_id = invUnit.session_id
+													dlg.selected_unit = myUnit
+													dlg.compare_mode_weaponslot = self.unit.current_weapon=="Handheld A" and 1 or 2
+													local context = dlg:GetContext()
+													context.unit = myUnit
+													InventoryClosePopup(dlg)
+													dlg:SetContext(context)
+													dlg:OnContextUpdate(context)
+													dlg.idUnitInfo:RespawnContent()
+													dlg:CompareWeaponSetUI()
+													dlg:ActionsUpdated()
+													-- move selected unit backpack into view
+													local ctrl_right_area = dlg.idScrollArea --= ScrollIntoView
+													for _, wnd in ipairs(ctrl_right_area) do
+														local wcontext = wnd:GetContext()
+														local wnd_id = wnd:GetContext().session_id
+														local is_grayouted = InventoryUIGrayOut(wcontext)
+														wnd:SetTransparency(is_grayouted and 150 or 0)
+														if wnd and wnd_id then
+															if wnd_id==prev_unit_id then
+																wnd.idName:SetHightlighted(false)
+															end	
+															if wnd_id==context.unit.session_id then
+																ctrl_right_area:ScrollIntoView(wnd)
+																wnd.idName:SetHightlighted(true)
+															end
+														end	
+													end
+													
+													for _, wnd in ipairs(self.parent) do
+														wnd:SetSelected(self==wnd)
+													end
+													
+													if IsEquipSlot(InventoryStartDragSlotName) then
+														local dlg = GetDialog(self)
+														local slot_ctrl = dlg:GetSlotByName(InventoryStartDragSlotName)
+														slot_ctrl.drag_win = win
+														slot_ctrl.drag_button = button
+														DragSource = slot_ctrl
+														slot_ctrl.desktop:SetMouseCapture(slot_ctrl)
+													end
+													if InventoryDragItem and not InventoryDragItems then
+														HighlightEquipSlots(InventoryDragItem, true)
+														HighlightWeaponsForAmmo(InventoryDragItem, true)
+														HighlightAPCost(InventoryDragItem, true, StartDragSource)
+													end
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "IsDropTarget(self, draw_win, pt)",
+												'func', function (self, draw_win, pt)
+													return true
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "OnDropEnter(self, draw_win, pt, drag_source)",
+												'func', function (self, draw_win, pt, drag_source)
+													self:SetRollover(true)
+													local valid, mouse_text = InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext())
+													if (not gv_SatelliteView or InventoryIsCombatMode()) and not valid then
+														InventoryShowMouseText(true,mouse_text)
+														return
+													end
+													if InventoryDragItem and g_Combat and IsCoOpGame() and not self.context:IsLocalPlayerControlled() then
+														mouse_text = T(406257152368, "Cannot pick").."\n"..T(341907478094, "Controlled by <OtherPlayerName()>")
+													elseif InventoryDragItem then											
+														mouse_text = InventoryGetMoveIsInvalidReason(self.context, InventoryStartDragContext)
+														if not mouse_text then
+															local ap_cost, unit_ap, action_name = InventoryItemsAPCost(self.context, "Inventory", false, false)
+															mouse_text = action_name or ""
+															if InventoryIsCombatMode() and ap_cost and ap_cost>0 then
+																mouse_text = InventoryFormatAPMouseText(unit_ap, ap_cost, mouse_text)
+															end
+														end
+													end	
+													InventoryShowMouseText(not not mouse_text,mouse_text)
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "OnDropLeave(self, drag_win)",
+												'func', function (self, drag_win)
+													self:SetRollover(false)
+													InventoryShowMouseText(false)
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "OnDrop(self, drag_win, pt, drag_source_win)",
+												'func', function (self, drag_win, pt, drag_source_win)
+													if (not gv_SatelliteView or InventoryIsCombatMode()) and not InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()) then
+														PlayFX("IactDisabled", "start", InventoryDragItem)
+														return true
+													end
+													if InventoryUnitCanUseItem(self.context, InventoryDragItem) and (not g_Combat or self.context:HasAP(InventoryDragItem.APCost * const.Scale.AP)) then
+														InventoryUseItem(self.context, InventoryDragItem, InventoryStartDragContext,InventoryStartDragSlotName )								
+														if InventoryDragItem and StartDragSource then
+														StartDragSource:ClearDragState(drag_win)
+														end
+													else
+														PlayFX("IactDisabled", "start", InventoryDragItem)
+													end
+													self:SelectUnit()
+													return "not valid target"
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "SetHighlighted(self, selected)",
+												'func', function (self, selected)
+													if type(selected) == "string" then
+														local stat = Presets.MercStat.Default[selected]
+														if stat then
+															local icon = stat.Icon
+															local value = self.context[selected]
+															self.idStatIcon:SetImage(icon)
+															self.idStatCount:SetText(value)
+														else
+															selected = true
+														end
+													end
+													
+													self.highlighted = selected
+													--self:OnSetRollover()
+													if self.ClassIconOnRollover then
+														self.idClass:SetVisible(self.rollover or selected)
+													end	
+													self:SetupStyle(self.rollover or selected)
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "SetHighlightedStatOrIcon(self, selected)",
+												'func', function (self, selected)
+													if type(selected) == "string" then
+														local stat = Presets.MercStat.Default[selected]
+														if stat then
+															local icon = stat.Icon
+															local value = self.context[selected]
+															self.idStatIcon:SetImage(icon)
+															self.idStatCount:SetText(value)
+															self.idStatIcon:SetImageColor(GameColors.J)
+														else
+															self.idStatIcon:SetImage(selected)
+															self.idStatCount.parent:SetVisible(false)
+															self.idStatIcon:SetImageColor(GameColors.J)
+														end
+													end
+													
+													self.highlighted = selected
+													if self.ClassIconOnRollover then
+														self.idClass:SetVisible(self.rollover or selected)
+													end	
+													
+													if type(self.highlighted) == "string" then
+														self.idBar:SetVisible(false)
+														self.idStatHighlight:SetVisible(true)
+													else
+														self.idBar:SetVisible(true)
+														self.idStatCount.parent:SetVisible(true)
+														self.idStatHighlight:SetVisible(false)
+													end
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "SetupStyle(self, rollover)",
+												'func', function (self, rollover)
+													if not self.idContent then
+														return
+													end
+													local hightlighted_string = type(self.highlighted) == "string"
+													local selected = self.selected or (self.highlighted and not hightlighted_string)or rollover
+													local noClr = const.PDAUIColors.noClr
+													local selectedColored =const.HUDUIColors.selectedColored
+													local defaultColor = const.HUDUIColors.defaultColor
+													self.idContent:SetImage(selected and "UI/PDA/os_portrait_selection" or "")
+													self.idBottomPart:SetBackground(selected and noClr or defaultColor)
+													self.idBottomPart:SetBackgroundRectGlowColor(selected and noClr or defaultColor)
+													self.idContent:SetBackground(selected and RGBA(255,255,255,255) or noClr)
+													
+													if hightlighted_string then
+														self.idBar:SetVisible(false)
+														self.idStatHighlight:SetVisible(true)
+													else
+														self.idBar:SetVisible(true)
+														self.idStatHighlight:SetVisible(false)
+													end
+													--self.idContent:SetFocusedBackground(noClr)
+													--self.idContent:SetBackgroundRectGlowColor(selected and selectedColored or noClr)
+													local name = self:ResolveId("idName")
+													if name then
+														self.idName:SetTextStyle(selected and "PDAMercNameCard" or "PDAMercNameCard_Light")
+													end
+													
+													if self.idAPIndicator then
+														self.idAPIndicator:SetBackground(selected and selectedColored or defaultColor)
+														self.idAPIndicator:SetBackgroundRectGlowSize(selected and 0 or 1)
+														self.idAPIndicator:SetBackgroundRectGlowColor(selected and selectedColored or defaultColor)
+														self.idAPText:SetTextStyle(selected and "HUDHeaderDark" or "HUDHeader")
+													end
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "SetSelected(self, selected)",
+												'func', function (self, selected)
+													if self.selected == selected then return false end
+													self.selected = selected
+													self:SetupStyle()
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "OnSetRollover(self, rollover)",
+												'func', function (self, rollover)
+													HUDMercClass.OnSetRollover(self, rollover)
+													self:SetupStyle(rollover)
+												end,
+											}),
+											PlaceObj('XTemplateCode', {
+												'comment', "OnMsg.StatusEffectAdded/Removed",
+												'run', function (self, parent, context)
+													function OnMsg.StatusEffectAdded(unit, status, stacks, reason)
+														if status ~= "Hidden" then return end
+														if parent.context ~= unit then return end
+														HUDMercClass.SetupStyle(parent)
+													end
+													
+													function OnMsg.StatusEffectRemoved(unit, status, stacks, reason)
+														if status ~= "Hidden" then return end
+														if parent.context ~= unit then return end
+														HUDMercClass.SetupStyle(parent)
+													end
+												end,
+											}),
+											PlaceObj('XTemplateWindow', {
+												'__parent', function (parent, context) return parent.idPortraitBG end,
+												'Id', "idStatHighlight",
+												'Dock', "box",
+												'VAlign', "bottom",
+												'FoldWhenHidden', true,
+												'DrawOnTop', true,
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'HAlign', "left",
+													'VAlign', "bottom",
+													'LayoutMethod', "HList",
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'Padding', box(2, 2, 2, 2),
+														'HAlign', "right",
+														'VAlign', "bottom",
+														'MinWidth', 24,
+														'MinHeight', 24,
+														'MaxWidth', 24,
+														'MaxHeight', 24,
+														'Background', RGBA(32, 35, 47, 255),
+														'BackgroundRectGlowColor', RGBA(32, 35, 47, 255),
+													}, {
+														PlaceObj('XTemplateWindow', {
+															'__class', "XImage",
+															'Id', "idStatIcon",
+															'Image', "UI/Icons/st_marksmanship",
+															'ImageFit', "stretch",
+															'ImageColor', RGBA(130, 128, 120, 255),
+														}),
+														}),
+													PlaceObj('XTemplateWindow', {
+														'HAlign', "right",
+														'VAlign', "bottom",
+														'MinWidth', 24,
+														'MinHeight', 24,
+														'MaxHeight', 24,
+														'Background', RGBA(32, 35, 47, 255),
+														'BackgroundRectGlowColor', RGBA(32, 35, 47, 255),
+													}, {
+														PlaceObj('XTemplateWindow', {
+															'__class', "XText",
+															'Id', "idStatCount",
+															'HAlign', "center",
+															'VAlign', "center",
+															'FoldWhenHidden', true,
+															'TextStyle', "HUDHeaderSmallLight",
+															'ContextUpdateOnOpen', true,
+														}),
+														}),
+													}),
+												}),
+											PlaceObj('XTemplateWindow', {
+												'HAlign', "right",
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'Id', "idStatusHighlighter",
+													'VAlign', "top",
+													'LayoutMethod', "VList",
+													'Visible', false,
+													'FoldWhenHidden', true,
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'comment', "only shows wounded effect",
+														'__context', function (parent, context) return context.StatusEffects end,
+														'__class', "XContentTemplate",
+														'Id', "idStatusEffectsContainer",
+														'Margins', box(0, 5, 0, 0),
+														'HAlign', "left",
+														'VAlign', "top",
+														'LayoutMethod', "VWrap",
+														'LayoutVSpacing', -2,
+														'UseClipBox', false,
+														'FoldWhenHidden', true,
+													}, {
+														PlaceObj('XTemplateForEach', {
+															'comment', "status effect",
+															'array', function (parent, context) return context.Wounded and { context[context.Wounded] } or empty_table end,
+															'condition', function (parent, context, item, i) return item end,
+															'__context', function (parent, context, item, i, n) return item end,
+														}, {
+															PlaceObj('XTemplateTemplate', {
+																'__condition', function (parent, context) return context end,
+																'__template', "StatusEffectIcon",
+																'VAlign', "top",
+															}),
+															}),
+														}),
+													}),
+												PlaceObj('XTemplateWindow', {
+													'__condition', function (parent, context) return IsKindOf(context, "Unit") and g_Combat end,
+													'VAlign', "bottom",
+													'LayoutMethod', "VList",
+													'LayoutVSpacing', 2,
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'Id', "idAPIndicator",
+														'Margins', box(-5, 0, 0, 0),
+														'Padding', box(2, 2, 2, 2),
+														'HAlign', "left",
+														'VAlign', "bottom",
+														'MinWidth', 30,
+														'MinHeight', 30,
+														'MaxWidth', 30,
+														'MaxHeight', 30,
+														'Background', RGBA(230, 222, 203, 255),
+														'BackgroundRectGlowColor', RGBA(230, 222, 203, 255),
+													}, {
+														PlaceObj('XTemplateWindow', {
+															'__class', "XText",
+															'Id', "idAPText",
+															'HAlign', "center",
+															'VAlign', "center",
+															'FoldWhenHidden', true,
+															'TextStyle', "HUDHeaderDark",
+															'ContextUpdateOnOpen', true,
+															'OnContextUpdate', function (self, context, ...)
+																if not IsKindOf(context, "Unit") then return end
+																self.parent:SetVisible(not not g_Combat and not context:IsDead() and not context:IsDowned())
+																self:SetText(self.Text)
+																XContextControl.OnContextUpdate(self, context)
+															end,
+															'Translate', true,
+															'Text', T(269806592085, --[[ModItemXTemplate SquadsAndMercs Text]] "<apn(GetUIActionPoints())>"),
+														}),
+														}),
+													}),
+												}),
+											}),
+										}),
+									}),
+								}),
+							PlaceObj('XTemplateGroup', {
+								'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeCommonUnitControl") or IsKindOf(GetDialog(parent), "IModeDeployment") end,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'Id', "idContainer",
+									'ScaleModifier', point(900, 900),
+									'LayoutMethod', "VWrap",
+									'LayoutVSpacing', 3,
+									'UseClipBox', false,
+									'BorderColor', RGBA(0, 0, 0, 0),
+								}, {
+									PlaceObj('XTemplateForEach', {
+										'comment', "Mercs in the Current Team",
+										'array', function (parent, context) return context and context.units end,
+										'condition', function (parent, context, item, i) return IsKindOf(item, "Unit") and item.team and item.team.control == "UI" end,
+										'__context', function (parent, context, item, i, n) return item end,
+									}, {
+										PlaceObj('XTemplateTemplate', {
+											'__template', "HUDMerc",
+											'OnContextUpdate', function (self, context, ...)
+												local unit = self.context
+												local unitSelected = not not table.find(Selection, unit)
+												self:SetSelected(Selection[1] == unit and "full" or unitSelected)
+												self:SetupStyle()
+												local showActionInfo = SelectedObj and IsCombatActionForAlly(GetDialog(self).action)
+												self.dontShowRollover = showActionInfo
+											end,
+											'OnPress', function (self, gamepad)
+												local selectedUnit = self.context
+												local igim = GetInGameInterfaceModeDlg()
+												
+												if IsCombatActionForAlly(igim.action) and (igim.action.ActionType ~= "Ranged Attack") and (igim.action.ActionType ~= "Melee Attack") then
+													if SelectedObj and not SelectedObj.move_attack_target then
+														local targets = igim.action:GetTargets({SelectedObj})
+														if table.find(targets, selectedUnit) then
+															local _, err = CanBandageUI(SelectedObj, { target = selectedUnit })
+															if igim.action:GetUIState({SelectedObj}) == "enabled" and not err then
+																igim:StartMoveAndAttack(SelectedObj, igim.action, selectedUnit, SelectedObj:GetClosestMeleeRangePos(selectedUnit), {target = selectedUnit})
+															end
+														end
+													end
+													return "break"
+												end
+												
+												local canBeControlled, reason = selectedUnit:CanBeControlled()
+												if not canBeControlled and reason ~= "not_local_turn" then
+													return "break"
+												end
+												
+												if selectedUnit == SelectedObj and not IsPointInsidePoly2D(selectedUnit:GetVisualPos(), CalcCombatZone()) or
+													cameraTac.GetFloor() ~= GetStepFloor(selectedUnit) then
+													SnapCameraToObj(selectedUnit, nil, GetStepFloor(selectedUnit))
+												end
+												
+												if g_Combat and not gv_DeploymentStarted and not IsKindOf(igim, "IModeCombatMovement") then
+													SetInGameInterfaceMode("IModeCombatMovement")
+													SelectObj(selectedUnit)
+												elseif IsKindOf(igim, "IModeExploration") then
+													igim:HandleUnitSelection({selectedUnit})
+												else -- Deployment
+													SelectObj(selectedUnit)
+												end
+												
+												return "break"
+											end,
+											'AltPress', true,
+											'OnAltPress', function (self, gamepad)
+												local selectedUnit = self.context						
+												local igim = GetInGameInterfaceModeDlg()
+												
+												local squad = gv_Squads[self.context.Squad]	
+												local context = {
+													sector_id = squad.CurrentSector,
+													squad_id = squad.UniqueId,
+													actions = { "idInventory", "actionOpenCharacterContextMenu", "actionLevelUpViewContextMenu" },
+													unit_id = selectedUnit.session_id
+												}
+												local ctxMenu = XTemplateSpawn("SatelliteViewMapContextMenu", igim, context)
+												ctxMenu:SetZOrder(999)
+												ctxMenu:SetAnchor(self.box)
+												ctxMenu:Open()
+												self.desktop:SetModalWindow(ctxMenu)
+											end,
+											'ClassIconOnRollover', true,
+										}, {
+											PlaceObj('XTemplateFunc', {
+												'name', "OnMouseButtonDoubleClick(self, pt, button)",
+												'func', function (self, pt, button)
+													local selectedUnit = self.context
+													if not IsKindOf(selectedUnit, "Unit") or ActionCameraPlaying then return end
+													
+													SnapCameraToObj(selectedUnit, "force", GetStepFloor(selectedUnit))
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "OnSetRollover(self, rollover)",
+												'func', function (self, rollover)
+													local context = self.context								
+													
+													local igim = GetInGameInterfaceModeDlg()
+													if igim and IsCombatActionForAlly(igim.action) then
+														if igim.action.id == "Bandage" then
+															local _, err = CanBandageUI(SelectedObj, { target = context })
+															local bandageError = err and Untranslated(_InternalTranslate(err, { ["flavor"] = "", ["/flavor"] = "" }))
+															SetAPIndicator(bandageError and 0 or false, "bandage-error", bandageError, nil, "force")
+															context:SetHighlightReason("bandage-target", not err)
+														end
+														SetAPIndicator(false, "melee-attack")
+														SetAPIndicator(false, "unreachable")
+													end
+													
+													local noRollover = context:IsDead() or not context:IsLocalPlayerControlled()
+													if rollover and not noRollover then
+														SetActiveBadgeExclusive(self.context)
+													elseif context.ui_badge then
+														context.ui_badge:SetActive(false, "exclusive")
+														context:SetHighlightReason("bandage-target", false)
+													end
+													
+													if noRollover then
+														rollover = false
+													end
+													
+													HUDMercClass.OnSetRollover(self, rollover)
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "SetupStyle(self, ...)",
+												'func', function (self, ...)
+													if IsKindOf(GetDialog(self.parent), "IModeDeployment") then
+														local deployed = IsUnitDeployed(self.context)
+														if not deployed then
+															self.idPortrait:SetEnabled(false)
+															self.idBar.HPColor = GameColors.D
+														else
+															self.idPortrait:SetEnabled(true)
+															self.idBar.HPColor = GameColors.Player
+														end
+													end
+													HUDMercClass.SetupStyle(self, ...)
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "GetMouseCursor(self)",
+												'func', function (self)
+													local igim = GetInGameInterfaceModeDlg()
+													if igim.action and igim.action.id == "Bandage" then
+														if CanBandageUI(SelectedObj, { target = self.context }) then
+															return "UI/Cursors/Healing_on.tga"
+														else
+															return "UI/Cursors/Healing_off.tga"
+														end
+													end
+													
+													return "UI/Cursors/Hand.tga"
+												end,
+											}),
+											PlaceObj('XTemplateCode', {
+												'comment', "OnMsg.StatusEffectAdded/Removed",
+												'run', function (self, parent, context)
+													function OnMsg.StatusEffectAdded(unit, status, stacks, reasons)
+														if status ~= "Hidden" then return end
+														if parent.context ~= unit then return end
+														HUDMercClass.SetupStyle(parent)
+													end
+													
+													function OnMsg.StatusEffectRemoved(unit, status, stacks, reason)
+														if status ~= "Hidden" then return end
+														if parent.context ~= unit then return end
+														HUDMercClass.SetupStyle(parent)
+													end
+												end,
+											}),
+											PlaceObj('XTemplateWindow', {
+												'HAlign', "right",
+												'VAlign', "bottom",
+												'LayoutMethod', "VList",
+											}, {
+												PlaceObj('XTemplateWindow', nil, {
+													PlaceObj('XTemplateWindow', {
+														'__class', "XImage",
+														'RolloverTemplate', "RolloverGeneric",
+														'RolloverAnchor', "right",
+														'RolloverText', T(823568393704, --[[ModItemXTemplate SquadsAndMercs RolloverText]] "Wounds are being bandaged."),
+														'RolloverOffset', box(15, 0, 0, 0),
+														'Id', "idBeingBandagedIndicator",
+														'HAlign', "center",
+														'VAlign', "top",
+														'MinWidth', 25,
+														'MinHeight', 25,
+														'MaxWidth', 25,
+														'MaxHeight', 25,
+														'Visible', false,
+														'HandleMouse', true,
+														'Image', "UI/Hud/hud_bandaging",
+														'ImageFit', "stretch",
+														'ImageScale', point(900, 900),
+													}),
+													PlaceObj('XTemplateWindow', {
+														'__context', function (parent, context) return context.StatusEffects end,
+														'__class', "XContentTemplate",
+														'Id', "idWounded",
+														'Margins', box(3, 0, 0, 0),
+														'LayoutMethod', "HList",
+														'HandleMouse', true,
+														'MouseCursor', "UI/Cursors/Cursor.tga",
+													}, {
+														PlaceObj('XTemplateTemplate', {
+															'__context', function (parent, context) return table.find_value(context, "class", "Wounded") end,
+															'__condition', function (parent, context) return not not context end,
+															'__template', "StatusEffectIcon",
+														}),
+														PlaceObj('XTemplateTemplate', {
+															'__context', function (parent, context) return table.find_value(context, "class", "Tired") or table.find_value(context, "class", "Exhausted") end,
+															'__condition', function (parent, context) return not not context end,
+															'__template', "StatusEffectIcon",
+														}),
+														PlaceObj('XTemplateFunc', {
+															'name', "OnMouseButtonDown(self, pos, button)",
+															'func', function (self, pos, button)
+																return "break"
+															end,
+														}),
+														}),
+													}),
+												PlaceObj('XTemplateWindow', {
+													'__context', function (parent, context) return "combat_bar_enemies" end,
+													'__condition', function (parent, context) return not IsKindOf(GetDialog(parent), "IModeDeployment") end,
+													'__class', "XContextWindow",
+													'RolloverTemplate', "RolloverGeneric",
+													'RolloverAnchor', "right",
+													'RolloverOffset', box(10, 0, 0, 0),
+													'IdNode', true,
+													'HAlign', "left",
+													'VAlign', "bottom",
+													'ContextUpdateOnOpen', true,
+													'OnContextUpdate', function (self, context, ...)
+														local partyMemberWnd = self:ResolveId("node")
+														local member = partyMemberWnd.context
+														local targets = GetTargetsToShowInPartyUI(member)
+														local targetCount = #targets
+														self:SetVisible(targetCount > 0 and not gv_Deployment)
+														rawset(self[1], "enemies", targets)
+														self:SetRolloverText(T{914820786173, "Visible Enemies: <enemyCount>", enemyCount = targetCount})
+														self.idCount:SetText(targetCount)
+													end,
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'__class', "XImage",
+														'IdNode', false,
+														'HandleMouse', true,
+														'Image', "UI/Hud/enemies_in_range",
+														'Columns', 2,
+														'ImageScale', point(900, 900),
+													}, {
+														PlaceObj('XTemplateFunc', {
+															'name', "OnMouseButtonDown(self, pos, button)",
+															'func', function (self, pos, button)
+																local enemies = rawget(self, "enemies")
+																if not enemies or #enemies == 0 then return end
+																local lastTarget = rawget(self, "target")
+																if not lastTarget or lastTarget == #enemies then lastTarget = 0 end
+																lastTarget = lastTarget + 1
+																rawset(self, "target", lastTarget)
+																SnapCameraToObj(enemies[lastTarget], nil, GetStepFloor(enemies[lastTarget]))
+																return "break"
+															end,
+														}),
+														PlaceObj('XTemplateWindow', {
+															'__class', "XText",
+															'Id', "idCount",
+															'HAlign', "right",
+															'VAlign', "top",
+															'Clip', false,
+															'UseClipBox', false,
+															'FoldWhenHidden', true,
+															'TextStyle', "VisibleEnemiesUICount",
+														}),
+														}),
+													}),
+												PlaceObj('XTemplateWindow', {
+													'Id', "idAPIndicator",
+													'Margins', box(-5, 0, 0, 0),
+													'Padding', box(2, 2, 2, 2),
+													'HAlign', "left",
+													'VAlign', "bottom",
+													'MinWidth', 30,
+													'MinHeight', 30,
+													'MaxWidth', 30,
+													'MaxHeight', 30,
+													'Background', RGBA(230, 222, 203, 255),
+													'BackgroundRectGlowColor', RGBA(230, 222, 203, 255),
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'__class', "XText",
+														'Id', "idAPText",
+														'HAlign', "center",
+														'VAlign', "center",
+														'FoldWhenHidden', true,
+														'TextStyle', "HUDHeaderDark",
+														'ContextUpdateOnOpen', true,
+														'OnContextUpdate', function (self, context, ...)
+															if not IsKindOf(context, "Unit") then return end
+															self.parent:SetVisible(not not g_Combat and not context:IsDead() and not context:IsDowned())
+															self:SetText(self.Text)
+															XContextControl.OnContextUpdate(self, context)
+														end,
+														'Translate', true,
+														'Text', T(911599978706, --[[ModItemXTemplate SquadsAndMercs Text]] "<apn(GetUIActionPoints())>"),
+													}),
+													PlaceObj('XTemplateWindow', {
+														'__class', "XImage",
+														'Id', "idBandageIndicator",
+														'Visible', false,
+														'Image', "UI/Hud/Status effects/treating",
+														'ImageFit', "stretch",
+													}),
+													}),
+												PlaceObj('XTemplateWindow', {
+													'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeDeployment") end,
+													'RolloverTemplate', "SmallRolloverGeneric",
+													'RolloverAnchor', "top",
+													'RolloverText', T(364309207482, --[[ModItemXTemplate SquadsAndMercs RolloverText]] "Аwaiting deployment"),
+													'RolloverOffset', box(-15, 0, 0, -15),
+													'Id', "idDeployed",
+													'Margins', box(-5, 0, 0, -5),
+													'HAlign', "right",
+													'VAlign', "bottom",
+													'HandleMouse', true,
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'__class', "XContextImage",
+														'FoldWhenHidden', true,
+														'Image', "UI/Hud/notification",
+														'ContextUpdateOnOpen', true,
+														'OnContextUpdate', function (self, context, ...)
+															if not IsKindOf(context, "Unit") then return end
+															local deployed = IsUnitDeployed(context)
+															self.parent:SetVisible(not deployed)
+															XContextControl.OnContextUpdate(self, context)
+														end,
+													}),
+													}),
+												}),
+											PlaceObj('XTemplateWindow', {
+												'comment', "sus bar",
+												'__parent', function (parent, context) return parent.idBottomPart end,
+												'__condition', function (parent, context) return not g_Combat end,
+												'__class', "SmoothBar",
+												'Margins', box(0, 0, 0, -3),
+												'Dock', "top",
+												'VAlign', "top",
+												'MinHeight', 3,
+												'MaxHeight', 3,
+												'Background', RGBA(52, 55, 61, 255),
+												'BindTo', "suspicion",
+												'FillColor', RGBA(222, 60, 75, 255),
+											}, {
+												PlaceObj('XTemplateFunc', {
+													'name', "Open(self)",
+													'func', function (self)
+														self.MaxValue = SuspicionThreshold
+														SmoothBar.Open(self)
+													end,
+												}),
+												}),
+											PlaceObj('XTemplateWindow', {
+												'comment', "sus indicator",
+												'__context', function (parent, context) return "UnitsSusBeingRaised" end,
+												'__parent', function (parent, context) return parent.idPortraitBG end,
+												'__condition', function (parent, context) return not g_Combat end,
+												'__class', "XContextImage",
+												'Id', "idSusIndicator",
+												'Margins', box(0, 0, 5, 0),
+												'HAlign', "right",
+												'MinWidth', 15,
+												'MinHeight', 20,
+												'MaxWidth', 15,
+												'MaxHeight', 20,
+												'Visible', false,
+												'DrawOnTop', true,
+												'Image', "UI/Hud/enemy_detection",
+												'ImageFit', "width",
+												'ContextUpdateOnOpen', true,
+												'OnContextUpdate', function (self, context, ...)
+													local obj = self:ResolveId("node")
+													obj = obj and obj.context
+													self:SetVisible(UnitsSusBeingRaised and obj and UnitsSusBeingRaised[obj.handle])
+												end,
+											}),
+											}),
 										}),
 									}),
 								}),
@@ -98444,7 +103064,7 @@ return {
 		PlaceObj('ModItemXTemplate', {
 			__is_kind_of = "XDialog",
 			group = "Zulu",
-			id = "Inventory",
+			id = "Inventory_jazz",
 			PlaceObj('XTemplateWindow', {
 				'__context', function (parent, context) return context or {unit = SelectedObj} end,
 				'__class', "XDialog",
@@ -99220,7 +103840,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "NextUnit",
-					'ActionName', T(685525071391, --[[ModItemXTemplate Inventory ActionName]] "Следующий боец"),
+					'ActionName', T(685525071391, --[[ModItemXTemplate Inventory_jazz ActionName]] "Следующий боец"),
 					'ActionShortcut', "Tab",
 					'ActionGamepad', "RightShoulder",
 					'ActionBindable', true,
@@ -99254,7 +103874,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "PrevUnit",
-					'ActionName', T(341131714166, --[[ModItemXTemplate Inventory ActionName]] "Предыдущий боец"),
+					'ActionName', T(341131714166, --[[ModItemXTemplate Inventory_jazz ActionName]] "Предыдущий боец"),
 					'ActionGamepad', "LeftShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -99284,7 +103904,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "NextSquad",
-					'ActionName', T(223971847712, --[[ModItemXTemplate Inventory ActionName]] "Следующий отряд"),
+					'ActionName', T(223971847712, --[[ModItemXTemplate Inventory_jazz ActionName]] "Следующий отряд"),
 					'ActionGamepad', "LeftTrigger-RightShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -99306,7 +103926,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "PrevSquad",
-					'ActionName', T(403630606358, --[[ModItemXTemplate Inventory ActionName]] "Предыдущий отряд"),
+					'ActionName', T(403630606358, --[[ModItemXTemplate Inventory_jazz ActionName]] "Предыдущий отряд"),
 					'ActionGamepad', "LeftTrigger-LeftShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -99328,7 +103948,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CurrentWeapon1",
-					'ActionName', T(121141697489, --[[ModItemXTemplate Inventory ActionName]] "Активное оружие I"),
+					'ActionName', T(121141697489, --[[ModItemXTemplate Inventory_jazz ActionName]] "Активное оружие I"),
 					'ActionShortcut', "Z",
 					'ActionButtonTemplate', "InventoryActionBarButton",
 					'ActionState', function (self, host)
@@ -99349,7 +103969,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CurrentWeapon2",
-					'ActionName', T(401513833052, --[[ModItemXTemplate Inventory ActionName]] "Активное оружие II"),
+					'ActionName', T(401513833052, --[[ModItemXTemplate Inventory_jazz ActionName]] "Активное оружие II"),
 					'ActionShortcut', "X",
 					'ActionButtonTemplate', "InventoryActionBarButton",
 					'ActionState', function (self, host)
@@ -99370,7 +103990,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Primary",
-					'ActionName', T(496415606741, --[[ModItemXTemplate Inventory ActionName]] "Комплект I"),
+					'ActionName', T(496415606741, --[[ModItemXTemplate Inventory_jazz ActionName]] "Комплект I"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Z",
 					'ActionShortcut2', "Shift-Z",
@@ -99394,7 +104014,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Secondary",
-					'ActionName', T(631908893433, --[[ModItemXTemplate Inventory ActionName]] "Комплект II"),
+					'ActionName', T(631908893433, --[[ModItemXTemplate Inventory_jazz ActionName]] "Комплект II"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "X",
 					'ActionShortcut2', "Shift-X",
@@ -99418,7 +104038,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Actions",
-					'ActionName', T(655838211940, --[[ModItemXTemplate Inventory ActionName]] "Меню предмета"),
+					'ActionName', T(655838211940, --[[ModItemXTemplate Inventory_jazz ActionName]] "Меню предмета"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "right_click",
 					'ActionGamepad', "ButtonX",
@@ -99433,7 +104053,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Multiselect",
-					'ActionName', T(845995818811, --[[ModItemXTemplate Inventory ActionName]] "Мультивыбор"),
+					'ActionName', T(845995818811, --[[ModItemXTemplate Inventory_jazz ActionName]] "Мультивыбор"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Ctrl",
 					'ActionGamepad', "LeftTrigger-ButtonA",
@@ -99448,7 +104068,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CompareItems",
-					'ActionName', T(786438577601, --[[ModItemXTemplate Inventory ActionName]] "Сравнить"),
+					'ActionName', T(786438577601, --[[ModItemXTemplate Inventory_jazz ActionName]] "Сравнить"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Shift",
 					'ActionGamepad', "RightTrigger-ButtonY",
@@ -99491,7 +104111,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CloseInventory",
-					'ActionName', T(479448243931, --[[ModItemXTemplate Inventory ActionName]] "Закрыть"),
+					'ActionName', T(479448243931, --[[ModItemXTemplate Inventory_jazz ActionName]] "Закрыть"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionGamepad', "ButtonB",
 					'ActionButtonTemplate', "InventoryActionBarButton",
@@ -99577,7 +104197,7 @@ return {
 							'HAlign', "center",
 							'TextStyle', "InventoryContainerTitle",
 							'Translate', true,
-							'Text', T(197360050229, --[[ModItemXTemplate Inventory Text]] "Рюкзаки отряда"),
+							'Text', T(197360050229, --[[ModItemXTemplate Inventory_jazz Text]] "Рюкзаки отряда"),
 						}),
 						PlaceObj('XTemplateWindow', {
 							'comment', "right",
@@ -99604,7 +104224,7 @@ return {
 								'Visible', false,
 								'TextStyle', "PDABrowserTextLight",
 								'Translate', true,
-								'Text', T(680087796963, --[[ModItemXTemplate Inventory Text]] "Недостаточно ОД "),
+								'Text', T(680087796963, --[[ModItemXTemplate Inventory_jazz Text]] "Недостаточно ОД "),
 								'TextHAlign', "center",
 							}),
 							PlaceObj('XTemplateWindow', {
@@ -99682,7 +104302,7 @@ return {
 												'HandleMouse', false,
 												'TextStyle', "InventoryBackpackTitle",
 												'Translate', true,
-												'Text', T(496187320548, --[[ModItemXTemplate Inventory Text]] "Снаряжение - <Nick>"),
+												'Text', T(496187320548, --[[ModItemXTemplate Inventory_jazz Text]] "Снаряжение - <Nick>"),
 												'TextVAlign', "center",
 											}, {
 												PlaceObj('XTemplateFunc', {
@@ -99863,7 +104483,7 @@ return {
 																'__condition', function (parent, context) return true end,
 																'__class', "XToggleButton",
 																'RolloverTemplate', "ChangeActiveWeaponAPRollover",
-																'RolloverTitle', T(294949010792, --[[ModItemXTemplate Inventory RolloverTitle]] "ОД"),
+																'RolloverTitle', T(294949010792, --[[ModItemXTemplate Inventory_jazz RolloverTitle]] "ОД"),
 																'Id', "idWeapons1",
 																'Margins', box(5, 0, 0, 0),
 																'HAlign', "left",
@@ -99933,7 +104553,7 @@ return {
 															PlaceObj('XTemplateWindow', {
 																'__class', "XToggleButton",
 																'RolloverTemplate', "ChangeActiveWeaponAPRollover",
-																'RolloverTitle', T(553619365745, --[[ModItemXTemplate Inventory RolloverTitle]] "ОД"),
+																'RolloverTitle', T(553619365745, --[[ModItemXTemplate Inventory_jazz RolloverTitle]] "ОД"),
 																'Id', "idWeapons2",
 																'Margins', box(5, 0, 0, 0),
 																'HAlign', "left",
@@ -100506,7 +105126,7 @@ return {
 												'HandleMouse', false,
 												'TextStyle', "InventoryBackpackTitle",
 												'Translate', true,
-												'Text', T(514182313918, --[[ModItemXTemplate Inventory Text]] "Имущество отряда"),
+												'Text', T(514182313918, --[[ModItemXTemplate Inventory_jazz Text]] "Имущество отряда"),
 												'TextVAlign', "center",
 											}, {
 												PlaceObj('XTemplateFunc', {
@@ -100562,7 +105182,7 @@ return {
 							'Padding', box(0, 0, 0, 0),
 							'TextStyle', "InventoryContainerTitle",
 							'Translate', true,
-							'Text', T(109181961514, --[[ModItemXTemplate Inventory Text]] "Обыскать"),
+							'Text', T(109181961514, --[[ModItemXTemplate Inventory_jazz Text]] "Обыскать"),
 							'TextHAlign', "center",
 							'TextVAlign', "center",
 						}),
@@ -100656,7 +105276,7 @@ return {
 											'MaxHeight', 60,
 											'TextStyle', "InventoryWarning",
 											'Translate', true,
-											'Text', T(278792927663, --[[ModItemXTemplate Inventory Text]] "Выбранный отряд находится в другом секторе"),
+											'Text', T(278792927663, --[[ModItemXTemplate Inventory_jazz Text]] "Выбранный отряд находится в другом секторе"),
 											'TextHAlign', "center",
 											'TextVAlign', "center",
 										}),
@@ -100726,7 +105346,7 @@ return {
 															'FoldWhenHidden', true,
 															'TextStyle', "InventoryBackpackTitle",
 															'Translate', true,
-															'Text', T(891216644273, --[[ModItemXTemplate Inventory Text]] "МЕШОК"),
+															'Text', T(891216644273, --[[ModItemXTemplate Inventory_jazz Text]] "МЕШОК"),
 															'HideOnEmpty', true,
 															'TextVAlign', "center",
 														}),
@@ -100964,7 +105584,7 @@ return {
 												'FoldWhenHidden', true,
 												'TextStyle', "InventoryActionsTextRedBig",
 												'Translate', true,
-												'Text', T(823586987523, --[[ModItemXTemplate Inventory Text]] "Инвентарь заполнен"),
+												'Text', T(823586987523, --[[ModItemXTemplate Inventory_jazz Text]] "Инвентарь заполнен"),
 												'HideOnEmpty', true,
 											}),
 											PlaceObj('XTemplateTemplate', {
@@ -101086,7 +105706,7 @@ return {
 										}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "TakeAll",
-										'ActionName', T(626268669241, --[[ModItemXTemplate Inventory ActionName]] "ВЗЯТЬ ВСЁ"),
+										'ActionName', T(626268669241, --[[ModItemXTemplate Inventory_jazz ActionName]] "ВЗЯТЬ ВСЁ"),
 										'ActionShortcut', "T",
 										'ActionGamepad', "LeftTrigger-ButtonY",
 										'ActionState', function (self, host)
@@ -101098,7 +105718,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "SelectAll",
-										'ActionName', T(178481563517, --[[ModItemXTemplate Inventory ActionName]] "ВЫБРАТЬ ВСЕ"),
+										'ActionName', T(178481563517, --[[ModItemXTemplate Inventory_jazz ActionName]] "ВЫБРАТЬ ВСЕ"),
 										'ActionShortcut', "A",
 										'ActionGamepad', "LeftTrigger-ButtonX",
 										'ActionState', function (self, host)
@@ -101135,7 +105755,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "Sort",
-										'ActionName', T(450240566354, --[[ModItemXTemplate Inventory ActionName]] "Сортировка"),
+										'ActionName', T(450240566354, --[[ModItemXTemplate Inventory_jazz ActionName]] "Сортировка"),
 										'ActionShortcut', "S",
 										'ActionGamepad', "LeftTrigger-ButtonX",
 										'ActionState', function (self, host)
@@ -101204,7 +105824,7 @@ return {
 														'Padding', box(6, 2, 2, 2),
 														'TextStyle', "InventoryBackpackTitle",
 														'Translate', true,
-														'Text', T(622734644944, --[[ModItemXTemplate Inventory Text]] "МЕШОК"),
+														'Text', T(622734644944, --[[ModItemXTemplate Inventory_jazz Text]] "МЕШОК"),
 														'TextVAlign', "center",
 													}),
 													}),
@@ -101300,7 +105920,7 @@ return {
 												'FoldWhenHidden', true,
 												'TextStyle', "InventoryActionsTextRedBig",
 												'Translate', true,
-												'Text', T(430239587618, --[[ModItemXTemplate Inventory Text]] "Инвентарь заполнен"),
+												'Text', T(430239587618, --[[ModItemXTemplate Inventory_jazz Text]] "Инвентарь заполнен"),
 												'HideOnEmpty', true,
 											}),
 											PlaceObj('XTemplateTemplate', {
@@ -101327,7 +105947,7 @@ return {
 										}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "Loot",
-										'ActionName', T(433865850668, --[[ModItemXTemplate Inventory ActionName]] "Показать трофеи"),
+										'ActionName', T(433865850668, --[[ModItemXTemplate Inventory_jazz ActionName]] "Показать трофеи"),
 										'ActionToolbar', "ActionBarCenter",
 										'ActionShortcut', "L",
 										'ActionState', function (self, host)
@@ -101348,7 +105968,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "TakeLoot",
-										'ActionName', T(816169052092, --[[ModItemXTemplate Inventory ActionName]] "Забрать трофеи"),
+										'ActionName', T(816169052092, --[[ModItemXTemplate Inventory_jazz ActionName]] "Забрать трофеи"),
 										'ActionToolbar', "ActionBarCenter",
 										'ActionShortcut', "T",
 										'ActionGamepad', "LeftTrigger-ButtonY",
@@ -103847,6 +108467,3176 @@ return {
 										end
 									end,
 								}),
+								}),
+							}),
+						}),
+					PlaceObj('XTemplateWindow', {
+						'Id', "idCompare",
+						'Dock', "box",
+						'HAlign', "left",
+						'MinWidth', 855,
+					}, {
+						PlaceObj('XTemplateFunc', {
+							'name', "SetOutsideScale(self, scale)",
+							'func', function (self, scale)
+								-- The inventory has some custom scale active. In order to have the fake
+								-- comparison rollovers which are spawned inside this window scale like
+								-- the normal rollovers, we need to override the scale here.
+								
+								XWindow.SetOutsideScale(self, terminal.desktop.scale)
+							end,
+						}),
+						PlaceObj('XTemplateFunc', {
+							'name', "SetLayoutSpace(self, x, y, width, height)",
+							'func', function (self, x, y, width, height)
+								-- We want the margins to scale in "inventory scale"
+								
+								local dlg = self:ResolveId("node")
+								local dlgScale = dlg.scale
+								
+								local xMarg, yMarg = ScaleXY(dlgScale, 100, 110)
+								x = x + xMarg
+								y = y + yMarg
+								
+								XWindow.SetLayoutSpace(self, x, y, width, height)
+							end,
+						}),
+						}),
+					}),
+				PlaceObj('XTemplateTemplate', {
+					'__template', "InventoryActionBar",
+					'ZOrder', 2,
+					'Margins', box(0, 0, 50, 10),
+					'MarginPolicy', "FitInSafeArea",
+					'Dock', "box",
+					'VAlign', "bottom",
+					'FoldWhenHidden', true,
+					'DrawOnTop', true,
+					'ToolbarName', "InventoryActionBar",
+				}),
+				}),
+		}),
+		PlaceObj('ModItemXTemplate', {
+			__is_kind_of = "XDialog",
+			group = "Zulu",
+			id = "Inventory",
+			PlaceObj('XTemplateWindow', {
+				'__context', function (parent, context) return context or {unit = SelectedObj} end,
+				'__class', "XDialog",
+				'Id', "idInventory",
+				'ContextUpdateOnOpen', true,
+				'OnContextUpdate', function (self, context, ...)
+					self:CloseCompare()
+					self.selected_unit = context.unit
+					self.idRight:SetContext(context, true)
+					if self.selected_unit  then
+						self.idUnitInfo:SetContext(self.selected_unit,true)	
+						local left = self:ResolveId("idPartyContainer")						
+						local squad_list = left.idParty and left.idParty.idContainer or empty_table
+						for _, button in ipairs(squad_list) do	
+							local bctx = button:GetContext()
+							local is_selected = bctx and bctx.session_id==self.selected_unit.session_id
+							button:SetSelected(is_selected)
+						end
+					end
+					self:CompareWeaponSetUI()		
+					--self.idCenter:SetContext(context.container,true)
+				end,
+				'InitialMode', "ammo",
+				'InternalModes', "loot, ammo",
+				'FocusOnOpen', "child",
+			}, {
+				PlaceObj('XTemplateWindow', {
+					'__class', "XCameraLockLayer",
+					'lock_id', "Inventory",
+				}),
+				PlaceObj('XTemplateLayer', {
+					'__condition', function (parent, context) return not netInGame and not gv_SatelliteView end,
+					'layer', "XPauseLayer",
+					'PauseReason', "InventoryPauseSP",
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "Open",
+					'func', function (self, ...)
+						self.spawned_popup = false
+						self.item_wnd = false
+						
+						if gv_SatelliteView then
+							SetCampaignSpeed(0, GetUICampaignPauseReason("Inventory"))
+						end
+						
+						local context = self:GetContext()
+						self.selected_unit = context.unit
+						self.selected_items = {}
+						self.selected_tab = "all"
+						
+						self.slots = {}
+						self.compare_wnd = {}
+						self.compare_mode = false
+						self.compare_mode_weaponslot = context.unit.current_weapon=="Handheld A" and 1 or 2
+						
+						--self.idInventoryMouseText:SetVisible(false)
+						local retVal = XDialog.Open(self, ...)
+						
+						self.idPartyContainer:SelectSquad(gv_Squads[self.selected_unit.Squad])
+						local container_mode = context.container  and "loot" or "ammo"
+						if InventoryDisabled(context) then
+							container_mode = "ammo"
+						end	
+						if gv_SatelliteView and context.unit and (context.unit.Operation == "Arriving" or context.unit.Operation == "Traveling") then	
+							container_mode = "ammo"		
+						end	
+						
+						self:SetMode(container_mode)
+						local ctrl_right_area = self.idScrollArea
+						for _, wnd in ipairs(ctrl_right_area) do
+							local wnd_context = wnd:GetContext()
+							local wnd_id = wnd_context and wnd_context.session_id
+							if wnd and wnd_id then
+								if context.unit and wnd_id==context.unit.session_id then
+									ctrl_right_area:ScrollIntoView(wnd)
+									wnd.idName:SetHightlighted(true)	
+									break
+								end
+							end	
+						end		
+						self:CompareWeaponSetUI()
+						return retVal
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "OnDelete(self)",
+					'func', function (self)
+						if gv_SatelliteView then
+							SetCampaignSpeed(nil, GetUICampaignPauseReason("Inventory"))
+						end
+						local context =  self.context
+						if context and IsKindOf(context.container, "SectorStash") then
+							InventoryUIResetSectorStash()
+							NetSyncEvent("SectorStashOpenedBy", false)
+						end
+						if gv_SquadBag then
+							InventoryUIResetSquadBag()
+						end
+						local splitdlg = GetDialog("SplitStackItem")
+						if splitdlg then
+							splitdlg:Close()
+						end	
+						self:CloseCompare()
+						self:OnEscape()
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "Close",
+					'func', function (self, ...)
+						self:OnDelete()
+						return XDialog.Close(self, ...)
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "GetSlotByName(self,slot_name, slot_context)",
+					'func', function (self,slot_name, slot_context)
+						local slots = self:GetSlotsArray()
+						for slot in pairs(slots) do
+							if slot.slot_name == slot_name and (not slot_context or slot_context==slot:GetContext()) then
+								return slot
+							end
+						end
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "OnEscape",
+					'func', function (self, ...)
+						local slots = self:GetSlotsArray()
+						for slot in pairs(slots) do
+							if slot:CancelDragging() then
+								return true
+							end
+						end
+						if self.spawned_popup and self.spawned_popup.window_state ~= "destroying" then
+						 	local slot = next(slots)
+							slot:ClosePopup()
+							return  true
+						end
+						if InventoryIsCompareMode(self) then
+							self:CloseCompare()
+							self.compare_mode  =false
+							self:ActionsUpdated()
+							return true
+						end
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "CloseCompare(self, up)",
+					'func', function (self, up)
+						local cmp_item = self.compare_wnd and self.compare_wnd.item
+						if cmp_item then
+							HighlightCompareSlots(cmp_item, self.compare_wnd.other, false)
+							local mode = self.compare_mode
+							self.compare_mode = false
+							SetInventoryHighlights(cmp_item, up)
+							self.compare_mode = mode
+						end
+						if next(self.compare_wnd) then
+							for _, wnd in ipairs(self.compare_wnd) do
+								wnd:delete()
+							end
+							self.compare_wnd = {}
+							XInventoryItem.RolloverTemplate = "RolloverInventory"
+							return
+						end
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "OpenCompare(self, item_wnd, item)",
+					'func', function (self, item_wnd, item)
+						if next(self.compare_wnd) then 
+							return false
+						end
+						if not item_wnd or not item then
+							local pt = terminal:GetMousePos()
+							local win = terminal.desktop:GetMouseTarget(pt)
+							while win and not IsKindOf(win, "XInventorySlot") do
+								win = win:GetParent()
+							end
+							if not win then return false end
+							item_wnd,item = win:FindItemWnd(pt)
+						end
+						self.compare_wnd.item = item
+						if item then
+							self.compare_mode  = false
+							SetInventoryHighlights(item, false)					
+							self.compare_mode  = true
+							--HighlightEquipSlots(item, true)
+						end	
+										
+						local container = item_wnd and item_wnd.parent and item_wnd.parent.context
+						local no_compare = IsKindOfClasses(container, "SectorStash", "ItemDropContainer")
+						if no_compare then
+							return false
+						end
+						local equip_slots = GetSlotsToEquipItem(item) 
+						if item and next(equip_slots) then
+							local dlg = GetMercInventoryDlg()  
+							local unit = GetInventoryUnit()
+							local list = XTemplateSpawn("XWindow",dlg.idCompare)
+							list:SetHAlign("right")
+							list:SetVAlign("top")
+							list:SetLayoutMethod("HList")
+							list:SetLayoutVSpacing(10)
+							
+							local other = {}
+							local is_weapon = item:IsWeapon()
+							local is_grenade = IsKindOf(item, "Grenade")
+							self.compare_mode_weaponslot =  self.compare_mode_weaponslot or 1
+							if is_weapon or #equip_slots>1 then
+								equip_slots = self.compare_mode_weaponslot == 1 and {"Handheld A"} or {"Handheld B"}
+							end
+							for idx, slot_name in ipairs(equip_slots) do						
+								unit:ForEachItemInSlot(slot_name, function(itm, slot_name, left, top, self, item, list, other, is_weapon, is_grenade)
+									if itm and item~=itm then
+										local is_weapon_eq = itm:IsWeapon()
+										local is_grenade_eq = IsKindOf(itm, "Grenade")
+										if (is_weapon and is_weapon_eq) or 
+											(not is_weapon and not is_weapon_eq and 
+												(InventoryItemDefs[item.class].group==InventoryItemDefs[itm.class].group or 
+												 is_grenade_eq and is_grenade)) then
+											local context = SubContext(itm)
+											context.control = self:GetSlotByName(slot_name)
+											local rollover_slot = XTemplateSpawn("RolloverInventoryCompare", list, context)
+											rollover_slot:SetMargins(box(10,0,0,0))
+											--rollover_slot:SetDock("right")
+											table.insert(other,1, itm)
+										end
+									end
+								end, self, item, list, other, is_weapon, is_grenade)
+							end
+							
+							local context = SubContext(item)
+							context.control = item_wnd		
+							context.other = other					
+							if #other<=0 then
+								XInventoryItem.RolloverTemplate = "RolloverInventory"
+								list:delete()
+								return false
+							end
+							if RolloverWin then
+								RolloverWin:Close()
+								RolloverWin =  false
+								HighlightCompareSlots(item, other, true)
+							end
+							self.compare_wnd[#self.compare_wnd+1] = list
+							self.compare_wnd.other = other
+							local rollover_item = XTemplateSpawn("RolloverInventoryCompare", list, context)
+							rollover_item:SetMargins(box(10,0,0,0))
+							--rollover_item:SetDock("right")
+							
+							list:Open()
+							XInventoryItem.RolloverTemplate = ""
+							return true
+						end
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "OnKillFocus(self)",
+					'func', function (self)
+						local slots = self:GetSlotsArray()
+						for slot in pairs(slots) do
+							if slot:CancelDragging() then
+								break
+							end
+						end
+						XDialog.OnKillFocus(self)
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "GetSlotsArray(self)",
+					'func', function (self)
+						return self.slots or empty_table
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "OnDialogModeChange(self, mode, dialog)",
+					'func', function (self, mode, dialog)
+						if dialog==self then
+							if gv_SatelliteView then
+								self.idCenterHeading:SetText(mode=="loot" and T{288565331426, "SECTOR <SectorId(sector)> STASH", sector = dialog.context.container.sector_id or gv_CurrentSectorId} or T(197418134567, "Squad Supplies"))
+							else
+								self.idCenterHeading:SetText(mode=="loot" and T(899428826682, "Loot") or T(197418134567, "Squad Supplies"))
+							end
+							return
+						end
+						
+						if mode~="inventory" and dialog ~= self then
+							Msg("CloseInventorySubDialog", "inventory")
+							PlayFX("InventoryClose")
+							self:OnEscape()
+							self:Close()
+						end
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "OnXButtonDown(self, button, controller_id)",
+					'func', function (self, button, controller_id)
+						
+						local res = XDialog.OnXButtonDown(self, button, controller_id)
+						if res=="break" then
+							return "break"
+						end
+						local dlg = GetDialog("FullscreenGameDialogs")
+						local pt =  GamepadMouseGetPos()
+						-- compare mode
+						if XInput.IsCtrlButtonPressed(controller_id, "RightTrigger") then
+							if button=="ButtonY" then
+								if self.compare_mode then
+									self:CloseCompare()
+									XInventoryItem.RolloverTemplate = "RolloverInventory"
+									self.compare_mode  = not self.compare_mode
+								else					
+									self.compare_mode  = not self.compare_mode
+									self:OpenCompare()
+								end
+								
+								self:ActionsUpdated()
+								return "break"
+							end
+						end
+						
+						-- also close compare mode with B
+						if button=="ButtonB" and self.compare_mode then
+							self:CloseCompare()
+							XInventoryItem.RolloverTemplate = "RolloverInventory"
+							self.compare_mode  = not self.compare_mode
+							self:ActionsUpdated()
+							return "break"
+						end
+						
+						-- center on units backpack
+						if button=="RightThumbClick" then
+							local pos, slot
+							for  ctrl, val in pairs(self.slots) do
+								local ctx =  ctrl:GetContext()
+								if IsKindOf(ctrl, "BrowseInventorySlot") and ctx and ctx.session_id and ctx.session_id == self.selected_unit.session_id then
+									slot = ctrl
+								end
+							end
+							pos = slot and slot.box:min() or self.slots[1]:GetPos()
+							if pos then
+								terminal.SetMousePos(pos)
+							end
+							return "break"
+						end
+						
+						--LeftTrigger
+						if XInput.IsCtrlButtonPressed(controller_id, "LeftTrigger")  then
+							-- open modify weapon
+							local pt =  GamepadMouseGetPos()
+							local win = terminal.desktop:GetMouseTarget(pt)
+							while win and not IsKindOf(win, "XInventorySlot") do
+								win = win:GetParent()
+							end
+							local owner, item
+							if  win then
+								local _, left, top = win:FindTile(pt)
+								owner = win.context
+								item = owner:GetItemInSlot(win.slot_name, false, left, top)
+							end					
+							if button=="ButtonA"  then						
+								local win = terminal.desktop:GetMouseTarget(pt)
+								while win and not IsKindOf(win, "XInventorySlot") do
+									win = win:GetParent()
+								end
+								if not win then return "break" end
+								local wnd_found, item = win:FindItemWnd(pt)			
+								if InventoryToggleItemMultiselect(self, wnd_found, item) then
+									return "break"
+								end
+								if self and (not item or not self.selected_items[item]) then
+									self:DeselectMultiItems()		
+								end
+						
+								return "break"
+							end
+							if button == "DPadRight" or button == "Right" then
+								-- modify weapon
+								if item and item:IsWeapon() and IsKindOf(item, "Firearm") then
+									if not IsInMultiplayerGame() or  not g_Combat then 
+										OpenDialog("ModifyWeaponDlg", false, { weapon = item, slot = owner:GetItemPackedPos(item), owner = owner})
+									end
+									return "break"
+								end
+							elseif button == "DPadUp" or button == "Up" then
+							-- fast equip
+								if  win and not IsEquipSlot(win.slot_name)then
+									if InventoryDragItem then
+										self:CancelDragging()
+									end
+									win:EquipItem(item)
+									return "break"
+								end
+							elseif button=="DPadDown" or button == "Down" then						
+								if IsEquipSlot(win.slot_name) then
+									-- unequip
+									win:UnEquipItem(item)
+									return "break"
+								elseif owner.Operation~="Arriving" and
+									not (IsKindOf(owner, "Unit") and owner:IsDead()) and not IsKindOf(owner, "ItemContainer") then
+									-- drop item
+									win:DropItem(item)
+									return "break"
+								end
+							elseif button=="DPadLeft" or button=="Left" then
+								local ammo, weapon
+								local unit = GetInventoryUnit()
+								if IsKindOf(item,"Ammo") then
+									ammo = item
+									unit:ForEachItemInSlot(unit.current_weapon, function(witem, slot, l,t, caliber)
+										if witem.Caliber == caliber then
+											weapon = witem
+											return "break"
+										end	
+									end, ammo.Caliber)
+								elseif item:IsWeapon() then
+									weapon = item							
+									local ammos,containers, slots = owner:GetAvailableAmmos(weapon, nil, "unique")
+									local can, err = IsWeaponAvailableForReload(weapon, ammos)
+									if can and err ~= AttackDisableReasons.FullClipHaveOther then
+										local ammo = weapon.ammo
+										if ammo then		
+											local haveMoreFromCurrent = table.find(ammos, "class", ammo.class)
+											ammo = haveMoreFromCurrent and ammos[haveMoreFromCurrent] or ammos[1]
+										else
+											-- Put in first ammo if no ammo loaded
+											ammo = ammos[1]
+										end
+									end
+								end
+								-- reload
+								if weapon and ammo then
+									local context = self:ResolveId("node"):GetContext()
+									local container = context.context 
+								
+									local actionArgs = { target = ammo.class, pos = pos, item_id = weapon.id }
+						
+									local ap = CombatActions.Reload:GetAPCost(unit, actionArgs)
+									ap = InventoryIsCombatMode(unit) and ap or 0
+									assert(IsKindOfClasses(unit, "Unit", "UnitData"))
+									if IsKindOf(unit, "Unit") then
+										NetStartCombatAction("Reload", unit, ap,actionArgs)
+									elseif IsKindOf(unit, "UnitData") then
+										NetSyncEvent("InvetoryAction_RealoadWeapon", unit.session_id,  ap , actionArgs, ammo.class)	
+									end
+						
+									
+									ObjModified(unit)
+									InventoryUpdate(unit)
+									--PlayFX("WeaponReload", "start", weapon.class, weapon.object_class)
+								end
+							end	
+						end
+						
+						-- exit
+						--[[				if button=="ButtonB" then					
+							if not self:OnEscape() then
+								if CurrentTutorialPopup and CurrentTutorialPopup.window_state ~= "destroying" then
+									local ctx = CurrentTutorialPopup:ResolveId("idText"):GetContext()
+									TutorialDismissHint(ctx)
+									CloseCurrentTutorialPopup()
+								else
+									dlg:SetMode("empty")
+									dlg:Close()
+								end
+								return "break"
+							end
+						end
+						]]
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "OnSquadSelected(self, selected_squad)",
+					'func', function (self, selected_squad)
+						if selected_squad then
+							local ctx = self:GetContext()
+							local firstUnitId = selected_squad.units[1]
+							local clone
+							local fromPDA = GetDialog("PDADialog") or gv_SatelliteView
+							local ctx_unit = fromPDA and gv_UnitData[firstUnitId] or g_Units[firstUnitId] 				
+							ctx.unit = ctx_unit
+							local sector_id = ctx.unit and gv_Squads[ctx.unit.Squad].CurrentSector
+							if gv_SatelliteView and gv_SectorInventory and ctx.unit then
+								if sector_id then
+									gv_SectorInventory:Clear()
+									gv_SectorInventory:SetSectorId(sector_id)
+									ctx.container = gv_SectorInventory
+								else
+									ctx.container = false
+								end
+							end
+							if clone then 
+								ObjModified(clone)
+							end	
+							ObjModified(ctx_unit)
+							local prep_context = PrepareInventoryContext(ctx.unit, ctx.container)
+							ctx.unit = prep_context.unit
+							ctx.container = prep_context.container
+							self:SetContext(ctx)
+							self:OnContextUpdate(ctx)
+							InventoryUIResetSquadBag()
+						--					InventoryUIResetSectorStash(sector_id)
+							InventoryUIRespawn()
+							
+							if IsKindOf(ctx_unit, "Unit") then
+								if ctx_unit:CanBeControlled() then
+									SelectObj(ctx_unit)
+								end
+								ObjModified("hud_squads")
+							elseif g_SatelliteUI then
+								g_SatelliteUI:SelectSquad(selected_squad)
+							end
+						end
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "TakeAllState(self)",
+					'func', function (self)
+						if self.selected_tab ~= "all" then
+							return "hidden"
+						end	
+						local context = self:GetContext()
+						local container = context and context.container
+						if not container or InventoryIsCombatMode() then return "hidden" end
+						
+						if not InventoryIsValidTargetForUnit(container) then
+							return "hidden"
+						end
+						
+						local containers = InventoryGetLootContainers(container) or empty_table
+						local hasItem = false
+						for _, cont in ipairs(containers) do
+							local container_slot_name = GetContainerInventorySlotName(cont)
+							if cont:GetItemInSlot(container_slot_name) then
+								hasItem = true 
+								break
+							end	
+						end
+						if not hasItem then return "hidden" end
+						if InventoryDisabled(context) then return "disabled" end
+						
+						--check for free space
+						local unit = context.unit
+						if not unit then return end
+						local units = {unit}
+						local left = self:ResolveId("idPartyContainer")						
+						local list = left.idParty and left.idParty.idContainer or empty_table
+						for _, ctrl in ipairs(list) do
+							local data = ctrl:GetContext()
+							if data then
+								table.insert_unique(units, data)
+							end
+						end
+						local free_space = false
+						for _, container in ipairs(containers) do
+							local container_slot_name = GetContainerInventorySlotName(container)
+							local result = container:ForEachItemInSlot(container_slot_name, false, function(item, slot_name, src_left, src_top, units)
+								if IsKindOf(item, "SquadBagItem") then
+									return "break"
+								end	
+								local is_stack = IsKindOf(item, "InventoryStack")
+								for _, unit in ipairs(units) do
+									local pos, reason = unit:CanAddItem("Inventory",item) 
+									if pos then
+										return "break"
+									elseif is_stack	then
+										local res = unit:ForEachItemInSlot("Inventory", item.class, function(itm, slot_n,l,t)
+											if itm.Amount + item.Amount <= itm.MaxStacks then
+												return "break"
+											end
+										end)
+										if res == "break" then
+											return "break"
+										end	
+									end
+								end		
+							end, units)
+							if result == "break" then
+								free_space = true
+								break
+							end
+						end
+						if not free_space then return "disabled", T(545718357333, "Inventory is full") end
+						return "enabled"
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "TakeAllStateWarning(self,ctrl)",
+					'func', function (self,ctrl)
+						if not ctrl.enabled then
+							local state,reason = self:TakeAllState()
+							if reason and not self:IsThreadRunning("warning text") then													
+								self:CreateThread("warning text", function()
+									local node = ctrl:ResolveId("node")
+									local txt = node.idWarningText
+									txt:SetText(reason)
+									txt:SetVisible(true)
+									Sleep(1037)
+									txt:SetVisible(false)
+								end)
+							end
+						end
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "TakeAllAction(self)",
+					'func', function (self)
+						local dlg = self
+						local tab_filter = self.Mode=="loot" and self.selected_tab
+						
+						local context = dlg:GetContext()
+						local unit = context.unit
+						if not unit then return end
+						local containers = InventoryGetLootContainers(context.container) or empty_table
+						local units = {unit}
+						local left = dlg:ResolveId("idPartyContainer")						
+						local list = left.idParty and left.idParty.idContainer or empty_table
+						for _, ctrl in ipairs(list) do
+							local data = ctrl:GetContext()
+							if data then
+								table.insert_unique(units, data)
+							end
+						end
+						
+						InventoryTakeAll(units, containers)
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "CompareWeaponSetUI(self, force_stop)",
+					'func', function (self, force_stop)
+						local set1,set2 = self.idUnitInfo.idWeapons1, self.idUnitInfo.idWeapons2
+						--set1:SetVisible(self.compare_mode)-- and self.compare_mode_weaponslot==1)
+						--set2:SetVisible(self.compare_mode)-- and self.compare_mode_weaponslot==2)
+						if not force_stop and self.compare_mode_weaponslot then
+							local ctrl = self.idUnitInfo["idWeapons".. self.compare_mode_weaponslot]
+							ctrl:SetToggled(true)
+							ctrl:SetIconColumn(ctrl.Toggled and 2 or 1)
+							local slot_ctrl
+							if self.compare_mode then
+								slot_ctrl = self.idUnitInfo["idWeapon"..(self.compare_mode_weaponslot==1 and "A" or "B")]
+								local item_wnds = slot_ctrl.item_windows
+								for item_ctrl,item in pairs(item_wnds) do
+									item_ctrl.idText:SetEnabled(true)
+									item_ctrl.idCenterText:SetEnabled(true)
+									item_ctrl.idTopRightText:SetEnabled(true)
+									item_ctrl.idItemImg:SetTransparency(0)
+									item_ctrl.idItemImg:SetDesaturation(0)
+								end
+							end
+							ctrl = self.idUnitInfo["idWeapons".. (self.compare_mode_weaponslot==1 and 2 or 1)]
+							ctrl:SetToggled(false)
+							ctrl:SetIconColumn(ctrl.Toggled and 2 or 1)
+							if self.compare_mode then
+								slot_ctrl = self.idUnitInfo["idWeapon"..(self.compare_mode_weaponslot==1 and "B" or "A")]
+								local item_wnds = slot_ctrl.item_windows
+								for item_ctrl,item in pairs(item_wnds) do
+									item_ctrl.idText:SetEnabled(false)
+									item_ctrl.idCenterText:SetEnabled(false)
+									item_ctrl.idTopRightText:SetEnabled(false)
+									item_ctrl.idItemImg:SetTransparency(180)
+									item_ctrl.idItemImg:SetDesaturation(200)
+								end
+							end
+						else
+							for _, slot in ipairs({"idWeaponA", "idWeaponB"}) do
+								local slot_ctrl = self.idUnitInfo[slot]
+								local item_wnds = slot_ctrl.item_windows
+								for item_ctrl,item in pairs(item_wnds) do
+									item_ctrl.idText:SetEnabled(true)
+									item_ctrl.idCenterText:SetEnabled(true)
+									item_ctrl.idTopRightText:SetEnabled(true)
+									item_ctrl.idItemImg:SetTransparency(0)
+									item_ctrl.idItemImg:SetDesaturation(0)
+								end
+							end
+						end
+						self:SetChangeWeaponRollover()
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "SetChangeWeaponRollover(self)",
+					'func', function (self)
+						local set1,set2 = self.idUnitInfo.idWeapons1, self.idUnitInfo.idWeapons2
+						local unit = self.selected_unit
+						if not  self.compare_mode and InventoryIsCombatMode(unit) then
+							local action = CombatActions.ChangeWeapon					
+							local state, reason = action:GetUIState({unit})
+							local ap = action:GetAPCost(unit)
+							local has_ap = unit:UIHasAP(ap)
+							
+							local active_set = self.idUnitInfo["idWeapons"..self.compare_mode_weaponslot]
+							local new_set = self.idUnitInfo["idWeapons"..(self.compare_mode_weaponslot==1 and 2 or 1)]
+							active_set:SetRolloverText("")
+							new_set:SetRolloverText(T{789323452495, "<ap(ap_cost)>", ap_cost = ap})
+							if state=="hidden" then
+									new_set.RolloverTemplate = "SmallRolloverGeneric"
+									new_set:SetRolloverText( T(462153644901, "Character is busy"))
+							elseif state=="disabled" and has_ap then	-- bandage
+							
+							elseif has_ap then
+								new_set.RolloverTemplate = "ChangeActiveWeaponAPRollover"
+							else
+								new_set.RolloverTemplate = "ChangeActiveWeaponAPFailedRollover"
+							end
+						else
+							set1:SetRolloverText("")
+							set2:SetRolloverText("")
+						end
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "SwapWeaponSet(self)",
+					'func', function (self)
+						local unit = self.selected_unit
+						if InventoryIsCombatMode() then
+							local action = CombatActions.ChangeWeapon		
+							local state = action:GetUIState({unit}) 
+							local ap= action:GetAPCost(unit)
+							local has_ap = unit:UIHasAP(ap)
+							if not has_ap or state~="enabled" then
+								PlayFX("UnjamFail", "start")
+								return false
+							else
+								if IsKindOf(unit, "Unit") then
+									NetStartCombatAction("ChangeWeapon", unit, ap)
+								else	
+									NetSyncEvent("InvetoryAction_SwapWeapon",unit.session_id, ap) 
+								end
+								PlayFX("UnjamWeapon", "start")
+							end
+						else
+							NetSyncEvent("InvetoryAction_SwapWeapon", unit.session_id, 0) 
+						end
+						return true
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "ChangeContainerMode(self, mode)",
+					'func', function (self, mode)
+						local dlg = self
+						local win, button 
+						if InventoryDragItem then												
+							local bag = GetSquadBagInventory(dlg.context.unit.Squad)
+							local container_slot_name = GetContainerInventorySlotName(dlg.context.container)
+							local slot_ctrl = mode=="ammo" and dlg:GetSlotByName(InventoryStartDragSlotName or container_slot_name, dlg.context.container) or dlg:GetSlotByName(InventoryStartDragSlotName or "Inventory", bag)												
+							win  = slot_ctrl.drag_win
+							button = slot_ctrl.drag_button
+							slot_ctrl.drag_win = false
+							local desktop = slot_ctrl.desktop
+							if desktop:GetMouseCapture()==slot_ctrl then
+								desktop:SetMouseCapture(false)	
+							end
+						end
+						dlg:SetMode(mode)
+						if InventoryDragItem then
+							local bag = GetSquadBagInventory(dlg.context.unit.Squad)
+							local container_slot_name = GetContainerInventorySlotName(dlg.context.container)
+							local slot_ctrl = mode=="ammo" and dlg:GetSlotByName(InventoryStartDragSlotName or "Inventory", bag) or dlg:GetSlotByName(InventoryStartDragSlotName or container_slot_name, dlg.context.container)
+							slot_ctrl.drag_win = win
+							slot_ctrl.drag_button = button
+							DragSource = slot_ctrl												
+							slot_ctrl.desktop:SetMouseCapture(slot_ctrl)		
+							if InventoryDragItem and not InventoryDragItems then
+								HighlightEquipSlots(InventoryDragItem, true)
+								HighlightWeaponsForAmmo(InventoryDragItem, true)
+								--HighlightAPCost(InventoryDragItem, true, StartDragSource)
+							end
+						end	
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "DeselectMultiItems(self)",
+					'func', function (self)
+						local selected_items = self.selected_items
+						self.selected_items = {}
+						for im, wnd_found in pairs(selected_items) do
+							if wnd_found.window_state~="destroying" then
+								wnd_found:OnSetSelected(false)		
+								wnd_found.idRollover:SetVisible(false)
+							end
+						end
+					end,
+				}),
+				PlaceObj('XTemplateAction', {
+					'ActionId', "NextUnit",
+					'ActionName', T(949970128832, --[[ModItemXTemplate Inventory ActionName]] "Следующий боец"),
+					'ActionShortcut', "Tab",
+					'ActionGamepad', "RightShoulder",
+					'ActionBindable', true,
+					'OnAction', function (self, host, source, ...)
+						host:CloseCompare()
+						if InventoryDragItem and StartDragSource then
+							StartDragSource:CancelDragging()
+						end
+						local context = host:GetContext()
+						if InventoryIsCombatMode() then
+							g_Combat:NextUnit()
+							context.unit = SelectedObj
+						elseif gv_SatelliteView then
+							local squad = context.unit.Squad and gv_Squads[context.unit.Squad]
+							local idx = table.find(squad.units,context.unit.session_id)
+							idx = idx+1
+							if idx>#squad.units then idx=1 end
+							context.unit = gv_UnitData[squad.units[idx]] 	
+						else
+							GetInGameInterfaceModeDlg():NextUnit()
+							context.unit = SelectedObj
+						end
+						host:SetContext(context)
+						host:OnContextUpdate(context)
+						InventoryUIRespawn()
+					end,
+					'IgnoreRepeated', true,
+					'FXMouseIn', "buttonRollover",
+					'FXPress', "buttonPressGeneric",
+					'FXPressDisabled', "IactDisabled",
+				}),
+				PlaceObj('XTemplateAction', {
+					'ActionId', "PrevUnit",
+					'ActionName', T(209289987305, --[[ModItemXTemplate Inventory ActionName]] "Предыдущий боец"),
+					'ActionGamepad', "LeftShoulder",
+					'ActionBindable', true,
+					'OnAction', function (self, host, source, ...)
+						local context = host:GetContext()
+						host:CloseCompare()				
+						if InventoryIsCombatMode() then
+							g_Combat:PrevUnit()
+							context.unit = SelectedObj
+						elseif gv_SatelliteView then
+							local squad = context.unit.Squad and gv_Squads[context.unit.Squad]
+							local idx = table.find(squad.units,context.unit.session_id)
+							idx = idx-1
+							if idx<1 then idx=1 end
+							context.unit = gv_UnitData[squad.units[idx]] 
+						else
+							GetInGameInterfaceModeDlg():NextUnit(nil, nil, nil , true)
+							context.unit = SelectedObj
+						end
+						host:SetContext(context)
+						host:OnContextUpdate(context)
+						InventoryUIRespawn()
+					end,
+					'IgnoreRepeated', true,
+					'FXMouseIn', "buttonRollover",
+					'FXPress', "buttonPressGeneric",
+					'FXPressDisabled', "IactDisabled",
+				}),
+				PlaceObj('XTemplateAction', {
+					'ActionId', "NextSquad",
+					'ActionName', T(464029690997, --[[ModItemXTemplate Inventory ActionName]] "Следующий отряд"),
+					'ActionGamepad', "LeftTrigger-RightShoulder",
+					'ActionBindable', true,
+					'OnAction', function (self, host, source, ...)
+						local left = host:ResolveId("idPartyContainer")	
+						local squads = left:GetContext()
+						if #squads<=1 then
+							return
+						end
+						local selected = left.selected_squad
+						local idx = table.find(squads, selected)
+						idx = idx +1
+						if idx>#squads then idx = 1 end
+						left:SelectSquad(squads[idx])
+					end,
+					'IgnoreRepeated', true,
+					'FXMouseIn', "buttonRollover",
+					'FXPress', "buttonPressGeneric",
+					'FXPressDisabled', "IactDisabled",
+				}),
+				PlaceObj('XTemplateAction', {
+					'ActionId', "PrevSquad",
+					'ActionName', T(849730730220, --[[ModItemXTemplate Inventory ActionName]] "Предыдущий отряд"),
+					'ActionGamepad', "LeftTrigger-LeftShoulder",
+					'ActionBindable', true,
+					'OnAction', function (self, host, source, ...)
+						local left = host:ResolveId("idPartyContainer")	
+						local squads = left:GetContext()
+						if #squads<=1 then
+							return
+						end
+						local selected = left.selected_squad
+						local idx = table.find(squads, selected)
+						idx = idx -1
+						if idx<1 then idx = #squads end
+						left:SelectSquad(squads[idx])
+					end,
+					'IgnoreRepeated', true,
+					'FXMouseIn', "buttonRollover",
+					'FXPress', "buttonPressGeneric",
+					'FXPressDisabled', "IactDisabled",
+				}),
+				PlaceObj('XTemplateAction', {
+					'ActionId', "CurrentWeapon1",
+					'ActionName', T(451260237052, --[[ModItemXTemplate Inventory ActionName]] "Активное оружие I"),
+					'ActionShortcut', "Z",
+					'ActionButtonTemplate', "InventoryActionBarButton",
+					'ActionState', function (self, host)
+						return not host.compare_mode and "enabled" or "hidden"
+					end,
+					'OnAction', function (self, host, source, ...)
+						if host.compare_mode_weaponslot and host.compare_mode_weaponslot~=1 then
+							if host:SwapWeaponSet() then
+								host.compare_mode_weaponslot = 1
+								host:CompareWeaponSetUI()
+							end
+						end
+					end,
+					'IgnoreRepeated', true,
+					'FXMouseIn', "buttonRollover",
+					'FXPress', "buttonPress",
+					'FXPressDisabled', "IactDisabled",
+				}),
+				PlaceObj('XTemplateAction', {
+					'ActionId', "CurrentWeapon2",
+					'ActionName', T(139050187635, --[[ModItemXTemplate Inventory ActionName]] "Активное оружие II"),
+					'ActionShortcut', "X",
+					'ActionButtonTemplate', "InventoryActionBarButton",
+					'ActionState', function (self, host)
+						return not host.compare_mode and "enabled" or "hidden"
+					end,
+					'OnAction', function (self, host, source, ...)
+						if host.compare_mode_weaponslot and host.compare_mode_weaponslot~=2 then
+							if host:SwapWeaponSet() then
+								host.compare_mode_weaponslot = 2		
+								host:CompareWeaponSetUI()	
+							end
+						end
+					end,
+					'IgnoreRepeated', true,
+					'FXMouseIn', "buttonRollover",
+					'FXPress', "buttonPress",
+					'FXPressDisabled', "IactDisabled",
+				}),
+				PlaceObj('XTemplateAction', {
+					'ActionId', "Primary",
+					'ActionName', T(221259696539, --[[ModItemXTemplate Inventory ActionName]] "Комплект I"),
+					'ActionToolbar', "InventoryActionBar",
+					'ActionShortcut', "Z",
+					'ActionShortcut2', "Shift-Z",
+					'ActionGamepad', "DPadUp",
+					'ActionButtonTemplate', "InventoryActionBarButton",
+					'ActionState', function (self, host)
+						return host.compare_mode and "enabled" or "hidden"
+					end,
+					'OnAction', function (self, host, source, ...)
+						if host.compare_mode_weaponslot and host.compare_mode_weaponslot~=1 then
+							host.compare_mode_weaponslot = 1
+							host:CloseCompare()
+							host:OpenCompare()
+							host:CompareWeaponSetUI()
+						end
+					end,
+					'IgnoreRepeated', true,
+					'FXMouseIn', "buttonRollover",
+					'FXPress', "buttonPress",
+					'FXPressDisabled', "IactDisabled",
+				}),
+				PlaceObj('XTemplateAction', {
+					'ActionId', "Secondary",
+					'ActionName', T(332523149938, --[[ModItemXTemplate Inventory ActionName]] "Комплект II"),
+					'ActionToolbar', "InventoryActionBar",
+					'ActionShortcut', "X",
+					'ActionShortcut2', "Shift-X",
+					'ActionGamepad', "DPadDown",
+					'ActionButtonTemplate', "InventoryActionBarButton",
+					'ActionState', function (self, host)
+						return host.compare_mode and "enabled" or "hidden"
+					end,
+					'OnAction', function (self, host, source, ...)
+						if host.compare_mode_weaponslot and host.compare_mode_weaponslot~=2 then
+							host.compare_mode_weaponslot = 2
+							host:CloseCompare()
+							host:OpenCompare()
+							host:CompareWeaponSetUI()	
+						end
+					end,
+					'IgnoreRepeated', true,
+					'FXMouseIn', "buttonRollover",
+					'FXPress', "buttonPress",
+					'FXPressDisabled', "IactDisabled",
+				}),
+				PlaceObj('XTemplateAction', {
+					'ActionId', "Actions",
+					'ActionName', T(717792492405, --[[ModItemXTemplate Inventory ActionName]] "Меню предмета"),
+					'ActionToolbar', "InventoryActionBar",
+					'ActionShortcut', "right_click",
+					'ActionGamepad', "ButtonX",
+					'ActionButtonTemplate', "InventoryActionBarButton",
+					'ActionState', function (self, host)
+						return not host.compare_mode and "enabled" or "hidden"
+					end,
+					'IgnoreRepeated', true,
+					'FXMouseIn', "buttonRollover",
+					'FXPress', "buttonPress",
+					'FXPressDisabled', "IactDisabled",
+				}),
+				PlaceObj('XTemplateAction', {
+					'ActionId', "Multiselect",
+					'ActionName', T(517027826385, --[[ModItemXTemplate Inventory ActionName]] "Мультивыбор"),
+					'ActionToolbar', "InventoryActionBar",
+					'ActionShortcut', "Ctrl",
+					'ActionGamepad', "LeftTrigger-ButtonA",
+					'ActionButtonTemplate', "InventoryActionBarButton",
+					'OnShortcutUp', function (self, host, source, ...)
+						return
+					end,
+					'IgnoreRepeated', true,
+					'FXMouseIn', "buttonRollover",
+					'FXPress', "buttonPress",
+					'FXPressDisabled', "IactDisabled",
+				}),
+				PlaceObj('XTemplateAction', {
+					'ActionId', "CompareItems",
+					'ActionName', T(747154387883, --[[ModItemXTemplate Inventory ActionName]] "Сравнить"),
+					'ActionToolbar', "InventoryActionBar",
+					'ActionShortcut', "Shift",
+					'ActionGamepad', "RightTrigger-ButtonY",
+					'ActionButtonTemplate', "InventoryActionBarButton",
+					'ActionState', function (self, host)
+						if host.compare_mode then
+							--self.ActionName =  T(917414532426, "<GameColorL>Compare</GameColorL>")
+							return "hidden"
+						else
+							self.ActionName =  T(341553928683, "Compare")
+							return "enabled"
+						end
+					end,
+					'OnAction', function (self, host, source, ...)
+						if not host.compare_mode then
+							host.compare_mode  = true
+							host.compare_mode_weaponslot = host.context.unit.current_weapon=="Handheld A" and 1 or 2
+							host:OpenCompare()
+							PlayFX("buttonPress", "start")
+						end
+						host:CompareWeaponSetUI()
+						host:ActionsUpdated()
+					end,
+					'OnShortcutUp', function (self, host, source, ...)
+						if host.window_state=="destroying" then 
+							return
+						end
+						if host.compare_mode then				
+							host:CloseCompare("up")
+							host.compare_mode_weaponslot = host.context.unit.current_weapon=="Handheld A" and 1 or 2
+							XInventoryItem.RolloverTemplate = "RolloverInventory"
+							host.compare_mode  = false
+						end
+						host:CompareWeaponSetUI("force")
+						host:ActionsUpdated()
+					end,
+					'IgnoreRepeated', true,
+					'FXMouseIn', "buttonRollover",
+					'FXPressDisabled', "IactDisabled",
+				}),
+				PlaceObj('XTemplateAction', {
+					'ActionId', "CloseInventory",
+					'ActionName', T(958290929962, --[[ModItemXTemplate Inventory ActionName]] "Закрыть"),
+					'ActionToolbar', "InventoryActionBar",
+					'ActionGamepad', "ButtonB",
+					'ActionButtonTemplate', "InventoryActionBarButton",
+					'ActionState', function (self, host)
+						if not GetUIStyleGamepad() then
+							return "hidden"
+						end	
+						if host.compare_mode then
+							self.ActionName = T(917456887182, "Stop Comparing")
+						else
+							self.ActionName = T(175313021861, "Close")	
+						end
+					end,
+					'OnAction', function (self, host, source, ...)
+						if host.compare_mode then
+							hostCloseCompare()
+							XInventoryItem.RolloverTemplate = "RolloverInventory"
+							host.compare_mode  = false
+							host:CompareWeaponSetUI()
+							host:ActionsUpdated()
+						elseif not host:OnEscape() then
+							if CurrentTutorialPopup and CurrentTutorialPopup.window_state ~= "destroying" then
+								local ctx = CurrentTutorialPopup:ResolveId("idText"):GetContext()
+								TutorialDismissHint(ctx)
+								CloseCurrentTutorialPopup()
+							else
+								local dlg = GetDialog("FullscreenGameDialogs")
+								if dlg then
+									dlg:SetMode("empty")
+									dlg:Close()
+								end	
+							end
+						end
+					end,
+					'OnShortcutUp', function (self, host, source, ...)
+						if host.window_state=="destroying" then 
+							return
+						end
+						if host.compare_mode then				
+							host:CloseCompare("up")
+							host.compare_mode_weaponslot = host.context.unit.current_weapon=="Handheld A" and 1 or 2
+							XInventoryItem.RolloverTemplate = "RolloverInventory"
+							host.compare_mode  = false
+							host:CompareWeaponSetUI("force")
+							host:ActionsUpdated()
+						end
+					end,
+					'IgnoreRepeated', true,
+					'FXMouseIn', "buttonRollover",
+					'FXPressDisabled', "IactDisabled",
+				}),
+				PlaceObj('XTemplateWindow', {
+					'Id', "idDlgContent",
+					'LayoutMethod', "HList",
+				}, {
+					PlaceObj('XTemplateTemplate', {
+						'__context', function (parent, context) return SortSquads(gv_SatelliteView and GetSquadsInSector(false, false, false) or GetSquadsOnMap("reference")) end,
+						'__template', "SquadsAndMercs",
+						'Margins', box(25, 25, 10, 0),
+						'MinWidth', 446,
+						'MaxWidth', 446,
+					}, {
+						PlaceObj('XTemplateFunc', {
+							'name', "SelectSquad(self, ...)",
+							'func', function (self, ...)
+								if SquadsAndMercsClass.SelectSquad(self, ...) then
+									local invDiag = GetDialog(self)
+									invDiag:OnSquadSelected(self.selected_squad)
+								end
+							end,
+						}),
+						}),
+					PlaceObj('XTemplateWindow', {
+						'comment', "left",
+						'__context', function (parent, context) return context.unit end,
+						'__class', "XContentTemplate",
+						'Id', "idUnitInfo",
+						'Margins', box(-398, 50, 0, 75),
+						'HAlign', "left",
+						'VAlign', "top",
+						'MinWidth', 1100,
+						'MaxWidth', 1100,
+						'ScaleModifier', point(900, 900),
+						'LayoutMethod', "HList",
+						'RespawnOnContext', false,
+					}, {
+						PlaceObj('XTemplateWindow', {
+							'__class', "XContentTemplate",
+							'IdNode', false,
+							'Margins', box(0, 0, 0, 30),
+							'Dock', "left",
+							'HAlign', "left",
+							'VAlign', "top",
+							'ScaleModifier', point(900, 900),
+							'RespawnOnContext', false,
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'__context', function (parent, context) return context or context.unit end,
+								'__class', "XContentTemplate",
+								'Id', "idEquipSlots",
+								'IdNode', false,
+								'Margins', box(24, 0, 0, 0),
+								'OnLayoutComplete', function (self)
+									--print(self.context:GetItemInSlot("Torso"))
+									--if self.context:GetItemInSlot("Torso") then self.context.ArmorPlate.enabled = true else self.context.ArmorPlate.enabled = false end
+								end,
+								'LayoutMethod', "VList",
+								'LayoutVSpacing', 10,
+								'OnContextUpdate', function (self, context, ...)
+									if self.RespawnOnContext then
+										if self.window_state == "open" then
+											self:RespawnContent()
+										end
+									else
+										local respawn_value = self:RespawnExpression(context)
+										if rawget(self, "respawn_value") ~= respawn_value then
+											self.respawn_value = respawn_value
+											if self.window_state == "open" then
+												self:RespawnContent()
+											end
+										end
+									end
+								end,
+								'RespawnOnContext', false,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'comment', "weapons",
+									'__context', function (parent, context) return context end,
+									'Id', "idWeapons",
+									'HAlign', "left",
+									'LayoutMethod', "VList",
+									'LayoutHSpacing', 40,
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'HAlign', "left",
+										'ScaleModifier', point(900, 900),
+										'LayoutMethod', "Grid",
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'Id', "idWeaponAEx",
+											'Margins', box(0, 0, -30, 0),
+											'LayoutMethod', "VList",
+										}, {
+											PlaceObj('XTemplateWindow', {
+												'__context', function (parent, context) return context end,
+												'__condition', function (parent, context) return true end,
+												'__class', "XToggleButton",
+												'RolloverTemplate', "ChangeActiveWeaponAPRollover",
+												'RolloverTitle', T(768635415350, --[[ModItemXTemplate Inventory RolloverTitle]] "ОД"),
+												'Id', "idWeapons1",
+												'Margins', box(5, 0, 0, 0),
+												'HAlign', "left",
+												'VAlign', "top",
+												'OnContextUpdate', function (self, context, ...)
+													XToggleButton.OnContextUpdate(self, context, ...)
+													local unit =  GetDialog(self).selected_unit
+													self:SetVisible(unit:CanBeControlled())
+												end,
+												'OnPress', function (self, gamepad)
+													if self.Toggled then
+														return
+													end	
+													local dlg = GetDialog(self)
+													local action 
+													if dlg.compare_mode then
+														action = dlg:ActionById("Primary")
+													else	
+														action = dlg:ActionById("CurrentWeapon1")
+													end
+													action:OnAction(dlg)
+													--self:SetToggled(not self.Toggled)
+													--self:SetIconColumn(self.Toggled and 2 or 1)
+													XTextButton.OnPress(self)
+												end,
+												'Image', "UI/Inventory/loadout_01",
+												'Columns', 2,
+												'Icon', "UI/Inventory/loadout_01",
+												'IconDock', "left",
+												'IconColumns', 2,
+												'ColumnsUse', "abbba",
+											}),
+											PlaceObj('XTemplateWindow', {
+												'__class', "EquipInventorySlot",
+												'Id', "idWeaponA",
+												'HAlign', "center",
+												'VAlign', "center",
+												'slot_name', "Handheld A",
+											}, {
+												PlaceObj('XTemplateFunc', {
+													'name', "Open",
+													'func', function (self, ...)
+														EquipInventorySlot.Open(self,...)
+														local dlg = GetDialog(self)
+														dlg.slots[self] = true
+													end,
+												}),
+												PlaceObj('XTemplateFunc', {
+													'name', "OnDelete",
+													'func', function (self, ...)
+														local dlg = GetDialog(self)
+														dlg.slots[self] = nil
+													end,
+												}),
+												}),
+											}),
+										}),
+									PlaceObj('XTemplateWindow', {
+										'HAlign', "left",
+										'ScaleModifier', point(900, 900),
+										'LayoutMethod', "Grid",
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'Id', "idWeaponBEx",
+											'LayoutMethod', "VList",
+										}, {
+											PlaceObj('XTemplateWindow', {
+												'__class', "XToggleButton",
+												'RolloverTemplate', "ChangeActiveWeaponAPRollover",
+												'RolloverTitle', T(466716414310, --[[ModItemXTemplate Inventory RolloverTitle]] "ОД"),
+												'Id', "idWeapons2",
+												'Margins', box(5, 0, 0, 0),
+												'HAlign', "left",
+												'VAlign', "top",
+												'OnContextUpdate', function (self, context, ...)
+													XToggleButton.OnContextUpdate(self, context, ...)
+													local unit =  GetDialog(self).selected_unit
+													self:SetVisible(unit:CanBeControlled())
+												end,
+												'OnPress', function (self, gamepad)
+													if self.Toggled then
+														return
+													end	
+													local dlg = GetDialog(self)
+													local action 
+													if dlg.compare_mode then
+														action = dlg:ActionById("Secondary")
+													else	
+														action = dlg:ActionById("CurrentWeapon2")
+													end
+													action:OnAction(dlg)
+													--self:SetToggled(not self.Toggled)
+													--self:SetIconColumn(self.Toggled and 2 or 1)
+													XTextButton.OnPress(self)
+												end,
+												'Image', "UI/Inventory/loadout_02",
+												'Columns', 2,
+												'Icon', "UI/Inventory/loadout_02",
+												'IconColumns', 2,
+												'ColumnsUse', "abbba",
+											}),
+											PlaceObj('XTemplateWindow', {
+												'__class', "EquipInventorySlot",
+												'Id', "idWeaponB",
+												'HAlign', "center",
+												'VAlign', "center",
+												'slot_name', "Handheld B",
+											}, {
+												PlaceObj('XTemplateFunc', {
+													'name', "Open",
+													'func', function (self, ...)
+														EquipInventorySlot.Open(self,...)
+														local dlg = GetDialog(self)
+														dlg.slots[self] = true
+													end,
+												}),
+												PlaceObj('XTemplateFunc', {
+													'name', "OnDelete",
+													'func', function (self, ...)
+														local dlg = GetDialog(self)
+														dlg.slots[self] = nil
+													end,
+												}),
+												}),
+											}),
+										}),
+									}),
+								PlaceObj('XTemplateWindow', {
+									'comment', "armor",
+									'Margins', box(0, 10, 0, 0),
+									'LayoutMethod', "VList",
+									'LayoutHSpacing', 5,
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'comment', "HeadSlots",
+										'LayoutMethod', "HList",
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'__class', "EquipInventorySlot",
+											'Id', "idHead",
+											'ScaleModifier', point(900, 900),
+											'MouseCursor', "UI/Cursors/Pda_Cursor.tga",
+											'OnContextUpdate', function (self, context, ...)
+												--self:ClosePopup()
+												InventoryUpdatePopup(self)
+												for item_wnd, item in pairs(self.item_windows or empty_table) do
+													if item_wnd.window_state~="destroying" then
+														item_wnd:OnContextUpdate(item)
+													end
+												end
+												
+												
+												
+												--if Torso.CanHoldPlate then canholdplate = true end
+											end,
+											'slot_name', "Head",
+										}, {
+											PlaceObj('XTemplateFunc', {
+												'name', "Open",
+												'func', function (self, ...)
+													EquipInventorySlot.Open(self,...)
+													local dlg = GetDialog(self)
+													dlg.slots[self] = true
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "OnDelete",
+												'func', function (self, ...)
+													local dlg = GetDialog(self)
+													dlg.slots[self] = nil
+												end,
+											}),
+											}),
+										PlaceObj('XTemplateWindow', {
+											'__class', "EquipInventorySlot",
+											'Id', "idHeadGear",
+											'ScaleModifier', point(900, 900),
+											'MouseCursor', "UI/Cursors/Pda_Cursor.tga",
+											'OnContextUpdate', function (self, context, ...)
+												--self:ClosePopup()
+												InventoryUpdatePopup(self)
+												for item_wnd, item in pairs(self.item_windows or empty_table) do
+													if item_wnd.window_state~="destroying" then
+														item_wnd:OnContextUpdate(item)
+													end
+												end
+												
+												local blockfaceslot = false
+												if context:GetItemInSlot("Head") then blockfaceslot = context:GetItemInSlot("Head").BlockFaceSlot end
+												if context:GetItemInSlot("Head") and blockfaceslot then 
+												local headgear = context:GetItemInSlot("HeadGear")
+												context:RemoveItem("HeadGear",headgear)
+												context:AddItem("Inventory",headgear) 
+												
+												end
+												
+												--if Torso.CanHoldPlate then canholdplate = true end
+											end,
+											'slot_name', "HeadGear",
+										}, {
+											PlaceObj('XTemplateFunc', {
+												'name', "Open",
+												'func', function (self, ...)
+													EquipInventorySlot.Open(self,...)
+													local dlg = GetDialog(self)
+													dlg.slots[self] = true
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "OnDelete",
+												'func', function (self, ...)
+													local dlg = GetDialog(self)
+													dlg.slots[self] = nil
+												end,
+											}),
+											}),
+										}),
+									PlaceObj('XTemplateWindow', {
+										'comment', "Armor and Plate",
+										'LayoutMethod', "HList",
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'__class', "EquipInventorySlot",
+											'Id', "idTorso",
+											'ScaleModifier', point(900, 900),
+											'slot_name', "Torso",
+										}, {
+											PlaceObj('XTemplateFunc', {
+												'name', "Open",
+												'func', function (self, ...)
+													EquipInventorySlot.Open(self,...)
+													local dlg = GetDialog(self)
+													dlg.slots[self] = true
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "OnDelete",
+												'func', function (self, ...)
+													local dlg = GetDialog(self)
+													dlg.slots[self] = nil
+												end,
+											}),
+											}),
+										PlaceObj('XTemplateWindow', {
+											'__condition', function (parent, context)
+												return true
+											end,
+											'__class', "EquipInventorySlot",
+											'Id', "idArmorPlate",
+											'ScaleModifier', point(900, 900),
+											'OnContextUpdate', function (self, context, ...)
+												--self:ClosePopup()
+												InventoryUpdatePopup(self)
+												for item_wnd, item in pairs(self.item_windows or empty_table) do
+													if item_wnd.window_state~="destroying" then
+														item_wnd:OnContextUpdate(item)
+													end
+												end
+												
+												
+												local canholdplate = false
+												if context:GetItemInSlot("Torso") then canholdplate = context:GetItemInSlot("Torso").CanHoldPlate end
+												if (not context:GetItemInSlot("Torso") or canholdplate == false) and context:GetItemInSlot("ArmorPlate") then 
+												local armorplate = context:GetItemInSlot("ArmorPlate")
+												context:RemoveItem("ArmorPlate",armorplate)
+												context:AddItem("Inventory",armorplate) 
+												end
+												--if Torso.CanHoldPlate then canholdplate = true end
+											end,
+											'slot_name', "ArmorPlate",
+										}, {
+											PlaceObj('XTemplateFunc', {
+												'name', "Open",
+												'func', function (self, ...)
+													EquipInventorySlot.Open(self,...)
+													local dlg = GetDialog(self)
+													dlg.slots[self] = true
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "OnDelete",
+												'func', function (self, ...)
+													local dlg = GetDialog(self)
+													dlg.slots[self] = nil
+												end,
+											}),
+											}),
+										}),
+									PlaceObj('XTemplateWindow', {
+										'comment', "Legs",
+										'LayoutMethod', "HList",
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'__class', "EquipInventorySlot",
+											'Id', "idLegs",
+											'ScaleModifier', point(900, 900),
+											'slot_name', "Legs",
+										}, {
+											PlaceObj('XTemplateFunc', {
+												'name', "Open",
+												'func', function (self, ...)
+													EquipInventorySlot.Open(self,...)
+													local dlg = GetDialog(self)
+													dlg.slots[self] = true
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "OnDelete",
+												'func', function (self, ...)
+													local dlg = GetDialog(self)
+													dlg.slots[self] = nil
+												end,
+											}),
+											}),
+										}),
+									}),
+								}),
+							PlaceObj('XTemplateWindow', {
+								'__class', "XText",
+								'Id', "idEquipHint",
+								'Margins', box(70, 0, 0, -25),
+								'HAlign', "left",
+								'VAlign', "bottom",
+								'MinWidth', 190,
+								'Visible', false,
+								'TextStyle', "PDABrowserTextLight",
+								'Translate', true,
+								'Text', T(478240676850, --[[ModItemXTemplate Inventory Text]] "Недостаточно ОД "),
+								'TextHAlign', "center",
+							}),
+							}),
+						PlaceObj('XTemplateWindow', {
+							'__class', "XContentTemplate",
+							'IdNode', false,
+							'Margins', box(-35, 0, 0, 30),
+							'Dock', "left",
+							'HAlign', "left",
+							'VAlign', "top",
+							'ScaleModifier', point(800, 800),
+							'RespawnOnContext', false,
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'comment', "background rectangle",
+								'__class', "XImage",
+								'BorderWidth', 1,
+								'Dock', "box",
+								'HAlign', "center",
+								'VAlign', "bottom",
+								'MinWidth', 332,
+								'MinHeight', 610,
+								'MaxWidth', 332,
+								'MaxHeight', 610,
+								'Background', RGBA(43, 43, 43, 255),
+								'Image', "UI/Inventory/character_pad",
+							}),
+							PlaceObj('XTemplateWindow', {
+								'comment', "big portrait",
+								'__class', "XContextImage",
+								'Id', "idBigPortrait",
+								'Dock', "box",
+								'HAlign', "center",
+								'MaxWidth', 332,
+								'MaxHeight', 610,
+								'ImageFit', "scale-down",
+								'ImageRect', box(550, 50, 1480, 1950),
+								'FrameBottom', 300,
+								'ContextUpdateOnOpen', true,
+								'OnContextUpdate', function (self, context, ...)
+									self:SetImage(context.BigPortrait)
+								end,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'__class', "XContextWindow",
+									'Margins', box(0, 100, 0, 0),
+									'HandleMouse', true,
+								}, {
+									PlaceObj('XTemplateFunc', {
+										'name', "IsDropTarget(self, draw_win, pt)",
+										'func', function (self, draw_win, pt)
+											return 	IsKindOf(InventoryDragItem,"MiscItem")
+													 	and InventoryDragItem.effect_moment=="on_use" 
+														and not next(InventoryDragItems)
+														--and (gv_SatelliteView or InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()))
+										end,
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "OnDrop(self, drag_win, pt, drag_source_win)",
+										'func', function (self, drag_win, pt, drag_source_win)
+											if (not gv_SatelliteView or InventoryIsCombatMode()) and not InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()) then
+												PlayFX("IactDisabled", "start", InventoryDragItem)
+												return true
+											end
+											if InventoryUnitCanUseItem(self.context, InventoryDragItem) and (not g_Combat or self.context:HasAP(InventoryDragItem.APCost * const.Scale.AP)) then
+												InventoryUseItem(self.context, InventoryDragItem, InventoryStartDragContext,InventoryStartDragSlotName )								
+												if InventoryDragItem and StartDragSource then
+													StartDragSource:ClearDragState(drag_win)
+												end
+											else
+												PlayFX("IactDisabled", "start", InventoryDragItem)
+											end
+											return true
+										end,
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "OnDropEnter(self, draw_win, pt, drag_source)",
+										'func', function (self, draw_win, pt, drag_source)
+											local mouse_text = T{863973882023, "<merc> Uses <em><item_name></em>", merc = self.context.Nick, item_name = InventoryDragItem.DisplayName}
+											local can_use = InventoryUnitCanUseItem(self.context, InventoryDragItem)
+											if not can_use then
+												mouse_text = mouse_text .."\n"..T(498556428804, "<style InventoryHintTextRed>Max stat</style>")		
+											end
+											local valid, reason =  InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext())
+											if (not gv_SatelliteView or InventoryIsCombatMode()) and not valid and reason and reason~="" then
+												mouse_text = mouse_text .."\n" .. reason
+											end
+											if not mouse_text then
+												mouse_text = action_name or ""
+												if InventoryIsCombatMode() and item.APCost and item.APCost>0 then
+													mouse_text = InventoryFormatAPMouseText(self.context, item.APCost, mouse_text)
+												end
+											end
+											
+											InventoryShowMouseText(true,mouse_text)								
+											return
+										end,
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "OnDropLeave(self, drag_win)",
+										'func', function (self, drag_win)
+											InventoryShowMouseText(false)
+											return
+										end,
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "FindTile",
+										'func', function (self, ...)
+											return
+										end,
+									}),
+									}),
+								}),
+							}),
+						PlaceObj('XTemplateWindow', {
+							'__class', "XContentTemplate",
+							'IdNode', false,
+							'Margins', box(10, 0, 0, 30),
+							'Dock', "left",
+							'HAlign', "left",
+							'VAlign', "top",
+							'ScaleModifier', point(800, 800),
+							'LayoutMethod', "VList",
+							'RespawnOnContext', false,
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'__class', "XContentTemplate",
+								'IdNode', false,
+								'Margins', box(0, 0, 0, 30),
+								'Dock', "top",
+								'HAlign', "left",
+								'VAlign', "top",
+								'ScaleModifier', point(920, 920),
+								'LayoutMethod', "VList",
+								'RespawnOnContext', false,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'__condition', function (parent, context) return context end,
+									'__class', "XText",
+									'Id', "idName2",
+									'Dock', "top",
+									'HAlign', "left",
+									'VAlign', "top",
+									'HandleMouse', false,
+									'TextStyle', "InventoryBackpackTitle",
+									'Translate', true,
+									'Text', T(527917492172, --[[ModItemXTemplate Inventory Text]] "Разгрузка"),
+									'TextVAlign', "center",
+								}, {
+									PlaceObj('XTemplateFunc', {
+										'name', "SetHightlighted(self, show)",
+										'func', function (self, show)
+											local dlg = GetDialog(self)
+											local show =  show or dlg.selected_unit.session_id==self:GetContext().session_id												
+											self:SetTextStyle(not show and "InventoryBackpackTitle" or "InventoryBackpackTitleHighlight")
+										end,
+									}),
+									}),
+								PlaceObj('XTemplateWindow', {
+									'__condition', function (parent, context) return context end,
+									'__class', "EquipInventorySlot",
+									'Id', "idAmmoInventorySlot",
+									'Margins', box(0, 0, 20, 0),
+									'Dock', "top",
+									'HAlign', "left",
+									'VAlign', "top",
+									'UniformColumnWidth', true,
+									'UniformRowHeight', true,
+									'OnContextUpdate', function (self, context, ...)
+										--self:ClosePopup()
+										InventoryUpdatePopup(self)
+										for item_wnd, item in pairs(self.item_windows or empty_table) do
+											if item_wnd.window_state~="destroying" then
+												item_wnd:OnContextUpdate(item)
+											end
+										end
+									end,
+									'slot_name', "AmmoInventory",
+								}, {
+									PlaceObj('XTemplateFunc', {
+										'name', "Open",
+										'func', function (self, ...)
+											BrowseInventorySlot.Open(self,...)
+											local dlg = GetDialog(self)
+											dlg.slots[self] = true
+										end,
+									}),
+									PlaceObj('XTemplateFunc', {
+										'name', "OnDelete",
+										'func', function (self, ...)
+											local dlg = GetDialog(self)
+											dlg.slots[self] = nil
+										end,
+									}),
+									}),
+								}),
+							PlaceObj('XTemplateWindow', {
+								'__class', "XContentTemplate",
+								'IdNode', false,
+								'Margins', box(0, -20, 0, 30),
+								'Dock', "top",
+								'HAlign', "left",
+								'VAlign', "top",
+								'ScaleModifier', point(920, 920),
+								'LayoutMethod', "VList",
+								'RespawnOnContext', false,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'__class', "XContentTemplate",
+									'IdNode', false,
+									'Margins', box(0, 0, 0, 30),
+									'Dock', "top",
+									'HAlign', "left",
+									'VAlign', "top",
+									'ScaleModifier', point(900, 900),
+									'LayoutMethod', "HWrap",
+									'RespawnOnContext', false,
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__condition', function (parent, context) return context end,
+										'__class', "XText",
+										'Id', "idName",
+										'Dock', "top",
+										'HAlign', "left",
+										'VAlign', "top",
+										'HandleMouse', false,
+										'TextStyle', "InventoryBackpackTitle",
+										'Translate', true,
+										'Text', T(941078239129, --[[ModItemXTemplate Inventory Text]] "Пояс"),
+										'TextVAlign', "center",
+									}, {
+										PlaceObj('XTemplateFunc', {
+											'name', "SetHightlighted(self, show)",
+											'func', function (self, show)
+												local dlg = GetDialog(self)
+												local show =  show or dlg.selected_unit.session_id==self:GetContext().session_id												
+												self:SetTextStyle(not show and "InventoryBackpackTitle" or "InventoryBackpackTitleHighlight")
+											end,
+										}),
+										}),
+									PlaceObj('XTemplateWindow', {
+										'__condition', function (parent, context) return context end,
+										'__class', "EquipInventorySlot",
+										'Id', "idGrenadesInventorySlot",
+										'Margins', box(0, 0, 20, 0),
+										'Dock', "left",
+										'HAlign', "left",
+										'VAlign', "top",
+										'ScaleModifier', point(990, 990),
+										'UniformColumnWidth', true,
+										'UniformRowHeight', true,
+										'OnContextUpdate', function (self, context, ...)
+											--self:ClosePopup()
+											InventoryUpdatePopup(self)
+											for item_wnd, item in pairs(self.item_windows or empty_table) do
+												if item_wnd.window_state~="destroying" then
+													item_wnd:OnContextUpdate(item)
+												end
+											end
+										end,
+										'slot_name', "GrenadesInventory",
+									}, {
+										PlaceObj('XTemplateFunc', {
+											'name', "Open",
+											'func', function (self, ...)
+												BrowseInventorySlot.Open(self,...)
+												local dlg = GetDialog(self)
+												dlg.slots[self] = true
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "OnDelete",
+											'func', function (self, ...)
+												local dlg = GetDialog(self)
+												dlg.slots[self] = nil
+											end,
+										}),
+										}),
+									PlaceObj('XTemplateWindow', {
+										'__condition', function (parent, context) return context end,
+										'__class', "EquipInventorySlot",
+										'Id', "idOrdnanceInventorySlot",
+										'Margins', box(0, 0, 20, 0),
+										'Dock', "left",
+										'HAlign', "left",
+										'VAlign', "top",
+										'ScaleModifier', point(990, 990),
+										'UniformColumnWidth', true,
+										'UniformRowHeight', true,
+										'OnContextUpdate', function (self, context, ...)
+											--self:ClosePopup()
+											InventoryUpdatePopup(self)
+											for item_wnd, item in pairs(self.item_windows or empty_table) do
+												if item_wnd.window_state~="destroying" then
+													item_wnd:OnContextUpdate(item)
+												end
+											end
+										end,
+										'slot_name', "OrdnanceInventory",
+									}, {
+										PlaceObj('XTemplateFunc', {
+											'name', "Open",
+											'func', function (self, ...)
+												BrowseInventorySlot.Open(self,...)
+												local dlg = GetDialog(self)
+												dlg.slots[self] = true
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "OnDelete",
+											'func', function (self, ...)
+												local dlg = GetDialog(self)
+												dlg.slots[self] = nil
+											end,
+										}),
+										}),
+									}),
+								}),
+							PlaceObj('XTemplateWindow', {
+								'__class', "XContentTemplate",
+								'IdNode', false,
+								'Margins', box(0, -20, 0, 30),
+								'Dock', "top",
+								'HAlign', "left",
+								'VAlign', "top",
+								'LayoutMethod', "HList",
+								'RespawnOnContext', false,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'__class', "XContentTemplate",
+									'IdNode', false,
+									'Margins', box(0, 0, 0, 30),
+									'Dock', "left",
+									'HAlign', "left",
+									'VAlign', "top",
+									'ScaleModifier', point(800, 800),
+									'LayoutMethod', "VList",
+									'RespawnOnContext', false,
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__condition', function (parent, context) return context end,
+										'__class', "EquipInventorySlot",
+										'Id', "MedicalInventory",
+										'Margins', box(0, 0, 20, 0),
+										'Dock', "top",
+										'HAlign', "left",
+										'VAlign', "top",
+										'ScaleModifier', point(990, 990),
+										'UniformColumnWidth', true,
+										'UniformRowHeight', true,
+										'OnContextUpdate', function (self, context, ...)
+											--self:ClosePopup()
+											InventoryUpdatePopup(self)
+											for item_wnd, item in pairs(self.item_windows or empty_table) do
+												if item_wnd.window_state~="destroying" then
+													item_wnd:OnContextUpdate(item)
+												end
+											end
+										end,
+										'slot_name', "MedicalInventory",
+									}, {
+										PlaceObj('XTemplateFunc', {
+											'name', "Open",
+											'func', function (self, ...)
+												BrowseInventorySlot.Open(self,...)
+												local dlg = GetDialog(self)
+												dlg.slots[self] = true
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "OnDelete",
+											'func', function (self, ...)
+												local dlg = GetDialog(self)
+												dlg.slots[self] = nil
+											end,
+										}),
+										}),
+									PlaceObj('XTemplateWindow', {
+										'__condition', function (parent, context) return context end,
+										'__class', "EquipInventorySlot",
+										'Id', "PocketInventory",
+										'Margins', box(0, 0, 20, 0),
+										'Dock', "top",
+										'HAlign', "left",
+										'VAlign', "top",
+										'ScaleModifier', point(990, 990),
+										'UniformColumnWidth', true,
+										'UniformRowHeight', true,
+										'OnContextUpdate', function (self, context, ...)
+											--self:ClosePopup()
+											InventoryUpdatePopup(self)
+											for item_wnd, item in pairs(self.item_windows or empty_table) do
+												if item_wnd.window_state~="destroying" then
+													item_wnd:OnContextUpdate(item)
+												end
+											end
+										end,
+										'slot_name', "PocketInventory",
+									}, {
+										PlaceObj('XTemplateFunc', {
+											'name', "Open",
+											'func', function (self, ...)
+												BrowseInventorySlot.Open(self,...)
+												local dlg = GetDialog(self)
+												dlg.slots[self] = true
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "OnDelete",
+											'func', function (self, ...)
+												local dlg = GetDialog(self)
+												dlg.slots[self] = nil
+											end,
+										}),
+										}),
+									PlaceObj('XTemplateWindow', {
+										'__condition', function (parent, context) return context end,
+										'__class', "EquipInventorySlot",
+										'Id', "KnifeInventory",
+										'Margins', box(0, 0, 20, 0),
+										'Dock', "top",
+										'HAlign', "left",
+										'VAlign', "top",
+										'ScaleModifier', point(990, 990),
+										'UniformColumnWidth', true,
+										'UniformRowHeight', true,
+										'OnContextUpdate', function (self, context, ...)
+											--self:ClosePopup()
+											InventoryUpdatePopup(self)
+											for item_wnd, item in pairs(self.item_windows or empty_table) do
+												if item_wnd.window_state~="destroying" then
+													item_wnd:OnContextUpdate(item)
+												end
+											end
+										end,
+										'slot_name', "KnifeInventory",
+									}, {
+										PlaceObj('XTemplateFunc', {
+											'name', "Open",
+											'func', function (self, ...)
+												BrowseInventorySlot.Open(self,...)
+												local dlg = GetDialog(self)
+												dlg.slots[self] = true
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "OnDelete",
+											'func', function (self, ...)
+												local dlg = GetDialog(self)
+												dlg.slots[self] = nil
+											end,
+										}),
+										}),
+									}),
+								PlaceObj('XTemplateWindow', {
+									'__class', "XContentTemplate",
+									'IdNode', false,
+									'Margins', box(0, -10, 0, 30),
+									'Dock', "left",
+									'HAlign', "left",
+									'VAlign', "top",
+									'ScaleModifier', point(800, 800),
+									'LayoutMethod', "VList",
+									'RespawnOnContext', false,
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__condition', function (parent, context) return context end,
+										'__class', "XText",
+										'Id', "idName",
+										'Dock', "top",
+										'HAlign', "left",
+										'VAlign', "top",
+										'HandleMouse', false,
+										'TextStyle', "InventoryBackpackTitle",
+										'Translate', true,
+										'Text', T(355556655572, --[[ModItemXTemplate Inventory Text]] "РЮКЗАК"),
+										'TextVAlign', "center",
+									}, {
+										PlaceObj('XTemplateFunc', {
+											'name', "SetHightlighted(self, show)",
+											'func', function (self, show)
+												local dlg = GetDialog(self)
+												local show =  show or dlg.selected_unit.session_id==self:GetContext().session_id												
+												self:SetTextStyle(not show and "InventoryBackpackTitle" or "InventoryBackpackTitleHighlight")
+											end,
+										}),
+										}),
+									PlaceObj('XTemplateWindow', {
+										'__condition', function (parent, context) return context end,
+										'__class', "BrowseInventorySlot",
+										'Id', "idInventorySlot",
+										'Margins', box(0, 0, 20, 0),
+										'Dock', "top",
+										'HAlign', "left",
+										'VAlign', "top",
+										'ScaleModifier', point(990, 990),
+										'UniformColumnWidth', true,
+										'UniformRowHeight', true,
+										'OnContextUpdate', function (self, context, ...)
+											--self:ClosePopup()
+											InventoryUpdatePopup(self)
+											for item_wnd, item in pairs(self.item_windows or empty_table) do
+												if item_wnd.window_state~="destroying" then
+													item_wnd:OnContextUpdate(item)
+												end
+											end
+										end,
+										'slot_name', "Inventory",
+									}, {
+										PlaceObj('XTemplateFunc', {
+											'name', "Open",
+											'func', function (self, ...)
+												BrowseInventorySlot.Open(self,...)
+												local dlg = GetDialog(self)
+												dlg.slots[self] = true
+											end,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "OnDelete",
+											'func', function (self, ...)
+												local dlg = GetDialog(self)
+												dlg.slots[self] = nil
+											end,
+										}),
+										}),
+									}),
+								}),
+							}),
+						}),
+					PlaceObj('XTemplateWindow', {
+						'comment', "right - backpacks",
+						'Margins', box(-938, 540, 32, 32),
+						'HAlign', "left",
+						'VAlign', "top",
+						'MinWidth', 924,
+						'MaxWidth', 1000,
+						'MaxHeight', 300,
+						'LayoutMethod', "VList",
+					}, {
+						PlaceObj('XTemplateWindow', {
+							'comment', "right",
+							'__class', "XContentTemplate",
+							'Id', "idRight",
+							'IdNode', false,
+							'MinWidth', 706,
+							'MinHeight', 752,
+							'MaxWidth', 706,
+							'MaxHeight', 252,
+							'Clip', "parent & self",
+							'RespawnOnContext', false,
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'__condition', function (parent, context) return false end,
+								'__class', "XText",
+								'Margins', box(40, 10, 0, 0),
+								'Padding', box(0, 0, 0, 0),
+								'HAlign', "left",
+								'ScaleModifier', point(500, 500),
+								'TextStyle', "InventoryContainerTitle",
+								'Translate', true,
+								'Text', T(155790195023, --[[ModItemXTemplate Inventory Text]] "Рюкзаки отряда"),
+							}),
+							PlaceObj('XTemplateWindow', {
+								'__class', "XImage",
+								'IdNode', false,
+								'Image', "UI/Inventory/T_Backpack_Inventory_Container",
+								'ImageFit', "stretch",
+							}),
+							PlaceObj('XTemplateTemplate', {
+								'comment', "inventory list",
+								'__template', "InventoryScrollArea",
+								'Id', "idScrollArea",
+								'IdNode', false,
+								'Margins', box(0, 20, 0, 30),
+								'MaxHeight', 300,
+								'LayoutMethod', "HWrap",
+								'VScroll', "idScrollbar",
+							}, {
+								PlaceObj('XTemplateForEach', {
+									'array', function (parent, context) return context and context.unit and context.unit.Squad and gv_Squads[context.unit.Squad].units end,
+									'condition', function (parent, context, item, i) return context end,
+									'__context', function (parent, context, item, i, n)
+										if not item then return false end local unit if gv_SatelliteView then 	unit = gv_UnitData[item] else 	unit = g_Units[item] or gv_UnitData[item] end	 return unit
+									end,
+									'run_after', function (child, context, item, i, n, last)
+										child.unit = context
+										if InventoryUIGrayOut(context)  then
+											child:SetTransparency(150)
+										end
+									end,
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__class', "XContentTemplate",
+										'ScaleModifier', point(600, 600),
+										'LayoutMethod', "VList",
+										'RespawnOnContext', false,
+									}, {
+										PlaceObj('XTemplateCode', {
+											'run', function (self, parent, context)
+												if InventoryIsNotControlled(context) then
+													parent.RespawnOnContext = true
+												end
+											end,
+										}),
+										PlaceObj('XTemplateWindow', {
+											'Margins', box(26, 0, 0, 0),
+										}, {
+											PlaceObj('XTemplateWindow', {
+												'__condition', function (parent, context) return context end,
+												'__class', "XText",
+												'Id', "idName",
+												'ScaleModifier', point(800, 800),
+												'HandleMouse', false,
+												'TextStyle', "InventoryBackpackTitle",
+												'Translate', true,
+												'Text', T(913004608921, --[[ModItemXTemplate Inventory Text]] "РЮКЗАК - <Nick>"),
+												'TextVAlign', "center",
+											}, {
+												PlaceObj('XTemplateFunc', {
+													'name', "SetHightlighted(self, show)",
+													'func', function (self, show)
+														local dlg = GetDialog(self)
+														local show =  show or dlg.selected_unit.session_id==self:GetContext().session_id												
+														self:SetTextStyle(not show and "InventoryBackpackTitle" or "InventoryBackpackTitleHighlight")
+													end,
+												}),
+												}),
+											}),
+										PlaceObj('XTemplateWindow', {
+											'__condition', function (parent, context) return context end,
+											'__class', "BrowseInventorySlot",
+											'Id', "idInventorySlot",
+											'Margins', box(24, 0, 0, 0),
+											'HAlign', "left",
+											'ScaleModifier', point(800, 800),
+											'UniformColumnWidth', true,
+											'UniformRowHeight', true,
+											'slot_name', "Inventory",
+										}, {
+											PlaceObj('XTemplateFunc', {
+												'name', "Open",
+												'func', function (self, ...)
+													BrowseInventorySlot.Open(self,...)
+													local dlg = GetDialog(self)
+													dlg.slots[self] = true
+													if dlg.context.unit and self.context.session_id==dlg.context.unit.session_id then
+														self.parent.idName:SetHightlighted(true)		
+													end
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "OnDelete",
+												'func', function (self, ...)
+													local dlg = GetDialog(self)
+													dlg.slots[self] = nil
+												end,
+											}),
+											}),
+										}),
+									}),
+								PlaceObj('XTemplateMode', {
+									'mode', "loot",
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__context', function (parent, context) return context and context.unit and context.unit.Squad and GetSquadBagInventory(context.unit.Squad, "large") end,
+										'__class', "XContentTemplate",
+										'Id', "idSquadBag",
+										'ScaleModifier', point(600, 600),
+										'LayoutMethod', "VList",
+										'RespawnOnContext', false,
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'Margins', box(26, 0, 0, 0),
+										}, {
+											PlaceObj('XTemplateWindow', {
+												'__condition', function (parent, context) return context end,
+												'__class', "XText",
+												'Id', "idName",
+												'HandleMouse', false,
+												'TextStyle', "InventoryBackpackTitle",
+												'Translate', true,
+												'Text', T(640630058269, --[[ModItemXTemplate Inventory Text]] "Имущество отряда"),
+												'TextVAlign', "center",
+											}, {
+												PlaceObj('XTemplateFunc', {
+													'name', "SetHightlighted(self, show)",
+													'func', function (self, show)
+														self:SetTextStyle(not show and "InventoryBackpackTitle" or "InventoryBackpackTitleHighlight")
+													end,
+												}),
+												}),
+											}),
+										PlaceObj('XTemplateWindow', {
+											'__condition', function (parent, context) return context end,
+											'__class', "BrowseInventorySlot",
+											'Id', "idInventorySlot",
+											'Margins', box(24, 0, 0, 0),
+											'HAlign', "left",
+											'UniformColumnWidth', true,
+											'UniformRowHeight', true,
+											'slot_name', "Inventory",
+										}, {
+											PlaceObj('XTemplateFunc', {
+												'name', "Open",
+												'func', function (self, ...)
+													BrowseInventorySlot.Open(self,...)
+													local dlg = GetDialog(self)
+													dlg.slots[self] = true
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "OnDelete",
+												'func', function (self, ...)
+													local dlg = GetDialog(self)
+													dlg.slots[self] = nil
+												end,
+											}),
+											}),
+										}),
+									}),
+								}),
+							PlaceObj('XTemplateWindow', {
+								'__class', "XZuluScroll",
+								'Id', "idScrollbar",
+								'Margins', box(0, 30, 10, 20),
+								'HAlign', "right",
+								'FoldWhenHidden', false,
+								'MouseCursor', "UI/Cursors/Hand.tga",
+								'Target', "idScrollArea",
+								'Max', 9999,
+								'AutoHide', true,
+							}, {
+								PlaceObj('XTemplateFunc', {
+									'name', "MoveThumb",
+									'func', function (self, ...)
+										XZuluScroll.MoveThumb(self, ...)
+										if not self.layout_update then
+											Msg("ScrollInventory")
+										end
+									end,
+								}),
+								}),
+							}),
+						}),
+					PlaceObj('XTemplateWindow', {
+						'comment', "center - loot/ammo",
+						'__class', "XContextWindow",
+						'HAlign', "left",
+						'LayoutMethod', "VList",
+					}, {
+						PlaceObj('XTemplateWindow', {
+							'__class', "XText",
+							'Id', "idCenterHeading",
+							'Padding', box(0, 0, 0, 0),
+							'TextStyle', "InventoryContainerTitle",
+							'Translate', true,
+							'Text', T(177007106881, --[[ModItemXTemplate Inventory Text]] "Обыскать"),
+							'TextHAlign', "center",
+							'TextVAlign', "center",
+						}),
+						PlaceObj('XTemplateWindow', {
+							'__class', "XZuluScroll",
+							'Id', "idScrollbar",
+							'Margins', box(0, 30, -10, 20),
+							'HAlign', "right",
+							'FoldWhenHidden', false,
+							'MouseCursor', "UI/Cursors/Hand.tga",
+							'Target', "idScrollArea",
+							'Max', 9999,
+							'AutoHide', true,
+						}, {
+							PlaceObj('XTemplateFunc', {
+								'name', "MoveThumb",
+								'func', function (self, ...)
+									XZuluScroll.MoveThumb(self, ...)
+									if not self.layout_update then
+										Msg("ScrollInventory")
+									end
+								end,
+							}),
+							}),
+						PlaceObj('XTemplateWindow', {
+							'comment', "center",
+							'__class', "XContentTemplate",
+							'Id', "idCenter",
+							'IdNode', false,
+							'Margins', box(0, 20, 0, 0),
+							'HAlign', "center",
+							'MinWidth', 810,
+							'MinHeight', 942,
+							'MaxWidth', 810,
+							'MaxHeight', 939,
+							'ScaleModifier', point(700, 700),
+							'OnContextUpdate', function (self, context, ...)
+								if self.RespawnOnContext then
+									if self.window_state == "open" then
+										self:RespawnContent()
+									end
+								else
+									local respawn_value = self:RespawnExpression(context)
+									if rawget(self, "respawn_value") ~= respawn_value then
+										self.respawn_value = respawn_value
+										if self.window_state == "open" then
+											self:RespawnContent()
+										end
+									end
+								end
+								local node = self:ResolveId("node")
+								local mode = GetDialog(self).Mode
+								if not IsInCombat() then
+									node.idCenterHeading:SetText(mode=="loot" and T{288565331426, "SECTOR <SectorId(sector)> STASH", sector = context.container.sector_id or gv_CurrentSectorId} or T(197418134567, "Squad Supplies"))
+								else
+									node.idCenterHeading:SetText(mode=="loot" and T(899428826682, "Loot") or T(197418134567, "Squad Supplies"))
+								end
+							end,
+							'RespawnOnContext', false,
+						}, {
+							PlaceObj('XTemplateMode', {
+								'mode', "loot",
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'comment', "loot",
+									'__context', function (parent, context)
+										if not gv_SatelliteView then
+										--if not  InventoryIsCombatMode(context.unit) then
+											return context.container
+										end
+										
+										local dlg = GetDialog(parent)
+										local tab = dlg.selected_tab
+										if not tab or tab=="all" then
+											return context.container
+										end	
+										local sector_id = gv_SectorInventory.sector_id
+										gv_SectorInventory:Clear()
+										local preset = InventoryTabs[tab]
+										local context = GetSectorInventory(sector_id, 
+											function(item)return preset:FilterItem(item) end)
+										dlg.context.container = context
+										return context
+									end,
+									'__class', "XContextWindow",
+									'Id', "idLootContainer",
+									'ContextUpdateOnOpen', true,
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__class', "XFrame",
+										'IdNode', false,
+										'Image', "UI/Inventory/T_Backpack_Inventory_Container",
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'__condition', function (parent, context)
+												local unit = GetInventoryUnit()
+													if gv_SatelliteView then	
+														if unit.Squad and gv_Squads[unit.Squad] and context.sector_id ~= gv_Squads[unit.Squad].CurrentSector then
+															return true
+														end	
+													end
+													return false
+											end,
+											'__class', "XText",
+											'Id', "idOtherSectorStash",
+											'Margins', box(24, 0, 24, 0),
+											'HAlign', "left",
+											'VAlign', "top",
+											'MinWidth', 430,
+											'MinHeight', 60,
+											'MaxWidth', 430,
+											'MaxHeight', 60,
+											'TextStyle', "InventoryWarning",
+											'Translate', true,
+											'Text', T(414699096395, --[[ModItemXTemplate Inventory Text]] "Выбранный отряд находится в другом секторе"),
+											'TextHAlign', "center",
+											'TextVAlign', "center",
+										}),
+										PlaceObj('XTemplateTemplate', {
+											'comment', "inventory list",
+											'__template', "InventoryScrollArea",
+											'Id', "idScrollAreaCenter",
+											'IdNode', false,
+											'Margins', box(0, 20, 0, 65),
+											'VScroll', "idScrollbarCenter",
+										}, {
+											PlaceObj('XTemplateForEach', {
+												'array', function (parent, context) return InventoryGetLootContainers(context) end,
+												'__context', function (parent, context, item, i, n) return item end,
+												'run_after', function (child, context, item, i, n, last)
+													child.container = context
+													
+													-- Make sure all containers we are operating on are open, syncing the items with the stash
+													if IsKindOf(context, "ItemContainer") then
+														local unit = GetInventoryUnit()
+														if not context:IsOpened() then
+															NetSyncEvent("OpenContainer", context, unit.session_id)
+														end
+														
+														-- Log interaction for any containers opened because they were close to the one being interacted with.
+														if i ~= 1 and IsKindOf(context, "Interactable") then
+															context:LogInteraction(unit, { id = "ProxyLoot" })
+														end
+													end
+													
+													local name = T(495002164195, "BAG")
+													local is_sector_stash = IsKindOf(context, "SectorStash")
+													if is_sector_stash then
+														name = Untranslated("")-- T{288565331426, "SECTOR <sector> STASH", sector = Untranslated(context.sector_id or gv_CurrentSectorId or "")}
+														child.parent:SetMargins(box(0, 60, 0, 65))
+													elseif IsKindOf(context,"Unit") then
+														name = context:IsMerc() and T(185167895211, "<Nick> BODY") or T(698760915819, "DEAD BODY")
+													elseif context:HasMember("spawner") and IsKindOf(context.spawner, "ContainerMarker")	then
+														name = context.spawner.DisplayName or T(495002164195, "BAG")
+													elseif context:HasMember("DisplayName") then
+														name = context.DisplayName
+													end	
+													child.idName:SetText(name)
+													
+													if not IsMerc(context) then
+														context:ForEachItem(function(item)
+															if not g_GossipItemsSeenByPlayer[item.id] and not g_GossipItemsTakenByPlayer[item.id] and not g_GossipItemsMoveFromPlayerToContainer[item.id] then
+																g_GossipItemsSeenByPlayer[item.id] = true
+																NetGossip("Loot", "PlayerSeen", item.class, rawget(item, "Amount") or 1, GetCurrentPlaytime(), Game and Game.CampaignTime)
+															end
+														end)
+													end
+												end,
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'__class', "XContentTemplate",
+													'Margins', box(24, 0, 24, 0),
+													'LayoutMethod', "VList",
+													'RespawnOnContext', false,
+												}, {
+													PlaceObj('XTemplateWindow', nil, {
+														PlaceObj('XTemplateWindow', {
+															'__condition', function (parent, context) return context end,
+															'__class', "XText",
+															'Id', "idName",
+															'Padding', box(6, 2, 2, 2),
+															'FoldWhenHidden', true,
+															'TextStyle', "InventoryBackpackTitle",
+															'Translate', true,
+															'Text', T(591752923759, --[[ModItemXTemplate Inventory Text]] "МЕШОК"),
+															'HideOnEmpty', true,
+															'TextVAlign', "center",
+														}),
+														}),
+													PlaceObj('XTemplateWindow', {
+														'__condition', function (parent, context) return context and IsKindOf(context, "Unit") end,
+														'__class', "BrowseInventorySlot",
+														'Id', "idInventorySlot",
+														'HAlign', "left",
+														'ScaleModifier', point(990, 990),
+														'UniformColumnWidth', true,
+														'UniformRowHeight', true,
+														'slot_name', "InventoryDead",
+													}, {
+														PlaceObj('XTemplateFunc', {
+															'name', "Open",
+															'func', function (self, ...)
+																BrowseInventorySlot.Open(self,...)
+																local dlg = GetDialog(self)
+																dlg.slots[self] = true
+															end,
+														}),
+														PlaceObj('XTemplateFunc', {
+															'name', "OnDelete",
+															'func', function (self, ...)
+																local dlg = GetDialog(self)
+																dlg.slots[self] = nil
+															end,
+														}),
+														}),
+													PlaceObj('XTemplateWindow', {
+														'__condition', function (parent, context) return context and not IsKindOf(context, "Unit") end,
+														'__class', "BrowseInventorySlot",
+														'Id', "idInventorySlot",
+														'HAlign', "left",
+														'ScaleModifier', point(990, 990),
+														'UniformColumnWidth', true,
+														'UniformRowHeight', true,
+														'slot_name', "Inventory",
+													}, {
+														PlaceObj('XTemplateFunc', {
+															'name', "Open",
+															'func', function (self, ...)
+																BrowseInventorySlot.Open(self,...)
+																local dlg = GetDialog(self)
+																dlg.slots[self] = true
+															end,
+														}),
+														PlaceObj('XTemplateFunc', {
+															'name', "OnDelete",
+															'func', function (self, ...)
+																local dlg = GetDialog(self)
+																dlg.slots[self] = nil
+															end,
+														}),
+														}),
+													}),
+												}),
+											}),
+										PlaceObj('XTemplateWindow', {
+											'__class', "XZuluScroll",
+											'Id', "idScrollbarCenter",
+											'Margins', box(0, 50, 10, 65),
+											'HAlign', "right",
+											'MouseCursor', "UI/Cursors/Hand.tga",
+											'Target', "idScrollAreaCenter",
+											'Max', 9999,
+											'AutoHide', true,
+										}),
+										PlaceObj('XTemplateWindow', {
+											'comment', "tabs",
+											'__condition', function (parent, context)
+												local unit = GetInventoryUnit()
+													if gv_SatelliteView then	
+														if unit.Squad and gv_Squads[unit.Squad] and context.sector_id == gv_Squads[unit.Squad].CurrentSector then
+															return true
+														end	
+													end
+													return false
+											end,
+											'Margins', box(24, 20, 0, 0),
+										}, {
+											PlaceObj('XTemplateWindow', {
+												'__context', function (parent, context) return "inventory tabs" end,
+												'__class', "XContentTemplate",
+												'Id', "idTabs",
+												'Dock', "top",
+												'LayoutMethod', "HList",
+												'LayoutHSpacing', 12,
+											}, {
+												PlaceObj('XTemplateForEach', {
+													'array', function (parent, context) return Presets.InventoryTab.Default end,
+													'__context', function (parent, context, item, i, n) return item end,
+													'run_after', function (child, context, item, i, n, last)
+														local tab = item--InventoryTabs[item]
+														child.idTabIcon:SetImage(tab.icon)
+														local dlg = GetDialog(child)
+														child:SetToggled(dlg.selected_tab==item.id)
+														child:SetId(item.id)
+													end,
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'__class', "XToggleButton",
+														'MinWidth', 62,
+														'MinHeight', 32,
+														'MaxWidth', 62,
+														'MaxHeight', 32,
+														'LayoutMethod', "Box",
+														'BorderColor', RGBA(0, 0, 0, 0),
+														'Background', RGBA(255, 255, 255, 0),
+														'FocusedBorderColor', RGBA(0, 0, 0, 0),
+														'FocusedBackground', RGBA(255, 255, 255, 0),
+														'DisabledBorderColor', RGBA(0, 0, 0, 0),
+														'OnPress', function (self, gamepad)
+															if self.Toggled then return end
+															self:SetToggled(not self.Toggled)
+															XTextButton.OnPress(self)
+															local dlg = GetDialog(self)
+															dlg.selected_tab = self.context.id
+															local sector_id = gv_SectorInventory.sector_id
+															gv_SectorInventory:Clear()
+															dlg.context.container = GetSectorInventory(sector_id, 
+																function(item)return self.context:FilterItem(item) end)
+															dlg.idCenter:RespawnContent()
+															local selected = dlg.selected_items
+															dlg:DeselectMultiItems()
+															
+															ObjModified("inventory tabs")
+														end,
+														'RolloverBackground', RGBA(0, 0, 0, 0),
+														'PressedBackground', RGBA(0, 0, 0, 0),
+														'Icon', "UI/Inventory/tabs_button",
+														'IconColumns', 2,
+														'DisabledIconColor', RGBA(255, 255, 255, 0),
+														'ToggledBackground', RGBA(215, 159, 80, 255),
+													}, {
+														PlaceObj('XTemplateFunc', {
+															'name', "OnChange(self, toggled)",
+															'func', function (self, toggled)
+																self:SetIconColumn(toggled and 2 or 1)
+																self.idTabIcon:SetColumn(toggled and 2 or 1)
+															end,
+														}),
+														PlaceObj('XTemplateWindow', {
+															'__class', "XImage",
+															'Id', "idTabIcon",
+															'HAlign', "center",
+															'VAlign', "center",
+															'HandleMouse', true,
+															'Image', "UI/Inventory/tabs_all.png",
+															'Columns', 2,
+														}),
+														}),
+													}),
+												}),
+											}),
+										PlaceObj('XTemplateWindow', {
+											'ZOrder', 2,
+											'Margins', box(0, 0, 0, 20),
+											'VAlign', "bottom",
+											'DrawOnTop', true,
+										}, {
+											PlaceObj('XTemplateFunc', {
+												'name', "Open",
+												'func', function (self, ...)
+													XWindow.Open(self)
+													local take =  self:ResolveId("idTakeAll")
+													local vtake = take and take:GetVisible()											
+													local select =  self:ResolveId("idSelectAll")
+													local vselect = select and select:GetVisible()
+													local sort =  self:ResolveId("idSort")
+													local vsort = sort and sort:GetVisible()			
+													
+													if vtake and not vselect then
+														take:SetHAlign("center")
+													end
+													if vtake and vselect then
+														take:SetHAlign("right")
+														select:SetHAlign("left")
+													end
+													if not vtake and vselect then
+														select:SetHAlign("center")
+													end
+												end,
+											}),
+											PlaceObj('XTemplateTemplate', {
+												'comment', "ammo pack -  set invisble",
+												'__context', function (parent, context) return "GamepadUIStyleChanged" end,
+												'__condition', function (parent, context) local host = GetActionsHost(parent, true) local context = host:GetContext() return context.container end,
+												'__template', "InventoryActionBarButtonCenter",
+												'Id', "idAmmo",
+												'HAlign', "left",
+												'VAlign', "bottom",
+												'MinWidth', 240,
+												'MaxHeight', 240,
+												'Visible', false,
+												'OnPressEffect', "action",
+												'OnPressParam', "AmmoPack",
+											}, {
+												PlaceObj('XTemplateFunc', {
+													'name', "IsDropTarget(self, draw_win, pt)",
+													'func', function (self, draw_win, pt)
+														return true
+													end,
+												}),
+												PlaceObj('XTemplateFunc', {
+													'name', "OnDropEnter(self, draw_win, pt, drag_source)",
+													'func', function (self, draw_win, pt, drag_source)
+														self:SetRollover(true)
+													end,
+												}),
+												PlaceObj('XTemplateFunc', {
+													'name', "OnDropLeave(self, drag_win)",
+													'func', function (self, drag_win)
+														self:SetRollover(false)
+													end,
+												}),
+												PlaceObj('XTemplateFunc', {
+													'name', "OnDrop(self, drag_win, pt, drag_source_win)",
+													'func', function (self, drag_win, pt, drag_source_win)
+														local dlg = GetDialog(self)
+														--dlg:SetMode("ammo")
+														dlg:ChangeContainerMode("ammo")
+														return "not valid target"
+													end,
+												}),
+												}),
+											PlaceObj('XTemplateWindow', {
+												'__class', "XText",
+												'Id', "idWarningText",
+												'Margins', box(0, 0, 0, 40),
+												'HAlign', "center",
+												'VAlign', "bottom",
+												'Visible', false,
+												'FoldWhenHidden', true,
+												'TextStyle', "InventoryActionsTextRedBig",
+												'Translate', true,
+												'Text', T(151605790645, --[[ModItemXTemplate Inventory Text]] "Инвентарь заполнен"),
+												'HideOnEmpty', true,
+											}),
+											PlaceObj('XTemplateTemplate', {
+												'comment', "takeall",
+												'__context', function (parent, context) return "GamepadUIStyleChanged" end,
+												'__condition', function (parent, context) local host = GetActionsHost(parent, true) local context = host:GetContext() return context.container end,
+												'__template', "InventoryActionBarButtonCenter",
+												'Id', "idTakeAll",
+												'HAlign', "center",
+												'VAlign', "bottom",
+												'MinWidth', 240,
+												'MaxHeight', 240,
+												'OnContextUpdate', function (self, context, ...)
+													if self.action then
+														self:SetText(self.action.ActionName)
+													end
+													local host = GetActionsHost(self.parent, true) 
+													local hidden = host:TakeAllState()=="hidden"
+													self:SetVisible(not hidden)
+												end,
+												'OnPressEffect', "action",
+												'OnPressParam', "TakeAll",
+											}, {
+												PlaceObj('XTemplateFunc', {
+													'name', "Open",
+													'func', function (self, ...)
+														XTextButton.Open(self)
+														if self.action then
+															self:SetText(self.action.ActionName)
+														end
+														local host = GetActionsHost(self.parent, true) 
+														local hidden = host:TakeAllState()=="hidden"
+														self:SetVisible(not hidden)
+													end,
+												}),
+												PlaceObj('XTemplateFunc', {
+													'name', "Press(self, alt, force, gamepad)",
+													'func', function (self, alt, force, gamepad)
+														local dlg = GetDialog(self)
+														dlg:TakeAllStateWarning(self)
+														XTextButton.Press(self, alt, force, gamepad )
+													end,
+												}),
+												}),
+											PlaceObj('XTemplateTemplate', {
+												'comment', "sort",
+												'__context', function (parent, context) return "GamepadUIStyleChanged" end,
+												'__condition', function (parent, context) local host = GetActionsHost(parent, true) local context = host:GetContext() return context.container and gv_SatelliteView end,
+												'__template', "InventoryActionBarButtonCenter",
+												'Id', "idSort",
+												'HAlign', "center",
+												'VAlign', "bottom",
+												'MinWidth', 240,
+												'MaxHeight', 240,
+												'OnContextUpdate', function (self, context, ...)
+													if self.action then
+														self:SetText(self.action.ActionName)
+													end
+													local host = GetActionsHost(self.parent, true) 
+													local hidden = host:TakeAllState()=="hidden"
+													self:SetVisible(not hidden)
+												end,
+												'OnPressEffect', "action",
+												'OnPressParam', "Sort",
+											}, {
+												PlaceObj('XTemplateFunc', {
+													'name', "Open",
+													'func', function (self, ...)
+														XTextButton.Open(self)
+														if self.action then
+															self:SetText(self.action.ActionName)
+														end
+														local host = GetActionsHost(self.parent, true) 
+														local hidden = host:TakeAllState()=="hidden"
+														self:SetVisible(not hidden)
+													end,
+												}),
+												PlaceObj('XTemplateFunc', {
+													'name', "Press(self, alt, force, gamepad)",
+													'func', function (self, alt, force, gamepad)
+														local dlg = GetDialog(self)
+														dlg:TakeAllStateWarning(self)
+														XTextButton.Press(self, alt, force, gamepad )
+													end,
+												}),
+												}),
+											PlaceObj('XTemplateTemplate', {
+												'comment', "select all",
+												'__context', function (parent, context) return "GamepadUIStyleChanged" end,
+												'__condition', function (parent, context) local host = GetActionsHost(parent, true) local context = host:GetContext() return context.container and gv_SatelliteView end,
+												'__template', "InventoryActionBarButtonCenter",
+												'Id', "idSelectAll",
+												'HAlign', "left",
+												'VAlign', "bottom",
+												'MinWidth', 240,
+												'MaxHeight', 240,
+												'OnContextUpdate', function (self, context, ...)
+													if self.action then
+														self:SetText(self.action.ActionName)
+													end
+												end,
+												'OnPressEffect', "action",
+												'OnPressParam', "SelectAll",
+											}, {
+												PlaceObj('XTemplateFunc', {
+													'name', "Open",
+													'func', function (self, ...)
+														XTextButton.Open(self)
+														if self.action then
+															self:SetText(self.action.ActionName)
+														end
+														local host = GetActionsHost(self.parent, true) 
+														local hidden = self.action:ActionState(host)=="hidden"
+														self:SetVisible(not hidden)
+													end,
+												}),
+												}),
+											}),
+										}),
+									PlaceObj('XTemplateAction', {
+										'ActionId', "TakeAll",
+										'ActionName', T(247319674992, --[[ModItemXTemplate Inventory ActionName]] "ВЗЯТЬ ВСЁ"),
+										'ActionShortcut', "T",
+										'ActionGamepad', "LeftTrigger-ButtonY",
+										'ActionState', function (self, host)
+											return host:TakeAllState()
+										end,
+										'OnAction', function (self, host, source, ...)
+											return host:TakeAllAction()
+										end,
+									}),
+									PlaceObj('XTemplateAction', {
+										'ActionId', "SelectAll",
+										'ActionName', T(881143667416, --[[ModItemXTemplate Inventory ActionName]] "ВЫБРАТЬ ВСЕ"),
+										'ActionShortcut', "A",
+										'ActionGamepad', "LeftTrigger-ButtonX",
+										'ActionState', function (self, host)
+											return gv_SatelliteView and host.context.container and host.context.container:GetItem() and "enabled" or "hidden"
+										end,
+										'OnAction', function (self, host, source, ...)
+											local ctn = host.context.container
+											InventoryClosePopup()
+											local itm, iwnd = next(host.selected_items)
+											host:DeselectMultiItems()
+											local cont_slot = false
+											ctn:ForEachItem(function(item,sn, l,t, cont_slot)
+												if not cont_slot then
+													for slot, val in pairs(host.slots) do
+														local wnd, itm  = slot:FindItemWnd(item) 			
+														if wnd then
+															host.selected_items[item] = wnd														
+															wnd:SetRollover(true)
+															wnd:OnSetSelected(true)			
+															wnd:OnSetRollover(true)
+															cont_slot = slot
+														end	
+													end		
+												else		
+													local wnd, itm  = cont_slot:FindItemWnd(item) 
+													host.selected_items[item] = wnd			
+													wnd:SetRollover(true)
+													wnd:OnSetSelected(true)
+													wnd:OnSetRollover(true)
+												end
+												
+											end, cont_slot)
+										end,
+									}),
+									PlaceObj('XTemplateAction', {
+										'ActionId', "Sort",
+										'ActionName', T(649843836390, --[[ModItemXTemplate Inventory ActionName]] "Сортировка"),
+										'ActionShortcut', "S",
+										'ActionGamepad', "LeftTrigger-ButtonX",
+										'ActionState', function (self, host)
+											return gv_SatelliteView and host.context.container and host.context.container:GetItem() and "enabled" or "hidden"
+										end,
+										'OnAction', function (self, host, source, ...)
+											local ctn = host.context.container
+											local items = {}
+											local itemsC = {}
+																ctn:ForEachItem(function(item, slot_name, left, top, items)
+																	if (item.Condition) then
+																		itemsC[#itemsC + 1] = item 
+																		ctn:RemoveItem(slot_name, item)
+																	else
+																	 items[#items + 1] = item 
+																	ctn:RemoveItem(slot_name, item)
+																	end				
+																end, items)
+											--SortItemsArray(itemsC)
+											--table.sortby_field(itemsC, "Condition")					
+											SortItemsArray(items)
+											table.append(itemsC,items)
+											SortItemsArray(itemsC)
+											--AddItemsToInventory(ctn, items)
+											AddItemsToInventory(ctn, itemsC)
+											
+											InventoryUIRespawn()
+										end,
+									}),
+									}),
+								}),
+							PlaceObj('XTemplateMode', {
+								'mode', "ammo",
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'comment', "ammo",
+									'__class', "XContextWindow",
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__class', "XFrame",
+										'IdNode', false,
+										'Image', "UI/Inventory/T_Backpack_Inventory_Container",
+									}, {
+										PlaceObj('XTemplateTemplate', {
+											'__template', "InventoryScrollArea",
+											'Id', "idScrollAreaCenter",
+											'Margins', box(0, 20, 0, 65),
+											'VScroll', "idScrollbarCenter",
+										}, {
+											PlaceObj('XTemplateWindow', {
+												'__context', function (parent, context) return context and context.unit and context.unit.Squad and GetSquadBagInventory(context.unit.Squad, "small") end,
+												'__class', "XContentTemplate",
+												'Id', "idSquadBag",
+												'Margins', box(24, 0, 24, 0),
+												'OnLayoutComplete', function (self)
+													if InventoryIsCombatMode() then
+														self:SetTransparency(150)
+														return "hidden"
+														end
+												end,
+												'LayoutMethod', "VList",
+												'RespawnOnContext', false,
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'comment', "just to save space",
+													'Visible', false,
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'__condition', function (parent, context) return context end,
+														'__class', "XText",
+														'Id', "idName",
+														'Padding', box(6, 2, 2, 2),
+														'TextStyle', "InventoryBackpackTitle",
+														'Translate', true,
+														'Text', T(502804742595, --[[ModItemXTemplate Inventory Text]] "МЕШОК"),
+														'TextVAlign', "center",
+													}),
+													}),
+												PlaceObj('XTemplateWindow', {
+													'__condition', function (parent, context) return context end,
+													'__class', "BrowseInventorySlot",
+													'Id', "idInventorySlot",
+													'HAlign', "left",
+													'ScaleModifier', point(990, 990),
+													'UniformColumnWidth', true,
+													'UniformRowHeight', true,
+													'slot_name', "Inventory",
+												}, {
+													PlaceObj('XTemplateFunc', {
+														'name', "Open",
+														'func', function (self, ...)
+															BrowseInventorySlot.Open(self,...)
+															local dlg = GetDialog(self)
+															dlg.slots[self] = true
+														end,
+													}),
+													PlaceObj('XTemplateFunc', {
+														'name', "OnDelete",
+														'func', function (self, ...)
+															local dlg = GetDialog(self)
+															dlg.slots[self] = nil
+														end,
+													}),
+													}),
+												}),
+											}),
+										PlaceObj('XTemplateWindow', {
+											'__class', "XZuluScroll",
+											'Id', "idScrollbarCenter",
+											'Margins', box(0, 30, 10, 65),
+											'HAlign', "right",
+											'MouseCursor', "UI/Cursors/Hand.tga",
+											'Target', "idScrollAreaCenter",
+											'Max', 9999,
+											'AutoHide', true,
+										}),
+										PlaceObj('XTemplateWindow', {
+											'ZOrder', 2,
+											'Margins', box(0, 0, 0, 20),
+											'VAlign', "bottom",
+											'DrawOnTop', true,
+										}, {
+											PlaceObj('XTemplateTemplate', {
+												'comment', "loot",
+												'__condition', function (parent, context) local host = GetActionsHost(parent, true) local context = host:GetContext() return context.container end,
+												'__template', "InventoryActionBarButtonCenter",
+												'HAlign', "left",
+												'VAlign', "bottom",
+												'MinWidth', 240,
+												'MaxHeight', 240,
+												'OnPressEffect', "action",
+												'OnPressParam', "Loot",
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "IsDropTarget(self, draw_win, pt)",
+												'func', function (self, draw_win, pt)
+													return true
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "OnDropEnter(self, draw_win, pt, drag_source)",
+												'func', function (self, draw_win, pt, drag_source)
+													self:SetRollover(true)
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "OnDropLeave(self, drag_win)",
+												'func', function (self, drag_win)
+													self:SetRollover(false)
+												end,
+											}),
+											PlaceObj('XTemplateFunc', {
+												'name', "OnDrop(self, drag_win, pt, drag_source_win)",
+												'func', function (self, drag_win, pt, drag_source_win)
+													local dlg = GetDialog(self)
+													--dlg:SetMode("ammo")
+													dlg:ChangeContainerMode("loot")
+													return "not valid target"
+												end,
+											}),
+											PlaceObj('XTemplateWindow', {
+												'__class', "XText",
+												'Id', "idWarningText",
+												'Margins', box(0, 0, 0, 40),
+												'HAlign', "center",
+												'VAlign', "bottom",
+												'Visible', false,
+												'FoldWhenHidden', true,
+												'TextStyle', "InventoryActionsTextRedBig",
+												'Translate', true,
+												'Text', T(142138054817, --[[ModItemXTemplate Inventory Text]] "Инвентарь заполнен"),
+												'HideOnEmpty', true,
+											}),
+											PlaceObj('XTemplateTemplate', {
+												'comment', "take loot",
+												'__condition', function (parent, context) local host = GetActionsHost(parent, true) local context = host:GetContext() return context.container and InventoryIsValidTargetForUnit(context.container) end,
+												'__template', "InventoryActionBarButtonCenter",
+												'HAlign', "right",
+												'VAlign', "bottom",
+												'MinWidth', 240,
+												'MaxHeight', 240,
+												'OnPressEffect', "action",
+												'OnPressParam', "TakeLoot",
+											}, {
+												PlaceObj('XTemplateFunc', {
+													'name', "Press(self, alt, force, gamepad)",
+													'func', function (self, alt, force, gamepad)
+														local dlg = GetDialog(self)
+														dlg:TakeAllStateWarning(self)
+														XTextButton.Press(self, alt, force, gamepad )
+													end,
+												}),
+												}),
+											}),
+										}),
+									PlaceObj('XTemplateAction', {
+										'ActionId', "Loot",
+										'ActionName', T(787275330939, --[[ModItemXTemplate Inventory ActionName]] "Показать трофеи"),
+										'ActionToolbar', "ActionBarCenter",
+										'ActionShortcut', "L",
+										'ActionState', function (self, host)
+											local context = host:GetContext()
+											if not context.container then
+												return "hidden"
+											end
+											
+											return  "enabled"
+										end,
+										'OnAction', function (self, host, source, ...)
+											-- temporaly remove attached obj when change ammo and loot 
+											--host:OnEscape()
+											--host:local dlg = GetDialog(self)
+											--dlg:SetMode("ammo")
+											host:ChangeContainerMode("loot")
+										end,
+									}),
+									PlaceObj('XTemplateAction', {
+										'ActionId', "TakeLoot",
+										'ActionName', T(748373316660, --[[ModItemXTemplate Inventory ActionName]] "Забрать трофеи"),
+										'ActionToolbar', "ActionBarCenter",
+										'ActionShortcut', "T",
+										'ActionGamepad', "LeftTrigger-ButtonY",
+										'ActionState', function (self, host)
+											return host:TakeAllState()
+										end,
+										'OnAction', function (self, host, source, ...)
+											host:SetMode("loot")
+											return host:TakeAllAction()
+										end,
+									}),
+									}),
 								}),
 							}),
 						}),
@@ -113614,632 +121404,7410 @@ return {
 		'BurstShots', 1,
 		'AutoShots', 1,
 	}),
-	PlaceObj('ModItemAIArchetype', {
-		BaseAttackTargeting = set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso", "Trap" ),
-		BaseAttackWeight = 140,
-		BaseMovementWeight = 150,
-		Behaviors = {
-			PlaceObj('StandardAI', {
-				'EndTurnPolicies', {
-					PlaceObj('AIPolicyDealDamage', {
-						'RequiredKeywords', {
-							"Gunner",
-						},
-						'Weight', 1000,
-					}),
-					PlaceObj('AIPolicyWeaponRange', {
-						'RequiredKeywords', {
-							"Gunner",
-						},
-						'RangeMin', 30,
-						'RangeMax', 80,
-					}),
-				},
-				'SignatureActions', {
-					PlaceObj('AIActionMGSetup', {
-						'Priority', true,
-						'team_score', 0,
-						'min_score', 100,
-						'cur_zone_mod', 140,
-					}),
-					PlaceObj('AIActionMGBurstFire', {
-						'AttackTargeting', set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso" ),
-					}),
-				},
-				'TakeCoverChance', 0,
-				'override_attack_id', "BurstFire",
-				'override_cost_id', "MGSetup",
+	PlaceObj('ModItemFolder', {
+		'name', "JAZZ UNITS OVERWRITE",
+	}, {
+		PlaceObj('ModItemFolder', {
+			'name', "Units Legion",
+			'comment', "-- Регулярные Легионовцы",
+		}, {
+			PlaceObj('ModItemFolder', {
+				'name', "T3",
+			}, {
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionRocketeer_Stronger_Elite",
+					'object_class', "UnitData",
+					'Health', 86,
+					'Agility', 96,
+					'Dexterity', 8,
+					'Strength', 74,
+					'Wisdom', 46,
+					'Leadership', 10,
+					'Marksmanship', 70,
+					'Mechanical', 50,
+					'Explosives', 100,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionArtillery",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(201139496854, --[[ModItemUnitDataCompositeDef LegionRocketeer_Stronger_Elite Name]] "Опытный гранатомётчик"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 4,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Ordnance",
+						"Explosives",
+						"RunAndGun",
+						"Soldier",
+						"Sniper",
+					},
+					'archetype', "Artillery",
+					'role', "Artillery",
+					'CanManEmplacements', false,
+					'MaxAttacks', 1,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)
+						self:TryEquip(items, "Handheld A", "Firearm")
+						self:TryEquip(items, "Handheld B", "Firearm")
+					end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"HeavyWeaponsTraining",
+						"Hardened",
+						"LightningReactionNPC",
+						"TrueGrit",
+						"ShoulderToShoulder",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Artillery",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Artillery02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Artillery03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRoceteer_Stronger_Elite",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRoceteer_Stronger_Elite_alt",
+							'Weight', 2,
+						}),
+					},
+					'Equipment', {
+						"LegionRocketeer_Stronger",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionSharpShooter_Stronger_Elite",
+					'object_class', "UnitData",
+					'Health', 80,
+					'Agility', 90,
+					'Dexterity', 73,
+					'Strength', 53,
+					'Wisdom', 58,
+					'Leadership', 10,
+					'Marksmanship', 86,
+					'Mechanical', 80,
+					'Explosives', 66,
+					'Medical', 30,
+					'Portrait', "UI/EnemiesPortraits/LegionRaider",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(251609051693, --[[ModItemUnitDataCompositeDef LegionSharpShooter_Stronger_Elite Name]] "Опытный Стрелок"),
+					'Randomization', true,
+					'elite', true,
+					'eliteCategory', "Legion",
+					'Affiliation', "Legion",
+					'StartingLevel', 4,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Sniper",
+						"Control",
+						"Ordnance",
+					},
+					'role', "Soldier",
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"Flanker",
+						"Untraceable",
+						"Deadeye",
+						"BunsPerk",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier04",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier05",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier06",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSharpShooter_Stronger",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSharpShooter_Stronger_alt",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSharpShooter_Stronger_alt_2",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionSharpShooter_Stronger",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionRaider_Stronger_Elite",
+					'object_class', "UnitData",
+					'Health', 86,
+					'Agility', 85,
+					'Dexterity', 86,
+					'Strength', 70,
+					'Wisdom', 37,
+					'Leadership', 65,
+					'Marksmanship', 90,
+					'Mechanical', 80,
+					'Explosives', 94,
+					'Medical', 44,
+					'Portrait', "UI/EnemiesPortraits/LegionSoldier",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(352156645693, --[[ModItemUnitDataCompositeDef LegionRaider_Stronger_Elite Name]] "Элитный мародёр"),
+					'Randomization', true,
+					'elite', true,
+					'eliteCategory', "Legion",
+					'Affiliation', "Legion",
+					'StartingLevel', 8,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Soldier",
+						"Explosives",
+						"RunAndGun",
+					},
+					'role', "Soldier",
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"RelentlessAdvance",
+						"BunsPerk",
+						"TakeAim",
+						"AutoWeapons",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier04",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier05",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier06",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider_Stronger_Elite",
+							'Weight', 4,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider_Stronger_Elite_alt",
+							'Weight', 4,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider_Stronger_Elite_alt_2",
+							'Weight', 4,
+						}),
+					},
+					'Equipment', {
+						"LegionRaider_Stronger_Elite",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionRaider_Demolution_Stronger_Elite",
+					'object_class', "UnitData",
+					'Health', 81,
+					'Agility', 75,
+					'Dexterity', 70,
+					'Strength', 70,
+					'Wisdom', 40,
+					'Leadership', 25,
+					'Marksmanship', 73,
+					'Mechanical', 80,
+					'Explosives', 10,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionSoldier",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(497659792215, --[[ModItemUnitDataCompositeDef LegionRaider_Demolution_Stronger_Elite Name]] "Мародёр"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 4,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Soldier",
+						"Explosives",
+						"Ordnance",
+					},
+					'role', "Soldier",
+					'OpeningAttackType', "Overwatch",
+					'PinnedDownChance', 40,
+					'CustomEquipGear', function (self, items)
+						self:TryEquip(items, "Handheld A", "AssaultRifle")
+						self:TryEquip(items, "Handheld A", "GrenadeLauncher")
+					end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"AutoWeapons",
+						"RelentlessAdvance",
+						"BunsPerk",
+						"TakeAim",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier04",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier05",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier06",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider_Stronger_Elite",
+							'Weight', 4,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider_Stronger_Elite_alt",
+							'Weight', 4,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider_Stronger_Elite_alt_2",
+							'Weight', 4,
+						}),
+					},
+					'Equipment', {
+						"LegionRaider_Stronger_Elite_GL",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionRaidLeader_Stronger_Elite",
+					'object_class', "UnitData",
+					'Health', 100,
+					'Agility', 100,
+					'Dexterity', 95,
+					'Strength', 95,
+					'Wisdom', 85,
+					'Leadership', 81,
+					'Marksmanship', 94,
+					'Mechanical', 100,
+					'Explosives', 75,
+					'Medical', 43,
+					'Portrait', "UI/EnemiesPortraits/LegionOfficer",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(819132475338, --[[ModItemUnitDataCompositeDef LegionRaidLeader_Stronger_Elite Name]] "Элитный командир налётчиков"),
+					'Randomization', true,
+					'elite', true,
+					'eliteCategory', "Legion",
+					'Affiliation', "Legion",
+					'StartingLevel', 8,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Smoke",
+						"Soldier",
+						"Flank",
+						"Sniper",
+					},
+					'role', "Commander",
+					'AlwaysUseOpeningAttack', true,
+					'OpeningAttackType', "Overwatch",
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 80,
+					'StartingPerks', {
+						"ShoulderToShoulder",
+						"GruntyPerk",
+						"BeefedUp",
+						"BuildingConfidence",
+						"LeadFromTheFront",
+						"LightningReactionNPC",
+						"TrueGrit",
+						"Berserker",
+						"AutoWeapons",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaidLeader_Stronger_Elite",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaidLeader_Stronger_Elite_alt",
+						}),
+					},
+					'Equipment', {
+						"LegionSentry_Stronger_Elite",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionManiac_Stronger_Elite",
+					'object_class', "UnitData",
+					'Health', 100,
+					'Agility', 92,
+					'Dexterity', 87,
+					'Strength', 95,
+					'Wisdom', 43,
+					'Leadership', 65,
+					'Marksmanship', 57,
+					'Mechanical', 80,
+					'Explosives', 54,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionStormer",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(332974659860, --[[ModItemUnitDataCompositeDef LegionManiac_Stronger_Elite Name]] "Элитный громила"),
+					'Randomization', true,
+					'elite', true,
+					'eliteCategory', "Legion",
+					'Affiliation', "Legion",
+					'StartingLevel', 7,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Control",
+						"Explosives",
+						"Flank",
+						"RunAndGun",
+						"MobileShot",
+						"Stim",
+					},
+					'archetype', "Brute",
+					'role', "Stormer",
+					'CanManEmplacements', false,
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 100,
+					'StartingPerks', {
+						"BeefedUp",
+						"Berserker",
+						"Shatterhand",
+						"CQCTraining",
+						"NailsPerk",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionManiac_Stronger_Elite",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionManiac_Stronger_Elite_alt",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionManiac_Stronger_alt_2",
+							'Weight', 2,
+						}),
+					},
+					'Equipment', {
+						"LegionBerserker_Stronger_Elite",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionMedic_Stronger_Elite",
+					'object_class', "UnitData",
+					'Health', 100,
+					'Agility', 93,
+					'Dexterity', 98,
+					'Strength', 66,
+					'Wisdom', 78,
+					'Leadership', 64,
+					'Marksmanship', 74,
+					'Mechanical', 80,
+					'Explosives', 5,
+					'Medical', 93,
+					'Portrait', "UI/EnemiesPortraits/LegionMedic",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(799448736839, --[[ModItemUnitDataCompositeDef LegionMedic_Stronger_Elite Name]] "Опытный санитар"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 7,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Heal",
+						"Control",
+					},
+					'archetype', "Medic",
+					'role', "Medic",
+					'CanManEmplacements', false,
+					'RepositionArchetype', "HeavyGunner",
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'MaxHitPoints', 80,
+					'StartingPerks', {
+						"BeefedUp",
+						"Ambidextrous",
+						"Savior",
+						"ShoulderToShoulder",
+						"CQCTraining",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionMedic_Stronger_Elite",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionMedic_Stronger_Elite_alt",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionMedic_Stronger_alt_2",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionMedic_Stronger_alt",
+						}),
+					},
+					'Equipment', {
+						"LegionMedic_Stronger",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionGunner_Stronger_Elite",
+					'object_class', "UnitData",
+					'Health', 90,
+					'Agility', 85,
+					'Dexterity', 90,
+					'Strength', 89,
+					'Wisdom', 73,
+					'Leadership', 55,
+					'Marksmanship', 90,
+					'Mechanical', 80,
+					'Explosives', 28,
+					'Medical', 35,
+					'Portrait', "UI/EnemiesPortraits/LegionHeavy",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(658547850911, --[[ModItemUnitDataCompositeDef LegionGunner_Stronger_Elite Name]] "Опытный пулемётчик"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 9,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Control",
+						"Soldier",
+						"Ordnance",
+						"Gunner",
+					},
+					'archetype', "HeavyGunner",
+					'role', "Heavy",
+					'MaxAttacks', 4,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)
+						self:TryEquip(items, "Handheld A", "Firearm")
+						self:TryEquip(items, "Handheld B", "Firearm")
+					end,
+					'MaxHitPoints', 85,
+					'StartingPerks', {
+						"HeavyWeaponsTraining",
+						"TakeAim",
+						"OverwatchExpert",
+						"Ironclad",
+						"Counterfire",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Heavy",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Heavy02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Heavy03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGunner_Stronger",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGunner_Stronger_alt",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGunner_Stronger_alt_2",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGunner_Stronger_Elite",
+							'Weight', 5,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGunner_Stronger_Elite_alt",
+							'Weight', 5,
+						}),
+					},
+					'Equipment', {
+						"LegionGunner_Stronger",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionHyenaHandler_Stronger_Elite",
+					'object_class', "UnitData",
+					'Health', 98,
+					'Agility', 96,
+					'Dexterity', 87,
+					'Strength', 83,
+					'Wisdom', 64,
+					'Leadership', 81,
+					'Marksmanship', 72,
+					'Mechanical', 80,
+					'Explosives', 68,
+					'Medical', 68,
+					'Portrait', "UI/EnemiesPortraits/LegionStormer",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(766068288172, --[[ModItemUnitDataCompositeDef LegionHyenaHandler_Stronger_Elite Name]] "Опытный дрессировщик"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 7,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Smoke",
+						"Control",
+						"Explosives",
+						"Nova",
+						"Ordnance",
+					},
+					'role', "Commander",
+					'AlwaysUseOpeningAttack', true,
+					'OpeningAttackType', "Overwatch",
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 80,
+					'StartingPerks', {
+						"BeefedUp",
+						"Counterfire",
+						"Hardened",
+						"GruntyPerk",
+						"Flanker",
+						"TakeAim",
+						"ShoulderToShoulder",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionHyenaHandler_Stronger_Elite",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionHyenaHandler_Stronger_Elite_alt",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionSentry_Stronger",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionGrenadier_Stronger_Elite",
+					'object_class', "UnitData",
+					'Health', 85,
+					'Agility', 90,
+					'Dexterity', 65,
+					'Strength', 78,
+					'Wisdom', 23,
+					'Leadership', 14,
+					'Marksmanship', 70,
+					'Mechanical', 80,
+					'Explosives', 30,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionDemo",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(853894759815, --[[ModItemUnitDataCompositeDef LegionGrenadier_Stronger_Elite Name]] "Элитный гранатомётчик"),
+					'Randomization', true,
+					'elite', true,
+					'eliteCategory', "Legion",
+					'Affiliation', "Legion",
+					'StartingLevel', 7,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Explosives",
+						"MobileShot",
+						"Ordnance",
+						"RunAndGun",
+						"Control",
+					},
+					'archetype', "Grenadier",
+					'role', "Demolitions",
+					'CanManEmplacements', false,
+					'MaxAttacks', 5,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"TrueGrit",
+						"Throwing",
+						"RelentlessAdvance",
+						"MinFreeMove",
+						"BreachAndClear",
+						"HitTheDeck",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Demolishion",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Demolishion02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Demolishion03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGrenadir_Stronger_Elite",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGrenadir_Stronger_Elite_alt",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionGrenadier_Stronger_Elite",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Russell",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionGoon_Stronger_Elite",
+					'object_class', "UnitData",
+					'Health', 90,
+					'Agility', 96,
+					'Dexterity', 85,
+					'Strength', 65,
+					'Wisdom', 25,
+					'Leadership', 20,
+					'Marksmanship', 87,
+					'Mechanical', 80,
+					'Explosives', 52,
+					'Medical', 59,
+					'Portrait', "UI/EnemiesPortraits/LegionRecon",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(867761358013, --[[ModItemUnitDataCompositeDef LegionGoon_Stronger_Elite Name]] "Крутой головорез"),
+					'Randomization', true,
+					'elite', true,
+					'eliteCategory', "Legion",
+					'Affiliation', "Legion",
+					'StartingLevel', 7,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"MobileShot",
+						"Flank",
+						"Control",
+						"Explosives",
+					},
+					'archetype', "Skirmisher",
+					'role', "Recon",
+					'PinnedDownChance', 100,
+					'MaxAttacks', 8,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"Ambidextrous",
+						"Flanker",
+						"CQCTraining",
+						"RelentlessAdvance",
+						"TrueGrit",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Recon03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGoon_Stronger_Elite",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGoon_Stronger_Elite_alt",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGoon_Stronger_Elite_alt_2",
+							'Weight', 2,
+						}),
+					},
+					'Equipment', {
+						"LegionGoon_Stronger_Elite",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionButcher_Stronger_Elite",
+					'object_class', "UnitData",
+					'Health', 90,
+					'Agility', 96,
+					'Dexterity', 86,
+					'Strength', 90,
+					'Wisdom', 22,
+					'Leadership', 9,
+					'Marksmanship', 81,
+					'Mechanical', 80,
+					'Explosives', 72,
+					'Medical', 25,
+					'Portrait', "UI/EnemiesPortraits/LegionStormer",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(171574677173, --[[ModItemUnitDataCompositeDef LegionButcher_Stronger_Elite Name]] "Элитный мясник"),
+					'Randomization', true,
+					'elite', true,
+					'eliteCategory', "Legion",
+					'Affiliation', "Legion",
+					'StartingLevel', 8,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Control",
+						"Smoke",
+						"Flank",
+						"Explosives",
+					},
+					'archetype', "Brute",
+					'role', "Stormer",
+					'CanManEmplacements', false,
+					'MaxAttacks', 4,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 60,
+					'StartingPerks', {
+						"InstantAutopsy",
+						"BeefedUp",
+						"MeleeTraining",
+						"Berserker",
+						"TrueGrit",
+						"LastWarning",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionButcher_Stronger_Elite",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionButcher_Stronger_Elite_alt",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionButcher_Stronger_Elite_alt_2",
+							'Weight', 2,
+						}),
+					},
+					'Equipment', {
+						"LegionMeleeFighter_Stronger_Elite",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionScout_Stronger_Elite",
+					'object_class', "UnitData",
+					'Health', 94,
+					'Agility', 90,
+					'Dexterity', 99,
+					'Strength', 75,
+					'Wisdom', 70,
+					'Leadership', 29,
+					'Marksmanship', 80,
+					'Mechanical', 80,
+					'Explosives', 55,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionRecon",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(894403310975, --[[ModItemUnitDataCompositeDef LegionScout_Stronger_Elite Name]] "Элитный разведчик"),
+					'Randomization', true,
+					'elite', true,
+					'eliteCategory', "Legion",
+					'Affiliation', "Legion",
+					'StartingLevel', 7,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Flank",
+						"RunAndGun",
+						"MobileShot",
+						"Control",
+						"Explosives",
+						"Ordnance",
+					},
+					'archetype', "Skirmisher",
+					'role', "Recon",
+					'OpeningAttackType', "Overwatch",
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"RelentlessAdvance",
+						"MinFreeMove",
+						"Untraceable",
+						"CQCTraining",
+						"Flanker",
+						"GruntyPerk",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Recon02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Recon03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionScout_Stronger_Elite",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionScout_Stronger_Elite_alt",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionScout_Stronger_Elite_alt_2",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionScout_Stronger_Elite",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionSniper_Stronger_Elite",
+					'object_class', "UnitData",
+					'Health', 75,
+					'Agility', 85,
+					'Dexterity', 95,
+					'Strength', 75,
+					'Wisdom', 40,
+					'Leadership', 33,
+					'Marksmanship', 95,
+					'Mechanical', 80,
+					'Explosives', 40,
+					'Medical', 21,
+					'Portrait', "UI/EnemiesPortraits/LegionSniper",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(202919717035, --[[ModItemUnitDataCompositeDef LegionSniper_Stronger_Elite Name]] "Элитный снайпер"),
+					'Randomization', true,
+					'elite', true,
+					'eliteCategory', "Legion",
+					'Affiliation', "Legion",
+					'StartingLevel', 7,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Sniper",
+						"Control",
+						"MobileShot",
+					},
+					'archetype', "Soldier_Sniper",
+					'role', "Marksman",
+					'AlwaysUseOpeningAttack', true,
+					'OpeningAttackType', "PinDown",
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)
+						self:TryEquip(items, "Handheld A", "Firearm")
+						self:TryEquip(items, "Handheld B", "Firearm")
+					end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"Deadeye",
+						"Spiritual",
+						"DeathFromAbove",
+						"HitTheDeck",
+						"LightningReactionNPC",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Marksman03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSniper_Stronger_Elite",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSniper_Stronger_Elite_alt",
+							'Weight', 2,
+						}),
+					},
+					'Equipment', {
+						"LegionSniper_Stronger_Elite",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionSergant_Stronger_Elite",
+					'object_class', "UnitData",
+					'Health', 95,
+					'Agility', 85,
+					'Dexterity', 95,
+					'Strength', 75,
+					'Wisdom', 80,
+					'Leadership', 75,
+					'Marksmanship', 95,
+					'Mechanical', 80,
+					'Explosives', 65,
+					'Medical', 51,
+					'Portrait', "UI/EnemiesPortraits/LegionSniper",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(907528035854, --[[ModItemUnitDataCompositeDef LegionSergant_Stronger_Elite Name]] "Элитный сержант"),
+					'Randomization', true,
+					'elite', true,
+					'eliteCategory', "Legion",
+					'Affiliation', "Legion",
+					'StartingLevel', 7,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Sniper",
+						"Control",
+						"Soldier",
+						"Explosives",
+						"Ordnance",
+					},
+					'role', "Marksman",
+					'AlwaysUseOpeningAttack', true,
+					'OpeningAttackType', "PinDown",
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)
+						self:TryEquip(items, "Handheld A", "Firearm")
+						self:TryEquip(items, "Handheld B", "Firearm")
+					end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"DeathFromAbove",
+						"LightStep",
+						"StressManagement",
+						"ShoulderToShoulder",
+						"BattleFocus",
+						"AutoWeapons",
+						"LightningReactionNPC",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSergant_Stronger_Elite",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSergant_Stronger_Elite_alt",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSergant_Stronger_alt_2",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSergant_Stronger_alt",
+						}),
+					},
+					'Equipment', {
+						"LegionSergeant_Stronger_Elite",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionRanger_Stronger_Elite",
+					'object_class', "UnitData",
+					'Health', 90,
+					'Agility', 85,
+					'Dexterity', 95,
+					'Strength', 75,
+					'Wisdom', 80,
+					'Leadership', 33,
+					'Marksmanship', 95,
+					'Mechanical', 80,
+					'Explosives', 70,
+					'Medical', 50,
+					'Portrait', "UI/EnemiesPortraits/LegionSniper",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(319442788380, --[[ModItemUnitDataCompositeDef LegionRanger_Stronger_Elite Name]] "Элитный рэйнджер"),
+					'Randomization', true,
+					'elite', true,
+					'eliteCategory', "Legion",
+					'Affiliation', "Legion",
+					'StartingLevel', 7,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Sniper",
+						"Control",
+						"Heal_Low",
+						"Soldier",
+						"Flank",
+						"RunAndGun",
+						"MobileShot",
+					},
+					'role', "Marksman",
+					'AlwaysUseOpeningAttack', true,
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)
+						self:TryEquip(items, "Handheld A", "Firearm")
+						self:TryEquip(items, "Handheld B", "Firearm")
+					end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"BunsPerk",
+						"Stealthy",
+						"StressManagement",
+						"Untraceable",
+						"Hobbler",
+						"Shatterhand",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRanger_Stronger_Elite",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRanger_Stronger_Elite_alt",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRanger_Stronger_alt_2",
+						}),
+					},
+					'Equipment', {
+						"LegionRanger_Stronger_Elite",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionMortarman_Stronger_Elite",
+					'object_class', "UnitData",
+					'Health', 90,
+					'Agility', 85,
+					'Dexterity', 70,
+					'Strength', 96,
+					'Wisdom', 80,
+					'Leadership', 10,
+					'Marksmanship', 72,
+					'Mechanical', 80,
+					'Explosives', 100,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionArtillery",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(819269078808, --[[ModItemUnitDataCompositeDef LegionMortarman_Stronger_Elite Name]] "Миномётчик"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 8,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Explosives",
+						"Smoke",
+						"RunAndGun",
+						"Nova",
+						"Explosives",
+					},
+					'archetype', "Artillery",
+					'role', "Artillery",
+					'CanManEmplacements', false,
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)
+						self:TryEquip(items, "Handheld A", "HeavyWeapon")
+						self:TryEquip(items, "Handheld B", "AssaultRifle")
+					end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"LightningReactionNPC",
+						"BattleFocus",
+						"MinFreeMove",
+						"LeadFromTheFront",
+						"TrueGrit",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Artillery03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionMortalman_Stronger_Elite",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionMortalman_Stronger_Elite_alt",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionMortalman_Stronger_alt_2",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionMortalman_Stronger_alt",
+							'Weight', 2,
+						}),
+					},
+					'Equipment', {
+						"LegionMortarman",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "T2",
+			}, {
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionSharpShooter_Stronger",
+					'comment', "Под шарпшутера элитника тоже есть инвентарь",
+					'object_class', "UnitData",
+					'Health', 80,
+					'Agility', 90,
+					'Dexterity', 73,
+					'Strength', 53,
+					'Wisdom', 58,
+					'Leadership', 10,
+					'Marksmanship', 86,
+					'Explosives', 66,
+					'Medical', 30,
+					'Portrait', "UI/EnemiesPortraits/LegionRaider",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(666371571137, --[[ModItemUnitDataCompositeDef LegionSharpShooter_Stronger Name]] "Опытный Стрелок"),
+					'Randomization', true,
+					'elite', true,
+					'eliteCategory', "Legion",
+					'Affiliation', "Legion",
+					'StartingLevel', 4,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Sniper",
+						"Control",
+						"Ordnance",
+					},
+					'role', "Soldier",
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"Deadeye",
+						"Flanker",
+						"Untraceable",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier04",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier05",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier06",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSharpShooter_Stronger",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSharpShooter_Stronger_alt",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSharpShooter_Stronger_alt_2",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionSharpShooter_Stronger",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionRocketeer_Stronger",
+					'comment', "РПГшник",
+					'object_class', "UnitData",
+					'Health', 90,
+					'Agility', 83,
+					'Strength', 88,
+					'Wisdom', 14,
+					'Leadership', 10,
+					'Marksmanship', 75,
+					'Mechanical', 40,
+					'Explosives', 75,
+					'Medical', 29,
+					'Portrait', "UI/EnemiesPortraits/LegionArtillery",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(834998812076, --[[ModItemUnitDataCompositeDef LegionRocketeer_Stronger Name]] "Гранатомётчик"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 5,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Ordnance",
+						"Control",
+						"Sniper",
+					},
+					'archetype', "Artillery",
+					'role', "Artillery",
+					'CanManEmplacements', false,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)
+						self:TryEquip(items, "Handheld A", "HeavyWeapon")
+						self:TryEquip(items, "Handheld B", "Firearm")
+					end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"HeavyWeaponsTraining",
+						"Hardened",
+						"ShoulderToShoulder",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Artillery",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Artillery02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Artillery03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRoceteer_Stronger",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRoceteer_Stronger_alt",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRoceteer_Stronger_alt",
+							'Weight', 2,
+						}),
+					},
+					'Equipment', {
+						"LegionRocketeer",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionRaider_Stronger",
+					'object_class', "UnitData",
+					'Health', 80,
+					'Agility', 90,
+					'Dexterity', 90,
+					'Strength', 70,
+					'Wisdom', 24,
+					'Leadership', 10,
+					'Marksmanship', 80,
+					'Mechanical', 20,
+					'Explosives', 63,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionSoldier",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(909286258423, --[[ModItemUnitDataCompositeDef LegionRaider_Stronger Name]] "Опытный мародёр"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 5,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Soldier",
+						"Explosives",
+						"Ordnance",
+						"Flank",
+					},
+					'role', "Soldier",
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"BunsPerk",
+						"RelentlessAdvance",
+						"TakeAim",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier04",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier05",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier06",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider_Stronger",
+							'Weight', 4,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider_Stronger_alt",
+							'Weight', 4,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider_Stronger_alt_2",
+							'Weight', 4,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider_Stronger_alt_3",
+							'Weight', 4,
+						}),
+					},
+					'Equipment', {
+						"LegionRaider_Stronger",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionRaider_Demolution_Stronger",
+					'comment', "Стрелок базовый",
+					'object_class', "UnitData",
+					'Health', 86,
+					'Agility', 83,
+					'Dexterity', 70,
+					'Strength', 70,
+					'Wisdom', 40,
+					'Leadership', 25,
+					'Marksmanship', 73,
+					'Mechanical', 20,
+					'Explosives', 85,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionSoldier",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(299155932040, --[[ModItemUnitDataCompositeDef LegionRaider_Demolution_Stronger Name]] "Мародёр"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 4,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Soldier",
+						"Explosives",
+						"Ordnance",
+					},
+					'role', "Soldier",
+					'RepositionArchetype', "HeavyGunner",
+					'OpeningAttackType', "Overwatch",
+					'PinnedDownChance', 40,
+					'CustomEquipGear', function (self, items)
+						self:TryEquip(items, "Handheld A", "AssaultRifle")
+						self:TryEquip(items, "Handheld A", "GrenadeLauncher")
+					end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"TrueGrit",
+						"Flanker",
+						"Optimist",
+						"BunsPerk",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier04",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier05",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier06",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider_Stronger",
+							'Weight', 4,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider_Stronger_alt",
+							'Weight', 4,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider_Stronger_alt_2",
+							'Weight', 4,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider_Stronger_alt_3",
+							'Weight', 4,
+						}),
+					},
+					'Equipment', {
+						"LegionRaider_Stronger_GL",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionRaidLeader_Stronger",
+					'object_class', "UnitData",
+					'Health', 91,
+					'Agility', 85,
+					'Dexterity', 80,
+					'Strength', 75,
+					'Wisdom', 80,
+					'Leadership', 81,
+					'Marksmanship', 85,
+					'Mechanical', 70,
+					'Explosives', 50,
+					'Medical', 71,
+					'Portrait', "UI/EnemiesPortraits/LegionOfficer",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(192759453415, --[[ModItemUnitDataCompositeDef LegionRaidLeader_Stronger Name]] "Опытный командир налётчиков"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 7,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Control",
+						"Smoke",
+						"Explosives",
+						"Soldier",
+						"Ordnance",
+						"RunAndGun",
+					},
+					'role', "Commander",
+					'AlwaysUseOpeningAttack', true,
+					'OpeningAttackType', "Overwatch",
+					'MaxAttacks', 4,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 80,
+					'StartingPerks', {
+						"ShoulderToShoulder",
+						"GruntyPerk",
+						"BeefedUp",
+						"BuildingConfidence",
+						"LeadFromTheFront",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Shaman",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Shaman02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Shaman03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaidLeader_Stronger",
+							'Weight', 4,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaidLeader_Stronger_alt",
+							'Weight', 4,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaidLeader_Stronger_alt_2",
+							'Weight', 4,
+						}),
+					},
+					'Equipment', {
+						"LegionSentry_Stronger",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionMortarman_Stronger",
+					'comment', "Минометчик",
+					'object_class', "UnitData",
+					'Health', 65,
+					'Agility', 81,
+					'Dexterity', 43,
+					'Strength', 96,
+					'Wisdom', 14,
+					'Leadership', 10,
+					'Marksmanship', 50,
+					'Mechanical', 30,
+					'Explosives', 90,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionArtillery",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(603360674448, --[[ModItemUnitDataCompositeDef LegionMortarman_Stronger Name]] "Миномётчик"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 5,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Explosives",
+						"Sniper",
+					},
+					'archetype', "Artillery",
+					'role', "Artillery",
+					'CanManEmplacements', false,
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)
+						self:TryEquip(items, "Handheld A", "HeavyWeapon")
+						self:TryEquip(items, "Handheld B", "AssaultRifle")
+					end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"BattleFocus",
+						"LightningReactionNPC",
+						"TrueGrit",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Artillery",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Artillery02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Artillery03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionMortalman_Stronger",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionMortalman_Stronger_alt",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionMortalman_Stronger_alt_2",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionMortarman",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionMedic_Stronger",
+					'object_class', "UnitData",
+					'Health', 80,
+					'Agility', 93,
+					'Dexterity', 96,
+					'Strength', 42,
+					'Wisdom', 85,
+					'Leadership', 50,
+					'Marksmanship', 74,
+					'Mechanical', 30,
+					'Explosives', 5,
+					'Medical', 93,
+					'Portrait', "UI/EnemiesPortraits/LegionMedic",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(391906391470, --[[ModItemUnitDataCompositeDef LegionMedic_Stronger Name]] "Опытный санитар"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 5,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Heal",
+						"Smoke",
+						"Control",
+					},
+					'archetype', "Medic",
+					'role', "Medic",
+					'CanManEmplacements', false,
+					'MaxAttacks', 4,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 80,
+					'StartingPerks', {
+						"Ambidextrous",
+						"BeefedUp",
+						"Savior",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_WitchDoctor",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_WitchDoctor02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_WitchDoctor03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionMedic_Stronger",
+							'Weight', 4,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionMedic_Stronger_alt",
+							'Weight', 4,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionMedic_Stronger_alt_2",
+							'Weight', 4,
+						}),
+					},
+					'Equipment', {
+						"LegionMedic_Stronger",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionManiac_Stronger",
+					'object_class', "UnitData",
+					'Health', 96,
+					'Agility', 80,
+					'Dexterity', 85,
+					'Strength', 95,
+					'Wisdom', 16,
+					'Leadership', 65,
+					'Marksmanship', 52,
+					'Mechanical', 30,
+					'Explosives', 50,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionStormer",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(123347798044, --[[ModItemUnitDataCompositeDef LegionManiac_Stronger Name]] "Опытный громила"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 5,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Control",
+						"Flank",
+						"Smoke",
+						"Nova",
+					},
+					'archetype', "Brute",
+					'role', "Stormer",
+					'CanManEmplacements', false,
+					'RepositionArchetype', "Berserk",
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 100,
+					'StartingPerks', {
+						"BeefedUp",
+						"NailsPerk",
+						"CQCTraining",
+						"Ironclad",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionManiac_Stronger",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionManiac_Stronger_alt",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionManiac_Stronger_alt_2",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionBerserker_Stronger",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionHyenaHandler_Stronger",
+					'comment', "Дрессировщик - Командир",
+					'object_class', "UnitData",
+					'Health', 90,
+					'Agility', 85,
+					'Dexterity', 55,
+					'Wisdom', 41,
+					'Leadership', 81,
+					'Marksmanship', 75,
+					'Mechanical', 50,
+					'Explosives', 10,
+					'Medical', 68,
+					'Portrait', "UI/EnemiesPortraits/LegionStormer",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(302888566713, --[[ModItemUnitDataCompositeDef LegionHyenaHandler_Stronger Name]] "Дрессировщик гиен"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 5,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Control",
+						"Smoke",
+						"Soldier",
+						"Sniper",
+					},
+					'role', "Commander",
+					'RepositionArchetype', "Skirmisher",
+					'AlwaysUseOpeningAttack', true,
+					'OpeningAttackType', "Overwatch",
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 80,
+					'StartingPerks', {
+						"BeefedUp",
+						"Counterfire",
+						"Hardened",
+						"GruntyPerk",
+						"Flanker",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionHyenaHandler_Stronger",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionHyenaHandler_Stronger_alt",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionHyenaHandler_Stronger_alt_2",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionSentry",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionHyena_Stronger",
+					'comment', "Гиена",
+					'object_class', "UnitData",
+					'Health', 40,
+					'Agility', 90,
+					'Dexterity', 77,
+					'Strength', 80,
+					'Wisdom', 10,
+					'Leadership', 0,
+					'Marksmanship', 0,
+					'Mechanical', 0,
+					'Explosives', 0,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/Hyena_Legion",
+					'Name', T(802337912455, --[[ModItemUnitDataCompositeDef LegionHyena_Stronger Name]] "Дрессированная гиена"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 2,
+					'neutral_retaliate', true,
+					'archetype', "Beast_Hyena",
+					'role', "Beast",
+					'CanManEmplacements', false,
+					'MaxAttacks', 2,
+					'MaxHitPoints', 60,
+					'StartingPerks', {
+						"MartialArts",
+						"CQCTraining",
+						"BattleFocus",
+						"ColdHeart",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Hyena_Base_2",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Hyena_Base_4",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Hyena_Base_5",
+						}),
+					},
+					'Equipment', {
+						"Beast_Hyena",
+					},
+					'AdditionalGroups', {},
+					'species', "Hyena",
+					'body_type', "Small animal",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionGunner_Stronger",
+					'object_class', "UnitData",
+					'Health', 90,
+					'Agility', 85,
+					'Dexterity', 90,
+					'Strength', 89,
+					'Wisdom', 25,
+					'Leadership', 55,
+					'Marksmanship', 86,
+					'Mechanical', 50,
+					'Explosives', 28,
+					'Medical', 35,
+					'Portrait', "UI/EnemiesPortraits/LegionHeavy",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(394818311379, --[[ModItemUnitDataCompositeDef LegionGunner_Stronger Name]] "Опытный пулемётчик"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 6,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Control",
+						"Soldier",
+						"Gunner",
+						"Nova",
+					},
+					'archetype', "HeavyGunner",
+					'role', "Heavy",
+					'MaxAttacks', 4,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)
+						self:TryEquip(items, "Handheld A", "Firearm")
+						self:TryEquip(items, "Handheld B", "Firearm")
+					end,
+					'MaxHitPoints', 85,
+					'StartingPerks', {
+						"TakeAim",
+						"OverwatchExpert",
+						"Ironclad",
+						"Counterfire",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Heavy",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Heavy02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Heavy03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGunner_Stronger",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGunner_Stronger_alt",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGunner_Stronger_alt_2",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionGunner_Stronger",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionGrenadier_Stronger",
+					'object_class', "UnitData",
+					'Health', 84,
+					'Agility', 85,
+					'Dexterity', 62,
+					'Strength', 73,
+					'Wisdom', 17,
+					'Leadership', 14,
+					'Marksmanship', 66,
+					'Mechanical', 20,
+					'Explosives', 85,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionDemo",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(167929106879, --[[ModItemUnitDataCompositeDef LegionGrenadier_Stronger Name]] "Опытный гранатомётчик"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 2,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Explosives",
+						"MobileShot",
+						"Control",
+						"Soldier",
+					},
+					'archetype', "Grenadier",
+					'role', "Demolitions",
+					'CanManEmplacements', false,
+					'MaxAttacks', 1,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"Throwing",
+						"MinFreeMove",
+						"BreachAndClear",
+						"RelentlessAdvance",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Demolishion",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Demolishion02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Demolishion03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGrenadir_Stronger",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGrenadir_Stronger_alt",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGrenadir_Stronger_alt_2",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionGrenadier_Stronger",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Russell",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionMolotov_Stronger",
+					'comment', "Молотов | Метатель",
+					'object_class', "UnitData",
+					'Health', 80,
+					'Agility', 80,
+					'Dexterity', 80,
+					'Strength', 75,
+					'Wisdom', 14,
+					'Leadership', 14,
+					'Marksmanship', 63,
+					'Mechanical', 40,
+					'Explosives', 93,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionDemo",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(360328464434, --[[ModItemUnitDataCompositeDef LegionMolotov_Stronger Name]] "Поджигатель"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 2,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Explosives",
+						"Flank",
+						"Ordnance",
+					},
+					'archetype', "Grenadier",
+					'role', "Demolitions",
+					'CanManEmplacements', false,
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"Throwing",
+						"MinFreeMove",
+						"BreachAndClear",
+						"RecklessAssault",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Demolishion",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Demolishion02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Demolishion03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGrenadir",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGrenadir_alt",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGrenadir_alt_2",
+							'Weight', 2,
+						}),
+					},
+					'Equipment', {
+						"LegionGrenadier_Stronger_Elite_Molotov",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Russell",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionGoon_Stronger",
+					'object_class', "UnitData",
+					'Health', 70,
+					'Agility', 89,
+					'Dexterity', 77,
+					'Wisdom', 22,
+					'Leadership', 20,
+					'Marksmanship', 75,
+					'Mechanical', 20,
+					'Explosives', 42,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionRecon",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(794419109066, --[[ModItemUnitDataCompositeDef LegionGoon_Stronger Name]] "Крепкий головорез"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 4,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"MobileShot",
+						"Flank",
+						"Explosives",
+						"Control",
+					},
+					'archetype', "Skirmisher",
+					'role', "Recon",
+					'PinnedDownChance', 100,
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"CQCTraining",
+						"Ambidextrous",
+						"Flanker",
+						"RelentlessAdvance",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Recon",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Recon02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Recon03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGoon_Stronger",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGoon_Stronger_alt",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGoon_Stronger_alt_2",
+							'Weight', 2,
+						}),
+					},
+					'Equipment', {
+						"LegionGoon_Stronger",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionButcher_Stronger",
+					'object_class', "UnitData",
+					'Health', 80,
+					'Agility', 90,
+					'Dexterity', 86,
+					'Strength', 85,
+					'Wisdom', 15,
+					'Leadership', 9,
+					'Marksmanship', 62,
+					'Mechanical', 20,
+					'Explosives', 47,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionStormer",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(634940896034, --[[ModItemUnitDataCompositeDef LegionButcher_Stronger Name]] "Опытный мясник"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 5,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Explosives",
+						"Smoke",
+						"Flank",
+						"RunAndGun",
+						"MobileShot",
+					},
+					'archetype', "Brute",
+					'role', "Stormer",
+					'CanManEmplacements', false,
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 60,
+					'StartingPerks', {
+						"InstantAutopsy",
+						"BeefedUp",
+						"MeleeTraining",
+						"Berserker",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionButcher_Stronger",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionButcher_Stronger_alt",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionButcher_Stronger_alt_2",
+							'Weight', 2,
+						}),
+					},
+					'Equipment', {
+						"LegionMeleeFighter_Stronger",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionScout_Stronger",
+					'object_class', "UnitData",
+					'Health', 70,
+					'Agility', 85,
+					'Dexterity', 95,
+					'Strength', 75,
+					'Leadership', 29,
+					'Marksmanship', 74,
+					'Mechanical', 20,
+					'Medical', 21,
+					'Portrait', "UI/EnemiesPortraits/LegionRecon",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(908442112701, --[[ModItemUnitDataCompositeDef LegionScout_Stronger Name]] "Опытный разведчик"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 5,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Flank",
+						"RunAndGun",
+						"Control",
+						"Stim",
+					},
+					'archetype', "Skirmisher",
+					'role', "Recon",
+					'OpeningAttackType', "Overwatch",
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"RelentlessAdvance",
+						"Flanker",
+						"MinFreeMove",
+						"GruntyPerk",
+						"Untraceable",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionScout_Stronger",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionScout_Stronger_alt",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionScout_Stronger_alt_2",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Recon02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Recon03",
+						}),
+					},
+					'Equipment', {
+						"LegionScout_Stronger",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionSniper_Stronger",
+					'object_class', "UnitData",
+					'Agility', 86,
+					'Dexterity', 80,
+					'Strength', 70,
+					'Wisdom', 35,
+					'Leadership', 33,
+					'Marksmanship', 90,
+					'Mechanical', 30,
+					'Explosives', 0,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionSniper",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(650029540303, --[[ModItemUnitDataCompositeDef LegionSniper_Stronger Name]] "Опытный снайпер"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 5,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Sniper",
+						"Control",
+					},
+					'archetype', "Soldier_Sniper",
+					'role', "Marksman",
+					'AlwaysUseOpeningAttack', true,
+					'OpeningAttackType', "Overwatch",
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)
+						self:TryEquip(items, "Handheld A", "Firearm")
+						self:TryEquip(items, "Handheld B", "Firearm")
+					end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"Deadeye",
+						"DeathFromAbove",
+						"Spiritual",
+						"HitTheDeck",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Marksman",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Marksman02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Marksman03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSniper_Stronger",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSniper_Stronger_alt",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSniper_Stronger_alt_2",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionSniper_Stronger",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionSergant_Stronger",
+					'object_class', "UnitData",
+					'Health', 90,
+					'Agility', 86,
+					'Dexterity', 90,
+					'Strength', 70,
+					'Wisdom', 90,
+					'Leadership', 47,
+					'Marksmanship', 83,
+					'Mechanical', 50,
+					'Explosives', 90,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionSniper",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(370478000653, --[[ModItemUnitDataCompositeDef LegionSergant_Stronger Name]] "Сержант"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 6,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Control",
+						"Sniper",
+						"Soldier",
+						"Smoke",
+						"Explosives",
+					},
+					'role', "Marksman",
+					'OpeningAttackType', "Overwatch",
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"DeathFromAbove",
+						"LightStep",
+						"StressManagement",
+						"ShoulderToShoulder",
+						"BattleFocus",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSergant_Stronger",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSergant_Stronger_alt",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSergant_Stronger_alt_2",
+						}),
+					},
+					'Equipment', {
+						"LegionSergeant_Stronger",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionRanger_Stronger",
+					'object_class', "UnitData",
+					'Health', 80,
+					'Agility', 90,
+					'Dexterity', 80,
+					'Strength', 70,
+					'Wisdom', 70,
+					'Leadership', 53,
+					'Marksmanship', 83,
+					'Mechanical', 40,
+					'Explosives', 78,
+					'Medical', 50,
+					'Portrait', "UI/EnemiesPortraits/LegionSniper",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(598211208683, --[[ModItemUnitDataCompositeDef LegionRanger_Stronger Name]] "Рэйнджер"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 5,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Control",
+						"Soldier",
+						"RunAndGun",
+						"Ordnance",
+					},
+					'role', "Soldier",
+					'OpeningAttackType', "Overwatch",
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"BunsPerk",
+						"Stealthy",
+						"StressManagement",
+						"Untraceable",
+						"Hobbler",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Marksman",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Marksman02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Marksman03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRanger_Stronger_alt",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRanger_Stronger",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRanger_Stronger_alt_2",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionRanger_Stronger",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "T1",
+			}, {
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionRaider",
+					'comment', "Рейдер",
+					'object_class', "UnitData",
+					'Health', 81,
+					'Agility', 80,
+					'Dexterity', 70,
+					'Strength', 70,
+					'Wisdom', 40,
+					'Leadership', 25,
+					'Marksmanship', 75,
+					'Mechanical', 0,
+					'Explosives', 54,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionSoldier",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(487256398153, --[[ModItemUnitDataCompositeDef LegionRaider Name]] "Мародёр"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 2,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Soldier",
+						"Explosives",
+					},
+					'role', "Soldier",
+					'OpeningAttackType', "Overwatch",
+					'PinnedDownChance', 40,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"BunsPerk",
+						"RelentlessAdvance",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier04",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier05",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier06",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider_alt",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider_alt_2",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionRaiders",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionRaider_Demolution",
+					'comment', "Стрелок базовый",
+					'object_class', "UnitData",
+					'Health', 81,
+					'Agility', 80,
+					'Dexterity', 70,
+					'Strength', 70,
+					'Wisdom', 40,
+					'Leadership', 25,
+					'Marksmanship', 73,
+					'Mechanical', 0,
+					'Explosives', 77,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionSoldier",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(231149210996, --[[ModItemUnitDataCompositeDef LegionRaider_Demolution Name]] "Мародёр"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 3,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Soldier",
+						"Explosives",
+						"Ordnance",
+					},
+					'role', "Soldier",
+					'OpeningAttackType', "Overwatch",
+					'PinnedDownChance', 40,
+					'CustomEquipGear', function (self, items)
+						self:TryEquip(items, "Handheld A", "AssaultRifle")
+						self:TryEquip(items, "Handheld A", "GrenadeLauncher")
+					end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"Flanker",
+						"RelentlessAdvance",
+						"BunsPerk",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier04",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier05",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Soldier06",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider_alt",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaider_alt_2",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionRaiders_GL",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionRaidLeader",
+					'comment', "Лидер / Оверватчер",
+					'object_class', "UnitData",
+					'Health', 80,
+					'Agility', 75,
+					'Dexterity', 82,
+					'Strength', 70,
+					'Wisdom', 70,
+					'Leadership', 81,
+					'Marksmanship', 75,
+					'Mechanical', 15,
+					'Explosives', 48,
+					'Medical', 47,
+					'Portrait', "UI/EnemiesPortraits/LegionOfficer",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(174256174654, --[[ModItemUnitDataCompositeDef LegionRaidLeader Name]] "Командир налётчиков"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 3,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Smoke",
+						"Heal_Low",
+						"Flank",
+						"Soldier",
+						"Explosives",
+					},
+					'role', "Commander",
+					'OpeningAttackType', "Overwatch",
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 80,
+					'StartingPerks', {
+						"ShoulderToShoulder",
+						"GruntyPerk",
+						"BeefedUp",
+						"BuildingConfidence",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Shaman",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Shaman02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Shaman03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaidLeader",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaidLeader_alt",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionRaidLeader_alt_2",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionSentry",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionMedic",
+					'comment', "Медик - Пистолетчик",
+					'object_class', "UnitData",
+					'Health', 75,
+					'Agility', 94,
+					'Dexterity', 100,
+					'Strength', 42,
+					'Wisdom', 80,
+					'Leadership', 45,
+					'Mechanical', 12,
+					'Explosives', 33,
+					'Medical', 85,
+					'Portrait', "UI/EnemiesPortraits/LegionMedic",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(105899703679, --[[ModItemUnitDataCompositeDef LegionMedic Name]] "Санитар"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Heal",
+						"Smoke",
+						"Nova",
+						"MobileShot",
+						"Explosives",
+					},
+					'archetype', "Medic",
+					'role', "Medic",
+					'CanManEmplacements', false,
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 80,
+					'StartingPerks', {
+						"BeefedUp",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_WitchDoctor",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_WitchDoctor02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_WitchDoctor03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionMedic",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionMedic_alt",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionMedic",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionManiac",
+					'comment', "Громила - Танк - Дробовик",
+					'object_class', "UnitData",
+					'Health', 75,
+					'Agility', 70,
+					'Dexterity', 75,
+					'Strength', 80,
+					'Wisdom', 16,
+					'Marksmanship', 59,
+					'Mechanical', 0,
+					'Explosives', 40,
+					'Medical', 35,
+					'Portrait', "UI/EnemiesPortraits/LegionStormer",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(587148910451, --[[ModItemUnitDataCompositeDef LegionManiac Name]] "Громила"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 3,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Flank",
+						"Explosives",
+						"Control",
+					},
+					'archetype', "Brute",
+					'role', "Stormer",
+					'CanManEmplacements', false,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 100,
+					'StartingPerks', {
+						"BeefedUp",
+						"CQCTraining",
+						"NailsPerk",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionManiac",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionManiac_alt",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionManiac_alt_2",
+							'Weight', 2,
+						}),
+					},
+					'Equipment', {
+						"LegionBerserker",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionGunner",
+					'comment', "Пулеметчик | Контроль",
+					'object_class', "UnitData",
+					'Health', 76,
+					'Agility', 78,
+					'Dexterity', 80,
+					'Strength', 89,
+					'Wisdom', 23,
+					'Leadership', 20,
+					'Marksmanship', 70,
+					'Mechanical', 30,
+					'Explosives', 0,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionHeavy",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(875645126950, --[[ModItemUnitDataCompositeDef LegionGunner Name]] "Пулемётчик"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 2,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Control",
+						"Soldier",
+						"Gunner",
+					},
+					'archetype', "HeavyGunner",
+					'role', "Heavy",
+					'OpeningAttackType', "Overwatch",
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)
+						self:TryEquip(items, "Handheld A", "Firearm")
+						self:TryEquip(items, "Handheld B", "SMG")
+					end,
+					'MaxHitPoints', 85,
+					'StartingPerks', {
+						"TakeAim",
+						"Counterfire",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Heavy",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Heavy02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Heavy03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGunner",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGunner_alt",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionGunner",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionGrenadier",
+					'comment', "Гранатометчик | Метатель",
+					'object_class', "UnitData",
+					'Health', 80,
+					'Agility', 80,
+					'Dexterity', 45,
+					'Strength', 75,
+					'Wisdom', 14,
+					'Leadership', 14,
+					'Marksmanship', 63,
+					'Mechanical', 0,
+					'Explosives', 79,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionDemo",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(685020204893, --[[ModItemUnitDataCompositeDef LegionGrenadier Name]] "Гранатомётчик"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 2,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Explosives",
+						"MobileShot",
+						"Flank",
+						"RunAndGun",
+						"Ordnance",
+					},
+					'archetype', "Grenadier",
+					'role', "Demolitions",
+					'CanManEmplacements', false,
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"Throwing",
+						"RelentlessAdvance",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Demolishion",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Demolishion02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Demolishion03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGrenadir",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGrenadir_alt",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGrenadir_alt_2",
+							'Weight', 2,
+						}),
+					},
+					'Equipment', {
+						"LegionGrenadier",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Russell",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionMolotov",
+					'comment', "Молотов | Метатель",
+					'object_class', "UnitData",
+					'Health', 80,
+					'Agility', 80,
+					'Dexterity', 45,
+					'Strength', 75,
+					'Wisdom', 14,
+					'Leadership', 14,
+					'Marksmanship', 63,
+					'Mechanical', 0,
+					'Explosives', 79,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionDemo",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(872363346772, --[[ModItemUnitDataCompositeDef LegionMolotov Name]] "Поджигатель"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 2,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Explosives",
+						"Flank",
+						"Ordnance",
+					},
+					'archetype', "Grenadier",
+					'role', "Demolitions",
+					'CanManEmplacements', false,
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"Throwing",
+						"RelentlessAdvance",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Demolishion",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Demolishion02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Demolishion03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGrenadir",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGrenadir_alt",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGrenadir_alt_2",
+							'Weight', 2,
+						}),
+					},
+					'Equipment', {
+						"LegionGrenadierMolotov",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Russell",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionGoon",
+					'comment', "Пистолетчик | Харасмент",
+					'object_class', "UnitData",
+					'Health', 67,
+					'Agility', 71,
+					'Dexterity', 80,
+					'Strength', 55,
+					'Wisdom', 40,
+					'Leadership', 20,
+					'Marksmanship', 68,
+					'Mechanical', 0,
+					'Explosives', 64,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionRecon",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(281298678585, --[[ModItemUnitDataCompositeDef LegionGoon Name]] "Головорез"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 2,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"MobileShot",
+						"Control",
+						"Flank",
+						"Explosives",
+					},
+					'archetype', "Skirmisher",
+					'role', "Recon",
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"Ambidextrous",
+						"Flanker",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Recon",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Recon02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Recon03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGoon",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGoon_alt",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGoon_alt_2",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionGoon_alt_3",
+							'Weight', 2,
+						}),
+					},
+					'Equipment', {
+						"LegionGoon",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionButcher",
+					'comment', "Мясник | Рукопашник",
+					'object_class', "UnitData",
+					'Health', 80,
+					'Agility', 85,
+					'Dexterity', 74,
+					'Strength', 80,
+					'Wisdom', 10,
+					'Leadership', 9,
+					'Marksmanship', 55,
+					'Mechanical', 0,
+					'Explosives', 11,
+					'Medical', 30,
+					'Portrait', "UI/EnemiesPortraits/LegionStormer",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(945797834860, --[[ModItemUnitDataCompositeDef LegionButcher Name]] "Мясник"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 2,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Explosives",
+						"Smoke",
+						"Flank",
+						"RunAndGun",
+					},
+					'archetype', "Brute",
+					'role', "Stormer",
+					'CanManEmplacements', false,
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 60,
+					'StartingPerks', {
+						"InstantAutopsy",
+						"Berserker",
+						"MeleeTraining",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Stormer03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionButcher",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionButcher_alt",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionButcher_alt_2",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionButcher_alt_3",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionMeleeFighter",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionScout",
+					'comment', "Разведчик / Фланговщик / Овервотчер",
+					'object_class', "UnitData",
+					'Health', 78,
+					'Agility', 80,
+					'Dexterity', 90,
+					'Strength', 65,
+					'Wisdom', 50,
+					'Leadership', 29,
+					'Marksmanship', 70,
+					'Mechanical', 0,
+					'Explosives', 82,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionRecon",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(720819443104, --[[ModItemUnitDataCompositeDef LegionScout Name]] "Разведчик"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 2,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Flank",
+						"RunAndGun",
+						"Control",
+						"Explosives",
+					},
+					'archetype', "Skirmisher",
+					'role', "Recon",
+					'OpeningAttackType', "Overwatch",
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)  end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"RelentlessAdvance",
+						"MinFreeMove",
+						"Untraceable",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Recon",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Recon02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Recon03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionScout",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionScout_alt",
+							'Weight', 2,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionScout_alt_2",
+							'Weight', 2,
+						}),
+					},
+					'Equipment', {
+						"LegionScout",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionSniper",
+					'comment', "Снайпер",
+					'object_class', "UnitData",
+					'Health', 65,
+					'Agility', 80,
+					'Dexterity', 76,
+					'Strength', 65,
+					'Wisdom', 70,
+					'Leadership', 33,
+					'Marksmanship', 78,
+					'Mechanical', 24,
+					'Explosives', 30,
+					'Medical', 6,
+					'Portrait', "UI/EnemiesPortraits/LegionSniper",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(762054446751, --[[ModItemUnitDataCompositeDef LegionSniper Name]] "Снайпер"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 2,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Sniper",
+						"Flank",
+						"Control",
+					},
+					'archetype', "Soldier_Sniper",
+					'role', "Marksman",
+					'MaxAttacks', 2,
+					'PickCustomArchetype', function (self, proto_context)  end,
+					'CustomEquipGear', function (self, items)
+						self:TryEquip(items, "Handheld A", "Firearm")
+						self:TryEquip(items, "Handheld B", "Pistol")
+					end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"Deadeye",
+						"Spiritual",
+						"DeathFromAbove",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Marksman",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Marksman02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Marksman03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSniper",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSniper_alt",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSniper_alt_2",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionSniper",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionSharpShooter",
+					'object_class', "UnitData",
+					'Health', 65,
+					'Agility', 70,
+					'Dexterity', 70,
+					'Strength', 41,
+					'Wisdom', 48,
+					'Leadership', 33,
+					'Marksmanship', 74,
+					'Mechanical', 20,
+					'Explosives', 30,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionSniper",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(329515082328, --[[ModItemUnitDataCompositeDef LegionSharpShooter Name]] "Стрелок"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'StartingLevel', 3,
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Sniper",
+						"Flank",
+						"Nova",
+						"Control",
+					},
+					'role', "Recon",
+					'AlwaysUseOpeningAttack', true,
+					'OpeningAttackType', "Overwatch",
+					'MaxAttacks', 1,
+					'CustomEquipGear', function (self, items)
+						self:TryEquip(items, "Handheld A", "Firearm")
+						self:TryEquip(items, "Handheld B", "Pistol")
+					end,
+					'MaxHitPoints', 50,
+					'StartingPerks', {
+						"Untraceable",
+						"Flanker",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Marksman",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Marksman02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Marksman03",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSharpShooter",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSharpShooter_alt",
+							'Weight', 3,
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "LegionSharpShooter_alt_1",
+							'Weight', 3,
+						}),
+					},
+					'Equipment', {
+						"LegionSharpShooter",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "Legion",
+					'Id', "LegionRocketeer_copy",
+					'object_class', "UnitData",
+					'Health', 70,
+					'Agility', 83,
+					'Dexterity', 8,
+					'Strength', 88,
+					'Wisdom', 14,
+					'Leadership', 10,
+					'Marksmanship', 12,
+					'Mechanical', 0,
+					'Explosives', 41,
+					'Medical', 0,
+					'Portrait', "UI/EnemiesPortraits/LegionArtillery",
+					'BigPortrait', "UI/Enemies/LegionRaider",
+					'Name', T(216158705378, --[[ModItemUnitDataCompositeDef LegionRocketeer_copy Name]] "Rocket Man"),
+					'Randomization', true,
+					'Affiliation', "Legion",
+					'neutral_retaliate', true,
+					'AIKeywords', {
+						"Ordnance",
+					},
+					'role', "Artillery",
+					'CanManEmplacements', false,
+					'MaxAttacks', 1,
+					'MaxHitPoints', 50,
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Artillery",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Artillery02",
+						}),
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Legion_Artillery03",
+						}),
+					},
+					'Equipment', {
+						"LegionRocketeer",
+					},
+					'AdditionalGroups', {
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_1",
+						}),
+						PlaceObj('AdditionalGroup', {
+							'Weight', 50,
+							'Exclusive', true,
+							'Name', "LegionMale_2",
+						}),
+					},
+					'pollyvoice', "Joey",
+					'gender', "Male",
+					'VoiceResponseId', "LegionRaider",
+				}),
+				}),
 			}),
-			PlaceObj('PositioningAI', {
-				'BiasId', "Flanking",
-				'Weight', 200,
-				'OnActivationBiases', {
-					PlaceObj('AIBiasModification', {
-						'BiasId', "MGBurst",
-						'Effect', "priority",
-						'Value', 200,
-						'Period', 2,
-						'ApplyTo', "Team",
-					}),
-				},
-				'RequiredKeywords', {
-					"Control",
-				},
-				'turn_phase', "Late",
-				'EndTurnPolicies', {
-					PlaceObj('AIPolicyTakeCover', {
-						'Weight', 150,
-					}),
-				},
-			}),
-		},
-		OptLocPolicies = {
-			PlaceObj('AIPolicyWeaponRange', {
-				'RequiredKeywords', {
-					"Gunner",
-				},
-				'Weight', 700,
-				'RangeMin', 40,
-				'RangeMax', 80,
-			}),
-			PlaceObj('AIPolicyWeaponRange', {
-				'RequiredKeywords', {
-					"Gunner",
-				},
-				'Weight', 600,
-				'RangeMin', 60,
-				'RangeMax', 100,
-			}),
-			PlaceObj('AIPolicyLosToEnemy', {
-				'RequiredKeywords', {
-					"Gunner",
-				},
-				'Weight', 600,
-			}),
-		},
-		OptLocSearchRadius = 100,
-		PrefStance = "Prone",
-		SignatureActions = {
-			PlaceObj('AIActionMGBurstFire', {
-				'Weight', 200,
-				'OnActivationBiases', {
-					PlaceObj('AIBiasModification', {
-						'BiasId', "Overwatch",
-						'Value', 50,
-					}),
-				},
-				'Aiming', "Remaining AP",
-				'AttackTargeting', set( "Arms", "BlindFire", "InCover", "Legs", "Torso" ),
-			}),
-		},
-		TargetChangePolicy = "restart",
-		TargetScoreRandomization = 10,
-		group = "Simplified",
-		id = "HeavyGunner",
-	}),
-	PlaceObj('ModItemAIArchetype', {
-		BaseAttackTargeting = set( "Arms", "BlindFire", "InCover", "Legs", "Torso", "Trap" ),
-		BaseMovementWeight = 90,
-		Behaviors = {
-			PlaceObj('StandardAI', {
-				'OptLocWeight', 70,
-				'EndTurnPolicies', {
-					PlaceObj('AIPolicyDealDamage', nil),
-					PlaceObj('AIPolicyTakeCover', {
-						'Weight', 50,
-					}),
-				},
-				'TakeCoverChance', 50,
-			}),
-			PlaceObj('PositioningAI', {
-				'BiasId', "Flanking",
-				'Weight', 500,
-				'Fallback', false,
-				'RequiredKeywords', {
+		PlaceObj('ModItemFolder', {
+			'name', "Units Army",
+			'comment', "-- Регулярные армейцы",
+		}, {
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmyCommando_Sergant",
+				'object_class', "UnitData",
+				'Health', 93,
+				'Agility', 90,
+				'Dexterity', 96,
+				'Strength', 48,
+				'Wisdom', 71,
+				'Leadership', 100,
+				'Marksmanship', 88,
+				'Mechanical', 87,
+				'Explosives', 89,
+				'Medical', 85,
+				'Portrait', "UI/EnemiesPortraits/ArmyRecon",
+				'Name', T(601232154908, --[[ModItemUnitDataCompositeDef ArmyCommando_Sergant Name]] "Сержант Разведчик"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 3,
+				'neutral_retaliate', true,
+				'AIKeywords', {
 					"Flank",
-				},
-				'OptLocWeight', 20,
-				'EndTurnPolicies', {
-					PlaceObj('AIPolicyFlanking', {
-						'Weight', 1000,
-						'Required', true,
-						'ReserveAttackAP', true,
-					}),
-					PlaceObj('AIPolicyDealDamage', nil),
-				},
-				'TakeCoverChance', 0,
-				'VoiceResponse', "AIFlanking",
-			}),
-		},
-		Comment = "Keywords: Flank, Explosives",
-		OptLocPolicies = {
-			PlaceObj('AIPolicyWeaponRange', {
-				'Weight', 300,
-				'RangeBase', "Absolute",
-				'RangeMin', 4,
-				'RangeMax', 12,
-			}),
-			PlaceObj('AIPolicyLosToEnemy', {
-				'Weight', 250,
-			}),
-			PlaceObj('AIPolicyTakeCover', {
-				'RequiredKeywords', {
-					"Control",
-				},
-				'Weight', 90,
-			}),
-		},
-		OptLocSearchRadius = 50,
-		PrefStance = "Crouch",
-		SignatureActions = {
-			PlaceObj('AIActionMobileShot', {
-				'Weight', 150,
-				'Priority', true,
-				'NotificationText', "",
-				'RequiredKeywords', {
 					"RunAndGun",
 				},
-				'action_id', "RunAndGun",
-			}),
-			PlaceObj('AIActionMobileShot', {
-				'Weight', 200,
-				'Priority', true,
-				'NotificationText', "",
-				'RequiredKeywords', {
-					"MobileShot",
+				'archetype', "Skirmisher",
+				'role', "Recon",
+				'OpeningAttackType', "Overwatch",
+				'MaxAttacks', 2,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"AutoWeapons",
 				},
-			}),
-			PlaceObj('AIActionThrowGrenade', {
-				'BiasId', "AssaultGrenadeThrow",
-				'Weight', 200,
-				'OnActivationBiases', {
-					PlaceObj('AIBiasModification', {
-						'BiasId', "AssaultGrenadeThrow",
-						'Effect', "disable",
-					}),
-					PlaceObj('AIBiasModification', {
-						'BiasId', "AssaultGrenadeThrow",
-						'Value', -50,
-						'Period', 0,
-						'ApplyTo', "Team",
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Recon",
 					}),
 				},
-				'RequiredKeywords', {
+				'Equipment', {
+					"ArmyScout",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmyCommando_Demolution",
+				'object_class', "UnitData",
+				'Health', 93,
+				'Agility', 90,
+				'Dexterity', 88,
+				'Strength', 48,
+				'Wisdom', 71,
+				'Leadership', 29,
+				'Marksmanship', 88,
+				'Mechanical', 72,
+				'Explosives', 99,
+				'Medical', 77,
+				'Portrait', "UI/EnemiesPortraits/ArmyRecon",
+				'Name', T(646387258267, --[[ModItemUnitDataCompositeDef ArmyCommando_Demolution Name]] "Разведчик Сапер"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 3,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Flank",
+					"RunAndGun",
+				},
+				'archetype', "Skirmisher",
+				'role', "Recon",
+				'OpeningAttackType', "Overwatch",
+				'MaxAttacks', 2,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"AutoWeapons",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Recon",
+					}),
+				},
+				'Equipment', {
+					"ArmyScout",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmyCommando_Sniper",
+				'object_class', "UnitData",
+				'Health', 80,
+				'Agility', 98,
+				'Dexterity', 99,
+				'Strength', 66,
+				'Wisdom', 71,
+				'Leadership', 72,
+				'Marksmanship', 93,
+				'Mechanical', 80,
+				'Explosives', 0,
+				'Medical', 63,
+				'Portrait', "UI/EnemiesPortraits/ArmyRecon",
+				'Name', T(520329146609, --[[ModItemUnitDataCompositeDef ArmyCommando_Sniper Name]] "Разведчик Снайпер"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 3,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Flank",
+					"RunAndGun",
+				},
+				'archetype', "Skirmisher",
+				'role', "Recon",
+				'OpeningAttackType', "Overwatch",
+				'MaxAttacks', 2,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"AutoWeapons",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Recon",
+					}),
+				},
+				'Equipment', {
+					"ArmyScout",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmyCommando_Scout",
+				'object_class', "UnitData",
+				'Health', 94,
+				'Agility', 95,
+				'Dexterity', 93,
+				'Strength', 82,
+				'Wisdom', 75,
+				'Leadership', 71,
+				'Marksmanship', 93,
+				'Mechanical', 75,
+				'Explosives', 75,
+				'Medical', 75,
+				'Portrait', "UI/EnemiesPortraits/ArmyRecon",
+				'Name', T(498170277650, --[[ModItemUnitDataCompositeDef ArmyCommando_Scout Name]] "Диверсант"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 3,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Flank",
+					"RunAndGun",
+				},
+				'archetype', "Skirmisher",
+				'role', "Recon",
+				'OpeningAttackType', "Overwatch",
+				'MaxAttacks', 2,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"AutoWeapons",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Recon",
+					}),
+				},
+				'Equipment', {
+					"ArmyScout",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmyStormer",
+				'object_class', "UnitData",
+				'Health', 95,
+				'Agility', 95,
+				'Dexterity', 73,
+				'Strength', 95,
+				'Leadership', 65,
+				'Marksmanship', 87,
+				'Mechanical', 40,
+				'Explosives', 81,
+				'Medical', 55,
+				'Portrait', "UI/EnemiesPortraits/ArmyStormer",
+				'BigPortrait', "UI/Enemies/LegionRaider",
+				'Name', T(828560012059, --[[ModItemUnitDataCompositeDef ArmyStormer Name]] "Штурмовик"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 5,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Ordnance",
 					"Explosives",
+					"Soldier",
 				},
-				'AllowedAoeTypes', set( "fire", "none", "teargas", "toxicgas" ),
-				'TargetLastAttackPos', true,
+				'role', "Stormer",
+				'CanManEmplacements', false,
+				'MaxAttacks', 2,
+				'PickCustomArchetype', function (self, proto_context)  end,
+				'CustomEquipGear', function (self, items)
+					self:TryEquip(items, "Handheld A", "AssaultRifle"--[[, "_762NATO_Tracer","_556_Basic","_556_HP","_762NATO_Basic","_545_EPR"]])
+					self:TryEquip(items, "Handheld A", "GrenadeLauncher"--[[, "_40mmFlashbangGrenade","_40mmFragGrenade"]])
+				end,
+				'MaxHitPoints', 100,
+				'StartingPerks', {
+					"BeefedUp",
+					"MeleeTraining",
+					"MinFreeMove",
+					"Shatterhand",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Stormer",
+					}),
+				},
+				'Equipment', {
+					"ArmyStormer",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
 			}),
-			PlaceObj('AIActionThrowGrenade', {
-				'BiasId', "AssaultGrenadeThrow",
-				'Weight', 200,
-				'OnActivationBiases', {
-					PlaceObj('AIBiasModification', {
-						'BiasId', "AssaultGrenadeThrow",
-						'Effect', "disable",
-					}),
-					PlaceObj('AIBiasModification', {
-						'BiasId', "AssaultGrenadeThrow",
-						'Value', -50,
-						'Period', 0,
-						'ApplyTo', "Team",
-					}),
-				},
-				'RequiredKeywords', {
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmySoldier",
+				'object_class', "UnitData",
+				'Health', 84,
+				'Agility', 82,
+				'Dexterity', 77,
+				'Strength', 53,
+				'Wisdom', 31,
+				'Leadership', 19,
+				'Marksmanship', 80,
+				'Mechanical', 40,
+				'Explosives', 0,
+				'Medical', 0,
+				'Portrait', "UI/EnemiesPortraits/ArmySoldier",
+				'Name', T(544120605675, --[[ModItemUnitDataCompositeDef ArmySoldier Name]] "Пехотинец"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 4,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Soldier",
 					"Explosives",
-				},
-				'AllowedAoeTypes', set( "fire", "none", "teargas", "toxicgas" ),
-			}),
-		},
-		TargetChangePolicy = "restart",
-		TargetScoreRandomization = 10,
-		TargetingPolicies = {
-			PlaceObj('AITargetingEnemyHealth', {
-				'Health', 90,
-			}),
-		},
-		group = "Simplified",
-		id = "Skirmisher",
-	}),
-	PlaceObj('ModItemAIArchetype', {
-		BaseAttackTargeting = set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso", "Trap" ),
-		BaseAttackWeight = 120,
-		BaseMovementWeight = 40,
-		Behaviors = {
-			PlaceObj('StandardAI', {
-				'BiasId', "Standard",
-				'Weight', 150,
-				'EndTurnPolicies', {
-					PlaceObj('AIPolicyTakeCover', {
-						'Weight', 90,
-						'visibility_mode', "team",
-					}),
-					PlaceObj('AIPolicyDealDamage', nil),
-				},
-				'TakeCoverChance', 60,
-			}),
-		},
-		Comment = "Keywords: Soldier, Sniper, Control, Ordnance, Smoke, Explosives",
-		OptLocPolicies = {
-			PlaceObj('AIPolicyTakeCover', {
-				'Weight', 90,
-			}),
-			PlaceObj('AIPolicyHighGround', {
-				'RequiredKeywords', {
-					"Sniper",
-				},
-				'Weight', 200,
-			}),
-			PlaceObj('AIPolicyHighGround', {
-				'RequiredKeywords', {
-					"Soldier",
-				},
-			}),
-			PlaceObj('AIPolicyLosToEnemy', {
-				'Weight', 300,
-			}),
-			PlaceObj('AIPolicyWeaponRange', {
-				'RequiredKeywords', {
-					"Soldier",
-				},
-				'Weight', 60,
-				'RangeMin', 10,
-				'RangeMax', 25,
-			}),
-			PlaceObj('AIPolicyWeaponRange', {
-				'RequiredKeywords', {
-					"Soldier",
-				},
-				'Weight', 180,
-				'RangeMin', 26,
-				'RangeMax', 49,
-			}),
-			PlaceObj('AIPolicyWeaponRange', {
-				'RequiredKeywords', {
-					"Soldier",
-				},
-				'RangeMin', 50,
-				'RangeMax', 100,
-			}),
-		},
-		OptLocSearchRadius = 80,
-		PrefStance = "Prone",
-		SignatureActions = {
-			PlaceObj('AIAttackSingleTarget', {
-				'BiasId', "Autofire",
-				'Weight', 150,
-				'OnActivationBiases', {
-					PlaceObj('AIBiasModification', {
-						'BiasId', "Autofire",
-						'Effect', "disable",
-						'Period', 0,
-						'ApplyTo', "Team",
-					}),
-				},
-				'NotificationText', T(784570352729, --[[ModItemAIArchetype Soldier NotificationText]] "Автоматический огонь"),
-				'RequiredKeywords', {
-					"Soldier",
-				},
-				'action_id', "AutoFire",
-				'AttackTargeting', set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso", "Trap" ),
-			}),
-			PlaceObj('AIActionPinDown', {
-				'BiasId', "PinDownAttack",
-				'Weight', 80,
-				'OnActivationBiases', {
-					PlaceObj('AIBiasModification', {
-						'BiasId', "PinDownAttack",
-						'Value', -50,
-						'ApplyTo', "Team",
-					}),
-				},
-				'RequiredKeywords', {
-					"Sniper",
-				},
-			}),
-			PlaceObj('AIActionThrowGrenade', {
-				'BiasId', "AssaultGrenadeThrow",
-				'OnActivationBiases', {
-					PlaceObj('AIBiasModification', {
-						'BiasId', "AssaultGrenadeThrow",
-						'Effect', "disable",
-					}),
-					PlaceObj('AIBiasModification', {
-						'BiasId', "AssaultGrenadeThrow",
-						'Effect', "disable",
-						'Period', 0,
-						'ApplyTo', "Team",
-					}),
-				},
-				'RequiredKeywords', {
-					"Explosives",
-				},
-				'self_score_mod', -1000,
-				'AllowedAoeTypes', set( "fire", "none", "teargas", "toxicgas" ),
-			}),
-			PlaceObj('AIActionThrowGrenade', {
-				'BiasId', "SmokeGrenade",
-				'OnActivationBiases', {
-					PlaceObj('AIBiasModification', {
-						'BiasId', "SmokeGrenade",
-						'Effect', "disable",
-					}),
-					PlaceObj('AIBiasModification', {
-						'BiasId', "SmokeGrenade",
-						'Effect', "disable",
-						'Period', 0,
-						'ApplyTo', "Team",
-					}),
-				},
-				'RequiredKeywords', {
 					"Smoke",
 				},
-				'enemy_score', 0,
-				'team_score', 100,
-				'self_score_mod', 100,
-				'MinDist', 0,
-				'AllowedAoeTypes', set( "smoke" ),
-			}),
-			PlaceObj('AIActionHeavyWeaponAttack', {
-				'BiasId', "LauncherFire",
-				'OnActivationBiases', {
-					PlaceObj('AIBiasModification', {
-						'BiasId', "LauncherFire",
-						'Effect', "disable",
-						'Period', 0,
-					}),
-					PlaceObj('AIBiasModification', {
-						'BiasId', "LauncherFire",
-						'Value', -50,
-						'Period', 0,
-						'ApplyTo', "Team",
+				'role', "Soldier",
+				'MaxAttacks', 2,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"AutoWeapons",
+					"MinFreeMove",
+					"Hotblood",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Soldier",
 					}),
 				},
-				'RequiredKeywords', {
-					"Ordnance",
+				'Equipment', {
+					"ArmySoldier",
 				},
-				'self_score_mod', -1000,
-				'MinDist', 5000,
-				'LimitRange', true,
-				'MaxTargetRange', 30,
-			}),
-			PlaceObj('AIActionHeavyWeaponAttack', {
-				'BiasId', "RocketFire",
-				'Weight', 200,
-				'OnActivationBiases', {
-					PlaceObj('AIBiasModification', {
-						'BiasId', "RocketFire",
-						'Effect', "disable",
-					}),
-				},
-				'RequiredKeywords', {
-					"Ordnance",
-				},
-				'self_score_mod', -1000,
-				'MinDist', 5000,
-				'action_id', "RocketLauncherFire",
-				'LimitRange', true,
-				'MaxTargetRange', 30,
-			}),
-			PlaceObj('AIAttackSingleTarget', {
-				'BiasId', "GroinShot",
-				'OnActivationBiases', {
-					PlaceObj('AIBiasModification', {
-						'BiasId', "GroinShot",
-						'Effect', "disable",
-						'Period', 0,
-						'ApplyTo', "Team",
-					}),
-					PlaceObj('AIBiasModification', {
-						'BiasId', "GroinShot",
-						'Effect', "disable",
-					}),
-				},
-				'RequiredKeywords', {
-					"Sniper",
-				},
-				'Aiming', "Remaining AP",
-				'AttackTargeting', set( "Groin" ),
-			}),
-			PlaceObj('AIConeAttack', {
-				'BiasId', "Overwatch",
-				'OnActivationBiases', {
-					PlaceObj('AIBiasModification', {
-						'BiasId', "Overwatch",
-						'Value', -50,
-						'ApplyTo', "Team",
-					}),
-					PlaceObj('AIBiasModification', {
-						'BiasId', "Overwatch",
-						'Effect', "disable",
-						'Value', -50,
-						'Period', 2,
-					}),
-				},
-				'RequiredKeywords', {
-					"Soldier",
-				},
-				'team_score', 0,
-				'min_score', 300,
-				'action_id', "Overwatch",
-			}),
-			PlaceObj('AIConeAttack', {
-				'BiasId', "SpamOverwatch",
-				'Weight', 200,
-				'OnActivationBiases', {
-					PlaceObj('AIBiasModification', {
-						'BiasId', "SpamOverwatch",
-						'Effect', "disable",
-						'Value', -50,
-						'ApplyTo', "Team",
-					}),
-				},
-				'RequiredKeywords', {
-					"Control",
-				},
-				'team_score', 0,
-				'min_score', 100,
-				'action_id', "Overwatch",
-			}),
-		},
-		TargetChangePolicy = "restart",
-		TargetScoreRandomization = 10,
-		group = "Simplified",
-		id = "Soldier",
-	}),
-	PlaceObj('ModItemAIArchetype', {
-		BaseAttackTargeting = set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso", "Trap" ),
-		BaseAttackWeight = 140,
-		Behaviors = {
-			PlaceObj('StandardAI', {
-				'BiasId', "Standard",
-				'Weight', 150,
-				'EndTurnPolicies', {
-					PlaceObj('AIPolicyTakeCover', {
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
 						'Weight', 50,
-						'visibility_mode', "team",
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
 					}),
-					PlaceObj('AIPolicyDealDamage', {
-						'Weight', 150,
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
 					}),
 				},
-				'TakeCoverChance', 70,
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
 			}),
-		},
-		Comment = "Keywords: Soldier, Sniper, Control, Ordnance, Smoke, Explosives",
-		MoveStance = "Crouch",
-		OptLocPolicies = {
-			PlaceObj('AIPolicyTakeCover', {
-				'RequiredKeywords', {
-					"Soldier",
-				},
-			}),
-			PlaceObj('AIPolicyHighGround', {
-				'RequiredKeywords', {
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmySniper_Elite",
+				'object_class', "UnitData",
+				'Health', 84,
+				'Agility', 94,
+				'Dexterity', 94,
+				'Strength', 41,
+				'Wisdom', 48,
+				'Leadership', 33,
+				'Marksmanship', 95,
+				'Mechanical', 80,
+				'Explosives', 0,
+				'Medical', 0,
+				'Portrait', "UI/EnemiesPortraits/ArmySniper",
+				'BigPortrait', "UI/Enemies/LegionRaider",
+				'Name', T(409540308094, --[[ModItemUnitDataCompositeDef ArmySniper_Elite Name]] "Элитный снайпер"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 7,
+				'neutral_retaliate', true,
+				'AIKeywords', {
 					"Sniper",
 				},
-				'Weight', 200,
-			}),
-			PlaceObj('AIPolicyLosToEnemy', {
-				'RequiredKeywords', {
-					"Soldier",
+				'archetype', "Soldier_Sniper",
+				'role', "Marksman",
+				'AlwaysUseOpeningAttack', true,
+				'OpeningAttackType', "PinDown",
+				'MaxAttacks', 1,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"HitTheDeck",
 				},
-				'Weight', 300,
-			}),
-			PlaceObj('AIPolicyWeaponRange', {
-				'Weight', 110,
-				'RangeMin', 10,
-				'RangeMax', 25,
-			}),
-			PlaceObj('AIPolicyWeaponRange', {
-				'Weight', 150,
-				'RangeMin', 26,
-				'RangeMax', 49,
-			}),
-			PlaceObj('AIPolicyWeaponRange', {
-				'RequiredKeywords', {
-					"Soldier",
-				},
-				'Weight', 160,
-				'RangeMin', 50,
-			}),
-		},
-		OptLocSearchRadius = 80,
-		PrefStance = "Prone",
-		SignatureActions = {
-			PlaceObj('AIAttackSingleTarget', {
-				'BiasId', "GroinShot",
-				'OnActivationBiases', {
-					PlaceObj('AIBiasModification', {
-						'BiasId', "GroinShot",
-						'Effect', "disable",
-						'Period', 0,
-						'ApplyTo', "Team",
-					}),
-					PlaceObj('AIBiasModification', {
-						'BiasId', "GroinShot",
-						'Effect', "disable",
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Marksman",
 					}),
 				},
-				'RequiredKeywords', {
+				'Equipment', {
+					"ArmySniper",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmySniper",
+				'object_class', "UnitData",
+				'Health', 78,
+				'Agility', 90,
+				'Dexterity', 90,
+				'Strength', 41,
+				'Wisdom', 48,
+				'Leadership', 33,
+				'Marksmanship', 90,
+				'Mechanical', 40,
+				'Explosives', 0,
+				'Medical', 0,
+				'Portrait', "UI/EnemiesPortraits/ArmySniper",
+				'Name', T(842711097729, --[[ModItemUnitDataCompositeDef ArmySniper Name]] "Снайпер"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 3,
+				'neutral_retaliate', true,
+				'AIKeywords', {
 					"Sniper",
 				},
-				'Aiming', "Remaining AP",
-				'AttackTargeting', set( "Groin" ),
+				'archetype', "Soldier_Sniper",
+				'role', "Marksman",
+				'AlwaysUseOpeningAttack', true,
+				'OpeningAttackType', "PinDown",
+				'MaxAttacks', 1,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"HitTheDeck",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Marksman",
+					}),
+				},
+				'Equipment', {
+					"ArmySniper",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
 			}),
-			PlaceObj('AIConeAttack', {
-				'BiasId', "Overwatch",
-				'Weight', 130,
-				'OnActivationBiases', {
-					PlaceObj('AIBiasModification', {
-						'BiasId', "Overwatch",
-						'Value', -50,
-						'ApplyTo', "Team",
-					}),
-					PlaceObj('AIBiasModification', {
-						'BiasId', "Overwatch",
-						'Effect', "disable",
-						'Value', -50,
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmyScout",
+				'object_class', "UnitData",
+				'Health', 93,
+				'Agility', 90,
+				'Dexterity', 88,
+				'Strength', 48,
+				'Wisdom', 71,
+				'Leadership', 29,
+				'Marksmanship', 88,
+				'Mechanical', 40,
+				'Explosives', 0,
+				'Medical', 0,
+				'Portrait', "UI/EnemiesPortraits/ArmyStormer",
+				'Name', T(603102062016, --[[ModItemUnitDataCompositeDef ArmyScout Name]] "Разведчик"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 3,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Flank",
+					"RunAndGun",
+					"MobileShot",
+				},
+				'archetype', "Skirmisher",
+				'role', "Recon",
+				'OpeningAttackType', "Overwatch",
+				'MaxAttacks', 2,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"AutoWeapons",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Recon",
 					}),
 				},
-				'RequiredKeywords', {
-					"Soldier",
+				'Equipment', {
+					"ArmyScout",
 				},
-				'team_score', 0,
-				'min_score', 300,
-				'action_id', "Overwatch",
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
 			}),
-			PlaceObj('AIConeAttack', {
-				'BiasId', "SpamOverwatch",
-				'Weight', 200,
-				'OnActivationBiases', {
-					PlaceObj('AIBiasModification', {
-						'BiasId', "SpamOverwatch",
-						'Effect', "disable",
-						'Value', -50,
-						'ApplyTo', "Team",
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmyRPG",
+				'object_class', "UnitData",
+				'Health', 81,
+				'Agility', 83,
+				'Dexterity', 83,
+				'Strength', 88,
+				'Wisdom', 44,
+				'Leadership', 56,
+				'Marksmanship', 12,
+				'Mechanical', 50,
+				'Explosives', 96,
+				'Medical', 0,
+				'Portrait', "UI/EnemiesPortraits/ArmyArtillery",
+				'Name', T(910183932410, --[[ModItemUnitDataCompositeDef ArmyRPG Name]] "Гранатомётчик"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 4,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Ordnance",
+					"Explosives",
+				},
+				'role', "Artillery",
+				'CanManEmplacements', false,
+				'MaxAttacks', 1,
+				'MaxHitPoints', 50,
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Artillery",
 					}),
 				},
-				'RequiredKeywords', {
+				'Equipment', {
+					"ArmyRPG",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmyMortar",
+				'object_class', "UnitData",
+				'Health', 95,
+				'Agility', 90,
+				'Dexterity', 83,
+				'Strength', 96,
+				'Wisdom', 58,
+				'Leadership', 10,
+				'Marksmanship', 70,
+				'Mechanical', 50,
+				'Explosives', 99,
+				'Medical', 0,
+				'Portrait', "UI/EnemiesPortraits/ArmyArtillery",
+				'BigPortrait', "UI/Enemies/LegionRaider",
+				'Name', T(804855870896, --[[ModItemUnitDataCompositeDef ArmyMortar Name]] "Миномётчик"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 4,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Ordnance",
+					"Explosives",
+				},
+				'archetype', "Artillery",
+				'role', "Artillery",
+				'CanManEmplacements', false,
+				'MaxAttacks', 1,
+				'PickCustomArchetype', function (self, proto_context)
+					local enemy, dist = GetNearestEnemy(self)
+					local archetype = self.archetype
+					local weapon_class = "Firearm"
+					
+					if GameState.Underground or enemy and dist < 6*const.SlabSizeX then
+						archetype = "Soldier"
+						weapon_class = "AssaultRifle"
+						PlayVoiceResponse(self, "AIArchetypeScared")
+					end
+					
+					if not self:GetActiveWeapons(weapon_class) then
+						AIPlayCombatAction("ChangeWeapon", self, 0)
+					end
+					
+					return archetype
+				end,
+				'CustomEquipGear', function (self, items)
+					self:TryEquip(items, "Handheld A", "HeavyWeapon")
+					self:TryEquip(items, "Handheld B", "AssaultRifle")
+				end,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"AutoWeapons",
+					"BattleFocus",
+					"BeefedUp",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Artillery",
+					}),
+				},
+				'Equipment', {
+					"ArmyMortar",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmyMedic",
+				'object_class', "UnitData",
+				'Health', 100,
+				'Agility', 99,
+				'Dexterity', 99,
+				'Strength', 65,
+				'Wisdom', 84,
+				'Leadership', 20,
+				'Marksmanship', 65,
+				'Mechanical', 50,
+				'Explosives', 5,
+				'Medical', 53,
+				'Portrait', "UI/EnemiesPortraits/ArmyMedic",
+				'Name', T(561617992746, --[[ModItemUnitDataCompositeDef ArmyMedic Name]] "Санитар"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 5,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Heal",
 					"Control",
 				},
-				'team_score', 0,
-				'min_score', 100,
-				'action_id', "Overwatch",
-			}),
-			PlaceObj('AIActionBasicAttack', {
-				'BiasId', "Standard",
-				'OnActivationBiases', {
-					PlaceObj('AIBiasModification', {
-						'BiasId', "Standard",
-						'Value', 50,
+				'archetype', "Medic",
+				'role', "Medic",
+				'MaxAttacks', 1,
+				'MaxHitPoints', 80,
+				'StartingPerks', {
+					"MinFreeMove",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Medic",
 					}),
 				},
+				'Equipment', {
+					"ArmyMedic",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'Tier', "Veteran",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
 			}),
-		},
-		TargetChangePolicy = "restart",
-		TargetScoreRandomization = 10,
-		TargetingPolicies = {
-			PlaceObj('AITargetingEnemyWeapon', {
-				'Weight', 150,
-				'EnemyWeapon', "Sniper",
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmyMedic_Elite",
+				'object_class', "UnitData",
+				'Health', 100,
+				'Agility', 99,
+				'Dexterity', 99,
+				'Strength', 65,
+				'Wisdom', 84,
+				'Leadership', 20,
+				'Marksmanship', 65,
+				'Mechanical', 80,
+				'Explosives', 5,
+				'Medical', 53,
+				'Portrait', "UI/EnemiesPortraits/ArmyMedic",
+				'Name', T(514583299040, --[[ModItemUnitDataCompositeDef ArmyMedic_Elite Name]] "Санитар Диверсант"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 5,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Heal",
+					"Control",
+				},
+				'archetype', "Medic",
+				'role', "Medic",
+				'MaxAttacks', 1,
+				'MaxHitPoints', 80,
+				'StartingPerks', {
+					"MinFreeMove",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Medic",
+					}),
+				},
+				'Equipment', {
+					"ArmyMedic",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'Tier', "Veteran",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
 			}),
-			PlaceObj('AITargetingEnemyWeapon', {
-				'Weight', 140,
-				'EnemyWeapon', "MachineGun",
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmyHeavy",
+				'object_class', "UnitData",
+				'Health', 95,
+				'Agility', 88,
+				'Dexterity', 75,
+				'Strength', 90,
+				'Wisdom', 30,
+				'Leadership', 47,
+				'Marksmanship', 91,
+				'Mechanical', 50,
+				'Explosives', 0,
+				'Medical', 0,
+				'Portrait', "UI/EnemiesPortraits/ArmyHeavy",
+				'Name', T(245814276757, --[[ModItemUnitDataCompositeDef ArmyHeavy Name]] "Пулемётчик"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 5,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Soldier",
+				},
+				'archetype', "HeavyGunner",
+				'role', "Heavy",
+				'MaxAttacks', 2,
+				'MaxHitPoints', 85,
+				'StartingPerks', {
+					"AutoWeapons",
+					"Ironclad",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Heavy",
+					}),
+				},
+				'Equipment', {
+					"ArmyHeavy",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'Tier', "Veteran",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
 			}),
-			PlaceObj('AITargetingEnemyWeapon', {
-				'Weight', 130,
-				'EnemyWeapon', "HeavyWeapon",
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmyDemo_Elite",
+				'object_class', "UnitData",
+				'Health', 94,
+				'Agility', 83,
+				'Dexterity', 79,
+				'Strength', 69,
+				'Wisdom', 28,
+				'Leadership', 14,
+				'Marksmanship', 87,
+				'Explosives', 91,
+				'Medical', 0,
+				'Portrait', "UI/EnemiesPortraits/ArmyDemo",
+				'Name', T(618487624385, --[[ModItemUnitDataCompositeDef ArmyDemo_Elite Name]] "Элитный сапер"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 6,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Explosives",
+					"Flank",
+				},
+				'archetype', "Skirmisher",
+				'role', "Demolitions",
+				'MaxAttacks', 1,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"Throwing",
+					"AutoWeapons",
+					"BattleFocus",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Demolition",
+					}),
+				},
+				'Equipment', {
+					"ArmyDemo",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'pollyvoice', "Russell",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
 			}),
-			PlaceObj('AITargetingEnemyHealth', {
-				'Weight', 150,
-				'Health', 70,
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmyDemo",
+				'object_class', "UnitData",
+				'Health', 75,
+				'Agility', 71,
+				'Dexterity', 30,
+				'Strength', 53,
+				'Wisdom', 14,
+				'Leadership', 14,
+				'Marksmanship', 43,
+				'Mechanical', 40,
+				'Explosives', 84,
+				'Medical', 0,
+				'Portrait', "UI/EnemiesPortraits/ArmyDemo",
+				'Name', T(515821906221, --[[ModItemUnitDataCompositeDef ArmyDemo Name]] "Сапёр"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 4,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Explosives",
+					"Flank",
+					"Smoke",
+				},
+				'archetype', "Skirmisher",
+				'role', "Demolitions",
+				'MaxAttacks', 1,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"Throwing",
+					"AutoWeapons",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Demolition",
+					}),
+				},
+				'Equipment', {
+					"ArmyDemo",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'pollyvoice', "Russell",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
 			}),
-		},
-		group = "Simplified",
-		id = "Soldier_Sniper",
-	}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmyCommander_Elite",
+				'object_class', "UnitData",
+				'Health', 90,
+				'Agility', 91,
+				'Dexterity', 90,
+				'Strength', 91,
+				'Wisdom', 80,
+				'Leadership', 87,
+				'Marksmanship', 90,
+				'Mechanical', 100,
+				'Explosives', 57,
+				'Medical', 45,
+				'Portrait', "UI/EnemiesPortraits/ArmyOfficer",
+				'Name', T(894521962960, --[[ModItemUnitDataCompositeDef ArmyCommander_Elite Name]] "Старший Лейтенант"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 8,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Control",
+					"Soldier",
+					"Explosives",
+				},
+				'archetype', "Skirmisher",
+				'role', "Commander",
+				'MaxAttacks', 2,
+				'PickCustomArchetype', function (self, proto_context)
+					local enemy, dist = GetNearestEnemy(self)
+					local archetype = self.archetype
+					local weapon_class = "Firearm"
+					
+					if enemy and dist < 12*const.SlabSizeX then
+						archetype = "Soldier"
+						weapon_class = "Firearm"
+						PlayVoiceResponse(self, "AIArchetypeAngry")
+					end
+					
+					if not self:GetActiveWeapons(weapon_class) then
+						AIPlayCombatAction("ChangeWeapon", self, 0)
+					end
+					
+					return archetype
+				end,
+				'MaxHitPoints', 80,
+				'StartingPerks', {
+					"BeefedUp",
+					"AutoWeapons",
+					"Berserker",
+					"BattleFocus",
+					"BunsPerk",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Officer",
+					}),
+				},
+				'Equipment', {
+					"ArmyCommander",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmyCommanderFemale",
+				'object_class', "UnitData",
+				'Health', 89,
+				'Agility', 90,
+				'Dexterity', 91,
+				'Strength', 63,
+				'Wisdom', 91,
+				'Leadership', 86,
+				'Marksmanship', 80,
+				'Mechanical', 100,
+				'Explosives', 57,
+				'Medical', 89,
+				'Portrait', "UI/EnemiesPortraits/ArmyOfficer",
+				'Name', T(156931867550, --[[ModItemUnitDataCompositeDef ArmyCommanderFemale Name]] "Лейтенант"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 5,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Control",
+					"Flank",
+				},
+				'archetype', "Skirmisher",
+				'role', "Commander",
+				'MaxAttacks', 2,
+				'PickCustomArchetype', function (self, proto_context)
+					local enemy, dist = GetNearestEnemy(self)
+					local archetype = self.archetype
+					local weapon_class = "Firearm"
+					
+					if enemy and dist < 12*const.SlabSizeX then
+						archetype = "Soldier"
+						weapon_class = "Firearm"
+						PlayVoiceResponse(self, "AIArchetypeAngry")
+					end
+					
+					if not self:GetActiveWeapons(weapon_class) then
+						AIPlayCombatAction("ChangeWeapon", self, 0)
+					end
+					
+					return archetype
+				end,
+				'MaxHitPoints', 80,
+				'StartingPerks', {
+					"BeefedUp",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_CommanderFemale",
+					}),
+				},
+				'Equipment', {
+					"ArmyCommander",
+					"RefugeeCamp_Leiutenant",
+				},
+				'AdditionalGroups', {},
+				'Tier', "Elite",
+				'pollyvoice', "Kendra",
+				'gender', "Female",
+				'VoiceResponseId', "AnneLeMitrailleur",
+				'FallbackMissingVR', "VillagerFemale",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmyCommander",
+				'object_class', "UnitData",
+				'Health', 90,
+				'Agility', 89,
+				'Dexterity', 85,
+				'Strength', 81,
+				'Wisdom', 89,
+				'Leadership', 93,
+				'Marksmanship', 90,
+				'Mechanical', 100,
+				'Explosives', 76,
+				'Medical', 45,
+				'Portrait', "UI/EnemiesPortraits/ArmyOfficer",
+				'Name', T(309190250480, --[[ModItemUnitDataCompositeDef ArmyCommander Name]] "Капитан"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 5,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Control",
+					"Flank",
+					"Soldier",
+				},
+				'archetype', "Skirmisher",
+				'role', "Commander",
+				'MaxAttacks', 2,
+				'PickCustomArchetype', function (self, proto_context)
+					local enemy, dist = GetNearestEnemy(self)
+					local archetype = self.archetype
+					local weapon_class = "Firearm"
+					
+					if enemy and dist < 12*const.SlabSizeX then
+						archetype = "Soldier"
+						weapon_class = "Firearm"
+						PlayVoiceResponse(self, "AIArchetypeAngry")
+					end
+					
+					if not self:GetActiveWeapons(weapon_class) then
+						AIPlayCombatAction("ChangeWeapon", self, 0)
+					end
+					
+					return archetype
+				end,
+				'MaxHitPoints', 80,
+				'StartingPerks', {
+					"BeefedUp",
+					"BunsPerk",
+					"CQCTraining",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Officer",
+					}),
+				},
+				'Equipment', {
+					"ArmyCommander",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmyLeitenant",
+				'object_class', "UnitData",
+				'Health', 90,
+				'Agility', 88,
+				'Dexterity', 86,
+				'Strength', 82,
+				'Wisdom', 73,
+				'Leadership', 88,
+				'Marksmanship', 80,
+				'Mechanical', 100,
+				'Explosives', 53,
+				'Medical', 0,
+				'Portrait', "UI/EnemiesPortraits/ArmySoldier",
+				'Name', T(164131088840, --[[ModItemUnitDataCompositeDef ArmyLeitenant Name]] "Лейтенант"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 4,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Soldier",
+					"Flank",
+					"Control",
+				},
+				'role', "Soldier",
+				'MaxAttacks', 2,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"AutoWeapons",
+					"MinFreeMove",
+					"Hotblood",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Soldier",
+					}),
+				},
+				'Equipment', {
+					"ArmySoldier",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Army",
+				'Id', "ArmySergant",
+				'object_class', "UnitData",
+				'Health', 78,
+				'Agility', 95,
+				'Dexterity', 90,
+				'Strength', 68,
+				'Wisdom', 47,
+				'Leadership', 74,
+				'Marksmanship', 80,
+				'Mechanical', 80,
+				'Explosives', 50,
+				'Medical', 55,
+				'Portrait', "UI/EnemiesPortraits/ArmySoldier",
+				'Name', T(817124274840, --[[ModItemUnitDataCompositeDef ArmySergant Name]] "Сержант"),
+				'Randomization', true,
+				'Affiliation', "Army",
+				'StartingLevel', 4,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Soldier",
+					"Control",
+				},
+				'role', "Soldier",
+				'MaxAttacks', 2,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"AutoWeapons",
+					"MinFreeMove",
+					"Hotblood",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "GrandChien_Soldier",
+					}),
+				},
+				'Equipment', {
+					"ArmySoldier",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "ArmyMale_2",
+					}),
+				},
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "ArmySoldier",
+			}),
+			}),
+		PlaceObj('ModItemFolder', {
+			'name', "Units Adonis",
+			'comment', "-- Адонис",
+		}, {
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "CorazonGuard",
+				'object_class', "UnitData",
+				'Health', 80,
+				'Agility', 90,
+				'Dexterity', 75,
+				'Strength', 85,
+				'Wisdom', 80,
+				'Leadership', 20,
+				'Marksmanship', 95,
+				'Mechanical', 100,
+				'Explosives', 0,
+				'Medical', 25,
+				'Portrait', "UI/EnemiesPortraits/AdonisSoldier",
+				'Name', T(249898748956, --[[ModItemUnitDataCompositeDef CorazonGuard Name]] "Охранник"),
+				'Randomization', true,
+				'Affiliation', "Adonis",
+				'StartingLevel', 3,
+				'MaxHitPoints', 80,
+				'StartingPerks', {
+					"AutoWeapons",
+					"Berserker",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Stormer",
+					}),
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Recon",
+					}),
+				},
+				'Equipment', {
+					"AdonisGuard",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Name', "AdonisMale_1",
+					}),
+				},
+				'pollyvoice', "Russell",
+				'gender', "Male",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisStormer_Elite",
+				'object_class', "UnitData",
+				'Health', 95,
+				'Agility', 90,
+				'Dexterity', 92,
+				'Strength', 85,
+				'Wisdom', 80,
+				'Leadership', 20,
+				'Marksmanship', 95,
+				'Mechanical', 80,
+				'Explosives', 38,
+				'Medical', 47,
+				'Portrait', "UI/EnemiesPortraits/AdonisStormer",
+				'Name', T(500744344994, --[[ModItemUnitDataCompositeDef AdonisStormer_Elite Name]] "Элитный штурмовик"),
+				'Randomization', true,
+				'elite', true,
+				'eliteCategory', "Foreigners",
+				'Affiliation', "Adonis",
+				'StartingLevel', 7,
+				'neutral_retaliate', true,
+				'archetype', "Brute",
+				'role', "Stormer",
+				'AlwaysUseOpeningAttack', true,
+				'OpeningAttackType', "Overwatch",
+				'PinnedDownChance', 100,
+				'MaxAttacks', 2,
+				'PickCustomArchetype', function (self, proto_context)
+					local enemy, dist = GetNearestEnemy(self)
+					local archetype = self.archetype
+					local weapon_class = "Firearm"
+					
+					if enemy and dist < 8*const.SlabSizeX then
+						weapon_class = "Shotgun"
+						PlayVoiceResponse(self, "AIArchetypeAngry")
+					end
+					
+					if not self:GetActiveWeapons(weapon_class) then
+						AIPlayCombatAction("ChangeWeapon", self, 0)
+					end
+					
+					return archetype
+				end,
+				'CustomEquipGear', function (self, items)
+					self:TryEquip(items, "Handheld A", "Firearm")
+					self:TryEquip(items, "Handheld B", "MeleeWeapon")
+				end,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"InstantAutopsy",
+					"CQCTraining",
+					"Shatterhand",
+					"BattleFocus",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Stormer",
+					}),
+				},
+				'Equipment', {
+					"AdonisStormer",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisStormer",
+				'object_class', "UnitData",
+				'Health', 95,
+				'Agility', 90,
+				'Dexterity', 81,
+				'Strength', 85,
+				'Wisdom', 80,
+				'Leadership', 20,
+				'Marksmanship', 95,
+				'Explosives', 0,
+				'Medical', 25,
+				'Portrait', "UI/EnemiesPortraits/AdonisStormer",
+				'BigPortrait', "UI/Enemies/LegionRaider",
+				'Name', T(482224084291, --[[ModItemUnitDataCompositeDef AdonisStormer Name]] "Штурмовик"),
+				'Randomization', true,
+				'Affiliation', "Adonis",
+				'StartingLevel', 7,
+				'neutral_retaliate', true,
+				'archetype', "Brute",
+				'role', "Stormer",
+				'AlwaysUseOpeningAttack', true,
+				'OpeningAttackType', "Overwatch",
+				'PinnedDownChance', 100,
+				'MaxAttacks', 2,
+				'PickCustomArchetype', function (self, proto_context)
+					local enemy, dist = GetNearestEnemy(self)
+					local archetype = self.archetype
+					local weapon_class = "Firearm"
+					
+					if enemy and dist < 8*const.SlabSizeX then
+						weapon_class = "Shotgun"
+						PlayVoiceResponse(self, "AIArchetypeAngry")
+					end
+					
+					if not self:GetActiveWeapons(weapon_class) then
+						AIPlayCombatAction("ChangeWeapon", self, 0)
+					end
+					
+					return archetype
+				end,
+				'CustomEquipGear', function (self, items)
+					self:TryEquip(items, "Handheld A", "SubmachineGun")
+					self:TryEquip(items, "Handheld B", "Shotgun")
+				end,
+				'unitPowerModifier', 75,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"InstantAutopsy",
+					"CQCTraining",
+					"Shatterhand",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Stormer",
+					}),
+				},
+				'Equipment', {
+					"AdonisStormer",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisAssault_Elite",
+				'object_class', "UnitData",
+				'Health', 95,
+				'Agility', 92,
+				'Dexterity', 90,
+				'Strength', 85,
+				'Wisdom', 68,
+				'Leadership', 84,
+				'Marksmanship', 95,
+				'Mechanical', 80,
+				'Explosives', 77,
+				'Medical', 52,
+				'Portrait', "UI/EnemiesPortraits/AdonisSoldier",
+				'Name', T(706893505616, --[[ModItemUnitDataCompositeDef AdonisAssault_Elite Name]] "Элитный Тяжелый Штурмовик"),
+				'Randomization', true,
+				'elite', true,
+				'eliteCategory', "Foreigners",
+				'Affiliation', "Adonis",
+				'StartingLevel', 6,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Soldier",
+					"Ordnance",
+					"Explosives",
+				},
+				'role', "Soldier",
+				'MaxAttacks', 2,
+				'PickCustomArchetype', function (self, proto_context)  end,
+				'CustomEquipGear', function (self, items)
+					self:TryEquip(items, "Handheld A", "AssaultRifle"--[[, "_762NATO_Tracer","_556_Basic","_556_HP","_762NATO_Basic","_545_EPR"]])
+					self:TryEquip(items, "Handheld A", "GrenadeLauncher"--[[, "_40mmFlashbangGrenade","_40mmFragGrenade"]])
+				end,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"AutoWeapons",
+					"LightningReactionNPC",
+					"StressManagement",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Soldier",
+					}),
+				},
+				'Equipment', {
+					"AdonisAssault_Elite",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisAssault",
+				'object_class', "UnitData",
+				'Health', 91,
+				'Agility', 85,
+				'Dexterity', 85,
+				'Strength', 85,
+				'Wisdom', 70,
+				'Leadership', 50,
+				'Marksmanship', 84,
+				'Explosives', 0,
+				'Medical', 0,
+				'Portrait', "UI/EnemiesPortraits/AdonisSoldier",
+				'Name', T(422952821275, --[[ModItemUnitDataCompositeDef AdonisAssault Name]] "Тяжелый Штурмовик"),
+				'Randomization', true,
+				'Affiliation', "Adonis",
+				'StartingLevel', 6,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Soldier",
+					"Ordnance",
+					"Explosives",
+				},
+				'role', "Soldier",
+				'MaxAttacks', 2,
+				'CustomEquipGear', function (self, items)
+					self:TryEquip(items, "Handheld A", "AssaultRifle"--[[, "_762NATO_Tracer","_556_Basic","_556_HP","_762NATO_Basic","_545_EPR"]])
+					self:TryEquip(items, "Handheld A", "GrenadeLauncher"--[[, "_40mmFlashbangGrenade","_40mmFragGrenade"]])
+				end,
+				'unitPowerModifier', 75,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"AutoWeapons",
+					"LightningReactionNPC",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Soldier",
+					}),
+				},
+				'Equipment', {
+					"AdonisAssault",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisSquadLeader_Elite",
+				'object_class', "UnitData",
+				'Health', 96,
+				'Agility', 90,
+				'Dexterity', 84,
+				'Strength', 85,
+				'Wisdom', 80,
+				'Leadership', 91,
+				'Marksmanship', 95,
+				'Mechanical', 80,
+				'Explosives', 84,
+				'Medical', 74,
+				'Portrait', "UI/EnemiesPortraits/AdonisOfficer",
+				'Name', T(840482939860, --[[ModItemUnitDataCompositeDef AdonisSquadLeader_Elite Name]] "Элитный командир"),
+				'Randomization', true,
+				'elite', true,
+				'eliteCategory', "Foreigners",
+				'Affiliation', "Adonis",
+				'StartingLevel', 7,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Control",
+					"Explosives",
+				},
+				'role', "Commander",
+				'AlwaysUseOpeningAttack', true,
+				'OpeningAttackType', "Overwatch",
+				'MaxAttacks', 2,
+				'MaxHitPoints', 80,
+				'StartingPerks', {
+					"OpportunisticKiller",
+					"AutoWeapons",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Officer",
+					}),
+				},
+				'Equipment', {
+					"AdonisSquadLeader",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisSquadLeader",
+				'object_class', "UnitData",
+				'Health', 88,
+				'Agility', 90,
+				'Dexterity', 75,
+				'Strength', 85,
+				'Wisdom', 80,
+				'Leadership', 62,
+				'Marksmanship', 95,
+				'Explosives', 64,
+				'Medical', 49,
+				'Portrait', "UI/EnemiesPortraits/AdonisOfficer",
+				'Name', T(441325795382, --[[ModItemUnitDataCompositeDef AdonisSquadLeader Name]] "Командир"),
+				'Randomization', true,
+				'Affiliation', "Adonis",
+				'StartingLevel', 7,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Control",
+					"Explosives",
+				},
+				'role', "Commander",
+				'AlwaysUseOpeningAttack', true,
+				'OpeningAttackType', "Overwatch",
+				'MaxAttacks', 2,
+				'unitPowerModifier', 75,
+				'MaxHitPoints', 80,
+				'StartingPerks', {
+					"OpportunisticKiller",
+					"AutoWeapons",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Officer",
+					}),
+				},
+				'Equipment', {
+					"AdonisSquadLeader",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisSquadLeader_Heavy",
+				'object_class', "UnitData",
+				'Health', 88,
+				'Agility', 90,
+				'Dexterity', 75,
+				'Strength', 85,
+				'Wisdom', 80,
+				'Leadership', 62,
+				'Marksmanship', 95,
+				'Explosives', 64,
+				'Medical', 49,
+				'Portrait', "UI/EnemiesPortraits/AdonisOfficer",
+				'Name', T(801516310669, --[[ModItemUnitDataCompositeDef AdonisSquadLeader_Heavy Name]] "Командир"),
+				'Randomization', true,
+				'Affiliation', "Adonis",
+				'StartingLevel', 7,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Control",
+					"Explosives",
+				},
+				'role', "Commander",
+				'AlwaysUseOpeningAttack', true,
+				'OpeningAttackType', "Overwatch",
+				'MaxAttacks', 2,
+				'unitPowerModifier', 75,
+				'MaxHitPoints', 80,
+				'StartingPerks', {
+					"OpportunisticKiller",
+					"AutoWeapons",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Officer",
+					}),
+				},
+				'Equipment', {
+					"AdonisSquadLeader",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisSquadLeader_Corporal",
+				'object_class', "UnitData",
+				'Health', 88,
+				'Agility', 90,
+				'Dexterity', 75,
+				'Strength', 85,
+				'Wisdom', 80,
+				'Leadership', 62,
+				'Marksmanship', 95,
+				'Mechanical', 70,
+				'Explosives', 64,
+				'Medical', 49,
+				'Portrait', "UI/EnemiesPortraits/AdonisOfficer",
+				'Name', T(714452942798, --[[ModItemUnitDataCompositeDef AdonisSquadLeader_Corporal Name]] "Капрал"),
+				'Randomization', true,
+				'Affiliation', "Adonis",
+				'StartingLevel', 7,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Control",
+					"Explosives",
+				},
+				'role', "Commander",
+				'AlwaysUseOpeningAttack', true,
+				'OpeningAttackType', "Overwatch",
+				'MaxAttacks', 2,
+				'unitPowerModifier', 75,
+				'MaxHitPoints', 80,
+				'StartingPerks', {
+					"OpportunisticKiller",
+					"AutoWeapons",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Officer",
+					}),
+				},
+				'Equipment', {
+					"AdonisSquadLeader",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisSquadLeader_Sergant",
+				'object_class', "UnitData",
+				'Health', 88,
+				'Agility', 90,
+				'Dexterity', 75,
+				'Strength', 85,
+				'Wisdom', 80,
+				'Leadership', 62,
+				'Marksmanship', 95,
+				'Mechanical', 80,
+				'Explosives', 64,
+				'Medical', 49,
+				'Portrait', "UI/EnemiesPortraits/AdonisOfficer",
+				'Name', T(872662857952, --[[ModItemUnitDataCompositeDef AdonisSquadLeader_Sergant Name]] "Сержант"),
+				'Randomization', true,
+				'Affiliation', "Adonis",
+				'StartingLevel', 7,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Control",
+					"Explosives",
+				},
+				'role', "Commander",
+				'AlwaysUseOpeningAttack', true,
+				'OpeningAttackType', "Overwatch",
+				'MaxAttacks', 2,
+				'unitPowerModifier', 75,
+				'MaxHitPoints', 80,
+				'StartingPerks', {
+					"OpportunisticKiller",
+					"AutoWeapons",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Officer",
+					}),
+				},
+				'Equipment', {
+					"AdonisSquadLeader",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisSniper_Elite",
+				'object_class', "UnitData",
+				'Health', 77,
+				'Agility', 90,
+				'Dexterity', 100,
+				'Strength', 85,
+				'Wisdom', 90,
+				'Leadership', 20,
+				'Marksmanship', 96,
+				'Mechanical', 90,
+				'Explosives', 42,
+				'Medical', 53,
+				'Portrait', "UI/EnemiesPortraits/AdonisSniper",
+				'Name', T(262166299016, --[[ModItemUnitDataCompositeDef AdonisSniper_Elite Name]] "Элитный тактический снайпер"),
+				'Randomization', true,
+				'elite', true,
+				'eliteCategory', "Foreigners",
+				'Affiliation', "Adonis",
+				'StartingLevel', 5,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Sniper",
+				},
+				'role', "Marksman",
+				'AlwaysUseOpeningAttack', true,
+				'OpeningAttackType', "PinDown",
+				'MaxAttacks', 1,
+				'PickCustomArchetype', function (self, proto_context)
+					local enemy, dist = GetNearestEnemy(self)
+					local archetype = self.archetype
+					local weapon_class = "Firearm"
+					
+					if enemy and dist < 5*const.SlabSizeX then
+						archetype = "Skirmisher"
+						weapon_class = "Revolver"
+						PlayVoiceResponse(self, "AIArchetypeScared")
+					end
+					
+					if not self:GetActiveWeapons(weapon_class) then
+						AIPlayCombatAction("ChangeWeapon", self, 0)
+					end
+					
+					return archetype
+				end,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"Deadeye",
+					"Shatterhand",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Marksman",
+					}),
+				},
+				'Equipment', {
+					"AdonisSniper",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Veteran",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisSniper",
+				'object_class', "UnitData",
+				'Health', 78,
+				'Agility', 90,
+				'Dexterity', 85,
+				'Strength', 85,
+				'Wisdom', 84,
+				'Leadership', 20,
+				'Marksmanship', 89,
+				'Explosives', 0,
+				'Medical', 25,
+				'Portrait', "UI/EnemiesPortraits/AdonisSniper",
+				'Name', T(103135217338, --[[ModItemUnitDataCompositeDef AdonisSniper Name]] "Тактический снайпер"),
+				'Randomization', true,
+				'Affiliation', "Adonis",
+				'StartingLevel', 5,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Sniper",
+				},
+				'role', "Marksman",
+				'AlwaysUseOpeningAttack', true,
+				'OpeningAttackType', "PinDown",
+				'MaxAttacks', 1,
+				'PickCustomArchetype', function (self, proto_context)
+					local enemy, dist = GetNearestEnemy(self)
+					local archetype = self.archetype
+					local weapon_class = "Firearm"
+					
+					if enemy and dist < 5*const.SlabSizeX then
+						archetype = "Skirmisher"
+						weapon_class = "Revolver"
+						PlayVoiceResponse(self, "AIArchetypeScared")
+					end
+					
+					if not self:GetActiveWeapons(weapon_class) then
+						AIPlayCombatAction("ChangeWeapon", self, 0)
+					end
+					
+					return archetype
+				end,
+				'CustomEquipGear', function (self, items)
+					self:TryEquip(items, "Handheld A", "SniperRifle")
+					self:TryEquip(items, "Handheld B", "Revolver")
+				end,
+				'unitPowerModifier', 75,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"SteadyBreathing",
+					"Shatterhand",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Marksman",
+					}),
+				},
+				'Equipment', {
+					"AdonisSniper",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Veteran",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisMortar",
+				'object_class', "UnitData",
+				'Health', 77,
+				'Agility', 78,
+				'Dexterity', 75,
+				'Strength', 99,
+				'Wisdom', 48,
+				'Leadership', 31,
+				'Marksmanship', 50,
+				'Mechanical', 50,
+				'Explosives', 94,
+				'Medical', 0,
+				'Portrait', "UI/EnemiesPortraits/AdonisArtillery",
+				'BigPortrait', "UI/Enemies/LegionRaider",
+				'Name', T(916476324121, --[[ModItemUnitDataCompositeDef AdonisMortar Name]] "Эксперт-взрывотехник"),
+				'Randomization', true,
+				'Affiliation', "Adonis",
+				'StartingLevel', 6,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Explosives",
+				},
+				'archetype', "Artillery",
+				'role', "Artillery",
+				'MaxAttacks', 1,
+				'PickCustomArchetype', function (self, proto_context)
+					local enemy, dist = GetNearestEnemy(self)
+					local archetype = self.archetype
+					local weapon_class = "Mortar"
+					
+					if GameState.Underground or enemy and dist < 7*const.SlabSizeX then
+						archetype = "Skirmisher"
+						weapon_class = "Revolver"
+						PlayVoiceResponse(self, "AIArchetypeScared")
+					end
+					
+					if not self:GetActiveWeapons(weapon_class) then
+						AIPlayCombatAction("ChangeWeapon", self, 0)
+					end
+					
+					return archetype
+				end,
+				'CustomEquipGear', function (self, items)
+					self:TryEquip(items, "Handheld A", "Mortar")
+					self:TryEquip(items, "Handheld B", "Revolver")
+				end,
+				'unitPowerModifier', 75,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"Throwing",
+					"HeavyWeaponsTraining",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Artillery",
+					}),
+				},
+				'Equipment', {
+					"AdonisMortar",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Veteran",
+				'pollyvoice', "Russell",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisMedic",
+				'object_class', "UnitData",
+				'Health', 100,
+				'Agility', 91,
+				'Dexterity', 85,
+				'Strength', 53,
+				'Wisdom', 96,
+				'Leadership', 58,
+				'Marksmanship', 66,
+				'Explosives', 39,
+				'Medical', 93,
+				'Portrait', "UI/EnemiesPortraits/AdonisMedic",
+				'Name', T(774264826545, --[[ModItemUnitDataCompositeDef AdonisMedic Name]] "Санитар"),
+				'Randomization', true,
+				'Affiliation', "Adonis",
+				'StartingLevel', 7,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Heal",
+				},
+				'archetype', "Medic",
+				'role', "Medic",
+				'MaxAttacks', 1,
+				'unitPowerModifier', 65,
+				'MaxHitPoints', 80,
+				'StartingPerks', {
+					"Savior",
+					"Caretaker",
+					"Shatterhand",
+					"Hotblood",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Medic",
+					}),
+				},
+				'Equipment', {
+					"AdonisMedic",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisHeavy",
+				'object_class', "UnitData",
+				'Health', 97,
+				'Agility', 86,
+				'Dexterity', 75,
+				'Strength', 95,
+				'Wisdom', 56,
+				'Leadership', 73,
+				'Marksmanship', 85,
+				'Mechanical', 70,
+				'Explosives', 0,
+				'Medical', 0,
+				'Portrait', "UI/EnemiesPortraits/AdonisHeavy",
+				'Name', T(104099261579, --[[ModItemUnitDataCompositeDef AdonisHeavy Name]] "Пулеметчик"),
+				'Randomization', true,
+				'Affiliation', "Adonis",
+				'StartingLevel', 6,
+				'neutral_retaliate', true,
+				'archetype', "HeavyGunner",
+				'role', "Heavy",
+				'MaxAttacks', 2,
+				'unitPowerModifier', 75,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"AutoWeapons",
+					"HeavyWeaponsTraining",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Heavy",
+					}),
+				},
+				'Equipment', {
+					"AdonisHeavy",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisDedicatedGunner_Elite",
+				'object_class', "UnitData",
+				'Health', 94,
+				'Agility', 91,
+				'Dexterity', 89,
+				'Strength', 95,
+				'Wisdom', 71,
+				'Leadership', 72,
+				'Marksmanship', 90,
+				'Mechanical', 80,
+				'Explosives', 81,
+				'Medical', 52,
+				'Portrait', "UI/EnemiesPortraits/AdonisHeavy",
+				'Name', T(895703228903, --[[ModItemUnitDataCompositeDef AdonisDedicatedGunner_Elite Name]] "Пулеметчик"),
+				'Randomization', true,
+				'elite', true,
+				'eliteCategory', "Foreigners",
+				'Affiliation', "Adonis",
+				'StartingLevel', 6,
+				'neutral_retaliate', true,
+				'role', "Heavy",
+				'MaxAttacks', 4,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"AutoWeapons",
+					"HeavyWeaponsTraining",
+					"CollateralDamage",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Soldier",
+					}),
+				},
+				'Equipment', {
+					"AdonisAssault_Elite",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisFlanker_Elite",
+				'object_class', "UnitData",
+				'Health', 92,
+				'Agility', 99,
+				'Dexterity', 83,
+				'Strength', 47,
+				'Wisdom', 77,
+				'Leadership', 80,
+				'Marksmanship', 92,
+				'Mechanical', 80,
+				'Explosives', 77,
+				'Medical', 55,
+				'Portrait', "UI/EnemiesPortraits/AdonisRecon",
+				'Name', T(274375177180, --[[ModItemUnitDataCompositeDef AdonisFlanker_Elite Name]] "Элитный коммандос"),
+				'Randomization', true,
+				'elite', true,
+				'eliteCategory', "Foreigners",
+				'Affiliation', "Adonis",
+				'StartingLevel', 3,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Flank",
+					"RunAndGun",
+				},
+				'archetype', "Skirmisher",
+				'role', "Recon",
+				'AlwaysUseOpeningAttack', true,
+				'MaxAttacks', 2,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"AutoWeapons",
+					"Hotblood",
+					"NightOps",
+					"RelentlessAdvance",
+					"SteadyBreathing",
+					"TrickShot",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Recon",
+					}),
+				},
+				'Equipment', {
+					"AdonisFlanker",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Veteran",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisFlanker",
+				'object_class', "UnitData",
+				'Health', 82,
+				'Agility', 81,
+				'Dexterity', 83,
+				'Strength', 83,
+				'Wisdom', 73,
+				'Leadership', 55,
+				'Marksmanship', 81,
+				'Explosives', 0,
+				'Medical', 0,
+				'Portrait', "UI/EnemiesPortraits/AdonisRecon",
+				'Name', T(317878347666, --[[ModItemUnitDataCompositeDef AdonisFlanker Name]] "Коммандос"),
+				'Randomization', true,
+				'Affiliation', "Adonis",
+				'StartingLevel', 3,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Flank",
+					"RunAndGun",
+				},
+				'archetype', "Skirmisher",
+				'role', "Recon",
+				'AlwaysUseOpeningAttack', true,
+				'MaxAttacks', 2,
+				'unitPowerModifier', 75,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"AutoWeapons",
+					"Hotblood",
+					"NightOps",
+					"RelentlessAdvance",
+					"SteadyBreathing",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Recon",
+					}),
+				},
+				'Equipment', {
+					"AdonisFlanker",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Veteran",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisDemolitions_Elite",
+				'object_class', "UnitData",
+				'Health', 87,
+				'Agility', 87,
+				'Dexterity', 84,
+				'Strength', 90,
+				'Wisdom', 61,
+				'Leadership', 31,
+				'Marksmanship', 87,
+				'Mechanical', 80,
+				'Explosives', 98,
+				'Medical', 34,
+				'Portrait', "UI/EnemiesPortraits/AdonisDemo",
+				'Name', T(516222648054, --[[ModItemUnitDataCompositeDef AdonisDemolitions_Elite Name]] "Мастер-взрывотехник"),
+				'Randomization', true,
+				'elite', true,
+				'eliteCategory', "Foreigners",
+				'Affiliation', "Adonis",
+				'StartingLevel', 6,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Ordnance",
+					"Explosives",
+				},
+				'role', "Artillery",
+				'MaxAttacks', 2,
+				'PickCustomArchetype', function (self, proto_context)
+					local enemy, dist = GetNearestEnemy(self)
+					local archetype = self.archetype
+					local weapon_class = "GrenadeLauncher"
+					
+					if enemy and dist < 7*const.SlabSizeX then
+						archetype = "Skirmisher"
+						weapon_class = "Firearm"
+						PlayVoiceResponse(self, "AIArchetypeScared")
+					end
+					
+					if not self:GetActiveWeapons(weapon_class) then
+						AIPlayCombatAction("ChangeWeapon", self, 0)
+					end
+					
+					return archetype
+				end,
+				'CustomEquipGear', function (self, items)
+					self:TryEquip(items, "Handheld A", "GrenadeLauncher")
+					self:TryEquip(items, "Handheld B", "Firearm")
+				end,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"Throwing",
+					"Berserker",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Demolition",
+					}),
+				},
+				'Equipment', {
+					"AdonisDemolitions",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Veteran",
+				'pollyvoice', "Russell",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisDemolitions",
+				'object_class', "UnitData",
+				'Health', 77,
+				'Agility', 72,
+				'Strength', 81,
+				'Wisdom', 30,
+				'Leadership', 31,
+				'Marksmanship', 77,
+				'Explosives', 75,
+				'Medical', 0,
+				'Portrait', "UI/EnemiesPortraits/AdonisDemo",
+				'Name', T(469413071271, --[[ModItemUnitDataCompositeDef AdonisDemolitions Name]] "Эксперт-взрывотехник"),
+				'Randomization', true,
+				'Affiliation', "Adonis",
+				'StartingLevel', 6,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Ordnance",
+					"Explosives",
+				},
+				'role', "Artillery",
+				'MaxAttacks', 2,
+				'PickCustomArchetype', function (self, proto_context)
+					local enemy, dist = GetNearestEnemy(self)
+					local archetype = self.archetype
+					local weapon_class = "GrenadeLauncher"
+					
+					if enemy and dist < 7*const.SlabSizeX then
+						archetype = "Skirmisher"
+						weapon_class = "Firearm"
+						PlayVoiceResponse(self, "AIArchetypeScared")
+					end
+					
+					if not self:GetActiveWeapons(weapon_class) then
+						AIPlayCombatAction("ChangeWeapon", self, 0)
+					end
+					
+					return archetype
+				end,
+				'CustomEquipGear', function (self, items)
+					self:TryEquip(items, "Handheld A", "GrenadeLauncher")
+					self:TryEquip(items, "Handheld B", "Firearm")
+				end,
+				'unitPowerModifier', 75,
+				'MaxHitPoints', 50,
+				'StartingPerks', {
+					"Throwing",
+					"Berserker",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Demolition",
+					}),
+				},
+				'Equipment', {
+					"AdonisDemolitions",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Veteran",
+				'pollyvoice', "Russell",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisSoldier",
+				'object_class', "UnitData",
+				'Health', 88,
+				'Agility', 90,
+				'Dexterity', 75,
+				'Strength', 85,
+				'Wisdom', 80,
+				'Leadership', 62,
+				'Marksmanship', 95,
+				'Explosives', 64,
+				'Medical', 49,
+				'Portrait', "UI/EnemiesPortraits/AdonisOfficer",
+				'Name', T(732651490972, --[[ModItemUnitDataCompositeDef AdonisSoldier Name]] "Стрелок"),
+				'Randomization', true,
+				'Affiliation', "Adonis",
+				'StartingLevel', 7,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Soldier",
+					"Flank",
+					"Explosives",
+				},
+				'role', "Soldier",
+				'AlwaysUseOpeningAttack', true,
+				'OpeningAttackType', "Overwatch",
+				'MaxAttacks', 2,
+				'unitPowerModifier', 75,
+				'MaxHitPoints', 80,
+				'StartingPerks', {
+					"OpportunisticKiller",
+					"AutoWeapons",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Officer",
+					}),
+				},
+				'Equipment', {
+					"AdonisSquadLeader",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			PlaceObj('ModItemUnitDataCompositeDef', {
+				'Group', "Adonis",
+				'Id', "AdonisSoldier_Elite",
+				'object_class', "UnitData",
+				'Health', 88,
+				'Agility', 90,
+				'Dexterity', 75,
+				'Strength', 85,
+				'Wisdom', 80,
+				'Leadership', 62,
+				'Marksmanship', 95,
+				'Mechanical', 80,
+				'Explosives', 64,
+				'Medical', 49,
+				'Portrait', "UI/EnemiesPortraits/AdonisOfficer",
+				'Name', T(286417287672, --[[ModItemUnitDataCompositeDef AdonisSoldier_Elite Name]] "Элитный стрелок"),
+				'Randomization', true,
+				'Affiliation', "Adonis",
+				'StartingLevel', 7,
+				'neutral_retaliate', true,
+				'AIKeywords', {
+					"Soldier",
+					"Flank",
+					"Explosives",
+				},
+				'role', "Soldier",
+				'AlwaysUseOpeningAttack', true,
+				'OpeningAttackType', "Overwatch",
+				'MaxAttacks', 2,
+				'unitPowerModifier', 75,
+				'MaxHitPoints', 80,
+				'StartingPerks', {
+					"OpportunisticKiller",
+					"AutoWeapons",
+				},
+				'AppearancesList', {
+					PlaceObj('AppearanceWeight', {
+						'Preset', "Adonis_Officer",
+					}),
+				},
+				'Equipment', {
+					"AdonisSquadLeader",
+				},
+				'AdditionalGroups', {
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_1",
+					}),
+					PlaceObj('AdditionalGroup', {
+						'Weight', 50,
+						'Exclusive', true,
+						'Name', "AdonisMale_2",
+					}),
+				},
+				'Tier', "Elite",
+				'pollyvoice', "Joey",
+				'gender', "Male",
+				'VoiceResponseId', "AdonisAssault",
+			}),
+			}),
+		PlaceObj('ModItemAIArchetype', {
+			BaseAttackTargeting = set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso", "Trap" ),
+			BaseAttackWeight = 140,
+			BaseMovementWeight = 150,
+			Behaviors = {
+				PlaceObj('StandardAI', {
+					'EndTurnPolicies', {
+						PlaceObj('AIPolicyDealDamage', {
+							'RequiredKeywords', {
+								"Gunner",
+							},
+							'Weight', 1000,
+						}),
+						PlaceObj('AIPolicyWeaponRange', {
+							'RequiredKeywords', {
+								"Gunner",
+							},
+							'RangeMin', 30,
+							'RangeMax', 80,
+						}),
+					},
+					'SignatureActions', {
+						PlaceObj('AIActionMGSetup', {
+							'Priority', true,
+							'team_score', 0,
+							'min_score', 100,
+							'cur_zone_mod', 140,
+						}),
+						PlaceObj('AIActionMGBurstFire', {
+							'AttackTargeting', set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso" ),
+						}),
+					},
+					'TakeCoverChance', 0,
+					'override_attack_id', "BurstFire",
+					'override_cost_id', "MGSetup",
+				}),
+				PlaceObj('PositioningAI', {
+					'BiasId', "Flanking",
+					'Weight', 200,
+					'OnActivationBiases', {
+						PlaceObj('AIBiasModification', {
+							'BiasId', "MGSetup",
+							'Value', 200,
+							'ApplyTo', "Team",
+						}),
+						PlaceObj('AIBiasModification', {
+							'BiasId', "MGSetup",
+							'Value', 100,
+							'Period', 2,
+						}),
+					},
+					'RequiredKeywords', {
+						"Control",
+					},
+					'turn_phase', "Late",
+					'EndTurnPolicies', {
+						PlaceObj('AIPolicyTakeCover', {
+							'Weight', 150,
+						}),
+					},
+				}),
+			},
+			OptLocPolicies = {
+				PlaceObj('AIPolicyWeaponRange', {
+					'RequiredKeywords', {
+						"Gunner",
+					},
+					'Weight', 700,
+					'RangeMin', 40,
+					'RangeMax', 80,
+				}),
+				PlaceObj('AIPolicyWeaponRange', {
+					'RequiredKeywords', {
+						"Gunner",
+					},
+					'Weight', 600,
+					'RangeMin', 60,
+					'RangeMax', 100,
+				}),
+				PlaceObj('AIPolicyLosToEnemy', {
+					'RequiredKeywords', {
+						"Gunner",
+					},
+					'Weight', 600,
+				}),
+			},
+			OptLocSearchRadius = 100,
+			PrefStance = "Prone",
+			SignatureActions = {
+				PlaceObj('AIActionMGBurstFire', {
+					'Weight', 200,
+					'OnActivationBiases', {
+						PlaceObj('AIBiasModification', {
+							'BiasId', "Overwatch",
+							'Value', 50,
+						}),
+					},
+					'Aiming', "Remaining AP",
+					'AttackTargeting', set( "Arms", "BlindFire", "InCover", "Legs", "Torso" ),
+				}),
+				PlaceObj('AIActionMGSetup', {
+					'Weight', 200,
+					'Priority', true,
+				}),
+			},
+			TargetChangePolicy = "restart",
+			TargetScoreRandomization = 10,
+			group = "Simplified",
+			id = "HeavyGunner",
+		}),
+		PlaceObj('ModItemAIArchetype', {
+			BaseAttackTargeting = set( "Arms", "BlindFire", "InCover", "Legs", "Torso", "Trap" ),
+			BaseMovementWeight = 90,
+			Behaviors = {
+				PlaceObj('StandardAI', {
+					'OptLocWeight', 70,
+					'EndTurnPolicies', {
+						PlaceObj('AIPolicyDealDamage', nil),
+						PlaceObj('AIPolicyTakeCover', {
+							'Weight', 50,
+						}),
+					},
+					'TakeCoverChance', 50,
+				}),
+				PlaceObj('PositioningAI', {
+					'BiasId', "Flanking",
+					'Weight', 500,
+					'Fallback', false,
+					'RequiredKeywords', {
+						"Flank",
+					},
+					'OptLocWeight', 20,
+					'EndTurnPolicies', {
+						PlaceObj('AIPolicyFlanking', {
+							'Weight', 1000,
+							'Required', true,
+							'ReserveAttackAP', true,
+						}),
+						PlaceObj('AIPolicyDealDamage', nil),
+					},
+					'TakeCoverChance', 0,
+					'VoiceResponse', "AIFlanking",
+				}),
+			},
+			Comment = "Keywords: Flank, Explosives",
+			OptLocPolicies = {
+				PlaceObj('AIPolicyWeaponRange', {
+					'Weight', 300,
+					'RangeBase', "Absolute",
+					'RangeMin', 4,
+					'RangeMax', 12,
+				}),
+				PlaceObj('AIPolicyLosToEnemy', {
+					'Weight', 250,
+				}),
+				PlaceObj('AIPolicyTakeCover', {
+					'RequiredKeywords', {
+						"Control",
+					},
+					'Weight', 90,
+				}),
+			},
+			OptLocSearchRadius = 50,
+			PrefStance = "Crouch",
+			SignatureActions = {
+				PlaceObj('AIActionMobileShot', {
+					'Weight', 150,
+					'Priority', true,
+					'NotificationText', "",
+					'RequiredKeywords', {
+						"RunAndGun",
+					},
+					'action_id', "RunAndGun",
+				}),
+				PlaceObj('AIActionMobileShot', {
+					'Weight', 200,
+					'Priority', true,
+					'NotificationText', "",
+					'RequiredKeywords', {
+						"MobileShot",
+					},
+				}),
+				PlaceObj('AIActionThrowGrenade', {
+					'BiasId', "AssaultGrenadeThrow",
+					'Weight', 200,
+					'OnActivationBiases', {
+						PlaceObj('AIBiasModification', {
+							'BiasId', "AssaultGrenadeThrow",
+							'Effect', "disable",
+						}),
+						PlaceObj('AIBiasModification', {
+							'BiasId', "AssaultGrenadeThrow",
+							'Value', -50,
+							'Period', 0,
+							'ApplyTo', "Team",
+						}),
+					},
+					'RequiredKeywords', {
+						"Explosives",
+					},
+					'AllowedAoeTypes', set( "fire", "none", "teargas", "toxicgas" ),
+					'TargetLastAttackPos', true,
+				}),
+				PlaceObj('AIActionThrowGrenade', {
+					'BiasId', "AssaultGrenadeThrow",
+					'Weight', 200,
+					'OnActivationBiases', {
+						PlaceObj('AIBiasModification', {
+							'BiasId', "AssaultGrenadeThrow",
+							'Effect', "disable",
+						}),
+						PlaceObj('AIBiasModification', {
+							'BiasId', "AssaultGrenadeThrow",
+							'Value', -50,
+							'Period', 0,
+							'ApplyTo', "Team",
+						}),
+					},
+					'RequiredKeywords', {
+						"Explosives",
+					},
+					'AllowedAoeTypes', set( "fire", "none", "teargas", "toxicgas" ),
+				}),
+			},
+			TargetChangePolicy = "restart",
+			TargetScoreRandomization = 10,
+			TargetingPolicies = {
+				PlaceObj('AITargetingEnemyHealth', {
+					'Health', 90,
+				}),
+			},
+			group = "Simplified",
+			id = "Skirmisher",
+		}),
+		PlaceObj('ModItemAIArchetype', {
+			BaseAttackTargeting = set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso", "Trap" ),
+			BaseAttackWeight = 120,
+			BaseMovementWeight = 40,
+			Behaviors = {
+				PlaceObj('StandardAI', {
+					'BiasId', "Standard",
+					'Weight', 150,
+					'EndTurnPolicies', {
+						PlaceObj('AIPolicyTakeCover', {
+							'Weight', 90,
+							'visibility_mode', "team",
+						}),
+						PlaceObj('AIPolicyDealDamage', nil),
+					},
+					'TakeCoverChance', 60,
+				}),
+			},
+			Comment = "Keywords: Soldier, Sniper, Control, Ordnance, Smoke, Explosives",
+			OptLocPolicies = {
+				PlaceObj('AIPolicyTakeCover', {
+					'Weight', 90,
+				}),
+				PlaceObj('AIPolicyHighGround', {
+					'RequiredKeywords', {
+						"Sniper",
+					},
+					'Weight', 200,
+				}),
+				PlaceObj('AIPolicyHighGround', {
+					'RequiredKeywords', {
+						"Soldier",
+					},
+				}),
+				PlaceObj('AIPolicyLosToEnemy', {
+					'Weight', 300,
+				}),
+				PlaceObj('AIPolicyWeaponRange', {
+					'RequiredKeywords', {
+						"Soldier",
+					},
+					'Weight', 60,
+					'RangeMin', 10,
+					'RangeMax', 25,
+				}),
+				PlaceObj('AIPolicyWeaponRange', {
+					'RequiredKeywords', {
+						"Soldier",
+					},
+					'Weight', 180,
+					'RangeMin', 26,
+					'RangeMax', 49,
+				}),
+				PlaceObj('AIPolicyWeaponRange', {
+					'RequiredKeywords', {
+						"Soldier",
+					},
+					'RangeMin', 50,
+					'RangeMax', 100,
+				}),
+			},
+			OptLocSearchRadius = 80,
+			PrefStance = "Prone",
+			SignatureActions = {
+				PlaceObj('AIAttackSingleTarget', {
+					'BiasId', "Autofire",
+					'Weight', 150,
+					'OnActivationBiases', {
+						PlaceObj('AIBiasModification', {
+							'BiasId', "Autofire",
+							'Effect', "disable",
+							'Period', 0,
+							'ApplyTo', "Team",
+						}),
+					},
+					'NotificationText', T(784570352729, --[[ModItemAIArchetype Soldier NotificationText]] "Автоматический огонь"),
+					'RequiredKeywords', {
+						"Soldier",
+					},
+					'action_id', "AutoFire",
+					'AttackTargeting', set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso", "Trap" ),
+				}),
+				PlaceObj('AIActionPinDown', {
+					'BiasId', "PinDownAttack",
+					'Weight', 80,
+					'OnActivationBiases', {
+						PlaceObj('AIBiasModification', {
+							'BiasId', "PinDownAttack",
+							'Value', -50,
+							'ApplyTo', "Team",
+						}),
+					},
+					'RequiredKeywords', {
+						"Sniper",
+					},
+				}),
+				PlaceObj('AIActionThrowGrenade', {
+					'BiasId', "AssaultGrenadeThrow",
+					'OnActivationBiases', {
+						PlaceObj('AIBiasModification', {
+							'BiasId', "AssaultGrenadeThrow",
+							'Effect', "disable",
+						}),
+						PlaceObj('AIBiasModification', {
+							'BiasId', "AssaultGrenadeThrow",
+							'Effect', "disable",
+							'Period', 0,
+							'ApplyTo', "Team",
+						}),
+					},
+					'RequiredKeywords', {
+						"Explosives",
+					},
+					'self_score_mod', -1000,
+					'AllowedAoeTypes', set( "fire", "none", "teargas", "toxicgas" ),
+				}),
+				PlaceObj('AIActionThrowGrenade', {
+					'BiasId', "SmokeGrenade",
+					'OnActivationBiases', {
+						PlaceObj('AIBiasModification', {
+							'BiasId', "SmokeGrenade",
+							'Effect', "disable",
+						}),
+						PlaceObj('AIBiasModification', {
+							'BiasId', "SmokeGrenade",
+							'Effect', "disable",
+							'Period', 0,
+							'ApplyTo', "Team",
+						}),
+					},
+					'RequiredKeywords', {
+						"Smoke",
+					},
+					'enemy_score', 0,
+					'team_score', 100,
+					'self_score_mod', 100,
+					'MinDist', 0,
+					'AllowedAoeTypes', set( "smoke" ),
+				}),
+				PlaceObj('AIActionHeavyWeaponAttack', {
+					'BiasId', "LauncherFire",
+					'OnActivationBiases', {
+						PlaceObj('AIBiasModification', {
+							'BiasId', "LauncherFire",
+							'Effect', "disable",
+							'Period', 0,
+						}),
+						PlaceObj('AIBiasModification', {
+							'BiasId', "LauncherFire",
+							'Value', -50,
+							'Period', 0,
+							'ApplyTo', "Team",
+						}),
+					},
+					'RequiredKeywords', {
+						"Ordnance",
+					},
+					'self_score_mod', -1000,
+					'MinDist', 5000,
+					'LimitRange', true,
+					'MaxTargetRange', 30,
+				}),
+				PlaceObj('AIActionHeavyWeaponAttack', {
+					'BiasId', "RocketFire",
+					'Weight', 200,
+					'OnActivationBiases', {
+						PlaceObj('AIBiasModification', {
+							'BiasId', "RocketFire",
+							'Effect', "disable",
+						}),
+					},
+					'RequiredKeywords', {
+						"Ordnance",
+					},
+					'self_score_mod', -1000,
+					'MinDist', 5000,
+					'action_id', "RocketLauncherFire",
+					'LimitRange', true,
+					'MaxTargetRange', 30,
+				}),
+				PlaceObj('AIAttackSingleTarget', {
+					'BiasId', "GroinShot",
+					'OnActivationBiases', {
+						PlaceObj('AIBiasModification', {
+							'BiasId', "GroinShot",
+							'Effect', "disable",
+							'Period', 0,
+							'ApplyTo', "Team",
+						}),
+						PlaceObj('AIBiasModification', {
+							'BiasId', "GroinShot",
+							'Effect', "disable",
+						}),
+					},
+					'RequiredKeywords', {
+						"Sniper",
+					},
+					'Aiming', "Remaining AP",
+					'AttackTargeting', set( "Groin" ),
+				}),
+				PlaceObj('AIConeAttack', {
+					'BiasId', "Overwatch",
+					'OnActivationBiases', {
+						PlaceObj('AIBiasModification', {
+							'BiasId', "Overwatch",
+							'Value', -50,
+							'ApplyTo', "Team",
+						}),
+						PlaceObj('AIBiasModification', {
+							'BiasId', "Overwatch",
+							'Effect', "disable",
+							'Value', -50,
+							'Period', 2,
+						}),
+					},
+					'RequiredKeywords', {
+						"Soldier",
+					},
+					'team_score', 0,
+					'min_score', 300,
+					'action_id', "Overwatch",
+				}),
+				PlaceObj('AIConeAttack', {
+					'BiasId', "SpamOverwatch",
+					'Weight', 200,
+					'OnActivationBiases', {
+						PlaceObj('AIBiasModification', {
+							'BiasId', "SpamOverwatch",
+							'Effect', "disable",
+							'Value', -50,
+							'ApplyTo', "Team",
+						}),
+					},
+					'RequiredKeywords', {
+						"Control",
+					},
+					'team_score', 0,
+					'min_score', 100,
+					'action_id', "Overwatch",
+				}),
+			},
+			TargetChangePolicy = "restart",
+			TargetScoreRandomization = 10,
+			group = "Simplified",
+			id = "Soldier",
+		}),
+		PlaceObj('ModItemAIArchetype', {
+			BaseAttackTargeting = set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso", "Trap" ),
+			BaseAttackWeight = 140,
+			Behaviors = {
+				PlaceObj('StandardAI', {
+					'BiasId', "Standard",
+					'Weight', 150,
+					'EndTurnPolicies', {
+						PlaceObj('AIPolicyTakeCover', {
+							'Weight', 50,
+							'visibility_mode', "team",
+						}),
+						PlaceObj('AIPolicyDealDamage', {
+							'Weight', 150,
+						}),
+					},
+					'TakeCoverChance', 70,
+				}),
+			},
+			Comment = "Keywords: Soldier, Sniper, Control, Ordnance, Smoke, Explosives",
+			MoveStance = "Crouch",
+			OptLocPolicies = {
+				PlaceObj('AIPolicyTakeCover', {
+					'RequiredKeywords', {
+						"Soldier",
+					},
+				}),
+				PlaceObj('AIPolicyHighGround', {
+					'RequiredKeywords', {
+						"Sniper",
+					},
+					'Weight', 200,
+				}),
+				PlaceObj('AIPolicyLosToEnemy', {
+					'RequiredKeywords', {
+						"Soldier",
+					},
+					'Weight', 300,
+				}),
+				PlaceObj('AIPolicyWeaponRange', {
+					'Weight', 110,
+					'RangeMin', 10,
+					'RangeMax', 25,
+				}),
+				PlaceObj('AIPolicyWeaponRange', {
+					'Weight', 150,
+					'RangeMin', 26,
+					'RangeMax', 49,
+				}),
+				PlaceObj('AIPolicyWeaponRange', {
+					'RequiredKeywords', {
+						"Soldier",
+					},
+					'Weight', 160,
+					'RangeMin', 50,
+				}),
+			},
+			OptLocSearchRadius = 80,
+			PrefStance = "Prone",
+			SignatureActions = {
+				PlaceObj('AIAttackSingleTarget', {
+					'BiasId', "GroinShot",
+					'OnActivationBiases', {
+						PlaceObj('AIBiasModification', {
+							'BiasId', "GroinShot",
+							'Effect', "disable",
+							'Period', 0,
+							'ApplyTo', "Team",
+						}),
+						PlaceObj('AIBiasModification', {
+							'BiasId', "GroinShot",
+							'Effect', "disable",
+						}),
+					},
+					'RequiredKeywords', {
+						"Sniper",
+					},
+					'Aiming', "Remaining AP",
+					'AttackTargeting', set( "Groin" ),
+				}),
+				PlaceObj('AIConeAttack', {
+					'BiasId', "Overwatch",
+					'Weight', 130,
+					'OnActivationBiases', {
+						PlaceObj('AIBiasModification', {
+							'BiasId', "Overwatch",
+							'Value', -50,
+							'ApplyTo', "Team",
+						}),
+						PlaceObj('AIBiasModification', {
+							'BiasId', "Overwatch",
+							'Effect', "disable",
+							'Value', -50,
+						}),
+					},
+					'RequiredKeywords', {
+						"Soldier",
+					},
+					'team_score', 0,
+					'min_score', 300,
+					'action_id', "Overwatch",
+				}),
+				PlaceObj('AIConeAttack', {
+					'BiasId', "SpamOverwatch",
+					'Weight', 200,
+					'OnActivationBiases', {
+						PlaceObj('AIBiasModification', {
+							'BiasId', "SpamOverwatch",
+							'Effect', "disable",
+							'Value', -50,
+							'ApplyTo', "Team",
+						}),
+					},
+					'RequiredKeywords', {
+						"Control",
+					},
+					'team_score', 0,
+					'min_score', 100,
+					'action_id', "Overwatch",
+				}),
+				PlaceObj('AIActionBasicAttack', {
+					'BiasId', "Standard",
+					'OnActivationBiases', {
+						PlaceObj('AIBiasModification', {
+							'BiasId', "Standard",
+							'Value', 50,
+						}),
+					},
+				}),
+			},
+			TargetChangePolicy = "restart",
+			TargetScoreRandomization = 10,
+			TargetingPolicies = {
+				PlaceObj('AITargetingEnemyWeapon', {
+					'Weight', 150,
+					'EnemyWeapon', "Sniper",
+				}),
+				PlaceObj('AITargetingEnemyWeapon', {
+					'Weight', 140,
+					'EnemyWeapon', "MachineGun",
+				}),
+				PlaceObj('AITargetingEnemyWeapon', {
+					'Weight', 130,
+					'EnemyWeapon', "HeavyWeapon",
+				}),
+				PlaceObj('AITargetingEnemyHealth', {
+					'Weight', 150,
+					'Health', 70,
+				}),
+			},
+			group = "Simplified",
+			id = "Soldier_Sniper",
+		}),
+		}),
 	PlaceObj('ModItemFolder', {
 		'name', "ObjMaterials",
 	}, {

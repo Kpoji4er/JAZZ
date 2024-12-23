@@ -26,7 +26,7 @@ local function find_first_hit(attack_results, hit_obj)
 end
 
 local function PerkHaveABlastAttackAndWeapon(unit)
-	local actions = { "ThrowGrenadeA", "ThrowGrenadeB", "ThrowGrenadeC", "ThrowGrenadeD" }
+	local actions = { "ThrowGrenadeA", "ThrowGrenadeB", "ThrowGrenadeC", "ThrowGrenadeD","ThrowGrenadeAG", "ThrowGrenadeBG", "ThrowGrenadeCG", "ThrowGrenadeDG","ThrowGrenadeAO", "ThrowGrenadeBO" }
 	for _, id in ipairs(actions) do
 		local action = CombatActions[id]
 		local weapon = action:GetAttackWeapons(unit)
@@ -131,7 +131,7 @@ function FirearmBase:ReliabilityCheck(attacker, num_shots)
 
 	loss = (loss+.0)/10
 
-	if item.Deterioration >= 10 then loss = loss + 0.1*item.Deterioration end
+	if item.Deterioration >= 15 then loss = loss + 0.1*item.Deterioration end
 
 
 	
@@ -148,7 +148,7 @@ function FirearmBase:ReliabilityCheck(attacker, num_shots)
 		local seed = Unit:Random()
 		local random = BraidRandomCreate(seed)
 
-		loss = loss + Max(1,0.1*MulDivRound(random(100-item.Reliability),1,10))
+		loss = loss + Max(0,0.1*MulDivRound(random(100-item.Reliability),1,10))
 
 		if num_shots == 1 then jam_chance = jam_chance/2 end
 		--if num_shots < 3 then jam_chance = jam_chance/2 end
@@ -1046,7 +1046,9 @@ TFormat.bullets =  function(context_obj, bullets, max, icon)
 	else
 		if bullets > 0 then
 			if context_obj and context_obj.MagazineSize and context_obj.ammo.colorStyle and bullets ~= 0 then	
-				text = "<style "..context_obj.ammo.colorStyle..">"..text.."</style>" .. "/<style InventoryItemsCountMax><max></style>"
+			--	text = T{"<style <ammocolor> ><text></style>/<style InventoryItemsCountMax><max></style>", ammocolor = context_obj.ammo.colorStyle, text = text}
+				text = T{"<style "..context_obj.ammo.colorStyle..">"..text.."</style>/<style InventoryItemsCountMax><max></style>", ammocolor = context_obj.ammo.colorStyle, text = text}
+				--text = "<style "..context_obj.ammo.colorStyle..">"..text.."</style>" .. "/<style InventoryItemsCountMax><max></style>"
 			else
 				text = text .. "/<style InventoryItemsCountMax><max></style>"
 			end
