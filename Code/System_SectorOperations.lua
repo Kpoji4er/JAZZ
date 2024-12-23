@@ -192,7 +192,7 @@ function XDragContextWindow:OnDragDrop(target, drag_win, drop_res, pt)
 	ObjModified(self_queue)
 end
 
-local priority_slots = {"Handheld A", "Handheld B", "Head", "Torso", "Legs", "HeadGear", "PocketsInventory"}
+local priority_slots = {"Handheld A", "Handheld B", "Head", "Torso", "Legs", "HeadGear", "PocketInventory"}
 function SectorOperationFillItemsToRepair(sector_id, mercs, check_only)
 	-- priority of mercs whose item will be repaired:
 	--[[

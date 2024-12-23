@@ -1065,3 +1065,8 @@ function OnMsg.SectorsTick(tick, ticks_per_day)
 		ExecuteSectorEvents("SE_OnTick", id)
 	end
 end
+
+
+
+
+

@@ -114,25 +114,100 @@ function InventoryItem:GetDeteriorationKeywordNoPrefix()
 	local keyword = ""
 	local conditionPercent = self.Deterioration
 	
-	if conditionPercent<=1 then
-		color = "item_green"
-		keyword =  T(486989771291111, "идеальное")
-	elseif conditionPercent<=5 then
-		color = "item_green"
-		keyword =  T(2998106563741111, "отремонтированное")
-	elseif conditionPercent<=20 then
-		color = "yellow"
-		keyword = T(5678579714391111, "изношенное")
-	elseif conditionPercent<=50 then
-		color = "red"
-		keyword = T(939310080350111, "ржавое")
-	else--if conditionPercent>=presets.ItemConditionBroken.name then
-		color = "red"
-		keyword =  T(968409848233111, "сломанное")
+	if IsKindOf(self,"Armor") then
+		if conditionPercent<=1 then
+			color = "item_green"
+			keyword =  T(4869897712911115, "идеальное")
+		elseif conditionPercent<=10 then
+			color = "item_green"
+			keyword =  T(29981065637411115, "заштопанное")
+		elseif conditionPercent<=30 then
+			color = "yellow"
+			keyword = T(56785797143911115, "дырявое")
+		elseif conditionPercent<=50 then
+			color = "red"
+			keyword = T(9393100803501115, "рваное")
+		else--if conditionPercent>=presets.ItemConditionBroken.name then
+			color = "red"
+			keyword =  T(9684098482331115, "порвано")
+		end
+	else
+		if conditionPercent<=1 then
+			color = "item_green"
+			keyword =  T(486989771291111, "идеальное")
+		elseif conditionPercent<=5 then
+			color = "item_green"
+			keyword =  T(2998106563741111, "отремонтированное")
+		elseif conditionPercent<=20 then
+			color = "yellow"
+			keyword = T(5678579714391111, "изношенное")
+		elseif conditionPercent<=50 then
+			color = "red"
+			keyword = T(939310080350111, "ржавое")
+		else--if conditionPercent>=presets.ItemConditionBroken.name then
+			color = "red"
+			keyword =  T(968409848233111, "сломанное")
+		end
 	end
+
 	return T{997078176629, "<clr><keyword><closeclr>",clr = const.TagLookupTable[color],closeclr  = const.TagLookupTable["/"..color],  keyword = keyword}
 end
 
+
+function InventoryItem:GetDeteriorationKeywordNoPrefixForInventory()
+	if not self.Deterioration then 
+		return " " 
+	end
+	
+	local presets = Presets.ConstDef.Weapons
+	local color --AP_Main_SmallRed
+	local keyword = ""
+	local conditionPercent = self.Deterioration
+
+	if IsKindOf(self,"Armor") then
+		if conditionPercent<=1 then
+			color = "item_green"
+			keyword = " "
+		elseif conditionPercent<=10 then
+			color = "item_green"
+			keyword = T(29981065637411112, "б/у")
+		elseif conditionPercent<=30 then
+			color = "yellow"
+			keyword = T(56785797143911112, "дырявое")
+		elseif conditionPercent<=50 then
+			color = "red"
+			keyword = T(9393100803501112, "рваное")
+		else--if conditionPercent>=presets.ItemConditionBroken.name then
+			color = "red"
+			keyword =  T(9684098482331112, "порвано")
+		end
+	else
+		if conditionPercent<=1 then
+			color = "item_green"
+			keyword = " "
+		elseif conditionPercent<=5 then
+			color = "item_green"
+			keyword = T(29981065637411112, "б/у")
+		elseif conditionPercent<=20 then
+			color = "yellow"
+			keyword = T(56785797143911112, "износ")
+		elseif conditionPercent<=50 then
+			color = "red"
+			keyword = T(9393100803501112, "ржавое")
+		else--if conditionPercent>=presets.ItemConditionBroken.name then
+			color = "red"
+			keyword =  T(9684098482331112, "сломано")
+		end
+	end
+	
+	
+	return T{997078176629, "<clr><keyword><closeclr>",clr = const.TagLookupTable[color],closeclr  = const.TagLookupTable["/"..color],  keyword = keyword}
+end
+
+
+function InventoryItem:GetConditionText()
+	return T{6862025595561, "<Deterioration> <percent(condPercent)>", Deterioration = self:GetDeteriorationKeywordNoPrefixForInventory(), condPercent = self.Condition}
+end
 
 function ScrapItem(inventory, slot_name, item, amount, squadBag, squadId)
 	local is_stack = IsKindOf(item, "InventoryStack")
@@ -194,3 +269,46 @@ function ScrapItem(inventory, slot_name, item, amount, squadBag, squadId)
 	ObjModified("inventory tabs")
 	UpdateWeaponModificationPartsCounter()
 end
+
+
+--function SortItemsArray(items)
+--	-- stack items
+--	for i = 1, #items do
+--		if IsKindOf(items[i], "InventoryStack") then
+--			for j = i+1, #items do
+--				if items[i].class == items[j].class then
+--					local transferAmount = Min(items[i].MaxStacks - items[i].Amount, items[j].Amount)
+--					items[i].Amount = items[i].Amount + transferAmount
+--					items[j].Amount = items[j].Amount - transferAmount
+--				end
+--			end
+--		end
+--	end
+--	
+--	-- remove empty stacks
+--	for i = #items, 1, -1 do
+--		if items[i].Amount and items[i].Amount <= 0 then
+--			local item = table.remove(items, i)
+--			DoneObject(item)
+--		end
+--	end
+--	
+--	-- sort
+--
+--
+--	for i = 1, #items do
+--		if items[i].Deterioration and items[i+1].Deterioration then
+--			for j = i+1, #items do
+--				if items[i].Deterioration <= items[j].Deterioration then
+--						local buf = items[i]
+--						items[i] = items[j]
+--						items[j] = buf
+--				end
+--			end
+--		end
+--	end
+--
+--	table.sortby_field(items, "class")
+--	
+--	return items
+--end

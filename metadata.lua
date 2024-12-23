@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/3NHHXrHA2D",
 	},
-	'last_changes', "Ребаланс оружия и расчета шансов попадания - в сторону уменьшения точности на дистанции\nРебаланс овервотча - меньше действий, но выше уровень прицеливания",
+	'last_changes', "Новая система инвентаря",
 	'dependencies', {
 		PlaceObj('ModDependency', {
 			'id', "pDGDhr",
@@ -27,8 +27,8 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 3,
-	'version', 4444,
+	'version_minor', 4,
+	'version', 4485,
 	'lua_revision', 233360,
 	'saved_with_revision', 350233,
 	'code', {
@@ -674,8 +674,8 @@ return PlaceObj('ModDef', {
 	},
 	'default_options', {},
 	'has_data', true,
-	'saved', 1734877315,
-	'code_hash', -425756359970815307,
+	'saved', 1734982228,
+	'code_hash', -4315581725278413092,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -13062,6 +13062,11 @@ return PlaceObj('ModDef', {
 			'Class', "TextStyle",
 			'Id', "PDABrowserFlavorMediumRed",
 			'ClassDisplayName', "Text style",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "XTemplate",
+			'Id', "UIWeaponDisplay",
+			'ClassDisplayName', "UI Template (XTemplate)",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "XTemplate",

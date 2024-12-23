@@ -1639,7 +1639,7 @@ end
 
 
 local function lGetUnitQuickSlotItem(unit, item_id)
-	l_get_unit_quick_slot_item = nil
+local	l_get_unit_quick_slot_item = nil
 	
 	local filter = function(o)
 		if o.Condition > 0 and (not l_get_unit_quick_slot_item or o.Condition < l_get_unit_quick_slot_item.Condition) then
