@@ -51615,7 +51615,7 @@ return {
 					'AimAccuracy', 32,
 					'CritChanceScaled', 20,
 					'MagazineSize', 10,
-					'WeaponRange', 65,
+					'WeaponRange', 68,
 					'OverwatchAngle', 900,
 					'Noise', 85,
 					'HandSlot', "TwoHanded",
@@ -51695,7 +51695,7 @@ return {
 					'AimAccuracy', 34,
 					'CritChanceScaled', 20,
 					'MagazineSize', 10,
-					'WeaponRange', 66,
+					'WeaponRange', 72,
 					'OverwatchAngle', 900,
 					'Noise', 85,
 					'HandSlot', "TwoHanded",
@@ -51954,7 +51954,7 @@ return {
 					'AimAccuracy', 35,
 					'CritChanceScaled', 40,
 					'MagazineSize', 5,
-					'WeaponRange', 75,
+					'WeaponRange', 85,
 					'OverwatchAngle', 900,
 					'Noise', 75,
 					'HandSlot', "TwoHanded",
@@ -52065,7 +52065,7 @@ return {
 					'CritChance', 30,
 					'CritChanceScaled', 20,
 					'MagazineSize', 5,
-					'WeaponRange', 85,
+					'WeaponRange', 100,
 					'OverwatchAngle', 360,
 					'Noise', 100,
 					'HandSlot', "TwoHanded",
@@ -52155,7 +52155,7 @@ return {
 					'CritChance', 10,
 					'CritChanceScaled', 20,
 					'MagazineSize', 20,
-					'WeaponRange', 34,
+					'WeaponRange', 38,
 					'OverwatchAngle', 1800,
 					'Noise', 5,
 					'HandSlot', "TwoHanded",
@@ -52232,7 +52232,7 @@ return {
 					'AimAccuracy', 30,
 					'CritChanceScaled', 20,
 					'MagazineSize', 10,
-					'WeaponRange', 65,
+					'WeaponRange', 70,
 					'OverwatchAngle', 1200,
 					'Noise', 40,
 					'HandSlot', "TwoHanded",
@@ -52388,7 +52388,7 @@ return {
 					'AimAccuracy', 25,
 					'CritChanceScaled', 40,
 					'MagazineSize', 5,
-					'WeaponRange', 72,
+					'WeaponRange', 62,
 					'OverwatchAngle', 360,
 					'Noise', 85,
 					'HandSlot', "TwoHanded",
@@ -52454,7 +52454,7 @@ return {
 					'AimAccuracy', 26,
 					'CritChanceScaled', 40,
 					'MagazineSize', 5,
-					'WeaponRange', 64,
+					'WeaponRange', 58,
 					'OverwatchAngle', 420,
 					'Noise', 85,
 					'HandSlot', "TwoHanded",
@@ -52506,7 +52506,7 @@ return {
 					'AimAccuracy', 25,
 					'CritChanceScaled', 40,
 					'MagazineSize', 5,
-					'WeaponRange', 70,
+					'WeaponRange', 66,
 					'OverwatchAngle', 300,
 					'Noise', 85,
 					'HandSlot', "TwoHanded",
@@ -52560,7 +52560,7 @@ return {
 					'AimAccuracy', 26,
 					'CritChanceScaled', 40,
 					'MagazineSize', 10,
-					'WeaponRange', 68,
+					'WeaponRange', 75,
 					'OverwatchAngle', 360,
 					'Noise', 75,
 					'HandSlot', "TwoHanded",
@@ -52630,7 +52630,7 @@ return {
 					'AimAccuracy', 27,
 					'CritChanceScaled', 40,
 					'MagazineSize', 5,
-					'WeaponRange', 70,
+					'WeaponRange', 78,
 					'OverwatchAngle', 360,
 					'Noise', 75,
 					'HandSlot', "TwoHanded",
@@ -52686,7 +52686,7 @@ return {
 					'AimAccuracy', 30,
 					'CritChanceScaled', 40,
 					'MagazineSize', 5,
-					'WeaponRange', 75,
+					'WeaponRange', 85,
 					'OverwatchAngle', 360,
 					'Noise', 80,
 					'HandSlot', "TwoHanded",
@@ -52788,7 +52788,7 @@ return {
 					'AimAccuracy', 32,
 					'CritChanceScaled', 40,
 					'MagazineSize', 5,
-					'WeaponRange', 73,
+					'WeaponRange', 95,
 					'OverwatchAngle', 360,
 					'Noise', 80,
 					'HandSlot', "TwoHanded",
@@ -52857,7 +52857,7 @@ return {
 					'AimAccuracy', 22,
 					'CritChanceScaled', 50,
 					'MagazineSize', 5,
-					'WeaponRange', 72,
+					'WeaponRange', 85,
 					'OverwatchAngle', 600,
 					'Noise', 80,
 					'HandSlot', "TwoHanded",
@@ -56242,13 +56242,13 @@ return {
 					'Tier', 2,
 					'RestockWeight', 35,
 					'CategoryPair', "Components",
-					'CenterObjDamageMod', 200,
+					'CenterObjDamageMod', 500,
 					'CenterAppliedEffects', {
 						"KnockDown",
 					},
 					'CenterAreaOfEffect', 2,
 					'AreaUnitDamageMod', 60,
-					'AreaObjDamageMod', 30,
+					'AreaObjDamageMod', 150,
 					'PenetrationClass', 1,
 					'DeathType', "BlowUp",
 					'BaseDamage', 90,
@@ -56270,14 +56270,14 @@ return {
 					'Tier', 3,
 					'RestockWeight', 35,
 					'CategoryPair', "Components",
-					'CenterObjDamageMod', 300,
+					'CenterObjDamageMod', 400,
 					'CenterAppliedEffects', {
 						"KnockDown",
 					},
 					'AreaOfEffect', 4,
 					'CenterAreaOfEffect', 2,
 					'AreaUnitDamageMod', 60,
-					'AreaObjDamageMod', 30,
+					'AreaObjDamageMod', 450,
 					'PenetrationClass', 1,
 					'DeathType', "BlowUp",
 					'BaseDamage', 100,
@@ -56305,7 +56305,7 @@ return {
 					'AreaOfEffect', 5,
 					'CenterAreaOfEffect', 2,
 					'AreaUnitDamageMod', 60,
-					'AreaObjDamageMod', 30,
+					'AreaObjDamageMod', 150,
 					'PenetrationClass', 1,
 					'DeathType', "BlowUp",
 					'BaseDamage', 120,
@@ -70070,11 +70070,6 @@ return {
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
-								'Name', "IncreaseMaxAimActions",
-								'Value', 1,
-								'Tag', "<IncreaseMaxAimActions>",
-							}),
-							PlaceObj('PresetParamNumber', {
 								'Name', "ShotAP",
 								'Value', 1,
 								'Tag', "<ShotAP>",
@@ -70090,7 +70085,7 @@ return {
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ScopeAimLevel",
-								'Value', 2,
+								'Value', 1,
 								'Tag', "<ScopeAimLevel>",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -70324,11 +70319,6 @@ return {
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
-								'Name', "IncreaseMaxAimActions",
-								'Value', 1,
-								'Tag', "<IncreaseMaxAimActions>",
-							}),
-							PlaceObj('PresetParamNumber', {
 								'Name', "ShotAP",
 								'Value', 1,
 								'Tag', "<ShotAP>",
@@ -70344,7 +70334,7 @@ return {
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ScopeAimLevel",
-								'Value', 3,
+								'Value', 2,
 								'Tag', "<ScopeAimLevel>",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -70394,11 +70384,6 @@ return {
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
-								'Name', "IncreaseMaxAimActions",
-								'Value', 1,
-								'Tag', "<IncreaseMaxAimActions>",
-							}),
-							PlaceObj('PresetParamNumber', {
 								'Name', "ShotAP",
 								'Value', 1,
 								'Tag', "<ShotAP>",
@@ -70414,7 +70399,7 @@ return {
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ScopeAimLevel",
-								'Value', 3,
+								'Value', 2,
 								'Tag', "<ScopeAimLevel>",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -70500,11 +70485,6 @@ return {
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
-								'Name', "IncreaseMaxAimActions",
-								'Value', 1,
-								'Tag', "<IncreaseMaxAimActions>",
-							}),
-							PlaceObj('PresetParamNumber', {
 								'Name', "ShotAP",
 								'Value', 1,
 								'Tag', "<ShotAP>",
@@ -70520,7 +70500,7 @@ return {
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ScopeAimLevel",
-								'Value', 3,
+								'Value', 2,
 								'Tag', "<ScopeAimLevel>",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -70604,11 +70584,6 @@ return {
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
-								'Name', "IncreaseMaxAimActions",
-								'Value', 1,
-								'Tag', "<IncreaseMaxAimActions>",
-							}),
-							PlaceObj('PresetParamNumber', {
 								'Name', "ShotAP",
 								'Value', 1,
 								'Tag', "<ShotAP>",
@@ -70624,7 +70599,7 @@ return {
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ScopeAimLevel",
-								'Value', 3,
+								'Value', 2,
 								'Tag', "<ScopeAimLevel>",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -70875,7 +70850,7 @@ return {
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ScopeAimLevel",
-								'Value', 2,
+								'Value', 1,
 								'Tag', "<ScopeAimLevel>",
 							}),
 						},
@@ -70918,7 +70893,7 @@ return {
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ScopeAimLevel",
-								'Value', 3,
+								'Value', 2,
 								'Tag', "<ScopeAimLevel>",
 							}),
 						},
@@ -70959,11 +70934,6 @@ return {
 							"ScopeCTHBonus",
 						},
 						Parameters = {
-							PlaceObj('PresetParamNumber', {
-								'Name', "IncreaseMaxAimActions",
-								'Value', 1,
-								'Tag', "<IncreaseMaxAimActions>",
-							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ShotAP",
 								'Value', 1,
@@ -71231,11 +71201,6 @@ return {
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
-								'Name', "IncreaseMaxAimActions",
-								'Value', 1,
-								'Tag', "<IncreaseMaxAimActions>",
-							}),
-							PlaceObj('PresetParamNumber', {
 								'Name', "ShotAP",
 								'Value', 1,
 								'Tag', "<ShotAP>",
@@ -71247,7 +71212,7 @@ return {
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ScopeAimLevel",
-								'Value', 4,
+								'Value', 3,
 								'Tag', "<ScopeAimLevel>",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -71426,7 +71391,6 @@ return {
 							"ScopeHandlingReduce",
 							"ScopeOverwatchAngleDecreaseBig",
 							"ScopeCTHBonus",
-							"IncreaseMaxAimActions",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
@@ -71446,7 +71410,7 @@ return {
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ScopeAimLevel",
-								'Value', 4,
+								'Value', 3,
 								'Tag', "<ScopeAimLevel>",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -71616,11 +71580,6 @@ return {
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
-								'Name', "IncreaseMaxAimActions",
-								'Value', 1,
-								'Tag', "<IncreaseMaxAimActions>",
-							}),
-							PlaceObj('PresetParamNumber', {
 								'Name', "ShotAP",
 								'Value', 1,
 								'Tag', "<ShotAP>",
@@ -71641,7 +71600,7 @@ return {
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "SmallAimLevel",
-								'Value', 2,
+								'Value', 1,
 								'Tag', "<SmallAimLevel>",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -71860,7 +71819,7 @@ return {
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "SmallAimLevel",
-								'Value', 3,
+								'Value', 2,
 								'Tag', "<SmallAimLevel>",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -72067,7 +72026,7 @@ return {
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ScopeAimLevel",
-								'Value', 4,
+								'Value', 3,
 								'Tag', "<ScopeAimLevel>",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -72133,7 +72092,7 @@ return {
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ScopeAimLevel",
-								'Value', 3,
+								'Value', 2,
 								'Tag', "<ScopeAimLevel>",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -72185,11 +72144,6 @@ return {
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
-								'Name', "IncreaseMaxAimActions",
-								'Value', 1,
-								'Tag', "<IncreaseMaxAimActions>",
-							}),
-							PlaceObj('PresetParamNumber', {
 								'Name', "ShotAP",
 								'Value', 2,
 								'Tag', "<ShotAP>",
@@ -72201,12 +72155,12 @@ return {
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ScopeAimLevel",
-								'Value', 4,
+								'Value', 3,
 								'Tag', "<ScopeAimLevel>",
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "SmallAimLevel",
-								'Value', 2,
+								'Value', 1,
 								'Tag', "<SmallAimLevel>",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -72331,11 +72285,6 @@ return {
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
-								'Name', "IncreaseMaxAimActions",
-								'Value', 1,
-								'Tag', "<IncreaseMaxAimActions>",
-							}),
-							PlaceObj('PresetParamNumber', {
 								'Name', "ShotAP",
 								'Value', 1,
 								'Tag', "<ShotAP>",
@@ -72352,7 +72301,7 @@ return {
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ScopeAimLevel",
-								'Value', 3,
+								'Value', 2,
 								'Tag', "<ScopeAimLevel>",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -72413,7 +72362,7 @@ return {
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ScopeAimLevel",
-								'Value', 4,
+								'Value', 3,
 								'Tag', "<ScopeAimLevel>",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -72463,11 +72412,6 @@ return {
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
-								'Name', "IncreaseMaxAimActions",
-								'Value', 1,
-								'Tag', "<IncreaseMaxAimActions>",
-							}),
-							PlaceObj('PresetParamNumber', {
 								'Name', "ShotAP",
 								'Value', 1,
 								'Tag', "<ShotAP>",
@@ -72483,7 +72427,7 @@ return {
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ScopeAimLevel",
-								'Value', 4,
+								'Value', 3,
 								'Tag', "<ScopeAimLevel>",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -72534,11 +72478,6 @@ return {
 							"ScopeHandlingReduce",
 						},
 						Parameters = {
-							PlaceObj('PresetParamNumber', {
-								'Name', "IncreaseMaxAimActions",
-								'Value', 1,
-								'Tag', "<IncreaseMaxAimActions>",
-							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ShotAP",
 								'Value', 1,
@@ -72639,11 +72578,6 @@ return {
 							"ScopeHandlingReduce",
 						},
 						Parameters = {
-							PlaceObj('PresetParamNumber', {
-								'Name', "IncreaseMaxAimActions",
-								'Value', 1,
-								'Tag', "<IncreaseMaxAimActions>",
-							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ShotAP",
 								'Value', 1,
