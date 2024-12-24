@@ -49,6 +49,7 @@ DefineClass.MG42 = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 7000,
+	Recoil = 20,
 	BurstShots = 12,
 	AutoShots = 12,
 	Handling = 65,

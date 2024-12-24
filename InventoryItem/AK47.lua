@@ -71,6 +71,7 @@ DefineClass.AK47 = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 3000,
+	Recoil = 15,
 	AutoShots = 6,
 	Handling = 70,
 	BulletDropRange = 14,
