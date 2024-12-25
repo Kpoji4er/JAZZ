@@ -28,7 +28,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 4,
-	'version', 4496,
+	'version', 4515,
 	'lua_revision', 233360,
 	'saved_with_revision', 350233,
 	'code', {
@@ -572,6 +572,7 @@ return PlaceObj('ModDef', {
 		"Code/System_SectorOperations.lua",
 		"Code/POI Extension.lua",
 		"InventoryItem/Auto5_quest.lua",
+		"Code/OverwatchLagFix.lua",
 		"UnitData/LegionRocketeer_Stronger_Elite.lua",
 		"UnitData/LegionSharpShooter_Stronger_Elite.lua",
 		"UnitData/LegionRaider_Stronger_Elite.lua",
@@ -674,8 +675,8 @@ return PlaceObj('ModDef', {
 	},
 	'default_options', {},
 	'has_data', true,
-	'saved', 1735065314,
-	'code_hash', 1420240274052591586,
+	'saved', 1735166649,
+	'code_hash', 636399741947961960,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
