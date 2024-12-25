@@ -87,6 +87,8 @@ end
 
 
 function Unit:GetSightRadius(other, base_sight, step_pos)
+	--print('getSightRadius '..self.Name)
+--	ic()
 	-- base sight radius, based on awareness (in-combat only) and illumination	
 	local modifier = 100
 	local camo = 0
@@ -1669,3 +1671,6 @@ function GetUnitWirecutter(unit)
 	local tool = lGetUnitQuickSlotItem(unit, "WirecutterBase")
 	return tool and not tool:IsCondition("Broken") and tool
 end
+
+
+

@@ -1319,7 +1319,7 @@ return {
 			Comment = "Sight radius (in tiles) for units aware of the target unit",
 			group = "Combat",
 			id = "AwareSightRange",
-			value = 38,
+			value = 46,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "Sight radius (in tiles) for units aware of the target unit",
@@ -55373,7 +55373,7 @@ return {
 					'Reliability', 50,
 					'MinMishapChance', 0,
 					'MaxMishapChance', 60,
-					'MaxMishapRange', 16,
+					'MaxMishapRange', 6,
 					'Caliber', "JAZZ_Caliber_Warhead",
 					'AttackAP', 8000,
 					'Entity', "Weapon_RPG7_Copy",
@@ -71007,7 +71007,7 @@ return {
 							}),
 							PlaceObj('PresetParamNumber', {
 								'Name', "ShotAP",
-								'Value', 2,
+								'Value', 1,
 								'Tag', "<ShotAP>",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -72149,7 +72149,7 @@ return {
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
 								'Name', "ShotAP",
-								'Value', 2,
+								'Value', 1,
 								'Tag', "<ShotAP>",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -84188,6 +84188,15 @@ return {
 					ConfigurableKeybind = false,
 					Description = T(240638495863, --[[ModItemCombatAction Overwatch Description]] "<em>Spends all AP</em>\nAny targets who move or shoot in the overwatch area will provoke <GameTerm('Interrupt')> <em>attacks</em>.\nAccuracy is influenced by <em><dexterity></em>."),
 					DisplayName = T(220225989499, --[[ModItemCombatAction Overwatch DisplayName]] "Overwatch"),
+					EvalTarget = function (self, units, target, args)
+						--return units[1]:CalcChanceToHit(target, self, args, "chance_only")
+						if not units or not units[1] then return 0 end
+						local unitList = g_unitOrder[units[1]]
+						if not unitList then return 0 end
+						local orderIdx = unitList[target]
+						if orderIdx then return -orderIdx end
+						return 0
+					end,
 					Execute = function (self, units, args)
 						local unit = units[1]
 						local attacks, aim = unit:GetOverwatchAttacksAndAim(self, args)
@@ -84321,6 +84330,27 @@ return {
 						if args and args.weapon then return args.weapon end
 						return unit:GetActiveWeapons("Firearm")
 					end,
+					GetDefaultTarget = function (self, unit)
+						local best_eval, best_target
+						local units = {unit}
+						local targets = self:GetTargets(units)
+						local distance_to_best = 0
+						for _, target in ipairs(targets or empty_table) do
+							local eval = self:EvalTarget(units, target)
+							if not best_eval or eval > best_eval then
+								distance_to_best = IsKindOf(target, "Unit") and unit:GetDist(target:GetPos()) or 0
+								best_target, best_eval = target, eval
+							elseif eval == best_eval  then
+								local distance_to_this = IsKindOf(target, "Unit") and unit:GetDist(target:GetPos()) or 0
+								if distance_to_this < distance_to_best then
+									distance_to_best = distance_to_this
+									best_target = target
+								end
+							end
+						end
+						
+						return best_target, best_eval
+					end,
 					GetMaxAimRange = function (self, unit, weapon)
 						local range = weapon:GetOverwatchConeParam("MaxRange")
 						local sight = unit:GetSightRadius() / const.SlabSizeX
@@ -84331,6 +84361,9 @@ return {
 						local sight = unit:GetSightRadius() / const.SlabSizeX
 						return Min(range, sight)
 					end,
+					GetTargets = function (self, units)
+						return CombatActionGetAttackableEnemies(self, units and units[1])
+					end,
 					GetUIState = function (self, units, args)
 						local unit = units[1]
 						local cost = self:GetAPCost(unit, args)
@@ -84338,7 +84371,6 @@ return {
 						if not unit:UIHasAP(cost) then return "disabled", GetUnitNoApReason(unit) end
 						local attack = unit:GetDefaultAttackAction()
 						local state, reason = attack:GetUIState(units, args)
-						
 						return state, reason
 					end,
 					Icon = "UI/Icons/Hud/overwatch",
@@ -87366,7 +87398,6 @@ return {
 						return false, 0
 					end
 					
-					if not isMerc(attacker) then return true, self:ResolveValue("Penalty")*1.5 end
 					
 					if IsKindOf(weapon1, "RocketLauncher")  then
 						return true, self:ResolveValue("Penalty")*5
@@ -121341,6 +121372,10 @@ return {
 		'ReloadAP', 3000,
 		'BurstShots', 1,
 		'AutoShots', 1,
+	}),
+	PlaceObj('ModItemCode', {
+		'name', "OverwatchLagFix",
+		'CodeFileName', "Code/OverwatchLagFix.lua",
 	}),
 	PlaceObj('ModItemFolder', {
 		'name', "JAZZ UNITS OVERWRITE",

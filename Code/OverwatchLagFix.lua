@@ -1,0 +1,6 @@
+MapRealTimeRepeat("OverwatchAreaUpdate", 30000, function()
+	if not g_Combat then return end
+	for unit, overwatch in pairs(g_Overwatch) do
+		unit:UpdateOverwatchVisual(overwatch)
+	end
+end)

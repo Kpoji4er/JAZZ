@@ -91,9 +91,12 @@ function AICreateContext(unit, context)
 	context.weapon = weapon
 	context.default_attack = default_attack
 	context.default_attack_cost = default_attack:GetAPCost(unit)
-	context.EffectiveRange = IsKindOf(weapon, "Firearm") and MulDivRound(weapon.BulletDropRange, 125, 100) or MulDivRound(weapon.WeaponRange, 50, 100) or 1 
+	context.EffectiveRange = IsKindOf(weapon, "Firearm") and MulDivRound(weapon.BulletDropRange+weapon.WeaponRange, 50, 100) or MulDivRound(weapon.WeaponRange, 50, 100) or 1 
+	--if not IsKindOf(weapon,"SniperRifle") and GameState.DustStorm or GameState.FireStorm or GameState.Underground or GameState.Night or GameState.Fog then context.EffectiveRange = Min(context.unit:GetSightRadius(),context.EffectiveRange) end
+	if  IsKindOf(weapon, "Firearm") and (GameState.DustStorm or GameState.FireStorm or GameState.Underground or GameState.Night or GameState.Fog) then context.EffectiveRange = Min(context.unit:GetSightRadius(),context.EffectiveRange) end
+
 	--context.EffectiveRange = IsKindOf(weapon, "Firearm") and GetAccuracy80DistAim(weapon,unit) or 1
-	context.ExtremeRange = IsKindOf(weapon, "Firearm") and weapon.WeaponRange or 50
+	context.ExtremeRange = IsKindOf(weapon, "Firearm") and weapon.WeaponRange or 100
 	context.enemies = enemies
 	context.enemy_visible = {} -- [enemy] -> true/false
 	context.enemy_visible_by_team = {} -- [enemy] -> true/false

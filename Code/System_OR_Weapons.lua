@@ -1487,3 +1487,8 @@ function FirearmBase:GetScrapParts()
     if parts < 1 then parts = 1 end
 	return parts
 end
+
+function MishapProperties:GetMishapDeviationVector(unit, target)
+	local deviation = unit:RandRange(self.MinMishapRange * const.SlabSizeX * (unit.Explosives)/100, self.MaxMishapRange * const.SlabSizeX * (100-unit.Explosives)/100)
+	return Rotate(point(deviation, 0, 0), unit:Random(360*60))
+end
