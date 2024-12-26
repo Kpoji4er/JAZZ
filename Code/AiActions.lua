@@ -89,7 +89,7 @@ function AIReloadWeapons(unit)
 end
 
 function AICalcAttacksAndAim(context, ap, target)
-	local aim_cost = const.Scale.AP
+
 	--if GameState.RainHeavy then
 	--	aim_cost = MulDivRound(aim_cost, 100 + const.EnvEffects.RainAimingMultiplier, 100)
 	--end
@@ -108,33 +108,41 @@ function AICalcAttacksAndAim(context, ap, target)
 	local attack_idx = 1
 	local unit = context.unit
 
-	if target then
-		if context.force_max_aim 
-		or (IsKindOfClasses(context.weapon,"SniperRifle","MachineGun") and (ap - cost * max_aim) > 0 and unit:GetDist(target) >= 2*const.SlabSizeX)
-		or ((IsKindOf(context.weapon,"AssaultRifle")) and (ap - cost * max_aim) > 0 and unit:GetDist(target) >= (4) * const.SlabSizeX) 
-		or ((IsKindOf(context.weapon,"SubmachineGun")) and (ap - cost * max_aim) > 0 and unit:GetDist(target) >= (Min(context.weapon.BulletDropRange,8)) * const.SlabSizeX) 
-		or ((IsKindOf(context.weapon,"Pistol")) and (ap - cost * max_aim) > 0 and unit:GetDist(target) >= (Min(context.weapon.BulletDropRange,8)) * const.SlabSizeX) 
-		or ((IsKindOf(context.weapon,"Shotgun")) and (ap - cost * max_aim) > 0 and unit:GetDist(target) >= (Min(context.weapon.BulletDropRange,8)) * const.SlabSizeX) 
-		   then
-			num_attacks = Min(Max(1,(ap / (cost + aim_cost * max_aim))), context.max_attacks)
-			local aim = max_aim
-			aims[attack_idx] = aim
-			return num_attacks, aims
-		end
+	if IsKindOfClasses(context.weapon,"SniperRifle") then local aim = max_aim end
+	if IsKindOfClasses(context.weapon,"AssaultRifle","MachineGun","SubmachineGun","Shotgun","Pistol") then local aim = Clamp(Unit:Random(3),min_aim, max_aim) end
 
-		if unit:GetDist(target) <= 3*const.SlabSizeX then
-			local num_attacks = Min(ap / cost)	
-			local aim = min_aim or 0
-			aims[attack_idx] = aim
-			return num_attacks, aims
-		end
-	end
+	local aim_cost = Min(const.Scale.AP + aim,ap) or const.Scale.AP
 
+	--if target then
+	--	if context.force_max_aim 
+	--	or (IsKindOfClasses(context.weapon,"SniperRifle","MachineGun") and (ap - cost * max_aim) > 0 and unit:GetDist(target) >= 2*const.SlabSizeX)
+	--	or ((IsKindOf(context.weapon,"AssaultRifle")) and (ap - cost * max_aim) > 0 and unit:GetDist(target) >= (4) * const.SlabSizeX) 
+	--	or ((IsKindOf(context.weapon,"SubmachineGun")) and (ap - cost * max_aim) > 0 and unit:GetDist(target) >= (Min(context.weapon.BulletDropRange,8)) * const.SlabSizeX) 
+	--	or ((IsKindOf(context.weapon,"Pistol")) and (ap - cost * max_aim) > 0 and unit:GetDist(target) >= (Min(context.weapon.BulletDropRange,8)) * const.SlabSizeX) 
+	--	or ((IsKindOf(context.weapon,"Shotgun")) and (ap - cost * max_aim) > 0 and unit:GetDist(target) >= (Min(context.weapon.BulletDropRange,8)) * const.SlabSizeX) 
+	--	   then
+	--		num_attacks = Min(Max(1,(ap / (cost + aim_cost * max_aim))), context.max_attacks)
+	--		local aim = max_aim
+	--		aims[attack_idx] = aim
+	--		return num_attacks, aims
+	--	end
+--
+	--	if unit:GetDist(target) <= 3*const.SlabSizeX then
+	--		local num_attacks = Min(ap / cost)	
+	--		local aim = min_aim or 0
+	--		aims[attack_idx] = aim
+	--		return num_attacks, aims
+	--	end
+	--end
+
+	if context.force_max_aim then
+        num_attacks = Min(ap / (cost + aim_cost * max_aim), context.max_attacks)
+    end
 
 	local bonusaim = DivRound(context.weapon.BulletDropRange or context.weapon.AimAccuracy, 10)
 
 	while remaining > aim_cost do
-		local aim = (aims[attack_idx] or min_aim or 0) + bonusaim
+		local aim = aim or (Min(aims[attack_idx],1) or min_aim or 0) + bonusaim
 		if aim > context.weapon.MaxAimActions then 
 			break 
 		end
