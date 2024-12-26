@@ -1394,7 +1394,7 @@ return {
 			group = "EnvEffects",
 			id = "DustStormSightMod",
 			scale = "%",
-			value = -70,
+			value = -50,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "move cost modifier in duststorm",
@@ -1408,14 +1408,14 @@ return {
 			group = "EnvEffects",
 			id = "FireStormSightMod",
 			scale = "%",
-			value = -70,
+			value = -40,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "sight modifier in fog",
 			group = "EnvEffects",
 			id = "FogSightMod",
 			scale = "%",
-			value = -50,
+			value = -30,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "weapon jam chance modifier in rain",
