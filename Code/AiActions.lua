@@ -122,7 +122,7 @@ function AICalcAttacksAndAim(context, ap, target)
 			return num_attacks, aims
 		end
 
-		if unit:GetDist(target) <= 6*const.SlabSizeX then
+		if unit:GetDist(target) <= 3*const.SlabSizeX then
 			local num_attacks = Min(ap / cost)	
 			local aim = min_aim or 0
 			aims[attack_idx] = aim
@@ -131,7 +131,7 @@ function AICalcAttacksAndAim(context, ap, target)
 	end
 
 
-	local bonusaim = DivRound(context.weapon.BulletDropRange, 10)
+	local bonusaim = DivRound(context.weapon.BulletDropRange or context.weapon.AimAccuracy, 10)
 
 	while remaining > aim_cost do
 		local aim = (aims[attack_idx] or min_aim or 0) + bonusaim

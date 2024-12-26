@@ -6,6 +6,7 @@ return PlaceObj('ModDef', {
 		"https://discord.gg/3NHHXrHA2D",
 	},
 	'last_changes', "Балансные правки",
+	'SpellCheck', true,
 	'dependencies', {
 		PlaceObj('ModDependency', {
 			'id', "pDGDhr",
@@ -28,7 +29,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 4,
-	'version', 4515,
+	'version', 4519,
 	'lua_revision', 233360,
 	'saved_with_revision', 350233,
 	'code', {
@@ -675,8 +676,8 @@ return PlaceObj('ModDef', {
 	},
 	'default_options', {},
 	'has_data', true,
-	'saved', 1735166649,
-	'code_hash', 636399741947961960,
+	'saved', 1735172310,
+	'code_hash', 7283455211759224571,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",

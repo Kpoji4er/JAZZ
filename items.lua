@@ -53450,7 +53450,6 @@ return {
 					'ObjDamageMod', 50,
 					'AimAccuracy', 20,
 					'MagazineSize', 100,
-					'PenetrationClass', 2,
 					'WeaponRange', 40,
 					'OverwatchAngle', 1800,
 					'Noise', 55,
