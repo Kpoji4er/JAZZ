@@ -120,9 +120,7 @@ end
 function FirearmBase:ReliabilityCheck(attacker, num_shots)
 	local item = self.parent_weapon or self
 	local loss = item:GetBaseDegradePerShot()
-	if (GameState.RainHeavy or GameState.RainLight) and not attacker.indoors then
-		loss = MulDivRound(loss, 100 + const.EnvEffects.RainConditionLossMod, 100)
-	end
+
 
 
 
@@ -149,6 +147,15 @@ function FirearmBase:ReliabilityCheck(attacker, num_shots)
 		local random = BraidRandomCreate(seed)
 
 		loss = loss + Max(0,0.1*MulDivRound(random(100-item.Reliability),1,10))
+
+		if (GameState.RainHeavy or GameState.DustStorm or GameState.FireStorm) and not attacker.indoors then
+			loss = loss * 1.3
+		end
+		if (GameState.RainLight) and not attacker.indoors then
+			loss = loss * 1.1
+		end
+
+		if IsMerc(attacker) then loss = 0 end
 
 		if num_shots == 1 then jam_chance = jam_chance/2 end
 		--if num_shots < 3 then jam_chance = jam_chance/2 end
@@ -297,7 +304,7 @@ if action.id == "DoubleBarrel" then
 end
 
 if action.id == "BuckshotBurst" then 
-	num_shots = self.AutoShots * self.BurstShots
+	num_shots = self.AutoShots
 end
 
 	local cth, baseCth, modifiers
@@ -1320,7 +1327,7 @@ end
 
 function BaseWeapon:PrecalcDamageAndStatusEffects(attacker, target, attack_pos, damage, hit, effect, attack_args, record_breakdown, action, prediction)
 	if IsKindOf(target, "Unit") then
-		local seed = attacker:Random()
+		local seed = target:Random()
 		local random = BraidRandomCreate(seed)
 
 		local effects = EffectsTable(effect)
@@ -1489,6 +1496,18 @@ function FirearmBase:GetScrapParts()
 end
 
 function MishapProperties:GetMishapDeviationVector(unit, target)
-	local deviation = unit:RandRange(self.MinMishapRange * const.SlabSizeX * (unit.Explosives)/100, self.MaxMishapRange * const.SlabSizeX * (100-unit.Explosives)/100)
+	local deviation = unit:RandRange(self.MinMishapRange * const.SlabSizeX * unit:Random(unit.Explosives)/100, self.MaxMishapRange * const.SlabSizeX * unit:Random(100-unit.Explosives)/100)
+	return Rotate(point(deviation, 0, 0), unit:Random(360*60))
+end
+
+
+
+function MishapProperties:GetMishapDeviationVectorMin(unit, target)
+	local deviation = unit:RandRange(0, self.MinMishapRange * const.SlabSizeX * unit:Random(100-unit.Explosives)/100)
+	return Rotate(point(deviation, 0, 0), unit:Random(360*60))
+end
+
+function MishapProperties:GetMishapDeviationVectorMax(unit, target)
+	local deviation = unit:RandRange(self.MinMishapRange * const.SlabSizeX * unit:Random(unit.Explosives)/100, self.MaxMishapRange * const.SlabSizeX * unit:Random(100-unit.Explosives)/100)
 	return Rotate(point(deviation, 0, 0), unit:Random(360*60))
 end

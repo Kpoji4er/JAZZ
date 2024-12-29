@@ -168,9 +168,9 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 
 		else
 			if hidden then
-				modifier = modifier - camo/3
+				modifier = modifier - camo/2
 			else
-				modifier = modifier - camo/5
+				modifier = modifier - camo/3
 			end
 
 			if other.stance == "Prone" then
@@ -296,8 +296,11 @@ function UnitProperties:EquipStartingGear(items)
 	local equipped = {}
 
 	self:TryEquip(items, "AmmoInventory", "Ammo")
-	self:TryEquip(items, "GrenadesInventory", "Grenade")
+	self:TryEquip(items, "GrenadesInventory", "GrenadeItem")
+	self:TryEquip(items, "GrenadesInventory", "Flare")
 	self:TryEquip(items, "OrdnanceInventory", "ThrowableTrapItem")
+	self:TryEquip(items, "OrdnanceInventory", "Flare")
+	self:TryEquip(items, "OrdnanceInventory", "GrenadeItem")
 	self:TryEquip(items, "MedicalInventory", "Medicine")
 	self:TryEquip(items, "PocketInventory", "ToolItem")
 	self:TryEquip(items, "KnifeInventory", "StackableMeleeWeapon")
@@ -337,15 +340,18 @@ function UnitProperties:EquipStartingGear(items)
 	-- make sure all equipped firearms have ammo
 	local function reload_weapon(weapon)
 		if  (not weapon.ammo or weapon.ammo.Amount <= 0) and not IsMerc(self) then
-			local ammo = GetAmmosWithCaliber(weapon.Caliber, "sort")[1]
+			local ammo = self:GetAvailableAmmos(weapon)[1] or GetAmmosWithCaliber(weapon.Caliber, "sort")[1]
 			if ammo then
-				local tempAmmo = PlaceInventoryItem(ammo.id)
+				--local tempAmmo = PlaceInventoryItem(ammo.id)
+				--print(ammo.id)
+				local tempAmmo = self:GetAvailableAmmos(weapon)[1] or PlaceInventoryItem(ammo.id)
 				tempAmmo.Amount = tempAmmo.MaxStacks
 				weapon:Reload(tempAmmo, "suspend_fx")
 				DoneObject(tempAmmo)
 			end
 		end
 	end
+	print('reloading')
 	self:ForEachItemInSlot("Handheld A", "Firearm", reload_weapon)
 	self:ForEachItemInSlot("Handheld B", "Firearm", reload_weapon)
 	
@@ -453,6 +459,8 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 	-- Base CTH
 	local skill = (self[weapon.base_skill]+self["Dexterity"]*2+self:GetLevel()*10)/3
 	if IsKindOf(weapon, "MachineGun") then local skill = (self[weapon.base_skill]*2+self["Dexterity"]+self["Strength"]+self:GetLevel()*10)/4 end
+
+	skill = 20 + MulDivRound(skill,8,10)
 --	if aim == 0 then
 --		skill = MulDivRound(skill,0.8*handling,100)
 --	else

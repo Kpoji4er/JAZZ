@@ -58,10 +58,12 @@ function AIReloadWeapons(unit)
 	for _, firearm in ipairs(firearms) do
 		if not firearm.ammo then
 			local ammos = unit:GetAvailableAmmos(firearm) or empty_table
+			print(ammos)
 			local ammo
 			if #ammos > 0 then
 				--ammo = ammos[1]
-				ammo = PlaceInventoryItem(ammos[1].id)
+				if self:CanAddItem(slot_name, ammo)	then self:TryEquip(slot_name, ammo) 
+				else ammo = PlaceInventoryItem(ammos[1].id) end
 				ammo.Amount = firearm.MagazineSize
 				--ammo.Amount = Max(ammo.Amount, firearm.MagazineSize)
 				unit:ReloadWeapon(firearm, ammo, "delay fx", "ai")
@@ -70,7 +72,8 @@ function AIReloadWeapons(unit)
 			else
 				ammos = GetAmmosWithCaliber(firearm.Caliber, "sorted")
 				if #ammos > 0 then
-					ammo = PlaceInventoryItem(ammos[1].id)
+					if self:CanAddItem(slot_name, ammo)	then self:TryEquip(slot_name, ammo) 
+					else ammo = PlaceInventoryItem(ammos[1].id) end
 					ammo.Amount = firearm.MagazineSize
 					unit:ReloadWeapon(firearm, ammo, "delay fx", "ai")
 					CreateFloatingText(unit, T(160472488023, "Reload"))
@@ -108,10 +111,12 @@ function AICalcAttacksAndAim(context, ap, target)
 	local attack_idx = 1
 	local unit = context.unit
 
+	local aim
+	
 	if IsKindOfClasses(context.weapon,"SniperRifle") then local aim = max_aim end
 	if IsKindOfClasses(context.weapon,"AssaultRifle","MachineGun","SubmachineGun","Shotgun","Pistol") then local aim = Clamp(Unit:Random(3),min_aim, max_aim) end
 
-	local aim_cost = Min(const.Scale.AP + aim,ap) or const.Scale.AP
+	local aim_cost = const.Scale.AP
 
 	--if target then
 	--	if context.force_max_aim 
@@ -139,7 +144,7 @@ function AICalcAttacksAndAim(context, ap, target)
         num_attacks = Min(ap / (cost + aim_cost * max_aim), context.max_attacks)
     end
 
-	local bonusaim = DivRound(context.weapon.BulletDropRange or context.weapon.AimAccuracy, 10)
+	local bonusaim = Min(2,DivRound(context.weapon.BulletDropRange or context.weapon.AimAccuracy, 10))
 
 	while remaining > aim_cost do
 		local aim = aim or (Min(aims[attack_idx],1) or min_aim or 0) + bonusaim
