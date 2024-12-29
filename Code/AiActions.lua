@@ -93,6 +93,21 @@ end
 
 function AICalcAttacksAndAim(context, ap, target)
 
+
+	--local skill = (self[weapon.base_skill]+self["Dexterity"]*2+self:GetLevel()*10)/3
+	--if IsKindOf(weapon, "MachineGun") then local skill = (self[weapon.base_skill]*2+self["Dexterity"]+self["Strength"]+self:GetLevel()*10)/4 end
+
+	--local unit = context.Unit
+	--local target = context.target
+	local weapon = context.weapon
+
+	--print(unit)
+	--print(target)
+	--print(weapon)
+
+
+	--local base = unit:CalcChanceToHit
+
 	--if GameState.RainHeavy then
 	--	aim_cost = MulDivRound(aim_cost, 100 + const.EnvEffects.RainAimingMultiplier, 100)
 	--end
@@ -111,12 +126,14 @@ function AICalcAttacksAndAim(context, ap, target)
 	local attack_idx = 1
 	local unit = context.unit
 
-	local aim
+	local aim = 0
 	
 	if IsKindOfClasses(context.weapon,"SniperRifle") then local aim = max_aim end
 	if IsKindOfClasses(context.weapon,"AssaultRifle","MachineGun","SubmachineGun","Shotgun","Pistol") then local aim = Clamp(Unit:Random(3),min_aim, max_aim) end
 
 	local aim_cost = const.Scale.AP
+
+	print('EffectiveRange'..context.EffectiveRange)
 
 	--if target then
 	--	if context.force_max_aim 
@@ -139,15 +156,30 @@ function AICalcAttacksAndAim(context, ap, target)
 	--		return num_attacks, aims
 	--	end
 	--end
+	local args = {aim=0}
+
+
 
 	if context.force_max_aim then
         num_attacks = Min(ap / (cost + aim_cost * max_aim), context.max_attacks)
     end
 
-	local bonusaim = Min(2,DivRound(context.weapon.BulletDropRange or context.weapon.AimAccuracy, 10))
+
 
 	while remaining > aim_cost do
-		local aim = aim or (Min(aims[attack_idx],1) or min_aim or 0) + bonusaim
+		local aim = (aims[attack_idx] or 0) + 1
+
+		if context.unit then
+			local cth = context.unit:CalcChanceToHit(target,context.default_attack)
+			while cth < 90 and aim <= (max_aim -1) and remaining > 1 do
+				aim = aim + 1
+				remaining = remaining - 1
+				args.aim = aim
+				cth = context.unit:CalcChanceToHit(target,context.default_attack,args)
+			end
+			print('aim '..aim.." cth "..cth)
+		end
+
 		if aim > context.weapon.MaxAimActions then 
 			break 
 		end
@@ -156,6 +188,7 @@ function AICalcAttacksAndAim(context, ap, target)
 		if attack_idx > num_attacks then
 			attack_idx = 1
 		end
+		print(aims)
 		remaining = remaining - aim_cost
 	end
 	

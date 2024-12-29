@@ -467,6 +467,7 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 	if handling then 
 		skill = MulDivRound(skill,handling,100)
 	end
+
 --	end
 
 	if action.id == "SteroidPunch" then
@@ -717,6 +718,11 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 			}
 		end
 	end
+
+
+	print('final '..final)
+	print('base '..base)
+
 	return final, base, modifiers, penalty
 end
 
@@ -1682,3 +1688,27 @@ end
 
 
 
+local constRandomizationStats = 3
+function UnitData:RandomizeStats(seed)
+	local stats = GetUnitStatsCombo()
+	local unit_def = UnitDataDefs[self.class]
+
+	
+
+	local rand
+	for _, stat in ipairs(stats) do
+		if stat == "Marksmanship" or stat == "Agility" or stat == "Dexterity" then constRandomizationStats = 3 else constRandomizationStats = 12 end
+
+		rand, seed = BraidRandom(seed, 2 * constRandomizationStats + 1)
+		
+		-- If the stat will be brought to or below 0 then
+		-- clamp it to 0 if it was already 0 or 1 if it wasn't.
+		local unitStat = self[stat]
+		local modValue = rand - constRandomizationStats
+		if unitStat - modValue <= 0 then
+			modValue = unitStat == 0 and 0 or -(self[stat] - 1)
+		end
+		
+		self:AddModifier("randstat", stat, false, modValue)
+	end
+end

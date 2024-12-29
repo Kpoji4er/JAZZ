@@ -155,7 +155,7 @@ function FirearmBase:ReliabilityCheck(attacker, num_shots)
 			loss = loss * 1.1
 		end
 
-		if IsMerc(attacker) then loss = 0 end
+		if not IsMerc(attacker) then loss = 0 end
 
 		if num_shots == 1 then jam_chance = jam_chance/2 end
 		--if num_shots < 3 then jam_chance = jam_chance/2 end
