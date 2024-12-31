@@ -48322,6 +48322,7 @@ return {
 							'CanBeEmpty', true,
 							'AvailableComponents', {
 								"JAZZ_Reflex_Aimpoint5000",
+								"IronSight",
 								"JAZZ_Reflex_Closed",
 								"JAZZ_Reflex_Eotech",
 								"JAZZ_Reflex_M68",
@@ -48332,6 +48333,7 @@ return {
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
 							},
+							'DefaultComponent', "IronSight",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
@@ -54972,7 +54974,6 @@ return {
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
 							},
-							'DefaultComponent', "JAZZ_Scope_6x",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
@@ -55161,7 +55162,6 @@ return {
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
 							},
-							'DefaultComponent', "JAZZ_Scope_6x",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
@@ -55276,22 +55276,6 @@ return {
 					'Entity', "USAS12",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Barrel",
-							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelLongShotgun",
-							},
-							'DefaultComponent', "BarrelNormal",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Magazine",
-							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
-							},
-							'DefaultComponent', "MagNormal",
-						}),
-						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
@@ -55308,16 +55292,6 @@ return {
 								"JAZZ_Scope_Scout",
 							},
 							'DefaultComponent', "JAZZ_Scope_6x",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Side",
-							'CanBeEmpty', true,
-							'AvailableComponents', {
-								"Flashlight_aa12",
-								"LaserDot_aa12",
-								"FlashlightDot_aa12",
-								"UVDot_aa12",
-							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
@@ -73013,6 +72987,12 @@ return {
 								Slot = "Mount1",
 								param_bindings = false,
 							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "DragunovSVD",
+								Entity = "WeaponAttA_MountDragunov_01",
+								Slot = "Mount",
+								param_bindings = false,
+							}),
 						},
 						group = "Scope",
 						id = "JAZZ_NightScope",
@@ -87570,7 +87550,7 @@ return {
 			}),
 			PlaceObj('ModItemChanceToHitModifier', {
 				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
-					if attacker and IsKindOf(weapon1, "Firearm") and not IsCloser(target, attacker, 3 * const.SlabSizeX + 1) then
+					if attacker and IsKindOfClasses(weapon1, "Firearm", "Firearm") and not IsCloser(target, attacker, 3 * const.SlabSizeX + 1) then
 					-- 
 					local sight = attacker:GetSightRadius() + 5 * const.SlabSizeX
 					
@@ -87589,12 +87569,12 @@ return {
 					
 					if (GameState.Night or GameState.Underground) and not attacker:HasNightVision() and not IsIlluminated(target) and not hasflashlight
 					then dist = dist * 1.6 end
-
+					
 					if (GameState.Heat)	then dist = dist * 1.1 	end
 					if (GameState.RainLight) then dist = dist * 1.1 end
 					if (GameState.RainHeavy or GameState.Fog) then dist = dist * 1.3 end
 					if (GameState.FireStorm or GameState.DustStorm)	then dist = dist * 1.5 end
-
+					
 					
 					local ScopeMagn = GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeMagnification") or 1
 					local ScopeSubMagn = GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeSubMagnification") or 0
@@ -87609,8 +87589,8 @@ return {
 					SmallCalcMagn = SmallCalcMagn * 1.5/2
 					
 					local cth = MulDivRound(100-self:ResolveValue("min"),const.SlabSizeX*100,sight)
-
-
+					
+					
 					
 					if hasflashlight or not (GameState.Night or GameState.Underground) or IsIlluminated(target)  then
 					if ScopeAimLevel>0 and aim >= ScopeAimLevel then 
@@ -87761,7 +87741,7 @@ return {
 				Parameters = {
 					PlaceObj('PresetParamNumber', {
 						'Name', "Penalty",
-						'Value', -50,
+						'Value', -100,
 						'Tag', "<Penalty>",
 					}),
 				},
@@ -121410,6 +121390,7 @@ return {
 						end
 						-- add progress
 						local sum_stat = GetSumOperationStats(mercs, "Mechanical", self:ResolveValue("stat_multiplier"))
+						item.Condition = floatfloor(item.Condition,0)
 						local prev_cond = floatfloor(item.Condition,0)
 						local prev_progress = item.repair_progress
 						local max_condition = item:GetMaxCondition()

@@ -212,6 +212,15 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 	if GameState.FireStorm then
 		modifier = modifier + const.EnvEffects.FireStormSightMod
 	end
+
+	if GameState.RainLight then
+		modifier = modifier - 5
+	end
+
+	if GameState.RainHeavy then
+		modifier = modifier - 15
+	end
+
 	if other_is_unit then	-- height difference check
 		local ox, oy, oz
 		if step_pos then

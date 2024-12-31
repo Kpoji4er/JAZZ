@@ -37,6 +37,7 @@ DefineClass.M4A1 = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Reflex_Aimpoint5000",
+				"IronSight",
 				"JAZZ_Reflex_Closed",
 				"JAZZ_Reflex_Eotech",
 				"JAZZ_Reflex_M68",
@@ -47,6 +48,7 @@ DefineClass.M4A1 = {
 				"JAZZ_Scope_12x",
 				"JAZZ_Scope_Scout",
 			},
+			'DefaultComponent', "IronSight",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",

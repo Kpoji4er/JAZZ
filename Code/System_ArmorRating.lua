@@ -217,8 +217,8 @@ function Armor:CalculateArmorRating(weapon_pen_class)
         return self.ArmorRating
 		else return self.ArmorRating * self.PenetrationClass^2/weapon_pen_class^2 end end
 
-    if self.PenetrationClass >= weapon_pen_class then
-     ArmorRating = (self.ArmorRating + self.PenetrationClass/weapon_pen_class) * self:GetConditionPercent()/100 * (100-self.Deterioration)/100
+    if self.PenetrationClass > weapon_pen_class then
+     ArmorRating = (self.ArmorRating + 3*self.PenetrationClass/weapon_pen_class) * self:GetConditionPercent()/100 * (100-self.Deterioration)/100
      else
      ArmorRating = self.ArmorRating * self.PenetrationClass^2/weapon_pen_class^2 * self:GetConditionPercent()/100 * (100-self.Deterioration)/100 --* (self:GetConditionPercent()-self.Deterioration)^2/100^2
     end
