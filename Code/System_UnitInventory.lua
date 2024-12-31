@@ -106,16 +106,16 @@ function UnitProperties:GetInventoryMaxSlots(slot_name)
 		if (HasPerk(self, "AutoWeapons")) then slots = slots + 2 end
 		if (HasPerk(self, "HeavyWeaponsTraining")) then slots = slots + 2 end
 
-		return IsMerc(self) and Max(1, slots) or 2
+		return IsMerc(self) and Max(1, slots) or 6
 	end
 	if slot_name == "GrenadesInventory" then
-		return IsMerc(self) and Max(0, (self.Explosives-10)/20) or 2 
+		return IsMerc(self) and Max(0, (self.Explosives-10)/20) or 4 
 	end
 	if slot_name == "OrdnanceInventory" then
-		return IsMerc(self) and Max(0, (self.Explosives - 70)/10) or 2
+		return IsMerc(self) and Max(0, (self.Explosives - 70)/10) or 4
 	end
 	if slot_name == "MedicalInventory" then
-		return IsMerc(self) and Max(0, (self.Medical - 20)/20) or 0
+		return IsMerc(self) and Max(0, (self.Medical - 20)/20) or 1
 	end
 	if slot_name == "PocketInventory" then
 		return IsMerc(self) and Max(0, (self.Mechanical-30)/20) or 0

@@ -87,6 +87,7 @@ end
 
 function XInventorySlot:SpawnRolloverUI(width, height, left, top)
 	local image = self.tiles[left][top]
+	if not image then return end
 	image:SetVisible(false)
 	if width==2 then
 		self.tiles[left+1][top]:SetVisible(false)

@@ -720,8 +720,8 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 	end
 
 
-	print('final '..final)
-	print('base '..base)
+	--print('final '..final)
+	--print('base '..base)
 
 	return final, base, modifiers, penalty
 end

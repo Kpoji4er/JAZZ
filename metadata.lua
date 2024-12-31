@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/3NHHXrHA2D",
 	},
-	'last_changes', "Балансные правки\nФиксы режимов прицеливания у АИ",
+	'last_changes', "Балансные правки\nФиксы",
 	'SpellCheck', true,
 	'ignore_files', {
 		"*.git/*",
@@ -34,7 +34,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 4,
-	'version', 4539,
+	'version', 4552,
 	'lua_revision', 233360,
 	'saved_with_revision', 350233,
 	'code', {
@@ -582,6 +582,7 @@ return PlaceObj('ModDef', {
 		"Code/POI Extension.lua",
 		"InventoryItem/Auto5_quest.lua",
 		"Code/OverwatchLagFix.lua",
+		"Code/WorldFlipSpawnUnits.lua",
 	},
 	'loctables', {
 		{
@@ -591,8 +592,8 @@ return PlaceObj('ModDef', {
 	},
 	'default_options', {},
 	'has_data', true,
-	'saved', 1735505431,
-	'code_hash', -7649549571904658747,
+	'saved', 1735541366,
+	'code_hash', 6159967879282452548,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",

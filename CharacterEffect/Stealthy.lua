@@ -33,8 +33,8 @@ DefineClass.Stealthy = {
 		PlaceObj('UnitReaction', {
 			Event = "OnEndTurn",
 			Handler = function (self, target)
-				if not isMerc(target) then 
-									if not visual_contact then
+				if target then 
+									if not target.enemy_visual_contact and not IsMerc(target) then
 										target:AddStatusEffect("Hidden")
 									end
 				 end

@@ -30779,8 +30779,11 @@ return {
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "Army_AR",
 						}),
-						PlaceObj('LootEntryLootDef', {
-							loot_def = "ArmysExplosives",
+						PlaceObj('LootEntryInventoryItem', {
+							drop_chance_mod = 30,
+							item = "FragGrenade",
+							stack_max = 6,
+							stack_min = 2,
 						}),
 					}),
 					PlaceObj('ModItemLootDef', {
@@ -30794,8 +30797,11 @@ return {
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "ArmyElite_AR",
 						}),
-						PlaceObj('LootEntryLootDef', {
-							loot_def = "ArmysExplosives",
+						PlaceObj('LootEntryInventoryItem', {
+							drop_chance_mod = 30,
+							item = "FragGrenade",
+							stack_max = 6,
+							stack_min = 2,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							drop_chance_mod = 0,
@@ -86994,8 +87000,8 @@ return {
 						PlaceObj('UnitReaction', {
 							Event = "OnEndTurn",
 							Handler = function (self, target)
-								if not isMerc(target) then 
-													if not visual_contact then
+								if target then 
+													if not target.enemy_visual_contact and not IsMerc(target) then
 														target:AddStatusEffect("Hidden")
 													end
 								 end
@@ -87582,22 +87588,29 @@ return {
 					end
 					
 					if (GameState.Night or GameState.Underground) and not attacker:HasNightVision() and not IsIlluminated(target) and not hasflashlight
-					then dist = dist * 1.8 
-					end
-					
-					
+					then dist = dist * 1.6 end
+
+					if (GameState.Heat)	then dist = dist * 1.1 	end
+					if (GameState.RainLight) then dist = dist * 1.1 end
+					if (GameState.RainHeavy or GameState.Fog) then dist = dist * 1.3 end
+					if (GameState.FireStorm or GameState.DustStorm)	then dist = dist * 1.5 end
+
 					
 					local ScopeMagn = GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeMagnification") or 1
 					local ScopeSubMagn = GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeSubMagnification") or 0
 					local ScopeAimLevel = GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeAimLevel") or 0
 					local ScopeCalcMagn = ScopeMagn*10+ScopeSubMagn
+					ScopeCalcMagn = ScopeCalcMagn * 1.5/2
 					
 					local SmallMagn = GetComponentEffectValue(weapon1, "SmallMagnification", "SmallMagnification") or 1
 					local SmallSubMagn = GetComponentEffectValue(weapon1, "SmallMagnification", "SmallSubMagnification") or 0
 					local SmallAimLevel = GetComponentEffectValue(weapon1, "SmallMagnification", "SmallAimLevel") or 0
 					local SmallCalcMagn = SmallMagn*10+SmallSubMagn
+					SmallCalcMagn = SmallCalcMagn * 1.5/2
 					
 					local cth = MulDivRound(100-self:ResolveValue("min"),const.SlabSizeX*100,sight)
+
+
 					
 					if hasflashlight or not (GameState.Night or GameState.Underground) or IsIlluminated(target)  then
 					if ScopeAimLevel>0 and aim >= ScopeAimLevel then 
@@ -87611,22 +87624,22 @@ return {
 					end
 					
 					
-					cth = MulDivRound(dist,cth,100)
+					cthIron = MulDivRound(dist,cth,100)					
 					
 					if GameState.Night or GameState.Underground then
 						if hasflashlight or IsIlluminated(target) then 
-							return true,  -cth, T("Видимость цели (Подсветка)")
+							return true,  -cthIron, T("Видимость цели (Подсветка)")
 						end
 						if attacker:HasNightVision() then
-							cth = floatfloor(cth * 1.3,0) 
-							return true,  -cth, T("Видимость цели (Ночное зрение)")
+							cthIron = floatfloor(cthIron * 1.3,0) 
+							return true,  -cthIron, T("Видимость цели (Ночное зрение)")
 						end
-						return  true,  -cth, T("Видимость цели (Ночь)")
+						return  true,  -cthIron, T("Видимость цели (Ночь)")
 					end
+						
 					
 					
-					
-					return true,  -cth
+					return true,  -cthIron
 					end
 					return false, 0
 				end,
@@ -87651,7 +87664,7 @@ return {
 					local dist = attacker_pos:Dist(target_pos)/const.SlabSizeX
 					--if target then sight = attacker:GetSightRadius(target) end
 					
-					local groupingPerSlab = weapon1.Grouping * 10 * weapon1:GetConditionPercent()/100 * (101-weapon1.Deterioration)/100
+					local groupingPerSlab = weapon1.Grouping * 10 * weapon1:GetConditionPercent()/100 * (100-weapon1.Deterioration)/100
 					local groupingResult = DivRound(groupingPerSlab, dist)
 					
 						if groupingResult < 100 then
@@ -121815,6 +121828,14 @@ return {
 			group = "Default",
 			id = "Explosive_Vehicle",
 			max_hp = 500,
+		}),
+		}),
+	PlaceObj('ModItemFolder', {
+		'name', "WorldFlip",
+	}, {
+		PlaceObj('ModItemCode', {
+			'name', "WorldFlipSpawnUnits",
+			'CodeFileName', "Code/WorldFlipSpawnUnits.lua",
 		}),
 		}),
 }

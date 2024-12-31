@@ -58,11 +58,11 @@ function AIReloadWeapons(unit)
 	for _, firearm in ipairs(firearms) do
 		if not firearm.ammo then
 			local ammos = unit:GetAvailableAmmos(firearm) or empty_table
-			print(ammos)
+			--print(ammos)
 			local ammo
 			if #ammos > 0 then
 				--ammo = ammos[1]
-				if self:CanAddItem(slot_name, ammo)	then self:TryEquip(slot_name, ammo) 
+				if unit:CanAddItem("AmmoInventory", ammos[1])	then unit:TryEquip("AmmoInventory", ammos[1]) 
 				else ammo = PlaceInventoryItem(ammos[1].id) end
 				ammo.Amount = firearm.MagazineSize
 				--ammo.Amount = Max(ammo.Amount, firearm.MagazineSize)
@@ -72,7 +72,7 @@ function AIReloadWeapons(unit)
 			else
 				ammos = GetAmmosWithCaliber(firearm.Caliber, "sorted")
 				if #ammos > 0 then
-					if self:CanAddItem(slot_name, ammo)	then self:TryEquip(slot_name, ammo) 
+					if unit:CanAddItem("AmmoInventory", ammos[1]) then unit:TryEquip("AmmoInventory", ammos[1]) 
 					else ammo = PlaceInventoryItem(ammos[1].id) end
 					ammo.Amount = firearm.MagazineSize
 					unit:ReloadWeapon(firearm, ammo, "delay fx", "ai")
@@ -177,7 +177,7 @@ function AICalcAttacksAndAim(context, ap, target)
 				args.aim = aim
 				cth = context.unit:CalcChanceToHit(target,context.default_attack,args)
 			end
-			print('aim '..aim.." cth "..cth)
+			--print('aim '..aim.." cth "..cth)
 		end
 
 		if aim > context.weapon.MaxAimActions then 
