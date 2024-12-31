@@ -1394,7 +1394,7 @@ return {
 			group = "EnvEffects",
 			id = "DustStormSightMod",
 			scale = "%",
-			value = -70,
+			value = -50,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "move cost modifier in duststorm",
@@ -1408,14 +1408,14 @@ return {
 			group = "EnvEffects",
 			id = "FireStormSightMod",
 			scale = "%",
-			value = -70,
+			value = -40,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "sight modifier in fog",
 			group = "EnvEffects",
 			id = "FogSightMod",
 			scale = "%",
-			value = -50,
+			value = -30,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "weapon jam chance modifier in rain",
@@ -2405,7 +2405,6 @@ return {
 					id = "Steroid50",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Crowbar",
 						stack_max = 1,
 						stack_min = 1,
@@ -2445,7 +2444,6 @@ return {
 					id = "Steroid35",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Lockpick",
 						stack_max = 1,
 						stack_min = 1,
@@ -2485,7 +2483,6 @@ return {
 					id = "Steroid25",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Lockpick",
 						stack_max = 1,
 						stack_min = 1,
@@ -2525,7 +2522,6 @@ return {
 					id = "Steroid20",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Lockpick",
 						stack_max = 1,
 						stack_min = 1,
@@ -2768,7 +2764,6 @@ return {
 					id = "Mouse20",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
-						RandomizeCondition = true,
 						upgrades = {
 							"PistolSuppressor",
 						},
@@ -2927,7 +2922,6 @@ return {
 						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Wirecutter",
 						stack_max = 1,
 						stack_min = 1,
@@ -2960,7 +2954,6 @@ return {
 						stack_min = 40,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Parts",
 						stack_max = 50,
 						stack_min = 45,
@@ -2993,7 +2986,6 @@ return {
 						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Lockpick",
 						stack_max = 1,
 						stack_min = 1,
@@ -3026,7 +3018,6 @@ return {
 						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Wirecutter",
 						stack_max = 1,
 						stack_min = 1,
@@ -3059,7 +3050,6 @@ return {
 						stack_min = 68,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Lockpick",
 						stack_max = 1,
 						stack_min = 1,
@@ -3090,13 +3080,11 @@ return {
 						stack_min = 30,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Wirecutter",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Knife",
 						stack_max = 1,
 						stack_min = 1,
@@ -3122,19 +3110,16 @@ return {
 						stack_min = 40,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Lockpick",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Knife",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Parts",
 						stack_max = 20,
 						stack_min = 20,
@@ -3160,19 +3145,16 @@ return {
 						stack_min = 32,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Wirecutter",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Knife",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Parts",
 						stack_max = 40,
 						stack_min = 30,
@@ -3198,19 +3180,16 @@ return {
 						stack_min = 40,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Wirecutter",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Knife",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Parts",
 						stack_max = 20,
 						stack_min = 20,
@@ -3388,7 +3367,6 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "JAZZ_AMMO_44CAL_FMJ",
 						stack_max = 24,
 						stack_min = 24,
@@ -3418,7 +3396,6 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "JAZZ_AMMO_45ACP_FMJ",
 						stack_max = 28,
 						stack_min = 28,
@@ -3448,7 +3425,6 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "JAZZ_AMMO_45ACP_FMJ",
 						stack_max = 28,
 						stack_min = 28,
@@ -3522,19 +3498,16 @@ return {
 						stack_min = 30,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Ithaca",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "JAZZ_AMMO_12gauge_Buckshot",
 						stack_max = 16,
 						stack_min = 16,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "JAZZ_AMMO_12gauge_APSlug",
 						stack_max = 4,
 						stack_min = 4,
@@ -3577,7 +3550,6 @@ return {
 						stack_min = 32,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "FragGrenade",
 						stack_max = 2,
 						stack_min = 2,
@@ -3588,7 +3560,6 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "M60",
 						stack_max = 1,
 						stack_min = 1,
@@ -3626,13 +3597,11 @@ return {
 						stack_min = 30,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "BAR",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "JAZZ_AMMO_3006",
 						stack_max = 120,
 						stack_min = 120,
@@ -5290,7 +5259,6 @@ return {
 						item = "DP27",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "JAZZ_AMMO_762x54_BZT",
 						stack_max = 108,
 						stack_min = 108,
@@ -5318,19 +5286,16 @@ return {
 						item = "UMP45",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "JAZZ_AMMO_45ACP_FMJ",
 						stack_max = 50,
 						stack_min = 50,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "FragGrenade",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "SmokeGrenade",
 						stack_max = 1,
 						stack_min = 1,
@@ -5355,19 +5320,16 @@ return {
 						weapon = "BAR",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "JAZZ_AMMO_3006",
 						stack_max = 100,
 						stack_min = 100,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Glock17",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 34,
 						stack_min = 34,
@@ -5392,31 +5354,26 @@ return {
 						weapon = "FNFAL",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "JAZZ_AMMO_762x51_M80",
 						stack_max = 40,
 						stack_min = 40,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "Glock17",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 34,
 						stack_min = 34,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "FragGrenade",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						RandomizeCondition = true,
 						item = "SmokeGrenade",
 						stack_max = 1,
 						stack_min = 1,
@@ -6362,7 +6319,6 @@ return {
 					id = "Nails35",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
-						RandomizeCondition = true,
 						weapon = "M1897",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
@@ -6407,7 +6363,6 @@ return {
 					id = "Nails25",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
-						RandomizeCondition = true,
 						weapon = "Colt1911",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
@@ -6416,7 +6371,6 @@ return {
 						stack_min = 42,
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
-						RandomizeCondition = true,
 						weapon = "R870",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
@@ -6456,7 +6410,6 @@ return {
 					id = "Nails20",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
-						RandomizeCondition = true,
 						upgrades = {
 							"StockNo",
 							"BarrelShortShotgun",
@@ -6646,7 +6599,6 @@ return {
 					id = "Red35",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
-						RandomizeCondition = true,
 						weapon = "Thompson",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
@@ -6873,7 +6825,6 @@ return {
 						item = "JazzArmorPlates_Titan3",
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
-						RandomizeCondition = true,
 						weapon = "Colt1911",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
@@ -6906,7 +6857,6 @@ return {
 						stack_min = 60,
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
-						RandomizeCondition = true,
 						weapon = "Colt1911",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
@@ -6961,7 +6911,6 @@ return {
 						stack_min = 100,
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
-						RandomizeCondition = true,
 						weapon = "Colt1911",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
@@ -6997,7 +6946,6 @@ return {
 					id = "Gus20",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
-						RandomizeCondition = true,
 						weapon = "M3GreaseGun",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
@@ -8972,7 +8920,6 @@ return {
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Condition = 90,
-						RandomizeCondition = true,
 						item = "Winchester1894",
 						stack_max = 1,
 						stack_min = 1,
@@ -9046,6 +8993,30 @@ return {
 						item = "Ted",
 					}),
 				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "reward",
+					group = "Quest and Convo Rewards",
+					id = "SmileyGun_copy",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "SkillMag_Marksmanship",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Condition = 90,
+						item = "UZI",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Condition = 40,
+						item = "DragunovSVD",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+				}),
 				}),
 			}),
 		PlaceObj('ModItemFolder', {
@@ -9063,40 +9034,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					item = "Stoeger",
-					stack_max = 1,
-					stack_min = 1,
-				}),
-			}),
-			PlaceObj('ModItemLootDef', {
-				Comment = "npc",
-				group = "QuestNPCs",
-				id = "GangWilma",
-				loot = "all",
-				PlaceObj('LootEntryUpgradedWeapon', {
-					guaranteed = true,
-					weapon = "MPL",
-				}),
-				PlaceObj('LootEntryInventoryItem', {
-					guaranteed = true,
-					item = "JAZZ_AMMO_9x19_JHP",
-					stack_max = 45,
-					stack_min = 30,
-				}),
-				PlaceObj('LootEntryInventoryItem', {
-					guaranteed = true,
-					item = "LightHelmet",
-					stack_max = 1,
-					stack_min = 1,
-				}),
-				PlaceObj('LootEntryInventoryItem', {
-					guaranteed = true,
-					item = "FlakLeggings",
-					stack_max = 1,
-					stack_min = 1,
-				}),
-				PlaceObj('LootEntryInventoryItem', {
-					guaranteed = true,
-					item = "FlakVest",
 					stack_max = 1,
 					stack_min = 1,
 				}),
@@ -9146,33 +9083,10 @@ return {
 			PlaceObj('ModItemLootDef', {
 				Comment = "reward",
 				group = "Quest and Convo Rewards",
-				id = "DocRobert",
-				loot = "all",
-				PlaceObj('LootEntryInventoryItem', {
-					guaranteed = true,
-					item = "MedicalReport",
-				}),
-				PlaceObj('LootEntryInventoryItem', {
-					item = "JAZZ_AMMO_44CAL_FMJ",
-					stack_max = 36,
-					stack_min = 12,
-				}),
-				PlaceObj('LootEntryUpgradedWeapon', {
-					upgrades = {
-						"UVDot",
-						"ImprovedIronsight",
-					},
-					weapon = "DesertEagle",
-				}),
-			}),
-			PlaceObj('ModItemLootDef', {
-				Comment = "reward",
-				group = "Quest and Convo Rewards",
 				id = "MoundLoot",
 				loot = "all",
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 34,
-					RandomizeCondition = true,
 					guaranteed = true,
 					item = "Gewehr98",
 					stack_max = 2,
@@ -9180,7 +9094,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 52,
-					RandomizeCondition = true,
 					drop_chance_mod = 75,
 					guaranteed = true,
 					item = "JAZZ_AMMO_792_FMJ",
@@ -9189,7 +9102,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 52,
-					RandomizeCondition = true,
 					drop_chance_mod = 75,
 					guaranteed = true,
 					item = "MP40",
@@ -9198,7 +9110,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 52,
-					RandomizeCondition = true,
 					drop_chance_mod = 75,
 					guaranteed = true,
 					item = "Luger",
@@ -9207,7 +9118,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 52,
-					RandomizeCondition = true,
 					drop_chance_mod = 75,
 					guaranteed = true,
 					item = "PPSH",
@@ -9216,7 +9126,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 52,
-					RandomizeCondition = true,
 					drop_chance_mod = 75,
 					guaranteed = true,
 					item = "MAT49",
@@ -9225,7 +9134,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 52,
-					RandomizeCondition = true,
 					drop_chance_mod = 75,
 					guaranteed = true,
 					item = "JAZZ_AMMO_9x19_FMJ",
@@ -9233,7 +9141,6 @@ return {
 					stack_min = 50,
 				}),
 				PlaceObj('LootEntryInventoryItem', {
-					RandomizeCondition = true,
 					guaranteed = true,
 					item = "FragGrenade",
 					stack_max = 2,
@@ -9251,28 +9158,24 @@ return {
 				group = "Quest and Convo Rewards",
 				id = "LootBox06_AK",
 				PlaceObj('LootEntryInventoryItem', {
-					RandomizeCondition = true,
 					guaranteed = true,
 					item = "Type56",
 					stack_max = 1,
 					stack_min = 1,
 				}),
 				PlaceObj('LootEntryInventoryItem', {
-					RandomizeCondition = true,
 					guaranteed = true,
 					item = "USAS12",
 					stack_max = 1,
 					stack_min = 1,
 				}),
 				PlaceObj('LootEntryInventoryItem', {
-					RandomizeCondition = true,
 					guaranteed = true,
 					item = "G36c",
 					stack_max = 1,
 					stack_min = 1,
 				}),
 				PlaceObj('LootEntryInventoryItem', {
-					RandomizeCondition = true,
 					guaranteed = true,
 					item = "RPD",
 					stack_max = 1,
@@ -9979,7 +9882,6 @@ return {
 				id = "AK47",
 				loot = "all",
 				PlaceObj('LootEntryUpgradedWeapon', {
-					RandomizeCondition = true,
 					weapon = "AKM",
 				}),
 			}),
@@ -10099,7 +10001,6 @@ return {
 				id = "LargeContainer_1",
 				PlaceObj('LootEntryUpgradedWeapon', {
 					Condition = 75,
-					RandomizeCondition = true,
 					upgrades = {
 						"JAZZ_CombatScope_FeroZ24",
 					},
@@ -10108,13 +10009,11 @@ return {
 				}),
 				PlaceObj('LootEntryUpgradedWeapon', {
 					Condition = 75,
-					RandomizeCondition = true,
 					weapon = "Gewehr98",
 					weight = 500000,
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 75,
-					RandomizeCondition = true,
 					item = "DragunovSVD",
 					stack_max = 1,
 					stack_min = 1,
@@ -10122,7 +10021,6 @@ return {
 				}),
 				PlaceObj('LootEntryUpgradedWeapon', {
 					Condition = 75,
-					RandomizeCondition = true,
 					upgrades = {
 						"BarrelLongImproved",
 					},
@@ -10131,7 +10029,6 @@ return {
 				}),
 				PlaceObj('LootEntryUpgradedWeapon', {
 					Condition = 75,
-					RandomizeCondition = true,
 					upgrades = {
 						"BarrelShortImproved",
 					},
@@ -10140,7 +10037,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 75,
-					RandomizeCondition = true,
 					item = "Bereta92",
 					stack_max = 1,
 					stack_min = 1,
@@ -10148,7 +10044,6 @@ return {
 				}),
 				PlaceObj('LootEntryUpgradedWeapon', {
 					Condition = 75,
-					RandomizeCondition = true,
 					upgrades = {
 						"BarrelLongShotgun",
 					},
@@ -10157,7 +10052,6 @@ return {
 				}),
 				PlaceObj('LootEntryUpgradedWeapon', {
 					Condition = 75,
-					RandomizeCondition = true,
 					upgrades = {
 						"BarrelShortShotgun",
 					},
@@ -10166,14 +10060,12 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 75,
-					RandomizeCondition = true,
 					item = "Auto5",
 					stack_max = 1,
 					stack_min = 1,
 					weight = 1000000,
 				}),
 				PlaceObj('LootEntryUpgradedWeapon', {
-					RandomizeCondition = true,
 					upgrades = {
 						"MagLarge",
 					},
@@ -10182,7 +10074,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 75,
-					RandomizeCondition = true,
 					item = "UZI",
 					stack_max = 1,
 					stack_min = 1,
@@ -10190,7 +10081,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 75,
-					RandomizeCondition = true,
 					item = "MP5",
 					stack_max = 1,
 					stack_min = 1,
@@ -10206,14 +10096,12 @@ return {
 				group = "MapContainers",
 				id = "LargeContainer_2",
 				PlaceObj('LootEntryInventoryItem', {
-					RandomizeCondition = true,
 					item = "Winchester1894",
 					stack_max = 1,
 					stack_min = 1,
 					weight = 1000000,
 				}),
 				PlaceObj('LootEntryUpgradedWeapon', {
-					RandomizeCondition = true,
 					upgrades = {
 						"BarrelShort",
 					},
@@ -10221,7 +10109,6 @@ return {
 					weight = 1000000,
 				}),
 				PlaceObj('LootEntryUpgradedWeapon', {
-					RandomizeCondition = true,
 					upgrades = {
 						"BarrelShort",
 					},
@@ -10229,12 +10116,10 @@ return {
 					weight = 1000000,
 				}),
 				PlaceObj('LootEntryUpgradedWeapon', {
-					RandomizeCondition = true,
 					weapon = "Type56",
 					weight = 1000000,
 				}),
 				PlaceObj('LootEntryUpgradedWeapon', {
-					RandomizeCondition = true,
 					upgrades = {
 						"LaserDot",
 					},
@@ -10242,14 +10127,12 @@ return {
 					weight = 1000000,
 				}),
 				PlaceObj('LootEntryInventoryItem', {
-					RandomizeCondition = true,
 					item = "RPK74",
 					stack_max = 1,
 					stack_min = 1,
 					weight = 1000000,
 				}),
 				PlaceObj('LootEntryInventoryItem', {
-					RandomizeCondition = true,
 					item = "MG42",
 					stack_max = 1,
 					stack_min = 1,
@@ -10257,7 +10140,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 55,
-					RandomizeCondition = true,
 					item = "M14SAW",
 					stack_max = 1,
 					stack_min = 1,
@@ -10265,7 +10147,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 55,
-					RandomizeCondition = true,
 					item = "FNFAL",
 					stack_max = 1,
 					stack_min = 1,
@@ -10285,7 +10166,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 75,
-					RandomizeCondition = true,
 					item = "M24Sniper",
 					stack_max = 1,
 					stack_min = 1,
@@ -10301,7 +10181,6 @@ return {
 				group = "MapContainers",
 				id = "LargeContainer_3",
 				PlaceObj('LootEntryInventoryItem', {
-					RandomizeCondition = true,
 					item = "M16A1",
 					stack_max = 1,
 					stack_min = 1,
@@ -10313,7 +10192,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 50,
-					RandomizeCondition = true,
 					item = "AUG",
 					stack_max = 1,
 					stack_min = 1,
@@ -10321,7 +10199,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 50,
-					RandomizeCondition = true,
 					item = "FNMinimi",
 					stack_max = 1,
 					stack_min = 1,
@@ -10346,7 +10223,6 @@ return {
 					weight = 1000000,
 				}),
 				PlaceObj('LootEntryInventoryItem', {
-					RandomizeCondition = true,
 					item = "AKSU",
 					stack_max = 1,
 					stack_min = 1,
@@ -10396,7 +10272,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 50,
-					RandomizeCondition = true,
 					item = "HK21",
 					stack_max = 1,
 					stack_min = 1,
@@ -10404,7 +10279,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 50,
-					RandomizeCondition = true,
 					item = "AA12",
 					stack_max = 1,
 					stack_min = 1,
@@ -10412,7 +10286,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 50,
-					RandomizeCondition = true,
 					item = "AK74",
 					stack_max = 1,
 					stack_min = 1,
@@ -10420,7 +10293,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 50,
-					RandomizeCondition = true,
 					item = "M4A1",
 					stack_max = 1,
 					stack_min = 1,
@@ -10580,7 +10452,6 @@ return {
 				id = "DeeDee_Container_2",
 				PlaceObj('LootEntryUpgradedWeapon', {
 					Condition = 59,
-					RandomizeCondition = true,
 					upgrades = {
 						"GP25",
 					},
@@ -10632,7 +10503,6 @@ return {
 				loot = "all",
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 76,
-					RandomizeCondition = true,
 					item = "AA12",
 					stack_max = 1,
 					stack_min = 1,
@@ -10644,7 +10514,6 @@ return {
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 78,
-					RandomizeCondition = true,
 					item = "M16A2",
 					stack_max = 1,
 					stack_min = 1,
@@ -10661,14 +10530,12 @@ return {
 				loot = "all",
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 88,
-					RandomizeCondition = true,
 					item = "HeavyArmorTorso",
 					stack_max = 1,
 					stack_min = 1,
 				}),
 				PlaceObj('LootEntryInventoryItem', {
 					Condition = 87,
-					RandomizeCondition = true,
 					item = "JazzArmor_NVG1",
 					stack_max = 1,
 					stack_min = 1,
@@ -10692,7 +10559,6 @@ return {
 				id = "Military_AKS",
 				loot = "all",
 				PlaceObj('LootEntryInventoryItem', {
-					RandomizeCondition = true,
 					item = "AKSU",
 					stack_max = 1,
 					stack_min = 1,
@@ -16847,7 +16713,6 @@ return {
 								id = "LegionNoob_Luger",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Luger",
 									stack_max = 1,
 									stack_min = 1,
@@ -16863,7 +16728,6 @@ return {
 								id = "LegionNoob_P210",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "P210",
 									stack_max = 1,
 									stack_min = 1,
@@ -16879,7 +16743,6 @@ return {
 								id = "LegionNoob_Makarov",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Makarov",
 									stack_max = 1,
 									stack_min = 1,
@@ -16895,7 +16758,6 @@ return {
 								id = "LegionNoob_TT",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "TT33",
 									stack_max = 1,
 									stack_min = 1,
@@ -16911,7 +16773,6 @@ return {
 								id = "LegionNoob_Colt1911",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Colt1911",
 									stack_max = 1,
 									stack_min = 1,
@@ -16926,7 +16787,6 @@ return {
 								id = "LegionNoob_Scorpion",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Scorpion",
 									stack_max = 1,
 									stack_min = 1,
@@ -16942,7 +16802,6 @@ return {
 								id = "LegionNoob_HiPower",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "HiPower",
 									stack_max = 1,
 									stack_min = 1,
@@ -16958,7 +16817,6 @@ return {
 								id = "LegionNoob_ColtPeaceMaker",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "ColtPeacemaker",
 									stack_max = 1,
 									stack_min = 1,
@@ -16990,7 +16848,6 @@ return {
 								id = "LegionNoob_CZ75",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "CZ75",
 									stack_max = 1,
 									stack_min = 1,
@@ -17005,7 +16862,6 @@ return {
 								id = "LegionNoob_MicroUZI",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MicroUZI",
 									stack_max = 1,
 									stack_min = 1,
@@ -17022,7 +16878,6 @@ return {
 								id = "LegionNoob_Beretta",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Bereta92",
 									stack_max = 1,
 									stack_min = 1,
@@ -17038,7 +16893,6 @@ return {
 								id = "LegionNoob_P220",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "P220",
 									stack_max = 1,
 									stack_min = 1,
@@ -17070,7 +16924,6 @@ return {
 								id = "LegionNoob_Glock17",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Glock17",
 									stack_max = 1,
 									stack_min = 1,
@@ -17085,7 +16938,6 @@ return {
 								id = "LegionNoob_MAC10",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MAC10",
 									stack_max = 1,
 									stack_min = 1,
@@ -17102,7 +16954,6 @@ return {
 								id = "LegionNoob_MP443",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MP446VIKING",
 									stack_max = 1,
 									stack_min = 1,
@@ -17117,7 +16968,6 @@ return {
 								id = "LegionNoob_MP5KPreset",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MP5K",
 									stack_max = 1,
 									stack_min = 1,
@@ -17138,7 +16988,6 @@ return {
 								id = "LegionStrong_Luger",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Luger",
 									stack_max = 1,
 									stack_min = 1,
@@ -17154,7 +17003,6 @@ return {
 								id = "LegionStrong_P210",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "P210",
 									stack_max = 1,
 									stack_min = 1,
@@ -17170,7 +17018,6 @@ return {
 								id = "LegionStrong_Makarov",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Makarov",
 									stack_max = 1,
 									stack_min = 1,
@@ -17186,7 +17033,6 @@ return {
 								id = "LegionStrong_TT",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "TT33",
 									stack_max = 1,
 									stack_min = 1,
@@ -17202,7 +17048,6 @@ return {
 								id = "LegionStrong_Colt1911",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Colt1911",
 									stack_max = 1,
 									stack_min = 1,
@@ -17217,7 +17062,6 @@ return {
 								id = "LegionStrong_Scorpion",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Scorpion",
 									stack_max = 1,
 									stack_min = 1,
@@ -17233,7 +17077,6 @@ return {
 								id = "LegionStrong_HiPower",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "HiPower",
 									stack_max = 1,
 									stack_min = 1,
@@ -17249,7 +17092,6 @@ return {
 								id = "LegionStrong_ColtPeaceMaker",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "ColtPeacemaker",
 									stack_max = 1,
 									stack_min = 1,
@@ -17265,7 +17107,6 @@ return {
 								id = "LegionStrong_Beretta",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Bereta92",
 									stack_max = 1,
 									stack_min = 1,
@@ -17281,7 +17122,6 @@ return {
 								id = "LegionStrong_CZ75",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "CZ75",
 									stack_max = 1,
 									stack_min = 1,
@@ -17297,7 +17137,6 @@ return {
 								id = "LegionStrong_P220",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "P220",
 									stack_max = 1,
 									stack_min = 1,
@@ -17312,7 +17151,6 @@ return {
 								id = "LegionStrong_MicroUZI",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MicroUZI",
 									stack_max = 1,
 									stack_min = 1,
@@ -17328,7 +17166,6 @@ return {
 								id = "LegionStrong_MAC10",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MAC10",
 									stack_max = 1,
 									stack_min = 1,
@@ -17345,7 +17182,6 @@ return {
 								id = "LegionStrong_ColtAnaconda",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "ColtAnaconda",
 									stack_max = 1,
 									stack_min = 1,
@@ -17361,7 +17197,6 @@ return {
 								id = "LegionStrong_MP443",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MP446VIKING",
 									stack_max = 1,
 									stack_min = 1,
@@ -17377,7 +17212,6 @@ return {
 								id = "LegionStrong_USP45",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "USP45",
 									stack_max = 1,
 									stack_min = 1,
@@ -17393,7 +17227,6 @@ return {
 								id = "LegionStrong_APS",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "APS",
 									stack_max = 1,
 									stack_min = 1,
@@ -17408,7 +17241,6 @@ return {
 								id = "LegionStrong_MP5K",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MP5K",
 									stack_max = 1,
 									stack_min = 1,
@@ -17424,7 +17256,6 @@ return {
 								id = "LegionStrong_Glock17",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Glock17",
 									stack_max = 1,
 									stack_min = 1,
@@ -17440,7 +17271,6 @@ return {
 								id = "LegionStrong_P226",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "P226",
 									stack_max = 1,
 									stack_min = 1,
@@ -17456,7 +17286,6 @@ return {
 								id = "LegionStrong_Glock18",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Glock18",
 									stack_max = 1,
 									stack_min = 1,
@@ -17472,7 +17301,6 @@ return {
 								id = "LegionStrong_DesertEagle",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "DesertEagle",
 									stack_max = 1,
 									stack_min = 1,
@@ -17487,7 +17315,6 @@ return {
 								id = "LegionStrong_TMP",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "TMP",
 									stack_max = 1,
 									stack_min = 1,
@@ -17508,7 +17335,6 @@ return {
 								id = "LegionElite_Luger",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Luger",
 									stack_max = 1,
 									stack_min = 1,
@@ -17524,7 +17350,6 @@ return {
 								id = "LegionElite_P210",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "P210",
 									stack_max = 1,
 									stack_min = 1,
@@ -17540,7 +17365,6 @@ return {
 								id = "LegionElite_Colt1911",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Colt1911",
 									stack_max = 1,
 									stack_min = 1,
@@ -17555,7 +17379,6 @@ return {
 								id = "LegionElite_Scorpion",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Scorpion",
 									stack_max = 1,
 									stack_min = 1,
@@ -17616,7 +17439,6 @@ return {
 								id = "LegionElite_CZ75",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "CZ75",
 									stack_max = 1,
 									stack_min = 1,
@@ -17632,7 +17454,6 @@ return {
 								id = "LegionElite_Beretta",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Bereta92",
 									stack_max = 1,
 									stack_min = 1,
@@ -17647,7 +17468,6 @@ return {
 								id = "LegionElite_MicroUZI",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MicroUZI",
 									stack_max = 1,
 									stack_min = 1,
@@ -17664,7 +17484,6 @@ return {
 								id = "LegionElite_P220",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "P220",
 									stack_max = 1,
 									stack_min = 1,
@@ -17729,7 +17548,6 @@ return {
 								id = "LegionElite_ColtAnaconda",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "ColtAnaconda",
 									stack_max = 1,
 									stack_min = 1,
@@ -17776,7 +17594,6 @@ return {
 								id = "LegionElite_MP443",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MP446VIKING",
 									stack_max = 1,
 									stack_min = 1,
@@ -17808,7 +17625,6 @@ return {
 								id = "LegionElite_APS",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "APS",
 									stack_max = 1,
 									stack_min = 1,
@@ -17915,7 +17731,6 @@ return {
 								id = "LegionElite_TMP",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "TMP",
 									stack_max = 1,
 									stack_min = 1,
@@ -18701,7 +18516,6 @@ return {
 								id = "LegionNoob_MP40",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MP40",
 									stack_max = 1,
 									stack_min = 1,
@@ -18716,7 +18530,6 @@ return {
 								id = "LegionNoob_MAT49",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MAT49",
 									stack_max = 1,
 									stack_min = 1,
@@ -18731,7 +18544,6 @@ return {
 								id = "LegionNoob_Thompson",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Thompson",
 									stack_max = 1,
 									stack_min = 1,
@@ -18747,7 +18559,6 @@ return {
 								id = "LegionNoob_ThompsonDrum",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"MagDrum_30-50",
 									},
@@ -18764,7 +18575,6 @@ return {
 								id = "LegionNoob_PPS43",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "PPS43",
 									stack_max = 1,
 									stack_min = 1,
@@ -18780,7 +18590,6 @@ return {
 								id = "LegionNoob_PPSH",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "PPSH",
 									stack_max = 1,
 									stack_min = 1,
@@ -18796,7 +18605,6 @@ return {
 								id = "LegionNoob_PPSHDrum",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"MagDrum_35-71",
 									},
@@ -18813,7 +18621,6 @@ return {
 								id = "LegionNoob_M3GreaseGun",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M3GreaseGun",
 									stack_max = 1,
 									stack_min = 1,
@@ -18829,7 +18636,6 @@ return {
 								id = "LegionNoob_Sterling",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Sterling",
 									stack_max = 1,
 									stack_min = 1,
@@ -18844,7 +18650,6 @@ return {
 								id = "LegionNoob_Agram2000",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Agram2000",
 									stack_max = 1,
 									stack_min = 1,
@@ -18859,7 +18664,6 @@ return {
 								id = "LegionNoob_M45",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M45",
 									stack_max = 1,
 									stack_min = 1,
@@ -18874,7 +18678,6 @@ return {
 								id = "LegionNoob_MPL",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MPL",
 									stack_max = 1,
 									stack_min = 1,
@@ -18889,7 +18692,6 @@ return {
 								id = "LegionNoob_UZI",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "UZI",
 									stack_max = 1,
 									stack_min = 1,
@@ -18904,7 +18706,6 @@ return {
 								id = "LegionNoob_BerettaM12",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "BerettaM12",
 									stack_max = 1,
 									stack_min = 1,
@@ -18919,7 +18720,6 @@ return {
 								id = "LegionNoob_SpectreM4",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "SpectreM4",
 									stack_max = 1,
 									stack_min = 1,
@@ -18934,7 +18734,6 @@ return {
 								id = "LegionNoob_ZastavaM92",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "ZastavaM92",
 									stack_max = 1,
 									stack_min = 1,
@@ -18950,7 +18749,6 @@ return {
 								id = "LegionNoob_MP5A2",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MP5A2",
 									stack_max = 1,
 									stack_min = 1,
@@ -18965,7 +18763,6 @@ return {
 								id = "LegionNoob_MP5A4",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MP5A4",
 									stack_max = 1,
 									stack_min = 1,
@@ -18980,7 +18777,6 @@ return {
 								id = "LegionNoob_CAR15",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "CAR15",
 									stack_max = 1,
 									stack_min = 1,
@@ -18996,7 +18792,6 @@ return {
 								id = "LegionNoob_AKSU",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AKSU",
 									stack_max = 1,
 									stack_min = 1,
@@ -19015,7 +18810,6 @@ return {
 								id = "LegionStrong_MP40",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MP40",
 									stack_max = 1,
 									stack_min = 1,
@@ -19030,7 +18824,6 @@ return {
 								id = "LegionStrong_MAT49",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MAT49",
 									stack_max = 1,
 									stack_min = 1,
@@ -19045,7 +18838,6 @@ return {
 								id = "LegionStrong_Thompson",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Thompson",
 									stack_max = 1,
 									stack_min = 1,
@@ -19061,7 +18853,6 @@ return {
 								id = "LegionStrong_ThompsonDrum",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"MagDrum_30-50",
 									},
@@ -19078,7 +18869,6 @@ return {
 								id = "LegionStrong_PPSH",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "PPSH",
 									stack_max = 1,
 									stack_min = 1,
@@ -19094,7 +18884,6 @@ return {
 								id = "LegionStrong_PPSHDrum",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"MagDrum_35-71",
 									},
@@ -19111,7 +18900,6 @@ return {
 								id = "LegionStrong_M3GreaseGun",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M3GreaseGun",
 									stack_max = 1,
 									stack_min = 1,
@@ -19126,7 +18914,6 @@ return {
 								id = "LegionStrong_Sterling",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Sterling",
 									stack_max = 1,
 									stack_min = 1,
@@ -19141,7 +18928,6 @@ return {
 								id = "LegionStrong_Agram2000",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Agram2000",
 									stack_max = 1,
 									stack_min = 1,
@@ -19156,7 +18942,6 @@ return {
 								id = "LegionStrong_M45",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M45",
 									stack_max = 1,
 									stack_min = 1,
@@ -19171,7 +18956,6 @@ return {
 								id = "LegionStrong_MPL",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MPL",
 									stack_max = 1,
 									stack_min = 1,
@@ -19186,7 +18970,6 @@ return {
 								id = "LegionStrong_UZI",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "UZI",
 									stack_max = 1,
 									stack_min = 1,
@@ -19201,7 +18984,6 @@ return {
 								id = "LegionStrong_UZIStock",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"StockNormal",
 									},
@@ -19217,7 +18999,6 @@ return {
 								id = "LegionStrong_BerettaM12",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "BerettaM12",
 									stack_max = 1,
 									stack_min = 1,
@@ -19232,7 +19013,6 @@ return {
 								id = "LegionStrong_SpectreM4",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "SpectreM4",
 									stack_max = 1,
 									stack_min = 1,
@@ -19247,7 +19027,6 @@ return {
 								id = "LegionStrong_ZastavaM92",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "ZastavaM92",
 									stack_max = 1,
 									stack_min = 1,
@@ -19262,7 +19041,6 @@ return {
 								id = "LegionStrong_MP5A2",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MP5A2",
 									stack_max = 1,
 									stack_min = 1,
@@ -19277,7 +19055,6 @@ return {
 								id = "LegionStrong_MP5A4",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MP5A4",
 									stack_max = 1,
 									stack_min = 1,
@@ -19292,7 +19069,6 @@ return {
 								id = "LegionStrong_CAR15",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "CAR15",
 									stack_max = 1,
 									stack_min = 1,
@@ -19307,7 +19083,6 @@ return {
 								id = "LegionStrong_UMP45",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "UMP45",
 									stack_max = 1,
 									stack_min = 1,
@@ -19322,7 +19097,6 @@ return {
 								id = "LegionStrong_ASVAL",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AS_Val",
 									stack_max = 1,
 									stack_min = 1,
@@ -19337,7 +19111,6 @@ return {
 								id = "LegionStrong_AKSU",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AKSU",
 									stack_max = 1,
 									stack_min = 1,
@@ -19352,7 +19125,6 @@ return {
 								id = "LegionStrong_PP19Bizon",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "PP19Bizon",
 									stack_max = 1,
 									stack_min = 1,
@@ -19372,7 +19144,6 @@ return {
 								id = "LegionElite_ThompsonDrum",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"MagDrum_30-50",
 									},
@@ -19389,7 +19160,6 @@ return {
 								id = "LegionElite_PPSHDrum",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"MagDrum_35-71",
 									},
@@ -19406,7 +19176,6 @@ return {
 								id = "LegionElite_Sterling",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Sterling",
 									stack_max = 1,
 									stack_min = 1,
@@ -19421,7 +19190,6 @@ return {
 								id = "LegionElite_Agram2000",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Agram2000",
 									stack_max = 1,
 									stack_min = 1,
@@ -19436,7 +19204,6 @@ return {
 								id = "LegionElite_M45",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M45",
 									stack_max = 1,
 									stack_min = 1,
@@ -19451,7 +19218,6 @@ return {
 								id = "LegionElite_MPL",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "MPL",
 									stack_max = 1,
 									stack_min = 1,
@@ -19496,7 +19262,6 @@ return {
 								id = "LegionElite_BerettaM12",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "BerettaM12",
 									stack_max = 1,
 									stack_min = 1,
@@ -19511,7 +19276,6 @@ return {
 								id = "LegionElite_UZIStockCompensator",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"StockNormal",
 										"Compensator",
@@ -19528,7 +19292,6 @@ return {
 								id = "LegionElite_UZIReflex",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"JAZZ_Reflex_Open",
 									},
@@ -19544,7 +19307,6 @@ return {
 								id = "LegionElite_SpectreM4",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "SpectreM4",
 									stack_max = 1,
 									stack_min = 1,
@@ -19559,7 +19321,6 @@ return {
 								id = "LegionElite_ZastavaM92",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "ZastavaM92",
 									stack_max = 1,
 									stack_min = 1,
@@ -19619,7 +19380,6 @@ return {
 								id = "LegionElite_ASVAL",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AS_Val",
 									stack_max = 1,
 									stack_min = 1,
@@ -19634,7 +19394,6 @@ return {
 								id = "LegionElite_PP19Bizon",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "PP19Bizon",
 									stack_max = 1,
 									stack_min = 1,
@@ -20806,7 +20565,6 @@ return {
 								id = "LegionNoob_M14",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M14SAW",
 									stack_max = 1,
 									stack_min = 1,
@@ -20821,7 +20579,6 @@ return {
 								id = "LegionNoob_Type56",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Type56",
 									stack_max = 1,
 									stack_min = 1,
@@ -20836,7 +20593,6 @@ return {
 								id = "LegionNoob_Famas",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "FAMAS",
 									stack_max = 1,
 									stack_min = 1,
@@ -20851,7 +20607,6 @@ return {
 								id = "LegionNoob_M16A1",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M16A1",
 									stack_max = 1,
 									stack_min = 1,
@@ -20866,7 +20621,6 @@ return {
 								id = "LegionNoob_ZastavaM70",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Zastava_M70",
 									stack_max = 1,
 									stack_min = 1,
@@ -20881,7 +20635,6 @@ return {
 								id = "LegionNoob_AK47",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AK47",
 									stack_max = 1,
 									stack_min = 1,
@@ -20896,7 +20649,6 @@ return {
 								id = "LegionNoob_AR10",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AR10",
 									stack_max = 1,
 									stack_min = 1,
@@ -20926,7 +20678,6 @@ return {
 								id = "LegionNoob_FNFAL",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "FNFAL",
 									stack_max = 1,
 									stack_min = 1,
@@ -20971,7 +20722,6 @@ return {
 								id = "LegionNoob_Galil",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									weapon = "Galil",
 								}),
 								PlaceObj('LootEntryLootDef', {
@@ -20984,7 +20734,6 @@ return {
 								id = "LegionNoob_GalilLight",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"StockLight",
 									},
@@ -21000,7 +20749,6 @@ return {
 								id = "LegionNoob_M16A2",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M16A2",
 									stack_max = 1,
 									stack_min = 1,
@@ -21030,7 +20778,6 @@ return {
 								id = "LegionNoob_G3A3",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "G3A3",
 									stack_max = 1,
 									stack_min = 1,
@@ -21045,7 +20792,6 @@ return {
 								id = "LegionNoob_M4A1",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M4A1",
 									stack_max = 1,
 									stack_min = 1,
@@ -21060,7 +20806,6 @@ return {
 								id = "LegionNoob_AKM",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AKM",
 									stack_max = 1,
 									stack_min = 1,
@@ -21094,7 +20839,6 @@ return {
 								id = "LegionStrong_Type56",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Type56",
 									stack_max = 1,
 									stack_min = 1,
@@ -21110,7 +20854,6 @@ return {
 								id = "LegionStrong_Famas",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "FAMAS",
 									stack_max = 1,
 									stack_min = 1,
@@ -21126,7 +20869,6 @@ return {
 								id = "LegionStrong_ZastavaM70",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Zastava_M70",
 									stack_max = 1,
 									stack_min = 1,
@@ -21142,7 +20884,6 @@ return {
 								id = "LegionStrong_M14",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M14SAW",
 									stack_max = 1,
 									stack_min = 1,
@@ -21158,7 +20899,6 @@ return {
 								id = "LegionStrong_M16A1",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M16A1",
 									stack_max = 1,
 									stack_min = 1,
@@ -21174,7 +20914,6 @@ return {
 								id = "LegionStrong_AK47",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AK47",
 									stack_max = 1,
 									stack_min = 1,
@@ -21190,7 +20929,6 @@ return {
 								id = "LegionStrong_AR10",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AR10",
 									stack_max = 1,
 									stack_min = 1,
@@ -21222,7 +20960,6 @@ return {
 								id = "LegionStrong_FNFAL",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "FNFAL",
 									stack_max = 1,
 									stack_min = 1,
@@ -21302,7 +21039,6 @@ return {
 								id = "LegionStrong_Galil",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									weapon = "Galil",
 								}),
 								PlaceObj('LootEntryLootDef', {
@@ -21316,7 +21052,6 @@ return {
 								id = "LegionStrong_GalilLight",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"StockLight",
 									},
@@ -21333,7 +21068,6 @@ return {
 								id = "LegionStrong_GalilDTK",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"Compensator",
 									},
@@ -21350,7 +21084,6 @@ return {
 								id = "LegionStrong_M16A2",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M16A2",
 									stack_max = 1,
 									stack_min = 1,
@@ -21398,7 +21131,6 @@ return {
 								id = "LegionStrong_G3A3",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "G3A3",
 									stack_max = 1,
 									stack_min = 1,
@@ -21446,7 +21178,6 @@ return {
 								id = "LegionStrong_G3A4",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "G3A4",
 									stack_max = 1,
 									stack_min = 1,
@@ -21478,7 +21209,6 @@ return {
 								id = "LegionStrong_M4A1",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M4A1",
 									stack_max = 1,
 									stack_min = 1,
@@ -21494,7 +21224,6 @@ return {
 								id = "LegionStrong_G36",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "G36",
 									stack_max = 1,
 									stack_min = 1,
@@ -21510,7 +21239,6 @@ return {
 								id = "LegionStrong_G36c",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "G36c",
 									stack_max = 1,
 									stack_min = 1,
@@ -21526,7 +21254,6 @@ return {
 								id = "LegionStrong_AKM",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AKM",
 									stack_max = 1,
 									stack_min = 1,
@@ -21590,7 +21317,6 @@ return {
 								id = "LegionStrong_AVT40",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AVT40",
 									stack_max = 1,
 									stack_min = 1,
@@ -21606,7 +21332,6 @@ return {
 								id = "LegionStrong_AK74",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AK74",
 									stack_max = 1,
 									stack_min = 1,
@@ -21621,7 +21346,6 @@ return {
 								id = "LegionStrong_M16A4",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M16A4",
 									stack_max = 1,
 									stack_min = 1,
@@ -21636,7 +21360,6 @@ return {
 								id = "LegionStrong_AUG",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AUG",
 									stack_max = 1,
 									stack_min = 1,
@@ -21685,7 +21408,6 @@ return {
 								id = "LegionElite_Type56",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Type56",
 									stack_max = 1,
 									stack_min = 1,
@@ -21733,7 +21455,6 @@ return {
 								id = "LegionElite_ZastavaM70",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Zastava_M70",
 									stack_max = 1,
 									stack_min = 1,
@@ -21781,7 +21502,6 @@ return {
 								id = "LegionElite_M16A1",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M16A1",
 									stack_max = 1,
 									stack_min = 1,
@@ -21813,7 +21533,6 @@ return {
 								id = "LegionElite_AK47",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AK47",
 									stack_max = 1,
 									stack_min = 1,
@@ -21947,7 +21666,6 @@ return {
 								id = "LegionElite_GalilReflex",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"StockLight",
 										"JAZZ_Reflex_Closed",
@@ -21966,7 +21684,6 @@ return {
 								id = "LegionElite_GalilScope",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"Compensator",
 									},
@@ -22236,7 +21953,6 @@ return {
 								id = "LegionElite_AVT40",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AVT40",
 									stack_max = 1,
 									stack_min = 1,
@@ -22252,7 +21968,6 @@ return {
 								id = "LegionElite_AK74",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AK74",
 									stack_max = 1,
 									stack_min = 1,
@@ -22282,7 +21997,6 @@ return {
 								id = "LegionElite_AUG",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AUG",
 									stack_max = 1,
 									stack_min = 1,
@@ -23553,7 +23267,6 @@ return {
 								id = "LegionNoob_Winchester",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Winchester1894",
 									stack_max = 1,
 									stack_min = 1,
@@ -23568,7 +23281,6 @@ return {
 								id = "LegionNoob_M1Garand",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M1Garand",
 									stack_max = 1,
 									stack_min = 1,
@@ -23584,7 +23296,6 @@ return {
 								id = "LegionNoob_Gewehr98",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Gewehr98",
 									stack_max = 1,
 									stack_min = 1,
@@ -23599,7 +23310,6 @@ return {
 								id = "LegionNoob_Springfield",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Springfield",
 									stack_max = 1,
 									stack_min = 1,
@@ -23614,7 +23324,6 @@ return {
 								id = "LegionNoob_Mosin",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Mosin",
 									stack_max = 1,
 									stack_min = 1,
@@ -23629,7 +23338,6 @@ return {
 								id = "LegionNoob_SKS",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "SKS",
 									stack_max = 1,
 									stack_min = 1,
@@ -23644,7 +23352,6 @@ return {
 								id = "LegionNoob_SVT40",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "SVT40",
 									stack_max = 1,
 									stack_min = 1,
@@ -23720,7 +23427,6 @@ return {
 								id = "LegionNoob_Mini14",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Mini14",
 									stack_max = 1,
 									stack_min = 1,
@@ -23810,7 +23516,6 @@ return {
 								id = "LegionNoob_M21",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									weapon = "M21",
 								}),
 								PlaceObj('LootEntryLootDef', {
@@ -23853,7 +23558,6 @@ return {
 								id = "LegionNoob_M2110xScope",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"JAZZ_Scope_12x",
 									},
@@ -23869,7 +23573,6 @@ return {
 								id = "LegionNoob_FRF2",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									weapon = "FRF2",
 								}),
 								PlaceObj('LootEntryLootDef', {
@@ -23882,7 +23585,6 @@ return {
 								id = "LegionNoob_M700",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M700",
 									stack_max = 1,
 									stack_min = 1,
@@ -23897,7 +23599,6 @@ return {
 								id = "LegionNoob_ZastavaM76",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "ZastavaM76",
 									stack_max = 1,
 									stack_min = 1,
@@ -23912,7 +23613,6 @@ return {
 								id = "LegionNoob_DragunovSVD",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "DragunovSVD",
 									stack_max = 1,
 									stack_min = 1,
@@ -23927,7 +23627,6 @@ return {
 								id = "LegionNoob_AR10DMR3xScope",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"JAZZ_CombatScope_ACOG",
 									},
@@ -23943,7 +23642,6 @@ return {
 								id = "LegionNoob_AR10DMR5xScope",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"JAZZ_Scope_6x",
 									},
@@ -23978,7 +23676,6 @@ return {
 								id = "LegionStrong_Winchester",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Winchester1894",
 									stack_max = 1,
 									stack_min = 1,
@@ -23993,7 +23690,6 @@ return {
 								id = "LegionStrong_SKS",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "SKS",
 									stack_max = 1,
 									stack_min = 1,
@@ -24008,7 +23704,6 @@ return {
 								id = "LegionStrong_SVT40",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "SVT40",
 									stack_max = 1,
 									stack_min = 1,
@@ -24040,7 +23735,6 @@ return {
 								id = "LegionStrong_Mini14",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Mini14",
 									stack_max = 1,
 									stack_min = 1,
@@ -24127,7 +23821,6 @@ return {
 								id = "LegionStrong_M21",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									weapon = "M21",
 								}),
 								PlaceObj('LootEntryLootDef', {
@@ -24140,7 +23833,6 @@ return {
 								id = "LegionStrong_M213xScope",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"JAZZ_CombatScope_2x",
 									},
@@ -24171,7 +23863,6 @@ return {
 								id = "LegionStrong_M2110xScope",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"JAZZ_Scope_12x",
 									},
@@ -24187,7 +23878,6 @@ return {
 								id = "LegionStrong_AR10DMR_5xScope",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"JAZZ_Scope_6x",
 									},
@@ -24203,7 +23893,6 @@ return {
 								id = "LegionStrong_G3Sniper_5xScope",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"JAZZ_Scope_DA15_6x",
 									},
@@ -24219,7 +23908,6 @@ return {
 								id = "LegionStrong_FRF2",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									weapon = "FRF2",
 								}),
 								PlaceObj('LootEntryLootDef', {
@@ -24232,7 +23920,6 @@ return {
 								id = "LegionStrong_M700",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M700",
 									stack_max = 1,
 									stack_min = 1,
@@ -24247,7 +23934,6 @@ return {
 								id = "LegionStrong_ZastavaM76",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "ZastavaM76",
 									stack_max = 1,
 									stack_min = 1,
@@ -24262,7 +23948,6 @@ return {
 								id = "LegionStrong_DragunovSVD",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "DragunovSVD",
 									stack_max = 1,
 									stack_min = 1,
@@ -24292,7 +23977,6 @@ return {
 								id = "LegionStrong_AR10DMR3xScope",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"JAZZ_CombatScope_2x",
 									},
@@ -24308,7 +23992,6 @@ return {
 								id = "LegionStrong_AR10DMR5xScope",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"JAZZ_Scope_6x",
 									},
@@ -24324,7 +24007,6 @@ return {
 								id = "LegionStrong_AR10DMR10xScope",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"JAZZ_Scope_12x",
 									},
@@ -24410,7 +24092,6 @@ return {
 								id = "LegionElite_SVT40",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "SVT40",
 									stack_max = 1,
 									stack_min = 1,
@@ -24442,7 +24123,6 @@ return {
 								id = "LegionElite_Mini14",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Mini14",
 									stack_max = 1,
 									stack_min = 1,
@@ -24518,7 +24198,6 @@ return {
 								id = "LegionElite_M21",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									weapon = "M21",
 								}),
 								PlaceObj('LootEntryLootDef', {
@@ -24531,7 +24210,6 @@ return {
 								id = "LegionElite_M215xScope",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"JAZZ_Scope_6x",
 										"Bipod_Under",
@@ -24548,7 +24226,6 @@ return {
 								id = "LegionElite_M2110xScope",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"JAZZ_Scope_12x",
 										"Bipod_Under",
@@ -24565,7 +24242,6 @@ return {
 								id = "LegionElite_AR10DMR_5xScope",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"JAZZ_Scope_6x",
 									},
@@ -24581,7 +24257,6 @@ return {
 								id = "LegionElite_G3Sniper_10xScope",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"JAZZ_Scope_DA15_6x",
 									},
@@ -24597,7 +24272,6 @@ return {
 								id = "LegionElite_FRF2",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									weapon = "FRF2",
 								}),
 								PlaceObj('LootEntryLootDef', {
@@ -24610,7 +24284,6 @@ return {
 								id = "LegionElite_M700",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M700",
 									stack_max = 1,
 									stack_min = 1,
@@ -24625,7 +24298,6 @@ return {
 								id = "LegionElite_ZastavaM76",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "ZastavaM76",
 									stack_max = 1,
 									stack_min = 1,
@@ -24640,7 +24312,6 @@ return {
 								id = "LegionElite_DragunovSVD",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "DragunovSVD",
 									stack_max = 1,
 									stack_min = 1,
@@ -24685,7 +24356,6 @@ return {
 								id = "LegionElite_SVU",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "SVU",
 									stack_max = 1,
 									stack_min = 1,
@@ -24700,7 +24370,6 @@ return {
 								id = "LegionElite_AR10DMR10xScope",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"JAZZ_Scope_12x",
 									},
@@ -25256,7 +24925,6 @@ return {
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
 									Condition = 61,
-									RandomizeCondition = true,
 									item = "MAC2429",
 									stack_max = 1,
 									stack_min = 1,
@@ -25272,7 +24940,6 @@ return {
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
 									Condition = 61,
-									RandomizeCondition = true,
 									item = "BAR",
 									stack_max = 1,
 									stack_min = 1,
@@ -25288,7 +24955,6 @@ return {
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
 									Condition = 61,
-									RandomizeCondition = true,
 									item = "DP27",
 									stack_max = 1,
 									stack_min = 1,
@@ -25304,7 +24970,6 @@ return {
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
 									Condition = 71,
-									RandomizeCondition = true,
 									item = "MG42",
 									stack_max = 1,
 									stack_min = 1,
@@ -25319,7 +24984,6 @@ return {
 								id = "LegionNoob_M60",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M60",
 									stack_max = 1,
 									stack_min = 1,
@@ -25334,7 +24998,6 @@ return {
 								id = "LegionNoob_RPD",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									weapon = "RPD",
 								}),
 								PlaceObj('LootEntryLootDef', {
@@ -25347,7 +25010,6 @@ return {
 								id = "LegionNoob_RPK",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "RPK",
 									stack_max = 1,
 									stack_min = 1,
@@ -25362,7 +25024,6 @@ return {
 								id = "LegionNoob_FNMAG",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "FNMAG",
 									stack_max = 1,
 									stack_min = 1,
@@ -25377,7 +25038,6 @@ return {
 								id = "LegionNoob_FNMinimi",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "FNMinimi",
 									stack_max = 1,
 									stack_min = 1,
@@ -25392,7 +25052,6 @@ return {
 								id = "LegionNoob_RPK74",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "RPK74",
 									stack_max = 1,
 									stack_min = 1,
@@ -25412,7 +25071,6 @@ return {
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
 									Condition = 61,
-									RandomizeCondition = true,
 									item = "MAC2429",
 									stack_max = 1,
 									stack_min = 1,
@@ -25428,7 +25086,6 @@ return {
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
 									Condition = 61,
-									RandomizeCondition = true,
 									item = "DP27",
 									stack_max = 1,
 									stack_min = 1,
@@ -25444,7 +25101,6 @@ return {
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
 									Condition = 61,
-									RandomizeCondition = true,
 									item = "U100",
 									stack_max = 1,
 									stack_min = 1,
@@ -25459,7 +25115,6 @@ return {
 								id = "LegionStrong_M60",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M60",
 									stack_max = 1,
 									stack_min = 1,
@@ -25474,7 +25129,6 @@ return {
 								id = "LegionStrong_RPK",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "RPK",
 									stack_max = 1,
 									stack_min = 1,
@@ -25504,7 +25158,6 @@ return {
 								id = "LegionStrong_RPD",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									weapon = "RPD",
 								}),
 								PlaceObj('LootEntryLootDef', {
@@ -25517,7 +25170,6 @@ return {
 								id = "LegionStrong_M60E3",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M60E3",
 									stack_max = 1,
 									stack_min = 1,
@@ -25548,7 +25200,6 @@ return {
 								id = "LegionStrong_FNMAG",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "FNMAG",
 									stack_max = 1,
 									stack_min = 1,
@@ -25563,7 +25214,6 @@ return {
 								id = "LegionStrong_RPK74",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "RPK74",
 									stack_max = 1,
 									stack_min = 1,
@@ -25578,7 +25228,6 @@ return {
 								id = "LegionStrong_PKM",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "PKM",
 									stack_max = 1,
 									stack_min = 1,
@@ -25612,7 +25261,6 @@ return {
 								id = "LegionElite_M60",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M60",
 									stack_max = 1,
 									stack_min = 1,
@@ -25752,7 +25400,6 @@ return {
 								id = "LegionElite_PKM",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "PKM",
 									stack_max = 1,
 									stack_min = 1,
@@ -26086,7 +25733,6 @@ return {
 								id = "LegionNoob_DoubleBarrel",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "DoubleBarrelShotgun",
 									stack_max = 1,
 									stack_min = 1,
@@ -26116,7 +25762,6 @@ return {
 								id = "LegionNoob_Auto5",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"Auto5_Long_NMag",
 									},
@@ -26132,7 +25777,6 @@ return {
 								id = "LegionNoob_M1897",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M1897",
 									stack_max = 1,
 									stack_min = 1,
@@ -26147,7 +25791,6 @@ return {
 								id = "LegionNoob_R870",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "R870",
 									stack_max = 1,
 									stack_min = 1,
@@ -26162,7 +25805,6 @@ return {
 								id = "LegionNoob_Ithaca",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Ithaca",
 									stack_max = 1,
 									stack_min = 1,
@@ -26177,7 +25819,6 @@ return {
 								id = "LegionNoob_Striker",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Striker",
 									stack_max = 1,
 									stack_min = 1,
@@ -26192,7 +25833,6 @@ return {
 								id = "LegionNoob_Spas12",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "SPAS12",
 									stack_max = 1,
 									stack_min = 1,
@@ -26211,7 +25851,6 @@ return {
 								id = "LegionStrong_DoubleBarrel",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "DoubleBarrelShotgun",
 									stack_max = 1,
 									stack_min = 1,
@@ -26226,7 +25865,6 @@ return {
 								id = "LegionStrong_Auto5",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"Auto5_Long_NMag",
 									},
@@ -26242,7 +25880,6 @@ return {
 								id = "LegionStrong_M1897",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M1897",
 									stack_max = 1,
 									stack_min = 1,
@@ -26257,7 +25894,6 @@ return {
 								id = "LegionStrong_R870",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "R870",
 									stack_max = 1,
 									stack_min = 1,
@@ -26272,7 +25908,6 @@ return {
 								id = "LegionStrong_Ithaca",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Ithaca",
 									stack_max = 1,
 									stack_min = 1,
@@ -26287,7 +25922,6 @@ return {
 								id = "LegionStrong_Striker",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Striker",
 									stack_max = 1,
 									stack_min = 1,
@@ -26302,7 +25936,6 @@ return {
 								id = "LegionStrong_Spas12",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "SPAS12",
 									stack_max = 1,
 									stack_min = 1,
@@ -26317,7 +25950,6 @@ return {
 								id = "LegionStrong_Usas12",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "USAS12",
 									stack_max = 1,
 									stack_min = 1,
@@ -26332,7 +25964,6 @@ return {
 								id = "LegionStrong_AA12",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AA12",
 									stack_max = 1,
 									stack_min = 1,
@@ -26347,7 +25978,6 @@ return {
 								id = "LegionStrong_M41",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M41Shotgun",
 									stack_max = 1,
 									stack_min = 1,
@@ -26366,7 +25996,6 @@ return {
 								id = "LegionElite_Auto5",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									upgrades = {
 										"Auto5_Long_NMag",
 									},
@@ -26382,7 +26011,6 @@ return {
 								id = "LegionElite_M1897",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "M1897",
 									stack_max = 1,
 									stack_min = 1,
@@ -26443,7 +26071,6 @@ return {
 								id = "LegionElite_Striker",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Striker",
 									stack_max = 1,
 									stack_min = 1,
@@ -26458,7 +26085,6 @@ return {
 								id = "LegionElite_Spas12",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "SPAS12",
 									stack_max = 1,
 									stack_min = 1,
@@ -26473,7 +26099,6 @@ return {
 								id = "LegionElite_Usas12",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "USAS12",
 									stack_max = 1,
 									stack_min = 1,
@@ -26557,7 +26182,6 @@ return {
 							id = "M79",
 							loot = "all",
 							PlaceObj('LootEntryInventoryItem', {
-								RandomizeCondition = true,
 								item = "M79",
 								stack_max = 1,
 								stack_min = 1,
@@ -26572,7 +26196,6 @@ return {
 							id = "ChinaLake",
 							loot = "all",
 							PlaceObj('LootEntryInventoryItem', {
-								RandomizeCondition = true,
 								item = "China_Lake",
 								stack_max = 1,
 								stack_min = 1,
@@ -26587,7 +26210,6 @@ return {
 							id = "RPG",
 							loot = "all",
 							PlaceObj('LootEntryInventoryItem', {
-								RandomizeCondition = true,
 								item = "RPG7",
 								stack_max = 1,
 								stack_min = 1,
@@ -27137,36 +26759,6 @@ return {
 						}),
 					}),
 					PlaceObj('ModItemLootDef', {
-						Comment = "enemy legion boss",
-						group = "Enemy - Legion",
-						id = "DiamondRedBoss",
-						loot = "all",
-						PlaceObj('LootEntryInventoryItem', {
-							item = "JazzArmor_TwaronFull",
-							stack_max = 1,
-							stack_min = 1,
-						}),
-						PlaceObj('LootEntryInventoryItem', {
-							item = "JazzArmor_TwaronHelmHeavy",
-							stack_max = 1,
-							stack_min = 1,
-						}),
-						PlaceObj('LootEntryInventoryItem', {
-							item = "JazzArmor_TwaronLegs",
-							stack_max = 1,
-							stack_min = 1,
-						}),
-						PlaceObj('LootEntryInventoryItem', {
-							drop_chance_mod = 0,
-							item = "HighCalRev",
-							stack_max = 1,
-							stack_min = 1,
-						}),
-						PlaceObj('LootEntryLootDef', {
-							loot_def = "Drop_50cal_Basic",
-						}),
-					}),
-					PlaceObj('ModItemLootDef', {
 						Comment = "enemy adonis",
 						group = "Enemy - Legion",
 						id = "PierreGuard",
@@ -27441,13 +27033,12 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 81,
-							RandomizeCondition = true,
 							item = "MortarInventoryItem",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryLootDef', {
-							loot_def = "LegionStrong_Pistol",
+							loot_def = "LegionNoob_SMG",
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "Noob_GoonTorso",
@@ -27576,7 +27167,6 @@ return {
 						id = "LegionBrawler",
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
-							RandomizeCondition = true,
 							drop_chance_mod = 0,
 							item = "Unarmed",
 							stack_max = 1,
@@ -28080,7 +27670,6 @@ return {
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 77,
-							RandomizeCondition = true,
 							item = "Knife",
 							stack_max = 1,
 							stack_min = 1,
@@ -28122,7 +27711,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 81,
-							RandomizeCondition = true,
 							item = "RPG7",
 							stack_max = 1,
 							stack_min = 1,
@@ -28150,7 +27738,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 81,
-							RandomizeCondition = true,
 							item = "RPG7",
 							stack_max = 1,
 							stack_min = 1,
@@ -28160,7 +27747,6 @@ return {
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 81,
-							RandomizeCondition = true,
 							item = "RPG7",
 							stack_max = 1,
 							stack_min = 1,
@@ -28188,7 +27774,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 81,
-							RandomizeCondition = true,
 							item = "RPG7",
 							stack_max = 1,
 							stack_min = 1,
@@ -28222,7 +27807,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 81,
-							RandomizeCondition = true,
 							item = "RPG7",
 							stack_max = 1,
 							stack_min = 1,
@@ -29784,7 +29368,6 @@ return {
 								id = "ArmyPistol_Colt1911",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Colt1911",
 									stack_max = 1,
 									stack_min = 1,
@@ -29800,7 +29383,6 @@ return {
 								id = "ArmyPistol_CZ75",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "CZ75",
 									stack_max = 1,
 									stack_min = 1,
@@ -29816,7 +29398,6 @@ return {
 								id = "ArmyPistol_Beretta",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "Bereta92",
 									stack_max = 1,
 									stack_min = 1,
@@ -29848,7 +29429,6 @@ return {
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
 									Condition = 61,
-									RandomizeCondition = true,
 									item = "U100",
 									stack_max = 1,
 									stack_min = 1,
@@ -29877,7 +29457,6 @@ return {
 								id = "ArmyMG_FNMAG",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "FNMAG",
 									stack_max = 1,
 									stack_min = 1,
@@ -29891,7 +29470,6 @@ return {
 								id = "ArmyMG_PKM",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "PKM",
 									stack_max = 1,
 									stack_min = 1,
@@ -29905,7 +29483,6 @@ return {
 								id = "ArmyEliteMG_FNMAG",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "FNMAG",
 									stack_max = 1,
 									stack_min = 1,
@@ -30003,7 +29580,6 @@ return {
 								id = "ArmyEliteMG_PKM",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "PKM",
 									stack_max = 1,
 									stack_min = 1,
@@ -30092,7 +29668,6 @@ return {
 								id = "ArmySR_FRF2",
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
-									RandomizeCondition = true,
 									weapon = "FRF2",
 								}),
 								PlaceObj('LootEntryLootDef', {
@@ -30105,7 +29680,6 @@ return {
 								id = "ArmySR_DragunovSVD",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "DragunovSVD",
 									stack_max = 1,
 									stack_min = 1,
@@ -30197,7 +29771,6 @@ return {
 								id = "ArmyEliteSR_SVU",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "SVU",
 									stack_max = 1,
 									stack_min = 1,
@@ -30285,7 +29858,6 @@ return {
 								id = "ArmyCR_ASVAL",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AS_Val",
 									stack_max = 1,
 									stack_min = 1,
@@ -30483,7 +30055,6 @@ return {
 								id = "ArmyEliteCR_ASVAL",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AS_Val",
 									stack_max = 1,
 									stack_min = 1,
@@ -30558,7 +30129,6 @@ return {
 								id = "ArmyEliteCR_VSS",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "AS_Val",
 									stack_max = 1,
 									stack_min = 1,
@@ -30843,7 +30413,6 @@ return {
 								id = "ArmyEliteShotgun_Spas12",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
-									RandomizeCondition = true,
 									item = "SPAS12",
 									stack_max = 1,
 									stack_min = 1,
@@ -30933,7 +30502,6 @@ return {
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 81,
-							RandomizeCondition = true,
 							item = "GasMask",
 							stack_max = 1,
 							stack_min = 1,
@@ -30964,7 +30532,6 @@ return {
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 81,
-							RandomizeCondition = true,
 							item = "GasMask",
 							stack_max = 1,
 							stack_min = 1,
@@ -31085,7 +30652,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 56,
-							RandomizeCondition = true,
 							item = "RPG7",
 							stack_max = 1,
 							stack_min = 1,
@@ -31213,8 +30779,11 @@ return {
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "Army_AR",
 						}),
-						PlaceObj('LootEntryLootDef', {
-							loot_def = "ArmysExplosives",
+						PlaceObj('LootEntryInventoryItem', {
+							drop_chance_mod = 30,
+							item = "FragGrenade",
+							stack_max = 6,
+							stack_min = 2,
 						}),
 					}),
 					PlaceObj('ModItemLootDef', {
@@ -31228,8 +30797,11 @@ return {
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "ArmyElite_AR",
 						}),
-						PlaceObj('LootEntryLootDef', {
-							loot_def = "ArmysExplosives",
+						PlaceObj('LootEntryInventoryItem', {
+							drop_chance_mod = 30,
+							item = "FragGrenade",
+							stack_max = 6,
+							stack_min = 2,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							drop_chance_mod = 0,
@@ -31376,7 +30948,6 @@ return {
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 77,
-							RandomizeCondition = true,
 							item = "Machete",
 							stack_max = 1,
 							stack_min = 1,
@@ -31409,7 +30980,6 @@ return {
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 77,
-							RandomizeCondition = true,
 							item = "Machete",
 							stack_max = 1,
 							stack_min = 1,
@@ -32222,7 +31792,6 @@ return {
 							id = "MiniUZIReflexLaser_Undrop",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								RandomizeCondition = true,
 								drop_chance_mod = 0,
 								upgrades = {
 									"JAZZ_Reflex_Pistol",
@@ -32237,7 +31806,6 @@ return {
 							id = "MiniUZITacticalHP_Undrop",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								RandomizeCondition = true,
 								drop_chance_mod = 0,
 								upgrades = {
 									"Compensator",
@@ -32253,7 +31821,6 @@ return {
 							id = "MiniUZITacticalAP_Undrop",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								RandomizeCondition = true,
 								drop_chance_mod = 0,
 								upgrades = {
 									"Compensator",
@@ -32269,7 +31836,6 @@ return {
 							id = "UZIPresetCompensatorReflex_Undrop",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								RandomizeCondition = true,
 								drop_chance_mod = 0,
 								upgrades = {
 									"Compensator",
@@ -32284,7 +31850,6 @@ return {
 							id = "MP5A2PresetAdvReflexAP_Undrop",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								RandomizeCondition = true,
 								drop_chance_mod = 0,
 								upgrades = {
 									"JAZZ_CombatScope_2x",
@@ -32298,7 +31863,6 @@ return {
 							id = "MP5A4PresetLightStockReflexAdvAP_Undrop",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								RandomizeCondition = true,
 								drop_chance_mod = 0,
 								upgrades = {
 									"JAZZ_CombatScope_2x",
@@ -32313,7 +31877,6 @@ return {
 							id = "MP5KPresetLaser_Undrop",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								RandomizeCondition = true,
 								drop_chance_mod = 0,
 								upgrades = {
 									"LaserDot",
@@ -32327,7 +31890,6 @@ return {
 							id = "UMP45PresetFlashlightReflexJHP_Undrop",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								RandomizeCondition = true,
 								drop_chance_mod = 0,
 								upgrades = {
 									"Flashlight",
@@ -32342,7 +31904,6 @@ return {
 							id = "UMP45PresetFlashlightDotAdvReflexSupP_Undrop",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								RandomizeCondition = true,
 								drop_chance_mod = 0,
 								upgrades = {
 									"FlashlightDot",
@@ -32358,7 +31919,6 @@ return {
 							id = "P90PresetFlashlight_Undrop",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								RandomizeCondition = true,
 								drop_chance_mod = 0,
 								upgrades = {
 									"Flashlight",
@@ -32372,7 +31932,6 @@ return {
 							id = "P90PresetLaser_Undrop",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								RandomizeCondition = true,
 								drop_chance_mod = 0,
 								upgrades = {
 									"LaserDot",
@@ -32386,7 +31945,6 @@ return {
 							id = "G36PresetCQB_Undrop",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								RandomizeCondition = true,
 								drop_chance_mod = 0,
 								upgrades = {
 									"VerticalGrip",
@@ -32431,7 +31989,6 @@ return {
 							id = "AUGPreset_CQB_AP_Undrop",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								RandomizeCondition = true,
 								drop_chance_mod = 0,
 								upgrades = {
 									"AUGScope_Default",
@@ -32447,7 +32004,6 @@ return {
 							id = "G3A3PresetReflexAP_Undrop",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								RandomizeCondition = true,
 								drop_chance_mod = 0,
 								upgrades = {
 									"JAZZ_Reflex_M68",
@@ -32462,7 +32018,6 @@ return {
 							id = "M16A4PresetCQB_Undrop",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								RandomizeCondition = true,
 								drop_chance_mod = 0,
 								upgrades = {
 									"JAZZ_Reflex_M68",
@@ -32478,7 +32033,6 @@ return {
 							id = "M4A1PresetCQB_Undrop",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								RandomizeCondition = true,
 								drop_chance_mod = 0,
 								upgrades = {
 									"StockLightFolded",
@@ -32496,7 +32050,6 @@ return {
 							id = "G36CPresetCQB_Undrop",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								RandomizeCondition = true,
 								drop_chance_mod = 0,
 								upgrades = {
 									"JAZZ_Reflex_Eotech",
@@ -33667,7 +33220,6 @@ return {
 							}),
 							PlaceObj('LootEntryInventoryItem', {
 								Condition = 97,
-								RandomizeCondition = true,
 								item = "JazzArmorPlates_Ceramics4",
 								stack_max = 1,
 								stack_min = 1,
@@ -33702,7 +33254,6 @@ return {
 							}),
 							PlaceObj('LootEntryInventoryItem', {
 								Condition = 97,
-								RandomizeCondition = true,
 								item = "JazzArmorPlates_Ceramics4",
 								stack_max = 1,
 								stack_min = 1,
@@ -33737,7 +33288,6 @@ return {
 							}),
 							PlaceObj('LootEntryInventoryItem', {
 								Condition = 97,
-								RandomizeCondition = true,
 								item = "JazzArmorPlates_Ceramics4",
 								stack_max = 1,
 								stack_min = 1,
@@ -33750,28 +33300,24 @@ return {
 							loot = "all",
 							PlaceObj('LootEntryInventoryItem', {
 								Condition = 97,
-								RandomizeCondition = true,
 								item = "JazzArmor_UHMWPE",
 								stack_max = 1,
 								stack_min = 1,
 							}),
 							PlaceObj('LootEntryInventoryItem', {
 								Condition = 97,
-								RandomizeCondition = true,
 								item = "JazzArmor_UHMWPEHelm",
 								stack_max = 1,
 								stack_min = 1,
 							}),
 							PlaceObj('LootEntryInventoryItem', {
 								Condition = 97,
-								RandomizeCondition = true,
 								item = "JazzArmor_UHMWPELegs",
 								stack_max = 1,
 								stack_min = 1,
 							}),
 							PlaceObj('LootEntryInventoryItem', {
 								Condition = 97,
-								RandomizeCondition = true,
 								item = "JazzArmorPlates_Ceramics4",
 								stack_max = 1,
 								stack_min = 1,
@@ -33798,28 +33344,24 @@ return {
 							loot = "all",
 							PlaceObj('LootEntryInventoryItem', {
 								Condition = 97,
-								RandomizeCondition = true,
 								item = "JazzArmor_UHMWPEFull",
 								stack_max = 1,
 								stack_min = 1,
 							}),
 							PlaceObj('LootEntryInventoryItem', {
 								Condition = 97,
-								RandomizeCondition = true,
 								item = "JazzArmor_UHMWPEHelm",
 								stack_max = 1,
 								stack_min = 1,
 							}),
 							PlaceObj('LootEntryInventoryItem', {
 								Condition = 97,
-								RandomizeCondition = true,
 								item = "JazzArmor_UHMWPELegs",
 								stack_max = 1,
 								stack_min = 1,
 							}),
 							PlaceObj('LootEntryInventoryItem', {
 								Condition = 97,
-								RandomizeCondition = true,
 								item = "JazzArmorPlates_Ceramics5",
 								stack_max = 1,
 								stack_min = 1,
@@ -33832,28 +33374,24 @@ return {
 							loot = "all",
 							PlaceObj('LootEntryInventoryItem', {
 								Condition = 97,
-								RandomizeCondition = true,
 								item = "JazzArmor_Spectra",
 								stack_max = 1,
 								stack_min = 1,
 							}),
 							PlaceObj('LootEntryInventoryItem', {
 								Condition = 97,
-								RandomizeCondition = true,
 								item = "JazzArmor_SpectraHelm",
 								stack_max = 1,
 								stack_min = 1,
 							}),
 							PlaceObj('LootEntryInventoryItem', {
 								Condition = 97,
-								RandomizeCondition = true,
 								item = "JazzArmor_SpectraLegs",
 								stack_max = 1,
 								stack_min = 1,
 							}),
 							PlaceObj('LootEntryInventoryItem', {
 								Condition = 97,
-								RandomizeCondition = true,
 								item = "JazzArmorPlates_Ceramics5",
 								stack_max = 1,
 								stack_min = 1,
@@ -33939,7 +33477,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 93,
-							RandomizeCondition = true,
 							item = "M79",
 							stack_max = 1,
 							stack_min = 1,
@@ -33967,7 +33504,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 93,
-							RandomizeCondition = true,
 							item = "MGL",
 							stack_max = 1,
 							stack_min = 1,
@@ -34078,7 +33614,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 93,
-							RandomizeCondition = true,
 							item = "MortarInventoryItem",
 							stack_max = 1,
 							stack_min = 1,
@@ -34320,7 +33855,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 80,
-							RandomizeCondition = true,
 							generate_chance = 50,
 							item = "Machete",
 							stack_max = 1,
@@ -34340,7 +33874,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 77,
-							RandomizeCondition = true,
 							drop_chance_mod = 0,
 							item = "Knife",
 							stack_max = 1,
@@ -34368,7 +33901,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 77,
-							RandomizeCondition = true,
 							drop_chance_mod = 0,
 							item = "Knife",
 							stack_max = 1,
@@ -34396,7 +33928,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 85,
-							RandomizeCondition = true,
 							drop_chance_mod = 0,
 							item = "Knife",
 							stack_max = 1,
@@ -34425,7 +33956,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 85,
-							RandomizeCondition = true,
 							drop_chance_mod = 0,
 							item = "Knife",
 							stack_max = 1,
@@ -34469,7 +33999,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 82,
-							RandomizeCondition = true,
 							drop_chance_mod = 0,
 							item = "Machete_Sharpened",
 							stack_max = 1,
@@ -34489,7 +34018,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 82,
-							RandomizeCondition = true,
 							drop_chance_mod = 0,
 							item = "Knife",
 							stack_max = 1,
@@ -34515,7 +34043,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 82,
-							RandomizeCondition = true,
 							drop_chance_mod = 0,
 							item = "Knife",
 							stack_max = 1,
@@ -34541,7 +34068,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 79,
-							RandomizeCondition = true,
 							drop_chance_mod = 0,
 							item = "Knife",
 							stack_max = 1,
@@ -34570,7 +34096,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 79,
-							RandomizeCondition = true,
 							drop_chance_mod = 0,
 							item = "Knife",
 							stack_max = 1,
@@ -34602,7 +34127,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 81,
-							RandomizeCondition = true,
 							drop_chance_mod = 0,
 							item = "Knife",
 							stack_max = 1,
@@ -34625,7 +34149,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 81,
-							RandomizeCondition = true,
 							drop_chance_mod = 0,
 							item = "Knife",
 							stack_max = 1,
@@ -34651,7 +34174,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 87,
-							RandomizeCondition = true,
 							drop_chance_mod = 0,
 							item = "Knife",
 							stack_max = 1,
@@ -34674,7 +34196,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 87,
-							RandomizeCondition = true,
 							drop_chance_mod = 0,
 							item = "Knife",
 							stack_max = 1,
@@ -34941,7 +34462,6 @@ return {
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
 						Condition = 79,
-						RandomizeCondition = true,
 						drop_chance_mod = 0,
 						item = "Knife",
 						stack_max = 1,
@@ -34970,7 +34490,6 @@ return {
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
 						Condition = 91,
-						RandomizeCondition = true,
 						drop_chance_mod = 200,
 						item = "M1897",
 						stack_max = 1,
@@ -35358,28 +34877,24 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_UHMWPE",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_UHMWPEHelm",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_UHMWPELegs",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmorPlates_Titan4",
 							stack_max = 1,
 							stack_min = 1,
@@ -35392,21 +34907,18 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_UHMWPE",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_UHMWPELegs",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmorPlates_Titan4",
 							stack_max = 1,
 							stack_min = 1,
@@ -35419,28 +34931,24 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_UHMWPEFull",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_UHMWPEHelm",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_UHMWPELegs",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmorPlates_Titan4",
 							stack_max = 1,
 							stack_min = 1,
@@ -35453,21 +34961,18 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_UHMWPEFull",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_UHMWPELegs",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmorPlates_Titan4",
 							stack_max = 1,
 							stack_min = 1,
@@ -35480,28 +34985,24 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_Spectra",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_SpectraHelm",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_SpectraLegs",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmorPlates_Titan5",
 							stack_max = 1,
 							stack_min = 1,
@@ -35514,21 +35015,18 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_Spectra",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_SpectraLegs",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmorPlates_Titan5",
 							stack_max = 1,
 							stack_min = 1,
@@ -35541,28 +35039,24 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_SpectraFull",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_SpectraHelm",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_SpectraLegs",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmorPlates_Titan5",
 							stack_max = 1,
 							stack_min = 1,
@@ -35575,21 +35069,18 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_SpectraFull",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmor_SpectraLegs",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "JazzArmorPlates_Titan5",
 							stack_max = 1,
 							stack_min = 1,
@@ -35681,21 +35172,18 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 92,
-							RandomizeCondition = true,
 							item = "Machete_Sharpened",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "KevlarChestplate",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "Gasmaskenhelm",
 							stack_max = 1,
 							stack_min = 1,
@@ -35715,21 +35203,18 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 92,
-							RandomizeCondition = true,
 							item = "Machete_Sharpened",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "KevlarChestplate",
 							stack_max = 1,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 97,
-							RandomizeCondition = true,
 							item = "Gasmaskenhelm",
 							stack_max = 1,
 							stack_min = 1,
@@ -35765,7 +35250,6 @@ return {
 						loot = "all",
 						PlaceObj('LootEntryInventoryItem', {
 							Condition = 92,
-							RandomizeCondition = true,
 							item = "MGL",
 							stack_max = 1,
 							stack_min = 1,
@@ -35778,7 +35262,6 @@ return {
 							loot_def = "Nazi_Shotgun_Elite",
 						}),
 						PlaceObj('LootEntryInventoryItem', {
-							RandomizeCondition = true,
 							item = "Machete",
 							stack_max = 1,
 							stack_min = 1,
@@ -35921,6 +35404,752 @@ return {
 					}),
 					PlaceObj('LootEntryLootDef', {
 						loot_def = "ArmyArmor_PASGT",
+					}),
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Unsorted",
+			}, {
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "Biff",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						game_conditions = {
+							PlaceObj('QuestIsVariableBool', {
+								QuestId = "RescueBiff",
+								Vars = set({
+	BiffDeadOnArrival = false,
+	BiffGiveDiamond = false,
+	DiamondGiven_Chimurenga = false,
+}),
+							}),
+						},
+						guaranteed = true,
+						item = "TheGreenDiamond",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Biff_Robbed",
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "Biff_Robbed",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						Condition = 50,
+						drop_chance_mod = 50,
+						item = "HK33",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 20,
+						item = "JAZZ_AMMO_556_M855",
+						stack_max = 60,
+						stack_min = 60,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Condition = 75,
+						drop_chance_mod = 0,
+						item = "Knife",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Condition = 13,
+						item = "JazzArmor_GuardianMedium",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Condition = 8,
+						item = "JazzArmor_GuardianHelm",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "enemy legion boss",
+					group = "Enemy - Legion",
+					id = "DiamondRedBoss",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraFull",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraHelm",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraLegs",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "HighCalRev",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Drop_50cal_Basic",
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "reward",
+					group = "Quest and Convo Rewards",
+					id = "DocRobert",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "MedicalReport",
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "JAZZ_AMMO_44CAL_FMJ",
+						stack_max = 36,
+						stack_min = 12,
+					}),
+					PlaceObj('LootEntryUpgradedWeapon', {
+						upgrades = {
+							"UVDot",
+							"ImprovedIronsight",
+						},
+						weapon = "DesertEagle",
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "FleatownBoss",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "AK74",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "TinyDiamonds",
+						stack_max = 10,
+						stack_min = 5,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JAZZ_AMMO_545_BP",
+						stack_max = 60,
+						stack_min = 60,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraFull",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraHelm",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraLegs",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "GangWilma",
+					loot = "all",
+					PlaceObj('LootEntryUpgradedWeapon', {
+						guaranteed = true,
+						weapon = "ColtAnaconda",
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "JAZZ_AMMO_44CAL_FMJ",
+						stack_max = 45,
+						stack_min = 30,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraFull",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraHelm",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraLegs",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "GangGranny",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "FNFAL",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "JAZZ_AMMO_762x51_M61",
+						stack_max = 36,
+						stack_min = 24,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraFull",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraHelm",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraLegs",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "GangHannah",
+					loot = "all",
+					PlaceObj('LootEntryUpgradedWeapon', {
+						upgrades = {
+							"MagDrum_30-50",
+						},
+						weapon = "Thompson",
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "JAZZ_AMMO_45ACP_P",
+						stack_max = 90,
+						stack_min = 60,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "HE_Grenade",
+						stack_max = 4,
+						stack_min = 4,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraFull",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraHelm",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraLegs",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "GangKayla",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "Machete_Sharpened",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraFull",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraHelm",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraLegs",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "GangTrudy",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "M41Shotgun",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "JAZZ_AMMO_12gauge_APSlug",
+						stack_max = 24,
+						stack_min = 12,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraFull",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraHelm",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraLegs",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "GangVinnie",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "M60E4",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "JAZZ_AMMO_762x51_M61",
+						stack_max = 100,
+						stack_min = 20,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraFull",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraHelm",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraLegs",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "Siegfried_LandsbachMine",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "JAZZ_AMMO_9x19_AP",
+						stack_max = 45,
+						stack_min = 15,
+					}),
+					PlaceObj('LootEntryUpgradedWeapon', {
+						upgrades = {
+							"BarrelLong",
+							"ReflexSight",
+						},
+						weapon = "Bereta92",
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "HyenaNPC",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "M21",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "JAZZ_AMMO_762x51_M118LR",
+						stack_max = 30,
+						stack_min = 30,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "Knife",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "enemy thugs boss",
+					group = "Enemy - Thugs",
+					id = "Jackhammer",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "AA12",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "JazzArmor_Spectra",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraHelm",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraLegs",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "OpticalLens",
+						stack_max = 2,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryLootDef', {
+						amount_modifier = 2000000,
+						loot_def = "Drop_12gauge_Varied",
+					}),
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "EnemyValuables",
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "FleatownMafioso",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 200,
+						item = "RPD",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "JAZZ_AMMO_762x39_PS",
+						stack_max = 240,
+						stack_min = 120,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraFull",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraHelm",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraLegs",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Knife",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "PresidentGear",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraFull",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraHelm",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraLegs",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "TheBeast",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "_556_HP",
+						stack_max = 120,
+						stack_min = 120,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "KevlarVest",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "KevlarHelmet",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryUpgradedWeapon', {
+						guaranteed = true,
+						upgrades = {
+							"VerticalGrip",
+							"LaserDot",
+							"JAZZ_CombatScope_ACOG",
+							"Suppressor",
+						},
+						weapon = "M4A1",
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "reward",
+					group = "Quest and Convo Rewards",
+					id = "Witch_Loot",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "TinyDiamonds",
+						stack_max = 3,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "Meds",
+						stack_max = 20,
+						stack_min = 8,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "TreasureIdol",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "AnneLeMitrailleur",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						Condition = 80,
+						item = "RPK74",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "JAZZ_AMMO_545_BP",
+						stack_max = 300,
+						stack_min = 150,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "reward",
+					group = "Quest and Convo Rewards",
+					id = "DrMangel",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "Meds",
+						stack_max = 30,
+						stack_min = 20,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "Medkit",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "SkillMag_Medical",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "Baronne",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "M24Sniper",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "JAZZ_AMMO_762x51_M80",
+						stack_max = 24,
+						stack_min = 12,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "JazzArmor_TireArmor",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "Wig",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Parts",
+						stack_max = 24,
+						stack_min = 12,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "OpticalLens",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "DirtyHenry",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "ColtAnaconda",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "JAZZ_AMMO_44CAL_FMJ",
+						stack_max = 24,
+						stack_min = 12,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "JazzArmor_TireBrigantine",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Parts",
+						stack_max = 24,
+						stack_min = 12,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Microchip",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "MaBaggz",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "Wig",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "ThugEnforcer",
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "npc",
+					group = "QuestNPCs",
+					id = "Weirdo",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "Knife",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 300,
+						item = "FlakArmor",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 300,
+						item = "FlakLeggings",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "Infected_HardenedSkin",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						drop_chance_mod = 0,
+						item = "JazzArmor_SpectraHelm",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "ConcussiveGrenade",
+						stack_max = 3,
+						stack_min = 3,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						guaranteed = true,
+						item = "WeirdosMap",
 					}),
 				}),
 				}),
@@ -39358,8 +39587,10 @@ return {
 					'CategoryPair', "Ordnance",
 					'MaxStacks', 100,
 					'CenterObjDamageMod', 500,
-					'AreaOfEffect', 2,
-					'AreaObjDamageMod', 500,
+					'AreaOfEffect', 4,
+					'CenterAreaOfEffect', 2,
+					'AreaUnitDamageMod', 70,
+					'AreaObjDamageMod', 200,
 					'PenetrationClass', 4,
 					'DeathType', "BlowUp",
 					'Caliber', "JAZZ_Caliber_MortarShell",
@@ -53450,7 +53681,6 @@ return {
 					'ObjDamageMod', 50,
 					'AimAccuracy', 20,
 					'MagazineSize', 100,
-					'PenetrationClass', 2,
 					'WeaponRange', 40,
 					'OverwatchAngle', 1800,
 					'Noise', 55,
@@ -82622,6 +82852,55 @@ return {
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
+				'name', "Creatures",
+			}, {
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Beasts",
+					'Id', "Infected_HardenedSkin",
+					'object_class', "Armor",
+					'ScrapParts', 3,
+					'RepairCost', 1000,
+					'Repairable', false,
+					'Degradation', 0,
+					'Icon', "UI/Icons/Items/kevlar_vest",
+					'DisplayName', T(552085320640, --[[ModItemInventoryItemCompositeDef Infected_HardenedSkin DisplayName]] "Resilience"),
+					'DisplayNamePlural', T(751297662642, --[[ModItemInventoryItemCompositeDef Infected_HardenedSkin DisplayNamePlural]] "Resilience"),
+					'Description', "",
+					'AdditionalHint', "",
+					'Cost', 700,
+					'CategoryPair', "Medium",
+					'PenetrationClass', 3,
+					'DamageReduction', 0,
+					'AdditionalReduction', 50,
+					'ProtectedBodyParts', set( "Arms", "Groin", "Legs", "Torso" ),
+					'ArmorRating', 100,
+					'MeleeArmorRating', 100,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Beasts",
+					'Id', "CrocodileHide",
+					'object_class', "Armor",
+					'ScrapParts', 3,
+					'RepairCost', 1000,
+					'Repairable', false,
+					'Degradation', 0,
+					'Icon', "UI/Icons/Items/kevlar_vest",
+					'DisplayName', T(139392735742, --[[ModItemInventoryItemCompositeDef CrocodileHide DisplayName]] "Crocodile Hide"),
+					'DisplayNamePlural', T(337363679674, --[[ModItemInventoryItemCompositeDef CrocodileHide DisplayNamePlural]] "Crocodile Hides"),
+					'Description', "",
+					'AdditionalHint', "",
+					'Cost', 700,
+					'CategoryPair', "Medium",
+					'PenetrationClass', 3,
+					'DamageReduction', 20,
+					'AdditionalReduction', 30,
+					'ProtectedBodyParts', set( "Head", "Legs", "Torso" ),
+					'ArmorRating', 10,
+					'MeleeArmorRating', 10,
+					'CamouflagePercent', 60,
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
 				'name', "ArmorPlates",
 			}, {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -86668,6 +86947,73 @@ return {
 					'Stat', "Agility",
 					'StatValue', 70,
 				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Specialization",
+					'Id', "Stealthy",
+					'SortKey', 100,
+					'Parameters', {
+						PlaceObj('PresetParamPercent', {
+							'Name', "stealthy_detection",
+							'Value', 20,
+							'Tag', "<stealthy_detection>%",
+						}),
+						PlaceObj('PresetParamPercent', {
+							'Name', "stealthkill",
+							'Value', 10,
+							'Tag', "<stealthkill>%",
+						}),
+						PlaceObj('PresetParamPercent', {
+							'Name', "stealthkill_minchance",
+							'Value', 30,
+							'Tag', "<stealthkill_minchance>%",
+						}),
+					},
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcStealthKillChance",
+							Handler = function (self, target, value, attacker, attack_target, weapon, target_spot_group, aim)
+								if target == attacker then
+									return value + self:ResolveValue("stealthkill")
+								end
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcStealthKillMinChance",
+							Handler = function (self, target, value, attacker, attack_target, weapon, target_spot_group, aim)
+								if target == attacker then
+									return Max(value, self:ResolveValue("stealthkill_minchance"))
+								end
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcSightModifier",
+							Handler = function (self, target, value, observer, other, step_pos, darkness)
+								if target == other and target:HasStatusEffect("Hidden") then
+									return value - self:ResolveValue("stealthy_detection")
+								end
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnEndTurn",
+							Handler = function (self, target)
+								if target then 
+													if not target.enemy_visual_contact and not IsMerc(target) then
+														target:AddStatusEffect("Hidden")
+													end
+								 end
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(408025340126, --[[ModItemCharacterEffectCompositeDef Stealthy DisplayName]] "Stealthy"),
+					'Description', T(651312331230, --[[ModItemCharacterEffectCompositeDef Stealthy Description]] "Harder to spot by enemies while <GameTerm('Sneaking')>.\n\nSlightly increased chance for <GameTerm('StealthKills')>."),
+					'Icon', "UI/Icons/Perks/Stealthy",
+					'Tier', "Specialization",
+				}),
 				PlaceObj('ModItemChangeProp', {
 					'name', "AutoWeapons",
 					'TargetClass', "CharacterEffectCompositeDef",
@@ -86958,7 +87304,7 @@ return {
 				Parameters = {
 					PlaceObj('PresetParamNumber', {
 						'Name', "Cover",
-						'Value', -20,
+						'Value', -10,
 						'Tag', "<Cover>",
 					}),
 					PlaceObj('PresetParamNumber', {
@@ -86968,12 +87314,12 @@ return {
 					}),
 					PlaceObj('PresetParamNumber', {
 						'Name', "CrouchPenalty",
-						'Value', -10,
+						'Value', -5,
 						'Tag', "<CrouchPenalty>",
 					}),
 					PlaceObj('PresetParamNumber', {
 						'Name', "PronePenalty",
-						'Value', -20,
+						'Value', -10,
 						'Tag', "<PronePenalty>",
 					}),
 				},
@@ -87242,22 +87588,29 @@ return {
 					end
 					
 					if (GameState.Night or GameState.Underground) and not attacker:HasNightVision() and not IsIlluminated(target) and not hasflashlight
-					then dist = dist * 1.8 
-					end
-					
-					
+					then dist = dist * 1.6 end
+
+					if (GameState.Heat)	then dist = dist * 1.1 	end
+					if (GameState.RainLight) then dist = dist * 1.1 end
+					if (GameState.RainHeavy or GameState.Fog) then dist = dist * 1.3 end
+					if (GameState.FireStorm or GameState.DustStorm)	then dist = dist * 1.5 end
+
 					
 					local ScopeMagn = GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeMagnification") or 1
 					local ScopeSubMagn = GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeSubMagnification") or 0
 					local ScopeAimLevel = GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeAimLevel") or 0
 					local ScopeCalcMagn = ScopeMagn*10+ScopeSubMagn
+					ScopeCalcMagn = ScopeCalcMagn * 1.5/2
 					
 					local SmallMagn = GetComponentEffectValue(weapon1, "SmallMagnification", "SmallMagnification") or 1
 					local SmallSubMagn = GetComponentEffectValue(weapon1, "SmallMagnification", "SmallSubMagnification") or 0
 					local SmallAimLevel = GetComponentEffectValue(weapon1, "SmallMagnification", "SmallAimLevel") or 0
 					local SmallCalcMagn = SmallMagn*10+SmallSubMagn
+					SmallCalcMagn = SmallCalcMagn * 1.5/2
 					
 					local cth = MulDivRound(100-self:ResolveValue("min"),const.SlabSizeX*100,sight)
+
+
 					
 					if hasflashlight or not (GameState.Night or GameState.Underground) or IsIlluminated(target)  then
 					if ScopeAimLevel>0 and aim >= ScopeAimLevel then 
@@ -87271,22 +87624,22 @@ return {
 					end
 					
 					
-					cth = MulDivRound(dist,cth,100)
+					cthIron = MulDivRound(dist,cth,100)					
 					
 					if GameState.Night or GameState.Underground then
 						if hasflashlight or IsIlluminated(target) then 
-							return true,  -cth, T("Видимость цели (Подсветка)")
+							return true,  -cthIron, T("Видимость цели (Подсветка)")
 						end
 						if attacker:HasNightVision() then
-							cth = floatfloor(cth * 1.3,0) 
-							return true,  -cth, T("Видимость цели (Ночное зрение)")
+							cthIron = floatfloor(cthIron * 1.3,0) 
+							return true,  -cthIron, T("Видимость цели (Ночное зрение)")
 						end
-						return  true,  -cth, T("Видимость цели (Ночь)")
+						return  true,  -cthIron, T("Видимость цели (Ночь)")
 					end
+						
 					
 					
-					
-					return true,  -cth
+					return true,  -cthIron
 					end
 					return false, 0
 				end,
@@ -87311,7 +87664,7 @@ return {
 					local dist = attacker_pos:Dist(target_pos)/const.SlabSizeX
 					--if target then sight = attacker:GetSightRadius(target) end
 					
-					local groupingPerSlab = weapon1.Grouping * 10 * weapon1:GetConditionPercent()/100 * (101-weapon1.Deterioration)/100
+					local groupingPerSlab = weapon1.Grouping * 10 * weapon1:GetConditionPercent()/100 * (100-weapon1.Deterioration)/100
 					local groupingResult = DivRound(groupingPerSlab, dist)
 					
 						if groupingResult < 100 then
@@ -121378,7410 +121731,6 @@ return {
 		'CodeFileName', "Code/OverwatchLagFix.lua",
 	}),
 	PlaceObj('ModItemFolder', {
-		'name', "JAZZ UNITS OVERWRITE",
-	}, {
-		PlaceObj('ModItemFolder', {
-			'name', "Units Legion",
-			'comment', "-- Регулярные Легионовцы",
-		}, {
-			PlaceObj('ModItemFolder', {
-				'name', "T3",
-			}, {
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionRocketeer_Stronger_Elite",
-					'object_class', "UnitData",
-					'Health', 86,
-					'Agility', 96,
-					'Dexterity', 8,
-					'Strength', 74,
-					'Wisdom', 46,
-					'Leadership', 10,
-					'Marksmanship', 70,
-					'Mechanical', 50,
-					'Explosives', 100,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionArtillery",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(201139496854, --[[ModItemUnitDataCompositeDef LegionRocketeer_Stronger_Elite Name]] "Опытный гранатомётчик"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 4,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Ordnance",
-						"Explosives",
-						"RunAndGun",
-						"Soldier",
-						"Sniper",
-					},
-					'archetype', "Artillery",
-					'role', "Artillery",
-					'CanManEmplacements', false,
-					'MaxAttacks', 1,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)
-						self:TryEquip(items, "Handheld A", "Firearm")
-						self:TryEquip(items, "Handheld B", "Firearm")
-					end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"HeavyWeaponsTraining",
-						"Hardened",
-						"LightningReactionNPC",
-						"TrueGrit",
-						"ShoulderToShoulder",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Artillery",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Artillery02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Artillery03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRoceteer_Stronger_Elite",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRoceteer_Stronger_Elite_alt",
-							'Weight', 2,
-						}),
-					},
-					'Equipment', {
-						"LegionRocketeer_Stronger",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionSharpShooter_Stronger_Elite",
-					'object_class', "UnitData",
-					'Health', 80,
-					'Agility', 90,
-					'Dexterity', 73,
-					'Strength', 53,
-					'Wisdom', 58,
-					'Leadership', 10,
-					'Marksmanship', 86,
-					'Mechanical', 80,
-					'Explosives', 66,
-					'Medical', 30,
-					'Portrait', "UI/EnemiesPortraits/LegionRaider",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(251609051693, --[[ModItemUnitDataCompositeDef LegionSharpShooter_Stronger_Elite Name]] "Опытный Стрелок"),
-					'Randomization', true,
-					'elite', true,
-					'eliteCategory', "Legion",
-					'Affiliation', "Legion",
-					'StartingLevel', 4,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Sniper",
-						"Control",
-						"Ordnance",
-					},
-					'role', "Soldier",
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"Flanker",
-						"Untraceable",
-						"Deadeye",
-						"BunsPerk",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier04",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier05",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier06",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSharpShooter_Stronger",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSharpShooter_Stronger_alt",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSharpShooter_Stronger_alt_2",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionSharpShooter_Stronger",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionRaider_Stronger_Elite",
-					'object_class', "UnitData",
-					'Health', 86,
-					'Agility', 85,
-					'Dexterity', 86,
-					'Strength', 70,
-					'Wisdom', 37,
-					'Leadership', 65,
-					'Marksmanship', 90,
-					'Mechanical', 80,
-					'Explosives', 94,
-					'Medical', 44,
-					'Portrait', "UI/EnemiesPortraits/LegionSoldier",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(352156645693, --[[ModItemUnitDataCompositeDef LegionRaider_Stronger_Elite Name]] "Элитный мародёр"),
-					'Randomization', true,
-					'elite', true,
-					'eliteCategory', "Legion",
-					'Affiliation', "Legion",
-					'StartingLevel', 8,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Soldier",
-						"Explosives",
-						"RunAndGun",
-					},
-					'role', "Soldier",
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"RelentlessAdvance",
-						"BunsPerk",
-						"TakeAim",
-						"AutoWeapons",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier04",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier05",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier06",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider_Stronger_Elite",
-							'Weight', 4,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider_Stronger_Elite_alt",
-							'Weight', 4,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider_Stronger_Elite_alt_2",
-							'Weight', 4,
-						}),
-					},
-					'Equipment', {
-						"LegionRaider_Stronger_Elite",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionRaider_Demolution_Stronger_Elite",
-					'object_class', "UnitData",
-					'Health', 81,
-					'Agility', 75,
-					'Dexterity', 70,
-					'Strength', 70,
-					'Wisdom', 40,
-					'Leadership', 25,
-					'Marksmanship', 73,
-					'Mechanical', 80,
-					'Explosives', 10,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionSoldier",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(497659792215, --[[ModItemUnitDataCompositeDef LegionRaider_Demolution_Stronger_Elite Name]] "Мародёр"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 4,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Soldier",
-						"Explosives",
-						"Ordnance",
-					},
-					'role', "Soldier",
-					'OpeningAttackType', "Overwatch",
-					'PinnedDownChance', 40,
-					'CustomEquipGear', function (self, items)
-						self:TryEquip(items, "Handheld A", "AssaultRifle")
-						self:TryEquip(items, "Handheld A", "GrenadeLauncher")
-					end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"AutoWeapons",
-						"RelentlessAdvance",
-						"BunsPerk",
-						"TakeAim",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier04",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier05",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier06",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider_Stronger_Elite",
-							'Weight', 4,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider_Stronger_Elite_alt",
-							'Weight', 4,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider_Stronger_Elite_alt_2",
-							'Weight', 4,
-						}),
-					},
-					'Equipment', {
-						"LegionRaider_Stronger_Elite_GL",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionRaidLeader_Stronger_Elite",
-					'object_class', "UnitData",
-					'Health', 100,
-					'Agility', 100,
-					'Dexterity', 95,
-					'Strength', 95,
-					'Wisdom', 85,
-					'Leadership', 81,
-					'Marksmanship', 94,
-					'Mechanical', 100,
-					'Explosives', 75,
-					'Medical', 43,
-					'Portrait', "UI/EnemiesPortraits/LegionOfficer",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(819132475338, --[[ModItemUnitDataCompositeDef LegionRaidLeader_Stronger_Elite Name]] "Элитный командир налётчиков"),
-					'Randomization', true,
-					'elite', true,
-					'eliteCategory', "Legion",
-					'Affiliation', "Legion",
-					'StartingLevel', 8,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Smoke",
-						"Soldier",
-						"Flank",
-						"Sniper",
-					},
-					'role', "Commander",
-					'AlwaysUseOpeningAttack', true,
-					'OpeningAttackType', "Overwatch",
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 80,
-					'StartingPerks', {
-						"ShoulderToShoulder",
-						"GruntyPerk",
-						"BeefedUp",
-						"BuildingConfidence",
-						"LeadFromTheFront",
-						"LightningReactionNPC",
-						"TrueGrit",
-						"Berserker",
-						"AutoWeapons",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaidLeader_Stronger_Elite",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaidLeader_Stronger_Elite_alt",
-						}),
-					},
-					'Equipment', {
-						"LegionSentry_Stronger_Elite",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionManiac_Stronger_Elite",
-					'object_class', "UnitData",
-					'Health', 100,
-					'Agility', 92,
-					'Dexterity', 87,
-					'Strength', 95,
-					'Wisdom', 43,
-					'Leadership', 65,
-					'Marksmanship', 57,
-					'Mechanical', 80,
-					'Explosives', 54,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionStormer",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(332974659860, --[[ModItemUnitDataCompositeDef LegionManiac_Stronger_Elite Name]] "Элитный громила"),
-					'Randomization', true,
-					'elite', true,
-					'eliteCategory', "Legion",
-					'Affiliation', "Legion",
-					'StartingLevel', 7,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Control",
-						"Explosives",
-						"Flank",
-						"RunAndGun",
-						"MobileShot",
-						"Stim",
-					},
-					'archetype', "Brute",
-					'role', "Stormer",
-					'CanManEmplacements', false,
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 100,
-					'StartingPerks', {
-						"BeefedUp",
-						"Berserker",
-						"Shatterhand",
-						"CQCTraining",
-						"NailsPerk",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionManiac_Stronger_Elite",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionManiac_Stronger_Elite_alt",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionManiac_Stronger_alt_2",
-							'Weight', 2,
-						}),
-					},
-					'Equipment', {
-						"LegionBerserker_Stronger_Elite",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionMedic_Stronger_Elite",
-					'object_class', "UnitData",
-					'Health', 100,
-					'Agility', 93,
-					'Dexterity', 98,
-					'Strength', 66,
-					'Wisdom', 78,
-					'Leadership', 64,
-					'Marksmanship', 74,
-					'Mechanical', 80,
-					'Explosives', 5,
-					'Medical', 93,
-					'Portrait', "UI/EnemiesPortraits/LegionMedic",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(799448736839, --[[ModItemUnitDataCompositeDef LegionMedic_Stronger_Elite Name]] "Опытный санитар"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 7,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Heal",
-						"Control",
-					},
-					'archetype', "Medic",
-					'role', "Medic",
-					'CanManEmplacements', false,
-					'RepositionArchetype', "HeavyGunner",
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'MaxHitPoints', 80,
-					'StartingPerks', {
-						"BeefedUp",
-						"Ambidextrous",
-						"Savior",
-						"ShoulderToShoulder",
-						"CQCTraining",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionMedic_Stronger_Elite",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionMedic_Stronger_Elite_alt",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionMedic_Stronger_alt_2",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionMedic_Stronger_alt",
-						}),
-					},
-					'Equipment', {
-						"LegionMedic_Stronger",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionGunner_Stronger_Elite",
-					'object_class', "UnitData",
-					'Health', 90,
-					'Agility', 85,
-					'Dexterity', 90,
-					'Strength', 89,
-					'Wisdom', 73,
-					'Leadership', 55,
-					'Marksmanship', 90,
-					'Mechanical', 80,
-					'Explosives', 28,
-					'Medical', 35,
-					'Portrait', "UI/EnemiesPortraits/LegionHeavy",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(658547850911, --[[ModItemUnitDataCompositeDef LegionGunner_Stronger_Elite Name]] "Опытный пулемётчик"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 9,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Control",
-						"Soldier",
-						"Ordnance",
-						"Gunner",
-					},
-					'archetype', "HeavyGunner",
-					'role', "Heavy",
-					'MaxAttacks', 4,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)
-						self:TryEquip(items, "Handheld A", "Firearm")
-						self:TryEquip(items, "Handheld B", "Firearm")
-					end,
-					'MaxHitPoints', 85,
-					'StartingPerks', {
-						"HeavyWeaponsTraining",
-						"TakeAim",
-						"OverwatchExpert",
-						"Ironclad",
-						"Counterfire",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Heavy",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Heavy02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Heavy03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGunner_Stronger",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGunner_Stronger_alt",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGunner_Stronger_alt_2",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGunner_Stronger_Elite",
-							'Weight', 5,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGunner_Stronger_Elite_alt",
-							'Weight', 5,
-						}),
-					},
-					'Equipment', {
-						"LegionGunner_Stronger",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionHyenaHandler_Stronger_Elite",
-					'object_class', "UnitData",
-					'Health', 98,
-					'Agility', 96,
-					'Dexterity', 87,
-					'Strength', 83,
-					'Wisdom', 64,
-					'Leadership', 81,
-					'Marksmanship', 72,
-					'Mechanical', 80,
-					'Explosives', 68,
-					'Medical', 68,
-					'Portrait', "UI/EnemiesPortraits/LegionStormer",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(766068288172, --[[ModItemUnitDataCompositeDef LegionHyenaHandler_Stronger_Elite Name]] "Опытный дрессировщик"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 7,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Smoke",
-						"Control",
-						"Explosives",
-						"Nova",
-						"Ordnance",
-					},
-					'role', "Commander",
-					'AlwaysUseOpeningAttack', true,
-					'OpeningAttackType', "Overwatch",
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 80,
-					'StartingPerks', {
-						"BeefedUp",
-						"Counterfire",
-						"Hardened",
-						"GruntyPerk",
-						"Flanker",
-						"TakeAim",
-						"ShoulderToShoulder",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionHyenaHandler_Stronger_Elite",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionHyenaHandler_Stronger_Elite_alt",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionSentry_Stronger",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionGrenadier_Stronger_Elite",
-					'object_class', "UnitData",
-					'Health', 85,
-					'Agility', 90,
-					'Dexterity', 65,
-					'Strength', 78,
-					'Wisdom', 23,
-					'Leadership', 14,
-					'Marksmanship', 70,
-					'Mechanical', 80,
-					'Explosives', 30,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionDemo",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(853894759815, --[[ModItemUnitDataCompositeDef LegionGrenadier_Stronger_Elite Name]] "Элитный гранатомётчик"),
-					'Randomization', true,
-					'elite', true,
-					'eliteCategory', "Legion",
-					'Affiliation', "Legion",
-					'StartingLevel', 7,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Explosives",
-						"MobileShot",
-						"Ordnance",
-						"RunAndGun",
-						"Control",
-					},
-					'archetype', "Grenadier",
-					'role', "Demolitions",
-					'CanManEmplacements', false,
-					'MaxAttacks', 5,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"TrueGrit",
-						"Throwing",
-						"RelentlessAdvance",
-						"MinFreeMove",
-						"BreachAndClear",
-						"HitTheDeck",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Demolishion",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Demolishion02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Demolishion03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGrenadir_Stronger_Elite",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGrenadir_Stronger_Elite_alt",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionGrenadier_Stronger_Elite",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Russell",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionGoon_Stronger_Elite",
-					'object_class', "UnitData",
-					'Health', 90,
-					'Agility', 96,
-					'Dexterity', 85,
-					'Strength', 65,
-					'Wisdom', 25,
-					'Leadership', 20,
-					'Marksmanship', 87,
-					'Mechanical', 80,
-					'Explosives', 52,
-					'Medical', 59,
-					'Portrait', "UI/EnemiesPortraits/LegionRecon",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(867761358013, --[[ModItemUnitDataCompositeDef LegionGoon_Stronger_Elite Name]] "Крутой головорез"),
-					'Randomization', true,
-					'elite', true,
-					'eliteCategory', "Legion",
-					'Affiliation', "Legion",
-					'StartingLevel', 7,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"MobileShot",
-						"Flank",
-						"Control",
-						"Explosives",
-					},
-					'archetype', "Skirmisher",
-					'role', "Recon",
-					'PinnedDownChance', 100,
-					'MaxAttacks', 8,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"Ambidextrous",
-						"Flanker",
-						"CQCTraining",
-						"RelentlessAdvance",
-						"TrueGrit",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Recon03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGoon_Stronger_Elite",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGoon_Stronger_Elite_alt",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGoon_Stronger_Elite_alt_2",
-							'Weight', 2,
-						}),
-					},
-					'Equipment', {
-						"LegionGoon_Stronger_Elite",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionButcher_Stronger_Elite",
-					'object_class', "UnitData",
-					'Health', 90,
-					'Agility', 96,
-					'Dexterity', 86,
-					'Strength', 90,
-					'Wisdom', 22,
-					'Leadership', 9,
-					'Marksmanship', 81,
-					'Mechanical', 80,
-					'Explosives', 72,
-					'Medical', 25,
-					'Portrait', "UI/EnemiesPortraits/LegionStormer",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(171574677173, --[[ModItemUnitDataCompositeDef LegionButcher_Stronger_Elite Name]] "Элитный мясник"),
-					'Randomization', true,
-					'elite', true,
-					'eliteCategory', "Legion",
-					'Affiliation', "Legion",
-					'StartingLevel', 8,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Control",
-						"Smoke",
-						"Flank",
-						"Explosives",
-					},
-					'archetype', "Brute",
-					'role', "Stormer",
-					'CanManEmplacements', false,
-					'MaxAttacks', 4,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 60,
-					'StartingPerks', {
-						"InstantAutopsy",
-						"BeefedUp",
-						"MeleeTraining",
-						"Berserker",
-						"TrueGrit",
-						"LastWarning",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionButcher_Stronger_Elite",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionButcher_Stronger_Elite_alt",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionButcher_Stronger_Elite_alt_2",
-							'Weight', 2,
-						}),
-					},
-					'Equipment', {
-						"LegionMeleeFighter_Stronger_Elite",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionScout_Stronger_Elite",
-					'object_class', "UnitData",
-					'Health', 94,
-					'Agility', 90,
-					'Dexterity', 99,
-					'Strength', 75,
-					'Wisdom', 70,
-					'Leadership', 29,
-					'Marksmanship', 80,
-					'Mechanical', 80,
-					'Explosives', 55,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionRecon",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(894403310975, --[[ModItemUnitDataCompositeDef LegionScout_Stronger_Elite Name]] "Элитный разведчик"),
-					'Randomization', true,
-					'elite', true,
-					'eliteCategory', "Legion",
-					'Affiliation', "Legion",
-					'StartingLevel', 7,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Flank",
-						"RunAndGun",
-						"MobileShot",
-						"Control",
-						"Explosives",
-						"Ordnance",
-					},
-					'archetype', "Skirmisher",
-					'role', "Recon",
-					'OpeningAttackType', "Overwatch",
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"RelentlessAdvance",
-						"MinFreeMove",
-						"Untraceable",
-						"CQCTraining",
-						"Flanker",
-						"GruntyPerk",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Recon02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Recon03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionScout_Stronger_Elite",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionScout_Stronger_Elite_alt",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionScout_Stronger_Elite_alt_2",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionScout_Stronger_Elite",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionSniper_Stronger_Elite",
-					'object_class', "UnitData",
-					'Health', 75,
-					'Agility', 85,
-					'Dexterity', 95,
-					'Strength', 75,
-					'Wisdom', 40,
-					'Leadership', 33,
-					'Marksmanship', 95,
-					'Mechanical', 80,
-					'Explosives', 40,
-					'Medical', 21,
-					'Portrait', "UI/EnemiesPortraits/LegionSniper",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(202919717035, --[[ModItemUnitDataCompositeDef LegionSniper_Stronger_Elite Name]] "Элитный снайпер"),
-					'Randomization', true,
-					'elite', true,
-					'eliteCategory', "Legion",
-					'Affiliation', "Legion",
-					'StartingLevel', 7,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Sniper",
-						"Control",
-						"MobileShot",
-					},
-					'archetype', "Soldier_Sniper",
-					'role', "Marksman",
-					'AlwaysUseOpeningAttack', true,
-					'OpeningAttackType', "PinDown",
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)
-						self:TryEquip(items, "Handheld A", "Firearm")
-						self:TryEquip(items, "Handheld B", "Firearm")
-					end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"Deadeye",
-						"Spiritual",
-						"DeathFromAbove",
-						"HitTheDeck",
-						"LightningReactionNPC",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Marksman03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSniper_Stronger_Elite",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSniper_Stronger_Elite_alt",
-							'Weight', 2,
-						}),
-					},
-					'Equipment', {
-						"LegionSniper_Stronger_Elite",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionSergant_Stronger_Elite",
-					'object_class', "UnitData",
-					'Health', 95,
-					'Agility', 85,
-					'Dexterity', 95,
-					'Strength', 75,
-					'Wisdom', 80,
-					'Leadership', 75,
-					'Marksmanship', 95,
-					'Mechanical', 80,
-					'Explosives', 65,
-					'Medical', 51,
-					'Portrait', "UI/EnemiesPortraits/LegionSniper",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(907528035854, --[[ModItemUnitDataCompositeDef LegionSergant_Stronger_Elite Name]] "Элитный сержант"),
-					'Randomization', true,
-					'elite', true,
-					'eliteCategory', "Legion",
-					'Affiliation', "Legion",
-					'StartingLevel', 7,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Sniper",
-						"Control",
-						"Soldier",
-						"Explosives",
-						"Ordnance",
-					},
-					'role', "Marksman",
-					'AlwaysUseOpeningAttack', true,
-					'OpeningAttackType', "PinDown",
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)
-						self:TryEquip(items, "Handheld A", "Firearm")
-						self:TryEquip(items, "Handheld B", "Firearm")
-					end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"DeathFromAbove",
-						"LightStep",
-						"StressManagement",
-						"ShoulderToShoulder",
-						"BattleFocus",
-						"AutoWeapons",
-						"LightningReactionNPC",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSergant_Stronger_Elite",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSergant_Stronger_Elite_alt",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSergant_Stronger_alt_2",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSergant_Stronger_alt",
-						}),
-					},
-					'Equipment', {
-						"LegionSergeant_Stronger_Elite",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionRanger_Stronger_Elite",
-					'object_class', "UnitData",
-					'Health', 90,
-					'Agility', 85,
-					'Dexterity', 95,
-					'Strength', 75,
-					'Wisdom', 80,
-					'Leadership', 33,
-					'Marksmanship', 95,
-					'Mechanical', 80,
-					'Explosives', 70,
-					'Medical', 50,
-					'Portrait', "UI/EnemiesPortraits/LegionSniper",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(319442788380, --[[ModItemUnitDataCompositeDef LegionRanger_Stronger_Elite Name]] "Элитный рэйнджер"),
-					'Randomization', true,
-					'elite', true,
-					'eliteCategory', "Legion",
-					'Affiliation', "Legion",
-					'StartingLevel', 7,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Sniper",
-						"Control",
-						"Heal_Low",
-						"Soldier",
-						"Flank",
-						"RunAndGun",
-						"MobileShot",
-					},
-					'role', "Marksman",
-					'AlwaysUseOpeningAttack', true,
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)
-						self:TryEquip(items, "Handheld A", "Firearm")
-						self:TryEquip(items, "Handheld B", "Firearm")
-					end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"BunsPerk",
-						"Stealthy",
-						"StressManagement",
-						"Untraceable",
-						"Hobbler",
-						"Shatterhand",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRanger_Stronger_Elite",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRanger_Stronger_Elite_alt",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRanger_Stronger_alt_2",
-						}),
-					},
-					'Equipment', {
-						"LegionRanger_Stronger_Elite",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionMortarman_Stronger_Elite",
-					'object_class', "UnitData",
-					'Health', 90,
-					'Agility', 85,
-					'Dexterity', 70,
-					'Strength', 96,
-					'Wisdom', 80,
-					'Leadership', 10,
-					'Marksmanship', 72,
-					'Mechanical', 80,
-					'Explosives', 100,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionArtillery",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(819269078808, --[[ModItemUnitDataCompositeDef LegionMortarman_Stronger_Elite Name]] "Миномётчик"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 8,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Explosives",
-						"Smoke",
-						"RunAndGun",
-						"Nova",
-						"Explosives",
-					},
-					'archetype', "Artillery",
-					'role', "Artillery",
-					'CanManEmplacements', false,
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)
-						self:TryEquip(items, "Handheld A", "HeavyWeapon")
-						self:TryEquip(items, "Handheld B", "AssaultRifle")
-					end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"LightningReactionNPC",
-						"BattleFocus",
-						"MinFreeMove",
-						"LeadFromTheFront",
-						"TrueGrit",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Artillery03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionMortalman_Stronger_Elite",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionMortalman_Stronger_Elite_alt",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionMortalman_Stronger_alt_2",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionMortalman_Stronger_alt",
-							'Weight', 2,
-						}),
-					},
-					'Equipment', {
-						"LegionMortarman",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				}),
-			PlaceObj('ModItemFolder', {
-				'name', "T2",
-			}, {
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionSharpShooter_Stronger",
-					'comment', "Под шарпшутера элитника тоже есть инвентарь",
-					'object_class', "UnitData",
-					'Health', 80,
-					'Agility', 90,
-					'Dexterity', 73,
-					'Strength', 53,
-					'Wisdom', 58,
-					'Leadership', 10,
-					'Marksmanship', 86,
-					'Explosives', 66,
-					'Medical', 30,
-					'Portrait', "UI/EnemiesPortraits/LegionRaider",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(666371571137, --[[ModItemUnitDataCompositeDef LegionSharpShooter_Stronger Name]] "Опытный Стрелок"),
-					'Randomization', true,
-					'elite', true,
-					'eliteCategory', "Legion",
-					'Affiliation', "Legion",
-					'StartingLevel', 4,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Sniper",
-						"Control",
-						"Ordnance",
-					},
-					'role', "Soldier",
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"Deadeye",
-						"Flanker",
-						"Untraceable",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier04",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier05",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier06",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSharpShooter_Stronger",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSharpShooter_Stronger_alt",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSharpShooter_Stronger_alt_2",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionSharpShooter_Stronger",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionRocketeer_Stronger",
-					'comment', "РПГшник",
-					'object_class', "UnitData",
-					'Health', 90,
-					'Agility', 83,
-					'Strength', 88,
-					'Wisdom', 14,
-					'Leadership', 10,
-					'Marksmanship', 75,
-					'Mechanical', 40,
-					'Explosives', 75,
-					'Medical', 29,
-					'Portrait', "UI/EnemiesPortraits/LegionArtillery",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(834998812076, --[[ModItemUnitDataCompositeDef LegionRocketeer_Stronger Name]] "Гранатомётчик"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 5,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Ordnance",
-						"Control",
-						"Sniper",
-					},
-					'archetype', "Artillery",
-					'role', "Artillery",
-					'CanManEmplacements', false,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)
-						self:TryEquip(items, "Handheld A", "HeavyWeapon")
-						self:TryEquip(items, "Handheld B", "Firearm")
-					end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"HeavyWeaponsTraining",
-						"Hardened",
-						"ShoulderToShoulder",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Artillery",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Artillery02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Artillery03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRoceteer_Stronger",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRoceteer_Stronger_alt",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRoceteer_Stronger_alt",
-							'Weight', 2,
-						}),
-					},
-					'Equipment', {
-						"LegionRocketeer",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionRaider_Stronger",
-					'object_class', "UnitData",
-					'Health', 80,
-					'Agility', 90,
-					'Dexterity', 90,
-					'Strength', 70,
-					'Wisdom', 24,
-					'Leadership', 10,
-					'Marksmanship', 80,
-					'Mechanical', 20,
-					'Explosives', 63,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionSoldier",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(909286258423, --[[ModItemUnitDataCompositeDef LegionRaider_Stronger Name]] "Опытный мародёр"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 5,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Soldier",
-						"Explosives",
-						"Ordnance",
-						"Flank",
-					},
-					'role', "Soldier",
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"BunsPerk",
-						"RelentlessAdvance",
-						"TakeAim",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier04",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier05",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier06",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider_Stronger",
-							'Weight', 4,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider_Stronger_alt",
-							'Weight', 4,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider_Stronger_alt_2",
-							'Weight', 4,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider_Stronger_alt_3",
-							'Weight', 4,
-						}),
-					},
-					'Equipment', {
-						"LegionRaider_Stronger",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionRaider_Demolution_Stronger",
-					'comment', "Стрелок базовый",
-					'object_class', "UnitData",
-					'Health', 86,
-					'Agility', 83,
-					'Dexterity', 70,
-					'Strength', 70,
-					'Wisdom', 40,
-					'Leadership', 25,
-					'Marksmanship', 73,
-					'Mechanical', 20,
-					'Explosives', 85,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionSoldier",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(299155932040, --[[ModItemUnitDataCompositeDef LegionRaider_Demolution_Stronger Name]] "Мародёр"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 4,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Soldier",
-						"Explosives",
-						"Ordnance",
-					},
-					'role', "Soldier",
-					'RepositionArchetype', "HeavyGunner",
-					'OpeningAttackType', "Overwatch",
-					'PinnedDownChance', 40,
-					'CustomEquipGear', function (self, items)
-						self:TryEquip(items, "Handheld A", "AssaultRifle")
-						self:TryEquip(items, "Handheld A", "GrenadeLauncher")
-					end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"TrueGrit",
-						"Flanker",
-						"Optimist",
-						"BunsPerk",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier04",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier05",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier06",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider_Stronger",
-							'Weight', 4,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider_Stronger_alt",
-							'Weight', 4,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider_Stronger_alt_2",
-							'Weight', 4,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider_Stronger_alt_3",
-							'Weight', 4,
-						}),
-					},
-					'Equipment', {
-						"LegionRaider_Stronger_GL",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionRaidLeader_Stronger",
-					'object_class', "UnitData",
-					'Health', 91,
-					'Agility', 85,
-					'Dexterity', 80,
-					'Strength', 75,
-					'Wisdom', 80,
-					'Leadership', 81,
-					'Marksmanship', 85,
-					'Mechanical', 70,
-					'Explosives', 50,
-					'Medical', 71,
-					'Portrait', "UI/EnemiesPortraits/LegionOfficer",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(192759453415, --[[ModItemUnitDataCompositeDef LegionRaidLeader_Stronger Name]] "Опытный командир налётчиков"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 7,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Control",
-						"Smoke",
-						"Explosives",
-						"Soldier",
-						"Ordnance",
-						"RunAndGun",
-					},
-					'role', "Commander",
-					'AlwaysUseOpeningAttack', true,
-					'OpeningAttackType', "Overwatch",
-					'MaxAttacks', 4,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 80,
-					'StartingPerks', {
-						"ShoulderToShoulder",
-						"GruntyPerk",
-						"BeefedUp",
-						"BuildingConfidence",
-						"LeadFromTheFront",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Shaman",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Shaman02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Shaman03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaidLeader_Stronger",
-							'Weight', 4,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaidLeader_Stronger_alt",
-							'Weight', 4,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaidLeader_Stronger_alt_2",
-							'Weight', 4,
-						}),
-					},
-					'Equipment', {
-						"LegionSentry_Stronger",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionMortarman_Stronger",
-					'comment', "Минометчик",
-					'object_class', "UnitData",
-					'Health', 65,
-					'Agility', 81,
-					'Dexterity', 43,
-					'Strength', 96,
-					'Wisdom', 14,
-					'Leadership', 10,
-					'Marksmanship', 50,
-					'Mechanical', 30,
-					'Explosives', 90,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionArtillery",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(603360674448, --[[ModItemUnitDataCompositeDef LegionMortarman_Stronger Name]] "Миномётчик"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 5,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Explosives",
-						"Sniper",
-					},
-					'archetype', "Artillery",
-					'role', "Artillery",
-					'CanManEmplacements', false,
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)
-						self:TryEquip(items, "Handheld A", "HeavyWeapon")
-						self:TryEquip(items, "Handheld B", "AssaultRifle")
-					end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"BattleFocus",
-						"LightningReactionNPC",
-						"TrueGrit",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Artillery",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Artillery02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Artillery03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionMortalman_Stronger",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionMortalman_Stronger_alt",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionMortalman_Stronger_alt_2",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionMortarman",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionMedic_Stronger",
-					'object_class', "UnitData",
-					'Health', 80,
-					'Agility', 93,
-					'Dexterity', 96,
-					'Strength', 42,
-					'Wisdom', 85,
-					'Leadership', 50,
-					'Marksmanship', 74,
-					'Mechanical', 30,
-					'Explosives', 5,
-					'Medical', 93,
-					'Portrait', "UI/EnemiesPortraits/LegionMedic",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(391906391470, --[[ModItemUnitDataCompositeDef LegionMedic_Stronger Name]] "Опытный санитар"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 5,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Heal",
-						"Smoke",
-						"Control",
-					},
-					'archetype', "Medic",
-					'role', "Medic",
-					'CanManEmplacements', false,
-					'MaxAttacks', 4,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 80,
-					'StartingPerks', {
-						"Ambidextrous",
-						"BeefedUp",
-						"Savior",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_WitchDoctor",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_WitchDoctor02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_WitchDoctor03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionMedic_Stronger",
-							'Weight', 4,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionMedic_Stronger_alt",
-							'Weight', 4,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionMedic_Stronger_alt_2",
-							'Weight', 4,
-						}),
-					},
-					'Equipment', {
-						"LegionMedic_Stronger",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionManiac_Stronger",
-					'object_class', "UnitData",
-					'Health', 96,
-					'Agility', 80,
-					'Dexterity', 85,
-					'Strength', 95,
-					'Wisdom', 16,
-					'Leadership', 65,
-					'Marksmanship', 52,
-					'Mechanical', 30,
-					'Explosives', 50,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionStormer",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(123347798044, --[[ModItemUnitDataCompositeDef LegionManiac_Stronger Name]] "Опытный громила"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 5,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Control",
-						"Flank",
-						"Smoke",
-						"Nova",
-					},
-					'archetype', "Brute",
-					'role', "Stormer",
-					'CanManEmplacements', false,
-					'RepositionArchetype', "Berserk",
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 100,
-					'StartingPerks', {
-						"BeefedUp",
-						"NailsPerk",
-						"CQCTraining",
-						"Ironclad",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionManiac_Stronger",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionManiac_Stronger_alt",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionManiac_Stronger_alt_2",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionBerserker_Stronger",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionHyenaHandler_Stronger",
-					'comment', "Дрессировщик - Командир",
-					'object_class', "UnitData",
-					'Health', 90,
-					'Agility', 85,
-					'Dexterity', 55,
-					'Wisdom', 41,
-					'Leadership', 81,
-					'Marksmanship', 75,
-					'Mechanical', 50,
-					'Explosives', 10,
-					'Medical', 68,
-					'Portrait', "UI/EnemiesPortraits/LegionStormer",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(302888566713, --[[ModItemUnitDataCompositeDef LegionHyenaHandler_Stronger Name]] "Дрессировщик гиен"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 5,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Control",
-						"Smoke",
-						"Soldier",
-						"Sniper",
-					},
-					'role', "Commander",
-					'RepositionArchetype', "Skirmisher",
-					'AlwaysUseOpeningAttack', true,
-					'OpeningAttackType', "Overwatch",
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 80,
-					'StartingPerks', {
-						"BeefedUp",
-						"Counterfire",
-						"Hardened",
-						"GruntyPerk",
-						"Flanker",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionHyenaHandler_Stronger",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionHyenaHandler_Stronger_alt",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionHyenaHandler_Stronger_alt_2",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionSentry",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionHyena_Stronger",
-					'comment', "Гиена",
-					'object_class', "UnitData",
-					'Health', 40,
-					'Agility', 90,
-					'Dexterity', 77,
-					'Strength', 80,
-					'Wisdom', 10,
-					'Leadership', 0,
-					'Marksmanship', 0,
-					'Mechanical', 0,
-					'Explosives', 0,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/Hyena_Legion",
-					'Name', T(802337912455, --[[ModItemUnitDataCompositeDef LegionHyena_Stronger Name]] "Дрессированная гиена"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 2,
-					'neutral_retaliate', true,
-					'archetype', "Beast_Hyena",
-					'role', "Beast",
-					'CanManEmplacements', false,
-					'MaxAttacks', 2,
-					'MaxHitPoints', 60,
-					'StartingPerks', {
-						"MartialArts",
-						"CQCTraining",
-						"BattleFocus",
-						"ColdHeart",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Hyena_Base_2",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Hyena_Base_4",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Hyena_Base_5",
-						}),
-					},
-					'Equipment', {
-						"Beast_Hyena",
-					},
-					'AdditionalGroups', {},
-					'species', "Hyena",
-					'body_type', "Small animal",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionGunner_Stronger",
-					'object_class', "UnitData",
-					'Health', 90,
-					'Agility', 85,
-					'Dexterity', 90,
-					'Strength', 89,
-					'Wisdom', 25,
-					'Leadership', 55,
-					'Marksmanship', 86,
-					'Mechanical', 50,
-					'Explosives', 28,
-					'Medical', 35,
-					'Portrait', "UI/EnemiesPortraits/LegionHeavy",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(394818311379, --[[ModItemUnitDataCompositeDef LegionGunner_Stronger Name]] "Опытный пулемётчик"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 6,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Control",
-						"Soldier",
-						"Gunner",
-						"Nova",
-					},
-					'archetype', "HeavyGunner",
-					'role', "Heavy",
-					'MaxAttacks', 4,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)
-						self:TryEquip(items, "Handheld A", "Firearm")
-						self:TryEquip(items, "Handheld B", "Firearm")
-					end,
-					'MaxHitPoints', 85,
-					'StartingPerks', {
-						"TakeAim",
-						"OverwatchExpert",
-						"Ironclad",
-						"Counterfire",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Heavy",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Heavy02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Heavy03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGunner_Stronger",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGunner_Stronger_alt",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGunner_Stronger_alt_2",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionGunner_Stronger",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionGrenadier_Stronger",
-					'object_class', "UnitData",
-					'Health', 84,
-					'Agility', 85,
-					'Dexterity', 62,
-					'Strength', 73,
-					'Wisdom', 17,
-					'Leadership', 14,
-					'Marksmanship', 66,
-					'Mechanical', 20,
-					'Explosives', 85,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionDemo",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(167929106879, --[[ModItemUnitDataCompositeDef LegionGrenadier_Stronger Name]] "Опытный гранатомётчик"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 2,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Explosives",
-						"MobileShot",
-						"Control",
-						"Soldier",
-					},
-					'archetype', "Grenadier",
-					'role', "Demolitions",
-					'CanManEmplacements', false,
-					'MaxAttacks', 1,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"Throwing",
-						"MinFreeMove",
-						"BreachAndClear",
-						"RelentlessAdvance",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Demolishion",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Demolishion02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Demolishion03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGrenadir_Stronger",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGrenadir_Stronger_alt",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGrenadir_Stronger_alt_2",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionGrenadier_Stronger",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Russell",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionMolotov_Stronger",
-					'comment', "Молотов | Метатель",
-					'object_class', "UnitData",
-					'Health', 80,
-					'Agility', 80,
-					'Dexterity', 80,
-					'Strength', 75,
-					'Wisdom', 14,
-					'Leadership', 14,
-					'Marksmanship', 63,
-					'Mechanical', 40,
-					'Explosives', 93,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionDemo",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(360328464434, --[[ModItemUnitDataCompositeDef LegionMolotov_Stronger Name]] "Поджигатель"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 2,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Explosives",
-						"Flank",
-						"Ordnance",
-					},
-					'archetype', "Grenadier",
-					'role', "Demolitions",
-					'CanManEmplacements', false,
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"Throwing",
-						"MinFreeMove",
-						"BreachAndClear",
-						"RecklessAssault",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Demolishion",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Demolishion02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Demolishion03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGrenadir",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGrenadir_alt",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGrenadir_alt_2",
-							'Weight', 2,
-						}),
-					},
-					'Equipment', {
-						"LegionGrenadier_Stronger_Elite_Molotov",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Russell",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionGoon_Stronger",
-					'object_class', "UnitData",
-					'Health', 70,
-					'Agility', 89,
-					'Dexterity', 77,
-					'Wisdom', 22,
-					'Leadership', 20,
-					'Marksmanship', 75,
-					'Mechanical', 20,
-					'Explosives', 42,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionRecon",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(794419109066, --[[ModItemUnitDataCompositeDef LegionGoon_Stronger Name]] "Крепкий головорез"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 4,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"MobileShot",
-						"Flank",
-						"Explosives",
-						"Control",
-					},
-					'archetype', "Skirmisher",
-					'role', "Recon",
-					'PinnedDownChance', 100,
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"CQCTraining",
-						"Ambidextrous",
-						"Flanker",
-						"RelentlessAdvance",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Recon",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Recon02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Recon03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGoon_Stronger",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGoon_Stronger_alt",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGoon_Stronger_alt_2",
-							'Weight', 2,
-						}),
-					},
-					'Equipment', {
-						"LegionGoon_Stronger",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionButcher_Stronger",
-					'object_class', "UnitData",
-					'Health', 80,
-					'Agility', 90,
-					'Dexterity', 86,
-					'Strength', 85,
-					'Wisdom', 15,
-					'Leadership', 9,
-					'Marksmanship', 62,
-					'Mechanical', 20,
-					'Explosives', 47,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionStormer",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(634940896034, --[[ModItemUnitDataCompositeDef LegionButcher_Stronger Name]] "Опытный мясник"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 5,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Explosives",
-						"Smoke",
-						"Flank",
-						"RunAndGun",
-						"MobileShot",
-					},
-					'archetype', "Brute",
-					'role', "Stormer",
-					'CanManEmplacements', false,
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 60,
-					'StartingPerks', {
-						"InstantAutopsy",
-						"BeefedUp",
-						"MeleeTraining",
-						"Berserker",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionButcher_Stronger",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionButcher_Stronger_alt",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionButcher_Stronger_alt_2",
-							'Weight', 2,
-						}),
-					},
-					'Equipment', {
-						"LegionMeleeFighter_Stronger",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionScout_Stronger",
-					'object_class', "UnitData",
-					'Health', 70,
-					'Agility', 85,
-					'Dexterity', 95,
-					'Strength', 75,
-					'Leadership', 29,
-					'Marksmanship', 74,
-					'Mechanical', 20,
-					'Medical', 21,
-					'Portrait', "UI/EnemiesPortraits/LegionRecon",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(908442112701, --[[ModItemUnitDataCompositeDef LegionScout_Stronger Name]] "Опытный разведчик"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 5,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Flank",
-						"RunAndGun",
-						"Control",
-						"Stim",
-					},
-					'archetype', "Skirmisher",
-					'role', "Recon",
-					'OpeningAttackType', "Overwatch",
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"RelentlessAdvance",
-						"Flanker",
-						"MinFreeMove",
-						"GruntyPerk",
-						"Untraceable",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionScout_Stronger",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionScout_Stronger_alt",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionScout_Stronger_alt_2",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Recon02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Recon03",
-						}),
-					},
-					'Equipment', {
-						"LegionScout_Stronger",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionSniper_Stronger",
-					'object_class', "UnitData",
-					'Agility', 86,
-					'Dexterity', 80,
-					'Strength', 70,
-					'Wisdom', 35,
-					'Leadership', 33,
-					'Marksmanship', 90,
-					'Mechanical', 30,
-					'Explosives', 0,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionSniper",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(650029540303, --[[ModItemUnitDataCompositeDef LegionSniper_Stronger Name]] "Опытный снайпер"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 5,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Sniper",
-						"Control",
-					},
-					'archetype', "Soldier_Sniper",
-					'role', "Marksman",
-					'AlwaysUseOpeningAttack', true,
-					'OpeningAttackType', "Overwatch",
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)
-						self:TryEquip(items, "Handheld A", "Firearm")
-						self:TryEquip(items, "Handheld B", "Firearm")
-					end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"Deadeye",
-						"DeathFromAbove",
-						"Spiritual",
-						"HitTheDeck",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Marksman",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Marksman02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Marksman03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSniper_Stronger",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSniper_Stronger_alt",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSniper_Stronger_alt_2",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionSniper_Stronger",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionSergant_Stronger",
-					'object_class', "UnitData",
-					'Health', 90,
-					'Agility', 86,
-					'Dexterity', 90,
-					'Strength', 70,
-					'Wisdom', 90,
-					'Leadership', 47,
-					'Marksmanship', 83,
-					'Mechanical', 50,
-					'Explosives', 90,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionSniper",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(370478000653, --[[ModItemUnitDataCompositeDef LegionSergant_Stronger Name]] "Сержант"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 6,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Control",
-						"Sniper",
-						"Soldier",
-						"Smoke",
-						"Explosives",
-					},
-					'role', "Marksman",
-					'OpeningAttackType', "Overwatch",
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"DeathFromAbove",
-						"LightStep",
-						"StressManagement",
-						"ShoulderToShoulder",
-						"BattleFocus",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSergant_Stronger",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSergant_Stronger_alt",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSergant_Stronger_alt_2",
-						}),
-					},
-					'Equipment', {
-						"LegionSergeant_Stronger",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionRanger_Stronger",
-					'object_class', "UnitData",
-					'Health', 80,
-					'Agility', 90,
-					'Dexterity', 80,
-					'Strength', 70,
-					'Wisdom', 70,
-					'Leadership', 53,
-					'Marksmanship', 83,
-					'Mechanical', 40,
-					'Explosives', 78,
-					'Medical', 50,
-					'Portrait', "UI/EnemiesPortraits/LegionSniper",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(598211208683, --[[ModItemUnitDataCompositeDef LegionRanger_Stronger Name]] "Рэйнджер"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 5,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Control",
-						"Soldier",
-						"RunAndGun",
-						"Ordnance",
-					},
-					'role', "Soldier",
-					'OpeningAttackType', "Overwatch",
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"BunsPerk",
-						"Stealthy",
-						"StressManagement",
-						"Untraceable",
-						"Hobbler",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Marksman",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Marksman02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Marksman03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRanger_Stronger_alt",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRanger_Stronger",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRanger_Stronger_alt_2",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionRanger_Stronger",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				}),
-			PlaceObj('ModItemFolder', {
-				'name', "T1",
-			}, {
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionRaider",
-					'comment', "Рейдер",
-					'object_class', "UnitData",
-					'Health', 81,
-					'Agility', 80,
-					'Dexterity', 70,
-					'Strength', 70,
-					'Wisdom', 40,
-					'Leadership', 25,
-					'Marksmanship', 75,
-					'Mechanical', 0,
-					'Explosives', 54,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionSoldier",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(487256398153, --[[ModItemUnitDataCompositeDef LegionRaider Name]] "Мародёр"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 2,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Soldier",
-						"Explosives",
-					},
-					'role', "Soldier",
-					'OpeningAttackType', "Overwatch",
-					'PinnedDownChance', 40,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"BunsPerk",
-						"RelentlessAdvance",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier04",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier05",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier06",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider_alt",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider_alt_2",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionRaiders",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionRaider_Demolution",
-					'comment', "Стрелок базовый",
-					'object_class', "UnitData",
-					'Health', 81,
-					'Agility', 80,
-					'Dexterity', 70,
-					'Strength', 70,
-					'Wisdom', 40,
-					'Leadership', 25,
-					'Marksmanship', 73,
-					'Mechanical', 0,
-					'Explosives', 77,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionSoldier",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(231149210996, --[[ModItemUnitDataCompositeDef LegionRaider_Demolution Name]] "Мародёр"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 3,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Soldier",
-						"Explosives",
-						"Ordnance",
-					},
-					'role', "Soldier",
-					'OpeningAttackType', "Overwatch",
-					'PinnedDownChance', 40,
-					'CustomEquipGear', function (self, items)
-						self:TryEquip(items, "Handheld A", "AssaultRifle")
-						self:TryEquip(items, "Handheld A", "GrenadeLauncher")
-					end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"Flanker",
-						"RelentlessAdvance",
-						"BunsPerk",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier04",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier05",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Soldier06",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider_alt",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaider_alt_2",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionRaiders_GL",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionRaidLeader",
-					'comment', "Лидер / Оверватчер",
-					'object_class', "UnitData",
-					'Health', 80,
-					'Agility', 75,
-					'Dexterity', 82,
-					'Strength', 70,
-					'Wisdom', 70,
-					'Leadership', 81,
-					'Marksmanship', 75,
-					'Mechanical', 15,
-					'Explosives', 48,
-					'Medical', 47,
-					'Portrait', "UI/EnemiesPortraits/LegionOfficer",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(174256174654, --[[ModItemUnitDataCompositeDef LegionRaidLeader Name]] "Командир налётчиков"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 3,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Smoke",
-						"Heal_Low",
-						"Flank",
-						"Soldier",
-						"Explosives",
-					},
-					'role', "Commander",
-					'OpeningAttackType', "Overwatch",
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 80,
-					'StartingPerks', {
-						"ShoulderToShoulder",
-						"GruntyPerk",
-						"BeefedUp",
-						"BuildingConfidence",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Shaman",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Shaman02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Shaman03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaidLeader",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaidLeader_alt",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionRaidLeader_alt_2",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionSentry",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionMedic",
-					'comment', "Медик - Пистолетчик",
-					'object_class', "UnitData",
-					'Health', 75,
-					'Agility', 94,
-					'Dexterity', 100,
-					'Strength', 42,
-					'Wisdom', 80,
-					'Leadership', 45,
-					'Mechanical', 12,
-					'Explosives', 33,
-					'Medical', 85,
-					'Portrait', "UI/EnemiesPortraits/LegionMedic",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(105899703679, --[[ModItemUnitDataCompositeDef LegionMedic Name]] "Санитар"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Heal",
-						"Smoke",
-						"Nova",
-						"MobileShot",
-						"Explosives",
-					},
-					'archetype', "Medic",
-					'role', "Medic",
-					'CanManEmplacements', false,
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 80,
-					'StartingPerks', {
-						"BeefedUp",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_WitchDoctor",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_WitchDoctor02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_WitchDoctor03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionMedic",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionMedic_alt",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionMedic",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionManiac",
-					'comment', "Громила - Танк - Дробовик",
-					'object_class', "UnitData",
-					'Health', 75,
-					'Agility', 70,
-					'Dexterity', 75,
-					'Strength', 80,
-					'Wisdom', 16,
-					'Marksmanship', 59,
-					'Mechanical', 0,
-					'Explosives', 40,
-					'Medical', 35,
-					'Portrait', "UI/EnemiesPortraits/LegionStormer",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(587148910451, --[[ModItemUnitDataCompositeDef LegionManiac Name]] "Громила"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 3,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Flank",
-						"Explosives",
-						"Control",
-					},
-					'archetype', "Brute",
-					'role', "Stormer",
-					'CanManEmplacements', false,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 100,
-					'StartingPerks', {
-						"BeefedUp",
-						"CQCTraining",
-						"NailsPerk",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionManiac",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionManiac_alt",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionManiac_alt_2",
-							'Weight', 2,
-						}),
-					},
-					'Equipment', {
-						"LegionBerserker",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionGunner",
-					'comment', "Пулеметчик | Контроль",
-					'object_class', "UnitData",
-					'Health', 76,
-					'Agility', 78,
-					'Dexterity', 80,
-					'Strength', 89,
-					'Wisdom', 23,
-					'Leadership', 20,
-					'Marksmanship', 70,
-					'Mechanical', 30,
-					'Explosives', 0,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionHeavy",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(875645126950, --[[ModItemUnitDataCompositeDef LegionGunner Name]] "Пулемётчик"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 2,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Control",
-						"Soldier",
-						"Gunner",
-					},
-					'archetype', "HeavyGunner",
-					'role', "Heavy",
-					'OpeningAttackType', "Overwatch",
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)
-						self:TryEquip(items, "Handheld A", "Firearm")
-						self:TryEquip(items, "Handheld B", "SMG")
-					end,
-					'MaxHitPoints', 85,
-					'StartingPerks', {
-						"TakeAim",
-						"Counterfire",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Heavy",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Heavy02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Heavy03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGunner",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGunner_alt",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionGunner",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionGrenadier",
-					'comment', "Гранатометчик | Метатель",
-					'object_class', "UnitData",
-					'Health', 80,
-					'Agility', 80,
-					'Dexterity', 45,
-					'Strength', 75,
-					'Wisdom', 14,
-					'Leadership', 14,
-					'Marksmanship', 63,
-					'Mechanical', 0,
-					'Explosives', 79,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionDemo",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(685020204893, --[[ModItemUnitDataCompositeDef LegionGrenadier Name]] "Гранатомётчик"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 2,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Explosives",
-						"MobileShot",
-						"Flank",
-						"RunAndGun",
-						"Ordnance",
-					},
-					'archetype', "Grenadier",
-					'role', "Demolitions",
-					'CanManEmplacements', false,
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"Throwing",
-						"RelentlessAdvance",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Demolishion",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Demolishion02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Demolishion03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGrenadir",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGrenadir_alt",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGrenadir_alt_2",
-							'Weight', 2,
-						}),
-					},
-					'Equipment', {
-						"LegionGrenadier",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Russell",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionMolotov",
-					'comment', "Молотов | Метатель",
-					'object_class', "UnitData",
-					'Health', 80,
-					'Agility', 80,
-					'Dexterity', 45,
-					'Strength', 75,
-					'Wisdom', 14,
-					'Leadership', 14,
-					'Marksmanship', 63,
-					'Mechanical', 0,
-					'Explosives', 79,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionDemo",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(872363346772, --[[ModItemUnitDataCompositeDef LegionMolotov Name]] "Поджигатель"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 2,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Explosives",
-						"Flank",
-						"Ordnance",
-					},
-					'archetype', "Grenadier",
-					'role', "Demolitions",
-					'CanManEmplacements', false,
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"Throwing",
-						"RelentlessAdvance",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Demolishion",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Demolishion02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Demolishion03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGrenadir",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGrenadir_alt",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGrenadir_alt_2",
-							'Weight', 2,
-						}),
-					},
-					'Equipment', {
-						"LegionGrenadierMolotov",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Russell",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionGoon",
-					'comment', "Пистолетчик | Харасмент",
-					'object_class', "UnitData",
-					'Health', 67,
-					'Agility', 71,
-					'Dexterity', 80,
-					'Strength', 55,
-					'Wisdom', 40,
-					'Leadership', 20,
-					'Marksmanship', 68,
-					'Mechanical', 0,
-					'Explosives', 64,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionRecon",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(281298678585, --[[ModItemUnitDataCompositeDef LegionGoon Name]] "Головорез"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 2,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"MobileShot",
-						"Control",
-						"Flank",
-						"Explosives",
-					},
-					'archetype', "Skirmisher",
-					'role', "Recon",
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"Ambidextrous",
-						"Flanker",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Recon",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Recon02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Recon03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGoon",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGoon_alt",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGoon_alt_2",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionGoon_alt_3",
-							'Weight', 2,
-						}),
-					},
-					'Equipment', {
-						"LegionGoon",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionButcher",
-					'comment', "Мясник | Рукопашник",
-					'object_class', "UnitData",
-					'Health', 80,
-					'Agility', 85,
-					'Dexterity', 74,
-					'Strength', 80,
-					'Wisdom', 10,
-					'Leadership', 9,
-					'Marksmanship', 55,
-					'Mechanical', 0,
-					'Explosives', 11,
-					'Medical', 30,
-					'Portrait', "UI/EnemiesPortraits/LegionStormer",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(945797834860, --[[ModItemUnitDataCompositeDef LegionButcher Name]] "Мясник"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 2,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Explosives",
-						"Smoke",
-						"Flank",
-						"RunAndGun",
-					},
-					'archetype', "Brute",
-					'role', "Stormer",
-					'CanManEmplacements', false,
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 60,
-					'StartingPerks', {
-						"InstantAutopsy",
-						"Berserker",
-						"MeleeTraining",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Stormer03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionButcher",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionButcher_alt",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionButcher_alt_2",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionButcher_alt_3",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionMeleeFighter",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionScout",
-					'comment', "Разведчик / Фланговщик / Овервотчер",
-					'object_class', "UnitData",
-					'Health', 78,
-					'Agility', 80,
-					'Dexterity', 90,
-					'Strength', 65,
-					'Wisdom', 50,
-					'Leadership', 29,
-					'Marksmanship', 70,
-					'Mechanical', 0,
-					'Explosives', 82,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionRecon",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(720819443104, --[[ModItemUnitDataCompositeDef LegionScout Name]] "Разведчик"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 2,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Flank",
-						"RunAndGun",
-						"Control",
-						"Explosives",
-					},
-					'archetype', "Skirmisher",
-					'role', "Recon",
-					'OpeningAttackType', "Overwatch",
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)  end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"RelentlessAdvance",
-						"MinFreeMove",
-						"Untraceable",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Recon",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Recon02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Recon03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionScout",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionScout_alt",
-							'Weight', 2,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionScout_alt_2",
-							'Weight', 2,
-						}),
-					},
-					'Equipment', {
-						"LegionScout",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionSniper",
-					'comment', "Снайпер",
-					'object_class', "UnitData",
-					'Health', 65,
-					'Agility', 80,
-					'Dexterity', 76,
-					'Strength', 65,
-					'Wisdom', 70,
-					'Leadership', 33,
-					'Marksmanship', 78,
-					'Mechanical', 24,
-					'Explosives', 30,
-					'Medical', 6,
-					'Portrait', "UI/EnemiesPortraits/LegionSniper",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(762054446751, --[[ModItemUnitDataCompositeDef LegionSniper Name]] "Снайпер"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 2,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Sniper",
-						"Flank",
-						"Control",
-					},
-					'archetype', "Soldier_Sniper",
-					'role', "Marksman",
-					'MaxAttacks', 2,
-					'PickCustomArchetype', function (self, proto_context)  end,
-					'CustomEquipGear', function (self, items)
-						self:TryEquip(items, "Handheld A", "Firearm")
-						self:TryEquip(items, "Handheld B", "Pistol")
-					end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"Deadeye",
-						"Spiritual",
-						"DeathFromAbove",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Marksman",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Marksman02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Marksman03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSniper",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSniper_alt",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSniper_alt_2",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionSniper",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionSharpShooter",
-					'object_class', "UnitData",
-					'Health', 65,
-					'Agility', 70,
-					'Dexterity', 70,
-					'Strength', 41,
-					'Wisdom', 48,
-					'Leadership', 33,
-					'Marksmanship', 74,
-					'Mechanical', 20,
-					'Explosives', 30,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionSniper",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(329515082328, --[[ModItemUnitDataCompositeDef LegionSharpShooter Name]] "Стрелок"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'StartingLevel', 3,
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Sniper",
-						"Flank",
-						"Nova",
-						"Control",
-					},
-					'role', "Recon",
-					'AlwaysUseOpeningAttack', true,
-					'OpeningAttackType', "Overwatch",
-					'MaxAttacks', 1,
-					'CustomEquipGear', function (self, items)
-						self:TryEquip(items, "Handheld A", "Firearm")
-						self:TryEquip(items, "Handheld B", "Pistol")
-					end,
-					'MaxHitPoints', 50,
-					'StartingPerks', {
-						"Untraceable",
-						"Flanker",
-					},
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Marksman",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Marksman02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Marksman03",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSharpShooter",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSharpShooter_alt",
-							'Weight', 3,
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "LegionSharpShooter_alt_1",
-							'Weight', 3,
-						}),
-					},
-					'Equipment', {
-						"LegionSharpShooter",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				PlaceObj('ModItemUnitDataCompositeDef', {
-					'Group', "Legion",
-					'Id', "LegionRocketeer_copy",
-					'object_class', "UnitData",
-					'Health', 70,
-					'Agility', 83,
-					'Dexterity', 8,
-					'Strength', 88,
-					'Wisdom', 14,
-					'Leadership', 10,
-					'Marksmanship', 12,
-					'Mechanical', 0,
-					'Explosives', 41,
-					'Medical', 0,
-					'Portrait', "UI/EnemiesPortraits/LegionArtillery",
-					'BigPortrait', "UI/Enemies/LegionRaider",
-					'Name', T(216158705378, --[[ModItemUnitDataCompositeDef LegionRocketeer_copy Name]] "Rocket Man"),
-					'Randomization', true,
-					'Affiliation', "Legion",
-					'neutral_retaliate', true,
-					'AIKeywords', {
-						"Ordnance",
-					},
-					'role', "Artillery",
-					'CanManEmplacements', false,
-					'MaxAttacks', 1,
-					'MaxHitPoints', 50,
-					'AppearancesList', {
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Artillery",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Artillery02",
-						}),
-						PlaceObj('AppearanceWeight', {
-							'Preset', "Legion_Artillery03",
-						}),
-					},
-					'Equipment', {
-						"LegionRocketeer",
-					},
-					'AdditionalGroups', {
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_1",
-						}),
-						PlaceObj('AdditionalGroup', {
-							'Weight', 50,
-							'Exclusive', true,
-							'Name', "LegionMale_2",
-						}),
-					},
-					'pollyvoice', "Joey",
-					'gender', "Male",
-					'VoiceResponseId', "LegionRaider",
-				}),
-				}),
-			}),
-		PlaceObj('ModItemFolder', {
-			'name', "Units Army",
-			'comment', "-- Регулярные армейцы",
-		}, {
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmyCommando_Sergant",
-				'object_class', "UnitData",
-				'Health', 93,
-				'Agility', 90,
-				'Dexterity', 96,
-				'Strength', 48,
-				'Wisdom', 71,
-				'Leadership', 100,
-				'Marksmanship', 88,
-				'Mechanical', 87,
-				'Explosives', 89,
-				'Medical', 85,
-				'Portrait', "UI/EnemiesPortraits/ArmyRecon",
-				'Name', T(601232154908, --[[ModItemUnitDataCompositeDef ArmyCommando_Sergant Name]] "Сержант Разведчик"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 3,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Flank",
-					"RunAndGun",
-				},
-				'archetype', "Skirmisher",
-				'role', "Recon",
-				'OpeningAttackType', "Overwatch",
-				'MaxAttacks', 2,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"AutoWeapons",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Recon",
-					}),
-				},
-				'Equipment', {
-					"ArmyScout",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmyCommando_Demolution",
-				'object_class', "UnitData",
-				'Health', 93,
-				'Agility', 90,
-				'Dexterity', 88,
-				'Strength', 48,
-				'Wisdom', 71,
-				'Leadership', 29,
-				'Marksmanship', 88,
-				'Mechanical', 72,
-				'Explosives', 99,
-				'Medical', 77,
-				'Portrait', "UI/EnemiesPortraits/ArmyRecon",
-				'Name', T(646387258267, --[[ModItemUnitDataCompositeDef ArmyCommando_Demolution Name]] "Разведчик Сапер"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 3,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Flank",
-					"RunAndGun",
-				},
-				'archetype', "Skirmisher",
-				'role', "Recon",
-				'OpeningAttackType', "Overwatch",
-				'MaxAttacks', 2,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"AutoWeapons",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Recon",
-					}),
-				},
-				'Equipment', {
-					"ArmyScout",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmyCommando_Sniper",
-				'object_class', "UnitData",
-				'Health', 80,
-				'Agility', 98,
-				'Dexterity', 99,
-				'Strength', 66,
-				'Wisdom', 71,
-				'Leadership', 72,
-				'Marksmanship', 93,
-				'Mechanical', 80,
-				'Explosives', 0,
-				'Medical', 63,
-				'Portrait', "UI/EnemiesPortraits/ArmyRecon",
-				'Name', T(520329146609, --[[ModItemUnitDataCompositeDef ArmyCommando_Sniper Name]] "Разведчик Снайпер"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 3,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Flank",
-					"RunAndGun",
-				},
-				'archetype', "Skirmisher",
-				'role', "Recon",
-				'OpeningAttackType', "Overwatch",
-				'MaxAttacks', 2,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"AutoWeapons",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Recon",
-					}),
-				},
-				'Equipment', {
-					"ArmyScout",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmyCommando_Scout",
-				'object_class', "UnitData",
-				'Health', 94,
-				'Agility', 95,
-				'Dexterity', 93,
-				'Strength', 82,
-				'Wisdom', 75,
-				'Leadership', 71,
-				'Marksmanship', 93,
-				'Mechanical', 75,
-				'Explosives', 75,
-				'Medical', 75,
-				'Portrait', "UI/EnemiesPortraits/ArmyRecon",
-				'Name', T(498170277650, --[[ModItemUnitDataCompositeDef ArmyCommando_Scout Name]] "Диверсант"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 3,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Flank",
-					"RunAndGun",
-				},
-				'archetype', "Skirmisher",
-				'role', "Recon",
-				'OpeningAttackType', "Overwatch",
-				'MaxAttacks', 2,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"AutoWeapons",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Recon",
-					}),
-				},
-				'Equipment', {
-					"ArmyScout",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmyStormer",
-				'object_class', "UnitData",
-				'Health', 95,
-				'Agility', 95,
-				'Dexterity', 73,
-				'Strength', 95,
-				'Leadership', 65,
-				'Marksmanship', 87,
-				'Mechanical', 40,
-				'Explosives', 81,
-				'Medical', 55,
-				'Portrait', "UI/EnemiesPortraits/ArmyStormer",
-				'BigPortrait', "UI/Enemies/LegionRaider",
-				'Name', T(828560012059, --[[ModItemUnitDataCompositeDef ArmyStormer Name]] "Штурмовик"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 5,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Ordnance",
-					"Explosives",
-					"Soldier",
-				},
-				'role', "Stormer",
-				'CanManEmplacements', false,
-				'MaxAttacks', 2,
-				'PickCustomArchetype', function (self, proto_context)  end,
-				'CustomEquipGear', function (self, items)
-					self:TryEquip(items, "Handheld A", "AssaultRifle"--[[, "_762NATO_Tracer","_556_Basic","_556_HP","_762NATO_Basic","_545_EPR"]])
-					self:TryEquip(items, "Handheld A", "GrenadeLauncher"--[[, "_40mmFlashbangGrenade","_40mmFragGrenade"]])
-				end,
-				'MaxHitPoints', 100,
-				'StartingPerks', {
-					"BeefedUp",
-					"MeleeTraining",
-					"MinFreeMove",
-					"Shatterhand",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Stormer",
-					}),
-				},
-				'Equipment', {
-					"ArmyStormer",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmySoldier",
-				'object_class', "UnitData",
-				'Health', 84,
-				'Agility', 82,
-				'Dexterity', 77,
-				'Strength', 53,
-				'Wisdom', 31,
-				'Leadership', 19,
-				'Marksmanship', 80,
-				'Mechanical', 40,
-				'Explosives', 0,
-				'Medical', 0,
-				'Portrait', "UI/EnemiesPortraits/ArmySoldier",
-				'Name', T(544120605675, --[[ModItemUnitDataCompositeDef ArmySoldier Name]] "Пехотинец"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 4,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Soldier",
-					"Explosives",
-					"Smoke",
-				},
-				'role', "Soldier",
-				'MaxAttacks', 2,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"AutoWeapons",
-					"MinFreeMove",
-					"Hotblood",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Soldier",
-					}),
-				},
-				'Equipment', {
-					"ArmySoldier",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmySniper_Elite",
-				'object_class', "UnitData",
-				'Health', 84,
-				'Agility', 94,
-				'Dexterity', 94,
-				'Strength', 41,
-				'Wisdom', 48,
-				'Leadership', 33,
-				'Marksmanship', 95,
-				'Mechanical', 80,
-				'Explosives', 0,
-				'Medical', 0,
-				'Portrait', "UI/EnemiesPortraits/ArmySniper",
-				'BigPortrait', "UI/Enemies/LegionRaider",
-				'Name', T(409540308094, --[[ModItemUnitDataCompositeDef ArmySniper_Elite Name]] "Элитный снайпер"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 7,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Sniper",
-				},
-				'archetype', "Soldier_Sniper",
-				'role', "Marksman",
-				'AlwaysUseOpeningAttack', true,
-				'OpeningAttackType', "PinDown",
-				'MaxAttacks', 1,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"HitTheDeck",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Marksman",
-					}),
-				},
-				'Equipment', {
-					"ArmySniper",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmySniper",
-				'object_class', "UnitData",
-				'Health', 78,
-				'Agility', 90,
-				'Dexterity', 90,
-				'Strength', 41,
-				'Wisdom', 48,
-				'Leadership', 33,
-				'Marksmanship', 90,
-				'Mechanical', 40,
-				'Explosives', 0,
-				'Medical', 0,
-				'Portrait', "UI/EnemiesPortraits/ArmySniper",
-				'Name', T(842711097729, --[[ModItemUnitDataCompositeDef ArmySniper Name]] "Снайпер"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 3,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Sniper",
-				},
-				'archetype', "Soldier_Sniper",
-				'role', "Marksman",
-				'AlwaysUseOpeningAttack', true,
-				'OpeningAttackType', "PinDown",
-				'MaxAttacks', 1,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"HitTheDeck",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Marksman",
-					}),
-				},
-				'Equipment', {
-					"ArmySniper",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmyScout",
-				'object_class', "UnitData",
-				'Health', 93,
-				'Agility', 90,
-				'Dexterity', 88,
-				'Strength', 48,
-				'Wisdom', 71,
-				'Leadership', 29,
-				'Marksmanship', 88,
-				'Mechanical', 40,
-				'Explosives', 0,
-				'Medical', 0,
-				'Portrait', "UI/EnemiesPortraits/ArmyStormer",
-				'Name', T(603102062016, --[[ModItemUnitDataCompositeDef ArmyScout Name]] "Разведчик"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 3,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Flank",
-					"RunAndGun",
-					"MobileShot",
-				},
-				'archetype', "Skirmisher",
-				'role', "Recon",
-				'OpeningAttackType', "Overwatch",
-				'MaxAttacks', 2,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"AutoWeapons",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Recon",
-					}),
-				},
-				'Equipment', {
-					"ArmyScout",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmyRPG",
-				'object_class', "UnitData",
-				'Health', 81,
-				'Agility', 83,
-				'Dexterity', 83,
-				'Strength', 88,
-				'Wisdom', 44,
-				'Leadership', 56,
-				'Marksmanship', 12,
-				'Mechanical', 50,
-				'Explosives', 96,
-				'Medical', 0,
-				'Portrait', "UI/EnemiesPortraits/ArmyArtillery",
-				'Name', T(910183932410, --[[ModItemUnitDataCompositeDef ArmyRPG Name]] "Гранатомётчик"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 4,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Ordnance",
-					"Explosives",
-				},
-				'role', "Artillery",
-				'CanManEmplacements', false,
-				'MaxAttacks', 1,
-				'MaxHitPoints', 50,
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Artillery",
-					}),
-				},
-				'Equipment', {
-					"ArmyRPG",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmyMortar",
-				'object_class', "UnitData",
-				'Health', 95,
-				'Agility', 90,
-				'Dexterity', 83,
-				'Strength', 96,
-				'Wisdom', 58,
-				'Leadership', 10,
-				'Marksmanship', 70,
-				'Mechanical', 50,
-				'Explosives', 99,
-				'Medical', 0,
-				'Portrait', "UI/EnemiesPortraits/ArmyArtillery",
-				'BigPortrait', "UI/Enemies/LegionRaider",
-				'Name', T(804855870896, --[[ModItemUnitDataCompositeDef ArmyMortar Name]] "Миномётчик"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 4,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Ordnance",
-					"Explosives",
-				},
-				'archetype', "Artillery",
-				'role', "Artillery",
-				'CanManEmplacements', false,
-				'MaxAttacks', 1,
-				'PickCustomArchetype', function (self, proto_context)
-					local enemy, dist = GetNearestEnemy(self)
-					local archetype = self.archetype
-					local weapon_class = "Firearm"
-					
-					if GameState.Underground or enemy and dist < 6*const.SlabSizeX then
-						archetype = "Soldier"
-						weapon_class = "AssaultRifle"
-						PlayVoiceResponse(self, "AIArchetypeScared")
-					end
-					
-					if not self:GetActiveWeapons(weapon_class) then
-						AIPlayCombatAction("ChangeWeapon", self, 0)
-					end
-					
-					return archetype
-				end,
-				'CustomEquipGear', function (self, items)
-					self:TryEquip(items, "Handheld A", "HeavyWeapon")
-					self:TryEquip(items, "Handheld B", "AssaultRifle")
-				end,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"AutoWeapons",
-					"BattleFocus",
-					"BeefedUp",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Artillery",
-					}),
-				},
-				'Equipment', {
-					"ArmyMortar",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmyMedic",
-				'object_class', "UnitData",
-				'Health', 100,
-				'Agility', 99,
-				'Dexterity', 99,
-				'Strength', 65,
-				'Wisdom', 84,
-				'Leadership', 20,
-				'Marksmanship', 65,
-				'Mechanical', 50,
-				'Explosives', 5,
-				'Medical', 53,
-				'Portrait', "UI/EnemiesPortraits/ArmyMedic",
-				'Name', T(561617992746, --[[ModItemUnitDataCompositeDef ArmyMedic Name]] "Санитар"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 5,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Heal",
-					"Control",
-				},
-				'archetype', "Medic",
-				'role', "Medic",
-				'MaxAttacks', 1,
-				'MaxHitPoints', 80,
-				'StartingPerks', {
-					"MinFreeMove",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Medic",
-					}),
-				},
-				'Equipment', {
-					"ArmyMedic",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'Tier', "Veteran",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmyMedic_Elite",
-				'object_class', "UnitData",
-				'Health', 100,
-				'Agility', 99,
-				'Dexterity', 99,
-				'Strength', 65,
-				'Wisdom', 84,
-				'Leadership', 20,
-				'Marksmanship', 65,
-				'Mechanical', 80,
-				'Explosives', 5,
-				'Medical', 53,
-				'Portrait', "UI/EnemiesPortraits/ArmyMedic",
-				'Name', T(514583299040, --[[ModItemUnitDataCompositeDef ArmyMedic_Elite Name]] "Санитар Диверсант"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 5,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Heal",
-					"Control",
-				},
-				'archetype', "Medic",
-				'role', "Medic",
-				'MaxAttacks', 1,
-				'MaxHitPoints', 80,
-				'StartingPerks', {
-					"MinFreeMove",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Medic",
-					}),
-				},
-				'Equipment', {
-					"ArmyMedic",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'Tier', "Veteran",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmyHeavy",
-				'object_class', "UnitData",
-				'Health', 95,
-				'Agility', 88,
-				'Dexterity', 75,
-				'Strength', 90,
-				'Wisdom', 30,
-				'Leadership', 47,
-				'Marksmanship', 91,
-				'Mechanical', 50,
-				'Explosives', 0,
-				'Medical', 0,
-				'Portrait', "UI/EnemiesPortraits/ArmyHeavy",
-				'Name', T(245814276757, --[[ModItemUnitDataCompositeDef ArmyHeavy Name]] "Пулемётчик"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 5,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Soldier",
-				},
-				'archetype', "HeavyGunner",
-				'role', "Heavy",
-				'MaxAttacks', 2,
-				'MaxHitPoints', 85,
-				'StartingPerks', {
-					"AutoWeapons",
-					"Ironclad",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Heavy",
-					}),
-				},
-				'Equipment', {
-					"ArmyHeavy",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'Tier', "Veteran",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmyDemo_Elite",
-				'object_class', "UnitData",
-				'Health', 94,
-				'Agility', 83,
-				'Dexterity', 79,
-				'Strength', 69,
-				'Wisdom', 28,
-				'Leadership', 14,
-				'Marksmanship', 87,
-				'Explosives', 91,
-				'Medical', 0,
-				'Portrait', "UI/EnemiesPortraits/ArmyDemo",
-				'Name', T(618487624385, --[[ModItemUnitDataCompositeDef ArmyDemo_Elite Name]] "Элитный сапер"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 6,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Explosives",
-					"Flank",
-				},
-				'archetype', "Skirmisher",
-				'role', "Demolitions",
-				'MaxAttacks', 1,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"Throwing",
-					"AutoWeapons",
-					"BattleFocus",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Demolition",
-					}),
-				},
-				'Equipment', {
-					"ArmyDemo",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'pollyvoice', "Russell",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmyDemo",
-				'object_class', "UnitData",
-				'Health', 75,
-				'Agility', 71,
-				'Dexterity', 30,
-				'Strength', 53,
-				'Wisdom', 14,
-				'Leadership', 14,
-				'Marksmanship', 43,
-				'Mechanical', 40,
-				'Explosives', 84,
-				'Medical', 0,
-				'Portrait', "UI/EnemiesPortraits/ArmyDemo",
-				'Name', T(515821906221, --[[ModItemUnitDataCompositeDef ArmyDemo Name]] "Сапёр"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 4,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Explosives",
-					"Flank",
-					"Smoke",
-				},
-				'archetype', "Skirmisher",
-				'role', "Demolitions",
-				'MaxAttacks', 1,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"Throwing",
-					"AutoWeapons",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Demolition",
-					}),
-				},
-				'Equipment', {
-					"ArmyDemo",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'pollyvoice', "Russell",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmyCommander_Elite",
-				'object_class', "UnitData",
-				'Health', 90,
-				'Agility', 91,
-				'Dexterity', 90,
-				'Strength', 91,
-				'Wisdom', 80,
-				'Leadership', 87,
-				'Marksmanship', 90,
-				'Mechanical', 100,
-				'Explosives', 57,
-				'Medical', 45,
-				'Portrait', "UI/EnemiesPortraits/ArmyOfficer",
-				'Name', T(894521962960, --[[ModItemUnitDataCompositeDef ArmyCommander_Elite Name]] "Старший Лейтенант"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 8,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Control",
-					"Soldier",
-					"Explosives",
-				},
-				'archetype', "Skirmisher",
-				'role', "Commander",
-				'MaxAttacks', 2,
-				'PickCustomArchetype', function (self, proto_context)
-					local enemy, dist = GetNearestEnemy(self)
-					local archetype = self.archetype
-					local weapon_class = "Firearm"
-					
-					if enemy and dist < 12*const.SlabSizeX then
-						archetype = "Soldier"
-						weapon_class = "Firearm"
-						PlayVoiceResponse(self, "AIArchetypeAngry")
-					end
-					
-					if not self:GetActiveWeapons(weapon_class) then
-						AIPlayCombatAction("ChangeWeapon", self, 0)
-					end
-					
-					return archetype
-				end,
-				'MaxHitPoints', 80,
-				'StartingPerks', {
-					"BeefedUp",
-					"AutoWeapons",
-					"Berserker",
-					"BattleFocus",
-					"BunsPerk",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Officer",
-					}),
-				},
-				'Equipment', {
-					"ArmyCommander",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmyCommanderFemale",
-				'object_class', "UnitData",
-				'Health', 89,
-				'Agility', 90,
-				'Dexterity', 91,
-				'Strength', 63,
-				'Wisdom', 91,
-				'Leadership', 86,
-				'Marksmanship', 80,
-				'Mechanical', 100,
-				'Explosives', 57,
-				'Medical', 89,
-				'Portrait', "UI/EnemiesPortraits/ArmyOfficer",
-				'Name', T(156931867550, --[[ModItemUnitDataCompositeDef ArmyCommanderFemale Name]] "Лейтенант"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 5,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Control",
-					"Flank",
-				},
-				'archetype', "Skirmisher",
-				'role', "Commander",
-				'MaxAttacks', 2,
-				'PickCustomArchetype', function (self, proto_context)
-					local enemy, dist = GetNearestEnemy(self)
-					local archetype = self.archetype
-					local weapon_class = "Firearm"
-					
-					if enemy and dist < 12*const.SlabSizeX then
-						archetype = "Soldier"
-						weapon_class = "Firearm"
-						PlayVoiceResponse(self, "AIArchetypeAngry")
-					end
-					
-					if not self:GetActiveWeapons(weapon_class) then
-						AIPlayCombatAction("ChangeWeapon", self, 0)
-					end
-					
-					return archetype
-				end,
-				'MaxHitPoints', 80,
-				'StartingPerks', {
-					"BeefedUp",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_CommanderFemale",
-					}),
-				},
-				'Equipment', {
-					"ArmyCommander",
-					"RefugeeCamp_Leiutenant",
-				},
-				'AdditionalGroups', {},
-				'Tier', "Elite",
-				'pollyvoice', "Kendra",
-				'gender', "Female",
-				'VoiceResponseId', "AnneLeMitrailleur",
-				'FallbackMissingVR', "VillagerFemale",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmyCommander",
-				'object_class', "UnitData",
-				'Health', 90,
-				'Agility', 89,
-				'Dexterity', 85,
-				'Strength', 81,
-				'Wisdom', 89,
-				'Leadership', 93,
-				'Marksmanship', 90,
-				'Mechanical', 100,
-				'Explosives', 76,
-				'Medical', 45,
-				'Portrait', "UI/EnemiesPortraits/ArmyOfficer",
-				'Name', T(309190250480, --[[ModItemUnitDataCompositeDef ArmyCommander Name]] "Капитан"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 5,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Control",
-					"Flank",
-					"Soldier",
-				},
-				'archetype', "Skirmisher",
-				'role', "Commander",
-				'MaxAttacks', 2,
-				'PickCustomArchetype', function (self, proto_context)
-					local enemy, dist = GetNearestEnemy(self)
-					local archetype = self.archetype
-					local weapon_class = "Firearm"
-					
-					if enemy and dist < 12*const.SlabSizeX then
-						archetype = "Soldier"
-						weapon_class = "Firearm"
-						PlayVoiceResponse(self, "AIArchetypeAngry")
-					end
-					
-					if not self:GetActiveWeapons(weapon_class) then
-						AIPlayCombatAction("ChangeWeapon", self, 0)
-					end
-					
-					return archetype
-				end,
-				'MaxHitPoints', 80,
-				'StartingPerks', {
-					"BeefedUp",
-					"BunsPerk",
-					"CQCTraining",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Officer",
-					}),
-				},
-				'Equipment', {
-					"ArmyCommander",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmyLeitenant",
-				'object_class', "UnitData",
-				'Health', 90,
-				'Agility', 88,
-				'Dexterity', 86,
-				'Strength', 82,
-				'Wisdom', 73,
-				'Leadership', 88,
-				'Marksmanship', 80,
-				'Mechanical', 100,
-				'Explosives', 53,
-				'Medical', 0,
-				'Portrait', "UI/EnemiesPortraits/ArmySoldier",
-				'Name', T(164131088840, --[[ModItemUnitDataCompositeDef ArmyLeitenant Name]] "Лейтенант"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 4,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Soldier",
-					"Flank",
-					"Control",
-				},
-				'role', "Soldier",
-				'MaxAttacks', 2,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"AutoWeapons",
-					"MinFreeMove",
-					"Hotblood",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Soldier",
-					}),
-				},
-				'Equipment', {
-					"ArmySoldier",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Army",
-				'Id', "ArmySergant",
-				'object_class', "UnitData",
-				'Health', 78,
-				'Agility', 95,
-				'Dexterity', 90,
-				'Strength', 68,
-				'Wisdom', 47,
-				'Leadership', 74,
-				'Marksmanship', 80,
-				'Mechanical', 80,
-				'Explosives', 50,
-				'Medical', 55,
-				'Portrait', "UI/EnemiesPortraits/ArmySoldier",
-				'Name', T(817124274840, --[[ModItemUnitDataCompositeDef ArmySergant Name]] "Сержант"),
-				'Randomization', true,
-				'Affiliation', "Army",
-				'StartingLevel', 4,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Soldier",
-					"Control",
-				},
-				'role', "Soldier",
-				'MaxAttacks', 2,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"AutoWeapons",
-					"MinFreeMove",
-					"Hotblood",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "GrandChien_Soldier",
-					}),
-				},
-				'Equipment', {
-					"ArmySoldier",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "ArmyMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "ArmySoldier",
-			}),
-			}),
-		PlaceObj('ModItemFolder', {
-			'name', "Units Adonis",
-			'comment', "-- Адонис",
-		}, {
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "CorazonGuard",
-				'object_class', "UnitData",
-				'Health', 80,
-				'Agility', 90,
-				'Dexterity', 75,
-				'Strength', 85,
-				'Wisdom', 80,
-				'Leadership', 20,
-				'Marksmanship', 95,
-				'Mechanical', 100,
-				'Explosives', 0,
-				'Medical', 25,
-				'Portrait', "UI/EnemiesPortraits/AdonisSoldier",
-				'Name', T(249898748956, --[[ModItemUnitDataCompositeDef CorazonGuard Name]] "Охранник"),
-				'Randomization', true,
-				'Affiliation', "Adonis",
-				'StartingLevel', 3,
-				'MaxHitPoints', 80,
-				'StartingPerks', {
-					"AutoWeapons",
-					"Berserker",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Stormer",
-					}),
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Recon",
-					}),
-				},
-				'Equipment', {
-					"AdonisGuard",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Name', "AdonisMale_1",
-					}),
-				},
-				'pollyvoice', "Russell",
-				'gender', "Male",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisStormer_Elite",
-				'object_class', "UnitData",
-				'Health', 95,
-				'Agility', 90,
-				'Dexterity', 92,
-				'Strength', 85,
-				'Wisdom', 80,
-				'Leadership', 20,
-				'Marksmanship', 95,
-				'Mechanical', 80,
-				'Explosives', 38,
-				'Medical', 47,
-				'Portrait', "UI/EnemiesPortraits/AdonisStormer",
-				'Name', T(500744344994, --[[ModItemUnitDataCompositeDef AdonisStormer_Elite Name]] "Элитный штурмовик"),
-				'Randomization', true,
-				'elite', true,
-				'eliteCategory', "Foreigners",
-				'Affiliation', "Adonis",
-				'StartingLevel', 7,
-				'neutral_retaliate', true,
-				'archetype', "Brute",
-				'role', "Stormer",
-				'AlwaysUseOpeningAttack', true,
-				'OpeningAttackType', "Overwatch",
-				'PinnedDownChance', 100,
-				'MaxAttacks', 2,
-				'PickCustomArchetype', function (self, proto_context)
-					local enemy, dist = GetNearestEnemy(self)
-					local archetype = self.archetype
-					local weapon_class = "Firearm"
-					
-					if enemy and dist < 8*const.SlabSizeX then
-						weapon_class = "Shotgun"
-						PlayVoiceResponse(self, "AIArchetypeAngry")
-					end
-					
-					if not self:GetActiveWeapons(weapon_class) then
-						AIPlayCombatAction("ChangeWeapon", self, 0)
-					end
-					
-					return archetype
-				end,
-				'CustomEquipGear', function (self, items)
-					self:TryEquip(items, "Handheld A", "Firearm")
-					self:TryEquip(items, "Handheld B", "MeleeWeapon")
-				end,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"InstantAutopsy",
-					"CQCTraining",
-					"Shatterhand",
-					"BattleFocus",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Stormer",
-					}),
-				},
-				'Equipment', {
-					"AdonisStormer",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisStormer",
-				'object_class', "UnitData",
-				'Health', 95,
-				'Agility', 90,
-				'Dexterity', 81,
-				'Strength', 85,
-				'Wisdom', 80,
-				'Leadership', 20,
-				'Marksmanship', 95,
-				'Explosives', 0,
-				'Medical', 25,
-				'Portrait', "UI/EnemiesPortraits/AdonisStormer",
-				'BigPortrait', "UI/Enemies/LegionRaider",
-				'Name', T(482224084291, --[[ModItemUnitDataCompositeDef AdonisStormer Name]] "Штурмовик"),
-				'Randomization', true,
-				'Affiliation', "Adonis",
-				'StartingLevel', 7,
-				'neutral_retaliate', true,
-				'archetype', "Brute",
-				'role', "Stormer",
-				'AlwaysUseOpeningAttack', true,
-				'OpeningAttackType', "Overwatch",
-				'PinnedDownChance', 100,
-				'MaxAttacks', 2,
-				'PickCustomArchetype', function (self, proto_context)
-					local enemy, dist = GetNearestEnemy(self)
-					local archetype = self.archetype
-					local weapon_class = "Firearm"
-					
-					if enemy and dist < 8*const.SlabSizeX then
-						weapon_class = "Shotgun"
-						PlayVoiceResponse(self, "AIArchetypeAngry")
-					end
-					
-					if not self:GetActiveWeapons(weapon_class) then
-						AIPlayCombatAction("ChangeWeapon", self, 0)
-					end
-					
-					return archetype
-				end,
-				'CustomEquipGear', function (self, items)
-					self:TryEquip(items, "Handheld A", "SubmachineGun")
-					self:TryEquip(items, "Handheld B", "Shotgun")
-				end,
-				'unitPowerModifier', 75,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"InstantAutopsy",
-					"CQCTraining",
-					"Shatterhand",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Stormer",
-					}),
-				},
-				'Equipment', {
-					"AdonisStormer",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisAssault_Elite",
-				'object_class', "UnitData",
-				'Health', 95,
-				'Agility', 92,
-				'Dexterity', 90,
-				'Strength', 85,
-				'Wisdom', 68,
-				'Leadership', 84,
-				'Marksmanship', 95,
-				'Mechanical', 80,
-				'Explosives', 77,
-				'Medical', 52,
-				'Portrait', "UI/EnemiesPortraits/AdonisSoldier",
-				'Name', T(706893505616, --[[ModItemUnitDataCompositeDef AdonisAssault_Elite Name]] "Элитный Тяжелый Штурмовик"),
-				'Randomization', true,
-				'elite', true,
-				'eliteCategory', "Foreigners",
-				'Affiliation', "Adonis",
-				'StartingLevel', 6,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Soldier",
-					"Ordnance",
-					"Explosives",
-				},
-				'role', "Soldier",
-				'MaxAttacks', 2,
-				'PickCustomArchetype', function (self, proto_context)  end,
-				'CustomEquipGear', function (self, items)
-					self:TryEquip(items, "Handheld A", "AssaultRifle"--[[, "_762NATO_Tracer","_556_Basic","_556_HP","_762NATO_Basic","_545_EPR"]])
-					self:TryEquip(items, "Handheld A", "GrenadeLauncher"--[[, "_40mmFlashbangGrenade","_40mmFragGrenade"]])
-				end,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"AutoWeapons",
-					"LightningReactionNPC",
-					"StressManagement",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Soldier",
-					}),
-				},
-				'Equipment', {
-					"AdonisAssault_Elite",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisAssault",
-				'object_class', "UnitData",
-				'Health', 91,
-				'Agility', 85,
-				'Dexterity', 85,
-				'Strength', 85,
-				'Wisdom', 70,
-				'Leadership', 50,
-				'Marksmanship', 84,
-				'Explosives', 0,
-				'Medical', 0,
-				'Portrait', "UI/EnemiesPortraits/AdonisSoldier",
-				'Name', T(422952821275, --[[ModItemUnitDataCompositeDef AdonisAssault Name]] "Тяжелый Штурмовик"),
-				'Randomization', true,
-				'Affiliation', "Adonis",
-				'StartingLevel', 6,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Soldier",
-					"Ordnance",
-					"Explosives",
-				},
-				'role', "Soldier",
-				'MaxAttacks', 2,
-				'CustomEquipGear', function (self, items)
-					self:TryEquip(items, "Handheld A", "AssaultRifle"--[[, "_762NATO_Tracer","_556_Basic","_556_HP","_762NATO_Basic","_545_EPR"]])
-					self:TryEquip(items, "Handheld A", "GrenadeLauncher"--[[, "_40mmFlashbangGrenade","_40mmFragGrenade"]])
-				end,
-				'unitPowerModifier', 75,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"AutoWeapons",
-					"LightningReactionNPC",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Soldier",
-					}),
-				},
-				'Equipment', {
-					"AdonisAssault",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisSquadLeader_Elite",
-				'object_class', "UnitData",
-				'Health', 96,
-				'Agility', 90,
-				'Dexterity', 84,
-				'Strength', 85,
-				'Wisdom', 80,
-				'Leadership', 91,
-				'Marksmanship', 95,
-				'Mechanical', 80,
-				'Explosives', 84,
-				'Medical', 74,
-				'Portrait', "UI/EnemiesPortraits/AdonisOfficer",
-				'Name', T(840482939860, --[[ModItemUnitDataCompositeDef AdonisSquadLeader_Elite Name]] "Элитный командир"),
-				'Randomization', true,
-				'elite', true,
-				'eliteCategory', "Foreigners",
-				'Affiliation', "Adonis",
-				'StartingLevel', 7,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Control",
-					"Explosives",
-				},
-				'role', "Commander",
-				'AlwaysUseOpeningAttack', true,
-				'OpeningAttackType', "Overwatch",
-				'MaxAttacks', 2,
-				'MaxHitPoints', 80,
-				'StartingPerks', {
-					"OpportunisticKiller",
-					"AutoWeapons",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Officer",
-					}),
-				},
-				'Equipment', {
-					"AdonisSquadLeader",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisSquadLeader",
-				'object_class', "UnitData",
-				'Health', 88,
-				'Agility', 90,
-				'Dexterity', 75,
-				'Strength', 85,
-				'Wisdom', 80,
-				'Leadership', 62,
-				'Marksmanship', 95,
-				'Explosives', 64,
-				'Medical', 49,
-				'Portrait', "UI/EnemiesPortraits/AdonisOfficer",
-				'Name', T(441325795382, --[[ModItemUnitDataCompositeDef AdonisSquadLeader Name]] "Командир"),
-				'Randomization', true,
-				'Affiliation', "Adonis",
-				'StartingLevel', 7,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Control",
-					"Explosives",
-				},
-				'role', "Commander",
-				'AlwaysUseOpeningAttack', true,
-				'OpeningAttackType', "Overwatch",
-				'MaxAttacks', 2,
-				'unitPowerModifier', 75,
-				'MaxHitPoints', 80,
-				'StartingPerks', {
-					"OpportunisticKiller",
-					"AutoWeapons",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Officer",
-					}),
-				},
-				'Equipment', {
-					"AdonisSquadLeader",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisSquadLeader_Heavy",
-				'object_class', "UnitData",
-				'Health', 88,
-				'Agility', 90,
-				'Dexterity', 75,
-				'Strength', 85,
-				'Wisdom', 80,
-				'Leadership', 62,
-				'Marksmanship', 95,
-				'Explosives', 64,
-				'Medical', 49,
-				'Portrait', "UI/EnemiesPortraits/AdonisOfficer",
-				'Name', T(801516310669, --[[ModItemUnitDataCompositeDef AdonisSquadLeader_Heavy Name]] "Командир"),
-				'Randomization', true,
-				'Affiliation', "Adonis",
-				'StartingLevel', 7,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Control",
-					"Explosives",
-				},
-				'role', "Commander",
-				'AlwaysUseOpeningAttack', true,
-				'OpeningAttackType', "Overwatch",
-				'MaxAttacks', 2,
-				'unitPowerModifier', 75,
-				'MaxHitPoints', 80,
-				'StartingPerks', {
-					"OpportunisticKiller",
-					"AutoWeapons",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Officer",
-					}),
-				},
-				'Equipment', {
-					"AdonisSquadLeader",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisSquadLeader_Corporal",
-				'object_class', "UnitData",
-				'Health', 88,
-				'Agility', 90,
-				'Dexterity', 75,
-				'Strength', 85,
-				'Wisdom', 80,
-				'Leadership', 62,
-				'Marksmanship', 95,
-				'Mechanical', 70,
-				'Explosives', 64,
-				'Medical', 49,
-				'Portrait', "UI/EnemiesPortraits/AdonisOfficer",
-				'Name', T(714452942798, --[[ModItemUnitDataCompositeDef AdonisSquadLeader_Corporal Name]] "Капрал"),
-				'Randomization', true,
-				'Affiliation', "Adonis",
-				'StartingLevel', 7,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Control",
-					"Explosives",
-				},
-				'role', "Commander",
-				'AlwaysUseOpeningAttack', true,
-				'OpeningAttackType', "Overwatch",
-				'MaxAttacks', 2,
-				'unitPowerModifier', 75,
-				'MaxHitPoints', 80,
-				'StartingPerks', {
-					"OpportunisticKiller",
-					"AutoWeapons",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Officer",
-					}),
-				},
-				'Equipment', {
-					"AdonisSquadLeader",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisSquadLeader_Sergant",
-				'object_class', "UnitData",
-				'Health', 88,
-				'Agility', 90,
-				'Dexterity', 75,
-				'Strength', 85,
-				'Wisdom', 80,
-				'Leadership', 62,
-				'Marksmanship', 95,
-				'Mechanical', 80,
-				'Explosives', 64,
-				'Medical', 49,
-				'Portrait', "UI/EnemiesPortraits/AdonisOfficer",
-				'Name', T(872662857952, --[[ModItemUnitDataCompositeDef AdonisSquadLeader_Sergant Name]] "Сержант"),
-				'Randomization', true,
-				'Affiliation', "Adonis",
-				'StartingLevel', 7,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Control",
-					"Explosives",
-				},
-				'role', "Commander",
-				'AlwaysUseOpeningAttack', true,
-				'OpeningAttackType', "Overwatch",
-				'MaxAttacks', 2,
-				'unitPowerModifier', 75,
-				'MaxHitPoints', 80,
-				'StartingPerks', {
-					"OpportunisticKiller",
-					"AutoWeapons",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Officer",
-					}),
-				},
-				'Equipment', {
-					"AdonisSquadLeader",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisSniper_Elite",
-				'object_class', "UnitData",
-				'Health', 77,
-				'Agility', 90,
-				'Dexterity', 100,
-				'Strength', 85,
-				'Wisdom', 90,
-				'Leadership', 20,
-				'Marksmanship', 96,
-				'Mechanical', 90,
-				'Explosives', 42,
-				'Medical', 53,
-				'Portrait', "UI/EnemiesPortraits/AdonisSniper",
-				'Name', T(262166299016, --[[ModItemUnitDataCompositeDef AdonisSniper_Elite Name]] "Элитный тактический снайпер"),
-				'Randomization', true,
-				'elite', true,
-				'eliteCategory', "Foreigners",
-				'Affiliation', "Adonis",
-				'StartingLevel', 5,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Sniper",
-				},
-				'role', "Marksman",
-				'AlwaysUseOpeningAttack', true,
-				'OpeningAttackType', "PinDown",
-				'MaxAttacks', 1,
-				'PickCustomArchetype', function (self, proto_context)
-					local enemy, dist = GetNearestEnemy(self)
-					local archetype = self.archetype
-					local weapon_class = "Firearm"
-					
-					if enemy and dist < 5*const.SlabSizeX then
-						archetype = "Skirmisher"
-						weapon_class = "Revolver"
-						PlayVoiceResponse(self, "AIArchetypeScared")
-					end
-					
-					if not self:GetActiveWeapons(weapon_class) then
-						AIPlayCombatAction("ChangeWeapon", self, 0)
-					end
-					
-					return archetype
-				end,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"Deadeye",
-					"Shatterhand",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Marksman",
-					}),
-				},
-				'Equipment', {
-					"AdonisSniper",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Veteran",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisSniper",
-				'object_class', "UnitData",
-				'Health', 78,
-				'Agility', 90,
-				'Dexterity', 85,
-				'Strength', 85,
-				'Wisdom', 84,
-				'Leadership', 20,
-				'Marksmanship', 89,
-				'Explosives', 0,
-				'Medical', 25,
-				'Portrait', "UI/EnemiesPortraits/AdonisSniper",
-				'Name', T(103135217338, --[[ModItemUnitDataCompositeDef AdonisSniper Name]] "Тактический снайпер"),
-				'Randomization', true,
-				'Affiliation', "Adonis",
-				'StartingLevel', 5,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Sniper",
-				},
-				'role', "Marksman",
-				'AlwaysUseOpeningAttack', true,
-				'OpeningAttackType', "PinDown",
-				'MaxAttacks', 1,
-				'PickCustomArchetype', function (self, proto_context)
-					local enemy, dist = GetNearestEnemy(self)
-					local archetype = self.archetype
-					local weapon_class = "Firearm"
-					
-					if enemy and dist < 5*const.SlabSizeX then
-						archetype = "Skirmisher"
-						weapon_class = "Revolver"
-						PlayVoiceResponse(self, "AIArchetypeScared")
-					end
-					
-					if not self:GetActiveWeapons(weapon_class) then
-						AIPlayCombatAction("ChangeWeapon", self, 0)
-					end
-					
-					return archetype
-				end,
-				'CustomEquipGear', function (self, items)
-					self:TryEquip(items, "Handheld A", "SniperRifle")
-					self:TryEquip(items, "Handheld B", "Revolver")
-				end,
-				'unitPowerModifier', 75,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"SteadyBreathing",
-					"Shatterhand",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Marksman",
-					}),
-				},
-				'Equipment', {
-					"AdonisSniper",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Veteran",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisMortar",
-				'object_class', "UnitData",
-				'Health', 77,
-				'Agility', 78,
-				'Dexterity', 75,
-				'Strength', 99,
-				'Wisdom', 48,
-				'Leadership', 31,
-				'Marksmanship', 50,
-				'Mechanical', 50,
-				'Explosives', 94,
-				'Medical', 0,
-				'Portrait', "UI/EnemiesPortraits/AdonisArtillery",
-				'BigPortrait', "UI/Enemies/LegionRaider",
-				'Name', T(916476324121, --[[ModItemUnitDataCompositeDef AdonisMortar Name]] "Эксперт-взрывотехник"),
-				'Randomization', true,
-				'Affiliation', "Adonis",
-				'StartingLevel', 6,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Explosives",
-				},
-				'archetype', "Artillery",
-				'role', "Artillery",
-				'MaxAttacks', 1,
-				'PickCustomArchetype', function (self, proto_context)
-					local enemy, dist = GetNearestEnemy(self)
-					local archetype = self.archetype
-					local weapon_class = "Mortar"
-					
-					if GameState.Underground or enemy and dist < 7*const.SlabSizeX then
-						archetype = "Skirmisher"
-						weapon_class = "Revolver"
-						PlayVoiceResponse(self, "AIArchetypeScared")
-					end
-					
-					if not self:GetActiveWeapons(weapon_class) then
-						AIPlayCombatAction("ChangeWeapon", self, 0)
-					end
-					
-					return archetype
-				end,
-				'CustomEquipGear', function (self, items)
-					self:TryEquip(items, "Handheld A", "Mortar")
-					self:TryEquip(items, "Handheld B", "Revolver")
-				end,
-				'unitPowerModifier', 75,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"Throwing",
-					"HeavyWeaponsTraining",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Artillery",
-					}),
-				},
-				'Equipment', {
-					"AdonisMortar",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Veteran",
-				'pollyvoice', "Russell",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisMedic",
-				'object_class', "UnitData",
-				'Health', 100,
-				'Agility', 91,
-				'Dexterity', 85,
-				'Strength', 53,
-				'Wisdom', 96,
-				'Leadership', 58,
-				'Marksmanship', 66,
-				'Explosives', 39,
-				'Medical', 93,
-				'Portrait', "UI/EnemiesPortraits/AdonisMedic",
-				'Name', T(774264826545, --[[ModItemUnitDataCompositeDef AdonisMedic Name]] "Санитар"),
-				'Randomization', true,
-				'Affiliation', "Adonis",
-				'StartingLevel', 7,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Heal",
-				},
-				'archetype', "Medic",
-				'role', "Medic",
-				'MaxAttacks', 1,
-				'unitPowerModifier', 65,
-				'MaxHitPoints', 80,
-				'StartingPerks', {
-					"Savior",
-					"Caretaker",
-					"Shatterhand",
-					"Hotblood",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Medic",
-					}),
-				},
-				'Equipment', {
-					"AdonisMedic",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisHeavy",
-				'object_class', "UnitData",
-				'Health', 97,
-				'Agility', 86,
-				'Dexterity', 75,
-				'Strength', 95,
-				'Wisdom', 56,
-				'Leadership', 73,
-				'Marksmanship', 85,
-				'Mechanical', 70,
-				'Explosives', 0,
-				'Medical', 0,
-				'Portrait', "UI/EnemiesPortraits/AdonisHeavy",
-				'Name', T(104099261579, --[[ModItemUnitDataCompositeDef AdonisHeavy Name]] "Пулеметчик"),
-				'Randomization', true,
-				'Affiliation', "Adonis",
-				'StartingLevel', 6,
-				'neutral_retaliate', true,
-				'archetype', "HeavyGunner",
-				'role', "Heavy",
-				'MaxAttacks', 2,
-				'unitPowerModifier', 75,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"AutoWeapons",
-					"HeavyWeaponsTraining",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Heavy",
-					}),
-				},
-				'Equipment', {
-					"AdonisHeavy",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisDedicatedGunner_Elite",
-				'object_class', "UnitData",
-				'Health', 94,
-				'Agility', 91,
-				'Dexterity', 89,
-				'Strength', 95,
-				'Wisdom', 71,
-				'Leadership', 72,
-				'Marksmanship', 90,
-				'Mechanical', 80,
-				'Explosives', 81,
-				'Medical', 52,
-				'Portrait', "UI/EnemiesPortraits/AdonisHeavy",
-				'Name', T(895703228903, --[[ModItemUnitDataCompositeDef AdonisDedicatedGunner_Elite Name]] "Пулеметчик"),
-				'Randomization', true,
-				'elite', true,
-				'eliteCategory', "Foreigners",
-				'Affiliation', "Adonis",
-				'StartingLevel', 6,
-				'neutral_retaliate', true,
-				'role', "Heavy",
-				'MaxAttacks', 4,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"AutoWeapons",
-					"HeavyWeaponsTraining",
-					"CollateralDamage",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Soldier",
-					}),
-				},
-				'Equipment', {
-					"AdonisAssault_Elite",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisFlanker_Elite",
-				'object_class', "UnitData",
-				'Health', 92,
-				'Agility', 99,
-				'Dexterity', 83,
-				'Strength', 47,
-				'Wisdom', 77,
-				'Leadership', 80,
-				'Marksmanship', 92,
-				'Mechanical', 80,
-				'Explosives', 77,
-				'Medical', 55,
-				'Portrait', "UI/EnemiesPortraits/AdonisRecon",
-				'Name', T(274375177180, --[[ModItemUnitDataCompositeDef AdonisFlanker_Elite Name]] "Элитный коммандос"),
-				'Randomization', true,
-				'elite', true,
-				'eliteCategory', "Foreigners",
-				'Affiliation', "Adonis",
-				'StartingLevel', 3,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Flank",
-					"RunAndGun",
-				},
-				'archetype', "Skirmisher",
-				'role', "Recon",
-				'AlwaysUseOpeningAttack', true,
-				'MaxAttacks', 2,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"AutoWeapons",
-					"Hotblood",
-					"NightOps",
-					"RelentlessAdvance",
-					"SteadyBreathing",
-					"TrickShot",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Recon",
-					}),
-				},
-				'Equipment', {
-					"AdonisFlanker",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Veteran",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisFlanker",
-				'object_class', "UnitData",
-				'Health', 82,
-				'Agility', 81,
-				'Dexterity', 83,
-				'Strength', 83,
-				'Wisdom', 73,
-				'Leadership', 55,
-				'Marksmanship', 81,
-				'Explosives', 0,
-				'Medical', 0,
-				'Portrait', "UI/EnemiesPortraits/AdonisRecon",
-				'Name', T(317878347666, --[[ModItemUnitDataCompositeDef AdonisFlanker Name]] "Коммандос"),
-				'Randomization', true,
-				'Affiliation', "Adonis",
-				'StartingLevel', 3,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Flank",
-					"RunAndGun",
-				},
-				'archetype', "Skirmisher",
-				'role', "Recon",
-				'AlwaysUseOpeningAttack', true,
-				'MaxAttacks', 2,
-				'unitPowerModifier', 75,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"AutoWeapons",
-					"Hotblood",
-					"NightOps",
-					"RelentlessAdvance",
-					"SteadyBreathing",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Recon",
-					}),
-				},
-				'Equipment', {
-					"AdonisFlanker",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Veteran",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisDemolitions_Elite",
-				'object_class', "UnitData",
-				'Health', 87,
-				'Agility', 87,
-				'Dexterity', 84,
-				'Strength', 90,
-				'Wisdom', 61,
-				'Leadership', 31,
-				'Marksmanship', 87,
-				'Mechanical', 80,
-				'Explosives', 98,
-				'Medical', 34,
-				'Portrait', "UI/EnemiesPortraits/AdonisDemo",
-				'Name', T(516222648054, --[[ModItemUnitDataCompositeDef AdonisDemolitions_Elite Name]] "Мастер-взрывотехник"),
-				'Randomization', true,
-				'elite', true,
-				'eliteCategory', "Foreigners",
-				'Affiliation', "Adonis",
-				'StartingLevel', 6,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Ordnance",
-					"Explosives",
-				},
-				'role', "Artillery",
-				'MaxAttacks', 2,
-				'PickCustomArchetype', function (self, proto_context)
-					local enemy, dist = GetNearestEnemy(self)
-					local archetype = self.archetype
-					local weapon_class = "GrenadeLauncher"
-					
-					if enemy and dist < 7*const.SlabSizeX then
-						archetype = "Skirmisher"
-						weapon_class = "Firearm"
-						PlayVoiceResponse(self, "AIArchetypeScared")
-					end
-					
-					if not self:GetActiveWeapons(weapon_class) then
-						AIPlayCombatAction("ChangeWeapon", self, 0)
-					end
-					
-					return archetype
-				end,
-				'CustomEquipGear', function (self, items)
-					self:TryEquip(items, "Handheld A", "GrenadeLauncher")
-					self:TryEquip(items, "Handheld B", "Firearm")
-				end,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"Throwing",
-					"Berserker",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Demolition",
-					}),
-				},
-				'Equipment', {
-					"AdonisDemolitions",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Veteran",
-				'pollyvoice', "Russell",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisDemolitions",
-				'object_class', "UnitData",
-				'Health', 77,
-				'Agility', 72,
-				'Strength', 81,
-				'Wisdom', 30,
-				'Leadership', 31,
-				'Marksmanship', 77,
-				'Explosives', 75,
-				'Medical', 0,
-				'Portrait', "UI/EnemiesPortraits/AdonisDemo",
-				'Name', T(469413071271, --[[ModItemUnitDataCompositeDef AdonisDemolitions Name]] "Эксперт-взрывотехник"),
-				'Randomization', true,
-				'Affiliation', "Adonis",
-				'StartingLevel', 6,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Ordnance",
-					"Explosives",
-				},
-				'role', "Artillery",
-				'MaxAttacks', 2,
-				'PickCustomArchetype', function (self, proto_context)
-					local enemy, dist = GetNearestEnemy(self)
-					local archetype = self.archetype
-					local weapon_class = "GrenadeLauncher"
-					
-					if enemy and dist < 7*const.SlabSizeX then
-						archetype = "Skirmisher"
-						weapon_class = "Firearm"
-						PlayVoiceResponse(self, "AIArchetypeScared")
-					end
-					
-					if not self:GetActiveWeapons(weapon_class) then
-						AIPlayCombatAction("ChangeWeapon", self, 0)
-					end
-					
-					return archetype
-				end,
-				'CustomEquipGear', function (self, items)
-					self:TryEquip(items, "Handheld A", "GrenadeLauncher")
-					self:TryEquip(items, "Handheld B", "Firearm")
-				end,
-				'unitPowerModifier', 75,
-				'MaxHitPoints', 50,
-				'StartingPerks', {
-					"Throwing",
-					"Berserker",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Demolition",
-					}),
-				},
-				'Equipment', {
-					"AdonisDemolitions",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Veteran",
-				'pollyvoice', "Russell",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisSoldier",
-				'object_class', "UnitData",
-				'Health', 88,
-				'Agility', 90,
-				'Dexterity', 75,
-				'Strength', 85,
-				'Wisdom', 80,
-				'Leadership', 62,
-				'Marksmanship', 95,
-				'Explosives', 64,
-				'Medical', 49,
-				'Portrait', "UI/EnemiesPortraits/AdonisOfficer",
-				'Name', T(732651490972, --[[ModItemUnitDataCompositeDef AdonisSoldier Name]] "Стрелок"),
-				'Randomization', true,
-				'Affiliation', "Adonis",
-				'StartingLevel', 7,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Soldier",
-					"Flank",
-					"Explosives",
-				},
-				'role', "Soldier",
-				'AlwaysUseOpeningAttack', true,
-				'OpeningAttackType', "Overwatch",
-				'MaxAttacks', 2,
-				'unitPowerModifier', 75,
-				'MaxHitPoints', 80,
-				'StartingPerks', {
-					"OpportunisticKiller",
-					"AutoWeapons",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Officer",
-					}),
-				},
-				'Equipment', {
-					"AdonisSquadLeader",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			PlaceObj('ModItemUnitDataCompositeDef', {
-				'Group', "Adonis",
-				'Id', "AdonisSoldier_Elite",
-				'object_class', "UnitData",
-				'Health', 88,
-				'Agility', 90,
-				'Dexterity', 75,
-				'Strength', 85,
-				'Wisdom', 80,
-				'Leadership', 62,
-				'Marksmanship', 95,
-				'Mechanical', 80,
-				'Explosives', 64,
-				'Medical', 49,
-				'Portrait', "UI/EnemiesPortraits/AdonisOfficer",
-				'Name', T(286417287672, --[[ModItemUnitDataCompositeDef AdonisSoldier_Elite Name]] "Элитный стрелок"),
-				'Randomization', true,
-				'Affiliation', "Adonis",
-				'StartingLevel', 7,
-				'neutral_retaliate', true,
-				'AIKeywords', {
-					"Soldier",
-					"Flank",
-					"Explosives",
-				},
-				'role', "Soldier",
-				'AlwaysUseOpeningAttack', true,
-				'OpeningAttackType', "Overwatch",
-				'MaxAttacks', 2,
-				'unitPowerModifier', 75,
-				'MaxHitPoints', 80,
-				'StartingPerks', {
-					"OpportunisticKiller",
-					"AutoWeapons",
-				},
-				'AppearancesList', {
-					PlaceObj('AppearanceWeight', {
-						'Preset', "Adonis_Officer",
-					}),
-				},
-				'Equipment', {
-					"AdonisSquadLeader",
-				},
-				'AdditionalGroups', {
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_1",
-					}),
-					PlaceObj('AdditionalGroup', {
-						'Weight', 50,
-						'Exclusive', true,
-						'Name', "AdonisMale_2",
-					}),
-				},
-				'Tier', "Elite",
-				'pollyvoice', "Joey",
-				'gender', "Male",
-				'VoiceResponseId', "AdonisAssault",
-			}),
-			}),
-		PlaceObj('ModItemAIArchetype', {
-			BaseAttackTargeting = set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso", "Trap" ),
-			BaseAttackWeight = 140,
-			BaseMovementWeight = 150,
-			Behaviors = {
-				PlaceObj('StandardAI', {
-					'EndTurnPolicies', {
-						PlaceObj('AIPolicyDealDamage', {
-							'RequiredKeywords', {
-								"Gunner",
-							},
-							'Weight', 1000,
-						}),
-						PlaceObj('AIPolicyWeaponRange', {
-							'RequiredKeywords', {
-								"Gunner",
-							},
-							'RangeMin', 30,
-							'RangeMax', 80,
-						}),
-					},
-					'SignatureActions', {
-						PlaceObj('AIActionMGSetup', {
-							'Priority', true,
-							'team_score', 0,
-							'min_score', 100,
-							'cur_zone_mod', 140,
-						}),
-						PlaceObj('AIActionMGBurstFire', {
-							'AttackTargeting', set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso" ),
-						}),
-					},
-					'TakeCoverChance', 0,
-					'override_attack_id', "BurstFire",
-					'override_cost_id', "MGSetup",
-				}),
-				PlaceObj('PositioningAI', {
-					'BiasId', "Flanking",
-					'Weight', 200,
-					'OnActivationBiases', {
-						PlaceObj('AIBiasModification', {
-							'BiasId', "MGSetup",
-							'Value', 200,
-							'ApplyTo', "Team",
-						}),
-						PlaceObj('AIBiasModification', {
-							'BiasId', "MGSetup",
-							'Value', 100,
-							'Period', 2,
-						}),
-					},
-					'RequiredKeywords', {
-						"Control",
-					},
-					'turn_phase', "Late",
-					'EndTurnPolicies', {
-						PlaceObj('AIPolicyTakeCover', {
-							'Weight', 150,
-						}),
-					},
-				}),
-			},
-			OptLocPolicies = {
-				PlaceObj('AIPolicyWeaponRange', {
-					'RequiredKeywords', {
-						"Gunner",
-					},
-					'Weight', 700,
-					'RangeMin', 40,
-					'RangeMax', 80,
-				}),
-				PlaceObj('AIPolicyWeaponRange', {
-					'RequiredKeywords', {
-						"Gunner",
-					},
-					'Weight', 600,
-					'RangeMin', 60,
-					'RangeMax', 100,
-				}),
-				PlaceObj('AIPolicyLosToEnemy', {
-					'RequiredKeywords', {
-						"Gunner",
-					},
-					'Weight', 600,
-				}),
-			},
-			OptLocSearchRadius = 100,
-			PrefStance = "Prone",
-			SignatureActions = {
-				PlaceObj('AIActionMGBurstFire', {
-					'Weight', 200,
-					'OnActivationBiases', {
-						PlaceObj('AIBiasModification', {
-							'BiasId', "Overwatch",
-							'Value', 50,
-						}),
-					},
-					'Aiming', "Remaining AP",
-					'AttackTargeting', set( "Arms", "BlindFire", "InCover", "Legs", "Torso" ),
-				}),
-				PlaceObj('AIActionMGSetup', {
-					'Weight', 200,
-					'Priority', true,
-				}),
-			},
-			TargetChangePolicy = "restart",
-			TargetScoreRandomization = 10,
-			group = "Simplified",
-			id = "HeavyGunner",
-		}),
-		PlaceObj('ModItemAIArchetype', {
-			BaseAttackTargeting = set( "Arms", "BlindFire", "InCover", "Legs", "Torso", "Trap" ),
-			BaseMovementWeight = 90,
-			Behaviors = {
-				PlaceObj('StandardAI', {
-					'OptLocWeight', 70,
-					'EndTurnPolicies', {
-						PlaceObj('AIPolicyDealDamage', nil),
-						PlaceObj('AIPolicyTakeCover', {
-							'Weight', 50,
-						}),
-					},
-					'TakeCoverChance', 50,
-				}),
-				PlaceObj('PositioningAI', {
-					'BiasId', "Flanking",
-					'Weight', 500,
-					'Fallback', false,
-					'RequiredKeywords', {
-						"Flank",
-					},
-					'OptLocWeight', 20,
-					'EndTurnPolicies', {
-						PlaceObj('AIPolicyFlanking', {
-							'Weight', 1000,
-							'Required', true,
-							'ReserveAttackAP', true,
-						}),
-						PlaceObj('AIPolicyDealDamage', nil),
-					},
-					'TakeCoverChance', 0,
-					'VoiceResponse', "AIFlanking",
-				}),
-			},
-			Comment = "Keywords: Flank, Explosives",
-			OptLocPolicies = {
-				PlaceObj('AIPolicyWeaponRange', {
-					'Weight', 300,
-					'RangeBase', "Absolute",
-					'RangeMin', 4,
-					'RangeMax', 12,
-				}),
-				PlaceObj('AIPolicyLosToEnemy', {
-					'Weight', 250,
-				}),
-				PlaceObj('AIPolicyTakeCover', {
-					'RequiredKeywords', {
-						"Control",
-					},
-					'Weight', 90,
-				}),
-			},
-			OptLocSearchRadius = 50,
-			PrefStance = "Crouch",
-			SignatureActions = {
-				PlaceObj('AIActionMobileShot', {
-					'Weight', 150,
-					'Priority', true,
-					'NotificationText', "",
-					'RequiredKeywords', {
-						"RunAndGun",
-					},
-					'action_id', "RunAndGun",
-				}),
-				PlaceObj('AIActionMobileShot', {
-					'Weight', 200,
-					'Priority', true,
-					'NotificationText', "",
-					'RequiredKeywords', {
-						"MobileShot",
-					},
-				}),
-				PlaceObj('AIActionThrowGrenade', {
-					'BiasId', "AssaultGrenadeThrow",
-					'Weight', 200,
-					'OnActivationBiases', {
-						PlaceObj('AIBiasModification', {
-							'BiasId', "AssaultGrenadeThrow",
-							'Effect', "disable",
-						}),
-						PlaceObj('AIBiasModification', {
-							'BiasId', "AssaultGrenadeThrow",
-							'Value', -50,
-							'Period', 0,
-							'ApplyTo', "Team",
-						}),
-					},
-					'RequiredKeywords', {
-						"Explosives",
-					},
-					'AllowedAoeTypes', set( "fire", "none", "teargas", "toxicgas" ),
-					'TargetLastAttackPos', true,
-				}),
-				PlaceObj('AIActionThrowGrenade', {
-					'BiasId', "AssaultGrenadeThrow",
-					'Weight', 200,
-					'OnActivationBiases', {
-						PlaceObj('AIBiasModification', {
-							'BiasId', "AssaultGrenadeThrow",
-							'Effect', "disable",
-						}),
-						PlaceObj('AIBiasModification', {
-							'BiasId', "AssaultGrenadeThrow",
-							'Value', -50,
-							'Period', 0,
-							'ApplyTo', "Team",
-						}),
-					},
-					'RequiredKeywords', {
-						"Explosives",
-					},
-					'AllowedAoeTypes', set( "fire", "none", "teargas", "toxicgas" ),
-				}),
-			},
-			TargetChangePolicy = "restart",
-			TargetScoreRandomization = 10,
-			TargetingPolicies = {
-				PlaceObj('AITargetingEnemyHealth', {
-					'Health', 90,
-				}),
-			},
-			group = "Simplified",
-			id = "Skirmisher",
-		}),
-		PlaceObj('ModItemAIArchetype', {
-			BaseAttackTargeting = set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso", "Trap" ),
-			BaseAttackWeight = 120,
-			BaseMovementWeight = 40,
-			Behaviors = {
-				PlaceObj('StandardAI', {
-					'BiasId', "Standard",
-					'Weight', 150,
-					'EndTurnPolicies', {
-						PlaceObj('AIPolicyTakeCover', {
-							'Weight', 90,
-							'visibility_mode', "team",
-						}),
-						PlaceObj('AIPolicyDealDamage', nil),
-					},
-					'TakeCoverChance', 60,
-				}),
-			},
-			Comment = "Keywords: Soldier, Sniper, Control, Ordnance, Smoke, Explosives",
-			OptLocPolicies = {
-				PlaceObj('AIPolicyTakeCover', {
-					'Weight', 90,
-				}),
-				PlaceObj('AIPolicyHighGround', {
-					'RequiredKeywords', {
-						"Sniper",
-					},
-					'Weight', 200,
-				}),
-				PlaceObj('AIPolicyHighGround', {
-					'RequiredKeywords', {
-						"Soldier",
-					},
-				}),
-				PlaceObj('AIPolicyLosToEnemy', {
-					'Weight', 300,
-				}),
-				PlaceObj('AIPolicyWeaponRange', {
-					'RequiredKeywords', {
-						"Soldier",
-					},
-					'Weight', 60,
-					'RangeMin', 10,
-					'RangeMax', 25,
-				}),
-				PlaceObj('AIPolicyWeaponRange', {
-					'RequiredKeywords', {
-						"Soldier",
-					},
-					'Weight', 180,
-					'RangeMin', 26,
-					'RangeMax', 49,
-				}),
-				PlaceObj('AIPolicyWeaponRange', {
-					'RequiredKeywords', {
-						"Soldier",
-					},
-					'RangeMin', 50,
-					'RangeMax', 100,
-				}),
-			},
-			OptLocSearchRadius = 80,
-			PrefStance = "Prone",
-			SignatureActions = {
-				PlaceObj('AIAttackSingleTarget', {
-					'BiasId', "Autofire",
-					'Weight', 150,
-					'OnActivationBiases', {
-						PlaceObj('AIBiasModification', {
-							'BiasId', "Autofire",
-							'Effect', "disable",
-							'Period', 0,
-							'ApplyTo', "Team",
-						}),
-					},
-					'NotificationText', T(784570352729, --[[ModItemAIArchetype Soldier NotificationText]] "Автоматический огонь"),
-					'RequiredKeywords', {
-						"Soldier",
-					},
-					'action_id', "AutoFire",
-					'AttackTargeting', set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso", "Trap" ),
-				}),
-				PlaceObj('AIActionPinDown', {
-					'BiasId', "PinDownAttack",
-					'Weight', 80,
-					'OnActivationBiases', {
-						PlaceObj('AIBiasModification', {
-							'BiasId', "PinDownAttack",
-							'Value', -50,
-							'ApplyTo', "Team",
-						}),
-					},
-					'RequiredKeywords', {
-						"Sniper",
-					},
-				}),
-				PlaceObj('AIActionThrowGrenade', {
-					'BiasId', "AssaultGrenadeThrow",
-					'OnActivationBiases', {
-						PlaceObj('AIBiasModification', {
-							'BiasId', "AssaultGrenadeThrow",
-							'Effect', "disable",
-						}),
-						PlaceObj('AIBiasModification', {
-							'BiasId', "AssaultGrenadeThrow",
-							'Effect', "disable",
-							'Period', 0,
-							'ApplyTo', "Team",
-						}),
-					},
-					'RequiredKeywords', {
-						"Explosives",
-					},
-					'self_score_mod', -1000,
-					'AllowedAoeTypes', set( "fire", "none", "teargas", "toxicgas" ),
-				}),
-				PlaceObj('AIActionThrowGrenade', {
-					'BiasId', "SmokeGrenade",
-					'OnActivationBiases', {
-						PlaceObj('AIBiasModification', {
-							'BiasId', "SmokeGrenade",
-							'Effect', "disable",
-						}),
-						PlaceObj('AIBiasModification', {
-							'BiasId', "SmokeGrenade",
-							'Effect', "disable",
-							'Period', 0,
-							'ApplyTo', "Team",
-						}),
-					},
-					'RequiredKeywords', {
-						"Smoke",
-					},
-					'enemy_score', 0,
-					'team_score', 100,
-					'self_score_mod', 100,
-					'MinDist', 0,
-					'AllowedAoeTypes', set( "smoke" ),
-				}),
-				PlaceObj('AIActionHeavyWeaponAttack', {
-					'BiasId', "LauncherFire",
-					'OnActivationBiases', {
-						PlaceObj('AIBiasModification', {
-							'BiasId', "LauncherFire",
-							'Effect', "disable",
-							'Period', 0,
-						}),
-						PlaceObj('AIBiasModification', {
-							'BiasId', "LauncherFire",
-							'Value', -50,
-							'Period', 0,
-							'ApplyTo', "Team",
-						}),
-					},
-					'RequiredKeywords', {
-						"Ordnance",
-					},
-					'self_score_mod', -1000,
-					'MinDist', 5000,
-					'LimitRange', true,
-					'MaxTargetRange', 30,
-				}),
-				PlaceObj('AIActionHeavyWeaponAttack', {
-					'BiasId', "RocketFire",
-					'Weight', 200,
-					'OnActivationBiases', {
-						PlaceObj('AIBiasModification', {
-							'BiasId', "RocketFire",
-							'Effect', "disable",
-						}),
-					},
-					'RequiredKeywords', {
-						"Ordnance",
-					},
-					'self_score_mod', -1000,
-					'MinDist', 5000,
-					'action_id', "RocketLauncherFire",
-					'LimitRange', true,
-					'MaxTargetRange', 30,
-				}),
-				PlaceObj('AIAttackSingleTarget', {
-					'BiasId', "GroinShot",
-					'OnActivationBiases', {
-						PlaceObj('AIBiasModification', {
-							'BiasId', "GroinShot",
-							'Effect', "disable",
-							'Period', 0,
-							'ApplyTo', "Team",
-						}),
-						PlaceObj('AIBiasModification', {
-							'BiasId', "GroinShot",
-							'Effect', "disable",
-						}),
-					},
-					'RequiredKeywords', {
-						"Sniper",
-					},
-					'Aiming', "Remaining AP",
-					'AttackTargeting', set( "Groin" ),
-				}),
-				PlaceObj('AIConeAttack', {
-					'BiasId', "Overwatch",
-					'OnActivationBiases', {
-						PlaceObj('AIBiasModification', {
-							'BiasId', "Overwatch",
-							'Value', -50,
-							'ApplyTo', "Team",
-						}),
-						PlaceObj('AIBiasModification', {
-							'BiasId', "Overwatch",
-							'Effect', "disable",
-							'Value', -50,
-							'Period', 2,
-						}),
-					},
-					'RequiredKeywords', {
-						"Soldier",
-					},
-					'team_score', 0,
-					'min_score', 300,
-					'action_id', "Overwatch",
-				}),
-				PlaceObj('AIConeAttack', {
-					'BiasId', "SpamOverwatch",
-					'Weight', 200,
-					'OnActivationBiases', {
-						PlaceObj('AIBiasModification', {
-							'BiasId', "SpamOverwatch",
-							'Effect', "disable",
-							'Value', -50,
-							'ApplyTo', "Team",
-						}),
-					},
-					'RequiredKeywords', {
-						"Control",
-					},
-					'team_score', 0,
-					'min_score', 100,
-					'action_id', "Overwatch",
-				}),
-			},
-			TargetChangePolicy = "restart",
-			TargetScoreRandomization = 10,
-			group = "Simplified",
-			id = "Soldier",
-		}),
-		PlaceObj('ModItemAIArchetype', {
-			BaseAttackTargeting = set( "Arms", "BlindFire", "Groin", "InCover", "Legs", "Torso", "Trap" ),
-			BaseAttackWeight = 140,
-			Behaviors = {
-				PlaceObj('StandardAI', {
-					'BiasId', "Standard",
-					'Weight', 150,
-					'EndTurnPolicies', {
-						PlaceObj('AIPolicyTakeCover', {
-							'Weight', 50,
-							'visibility_mode', "team",
-						}),
-						PlaceObj('AIPolicyDealDamage', {
-							'Weight', 150,
-						}),
-					},
-					'TakeCoverChance', 70,
-				}),
-			},
-			Comment = "Keywords: Soldier, Sniper, Control, Ordnance, Smoke, Explosives",
-			MoveStance = "Crouch",
-			OptLocPolicies = {
-				PlaceObj('AIPolicyTakeCover', {
-					'RequiredKeywords', {
-						"Soldier",
-					},
-				}),
-				PlaceObj('AIPolicyHighGround', {
-					'RequiredKeywords', {
-						"Sniper",
-					},
-					'Weight', 200,
-				}),
-				PlaceObj('AIPolicyLosToEnemy', {
-					'RequiredKeywords', {
-						"Soldier",
-					},
-					'Weight', 300,
-				}),
-				PlaceObj('AIPolicyWeaponRange', {
-					'Weight', 110,
-					'RangeMin', 10,
-					'RangeMax', 25,
-				}),
-				PlaceObj('AIPolicyWeaponRange', {
-					'Weight', 150,
-					'RangeMin', 26,
-					'RangeMax', 49,
-				}),
-				PlaceObj('AIPolicyWeaponRange', {
-					'RequiredKeywords', {
-						"Soldier",
-					},
-					'Weight', 160,
-					'RangeMin', 50,
-				}),
-			},
-			OptLocSearchRadius = 80,
-			PrefStance = "Prone",
-			SignatureActions = {
-				PlaceObj('AIAttackSingleTarget', {
-					'BiasId', "GroinShot",
-					'OnActivationBiases', {
-						PlaceObj('AIBiasModification', {
-							'BiasId', "GroinShot",
-							'Effect', "disable",
-							'Period', 0,
-							'ApplyTo', "Team",
-						}),
-						PlaceObj('AIBiasModification', {
-							'BiasId', "GroinShot",
-							'Effect', "disable",
-						}),
-					},
-					'RequiredKeywords', {
-						"Sniper",
-					},
-					'Aiming', "Remaining AP",
-					'AttackTargeting', set( "Groin" ),
-				}),
-				PlaceObj('AIConeAttack', {
-					'BiasId', "Overwatch",
-					'Weight', 130,
-					'OnActivationBiases', {
-						PlaceObj('AIBiasModification', {
-							'BiasId', "Overwatch",
-							'Value', -50,
-							'ApplyTo', "Team",
-						}),
-						PlaceObj('AIBiasModification', {
-							'BiasId', "Overwatch",
-							'Effect', "disable",
-							'Value', -50,
-						}),
-					},
-					'RequiredKeywords', {
-						"Soldier",
-					},
-					'team_score', 0,
-					'min_score', 300,
-					'action_id', "Overwatch",
-				}),
-				PlaceObj('AIConeAttack', {
-					'BiasId', "SpamOverwatch",
-					'Weight', 200,
-					'OnActivationBiases', {
-						PlaceObj('AIBiasModification', {
-							'BiasId', "SpamOverwatch",
-							'Effect', "disable",
-							'Value', -50,
-							'ApplyTo', "Team",
-						}),
-					},
-					'RequiredKeywords', {
-						"Control",
-					},
-					'team_score', 0,
-					'min_score', 100,
-					'action_id', "Overwatch",
-				}),
-				PlaceObj('AIActionBasicAttack', {
-					'BiasId', "Standard",
-					'OnActivationBiases', {
-						PlaceObj('AIBiasModification', {
-							'BiasId', "Standard",
-							'Value', 50,
-						}),
-					},
-				}),
-			},
-			TargetChangePolicy = "restart",
-			TargetScoreRandomization = 10,
-			TargetingPolicies = {
-				PlaceObj('AITargetingEnemyWeapon', {
-					'Weight', 150,
-					'EnemyWeapon', "Sniper",
-				}),
-				PlaceObj('AITargetingEnemyWeapon', {
-					'Weight', 140,
-					'EnemyWeapon', "MachineGun",
-				}),
-				PlaceObj('AITargetingEnemyWeapon', {
-					'Weight', 130,
-					'EnemyWeapon', "HeavyWeapon",
-				}),
-				PlaceObj('AITargetingEnemyHealth', {
-					'Weight', 150,
-					'Health', 70,
-				}),
-			},
-			group = "Simplified",
-			id = "Soldier_Sniper",
-		}),
-		}),
-	PlaceObj('ModItemFolder', {
 		'name', "ObjMaterials",
 	}, {
 		PlaceObj('ModItemObjMaterial', {
@@ -128879,6 +121828,14 @@ return {
 			group = "Default",
 			id = "Explosive_Vehicle",
 			max_hp = 500,
+		}),
+		}),
+	PlaceObj('ModItemFolder', {
+		'name', "WorldFlip",
+	}, {
+		PlaceObj('ModItemCode', {
+			'name', "WorldFlipSpawnUnits",
+			'CodeFileName', "Code/WorldFlipSpawnUnits.lua",
 		}),
 		}),
 }

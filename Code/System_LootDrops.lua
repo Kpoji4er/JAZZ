@@ -37,8 +37,8 @@ function Unit:DropLoot(container)
 				item.Amount =  Max(1,item.Amount - MulDivRound(item.Amount, percent, 100))
 			end	
 			--qsr print(item)
-			if item.Condition and item.Condition > 1  then
-				item.Condition = item.Condition - random(item.Condition)
+			if item.Condition and item.Condition > 1 and (item.drop_chance<100)  then
+				item.Condition = item.Condition - Min(random(100-item.drop_chance),item.Condition)
 			end
 			if item.Deterioration then
 				if item.Condition < 25 then item.Deterioration = random(80)

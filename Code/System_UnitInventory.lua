@@ -5,8 +5,13 @@ local equip_slots = {
 	["HeadGear"] = true,    
 	["ArmorPlate"] = true,  
 	["Torso"] = true,
-	["Legs"] = true, 
+	["AmmoInventory"] = true, 
+	["GrenadesInventory"] = true, 
+	["OrdnanceInventory"] = true, 
+	["PocketInventory"] = true, 
+	["MedicalInventory"] = true, 
 }
+
 
 function IsEquipSlot(slot_name)
 	return equip_slots[slot_name]
@@ -101,16 +106,16 @@ function UnitProperties:GetInventoryMaxSlots(slot_name)
 		if (HasPerk(self, "AutoWeapons")) then slots = slots + 2 end
 		if (HasPerk(self, "HeavyWeaponsTraining")) then slots = slots + 2 end
 
-		return IsMerc(self) and Max(1, slots) or 1
+		return IsMerc(self) and Max(1, slots) or 6
 	end
 	if slot_name == "GrenadesInventory" then
-		return IsMerc(self) and Max(0, (self.Explosives-10)/20) or 0 
+		return IsMerc(self) and Max(0, (self.Explosives-10)/20) or 4 
 	end
 	if slot_name == "OrdnanceInventory" then
-		return IsMerc(self) and Max(0, (self.Explosives - 70)/10) or 0
+		return IsMerc(self) and Max(0, (self.Explosives - 70)/10) or 4
 	end
 	if slot_name == "MedicalInventory" then
-		return IsMerc(self) and Max(0, (self.Medical - 20)/20) or 0
+		return IsMerc(self) and Max(0, (self.Medical - 20)/20) or 1
 	end
 	if slot_name == "PocketInventory" then
 		return IsMerc(self) and Max(0, (self.Mechanical-30)/20) or 0
@@ -699,10 +704,14 @@ function NpcUnitGiveItem:__exec(obj, context)
 			unit:AddItem("AmmoInventory", item)
 		elseif unit:CanAddItem("GrenadesInventory", item) then
 			unit:AddItem("GrenadesInventory", item)
+		elseif unit:CanAddItem("OrdnanceInventory", item) then
+			unit:AddItem("OrdnanceInventory", item)
 		elseif unit:CanAddItem("PocketInventory", item) then
 			unit:AddItem("PocketInventory", item)
 		elseif unit:CanAddItem("MedicalInventory", item) then
 			unit:AddItem("MedicalInventory", item)
+		elseif unit:CanAddItem("KnifeInventory", item) then
+			unit:AddItem("KnifeInventory", item)	
 		else
 			unit:AddItem("Inventory", item)
 		end
@@ -739,3 +748,4 @@ DefineClass.ArmorProperties = {
 			editor = "bool", default = false, template = true, },
 	},
 }
+

@@ -2202,7 +2202,7 @@ PlaceObj('ActionFXSound', {
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "VSS_equipncheck",
-	Target = "SniperRifle",
+	Target = "any",
 	Source = "Camera",
 	GameTime = true,
 	group = "Default",
@@ -2216,7 +2216,7 @@ PlaceObj('ActionFXSound', {
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "VSS_clipout",
-	Target = "Basic",
+	Target = "any",
 	group = "Default",
 	GameTime = true,
 	id = "fxVSS",
@@ -2229,7 +2229,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "VSS_clipin",
 	Delay = 2200,
-	Target = "Basic",
+	Target = "any",
 	group = "Default",
 	GameTime = true,
 	id = "fxVSS",
@@ -2242,7 +2242,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "VSS_reload",
 	Delay = 4200,
-	Target = "Basic",
+	Target = "any",
 	group = "Default",
 	GameTime = true,
 	id = "fxVSS",
@@ -2288,7 +2288,7 @@ PlaceObj('ActionFXSound', {
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponLoad",
-	Actor = "SniperRifle",
+	Actor = "any",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "bullet_load-9mm",
@@ -2300,7 +2300,7 @@ PlaceObj('ActionFXSound', {
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponLoad",
-	Actor = "SniperRifle",
+	Actor = "any",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "VSS_clipin",
@@ -2314,7 +2314,7 @@ PlaceObj('ActionFXSound', {
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponUnload",
-	Actor = "SniperRifle",
+	Actor = "any",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "VSS_clipout",
@@ -2327,7 +2327,7 @@ PlaceObj('ActionFXSound', {
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponUnload",
-	Actor = "SniperRifle",
+	Actor = "any",
 	DetailLevel = 100,
 	Delay = 500,
 	Moment = "start",

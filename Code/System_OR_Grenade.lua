@@ -150,7 +150,7 @@ function Grenade:GetAttackResults(action, attack_args)
 				local validPositionTries = 0
 				local maxPositionTries = 5
 				while validPositionTries < maxPositionTries do
-					local dv = self:GetMishapDeviationVector(attacker, target_pos)
+					local dv = self:GetMishapDeviationVectorMax(attacker, target_pos)
 					local deviatePosition = target_pos + dv
 					local trajectory = self:GetTrajectory(attack_args, attack_pos, deviatePosition, "mishap")
 					local finalPos = #trajectory > 0 and trajectory[#trajectory].pos
@@ -161,8 +161,26 @@ function Grenade:GetAttackResults(action, attack_args)
 					validPositionTries = validPositionTries + 1
 				end
 				attacker:ShowMishapNotification(action)
+			else
+				mishap = true
+
+				-- Try a couple of times to get a valid deviated position
+				local validPositionTries = 0
+				local maxPositionTries = 5
+				while validPositionTries < maxPositionTries do
+					local dv = self:GetMishapDeviationVectorMin(attacker, target_pos)
+					local deviatePosition = target_pos + dv
+					local trajectory = self:GetTrajectory(attack_args, attack_pos, deviatePosition, "mishap")
+					local finalPos = #trajectory > 0 and trajectory[#trajectory].pos
+					if finalPos and self:ValidatePos(finalPos, attack_args) then
+						target_pos = deviatePosition
+						break
+					end
+					validPositionTries = validPositionTries + 1
+				end
 			end
 		end
+		
 
 		trajectory = self:GetTrajectory(attack_args, attack_pos, target_pos, mishap)
 		if #trajectory > 0 then

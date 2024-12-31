@@ -218,12 +218,13 @@ function Armor:CalculateArmorRating(weapon_pen_class)
 		else return self.ArmorRating * self.PenetrationClass^2/weapon_pen_class^2 end end
 
     if self.PenetrationClass >= weapon_pen_class then
-     ArmorRating = self.ArmorRating * self.PenetrationClass/weapon_pen_class * self:GetConditionPercent()/100 * (101-self.Deterioration)/100
+     ArmorRating = (self.ArmorRating + self.PenetrationClass/weapon_pen_class) * self:GetConditionPercent()/100 * (100-self.Deterioration)/100
      else
-     ArmorRating = self.ArmorRating * self.PenetrationClass^2/weapon_pen_class^2 * self:GetConditionPercent()/100 * (101-self.Deterioration)/100 --* (self:GetConditionPercent()-self.Deterioration)^2/100^2
+     ArmorRating = self.ArmorRating * self.PenetrationClass^2/weapon_pen_class^2 * self:GetConditionPercent()/100 * (100-self.Deterioration)/100 --* (self:GetConditionPercent()-self.Deterioration)^2/100^2
     end
    -- print(self.PenetrationClass^2/weapon_pen_class^2)
-    return Min(ArmorRating,100 * self:GetConditionPercent()/100 * (101-self.Deterioration)/100)
+    --return Min(ArmorRating,100 * self:GetConditionPercent()/100 * (101-self.Deterioration)/100)
+	return ArmorRating
 end
 
 function Armor:CalculateArmorRatingMelee()  
