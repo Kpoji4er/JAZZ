@@ -1245,7 +1245,7 @@ function AIPrecalcConeTargetZones(context, action_id, additional_target_pt, stan
 end
 
 function AIPickScoutLocation(unit)
-	local AIScoutLocationSearchRadius = 100 * guim
+	local AIScoutLocationSearchRadius = 50 * guim
 
 	-- pick a new position around alive enemy randomly, prefer non-hidden enemies
 	local enemies = GetAllEnemyUnits(unit)

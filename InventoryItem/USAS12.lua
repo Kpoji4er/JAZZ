@@ -35,22 +35,6 @@ DefineClass.USAS12 = {
 	Entity = "USAS12",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Barrel",
-			'AvailableComponents', {
-				"BarrelNormal",
-				"BarrelLongShotgun",
-			},
-			'DefaultComponent', "BarrelNormal",
-		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Magazine",
-			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge",
-			},
-			'DefaultComponent', "MagNormal",
-		}),
-		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
@@ -67,16 +51,6 @@ DefineClass.USAS12 = {
 				"JAZZ_Scope_Scout",
 			},
 			'DefaultComponent', "JAZZ_Scope_6x",
-		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Side",
-			'CanBeEmpty', true,
-			'AvailableComponents', {
-				"Flashlight_aa12",
-				"LaserDot_aa12",
-				"FlashlightDot_aa12",
-				"UVDot_aa12",
-			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
