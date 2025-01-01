@@ -1193,7 +1193,8 @@ function AIPrecalcConeTargetZones(context, action_id, additional_target_pt, stan
 	end
 	
 	-- filter LOS targets
-	local max_distance = Min(unit_sight, weapon:GetMaxRange())
+	--local max_distance = Min(unit_sight, weapon:GetMaxRange())
+	local max_distance =  weapon:GetMaxRange()
 	local los_any, los_targets = CheckLOS(targets, unit, max_distance)
 	if not los_any then
 		for _, zone in ipairs(zones) do

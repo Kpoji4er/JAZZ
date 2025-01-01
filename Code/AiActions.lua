@@ -1,6 +1,7 @@
 function AIActionThrowGrenade:PrecalcAction(context, action_state)
 	local action_id, grenade
-	local actions = { "ThrowGrenadeA", "ThrowGrenadeB", "ThrowGrenadeC", "ThrowGrenadeD" }
+	local actions = { "ThrowGrenadeA", "ThrowGrenadeB", "ThrowGrenadeC", "ThrowGrenadeD","ThrowGrenadeAG", "ThrowGrenadeBG", "ThrowGrenadeCG", "ThrowGrenadeDG","ThrowGrenadeAO", "ThrowGrenadeBO" }
+
 	for _, id in ipairs(actions) do
 		local caction = CombatActions[id]
 		local cost = caction and caction:GetAPCost(context.unit) or -1
@@ -166,12 +167,12 @@ function AICalcAttacksAndAim(context, ap, target)
 
 
 
-	while remaining > aim_cost do
-		local aim = (aims[attack_idx] or 0) + 1
+	while remaining > (aim_cost*2) do
+		local aim = (aims[attack_idx] or 0)
 
 		if context.unit then
 			local cth = context.unit:CalcChanceToHit(target,context.default_attack)
-			while cth < 90 and aim <= (max_aim -1) and remaining > 1 do
+			while cth < 90 and aim <= (max_aim -1) and remaining > aim_cost do
 				aim = aim + 1
 				remaining = remaining - 1
 				args.aim = aim
@@ -188,7 +189,7 @@ function AICalcAttacksAndAim(context, ap, target)
 		if attack_idx > num_attacks then
 			attack_idx = 1
 		end
-		print(aims)
+		--print(aims)
 		remaining = remaining - aim_cost
 	end
 	
@@ -700,3 +701,46 @@ function AIPrecalcDamageScore(context, destinations, preferred_target, debug_dat
 	end
 end
 
+function AISignatureAction:MatchUnit(unit)
+  for state, _ in pairs(self.AvailableInState) do
+    if not GameStates[state] then
+      return
+    end
+  end
+  for state, _ in pairs(self.ForbiddenInState) do
+    if GameStates[state] then
+      return
+    end
+  end
+  for _, keyword in ipairs(self.RequiredKeywords) do
+    if not table.find(unit.AIKeywords or empty_table, keyword) then
+      return
+    end
+  end
+  --------------------------
+  if unit then
+	local actions = unit.ui_actions
+	local attack_type = self.action_id
+	local weapon = unit:GetActiveWeapons()
+
+
+	if attack_type == "BurstFire" or attack_type == "AutoFire" or attack_type == "RunAndGun" then
+		if actions[attack_type] ~= nil then
+			local ui_status = actions[attack_type]
+			if ui_status and ui_status == "Hidden" then
+				--print("noburst")
+				return
+			end
+		else
+			return
+		end
+	end
+
+ end
+  --------------------------
+  
+  
+  
+  
+  return true
+end

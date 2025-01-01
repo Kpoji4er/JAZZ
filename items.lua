@@ -26604,6 +26604,14 @@ return {
 						PlaceObj('LootEntryNoLoot', {
 							weight = 5000000,
 						}),
+						PlaceObj('LootEntryNoLoot', {
+							condition = "Difficulty Normal",
+							weight = 5000000,
+						}),
+						PlaceObj('LootEntryNoLoot', {
+							condition = "Difficulty VeryHard",
+							weight = 10000000,
+						}),
 					}),
 					PlaceObj('ModItemLootDef', {
 						group = "Enemy - General",
@@ -28920,7 +28928,6 @@ return {
 							}),
 							PlaceObj('LootEntryLootDef', {
 								loot_def = "ArmyCR_Famas",
-								weight = 200000,
 							}),
 						}),
 						PlaceObj('ModItemLootDef', {
@@ -28980,7 +28987,6 @@ return {
 							}),
 							PlaceObj('LootEntryLootDef', {
 								loot_def = "ArmyCR_Famas",
-								weight = 100000,
 							}),
 							PlaceObj('LootEntryLootDef', {
 								loot_def = "ArmyCR_M4A1",
@@ -29008,7 +29014,6 @@ return {
 							}),
 							PlaceObj('LootEntryLootDef', {
 								loot_def = "ArmyEliteCR_Famas",
-								weight = 100000,
 							}),
 							PlaceObj('LootEntryLootDef', {
 								loot_def = "ArmyEliteCR_Famas_ACOG",
@@ -51313,7 +51318,7 @@ return {
 					'Recoil', 7,
 					'BurstShots', 2,
 					'AutoShots', 6,
-					'Handling', 69,
+					'Handling', 72,
 					'BulletDropRange', 18,
 					'Grouping', 275,
 					'BaseJamChance', -20,
@@ -53225,7 +53230,7 @@ return {
 					'Recoil', 16,
 					'BurstShots', 4,
 					'AutoShots', 4,
-					'Handling', 68,
+					'Handling', 58,
 					'BulletDropRange', 19,
 					'Grouping', 260,
 					'BaseJamChance', 3,
@@ -53281,7 +53286,7 @@ return {
 					'Recoil', 20,
 					'BurstShots', 12,
 					'AutoShots', 12,
-					'Handling', 65,
+					'Handling', 45,
 					'BulletDropRange', 25,
 					'Grouping', 290,
 					'BaseJamChance', 3,
@@ -53336,7 +53341,7 @@ return {
 					'Recoil', 16,
 					'BurstShots', 6,
 					'AutoShots', 6,
-					'Handling', 68,
+					'Handling', 48,
 					'BulletDropRange', 22,
 					'Grouping', 278,
 					'BaseJamChance', -5,
@@ -53391,7 +53396,7 @@ return {
 					'Recoil', 16,
 					'BurstShots', 5,
 					'AutoShots', 5,
-					'Handling', 70,
+					'Handling', 60,
 					'BulletDropRange', 24,
 					'Grouping', 275,
 				}),
@@ -53452,7 +53457,7 @@ return {
 					'Recoil', 18,
 					'BurstShots', 5,
 					'AutoShots', 5,
-					'Handling', 64,
+					'Handling', 50,
 					'BulletDropRange', 20,
 					'Grouping', 280,
 				}),
@@ -53546,7 +53551,7 @@ return {
 					'Recoil', 7,
 					'BurstShots', 6,
 					'AutoShots', 6,
-					'Handling', 74,
+					'Handling', 70,
 					'BulletDropRange', 17,
 					'Grouping', 272,
 				}),
@@ -53653,7 +53658,7 @@ return {
 					'Recoil', 8,
 					'BurstShots', 4,
 					'AutoShots', 4,
-					'Handling', 70,
+					'Handling', 68,
 					'BulletDropRange', 15,
 					'Grouping', 270,
 					'BaseJamChance', -30,
@@ -53740,7 +53745,7 @@ return {
 					'Recoil', 10,
 					'BurstShots', 6,
 					'AutoShots', 6,
-					'Handling', 68,
+					'Handling', 64,
 					'BulletDropRange', 14,
 					'Grouping', 250,
 					'BaseJamChance', -10,
@@ -53797,7 +53802,7 @@ return {
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 7000,
-					'Handling', 65,
+					'Handling', 45,
 					'BulletDropRange', 26,
 					'Grouping', 292,
 				}),
@@ -53881,7 +53886,7 @@ return {
 					'Recoil', 18,
 					'BurstShots', 5,
 					'AutoShots', 5,
-					'Handling', 64,
+					'Handling', 54,
 					'BulletDropRange', 20,
 					'Grouping', 285,
 				}),
@@ -53983,7 +53988,7 @@ return {
 					'Recoil', 18,
 					'BurstShots', 5,
 					'AutoShots', 5,
-					'Handling', 68,
+					'Handling', 55,
 					'BulletDropRange', 20,
 					'Grouping', 290,
 				}),
@@ -54062,7 +54067,7 @@ return {
 					'Recoil', 16,
 					'BurstShots', 8,
 					'AutoShots', 8,
-					'Handling', 66,
+					'Handling', 55,
 					'BulletDropRange', 22,
 					'Grouping', 330,
 					'BaseJamChance', -10,
@@ -54174,7 +54179,7 @@ return {
 					'Recoil', 5,
 					'BurstShots', 4,
 					'AutoShots', 4,
-					'Handling', 70,
+					'Handling', 69,
 					'BulletDropRange', 19,
 					'Grouping', 295,
 					'BaseJamChance', -30,
@@ -54273,7 +54278,7 @@ return {
 					'ReloadAP', 6000,
 					'Recoil', 6,
 					'BurstShots', 10,
-					'Handling', 72,
+					'Handling', 70,
 					'BulletDropRange', 17,
 					'Grouping', 298,
 				}),
@@ -54397,7 +54402,7 @@ return {
 					'Recoil', 16,
 					'BurstShots', 9,
 					'AutoShots', 9,
-					'Handling', 80,
+					'Handling', 78,
 					'BulletDropRange', 20,
 					'Grouping', 300,
 					'BaseJamChance', -30,
@@ -54478,7 +54483,7 @@ return {
 					'Recoil', 6,
 					'BurstShots', 7,
 					'AutoShots', 7,
-					'Handling', 80,
+					'Handling', 78,
 					'BulletDropRange', 19,
 					'Grouping', 305,
 					'BaseJamChance', -30,
@@ -54613,7 +54618,7 @@ return {
 					'Recoil', 17,
 					'BurstShots', 6,
 					'AutoShots', 6,
-					'Handling', 66,
+					'Handling', 58,
 					'BulletDropRange', 25,
 					'Grouping', 335,
 					'BaseJamChance', -50,
@@ -56456,7 +56461,7 @@ return {
 					},
 					'CenterAreaOfEffect', 2,
 					'AreaUnitDamageMod', 60,
-					'AreaObjDamageMod', 150,
+					'AreaObjDamageMod', 500,
 					'PenetrationClass', 1,
 					'DeathType', "BlowUp",
 					'BaseDamage', 90,
@@ -56478,14 +56483,14 @@ return {
 					'Tier', 3,
 					'RestockWeight', 35,
 					'CategoryPair', "Components",
-					'CenterObjDamageMod', 400,
+					'CenterObjDamageMod', 500,
 					'CenterAppliedEffects', {
 						"KnockDown",
 					},
 					'AreaOfEffect', 4,
 					'CenterAreaOfEffect', 2,
 					'AreaUnitDamageMod', 60,
-					'AreaObjDamageMod', 450,
+					'AreaObjDamageMod', 500,
 					'PenetrationClass', 1,
 					'DeathType', "BlowUp",
 					'BaseDamage', 100,
@@ -56506,14 +56511,14 @@ return {
 					'Tier', 2,
 					'RestockWeight', 60,
 					'CategoryPair', "Components",
-					'CenterObjDamageMod', 300,
+					'CenterObjDamageMod', 500,
 					'CenterAppliedEffects', {
 						"KnockDown",
 					},
 					'AreaOfEffect', 5,
 					'CenterAreaOfEffect', 2,
 					'AreaUnitDamageMod', 60,
-					'AreaObjDamageMod', 150,
+					'AreaObjDamageMod', 500,
 					'PenetrationClass', 1,
 					'DeathType', "BlowUp",
 					'BaseDamage', 120,
@@ -84876,6 +84881,7 @@ return {
 				}),
 				PlaceObj('ModItemCombatAction', {
 					ActionCamera = true,
+					ActionPointDelta = -1000,
 					ActionPoints = 3000,
 					ActionType = "Ranged Attack",
 					AimType = "line",
@@ -87284,7 +87290,7 @@ return {
 				Parameters = {
 					PlaceObj('PresetParamNumber', {
 						'Name', "Cover",
-						'Value', -10,
+						'Value', -20,
 						'Tag', "<Cover>",
 					}),
 					PlaceObj('PresetParamNumber', {
@@ -87568,12 +87574,14 @@ return {
 					end
 					
 					if (GameState.Night or GameState.Underground) and not attacker:HasNightVision() and not IsIlluminated(target) and not hasflashlight
-					then dist = dist * 1.6 end
+					then dist = dist * 1.6 end				
 					
 					if (GameState.Heat)	then dist = dist * 1.1 	end
 					if (GameState.RainLight) then dist = dist * 1.1 end
 					if (GameState.RainHeavy or GameState.Fog) then dist = dist * 1.3 end
 					if (GameState.FireStorm or GameState.DustStorm)	then dist = dist * 1.5 end
+					
+					if (attacker:HasStatusEffect("Blinded")) then dist = dist * 3 end
 					
 					
 					local ScopeMagn = GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeMagnification") or 1
@@ -87604,7 +87612,7 @@ return {
 					end
 					
 					
-					cthIron = MulDivRound(dist,cth,100)					
+					local cthIron = MulDivRound(dist,cth,100)					
 					
 					if GameState.Night or GameState.Underground then
 						if hasflashlight or IsIlluminated(target) then 
@@ -87729,11 +87737,6 @@ return {
 					end
 					if not IsKindOf(weapon1, "Firearm") or not attacker or not target then
 						return false, 0
-					end
-					
-					
-					if IsKindOf(weapon1, "RocketLauncher")  then
-						return true, self:ResolveValue("Penalty")*5
 					end
 					
 					return true, self:ResolveValue("Penalty")

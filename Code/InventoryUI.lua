@@ -23,20 +23,29 @@ function _InventoryUIRespawn()
 		local saveScroll = dlg.idScrollbar.Scroll
 		local saveScrollCenter = dlg.idScrollbarCenter.Scroll
 		local context = dlg:GetContext()
-		dlg.idUnitInfo:RespawnContent()
-		dlg.idPartyContainer.idParty:RespawnContent()
-		dlg.idRight:RespawnContent()
-		--dlg.idRight:RespawnContent()
-		dlg.idCenter:RespawnContent()
-		dlg.idUnitInfo:OnContextUpdate(context)			
-		dlg.idRight:OnContextUpdate(context)	
-		dlg.idCenter:OnContextUpdate(context)
-		
-		dlg.idCenter:RespawnContent()
-		dlg:OnContextUpdate(context)
-		dlg.idScrollbar:ScrollTo(saveScroll)
-		dlg.idScrollbarCenter:ScrollTo(saveScrollCenter)
+		if dlg and context then
+			if dlg.idUnitInfo then	
+				dlg.idUnitInfo:RespawnContent()
+				dlg.idUnitInfo:OnContextUpdate(context)		 
+			end
+			if dlg.idPartyContainer then 
+				dlg.idPartyContainer.idParty:RespawnContent()
+				dlg.idPartyContainer.idParty:OnContextUpdate(context)	
+			end
+
+			if dlg.idRight then 
+				dlg.idRight:RespawnContent()
+				dlg.idRight:OnContextUpdate(context)	
+			end
+			if dlg.idCenter then 
+				dlg.idCenter:RespawnContent()
+				dlg.idCenter:OnContextUpdate(context)
+			end
+			dlg:OnContextUpdate(context)
+			dlg.idScrollbar:ScrollTo(saveScroll)
+			dlg.idScrollbarCenter:ScrollTo(saveScrollCenter)
 		Msg("RespawnedInventory")
+		end
 		--print("RespawnedInventory")
 		
 		if drag_item then
