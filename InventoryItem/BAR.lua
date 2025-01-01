@@ -51,7 +51,7 @@ DefineClass.BAR = {
 	Recoil = 16,
 	BurstShots = 5,
 	AutoShots = 5,
-	Handling = 70,
+	Handling = 60,
 	BulletDropRange = 24,
 	Grouping = 275,
 }

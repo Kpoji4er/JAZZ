@@ -22,7 +22,7 @@ DefineClass.C4 = {
 	},
 	CenterAreaOfEffect = 2,
 	AreaUnitDamageMod = 60,
-	AreaObjDamageMod = 150,
+	AreaObjDamageMod = 500,
 	PenetrationClass = 1,
 	DeathType = "BlowUp",
 	BaseDamage = 90,
