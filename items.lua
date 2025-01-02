@@ -87576,7 +87576,7 @@ return {
 					if (GameState.Night or GameState.Underground) and not attacker:HasNightVision() and not IsIlluminated(target) and not hasflashlight
 					then dist = dist * 1.6 end				
 					
-					if (GameState.Heat)	then dist = dist * 1.1 	end
+					if (GameState.Heat)	then dist = dist * 0.9 	end
 					if (GameState.RainLight) then dist = dist * 1.1 end
 					if (GameState.RainHeavy or GameState.Fog) then dist = dist * 1.3 end
 					if (GameState.FireStorm or GameState.DustStorm)	then dist = dist * 1.5 end
@@ -87884,7 +87884,7 @@ return {
 					local min = self:ResolveValue("MinPenalty")
 					
 					local value = max + MulDivRound(min - max, (attacker.Dexterity + attacker.Marksmanship)/2, 100)
-					if IsKindOf(weapon1, "MachineGun") then value = value * 2 end
+					--if IsKindOf(weapon1, "MachineGun") then value = value * 2 end
 					
 					local metaText = false
 					local bonus, compDef = GetComponentEffectValue(weapon1, "OpportunityAttackBonusCth", "bonus_cth")
@@ -87898,11 +87898,12 @@ return {
 				Parameters = {
 					PlaceObj('PresetParamNumber', {
 						'Name', "MaxPenalty",
+						'Value', -20,
 						'Tag', "<MaxPenalty>",
 					}),
 					PlaceObj('PresetParamNumber', {
 						'Name', "MinPenalty",
-						'Value', 5,
+						'Value', 10,
 						'Tag', "<MinPenalty>",
 					}),
 				},

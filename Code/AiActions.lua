@@ -167,18 +167,18 @@ function AICalcAttacksAndAim(context, ap, target)
 
 
 
-	while remaining > (aim_cost*2) do
+	while remaining > (2*aim_cost) do
 		local aim = (aims[attack_idx] or 0)
 
 		if context.unit then
 			local cth = context.unit:CalcChanceToHit(target,context.default_attack)
-			while cth < 90 and aim <= (max_aim -1) and remaining > aim_cost do
+			while cth < 100 and aim <= (max_aim) and remaining > aim_cost do
 				aim = aim + 1
 				remaining = remaining - 1
 				args.aim = aim
 				cth = context.unit:CalcChanceToHit(target,context.default_attack,args)
 			end
-			--print('aim '..aim.." cth "..cth)
+			print('aim '..aim.." cth "..cth)
 		end
 
 		if aim > context.weapon.MaxAimActions then 
@@ -386,6 +386,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 				AIPlayCombatAction("Move", unit, goto_ap, { goto_pos = point(point_unpack(path[1])), fallbackMove = true, goto_stance = stance_idx })
 			end
 		end
+
 		if unit:GetDist(context.unit_pos) < const.SlabSizeX / 2 then
 			local revert = true
 			if context.archetype.FallbackAction == "overwatch" then
@@ -399,11 +400,29 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 					sight = sight or HasVisibilityTo(unit, enemy)
 				end
 				if not sight then
-					table.insert(g_UnawareQueue, unit)
-				end
+						unit.last_known_enemy_pos = unit.last_known_enemy_pos or AIPickScoutLocation(self)
+						if unit.last_known_enemy_pos then
+							local archetype = "Scout_LastLocation"
+							unit.current_archetype = archetype or self.archetype or "Assault"
+						end
+					end
+				--if not sight and unit.current_archetype == "Scout_LastLocation" then
+				--	table.insert(g_UnawareQueue, unit)
+				--end
 			end
-		end
+		end		
 	end
+
+	--local ProneStanceAP = unit:GetStanceToStanceAP(unit.stance, "Prone")
+	--local CrouchStanceAP = unit:GetStanceToStanceAP(unit.stance, "Crouch")
+	--if unit.ActionPoints >= ProneStanceAP and unit.stance ~= "Prone" and not g_Overwatch[unit] then 
+	--	--unit:ChangeStance("StanceProne", ProneStanceAP, unit.stance)
+	--	AIPlayChangeStance(unit, "Prone")
+	--end
+	--if unit.ActionPoints >= CrouchStanceAP and unit.stance ~= "Prone" and unit.stance ~= "Crouch" and not g_Overwatch[unit] then 
+	--	--unit:ChangeStance("CrouchStance", CrouchStanceAP, unit.stance)
+	--	AIPlayChangeStance(unit, "Crouch")
+	--end
 end
 
 

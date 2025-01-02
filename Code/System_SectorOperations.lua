@@ -212,7 +212,8 @@ function SectorOperationFillItemsToRepair(sector_id, mercs, check_only)
 	if not check_only  then
 		gv_Sectors[sector_id].sector_repair_items  = {}
 	end 
-	local all_to_repair = gv_Sectors[sector_id].sector_repair_items or {}
+	--local all_to_repair = gv_Sectors[sector_id].sector_repair_items or {}
+	local all_to_repair = {}
 	local chek_only_var = {var_bool=false}
 	--equipped weapons and armors 
 	local act_mercs ={}
