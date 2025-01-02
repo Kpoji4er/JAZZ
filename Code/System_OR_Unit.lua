@@ -97,14 +97,15 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 
 	local other_is_unit = other and IsKindOf(other, "Unit") or false
 	local hidden = other_is_unit and other:HasStatusEffect("Hidden")
-	local sight = base_sight or (not hidden and self:IsAware() and const.Combat.AwareSightRange or const.Combat.UnawareSightRange)
+	--local sight = base_sight or (not hidden and self:IsAware() and const.Combat.AwareSightRange or const.Combat.UnawareSightRange)
+	local sight = base_sight or (self:IsAware() and const.Combat.AwareSightRange or const.Combat.UnawareSightRange)
 	local night_time = GameState.Night or GameState.Underground
 	if night_time and other and IsIlluminated(other, nil, nil, step_pos) then
 		night_time = false
 	end
 
 	if HasPerk(self, "Jazz_Perk_Lynx") then
-		sight = sight + 6
+		sight = sight + 8
 	end
 
 	local force_min_sight = self:CallReactions_Or("OnCheckForceMinSight", self, other, step_pos, night_time)
@@ -121,7 +122,7 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 		if hidden then
 			-- add (clamped) attrib difference as modifier
 			local steath_mod = Max(0, MulDivRound(other.Agility - self.Wisdom, const.Combat.SightModStealthStatDiff, 100))		
-
+			if self:IsAware() and other.stance ~= "Prone"  then steath_mod = DivRound(steath_mod,2) end
 			modifier = modifier - steath_mod
 		end
 
