@@ -193,7 +193,7 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 
 			if penaltyReduce > 100 then penaltyReduce = 100 end
 			--penaltyReduce = 100 - penaltyReduce
-			darknessMod = MulDivRound(darknessMod, 100-penaltyReduce, 100)
+			darknessMod = MulDivRound(darknessMod, penaltyReduce, 100)
 		end
 		modifier = modifier + darknessMod
 		--if visionbonus < 0 then modifier = modifier + visionbonus end
