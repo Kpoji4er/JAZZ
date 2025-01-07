@@ -122,7 +122,7 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 		if hidden then
 			-- add (clamped) attrib difference as modifier
 			local steath_mod = Max(0, MulDivRound(other.Agility - self.Wisdom, const.Combat.SightModStealthStatDiff, 100))		
-			if self:IsAware() and other.stance ~= "Prone"  then steath_mod = DivRound(steath_mod,2) end
+			--if self:IsAware() and other.stance ~= "Prone"  then steath_mod = DivRound(steath_mod,2) end
 			modifier = modifier - steath_mod
 		end
 
@@ -193,7 +193,8 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 
 			if penaltyReduce > 100 then penaltyReduce = 100 end
 			--penaltyReduce = 100 - penaltyReduce
-			darknessMod = MulDivRound(darknessMod, penaltyReduce, 100)
+			
+			darknessMod = MulDivRound(darknessMod, 100-penaltyReduce, 100)
 		end
 		modifier = modifier + darknessMod
 		--if visionbonus < 0 then modifier = modifier + visionbonus end
