@@ -158,24 +158,24 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 			modifier = modifier + const.EnvEffects.BrushSightMod
 
 			if hidden then
-				modifier = modifier - camo
+				modifier = modifier - camo*2
 			else
-				modifier = modifier - camo/2
+				modifier = modifier - camo*2
 			end
 
 			if other.stance == "Prone" then
-				modifier = modifier - const.Combat.SightModHiddenProne
+				modifier = modifier - const.Combat.SightModHiddenProne*2
 			end
 
 		else
 			if hidden then
-				modifier = modifier - camo/2
+				modifier = modifier - camo
 			else
-				modifier = modifier - camo/3
+				modifier = modifier - camo
 			end
 
 			if other.stance == "Prone" then
-				modifier = modifier - const.Combat.SightModHiddenProne/3
+				modifier = modifier - const.Combat.SightModHiddenProne
 			end
 		end
 	end
@@ -268,17 +268,7 @@ function Unit:OnGearChanged(isLoad)
 	ObjModified(self.Inventory)
 end
 
-function OnMsg.MercHireStatusChanged(unit_data, previousState, newState)
-	if previousState == "Available" and newState == "Hired" then
-		local merc_id = unit_data.session_id
-		if merc_id and unit_data.Squad then
-			--MoveItemsToSquadBag(merc_id, unit_data.Squad)
-		end
-	end
-end
-function MoveItemsToSquadBag(unit_id,squad_id)	
-	return
-end
+
 
 function UnitProperties:EquipStartingGear(items)
 	local func = empty_func
@@ -307,11 +297,12 @@ function UnitProperties:EquipStartingGear(items)
 	local equipped = {}
 
 	self:TryEquip(items, "AmmoInventory", "Ammo")
+	self:TryEquip(items, "AmmoInventory", "Ammo")
+	self:TryEquip(items, "AmmoInventory", "Ammo")
+	self:TryEquip(items, "AmmoInventory", "Ammo")
 	self:TryEquip(items, "GrenadesInventory", "GrenadeItem")
 	self:TryEquip(items, "GrenadesInventory", "Flare")
 	self:TryEquip(items, "OrdnanceInventory", "ThrowableTrapItem")
-	self:TryEquip(items, "OrdnanceInventory", "Flare")
-	self:TryEquip(items, "OrdnanceInventory", "GrenadeItem")
 	self:TryEquip(items, "MedicalInventory", "Medicine")
 	self:TryEquip(items, "PocketInventory", "ToolItem")
 	self:TryEquip(items, "KnifeInventory", "StackableMeleeWeapon")

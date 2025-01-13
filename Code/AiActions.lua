@@ -129,8 +129,8 @@ function AICalcAttacksAndAim(context, ap, target)
 
 	local aim = 0
 	
-	if IsKindOfClasses(context.weapon,"SniperRifle") then local aim = max_aim end
-	if IsKindOfClasses(context.weapon,"AssaultRifle","MachineGun","SubmachineGun","Shotgun","Pistol") then local aim = Clamp(Unit:Random(3),min_aim, max_aim) end
+	--if IsKindOfClasses(context.weapon,"SniperRifle") then local aim = max_aim end
+	--if IsKindOfClasses(context.weapon,"AssaultRifle","MachineGun","SubmachineGun","Shotgun","Pistol") then local aim = Clamp(Unit:Random(3),min_aim, max_aim) end
 
 	local aim_cost = const.Scale.AP
 
@@ -165,7 +165,9 @@ function AICalcAttacksAndAim(context, ap, target)
         num_attacks = Min(ap / (cost + aim_cost * max_aim), context.max_attacks)
     end
 
-
+	local cthtreshold = 100
+	--if IsKindOfClasses(context.weapon,"SniperRifle") then cthtreshold = 100 end
+	--if IsKindOfClasses(context.weapon,"SubmachineGun","Shotgun","Pistol") then cthtreshold = 50 end
 
 	while remaining > (2*aim_cost) do
 		local aim = (aims[attack_idx] or 0)
@@ -400,10 +402,10 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 					sight = sight or HasVisibilityTo(unit, enemy)
 				end
 				if not sight then
-						unit.last_known_enemy_pos = unit.last_known_enemy_pos or AIPickScoutLocation(self)
+						unit.last_known_enemy_pos = unit.last_known_enemy_pos or AIPickScoutLocation(unit)
 						if unit.last_known_enemy_pos then
 							local archetype = "Scout_LastLocation"
-							unit.current_archetype = archetype or self.archetype or "Assault"
+							unit.current_archetype = archetype or unit.archetype or "Assault"
 						end
 					end
 				--if not sight and unit.current_archetype == "Scout_LastLocation" then
@@ -762,4 +764,52 @@ function AISignatureAction:MatchUnit(unit)
   
   
   return true
+end
+
+
+function AIActionMGSetup:PrecalcAction(context, action_state)
+
+	local curr_target_pt = g_Overwatch[context.unit] and g_Overwatch[context.unit].target_pos
+
+	local target = curr_target_pt or context.unit
+	local cover, any, coverage = context.unit:GetCoverPercentage(target)
+	local halfcover = cover and cover == const.CoverLow and coverage > 80
+
+	if not context.unit:HasStatusEffect("StationedMachineGun") then
+		-- setup
+		if halfcover then action_state.stance = "Crouch" else
+		action_state.stance = "Prone"
+		end
+		AIActionBaseConeAttack.PrecalcAction(self, context, action_state)
+	else
+		local zones = AIPrecalcConeTargetZones(context, self.action_id, curr_target_pt)
+		local cur_zone = zones[#zones]
+		if not cur_zone then
+			return
+		end
+		cur_zone.score_mod = self.cur_zone_mod
+		local zone, best_score = self:EvalZones(context, zones)
+	
+		-- check best zone:
+		if not zone then -- no suitable zone, pack up
+			action_state.action_id = "MGPack"
+		elseif zone ~= cur_zone then -- another best zone, rotate
+			action_state.action_id = "MGRotate"
+			action_state.target_pos = zone.target_pos
+		end
+
+		if action_state.action_id then
+			action_state.score = best_score
+			action_state.target_pos = zone and zone.target_pos
+			
+			local caction = CombatActions[action_state.action_id]
+			if not caction then return end
+			
+			local args, has_ap = AIGetAttackArgs(context, caction, nil, "None")
+			action_state.has_ap = has_ap
+			if has_ap then 
+				g_LastSelectedZone = zone
+			end
+		end
+	end
 end

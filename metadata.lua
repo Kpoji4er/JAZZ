@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/3NHHXrHA2D",
 	},
-	'last_changes', "Уменьшено количество патрон в дропе с низкоуровневых врагов и теперь зависит в том числе от уровня сложности\nСтартовые пресеты наемников теперь более слабые на высоком уровне сложности",
+	'last_changes', "Багофиксы интерфейса",
 	'SpellCheck', true,
 	'ignore_files', {
 		"*.git/*",
@@ -34,7 +34,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 4,
-	'version', 4574,
+	'version', 4589,
 	'lua_revision', 233360,
 	'saved_with_revision', 350233,
 	'code', {
@@ -592,8 +592,8 @@ return PlaceObj('ModDef', {
 	},
 	'default_options', {},
 	'has_data', true,
-	'saved', 1736258789,
-	'code_hash', -2596329688479243304,
+	'saved', 1736802428,
+	'code_hash', -3619802711174433867,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -953,6 +953,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "LootDef",
 			'Id', "Loot_JAZZ_Buzz",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "Loot_JAZZ_Spider",
 			'ClassDisplayName', "LootDef",
 		}),
 		PlaceObj('ModResourcePreset', {

@@ -1054,7 +1054,7 @@ TFormat.bullets =  function(context_obj, bullets, max, icon)
 		if bullets > 0 then
 			if context_obj and context_obj.MagazineSize and context_obj.ammo.colorStyle and bullets ~= 0 then	
 			--	text = T{"<style <ammocolor> ><text></style>/<style InventoryItemsCountMax><max></style>", ammocolor = context_obj.ammo.colorStyle, text = text}
-				text = T{"<style "..context_obj.ammo.colorStyle..">"..text.."</style>/<style InventoryItemsCountMax><max></style>", ammocolor = context_obj.ammo.colorStyle, text = text}
+				text = Untranslated{"<style "..context_obj.ammo.colorStyle..">"..text.."</style>/<style InventoryItemsCountMax><max></style>", ammocolor = context_obj.ammo.colorStyle, text = text}
 				--text = "<style "..context_obj.ammo.colorStyle..">"..text.."</style>" .. "/<style InventoryItemsCountMax><max></style>"
 			else
 				text = text .. "/<style InventoryItemsCountMax><max></style>"
