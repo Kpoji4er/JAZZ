@@ -9,7 +9,9 @@ function AIActionThrowGrenade:PrecalcAction(context, action_state)
 			action_id = id
 			local weapon = caction:GetAttackWeapons(context.unit)
 			local aoetype = weapon.aoeType or "none"
-			if (IsKindOf(weapon, "Grenade") or IsKindOf(weapon, "Flare")) and self.AllowedAoeTypes[aoetype] then
+			 --local triggerType = weapon.TriggerType or "Contact"
+			 if IsKindOfClasses(weapon, "Grenade", "Ordnance", "Flare", "GrenadeItem") and self.AllowedAoeTypes[aoetype] and
+			 --self.AllowedTriggerTypes[triggerType] then
 				grenade = weapon			
 				break
 			end
@@ -415,6 +417,8 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 			end
 		end		
 	end
+
+	TryChangeStance(unit)
 
 	--local ProneStanceAP = unit:GetStanceToStanceAP(unit.stance, "Prone")
 	--local CrouchStanceAP = unit:GetStanceToStanceAP(unit.stance, "Crouch")
@@ -868,3 +872,88 @@ function AIEvalZones(context, zones, min_score, enemy_score, team_score, self_sc
 
     return best_target, best_score
 end
+
+function AIPolicyIndoorsOutdoors:EvalDest(context, dest, grid_voxel)
+    local check = AICheckIndoors(dest) == self.Indoors
+    return check and self.Weight or 0
+end
+
+
+function TryChangeStance(unit)
+    if not g_Combat then
+        return 0
+    end
+
+    if unit:HasPreparedAttack() then
+        return 0
+    end
+
+    local weapon = unit:GetActiveWeapons()
+    if not weapon or not IsKindOf(weapon, "Firearm") then
+        return 0
+    end
+
+    if unit.species == "Human" and unit.stance ~= "Prone" then
+        local cover_high, cover_low = GetCoverTypes(unit)
+        local ap = unit.ActionPoints
+        if not cover_high and not cover_low then
+            local prone_AP = unit.stance == "Crouch" and 1000 or 2000
+            if HasPerk(unit, "HitTheDeck") then
+                prone_AP = 0
+            end
+            if ap >= prone_AP then
+               -- unit:SetActionCommand("ChangeStance", "RATOAI_ChangeStance", prone_AP, "Prone")
+			   AIPlayChangeStance(unit, "Prone")
+                unit.ActionPoints = unit.ActionPoints - prone_AP
+                return prone_AP
+            end
+        end
+
+        if unit.stance ~= "Crouch" then
+            local crouch_ap = 1000
+            if ap >= crouch_ap then
+                --unit:SetActionCommand("ChangeStance", "RATOAI_ChangeStance", crouch_ap, "Crouch")
+				AIPlayChangeStance(unit, "Crouch")
+                unit.ActionPoints = unit.ActionPoints - crouch_ap
+                return crouch_ap
+            end
+        end
+    end
+    return 0
+end
+
+
+function AIGetAttackTargetingOptions(unit, context, target, action, targeting)
+    local body_parts
+    targeting = targeting or context.archetype.BaseAttackTargeting
+    ----
+    local valid, fallback = false, {}
+    ---
+    if IsKindOf(target, "Unit") and targeting then
+        action = action or context.default_attack
+        ---
+        local args = {target = target, aim = 3}
+        ---
+        local parts = target:GetBodyParts(context.weapon)
+        for _, part in ipairs(parts) do
+            args.target_spot_group = part.id
+            local results = action:GetActionResults(unit, args)
+            body_parts = body_parts or {}
+            results.chance_to_hit = results.chance_to_hit or 0
+            -- table.insert(body_parts, {id = part.id, chance = results.chance_to_hit})
+            if results.chance_to_hit > 0 then
+                table.insert(fallback, {id = part.id, chance = results.chance_to_hit})
+                if targeting[part.id] then
+                    valid = true
+                    -----
+                    table.insert(body_parts, {id = part.id, chance = results.chance_to_hit})
+                    -----
+                end
+            end
+        end
+    end
+    ----
+    return valid and body_parts or fallback
+    ----
+end
+

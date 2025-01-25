@@ -27692,6 +27692,29 @@ return {
 					PlaceObj('ModItemLootDef', {
 						Comment = "enemy legion",
 						group = "Enemy - Legion",
+						id = "Legion_T1Gren",
+						PlaceObj('LootEntryInventoryItem', {
+							item = "PipeBomb",
+							stack_max = 2,
+							stack_min = 1,
+							weight = 10000,
+						}),
+						PlaceObj('LootEntryInventoryItem', {
+							item = "HE_Grenade",
+							stack_max = 2,
+							stack_min = 1,
+							weight = 8000,
+						}),
+						PlaceObj('LootEntryInventoryItem', {
+							item = "FragGrenade",
+							stack_max = 2,
+							stack_min = 1,
+							weight = 2000,
+						}),
+					}),
+					PlaceObj('ModItemLootDef', {
+						Comment = "enemy legion",
+						group = "Enemy - Legion",
 						id = "Legion_T2Gren_chance",
 						PlaceObj('LootEntryInventoryItem', {
 							generate_chance = 20,
@@ -27706,6 +27729,29 @@ return {
 						PlaceObj('LootEntryInventoryItem', {
 							generate_chance = 20,
 							item = "FragGrenade",
+							weight = 15000,
+						}),
+					}),
+					PlaceObj('ModItemLootDef', {
+						Comment = "enemy legion",
+						group = "Enemy - Legion",
+						id = "Legion_T2Gren",
+						PlaceObj('LootEntryInventoryItem', {
+							item = "PipeBomb",
+							stack_max = 2,
+							stack_min = 1,
+							weight = 5000,
+						}),
+						PlaceObj('LootEntryInventoryItem', {
+							item = "HE_Grenade",
+							stack_max = 3,
+							stack_min = 2,
+							weight = 10000,
+						}),
+						PlaceObj('LootEntryInventoryItem', {
+							item = "FragGrenade",
+							stack_max = 3,
+							stack_min = 1,
 							weight = 15000,
 						}),
 					}),
@@ -28356,7 +28402,7 @@ return {
 						id = "LegionGrenadier",
 						loot = "all",
 						PlaceObj('LootEntryLootDef', {
-							loot_def = "Legion_T1Gren_chance",
+							loot_def = "Legion_T1Gren",
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "Legion_GrenadierNoob_Weapon",
@@ -28406,7 +28452,7 @@ return {
 						id = "LegionGrenadier_Stronger",
 						loot = "all",
 						PlaceObj('LootEntryLootDef', {
-							loot_def = "Legion_T2Gren_chance",
+							loot_def = "Legion_T2Gren",
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "Legion_GrenadierStrong_Weapon",
@@ -28436,7 +28482,10 @@ return {
 							loot_def = "LegionsExplosives",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							loot_def = "Legion_T2Gren_chance",
+							loot_def = "Legion_T2Gren",
+						}),
+						PlaceObj('LootEntryLootDef', {
+							loot_def = "Legion_T2Gren",
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "Legion_GrenadierStrong_Weapon",
@@ -88871,7 +88920,7 @@ return {
 					
 						if groupingResult < 100 then
 							local cth = 100 - groupingResult
-							return true,  -cth, T("Влияние кучности оружия на дистанции ("..groupingResult..")")
+							return true,  -cth/2, T("Влияние кучности оружия на дистанции ("..groupingResult..")")
 						end
 					end
 					return false, 0
@@ -89228,6 +89277,14 @@ return {
 			PlaceObj('ModItemCode', {
 				'name', "CombatAI",
 				'CodeFileName', "Code/CombatAI.lua",
+			}),
+			PlaceObj('ModItemCode', {
+				'name', "AiAction_ThrowFlare",
+				'CodeFileName', "Code/AiAction_ThrowFlare.lua",
+			}),
+			PlaceObj('ModItemCode', {
+				'name', "Rato_CustomSeekCover",
+				'CodeFileName', "Code/Rato_CustomSeekCover.lua",
 			}),
 			}),
 		PlaceObj('ModItemFolder', {

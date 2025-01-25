@@ -577,7 +577,7 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 	for _, policy in ipairs(policies) do
 		local peval = policy:EvalDest(context, dest, grid_voxel)
 		local pscore = MulDivRound(peval or 0, policy.Weight, 100)
-		local failed = policy.Required and pscore == 0
+		local failed = policy.Required and pscore <= 0
 		score = score + pscore
 		if score_details then
 			score_details[#score_details + 1] = (failed and "[FAILED] " or "") .. policy:GetEditorView()

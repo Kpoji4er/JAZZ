@@ -34,7 +34,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 4,
-	'version', 4590,
+	'version', 4597,
 	'lua_revision', 233360,
 	'saved_with_revision', 350233,
 	'code', {
@@ -557,6 +557,8 @@ return PlaceObj('ModDef', {
 		"Code/InfiniteLoopFix.lua",
 		"Code/AiActions.lua",
 		"Code/CombatAI.lua",
+		"Code/AiAction_ThrowFlare.lua",
+		"Code/Rato_CustomSeekCover.lua",
 		"Code/System_LootDrops.lua",
 		"Code/System_OR_SquadBag.lua",
 		"Code/System_OR_ItemContainer.lua",
@@ -592,8 +594,8 @@ return PlaceObj('ModDef', {
 	},
 	'default_options', {},
 	'has_data', true,
-	'saved', 1737561702,
-	'code_hash', -275724566903783194,
+	'saved', 1737832199,
+	'code_hash', -824490166680796696,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -5052,7 +5054,17 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "LootDef",
+			'Id', "Legion_T1Gren",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
 			'Id', "Legion_T2Gren_chance",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "Legion_T2Gren",
 			'ClassDisplayName', "LootDef",
 		}),
 		PlaceObj('ModResourcePreset', {
