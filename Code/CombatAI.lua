@@ -1222,6 +1222,9 @@ function AIPrecalcConeTargetZones(context, action_id, additional_target_pt, stan
 	})
 	local action = CombatActions[action_id]
 	local args = { target_spot_group = false, aim = 4 }
+	if action.id == "MGSetup" then
+		return zones
+	end
 	for i, attack_data in ipairs(targets_attack_data) do
 		local target = targets[i]
 		local chance_to_hit = 0
@@ -1245,8 +1248,10 @@ function AIPrecalcConeTargetZones(context, action_id, additional_target_pt, stan
 	return zones
 end
 
+
+
 function AIPickScoutLocation(unit)
-	local AIScoutLocationSearchRadius = 100 * guim
+	local AIScoutLocationSearchRadius = 8 * guim
 
 	-- pick a new position around alive enemy randomly, prefer non-hidden enemies
 	local enemies = GetAllEnemyUnits(unit)

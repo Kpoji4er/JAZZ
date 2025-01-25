@@ -403,9 +403,10 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 				end
 				if not sight then
 						unit.last_known_enemy_pos = unit.last_known_enemy_pos or AIPickScoutLocation(unit)
-						if unit.last_known_enemy_pos then
-							local archetype = "Scout_LastLocation"
-							unit.current_archetype = archetype or unit.archetype or "Assault"
+							--local archetype = "Scout_LastLocation"
+							--unit.current_archetype = archetype or unit.archetype or "Assault"
+						if not unit.last_known_enemy_pos then
+							table.insert(g_UnawareQueue, unit)
 						end
 					end
 				--if not sight and unit.current_archetype == "Scout_LastLocation" then
@@ -812,4 +813,58 @@ function AIActionMGSetup:PrecalcAction(context, action_state)
 			end
 		end
 	end
+end
+
+
+----RATO
+
+function AIActionBaseZoneAttack:EvalZones(context, zones)
+    return AIEvalZones(context, zones, self.min_score, self.enemy_score, self.team_score,
+                       self.self_score_mod, self.enemy_cover_mod)
+end
+
+function AIEvalZones(context, zones, min_score, enemy_score, team_score, self_score_mod,
+                     enemy_cover_score) -- , heigth_score)
+    local best_target, best_score = nil, (min_score or 0) - 1
+
+    for _, zone in ipairs(zones) do
+        local score
+        local selfmod = 0
+        for _, unit in ipairs(zone.units) do
+            local uscore = 0
+            if not unit:IsDead() and not unit:IsDowned() then
+                if unit:IsOnEnemySide(context.unit) then
+
+                    uscore = enemy_score or 0
+                    -----------------------------------
+
+                    if enemy_cover_score and enemy_cover_score ~= 0 then
+                        local cover_high, cover_low = GetCoverTypes(unit)
+                        if cover_low or cover_high then
+                            uscore = uscore + enemy_cover_score
+                        end
+                    end
+
+                    -- if heigth_score and heigth_score ~= 0 then
+
+                    -----------------------------------
+
+                elseif unit.team == context.unit.team then
+                    uscore = team_score or 0
+                    if unit == context.unit then
+                        selfmod = self_score_mod or 0
+                    end
+                end
+            end
+            score = (score or 0) + uscore
+        end
+        score = score and MulDivRound(score, zone.score_mod or 100, 100)
+        score = score and MulDivRound(score, 100 + selfmod, 100)
+        if score and score > best_score then
+            best_target, best_score = zone, score
+        end
+        zone.score = score
+    end
+
+    return best_target, best_score
 end

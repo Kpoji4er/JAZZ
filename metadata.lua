@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/3NHHXrHA2D",
 	},
-	'last_changes', "Багофиксы интерфейса",
+	'last_changes', "Багофиксы",
 	'SpellCheck', true,
 	'ignore_files', {
 		"*.git/*",
@@ -34,7 +34,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 4,
-	'version', 4589,
+	'version', 4590,
 	'lua_revision', 233360,
 	'saved_with_revision', 350233,
 	'code', {
@@ -592,8 +592,8 @@ return PlaceObj('ModDef', {
 	},
 	'default_options', {},
 	'has_data', true,
-	'saved', 1736802428,
-	'code_hash', -3619802711174433867,
+	'saved', 1737561702,
+	'code_hash', -275724566903783194,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
