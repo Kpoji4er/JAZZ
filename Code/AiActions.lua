@@ -10,7 +10,7 @@ function AIActionThrowGrenade:PrecalcAction(context, action_state)
 			local weapon = caction:GetAttackWeapons(context.unit)
 			local aoetype = weapon.aoeType or "none"
 			 --local triggerType = weapon.TriggerType or "Contact"
-			 if IsKindOfClasses(weapon, "Grenade", "Ordnance", "Flare", "GrenadeItem") and self.AllowedAoeTypes[aoetype] and
+			 if IsKindOfClasses(weapon, "Grenade", "Ordnance", "Flare", "GrenadeItem") and self.AllowedAoeTypes[aoetype] then
 			 --self.AllowedTriggerTypes[triggerType] then
 				grenade = weapon			
 				break
