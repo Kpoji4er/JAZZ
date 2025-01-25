@@ -55,7 +55,7 @@ DefineClass.UnitInventory = {
 --		{ slot_name = "Vest",      width = 1, height = 1, base_class = "Vest", check_slot_name = true, enabled = true },   
 		{ slot_name = "AmmoInventory",     width = 8, height = 1, base_class = "Ammo", enabled = true },    
 		{ slot_name = "GrenadesInventory",     width = 4, height = 1, base_class = {"GrenadeItem","Flare"}, enabled = true },    
-		{ slot_name = "OrdnanceInventory",     width = 2, height = 1, base_class = {"GrenadeItem","Flare","ThrowableTrapItem"}, enabled = true },  
+		{ slot_name = "OrdnanceInventory",     width = 2, height = 1, base_class = {"ThrowableTrapItem"}, enabled = true },  
 		{ slot_name = "MedicalInventory",     width = 3, height = 1, base_class = "Medicine", enabled = true },  
 		{ slot_name = "PocketInventory",     width = 3, height = 1, base_class = "ToolItem", enabled = true },
 		{ slot_name = "KnifeInventory",     width = 1, height = 1, base_class = "StackableMeleeWeapon", enabled = true },      

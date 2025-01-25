@@ -9,7 +9,9 @@ function AIActionThrowGrenade:PrecalcAction(context, action_state)
 			action_id = id
 			local weapon = caction:GetAttackWeapons(context.unit)
 			local aoetype = weapon.aoeType or "none"
-			if (IsKindOf(weapon, "Grenade") or IsKindOf(weapon, "Flare")) and self.AllowedAoeTypes[aoetype] then
+			 --local triggerType = weapon.TriggerType or "Contact"
+			 if IsKindOfClasses(weapon, "Grenade", "Ordnance", "Flare", "GrenadeItem") and self.AllowedAoeTypes[aoetype] and
+			 --self.AllowedTriggerTypes[triggerType] then
 				grenade = weapon			
 				break
 			end
@@ -129,8 +131,8 @@ function AICalcAttacksAndAim(context, ap, target)
 
 	local aim = 0
 	
-	if IsKindOfClasses(context.weapon,"SniperRifle") then local aim = max_aim end
-	if IsKindOfClasses(context.weapon,"AssaultRifle","MachineGun","SubmachineGun","Shotgun","Pistol") then local aim = Clamp(Unit:Random(3),min_aim, max_aim) end
+	--if IsKindOfClasses(context.weapon,"SniperRifle") then local aim = max_aim end
+	--if IsKindOfClasses(context.weapon,"AssaultRifle","MachineGun","SubmachineGun","Shotgun","Pistol") then local aim = Clamp(Unit:Random(3),min_aim, max_aim) end
 
 	local aim_cost = const.Scale.AP
 
@@ -165,7 +167,9 @@ function AICalcAttacksAndAim(context, ap, target)
         num_attacks = Min(ap / (cost + aim_cost * max_aim), context.max_attacks)
     end
 
-
+	local cthtreshold = 100
+	--if IsKindOfClasses(context.weapon,"SniperRifle") then cthtreshold = 100 end
+	--if IsKindOfClasses(context.weapon,"SubmachineGun","Shotgun","Pistol") then cthtreshold = 50 end
 
 	while remaining > (2*aim_cost) do
 		local aim = (aims[attack_idx] or 0)
@@ -400,10 +404,11 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 					sight = sight or HasVisibilityTo(unit, enemy)
 				end
 				if not sight then
-						unit.last_known_enemy_pos = unit.last_known_enemy_pos or AIPickScoutLocation(self)
-						if unit.last_known_enemy_pos then
-							local archetype = "Scout_LastLocation"
-							unit.current_archetype = archetype or self.archetype or "Assault"
+						unit.last_known_enemy_pos = unit.last_known_enemy_pos or AIPickScoutLocation(unit)
+							--local archetype = "Scout_LastLocation"
+							--unit.current_archetype = archetype or unit.archetype or "Assault"
+						if not unit.last_known_enemy_pos then
+							table.insert(g_UnawareQueue, unit)
 						end
 					end
 				--if not sight and unit.current_archetype == "Scout_LastLocation" then
@@ -412,6 +417,8 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 			end
 		end		
 	end
+
+	TryChangeStance(unit)
 
 	--local ProneStanceAP = unit:GetStanceToStanceAP(unit.stance, "Prone")
 	--local CrouchStanceAP = unit:GetStanceToStanceAP(unit.stance, "Crouch")
@@ -763,3 +770,190 @@ function AISignatureAction:MatchUnit(unit)
   
   return true
 end
+
+
+function AIActionMGSetup:PrecalcAction(context, action_state)
+
+	local curr_target_pt = g_Overwatch[context.unit] and g_Overwatch[context.unit].target_pos
+
+	local target = curr_target_pt or context.unit
+	local cover, any, coverage = context.unit:GetCoverPercentage(target)
+	local halfcover = cover and cover == const.CoverLow and coverage > 80
+
+	if not context.unit:HasStatusEffect("StationedMachineGun") then
+		-- setup
+		if halfcover then action_state.stance = "Crouch" else
+		action_state.stance = "Prone"
+		end
+		AIActionBaseConeAttack.PrecalcAction(self, context, action_state)
+	else
+		local zones = AIPrecalcConeTargetZones(context, self.action_id, curr_target_pt)
+		local cur_zone = zones[#zones]
+		if not cur_zone then
+			return
+		end
+		cur_zone.score_mod = self.cur_zone_mod
+		local zone, best_score = self:EvalZones(context, zones)
+	
+		-- check best zone:
+		if not zone then -- no suitable zone, pack up
+			action_state.action_id = "MGPack"
+		elseif zone ~= cur_zone then -- another best zone, rotate
+			action_state.action_id = "MGRotate"
+			action_state.target_pos = zone.target_pos
+		end
+
+		if action_state.action_id then
+			action_state.score = best_score
+			action_state.target_pos = zone and zone.target_pos
+			
+			local caction = CombatActions[action_state.action_id]
+			if not caction then return end
+			
+			local args, has_ap = AIGetAttackArgs(context, caction, nil, "None")
+			action_state.has_ap = has_ap
+			if has_ap then 
+				g_LastSelectedZone = zone
+			end
+		end
+	end
+end
+
+
+----RATO
+
+function AIActionBaseZoneAttack:EvalZones(context, zones)
+    return AIEvalZones(context, zones, self.min_score, self.enemy_score, self.team_score,
+                       self.self_score_mod, self.enemy_cover_mod)
+end
+
+function AIEvalZones(context, zones, min_score, enemy_score, team_score, self_score_mod,
+                     enemy_cover_score) -- , heigth_score)
+    local best_target, best_score = nil, (min_score or 0) - 1
+
+    for _, zone in ipairs(zones) do
+        local score
+        local selfmod = 0
+        for _, unit in ipairs(zone.units) do
+            local uscore = 0
+            if not unit:IsDead() and not unit:IsDowned() then
+                if unit:IsOnEnemySide(context.unit) then
+
+                    uscore = enemy_score or 0
+                    -----------------------------------
+
+                    if enemy_cover_score and enemy_cover_score ~= 0 then
+                        local cover_high, cover_low = GetCoverTypes(unit)
+                        if cover_low or cover_high then
+                            uscore = uscore + enemy_cover_score
+                        end
+                    end
+
+                    -- if heigth_score and heigth_score ~= 0 then
+
+                    -----------------------------------
+
+                elseif unit.team == context.unit.team then
+                    uscore = team_score or 0
+                    if unit == context.unit then
+                        selfmod = self_score_mod or 0
+                    end
+                end
+            end
+            score = (score or 0) + uscore
+        end
+        score = score and MulDivRound(score, zone.score_mod or 100, 100)
+        score = score and MulDivRound(score, 100 + selfmod, 100)
+        if score and score > best_score then
+            best_target, best_score = zone, score
+        end
+        zone.score = score
+    end
+
+    return best_target, best_score
+end
+
+function AIPolicyIndoorsOutdoors:EvalDest(context, dest, grid_voxel)
+    local check = AICheckIndoors(dest) == self.Indoors
+    return check and self.Weight or 0
+end
+
+
+function TryChangeStance(unit)
+    if not g_Combat then
+        return 0
+    end
+
+    if unit:HasPreparedAttack() then
+        return 0
+    end
+
+    local weapon = unit:GetActiveWeapons()
+    if not weapon or not IsKindOf(weapon, "Firearm") then
+        return 0
+    end
+
+    if unit.species == "Human" and unit.stance ~= "Prone" then
+        local cover_high, cover_low = GetCoverTypes(unit)
+        local ap = unit.ActionPoints
+        if not cover_high and not cover_low then
+            local prone_AP = unit.stance == "Crouch" and 1000 or 2000
+            if HasPerk(unit, "HitTheDeck") then
+                prone_AP = 0
+            end
+            if ap >= prone_AP then
+               -- unit:SetActionCommand("ChangeStance", "RATOAI_ChangeStance", prone_AP, "Prone")
+			   AIPlayChangeStance(unit, "Prone")
+                unit.ActionPoints = unit.ActionPoints - prone_AP
+                return prone_AP
+            end
+        end
+
+        if unit.stance ~= "Crouch" then
+            local crouch_ap = 1000
+            if ap >= crouch_ap then
+                --unit:SetActionCommand("ChangeStance", "RATOAI_ChangeStance", crouch_ap, "Crouch")
+				AIPlayChangeStance(unit, "Crouch")
+                unit.ActionPoints = unit.ActionPoints - crouch_ap
+                return crouch_ap
+            end
+        end
+    end
+    return 0
+end
+
+
+function AIGetAttackTargetingOptions(unit, context, target, action, targeting)
+    local body_parts
+    targeting = targeting or context.archetype.BaseAttackTargeting
+    ----
+    local valid, fallback = false, {}
+    ---
+    if IsKindOf(target, "Unit") and targeting then
+        action = action or context.default_attack
+        ---
+        local args = {target = target, aim = 3}
+        ---
+        local parts = target:GetBodyParts(context.weapon)
+        for _, part in ipairs(parts) do
+            args.target_spot_group = part.id
+            local results = action:GetActionResults(unit, args)
+            body_parts = body_parts or {}
+            results.chance_to_hit = results.chance_to_hit or 0
+            -- table.insert(body_parts, {id = part.id, chance = results.chance_to_hit})
+            if results.chance_to_hit > 0 then
+                table.insert(fallback, {id = part.id, chance = results.chance_to_hit})
+                if targeting[part.id] then
+                    valid = true
+                    -----
+                    table.insert(body_parts, {id = part.id, chance = results.chance_to_hit})
+                    -----
+                end
+            end
+        end
+    end
+    ----
+    return valid and body_parts or fallback
+    ----
+end
+

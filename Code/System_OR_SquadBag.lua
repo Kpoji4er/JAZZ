@@ -275,7 +275,7 @@ function OnMsg.MercHireStatusChanged(unit_data, previousState, newState)
 	if previousState == "Available" and newState == "Hired" then
 		local merc_id = unit_data.session_id
 		if merc_id and unit_data.Squad then
-			MoveItemsToSquadBag(merc_id, unit_data.Squad)
+		--	MoveItemsToSquadBag(merc_id, unit_data.Squad)
 		end
 	end
 end

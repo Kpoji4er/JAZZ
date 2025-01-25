@@ -382,3 +382,134 @@ function InventoryGetTargetsForGiveToSquadAction(context)
 	table.remove_entry(squads, "UniqueId", unit.Squad or "")
 	return squads
 end
+
+function HighlightEquipSlots(item, bShow)
+	local dlg = GetMercInventoryDlg()
+	if not dlg then
+		return 
+	end
+	
+	local compare_mode_on = item:IsWeapon() and InventoryIsCompareMode(dlg)
+	local compare_mode_slot = compare_mode_on and dlg.compare_mode_weaponslot==1 and "Handheld A" or compare_mode_on and "Handheld B" or false
+	
+	local context = GetInventoryUnit()
+	local width = item:GetUIWidth() 
+	local height = 1
+	local p1 = point_pack(point(1, 1))
+	local p2 = point_pack(point(2, 1))
+	
+	for _, slot_data in ipairs(context.inventory_slots) do
+		local slot_name = slot_data.slot_name
+		if IsEquipSlot(slot_name) and context:CheckClass(item,slot_name) and (not compare_mode_slot or compare_mode_slot==slot_name) then
+			local target = dlg:GetSlotByName(slot_name)
+			local valid_idx = {target:CanEquip(item, p1) or false, target:CanEquip(item, p2) or false}
+			
+			local count = context:CountItemsInSlot(slot_name)			
+			if width == 1 or count<=1 then 
+				if count == 0 then
+					if width==1 then
+						if bShow then
+							for i=1,10,1 do 
+								if target.tiles[i] then 
+									target:SpawnRolloverUI(width,height,i,1)
+								end
+							end
+							
+							--target:SpawnRolloverUI(width,height, 1,1)	
+							
+							--if target.tiles[2] then 
+							--	target:SpawnRolloverUI(width,height, 2,1)
+							--end
+							for pos, wnd in pairs(target.rollover_windows or empty_table) do
+								wnd:OnSetRollover(bShow)
+								HighlihgtRollover(width, wnd, bShow)
+							end
+						else
+							for pos, wnd in pairs(target.rollover_windows or empty_table) do
+								local l,t,w = point_unpack(pos)
+								target.tiles[l][t]:SetVisible(true)
+								if w>1 then
+									target.tiles[l+1][t]:SetVisible(true)
+								end
+								wnd:delete()
+							end
+							target.rollover_windows = {}
+						end
+					elseif width>1 then --and item:IsWeapon() then 
+						if bShow then
+							target:SpawnRolloverUI(width,height, 1,1)
+							for pos, wnd in pairs(target.rollover_windows or empty_table) do
+								wnd:OnSetRollover(bShow)
+								HighlihgtRollover(width, wnd, bShow)
+							end
+						else
+							for pos, wnd in pairs(target.rollover_windows or empty_table) do
+								local l,t,w = point_unpack(pos)
+								target.tiles[l][t]:SetVisible(true)
+								if w>1 then
+									target.tiles[l+1][t]:SetVisible(true)
+								end
+								wnd:delete()
+							end
+							target.rollover_windows = {}
+						end
+					end						
+				elseif count==1 and width==1 then
+					for wnd, witem in pairs(target.item_windows or empty_table) do
+						if witem ~= item then
+							wnd:OnSetRollover(bShow)
+							HighlihgtRollover(width, wnd, bShow)
+						end
+					end
+					if bShow then
+						for i=1,context:GetMaxTilesInSlot(slot_name) do
+							if target.tiles[i] then
+								print(target.tiles[i][1])
+								if target.tiles[i][1]:GetVisible() then
+									if valid_idx[i] then
+										target:SpawnRolloverUI(width,height, i,1)	
+									else
+										if target.tiles[i][1] then
+											local ctrl = target.tiles[i][1]
+											local ctrl_eq = ctrl.idEqSlotImage
+											ctrl_eq:SetImage("UI/Inventory/cross")
+											ctrl_eq:SetImageFit("none")
+										end
+									end
+								end
+							end
+						end	
+						for pos, wnd in pairs(target.rollover_windows or empty_table) do
+							wnd:OnSetRollover(bShow)
+							HighlihgtRollover(width, wnd, bShow)
+						end
+					else
+						for pos, wnd in pairs(target.rollover_windows or empty_table) do
+							local l,t,w = point_unpack(pos)
+							target.tiles[l][t]:SetVisible(true)						
+							wnd:delete()
+						end
+						target.rollover_windows = {}
+						for i=1,context:GetMaxTilesInSlot(slot_name) do
+							if not valid_idx[i] then
+								if target.tiles[i][1]  then
+									local ctrl = target.tiles[i][1] 
+									local ctrl_eq = ctrl.idEqSlotImage
+									ctrl_eq:SetImage(equip_slot_images[slot_name])								
+									ctrl_eq:SetImageFit("width")	
+								end
+							end
+						end	
+					end
+				else										
+					for wnd, witem in pairs(target.item_windows or empty_table) do
+						if valid_idx[wnd.GridX] and witem ~= item then
+							wnd:OnSetRollover(bShow)
+							HighlihgtRollover(width,wnd, bShow)
+						end
+					end
+				end
+			end	
+		end	
+	end			
+end

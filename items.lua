@@ -2395,6 +2395,27 @@ return {
 						weight = 20000,
 					}),
 				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "merc",
+					group = "Mercs",
+					id = "Loot_JAZZ_Spider",
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "JAZZ_Spider50",
+						weight = 50000,
+					}),
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "JAZZ_Spider35",
+						weight = 35000,
+					}),
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "JAZZ_Spider25",
+						weight = 25000,
+					}),
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "JAZZ_Spider10",
+						weight = 10000,
+					}),
+				}),
 				}),
 			PlaceObj('ModItemFolder', {
 				'name', "MercPresets",
@@ -2413,7 +2434,10 @@ return {
 						item = "ColtPeacemaker",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						comment = "EASY + MED",
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_44CAL_JHP",
+						negate = true,
 						stack_max = 24,
 						stack_min = 12,
 					}),
@@ -2431,8 +2455,10 @@ return {
 						item = "JazzArmor_LeatherPants",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_FlakM1955",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_Sunglasses",
@@ -2452,6 +2478,7 @@ return {
 						item = "Ithaca",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_Buckshot",
 						stack_max = 24,
 						stack_min = 24,
@@ -2470,8 +2497,10 @@ return {
 						item = "JazzArmor_LeatherPants",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_FlakM1955",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_Sunglasses",
@@ -2488,9 +2517,16 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "MPL",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "HiPower",
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 60,
 						stack_min = 60,
@@ -2506,8 +2542,10 @@ return {
 						stack_min = 2,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_FlakM1955",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_LeatherPants",
@@ -2530,9 +2568,10 @@ return {
 						item = "M1897",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_Birdshot",
-						stack_max = 24,
-						stack_min = 24,
+						stack_max = 18,
+						stack_min = 18,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Parts",
@@ -2548,8 +2587,10 @@ return {
 						item = "JazzArmor_LeatherPants",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_FlakM1955",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_Sunglasses",
@@ -2564,12 +2605,15 @@ return {
 						item = "P210",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 24,
-						stack_min = 24,
+						stack_max = 40,
+						stack_min = 40,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_9x19_JHP",
+						negate = true,
 						stack_max = 16,
 						stack_min = 16,
 					}),
@@ -2597,7 +2641,9 @@ return {
 					id = "Fox25",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "Bereta92",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -2607,11 +2653,13 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 60,
 						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						RandomizeCondition = true,
 						item = "Meds",
 						stack_max = 40,
 						stack_min = 30,
@@ -2630,14 +2678,37 @@ return {
 					id = "Fox20",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty Normal",
 						item = "TMP",
 						stack_max = 2,
 						stack_min = 2,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "MAT49",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty Hard",
 						item = "JAZZ_AMMO_9x19_FMJ",
+						negate = true,
 						stack_max = 90,
 						stack_min = 90,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty Hard",
+						item = "Colt1911",
+						stack_max = 2,
+						stack_min = 2,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty Hard",
+						item = "JAZZ_AMMO_45ACP_FMJ",
+						stack_max = 70,
+						stack_min = 70,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Meds",
@@ -2663,12 +2734,21 @@ return {
 					id = "Fox10",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "Glock17",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "Glock18",
+						negate = true,
+						stack_max = 2,
+						stack_min = 2,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 34,
-						stack_min = 34,
+						stack_max = 68,
+						stack_min = 68,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "FirstAidKit",
@@ -2700,9 +2780,10 @@ return {
 						weapon = "HiPower",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_JHP",
-						stack_max = 26,
-						stack_min = 26,
+						stack_max = 60,
+						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "FirstAidKit",
@@ -2719,8 +2800,10 @@ return {
 						item = "JazzArmor_LeatherVest",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 10,
 						item = "JazzArmor_NVG1",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -2736,8 +2819,8 @@ return {
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JAZZ_AMMO_9x19_JHP",
-						stack_max = 50,
-						stack_min = 50,
+						stack_max = 100,
+						stack_min = 100,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "FirstAidKit",
@@ -2754,8 +2837,10 @@ return {
 						item = "JazzArmor_LeatherVest",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 10,
 						item = "JazzArmor_NVG1",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -2770,9 +2855,10 @@ return {
 						weapon = "Bereta92",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_JHP",
-						stack_max = 45,
-						stack_min = 45,
+						stack_max = 90,
+						stack_min = 90,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "FirstAidKit",
@@ -2789,8 +2875,10 @@ return {
 						item = "JazzArmor_LeatherVest",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 10,
 						item = "JazzArmor_NVG1",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -2802,16 +2890,19 @@ return {
 						item = "AVT40",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_762x54_BZT",
-						stack_max = 70,
-						stack_min = 70,
+						stack_max = 60,
+						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "GutHookKnife",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_SovietAssaultArmor",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						generate_chance = 10,
@@ -2830,11 +2921,13 @@ return {
 						item = "GutHookKnife",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_Slug",
 						stack_max = 12,
 						stack_min = 12,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_Buckshot",
 						stack_max = 12,
 						stack_min = 12,
@@ -2859,15 +2952,18 @@ return {
 						weapon = "PPSH",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_762x25_FMJ",
-						stack_max = 142,
-						stack_min = 142,
+						stack_max = 140,
+						stack_min = 140,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "GutHookKnife",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_SovietAssaultArmor",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						generate_chance = 50,
@@ -2917,9 +3013,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_FMJ",
-						stack_max = 60,
-						stack_min = 60,
+						stack_max = 64,
+						stack_min = 64,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Wirecutter",
@@ -2949,9 +3046,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x18_FMJ",
-						stack_max = 40,
-						stack_min = 40,
+						stack_max = 60,
+						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Parts",
@@ -2981,6 +3079,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 60,
 						stack_min = 60,
@@ -3013,9 +3112,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 60,
-						stack_min = 60,
+						stack_max = 90,
+						stack_min = 90,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Wirecutter",
@@ -3023,8 +3123,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_FlakM69",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						generate_chance = 50,
@@ -3045,6 +3147,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 68,
 						stack_min = 68,
@@ -3055,8 +3158,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_FlakM1955",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						generate_chance = 50,
@@ -3075,9 +3180,18 @@ return {
 						weapon = "Mosin",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_762x54_SNB",
+						negate = true,
 						stack_max = 30,
 						stack_min = 30,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "JAZZ_AMMO_762x54_LPS",
+						stack_max = 15,
+						stack_min = 15,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Wirecutter",
@@ -3090,8 +3204,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_FlakM1955",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -3105,9 +3221,18 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_762x39_PS",
+						negate = true,
 						stack_max = 40,
 						stack_min = 40,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "JAZZ_AMMO_762x39_FMJ",
+						stack_max = 30,
+						stack_min = 30,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Lockpick",
@@ -3125,8 +3250,10 @@ return {
 						stack_min = 20,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_FlakM69",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -3140,9 +3267,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_762x25_FMJ",
-						stack_max = 32,
-						stack_min = 32,
+						stack_max = 60,
+						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Wirecutter",
@@ -3160,8 +3288,10 @@ return {
 						stack_min = 30,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_FlakM1955",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -3175,9 +3305,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_762x54_LPS",
-						stack_max = 40,
-						stack_min = 40,
+						stack_max = 30,
+						stack_min = 30,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Wirecutter",
@@ -3195,8 +3326,10 @@ return {
 						stack_min = 20,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_FlakM69",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -3210,6 +3343,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x18_FMJ",
 						stack_max = 64,
 						stack_min = 64,
@@ -3223,8 +3357,10 @@ return {
 						item = "JazzArmor_UniformPants",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_Uniform",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -3238,6 +3374,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_JHP",
 						stack_max = 60,
 						stack_min = 60,
@@ -3251,8 +3388,10 @@ return {
 						item = "JazzArmor_UniformPants",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_Uniform",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -3261,24 +3400,30 @@ return {
 					id = "Igor25",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "ZastavaM92",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_762x39_PS",
-						stack_max = 30,
-						stack_min = 30,
+						negate = true,
+						stack_max = 60,
+						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "Makarov",
+						condition = "Difficulty VeryHard",
+						item = "Scorpion",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JAZZ_AMMO_9x18_FMJ",
-						stack_max = 32,
-						stack_min = 32,
+						stack_max = 40,
+						stack_min = 40,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Trench_Shovel",
@@ -3286,7 +3431,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_6B3",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_UniformPants",
@@ -3298,14 +3445,18 @@ return {
 					id = "Igor20",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "AKSU",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_545_HP",
-						stack_max = 30,
-						stack_min = 30,
+						negate = true,
+						stack_max = 60,
+						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Makarov",
@@ -3323,7 +3474,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_6B3",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_UniformPants",
@@ -3335,14 +3488,23 @@ return {
 					id = "Igor10",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "PP19Bizon",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "Scorpion",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x18_FMJ",
-						stack_max = 64,
-						stack_min = 64,
+						stack_max = 128,
+						stack_min = 128,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Trench_Shovel",
@@ -3353,7 +3515,9 @@ return {
 						item = "JazzArmor_UniformPants",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_6B3",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -3367,6 +3531,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_44CAL_FMJ",
 						stack_max = 24,
 						stack_min = 24,
@@ -3382,7 +3547,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_FlakM69",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -3396,6 +3563,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_FMJ",
 						stack_max = 28,
 						stack_min = 28,
@@ -3411,7 +3579,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_FlakM69",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -3425,6 +3595,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_FMJ",
 						stack_max = 28,
 						stack_min = 28,
@@ -3445,7 +3616,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_FlakM69",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -3474,12 +3647,15 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_FMJ",
 						stack_max = 60,
 						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_FlakM69",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -3488,12 +3664,17 @@ return {
 					id = "Grizzly50",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "Colt1911",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_45ACP_P",
+						negate = true,
 						stack_max = 30,
 						stack_min = 30,
 					}),
@@ -3503,11 +3684,13 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_Buckshot",
-						stack_max = 16,
-						stack_min = 16,
+						stack_max = 12,
+						stack_min = 12,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_APSlug",
 						stack_max = 4,
 						stack_min = 4,
@@ -3523,7 +3706,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_PASGT",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						generate_chance = 50,
@@ -3545,9 +3730,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_44CAL_JHP",
-						stack_max = 32,
-						stack_min = 32,
+						stack_max = 64,
+						stack_min = 64,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "FragGrenade",
@@ -3560,17 +3746,24 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "M60",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_762x51_FMJ",
+						negate = true,
 						stack_max = 50,
 						stack_min = 50,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_PASGT",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						generate_chance = 50,
@@ -3592,22 +3785,30 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_P",
-						stack_max = 30,
-						stack_min = 30,
+						stack_max = 28,
+						stack_min = 28,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "BAR",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_3006",
-						stack_max = 120,
-						stack_min = 120,
+						negate = true,
+						stack_max = 60,
+						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_PASGT",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						generate_chance = 50,
@@ -3630,6 +3831,7 @@ return {
 						weapon = "Thompson",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_P",
 						stack_max = 100,
 						stack_min = 100,
@@ -3640,7 +3842,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_PASGT",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						generate_chance = 50,
@@ -3660,9 +3864,10 @@ return {
 						weapon = "M3GreaseGun",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_P",
-						stack_max = 150,
-						stack_min = 150,
+						stack_max = 100,
+						stack_min = 100,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Machete",
@@ -3670,7 +3875,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_PASGT",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						generate_chance = 50,
@@ -3692,6 +3899,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_762x25_FMJ",
 						stack_max = 48,
 						stack_min = 48,
@@ -3755,9 +3963,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x18_FMJ",
-						stack_max = 60,
-						stack_min = 60,
+						stack_max = 80,
+						stack_min = 80,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "TNT",
@@ -3789,6 +3998,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x18_FMJ",
 						stack_max = 28,
 						stack_min = 28,
@@ -3813,9 +4023,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 32,
-						stack_min = 32,
+						stack_max = 64,
+						stack_min = 64,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "ShapedCharge",
@@ -3832,14 +4043,19 @@ return {
 					id = "Fidel50",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "Sterling",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 64,
-						stack_min = 64,
+						negate = true,
+						stack_max = 136,
+						stack_min = 136,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Luger",
@@ -3875,6 +4091,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 60,
 						stack_min = 60,
@@ -3913,12 +4130,17 @@ return {
 					id = "Fidel25",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "SPAS12",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_12gauge_Birdshot",
+						negate = true,
 						stack_max = 20,
 						stack_min = 20,
 					}),
@@ -3961,9 +4183,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 50,
-						stack_min = 30,
+						stack_max = 100,
+						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Luger",
@@ -4031,14 +4254,22 @@ return {
 					id = "Raven50",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "MP5A2",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						item = "Bereta92",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_JHP",
-						stack_max = 90,
-						stack_min = 90,
+						stack_max = 100,
+						stack_min = 100,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "M16Bayonet",
@@ -4066,15 +4297,19 @@ return {
 						stack_min = 3,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmorPlates_Kevlar",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						generate_chance = 10,
 						item = "JazzArmor_ESS",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_TwaronHelmHeavy",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -4083,15 +4318,32 @@ return {
 					id = "Raven35",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"JAZZ_CombatScope_3x",
 						},
 						weapon = "M16A2",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_556_M855",
+						negate = true,
 						stack_max = 60,
 						stack_min = 60,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "Glock17",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "JAZZ_AMMO_9x19_JHP",
+						stack_max = 34,
+						stack_min = 34,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "SmokeGrenade",
@@ -4114,19 +4366,25 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 10,
 						item = "JazzArmor_NVG1",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						generate_chance = 10,
 						item = "JazzArmor_ESS",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmorPlates_Twaron",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_ProTecHelm",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -4141,11 +4399,14 @@ return {
 						weapon = "Mini14",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_556_MK262",
-						stack_max = 20,
-						stack_min = 20,
+						negate = true,
+						stack_max = 40,
+						stack_min = 40,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_556_M855",
 						stack_max = 40,
 						stack_min = 40,
@@ -4170,15 +4431,21 @@ return {
 						item = "JazzArmor_ESS",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 10,
 						item = "JazzArmor_NVG1",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmorPlates_Twaron",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_ProTecHelm",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -4187,13 +4454,23 @@ return {
 					id = "Raven10",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"FlashlightDot",
 							"Compensator",
 						},
 						weapon = "MP5K",
 					}),
+					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						upgrades = {
+							"PistolSuppressor",
+						},
+						weapon = "BerettaM12",
+					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 90,
 						stack_min = 90,
@@ -4209,25 +4486,35 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_SWAT",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_SwatPads",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 10,
 						item = "JazzArmor_ESS",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmorPlates_Kevlar",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_TwaronHelmHeavy",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -4242,6 +4529,7 @@ return {
 						weapon = "P220",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_FMJ",
 						stack_max = 40,
 						stack_min = 40,
@@ -4257,8 +4545,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 15,
 						item = "JazzArmor_ZylonLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4282,9 +4572,10 @@ return {
 						weapon = "BerettaM12",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 64,
-						stack_min = 64,
+						stack_max = 128,
+						stack_min = 128,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_CamoKneePads",
@@ -4297,8 +4588,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 15,
 						item = "JazzArmor_ZylonLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4331,8 +4624,8 @@ return {
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JAZZ_AMMO_44CAL_JHP",
-						stack_max = 6,
-						stack_min = 6,
+						stack_max = 12,
+						stack_min = 12,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_CamoKneePads",
@@ -4345,8 +4638,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 15,
 						item = "JazzArmor_ZylonLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4367,15 +4662,22 @@ return {
 					id = "Thor20",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"PistolSuppressor",
 						},
 						weapon = "BerettaM12",
 					}),
+					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						weapon = "HiPower",
+					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 30,
-						stack_min = 30,
+						stack_max = 60,
+						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_CamoKneePads",
@@ -4388,8 +4690,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 15,
 						item = "JazzArmor_ZylonLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4410,18 +4714,28 @@ return {
 					id = "Wolf50",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"MagNormal",
 							"LaserDot",
 						},
 						weapon = "MP5K",
 					}),
+					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						weapon = "Agram2000",
+					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_9x19_AP",
+						negate = true,
 						stack_max = 30,
 						stack_min = 30,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 120,
 						stack_min = 120,
@@ -4453,19 +4767,32 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_TwaronHelm",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmorPlates_Twaron",
+						negate = true,
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						generate_chance = 50,
+						item = "JazzArmor_TwaronLight",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4481,11 +4808,13 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_Buckshot",
 						stack_max = 20,
 						stack_min = 20,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_Birdshot",
 						stack_max = 20,
 						stack_min = 20,
@@ -4522,19 +4851,32 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_GuardianLight",
-						stack_max = 1,
-						stack_min = 1,
-					}),
-					PlaceObj('LootEntryInventoryItem', {
-						generate_chance = 50,
-						item = "JazzArmorPlates_Twaron",
-						stack_max = 1,
-						stack_min = 1,
-					}),
-					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_TwaronHelm",
+						negate = true,
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "JazzArmor_GuardianLight",
+						negate = true,
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						generate_chance = 50,
+						item = "JazzArmorPlates_Twaron",
+						negate = true,
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						generate_chance = 50,
+						item = "JazzArmor_TwaronLight",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4550,9 +4892,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_556_M855",
-						stack_max = 60,
-						stack_min = 60,
+						stack_max = 40,
+						stack_min = 40,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "P220",
@@ -4586,19 +4929,32 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						generate_chance = 50,
-						item = "JazzArmorPlates_Twaron",
-						stack_max = 1,
-						stack_min = 1,
-					}),
-					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_TwaronHelm",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianLight",
+						negate = true,
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						generate_chance = 50,
+						item = "JazzArmorPlates_Twaron",
+						negate = true,
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						generate_chance = 50,
+						item = "JazzArmor_TwaronLight",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4614,9 +4970,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_AP",
-						stack_max = 240,
-						stack_min = 240,
+						stack_max = 150,
+						stack_min = 150,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "P220",
@@ -4635,19 +4992,32 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						generate_chance = 50,
+						item = "JazzArmor_TwaronHelm",
+						negate = true,
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "JazzArmor_GuardianLight",
+						negate = true,
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmorPlates_Twaron",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
-						item = "JazzArmor_GuardianHelm",
-						stack_max = 1,
-						stack_min = 1,
-					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_GuardianLight",
+						item = "JazzArmor_TwaronLight",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4663,12 +5033,15 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_FMJ",
-						stack_max = 120,
-						stack_min = 120,
+						stack_max = 150,
+						stack_min = 150,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_45ACP_P",
+						negate = true,
 						stack_max = 30,
 						stack_min = 30,
 					}),
@@ -4699,19 +5072,32 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						generate_chance = 50,
+						item = "JazzArmor_TwaronHelm",
+						negate = true,
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "JazzArmor_GuardianLight",
+						negate = true,
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmorPlates_Twaron",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
-						item = "JazzArmor_GuardianHelm",
-						stack_max = 1,
-						stack_min = 1,
-					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_GuardianLight",
+						item = "JazzArmor_TwaronLight",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4722,10 +5108,14 @@ return {
 					id = "Ice50",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						weapon = "BAR",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_3006",
+						negate = true,
 						stack_max = 120,
 						stack_min = 120,
 					}),
@@ -4736,8 +5126,8 @@ return {
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 13,
-						stack_min = 13,
+						stack_max = 26,
+						stack_min = 26,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Knife",
@@ -4745,8 +5135,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_SwatPads",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4765,12 +5157,15 @@ return {
 						weapon = "MAC10",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_FMJ",
-						stack_max = 60,
-						stack_min = 30,
+						stack_max = 90,
+						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "HE_Grenade",
+						negate = true,
 						stack_max = 2,
 						stack_min = 2,
 					}),
@@ -4786,7 +5181,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_FlakM69",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4797,15 +5194,24 @@ return {
 					id = "Ice25",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"BarrelShort",
 						},
 						weapon = "ColtAnaconda",
 					}),
+					PlaceObj('LootEntryUpgradedWeapon', {
+						upgrades = {
+							"BarrelShort",
+						},
+						weapon = "ColtPeacemaker",
+					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_44CAL_JHP",
-						stack_max = 30,
-						stack_min = 30,
+						stack_max = 24,
+						stack_min = 24,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "HE_Grenade",
@@ -4818,8 +5224,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_SwatPads",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4838,9 +5246,10 @@ return {
 						weapon = "M1Garand",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_3006",
-						stack_max = 64,
-						stack_min = 64,
+						stack_max = 30,
+						stack_min = 30,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "FragGrenade",
@@ -4853,8 +5262,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_SwatPads",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4873,6 +5284,7 @@ return {
 						weapon = "DesertEagle",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_44CAL_FMJ",
 						stack_max = 28,
 						stack_min = 28,
@@ -4888,8 +5300,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_SwatPads",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4920,8 +5334,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_ZylonLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4938,9 +5354,10 @@ return {
 						weapon = "MP5K",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 45,
-						stack_min = 30,
+						stack_max = 60,
+						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "EndlessKnives",
@@ -4953,8 +5370,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_ZylonLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4991,8 +5410,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_ZylonLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -5016,18 +5437,27 @@ return {
 						stack_min = 3,
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						weapon = "Colt1911",
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						weapon = "Colt1911",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_45ACP_P",
-						stack_max = 68,
-						stack_min = 68,
+						negate = true,
+						stack_max = 36,
+						stack_min = 36,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_TwaronLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -5041,22 +5471,28 @@ return {
 						weapon = "BAR",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_3006",
-						stack_max = 80,
-						stack_min = 80,
+						stack_max = 40,
+						stack_min = 40,
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"BarrelShort",
 						},
 						weapon = "ColtAnaconda",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_44CAL_FMJ",
+						negate = true,
 						stack_max = 18,
 						stack_min = 18,
 					}),
 					PlaceObj('LootEntryLootDef', {
+						condition = "Difficulty Normal",
 						loot_def = "LegionStrong_Pistol",
 						weight = 10000,
 					}),
@@ -5072,13 +5508,17 @@ return {
 					id = "Meltdown25",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"BarrelShort",
 						},
 						weapon = "ColtAnaconda",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_44CAL_FMJ",
+						negate = true,
 						stack_max = 24,
 						stack_min = 24,
 					}),
@@ -5087,7 +5527,9 @@ return {
 						weight = 10000,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -5098,6 +5540,8 @@ return {
 					id = "Meltdown20",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"Barrel50BMG_DesertEagle",
 						},
@@ -5115,7 +5559,9 @@ return {
 						stack_min = 24,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -5126,10 +5572,14 @@ return {
 					id = "Meltdown10",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						weapon = "M79",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_40mmFragGrenade",
+						negate = true,
 						stack_max = 6,
 						stack_min = 6,
 					}),
@@ -5140,11 +5590,13 @@ return {
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 100,
-						stack_min = 100,
+						stack_max = 50,
+						stack_min = 50,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_TwaronLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -5155,12 +5607,28 @@ return {
 					id = "Buns50",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "Mini14",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_556_M856_Tracer",
-						stack_max = 120,
-						stack_min = 120,
+						negate = true,
+						stack_max = 30,
+						stack_min = 30,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "P210",
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
+						item = "JAZZ_AMMO_9x19_FMJ",
+						stack_max = 30,
+						stack_min = 30,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_LeatherVest",
@@ -5182,7 +5650,9 @@ return {
 						stack_min = 20,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_ZylonLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -5199,14 +5669,17 @@ return {
 						weapon = "USP45",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_ZylonLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_JHP",
-						stack_max = 45,
-						stack_min = 45,
+						stack_max = 60,
+						stack_min = 60,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -5218,12 +5691,15 @@ return {
 						weapon = "M45",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 60,
-						stack_min = 60,
+						stack_max = 90,
+						stack_min = 90,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_FlakM1955",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -5234,10 +5710,15 @@ return {
 					id = "Buns10",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"MagNormal",
 						},
 						weapon = "TMP",
+					}),
+					PlaceObj('LootEntryUpgradedWeapon', {
+						weapon = "Bereta92",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JAZZ_AMMO_9x19_FMJ",
@@ -5245,7 +5726,9 @@ return {
 						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_FlakM1955",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -5256,12 +5739,17 @@ return {
 					id = "Grunty50",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "DP27",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_762x54_BZT",
-						stack_max = 108,
-						stack_min = 108,
+						negate = true,
+						stack_max = 54,
+						stack_min = 54,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Glock17",
@@ -5283,12 +5771,19 @@ return {
 					id = "Grunty35",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "UMP45",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "M3GreaseGun",
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_FMJ",
-						stack_max = 50,
-						stack_min = 50,
+						stack_max = 100,
+						stack_min = 100,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "FragGrenade",
@@ -5301,7 +5796,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_FlakM1955",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -5317,12 +5814,17 @@ return {
 					id = "Grunty25",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						weapon = "BAR",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_3006",
-						stack_max = 100,
-						stack_min = 100,
+						negate = true,
+						stack_max = 40,
+						stack_min = 40,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Glock17",
@@ -5335,7 +5837,9 @@ return {
 						stack_min = 34,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_FlakM1955",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -5346,6 +5850,8 @@ return {
 					id = "Grunty20",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"BarrelHeavy",
 							"Bipod",
@@ -5354,9 +5860,12 @@ return {
 						weapon = "FNFAL",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_762x51_M80",
-						stack_max = 40,
-						stack_min = 40,
+						negate = true,
+						stack_max = 60,
+						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Glock17",
@@ -5393,6 +5902,7 @@ return {
 						item = "Glock17",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 68,
 						stack_min = 68,
@@ -5408,7 +5918,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_SwatPads",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -5419,23 +5931,34 @@ return {
 					id = "Ivan50",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						weapon = "AK47",
 					}),
-					PlaceObj('LootEntryInventoryItem', {
-						guaranteed = true,
-						item = "JAZZ_AMMO_762x39_PS",
-						stack_max = 90,
-						stack_min = 90,
+					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						weapon = "Type56",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						guaranteed = true,
+						item = "JAZZ_AMMO_762x39_PS",
+						stack_max = 60,
+						stack_min = 60,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						guaranteed = true,
 						item = "JazzArmor_6B13",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmorPlates_Steel3",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "IvanUshanka",
@@ -5462,26 +5985,37 @@ return {
 					id = "Ivan35",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						guaranteed = true,
 						item = "JAZZ_AMMO_762x39_PS",
-						stack_max = 90,
-						stack_min = 90,
+						stack_max = 60,
+						stack_min = 60,
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"StockLightUnFolded",
 						},
 						weapon = "AKM",
 					}),
+					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						weapon = "ZastavaM92",
+					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						guaranteed = true,
 						item = "JazzArmor_6B13",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmorPlates_Steel3",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "IvanUshanka",
@@ -5508,16 +6042,23 @@ return {
 					id = "Ivan25",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						guaranteed = true,
 						item = "JAZZ_AMMO_762x39_PS",
 						stack_max = 60,
 						stack_min = 60,
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"JAZZ_Scope_PSO",
 						},
 						weapon = "AKM",
+					}),
+					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						weapon = "SKS",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						guaranteed = true,
@@ -5550,16 +6091,25 @@ return {
 					id = "Ivan20",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						guaranteed = true,
 						item = "JAZZ_AMMO_762x39_PS",
+						negate = true,
 						stack_max = 60,
 						stack_min = 60,
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"GP25",
 						},
 						weapon = "AKM",
+					}),
+					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						weapon = "M79",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						guaranteed = true,
@@ -5593,12 +6143,17 @@ return {
 					id = "Ivan10",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						guaranteed = true,
 						item = "JAZZ_AMMO_545_HP",
+						negate = true,
 						stack_max = 120,
 						stack_min = 120,
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"JAZZ_Reflex_PKAS",
 							"Compensator",
@@ -5644,6 +6199,8 @@ return {
 						weapon = "HiPower",
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"Compensator",
 							"MagNormalFine",
@@ -5656,9 +6213,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 65,
-						stack_min = 65,
+						stack_max = 60,
+						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "HE_Grenade",
@@ -5671,7 +6229,9 @@ return {
 						stack_min = 40,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_FlakM1955",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -5694,6 +6254,8 @@ return {
 						weapon = "Glock18",
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"Compensator",
 						},
@@ -5705,6 +6267,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 60,
 						stack_min = 30,
@@ -5720,7 +6283,9 @@ return {
 						stack_min = 2,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_FlakM1955",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -5740,6 +6305,8 @@ return {
 						weapon = "P226",
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						weapon = "P226",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
@@ -5748,6 +6315,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 60,
 						stack_min = 60,
@@ -5768,7 +6336,9 @@ return {
 						stack_min = 2,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_FlakM1955",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -5785,6 +6355,8 @@ return {
 					id = "Vicki20",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						weapon = "MAC10",
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
@@ -5796,6 +6368,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_FMJ",
 						stack_max = 60,
 						stack_min = 60,
@@ -5806,7 +6379,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_FlakM1955",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -5823,10 +6398,18 @@ return {
 					id = "Vicki10",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						weapon = "MP5K",
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						weapon = "MP5K",
+					}),
+					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						weapon = "CZ75",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Personal_Vicki_CustomTools",
@@ -5861,16 +6444,26 @@ return {
 					id = "Raider50",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"Flashlight",
 							"StockLightFolded",
 						},
 						weapon = "MP5A4",
 					}),
+					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						upgrades = {
+							"StockLightFolded",
+						},
+						weapon = "BerettaM12",
+					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_JHP",
-						stack_max = 60,
-						stack_min = 60,
+						stack_max = 90,
+						stack_min = 90,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "SmokeGrenade",
@@ -5893,7 +6486,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianHelm",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -5903,8 +6498,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmorPlates_Ceramics4",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_SwatPads",
@@ -5924,18 +6521,25 @@ return {
 					id = "Raider35",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"BarrelShortShotgun_Benelli",
 						},
 						weapon = "M41Shotgun",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_12gauge_APSlug",
+						negate = true,
 						stack_max = 12,
 						stack_min = 12,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_12gauge_Slug",
+						negate = true,
 						stack_max = 16,
 						stack_min = 16,
 					}),
@@ -5946,9 +6550,10 @@ return {
 						weapon = "Bereta92",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_JHP",
-						stack_max = 60,
-						stack_min = 60,
+						stack_max = 90,
+						stack_min = 90,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "ConcussiveGrenade",
@@ -5966,7 +6571,9 @@ return {
 						stack_min = 3,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianHelm",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -5976,8 +6583,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmorPlates_Ceramics4",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_SwatPads",
@@ -6000,11 +6609,13 @@ return {
 						weapon = "R870",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_APSlug",
 						stack_max = 6,
 						stack_min = 6,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_Slug",
 						stack_max = 12,
 						stack_min = 12,
@@ -6016,9 +6627,10 @@ return {
 						weapon = "Bereta92",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_JHP",
-						stack_max = 60,
-						stack_min = 60,
+						stack_max = 90,
+						stack_min = 90,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "ConcussiveGrenade",
@@ -6036,7 +6648,9 @@ return {
 						stack_min = 3,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianHelm",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -6046,8 +6660,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmorPlates_Ceramics4",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_SwatPads",
@@ -6067,10 +6683,15 @@ return {
 					id = "Raider20",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						weapon = "P90",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_57_FMJ",
+						negate = true,
 						stack_max = 100,
 						stack_min = 100,
 					}),
@@ -6081,9 +6702,10 @@ return {
 						weapon = "Bereta92",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_JHP",
-						stack_max = 60,
-						stack_min = 60,
+						stack_max = 90,
+						stack_min = 90,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "ConcussiveGrenade",
@@ -6091,7 +6713,9 @@ return {
 						stack_min = 3,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianHelm",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -6101,8 +6725,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmorPlates_Ceramics4",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_SwatPads",
@@ -6128,9 +6754,10 @@ return {
 						weapon = "P220",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_JHP",
-						stack_max = 30,
-						stack_min = 30,
+						stack_max = 60,
+						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "ConcussiveGrenade",
@@ -6138,7 +6765,9 @@ return {
 						stack_min = 2,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianHelm",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -6148,8 +6777,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmorPlates_Ceramics4",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_SwatPads",
@@ -6169,6 +6800,7 @@ return {
 					id = "Tex50",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_44CAL_JHP",
 						stack_max = 64,
 						stack_min = 64,
@@ -6200,6 +6832,7 @@ return {
 					id = "Tex35",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_44CAL_Match",
 						stack_max = 64,
 						stack_min = 64,
@@ -6238,6 +6871,7 @@ return {
 					id = "Tex25",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_44CAL_FMJ",
 						stack_max = 64,
 						stack_min = 64,
@@ -6256,6 +6890,7 @@ return {
 						weapon = "M1897",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_Birdshot",
 						stack_max = 20,
 						stack_min = 20,
@@ -6283,6 +6918,7 @@ return {
 						weapon = "DoubleBarrelShotgun",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_Saltshot",
 						stack_max = 20,
 						stack_min = 20,
@@ -6322,6 +6958,7 @@ return {
 						weapon = "M1897",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_Buckshot",
 						stack_max = 24,
 						stack_min = 24,
@@ -6363,10 +7000,15 @@ return {
 					id = "Nails25",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						weapon = "Colt1911",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_45ACP_JHP",
+						negate = true,
 						stack_max = 42,
 						stack_min = 42,
 					}),
@@ -6417,11 +7059,13 @@ return {
 						weapon = "Ithaca",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_Buckshot",
 						stack_max = 24,
 						stack_min = 24,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_Saltshot",
 						stack_max = 12,
 						stack_min = 12,
@@ -6483,8 +7127,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmor_NVG1",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -6524,12 +7170,6 @@ return {
 						stack_max = 1,
 						stack_min = 1,
 					}),
-					PlaceObj('LootEntryInventoryItem', {
-						generate_chance = 50,
-						item = "JazzArmor_NVG1",
-						stack_max = 1,
-						stack_min = 1,
-					}),
 				}),
 				PlaceObj('ModItemLootDef', {
 					Comment = "merc",
@@ -6537,10 +7177,15 @@ return {
 					id = "Red50",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						weapon = "Sterling",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_9x19_FMJ",
+						negate = true,
 						stack_max = 68,
 						stack_min = 68,
 					}),
@@ -6602,6 +7247,7 @@ return {
 						weapon = "Thompson",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_FMJ",
 						stack_max = 60,
 						stack_min = 60,
@@ -6636,6 +7282,7 @@ return {
 						weapon = "M45",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 60,
 						stack_min = 60,
@@ -6673,6 +7320,7 @@ return {
 						weapon = "Colt1911",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_FMJ",
 						stack_max = 56,
 						stack_min = 56,
@@ -6683,7 +7331,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_ZylonLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -6708,9 +7358,10 @@ return {
 						weapon = "ZastavaM76",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_792_FMJ",
-						stack_max = 60,
-						stack_min = 60,
+						stack_max = 20,
+						stack_min = 20,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_SwatPads",
@@ -6718,7 +7369,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_ZylonLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -6743,9 +7396,10 @@ return {
 						weapon = "FRF2",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_762x51_M118LR",
-						stack_max = 30,
-						stack_min = 30,
+						stack_max = 10,
+						stack_min = 10,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_SwatPads",
@@ -6753,7 +7407,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_ZylonLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -6778,9 +7434,10 @@ return {
 						weapon = "G3SniperV1",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_762x51_M118LR",
-						stack_max = 30,
-						stack_min = 30,
+						stack_max = 10,
+						stack_min = 10,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_SwatPads",
@@ -6788,7 +7445,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_ZylonLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -6804,25 +7463,37 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_556_M855",
-						stack_max = 60,
-						stack_min = 60,
+						stack_max = 40,
+						stack_min = 40,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Medkit",
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_RBA",
+						negate = true,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_PASGTHelm",
+						negate = true,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmorPlates_Titan3",
+						negate = true,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "JazzArmor_FlakM1955",
+						stack_min = 1,
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
 						weapon = "Colt1911",
@@ -6852,9 +7523,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_762x51_FMJ",
-						stack_max = 60,
-						stack_min = 60,
+						stack_max = 40,
+						stack_min = 40,
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
 						weapon = "Colt1911",
@@ -6883,16 +7555,27 @@ return {
 						stack_min = 3,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_RBA",
+						negate = true,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_PASGTHelm",
+						negate = true,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmorPlates_Titan3",
+						negate = true,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "JazzArmor_FlakM1955",
+						stack_min = 1,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -6901,12 +7584,16 @@ return {
 					id = "Gus25",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "M60E3",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_762x51_M80",
+						negate = true,
 						stack_max = 100,
 						stack_min = 100,
 					}),
@@ -6928,16 +7615,27 @@ return {
 						stack_min = 2,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_RBA",
+						negate = true,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_PASGTHelm",
+						negate = true,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmorPlates_Titan3",
+						negate = true,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "JazzArmor_FlakM1955",
+						stack_min = 1,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -6949,6 +7647,7 @@ return {
 						weapon = "M3GreaseGun",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_FMJ",
 						stack_max = 60,
 						stack_min = 60,
@@ -6963,16 +7662,27 @@ return {
 						stack_min = 2,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_RBA",
+						negate = true,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_PASGTHelm",
+						negate = true,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						generate_chance = 50,
 						item = "JazzArmorPlates_Titan3",
+						negate = true,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "JazzArmor_FlakM1955",
+						stack_min = 1,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -6984,6 +7694,7 @@ return {
 						weapon = "USAS12",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_Slug",
 						stack_max = 30,
 						stack_min = 30,
@@ -7008,14 +7719,20 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianHelm",
+						negate = true,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianLegs",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmorPlates_Titan3",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -7024,6 +7741,7 @@ return {
 					id = "Magic35",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_FMJ",
 						stack_max = 90,
 						stack_min = 90,
@@ -7049,14 +7767,20 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianHelm",
+						negate = true,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianLegs",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmorPlates_Titan3",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -7065,6 +7789,7 @@ return {
 					id = "Magic25",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_556_M855",
 						stack_max = 60,
 						stack_min = 60,
@@ -7082,14 +7807,20 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianHelm",
+						negate = true,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianLegs",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmorPlates_Titan3",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -7101,6 +7832,7 @@ return {
 						weapon = "AA12",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_APSlug",
 						stack_max = 30,
 						stack_min = 30,
@@ -7121,18 +7853,24 @@ return {
 						stack_min = 2,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_GuardianMedium",
-						stack_min = 1,
+						condition = "Difficulty VeryHard",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianHelm",
+						negate = true,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianLegs",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmorPlates_Titan3",
+						negate = true,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -7146,6 +7884,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 100,
 						stack_min = 100,
@@ -7156,7 +7895,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_PASGTHelm",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -7192,6 +7933,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_FMJ",
 						stack_max = 100,
 						stack_min = 100,
@@ -7202,7 +7944,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_PASGTHelm",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -7238,6 +7982,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_Slug",
 						stack_max = 24,
 						stack_min = 24,
@@ -7273,7 +8018,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_PASGTHelm",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -7289,11 +8036,20 @@ return {
 					id = "Scully20",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "M4A1",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "CAR15",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_556_M855",
 						stack_max = 60,
 						stack_min = 60,
@@ -7319,7 +8075,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_PASGTHelm",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -7340,6 +8098,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_545_PS",
 						stack_max = 60,
 						stack_min = 60,
@@ -7365,7 +8124,9 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_PASGTHelm",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -7386,6 +8147,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_JHP",
 						stack_max = 150,
 						stack_min = 150,
@@ -7430,6 +8192,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_AP",
 						stack_max = 60,
 						stack_min = 60,
@@ -7474,6 +8237,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_792_FMJ",
 						stack_max = 40,
 						stack_min = 40,
@@ -7521,9 +8285,10 @@ return {
 						upgrades = {
 							"JAZZ_Scope_12x",
 						},
-						weapon = "M21",
+						weapon = "M1A",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_762x51_M80",
 						stack_max = 30,
 						stack_min = 30,
@@ -7617,6 +8382,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_556_M855",
 						stack_max = 90,
 						stack_min = 90,
@@ -7650,6 +8416,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_762x54_LPS",
 						stack_max = 20,
 						stack_min = 20,
@@ -7683,6 +8450,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_762x51_FMJ",
 						stack_max = 30,
 						stack_min = 30,
@@ -7716,6 +8484,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 120,
 						stack_min = 120,
@@ -7790,6 +8559,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_57_FMJ",
 						stack_max = 60,
 						stack_min = 60,
@@ -7828,6 +8598,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 90,
 						stack_min = 60,
@@ -7862,6 +8633,7 @@ return {
 						weapon = "USP45",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_JHP",
 						stack_max = 48,
 						stack_min = 48,
@@ -7906,6 +8678,7 @@ return {
 						weapon = "Bereta92",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_Match",
 						stack_max = 32,
 						stack_min = 32,
@@ -7934,12 +8707,22 @@ return {
 					id = "Shadow10",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"SuppressorImproved",
 						},
 						weapon = "M4A1",
 					}),
+					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						upgrades = {
+							"SuppressorImproved",
+						},
+						weapon = "CAR15",
+					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_556_M855",
 						stack_max = 90,
 						stack_min = 90,
@@ -7988,6 +8771,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_762x51_M80",
 						stack_max = 30,
 						stack_min = 20,
@@ -8025,6 +8809,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_762x51_M118LR",
 						stack_max = 30,
 						stack_min = 20,
@@ -8062,11 +8847,13 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_762x51_M62Tracer",
 						stack_max = 20,
 						stack_min = 20,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_762x51_M118LR",
 						stack_max = 10,
 						stack_min = 10,
@@ -8104,6 +8891,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 136,
 						stack_min = 136,
@@ -8131,17 +8919,22 @@ return {
 						weapon = "Type56",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_762x39_FMJ",
 						stack_max = 120,
 						stack_min = 120,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_6B13",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmorPlates_Steel4",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -8167,6 +8960,7 @@ return {
 						weapon = "AK47",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_762x39_PS",
 						stack_max = 90,
 						stack_min = 90,
@@ -8177,12 +8971,16 @@ return {
 						stack_min = 3,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_6B13",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmorPlates_Steel4",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -8216,12 +9014,16 @@ return {
 						stack_min = 3,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_6B13",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmorPlates_Steel4",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -8236,12 +9038,16 @@ return {
 					id = "Fauda20",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "Zastava_M70",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_762x39_Tracer",
+						negate = true,
 						stack_max = 60,
 						stack_min = 60,
 					}),
@@ -8255,12 +9061,16 @@ return {
 						stack_min = 6,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_6B13",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmorPlates_Steel4",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -8275,12 +9085,16 @@ return {
 					id = "Fauda10",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "RPD",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JAZZ_AMMO_762x39_US",
+						negate = true,
 						stack_max = 200,
 						stack_min = 200,
 					}),
@@ -8294,12 +9108,16 @@ return {
 						stack_min = 6,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_6B13",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmorPlates_Steel4",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -8321,6 +9139,7 @@ return {
 						weapon = "CAR15",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						guaranteed = true,
 						item = "JAZZ_AMMO_556_M855",
 						stack_max = 60,
@@ -8363,6 +9182,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						guaranteed = true,
 						item = "JAZZ_AMMO_556_M855",
 						stack_max = 40,
@@ -8404,6 +9224,7 @@ return {
 						weapon = "M3GreaseGun",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_45ACP_FMJ",
 						stack_max = 60,
 						stack_min = 60,
@@ -8441,6 +9262,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						guaranteed = true,
 						item = "JAZZ_AMMO_556_FMJ",
 						stack_max = 60,
@@ -8487,6 +9309,7 @@ return {
 						item = "R870",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_12gauge_Buckshot",
 						stack_max = 20,
 						stack_min = 20,
@@ -8516,6 +9339,7 @@ return {
 						item = "Bereta92",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 48,
 						stack_min = 48,
@@ -8542,9 +9366,16 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "MP5K",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "P210",
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 90,
 						stack_min = 90,
@@ -8566,7 +9397,13 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "TMP",
+						negate = true,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "UZI",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JAZZ_AMMO_9x19_FMJ",
@@ -8608,9 +9445,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_556_M855",
-						stack_max = 60,
-						stack_min = 60,
+						stack_max = 40,
+						stack_min = 40,
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
 						upgrades = {
@@ -8643,9 +9481,10 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_3006",
-						stack_max = 60,
-						stack_min = 60,
+						stack_max = 40,
+						stack_min = 40,
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
 						upgrades = {
@@ -8678,6 +9517,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_556_M855",
 						stack_max = 40,
 						stack_min = 40,
@@ -8708,9 +9548,10 @@ return {
 						stack_min = 2,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_762x39_FMJ",
-						stack_max = 60,
-						stack_min = 60,
+						stack_max = 30,
+						stack_min = 30,
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
 						weapon = "SKS",
@@ -8722,12 +9563,20 @@ return {
 					id = "JAZZ_Buzz50",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianLegs",
+						negate = true,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "JazzArmor_FlakM1955",
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
 						upgrades = {
@@ -8737,6 +9586,7 @@ return {
 						weapon = "FAMAS",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_556_FMJ",
 						stack_max = 120,
 						stack_min = 120,
@@ -8748,17 +9598,32 @@ return {
 					id = "JAZZ_Buzz35",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianLegs",
-					}),
-					PlaceObj('LootEntryUpgradedWeapon', {
-						weapon = "MP5A4",
+						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "JazzArmor_FlakM1955",
+					}),
+					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
+						weapon = "MP5A4",
+					}),
+					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						weapon = "MPL",
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 120,
 						stack_min = 120,
@@ -8770,20 +9635,29 @@ return {
 					id = "JAZZ_Buzz25",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianLegs",
+						negate = true,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "JazzArmor_FlakM1955",
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
 						weapon = "U100",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_556_FMJ",
-						stack_max = 150,
-						stack_min = 150,
+						stack_max = 60,
+						stack_min = 60,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -8792,24 +9666,177 @@ return {
 					id = "JAZZ_Buzz20",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianLight",
+						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
 						item = "JazzArmor_GuardianLegs",
+						negate = true,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "JazzArmor_FlakM1955",
 					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						negate = true,
 						upgrades = {
 							"BarrelShortRunNGun",
 							"JAZZ_Reflex_Aimpoint5000",
 						},
 						weapon = "HK33",
 					}),
+					PlaceObj('LootEntryUpgradedWeapon', {
+						condition = "Difficulty VeryHard",
+						weapon = "Mini14",
+					}),
 					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
 						item = "JAZZ_AMMO_556_FMJ",
-						stack_max = 150,
-						stack_min = 150,
+						stack_max = 120,
+						stack_min = 120,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "merc",
+					group = "Mercs",
+					id = "JAZZ_Spider50",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "ColtPeacemaker",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						item = "JAZZ_AMMO_44CAL_FMJ",
+						stack_max = 24,
+						stack_min = 24,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Meds",
+						stack_max = 50,
+						stack_min = 50,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "FirstAidKit",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "JazzArmor_FlakM69",
+						negate = true,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "merc",
+					group = "Mercs",
+					id = "JAZZ_Spider35",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Colt1911",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						item = "JAZZ_AMMO_45ACP_FMJ",
+						stack_max = 28,
+						stack_min = 28,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Meds",
+						stack_max = 30,
+						stack_min = 30,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "FirstAidKit",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "JazzArmor_FlakM69",
+						negate = true,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "merc",
+					group = "Mercs",
+					id = "JAZZ_Spider25",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Colt1911",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						item = "JAZZ_AMMO_45ACP_FMJ",
+						stack_max = 28,
+						stack_min = 28,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Meds",
+						stack_max = 30,
+						stack_min = 30,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "FirstAidKit",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Knife",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "JazzArmor_FlakM69",
+						negate = true,
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "merc",
+					group = "Mercs",
+					id = "JAZZ_Spider10",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Meds",
+						stack_max = 30,
+						stack_min = 30,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Medkit",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Knife",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "M3GreaseGun",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						item = "JAZZ_AMMO_45ACP_FMJ",
+						stack_max = 40,
+						stack_min = 40,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						condition = "Difficulty VeryHard",
+						item = "JazzArmor_FlakM69",
+						negate = true,
 					}),
 				}),
 				}),
@@ -10724,13 +11751,13 @@ return {
 							Prop = "JAZZ_Legion_T5",
 						}),
 					},
-					Hidden = true,
 					TCEs = {
 						PlaceObj('TriggeredConditionalEvent', {
 							Conditions = {
 								PlaceObj('PlayerControlSectors', {
-									Amount = 6,
+									Amount = 1,
 									Condition = ">=",
+									POIs = "Mine",
 								}),
 							},
 							Effects = {
@@ -10767,7 +11794,7 @@ return {
 						PlaceObj('TriggeredConditionalEvent', {
 							Conditions = {
 								PlaceObj('PlayerControlSectors', {
-									Amount = 4,
+									Amount = 3,
 									Condition = ">=",
 									POIs = "Mine",
 								}),
@@ -10790,6 +11817,11 @@ return {
 									QuestId = "04_Betrayal",
 									Value = true,
 								}),
+								PlaceObj('PlayerControlSectors', {
+									Amount = 4,
+									Condition = ">=",
+									POIs = "Mine",
+								}),
 							},
 							Effects = {
 								PlaceObj('QuestSetVariableNum', {
@@ -10801,6 +11833,7 @@ return {
 							Once = true,
 							ParamId = "JAZZ_Legion_T5",
 							QuestId = "JAZZ_LegionTier",
+							SequentialEffects = false,
 						}),
 					},
 					Variables = {
@@ -10845,6 +11878,7 @@ return {
 						group = "Enemy - General",
 						id = "Noob_9x19",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_9x19_FMJ",
 							stack_max = 20,
 							stack_min = 1,
@@ -10854,13 +11888,15 @@ return {
 						group = "Enemy - General",
 						id = "Strong_9x19",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T1",
 							item = "JAZZ_AMMO_9x19_FMJ",
-							stack_max = 45,
+							stack_max = 20,
 							stack_min = 1,
 							weight = 10000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -10870,11 +11906,12 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_9x19_JHP",
-							stack_max = 45,
+							stack_max = 10,
 							stack_min = 1,
 							weight = 2000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -10884,11 +11921,12 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_9x19_AP",
-							stack_max = 45,
+							stack_max = 10,
 							stack_min = 1,
 							weight = 3000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -10898,7 +11936,7 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_9x19_AP",
-							stack_max = 45,
+							stack_max = 20,
 							stack_min = 1,
 							weight = 3000,
 						}),
@@ -10907,27 +11945,31 @@ return {
 						group = "Enemy - General",
 						id = "Elite_9x19",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T1",
 							item = "JAZZ_AMMO_9x19_Match",
-							stack_max = 60,
+							stack_max = 40,
 							stack_min = 1,
 							weight = 15000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T1",
 							item = "JAZZ_AMMO_9x19_JHP",
-							stack_max = 60,
+							stack_max = 40,
 							stack_min = 1,
 							weight = 15000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T1",
 							item = "JAZZ_AMMO_9x19_AP",
-							stack_max = 60,
+							stack_max = 40,
 							stack_min = 1,
 							weight = 15000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -10937,7 +11979,7 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_9x19_AP",
-							stack_max = 60,
+							stack_max = 40,
 							stack_min = 1,
 							weight = 15000,
 						}),
@@ -10946,8 +11988,9 @@ return {
 						group = "Enemy - General",
 						id = "Noob_9x18",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_9x18_FMJ",
-							stack_max = 50,
+							stack_max = 10,
 							stack_min = 1,
 						}),
 					}),
@@ -10955,8 +11998,9 @@ return {
 						group = "Enemy - General",
 						id = "Noob_762x25",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x25_FMJ",
-							stack_max = 50,
+							stack_max = 10,
 							stack_min = 1,
 						}),
 					}),
@@ -10964,8 +12008,9 @@ return {
 						group = "Enemy - General",
 						id = "Noob_44Cal",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_44CAL_FMJ",
-							stack_max = 10,
+							stack_max = 5,
 							stack_min = 1,
 						}),
 					}),
@@ -10973,11 +12018,13 @@ return {
 						group = "Enemy - General",
 						id = "Strong_44Cal",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_44CAL_FMJ",
-							stack_max = 15,
+							stack_max = 10,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -10987,11 +12034,12 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_44CAL_JHP",
-							stack_max = 15,
+							stack_max = 10,
 							stack_min = 1,
 							weight = 2000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11001,7 +12049,7 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_44CAL_Match",
-							stack_max = 15,
+							stack_max = 10,
 							stack_min = 1,
 							weight = 3000,
 						}),
@@ -11010,18 +12058,21 @@ return {
 						group = "Enemy - General",
 						id = "Elite_44Cal",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_44CAL_FMJ",
-							stack_max = 20,
+							stack_max = 12,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T1",
 							item = "JAZZ_AMMO_44CAL_JHP",
-							stack_max = 20,
+							stack_max = 12,
 							stack_min = 1,
 							weight = 15000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11031,7 +12082,7 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_44CAL_Match",
-							stack_max = 20,
+							stack_max = 12,
 							stack_min = 1,
 							weight = 15000,
 						}),
@@ -11040,6 +12091,7 @@ return {
 						group = "Enemy - General",
 						id = "Noob_45ACP",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_45ACP_FMJ",
 							stack_max = 20,
 							stack_min = 1,
@@ -11049,11 +12101,13 @@ return {
 						group = "Enemy - General",
 						id = "Strong_45ACP",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_45ACP_FMJ",
-							stack_max = 30,
+							stack_max = 25,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11063,7 +12117,7 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_45ACP_JHP",
-							stack_max = 30,
+							stack_max = 25,
 							stack_min = 1,
 							weight = 2000,
 						}),
@@ -11072,25 +12126,29 @@ return {
 						group = "Enemy - General",
 						id = "Elite_45ACP",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_45ACP_FMJ",
-							stack_max = 60,
+							stack_max = 30,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T1",
 							item = "JAZZ_AMMO_45ACP_JHP",
-							stack_max = 60,
+							stack_max = 30,
 							stack_min = 1,
 							weight = 15000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T1",
 							item = "JAZZ_AMMO_45ACP_P",
-							stack_max = 60,
+							stack_max = 30,
 							stack_min = 1,
 							weight = 15000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11100,7 +12158,7 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_45ACP_P",
-							stack_max = 60,
+							stack_max = 30,
 							stack_min = 1,
 							weight = 15000,
 						}),
@@ -11109,8 +12167,9 @@ return {
 						group = "Enemy - General",
 						id = "Noob_50BMG",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_50BMG_Basic",
-							stack_max = 15,
+							stack_max = 5,
 							stack_min = 1,
 						}),
 					}),
@@ -11118,8 +12177,9 @@ return {
 						group = "Enemy - General",
 						id = "Noob_792",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_792_FMJ",
-							stack_max = 15,
+							stack_max = 5,
 							stack_min = 1,
 						}),
 					}),
@@ -11127,8 +12187,9 @@ return {
 						group = "Enemy - General",
 						id = "Noob_792_Machinegun",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_792_FMJ",
-							stack_max = 100,
+							stack_max = 30,
 							stack_min = 10,
 						}),
 					}),
@@ -11136,8 +12197,9 @@ return {
 						group = "Enemy - General",
 						id = "Noob_3006",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_3006",
-							stack_max = 16,
+							stack_max = 6,
 							stack_min = 1,
 						}),
 					}),
@@ -11145,8 +12207,9 @@ return {
 						group = "Enemy - General",
 						id = "Noob_3006_Machinegun",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_3006",
-							stack_max = 60,
+							stack_max = 20,
 							stack_min = 10,
 						}),
 					}),
@@ -11154,8 +12217,9 @@ return {
 						group = "Enemy - General",
 						id = "Strong_9x39",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_9x39_SP5",
-							stack_max = 30,
+							stack_max = 10,
 							stack_min = 1,
 						}),
 					}),
@@ -11163,12 +12227,14 @@ return {
 						group = "Enemy - General",
 						id = "Elite_9x39",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_9x39_SP5",
-							stack_max = 60,
+							stack_max = 40,
 							stack_min = 1,
 							weight = 5000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
 									Amount = 5,
@@ -11177,7 +12243,7 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_9x39_SP6",
-							stack_max = 60,
+							stack_max = 40,
 							stack_min = 1,
 						}),
 					}),
@@ -11185,8 +12251,9 @@ return {
 						group = "Enemy - General",
 						id = "Noob_762x39",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x39_FMJ",
-							stack_max = 20,
+							stack_max = 10,
 							stack_min = 1,
 						}),
 					}),
@@ -11194,12 +12261,14 @@ return {
 						group = "Enemy - General",
 						id = "Strong_762x39",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x39_FMJ",
 							stack_max = 30,
 							stack_min = 1,
 							weight = 10000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11209,11 +12278,12 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_762x39_US",
-							stack_max = 30,
+							stack_max = 20,
 							stack_min = 1,
 							weight = 3000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11223,11 +12293,12 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_762x39_PS",
-							stack_max = 30,
+							stack_max = 20,
 							stack_min = 1,
 							weight = 3000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11237,7 +12308,7 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_762x39_Tracer",
-							stack_max = 30,
+							stack_max = 20,
 							stack_min = 1,
 							weight = 3000,
 						}),
@@ -11246,11 +12317,13 @@ return {
 						group = "Enemy - General",
 						id = "Elite_762x39",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x39_FMJ",
 							stack_max = 60,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T2",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11265,6 +12338,7 @@ return {
 							weight = 3000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11279,6 +12353,7 @@ return {
 							weight = 3000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11297,8 +12372,9 @@ return {
 						group = "Enemy - General",
 						id = "Noob_762x51",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x51_FMJ",
-							stack_max = 20,
+							stack_max = 5,
 							stack_min = 1,
 						}),
 					}),
@@ -11306,8 +12382,9 @@ return {
 						group = "Enemy - General",
 						id = "Noob_762x51_Sniper",
 						PlaceObj('LootEntryInventoryItem', {
+							guaranteed = true,
 							item = "JAZZ_AMMO_762x51_FMJ",
-							stack_max = 10,
+							stack_max = 3,
 							stack_min = 1,
 						}),
 					}),
@@ -11315,20 +12392,23 @@ return {
 						group = "Enemy - General",
 						id = "Noob_762x51_Machinegun",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x51_FMJ",
-							stack_max = 70,
-							stack_min = 10,
+							stack_max = 5,
+							stack_min = 1,
 						}),
 					}),
 					PlaceObj('ModItemLootDef', {
 						group = "Enemy - General",
 						id = "Strong_762x51",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x51_FMJ",
-							stack_max = 30,
+							stack_max = 20,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11338,10 +12418,11 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_762x51_M80",
-							stack_max = 30,
+							stack_max = 20,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11351,7 +12432,7 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_762x51_M62Tracer",
-							stack_max = 30,
+							stack_max = 20,
 							stack_min = 1,
 						}),
 					}),
@@ -11359,11 +12440,13 @@ return {
 						group = "Enemy - General",
 						id = "Strong_762x51_Sniper",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x51_FMJ",
-							stack_max = 10,
+							stack_max = 5,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11373,10 +12456,11 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_762x51_M80",
-							stack_max = 10,
+							stack_max = 5,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11386,7 +12470,7 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_762x51_M62Tracer",
-							stack_max = 10,
+							stack_max = 5,
 							stack_min = 1,
 						}),
 					}),
@@ -11394,11 +12478,13 @@ return {
 						group = "Enemy - General",
 						id = "Strong_762x51_Machinegun",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x51_FMJ",
-							stack_max = 100,
+							stack_max = 40,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11408,10 +12494,11 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_762x51_M80",
-							stack_max = 100,
+							stack_max = 50,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11421,7 +12508,7 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_762x51_M62Tracer",
-							stack_max = 100,
+							stack_max = 50,
 							stack_min = 1,
 						}),
 					}),
@@ -11429,11 +12516,13 @@ return {
 						group = "Enemy - General",
 						id = "Elite_762x51",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x51_FMJ",
 							stack_max = 10,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11447,6 +12536,7 @@ return {
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11460,6 +12550,7 @@ return {
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11473,6 +12564,7 @@ return {
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11490,11 +12582,13 @@ return {
 						group = "Enemy - General",
 						id = "Elite_762x51_Sniper",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x51_FMJ",
 							stack_max = 10,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11508,6 +12602,7 @@ return {
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11521,6 +12616,7 @@ return {
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11534,6 +12630,7 @@ return {
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11551,11 +12648,13 @@ return {
 						group = "Enemy - General",
 						id = "Elite_762x51_Machinegun",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x51_FMJ",
-							stack_max = 200,
+							stack_max = 100,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11569,6 +12668,7 @@ return {
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11578,10 +12678,11 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_762x51_M62Tracer",
-							stack_max = 200,
+							stack_max = 100,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11595,6 +12696,7 @@ return {
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11612,8 +12714,9 @@ return {
 						group = "Enemy - General",
 						id = "Noob_762x54",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x54_LPS",
-							stack_max = 20,
+							stack_max = 3,
 							stack_min = 1,
 						}),
 					}),
@@ -11621,8 +12724,9 @@ return {
 						group = "Enemy - General",
 						id = "Noob_762x54_Machinegun",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x54_LPS",
-							stack_max = 200,
+							stack_max = 5,
 							stack_min = 1,
 						}),
 					}),
@@ -11630,11 +12734,13 @@ return {
 						group = "Enemy - General",
 						id = "Strong_762x54",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x54_LPS",
-							stack_max = 40,
+							stack_max = 10,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11644,10 +12750,11 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_762x54_Tracer",
-							stack_max = 30,
+							stack_max = 5,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11657,7 +12764,7 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_762x54_SNB",
-							stack_max = 10,
+							stack_max = 3,
 							stack_min = 1,
 						}),
 					}),
@@ -11665,11 +12772,13 @@ return {
 						group = "Enemy - General",
 						id = "Elite_762x54",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x54_LPS",
-							stack_max = 100,
+							stack_max = 20,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T2",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11683,6 +12792,7 @@ return {
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11696,6 +12806,7 @@ return {
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11713,11 +12824,13 @@ return {
 						group = "Enemy - General",
 						id = "Elite_762x54_Machinegun",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x54_LPS",
-							stack_max = 200,
+							stack_max = 100,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T2",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11727,10 +12840,11 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_762x54_Tracer",
-							stack_max = 200,
+							stack_max = 100,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11740,7 +12854,7 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_762x54_BZT",
-							stack_max = 10,
+							stack_max = 50,
 							stack_min = 1,
 						}),
 					}),
@@ -11748,8 +12862,9 @@ return {
 						group = "Enemy - General",
 						id = "Noob_556",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_556_FMJ",
-							stack_max = 30,
+							stack_max = 5,
 							stack_min = 1,
 						}),
 					}),
@@ -11757,8 +12872,9 @@ return {
 						group = "Enemy - General",
 						id = "Noob_556_Machinegun",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_556_FMJ",
-							stack_max = 100,
+							stack_max = 20,
 							stack_min = 1,
 						}),
 					}),
@@ -11766,11 +12882,13 @@ return {
 						group = "Enemy - General",
 						id = "Strong_556",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_556_FMJ",
-							stack_max = 60,
+							stack_max = 30,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11780,10 +12898,11 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_556_M855",
-							stack_max = 45,
+							stack_max = 30,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11793,7 +12912,7 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_556_M856_Tracer",
-							stack_max = 45,
+							stack_max = 30,
 							stack_min = 1,
 						}),
 					}),
@@ -11801,11 +12920,13 @@ return {
 						group = "Enemy - General",
 						id = "Strong_556_Machinegun",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_556_FMJ",
-							stack_max = 200,
+							stack_max = 100,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11815,10 +12936,11 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_556_M855",
-							stack_max = 100,
+							stack_max = 50,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11828,7 +12950,7 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_556_M856_Tracer",
-							stack_max = 100,
+							stack_max = 50,
 							stack_min = 1,
 						}),
 					}),
@@ -11836,11 +12958,13 @@ return {
 						group = "Enemy - General",
 						id = "Elite_556",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_556_FMJ",
-							stack_max = 120,
+							stack_max = 60,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11854,6 +12978,7 @@ return {
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11867,6 +12992,7 @@ return {
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11884,11 +13010,13 @@ return {
 						group = "Enemy - General",
 						id = "Elite_556_Machinegun",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_556_FMJ",
-							stack_max = 10,
+							stack_max = 100,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11898,10 +13026,11 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_556_M855",
-							stack_max = 10,
+							stack_max = 100,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11911,10 +13040,11 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_556_M856_Tracer",
-							stack_max = 10,
+							stack_max = 100,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11924,7 +13054,7 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_556_MK262",
-							stack_max = 10,
+							stack_max = 100,
 							stack_min = 1,
 						}),
 					}),
@@ -11932,8 +13062,9 @@ return {
 						group = "Enemy - General",
 						id = "Noob_545",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_545_HP",
-							stack_max = 30,
+							stack_max = 10,
 							stack_min = 1,
 						}),
 					}),
@@ -11941,11 +13072,13 @@ return {
 						group = "Enemy - General",
 						id = "Strong_545",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_545_HP",
-							stack_max = 60,
+							stack_max = 30,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11955,10 +13088,11 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_545_PS",
-							stack_max = 30,
+							stack_max = 20,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11968,7 +13102,7 @@ return {
 								}),
 							},
 							item = "JAZZ_AMMO_545_Tracer",
-							stack_max = 30,
+							stack_max = 20,
 							stack_min = 1,
 						}),
 					}),
@@ -11976,12 +13110,14 @@ return {
 						group = "Enemy - General",
 						id = "Elite_545",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T1",
 							item = "JAZZ_AMMO_545_PS",
 							stack_max = 45,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -11999,6 +13135,7 @@ return {
 						group = "Enemy - General",
 						id = "Noob_12g",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T2",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -12012,6 +13149,7 @@ return {
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T2",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -12025,11 +13163,13 @@ return {
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_12gauge_Saltshot",
 							stack_max = 5,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_12gauge_Birdshot",
 							stack_max = 15,
 							stack_min = 1,
@@ -12040,26 +13180,31 @@ return {
 						group = "Enemy - General",
 						id = "Strong_12g",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_12gauge_Birdshot",
 							stack_max = 10,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_12gauge_Buckshot",
 							stack_max = 10,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_12gauge_Saltshot",
 							stack_max = 10,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_12gauge_Slug",
 							stack_max = 10,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -12077,26 +13222,31 @@ return {
 						group = "Enemy - General",
 						id = "Elite_12g",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_12gauge_Birdshot",
 							stack_max = 10,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_12gauge_Buckshot",
 							stack_max = 10,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_12gauge_Saltshot",
 							stack_max = 10,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_12gauge_Slug",
 							stack_max = 10,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							game_conditions = {
 								PlaceObj('QuestIsVariableNum', {
@@ -12114,8 +13264,9 @@ return {
 						group = "Enemy - General",
 						id = "40mm",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_40mmFragGrenade",
-							stack_max = 3,
+							stack_max = 2,
 							stack_min = 1,
 						}),
 					}),
@@ -12123,6 +13274,7 @@ return {
 						group = "Enemy - General",
 						id = "RPG7Ammo",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "Warhead_Frag",
 							stack_max = 1,
 							stack_min = 1,
@@ -26540,6 +27692,29 @@ return {
 					PlaceObj('ModItemLootDef', {
 						Comment = "enemy legion",
 						group = "Enemy - Legion",
+						id = "Legion_T1Gren",
+						PlaceObj('LootEntryInventoryItem', {
+							item = "PipeBomb",
+							stack_max = 2,
+							stack_min = 1,
+							weight = 10000,
+						}),
+						PlaceObj('LootEntryInventoryItem', {
+							item = "HE_Grenade",
+							stack_max = 2,
+							stack_min = 1,
+							weight = 8000,
+						}),
+						PlaceObj('LootEntryInventoryItem', {
+							item = "FragGrenade",
+							stack_max = 2,
+							stack_min = 1,
+							weight = 2000,
+						}),
+					}),
+					PlaceObj('ModItemLootDef', {
+						Comment = "enemy legion",
+						group = "Enemy - Legion",
 						id = "Legion_T2Gren_chance",
 						PlaceObj('LootEntryInventoryItem', {
 							generate_chance = 20,
@@ -26554,6 +27729,29 @@ return {
 						PlaceObj('LootEntryInventoryItem', {
 							generate_chance = 20,
 							item = "FragGrenade",
+							weight = 15000,
+						}),
+					}),
+					PlaceObj('ModItemLootDef', {
+						Comment = "enemy legion",
+						group = "Enemy - Legion",
+						id = "Legion_T2Gren",
+						PlaceObj('LootEntryInventoryItem', {
+							item = "PipeBomb",
+							stack_max = 2,
+							stack_min = 1,
+							weight = 5000,
+						}),
+						PlaceObj('LootEntryInventoryItem', {
+							item = "HE_Grenade",
+							stack_max = 3,
+							stack_min = 2,
+							weight = 10000,
+						}),
+						PlaceObj('LootEntryInventoryItem', {
+							item = "FragGrenade",
+							stack_max = 3,
+							stack_min = 1,
 							weight = 15000,
 						}),
 					}),
@@ -27204,7 +28402,7 @@ return {
 						id = "LegionGrenadier",
 						loot = "all",
 						PlaceObj('LootEntryLootDef', {
-							loot_def = "Legion_T1Gren_chance",
+							loot_def = "Legion_T1Gren",
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "Legion_GrenadierNoob_Weapon",
@@ -27254,7 +28452,7 @@ return {
 						id = "LegionGrenadier_Stronger",
 						loot = "all",
 						PlaceObj('LootEntryLootDef', {
-							loot_def = "Legion_T2Gren_chance",
+							loot_def = "Legion_T2Gren",
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "Legion_GrenadierStrong_Weapon",
@@ -27284,7 +28482,10 @@ return {
 							loot_def = "LegionsExplosives",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							loot_def = "Legion_T2Gren_chance",
+							loot_def = "Legion_T2Gren",
+						}),
+						PlaceObj('LootEntryLootDef', {
+							loot_def = "Legion_T2Gren",
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "Legion_GrenadierStrong_Weapon",
@@ -27724,7 +28925,7 @@ return {
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryLootDef', {
-							loot_def = "Drop_Warhead",
+							loot_def = "RPG7Ammo",
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "Noob_GoonTorso",
@@ -27769,7 +28970,7 @@ return {
 							loot_def = "Noob_GoonHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							loot_def = "Drop_Warhead",
+							loot_def = "RPG7Ammo",
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "EnemyValuables_LowTier",
@@ -27787,7 +28988,7 @@ return {
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryLootDef', {
-							loot_def = "Drop_Warhead",
+							loot_def = "RPG7Ammo",
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "Legion_RocketeerStrong_Weapon",
@@ -27832,7 +29033,7 @@ return {
 							loot_def = "Elite_MeleeHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							loot_def = "Drop_Warhead",
+							loot_def = "RPG7Ammo",
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "EnemyValuables",
@@ -28584,15 +29785,15 @@ return {
 						group = "Enemy - General",
 						id = "Army_762x51",
 						PlaceObj('LootEntryInventoryItem', {
-							comment = "T4",
+							Double = true,
 							item = "JAZZ_AMMO_762x51_M80",
-							stack_max = 60,
+							stack_max = 20,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
-							comment = "T5",
+							Double = true,
 							item = "JAZZ_AMMO_762x51_M62Tracer",
-							stack_max = 60,
+							stack_max = 20,
 							stack_min = 1,
 						}),
 					}),
@@ -28600,15 +29801,17 @@ return {
 						group = "Enemy - General",
 						id = "Army_762x51_Sniper",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							item = "JAZZ_AMMO_762x51_M80",
-							stack_max = 10,
+							stack_max = 5,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							item = "JAZZ_AMMO_762x51_M118LR",
-							stack_max = 10,
+							stack_max = 5,
 							stack_min = 1,
 						}),
 					}),
@@ -28616,15 +29819,17 @@ return {
 						group = "Enemy - General",
 						id = "Army_762x51_Machinegun",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							item = "JAZZ_AMMO_762x51_M80",
-							stack_max = 150,
+							stack_max = 50,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							item = "JAZZ_AMMO_762x51_M62Tracer",
-							stack_max = 150,
+							stack_max = 50,
 							stack_min = 1,
 						}),
 					}),
@@ -28632,9 +29837,10 @@ return {
 						group = "Enemy - General",
 						id = "Army_762x51_Elite",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							item = "JAZZ_AMMO_762x51_M61",
-							stack_max = 60,
+							stack_max = 30,
 							stack_min = 1,
 						}),
 					}),
@@ -28642,14 +29848,16 @@ return {
 						group = "Enemy - General",
 						id = "Army_762x54",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x54_SNB",
-							stack_max = 10,
+							stack_max = 5,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "",
 							item = "JAZZ_AMMO_762x54_Tracer",
-							stack_max = 10,
+							stack_max = 5,
 							stack_min = 1,
 						}),
 					}),
@@ -28657,15 +29865,17 @@ return {
 						group = "Enemy - General",
 						id = "Army_762x54_Elite",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							item = "JAZZ_AMMO_762x54_SNB",
-							stack_max = 10,
+							stack_max = 5,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							item = "JAZZ_AMMO_762x54_BZT",
-							stack_max = 10,
+							stack_max = 5,
 							stack_min = 1,
 						}),
 					}),
@@ -28673,18 +29883,21 @@ return {
 						group = "Enemy - General",
 						id = "Army_762x54_Machinegun",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x54_LPS",
-							stack_max = 200,
+							stack_max = 50,
 							stack_min = 1,
 							weight = 3000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x54_Tracer",
-							stack_max = 200,
+							stack_max = 50,
 							stack_min = 1,
 							weight = 2000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "",
 							item = "JAZZ_AMMO_762x54_BZT",
 							stack_max = 50,
@@ -28695,15 +29908,17 @@ return {
 						group = "Enemy - General",
 						id = "Army_556",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							item = "JAZZ_AMMO_556_M855",
-							stack_max = 120,
+							stack_max = 40,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							item = "JAZZ_AMMO_556_M856_Tracer",
-							stack_max = 120,
+							stack_max = 40,
 							stack_min = 1,
 						}),
 					}),
@@ -28711,15 +29926,17 @@ return {
 						group = "Enemy - General",
 						id = "Army_556_Machinegun",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							item = "JAZZ_AMMO_556_M855",
-							stack_max = 200,
+							stack_max = 100,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T4",
 							item = "JAZZ_AMMO_556_M856_Tracer",
-							stack_max = 200,
+							stack_max = 100,
 							stack_min = 1,
 						}),
 					}),
@@ -28727,21 +29944,24 @@ return {
 						group = "Enemy - General",
 						id = "Army_556_Elite",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							item = "JAZZ_AMMO_556_M855",
-							stack_max = 120,
+							stack_max = 60,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T3",
 							item = "JAZZ_AMMO_556_M856_Tracer",
-							stack_max = 120,
+							stack_max = 60,
 							stack_min = 1,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							comment = "T5",
 							item = "JAZZ_AMMO_556_MK262",
-							stack_max = 40,
+							stack_max = 60,
 							stack_min = 1,
 							weight = 2000,
 						}),
@@ -28750,17 +29970,21 @@ return {
 						group = "Enemy - General",
 						id = "Army_12g",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_12gauge_APSlug",
 							stack_max = 10,
 							stack_min = 1,
+							weight = 4000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_12gauge_Buckshot",
 							stack_max = 10,
 							stack_min = 1,
-							weight = 2000,
+							weight = 10000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_12gauge_Slug",
 							stack_max = 10,
 							stack_min = 1,
@@ -28774,7 +29998,7 @@ return {
 							item = "JAZZ_AMMO_12gauge_APSlug",
 							stack_max = 10,
 							stack_min = 1,
-							weight = 2000,
+							weight = 10000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							item = "JAZZ_AMMO_12gauge_Buckshot",
@@ -31254,8 +32478,9 @@ return {
 						group = "Enemy - General",
 						id = "Adonis_45ACP",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_45ACP_P",
-							stack_max = 60,
+							stack_max = 30,
 							stack_min = 1,
 						}),
 					}),
@@ -31263,7 +32488,14 @@ return {
 						group = "Enemy - General",
 						id = "Adonis_12g",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_12gauge_APSlug",
+							stack_max = 10,
+							stack_min = 1,
+						}),
+						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
+							item = "JAZZ_AMMO_12gauge_Buckshot",
 							stack_max = 10,
 							stack_min = 1,
 						}),
@@ -31272,8 +32504,9 @@ return {
 						group = "Enemy - General",
 						id = "Adonis_9X19",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_9x19_AP",
-							stack_max = 60,
+							stack_max = 30,
 							stack_min = 1,
 						}),
 					}),
@@ -31281,8 +32514,9 @@ return {
 						group = "Enemy - General",
 						id = "Adonis_46",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_46_FMJ",
-							stack_max = 70,
+							stack_max = 40,
 							stack_min = 1,
 						}),
 					}),
@@ -31290,8 +32524,9 @@ return {
 						group = "Enemy - General",
 						id = "Adonis_57",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_57_FMJ",
-							stack_max = 100,
+							stack_max = 40,
 							stack_min = 1,
 						}),
 					}),
@@ -31299,8 +32534,9 @@ return {
 						group = "Enemy - General",
 						id = "Adonis_556",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_556_MK262",
-							stack_max = 120,
+							stack_max = 30,
 							stack_min = 1,
 						}),
 					}),
@@ -31308,8 +32544,9 @@ return {
 						group = "Enemy - General",
 						id = "Adonis_762x39",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x39_PS",
-							stack_max = 100,
+							stack_max = 50,
 							stack_min = 1,
 						}),
 					}),
@@ -31317,8 +32554,9 @@ return {
 						group = "Enemy - General",
 						id = "Adonis_556_Machinegun",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_556_MK262",
-							stack_max = 200,
+							stack_max = 60,
 							stack_min = 1,
 						}),
 					}),
@@ -31326,8 +32564,9 @@ return {
 						group = "Enemy - General",
 						id = "Adonis_762x51",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x51_M61",
-							stack_max = 60,
+							stack_max = 20,
 							stack_min = 1,
 						}),
 					}),
@@ -31335,8 +32574,9 @@ return {
 						group = "Enemy - General",
 						id = "Adonis_762x51_Machinegun",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x51_M61",
-							stack_max = 200,
+							stack_max = 20,
 							stack_min = 1,
 						}),
 					}),
@@ -31344,8 +32584,9 @@ return {
 						group = "Enemy - General",
 						id = "Adonis_762x51_Sniper",
 						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
 							item = "JAZZ_AMMO_762x51_M118LR",
-							stack_max = 10,
+							stack_max = 5,
 							stack_min = 1,
 						}),
 					}),
@@ -39630,7 +40871,7 @@ return {
 					'Group', "Ammo - Ordnance",
 					'Id', "_40mmFlashbangGrenade",
 					'object_class', "Ordnance",
-					'Icon', "UI/Icons/Items/40mm_flashbang_grenade",
+					'Icon', "Mod/e6L4ECj/Ammopics/TEST.png",
 					'DisplayName', T(725404168171, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade DisplayName]] "40-мм с/ш граната"),
 					'DisplayNamePlural', T(197284197871, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade DisplayNamePlural]] "40-мм с/ш гранаты"),
 					'Description', T(288672948029, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade Description]] "Светошумовой боеприпас для гранатометов калибра 40 мм."),
@@ -40248,6 +41489,30 @@ return {
 					PlaceObj('ModItemSoundPreset', {
 						group = "WEAPONS",
 						id = "BrowningM2HMG_shot_single",
+						loud_distance = 20000,
+						type = "Weapons",
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningM2_shot_dry1-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningM2_shot_dry2-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningM2_shot_dry3-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningM2_shot_dry4-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningM2_shot_dry5-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningM2_shot_dry6-01.opus",
+						}),
+					}),
+					PlaceObj('ModItemSoundPreset', {
+						group = "WEAPONS",
+						id = "BrowningM2HMG_shot_single-room",
 						loud_distance = 20000,
 						type = "Weapons",
 						PlaceObj('Sample', {
@@ -43222,7 +44487,6 @@ return {
 						id = "VSS_shot",
 						loud_distance = 20000,
 						type = "Weapons",
-						volume = 60,
 						PlaceObj('Sample', {
 							'file', "Mod/e6L4ECj/Sounds/vss/vss_shot_dry1-01.opus",
 						}),
@@ -43247,7 +44511,6 @@ return {
 						id = "VSS_shot-room",
 						loud_distance = 20000,
 						type = "Weapons_shootingRoom",
-						volume = 60,
 						PlaceObj('Sample', {
 							'file', "Mod/e6L4ECj/Sounds/vss/vss_shot_dry1-01.opus",
 						}),
@@ -55950,7 +57213,7 @@ return {
 					'CanAppearInShop', true,
 					'RestockWeight', 50,
 					'CategoryPair', "Grenade",
-					'MaxStacks', 1,
+					'MaxStacks', 3,
 					'MinMishapChance', 2,
 					'MaxMishapChance', 60,
 					'MinMishapRange', 1,
@@ -87657,7 +88920,7 @@ return {
 					
 						if groupingResult < 100 then
 							local cth = 100 - groupingResult
-							return true,  -cth, T("Влияние кучности оружия на дистанции ("..groupingResult..")")
+							return true,  -cth/2, T("Влияние кучности оружия на дистанции ("..groupingResult..")")
 						end
 					end
 					return false, 0
@@ -88014,6 +89277,14 @@ return {
 			PlaceObj('ModItemCode', {
 				'name', "CombatAI",
 				'CodeFileName', "Code/CombatAI.lua",
+			}),
+			PlaceObj('ModItemCode', {
+				'name', "AiAction_ThrowFlare",
+				'CodeFileName', "Code/AiAction_ThrowFlare.lua",
+			}),
+			PlaceObj('ModItemCode', {
+				'name', "Rato_CustomSeekCover",
+				'CodeFileName', "Code/Rato_CustomSeekCover.lua",
 			}),
 			}),
 		PlaceObj('ModItemFolder', {

@@ -5,7 +5,7 @@ DefineClass._40mmFlashbangGrenade = {
 
 
 	object_class = "Ordnance",
-	Icon = "UI/Icons/Items/40mm_flashbang_grenade",
+	Icon = "Mod/e6L4ECj/Ammopics/TEST.png",
 	DisplayName = T(725404168171, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade DisplayName]] "40-мм с/ш граната"),
 	DisplayNamePlural = T(197284197871, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade DisplayNamePlural]] "40-мм с/ш гранаты"),
 	Description = T(288672948029, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade Description]] "Светошумовой боеприпас для гранатометов калибра 40 мм."),

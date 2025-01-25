@@ -1,4 +1,4 @@
-const.AIFriendlyFire_MaxRange = 50 * const.SlabSizeX	-- max range to ally for it to be considered in danger
+const.AIFriendlyFire_MaxRange = 80 * const.SlabSizeX	-- max range to ally for it to be considered in danger
 const.AIFriendlyFire_LOFWidth = 1500*guic 					-- max distance from an ally to the line between position and target considered in danger
 const.AIFriendlyFire_LOFConeNear = 1500*guic 				-- same as above for cone attacks (near side of the cone, positioned at attacker)
 const.AIFriendlyFire_LOFConeFar = 2000*guic 				-- same as above for cone attacks (far side of the cone, positioned at AIFriendlyFire_MaxRange)
@@ -91,12 +91,12 @@ function AICreateContext(unit, context)
 	context.weapon = weapon
 	context.default_attack = default_attack
 	context.default_attack_cost = default_attack:GetAPCost(unit)
-	context.EffectiveRange = IsKindOf(weapon, "Firearm") and MulDivRound(weapon.BulletDropRange+weapon.WeaponRange, 50, 100) or MulDivRound(weapon.WeaponRange, 50, 100) or 1 
+	context.EffectiveRange = IsKindOf(weapon, "Firearm") and weapon.BulletDropRange and MulDivRound(weapon.BulletDropRange+weapon.WeaponRange, 50, 100) or IsKindOf(weapon, "Firearm") and MulDivRound(weapon.WeaponRange, 50, 100) or 1 
 	--if not IsKindOf(weapon,"SniperRifle") and GameState.DustStorm or GameState.FireStorm or GameState.Underground or GameState.Night or GameState.Fog then context.EffectiveRange = Min(context.unit:GetSightRadius(),context.EffectiveRange) end
 	if  IsKindOf(weapon, "Firearm") and (GameState.DustStorm or GameState.FireStorm or GameState.Underground or GameState.Night or GameState.Fog) then context.EffectiveRange = Min(context.unit:GetSightRadius(),context.EffectiveRange) end
 
 	--context.EffectiveRange = IsKindOf(weapon, "Firearm") and GetAccuracy80DistAim(weapon,unit) or 1
-	context.ExtremeRange = IsKindOf(weapon, "Firearm") and weapon.WeaponRange or 100
+	context.ExtremeRange = IsKindOf(weapon, "Firearm") and weapon.WeaponRange or 1
 	context.enemies = enemies
 	context.enemy_visible = {} -- [enemy] -> true/false
 	context.enemy_visible_by_team = {} -- [enemy] -> true/false
@@ -577,7 +577,7 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 	for _, policy in ipairs(policies) do
 		local peval = policy:EvalDest(context, dest, grid_voxel)
 		local pscore = MulDivRound(peval or 0, policy.Weight, 100)
-		local failed = policy.Required and pscore == 0
+		local failed = policy.Required and pscore <= 0
 		score = score + pscore
 		if score_details then
 			score_details[#score_details + 1] = (failed and "[FAILED] " or "") .. policy:GetEditorView()
@@ -1130,9 +1130,9 @@ function AIGetWeaponCheckRange(unit, weapon, action)
 		return range, true
 	elseif IsKindOf(weapon, "Firearm") then
 		local max_range = weapon.WeaponRange * const.SlabSizeX
-		--if action.AimType ~= "cone" then
-		--	max_range = 15 * max_range / 10
-		--end
+		if action.AimType ~= "cone" then
+			max_range = 15 * max_range / 10
+		end
 		return max_range
 	end
 end
@@ -1222,6 +1222,9 @@ function AIPrecalcConeTargetZones(context, action_id, additional_target_pt, stan
 	})
 	local action = CombatActions[action_id]
 	local args = { target_spot_group = false, aim = 4 }
+	if action.id == "MGSetup" then
+		return zones
+	end
 	for i, attack_data in ipairs(targets_attack_data) do
 		local target = targets[i]
 		local chance_to_hit = 0
@@ -1245,8 +1248,10 @@ function AIPrecalcConeTargetZones(context, action_id, additional_target_pt, stan
 	return zones
 end
 
+
+
 function AIPickScoutLocation(unit)
-	local AIScoutLocationSearchRadius = 100 * guim
+	local AIScoutLocationSearchRadius = 8 * guim
 
 	-- pick a new position around alive enemy randomly, prefer non-hidden enemies
 	local enemies = GetAllEnemyUnits(unit)

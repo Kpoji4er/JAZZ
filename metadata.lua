@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/3NHHXrHA2D",
 	},
-	'last_changes', "Балансные правки\nФиксы",
+	'last_changes', "Багофиксы",
 	'SpellCheck', true,
 	'ignore_files', {
 		"*.git/*",
@@ -34,7 +34,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 4,
-	'version', 4569,
+	'version', 4597,
 	'lua_revision', 233360,
 	'saved_with_revision', 350233,
 	'code', {
@@ -557,6 +557,8 @@ return PlaceObj('ModDef', {
 		"Code/InfiniteLoopFix.lua",
 		"Code/AiActions.lua",
 		"Code/CombatAI.lua",
+		"Code/AiAction_ThrowFlare.lua",
+		"Code/Rato_CustomSeekCover.lua",
 		"Code/System_LootDrops.lua",
 		"Code/System_OR_SquadBag.lua",
 		"Code/System_OR_ItemContainer.lua",
@@ -592,8 +594,8 @@ return PlaceObj('ModDef', {
 	},
 	'default_options', {},
 	'has_data', true,
-	'saved', 1735803404,
-	'code_hash', 4716065936287689528,
+	'saved', 1737832199,
+	'code_hash', -824490166680796696,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -953,6 +955,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "LootDef",
 			'Id', "Loot_JAZZ_Buzz",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "Loot_JAZZ_Spider",
 			'ClassDisplayName', "LootDef",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -1793,6 +1800,26 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "LootDef",
 			'Id', "JAZZ_Buzz20",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "JAZZ_Spider50",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "JAZZ_Spider35",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "JAZZ_Spider25",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "JAZZ_Spider10",
 			'ClassDisplayName', "LootDef",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -5027,7 +5054,17 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "LootDef",
+			'Id', "Legion_T1Gren",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
 			'Id', "Legion_T2Gren_chance",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "Legion_T2Gren",
 			'ClassDisplayName', "LootDef",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -8053,6 +8090,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "SoundPreset",
 			'Id', "BrowningM2HMG_shot_single",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "BrowningM2HMG_shot_single-room",
 			'ClassDisplayName', "Sound",
 		}),
 		PlaceObj('ModResourcePreset', {

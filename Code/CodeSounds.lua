@@ -3296,21 +3296,21 @@ PlaceObj('ActionFXSound', {
 
 
 PlaceObj('ActionFXInherit_Actor', {
-	Actor = "Bizon",
+	Actor = "PP19Bizon",
 	Inherit = "MP5",
 	group = "Weapons VFX",
 	id = "fxBizon",
 })
 PlaceObj('ActionFXRemove', {
 	Action = "WeaponFire",
-	Actor = "Bizon",
+	Actor = "PP19Bizon",
 	Moment = "start",
 	group = "Weapons VFX",
 	id = "8612833909699323100",
 })
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
-	Actor = "Bizon",
+	Actor = "PP19Bizon",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "bizon_shot",
@@ -3321,7 +3321,7 @@ PlaceObj('ActionFXSound', {
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponReload",
-	Actor = "Bizon",
+	Actor = "PP19Bizon",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "bizon_clipout",
@@ -3333,7 +3333,7 @@ PlaceObj('ActionFXSound', {
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponReload",
-	Actor = "Bizon",
+	Actor = "PP19Bizon",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "bizon_clipin",
