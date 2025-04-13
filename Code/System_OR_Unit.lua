@@ -354,7 +354,7 @@ function UnitProperties:EquipStartingGear(items)
 			end
 		end
 	end
-	print('reloading')
+	--print('reloading')
 	self:ForEachItemInSlot("Handheld A", "Firearm", reload_weapon)
 	self:ForEachItemInSlot("Handheld B", "Firearm", reload_weapon)
 	

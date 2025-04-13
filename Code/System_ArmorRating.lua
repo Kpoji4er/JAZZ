@@ -163,9 +163,9 @@ Armor.properties[#Armor.properties+1] = {
 
 Armor.properties[#Armor.properties+1] = {
     category = "New Armor System",
-    id = "BlockedEffectsChance",
-    name = "BlockedEffectsChance",
-    help = "% шанс заблочить эффект",
+    id = "StunGrenadeProtection",
+    name = "StunGrenadeProtection",
+    help = "% защиты от СШГ",
     editor = "number",
     default = 0,
     template = true,
@@ -177,15 +177,18 @@ Armor.properties[#Armor.properties+1] = {
 
 Armor.properties[#Armor.properties+1] = {
     category = "New Armor System",
-    id = "BlockedEffects",
-    name = "BlockedEffects",
-	editor = "preset_id_list",
-    help = "Блокируемые эффекты",
-    preset_class = "CharacterEffectCompositeDef",
-    preset_group = "Default",
+    id = "SuppressionProtection",
+    name = "SuppressionProtection",
+    help = "% защиты от Подавления",
+    editor = "number",
+    default = 0,
     template = true,
+    slider = true,
+    min = 0,
+    max = 100,
     modifiable = true
 }
+
 
 
 
@@ -235,6 +238,28 @@ function Armor:CalculateArmorRatingExplosive()
     return self.ExplosiveArmorRating *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100
 end
 
+function Armor:StunGrenadeProtection()  
+    return self.StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100
+end
+
+function Armor:SuppressionProtection()  
+    return self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100
+end
+
+function Unit:SuppressionProtection()
+	local SuppressionProtection = 0
+	self:ForEachItem("Armor", function(item, slot)
+		if slot ~= "Inventory" and item.SuppressionProtection then SuppressionProtection = SuppressionProtection + item:SuppressionProtection() end
+	end)
+	return SuppressionProtection
+end
+function Unit:StunGrenadeProtection()
+	local StunGrenadeProtection = 0
+	self:ForEachItem("Armor", function(item, slot)
+		if slot ~= "Inventory" and item.StunGrenadeProtection then StunGrenadeProtection = StunGrenadeProtection + item:StunGrenadeProtection() end
+	end)
+	return StunGrenadeProtection
+end
 
 
 
@@ -409,6 +434,12 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 	if hit.explosion then --and not self:HasStainType("Blood") then
 		local spot = GetRandomStainSpot()
 		self:AddStain("Soot", spot)
+
+		willPointsBaseDamage = MulDivRound(100-self:SuppressionProtection(),hit.damage,100)
+		self.WillPoints = self.WillPoints - willPointsDamage
+		self.WillPoints = Max(0,self.WillPoints)
+		self:ApplySuppressionStatus()
+
 	end
 		
 	if not invulnerable then

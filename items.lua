@@ -57174,7 +57174,7 @@ return {
 					'ItemType', "Grenade",
 					'DisplayName', T(143721324108, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade DisplayName]] "Светошумовая граната"),
 					'DisplayNamePlural', T(464879576172, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade DisplayNamePlural]] "Светошумовые гранаты"),
-					'AdditionalHint', T(339045500192, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ослепляет цель\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Отменяет ответный огонь и уменьшает бонусы от укрытия в центре взрыва\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумное"),
+					'AdditionalHint', T(339045500192, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ослепляет цель\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Отменяет ответный огонь и уменьшает бонусы от укрытия в центре взрыва\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Подавляет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумное"),
 					'UnitStat', "Explosives",
 					'Cost', 400,
 					'CanAppearInShop', true,
@@ -57191,6 +57191,7 @@ return {
 					'CenterAppliedEffects', {
 						"Exposed",
 						"Blinded",
+						"SuppressStunGrenade",
 					},
 					'CenterAreaOfEffect', 2,
 					'AreaUnitDamageMod', 0,
@@ -85570,6 +85571,27 @@ return {
 				'ShownSatelliteView', true,
 				'HasFloatingText', true,
 			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Group', "System",
+				'Id', "SuppressStunGrenade",
+				'Parameters', {},
+				'object_class', "CharacterEffect",
+				'unit_reactions', {},
+				'DisplayName', T(609065847626, --[[ModItemCharacterEffectCompositeDef SuppressStunGrenade DisplayName]] "Подавление гранатой"),
+				'Description', "",
+				'AddEffectText', T(319734703137, --[[ModItemCharacterEffectCompositeDef SuppressStunGrenade AddEffectText]] "<color EmStyle><DisplayName></color> без сознания"),
+				'RemoveEffectText', T(483912406649, --[[ModItemCharacterEffectCompositeDef SuppressStunGrenade RemoveEffectText]] "<color EmStyle><DisplayName></color> приходит в себя"),
+				'OnAdded', function (self, obj)
+					local willPointsDamage = 40
+					
+					obj.WillPoints = obj.WillPoints - MulDivRound(100-Unit:StunGrenadeProtection(),willPointsDamage,100)
+					obj:ApplySuppressionStatus()
+				end,
+				'OnRemoved', function (self, obj)  end,
+				'lifetime', "Until End of Turn",
+				'Icon', "UI/Hud/Status effects/unconscious",
+				'max_stacks', 2,
+			}),
 			}),
 		PlaceObj('ModItemFolder', {
 			'name', "TargetBodyParts",
@@ -88262,7 +88284,7 @@ return {
 					local cost = self:GetAPCost(unit, args)
 					
 					if cost < 0 then
-					--print("hidden") return "hidden" end
+					print("hidden") return "hidden" end
 					if not unit:UIHasAP(cost, self.id, args) then
 						return "disabled", AttackDisableReasons.NoAP
 					end
@@ -93313,10 +93335,46 @@ return {
 				'name', "AiAction_ThrowFlare",
 				'CodeFileName', "Code/AiAction_ThrowFlare.lua",
 			}),
-			PlaceObj('ModItemCode', {
-				'name', "Rato_CustomSeekCover",
-				'CodeFileName', "Code/Rato_CustomSeekCover.lua",
-			}),
+			PlaceObj('ModItemFolder', {
+				'name', "RatoAI",
+			}, {
+				PlaceObj('ModItemCode', {
+					'name', "Rato_AICreateContext",
+					'CodeFileName', "Code/Rato_AICreateContext.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "Rato_CustomSeekCover",
+					'CodeFileName', "Code/Rato_CustomSeekCover.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "Rato_CustomFlanking",
+					'CodeFileName', "Code/Rato_CustomFlanking.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "Rato_TryNotToBeFlanked",
+					'CodeFileName', "Code/Rato_TryNotToBeFlanked.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "Rato_MGSetupPosScore",
+					'CodeFileName', "Code/Rato_MGSetupPosScore.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "Rato_MGSetupAP",
+					'CodeFileName', "Code/Rato_MGSetupAP.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "Rato_GrenadeRange",
+					'CodeFileName', "Code/Rato_GrenadeRange.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "Rato_AvoidThreatenedAreas",
+					'CodeFileName', "Code/Rato_AvoidThreatenedAreas.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "RatoTARG_EnemyInCover",
+					'CodeFileName', "Code/RatoTARG_EnemyInCover.lua",
+				}),
+				}),
 			}),
 		PlaceObj('ModItemFolder', {
 			'name', "WeaponPropertyDef",
@@ -93878,7 +93936,7 @@ return {
 						SetCamera(cabinet_pos - point(-100, dist+500, 0), cabinet_pos, "Tac", nil, nil, camera.GetFovX())
 						cameraTac.SetZoom(400)
 					else
-						--print("no WeaponModPrefabCameraPos object in the weapon modification prefab")
+						print("no WeaponModPrefabCameraPos object in the weapon modification prefab")
 					end
 				end,
 				'RestorePrevScene', function (self)
@@ -94713,7 +94771,7 @@ return {
 						SetCamera(cabinet_pos - point(0, dist+1000, 0), cabinet_pos, "Tac", nil, nil, camera.GetFovX())
 						cameraTac.SetZoom(800)
 					else
-						--print("no WeaponModPrefabCameraPos object in the weapon modification prefab")
+						print("no WeaponModPrefabCameraPos object in the weapon modification prefab")
 					end
 				end,
 				'RestorePrevScene', function (self)
@@ -97434,6 +97492,62 @@ return {
 							}),
 							}),
 						PlaceObj('XTemplateTemplate', {
+							'comment', "Stun",
+							'__condition', function (parent, context) local cnt = ResolvePropObj(context); return  IsKindOf(cnt, "Armor") and cnt.StunGrenadeProtection~=0 end,
+							'__template', "RolloverPropTextRight",
+							'OnLayoutComplete', function (self)
+								self.idPropVal:SetTextStyle("PDABrowserFlavorMedium")
+								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
+							end,
+							'BindTo', "CamouflagePercent",
+							'Text', T(245759466344, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+							'PercentValue', true,
+						}, {
+							PlaceObj('XTemplateFunc', {
+								'name', "Open(self,...)",
+								'func', function (self,...)
+									self.idPropVal:SetTextStyle("PDABrowserFlavorMedium")
+									self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
+									XPropControl.Open(self,...)
+									
+									
+									local cnt = ResolvePropObj(self.context);
+									local text1 = cnt.StunGrenadeProtection
+									
+									self.idPropVal:SetNameText(T(5623869723891118821, "Защита от СШГ"))
+									self.idPropVal:SetValueText(T{54113904164711288, "<text1>%", text1 = text1})
+								end,
+							}),
+							}),
+						PlaceObj('XTemplateTemplate', {
+							'comment', "Suppression",
+							'__condition', function (parent, context) local cnt = ResolvePropObj(context); return  IsKindOf(cnt, "Armor") and cnt.SuppressionProtection~=0 end,
+							'__template', "RolloverPropTextRight",
+							'OnLayoutComplete', function (self)
+								self.idPropVal:SetTextStyle("PDABrowserFlavorMedium")
+								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
+							end,
+							'BindTo', "CamouflagePercent",
+							'Text', T(245759466344, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+							'PercentValue', true,
+						}, {
+							PlaceObj('XTemplateFunc', {
+								'name', "Open(self,...)",
+								'func', function (self,...)
+									self.idPropVal:SetTextStyle("PDABrowserFlavorMedium")
+									self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
+									XPropControl.Open(self,...)
+									
+									
+									local cnt = ResolvePropObj(self.context);
+									local text1 = cnt.StunGrenadeProtection
+									
+									self.idPropVal:SetNameText(T(5623869723891118822, "Сопротивление подавлению"))
+									self.idPropVal:SetValueText(T{54113904164711288, "<text1>%", text1 = text1})
+								end,
+							}),
+							}),
+						PlaceObj('XTemplateTemplate', {
 							'comment', "Canholdplate",
 							'__condition', function (parent, context) local cnt = ResolvePropObj(context); return  IsKindOf(cnt, "Armor") and (cnt.Slot == "Torso" or not  cnt.Slot) and cnt.CanHoldPlate end,
 							'__template', "RolloverPropTextRight",
@@ -98863,7 +98977,7 @@ return {
 																	args.item = item
 																	args.no_ui_respawn = i~=#InventoryDragItems
 																	local r1, r2  = MoveItem(args) --this will merge stacks and move, if you want only move use amount = item.Amount				
-																	--		--print(item.class, r1, r2)
+																	--		print(item.class, r1, r2)
 																end															
 																InventoryDeselectMultiItems()
 																PlayFX("GiveItem", "start",  GetInventoryItemDragDropFXActor(item))
@@ -100445,7 +100559,7 @@ return {
 																	args.item = item
 																	args.no_ui_respawn = i~=#InventoryDragItems
 																	local r1, r2  = MoveItem(args) --this will merge stacks and move, if you want only move use amount = item.Amount				
-																	--		--print(item.class, r1, r2)
+																	--		print(item.class, r1, r2)
 																end															
 																InventoryDeselectMultiItems()
 																PlayFX("GiveItem", "start",  GetInventoryItemDragDropFXActor(item))
@@ -102034,7 +102148,7 @@ return {
 																		args.item = item
 																		args.no_ui_respawn = i~=#InventoryDragItems
 																		local r1, r2  = MoveItem(args) --this will merge stacks and move, if you want only move use amount = item.Amount				
-																		--		--print(item.class, r1, r2)
+																		--		print(item.class, r1, r2)
 																	end															
 																	InventoryDeselectMultiItems()
 																	PlayFX("GiveItem", "start",  GetInventoryItemDragDropFXActor(item))

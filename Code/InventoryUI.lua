@@ -464,7 +464,7 @@ function HighlightEquipSlots(item, bShow)
 					if bShow then
 						for i=1,context:GetMaxTilesInSlot(slot_name) do
 							if target.tiles[i] then
-								print(target.tiles[i][1])
+								--print(target.tiles[i][1])
 								if target.tiles[i][1]:GetVisible() then
 									if valid_idx[i] then
 										target:SpawnRolloverUI(width,height, i,1)	

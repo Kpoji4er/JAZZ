@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 4,
-	'version', 4697,
+	'version', 4704,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -539,6 +539,7 @@ return PlaceObj('ModDef', {
 		"CharacterEffect/Inaccurate.lua",
 		"CharacterEffect/Slowed.lua",
 		"CharacterEffect/Unconscious.lua",
+		"CharacterEffect/SuppressStunGrenade.lua",
 		"Code/CombatBadge_DeathRoll.lua",
 		"Code/CombatActions.lua",
 		"Code/UnitPropertiesStats.lua",
@@ -579,7 +580,15 @@ return PlaceObj('ModDef', {
 		"Code/AiActions.lua",
 		"Code/CombatAI.lua",
 		"Code/AiAction_ThrowFlare.lua",
+		"Code/Rato_AICreateContext.lua",
 		"Code/Rato_CustomSeekCover.lua",
+		"Code/Rato_CustomFlanking.lua",
+		"Code/Rato_TryNotToBeFlanked.lua",
+		"Code/Rato_MGSetupPosScore.lua",
+		"Code/Rato_MGSetupAP.lua",
+		"Code/Rato_GrenadeRange.lua",
+		"Code/Rato_AvoidThreatenedAreas.lua",
+		"Code/RatoTARG_EnemyInCover.lua",
 		"Code/System_LootDrops.lua",
 		"Code/System_OR_SquadBag.lua",
 		"Code/System_OR_ItemContainer.lua",
@@ -615,8 +624,8 @@ return PlaceObj('ModDef', {
 	},
 	'default_options', {},
 	'has_data', true,
-	'saved', 1744496192,
-	'code_hash', -1506282201843321184,
+	'saved', 1744555888,
+	'code_hash', -534598829993064112,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -12621,6 +12630,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "CharacterEffectCompositeDef",
 			'Id', "Unconscious",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "SuppressStunGrenade",
 			'ClassDisplayName', "Character effect",
 		}),
 		PlaceObj('ModResourcePreset', {

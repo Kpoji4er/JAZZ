@@ -176,7 +176,7 @@ function AISelectAction(context, actions, base_weight, dbg_available_actions)
 	
 
 	for _, action in ipairs(actions) do
-		print(action)
+		--print(action)
 		context.action_states[action] = {}		
 		local weight_mod, disable, priority = AIGetBias(action.BiasId, context.unit)
 		disable = disable or context.disable_actions[action.BiasId or false]
@@ -1140,6 +1140,8 @@ function AIGetWeaponCheckRange(unit, weapon, action)
 end
 
 
+
+
 function AICalcAOETargetPoints(context, min_range, max_range, max_radius)
 	local target_pts = {}
 	local unit = context.unit
@@ -1174,12 +1176,12 @@ function AICalcAOETargetPoints(context, min_range, max_range, max_radius)
 			end
 		end
 	end
-	print(target_pts)
+	--print(target_pts)
 	-- filter out target points not in range
 	AIFilterTargetPoints(unit, target_pts, min_range, max_range)
-	print(target_pts)
-	print(min_range/ const.SlabSizeX)
-	print(max_range/ const.SlabSizeX)
+	--print(target_pts)
+	--print(min_range/ const.SlabSizeX)
+	--print(max_range/ const.SlabSizeX)
 	
 	return target_pts
 end

@@ -931,18 +931,21 @@ end
 				return v.HireStatus ~= "Dead" and v.session_id ~= target.session_id and v.session_id ~= attacker.session_id
 			end)
 
-			
+
 			for _, hit in ipairs(hit_data.hits) do
 
 				--print(hit.impact_force)
 				--print(hit)
 				local willPointsBaseDamage = DivRound(self.Damage,10)
+				willPointsBaseDamage = MulDivRound(100-target:SuppressionProtection(),willPointsBaseDamage,100)
+				
+				
 				local willPointsDamage = willPointsBaseDamage
 				
 				
 				if IsValid(target) and attack_results.chance_to_hit > 3 and target.team.side ~= attacker.team.side then 
 					--print(target.team.side)
-					local willPointsDamage = Max(willPointsBaseDamage,1) * (attack_results.chance_to_hit) * 0.02
+					local willPointsDamage = Max(willPointsBaseDamage,1) * (attack_results.chance_to_hit) * 0.01
 					print("Target Supression: "..willPointsDamage.." cth:"..attack_results.chance_to_hit.." dam:"..Min(willPointsBaseDamage,1))
 					target.WillPoints = target.WillPoints - willPointsDamage
 					
@@ -960,7 +963,7 @@ end
 						--print(dist)
 						if dist/const.SlabSizeX < 2 then
 
-							local willPointsDamage = Max(willPointsBaseDamage,1) * (2000 - dist)*0.002
+							local willPointsDamage = Max(willPointsBaseDamage,1) * (2000 - dist)*0.001
 
 							print("Near Units Supression: "..willPointsDamage.." dist:"..dist.." dam:"..Max(willPointsBaseDamage,1))
 
