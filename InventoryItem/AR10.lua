@@ -65,7 +65,7 @@ DefineClass.AR10 = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 3000,
-	Recoil = 22,
+	Recoil = 32,
 	AutoShots = 7,
 	Handling = 68,
 	BulletDropRange = 20,

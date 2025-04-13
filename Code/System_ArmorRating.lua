@@ -224,7 +224,7 @@ function Armor:CalculateArmorRating(weapon_pen_class)
     end
    -- print(self.PenetrationClass^2/weapon_pen_class^2)
     --return Min(ArmorRating,100 * self:GetConditionPercent()/100 * (101-self.Deterioration)/100)
-	return ArmorRating
+	return floatfloor(ArmorRating)
 end
 
 function Armor:CalculateArmorRatingMelee()  
@@ -240,11 +240,13 @@ end
 
 function Unit:ApplyHitDamageReduction(hit, weapon, hit_body_part, ignore_cover, ignore_armor, record_breakdown)
 	--local start = GetPreciseTicks(1000)
+	local result = 0
 	local damage = hit.damage or 0
 	hit.damage = damage
 	local drExp = 0
 	local drFireArm = 0
 	local drMelee = 0
+	local drFireArmBreakdown = 0
 	local itemscount = 0
 	local weapon_pen_class = weapon:HasMember("PenetrationClass") and weapon.PenetrationClass or 1
 	local cachedrandom = Unit:Random(100)
@@ -255,6 +257,7 @@ function Unit:ApplyHitDamageReduction(hit, weapon, hit_body_part, ignore_cover, 
 			--print(item.ProtectedBodyParts)
 			--print(item.ProtectedBodyParts[hit_body_part])
 			local dr, degrade, pierced
+			pierced = false
 			if not ignore_armor and item.Condition > 0 then
 			--	dr = item.DamageReduction
 			--	degrade = item.Degradation
@@ -268,6 +271,8 @@ function Unit:ApplyHitDamageReduction(hit, weapon, hit_body_part, ignore_cover, 
 				pierced = true
 			end
 
+			drFireArmBreakdown = drFireArmBreakdown + item:CalculateArmorRating(weapon_pen_class)
+		
 			if item.Coverage <= cachedrandom then
 				weapon_pen_class = weapon_pen_class + 1
 			end
@@ -285,6 +290,7 @@ function Unit:ApplyHitDamageReduction(hit, weapon, hit_body_part, ignore_cover, 
 			--dr = MulDivRound(dr or 0, Min(100, 50 + item.Condition), 100)
             dr = drExp 
             if IsKindOf(weapon, "Firearm") then
+				if record_breakdown then dr = drFireArmBreakdown end
             dr = drFireArm end
             if IsKindOf(weapon, "MeleeWeapon") then
             dr = drMelee end
@@ -296,7 +302,7 @@ function Unit:ApplyHitDamageReduction(hit, weapon, hit_body_part, ignore_cover, 
 
 			--local scaled = hit.damage * (100 - dr)
 			--local result = scaled / 100
-            local result = hit.damage - dr
+            result = hit.damage - dr
             if result < 1 then result = 1 end
 --            print(result)
             --result = Min(0,result)
@@ -307,15 +313,22 @@ function Unit:ApplyHitDamageReduction(hit, weapon, hit_body_part, ignore_cover, 
 
             degrade = MulDivRound(item.Degradation, hit.damage, 100)
             --degrade = item.Degradation * result / 100
+			--print(pierced)
+			--print(" "..result.." "..hit.damage.." "..dr)
 
 
+			--if result > hit.damage/2 then pierced = true end
 
 			if record_breakdown then
-				if pierced then
-					record_breakdown[#record_breakdown + 1] = { name = T{191288543859, "<em><DisplayName></em> (Pierced)", item}, value = -dr }
-				else
-					record_breakdown[#record_breakdown + 1] = { name = T{516752639882, "<em><DisplayName></em>", item}, value = -dr }
-				end
+				if IsKindOf(weapon, "Firearm") then
+					dr = drFireArmBreakdown
+					end
+				local resultBreakdown = hit.damage - dr
+			--	if pierced then
+			--		record_breakdown[#record_breakdown + 1] = { name = T{191288543859, "<em><DisplayName></em> (Pierced)", item}, value = -MulDivRound(100,dr,hit.damage) }
+			--	else
+					record_breakdown[#record_breakdown + 1] = { name = T{516752639882, "<em><DisplayName></em>", item}, value = -MulDivRound(100,dr,hit.damage) }
+			--	end
 			end
 
 			hit.damage = Min(hit.damage, result)
@@ -393,7 +406,7 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 	self:SetEffectValue("wounded_stain_spot", nil)
 	
 	-- add soot from explosions (if there's no blood)
-	if hit.explosion and not self:HasStainType("Blood") then
+	if hit.explosion then --and not self:HasStainType("Blood") then
 		local spot = GetRandomStainSpot()
 		self:AddStain("Soot", spot)
 	end

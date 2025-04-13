@@ -671,6 +671,7 @@ end
 				end
 			end
 		
+
 		--	attack_data.target_spot_group = hit_data.target_spot_group
 		
 		--	local lof_idx = table.find(attack_data.lof, "target_spot_group", attack_data.target_spot_group)
@@ -686,6 +687,8 @@ end
 		local dmg_target = (leading_shot and not shot_miss) and target or false
 
 		--print(leading_shot)
+
+		
 
 
 		local attack_data, miss_target_pos, hit_data
@@ -732,6 +735,8 @@ end
 				shot_attack_args.inside_attack_area_check = false
 				shot_attack_args.forced_hit_on_eye_contact = false
 				attack_data = GetLoFData(attacker, miss_target_pos, shot_attack_args)
+
+
 			end
 		else
 
@@ -795,7 +800,8 @@ end
 				hit_data[k] = v		
 			end
 		end			
-		if shot_miss and IsValid(target) then
+		
+		if shot_miss and IsValid(target) then			
 			for _, hit in ipairs(hit_data.hits) do
 				if hit.obj == target then
 					if allow_grazing then
@@ -807,6 +813,8 @@ end
 				end
 			end
 		end
+
+
 
 		--print(hit_data.target_spot_group)
 		--print(shot_cth)
@@ -913,6 +921,67 @@ end
 				table.insert(attack_results.shots[i].hits, hit) -- also store in the shot description for convenience
 			end
 		end
+
+		--suppression
+		--if not prediction and g_Combat then
+		if not prediction then
+
+			local units = g_Units
+			units = table.ifilter(units, function(k, v)
+				return v.HireStatus ~= "Dead" and v.session_id ~= target.session_id and v.session_id ~= attacker.session_id
+			end)
+
+			
+			for _, hit in ipairs(hit_data.hits) do
+
+				--print(hit.impact_force)
+				--print(hit)
+				local willPointsBaseDamage = DivRound(self.Damage,10)
+				local willPointsDamage = willPointsBaseDamage
+				
+				
+				if IsValid(target) and attack_results.chance_to_hit > 3 and target.team.side ~= attacker.team.side then 
+					--print(target.team.side)
+					local willPointsDamage = Max(willPointsBaseDamage,1) * (attack_results.chance_to_hit) * 0.02
+					print("Target Supression: "..willPointsDamage.." cth:"..attack_results.chance_to_hit.." dam:"..Min(willPointsBaseDamage,1))
+					target.WillPoints = target.WillPoints - willPointsDamage
+					
+				end
+
+
+				
+				
+	
+				for _, unit in ipairs(units) do
+					if attacker:GetPos() ~= unit:GetPos() and unit.team.side ~= attacker.team.side and unit:GetDist(target) < 10000 then
+						--if isCloser() attacker:IsOnEnemySide(hit_obj)
+						--print(unit.WillPoints)
+						local dist = Min(hit.pos:Dist(unit:GetPos()),hit_data.target_pos:Dist(unit:GetPos()))
+						--print(dist)
+						if dist/const.SlabSizeX < 2 then
+
+							local willPointsDamage = Max(willPointsBaseDamage,1) * (2000 - dist)*0.002
+
+							print("Near Units Supression: "..willPointsDamage.." dist:"..dist.." dam:"..Max(willPointsBaseDamage,1))
+
+							unit.WillPoints = unit.WillPoints - willPointsDamage
+
+							--print(ammo_type)
+						end
+						unit.WillPoints = Max(0,unit.WillPoints)
+						
+						ObjModified(unit)
+					end
+					--end
+				end
+			end
+
+			for _, unit in ipairs(units) do
+				unit:ApplySuppressionStatus()
+			end
+			target:ApplySuppressionStatus()
+		end
+
 	end
 
 	attack_results.miss = miss
@@ -933,6 +1002,8 @@ end
 		end--]]
 		--assert(miss ~= target_hit)
 	end
+
+	
 
 	-- aoe damage
 	local targetHitProjectile = target_hit
@@ -1447,7 +1518,7 @@ function BaseWeapon:PrecalcDamageAndStatusEffects(attacker, target, attack_pos, 
 		end
 		--apply armor for non units
 		local pen_class = self:HasMember("PenetrationClass") and self.PenetrationClass or #PenetrationClassIds
-		local armor_class = target and target.armor_class or 1
+		local armor_class = target and target.armor_class or 0
 		--if self.PenetrationClass then self.PenetrationClass = self.PenetrationClass - 1 end
 		if pen_class >= armor_class then
 			hit.damage = damage or 0
@@ -1457,7 +1528,13 @@ function BaseWeapon:PrecalcDamageAndStatusEffects(attacker, target, attack_pos, 
 			hit.armor_prevented = damage or 0
 		end
 		if record_breakdown then 
-			if hit.damage > 1 then
+			--print(base_damage - damage)
+			if pen_class >= armor_class then
+				local armor_prevented = 0
+			else
+				armor_prevented = base_damage or 0
+			end
+			if hit.damage > (base_damage/2) then
 				record_breakdown[#record_breakdown + 1] = { name = T(478438763504, "Armor (Pierced)") }
 			else
 				record_breakdown[#record_breakdown + 1] = { name = T(360312988514, "Armor"), value = -hit.armor_prevented }
@@ -1511,3 +1588,6 @@ function MishapProperties:GetMishapDeviationVectorMax(unit, target)
 	local deviation = unit:RandRange(self.MinMishapRange * const.SlabSizeX * unit:Random(unit.Explosives)/100, self.MaxMishapRange * const.SlabSizeX * unit:Random(100-unit.Explosives)/100)
 	return Rotate(point(deviation, 0, 0), unit:Random(360*60))
 end
+
+
+

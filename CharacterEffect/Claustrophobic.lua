@@ -1,0 +1,57 @@
+UndefineClass('Claustrophobic')
+DefineClass.Claustrophobic = {
+	__parents = { "Perk" },
+	__generated_by_class = "ModItemCharacterEffectCompositeDef",
+
+
+	object_class = "Perk",
+	unit_reactions = {
+		PlaceObj('UnitReaction', {
+			Event = "OnCombatStarted",
+			Handler = function (self, target, load_game)
+				if IsSectorUnderground(gv_CurrentSectorId) and not target:HasStatusEffect("ClaustrophobiaChecked") then
+					CombatLog("debug", T{Untranslated("<em>Claustrophobic</em> proc on <unit>"), unit = target.Name})
+					self:SetParameter("active", true)
+				end
+			end,
+		}),
+		PlaceObj('UnitReaction', {
+			Event = "OnCalcPersonalMorale",
+			Handler = function (self, target, value)
+				if self:ResolveValue("active") then
+					return value - 1
+				end
+			end,
+		}),
+		PlaceObj('UnitReaction', {
+			Event = "OnCombatEnd",
+			Handler = function (self, target)
+				self:SetParameter("active", false)
+			end,
+		}),
+		PlaceObj('UnitReaction', {
+			Event = "OnSatelliteTick",
+			Handler = function (self, target)
+				self:SetParameter("active", false)
+			end,
+		}),
+		PlaceObj('UnitReaction', {
+			Event = "OnUnitEnterMapVisual",
+			Handler = function (self, target)
+				if IsSectorUnderground(gv_CurrentSectorId) and not target:HasStatusEffect("ClaustrophobiaChecked") then
+					CreateGameTimeThread(function()
+						while GetInGameInterfaceMode() == "IModeDeployment" do
+							Sleep(20)
+						end
+						PlayVoiceResponse(target, "Claustrophobic")
+					end)
+				end
+			end,
+		}),
+	},
+	DisplayName = T(464805356385, --[[ModItemCharacterEffectCompositeDef Claustrophobic DisplayName]] "Claustrophobic"),
+	Description = T(356135028604, --[[ModItemCharacterEffectCompositeDef Claustrophobic Description]] "<GameTerm('Morale')> decrease when starting combat in <em>underground</em> Sectors."),
+	Icon = "UI/Icons/Perks/Claustrophobic",
+	Tier = "Quirk",
+}
+

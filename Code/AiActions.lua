@@ -9,8 +9,10 @@ function AIActionThrowGrenade:PrecalcAction(context, action_state)
 			action_id = id
 			local weapon = caction:GetAttackWeapons(context.unit)
 			local aoetype = weapon.aoeType or "none"
+			--print(weapon)
+			--print(aoetype)
 			 --local triggerType = weapon.TriggerType or "Contact"
-			 if IsKindOfClasses(weapon, "Grenade", "Ordnance", "Flare", "GrenadeItem") and self.AllowedAoeTypes[aoetype] then
+			 if IsKindOfClasses(weapon, "Grenade", "Ordnance", "Flare", "GrenadeItem", "Molotov") and self.AllowedAoeTypes[aoetype] then
 			 --self.AllowedTriggerTypes[triggerType] then
 				grenade = weapon			
 				break
@@ -18,12 +20,16 @@ function AIActionThrowGrenade:PrecalcAction(context, action_state)
 		end
 	end
 	
+	--print(action_id)
 	if not action_id or not grenade then
 		return
 	end
-	
+	 
 	local max_range = Min(self.MaxDist, grenade:GetMaxAimRange(context.unit) * const.SlabSizeX)
 	local blast_radius = grenade.AreaOfEffect * const.SlabSizeX
+
+	--print("maxrange "..max_range /  const.SlabSizeX)
+	--print(blast_radius)
 	local target_pts
 	if self.TargetLastAttackPos then 
 		-- collect enemy last attack positions and pass them as target_pos array to AIPrecalcGrenadeZones
@@ -35,12 +41,125 @@ function AIActionThrowGrenade:PrecalcAction(context, action_state)
 		end
 	end
 	local zones = AIPrecalcGrenadeZones(context, action_id, self.MinDist, max_range, blast_radius, grenade.aoeType, target_pts)
+
+	--print(zones)
 	local zone, score = self:EvalZones(context, zones)
+	--print(zone)
+	--print("score"..score)
 	if zone then
 		action_state.action_id = action_id
 		action_state.target_pos = zone.target_pos
-		action_state.score = score * 10
+		action_state.score = score
 	end
+
+	--print(action_state.score)
+end
+
+
+function AIFilterTargetPoints(unit, target_pts, min_range, max_range)
+
+	
+	for i = #target_pts, 1, -1 do
+		local dist = unit:GetDist(target_pts[i])
+		if dist == 0 or (max_range and dist > max_range) then
+			table.remove(target_pts, i)
+		elseif min_range and min_range < max_range and dist < min_range then
+			table.remove(target_pts, i)
+		end
+	end
+
+	--print(target_pts)
+end
+
+
+local function IsUnitHit(hit)
+	if not IsKindOf(hit.obj, "Unit") then return false end
+	--print("damage "..hit.damage)
+	if hit.damage > 0 then return true end
+	for _, effect in ipairs(hit.effects) do
+		if effect and effect ~= "" then
+			return true
+		end
+	end
+end
+
+
+function AIPrecalcGrenadeZones(context, action_id, min_range, max_range, blast_radius, aoeType, target_pts)
+	if context.target_locked then return {} end
+	
+	if not target_pts then
+		target_pts = AICalcAOETargetPoints(context, min_range, max_range, blast_radius)
+	else
+		-- make sure the target points are within the allowed range
+		AIFilterTargetPoints(context.unit, target_pts, min_range, max_range)
+	end
+
+	--print(target_pts)
+	-- calculate parabolas and affected units to each target point
+	local zones = {}
+	local action = CombatActions[action_id]
+	local args = { target = false }
+	for i, target_pt in ipairs(target_pts) do
+		args.target = target_pt
+		local results = action:GetActionResults(context.unit, args)
+		
+		local units
+		local trajectory = results.trajectory or empty_table
+		--print("trajectory")
+		--print(aoeType)
+		local pos = #trajectory > 0 and trajectory[#trajectory].pos or results.target_pos
+		if pos and (aoeType == "smoke" or aoeType == "toxicgas" or aoeType == "teargas" or aoeType == "fire") then
+			local water = terrain.IsWater(pos) and terrain.GetWaterHeight(pos)
+			if not (water and (not pos:IsValidZ() or water >= pos:z())) then
+				pos = SnapToPassSlab(pos) or pos
+				local dx, dy = 1, 1
+				for i = #trajectory - 1, 1, -1 do
+					local step = trajectory[i]
+					if step.pos:Dist2D(pos) > 0 then
+						local px, py = step.pos:xy()
+						local x, y = pos:xy()
+						dx = (px == x) and 1 or ((x - px) / abs(x - px))
+						dy = (py == y) and 1 or ((y - py) / abs(y - py))
+						break
+					end
+				end
+				
+				local gx, gy, gz = WorldToVoxel(pos)
+				local smoke, blocked = PropagateSmokeInGrid(gx, gy, gz, dx, dy)
+				local smoke_voxels = {}
+				for _, wpt in pairs(smoke) do
+					local ppos = point_pack(WorldToVoxel(wpt))
+					smoke_voxels[ppos] = true
+				end
+				
+				for _, unit in ipairs(g_Units) do
+					local _, head = unit:GetVisualVoxels()
+					if smoke_voxels[head] then
+						units = units or {}
+						table.insert(units, unit)
+					end
+				end
+			end
+		else
+			----print(results)
+			for _, hit in ipairs(results) do
+				----print(hit)
+				if IsUnitHit(hit) then
+					--print("hit!")
+					units = units or {}
+					table.insert(units, hit.obj)
+				end
+			end
+		end
+		if units then
+			zones[#zones + 1] = { target_pos = target_pt, units = units }
+		end
+	end
+
+	--print("--print(zones) ")
+	--print(zones)
+	----print("grenade targeting precalc in", GetPreciseTicks() - tstart, "ms")
+	return zones
 end
 
 function AIReloadWeapons(unit)
@@ -61,7 +180,7 @@ function AIReloadWeapons(unit)
 	for _, firearm in ipairs(firearms) do
 		if not firearm.ammo then
 			local ammos = unit:GetAvailableAmmos(firearm) or empty_table
-			--print(ammos)
+			----print(ammos)
 			local ammo
 			if #ammos > 0 then
 				--ammo = ammos[1]
@@ -104,9 +223,9 @@ function AICalcAttacksAndAim(context, ap, target)
 	--local target = context.target
 	local weapon = context.weapon
 
-	--print(unit)
-	--print(target)
-	--print(weapon)
+	----print(unit)
+	----print(target)
+	----print(weapon)
 
 
 	--local base = unit:CalcChanceToHit
@@ -136,7 +255,7 @@ function AICalcAttacksAndAim(context, ap, target)
 
 	local aim_cost = const.Scale.AP
 
-	print('EffectiveRange'..context.EffectiveRange)
+	----print('EffectiveRange'..context.EffectiveRange)
 
 	--if target then
 	--	if context.force_max_aim 
@@ -182,7 +301,7 @@ function AICalcAttacksAndAim(context, ap, target)
 				args.aim = aim
 				cth = context.unit:CalcChanceToHit(target,context.default_attack,args)
 			end
-			print('aim '..aim.." cth "..cth)
+			--print('aim '..aim.." cth "..cth)
 		end
 
 		if aim > context.weapon.MaxAimActions then 
@@ -193,7 +312,7 @@ function AICalcAttacksAndAim(context, ap, target)
 		if attack_idx > num_attacks then
 			attack_idx = 1
 		end
-		--print(aims)
+		----print(aims)
 		remaining = remaining - aim_cost
 	end
 	
@@ -261,7 +380,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 			g_AIExecutionController:Log("  Signature Action: %s", signature_action:GetEditorView())
 		end
 		signature_action:OnActivate(unit)
-		--printf("[signature] %s (%d)", _InternalTranslate(unit.Name or ""), unit.handle)
+		----printf("[signature] %s (%d)", _InternalTranslate(unit.Name or ""), unit.handle)
 		if voice_response then
 			context.action_states[signature_action].args = context.action_states[signature_action].args or {}
 			context.action_states[signature_action].args.voiceResponse = voice_response
@@ -710,12 +829,12 @@ function AIPrecalcDamageScore(context, destinations, preferred_target, debug_dat
 		--[[
 		if destinations and IsKindOf(best_target, "Unit") then
 			if best_target == preferred_target then
-				printf("%s (%d) selected target (preferred): %s (score %d)", _InternalTranslate(unit.Name or ""), unit.handle, _InternalTranslate(best_target.Name or ""), best_score)
+				--printf("%s (%d) selected target (preferred): %s (score %d)", _InternalTranslate(unit.Name or ""), unit.handle, _InternalTranslate(best_target.Name or ""), best_score)
 			else
-				printf("%s (%d) selected target: %s (score %d)", _InternalTranslate(unit.Name or ""), unit.handle, _InternalTranslate(best_target.Name or ""), best_score)
-				printf("  potential targets:")
+				--printf("%s (%d) selected target: %s (score %d)", _InternalTranslate(unit.Name or ""), unit.handle, _InternalTranslate(best_target.Name or ""), best_score)
+				--printf("  potential targets:")
 				for _, target in ipairs(potential_targets) do
-					printf("    %s (score %d)", _InternalTranslate(target.Name or ""), target_score[target])
+					--printf("    %s (score %d)", _InternalTranslate(target.Name or ""), target_score[target])
 				end
 			end
 		end--]]
@@ -754,7 +873,7 @@ function AISignatureAction:MatchUnit(unit)
 		if actions[attack_type] ~= nil then
 			local ui_status = actions[attack_type]
 			if ui_status and ui_status == "Hidden" then
-				--print("noburst")
+				----print("noburst")
 				return
 			end
 		else
@@ -831,6 +950,7 @@ function AIEvalZones(context, zones, min_score, enemy_score, team_score, self_sc
                      enemy_cover_score) -- , heigth_score)
     local best_target, best_score = nil, (min_score or 0) - 1
 
+
     for _, zone in ipairs(zones) do
         local score
         local selfmod = 0
@@ -862,14 +982,18 @@ function AIEvalZones(context, zones, min_score, enemy_score, team_score, self_sc
             end
             score = (score or 0) + uscore
         end
+
+		
         score = score and MulDivRound(score, zone.score_mod or 100, 100)
         score = score and MulDivRound(score, 100 + selfmod, 100)
+
+		--print("score "..score.."/")
         if score and score > best_score then
             best_target, best_score = zone, score
         end
         zone.score = score
     end
-
+	----print("AIEvalZones"..best_target.." "..best_score)
     return best_target, best_score
 end
 

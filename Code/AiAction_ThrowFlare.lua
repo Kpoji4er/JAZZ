@@ -17,7 +17,7 @@ DefineClass.AIActionThrowFlare = {
 
 function AIActionThrowFlare:PrecalcAction(context, action_state)
     local action_id, grenade
-    local actions = {"ThrowGrenadeA", "ThrowGrenadeB", "ThrowGrenadeC", "ThrowGrenadeD"}
+    local actions = { "ThrowGrenadeA", "ThrowGrenadeB", "ThrowGrenadeC", "ThrowGrenadeD","ThrowGrenadeAG", "ThrowGrenadeBG", "ThrowGrenadeCG", "ThrowGrenadeDG","ThrowGrenadeAO", "ThrowGrenadeBO"}
     for _, id in ipairs(actions) do
         local caction = CombatActions[id]
         local cost = caction and caction:GetAPCost(context.unit) or -1

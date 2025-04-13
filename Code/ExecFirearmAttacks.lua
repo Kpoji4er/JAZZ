@@ -143,7 +143,7 @@ function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 	local attacks = results.attacks or {results}
 	local attackArgs = results.attacks_args or {attack_args}
 	
-	if results.shots and #results.shots > 8 and g_Combat and not g_Combat:ShouldEndCombat(results.killed_units) then
+	if results.shots and #results.shots > 5 and g_Combat and not g_Combat:ShouldEndCombat(results.killed_units) then
 		if (not results.killed_units or #results.killed_units == 1) then
 			local vr = IsMerc(self) and "Autofire" or "AIAutofire"
 			PlayVoiceResponse(self, vr)
@@ -278,6 +278,7 @@ function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 			--count missed shots per team for Voice Response
 			self.team.tactical_situations_vr.missedShots = self.team.tactical_situations_vr.missedShots and self.team.tactical_situations_vr.missedShots + 1 or 1
 			PlayVoiceResponseTacticalSituation(table.find(g_Teams, self.team), "now")
+
 			
 			if chance_to_hit >= 70 then
 				if not target_unit or not target_unit:IsCivilian() then

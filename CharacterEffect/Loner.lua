@@ -1,0 +1,28 @@
+UndefineClass('Loner')
+DefineClass.Loner = {
+	__parents = { "Perk" },
+	__generated_by_class = "ModItemCharacterEffectCompositeDef",
+
+
+	object_class = "Perk",
+	unit_reactions = {
+		PlaceObj('UnitReaction', {
+			Event = "OnBeginTurn",
+			Handler = function (self, target)
+				for _, other in ipairs(target.team.units) do
+					if target ~= other and DivRound(target:GetDist(other), const.SlabSizeX) <= self:ResolveValue("loner_radius") then
+						return
+					end
+				end
+				
+				target:AddStatusEffect("Inspired")
+				PlayVoiceResponse(target, "Loner")
+			end,
+		}),
+	},
+	DisplayName = T(487342591563, --[[ModItemCharacterEffectCompositeDef Loner DisplayName]] "Loner"),
+	Description = T(124325843871, --[[ModItemCharacterEffectCompositeDef Loner Description]] "Become <GameTerm('Inspired')> when there are no teammates <em>in your vicinity</em> at turn start."),
+	Icon = "UI/Icons/Perks/Loner",
+	Tier = "Quirk",
+}
+

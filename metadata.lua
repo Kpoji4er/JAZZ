@@ -6,7 +6,6 @@ return PlaceObj('ModDef', {
 		"https://discord.gg/3NHHXrHA2D",
 	},
 	'last_changes', "Багофиксы",
-	'SpellCheck', true,
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -34,9 +33,9 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 4,
-	'version', 4597,
+	'version', 4697,
 	'lua_revision', 233360,
-	'saved_with_revision', 350233,
+	'saved_with_revision', 366685,
 	'code', {
 		"Code/Camera.lua",
 		"Code/SpecializationGiver.lua",
@@ -51,6 +50,7 @@ return PlaceObj('ModDef', {
 		"InventoryItem/JAZZ_AMMO_45ACP_JHP.lua",
 		"InventoryItem/JAZZ_AMMO_45ACP_P.lua",
 		"InventoryItem/JAZZ_AMMO_762x25_FMJ.lua",
+		"InventoryItem/JAZZ_AMMO_38special.lua",
 		"InventoryItem/JAZZ_AMMO_44CAL_FMJ.lua",
 		"InventoryItem/JAZZ_AMMO_44CAL_Match.lua",
 		"InventoryItem/JAZZ_AMMO_44CAL_JHP.lua",
@@ -74,6 +74,7 @@ return PlaceObj('ModDef', {
 		"InventoryItem/JAZZ_AMMO_762x54_Tracer.lua",
 		"InventoryItem/JAZZ_AMMO_762x54_BZT.lua",
 		"InventoryItem/JAZZ_AMMO_792_FMJ.lua",
+		"InventoryItem/JAZZ_AMMO_75French.lua",
 		"InventoryItem/JAZZ_AMMO_9x39_SP5.lua",
 		"InventoryItem/JAZZ_AMMO_9x39_SP6.lua",
 		"InventoryItem/JAZZ_AMMO_3006.lua",
@@ -88,6 +89,7 @@ return PlaceObj('ModDef', {
 		"InventoryItem/JAZZ_AMMO_12gauge_APSlug.lua",
 		"InventoryItem/JAZZ_AMMO_12gauge_Saltshot.lua",
 		"InventoryItem/JAZZ_AMMO_50BMG_Basic.lua",
+		"InventoryItem/JAZZ_AMMO_50BMG_Basic_copy.lua",
 		"InventoryItem/JAZZ_AMMO_50BMG_HE.lua",
 		"InventoryItem/JAZZ_AMMO_50BMG_Incendiary.lua",
 		"InventoryItem/JAZZ_AMMO_50BMG_SLAP.lua",
@@ -539,6 +541,24 @@ return PlaceObj('ModDef', {
 		"CharacterEffect/Unconscious.lua",
 		"Code/CombatBadge_DeathRoll.lua",
 		"Code/CombatActions.lua",
+		"Code/UnitPropertiesStats.lua",
+		"Code/WillPointsBar.lua",
+		"CharacterEffect/Psycho.lua",
+		"CharacterEffect/Bond.lua",
+		"CharacterEffect/Negotiator.lua",
+		"CharacterEffect/Scoundrel.lua",
+		"CharacterEffect/Loner.lua",
+		"CharacterEffect/Optimist.lua",
+		"CharacterEffect/Pessimist.lua",
+		"CharacterEffect/Spiritual.lua",
+		"CharacterEffect/Zoophobic.lua",
+		"CharacterEffect/Claustrophobic.lua",
+		"CharacterEffect/Hemophobic.lua",
+		"CharacterEffect/suppressionLight.lua",
+		"CharacterEffect/suppressionMedium.lua",
+		"CharacterEffect/suppressionHeavy.lua",
+		"CharacterEffect/suppressionHeavy2.lua",
+		"CharacterEffect/suppressionPinned.lua",
 		"CharacterEffect/TakeAim.lua",
 		"CharacterEffect/SteadyBreathing.lua",
 		"CharacterEffect/Stealthy.lua",
@@ -546,6 +566,7 @@ return PlaceObj('ModDef', {
 		"CharacterEffect/Jazz_Perk_00.lua",
 		"CharacterEffect/Jazz_Perk_Lynx.lua",
 		"Code/UnitAwareness.lua",
+		"Code/CrossHairUI.lua",
 		"Code/System_OR_Traps.lua",
 		"Code/ExecFirearmAttacks.lua",
 		"Code/System_OR_Weapons.lua",
@@ -594,8 +615,8 @@ return PlaceObj('ModDef', {
 	},
 	'default_options', {},
 	'has_data', true,
-	'saved', 1737832199,
-	'code_hash', -824490166680796696,
+	'saved', 1744496192,
+	'code_hash', -1506282201843321184,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -2440,6 +2461,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "LootDef",
 			'Id', "Noob_762x51_Machinegun",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "Noob_75_Machinegun",
 			'ClassDisplayName', "LootDef",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -7254,6 +7280,16 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "Caliber",
+			'Id', "JAZZ_Caliber_38",
+			'ClassDisplayName', "Caliber mod",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "Caliber",
+			'Id', "JAZZ_Caliber_50AE",
+			'ClassDisplayName', "Caliber mod",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "Caliber",
 			'Id', "JAZZ_Caliber_45ACP",
 			'ClassDisplayName', "Caliber mod",
 		}),
@@ -7305,6 +7341,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "Caliber",
 			'Id', "JAZZ_Caliber_792",
+			'ClassDisplayName', "Caliber mod",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "Caliber",
+			'Id', "JAZZ_Caliber_75French",
 			'ClassDisplayName', "Caliber mod",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -7534,6 +7575,11 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
+			'Id', "JAZZ_AMMO_38special",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
 			'Id', "JAZZ_AMMO_44CAL_FMJ",
 			'ClassDisplayName', "Inventory item",
 		}),
@@ -7649,6 +7695,11 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
+			'Id', "JAZZ_AMMO_75French",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
 			'Id', "JAZZ_AMMO_9x39_SP5",
 			'ClassDisplayName', "Inventory item",
 		}),
@@ -7715,6 +7766,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "JAZZ_AMMO_50BMG_Basic",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "JAZZ_AMMO_50BMG_Basic_copy",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -12738,6 +12794,101 @@ return PlaceObj('ModDef', {
 			'ClassDisplayName', "Combat Action",
 		}),
 		PlaceObj('ModResourcePreset', {
+			'Class', "XTemplate",
+			'Id', "PDAAimEvaluation",
+			'ClassDisplayName', "UI Template (XTemplate)",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "XTemplate",
+			'Id', "CombatBadge",
+			'ClassDisplayName', "UI Template (XTemplate)",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "MercStat",
+			'Id', "Will",
+			'ClassDisplayName', "Merc Stat",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Psycho",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Bond",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Negotiator",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Scoundrel",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Loner",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Optimist",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Pessimist",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Spiritual",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Zoophobic",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Claustrophobic",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Hemophobic",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "suppressionLight",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "suppressionMedium",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "suppressionHeavy",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "suppressionHeavy2",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "suppressionPinned",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
 			'Class', "CharacterEffectCompositeDef",
 			'Id', "TakeAim",
 			'ClassDisplayName', "Character effect",
@@ -12814,6 +12965,16 @@ return PlaceObj('ModDef', {
 			'ClassDisplayName', "Character effect",
 		}),
 		PlaceObj('ModResourcePreset', {
+			'Class', "XTemplate",
+			'Id', "ActionCameraCrosshair",
+			'ClassDisplayName', "UI Template (XTemplate)",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "XTemplate",
+			'Id', "CrosshairAttackRollover",
+			'ClassDisplayName', "UI Template (XTemplate)",
+		}),
+		PlaceObj('ModResourcePreset', {
 			'Class', "GameTerm",
 			'Id', "Recoil",
 			'ClassDisplayName', "Game Term",
@@ -12860,6 +13021,11 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
+			'Id', "Suppression",
+			'ClassDisplayName', "Chance To Hit Modifier",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "ChanceToHitModifier",
 			'Id', "Distance",
 			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
@@ -12891,6 +13057,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "TrainingAdvantage",
+			'ClassDisplayName', "Chance To Hit Modifier",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "ChanceToHitModifier",
+			'Id', "Morale",
 			'ClassDisplayName', "Chance To Hit Modifier",
 		}),
 		PlaceObj('ModResourcePreset', {
