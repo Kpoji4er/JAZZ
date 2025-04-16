@@ -22,6 +22,6 @@ DefineClass.JazzArmor_ESS = {
 	Coverage = 20,
 	ArmorRating = 4,
 	DustStormProtection = 30,
-	BlockedEffects = {},
+	StunGrenadeProtection = 80,
 }
 

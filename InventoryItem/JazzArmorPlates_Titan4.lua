@@ -24,7 +24,7 @@ DefineClass.JazzArmorPlates_Titan4 = {
 	AdditionalReduction = 80,
 	ProtectedBodyParts = set( "Torso" ),
 	CanAppearUsed = false,
-	ArmorRating = 14,
+	ArmorRating = 16,
 	Weight = 3,
 }
 

@@ -936,8 +936,8 @@ end
 
 				--print(hit.impact_force)
 				--print(hit)
-				local willPointsBaseDamage = DivRound(self.Damage,10)
-				willPointsBaseDamage = MulDivRound(100-target:SuppressionProtection(),willPointsBaseDamage,100)
+				local willPointsBaseDamage = DivRound(self.Damage,5)
+				willPointsBaseDamage = MulDivRound(100-(IsKindOf(target, "Unit") and target:SuppressionProtection() or 0),willPointsBaseDamage,100)
 				
 				
 				local willPointsDamage = willPointsBaseDamage
@@ -945,9 +945,10 @@ end
 				
 				if IsValid(target) and attack_results.chance_to_hit > 3 and target.team.side ~= attacker.team.side then 
 					--print(target.team.side)
-					local willPointsDamage = Max(willPointsBaseDamage,1) * (attack_results.chance_to_hit) * 0.01
-					print("Target Supression: "..willPointsDamage.." cth:"..attack_results.chance_to_hit.." dam:"..Min(willPointsBaseDamage,1))
-					target.WillPoints = target.WillPoints - willPointsDamage
+					local willPointsDamage = Max(willPointsBaseDamage,1) * (attack_results.chance_to_hit * 0.5 + 0.25) * 0.01
+					--print("Target Supression: "..willPointsDamage.." cth:"..attack_results.chance_to_hit.." dam:"..Max(self.Damage,1))
+
+					target.WillPoints = Max(0,target.WillPoints - willPointsDamage)
 					
 				end
 
@@ -963,26 +964,31 @@ end
 						--print(dist)
 						if dist/const.SlabSizeX < 2 then
 
-							local willPointsDamage = Max(willPointsBaseDamage,1) * (2000 - dist)*0.001
+							local willPointsDamage = Max(willPointsBaseDamage,1) * (2400 - dist)*0.001
 
-							print("Near Units Supression: "..willPointsDamage.." dist:"..dist.." dam:"..Max(willPointsBaseDamage,1))
+							--print("Near Units Supression: "..willPointsDamage.." dist:"..dist.." dam:"..Max(self.Damage,1))
 
-							unit.WillPoints = unit.WillPoints - willPointsDamage
+							unit.WillPoints = Max(0,unit.WillPoints - willPointsDamage)
+
+							unit:ApplySuppressionStatus()
 
 							--print(ammo_type)
 						end
-						unit.WillPoints = Max(0,unit.WillPoints)
 						
-						ObjModified(unit)
+						
+						
+						
+						--ObjModified(unit)
 					end
 					--end
 				end
 			end
 
-			for _, unit in ipairs(units) do
-				unit:ApplySuppressionStatus()
-			end
+		--	for _, unit in ipairs(units) do
+		--		unit:ApplySuppressionStatus()
+		--	end
 			target:ApplySuppressionStatus()
+			--ObjModified(target)
 		end
 
 	end
@@ -1070,7 +1076,7 @@ end
 
 function FirearmBase:Unjam(unit)
 	--local pass, amount = SkillCheck(unit, "Mechanical", (100 - self.Condition) + (100 - self.Reliability))
-	print((100 - self.Condition)/10 + (100 - self.Reliability)/10 + self.Deterioration)
+	--print((100 - self.Condition)/10 + (100 - self.Reliability)/10 + self.Deterioration)
 
 	local pass = RollSkillCheck(unit, "Mechanical", (100 - self.Condition)/10 + (100 - self.Reliability)/10 + self.Deterioration,50)
 	local amount = unit:Random(100-unit.Mechanical)/10

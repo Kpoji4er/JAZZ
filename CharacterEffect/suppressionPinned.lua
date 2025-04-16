@@ -58,6 +58,5 @@ DefineClass.suppressionPinned = {
 	Icon = "Mod/e6L4ECj/Icons/suppressionPinned.png",
 	RemoveOnEndCombat = true,
 	Shown = true,
-	HasFloatingText = true,
 }
 

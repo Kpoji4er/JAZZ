@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 4,
-	'version', 4704,
+	'version', 4728,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -540,6 +540,9 @@ return PlaceObj('ModDef', {
 		"CharacterEffect/Slowed.lua",
 		"CharacterEffect/Unconscious.lua",
 		"CharacterEffect/SuppressStunGrenade.lua",
+		"CharacterEffect/Blinded.lua",
+		"CharacterEffect/Burning.lua",
+		"CharacterEffect/Choking.lua",
 		"Code/CombatBadge_DeathRoll.lua",
 		"Code/CombatActions.lua",
 		"Code/UnitPropertiesStats.lua",
@@ -624,8 +627,8 @@ return PlaceObj('ModDef', {
 	},
 	'default_options', {},
 	'has_data', true,
-	'saved', 1744555888,
-	'code_hash', -534598829993064112,
+	'saved', 1744832006,
+	'code_hash', 7190917755461146659,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -3020,6 +3023,51 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "LootDef",
 			'Id', "Elite_MeleeLegs",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "LegionNoob_Pistol_T1",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "LegionNoob_Pistol_T2",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "LegionNoob_Pistol_T3",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "LegionStrong_Pistol_T1",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "LegionStrong_Pistol_T2",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "LegionStrong_Pistol_T3",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "LegionElite_Pistol_T1",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "LegionElite_Pistol_T2",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "LegionElite_Pistol_T3",
 			'ClassDisplayName', "LootDef",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -12635,6 +12683,21 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "CharacterEffectCompositeDef",
 			'Id', "SuppressStunGrenade",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Blinded",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Burning",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Choking",
 			'ClassDisplayName', "Character effect",
 		}),
 		PlaceObj('ModResourcePreset', {

@@ -29,5 +29,7 @@ DefineClass.JazzArmor_AltynHelm = {
 	BlockFaceSlot = true,
 	Weight = 5,
 	Vision = -15,
+	StunGrenadeProtection = 10,
+	SuppressionProtection = 30,
 }
 

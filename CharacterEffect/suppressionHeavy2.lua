@@ -52,6 +52,5 @@ DefineClass.suppressionHeavy2 = {
 	Icon = "Mod/e6L4ECj/Icons/suppressionHeavy2.png",
 	RemoveOnEndCombat = true,
 	Shown = true,
-	HasFloatingText = true,
 }
 

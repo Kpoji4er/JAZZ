@@ -27,5 +27,6 @@ DefineClass.JazzArmor_SpectraFull = {
 	ExplosiveArmorRating = 50,
 	CanHoldPlate = true,
 	Weight = 4,
+	SuppressionProtection = 35,
 }
 

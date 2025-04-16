@@ -23,5 +23,6 @@ DefineClass.ShamanTorso = {
 	ExplosiveArmorRating = 100,
 	CanHoldPlate = true,
 	Weight = 4,
+	SuppressionProtection = 35,
 }
 

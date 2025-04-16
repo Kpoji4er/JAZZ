@@ -22,5 +22,7 @@ DefineClass.Infected_HardenedSkin = {
 	ProtectedBodyParts = set( "Arms", "Groin", "Legs", "Torso" ),
 	ArmorRating = 100,
 	MeleeArmorRating = 100,
+	StunGrenadeProtection = 100,
+	SuppressionProtection = 100,
 }
 

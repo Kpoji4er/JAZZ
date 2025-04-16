@@ -28,6 +28,5 @@ DefineClass.suppressionLight = {
 	Icon = "Mod/e6L4ECj/Icons/suppressionLight.png",
 	RemoveOnEndCombat = true,
 	Shown = true,
-	HasFloatingText = true,
 }
 

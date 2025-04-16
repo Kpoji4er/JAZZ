@@ -266,6 +266,14 @@ function CrosshairUI:UpdateAim()
 	pContext.weapon_range = pContext.weapon_range or 0
     pContext.weapon_eff_range = pContext.weapon_eff_range or 0
     pContext.aim = pContext.aim or 0;
+	
+	local hasflashlight = false
+	if weapon1:HasComponent("IgnoreInTheDarkWhenFullyAimed") and pContext.aim >= (GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeAimLevel") or -1) then
+		hasflashlight = true
+	else 
+		hasflashlight = false
+	end
+
 
     local ScopeMagn = GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeMagnification") or 1
     local ScopeSubMagn = GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeSubMagnification") or 0
@@ -287,6 +295,19 @@ function CrosshairUI:UpdateAim()
 	pContext.ScopeImage = ScopeImage
 	pContext.SmallScopeImage = SmallScopeImage
 	pContext.ScopeOuterImage = ScopeOuterImage
+
+
+	--if (GameState.Night or GameState.Underground) and not attacker:HasNightVision() and not target:HasStatusEffect("Protected") and not hasflashlight then 
+	if not (hasflashlight or not (GameState.Night or GameState.Underground) or IsIlluminated(target))  then
+		print('cth crosshair - night')
+		pContext.ScopeImage = ""
+		pContext.SmallScopeImage = ""
+		pContext.ScopeOuterImage = ""
+		pContext.ScopeAimLevel = 10
+		pContext.SmallAimLevel = 10
+		pContext.ScopeLevelText = ""
+		pContext.SmallScopeLevelText = ""
+	end
 
 	assert(pContext.ScopeImage)
     assert(pContext.SmallScopeImage)

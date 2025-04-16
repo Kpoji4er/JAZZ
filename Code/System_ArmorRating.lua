@@ -170,7 +170,7 @@ Armor.properties[#Armor.properties+1] = {
     default = 0,
     template = true,
     slider = true,
-    min = 0,
+    min = -20,
     max = 100,
     modifiable = true
 }
@@ -238,27 +238,29 @@ function Armor:CalculateArmorRatingExplosive()
     return self.ExplosiveArmorRating *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100
 end
 
-function Armor:StunGrenadeProtection()  
-    return self.StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100
+function Armor:CalculateStunGrenadeProtection()  
+	local StunGrenadeProtection = (self.StunGrenadeProtection + 0) or 0
+    return StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
 end
 
-function Armor:SuppressionProtection()  
-    return self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100
+function Armor:CalculateSuppressionProtection()  
+	local SuppressionProtection = (self.SuppressionProtection + 0) or 0
+    return SuppressionProtection * self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
 end
 
 function Unit:SuppressionProtection()
 	local SuppressionProtection = 0
 	self:ForEachItem("Armor", function(item, slot)
-		if slot ~= "Inventory" and item.SuppressionProtection then SuppressionProtection = SuppressionProtection + item:SuppressionProtection() end
+		if slot ~= "Inventory" and item.SuppressionProtection then SuppressionProtection = SuppressionProtection + item:CalculateSuppressionProtection() end
 	end)
-	return SuppressionProtection
+	return SuppressionProtection or 0
 end
 function Unit:StunGrenadeProtection()
 	local StunGrenadeProtection = 0
 	self:ForEachItem("Armor", function(item, slot)
-		if slot ~= "Inventory" and item.StunGrenadeProtection then StunGrenadeProtection = StunGrenadeProtection + item:StunGrenadeProtection() end
+		if slot ~= "Inventory" and item.StunGrenadeProtection then StunGrenadeProtection = StunGrenadeProtection + item:CalculateStunGrenadeProtection() end
 	end)
-	return StunGrenadeProtection
+	return StunGrenadeProtection or 0
 end
 
 
@@ -435,10 +437,13 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 		local spot = GetRandomStainSpot()
 		self:AddStain("Soot", spot)
 
-		willPointsBaseDamage = MulDivRound(100-self:SuppressionProtection(),hit.damage,100)
-		self.WillPoints = self.WillPoints - willPointsDamage
-		self.WillPoints = Max(0,self.WillPoints)
+		local willPointsDamage = MulDivRound(100-self:SuppressionProtection(),hit.damage,200) or DivRound(hit.damage,5)
+		self.WillPoints = Max(0,self.WillPoints - willPointsDamage)
+		print("grenadeWP: "..willPointsDamage)
+		if willPointsDamage > 1 then 
 		self:ApplySuppressionStatus()
+		--ObjModified(self)
+		end
 
 	end
 		

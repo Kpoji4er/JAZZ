@@ -19,9 +19,6 @@ DefineClass.WillPointBar = {
 	ProgressFrameBox = box(2, 0, 2, 0),
 	BindTo = {
 		"WillPoints",
-		"PotentialDamage",
-		"PotentialDamageConditional",
-		"PotentialSecondaryConditional"
 	},
 	SecondaryBarsAlignment = {
 		"right",
@@ -486,6 +483,7 @@ function WillPointBar:OnContextUpdate(context)
 		end
 	end
 
+	--print("WillBar context:", self.context and self.context.session_id, self.Progress[1])
 	self:UpdateBars()
 end
 
@@ -707,24 +705,24 @@ function WillPointBar:DrawWpBar(clip_box)
 	end
 	
 	-- Other bars (used for damage prediction currently)
-	if self.otherBarBoxes then
-		for i = 2, #self.Progress do
-			if self.otherBarBoxes[i] then
-				if not self.secondary_bar_modifiers then
-					self.secondary_bar_modifiers = lSecondaryBarAnimation(self)
-				end
-				local prev_top_mod = UIL.ModifiersGetTop()
-				UIL.PushModifier(self.secondary_bar_modifiers)
-				
-				local color = i == 2 and self.PotentialDamageColor or self.ConditionalDamageColor
-				UIL.DrawSolidRect(self.otherBarBoxes[i], color)
-		
-				if prev_top_mod then
-					UIL.ModifiersSetTop(prev_top_mod)
-				end
-			end
-		end
-	end
+--	if self.otherBarBoxes then
+--		for i = 2, #self.Progress do
+--			if self.otherBarBoxes[i] then
+--				if not self.secondary_bar_modifiers then
+--					self.secondary_bar_modifiers = lSecondaryBarAnimation(self)
+--				end
+--				local prev_top_mod = UIL.ModifiersGetTop()
+--				UIL.PushModifier(self.secondary_bar_modifiers)
+--				
+--				local color = i == 2 and self.PotentialDamageColor or self.ConditionalDamageColor
+--				UIL.DrawSolidRect(self.otherBarBoxes[i], color)
+--		
+--				if prev_top_mod then
+--					UIL.ModifiersSetTop(prev_top_mod)
+--				end
+--			end
+--		end
+--	end
 
 	XWindow.DrawChildren(self, clip_box)
 	self:DrawPredictionIcons()

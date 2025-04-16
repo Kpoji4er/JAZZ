@@ -35,6 +35,5 @@ DefineClass.suppressionMedium = {
 	Icon = "Mod/e6L4ECj/Icons/suppressionMedium.png",
 	RemoveOnEndCombat = true,
 	Shown = true,
-	HasFloatingText = true,
 }
 

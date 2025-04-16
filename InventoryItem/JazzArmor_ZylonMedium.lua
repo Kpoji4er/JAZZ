@@ -29,5 +29,6 @@ DefineClass.JazzArmor_ZylonMedium = {
 	CamouflagePercent = 10,
 	CanHoldPlate = true,
 	Weight = 3,
+	SuppressionProtection = 10,
 }
 

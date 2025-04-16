@@ -26,5 +26,6 @@ DefineClass.JazzArmor_ImprovisedCuirass = {
 	ExplosiveArmorRating = 25,
 	CamouflagePercent = -15,
 	Weight = 4,
+	SuppressionProtection = 5,
 }
 

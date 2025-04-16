@@ -946,14 +946,15 @@ function Unit:RecalcWillPoints()
 
 			if HasPerk(unit, "Negotiator") then dist = Max(1,dist-3) end
 			if dist < 11 then
-				leadership = Max(leadership*(11-dist),unit.Leadership*(11-dist))
+				leadership = Max(leadership,unit.Leadership*(11-dist))
 			end
 			--ObjModified(unit)
 		end
 		--end
 	end
 
-	local buff = self.WillPoints + DivRound(self.MaxWillPoints,10) + DivRound(leadership,50) or 0
+	local buff = DivRound(self.MaxWillPoints,10) + DivRound(leadership,50) or 0
+	print("wpbuffleadership"..buff)
 
 	if HasPerk(self, "Optimist") then
 		local chance = CharacterEffectDefs.Optimist:ResolveValue("procChance")
@@ -983,11 +984,13 @@ function Unit:RecalcWillPoints()
 		buff = buff - 10
 	end
 
+	local loner_bonus = 10
 	for _, other in ipairs(self.team.units) do
 		if self ~= other and DivRound(self:GetDist(other), const.SlabSizeX) <= CharacterEffectDefs.Loner:ResolveValue("loner_radius") then
-			buff = buff + 10
+			loner_bonus = 0
 		end
 	end
+	buff = buff + loner_bonus 
 
 
 	if self:HasStatusEffect("ZoophobiaChecked") then
@@ -1015,6 +1018,7 @@ function Unit:RecalcWillPoints()
 
 	self.WillPoints = Max(self.WillPoints + buff,0)
 	self.WillPoints = Min(self.WillPoints,self.MaxWillPoints)
+	print("wpbuff"..buff)
 
 end
 
@@ -1933,6 +1937,7 @@ function Unit:ApplySuppressionStatus()
 	--	if self.WillPoints <= 10 then
 	--		self:SetActionCommand("TakeCover")
 	--	end
+	ObjModified(self)
 	end
 
 
