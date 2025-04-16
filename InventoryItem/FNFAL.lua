@@ -130,7 +130,7 @@ DefineClass.FNFAL = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 3000,
-	Recoil = 22,
+	Recoil = 32,
 	AutoShots = 6,
 	Handling = 60,
 	BulletDropRange = 21,

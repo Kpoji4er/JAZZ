@@ -264,6 +264,7 @@ function Unit:OnGearChanged(isLoad)
 		item:ApplyModifiersList(item.applied_modifiers)
 	end)
 	Msg("UnitAPChanged", self)
+	self:CalculateArmorWeight()
 	ObjModified(self)
 	ObjModified(self.Inventory)
 end
@@ -353,7 +354,7 @@ function UnitProperties:EquipStartingGear(items)
 			end
 		end
 	end
-	print('reloading')
+	--print('reloading')
 	self:ForEachItemInSlot("Handheld A", "Firearm", reload_weapon)
 	self:ForEachItemInSlot("Handheld B", "Firearm", reload_weapon)
 	
@@ -815,7 +816,7 @@ function UnitBase:GetPersonalMorale()
 	
 	personalMorale = self:CallReactions_Modify("OnCalcPersonalMorale", personalMorale)
 	
-	return Clamp(personalMorale + teamMorale, -3, 3)
+	return Clamp(personalMorale + teamMorale, -5, 5)
 end
 
 function UnitProperties:GetMaxActionPoints()
@@ -876,11 +877,152 @@ function Unit:CalculateArmorWeight()
 	if HasPerk(self, "KillingWind") then 
 		TotalAPDebuff = TotalAPDebuff/5
 		TotalFreeMoveDebuff = TotalFreeMoveDebuff/5 end
-	return TotalAPDebuff, TotalAPDebuff
+
+	if self.using_cumbersome then TotalFreeMoveDebuff = MulDivRound(TotalFreeMoveDebuff,1,2) end
+
+		if self.Strength > 60 then
+			local StrBuff = MulDivRound(self.Strength-60,const.Scale.AP,20)
+			TotalFreeMoveDebuff = TotalFreeMoveDebuff - StrBuff 
+			TotalAPDebuff = TotalAPDebuff - StrBuff * 2 
+		end
+
+		TotalAPDebuff = floatfloor(TotalAPDebuff)
+		TotalFreeMoveDebuff = floatfloor(TotalFreeMoveDebuff)
+
+		--print(TotalFreeMoveDebuff..TotalAPDebuff)
+
+		TotalFreeMoveDebuff = Clamp(TotalFreeMoveDebuff, 0, 12*const.Scale.AP)
+		TotalAPDebuff = Clamp(TotalAPDebuff, 0, 5*const.Scale.AP)
+
+		--print(TotalFreeMoveDebuff..TotalAPDebuff)
+		
+		self:ConsumeAP(TotalFreeMoveDebuff, "Move")
+		self:ConsumeAP(Min(self.ActionPoints, TotalAPDebuff))
+		
+		local armor = self:GetItemInSlot("Torso", "Armor")
+		local plate = self:GetItemInSlot("Torso", "ArmorPlate") or armor
+		local armorclass = 1
+		local plateclass = 1
+		if armor then armorclass = armor.PenetrationClass end
+		if plate and plate.Condition > 0 then plateclass = plate.PenetrationClass  or 0 end
+ 		
+		armorclass = Max(armorclass,plateclass)
+
+
+
+		self:RemoveStatusEffect("Weight_1Class", "all")
+		self:RemoveStatusEffect("Weight_2Class", "all")
+		self:RemoveStatusEffect("Weight_3Class", "all")
+		self:RemoveStatusEffect("Weight_4Class", "all")
+		self:RemoveStatusEffect("Weight_5Class", "all")
+
+		if TotalFreeMoveDebuff/const.Scale.AP > 0 then
+			local count = floatfloor(TotalFreeMoveDebuff/const.Scale.AP)
+			--print(count)
+			for i = 1, count do
+				self:AddStatusEffect("Weight_"..armorclass.."Class")
+			end
+		end
+
+	return 
+end
+
+
+function Unit:RecalcWillPoints()
+	local leadership = 0
+	local animalsnearby = 0
+
+	local units = g_Units
+	units = table.ifilter(units, function(k, v)
+		return v.HireStatus ~= "Dead"
+	end)
+
+	for _, unit in ipairs(units) do
+		
+		local dist = DivRound(self:GetPos():Dist(unit:GetPos()),const.SlabSizeX)
+		if unit.species ~= "Human" and dist < 11  then animalsnearby = animalsnearby + 1 end
+		if self ~= unit and self.side == unit.side then
+
+
+			if HasPerk(unit, "Negotiator") then dist = Max(1,dist-3) end
+			if dist < 11 then
+				leadership = Max(leadership,unit.Leadership*(11-dist))
+			end
+			--ObjModified(unit)
+		end
+		--end
+	end
+
+	local buff = DivRound(self.MaxWillPoints,10) + DivRound(leadership,50) or 0
+	print("wpbuffleadership"..buff)
+
+	if HasPerk(self, "Optimist") then
+		local chance = CharacterEffectDefs.Optimist:ResolveValue("procChance")
+		local roll = InteractionRand(100, "Optimist")
+		if roll < chance then
+			PlayVoiceResponse(self, "Optimist")
+			
+		end
+		buff = buff + 10
+	end
+
+	if HasPerk(self, "Pessimist") then
+		local chance = CharacterEffectDefs.Pessimist:ResolveValue("procChance")
+		local roll = InteractionRand(100, "Pessimist")
+		if roll < chance then
+			PlayVoiceResponse(self, "Pessimist")
+			
+		end
+		buff = buff - 10
+	end
+
+	if HasPerk(self, "Spiritual") then
+		buff = buff + 5
+	end
+
+	if IsSectorUnderground(gv_CurrentSectorId) and self:HasStatusEffect("ClaustrophobicChecked") then
+		buff = buff - 10
+	end
+
+	local loner_bonus = 10
+	for _, other in ipairs(self.team.units) do
+		if self ~= other and DivRound(self:GetDist(other), const.SlabSizeX) <= CharacterEffectDefs.Loner:ResolveValue("loner_radius") then
+			loner_bonus = 0
+		end
+	end
+	buff = buff + loner_bonus 
+
+
+	if self:HasStatusEffect("ZoophobiaChecked") then
+		buff = buff - 10 * animalsnearby
+		else buff = buff - 3 * animalsnearby
+	end
+
+
+
+	
+	if HasPerk(self, "Hemophobic") and self:HasStatusEffect("Bleeding") then
+		local chance = CharacterEffectDefs.Hemophobic:ResolveValue("procChance")
+		local roll = InteractionRand(100, "Hemophobic")
+		if roll < chance then
+			PlayVoiceResponse(self, "Hemophobic")
+			--CombatLog("debug", T{Untranslated("<em>Hemophobic</em> proc on <unit>"), unit = self.Name})
+
+			PanicOutOfSequence({self})
+			buff = -20
+		end
+	end
+
+	
+
+
+	self.WillPoints = Max(self.WillPoints + buff,0)
+	self.WillPoints = Min(self.WillPoints,self.MaxWillPoints)
+	print("wpbuff"..buff)
+
 end
 
 function Unit:BeginTurn(new_turn)	
-	
 	NetUpdateHash("BeginTurn_Start")
 	self:SetAttackReason()
 	local should_interrupt = true
@@ -958,8 +1100,7 @@ function Unit:BeginTurn(new_turn)
 		NetUpdateHash("BeginTurn", self, self.using_cumbersome, HasPerk(self, "KillingWind"),
 								HasPerk(self, "Ironclad"))
 
-		local TotalAPDebuff, TotalFreeMoveDebuff = self:CalculateArmorWeight()
-		if self.using_cumbersome then TotalFreeMoveDebuff = MulDivRound(TotalFreeMoveDebuff,1,2) end
+
 		
 		if not self.using_cumbersome or HasPerk(self, "KillingWind") then
 			self:AddStatusEffect("FreeMove")
@@ -976,51 +1117,17 @@ function Unit:BeginTurn(new_turn)
 		--TotalFreeMoveDebuff = MulDivRound(TotalFreeMoveDebuff,50,100-self.Strength)
 		--TotalAPDebuff = MulDivRound(TotalAPDebuff,50,100-self.Strength)
 		
-		if self.Strength > 60 then
-			local StrBuff = MulDivRound(self.Strength-60,const.Scale.AP,20)
-			TotalFreeMoveDebuff = TotalFreeMoveDebuff - StrBuff 
-			TotalAPDebuff = TotalAPDebuff - StrBuff * 2 
-		end
 
-		TotalAPDebuff = floatfloor(TotalAPDebuff)
-		TotalFreeMoveDebuff = floatfloor(TotalFreeMoveDebuff)
 
-		--print(TotalFreeMoveDebuff..TotalAPDebuff)
 
-		TotalFreeMoveDebuff = Clamp(TotalFreeMoveDebuff, 0, 12*const.Scale.AP)
-		TotalAPDebuff = Clamp(TotalAPDebuff, 0, 5*const.Scale.AP)
 
-		--print(TotalFreeMoveDebuff..TotalAPDebuff)
 		
-		self:ConsumeAP(TotalFreeMoveDebuff, "Move")
-		self:ConsumeAP(Min(self.ActionPoints, TotalAPDebuff))
-		
-		local armor = self:GetItemInSlot("Torso", "Armor")
-		local plate = self:GetItemInSlot("Torso", "ArmorPlate") or armor
-		local armorclass = 1
-		local plateclass = 1
-		if armor then armorclass = armor.PenetrationClass end
-		if plate and plate.Condition > 0 then plateclass = plate.PenetrationClass  or 0 end
- 		
-		armorclass = Max(armorclass,plateclass)
+
+
+		self:SetWeaponLightFx(true)
 
 
 
-		self:RemoveStatusEffect("Weight_1Class", "all")
-		self:RemoveStatusEffect("Weight_2Class", "all")
-		self:RemoveStatusEffect("Weight_3Class", "all")
-		self:RemoveStatusEffect("Weight_4Class", "all")
-		self:RemoveStatusEffect("Weight_5Class", "all")
-
-
-
-		if TotalFreeMoveDebuff/const.Scale.AP > 0 then
-			local count = floatfloor(TotalFreeMoveDebuff/const.Scale.AP)
-			--print(count)
-			for i = 1, count do
-				self:AddStatusEffect("Weight_"..armorclass.."Class")
-			end
-		end
 		
 		-- ConsumeAP will flag this only when an action is given, so it is safe to mark this a bit earlier to allow OnBeginTurn effects to alter it
 		self.performed_action_this_turn = false
@@ -1028,12 +1135,17 @@ function Unit:BeginTurn(new_turn)
 		Msg("UnitBeginTurn", self)
 		self:CallReactions("OnBeginTurn")
 		
-		local morale = self:GetPersonalMorale()
-		if morale > 0 then
-			self:GainAP(morale * const.Scale.AP)
-		elseif morale < 0 then
-			self:ConsumeAP(Min(self.ActionPoints, -morale * const.Scale.AP))
-		end
+		local morale = self:GetPersonalMorale() or 0
+	--	if morale > 0 then
+	--		self:GainAP(morale * const.Scale.AP)
+	--	elseif morale < 0 then
+	--		self:ConsumeAP(Min(self.ActionPoints, -morale * const.Scale.AP))
+	--	end
+
+
+		RecalcMaxWillPoints(self)
+		self:RecalcWillPoints()
+		self:ApplySuppressionStatus()
 		
 		if self:GetItemInSlot("HeadGear", "GasMaskBase") then
 			self:ConsumeAP(const.Scale.AP)
@@ -1714,3 +1826,400 @@ function UnitData:RandomizeStats(seed)
 		self:AddModifier("randstat", stat, false, modValue)
 	end
 end
+
+
+function GainStat(unit, stat, gainAmount, modId, reason)
+	assert(stat)
+	if unit:IsDead() then return end
+	local unitData = gv_UnitData[unit.session_id]
+	local unit = g_Units[unit.session_id]
+	gainAmount = gainAmount or 1
+	reason = reason or "FieldExperience"
+	
+	modId = modId or string.format("StatGain-%s-%s-%d", stat, unitData.session_id, GetPreciseTicks())
+	local mod = unitData:AddModifier(modId, stat, false, gainAmount)
+	if unit then
+		unit:AddModifier(modId, stat, false, gainAmount)
+	end
+	Msg("ModifierAdded", unitData, stat, mod)
+	
+	local unitName = unitData:GetLogName()
+	local statName = table.find_value(UnitPropertiesStats:GetProperties(), "id", stat).name
+	if reason ~= "Training" then
+		CombatLog("important", T{124938068325, "<em><unit></em> gained +<amount> <em><stat></em>",
+			unit = unitName,
+			stat = statName,
+			amount = gainAmount
+		})
+	end
+	if stat == "Health" then
+		if unit then
+			RecalcMaxHitPoints(unit)
+		end
+		RecalcMaxHitPoints(unitData)
+	end
+
+	if stat == "Will" then
+		if unit then
+			RecalcMaxWillPoints(unit)
+		end
+		RecalcMaxWillPoints(unitData)
+	end
+
+	ObjModified(unit)
+	ObjModified(unitData)
+	
+	Msg("StatIncreased", unitData, stat, gainAmount, reason)
+	PlayFX("StatIncreased", "start", stat)
+	return stat
+end
+
+
+function Unit:ApplySuppressionStatus()
+	
+		if HasPerk(self, "Psycho") then
+		return end
+
+		--local unitData = gv_UnitData[self.session_id]
+		if self.species ~= "Human" then return end
+		RecalcMaxWillPoints(self)
+		local MaxWillPoints =  self.MaxWillPoints or self.Will
+
+
+--		print(self.WillPoints)
+--		print(MaxWillPoints)
+		
+		local WPpercent = MulDivRound(self.WillPoints, 100, MaxWillPoints) or 0
+
+--		print(WPpercent)
+
+		
+
+		
+
+		
+
+		
+		if (WPpercent) <= 3 and not self:HasStatusEffect("suppressionPinned") then	
+			self:AddStatusEffect("suppressionPinned")
+			self:RemoveStatusEffect("suppressionLight","all")
+			self:RemoveStatusEffect("suppressionMedium","all")
+			self:RemoveStatusEffect("suppressionHeavy","all")
+			self:RemoveStatusEffect("suppressionHeavy2","all")		
+		elseif (WPpercent) <= 10 and not self:HasStatusEffect("suppressionHeavy2") then	
+			self:AddStatusEffect("suppressionHeavy2")
+			self:RemoveStatusEffect("suppressionLight","all")
+			self:RemoveStatusEffect("suppressionMedium","all")
+			self:RemoveStatusEffect("suppressionHeavy","all")
+			self:RemoveStatusEffect("suppressionPinned","all")
+		elseif (WPpercent) <= 25 and not self:HasStatusEffect("suppressionHeavy") then	
+			self:AddStatusEffect("suppressionHeavy")
+			self:RemoveStatusEffect("suppressionLight","all")
+			self:RemoveStatusEffect("suppressionMedium","all")
+			self:RemoveStatusEffect("suppressionHeavy2","all")	
+			self:RemoveStatusEffect("suppressionPinned","all")
+		elseif (WPpercent) <= 45 and not self:HasStatusEffect("suppressionMedium") then	
+			self:AddStatusEffect("suppressionMedium")
+			self:RemoveStatusEffect("suppressionLight","all")
+			self:RemoveStatusEffect("suppressionHeavy","all")
+			self:RemoveStatusEffect("suppressionHeavy2","all")	
+			self:RemoveStatusEffect("suppressionPinned","all")
+		elseif (WPpercent) <= 60 and not self:HasStatusEffect("suppressionLight") then	
+			self:AddStatusEffect("suppressionLight")
+			self:RemoveStatusEffect("suppressionMedium","all")
+			self:RemoveStatusEffect("suppressionHeavy","all")
+			self:RemoveStatusEffect("suppressionHeavy2","all")	
+			self:RemoveStatusEffect("suppressionPinned","all")	
+		end
+		
+		
+
+	--	if self.WillPoints <= 10 then
+	--		self:SetActionCommand("TakeCover")
+	--	end
+	ObjModified(self)
+	end
+
+
+	--function OnMsg.OnAttack()
+	--	for _, unit in ipairs(g_Units) do
+	--		unit:ApplySuppressionStatus()
+	--	end
+	--end
+
+	
+
+	local KeepAimIKCommands = {
+		Idle = true,
+		AimIdle = true,
+		OpportunityAttack = true,
+		PreparedAttackIdle = true,
+		ExecFirearmAttacks = true,
+		HeavyWeaponAttack = true,
+		FirearmAttack = true,
+	}
+	
+	
+	---
+--- Called at the start of a unit's command.
+--- This function performs various setup and initialization tasks at the start of a unit's command, such as:
+--- - Interrupting the current command if the unit was previously interrupted
+--- - Resetting various state variables related to the unit's movement and visual styles
+--- - Unblocking any tunnels the unit may have been traversing
+--- - Setting the unit's gravity to 0 and stopping any current movement
+--- - Clearing the unit's path and adjusting its position if it was traversing a tunnel
+--- - Disabling weapon light effects and aim IK if the current command does not require them
+--- - Setting the unit's foot plant state and beginning interruptable movement if the command is interruptable
+--- - Setting the unit's aim FX and combat action state
+---
+--- @function Unit:OnCommandStart
+--- @return nil
+function Unit:OnCommandStart()
+	if self.interrupted then
+		self:InterruptEnd()
+	end
+	self.cur_idle_style = false
+	self.cur_move_style = false
+	self.goto_target = false
+	self.goto_stance = false
+	self.goto_hide = false
+	self.visibility_override = false
+	self.passed_interrupts = nil
+	self:TunnelsUnblock()
+	self.action_visual_weapon = false
+	if IsValid(self) then
+		self:SetGravity(0)
+		self:StopMoving()
+		self.interrupted = false
+		if not self:IsDead() and not IsActivePaused() and not IsSetpieceActor(self) then
+			self:ClearPath()
+			if self.traverse_tunnel then
+				local tpos = self.traverse_tunnel:GetExit()
+				if tpos then
+					local pos = GetPassSlab(tpos) or FindPassable(tpos, 0, -1, -1, const.pfmVoxelAligned) or tpos
+					self:SetPos(pos)
+				end
+			end
+		end
+		if not KeepAimIKCommands[self.command] then
+			--self:SetWeaponLightFx(false)
+			self:SetIK("AimIK", false)
+		end
+		self:SetIK("LookAtIK", false)
+		if not self.interruptable and self.command then
+			self:BeginInterruptableMovement()
+		end
+		self:SetFootPlant(true)
+	end
+	self.traverse_tunnel = false
+	self:SetAimFX(false, self.command and "delayed")
+	if self.action_command then
+		SetCombatActionState(self, self.command == self.action_command and "start" or nil)
+	end
+end
+
+
+function Unit:Idle()
+	self:WaitResumeOnCommandStart()
+	assert(self:IsValidPos())
+	SetCombatActionState(self, nil)
+	self.being_interacted_with = false
+	if not self.move_attack_in_progress then
+		self.move_attack_target = nil
+	end	
+	self:SetQueuedAction()
+	ExplorationClearExclusiveAction(self)
+
+	if self:IsDead() then
+		if self.behavior == "Despawn" then
+			self:SetCommand("Despawn")
+		elseif self.behavior ~= "Hang" and self.behavior ~= "Dead" then
+			self:SetBehavior("Dead")
+			self:SetCombatBehavior("Dead")
+		end
+	else
+		if self.stance == "Prone" and self:GetValidStance("Prone") ~= "Prone" then
+			self:DoChangeStance("Crouch")
+		end
+		if g_Combat and self:CanCower() and (self.team.side == "neutral" or self:HasStatusEffect("ForceCower")) and not g_Combat:ShouldEndCombat() then
+			self:SetCommand("Cower")
+		end
+	end
+	self:UpdateInWaterFX()
+
+	if self:IsDead() then
+		if self.behavior == "Hang" then
+			self:SetCommand("Hang")
+		else
+			assert(not self.Squad or IsMerc(self))
+			self:SetCommand("Dead")
+		end
+	end
+	FallDownCheck(self)
+	if self:HasStatusEffect("Unconscious") then
+		self:SetCommand("Downed")
+	elseif IsSetpieceActor(self) then
+		self:SetCommand("SetpieceIdle", true)
+	elseif self:HasStatusEffect("Suspicious") then
+		if g_Combat then
+			self:RemoveStatusEffect("Suspicious")
+		else
+			return self:SuspiciousRoutine()
+		end
+	elseif self:HasCommandsInQueue() then
+		return
+	elseif g_Combat and self.combat_behavior then
+		self:SetCommand(self.combat_behavior, table.unpack(self.combat_behavior_params or empty_table))
+	elseif not g_Combat and self.behavior and not self:HasStatusEffect("Suspicious") then
+		local enemy = self:GetCommandParam("idle_forcing_dist")
+		if not IsValid(enemy) or not self:IdleForcingDist(enemy) then
+			self:SetCommandParamValue(self.command, "idle_forcing_dist", nil)
+			self:SetCommand(self.behavior, table.unpack(self.behavior_params or empty_table))
+		end
+	end
+
+	-- setup target dummy
+	local anim_style = self:GetIdleStyle()
+	local base_idle = anim_style and anim_style:GetMainAnim() or self:GetIdleBaseAnim()
+	local can_reposition = not (g_Combat and self:IsAware()) -- if large units can change angle (occupied tiles)
+	local pos, orientation_angle
+	if self.return_pos and not self.play_sequential_actions then
+		pos = self.return_pos
+		local voxel = SnapToVoxel(self)
+		if not pos:Equal2D(voxel) then
+			orientation_angle = CalcOrientation(pos, voxel)
+		end
+	else
+		pos = GetPassSlab(self) or self:GetPos()
+	end
+	local dummy_orientation_angle = self:GetPosOrientation(pos, nil, self.stance, true, can_reposition)
+	if not orientation_angle then
+		orientation_angle = self.auto_face and dummy_orientation_angle or self:GetPosOrientation(pos, nil, self.stance, false, can_reposition)
+	end
+	self:SetTargetDummy(pos, dummy_orientation_angle, base_idle, 0)
+
+	if g_Combat and (not self:IsNPC() or self:IsAware()) then
+		Msg("Idle", self)
+	end
+	if self.aim_action_id and not HasCombatActionInProgress(self) then
+		self:SetCommand("AimIdle")
+	end
+	--self:SetWeaponLightFx(false)
+	self:SetIK("AimIK", false)
+	if self.play_sequential_actions then
+		self:SetCommand("SequentialActionsIdle")
+	end
+
+	-- orient
+	if not GameTimeAdvanced then
+		self:SetOrientationAngle(orientation_angle)
+	else
+		self:EndInterruptableMovement()
+		self:PlayTransitionAnims(base_idle, orientation_angle)
+		self:AnimatedRotation(orientation_angle, base_idle)
+		self:BeginInterruptableMovement()
+	end
+
+	self:SetCommandParamValue("Idle", "move_anim", "WalkSlow")
+	if self:ShouldBeIdle() then
+		-- one animation cycle
+		-- play current style end animation
+		self.cur_idle_style = anim_style and anim_style.Name or nil
+		if anim_style then
+			local anim = self:GetStateText()
+			if anim_style:HasAnimation(anim) then
+				if self:GetAnimPhase() ~= 0 and not self:IsAnimEnd() then
+					Sleep(self:TimeToAnimEnd())
+				end
+			elseif anim == anim_style.Start then
+				Sleep(self:TimeToAnimEnd())
+			elseif (anim_style.Start or "") ~= "" and IsValidAnim(self, anim_style.Start) then
+				self:SetState(anim_style.Start, const.eKeepComponentTargets)
+				Sleep(self:TimeToAnimEnd())
+			end
+			self:SetState(anim_style:GetRandomAnim(self), const.eKeepComponentTargets)
+			if not GameTimeAdvanced then
+				self:RandomizeAnimPhase()
+			end
+		else
+			if self:GetAnimPhase(1) == 0 or self:IsAnimEnd() or not IsAnimVariant(self:GetStateText(), base_idle) then
+				self:SetRandomAnim(base_idle, const.eKeepComponentTargets, nil, true)
+			end
+		end
+		Sleep(self:TimeToAnimEnd())
+	else
+		self:IdleRoutine()
+	end
+end
+
+
+	---
+--- Rolls a skill check for the given unit and skill, with optional modifiers.
+---
+--- @param unit UnitPropertiesStats The unit performing the skill check.
+--- @param skill string The name of the skill being checked.
+--- @param modifier number (optional) A percentage modifier to apply to the skill value.
+--- @param add number (optional) A value to add to the skill value.
+--- @return boolean True if the skill check passes, false otherwise.
+---
+function RollSkillCheck(unit, skill, modifier, add)
+	assert(IsKindOf(unit, "UnitPropertiesStats"))
+	
+	modifier = modifier or 100
+	add = add or 0
+	
+	local roll = 1 + unit:Random(100)
+	--adjust roll based on diff
+	--local adjustRoll = GameDifficulties[Game.game_difficulty]:ResolveValue("rollSkillCheckBonus") or 0
+	local adjustRoll = 5 * unit:GetPersonalMorale()
+	roll = roll + adjustRoll
+	roll = Min(roll, 100)
+	
+	local value = MulDivRound(unit[skill], modifier, 100) + add
+	local pass = roll < value or CheatEnabled("SkillCheck")
+	
+	--CombatLog("debug", 
+	local t_res = pass and Untranslated("<em>Pass</em>") or Untranslated("<em>Fail</em>")
+	local meta = unit:GetPropertyMetadata(skill)
+	local t_skill = meta.name
+	if modifier ~= 100 then
+		if add > 0 then
+			t_skill = T{816405633181, "<percent(n1)> <skill>+<n2>", n1 = modifier, n2 = add, skill = meta.name}
+		elseif add < 0 then
+			t_skill = T{656059859333, "<percent(n1)> <skill><n2>", n1 = modifier, n2 = add, skill = meta.name}
+		else
+			t_skill = T{570928040607, "<percent(number)> <skill>", number = modifier, skill = meta.name}
+		end
+	elseif add > 0 then
+		t_skill = T{481345361355, "<skill>+<number>", number = add, skill = meta.name}
+	elseif add < 0 then
+		t_skill = T{945399039468, "<skill><number>", number = add, skill = meta.name}
+	end
+	
+	CombatLog("debug", T{Untranslated("<em><name><em> Skill check (<em><skill></em>) <roll>/<target>: <result>"), 
+		name = unit:GetLogName(),
+		skill = t_skill,
+		roll = roll, 
+		target = value,
+		result = t_res,
+	})
+	return pass
+end
+
+function SkillCheck(unit, skill, threshold,dont_report_fails)
+	if not unit or not IsKindOf(unit, "UnitPropertiesStats") then return "error" end
+	local stat = unit[skill] + 5 * unit:GetPersonalMorale()
+	if not stat then return "error" end
+	if threshold <= stat or CheatEnabled("SkillCheck") then
+		CombatLog("debug", "(success) " .. unit.session_id .. " " .. skill.. " check (" .. stat.. " / " ..threshold .. ")")
+		PlayFX("SkillCheck", "success", unit, skill)
+		return "success", stat - threshold, stat
+	end	
+	if not dont_report_fails then
+		PlayFX("SkillCheck", "fail", unit, skill)
+		CombatLog("debug", "(fail) " .. unit.session_id .." " .. skill.. " check (" .. stat.. " / " ..threshold .. ")")
+	end
+	return "fail", threshold - stat, stat
+end
+
+

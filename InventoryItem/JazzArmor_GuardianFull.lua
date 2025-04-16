@@ -28,5 +28,6 @@ DefineClass.JazzArmor_GuardianFull = {
 	ExplosiveArmorRating = 35,
 	CanHoldPlate = true,
 	Weight = 4,
+	SuppressionProtection = 25,
 }
 

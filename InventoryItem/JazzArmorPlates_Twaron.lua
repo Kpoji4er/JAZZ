@@ -26,6 +26,5 @@ DefineClass.JazzArmorPlates_Twaron = {
 	ArmorRating = 8,
 	MeleeArmorRating = 10,
 	Weight = 2,
-	BlockedEffects = {},
 }
 

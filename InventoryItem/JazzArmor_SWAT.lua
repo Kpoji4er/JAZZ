@@ -29,5 +29,6 @@ DefineClass.JazzArmor_SWAT = {
 	CamouflagePercent = -15,
 	CanHoldPlate = true,
 	Weight = 4,
+	SuppressionProtection = 20,
 }
 

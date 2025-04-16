@@ -28,5 +28,7 @@ DefineClass.JazzArmor_SpectraHelm = {
 	BlockFaceSlot = true,
 	Weight = 4,
 	DustStormProtection = 30,
+	StunGrenadeProtection = 20,
+	SuppressionProtection = 20,
 }
 

@@ -18,5 +18,11 @@ DefineClass.NightVisionGoggles = {
 	DamageReduction = 0,
 	AdditionalReduction = 0,
 	ProtectedBodyParts = set( "Head" ),
+	StunGrenadeProtection = function ()
+		    return 0--self.StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
+	end,
+	SuppressionProtection = function ()
+		    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
+	end,
 }
 

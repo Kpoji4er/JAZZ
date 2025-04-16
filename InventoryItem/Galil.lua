@@ -114,7 +114,7 @@ DefineClass.Galil = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 5000,
-	Recoil = 27,
+	Recoil = 32,
 	AutoShots = 6,
 	Handling = 65,
 	BulletDropRange = 20,

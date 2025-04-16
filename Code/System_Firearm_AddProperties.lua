@@ -163,25 +163,38 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
     modifiable = true
 }
 
-WeaponComponentVisual.properties[#WeaponComponentVisual.properties+1] = {
-    id = "Reticle",
-    name = "Reticle",
+WeaponComponent.properties[#WeaponComponent.properties+1] = {
+    category = "Scope Visuals",
+    id = "ReticleInner",
+    name = "Reticle Inner",
     help = "Сетка прицела",
     editor = "ui_image",
     template = true,
     default =  "",
-    image_preview_size = 400
+    image_preview_size = 75
 }
 
-WeaponComponentVisual.properties[#WeaponComponentVisual.properties+1] = {
-    id = "ReticleZoom",
-    name = "Reticle Zoom",
-    help = "Сетка прицела",
-    editor = "number",
+WeaponComponent.properties[#WeaponComponent.properties+1] = {
+    category = "Scope Visuals",
+    id = "ReticleInnerSub",
+    name = "Reticle Inner (Sub)",
+    help = "Сетка прицела (для доп прицела)",
+    editor = "ui_image",
+    template = true,
+    default =  "",
+    image_preview_size = 75
+}
+
+WeaponComponent.properties[#WeaponComponent.properties+1] = {
+    category = "Scope Visuals",
+    id = "ReticleOuter",
+    name = "Reticle Outer",
+    help = "Обводка прицела",
+    editor = "ui_image",
     default = 0,
     template = true,
-    min = 0,
-    max = 1000
+    default =  "",
+    image_preview_size = 75
 }
 
 --WeaponComponentVisual.properties[#WeaponComponentVisual.properties+1] = {

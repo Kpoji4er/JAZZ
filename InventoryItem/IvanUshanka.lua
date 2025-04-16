@@ -16,5 +16,6 @@ DefineClass.IvanUshanka = {
 	ProtectedBodyParts = set( "Head" ),
 	ArmorRating = 15,
 	MeleeArmorRating = 10,
+	SuppressionProtection = 15,
 }
 

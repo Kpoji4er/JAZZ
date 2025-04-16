@@ -24,7 +24,7 @@ DefineClass.JazzArmorPlates_Steel5 = {
 	AdditionalReduction = 80,
 	ProtectedBodyParts = set( "Torso" ),
 	CanAppearUsed = false,
-	ArmorRating = 14,
+	ArmorRating = 20,
 	Weight = 5,
 }
 

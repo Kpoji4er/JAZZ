@@ -11852,7 +11852,6 @@ return {
 						}),
 						PlaceObj('QuestVarNum', {
 							Name = "JAZZ_Legion_Tier",
-							RandomRangeMax = 5,
 							Value = 1,
 						}),
 						PlaceObj('QuestVarTCEState', {
@@ -12394,6 +12393,16 @@ return {
 						PlaceObj('LootEntryInventoryItem', {
 							Double = true,
 							item = "JAZZ_AMMO_762x51_FMJ",
+							stack_max = 5,
+							stack_min = 1,
+						}),
+					}),
+					PlaceObj('ModItemLootDef', {
+						group = "Enemy - General",
+						id = "Noob_75_Machinegun",
+						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
+							item = "JAZZ_AMMO_75French",
 							stack_max = 5,
 							stack_min = 1,
 						}),
@@ -17105,6 +17114,1722 @@ return {
 					PlaceObj('ModItemFolder', {
 						'name', "PistolPresets",
 					}, {
+						PlaceObj('ModItemLootDef', {
+							group = "Default",
+							id = "LegionNoob_Pistol_T1",
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-1",
+								loot_def = "LegionNoob_Luger",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-1",
+								loot_def = "LegionNoob_Makarov",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-1",
+								loot_def = "LegionNoob_TT",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-2",
+								loot_def = "LegionNoob_P210",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-2",
+								loot_def = "LegionNoob_Colt1911",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-3",
+								loot_def = "LegionNoob_HiPower",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionNoob_Scorpion",
+								weight = 75000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-3",
+								loot_def = "LegionNoob_ColtPeaceMakerShort",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-4",
+								loot_def = "LegionNoob_ColtPeaceMaker",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-4",
+								loot_def = "LegionNoob_ColtAnacondaShort",
+								weight = 100000,
+							}),
+						}),
+						PlaceObj('ModItemLootDef', {
+							group = "Default",
+							id = "LegionNoob_Pistol_T2",
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2-1",
+								loot_def = "LegionNoob_MP443",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2-1",
+								loot_def = "LegionNoob_CZ75",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2-2",
+								loot_def = "LegionNoob_Beretta",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2-2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionNoob_MAC10",
+								weight = 40000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2-3",
+								loot_def = "LegionNoob_Glock17",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2-3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionNoob_MicroUZI",
+								weight = 20000,
+							}),
+						}),
+						PlaceObj('ModItemLootDef', {
+							group = "Default",
+							id = "LegionNoob_Pistol_T3",
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3-1",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionNoob_MP5KPreset",
+								weight = 10000,
+							}),
+						}),
+						PlaceObj('ModItemLootDef', {
+							group = "Default",
+							id = "LegionStrong_Pistol_T1",
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-1",
+								loot_def = "LegionStrong_Luger",
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-1",
+								loot_def = "LegionStrong_Makarov",
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-1",
+								loot_def = "LegionStrong_TT",
+								weight = 5000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-2",
+								loot_def = "LegionStrong_P210",
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-2",
+								loot_def = "LegionStrong_Colt1911",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_Scorpion",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_HiPower",
+								weight = 15000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_ColtPeaceMaker",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2-1",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_MP443",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2-1",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_CZ75",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2-2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_Beretta",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2-3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_Glock17",
+								weight = 50000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2-4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_Glock18",
+								weight = 40000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_P220",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_MicroUZI",
+								weight = 30000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_MAC10",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_ColtAnaconda",
+								weight = 60000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_USP45",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1-3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_APS",
+								weight = 5000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_MP5K",
+								weight = 50000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_P226",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_DesertEagle",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_TMP",
+								weight = 5000,
+							}),
+						}),
+						PlaceObj('ModItemLootDef', {
+							group = "Default",
+							id = "LegionStrong_Pistol_T2",
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionStrong_Luger",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionStrong_Luger",
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionStrong_P210",
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionStrong_Makarov",
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionStrong_TT",
+								weight = 5000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionStrong_Colt1911",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_Scorpion",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_HiPower",
+								weight = 15000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_ColtPeaceMaker",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_Beretta",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_CZ75",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_P220",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_MicroUZI",
+								weight = 30000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_MAC10",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_ColtAnaconda",
+								weight = 60000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_MP443",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_USP45",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_APS",
+								weight = 5000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_MP5K",
+								weight = 50000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_Glock17",
+								weight = 50000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_P226",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_DesertEagle",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_Glock18",
+								weight = 40000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_TMP",
+								weight = 5000,
+							}),
+						}),
+						PlaceObj('ModItemLootDef', {
+							group = "Default",
+							id = "LegionStrong_Pistol_T3",
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionStrong_Luger",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionStrong_Luger",
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionStrong_P210",
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionStrong_Makarov",
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionStrong_TT",
+								weight = 5000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionStrong_Colt1911",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_Scorpion",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_HiPower",
+								weight = 15000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_ColtPeaceMaker",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_Beretta",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_CZ75",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_P220",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_MicroUZI",
+								weight = 30000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_MAC10",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_ColtAnaconda",
+								weight = 60000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_MP443",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_USP45",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_APS",
+								weight = 5000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_MP5K",
+								weight = 50000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_Glock17",
+								weight = 50000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_P226",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_DesertEagle",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_Glock18",
+								weight = 40000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionStrong_TMP",
+								weight = 5000,
+							}),
+						}),
+						PlaceObj('ModItemLootDef', {
+							group = "Default",
+							id = "LegionElite_Pistol_T1",
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionElite_Luger",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionElite_P210",
+								weight = 5000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionElite_Colt1911",
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionElite_Scorpion",
+								weight = 5000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionElite_ColtPeaceMaker",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionElite_ColtPeaceMakerShort",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_HiPower",
+								weight = 15000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_CZ75",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_MicroUZI",
+								weight = 30000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_Beretta",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_P220",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_BerettaLaser",
+								weight = 60000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_P220Laser",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_MicroUZILaser",
+								weight = 30000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_ColtAnaconda",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_Glock17",
+								weight = 60000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_MAC10",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_ColtAnacondaScope",
+								weight = 60000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_MP443",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_USP45",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_APS",
+								weight = 60000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_MP5KLaser",
+								weight = 50000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_Glock17Laser",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_P226",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_DesertEagle",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_Glock18Laser",
+								weight = 40000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_TMP",
+								weight = 5000,
+							}),
+						}),
+						PlaceObj('ModItemLootDef', {
+							group = "Default",
+							id = "LegionElite_Pistol_T2",
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionElite_Luger",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionElite_P210",
+								weight = 5000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionElite_Colt1911",
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionElite_Scorpion",
+								weight = 5000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionElite_ColtPeaceMaker",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionElite_ColtPeaceMakerShort",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_HiPower",
+								weight = 15000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_CZ75",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_MicroUZI",
+								weight = 30000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_Beretta",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_P220",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_BerettaLaser",
+								weight = 60000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_P220Laser",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_MicroUZILaser",
+								weight = 30000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_ColtAnaconda",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_Glock17",
+								weight = 60000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_MAC10",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_ColtAnacondaScope",
+								weight = 60000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_MP443",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_USP45",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_APS",
+								weight = 60000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_MP5KLaser",
+								weight = 50000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_Glock17Laser",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_P226",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_DesertEagle",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_Glock18Laser",
+								weight = 40000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_TMP",
+								weight = 5000,
+							}),
+						}),
+						PlaceObj('ModItemLootDef', {
+							group = "Default",
+							id = "LegionElite_Pistol_T3",
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionElite_Luger",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionElite_P210",
+								weight = 5000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionElite_Colt1911",
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionElite_Scorpion",
+								weight = 5000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionElite_ColtPeaceMaker",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionElite_ColtPeaceMakerShort",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_HiPower",
+								weight = 15000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_CZ75",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_MicroUZI",
+								weight = 30000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_Beretta",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_P220",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_BerettaLaser",
+								weight = 60000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_P220Laser",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_MicroUZILaser",
+								weight = 30000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_ColtAnaconda",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_Glock17",
+								weight = 60000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_MAC10",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_ColtAnacondaScope",
+								weight = 60000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_MP443",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_USP45",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_APS",
+								weight = 60000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_MP5KLaser",
+								weight = 50000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T4",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 4,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_Glock17Laser",
+								weight = 80000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_P226",
+								weight = 20000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_DesertEagle",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_Glock18Laser",
+								weight = 40000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T5",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 5,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionElite_TMP",
+								weight = 5000,
+							}),
+						}),
 						PlaceObj('ModItemLootDef', {
 							group = "Default",
 							id = "LegionNoob_Pistol",
@@ -26082,7 +27807,7 @@ return {
 									stack_min = 1,
 								}),
 								PlaceObj('LootEntryLootDef', {
-									loot_def = "Noob_762x51_Machinegun",
+									loot_def = "Noob_75_Machinegun",
 								}),
 							}),
 							PlaceObj('ModItemLootDef', {
@@ -26228,7 +27953,7 @@ return {
 									stack_min = 1,
 								}),
 								PlaceObj('LootEntryLootDef', {
-									loot_def = "Strong_762x51_Machinegun",
+									loot_def = "Noob_75_Machinegun",
 								}),
 							}),
 							PlaceObj('ModItemLootDef', {
@@ -27636,14 +29361,14 @@ return {
 						group = "Enemy - Legion",
 						id = "NightEquipment",
 						PlaceObj('LootEntryInventoryItem', {
-							generate_chance = 20,
+							generate_chance = 50,
 							item = "GlowStick",
 							stack_max = 3,
 							stack_min = 1,
 							weight = 3000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
-							generate_chance = 20,
+							generate_chance = 50,
 							item = "FlareStick",
 							stack_max = 3,
 							stack_min = 1,
@@ -37457,6 +39182,18 @@ return {
 					}),
 					PlaceObj('ModItemCaliber', {
 						ImpactForce = 1,
+						Name = T(346459575064, --[[ModItemCaliber Default JAZZ_Caliber_38 Name]] "0.38"),
+						group = "Default",
+						id = "JAZZ_Caliber_38",
+					}),
+					PlaceObj('ModItemCaliber', {
+						ImpactForce = 1,
+						Name = T(346459575064, --[[ModItemCaliber Default JAZZ_Caliber_50AE Name]] "0.50 AE"),
+						group = "Default",
+						id = "JAZZ_Caliber_50AE",
+					}),
+					PlaceObj('ModItemCaliber', {
+						ImpactForce = 1,
 						Name = T(598752828060, --[[ModItemCaliber Default JAZZ_Caliber_45ACP Name]] "0.45ACP"),
 						group = "Default",
 						id = "JAZZ_Caliber_45ACP",
@@ -37524,6 +39261,12 @@ return {
 						SortKey = 6,
 						group = "Default",
 						id = "JAZZ_Caliber_792",
+					}),
+					PlaceObj('ModItemCaliber', {
+						Name = T(315192221511, --[[ModItemCaliber Default JAZZ_Caliber_75French Name]] "7.5×54мм"),
+						SortKey = 6,
+						group = "Default",
+						id = "JAZZ_Caliber_75French",
 					}),
 					PlaceObj('ModItemCaliber', {
 						ImpactForce = 2,
@@ -38042,6 +39785,33 @@ return {
 						PlaceObj('CaliberModification', {
 							mod_add = 1,
 							target_prop = "PenetrationClass",
+						}),
+					},
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Ammo",
+					'Id', "JAZZ_AMMO_38special",
+					'object_class', "Ammo",
+					'Icon', "Mod/e6L4ECj/Ammopics/38Sp.png",
+					'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special DisplayName]] ".38 Special"),
+					'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special DisplayNamePlural]] ".38 Special"),
+					'colorStyle', "AmmoBasicColor",
+					'Description', T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special Description]] "Боеприпас для пистолетов, револьверов и пистолетов-пулеметов калибра .38 Special."),
+					'Cost', 10,
+					'CanAppearInShop', true,
+					'MaxStock', 50,
+					'CategoryPair', "44CAL",
+					'ShopStackSize', 30,
+					'MaxStacks', 120,
+					'Caliber', "JAZZ_Caliber_44CAL",
+					'Modifications', {
+						PlaceObj('CaliberModification', {
+							mod_mul = 0,
+							target_prop = "PenetrationClass",
+						}),
+						PlaceObj('CaliberModification', {
+							mod_mul = 800,
+							target_prop = "Damage",
 						}),
 					},
 				}),
@@ -38840,6 +40610,30 @@ return {
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Ammo",
+					'Id', "JAZZ_AMMO_75French",
+					'object_class', "Ammo",
+					'Icon', "Mod/e6L4ECj/Ammopics/75.png",
+					'DisplayName', T(195831313662, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French DisplayName]] "7,5х54 мм, обычный"),
+					'DisplayNamePlural', T(790852334727, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French DisplayNamePlural]] "7,5х54 мм, обычные"),
+					'colorStyle', "AmmoBasicColor",
+					'Description', T(634152164577, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French Description]] "Немецкий боеприпас калибра 7.5х55мм MAS"),
+					'AdditionalHint', T(727230096414, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Обеспечивает уверенное поражение целей обладающих 3-м классом брони"),
+					'Cost', 100,
+					'CanAppearInShop', true,
+					'MaxStock', 5,
+					'CategoryPair', "792",
+					'ShopStackSize', 30,
+					'MaxStacks', 40,
+					'Caliber', "JAZZ_Caliber_75French",
+					'Modifications', {
+						PlaceObj('CaliberModification', {
+							mod_add = 2,
+							target_prop = "PenetrationClass",
+						}),
+					},
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Ammo",
 					'Id', "JAZZ_AMMO_9x39_SP5",
 					'comment', "СП5",
 					'object_class', "Ammo",
@@ -39335,6 +41129,23 @@ return {
 					'DisplayNamePlural', T(272581385016, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic DisplayNamePlural]] ".50, обычные"),
 					'colorStyle', "AmmoBasicColor",
 					'Description', T(928449338739, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic Description]] "Боеприпас для пулеметов, снайперских винтовок, пистолетов и револьверов калибра .50."),
+					'Cost', 250,
+					'CanAppearInShop', true,
+					'Tier', 2,
+					'MaxStock', 10,
+					'CategoryPair', "50BMG",
+					'ShopStackSize', 10,
+					'Caliber', "JAZZ_Caliber_50BMG",
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Ammo",
+					'Id', "JAZZ_AMMO_50BMG_Basic_copy",
+					'object_class', "Ammo",
+					'Icon', "UI/Icons/Items/50bmg_basic",
+					'DisplayName', T(224747486019, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic_copy DisplayName]] ".50, обычный"),
+					'DisplayNamePlural', T(272581385016, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic_copy DisplayNamePlural]] ".50, обычные"),
+					'colorStyle', "AmmoBasicColor",
+					'Description', T(928449338739, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic_copy Description]] "Боеприпас для пулеметов, снайперских винтовок, пистолетов и револьверов калибра .50."),
 					'Cost', 250,
 					'CanAppearInShop', true,
 					'Tier', 2,
@@ -50955,7 +52766,7 @@ return {
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 5000,
-					'Recoil', 27,
+					'Recoil', 32,
 					'AutoShots', 6,
 					'Handling', 65,
 					'BulletDropRange', 20,
@@ -51404,7 +53215,7 @@ return {
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 3000,
-					'Recoil', 22,
+					'Recoil', 32,
 					'AutoShots', 6,
 					'Handling', 60,
 					'BulletDropRange', 21,
@@ -51475,7 +53286,7 @@ return {
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 3000,
-					'Recoil', 22,
+					'Recoil', 32,
 					'AutoShots', 7,
 					'Handling', 68,
 					'BulletDropRange', 20,
@@ -51691,7 +53502,7 @@ return {
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 5000,
-					'Recoil', 20,
+					'Recoil', 30,
 					'AutoShots', 6,
 					'Handling', 63,
 					'BulletDropRange', 20,
@@ -52154,7 +53965,7 @@ return {
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 5000,
-					'Recoil', 20,
+					'Recoil', 30,
 					'AutoShots', 6,
 					'Handling', 63,
 					'BulletDropRange', 20,
@@ -53423,7 +55234,7 @@ return {
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 3000,
-					'Recoil', 22,
+					'Recoil', 32,
 					'BurstShots', 1,
 					'AutoShots', 1,
 					'Handling', 69,
@@ -54058,7 +55869,7 @@ return {
 					'CanAppearInShop', true,
 					'Tier', 2,
 					'CategoryPair', "Rifles",
-					'Caliber', "JAZZ_Caliber_762x51",
+					'Caliber', "JAZZ_Caliber_75French",
 					'Damage', 35,
 					'ObjDamageMod', 80,
 					'AimAccuracy', 26,
@@ -54440,7 +56251,7 @@ return {
 					'RestockWeight', 40,
 					'CategoryPair', "MachineGuns",
 					'CanAppearStandard', false,
-					'Caliber', "JAZZ_Caliber_762x51",
+					'Caliber', "JAZZ_Caliber_75French",
 					'Damage', 33,
 					'ObjDamageMod', 80,
 					'AimAccuracy', 16,
@@ -54490,13 +56301,12 @@ return {
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 5000,
-					'Recoil', 16,
+					'Recoil', 32,
 					'BurstShots', 4,
 					'AutoShots', 4,
 					'Handling', 58,
 					'BulletDropRange', 19,
 					'Grouping', 260,
-					'BaseJamChance', 3,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - MG",
@@ -57080,7 +58890,7 @@ return {
 					'ItemType', "Grenade",
 					'DisplayName', T(143721324108, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade DisplayName]] "Светошумовая граната"),
 					'DisplayNamePlural', T(464879576172, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade DisplayNamePlural]] "Светошумовые гранаты"),
-					'AdditionalHint', T(339045500192, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ослепляет цель\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Отменяет ответный огонь и уменьшает бонусы от укрытия в центре взрыва\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумное"),
+					'AdditionalHint', T(339045500192, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ослепляет цель\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Отменяет ответный огонь и уменьшает бонусы от укрытия в центре взрыва\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Подавляет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумное"),
 					'UnitStat', "Explosives",
 					'Cost', 400,
 					'CanAppearInShop', true,
@@ -57097,6 +58907,7 @@ return {
 					'CenterAppliedEffects', {
 						"Exposed",
 						"Blinded",
+						"SuppressStunGrenade",
 					},
 					'CenterAreaOfEffect', 2,
 					'AreaUnitDamageMod', 0,
@@ -57227,7 +59038,6 @@ return {
 					'BaseDamage', 25,
 					'Scatter', 6,
 					'BaseRange', 1,
-					'ThrowMaxRange', 20,
 					'CanBounce', false,
 					'InaccurateMinOffset', 3000,
 					'InaccurateMaxOffset', 10000,
@@ -57381,7 +59191,7 @@ return {
 					'BaseDamage', 80,
 					'Scatter', 6,
 					'BaseRange', 0,
-					'ThrowMaxRange', 19,
+					'ThrowMaxRange', 16,
 					'CanBounce', false,
 					'Entity', "MilitaryCamp_Grenade_01",
 					'ActionIcon', "UI/Icons/Hud/shaped_charge",
@@ -69789,11 +71599,15 @@ return {
 								'Tag', "<ScopeAccuracyIncreace>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/C79.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "Garand_Exp_Scope",
 								Icon = "Mod/e6L4ECj/WeaponComponents/Optics/GarandReflex.png",
+								ReticleInner = "Mod/e6L4ECj/Icons/scope/C79.png",
+								ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 								Slot = "Scope",
 								param_bindings = false,
 							}),
@@ -69840,47 +71654,56 @@ return {
 								'Tag', "<extra_attacks>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/Cobra_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "Kobra",
 								Icon = "Mod/e6L4ECj/WeaponComponents/Optics/Kobra.png",
+								ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 								Slot = "Scope",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "AK47",
 								Entity = "WeaponAttA_MountAK47",
+								ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 								Slot = "Mount",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "AKSU",
 								Entity = "WeaponAttA_MountAKS74U_01",
+								ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 								Slot = "Mount",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "RPK74",
 								Entity = "WeaponAttA_MountRPK74",
+								ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 								Slot = "Mount",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "RPK",
 								Entity = "WeaponAttA_MountRPK74",
+								ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 								Slot = "Mount",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "AKM",
 								Entity = "AKSeriaMount",
+								ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 								Slot = "General",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "AN94",
 								Entity = "Kobra",
+								ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 								Slot = "Scope",
 								param_bindings = false,
 							}),
@@ -69940,6 +71763,8 @@ return {
 								'Tag', "<ScopeAccuracyIncreace>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/Aimpoint_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -70121,42 +71946,49 @@ return {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "G3A4",
 								Entity = "G3Mount",
+								ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 								Slot = "Mount",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "G3SniperV1",
 								Entity = "G3Mount",
+								ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 								Slot = "Mount",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "HK23e",
 								Entity = "Hk23eFurniture",
+								ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 								Slot = "Mount",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "R870",
 								Entity = "UMPScopeRail",
+								ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 								Slot = "Mount",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "Ithaca",
 								Entity = "Ithaca_Rail",
+								ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 								Slot = "Mount",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "HK33",
 								Entity = "HK33__Mount",
+								ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 								Slot = "Mount",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "G36",
 								Entity = "WeaponAttA_MountHKG36_01",
+								ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 								Slot = "Mount1",
 								param_bindings = false,
 							}),
@@ -70216,6 +72048,8 @@ return {
 								'Tag', "<ScopeAccuracyIncreace>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/Aimpoint_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuterBox.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -70504,6 +72338,8 @@ return {
 								'Tag', "<ScopeAccuracyIncreace>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/PKAS_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -70634,6 +72470,8 @@ return {
 								'Tag', "<ScopeAccuracyIncreace>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/Aimpoint_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -70910,6 +72748,8 @@ return {
 								'Tag', "<extra_attacks>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/Aimpoint_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -71186,6 +73026,8 @@ return {
 								'Tag', "<extra_attacks>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/Aimpoint_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -71300,6 +73142,8 @@ return {
 								'Tag', "<ScopeAccuracyIncreace>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/Eotech_Reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuterBox.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -71570,6 +73414,8 @@ return {
 								'Tag', "<ScopeHandlingReduce>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/Cross_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -71824,6 +73670,8 @@ return {
 								'Tag', "<ScopeCTH>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/Cross_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -71889,6 +73737,8 @@ return {
 								'Tag', "<ScopeCTH>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/1P29_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -71990,6 +73840,8 @@ return {
 								'Tag', "<ScopeCTH>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/FeroZ24_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -72089,6 +73941,8 @@ return {
 								'Tag', "<ScopeCTH>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/ACOG_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -72295,6 +74149,9 @@ return {
 								'Tag', "<ScopeHandlingReduce>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/AUG_reticle.png",
+						ReticleInnerSub = "Mod/e6L4ECj/Icons/scope/AUG_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -72330,6 +74187,7 @@ return {
 								'Tag', "<ScopeAimLevel>",
 							}),
 						},
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -72373,6 +74231,7 @@ return {
 								'Tag', "<ScopeAimLevel>",
 							}),
 						},
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -72436,6 +74295,8 @@ return {
 								'Tag', "<ScopeCTH>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/PSO1_Reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -72503,6 +74364,9 @@ return {
 								'Tag', "<ScopeCTH>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/Mildotx20_reticle.png",
+						ReticleInnerSub = "Mod/e6L4ECj/Icons/scope/Mildotx10_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -72702,6 +74566,8 @@ return {
 								'Tag', "<ScopeCTH>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/Cross_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -72900,6 +74766,8 @@ return {
 								'Tag', "<ScopeCTH>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/FrenchFR1_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -73099,6 +74967,9 @@ return {
 								'Tag', "<ScopeCTH>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/ScopeCrossZoom2.png",
+						ReticleInnerSub = "Mod/e6L4ECj/Icons/scope/ScopeCrossZoom1.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -73318,6 +75189,9 @@ return {
 								'Tag', "<ScopeCTH>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/Mildotx20_reticle.png",
+						ReticleInnerSub = "Mod/e6L4ECj/Icons/scope/Mildotx10_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -73511,6 +75385,8 @@ return {
 								'Tag', "<ScopeHandlingReduce>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/ZF39_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -73577,6 +75453,8 @@ return {
 								'Tag', "<ScopeHandlingReduce>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/PU_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -73660,6 +75538,9 @@ return {
 								'Tag', "<BonusCTH>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/DA6_reticle.png",
+						ReticleInnerSub = "Mod/e6L4ECj/Icons/scope/DA15_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -73786,6 +75667,8 @@ return {
 								'Tag', "<ScopeHandlingReduce>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/GarandScope_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -73852,6 +75735,8 @@ return {
 								'Tag', "<ScopeCTH>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/PSO1_Reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -73917,6 +75802,8 @@ return {
 								'Tag', "<ScopeCTH>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/ScopeCrossZoom2.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -73980,6 +75867,8 @@ return {
 								'Tag', "<ScopeHandlingReduce>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/NSPU_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuterGreen.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -74079,6 +75968,8 @@ return {
 								'Tag', "<ScopeHandlingReduce>",
 							}),
 						},
+						ReticleInner = "Mod/e6L4ECj/Icons/scope/Mildotx10_reticle.png",
+						ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuterGreen.png",
 						Slot = "Scope",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -79316,6 +81207,12 @@ return {
 				'DamageReduction', 0,
 				'AdditionalReduction', 0,
 				'ProtectedBodyParts', set( "Head" ),
+				'StunGrenadeProtection', function ()
+					    return 0--self.StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
+				end,
+				'SuppressionProtection', function ()
+					    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
+				end,
 			}),
 			}),
 		PlaceObj('ModItemFolder', {
@@ -79534,6 +81431,7 @@ return {
 				'ProtectedBodyParts', set( "Head" ),
 				'ArmorRating', 15,
 				'MeleeArmorRating', 10,
+				'SuppressionProtection', 15,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Personal - Equipment",
@@ -79552,6 +81450,7 @@ return {
 				'AdditionalReduction', 0,
 				'ProtectedBodyParts', set( "Torso" ),
 				'ArmorRating', 8,
+				'SuppressionProtection', 15,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Personal - Equipment",
@@ -81839,6 +83738,8 @@ return {
 					'Weight', 4,
 					'Vision', -20,
 					'DustStormProtection', 30,
+					'StunGrenadeProtection', 20,
+					'SuppressionProtection', 20,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -81886,6 +83787,7 @@ return {
 					'ArmorRating', 2,
 					'NightVision', -10,
 					'Vision', 10,
+					'StunGrenadeProtection', 20,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -81910,6 +83812,8 @@ return {
 					'ArmorRating', 10,
 					'Weight', 2,
 					'Vision', -10,
+					'StunGrenadeProtection', 5,
+					'SuppressionProtection', 20,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -81932,7 +83836,7 @@ return {
 					'Coverage', 20,
 					'ArmorRating', 4,
 					'DustStormProtection', 30,
-					'BlockedEffects', {},
+					'StunGrenadeProtection', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -81949,6 +83853,10 @@ return {
 					'PenetrationClass', 2,
 					'AdditionalReduction', 20,
 					'NightVision', 20,
+					'StunGrenadeProtection', -20,
+					'SuppressionProtection', function ()
+						    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
+					end,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -81966,6 +83874,10 @@ return {
 					'PenetrationClass', 2,
 					'AdditionalReduction', 20,
 					'NightVision', 40,
+					'StunGrenadeProtection', -20,
+					'SuppressionProtection', function ()
+						    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
+					end,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -81983,6 +83895,10 @@ return {
 					'PenetrationClass', 2,
 					'AdditionalReduction', 20,
 					'NightVision', 60,
+					'StunGrenadeProtection', -20,
+					'SuppressionProtection', function ()
+						    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
+					end,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -82345,6 +84261,8 @@ return {
 					'BlockFaceSlot', true,
 					'Weight', 5,
 					'Vision', -15,
+					'StunGrenadeProtection', 10,
+					'SuppressionProtection', 30,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -82372,6 +84290,7 @@ return {
 					'Coverage', 85,
 					'ArmorRating', 40,
 					'Weight', 4,
+					'SuppressionProtection', 10,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -82401,6 +84320,8 @@ return {
 					'CamouflagePercent', 3,
 					'Weight', 4,
 					'Vision', -5,
+					'StunGrenadeProtection', 10,
+					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -82430,6 +84351,8 @@ return {
 					'BlockFaceSlot', true,
 					'Weight', 4,
 					'Vision', -5,
+					'StunGrenadeProtection', 10,
+					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -82484,6 +84407,8 @@ return {
 					'Coverage', 70,
 					'ArmorRating', 25,
 					'Weight', 3,
+					'StunGrenadeProtection', 10,
+					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -82512,6 +84437,12 @@ return {
 					'BlockFaceSlot', true,
 					'Weight', 4,
 					'Vision', -5,
+					'StunGrenadeProtection', function ()
+						    return 0--self.StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
+					end,
+					'SuppressionProtection', function ()
+						    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
+					end,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -82565,6 +84496,7 @@ return {
 					'ArmorRating', 32,
 					'MeleeArmorRating', 10,
 					'Weight', 4,
+					'SuppressionProtection', 20,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -82615,6 +84547,8 @@ return {
 					'BlockFaceSlot', true,
 					'Weight', 4,
 					'DustStormProtection', 30,
+					'StunGrenadeProtection', 20,
+					'SuppressionProtection', 20,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -82639,6 +84573,8 @@ return {
 					'NightVision', -10,
 					'Vision', -10,
 					'DustStormProtection', 30,
+					'StunGrenadeProtection', 30,
+					'SuppressionProtection', 30,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -82925,6 +84861,7 @@ return {
 					'ExplosiveArmorRating', 5,
 					'CamouflagePercent', -10,
 					'Weight', 3,
+					'SuppressionProtection', 5,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -82952,6 +84889,7 @@ return {
 					'CamouflagePercent', -15,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'SuppressionProtection', 10,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -82977,6 +84915,7 @@ return {
 					'ArmorRating', 12,
 					'ExplosiveArmorRating', 5,
 					'Weight', 3,
+					'SuppressionProtection', 10,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83033,6 +84972,7 @@ return {
 					'CamouflagePercent', -15,
 					'CanHoldPlate', true,
 					'Weight', 4,
+					'SuppressionProtection', 20,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83059,6 +84999,7 @@ return {
 					'ExplosiveArmorRating', 25,
 					'CamouflagePercent', -15,
 					'Weight', 4,
+					'SuppressionProtection', 5,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83086,6 +85027,7 @@ return {
 					'ExplosiveArmorRating', 40,
 					'CamouflagePercent', -15,
 					'Weight', 4,
+					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83142,6 +85084,7 @@ return {
 					'ExplosiveArmorRating', 24,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'SuppressionProtection', 10,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83197,6 +85140,7 @@ return {
 					'ExplosiveArmorRating', 22,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'SuppressionProtection', 10,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83225,6 +85169,7 @@ return {
 					'ExplosiveArmorRating', 35,
 					'CanHoldPlate', true,
 					'Weight', 4,
+					'SuppressionProtection', 25,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83253,6 +85198,12 @@ return {
 					'CamouflagePercent', 15,
 					'CanHoldPlate', true,
 					'Weight', 2,
+					'StunGrenadeProtection', function ()
+						    return 0--self.StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
+					end,
+					'SuppressionProtection', function ()
+						    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
+					end,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83282,6 +85233,7 @@ return {
 					'CamouflagePercent', 10,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'SuppressionProtection', 10,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83311,6 +85263,7 @@ return {
 					'CamouflagePercent', 5,
 					'CanHoldPlate', true,
 					'Weight', 4,
+					'SuppressionProtection', 25,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83367,6 +85320,7 @@ return {
 					'CamouflagePercent', 2,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'SuppressionProtection', 10,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83396,6 +85350,7 @@ return {
 					'CamouflagePercent', 1,
 					'CanHoldPlate', true,
 					'Weight', 4,
+					'SuppressionProtection', 25,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83424,6 +85379,7 @@ return {
 					'ExplosiveArmorRating', 40,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83452,6 +85408,7 @@ return {
 					'ExplosiveArmorRating', 70,
 					'CanHoldPlate', true,
 					'Weight', 4,
+					'SuppressionProtection', 25,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83481,6 +85438,7 @@ return {
 					'CamouflagePercent', 5,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'SuppressionProtection', 5,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83510,6 +85468,7 @@ return {
 					'CamouflagePercent', 5,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'SuppressionProtection', 10,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83539,6 +85498,7 @@ return {
 					'CamouflagePercent', 5,
 					'CanHoldPlate', true,
 					'Weight', 4,
+					'SuppressionProtection', 25,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83567,6 +85527,12 @@ return {
 					'ExplosiveArmorRating', 20,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'StunGrenadeProtection', function ()
+						    return 0--self.StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
+					end,
+					'SuppressionProtection', function ()
+						    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
+					end,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83594,6 +85560,7 @@ return {
 					'ExplosiveArmorRating', 50,
 					'CanHoldPlate', true,
 					'Weight', 4,
+					'SuppressionProtection', 35,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -83617,6 +85584,7 @@ return {
 					'ExplosiveArmorRating', 100,
 					'CanHoldPlate', true,
 					'Weight', 4,
+					'SuppressionProtection', 35,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83638,6 +85606,7 @@ return {
 					'PenetrationClass', 2,
 					'AdditionalReduction', 40,
 					'ProtectedBodyParts', set( "Torso" ),
+					'SuppressionProtection', 35,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -83659,6 +85628,7 @@ return {
 					'PenetrationClass', 2,
 					'AdditionalReduction', 40,
 					'ProtectedBodyParts', set( "Torso" ),
+					'SuppressionProtection', 35,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -83871,6 +85841,7 @@ return {
 					'MeleeArmorRating', 5,
 					'ExplosiveArmorRating', 10,
 					'Weight', 3,
+					'SuppressionProtection', 5,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -83900,6 +85871,7 @@ return {
 					'MeleeArmorRating', 18,
 					'ExplosiveArmorRating', 20,
 					'Weight', 4,
+					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -83930,6 +85902,7 @@ return {
 					'ExplosiveArmorRating', 5,
 					'CamouflagePercent', 5,
 					'Weight', 3,
+					'SuppressionProtection', 5,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -83960,6 +85933,7 @@ return {
 					'ExplosiveArmorRating', 10,
 					'CamouflagePercent', 3,
 					'Weight', 4,
+					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -83989,6 +85963,7 @@ return {
 					'MeleeArmorRating', 5,
 					'ExplosiveArmorRating', 8,
 					'Weight', 3,
+					'SuppressionProtection', 5,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -84017,6 +85992,7 @@ return {
 					'MeleeArmorRating', 15,
 					'ExplosiveArmorRating', 15,
 					'Weight', 4,
+					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -84046,6 +86022,7 @@ return {
 					'MeleeArmorRating', 30,
 					'ExplosiveArmorRating', 40,
 					'Weight', 3,
+					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -84070,6 +86047,7 @@ return {
 					'MeleeArmorRating', 30,
 					'ExplosiveArmorRating', 80,
 					'Weight', 3,
+					'SuppressionProtection', 20,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -84097,6 +86075,7 @@ return {
 					'MeleeArmorRating', 40,
 					'ExplosiveArmorRating', 40,
 					'Weight', 4,
+					'SuppressionProtection', 20,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -84123,6 +86102,8 @@ return {
 					'ProtectedBodyParts', set( "Arms", "Groin", "Legs", "Torso" ),
 					'ArmorRating', 100,
 					'MeleeArmorRating', 100,
+					'StunGrenadeProtection', 100,
+					'SuppressionProtection', 100,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Beasts",
@@ -84146,6 +86127,7 @@ return {
 					'ArmorRating', 10,
 					'MeleeArmorRating', 10,
 					'CamouflagePercent', 60,
+					'SuppressionProtection', 100,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -84220,7 +86202,6 @@ return {
 					'ArmorRating', 8,
 					'MeleeArmorRating', 10,
 					'Weight', 2,
-					'BlockedEffects', {},
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "JazzArmorPlates_Steel3",
@@ -84268,7 +86249,7 @@ return {
 					'AdditionalReduction', 80,
 					'ProtectedBodyParts', set( "Torso" ),
 					'CanAppearUsed', false,
-					'ArmorRating', 12,
+					'ArmorRating', 15,
 					'Weight', 4,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -84293,7 +86274,7 @@ return {
 					'AdditionalReduction', 80,
 					'ProtectedBodyParts', set( "Torso" ),
 					'CanAppearUsed', false,
-					'ArmorRating', 14,
+					'ArmorRating', 20,
 					'Weight', 5,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -84342,7 +86323,7 @@ return {
 					'AdditionalReduction', 80,
 					'ProtectedBodyParts', set( "Torso" ),
 					'CanAppearUsed', false,
-					'ArmorRating', 16,
+					'ArmorRating', 20,
 					'Weight', 3,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -84367,7 +86348,7 @@ return {
 					'AdditionalReduction', 80,
 					'ProtectedBodyParts', set( "Torso" ),
 					'CanAppearUsed', false,
-					'ArmorRating', 18,
+					'ArmorRating', 30,
 					'Weight', 3,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -84417,7 +86398,7 @@ return {
 					'AdditionalReduction', 80,
 					'ProtectedBodyParts', set( "Torso" ),
 					'CanAppearUsed', false,
-					'ArmorRating', 14,
+					'ArmorRating', 16,
 					'Weight', 3,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -84442,7 +86423,7 @@ return {
 					'AdditionalReduction', 80,
 					'ProtectedBodyParts', set( "Torso" ),
 					'CanAppearUsed', false,
-					'ArmorRating', 16,
+					'ArmorRating', 24,
 					'Weight', 3,
 				}),
 				}),
@@ -85036,9 +87017,9 @@ return {
 							if effect then
 							 	count = effect.stacks 
 							end
-							if cth_id == self.id then
-								data.mod_add = data.mod_add + self:ResolveValue("cth_penalty")*count
-							end
+							--if cth_id == self.id then
+							--	data.mod_add = data.mod_add + self:ResolveValue("cth_penalty")*count
+							--end
 							---------------
 							end
 						end,
@@ -85049,9 +87030,9 @@ return {
 							if effect then
 							 	count = effect.stacks 
 							end
-							if cth_id == self.id then
-								data.mod_add = data.mod_add + self:ResolveValue("cth_penalty")*count
-							end
+							--if cth_id == self.id then
+							--	data.mod_add = data.mod_add + self:ResolveValue("cth_penalty")*count
+							--end
 							---------------
 						end,
 						helpActor = "attacker",
@@ -85079,9 +87060,27 @@ return {
 						end,
 						param_bindings = false,
 					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcStartTurnAP",
+						Handler = function (self, target, value)
+							----------------------------
+							local effect = target:GetStatusEffect("Wounded", "all")
+							local count = 0
+							if effect then
+							 	count = effect.stacks 
+								--print(effect.stacks)
+							end
+								local ap_loss = (-count * const.Scale.AP)
+								value = value - ap_loss
+								
+							
+							--------------------------------
+						end,
+						param_bindings = false,
+					}),
 				},
 				'DisplayName', T(738668654416, --[[ModItemCharacterEffectCompositeDef Wounded DisplayName]] "Ранен"),
-				'Description', T(345786294171, --[[ModItemCharacterEffectCompositeDef Wounded Description]] "Макс. количество <color EmStyle>ОЗ снижается на <MaxHpReductionPerStack></color> за каждую рану. Так же с каждой раной снижается <color EmStyle>Точность</color>. Можно вылечить операцией <color EmStyle>Лечение ран</color> в режиме Вида со спутника."),
+				'Description', T(345786294171, --[[ModItemCharacterEffectCompositeDef Wounded Description]] "Макс. количество <color EmStyle>ОЗ снижается на <MaxHpReductionPerStack></color> за каждую рану. Так же с каждой раной снижается <color EmStyle>Количество ОД </color>. Можно вылечить операцией <color EmStyle>Лечение ран</color> в режиме Вида со спутника."),
 				'OnAdded', function (self, obj)
 					RecalcMaxHitPoints(obj)
 					
@@ -85393,6 +87392,228 @@ return {
 				'Icon', "UI/Hud/Status effects/unconscious",
 				'Shown', true,
 				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Group', "System",
+				'Id', "SuppressStunGrenade",
+				'Parameters', {},
+				'object_class', "CharacterEffect",
+				'unit_reactions', {},
+				'DisplayName', T(609065847626, --[[ModItemCharacterEffectCompositeDef SuppressStunGrenade DisplayName]] "Подавление сш гранатой"),
+				'Description', "",
+				'OnAdded', function (self, obj)
+					local willPointsDamage = 40
+					
+					obj.WillPoints = obj.WillPoints - MulDivRound(100-Unit:StunGrenadeProtection(),willPointsDamage,100)
+					obj:ApplySuppressionStatus()
+				end,
+				'OnRemoved', function (self, obj)  end,
+				'lifetime', "Until End of Turn",
+				'Icon', "UI/Hud/Status effects/unconscious",
+				'max_stacks', 2,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Group', "System",
+				'Id', "Blinded",
+				'Parameters', {
+					PlaceObj('PresetParamPercent', {
+						'Name', "cth_effect",
+						'Value', -20,
+						'Tag', "<cth_effect>%",
+					}),
+				},
+				'object_class', "CharacterEffect",
+				'unit_reactions', {
+					PlaceObj('UnitReaction', {
+						Event = "OnBeginTurn",
+						Handler = function (self, target)
+							if not target:IsDead() then
+								EnvEffectTearGasTick(target, nil, "start turn")
+								if target:IsMerc() then
+									PlayVoiceResponse(target, "GasAreaSelection")
+								else
+									PlayVoiceResponse(target, "AIGasAreaSelection")
+								end
+							end
+						end,
+						param_bindings = false,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnEndTurn",
+						Handler = function (self, target)
+							if not target:IsDead() then
+								EnvEffectTearGasTick(target, nil, "end turn")
+							end
+						end,
+						param_bindings = false,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcChanceToHit",
+						Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+							if target == attacker then
+								ApplyCthModifier_Add(self, data, self:ResolveValue("cth_effect"))
+							end
+						end,
+						param_bindings = false,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCheckForceMinSight",
+						Handler = function (self, target, observer, other, step_pos, darkness)
+							if target == observer then
+								return true
+							end
+						end,
+						param_bindings = false,
+					}),
+				},
+				'DisplayName', T(629298563884, --[[ModItemCharacterEffectCompositeDef Blinded DisplayName]] "Blinded"),
+				'Description', T(595664130748, --[[ModItemCharacterEffectCompositeDef Blinded Description]] "Reduced <em>Sight range</em> and <em>Accuracy</em>. Can cause <em>Panic</em>."),
+				'AddEffectText', T(880622931884, --[[ModItemCharacterEffectCompositeDef Blinded AddEffectText]] "<em><DisplayName></em> is blinded"),
+				'OnAdded', function (self, obj)
+					self:SetParameter("blinded_start_time", GameTime())
+					if IsMerc(obj) then
+						PlayVoiceResponse(obj, "GasAreaSelection")
+					else
+						PlayVoiceResponse(obj, "AIGasAreaSelection")
+					end
+				end,
+				'type', "Debuff",
+				'Icon', "UI/Hud/Status effects/blinded",
+				'RemoveOnSatViewTravel', true,
+				'RemoveOnCampaignTimeAdvance', true,
+				'Shown', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Group', "System",
+				'Id', "Burning",
+				'Parameters', {
+					PlaceObj('PresetParamNumber', {
+						'Name', "damage",
+						'Value', 15,
+						'Tag', "<damage>",
+					}),
+				},
+				'object_class', "CharacterEffect",
+				'unit_reactions', {
+					PlaceObj('UnitReaction', {
+						Event = "OnBeginTurn",
+						Handler = function (self, target)
+							local chance = 50 - Max(0, target.Health - 50) / 2 - MulDivRound(target:GetLevel(), 25, 10)
+							if target:Random(100) < chance then
+								target:AddStatusEffect("Panicked")
+							end
+							
+							local willPointsDamage = 10
+							
+							target.WillPoints = target.WillPoints - willPointsDamage
+							target:ApplySuppressionStatus()
+							PlayVoiceResponse(target, "Pain")
+						end,
+						param_bindings = false,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnEndTurn",
+						Handler = function (self, target)
+							if not target:IsDead() then
+								EnvEffectBurningTick(target, nil, "end turn")
+							end
+						end,
+						param_bindings = false,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnUnitBandaged",
+						Handler = function (self, target, healer, patient, hp_restored)
+							if target == patient then
+								local voxels = target:GetVisualVoxels()
+								local fire, dist = AreVoxelsInFireRange(voxels)
+								if not fire or dist >= const.SlabSizeX then
+									target:RemoveStatusEffect(self.class)
+								end
+							end
+						end,
+						param_bindings = false,
+					}),
+				},
+				'Modifiers', {
+					PlaceObj('UnitModifier', {
+						mod_add = -15,
+						param_bindings = false,
+						target_prop = "Wisdom",
+					}),
+				},
+				'DisplayName', T(178364189448, --[[ModItemCharacterEffectCompositeDef Burning DisplayName]] "Burning"),
+				'Description', T(661121942943, --[[ModItemCharacterEffectCompositeDef Burning Description]] "This character may <em>Panic</em> and will <em>take <damage> damage</em> at the end of each turn until they exit the flaming area. <em>Bandage</em> can cure the effect immediately."),
+				'AddEffectText', T(251545639918, --[[ModItemCharacterEffectCompositeDef Burning AddEffectText]] "<em><DisplayName></em> is on fire"),
+				'OnAdded', function (self, obj)
+					PlayFX("UnitBurning", "start", obj)
+					self:SetParameter("burning_start_time", GameTime())
+					obj:AddStain("Burning", GetRandomStainSpot())
+				end,
+				'OnRemoved', function (self, obj)
+					if IsKindOf(obj, "Unit") then
+						PlayFX("UnitBurning", "end", obj)
+						obj:ClearStains("Burning")
+					end
+				end,
+				'type', "Debuff",
+				'Icon', "UI/Hud/Status effects/burning",
+				'RemoveOnSatViewTravel', true,
+				'RemoveOnCampaignTimeAdvance', true,
+				'Shown', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Group', "System",
+				'Id', "Choking",
+				'Parameters', {
+					PlaceObj('PresetParamNumber', {
+						'Name', "damage",
+						'Value', 30,
+						'Tag', "<damage>",
+					}),
+				},
+				'object_class', "CharacterEffect",
+				'unit_reactions', {
+					PlaceObj('UnitReaction', {
+						Event = "OnBeginTurn",
+						Handler = function (self, target)
+							if target:IsMerc() then
+								PlayVoiceResponse(target, "GasAreaSelection")
+							else
+								PlayVoiceResponse(target, "AIGasAreaSelection")
+							end
+						end,
+						param_bindings = false,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnEndTurn",
+						Handler = function (self, target)
+							if not target:IsDead() then
+								EnvEffectToxicGasTick(target, nil, "end turn")
+							end
+						end,
+						param_bindings = false,
+					}),
+				},
+				'DisplayName', T(720153419307, --[[ModItemCharacterEffectCompositeDef Choking DisplayName]] "Choking"),
+				'Description', T(120652127957, --[[ModItemCharacterEffectCompositeDef Choking Description]] "This character will <em>take <damage> damage</em> at the end of their turn. The character also <em>loses Energy</em>."),
+				'AddEffectText', T(478064574365, --[[ModItemCharacterEffectCompositeDef Choking AddEffectText]] "<em><DisplayName></em> is choking"),
+				'OnAdded', function (self, obj)
+					self:SetParameter("choking_start_time", GameTime())
+					if obj:IsMerc() then
+						PlayVoiceResponse(obj, "GasAreaSelection")
+					else
+						PlayVoiceResponse(obj, "AIGasAreaSelection")
+					end
+				end,
+				'type', "Debuff",
+				'Icon', "UI/Hud/Status effects/choking",
+				'RemoveOnEndCombat', true,
+				'RemoveOnSatViewTravel', true,
+				'RemoveOnCampaignTimeAdvance', true,
+				'Shown', true,
 				'HasFloatingText', true,
 			}),
 			}),
@@ -88126,8 +90347,2007 @@ return {
 			}),
 			}),
 		PlaceObj('ModItemFolder', {
+			'name', "Stats",
+		}, {
+			PlaceObj('ModItemXTemplate', {
+				Comment = "character sheet",
+				RequireActionSortKeys = true,
+				__is_kind_of = "XWindow",
+				group = "Zulu PDA",
+				id = "PDAAimEvaluation",
+				PlaceObj('XTemplateWindow', {
+					'__context', function (parent, context) return gv_UnitData[GetPlayerMercSquads()[1].units[1]] end,
+					'__class', "PDAAIMEvaluation",
+					'MouseCursor', "UI/Cursors/Pda_Cursor.tga",
+					'ContextUpdateOnOpen', true,
+					'OnContextUpdate', function (self, context, ...)
+						self:ResolveId("idContent"):SetContext(context)
+					end,
+					'InitialMode', "record",
+					'InternalModes', "record, perks",
+				}, {
+					PlaceObj('XTemplateFunc', {
+						'name', "Open",
+						'func', function (self, ...)
+							PDAAIMEvaluation.Open(self,...)
+							AddPageToBrowserHistory("evaluation")
+						end,
+					}),
+					PlaceObj('XTemplateWindow', {
+						'comment', "background frame",
+						'__class', "XImage",
+						'IdNode', false,
+						'Image', "UI/PDA/pda_background",
+						'ImageFit', "stretch",
+					}, {
+						PlaceObj('XTemplateWindow', {
+							'comment', "window",
+							'Margins', box(44, 18, 44, 18),
+							'HAlign', "center",
+							'VAlign', "center",
+							'MinWidth', 1660,
+							'MinHeight', 830,
+							'MaxWidth', 1660,
+							'MaxHeight', 830,
+							'LayoutMethod', "VList",
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'__class', "XFrame",
+								'IdNode', false,
+								'Dock', "top",
+								'MinHeight', 32,
+								'MaxHeight', 32,
+								'Image', "UI/PDA/os_header",
+								'FrameBox', box(3, 5, 3, 5),
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'__class', "XText",
+									'Margins', box(12, 0, 0, 0),
+									'HAlign', "left",
+									'VAlign', "center",
+									'TextStyle', "PDABrowserTitle",
+									'Translate', true,
+									'Text', T(548684733743, --[[ModItemXTemplate PDAAimEvaluation Text]] "A.I.M. EVALUATION"),
+								}),
+								PlaceObj('XTemplateWindow', {
+									'__class', "XText",
+									'Margins', box(0, 0, 15, 0),
+									'HAlign', "right",
+									'VAlign', "bottom",
+									'TextStyle', "PDABrowserTitleSmall",
+									'Translate', true,
+									'Text', T(324205023460, --[[ModItemXTemplate PDAAimEvaluation Text]] "v.1.1B"),
+								}),
+								}),
+							PlaceObj('XTemplateWindow', {
+								'__class', "XFrame",
+								'IdNode', false,
+								'Padding', box(16, 14, 16, 4),
+								'Dock', "box",
+								'MinHeight', 798,
+								'MaxHeight', 798,
+								'Image', "UI/PDA/os_background",
+								'FrameBox', box(3, 3, 3, 3),
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'comment', "content",
+									'__class', "XContentTemplate",
+									'Id', "idContent",
+									'IdNode', false,
+									'LayoutMethod', "VList",
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'Margins', box(0, 4, 0, 0),
+										'Dock', "bottom",
+										'MinHeight', 52,
+										'LayoutMethod', "HList",
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'VAlign', "center",
+											'MinWidth', 610,
+										}, {
+											PlaceObj('XTemplateTemplate', {
+												'__condition', function (parent, context) return not InitialConflictNotStarted() end,
+												'__template', "PDAStartButton",
+												'Margins', box(0, 0, 0, 0),
+												'Dock', "left",
+												'VAlign', "center",
+												'MinWidth', 200,
+											}, {
+												PlaceObj('XTemplateFunc', {
+													'name', "SetOutsideScale(self, scale)",
+													'func', function (self, scale)
+														local dlg = GetDialog("PDADialog")
+														local screen = dlg.idPDAScreen
+														XWindow.SetOutsideScale(self, screen.scale)
+													end,
+												}),
+												}),
+											PlaceObj('XTemplateWindow', {
+												'Dock', "right",
+												'LayoutMethod', "HList",
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'__class', "XText",
+													'Margins', box(8, 0, 16, -2),
+													'Padding', box(0, 0, 0, 0),
+													'TextStyle', "PDABrowserFlavor",
+													'Translate', true,
+													'Text', T(276501397506, --[[ModItemXTemplate PDAAimEvaluation Text]] "Secured connection"),
+													'TextVAlign', "center",
+												}),
+												PlaceObj('XTemplateWindow', {
+													'__class', "XImage",
+													'Image', "UI/PDA/Quest/secured",
+												}),
+												}),
+											}),
+										PlaceObj('XTemplateWindow', {
+											'__class', "XToolBarList",
+											'Id', "idLevelUpBar",
+											'IdNode', false,
+											'Dock', "box",
+											'HAlign', "center",
+											'VAlign', "center",
+											'MinHeight', 48,
+											'Background', RGBA(255, 255, 255, 0),
+											'Toolbar', "LevelUpBar",
+											'ButtonTemplate', "PDACommonButton",
+										}, {
+											PlaceObj('XTemplateAction', {
+												'comment', "same as perk different condition",
+												'ActionId', "idLevelUpAction",
+												'ActionName', T(470265902414, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "LEVEL UP"),
+												'ActionToolbar', "LevelUpBar",
+												'ActionShortcut', "L",
+												'ActionGamepad', "ButtonX",
+												'ActionButtonTemplate', "PDACommonButtonOrange",
+												'ActionState', function (self, host)
+													local dlg = GetDialog(host)
+													local context = host:GetContext()
+													
+													if dlg:GetMode() == "record" and context.perkPoints > 0 then
+														return "enabled"
+													else
+														return "hidden"
+													end
+												end,
+												'OnAction', function (self, host, source, ...)
+													local dlg = GetDialog(host)
+													dlg:SetMode("perks")
+												end,
+												'FXMouseIn', "buttonRollover",
+												'FXPress', "buttonPressGeneric",
+												'FXPressDisabled', "IactDisabled",
+											}),
+											}),
+										PlaceObj('XTemplateWindow', {
+											'__class', "XToolBarList",
+											'Id', "idToolBar",
+											'IdNode', false,
+											'Dock', "right",
+											'HAlign', "right",
+											'VAlign', "center",
+											'LayoutHSpacing', 16,
+											'Background', RGBA(255, 255, 255, 0),
+											'Toolbar', "ActionBar",
+											'ButtonTemplate', "PDACommonButton",
+										}, {
+											PlaceObj('XTemplateAction', {
+												'ActionId', "idPerksAction",
+												'ActionName', T(294433237069, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Perks"),
+												'ActionToolbar', "ActionBar",
+												'ActionShortcut', "P",
+												'ActionGamepad', "ButtonX",
+												'ActionState', function (self, host)
+													local dlg = GetDialog(host)
+													local context = host:GetContext()
+													
+													if dlg:GetMode() == "record" and context.perkPoints <= 0 then
+														return "enabled"
+													else
+														return "hidden"
+													end
+												end,
+												'OnAction', function (self, host, source, ...)
+													local dlg = GetDialog(host)
+													dlg:SetMode("perks")
+												end,
+											}),
+											PlaceObj('XTemplateAction', {
+												'ActionId', "idPerksConfirmAction",
+												'ActionName', T(715124601032, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Confirm"),
+												'ActionToolbar', "ActionBar",
+												'ActionShortcut', "P",
+												'ActionGamepad', "Start",
+												'ActionState', function (self, host)
+													local dlg = GetDialog(host)
+													local context = host:GetContext()
+													if dlg:GetMode() == "perks" and context.perkPoints > 0 then
+														local perksDlg = dlg:ResolveValue("idPerks")
+														if perksDlg and perksDlg.SelectedPerkIds and #perksDlg.SelectedPerkIds > 0 then
+															return "enabled"
+														else
+															return "disabled"
+														end
+													else
+														return "hidden"
+													end
+												end,
+												'OnAction', function (self, host, source, ...)
+													local dlg = GetDialog(host)
+													local perksDlg = dlg:ResolveValue("idPerks")
+													perksDlg:ConfirmPerks()
+												end,
+											}),
+											PlaceObj('XTemplateAction', {
+												'ActionId', "idPreviousMerc",
+												'ActionName', T(550449531084, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Previous"),
+												'ActionShortcut', "Shift-Tab",
+												'ActionGamepad', "LeftShoulder",
+												'OnAction', function (self, host, source, ...)
+													local dlg = GetDialog(host)
+													dlg:SelectPrevMerc()
+												end,
+												'FXMouseIn', "activityButtonHover_GatherIntel",
+												'FXPress', "activityButtonPress_GatherIntel",
+												'FXPressDisabled', "activityButtonDisabled_GatherIntel",
+											}),
+											PlaceObj('XTemplateAction', {
+												'ActionId', "idNextMerc",
+												'ActionName', T(655064233565, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Next"),
+												'ActionShortcut', "Tab",
+												'ActionGamepad', "RightShoulder",
+												'OnAction', function (self, host, source, ...)
+													local dlg = GetDialog(host)
+													dlg:SelectNextMerc()
+												end,
+												'FXMouseIn', "activityButtonHover_GatherIntel",
+												'FXPress', "activityButtonPress_GatherIntel",
+												'FXPressDisabled', "activityButtonDisabled_GatherIntel",
+											}),
+											PlaceObj('XTemplateAction', {
+												'ActionId', "idStatsAction",
+												'ActionName', T(731677990405, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Stats"),
+												'ActionToolbar', "ActionBar",
+												'ActionShortcut', "S",
+												'ActionGamepad', "ButtonX",
+												'ActionState', function (self, host)
+													local dlg = GetDialog(host)
+													return dlg:GetMode() == "perks" and "enabled" or "hidden"
+												end,
+												'OnAction', function (self, host, source, ...)
+													local dlg = GetDialog(host)
+													dlg:SetMode("record")
+												end,
+											}),
+											PlaceObj('XTemplateAction', {
+												'ActionId', "idMercsAction",
+												'ActionName', T(905658355422, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Mercs"),
+												'ActionToolbar', "ActionBar",
+												'ActionShortcut', "M",
+												'ActionState', function (self, host)
+													local dlg = GetDialog(host)
+													return "enabled" ---dlg:GetMode() == "record" and "enabled" or "hidden"
+												end,
+												'OnAction', function (self, host, source, ...)
+													local popupHost = GetDialog("PDADialog")
+													popupHost = popupHost and popupHost:ResolveId("idDisplayPopupHost")
+													local mercsWindow = XTemplateSpawn("PDAMercProfiles", popupHost, {})
+													mercsWindow:Open()
+													mercsWindow:SetSelectedMercId(host:GetContext().session_id)
+												end,
+												'__condition', function (parent, context) return false end,
+											}),
+											PlaceObj('XTemplateAction', {
+												'ActionId', "idCloseActionPerks",
+												'ActionName', T(187868415093, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Close"),
+												'ActionToolbar', "ActionBar",
+												'ActionShortcut', "Escape",
+												'ActionGamepad', "ButtonB",
+												'ActionState', function (self, host)
+													local dlg = GetDialog(host)
+													return dlg:GetMode() == "perks" and "enabled" or "hidden"
+												end,
+												'OnAction', function (self, host, source, ...)
+													CreateRealTimeThread(function()
+														if host:GetMode() == "perks" then
+															local perksDlg = host:ResolveId("idPerks")
+															if perksDlg.SelectedPerkIds and #perksDlg.SelectedPerkIds > 0 then
+																local popupHost = GetDialog("PDADialog")
+																popupHost = popupHost and popupHost:ResolveId("idDisplayPopupHost")
+																
+																local trainPerks = CreateQuestionBox(
+																	popupHost,
+																	T(326274240975, "New Perks"),
+																	T(615284649013, "Do you want to learn the perks you've selected?"),
+																	T(814633909510, "Confirm"),
+																	T(6879, "Cancel")
+																)
+																	
+																local resp = trainPerks:Wait()
+																if resp == "ok" then
+																	perksDlg:ConfirmPerks()
+																end
+															end
+														end
+														local pda = GetDialog("PDADialog")
+														pda:CloseAction(host)
+														return
+													end)
+												end,
+												'FXMouseIn', "buttonRollover",
+												'FXPress', "buttonPress",
+												'FXPressDisabled', "IactDisabled",
+											}),
+											PlaceObj('XTemplateAction', {
+												'ActionId', "idCloseActionRecord",
+												'ActionName', T(187868415093, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Close"),
+												'ActionToolbar', "ActionBar",
+												'ActionShortcut', "Escape",
+												'ActionGamepad', "ButtonB",
+												'ActionState', function (self, host)
+													local dlg = GetDialog(host)
+													return dlg:GetMode() == "record" and "enabled" or "hidden"
+												end,
+												'OnAction', function (self, host, source, ...)
+													local pda = GetDialog("PDADialog")
+													pda:CloseAction(host)
+												end,
+											}),
+											}),
+										}),
+									PlaceObj('XTemplateAction', {
+										'ActionId', "idToggleHistoryAndStats",
+										'ActionGamepad', "DPadLeft",
+										'ActionState', function (self, host)
+											local dlg = GetDialog(host)
+											
+											return dlg:GetMode() == "record" and "enabled" or "disabled"
+										end,
+										'OnAction', function (self, host, source, ...)
+											local dlg = GetDialog(host)
+											local recordDlg = dlg.idRecord
+											if not recordDlg then return end
+											if recordDlg:GetMode() == "history" then
+												recordDlg:SetMode("stats")
+											else
+												recordDlg:SetMode("history")
+											end
+										end,
+									}),
+									PlaceObj('XTemplateAction', {
+										'ActionId', "idToggleHistoryAndStatsAlt",
+										'ActionGamepad', "DPadRight",
+										'ActionState', function (self, host)
+											local dlg = GetDialog(host)
+											
+											return dlg:GetMode() == "record" and "enabled" or "disabled"
+										end,
+										'OnAction', function (self, host, source, ...)
+											local dlg = GetDialog(host)
+											local recordDlg = dlg.idRecord
+											if not recordDlg then return end
+											if recordDlg:GetMode() == "history" then
+												recordDlg:SetMode("stats")
+											else
+												recordDlg:SetMode("history")
+											end
+										end,
+									}),
+									PlaceObj('XTemplateAction', {
+										'ActionId', "idEnlargeMercImage",
+										'ActionGamepad', "RightThumbClick",
+										'ActionState', function (self, host)
+											local dlg = GetDialog(host)
+											
+											return dlg:GetMode() == "record" and "enabled" or "disabled"
+										end,
+										'OnAction', function (self, host, source, ...)
+											local dlg = GetDialog(host)
+											local imageButton = dlg.idMercImageBigButton
+											if imageButton then
+												imageButton:OnPress()
+											end
+										end,
+									}),
+									PlaceObj('XTemplateWindow', {
+										'comment', "main",
+										'Dock', "top",
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'comment', "attributes",
+											'__class', "XFrame",
+											'IdNode', false,
+											'Padding', box(22, 6, 22, 12),
+											'Dock', "left",
+											'MinWidth', 610,
+											'MaxWidth', 610,
+											'ScaleModifier', point(950, 950),
+											'Image', "UI/PDA/os_background",
+											'FrameBox', box(3, 3, 3, 3),
+										}, {
+											PlaceObj('XTemplateWindow', {
+												'comment', "header",
+												'Padding', box(0, 4, 0, 4),
+												'Dock', "top",
+												'MinHeight', 85,
+												'MaxHeight', 85,
+												'LayoutMethod', "HList",
+											}, {
+												PlaceObj('XTemplateTemplate', {
+													'comment', "prev",
+													'__template', "PDASmallButton",
+													'IdNode', false,
+													'Margins', box(0, 0, 8, 0),
+													'Dock', "left",
+													'HAlign', "left",
+													'MinWidth', 24,
+													'MaxWidth', 24,
+													'ScaleModifier', point(1000, 1000),
+													'FXMouseIn', "",
+													'FXPress', "",
+													'FXPressDisabled', "",
+													'OnPress', function (self, gamepad)
+														local dlg = GetDialog(self)
+														local previousAction = dlg:ActionById("idPreviousMerc")
+														dlg:OnAction(previousAction)
+													end,
+													'FrameBox', box(3, 3, 3, 3),
+													'FlipX', true,
+													'CenterImage', "UI/PDA/T_Icon_Play",
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'comment', "gamepad hint",
+														'__context', function (parent, context) return "GamepadUIStyleChanged" end,
+														'__class', "XText",
+														'Margins', box(-5, -5, 0, 0),
+														'Clip', false,
+														'UseClipBox', false,
+														'ContextUpdateOnOpen', true,
+														'OnContextUpdate', function (self, context, ...)
+															self:SetVisible(GetUIStyleGamepad())
+															XText.OnContextUpdate(self, context, ...)
+														end,
+														'Translate', true,
+														'Text', T(238402790013, --[[ModItemXTemplate PDAAimEvaluation Text]] "<LB>"),
+													}),
+													}),
+												PlaceObj('XTemplateWindow', {
+													'comment', "class icon",
+													'__class', "XContextImage",
+													'Margins', box(2, 2, 2, 2),
+													'Dock', "left",
+													'HAlign', "left",
+													'VAlign', "center",
+													'MinWidth', 50,
+													'MinHeight', 50,
+													'MaxWidth', 50,
+													'MaxHeight', 50,
+													'ImageFit', "smallest",
+													'ImageColor', RGBA(230, 222, 202, 255),
+													'ContextUpdateOnOpen', true,
+													'OnContextUpdate', function (self, context, ...)
+														self:SetImage(GetMercSpecIcon(context))
+													end,
+												}),
+												PlaceObj('XTemplateWindow', {
+													'Dock', "left",
+													'LayoutMethod', "VList",
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'comment', "name",
+														'__class', "XText",
+														'Margins', box(0, 6, 0, 0),
+														'TextStyle', "MercNameEvaluation",
+														'Translate', true,
+														'Text', T(562902609255, --[[ModItemXTemplate PDAAimEvaluation Text]] "<Name>"),
+													}),
+													PlaceObj('XTemplateWindow', {
+														'Margins', box(0, -6, 0, 0),
+														'LayoutMethod', "HList",
+													}, {
+														PlaceObj('XTemplateWindow', {
+															'comment', "class info",
+															'__class', "XText",
+															'TextStyle', "PDABrowserSubtitleLight",
+															'Translate', true,
+															'Text', T(749158490275, --[[ModItemXTemplate PDAAimEvaluation Text]] "<MercSpec()>"),
+														}),
+														PlaceObj('XTemplateWindow', {
+															'comment', "class info",
+															'__condition', function (parent, context) return GetMercCurrentDailySalary(context.session_id) > 0 end,
+															'__class', "XText",
+															'TextStyle', "PDABrowserSubtitle",
+															'Translate', true,
+															'Text', T(459016279300, --[[ModItemXTemplate PDAAimEvaluation Text]] "/ Daily Salary"),
+														}),
+														PlaceObj('XTemplateWindow', {
+															'comment', "class info",
+															'__condition', function (parent, context) return GetMercCurrentDailySalary(context.session_id) > 0 end,
+															'__class', "XText",
+															'TextStyle', "PDABrowserSubtitleLight",
+															'ContextUpdateOnOpen', true,
+															'OnContextUpdate', function (self, context, ...)
+																local salary = GetMercCurrentDailySalary(context.session_id)
+																local text = T{418564557177, "<money(salary)>", salary = salary}
+																self:SetText(text)
+															end,
+															'Translate', true,
+														}),
+														}),
+													}),
+												PlaceObj('XTemplateWindow', {
+													'comment', "level",
+													'ZOrder', 10,
+													'Dock', "right",
+													'HAlign', "center",
+													'LayoutMethod', "VList",
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'__class', "XText",
+														'Padding', box(0, 0, 0, 0),
+														'HAlign', "center",
+														'VAlign', "center",
+														'TextStyle', "PDABrowserBigNumber",
+														'ContextUpdateOnOpen', true,
+														'Translate', true,
+														'Text', T(738913633555, --[[ModItemXTemplate PDAAimEvaluation Text]] "<MercLevel()>"),
+													}),
+													PlaceObj('XTemplateWindow', {
+														'__class', "XText",
+														'Margins', box(0, -10, 0, 0),
+														'Padding', box(0, 0, 0, 0),
+														'HAlign', "center",
+														'VAlign', "center",
+														'TextStyle', "PDABrowserSubtitle",
+														'Translate', true,
+														'Text', T(267299905081, --[[ModItemXTemplate PDAAimEvaluation Text]] "LEVEL"),
+													}),
+													}),
+												PlaceObj('XTemplateTemplate', {
+													'comment', "next",
+													'__template', "PDASmallButton",
+													'IdNode', false,
+													'Margins', box(8, 0, 0, 0),
+													'Dock', "right",
+													'HAlign', "center",
+													'MinWidth', 24,
+													'MaxWidth', 24,
+													'ScaleModifier', point(1000, 1000),
+													'FXMouseIn', "",
+													'FXPress', "",
+													'FXPressDisabled', "",
+													'OnPress', function (self, gamepad)
+														local dlg = GetDialog(self)
+														local nextAction = dlg:ActionById("idNextMerc")
+														dlg:OnAction(nextAction)
+													end,
+													'FrameBox', box(3, 3, 3, 3),
+													'CenterImage', "UI/PDA/T_Icon_Play",
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'comment', "gamepad hint",
+														'__context', function (parent, context) return "GamepadUIStyleChanged" end,
+														'__class', "XText",
+														'Margins', box(-5, -5, 0, 0),
+														'Clip', false,
+														'UseClipBox', false,
+														'ContextUpdateOnOpen', true,
+														'OnContextUpdate', function (self, context, ...)
+															self:SetVisible(GetUIStyleGamepad())
+															XText.OnContextUpdate(self, context, ...)
+														end,
+														'Translate', true,
+														'Text', T(995932052424, --[[ModItemXTemplate PDAAimEvaluation Text]] "<RB>"),
+													}),
+													}),
+												}),
+											PlaceObj('XTemplateWindow', {
+												'__class', "XFrame",
+												'Dock', "top",
+												'Image', "UI/PDA/separate_line_vertical",
+												'FrameBox', box(3, 3, 3, 3),
+												'SqueezeY', false,
+											}),
+											PlaceObj('XTemplateWindow', {
+												'comment', "current status",
+												'__class', "XText",
+												'Dock', "top",
+												'MinHeight', 47,
+												'MaxHeight', 47,
+												'TextStyle', "PDABrowserTextLight",
+												'ContextUpdateOnOpen', true,
+												'OnContextUpdate', function (self, context, ...)
+													local sectorId = gv_Squads[context.Squad].CurrentSector
+													local sector = gv_Sectors[sectorId]
+													
+													local text
+													if sector.conflict then
+														text = T{903359955315, "Engaged in conflict in sector <SectorId(sectorId)>.", sectorId = sectorId}
+													else
+														local operation = SectorOperations[context.Operation]
+														if operation.id == "Arriving" or operation.id == "Traveling" then
+															text = T{889510996961, "<activity>.", activity = operation.display_name}
+														elseif operation.id == "Idle" then
+															text = T{812039502354, "<activity> in sector <SectorId(sectorId)>.", activity = operation.display_name, sectorId = sectorId}
+														else
+															local profession = table.find_value(operation.Professions, "id", context.OperationProfession )
+															text = T{748263789018, "<profession> in sector <SectorId(sectorId)>.", profession = profession.display_name, sectorId = sectorId}
+														end
+													end
+													
+													local wounds = context:GetStatusEffect("Wounded")
+													if wounds then
+														text = text .. T{195711054730, "Has <wounds> wound(s).", wounds = wounds.stacks}
+													end
+													
+													if context.Tiredness ~= 0 then
+														local effect = UnitTirednessEffect[context.Tiredness]
+														text = text .. T{620948893123, " <tiredness>.", tiredness = CharacterEffectDefs[effect].DisplayName}
+													end
+													
+													self:SetText(text)
+													
+													local limit = self.UpdateTimeLimit
+													if limit == 0 or (RealTime() - self.last_update_time) >= limit then
+														self:SetText(self.Text)
+													elseif not self:GetThread("ContextUpdate") then
+														self:CreateThread("ContextUpdate", function(self)
+															Sleep(self.last_update_time + self.UpdateTimeLimit - RealTime())
+															self:OnContextUpdate()
+														end, self)
+													end
+												end,
+												'Translate', true,
+												'TextVAlign', "center",
+											}),
+											PlaceObj('XTemplateWindow', {
+												'__class', "XFrame",
+												'Dock', "top",
+												'Image', "UI/PDA/separate_line_vertical",
+												'FrameBox', box(3, 3, 3, 3),
+												'SqueezeY', false,
+											}),
+											PlaceObj('XTemplateWindow', {
+												'comment', "stat bars",
+												'Dock', "top",
+												'MinHeight', 256,
+												'MaxHeight', 512,
+												'LayoutMethod', "Grid",
+												'UniformColumnWidth', true,
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'__class', "XText",
+													'Margins', box(0, 0, 0, 8),
+													'Dock', "top",
+													'TextStyle', "PDABrowserHeader",
+													'Translate', true,
+													'Text', T(769722208341, --[[ModItemXTemplate PDAAimEvaluation Text]] "Stats"),
+												}),
+												PlaceObj('XTemplateWindow', {
+													'comment', "attributes",
+													'Margins', box(3, 0, 0, 0),
+													'LayoutMethod', "VList",
+													'LayoutVSpacing', -3,
+												}, {
+													PlaceObj('XTemplateForEach', {
+														'array', function (parent, context) return UnitPropertiesStats:GetAttributes() end,
+														'run_after', function (child, context, item, i, n, last)
+															child:SetAttribute(item.id)
+														end,
+													}, {
+														PlaceObj('XTemplateTemplate', {
+															'__template', "PDAAttributeBar",
+															'HAlign', "left",
+														}),
+														}),
+													}),
+												PlaceObj('XTemplateWindow', {
+													'comment', "skills",
+													'Margins', box(0, 5, 0, 0),
+													'Padding', box(18, 0, 0, 0),
+													'GridX', 2,
+													'LayoutMethod', "VList",
+													'LayoutVSpacing', -3,
+												}, {
+													PlaceObj('XTemplateForEach', {
+														'array', function (parent, context) return UnitPropertiesStats:GetSkills() end,
+														'run_after', function (child, context, item, i, n, last)
+															child:SetAttribute(item.id)
+														end,
+													}, {
+														PlaceObj('XTemplateTemplate', {
+															'__template', "PDAAttributeBar",
+														}),
+														}),
+													}),
+												PlaceObj('XTemplateWindow', {
+													'__class', "XFrame",
+													'Margins', box(0, 5, -5, 10),
+													'HAlign', "right",
+													'MinWidth', 2,
+													'MaxWidth', 2,
+													'GridStretchX', false,
+													'Image', "UI/PDA/separate_line",
+													'FrameBox', box(3, 3, 3, 3),
+													'SqueezeX', false,
+												}),
+												}),
+											PlaceObj('XTemplateWindow', {
+												'__class', "XFrame",
+												'Dock', "top",
+												'Image', "UI/PDA/separate_line_vertical",
+												'FrameBox', box(3, 3, 3, 3),
+												'SqueezeY', false,
+											}),
+											PlaceObj('XTemplateWindow', {
+												'comment', "personal perks",
+												'Dock', "top",
+												'MaxHeight', 128,
+												'LayoutMethod', "HList",
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'comment', "talent",
+													'__condition', function (parent, context) return not IsImpUnit(context) end,
+													'LayoutMethod', "VList",
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'__class', "XText",
+														'Margins', box(0, 4, 0, 4),
+														'TextStyle', "PDABrowserNameSmall",
+														'Translate', true,
+														'Text', T(961479643645, --[[ModItemXTemplate PDAAimEvaluation Text]] "Talent"),
+													}),
+													PlaceObj('XTemplateWindow', {
+														'Margins', box(0, 0, 8, 4),
+														'LayoutMethod', "HList",
+														'LayoutHSpacing', 8,
+														'LayoutVSpacing', 8,
+													}, {
+														PlaceObj('XTemplateForEach', {
+															'array', function (parent, context) return context:GetPerks(nil, "sort") end,
+															'condition', function (parent, context, item, i) return item.Tier == "Personal" end,
+															'run_after', function (child, context, item, i, n, last)
+																child:SetPerkId(item.class)
+															end,
+														}, {
+															PlaceObj('XTemplateTemplate', {
+																'__template', "PDAPerk",
+															}),
+															}),
+														}),
+													}),
+												PlaceObj('XTemplateWindow', {
+													'__condition', function (parent, context) return not IsImpUnit(context) end,
+													'__class', "XFrame",
+													'Margins', box(0, 4, 8, 4),
+													'Image', "UI/PDA/separate_line",
+													'FrameBox', box(3, 3, 3, 3),
+													'SqueezeX', false,
+												}),
+												PlaceObj('XTemplateWindow', {
+													'comment', "traits",
+													'Margins', box(0, 0, 8, 4),
+													'LayoutMethod', "VList",
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'__class', "XText",
+														'Margins', box(0, 4, 0, 4),
+														'TextStyle', "PDABrowserNameSmall",
+														'Translate', true,
+														'Text', T(861228350946, --[[ModItemXTemplate PDAAimEvaluation Text]] "Traits"),
+													}),
+													PlaceObj('XTemplateWindow', {
+														'LayoutMethod', "HList",
+														'LayoutHSpacing', 8,
+														'LayoutVSpacing', 8,
+													}, {
+														PlaceObj('XTemplateForEach', {
+															'array', function (parent, context) return context:GetPerks(nil, "sort") end,
+															'condition', function (parent, context, item, i) return not item:IsLevelUp() and item.Tier ~= "Personal" end,
+															'run_after', function (child, context, item, i, n, last)
+																child:SetPerkId(item.class)
+															end,
+														}, {
+															PlaceObj('XTemplateTemplate', {
+																'__template', "PDAPerk",
+															}),
+															}),
+														}),
+													}),
+												}),
+											PlaceObj('XTemplateWindow', {
+												'__class', "XFrame",
+												'Dock', "top",
+												'Image', "UI/PDA/separate_line_vertical",
+												'FrameBox', box(3, 3, 3, 3),
+												'SqueezeY', false,
+											}),
+											PlaceObj('XTemplateWindow', {
+												'comment', "general perks",
+												'Dock', "top",
+												'LayoutMethod', "VList",
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'__class', "XText",
+													'TextStyle', "PDABrowserNameSmall",
+													'Translate', true,
+													'Text', T(236089097173, --[[ModItemXTemplate PDAAimEvaluation Text]] "Perks"),
+												}),
+												PlaceObj('XTemplateWindow', {
+													'LayoutMethod', "HWrap",
+													'LayoutHSpacing', 8,
+													'LayoutVSpacing', 8,
+												}, {
+													PlaceObj('XTemplateForEach', {
+														'array', function (parent, context) return context:GetPerks(nil, "sort") end,
+														'condition', function (parent, context, item, i) return item:IsLevelUp() end,
+														'run_after', function (child, context, item, i, n, last)
+															child:SetPerkId(item.class)
+														end,
+													}, {
+														PlaceObj('XTemplateTemplate', {
+															'__template', "PDAPerk",
+														}),
+														}),
+													}),
+												}),
+											}),
+										PlaceObj('XTemplateMode', {
+											'mode', "record",
+										}, {
+											PlaceObj('XTemplateWindow', {
+												'comment', "image",
+												'__class', "XFrame",
+												'IdNode', false,
+												'Margins', box(16, 0, 16, 0),
+												'Dock', "left",
+												'MinWidth', 376,
+												'MaxWidth', 376,
+												'Image', "UI/PDA/os_background_2",
+												'FrameBox', box(3, 3, 3, 3),
+											}, {
+												PlaceObj('XTemplateTemplate', {
+													'__template', "PDACommonButton",
+													'Id', "idMercImageBigButton",
+													'Margins', box(16, 0, 0, 16),
+													'Padding', box(2, 2, 2, 2),
+													'Dock', "box",
+													'HAlign', "left",
+													'VAlign', "bottom",
+													'MinWidth', 24,
+													'MinHeight', 24,
+													'MaxWidth', 24,
+													'MaxHeight', 24,
+													'OnPress', function (self, gamepad)
+														local popupHost = GetDialog("PDADialog")
+														popupHost = popupHost and popupHost:ResolveId("idDisplayPopupHost")
+														
+														local mercWindow = XTemplateSpawn("PDAMercImageInspect", popupHost, self:GetContext())
+														mercWindow:Open()
+													end,
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'__class', "XImage",
+														'Image', "UI/PDA/Quest/T_Icon_Plus",
+														'ImageFit', "smallest",
+													}),
+													}),
+												PlaceObj('XTemplateWindow', {
+													'__class', "XContextImage",
+													'MinWidth', 376,
+													'MinHeight', 730,
+													'MaxWidth', 376,
+													'MaxHeight', 730,
+													'ImageFit', "largest",
+													'ContextUpdateOnOpen', true,
+													'OnContextUpdate', function (self, context, ...)
+														self:SetImage(context.BigPortrait)
+													end,
+												}),
+												}),
+											PlaceObj('XTemplateWindow', {
+												'comment', "record",
+												'__class', "XDialog",
+												'Id', "idRecord",
+												'Dock', "left",
+												'MinWidth', 610,
+												'MaxWidth', 610,
+												'LayoutMethod', "Grid",
+												'InitialMode', "history",
+												'InternalModes', "history, stats",
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'__class', "XTextButton",
+													'Id', "idHistoryTab",
+													'Margins', box(0, 0, 0, -2),
+													'Padding', box(16, 0, 16, 0),
+													'MinHeight', 46,
+													'MaxHeight', 46,
+													'DrawOnTop', true,
+													'MouseCursor', "UI/Cursors/Pda_Hand.tga",
+													'FXMouseIn', "buttonRollover",
+													'FXPress', "AIMCategoryMercsClick",
+													'OnPress', function (self, gamepad)
+														local record = GetDialog(self)
+														record:SetMode("history")
+													end,
+													'Image', "UI/PDA/Quest/tab_selected",
+													'FrameBox', box(3, 3, 3, 3),
+													'TextStyle', "PDABrowserTabSelected",
+													'Translate', true,
+													'Text', T(210141140528, --[[ModItemXTemplate PDAAimEvaluation Text]] "History"),
+												}),
+												PlaceObj('XTemplateWindow', {
+													'__class', "XTextButton",
+													'Id', "idStatsTab",
+													'Margins', box(0, 0, 0, -2),
+													'Padding', box(16, 0, 16, 0),
+													'MinHeight', 46,
+													'MaxHeight', 46,
+													'GridX', 2,
+													'MouseCursor', "UI/Cursors/Pda_Hand.tga",
+													'FXMouseIn', "buttonRollover",
+													'FXPress', "AIMCategoryMercsClick",
+													'OnPress', function (self, gamepad)
+														local record = GetDialog(self)
+														record:SetMode("stats")
+													end,
+													'Image', "UI/PDA/Quest/tab_selected",
+													'FrameBox', box(3, 3, 3, 3),
+													'TextStyle', "PDABrowserTabSelected",
+													'Translate', true,
+													'Text', T(113987221030, --[[ModItemXTemplate PDAAimEvaluation Text]] "Statistics"),
+												}),
+												PlaceObj('XTemplateWindow', {
+													'comment', "gamepad hint",
+													'__context', function (parent, context) return "GamepadUIStyleChanged" end,
+													'__class', "XText",
+													'Margins', box(10, 0, 0, 0),
+													'VAlign', "center",
+													'GridX', 3,
+													'ScaleModifier', point(650, 650),
+													'Clip', false,
+													'UseClipBox', false,
+													'ContextUpdateOnOpen', true,
+													'OnContextUpdate', function (self, context, ...)
+														self:SetVisible(GetUIStyleGamepad())
+														XText.OnContextUpdate(self, context, ...)
+													end,
+													'Translate', true,
+													'Text', T(177313543661, --[[ModItemXTemplate PDAAimEvaluation Text]] "<DPadLeft>/<DPadRight>"),
+												}),
+												PlaceObj('XTemplateWindow', {
+													'__class', "XFrame",
+													'IdNode', false,
+													'Padding', box(8, 8, 8, 8),
+													'MinWidth', 610,
+													'MaxWidth', 610,
+													'GridY', 2,
+													'GridWidth', 4,
+													'Image', "UI/PDA/os_background",
+													'FrameBox', box(3, 3, 3, 3),
+												}, {
+													PlaceObj('XTemplateWindow', {
+														'__class', "XContentTemplate",
+														'IdNode', false,
+													}, {
+														PlaceObj('XTemplateMode', {
+															'mode', "history",
+														}, {
+															PlaceObj('XTemplateWindow', {
+																'__class', "XScrollArea",
+																'Id', "idHistoryRows",
+																'IdNode', false,
+																'Padding', box(8, 4, 8, 8),
+																'HAlign', "left",
+																'VAlign', "top",
+																'MinWidth', 460,
+																'MinHeight', 672,
+																'MaxWidth', 600,
+																'MaxHeight', 672,
+																'LayoutMethod', "VList",
+																'VScroll', "idHistoryScroll",
+															}, {
+																PlaceObj('XTemplateWindow', {
+																	'__class', "XText",
+																	'TextStyle', "PDABrowserText",
+																	'Translate', true,
+																	'Text', T(731522640052, --[[ModItemXTemplate PDAAimEvaluation Text]] "Connecting to A.I.M. servers...\nSecurity check... <em>Confirmed!</em>\n------------------------------------"),
+																}),
+																PlaceObj('XTemplateForEach', {
+																	'comment', "merc history log",
+																	'array', function (parent, context) return GetEmploymentHistory(context) end,
+																	'condition', function (parent, context, item, i) return EmploymentHistoryLines[item.id] end,
+																	'__context', function (parent, context, item, i, n) return item end,
+																}, {
+																	PlaceObj('XTemplateWindow', {
+																		'__class', "XText",
+																		'FoldWhenHidden', true,
+																		'TextStyle', "PDABrowserTextLight",
+																		'ContextUpdateOnOpen', true,
+																		'OnContextUpdate', function (self, context, ...)
+																			local preset = EmploymentHistoryLines[context.id]
+																			if preset then
+																				local text = preset:GetText(context.context)
+																				if text then
+																					text = T{216000808992, "<style PDABrowserText>Level <level>: </style>", level = Untranslated(context.level)} .. text
+																					self:SetText(text)
+																				end
+																			end
+																		end,
+																		'Translate', true,
+																		'HideOnEmpty', true,
+																	}),
+																	}),
+																}),
+															PlaceObj('XTemplateWindow', {
+																'__class', "MessengerScrollbar",
+																'Id', "idHistoryScroll",
+																'Margins', box(0, 0, 8, 8),
+																'Dock', "right",
+																'Target', "idHistoryRows",
+																'AutoHide', true,
+															}),
+															PlaceObj('XTemplateCode', {
+																'run', function (self, parent, context)
+																	local dlg = GetDialog(parent)
+																	
+																	local historyButton = dlg.idHistoryTab
+																	historyButton:SetTextStyle("PDABrowserTabSelected")
+																	historyButton:SetDrawOnTop(true)
+																	
+																	local statsButton = dlg.idStatsTab
+																	statsButton:SetTextStyle("PDABrowserTab")
+																	statsButton:SetDrawOnTop(false)
+																end,
+															}),
+															}),
+														PlaceObj('XTemplateMode', {
+															'mode', "stats",
+														}, {
+															PlaceObj('XTemplateWindow', {
+																'__class', "XScrollArea",
+																'Id', "idStatsRows",
+																'IdNode', false,
+																'Padding', box(8, 4, 8, 8),
+																'HAlign', "left",
+																'VAlign', "top",
+																'MinWidth', 600,
+																'MinHeight', 672,
+																'MaxWidth', 600,
+																'MaxHeight', 672,
+																'LayoutMethod', "VList",
+																'VScroll', "idStatsScroll",
+															}, {
+																PlaceObj('XTemplateWindow', {
+																	'__class', "XText",
+																	'TextStyle', "PDABrowserText",
+																	'Translate', true,
+																	'Text', T(959513065473, --[[ModItemXTemplate PDAAimEvaluation Text]] "Connecting to A.I.M. servers...\nSecurity check... <em>Confirmed!</em>\n-----------------------------------------------"),
+																}),
+																PlaceObj('XTemplateForEach', {
+																	'array', function (parent, context) return Presets.MercTrackedStat end,
+																	'__context', function (parent, context, item, i, n) return SubContext(context, { statGroupIdx = i }) end,
+																}, {
+																	PlaceObj('XTemplateWindow', {
+																		'Margins', box(0, 0, 0, 16),
+																		'LayoutMethod', "VList",
+																		'FoldWhenHidden', true,
+																	}, {
+																		PlaceObj('XTemplateForEach', {
+																			'array', function (parent, context) return Presets.MercTrackedStat[context.statGroupIdx] end,
+																			'run_after', function (child, context, item, i, n, last)
+																				child:ResolveId("idName"):SetText(item.name)
+																				child:ResolveId("idValue"):SetText(item:DisplayValue(context))
+																				child:SetVisible(not item.hide)
+																			end,
+																		}, {
+																			PlaceObj('XTemplateWindow', {
+																				'IdNode', true,
+																				'FoldWhenHidden', true,
+																			}, {
+																				PlaceObj('XTemplateWindow', {
+																					'__class', "XText",
+																					'Id', "idName",
+																					'Padding', box(2, 0, 2, 0),
+																					'Dock', "left",
+																					'TextStyle', "PDABrowserTextLight",
+																					'Translate', true,
+																				}),
+																				PlaceObj('XTemplateWindow', {
+																					'__class', "XText",
+																					'Id', "idValue",
+																					'Margins', box(0, 0, 8, 0),
+																					'Padding', box(2, 0, 2, 0),
+																					'Dock', "right",
+																					'TextStyle', "PDABrowserTextLight",
+																					'Translate', true,
+																				}),
+																				}),
+																			}),
+																		}),
+																	}),
+																}),
+															PlaceObj('XTemplateWindow', {
+																'__class', "MessengerScrollbar",
+																'Id', "idStatsScroll",
+																'Margins', box(0, 0, 8, 8),
+																'Dock', "right",
+																'Target', "idStatsRows",
+																'AutoHide', true,
+															}),
+															PlaceObj('XTemplateCode', {
+																'run', function (self, parent, context)
+																	local dlg = GetDialog(parent)
+																	
+																	local historyButton = dlg.idHistoryTab
+																	historyButton:SetTextStyle("PDABrowserTab")
+																	historyButton:SetDrawOnTop(false)
+																	
+																	local statsButton = dlg.idStatsTab
+																	statsButton:SetTextStyle("PDABrowserTabSelected")
+																	statsButton:SetDrawOnTop(true)
+																end,
+															}),
+															}),
+														}),
+													}),
+												}),
+											}),
+										PlaceObj('XTemplateMode', {
+											'mode', "perks",
+										}, {
+											PlaceObj('XTemplateTemplate', {
+												'__template', "PDAPerks",
+											}),
+											}),
+										}),
+									}),
+								}),
+							}),
+						}),
+					PlaceObj('XTemplateAction', {
+						'ActionId', "ScrollDown",
+						'ActionGamepad', "RightThumbDown",
+						'OnAction', function (self, host, source, ...)
+							local area = self.host:ResolveId("idRecord")
+							area = area and area:ResolveId("idHistoryRows")
+							if area then
+								area:ScrollDown()
+							end
+						end,
+					}),
+					PlaceObj('XTemplateAction', {
+						'ActionId', "ScrollUp",
+						'ActionGamepad', "RightThumbUp",
+						'OnAction', function (self, host, source, ...)
+							local area = self.host:ResolveId("idRecord")
+							area = area and area:ResolveId("idHistoryRows")
+							if area then
+								area:ScrollUp()
+							end
+						end,
+					}),
+					}),
+			}),
+			PlaceObj('ModItemXTemplate', {
+				__is_kind_of = "XContextWindow",
+				group = "Zulu Badges",
+				id = "CombatBadge",
+				PlaceObj('XTemplateWindow', {
+					'__class', "CombatBadge",
+					'IdNode', true,
+					'HAlign', "left",
+					'VAlign', "top",
+					'MinWidth', 1,
+					'MinHeight', 1,
+					'UseClipBox', false,
+					'FoldWhenHidden', true,
+				}, {
+					PlaceObj('XTemplateWindow', {
+						'__class', "XContextWindow",
+						'RolloverTemplate', "StatusEffectsRollover",
+						'RolloverText', T(327307292756, --[[ModItemXTemplate CombatBadge RolloverText]] "STATUS EFFECTS"),
+						'RolloverOffset', box(10, 0, 10, 0),
+						'Id', "idMain",
+						'VAlign', "top",
+						'LayoutMethod', "VList",
+						'UseClipBox', false,
+						'HandleMouse', true,
+					}, {
+						PlaceObj('XTemplateWindow', {
+							'__class', "XText",
+							'Id', "idAboveName",
+							'Dock', "top",
+							'HAlign', "left",
+							'Clip', false,
+							'UseClipBox', false,
+							'Visible', false,
+							'FoldWhenHidden', true,
+							'HandleMouse', false,
+							'ChildrenHandleMouse', false,
+							'TextStyle', "BadgeName_Red",
+							'ContextUpdateOnOpen', true,
+							'OnContextUpdate', function (self, context, ...)
+								CombatBadgeAboveNameTextUpdate(self)
+							end,
+							'Translate', true,
+							'Text', T(865071357285, --[[ModItemXTemplate CombatBadge Text]] "OUT OF AMMO"),
+						}),
+						PlaceObj('XTemplateWindow', {
+							'comment', "name and above",
+							'__class', "XContextWindow",
+							'Id', "idNameStripe",
+							'Padding', box(2, 2, 2, 2),
+							'Dock', "top",
+							'VAlign', "top",
+							'UseClipBox', false,
+							'FoldWhenHidden', true,
+							'ContextUpdateOnOpen', true,
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'__context', function (parent, context) return SubContext(context, {context.session_id .. "_combat_badge"}) end,
+								'__class', "XText",
+								'Id', "idName",
+								'Margins', box(0, -6, 0, -6),
+								'HAlign', "left",
+								'Clip', false,
+								'UseClipBox', false,
+								'FoldWhenHidden', true,
+								'HandleMouse', false,
+								'ChildrenHandleMouse', false,
+								'TextStyle', "BadgeName",
+								'Translate', true,
+								'Text', T(459179278354, --[[ModItemXTemplate CombatBadge Text]] "<DisplayName>"),
+							}),
+							PlaceObj('XTemplateTemplate', {
+								'__template', "CombatBadgeLightIndicator",
+							}),
+							}),
+						PlaceObj('XTemplateWindow', {
+							'Id', "idSubContainer",
+							'LayoutMethod', "HList",
+							'UseClipBox', false,
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'__class', "XImage",
+								'Id', "idMercIcon",
+								'HAlign', "left",
+								'MinWidth', 23,
+								'MinHeight', 30,
+								'MaxWidth', 23,
+								'MaxHeight', 30,
+								'UseClipBox', false,
+								'FoldWhenHidden', true,
+								'DrawOnTop', true,
+								'ChildrenHandleMouse', false,
+								'ImageFit', "stretch",
+							}),
+							PlaceObj('XTemplateWindow', {
+								'LayoutMethod', "VList",
+								'UseClipBox', false,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'comment', "target health bar",
+									'__context', function (parent, context) return parent:ResolveId("node").context end,
+									'__class', "WillPointBar",
+									'Id', "IdWillBar",
+									'BorderWidth', 1,
+									'HAlign', "left",
+									'VAlign', "top",
+									'MinWidth', 80,
+									'MinHeight', 10,
+									'MaxWidth', 80,
+									'UseClipBox', false,
+									'FoldWhenHidden', true,
+									'BorderColor', RGBA(35, 61, 78, 255),
+									'Background', RGBA(35, 61, 78, 255),
+									'OnContextUpdate', function (self, context, ...)
+										XContextControl.OnContextUpdate(self, context)
+										
+										local prop_ids = self.BindTo
+										local values = {}
+										for i, prop_id in ipairs(prop_ids) do
+											if context then
+												local value = ResolveValue(context, prop_id) or 0
+												values[i] = value
+												if value ~= rawget(self.Progress, i) then
+													self:OnPropUpdate(context, i, value)
+												end
+											end
+										end
+										
+										
+										self:UpdateBars()
+									end,
+									'Progress', {
+										0,
+										0,
+									},
+									'DisplayTempWp', true,
+								}),
+								PlaceObj('XTemplateWindow', {
+									'comment', "target health bar",
+									'__class', "HealthBar",
+									'Id', "idBar",
+									'BorderWidth', 1,
+									'HAlign', "left",
+									'VAlign', "top",
+									'MinWidth', 80,
+									'MaxWidth', 80,
+									'UseClipBox', false,
+									'FoldWhenHidden', true,
+									'BorderColor', RGBA(35, 61, 78, 255),
+									'Background', RGBA(35, 61, 78, 255),
+									'OnContextUpdate', function (self, context, ...)
+										XContextControl.OnContextUpdate(self, context)
+										
+										
+										local prop_ids = self.BindTo
+										local values = {}
+										for i, prop_id in ipairs(prop_ids) do
+											if context then
+												local value = ResolveValue(context, prop_id) or 0
+												values[i] = value
+												if value ~= rawget(self.Progress, i) then
+													self:OnPropUpdate(context, i, value)
+												end
+											end
+										end
+										
+										
+										self:UpdateBars()
+									end,
+									'Progress', {
+										0,
+										0,
+									},
+									'DisplayTempHp', true,
+									'ShowIcons', true,
+								}),
+								PlaceObj('XTemplateWindow', {
+									'__context', function (parent, context) return context.StatusEffects end,
+									'__condition', function (parent, context) return IsKindOf(parent:ResolveId("node").context, "StatusEffectObject") end,
+									'__class', "XContentTemplate",
+									'Id', "idStatusEffectsContainer",
+									'IdNode', false,
+									'Margins', box(0, 0, 0, 5),
+									'ScaleModifier', point(600, 600),
+									'UseClipBox', false,
+									'FoldWhenHidden', true,
+									'ChildrenHandleMouse', false,
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__context', function (parent, context) return parent:ResolveId("node").context end,
+										'__class', "XContextWindow",
+										'Id', "idStatusEffects",
+										'HAlign', "left",
+										'LayoutMethod', "HList",
+										'UseClipBox', false,
+									}, {
+										PlaceObj('XTemplateForEach', {
+											'comment', "status effect",
+											'array', function (parent, context) return context:GetUIVisibleStatusEffects() end,
+											'__context', function (parent, context, item, i, n) return item end,
+										}, {
+											PlaceObj('XTemplateTemplate', {
+												'__template', "StatusEffectIcon",
+												'RolloverTemplate', "",
+												'RolloverText', "",
+												'RolloverTitle', "",
+												'ImageScale', point(850, 850),
+											}),
+											}),
+										PlaceObj('XTemplateFunc', {
+											'comment', "toggle xbadge mouse handling when there are any status effects",
+											'name', "Open(self)",
+											'func', function (self)
+												XContextWindow.Open(self)
+												
+												if true then return end
+												
+												local uiBadgeElement = self:ResolveId("node")
+												local wantToHandleMouse = #uiBadgeElement.context:GetUIVisibleStatusEffects(true) > 0
+												local xBadgeInstance = rawget(uiBadgeElement, "xbadge-instance")
+												if xBadgeInstance then
+													if wantToHandleMouse ~= xBadgeInstance.uiHandleMouse then
+														xBadgeInstance:SetHandleMouse(wantToHandleMouse)
+													end
+												else
+													uiBadgeElement:SetHandleMouse(wantToHandleMouse)
+												end
+											end,
+										}),
+										}),
+									}),
+								}),
+							}),
+						}),
+					PlaceObj('XTemplateTemplate', {
+						'__condition', function (parent, context) return IsKindOf(context, "UnitProperties") end,
+						'__template', "CoOpOtherPlayerMark",
+						'Id', "idPartner",
+						'Dock', "ignore",
+						'HAlign', "left",
+						'VAlign', "top",
+						'MinWidth', 30,
+						'MinHeight', 30,
+						'MaxWidth', 30,
+						'MaxHeight', 30,
+						'ContextUpdateOnOpen', true,
+						'OnContextUpdate', function (self, context, ...)
+							local badge = self:ResolveId("node")
+							badge:UpdateCoOpMarkVisibility(self)
+						end,
+					}, {
+						PlaceObj('XTemplateFunc', {
+							'name', "UpdateLayout(self)",
+							'func', function (self)
+								--if not self.layout_update then return end
+								
+								local badge = self:ResolveId("node")
+								local b = badge.box
+								local mercIcon = badge.idMercIcon
+								local y = 0
+								if mercIcon.visible then
+									y = mercIcon.box:miny()
+								else
+									local nameStripe = badge.idNameStripe
+									local nsB = nameStripe.box
+									y = nsB:miny() + nsB:sizey() / 2 - self.measure_width / 2
+								end
+								self:SetBox(b:minx() - self.measure_width, y, self.measure_width, self.measure_width)
+								XImage.UpdateLayout(self)
+							end,
+						}),
+						}),
+					}),
+			}),
+			PlaceObj('ModItemCode', {
+				'name', "UnitPropertiesStats",
+				'CodeFileName', "Code/UnitPropertiesStats.lua",
+			}),
+			PlaceObj('ModItemCode', {
+				'name', "WillPointsBar",
+				'CodeFileName', "Code/WillPointsBar.lua",
+			}),
+			PlaceObj('ModItemMercStat', {
+				Icon = "Mod/e6L4ECj/Icons/st_will",
+				ShortenedName = T(728650423872, --[[ModItemMercStat Default Will ShortenedName]] "ВОЛЯ"),
+				group = "Default",
+				id = "Will",
+			}),
+			}),
+		PlaceObj('ModItemFolder', {
 			'name', "Perks",
 		}, {
+			PlaceObj('ModItemFolder', {
+				'name', "Personality",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personality",
+					'Id', "Psycho",
+					'SortKey', 10,
+					'Parameters', {
+						PlaceObj('PresetParamPercent', {
+							'Name', "procChance",
+							'Value', 3,
+							'Tag', "<procChance>%",
+						}),
+					},
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnFirearmAttackStart",
+							Handler = function (self, target, attacker, attack_target, action, attack_args)
+								if target == attacker and (action.id == "SingleShot" or action.id == "BurstFire") then
+									if attacker:Random(100) < self:ResolveValue("procChance") then
+										local weapon = action:GetAttackWeapons(attacker)
+										if action.id == "SingleShot" and table.find(weapon.AvailableAttacks, "BurstFire") then
+											attack_args.replace_action = "BurstFire"
+											PlayVoiceResponse(attacker, "Psycho")
+										elseif action.id == "BurstFire" and table.find(weapon.AvailableAttacks, "AutoFire") then
+											attack_args.replace_action = "AutoFire"
+											PlayVoiceResponse(attacker, "Psycho")
+										end
+									end
+								end
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(256373672615, --[[ModItemCharacterEffectCompositeDef Psycho DisplayName]] "Psycho"),
+					'Description', T(966163673727, --[[ModItemCharacterEffectCompositeDef Psycho Description]] "Can decide to use a more vicious attack than the one selected.\n\nAdditional <em>conversation options</em>."),
+					'Icon', "UI/Icons/Perks/Psycho",
+					'Tier', "Personality",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personality",
+					'Id', "Bond",
+					'SortKey', 10,
+					'object_class', "Perk",
+					'DisplayName', T(875337188421, --[[ModItemCharacterEffectCompositeDef Bond DisplayName]] "Bond"),
+					'Description', T(459288741024, --[[ModItemCharacterEffectCompositeDef Bond Description]] "Bond with another character (needs special description)."),
+					'Icon', "UI/Icons/Perks/Bond",
+					'Tier', "Personality",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personality",
+					'Id', "Negotiator",
+					'SortKey', 10,
+					'Parameters', {
+						PlaceObj('PresetParamPercent', {
+							'Name', "discountPercent",
+							'Value', 20,
+							'Tag', "<discountPercent>%",
+						}),
+					},
+					'param_bindings', {},
+					'object_class', "Perk",
+					'DisplayName', T(196499775201, --[[ModItemCharacterEffectCompositeDef Negotiator DisplayName]] "Negotiator"),
+					'Description', T(464552472248, --[[ModItemCharacterEffectCompositeDef Negotiator Description]] "Reduces prices for <em>Sector Operations</em> and <em>Boat Travel</em>.\n\nAdditional <em>conversation options</em>."),
+					'Icon', "UI/Icons/Perks/Negotiator",
+					'Tier', "Personality",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personality",
+					'Id', "Scoundrel",
+					'SortKey', 10,
+					'object_class', "Perk",
+					'DisplayName', T(687227379969, --[[ModItemCharacterEffectCompositeDef Scoundrel DisplayName]] "Scoundrel"),
+					'Description', T(252249063178, --[[ModItemCharacterEffectCompositeDef Scoundrel Description]] "First <em>weapon swap</em> for the turn is <em>free</em>.\n\nAdditional <em>conversation options</em>."),
+					'Icon', "UI/Icons/Perks/Scoundrel",
+					'Tier', "Personality",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Quirk",
+					'Id', "Loner",
+					'SortKey', 1000,
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "loner_radius",
+							'Value', 25,
+							'Tag', "<loner_radius>",
+						}),
+					},
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnBeginTurn",
+							Handler = function (self, target)
+								for _, other in ipairs(target.team.units) do
+									if target ~= other and DivRound(target:GetDist(other), const.SlabSizeX) <= self:ResolveValue("loner_radius") then
+										return
+									end
+								end
+								
+								target:AddStatusEffect("Inspired")
+								PlayVoiceResponse(target, "Loner")
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(487342591563, --[[ModItemCharacterEffectCompositeDef Loner DisplayName]] "Loner"),
+					'Description', T(124325843871, --[[ModItemCharacterEffectCompositeDef Loner Description]] "Become <GameTerm('Inspired')> when there are no teammates <em>in your vicinity</em> at turn start."),
+					'Icon', "UI/Icons/Perks/Loner",
+					'Tier', "Quirk",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Quirk",
+					'Id', "Optimist",
+					'SortKey', 1000,
+					'Parameters', {
+						PlaceObj('PresetParamPercent', {
+							'Name', "procChance",
+							'Value', 10,
+							'Tag', "<procChance>%",
+						}),
+					},
+					'object_class', "Perk",
+					'DisplayName', T(892300961794, --[[ModItemCharacterEffectCompositeDef Optimist DisplayName]] "Optimist"),
+					'Description', T(181016182063, --[[ModItemCharacterEffectCompositeDef Optimist Description]] "Small chance to <em>prevent</em> a team <GameTerm('Morale')> loss."),
+					'Icon', "UI/Icons/Perks/Optimist",
+					'Tier', "Quirk",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Quirk",
+					'Id', "Pessimist",
+					'SortKey', 1000,
+					'Parameters', {
+						PlaceObj('PresetParamPercent', {
+							'Name', "procChance",
+							'Value', 10,
+							'Tag', "<procChance>%",
+						}),
+					},
+					'object_class', "Perk",
+					'DisplayName', T(755896070667, --[[ModItemCharacterEffectCompositeDef Pessimist DisplayName]] "Pessimist"),
+					'Description', T(932094612672, --[[ModItemCharacterEffectCompositeDef Pessimist Description]] "Small chance to <em>prevent</em> team <GameTerm('Morale')> gain."),
+					'Icon', "UI/Icons/Perks/Pessimist",
+					'Tier', "Quirk",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Quirk",
+					'Id', "Spiritual",
+					'SortKey', 1000,
+					'Parameters', {
+						PlaceObj('PresetParamPercent', {
+							'Name', "minAccuracy",
+							'Value', 3,
+							'Tag', "<minAccuracy>%",
+						}),
+					},
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcChanceToHit",
+							Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+								if target == attacker then
+									data.min = self:ResolveValue("minAccuracy")
+								end
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(906477417382, --[[ModItemCharacterEffectCompositeDef Spiritual DisplayName]] "Spiritual"),
+					'Description', T(233455514627, --[[ModItemCharacterEffectCompositeDef Spiritual Description]] "Guaranteed <em>Minimal Accuracy</em> with hopeless attacks."),
+					'Icon', "UI/Icons/Perks/Spiritual",
+					'Tier', "Quirk",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Quirk",
+					'Id', "Zoophobic",
+					'SortKey', 1000,
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnUnitAttack",
+							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
+								if target == attack_target and attacker.species ~= "Human" and not results.miss and not target:HasStatusEffect("ZoophobiaChecked") then
+									CombatLog("debug", T{Untranslated("<em>Zoophobic</em> proc on <unit>"), unit = target.Name})
+									self:SetParameter("active", true)
+								end
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcPersonalMorale",
+							Handler = function (self, target, value)
+								if self:ResolveValue("active") then
+									return value - 1
+								end
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnCombatEnd",
+							Handler = function (self, target)
+								self:SetParameter("active", false)
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnSatelliteTick",
+							Handler = function (self, target)
+								self:SetParameter("active", false)
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(619689762390, --[[ModItemCharacterEffectCompositeDef Zoophobic DisplayName]] "Zoophobic"),
+					'Description', T(467565005573, --[[ModItemCharacterEffectCompositeDef Zoophobic Description]] "Loses <GameTerm('Morale')> when <em>Attacked</em> by an <em>animal</em>."),
+					'Icon', "UI/Icons/Perks/Zoophobic",
+					'Tier', "Quirk",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Quirk",
+					'Id', "Claustrophobic",
+					'SortKey', 1000,
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCombatStarted",
+							Handler = function (self, target, load_game)
+								if IsSectorUnderground(gv_CurrentSectorId) and not target:HasStatusEffect("ClaustrophobiaChecked") then
+									CombatLog("debug", T{Untranslated("<em>Claustrophobic</em> proc on <unit>"), unit = target.Name})
+									self:SetParameter("active", true)
+								end
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcPersonalMorale",
+							Handler = function (self, target, value)
+								if self:ResolveValue("active") then
+									return value - 1
+								end
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnCombatEnd",
+							Handler = function (self, target)
+								self:SetParameter("active", false)
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnSatelliteTick",
+							Handler = function (self, target)
+								self:SetParameter("active", false)
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnUnitEnterMapVisual",
+							Handler = function (self, target)
+								if IsSectorUnderground(gv_CurrentSectorId) and not target:HasStatusEffect("ClaustrophobiaChecked") then
+									CreateGameTimeThread(function()
+										while GetInGameInterfaceMode() == "IModeDeployment" do
+											Sleep(20)
+										end
+										PlayVoiceResponse(target, "Claustrophobic")
+									end)
+								end
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(464805356385, --[[ModItemCharacterEffectCompositeDef Claustrophobic DisplayName]] "Claustrophobic"),
+					'Description', T(356135028604, --[[ModItemCharacterEffectCompositeDef Claustrophobic Description]] "<GameTerm('Morale')> decrease when starting combat in <em>underground</em> Sectors."),
+					'Icon', "UI/Icons/Perks/Claustrophobic",
+					'Tier', "Quirk",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Quirk",
+					'Id', "Hemophobic",
+					'SortKey', 1000,
+					'Parameters', {
+						PlaceObj('PresetParamPercent', {
+							'Name', "procChance",
+							'Value', 20,
+							'Tag', "<procChance>%",
+						}),
+					},
+					'object_class', "Perk",
+					'DisplayName', T(152237634088, --[[ModItemCharacterEffectCompositeDef Hemophobic DisplayName]] "Hemophobic"),
+					'Description', T(105025202773, --[[ModItemCharacterEffectCompositeDef Hemophobic Description]] "Chance of <em>failure</em> when using <em>Bandage</em>."),
+					'Icon', "UI/Icons/Perks/Hemophobic",
+					'Tier', "Quirk",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "SuppressionEffects",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Id', "suppressionLight",
+					'object_class', "StatusEffect",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCombatEnd",
+							Handler = function (self, target)
+								target.WillPoints = target.MaxWillPoints
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(279226942480, --[[ModItemCharacterEffectCompositeDef suppressionLight DisplayName]] "Обстрелян"),
+					'Description', T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionLight Description]] "Шанс попасть во врага немного снижен"),
+					'AddEffectText', T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionLight AddEffectText]] "Обстрелян"),
+					'OnAdded', function (self, obj)
+						if not obj:IsDead() then
+						                    if obj:IsMerc() then
+						                        PlayVoiceResponse(obj, "TacticalCareful")
+						                    else
+						                        PlayVoiceResponse(obj, "AITaunt")
+						                    end
+						                end
+					end,
+					'Icon', "Mod/e6L4ECj/Icons/suppressionLight.png",
+					'RemoveOnEndCombat', true,
+					'Shown', true,
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Id', "suppressionMedium",
+					'object_class', "StatusEffect",
+					'msg_reactions', {},
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCombatEnd",
+							Handler = function (self, target)
+								target.WillPoints = target.MaxWillPoints
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnBeginTurn",
+							Handler = function (self, target)
+								target:GainAP(1, "Move")
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(279226942480, --[[ModItemCharacterEffectCompositeDef suppressionMedium DisplayName]] "Под огнем"),
+					'Description', T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionMedium Description]] "Шанс попасть во врага снижен\n+1 ОД свободного перемещения"),
+					'AddEffectText', T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionMedium AddEffectText]] "Под плотным огнем"),
+					'OnAdded', function (self, obj)
+						if not obj:IsDead() then
+						                    if obj:IsMerc() then
+						                        PlayVoiceResponse(obj, "TacticalRevenge")
+						                    else
+						                        PlayVoiceResponse(obj, "TacticalTaunt")
+						                    end
+						                end
+					end,
+					'Icon', "Mod/e6L4ECj/Icons/suppressionMedium.png",
+					'RemoveOnEndCombat', true,
+					'Shown', true,
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Id', "suppressionHeavy",
+					'object_class', "StatusEffect",
+					'msg_reactions', {},
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCombatEnd",
+							Handler = function (self, target)
+								target.WillPoints = target.MaxWillPoints
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnBeginTurn",
+							Handler = function (self, target)
+								target:GainAP(2, "Move")
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(279226942480, --[[ModItemCharacterEffectCompositeDef suppressionHeavy DisplayName]] "Под плотным огнем"),
+					'Description', T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionHeavy Description]] "Шанс попасть во врага снижен\n+2 ОД свободного перемещения"),
+					'AddEffectText', T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionHeavy AddEffectText]] "Под плотным огнем"),
+					'OnAdded', function (self, obj)
+						local unitStance = obj.stance
+						if unitStance == "Standing" then
+						obj:SetActionCommand("ChangeStance", nil, nil, "Crouch")
+						end
+						obj:InterruptPreparedAttack()
+						
+						if not obj:IsDead() then
+						                    if obj:IsMerc() then
+						                        PlayVoiceResponse(obj, "ThreatSelection")
+						                    else
+						                        PlayVoiceResponse(obj, "AILoseCover")
+						                    end
+						                end
+					end,
+					'Icon', "Mod/e6L4ECj/Icons/suppressionHeavy.png",
+					'RemoveOnEndCombat', true,
+					'Shown', true,
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Id', "suppressionHeavy2",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "move_ap_modifier",
+							'Value', 200,
+							'Tag', "<move_ap_modifier>",
+						}),
+					},
+					'object_class', "StatusEffect",
+					'msg_reactions', {},
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCombatEnd",
+							Handler = function (self, target)
+								target.WillPoints = target.MaxWillPoints
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcMoveModifier",
+							Handler = function (self, target, value, action)
+								return value + self:ResolveValue("move_ap_modifier")
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(279226942480, --[[ModItemCharacterEffectCompositeDef suppressionHeavy2 DisplayName]] "Подавлен"),
+					'Description', T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionHeavy2 Description]] "Передвижение в 2 раза дороже. Точность стрельбы сильно снижена."),
+					'AddEffectText', T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionHeavy2 AddEffectText]] "Под плотным огнем"),
+					'OnAdded', function (self, obj)
+						local unitStance = obj.stance
+						if unitStance == "Standing" then
+						obj:SetActionCommand("ChangeStance", nil, nil, "Crouch")
+						end
+						
+						if unitStance == "Crouch" and not (obj:CanTakeCover()) then
+						obj:SetActionCommand("ChangeStance", nil, nil, "Prone")
+						end
+						
+						obj:InterruptPreparedAttack()
+						
+						local unitStance = obj.stance
+						if unitStance == "Standing" then
+						obj:SetActionCommand("ChangeStance", nil, nil, "Crouch")
+						end
+						obj:InterruptPreparedAttack()
+						
+						if not obj:IsDead() then
+						                    if obj:IsMerc() then
+						                        PlayVoiceResponse(obj, "AIArchetypeAngry")
+						                    else
+						                        PlayVoiceResponse(obj, "AIFlanked")
+						                    end
+						                end
+					end,
+					'Icon', "Mod/e6L4ECj/Icons/suppressionHeavy2.png",
+					'RemoveOnEndCombat', true,
+					'Shown', true,
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Id', "suppressionPinned",
+					'object_class', "StatusEffect",
+					'msg_reactions', {},
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCombatEnd",
+							Handler = function (self, target)
+								target.WillPoints = target.MaxWillPoints
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnBeginTurn",
+							Handler = function (self, target)
+								if target:CanTakeCover() then
+								target:TakeCover();
+								--obj:SetActionCommand("TakeCover", nil, nil, "Prone")
+								end
+								target:ConsumeAP(100*const.Scale.AP)
+								target:ConsumeAP(100*const.Scale.AP, "Move")
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcPersonalMorale",
+							Handler = function (self, target, value)
+								return value - 1
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(279226942480, --[[ModItemCharacterEffectCompositeDef suppressionPinned DisplayName]] "Прижат"),
+					'Description', T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Не может выполнять действия на этом ходу"),
+					'AddEffectText', T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionPinned AddEffectText]] "Под плотным огнем"),
+					'OnAdded', function (self, obj)
+						local unitStance = obj.stance
+						if unitStance ~= "Prone" and not (obj:CanTakeCover()) then
+						obj:SetActionCommand("ChangeStance", nil, nil, "Prone")
+						end
+						if obj:CanTakeCover() then
+						obj:TakeCover();
+						--obj:SetActionCommand("TakeCover", nil, nil, "Prone")
+						end
+						
+						obj:ConsumeAP(100*const.Scale.AP)
+						obj:ConsumeAP(100*const.Scale.AP, "Move")
+						
+						if not obj:IsDead() then
+						                    if obj:IsMerc() then
+						                        PlayVoiceResponse(obj, "AIArchetypeScared")
+						                    else
+						                        PlayVoiceResponse(obj, "AILoseCover")
+						                    end
+						                end
+					end,
+					'Icon', "Mod/e6L4ECj/Icons/suppressionPinned.png",
+					'RemoveOnEndCombat', true,
+					'Shown', true,
+				}),
+				}),
 			PlaceObj('ModItemFolder', {
 				'name', "Vanilla_Overwrite",
 			}, {
@@ -88476,6 +92696,1849 @@ return {
 				}),
 				}),
 			}),
+		PlaceObj('ModItemXTemplate', {
+			group = "Zulu",
+			id = "ActionCameraCrosshair",
+			PlaceObj('XTemplateWindow', {
+				'__class', "CrosshairUI",
+				'Id', "idAttackCrosshair",
+				'IdNode', true,
+				'HAlign', "left",
+				'VAlign', "top",
+				'UseClipBox', false,
+				'Visible', false,
+				'HandleMouse', true,
+			}, {
+				PlaceObj('XTemplateWindow', {
+					'comment', "prevents breakage in some weird close on Init cases",
+					'__condition', function (parent, context) return parent.context end,
+					'__class', "XContextWindow",
+				}, {
+					PlaceObj('XTemplateWindow', {
+						'__context', function (parent, context) return "crosshair" end,
+						'__class', "XContextWindow",
+						'Id', "idContainer",
+						'LayoutMethod', "VList",
+						'UseClipBox', false,
+						'OnContextUpdate', function (self, context, ...)
+							
+							XImage.Open(self)
+						end,
+					}, {
+						PlaceObj('XTemplateWindow', {
+							'comment', "combat badge for the crosshair",
+							'__context', function (parent, context) return parent.parent.context.target end,
+							'__class', "XContextWindow",
+							'IdNode', true,
+							'Margins', box(5, 0, 0, -60),
+							'HAlign', "center",
+							'VAlign', "top",
+							'LayoutMethod', "VList",
+							'UseClipBox', false,
+							'FoldWhenHidden', true,
+							'DrawOnTop', true,
+							'ContextUpdateOnOpen', true,
+							'OnContextUpdate', function (self, context, ...)
+								local iconPath = GetEnemyIcon(IsKindOf(context, "Unit") and context.role or "Default")
+								self.idMercIcon:SetImage(iconPath)
+							end,
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'__class', "XText",
+								'Id', "idName",
+								'Margins', box(0, 0, 0, -2),
+								'HAlign', "left",
+								'Clip', false,
+								'UseClipBox', false,
+								'FoldWhenHidden', true,
+								'HandleMouse', false,
+								'ChildrenHandleMouse', false,
+								'TextStyle', "CrosshairBadgeName",
+								'ContextUpdateOnOpen', true,
+								'Translate', true,
+								'Text', T(972332466585, --[[ModItemXTemplate ActionCameraCrosshair Text]] "<DisplayName>"),
+							}),
+							PlaceObj('XTemplateWindow', {
+								'LayoutMethod', "HList",
+								'LayoutHSpacing', 3,
+								'UseClipBox', false,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'__class', "XImage",
+									'Id', "idMercIcon",
+									'HAlign', "left",
+									'UseClipBox', false,
+									'FoldWhenHidden', true,
+									'DrawOnTop', true,
+									'ChildrenHandleMouse', false,
+								}),
+								PlaceObj('XTemplateWindow', {
+									'LayoutMethod', "VList",
+									'UseClipBox', false,
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'comment', "target health bar",
+										'__class', "HealthBar",
+										'Id', "idBar",
+										'BorderWidth', 1,
+										'HAlign', "left",
+										'VAlign', "top",
+										'MinWidth', 100,
+										'MinHeight', 18,
+										'MaxHeight', 18,
+										'UseClipBox', false,
+										'FoldWhenHidden', true,
+										'BorderColor', RGBA(70, 10, 10, 255),
+										'Background', RGBA(70, 10, 10, 255),
+										'Progress', {
+											0,
+											0,
+										},
+										'DisplayTempHp', true,
+										'ShowIcons', true,
+									}, {
+										PlaceObj('XTemplateFunc', {
+											'name', "Open(self)",
+											'func', function (self)
+												HealthBar.Open(self)
+												self:SetColorPreset("enemy")
+											end,
+										}),
+										}),
+									PlaceObj('XTemplateWindow', {
+										'__context', function (parent, context) return context.StatusEffects end,
+										'__condition', function (parent, context) return IsKindOf(parent:ResolveId("node").context, "StatusEffectObject") end,
+										'__class', "XContentTemplate",
+										'Id', "idStatusEffectsContainer",
+										'IdNode', false,
+										'Margins', box(0, 0, 0, 5),
+										'MinHeight', 40,
+										'MaxHeight', 40,
+										'ScaleModifier', point(600, 600),
+										'UseClipBox', false,
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'__context', function (parent, context) return parent:ResolveId("node").context end,
+											'__class', "XContextWindow",
+											'RolloverTemplate', "StatusEffectsRollover",
+											'RolloverText', T(190650275316, --[[ModItemXTemplate ActionCameraCrosshair RolloverText]] "STATUS EFFECTS"),
+											'UseClipBox', false,
+										}, {
+											PlaceObj('XTemplateWindow', {
+												'__context', function (parent, context) return context:GetUIVisibleStatusEffects() end,
+												'__class', "XContextWindow",
+												'Id', "idStatusEffects",
+												'HAlign', "left",
+												'LayoutMethod', "HList",
+												'UseClipBox', false,
+											}, {
+												PlaceObj('XTemplateForEach', {
+													'comment', "status effect",
+													'__context', function (parent, context, item, i, n) return item end,
+												}, {
+													PlaceObj('XTemplateTemplate', {
+														'__template', "StatusEffectIcon",
+														'RolloverTemplate', "",
+														'RolloverText', "",
+														'RolloverTitle', "",
+														'ImageScale', point(850, 850),
+													}),
+													}),
+												}),
+											}),
+										}),
+									}),
+								}),
+							PlaceObj('XTemplateTemplate', {
+								'__condition', function (parent, context) return IsKindOf(context, "UnitProperties") end,
+								'__template', "CoOpOtherPlayerMark",
+								'Id', "idPartner",
+								'Dock', "ignore",
+								'HAlign', "left",
+								'VAlign', "top",
+								'Image', "UI/Hud/coop_partner_attack",
+								'ContextUpdateOnOpen', true,
+								'OnContextUpdate', function (self, context, ...)
+									local aimingAt = IsOtherPlayerActingOnUnit(context, "aim")
+									self:SetVisible(aimingAt)
+								end,
+							}, {
+								PlaceObj('XTemplateFunc', {
+									'name', "UpdateLayout(self)",
+									'func', function (self)
+										--if not self.layout_update then return end
+										
+										local badge = self:ResolveId("node")
+										local b = badge.box
+										local mercIcon = badge.idMercIcon
+										local y = 0
+										if mercIcon.visible then
+											y = mercIcon.box:miny()
+										else
+											y = b:miny() - self.measure_width / 2
+										end
+										self:SetBox(b:minx() - self.measure_width, y, self.measure_width, self.measure_width)
+										XImage.UpdateLayout(self)
+									end,
+								}),
+								}),
+							}),
+						PlaceObj('XTemplateWindow', {
+							'Id', "idContent",
+							'HAlign', "center",
+							'VAlign', "center",
+							'UseClipBox', false,
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'comment', "Zoom Level",
+								'Id', "ZoomLevelWindow",
+								'Margins', box(0, 55, 200, 0),
+								'HAlign', "right",
+								'VAlign', "top",
+								'MinWidth', 20,
+								'UseClipBox', false,
+								'BackgroundRectGlowColor', RGBA(0, 0, 0, 16),
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'__class', "XText",
+									'Id', "ScopeZoom",
+									'Margins', box(10, 0, 10, 0),
+									'Padding', box(2, 0, 2, 0),
+									'HAlign', "center",
+									'VAlign', "center",
+									'Clip', false,
+									'UseClipBox', false,
+									'TextStyle', "Console",
+									'Translate', true,
+									'TextVAlign', "center",
+								}),
+								}),
+							PlaceObj('XTemplateWindow', {
+								'comment', "outer circle (cosmetic)",
+								'__condition', function (parent, context) return true end,
+								'__class', "XImage",
+								'Id', "ScopeOuter",
+								'IdNode', false,
+								'ScaleModifier', point(200, 200),
+								'UseClipBox', false,
+								'Transparency', 60,
+							}, {
+								PlaceObj('XTemplateFunc', {
+									'name', "Open(self)",
+									'func', function (self)
+										
+										
+										--local crosshair = self:ResolveId("node")
+										--local hasFiringModes = crosshair.context.firingModes
+										--if hasFiringModes then
+										
+										local node = self:ResolveId("node")
+										local nextAimLevel = node:GetNextAimLevel()
+										local aim = node.aim or 0
+										local maxAimPossible = node.maxAimPossible or -1
+										
+										local ScopeAimLevel = node.context.ScopeAimLevel or -1
+										local SmallAimLevel = node.context.SmallAimLevel or -1
+										
+										local ScopeOuterImage = node.context.ScopeOuterImage or ""
+										
+										if (SmallAimLevel > 0 and aim >= SmallAimLevel) or (ScopeAimLevel > 0 and aim >= ScopeAimLevel) then
+										self:SetImage(ScopeOuterImage)
+										else
+										self:SetImage("")
+										end
+										--end
+									end,
+								}),
+								}),
+							PlaceObj('XTemplateWindow', {
+								'comment', "outer circle (cosmetic)",
+								'__condition', function (parent, context) return true end,
+								'__class', "XImage",
+								'Id', "idTarget2",
+								'IdNode', false,
+								'ScaleModifier', point(200, 200),
+								'UseClipBox', false,
+							}, {
+								PlaceObj('XTemplateFunc', {
+									'name', "Open(self)",
+									'func', function (self)
+										--local crosshair = self:ResolveId("node")
+										--local hasFiringModes = crosshair.context.firingModes
+										--if hasFiringModes then
+										
+										local node = self:ResolveId("node")
+										local nextAimLevel = node:GetNextAimLevel()
+										local aim = node.aim or 0
+										local maxAimPossible = node.maxAimPossible or -1
+										
+										local ScopeAimLevel = node.context.ScopeAimLevel or -1
+										local SmallAimLevel = node.context.SmallAimLevel or -1
+										
+										
+										local ScopeImage = node.context.ScopeImage or ""
+										local SmallScopeImage = node.context.SmallScopeImage or ""
+										if ScopeAimLevel > 0 and aim >= ScopeAimLevel  then
+										self:SetImage(ScopeImage)
+										elseif SmallAimLevel > 0 and aim >= SmallAimLevel  then
+										self:SetImage(SmallScopeImage)
+										else
+										self:SetImage("")
+										end
+										--end
+									end,
+								}),
+								}),
+							PlaceObj('XTemplateWindow', {
+								'comment', "outer circle (cosmetic)",
+								'__class', "XImage",
+								'Id', "idTarget",
+								'IdNode', false,
+								'HAlign', "left",
+								'VAlign', "top",
+								'UseClipBox', false,
+								'Transparency', 120,
+								'Image', "UI/Hud/target_background",
+							}, {
+								PlaceObj('XTemplateFunc', {
+									'name', "Open(self)",
+									'func', function (self)
+										XImage.Open(self)
+										
+										local crosshair = self:ResolveId("node")
+										local hasFiringModes = crosshair.context.firingModes
+										if hasFiringModes then
+											self:SetImage("UI/Hud/target_background_with_firing_modes")
+										end
+									end,
+								}),
+								}),
+							PlaceObj('XTemplateWindow', {
+								'comment', "aim level display",
+								'__class', "XContextWindow",
+								'IdNode', true,
+								'HAlign', "center",
+								'VAlign', "center",
+								'UseClipBox', false,
+								'ContextUpdateOnOpen', true,
+								'OnContextUpdate', function (self, context, ...)
+									local node = self:ResolveId("node")
+									local aim = node.aim or 0
+									local maxAimTotal = node.maxAimTotal
+									local nextAimLevel = node:GetNextAimLevel()
+									
+									local aimMaxScale = 560
+									local aimMinScale = 200
+									local aimScaleDif = aimMaxScale - aimMinScale
+									local perLevel = maxAimTotal == 0 and 0 or MulDivRound(aimScaleDif, 1, maxAimTotal)
+									
+									if maxAimTotal == 0 or aim == 0 then
+										--self.idAimTarget:SetVisible(false)
+										--return
+									else
+										--self.idAimTarget:SetVisible(true)
+									end
+									
+									if nextAimLevel == (node.minAimPossible or 0) then
+										self.idAimTarget:SetImageColor(RGB(237, 184, 24))
+									else
+										self.idAimTarget:SetImageColor(RGB(191, 67, 77))
+									end
+									
+									if aim == maxAimTotal and maxAimTotal == 0 then
+										self.idAimTarget:SetImage("UI/Hud/T_HUD_TargetingCircle_Inner")
+										self.idAimTarget:SetScaleModifier(point(aimMaxScale, aimMaxScale))
+										return
+									elseif aim == maxAimTotal then
+										self.idAimTarget:SetImage("UI/Hud/target_aim_small")
+										self.idAimTarget:SetScaleModifier(point(aimMinScale + perLevel, aimMinScale + perLevel))
+										return
+									end
+									
+									local aimScale = aimMaxScale - aim * perLevel
+									if aim >= 2 then
+										self.idAimTarget:SetImage("UI/Hud/T_HUD_TargetingCircle_Inner_2")
+									else
+										self.idAimTarget:SetImage("UI/Hud/T_HUD_TargetingCircle_Inner")
+									end
+									
+									self.idAimTarget:SetScaleModifier(point(aimScale, aimScale))
+								end,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'__class', "XImage",
+									'Id', "idAimTarget",
+									'HAlign', "center",
+									'VAlign', "center",
+									'UseClipBox', false,
+									'Image', "UI/Hud/target_aim",
+									'ImageColor', RGBA(191, 67, 77, 255),
+								}),
+								}),
+							PlaceObj('XTemplateWindow', {
+								'comment', "body parts",
+								'Dock', "box",
+								'UseClipBox', false,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'__class', "CrosshairButtonParent",
+									'Id', "idButtonsContainer",
+									'Margins', box(0, 0, 15, 0),
+									'HAlign', "center",
+									'VAlign', "center",
+									'MinWidth', 260,
+									'MinHeight', 260,
+									'MaxWidth', 260,
+									'MaxHeight', 260,
+									'UseClipBox', false,
+								}, {
+									PlaceObj('XTemplateForEach', {
+										'comment', "body part",
+										'array', function (parent, context) return parent:ResolveId("node").context.body_parts end,
+										'__context', function (parent, context, item, i, n) return item end,
+										'run_after', function (child, context, item, i, n, last)
+											local crosshair = child:ResolveId("node")
+											local crosshairCtx = crosshair.context 
+											local unitParts = crosshairCtx.body_parts
+											
+											local x, y = CalculateCrosshairButtonOffset(n, #unitParts)
+											child.circle_offset_x = x
+											child.circle_offset_y = y
+											
+											local bodyPartId = context.id
+											child:SetId("idButton" .. bodyPartId)
+										end,
+									}, {
+										PlaceObj('XTemplateTemplate', {
+											'__template', "CrosshairCustomBodyPart",
+											'OnContextUpdate', function (self, context, ...)
+												local crosshair = self:ResolveId("node")
+												local crosshairCtx = crosshair.context
+												local attacker = crosshairCtx.attacker
+												local action = crosshairCtx.action
+												local weapon = action:GetAttackWeapons(attacker)
+												local bodyPartId = self.context.id
+												self.idBodyImage:SetImage(self.context.Icon)
+												
+												local icon = false
+												local attackResultTable = crosshairCtx.attackResultTable
+												attackResultTable = attackResultTable and attackResultTable[bodyPartId]
+												
+												local errors = GetCrosshairAttackStatusEffects(crosshairCtx, weapon, bodyPartId, action, attackResultTable)
+												if #errors > 0 then
+													local firstError = errors[1]
+													icon = firstError.Icon
+												end
+												
+												if icon then
+													self.idHitIcon:SetImage(icon)
+													self.idHitIcon:SetVisible(true)
+												else
+													self.idHitIcon:SetVisible(false)
+												end
+												
+												local bodyPartHidden = false
+												if not crosshairCtx.canTarget and bodyPartId ~= crosshair.defaultTargetPart.id then
+													bodyPartHidden = true
+												end
+												
+												local cachedResults = crosshair.cached_results
+												cachedResults = cachedResults and cachedResults[crosshairCtx.action.id]
+												cachedResults = cachedResults and cachedResults.attackResultCalc
+												if cachedResults and (cachedResults["BlindFire"] or cachedResults["InCover"]) then
+													bodyPartHidden = true
+												end
+												local cursor = crosshair.attack_cursor or "UI/Cursors/Hand.tga"
+												if action.id == "PinDown" and cachedResults and cachedResults[bodyPartId] and not cachedResults[bodyPartId].target_hit then
+													bodyPartHidden = true
+													--self:SetEnabled(false)
+													--cursor = "UI/Cursors/Attack_2.tga"
+												else
+													self:SetEnabled(true)
+												end
+												self:SetVisible(not bodyPartHidden)
+												self:SetMouseCursor(cursor)
+												
+												self.idLabel:SetVisible(true or GetUIStyleGamepad())
+												self.idLabel:SetText(self.context.display_name)
+											end,
+										}),
+										}),
+									PlaceObj('XTemplateTemplate', {
+										'__context', function (parent, context) return Presets.TargetBodyPart.Default.BlindFire end,
+										'__template', "CrosshairCustomBodyPart",
+										'Id', "idButtonBlindFire",
+									}),
+									PlaceObj('XTemplateTemplate', {
+										'__context', function (parent, context) return Presets.TargetBodyPart.Default.InCover end,
+										'__template', "CrosshairCustomBodyPart",
+										'Id', "idButtonInCover",
+									}),
+									}),
+								PlaceObj('XTemplateWindow', {
+									'comment', "firing modes",
+									'__condition', function (parent, context) return parent:ResolveId("node").context.firingModes end,
+									'__class', "CrosshairButtonParent",
+									'Id', "idFireModeContainer",
+									'Margins', box(15, 0, 0, 0),
+									'HAlign', "center",
+									'VAlign', "center",
+									'MinWidth', 260,
+									'MinHeight', 260,
+									'MaxWidth', 260,
+									'MaxHeight', 260,
+									'UseClipBox', false,
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'comment', "firing mode update observer",
+										'__context', function (parent, context) return "firing_mode" end,
+										'__class', "XContextWindow",
+										'Margins', box(0, 0, 0, -8),
+										'HAlign', "center",
+										'VAlign', "bottom",
+										'LayoutMethod', "HList",
+										'UseClipBox', false,
+										'OnContextUpdate', function (self, context, ...)
+											for i, m in ipairs(self.parent) do
+												if m ~= self then
+													m:OnContextUpdate(m.context)
+												end
+											end
+										end,
+									}),
+									PlaceObj('XTemplateTemplate', {
+										'__context', function (parent, context) return { action = parent:ResolveId("node").context.firingModes[1] } end,
+										'__template', "CrosshairFiringModeButton",
+									}),
+									PlaceObj('XTemplateTemplate', {
+										'__context', function (parent, context) return { action = parent:ResolveId("node").context.firingModes[2] } end,
+										'__template', "CrosshairFiringModeButton",
+									}),
+									PlaceObj('XTemplateTemplate', {
+										'__context', function (parent, context) return { action = parent:ResolveId("node").context.firingModes[3] } end,
+										'__template', "CrosshairFiringModeButton",
+									}),
+									}),
+								PlaceObj('XTemplateWindow', {
+									'comment', "controller list style hint",
+									'__context', function (parent, context) return "GamepadUIStyleChanged" end,
+									'__class', "XContextWindow",
+									'UseClipBox', false,
+									'Visible', false,
+									'ContextUpdateOnOpen', true,
+									'OnContextUpdate', function (self, context, ...)
+										local gamepad = GetUIStyleGamepad()
+										
+										local transparencyUnselected = 120
+										local crosshair = self:ResolveId("node")
+										local hasFiringMode = not not crosshair.idFireModeContainer
+										local list = crosshair.crosshair_gamepad_list
+										local fireModeList = crosshair.idFireModeContainer
+										local bodyPartList = crosshair.idButtonsContainer
+										if list == "firing_modes" then
+											if fireModeList then
+												fireModeList:SetTransparency(0)
+											end
+											bodyPartList:SetTransparency(gamepad and transparencyUnselected or 0)
+										elseif list == "body_parts" then
+											if fireModeList then
+												fireModeList:SetTransparency(gamepad and transparencyUnselected or 0)
+											end
+											bodyPartList:SetTransparency(0)
+										end
+										
+										crosshair.idFiringModeHint:SetVisible(gamepad and hasFiringMode and list == "body_parts")
+										crosshair.idBodyPartsModeHint:SetVisible(gamepad and hasFiringMode and list == "firing_modes")
+									end,
+								}),
+								}),
+							PlaceObj('XTemplateWindow', {
+								'comment', "bottom ui - ap indicator, range, hints",
+								'Margins', box(0, 0, 0, -48),
+								'HAlign', "center",
+								'VAlign', "bottom",
+								'LayoutMethod', "VList",
+								'LayoutVSpacing', 5,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'comment', "ap indicator",
+									'HAlign', "center",
+									'VAlign', "bottom",
+									'MinWidth', 86,
+									'UseClipBox', false,
+									'Background', RGBA(32, 35, 47, 180),
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__class', "XText",
+										'Id', "idAPCostText",
+										'Margins', box(10, 0, 10, 0),
+										'Padding', box(2, 0, 2, 0),
+										'HAlign', "center",
+										'VAlign', "center",
+										'Clip', false,
+										'UseClipBox', false,
+										'TextStyle', "CrosshairAPCost",
+										'Translate', true,
+										'TextVAlign', "center",
+									}),
+									}),
+								PlaceObj('XTemplateWindow', {
+									'comment', "range indicator",
+									'__context', function (parent, context) return parent:ResolveId("node").context end,
+									'__condition', function (parent, context) return context.action.ActionType == "Ranged Attack" end,
+									'__class', "XContextWindow",
+									'Id', "idRange",
+									'IdNode', true,
+									'HAlign', "center",
+									'VAlign', "bottom",
+									'LayoutMethod', "HList",
+									'LayoutHSpacing', 10,
+									'UseClipBox', false,
+									'FoldWhenHidden', true,
+									'ContextUpdateOnOpen', true,
+									'OnContextUpdate', function (self, context, ...)
+										local maxRange = context.weapon_range
+										local effRange = context.weapon_eff_range
+										local range = context.attack_distance
+										
+										self.idRangeNumber:SetText(tostring(maxRange))
+										if range <= effRange then
+											self.idRangeTriangle:SetImage("UI/Hud/range_0")
+											self.idRedBar:SetVisible(false)
+											self.idRangeText:SetTextStyle("Crosshair_Range")
+											self.idRangeNumber:SetTextStyle("Crosshair_Range")
+										elseif range < maxRange then
+											self.idRangeTriangle:SetImage("UI/Hud/range_50")
+											self.idRedBar:SetVisible(false)
+											self.idRangeText:SetTextStyle("Crosshair_Range")
+											self.idRangeNumber:SetTextStyle("Crosshair_Range")
+										else
+											self.idRangeTriangle:SetImage("UI/Hud/range_100")
+											self.idRedBar:SetVisible(true)
+										end
+										self.idRangeBar:InvalidateLayout()
+									end,
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__class', "XText",
+										'Id', "idRangeText",
+										'MinWidth', 40,
+										'Clip', false,
+										'UseClipBox', false,
+										'TextStyle', "Crosshair_Range",
+										'Translate', true,
+										'Text', T(575734781283, --[[ModItemXTemplate ActionCameraCrosshair Text]] "RANGE"),
+										'TextHAlign', "right",
+									}),
+									PlaceObj('XTemplateWindow', {
+										'Id', "idRangeBar",
+										'HAlign', "center",
+										'VAlign', "center",
+										'MinWidth', 116,
+										'MinHeight', 6,
+										'MaxWidth', 116,
+										'MaxHeight', 6,
+										'UseClipBox', false,
+										'Background', RGBA(32, 35, 47, 255),
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'__condition', function (parent, context) return true end,
+											'Id', "idYellowBar",
+											'Dock', "ignore",
+											'HAlign', "left",
+											'VAlign', "top",
+											'UseClipBox', false,
+											'Background', RGBA(191, 105, 67, 255),
+										}),
+										PlaceObj('XTemplateWindow', {
+											'Id', "idRedBar",
+											'Dock', "box",
+											'UseClipBox', false,
+											'Background', RGBA(191, 67, 77, 255),
+										}),
+										PlaceObj('XTemplateWindow', {
+											'Id', "EffRange",
+											'HAlign', "left",
+											'MinWidth', 2,
+											'MinHeight', 6,
+											'MaxWidth', 2,
+											'MaxHeight', 6,
+											'UseClipBox', false,
+											'Background', RGBA(215, 159, 80, 255),
+										}),
+										PlaceObj('XTemplateWindow', {
+											'__condition', function (parent, context) return true end,
+											'__class', "XImage",
+											'Id', "idRangeTriangle",
+											'ZOrder', 2,
+											'MinWidth', 17,
+											'MinHeight', 15,
+											'MaxWidth', 17,
+											'MaxHeight', 15,
+											'UseClipBox', false,
+											'Image', "UI/Hud/range_0",
+										}),
+										PlaceObj('XTemplateWindow', {
+											'__class', "XText",
+											'Id', "idEffRangeNumber",
+											'Padding', box(0, 0, 0, 0),
+											'MinWidth', 40,
+											'Clip', false,
+											'UseClipBox', false,
+											'TextStyle', "Crosshair_Range",
+											'Text', "20",
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "OnLayoutComplete(self)",
+											'func', function (self)
+												local node = self:ResolveId("node")
+												local b = node.idRangeBar.box
+												local distance = node.context.attack_distance
+												local maxDistance = node.context.weapon_range
+												local effDistance = node.context.weapon_eff_range
+												local dist = Clamp(distance, 0, maxDistance)
+												
+												local triangle = node.idRangeTriangle
+												local bar = node.idRedBar
+												local triagWidth = triangle.measure_width
+												local triagHeight = triangle.measure_height
+												local xPos = Lerp(b:minx(), b:maxx(), dist, maxDistance)
+												
+												local posdistance = effDistance*(b:minx() + b:sizex())/maxDistance
+												node.idEffRangeNumber:SetText(tostring(effDistance))
+												node.idEffRangeNumber:SetMargins(box(posdistance-4, 8, 0, 0))
+												node.EffRange:SetMargins(box(posdistance, 0, 0, 0))
+												
+												node.idRangeTriangle:SetBox(
+													xPos - triagWidth / 2,
+													b:miny() + b:sizey() / 2 - triagHeight / 2,
+													triagWidth,
+													triagHeight
+												)
+												
+												local halfWayPoint = b:minx() + b:sizex() / 2
+												local yellowBarWidth = xPos - b:minx() - triagWidth / 2
+												
+												if distance >= maxDistance or distance < effDistance or yellowBarWidth < 0 then
+													yellowBarWidth = 0
+												end
+												
+												if distance >= maxDistance then
+													triangle:AddInterpolation({
+														id = "pulse",
+														type = const.intRect,
+														duration = 1000,
+														originalRect = sizebox(0, 0, 1000, 1000),
+														targetRect = sizebox(0, 0, 1100, 1100),
+														flags = const.intfPingPong + const.intfLooping,
+														OnLayoutComplete = IntRectCenterRelative,
+														OnWindowMove = IntRectCenterRelative,
+														start = 0
+													})
+													bar:AddInterpolation({
+														id = "pulse",
+														type = const.intAlpha,
+														startValue = 0,
+														endValue = 255,
+														duration = 1000,
+														flags = const.intfPingPong + const.intfLooping,
+														start = 0
+													})
+												else
+													triangle:RemoveModifier("pulse")
+													bar:RemoveModifier("pulse")
+												end
+												
+												if yellowBarWidth ~= 0 then
+													node.idYellowBar:AddInterpolation({
+														id = "pulse",
+														type = const.intAlpha,
+														startValue = 0,
+														endValue = 255,
+														duration = 1000,--Lerp(2000, 500, yellowBarWidth, b:sizex()), same as red per 199966
+														flags = const.intfPingPong + const.intfLooping,
+														start = 0
+													})
+												else
+													node.idYellowBar:RemoveModifier("pulse")
+												end
+												
+												node.idYellowBar:SetBox(
+													b:minx(),
+													b:miny(),
+													yellowBarWidth,
+													b:sizey()
+												)
+											end,
+										}),
+										}),
+									PlaceObj('XTemplateWindow', {
+										'__class', "XText",
+										'Id', "idRangeNumber",
+										'MinWidth', 40,
+										'Clip', false,
+										'UseClipBox', false,
+										'TextStyle', "Crosshair_Range",
+										'Text', "20",
+									}),
+									}),
+								PlaceObj('XTemplateWindow', {
+									'comment', "hints below crosshair",
+									'__context', function (parent, context) return "firing_mode" end,
+									'__class', "XContentTemplate",
+									'IdNode', false,
+									'HAlign', "center",
+									'VAlign', "bottom",
+									'UseClipBox', false,
+									'ChildrenHandleMouse', false,
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__context', function (parent, context) return "crosshair" end,
+										'__class', "XContextWindow",
+										'UseClipBox', false,
+										'Visible', false,
+										'FoldWhenHidden', true,
+										'ContextUpdateOnOpen', true,
+										'OnContextUpdate', function (self, context, ...)
+											local textCancel = self:ResolveId("idCancel")
+											local textAttack = self:ResolveId("idAttack")
+											local crosshair = self:ResolveId("node")
+											local mouseIn = crosshair.mouseIn
+											local showingAction = crosshair.show_data_for_action
+											mouseIn = mouseIn or (not not showingAction)
+											textCancel:SetVisible(not mouseIn)
+											textAttack:SetVisible(mouseIn)
+										end,
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'__class', "XText",
+											'Id', "idAttack",
+											'VAlign', "center",
+											'Clip', false,
+											'UseClipBox', false,
+											'FoldWhenHidden', true,
+											'HandleMouse', false,
+											'TextStyle', "Crosshair_Hotkey",
+											'ContextUpdateOnOpen', true,
+											'OnContextUpdate', function (self, context, ...)
+												local text = T(862543748542, " Fire")
+												local crosshair = self:ResolveId("node")
+												if crosshair.show_data_for_action then
+													text = T{504309376214, "<DisplayName> ", crosshair.show_data_for_action}
+												end
+												if GetUIStyleGamepad() then
+													local tag = GetPlatformSpecificImageTag("ButtonA", 650)
+													text = tag .. text
+												else
+													text = T(121258076012, "<image UI/Icons/left_click 1700>") .. text
+												end
+												self:SetText(text)
+												XContextControl.OnContextUpdate(self, context)
+											end,
+											'Translate', true,
+										}),
+										PlaceObj('XTemplateWindow', {
+											'__class', "XText",
+											'Id', "idCancel",
+											'VAlign', "center",
+											'Clip', false,
+											'UseClipBox', false,
+											'FoldWhenHidden', true,
+											'HandleMouse', false,
+											'TextStyle', "Crosshair_Hotkey",
+											'ContextUpdateOnOpen', true,
+											'OnContextUpdate', function (self, context, ...)
+												local text = T(940289117862, " Cancel")
+												if GetUIStyleGamepad() then
+													local tag = GetPlatformSpecificImageTag("ButtonB", 650)
+													text = tag .. text
+												else
+													text = T(121258076012, "<image UI/Icons/left_click 1700>") .. text
+												end
+												self:SetText(text)
+												XContextControl.OnContextUpdate(self, context)
+											end,
+											'Translate', true,
+										}),
+										}),
+									PlaceObj('XTemplateWindow', {
+										'Id', "idAimModifierContainer",
+										'IdNode', true,
+										'HAlign', "center",
+										'UseClipBox', false,
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'__context', function (parent, context) return "crosshair" end,
+											'__class', "XText",
+											'Id', "idAimModifierText",
+											'HAlign', "center",
+											'VAlign', "center",
+											'Clip', false,
+											'UseClipBox', false,
+											'TextStyle', "Crosshair_AimModifier",
+											'ContextUpdateOnOpen', true,
+											'Translate', true,
+										}),
+										PlaceObj('XTemplateFunc', {
+											'name', "Open(self)",
+											'func', function (self)
+												XWindow.Open(self)
+												
+												local node = self:ResolveId("node")
+												local nextAimLevel = node:GetNextAimLevel()
+												local aim = node.aim or 0
+												local maxAimPossible = node.maxAimPossible or -1
+												
+												if not GetUIStyleGamepad() then 
+													self:SetVisible(aim ~= maxAimPossible)
+												end
+												
+												local firstRespawn = not rawget(node, "first_respawn_mark")
+												if firstRespawn then
+													rawset(node, "first_respawn_mark", true)
+												end
+												
+												-- If failed to aim due to the cost being modified, show
+												-- the modifier text for a bit.
+												if nextAimLevel == 0 and aim == 0 then
+													local text = self.idAimModifierText
+													
+													if firstRespawn then
+														text:SetTransparency(255)
+														return
+													end
+													
+													text:SetTransparency(0)
+													text:CreateThread("animch", function()
+														Sleep(1000)
+														text:SetTransparency(255, 300)
+													end)
+												end
+												
+												local gamepad = GetUIStyleGamepad()
+												self.idAimModifierText:SetMargins(
+												   gamepad and box(0, 0, 0, -11) or empty_box
+												)
+												if gamepad  then
+													self.idAimModifierText:SetText(T(527036008338, "<ShortcutButton('', 'LeftTrigger')> AIM <AimAPCost()> AP <ShortcutButton('', 'RightTrigger')>"))										
+												elseif GameState.RainHeavy then
+													self.idAimModifierText:SetText(T(401170590142, "<right_click> AIM (<AimAPCost()> AP)"))
+												else
+													self.idAimModifierText:SetText(T(955029858656, "<right_click> AIM"))
+												end
+											end,
+										}),
+										}),
+									}),
+								PlaceObj('XTemplateWindow', nil, {
+									PlaceObj('XTemplateWindow', {
+										'comment', "controller hint",
+										'__context', function (parent, context)
+											return context
+										end,
+										'__class', "XText",
+										'Id', "idFiringModeHint",
+										'HAlign', "center",
+										'VAlign', "bottom",
+										'Clip', false,
+										'UseClipBox', false,
+										'Visible', false,
+										'TextStyle', "Crosshair_AimModifier",
+										'OnContextUpdate', function (self, context, ...)
+											local limit = self.UpdateTimeLimit
+											if limit == 0 or (RealTime() - self.last_update_time) >= limit then
+												self:SetText(self.Text)
+											elseif not self:GetThread("ContextUpdate") then
+												self:CreateThread("ContextUpdate", function(self)
+													Sleep(self.last_update_time + self.UpdateTimeLimit - RealTime())
+													self:OnContextUpdate()
+												end, self)
+											end
+										end,
+										'Translate', true,
+										'Text', T(909646377219, --[[ModItemXTemplate ActionCameraCrosshair Text]] "<DPadLeft> Firing Modes"),
+									}),
+									PlaceObj('XTemplateWindow', {
+										'comment', "controller hint",
+										'__context', function (parent, context)
+											return context
+										end,
+										'__class', "XText",
+										'Id', "idBodyPartsModeHint",
+										'HAlign', "center",
+										'VAlign', "bottom",
+										'Clip', false,
+										'UseClipBox', false,
+										'Visible', false,
+										'TextStyle', "Crosshair_AimModifier",
+										'OnContextUpdate', function (self, context, ...)
+											local limit = self.UpdateTimeLimit
+											if limit == 0 or (RealTime() - self.last_update_time) >= limit then
+												self:SetText(self.Text)
+											elseif not self:GetThread("ContextUpdate") then
+												self:CreateThread("ContextUpdate", function(self)
+													Sleep(self.last_update_time + self.UpdateTimeLimit - RealTime())
+													self:OnContextUpdate()
+												end, self)
+											end
+										end,
+										'Translate', true,
+										'Text', T(510160303784, --[[ModItemXTemplate ActionCameraCrosshair Text]] "<DPadRight> Body Parts"),
+									}),
+									}),
+								}),
+							}),
+						}),
+					PlaceObj('XTemplateWindow', {
+						'comment', "attacker observer",
+						'__context', function (parent, context) return context.attacker end,
+						'__class', "XContextWindow",
+						'OnContextUpdate', function (self, context, ...)
+							local dialog = self:ResolveId("node")
+							if dialog.window_state == "destroying" then return end
+							
+							dialog.cached_results = false
+							dialog:UpdateAim()
+						end,
+					}),
+					PlaceObj('XTemplateForEach', {
+						'comment', "firing mode: create a fake action triggered by gamepad",
+						'array', function (parent, context) return parent.context.firingModes or empty_table end,
+						'run_after', function (child, context, item, i, n, last)
+							-- Function is here instead of in the property
+							-- to capture various variables as upvalues.
+							child.OnAction = function(self, host, source)
+								local slot = item.id
+								local preset = item
+								local crosshair = host.crosshair
+								if not crosshair then return end
+								
+								local button = false
+								local firingModeButtons = crosshair.idFireModeContainer
+								for i, b in ipairs(firingModeButtons) do
+									if b.context.action == preset then
+										button = b
+									end
+								end
+								
+								if button and button.visible and button.enabled and
+									crosshair.targetPart ~= preset then
+									crosshair:ChangeAction(button.context.action)
+								end
+							end
+							child:SetActionShortcuts(child.ActionShortcut, child.ActionShortcut2, CrosshairFiringModeDirection[i])
+						end,
+					}, {
+						PlaceObj('XTemplateAction', nil),
+						}),
+					PlaceObj('XTemplateAction', {
+						'ActionId', "actionListUp",
+						'ActionGamepad', "DPadUp",
+						'OnAction', function (self, host, source, ...)
+							local crosshair = host.crosshair
+							if not crosshair then return "break" end
+							return crosshair:MoveInCurrentGamepadList(-1)
+						end,
+					}),
+					PlaceObj('XTemplateAction', {
+						'ActionId', "actionListDown",
+						'ActionGamepad', "DPadDown",
+						'OnAction', function (self, host, source, ...)
+							local crosshair = host.crosshair
+							if not crosshair then return "break" end
+							return crosshair:MoveInCurrentGamepadList(1)
+						end,
+					}),
+					PlaceObj('XTemplateAction', {
+						'ActionId', "GamepadCrosshairToggleListFiringMode",
+						'ActionGamepad', "DPadLeft",
+						'BindingsMenuCategory', "CombatActions",
+						'ActionState', function (self, host)
+							
+						end,
+						'OnAction', function (self, host, source, ...)
+							local crosshair = host.crosshair
+							if not crosshair then return end
+							
+							local list = crosshair.crosshair_gamepad_list
+							if list == "body_parts" then
+								if not crosshair.idFireModeContainer then return end
+								list = "firing_modes"
+							else
+								--list = "body_parts"
+								return
+							end
+							crosshair.crosshair_gamepad_list = list
+							ObjModified("GamepadUIStyleChanged")
+						end,
+						'IgnoreRepeated', true,
+					}),
+					PlaceObj('XTemplateAction', {
+						'ActionId', "GamepadCrosshairToggleListBodyParts",
+						'ActionGamepad', "DPadRight",
+						'BindingsMenuCategory', "CombatActions",
+						'ActionState', function (self, host)
+							
+						end,
+						'OnAction', function (self, host, source, ...)
+							local crosshair = host.crosshair
+							if not crosshair then return end
+							
+							local list = crosshair.crosshair_gamepad_list
+							if list == "body_parts" then
+								--if not crosshair.idFireModeContainer then return end
+								--list = "firing_modes"
+								return
+							else
+								list = "body_parts"
+							end
+							crosshair.crosshair_gamepad_list = list
+							ObjModified("GamepadUIStyleChanged")
+						end,
+						'IgnoreRepeated', true,
+					}),
+					}),
+				}),
+		}),
+		PlaceObj('ModItemXTemplate', {
+			__is_kind_of = "XRolloverWindow",
+			group = "Zulu Rollover",
+			id = "CrosshairAttackRollover",
+			PlaceObj('XTemplateWindow', {
+				'__condition', function (parent, context) return not gv_Cheats.OptionalUIHidden end,
+				'__class', "XRolloverWindow",
+				'BorderWidth', 0,
+				'MinHeight', 500,
+				'MaxWidth', 40000,
+				'ScaleModifier', point(900, 900),
+				'Background', RGBA(0, 0, 0, 0),
+			}, {
+				PlaceObj('XTemplateFunc', {
+					'name', "Open(self)",
+					'func', function (self)
+						XRolloverWindow.Open(self)
+						
+						local crosshair = self.idContent.context.control:ResolveId("node")
+						local unit = crosshair.context.target
+						local effectsWithCrosshairEffects = GetUnitVisibleStatusEffectsAndCrosshairEffects(unit)
+						local hasAnyEffects = effectsWithCrosshairEffects and #effectsWithCrosshairEffects > 0
+						self.idContent.idStatus:SetVisible(hasAnyEffects)
+						self.idMercStatusMoreInfo.idEffectList:SetContext(effectsWithCrosshairEffects)
+						self.idMercStatusMoreInfoContainer:SetVisible(hasAnyEffects)
+						self.idContent.idMoreInfo:SetVisible(hasAnyEffects)
+						
+						-- Dont show rollover while camera is moving
+						self:CreateThread("crosshair-camera", function()
+							if not crosshair:GetThread("actionCameraWait") then return end
+							crosshair:SetVisible(false)
+							while crosshair:GetThread("actionCameraWait") do
+								Sleep(1)
+							end
+							crosshair:SetVisible(true)
+						end)
+						
+						if not crosshair.darkness_tutorial then return end
+						local popup = OpenTutorialPopup(self, false, TutorialHints.EnemyInDarkness)
+						if not popup then return end
+						popup:SetHandleMouse(false)
+						popup:SetChildrenHandleMouse(false)
+						popup:SetVisible(false, true)
+						popup:DeleteThread("rollover-observer")
+						popup.idCloseBut:SetVisible(false)
+						popup:CreateThread("observer", function()
+							if self.window_state == "destroying" then return end
+							while self.window_state ~= "destroying" and (self.idContent and self.idContent.layout_update) do
+								Sleep(1)
+							end
+							if self.window_state == "destroying" then return end
+							
+							popup:InvalidateLayout()
+							popup:SetVisible(true)
+							
+							while popup.window_state ~= "destroying" do
+								if self.window_state ~= "open" then
+									CloseCurrentTutorialPopup("skipDelay")
+								else
+									local wholeRollover = self.idContent.box
+									local topBar = self.idContent.idTopBar.box
+									local lightIndicator = self.idContent.idLightIndicator.box
+									local extraInfo = self.idMercStatusMoreInfo
+									
+									local leftX = wholeRollover:minx()
+									local rightX = wholeRollover:maxx()
+									if extraInfo.visible then
+										local extraInfoBox = extraInfo.box
+										if extraInfoBox:minx() < leftX then
+											leftX = extraInfoBox:minx()
+										elseif extraInfoBox:maxx() > rightX then
+											rightX = extraInfoBox:maxx()
+										end
+									end
+									popup:InvalidateLayout()
+									popup:SetAnchor(
+										box(
+											leftX,
+											lightIndicator:miny(),
+											rightX,--topBar:maxx() + (topBar:maxx() - lightIndicator:maxx()),
+											wholeRollover:maxy()
+										)
+									)
+								end						
+								Sleep(20)
+							end
+							CloseCurrentTutorialPopup("skipDelay")
+						end)
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "OnLayoutComplete(self, ...)",
+					'func', function (self, ...)
+						if rawget(self, "split-rollover") then
+							CrosshairRolloverCustomLayoutSplit(self)
+							return
+						end
+						
+						local onTheLeft = rawget(self, "smart-anchor") == "left"
+						local mercStatusInfo = self.idMercStatusMoreInfoContainer
+						if not mercStatusInfo then return end
+						mercStatusInfo:SetZOrder(onTheLeft and -10 or 10)
+						
+						local anchor = self:GetAnchor()
+						local x = self.box:minx()
+						local xMax = self.box:maxx()
+						local insideAnchor = x < anchor:maxx() and
+							anchor:minx() < self.box:maxx() and
+							self.box:miny() < anchor:maxy() and
+							anchor:miny() < self.box:maxy()
+						
+						if insideAnchor then
+							CrosshairRolloverCustomLayoutSplit(self)
+							rawset(self, "split-rollover", true)
+						end
+					end,
+				}),
+				PlaceObj('XTemplateFunc', {
+					'name', "UpdateLayout(self)",
+					'func', function (self)
+						local margins_x1, margins_y1, margins_x2, margins_y2 = ScaleXY(self.scale, self.Margins:xyxy())
+						local anchor = self:GetAnchor()
+						local safe_area_x1, safe_area_y1, safe_area_x2, safe_area_y2 = self:GetSafeAreaBox()
+						local x, y = self.box:minxyz()
+						local width, height = self.measure_width - margins_x1 - margins_x2, self.measure_height - margins_y1 - margins_y2
+						local a_type = self.AnchorType
+						if a_type == "smart" then
+							local space = anchor:minx() - safe_area_x1 - width - margins_x2
+							a_type = "left"
+							if space < safe_area_x2 - anchor:maxx() - width - margins_x1 then
+								space = safe_area_x2 - anchor:maxx() - width - margins_x1
+								a_type = "right"
+							end
+						end
+						rawset(self, "smart-anchor", a_type)
+						
+						if a_type == "left" then
+							x = anchor:minx() - width - margins_x2
+							y = anchor:miny() - margins_y1
+						elseif a_type == "right" then
+							x = anchor:maxx() + margins_x1
+							y = anchor:miny() - margins_y1
+						end
+						-- fit window to safe area
+						if x + width + margins_x2 > safe_area_x2 then
+							x = safe_area_x2 - width - margins_x2
+						elseif x < safe_area_x1 then
+							x = safe_area_x1
+						end
+						if y + height + margins_y2 > safe_area_y2 then
+							y = safe_area_y2 - height - margins_y2
+						elseif y < safe_area_y1 then
+							y = safe_area_y1
+						end
+						-- layout
+						self:SetBox(x, y, width, height)
+						return XControl.UpdateLayout(self)
+					end,
+				}),
+				PlaceObj('XTemplateWindow', {
+					'Id', "idMercStatusMoreInfoContainer",
+					'Dock', "left",
+				}, {
+					PlaceObj('XTemplateTemplate', {
+						'__context', function (parent, context) return context.control:ResolveId("node").context.target end,
+						'__template', "MercStatusEffectsMoreInfo",
+						'Id', "idMercStatusMoreInfo",
+						'Margins', box(6, 0, 6, 0),
+						'Dock', false,
+					}),
+					}),
+				PlaceObj('XTemplateWindow', {
+					'__class', "XContextControl",
+					'Id', "idContent",
+					'Padding', box(6, 6, 6, 6),
+					'Dock', "left",
+					'VAlign', "top",
+					'MinWidth', 356,
+					'LayoutMethod', "VList",
+					'Background', RGBA(52, 55, 61, 255),
+					'BackgroundRectGlowSize', 2,
+					'BackgroundRectGlowColor', RGBA(32, 35, 47, 255),
+					'OnContextUpdate', function (self, context, ...)
+						local control = context.control
+						local crosshair = control:ResolveId("node")
+						assert(IsKindOf(crosshair, "CrosshairUI"))
+						
+						local crosshairCtx = crosshair.context
+						local unit = crosshairCtx.attacker
+						local units = {unit}
+						local target = crosshairCtx.target
+						local action = crosshairCtx.action
+						local weapon = action:GetAttackWeapons(unit)
+						local targetHasBodyParts = IsKindOf(target, "Unit")
+						local bodyPartId = crosshair.targetPart.id
+						local attackResult = crosshairCtx.attackResultTable[bodyPartId]
+						if not attackResult then
+							self.idAttackInfoSection:SetVisible(false)
+							self.idTextAndHint:SetVisible(false)
+							return
+						end
+						self.idAttackInfoSection:SetVisible(true)
+						
+						local title
+						if targetHasBodyParts then
+							title = T{643486248504, "<actionName> <style PDARolloverHeaderDark>(<bodyPart>)</style>",
+								actionName = action:GetActionDisplayName(units),
+								bodyPart = attackResult.bodyPartDisplayName or crosshair.targetPart.display_name
+							}
+						else
+							title = T{485104522601, "<actionName>", actionName = action:GetActionDisplayName(units)}
+						end
+						self.idTitle:SetText(title)
+						
+						local args = { target = target, target_spot_group = bodyPartId, aim = crosshair.aim }
+						
+						local apCost = action:GetAPCost(unit, args)
+						local unitAp = unit:GetUIActionPoints()
+						
+						local desc = ""
+						local errors = {}
+						local damageTitle = false
+						local damageModifiers = false
+						if targetHasBodyParts then
+							if bodyPartId ~= "Torso" then
+								desc = desc .. crosshair.targetPart.description
+								if bodyPartId == "Neck" and IsKindOf(weapon, "MeleeWeapon") then	
+									desc = desc .. weapon:GetCustomNeckAttackDescription() or desc
+								end
+								if HasPerk(unit, "TrickShot") then
+									if bodyPartId == "Arms" then
+										desc = desc .. T(544883750200, "<newline>Trick shot - prevent special attacks")
+									elseif bodyPartId == "Groin" then
+										desc = desc .. T(670919673153, "<newline>Trick shot - the enemy will be Exposed")
+									elseif bodyPartId == "Legs" then
+										desc = desc .. T(850182723500, "<newline>Trick shot - the enemy will be knocked down")
+									end
+								end
+							end
+							local modifiers = {}
+							if attackResult.dmg_breakdown then
+								for i, mod in ipairs(attackResult.dmg_breakdown) do
+									if not mod.value or mod.value ~= 0 then
+										modifiers[#modifiers + 1] = { mod.name, mod.value }
+									end
+								end
+							end
+							
+							-- Display detailed breakdown in recon mode only.
+							damageTitle = T(120392607036, "DAMAGE MODIFIER")
+							damageModifiers = #modifiers > 0 and {}
+							for i, mod in ipairs(modifiers) do
+								local modValue = mod[2]
+								if modValue  then
+									local sign = ""
+									if modValue > 0 then
+										local repeats = DivRound(modValue,20) - 1
+										sign = "<color PDASectorInfo_Green>+</color>"
+										while repeats > 0 do
+											sign = "<color PDASectorInfo_Green>+</color>"..sign
+											repeats = repeats - 1
+										end
+									elseif modValue < 0 then
+										local repeats = DivRound(modValue,-20) - 1
+										sign = "<color DescriptionTextRed>-</color>"
+										while repeats > 0 do
+											sign = "<color DescriptionTextRed>-</color>"..sign
+											repeats = repeats - 1
+										end
+									end
+									--if CthVisible() or true then sign = T{537019866139, "<style PDABrowserTextLightBold><percentWithSign(value)></style>", value = modValue} end
+									damageModifiers[#damageModifiers + 1] = T{684195083254, "<modName> <right><sign><left>",
+										modName = mod[1],
+										sign = sign
+									}
+								else
+									damageModifiers[#damageModifiers + 1] = mod[1]
+								end
+							end
+							if damageModifiers then
+								damageModifiers = table.concat(damageModifiers, "<newline>")
+							end
+						end
+						
+						if #desc == 0 then
+							self.idTextAndHint:SetVisible(false)
+						end
+						self.idText:SetText(desc)
+						
+						self.idDamageModifiers:SetText(damageModifiers)
+						self.idDamageHeader:SetText(damageTitle)
+						if not damageModifiers then
+							self.idDamageBreakdown:SetVisible(false)
+						end
+						
+						-- Attack with two weapons
+						local wep, wep2 = action:GetAttackWeapons(unit)
+						if wep and wep2 and attackResult.attacks then
+							local attack1 = attackResult.attacks[1]
+							local attack2 = attackResult.attacks[2]
+						
+							local dmgWep1 = attack1.total_damage
+							local dmgWep2 = attack2.total_damage
+							
+							local w1Shots = attack1.shots and #attack1.shots or 1
+							local w2Shots = attack2.shots and #attack2.shots or 1
+							
+							dmgWep1 = dmgWep1 / w1Shots
+							dmgWep2 = dmgWep2 / w2Shots
+						
+							self.idDamage2:SetVisible(true)
+							self.idCrit2:SetVisible(true)
+							
+							if w1Shots > 1 and dmgWep1 > 0 then
+								self.idDamage:SetText(T{190166169569, "<style PDARolloverHeaderBeige><shots>x<damage></style> <valign bottom -1>DMG", shots = w1Shots, damage = dmgWep1})
+								self.idDamage2:SetText(T{190166169569, "<style PDARolloverHeaderBeige><shots>x<damage></style> <valign bottom -1>DMG", shots = w2Shots, damage = dmgWep2})
+							else
+								local dmgText = T(443022842732, "<style PDARolloverHeaderBeige><damage></style> <valign bottom -1>DMG")
+								self.idDamage:SetText(T{dmgText, damage = dmgWep1})
+								self.idDamage2:SetText(T{dmgText, damage = dmgWep2})
+							end
+						
+							local critText = T(301737864898, "<style PDARolloverHeaderBeige><percent(crit)></style> <valign bottom -1>CRIT")
+							local critWep1 = attackResult.attacks[1].crit_chance
+							local critWep2 = attackResult.attacks[2].crit_chance
+							self.idCrit:SetText(T{critText, crit = critWep1})
+							self.idCrit2:SetText(T{critText, crit = critWep2})
+						else
+							-- Get damage from action, this is how the rollover does it usually.
+							local shots = 1
+							local damage, perShot, _, params = action:GetActionDamage(unit, target)
+							if perShot and perShot ~= 0 then
+								shots = damage / perShot
+							end
+							local aoeDamage = params and params.aoe_damage or 0
+							
+							-- Get damage directly from the damage prediction if unit.
+							if attackResult and IsKindOf(target, "Unit") then
+								damage = attackResult.calculated_target_damage or 0
+								aoeDamage = attackResult.calculated_target_aoeDamage or 0
+						
+								local attacks = attackResult.attacks and #attackResult.attacks or 1
+								local attackShots = attackResult.shots and #attackResult.shots or 1
+								shots = Max(attacks, attackShots)
+								perShot = shots == 0 and 0 or damage / shots
+							end
+							
+							if shots > 1 and damage > 0 then
+								if aoeDamage > 0 then
+									self.idDamage:SetText(T{882880309841, "<style PDARolloverHeaderBeige><shots>x<damage>+<aoe></style> <valign bottom -1>DMG", shots = shots, damage = perShot, aoe = aoeDamage})
+								else
+									self.idDamage:SetText(T{190166169569, "<style PDARolloverHeaderBeige><shots>x<damage></style> <valign bottom -1>DMG", shots = shots, damage = perShot})
+								end
+							elseif aoeDamage > 0 then
+								self.idDamage:SetText(T{599365440266, "<style PDARolloverHeaderBeige><damage>+<aoeDamage></style> <valign bottom -1>DMG", aoeDamage = aoeDamage, damage = damage})
+							else
+								self.idDamage:SetText(T{443022842732, "<style PDARolloverHeaderBeige><damage></style> <valign bottom -1>DMG", damage = damage})
+							end
+							self.idDamage2:SetVisible(false)
+							self.idCrit2:SetVisible(false)
+							
+							self.idCrit:SetText(T{301737864898, "<style PDARolloverHeaderBeige><percent(crit)></style> <valign bottom -1>CRIT", crit = attackResult.crit_chance})
+						end
+						
+						-- Check for stealth kill.
+						local attackArgs = attackResult.crosshair_attack_args
+						local stealthKillChance = attackArgs and attackArgs.stealth_kill_chance
+						local stealthCritChance = attackArgs and attackArgs.stealth_bonus_crit_chance
+						local isStealthKill = stealthKillChance and stealthKillChance > 0
+						local isStealthCrit = stealthCritChance and stealthCritChance > 0
+						
+						if isStealthKill then
+							local text = false
+							if not unit:HasStatusEffect("Hidden") then
+								-- Some attacks like machette-to-the-neck work like stealth, but aren't logically stealth
+								text = T(950280505689, "LETHAL ATTACK")
+							elseif isStealthKill then
+								if target:IsAware() then
+									text = T(939087838390, "STEALTH KILL (Aware)")
+								else
+									text = T(510790126935, "STEALTH KILL")
+								end
+							end
+							
+							self.idInstakill:SetLethalKillChance(stealthKillChance, text)
+							self.idInstakill.idMeter:SetVisible(true)
+							self.idInstakill:SetVisible(true)
+						elseif isStealthCrit then
+							self.idInstakill:SetVisible(true)
+							self.idInstakill.idMeter:SetVisible(false)
+							self.idInstakill.idText:SetText(T{840713891222, "STEALTH CRIT <percent(crit)>", crit = attackResult.crit_chance})
+						else
+							self.idInstakill:SetVisible(false)
+						end
+						
+						if isStealthKill or isStealthCrit then
+							self.idCrit:SetVisible(false)
+							self.idCrit2:SetVisible(false)
+						end
+						
+						PopulateCrosshairUICth(self.idHitInfo, unit, action, attackResult)
+					end,
+				}, {
+					PlaceObj('XTemplateFunc', {
+						'name', "Open",
+						'func', function (self, ...)
+							XContextControl.Open(self, ...)
+							local control = self.context.control
+							local offset = control and control:GetRolloverOffset()
+							if offset and offset ~= box(0, 0, 0, 0) then
+								self.parent:SetMargins(self.parent.Margins + offset)
+							end
+						end,
+					}),
+					PlaceObj('XTemplateWindow', {
+						'comment', "crosshair change observer",
+						'__context', function (parent, context) return "crosshair" end,
+						'__class', "XContextWindow",
+						'Dock', "ignore",
+						'OnContextUpdate', function (self, context, ...)
+							self.parent:OnContextUpdate(self.parent.context)
+						end,
+					}),
+					PlaceObj('XTemplateWindow', {
+						'Id', "idTopBar",
+						'Margins', box(0, 0, 0, 3),
+						'Dock', "top",
+						'DrawOnTop', true,
+						'Background', RGBA(52, 55, 61, 255),
+					}, {
+						PlaceObj('XTemplateWindow', {
+							'__class', "XText",
+							'Id', "idTitle",
+							'Margins', box(8, 0, 0, 0),
+							'Dock', "left",
+							'Clip', false,
+							'UseClipBox', false,
+							'FoldWhenHidden', true,
+							'TextStyle', "PDACombatActionHeader",
+							'Translate', true,
+							'TextVAlign', "bottom",
+						}),
+						PlaceObj('XTemplateTemplate', {
+							'__context', function (parent, context) return context.control:ResolveId("node").context.target end,
+							'__template', "CombatBadgeLightIndicator",
+							'Id', "idLightIndicator",
+							'Margins', box(0, 0, 5, 0),
+							'VAlign', "center",
+							'MinWidth', 24,
+							'MinHeight', 24,
+							'MaxWidth', 24,
+							'MaxHeight', 24,
+						}),
+						}),
+					PlaceObj('XTemplateWindow', {
+						'LayoutMethod', "VList",
+					}, {
+						PlaceObj('XTemplateWindow', {
+							'Id', "idAttackInfoSection",
+							'Padding', box(14, 0, 14, 2),
+							'LayoutMethod', "VList",
+							'Visible', false,
+							'FoldWhenHidden', true,
+							'Background', RGBA(32, 35, 47, 255),
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'LayoutHSpacing', 5,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'__class', "XText",
+									'Id', "idDamage",
+									'HAlign', "left",
+									'VAlign', "center",
+									'FoldWhenHidden', true,
+									'TextStyle', "PDAActivitiesButtonSmall",
+									'Translate', true,
+									'HideOnEmpty', true,
+									'TextVAlign', "bottom",
+								}),
+								PlaceObj('XTemplateWindow', {
+									'__class', "XText",
+									'Id', "idCrit",
+									'HAlign', "center",
+									'VAlign', "center",
+									'TextStyle', "PDAActivitiesButtonSmall",
+									'Translate', true,
+									'TextVAlign', "bottom",
+								}),
+								PlaceObj('XTemplateWindow', {
+									'__class', "XText",
+									'Id', "idInstakillOld",
+									'HAlign', "right",
+									'VAlign', "center",
+									'FoldWhenHidden', true,
+									'TextStyle', "PDAActivitiesButtonSmall",
+									'Translate', true,
+									'TextVAlign', "bottom",
+								}),
+								PlaceObj('XTemplateTemplate', {
+									'__template', "CrosshairLethalKill",
+									'Id', "idInstakill",
+									'HAlign', "right",
+									'VAlign', "center",
+								}),
+								}),
+							PlaceObj('XTemplateWindow', {
+								'LayoutHSpacing', 5,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'__class', "XText",
+									'Id', "idDamage2",
+									'HAlign', "left",
+									'VAlign', "center",
+									'FoldWhenHidden', true,
+									'TextStyle', "PDAActivitiesButtonSmall",
+									'Translate', true,
+									'HideOnEmpty', true,
+									'TextVAlign', "bottom",
+								}),
+								PlaceObj('XTemplateWindow', {
+									'__class', "XText",
+									'Id', "idCrit2",
+									'HAlign', "center",
+									'VAlign', "center",
+									'FoldWhenHidden', true,
+									'TextStyle', "PDAActivitiesButtonSmall",
+									'Translate', true,
+									'HideOnEmpty', true,
+									'TextVAlign', "bottom",
+								}),
+								}),
+							}),
+						PlaceObj('XTemplateWindow', {
+							'Id', "idTextAndHint",
+							'Margins', box(0, 6, 0, 0),
+							'Padding', box(14, 3, 14, 3),
+							'MinHeight', 34,
+							'LayoutMethod', "VList",
+							'FoldWhenHidden', true,
+							'Background', RGBA(32, 35, 47, 255),
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'__class', "XText",
+								'Id', "idText",
+								'HAlign', "left",
+								'MaxWidth', 300,
+								'Clip', false,
+								'UseClipBox', false,
+								'TextStyle', "SatelliteContextMenuKeybind",
+								'Translate', true,
+							}),
+							}),
+						PlaceObj('XTemplateWindow', {
+							'__context', function (parent, context) return "g_RolloverShowMoreInfo" end,
+							'__class', "XContextWindow",
+							'FoldWhenHidden', true,
+							'ContextUpdateOnOpen', true,
+							'OnContextUpdate', function (self, context, ...)
+								--self:SetVisible(g_RolloverShowMoreInfo)
+								local node = self:ResolveId("node")
+								node:OnContextUpdate(node.context)
+							end,
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'Id', "idHitInfo",
+								'IdNode', true,
+								'VAlign', "top",
+								'LayoutMethod', "VList",
+								'UseClipBox', false,
+								'FoldWhenHidden', true,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'Margins', box(8, 0, 0, 0),
+									'MinHeight', 34,
+									'UseClipBox', false,
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__class', "XText",
+										'Id', "idChanceToHit",
+										'Padding', box(0, 0, 6, 0),
+										'VAlign', "center",
+										'Clip', false,
+										'UseClipBox', false,
+										'TextStyle', "PDABrowserNameSmall",
+										'Translate', true,
+										'TextVAlign', "center",
+									}),
+									}),
+								PlaceObj('XTemplateWindow', {
+									'Padding', box(14, 5, 14, 5),
+									'UseClipBox', false,
+									'Background', RGBA(32, 35, 47, 255),
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__class', "XText",
+										'Id', "idModifiers",
+										'Clip', false,
+										'UseClipBox', false,
+										'TextStyle', "SatelliteContextMenuKeybind",
+										'Translate', true,
+										'TextVAlign', "center",
+									}),
+									}),
+								}),
+							}),
+						PlaceObj('XTemplateWindow', {
+							'__context', function (parent, context) return "g_RolloverShowMoreInfo" end,
+							'__class', "XContextWindow",
+							'Id', "idDamageBreakdown",
+							'FoldWhenHidden', true,
+							'ContextUpdateOnOpen', true,
+							'OnContextUpdate', function (self, context, ...)
+								self:SetVisible(true)
+								local node = self:ResolveId("node")
+								node:OnContextUpdate(node.context)
+							end,
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'VAlign', "top",
+								'LayoutMethod', "VList",
+								'UseClipBox', false,
+								'FoldWhenHidden', true,
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'Margins', box(8, 0, 0, 0),
+									'MinHeight', 34,
+									'UseClipBox', false,
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__class', "XText",
+										'Id', "idDamageHeader",
+										'Padding', box(2, 0, 2, 0),
+										'VAlign', "center",
+										'Clip', false,
+										'UseClipBox', false,
+										'FoldWhenHidden', true,
+										'TextStyle', "PDABrowserNameSmall",
+										'Translate', true,
+										'HideOnEmpty', true,
+										'TextVAlign', "center",
+									}),
+									}),
+								PlaceObj('XTemplateWindow', {
+									'Padding', box(8, 5, 8, 5),
+									'UseClipBox', false,
+									'Background', RGBA(32, 35, 47, 255),
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__class', "XText",
+										'Id', "idDamageModifiers",
+										'Clip', false,
+										'UseClipBox', false,
+										'FoldWhenHidden', true,
+										'TextStyle', "SatelliteContextMenuKeybind",
+										'Translate', true,
+										'HideOnEmpty', true,
+										'TextVAlign', "center",
+									}),
+									}),
+								}),
+							}),
+						PlaceObj('XTemplateWindow', {
+							'comment', "status effects",
+							'__context', function (parent, context) return context.control:ResolveId("node").context.target end,
+							'Id', "idStatus",
+							'LayoutMethod', "VList",
+							'FoldWhenHidden', true,
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'comment', "conditions label",
+								'__class', "XText",
+								'Margins', box(8, 0, 0, 0),
+								'MinHeight', 34,
+								'Clip', false,
+								'UseClipBox', false,
+								'FoldWhenHidden', true,
+								'TextStyle', "PDABrowserNameSmall",
+								'Translate', true,
+								'Text', T(392264332209, --[[ModItemXTemplate CrosshairAttackRollover Text]] "STATUS"),
+								'TextVAlign', "center",
+							}),
+							PlaceObj('XTemplateWindow', {
+								'__context', function (parent, context) return GetUnitVisibleStatusEffectsAndCrosshairEffects(context) end,
+								'__class', "XContextWindow",
+								'Padding', box(14, 10, 14, 10),
+								'LayoutMethod', "Grid",
+								'LayoutVSpacing', 2,
+								'UniformRowHeight', true,
+								'Background', RGBA(32, 35, 47, 255),
+							}, {
+								PlaceObj('XTemplateForEach', {
+									'comment', "status effects",
+									'run_after', function (child, context, item, i, n, last)
+										local columnSize = MulDivRound(#context, 1, 2)
+										local column = ((i - 1) / columnSize) + 1
+										
+										local row = ((i - 1) % columnSize) + 1
+										child:SetGridY(row)
+										child:SetGridX(column)
+										child:SetContext(item)
+										
+										child.idIcon:SetImage(item.Icon)
+										child.idLabel:SetText(item.DisplayName)
+									end,
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__class', "XContextWindow",
+										'IdNode', true,
+										'LayoutMethod', "HList",
+										'LayoutHSpacing', 10,
+										'UseClipBox', false,
+										'ChildrenHandleMouse', false,
+									}, {
+										PlaceObj('XTemplateTemplate', {
+											'__template', "StatusEffectIcon",
+											'Id', "idIcon",
+											'HandleMouse', false,
+										}),
+										PlaceObj('XTemplateWindow', {
+											'__class', "XText",
+											'Id', "idLabel",
+											'HAlign', "left",
+											'VAlign', "center",
+											'Clip', false,
+											'UseClipBox', false,
+											'TextStyle', "MercStatName",
+											'Translate', true,
+										}),
+										}),
+									}),
+								}),
+							}),
+						PlaceObj('XTemplateTemplate', {
+							'__template', "MoreInfo",
+						}),
+						}),
+					}),
+				}),
+		}),
 		PlaceObj('ModItemGameTerm', {
 			Description = T(269544488292, --[[ModItemGameTerm Default Recoil Description]] "Отдача влияет на потерю точности каждого последующего выстрела при стрельбе очередями. Наемники с более высокой силой стреляют с меньшей отдачей."),
 			Name = T(421610325320, --[[ModItemGameTerm Default Recoil Name]] "Отдача"),
@@ -88819,6 +94882,26 @@ return {
 			}),
 			PlaceObj('ModItemChanceToHitModifier', {
 				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
+					if attacker and not IsCloser(target, attacker, 5 * const.SlabSizeX + 1) and IsKindOf(weapon1, "Firearm") then
+						if attacker:HasStatusEffect("suppressionLight") then
+							return true, -5 end
+								if attacker:HasStatusEffect("suppressionMedium") then
+							return true, -10 end
+								if attacker:HasStatusEffect("suppressionHeavy") then
+							return true, -20 end
+								if attacker:HasStatusEffect("suppressionHeavy2") then
+							return true, -40 end
+								if attacker:HasStatusEffect("suppressionPinned") then
+							return true, -50 end
+					end
+					return false, 0
+				end,
+				display_name = T(733589978306, --[[ModItemChanceToHitModifier Default Suppression display_name]] "Подавление"),
+				group = "Default",
+				id = "Suppression",
+			}),
+			PlaceObj('ModItemChanceToHitModifier', {
+				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
 					if attacker and IsKindOfClasses(weapon1, "Firearm", "Firearm") and not IsCloser(target, attacker, 3 * const.SlabSizeX + 1) then
 					-- 
 					local sight = attacker:GetSightRadius() + 5 * const.SlabSizeX
@@ -88897,7 +94980,7 @@ return {
 				Parameters = {
 					PlaceObj('PresetParamPercent', {
 						'Name', "min",
-						'Value', 50,
+						'Value', 40,
 						'Tag', "<min>%",
 					}),
 				},
@@ -89085,6 +95168,29 @@ return {
 			}),
 			PlaceObj('ModItemChanceToHitModifier', {
 				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
+					if IsKindOf(attacker, "Unit") and IsKindOf(target, "Unit") then
+						local morale = attacker:GetPersonalMorale()
+							if morale ~= 0 then
+								return true,  morale*self:ResolveValue("bonus")
+								else return false
+								end
+						end
+				end,
+				Comment = "More accurate attacks against lower level targets",
+				Parameters = {
+					PlaceObj('PresetParamPercent', {
+						'Name', "bonus",
+						'Value', 3,
+						'Tag', "<bonus>%",
+					}),
+				},
+				RequireTarget = true,
+				display_name = T(678867022834, --[[ModItemChanceToHitModifier Default Morale display_name]] "Боевой дух"),
+				group = "Default",
+				id = "Morale",
+			}),
+			PlaceObj('ModItemChanceToHitModifier', {
+				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
 					if action.id ~= "MarkTarget" and action.ActionType ~= "Melee Attack" then return false, 0 end
 					if IsKindOf(attacker, "Unit") and IsKindOf(target, "Unit") then
 						local attackerLevel = attacker:GetLevel()
@@ -89231,6 +95337,10 @@ return {
 				'CodeFileName', "Code/UnitAwareness.lua",
 			}),
 			PlaceObj('ModItemCode', {
+				'name', "CrossHairUI",
+				'CodeFileName', "Code/CrossHairUI.lua",
+			}),
+			PlaceObj('ModItemCode', {
 				'name', "System_OR_Traps",
 				'CodeFileName', "Code/System_OR_Traps.lua",
 			}),
@@ -89282,10 +95392,46 @@ return {
 				'name', "AiAction_ThrowFlare",
 				'CodeFileName', "Code/AiAction_ThrowFlare.lua",
 			}),
-			PlaceObj('ModItemCode', {
-				'name', "Rato_CustomSeekCover",
-				'CodeFileName', "Code/Rato_CustomSeekCover.lua",
-			}),
+			PlaceObj('ModItemFolder', {
+				'name', "RatoAI",
+			}, {
+				PlaceObj('ModItemCode', {
+					'name', "Rato_AICreateContext",
+					'CodeFileName', "Code/Rato_AICreateContext.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "Rato_CustomSeekCover",
+					'CodeFileName', "Code/Rato_CustomSeekCover.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "Rato_CustomFlanking",
+					'CodeFileName', "Code/Rato_CustomFlanking.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "Rato_TryNotToBeFlanked",
+					'CodeFileName', "Code/Rato_TryNotToBeFlanked.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "Rato_MGSetupPosScore",
+					'CodeFileName', "Code/Rato_MGSetupPosScore.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "Rato_MGSetupAP",
+					'CodeFileName', "Code/Rato_MGSetupAP.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "Rato_GrenadeRange",
+					'CodeFileName', "Code/Rato_GrenadeRange.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "Rato_AvoidThreatenedAreas",
+					'CodeFileName', "Code/Rato_AvoidThreatenedAreas.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "RatoTARG_EnemyInCover",
+					'CodeFileName', "Code/RatoTARG_EnemyInCover.lua",
+				}),
+				}),
 			}),
 		PlaceObj('ModItemFolder', {
 			'name', "WeaponPropertyDef",
@@ -93398,6 +99544,62 @@ return {
 									local text1 = cnt.CamouflagePercent
 									
 									self.idPropVal:SetNameText(T(562386972389111882, "Камуфляж"))
+									self.idPropVal:SetValueText(T{54113904164711288, "<text1>%", text1 = text1})
+								end,
+							}),
+							}),
+						PlaceObj('XTemplateTemplate', {
+							'comment', "Stun",
+							'__condition', function (parent, context) local cnt = ResolvePropObj(context); return  IsKindOf(cnt, "Armor") and cnt.StunGrenadeProtection~=0 end,
+							'__template', "RolloverPropTextRight",
+							'OnLayoutComplete', function (self)
+								self.idPropVal:SetTextStyle("PDABrowserFlavorMedium")
+								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
+							end,
+							'BindTo', "CamouflagePercent",
+							'Text', T(245759466344, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+							'PercentValue', true,
+						}, {
+							PlaceObj('XTemplateFunc', {
+								'name', "Open(self,...)",
+								'func', function (self,...)
+									self.idPropVal:SetTextStyle("PDABrowserFlavorMedium")
+									self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
+									XPropControl.Open(self,...)
+									
+									
+									local cnt = ResolvePropObj(self.context);
+									local text1 = cnt.StunGrenadeProtection
+									
+									self.idPropVal:SetNameText(T(5623869723891118821, "Защита от СШГ"))
+									self.idPropVal:SetValueText(T{54113904164711288, "<text1>%", text1 = text1})
+								end,
+							}),
+							}),
+						PlaceObj('XTemplateTemplate', {
+							'comment', "Suppression",
+							'__condition', function (parent, context) local cnt = ResolvePropObj(context); return  IsKindOf(cnt, "Armor") and cnt.SuppressionProtection~=0 end,
+							'__template', "RolloverPropTextRight",
+							'OnLayoutComplete', function (self)
+								self.idPropVal:SetTextStyle("PDABrowserFlavorMedium")
+								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
+							end,
+							'BindTo', "CamouflagePercent",
+							'Text', T(245759466344, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+							'PercentValue', true,
+						}, {
+							PlaceObj('XTemplateFunc', {
+								'name', "Open(self,...)",
+								'func', function (self,...)
+									self.idPropVal:SetTextStyle("PDABrowserFlavorMedium")
+									self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
+									XPropControl.Open(self,...)
+									
+									
+									local cnt = ResolvePropObj(self.context);
+									local text1 = cnt.StunGrenadeProtection
+									
+									self.idPropVal:SetNameText(T(5623869723891118822, "Сопротивление подавлению"))
 									self.idPropVal:SetValueText(T{54113904164711288, "<text1>%", text1 = text1})
 								end,
 							}),

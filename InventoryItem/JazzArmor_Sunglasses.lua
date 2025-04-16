@@ -24,5 +24,6 @@ DefineClass.JazzArmor_Sunglasses = {
 	ArmorRating = 2,
 	NightVision = -10,
 	Vision = 10,
+	StunGrenadeProtection = 20,
 }
 

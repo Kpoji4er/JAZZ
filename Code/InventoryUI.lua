@@ -325,7 +325,7 @@ function InventoryIsValidTargetForUnit(ctrl_context)
 		end	
 	end
 
-	if InventoryIsCombatMode() and IsKindOf(ctrl_context, "SquadBag") then			
+	if InventoryIsCombatMode() and IsKindOf(ctrl_context, "SquadBag") or IsKindOf(ctrl_context, "SectorStash") then			
 		return false,T(25711203919511, "<style InventoryHintTextRed>В бою")
 	end
 
@@ -464,7 +464,7 @@ function HighlightEquipSlots(item, bShow)
 					if bShow then
 						for i=1,context:GetMaxTilesInSlot(slot_name) do
 							if target.tiles[i] then
-								print(target.tiles[i][1])
+								--print(target.tiles[i][1])
 								if target.tiles[i][1]:GetVisible() then
 									if valid_idx[i] then
 										target:SpawnRolloverUI(width,height, i,1)	

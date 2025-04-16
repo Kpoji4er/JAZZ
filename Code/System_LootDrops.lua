@@ -20,15 +20,10 @@ function Unit:DropLoot(container)
 	self:ForEachItem(function(item, slot_name, left, top, self, container, is_npc)
 		if slot_name == "InventoryDead" then return end
 		self:RemoveItem(slot_name, item)	
-		
-		--local drawItemId = REV_DrawLBE(addTo)
-		--local LBE = PlaceInventoryItem(drawItemId)
-		
+				
 		local dropped
 		local slot = container and "Inventory" or "InventoryDead"
 		
-		--debugText = debugText .. "\n " ..  _InternalTranslate(item.DisplayName) .. ": roll " .. roll .. "/" .. item.drop_chance .. "% chance" 
-
 	
 --		if not item.locked and (not is_npc or roll < item.drop_chance) then
 		if not item.locked and (item.drop_chance>0) then
@@ -56,9 +51,6 @@ function Unit:DropLoot(container)
 			end			
 		end
 		
---		local drawItemId = REV_DrawLBE(addTo)
---        local LBE = PlaceInventoryItem(drawItemId)
---        addTo:CanAddItem("InventoryDead", LBE)
 		
 		if not dropped then
 			DoneObject(item)

@@ -11,7 +11,7 @@ DefineClass.ConcussiveGrenade = {
 	ItemType = "Grenade",
 	DisplayName = T(143721324108, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade DisplayName]] "Светошумовая граната"),
 	DisplayNamePlural = T(464879576172, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade DisplayNamePlural]] "Светошумовые гранаты"),
-	AdditionalHint = T(339045500192, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ослепляет цель\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Отменяет ответный огонь и уменьшает бонусы от укрытия в центре взрыва\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумное"),
+	AdditionalHint = T(339045500192, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ослепляет цель\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Отменяет ответный огонь и уменьшает бонусы от укрытия в центре взрыва\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Подавляет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумное"),
 	UnitStat = "Explosives",
 	Cost = 400,
 	CanAppearInShop = true,
@@ -28,6 +28,7 @@ DefineClass.ConcussiveGrenade = {
 	CenterAppliedEffects = {
 		"Exposed",
 		"Blinded",
+		"SuppressStunGrenade",
 	},
 	CenterAreaOfEffect = 2,
 	AreaUnitDamageMod = 0,

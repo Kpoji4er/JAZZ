@@ -1,11 +1,11 @@
-const.AIFriendlyFire_MaxRange = 80 * const.SlabSizeX	-- max range to ally for it to be considered in danger
-const.AIFriendlyFire_LOFWidth = 1500*guic 					-- max distance from an ally to the line between position and target considered in danger
-const.AIFriendlyFire_LOFConeNear = 1500*guic 				-- same as above for cone attacks (near side of the cone, positioned at attacker)
-const.AIFriendlyFire_LOFConeFar = 2000*guic 				-- same as above for cone attacks (far side of the cone, positioned at AIFriendlyFire_MaxRange)
-const.AIFriendlyFire_ScoreMod = 1							-- % of damage score evaluation remanining when an ally is in danger
+const.AIFriendlyFire_MaxRange = 20 * const.SlabSizeX	-- max range to ally for it to be considered in danger
+const.AIFriendlyFire_LOFWidth = 100*guic 					-- max distance from an ally to the line between position and target considered in danger
+const.AIFriendlyFire_LOFConeNear = 100*guic 				-- same as above for cone attacks (near side of the cone, positioned at attacker)
+const.AIFriendlyFire_LOFConeFar = 300*guic 				-- same as above for cone attacks (far side of the cone, positioned at AIFriendlyFire_MaxRange)
+const.AIFriendlyFire_ScoreMod = 15							-- % of damage score evaluation remanining when an ally is in danger
 
 const.AIDecisionThreshold = 80 -- targets/locations up to this percent of max scored target/location can be selected
-const.AIShootAboveCTH = 0
+const.AIShootAboveCTH = -10
 
 local function lClearPredictedExplosions(list)
 	for i, m in ipairs(list) do
@@ -173,8 +173,10 @@ function AISelectAction(context, actions, base_weight, dbg_available_actions)
 	local weight = base_weight or 0
 	
 	context.action_states = context.action_states or {}
+	
 
 	for _, action in ipairs(actions) do
+		--print(action)
 		context.action_states[action] = {}		
 		local weight_mod, disable, priority = AIGetBias(action.BiasId, context.unit)
 		disable = disable or context.disable_actions[action.BiasId or false]
@@ -1136,6 +1138,54 @@ function AIGetWeaponCheckRange(unit, weapon, action)
 		return max_range
 	end
 end
+
+
+
+
+function AICalcAOETargetPoints(context, min_range, max_range, max_radius)
+	local target_pts = {}
+	local unit = context.unit
+	local enemies = context.enemies
+	
+	-- add enemy positions
+	for i, enemy in ipairs(enemies) do
+		if VisibilityCheckAll(unit, enemy, nil, const.uvVisible) then
+			target_pts[#target_pts + 1] = context.enemy_pos[enemy]
+		end
+	end
+	
+	local num_targets = #target_pts
+	-- add midpoints of enemy pairs
+	for i = 1, num_targets - 1 do
+		for j = i + 1, num_targets do
+			local pt = (target_pts[i] + target_pts[j]) / 2
+			if not max_radius or pt:Dist(target_pts[i]) <= max_radius then
+				target_pts[#target_pts + 1] = pt
+			end
+		end
+	end
+	
+	-- add midpoints of enemy triples
+	for i = 1, num_targets - 2 do
+		for j = i + 1, num_targets - 1 do
+			for k = j + 1, num_targets do
+				local pt = (target_pts[i] + target_pts[j] + target_pts[k]) / 3
+				if not max_radius or pt:Dist(target_pts[i]) <= max_radius then
+					target_pts[#target_pts + 1] = pt
+				end
+			end
+		end
+	end
+	--print(target_pts)
+	-- filter out target points not in range
+	AIFilterTargetPoints(unit, target_pts, min_range, max_range)
+	--print(target_pts)
+	--print(min_range/ const.SlabSizeX)
+	--print(max_range/ const.SlabSizeX)
+	
+	return target_pts
+end
+
 
 function AIPrecalcConeTargetZones(context, action_id, additional_target_pt, stance)
 	if context.target_locked then return {} end

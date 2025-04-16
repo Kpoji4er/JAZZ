@@ -24,7 +24,7 @@ DefineClass.JazzArmorPlates_Ceramics4 = {
 	AdditionalReduction = 80,
 	ProtectedBodyParts = set( "Torso" ),
 	CanAppearUsed = false,
-	ArmorRating = 16,
+	ArmorRating = 20,
 	Weight = 3,
 }
 

@@ -642,7 +642,7 @@ function UnitInventory:GetHandheldItems()
 	
 	local y = 1
 	for i = 1, 2 do
-		local slot = (i == 1) and "Handheld A" or "Handheld B"
+		local slot = (i == 1) and "Handheld A" or "Handheld B" or "KnifeInventory"
 		for x = 1, 2 do
 			item = self:GetItemAtPos(slot, x, y)
 			if item then

@@ -27,5 +27,6 @@ DefineClass.JazzArmor_STSHHelm = {
 	Coverage = 85,
 	ArmorRating = 40,
 	Weight = 4,
+	SuppressionProtection = 10,
 }
 

@@ -21,5 +21,7 @@ DefineClass.GasMask = {
 	Weight = 4,
 	Vision = -20,
 	DustStormProtection = 30,
+	StunGrenadeProtection = 20,
+	SuppressionProtection = 20,
 }
 

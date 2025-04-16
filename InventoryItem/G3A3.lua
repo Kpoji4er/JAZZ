@@ -82,7 +82,7 @@ DefineClass.G3A3 = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 5000,
-	Recoil = 20,
+	Recoil = 30,
 	AutoShots = 6,
 	Handling = 63,
 	BulletDropRange = 20,

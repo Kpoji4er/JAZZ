@@ -64,7 +64,7 @@ DefineClass.AR10DMR = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 3000,
-	Recoil = 22,
+	Recoil = 32,
 	BurstShots = 1,
 	AutoShots = 1,
 	Handling = 69,

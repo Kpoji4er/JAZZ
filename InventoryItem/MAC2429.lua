@@ -22,7 +22,7 @@ DefineClass.MAC2429 = {
 	RestockWeight = 40,
 	CategoryPair = "MachineGuns",
 	CanAppearStandard = false,
-	Caliber = "JAZZ_Caliber_762x51",
+	Caliber = "JAZZ_Caliber_75French",
 	Damage = 33,
 	ObjDamageMod = 80,
 	AimAccuracy = 16,
@@ -72,12 +72,11 @@ DefineClass.MAC2429 = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 5000,
-	Recoil = 16,
+	Recoil = 32,
 	BurstShots = 4,
 	AutoShots = 4,
 	Handling = 58,
 	BulletDropRange = 19,
 	Grouping = 260,
-	BaseJamChance = 3,
 }
 
