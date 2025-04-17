@@ -5,8 +5,8 @@ DefineClass.Optimist = {
 
 
 	object_class = "Perk",
-	DisplayName = T(892300961794, --[[ModItemCharacterEffectCompositeDef Optimist DisplayName]] "Optimist"),
-	Description = T(181016182063, --[[ModItemCharacterEffectCompositeDef Optimist Description]] "Small chance to <em>prevent</em> a team <GameTerm('Morale')> loss."),
+	DisplayName = T(892300961794, --[[ModItemCharacterEffectCompositeDef Optimist DisplayName]] "Оптимист"),
+	Description = T(181016182063, --[[ModItemCharacterEffectCompositeDef Optimist Description]] "Небольшой шанс <em>не допустить</em>, чтобы <GameTerm('Morale')> команды понизился."),
 	Icon = "UI/Icons/Perks/Optimist",
 	Tier = "Quirk",
 }

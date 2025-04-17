@@ -954,7 +954,7 @@ function Unit:RecalcWillPoints()
 	end
 
 	local buff = DivRound(self.MaxWillPoints,10) + DivRound(leadership,50) or 0
-	print("wpbuffleadership"..buff)
+	--print("wpbuffleadership"..buff)
 
 	if HasPerk(self, "Optimist") then
 		local chance = CharacterEffectDefs.Optimist:ResolveValue("procChance")
@@ -1018,7 +1018,7 @@ function Unit:RecalcWillPoints()
 
 	self.WillPoints = Max(self.WillPoints + buff,0)
 	self.WillPoints = Min(self.WillPoints,self.MaxWillPoints)
-	print("wpbuff"..buff)
+	--print("wpbuff"..buff)
 
 end
 

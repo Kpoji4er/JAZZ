@@ -5,8 +5,8 @@ DefineClass.Bond = {
 
 
 	object_class = "Perk",
-	DisplayName = T(875337188421, --[[ModItemCharacterEffectCompositeDef Bond DisplayName]] "Bond"),
-	Description = T(459288741024, --[[ModItemCharacterEffectCompositeDef Bond Description]] "Bond with another character (needs special description)."),
+	DisplayName = T(875337188421, --[[ModItemCharacterEffectCompositeDef Bond DisplayName]] "Особая связь"),
+	Description = T(459288741024, --[[ModItemCharacterEffectCompositeDef Bond Description]] "Особая связь с другим персонажем (нужно отдельное описание)."),
 	Icon = "UI/Icons/Perks/Bond",
 	Tier = "Personality",
 }

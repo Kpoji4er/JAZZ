@@ -44,9 +44,9 @@ DefineClass.Blinded = {
 			end,
 		}),
 	},
-	DisplayName = T(629298563884, --[[ModItemCharacterEffectCompositeDef Blinded DisplayName]] "Blinded"),
-	Description = T(595664130748, --[[ModItemCharacterEffectCompositeDef Blinded Description]] "Reduced <em>Sight range</em> and <em>Accuracy</em>. Can cause <em>Panic</em>."),
-	AddEffectText = T(880622931884, --[[ModItemCharacterEffectCompositeDef Blinded AddEffectText]] "<em><DisplayName></em> is blinded"),
+	DisplayName = T(629298563884, --[[ModItemCharacterEffectCompositeDef Blinded DisplayName]] "Слепота"),
+	Description = T(595664130748, --[[ModItemCharacterEffectCompositeDef Blinded Description]] "Снижает <em>дальность обзора</em> и <em>точность</em>. Может вызвать <em>панику</em>."),
+	AddEffectText = T(880622931884, --[[ModItemCharacterEffectCompositeDef Blinded AddEffectText]] "<em><DisplayName></em> ничего не видит"),
 	OnAdded = function (self, obj)
 		self:SetParameter("blinded_start_time", GameTime())
 		if IsMerc(obj) then

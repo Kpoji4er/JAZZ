@@ -83854,9 +83854,6 @@ return {
 					'AdditionalReduction', 20,
 					'NightVision', 20,
 					'StunGrenadeProtection', -20,
-					'SuppressionProtection', function ()
-						    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-					end,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -83875,9 +83872,6 @@ return {
 					'AdditionalReduction', 20,
 					'NightVision', 40,
 					'StunGrenadeProtection', -20,
-					'SuppressionProtection', function ()
-						    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-					end,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -83896,9 +83890,6 @@ return {
 					'AdditionalReduction', 20,
 					'NightVision', 60,
 					'StunGrenadeProtection', -20,
-					'SuppressionProtection', function ()
-						    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-					end,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -84000,6 +83991,7 @@ return {
 					'BlockFaceSlot', true,
 					'Weight', 4,
 					'Vision', -20,
+					'SuppressionProtection', 50,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87467,9 +87459,9 @@ return {
 						param_bindings = false,
 					}),
 				},
-				'DisplayName', T(629298563884, --[[ModItemCharacterEffectCompositeDef Blinded DisplayName]] "Blinded"),
-				'Description', T(595664130748, --[[ModItemCharacterEffectCompositeDef Blinded Description]] "Reduced <em>Sight range</em> and <em>Accuracy</em>. Can cause <em>Panic</em>."),
-				'AddEffectText', T(880622931884, --[[ModItemCharacterEffectCompositeDef Blinded AddEffectText]] "<em><DisplayName></em> is blinded"),
+				'DisplayName', T(629298563884, --[[ModItemCharacterEffectCompositeDef Blinded DisplayName]] "Слепота"),
+				'Description', T(595664130748, --[[ModItemCharacterEffectCompositeDef Blinded Description]] "Снижает <em>дальность обзора</em> и <em>точность</em>. Может вызвать <em>панику</em>."),
+				'AddEffectText', T(880622931884, --[[ModItemCharacterEffectCompositeDef Blinded AddEffectText]] "<em><DisplayName></em> ничего не видит"),
 				'OnAdded', function (self, obj)
 					self:SetParameter("blinded_start_time", GameTime())
 					if IsMerc(obj) then
@@ -87543,9 +87535,9 @@ return {
 						target_prop = "Wisdom",
 					}),
 				},
-				'DisplayName', T(178364189448, --[[ModItemCharacterEffectCompositeDef Burning DisplayName]] "Burning"),
-				'Description', T(661121942943, --[[ModItemCharacterEffectCompositeDef Burning Description]] "This character may <em>Panic</em> and will <em>take <damage> damage</em> at the end of each turn until they exit the flaming area. <em>Bandage</em> can cure the effect immediately."),
-				'AddEffectText', T(251545639918, --[[ModItemCharacterEffectCompositeDef Burning AddEffectText]] "<em><DisplayName></em> is on fire"),
+				'DisplayName', T(178364189448, --[[ModItemCharacterEffectCompositeDef Burning DisplayName]] "Горение"),
+				'Description', T(661121942943, --[[ModItemCharacterEffectCompositeDef Burning Description]] "Этот персонаж может <em>запаниковать</em> и будет <em>получать <damage> ед. урона</em> в конце каждого хода, пока не выйдет из области горения. <em>Перевязка</em> мгновенно снимает этот эффект."),
+				'AddEffectText', T(251545639918, --[[ModItemCharacterEffectCompositeDef Burning AddEffectText]] "<em><DisplayName></em> горит"),
 				'OnAdded', function (self, obj)
 					PlayFX("UnitBurning", "start", obj)
 					self:SetParameter("burning_start_time", GameTime())
@@ -87597,9 +87589,9 @@ return {
 						param_bindings = false,
 					}),
 				},
-				'DisplayName', T(720153419307, --[[ModItemCharacterEffectCompositeDef Choking DisplayName]] "Choking"),
-				'Description', T(120652127957, --[[ModItemCharacterEffectCompositeDef Choking Description]] "This character will <em>take <damage> damage</em> at the end of their turn. The character also <em>loses Energy</em>."),
-				'AddEffectText', T(478064574365, --[[ModItemCharacterEffectCompositeDef Choking AddEffectText]] "<em><DisplayName></em> is choking"),
+				'DisplayName', T(720153419307, --[[ModItemCharacterEffectCompositeDef Choking DisplayName]] "Удушье"),
+				'Description', T(120652127957, --[[ModItemCharacterEffectCompositeDef Choking Description]] "Этот персонаж будет <em>получать <damage> ед. урона</em> в конце своего хода. Также этот персонаж <em>теряет энергию</em>."),
+				'AddEffectText', T(478064574365, --[[ModItemCharacterEffectCompositeDef Choking AddEffectText]] "<em><DisplayName></em> задыхается"),
 				'OnAdded', function (self, obj)
 					self:SetParameter("choking_start_time", GameTime())
 					if obj:IsMerc() then
@@ -87671,7 +87663,7 @@ return {
 			PlaceObj('ModItemTargetBodyPart', {
 				Icon = "UI/Hud/target_icon_groin",
 				SortKey = 3,
-				applied_effect = "Suppressed",
+				applied_effect = "Groinshot",
 				damage_mod = 25,
 				description = T(464716813289, --[[ModItemTargetBodyPart Default Groin description]] "Выстрел в пах: снижение вероятности попадания, увеличение урона. Цель имеет шанс <color EmStyle>получить до трех кровотечений</color>"),
 				display_name = T(490698876612, --[[ModItemTargetBodyPart Default Groin display_name]] "Пах"),
@@ -90407,7 +90399,7 @@ return {
 									'VAlign', "center",
 									'TextStyle', "PDABrowserTitle",
 									'Translate', true,
-									'Text', T(548684733743, --[[ModItemXTemplate PDAAimEvaluation Text]] "A.I.M. EVALUATION"),
+									'Text', T(548684733743, --[[ModItemXTemplate PDAAimEvaluation Text]] "АНКЕТА A.I.M."),
 								}),
 								PlaceObj('XTemplateWindow', {
 									'__class', "XText",
@@ -90473,7 +90465,7 @@ return {
 													'Padding', box(0, 0, 0, 0),
 													'TextStyle', "PDABrowserFlavor",
 													'Translate', true,
-													'Text', T(276501397506, --[[ModItemXTemplate PDAAimEvaluation Text]] "Secured connection"),
+													'Text', T(276501397506, --[[ModItemXTemplate PDAAimEvaluation Text]] "Безопасное подключение"),
 													'TextVAlign', "center",
 												}),
 												PlaceObj('XTemplateWindow', {
@@ -90497,7 +90489,7 @@ return {
 											PlaceObj('XTemplateAction', {
 												'comment', "same as perk different condition",
 												'ActionId', "idLevelUpAction",
-												'ActionName', T(470265902414, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "LEVEL UP"),
+												'ActionName', T(470265902414, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "НОВЫЙ УРОВЕНЬ"),
 												'ActionToolbar', "LevelUpBar",
 												'ActionShortcut', "L",
 												'ActionGamepad', "ButtonX",
@@ -90535,7 +90527,7 @@ return {
 										}, {
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idPerksAction",
-												'ActionName', T(294433237069, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Perks"),
+												'ActionName', T(294433237069, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Черты"),
 												'ActionToolbar', "ActionBar",
 												'ActionShortcut', "P",
 												'ActionGamepad', "ButtonX",
@@ -90556,7 +90548,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idPerksConfirmAction",
-												'ActionName', T(715124601032, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Confirm"),
+												'ActionName', T(715124601032, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Подтвердить"),
 												'ActionToolbar', "ActionBar",
 												'ActionShortcut', "P",
 												'ActionGamepad', "Start",
@@ -90582,7 +90574,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idPreviousMerc",
-												'ActionName', T(550449531084, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Previous"),
+												'ActionName', T(550449531084, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Предыдущий"),
 												'ActionShortcut', "Shift-Tab",
 												'ActionGamepad', "LeftShoulder",
 												'OnAction', function (self, host, source, ...)
@@ -90595,7 +90587,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idNextMerc",
-												'ActionName', T(655064233565, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Next"),
+												'ActionName', T(655064233565, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "След."),
 												'ActionShortcut', "Tab",
 												'ActionGamepad', "RightShoulder",
 												'OnAction', function (self, host, source, ...)
@@ -90608,7 +90600,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idStatsAction",
-												'ActionName', T(731677990405, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Stats"),
+												'ActionName', T(731677990405, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Характеристики"),
 												'ActionToolbar', "ActionBar",
 												'ActionShortcut', "S",
 												'ActionGamepad', "ButtonX",
@@ -90623,7 +90615,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idMercsAction",
-												'ActionName', T(905658355422, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Mercs"),
+												'ActionName', T(905658355422, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Наёмники"),
 												'ActionToolbar', "ActionBar",
 												'ActionShortcut', "M",
 												'ActionState', function (self, host)
@@ -90641,7 +90633,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idCloseActionPerks",
-												'ActionName', T(187868415093, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Close"),
+												'ActionName', T(187868415093, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Закрыть"),
 												'ActionToolbar', "ActionBar",
 												'ActionShortcut', "Escape",
 												'ActionGamepad', "ButtonB",
@@ -90682,7 +90674,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idCloseActionRecord",
-												'ActionName', T(187868415093, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Close"),
+												'ActionName', T(187868415093, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Закрыть"),
 												'ActionToolbar', "ActionBar",
 												'ActionShortcut', "Escape",
 												'ActionGamepad', "ButtonB",
@@ -90860,7 +90852,7 @@ return {
 															'__class', "XText",
 															'TextStyle', "PDABrowserSubtitle",
 															'Translate', true,
-															'Text', T(459016279300, --[[ModItemXTemplate PDAAimEvaluation Text]] "/ Daily Salary"),
+															'Text', T(459016279300, --[[ModItemXTemplate PDAAimEvaluation Text]] "/ суточная з/п"),
 														}),
 														PlaceObj('XTemplateWindow', {
 															'comment', "class info",
@@ -90902,7 +90894,7 @@ return {
 														'VAlign', "center",
 														'TextStyle', "PDABrowserSubtitle",
 														'Translate', true,
-														'Text', T(267299905081, --[[ModItemXTemplate PDAAimEvaluation Text]] "LEVEL"),
+														'Text', T(267299905081, --[[ModItemXTemplate PDAAimEvaluation Text]] "УР."),
 													}),
 													}),
 												PlaceObj('XTemplateTemplate', {
@@ -91023,7 +91015,7 @@ return {
 													'Dock', "top",
 													'TextStyle', "PDABrowserHeader",
 													'Translate', true,
-													'Text', T(769722208341, --[[ModItemXTemplate PDAAimEvaluation Text]] "Stats"),
+													'Text', T(769722208341, --[[ModItemXTemplate PDAAimEvaluation Text]] "Характеристики"),
 												}),
 												PlaceObj('XTemplateWindow', {
 													'comment', "attributes",
@@ -91097,7 +91089,7 @@ return {
 														'Margins', box(0, 4, 0, 4),
 														'TextStyle', "PDABrowserNameSmall",
 														'Translate', true,
-														'Text', T(961479643645, --[[ModItemXTemplate PDAAimEvaluation Text]] "Talent"),
+														'Text', T(961479643645, --[[ModItemXTemplate PDAAimEvaluation Text]] "Талант"),
 													}),
 													PlaceObj('XTemplateWindow', {
 														'Margins', box(0, 0, 8, 4),
@@ -91136,7 +91128,7 @@ return {
 														'Margins', box(0, 4, 0, 4),
 														'TextStyle', "PDABrowserNameSmall",
 														'Translate', true,
-														'Text', T(861228350946, --[[ModItemXTemplate PDAAimEvaluation Text]] "Traits"),
+														'Text', T(861228350946, --[[ModItemXTemplate PDAAimEvaluation Text]] "Особенности"),
 													}),
 													PlaceObj('XTemplateWindow', {
 														'LayoutMethod', "HList",
@@ -91173,7 +91165,7 @@ return {
 													'__class', "XText",
 													'TextStyle', "PDABrowserNameSmall",
 													'Translate', true,
-													'Text', T(236089097173, --[[ModItemXTemplate PDAAimEvaluation Text]] "Perks"),
+													'Text', T(236089097173, --[[ModItemXTemplate PDAAimEvaluation Text]] "Черты"),
 												}),
 												PlaceObj('XTemplateWindow', {
 													'LayoutMethod', "HWrap",
@@ -91277,7 +91269,7 @@ return {
 													'FrameBox', box(3, 3, 3, 3),
 													'TextStyle', "PDABrowserTabSelected",
 													'Translate', true,
-													'Text', T(210141140528, --[[ModItemXTemplate PDAAimEvaluation Text]] "History"),
+													'Text', T(210141140528, --[[ModItemXTemplate PDAAimEvaluation Text]] "История"),
 												}),
 												PlaceObj('XTemplateWindow', {
 													'__class', "XTextButton",
@@ -91298,7 +91290,7 @@ return {
 													'FrameBox', box(3, 3, 3, 3),
 													'TextStyle', "PDABrowserTabSelected",
 													'Translate', true,
-													'Text', T(113987221030, --[[ModItemXTemplate PDAAimEvaluation Text]] "Statistics"),
+													'Text', T(113987221030, --[[ModItemXTemplate PDAAimEvaluation Text]] "Статистика"),
 												}),
 												PlaceObj('XTemplateWindow', {
 													'comment', "gamepad hint",
@@ -91354,7 +91346,7 @@ return {
 																	'__class', "XText",
 																	'TextStyle', "PDABrowserText",
 																	'Translate', true,
-																	'Text', T(731522640052, --[[ModItemXTemplate PDAAimEvaluation Text]] "Connecting to A.I.M. servers...\nSecurity check... <em>Confirmed!</em>\n------------------------------------"),
+																	'Text', T(731522640052, --[[ModItemXTemplate PDAAimEvaluation Text]] "Подключаемся к серверу A.I.M...\nПроверяем безопасность соединения... <em>Подтверждено!</em>\n------------------------------------"),
 																}),
 																PlaceObj('XTemplateForEach', {
 																	'comment', "merc history log",
@@ -91425,7 +91417,7 @@ return {
 																	'__class', "XText",
 																	'TextStyle', "PDABrowserText",
 																	'Translate', true,
-																	'Text', T(959513065473, --[[ModItemXTemplate PDAAimEvaluation Text]] "Connecting to A.I.M. servers...\nSecurity check... <em>Confirmed!</em>\n-----------------------------------------------"),
+																	'Text', T(959513065473, --[[ModItemXTemplate PDAAimEvaluation Text]] "Подключаемся к серверу A.I.M...\nПроверяем безопасность соединения... <em>Подтверждено!</em>\n-----------------------------------------------"),
 																}),
 																PlaceObj('XTemplateForEach', {
 																	'array', function (parent, context) return Presets.MercTrackedStat end,
@@ -91549,7 +91541,7 @@ return {
 					PlaceObj('XTemplateWindow', {
 						'__class', "XContextWindow",
 						'RolloverTemplate', "StatusEffectsRollover",
-						'RolloverText', T(327307292756, --[[ModItemXTemplate CombatBadge RolloverText]] "STATUS EFFECTS"),
+						'RolloverText', T(327307292756, --[[ModItemXTemplate CombatBadge RolloverText]] "ЭФФЕКТЫ"),
 						'RolloverOffset', box(10, 0, 10, 0),
 						'Id', "idMain",
 						'VAlign', "top",
@@ -91574,7 +91566,7 @@ return {
 								CombatBadgeAboveNameTextUpdate(self)
 							end,
 							'Translate', true,
-							'Text', T(865071357285, --[[ModItemXTemplate CombatBadge Text]] "OUT OF AMMO"),
+							'Text', T(865071357285, --[[ModItemXTemplate CombatBadge Text]] "НЕТ ПАТРОНОВ"),
 						}),
 						PlaceObj('XTemplateWindow', {
 							'comment', "name and above",
@@ -91858,8 +91850,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(256373672615, --[[ModItemCharacterEffectCompositeDef Psycho DisplayName]] "Psycho"),
-					'Description', T(966163673727, --[[ModItemCharacterEffectCompositeDef Psycho Description]] "Can decide to use a more vicious attack than the one selected.\n\nAdditional <em>conversation options</em>."),
+					'DisplayName', T(256373672615, --[[ModItemCharacterEffectCompositeDef Psycho DisplayName]] "Психопат"),
+					'Description', T(966163673727, --[[ModItemCharacterEffectCompositeDef Psycho Description]] "Может выполнить более жестокую атаку, чем была выбрана.\n\nОткрывает дополнительные <em>варианты диалогов</em>."),
 					'Icon', "UI/Icons/Perks/Psycho",
 					'Tier', "Personality",
 				}),
@@ -91868,8 +91860,8 @@ return {
 					'Id', "Bond",
 					'SortKey', 10,
 					'object_class', "Perk",
-					'DisplayName', T(875337188421, --[[ModItemCharacterEffectCompositeDef Bond DisplayName]] "Bond"),
-					'Description', T(459288741024, --[[ModItemCharacterEffectCompositeDef Bond Description]] "Bond with another character (needs special description)."),
+					'DisplayName', T(875337188421, --[[ModItemCharacterEffectCompositeDef Bond DisplayName]] "Особая связь"),
+					'Description', T(459288741024, --[[ModItemCharacterEffectCompositeDef Bond Description]] "Особая связь с другим персонажем (нужно отдельное описание)."),
 					'Icon', "UI/Icons/Perks/Bond",
 					'Tier', "Personality",
 				}),
@@ -91886,8 +91878,8 @@ return {
 					},
 					'param_bindings', {},
 					'object_class', "Perk",
-					'DisplayName', T(196499775201, --[[ModItemCharacterEffectCompositeDef Negotiator DisplayName]] "Negotiator"),
-					'Description', T(464552472248, --[[ModItemCharacterEffectCompositeDef Negotiator Description]] "Reduces prices for <em>Sector Operations</em> and <em>Boat Travel</em>.\n\nAdditional <em>conversation options</em>."),
+					'DisplayName', T(196499775201, --[[ModItemCharacterEffectCompositeDef Negotiator DisplayName]] "Переговорщик"),
+					'Description', T(464552472248, --[[ModItemCharacterEffectCompositeDef Negotiator Description]] "Снижает цены на <em>операции в секторе</em> и <em>перемещение по воде</em>.\n\nОткрывает <em>доп. варианты диалогов</em>."),
 					'Icon', "UI/Icons/Perks/Negotiator",
 					'Tier', "Personality",
 				}),
@@ -91896,8 +91888,8 @@ return {
 					'Id', "Scoundrel",
 					'SortKey', 10,
 					'object_class', "Perk",
-					'DisplayName', T(687227379969, --[[ModItemCharacterEffectCompositeDef Scoundrel DisplayName]] "Scoundrel"),
-					'Description', T(252249063178, --[[ModItemCharacterEffectCompositeDef Scoundrel Description]] "First <em>weapon swap</em> for the turn is <em>free</em>.\n\nAdditional <em>conversation options</em>."),
+					'DisplayName', T(687227379969, --[[ModItemCharacterEffectCompositeDef Scoundrel DisplayName]] "Тёртый калач"),
+					'Description', T(252249063178, --[[ModItemCharacterEffectCompositeDef Scoundrel Description]] "Первую <em>смену оружия</em> за ход можно совершить <em>бесплатно</em>.\n\nДобавляет <em>доп. варианты диалогов</em>."),
 					'Icon', "UI/Icons/Perks/Scoundrel",
 					'Tier', "Personality",
 				}),
@@ -91929,8 +91921,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(487342591563, --[[ModItemCharacterEffectCompositeDef Loner DisplayName]] "Loner"),
-					'Description', T(124325843871, --[[ModItemCharacterEffectCompositeDef Loner Description]] "Become <GameTerm('Inspired')> when there are no teammates <em>in your vicinity</em> at turn start."),
+					'DisplayName', T(487342591563, --[[ModItemCharacterEffectCompositeDef Loner DisplayName]] "Одиночка"),
+					'Description', T(124325843871, --[[ModItemCharacterEffectCompositeDef Loner Description]] "Дает <GameTerm('Inspired')>, если в начале хода рядом с вами нет бойцов вашего отряда."),
 					'Icon', "UI/Icons/Perks/Loner",
 					'Tier', "Quirk",
 				}),
@@ -91946,8 +91938,8 @@ return {
 						}),
 					},
 					'object_class', "Perk",
-					'DisplayName', T(892300961794, --[[ModItemCharacterEffectCompositeDef Optimist DisplayName]] "Optimist"),
-					'Description', T(181016182063, --[[ModItemCharacterEffectCompositeDef Optimist Description]] "Small chance to <em>prevent</em> a team <GameTerm('Morale')> loss."),
+					'DisplayName', T(892300961794, --[[ModItemCharacterEffectCompositeDef Optimist DisplayName]] "Оптимист"),
+					'Description', T(181016182063, --[[ModItemCharacterEffectCompositeDef Optimist Description]] "Небольшой шанс <em>не допустить</em>, чтобы <GameTerm('Morale')> команды понизился."),
 					'Icon', "UI/Icons/Perks/Optimist",
 					'Tier', "Quirk",
 				}),
@@ -91963,8 +91955,8 @@ return {
 						}),
 					},
 					'object_class', "Perk",
-					'DisplayName', T(755896070667, --[[ModItemCharacterEffectCompositeDef Pessimist DisplayName]] "Pessimist"),
-					'Description', T(932094612672, --[[ModItemCharacterEffectCompositeDef Pessimist Description]] "Small chance to <em>prevent</em> team <GameTerm('Morale')> gain."),
+					'DisplayName', T(755896070667, --[[ModItemCharacterEffectCompositeDef Pessimist DisplayName]] "Пессимист"),
+					'Description', T(932094612672, --[[ModItemCharacterEffectCompositeDef Pessimist Description]] "Небольшой шанс <em>не допустить</em>, чтобы <GameTerm('Morale')> команды повысился."),
 					'Icon', "UI/Icons/Perks/Pessimist",
 					'Tier', "Quirk",
 				}),
@@ -91991,8 +91983,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(906477417382, --[[ModItemCharacterEffectCompositeDef Spiritual DisplayName]] "Spiritual"),
-					'Description', T(233455514627, --[[ModItemCharacterEffectCompositeDef Spiritual Description]] "Guaranteed <em>Minimal Accuracy</em> with hopeless attacks."),
+					'DisplayName', T(906477417382, --[[ModItemCharacterEffectCompositeDef Spiritual DisplayName]] "Духовность"),
+					'Description', T(233455514627, --[[ModItemCharacterEffectCompositeDef Spiritual Description]] "Гарантированная <em>минимальная точность</em> для безнадежных атак."),
 					'Icon', "UI/Icons/Perks/Spiritual",
 					'Tier', "Quirk",
 				}),
@@ -92036,8 +92028,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(619689762390, --[[ModItemCharacterEffectCompositeDef Zoophobic DisplayName]] "Zoophobic"),
-					'Description', T(467565005573, --[[ModItemCharacterEffectCompositeDef Zoophobic Description]] "Loses <GameTerm('Morale')> when <em>Attacked</em> by an <em>animal</em>."),
+					'DisplayName', T(619689762390, --[[ModItemCharacterEffectCompositeDef Zoophobic DisplayName]] "Зоофобия"),
+					'Description', T(467565005573, --[[ModItemCharacterEffectCompositeDef Zoophobic Description]] "<GameTerm('Morale')> снижается, если этого персонажа <em>атакует</em> <em>животное</em>."),
 					'Icon', "UI/Icons/Perks/Zoophobic",
 					'Tier', "Quirk",
 				}),
@@ -92095,8 +92087,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(464805356385, --[[ModItemCharacterEffectCompositeDef Claustrophobic DisplayName]] "Claustrophobic"),
-					'Description', T(356135028604, --[[ModItemCharacterEffectCompositeDef Claustrophobic Description]] "<GameTerm('Morale')> decrease when starting combat in <em>underground</em> Sectors."),
+					'DisplayName', T(464805356385, --[[ModItemCharacterEffectCompositeDef Claustrophobic DisplayName]] "Клаустрофобия"),
+					'Description', T(356135028604, --[[ModItemCharacterEffectCompositeDef Claustrophobic Description]] "<GameTerm('Morale')> снижается в начале боя, если он происходит в <em>подземных</em> секторах."),
 					'Icon', "UI/Icons/Perks/Claustrophobic",
 					'Tier', "Quirk",
 				}),
@@ -92112,8 +92104,8 @@ return {
 						}),
 					},
 					'object_class', "Perk",
-					'DisplayName', T(152237634088, --[[ModItemCharacterEffectCompositeDef Hemophobic DisplayName]] "Hemophobic"),
-					'Description', T(105025202773, --[[ModItemCharacterEffectCompositeDef Hemophobic Description]] "Chance of <em>failure</em> when using <em>Bandage</em>."),
+					'DisplayName', T(152237634088, --[[ModItemCharacterEffectCompositeDef Hemophobic DisplayName]] "Гемофобия"),
+					'Description', T(105025202773, --[[ModItemCharacterEffectCompositeDef Hemophobic Description]] "Шанс <em>неудачи</em> при использовании <em>перевязки</em>."),
 					'Icon', "UI/Icons/Perks/Hemophobic",
 					'Tier', "Quirk",
 				}),
@@ -92821,7 +92813,7 @@ return {
 											'__context', function (parent, context) return parent:ResolveId("node").context end,
 											'__class', "XContextWindow",
 											'RolloverTemplate', "StatusEffectsRollover",
-											'RolloverText', T(190650275316, --[[ModItemXTemplate ActionCameraCrosshair RolloverText]] "STATUS EFFECTS"),
+											'RolloverText', T(190650275316, --[[ModItemXTemplate ActionCameraCrosshair RolloverText]] "ЭФФЕКТЫ"),
 											'UseClipBox', false,
 										}, {
 											PlaceObj('XTemplateWindow', {
@@ -93327,7 +93319,7 @@ return {
 										'UseClipBox', false,
 										'TextStyle', "Crosshair_Range",
 										'Translate', true,
-										'Text', T(575734781283, --[[ModItemXTemplate ActionCameraCrosshair Text]] "RANGE"),
+										'Text', T(575734781283, --[[ModItemXTemplate ActionCameraCrosshair Text]] "ДАЛЬНОСТЬ"),
 										'TextHAlign', "right",
 									}),
 									PlaceObj('XTemplateWindow', {
@@ -93656,7 +93648,7 @@ return {
 											end
 										end,
 										'Translate', true,
-										'Text', T(909646377219, --[[ModItemXTemplate ActionCameraCrosshair Text]] "<DPadLeft> Firing Modes"),
+										'Text', T(909646377219, --[[ModItemXTemplate ActionCameraCrosshair Text]] "<DPadLeft> Режимы стрельбы"),
 									}),
 									PlaceObj('XTemplateWindow', {
 										'comment', "controller hint",
@@ -93683,7 +93675,7 @@ return {
 											end
 										end,
 										'Translate', true,
-										'Text', T(510160303784, --[[ModItemXTemplate ActionCameraCrosshair Text]] "<DPadRight> Body Parts"),
+										'Text', T(510160303784, --[[ModItemXTemplate ActionCameraCrosshair Text]] "<DPadRight> Части тела"),
 									}),
 									}),
 								}),
@@ -94478,7 +94470,7 @@ return {
 								'FoldWhenHidden', true,
 								'TextStyle', "PDABrowserNameSmall",
 								'Translate', true,
-								'Text', T(392264332209, --[[ModItemXTemplate CrosshairAttackRollover Text]] "STATUS"),
+								'Text', T(392264332209, --[[ModItemXTemplate CrosshairAttackRollover Text]] "СТАТУС"),
 								'TextVAlign', "center",
 							}),
 							PlaceObj('XTemplateWindow', {

@@ -17,12 +17,12 @@ function AICreateContext(unit, context)
         local total_stance_cost = attack_cost + stance_cost
         local has_stance_ap = ap >= total_stance_cost
 
-        local is_shotgun = IsKindOf(weapon, "Shotgun")
+   --     local is_shotgun = IsKindOf(weapon, "Shotgun")
         -- print("-- checking if has stance AP from AICreateContext:", has_stance_ap, GameTime())
         -- print(default_attack.id, attack_cost, stance_cost)
-        if not is_shotgun and table.find(weapon.AvailableAttacks, "SingleShot") then
-            default_attack = CombatActions["SingleShot"]
-        end
+   --     if not is_shotgun and table.find(weapon.AvailableAttacks, "SingleShot") then
+   --         default_attack = CombatActions["SingleShot"]
+   --     end
     end
 
 
