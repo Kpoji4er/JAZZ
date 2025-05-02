@@ -14,6 +14,12 @@ DefineClass.suppressionHeavy2 = {
 			end,
 		}),
 		PlaceObj('UnitReaction', {
+			Event = "OnEndTurn",
+			Handler = function (self, target)
+				target:ApplySuppressionStatus()
+			end,
+		}),
+		PlaceObj('UnitReaction', {
 			Event = "OnCalcMoveModifier",
 			Handler = function (self, target, value, action)
 				return value + self:ResolveValue("move_ap_modifier")

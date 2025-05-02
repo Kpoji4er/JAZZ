@@ -49130,6 +49130,805 @@ return {
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
+				'name', "NewWeapon_DEV",
+			}, {
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "rev38Special",
+					'comment', "T1",
+					'object_class', "Revolver",
+					'ScrapParts', 6,
+					'RepairCost', 30,
+					'Reliability', 95,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/ColtPeaceMaker.png",
+					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef rev38Special DisplayName]] "38Special"),
+					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef rev38Special DisplayNamePlural]] "38Special"),
+					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef rev38Special Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
+					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef rev38Special AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер - точный, надежный, но большие затраты ОД на выстрел и перезарядку"),
+					'UnitStat', "Marksmanship",
+					'Cost', 500,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'Caliber', "JAZZ_Caliber_38",
+					'Damage', 18,
+					'ObjDamageMod', 40,
+					'AimAccuracy', 8,
+					'CritChance', 5,
+					'CritChanceScaled', 30,
+					'MagazineSize', 6,
+					'WeaponRange', 15,
+					'OverwatchAngle', 5100,
+					'Noise', 40,
+					'Entity', "38Special",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Barrel",
+							'AvailableComponents', {
+								"BarrelNormal",
+								"BarrelShort_Pistol",
+							},
+							'DefaultComponent', "BarrelShort_Pistol",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 5000,
+					'ReloadAP', 8000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 94,
+					'BulletDropRange', 7,
+					'Grouping', 92,
+					'BaseJamChance', -100,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "CZ52",
+					'comment', "T2 9mm",
+					'object_class', "Pistol",
+					'ScrapParts', 6,
+					'RepairCost', 70,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/CZ75.png",
+					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef CZ52 DisplayName]] "CZ52"),
+					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef CZ52 DisplayNamePlural]] "CZ52"),
+					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef CZ52 Description]] 'Спортивный, боевой, полицейский, гражданский пистолет из Чехии. Практически, победитель оружейного "Евровидения", но первое место принадлежит тому, кого нельзя называть. Иначе придется его купить.'),
+					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef CZ52 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая точность"),
+					'UnitStat', "Marksmanship",
+					'Cost', 1250,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_9x19",
+					'Damage', 21,
+					'ObjDamageMod', 20,
+					'AimAccuracy', 10,
+					'CritChance', 5,
+					'CritChanceScaled', 35,
+					'MagazineSize', 16,
+					'WeaponRange', 14,
+					'OverwatchAngle', 5400,
+					'Noise', 30,
+					'Entity', "CZ52",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"MagNormal",
+								"MagLarge",
+							},
+							'DefaultComponent', "MagNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'Modifiable', false,
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"ImprovisedSuppressor",
+								"Suppressor",
+							},
+							'DefaultComponent', "su",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Side",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"Flashlight",
+								"LaserDot",
+								"FlashlightDot",
+								"UVDot",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 3000,
+					'ReloadAP', 3000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 98,
+					'BulletDropRange', 6,
+					'Grouping', 94,
+					'BaseJamChance', -20,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "MAC1950",
+					'comment', "T2 9mm",
+					'object_class', "Pistol",
+					'ScrapParts', 6,
+					'RepairCost', 70,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/CZ75.png",
+					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef MAC1950 DisplayName]] "MAC Mle 1950"),
+					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef MAC1950 DisplayNamePlural]] "MAC Mle 1950"),
+					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef MAC1950 Description]] 'Спортивный, боевой, полицейский, гражданский пистолет из Чехии. Практически, победитель оружейного "Евровидения", но первое место принадлежит тому, кого нельзя называть. Иначе придется его купить.'),
+					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef MAC1950 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая точность"),
+					'UnitStat', "Marksmanship",
+					'Cost', 1250,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_9x19",
+					'Damage', 21,
+					'ObjDamageMod', 20,
+					'AimAccuracy', 10,
+					'CritChance', 5,
+					'CritChanceScaled', 35,
+					'MagazineSize', 16,
+					'WeaponRange', 14,
+					'OverwatchAngle', 5400,
+					'Noise', 30,
+					'Entity', "MAC1950",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"MagNormal",
+								"MagLarge",
+							},
+							'DefaultComponent', "MagNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'Modifiable', false,
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"ImprovisedSuppressor",
+								"Suppressor",
+							},
+							'DefaultComponent', "su",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Side",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"Flashlight",
+								"LaserDot",
+								"FlashlightDot",
+								"UVDot",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 3000,
+					'ReloadAP', 3000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 98,
+					'BulletDropRange', 6,
+					'Grouping', 94,
+					'BaseJamChance', -20,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "P38",
+					'comment', "T2 9mm",
+					'object_class', "Pistol",
+					'ScrapParts', 6,
+					'RepairCost', 70,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/CZ75.png",
+					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef P38 DisplayName]] "P38"),
+					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef P38 DisplayNamePlural]] "P38"),
+					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef P38 Description]] 'Спортивный, боевой, полицейский, гражданский пистолет из Чехии. Практически, победитель оружейного "Евровидения", но первое место принадлежит тому, кого нельзя называть. Иначе придется его купить.'),
+					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef P38 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая точность"),
+					'UnitStat', "Marksmanship",
+					'Cost', 1250,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_9x19",
+					'Damage', 21,
+					'ObjDamageMod', 20,
+					'AimAccuracy', 10,
+					'CritChance', 5,
+					'CritChanceScaled', 35,
+					'MagazineSize', 16,
+					'WeaponRange', 14,
+					'OverwatchAngle', 5400,
+					'Noise', 30,
+					'Entity', "P38",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"MagNormal",
+								"MagLarge",
+							},
+							'DefaultComponent', "MagNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Barrel",
+							'AvailableComponents', {
+								"BarrelNormal",
+								"BarrelShort_Pistol",
+							},
+							'DefaultComponent', "BarrelNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"ImprovisedSuppressor",
+								"PistolSuppressor",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 3000,
+					'ReloadAP', 3000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 98,
+					'BulletDropRange', 6,
+					'Grouping', 94,
+					'BaseJamChance', -20,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "VectorCP1",
+					'comment', "T2 9mm",
+					'object_class', "Pistol",
+					'ScrapParts', 6,
+					'RepairCost', 70,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/CZ75.png",
+					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef VectorCP1 DisplayName]] "Vektor CP1"),
+					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef VectorCP1 DisplayNamePlural]] "Vektor CP1"),
+					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef VectorCP1 Description]] 'Спортивный, боевой, полицейский, гражданский пистолет из Чехии. Практически, победитель оружейного "Евровидения", но первое место принадлежит тому, кого нельзя называть. Иначе придется его купить.'),
+					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef VectorCP1 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая точность"),
+					'UnitStat', "Marksmanship",
+					'Cost', 1250,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_9x19",
+					'Damage', 21,
+					'ObjDamageMod', 20,
+					'AimAccuracy', 10,
+					'CritChance', 5,
+					'CritChanceScaled', 35,
+					'MagazineSize', 16,
+					'WeaponRange', 14,
+					'OverwatchAngle', 5400,
+					'Noise', 30,
+					'Entity', "VectorCP1",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"MagNormal",
+								"MagLarge",
+							},
+							'DefaultComponent', "MagNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'Modifiable', false,
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"ImprovisedSuppressor",
+								"Suppressor",
+							},
+							'DefaultComponent', "su",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 3000,
+					'ReloadAP', 3000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 98,
+					'BulletDropRange', 6,
+					'Grouping', 94,
+					'BaseJamChance', -20,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "Beretta93r",
+					'comment', "T2 9mm",
+					'object_class', "Pistol",
+					'ScrapParts', 6,
+					'RepairCost', 70,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/CZ75.png",
+					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef Beretta93r DisplayName]] "Beretta 93r"),
+					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef Beretta93r DisplayNamePlural]] "Beretta 93r"),
+					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef Beretta93r Description]] 'Спортивный, боевой, полицейский, гражданский пистолет из Чехии. Практически, победитель оружейного "Евровидения", но первое место принадлежит тому, кого нельзя называть. Иначе придется его купить.'),
+					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef Beretta93r AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая точность"),
+					'UnitStat', "Marksmanship",
+					'Cost', 1250,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_9x19",
+					'Damage', 21,
+					'ObjDamageMod', 20,
+					'AimAccuracy', 10,
+					'CritChance', 5,
+					'CritChanceScaled', 35,
+					'MagazineSize', 16,
+					'WeaponRange', 14,
+					'OverwatchAngle', 5400,
+					'Noise', 30,
+					'Entity', "Beretta93r",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"MagNormal",
+								"MagLarge",
+							},
+							'DefaultComponent', "MagNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'Modifiable', false,
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"ImprovisedSuppressor",
+								"Suppressor",
+							},
+							'DefaultComponent', "su",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 3000,
+					'ReloadAP', 3000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 98,
+					'BulletDropRange', 6,
+					'Grouping', 94,
+					'BaseJamChance', -20,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "MR73",
+					'comment', "T1",
+					'object_class', "Revolver",
+					'ScrapParts', 6,
+					'RepairCost', 30,
+					'Reliability', 95,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/ColtPeaceMaker.png",
+					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef MR73 DisplayName]] "Manurhin MR 73"),
+					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef MR73 DisplayNamePlural]] "Manurhin MR 73"),
+					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef MR73 Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
+					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef MR73 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер - точный, надежный, но большие затраты ОД на выстрел и перезарядку"),
+					'UnitStat', "Marksmanship",
+					'Cost', 500,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'Caliber', "JAZZ_Caliber_38",
+					'Damage', 18,
+					'ObjDamageMod', 40,
+					'AimAccuracy', 8,
+					'CritChance', 5,
+					'CritChanceScaled', 30,
+					'MagazineSize', 6,
+					'WeaponRange', 15,
+					'OverwatchAngle', 5100,
+					'Noise', 40,
+					'Entity', "M73Base",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Barrel",
+							'AvailableComponents', {
+								"BarrelLong",
+								"BarrelNormal",
+							},
+							'DefaultComponent', "BarrelNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Handgrip",
+							'AvailableComponents', {
+								"Handgrip_Default",
+								"Handgrip_Ergo",
+							},
+							'DefaultComponent', "Handgrip_Default",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 5000,
+					'ReloadAP', 8000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 94,
+					'BulletDropRange', 7,
+					'Grouping', 92,
+					'BaseJamChance', -100,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "ColtM1917",
+					'comment', "T1",
+					'object_class', "Revolver",
+					'ScrapParts', 6,
+					'RepairCost', 30,
+					'Reliability', 95,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/ColtPeaceMaker.png",
+					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef ColtM1917 DisplayName]] "Colt M1917 .45 Service Revolver"),
+					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef ColtM1917 DisplayNamePlural]] "Colt M1917 .45 Service Revolver"),
+					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef ColtM1917 Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
+					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef ColtM1917 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер - точный, надежный, но большие затраты ОД на выстрел и перезарядку"),
+					'UnitStat', "Marksmanship",
+					'Cost', 500,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'Caliber', "JAZZ_Caliber_38",
+					'Damage', 18,
+					'ObjDamageMod', 40,
+					'AimAccuracy', 8,
+					'CritChance', 5,
+					'CritChanceScaled', 30,
+					'MagazineSize', 6,
+					'WeaponRange', 15,
+					'OverwatchAngle', 5100,
+					'Noise', 40,
+					'Entity', "Colt1917",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 5000,
+					'ReloadAP', 8000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 94,
+					'BulletDropRange', 7,
+					'Grouping', 92,
+					'BaseJamChance', -100,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "SWModel10",
+					'comment', "T1",
+					'object_class', "Revolver",
+					'ScrapParts', 6,
+					'RepairCost', 30,
+					'Reliability', 95,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/ColtPeaceMaker.png",
+					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef SWModel10 DisplayName]] "SWModel10"),
+					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef SWModel10 DisplayNamePlural]] "SWModel10"),
+					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef SWModel10 Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
+					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef SWModel10 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер - точный, надежный, но большие затраты ОД на выстрел и перезарядку"),
+					'UnitStat', "Marksmanship",
+					'Cost', 500,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'Caliber', "JAZZ_Caliber_38",
+					'Damage', 18,
+					'ObjDamageMod', 40,
+					'AimAccuracy', 8,
+					'CritChance', 5,
+					'CritChanceScaled', 30,
+					'MagazineSize', 6,
+					'WeaponRange', 15,
+					'OverwatchAngle', 5100,
+					'Noise', 40,
+					'Entity', "SWModel10",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Barrel",
+							'AvailableComponents', {
+								"BarrelShort_Pistol",
+								"BarrelNormal",
+							},
+							'DefaultComponent', "BarrelNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Side",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"Flashlight",
+								"LaserDot",
+								"FlashlightDot",
+								"UVDot",
+							},
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 5000,
+					'ReloadAP', 8000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 94,
+					'BulletDropRange', 7,
+					'Grouping', 92,
+					'BaseJamChance', -100,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "SWModel19",
+					'comment', "T1",
+					'object_class', "Revolver",
+					'ScrapParts', 6,
+					'RepairCost', 30,
+					'Reliability', 95,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/ColtPeaceMaker.png",
+					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef SWModel19 DisplayName]] "SWModel19"),
+					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef SWModel19 DisplayNamePlural]] "SWModel19"),
+					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef SWModel19 Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
+					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef SWModel19 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер - точный, надежный, но большие затраты ОД на выстрел и перезарядку"),
+					'UnitStat', "Marksmanship",
+					'Cost', 500,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'Caliber', "JAZZ_Caliber_38",
+					'Damage', 18,
+					'ObjDamageMod', 40,
+					'AimAccuracy', 8,
+					'CritChance', 5,
+					'CritChanceScaled', 30,
+					'MagazineSize', 6,
+					'WeaponRange', 15,
+					'OverwatchAngle', 5100,
+					'Noise', 40,
+					'Entity', "SW19",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Barrel",
+							'AvailableComponents', {
+								"BarrelLong",
+								"BarrelNormal",
+								"BarrelShort_Pistol",
+							},
+							'DefaultComponent', "BarrelNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Side",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"Flashlight",
+								"LaserDot",
+								"FlashlightDot",
+								"UVDot",
+							},
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 5000,
+					'ReloadAP', 8000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 94,
+					'BulletDropRange', 7,
+					'Grouping', 92,
+					'BaseJamChance', -100,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "SWModel29",
+					'comment', "T1",
+					'object_class', "Revolver",
+					'ScrapParts', 6,
+					'RepairCost', 30,
+					'Reliability', 95,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/ColtPeaceMaker.png",
+					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef SWModel29 DisplayName]] "SWModel29"),
+					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef SWModel29 DisplayNamePlural]] "SWModel29"),
+					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef SWModel29 Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
+					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef SWModel29 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер - точный, надежный, но большие затраты ОД на выстрел и перезарядку"),
+					'UnitStat', "Marksmanship",
+					'Cost', 500,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'Caliber', "JAZZ_Caliber_38",
+					'Damage', 18,
+					'ObjDamageMod', 40,
+					'AimAccuracy', 8,
+					'CritChance', 5,
+					'CritChanceScaled', 30,
+					'MagazineSize', 6,
+					'WeaponRange', 15,
+					'OverwatchAngle', 5100,
+					'Noise', 40,
+					'Entity', "SWModel29",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Barrel",
+							'AvailableComponents', {
+								"BarrelShort_Pistol",
+								"BarrelNormal",
+							},
+							'DefaultComponent', "BarrelNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Side",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"Flashlight",
+								"LaserDot",
+								"FlashlightDot",
+								"UVDot",
+							},
+						}),
+					},
+					'Color', "Black",
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 5000,
+					'ReloadAP', 8000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 94,
+					'BulletDropRange', 7,
+					'Grouping', 92,
+					'BaseJamChance', -100,
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
 				'name', "SMGs",
 			}, {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -63240,6 +64039,18 @@ return {
 								Slot = "Barrel",
 								param_bindings = false,
 							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "MR73",
+								Entity = "M73BarrelLong",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "SWModel19",
+								Entity = "SW19BarrelL",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
 						},
 						group = "Barrel",
 						id = "BarrelLong",
@@ -63601,6 +64412,48 @@ return {
 								Slot = "Barrel",
 								param_bindings = false,
 							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "P38",
+								Entity = "p38Barrel",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "rev38Special",
+								Entity = "38SpecialBarrelL",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "MR73",
+								Entity = "M73BarrelShort",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "SWModel10",
+								Entity = "SWModel10Barrel",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "SWModel19",
+								Entity = "SW19BarrelN",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "SWModel29",
+								Entity = "SWModel29Barrel",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "SWModel629",
+								Entity = "SWModel29Barrel",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
 						},
 						group = "Barrel",
 						id = "BarrelNormal",
@@ -63873,6 +64726,107 @@ return {
 						},
 						group = "Barrel",
 						id = "BarrelShort",
+					}),
+					PlaceObj('ModItemWeaponComponent', {
+						AdditionalCosts = {
+							PlaceObj('WeaponComponentCost', {
+								'Amount', 1,
+								'Type', "FineSteelPipe",
+							}),
+						},
+						Cost = 15,
+						DisplayName = T(646798210647, --[[ModItemWeaponComponent BarrelShort_Pistol DisplayName]] "Короткий ствол"),
+						Icon = "UI/Icons/Upgrades/galil_barrel_short",
+						ModificationDifficulty = 0,
+						ModificationEffects = {
+							"BarrelRangeReduce",
+							"BarrelBulletDropReduce",
+							"BarrelHandlingIncrease",
+							"BarrelGroupingReduce",
+							"ReduceShootAP",
+						},
+						Parameters = {
+							PlaceObj('PresetParamNumber', {
+								'Name', "ShootAPDecrease",
+								'Value', 1,
+								'Tag', "<ShootAPDecrease>",
+							}),
+							PlaceObj('PresetParamNumber', {
+								'Name', "RangeDecrease",
+								'Value', 4,
+								'Tag', "<RangeDecrease>",
+							}),
+							PlaceObj('PresetParamNumber', {
+								'Name', "EffectiveRange",
+								'Value', 4,
+								'Tag', "<EffectiveRange>",
+							}),
+						},
+						Slot = "Barrel",
+						Visuals = {
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "P38",
+								Entity = "p38KBarrel",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "rev38Special",
+								Entity = "38SpecialBarrelS",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "ColtPeacemaker",
+								Entity = "WeaponAttA_BarrelColt_02",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "ColtAnaconda",
+								Entity = "WeaponAttA_BarrelAnaconda_Short",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "HiPower",
+								Entity = "WeaponAttA_BarrelBHP_Short",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "MR73",
+								Entity = "M73BarrelShort",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "SWModel10",
+								Entity = "SWModel10BarrelS",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "SWModel19",
+								Entity = "SW19BarrelS",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "SWModel29",
+								Entity = "SWModel29BarrelS",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "SWModel629",
+								Entity = "SWModel29BarrelS",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+						},
+						group = "Barrel",
+						id = "BarrelShort_Pistol",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -65927,6 +66881,39 @@ return {
 						group = "Underslung",
 						id = "SigDefHandGuard",
 					}),
+					PlaceObj('ModItemWeaponComponent', {
+						DisplayName = T(207111073834, --[[ModItemWeaponComponent Handgrip_Ergo DisplayName]] "Эргономичная рукоять"),
+						ModificationEffects = {
+							"GripHandlingIncrease",
+						},
+						Slot = "Handgrip",
+						Visuals = {
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "MR73",
+								Entity = "M73GripErgo",
+								Slot = "Handgrip",
+								param_bindings = false,
+							}),
+						},
+						comment = "Эргономичная",
+						group = "Underslung",
+						id = "Handgrip_Ergo",
+					}),
+					PlaceObj('ModItemWeaponComponent', {
+						DisplayName = T(747694755276, --[[ModItemWeaponComponent Handgrip_Default DisplayName]] "Стандартная рукоять"),
+						Slot = "Handgrip",
+						Visuals = {
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "MR73",
+								Entity = "M73GripBase",
+								Slot = "Handgrip",
+								param_bindings = false,
+							}),
+						},
+						comment = "Пистолетная рукоять от сигов",
+						group = "Underslung",
+						id = "Handgrip_Default",
+					}),
 					}),
 				PlaceObj('ModItemFolder', {
 					'name', "Side",
@@ -66163,6 +67150,12 @@ return {
 								ApplyTo = "AS_Val",
 								Entity = "VSSWing2",
 								Slot = "Side3",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "CZ52",
+								Entity = "P90Planks",
+								Slot = "Mount",
 								param_bindings = false,
 							}),
 						},
@@ -66408,6 +67401,12 @@ return {
 								ApplyTo = "AS_Val",
 								Entity = "VSSWing2",
 								Slot = "Side3",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "CZ52",
+								Entity = "WeaponAttA_MountBottomCAR15",
+								Slot = "Mount",
 								param_bindings = false,
 							}),
 						},
@@ -66785,6 +67784,12 @@ return {
 								ApplyTo = "AS_Val",
 								Entity = "VSSWing2",
 								Slot = "Side3",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "CZ52",
+								Entity = "P90Planks",
+								Slot = "Mount",
 								param_bindings = false,
 							}),
 						},
@@ -67166,6 +68171,12 @@ return {
 								Slot = "Side3",
 								param_bindings = false,
 							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "CZ52",
+								Entity = "P90Planks",
+								Slot = "Mount",
+								param_bindings = false,
+							}),
 						},
 						group = "Side",
 						id = "LaserDot",
@@ -67493,6 +68504,12 @@ return {
 								ApplyTo = "AS_Val",
 								Entity = "VSSWing2",
 								Slot = "Side3",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "CZ52",
+								Entity = "P90Planks",
+								Slot = "Mount",
 								param_bindings = false,
 							}),
 						},
@@ -80772,6 +81789,11 @@ return {
 					'MaxStacks', 5000,
 				}),
 				}),
+			PlaceObj('ModItemWeaponUpgradeSlot', {
+				DisplayName = T(186293445167, --[[ModItemWeaponUpgradeSlot Default Handgrip DisplayName]] "Рукоятка"),
+				group = "Default",
+				id = "Handgrip",
+			}),
 			}),
 		PlaceObj('ModItemFolder', {
 			'name', "Melee",
@@ -81207,12 +82229,6 @@ return {
 				'DamageReduction', 0,
 				'AdditionalReduction', 0,
 				'ProtectedBodyParts', set( "Head" ),
-				'StunGrenadeProtection', function ()
-					    return 0--self.StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-				end,
-				'SuppressionProtection', function ()
-					    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-				end,
 			}),
 			}),
 		PlaceObj('ModItemFolder', {
@@ -84429,12 +85445,6 @@ return {
 					'BlockFaceSlot', true,
 					'Weight', 4,
 					'Vision', -5,
-					'StunGrenadeProtection', function ()
-						    return 0--self.StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-					end,
-					'SuppressionProtection', function ()
-						    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-					end,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -85190,12 +86200,6 @@ return {
 					'CamouflagePercent', 15,
 					'CanHoldPlate', true,
 					'Weight', 2,
-					'StunGrenadeProtection', function ()
-						    return 0--self.StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-					end,
-					'SuppressionProtection', function ()
-						    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-					end,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -85519,12 +86523,7 @@ return {
 					'ExplosiveArmorRating', 20,
 					'CanHoldPlate', true,
 					'Weight', 3,
-					'StunGrenadeProtection', function ()
-						    return 0--self.StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-					end,
-					'SuppressionProtection', function ()
-						    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-					end,
+					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87049,24 +88048,6 @@ return {
 								-- handle add/remove stacks
 								RecalcMaxHitPoints(target)	
 							end
-						end,
-						param_bindings = false,
-					}),
-					PlaceObj('UnitReaction', {
-						Event = "OnCalcStartTurnAP",
-						Handler = function (self, target, value)
-							----------------------------
-							local effect = target:GetStatusEffect("Wounded", "all")
-							local count = 0
-							if effect then
-							 	count = effect.stacks 
-								--print(effect.stacks)
-							end
-								local ap_loss = (-count * const.Scale.AP)
-								value = value - ap_loss
-								
-							
-							--------------------------------
 						end,
 						param_bindings = false,
 					}),
@@ -92124,6 +93105,13 @@ return {
 							end,
 							param_bindings = false,
 						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnEndTurn",
+							Handler = function (self, target)
+								target:ApplySuppressionStatus()
+							end,
+							param_bindings = false,
+						}),
 					},
 					'DisplayName', T(279226942480, --[[ModItemCharacterEffectCompositeDef suppressionLight DisplayName]] "Обстрелян"),
 					'Description', T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionLight Description]] "Шанс попасть во врага немного снижен"),
@@ -92150,6 +93138,13 @@ return {
 							Event = "OnCombatEnd",
 							Handler = function (self, target)
 								target.WillPoints = target.MaxWillPoints
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnEndTurn",
+							Handler = function (self, target)
+								target:ApplySuppressionStatus()
 							end,
 							param_bindings = false,
 						}),
@@ -92186,6 +93181,13 @@ return {
 							Event = "OnCombatEnd",
 							Handler = function (self, target)
 								target.WillPoints = target.MaxWillPoints
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnEndTurn",
+							Handler = function (self, target)
+								target:ApplySuppressionStatus()
 							end,
 							param_bindings = false,
 						}),
@@ -92235,6 +93237,13 @@ return {
 							Event = "OnCombatEnd",
 							Handler = function (self, target)
 								target.WillPoints = target.MaxWillPoints
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnEndTurn",
+							Handler = function (self, target)
+								target:ApplySuppressionStatus()
 							end,
 							param_bindings = false,
 						}),
@@ -92292,6 +93301,13 @@ return {
 							param_bindings = false,
 						}),
 						PlaceObj('UnitReaction', {
+							Event = "OnEndTurn",
+							Handler = function (self, target)
+								target:ApplySuppressionStatus()
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
 							Event = "OnBeginTurn",
 							Handler = function (self, target)
 								if target:CanTakeCover() then
@@ -92316,7 +93332,7 @@ return {
 					'AddEffectText', T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionPinned AddEffectText]] "Под плотным огнем"),
 					'OnAdded', function (self, obj)
 						local unitStance = obj.stance
-						if unitStance ~= "Prone" and not (obj:CanTakeCover()) then
+						if unitStance ~= "Prone" or not (obj:CanTakeCover()) then
 						obj:SetActionCommand("ChangeStance", nil, nil, "Prone")
 						end
 						if obj:CanTakeCover() then
@@ -92341,8 +93357,215 @@ return {
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
+				'name', "System",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "System",
+					'Id', "BipodUnfolded",
+					'object_class', "CharacterEffect",
+					'RemoveOnEndCombat', true,
+					'RemoveOnSatViewTravel', true,
+					'RemoveOnCampaignTimeAdvance', true,
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
 				'name', "Vanilla_Overwrite",
 			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "InnerInfo",
+					'comment', "Фаза",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnUnitEnterMapVisual",
+							Handler = function (self, target)
+								local sector = gv_Sectors[gv_CurrentSectorId]
+								if target.HireStatus ~= "Hired" or not sector.intel_discovered then
+									 return 
+								end
+								
+								CreateGameTimeThread(function()
+									local playVr
+									while GetInGameInterfaceMode() == "IModeDeployment" do
+										Sleep(20)
+									end
+									for _, unit in ipairs(g_Units) do
+										if unit:IsOnEnemySide(target) then
+											unit:RevealTo(target.team)
+											unit.innerInfoRevealed = true
+											playVr = true
+											break
+										end
+									end
+									if playVr then
+										Sleep(2000)
+										PlayVoiceResponse(target,"PersonalPerkSubtitled")
+									end
+								end)
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnCheckIntelVisible",
+							Handler = function (self, target)
+								return gv_CurrentSectorId and gv_Sectors[gv_CurrentSectorId].intel_discovered
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnHackIntelDsicovered",
+							Handler = function (self, target)
+								local discoveredFor = DiscoverIntelForRandomSector(2, "no notification")
+								if discoveredFor then
+									CombatLog("important", T{312197955233, "Livewire used her custom PDA to discover additional Intel for <em><SectorName(sectorId)></em>", sectorId = discoveredFor})
+								end
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Секретные данные"),
+					'Description', T(222768539188, --[[ModItemCharacterEffectCompositeDef InnerInfo Description]] "Открывает месторасположение всех <em>врагов</em>, если у вас есть <em>разведданные</em> для этого сектора."),
+					'Icon', "UI/Icons/Perks/InnerInfo",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "InnerInfo_JAZZ",
+					'comment', "Фаза",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCheckIntelVisible",
+							Handler = function (self, target)
+								return gv_CurrentSectorId and gv_Sectors[gv_CurrentSectorId].intel_discovered
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnHackIntelDsicovered",
+							Handler = function (self, target)
+								local discoveredFor = DiscoverIntelForRandomSector(2, "no notification")
+								if discoveredFor then
+									CombatLog("important", T{312197955233, "Livewire used her custom PDA to discover additional Intel for <em><SectorName(sectorId)></em>", sectorId = discoveredFor})
+								end
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ DisplayName]] "Секретные данные"),
+					'Description', T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
+					'Icon', "UI/Icons/Perks/InnerInfo",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "GruntyPerk",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "cthMod",
+							'Tag', "<cthMod>",
+						}),
+					},
+					'comment', "Хряпти",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCombatStarting",
+							Handler = function (self, target, load_game)
+								if load_game then return end
+								
+								local enemy = target:GetClosestEnemy()
+								if enemy then
+									local weapon = target:GetActiveWeapons()
+									if IsKindOf(weapon, "Firearm") and not IsKindOf(weapon, "HeavyWeapon") then
+										local action = target:GetDefaultAttackAction("ranged")
+										local args = {target = enemy, gruntyPerk = true}
+										LockCameraMovement("grunty perk")
+										StartCombatAction(action.id, target, 0, args)
+									end
+								end
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Юберрашунг"),
+					'Description', T(742416202176, --[[ModItemCharacterEffectCompositeDef GruntyPerk Description]] "<em>Атакует</em> <em>ближайшего</em> противника из огнестрельного оружия <em>в начале боя</em> (если есть возможность).\n\nНеприменимо к тяжелому оружию."),
+					'Icon', "UI/Icons/Perks/GruntyPerk",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "GruntyPerk_JAZZ",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "cthMod",
+							'Tag', "<cthMod>",
+						}),
+					},
+					'comment', "Хряпти",
+					'object_class', "Perk",
+					'msg_reactions', {},
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCombatStarted",
+							Handler = function (self, target, load_game)
+								local ap = target:AddStatusEffect("Grunty_AdditionalAP")
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ DisplayName]] "Юберрашунг"),
+					'Description', T(845332100943, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ Description]] "Дает +50% од на первом ходу"),
+					'Icon', "UI/Icons/Perks/GruntyPerk",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-NPC",
+					'Id', "Grunty_AdditionalAP",
+					'Parameters', {},
+					'object_class', "CharacterEffect",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcStartTurnAP",
+							Handler = function (self, target, value)
+								if not self:ResolveValue("applied") then
+									local ap = target:GetMaxActionPoints()
+									return value + DivRound(ap,2) 
+								end
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnBeginTurn",
+							Handler = function (self, target)
+								local ap = target:GetMaxActionPoints()
+								target:GainAP(DivRound(ap,2) )
+							end,
+							param_bindings = false,
+						}),
+					},
+					'Conditions', {
+						PlaceObj('CheckExpression', {
+							Expression = function (self, obj) return g_Combat and IsKindOf(obj, "Unit") end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(952338905331, --[[ModItemCharacterEffectCompositeDef Grunty_AdditionalAP DisplayName]] "Überraschung"),
+					'Description', T(912592808613, --[[ModItemCharacterEffectCompositeDef Grunty_AdditionalAP Description]] "Дает <em><bonus> ОД</em>."),
+					'OnAdded', function (self, obj)
+						if g_Teams[g_CurrentTeam] == obj.team then
+							local ap = obj:GetMaxActionPoints()
+							obj:GainAP(DivRound(ap,2) )
+							self:SetParameter("applied", true)
+						end
+					end,
+					'type', "Buff",
+					'lifetime', "Until End of Turn",
+					'Icon', "UI/Icons/Perks/GruntyPerk",
+					'RemoveOnEndCombat', true,
+					'Shown', true,
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Strength",
 					'Id', "TakeAim",
@@ -92559,14 +93782,6 @@ return {
 							'Tag', "<night_vision_penalty_reduction>%",
 						}),
 					},
-				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "System",
-					'Id', "BipodUnfolded",
-					'object_class', "CharacterEffect",
-					'RemoveOnEndCombat', true,
-					'RemoveOnSatViewTravel', true,
-					'RemoveOnCampaignTimeAdvance', true,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {

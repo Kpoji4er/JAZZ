@@ -936,20 +936,28 @@ end
 
 				--print(hit.impact_force)
 				--print(hit)
-				local willPointsBaseDamage = DivRound(self.Damage,5)
-				willPointsBaseDamage = MulDivRound(100-(IsKindOf(target, "Unit") and target:SuppressionProtection() or 0),willPointsBaseDamage,100)
-				
+	
+				local willPointsBaseDamage = (100-(IsKindOf(target, "Unit") and target:SuppressionProtection() or 0)) * self.Damage * 0.01
+				--local willPointsBaseDamage = MulDivRound(100-(IsKindOf(target, "Unit") and target:SuppressionProtection() or 0),self.Damage,100)
+				willPointsBaseDamage = willPointsBaseDamage * 0.2 
 				
 				local willPointsDamage = willPointsBaseDamage
 				
 				
-				if IsValid(target) and attack_results.chance_to_hit > 3 and target.team.side ~= attacker.team.side then 
+				if IsValid(target) and (attack_results.chance_to_hit > 0 or not IsMerc(attacker)) and target.team.side ~= attacker.team.side then 
 					--print(target.team.side)
-					local willPointsDamage = Max(willPointsBaseDamage,1) * (attack_results.chance_to_hit * 0.5 + 0.25) * 0.01
+					local willPointsDamage = Max(willPointsBaseDamage,1) * (attack_results.chance_to_hit * 0.1 + 0.5) * 0.01
 					--print("Target Supression: "..willPointsDamage.." cth:"..attack_results.chance_to_hit.." dam:"..Max(self.Damage,1))
 
-					target.WillPoints = Max(0,target.WillPoints - willPointsDamage)
-					
+					if willPointsDamage > 0 then
+						if HasPerk(attacker, "Psycho") then
+							attacker.WillPoints = Max(attacker.MaxWillPoints, attacker.WillPoints + willPointsDamage)
+						else
+						target.WillPoints = Max(0, target.WillPoints - willPointsDamage)
+						target:ApplySuppressionStatus()
+						end
+					end
+	
 				end
 
 
@@ -957,20 +965,28 @@ end
 				
 	
 				for _, unit in ipairs(units) do
-					if attacker:GetPos() ~= unit:GetPos() and unit.team.side ~= attacker.team.side and unit:GetDist(target) < 10000 then
+					if attacker:GetPos() ~= unit:GetPos() and unit.team.side ~= attacker.team.side and hit.pos:GetDist(target) < 10000 then
 						--if isCloser() attacker:IsOnEnemySide(hit_obj)
 						--print(unit.WillPoints)
 						local dist = Min(hit.pos:Dist(unit:GetPos()),hit_data.target_pos:Dist(unit:GetPos()))
 						--print(dist)
-						if dist/const.SlabSizeX < 2 then
+						if dist/const.SlabSizeX < 4 then
 
-							local willPointsDamage = Max(willPointsBaseDamage,1) * (2400 - dist)*0.001
+							local willPointsDamage = Max(willPointsBaseDamage,1) * (const.SlabSizeX * 4 - dist)*0.0005
 
 							--print("Near Units Supression: "..willPointsDamage.." dist:"..dist.." dam:"..Max(self.Damage,1))
 
-							unit.WillPoints = Max(0,unit.WillPoints - willPointsDamage)
+							if willPointsDamage > 0 then
 
-							unit:ApplySuppressionStatus()
+								if HasPerk(attacker, "Psycho") then
+									attacker.WillPoints = Max(attacker.MaxWillPoints, attacker.WillPoints + willPointsDamage)
+								else
+								unit.WillPoints = Max(0, unit.WillPoints - willPointsDamage)
+								unit:ApplySuppressionStatus()
+								end
+
+
+							end
 
 							--print(ammo_type)
 						end
@@ -987,7 +1003,7 @@ end
 		--	for _, unit in ipairs(units) do
 		--		unit:ApplySuppressionStatus()
 		--	end
-			target:ApplySuppressionStatus()
+			
 			--ObjModified(target)
 		end
 

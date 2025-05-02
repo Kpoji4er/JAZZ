@@ -887,19 +887,19 @@ function OnMsg.CombatEnd()
 		return v.HireStatus ~= "Dead"
 	end)
 	
-	for _, unit in ipairs(g_Ununitsits) do
+	for _, unit in ipairs(g_Units) do
 		unit.WillPoints = unit.MaxWillPoints
 	end
 end
 
-function OnMsg.CombatStart()
-
-	local units = g_Units
-	units = table.ifilter(units, function(k, v)
-		return v.HireStatus ~= "Dead"
-	end)
-
-	for _, unit in ipairs(units) do
-		unit.WillPoints = unit.MaxWillPoints
-	end
-end
+--function OnMsg.CombatStart()
+--
+--	local units = g_Units
+--	units = table.ifilter(units, function(k, v)
+--		return v.HireStatus ~= "Dead"
+--	end)
+--
+--	for _, unit in ipairs(units) do
+--		unit.WillPoints = unit.MaxWillPoints
+--	end
+--end

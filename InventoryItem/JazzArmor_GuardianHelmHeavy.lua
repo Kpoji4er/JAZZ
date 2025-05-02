@@ -28,11 +28,5 @@ DefineClass.JazzArmor_GuardianHelmHeavy = {
 	BlockFaceSlot = true,
 	Weight = 4,
 	Vision = -5,
-	StunGrenadeProtection = function ()
-		    return 0--self.StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-	end,
-	SuppressionProtection = function ()
-		    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-	end,
 }
 

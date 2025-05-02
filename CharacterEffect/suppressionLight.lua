@@ -12,6 +12,12 @@ DefineClass.suppressionLight = {
 				target.WillPoints = target.MaxWillPoints
 			end,
 		}),
+		PlaceObj('UnitReaction', {
+			Event = "OnEndTurn",
+			Handler = function (self, target)
+				target:ApplySuppressionStatus()
+			end,
+		}),
 	},
 	DisplayName = T(279226942480, --[[ModItemCharacterEffectCompositeDef suppressionLight DisplayName]] "Обстрелян"),
 	Description = T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionLight Description]] "Шанс попасть во врага немного снижен"),

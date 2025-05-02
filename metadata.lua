@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/3NHHXrHA2D",
 	},
-	'last_changes', "Фикс зависания ии",
+	'last_changes', "Уменьшено подавление",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 5,
-	'version', 4733,
+	'version', 4796,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -166,6 +166,17 @@ return PlaceObj('ModDef', {
 		"InventoryItem/Glock18.lua",
 		"InventoryItem/TexRevolver.lua",
 		"InventoryItem/HighCalRev.lua",
+		"InventoryItem/rev38Special.lua",
+		"InventoryItem/CZ52.lua",
+		"InventoryItem/MAC1950.lua",
+		"InventoryItem/P38.lua",
+		"InventoryItem/VectorCP1.lua",
+		"InventoryItem/Beretta93r.lua",
+		"InventoryItem/MR73.lua",
+		"InventoryItem/ColtM1917.lua",
+		"InventoryItem/SWModel10.lua",
+		"InventoryItem/SWModel19.lua",
+		"InventoryItem/SWModel29.lua",
 		"InventoryItem/M4Commando.lua",
 		"InventoryItem/MP5.lua",
 		"InventoryItem/MP40.lua",
@@ -563,10 +574,15 @@ return PlaceObj('ModDef', {
 		"CharacterEffect/suppressionHeavy.lua",
 		"CharacterEffect/suppressionHeavy2.lua",
 		"CharacterEffect/suppressionPinned.lua",
+		"CharacterEffect/BipodUnfolded.lua",
+		"CharacterEffect/InnerInfo.lua",
+		"CharacterEffect/InnerInfo_JAZZ.lua",
+		"CharacterEffect/GruntyPerk.lua",
+		"CharacterEffect/GruntyPerk_JAZZ.lua",
+		"CharacterEffect/Grunty_AdditionalAP.lua",
 		"CharacterEffect/TakeAim.lua",
 		"CharacterEffect/SteadyBreathing.lua",
 		"CharacterEffect/Stealthy.lua",
-		"CharacterEffect/BipodUnfolded.lua",
 		"CharacterEffect/Jazz_Perk_00.lua",
 		"CharacterEffect/Jazz_Perk_Lynx.lua",
 		"Code/UnitAwareness.lua",
@@ -627,8 +643,8 @@ return PlaceObj('ModDef', {
 	},
 	'default_options', {},
 	'has_data', true,
-	'saved', 1744918124,
-	'code_hash', 6279603079295961866,
+	'saved', 1746196689,
+	'code_hash', 4045407338321545926,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -9252,6 +9268,61 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
+			'Id', "rev38Special",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "CZ52",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "MAC1950",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "P38",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "VectorCP1",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "Beretta93r",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "MR73",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "ColtM1917",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "SWModel10",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "SWModel19",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "SWModel29",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
 			'Id', "M4Commando",
 			'ClassDisplayName', "Inventory item",
 		}),
@@ -10647,6 +10718,11 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "WeaponComponent",
+			'Id', "BarrelShort_Pistol",
+			'ClassDisplayName', "Weapon Component",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponent",
 			'Id', "BarrelShortRunNGun",
 			'ClassDisplayName', "Weapon Component",
 		}),
@@ -10753,6 +10829,16 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "WeaponComponent",
 			'Id', "SigDefHandGuard",
+			'ClassDisplayName', "Weapon Component",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponent",
+			'Id', "Handgrip_Ergo",
+			'ClassDisplayName', "Weapon Component",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponent",
+			'Id', "Handgrip_Default",
 			'ClassDisplayName', "Weapon Component",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -11399,6 +11485,11 @@ return PlaceObj('ModDef', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "Parts",
 			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponUpgradeSlot",
+			'Id', "Handgrip",
+			'ClassDisplayName', "Weapon Upgrade Slot",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
@@ -12967,6 +13058,36 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CharacterEffectCompositeDef",
+			'Id', "BipodUnfolded",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "InnerInfo",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "InnerInfo_JAZZ",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "GruntyPerk",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "GruntyPerk_JAZZ",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Grunty_AdditionalAP",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
 			'Id', "TakeAim",
 			'ClassDisplayName', "Character effect",
 		}),
@@ -13014,11 +13135,6 @@ return PlaceObj('ModDef', {
 			'Class', "CharacterEffectCompositeDef",
 			'Id', "NightOps",
 			'Prop', "Parameters",
-			'ClassDisplayName', "Character effect",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "CharacterEffectCompositeDef",
-			'Id', "BipodUnfolded",
 			'ClassDisplayName', "Character effect",
 		}),
 		PlaceObj('ModResourcePreset', {

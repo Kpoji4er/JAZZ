@@ -28,11 +28,5 @@ DefineClass.JazzArmor_ZylonLight = {
 	CamouflagePercent = 15,
 	CanHoldPlate = true,
 	Weight = 2,
-	StunGrenadeProtection = function ()
-		    return 0--self.StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-	end,
-	SuppressionProtection = function ()
-		    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-	end,
 }
 
