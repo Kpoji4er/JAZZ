@@ -128163,16 +128163,26 @@ return {
 	PlaceObj('ModItemFolder', {
 		'name', "AiFastforward",
 	}, {
-		PlaceObj('ModItemCode', {
-			'name', "AiFastForward",
-			'CodeFileName', "Code/AiFastForward.lua",
+		PlaceObj('ModItemOptionChoice', {
+			'name', "AutoFastForward",
+			'DisplayName', "Автоматическое ускорение хода невидимых врагов",
+			'Help', "Off - выкл\nRunning - Только при беге\nAlways - при беге и во время атак\nВключается если мерки не видят врагов",
+			'OnApply', function (self, value)
+				return
+			end,
+			'DefaultValue', "Running",
+			'ChoiceList', {
+				"Off",
+				"Running",
+				"Always",
+			},
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "Game speed change in combat during the enemy/ally turn, when the Fast Forward mode is checked.",
 			group = "Combat",
 			id = "FastForwardGameSpeed",
 			scale = "%",
-			value = 300,
+			value = 200,
 		}),
 		}),
 	PlaceObj('ModItemGameRuleDef', {
@@ -130501,6 +130511,78 @@ return {
 		PlaceObj('ModItemCode', {
 			'name', "WorldFlipSpawnUnits",
 			'CodeFileName', "Code/WorldFlipSpawnUnits.lua",
+		}),
+		}),
+	PlaceObj('ModItemFolder', {
+		'name', "SpeedUpConstants",
+		'comment', "Tough as Nails",
+	}, {
+		PlaceObj('ModItemConstDef', {
+			Comment = "how many milliseconds to wait after a unit dies (when a cinematic camera is in play)",
+			comment = "UnitDieANim",
+			group = "Combat",
+			id = "UnitDeathKillcamWait",
+			value = 500,
+		}),
+		PlaceObj('ModItemConstDef', {
+			Comment = "m/s",
+			NameColor = 4282219161,
+			comment = "30m (instead of 20)",
+			group = "Combat",
+			id = "RocketVelocity",
+			scale = "m",
+			value = 30000,
+		}),
+		PlaceObj('ModItemConstDef', {
+			NameColor = 4282219161,
+			comment = "0.03 (instead of 0.04)",
+			group = "Combat",
+			id = "BulletDelay",
+			scale = "sec",
+			value = 30,
+		}),
+		PlaceObj('ModItemConstDef', {
+			NameColor = 4282219161,
+			comment = "+10m (now 50)",
+			group = "Combat",
+			id = "BulletVelocity",
+			scale = "m",
+			value = 50000,
+		}),
+		PlaceObj('ModItemConstDef', {
+			NameColor = 4282219161,
+			group = "Combat",
+			id = "ShootDelayAfterInterrupt",
+			value = 400,
+		}),
+		PlaceObj('ModItemConstDef', {
+			Comment = "Delay before action is executed. But it will start counting before the camera reaches the target.",
+			NameColor = 4282219161,
+			group = "Combat",
+			id = "ShootDelay",
+			value = 700,
+		}),
+		PlaceObj('ModItemConstDef', {
+			Comment = "Time to hold the action camera after shots have been fired.",
+			NameColor = 4282219161,
+			group = "Combat",
+			id = "ActionCameraHoldTime",
+			scale = "sec",
+			value = 100,
+		}),
+		PlaceObj('ModItemConstDef', {
+			Comment = "Delay after aiming anim, before moving camera to target.",
+			NameColor = 4282219161,
+			group = "Combat",
+			id = "ShootDelayAfterAimCinematic",
+			value = 250,
+		}),
+		PlaceObj('ModItemConstDef', {
+			Comment = "Delay after aiming anim, before moving camera to target.",
+			NameColor = 4282219161,
+			group = "Combat",
+			id = "ShootDelayAfterAim",
+			value = 250,
 		}),
 		}),
 }

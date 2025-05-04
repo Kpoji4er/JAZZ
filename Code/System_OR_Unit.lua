@@ -1956,25 +1956,25 @@ function Unit:ApplySuppressionStatus()
 			self:RemoveStatusEffect("suppressionMedium","all")
 			self:RemoveStatusEffect("suppressionHeavy","all")
 			self:RemoveStatusEffect("suppressionHeavy2","all")		
-		elseif (WPpercent) <= 25 and not self:HasStatusEffect("suppressionHeavy2") then	
+		elseif (WPpercent) > 10 and (WPpercent) <= 25 and not self:HasStatusEffect("suppressionHeavy2") then	
 			self:AddStatusEffect("suppressionHeavy2")
 			self:RemoveStatusEffect("suppressionLight","all")
 			self:RemoveStatusEffect("suppressionMedium","all")
 			self:RemoveStatusEffect("suppressionHeavy","all")
 			self:RemoveStatusEffect("suppressionPinned","all")
-		elseif (WPpercent) <= 40 and not self:HasStatusEffect("suppressionHeavy") then	
+		elseif (WPpercent) > 25 and (WPpercent) <= 40 and not self:HasStatusEffect("suppressionHeavy") then	
 			self:AddStatusEffect("suppressionHeavy")
 			self:RemoveStatusEffect("suppressionLight","all")
 			self:RemoveStatusEffect("suppressionMedium","all")
 			self:RemoveStatusEffect("suppressionHeavy2","all")	
 			self:RemoveStatusEffect("suppressionPinned","all")
-		elseif (WPpercent) <= 55 and not self:HasStatusEffect("suppressionMedium") then	
+		elseif (WPpercent) > 40 and (WPpercent) <= 55 and not self:HasStatusEffect("suppressionMedium") then	
 			self:AddStatusEffect("suppressionMedium")
 			self:RemoveStatusEffect("suppressionLight","all")
 			self:RemoveStatusEffect("suppressionHeavy","all")
 			self:RemoveStatusEffect("suppressionHeavy2","all")	
 			self:RemoveStatusEffect("suppressionPinned","all")
-		elseif (WPpercent) <= 70 and not self:HasStatusEffect("suppressionLight") then	
+		elseif (WPpercent) > 55 and (WPpercent) <= 70 and not self:HasStatusEffect("suppressionLight") then	
 			self:AddStatusEffect("suppressionLight")
 			self:RemoveStatusEffect("suppressionMedium","all")
 			self:RemoveStatusEffect("suppressionHeavy","all")
@@ -2273,3 +2273,41 @@ function SkillCheck(unit, skill, threshold,dont_report_fails)
 end
 
 
+
+
+function Unit:UpdateMoveSpeed()
+	local modifier = self:CalcMoveSpeedModifier()
+	local speed
+	if not g_Combat and self:IsMerc() then
+		local move_anim = GetStateName(self:GetMoveAnim())
+		local is_running = string.match(move_anim, ".*Run.*") and true or false
+		if is_running then
+			-- fixed speed for mercs
+			if self.stance == "Standing" then
+				speed = const.UnitMoveSpeed.MercStandingStance
+			elseif self.stance == "Crouch" then
+				speed = const.UnitMoveSpeed.MercCrouchStance
+			elseif self.stance == "Prone" then
+				speed = const.UnitMoveSpeed.MercProneStance
+			end
+		else
+			if self.stance == "Standing" then
+				speed = const.UnitMoveSpeed.MercWalk
+			end
+		end
+	end
+	if speed then
+		local mod = MulDivRound(modifier, self:GetAnimSpeedModifier(), 1000)
+		if g_Combat and not self:isMerc() then
+			mod = mod * 2
+		end
+		speed = MulDivRound(speed, mod, 1000)
+		self:SetSpeed(speed)
+	else
+		self:SetMoveSpeed(modifier)
+	end
+	-- debug set speed on zero speed animations
+	if self:GetSpeed() == 0 then
+		self:SetSpeed(self.fallback_walk_speed)
+	end
+end

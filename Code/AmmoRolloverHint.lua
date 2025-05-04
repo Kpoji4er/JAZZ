@@ -13,6 +13,8 @@ translatedModifications = {
     ["BulletDropRange"]  = T(287944595070112, "Настильность"),	
     ["Grouping"]  = T(287944595070113, "Кучность"),	
     ["BaseJamChance"]  = T(287944595070113, "Шанс клина"),	
+    ["PenetrationBonus"]  = T(28794459507011311, "Бонус пробития"),	
+    
 }
 
 function Ammo:GetRolloverHint()
