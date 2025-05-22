@@ -333,9 +333,8 @@ function IsUnitHiddenFromPlayer(unit)
 	end
   
 	return true -- никто не видит
-  end
+end
 
-  
 function AIExecuteUnitBehavior(unit, force_or_skip_action)
 	if not g_Combat or not IsValid(unit) or unit:IsDead() then
 		return
@@ -379,9 +378,11 @@ function AIExecuteUnitBehavior(unit, force_or_skip_action)
 			end
 		end
 
+
+	end
+
 		-- use the rest of the ap (if any) in signature actions and basic attacks
 		return AIPlayAttacks(unit, unit.ai_context, unit.ai_context.forced_signature_action, force_or_skip_action) or AITakeCover(unit)
-	end
 end
 
 function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
@@ -912,12 +913,12 @@ end
 
 function AISignatureAction:MatchUnit(unit)
   for state, _ in pairs(self.AvailableInState) do
-    if not GameStates[state] then
+    if not GameStates.state then
       return
     end
   end
   for state, _ in pairs(self.ForbiddenInState) do
-    if GameStates[state] then
+    if GameStates.state then
       return
     end
   end

@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/3NHHXrHA2D",
 	},
-	'last_changes', "Опции для автоускорения ходов в настройках хода для невидимых врагов:\nOff - выкл\nRunning - Только при беге\nAlways - при беге и во время атак",
+	'last_changes', "Багофиксы",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 5,
-	'version', 4809,
+	'version', 4817,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -642,10 +642,11 @@ return PlaceObj('ModDef', {
 	},
 	'default_options', {
 		AutoFastForward = "Running",
+		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1746317917,
-	'code_hash', 3156443636902472163,
+	'saved', 1747757915,
+	'code_hash', -7865224275329214715,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",

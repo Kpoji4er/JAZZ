@@ -1168,13 +1168,13 @@ TFormat.bullets =  function(context_obj, bullets, max, icon)
 		if bullets > 0 then
 			if context_obj and context_obj.MagazineSize and context_obj.ammo.colorStyle and bullets ~= 0 then	
 			--	text = T{"<style <ammocolor> ><text></style>/<style InventoryItemsCountMax><max></style>", ammocolor = context_obj.ammo.colorStyle, text = text}
-				text = Untranslated{"<style "..context_obj.ammo.colorStyle..">"..text.."</style>/<style InventoryItemsCountMax><max></style>", ammocolor = context_obj.ammo.colorStyle, text = text}
+				text = Untranslated("<style " .. context_obj.ammo.colorStyle .. ">" .. text .. "</style>/<style InventoryItemsCountMax><max></style>")
 				--text = "<style "..context_obj.ammo.colorStyle..">"..text.."</style>" .. "/<style InventoryItemsCountMax><max></style>"
 			else
-				text = text .. "/<style InventoryItemsCountMax><max></style>"
+				text = Untranslated(text .. "/<style InventoryItemsCountMax><max></style>")
 			end
 		else
-			text = text .. "/<style InventoryItemsCountMax><max></style>"
+			text = Untranslated(text .. "/<style InventoryItemsCountMax><max></style>")
 		end
 		return T{text, bullets = bullets, max = max or 0, icon = icon}
 	end		 
@@ -1182,7 +1182,7 @@ end
 
 function InventoryStack:GetItemSlotUI()
 	if self.colorStyle then
-			return "<style "..self.colorStyle..">"..self.Amount.."<valign bottom 0><style "..self.colorStyle..">/"..self.MaxStacks.."</style>"
+			return  Untranslated("<style "..self.colorStyle..">"..self.Amount.."<valign bottom 0><style "..self.colorStyle..">/"..self.MaxStacks.."</style>")
 	else
 			return T{709831548751, "<style InventoryItemsCount><cur><valign bottom 0><style InventoryItemsCountMax>/<max></style>", 
 				 cur = self.Amount, max = self.MaxStacks}

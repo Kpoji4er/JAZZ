@@ -120,7 +120,7 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
     default = 0,
     template = true,
     min = 0,
-    max = 100,
+    max = 120,
     modifiable = true
 }
 

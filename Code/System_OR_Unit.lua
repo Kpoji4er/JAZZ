@@ -176,6 +176,8 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 				end
 			end
 		end
+		if hidden then coverbuff = coverbuff * 1.5
+		other:HasStatusEffect("Protected") then coverbuff = coverbuff * 1.1
 		modifier = modifier - coverbuff
 
 	end
@@ -959,6 +961,11 @@ end
 
 
 function Unit:RecalcWillPoints()
+
+	if HasPerk(self, "Psycho") then
+		self.WillPoints = Clamp(self.WillPoints - 5, 0, self.MaxWillPoints)
+		return end		
+
 	local leadership = 0
 	local animalsnearby = 0
 
@@ -976,14 +983,32 @@ function Unit:RecalcWillPoints()
 
 			if HasPerk(unit, "Negotiator") then dist = Max(1,dist-3) end
 			if dist < 11 then
-				leadership = Max(leadership,unit.Leadership*(11-dist))
+				leadership = Max(leadership,(unit.Leadership + 5 * unit:GetPersonalMorale())*(11-dist))
 			end
 			--ObjModified(unit)
 		end
 		--end
 	end
 
-	local buff = DivRound(self.MaxWillPoints,10) + DivRound(leadership,50) or 0
+	for _, dislikedMerc in ipairs(self.Dislikes) do
+		if DivRound(self:GetPos():Dist(dislikedMerc:GetPos()),const.SlabSizeX) < 3
+		local dislikedIndex = table.find(self.team.units, "session_id", dislikedMerc)
+		if dislikedIndex and not self.team.units[dislikedIndex]:IsDead() then
+			buff = buff - 3
+			isDisliking = true
+			break
+		end
+	end
+		for _, likedMerc in ipairs(self.Likes) do
+			if DivRound(self:GetPos():Dist(likedMerc:GetPos()),const.SlabSizeX) < 3
+			local likedIndex = table.find(self.team.units, "session_id", likedMerc)
+			if likedIndex and not self.team.units[likedIndex]:IsDead() and   then
+				buff = buff + 3
+				break
+			end
+		end
+
+	local buff = 5 + DivRound(leadership,50)
 	--print("wpbuffleadership"..buff)
 
 	if HasPerk(self, "Optimist") then
@@ -991,9 +1016,9 @@ function Unit:RecalcWillPoints()
 		local roll = InteractionRand(100, "Optimist")
 		if roll < chance then
 			PlayVoiceResponse(self, "Optimist")
-			
+			buff = buff + 10
 		end
-		buff = buff + 10
+		buff = buff + 1
 	end
 
 	if HasPerk(self, "Pessimist") then
@@ -1001,9 +1026,9 @@ function Unit:RecalcWillPoints()
 		local roll = InteractionRand(100, "Pessimist")
 		if roll < chance then
 			PlayVoiceResponse(self, "Pessimist")
-			
+			buff = buff - 10
 		end
-		buff = buff - 10
+		buff = buff - 1
 	end
 
 	if HasPerk(self, "Spiritual") then
@@ -1038,19 +1063,25 @@ function Unit:RecalcWillPoints()
 			PlayVoiceResponse(self, "Hemophobic")
 			--CombatLog("debug", T{Untranslated("<em>Hemophobic</em> proc on <unit>"), unit = self.Name})
 
-			PanicOutOfSequence({self})
-			buff = -20
+			--PanicOutOfSequence({self})
+			buff = buff - 50
 		end
 	end
 
 	if self:HasStatusEffect("Protected") then
-		buff = buff + 15
+		buff = buff + 20
 	end
 
+	if self:HasStatusEffect("SuppressionPinned") then
+		buff = buff + 5
+	end
 
-	self.WillPoints = Max(self.WillPoints + buff,0)
-	self.WillPoints = Min(self.WillPoints,self.MaxWillPoints)
+    buff = buff + 3*self:GetPersonalMorale()
 
+
+	local wp_delta = MulDivRound(self.MaxWillPoints, buff, 100)
+	
+	self.WillPoints = Clamp(self.WillPoints + wp_delta, 0, self.MaxWillPoints)
 	--self:ApplySuppressionStatus()
 	--print("wpbuff"..buff)
 
@@ -1189,8 +1220,8 @@ function Unit:BeginTurn(new_turn)
 	--	end
 
 
-		RecalcMaxWillPoints(self)
 		self:RecalcWillPoints()
+		RecalcMaxWillPoints(self)
 
 		self:CalculateArmorWeight()
 		
@@ -1976,6 +2007,12 @@ function Unit:ApplySuppressionStatus()
 			self:RemoveStatusEffect("suppressionPinned","all")
 		elseif (WPpercent) > 55 and (WPpercent) <= 70 and not self:HasStatusEffect("suppressionLight") then	
 			self:AddStatusEffect("suppressionLight")
+			self:RemoveStatusEffect("suppressionMedium","all")
+			self:RemoveStatusEffect("suppressionHeavy","all")
+			self:RemoveStatusEffect("suppressionHeavy2","all")	
+			self:RemoveStatusEffect("suppressionPinned","all")	
+		elseif (WPpercent) > 70 then	
+			self:RemoveStatusEffect("suppressionLight")
 			self:RemoveStatusEffect("suppressionMedium","all")
 			self:RemoveStatusEffect("suppressionHeavy","all")
 			self:RemoveStatusEffect("suppressionHeavy2","all")	

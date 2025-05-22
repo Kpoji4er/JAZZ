@@ -29363,14 +29363,14 @@ return {
 						PlaceObj('LootEntryInventoryItem', {
 							generate_chance = 50,
 							item = "GlowStick",
-							stack_max = 3,
+							stack_max = 1,
 							stack_min = 1,
 							weight = 3000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							generate_chance = 50,
 							item = "FlareStick",
-							stack_max = 3,
+							stack_max = 1,
 							stack_min = 1,
 							weight = 10000,
 						}),
@@ -29748,11 +29748,6 @@ return {
 							loot_def = "Noob_GoonHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -29777,11 +29772,6 @@ return {
 							loot_def = "Strong_GoonHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -29809,11 +29799,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -29849,11 +29834,6 @@ return {
 							loot_def = "MedsDrop",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -29886,11 +29866,6 @@ return {
 							loot_def = "MedsDrop",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -29923,11 +29898,6 @@ return {
 							loot_def = "MedsDrop",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -29946,11 +29916,6 @@ return {
 							loot_def = "JunkDrop",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -29984,11 +29949,6 @@ return {
 							loot_def = "Drop_MortarShell_HE",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30013,11 +29973,6 @@ return {
 							loot_def = "Noob_MeleeHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30045,11 +30000,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30077,11 +30027,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30110,11 +30055,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30144,6 +30084,9 @@ return {
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "EnemyValuables_LowTier",
 						}),
+						PlaceObj('LootEntryLootDef', {
+							loot_def = "NightEquipment",
+						}),
 					}),
 					PlaceObj('ModItemLootDef', {
 						Comment = "enemy legion",
@@ -30169,6 +30112,9 @@ return {
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "EnemyValuables_LowTier",
+						}),
+						PlaceObj('LootEntryLootDef', {
+							loot_def = "NightEquipment",
 						}),
 					}),
 					PlaceObj('ModItemLootDef', {
@@ -30196,6 +30142,9 @@ return {
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "EnemyValuables_LowTier",
+						}),
+						PlaceObj('LootEntryLootDef', {
+							loot_def = "NightEquipment",
 						}),
 					}),
 					PlaceObj('ModItemLootDef', {
@@ -30230,6 +30179,9 @@ return {
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "EnemyValuables_LowTier",
 						}),
+						PlaceObj('LootEntryLootDef', {
+							loot_def = "NightEquipment",
+						}),
 					}),
 					PlaceObj('ModItemLootDef', {
 						Comment = "enemy legion",
@@ -30259,6 +30211,9 @@ return {
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "EnemyValuables_LowTier",
 						}),
+						PlaceObj('LootEntryLootDef', {
+							loot_def = "NightEquipment",
+						}),
 					}),
 					PlaceObj('ModItemLootDef', {
 						Comment = "enemy legion",
@@ -30279,6 +30234,9 @@ return {
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "EnemyValuables_LowTier",
+						}),
+						PlaceObj('LootEntryLootDef', {
+							loot_def = "NightEquipment",
 						}),
 					}),
 					PlaceObj('ModItemLootDef', {
@@ -30304,6 +30262,9 @@ return {
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "EnemyValuables_LowTier",
 						}),
+						PlaceObj('LootEntryLootDef', {
+							loot_def = "NightEquipment",
+						}),
 					}),
 					PlaceObj('ModItemLootDef', {
 						Comment = "enemy legion",
@@ -30328,6 +30289,9 @@ return {
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "EnemyValuables_LowTier",
 						}),
+						PlaceObj('LootEntryLootDef', {
+							loot_def = "NightEquipment",
+						}),
 					}),
 					PlaceObj('ModItemLootDef', {
 						Comment = "enemy legion",
@@ -30347,11 +30311,6 @@ return {
 							loot_def = "Noob_RaiderHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30379,11 +30338,6 @@ return {
 							loot_def = "Noob_RaiderHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30411,11 +30365,6 @@ return {
 							loot_def = "Strong_RaiderHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30443,11 +30392,6 @@ return {
 							loot_def = "Strong_RaiderHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30478,11 +30422,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30513,11 +30452,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30548,11 +30482,6 @@ return {
 							loot_def = "Legion_SupportGrenade",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30580,11 +30509,6 @@ return {
 							loot_def = "Legion_SupportGrenade",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30627,11 +30551,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30785,11 +30704,6 @@ return {
 							loot_def = "Noob_ReconHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30822,11 +30736,6 @@ return {
 							loot_def = "FlareGun",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30858,11 +30767,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30902,11 +30806,6 @@ return {
 							loot_def = "Strong_RaiderLegs",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30954,11 +30853,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31014,11 +30908,6 @@ return {
 							loot_def = "FlareGun",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31058,11 +30947,6 @@ return {
 							loot_def = "LegionNoob_Pistol",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31097,11 +30981,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31136,11 +31015,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31169,11 +31043,6 @@ return {
 							loot_def = "Noob_ReconHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31201,11 +31070,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31237,11 +31101,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31273,11 +31132,6 @@ return {
 							loot_def = "Noob_ReconLegs",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31309,11 +31163,6 @@ return {
 							loot_def = "Strong_ReconLegs",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31348,11 +31197,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31381,11 +31225,6 @@ return {
 							loot_def = "Noob_RaiderHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "FlareGun",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31426,11 +31265,6 @@ return {
 							loot_def = "Strong_RaiderHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "FlareGun",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31474,11 +31308,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "FlareGun",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -93773,12 +93602,12 @@ return {
 					'TargetValue', {
 						PlaceObj('PresetParamPercent', {
 							'Name', "night_acc_penalty_reduction",
-							'Value', 20,
+							'Value', 10,
 							'Tag', "<night_acc_penalty_reduction>%",
 						}),
 						PlaceObj('PresetParamPercent', {
 							'Name', "night_vision_penalty_reduction",
-							'Value', 20,
+							'Value', 10,
 							'Tag', "<night_vision_penalty_reduction>%",
 						}),
 					},
@@ -128183,6 +128012,13 @@ return {
 			id = "FastForwardGameSpeed",
 			scale = "%",
 			value = 200,
+		}),
+		PlaceObj('ModItemOptionNumber', {
+			'name', "ShowLastEnemy",
+			'DisplayName', "Показать последнего врага",
+			'Help', "Количество оставшихся врагов, которых становится видно на тактической карте",
+			'DefaultValue', 1,
+			'MaxValue', 4,
 		}),
 		}),
 	PlaceObj('ModItemGameRuleDef', {

@@ -405,6 +405,40 @@ function CrosshairUI:UpdateAim()
 	ShowCrosshairTutorial(self)
 end
 
+function CrosshairUI:OnLayoutComplete()
+	if not self.dynamic then
+		self:SetInteractionBox(self.box:minx(), self.box:miny(), point(1000, 1000), true)
+	end
+	local target = self.context.target
+	local playVr = IsKindOf(self.parent, "IModeCombatAttack")
+	if playVr and not target:IsPlayerAlly() and (not IsKindOf(target, "Unit") or not target:IsCivilian()) then
+		-- Get attack results from crosshair to determine whether to play VR
+		local attackResult = self and self.cached_results
+		attackResult = attackResult and attackResult[self.context.action.id]
+		
+		local one_non_obstructed = false
+		local bestChance = 0
+		local worstChance = max_int
+		local attackResultCalc = attackResult and attackResult.attackResultCalc
+		local is_blind_fire = attackResultCalc and not not attackResultCalc.BlindFire
+		for id, bodyPartData in pairs(attackResultCalc) do
+			bestChance = Max(bestChance, bodyPartData.chance_to_hit)
+			worstChance = Min(worstChance, bodyPartData.chance_to_hit)
+			one_non_obstructed = one_non_obstructed or not bodyPartData.obstructed
+		end
+		
+		local torsoAttackResult = attackResult and attackResult.attackResultCalc
+		torsoAttackResult = torsoAttackResult and torsoAttackResult.Torso
+		local torso_stealth_kill = torsoAttackResult and torsoAttackResult.stealth_attack
+		local attacker = self.context.attacker
+		local is_hidden = attacker:HasStatusEffect("Hidden") or torso_stealth_kill
+		if not one_non_obstructed or is_blind_fire or bestChance <= 20 then
+			PlayVoiceResponse(attacker, is_hidden and "AimAttack_LowStealth" or "AimAttack_Low")
+		elseif bestChance > 50 then
+			PlayVoiceResponse(attacker, is_hidden and "AimAttackStealth" or "AimAttack")
+		end
+	end	
+end
 
 function PopulateCrosshairUICth(win, attacker, action, attackResults)
 	local weapon = action:GetAttackWeapons(attacker)
