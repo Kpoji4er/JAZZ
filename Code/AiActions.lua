@@ -320,6 +320,71 @@ function AICalcAttacksAndAim(context, ap, target)
 	return num_attacks, aims
 end
 
+
+function IsUnitHiddenFromPlayer(unit)
+	if not unit or unit:IsDead() then return true end
+  
+	for _, player in ipairs(g_Units) do
+	  if player.team and player.team.side == "player1" and not player:IsDead() then
+		if player:CanSee(unit) then
+		  return false -- хотя бы один игрок видит юнита
+		end
+	  end
+	end
+  
+	return true -- никто не видит
+end
+
+function AIExecuteUnitBehavior(unit, force_or_skip_action)
+	if not g_Combat or not IsValid(unit) or unit:IsDead() then
+		return
+	end
+
+	local options = CurrentModOptions or empty_table
+
+	if CurrentModOptions.AutoFastForward ~= "Off" then
+	
+		if IsUnitHiddenFromPlayer(unit) then
+			g_FastForwardGameSpeed = "Fast"
+			UpdateFastForwardGameSpeed()
+		  else
+			g_FastForwardGameSpeed = "Normal"
+			UpdateFastForwardGameSpeed()
+		end
+	end
+
+	if unit.ai_context.behavior then
+		local status = unit.ai_context.behavior:Play(unit)
+		if g_AIExecutionController then
+			g_AIExecutionController:Log("  Behavior %s for unit %s (%d) returned '%s'", unit.ai_context.behavior:GetEditorView(), unit.unitdatadef_id, unit.handle, tostring(status))
+		end
+
+		if status then -- support behaviors that want to restart or stop the unit's ai
+			return status 
+		end
+	end
+
+	-- recheck unit, they could be killed or despawned during Play
+	if IsValid(unit) and not unit:IsDead() then
+
+		if CurrentModOptions.AutoFastForward == "Always" then
+	
+			if IsUnitHiddenFromPlayer(unit) then
+				g_FastForwardGameSpeed = "Fast"
+				UpdateFastForwardGameSpeed()
+			  else
+				g_FastForwardGameSpeed = "Normal"
+				UpdateFastForwardGameSpeed()
+			end
+		end
+
+
+	end
+
+		-- use the rest of the ap (if any) in signature actions and basic attacks
+		return AIPlayAttacks(unit, unit.ai_context, unit.ai_context.forced_signature_action, force_or_skip_action) or AITakeCover(unit)
+end
+
 function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 	-- filter enemies because they might have been killed by a teammate
 	if g_AIExecutionController then
@@ -848,12 +913,12 @@ end
 
 function AISignatureAction:MatchUnit(unit)
   for state, _ in pairs(self.AvailableInState) do
-    if not GameStates[state] then
+    if not GameStates.state then
       return
     end
   end
   for state, _ in pairs(self.ForbiddenInState) do
-    if GameStates[state] then
+    if GameStates.state then
       return
     end
   end

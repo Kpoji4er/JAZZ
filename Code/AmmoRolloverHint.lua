@@ -13,6 +13,8 @@ translatedModifications = {
     ["BulletDropRange"]  = T(287944595070112, "Настильность"),	
     ["Grouping"]  = T(287944595070113, "Кучность"),	
     ["BaseJamChance"]  = T(287944595070113, "Шанс клина"),	
+    ["PenetrationBonus"]  = T(28794459507011311, "Бонус пробития"),	
+    
 }
 
 function Ammo:GetRolloverHint()
@@ -54,7 +56,7 @@ function Ammo:GetRolloverHint()
        if target_prop == translatedModifications["BaseJamChance"] then mod_add = "+0.0"..val.mod_add.."%" end
      
         if val.mod_add ~= 0 or (val.mod_mull ~= 1000 and val.mod_mul ~= 0) then
-        hint[#hint+1] = T{378508273050111, "<bullet_point> <target_prop>: <mod_add> <mod_mul>",target_prop = target_prop, mod_add = mod_add, mod_mul = mod_mul}
+        hint[#hint+1] = T{378508273050111, "<bullet_point> <target_prop>: <mod_add> <mod_mul>",target_prop = Untranslated(target_prop), mod_add = Untranslated(mod_add), mod_mul = Untranslated(mod_mul)}
         end
 		--parts[#parts+1] = val.target_prop
 	end

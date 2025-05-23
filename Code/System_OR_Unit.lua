@@ -123,6 +123,7 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 			-- add (clamped) attrib difference as modifier
 			local steath_mod = Max(0, MulDivRound(other.Agility - self.Wisdom, const.Combat.SightModStealthStatDiff, 100))		
 			--if self:IsAware() and other.stance ~= "Prone"  then steath_mod = DivRound(steath_mod,2) end
+
 			modifier = modifier - steath_mod
 		end
 
@@ -150,6 +151,37 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 	end)
 
 
+	--cover
+	if other_is_unit then
+		local cover, any, coverage = other:GetCoverPercentage(self)
+		local coverbuff = 0
+		if cover and coverage > 0 then
+			-- full cover
+			if cover == const.CoverHigh then
+				if other.stance == "Standing" then
+					coverbuff = coverage * 0.30 -- цель торчит больше
+				elseif other.stance == "Crouch" then
+					coverbuff = coverage * 0.35 -- сидит, меньше видно
+				elseif other.stance == "Prone" then
+					coverbuff = coverage * 0.50 -- лежит за фулл кавером = почти невидим
+				end
+				-- half cover
+			elseif cover == const.CoverLow then
+				if other.stance == "Standing" then
+					coverbuff = coverage * 0.15 -- половинка прикрыта
+				elseif other.stance == "Crouch" then
+					coverbuff = coverage * 0.20 -- сидит за половинкой — норм
+				elseif other.stance == "Prone" then
+					coverbuff = coverage * 0.35 -- лег, всё ещё видно, но хуже
+				end
+			end
+		end
+		if hidden then coverbuff = coverbuff * 1.5
+		other:HasStatusEffect("Protected") then coverbuff = coverbuff * 1.1
+		modifier = modifier - coverbuff
+
+	end
+
 
 	-- environmental factors
 	if other then
@@ -158,9 +190,9 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 			modifier = modifier + const.EnvEffects.BrushSightMod
 
 			if hidden then
-				modifier = modifier - camo*2
+				modifier = modifier - camo*3
 			else
-				modifier = modifier - camo*2
+				modifier = modifier - camo
 			end
 
 			if other.stance == "Prone" then
@@ -881,20 +913,20 @@ function Unit:CalculateArmorWeight()
 	if self.using_cumbersome then TotalFreeMoveDebuff = MulDivRound(TotalFreeMoveDebuff,1,2) end
 
 		if self.Strength > 60 then
-			local StrBuff = MulDivRound(self.Strength-60,const.Scale.AP,20)
+			local StrBuff = MulDivRound(self.Strength-60,1,20)
 			TotalFreeMoveDebuff = TotalFreeMoveDebuff - StrBuff 
-			TotalAPDebuff = TotalAPDebuff - StrBuff * 2 
+			TotalAPDebuff = TotalAPDebuff - StrBuff * 2 * const.Scale.AP
 		end
 
-		TotalAPDebuff = floatfloor(TotalAPDebuff)
+		TotalAPDebuff = floatfloor(TotalAPDebuff,0.5)
 		TotalFreeMoveDebuff = floatfloor(TotalFreeMoveDebuff)
 
-		--print(TotalFreeMoveDebuff..TotalAPDebuff)
+		--print(TotalFreeMoveDebuff.." "..TotalAPDebuff)
 
 		TotalFreeMoveDebuff = Clamp(TotalFreeMoveDebuff, 0, 12*const.Scale.AP)
 		TotalAPDebuff = Clamp(TotalAPDebuff, 0, 5*const.Scale.AP)
 
-		--print(TotalFreeMoveDebuff..TotalAPDebuff)
+		--print(TotalFreeMoveDebuff.." "..TotalAPDebuff)
 		
 		self:ConsumeAP(TotalFreeMoveDebuff, "Move")
 		self:ConsumeAP(Min(self.ActionPoints, TotalAPDebuff))
@@ -915,9 +947,9 @@ function Unit:CalculateArmorWeight()
 		self:RemoveStatusEffect("Weight_3Class", "all")
 		self:RemoveStatusEffect("Weight_4Class", "all")
 		self:RemoveStatusEffect("Weight_5Class", "all")
-
-		if TotalFreeMoveDebuff/const.Scale.AP > 0 then
-			local count = floatfloor(TotalFreeMoveDebuff/const.Scale.AP)
+		--print(TotalFreeMoveDebuff)
+		if TotalFreeMoveDebuff > 1 then
+			local count = floatfloor(TotalFreeMoveDebuff)
 			--print(count)
 			for i = 1, count do
 				self:AddStatusEffect("Weight_"..armorclass.."Class")
@@ -929,6 +961,11 @@ end
 
 
 function Unit:RecalcWillPoints()
+
+	if HasPerk(self, "Psycho") then
+		self.WillPoints = Clamp(self.WillPoints - 5, 0, self.MaxWillPoints)
+		return end		
+
 	local leadership = 0
 	local animalsnearby = 0
 
@@ -946,24 +983,42 @@ function Unit:RecalcWillPoints()
 
 			if HasPerk(unit, "Negotiator") then dist = Max(1,dist-3) end
 			if dist < 11 then
-				leadership = Max(leadership,unit.Leadership*(11-dist))
+				leadership = Max(leadership,(unit.Leadership + 5 * unit:GetPersonalMorale())*(11-dist))
 			end
 			--ObjModified(unit)
 		end
 		--end
 	end
 
-	local buff = DivRound(self.MaxWillPoints,10) + DivRound(leadership,50) or 0
-	print("wpbuffleadership"..buff)
+	for _, dislikedMerc in ipairs(self.Dislikes) do
+		if DivRound(self:GetPos():Dist(dislikedMerc:GetPos()),const.SlabSizeX) < 3
+		local dislikedIndex = table.find(self.team.units, "session_id", dislikedMerc)
+		if dislikedIndex and not self.team.units[dislikedIndex]:IsDead() then
+			buff = buff - 3
+			isDisliking = true
+			break
+		end
+	end
+		for _, likedMerc in ipairs(self.Likes) do
+			if DivRound(self:GetPos():Dist(likedMerc:GetPos()),const.SlabSizeX) < 3
+			local likedIndex = table.find(self.team.units, "session_id", likedMerc)
+			if likedIndex and not self.team.units[likedIndex]:IsDead() and   then
+				buff = buff + 3
+				break
+			end
+		end
+
+	local buff = 5 + DivRound(leadership,50)
+	--print("wpbuffleadership"..buff)
 
 	if HasPerk(self, "Optimist") then
 		local chance = CharacterEffectDefs.Optimist:ResolveValue("procChance")
 		local roll = InteractionRand(100, "Optimist")
 		if roll < chance then
 			PlayVoiceResponse(self, "Optimist")
-			
+			buff = buff + 10
 		end
-		buff = buff + 10
+		buff = buff + 1
 	end
 
 	if HasPerk(self, "Pessimist") then
@@ -971,9 +1026,9 @@ function Unit:RecalcWillPoints()
 		local roll = InteractionRand(100, "Pessimist")
 		if roll < chance then
 			PlayVoiceResponse(self, "Pessimist")
-			
+			buff = buff - 10
 		end
-		buff = buff - 10
+		buff = buff - 1
 	end
 
 	if HasPerk(self, "Spiritual") then
@@ -1008,17 +1063,27 @@ function Unit:RecalcWillPoints()
 			PlayVoiceResponse(self, "Hemophobic")
 			--CombatLog("debug", T{Untranslated("<em>Hemophobic</em> proc on <unit>"), unit = self.Name})
 
-			PanicOutOfSequence({self})
-			buff = -20
+			--PanicOutOfSequence({self})
+			buff = buff - 50
 		end
 	end
 
+	if self:HasStatusEffect("Protected") then
+		buff = buff + 20
+	end
+
+	if self:HasStatusEffect("SuppressionPinned") then
+		buff = buff + 5
+	end
+
+    buff = buff + 3*self:GetPersonalMorale()
+
+
+	local wp_delta = MulDivRound(self.MaxWillPoints, buff, 100)
 	
-
-
-	self.WillPoints = Max(self.WillPoints + buff,0)
-	self.WillPoints = Min(self.WillPoints,self.MaxWillPoints)
-	print("wpbuff"..buff)
+	self.WillPoints = Clamp(self.WillPoints + wp_delta, 0, self.MaxWillPoints)
+	--self:ApplySuppressionStatus()
+	--print("wpbuff"..buff)
 
 end
 
@@ -1047,6 +1112,7 @@ function Unit:BeginTurn(new_turn)
 		PlayVoiceResponse(self, "MeleeEnemiesClosing")
 		self.is_melee_aim_last_turn = false
 	end
+
 
 	self.perks_activated = {}
 	NetUpdateHash("BeginTurn_Progress")
@@ -1108,6 +1174,9 @@ function Unit:BeginTurn(new_turn)
 			self:AddStatusEffect("FreeMove")
 			--self:ConsumeAP(DivRound(self.free_move_ap, 2), "Move")
 		end
+
+		
+
 --
 		--self:ForEachItem("Armor", function(item, slot)
 		--	print(item)
@@ -1119,9 +1188,17 @@ function Unit:BeginTurn(new_turn)
 		
 
 
-
+		
 
 		
+		local effect = self:GetStatusEffect("Wounded", "all")
+		local wounds = 0
+		if effect then
+			wounds = effect.stacks 
+		end
+		if wounds > 0 then
+			self:ConsumeAP(wounds * const.Scale.AP)
+		end
 
 
 		self:SetWeaponLightFx(true)
@@ -1143,9 +1220,10 @@ function Unit:BeginTurn(new_turn)
 	--	end
 
 
-		RecalcMaxWillPoints(self)
 		self:RecalcWillPoints()
-		self:ApplySuppressionStatus()
+		RecalcMaxWillPoints(self)
+
+		self:CalculateArmorWeight()
 		
 		if self:GetItemInSlot("HeadGear", "GasMaskBase") then
 			self:ConsumeAP(const.Scale.AP)
@@ -1877,8 +1955,7 @@ end
 
 function Unit:ApplySuppressionStatus()
 	
-		if HasPerk(self, "Psycho") then
-		return end
+
 
 		--local unitData = gv_UnitData[self.session_id]
 		if self.species ~= "Human" then return end
@@ -1890,42 +1967,52 @@ function Unit:ApplySuppressionStatus()
 --		print(MaxWillPoints)
 		
 		local WPpercent = MulDivRound(self.WillPoints, 100, MaxWillPoints) or 0
-
+		local morale = self:GetPersonalMorale() or 0
+		WPpercent = WPpercent - morale*3
 --		print(WPpercent)
 
 		
 
-		
+	if HasPerk(self, "Psycho") then
+	if (self.WillPoints) <= 10 then self:AddStatusEffect("Berserk") end
+		self.WillPoints = self.MaxWillPoints
+	return end		
 
 		
 
 		
-		if (WPpercent) <= 3 and not self:HasStatusEffect("suppressionPinned") then	
+		if (WPpercent) <= 10 and not self:HasStatusEffect("suppressionPinned") then	
 			self:AddStatusEffect("suppressionPinned")
 			self:RemoveStatusEffect("suppressionLight","all")
 			self:RemoveStatusEffect("suppressionMedium","all")
 			self:RemoveStatusEffect("suppressionHeavy","all")
 			self:RemoveStatusEffect("suppressionHeavy2","all")		
-		elseif (WPpercent) <= 10 and not self:HasStatusEffect("suppressionHeavy2") then	
+		elseif (WPpercent) > 10 and (WPpercent) <= 25 and not self:HasStatusEffect("suppressionHeavy2") then	
 			self:AddStatusEffect("suppressionHeavy2")
 			self:RemoveStatusEffect("suppressionLight","all")
 			self:RemoveStatusEffect("suppressionMedium","all")
 			self:RemoveStatusEffect("suppressionHeavy","all")
 			self:RemoveStatusEffect("suppressionPinned","all")
-		elseif (WPpercent) <= 25 and not self:HasStatusEffect("suppressionHeavy") then	
+		elseif (WPpercent) > 25 and (WPpercent) <= 40 and not self:HasStatusEffect("suppressionHeavy") then	
 			self:AddStatusEffect("suppressionHeavy")
 			self:RemoveStatusEffect("suppressionLight","all")
 			self:RemoveStatusEffect("suppressionMedium","all")
 			self:RemoveStatusEffect("suppressionHeavy2","all")	
 			self:RemoveStatusEffect("suppressionPinned","all")
-		elseif (WPpercent) <= 45 and not self:HasStatusEffect("suppressionMedium") then	
+		elseif (WPpercent) > 40 and (WPpercent) <= 55 and not self:HasStatusEffect("suppressionMedium") then	
 			self:AddStatusEffect("suppressionMedium")
 			self:RemoveStatusEffect("suppressionLight","all")
 			self:RemoveStatusEffect("suppressionHeavy","all")
 			self:RemoveStatusEffect("suppressionHeavy2","all")	
 			self:RemoveStatusEffect("suppressionPinned","all")
-		elseif (WPpercent) <= 60 and not self:HasStatusEffect("suppressionLight") then	
+		elseif (WPpercent) > 55 and (WPpercent) <= 70 and not self:HasStatusEffect("suppressionLight") then	
 			self:AddStatusEffect("suppressionLight")
+			self:RemoveStatusEffect("suppressionMedium","all")
+			self:RemoveStatusEffect("suppressionHeavy","all")
+			self:RemoveStatusEffect("suppressionHeavy2","all")	
+			self:RemoveStatusEffect("suppressionPinned","all")	
+		elseif (WPpercent) > 70 then	
+			self:RemoveStatusEffect("suppressionLight")
 			self:RemoveStatusEffect("suppressionMedium","all")
 			self:RemoveStatusEffect("suppressionHeavy","all")
 			self:RemoveStatusEffect("suppressionHeavy2","all")	
@@ -2223,3 +2310,41 @@ function SkillCheck(unit, skill, threshold,dont_report_fails)
 end
 
 
+
+
+function Unit:UpdateMoveSpeed()
+	local modifier = self:CalcMoveSpeedModifier()
+	local speed
+	if not g_Combat and self:IsMerc() then
+		local move_anim = GetStateName(self:GetMoveAnim())
+		local is_running = string.match(move_anim, ".*Run.*") and true or false
+		if is_running then
+			-- fixed speed for mercs
+			if self.stance == "Standing" then
+				speed = const.UnitMoveSpeed.MercStandingStance
+			elseif self.stance == "Crouch" then
+				speed = const.UnitMoveSpeed.MercCrouchStance
+			elseif self.stance == "Prone" then
+				speed = const.UnitMoveSpeed.MercProneStance
+			end
+		else
+			if self.stance == "Standing" then
+				speed = const.UnitMoveSpeed.MercWalk
+			end
+		end
+	end
+	if speed then
+		local mod = MulDivRound(modifier, self:GetAnimSpeedModifier(), 1000)
+		if g_Combat and not self:isMerc() then
+			mod = mod * 2
+		end
+		speed = MulDivRound(speed, mod, 1000)
+		self:SetSpeed(speed)
+	else
+		self:SetMoveSpeed(modifier)
+	end
+	-- debug set speed on zero speed animations
+	if self:GetSpeed() == 0 then
+		self:SetSpeed(self.fallback_walk_speed)
+	end
+end

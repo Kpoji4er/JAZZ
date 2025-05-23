@@ -5,7 +5,7 @@ const.AIFriendlyFire_LOFConeFar = 300*guic 				-- same as above for cone attacks
 const.AIFriendlyFire_ScoreMod = 15							-- % of damage score evaluation remanining when an ally is in danger
 
 const.AIDecisionThreshold = 80 -- targets/locations up to this percent of max scored target/location can be selected
-const.AIShootAboveCTH = -10
+const.AIShootAboveCTH = 0
 
 local function lClearPredictedExplosions(list)
 	for i, m in ipairs(list) do

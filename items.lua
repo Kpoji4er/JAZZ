@@ -29363,14 +29363,14 @@ return {
 						PlaceObj('LootEntryInventoryItem', {
 							generate_chance = 50,
 							item = "GlowStick",
-							stack_max = 3,
+							stack_max = 1,
 							stack_min = 1,
 							weight = 3000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							generate_chance = 50,
 							item = "FlareStick",
-							stack_max = 3,
+							stack_max = 1,
 							stack_min = 1,
 							weight = 10000,
 						}),
@@ -29748,11 +29748,6 @@ return {
 							loot_def = "Noob_GoonHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -29777,11 +29772,6 @@ return {
 							loot_def = "Strong_GoonHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -29809,11 +29799,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -29849,11 +29834,6 @@ return {
 							loot_def = "MedsDrop",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -29886,11 +29866,6 @@ return {
 							loot_def = "MedsDrop",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -29923,11 +29898,6 @@ return {
 							loot_def = "MedsDrop",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -29946,11 +29916,6 @@ return {
 							loot_def = "JunkDrop",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -29984,11 +29949,6 @@ return {
 							loot_def = "Drop_MortarShell_HE",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30013,11 +29973,6 @@ return {
 							loot_def = "Noob_MeleeHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30045,11 +30000,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30077,11 +30027,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30110,11 +30055,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30144,6 +30084,9 @@ return {
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "EnemyValuables_LowTier",
 						}),
+						PlaceObj('LootEntryLootDef', {
+							loot_def = "NightEquipment",
+						}),
 					}),
 					PlaceObj('ModItemLootDef', {
 						Comment = "enemy legion",
@@ -30169,6 +30112,9 @@ return {
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "EnemyValuables_LowTier",
+						}),
+						PlaceObj('LootEntryLootDef', {
+							loot_def = "NightEquipment",
 						}),
 					}),
 					PlaceObj('ModItemLootDef', {
@@ -30196,6 +30142,9 @@ return {
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "EnemyValuables_LowTier",
+						}),
+						PlaceObj('LootEntryLootDef', {
+							loot_def = "NightEquipment",
 						}),
 					}),
 					PlaceObj('ModItemLootDef', {
@@ -30230,6 +30179,9 @@ return {
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "EnemyValuables_LowTier",
 						}),
+						PlaceObj('LootEntryLootDef', {
+							loot_def = "NightEquipment",
+						}),
 					}),
 					PlaceObj('ModItemLootDef', {
 						Comment = "enemy legion",
@@ -30259,6 +30211,9 @@ return {
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "EnemyValuables_LowTier",
 						}),
+						PlaceObj('LootEntryLootDef', {
+							loot_def = "NightEquipment",
+						}),
 					}),
 					PlaceObj('ModItemLootDef', {
 						Comment = "enemy legion",
@@ -30279,6 +30234,9 @@ return {
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "EnemyValuables_LowTier",
+						}),
+						PlaceObj('LootEntryLootDef', {
+							loot_def = "NightEquipment",
 						}),
 					}),
 					PlaceObj('ModItemLootDef', {
@@ -30304,6 +30262,9 @@ return {
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "EnemyValuables_LowTier",
 						}),
+						PlaceObj('LootEntryLootDef', {
+							loot_def = "NightEquipment",
+						}),
 					}),
 					PlaceObj('ModItemLootDef', {
 						Comment = "enemy legion",
@@ -30328,6 +30289,9 @@ return {
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "EnemyValuables_LowTier",
 						}),
+						PlaceObj('LootEntryLootDef', {
+							loot_def = "NightEquipment",
+						}),
 					}),
 					PlaceObj('ModItemLootDef', {
 						Comment = "enemy legion",
@@ -30347,11 +30311,6 @@ return {
 							loot_def = "Noob_RaiderHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30379,11 +30338,6 @@ return {
 							loot_def = "Noob_RaiderHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30411,11 +30365,6 @@ return {
 							loot_def = "Strong_RaiderHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30443,11 +30392,6 @@ return {
 							loot_def = "Strong_RaiderHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30478,11 +30422,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30513,11 +30452,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30548,11 +30482,6 @@ return {
 							loot_def = "Legion_SupportGrenade",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30580,11 +30509,6 @@ return {
 							loot_def = "Legion_SupportGrenade",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30627,11 +30551,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30785,11 +30704,6 @@ return {
 							loot_def = "Noob_ReconHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30822,11 +30736,6 @@ return {
 							loot_def = "FlareGun",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30858,11 +30767,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30902,11 +30806,6 @@ return {
 							loot_def = "Strong_RaiderLegs",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -30954,11 +30853,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31014,11 +30908,6 @@ return {
 							loot_def = "FlareGun",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31058,11 +30947,6 @@ return {
 							loot_def = "LegionNoob_Pistol",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31097,11 +30981,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31136,11 +31015,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31169,11 +31043,6 @@ return {
 							loot_def = "Noob_ReconHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31201,11 +31070,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31237,11 +31101,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31273,11 +31132,6 @@ return {
 							loot_def = "Noob_ReconLegs",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31309,11 +31163,6 @@ return {
 							loot_def = "Strong_ReconLegs",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31348,11 +31197,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "NightEquipment",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31381,11 +31225,6 @@ return {
 							loot_def = "Noob_RaiderHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "FlareGun",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31426,11 +31265,6 @@ return {
 							loot_def = "Strong_RaiderHead",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "FlareGun",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -31474,11 +31308,6 @@ return {
 							loot_def = "EnemyValuables",
 						}),
 						PlaceObj('LootEntryLootDef', {
-							game_conditions = {
-								PlaceObj('IsTimeOfDay', {
-									TimeOfDay = "Night",
-								}),
-							},
 							loot_def = "FlareGun",
 						}),
 						PlaceObj('LootEntryLootDef', {
@@ -49130,6 +48959,805 @@ return {
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
+				'name', "NewWeapon_DEV",
+			}, {
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "rev38Special",
+					'comment', "T1",
+					'object_class', "Revolver",
+					'ScrapParts', 6,
+					'RepairCost', 30,
+					'Reliability', 95,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/ColtPeaceMaker.png",
+					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef rev38Special DisplayName]] "38Special"),
+					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef rev38Special DisplayNamePlural]] "38Special"),
+					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef rev38Special Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
+					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef rev38Special AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер - точный, надежный, но большие затраты ОД на выстрел и перезарядку"),
+					'UnitStat', "Marksmanship",
+					'Cost', 500,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'Caliber', "JAZZ_Caliber_38",
+					'Damage', 18,
+					'ObjDamageMod', 40,
+					'AimAccuracy', 8,
+					'CritChance', 5,
+					'CritChanceScaled', 30,
+					'MagazineSize', 6,
+					'WeaponRange', 15,
+					'OverwatchAngle', 5100,
+					'Noise', 40,
+					'Entity', "38Special",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Barrel",
+							'AvailableComponents', {
+								"BarrelNormal",
+								"BarrelShort_Pistol",
+							},
+							'DefaultComponent', "BarrelShort_Pistol",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 5000,
+					'ReloadAP', 8000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 94,
+					'BulletDropRange', 7,
+					'Grouping', 92,
+					'BaseJamChance', -100,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "CZ52",
+					'comment', "T2 9mm",
+					'object_class', "Pistol",
+					'ScrapParts', 6,
+					'RepairCost', 70,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/CZ75.png",
+					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef CZ52 DisplayName]] "CZ52"),
+					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef CZ52 DisplayNamePlural]] "CZ52"),
+					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef CZ52 Description]] 'Спортивный, боевой, полицейский, гражданский пистолет из Чехии. Практически, победитель оружейного "Евровидения", но первое место принадлежит тому, кого нельзя называть. Иначе придется его купить.'),
+					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef CZ52 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая точность"),
+					'UnitStat', "Marksmanship",
+					'Cost', 1250,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_9x19",
+					'Damage', 21,
+					'ObjDamageMod', 20,
+					'AimAccuracy', 10,
+					'CritChance', 5,
+					'CritChanceScaled', 35,
+					'MagazineSize', 16,
+					'WeaponRange', 14,
+					'OverwatchAngle', 5400,
+					'Noise', 30,
+					'Entity', "CZ52",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"MagNormal",
+								"MagLarge",
+							},
+							'DefaultComponent', "MagNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'Modifiable', false,
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"ImprovisedSuppressor",
+								"Suppressor",
+							},
+							'DefaultComponent', "su",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Side",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"Flashlight",
+								"LaserDot",
+								"FlashlightDot",
+								"UVDot",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 3000,
+					'ReloadAP', 3000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 98,
+					'BulletDropRange', 6,
+					'Grouping', 94,
+					'BaseJamChance', -20,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "MAC1950",
+					'comment', "T2 9mm",
+					'object_class', "Pistol",
+					'ScrapParts', 6,
+					'RepairCost', 70,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/CZ75.png",
+					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef MAC1950 DisplayName]] "MAC Mle 1950"),
+					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef MAC1950 DisplayNamePlural]] "MAC Mle 1950"),
+					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef MAC1950 Description]] 'Спортивный, боевой, полицейский, гражданский пистолет из Чехии. Практически, победитель оружейного "Евровидения", но первое место принадлежит тому, кого нельзя называть. Иначе придется его купить.'),
+					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef MAC1950 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая точность"),
+					'UnitStat', "Marksmanship",
+					'Cost', 1250,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_9x19",
+					'Damage', 21,
+					'ObjDamageMod', 20,
+					'AimAccuracy', 10,
+					'CritChance', 5,
+					'CritChanceScaled', 35,
+					'MagazineSize', 16,
+					'WeaponRange', 14,
+					'OverwatchAngle', 5400,
+					'Noise', 30,
+					'Entity', "MAC1950",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"MagNormal",
+								"MagLarge",
+							},
+							'DefaultComponent', "MagNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'Modifiable', false,
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"ImprovisedSuppressor",
+								"Suppressor",
+							},
+							'DefaultComponent', "su",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Side",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"Flashlight",
+								"LaserDot",
+								"FlashlightDot",
+								"UVDot",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 3000,
+					'ReloadAP', 3000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 98,
+					'BulletDropRange', 6,
+					'Grouping', 94,
+					'BaseJamChance', -20,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "P38",
+					'comment', "T2 9mm",
+					'object_class', "Pistol",
+					'ScrapParts', 6,
+					'RepairCost', 70,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/CZ75.png",
+					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef P38 DisplayName]] "P38"),
+					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef P38 DisplayNamePlural]] "P38"),
+					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef P38 Description]] 'Спортивный, боевой, полицейский, гражданский пистолет из Чехии. Практически, победитель оружейного "Евровидения", но первое место принадлежит тому, кого нельзя называть. Иначе придется его купить.'),
+					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef P38 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая точность"),
+					'UnitStat', "Marksmanship",
+					'Cost', 1250,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_9x19",
+					'Damage', 21,
+					'ObjDamageMod', 20,
+					'AimAccuracy', 10,
+					'CritChance', 5,
+					'CritChanceScaled', 35,
+					'MagazineSize', 16,
+					'WeaponRange', 14,
+					'OverwatchAngle', 5400,
+					'Noise', 30,
+					'Entity', "P38",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"MagNormal",
+								"MagLarge",
+							},
+							'DefaultComponent', "MagNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Barrel",
+							'AvailableComponents', {
+								"BarrelNormal",
+								"BarrelShort_Pistol",
+							},
+							'DefaultComponent', "BarrelNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"ImprovisedSuppressor",
+								"PistolSuppressor",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 3000,
+					'ReloadAP', 3000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 98,
+					'BulletDropRange', 6,
+					'Grouping', 94,
+					'BaseJamChance', -20,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "VectorCP1",
+					'comment', "T2 9mm",
+					'object_class', "Pistol",
+					'ScrapParts', 6,
+					'RepairCost', 70,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/CZ75.png",
+					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef VectorCP1 DisplayName]] "Vektor CP1"),
+					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef VectorCP1 DisplayNamePlural]] "Vektor CP1"),
+					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef VectorCP1 Description]] 'Спортивный, боевой, полицейский, гражданский пистолет из Чехии. Практически, победитель оружейного "Евровидения", но первое место принадлежит тому, кого нельзя называть. Иначе придется его купить.'),
+					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef VectorCP1 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая точность"),
+					'UnitStat', "Marksmanship",
+					'Cost', 1250,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_9x19",
+					'Damage', 21,
+					'ObjDamageMod', 20,
+					'AimAccuracy', 10,
+					'CritChance', 5,
+					'CritChanceScaled', 35,
+					'MagazineSize', 16,
+					'WeaponRange', 14,
+					'OverwatchAngle', 5400,
+					'Noise', 30,
+					'Entity', "VectorCP1",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"MagNormal",
+								"MagLarge",
+							},
+							'DefaultComponent', "MagNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'Modifiable', false,
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"ImprovisedSuppressor",
+								"Suppressor",
+							},
+							'DefaultComponent', "su",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 3000,
+					'ReloadAP', 3000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 98,
+					'BulletDropRange', 6,
+					'Grouping', 94,
+					'BaseJamChance', -20,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "Beretta93r",
+					'comment', "T2 9mm",
+					'object_class', "Pistol",
+					'ScrapParts', 6,
+					'RepairCost', 70,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/CZ75.png",
+					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef Beretta93r DisplayName]] "Beretta 93r"),
+					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef Beretta93r DisplayNamePlural]] "Beretta 93r"),
+					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef Beretta93r Description]] 'Спортивный, боевой, полицейский, гражданский пистолет из Чехии. Практически, победитель оружейного "Евровидения", но первое место принадлежит тому, кого нельзя называть. Иначе придется его купить.'),
+					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef Beretta93r AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая точность"),
+					'UnitStat', "Marksmanship",
+					'Cost', 1250,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_9x19",
+					'Damage', 21,
+					'ObjDamageMod', 20,
+					'AimAccuracy', 10,
+					'CritChance', 5,
+					'CritChanceScaled', 35,
+					'MagazineSize', 16,
+					'WeaponRange', 14,
+					'OverwatchAngle', 5400,
+					'Noise', 30,
+					'Entity', "Beretta93r",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"MagNormal",
+								"MagLarge",
+							},
+							'DefaultComponent', "MagNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'Modifiable', false,
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"ImprovisedSuppressor",
+								"Suppressor",
+							},
+							'DefaultComponent', "su",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 3000,
+					'ReloadAP', 3000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 98,
+					'BulletDropRange', 6,
+					'Grouping', 94,
+					'BaseJamChance', -20,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "MR73",
+					'comment', "T1",
+					'object_class', "Revolver",
+					'ScrapParts', 6,
+					'RepairCost', 30,
+					'Reliability', 95,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/ColtPeaceMaker.png",
+					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef MR73 DisplayName]] "Manurhin MR 73"),
+					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef MR73 DisplayNamePlural]] "Manurhin MR 73"),
+					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef MR73 Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
+					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef MR73 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер - точный, надежный, но большие затраты ОД на выстрел и перезарядку"),
+					'UnitStat', "Marksmanship",
+					'Cost', 500,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'Caliber', "JAZZ_Caliber_38",
+					'Damage', 18,
+					'ObjDamageMod', 40,
+					'AimAccuracy', 8,
+					'CritChance', 5,
+					'CritChanceScaled', 30,
+					'MagazineSize', 6,
+					'WeaponRange', 15,
+					'OverwatchAngle', 5100,
+					'Noise', 40,
+					'Entity', "M73Base",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Barrel",
+							'AvailableComponents', {
+								"BarrelLong",
+								"BarrelNormal",
+							},
+							'DefaultComponent', "BarrelNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Handgrip",
+							'AvailableComponents', {
+								"Handgrip_Default",
+								"Handgrip_Ergo",
+							},
+							'DefaultComponent', "Handgrip_Default",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 5000,
+					'ReloadAP', 8000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 94,
+					'BulletDropRange', 7,
+					'Grouping', 92,
+					'BaseJamChance', -100,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "ColtM1917",
+					'comment', "T1",
+					'object_class', "Revolver",
+					'ScrapParts', 6,
+					'RepairCost', 30,
+					'Reliability', 95,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/ColtPeaceMaker.png",
+					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef ColtM1917 DisplayName]] "Colt M1917 .45 Service Revolver"),
+					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef ColtM1917 DisplayNamePlural]] "Colt M1917 .45 Service Revolver"),
+					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef ColtM1917 Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
+					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef ColtM1917 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер - точный, надежный, но большие затраты ОД на выстрел и перезарядку"),
+					'UnitStat', "Marksmanship",
+					'Cost', 500,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'Caliber', "JAZZ_Caliber_38",
+					'Damage', 18,
+					'ObjDamageMod', 40,
+					'AimAccuracy', 8,
+					'CritChance', 5,
+					'CritChanceScaled', 30,
+					'MagazineSize', 6,
+					'WeaponRange', 15,
+					'OverwatchAngle', 5100,
+					'Noise', 40,
+					'Entity', "Colt1917",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 5000,
+					'ReloadAP', 8000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 94,
+					'BulletDropRange', 7,
+					'Grouping', 92,
+					'BaseJamChance', -100,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "SWModel10",
+					'comment', "T1",
+					'object_class', "Revolver",
+					'ScrapParts', 6,
+					'RepairCost', 30,
+					'Reliability', 95,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/ColtPeaceMaker.png",
+					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef SWModel10 DisplayName]] "SWModel10"),
+					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef SWModel10 DisplayNamePlural]] "SWModel10"),
+					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef SWModel10 Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
+					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef SWModel10 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер - точный, надежный, но большие затраты ОД на выстрел и перезарядку"),
+					'UnitStat', "Marksmanship",
+					'Cost', 500,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'Caliber', "JAZZ_Caliber_38",
+					'Damage', 18,
+					'ObjDamageMod', 40,
+					'AimAccuracy', 8,
+					'CritChance', 5,
+					'CritChanceScaled', 30,
+					'MagazineSize', 6,
+					'WeaponRange', 15,
+					'OverwatchAngle', 5100,
+					'Noise', 40,
+					'Entity', "SWModel10",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Barrel",
+							'AvailableComponents', {
+								"BarrelShort_Pistol",
+								"BarrelNormal",
+							},
+							'DefaultComponent', "BarrelNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Side",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"Flashlight",
+								"LaserDot",
+								"FlashlightDot",
+								"UVDot",
+							},
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 5000,
+					'ReloadAP', 8000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 94,
+					'BulletDropRange', 7,
+					'Grouping', 92,
+					'BaseJamChance', -100,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "SWModel19",
+					'comment', "T1",
+					'object_class', "Revolver",
+					'ScrapParts', 6,
+					'RepairCost', 30,
+					'Reliability', 95,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/ColtPeaceMaker.png",
+					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef SWModel19 DisplayName]] "SWModel19"),
+					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef SWModel19 DisplayNamePlural]] "SWModel19"),
+					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef SWModel19 Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
+					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef SWModel19 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер - точный, надежный, но большие затраты ОД на выстрел и перезарядку"),
+					'UnitStat', "Marksmanship",
+					'Cost', 500,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'Caliber', "JAZZ_Caliber_38",
+					'Damage', 18,
+					'ObjDamageMod', 40,
+					'AimAccuracy', 8,
+					'CritChance', 5,
+					'CritChanceScaled', 30,
+					'MagazineSize', 6,
+					'WeaponRange', 15,
+					'OverwatchAngle', 5100,
+					'Noise', 40,
+					'Entity', "SW19",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Barrel",
+							'AvailableComponents', {
+								"BarrelLong",
+								"BarrelNormal",
+								"BarrelShort_Pistol",
+							},
+							'DefaultComponent', "BarrelNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Side",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"Flashlight",
+								"LaserDot",
+								"FlashlightDot",
+								"UVDot",
+							},
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 5000,
+					'ReloadAP', 8000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 94,
+					'BulletDropRange', 7,
+					'Grouping', 92,
+					'BaseJamChance', -100,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Firearm - Handgun",
+					'Id', "SWModel29",
+					'comment', "T1",
+					'object_class', "Revolver",
+					'ScrapParts', 6,
+					'RepairCost', 30,
+					'Reliability', 95,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/ColtPeaceMaker.png",
+					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef SWModel29 DisplayName]] "SWModel29"),
+					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef SWModel29 DisplayNamePlural]] "SWModel29"),
+					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef SWModel29 Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
+					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef SWModel29 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер - точный, надежный, но большие затраты ОД на выстрел и перезарядку"),
+					'UnitStat', "Marksmanship",
+					'Cost', 500,
+					'CanAppearInShop', true,
+					'CategoryPair', "Handguns",
+					'Caliber', "JAZZ_Caliber_38",
+					'Damage', 18,
+					'ObjDamageMod', 40,
+					'AimAccuracy', 8,
+					'CritChance', 5,
+					'CritChanceScaled', 30,
+					'MagazineSize', 6,
+					'WeaponRange', 15,
+					'OverwatchAngle', 5100,
+					'Noise', 40,
+					'Entity', "SWModel29",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Barrel",
+							'AvailableComponents', {
+								"BarrelShort_Pistol",
+								"BarrelNormal",
+							},
+							'DefaultComponent', "BarrelNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Side",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"Flashlight",
+								"LaserDot",
+								"FlashlightDot",
+								"UVDot",
+							},
+						}),
+					},
+					'Color', "Black",
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"SingleShot",
+						"DualShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 5000,
+					'ReloadAP', 8000,
+					'MaxAimActions', 2,
+					'Recoil', 1,
+					'AutoShots', 3,
+					'Handling', 94,
+					'BulletDropRange', 7,
+					'Grouping', 92,
+					'BaseJamChance', -100,
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
 				'name', "SMGs",
 			}, {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -63240,6 +63868,18 @@ return {
 								Slot = "Barrel",
 								param_bindings = false,
 							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "MR73",
+								Entity = "M73BarrelLong",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "SWModel19",
+								Entity = "SW19BarrelL",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
 						},
 						group = "Barrel",
 						id = "BarrelLong",
@@ -63601,6 +64241,48 @@ return {
 								Slot = "Barrel",
 								param_bindings = false,
 							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "P38",
+								Entity = "p38Barrel",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "rev38Special",
+								Entity = "38SpecialBarrelL",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "MR73",
+								Entity = "M73BarrelShort",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "SWModel10",
+								Entity = "SWModel10Barrel",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "SWModel19",
+								Entity = "SW19BarrelN",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "SWModel29",
+								Entity = "SWModel29Barrel",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "SWModel629",
+								Entity = "SWModel29Barrel",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
 						},
 						group = "Barrel",
 						id = "BarrelNormal",
@@ -63873,6 +64555,107 @@ return {
 						},
 						group = "Barrel",
 						id = "BarrelShort",
+					}),
+					PlaceObj('ModItemWeaponComponent', {
+						AdditionalCosts = {
+							PlaceObj('WeaponComponentCost', {
+								'Amount', 1,
+								'Type', "FineSteelPipe",
+							}),
+						},
+						Cost = 15,
+						DisplayName = T(646798210647, --[[ModItemWeaponComponent BarrelShort_Pistol DisplayName]] "Короткий ствол"),
+						Icon = "UI/Icons/Upgrades/galil_barrel_short",
+						ModificationDifficulty = 0,
+						ModificationEffects = {
+							"BarrelRangeReduce",
+							"BarrelBulletDropReduce",
+							"BarrelHandlingIncrease",
+							"BarrelGroupingReduce",
+							"ReduceShootAP",
+						},
+						Parameters = {
+							PlaceObj('PresetParamNumber', {
+								'Name', "ShootAPDecrease",
+								'Value', 1,
+								'Tag', "<ShootAPDecrease>",
+							}),
+							PlaceObj('PresetParamNumber', {
+								'Name', "RangeDecrease",
+								'Value', 4,
+								'Tag', "<RangeDecrease>",
+							}),
+							PlaceObj('PresetParamNumber', {
+								'Name', "EffectiveRange",
+								'Value', 4,
+								'Tag', "<EffectiveRange>",
+							}),
+						},
+						Slot = "Barrel",
+						Visuals = {
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "P38",
+								Entity = "p38KBarrel",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "rev38Special",
+								Entity = "38SpecialBarrelS",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "ColtPeacemaker",
+								Entity = "WeaponAttA_BarrelColt_02",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "ColtAnaconda",
+								Entity = "WeaponAttA_BarrelAnaconda_Short",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "HiPower",
+								Entity = "WeaponAttA_BarrelBHP_Short",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "MR73",
+								Entity = "M73BarrelShort",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "SWModel10",
+								Entity = "SWModel10BarrelS",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "SWModel19",
+								Entity = "SW19BarrelS",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "SWModel29",
+								Entity = "SWModel29BarrelS",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "SWModel629",
+								Entity = "SWModel29BarrelS",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+						},
+						group = "Barrel",
+						id = "BarrelShort_Pistol",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -65927,6 +66710,39 @@ return {
 						group = "Underslung",
 						id = "SigDefHandGuard",
 					}),
+					PlaceObj('ModItemWeaponComponent', {
+						DisplayName = T(207111073834, --[[ModItemWeaponComponent Handgrip_Ergo DisplayName]] "Эргономичная рукоять"),
+						ModificationEffects = {
+							"GripHandlingIncrease",
+						},
+						Slot = "Handgrip",
+						Visuals = {
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "MR73",
+								Entity = "M73GripErgo",
+								Slot = "Handgrip",
+								param_bindings = false,
+							}),
+						},
+						comment = "Эргономичная",
+						group = "Underslung",
+						id = "Handgrip_Ergo",
+					}),
+					PlaceObj('ModItemWeaponComponent', {
+						DisplayName = T(747694755276, --[[ModItemWeaponComponent Handgrip_Default DisplayName]] "Стандартная рукоять"),
+						Slot = "Handgrip",
+						Visuals = {
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "MR73",
+								Entity = "M73GripBase",
+								Slot = "Handgrip",
+								param_bindings = false,
+							}),
+						},
+						comment = "Пистолетная рукоять от сигов",
+						group = "Underslung",
+						id = "Handgrip_Default",
+					}),
 					}),
 				PlaceObj('ModItemFolder', {
 					'name', "Side",
@@ -66163,6 +66979,12 @@ return {
 								ApplyTo = "AS_Val",
 								Entity = "VSSWing2",
 								Slot = "Side3",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "CZ52",
+								Entity = "P90Planks",
+								Slot = "Mount",
 								param_bindings = false,
 							}),
 						},
@@ -66408,6 +67230,12 @@ return {
 								ApplyTo = "AS_Val",
 								Entity = "VSSWing2",
 								Slot = "Side3",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "CZ52",
+								Entity = "WeaponAttA_MountBottomCAR15",
+								Slot = "Mount",
 								param_bindings = false,
 							}),
 						},
@@ -66785,6 +67613,12 @@ return {
 								ApplyTo = "AS_Val",
 								Entity = "VSSWing2",
 								Slot = "Side3",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "CZ52",
+								Entity = "P90Planks",
+								Slot = "Mount",
 								param_bindings = false,
 							}),
 						},
@@ -67166,6 +68000,12 @@ return {
 								Slot = "Side3",
 								param_bindings = false,
 							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "CZ52",
+								Entity = "P90Planks",
+								Slot = "Mount",
+								param_bindings = false,
+							}),
 						},
 						group = "Side",
 						id = "LaserDot",
@@ -67493,6 +68333,12 @@ return {
 								ApplyTo = "AS_Val",
 								Entity = "VSSWing2",
 								Slot = "Side3",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "CZ52",
+								Entity = "P90Planks",
+								Slot = "Mount",
 								param_bindings = false,
 							}),
 						},
@@ -80772,6 +81618,11 @@ return {
 					'MaxStacks', 5000,
 				}),
 				}),
+			PlaceObj('ModItemWeaponUpgradeSlot', {
+				DisplayName = T(186293445167, --[[ModItemWeaponUpgradeSlot Default Handgrip DisplayName]] "Рукоятка"),
+				group = "Default",
+				id = "Handgrip",
+			}),
 			}),
 		PlaceObj('ModItemFolder', {
 			'name', "Melee",
@@ -81207,12 +82058,6 @@ return {
 				'DamageReduction', 0,
 				'AdditionalReduction', 0,
 				'ProtectedBodyParts', set( "Head" ),
-				'StunGrenadeProtection', function ()
-					    return 0--self.StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-				end,
-				'SuppressionProtection', function ()
-					    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-				end,
 			}),
 			}),
 		PlaceObj('ModItemFolder', {
@@ -83854,9 +84699,6 @@ return {
 					'AdditionalReduction', 20,
 					'NightVision', 20,
 					'StunGrenadeProtection', -20,
-					'SuppressionProtection', function ()
-						    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-					end,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -83875,9 +84717,6 @@ return {
 					'AdditionalReduction', 20,
 					'NightVision', 40,
 					'StunGrenadeProtection', -20,
-					'SuppressionProtection', function ()
-						    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-					end,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -83896,9 +84735,6 @@ return {
 					'AdditionalReduction', 20,
 					'NightVision', 60,
 					'StunGrenadeProtection', -20,
-					'SuppressionProtection', function ()
-						    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-					end,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -84000,6 +84836,7 @@ return {
 					'BlockFaceSlot', true,
 					'Weight', 4,
 					'Vision', -20,
+					'SuppressionProtection', 50,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -84437,12 +85274,6 @@ return {
 					'BlockFaceSlot', true,
 					'Weight', 4,
 					'Vision', -5,
-					'StunGrenadeProtection', function ()
-						    return 0--self.StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-					end,
-					'SuppressionProtection', function ()
-						    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-					end,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -85198,12 +86029,6 @@ return {
 					'CamouflagePercent', 15,
 					'CanHoldPlate', true,
 					'Weight', 2,
-					'StunGrenadeProtection', function ()
-						    return 0--self.StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-					end,
-					'SuppressionProtection', function ()
-						    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-					end,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -85527,12 +86352,7 @@ return {
 					'ExplosiveArmorRating', 20,
 					'CanHoldPlate', true,
 					'Weight', 3,
-					'StunGrenadeProtection', function ()
-						    return 0--self.StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-					end,
-					'SuppressionProtection', function ()
-						    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-					end,
+					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87060,24 +87880,6 @@ return {
 						end,
 						param_bindings = false,
 					}),
-					PlaceObj('UnitReaction', {
-						Event = "OnCalcStartTurnAP",
-						Handler = function (self, target, value)
-							----------------------------
-							local effect = target:GetStatusEffect("Wounded", "all")
-							local count = 0
-							if effect then
-							 	count = effect.stacks 
-								--print(effect.stacks)
-							end
-								local ap_loss = (-count * const.Scale.AP)
-								value = value - ap_loss
-								
-							
-							--------------------------------
-						end,
-						param_bindings = false,
-					}),
 				},
 				'DisplayName', T(738668654416, --[[ModItemCharacterEffectCompositeDef Wounded DisplayName]] "Ранен"),
 				'Description', T(345786294171, --[[ModItemCharacterEffectCompositeDef Wounded Description]] "Макс. количество <color EmStyle>ОЗ снижается на <MaxHpReductionPerStack></color> за каждую рану. Так же с каждой раной снижается <color EmStyle>Количество ОД </color>. Можно вылечить операцией <color EmStyle>Лечение ран</color> в режиме Вида со спутника."),
@@ -87467,9 +88269,9 @@ return {
 						param_bindings = false,
 					}),
 				},
-				'DisplayName', T(629298563884, --[[ModItemCharacterEffectCompositeDef Blinded DisplayName]] "Blinded"),
-				'Description', T(595664130748, --[[ModItemCharacterEffectCompositeDef Blinded Description]] "Reduced <em>Sight range</em> and <em>Accuracy</em>. Can cause <em>Panic</em>."),
-				'AddEffectText', T(880622931884, --[[ModItemCharacterEffectCompositeDef Blinded AddEffectText]] "<em><DisplayName></em> is blinded"),
+				'DisplayName', T(629298563884, --[[ModItemCharacterEffectCompositeDef Blinded DisplayName]] "Слепота"),
+				'Description', T(595664130748, --[[ModItemCharacterEffectCompositeDef Blinded Description]] "Снижает <em>дальность обзора</em> и <em>точность</em>. Может вызвать <em>панику</em>."),
+				'AddEffectText', T(880622931884, --[[ModItemCharacterEffectCompositeDef Blinded AddEffectText]] "<em><DisplayName></em> ничего не видит"),
 				'OnAdded', function (self, obj)
 					self:SetParameter("blinded_start_time", GameTime())
 					if IsMerc(obj) then
@@ -87543,9 +88345,9 @@ return {
 						target_prop = "Wisdom",
 					}),
 				},
-				'DisplayName', T(178364189448, --[[ModItemCharacterEffectCompositeDef Burning DisplayName]] "Burning"),
-				'Description', T(661121942943, --[[ModItemCharacterEffectCompositeDef Burning Description]] "This character may <em>Panic</em> and will <em>take <damage> damage</em> at the end of each turn until they exit the flaming area. <em>Bandage</em> can cure the effect immediately."),
-				'AddEffectText', T(251545639918, --[[ModItemCharacterEffectCompositeDef Burning AddEffectText]] "<em><DisplayName></em> is on fire"),
+				'DisplayName', T(178364189448, --[[ModItemCharacterEffectCompositeDef Burning DisplayName]] "Горение"),
+				'Description', T(661121942943, --[[ModItemCharacterEffectCompositeDef Burning Description]] "Этот персонаж может <em>запаниковать</em> и будет <em>получать <damage> ед. урона</em> в конце каждого хода, пока не выйдет из области горения. <em>Перевязка</em> мгновенно снимает этот эффект."),
+				'AddEffectText', T(251545639918, --[[ModItemCharacterEffectCompositeDef Burning AddEffectText]] "<em><DisplayName></em> горит"),
 				'OnAdded', function (self, obj)
 					PlayFX("UnitBurning", "start", obj)
 					self:SetParameter("burning_start_time", GameTime())
@@ -87597,9 +88399,9 @@ return {
 						param_bindings = false,
 					}),
 				},
-				'DisplayName', T(720153419307, --[[ModItemCharacterEffectCompositeDef Choking DisplayName]] "Choking"),
-				'Description', T(120652127957, --[[ModItemCharacterEffectCompositeDef Choking Description]] "This character will <em>take <damage> damage</em> at the end of their turn. The character also <em>loses Energy</em>."),
-				'AddEffectText', T(478064574365, --[[ModItemCharacterEffectCompositeDef Choking AddEffectText]] "<em><DisplayName></em> is choking"),
+				'DisplayName', T(720153419307, --[[ModItemCharacterEffectCompositeDef Choking DisplayName]] "Удушье"),
+				'Description', T(120652127957, --[[ModItemCharacterEffectCompositeDef Choking Description]] "Этот персонаж будет <em>получать <damage> ед. урона</em> в конце своего хода. Также этот персонаж <em>теряет энергию</em>."),
+				'AddEffectText', T(478064574365, --[[ModItemCharacterEffectCompositeDef Choking AddEffectText]] "<em><DisplayName></em> задыхается"),
 				'OnAdded', function (self, obj)
 					self:SetParameter("choking_start_time", GameTime())
 					if obj:IsMerc() then
@@ -87671,7 +88473,7 @@ return {
 			PlaceObj('ModItemTargetBodyPart', {
 				Icon = "UI/Hud/target_icon_groin",
 				SortKey = 3,
-				applied_effect = "Suppressed",
+				applied_effect = "Groinshot",
 				damage_mod = 25,
 				description = T(464716813289, --[[ModItemTargetBodyPart Default Groin description]] "Выстрел в пах: снижение вероятности попадания, увеличение урона. Цель имеет шанс <color EmStyle>получить до трех кровотечений</color>"),
 				display_name = T(490698876612, --[[ModItemTargetBodyPart Default Groin display_name]] "Пах"),
@@ -90407,7 +91209,7 @@ return {
 									'VAlign', "center",
 									'TextStyle', "PDABrowserTitle",
 									'Translate', true,
-									'Text', T(548684733743, --[[ModItemXTemplate PDAAimEvaluation Text]] "A.I.M. EVALUATION"),
+									'Text', T(548684733743, --[[ModItemXTemplate PDAAimEvaluation Text]] "АНКЕТА A.I.M."),
 								}),
 								PlaceObj('XTemplateWindow', {
 									'__class', "XText",
@@ -90473,7 +91275,7 @@ return {
 													'Padding', box(0, 0, 0, 0),
 													'TextStyle', "PDABrowserFlavor",
 													'Translate', true,
-													'Text', T(276501397506, --[[ModItemXTemplate PDAAimEvaluation Text]] "Secured connection"),
+													'Text', T(276501397506, --[[ModItemXTemplate PDAAimEvaluation Text]] "Безопасное подключение"),
 													'TextVAlign', "center",
 												}),
 												PlaceObj('XTemplateWindow', {
@@ -90497,7 +91299,7 @@ return {
 											PlaceObj('XTemplateAction', {
 												'comment', "same as perk different condition",
 												'ActionId', "idLevelUpAction",
-												'ActionName', T(470265902414, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "LEVEL UP"),
+												'ActionName', T(470265902414, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "НОВЫЙ УРОВЕНЬ"),
 												'ActionToolbar', "LevelUpBar",
 												'ActionShortcut', "L",
 												'ActionGamepad', "ButtonX",
@@ -90535,7 +91337,7 @@ return {
 										}, {
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idPerksAction",
-												'ActionName', T(294433237069, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Perks"),
+												'ActionName', T(294433237069, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Черты"),
 												'ActionToolbar', "ActionBar",
 												'ActionShortcut', "P",
 												'ActionGamepad', "ButtonX",
@@ -90556,7 +91358,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idPerksConfirmAction",
-												'ActionName', T(715124601032, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Confirm"),
+												'ActionName', T(715124601032, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Подтвердить"),
 												'ActionToolbar', "ActionBar",
 												'ActionShortcut', "P",
 												'ActionGamepad', "Start",
@@ -90582,7 +91384,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idPreviousMerc",
-												'ActionName', T(550449531084, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Previous"),
+												'ActionName', T(550449531084, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Предыдущий"),
 												'ActionShortcut', "Shift-Tab",
 												'ActionGamepad', "LeftShoulder",
 												'OnAction', function (self, host, source, ...)
@@ -90595,7 +91397,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idNextMerc",
-												'ActionName', T(655064233565, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Next"),
+												'ActionName', T(655064233565, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "След."),
 												'ActionShortcut', "Tab",
 												'ActionGamepad', "RightShoulder",
 												'OnAction', function (self, host, source, ...)
@@ -90608,7 +91410,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idStatsAction",
-												'ActionName', T(731677990405, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Stats"),
+												'ActionName', T(731677990405, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Характеристики"),
 												'ActionToolbar', "ActionBar",
 												'ActionShortcut', "S",
 												'ActionGamepad', "ButtonX",
@@ -90623,7 +91425,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idMercsAction",
-												'ActionName', T(905658355422, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Mercs"),
+												'ActionName', T(905658355422, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Наёмники"),
 												'ActionToolbar', "ActionBar",
 												'ActionShortcut', "M",
 												'ActionState', function (self, host)
@@ -90641,7 +91443,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idCloseActionPerks",
-												'ActionName', T(187868415093, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Close"),
+												'ActionName', T(187868415093, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Закрыть"),
 												'ActionToolbar', "ActionBar",
 												'ActionShortcut', "Escape",
 												'ActionGamepad', "ButtonB",
@@ -90682,7 +91484,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idCloseActionRecord",
-												'ActionName', T(187868415093, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Close"),
+												'ActionName', T(187868415093, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Закрыть"),
 												'ActionToolbar', "ActionBar",
 												'ActionShortcut', "Escape",
 												'ActionGamepad', "ButtonB",
@@ -90860,7 +91662,7 @@ return {
 															'__class', "XText",
 															'TextStyle', "PDABrowserSubtitle",
 															'Translate', true,
-															'Text', T(459016279300, --[[ModItemXTemplate PDAAimEvaluation Text]] "/ Daily Salary"),
+															'Text', T(459016279300, --[[ModItemXTemplate PDAAimEvaluation Text]] "/ суточная з/п"),
 														}),
 														PlaceObj('XTemplateWindow', {
 															'comment', "class info",
@@ -90902,7 +91704,7 @@ return {
 														'VAlign', "center",
 														'TextStyle', "PDABrowserSubtitle",
 														'Translate', true,
-														'Text', T(267299905081, --[[ModItemXTemplate PDAAimEvaluation Text]] "LEVEL"),
+														'Text', T(267299905081, --[[ModItemXTemplate PDAAimEvaluation Text]] "УР."),
 													}),
 													}),
 												PlaceObj('XTemplateTemplate', {
@@ -91023,7 +91825,7 @@ return {
 													'Dock', "top",
 													'TextStyle', "PDABrowserHeader",
 													'Translate', true,
-													'Text', T(769722208341, --[[ModItemXTemplate PDAAimEvaluation Text]] "Stats"),
+													'Text', T(769722208341, --[[ModItemXTemplate PDAAimEvaluation Text]] "Характеристики"),
 												}),
 												PlaceObj('XTemplateWindow', {
 													'comment', "attributes",
@@ -91097,7 +91899,7 @@ return {
 														'Margins', box(0, 4, 0, 4),
 														'TextStyle', "PDABrowserNameSmall",
 														'Translate', true,
-														'Text', T(961479643645, --[[ModItemXTemplate PDAAimEvaluation Text]] "Talent"),
+														'Text', T(961479643645, --[[ModItemXTemplate PDAAimEvaluation Text]] "Талант"),
 													}),
 													PlaceObj('XTemplateWindow', {
 														'Margins', box(0, 0, 8, 4),
@@ -91136,7 +91938,7 @@ return {
 														'Margins', box(0, 4, 0, 4),
 														'TextStyle', "PDABrowserNameSmall",
 														'Translate', true,
-														'Text', T(861228350946, --[[ModItemXTemplate PDAAimEvaluation Text]] "Traits"),
+														'Text', T(861228350946, --[[ModItemXTemplate PDAAimEvaluation Text]] "Особенности"),
 													}),
 													PlaceObj('XTemplateWindow', {
 														'LayoutMethod', "HList",
@@ -91173,7 +91975,7 @@ return {
 													'__class', "XText",
 													'TextStyle', "PDABrowserNameSmall",
 													'Translate', true,
-													'Text', T(236089097173, --[[ModItemXTemplate PDAAimEvaluation Text]] "Perks"),
+													'Text', T(236089097173, --[[ModItemXTemplate PDAAimEvaluation Text]] "Черты"),
 												}),
 												PlaceObj('XTemplateWindow', {
 													'LayoutMethod', "HWrap",
@@ -91277,7 +92079,7 @@ return {
 													'FrameBox', box(3, 3, 3, 3),
 													'TextStyle', "PDABrowserTabSelected",
 													'Translate', true,
-													'Text', T(210141140528, --[[ModItemXTemplate PDAAimEvaluation Text]] "History"),
+													'Text', T(210141140528, --[[ModItemXTemplate PDAAimEvaluation Text]] "История"),
 												}),
 												PlaceObj('XTemplateWindow', {
 													'__class', "XTextButton",
@@ -91298,7 +92100,7 @@ return {
 													'FrameBox', box(3, 3, 3, 3),
 													'TextStyle', "PDABrowserTabSelected",
 													'Translate', true,
-													'Text', T(113987221030, --[[ModItemXTemplate PDAAimEvaluation Text]] "Statistics"),
+													'Text', T(113987221030, --[[ModItemXTemplate PDAAimEvaluation Text]] "Статистика"),
 												}),
 												PlaceObj('XTemplateWindow', {
 													'comment', "gamepad hint",
@@ -91354,7 +92156,7 @@ return {
 																	'__class', "XText",
 																	'TextStyle', "PDABrowserText",
 																	'Translate', true,
-																	'Text', T(731522640052, --[[ModItemXTemplate PDAAimEvaluation Text]] "Connecting to A.I.M. servers...\nSecurity check... <em>Confirmed!</em>\n------------------------------------"),
+																	'Text', T(731522640052, --[[ModItemXTemplate PDAAimEvaluation Text]] "Подключаемся к серверу A.I.M...\nПроверяем безопасность соединения... <em>Подтверждено!</em>\n------------------------------------"),
 																}),
 																PlaceObj('XTemplateForEach', {
 																	'comment', "merc history log",
@@ -91425,7 +92227,7 @@ return {
 																	'__class', "XText",
 																	'TextStyle', "PDABrowserText",
 																	'Translate', true,
-																	'Text', T(959513065473, --[[ModItemXTemplate PDAAimEvaluation Text]] "Connecting to A.I.M. servers...\nSecurity check... <em>Confirmed!</em>\n-----------------------------------------------"),
+																	'Text', T(959513065473, --[[ModItemXTemplate PDAAimEvaluation Text]] "Подключаемся к серверу A.I.M...\nПроверяем безопасность соединения... <em>Подтверждено!</em>\n-----------------------------------------------"),
 																}),
 																PlaceObj('XTemplateForEach', {
 																	'array', function (parent, context) return Presets.MercTrackedStat end,
@@ -91549,7 +92351,7 @@ return {
 					PlaceObj('XTemplateWindow', {
 						'__class', "XContextWindow",
 						'RolloverTemplate', "StatusEffectsRollover",
-						'RolloverText', T(327307292756, --[[ModItemXTemplate CombatBadge RolloverText]] "STATUS EFFECTS"),
+						'RolloverText', T(327307292756, --[[ModItemXTemplate CombatBadge RolloverText]] "ЭФФЕКТЫ"),
 						'RolloverOffset', box(10, 0, 10, 0),
 						'Id', "idMain",
 						'VAlign', "top",
@@ -91574,7 +92376,7 @@ return {
 								CombatBadgeAboveNameTextUpdate(self)
 							end,
 							'Translate', true,
-							'Text', T(865071357285, --[[ModItemXTemplate CombatBadge Text]] "OUT OF AMMO"),
+							'Text', T(865071357285, --[[ModItemXTemplate CombatBadge Text]] "НЕТ ПАТРОНОВ"),
 						}),
 						PlaceObj('XTemplateWindow', {
 							'comment', "name and above",
@@ -91858,8 +92660,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(256373672615, --[[ModItemCharacterEffectCompositeDef Psycho DisplayName]] "Psycho"),
-					'Description', T(966163673727, --[[ModItemCharacterEffectCompositeDef Psycho Description]] "Can decide to use a more vicious attack than the one selected.\n\nAdditional <em>conversation options</em>."),
+					'DisplayName', T(256373672615, --[[ModItemCharacterEffectCompositeDef Psycho DisplayName]] "Психопат"),
+					'Description', T(966163673727, --[[ModItemCharacterEffectCompositeDef Psycho Description]] "Может выполнить более жестокую атаку, чем была выбрана.\n\nОткрывает дополнительные <em>варианты диалогов</em>."),
 					'Icon', "UI/Icons/Perks/Psycho",
 					'Tier', "Personality",
 				}),
@@ -91868,8 +92670,8 @@ return {
 					'Id', "Bond",
 					'SortKey', 10,
 					'object_class', "Perk",
-					'DisplayName', T(875337188421, --[[ModItemCharacterEffectCompositeDef Bond DisplayName]] "Bond"),
-					'Description', T(459288741024, --[[ModItemCharacterEffectCompositeDef Bond Description]] "Bond with another character (needs special description)."),
+					'DisplayName', T(875337188421, --[[ModItemCharacterEffectCompositeDef Bond DisplayName]] "Особая связь"),
+					'Description', T(459288741024, --[[ModItemCharacterEffectCompositeDef Bond Description]] "Особая связь с другим персонажем (нужно отдельное описание)."),
 					'Icon', "UI/Icons/Perks/Bond",
 					'Tier', "Personality",
 				}),
@@ -91886,8 +92688,8 @@ return {
 					},
 					'param_bindings', {},
 					'object_class', "Perk",
-					'DisplayName', T(196499775201, --[[ModItemCharacterEffectCompositeDef Negotiator DisplayName]] "Negotiator"),
-					'Description', T(464552472248, --[[ModItemCharacterEffectCompositeDef Negotiator Description]] "Reduces prices for <em>Sector Operations</em> and <em>Boat Travel</em>.\n\nAdditional <em>conversation options</em>."),
+					'DisplayName', T(196499775201, --[[ModItemCharacterEffectCompositeDef Negotiator DisplayName]] "Переговорщик"),
+					'Description', T(464552472248, --[[ModItemCharacterEffectCompositeDef Negotiator Description]] "Снижает цены на <em>операции в секторе</em> и <em>перемещение по воде</em>.\n\nОткрывает <em>доп. варианты диалогов</em>."),
 					'Icon', "UI/Icons/Perks/Negotiator",
 					'Tier', "Personality",
 				}),
@@ -91896,8 +92698,8 @@ return {
 					'Id', "Scoundrel",
 					'SortKey', 10,
 					'object_class', "Perk",
-					'DisplayName', T(687227379969, --[[ModItemCharacterEffectCompositeDef Scoundrel DisplayName]] "Scoundrel"),
-					'Description', T(252249063178, --[[ModItemCharacterEffectCompositeDef Scoundrel Description]] "First <em>weapon swap</em> for the turn is <em>free</em>.\n\nAdditional <em>conversation options</em>."),
+					'DisplayName', T(687227379969, --[[ModItemCharacterEffectCompositeDef Scoundrel DisplayName]] "Тёртый калач"),
+					'Description', T(252249063178, --[[ModItemCharacterEffectCompositeDef Scoundrel Description]] "Первую <em>смену оружия</em> за ход можно совершить <em>бесплатно</em>.\n\nДобавляет <em>доп. варианты диалогов</em>."),
 					'Icon', "UI/Icons/Perks/Scoundrel",
 					'Tier', "Personality",
 				}),
@@ -91929,8 +92731,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(487342591563, --[[ModItemCharacterEffectCompositeDef Loner DisplayName]] "Loner"),
-					'Description', T(124325843871, --[[ModItemCharacterEffectCompositeDef Loner Description]] "Become <GameTerm('Inspired')> when there are no teammates <em>in your vicinity</em> at turn start."),
+					'DisplayName', T(487342591563, --[[ModItemCharacterEffectCompositeDef Loner DisplayName]] "Одиночка"),
+					'Description', T(124325843871, --[[ModItemCharacterEffectCompositeDef Loner Description]] "Дает <GameTerm('Inspired')>, если в начале хода рядом с вами нет бойцов вашего отряда."),
 					'Icon', "UI/Icons/Perks/Loner",
 					'Tier', "Quirk",
 				}),
@@ -91946,8 +92748,8 @@ return {
 						}),
 					},
 					'object_class', "Perk",
-					'DisplayName', T(892300961794, --[[ModItemCharacterEffectCompositeDef Optimist DisplayName]] "Optimist"),
-					'Description', T(181016182063, --[[ModItemCharacterEffectCompositeDef Optimist Description]] "Small chance to <em>prevent</em> a team <GameTerm('Morale')> loss."),
+					'DisplayName', T(892300961794, --[[ModItemCharacterEffectCompositeDef Optimist DisplayName]] "Оптимист"),
+					'Description', T(181016182063, --[[ModItemCharacterEffectCompositeDef Optimist Description]] "Небольшой шанс <em>не допустить</em>, чтобы <GameTerm('Morale')> команды понизился."),
 					'Icon', "UI/Icons/Perks/Optimist",
 					'Tier', "Quirk",
 				}),
@@ -91963,8 +92765,8 @@ return {
 						}),
 					},
 					'object_class', "Perk",
-					'DisplayName', T(755896070667, --[[ModItemCharacterEffectCompositeDef Pessimist DisplayName]] "Pessimist"),
-					'Description', T(932094612672, --[[ModItemCharacterEffectCompositeDef Pessimist Description]] "Small chance to <em>prevent</em> team <GameTerm('Morale')> gain."),
+					'DisplayName', T(755896070667, --[[ModItemCharacterEffectCompositeDef Pessimist DisplayName]] "Пессимист"),
+					'Description', T(932094612672, --[[ModItemCharacterEffectCompositeDef Pessimist Description]] "Небольшой шанс <em>не допустить</em>, чтобы <GameTerm('Morale')> команды повысился."),
 					'Icon', "UI/Icons/Perks/Pessimist",
 					'Tier', "Quirk",
 				}),
@@ -91991,8 +92793,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(906477417382, --[[ModItemCharacterEffectCompositeDef Spiritual DisplayName]] "Spiritual"),
-					'Description', T(233455514627, --[[ModItemCharacterEffectCompositeDef Spiritual Description]] "Guaranteed <em>Minimal Accuracy</em> with hopeless attacks."),
+					'DisplayName', T(906477417382, --[[ModItemCharacterEffectCompositeDef Spiritual DisplayName]] "Духовность"),
+					'Description', T(233455514627, --[[ModItemCharacterEffectCompositeDef Spiritual Description]] "Гарантированная <em>минимальная точность</em> для безнадежных атак."),
 					'Icon', "UI/Icons/Perks/Spiritual",
 					'Tier', "Quirk",
 				}),
@@ -92036,8 +92838,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(619689762390, --[[ModItemCharacterEffectCompositeDef Zoophobic DisplayName]] "Zoophobic"),
-					'Description', T(467565005573, --[[ModItemCharacterEffectCompositeDef Zoophobic Description]] "Loses <GameTerm('Morale')> when <em>Attacked</em> by an <em>animal</em>."),
+					'DisplayName', T(619689762390, --[[ModItemCharacterEffectCompositeDef Zoophobic DisplayName]] "Зоофобия"),
+					'Description', T(467565005573, --[[ModItemCharacterEffectCompositeDef Zoophobic Description]] "<GameTerm('Morale')> снижается, если этого персонажа <em>атакует</em> <em>животное</em>."),
 					'Icon', "UI/Icons/Perks/Zoophobic",
 					'Tier', "Quirk",
 				}),
@@ -92095,8 +92897,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(464805356385, --[[ModItemCharacterEffectCompositeDef Claustrophobic DisplayName]] "Claustrophobic"),
-					'Description', T(356135028604, --[[ModItemCharacterEffectCompositeDef Claustrophobic Description]] "<GameTerm('Morale')> decrease when starting combat in <em>underground</em> Sectors."),
+					'DisplayName', T(464805356385, --[[ModItemCharacterEffectCompositeDef Claustrophobic DisplayName]] "Клаустрофобия"),
+					'Description', T(356135028604, --[[ModItemCharacterEffectCompositeDef Claustrophobic Description]] "<GameTerm('Morale')> снижается в начале боя, если он происходит в <em>подземных</em> секторах."),
 					'Icon', "UI/Icons/Perks/Claustrophobic",
 					'Tier', "Quirk",
 				}),
@@ -92112,8 +92914,8 @@ return {
 						}),
 					},
 					'object_class', "Perk",
-					'DisplayName', T(152237634088, --[[ModItemCharacterEffectCompositeDef Hemophobic DisplayName]] "Hemophobic"),
-					'Description', T(105025202773, --[[ModItemCharacterEffectCompositeDef Hemophobic Description]] "Chance of <em>failure</em> when using <em>Bandage</em>."),
+					'DisplayName', T(152237634088, --[[ModItemCharacterEffectCompositeDef Hemophobic DisplayName]] "Гемофобия"),
+					'Description', T(105025202773, --[[ModItemCharacterEffectCompositeDef Hemophobic Description]] "Шанс <em>неудачи</em> при использовании <em>перевязки</em>."),
 					'Icon', "UI/Icons/Perks/Hemophobic",
 					'Tier', "Quirk",
 				}),
@@ -92129,6 +92931,13 @@ return {
 							Event = "OnCombatEnd",
 							Handler = function (self, target)
 								target.WillPoints = target.MaxWillPoints
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnEndTurn",
+							Handler = function (self, target)
+								target:ApplySuppressionStatus()
 							end,
 							param_bindings = false,
 						}),
@@ -92158,6 +92967,13 @@ return {
 							Event = "OnCombatEnd",
 							Handler = function (self, target)
 								target.WillPoints = target.MaxWillPoints
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnEndTurn",
+							Handler = function (self, target)
+								target:ApplySuppressionStatus()
 							end,
 							param_bindings = false,
 						}),
@@ -92194,6 +93010,13 @@ return {
 							Event = "OnCombatEnd",
 							Handler = function (self, target)
 								target.WillPoints = target.MaxWillPoints
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnEndTurn",
+							Handler = function (self, target)
+								target:ApplySuppressionStatus()
 							end,
 							param_bindings = false,
 						}),
@@ -92243,6 +93066,13 @@ return {
 							Event = "OnCombatEnd",
 							Handler = function (self, target)
 								target.WillPoints = target.MaxWillPoints
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnEndTurn",
+							Handler = function (self, target)
+								target:ApplySuppressionStatus()
 							end,
 							param_bindings = false,
 						}),
@@ -92300,6 +93130,13 @@ return {
 							param_bindings = false,
 						}),
 						PlaceObj('UnitReaction', {
+							Event = "OnEndTurn",
+							Handler = function (self, target)
+								target:ApplySuppressionStatus()
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
 							Event = "OnBeginTurn",
 							Handler = function (self, target)
 								if target:CanTakeCover() then
@@ -92324,7 +93161,7 @@ return {
 					'AddEffectText', T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionPinned AddEffectText]] "Под плотным огнем"),
 					'OnAdded', function (self, obj)
 						local unitStance = obj.stance
-						if unitStance ~= "Prone" and not (obj:CanTakeCover()) then
+						if unitStance ~= "Prone" or not (obj:CanTakeCover()) then
 						obj:SetActionCommand("ChangeStance", nil, nil, "Prone")
 						end
 						if obj:CanTakeCover() then
@@ -92349,8 +93186,215 @@ return {
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
+				'name', "System",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "System",
+					'Id', "BipodUnfolded",
+					'object_class', "CharacterEffect",
+					'RemoveOnEndCombat', true,
+					'RemoveOnSatViewTravel', true,
+					'RemoveOnCampaignTimeAdvance', true,
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
 				'name', "Vanilla_Overwrite",
 			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "InnerInfo",
+					'comment', "Фаза",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnUnitEnterMapVisual",
+							Handler = function (self, target)
+								local sector = gv_Sectors[gv_CurrentSectorId]
+								if target.HireStatus ~= "Hired" or not sector.intel_discovered then
+									 return 
+								end
+								
+								CreateGameTimeThread(function()
+									local playVr
+									while GetInGameInterfaceMode() == "IModeDeployment" do
+										Sleep(20)
+									end
+									for _, unit in ipairs(g_Units) do
+										if unit:IsOnEnemySide(target) then
+											unit:RevealTo(target.team)
+											unit.innerInfoRevealed = true
+											playVr = true
+											break
+										end
+									end
+									if playVr then
+										Sleep(2000)
+										PlayVoiceResponse(target,"PersonalPerkSubtitled")
+									end
+								end)
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnCheckIntelVisible",
+							Handler = function (self, target)
+								return gv_CurrentSectorId and gv_Sectors[gv_CurrentSectorId].intel_discovered
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnHackIntelDsicovered",
+							Handler = function (self, target)
+								local discoveredFor = DiscoverIntelForRandomSector(2, "no notification")
+								if discoveredFor then
+									CombatLog("important", T{312197955233, "Livewire used her custom PDA to discover additional Intel for <em><SectorName(sectorId)></em>", sectorId = discoveredFor})
+								end
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Секретные данные"),
+					'Description', T(222768539188, --[[ModItemCharacterEffectCompositeDef InnerInfo Description]] "Открывает месторасположение всех <em>врагов</em>, если у вас есть <em>разведданные</em> для этого сектора."),
+					'Icon', "UI/Icons/Perks/InnerInfo",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "InnerInfo_JAZZ",
+					'comment', "Фаза",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCheckIntelVisible",
+							Handler = function (self, target)
+								return gv_CurrentSectorId and gv_Sectors[gv_CurrentSectorId].intel_discovered
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnHackIntelDsicovered",
+							Handler = function (self, target)
+								local discoveredFor = DiscoverIntelForRandomSector(2, "no notification")
+								if discoveredFor then
+									CombatLog("important", T{312197955233, "Livewire used her custom PDA to discover additional Intel for <em><SectorName(sectorId)></em>", sectorId = discoveredFor})
+								end
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ DisplayName]] "Секретные данные"),
+					'Description', T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
+					'Icon', "UI/Icons/Perks/InnerInfo",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "GruntyPerk",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "cthMod",
+							'Tag', "<cthMod>",
+						}),
+					},
+					'comment', "Хряпти",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCombatStarting",
+							Handler = function (self, target, load_game)
+								if load_game then return end
+								
+								local enemy = target:GetClosestEnemy()
+								if enemy then
+									local weapon = target:GetActiveWeapons()
+									if IsKindOf(weapon, "Firearm") and not IsKindOf(weapon, "HeavyWeapon") then
+										local action = target:GetDefaultAttackAction("ranged")
+										local args = {target = enemy, gruntyPerk = true}
+										LockCameraMovement("grunty perk")
+										StartCombatAction(action.id, target, 0, args)
+									end
+								end
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Юберрашунг"),
+					'Description', T(742416202176, --[[ModItemCharacterEffectCompositeDef GruntyPerk Description]] "<em>Атакует</em> <em>ближайшего</em> противника из огнестрельного оружия <em>в начале боя</em> (если есть возможность).\n\nНеприменимо к тяжелому оружию."),
+					'Icon', "UI/Icons/Perks/GruntyPerk",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "GruntyPerk_JAZZ",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "cthMod",
+							'Tag', "<cthMod>",
+						}),
+					},
+					'comment', "Хряпти",
+					'object_class', "Perk",
+					'msg_reactions', {},
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCombatStarted",
+							Handler = function (self, target, load_game)
+								local ap = target:AddStatusEffect("Grunty_AdditionalAP")
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ DisplayName]] "Юберрашунг"),
+					'Description', T(845332100943, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ Description]] "Дает +50% од на первом ходу"),
+					'Icon', "UI/Icons/Perks/GruntyPerk",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-NPC",
+					'Id', "Grunty_AdditionalAP",
+					'Parameters', {},
+					'object_class', "CharacterEffect",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcStartTurnAP",
+							Handler = function (self, target, value)
+								if not self:ResolveValue("applied") then
+									local ap = target:GetMaxActionPoints()
+									return value + DivRound(ap,2) 
+								end
+							end,
+							param_bindings = false,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnBeginTurn",
+							Handler = function (self, target)
+								local ap = target:GetMaxActionPoints()
+								target:GainAP(DivRound(ap,2) )
+							end,
+							param_bindings = false,
+						}),
+					},
+					'Conditions', {
+						PlaceObj('CheckExpression', {
+							Expression = function (self, obj) return g_Combat and IsKindOf(obj, "Unit") end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(952338905331, --[[ModItemCharacterEffectCompositeDef Grunty_AdditionalAP DisplayName]] "Überraschung"),
+					'Description', T(912592808613, --[[ModItemCharacterEffectCompositeDef Grunty_AdditionalAP Description]] "Дает <em><bonus> ОД</em>."),
+					'OnAdded', function (self, obj)
+						if g_Teams[g_CurrentTeam] == obj.team then
+							local ap = obj:GetMaxActionPoints()
+							obj:GainAP(DivRound(ap,2) )
+							self:SetParameter("applied", true)
+						end
+					end,
+					'type', "Buff",
+					'lifetime', "Until End of Turn",
+					'Icon', "UI/Icons/Perks/GruntyPerk",
+					'RemoveOnEndCombat', true,
+					'Shown', true,
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Strength",
 					'Id', "TakeAim",
@@ -92558,23 +93602,15 @@ return {
 					'TargetValue', {
 						PlaceObj('PresetParamPercent', {
 							'Name', "night_acc_penalty_reduction",
-							'Value', 20,
+							'Value', 10,
 							'Tag', "<night_acc_penalty_reduction>%",
 						}),
 						PlaceObj('PresetParamPercent', {
 							'Name', "night_vision_penalty_reduction",
-							'Value', 20,
+							'Value', 10,
 							'Tag', "<night_vision_penalty_reduction>%",
 						}),
 					},
-				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "System",
-					'Id', "BipodUnfolded",
-					'object_class', "CharacterEffect",
-					'RemoveOnEndCombat', true,
-					'RemoveOnSatViewTravel', true,
-					'RemoveOnCampaignTimeAdvance', true,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -92821,7 +93857,7 @@ return {
 											'__context', function (parent, context) return parent:ResolveId("node").context end,
 											'__class', "XContextWindow",
 											'RolloverTemplate', "StatusEffectsRollover",
-											'RolloverText', T(190650275316, --[[ModItemXTemplate ActionCameraCrosshair RolloverText]] "STATUS EFFECTS"),
+											'RolloverText', T(190650275316, --[[ModItemXTemplate ActionCameraCrosshair RolloverText]] "ЭФФЕКТЫ"),
 											'UseClipBox', false,
 										}, {
 											PlaceObj('XTemplateWindow', {
@@ -93327,7 +94363,7 @@ return {
 										'UseClipBox', false,
 										'TextStyle', "Crosshair_Range",
 										'Translate', true,
-										'Text', T(575734781283, --[[ModItemXTemplate ActionCameraCrosshair Text]] "RANGE"),
+										'Text', T(575734781283, --[[ModItemXTemplate ActionCameraCrosshair Text]] "ДАЛЬНОСТЬ"),
 										'TextHAlign', "right",
 									}),
 									PlaceObj('XTemplateWindow', {
@@ -93656,7 +94692,7 @@ return {
 											end
 										end,
 										'Translate', true,
-										'Text', T(909646377219, --[[ModItemXTemplate ActionCameraCrosshair Text]] "<DPadLeft> Firing Modes"),
+										'Text', T(909646377219, --[[ModItemXTemplate ActionCameraCrosshair Text]] "<DPadLeft> Режимы стрельбы"),
 									}),
 									PlaceObj('XTemplateWindow', {
 										'comment', "controller hint",
@@ -93683,7 +94719,7 @@ return {
 											end
 										end,
 										'Translate', true,
-										'Text', T(510160303784, --[[ModItemXTemplate ActionCameraCrosshair Text]] "<DPadRight> Body Parts"),
+										'Text', T(510160303784, --[[ModItemXTemplate ActionCameraCrosshair Text]] "<DPadRight> Части тела"),
 									}),
 									}),
 								}),
@@ -94478,7 +95514,7 @@ return {
 								'FoldWhenHidden', true,
 								'TextStyle', "PDABrowserNameSmall",
 								'Translate', true,
-								'Text', T(392264332209, --[[ModItemXTemplate CrosshairAttackRollover Text]] "STATUS"),
+								'Text', T(392264332209, --[[ModItemXTemplate CrosshairAttackRollover Text]] "СТАТУС"),
 								'TextVAlign', "center",
 							}),
 							PlaceObj('XTemplateWindow', {
@@ -126956,16 +127992,33 @@ return {
 	PlaceObj('ModItemFolder', {
 		'name', "AiFastforward",
 	}, {
-		PlaceObj('ModItemCode', {
-			'name', "AiFastForward",
-			'CodeFileName', "Code/AiFastForward.lua",
+		PlaceObj('ModItemOptionChoice', {
+			'name', "AutoFastForward",
+			'DisplayName', "Автоматическое ускорение хода невидимых врагов",
+			'Help', "Off - выкл\nRunning - Только при беге\nAlways - при беге и во время атак\nВключается если мерки не видят врагов",
+			'OnApply', function (self, value)
+				return
+			end,
+			'DefaultValue', "Running",
+			'ChoiceList', {
+				"Off",
+				"Running",
+				"Always",
+			},
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "Game speed change in combat during the enemy/ally turn, when the Fast Forward mode is checked.",
 			group = "Combat",
 			id = "FastForwardGameSpeed",
 			scale = "%",
-			value = 300,
+			value = 200,
+		}),
+		PlaceObj('ModItemOptionNumber', {
+			'name', "ShowLastEnemy",
+			'DisplayName', "Показать последнего врага",
+			'Help', "Количество оставшихся врагов, которых становится видно на тактической карте",
+			'DefaultValue', 1,
+			'MaxValue', 4,
 		}),
 		}),
 	PlaceObj('ModItemGameRuleDef', {
@@ -129294,6 +130347,78 @@ return {
 		PlaceObj('ModItemCode', {
 			'name', "WorldFlipSpawnUnits",
 			'CodeFileName', "Code/WorldFlipSpawnUnits.lua",
+		}),
+		}),
+	PlaceObj('ModItemFolder', {
+		'name', "SpeedUpConstants",
+		'comment', "Tough as Nails",
+	}, {
+		PlaceObj('ModItemConstDef', {
+			Comment = "how many milliseconds to wait after a unit dies (when a cinematic camera is in play)",
+			comment = "UnitDieANim",
+			group = "Combat",
+			id = "UnitDeathKillcamWait",
+			value = 500,
+		}),
+		PlaceObj('ModItemConstDef', {
+			Comment = "m/s",
+			NameColor = 4282219161,
+			comment = "30m (instead of 20)",
+			group = "Combat",
+			id = "RocketVelocity",
+			scale = "m",
+			value = 30000,
+		}),
+		PlaceObj('ModItemConstDef', {
+			NameColor = 4282219161,
+			comment = "0.03 (instead of 0.04)",
+			group = "Combat",
+			id = "BulletDelay",
+			scale = "sec",
+			value = 30,
+		}),
+		PlaceObj('ModItemConstDef', {
+			NameColor = 4282219161,
+			comment = "+10m (now 50)",
+			group = "Combat",
+			id = "BulletVelocity",
+			scale = "m",
+			value = 50000,
+		}),
+		PlaceObj('ModItemConstDef', {
+			NameColor = 4282219161,
+			group = "Combat",
+			id = "ShootDelayAfterInterrupt",
+			value = 400,
+		}),
+		PlaceObj('ModItemConstDef', {
+			Comment = "Delay before action is executed. But it will start counting before the camera reaches the target.",
+			NameColor = 4282219161,
+			group = "Combat",
+			id = "ShootDelay",
+			value = 700,
+		}),
+		PlaceObj('ModItemConstDef', {
+			Comment = "Time to hold the action camera after shots have been fired.",
+			NameColor = 4282219161,
+			group = "Combat",
+			id = "ActionCameraHoldTime",
+			scale = "sec",
+			value = 100,
+		}),
+		PlaceObj('ModItemConstDef', {
+			Comment = "Delay after aiming anim, before moving camera to target.",
+			NameColor = 4282219161,
+			group = "Combat",
+			id = "ShootDelayAfterAimCinematic",
+			value = 250,
+		}),
+		PlaceObj('ModItemConstDef', {
+			Comment = "Delay after aiming anim, before moving camera to target.",
+			NameColor = 4282219161,
+			group = "Combat",
+			id = "ShootDelayAfterAim",
+			value = 250,
 		}),
 		}),
 }

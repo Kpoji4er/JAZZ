@@ -191,9 +191,10 @@ function AIPolicyCustomSeekCover:SimpleGetCoverScore(context, cover_score, dest,
         new_pos = RATOAI_UnpackPos(dest)
         new_pos = IsValidZ(new_pos) and new_pos or new_pos:SetTerrainZ()
         local enemy_pos = IsValid(enemy) and enemy:GetPos() or enemy
-        new_pos = IsValidZ(enemy_pos) and enemy_pos or enemy_pos:SetTerrainZ()
+        
 
         if enemy_pos then
+            new_pos = IsValidZ(enemy_pos) and enemy_pos or enemy_pos:SetTerrainZ() or new_pos
             dist = Max(min_dist, new_pos:Dist(enemy_pos))
             local range = max_range * const.Scale.AP
             local ratio = 100 - ((Min(range, dist) * 1.00) / (range * 1.00)) *

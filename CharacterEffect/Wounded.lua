@@ -57,23 +57,6 @@ DefineClass.Wounded = {
 				end
 			end,
 		}),
-		PlaceObj('UnitReaction', {
-			Event = "OnCalcStartTurnAP",
-			Handler = function (self, target, value)
-				----------------------------
-				local effect = target:GetStatusEffect("Wounded", "all")
-				local count = 0
-				if effect then
-				 	count = effect.stacks 
-					--print(effect.stacks)
-				end
-					local ap_loss = (-count * const.Scale.AP)
-					value = value - ap_loss
-					
-				
-				--------------------------------
-			end,
-		}),
 	},
 	DisplayName = T(738668654416, --[[ModItemCharacterEffectCompositeDef Wounded DisplayName]] "Ранен"),
 	Description = T(345786294171, --[[ModItemCharacterEffectCompositeDef Wounded Description]] "Макс. количество <color EmStyle>ОЗ снижается на <MaxHpReductionPerStack></color> за каждую рану. Так же с каждой раной снижается <color EmStyle>Количество ОД </color>. Можно вылечить операцией <color EmStyle>Лечение ран</color> в режиме Вида со спутника."),

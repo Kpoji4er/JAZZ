@@ -120,7 +120,7 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
     default = 0,
     template = true,
     min = 0,
-    max = 100,
+    max = 120,
     modifiable = true
 }
 
@@ -155,6 +155,19 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
     id = "BaseJamChance",
     name = "Jam Chance",
     help = "Базовый шанс клина (1 = 1/100)",
+    editor = "number",
+    default = 0,
+    template = true,
+    min = -100,
+    max = 100,
+    modifiable = true
+}
+
+FirearmProperties.properties[#FirearmProperties.properties+1] = {
+    category = "New Weapon System",
+    id = "PenetrationBonus",
+    name = "Penetration Bonus",
+    help = "Бонус к пробитию брони",
     editor = "number",
     default = 0,
     template = true,

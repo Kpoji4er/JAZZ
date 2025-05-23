@@ -325,7 +325,7 @@ function InventoryIsValidTargetForUnit(ctrl_context)
 		end	
 	end
 
-	if InventoryIsCombatMode() and IsKindOf(ctrl_context, "SquadBag") or IsKindOf(ctrl_context, "SectorStash") then			
+	if InventoryIsCombatMode() and (IsKindOf(ctrl_context, "SquadBag") or IsKindOf(ctrl_context, "SectorStash")) then			
 		return false,T(25711203919511, "<style InventoryHintTextRed>В бою")
 	end
 

@@ -14,6 +14,12 @@ DefineClass.suppressionMedium = {
 			end,
 		}),
 		PlaceObj('UnitReaction', {
+			Event = "OnEndTurn",
+			Handler = function (self, target)
+				target:ApplySuppressionStatus()
+			end,
+		}),
+		PlaceObj('UnitReaction', {
 			Event = "OnBeginTurn",
 			Handler = function (self, target)
 				target:GainAP(1, "Move")

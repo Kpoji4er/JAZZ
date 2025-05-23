@@ -49,8 +49,8 @@ DefineClass.Claustrophobic = {
 			end,
 		}),
 	},
-	DisplayName = T(464805356385, --[[ModItemCharacterEffectCompositeDef Claustrophobic DisplayName]] "Claustrophobic"),
-	Description = T(356135028604, --[[ModItemCharacterEffectCompositeDef Claustrophobic Description]] "<GameTerm('Morale')> decrease when starting combat in <em>underground</em> Sectors."),
+	DisplayName = T(464805356385, --[[ModItemCharacterEffectCompositeDef Claustrophobic DisplayName]] "Клаустрофобия"),
+	Description = T(356135028604, --[[ModItemCharacterEffectCompositeDef Claustrophobic Description]] "<GameTerm('Morale')> снижается в начале боя, если он происходит в <em>подземных</em> секторах."),
 	Icon = "UI/Icons/Perks/Claustrophobic",
 	Tier = "Quirk",
 }

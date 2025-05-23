@@ -17,8 +17,5 @@ DefineClass.JazzArmor_NVG1 = {
 	AdditionalReduction = 20,
 	NightVision = 20,
 	StunGrenadeProtection = -20,
-	SuppressionProtection = function ()
-		    return 0--self.SuppressionProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-	end,
 }
 

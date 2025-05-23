@@ -603,6 +603,10 @@ end
 	local misses
 	local precalc_damage_data = {}
 	local killed_colliders = {}
+
+	local suppression_CTH = attack_results.chance_to_hit
+
+
 	for i = 1, num_shots do
 	
 		-- clear dead collide units
@@ -923,6 +927,8 @@ end
 		end
 
 		--suppression
+
+
 		--if not prediction and g_Combat then
 		if not prediction then
 
@@ -936,20 +942,31 @@ end
 
 				--print(hit.impact_force)
 				--print(hit)
-				local willPointsBaseDamage = DivRound(self.Damage,5)
-				willPointsBaseDamage = MulDivRound(100-(IsKindOf(target, "Unit") and target:SuppressionProtection() or 0),willPointsBaseDamage,100)
-				
+	
+				local willPointsBaseDamage = (100-(IsKindOf(target, "Unit") and target:SuppressionProtection() or 0)) * self.Damage * 0.01
+				--local willPointsBaseDamage = MulDivRound(100-(IsKindOf(target, "Unit") and target:SuppressionProtection() or 0),self.Damage,100)
+				willPointsBaseDamage = willPointsBaseDamage * 0.2 
+				if action.id == "MGBurstFire" then  willPointsBaseDamage = willPointsBaseDamage * 2 end
 				
 				local willPointsDamage = willPointsBaseDamage
 				
 				
-				if IsValid(target) and attack_results.chance_to_hit > 3 and target.team.side ~= attacker.team.side then 
+				if IsValid(target) and (suppression_CTH > 0 or not IsMerc(attacker)) and target.team.side ~= attacker.team.side then 
 					--print(target.team.side)
-					local willPointsDamage = Max(willPointsBaseDamage,1) * (attack_results.chance_to_hit * 0.5 + 0.25) * 0.01
-					--print("Target Supression: "..willPointsDamage.." cth:"..attack_results.chance_to_hit.." dam:"..Max(self.Damage,1))
+					local cthFactor = Clamp((suppression_CTH / 100)^0.5, 0.2, 1.0)
+					local willPointsDamage = willPointsBaseDamage * (0.4 + 0.6 * cthFactor)
+					--print("Target Supression: "..willPointsDamage.." cth:"..suppression_CTH.." dam:"..Max(self.Damage,1))
 
-					target.WillPoints = Max(0,target.WillPoints - willPointsDamage)
-					
+					if willPointsDamage > 0 then
+						if HasPerk(attacker, "Psycho") then
+							attacker.WillPoints = Max(attacker.MaxWillPoints, attacker.WillPoints + willPointsDamage)
+						end
+						if not HasPerk(target, "Psycho") then
+						target.WillPoints = Max(0, target.WillPoints - willPointsDamage)
+						target:ApplySuppressionStatus()
+						end
+					end
+	
 				end
 
 
@@ -957,20 +974,37 @@ end
 				
 	
 				for _, unit in ipairs(units) do
-					if attacker:GetPos() ~= unit:GetPos() and unit.team.side ~= attacker.team.side and unit:GetDist(target) < 10000 then
+					local dist = 0
+					if hit_data.target_pos and unit then
+  						dist = unit:GetDist(hit_data.target_pos)
+					end
+					if attacker:GetPos() ~= unit:GetPos() and unit.team.side ~= attacker.team.side and ((dist < 10000)) then
 						--if isCloser() attacker:IsOnEnemySide(hit_obj)
 						--print(unit.WillPoints)
-						local dist = Min(hit.pos:Dist(unit:GetPos()),hit_data.target_pos:Dist(unit:GetPos()))
+						local dist = Min(hit.pos:Dist(unit:GetPos()),hit_data.target_pos:Dist(unit:GetPos ()))
 						--print(dist)
-						if dist/const.SlabSizeX < 2 then
+						if dist/const.SlabSizeX < 5 then
 
-							local willPointsDamage = Max(willPointsBaseDamage,1) * (2400 - dist)*0.001
+							local clampedDist = Clamp(const.SlabSizeX * 4 - dist, 0, const.SlabSizeX * 4)
+							local willPointsDamage = Max(willPointsBaseDamage, 1) * clampedDist * 0.0002
+							--local willPointsDamage = Max(willPointsBaseDamage,1) * (const.SlabSizeX * 4 - dist)*0.001
 
 							--print("Near Units Supression: "..willPointsDamage.." dist:"..dist.." dam:"..Max(self.Damage,1))
 
-							unit.WillPoints = Max(0,unit.WillPoints - willPointsDamage)
+							if willPointsDamage > 0 then
 
-							unit:ApplySuppressionStatus()
+								if HasPerk(attacker, "Psycho") then
+									attacker.WillPoints = Max(attacker.MaxWillPoints, attacker.WillPoints + willPointsDamage)
+								end
+								if not HasPerk(unit, "Psycho") then
+									unit.WillPoints = Max(0, unit.WillPoints - willPointsDamage)
+									unit:ApplySuppressionStatus()
+								end
+
+								
+
+
+							end
 
 							--print(ammo_type)
 						end
@@ -987,7 +1021,7 @@ end
 		--	for _, unit in ipairs(units) do
 		--		unit:ApplySuppressionStatus()
 		--	end
-			target:ApplySuppressionStatus()
+			
 			--ObjModified(target)
 		end
 
@@ -1134,13 +1168,13 @@ TFormat.bullets =  function(context_obj, bullets, max, icon)
 		if bullets > 0 then
 			if context_obj and context_obj.MagazineSize and context_obj.ammo.colorStyle and bullets ~= 0 then	
 			--	text = T{"<style <ammocolor> ><text></style>/<style InventoryItemsCountMax><max></style>", ammocolor = context_obj.ammo.colorStyle, text = text}
-				text = Untranslated{"<style "..context_obj.ammo.colorStyle..">"..text.."</style>/<style InventoryItemsCountMax><max></style>", ammocolor = context_obj.ammo.colorStyle, text = text}
+				text = Untranslated("<style " .. context_obj.ammo.colorStyle .. ">" .. text .. "</style>/<style InventoryItemsCountMax><max></style>")
 				--text = "<style "..context_obj.ammo.colorStyle..">"..text.."</style>" .. "/<style InventoryItemsCountMax><max></style>"
 			else
-				text = text .. "/<style InventoryItemsCountMax><max></style>"
+				text = Untranslated(text .. "/<style InventoryItemsCountMax><max></style>")
 			end
 		else
-			text = text .. "/<style InventoryItemsCountMax><max></style>"
+			text = Untranslated(text .. "/<style InventoryItemsCountMax><max></style>")
 		end
 		return T{text, bullets = bullets, max = max or 0, icon = icon}
 	end		 
@@ -1148,7 +1182,7 @@ end
 
 function InventoryStack:GetItemSlotUI()
 	if self.colorStyle then
-			return "<style "..self.colorStyle..">"..self.Amount.."<valign bottom 0><style "..self.colorStyle..">/"..self.MaxStacks.."</style>"
+			return  Untranslated("<style "..self.colorStyle..">"..self.Amount.."<valign bottom 0><style "..self.colorStyle..">/"..self.MaxStacks.."</style>")
 	else
 			return T{709831548751, "<style InventoryItemsCount><cur><valign bottom 0><style InventoryItemsCountMax>/<max></style>", 
 				 cur = self.Amount, max = self.MaxStacks}

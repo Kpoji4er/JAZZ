@@ -437,14 +437,19 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 		local spot = GetRandomStainSpot()
 		self:AddStain("Soot", spot)
 
-		local willPointsDamage = MulDivRound(100-self:SuppressionProtection(),hit.damage,200) or DivRound(hit.damage,5)
-		self.WillPoints = Max(0,self.WillPoints - willPointsDamage)
-		print("grenadeWP: "..willPointsDamage)
-		if willPointsDamage > 1 then 
-		self:ApplySuppressionStatus()
-		--ObjModified(self)
+		if HasPerk(self, "Psycho") then
+			return 
 		end
-
+		
+			local willPointsDamage = hit.damage * 0.2 * (100-self:SuppressionProtection()) * 0.01
+--			local willPointsDamage = MulDivRound(100-self:SuppressionProtection(),hit.damage,200) or DivRound(hit.damage,5)
+			self.WillPoints = Max(0,self.WillPoints - willPointsDamage)
+			--print("grenadeWP: "..willPointsDamage)
+			if willPointsDamage > 1 then 
+			self:ApplySuppressionStatus()
+			--ObjModified(self)
+			end
+		
 	end
 		
 	if not invulnerable then

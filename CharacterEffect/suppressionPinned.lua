@@ -14,6 +14,12 @@ DefineClass.suppressionPinned = {
 			end,
 		}),
 		PlaceObj('UnitReaction', {
+			Event = "OnEndTurn",
+			Handler = function (self, target)
+				target:ApplySuppressionStatus()
+			end,
+		}),
+		PlaceObj('UnitReaction', {
 			Event = "OnBeginTurn",
 			Handler = function (self, target)
 				if target:CanTakeCover() then
@@ -36,7 +42,7 @@ DefineClass.suppressionPinned = {
 	AddEffectText = T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionPinned AddEffectText]] "Под плотным огнем"),
 	OnAdded = function (self, obj)
 		local unitStance = obj.stance
-		if unitStance ~= "Prone" and not (obj:CanTakeCover()) then
+		if unitStance ~= "Prone" or not (obj:CanTakeCover()) then
 		obj:SetActionCommand("ChangeStance", nil, nil, "Prone")
 		end
 		if obj:CanTakeCover() then

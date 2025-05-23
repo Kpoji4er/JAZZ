@@ -887,19 +887,50 @@ function OnMsg.CombatEnd()
 		return v.HireStatus ~= "Dead"
 	end)
 	
-	for _, unit in ipairs(g_Ununitsits) do
+	
+
+	for _, unit in ipairs(g_Units) do
 		unit.WillPoints = unit.MaxWillPoints
+		local player_team = unit.player_team and unit.team
+
+		if not isMerc(unit) and (#GetAllAlliedUnits(unit) <= CurrentModOptions.ShowLastEnemy) then
+			unit:RevealTo(player_team)
+			unit.innerInfoRevealed = true
+		end
+
 	end
+
 end
 
-function OnMsg.CombatStart()
+function OnMsg.TurnEnd()
 
 	local units = g_Units
 	units = table.ifilter(units, function(k, v)
 		return v.HireStatus ~= "Dead"
 	end)
+	
+	
 
-	for _, unit in ipairs(units) do
-		unit.WillPoints = unit.MaxWillPoints
+	for _, unit in ipairs(g_Units) do
+		local player_team = unit.player_team and unit.team
+
+		if not isMerc(unit) and (#GetAllAlliedUnits(unit) <= CurrentModOptions.ShowLastEnemy) then
+			unit:RevealTo(player_team)
+			unit.innerInfoRevealed = true
+		end
+
 	end
+
 end
+
+--function OnMsg.CombatStart()
+--
+--	local units = g_Units
+--	units = table.ifilter(units, function(k, v)
+--		return v.HireStatus ~= "Dead"
+--	end)
+--
+--	for _, unit in ipairs(units) do
+--		unit.WillPoints = unit.MaxWillPoints
+--	end
+--end
