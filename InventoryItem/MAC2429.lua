@@ -75,7 +75,7 @@ DefineClass.MAC2429 = {
 	Recoil = 32,
 	BurstShots = 4,
 	AutoShots = 4,
-	Handling = 58,
+	Handling = 24,
 	BulletDropRange = 19,
 	Grouping = 260,
 }

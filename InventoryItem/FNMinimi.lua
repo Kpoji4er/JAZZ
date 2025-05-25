@@ -95,7 +95,7 @@ DefineClass.FNMinimi = {
 	ReloadAP = 6000,
 	Recoil = 6,
 	BurstShots = 10,
-	Handling = 70,
+	Handling = 58,
 	BulletDropRange = 17,
 	Grouping = 298,
 }

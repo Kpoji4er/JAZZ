@@ -559,7 +559,7 @@ PlaceObj('ActionFXSound', {
 	Actor = "Makarov",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "Makarov_Shot",
+	Sound = "Makarov_shot",
 	Target = "any",
 	group = "Default",
 	id = "fxMakarov1",

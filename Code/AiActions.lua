@@ -913,12 +913,12 @@ end
 
 function AISignatureAction:MatchUnit(unit)
   for state, _ in pairs(self.AvailableInState) do
-    if not GameStates.state then
+    if not GameState.state then
       return
     end
   end
   for state, _ in pairs(self.ForbiddenInState) do
-    if GameStates.state then
+    if GameState and GameState.state then
       return
     end
   end

@@ -58,7 +58,7 @@ DefineClass.M60 = {
 	Recoil = 18,
 	BurstShots = 5,
 	AutoShots = 5,
-	Handling = 50,
+	Handling = 25,
 	BulletDropRange = 20,
 	Grouping = 280,
 }

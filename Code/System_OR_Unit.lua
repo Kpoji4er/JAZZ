@@ -176,10 +176,9 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 				end
 			end
 		end
-		if hidden then coverbuff = coverbuff * 1.5
-		other:HasStatusEffect("Protected") then coverbuff = coverbuff * 1.1
+		if hidden then coverbuff = coverbuff * 1.5 end
+		if other:HasStatusEffect("Protected") then coverbuff = coverbuff * 1.25 end
 		modifier = modifier - coverbuff
-
 	end
 
 
@@ -990,25 +989,30 @@ function Unit:RecalcWillPoints()
 		--end
 	end
 
-	for _, dislikedMerc in ipairs(self.Dislikes) do
-		if DivRound(self:GetPos():Dist(dislikedMerc:GetPos()),const.SlabSizeX) < 3
-		local dislikedIndex = table.find(self.team.units, "session_id", dislikedMerc)
-		if dislikedIndex and not self.team.units[dislikedIndex]:IsDead() then
-			buff = buff - 3
-			isDisliking = true
-			break
-		end
-	end
-		for _, likedMerc in ipairs(self.Likes) do
-			if DivRound(self:GetPos():Dist(likedMerc:GetPos()),const.SlabSizeX) < 3
-			local likedIndex = table.find(self.team.units, "session_id", likedMerc)
-			if likedIndex and not self.team.units[likedIndex]:IsDead() and   then
-				buff = buff + 3
-				break
+	local buff = 5 + DivRound(leadership,50)
+
+	if IsMerc(self) and (self.Dislikes or self.Likes) then
+		for _, dislikedMerc in ipairs(self.Dislikes) do
+			local dislikedIndex = table.find(self.team.units, "session_id", dislikedMerc)
+			if dislikedIndex and not self.team.units[dislikedIndex]:IsDead() then
+				if dislikedIndex and DivRound(self:GetPos():Dist(self.team.units[dislikedIndex]:GetPos()),const.SlabSizeX) < 3 and not self.team.units[dislikedIndex]:IsDead() then
+					local dislikedIndex = table.find(self.team.units, "session_id", dislikedMerc)
+						buff = buff - 3
+					end
 			end
 		end
+		for _, likedMerc in ipairs(self.Likes) do
+			local likedIndex = table.find(self.team.units, "session_id", likedMerc)
+			if likedIndex and not self.team.units[likedIndex]:IsDead()  then
+				if likedIndex and DivRound(self:GetPos():Dist(self.team.units[likedIndex]:GetPos()),const.SlabSizeX) < 3 and not self.team.units[likedIndex]:IsDead() then
+					local likedIndex = table.find(self.team.units, "session_id", likedMerc)
+						buff = buff + 3
+				end
+			end
+		end
+	end
 
-	local buff = 5 + DivRound(leadership,50)
+
 	--print("wpbuffleadership"..buff)
 
 	if HasPerk(self, "Optimist") then

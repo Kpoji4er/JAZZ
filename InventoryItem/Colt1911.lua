@@ -52,6 +52,12 @@ DefineClass.Colt1911 = {
 			},
 			'DefaultComponent', "Freeswap",
 		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Side",
+			'AvailableComponents', {
+				"Flashlight",
+			},
+		}),
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
