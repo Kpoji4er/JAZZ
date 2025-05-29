@@ -89,50 +89,28 @@ function AIPolicyCustomFlanking:GetEnemyWeight(unit, enemy, dist, effective_rang
 end
 
 function AIPolicyCustomFlanking:EvalDest(context, dest, grid_voxel)
-
     local unit = context.unit
-    local current_pos = context.unit_stance_pos
-    context = Update_AIPrecalcDamageScore(unit) or context
-    -- context = Update_AICoverLOS_currentpos(unit, current_pos) or context
-    -- current_pos = context.unit_stance_pos
-
-    local target = context.dest_target[dest]
-
     local ap = context.dest_ap[dest] or 0
-
-    local check_ap = self.ReserveAttackAP == "AP" and context.default_attack_cost or
-                         self.ReserveAttackAP == "Stance" and
-                         (context.default_attack_cost +
-                             GetWeapon_StanceAP(unit, context.weapon or unit:GetActiveWeapons()) +
-                             Get_AimCost(unit)) or 0
-
-    if ap < check_ap then
-        return 0
-    end
+    local attack_ap = context.default_attack_cost or 0
+    if ap < attack_ap then return 0 end
 
     local x, y, z = stance_pos_unpack(dest)
     local new_pos = point(x, y, z)
 
+    local effective_range = (context.EffectiveRange or 30) * const.SlabSizeX
+    local target = context.dest_target[dest]
+    local target_only = self.OnlyTarget
+    local scale = self.ScalePerDistance
+
     local enemies = {}
-    local enemies_weight = {}
+    local weights = {}
 
-    local effective_range = context.EffectiveRange * const.SlabSizeX * effective_range_mul
-
-    if self.OnlyTarget then
-        if target then
-            enemies = {target}
-            enemies_weight[target] = self:GetEnemyWeight(unit, target, self.ScalePerDistance and
-                                                             new_pos:Dist(target:GetPos()) or nil,
-                                                         effective_range, target) or 100
-        else
-            return 0
-        end
-    else
-        for _, enemy in ipairs(context.enemies) do
+    -- [1] Собираем релевантных врагов + вес
+    for _, enemy in ipairs(context.enemies or empty_table) do
+        if not target_only or enemy == target then
             local dist = new_pos:Dist(enemy:GetPos())
             if dist <= effective_range then
                 local visible = true
-
                 if self.visibility_mode == "self" then
                     visible = context.enemy_visible[enemy]
                 elseif self.visibility_mode == "team" then
@@ -140,103 +118,33 @@ function AIPolicyCustomFlanking:EvalDest(context, dest, grid_voxel)
                 end
 
                 if visible then
-                    local weight = self:GetEnemyWeight(unit, enemy, dist, effective_range, target)
-                    enemies_weight[enemy] = weight
-                    enemies[#enemies + 1] = enemy
+                    local weight = 100
+                    if enemy == target then weight = weight + extra_target_weight end
+                    if scale and effective_range > 0 then
+                        local dist_factor = Clamp(1 - (dist / effective_range), 0, 1)
+                        weight = MulDivRound(weight, dist_factor * 100, 100)
+                    end
+                    weights[enemy] = weight
+                    enemies[#enemies+1] = enemy
                 end
             end
         end
     end
 
-    local context_cover_data = context.dest_target_cover_score[dest]
-    local context_los_data = context.dest_target_los[dest]
-    local context_currentpos_cover_data = context.currentpos_target_cover_score
-    local context_currentpos_los_data = context.enemy_visible
+    -- [2] Оценка укрытия — просто: если нет укрытия от врага, +вес
+    local cover_data = context.dest_target_cover_score[dest] or empty_table
+    local los_data = context.dest_target_los[dest] or empty_table
 
-    local current_pos_cover_data, new_pos_cover_data = {}, {}
+    local score = 0
     for _, enemy in ipairs(enemies) do
-        local in_cover, cover_cth, no_los = IsInCover(unit, enemy, context_currentpos_cover_data,
-                                                      context_currentpos_los_data)
-        current_pos_cover_data[enemy] = {
-            in_cover = in_cover,
-            cover_cth = cover_cth,
-            no_los = no_los
-        }
-
-        local in_cover, cover_cth, no_los = IsInCover(unit, enemy, context_cover_data,
-                                                      context_los_data)
-        new_pos_cover_data[enemy] = {in_cover = in_cover, cover_cth = cover_cth, no_los = no_los}
+        local los = los_data[enemy]
+        local cover = cover_data[enemy] or 0
+        if los and los > 0 and cover < 50 then
+            score = score + (weights[enemy] or 100)
+        end
     end
 
-    local debug_data = {}
-    local delta = 0
-    for _, enemy in ipairs(enemies) do
-        local delta_weight = enemies_weight[enemy] or 100
-
-        debug_data[enemy] = {
-            new_in_cover = new_pos_cover_data[enemy].in_cover,
-            old_in_cover = current_pos_cover_data[enemy].cover_cth,
-            delta = 0,
-            cover = context_cover_data and context_cover_data[enemy] or 0,
-            los = context_los_data and context_los_data[enemy] or "NoLosData"
-        }
-
-        local dif = CompareCovers(enemy, current_pos_cover_data, new_pos_cover_data)
-        delta_weight = delta_weight * dif
-
-        if new_pos_cover_data[enemy].in_cover and not current_pos_cover_data[enemy].in_cover then
-            delta = delta + delta_weight
-            debug_data[enemy].delta = delta_weight
-        elseif not new_pos_cover_data[enemy].in_cover and current_pos_cover_data[enemy].in_cover then
-            delta = delta + delta_weight
-            debug_data[enemy].delta = delta_weight
-        end
-
-        -------------------- Simple
-        --[[if not new_pos_cover_data[enemy].in_cover then
-            delta = delta + delta_weight
-            debug_data[enemy].delta = delta_weight
-        else
-            debug_data[enemy].delta = 0
-        end]]
-        -------------------- 
-
-    end
-
-    ----------------------- Debug
-    if debug then
-        if draw_debug then
-            DbgAddCircle(new_pos)
-        end
-        local all_enemy_debug_info = "\n"
-
-        for enemy, data in pairs(debug_data) do
-            local delta = data.delta
-
-            local dbg_text = string.format("  %s, 1stCover: %s, 2ndCover: %s Delta: %d, LOS: %s",
-                                           tostring(enemy.session_id), tostring(data.old_in_cover),
-                                           tostring(data.cover), delta, tostring(data.los))
-
-            all_enemy_debug_info = all_enemy_debug_info .. dbg_text .. "\n"
-
-            if delta ~= 0 then
-                local color = delta > 0 and const.clrGreen or delta == 0 and const.clrGray or
-                                  const.clrRed
-                if not data.los or data.los == 0 then
-                    color = const.clrBlue
-                end
-                if draw_debug then
-                    DbgAddVector(new_pos, enemy:GetPos() - new_pos, color)
-                end
-            end
-        end
-        local total_dbg_text = string.format("Score: %s", tostring(delta))
-        all_enemy_debug_info = total_dbg_text .. all_enemy_debug_info
-        context.dest_flanking_pol_debug[dest] = all_enemy_debug_info
-    end
-    ----------------------- 
-
-    return delta > 0 and delta or 0
+    return score
 end
 
 --[[function AIPolicyCustomFlanking_IndividualTarget:EvalDest(context, dest, grid_voxel)

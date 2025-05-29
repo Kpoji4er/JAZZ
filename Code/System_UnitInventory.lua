@@ -210,6 +210,7 @@ end
 
 function OnMsg.InventoryAddItem(unit, item, amount)
 	LogGotItem(unit, item, amount)
+	ObjModified(unit.Inventory)
 end
 
 GameVar("g_GossipItemsTakenByPlayer",{})

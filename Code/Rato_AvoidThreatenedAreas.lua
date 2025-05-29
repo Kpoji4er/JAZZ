@@ -15,8 +15,8 @@
 -- @ orient or or CalcOrientation(enemy:GetPos(), enemy_ow.target_pos)
 -- end
 --------------------------
---[[
-function AIFindDestinations(unit, context)
+
+function _AIFindDestinations(unit, context)
     local pos = GetPassSlab(unit) or unit:GetPos()
     local destinations, paths, dest_ap, dest_path, voxel_to_dest, closest_free_pos =
         AIBuildArchetypePaths(unit, pos, context)
@@ -91,12 +91,13 @@ function AIFindDestinations(unit, context)
     context.all_destinations = AIEnumValidDests(context)
 end
 
-function AIFindOptimalLocation(context, dest_score_details)
+function _AIFindOptimalLocation(context, dest_score_details)
     if context.best_dest then
         -- optimal location doesn't change across behaviors, no need to recalc it
         return context.best_dest
     end
 
+    
     local unit = context.unit
     context.best_dests = {}
 
@@ -108,11 +109,81 @@ function AIFindOptimalLocation(context, dest_score_details)
     local unit_voxels = {}
     local dest_scores = {}
 
+    local sees_enemy = false
+for _, enemy in ipairs(context.enemies or empty_table) do
+    if context.enemy_visible and context.enemy_visible[enemy] then
+        sees_enemy = true
+        break
+    end
+end
+
     local policies = table.ifilter(context.archetype.OptLocPolicies, function(idx, policy)
         return policy:MatchUnit(unit)
     end)
 
+    local effective_range = context.EffectiveRange * 2
+    if not effective_range then
+        effective_range = sees_enemy and 40 or 60
+    elseif effective_range <= 40 then
+        effective_range = effective_range + (sees_enemy and 20 or 60)
+    end
+
+    effective_range = effective_range * (sees_enemy and 2 or 4.0)
+
+    local multiplier = sees_enemy and 1.1 or 1.0
+
+-- модификаторы погоды/ночи
+if GameState.Night then
+    multiplier = multiplier * (sees_enemy and 1.1 or 1.5)
+end
+if GameState.Fog then
+    multiplier = multiplier * (sees_enemy and 1.05 or 1.3)
+end
+if GameState.DustStorm then
+    multiplier = multiplier * (sees_enemy and 1.0 or 1.2)
+end
+if GameState.FireStorm then
+    multiplier = multiplier * 1.1
+end
+if GameState.RainHeavy then
+    multiplier = multiplier * (sees_enemy and 1.05 or 1.25)
+end
+
+effective_range = effective_range * multiplier
+
+    local max_dist = effective_range * const.SlabSizeX
+
+--    local max_dist = (context.EffectiveRange or (50 + InteractionRand(20, "max_dist"))) * const.SlabSizeX  -- максимум дистанции до позиции
+    local max_positions =  InteractionRand(500, "max_positions") + 500               -- максимум позиций на оценку
+    local filtered_dests = {}
+    
+    -- Фильтрация по расстоянию и AP
     for _, dest in ipairs(context.all_destinations) do
+        local x, y, z = stance_pos_unpack(dest)
+        local dist = context.unit:GetPos():Dist2D(point(x, y))
+        local ap = context.dest_ap and context.dest_ap[dest] or 0
+        if dist <= max_dist and (not ap or ap >= 0) then
+            table.insert(filtered_dests, dest)
+        end
+    end
+
+    
+    if #filtered_dests == 0 then
+        -- fallback: просто берём 1–2 ближайшие точки вообще
+        filtered_dests = table.copy(context.all_destinations or {})
+        table.shuffle(filtered_dests)
+    end
+    
+    -- Обрежем до ближайших 40 точек
+    --table.sort(filtered_dests, function(a, b)
+    --    local ax, ay = stance_pos_unpack(a)
+    --    local bx, by = stance_pos_unpack(b)
+     --   return context.unit:GetPos():Dist2D(point(ax, ay)) < context.unit:GetPos():Dist2D(point(bx, by))
+    --end)
+    local trimmed = table.slice(filtered_dests, 1, max_positions)
+
+
+    for _, dest in ipairs(trimmed) do
         local x, y, z = stance_pos_unpack(dest)
         local gx, gy, gz = WorldToVoxel(x, y, z)
         local world_voxel = point_pack(x, y, z)
@@ -129,6 +200,7 @@ function AIFindOptimalLocation(context, dest_score_details)
         end
         table.iclear(unit_voxels)
         local score = AIScoreDest(context, policies, dest, grid_voxel, 0, unit_voxels, scores)
+        score = score + InteractionRand(5, "AIChoiceNoise")
         if score > 0 then
             context.best_score = Max(context.best_score, score)
             local threshold = MulDivRound(context.best_score, const.AIDecisionThreshold, 100)
@@ -147,6 +219,9 @@ function AIFindOptimalLocation(context, dest_score_details)
             scores.final_score = score
         end
     end
+
+    table.shuffle(context.best_dests)
+
 
     -- check if a best dest candidate is on our starting voxel, default to it
     for _, dest in ipairs(context.best_dests) do
@@ -188,6 +263,9 @@ function AIFindOptimalLocation(context, dest_score_details)
         table.insert_unique(context.important_dests, context.best_dest)
         table.insert_unique(context.destinations, context.best_dest)
     end
+    if not context.best_dest then
+        print("DEBUG: Fallback to standing position")
+        context.best_dest = context.unit_stance_pos
+    end
     return context.best_dest
 end
-]] 

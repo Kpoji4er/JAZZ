@@ -1364,7 +1364,7 @@ return {
 			group = "Combat",
 			id = "SightModStealthStatDiff",
 			scale = "%",
-			value = 40,
+			value = 50,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "sight penalty (as % of base value) for seeing units in tall grass or brush",
@@ -93190,6 +93190,62 @@ return {
 					'RemoveOnEndCombat', true,
 					'Shown', true,
 				}),
+				PlaceObj('ModItemStatGainingPrerequisite', {
+					failChance = 70,
+					group = "Default",
+					id = "SupressionWillPowerGain",
+					msg_reactions = {
+						PlaceObj('MsgReaction', {
+							Event = "StatusEffectAdded",
+							Handler = function (self, obj, id, stacks)
+								local suppression_ids = {
+								  suppressionHeavy = true,
+								  suppressionHeavy2 = true,
+								  suppressionPinned = true
+								}
+								
+								if IsMerc(obj) and suppression_ids[id] and stacks > 0 then
+									SetPrerequisiteState(obj, self.id, true, "gain")
+								end
+							end,
+						}),
+					},
+					relatedStat = "Will",
+				}),
+				PlaceObj('ModItemStatGainingPrerequisite', {
+					Comment = "Accumulated <APToSpend> AP of movement in combat (including free move)",
+					comment = "Убрал потому что подавление дает халявные од похоже",
+					group = "Agility",
+					id = "MovementAPSpent",
+					msg_reactions = {
+						PlaceObj('MsgReaction', {
+							Event = "UnitAPChanged",
+							Handler = function (self, unit, action_id, change)
+								if not (g_Combat and IsMerc(unit) and action_id == "Move" and change and change < 0) then return end
+								
+								local state = GetPrerequisiteState(unit, self.id)
+								if not state or not state.APSpent then
+									state = {APSpent = 0}
+								end
+									
+								state.APSpent = state.APSpent + abs(change)
+								if state.APSpent < self:ResolveValue("APToSpend") * const.Scale.AP then
+									SetPrerequisiteState(unit, self.id, state)
+								else
+									SetPrerequisiteState(unit, self.id, state, "gain")
+								end
+							end,
+						}),
+					},
+					parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "APToSpend",
+							'Value', 100,
+							'Tag', "<APToSpend>",
+						}),
+					},
+					relatedStat = "Agility",
+				}),
 				}),
 			PlaceObj('ModItemFolder', {
 				'name', "System",
@@ -93288,7 +93344,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ DisplayName]] "Секретные данные"),
+					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Секретные данные"),
 					'Description', T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
 					'Icon', "UI/Icons/Perks/InnerInfo",
 					'Tier', "Personal",
@@ -93350,7 +93406,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ DisplayName]] "Юберрашунг"),
+					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Юберрашунг"),
 					'Description', T(845332100943, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ Description]] "Дает +50% од на первом ходу"),
 					'Icon', "UI/Icons/Perks/GruntyPerk",
 					'Tier', "Personal",
@@ -96425,6 +96481,10 @@ return {
 			PlaceObj('ModItemCode', {
 				'name', "AiActions",
 				'CodeFileName', "Code/AiActions.lua",
+			}),
+			PlaceObj('ModItemCode', {
+				'name', "AIBehaviours",
+				'CodeFileName', "Code/AIBehaviours.lua",
 			}),
 			PlaceObj('ModItemCode', {
 				'name', "CombatAI",

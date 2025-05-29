@@ -8,6 +8,55 @@ DefineClass.AIPolicyTryNotToBeFlanked = {
     }
 }
 
+local function atan2(y, x)
+    if x > 0 then return math.atan(y / x)
+    elseif x < 0 and y >= 0 then return math.atan(y / x) + math.pi
+    elseif x < 0 and y < 0 then return math.atan(y / x) - math.pi
+    elseif x == 0 and y > 0 then return math.pi / 2
+    elseif x == 0 and y < 0 then return -math.pi / 2
+    else return 0 end
+end
+
+local function GetThreatDirections(unit, dest, enemies)
+    local x, y, z = stance_pos_unpack(dest)
+    local pos = point(x, y)
+    if not x or not y then return 4 end  -- максимально опасно если позиция сломана
+
+
+    local threat_dirs = {}  -- например: { "N", "S", "E" }
+
+    for _, enemy in ipairs(enemies) do
+        local ex, ey = enemy:GetPos():xy()
+        local dx, dy = ex - x, ey - y
+
+        local angle = atan2(dy, dx) * 180 / math.pi
+
+        local dir
+        if angle > -45 and angle <= 45 then
+            dir = "E"
+        elseif angle > 45 and angle <= 135 then
+            dir = "N"
+        elseif angle <= -45 and angle > -135 then
+            dir = "S"
+        else
+            dir = "W"
+        end
+
+        if not threat_dirs[dir] then
+            if CheckLOS(enemy, pos, enemy:GetSightRadius()) then
+                threat_dirs[dir] = true
+            end
+        end
+    end
+
+    local open_flanks = 0
+    for _, val in pairs(threat_dirs) do
+        if val then open_flanks = open_flanks + 1 end
+    end
+
+    return open_flanks
+end
+
 function AIPolicyTryNotToBeFlanked:EvalDest(context, dest, grid_voxel)
     local unit = context.unit
 
@@ -16,9 +65,10 @@ function AIPolicyTryNotToBeFlanked:EvalDest(context, dest, grid_voxel)
     local pos_table = {}
     local new_pos = point(x, y, z)
     pos_table[unit] = new_pos
-    local new_surrounded = unit:RATOAI_IsSurrounded(pos_table)
+    local open_flanks = GetThreatDirections(unit, dest, context.enemies)
 
-    return not new_surrounded and 100 or 0
+    -- Чем меньше флангов — тем лучше. 0 = идеально. 3–4 = плохо.
+    return Clamp(4 - open_flanks, 0, 4) * 100
 end
 
 function Unit:RATOAI_IsSurrounded(unitReplace)

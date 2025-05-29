@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 5,
-	'version', 4821,
+	'version', 4830,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -597,6 +597,7 @@ return PlaceObj('ModDef', {
 		"Code/AccuracyRangeCTH.lua",
 		"Code/InfiniteLoopFix.lua",
 		"Code/AiActions.lua",
+		"Code/AIBehaviours.lua",
 		"Code/CombatAI.lua",
 		"Code/AiAction_ThrowFlare.lua",
 		"Code/Rato_AICreateContext.lua",
@@ -645,8 +646,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1748129778,
-	'code_hash', 314123815184223136,
+	'saved', 1748552744,
+	'code_hash', 3160402977201240735,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -13057,6 +13058,16 @@ return PlaceObj('ModDef', {
 			'Class', "CharacterEffectCompositeDef",
 			'Id', "suppressionPinned",
 			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "StatGainingPrerequisite",
+			'Id', "SupressionWillPowerGain",
+			'ClassDisplayName', "StatGainingPrerequisites",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "StatGainingPrerequisite",
+			'Id', "MovementAPSpent",
+			'ClassDisplayName', "StatGainingPrerequisites",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CharacterEffectCompositeDef",

@@ -893,7 +893,7 @@ function OnMsg.CombatEnd()
 		unit.WillPoints = unit.MaxWillPoints
 		local player_team = unit.player_team and unit.team
 
-		if not isMerc(unit) and (#GetAllAlliedUnits(unit) <= CurrentModOptions.ShowLastEnemy) then
+		if not IsMerc(unit) and (#GetAllAlliedUnits(unit) <= CurrentModOptions.ShowLastEnemy) then
 			unit:RevealTo(player_team)
 			unit.innerInfoRevealed = true
 		end

@@ -210,6 +210,19 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 			end
 		end
 	end
+
+	---Smoke
+	
+	if self:HasStatusEffect("Smoked") then
+		modifier = modifier - 40 
+		EnvEffectSmokeTick(self, nil, "")
+	  end
+	if other_is_unit and other:HasStatusEffect("Smoked") then
+		EnvEffectSmokeTick(other, nil, "")
+		modifier = modifier - 50
+	end
+
+
 	if night_time and other then
 		local darknessMod = const.EnvEffects.DarknessSightMod
 		if self:HasNightVision() then
@@ -264,7 +277,7 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 		local x, y, z = self:GetGridCoords()
 		if oz >= z + const.EnvEffects.SightHeightDiffThreshold then
 			modifier = modifier + const.EnvEffects.SightHeightDiffMod
-		elseif g_Exploration and oz + const.EnvEffects.SightHeightDiffThreshold < z  then
+		elseif oz + const.EnvEffects.SightHeightDiffThreshold < z  then
 			modifier = modifier + -(const.EnvEffects.SightHeightDiffMod * 2)
 		end
 	end
@@ -982,14 +995,14 @@ function Unit:RecalcWillPoints()
 
 			if HasPerk(unit, "Negotiator") then dist = Max(1,dist-3) end
 			if dist < 11 then
-				leadership = Max(leadership,(unit.Leadership + 5 * unit:GetPersonalMorale())*(11-dist))
+				leadership = Max(leadership,(unit.Leadership + 5 * Clamp(unit:GetPersonalMorale(),0,5))*(11-dist))
 			end
 			--ObjModified(unit)
 		end
 		--end
 	end
 
-	local buff = 5 + DivRound(leadership,50)
+	local buff = 10 + DivRound(leadership,50)
 
 	if IsMerc(self) and (self.Dislikes or self.Likes) then
 		for _, dislikedMerc in ipairs(self.Dislikes) do
@@ -997,7 +1010,7 @@ function Unit:RecalcWillPoints()
 			if dislikedIndex and not self.team.units[dislikedIndex]:IsDead() then
 				if dislikedIndex and DivRound(self:GetPos():Dist(self.team.units[dislikedIndex]:GetPos()),const.SlabSizeX) < 3 and not self.team.units[dislikedIndex]:IsDead() then
 					local dislikedIndex = table.find(self.team.units, "session_id", dislikedMerc)
-						buff = buff - 3
+						buff = buff - 1
 					end
 			end
 		end
@@ -1006,7 +1019,7 @@ function Unit:RecalcWillPoints()
 			if likedIndex and not self.team.units[likedIndex]:IsDead()  then
 				if likedIndex and DivRound(self:GetPos():Dist(self.team.units[likedIndex]:GetPos()),const.SlabSizeX) < 3 and not self.team.units[likedIndex]:IsDead() then
 					local likedIndex = table.find(self.team.units, "session_id", likedMerc)
-						buff = buff + 3
+						buff = buff + 1
 				end
 			end
 		end
@@ -1020,7 +1033,7 @@ function Unit:RecalcWillPoints()
 		local roll = InteractionRand(100, "Optimist")
 		if roll < chance then
 			PlayVoiceResponse(self, "Optimist")
-			buff = buff + 10
+			buff = buff + 5
 		end
 		buff = buff + 1
 	end
@@ -1030,7 +1043,7 @@ function Unit:RecalcWillPoints()
 		local roll = InteractionRand(100, "Pessimist")
 		if roll < chance then
 			PlayVoiceResponse(self, "Pessimist")
-			buff = buff - 10
+			buff = buff - 5
 		end
 		buff = buff - 1
 	end
@@ -1080,7 +1093,7 @@ function Unit:RecalcWillPoints()
 		buff = buff + 5
 	end
 
-    buff = buff + 3*self:GetPersonalMorale()
+    buff = buff + Clamp(3*self:GetPersonalMorale(),-3,10)
 
 
 	local wp_delta = MulDivRound(self.MaxWillPoints, buff, 100)
@@ -1088,6 +1101,8 @@ function Unit:RecalcWillPoints()
 	self.WillPoints = Clamp(self.WillPoints + wp_delta, 0, self.MaxWillPoints)
 	--self:ApplySuppressionStatus()
 	--print("wpbuff"..buff)
+
+	--print("WillPointsRegen." .. (self.Nick or self.Name) .. " " .. wp_delta)
 
 end
 
@@ -1971,6 +1986,7 @@ function Unit:ApplySuppressionStatus()
 --		print(MaxWillPoints)
 		
 		local WPpercent = MulDivRound(self.WillPoints, 100, MaxWillPoints) or 0
+		WPpercent = Clamp(WPpercent, 0, 100)
 		local morale = self:GetPersonalMorale() or 0
 		WPpercent = WPpercent - morale*3
 --		print(WPpercent)
@@ -1983,53 +1999,41 @@ function Unit:ApplySuppressionStatus()
 	return end		
 
 		
+	local suppression_levels = {
+		{threshold = 10, effect = "suppressionPinned"},
+		{threshold = 25, effect = "suppressionHeavy2"},
+		{threshold = 40, effect = "suppressionHeavy"},
+		{threshold = 55, effect = "suppressionMedium"},
+		{threshold = 70, effect = "suppressionLight"},
+	}
 
-		
-		if (WPpercent) <= 10 and not self:HasStatusEffect("suppressionPinned") then	
-			self:AddStatusEffect("suppressionPinned")
-			self:RemoveStatusEffect("suppressionLight","all")
-			self:RemoveStatusEffect("suppressionMedium","all")
-			self:RemoveStatusEffect("suppressionHeavy","all")
-			self:RemoveStatusEffect("suppressionHeavy2","all")		
-		elseif (WPpercent) > 10 and (WPpercent) <= 25 and not self:HasStatusEffect("suppressionHeavy2") then	
-			self:AddStatusEffect("suppressionHeavy2")
-			self:RemoveStatusEffect("suppressionLight","all")
-			self:RemoveStatusEffect("suppressionMedium","all")
-			self:RemoveStatusEffect("suppressionHeavy","all")
-			self:RemoveStatusEffect("suppressionPinned","all")
-		elseif (WPpercent) > 25 and (WPpercent) <= 40 and not self:HasStatusEffect("suppressionHeavy") then	
-			self:AddStatusEffect("suppressionHeavy")
-			self:RemoveStatusEffect("suppressionLight","all")
-			self:RemoveStatusEffect("suppressionMedium","all")
-			self:RemoveStatusEffect("suppressionHeavy2","all")	
-			self:RemoveStatusEffect("suppressionPinned","all")
-		elseif (WPpercent) > 40 and (WPpercent) <= 55 and not self:HasStatusEffect("suppressionMedium") then	
-			self:AddStatusEffect("suppressionMedium")
-			self:RemoveStatusEffect("suppressionLight","all")
-			self:RemoveStatusEffect("suppressionHeavy","all")
-			self:RemoveStatusEffect("suppressionHeavy2","all")	
-			self:RemoveStatusEffect("suppressionPinned","all")
-		elseif (WPpercent) > 55 and (WPpercent) <= 70 and not self:HasStatusEffect("suppressionLight") then	
-			self:AddStatusEffect("suppressionLight")
-			self:RemoveStatusEffect("suppressionMedium","all")
-			self:RemoveStatusEffect("suppressionHeavy","all")
-			self:RemoveStatusEffect("suppressionHeavy2","all")	
-			self:RemoveStatusEffect("suppressionPinned","all")	
-		elseif (WPpercent) > 70 then	
-			self:RemoveStatusEffect("suppressionLight")
-			self:RemoveStatusEffect("suppressionMedium","all")
-			self:RemoveStatusEffect("suppressionHeavy","all")
-			self:RemoveStatusEffect("suppressionHeavy2","all")	
-			self:RemoveStatusEffect("suppressionPinned","all")	
+	local applied = false
+	for i, data in ipairs(suppression_levels) do
+		if WPpercent <= data.threshold then
+			if not self:HasStatusEffect(data.effect) then
+				self:AddStatusEffect(data.effect)
+			end
+			applied = data.effect
+			break
 		end
-		
-		
+	end
+
+	-- Удалим все прочие suppression-эффекты
+	local effects = {
+		"suppressionLight", "suppressionMedium", "suppressionHeavy",
+		"suppressionHeavy2", "suppressionPinned"
+	}
+	for _, fx in ipairs(effects) do
+		if fx ~= applied then
+			self:RemoveStatusEffect(fx, "all")
+		end
+	end
 
 	--	if self.WillPoints <= 10 then
 	--		self:SetActionCommand("TakeCover")
 	--	end
 	ObjModified(self)
-	end
+end
 
 
 	--function OnMsg.OnAttack()
