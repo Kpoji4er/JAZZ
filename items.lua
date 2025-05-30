@@ -47383,7 +47383,7 @@ return {
 					'MagazineSize', 8,
 					'WeaponRange', 14,
 					'OverwatchAngle', 5400,
-					'Noise', 30,
+					'Noise', 18,
 					'Entity', "Luger",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -47443,7 +47443,7 @@ return {
 					'MagazineSize', 8,
 					'WeaponRange', 14,
 					'OverwatchAngle', 5400,
-					'Noise', 30,
+					'Noise', 18,
 					'Entity', "p210",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -47514,6 +47514,7 @@ return {
 					'MagazineSize', 8,
 					'WeaponRange', 13,
 					'OverwatchAngle', 5400,
+					'Noise', 15,
 					'Entity', "Makarov",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -47581,7 +47582,7 @@ return {
 					'MagazineSize', 8,
 					'WeaponRange', 14,
 					'OverwatchAngle', 5280,
-					'Noise', 35,
+					'Noise', 24,
 					'Entity', "TT33f",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -47648,7 +47649,7 @@ return {
 					'MagazineSize', 13,
 					'WeaponRange', 14,
 					'OverwatchAngle', 5400,
-					'Noise', 30,
+					'Noise', 22,
 					'Entity', "Weapon_Browning_HP",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -47731,7 +47732,7 @@ return {
 					'MagazineSize', 7,
 					'WeaponRange', 12,
 					'OverwatchAngle', 5400,
-					'Noise', 35,
+					'Noise', 28,
 					'Entity', "Colt1911",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -47806,7 +47807,7 @@ return {
 					'MagazineSize', 6,
 					'WeaponRange', 15,
 					'OverwatchAngle', 5100,
-					'Noise', 40,
+					'Noise', 32,
 					'Entity', "Weapon_Colt",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -47868,6 +47869,7 @@ return {
 					'MagazineSize', 17,
 					'WeaponRange', 14,
 					'OverwatchAngle', 5400,
+					'Noise', 18,
 					'Entity', "Weapon_Beretta92F",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -47962,7 +47964,7 @@ return {
 					'MagazineSize', 16,
 					'WeaponRange', 14,
 					'OverwatchAngle', 5400,
-					'Noise', 30,
+					'Noise', 22,
 					'Entity', "CZ75",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -48035,7 +48037,7 @@ return {
 					'MagazineSize', 8,
 					'WeaponRange', 13,
 					'OverwatchAngle', 5400,
-					'Noise', 35,
+					'Noise', 28,
 					'Entity', "p220",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -48116,7 +48118,7 @@ return {
 					'MagazineSize', 6,
 					'WeaponRange', 15,
 					'OverwatchAngle', 5100,
-					'Noise', 40,
+					'Noise', 32,
 					'Entity', "Weapon_ColtAnaconda44",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -48193,7 +48195,6 @@ return {
 					'MagazineSize', 17,
 					'WeaponRange', 14,
 					'OverwatchAngle', 5400,
-					'Noise', 30,
 					'Entity', "Viking",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -48280,7 +48281,7 @@ return {
 					'MagazineSize', 12,
 					'WeaponRange', 13,
 					'OverwatchAngle', 5400,
-					'Noise', 35,
+					'Noise', 28,
 					'Entity', "USP45",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -48368,6 +48369,7 @@ return {
 					'MagazineSize', 18,
 					'WeaponRange', 13,
 					'OverwatchAngle', 5400,
+					'Noise', 19,
 					'Entity', "APS",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -48439,7 +48441,6 @@ return {
 					'MagazineSize', 15,
 					'WeaponRange', 14,
 					'OverwatchAngle', 5400,
-					'Noise', 30,
 					'Entity', "p226",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -48514,7 +48515,7 @@ return {
 					'MagazineSize', 8,
 					'WeaponRange', 15,
 					'OverwatchAngle', 4920,
-					'Noise', 45,
+					'Noise', 36,
 					'Entity', "Weapon_DesertEagle",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -48605,7 +48606,7 @@ return {
 					'MagazineSize', 20,
 					'WeaponRange', 14,
 					'OverwatchAngle', 5400,
-					'Noise', 35,
+					'Noise', 25,
 					'Entity', "Five_Seven",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -48679,7 +48680,7 @@ return {
 					'MagazineSize', 17,
 					'WeaponRange', 14,
 					'OverwatchAngle', 5400,
-					'Noise', 30,
+					'Noise', 18,
 					'Entity', "Glock_17",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -48771,7 +48772,7 @@ return {
 					'MagazineSize', 17,
 					'WeaponRange', 14,
 					'OverwatchAngle', 5400,
-					'Noise', 30,
+					'Noise', 18,
 					'Entity', "G18",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -48925,7 +48926,7 @@ return {
 					'MagazineSize', 6,
 					'WeaponRange', 16,
 					'OverwatchAngle', 5400,
-					'Noise', 60,
+					'Noise', 40,
 					'Entity', "HighCalRev",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -48993,7 +48994,7 @@ return {
 					'MagazineSize', 6,
 					'WeaponRange', 15,
 					'OverwatchAngle', 5100,
-					'Noise', 40,
+					'Noise', 12,
 					'Entity', "38Special",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -49055,7 +49056,7 @@ return {
 					'MagazineSize', 16,
 					'WeaponRange', 14,
 					'OverwatchAngle', 5400,
-					'Noise', 30,
+					'Noise', 22,
 					'Entity', "CZ52",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -49138,7 +49139,7 @@ return {
 					'MagazineSize', 16,
 					'WeaponRange', 14,
 					'OverwatchAngle', 5400,
-					'Noise', 30,
+					'Noise', 22,
 					'Entity', "MAC1950",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -49221,7 +49222,7 @@ return {
 					'MagazineSize', 16,
 					'WeaponRange', 14,
 					'OverwatchAngle', 5400,
-					'Noise', 30,
+					'Noise', 18,
 					'Entity', "P38",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -49300,7 +49301,6 @@ return {
 					'MagazineSize', 16,
 					'WeaponRange', 14,
 					'OverwatchAngle', 5400,
-					'Noise', 30,
 					'Entity', "VectorCP1",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -49373,7 +49373,7 @@ return {
 					'MagazineSize', 16,
 					'WeaponRange', 14,
 					'OverwatchAngle', 5400,
-					'Noise', 30,
+					'Noise', 19,
 					'Entity', "Beretta93r",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -49446,7 +49446,7 @@ return {
 					'MagazineSize', 6,
 					'WeaponRange', 15,
 					'OverwatchAngle', 5100,
-					'Noise', 40,
+					'Noise', 32,
 					'Entity', "M73Base",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -49516,7 +49516,7 @@ return {
 					'MagazineSize', 6,
 					'WeaponRange', 15,
 					'OverwatchAngle', 5100,
-					'Noise', 40,
+					'Noise', 28,
 					'Entity', "Colt1917",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -49570,7 +49570,7 @@ return {
 					'MagazineSize', 6,
 					'WeaponRange', 15,
 					'OverwatchAngle', 5100,
-					'Noise', 40,
+					'Noise', 15,
 					'Entity', "SWModel10",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -49642,7 +49642,7 @@ return {
 					'MagazineSize', 6,
 					'WeaponRange', 15,
 					'OverwatchAngle', 5100,
-					'Noise', 40,
+					'Noise', 28,
 					'Entity', "SW19",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -49715,7 +49715,7 @@ return {
 					'MagazineSize', 6,
 					'WeaponRange', 15,
 					'OverwatchAngle', 5100,
-					'Noise', 40,
+					'Noise', 32,
 					'Entity', "SWModel29",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -49995,7 +49995,7 @@ return {
 					'AimAccuracy', 12,
 					'MagazineSize', 32,
 					'OverwatchAngle', 4080,
-					'Noise', 30,
+					'Noise', 22,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_MP40",
 					'ComponentSlots', {
@@ -50051,7 +50051,7 @@ return {
 					'MagazineSize', 32,
 					'WeaponRange', 19,
 					'OverwatchAngle', 3960,
-					'Noise', 30,
+					'Noise', 24,
 					'HandSlot', "TwoHanded",
 					'Entity', "MAT49",
 					'ComponentSlots', {
@@ -50118,7 +50118,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 16,
 					'OverwatchAngle', 4320,
-					'Noise', 35,
+					'Noise', 27,
 					'HandSlot', "TwoHanded",
 					'Entity', "THOMPSON_SMG",
 					'ComponentSlots', {
@@ -50174,7 +50174,7 @@ return {
 					'MagazineSize', 35,
 					'WeaponRange', 24,
 					'OverwatchAngle', 3900,
-					'Noise', 40,
+					'Noise', 32,
 					'HandSlot', "TwoHanded",
 					'Entity', "PPSH",
 					'ComponentSlots', {
@@ -50232,7 +50232,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 17,
 					'OverwatchAngle', 4320,
-					'Noise', 35,
+					'Noise', 28,
 					'HandSlot', "TwoHanded",
 					'Entity', "Grease",
 					'ComponentSlots', {
@@ -50285,6 +50285,7 @@ return {
 					'MagazineSize', 20,
 					'WeaponRange', 15,
 					'OverwatchAngle', 4680,
+					'Noise', 16,
 					'Entity', "Scorpion",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -50356,7 +50357,7 @@ return {
 					'MagazineSize', 32,
 					'WeaponRange', 18,
 					'OverwatchAngle', 4680,
-					'Noise', 35,
+					'Noise', 25,
 					'Entity', "Agram2000",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -50420,7 +50421,7 @@ return {
 					'MagazineSize', 20,
 					'WeaponRange', 17,
 					'OverwatchAngle', 4920,
-					'Noise', 35,
+					'Noise', 26,
 					'Entity', "Weapon_Uzi",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -50520,7 +50521,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 21,
 					'OverwatchAngle', 4320,
-					'Noise', 30,
+					'Noise', 24,
 					'HandSlot', "TwoHanded",
 					'Entity', "MPL",
 					'ComponentSlots', {
@@ -50584,7 +50585,7 @@ return {
 					'MagazineSize', 32,
 					'WeaponRange', 21,
 					'OverwatchAngle', 4320,
-					'Noise', 30,
+					'Noise', 21,
 					'HandSlot', "TwoHanded",
 					'Entity', "M45",
 					'ComponentSlots', {
@@ -50646,7 +50647,7 @@ return {
 					'MagazineSize', 34,
 					'WeaponRange', 21,
 					'OverwatchAngle', 4200,
-					'Noise', 30,
+					'Noise', 21,
 					'HandSlot', "TwoHanded",
 					'Entity', "Sterling",
 					'ComponentSlots', {
@@ -50705,7 +50706,7 @@ return {
 					'MagazineSize', 35,
 					'WeaponRange', 24,
 					'OverwatchAngle', 4200,
-					'Noise', 40,
+					'Noise', 33,
 					'HandSlot', "TwoHanded",
 					'Entity', "PPS_43",
 					'ComponentSlots', {
@@ -50763,7 +50764,7 @@ return {
 					'MagazineSize', 32,
 					'WeaponRange', 21,
 					'OverwatchAngle', 4080,
-					'Noise', 30,
+					'Noise', 23,
 					'HandSlot', "TwoHanded",
 					'Entity', "UziFull",
 					'ComponentSlots', {
@@ -50848,7 +50849,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 13,
 					'OverwatchAngle', 4680,
-					'Noise', 40,
+					'Noise', 30,
 					'Entity', "MAC10",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -50921,7 +50922,7 @@ return {
 					'MagazineSize', 32,
 					'WeaponRange', 21,
 					'OverwatchAngle', 4200,
-					'Noise', 30,
+					'Noise', 23,
 					'Entity', "BerettaM12",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -50993,7 +50994,7 @@ return {
 					'MagazineSize', 50,
 					'WeaponRange', 18,
 					'OverwatchAngle', 4080,
-					'Noise', 30,
+					'Noise', 26,
 					'Entity', "Spectr_M4",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -51050,7 +51051,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 22,
 					'OverwatchAngle', 4320,
-					'Noise', 30,
+					'Noise', 22,
 					'HandSlot', "TwoHanded",
 					'Entity', "MP5A2",
 					'ComponentSlots', {
@@ -51127,7 +51128,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 19,
 					'OverwatchAngle', 4680,
-					'Noise', 35,
+					'Noise', 25,
 					'Entity', "Weapon_MP5",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -51250,7 +51251,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 22,
 					'OverwatchAngle', 4320,
-					'Noise', 30,
+					'Noise', 22,
 					'HandSlot', "TwoHanded",
 					'Entity', "MP5A4",
 					'ComponentSlots', {
@@ -51347,7 +51348,7 @@ return {
 					'MagazineSize', 25,
 					'WeaponRange', 19,
 					'OverwatchAngle', 4200,
-					'Noise', 35,
+					'Noise', 25,
 					'HandSlot', "TwoHanded",
 					'Entity', "UMP45",
 					'ComponentSlots', {
@@ -51456,7 +51457,6 @@ return {
 					'MagazineSize', 64,
 					'WeaponRange', 17,
 					'OverwatchAngle', 4080,
-					'Noise', 35,
 					'HandSlot', "TwoHanded",
 					'Entity', "Bizon",
 					'ComponentSlots', {
@@ -51607,7 +51607,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 16,
 					'OverwatchAngle', 4920,
-					'Noise', 10,
+					'Noise', 25,
 					'HandSlot', "TwoHanded",
 					'Entity', "TMP",
 					'ComponentSlots', {
@@ -51681,7 +51681,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 22,
 					'OverwatchAngle', 4680,
-					'Noise', 40,
+					'Noise', 27,
 					'Entity', "MP7",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -51772,7 +51772,7 @@ return {
 					'MagazineSize', 50,
 					'WeaponRange', 25,
 					'OverwatchAngle', 4440,
-					'Noise', 40,
+					'Noise', 28,
 					'HandSlot', "TwoHanded",
 					'Entity', "P90",
 					'ComponentSlots', {
@@ -51854,7 +51854,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 37,
 					'OverwatchAngle', 2160,
-					'Noise', 60,
+					'Noise', 46,
 					'HandSlot', "TwoHanded",
 					'Entity', "M92",
 					'ComponentSlots', {
@@ -51928,7 +51928,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 40,
 					'OverwatchAngle', 2220,
-					'Noise', 55,
+					'Noise', 39,
 					'HandSlot', "TwoHanded",
 					'Entity', "CAR15",
 					'fxClass', "CAR15",
@@ -52026,7 +52026,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 42,
 					'OverwatchAngle', 1920,
-					'Noise', 55,
+					'Noise', 38,
 					'HandSlot', "TwoHanded",
 					'Entity', "M4A1",
 					'ComponentSlots', {
@@ -52141,7 +52141,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 39,
 					'OverwatchAngle', 2520,
-					'Noise', 55,
+					'Noise', 36,
 					'HandSlot', "TwoHanded",
 					'Entity', "G36c",
 					'ComponentSlots', {
@@ -52255,7 +52255,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 38,
 					'OverwatchAngle', 2700,
-					'Noise', 55,
+					'Noise', 37,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_AKS74U",
 					'ComponentSlots', {
@@ -52349,7 +52349,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 40,
 					'OverwatchAngle', 2280,
-					'Noise', 50,
+					'Noise', 40,
 					'HandSlot', "TwoHanded",
 					'Entity', "SIG552",
 					'ComponentSlots', {
@@ -52460,7 +52460,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 40,
 					'OverwatchAngle', 2280,
-					'Noise', 50,
+					'Noise', 40,
 					'HandSlot', "TwoHanded",
 					'Entity', "Sig552SWAT",
 					'ComponentSlots', {
@@ -52781,7 +52781,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 38,
 					'OverwatchAngle', 1800,
-					'Noise', 60,
+					'Noise', 45,
 					'HandSlot', "TwoHanded",
 					'Entity', "Type56",
 					'ComponentSlots', {
@@ -52851,7 +52851,7 @@ return {
 					'MagazineSize', 20,
 					'WeaponRange', 62,
 					'OverwatchAngle', 1440,
-					'Noise', 80,
+					'Noise', 54,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_M14",
 					'ComponentSlots', {
@@ -52975,7 +52975,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 46,
 					'OverwatchAngle', 1560,
-					'Noise', 50,
+					'Noise', 38,
 					'HandSlot', "TwoHanded",
 					'Entity', "M16A1",
 					'ComponentSlots', {
@@ -53071,7 +53071,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 38,
 					'OverwatchAngle', 1800,
-					'Noise', 60,
+					'Noise', 44,
 					'HandSlot', "TwoHanded",
 					'Entity', "Zastava_M70",
 					'ComponentSlots', {
@@ -53155,7 +53155,7 @@ return {
 					'MagazineSize', 15,
 					'WeaponRange', 64,
 					'OverwatchAngle', 900,
-					'Noise', 85,
+					'Noise', 60,
 					'HandSlot', "TwoHanded",
 					'Entity', "SVT_40",
 					'ComponentSlots', {
@@ -53211,7 +53211,7 @@ return {
 					'MagazineSize', 25,
 					'WeaponRange', 38,
 					'OverwatchAngle', 1680,
-					'Noise', 50,
+					'Noise', 37,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_FAMAS",
 					'ComponentSlots', {
@@ -53314,7 +53314,7 @@ return {
 					'MagazineSize', 25,
 					'WeaponRange', 54,
 					'OverwatchAngle', 1440,
-					'Noise', 75,
+					'Noise', 55,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_Galil",
 					'ComponentSlots', {
@@ -53433,7 +53433,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 48,
 					'OverwatchAngle', 1560,
-					'Noise', 45,
+					'Noise', 37,
 					'HandSlot', "TwoHanded",
 					'Entity', "M16A2",
 					'ComponentSlots', {
@@ -53538,6 +53538,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 38,
 					'OverwatchAngle', 1800,
+					'Noise', 43,
 					'HandSlot', "TwoHanded",
 					'Entity', "J_AK47",
 					'ComponentSlots', {
@@ -53619,7 +53620,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 39,
 					'OverwatchAngle', 1800,
-					'Noise', 60,
+					'Noise', 42,
 					'HandSlot', "TwoHanded",
 					'Entity', "AKM",
 					'ComponentSlots', {
@@ -53746,7 +53747,7 @@ return {
 					'MagazineSize', 20,
 					'WeaponRange', 56,
 					'OverwatchAngle', 1200,
-					'Noise', 80,
+					'Noise', 50,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_FNFAL",
 					'ComponentSlots', {
@@ -53882,7 +53883,7 @@ return {
 					'MagazineSize', 20,
 					'WeaponRange', 54,
 					'OverwatchAngle', 1560,
-					'Noise', 80,
+					'Noise', 50,
 					'HandSlot', "TwoHanded",
 					'Entity', "AR10_Auto",
 					'ComponentSlots', {
@@ -53956,7 +53957,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 46,
 					'OverwatchAngle', 1920,
-					'Noise', 55,
+					'Noise', 38,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_Steyr",
 					'ComponentSlots', {
@@ -54082,7 +54083,7 @@ return {
 					'MagazineSize', 20,
 					'WeaponRange', 58,
 					'OverwatchAngle', 1200,
-					'Noise', 80,
+					'Noise', 48,
 					'HandSlot', "TwoHanded",
 					'Entity', "G3A3",
 					'ComponentSlots', {
@@ -54170,7 +54171,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 48,
 					'OverwatchAngle', 1560,
-					'Noise', 50,
+					'Noise', 37,
 					'HandSlot', "TwoHanded",
 					'Entity', "M16A4",
 					'ComponentSlots', {
@@ -54275,7 +54276,7 @@ return {
 					'WeaponRange', 44,
 					'PointBlankBonus', 1,
 					'OverwatchAngle', 1920,
-					'Noise', 50,
+					'Noise', 35,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_HKG36",
 					'ComponentSlots', {
@@ -54400,7 +54401,7 @@ return {
 					'WeaponRange', 46,
 					'PointBlankBonus', 1,
 					'OverwatchAngle', 2100,
-					'Noise', 50,
+					'Noise', 36,
 					'HandSlot', "TwoHanded",
 					'Entity', "HK_33",
 					'ComponentSlots', {
@@ -54536,7 +54537,7 @@ return {
 					'MagazineSize', 20,
 					'WeaponRange', 58,
 					'OverwatchAngle', 1200,
-					'Noise', 80,
+					'Noise', 48,
 					'HandSlot', "TwoHanded",
 					'Entity', "G3A4",
 					'ComponentSlots', {
@@ -54633,7 +54634,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 48,
 					'OverwatchAngle', 1800,
-					'Noise', 50,
+					'Noise', 35,
 					'HandSlot', "TwoHanded",
 					'Entity', "Sig550",
 					'ComponentSlots', {
@@ -54744,7 +54745,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 48,
 					'OverwatchAngle', 1800,
-					'Noise', 50,
+					'Noise', 35,
 					'HandSlot', "TwoHanded",
 					'Entity', "Sig550Custom",
 					'ComponentSlots', {
@@ -54867,7 +54868,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 48,
 					'OverwatchAngle', 1800,
-					'Noise', 50,
+					'Noise', 34,
 					'HandSlot', "TwoHanded",
 					'Entity', "AK74",
 					'ComponentSlots', {
@@ -54975,7 +54976,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 49,
 					'OverwatchAngle', 1680,
-					'Noise', 50,
+					'Noise', 34,
 					'HandSlot', "TwoHanded",
 					'Entity', "AN94",
 					'ComponentSlots', {
@@ -55067,7 +55068,7 @@ return {
 					'WeaponRange', 40,
 					'PointBlankBonus', 1,
 					'OverwatchAngle', 1500,
-					'Noise', 55,
+					'Noise', 42,
 					'HandSlot', "TwoHanded",
 					'Entity', "SKS",
 					'ComponentSlots', {},
@@ -55110,7 +55111,7 @@ return {
 					'MagazineSize', 10,
 					'WeaponRange', 64,
 					'OverwatchAngle', 900,
-					'Noise', 85,
+					'Noise', 60,
 					'HandSlot', "TwoHanded",
 					'Entity', "SVT_40",
 					'ComponentSlots', {
@@ -55168,7 +55169,7 @@ return {
 					'MagazineSize', 8,
 					'WeaponRange', 60,
 					'OverwatchAngle', 840,
-					'Noise', 85,
+					'Noise', 58,
 					'HandSlot', "TwoHanded",
 					'Entity', "Garand",
 					'ComponentSlots', {
@@ -55230,7 +55231,7 @@ return {
 					'MagazineSize', 20,
 					'WeaponRange', 48,
 					'OverwatchAngle', 1500,
-					'Noise', 80,
+					'Noise', 37,
 					'HandSlot', "TwoHanded",
 					'Entity', "Mini14",
 					'ComponentSlots', {
@@ -55317,7 +55318,7 @@ return {
 					'MagazineSize', 20,
 					'WeaponRange', 58,
 					'OverwatchAngle', 1080,
-					'Noise', 80,
+					'Noise', 53,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_M14",
 					'ComponentSlots', {
@@ -55441,7 +55442,7 @@ return {
 					'MagazineSize', 20,
 					'WeaponRange', 58,
 					'OverwatchAngle', 1200,
-					'Noise', 80,
+					'Noise', 52,
 					'HandSlot', "TwoHanded",
 					'Entity', "M1A",
 					'ComponentSlots', {
@@ -55566,7 +55567,7 @@ return {
 					'MagazineSize', 10,
 					'WeaponRange', 68,
 					'OverwatchAngle', 900,
-					'Noise', 85,
+					'Noise', 64,
 					'HandSlot', "TwoHanded",
 					'Entity', "m76",
 					'ComponentSlots', {
@@ -55646,7 +55647,7 @@ return {
 					'MagazineSize', 10,
 					'WeaponRange', 72,
 					'OverwatchAngle', 900,
-					'Noise', 85,
+					'Noise', 58,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_Dragunov",
 					'ComponentSlots', {
@@ -55743,7 +55744,7 @@ return {
 					'MagazineSize', 20,
 					'WeaponRange', 62,
 					'OverwatchAngle', 1200,
-					'Noise', 80,
+					'Noise', 48,
 					'HandSlot', "TwoHanded",
 					'Entity', "G3Sniper",
 					'ComponentSlots', {
@@ -55831,7 +55832,7 @@ return {
 					'MagazineSize', 20,
 					'WeaponRange', 58,
 					'OverwatchAngle', 1440,
-					'Noise', 80,
+					'Noise', 44,
 					'HandSlot', "TwoHanded",
 					'Entity', "AR_10_DMR",
 					'ComponentSlots', {
@@ -55905,7 +55906,7 @@ return {
 					'MagazineSize', 5,
 					'WeaponRange', 85,
 					'OverwatchAngle', 900,
-					'Noise', 75,
+					'Noise', 47,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_PSG1",
 					'ComponentSlots', {
@@ -56016,7 +56017,7 @@ return {
 					'MagazineSize', 5,
 					'WeaponRange', 100,
 					'OverwatchAngle', 360,
-					'Noise', 100,
+					'Noise', 80,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_BarrettM82",
 					'ComponentSlots', {
@@ -56183,7 +56184,6 @@ return {
 					'MagazineSize', 10,
 					'WeaponRange', 70,
 					'OverwatchAngle', 1200,
-					'Noise', 40,
 					'HandSlot', "TwoHanded",
 					'Entity', "SVU",
 					'ComponentSlots', {
@@ -56260,6 +56260,7 @@ return {
 					'MagazineSize', 7,
 					'WeaponRange', 29,
 					'OverwatchAngle', 1500,
+					'Noise', 30,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_Winchester",
 					'ComponentSlots', {
@@ -56339,7 +56340,7 @@ return {
 					'MagazineSize', 5,
 					'WeaponRange', 62,
 					'OverwatchAngle', 360,
-					'Noise', 85,
+					'Noise', 60,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_Gewehr98",
 					'ComponentSlots', {
@@ -56405,7 +56406,7 @@ return {
 					'MagazineSize', 5,
 					'WeaponRange', 58,
 					'OverwatchAngle', 420,
-					'Noise', 85,
+					'Noise', 57,
 					'HandSlot', "TwoHanded",
 					'Entity', "M1903",
 					'ComponentSlots', {
@@ -56457,7 +56458,7 @@ return {
 					'MagazineSize', 5,
 					'WeaponRange', 66,
 					'OverwatchAngle', 300,
-					'Noise', 85,
+					'Noise', 59,
 					'HandSlot', "TwoHanded",
 					'Entity', "Mosin",
 					'ComponentSlots', {
@@ -56511,7 +56512,7 @@ return {
 					'MagazineSize', 10,
 					'WeaponRange', 75,
 					'OverwatchAngle', 360,
-					'Noise', 75,
+					'Noise', 56,
 					'HandSlot', "TwoHanded",
 					'Entity', "FRF2",
 					'ComponentSlots', {
@@ -56581,7 +56582,7 @@ return {
 					'MagazineSize', 5,
 					'WeaponRange', 78,
 					'OverwatchAngle', 360,
-					'Noise', 75,
+					'Noise', 46,
 					'HandSlot', "TwoHanded",
 					'Entity', "M700",
 					'ComponentSlots', {
@@ -56637,7 +56638,7 @@ return {
 					'MagazineSize', 5,
 					'WeaponRange', 85,
 					'OverwatchAngle', 360,
-					'Noise', 80,
+					'Noise', 46,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_M24",
 					'ComponentSlots', {
@@ -56739,7 +56740,7 @@ return {
 					'MagazineSize', 5,
 					'WeaponRange', 95,
 					'OverwatchAngle', 360,
-					'Noise', 80,
+					'Noise', 56,
 					'HandSlot', "TwoHanded",
 					'Entity', "AWM",
 					'ComponentSlots', {
@@ -56808,7 +56809,7 @@ return {
 					'MagazineSize', 5,
 					'WeaponRange', 85,
 					'OverwatchAngle', 600,
-					'Noise', 80,
+					'Noise', 40,
 					'HandSlot', "TwoHanded",
 					'Entity', "SteyrScout",
 					'ComponentSlots', {
@@ -56891,7 +56892,7 @@ return {
 					'AimAccuracy', 16,
 					'MagazineSize', 25,
 					'WeaponRange', 56,
-					'Noise', 80,
+					'Noise', 54,
 					'HandSlot', "TwoHanded",
 					'Entity', "MAC2429",
 					'ComponentSlots', {
@@ -56970,7 +56971,7 @@ return {
 					'MagazineSize', 50,
 					'WeaponRange', 54,
 					'OverwatchAngle', 1800,
-					'Noise', 85,
+					'Noise', 58,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_MG42",
 					'ComponentSlots', {
@@ -56993,7 +56994,7 @@ return {
 					'Recoil', 20,
 					'BurstShots', 12,
 					'AutoShots', 12,
-					'Handling', 20,
+					'Handling', 16,
 					'BulletDropRange', 25,
 					'Grouping', 290,
 					'BaseJamChance', 3,
@@ -57025,7 +57026,7 @@ return {
 					'AimAccuracy', 16,
 					'MagazineSize', 47,
 					'WeaponRange', 57,
-					'Noise', 80,
+					'Noise', 53,
 					'HandSlot', "TwoHanded",
 					'Entity', "DP27",
 					'ComponentSlots', {
@@ -57048,7 +57049,7 @@ return {
 					'Recoil', 16,
 					'BurstShots', 6,
 					'AutoShots', 6,
-					'Handling', 23,
+					'Handling', 21,
 					'BulletDropRange', 22,
 					'Grouping', 278,
 					'BaseJamChance', -5,
@@ -57080,7 +57081,7 @@ return {
 					'AimAccuracy', 16,
 					'MagazineSize', 20,
 					'WeaponRange', 52,
-					'Noise', 80,
+					'Noise', 56,
 					'HandSlot', "TwoHanded",
 					'Entity', "BAR",
 					'ComponentSlots', {
@@ -57103,7 +57104,7 @@ return {
 					'Recoil', 16,
 					'BurstShots', 5,
 					'AutoShots', 5,
-					'Handling', 40,
+					'Handling', 34,
 					'BulletDropRange', 24,
 					'Grouping', 275,
 				}),
@@ -57135,7 +57136,7 @@ return {
 					'MagazineSize', 100,
 					'WeaponRange', 55,
 					'OverwatchAngle', 1800,
-					'Noise', 80,
+					'Noise', 54,
 					'HandSlot', "TwoHanded",
 					'Entity', "M60",
 					'ComponentSlots', {
@@ -57195,7 +57196,7 @@ return {
 					'CritChance', 5,
 					'MagazineSize', 100,
 					'WeaponRange', 48,
-					'Noise', 50,
+					'Noise', 38,
 					'HandSlot', "TwoHanded",
 					'Entity', "U100",
 					'ComponentSlots', {
@@ -57258,7 +57259,7 @@ return {
 					'Recoil', 7,
 					'BurstShots', 6,
 					'AutoShots', 6,
-					'Handling', 50,
+					'Handling', 40,
 					'BulletDropRange', 17,
 					'Grouping', 272,
 				}),
@@ -57288,7 +57289,7 @@ return {
 					'AimAccuracy', 19,
 					'MagazineSize', 30,
 					'WeaponRange', 42,
-					'Noise', 55,
+					'Noise', 40,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_RPK74",
 					'ComponentSlots', {
@@ -57365,7 +57366,7 @@ return {
 					'Recoil', 8,
 					'BurstShots', 4,
 					'AutoShots', 4,
-					'Handling', 60,
+					'Handling', 48,
 					'BulletDropRange', 15,
 					'Grouping', 270,
 					'BaseJamChance', -30,
@@ -57397,7 +57398,7 @@ return {
 					'MagazineSize', 100,
 					'WeaponRange', 40,
 					'OverwatchAngle', 1800,
-					'Noise', 55,
+					'Noise', 45,
 					'HandSlot', "TwoHanded",
 					'Entity', "RPD",
 					'ComponentSlots', {
@@ -57452,7 +57453,7 @@ return {
 					'Recoil', 10,
 					'BurstShots', 6,
 					'AutoShots', 6,
-					'Handling', 52,
+					'Handling', 40,
 					'BulletDropRange', 14,
 					'Grouping', 250,
 					'BaseJamChance', -10,
@@ -57481,7 +57482,7 @@ return {
 					'MagazineSize', 50,
 					'WeaponRange', 56,
 					'OverwatchAngle', 1800,
-					'Noise', 80,
+					'Noise', 54,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_MG42",
 					'ComponentSlots', {
@@ -57509,7 +57510,7 @@ return {
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 7000,
-					'Handling', 20,
+					'Handling', 16,
 					'BulletDropRange', 26,
 					'Grouping', 292,
 				}),
@@ -57541,7 +57542,7 @@ return {
 					'MagazineSize', 100,
 					'WeaponRange', 56,
 					'OverwatchAngle', 1800,
-					'Noise', 80,
+					'Noise', 48,
 					'HandSlot', "TwoHanded",
 					'Entity', "M60E3",
 					'ComponentSlots', {
@@ -57625,7 +57626,7 @@ return {
 					'MagazineSize', 100,
 					'WeaponRange', 56,
 					'OverwatchAngle', 1800,
-					'Noise', 80,
+					'Noise', 48,
 					'HandSlot', "TwoHanded",
 					'Entity', "M60E4",
 					'ComponentSlots', {
@@ -57728,7 +57729,7 @@ return {
 					'MagazineSize', 100,
 					'WeaponRange', 62,
 					'OverwatchAngle', 1800,
-					'Noise', 80,
+					'Noise', 52,
 					'HandSlot', "TwoHanded",
 					'Entity', "KSP_58_B",
 					'ComponentSlots', {
@@ -57807,7 +57808,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 50,
 					'PointBlankBonus', 1,
-					'Noise', 45,
+					'Noise', 34,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_RPK74",
 					'ComponentSlots', {
@@ -57886,7 +57887,7 @@ return {
 					'Recoil', 5,
 					'BurstShots', 4,
 					'AutoShots', 4,
-					'Handling', 60,
+					'Handling', 48,
 					'BulletDropRange', 19,
 					'Grouping', 295,
 					'BaseJamChance', -30,
@@ -57920,7 +57921,7 @@ return {
 					'MagazineSize', 100,
 					'WeaponRange', 54,
 					'OverwatchAngle', 2700,
-					'Noise', 45,
+					'Noise', 37,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_FNMinimi",
 					'ComponentSlots', {
@@ -57985,7 +57986,7 @@ return {
 					'ReloadAP', 6000,
 					'Recoil', 6,
 					'BurstShots', 10,
-					'Handling', 58,
+					'Handling', 45,
 					'BulletDropRange', 17,
 					'Grouping', 298,
 				}),
@@ -58017,7 +58018,7 @@ return {
 					'MagazineSize', 40,
 					'WeaponRange', 58,
 					'OverwatchAngle', 1800,
-					'Noise', 75,
+					'Noise', 46,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_HK21",
 					'ComponentSlots', {
@@ -58109,7 +58110,7 @@ return {
 					'Recoil', 16,
 					'BurstShots', 9,
 					'AutoShots', 9,
-					'Handling', 58,
+					'Handling', 50,
 					'BulletDropRange', 20,
 					'Grouping', 300,
 					'BaseJamChance', -30,
@@ -58143,7 +58144,7 @@ return {
 					'MagazineSize', 100,
 					'WeaponRange', 52,
 					'OverwatchAngle', 1800,
-					'Noise', 45,
+					'Noise', 35,
 					'HandSlot', "TwoHanded",
 					'Entity', "HK23e",
 					'ComponentSlots', {
@@ -58225,7 +58226,7 @@ return {
 					'MagazineSize', 100,
 					'WeaponRange', 60,
 					'OverwatchAngle', 1800,
-					'Noise', 85,
+					'Noise', 55,
 					'HandSlot', "TwoHanded",
 					'Entity', "PKM",
 					'ComponentSlots', {
@@ -58325,7 +58326,7 @@ return {
 					'Recoil', 17,
 					'BurstShots', 6,
 					'AutoShots', 6,
-					'Handling', 30,
+					'Handling', 32,
 					'BulletDropRange', 25,
 					'Grouping', 335,
 					'BaseJamChance', -50,
@@ -58356,7 +58357,7 @@ return {
 					'MagazineSize', 100,
 					'WeaponRange', 95,
 					'OverwatchAngle', 3600,
-					'Noise', 100,
+					'Noise', 60,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_M2Browning",
 					'ComponentSlots', {},
@@ -58409,6 +58410,7 @@ return {
 					'OverwatchAngle', 2280,
 					'BuckshotConeAngle', 240,
 					'BuckshotFalloffDamage', 10,
+					'Noise', 30,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_DBShotgun",
 					'ComponentSlots', {
@@ -58466,6 +58468,7 @@ return {
 					'OverwatchAngle', 1800,
 					'BuckshotConeAngle', 300,
 					'BuckshotFalloffDamage', 15,
+					'Noise', 28,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_Auto5",
 					'ComponentSlots', {
@@ -58533,6 +58536,7 @@ return {
 					'OverwatchAngle', 2160,
 					'BuckshotConeAngle', 180,
 					'BuckshotFalloffDamage', 10,
+					'Noise', 32,
 					'HandSlot', "TwoHanded",
 					'Entity', "M1897",
 					'ComponentSlots', {
@@ -58587,6 +58591,7 @@ return {
 					'OverwatchAngle', 1440,
 					'BuckshotConeAngle', 120,
 					'BuckshotFalloffDamage', 15,
+					'Noise', 25,
 					'HandSlot', "TwoHanded",
 					'Entity', "R870",
 					'ComponentSlots', {
@@ -58667,6 +58672,7 @@ return {
 					'OverwatchAngle', 1980,
 					'BuckshotConeAngle', 180,
 					'BuckshotFalloffDamage', 10,
+					'Noise', 26,
 					'HandSlot', "TwoHanded",
 					'Entity', "Ithaca37",
 					'ComponentSlots', {
@@ -58745,6 +58751,7 @@ return {
 					'OverwatchAngle', 2160,
 					'BuckshotConeAngle', 300,
 					'BuckshotFalloffDamage', 10,
+					'Noise', 35,
 					'HandSlot', "TwoHanded",
 					'Entity', "Striker",
 					'ComponentSlots', {
@@ -58799,6 +58806,7 @@ return {
 					'OverwatchAngle', 1680,
 					'BuckshotConeAngle', 180,
 					'BuckshotFalloffDamage', 10,
+					'Noise', 28,
 					'HandSlot', "TwoHanded",
 					'Entity', "stoeger_outback",
 					'ComponentSlots', {},
@@ -58847,6 +58855,7 @@ return {
 					'OverwatchAngle', 1200,
 					'BuckshotConeAngle', 120,
 					'BuckshotFalloffDamage', 20,
+					'Noise', 24,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_Benelli_M4",
 					'ComponentSlots', {
@@ -58937,6 +58946,7 @@ return {
 					'OverwatchAngle', 1080,
 					'BuckshotConeAngle', 180,
 					'BuckshotFalloffDamage', 15,
+					'Noise', 28,
 					'HandSlot', "TwoHanded",
 					'Entity', "Spas12",
 					'ComponentSlots', {},
@@ -58984,6 +58994,7 @@ return {
 					'OverwatchAngle', 960,
 					'BuckshotConeAngle', 300,
 					'BuckshotFalloffDamage', 5,
+					'Noise', 30,
 					'HandSlot', "TwoHanded",
 					'Entity', "USAS12",
 					'ComponentSlots', {
@@ -59058,6 +59069,7 @@ return {
 					'OverwatchAngle', 960,
 					'BuckshotConeAngle', 240,
 					'BuckshotFalloffDamage', 5,
+					'Noise', 29,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_AA12",
 					'ComponentSlots', {
@@ -59163,6 +59175,7 @@ return {
 					'CritChanceScaled', 0,
 					'MagazineSize', 6,
 					'WeaponRange', 40,
+					'Noise', 30,
 					'HandSlot', "TwoHanded",
 					'HolsterSlot', "Shoulder",
 					'PreparedAttackType', "None",
@@ -59199,6 +59212,7 @@ return {
 					'ObjDamageMod', 25,
 					'CritChanceScaled', 0,
 					'WeaponRange', 40,
+					'Noise', 30,
 					'HandSlot', "TwoHanded",
 					'HolsterSlot', "Shoulder",
 					'PreparedAttackType', "None",
@@ -59238,6 +59252,7 @@ return {
 					'CritChanceScaled', 0,
 					'MagazineSize', 3,
 					'WeaponRange', 40,
+					'Noise', 30,
 					'HandSlot', "TwoHanded",
 					'HolsterSlot', "Shoulder",
 					'PreparedAttackType', "None",
@@ -59274,7 +59289,7 @@ return {
 					'CritChanceScaled', 0,
 					'PenetrationClass', 2,
 					'WeaponRange', 70,
-					'Noise', 50,
+					'Noise', 100,
 					'HandSlot', "TwoHanded",
 					'HolsterSlot', "Shoulder",
 					'PreparedAttackType', "None",
@@ -59311,6 +59326,7 @@ return {
 					'ObjDamageMod', 600,
 					'CritChanceScaled', 0,
 					'WeaponRange', 40,
+					'Noise', 100,
 					'HandSlot', "TwoHanded",
 					'HolsterSlot', "Shoulder",
 					'PreparedAttackType', "None",
@@ -59341,6 +59357,7 @@ return {
 					'ObjDamageMod', 25,
 					'CritChanceScaled', 0,
 					'WeaponRange', 40,
+					'Noise', 30,
 					'HandSlot', "TwoHanded",
 					'fxClass', "MGL",
 					'PreparedAttackType', "None",
@@ -59376,6 +59393,7 @@ return {
 					'CritChanceScaled', 0,
 					'PenetrationClass', 2,
 					'WeaponRange', 45,
+					'Noise', 30,
 					'HandSlot', "TwoHanded",
 					'fxClass', "RPG7",
 					'HolsterSlot', "Shoulder",
@@ -59430,7 +59448,7 @@ return {
 					'InaccurateMinOffset', 3000,
 					'InaccurateMaxOffset', 8000,
 					'IgnoreCoverReduction', 33,
-					'Noise', 100,
+					'Noise', 40,
 					'Entity', "MilitaryCamp_Grenade_01",
 					'ActionIcon', "UI/Icons/Hud/frag_grenade",
 				}),
@@ -59473,7 +59491,7 @@ return {
 					'ThrowMaxRange', 20,
 					'InaccurateMinOffset', 3000,
 					'InaccurateMaxOffset', 8000,
-					'Noise', 80,
+					'Noise', 60,
 					'Entity', "MilitaryCamp_Grenade_02",
 					'ActionIcon', "UI/Icons/Hud/throw_grenade",
 				}),
@@ -59508,6 +59526,7 @@ return {
 					'ThrowMaxRange', 16,
 					'InaccurateMinOffset', 4000,
 					'InaccurateMaxOffset', 10000,
+					'Noise', 30,
 					'ThrowNoise', 8,
 					'Entity', "Explosive_TNT",
 					'ActionIcon', "UI/Icons/Hud/pipe_bomb",
@@ -59558,7 +59577,7 @@ return {
 					'ThrowMaxRange', 18,
 					'InaccurateMinOffset', 3000,
 					'InaccurateMaxOffset', 10000,
-					'Noise', 0,
+					'Noise', 10,
 					'Entity', "Weapon_StunGrenadeM84",
 					'ActionIcon', "UI/Icons/Hud/concussive_grenade",
 				}),
@@ -59675,7 +59694,7 @@ return {
 					'CanBounce', false,
 					'InaccurateMinOffset', 3000,
 					'InaccurateMaxOffset', 10000,
-					'Noise', 0,
+					'Noise', 10,
 					'aoeType', "fire",
 					'Entity', "Weapon_MolotovCocktail",
 					'ActionIcon', "UI/Icons/Hud/molotov",
@@ -59714,7 +59733,7 @@ return {
 					'ThrowMaxRange', 18,
 					'InaccurateMinOffset', 3000,
 					'InaccurateMaxOffset', 10000,
-					'Noise', 0,
+					'Noise', 5,
 					'aoeType', "smoke",
 					'Entity', "Weapon_SmokeGrenade_Test",
 					'ActionIcon', "UI/Icons/Hud/smoke_grenade",
@@ -59753,7 +59772,7 @@ return {
 					'ThrowMaxRange', 18,
 					'InaccurateMinOffset', 3000,
 					'InaccurateMaxOffset', 10000,
-					'Noise', 0,
+					'Noise', 5,
 					'aoeType', "teargas",
 					'Entity', "Weapon_MolotovCocktail",
 					'ActionIcon', "UI/Icons/Hud/tear_gas_grenade",
@@ -59789,7 +59808,7 @@ return {
 					'ThrowMaxRange', 18,
 					'InaccurateMinOffset', 3000,
 					'InaccurateMaxOffset', 10000,
-					'Noise', 0,
+					'Noise', 5,
 					'aoeType', "toxicgas",
 					'Entity', "Weapon_MolotovCocktail",
 					'ActionIcon', "UI/Icons/Hud/toxic_grenade",
@@ -59827,6 +59846,7 @@ return {
 					'BaseRange', 0,
 					'ThrowMaxRange', 16,
 					'CanBounce', false,
+					'Noise', 60,
 					'Entity', "MilitaryCamp_Grenade_01",
 					'ActionIcon', "UI/Icons/Hud/shaped_charge",
 				}),
@@ -93344,7 +93364,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Секретные данные"),
+					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ DisplayName]] "Секретные данные"),
 					'Description', T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
 					'Icon', "UI/Icons/Perks/InnerInfo",
 					'Tier', "Personal",
@@ -93406,7 +93426,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Юберрашунг"),
+					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ DisplayName]] "Юберрашунг"),
 					'Description', T(845332100943, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ Description]] "Дает +50% од на первом ходу"),
 					'Icon', "UI/Icons/Perks/GruntyPerk",
 					'Tier', "Personal",

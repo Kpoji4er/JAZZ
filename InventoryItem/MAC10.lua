@@ -28,7 +28,7 @@ DefineClass.MAC10 = {
 	MagazineSize = 30,
 	WeaponRange = 13,
 	OverwatchAngle = 4680,
-	Noise = 40,
+	Noise = 30,
 	Entity = "MAC10",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

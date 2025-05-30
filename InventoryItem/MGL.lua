@@ -34,6 +34,7 @@ DefineClass.MGL = {
 	CritChanceScaled = 0,
 	MagazineSize = 6,
 	WeaponRange = 40,
+	Noise = 30,
 	HandSlot = "TwoHanded",
 	HolsterSlot = "Shoulder",
 	PreparedAttackType = "None",

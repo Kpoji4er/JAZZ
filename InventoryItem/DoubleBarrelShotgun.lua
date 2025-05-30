@@ -32,6 +32,7 @@ DefineClass.DoubleBarrelShotgun = {
 	OverwatchAngle = 2280,
 	BuckshotConeAngle = 240,
 	BuckshotFalloffDamage = 10,
+	Noise = 30,
 	HandSlot = "TwoHanded",
 	Entity = "Weapon_DBShotgun",
 	ComponentSlots = {

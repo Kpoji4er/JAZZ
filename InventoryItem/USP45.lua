@@ -28,7 +28,7 @@ DefineClass.USP45 = {
 	MagazineSize = 12,
 	WeaponRange = 13,
 	OverwatchAngle = 5400,
-	Noise = 35,
+	Noise = 28,
 	Entity = "USP45",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

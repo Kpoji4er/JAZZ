@@ -27,7 +27,6 @@ DefineClass.VectorCP1 = {
 	MagazineSize = 16,
 	WeaponRange = 14,
 	OverwatchAngle = 5400,
-	Noise = 30,
 	Entity = "VectorCP1",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

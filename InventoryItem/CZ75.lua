@@ -27,7 +27,7 @@ DefineClass.CZ75 = {
 	MagazineSize = 16,
 	WeaponRange = 14,
 	OverwatchAngle = 5400,
-	Noise = 30,
+	Noise = 22,
 	Entity = "CZ75",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

@@ -27,7 +27,7 @@ DefineClass.ColtM1917 = {
 	MagazineSize = 6,
 	WeaponRange = 15,
 	OverwatchAngle = 5100,
-	Noise = 40,
+	Noise = 28,
 	Entity = "Colt1917",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

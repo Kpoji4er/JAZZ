@@ -26,7 +26,7 @@ DefineClass.MicroUZI = {
 	MagazineSize = 20,
 	WeaponRange = 17,
 	OverwatchAngle = 4920,
-	Noise = 35,
+	Noise = 26,
 	Entity = "Weapon_Uzi",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

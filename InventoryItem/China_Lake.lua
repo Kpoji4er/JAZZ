@@ -33,6 +33,7 @@ DefineClass.China_Lake = {
 	CritChanceScaled = 0,
 	MagazineSize = 3,
 	WeaponRange = 40,
+	Noise = 30,
 	HandSlot = "TwoHanded",
 	HolsterSlot = "Shoulder",
 	PreparedAttackType = "None",

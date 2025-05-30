@@ -27,7 +27,7 @@ DefineClass.P38 = {
 	MagazineSize = 16,
 	WeaponRange = 14,
 	OverwatchAngle = 5400,
-	Noise = 30,
+	Noise = 18,
 	Entity = "P38",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

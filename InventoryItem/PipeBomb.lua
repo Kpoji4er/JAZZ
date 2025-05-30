@@ -32,6 +32,7 @@ DefineClass.PipeBomb = {
 	ThrowMaxRange = 16,
 	InaccurateMinOffset = 4000,
 	InaccurateMaxOffset = 10000,
+	Noise = 30,
 	ThrowNoise = 8,
 	Entity = "Explosive_TNT",
 	ActionIcon = "UI/Icons/Hud/pipe_bomb",

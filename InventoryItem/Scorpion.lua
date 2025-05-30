@@ -24,6 +24,7 @@ DefineClass.Scorpion = {
 	MagazineSize = 20,
 	WeaponRange = 15,
 	OverwatchAngle = 4680,
+	Noise = 16,
 	Entity = "Scorpion",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

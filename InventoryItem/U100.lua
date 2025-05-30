@@ -28,7 +28,7 @@ DefineClass.U100 = {
 	CritChance = 5,
 	MagazineSize = 100,
 	WeaponRange = 48,
-	Noise = 50,
+	Noise = 38,
 	HandSlot = "TwoHanded",
 	Entity = "U100",
 	ComponentSlots = {
@@ -91,7 +91,7 @@ DefineClass.U100 = {
 	Recoil = 7,
 	BurstShots = 6,
 	AutoShots = 6,
-	Handling = 50,
+	Handling = 40,
 	BulletDropRange = 17,
 	Grouping = 272,
 }

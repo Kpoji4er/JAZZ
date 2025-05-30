@@ -31,6 +31,7 @@ DefineClass.AA12 = {
 	OverwatchAngle = 960,
 	BuckshotConeAngle = 240,
 	BuckshotFalloffDamage = 5,
+	Noise = 29,
 	HandSlot = "TwoHanded",
 	Entity = "Weapon_AA12",
 	ComponentSlots = {

@@ -28,6 +28,7 @@ DefineClass.APS = {
 	MagazineSize = 18,
 	WeaponRange = 13,
 	OverwatchAngle = 5400,
+	Noise = 19,
 	Entity = "APS",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

@@ -28,6 +28,7 @@ DefineClass.R870 = {
 	OverwatchAngle = 1440,
 	BuckshotConeAngle = 120,
 	BuckshotFalloffDamage = 15,
+	Noise = 25,
 	HandSlot = "TwoHanded",
 	Entity = "R870",
 	ComponentSlots = {

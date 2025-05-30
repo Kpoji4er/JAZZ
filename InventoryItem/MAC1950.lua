@@ -27,7 +27,7 @@ DefineClass.MAC1950 = {
 	MagazineSize = 16,
 	WeaponRange = 14,
 	OverwatchAngle = 5400,
-	Noise = 30,
+	Noise = 22,
 	Entity = "MAC1950",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
