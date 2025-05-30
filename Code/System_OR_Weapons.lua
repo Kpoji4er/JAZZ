@@ -946,7 +946,7 @@ end
 				local willPointsBaseDamage = (100-(IsKindOf(target, "Unit") and target:SuppressionProtection() or 0)) * self.Damage * 0.01
 				--local willPointsBaseDamage = MulDivRound(100-(IsKindOf(target, "Unit") and target:SuppressionProtection() or 0),self.Damage,100)
 				willPointsBaseDamage = willPointsBaseDamage * 0.2 
-				if action.id == "MGBurstFire" then  willPointsBaseDamage = willPointsBaseDamage * 2 end
+				--if action.id == "MGBurstFire" then  willPointsBaseDamage = willPointsBaseDamage * 2 end
 				
 				local willPointsDamage = willPointsBaseDamage
 				

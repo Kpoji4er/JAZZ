@@ -13156,6 +13156,7 @@ return {
 							item = "JAZZ_AMMO_12gauge_Birdshot",
 							stack_max = 10,
 							stack_min = 1,
+							weight = 10000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Double = true,
@@ -13170,6 +13171,7 @@ return {
 							item = "JAZZ_AMMO_12gauge_Buckshot",
 							stack_max = 10,
 							stack_min = 1,
+							weight = 10000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							Double = true,
@@ -13182,7 +13184,7 @@ return {
 							item = "JAZZ_AMMO_12gauge_Birdshot",
 							stack_max = 15,
 							stack_min = 1,
-							weight = 2000,
+							weight = 10000,
 						}),
 					}),
 					PlaceObj('ModItemLootDef', {

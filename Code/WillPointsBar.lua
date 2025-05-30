@@ -888,8 +888,8 @@ function OnMsg.CombatEnd()
 	end)
 	
 	
-
-	for _, unit in ipairs(g_Units) do
+	local units = GetCurrentMapUnits("enemy")
+	for _, unit in ipairs(units) do
 		unit.WillPoints = unit.MaxWillPoints
 		local player_team = unit.player_team and unit.team
 
@@ -910,8 +910,8 @@ function OnMsg.TurnEnd()
 	end)
 	
 	
-
-	for _, unit in ipairs(g_Units) do
+	local units = GetCurrentMapUnits("enemy")
+	for _, unit in ipairs(units) do
 		local player_team = unit.player_team and unit.team
 
 		if not isMerc(unit) and (#GetAllAlliedUnits(unit) <= CurrentModOptions.ShowLastEnemy) then
