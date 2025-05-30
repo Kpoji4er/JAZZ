@@ -30,6 +30,7 @@ DefineClass.M41Shotgun = {
 	OverwatchAngle = 1200,
 	BuckshotConeAngle = 120,
 	BuckshotFalloffDamage = 20,
+	Noise = 24,
 	HandSlot = "TwoHanded",
 	Entity = "Weapon_Benelli_M4",
 	ComponentSlots = {

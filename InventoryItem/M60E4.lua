@@ -29,7 +29,7 @@ DefineClass.M60E4 = {
 	MagazineSize = 100,
 	WeaponRange = 56,
 	OverwatchAngle = 1800,
-	Noise = 80,
+	Noise = 48,
 	HandSlot = "TwoHanded",
 	Entity = "M60E4",
 	ComponentSlots = {
@@ -99,7 +99,7 @@ DefineClass.M60E4 = {
 	Recoil = 18,
 	BurstShots = 5,
 	AutoShots = 5,
-	Handling = 55,
+	Handling = 32,
 	BulletDropRange = 20,
 	Grouping = 290,
 }

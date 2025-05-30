@@ -29,6 +29,7 @@ DefineClass.Stoeger = {
 	OverwatchAngle = 1680,
 	BuckshotConeAngle = 180,
 	BuckshotFalloffDamage = 10,
+	Noise = 28,
 	HandSlot = "TwoHanded",
 	Entity = "stoeger_outback",
 	ComponentSlots = {},

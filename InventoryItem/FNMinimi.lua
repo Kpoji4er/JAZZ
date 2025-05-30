@@ -30,7 +30,7 @@ DefineClass.FNMinimi = {
 	MagazineSize = 100,
 	WeaponRange = 54,
 	OverwatchAngle = 2700,
-	Noise = 45,
+	Noise = 37,
 	HandSlot = "TwoHanded",
 	Entity = "Weapon_FNMinimi",
 	ComponentSlots = {
@@ -95,7 +95,7 @@ DefineClass.FNMinimi = {
 	ReloadAP = 6000,
 	Recoil = 6,
 	BurstShots = 10,
-	Handling = 70,
+	Handling = 45,
 	BulletDropRange = 17,
 	Grouping = 298,
 }

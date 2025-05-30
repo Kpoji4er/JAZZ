@@ -28,7 +28,7 @@ DefineClass.ColtAnaconda = {
 	MagazineSize = 6,
 	WeaponRange = 15,
 	OverwatchAngle = 5100,
-	Noise = 40,
+	Noise = 32,
 	Entity = "Weapon_ColtAnaconda44",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

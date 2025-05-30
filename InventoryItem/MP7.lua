@@ -28,7 +28,7 @@ DefineClass.MP7 = {
 	MagazineSize = 30,
 	WeaponRange = 22,
 	OverwatchAngle = 4680,
-	Noise = 40,
+	Noise = 27,
 	Entity = "MP7",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

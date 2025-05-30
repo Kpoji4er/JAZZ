@@ -1,3 +1,3 @@
 hr.CameraTacMaxZoom = 180
 hr.CameraTacMinZoom = 30
-hr.CameraTacMaxZoomOverview = 130
+hr.CameraTacMaxZoomOverview = 330

@@ -29,6 +29,7 @@ DefineClass.M72LAW = {
 	CritChanceScaled = 0,
 	PenetrationClass = 2,
 	WeaponRange = 45,
+	Noise = 30,
 	HandSlot = "TwoHanded",
 	fxClass = "RPG7",
 	HolsterSlot = "Shoulder",

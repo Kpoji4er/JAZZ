@@ -27,7 +27,7 @@ DefineClass.SWModel10 = {
 	MagazineSize = 6,
 	WeaponRange = 15,
 	OverwatchAngle = 5100,
-	Noise = 40,
+	Noise = 15,
 	Entity = "SWModel10",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

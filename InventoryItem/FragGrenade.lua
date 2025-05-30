@@ -42,7 +42,7 @@ DefineClass.FragGrenade = {
 	InaccurateMinOffset = 3000,
 	InaccurateMaxOffset = 8000,
 	IgnoreCoverReduction = 33,
-	Noise = 100,
+	Noise = 40,
 	Entity = "MilitaryCamp_Grenade_01",
 	ActionIcon = "UI/Icons/Hud/frag_grenade",
 }

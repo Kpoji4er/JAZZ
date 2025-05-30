@@ -28,7 +28,7 @@ DefineClass.Glock18 = {
 	MagazineSize = 17,
 	WeaponRange = 14,
 	OverwatchAngle = 5400,
-	Noise = 30,
+	Noise = 18,
 	Entity = "G18",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

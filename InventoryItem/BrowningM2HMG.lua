@@ -27,7 +27,7 @@ DefineClass.BrowningM2HMG = {
 	MagazineSize = 100,
 	WeaponRange = 95,
 	OverwatchAngle = 3600,
-	Noise = 100,
+	Noise = 60,
 	HandSlot = "TwoHanded",
 	Entity = "Weapon_M2Browning",
 	ComponentSlots = {},
@@ -41,7 +41,7 @@ DefineClass.BrowningM2HMG = {
 	Recoil = 25,
 	BurstShots = 6,
 	AutoShots = 6,
-	Handling = 68,
+	Handling = 28,
 	BulletDropRange = 40,
 	Grouping = 350,
 }

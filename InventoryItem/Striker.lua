@@ -28,6 +28,7 @@ DefineClass.Striker = {
 	OverwatchAngle = 2160,
 	BuckshotConeAngle = 300,
 	BuckshotFalloffDamage = 10,
+	Noise = 35,
 	HandSlot = "TwoHanded",
 	Entity = "Striker",
 	ComponentSlots = {

@@ -27,7 +27,7 @@ DefineClass.Agram2000 = {
 	MagazineSize = 32,
 	WeaponRange = 18,
 	OverwatchAngle = 4680,
-	Noise = 35,
+	Noise = 25,
 	Entity = "Agram2000",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

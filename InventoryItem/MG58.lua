@@ -25,7 +25,7 @@ DefineClass.MG58 = {
 	MagazineSize = 50,
 	WeaponRange = 56,
 	OverwatchAngle = 1800,
-	Noise = 80,
+	Noise = 54,
 	HandSlot = "TwoHanded",
 	Entity = "Weapon_MG42",
 	ComponentSlots = {
@@ -53,7 +53,7 @@ DefineClass.MG58 = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 7000,
-	Handling = 45,
+	Handling = 16,
 	BulletDropRange = 26,
 	Grouping = 292,
 }

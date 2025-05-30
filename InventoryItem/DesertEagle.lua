@@ -29,7 +29,7 @@ DefineClass.DesertEagle = {
 	MagazineSize = 8,
 	WeaponRange = 15,
 	OverwatchAngle = 4920,
-	Noise = 45,
+	Noise = 36,
 	Entity = "Weapon_DesertEagle",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

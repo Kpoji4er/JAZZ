@@ -28,7 +28,7 @@ DefineClass.FiveSeven = {
 	MagazineSize = 20,
 	WeaponRange = 14,
 	OverwatchAngle = 5400,
-	Noise = 35,
+	Noise = 25,
 	Entity = "Five_Seven",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

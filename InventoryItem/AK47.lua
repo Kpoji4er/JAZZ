@@ -26,6 +26,7 @@ DefineClass.AK47 = {
 	MagazineSize = 30,
 	WeaponRange = 38,
 	OverwatchAngle = 1800,
+	Noise = 43,
 	HandSlot = "TwoHanded",
 	Entity = "J_AK47",
 	ComponentSlots = {

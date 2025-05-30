@@ -27,7 +27,7 @@ DefineClass.MR73 = {
 	MagazineSize = 6,
 	WeaponRange = 15,
 	OverwatchAngle = 5100,
-	Noise = 40,
+	Noise = 32,
 	Entity = "M73Base",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

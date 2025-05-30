@@ -28,7 +28,7 @@ DefineClass.HighCalRev = {
 	MagazineSize = 6,
 	WeaponRange = 16,
 	OverwatchAngle = 5400,
-	Noise = 60,
+	Noise = 40,
 	Entity = "HighCalRev",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

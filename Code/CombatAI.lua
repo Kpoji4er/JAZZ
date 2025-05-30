@@ -4,7 +4,7 @@ const.AIFriendlyFire_LOFConeNear = 100*guic 				-- same as above for cone attack
 const.AIFriendlyFire_LOFConeFar = 300*guic 				-- same as above for cone attacks (far side of the cone, positioned at AIFriendlyFire_MaxRange)
 const.AIFriendlyFire_ScoreMod = 15							-- % of damage score evaluation remanining when an ally is in danger
 
-const.AIDecisionThreshold = 80 -- targets/locations up to this percent of max scored target/location can be selected
+const.AIDecisionThreshold = 85 -- targets/locations up to this percent of max scored target/location can be selected
 const.AIShootAboveCTH = 0
 
 local function lClearPredictedExplosions(list)
@@ -444,6 +444,44 @@ function AIBuildArchetypePaths(unit, pos, context)
 	local goto_stance = archetype.MoveStance
 	local pref_stance = archetype.PrefStance
 
+	--[[local current_stance = unit.stance or pref_stance
+
+	local cover_high, cover_low= GetCover(unit)
+	local in_cover = cover_high or cover_low or false
+
+		if CombatActions.Attack:GetUIState{unit} == "enabled" then
+			goto_stance = unit.stance or archetype.PrefStance
+		else
+		-- 10% шанс оставить текущую стойку
+		if InteractionRand(100, "KeepCurrentStance") < 3 then
+    	goto_stance = current_stance
+
+		else
+   	 	-- ЕСЛИ БОТ НАЧИНАЕТ НЕ В УКРЫТИИ
+   		 if not in_cover then
+        -- 30% шанс ползти (прон)
+			if InteractionRand(100, "StartNotInCover") < 10 then
+       	     goto_stance = "Prone"
+			elseif InteractionRand(100, "StartNotInCover") < 10 then
+				pref_stance  = "Prone"
+      	  else
+     	       goto_stance = pref_stance
+    	    end
+
+   		 -- ЕСЛИ БОТ НАЧИНАЕТ В УКРЫТИИ
+   		 else
+				-- 30% шанс красться (сидя)
+				if InteractionRand(100, "StartInCover") < 5 then
+    		        goto_stance = "Crouch"
+   	  	   else
+   	  	       goto_stance = "Standing" -- или PrefStance
+   	 	    end
+ 		   end
+		end
+	end
+]]--
+
+
 	local move_stance_idx = StancesList[goto_stance] or 0
 	local pref_stance_idx = StancesList[pref_stance] or 0
 
@@ -741,6 +779,8 @@ function AIFindOptimalLocation(context, dest_score_details)
 			scores.final_score = score
 		end
 	end
+
+	
 	
 	-- check if a best dest candidate is on our starting voxel, default to it
 	for _, dest in ipairs(context.best_dests) do
@@ -1301,7 +1341,7 @@ end
 
 
 function AIPickScoutLocation(unit)
-	local AIScoutLocationSearchRadius = 8 * guim
+	local AIScoutLocationSearchRadius = 80 * guim
 
 	-- pick a new position around alive enemy randomly, prefer non-hidden enemies
 	local enemies = GetAllEnemyUnits(unit)

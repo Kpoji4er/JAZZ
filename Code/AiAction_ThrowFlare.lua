@@ -39,7 +39,7 @@ function AIActionThrowFlare:PrecalcAction(context, action_state)
     --     grenade = context.unit:GetItemInSlot("Inventory", "FlareStick")
     -- end
 
-    if not action_id or not grenade then
+    if not action_id or not grenade or not (GameState.Night or GameState.Underground) then
         return
     end
 

@@ -25,7 +25,7 @@ DefineClass.MP5K = {
 	MagazineSize = 30,
 	WeaponRange = 19,
 	OverwatchAngle = 4680,
-	Noise = 35,
+	Noise = 25,
 	Entity = "Weapon_MP5",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

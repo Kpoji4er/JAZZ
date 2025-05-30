@@ -22,6 +22,7 @@ DefineClass.UnderslungGrenadeLauncher = {
 	ObjDamageMod = 25,
 	CritChanceScaled = 0,
 	WeaponRange = 40,
+	Noise = 30,
 	HandSlot = "TwoHanded",
 	fxClass = "MGL",
 	PreparedAttackType = "None",

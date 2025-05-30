@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 5,
-	'version', 4817,
+	'version', 4831,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -597,6 +597,7 @@ return PlaceObj('ModDef', {
 		"Code/AccuracyRangeCTH.lua",
 		"Code/InfiniteLoopFix.lua",
 		"Code/AiActions.lua",
+		"Code/AIBehaviours.lua",
 		"Code/CombatAI.lua",
 		"Code/AiAction_ThrowFlare.lua",
 		"Code/Rato_AICreateContext.lua",
@@ -645,8 +646,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1747757915,
-	'code_hash', -7865224275329214715,
+	'saved', 1748600564,
+	'code_hash', -8374610532543742557,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -8570,12 +8571,12 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "SoundPreset",
-			'Id', "Makarov_Shot",
+			'Id', "Makarov_shot",
 			'ClassDisplayName', "Sound",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "SoundPreset",
-			'Id', "Makarov_Shot-room",
+			'Id', "Makarov_shot-room",
 			'ClassDisplayName', "Sound",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -13057,6 +13058,16 @@ return PlaceObj('ModDef', {
 			'Class', "CharacterEffectCompositeDef",
 			'Id', "suppressionPinned",
 			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "StatGainingPrerequisite",
+			'Id', "SupressionWillPowerGain",
+			'ClassDisplayName', "StatGainingPrerequisites",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "StatGainingPrerequisite",
+			'Id', "MovementAPSpent",
+			'ClassDisplayName', "StatGainingPrerequisites",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CharacterEffectCompositeDef",

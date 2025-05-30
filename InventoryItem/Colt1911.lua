@@ -27,7 +27,7 @@ DefineClass.Colt1911 = {
 	MagazineSize = 7,
 	WeaponRange = 12,
 	OverwatchAngle = 5400,
-	Noise = 35,
+	Noise = 28,
 	Entity = "Colt1911",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
@@ -51,6 +51,12 @@ DefineClass.Colt1911 = {
 				"Freeswap",
 			},
 			'DefaultComponent', "Freeswap",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Side",
+			'AvailableComponents', {
+				"Flashlight",
+			},
 		}),
 	},
 	HolsterSlot = "Leg",

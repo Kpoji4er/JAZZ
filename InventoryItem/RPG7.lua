@@ -31,6 +31,7 @@ DefineClass.RPG7 = {
 	ObjDamageMod = 600,
 	CritChanceScaled = 0,
 	WeaponRange = 40,
+	Noise = 100,
 	HandSlot = "TwoHanded",
 	HolsterSlot = "Shoulder",
 	PreparedAttackType = "None",

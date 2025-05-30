@@ -27,7 +27,6 @@ DefineClass.MP446VIKING = {
 	MagazineSize = 17,
 	WeaponRange = 14,
 	OverwatchAngle = 5400,
-	Noise = 30,
 	Entity = "Viking",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

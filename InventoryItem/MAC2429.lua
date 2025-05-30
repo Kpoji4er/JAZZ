@@ -28,7 +28,7 @@ DefineClass.MAC2429 = {
 	AimAccuracy = 16,
 	MagazineSize = 25,
 	WeaponRange = 56,
-	Noise = 80,
+	Noise = 54,
 	HandSlot = "TwoHanded",
 	Entity = "MAC2429",
 	ComponentSlots = {
@@ -75,7 +75,7 @@ DefineClass.MAC2429 = {
 	Recoil = 32,
 	BurstShots = 4,
 	AutoShots = 4,
-	Handling = 58,
+	Handling = 24,
 	BulletDropRange = 19,
 	Grouping = 260,
 }

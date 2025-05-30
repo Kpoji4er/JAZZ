@@ -31,6 +31,7 @@ DefineClass.SPAS12 = {
 	OverwatchAngle = 1080,
 	BuckshotConeAngle = 180,
 	BuckshotFalloffDamage = 15,
+	Noise = 28,
 	HandSlot = "TwoHanded",
 	Entity = "Spas12",
 	ComponentSlots = {},

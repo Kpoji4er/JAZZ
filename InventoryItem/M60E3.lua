@@ -29,7 +29,7 @@ DefineClass.M60E3 = {
 	MagazineSize = 100,
 	WeaponRange = 56,
 	OverwatchAngle = 1800,
-	Noise = 80,
+	Noise = 48,
 	HandSlot = "TwoHanded",
 	Entity = "M60E3",
 	ComponentSlots = {
@@ -81,7 +81,7 @@ DefineClass.M60E3 = {
 	Recoil = 18,
 	BurstShots = 5,
 	AutoShots = 5,
-	Handling = 54,
+	Handling = 28,
 	BulletDropRange = 20,
 	Grouping = 285,
 }

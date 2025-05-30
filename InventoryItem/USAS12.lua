@@ -31,6 +31,7 @@ DefineClass.USAS12 = {
 	OverwatchAngle = 960,
 	BuckshotConeAngle = 300,
 	BuckshotFalloffDamage = 5,
+	Noise = 30,
 	HandSlot = "TwoHanded",
 	Entity = "USAS12",
 	ComponentSlots = {
