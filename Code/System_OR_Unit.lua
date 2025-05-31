@@ -391,10 +391,18 @@ function UnitProperties:EquipStartingGear(items)
 			if ammo then
 				--local tempAmmo = PlaceInventoryItem(ammo.id)
 				--print(ammo.id)
-				local tempAmmo = self:GetAvailableAmmos(weapon)[1] or PlaceInventoryItem(ammo.id)
-				tempAmmo.Amount = tempAmmo.MaxStacks
-				weapon:Reload(tempAmmo, "suspend_fx")
-				DoneObject(tempAmmo)
+				local tempAmmo = self:GetAvailableAmmos(weapon)[1]
+				if not tempAmmo or tempAmmo.Amount < weapon.MagazineSize then
+				  tempAmmo = PlaceInventoryItem(ammo.id)   -- создаём клон, если стека нет
+				  tempAmmo.Amount = weapon.MagazineSize
+				  weapon:Reload(tempAmmo, "suspend_fx")
+				 -- DoneObject(tempAmmo)                     -- удалить можно: это клон
+				else
+				  --tempAmmo.Amount = weapon.MagazineSize
+				  weapon:Reload(tempAmmo, "suspend_fx")
+				  -- НИКАКОГО DoneObject здесь!  Стек останется в items → позже
+				  -- AddItem("Inventory", item) положит его в карман правильно.
+				end
 			end
 		end
 	end

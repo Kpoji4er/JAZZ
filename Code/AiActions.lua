@@ -187,9 +187,11 @@ function AIReloadWeapons(unit)
 				if unit:CanAddItem("AmmoInventory", ammos[1])	then unit:TryEquip("AmmoInventory", ammos[1]) 
 				else ammo = PlaceInventoryItem(ammos[1].id) end
 				ammo.Amount = firearm.MagazineSize
+				--InventoryAddItem(unit, ammo)   
 				--ammo.Amount = Max(ammo.Amount, firearm.MagazineSize)
 				unit:ReloadWeapon(firearm, ammo, "delay fx", "ai")
 				CreateFloatingText(unit, T(160472488023, "Reload"))
+				DoneObject(ammo)
 				ObjModified(unit)
 			else
 				ammos = GetAmmosWithCaliber(firearm.Caliber, "sorted")
@@ -197,6 +199,7 @@ function AIReloadWeapons(unit)
 					if unit:CanAddItem("AmmoInventory", ammos[1]) then unit:TryEquip("AmmoInventory", ammos[1]) 
 					else ammo = PlaceInventoryItem(ammos[1].id) end
 					ammo.Amount = firearm.MagazineSize
+					--InventoryAddItem(unit, ammo)   
 					unit:ReloadWeapon(firearm, ammo, "delay fx", "ai")
 					CreateFloatingText(unit, T(160472488023, "Reload"))
 					DoneObject(ammo)
@@ -209,6 +212,7 @@ function AIReloadWeapons(unit)
 			unit:ReloadWeapon(firearm, ammo, "delay fx", "ai")
 			CreateFloatingText(unit, T(160472488023, "Reload"))
 			ObjModified(unit)
+			DoneObject(ammo)
 		end
 	end
 end
