@@ -1234,8 +1234,8 @@ function AIPrecalcConeTargetZones(context, action_id, additional_target_pt, stan
 	local weapon = context.weapon
 	local params = weapon:GetAreaAttackParams(action_id, unit)
 
-	local min_range = params.min_range * const.SlabSizeX
-	local max_range = params.max_range * const.SlabSizeX
+	local min_range = (params.min_range or 2) * const.SlabSizeX
+	local max_range = (params.max_range or 10) * const.SlabSizeX
 
 	local target_pts = AICalcAOETargetPoints(context, min_range, max_range)
 	if additional_target_pt then

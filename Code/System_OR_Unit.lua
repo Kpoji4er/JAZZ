@@ -811,26 +811,28 @@ function UnitBase:GetPersonalMorale()
 	local teamMorale = self.team and self.team.morale or 0
 	local personalMorale = 0
 	
-	--reduce morale for at least one disliked merc in team
-	local isDisliking = false
-	for _, dislikedMerc in ipairs(self.Dislikes) do
-		local dislikedIndex = table.find(self.team.units, "session_id", dislikedMerc)
-		if dislikedIndex and not self.team.units[dislikedIndex]:IsDead() then
-			personalMorale = personalMorale - 1
-			isDisliking = true
-			break
-		end
-	end
-	--increase morale for no disliked and at least one liked merc
-	--if not isDisliking then
-		for _, likedMerc in ipairs(self.Likes) do
-			local likedIndex = table.find(self.team.units, "session_id", likedMerc)
-			if likedIndex and not self.team.units[likedIndex]:IsDead()  then
-				personalMorale = personalMorale + 1
+	if IsMerc(self) then
+		--reduce morale for at least one disliked merc in team
+		local isDisliking = false
+		for _, dislikedMerc in ipairs(self.Dislikes) do
+			local dislikedIndex = table.find(self.team.units, "session_id", dislikedMerc)
+			if dislikedIndex and not self.team.units[dislikedIndex]:IsDead() then
+				personalMorale = personalMorale - 1
+				isDisliking = true
 				break
 			end
 		end
-	--end
+		--increase morale for no disliked and at least one liked merc
+		--if not isDisliking then
+			for _, likedMerc in ipairs(self.Likes) do
+				local likedIndex = table.find(self.team.units, "session_id", likedMerc)
+				if likedIndex and not self.team.units[likedIndex]:IsDead()  then
+					personalMorale = personalMorale + 1
+					break
+				end
+			end
+		--end
+	end
 	--lower morale if below 50% or 3+ wounds (REVERT for psycho perk)
 	local isWounded = false
 	local idx = self:HasStatusEffect("Wounded")
