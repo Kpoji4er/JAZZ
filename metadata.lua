@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 5,
-	'version', 4834,
+	'version', 4872,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -146,20 +146,18 @@ return PlaceObj('ModDef', {
 		"InventoryItem/FlareHandgun.lua",
 		"Code/Systems_Compontents_FoldingStocks.lua",
 		"InventoryItem/Luger.lua",
-		"InventoryItem/P210.lua",
 		"InventoryItem/Makarov.lua",
 		"InventoryItem/TT33.lua",
+		"InventoryItem/P210.lua",
 		"InventoryItem/HiPower.lua",
 		"InventoryItem/Colt1911.lua",
 		"InventoryItem/ColtPeacemaker.lua",
 		"InventoryItem/Bereta92.lua",
 		"InventoryItem/CZ75.lua",
-		"InventoryItem/P220.lua",
 		"InventoryItem/ColtAnaconda.lua",
 		"InventoryItem/MP446VIKING.lua",
 		"InventoryItem/USP45.lua",
 		"InventoryItem/APS.lua",
-		"InventoryItem/P226.lua",
 		"InventoryItem/DesertEagle.lua",
 		"InventoryItem/FiveSeven.lua",
 		"InventoryItem/Glock17.lua",
@@ -177,6 +175,8 @@ return PlaceObj('ModDef', {
 		"InventoryItem/SWModel10.lua",
 		"InventoryItem/SWModel19.lua",
 		"InventoryItem/SWModel29.lua",
+		"InventoryItem/P220.lua",
+		"InventoryItem/P226.lua",
 		"InventoryItem/M4Commando.lua",
 		"InventoryItem/MP5.lua",
 		"InventoryItem/MP40.lua",
@@ -632,7 +632,7 @@ return PlaceObj('ModDef', {
 		"Code/System_SectorOperations.lua",
 		"Code/POI Extension.lua",
 		"InventoryItem/Auto5_quest.lua",
-		"Code/OverwatchLagFix.lua",
+		"Code/Debug.lua",
 		"Code/WorldFlipSpawnUnits.lua",
 	},
 	'loctables', {
@@ -646,8 +646,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1748710051,
-	'code_hash', -1698362245284935873,
+	'saved', 1748794474,
+	'code_hash', -289720952267192351,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -9171,17 +9171,17 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
-			'Id', "P210",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
 			'Id', "Makarov",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "TT33",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "P210",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -9211,11 +9211,6 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
-			'Id', "P220",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
 			'Id', "ColtAnaconda",
 			'ClassDisplayName', "Inventory item",
 		}),
@@ -9232,11 +9227,6 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "APS",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
-			'Id', "P226",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -9322,6 +9312,16 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "SWModel29",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "P220",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "P226",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -10236,11 +10236,6 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "WeaponComponent",
-			'Id', "IronSight",
-			'ClassDisplayName', "Weapon Component",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "WeaponComponent",
 			'Id', "M16Bayonet",
 			'ClassDisplayName', "Weapon Component",
 		}),
@@ -10657,6 +10652,16 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "WeaponComponentEffect",
 			'Id', "ChangeCaliberToBMG",
+			'ClassDisplayName', "Modification Effects",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponentEffect",
+			'Id', "NightsIronsBonus",
+			'ClassDisplayName', "Modification Effects",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponentEffect",
+			'Id', "MinorAccuracyBonus",
 			'ClassDisplayName', "Modification Effects",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -11206,6 +11211,26 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "WeaponComponent",
+			'Id', "Jazz_IronSight",
+			'ClassDisplayName', "Weapon Component",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponent",
+			'Id', "Jazz_IronSight_AIM",
+			'ClassDisplayName', "Weapon Component",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponent",
+			'Id', "Jazz_IronSight_FAST",
+			'ClassDisplayName', "Weapon Component",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponent",
+			'Id', "Jazz_IronSight_NIGHT",
+			'ClassDisplayName', "Weapon Component",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponent",
 			'Id', "HolsterBelt",
 			'ClassDisplayName', "Weapon Component",
 		}),
@@ -11337,6 +11362,16 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "WeaponComponent",
 			'Id', "MagLarge_5_10",
+			'ClassDisplayName', "Weapon Component",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponent",
+			'Id', "MagLarge_8_10",
+			'ClassDisplayName', "Weapon Component",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponent",
+			'Id', "MagLarge_18_20",
 			'ClassDisplayName', "Weapon Component",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -11492,6 +11527,16 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "WeaponUpgradeSlot",
 			'Id', "Handgrip",
+			'ClassDisplayName', "Weapon Upgrade Slot",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponUpgradeSlot",
+			'Id', "Sightsf",
+			'ClassDisplayName', "Weapon Upgrade Slot",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponUpgradeSlot",
+			'Id', "Sightsr",
 			'ClassDisplayName', "Weapon Upgrade Slot",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -13258,6 +13303,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "Bipod",
+			'ClassDisplayName', "ChanceToHitModifier",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "ChanceToHitModifier",
+			'Id', "NightsIronsBonus",
 			'ClassDisplayName', "ChanceToHitModifier",
 		}),
 		PlaceObj('ModResourcePreset', {

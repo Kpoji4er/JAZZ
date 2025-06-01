@@ -90,8 +90,8 @@ end
 ---
 function WillPointBar:SetColorPreset(presetName)
 	if presetName == "enemy" then
-		self.WpColor = RGB(156, 8, 218)
-		self.TempWpColor = RGB(156, 8, 218)
+		self.WpColor = RGB(154, 104, 173)
+		self.TempWpColor = RGB(154, 104, 173)
 		self.PotentialDamageColor = RGB(218, 156, 8)
 		self.ConditionalDamageColor = RGB(255, 211, 106)
 	elseif presetName == "disabled" then
@@ -105,8 +105,8 @@ function WillPointBar:SetColorPreset(presetName)
 		self.PotentialDamageColor = RGB(152, 249, 255)
 		self.ConditionalDamageColor = RGB(255, 211, 106)
 	else
-		self.WpColor = RGB(156, 8, 218)
-		self.TempWpColor = RGB(156, 8, 218)
+		self.WpColor = RGB(154, 104, 173)
+		self.TempWpColor = RGB(154, 104, 173)
 		self.PotentialDamageColor = RGB(152, 249, 255)
 		self.ConditionalDamageColor = RGB(255, 211, 106)
 	end

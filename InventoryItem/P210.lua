@@ -26,22 +26,48 @@ DefineClass.P210 = {
 	WeaponRange = 14,
 	OverwatchAngle = 5400,
 	Noise = 18,
-	Entity = "p210",
+	Entity = "P210",
 	ComponentSlots = {
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Magazine",
-			'Modifiable', false,
-			'AvailableComponents', {
-				"MagNormal",
-			},
-			'DefaultComponent', "MagNormal",
-		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"ImprovisedSuppressor",
 				"PistolSuppressor",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Barrel",
+			'AvailableComponents', {
+				"BarrelLong",
+				"BarrelNormal",
+			},
+			'DefaultComponent', "BarrelNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Handgrip",
+			'AvailableComponents', {
+				"Handgrip_Default",
+				"Handgrip_Ergo",
+			},
+			'DefaultComponent', "Handgrip_Default",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'AvailableComponents', {
+				"Jazz_IronSight",
+				"Jazz_IronSight_AIM",
+			},
+			'DefaultComponent', "Jazz_IronSight",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Side",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Flashlight",
+				"LaserDot",
+				"FlashlightDot",
+				"UVDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {

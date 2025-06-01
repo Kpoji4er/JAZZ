@@ -28,13 +28,13 @@ DefineClass.P220 = {
 	WeaponRange = 13,
 	OverwatchAngle = 5400,
 	Noise = 28,
-	Entity = "p220",
+	Entity = "P220",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
-			'Modifiable', false,
 			'AvailableComponents', {
 				"MagNormal",
+				"MagLarge_8_10",
 			},
 			'DefaultComponent', "MagNormal",
 		}),
@@ -55,6 +55,14 @@ DefineClass.P220 = {
 				"UVDot",
 				"FlashlightDot",
 			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'AvailableComponents', {
+				"Jazz_IronSight",
+				"JAZZ_Reflex_Pistol",
+			},
+			'DefaultComponent', "Jazz_IronSight",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",

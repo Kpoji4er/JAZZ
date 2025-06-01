@@ -320,3 +320,40 @@ function GetWeaponModifyProperties(item)
 
 	return statList
 end
+
+function GetWeaponComponentDescription(componentPreset)
+	local data = GetWeaponComponentDescriptionData(componentPreset)
+	local lines = {}
+
+    local headerText = _InternalTranslate(
+        T{987654321, "<style WeaponModHeader><display_name></style>", componentPreset}
+      )
+      table.insert(lines, { display = Untranslated(headerText) })
+
+	if componentPreset.Description then
+		lines[#lines + 1] = T{componentPreset.Description, componentPreset}
+	end
+	
+	local indices = {}
+	for modName, mod in sorted_pairs(data) do
+		local text = Untranslated("<bullet_point> " .. _InternalTranslate(mod.display, mod))
+		lines[#lines + 1] = text
+		
+		local effect = WeaponComponentEffects[modName]
+		if effect then
+			indices[text] = effect.SortKey
+		end
+	end
+	
+	if #lines == 0 then
+		return T(575725466022, "No changes")
+	end
+	
+	table.sort(lines, function(a, b)
+		local indexA = indices[a] or 0
+		local indexB = indices[b] or 0
+		return indexA < indexB
+	end)
+	
+	return table.concat(lines, "\n"), data
+end

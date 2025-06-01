@@ -68,9 +68,9 @@ DefineClass.RPD = {
 			'SlotType', "Scope",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"IronSight",
+				"Jazz_IronSight",
 			},
-			'DefaultComponent', "IronSight",
+			'DefaultComponent', "Jazz_IronSight",
 		}),
 	},
 	HolsterSlot = "Shoulder",

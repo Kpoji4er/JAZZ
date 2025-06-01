@@ -32,16 +32,14 @@ DefineClass.P226 = {
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
-			'Modifiable', false,
 			'AvailableComponents', {
 				"MagNormal",
-				"MagLarge",
+				"MagLarge_18_20",
 			},
 			'DefaultComponent', "MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
-			'Modifiable', false,
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"ImprovisedSuppressor",
@@ -54,6 +52,33 @@ DefineClass.P226 = {
 				"Freeswap",
 			},
 			'DefaultComponent', "Freeswap",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Barrel",
+			'AvailableComponents', {
+				"BarrelShort_Pistol",
+				"BarrelNormal",
+			},
+			'DefaultComponent', "BarrelNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Handgrip",
+			'AvailableComponents', {
+				"Handgrip_Default",
+				"Handgrip_Ergo",
+			},
+			'DefaultComponent', "Handgrip_Default",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'AvailableComponents', {
+				"Jazz_IronSight",
+				"Jazz_IronSight_AIM",
+				"Jazz_IronSight_FAST",
+				"Jazz_IronSight_NIGHT",
+				"ReflexSight",
+			},
+			'DefaultComponent', "Jazz_IronSight",
 		}),
 	},
 	HolsterSlot = "Leg",

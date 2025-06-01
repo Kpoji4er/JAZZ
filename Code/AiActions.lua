@@ -191,7 +191,7 @@ function AIReloadWeapons(unit)
 				--ammo.Amount = Max(ammo.Amount, firearm.MagazineSize)
 				unit:ReloadWeapon(firearm, ammo, "delay fx", "ai")
 				CreateFloatingText(unit, T(160472488023, "Reload"))
-				DoneObject(ammo)
+				--DoneObject(ammo)
 				ObjModified(unit)
 			else
 				ammos = GetAmmosWithCaliber(firearm.Caliber, "sorted")
@@ -212,7 +212,7 @@ function AIReloadWeapons(unit)
 			unit:ReloadWeapon(firearm, ammo, "delay fx", "ai")
 			CreateFloatingText(unit, T(160472488023, "Reload"))
 			ObjModified(unit)
-			DoneObject(ammo)
+			--DoneObject(ammo)
 		end
 	end
 end
