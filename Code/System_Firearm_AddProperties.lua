@@ -321,6 +321,7 @@ function GetWeaponModifyProperties(item)
 	return statList
 end
 
+--[[
 function GetWeaponComponentDescription(componentPreset)
 	local data = GetWeaponComponentDescriptionData(componentPreset)
 	local lines = {}
@@ -357,3 +358,4 @@ function GetWeaponComponentDescription(componentPreset)
 	
 	return table.concat(lines, "\n"), data
 end
+]]
