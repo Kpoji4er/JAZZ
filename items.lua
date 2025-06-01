@@ -11757,7 +11757,6 @@ return {
 								PlaceObj('PlayerControlSectors', {
 									Amount = 1,
 									Condition = ">=",
-									POIs = "Mine",
 								}),
 							},
 							Effects = {
@@ -11775,9 +11774,8 @@ return {
 						PlaceObj('TriggeredConditionalEvent', {
 							Conditions = {
 								PlaceObj('PlayerControlSectors', {
-									Amount = 2,
+									Amount = 3,
 									Condition = ">=",
-									POIs = "Mine",
 								}),
 							},
 							Effects = {
@@ -11794,9 +11792,8 @@ return {
 						PlaceObj('TriggeredConditionalEvent', {
 							Conditions = {
 								PlaceObj('PlayerControlSectors', {
-									Amount = 3,
+									Amount = 8,
 									Condition = ">=",
-									POIs = "Mine",
 								}),
 							},
 							Effects = {
@@ -11812,15 +11809,9 @@ return {
 						}),
 						PlaceObj('TriggeredConditionalEvent', {
 							Conditions = {
-								PlaceObj('QuestIsTCEState', {
-									Prop = "TCE_WorldFlipDone",
-									QuestId = "04_Betrayal",
-									Value = true,
-								}),
 								PlaceObj('PlayerControlSectors', {
-									Amount = 4,
+									Amount = 12,
 									Condition = ">=",
-									POIs = "Mine",
 								}),
 							},
 							Effects = {

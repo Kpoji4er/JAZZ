@@ -2007,8 +2007,8 @@ function Unit:ApplySuppressionStatus()
 
 		
 
-	if HasPerk(self, "Psycho") then
-	if (self.WillPoints) <= 10 then self:AddStatusEffect("Berserk") end
+	if HasPerk(self, "Psycho") and (self.WillPoints) <= 10 then
+	    self:AddStatusEffect("Berserk")
 		self.WillPoints = self.MaxWillPoints
 	return end		
 
