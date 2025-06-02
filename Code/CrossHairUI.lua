@@ -285,8 +285,8 @@ function CrosshairUI:UpdateAim()
 
 	for id, cth in pairs(cthTable) do
 		--print(id.." "..cth)
-		--bestChance = Max(bestChance, cth)
-		if id == 'Torso' then bestChance = cth end
+		bestChance = Max(bestChance, cth)
+		--if id == 'Torso' then bestChance = cth end
 	end
 
 	--print(bestChance)
@@ -460,7 +460,7 @@ function CrosshairUI:OnLayoutComplete()
 		local is_hidden = attacker:HasStatusEffect("Hidden") or torso_stealth_kill
 		if not one_non_obstructed or is_blind_fire or bestChance <= 20 then
 			PlayVoiceResponse(attacker, is_hidden and "AimAttack_LowStealth" or "AimAttack_Low")
-		elseif bestChance > 50 then
+		elseif bestChance > 60 then
 			PlayVoiceResponse(attacker, is_hidden and "AimAttackStealth" or "AimAttack")
 		end
 	end	

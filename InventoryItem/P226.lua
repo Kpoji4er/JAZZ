@@ -80,6 +80,16 @@ DefineClass.P226 = {
 			},
 			'DefaultComponent', "Jazz_IronSight",
 		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Side",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Flashlight",
+				"LaserDot",
+				"UVDot",
+				"FlashlightDot",
+			},
+		}),
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
