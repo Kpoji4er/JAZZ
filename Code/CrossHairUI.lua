@@ -5,7 +5,7 @@ function GetCTHColor(cth)
 		return RGB(200, 230, 50)       -- светло-жёлтый
 	elseif cth >= 20 then
 		return RGB(237, 184, 24)       -- оранжевый
-	elseif cth >= 0 then
+	elseif cth > 0 then
 		return RGB(191, 67, 77)        -- красный
 	else return RGB(0, 0, 0) 
 	end

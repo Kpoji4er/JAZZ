@@ -94533,13 +94533,13 @@ return {
 									local maxAimTotal = node.maxAimTotal
 									local nextAimLevel = node:GetNextAimLevel()
 									
-									local container = self:ResolveId("idButtonsContainer") or "error"
+									--local container = self:ResolveId("idButtonsContainer") or "error"
 									
 									
 									--print(node.context.cth or "err")
 									--print(node.crosshair or "err2")
 									
-									local cth = node.context.cth or 0
+									local cth = node.context.bestChance or 0
 									
 									local color = GetCTHColor(cth)
 									
