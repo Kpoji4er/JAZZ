@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 5,
-	'version', 4886,
+	'version', 4889,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -646,8 +646,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1748875312,
-	'code_hash', -3555912538644238546,
+	'saved', 1748877944,
+	'code_hash', -5878779699468913380,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -13169,12 +13169,6 @@ return PlaceObj('ModDef', {
 			'Class', "CharacterEffectCompositeDef",
 			'Id', "HeavyWeaponsTraining",
 			'Prop', "Description",
-			'ClassDisplayName', "Character effect",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "CharacterEffectCompositeDef",
-			'Id', "Stealthy",
-			'Prop', "Parameters",
 			'ClassDisplayName', "Character effect",
 		}),
 		PlaceObj('ModResourcePreset', {

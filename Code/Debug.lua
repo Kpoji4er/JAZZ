@@ -1,25 +1,71 @@
-function MoveItem_RecieveNetArgs(data, except)
-	local item, src_container, src_container_slot_name, dest_container, dest_container_slot_name, dest_x, dest_y, amount, merge_up_to_amount, exec_locally, src_x, src_y, item_at_dest, alternative_swap_pos, sync_unit, player_id, no_ui_respawn, multi_items  = unpack_params(data)
-	local args = {}
-	args.item = g_ItemIdToItem[item]	
-	args.src_container = (except and except["src_container"])   and src_container   or GetContainerFromContainerNetId(src_container)
-	args.dest_container = (except and except["dest_container"]) and dest_container or GetContainerFromContainerNetId(dest_container)
-	args.src_container_slot_name = (except and except["src_container"]) and src_container_slot_name or GetContainerSlotFromContainerSlotNetId(args.src_container, src_container_slot_name)
-	args.dest_container_slot_name = (except and except["dest_container"]) and dest_container_slot_name or GetContainerSlotFromContainerSlotNetId(args.dest_container, dest_container_slot_name)
-	args.dest_x = dest_x
-	args.dest_y = dest_y
-	args.amount = amount
-	args.merge_up_to_amount = merge_up_to_amount
-	args.exec_locally = exec_locally
-	args.s_src_x = src_x
-	args.s_src_y = src_y
-	args.s_sync_unit = (except and except["unit"]) and sync_unit or GetContainerFromContainerNetId(sync_unit)
-	assert(not item_at_dest or g_ItemIdToItem[item_at_dest])
-	args.s_item_at_dest = item_at_dest and g_ItemIdToItem[item_at_dest]
-	args.s_player_id = player_id
-	args.sync_call = true
-	args.alternative_swap_pos = alternative_swap_pos
-	args.no_ui_respawn = no_ui_respawn
-	args.multi_items = multi_items
-	return args
+function Firearm:__toluacode(indent, pstr, GetPropFunc)
+	return self:SaveToLuaCode(indent, pstr, GetPropFunc)
+end
+
+---
+--- Saves the Firearm object to Lua code representation.
+---
+--- @param indent string The indentation string to use for nested structures.
+--- @param pStr string|nil The string buffer to append the Lua code to.
+--- @param GetPropFunc function|nil A function to get the property value for serialization.
+--- @param pos number|nil The position of the Firearm object in the inventory.
+--- @return string The Lua code representation of the Firearm object.
+---
+function Firearm:SaveToLuaCode(indent, pStr, GetPropFunc, pos)
+	if not pStr then
+		local additional
+		if self.ammo then
+			local ammo_props = self.ammo:SavePropsToLuaCode(indent, GetPropFunc)
+			ammo_props = ammo_props or "nil"
+			additional = string.format("\n\t 'ammo',PlaceInventoryItem('%s', %s)", self.ammo.class, ammo_props)
+		end
+		if next(self.subweapons) ~= nil then
+			if additional then additional = string.format("%s,", additional) end
+			additional = string.format("%s\n\t 'subweapons',{", additional or "")
+			local additionalWeps = {}
+			for slot, item in sorted_pairs(self.subweapons) do
+				additionalWeps[#additionalWeps + 1] = string.format("\n\t\t['%s'] = %s", slot, item:__toluacode("\t\t\t", nil, GetPropFunc))
+			end
+			additional = string.format("%s%s%s", additional, table.concat(additionalWeps, ", "), "\n\t},")
+		end
+
+		local props = self:SavePropsToLuaCode(indent, GetPropFunc, pStr, additional)
+		props = props or "nil"
+		if pos then
+			return string.format("%d, PlaceInventoryItem('%s', %s)", pos, self.class, props);
+		else
+			return string.format("PlaceInventoryItem('%s', %s)", self.class, props);
+		end
+	else
+		local additional = pstr("", 1024)
+		if self.ammo then
+			additional:appendf("\n\t 'ammo',PlaceInventoryItem('%s', ", self.ammo.class)
+			if not self.ammo:SavePropsToLuaCode(indent, GetPropFunc, additional) then
+				additional:append("nil")
+			end
+			additional:append("),")
+		end
+		if next(self.subweapons) ~= nil then
+			additional:append("\n\t 'subweapons',{")
+			for slot, item in sorted_pairs(self.subweapons) do
+				additional:appendf("\n\t\t['%s'] = %s", slot, item:__toluacode("\t\t\t", nil, GetPropFunc))
+			end
+			additional:append("\n\t},")
+		end
+		
+		if pos then
+			pStr:append(tostring(pos)..", " )
+			pStr:appendf("PlaceInventoryItem('%s', ", self.class)
+			if not self:SavePropsToLuaCode(indent, GetPropFunc, pStr, additional) then
+				pStr:append("nil")
+			end
+			return pStr:append(") ")
+		else
+			pStr:appendf("PlaceInventoryItem('%s', ", self.class)
+			if not self:SavePropsToLuaCode(indent, GetPropFunc, pStr, additional) then
+				pStr:append("nil")
+			end
+			return pStr:append(") ")
+		end
+	end
 end

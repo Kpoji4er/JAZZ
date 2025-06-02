@@ -11769,7 +11769,6 @@ return {
 							Once = true,
 							ParamId = "JAZZ_Legion_T2",
 							QuestId = "JAZZ_LegionTier",
-							SequentialEffects = false,
 						}),
 						PlaceObj('TriggeredConditionalEvent', {
 							Conditions = {
@@ -11824,7 +11823,6 @@ return {
 							Once = true,
 							ParamId = "JAZZ_Legion_T5",
 							QuestId = "JAZZ_LegionTier",
-							SequentialEffects = false,
 						}),
 					},
 					Variables = {
@@ -20555,7 +20553,7 @@ return {
 								loot = "all",
 								PlaceObj('LootEntryUpgradedWeapon', {
 									upgrades = {
-										"MagLarge",
+										"MagLarge_18_20",
 									},
 									weapon = "P226",
 								}),
@@ -34910,7 +34908,7 @@ return {
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
 								upgrades = {
-									"MagLarge",
+									"MagLarge_18_20",
 								},
 								weapon = "P226",
 							}),
@@ -35104,9 +35102,6 @@ return {
 							id = "Adonis_USAS",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								upgrades = {
-									"LaserDot_aa12",
-								},
 								weapon = "USAS12",
 							}),
 							PlaceObj('LootEntryLootDef', {
@@ -35119,10 +35114,6 @@ return {
 							id = "Adonis_USASMag",
 							loot = "all",
 							PlaceObj('LootEntryUpgradedWeapon', {
-								upgrades = {
-									"LaserDot_aa12",
-									"MagLarge",
-								},
 								weapon = "USAS12",
 							}),
 							PlaceObj('LootEntryLootDef', {
@@ -49791,7 +49782,7 @@ return {
 								"Jazz_IronSight_AIM",
 								"Jazz_IronSight_FAST",
 								"Jazz_IronSight_NIGHT",
-								"ReflexSight",
+								"JAZZ_Reflex_Pistol",
 							},
 							'DefaultComponent', "Jazz_IronSight",
 						}),
@@ -94042,29 +94033,6 @@ return {
 					'TargetId', "HeavyWeaponsTraining",
 					'TargetProp', "Description",
 					'TargetValue', T(415344339832, "Уменьшен расход <em>ОД</em> на атаки из <em>тяжелого вооружения</em> и <em>пулеметов</em> и приведение его в <GameTerm('Setup')>."),
-				}),
-				PlaceObj('ModItemChangeProp', {
-					'name', "Stealthy",
-					'TargetClass', "CharacterEffectCompositeDef",
-					'TargetId', "Stealthy",
-					'TargetProp', "Parameters",
-					'TargetValue', {
-						PlaceObj('PresetParamPercent', {
-							'Name', "stealthy_detection",
-							'Value', 20,
-							'Tag', "<stealthy_detection>%",
-						}),
-						PlaceObj('PresetParamPercent', {
-							'Name', "stealthkill",
-							'Value', 10,
-							'Tag', "<stealthkill>%",
-						}),
-						PlaceObj('PresetParamPercent', {
-							'Name', "stealthkill_minchance",
-							'Value', 30,
-							'Tag', "<stealthkill_minchance>%",
-						}),
-					},
 				}),
 				PlaceObj('ModItemChangeProp', {
 					'name', "FleetingShadow",

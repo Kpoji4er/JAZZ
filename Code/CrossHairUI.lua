@@ -291,7 +291,11 @@ function CrosshairUI:UpdateAim()
 
 	--print(bestChance)
 
-	pContext.cth = bestChance or 0
+
+
+	pContext.bestChance = bestChance or 0
+
+	assert(pContext.bestChance)
 	
 	local hasflashlight = false
 	if weapon1:HasComponent("IgnoreInTheDarkWhenFullyAimed") and pContext.aim >= (GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeAimLevel") or -1) then

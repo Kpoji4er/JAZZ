@@ -387,21 +387,26 @@ function UnitProperties:EquipStartingGear(items)
 	-- make sure all equipped firearms have ammo
 	local function reload_weapon(weapon)
 		if  (not weapon.ammo or weapon.ammo.Amount <= 0) then
-			local ammo = self:GetAvailableAmmos(weapon)[1] or GetAmmosWithCaliber(weapon.Caliber, "sort")[1]
-			if ammo then
+
+			local ammoObj = self:GetAvailableAmmos(weapon)[1]
+			if not ammoObj then
+				local ammoDef = GetAmmosWithCaliber(weapon.Caliber, "sort")[1]
+				if ammoDef and ammoDef.id then
+					ammoObj = PlaceInventoryItem(ammoDef.id)
+				end
+			end
+
+			if ammoObj then
 				--local tempAmmo = PlaceInventoryItem(ammo.id)
 				--print(ammo)
 				local tempAmmo = self:GetAvailableAmmos(weapon)[1]
 				--print(g_Classes[ammo.id] or "error")
-				print(ammo.class or "error")
 				if not tempAmmo or tempAmmo.Amount < weapon.MagazineSize then
-				  tempAmmo = PlaceInventoryItem(ammo.class)   -- создаём клон, если стека нет
+				  tempAmmo = PlaceInventoryItem(ammoObj.class)   -- создаём клон, если стека нет
 				  tempAmmo.Amount = weapon.MagazineSize
 				  weapon:Reload(tempAmmo, "suspend_fx")
 				 -- DoneObject(tempAmmo)                     -- удалить можно: это клон
 				else
-				  tempAmmo = PlaceInventoryItem(ammo.class)
-				  tempAmmo.Amount = weapon.MagazineSize
 				  weapon:Reload(tempAmmo, "suspend_fx")
 				  -- НИКАКОГО DoneObject здесь!  Стек останется в items → позже
 				  -- AddItem("Inventory", item) положит его в карман правильно.
@@ -987,7 +992,7 @@ end
 
 function Unit:RecalcWillPoints()
 
-	if HasPerk(self, "Psycho") then
+	if HasPerk(self, "Psycho") and not self:HasStatusEffect("Berserk") then
 		self.WillPoints = Clamp(self.WillPoints - 5, 0, self.MaxWillPoints)
 		self:ApplySuppressionStatus()
 		return end		
@@ -2010,7 +2015,12 @@ function Unit:ApplySuppressionStatus()
 	if HasPerk(self, "Psycho") and (self.WillPoints) <= 10 then
 	    self:AddStatusEffect("Berserk")
 		self.WillPoints = self.MaxWillPoints
-	return end		
+		return
+	end		
+
+	if HasPerk(self, "Psycho")  then
+		return
+	end	
 
 		
 	local suppression_levels = {

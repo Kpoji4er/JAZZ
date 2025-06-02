@@ -76,7 +76,7 @@ DefineClass.P226 = {
 				"Jazz_IronSight_AIM",
 				"Jazz_IronSight_FAST",
 				"Jazz_IronSight_NIGHT",
-				"ReflexSight",
+				"JAZZ_Reflex_Pistol",
 			},
 			'DefaultComponent', "Jazz_IronSight",
 		}),
