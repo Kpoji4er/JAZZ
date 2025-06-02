@@ -42,7 +42,7 @@ function Firearm:GetOverwatchConeParam(param)
 	elseif param == "MinRange" then
 		return IsKindOfClasses(self, "MachineGun") and self.WeaponRange or Max(2,MulDivRound(self.WeaponRange, 20, 100))
 	elseif param == "MaxRange" then
-		return IsKindOfClasses(self, "MachineGun") and self.WeaponRange or MulDivRound(self.WeaponRange, 1, 1)
+		return IsKindOfClasses(self, "MachineGun") and self.WeaponRange or MulDivRound(self.WeaponRange, 80, 100)
 	end
 	assert(false, string.format("unknown Overwatch parameter '%s'", param))
 end

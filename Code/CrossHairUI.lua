@@ -1,3 +1,17 @@
+function GetCTHColor(cth)
+	if cth >= 60 then
+		return RGB(50, 220, 50)        -- зелёный
+	elseif cth >= 40 then
+		return RGB(200, 230, 50)       -- светло-жёлтый
+	elseif cth >= 20 then
+		return RGB(237, 184, 24)       -- оранжевый
+	elseif cth >= 0 then
+		return RGB(191, 67, 77)        -- красный
+	else return RGB(0, 0, 0) 
+	end
+end
+
+
 function CrosshairUI:UpdateAim()
 	local pContext = self.context
 	if not pContext then
@@ -266,6 +280,18 @@ function CrosshairUI:UpdateAim()
 	pContext.weapon_range = pContext.weapon_range or 0
     pContext.weapon_eff_range = pContext.weapon_eff_range or 0
     pContext.aim = pContext.aim or 0;
+
+	local bestChance = 0
+
+	for id, cth in pairs(cthTable) do
+		--print(id.." "..cth)
+		--bestChance = Max(bestChance, cth)
+		if id == 'Torso' then bestChance = cth end
+	end
+
+	--print(bestChance)
+
+	pContext.cth = bestChance or 0
 	
 	local hasflashlight = false
 	if weapon1:HasComponent("IgnoreInTheDarkWhenFullyAimed") and pContext.aim >= (GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeAimLevel") or -1) then

@@ -66830,6 +66830,12 @@ return {
 								Slot = "Handgrip",
 								param_bindings = false,
 							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "P210",
+								Entity = "P210HandGrip",
+								Slot = "Handgrip",
+								param_bindings = false,
+							}),
 						},
 						comment = "Стандартная рукоять",
 						group = "Underslung",
@@ -88392,7 +88398,7 @@ return {
 				'Parameters', {
 					PlaceObj('PresetParamNumber', {
 						'Name', "accuracy_modifier",
-						'Value', -20,
+						'Value', -30,
 						'Tag', "<accuracy_modifier>",
 					}),
 				},
@@ -94549,6 +94555,16 @@ return {
 									local maxAimTotal = node.maxAimTotal
 									local nextAimLevel = node:GetNextAimLevel()
 									
+									local container = self:ResolveId("idButtonsContainer") or "error"
+									
+									
+									--print(node.context.cth or "err")
+									--print(node.crosshair or "err2")
+									
+									local cth = node.context.cth or 0
+									
+									local color = GetCTHColor(cth)
+									
 									local aimMaxScale = 560
 									local aimMinScale = 200
 									local aimScaleDif = aimMaxScale - aimMinScale
@@ -94562,9 +94578,9 @@ return {
 									end
 									
 									if nextAimLevel == (node.minAimPossible or 0) then
-										self.idAimTarget:SetImageColor(RGB(237, 184, 24))
+										self.idAimTarget:SetImageColor(color)
 									else
-										self.idAimTarget:SetImageColor(RGB(191, 67, 77))
+										self.idAimTarget:SetImageColor(color)
 									end
 									
 									if aim == maxAimTotal and maxAimTotal == 0 then
