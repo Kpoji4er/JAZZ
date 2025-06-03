@@ -210,13 +210,25 @@ WeaponComponent.properties[#WeaponComponent.properties+1] = {
     image_preview_size = 75
 }
 
---WeaponComponentVisual.properties[#WeaponComponentVisual.properties+1] = {
---    id = "WeaponName",
---    name = "Weapon Name",
---    help = "Изменение названия оружия",
---    editor = "text",
---    default = "",
---}
+WeaponComponentVisual.properties[#WeaponComponentVisual.properties+1] = {
+    id = "WeaponName",
+    name = "Weapon Name",
+    help = "Изменение названия оружия",
+    editor = "text",
+    default = "",
+}
+
+WeaponComponentVisual.properties[#WeaponComponentVisual.properties+1] = {
+    id = "WeaponIconMod",
+    name = "WeaponIcon Mod",
+    help = "Доп иконка модификации",
+    editor = "ui_image",
+    default = 0,
+    template = true,
+    default =  "",
+    image_preview_size = 75
+}
+
 
 
 --Add property to weapon modification menu
