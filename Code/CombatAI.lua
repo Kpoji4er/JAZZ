@@ -129,7 +129,8 @@ function PickBestAttack(unit, enemy, basic_attacks, cth_by_aim_map)
 					score = score,
 					type = mode_type,
 					cth = predicted,
-					shots = shots
+					shots = shots,
+					target = enemy
 				}
 			end
 

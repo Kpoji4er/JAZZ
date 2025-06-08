@@ -26,6 +26,11 @@ end
 function AIActionBasicAttack:PrecalcAction(context, action_state)
 	local unit = context.unit
 	local attack = context.default_attack
+
+	if not attack.target then
+		print("❌ BasicAttack: No target in default_attack")
+	end
+	
 	if not attack or not IsValidTarget(attack.target) then
 		print("AIActionBasicAttack: invalid target", attack.target)
 
@@ -41,4 +46,14 @@ function AIActionBasicAttack:PrecalcAction(context, action_state)
 		}
 		action_state.has_ap = true
 	end
+end
+
+function AIActionBasicAttack:IsAvailable(context, action_state)
+	return action_state.has_ap
+end
+
+function AIActionBasicAttack:Execute(context, action_state)
+	assert(action_state.has_ap)
+	
+	AIPlayCombatAction(context.default_attack.id, context.unit, nil, action_state.args)
 end
