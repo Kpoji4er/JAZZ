@@ -466,10 +466,10 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
         end
         local status = signature_action:Execute(context, context.action_states[signature_action])
         context.ap_after_signature = unit.ActionPoints
-        if status then
-            return status
-        end
-        AIReloadWeapons(unit)
+     --   if status then
+     --       return status
+     --   end
+        --AIReloadWeapons(unit)
         context.max_attacks = context.max_attacks - 1
     end
 
