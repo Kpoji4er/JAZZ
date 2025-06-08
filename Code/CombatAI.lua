@@ -157,13 +157,6 @@ function AICalcAttacksAndAimSmart(context, ap, target)
 		local final_ap = ap - reserve_ap
 		local n_attacks = math.floor(final_ap / best_attack.ap)
 
-		if n_attacks >= 2 and best_attack.aim > 0 then
-			-- если можем сделать 2 атаки — лучше сбросить aim
-			best_attack.aim = 0
-			best_attack.ap = best_attack.mode.action:GetAPCost(unit) + 0
-			n_attacks = math.floor(final_ap / best_attack.ap)
-		end
-
 		return n_attacks, { best_attack.aim }
 	end
 
