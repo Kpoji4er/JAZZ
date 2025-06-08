@@ -22,12 +22,9 @@ DefineClass.suppressionPinned = {
 		PlaceObj('UnitReaction', {
 			Event = "OnBeginTurn",
 			Handler = function (self, target)
-				if target:CanTakeCover() then
-				target:TakeCover();
-				--obj:SetActionCommand("TakeCover", nil, nil, "Prone")
-				end
-				target:ConsumeAP(100*const.Scale.AP)
-				target:ConsumeAP(100*const.Scale.AP, "Move")
+				local ap = target.ActionPoints
+				target.ActionPoints = Min(4,ap)
+				target:RemoveStatusEffect("FreeMove")
 			end,
 		}),
 		PlaceObj('UnitReaction', {
@@ -38,7 +35,7 @@ DefineClass.suppressionPinned = {
 		}),
 	},
 	DisplayName = T(279226942480, --[[ModItemCharacterEffectCompositeDef suppressionPinned DisplayName]] "Прижат"),
-	Description = T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Не может выполнять действия на этом ходу"),
+	Description = T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Количество од - не более 4."),
 	AddEffectText = T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionPinned AddEffectText]] "Под плотным огнем"),
 	OnAdded = function (self, obj)
 		local unitStance = obj.stance
@@ -49,9 +46,6 @@ DefineClass.suppressionPinned = {
 		obj:TakeCover();
 		--obj:SetActionCommand("TakeCover", nil, nil, "Prone")
 		end
-		
-		obj:ConsumeAP(100*const.Scale.AP)
-		obj:ConsumeAP(100*const.Scale.AP, "Move")
 		
 		if not obj:IsDead() then
 		                    if obj:IsMerc() then

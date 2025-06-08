@@ -65366,7 +65366,6 @@ return {
 								Entity = "WeaponAttA_MetalStockAK47",
 								Icon = "UI/Icons/Upgrades/ak47_stock_foldable",
 								Slot = "Stock",
-								WeaponName = "",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
@@ -93582,12 +93581,9 @@ return {
 						PlaceObj('UnitReaction', {
 							Event = "OnBeginTurn",
 							Handler = function (self, target)
-								if target:CanTakeCover() then
-								target:TakeCover();
-								--obj:SetActionCommand("TakeCover", nil, nil, "Prone")
-								end
-								target:ConsumeAP(100*const.Scale.AP)
-								target:ConsumeAP(100*const.Scale.AP, "Move")
+								local ap = target.ActionPoints
+								target.ActionPoints = Min(4,ap)
+								target:RemoveStatusEffect("FreeMove")
 							end,
 							param_bindings = false,
 						}),
@@ -93600,7 +93596,7 @@ return {
 						}),
 					},
 					'DisplayName', T(279226942480, --[[ModItemCharacterEffectCompositeDef suppressionPinned DisplayName]] "Прижат"),
-					'Description', T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Не может выполнять действия на этом ходу"),
+					'Description', T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Количество од - не более 4."),
 					'AddEffectText', T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionPinned AddEffectText]] "Под плотным огнем"),
 					'OnAdded', function (self, obj)
 						local unitStance = obj.stance
@@ -93611,9 +93607,6 @@ return {
 						obj:TakeCover();
 						--obj:SetActionCommand("TakeCover", nil, nil, "Prone")
 						end
-						
-						obj:ConsumeAP(100*const.Scale.AP)
-						obj:ConsumeAP(100*const.Scale.AP, "Move")
 						
 						if not obj:IsDead() then
 						                    if obj:IsMerc() then
@@ -96406,15 +96399,15 @@ return {
 				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
 					if attacker and not IsCloser(target, attacker, 5 * const.SlabSizeX + 1) and IsKindOf(weapon1, "Firearm") then
 						if attacker:HasStatusEffect("suppressionLight") then
-							return true, -5 end
-								if attacker:HasStatusEffect("suppressionMedium") then
 							return true, -10 end
-								if attacker:HasStatusEffect("suppressionHeavy") then
+								if attacker:HasStatusEffect("suppressionMedium") then
 							return true, -20 end
+								if attacker:HasStatusEffect("suppressionHeavy") then
+							return true, -30 end
 								if attacker:HasStatusEffect("suppressionHeavy2") then
-							return true, -40 end
-								if attacker:HasStatusEffect("suppressionPinned") then
 							return true, -50 end
+								if attacker:HasStatusEffect("suppressionPinned") then
+							return true, -70 end
 					end
 					return false, 0
 				end,
@@ -96912,36 +96905,28 @@ return {
 				'name', "InfiniteLoopFix",
 				'CodeFileName', "Code/InfiniteLoopFix.lua",
 			}),
-			PlaceObj('ModItemCode', {
-				'name', "AiActions",
-				'CodeFileName', "Code/AiActions.lua",
-			}),
-			PlaceObj('ModItemCode', {
-				'name', "AIBehaviours",
-				'CodeFileName', "Code/AIBehaviours.lua",
-			}),
-			PlaceObj('ModItemCode', {
-				'name', "CombatAI",
-				'CodeFileName', "Code/CombatAI.lua",
-			}),
-			PlaceObj('ModItemCode', {
-				'name', "AiAction_ThrowFlare",
-				'CodeFileName', "Code/AiAction_ThrowFlare.lua",
-			}),
 			PlaceObj('ModItemFolder', {
-				'name', "RatoAI",
+				'name', "AI",
 			}, {
 				PlaceObj('ModItemCode', {
-					'name', "Rato_AICreateContext",
-					'CodeFileName', "Code/Rato_AICreateContext.lua",
+					'name', "AIBehaviours",
+					'CodeFileName', "Code/AIBehaviours.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "AiActions",
+					'CodeFileName', "Code/AiActions.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "CombatAI",
+					'CodeFileName', "Code/CombatAI.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "AiAction_ThrowFlare",
+					'CodeFileName', "Code/AiAction_ThrowFlare.lua",
 				}),
 				PlaceObj('ModItemCode', {
 					'name', "Rato_CustomSeekCover",
 					'CodeFileName', "Code/Rato_CustomSeekCover.lua",
-				}),
-				PlaceObj('ModItemCode', {
-					'name', "Rato_CustomFlanking",
-					'CodeFileName', "Code/Rato_CustomFlanking.lua",
 				}),
 				PlaceObj('ModItemCode', {
 					'name', "Rato_TryNotToBeFlanked",
@@ -96958,14 +96943,6 @@ return {
 				PlaceObj('ModItemCode', {
 					'name', "Rato_GrenadeRange",
 					'CodeFileName', "Code/Rato_GrenadeRange.lua",
-				}),
-				PlaceObj('ModItemCode', {
-					'name', "Rato_AvoidThreatenedAreas",
-					'CodeFileName', "Code/Rato_AvoidThreatenedAreas.lua",
-				}),
-				PlaceObj('ModItemCode', {
-					'name', "RatoTARG_EnemyInCover",
-					'CodeFileName', "Code/RatoTARG_EnemyInCover.lua",
 				}),
 				}),
 			}),

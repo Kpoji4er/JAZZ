@@ -1,3 +1,6 @@
+const.AIAvoidFireWeigth = -2000
+const.AIAvoidGasWeigth = -2000
+
 const.AIFriendlyFire_MaxRange = 20 * const.SlabSizeX	-- max range to ally for it to be considered in danger
 const.AIFriendlyFire_LOFWidth = 100*guic 					-- max distance from an ally to the line between position and target considered in danger
 const.AIFriendlyFire_LOFConeNear = 100*guic 				-- same as above for cone attacks (near side of the cone, positioned at attacker)
@@ -27,6 +30,144 @@ local function lClearPredictedAOE(list)
 	end
 end
 
+function PredictCTH(base_cth, recoil, shots)
+	local sum = 0
+	for i = 0, shots - 1 do
+		local penalty = recoil * Min(i,5)
+		sum = sum + Max(0, base_cth - penalty)
+	end
+	return sum / shots
+end
+
+function GetCTHByAimLevels(unit, enemy, action, max_aim)
+	local cth_by_aim = {}
+	local weapon = unit:GetActiveWeapons()
+	local dist = unit:GetDist(enemy)
+	
+	if dist > weapon.Range then
+		-- за пределами нормальной дальности — все CTH будут считаться 0
+		for aim = 0, max_aim do
+			cth_by_aim[aim] = 0
+		end
+		return cth_by_aim
+	end
+
+	for aim = 0, max_aim do
+		local cth = unit:CalcChanceToHit(enemy, action, { aim = aim })
+		cth_by_aim[aim] = cth
+	end
+	return cth_by_aim
+end
+
+
+function PickBestAttack(unit, enemy, basic_attacks, cth_by_aim_map)
+	local best = false
+	local best_score = 0
+	local AP = unit.ActionPoints
+	local weapon = unit:GetActiveWeapons()
+	weapon = weapon and weapon[1]
+	if not weapon then return end
+
+	local recoil = weapon.Recoil or 0
+	local burst = weapon.BurstShots or 3
+	local auto = weapon.AutoShots or 5
+	local base_damage = unit:GetBaseDamage(weapon) or 20
+
+
+
+	for _, mode in ipairs(basic_attacks) do
+		local action = mode.action
+		if not action or action.id == "MeleeAttack" then goto continue end
+
+		local dist = unit:GetDist(enemy)
+		local max_range = unit:GetSightRadius(enemy)
+		local dist_ratio = Clamp(dist / max_range, 0, 1)
+		local dist_penalty = 0
+
+		local ammo = weapon.ammo and weapon.ammo.Amount or 0
+		local mag = weapon.MagazineSize or 30
+		local ammo_ratio = Clamp(ammo / mag, 0, 1)
+		local ammo_weight = Lerp(1.5, 0.5, ammo_ratio)
+
+
+		local ap_cost = action:GetAPCost(unit)
+		local aim_levels = cth_by_aim_map[mode] and cth_by_aim_map[mode][enemy]
+		if not aim_levels then goto continue end
+
+		for aim, cth in pairs(aim_levels) do
+			local total_cost = ap_cost + aim
+			if total_cost > AP then goto next_aim end
+
+			local shots = 1
+			local predicted = cth
+			local mode_type = action.ActionType
+
+			if mode_type == "BurstFire" then
+				shots = burst
+				predicted = PredictCTH(cth, recoil, shots)
+				dist_penalty = dist_ratio * 1.0
+			elseif mode_type == "AutoFire" then
+				shots = auto
+				predicted = PredictCTH(cth, recoil, shots)
+				dist_penalty = dist_ratio * 2.0
+			end
+
+			predicted = Max(0, predicted)
+
+			local expected_damage = base_damage * shots * predicted / 100
+
+			local score = (expected_damage - ammo_weight * shots - dist_penalty) / total_cost
+
+			local threshold = best_score * 0.9
+
+			if score >= threshold and (not best or unit:Random(100) < 33) then
+				best_score = score
+				best = {
+					mode = mode,
+					aim = aim,
+					ap = total_cost,
+					score = score,
+					type = mode_type,
+					cth = predicted,
+					shots = shots
+				}
+			end
+
+			::next_aim::
+		end
+
+		::continue::
+	end
+
+	return best
+end
+
+function AICalcAttacksAndAimSmart(context, ap, target)
+	local unit = context.unit
+	local cth_map = context.cth_by_aim_map
+	local best_attack = PickBestAttack(unit, target, context.basic_attacks, cth_map)
+
+	if best_attack then
+		local reserve_ap = 0-- 4
+		if best_attack.ap + reserve_ap > ap then
+			reserve_ap = 0
+		end
+
+		local final_ap = ap - reserve_ap
+		local n_attacks = math.floor(final_ap / best_attack.ap)
+
+		if n_attacks >= 2 and best_attack.aim > 0 then
+			-- если можем сделать 2 атаки — лучше сбросить aim
+			best_attack.aim = 0
+			best_attack.ap = best_attack.mode.action:GetAPCost(unit) + 0
+			n_attacks = math.floor(final_ap / best_attack.ap)
+		end
+
+		return n_attacks, { best_attack.aim }
+	end
+
+	return AICalcAttacksAndAim(context, ap, target)
+end
 
 function AICreateContext(unit, context)
     PauseInfiniteLoopDetection("AiCalc")
@@ -50,13 +191,11 @@ function AICreateContext(unit, context)
 		InitAIBiasMarkers()
 	end
 	
-	-- fallback when our whole team doesn't have a visual on the enemy but we're still aware
 	if #(enemies or empty_table) == 0 then
         ResumeInfiniteLoopDetection("AiCalc")
 		enemies = table.ifilter(GetAllEnemyUnits(unit), function(idx, enemy) return not enemy:HasStatusEffect("Hidden") end)
 	end
 	
-	-- special-case when having ManningEmplacement status - filter out non targetable enemies
 	if unit:HasStatusEffect("ManningEmplacement") then
         ResumeInfiniteLoopDetection("AiCalc")
 		enemies = table.ifilter(enemies, function(idx, enemy) return enemy:IsThreatened({unit}) end)
@@ -65,13 +204,10 @@ function AICreateContext(unit, context)
 	table.sortby_field(enemies, "handle")
 	
 	local pos = GetPassSlab(unit)
-	if not pos then -- can happen if the unit is on impassable for some reason	
-		--assert(false, "GetPassSlab failed for unit " .. unit.session_id)		
+	if not pos then
 		local x, y, z = unit:GetPosXYZ()
 		local gx, gy, gz = WorldToVoxel(x, y, z)
-		if not z then
-			gz = nil
-		end
+		if not z then gz = nil end
 		pos = point(VoxelToWorld(gx, gy, (gz)))
 	end
 	local wx, wy, wz = pos:xyz()
@@ -86,20 +222,23 @@ function AICreateContext(unit, context)
 	context.unit_world_voxel = point_pack(pos)
 	context.unit_stance_pos = stance_pos_pack(wx, wy, wz, StancesList[unit.stance])
 	context.max_attacks = unit.MaxAttacks
-	context.dest_target = {}						-- dest -> picked target (if any)
-	context.dest_target_score = {}				-- dest -> estimated damage
+	context.dest_target = {}
+	context.dest_target_score = {}
+    context.currentpos_target_cover_score = {}
+  	context.min_aim_actions = 0
+
 	context.weapon = weapon
 	context.default_attack = default_attack
 	context.default_attack_cost = default_attack:GetAPCost(unit)
-	context.EffectiveRange = IsKindOf(weapon, "Firearm") and weapon.BulletDropRange and MulDivRound(weapon.BulletDropRange+weapon.WeaponRange, 50, 100) or IsKindOf(weapon, "Firearm") and MulDivRound(weapon.WeaponRange, 50, 100) or 1 
-	--if not IsKindOf(weapon,"SniperRifle") and GameState.DustStorm or GameState.FireStorm or GameState.Underground or GameState.Night or GameState.Fog then context.EffectiveRange = Min(context.unit:GetSightRadius(),context.EffectiveRange) end
-	if  IsKindOf(weapon, "Firearm") and (GameState.DustStorm or GameState.FireStorm or GameState.Underground or GameState.Night or GameState.Fog) then context.EffectiveRange = Min(context.unit:GetSightRadius(),context.EffectiveRange) end
 
-	--context.EffectiveRange = IsKindOf(weapon, "Firearm") and GetAccuracy80DistAim(weapon,unit) or 1
+	context.EffectiveRange = IsKindOf(weapon, "Firearm") and weapon.BulletDropRange and MulDivRound(weapon.BulletDropRange+weapon.WeaponRange, 50, 100) or IsKindOf(weapon, "Firearm") and MulDivRound(weapon.WeaponRange, 50, 100) or 1 
+	if  IsKindOf(weapon, "Firearm") and (GameState.DustStorm or GameState.FireStorm or GameState.Underground or GameState.Night or GameState.Fog) then 
+		context.EffectiveRange = Min(context.unit:GetSightRadius(),context.EffectiveRange) 
+	end
 	context.ExtremeRange = IsKindOf(weapon, "Firearm") and weapon.WeaponRange or 1
 	context.enemies = enemies
-	context.enemy_visible = {} -- [enemy] -> true/false
-	context.enemy_visible_by_team = {} -- [enemy] -> true/false
+	context.enemy_visible = {}
+	context.enemy_visible_by_team = {}
 	context.enemy_pos = {}
 	context.enemy_grid_voxel = {}
 	context.enemy_pack_pos_stance = {}
@@ -113,8 +252,8 @@ function AICreateContext(unit, context)
 	context.voxel_heal_score = {}
 	context.forced_signature_action = false
 	context.apply_bias = true
-	context.disable_actions = {} -- support for custom filtering for signature action selection by BiasId
-	
+	context.disable_actions = {}
+
 	NetUpdateHash("AICreateContext", unit, pos, unit.stance, context.start_ap, context.archetype.id, context.max_attacks, weapon and weapon.class, weapon and weapon.id, default_attack.id)
 	
 	if unit:HasStatusEffect("Stimmed") then
@@ -132,7 +271,23 @@ function AICreateContext(unit, context)
 		end
 	end
 
+	local avg_dist = 0
+	local aim_sample_cth_sum = 0
+	local aim_sample_cth_count = 0
+	local best_cth = 0
+	local worst_cth = 100
+	local bullet_range = weapon.BulletDropRange or 0
+	local weapon_range = weapon.WeaponRange or 0
+	local basic_attacks = unit:GetBasicAttackModes()
+
+    local best_overall_attack
+    local best_overall_score = 0
+
 	for i, enemy in ipairs(enemies) do
+
+		local dist = unit:GetDist(enemy)
+		avg_dist = avg_dist + dist
+
 		local x, y, z = enemy:GetGridCoords()
 		context.enemy_grid_voxel[enemy] = point_pack(x, y, z)
 		context.enemy_pack_pos_stance[enemy] = GetPackedPosAndStance(enemy)
@@ -147,7 +302,42 @@ function AICreateContext(unit, context)
 		end
 		context.enemy_visible[enemy] = HasVisibilityTo(unit, enemy)
 		context.enemy_visible_by_team[enemy] = HasVisibilityTo(unit.team, enemy)
+
+		if context.enemy_visible_by_team[enemy] then
+			local args = { aim = 0 }
+			context.best_attack_option = false
+			local best_mode_score = 0
+
+			for _, mode in ipairs(basic_attacks) do
+				local action = mode.action
+				local aim_levels = GetCTHByAimLevels(unit, enemy, action, weapon.MaxAimActions or 3)
+				mode.cth_by_aim = mode.cth_by_aim or {}
+				mode.cth_by_aim[enemy] = aim_levels
+			
+
+			local best_attack = PickBestAttack(unit, enemy, basic_attacks, mode.cth_by_aim)
+          	   if best_attack and best_attack.score > best_overall_score then
+      	        	best_overall_score = best_attack.score
+  		            best_overall_attack = best_attack
+            		context.attack_target = enemy
+            		context.attack_AP_reserved = best_attack.ap
+          	end
+		end
+
+			local use_cover, cover_value, _, _, type_cover =
+				Presets["ChanceToHitModifier"]["Default"].RangeAttackTargetStanceCover:CalcValue(
+					unit, enemy, nil, default_attack, weapon, nil, nil, nil, nil, unit:GetPos())
+			if use_cover and type_cover == "Cover" then
+				context.currentpos_target_cover_score[enemy] = cover_value
+			else
+				context.currentpos_target_cover_score[enemy] = 0
+			end
+		end
 	end
+
+    context.best_attack = best_overall_attack
+
+
 	if context.behavior then
 		context.behavior:EnumDestinations(unit, context)
 	else
@@ -166,6 +356,7 @@ function AICreateContext(unit, context)
 	unit.ai_context = context
 	return context
 end
+
 
 function AISelectAction(context, actions, base_weight, dbg_available_actions)
     PauseInfiniteLoopDetection("AiCalc")
@@ -239,18 +430,42 @@ end
 function AIFindDestinations(unit, context)
     PauseInfiniteLoopDetection("AiCalc")
 	local pos = GetPassSlab(unit) or unit:GetPos()
+	
+	local reserved_AP = 0
+	if context.best_attack and context.attack_AP_reserved and context.attack_target then
+		reserved_AP = context.attack_AP_reserved
+	end
+
+	local original_AP = unit.ActionPoints
+	unit.ActionPoints = Max(0, original_AP - reserved_AP)
+
 	local destinations, paths, dest_ap, dest_path, voxel_to_dest, closest_free_pos = AIBuildArchetypePaths(unit, pos, context)	
+
+	unit.ActionPoints = original_AP
+
 	if not closest_free_pos then
 		if unit.ActionPoints == 0 then
 			assert(not "AI try to act with 0 action points!!!")
 		else
-			print("AI can't find unit free destination prints!!!")
+			-- fallback: просто стоим на месте
+			local dest = GetPackedPosAndStance(unit)
+			local x, y, z = stance_pos_unpack(dest)
+			local voxel = point_pack(x, y, z)
+	
+			destinations = { dest }
+			dest_ap = { [dest] = unit.ActionPoints }
+			dest_path = { [dest] = StancesList[unit.stance] }
+			voxel_to_dest = { [voxel] = dest }
+			closest_free_pos = voxel
+	
+			print("AI can't find unit free destination, fallback to current position:")
 			printf("      AP = %d", unit.ActionPoints)
 			printf("      Command = %s", unit.command)
 			printf("      Status effects: %s", table.concat(table.keys(unit.StatusEffects), ", "))
 			printf("      Pos: %s", tostring(unit:GetPos()))
 			printf("      Pass slab pos: %s", tostring(GetPassSlab(unit) or ""))
 			printf("      Target dummy pos %s", unit.target_dummy and tostring(unit.target_dummy:GetPos()) or "")
+			
 			local o = GetOccupiedBy(unit:GetPos(), unit)
 			if o then
 				printf("Other pos %s", tostring(o:GetPos()))
@@ -260,7 +475,8 @@ function AIFindDestinations(unit, context)
 					printf("Other reposition dest=%s", tostring(point(stance_pos_unpack(o.reposition_dest))))
 				end
 			end
-			assert(not "AI can't find unit free destination")
+	
+			-- don't assert here — fallback is valid
 		end
 	end
 	local crouch_idx = StancesList.Crouch
@@ -270,6 +486,8 @@ function AIFindDestinations(unit, context)
 	for stance_idx in ipairs(StancesList) do
 		change_stance_costs[stance_idx] = GetStanceToStanceAP(StancesList[stance_idx], "Crouch")
 	end
+
+
 
 	-- preprocess destinations to find those where we need to change stance at the dest to take cover
 	local low = const.CoverLow
@@ -487,6 +705,20 @@ function AIBuildArchetypePaths(unit, pos, context)
 
 	local ps_ap = (unit.species == "Human") and (unit.ActionPoints - GetStanceToStanceAP(unit.stance, pref_stance)) or unit.ActionPoints
 	local ms_ap = (unit.species == "Human") and (unit.ActionPoints - GetStanceToStanceAP(unit.stance, goto_stance)) or unit.ActionPoints
+
+
+	if ms_ap < 0 and ps_ap < 0 then
+		local dest = GetPackedPosAndStance(unit)
+		local x, y, z = stance_pos_unpack(dest)
+		local voxel = point_pack(x, y, z)
+	
+		destinations[1] = dest
+		dest_ap[dest] = unit.ActionPoints
+		voxel_to_dest[voxel] = dest
+	
+		ResumeInfiniteLoopDetection("AiCalc")
+		return destinations, paths, dest_ap, dest_path, voxel_to_dest, voxel
+	end
 
 	local move_path = CombatPath:new()
 	move_path:RebuildPaths(unit, ms_ap, pos, goto_stance)

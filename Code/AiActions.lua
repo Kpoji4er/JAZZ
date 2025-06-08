@@ -167,8 +167,14 @@ function AIReloadWeapons(unit)
 
 	local action = unit:GetDefaultAttackAction()
 	local weapon1, weapon2 = action:GetAttackWeapons(unit)
-	if weapon1 and weapon1.jammed then weapon1:RepairJammed(weapon1.Condition, unit) end
-	if weapon2 and weapon2.jammed then weapon2:RepairJammed(weapon2.Condition, unit) end
+	if weapon1 and weapon1.jammed then
+		weapon1:RepairJammed(weapon1.Condition, unit)
+		unit.Mechanical = unit.Mechanical + 1; weapon1.Condition =  weapon1:GetMaxCondition()
+	 end
+	if weapon2 and weapon2.jammed then 
+		weapon2:RepairJammed(weapon2.Condition, unit) 
+		unit.Mechanical = unit.Mechanical + 1; weapon2.Condition =  weapon2:GetMaxCondition()
+	end
 --	target:SetActionCommand("ChangeStance", nil, nil, "Prone")
 	--if weapon1 and weapon1.jammed then unit:SetActionCommand("UnjamWeapon", self.id, nil)  end
 		--unit:SetActionCommand("UnjamWeapon", self.id, ap, args) 
@@ -320,7 +326,7 @@ function AICalcAttacksAndAim(context, ap, target)
 		remaining = remaining - aim_cost
 	end
 	
-	NetUpdateHash("AICalcAttacksAndAim", num_attacks, aims, aim_cost, context.force_max_aim)
+	NetUpdateHash("AICalcAttacksAndAimSmart", num_attacks, aims, aim_cost, context.force_max_aim)
 	return num_attacks, aims
 end
 
@@ -389,7 +395,128 @@ function AIExecuteUnitBehavior(unit, force_or_skip_action)
 		return AIPlayAttacks(unit, unit.ai_context, unit.ai_context.forced_signature_action, force_or_skip_action) or AITakeCover(unit)
 end
 
+-- Переработанный AIPlayAttacks: теперь AI может двигаться и стрелять в произвольном порядке
 function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
+	if g_AIExecutionController then
+		g_AIExecutionController:Log("Unit %s (%d) start attack sequence", unit.unitdatadef_id, unit.handle)
+	end
+
+	-- удалить мёртвых врагов
+	local enemies = context.enemies
+	for i = #enemies, 1, -1 do
+		if not IsValidTarget(enemies[i]) then
+			table.remove(enemies, i)
+		end
+	end
+
+	local remaining_free_ap = unit.free_move_ap
+	unit:RemoveStatusEffect("FreeMove")
+
+	local default_attack = context.default_attack
+	local default_attack_vr = default_attack and default_attack.FiringModeMember == "AttackShotgun" and "AIDoubleBarrel" or "AIAttack"
+
+	-- выполнить signature action (однократно)
+	local signature_action = nil
+	if dbg_action then
+		context.action_states = context.action_states or {}
+		context.action_states[dbg_action] = {}
+		dbg_action:PrecalcAction(context, context.action_states[dbg_action])
+		if dbg_action:IsAvailable(context, context.action_states[dbg_action]) then
+			signature_action = dbg_action
+		elseif force_or_skip_action then
+			table.insert(failed_actions, dbg_action.BiasId or dbg_action.class)
+			return
+		end
+	end
+	if not context.reposition and not unit:HasStatusEffect("Numbness") then
+		signature_action = signature_action or AIChooseSignatureAction(context)
+	end
+
+	local voice_response = signature_action and (signature_action:GetVoiceResponse() or "") or default_attack_vr
+	if voice_response == "" then voice_response = nil end
+
+	if signature_action then
+		if g_AIExecutionController then
+			g_AIExecutionController:Log("  Signature Action: %s", signature_action:GetEditorView())
+		end
+		signature_action:OnActivate(unit)
+		context.action_states = context.action_states or {}
+		context.action_states[signature_action] = context.action_states[signature_action] or {}
+		if voice_response then
+			context.action_states[signature_action].args = context.action_states[signature_action].args or {}
+			context.action_states[signature_action].args.voiceResponse = voice_response
+		end
+		local status = signature_action:Execute(context, context.action_states[signature_action])
+		context.ap_after_signature = unit.ActionPoints
+		if status then return status end
+		AIReloadWeapons(unit)
+		context.max_attacks = context.max_attacks - 1
+	end
+
+	unit:SequentialActionsStart()
+
+	while unit.ActionPoints > 0 and context.max_attacks > 0 do
+		AIUpdateContext(context, unit)
+
+		-- Обновить видимость
+		local any_visible = false
+		for _, enemy in ipairs(context.enemies) do
+			local visible = context.enemy_visible_by_team[enemy]
+			context.enemy_visible[enemy] = visible
+			if visible then
+				any_visible = true
+			end
+		end
+
+		-- Пересчитать цели если кто-то виден
+		if any_visible then
+			AIPrecalcDamageScore(context, {GetPackedPosAndStance(unit)})
+		else
+			break
+		end
+
+		local best_attack = context.best_attack
+		local target = best_attack and best_attack.target
+		if not IsValidTarget(target) then break end
+
+		local action = best_attack.action or context.default_attack
+		local cost = best_attack.ap or action:GetActionAPCost(unit, target)
+		if unit.ActionPoints < cost then break end
+
+		local args = { target = target, voiceResponse = voice_response }
+		local aim_levels = AICalcAttacksAndAimSmart(context, unit.ActionPoints, target)
+		args.aim = aim_levels[1]
+
+		local body_parts = AIGetAttackTargetingOptions(unit, context, target)
+		if body_parts and #body_parts > 0 then
+			local pick = table.weighted_rand(body_parts, "chance", InteractionRand(1000000, "Combat"))
+			if pick then args.target_spot_group = pick.id end
+		end
+
+		Sleep(0)
+		local result = AIPlayCombatAction(action.id, unit, nil, args)
+		AIReloadWeapons(unit)
+		context.max_attacks = context.max_attacks - 1
+
+		if not result or not IsValidTarget(unit) then
+			break
+		end
+		while IsKindOf(target, "Unit") and target:IsGettingDowned() do
+			WaitMsg("UnitDowned", 20)
+		end
+	end
+
+	unit:SequentialActionsEnd()
+	while not unit:IsIdleCommand() do
+		WaitMsg("Idle", 50)
+	end
+
+	TryChangeStance(unit)
+end
+
+
+--бекап чтоб быстро забрать
+function _AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 	-- filter enemies because they might have been killed by a teammate
 	if g_AIExecutionController then
 		g_AIExecutionController:Log("Unit %s (%d) start attack sequence", unit.unitdatadef_id, unit.handle)
@@ -484,7 +611,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 			g_AIExecutionController:Log("  Target: %s", IsKindOf(target, "Unit") and target.unitdatadef_id or target.class)
 		end
 		-- revert to basic attacks
-		local attacks, aim = AICalcAttacksAndAim(context, unit.ActionPoints, target)
+		local attacks, aim = AICalcAttacksAndAimSmart(context, unit.ActionPoints, target)
 		if context.default_attack.id == "Bombard" and AICheckIndoors(dest) then
 			attacks = 0
 		end
@@ -790,7 +917,7 @@ function AIPrecalcDamageScore(context, destinations, preferred_target, debug_dat
 					if mod > const.AIShootAboveCTH then
 						-- calc base score based on cth/attacks/aiming
 						local base_mod = mod
-						local attacks, aims = AICalcAttacksAndAim(context, ap, target)
+						local attacks, aims = AICalcAttacksAndAimSmart(context, ap, target)
 						mod = 0
 						for i = 1, attacks do
 							local use, bonus
@@ -1081,10 +1208,18 @@ function TryChangeStance(unit)
         return 0
     end
 
+	
+
     local weapon = unit:GetActiveWeapons()
     if not weapon or not IsKindOf(weapon, "Firearm") then
         return 0
     end
+
+	if unit:CanTakeCover() then
+		AITakeCover(unit)
+        return 0
+    end
+
 
     if unit.species == "Human" and unit.stance ~= "Prone" then
         local cover_high, cover_low = GetCoverTypes(unit)

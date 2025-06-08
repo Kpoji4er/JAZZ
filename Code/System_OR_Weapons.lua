@@ -40,9 +40,11 @@ function Firearm:GetOverwatchConeParam(param)
 	if param == "Angle" then
 		return self.OverwatchAngle
 	elseif param == "MinRange" then
-		return IsKindOfClasses(self, "MachineGun") and self.WeaponRange or Max(2,MulDivRound(self.WeaponRange, 20, 100))
+		--return IsKindOfClasses(self, "MachineGun") and self.WeaponRange or Max(2,MulDivRound(self.WeaponRange, 20, 100))
+		return Max(2,MulDivRound(self.WeaponRange, 20, 100))
 	elseif param == "MaxRange" then
-		return IsKindOfClasses(self, "MachineGun") and self.WeaponRange or MulDivRound(self.WeaponRange, 80, 100)
+		--return IsKindOfClasses(self, "MachineGun") and self.WeaponRange or MulDivRound(self.WeaponRange, 80, 100)
+		return MulDivRound(self.WeaponRange, 80, 100)	
 	end
 	assert(false, string.format("unknown Overwatch parameter '%s'", param))
 end
@@ -930,100 +932,53 @@ end
 
 
 		--if not prediction and g_Combat then
-		if not prediction then
-
-			local units = g_Units
-			units = table.ifilter(units, function(k, v)
-				return v.HireStatus ~= "Dead" and v.session_id ~= target.session_id and v.session_id ~= attacker.session_id
-			end)
-
-
-			for _, hit in ipairs(hit_data.hits) do
-
-				--print(hit.impact_force)
-				--print(hit)
-	
-				local willPointsBaseDamage = (100-(IsKindOf(target, "Unit") and target:SuppressionProtection() or 0)) * self.Damage * 0.01
-				--local willPointsBaseDamage = MulDivRound(100-(IsKindOf(target, "Unit") and target:SuppressionProtection() or 0),self.Damage,100)
-				willPointsBaseDamage = willPointsBaseDamage * 0.2 
-				--if action.id == "MGBurstFire" then  willPointsBaseDamage = willPointsBaseDamage * 2 end
-				
-				local willPointsDamage = willPointsBaseDamage
-				
-				
-				if IsValid(target) and (suppression_CTH > 0 or not IsMerc(attacker)) and target.team.side ~= attacker.team.side then 
-					--print(target.team.side)
-					local cthFactor = Clamp((suppression_CTH / 100)^0.5, 0.2, 1.0)
-					local willPointsDamage = willPointsBaseDamage * (0.4 + 0.6 * cthFactor)
-					--print("Target Supression: "..willPointsDamage.." cth:"..suppression_CTH.." dam:"..Max(self.Damage,1))
-
-					if willPointsDamage > 0 then
-						if HasPerk(attacker, "Psycho") then
-							attacker.WillPoints = Max(attacker.MaxWillPoints, attacker.WillPoints + willPointsDamage)
-						end
-						if not HasPerk(target, "Psycho") then
-						target.WillPoints = Max(0, target.WillPoints - willPointsDamage)
-						target:ApplySuppressionStatus()
+			if not prediction then
+				local attacker_is_psycho = HasPerk(attacker, "Psycho")
+				local target_is_psycho = IsValid(target_unit) and HasPerk(target_unit, "Psycho")
+				local units = table.ifilter(g_Units, function(_, u)
+					return u.HireStatus ~= "Dead"
+						and u.session_id ~= target.session_id
+						and u.session_id ~= attacker.session_id
+						and IsKindOf(u, "Unit")
+						and u.team and u.team.side ~= attacker.team.side
+				end)
+			
+				local wpBase = Max(self.Damage, 1) * (100 - (IsKindOf(target, "Unit") and target:SuppressionProtection() or 0)) * 0.002
+			
+				for _, hit in ipairs(hit_data.hits) do
+					if IsValid(target_unit) and suppression_CTH > 0 and target_unit.team.side ~= attacker.team.side then
+						local cthFactor = Clamp((suppression_CTH / 100)^0.5, 0.2, 1.0)
+						local willDamage = wpBase * (0.4 + 0.6 * cthFactor)
+						if willDamage > 0 then
+							if attacker_is_psycho then
+								attacker.WillPoints = Max(attacker.MaxWillPoints, attacker.WillPoints + willDamage)
+							end
+							if not target_is_psycho then
+								target_unit.WillPoints = Max(0, target_unit.WillPoints - willDamage)
+								target_unit:ApplySuppressionStatus()
+							end
 						end
 					end
-	
-				end
-
-
-				
-				
-	
-				for _, unit in ipairs(units) do
-					local dist = 0
-					if hit_data.target_pos and unit then
-  						dist = unit:GetDist(hit_data.target_pos)
-					end
-					if attacker:GetPos() ~= unit:GetPos() and unit.team.side ~= attacker.team.side and ((dist < 10000)) then
-						--if isCloser() attacker:IsOnEnemySide(hit_obj)
-						--print(unit.WillPoints)
-						local dist = Min(hit.pos:Dist(unit:GetPos()),hit_data.target_pos:Dist(unit:GetPos ()))
-						--print(dist)
-						if dist/const.SlabSizeX < 5 then
-
-							local clampedDist = Clamp(const.SlabSizeX * 4 - dist, 0, const.SlabSizeX * 4)
-							local willPointsDamage = Max(willPointsBaseDamage, 1) * clampedDist * 0.0002
-							--local willPointsDamage = Max(willPointsBaseDamage,1) * (const.SlabSizeX * 4 - dist)*0.001
-
-							--print("Near Units Supression: "..willPointsDamage.." dist:"..dist.." dam:"..Max(self.Damage,1))
-
-							if willPointsDamage > 0 then
-
-								if HasPerk(attacker, "Psycho") then
-									attacker.WillPoints = Max(attacker.MaxWillPoints, attacker.WillPoints + willPointsDamage)
+			
+					local hit_pos = hit.pos or hit_data.target_pos
+					for _, unit in ipairs(units) do
+						local dist = unit:GetPos():Dist2D(hit_pos)
+						if dist < 5 * const.SlabSizeX then
+							local clamped = Clamp(4 * const.SlabSizeX - dist, 0, 4 * const.SlabSizeX)
+							local nearDamage = wpBase * clamped * 0.0002
+							if nearDamage > 0 then
+								if attacker_is_psycho then
+									attacker.WillPoints = Max(attacker.MaxWillPoints, attacker.WillPoints + nearDamage)
 								end
 								if not HasPerk(unit, "Psycho") then
-									unit.WillPoints = Max(0, unit.WillPoints - willPointsDamage)
+									unit.WillPoints = Max(0, unit.WillPoints - nearDamage)
 									unit:ApplySuppressionStatus()
 								end
-
-								
-
-
 							end
-
-							--print(ammo_type)
 						end
-						
-						
-						
-						
-						--ObjModified(unit)
 					end
-					--end
 				end
 			end
-
-		--	for _, unit in ipairs(units) do
-		--		unit:ApplySuppressionStatus()
-		--	end
-			
-			--ObjModified(target)
-		end
 
 	end
 
@@ -1440,6 +1395,7 @@ end
 
 
 function BaseWeapon:PrecalcDamageAndStatusEffects(attacker, target, attack_pos, damage, hit, effect, attack_args, record_breakdown, action, prediction)
+	local base_damage = damage
 	if IsKindOf(target, "Unit") then
 		local seed = target:Random()
 		local random = BraidRandomCreate(seed)
@@ -1571,9 +1527,9 @@ function BaseWeapon:PrecalcDamageAndStatusEffects(attacker, target, attack_pos, 
 			hit.armor_prevented = damage or 0
 		end
 		if record_breakdown then 
-			--print(base_damage - damage)
+			local armor_prevented
 			if pen_class >= armor_class then
-				local armor_prevented = 0
+				armor_prevented = 0
 			else
 				armor_prevented = base_damage or 0
 			end

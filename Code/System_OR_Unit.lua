@@ -1537,6 +1537,60 @@ function Unit:EnumUIActions()
 	return actions
 end
 
+
+---Для контекста чтобы знать какие базовые атаки есть среди одиночный-очередь-автоогонь и тд
+function Unit:GetBasicAttackModes()
+	local result = {}
+	local weapon, weapon2 = self:GetActiveWeapons()
+	if not weapon then return result end
+
+	local default_attack = self:GetDefaultAttackAction()
+
+	local function find_mode(id, fallback_shots)
+		for _, attack_id in ipairs(weapon.AvailableAttacks or empty_table) do
+			if attack_id == id then
+				local action = CombatActions[attack_id]
+				if action:GetUIState({self}) == "enabled" then
+					return {
+						action = action,
+						ap = action:GetAPCost(self),
+						shots = fallback_shots or 1,
+						mode = id
+					}
+				end
+			end
+		end
+		return false
+	end
+
+	result.single = find_mode("SingleShot", 1)
+	result.burst  = find_mode("BurstFire", weapon.BurstShots)
+	result.auto   = find_mode("AutoFire", weapon.AutoShots)
+	result.buck   = find_mode("Buckshot", weapon.BuckshotProjectiles or 1)
+	result.double = find_mode("DoubleBarrel", (weapon.BuckshotProjectiles and weapon.BuckshotProjectiles * 2) or (weapon.AutoShots and weapon.AutoShots * 2) or 2)
+
+	-- Собираем всё в список
+	result.all = {}
+	for _, mode in pairs({result.single, result.burst, result.auto, result.buck, result.double}) do
+		if type(mode) == "table" and mode.mode then
+			table.insert(result.all, mode)
+		end
+	end
+
+	-- Если вообще ничего не нашлось — добавляем default
+	if #result.all == 0 and default_attack then
+		table.insert(result.all, {
+			action = default_attack,
+			ap = default_attack:GetAPCost(self),
+			shots = weapon.BurstShots or weapon.AutoShots or 1,
+			mode = default_attack.id
+		})
+	end
+
+	return result
+end
+
+
 function Unit:RecalcUIActions(force)
 	local actions
 	
