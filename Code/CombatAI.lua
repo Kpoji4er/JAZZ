@@ -337,9 +337,10 @@ function AICreateContext(unit, context)
 
     context.best_attack = best_overall_attack
 
+	if best_overall_attack then
 	context.default_attack = best_overall_attack
-	context.default_attack_cost = best_overall_attack:GetAPCost(unit)
-
+	context.default_attack_cost = best_overall_attack.ap
+	end
 
 	if context.behavior then
 		context.behavior:EnumDestinations(unit, context)
