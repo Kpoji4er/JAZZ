@@ -148,7 +148,7 @@ function AICalcAttacksAndAimSmart(context, ap, target)
 	local best_attack = PickBestAttack(unit, target, context.basic_attacks, cth_map)
 
 	if best_attack then
-		local reserve_ap = 0-- 4
+		local reserve_ap = 0
 		if best_attack.ap + reserve_ap > ap then
 			reserve_ap = 0
 		end
@@ -336,6 +336,9 @@ function AICreateContext(unit, context)
 	end
 
     context.best_attack = best_overall_attack
+
+	context.default_attack = best_overall_attack
+	context.default_attack_cost = best_overall_attack:GetAPCost(unit)
 
 
 	if context.behavior then
