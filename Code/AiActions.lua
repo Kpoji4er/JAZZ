@@ -480,7 +480,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 
         -- проверить, хватает ли ОД на текущую атаку
         local attack = context.default_attack
-		local attack_ap = context.default_attack_cost
+		local attack_ap = context.default_attack_cost or 0
         if not attack or attack_ap > unit.ActionPoints or not IsValidTarget(attack.target) then
             -- пересчёт подходящей атаки
             local new_attack = PickBestAttack(unit, context.attack_target or context.attack_target,
