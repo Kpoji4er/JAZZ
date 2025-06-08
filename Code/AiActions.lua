@@ -480,7 +480,8 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 
         -- проверить, хватает ли ОД на текущую атаку
         local attack = context.default_attack
-        if not attack or not IsValidTarget(attack.target) or attack.ap > unit.ActionPoints then
+		local attack_ap = context.default_attack_cost
+        if not attack or attack_ap > unit.ActionPoints or not IsValidTarget(attack.target) then
             -- пересчёт подходящей атаки
             local new_attack = PickBestAttack(unit, context.attack_target or context.attack_target,
                 context.basic_attacks, context.cth_by_aim_map)
@@ -497,7 +498,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
         local any_visible = false
         for _, enemy in ipairs(context.enemies) do
             local visible = context.enemy_visible_by_team[enemy]
-            context.enemy_visible[enemy] = visible
+            --context.enemy_visible[enemy] = visible
             if visible then
                 any_visible = true
             end
@@ -554,6 +555,10 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
     while not unit:IsIdleCommand() do
         WaitMsg("Idle", 50)
     end
+
+	local default_attack = unit:GetDefaultAttackAction(nil, "ungrouped", nil, "sync")
+	context.default_attack = default_attack
+	context.default_attack_cost = default_attack:GetAPCost(unit)
 
     TryChangeStance(unit)
 end
