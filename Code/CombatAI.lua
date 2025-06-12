@@ -31,6 +31,7 @@ local function lClearPredictedAOE(list)
 end
 
 function PredictCTH(base_cth, recoil, shots)
+	if shots == 1 then return base_cth end
 	local sum = 0
 	for i = 0, shots - 1 do
 		local penalty = recoil * Min(i,5)
@@ -41,11 +42,16 @@ end
 
 function GetCTHByAimLevels(unit, enemy, action, max_aim)
 	local cth_by_aim = {}
-	local weapon = unit:GetActiveWeapons()
-	local dist = unit:GetDist(enemy)
+	local weapon1, weapon2 = unit:GetActiveWeapons()
+
+	if not weapon1 then return end
 	
-	if dist > weapon.Range then
+	local dist = unit:GetDist(enemy)
+	if dist > (weapon1.WeaponRange * const.SlabSizeX) then
 		-- за пределами нормальной дальности — все CTH будут считаться 0
+		--print('dist > weapon range')
+		--print(dist)
+		--print(weapon1.WeaponRange * const.SlabSizeX)
 		for aim = 0, max_aim do
 			cth_by_aim[aim] = 0
 		end
@@ -53,54 +59,72 @@ function GetCTHByAimLevels(unit, enemy, action, max_aim)
 	end
 
 	for aim = 0, max_aim do
-		local cth = unit:CalcChanceToHit(enemy, action, { aim = aim })
+		local args = { target_spot_group = false, aim = aim }
+		local cth = unit:CalcChanceToHit(enemy, action, args)
+		--print("CTH"..cth)
 		cth_by_aim[aim] = cth
 	end
 	return cth_by_aim
 end
 
 
-function PickBestAttack(unit, enemy, basic_attacks, cth_by_aim_map)
+function PickBestAttack(unit, enemy, basic_attacks)
+	--print('function PickBestAttack')
 	local best = false
 	local best_score = 0
 	local AP = unit.ActionPoints
-	local weapon = unit:GetActiveWeapons()
-	weapon = weapon and weapon[1]
-	if not weapon then return end
+
+	local weapon, weapon2 = unit:GetActiveWeapons()
+	if not weapon then
+		--print('not weapon')
+		--print(unit:GetActiveWeapons())
+		return end
 
 	local recoil = weapon.Recoil or 0
 	local burst = weapon.BurstShots or 3
 	local auto = weapon.AutoShots or 5
 	local base_damage = unit:GetBaseDamage(weapon) or 20
 
+	--print('pickbestattackdebug')
 
 
-	for _, mode in ipairs(basic_attacks) do
-		local action = mode.action
-		if not action or action.id == "MeleeAttack" then goto continue end
+	for _, attack in ipairs(basic_attacks.all) do
 
-		local dist = unit:GetDist(enemy)
-		local max_range = unit:GetSightRadius(enemy)
+
+		local action = attack.action
+		if not action or attack.id == "Melee Attack" or attack.id == "MeleeAttack"  then goto continue end
+
+		local dist = DivRound(unit:GetDist(enemy),const.SlabSizeX)
+		local max_range = DivRound(unit:GetSightRadius(enemy),const.SlabSizeX)
 		local dist_ratio = Clamp(dist / max_range, 0, 1)
 		local dist_penalty = 0
 
 		local ammo = weapon.ammo and weapon.ammo.Amount or 0
 		local mag = weapon.MagazineSize or 30
 		local ammo_ratio = Clamp(ammo / mag, 0, 1)
-		local ammo_weight = Lerp(1.5, 0.5, ammo_ratio)
+		local ammo_weight = Lerp(1.5, 0.5, ammo_ratio, 1)
 
 
+		
 		local ap_cost = action:GetAPCost(unit)
-		local aim_levels = cth_by_aim_map[mode] and cth_by_aim_map[mode][enemy]
+		local aim_levels = GetCTHByAimLevels(unit, enemy, action, weapon.MaxAimActions or 3)
+		
+		--print('aim_levels')
+		--print(aim_levels)
+
 		if not aim_levels then goto continue end
 
+
+		--print('score aim cth range')
 		for aim, cth in pairs(aim_levels) do
-			local total_cost = ap_cost + aim
+			local total_cost = ap_cost + aim * 1000
 			if total_cost > AP then goto next_aim end
 
 			local shots = 1
 			local predicted = cth
-			local mode_type = action.ActionType
+			local mode_type = action.id
+
+			dist_penalty = dist_ratio * 0.5
 
 			if mode_type == "BurstFire" then
 				shots = burst
@@ -109,30 +133,46 @@ function PickBestAttack(unit, enemy, basic_attacks, cth_by_aim_map)
 			elseif mode_type == "AutoFire" then
 				shots = auto
 				predicted = PredictCTH(cth, recoil, shots)
+				dist_penalty = dist_ratio * 1.2
+			end
+			if mode_type == "DoubleBarrel" then
+				shots = burst
+				predicted = predicted * 2
 				dist_penalty = dist_ratio * 2.0
 			end
 
 			predicted = Max(0, predicted)
 
-			local expected_damage = base_damage * shots * predicted / 100
+			local expected_damage = base_damage * shots * predicted
 
-			local score = (expected_damage - ammo_weight * shots - dist_penalty) / total_cost
+			local score = (expected_damage - ammo_weight * shots - dist_penalty)*1000 / total_cost
+			--print(' penaltyDist..'..dist_penalty..'..penaltyAmmo..'..(ammo_weight * shots)..' expected_damage '..expected_damage..' total_cost '..total_cost)
+			--print(mode_type..score..' '..aim..' '..cth..' '..weapon.WeaponRange..' '..dist..' '..max_range)
 
-			local threshold = best_score * 0.9
 
-			if score >= threshold and (not best or unit:Random(100) < 33) then
+			if predicted <= 0 then score = -10 end
+			--print(string.format("Try mode %s aim=%d → cost=%d AP=%d", action.id, aim, total_cost, AP))
+
+			local threshold = best and best_score * 0.9 or -math.huge
+			if score > threshold and (not best or unit:Random(100) < 33) then
 				best_score = score
 				best = {
-					mode = mode,
+					mode = mode_type,
 					aim = aim,
 					ap = total_cost,
 					score = score,
-					type = mode_type,
+					action = action,
 					cth = predicted,
 					shots = shots,
 					target = enemy
 				}
+				print('best')
+				print(best.mode)
+				print(best.ap)
+				print(best.cth)
 			end
+
+			--print('best_score: '..best.score..' aim: '..best.aim..' cth: '..best.cth)
 
 			::next_aim::
 		end
@@ -145,8 +185,17 @@ end
 
 function AICalcAttacksAndAimSmart(context, ap, target)
 	local unit = context.unit
-	local cth_map = context.cth_by_aim_map
-	local best_attack = PickBestAttack(unit, target, context.basic_attacks, cth_map)
+	local cth_map = context.cth_by_aim_map[target]
+
+	--print("AICALCATTACKS Smart Validations")
+	--print(not not unit)
+	--print(not not target)
+	--print(not not context.basic_attacks)
+	--print(not not cth_map)
+	--local best_attack = PickBestAttack(unit, target, context.basic_attacks, cth_map)
+	local best_attack = PickBestAttack(unit, target, context.basic_attacks)
+	--print("BestAttack:")
+	--print(not not best_attack)
 
 	if best_attack then
 		local reserve_ap = 0
@@ -156,10 +205,14 @@ function AICalcAttacksAndAimSmart(context, ap, target)
 
 		local final_ap = ap - reserve_ap
 		local n_attacks = math.floor(final_ap / best_attack.ap)
+		
+		--print("Attacs - CTH - AIM")
+		--print(n_attacks, best_attack.cth, best_attack.aim)
 
 		return n_attacks, { best_attack.aim }
 	end
 
+	--print("calcvanilla")
 	return AICalcAttacksAndAim(context, ap, target)
 end
 
@@ -231,6 +284,7 @@ function AICreateContext(unit, context)
 	end
 	context.ExtremeRange = IsKindOf(weapon, "Firearm") and weapon.WeaponRange or 1
 	context.enemies = enemies
+	context.attack_target = {}
 	context.enemy_visible = {}
 	context.enemy_visible_by_team = {}
 	context.enemy_pos = {}
@@ -247,6 +301,7 @@ function AICreateContext(unit, context)
 	context.forced_signature_action = false
 	context.apply_bias = true
 	context.disable_actions = {}
+	context.cth_by_aim_map = {}
 
 	NetUpdateHash("AICreateContext", unit, pos, unit.stance, context.start_ap, context.archetype.id, context.max_attacks, weapon and weapon.class, weapon and weapon.id, default_attack.id)
 	
@@ -299,22 +354,40 @@ function AICreateContext(unit, context)
 
 		if context.enemy_visible_by_team[enemy] then
 			local args = { aim = 0 }
-			context.best_attack_option = false
 			local best_mode_score = 0
 
-			for _, mode in ipairs(basic_attacks) do
+			--print('basic_attacks')
+			for _, mode in ipairs(basic_attacks.all) do
+				--print(_)
+				--print(mode)
 				local action = mode.action
+				--print('GetCTHByAimLevels Validation')
+				--print(not not unit)
+				--print(not not enemy)
+				--print(not not action)
+				--print(not not weapon.MaxAimActions)
 				local aim_levels = GetCTHByAimLevels(unit, enemy, action, weapon.MaxAimActions or 3)
+				--print(not not aim_levels)
+				--print(aim_levels)
 				mode.cth_by_aim = mode.cth_by_aim or {}
 				mode.cth_by_aim[enemy] = aim_levels
-			
+				context.cth_by_aim_map[enemy] = mode.cth_by_aim[enemy]
+				
 
-			local best_attack = PickBestAttack(unit, enemy, basic_attacks, mode.cth_by_aim)
-          	   if best_attack and best_attack.score > best_overall_score then
+		    	--print('PickBestAttack Validation')
+				--print(not not unit)
+				--print(not not enemy)
+				--print(not not basic_attacks)
+				--print(not not mode.cth_by_aim[enemy])
+				local best_attack = PickBestAttack(unit, enemy, basic_attacks)
+				--local best_attack = PickBestAttack(unit, enemy, basic_attacks, mode.cth_by_aim[enemy])
+          	   if best_attack and best_attack.score >= best_overall_score then
+					--print(best_attack.score)
       	        	best_overall_score = best_attack.score
   		            best_overall_attack = best_attack
             		context.attack_target = enemy
             		context.attack_AP_reserved = best_attack.ap
+					context.cth_by_aim_map[enemy] = mode.cth_by_aim[enemy]
           	end
 		end
 
@@ -330,10 +403,14 @@ function AICreateContext(unit, context)
 	end
 
     context.best_attack = best_overall_attack
+	context.basic_attacks = basic_attacks or unit:GetBasicAttackModes()
+	--print("context_basic_attacks ")
+	--print(context.basic_attacks)
 
 	if best_overall_attack then
-	context.default_attack = best_overall_attack
-	context.default_attack_cost = best_overall_attack.ap
+		context.override_attack_cost = best_overall_attack.ap
+	--context.default_attack = best_overall_attack
+	--context.default_attack_cost = best_overall_attack.ap
 	end
 
 	if context.behavior then
@@ -356,62 +433,60 @@ function AICreateContext(unit, context)
 end
 
 
-function AISelectAction(context, actions, base_weight, dbg_available_actions)
-    PauseInfiniteLoopDetection("AiCalc")
-	local available = {}
+function AISelectAction(context, actions, base_weight)
+	local AIGetBias = AIGetBias
+	local MulDivRound = MulDivRound
+
+	local available
 	local weight = base_weight or 0
 	
-	context.action_states = context.action_states or {}
-	
+	local action_states = context.action_states or {}
+	context.action_states = action_states
 
 	for _, action in ipairs(actions) do
-		--print(action)
-		context.action_states[action] = {}		
+		local action_state = {}
+		action_states[action] = action_state	
 		local weight_mod, disable, priority = AIGetBias(action.BiasId, context.unit)
 		disable = disable or context.disable_actions[action.BiasId or false]
 		if not disable then
-			action:PrecalcAction(context, context.action_states[action])
-			if action:IsAvailable(context, context.action_states[action]) then
-				local action_weight = MulDivRound(action.Weight, weight_mod, 100)
+			action:PrecalcAction(context, action_state)
+			if action:IsAvailable(context, action_state) then
 				priority = priority or action.Priority
-				if dbg_available_actions then
-					table.insert(dbg_available_actions, { action = action, weight = action_weight, priority = priority })
-				end
 				if priority then
-                    ResumeInfiniteLoopDetection("AiCalc")
 					return action
 				end
+				local action_weight = MulDivRound(action.Weight, weight_mod, 100)
+				available = available or {}
 				available[#available + 1] = action
-				available[available] = action_weight
+				available[action] = action_weight
 				weight = weight + action_weight
-			elseif dbg_available_actions then
-				table.insert(dbg_available_actions, { action = action, weight = false })
 			end
 		end
+	end
+	if not available then
+		return
 	end
 	if weight > 0 then
 		local roll = InteractionRand(weight, "AISignatureAction", context.unit)
 		for _, action in ipairs(available) do
 			local w = available[action]
-			if roll <= weight then
-                ResumeInfiniteLoopDetection("AiCalc")
+			if roll <= w then
 				return action
 			end
-			roll = roll - weight
+			roll = roll - w
 		end
 	end
-    ResumeInfiniteLoopDetection("AiCalc")
 	return available[#available]
 end
 
 
 function AIChooseSignatureAction(context)
-    PauseInfiniteLoopDetection("AiCalc")
 	local weight = context.archetype.BaseAttackWeight
-	context.choose_actions = { { action = false, weight = weight, priority = false } },	
+	context.choose_actions = {
+		{ action = false, weight = weight, priority = false },
+	}
 	AIUpdateBiases()
 	local sig_actions = AIGetSignatureActions(context)
-    ResumeInfiniteLoopDetection("AiCalc")    
 	return AISelectAction(context, sig_actions, weight, context.choose_actions)
 end
 

@@ -1563,13 +1563,14 @@ function Unit:GetBasicAttackModes()
 		return false
 	end
 
+	-- Основные режимы
 	result.single = find_mode("SingleShot", 1)
-	result.burst  = find_mode("BurstFire", weapon.BurstShots)
-	result.auto   = find_mode("AutoFire", weapon.AutoShots)
-	result.buck   = find_mode("Buckshot", weapon.BuckshotProjectiles or 1)
-	result.double = find_mode("DoubleBarrel", (weapon.BuckshotProjectiles and weapon.BuckshotProjectiles * 2) or (weapon.AutoShots and weapon.AutoShots * 2) or 2)
+	result.burst  = find_mode("BurstFire", weapon.BurstShots or 3)
+	result.auto   = find_mode("AutoFire", weapon.AutoShots or 5)
+	result.buck   = find_mode("Buckshot", weapon.BuckshotProjectiles or 6)
+	result.double = find_mode("DoubleBarrel", (weapon.BuckshotProjectiles and weapon.BuckshotProjectiles * 2) or 2)
 
-	-- Собираем всё в список
+	-- Собрать всё
 	result.all = {}
 	for _, mode in pairs({result.single, result.burst, result.auto, result.buck, result.double}) do
 		if type(mode) == "table" and mode.mode then
@@ -1577,13 +1578,27 @@ function Unit:GetBasicAttackModes()
 		end
 	end
 
-	-- Если вообще ничего не нашлось — добавляем default
+	-- Если вообще ничего не найдено — fallback по default_attack
 	if #result.all == 0 and default_attack then
+		local mode = default_attack.id
+		local shots = 1
+
+		if mode == "BurstFire" then
+			shots = weapon.BurstShots or 3
+		elseif mode == "AutoFire" then
+			shots = weapon.AutoShots or 5
+		elseif mode == "Buckshot" then
+			shots = weapon.BuckshotProjectiles or 6
+		elseif mode == "DoubleBarrel" then
+			local b = weapon.BuckshotProjectiles or 1
+			shots = b * 2
+		end
+
 		table.insert(result.all, {
 			action = default_attack,
 			ap = default_attack:GetAPCost(self),
-			shots = weapon.BurstShots or weapon.AutoShots or 1,
-			mode = default_attack.id
+			shots = shots,
+			mode = mode
 		})
 	end
 

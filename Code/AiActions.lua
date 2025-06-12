@@ -1,7 +1,10 @@
 function AIActionThrowGrenade:PrecalcAction(context, action_state)
     local action_id, grenade
-    local actions = {"ThrowGrenadeA", "ThrowGrenadeB", "ThrowGrenadeC", "ThrowGrenadeD", "ThrowGrenadeAG",
-                     "ThrowGrenadeBG", "ThrowGrenadeCG", "ThrowGrenadeDG", "ThrowGrenadeAO", "ThrowGrenadeBO"}
+    local actions = {
+        "ThrowGrenadeA", "ThrowGrenadeB", "ThrowGrenadeC", "ThrowGrenadeD",
+        "ThrowGrenadeAG", "ThrowGrenadeBG", "ThrowGrenadeCG", "ThrowGrenadeDG",
+        "ThrowGrenadeAO", "ThrowGrenadeBO"
+    }
 
     for _, id in ipairs(actions) do
         local caction = CombatActions[id]
@@ -13,7 +16,8 @@ function AIActionThrowGrenade:PrecalcAction(context, action_state)
             -- print(weapon)
             -- print(aoetype)
             -- local triggerType = weapon.TriggerType or "Contact"
-            if IsKindOfClasses(weapon, "Grenade", "Ordnance", "Flare", "GrenadeItem", "Molotov") and
+            if IsKindOfClasses(weapon, "Grenade", "Ordnance", "Flare",
+                               "GrenadeItem", "Molotov") and
                 self.AllowedAoeTypes[aoetype] then
                 -- self.AllowedTriggerTypes[triggerType] then
                 grenade = weapon
@@ -23,11 +27,10 @@ function AIActionThrowGrenade:PrecalcAction(context, action_state)
     end
 
     -- print(action_id)
-    if not action_id or not grenade then
-        return
-    end
+    if not action_id or not grenade then return end
 
-    local max_range = Min(self.MaxDist, grenade:GetMaxAimRange(context.unit) * const.SlabSizeX)
+    local max_range = Min(self.MaxDist, grenade:GetMaxAimRange(context.unit) *
+                              const.SlabSizeX)
     local blast_radius = grenade.AreaOfEffect * const.SlabSizeX
 
     -- print("maxrange "..max_range /  const.SlabSizeX)
@@ -42,8 +45,9 @@ function AIActionThrowGrenade:PrecalcAction(context, action_state)
             end
         end
     end
-    local zones = AIPrecalcGrenadeZones(context, action_id, self.MinDist, max_range, blast_radius, grenade.aoeType,
-        target_pts)
+    local zones = AIPrecalcGrenadeZones(context, action_id, self.MinDist,
+                                        max_range, blast_radius,
+                                        grenade.aoeType, target_pts)
 
     -- print(zones)
     local zone, score = self:EvalZones(context, zones)
@@ -73,27 +77,21 @@ function AIFilterTargetPoints(unit, target_pts, min_range, max_range)
 end
 
 local function IsUnitHit(hit)
-    if not IsKindOf(hit.obj, "Unit") then
-        return false
-    end
+    if not IsKindOf(hit.obj, "Unit") then return false end
     -- print("damage "..hit.damage)
-    if hit.damage > 0 then
-        return true
-    end
+    if hit.damage > 0 then return true end
     for _, effect in ipairs(hit.effects) do
-        if effect and effect ~= "" then
-            return true
-        end
+        if effect and effect ~= "" then return true end
     end
 end
 
-function AIPrecalcGrenadeZones(context, action_id, min_range, max_range, blast_radius, aoeType, target_pts)
-    if context.target_locked then
-        return {}
-    end
+function AIPrecalcGrenadeZones(context, action_id, min_range, max_range,
+                               blast_radius, aoeType, target_pts)
+    if context.target_locked then return {} end
 
     if not target_pts then
-        target_pts = AICalcAOETargetPoints(context, min_range, max_range, blast_radius)
+        target_pts = AICalcAOETargetPoints(context, min_range, max_range,
+                                           blast_radius)
     else
         -- make sure the target points are within the allowed range
         AIFilterTargetPoints(context.unit, target_pts, min_range, max_range)
@@ -103,9 +101,7 @@ function AIPrecalcGrenadeZones(context, action_id, min_range, max_range, blast_r
     -- calculate parabolas and affected units to each target point
     local zones = {}
     local action = CombatActions[action_id]
-    local args = {
-        target = false
-    }
+    local args = {target = false}
     for i, target_pt in ipairs(target_pts) do
         args.target = target_pt
         local results = action:GetActionResults(context.unit, args)
@@ -114,8 +110,11 @@ function AIPrecalcGrenadeZones(context, action_id, min_range, max_range, blast_r
         local trajectory = results.trajectory or empty_table
         -- print("trajectory")
         -- print(aoeType)
-        local pos = #trajectory > 0 and trajectory[#trajectory].pos or results.target_pos
-        if pos and (aoeType == "smoke" or aoeType == "toxicgas" or aoeType == "teargas" or aoeType == "fire") then
+        local pos = #trajectory > 0 and trajectory[#trajectory].pos or
+                        results.target_pos
+        if pos and
+            (aoeType == "smoke" or aoeType == "toxicgas" or aoeType == "teargas" or
+                aoeType == "fire") then
             local water = terrain.IsWater(pos) and terrain.GetWaterHeight(pos)
             if not (water and (not pos:IsValidZ() or water >= pos:z())) then
                 pos = SnapToPassSlab(pos) or pos
@@ -159,10 +158,7 @@ function AIPrecalcGrenadeZones(context, action_id, min_range, max_range, blast_r
             end
         end
         if units then
-            zones[#zones + 1] = {
-                target_pos = target_pt,
-                units = units
-            }
+            zones[#zones + 1] = {target_pos = target_pt, units = units}
         end
     end
 
@@ -173,9 +169,7 @@ function AIPrecalcGrenadeZones(context, action_id, min_range, max_range, blast_r
 end
 
 function AIReloadWeapons(unit)
-    if IsMerc(unit) then
-        return
-    end
+    if IsMerc(unit) then return end
 
     local action = unit:GetDefaultAttackAction()
     local weapon1, weapon2 = action:GetAttackWeapons(unit)
@@ -260,7 +254,8 @@ function AICalcAttacksAndAim(context, ap, target)
     -- if GameState.RainHeavy then
     --	aim_cost = MulDivRound(aim_cost, 100 + const.EnvEffects.RainAimingMultiplier, 100)
     -- end
-    local min_aim, max_aim = context.unit:GetBaseAimLevelRange(context.default_attack, false)
+    local min_aim, max_aim = context.unit:GetBaseAimLevelRange(
+                                 context.default_attack, false)
 
     local cost = context.default_attack_cost
     local num_attacks = Min(ap / cost, context.max_attacks)
@@ -301,9 +296,7 @@ function AICalcAttacksAndAim(context, ap, target)
     --		return num_attacks, aims
     --	end
     -- end
-    local args = {
-        aim = 0
-    }
+    local args = {aim = 0}
 
     if context.force_max_aim then
         num_attacks = Min(ap / (cost + aim_cost * max_aim), context.max_attacks)
@@ -317,36 +310,33 @@ function AICalcAttacksAndAim(context, ap, target)
         local aim = (aims[attack_idx] or 0)
 
         if context.unit then
-            local cth = context.unit:CalcChanceToHit(target, context.default_attack)
+            local cth = context.unit:CalcChanceToHit(target,
+                                                     context.default_attack)
             while cth < 100 and aim <= (max_aim) and remaining > aim_cost do
                 aim = aim + 1
                 remaining = remaining - 1
                 args.aim = aim
-                cth = context.unit:CalcChanceToHit(target, context.default_attack, args)
+                cth = context.unit:CalcChanceToHit(target,
+                                                   context.default_attack, args)
             end
             -- print('aim '..aim.." cth "..cth)
         end
 
-        if aim > context.weapon.MaxAimActions then
-            break
-        end
+        if aim > context.weapon.MaxAimActions then break end
         aims[attack_idx] = aim
         attack_idx = attack_idx + 1
-        if attack_idx > num_attacks then
-            attack_idx = 1
-        end
+        if attack_idx > num_attacks then attack_idx = 1 end
         ----print(aims)
         remaining = remaining - aim_cost
     end
 
-    NetUpdateHash("AICalcAttacksAndAimSmart", num_attacks, aims, aim_cost, context.force_max_aim)
+    NetUpdateHash("AICalcAttacksAndAimSmart", num_attacks, aims, aim_cost,
+                  context.force_max_aim)
     return num_attacks, aims
 end
 
 function IsUnitHiddenFromPlayer(unit)
-    if not unit or unit:IsDead() then
-        return true
-    end
+    if not unit or unit:IsDead() then return true end
 
     for _, player in ipairs(g_Units) do
         if player.team and player.team.side == "player1" and not player:IsDead() then
@@ -360,9 +350,7 @@ function IsUnitHiddenFromPlayer(unit)
 end
 
 function AIExecuteUnitBehavior(unit, force_or_skip_action)
-    if not g_Combat or not IsValid(unit) or unit:IsDead() then
-        return
-    end
+    if not g_Combat or not IsValid(unit) or unit:IsDead() then return end
 
     local options = CurrentModOptions or empty_table
 
@@ -380,8 +368,10 @@ function AIExecuteUnitBehavior(unit, force_or_skip_action)
     if unit.ai_context.behavior then
         local status = unit.ai_context.behavior:Play(unit)
         if g_AIExecutionController then
-            g_AIExecutionController:Log("  Behavior %s for unit %s (%d) returned '%s'",
-                unit.ai_context.behavior:GetEditorView(), unit.unitdatadef_id, unit.handle, tostring(status))
+            g_AIExecutionController:Log(
+                "  Behavior %s for unit %s (%d) returned '%s'",
+                unit.ai_context.behavior:GetEditorView(), unit.unitdatadef_id,
+                unit.handle, tostring(status))
         end
 
         if status then -- support behaviors that want to restart or stop the unit's ai
@@ -406,174 +396,287 @@ function AIExecuteUnitBehavior(unit, force_or_skip_action)
     end
 
     -- use the rest of the ap (if any) in signature actions and basic attacks
-    return AIPlayAttacks(unit, unit.ai_context, unit.ai_context.forced_signature_action, force_or_skip_action) or
-               AITakeCover(unit)
+    return AIPlayAttacks(unit, unit.ai_context,
+                         unit.ai_context.forced_signature_action,
+                         force_or_skip_action) or AITakeCover(unit)
 end
 
--- Переработанный AIPlayAttacks: теперь AI может двигаться и стрелять в произвольном порядке
 function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
-    if g_AIExecutionController then
-        g_AIExecutionController:Log("Unit %s (%d) start attack sequence", unit.unitdatadef_id, unit.handle)
-    end
 
-    -- удалить мёртвых врагов
-    local enemies = context.enemies
-    for i = #enemies, 1, -1 do
-        if not IsValidTarget(enemies[i]) then
-            table.remove(enemies, i)
-        end
-    end
-
-    local remaining_free_ap = unit.free_move_ap
-    unit:RemoveStatusEffect("FreeMove")
-
-    local default_attack = context.default_attack
-    local default_attack_vr =
-        default_attack and default_attack.FiringModeMember == "AttackShotgun" and "AIDoubleBarrel" or "AIAttack"
-
-    -- выполнить signature action (однократно)
-    local signature_action = nil
-    if dbg_action then
-        context.action_states = context.action_states or {}
-        context.action_states[dbg_action] = {}
-        dbg_action:PrecalcAction(context, context.action_states[dbg_action])
-        if dbg_action:IsAvailable(context, context.action_states[dbg_action]) then
-            signature_action = dbg_action
-        elseif force_or_skip_action then
-            table.insert(failed_actions, dbg_action.BiasId or dbg_action.class)
-            return
-        end
-    end
-    if not context.reposition and not unit:HasStatusEffect("Numbness") then
-        signature_action = signature_action or AIChooseSignatureAction(context)
-    end
-
-    local voice_response = signature_action and (signature_action:GetVoiceResponse() or "") or default_attack_vr
-    if voice_response == "" then
-        voice_response = nil
-    end
-
-    if signature_action then
+   -- while unit.ActionPoints > 0 and context.max_attacks > 0 do
+        -- filter enemies because they might have been killed by a teammate
         if g_AIExecutionController then
-            g_AIExecutionController:Log("  Signature Action: %s", signature_action:GetEditorView())
+            g_AIExecutionController:Log("Unit %s (%d) start attack sequence",
+                                        unit.unitdatadef_id, unit.handle)
         end
-        signature_action:OnActivate(unit)
-        context.action_states = context.action_states or {}
-        context.action_states[signature_action] = context.action_states[signature_action] or {}
-        if voice_response then
-            context.action_states[signature_action].args = context.action_states[signature_action].args or {}
-            context.action_states[signature_action].args.voiceResponse = voice_response
+        local enemies = context.enemies
+        for i = #enemies, 1, -1 do
+            if not IsValidTarget(enemies[i]) then
+                table.remove(enemies, i)
+            end
         end
-        local status = signature_action:Execute(context, context.action_states[signature_action])
-        context.ap_after_signature = unit.ActionPoints
-     --   if status then
-     --       return status
-     --   end
-        --AIReloadWeapons(unit)
-        context.max_attacks = context.max_attacks - 1
-    end
 
-    unit:SequentialActionsStart()
-
-    while unit.ActionPoints > 0 and context.max_attacks > 0 do
+        local remaining_free_ap = unit.free_move_ap
+        unit:RemoveStatusEffect("FreeMove") -- lose any remaining free movement points, we're going to use actions now
         AIUpdateContext(context, unit)
 
-        -- проверить, хватает ли ОД на текущую атаку
-        local attack = context.default_attack
-		local attack_ap = context.default_attack_cost or 0
-        if not attack or attack_ap > unit.ActionPoints or not IsValidTarget(attack.target) then
-            -- пересчёт подходящей атаки
-            local new_attack = PickBestAttack(unit, context.attack_target or context.attack_target,
-                context.basic_attacks, context.cth_by_aim_map)
-            if new_attack and new_attack.ap <= unit.ActionPoints then
-                context.default_attack = new_attack
-                context.default_attack_cost = new_attack.ap
-				context.best_attack = new_attack
-            else
-                break -- нет подходящей атаки
-            end
+        if g_AIExecutionController then
+            g_AIExecutionController:Log("  Num enemies: %d", #enemies)
+            g_AIExecutionController:Log("  Action Points: %d", unit.ActionPoints)
         end
 
-        -- Обновить видимость
-        local any_visible = false
-        for _, enemy in ipairs(context.enemies) do
-            local visible = context.enemy_visible_by_team[enemy]
-            --context.enemy_visible[enemy] = visible
-            if visible then
-                any_visible = true
+        local dest = not force_or_skip_action and context.ai_destination or
+                         GetPackedPosAndStance(unit)
+
+        -- recalc target to make sure we're firing at a valid target, but prefer the already picked target if there's one
+        -- table.insert(g_AIDamageScoreLog, string.format("[%s] AIPlayAttacks (%s)", _InternalTranslate(unit.Name or ""), context.archetype.id))
+        context.dest_ap[dest] = context.dest_ap[dest] or unit.ActionPoints
+        AIPrecalcDamageScore(context, {dest}, context.target_locked or
+                                 (context.dest_target or empty_table)[dest])
+
+        -- archetype signature actions
+        local signature_action
+        if dbg_action then
+            context.action_states = context.action_states or {}
+            context.action_states[dbg_action] = {}
+            dbg_action:PrecalcAction(context, context.action_states[dbg_action])
+            if dbg_action:IsAvailable(context, context.action_states[dbg_action]) then
+                signature_action = dbg_action
+            elseif force_or_skip_action then
+                table.insert(failed_actions,
+                             dbg_action.BiasId or dbg_action.class)
+                return
             end
         end
+        if not context.reposition and not unit:HasStatusEffect("Numbness") then
+            signature_action = signature_action or
+                                   AIChooseSignatureAction(context)
+        end
 
-        -- Пересчитать цели если кто-то виден
-        if any_visible then
-            AIPrecalcDamageScore(context, {GetPackedPosAndStance(unit)})
+        local default_attack = context.default_attack
+        local default_attack_vr = "AIAttack"
+        if default_attack and default_attack.FiringModeMember and
+            default_attack.FiringModeMember == "AttackShotgun" then
+            default_attack_vr = "AIDoubleBarrel"
+        end
+        local voice_response = signature_action and
+                                   (signature_action:GetVoiceResponse() or "") or
+                                   default_attack_vr
+        if voice_response == "" then voice_response = nil end
+
+        if signature_action then
+            if g_AIExecutionController then
+                g_AIExecutionController:Log("  Signature Action: %s",
+                                            signature_action:GetEditorView())
+            end
+            signature_action:OnActivate(unit)
+            ----printf("[signature] %s (%d)", _InternalTranslate(unit.Name or ""), unit.handle)
+            if voice_response then
+                context.action_states[signature_action].args =
+                    context.action_states[signature_action].args or {}
+                context.action_states[signature_action].args.voiceResponse =
+                    voice_response
+            end
+            local status = signature_action:Execute(context,
+                                                    context.action_states[signature_action])
+            context.ap_after_signature = unit.ActionPoints
+            if status then -- support signature actions that want to restart or stop ai turn execution
+                return status
+            end
+            AIReloadWeapons(unit)
+            context.max_attacks = context.max_attacks - 1
         else
-            break
-        end
-
-        local best_attack = context.best_attack
-        local target = best_attack and best_attack.target
-        if not IsValidTarget(target) then
-            break
-        end
-
-        local action = best_attack.action or context.default_attack
-        local cost = best_attack.ap or action:GetActionAPCost(unit, target)
-        if unit.ActionPoints < cost then
-            break
-        end
-
-        local args = {
-            target = target,
-            voiceResponse = voice_response
-        }
-        local aim_levels = AICalcAttacksAndAimSmart(context, unit.ActionPoints, target)
-        args.aim = aim_levels[1]
-
-        local body_parts = AIGetAttackTargetingOptions(unit, context, target)
-        if body_parts and #body_parts > 0 then
-            local pick = table.weighted_rand(body_parts, "chance", InteractionRand(1000000, "Combat"))
-            if pick then
-                args.target_spot_group = pick.id
+            if g_AIExecutionController then
+                g_AIExecutionController:Log("  No Signature Action chosen")
             end
         end
 
-        Sleep(0)
-        local result = AIPlayCombatAction(action.id, unit, nil, args)
-        AIReloadWeapons(unit)
-        context.max_attacks = context.max_attacks - 1
-
-        if not result or not IsValidTarget(unit) then
-            break
+        local target = (context.dest_target or empty_table)[dest]
+        if signature_action and (not IsValidTarget(target) or
+            (IsKindOf(target, "Unit") and target:IsIncapacitated())) then
+            -- table.insert(g_AIDamageScoreLog, string.format("[%s] TargetChange (%s)", _InternalTranslate(unit.Name or ""), context.archetype.TargetChangePolicy))
+            if context.archetype.TargetChangePolicy == "restart" then
+                return "restart"
+            end
+            context.dest_ap[dest] = unit.ActionPoints
+            context.target_locked = nil
+            AIPrecalcDamageScore(context, {dest})
+            target = context.dest_target[dest]
         end
-        while IsKindOf(target, "Unit") and target:IsGettingDowned() do
-            WaitMsg("UnitDowned", 20)
+
+        if IsValidTarget(target) then
+            if g_AIExecutionController then
+                g_AIExecutionController:Log("  Target: %s", IsKindOf(target,
+                                                                     "Unit") and
+                                                target.unitdatadef_id or
+                                                target.class)
+            end
+            -- revert to basic attacks
+
+            local cth_map = context.cth_by_aim_map[target]
+           -- local best_attack = PickBestAttack(unit, target,
+           --                                    context.basic_attacks, cth_map)
+			local best_attack = PickBestAttack(unit, target,
+                                               context.basic_attacks)
+											   
+			context.default_attack = best_attack.action or context.default_attack							   
+
+            local attacks, aim = AICalcAttacksAndAimSmart(context,
+                                                          unit.ActionPoints,
+                                                          target)
+            if context.default_attack.id == "Bombard" and AICheckIndoors(dest) then
+                attacks = 0
+            end
+
+            local args = {target = target, voiceResponse = voice_response}
+            if attacks > 1 then unit:SequentialActionsStart() end
+            if g_AIExecutionController then
+                g_AIExecutionController:Log("  Executing %d attacks...", attacks)
+            end
+            local body_parts =
+                AIGetAttackTargetingOptions(unit, context, target)
+
+            for i = 1, attacks do
+                args.aim = aim[i]
+                args.target_spot_group = nil
+                if body_parts and #body_parts > 0 then
+                    local pick = table.weighted_rand(body_parts, "chance",
+                                                     InteractionRand(1000000,
+                                                                     "Combat"))
+                    if pick then
+                        args.target_spot_group = pick.id
+                    end
+                end
+                Sleep(0)
+                local result = AIPlayCombatAction(context.default_attack.id,
+                                                  unit, nil, args)
+                context.max_attack = context.max_attacks - 1
+                if g_AIExecutionController then
+                    g_AIExecutionController:Log("  Attack %d result: %s", i,
+                                                tostring(result))
+                end
+                if IsSetpiecePlaying() then
+                    unit:SequentialActionsEnd()
+                    return
+                end
+                AIReloadWeapons(unit)
+                if not result or i == attacks or not IsValidTarget(unit) or
+                    context.max_attacks <= 0 then break end
+                while IsKindOf(target, "Unit") and target:IsGettingDowned() do
+                    WaitMsg("UnitDowned", 20)
+                end
+                if not IsValidTarget(target) or
+                    (IsKindOf(target, "Unit") and target:IsIncapacitated()) then
+                    -- table.insert(g_AIDamageScoreLog, string.format("[%s] TargetChange (%s)", _InternalTranslate(unit.Name or ""), context.archetype.TargetChangePolicy))
+                    if context.archetype.TargetChangePolicy == "restart" then
+                        unit:SequentialActionsEnd()
+                        return "restart"
+                    end
+                    -- look for another target
+                    context.dest_ap[dest] = unit.ActionPoints
+                    context.target_locked = nil
+                    AIPrecalcDamageScore(context, {dest})
+                    target = context.dest_target[dest]
+                    if not IsValidTarget(target) then break end
+                end
+                Sleep(0)
+            end
+            unit:SequentialActionsEnd()
+        elseif unit:HasStatusEffect("StationedMachineGun") and
+            CombatActions.MGPack:GetUIState({unit}) == "enabled" then
+            unit:SequentialActionsEnd()
+            AIPlayCombatAction("MGPack", unit)
+            return "restart"
+        else
+            if g_AIExecutionController then
+                g_AIExecutionController:Log("  No target")
+            end
         end
-    end
+        unit:SequentialActionsEnd()
 
-    unit:SequentialActionsEnd()
-    while not unit:IsIdleCommand() do
-        WaitMsg("Idle", 50)
-    end
+        while not unit:IsIdleCommand() do WaitMsg("Idle", 50) end
 
-	local default_attack = unit:GetDefaultAttackAction(nil, "ungrouped", nil, "sync")
-	context.default_attack = default_attack
-	context.default_attack_cost = default_attack:GetAPCost(unit)
+        if unit.ActionPoints + remaining_free_ap == context.start_ap and
+            not unit:HasStatusEffect("ManningEmplacement") then
+            -- no action was taken, use a fallback one
+            -- if all fails, move toward optimal loc
+            if context.closest_dest then
+                unit:GainAP(remaining_free_ap)
+                local dest = context.closest_dest
+                local x, y, z, stance_idx = stance_pos_unpack(dest)
+                local move_stance_idx = context.dest_combat_path[dest]
+                local cpath = context.combat_paths[move_stance_idx]
+                local pt = SnapToPassSlab(x, y, z)
+                local path = pt and cpath and cpath:GetCombatPathFromPos(pt)
+                if path then
+                    local goto_stance = StancesList[move_stance_idx]
+                    if goto_stance ~= unit.stance then
+                        AIPlayChangeStance(unit, goto_stance,
+                                           point(point_unpack(path[2])))
+                    end
+                    local goto_ap = unit.ActionPoints -- context.dest_ap[dest] --cpath.paths_ap[point_pack(x, y, z)] or 0
+                    context.ai_destination = path[1]
+                    AIPlayCombatAction("Move", unit, goto_ap, {
+                        goto_pos = point(point_unpack(path[1])),
+                        fallbackMove = true,
+                        goto_stance = stance_idx
+                    })
+                end
+            end
 
+            if unit:GetDist(context.unit_pos) < const.SlabSizeX / 2 then
+                local revert = true
+                if context.archetype.FallbackAction == "overwatch" then
+                    -- try to place overwatch
+                    revert = not AIPlaceFallbackOverwatch(unit, context)
+                end
+                if revert then
+                    -- we're stuck somewhere and unable to move or act, revert back to being Unaware (only if no sight of any enemies)
+                    local sight = false
+                    for _, enemy in ipairs(context.enemies) do
+                        sight = sight or HasVisibilityTo(unit, enemy)
+                    end
+                    if not sight then
+                        unit.last_known_enemy_pos =
+                            unit.last_known_enemy_pos or
+                                AIPickScoutLocation(unit)
+                        -- local archetype = "Scout_LastLocation"
+                        -- unit.current_archetype = archetype or unit.archetype or "Assault"
+                        if not unit.last_known_enemy_pos then
+                            table.insert(g_UnawareQueue, unit)
+                        end
+                    end
+                    -- if not sight and unit.current_archetype == "Scout_LastLocation" then
+                    --	table.insert(g_UnawareQueue, unit)
+                    -- end
+                end
+            end
+        end
+
+  --  end
     TryChangeStance(unit)
+
+    -- local ProneStanceAP = unit:GetStanceToStanceAP(unit.stance, "Prone")
+    -- local CrouchStanceAP = unit:GetStanceToStanceAP(unit.stance, "Crouch")
+    -- if unit.ActionPoints >= ProneStanceAP and unit.stance ~= "Prone" and not g_Overwatch[unit] then 
+    --	--unit:ChangeStance("StanceProne", ProneStanceAP, unit.stance)
+    --	AIPlayChangeStance(unit, "Prone")
+    -- end
+    -- if unit.ActionPoints >= CrouchStanceAP and unit.stance ~= "Prone" and unit.stance ~= "Crouch" and not g_Overwatch[unit] then 
+    --	--unit:ChangeStance("CrouchStance", CrouchStanceAP, unit.stance)
+    --	AIPlayChangeStance(unit, "Crouch")
+    -- end
 end
 
--- бекап чтоб быстро забрать
-function _AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
+function working_AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
     -- filter enemies because they might have been killed by a teammate
     if g_AIExecutionController then
-        g_AIExecutionController:Log("Unit %s (%d) start attack sequence", unit.unitdatadef_id, unit.handle)
+        g_AIExecutionController:Log("Unit %s (%d) start attack sequence",
+                                    unit.unitdatadef_id, unit.handle)
     end
     local enemies = context.enemies
     for i = #enemies, 1, -1 do
-        if not IsValidTarget(enemies[i]) then
-            table.remove(enemies, i)
-        end
+        if not IsValidTarget(enemies[i]) then table.remove(enemies, i) end
     end
 
     local remaining_free_ap = unit.free_move_ap
@@ -585,12 +688,14 @@ function _AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
         g_AIExecutionController:Log("  Action Points: %d", unit.ActionPoints)
     end
 
-    local dest = not force_or_skip_action and context.ai_destination or GetPackedPosAndStance(unit)
+    local dest = not force_or_skip_action and context.ai_destination or
+                     GetPackedPosAndStance(unit)
 
     -- recalc target to make sure we're firing at a valid target, but prefer the already picked target if there's one
     -- table.insert(g_AIDamageScoreLog, string.format("[%s] AIPlayAttacks (%s)", _InternalTranslate(unit.Name or ""), context.archetype.id))
     context.dest_ap[dest] = context.dest_ap[dest] or unit.ActionPoints
-    AIPrecalcDamageScore(context, {dest}, context.target_locked or (context.dest_target or empty_table)[dest])
+    AIPrecalcDamageScore(context, {dest}, context.target_locked or
+                             (context.dest_target or empty_table)[dest])
 
     -- archetype signature actions
     local signature_action
@@ -611,25 +716,30 @@ function _AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 
     local default_attack = context.default_attack
     local default_attack_vr = "AIAttack"
-    if default_attack and default_attack.FiringModeMember and default_attack.FiringModeMember == "AttackShotgun" then
+    if default_attack and default_attack.FiringModeMember and
+        default_attack.FiringModeMember == "AttackShotgun" then
         default_attack_vr = "AIDoubleBarrel"
     end
-    local voice_response = signature_action and (signature_action:GetVoiceResponse() or "") or default_attack_vr
-    if voice_response == "" then
-        voice_response = nil
-    end
+    local voice_response = signature_action and
+                               (signature_action:GetVoiceResponse() or "") or
+                               default_attack_vr
+    if voice_response == "" then voice_response = nil end
 
     if signature_action then
         if g_AIExecutionController then
-            g_AIExecutionController:Log("  Signature Action: %s", signature_action:GetEditorView())
+            g_AIExecutionController:Log("  Signature Action: %s",
+                                        signature_action:GetEditorView())
         end
         signature_action:OnActivate(unit)
         ----printf("[signature] %s (%d)", _InternalTranslate(unit.Name or ""), unit.handle)
         if voice_response then
-            context.action_states[signature_action].args = context.action_states[signature_action].args or {}
-            context.action_states[signature_action].args.voiceResponse = voice_response
+            context.action_states[signature_action].args =
+                context.action_states[signature_action].args or {}
+            context.action_states[signature_action].args.voiceResponse =
+                voice_response
         end
-        local status = signature_action:Execute(context, context.action_states[signature_action])
+        local status = signature_action:Execute(context,
+                                                context.action_states[signature_action])
         context.ap_after_signature = unit.ActionPoints
         if status then -- support signature actions that want to restart or stop ai turn execution
             return status
@@ -643,7 +753,8 @@ function _AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
     end
 
     local target = (context.dest_target or empty_table)[dest]
-    if signature_action and (not IsValidTarget(target) or (IsKindOf(target, "Unit") and target:IsIncapacitated())) then
+    if signature_action and (not IsValidTarget(target) or
+        (IsKindOf(target, "Unit") and target:IsIncapacitated())) then
         -- table.insert(g_AIDamageScoreLog, string.format("[%s] TargetChange (%s)", _InternalTranslate(unit.Name or ""), context.archetype.TargetChangePolicy))
         if context.archetype.TargetChangePolicy == "restart" then
             return "restart"
@@ -657,21 +768,19 @@ function _AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
     if IsValidTarget(target) then
         if g_AIExecutionController then
             g_AIExecutionController:Log("  Target: %s",
-                IsKindOf(target, "Unit") and target.unitdatadef_id or target.class)
+                                        IsKindOf(target, "Unit") and
+                                            target.unitdatadef_id or
+                                            target.class)
         end
         -- revert to basic attacks
-        local attacks, aim = AICalcAttacksAndAimSmart(context, unit.ActionPoints, target)
+        local attacks, aim = AICalcAttacksAndAimSmart(context,
+                                                      unit.ActionPoints, target)
         if context.default_attack.id == "Bombard" and AICheckIndoors(dest) then
             attacks = 0
         end
 
-        local args = {
-            target = target,
-            voiceResponse = voice_response
-        }
-        if attacks > 1 then
-            unit:SequentialActionsStart()
-        end
+        local args = {target = target, voiceResponse = voice_response}
+        if attacks > 1 then unit:SequentialActionsStart() end
         if g_AIExecutionController then
             g_AIExecutionController:Log("  Executing %d attacks...", attacks)
         end
@@ -681,29 +790,31 @@ function _AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
             args.aim = aim[i]
             args.target_spot_group = nil
             if body_parts and #body_parts > 0 then
-                local pick = table.weighted_rand(body_parts, "chance", InteractionRand(1000000, "Combat"))
-                if pick then
-                    args.target_spot_group = pick.id
-                end
+                local pick = table.weighted_rand(body_parts, "chance",
+                                                 InteractionRand(1000000,
+                                                                 "Combat"))
+                if pick then args.target_spot_group = pick.id end
             end
             Sleep(0)
-            local result = AIPlayCombatAction(context.default_attack.id, unit, nil, args)
+            local result = AIPlayCombatAction(context.default_attack.id, unit,
+                                              nil, args)
             context.max_attack = context.max_attacks - 1
             if g_AIExecutionController then
-                g_AIExecutionController:Log("  Attack %d result: %s", i, tostring(result))
+                g_AIExecutionController:Log("  Attack %d result: %s", i,
+                                            tostring(result))
             end
             if IsSetpiecePlaying() then
                 unit:SequentialActionsEnd()
                 return
             end
             AIReloadWeapons(unit)
-            if not result or i == attacks or not IsValidTarget(unit) or context.max_attacks <= 0 then
-                break
-            end
+            if not result or i == attacks or not IsValidTarget(unit) or
+                context.max_attacks <= 0 then break end
             while IsKindOf(target, "Unit") and target:IsGettingDowned() do
                 WaitMsg("UnitDowned", 20)
             end
-            if not IsValidTarget(target) or (IsKindOf(target, "Unit") and target:IsIncapacitated()) then
+            if not IsValidTarget(target) or
+                (IsKindOf(target, "Unit") and target:IsIncapacitated()) then
                 -- table.insert(g_AIDamageScoreLog, string.format("[%s] TargetChange (%s)", _InternalTranslate(unit.Name or ""), context.archetype.TargetChangePolicy))
                 if context.archetype.TargetChangePolicy == "restart" then
                     unit:SequentialActionsEnd()
@@ -714,14 +825,13 @@ function _AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
                 context.target_locked = nil
                 AIPrecalcDamageScore(context, {dest})
                 target = context.dest_target[dest]
-                if not IsValidTarget(target) then
-                    break
-                end
+                if not IsValidTarget(target) then break end
             end
             Sleep(0)
         end
         unit:SequentialActionsEnd()
-    elseif unit:HasStatusEffect("StationedMachineGun") and CombatActions.MGPack:GetUIState({unit}) == "enabled" then
+    elseif unit:HasStatusEffect("StationedMachineGun") and
+        CombatActions.MGPack:GetUIState({unit}) == "enabled" then
         unit:SequentialActionsEnd()
         AIPlayCombatAction("MGPack", unit)
         return "restart"
@@ -732,11 +842,10 @@ function _AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
     end
     unit:SequentialActionsEnd()
 
-    while not unit:IsIdleCommand() do
-        WaitMsg("Idle", 50)
-    end
+    while not unit:IsIdleCommand() do WaitMsg("Idle", 50) end
 
-    if unit.ActionPoints + remaining_free_ap == context.start_ap and not unit:HasStatusEffect("ManningEmplacement") then
+    if unit.ActionPoints + remaining_free_ap == context.start_ap and
+        not unit:HasStatusEffect("ManningEmplacement") then
         -- no action was taken, use a fallback one
         -- if all fails, move toward optimal loc
         if context.closest_dest then
@@ -750,7 +859,8 @@ function _AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
             if path then
                 local goto_stance = StancesList[move_stance_idx]
                 if goto_stance ~= unit.stance then
-                    AIPlayChangeStance(unit, goto_stance, point(point_unpack(path[2])))
+                    AIPlayChangeStance(unit, goto_stance,
+                                       point(point_unpack(path[2])))
                 end
                 local goto_ap = unit.ActionPoints -- context.dest_ap[dest] --cpath.paths_ap[point_pack(x, y, z)] or 0
                 context.ai_destination = path[1]
@@ -775,7 +885,8 @@ function _AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
                     sight = sight or HasVisibilityTo(unit, enemy)
                 end
                 if not sight then
-                    unit.last_known_enemy_pos = unit.last_known_enemy_pos or AIPickScoutLocation(unit)
+                    unit.last_known_enemy_pos =
+                        unit.last_known_enemy_pos or AIPickScoutLocation(unit)
                     -- local archetype = "Scout_LastLocation"
                     -- unit.current_archetype = archetype or unit.archetype or "Assault"
                     if not unit.last_known_enemy_pos then
@@ -803,39 +914,39 @@ function _AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
     -- end
 end
 
-function AIPrecalcDamageScore(context, destinations, preferred_target, debug_data)
+function AIPrecalcDamageScore(context, destinations, preferred_target,
+                              debug_data)
     local unit = context.unit
     local weapon = context.weapon
-    local action = CombatActions[context.override_attack_id or false] or context.default_attack
+    local action = CombatActions[context.override_attack_id or false] or
+                       context.default_attack
     local archetype = context.archetype
     local behavior = context.behavior
 
     if not weapon or context.reposition or unit:HasStatusEffect("Burning") then
         return
     end
-    if not destinations and context.damage_score_precalced then
-        return
-    end
+    if not destinations and context.damage_score_precalced then return end
 
     local action_targets = action:GetTargets({unit})
     local targets = table.ifilter(action_targets, function(idx, target)
         return unit:IsOnEnemySide(target)
     end)
-    if #targets == 0 then
-        return
-    end
+    if #targets == 0 then return end
     context.damage_score_precalced = true
     local target_score_mod = {}
     local tsr = archetype.TargetScoreRandomization
     for i, target in ipairs(targets) do
-        target_score_mod[i] = 100 + ((tsr > 0) and unit:RandRange(-tsr, tsr) or 0)
+        target_score_mod[i] = 100 +
+                                  ((tsr > 0) and unit:RandRange(-tsr, tsr) or 0)
     end
     context.target_score_mod = target_score_mod
 
     local base_mod = unit[weapon.base_skill]
     local cost_ap = context.override_attack_cost or context.default_attack_cost
 
-    local max_check_range, is_melee = AIGetWeaponCheckRange(unit, weapon, action)
+    local max_check_range, is_melee =
+        AIGetWeaponCheckRange(unit, weapon, action)
     local is_heavy = IsKindOf(weapon, "HeavyWeapon")
 
     local hit_modifiers = Presets["ChanceToHitModifier"]["Default"]
@@ -845,17 +956,20 @@ function AIPrecalcDamageScore(context, destinations, preferred_target, debug_dat
     -- if IsKindOf(weapon, "Firearm") then
     -- modCrouchBonus = hit_modifiers.AttackerStance:ResolveValue("CrouchBonus")
     -- modProneBonus = hit_modifiers.AttackerStance:ResolveValue("ProneBonus")
-    local value = GetComponentEffectValue(weapon, "AccuracyBonusProne", "bonus_cth")
-    if value then
-        modProneBonus = modProneBonus + value
-    end
+    local value = GetComponentEffectValue(weapon, "AccuracyBonusProne",
+                                          "bonus_cth")
+    if value then modProneBonus = modProneBonus + value end
     -- end
     -- ground difference mod
-    local MinGroundDifference = hit_modifiers.GroundDifference:ResolveValue("RangeThreshold") * const.SlabSizeZ / 100
-    local modHighGround = hit_modifiers.GroundDifference:ResolveValue("HighGround")
-    local modLowGround = hit_modifiers.GroundDifference:ResolveValue("LowGround")
+    local MinGroundDifference = hit_modifiers.GroundDifference:ResolveValue(
+                                    "RangeThreshold") * const.SlabSizeZ / 100
+    local modHighGround = hit_modifiers.GroundDifference:ResolveValue(
+                              "HighGround")
+    local modLowGround =
+        hit_modifiers.GroundDifference:ResolveValue("LowGround")
     -- cover
-    local modCover = hit_modifiers.RangeAttackTargetStanceCover:ResolveValue("Cover")
+    local modCover = hit_modifiers.RangeAttackTargetStanceCover:ResolveValue(
+                         "Cover")
     local modSameTarget = hit_modifiers.SameTarget:ResolveValue("Bonus")
 
     local target_policies = archetype.TargetingPolicies
@@ -878,17 +992,21 @@ function AIPrecalcDamageScore(context, destinations, preferred_target, debug_dat
         local group_modifiers = gv_AITargetModifiers[groupname]
         for target_group, mod in pairs(group_modifiers) do
             target_modifiers = target_modifiers or {}
-            target_modifiers[target_group] = (target_modifiers[target_group] or 0) + mod
+            target_modifiers[target_group] =
+                (target_modifiers[target_group] or 0) + mod
             for _, obj in ipairs(Groups[target_group]) do
                 if IsKindOf(obj, "Unit") and not table.find(targets, obj) then
                     table.insert(targets, obj) -- make sure the target is considired regardless if it's an enemy or not
-                    table.insert(target_score_mod, 100 + ((tsr > 0) and unit:RandRange(-tsr, tsr) or 0))
+                    table.insert(target_score_mod, 100 +
+                                     ((tsr > 0) and unit:RandRange(-tsr, tsr) or
+                                         0))
                 end
             end
         end
     end
 
-    if unit:HasStatusEffect("StationedMachineGun") or unit:HasStatusEffect("ManningEmplacement") then
+    if unit:HasStatusEffect("StationedMachineGun") or
+        unit:HasStatusEffect("ManningEmplacement") then
         local ow_units = {unit}
         targets = table.ifilter(targets, function(idx, target)
             return target:IsThreatened(ow_units, "overwatch")
@@ -896,7 +1014,8 @@ function AIPrecalcDamageScore(context, destinations, preferred_target, debug_dat
     end
 
     if not IsValidTarget(preferred_target) or
-        (IsKindOf(preferred_target, "Unit") and preferred_target:IsIncapacitated() or
+        (IsKindOf(preferred_target, "Unit") and
+            preferred_target:IsIncapacitated() or
             not table.find(targets, preferred_target)) then
         preferred_target = nil
     end
@@ -922,7 +1041,8 @@ function AIPrecalcDamageScore(context, destinations, preferred_target, debug_dat
 	end
 	logdata.preferred_target = preferred_target and (IsKindOf(preferred_target, "Unit") and _InternalTranslate(preferred_target.Name or "") or preferred_target.class) or tostring(preferred_target)--]]
     destinations = destinations or context.destinations
-    NetUpdateHash("AIPrecalcDamageScore", unit, hashParamTable(destinations), hashParamTable(targets), preferred_target)
+    NetUpdateHash("AIPrecalcDamageScore", unit, hashParamTable(destinations),
+                  hashParamTable(targets), preferred_target)
     for j, upos in ipairs(destinations) do
         local ux, uy, uz, ustance_idx = stance_pos_unpack(upos)
         local ustance = StancesList[ustance_idx]
@@ -934,7 +1054,9 @@ function AIPrecalcDamageScore(context, destinations, preferred_target, debug_dat
         local potential_targets, target_score, target_cth = {}, {}, {}
         if weapon and ap >= cost_ap then
             local pos_mod = base_mod
-            pos_mod = pos_mod + (ustance_idx == 2 and modCrouchBonus or ustance_idx == 3 and modProneBonus or 0)
+            pos_mod = pos_mod +
+                          (ustance_idx == 2 and modCrouchBonus or ustance_idx ==
+                              3 and modProneBonus or 0)
 
             local targets_attack_data
             if not is_melee then
@@ -947,46 +1069,63 @@ function AIPrecalcDamageScore(context, destinations, preferred_target, debug_dat
                 local tpos = GetPackedPosAndStance(target)
                 local dist = stance_pos_dist(upos, tpos)
                 if dist <= (max_check_range or dist) and
-                    (is_melee or targets_attack_data[k] and not targets_attack_data[k].stuck) then
+                    (is_melee or targets_attack_data[k] and
+                        not targets_attack_data[k].stuck) then
                     local tx, ty, tz, tstance_idx = stance_pos_unpack(tpos)
                     tz = tz or terrain.GetHeight(tx, ty)
                     local hit_mod = pos_mod
                     if not is_heavy then
                         hit_mod = hit_mod +
-                                      (uz > tz + MinGroundDifference and modHighGround or uz < tz - MinGroundDifference and
-                                          modLowGround or 0)
-                        hit_mod = hit_mod + (unit:GetLastAttack() == target and modSameTarget or 0)
+                                      (uz > tz + MinGroundDifference and
+                                          modHighGround or uz < tz -
+                                          MinGroundDifference and modLowGround or
+                                          0)
+                        hit_mod = hit_mod +
+                                      (unit:GetLastAttack() == target and
+                                          modSameTarget or 0)
                     end
                     local target_cover = GetCoverFrom(tpos, upos)
-                    if target_cover == const.CoverLow or target_cover == const.CoverHigh then
+                    if target_cover == const.CoverLow or target_cover ==
+                        const.CoverHigh then
                         hit_mod = hit_mod + modCover
                     end
 
-                    local penalty = is_heavy and 0 or (100 - weapon:GetAccuracy(dist))
+                    local penalty = is_heavy and 0 or
+                                        (100 - weapon:GetAccuracy(dist))
 
                     local mod = hit_mod - penalty -- dist_penalty
                     -- environmental modifiers when applicable
-                    local apply, value, target_spot_group, action, weapon1, weapon2, lof, aim, opportunity_attack
-                    apply, value = hit_modifiers.Darkness:CalcValue(unit, target, target_spot_group, action, weapon1,
-                        weapon2, lof, aim, opportunity_attack, attacker_pos)
-                    if apply then
-                        mod = mod + value
-                    end
+                    local apply, value, target_spot_group, action, weapon1,
+                          weapon2, lof, aim, opportunity_attack
+                    apply, value = hit_modifiers.Darkness:CalcValue(unit,
+                                                                    target,
+                                                                    target_spot_group,
+                                                                    action,
+                                                                    weapon1,
+                                                                    weapon2,
+                                                                    lof, aim,
+                                                                    opportunity_attack,
+                                                                    attacker_pos)
+                    if apply then mod = mod + value end
 
                     if not is_heavy and unit:IsPointBlankRange(target) then
-                        mod = MulDivRound(mod, 100 + const.AIPointBlankTargetMod, 100)
+                        mod = MulDivRound(mod,
+                                          100 + const.AIPointBlankTargetMod, 100)
                     end
                     mod = Max(0, mod)
 
                     if mod > const.AIShootAboveCTH then
                         -- calc base score based on cth/attacks/aiming
                         local base_mod = mod
-                        local attacks, aims = AICalcAttacksAndAimSmart(context, ap, target)
+                        local attacks, aims =
+                            AICalcAttacksAndAimSmart(context, ap, target)
                         mod = 0
                         for i = 1, attacks do
                             local use, bonus
                             if (aims[i] or 0) > 0 then
-                                use, bonus = aim_mod:CalcValue(unit, nil, nil, nil, nil, nil, nil, aims[i])
+                                use, bonus =
+                                    aim_mod:CalcValue(unit, nil, nil, nil, nil,
+                                                      nil, nil, aims[i])
                             end
                             mod = mod + base_mod + (use and bonus or 0)
                         end
@@ -994,27 +1133,41 @@ function AIPrecalcDamageScore(context, destinations, preferred_target, debug_dat
                         mod = MulDivRound(mod, archetype.TargetBaseScore, 100)
                         for _, policy in ipairs(target_policies) do
                             local peval = policy:EvalTarget(unit, target)
-                            mod = mod + MulDivRound(peval or 0, policy.Weight, 100)
+                            mod = mod +
+                                      MulDivRound(peval or 0, policy.Weight, 100)
                         end
 
-                        if IsKindOf(target, "Unit") and (target:IsDowned() or target:IsGettingDowned()) then
+                        if IsKindOf(target, "Unit") and
+                            (target:IsDowned() or target:IsGettingDowned()) then
                             mod = MulDivRound(mod, 5, 100)
                         end
 
-                        local attack_data = targets_attack_data and targets_attack_data[k]
-                        local ally_in_danger = attack_data and (attack_data.best_ally_hits_count or 0) > 0
+                        local attack_data =
+                            targets_attack_data and targets_attack_data[k]
+                        local ally_in_danger = attack_data and
+                                                   (attack_data.best_ally_hits_count or
+                                                       0) > 0
 
                         if action and action.AimType == "cone" then
                             ally_in_danger = ally_in_danger or
-                                                 AIAllyInDanger(context.allies, context.ally_pos, attacker_pos, target,
-                                    const.AIFriendlyFire_LOFConeNear, const.AIFriendlyFire_LOFConeFar)
+                                                 AIAllyInDanger(context.allies,
+                                                                context.ally_pos,
+                                                                attacker_pos,
+                                                                target,
+                                                                const.AIFriendlyFire_LOFConeNear,
+                                                                const.AIFriendlyFire_LOFConeFar)
                         else
                             ally_in_danger = ally_in_danger or
-                                                 AIAllyInDanger(context.allies, context.ally_pos, attacker_pos, target,
-                                    const.AIFriendlyFire_LOFWidth, const.AIFriendlyFire_LOFWidth)
+                                                 AIAllyInDanger(context.allies,
+                                                                context.ally_pos,
+                                                                attacker_pos,
+                                                                target,
+                                                                const.AIFriendlyFire_LOFWidth,
+                                                                const.AIFriendlyFire_LOFWidth)
                         end
                         if ally_in_danger then
-                            mod = MulDivRound(mod, const.AIFriendlyFire_ScoreMod, 100)
+                            mod = MulDivRound(mod,
+                                              const.AIFriendlyFire_ScoreMod, 100)
                         end
 
                         mod = MulDivRound(mod, target_score_mod[k], 100)
@@ -1023,7 +1176,9 @@ function AIPrecalcDamageScore(context, destinations, preferred_target, debug_dat
                         if target_modifiers and IsKindOf(target, "Unit") then
                             local group_mod = 0
                             for _, groupname in ipairs(target.Groups) do
-                                group_mod = group_mod + (target_modifiers[groupname] or 0)
+                                group_mod = group_mod +
+                                                (target_modifiers[groupname] or
+                                                    0)
                             end
                             if group_mod > 0 then
                                 mod = MulDivRound(mod, group_mod, 100)
@@ -1046,7 +1201,9 @@ function AIPrecalcDamageScore(context, destinations, preferred_target, debug_dat
                         best_score = Max(best_score, mod)
                         target_cth[target] = base_mod
                         target_score[target] = mod
-                        local threshold = MulDivRound(best_score or 0, const.AIDecisionThreshold, 100)
+                        local threshold =
+                            MulDivRound(best_score or 0,
+                                        const.AIDecisionThreshold, 100)
                         if mod >= threshold then
                             potential_targets[#potential_targets + 1] = target
                             for i = #potential_targets, 1, -1 do
@@ -1058,7 +1215,8 @@ function AIPrecalcDamageScore(context, destinations, preferred_target, debug_dat
                             end
                             -- best_target, best_score, best_cth = target, mod, base_mod
                         end
-                        NetUpdateHash("AIPrecalcDamageScore_mod", target_score[target], mod, threshold)
+                        NetUpdateHash("AIPrecalcDamageScore_mod",
+                                      target_score[target], mod, threshold)
 
                     end
                 end
@@ -1070,10 +1228,9 @@ function AIPrecalcDamageScore(context, destinations, preferred_target, debug_dat
             for _, target in ipairs(potential_targets) do
                 local score = target_score[target]
                 total = total + score
-                if debug_data then
-                    debug_data[target] = score
-                end
-                NetUpdateHash("AIPrecalcDamageScore_total", target_score[target], total)
+                if debug_data then debug_data[target] = score end
+                NetUpdateHash("AIPrecalcDamageScore_total",
+                              target_score[target], total)
             end
             local roll = InteractionRand(total, "AIDecision")
             for _, target in ipairs(potential_targets) do
@@ -1084,7 +1241,8 @@ function AIPrecalcDamageScore(context, destinations, preferred_target, debug_dat
                 end
                 roll = roll - score
             end
-            best_target = best_target or potential_targets[#potential_targets] or false
+            best_target =
+                best_target or potential_targets[#potential_targets] or false
             best_score = target_score[best_target] or 0
             best_cth = target_cth[best_target] or 0
         end
@@ -1111,14 +1269,10 @@ end
 
 function AISignatureAction:MatchUnit(unit)
     for state, _ in pairs(self.AvailableInState) do
-        if not GameState.state then
-            return
-        end
+        if not GameState.state then return end
     end
     for state, _ in pairs(self.ForbiddenInState) do
-        if GameState and GameState.state then
-            return
-        end
+        if GameState and GameState.state then return end
     end
     for _, keyword in ipairs(self.RequiredKeywords) do
         if not table.find(unit.AIKeywords or empty_table, keyword) then
@@ -1131,7 +1285,8 @@ function AISignatureAction:MatchUnit(unit)
         local attack_type = self.action_id
         local weapon = unit:GetActiveWeapons()
 
-        if attack_type == "BurstFire" or attack_type == "AutoFire" or attack_type == "RunAndGun" then
+        if attack_type == "BurstFire" or attack_type == "AutoFire" or
+            attack_type == "RunAndGun" then
             if actions[attack_type] ~= nil then
                 local ui_status = actions[attack_type]
                 if ui_status and ui_status == "Hidden" then
@@ -1151,7 +1306,8 @@ end
 
 function AIActionMGSetup:PrecalcAction(context, action_state)
 
-    local curr_target_pt = g_Overwatch[context.unit] and g_Overwatch[context.unit].target_pos
+    local curr_target_pt = g_Overwatch[context.unit] and
+                               g_Overwatch[context.unit].target_pos
 
     local target = curr_target_pt or context.unit
     local cover, any, coverage = context.unit:GetCoverPercentage(target)
@@ -1166,11 +1322,10 @@ function AIActionMGSetup:PrecalcAction(context, action_state)
         end
         AIActionBaseConeAttack.PrecalcAction(self, context, action_state)
     else
-        local zones = AIPrecalcConeTargetZones(context, self.action_id, curr_target_pt)
+        local zones = AIPrecalcConeTargetZones(context, self.action_id,
+                                               curr_target_pt)
         local cur_zone = zones[#zones]
-        if not cur_zone then
-            return
-        end
+        if not cur_zone then return end
         cur_zone.score_mod = self.cur_zone_mod
         local zone, best_score = self:EvalZones(context, zones)
 
@@ -1187,15 +1342,11 @@ function AIActionMGSetup:PrecalcAction(context, action_state)
             action_state.target_pos = zone and zone.target_pos
 
             local caction = CombatActions[action_state.action_id]
-            if not caction then
-                return
-            end
+            if not caction then return end
 
             local args, has_ap = AIGetAttackArgs(context, caction, nil, "None")
             action_state.has_ap = has_ap
-            if has_ap then
-                g_LastSelectedZone = zone
-            end
+            if has_ap then g_LastSelectedZone = zone end
         end
     end
 end
@@ -1203,11 +1354,13 @@ end
 ----RATO
 
 function AIActionBaseZoneAttack:EvalZones(context, zones)
-    return AIEvalZones(context, zones, self.min_score, self.enemy_score, self.team_score, self.self_score_mod,
-        self.enemy_cover_mod)
+    return AIEvalZones(context, zones, self.min_score, self.enemy_score,
+                       self.team_score, self.self_score_mod,
+                       self.enemy_cover_mod)
 end
 
-function AIEvalZones(context, zones, min_score, enemy_score, team_score, self_score_mod, enemy_cover_score) -- , heigth_score)
+function AIEvalZones(context, zones, min_score, enemy_score, team_score,
+                     self_score_mod, enemy_cover_score) -- , heigth_score)
     local best_target, best_score = nil, (min_score or 0) - 1
 
     for _, zone in ipairs(zones) do
@@ -1261,18 +1414,12 @@ function AIPolicyIndoorsOutdoors:EvalDest(context, dest, grid_voxel)
 end
 
 function TryChangeStance(unit)
-    if not g_Combat then
-        return 0
-    end
+    if not g_Combat then return 0 end
 
-    if unit:HasPreparedAttack() then
-        return 0
-    end
+    if unit:HasPreparedAttack() then return 0 end
 
     local weapon = unit:GetActiveWeapons()
-    if not weapon or not IsKindOf(weapon, "Firearm") then
-        return 0
-    end
+    if not weapon or not IsKindOf(weapon, "Firearm") then return 0 end
 
     if unit:CanTakeCover() then
         AITakeCover(unit)
@@ -1284,9 +1431,7 @@ function TryChangeStance(unit)
         local ap = unit.ActionPoints
         if not cover_high and not cover_low then
             local prone_AP = unit.stance == "Crouch" and 1000 or 2000
-            if HasPerk(unit, "HitTheDeck") then
-                prone_AP = 0
-            end
+            if HasPerk(unit, "HitTheDeck") then prone_AP = 0 end
             if ap >= prone_AP then
                 -- unit:SetActionCommand("ChangeStance", "RATOAI_ChangeStance", prone_AP, "Prone")
                 AIPlayChangeStance(unit, "Prone")
@@ -1309,45 +1454,23 @@ function TryChangeStance(unit)
 end
 
 function AIGetAttackTargetingOptions(unit, context, target, action, targeting)
-    local body_parts
-    targeting = targeting or context.archetype.BaseAttackTargeting
-    ----
-    local valid, fallback = false, {}
-    ---
-    if IsKindOf(target, "Unit") and targeting then
-        action = action or context.default_attack
-        ---
-        local args = {
-            target = target,
-            aim = 3
-        }
-        ---
-        local parts = target:GetBodyParts(context.weapon)
-        for _, part in ipairs(parts) do
+    local visible_parts, targeted_parts
+    targeting = targeting or context.archetype.BaseAttackTargeting or empty_table
+    action = action or context.default_attack
+    if action and IsKindOf(target, "Unit") then
+        local args = { target = target, aim = 0 }
+        for _, part in ipairs(target:GetBodyParts(context.weapon)) do
             args.target_spot_group = part.id
-            local results = action:GetActionResults(unit, args)
-            body_parts = body_parts or {}
-            results.chance_to_hit = results.chance_to_hit or 0
-            -- table.insert(body_parts, {id = part.id, chance = results.chance_to_hit})
-            if results.chance_to_hit > 0 then
-                table.insert(fallback, {
-                    id = part.id,
-                    chance = results.chance_to_hit
-                })
+            local results = action:GetActionResults(unit, args) or empty_table
+            if (results.chance_to_hit or 0) > 0 then
                 if targeting[part.id] then
-                    valid = true
-                    -----
-                    table.insert(body_parts, {
-                        id = part.id,
-                        chance = results.chance_to_hit
-                    })
-                    -----
+                    targeted_parts = table.create_add(targeted_parts, {id = part.id, chance = results.chance_to_hit})
+                else
+                    visible_parts = table.create_add(visible_parts, {id = part.id, chance = results.chance_to_hit})
                 end
-            end
+            end            
         end
     end
-    ----
-    return valid and body_parts or fallback
-    ----
+    return targeted_parts or visible_parts
 end
 
