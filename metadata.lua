@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 6,
-	'version', 4905,
+	'version', 4910,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -583,6 +583,8 @@ return PlaceObj('ModDef', {
 		"CharacterEffect/TakeAim.lua",
 		"CharacterEffect/SteadyBreathing.lua",
 		"CharacterEffect/Stealthy.lua",
+		"CharacterEffect/AutoWeapons.lua",
+		"CharacterEffect/HeavyWeaponsTraining.lua",
 		"CharacterEffect/Jazz_Perk_00.lua",
 		"CharacterEffect/Jazz_Perk_Lynx.lua",
 		"Code/UnitAwareness.lua",
@@ -643,8 +645,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1749849758,
-	'code_hash', -8700036233992378015,
+	'saved', 1749850728,
+	'code_hash', 4549773968786625306,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -13159,6 +13161,16 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "CharacterEffectCompositeDef",
 			'Id', "Stealthy",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "AutoWeapons",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "HeavyWeaponsTraining",
 			'ClassDisplayName', "Character effect",
 		}),
 		PlaceObj('ModResourcePreset', {

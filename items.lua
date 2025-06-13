@@ -1313,7 +1313,7 @@ return {
 			Comment = "bonus out-of-turn interrupt attacks with machine guns at 0 ap",
 			group = "Combat",
 			id = "MGFreeInterruptAttacks",
-			value = 2,
+			value = 5,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "Sight radius (in tiles) for units aware of the target unit",
@@ -90409,7 +90409,7 @@ return {
 					Parameters = {
 						PlaceObj('PresetParamNumber', {
 							'Name', "min_cost",
-							'Value', 3,
+							'Value', 6,
 							'Tag', "<min_cost>",
 						}),
 						PlaceObj('PresetParamNumber', {
@@ -94129,6 +94129,70 @@ return {
 					'DisplayName', T(408025340126, --[[ModItemCharacterEffectCompositeDef Stealthy DisplayName]] "Stealthy"),
 					'Description', T(651312331230, --[[ModItemCharacterEffectCompositeDef Stealthy Description]] "Harder to spot by enemies while <GameTerm('Sneaking')>.\n\nSlightly increased chance for <GameTerm('StealthKills')>."),
 					'Icon', "UI/Icons/Perks/Stealthy",
+					'Tier', "Specialization",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Specialization",
+					'Id', "AutoWeapons",
+					'SortKey', 100,
+					'Parameters', {
+						PlaceObj('PresetParamPercent', {
+							'Name', "automatics_penalty_reduction",
+							'Value', 50,
+							'Tag', "<automatics_penalty_reduction>%",
+						}),
+					},
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnModifyCTHModifier",
+							Handler = function (self, target, id, attacker, attack_target, action, weapon1, weapon2, data)
+								if id == "Autofire" and target == attacker then
+									data.mod_mul = AutoWeapons:ResolveValue("automatics_penalty_reduction")
+									data.meta_text[#data.meta_text+1] = T{776394275735, "Perk: <name>", name = self.DisplayName}
+								end
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(971350457853, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Auto Weapons"),
+					'Description', T(938747433410, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Reduced <em>Accuracy</em> penalty when using <em>Burst Fire</em> or <em>Full Auto</em>."),
+					'Icon', "UI/Icons/Perks/AutoWeapons",
+					'Tier', "Specialization",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Specialization",
+					'Id', "HeavyWeaponsTraining",
+					'SortKey', 100,
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "ap_cost_reduction",
+							'Value', 2,
+							'Tag', "<ap_cost_reduction>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "min_ap_cost",
+							'Value', 4,
+							'Tag', "<min_ap_cost>",
+						}),
+					},
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcAPCost",
+							Handler = function (self, target, current_ap, action, weapon, aim)
+								if IsKindOfClasses(weapon, "HeavyWeapon", "MachineGun") then
+									local reduction = self:ResolveValue("ap_cost_reduction") * const.Scale.AP
+									local minCost = self:ResolveValue("min_ap_cost") * const.Scale.AP
+									return Max(minCost, current_ap - reduction)
+								end
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(575851829180, --[[ModItemCharacterEffectCompositeDef HeavyWeaponsTraining DisplayName]] "Heavy Weapons"),
+					'Description', T(662768584689, --[[ModItemCharacterEffectCompositeDef HeavyWeaponsTraining Description]] "Уменьшен расход <em>ОД</em> на атаки из <em>тяжелого вооружения</em> и <em>пулеметов</em> и приведение его в <GameTerm('Setup')>.\nПервые 2 выстрела из пулеметов производятся без отдачи."),
+					'Icon', "UI/Icons/Perks/HeavyWeaponsTraining",
 					'Tier', "Specialization",
 				}),
 				PlaceObj('ModItemChangeProp', {

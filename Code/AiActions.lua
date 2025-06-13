@@ -518,8 +518,8 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
            --                                    context.basic_attacks, cth_map)
 			local best_attack = PickBestAttack(unit, target,
                                                context.basic_attacks)
-											   
-			context.default_attack = best_attack.action or context.default_attack							   
+
+			context.default_attack = best_attack and best_attack.action or context.default_attack							   
 
             local attacks, aim = AICalcAttacksAndAimSmart(context,
                                                           unit.ActionPoints,
