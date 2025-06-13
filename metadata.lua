@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 6,
-	'version', 4902,
+	'version', 4905,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -600,6 +600,7 @@ return PlaceObj('ModDef', {
 		"Code/AiActions.lua",
 		"Code/CombatAI.lua",
 		"Code/AiAction_ThrowFlare.lua",
+		"Code/AIPolicy.lua",
 		"Code/Rato_CustomSeekCover.lua",
 		"Code/Rato_TryNotToBeFlanked.lua",
 		"Code/Rato_MGSetupPosScore.lua",
@@ -642,8 +643,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1749384948,
-	'code_hash', -3035545733200366029,
+	'saved', 1749849758,
+	'code_hash', -8700036233992378015,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -12933,6 +12934,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "MGBurstFire",
+			'ClassDisplayName', "Combat Actions",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "MGSetup",
 			'ClassDisplayName', "Combat Actions",
 		}),
 		PlaceObj('ModResourcePreset', {

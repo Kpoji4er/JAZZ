@@ -1399,7 +1399,9 @@ function Unit:GetOverwatchAttacksAndAim(action, args, unit_ap)
 		attacks = 1
 	end
 	attacks = self:CallReactions_Modify("OnCalcOverwatchAttacks", attacks, action, args)
-
+	if IsKindOf(weapon, "Machinegun") then
+		attacks = attacks + 5
+	end
 	--print(weapon.DisplayName..' aim '..aim.." maxAim "..maxAim)
 	
 	return attacks, aim or minAim or 0

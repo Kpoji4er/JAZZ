@@ -166,10 +166,10 @@ function PickBestAttack(unit, enemy, basic_attacks)
 					shots = shots,
 					target = enemy
 				}
-				print('best')
-				print(best.mode)
-				print(best.ap)
-				print(best.cth)
+				--print('best')
+				--print(best.mode)
+				--print(best.ap)
+				--print(best.cth)
 			end
 
 			--print('best_score: '..best.score..' aim: '..best.aim..' cth: '..best.cth)

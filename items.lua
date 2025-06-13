@@ -89173,6 +89173,10 @@ return {
 					group = "Default",
 					id = "Unjam",
 				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Firing",
+			}, {
 				PlaceObj('ModItemCombatAction', {
 					ActionType = "Ranged Attack",
 					ActivePauseBehavior = "queue",
@@ -89383,10 +89387,6 @@ return {
 					group = "Default",
 					id = "Overwatch",
 				}),
-				}),
-			PlaceObj('ModItemFolder', {
-				'name', "Firing",
-			}, {
 				PlaceObj('ModItemCombatAction', {
 					ActionCamera = true,
 					ActionPointDelta = -1000,
@@ -90321,6 +90321,118 @@ return {
 					end,
 					group = "WeaponAttacks",
 					id = "MGBurstFire",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Ranged Attack",
+					ActivePauseBehavior = "queue",
+					AimType = "cone",
+					ConfigurableKeybind = false,
+					Description = T(868121469992, --[[ModItemCombatAction MGSetup Description]] "Focus on a cone-shaped area, immobilizing yourself and going <em>prone</em>. You can only shoot enemies inside that cone. Accuracy is increased and enemies will provoke <em>interrupt</em> attacks with actions inside the cone (even if your AP are spent)."),
+					DisplayName = T(898083486639, --[[ModItemCombatAction MGSetup DisplayName]] "Set Machine Gun"),
+					Execute = function (self, units, args)
+						return CombatActions.Overwatch.Execute(self, units, args)
+					end,
+					GetAPCost = function (self, unit, args)
+						local base = self:ResolveValue("max_cost") * const.Scale.AP
+						local min = self:ResolveValue("min_cost") * const.Scale.AP
+						local min_str = self:ResolveValue("min_str")
+						local cost = base - MulDivRound(Max(0, unit.Strength - min_str), base - min, 100 - min_str)
+						cost = Max(min, (cost / const.Scale.AP) * const.Scale.AP)
+						return unit:GetAttackAPCost(self, self:GetAttackWeapons(unit), cost)
+					end,
+					GetActionDescription = function (self, units)
+						local unit = units[1]
+						local bonus = 0
+						local cost = self:GetAPCost(unit)
+						
+						if unit and cost >= 0 then
+							local weapon = self:GetAttackWeapons(unit)
+							if not weapon then return self.Description end
+							local aim = Min((unit:GetUIActionPoints() - cost) / const.Scale.AP, weapon.MaxAimActions)
+							local apply, value = Presets.ChanceToHitModifier.Default.Aim:CalcValue(unit, nil, nil, nil, nil, nil, nil, aim)
+							bonus = value
+						end
+						
+						local attacks = 1
+						if unit and (cost or -1) >= 0 then
+							attacks = unit:GetNumMGInterruptAttacks(true)
+						end
+						local description = T{self.Description, bonus = bonus}
+						
+						if unit:UIHasAP(cost, self.id) then
+							description = description .. T(813594976169, "<newline><newline>Max number of <em>interrupt</em> attacks is based on remaining AP.")
+						end
+						
+						return description
+					end,
+					GetActionResults = function (self, unit, args)
+						return CombatActions.Overwatch.GetActionResults(self, unit, args)
+					end,
+					GetAimParams = function (self, unit, weapon)
+						return CombatActions.Overwatch.GetAimParams(self, unit, weapon)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						if args and args.weapon then return args.weapon end
+						return unit:GetActiveWeapons("Firearm")
+					end,
+					GetMaxAimRange = function (self, unit, weapon)
+						return CombatActions.Overwatch.GetMaxAimRange(self, unit, weapon)
+					end,
+					GetMinAimRange = function (self, unit, weapon)
+						return CombatActions.Overwatch.GetMinAimRange(self, unit, weapon)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						local weapon = self:GetAttackWeapons(unit, args)
+						local ok, reason = unit:CanUseWeapon(weapon)
+						if not ok then return "disabled", reason end
+						if not unit:UIHasAP(cost) then return "disabled", GetUnitNoApReason(unit) end
+						local in_water = terrain.IsWater(unit)
+						if in_water then 
+							return "disabled", AttackDisableReasons.Water 
+						end
+						local attack = unit:GetDefaultAttackAction()
+						local state, reason = attack:GetUIState(units, args)
+						if state ~= "enabled" and (reason == AttackDisableReasons.NoWeapon or reason == AttackDisableReasons.OutOfAmmo or reason == AttackDisableReasons.WeaponJammed or reason == AttackDisableReasons.InsufficientAmmo) then
+							return state, reason
+						end
+						return "enabled"
+					end,
+					Icon = "UI/Icons/Hud/SetMachineGun ",
+					IdDefault = "MGSetupdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectOverwatch",
+					KeybindingSortId = "2370",
+					MultiSelectBehavior = "hidden",
+					Parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "min_cost",
+							'Value', 3,
+							'Tag', "<min_cost>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "max_cost",
+							'Value', 16,
+							'Tag', "<max_cost>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "min_str",
+							'Value', 30,
+							'Tag', "<min_str>",
+						}),
+					},
+					QueuedBadgeText = T(515583344616, --[[ModItemCombatAction MGSetup QueuedBadgeText]] "SET"),
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("MGSetup", self.id, ap, ...)
+					end,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAreaAim", "cancel")
+					end,
+					group = "MachineGun",
+					id = "MGSetup",
 				}),
 				PlaceObj('ModItemCombatAction', {
 					ActionType = "Ranged Attack",
@@ -96923,6 +97035,10 @@ return {
 				PlaceObj('ModItemCode', {
 					'name', "AiAction_ThrowFlare",
 					'CodeFileName', "Code/AiAction_ThrowFlare.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "AIPolicy",
+					'CodeFileName', "Code/AIPolicy.lua",
 				}),
 				PlaceObj('ModItemCode', {
 					'name', "Rato_CustomSeekCover",
