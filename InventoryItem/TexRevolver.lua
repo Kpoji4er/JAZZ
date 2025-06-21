@@ -24,7 +24,7 @@ DefineClass.TexRevolver = {
 	CritChance = 10,
 	CritChanceScaled = 60,
 	MagazineSize = 6,
-	WeaponRange = 15,
+	WeaponRange = 21,
 	PointBlankBonus = 1,
 	OverwatchAngle = 5400,
 	Noise = 40,
@@ -54,5 +54,6 @@ DefineClass.TexRevolver = {
 	BulletDropRange = 7,
 	Grouping = 90,
 	BaseJamChance = -100,
+	WeaponResource = 50000,
 }
 

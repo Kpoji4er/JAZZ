@@ -25,7 +25,7 @@ DefineClass.CZ75 = {
 	CritChance = 5,
 	CritChanceScaled = 35,
 	MagazineSize = 16,
-	WeaponRange = 14,
+	WeaponRange = 18,
 	OverwatchAngle = 5400,
 	Noise = 22,
 	Entity = "CZ75",
@@ -73,5 +73,6 @@ DefineClass.CZ75 = {
 	BulletDropRange = 6,
 	Grouping = 94,
 	BaseJamChance = -20,
+	WeaponResource = 4000,
 }
 

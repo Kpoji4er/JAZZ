@@ -24,7 +24,7 @@ DefineClass.MPL = {
 	ObjDamageMod = 20,
 	AimAccuracy = 12,
 	MagazineSize = 30,
-	WeaponRange = 21,
+	WeaponRange = 26,
 	OverwatchAngle = 4320,
 	Noise = 24,
 	HandSlot = "TwoHanded",
@@ -64,5 +64,6 @@ DefineClass.MPL = {
 	BulletDropRange = 9,
 	Grouping = 92,
 	BaseJamChance = -10,
+	WeaponResource = 10000,
 }
 

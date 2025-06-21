@@ -32,12 +32,44 @@ function Unit:DropLoot(container)
 				item.Amount =  Max(1,item.Amount - MulDivRound(item.Amount, percent, 100))
 			end	
 			--qsr print(item)
-			if item.Condition and item.Condition > 1 and (item.drop_chance<100)  then
-				item.Condition = item.Condition - Min(random(100-item.drop_chance),item.Condition)
-			end
-			if item.Deterioration then
-				if item.Condition < 25 then item.Deterioration = random(80)
-				else item.Deterioration = random(10) end
+			if IsKindOf(item, "Firearm") then
+				local quality_roll = random(100)
+				local max = 0
+				local cur = 0
+				local maxres = item.WeaponResourceMax
+
+				if quality_roll <= 20 then
+					-- Юзабельный
+					max = random(60, 100)
+					cur = random(50, 100)
+
+				elseif quality_roll <= 60 then
+					-- Мусор
+					cur = random(0, 80)
+					max = random(10, 60)
+				
+				else
+					-- Средняк
+					cur = random(0, 90)
+					max = random(20, 80)
+
+				end	
+
+				local factory = item:GetFactoryResource() or 1000
+				max = MulDivRound(factory, max, 100)
+				cur = MulDivRound(max, cur, 100) - (max > item.WeaponResource and (max - item.WeaponResource) or 0)
+
+				cur = Clamp(cur,0,max)
+				item.WeaponResourceMax = max
+				item.WeaponResource = cur
+				item.Condition = MulDivRound(100, cur, max)
+					
+			
+			else
+				-- Обычное условие для не-оружия
+				if item.Condition and item.drop_chance < 100 then
+					item.Condition = Max(1, item.Condition - Min(random(100 - item.drop_chance), item.Condition))
+				end
 			end
 			 
 			local addTo = container or self

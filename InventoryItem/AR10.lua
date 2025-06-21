@@ -71,5 +71,6 @@ DefineClass.AR10 = {
 	BulletDropRange = 20,
 	Grouping = 278,
 	BaseJamChance = -10,
+	WeaponResource = 8000,
 }
 

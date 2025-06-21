@@ -24,7 +24,6 @@ DefineClass.TMP = {
 	ObjDamageMod = 20,
 	AimAccuracy = 7,
 	MagazineSize = 30,
-	WeaponRange = 16,
 	OverwatchAngle = 4920,
 	Noise = 25,
 	HandSlot = "TwoHanded",
@@ -72,5 +71,6 @@ DefineClass.TMP = {
 	BulletDropRange = 7,
 	Grouping = 88,
 	BaseJamChance = -30,
+	WeaponResource = 8500,
 }
 

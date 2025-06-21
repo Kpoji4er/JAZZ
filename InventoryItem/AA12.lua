@@ -98,6 +98,7 @@ DefineClass.AA12 = {
 	Handling = 73,
 	BulletDropRange = 8,
 	Grouping = 150,
+	WeaponResource = 6000,
 	CanAppearUsed = false,
 }
 

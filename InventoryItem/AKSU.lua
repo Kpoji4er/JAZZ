@@ -94,5 +94,6 @@ DefineClass.AKSU = {
 	BulletDropRange = 14,
 	Grouping = 200,
 	BaseJamChance = -50,
+	WeaponResource = 11000,
 }
 

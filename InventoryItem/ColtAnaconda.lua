@@ -26,7 +26,7 @@ DefineClass.ColtAnaconda = {
 	CritChance = 10,
 	CritChanceScaled = 40,
 	MagazineSize = 6,
-	WeaponRange = 15,
+	WeaponRange = 21,
 	OverwatchAngle = 5100,
 	Noise = 32,
 	Entity = "Weapon_ColtAnaconda44",
@@ -78,5 +78,6 @@ DefineClass.ColtAnaconda = {
 	BulletDropRange = 7,
 	Grouping = 91,
 	BaseJamChance = -100,
+	WeaponResource = 4500,
 }
 

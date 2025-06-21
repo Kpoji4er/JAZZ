@@ -5,7 +5,7 @@ const.AIFriendlyFire_MaxRange = 20 * const.SlabSizeX	-- max range to ally for it
 const.AIFriendlyFire_LOFWidth = 100*guic 					-- max distance from an ally to the line between position and target considered in danger
 const.AIFriendlyFire_LOFConeNear = 100*guic 				-- same as above for cone attacks (near side of the cone, positioned at attacker)
 const.AIFriendlyFire_LOFConeFar = 300*guic 				-- same as above for cone attacks (far side of the cone, positioned at AIFriendlyFire_MaxRange)
-const.AIFriendlyFire_ScoreMod = 15							-- % of damage score evaluation remanining when an ally is in danger
+const.AIFriendlyFire_ScoreMod = 10							-- % of damage score evaluation remanining when an ally is in danger
 
 const.AIDecisionThreshold = 85 -- targets/locations up to this percent of max scored target/location can be selected
 const.AIShootAboveCTH = 0
@@ -154,7 +154,7 @@ function PickBestAttack(unit, enemy, basic_attacks)
 			--print(string.format("Try mode %s aim=%d → cost=%d AP=%d", action.id, aim, total_cost, AP))
 
 			local threshold = best and best_score * 0.9 or -math.huge
-			if score > threshold and (not best or unit:Random(100) < 33) then
+			if score > threshold and (not best or unit:Random(100) < 10) then
 				best_score = score
 				best = {
 					mode = mode_type,
@@ -273,15 +273,22 @@ function AICreateContext(unit, context)
 	context.dest_target_score = {}
     context.currentpos_target_cover_score = {}
   	context.min_aim_actions = 0
+	context.restarts = 0
 
 	context.weapon = weapon
 	context.default_attack = default_attack
 	context.default_attack_cost = default_attack:GetAPCost(unit)
 
+	context.default_attack_old = default_attack
+	context.default_attack_old_cost = default_attack:GetAPCost(unit)
+
 	context.EffectiveRange = IsKindOf(weapon, "Firearm") and weapon.BulletDropRange and MulDivRound(weapon.BulletDropRange+weapon.WeaponRange, 50, 100) or IsKindOf(weapon, "Firearm") and MulDivRound(weapon.WeaponRange, 50, 100) or 1 
 	if  IsKindOf(weapon, "Firearm") and (GameState.DustStorm or GameState.FireStorm or GameState.Underground or GameState.Night or GameState.Fog) then 
-		context.EffectiveRange = Min(context.unit:GetSightRadius(),context.EffectiveRange) 
+		context.EffectiveRange = Min(DivRound(context.unit:GetSightRadius(),const.SlabSizeX),context.EffectiveRange) 
 	end
+
+
+
 	context.ExtremeRange = IsKindOf(weapon, "Firearm") and weapon.WeaponRange or 1
 	context.enemies = enemies
 	context.attack_target = {}
@@ -1492,10 +1499,22 @@ function AICalcAOETargetPoints(context, min_range, max_range, max_radius)
 	local unit = context.unit
 	local enemies = context.enemies
 	
+	
 	-- add enemy positions
 	for i, enemy in ipairs(enemies) do
 		if VisibilityCheckAll(unit, enemy, nil, const.uvVisible) then
 			target_pts[#target_pts + 1] = context.enemy_pos[enemy]
+		end
+
+		if enemy.last_attack_pos and VisibilityCheckAll(unit, enemy.last_attack_pos, nil, const.uvVisible) then
+			target_pts[#target_pts + 1] = enemy.last_attack_pos
+		end
+	end
+	
+	local lastknownpos = context.unit.last_known_enemy_pos or AIPickScoutLocation(unit)
+	if VisibilityCheckAll(unit, lastknownpos, nil, const.uvVisible) then
+		if lastknownpos then
+			target_pts[#target_pts + 1] = lastknownpos
 		end
 	end
 	

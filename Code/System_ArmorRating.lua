@@ -189,9 +189,16 @@ Armor.properties[#Armor.properties+1] = {
     modifiable = true
 }
 
-
-
-
+--[[
+function Armor:Init()
+    local factory = self:GetFactoryResource() or 1000
+    self.MaxCondition = self.WeaponResourceMax or factory
+    local percent = Clamp(self.Condition or 100, 1, 100)
+    self.WeaponResource = self.WeaponResource or MulDivRound(self.WeaponResourceMax, percent, 100)
+    self.Condition = self.WeaponResource
+    self:InitializeItemId()
+end
+]]
 
 ArmorWeightIds = { "None", "Light", "Medium", "Heavy", "Super-Heavy" }
 ArmorWeightText = { T(60169593798251, --[[Weapon Penetration Class: None]] "Нет"),T(73727036345951, --[[Weapon Penetration Class: Light]] "Легкий"), T(55733836475451, --[[Weapon Penetration Class: Medium]] "Средний"), T(44697586415051, --[[Weapon Penetration Class: Heavy]] "Тяжелый"), T(69836067433751, --[[Weapon Penetration Class: Super Heavy]] "Очень тяжелый")}

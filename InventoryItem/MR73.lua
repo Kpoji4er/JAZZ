@@ -25,7 +25,6 @@ DefineClass.MR73 = {
 	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 6,
-	WeaponRange = 15,
 	OverwatchAngle = 5100,
 	Noise = 32,
 	Entity = "M73Base",

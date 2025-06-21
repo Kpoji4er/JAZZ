@@ -27,7 +27,7 @@ DefineClass.Thompson = {
 	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 30,
-	WeaponRange = 16,
+	WeaponRange = 19,
 	OverwatchAngle = 4320,
 	Noise = 27,
 	HandSlot = "TwoHanded",
@@ -58,5 +58,6 @@ DefineClass.Thompson = {
 	Handling = 88,
 	BulletDropRange = 8,
 	Grouping = 75,
+	WeaponResource = 5000,
 }
 

@@ -113,5 +113,6 @@ DefineClass.M4A1 = {
 	BulletDropRange = 16,
 	Grouping = 240,
 	BaseJamChance = -10,
+	WeaponResource = 13000,
 }
 

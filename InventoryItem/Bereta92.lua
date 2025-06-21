@@ -25,7 +25,7 @@ DefineClass.Bereta92 = {
 	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 17,
-	WeaponRange = 14,
+	WeaponRange = 17,
 	OverwatchAngle = 5400,
 	Noise = 18,
 	Entity = "Weapon_Beretta92F",
@@ -95,5 +95,6 @@ DefineClass.Bereta92 = {
 	BulletDropRange = 6,
 	Grouping = 89,
 	BaseJamChance = -10,
+	WeaponResource = 2000,
 }
 

@@ -25,7 +25,7 @@ DefineClass.BerettaM12 = {
 	ObjDamageMod = 20,
 	AimAccuracy = 12,
 	MagazineSize = 32,
-	WeaponRange = 21,
+	WeaponRange = 28,
 	OverwatchAngle = 4200,
 	Noise = 23,
 	Entity = "BerettaM12",
@@ -72,5 +72,6 @@ DefineClass.BerettaM12 = {
 	BulletDropRange = 10,
 	Grouping = 94,
 	BaseJamChance = -30,
+	WeaponResource = 10000,
 }
 

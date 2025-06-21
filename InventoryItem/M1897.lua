@@ -57,5 +57,6 @@ DefineClass.M1897 = {
 	BulletDropRange = 7,
 	Grouping = 110,
 	BaseJamChance = -10,
+	WeaponResource = 1200,
 }
 

@@ -24,7 +24,7 @@ DefineClass.M45 = {
 	ObjDamageMod = 20,
 	AimAccuracy = 12,
 	MagazineSize = 32,
-	WeaponRange = 21,
+	WeaponRange = 26,
 	OverwatchAngle = 4320,
 	Noise = 21,
 	HandSlot = "TwoHanded",
@@ -62,5 +62,6 @@ DefineClass.M45 = {
 	BulletDropRange = 12,
 	Grouping = 89,
 	BaseJamChance = -20,
+	WeaponResource = 5500,
 }
 

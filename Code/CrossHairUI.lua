@@ -307,7 +307,7 @@ function CrosshairUI:UpdateAim()
 
     local ScopeMagn = GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeMagnification") or 1
     local ScopeSubMagn = GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeSubMagnification") or 0
-    pContext.ScopeAimLevel = GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeAimLevel") or -1
+    pContext.ScopeAimLevel = GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeAimLevel") or 1
 
     local SmallMagn = GetComponentEffectValue(weapon1, "SmallMagnification", "SmallMagnification") or 1
     local SmallSubMagn = GetComponentEffectValue(weapon1, "SmallMagnification", "SmallSubMagnification") or 0

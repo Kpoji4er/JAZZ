@@ -25,7 +25,7 @@ DefineClass.ColtPeacemaker = {
 	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 6,
-	WeaponRange = 15,
+	WeaponRange = 19,
 	OverwatchAngle = 5100,
 	Noise = 32,
 	Entity = "Weapon_Colt",
@@ -62,5 +62,6 @@ DefineClass.ColtPeacemaker = {
 	BulletDropRange = 7,
 	Grouping = 92,
 	BaseJamChance = -100,
+	WeaponResource = 4500,
 }
 

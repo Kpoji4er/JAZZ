@@ -47,6 +47,7 @@ DefineClass.SPAS12 = {
 	Handling = 74,
 	BulletDropRange = 9,
 	Grouping = 140,
+	WeaponResource = 20000,
 	CanAppearUsed = false,
 }
 

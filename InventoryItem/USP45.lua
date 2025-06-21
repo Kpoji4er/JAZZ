@@ -26,7 +26,7 @@ DefineClass.USP45 = {
 	CritChance = 10,
 	CritChanceScaled = 45,
 	MagazineSize = 12,
-	WeaponRange = 13,
+	WeaponRange = 16,
 	OverwatchAngle = 5400,
 	Noise = 28,
 	Entity = "USP45",
@@ -87,6 +87,7 @@ DefineClass.USP45 = {
 	BulletDropRange = 6,
 	Grouping = 95,
 	BaseJamChance = -20,
+	WeaponResource = 2500,
 	CanAppearUsed = false,
 }
 

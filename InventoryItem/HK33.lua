@@ -140,5 +140,6 @@ DefineClass.HK33 = {
 	BulletDropRange = 16,
 	Grouping = 260,
 	BaseJamChance = -30,
+	WeaponResource = 9500,
 }
 

@@ -29,7 +29,7 @@ DefineClass.P90 = {
 	AimAccuracy = 12,
 	CritChanceScaled = 20,
 	MagazineSize = 50,
-	WeaponRange = 25,
+	WeaponRange = 34,
 	OverwatchAngle = 4440,
 	Noise = 28,
 	HandSlot = "TwoHanded",
@@ -79,6 +79,7 @@ DefineClass.P90 = {
 	BulletDropRange = 13,
 	Grouping = 85,
 	BaseJamChance = -30,
+	WeaponResource = 9500,
 	CanAppearUsed = false,
 }
 

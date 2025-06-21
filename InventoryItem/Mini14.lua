@@ -86,5 +86,6 @@ DefineClass.Mini14 = {
 	BulletDropRange = 16,
 	Grouping = 275,
 	BaseJamChance = -10,
+	WeaponResource = 13500,
 }
 

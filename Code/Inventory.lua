@@ -105,66 +105,96 @@ end
 
 
 function InventoryItem:GetDeteriorationKeywordNoPrefix()
-	if not self.Deterioration then 
-		return "" 
-	end
-	
-	local presets = Presets.ConstDef.Weapons
-	local color --AP_Main_SmallRed
+	local color
 	local keyword = ""
-	local conditionPercent = self.Deterioration
-	
-	if IsKindOf(self,"Armor") then
-		if conditionPercent<=1 then
+
+	-- Огнестрел
+	if IsKindOf(self, "Firearm") then
+		local max = self:GetMaxResource() or self:GetFactoryResource() or 1000
+		local curr = self:GetCurrentResource() or max
+		if max <= 0 then max = 1 end
+
+		local conditionPercent = MulDivRound(curr, 100, max)
+
+		if conditionPercent >= 98 then
 			color = "item_green"
-			keyword =  T(4869897712911115, "идеальное")
-		elseif conditionPercent<=10 then
+			keyword = T(486989771291111, "идеальное")
+		elseif conditionPercent >= 90 then
 			color = "item_green"
-			keyword =  T(29981065637411115, "заштопанное")
-		elseif conditionPercent<=30 then
-			color = "yellow"
-			keyword = T(56785797143911115, "дырявое")
-		elseif conditionPercent<=50 then
-			color = "red"
-			keyword = T(9393100803501115, "рваное")
-		else--if conditionPercent>=presets.ItemConditionBroken.name then
-			color = "red"
-			keyword =  T(9684098482331115, "порвано")
-		end
-	else
-		if conditionPercent<=1 then
-			color = "item_green"
-			keyword =  T(486989771291111, "идеальное")
-		elseif conditionPercent<=5 then
-			color = "item_green"
-			keyword =  T(2998106563741111, "отремонтированное")
-		elseif conditionPercent<=20 then
+			keyword = T(2998106563741111, "отремонтированное")
+		elseif conditionPercent >= 70 then
 			color = "yellow"
 			keyword = T(5678579714391111, "изношенное")
-		elseif conditionPercent<=50 then
+		elseif conditionPercent >= 40 then
 			color = "red"
 			keyword = T(939310080350111, "ржавое")
-		else--if conditionPercent>=presets.ItemConditionBroken.name then
+		else
 			color = "red"
-			keyword =  T(968409848233111, "сломанное")
+			keyword = T(968409848233111, "сломанное")
+		end
+
+	-- Броня и всё остальное
+	elseif IsKindOf(self, "Armor") then
+		local conditionPercent = self.Deterioration or 0
+		if conditionPercent <= 1 then
+			color = "item_green"
+			keyword = T(4869897712911115, "идеальное")
+		elseif conditionPercent <= 10 then
+			color = "item_green"
+			keyword = T(29981065637411115, "заштопанное")
+		elseif conditionPercent <= 30 then
+			color = "yellow"
+			keyword = T(56785797143911115, "дырявое")
+		elseif conditionPercent <= 50 then
+			color = "red"
+			keyword = T(9393100803501115, "рваное")
+		else
+			color = "red"
+			keyword = T(9684098482331115, "порвано")
+		end
+
+	-- Старый fallback (хз, вдруг на предметах ещё осталась Deterioration)
+	else
+		local conditionPercent = self.Deterioration or 0
+		if conditionPercent <= 1 then
+			color = "item_green"
+			keyword = T(486989771291111, "идеальное")
+		elseif conditionPercent <= 5 then
+			color = "item_green"
+			keyword = T(2998106563741111, "отремонтированное")
+		elseif conditionPercent <= 20 then
+			color = "yellow"
+			keyword = T(5678579714391111, "изношенное")
+		elseif conditionPercent <= 50 then
+			color = "red"
+			keyword = T(939310080350111, "ржавое")
+		else
+			color = "red"
+			keyword = T(968409848233111, "сломанное")
 		end
 	end
 
-	return T{997078176629, "<clr><keyword><closeclr>",clr = const.TagLookupTable[color],closeclr  = const.TagLookupTable["/"..color],  keyword = keyword}
+	return T{
+		997078176629,
+		"<clr><keyword><closeclr>",
+		clr = const.TagLookupTable[color],
+		closeclr = const.TagLookupTable["/" .. color],
+		keyword = keyword
+	}
 end
 
 
 function InventoryItem:GetDeteriorationKeywordNoPrefixForInventory()
-	if not self.Deterioration then 
-		return " " 
-	end
+
 	
 	local presets = Presets.ConstDef.Weapons
-	local color --AP_Main_SmallRed
+	local color = "item_green"
 	local keyword = ""
-	local conditionPercent = self.Deterioration
 
-	if IsKindOf(self,"Armor") then
+	
+
+	if self.Deterioration then
+		local conditionPercent = self.Deterioration
 		if conditionPercent<=1 then
 			color = "item_green"
 			keyword = " "
@@ -181,17 +211,21 @@ function InventoryItem:GetDeteriorationKeywordNoPrefixForInventory()
 			color = "red"
 			keyword =  T(9684098482331112, "порвано")
 		end
-	else
-		if conditionPercent<=1 then
+	elseif self.WeaponResource then
+		local max = self:GetMaxResource() or 0
+		local factory = self:GetFactoryResource() or 0
+		local conditionPercent =( 100 - MulDivRound(max, 100, factory)) or 100
+
+		if conditionPercent<=5 then
 			color = "item_green"
 			keyword = " "
-		elseif conditionPercent<=5 then
+		elseif conditionPercent<=10 then
 			color = "item_green"
 			keyword = T(29981065637411112, "б/у")
-		elseif conditionPercent<=20 then
+		elseif conditionPercent<=40 then
 			color = "yellow"
 			keyword = T(56785797143911112, "износ")
-		elseif conditionPercent<=50 then
+		elseif conditionPercent<=98 then
 			color = "red"
 			keyword = T(9393100803501112, "ржавое")
 		else--if conditionPercent>=presets.ItemConditionBroken.name then

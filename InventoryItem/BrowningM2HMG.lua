@@ -44,5 +44,6 @@ DefineClass.BrowningM2HMG = {
 	Handling = 28,
 	BulletDropRange = 40,
 	Grouping = 350,
+	WeaponResource = 50000,
 }
 

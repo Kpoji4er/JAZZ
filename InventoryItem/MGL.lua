@@ -41,5 +41,6 @@ DefineClass.MGL = {
 	ShootAP = 4000,
 	ReloadAP = 6000,
 	Handling = 80,
+	WeaponResource = 250,
 }
 

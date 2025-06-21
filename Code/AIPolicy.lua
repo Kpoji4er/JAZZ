@@ -44,6 +44,9 @@ function AIActionBasicAttack:PrecalcAction(context, action_state)
 
 	if not attack.target then
 		print("❌ BasicAttack: No target in default_attack")
+		context.default_attack = context.default_attack_old or context.default_attack 
+		context.default_attack_cost = context.default_attack_cost_old or context.default_attack_cost
+		attack = context.default_attack
 	end
 
 	if not attack or not IsValidTarget(attack.target) then
@@ -222,7 +225,11 @@ function Unit:IsSurrounded(unitReplace)
 	if #enemy_pos < 2 then
 		return
 	end
+
 	local pts = ConvexHull2D(enemy_pos)
+	if not pts or #pts < 2 then
+		return false
+	end
 
 	for i = 1, #pts - 1 do
 		local v1 = pts[i]:Equal2D(pos) and point30 or SetLen(pts[i] - pos, guim)
@@ -242,6 +249,11 @@ function Unit:GetFlankThreat(unitReplace)
 	end
 
 	local pos = unitReplace and unitReplace[self] or self:GetPos()
+	if not IsPoint(pos) then
+		print("Invalid pos in GetFlankThreat", pos)
+		return 0
+	end
+	
 	local enemy_pos = {}
 
 	for _, team in ipairs(g_Teams) do
@@ -258,22 +270,34 @@ function Unit:GetFlankThreat(unitReplace)
 	if #enemy_pos < 2 then return 0 end
 
 	local pts = ConvexHull2D(enemy_pos)
+	if not pts or #pts < 2 then
+		return 0
+	end
+	
 	local max_flank = 0
 	local cos30 = MulDivRound(cos(30 * 60), guim * guim, 4096)
 
 	for i = 1, #pts - 1 do
-		local v1 = pts[i]:Equal2D(pos) and point30 or SetLen(pts[i] - pos, guim)
+		local pi = pts[i]
+		if not pi then goto continue_i end
+		
+		local v1 = pi:Equal2D(pos) and point30 or SetLen(pi - pos, guim)
+	
 		for j = i + 1, #pts do
-			local v2 = pts[j]:Equal2D(pos) and point30 or SetLen(pts[j] - pos, guim)
+			local pj = pts[j]
+			if not pj then goto continue_j end
+			local v2 = pj:Equal2D(pos) and point30 or SetLen(pj - pos, guim)
 			local dp = Dot2D(v1, v2)
-
+	
 			if dp < cos30 then
 				local flank = Clamp((cos30 - dp) / (cos30 + guim * guim), 0, 1)
 				if flank > max_flank then
 					max_flank = flank
 				end
 			end
+			::continue_j::
 		end
+		::continue_i::
 	end
 
 	return max_flank

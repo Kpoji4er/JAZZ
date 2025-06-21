@@ -22,7 +22,7 @@ DefineClass.Scorpion = {
 	AimAccuracy = 7,
 	CritChanceScaled = 5,
 	MagazineSize = 20,
-	WeaponRange = 15,
+	WeaponRange = 18,
 	OverwatchAngle = 4680,
 	Noise = 16,
 	Entity = "Scorpion",
@@ -69,5 +69,6 @@ DefineClass.Scorpion = {
 	Handling = 88,
 	BulletDropRange = 6,
 	Grouping = 70,
+	WeaponResource = 8000,
 }
 

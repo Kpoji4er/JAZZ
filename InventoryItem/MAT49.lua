@@ -23,7 +23,7 @@ DefineClass.MAT49 = {
 	ObjDamageMod = 20,
 	AimAccuracy = 10,
 	MagazineSize = 32,
-	WeaponRange = 19,
+	WeaponRange = 24,
 	OverwatchAngle = 3960,
 	Noise = 24,
 	HandSlot = "TwoHanded",
@@ -63,5 +63,6 @@ DefineClass.MAT49 = {
 	BulletDropRange = 8,
 	Grouping = 70,
 	BaseJamChance = 50,
+	WeaponResource = 4200,
 }
 

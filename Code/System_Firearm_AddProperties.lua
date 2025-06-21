@@ -83,18 +83,18 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
 --    modifiable = true
 --}
 
-FirearmProperties.properties[#FirearmProperties.properties+1] = {
-    category = "New Weapon System",
-    id = "Deterioration",
-    name = "Deterioration",
-    help = "Уровень износа",
-    editor = "number",
-    default = 0,
-    template = false,
-    min = 0,
-    max = 100,
-    modifiable = false
-}
+--FirearmProperties.properties[#FirearmProperties.properties+1] = {
+--    category = "New Weapon System",
+--    id = "Deterioration",
+--    name = "Deterioration",
+--    help = "Уровень износа",
+--    editor = "number",
+--    default = 0,
+--    template = false,
+--    min = 0,
+--    max = 100,
+--    modifiable = false
+--}
 
 FirearmProperties.properties[#FirearmProperties.properties+1] = {
     category = "New Weapon System",
@@ -210,6 +210,46 @@ WeaponComponent.properties[#WeaponComponent.properties+1] = {
     image_preview_size = 75
 }
 
+FirearmProperties.properties[#FirearmProperties.properties+1] = {
+    category = "New Weapon Condition",
+    id = "WeaponResource",
+    name = "Weapon Resource",
+    help = "Ресурс оружия",
+    editor = "number",
+    default = 1000,
+    template = true,
+    min = 0,
+    max = 50000,
+    modifiable = true
+}
+
+
+FirearmProperties.properties[#FirearmProperties.properties+1] = {
+    category = "New Weapon Condition",
+    id = "WeaponResourceMax",
+    name = "Weapon Resource",
+    help = "Ресурс оружия Макс",
+    editor = "number",
+    default = -1,
+    template = false,
+    min = -1,
+    max = 50000,
+    modifiable = true
+}
+FirearmProperties.properties[#FirearmProperties.properties+1] = {
+    category = "New Weapon Condition",
+    id = "DegradePerShot",
+    name = "Degrade per shot",
+    help = "Деградация за выстрел",
+    editor = "number",
+    default = 1,
+    template = true,
+    min = 1,
+    max = 10,
+    modifiable = true
+}
+
+
 WeaponComponentVisual.properties[#WeaponComponentVisual.properties+1] = {
     id = "WeaponName",
     name = "Weapon Name",
@@ -228,6 +268,30 @@ WeaponComponentVisual.properties[#WeaponComponentVisual.properties+1] = {
     default =  "",
     image_preview_size = 75
 }
+
+
+
+
+
+
+function FirearmBase:GetFactoryResource()
+	return InventoryItemDefs[self.class]:GetProperty("WeaponResource") or 1000
+end
+
+function FirearmBase:GetMaxResource()
+    local WeaponResourceMax = 0
+    if self.WeaponResourceMax and self.WeaponResourceMax >= 0 then
+        WeaponResourceMax = self.WeaponResourceMax
+    else
+        WeaponResourceMax = self:GetFactoryResource()
+    end
+	return WeaponResourceMax 
+end
+
+function FirearmBase:GetCurrentResource()
+	return self.WeaponResource or self:GetFactoryResource()
+end
+
 
 
 

@@ -86,5 +86,6 @@ DefineClass.AN94 = {
 	BulletDropRange = 18,
 	Grouping = 275,
 	BaseJamChance = -20,
+	WeaponResource = 12000,
 }
 

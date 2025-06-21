@@ -23,7 +23,7 @@ DefineClass.P210 = {
 	CritChance = 5,
 	CritChanceScaled = 40,
 	MagazineSize = 8,
-	WeaponRange = 14,
+	WeaponRange = 18,
 	OverwatchAngle = 5400,
 	Noise = 18,
 	Entity = "P210",
@@ -94,5 +94,6 @@ DefineClass.P210 = {
 	BulletDropRange = 6,
 	Grouping = 95,
 	BaseJamChance = -50,
+	WeaponResource = 1500,
 }
 

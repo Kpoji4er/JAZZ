@@ -25,7 +25,7 @@ DefineClass.Colt1911 = {
 	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 7,
-	WeaponRange = 12,
+	WeaponRange = 15,
 	OverwatchAngle = 5400,
 	Noise = 28,
 	Entity = "Colt1911",
@@ -75,5 +75,6 @@ DefineClass.Colt1911 = {
 	BulletDropRange = 5,
 	Grouping = 92,
 	BaseJamChance = -10,
+	WeaponResource = 1500,
 }
 

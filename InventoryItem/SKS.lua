@@ -52,5 +52,6 @@ DefineClass.SKS = {
 	BulletDropRange = 15,
 	Grouping = 265,
 	BaseJamChance = -30,
+	WeaponResource = 12000,
 }
 

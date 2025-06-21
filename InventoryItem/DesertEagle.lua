@@ -27,7 +27,6 @@ DefineClass.DesertEagle = {
 	CritChance = 10,
 	CritChanceScaled = 45,
 	MagazineSize = 8,
-	WeaponRange = 15,
 	OverwatchAngle = 4920,
 	Noise = 36,
 	Entity = "Weapon_DesertEagle",
@@ -91,6 +90,7 @@ DefineClass.DesertEagle = {
 	Handling = 82,
 	BulletDropRange = 7,
 	Grouping = 80,
+	WeaponResource = 800,
 	CanAppearUsed = false,
 }
 

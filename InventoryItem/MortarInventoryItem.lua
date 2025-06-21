@@ -36,5 +36,6 @@ DefineClass.MortarInventoryItem = {
 	PreparedAttackType = "None",
 	ShootAP = 6000,
 	Handling = 60,
+	WeaponResource = 80,
 }
 

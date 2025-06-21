@@ -27,7 +27,7 @@ DefineClass.PP19Bizon = {
 	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 64,
-	WeaponRange = 17,
+	WeaponRange = 24,
 	OverwatchAngle = 4080,
 	HandSlot = "TwoHanded",
 	Entity = "Bizon",
@@ -69,6 +69,7 @@ DefineClass.PP19Bizon = {
 	BulletDropRange = 10,
 	Grouping = 80,
 	BaseJamChance = -30,
+	WeaponResource = 17000,
 	CanAppearUsed = false,
 }
 

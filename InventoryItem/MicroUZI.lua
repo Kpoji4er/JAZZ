@@ -24,7 +24,7 @@ DefineClass.MicroUZI = {
 	ObjDamageMod = 20,
 	AimAccuracy = 7,
 	MagazineSize = 20,
-	WeaponRange = 17,
+	WeaponRange = 19,
 	OverwatchAngle = 4920,
 	Noise = 26,
 	Entity = "Weapon_Uzi",
@@ -100,5 +100,6 @@ DefineClass.MicroUZI = {
 	BulletDropRange = 7,
 	Grouping = 75,
 	BaseJamChance = -10,
+	WeaponResource = 8500,
 }
 

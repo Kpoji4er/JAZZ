@@ -25,7 +25,7 @@ DefineClass.PPSH = {
 	AimAccuracy = 9,
 	CritChanceScaled = 5,
 	MagazineSize = 35,
-	WeaponRange = 24,
+	WeaponRange = 27,
 	OverwatchAngle = 3900,
 	Noise = 32,
 	HandSlot = "TwoHanded",
@@ -57,5 +57,6 @@ DefineClass.PPSH = {
 	Handling = 75,
 	BulletDropRange = 11,
 	Grouping = 70,
+	WeaponResource = 15000,
 }
 

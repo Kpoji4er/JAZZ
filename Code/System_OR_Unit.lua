@@ -181,6 +181,9 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 		modifier = modifier - coverbuff
 	end
 
+	if self:HasStatusEffect("Protected") then
+		modifier = modifier - 10
+	end
 
 	-- environmental factors
 	if other then
@@ -734,10 +737,7 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 	local MaxCTH = 100
 
 	if weapon1 and weapon1.Grouping then
-		local groupingPerSlab = weapon1.Grouping * 10 * weapon1:GetConditionPercent()/100 * (100-weapon1.Deterioration)/100
-		local groupingResult = DivRound(groupingPerSlab, dist)
-
-		
+		local groupingResult = FirearmGetGrouping(weapon1,dist)
 		if groupingResult < 100 then
 			MaxCTH = groupingResult
 			--print(MaxCTH)
@@ -1107,6 +1107,7 @@ function Unit:RecalcWillPoints()
 	if self:HasStatusEffect("Protected") then
 		buff = buff + 20
 	end
+
 
 	if self:HasStatusEffect("SuppressionPinned") then
 		buff = buff + 5

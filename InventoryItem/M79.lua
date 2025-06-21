@@ -37,5 +37,6 @@ DefineClass.M79 = {
 	ShootAP = 4000,
 	ReloadAP = 6000,
 	Handling = 85,
+	WeaponResource = 300,
 }
 

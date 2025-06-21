@@ -26,7 +26,7 @@ DefineClass.MP7 = {
 	AimAccuracy = 7,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
-	WeaponRange = 22,
+	WeaponRange = 26,
 	OverwatchAngle = 4680,
 	Noise = 27,
 	Entity = "MP7",
@@ -88,5 +88,6 @@ DefineClass.MP7 = {
 	BulletDropRange = 10,
 	Grouping = 80,
 	BaseJamChance = -30,
+	WeaponResource = 8000,
 }
 

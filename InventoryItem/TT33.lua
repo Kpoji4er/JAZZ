@@ -25,7 +25,7 @@ DefineClass.TT33 = {
 	AimAccuracy = 5,
 	CritChance = 5,
 	MagazineSize = 8,
-	WeaponRange = 14,
+	WeaponRange = 19,
 	OverwatchAngle = 5280,
 	Noise = 24,
 	Entity = "TT33f",
@@ -66,5 +66,6 @@ DefineClass.TT33 = {
 	BulletDropRange = 7,
 	Grouping = 80,
 	BaseJamChance = -10,
+	WeaponResource = 750,
 }
 

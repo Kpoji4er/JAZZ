@@ -27,7 +27,7 @@ DefineClass.UMP45 = {
 	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 25,
-	WeaponRange = 19,
+	WeaponRange = 23,
 	OverwatchAngle = 4200,
 	Noise = 25,
 	HandSlot = "TwoHanded",
@@ -108,6 +108,7 @@ DefineClass.UMP45 = {
 	BulletDropRange = 8,
 	Grouping = 90,
 	BaseJamChance = -30,
+	WeaponResource = 12000,
 	CanAppearUsed = false,
 }
 

@@ -27,7 +27,7 @@ DefineClass.PPS43 = {
 	AimAccuracy = 11,
 	CritChanceScaled = 5,
 	MagazineSize = 35,
-	WeaponRange = 24,
+	WeaponRange = 28,
 	OverwatchAngle = 4200,
 	Noise = 33,
 	HandSlot = "TwoHanded",
@@ -60,5 +60,6 @@ DefineClass.PPS43 = {
 	BulletDropRange = 11,
 	Grouping = 82,
 	BaseJamChance = -10,
+	WeaponResource = 12000,
 }
 

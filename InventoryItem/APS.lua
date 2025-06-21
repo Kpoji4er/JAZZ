@@ -26,7 +26,7 @@ DefineClass.APS = {
 	AimAccuracy = 8,
 	CritChance = 5,
 	MagazineSize = 18,
-	WeaponRange = 13,
+	WeaponRange = 17,
 	OverwatchAngle = 5400,
 	Noise = 19,
 	Entity = "APS",
@@ -72,5 +72,6 @@ DefineClass.APS = {
 	BulletDropRange = 6,
 	Grouping = 93,
 	BaseJamChance = -20,
+	WeaponResource = 2500,
 }
 

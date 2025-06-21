@@ -102,5 +102,6 @@ DefineClass.FAMAS = {
 	Handling = 74,
 	BulletDropRange = 15,
 	Grouping = 235,
+	WeaponResource = 8500,
 }
 

@@ -17,7 +17,7 @@ DefineClass.AutoWeapons = {
 		}),
 	},
 	DisplayName = T(971350457853, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Auto Weapons"),
-	Description = T(938747433410, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Reduced <em>Accuracy</em> penalty when using <em>Burst Fire</em> or <em>Full Auto</em>."),
+	Description = T(253479657834, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Увеличивает количество выстрелов без отдачи на 1 при стрельбе очередями или в автоогне"),
 	Icon = "UI/Icons/Perks/AutoWeapons",
 	Tier = "Specialization",
 }

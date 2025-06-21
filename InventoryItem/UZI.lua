@@ -25,7 +25,7 @@ DefineClass.UZI = {
 	ObjDamageMod = 20,
 	AimAccuracy = 8,
 	MagazineSize = 32,
-	WeaponRange = 21,
+	WeaponRange = 26,
 	OverwatchAngle = 4080,
 	Noise = 23,
 	HandSlot = "TwoHanded",
@@ -84,5 +84,6 @@ DefineClass.UZI = {
 	BulletDropRange = 10,
 	Grouping = 85,
 	BaseJamChance = -20,
+	WeaponResource = 8900,
 }
 

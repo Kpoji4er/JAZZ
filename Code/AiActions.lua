@@ -225,7 +225,7 @@ function AIReloadWeapons(unit)
                     ObjModified(unit)
                 end
             end
-        elseif firearm.ammo.Amount < Max(1, firearm.MagazineSize / 2) then
+        elseif firearm.ammo.Amount < Max(1, firearm.MagazineSize / 10) then
             local ammo = firearm.ammo
             ammo.Amount = firearm.MagazineSize
             unit:ReloadWeapon(firearm, ammo, "delay fx", "ai")
@@ -654,6 +654,15 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
         end
 
   --  end
+    if unit.ActionPoints > 2 and not unit:IsIncapacitated() and not unit:IsDead() then    
+        context.restarts = (context.restarts or 0) + 1
+        if context.restarts < 2 then
+            if g_AIExecutionController then
+                g_AIExecutionController:Log("  Unit %s requesting restart (AP left: %d, restart count: %d)", unit.unitdatadef_id, unit.ActionPoints, context.restarts)
+            end
+            return "restart"
+        end
+    end
     TryChangeStance(unit)
 
     -- local ProneStanceAP = unit:GetStanceToStanceAP(unit.stance, "Prone")
@@ -943,7 +952,7 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
     context.target_score_mod = target_score_mod
 
     local base_mod = unit[weapon.base_skill]
-    local cost_ap = context.override_attack_cost or context.default_attack_cost
+    local cost_ap = context.override_attack_cost or context.default_attack_cost or 1
 
     local max_check_range, is_melee =
         AIGetWeaponCheckRange(unit, weapon, action)

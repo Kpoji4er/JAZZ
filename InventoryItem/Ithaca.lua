@@ -81,5 +81,6 @@ DefineClass.Ithaca = {
 	Handling = 76,
 	BulletDropRange = 8,
 	Grouping = 145,
+	WeaponResource = 3200,
 }
 

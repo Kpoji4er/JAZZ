@@ -25,7 +25,7 @@ DefineClass.Luger = {
 	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 8,
-	WeaponRange = 14,
+	WeaponRange = 17,
 	OverwatchAngle = 5400,
 	Noise = 18,
 	Entity = "Luger",
@@ -62,5 +62,6 @@ DefineClass.Luger = {
 	BulletDropRange = 6,
 	Grouping = 95,
 	BaseJamChance = 10,
+	WeaponResource = 800,
 }
 

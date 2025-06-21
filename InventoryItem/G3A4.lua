@@ -96,5 +96,6 @@ DefineClass.G3A4 = {
 	BulletDropRange = 20,
 	Grouping = 298,
 	BaseJamChance = -30,
+	WeaponResource = 12500,
 }
 

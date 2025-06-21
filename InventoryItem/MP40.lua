@@ -23,6 +23,7 @@ DefineClass.MP40 = {
 	ObjDamageMod = 20,
 	AimAccuracy = 12,
 	MagazineSize = 32,
+	WeaponRange = 25,
 	OverwatchAngle = 4080,
 	Noise = 22,
 	HandSlot = "TwoHanded",
@@ -55,5 +56,6 @@ DefineClass.MP40 = {
 	BulletDropRange = 10,
 	Grouping = 80,
 	BaseJamChance = 30,
+	WeaponResource = 3000,
 }
 

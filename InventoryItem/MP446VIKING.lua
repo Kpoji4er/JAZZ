@@ -25,7 +25,7 @@ DefineClass.MP446VIKING = {
 	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 17,
-	WeaponRange = 14,
+	WeaponRange = 18,
 	OverwatchAngle = 5400,
 	Entity = "Viking",
 	ComponentSlots = {
@@ -85,5 +85,6 @@ DefineClass.MP446VIKING = {
 	BulletDropRange = 6,
 	Grouping = 88,
 	BaseJamChance = -20,
+	WeaponResource = 1800,
 }
 

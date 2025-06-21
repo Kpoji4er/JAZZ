@@ -61,5 +61,6 @@ DefineClass.DoubleBarrelShotgun = {
 	BulletDropRange = 8,
 	Grouping = 140,
 	BaseJamChance = -100,
+	WeaponResource = 20000,
 }
 

@@ -11,6 +11,7 @@ function _InventoryUIRespawn()
     if IsValidThread(g_squad_bag_sort_thread) then
         Sleep(1)
         InventoryUIRespawn() -- run after squad bag sort if concurent
+		InventoryUIResetSquadBag()
         return
     end
     InventoryUIRespawn_shield = true
@@ -341,10 +342,10 @@ function InventoryIsValidTargetForUnit(ctrl_context)
         local ctrl_context_unit = ctrl_context.session_id and g_Units[ctrl_context.session_id]
         if ctrl_context:HasStatusEffect("BandageInCombat") then
             return false, T(107419565286, "Character is busy bandaging")
-        elseif ctrl_context:IsDowned() then
-            return false, T(360582491602, "Character is Downed")
-        elseif ctrl_context:HasStatusEffect("Unconscious") then
-            return false, T(894812059755, "Character is Unconscious")
+--        elseif ctrl_context:IsDowned() then
+--            return false, T(360582491602, "Character is Downed")
+--        elseif ctrl_context:HasStatusEffect("Unconscious") then
+--            return false, T(894812059755, "Character is Unconscious")
         elseif g_Overwatch[ctrl_context] or g_Pindown[ctrl_context] then
             return false, T(462153644901, "Character is busy")
         elseif ctrl_context_unit and g_Overwatch[ctrl_context_unit] or g_Pindown[ctrl_context_unit] then

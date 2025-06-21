@@ -57,5 +57,6 @@ DefineClass.SVT40 = {
 	Handling = 30,
 	BulletDropRange = 24,
 	Grouping = 255,
+	WeaponResource = 7000,
 }
 

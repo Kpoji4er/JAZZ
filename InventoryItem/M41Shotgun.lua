@@ -89,6 +89,7 @@ DefineClass.M41Shotgun = {
 	Handling = 75,
 	BulletDropRange = 9,
 	Grouping = 155,
+	WeaponResource = 12000,
 	CanAppearUsed = false,
 }
 

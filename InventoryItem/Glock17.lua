@@ -26,7 +26,7 @@ DefineClass.Glock17 = {
 	AimAccuracy = 7,
 	CritChance = 5,
 	MagazineSize = 17,
-	WeaponRange = 14,
+	WeaponRange = 18,
 	OverwatchAngle = 5400,
 	Noise = 18,
 	Entity = "Glock_17",
@@ -91,6 +91,7 @@ DefineClass.Glock17 = {
 	BulletDropRange = 6,
 	Grouping = 88,
 	BaseJamChance = -20,
+	WeaponResource = 5000,
 	CanAppearUsed = false,
 }
 

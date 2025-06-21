@@ -123,5 +123,6 @@ DefineClass.Sig550Custom = {
 	BulletDropRange = 17,
 	Grouping = 300,
 	BaseJamChance = -30,
+	WeaponResource = 14000,
 }
 

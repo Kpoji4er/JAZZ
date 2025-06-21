@@ -24,7 +24,7 @@ DefineClass.Sterling = {
 	ObjDamageMod = 20,
 	AimAccuracy = 10,
 	MagazineSize = 34,
-	WeaponRange = 21,
+	WeaponRange = 25,
 	OverwatchAngle = 4200,
 	Noise = 21,
 	HandSlot = "TwoHanded",
@@ -56,5 +56,6 @@ DefineClass.Sterling = {
 	BulletDropRange = 10,
 	Grouping = 88,
 	BaseJamChance = -20,
+	WeaponResource = 7500,
 }
 

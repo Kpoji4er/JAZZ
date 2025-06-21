@@ -114,5 +114,6 @@ DefineClass.G36c = {
 	BulletDropRange = 15,
 	Grouping = 245,
 	BaseJamChance = -15,
+	WeaponResource = 12500,
 }
 

@@ -18,7 +18,7 @@ DefineClass.HeavyWeaponsTraining = {
 		}),
 	},
 	DisplayName = T(575851829180, --[[ModItemCharacterEffectCompositeDef HeavyWeaponsTraining DisplayName]] "Heavy Weapons"),
-	Description = T(662768584689, --[[ModItemCharacterEffectCompositeDef HeavyWeaponsTraining Description]] "Уменьшен расход <em>ОД</em> на атаки из <em>тяжелого вооружения</em> и <em>пулеметов</em> и приведение его в <GameTerm('Setup')>.\nПервые 2 выстрела из пулеметов производятся без отдачи."),
+	Description = T(415344339832, --[[ModItemCharacterEffectCompositeDef HeavyWeaponsTraining Description]] "Уменьшен расход <em>ОД</em> на атаки из <em>тяжелого вооружения</em> и <em>пулеметов</em> и приведение его в <GameTerm('Setup')>."),
 	Icon = "UI/Icons/Perks/HeavyWeaponsTraining",
 	Tier = "Specialization",
 }

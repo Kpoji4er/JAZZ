@@ -26,7 +26,6 @@ DefineClass.HighCalRev = {
 	CritChance = 10,
 	CritChanceScaled = 40,
 	MagazineSize = 6,
-	WeaponRange = 16,
 	OverwatchAngle = 5400,
 	Noise = 40,
 	Entity = "HighCalRev",
@@ -65,5 +64,6 @@ DefineClass.HighCalRev = {
 	BulletDropRange = 10,
 	Grouping = 85,
 	BaseJamChance = -50,
+	WeaponResource = 5000,
 }
 

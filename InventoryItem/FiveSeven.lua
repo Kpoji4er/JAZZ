@@ -26,7 +26,7 @@ DefineClass.FiveSeven = {
 	CritChance = 10,
 	CritChanceScaled = 45,
 	MagazineSize = 20,
-	WeaponRange = 14,
+	WeaponRange = 23,
 	OverwatchAngle = 5400,
 	Noise = 25,
 	Entity = "Five_Seven",
@@ -73,6 +73,7 @@ DefineClass.FiveSeven = {
 	BulletDropRange = 7,
 	Grouping = 92,
 	BaseJamChance = -20,
+	WeaponResource = 2700,
 	CanAppearUsed = false,
 }
 

@@ -26,7 +26,7 @@ DefineClass.Makarov = {
 	CritChance = 5,
 	CritChanceScaled = 35,
 	MagazineSize = 8,
-	WeaponRange = 13,
+	WeaponRange = 16,
 	OverwatchAngle = 5400,
 	Noise = 15,
 	Entity = "Makarov",
@@ -69,5 +69,6 @@ DefineClass.Makarov = {
 	BulletDropRange = 6,
 	Grouping = 85,
 	BaseJamChance = -100,
+	WeaponResource = 5000,
 }
 

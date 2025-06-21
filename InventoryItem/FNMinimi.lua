@@ -98,5 +98,6 @@ DefineClass.FNMinimi = {
 	Handling = 45,
 	BulletDropRange = 17,
 	Grouping = 298,
+	WeaponResource = 15000,
 }
 

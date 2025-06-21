@@ -26,7 +26,7 @@ DefineClass.MAC10 = {
 	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 30,
-	WeaponRange = 13,
+	WeaponRange = 16,
 	OverwatchAngle = 4680,
 	Noise = 30,
 	Entity = "MAC10",
@@ -74,5 +74,6 @@ DefineClass.MAC10 = {
 	BulletDropRange = 5,
 	Grouping = 70,
 	BaseJamChance = -20,
+	WeaponResource = 4500,
 }
 

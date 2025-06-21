@@ -55,5 +55,6 @@ DefineClass.DP27 = {
 	BulletDropRange = 22,
 	Grouping = 278,
 	BaseJamChance = -5,
+	WeaponResource = 50000,
 }
 

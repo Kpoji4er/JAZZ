@@ -79,5 +79,6 @@ DefineClass.R870 = {
 	BulletDropRange = 9,
 	Grouping = 150,
 	BaseJamChance = -10,
+	WeaponResource = 12000,
 }
 

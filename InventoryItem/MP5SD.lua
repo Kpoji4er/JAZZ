@@ -25,7 +25,7 @@ DefineClass.MP5SD = {
 	ObjDamageMod = 20,
 	AimAccuracy = 13,
 	MagazineSize = 30,
-	WeaponRange = 19,
+	WeaponRange = 30,
 	OverwatchAngle = 4320,
 	Noise = 3,
 	HandSlot = "TwoHanded",
@@ -82,6 +82,7 @@ DefineClass.MP5SD = {
 	BulletDropRange = 11,
 	Grouping = 85,
 	BaseJamChance = -30,
+	WeaponResource = 11000,
 	CanAppearUsed = false,
 }
 

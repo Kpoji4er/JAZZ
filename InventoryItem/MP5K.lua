@@ -23,7 +23,7 @@ DefineClass.MP5K = {
 	ObjDamageMod = 20,
 	AimAccuracy = 6,
 	MagazineSize = 30,
-	WeaponRange = 19,
+	WeaponRange = 22,
 	OverwatchAngle = 4680,
 	Noise = 25,
 	Entity = "Weapon_MP5",
@@ -120,6 +120,7 @@ DefineClass.MP5K = {
 	BulletDropRange = 7,
 	Grouping = 80,
 	BaseJamChance = -30,
+	WeaponResource = 11000,
 	CanAppearUsed = false,
 }
 

@@ -26,7 +26,6 @@ DefineClass.M3GreaseGun = {
 	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 30,
-	WeaponRange = 17,
 	OverwatchAngle = 4320,
 	Noise = 28,
 	HandSlot = "TwoHanded",
@@ -57,5 +56,6 @@ DefineClass.M3GreaseGun = {
 	Handling = 82,
 	BulletDropRange = 8,
 	Grouping = 75,
+	WeaponResource = 7200,
 }
 

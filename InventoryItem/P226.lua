@@ -26,7 +26,7 @@ DefineClass.P226 = {
 	CritChance = 5,
 	CritChanceScaled = 25,
 	MagazineSize = 15,
-	WeaponRange = 14,
+	WeaponRange = 19,
 	OverwatchAngle = 5400,
 	Entity = "p226",
 	ComponentSlots = {
@@ -107,6 +107,7 @@ DefineClass.P226 = {
 	BulletDropRange = 6,
 	Grouping = 88,
 	BaseJamChance = -100,
+	WeaponResource = 3200,
 	CanAppearUsed = false,
 }
 

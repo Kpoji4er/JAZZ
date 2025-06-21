@@ -38,6 +38,7 @@ DefineClass.RPG7 = {
 	ShootAP = 7000,
 	ReloadAP = 4000,
 	Handling = 60,
+	WeaponResource = 100,
 	BackfireRange = 2,
 	BackfireDamage = 8,
 }

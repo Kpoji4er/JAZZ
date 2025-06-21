@@ -25,7 +25,7 @@ DefineClass.SpectreM4 = {
 	ObjDamageMod = 20,
 	AimAccuracy = 12,
 	MagazineSize = 50,
-	WeaponRange = 18,
+	WeaponRange = 25,
 	OverwatchAngle = 4080,
 	Noise = 26,
 	Entity = "Spectr_M4",
@@ -57,5 +57,6 @@ DefineClass.SpectreM4 = {
 	BulletDropRange = 9,
 	Grouping = 80,
 	BaseJamChance = -20,
+	WeaponResource = 6000,
 }
 

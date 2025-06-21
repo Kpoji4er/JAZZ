@@ -48,5 +48,6 @@ DefineClass.Stoeger = {
 	BulletDropRange = 8,
 	Grouping = 160,
 	BaseJamChance = -100,
+	WeaponResource = 16000,
 }
 

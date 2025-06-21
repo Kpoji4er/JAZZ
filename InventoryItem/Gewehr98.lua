@@ -66,5 +66,6 @@ DefineClass.Gewehr98 = {
 	Handling = 32,
 	BulletDropRange = 26,
 	Grouping = 360,
+	WeaponResource = 12000,
 }
 

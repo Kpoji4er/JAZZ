@@ -25,7 +25,7 @@ DefineClass.MP5A4 = {
 	ObjDamageMod = 20,
 	AimAccuracy = 13,
 	MagazineSize = 30,
-	WeaponRange = 22,
+	WeaponRange = 30,
 	OverwatchAngle = 4320,
 	Noise = 22,
 	HandSlot = "TwoHanded",
@@ -94,6 +94,7 @@ DefineClass.MP5A4 = {
 	BulletDropRange = 11,
 	Grouping = 85,
 	BaseJamChance = -30,
+	WeaponResource = 11000,
 	CanAppearUsed = false,
 }
 

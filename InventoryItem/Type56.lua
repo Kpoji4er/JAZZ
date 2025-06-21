@@ -74,5 +74,6 @@ DefineClass.Type56 = {
 	Handling = 70,
 	BulletDropRange = 13,
 	Grouping = 180,
+	WeaponResource = 5000,
 }
 

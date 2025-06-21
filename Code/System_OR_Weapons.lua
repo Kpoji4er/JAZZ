@@ -95,106 +95,151 @@ function FirearmBase:GetAutofireShots(action)
 	return shots
 end
 
-function FirearmBase:GetJamChance(attacker, condition)
+
+function FirearmGetGrouping(item,dist_slab)
+	local factory = item:GetFactoryResource()
+	local max_res = item:GetMaxResource() or factory
+	local curr_res = item:GetCurrentResource() or max_res
+
+	if max_res <= 0 then max_res = 1 end
+	if factory <= 0 then factory = 1 end
+
+	local condition_mult = Clamp(curr_res / max_res, 0.1, 1)
+
+	local repair_mult = Clamp(0.9 + 0.1 * max_res / factory, 0.6, 1)
+
+
+	local grouping = item.Grouping or 10
+	local effective_grouping = grouping * condition_mult * repair_mult
+
+	local groupingPerSlab = effective_grouping * 10
+	local groupingResult = groupingPerSlab
+	if dist_slab then
+		groupingResult = DivRound(groupingPerSlab, dist_slab)
+	end	
+
+	return groupingResult
+end
+
+function FirearmBase:GetBaseJamChanceRaw()
 	local item = self.parent_weapon or self
 
-	if not condition then
-		local condition = item.Condition or 100
+	local resource = item:GetCurrentResource() or 1
+	local max_resource = item:GetMaxResource() or item:GetFactoryResource() or 1000
+	local factory = item:GetFactoryResource()
+
+	if max_resource <= 0 then max_resource = 1 end
+
+	local resourcefactor = factory * 0.25 + max_resource * 0.75
+
+	local condition_percent = MulDivRound(resource, 100, resourcefactor)
+	local reliability = item.Reliability or 50
+	local base = item.BaseJamChance or 5
+
+	-- ступенчатый множитель износа
+	local degrade_mult = 1 + ((100 - condition_percent) / 100)^2.25 * 6
+
+	if condition_percent <= 5 then degrade_mult = 15.0 end
+	if condition_percent <= 30 then degrade_mult = 8.0 end
+	if condition_percent <= 30 then degrade_mult = 4.0 end
+	if condition_percent <= 80 then degrade_mult = 2.0 end
+
+	local raw_chance = ((100 - reliability) + base) * degrade_mult
+
+
+
+	-- модификаторы погоды
+	if (GameState.RainHeavy or GameState.RainLight) and not item.indoors then
+		raw_chance = MulDivRound(raw_chance, 100 + const.EnvEffects.RainJamChanceMod, 100)
 	end
-	--IsPlayerEnemy
-	--local base = item.JamChance + DivRound(item.Deterioration,10)
-	--local jam_chance = ((100 - condition))*2 + item.BaseJamChance + (200-item.Reliability*2)*(Max(item.Deterioration,10)/10)
-	local jam_chance = (98 - condition + .0)*(100-item.Reliability)/4 + item.BaseJamChance - (attacker.Mechanical*3)
-	if IsMerc(attacker) then 
-		jam_chance = (((95 - condition + .0))*(100-item.Reliability)/4 + (item.Deterioration-5)*(100-item.Reliability)/2) + item.BaseJamChance - (attacker.Mechanical*2 + attacker.Marksmanship)*2/3
+
+	return raw_chance
+end
+
+function FirearmBase:GetJamChance(attacker)
+	local item = self.parent_weapon or self
+	local jam_chance = self:GetBaseJamChanceRaw()
+	
+
+	if IsMerc(attacker) then
+		local skill_bonus = ((attacker.Mechanical * 4 + attacker.Marksmanship + attacker.Wisdom + attacker:GetLevel())  / 3)
+		jam_chance = jam_chance - skill_bonus
+	else
+		jam_chance = jam_chance - attacker.Mechanical * 3
 	end
-	--print(jam_chance)
-	if (GameState.RainHeavy or GameState.RainLight) and not attacker.indoors then
-		jam_chance = MulDivRound(jam_chance, 100 + const.EnvEffects.RainJamChanceMod, 100)
-	end
-	return jam_chance
+
+	return Clamp(jam_chance, 0, 10000)
 end
 
 function FirearmBase:GetBaseDegradePerShot()
-	return const.Weapons.DegradePerShot
+	return self.DegradePerShot or const.Weapons.DegradePerShot
 end
 
 function FirearmBase:ReliabilityCheck(attacker, num_shots)
 	local item = self.parent_weapon or self
-	local loss = item:GetBaseDegradePerShot()
+	local resource = item:GetCurrentResource() or 1
+	local max_resource = item:GetMaxResource() or item:GetFactoryResource() or 1000
+	if max_resource <= 0 then max_resource = 1 end
 
+	local loss = item:GetBaseDegradePerShot() or 1
+	local jammed = false
 
-
-
-	local condition =  item.Condition or 100
-	local deterioration = item.Deterioration or 0
-
-	loss = (loss+.0)/10
-
-	if item.Deterioration >= 15 then loss = loss + 0.1*item.Deterioration end
-
-
-	
-	-- condition & jam check(s)
-	local jammed
 	if not attacker.infinite_condition then
-		-- jam check once per attack		 -- and attacker.team and attacker.team.control ~= "AI" and not attacker:HasStatusEffect("ManningEmplacement")
-
-
-
-
-		--if item.num_safe_attacks <= 0 and condition < const.Weapons.ItemConditionUsed and jam_roll < jam_chance then
-		local jam_chance = item:GetJamChance(attacker, condition)
+		local jam_chance = item:GetJamChance(attacker) -- уже учитывает ресурс и reliability
 		local seed = Unit:Random()
 		local random = BraidRandomCreate(seed)
 
-		loss = loss + Max(0,0.1*MulDivRound(random(100-item.Reliability),1,10))
-
+		-- Погодные модификаторы увеличивают износ
 		if (GameState.RainHeavy or GameState.DustStorm or GameState.FireStorm) and not attacker.indoors then
 			loss = loss * 1.3
-		end
-		if (GameState.RainLight) and not attacker.indoors then
+		elseif GameState.RainLight and not attacker.indoors then
 			loss = loss * 1.1
 		end
 
-		if not IsMerc(attacker) then loss = 0 end
+		--[[ Боты не теряют ресурс
+		if not IsMerc(attacker) then
+			loss = 0
+		end]]
 
-		if num_shots == 1 then jam_chance = jam_chance/2 end
-		--if num_shots < 3 then jam_chance = jam_chance/2 end
+		if num_shots == 1 then
+			jam_chance = jam_chance / 2
+		end
 
-		local mechbuf = Max(MulDivRound(attacker.Mechanical,1,15),1)
-		local jam_roll = 1 + random(1000 * mechbuf)
-		if item.num_safe_attacks <= 0 and jam_roll < jam_chance then
+		local base_roll = 1000
+		local jam_roll = random(base_roll)
+
+		if item.num_safe_attacks <= 0 and jam_roll < (jam_chance - attacker.Mechanical * 3) then
 			jammed = true
 		end
-		--print(jam_chance..'/'..jam_roll)
-		
-		if not jammed then
-			-- reliability/condition checks once per shot
-			for i = 1, num_shots do
-				local condition_roll = 1 + random(100)
-			--	local condition_roll2 = 1 + attacker:Random(100)
-			--	local condition_roll3 = 1 + attacker:Random(100)
-			--	local condition_roll4 = 1 + attacker:Random(100)
-			--	local condition_roll5 = 1 + attacker:Random(100)
-			--	
-			--	--print(condition_roll)
-			--	--print(condition_roll2)
-				--print(condition_roll3)
-				--print(condition_roll4)
-				--print(condition_roll5)
-			--	if (condition_roll < (item.Reliability - item.Deterioration*0.5)) or condition_roll2 < (item.Reliability - item.Deterioration*0.5) or condition_roll3 < (item.Reliability - item.Deterioration*0.5) or condition_roll4 < (item.Reliability - item.Deterioration*0.5)
-			--	then loss = 0 end; --Adding chance to not loose condition
-				if condition_roll > (item.Reliability - Min(deterioration,90)) and num_shots <= 4 then
-					condition = Max(0, condition - loss)
-				end
 
-			end
-		end
+		-- Всегда теряем ресурс за каждый выстрел, даже если заклинило
+		resource = Max(0, resource - num_shots * loss)
 	end
-	return jammed, condition
+
+	item.WeaponResource = resource
+	local condition_percent = MulDivRound(resource, 100, max_resource)
+	return jammed, condition_percent
 end
 
+function FirearmBase:RepairJammed(condition, unit_owner)
+	self.jammed = false
+	NetUpdateHash("WeaponUnjam", self.class, self.id, self.Condition, condition or self.Condition)
+	if condition then
+		self.Condition = condition
+		if self.WeaponResourceMax then
+			local max = self.WeaponResourceMax > 0 and self.WeaponResourceMax or self:GetFactoryResource() or 1000
+			self.WeaponResource = MulDivRound(max, condition, 100)
+		end
+	end
+	if unit_owner then
+		CreateFloatingText(unit_owner, T(123820160317, "Unjammed"))
+		--CombatLog("important", T{276992233611, "Jammed weapon was <em>clumsily fixed</em> by <DisplayName> (<Mechanical> Mechanical): <condLoss> condition lost", SubContext(unit, {condLoss = condLoss})})
+		Msg("InventoryChange", unit_owner) 
+		if IsKindOf(unit_owner, "Unit") then unit_owner:RecalcUIActions() end
+		ObjModified(unit_owner)
+		PlayFX("UnjamWeapon", "start", unit_owner, self.class)
+	end
+end
 
 function Firearm:PrecalcAmmoUse(attacker, num, prediction, isShotgun)
 	local fired = num	
@@ -608,6 +653,7 @@ end
 
 	local suppression_CTH = attack_results.chance_to_hit
 
+	local will_damage_by_unit = {}
 
 	for i = 1, num_shots do
 	
@@ -821,6 +867,8 @@ end
 		end
 
 
+		
+
 
 		--print(hit_data.target_spot_group)
 		--print(shot_cth)
@@ -954,8 +1002,9 @@ end
 								attacker.WillPoints = Max(attacker.MaxWillPoints, attacker.WillPoints + willDamage)
 							end
 							if not target_is_psycho then
-								target_unit.WillPoints = Max(0, target_unit.WillPoints - willDamage)
-								target_unit:ApplySuppressionStatus()
+								will_damage_by_unit[target_unit] = (will_damage_by_unit[target_unit] or 0) + willDamage
+								--target_unit.WillPoints = Max(0, target_unit.WillPoints - willDamage)
+								--target_unit:ApplySuppressionStatus()
 							end
 						end
 					end
@@ -971,8 +1020,10 @@ end
 									attacker.WillPoints = Max(attacker.MaxWillPoints, attacker.WillPoints + nearDamage)
 								end
 								if not HasPerk(unit, "Psycho") then
-									unit.WillPoints = Max(0, unit.WillPoints - nearDamage)
-									unit:ApplySuppressionStatus()
+									will_damage_by_unit[unit] = (will_damage_by_unit[unit] or 0) + nearDamage
+
+									--unit.WillPoints = Max(0, unit.WillPoints - nearDamage)
+									--unit:ApplySuppressionStatus()
 								end
 							end
 						end
@@ -982,6 +1033,15 @@ end
 
 	end
 
+
+	for unit, wp_dmg in pairs(will_damage_by_unit) do
+		if IsValid(unit) and not HasPerk(unit, "Psycho") then
+			unit.WillPoints = Max(0, unit.WillPoints - wp_dmg)
+			unit:ApplySuppressionStatus()
+		end
+	end
+
+	
 	attack_results.miss = miss
 	attack_results.crit = crit
 
@@ -1064,12 +1124,18 @@ end
 
 
 function FirearmBase:Unjam(unit)
-	--local pass, amount = SkillCheck(unit, "Mechanical", (100 - self.Condition) + (100 - self.Reliability))
-	--print((100 - self.Condition)/10 + (100 - self.Reliability)/10 + self.Deterioration)
+	local factory = self:GetFactoryResource() or 1000
+	local max = self.WeaponResourceMax or factory
+	if max <= 0 then max = 1 end
+	if factory <= 0 then factory = 1 end
 
-	local pass = RollSkillCheck(unit, "Mechanical", (100 - self.Condition)/10 + (100 - self.Reliability)/10 + self.Deterioration,50)
-	local amount = unit:Random(100-unit.Mechanical)/10
+	-- Проверка успеха починки
+	local diff = (100 - MulDivRound(self.WeaponResource or 0, 100, max)) / 10 + (100 - (self.Reliability or 50)) / 10 + (self.Deterioration or 0)
+	local pass = RollSkillCheck(unit, "Mechanical", diff, 50)
+
+	local amount = unit:Random(100 - unit.Mechanical) / 10
 	self.num_safe_attacks = Max(self.num_safe_attacks, const.Weapons.JamFixNumSafeAttacks)
+
 	if pass then
 		self.jammed = false
 		CreateFloatingText(unit, T(123820160317, "Unjammed"))
@@ -1080,18 +1146,19 @@ function FirearmBase:Unjam(unit)
 		PlayFX("UnjamWeapon", "start", unit, self.class)
 		return
 	end
-	local condLoss = Max(0.1, (amount+.0)*0.1)
-	--condLoss = MulDivRound(condLoss, 1, const.Weapons.JamConditionLossDivisor)
-	condLoss = Min(condLoss, 3)
-	condLoss = floatfloor(condLoss * 10,0)+.0
-	condLoss = condLoss*0.1
-	local newCondition = Max(0, unit:ItemModifyCondition(self, -condLoss))
-	NetUpdateHash("WeaponUnjam", self.class, self.id, self.Condition, newCondition)
-	self.Condition = newCondition
-	if self.Condition < 0.1 then self.Condition = 0 end
-	
-	if newCondition == 0 then
 
+	-- Урон при неудаче
+	local condLoss = Clamp(amount * 0.1, 0.1, 3)
+	condLoss = floatfloor(condLoss * 10, 0) * 0.1
+
+	local loss = MulDivRound(factory, condLoss, 100)
+	self.WeaponResourceMax = Max(1, max - loss)
+	self.WeaponResource = Min(self.WeaponResource or 0, self.WeaponResourceMax)
+
+	local newConditionPercent = MulDivRound(self.WeaponResource, 100, self.WeaponResourceMax)
+	NetUpdateHash("WeaponUnjam", self.class, self.id, self.WeaponResource, self.WeaponResourceMax)
+
+	if self.WeaponResourceMax <= 1 or newConditionPercent <= 0 then
 		CombatLog("important", T{759078917029, "<DisplayName> has <em>broken</em> a jammed weapon in attempt to fix it (<Mechanical> Mechanical)", unit})
 		Msg("InventoryChange", unit)
 		if IsKindOf(unit, "Unit") then unit:RecalcUIActions() end
@@ -1100,16 +1167,18 @@ function FirearmBase:Unjam(unit)
 		return
 	end
 
-	--self.jammed = false
+	-- Неудачно, но не сломано
 	if IsKindOf(unit, "Unit") then
 		CreateFloatingText(unit, T(456744290565, "Jammed"))
 	end
 	CombatLog("important", T{276992233611, "Jammed weapon was <em>damaged in attempt to fix</em> by <DisplayName> (<Mechanical> Mechanical): <condLoss> condition lost", SubContext(unit, {condLoss = condLoss})})
-	Msg("InventoryChange", unit) 
+	Msg("InventoryChange", unit)
 	if IsKindOf(unit, "Unit") then unit:RecalcUIActions() end
 	ObjModified(unit)
 	PlayFX("UnjamWeapon", "start", unit, self.class)
 end
+
+
 
 TFormat.bullets =  function(context_obj, bullets, max, icon)
 	icon = icon or "<image UI/Icons/Rollover/ammo_placeholder 1400>"
@@ -1572,21 +1641,69 @@ function FirearmBase:GetScrapParts()
 end
 
 function MishapProperties:GetMishapDeviationVector(unit, target)
-	local deviation = unit:RandRange(self.MinMishapRange * const.SlabSizeX * unit:Random(unit.Explosives)/100, self.MaxMishapRange * const.SlabSizeX * unit:Random(100-unit.Explosives)/100)
-	return Rotate(point(deviation, 0, 0), unit:Random(360*60))
+	local explosives = unit.Explosives or 50
+	local dist_tiles = unit:GetDist(target) / const.SlabSizeX
+
+	-- Значения из префаба
+	local min_range = (self.MaxMishapRange or 1) * const.SlabSizeX
+	local max_range = (self.MaxMishapRange or 4) * const.SlabSizeX
+
+	-- Модификатор от дистанции: чем дальше — тем выше разброс
+	local dist_mod = Clamp(dist_tiles / 6, 1, 4.0)
+
+	-- Модификатор от навыка: плохой скилл = больше разброс
+	local skill_mod = Clamp(1 - explosives / 100, 0.1, 1)
+
+	-- Финальные отклонения
+	local min_dev = min_range * dist_mod * skill_mod
+	local max_dev = max_range * dist_mod * skill_mod
+
+	local deviation = unit:RandRange(min_dev, max_dev)
+	return Rotate(point(deviation, 0, 0), unit:Random(360 * 60))
 end
 
 
 
 function MishapProperties:GetMishapDeviationVectorMin(unit, target)
-	local deviation = unit:RandRange(0, self.MinMishapRange * const.SlabSizeX * unit:Random(100-unit.Explosives)/100)
-	return Rotate(point(deviation, 0, 0), unit:Random(360*60))
+	local explosives = unit.Explosives or 50
+	local dist_tiles = unit:GetDist(target) / const.SlabSizeX
+
+	-- Значения из префаба
+	local min_range = 1 * const.SlabSizeX
+	local max_range = (self.MinMishapRange or 2) * const.SlabSizeX
+
+	-- Модификатор от дистанции: чем дальше — тем выше разброс
+	local dist_mod = Clamp(dist_tiles / 10, 0.5, 3.0)
+
+	-- Модификатор от навыка: плохой скилл = больше разброс
+	local skill_mod = Clamp(1 - explosives / 100, 0.1, 1)
+
+	-- Финальные отклонения
+	local min_dev = min_range * dist_mod * skill_mod
+	local max_dev = max_range * dist_mod * skill_mod
+
+	local deviation = unit:RandRange(min_dev, max_dev)
+	return Rotate(point(deviation, 0, 0), unit:Random(360 * 60))
 end
 
 function MishapProperties:GetMishapDeviationVectorMax(unit, target)
-	local deviation = unit:RandRange(self.MinMishapRange * const.SlabSizeX * unit:Random(unit.Explosives)/100, self.MaxMishapRange * const.SlabSizeX * unit:Random(100-unit.Explosives)/100)
-	return Rotate(point(deviation, 0, 0), unit:Random(360*60))
+	local explosives = unit.Explosives or 50
+	local dist_tiles = unit:GetDist(target) / const.SlabSizeX
+
+	-- Значения из префаба
+	local min_range = (self.MinMishapRange or 1) * const.SlabSizeX
+	local max_range = (self.MaxMishapRange or 4) * const.SlabSizeX
+
+	-- Модификатор от дистанции: чем дальше — тем выше разброс
+	local dist_mod = Clamp(dist_tiles / 6, 1, 4.0)
+
+	-- Модификатор от навыка: плохой скилл = больше разброс
+	local skill_mod = Clamp(1 - explosives / 100, 0.1, 1)
+
+	-- Финальные отклонения
+	local min_dev = min_range * dist_mod * skill_mod
+	local max_dev = max_range * dist_mod * skill_mod
+
+	local deviation = unit:RandRange(min_dev, max_dev)
+	return Rotate(point(deviation, 0, 0), unit:Random(360 * 60))
 end
-
-
-

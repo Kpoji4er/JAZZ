@@ -94,5 +94,6 @@ DefineClass.U100 = {
 	Handling = 40,
 	BulletDropRange = 17,
 	Grouping = 272,
+	WeaponResource = 8000,
 }
 

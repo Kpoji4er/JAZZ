@@ -56,5 +56,6 @@ DefineClass.MG58 = {
 	Handling = 16,
 	BulletDropRange = 26,
 	Grouping = 292,
+	WeaponResource = 10000,
 }
 

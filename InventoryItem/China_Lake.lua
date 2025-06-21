@@ -40,5 +40,6 @@ DefineClass.China_Lake = {
 	ShootAP = 4000,
 	ReloadAP = 6000,
 	Handling = 70,
+	WeaponResource = 100,
 }
 
