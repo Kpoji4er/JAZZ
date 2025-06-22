@@ -233,7 +233,7 @@ function FirearmBase:RepairJammed(condition, unit_owner)
 	if condition then
 		self.Condition = condition
 		if self.WeaponResourceMax then
-			local max = self.WeaponResourceMax > 0 and self.WeaponResourceMax or self:GetFactoryResource() or 1000
+			local max = self.WeaponResourceMax > 0 and self.WeaponResourceMax or self:GetFactoryResource() or 1
 			self.WeaponResource = MulDivRound(max, condition, 100)
 		end
 	end
@@ -1155,9 +1155,10 @@ function FirearmBase:Unjam(unit)
 
 	-- Урон при неудаче
 	local condLoss = Clamp(amount * 0.1, 0.1, 3)
-	condLoss = floatfloor(condLoss * 10, 0) * 0.1
+	condLoss = floatfloor(condLoss + 0.5)
 
-	local loss = MulDivRound(factory, condLoss, 100)
+	local loss = MulDivRound(max * 1.0, condLoss * 1.0, 100) 
+
 	self.WeaponResourceMax = Max(1, max - loss)
 	self.WeaponResource = Min(self.WeaponResource or 0, self.WeaponResourceMax)
 
@@ -1177,6 +1178,7 @@ function FirearmBase:Unjam(unit)
 	if IsKindOf(unit, "Unit") then
 		CreateFloatingText(unit, T(456744290565, "Jammed"))
 	end
+	self.jammed = false
 	CombatLog("important", T{276992233611, "Jammed weapon was <em>damaged in attempt to fix</em> by <DisplayName> (<Mechanical> Mechanical): <condLoss> condition lost", SubContext(unit, {condLoss = condLoss})})
 	Msg("InventoryChange", unit)
 	if IsKindOf(unit, "Unit") then unit:RecalcUIActions() end
