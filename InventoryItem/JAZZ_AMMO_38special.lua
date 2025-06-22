@@ -16,7 +16,7 @@ DefineClass.JAZZ_AMMO_38special = {
 	CategoryPair = "44CAL",
 	ShopStackSize = 30,
 	MaxStacks = 120,
-	Caliber = "JAZZ_Caliber_44CAL",
+	Caliber = "JAZZ_Caliber_38",
 	Modifications = {
 		PlaceObj('CaliberModification', {
 			mod_mul = 0,

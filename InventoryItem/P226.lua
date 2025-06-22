@@ -28,7 +28,7 @@ DefineClass.P226 = {
 	MagazineSize = 15,
 	WeaponRange = 19,
 	OverwatchAngle = 5400,
-	Entity = "p226",
+	Entity = "P226",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",

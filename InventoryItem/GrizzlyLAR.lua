@@ -1,0 +1,96 @@
+UndefineClass('GrizzlyLAR')
+DefineClass.GrizzlyLAR = {
+	__parents = { "Pistol" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "T3",
+	object_class = "Pistol",
+	ScrapParts = 10,
+	RepairCost = 70,
+	Reliability = 20,
+	Icon = "Mod/e6L4ECj/WeaponIcons/Deagle.png",
+	DisplayName = T(121264662868, --[[ModItemInventoryItemCompositeDef GrizzlyLAR DisplayName]] "Desert Eagle"),
+	DisplayNamePlural = T(906903634947, --[[ModItemInventoryItemCompositeDef GrizzlyLAR DisplayNamePlural]] "Desert Eagle"),
+	Description = T(855624394430, --[[ModItemInventoryItemCompositeDef GrizzlyLAR Description]] 'А теперь ты сморщиваешься и твои маленькие яйчишки сморщиваются вместе с тобой. Потому что на боку твоего пистолета написано муляж". А на боку моего пистолета написано Desert Eagle калибра .50".'),
+	AdditionalHint = T(643376234175, --[[ModItemInventoryItemCompositeDef GrizzlyLAR AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Огромный урон\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тяжелый"),
+	UnitStat = "Marksmanship",
+	Valuable = 1,
+	Cost = 10000,
+	CanAppearInShop = true,
+	Tier = 2,
+	CategoryPair = "Handguns",
+	Caliber = "JAZZ_Caliber_44CAL",
+	Damage = 30,
+	ObjDamageMod = 50,
+	AimAccuracy = 10,
+	CritChance = 10,
+	CritChanceScaled = 45,
+	MagazineSize = 8,
+	OverwatchAngle = 4920,
+	Noise = 36,
+	Entity = "GrizzlyLAR",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"ReflexSight",
+				"ReflexSightAdvanced",
+				"ImprovedIronsight",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagNormal",
+				"MagLarge",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Barrel",
+			'AvailableComponents', {
+				"BarrelNormal",
+				"Barrel50BMG_DesertEagle",
+			},
+			'DefaultComponent', "BarrelNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'Modifiable', false,
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Suppressor",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Side",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"FlashlightDot",
+				"Flashlight",
+				"LaserDot",
+				"UVDot",
+			},
+		}),
+	},
+	HolsterSlot = "Leg",
+	AvailableAttacks = {
+		"SingleShot",
+		"DualShot",
+		"CancelShot",
+		"MobileShot",
+	},
+	ShootAP = 3000,
+	ReloadAP = 4000,
+	MaxAimActions = 2,
+	Recoil = 1,
+	AutoShots = 3,
+	Handling = 82,
+	BulletDropRange = 7,
+	Grouping = 80,
+	WeaponResource = 800,
+	CanAppearUsed = false,
+}
+

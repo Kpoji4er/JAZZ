@@ -1,5 +1,5 @@
-UndefineClass('rev38Special')
-DefineClass.rev38Special = {
+UndefineClass('Colt38Special')
+DefineClass.Colt38Special = {
 	__parents = { "Revolver" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
@@ -10,16 +10,16 @@ DefineClass.rev38Special = {
 	RepairCost = 30,
 	Reliability = 95,
 	Icon = "Mod/e6L4ECj/WeaponIcons/ColtPeaceMaker.png",
-	DisplayName = T(436628869426, --[[ModItemInventoryItemCompositeDef rev38Special DisplayName]] "38Special"),
-	DisplayNamePlural = T(427566606201, --[[ModItemInventoryItemCompositeDef rev38Special DisplayNamePlural]] "38Special"),
-	Description = T(878461703337, --[[ModItemInventoryItemCompositeDef rev38Special Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
-	AdditionalHint = T(434107786112, --[[ModItemInventoryItemCompositeDef rev38Special AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер - точный, надежный, но большие затраты ОД на выстрел и перезарядку"),
+	DisplayName = T(436628869426, --[[ModItemInventoryItemCompositeDef Colt38Special DisplayName]] "Colt .38 Special"),
+	DisplayNamePlural = T(427566606201, --[[ModItemInventoryItemCompositeDef Colt38Special DisplayNamePlural]] "Colt .38 Special"),
+	Description = T(563384549909, --[[ModItemInventoryItemCompositeDef Colt38Special Description]] "TODO"),
+	AdditionalHint = T(460566737568, --[[ModItemInventoryItemCompositeDef Colt38Special AdditionalHint]] "TODO"),
 	UnitStat = "Marksmanship",
 	Cost = 500,
 	CanAppearInShop = true,
 	CategoryPair = "Handguns",
 	Caliber = "JAZZ_Caliber_38",
-	Damage = 18,
+	Damage = 15,
 	ObjDamageMod = 40,
 	AimAccuracy = 8,
 	CritChance = 5,

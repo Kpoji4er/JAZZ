@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 6,
-	'version', 4960,
+	'version', 4979,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -157,14 +157,13 @@ return PlaceObj('ModDef', {
 		"InventoryItem/ColtAnaconda.lua",
 		"InventoryItem/MP446VIKING.lua",
 		"InventoryItem/USP45.lua",
-		"InventoryItem/APS.lua",
-		"InventoryItem/DesertEagle.lua",
 		"InventoryItem/FiveSeven.lua",
 		"InventoryItem/Glock17.lua",
 		"InventoryItem/Glock18.lua",
+		"InventoryItem/DesertEagle.lua",
 		"InventoryItem/TexRevolver.lua",
 		"InventoryItem/HighCalRev.lua",
-		"InventoryItem/rev38Special.lua",
+		"InventoryItem/Colt38Special.lua",
 		"InventoryItem/CZ52.lua",
 		"InventoryItem/MAC1950.lua",
 		"InventoryItem/P38.lua",
@@ -177,6 +176,13 @@ return PlaceObj('ModDef', {
 		"InventoryItem/SWModel29.lua",
 		"InventoryItem/P220.lua",
 		"InventoryItem/P226.lua",
+		"InventoryItem/Korth.lua",
+		"InventoryItem/GrizzlyLAR.lua",
+		"InventoryItem/APS.lua",
+		"InventoryItem/Welrod.lua",
+		"InventoryItem/Webley.lua",
+		"InventoryItem/SWModel52.lua",
+		"InventoryItem/SWModel5906.lua",
 		"InventoryItem/M4Commando.lua",
 		"InventoryItem/MP5.lua",
 		"InventoryItem/MP40.lua",
@@ -646,8 +652,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1750605197,
-	'code_hash', 7617208092510147086,
+	'saved', 1750630233,
+	'code_hash', -4568415226094566831,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -8111,22 +8117,77 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "SoundPreset",
-			'Id', "32ACP_shot",
+			'Id', "32acp_shot",
 			'ClassDisplayName', "Sound",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "SoundPreset",
-			'Id', "32ACP_shot-room",
+			'Id', "32acp_shot-room",
 			'ClassDisplayName', "Sound",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "SoundPreset",
-			'Id', "38SW_shot",
+			'Id', "38sw_shot",
 			'ClassDisplayName', "Sound",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "SoundPreset",
-			'Id', "38SW_shot-room",
+			'Id', "38sw_shot-room",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "45acprev_shot",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "45acprev_shot-room",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "45welrod_shot",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "45welrod_shot-room",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "45welrod_reload",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "50ae_shot",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "50ae_shot-room",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "357magnum_shot",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "357magnum_shot-room",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "Mini14_shot",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "Mini14_shot-room",
 			'ClassDisplayName', "Sound",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -8161,12 +8222,12 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "SoundPreset",
-			'Id', "AK74_shot_single",
+			'Id', "AN94_shot",
 			'ClassDisplayName', "Sound",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "SoundPreset",
-			'Id', "AN94_shot",
+			'Id', "AK74_shot_single",
 			'ClassDisplayName', "Sound",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -8521,7 +8582,7 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "SoundPreset",
-			'Id', "TexRevolver_shot- room",
+			'Id', "TexRevolver_shot-room",
 			'ClassDisplayName', "Sound",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -9251,16 +9312,6 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
-			'Id', "APS",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
-			'Id', "DesertEagle",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
 			'Id', "FiveSeven",
 			'ClassDisplayName', "Inventory item",
 		}),
@@ -9276,6 +9327,11 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
+			'Id', "DesertEagle",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
 			'Id', "TexRevolver",
 			'ClassDisplayName', "Inventory item",
 		}),
@@ -9286,7 +9342,7 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
-			'Id', "rev38Special",
+			'Id', "Colt38Special",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -9347,6 +9403,41 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "P226",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "Korth",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "GrizzlyLAR",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "APS",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "Welrod",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "Webley",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "SWModel52",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "SWModel5906",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -13576,7 +13667,7 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "XTemplate",
-			'Id', "ModifyWeaponDlg_icons",
+			'Id', "ModifyWeaponDlg_Icons",
 			'ClassDisplayName', "UI Template (XTemplate)",
 		}),
 		PlaceObj('ModResourcePreset', {

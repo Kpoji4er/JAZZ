@@ -1,5 +1,5 @@
-UndefineClass('SWModel10')
-DefineClass.SWModel10 = {
+UndefineClass('Korth')
+DefineClass.Korth = {
 	__parents = { "Revolver" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
@@ -10,10 +10,10 @@ DefineClass.SWModel10 = {
 	RepairCost = 30,
 	Reliability = 95,
 	Icon = "Mod/e6L4ECj/WeaponIcons/ColtPeaceMaker.png",
-	DisplayName = T(436628869426, --[[ModItemInventoryItemCompositeDef SWModel10 DisplayName]] "SWModel10"),
-	DisplayNamePlural = T(427566606201, --[[ModItemInventoryItemCompositeDef SWModel10 DisplayNamePlural]] "SWModel10"),
-	Description = T(878461703337, --[[ModItemInventoryItemCompositeDef SWModel10 Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
-	AdditionalHint = T(434107786112, --[[ModItemInventoryItemCompositeDef SWModel10 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер - точный, надежный, но большие затраты ОД на выстрел и перезарядку"),
+	DisplayName = T(436628869426, --[[ModItemInventoryItemCompositeDef Korth DisplayName]] "Manurhin MR 73"),
+	DisplayNamePlural = T(427566606201, --[[ModItemInventoryItemCompositeDef Korth DisplayNamePlural]] "Manurhin MR 73"),
+	Description = T(878461703337, --[[ModItemInventoryItemCompositeDef Korth Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
+	AdditionalHint = T(434107786112, --[[ModItemInventoryItemCompositeDef Korth AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер - точный, надежный, но большие затраты ОД на выстрел и перезарядку"),
 	UnitStat = "Marksmanship",
 	Cost = 500,
 	CanAppearInShop = true,
@@ -25,10 +25,9 @@ DefineClass.SWModel10 = {
 	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 6,
-	WeaponRange = 15,
 	OverwatchAngle = 5100,
-	Noise = 15,
-	Entity = "SWModel10",
+	Noise = 32,
+	Entity = "KorthRev",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",
@@ -40,23 +39,20 @@ DefineClass.SWModel10 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelShort_Pistol",
+				"BarrelLong",
 				"BarrelNormal",
 			},
 			'DefaultComponent', "BarrelNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Side",
-			'CanBeEmpty', true,
+			'SlotType', "Handgrip",
 			'AvailableComponents', {
-				"Flashlight",
-				"LaserDot",
-				"FlashlightDot",
-				"UVDot",
+				"Handgrip_Default",
+				"Handgrip_Ergo",
 			},
+			'DefaultComponent', "Handgrip_Default",
 		}),
 	},
-	Color = "Default",
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
 		"SingleShot",
