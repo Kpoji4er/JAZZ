@@ -1131,7 +1131,7 @@ end
 
 function FirearmBase:Unjam(unit)
 	local factory = self:GetFactoryResource() or 1000
-	local max = self.WeaponResourceMax or factory
+	local max = self:GetMaxResource()    
 	if max <= 0 then max = 1 end
 	if factory <= 0 then factory = 1 end
 
@@ -1139,7 +1139,7 @@ function FirearmBase:Unjam(unit)
 	local diff = (100 - MulDivRound(self.WeaponResource or 0, 100, max)) / 10 + (100 - (self.Reliability or 50)) / 10 + (self.Deterioration or 0)
 	local pass = RollSkillCheck(unit, "Mechanical", diff, 50)
 
-	local amount = unit:Random(100 - unit.Mechanical) / 10
+	local amount = unit:Random(100 - unit.Mechanical)
 	self.num_safe_attacks = Max(self.num_safe_attacks, const.Weapons.JamFixNumSafeAttacks)
 
 	if pass then
@@ -1158,6 +1158,9 @@ function FirearmBase:Unjam(unit)
 	condLoss = floatfloor(condLoss + 0.5)
 
 	local loss = MulDivRound(max * 1.0, condLoss * 1.0, 100) 
+
+	print("jam debug")
+	print(max,loss,condLoss,amount)
 
 	self.WeaponResourceMax = Max(1, max - loss)
 	self.WeaponResource = Min(self.WeaponResource or 0, self.WeaponResourceMax)
@@ -1178,11 +1181,12 @@ function FirearmBase:Unjam(unit)
 	if IsKindOf(unit, "Unit") then
 		CreateFloatingText(unit, T(456744290565, "Jammed"))
 	end
-	self.jammed = false
+
 	CombatLog("important", T{276992233611, "Jammed weapon was <em>damaged in attempt to fix</em> by <DisplayName> (<Mechanical> Mechanical): <condLoss> condition lost", SubContext(unit, {condLoss = condLoss})})
 	Msg("InventoryChange", unit)
 	if IsKindOf(unit, "Unit") then unit:RecalcUIActions() end
 	ObjModified(unit)
+	self.jammed = false
 	PlayFX("UnjamWeapon", "start", unit, self.class)
 end
 
@@ -1681,7 +1685,7 @@ function MishapProperties:GetMishapDeviationVectorMin(unit, target)
 	local max_range = (self.MinMishapRange or 2) * const.SlabSizeX
 
 	-- Модификатор от дистанции: чем дальше — тем выше разброс
-	local dist_mod = Clamp(dist_tiles / 10, 0.5, 3.0)
+	local dist_mod = Clamp(dist_tiles / 8, 0.5, 3.0)
 
 	-- Модификатор от навыка: плохой скилл = больше разброс
 	local skill_mod = Clamp(1 - explosives / 100, 0.1, 1)
@@ -1703,7 +1707,7 @@ function MishapProperties:GetMishapDeviationVectorMax(unit, target)
 	local max_range = (self.MaxMishapRange or 4) * const.SlabSizeX
 
 	-- Модификатор от дистанции: чем дальше — тем выше разброс
-	local dist_mod = Clamp(dist_tiles / 6, 1, 4.0)
+	local dist_mod = Clamp(dist_tiles / 8, 1, 4.0)
 
 	-- Модификатор от навыка: плохой скилл = больше разброс
 	local skill_mod = Clamp(1 - explosives / 100, 0.1, 1)

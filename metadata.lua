@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 6,
-	'version', 4958,
+	'version', 4960,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -646,8 +646,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1750527113,
-	'code_hash', 2426882484816691198,
+	'saved', 1750605197,
+	'code_hash', 7617208092510147086,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -8108,6 +8108,26 @@ return PlaceObj('ModDef', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "_40mmFragGrenade",
 			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "32ACP_shot",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "32ACP_shot-room",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "38SW_shot",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
+			'Id', "38SW_shot-room",
+			'ClassDisplayName', "Sound",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "SoundPreset",

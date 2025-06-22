@@ -42572,6 +42572,98 @@ return {
 				}, {
 					PlaceObj('ModItemSoundPreset', {
 						group = "WEAPONS",
+						id = "32ACP_shot",
+						type = "Weapons",
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/32acp/.32acp_shot2_dry1-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/32acp/.32acp_shot2_dry2-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/32acp/.32acp_shot2_dry3-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/32acp/.32acp_shot2_dry4-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/32acp/.32acp_shot2_dry5-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/32acp/.32acp_shot2_dry6-01.opus",
+						}),
+					}),
+					PlaceObj('ModItemSoundPreset', {
+						group = "WEAPONS",
+						id = "32ACP_shot-room",
+						type = "Weapons_shootingRoom",
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/32acp/.32acp_shot2_dry1-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/32acp/.32acp_shot2_dry2-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/32acp/.32acp_shot2_dry3-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/32acp/.32acp_shot2_dry4-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/32acp/.32acp_shot2_dry5-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/32acp/.32acp_shot2_dry6-01.opus",
+						}),
+					}),
+					PlaceObj('ModItemSoundPreset', {
+						group = "WEAPONS",
+						id = "38SW_shot",
+						type = "Weapons",
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/38S&W/38-S&W_shot2_dry1-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/38S&W/38-S&W_shot2_dry2-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/38S&W/38-S&W_shot2_dry3-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/38S&W/38-S&W_shot2_dry4-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/38S&W/38-S&W_shot2_dry5-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/38S&W/38-S&W_shot2_dry6-01.opus",
+						}),
+					}),
+					PlaceObj('ModItemSoundPreset', {
+						group = "WEAPONS",
+						id = "38SW_shot-room",
+						type = "Weapons",
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/38S&W/38-S&W_shot2_dry1-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/38S&W/38-S&W_shot2_dry2-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/38S&W/38-S&W_shot2_dry3-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/38S&W/38-S&W_shot2_dry4-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/38S&W/38-S&W_shot2_dry5-01.opus",
+						}),
+						PlaceObj('Sample', {
+							'file', "Mod/e6L4ECj/Sounds/32acp/.32acp_shot2_dry6-01.opus",
+						}),
+					}),
+					PlaceObj('ModItemSoundPreset', {
+						group = "WEAPONS",
 						id = "PPSH_shot",
 						type = "Weapons",
 						PlaceObj('Sample', {
