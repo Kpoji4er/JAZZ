@@ -104,13 +104,19 @@ function FirearmGetGrouping(item,dist_slab)
 	if max_res <= 0 then max_res = 1 end
 	if factory <= 0 then factory = 1 end
 
-	local condition_mult = Clamp(curr_res / max_res, 0.1, 1)
+	local condition_mult = Clamp((curr_res + 0.1) / max_res, 0.0, 1)
 
 	local repair_mult = Clamp(0.9 + 0.1 * max_res / factory, 0.6, 1)
 
 
 	local grouping = item.Grouping or 10
 	local effective_grouping = grouping * condition_mult * repair_mult
+
+--	print("grouping debug")
+--	print(curr_res/max_res)
+--	print(factory,max_res,curr_res)
+--	print(condition_mult,repair_mult)
+--	print(grouping,effective_grouping)
 
 	local groupingPerSlab = effective_grouping * 10
 	local groupingResult = groupingPerSlab
