@@ -11721,6 +11721,18 @@ return {
 							Effects = {
 								PlaceObj('QuestSetVariableNum', {
 									Amount = 1,
+									Operation = "set",
+									Prop = "JAZZ_Legion_Tier",
+									QuestId = "JAZZ_LegionTier",
+								}),
+							},
+							Prop = "JAZZ_Legion_T1",
+						}),
+						PlaceObj('QuestEffectOnStatus', {
+							Effects = {
+								PlaceObj('QuestSetVariableNum', {
+									Amount = 2,
+									Operation = "set",
 									Prop = "JAZZ_Legion_Tier",
 									QuestId = "JAZZ_LegionTier",
 								}),
@@ -11730,7 +11742,8 @@ return {
 						PlaceObj('QuestEffectOnStatus', {
 							Effects = {
 								PlaceObj('QuestSetVariableNum', {
-									Amount = 1,
+									Amount = 3,
+									Operation = "set",
 									Prop = "JAZZ_Legion_Tier",
 									QuestId = "JAZZ_LegionTier",
 								}),
@@ -11740,7 +11753,8 @@ return {
 						PlaceObj('QuestEffectOnStatus', {
 							Effects = {
 								PlaceObj('QuestSetVariableNum', {
-									Amount = 1,
+									Amount = 4,
+									Operation = "set",
 									Prop = "JAZZ_Legion_Tier",
 									QuestId = "JAZZ_LegionTier",
 								}),
@@ -11759,6 +11773,25 @@ return {
 						}),
 					},
 					TCEs = {
+						PlaceObj('TriggeredConditionalEvent', {
+							Conditions = {
+								PlaceObj('PlayerControlSectors', {
+									Amount = 1,
+									Condition = "<",
+								}),
+							},
+							Effects = {
+								PlaceObj('QuestSetVariableNum', {
+									Amount = 1,
+									Operation = "set",
+									Prop = "JAZZ_Legion_Tier",
+									QuestId = "JAZZ_LegionTier",
+								}),
+							},
+							ParamId = "JAZZ_Legion_T1",
+							QuestId = "JAZZ_LegionTier",
+							SequentialEffects = false,
+						}),
 						PlaceObj('TriggeredConditionalEvent', {
 							Conditions = {
 								PlaceObj('PlayerControlSectors', {
@@ -11798,7 +11831,7 @@ return {
 						PlaceObj('TriggeredConditionalEvent', {
 							Conditions = {
 								PlaceObj('PlayerControlSectors', {
-									Amount = 5,
+									Amount = 6,
 								}),
 							},
 							Effects = {
@@ -11816,7 +11849,7 @@ return {
 						PlaceObj('TriggeredConditionalEvent', {
 							Conditions = {
 								PlaceObj('PlayerControlSectors', {
-									Amount = 7,
+									Amount = 10,
 								}),
 							},
 							Effects = {
@@ -11849,6 +11882,9 @@ return {
 						PlaceObj('QuestVarNum', {
 							Name = "JAZZ_Legion_Tier",
 							Value = 1,
+						}),
+						PlaceObj('QuestVarTCEState', {
+							Name = "JAZZ_Legion_T1",
 						}),
 						PlaceObj('QuestVarTCEState', {
 							Name = "JAZZ_Legion_T2",
