@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 6,
-	'version', 4984,
+	'version', 4989,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -652,7 +652,7 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1750636957,
+	'saved', 1750680133,
 	'code_hash', -4568415226094566831,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
@@ -824,6 +824,16 @@ return PlaceObj('ModDef', {
 			'Class', "ConstDef",
 			'Id', "InventoryGiveDistance",
 			'ClassDisplayName', "Constant",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "QuestsDef",
+			'Id', "BobbyRayQuest",
+			'ClassDisplayName', "QuestsEditor",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "QuestsDef",
+			'Id', "JAZZ_LegionTier",
+			'ClassDisplayName', "QuestsEditor",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "LootDef",
@@ -2379,11 +2389,6 @@ return PlaceObj('ModDef', {
 			'Class', "LootDef",
 			'Id', "LegionArmor_Pants_Body_MediumUp",
 			'ClassDisplayName', "LootDef",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "QuestsDef",
-			'Id', "JAZZ_LegionTier",
-			'ClassDisplayName', "QuestsEditor",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "LootDef",

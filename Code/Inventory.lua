@@ -116,16 +116,16 @@ function InventoryItem:GetDeteriorationKeywordNoPrefix()
 
 		local conditionPercent = MulDivRound(curr, 100, max)
 
-		if conditionPercent >= 98 then
+		if conditionPercent >= 95 then
 			color = "item_green"
 			keyword = T(486989771291111, "идеальное")
-		elseif conditionPercent >= 90 then
+		elseif conditionPercent >= 80 then
 			color = "item_green"
 			keyword = T(2998106563741111, "отремонтированное")
-		elseif conditionPercent >= 70 then
+		elseif conditionPercent >= 30 then
 			color = "yellow"
 			keyword = T(5678579714391111, "изношенное")
-		elseif conditionPercent >= 40 then
+		elseif conditionPercent >= 10 then
 			color = "red"
 			keyword = T(939310080350111, "ржавое")
 		else

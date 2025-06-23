@@ -1504,6 +1504,529 @@ return {
 		}),
 		}),
 	PlaceObj('ModItemFolder', {
+		'name', "Utility_Quests",
+	}, {
+		PlaceObj('ModItemQuestsDef', {
+			Author = "Diogo",
+			Chapter = "Utility",
+			DevNotes = 'This quest checks the conditions for unlocking the shop the first tier and each subsequent tier.\n\nActual unlock behaviour and e-mails are sent with "ExecuteCode".\n\nOne "hack" is the use of the BlockingEmails and DelayAfterEmailSent variables so that we don\'t send multiple e-mails at once when a player loads an old save, before the shop was implemented, and every tier unlocks at once.\nWhen the condition to open shop is satisfied, there is a 1 day timer before the shop actually opens. When it does, an e-mail is sent, and the tiers are checked.\nIn usual circumstances, unlocking a new tier will send an e-mail. If the shop has been "open" for less than 24h, however, no e-mail will be sent (the "ShopNowOpen" e-mail will suffice).',
+			NoteDefs = {
+				LastNoteIdx = 1,
+			},
+			QuestId = "BobbyRayQuest",
+			TCEs = {
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('AND', {
+							Conditions = {
+								PlaceObj('IsTimeOfDay', {
+									QuestId = "BobbyRayQuest",
+								}),
+							},
+							QuestId = "BobbyRayQuest",
+						}),
+					},
+					Effects = {
+						PlaceObj('ExecuteCode', {
+							FuncCode = 'bobby_tier_print("------------ Shop preparing to open with Quest (1 day)")',
+							QuestId = "BobbyRayQuest",
+						}),
+						PlaceObj('QuestSetVariableTimer', {
+							Prop = "DelayBeforeOpening",
+							QuestId = "BobbyRayQuest",
+							TimeAmount = 24,
+						}),
+					},
+					Once = true,
+					ParamId = "TCE_PreparingToOpen",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('QuestHasTimerPassed', {
+							QuestId = "BobbyRayQuest",
+							TimerVariable = "DelayBeforeOpening",
+						}),
+					},
+					Effects = {
+						PlaceObj('ExecuteCode', {
+							FuncCode = 'bobby_tier_print("--------------------- Store is now Open with Quest")\nReceiveEmail("BobbyRayShopNowOpen")\nassert(PDABrowserTabState.bobby_ray_shop)\nDockBrowserTab("bobby_ray_shop")',
+							QuestId = "BobbyRayQuest",
+						}),
+						PlaceObj('QuestSetVariableTimer', {
+							Prop = "DelayAfterEmailSent",
+							QuestId = "BobbyRayQuest",
+							TimeAmount = 24,
+						}),
+						PlaceObj('QuestSetVariableTimer', {
+							Prop = "RestockTimer",
+							QuestId = "BobbyRayQuest",
+							TimeAmount = 1,
+							Timescale = "sec",
+						}),
+						PlaceObj('QuestSetVariableTimer', {
+							Prop = "FakePurchasesTimer",
+							QuestId = "BobbyRayQuest",
+							TimeAmount = 24,
+						}),
+						PlaceObj('QuestSetVariableBool', {
+							Prop = "BlockingEmails",
+							QuestId = "BobbyRayQuest",
+						}),
+					},
+					Once = true,
+					ParamId = "TCE_StoreNowOpen",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('AND', {
+							Conditions = {
+								PlaceObj('QuestHasTimerPassed', {
+									QuestId = "BobbyRayQuest",
+									TimerVariable = "DelayBeforeOpening",
+								}),
+								PlaceObj('QuestIsVariableNum', {
+									Condition = "==",
+									Prop = "UnlockedTier",
+									QuestId = "BobbyRayQuest",
+								}),
+							},
+							QuestId = "BobbyRayQuest",
+						}),
+					},
+					Effects = {
+						PlaceObj('ExecuteCode', {
+							Code = function (self, obj)
+								print("---------------------------- unlocking tier 1 shop with quest")
+							end,
+							FuncCode = 'bobby_tier_print("---------------------------- unlocking tier 1 shop with quest")',
+							QuestId = "BobbyRayQuest",
+						}),
+						PlaceObj('BobbyRaySetState', {
+							QuestId = "BobbyRayQuest",
+							State = 1,
+						}),
+					},
+					Once = true,
+					ParamId = "TCE_Tier1Unlock",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('AND', {
+							Conditions = {
+								PlaceObj('QuestHasTimerPassed', {
+									QuestId = "BobbyRayQuest",
+									TimerVariable = "DelayBeforeOpening",
+								}),
+								PlaceObj('PlayerControlSectors', {
+									Amount = 2,
+									Condition = ">=",
+									POIs = "Mine",
+									QuestId = "BobbyRayQuest",
+								}),
+								PlaceObj('QuestIsVariableNum', {
+									Amount = 1,
+									Condition = "<=",
+									Prop = "UnlockedTier",
+									QuestId = "BobbyRayQuest",
+								}),
+							},
+							QuestId = "BobbyRayQuest",
+						}),
+					},
+					Effects = {
+						PlaceObj('ExecuteCode', {
+							FuncCode = 'bobby_tier_print("--------------------------- unlocking tier 2 shops with quest")\nif obj.BlockingEmails then\n	bobby_tier_print("\\t\\tEmail timer not yet passed, will not send e-mail...")\nelse\n	bobby_tier_print("\\t\\tSending e-mail!")\n	ReceiveEmail("BobbyRayShopTier2Unlocked")\nend',
+							QuestId = "BobbyRayQuest",
+						}),
+						PlaceObj('BobbyRaySetState', {
+							QuestId = "BobbyRayQuest",
+							State = 2,
+						}),
+					},
+					Once = true,
+					ParamId = "TCE_Tier2Unlock",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('AND', {
+							Conditions = {
+								PlaceObj('QuestIsVariableBool', {
+									Condition = "or",
+									QuestId = "04_Betrayal",
+									Vars = set( "TriggerWorldFlip", "WorldFlipDone" ),
+								}),
+								PlaceObj('QuestHasTimerPassed', {
+									QuestId = "BobbyRayQuest",
+									TimerVariable = "DelayBeforeOpening",
+								}),
+								PlaceObj('QuestIsVariableNum', {
+									Amount = 2,
+									Condition = "<=",
+									Prop = "UnlockedTier",
+									QuestId = "BobbyRayQuest",
+								}),
+							},
+							QuestId = "BobbyRayQuest",
+						}),
+					},
+					Effects = {
+						PlaceObj('ExecuteCode', {
+							FuncCode = 'bobby_tier_print("--------------------- unlocking tier 3 with quest")\nif obj.BlockingEmails then\n	bobby_tier_print("\\t\\tEmail timer not yet passed, will not send e-mail...")\nelse\n	bobby_tier_print("\\t\\tSending e-mail!")\n	ReceiveEmail("BobbyRayShopTier3Unlocked")\nend',
+							QuestId = "BobbyRayQuest",
+						}),
+						PlaceObj('BobbyRaySetState', {
+							QuestId = "BobbyRayQuest",
+							State = 3,
+						}),
+					},
+					Once = true,
+					ParamId = "TCE_Tier3Unlock",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('QuestHasTimerPassed', {
+							QuestId = "BobbyRayQuest",
+							TimerVariable = "DelayAfterEmailSent",
+						}),
+					},
+					Effects = {
+						PlaceObj('QuestSetVariableBool', {
+							Prop = "BlockingEmails",
+							QuestId = "BobbyRayQuest",
+							Set = false,
+						}),
+					},
+					ParamId = "TCE_EmailDelay",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('QuestHasTimerPassed', {
+							QuestId = "BobbyRayQuest",
+							TimerVariable = "RestockTimer",
+						}),
+					},
+					Effects = {
+						PlaceObj('QuestSetVariableTimer', {
+							Prop = "RestockTimer",
+							QuestId = "BobbyRayQuest",
+							TimeAmount = 120,
+						}),
+						PlaceObj('ExecuteCode', {
+							FuncCode = 'bobby_tier_print("---------------------------- Restocking shop with Quest")',
+							QuestId = "BobbyRayQuest",
+						}),
+						PlaceObj('BobbyRayRestockShop', {
+							QuestId = "BobbyRayQuest",
+						}),
+					},
+					ParamId = "TCE_ShopRestock",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('QuestHasTimerPassed', {
+							QuestId = "BobbyRayQuest",
+							TimerVariable = "FakePurchasesTimer",
+						}),
+					},
+					Effects = {
+						PlaceObj('QuestSetVariableTimer', {
+							Prop = "FakePurchasesTimer",
+							QuestId = "BobbyRayQuest",
+							TimeAmount = 10,
+							TimeAmountRangeMax = 14,
+						}),
+						PlaceObj('ExecuteCode', {
+							FuncCode = 'bobby_tier_print("---------------------------- Consuming random shop stock with Quest")',
+							QuestId = "BobbyRayQuest",
+						}),
+						PlaceObj('BobbyRayConsumeStock', {
+							QuestId = "BobbyRayQuest",
+						}),
+					},
+					ParamId = "TCE_ShopFakePurchase",
+					QuestId = "BobbyRayQuest",
+				}),
+			},
+			Variables = {
+				PlaceObj('QuestVarBool', {
+					Name = "Completed",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('QuestVarBool', {
+					Name = "Given",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('QuestVarBool', {
+					Name = "Failed",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('QuestVarBool', {
+					Name = "NotStarted",
+					QuestId = "BobbyRayQuest",
+					Value = true,
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "TCE_Tier1Unlock",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "TCE_Tier2Unlock",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "TCE_Tier3Unlock",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "TCE_PreparingToOpen",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "TCE_StoreNowOpen",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "TCE_EmailDelay",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "TCE_ShopRestock",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "TCE_ShopFakePurchase",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('QuestVarNum', {
+					Name = "DelayBeforeOpening",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('QuestVarNum', {
+					Name = "DelayAfterEmailSent",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('QuestVarNum', {
+					Name = "RestockTimer",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('QuestVarNum', {
+					Name = "FakePurchasesTimer",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('QuestVarBool', {
+					Name = "BlockingEmails",
+					QuestId = "BobbyRayQuest",
+				}),
+				PlaceObj('QuestVarNum', {
+					Name = "UnlockedTier",
+					QuestId = "BobbyRayQuest",
+				}),
+			},
+			group = "BobbyRay",
+			id = "BobbyRayQuest",
+		}),
+		PlaceObj('ModItemQuestsDef', {
+			Chapter = "Utility",
+			DisplayName = T(329699433258, --[[ModItemQuestsDef JAZZ_LegionTier DisplayName]] "Тиры легиона"),
+			EffectOnChangeVarValue = {
+				PlaceObj('QuestEffectOnStatus', {
+					Effects = {
+						PlaceObj('QuestSetVariableNum', {
+							Amount = 1,
+							Operation = "set",
+							Prop = "JAZZ_Legion_Tier",
+							QuestId = "JAZZ_LegionTier",
+						}),
+					},
+					Prop = "JAZZ_Legion_T1",
+				}),
+				PlaceObj('QuestEffectOnStatus', {
+					Effects = {
+						PlaceObj('QuestSetVariableNum', {
+							Amount = 2,
+							Operation = "set",
+							Prop = "JAZZ_Legion_Tier",
+							QuestId = "JAZZ_LegionTier",
+						}),
+					},
+					Prop = "JAZZ_Legion_T2",
+				}),
+				PlaceObj('QuestEffectOnStatus', {
+					Effects = {
+						PlaceObj('QuestSetVariableNum', {
+							Amount = 3,
+							Operation = "set",
+							Prop = "JAZZ_Legion_Tier",
+							QuestId = "JAZZ_LegionTier",
+						}),
+					},
+					Prop = "JAZZ_Legion_T3",
+				}),
+				PlaceObj('QuestEffectOnStatus', {
+					Effects = {
+						PlaceObj('QuestSetVariableNum', {
+							Amount = 4,
+							Operation = "set",
+							Prop = "JAZZ_Legion_Tier",
+							QuestId = "JAZZ_LegionTier",
+						}),
+					},
+					Prop = "JAZZ_Legion_T4",
+				}),
+				PlaceObj('QuestEffectOnStatus', {
+					Effects = {
+						PlaceObj('QuestSetVariableNum', {
+							Amount = 1,
+							Prop = "JAZZ_Legion_Tier",
+							QuestId = "JAZZ_LegionTier",
+						}),
+					},
+					Prop = "JAZZ_Legion_T5",
+				}),
+			},
+			QuestGroup = "Other",
+			TCEs = {
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('PlayerControlSectors', {
+							Amount = 1,
+							Condition = "<",
+						}),
+					},
+					Effects = {
+						PlaceObj('QuestSetVariableNum', {
+							Amount = 1,
+							Operation = "set",
+							Prop = "JAZZ_Legion_Tier",
+							QuestId = "JAZZ_LegionTier",
+						}),
+					},
+					ParamId = "JAZZ_Legion_T1",
+					QuestId = "JAZZ_LegionTier",
+					SequentialEffects = false,
+				}),
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('PlayerControlSectors', {
+							Amount = 1,
+						}),
+					},
+					Effects = {
+						PlaceObj('QuestSetVariableNum', {
+							Amount = 2,
+							Operation = "set",
+							Prop = "JAZZ_Legion_Tier",
+							QuestId = "JAZZ_LegionTier",
+						}),
+					},
+					ParamId = "JAZZ_Legion_T2",
+					QuestId = "JAZZ_LegionTier",
+					SequentialEffects = false,
+				}),
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('PlayerControlSectors', {
+							Amount = 3,
+						}),
+					},
+					Effects = {
+						PlaceObj('QuestSetVariableNum', {
+							Amount = 3,
+							Operation = "set",
+							Prop = "JAZZ_Legion_Tier",
+							QuestId = "JAZZ_LegionTier",
+						}),
+					},
+					Once = true,
+					ParamId = "JAZZ_Legion_T3",
+					QuestId = "JAZZ_LegionTier",
+					SequentialEffects = false,
+				}),
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('PlayerControlSectors', {
+							Amount = 6,
+						}),
+					},
+					Effects = {
+						PlaceObj('QuestSetVariableNum', {
+							Amount = 4,
+							Operation = "set",
+							Prop = "JAZZ_Legion_Tier",
+							QuestId = "JAZZ_LegionTier",
+						}),
+					},
+					Once = true,
+					ParamId = "JAZZ_Legion_T4",
+					QuestId = "JAZZ_LegionTier",
+					SequentialEffects = false,
+				}),
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('PlayerControlSectors', {
+							Amount = 10,
+						}),
+					},
+					Effects = {
+						PlaceObj('QuestSetVariableNum', {
+							Amount = 5,
+							Operation = "set",
+							Prop = "JAZZ_Legion_Tier",
+							QuestId = "JAZZ_LegionTier",
+						}),
+					},
+					Once = true,
+					ParamId = "JAZZ_Legion_T5",
+					QuestId = "JAZZ_LegionTier",
+					SequentialEffects = false,
+				}),
+			},
+			Variables = {
+				PlaceObj('QuestVarBool', {
+					Name = "Completed",
+				}),
+				PlaceObj('QuestVarBool', {
+					Name = "Given",
+					Value = true,
+				}),
+				PlaceObj('QuestVarBool', {
+					Name = "Failed",
+				}),
+				PlaceObj('QuestVarBool', {
+					Name = "NotStarted",
+				}),
+				PlaceObj('QuestVarNum', {
+					Name = "JAZZ_Legion_Tier",
+					Value = 1,
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "JAZZ_Legion_T1",
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "JAZZ_Legion_T2",
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "JAZZ_Legion_T3",
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "JAZZ_Legion_T4",
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "JAZZ_Legion_T5",
+				}),
+			},
+			group = "Default",
+			id = "JAZZ_LegionTier",
+		}),
+		}),
+	PlaceObj('ModItemFolder', {
 		'name', "Loot Defs",
 		'comment', "Таблицы лута",
 	}, {
@@ -11714,194 +12237,6 @@ return {
 			PlaceObj('ModItemFolder', {
 				'name', "LEGION",
 			}, {
-				PlaceObj('ModItemQuestsDef', {
-					DisplayName = T(329699433258, --[[ModItemQuestsDef JAZZ_LegionTier DisplayName]] "Тиры легиона"),
-					EffectOnChangeVarValue = {
-						PlaceObj('QuestEffectOnStatus', {
-							Effects = {
-								PlaceObj('QuestSetVariableNum', {
-									Amount = 1,
-									Operation = "set",
-									Prop = "JAZZ_Legion_Tier",
-									QuestId = "JAZZ_LegionTier",
-								}),
-							},
-							Prop = "JAZZ_Legion_T1",
-						}),
-						PlaceObj('QuestEffectOnStatus', {
-							Effects = {
-								PlaceObj('QuestSetVariableNum', {
-									Amount = 2,
-									Operation = "set",
-									Prop = "JAZZ_Legion_Tier",
-									QuestId = "JAZZ_LegionTier",
-								}),
-							},
-							Prop = "JAZZ_Legion_T2",
-						}),
-						PlaceObj('QuestEffectOnStatus', {
-							Effects = {
-								PlaceObj('QuestSetVariableNum', {
-									Amount = 3,
-									Operation = "set",
-									Prop = "JAZZ_Legion_Tier",
-									QuestId = "JAZZ_LegionTier",
-								}),
-							},
-							Prop = "JAZZ_Legion_T3",
-						}),
-						PlaceObj('QuestEffectOnStatus', {
-							Effects = {
-								PlaceObj('QuestSetVariableNum', {
-									Amount = 4,
-									Operation = "set",
-									Prop = "JAZZ_Legion_Tier",
-									QuestId = "JAZZ_LegionTier",
-								}),
-							},
-							Prop = "JAZZ_Legion_T4",
-						}),
-						PlaceObj('QuestEffectOnStatus', {
-							Effects = {
-								PlaceObj('QuestSetVariableNum', {
-									Amount = 1,
-									Prop = "JAZZ_Legion_Tier",
-									QuestId = "JAZZ_LegionTier",
-								}),
-							},
-							Prop = "JAZZ_Legion_T5",
-						}),
-					},
-					TCEs = {
-						PlaceObj('TriggeredConditionalEvent', {
-							Conditions = {
-								PlaceObj('PlayerControlSectors', {
-									Amount = 1,
-									Condition = "<",
-								}),
-							},
-							Effects = {
-								PlaceObj('QuestSetVariableNum', {
-									Amount = 1,
-									Operation = "set",
-									Prop = "JAZZ_Legion_Tier",
-									QuestId = "JAZZ_LegionTier",
-								}),
-							},
-							ParamId = "JAZZ_Legion_T1",
-							QuestId = "JAZZ_LegionTier",
-							SequentialEffects = false,
-						}),
-						PlaceObj('TriggeredConditionalEvent', {
-							Conditions = {
-								PlaceObj('PlayerControlSectors', {
-									Amount = 1,
-								}),
-							},
-							Effects = {
-								PlaceObj('QuestSetVariableNum', {
-									Amount = 2,
-									Operation = "set",
-									Prop = "JAZZ_Legion_Tier",
-									QuestId = "JAZZ_LegionTier",
-								}),
-							},
-							ParamId = "JAZZ_Legion_T2",
-							QuestId = "JAZZ_LegionTier",
-							SequentialEffects = false,
-						}),
-						PlaceObj('TriggeredConditionalEvent', {
-							Conditions = {
-								PlaceObj('PlayerControlSectors', {
-									Amount = 3,
-								}),
-							},
-							Effects = {
-								PlaceObj('QuestSetVariableNum', {
-									Amount = 1,
-									Prop = "JAZZ_Legion_Tier",
-									QuestId = "JAZZ_LegionTier",
-								}),
-							},
-							Once = true,
-							ParamId = "JAZZ_Legion_T3",
-							QuestId = "JAZZ_LegionTier",
-							SequentialEffects = false,
-						}),
-						PlaceObj('TriggeredConditionalEvent', {
-							Conditions = {
-								PlaceObj('PlayerControlSectors', {
-									Amount = 6,
-								}),
-							},
-							Effects = {
-								PlaceObj('QuestSetVariableNum', {
-									Amount = 1,
-									Prop = "JAZZ_Legion_Tier",
-									QuestId = "JAZZ_LegionTier",
-								}),
-							},
-							Once = true,
-							ParamId = "JAZZ_Legion_T4",
-							QuestId = "JAZZ_LegionTier",
-							SequentialEffects = false,
-						}),
-						PlaceObj('TriggeredConditionalEvent', {
-							Conditions = {
-								PlaceObj('PlayerControlSectors', {
-									Amount = 10,
-								}),
-							},
-							Effects = {
-								PlaceObj('QuestSetVariableNum', {
-									Amount = 1,
-									Prop = "JAZZ_Legion_Tier",
-									QuestId = "JAZZ_LegionTier",
-								}),
-							},
-							Once = true,
-							ParamId = "JAZZ_Legion_T5",
-							QuestId = "JAZZ_LegionTier",
-							SequentialEffects = false,
-						}),
-					},
-					Variables = {
-						PlaceObj('QuestVarBool', {
-							Name = "Completed",
-						}),
-						PlaceObj('QuestVarBool', {
-							Name = "Given",
-							Value = true,
-						}),
-						PlaceObj('QuestVarBool', {
-							Name = "Failed",
-						}),
-						PlaceObj('QuestVarBool', {
-							Name = "NotStarted",
-						}),
-						PlaceObj('QuestVarNum', {
-							Name = "JAZZ_Legion_Tier",
-							Value = 1,
-						}),
-						PlaceObj('QuestVarTCEState', {
-							Name = "JAZZ_Legion_T1",
-						}),
-						PlaceObj('QuestVarTCEState', {
-							Name = "JAZZ_Legion_T2",
-						}),
-						PlaceObj('QuestVarTCEState', {
-							Name = "JAZZ_Legion_T3",
-						}),
-						PlaceObj('QuestVarTCEState', {
-							Name = "JAZZ_Legion_T4",
-						}),
-						PlaceObj('QuestVarTCEState', {
-							Name = "JAZZ_Legion_T5",
-						}),
-					},
-					group = "Default",
-					id = "JAZZ_LegionTier",
-				}),
 				PlaceObj('ModItemFolder', {
 					'name', "Ammo",
 				}, {
