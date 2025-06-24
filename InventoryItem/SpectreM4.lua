@@ -27,7 +27,7 @@ DefineClass.SpectreM4 = {
 	MagazineSize = 50,
 	WeaponRange = 25,
 	OverwatchAngle = 4080,
-	Noise = 26,
+	Noise = 34,
 	Entity = "Spectr_M4",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

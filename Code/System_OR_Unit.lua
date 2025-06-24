@@ -1228,8 +1228,6 @@ function Unit:BeginTurn(new_turn)
 
 
 		
-
-		
 		local effect = self:GetStatusEffect("Wounded", "all")
 		local wounds = 0
 		if effect then
@@ -1606,6 +1604,8 @@ function Unit:GetBasicAttackModes()
 
 	return result
 end
+
+
 
 
 function Unit:RecalcUIActions(force)

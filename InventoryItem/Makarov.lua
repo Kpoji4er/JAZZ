@@ -28,7 +28,7 @@ DefineClass.Makarov = {
 	MagazineSize = 8,
 	WeaponRange = 16,
 	OverwatchAngle = 5400,
-	Noise = 15,
+	Noise = 18,
 	Entity = "Makarov",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

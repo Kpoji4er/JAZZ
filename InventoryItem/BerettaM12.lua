@@ -27,7 +27,7 @@ DefineClass.BerettaM12 = {
 	MagazineSize = 32,
 	WeaponRange = 28,
 	OverwatchAngle = 4200,
-	Noise = 23,
+	Noise = 29,
 	Entity = "BerettaM12",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

@@ -27,7 +27,7 @@ DefineClass.TT33 = {
 	MagazineSize = 8,
 	WeaponRange = 19,
 	OverwatchAngle = 5280,
-	Noise = 24,
+	Noise = 26,
 	Entity = "TT33f",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

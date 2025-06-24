@@ -176,12 +176,10 @@ function AIReloadWeapons(unit)
     if weapon1 and weapon1.jammed then
         weapon1:RepairJammed(weapon1.Condition, unit)
         unit.Mechanical = unit.Mechanical + 1;
-        weapon1.Condition = weapon1:GetMaxCondition()
     end
     if weapon2 and weapon2.jammed then
         weapon2:RepairJammed(weapon2.Condition, unit)
         unit.Mechanical = unit.Mechanical + 1;
-        weapon2.Condition = weapon2:GetMaxCondition()
     end
     --	target:SetActionCommand("ChangeStance", nil, nil, "Prone")
     -- if weapon1 and weapon1.jammed then unit:SetActionCommand("UnjamWeapon", self.id, nil)  end
@@ -654,9 +652,9 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
         end
 
   --  end
-    if unit.ActionPoints > 2 and not unit:IsIncapacitated() and not unit:IsDead() then    
+    if unit.ActionPoints > 6 and not unit:IsIncapacitated() and not unit:IsDead() then    
         context.restarts = (context.restarts or 0) + 1
-        if context.restarts < 2 then
+        if context.restarts < 3 then
             if g_AIExecutionController then
                 g_AIExecutionController:Log("  Unit %s requesting restart (AP left: %d, restart count: %d)", unit.unitdatadef_id, unit.ActionPoints, context.restarts)
             end
@@ -664,6 +662,9 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
         end
     end
     TryChangeStance(unit)
+    if unit.ActionPoints > 6 and context.restarts >=3 then
+     AIPlaceFallbackOverwatch(unit, context)
+    end
 
     -- local ProneStanceAP = unit:GetStanceToStanceAP(unit.stance, "Prone")
     -- local CrouchStanceAP = unit:GetStanceToStanceAP(unit.stance, "Crouch")

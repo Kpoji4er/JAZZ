@@ -224,8 +224,8 @@ function Armor:CalculateArmorRating(weapon_pen_class)
     local ArmorRating = self.ArmorRating
     if IsKindOf(self, "ArmorPlates") then
 		if self.PenetrationClass >= weapon_pen_class then 
-        return self.ArmorRating
-		else return self.ArmorRating * self.PenetrationClass^2/weapon_pen_class^2 end end
+        return self.ArmorRating * self:GetConditionPercent()/100
+		else return self.ArmorRating * self.PenetrationClass^2/weapon_pen_class^2 * self:GetConditionPercent()/100 end end
 
     if self.PenetrationClass > weapon_pen_class then
      ArmorRating = (self.ArmorRating + 3*self.PenetrationClass/weapon_pen_class) * self:GetConditionPercent()/100 * (100-self.Deterioration)/100

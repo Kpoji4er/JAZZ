@@ -28,7 +28,7 @@ DefineClass.HiPower = {
 	MagazineSize = 13,
 	WeaponRange = 17,
 	OverwatchAngle = 5400,
-	Noise = 22,
+	Noise = 24,
 	Entity = "Weapon_Browning_HP",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {

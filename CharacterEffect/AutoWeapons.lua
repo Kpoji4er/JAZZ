@@ -16,7 +16,7 @@ DefineClass.AutoWeapons = {
 			end,
 		}),
 	},
-	DisplayName = T(971350457853, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Auto Weapons"),
+	DisplayName = T(971350457853, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Автоматическое оружие"),
 	Description = T(253479657834, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Увеличивает количество выстрелов без отдачи на 1 при стрельбе очередями или в автоогне"),
 	Icon = "UI/Icons/Perks/AutoWeapons",
 	Tier = "Specialization",

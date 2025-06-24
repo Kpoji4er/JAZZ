@@ -29,6 +29,7 @@ DefineClass.PP19Bizon = {
 	MagazineSize = 64,
 	WeaponRange = 24,
 	OverwatchAngle = 4080,
+	Noise = 26,
 	HandSlot = "TwoHanded",
 	Entity = "Bizon",
 	ComponentSlots = {

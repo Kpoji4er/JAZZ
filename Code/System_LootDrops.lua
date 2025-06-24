@@ -68,7 +68,7 @@ function Unit:DropLoot(container)
 			else
 				-- Обычное условие для не-оружия
 				if item.Condition and item.drop_chance < 100 then
-					item.Condition = Max(1, item.Condition - Min(random(100 - item.drop_chance), item.Condition))
+					item.Condition = Max(0, item.Condition - Min(random(100 - item.drop_chance), item.Condition))
 				end
 			end
 			 

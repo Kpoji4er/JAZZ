@@ -983,6 +983,9 @@ end
 		end
 
 		--suppression
+		if (action.id == "MGBurstFire") then 
+			suppression_CTH = suppression_CTH * 2
+		end
 
 
 		--if not prediction and g_Combat then
@@ -1000,7 +1003,7 @@ end
 				local wpBase = Max(self.Damage, 1) * (100 - (IsKindOf(target, "Unit") and target:SuppressionProtection() or 0)) * 0.002
 			
 				for _, hit in ipairs(hit_data.hits) do
-					if IsValid(target_unit) and suppression_CTH > 0 and target_unit.team.side ~= attacker.team.side then
+					if IsValid(target_unit) and target_unit.team.side ~= attacker.team.side then
 						local cthFactor = Clamp((suppression_CTH / 100)^0.5, 0.2, 1.0)
 						local willDamage = wpBase * (0.4 + 0.6 * cthFactor)
 						if willDamage > 0 then

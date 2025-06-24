@@ -27,7 +27,7 @@ DefineClass.Luger = {
 	MagazineSize = 8,
 	WeaponRange = 17,
 	OverwatchAngle = 5400,
-	Noise = 18,
+	Noise = 24,
 	Entity = "Luger",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
