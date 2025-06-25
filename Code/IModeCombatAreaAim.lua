@@ -40,6 +40,73 @@ local function SetAreaMovementAvatarVisibile(dialog, blackboard, visible, time)
 	Wakeup(dialog.real_time_threads.MovementAvatarVisibilityUpdate)
 end
 
+
+function GetRingAOETiles(center, stance, min_r, max_r)
+	local outer = GetAOETiles(center, stance, max_r)
+	local inner = GetAOETiles(center, stance, min_r)
+	local ring = {}
+
+	local hash = {}
+	for _, p in ipairs(inner) do
+		hash[p:x() * 10000 + p:y()] = true
+	end
+
+	for _, p in ipairs(outer) do
+		local key = p:x() * 10000 + p:y()
+		if not hash[key] then
+			table.insert(ring, p)
+		end
+	end
+
+	return ring
+end
+
+function GrenadeAOEVisuals:RecreateAoeTiles(data)
+	self.data = data
+	local mesh_pstr = CreateAOETiles(data.step_positions, data.step_objs, data.los_values)
+
+	-- основной меш
+	local aoe_tiles_mesh = self.aoe_tiles_mesh
+	if not aoe_tiles_mesh then
+		aoe_tiles_mesh = Mesh:new({})
+		self.aoe_tiles_mesh = aoe_tiles_mesh
+		aoe_tiles_mesh:SetAttachOffset(point(0, 0, -10))
+		aoe_tiles_mesh:SetMeshFlags(aoe_tiles_mesh:GetMeshFlags() | const.mfSortByPosZ | const.mfWorldSpace)
+		self:Attach(aoe_tiles_mesh)
+	end
+
+	aoe_tiles_mesh:SetMesh(mesh_pstr)
+
+	local m = CRM_SphereAOETilesMaterial:GetById("GrenadeTilesCast"):Clone()
+	m.center = data.explosion_pos
+	m.radius = data.range
+	
+
+	aoe_tiles_mesh:SetCRMaterial(m)
+
+	-- вторая зона — min_range
+	if data.min_range then
+		local aoe_tiles_mesh2 = self.aoe_tiles_mesh2
+		if not aoe_tiles_mesh2 then
+			aoe_tiles_mesh2 = Mesh:new({})
+			self.aoe_tiles_mesh2 = aoe_tiles_mesh2
+			aoe_tiles_mesh2:SetAttachOffset(point(0, 0, -10))
+			aoe_tiles_mesh2:SetMeshFlags(aoe_tiles_mesh2:GetMeshFlags() | const.mfSortByPosZ | const.mfWorldSpace)
+			self:Attach(aoe_tiles_mesh2)
+		end
+
+		local mesh_inner = CreateAOETiles(GetAOETiles(data.explosion_pos, data.stance, data.min_range), {}, {})
+		aoe_tiles_mesh2:SetMesh(mesh_inner)
+
+		local m2 = CRM_SphereAOETilesMaterial:GetById("GrenadeTilesCast"):Clone()
+		m2.center = data.explosion_pos
+		m2.radius = data.min_range
+
+		aoe_tiles_mesh2:SetCRMaterial(m2)
+	end
+end
+
+
 function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
 	local attacker = dialog.attacker
 
@@ -55,9 +122,16 @@ function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
 			blackboard.grenade_actor = attacker
 		end
 	elseif command == "delete" or command == "delete-except-grenade" then		
-		for _, mesh in ipairs(blackboard.meshes) do
-			DoneObject(mesh)
+		for _, mesh_pair in ipairs(blackboard.meshes) do
+			if type(mesh_pair) == "table" then
+				for _, mesh in ipairs(mesh_pair) do
+					DoneObject(mesh)
+				end
+			else
+				DoneObject(mesh_pair)
+			end
 		end
+		blackboard.meshes = false
 		blackboard.meshes = false
 		for _, mesh in ipairs(blackboard.arc_meshes) do
 			DoneObject(mesh)
@@ -209,22 +283,40 @@ function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
 				if gas then
 					step_objs, los_values = empty_table, empty_table
 				end
-				local data = {
+
+				blackboard.meshes[i] = blackboard.meshes[i] or {}
+
+				local data_inner = {
+					explosion_pos = explosion_pos,
+					stance = stance,
+					range = min_range,
+					min_range = min_range,
+					step_positions = {},
+					step_objs = {},
+					los_values = {}
+				}
+				local data_outer = {
 					explosion_pos = explosion_pos,
 					stance = stance,
 					range = range,
-					min_range = min_range,
 					step_positions = step_positions,
 					step_objs = step_objs,
 					los_values = los_values
 				}
-				if not blackboard.meshes[i] or not IsValid(blackboard.meshes[i]) then
-					local is_mortar = IsKindOfClasses(weapon, "MortarInventoryItem", "TrapDetonator")
-					local class = is_mortar and MortarAOEVisuals or GrenadeAOEVisuals
-					blackboard.meshes[i] = class:new({mode = "Ally", state = "blueprint"}, nil, data)
-				end
-				blackboard.meshes[i]:RecreateAoeTiles(data)
-				blackboard.meshes[i]:SetPos(explosion_pos)
+
+				if not blackboard.meshes[i][1] then
+	blackboard.meshes[i][1] = GrenadeAOEVisuals:new({}, nil, data_inner)
+else
+	blackboard.meshes[i][1]:RecreateAoeTiles(data_inner)
+	blackboard.meshes[i][1]:SetPos(explosion_pos)
+end
+
+if not blackboard.meshes[i][2] then
+	blackboard.meshes[i][2] = GrenadeAOEVisuals:new({}, nil, data_outer)
+else
+	blackboard.meshes[i][2]:RecreateAoeTiles(data_outer)
+	blackboard.meshes[i][2]:SetPos(explosion_pos)
+end
 			end
 			
 			-- Build trajectory mesh
@@ -474,3 +566,4 @@ function Targeting_AOE_Cone(dialog, blackboard, command, pt)
 	end
 	blackboard.mesh:SetColorFromTextStyle("WeaponAOE")
 end
+

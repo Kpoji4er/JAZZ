@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 6,
-	'version', 5005,
+	'version', 5007,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -655,8 +655,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1750793975,
-	'code_hash', -1858569473861082998,
+	'saved', 1750894075,
+	'code_hash', -6352119200417553642,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",

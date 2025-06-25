@@ -151,7 +151,7 @@ AIPolicyTakeCover.CoverScores = {
 --- @param dest point The destination location to evaluate.
 --- @param grid_voxel point The grid voxel for the destination location.
 --- @return number The score for the destination based on the ability to flank enemies.
-function AIPolicyFlanking:EvalDest(context, dest, grid_voxel)
+--[[function AIPolicyFlanking:EvalDest(context, dest, grid_voxel)
 	local unit = context.unit
 	
 	local ap = context.dest_ap[dest] or 0
@@ -194,6 +194,46 @@ function AIPolicyFlanking:EvalDest(context, dest, grid_voxel)
     end
     
     return delta * self.Weight
+end]]
+
+function AIPolicyFlanking:EvalDest(context, dest, grid_voxel)
+	local unit = context.unit
+	local ap = context.dest_ap[dest] or 0
+	if self.ReserveAttackAP and ap < context.default_attack_cost then
+		return 0
+	end
+
+	-- Учитываем позиции союзников
+	context.position_override = context.position_override or {}
+	if self.AllyPlannedPosition then
+		for _, ally in ipairs(unit.team.units) do
+			local ally_dest = ally.ai_context and ally.ai_context.ai_destination
+			if ally_dest then
+				context.position_override[ally] = ally_dest:SetInvalidZ()
+			end
+		end
+	end
+	context.position_override[unit] = dest:SetInvalidZ()
+
+	-- Кэш окружённости
+	context.enemy_surrounded = context.enemy_surrounded or {}
+	for _, enemy in ipairs(context.enemies) do
+		if context.enemy_surrounded[enemy] == nil then
+			context.enemy_surrounded[enemy] = enemy:IsSurrounded({})
+		end
+	end
+
+	-- Считаем дельту угрозы фланга
+	local delta = 0
+	for _, enemy in ipairs(context.enemies) do
+		if IsValid(enemy) and not enemy:IsDead() then
+			local before = enemy:GetFlankThreat(context.enemy_surrounded)
+			local after  = enemy:GetFlankThreat(context.position_override)
+			delta = delta + (after - before)
+		end
+	end
+
+	return delta * self.Weight
 end
 
 
@@ -250,7 +290,6 @@ function Unit:GetFlankThreat(unitReplace)
 
 	local pos = unitReplace and unitReplace[self] or self:GetPos()
 	if not IsPoint(pos) then
-		print("Invalid pos in GetFlankThreat", pos)
 		return 0
 	end
 	

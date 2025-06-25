@@ -53,42 +53,6 @@ function Grenade:CalcTrajectory(attack_args, target_pos, angle, max_bounces)
 end
 
 
-function GrenadeAOEVisuals:RecreateAoeTiles(data)
-	self.data = data
-	local mesh_pstr = CreateAOETiles(data.step_positions, data.step_objs, data.los_values)
-	local aoe_tiles_mesh = self.aoe_tiles_mesh
-	if not aoe_tiles_mesh then
-		aoe_tiles_mesh = Mesh:new({})
-		self.aoe_tiles_mesh = aoe_tiles_mesh
-		aoe_tiles_mesh:SetAttachOffset(point(0,0,-10))
-		aoe_tiles_mesh:SetMeshFlags(aoe_tiles_mesh:GetMeshFlags() | const.mfSortByPosZ | const.mfWorldSpace)
-		self:Attach(aoe_tiles_mesh)
-	end
-	aoe_tiles_mesh:SetMesh(mesh_pstr)
-	local m = CRM_SphereAOETilesMaterial:GetById("GrenadeTilesCast"):Clone()
-	m.center = data.explosion_pos
-	m.radius = data.range
-	m.dirty = true
-	aoe_tiles_mesh:SetCRMaterial(m)
-	if data.min_range then
-		local aoe_tiles_mesh2 = self.aoe_tiles_mesh2
-		if not aoe_tiles_mesh2 then
-			aoe_tiles_mesh2 = Mesh:new({})
-			self.aoe_tiles_mesh2 = aoe_tiles_mesh2
-			aoe_tiles_mesh2:SetAttachOffset(point(0,0,-10))
-			aoe_tiles_mesh2:SetMeshFlags(aoe_tiles_mesh2:GetMeshFlags() | const.mfSortByPosZ | const.mfWorldSpace)
-			self:Attach(aoe_tiles_mesh2)
-		end
-		local m2 = CRM_SphereAOETilesMaterial:GetById("GrenadeTilesCast"):Clone()
-		m2.center = data.explosion_pos
-		m2.radius = data.min_range
-		m2.dirty = true
-		aoe_tiles_mesh:SetCRMaterial(m2)
-	end
-end
-
-
-
 function Grenade:GetAreaAttackParams(action_id, attacker, target_pos, step_pos)
 	target_pos = target_pos or self:GetPos()
 	local aoeType = self.aoeType

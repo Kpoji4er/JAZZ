@@ -1528,7 +1528,7 @@ return {
 			body = T(767218055918, --[[ModItemEmail LegionTier3 body]] "Тир3\n"),
 			group = "Default",
 			id = "LegionTier3",
-			sender = T(342619813681, --[[ModItemEmail LegionTier2_copy sender]] "JAZZ"),
+			sender = T(342619813681, --[[ModItemEmail LegionTier3 sender]] "JAZZ"),
 			title = T(183093543791, --[[ModItemEmail LegionTier3 title]] "LegionTier3"),
 		}),
 		PlaceObj('ModItemEmail', {
