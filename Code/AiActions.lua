@@ -652,8 +652,9 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
         end
 
   --  end
-    if unit.ActionPoints > 6 and not unit:IsIncapacitated() and not unit:IsDead() then    
+    if (unit.ActionPoints + remaining_free_ap) > (context.default_attack_cost or context.dest_ap[dest] or 4) and not unit:IsIncapacitated() and not unit:IsDead() then    
         context.restarts = (context.restarts or 0) + 1
+        unit:GainAP(remaining_free_ap)
         if context.restarts < 3 then
             if g_AIExecutionController then
                 g_AIExecutionController:Log("  Unit %s requesting restart (AP left: %d, restart count: %d)", unit.unitdatadef_id, unit.ActionPoints, context.restarts)
@@ -662,9 +663,9 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
         end
     end
     TryChangeStance(unit)
-    if unit.ActionPoints > 6 and context.restarts >=3 then
-     AIPlaceFallbackOverwatch(unit, context)
-    end
+    --if unit.ActionPoints > 6 and context.restarts >=3 then
+    -- AIPlaceFallbackOverwatch(unit, context)
+    --end
 
     -- local ProneStanceAP = unit:GetStanceToStanceAP(unit.stance, "Prone")
     -- local CrouchStanceAP = unit:GetStanceToStanceAP(unit.stance, "Crouch")

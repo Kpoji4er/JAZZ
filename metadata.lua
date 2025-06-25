@@ -33,13 +33,14 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 6,
-	'version', 4996,
+	'version', 5005,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
 		"Code/Camera.lua",
 		"Code/SpecializationGiver.lua",
 		"Code/System_AimHiringFilters.lua",
+		"Code/UtilityFunc.lua",
 		"InventoryItem/FlareAmmo.lua",
 		"InventoryItem/JAZZ_AMMO_9x19_FMJ.lua",
 		"InventoryItem/JAZZ_AMMO_9x19_JHP.lua",
@@ -637,6 +638,7 @@ return PlaceObj('ModDef', {
 		"CharacterEffect/Weight_5Class.lua",
 		"Code/EditorExtension.lua",
 		"Code/System_SectorOperations.lua",
+		"Code/SatelliteSquadFixes.lua",
 		"Code/POI Extension.lua",
 		"InventoryItem/Auto5_quest.lua",
 		"Code/Debug.lua",
@@ -653,8 +655,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1750722813,
-	'code_hash', -1354815336937659546,
+	'saved', 1750793975,
+	'code_hash', -1858569473861082998,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -825,6 +827,31 @@ return PlaceObj('ModDef', {
 			'Class', "ConstDef",
 			'Id', "InventoryGiveDistance",
 			'ClassDisplayName', "Constant",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "Email",
+			'Id', "LegionTier1",
+			'ClassDisplayName', "Email",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "Email",
+			'Id', "LegionTier2",
+			'ClassDisplayName', "Email",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "Email",
+			'Id', "LegionTier3",
+			'ClassDisplayName', "Email",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "Email",
+			'Id', "LegionTier4",
+			'ClassDisplayName', "Email",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "Email",
+			'Id', "LegionTier5",
+			'ClassDisplayName', "Email",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "QuestsDef",

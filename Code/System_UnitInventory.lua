@@ -726,7 +726,7 @@ function Unit:HasNightVision()
 	end
 	local helm = self:GetItemInSlot("Head")
 	local nvg = self:GetItemInSlot("HeadGear")
-	return helm.Condition > 0 and helm.NightVision > 0 or nvg.Condition > 0 and nvg.NightVision > 0
+	return helm and helm.Condition > 0 and helm.NightVision > 0 or nvg and nvg.Condition > 0 and nvg.NightVision > 0
 end
 
 UndefineClass('ArmorProperties')

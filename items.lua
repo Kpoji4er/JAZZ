@@ -1506,6 +1506,45 @@ return {
 	PlaceObj('ModItemFolder', {
 		'name', "Utility_Quests",
 	}, {
+		PlaceObj('ModItemCode', {
+			'name', "UtilityFunc",
+			'CodeFileName', "Code/UtilityFunc.lua",
+		}),
+		PlaceObj('ModItemEmail', {
+			body = T(767218055918, --[[ModItemEmail LegionTier1 body]] "Тир1\n"),
+			group = "Default",
+			id = "LegionTier1",
+			sender = T(342619813681, --[[ModItemEmail LegionTier1 sender]] "JAZZ"),
+			title = T(183093543791, --[[ModItemEmail LegionTier1 title]] "LegionTier1"),
+		}),
+		PlaceObj('ModItemEmail', {
+			body = T(767218055918, --[[ModItemEmail LegionTier2 body]] "Тир2\n"),
+			group = "Default",
+			id = "LegionTier2",
+			sender = T(342619813681, --[[ModItemEmail LegionTier2 sender]] "JAZZ"),
+			title = T(183093543791, --[[ModItemEmail LegionTier2 title]] "LegionTier2"),
+		}),
+		PlaceObj('ModItemEmail', {
+			body = T(767218055918, --[[ModItemEmail LegionTier3 body]] "Тир3\n"),
+			group = "Default",
+			id = "LegionTier3",
+			sender = T(342619813681, --[[ModItemEmail LegionTier2_copy sender]] "JAZZ"),
+			title = T(183093543791, --[[ModItemEmail LegionTier3 title]] "LegionTier3"),
+		}),
+		PlaceObj('ModItemEmail', {
+			body = T(767218055918, --[[ModItemEmail LegionTier4 body]] "Тир4\n"),
+			group = "Default",
+			id = "LegionTier4",
+			sender = T(342619813681, --[[ModItemEmail LegionTier4 sender]] "JAZZ"),
+			title = T(183093543791, --[[ModItemEmail LegionTier4 title]] "LegionTier4"),
+		}),
+		PlaceObj('ModItemEmail', {
+			body = T(767218055918, --[[ModItemEmail LegionTier5 body]] "Тир5"),
+			group = "Default",
+			id = "LegionTier5",
+			sender = T(342619813681, --[[ModItemEmail LegionTier5 sender]] "JAZZ"),
+			title = T(183093543791, --[[ModItemEmail LegionTier5 title]] "LegionTier5"),
+		}),
 		PlaceObj('ModItemQuestsDef', {
 			Author = "Diogo",
 			Chapter = "Utility",
@@ -1907,6 +1946,9 @@ return {
 							Prop = "JAZZ_Legion_Tier",
 							QuestId = "JAZZ_LegionTier",
 						}),
+						PlaceObj('ExecuteCode', {
+							FuncCode = 'RegenerateLegionLoot()\nReceiveEmail("LegionTier1")',
+						}),
 					},
 					ParamId = "JAZZ_Legion_T1",
 					QuestId = "JAZZ_LegionTier",
@@ -1924,6 +1966,9 @@ return {
 							Operation = "set",
 							Prop = "JAZZ_Legion_Tier",
 							QuestId = "JAZZ_LegionTier",
+						}),
+						PlaceObj('ExecuteCode', {
+							FuncCode = 'RegenerateLegionLoot()\nReceiveEmail("LegionTier2")',
 						}),
 					},
 					ParamId = "JAZZ_Legion_T2",
@@ -1943,8 +1988,10 @@ return {
 							Prop = "JAZZ_Legion_Tier",
 							QuestId = "JAZZ_LegionTier",
 						}),
+						PlaceObj('ExecuteCode', {
+							FuncCode = 'RegenerateLegionLoot()\nReceiveEmail("LegionTier3")',
+						}),
 					},
-					Once = true,
 					ParamId = "JAZZ_Legion_T3",
 					QuestId = "JAZZ_LegionTier",
 					SequentialEffects = false,
@@ -1962,8 +2009,10 @@ return {
 							Prop = "JAZZ_Legion_Tier",
 							QuestId = "JAZZ_LegionTier",
 						}),
+						PlaceObj('ExecuteCode', {
+							FuncCode = 'RegenerateLegionLoot()\nReceiveEmail("LegionTier4")',
+						}),
 					},
-					Once = true,
 					ParamId = "JAZZ_Legion_T4",
 					QuestId = "JAZZ_LegionTier",
 					SequentialEffects = false,
@@ -1981,8 +2030,10 @@ return {
 							Prop = "JAZZ_Legion_Tier",
 							QuestId = "JAZZ_LegionTier",
 						}),
+						PlaceObj('ExecuteCode', {
+							FuncCode = 'RegenerateLegionLoot()\nReceiveEmail("LegionTier5")',
+						}),
 					},
-					Once = true,
 					ParamId = "JAZZ_Legion_T5",
 					QuestId = "JAZZ_LegionTier",
 					SequentialEffects = false,
@@ -21483,19 +21534,6 @@ return {
 						PlaceObj('ModItemLootDef', {
 							group = "Default",
 							id = "LegionStrong_SMG",
-							PlaceObj('LootEntryLootDef', {
-								comment = "T1",
-								game_conditions = {
-									PlaceObj('QuestIsVariableNum', {
-										Amount = 2,
-										Condition = "<=",
-										Prop = "JAZZ_Legion_Tier",
-										QuestId = "JAZZ_LegionTier",
-									}),
-								},
-								loot_def = "LegionStrong_MP40",
-								weight = 15000,
-							}),
 							PlaceObj('LootEntryLootDef', {
 								comment = "T1",
 								loot_def = "LegionStrong_MP40",
@@ -132157,6 +132195,10 @@ return {
 	PlaceObj('ModItemFolder', {
 		'name', "SatelliteView",
 	}, {
+		PlaceObj('ModItemCode', {
+			'name', "SatelliteSquadFixes",
+			'CodeFileName', "Code/SatelliteSquadFixes.lua",
+		}),
 		PlaceObj('ModItemCode', {
 			'name', "POI Extension",
 			'CodeFileName', "Code/POI Extension.lua",

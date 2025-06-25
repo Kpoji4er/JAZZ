@@ -259,7 +259,7 @@ function Unit:GetFlankThreat(unitReplace)
 	for _, team in ipairs(g_Teams) do
 		if team.side ~= "neutral" then
 			for _, u in ipairs(team.units) do
-				local repl = unitReplace and unitReplace[u]
+				local repl = unitReplace and IsPoint(unitReplace[u]) and unitReplace[u] or nil
 				if u:CanSurround(self, repl) then
 					enemy_pos[#enemy_pos + 1] = repl or u:GetPos()
 				end
