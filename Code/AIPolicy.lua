@@ -151,7 +151,7 @@ AIPolicyTakeCover.CoverScores = {
 --- @param dest point The destination location to evaluate.
 --- @param grid_voxel point The grid voxel for the destination location.
 --- @return number The score for the destination based on the ability to flank enemies.
---[[function AIPolicyFlanking:EvalDest(context, dest, grid_voxel)
+function AIPolicyFlanking:EvalDest(context, dest, grid_voxel)
 	local unit = context.unit
 	
 	local ap = context.dest_ap[dest] or 0
@@ -194,9 +194,9 @@ AIPolicyTakeCover.CoverScores = {
     end
     
     return delta * self.Weight
-end]]
+end
 
-function AIPolicyFlanking:EvalDest(context, dest, grid_voxel)
+--[[function AIPolicyFlanking:EvalDest(context, dest, grid_voxel)
 	local unit = context.unit
 	local ap = context.dest_ap[dest] or 0
 	if self.ReserveAttackAP and ap < context.default_attack_cost then
@@ -234,7 +234,7 @@ function AIPolicyFlanking:EvalDest(context, dest, grid_voxel)
 	end
 
 	return delta * self.Weight
-end
+end]]
 
 
 --
