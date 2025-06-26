@@ -27,6 +27,5 @@ DefineClass.JazzArmor_UHMWPEHelm = {
 	ArmorRating = 32,
 	MeleeArmorRating = 10,
 	Weight = 4,
-	SuppressionProtection = 20,
 }
 

@@ -29,6 +29,5 @@ DefineClass.JazzArmor_TwaronLegs = {
 	MeleeArmorRating = 5,
 	ExplosiveArmorRating = 10,
 	Weight = 3,
-	SuppressionProtection = 5,
 }
 

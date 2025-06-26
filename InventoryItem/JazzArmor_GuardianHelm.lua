@@ -28,6 +28,5 @@ DefineClass.JazzArmor_GuardianHelm = {
 	ArmorRating = 25,
 	Weight = 3,
 	StunGrenadeProtection = 10,
-	SuppressionProtection = 15,
 }
 

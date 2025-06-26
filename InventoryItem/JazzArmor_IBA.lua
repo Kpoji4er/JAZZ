@@ -29,6 +29,5 @@ DefineClass.JazzArmor_IBA = {
 	CamouflagePercent = 5,
 	CanHoldPlate = true,
 	Weight = 3,
-	SuppressionProtection = 10,
 }
 

@@ -18,6 +18,5 @@ DefineClass.NailsLeatherVest = {
 	AdditionalReduction = 0,
 	ProtectedBodyParts = set( "Torso" ),
 	ArmorRating = 8,
-	SuppressionProtection = 15,
 }
 

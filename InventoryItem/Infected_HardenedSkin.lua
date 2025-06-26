@@ -23,6 +23,5 @@ DefineClass.Infected_HardenedSkin = {
 	ArmorRating = 100,
 	MeleeArmorRating = 100,
 	StunGrenadeProtection = 100,
-	SuppressionProtection = 100,
 }
 

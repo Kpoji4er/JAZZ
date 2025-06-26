@@ -24,6 +24,5 @@ DefineClass.ShamanLeggings = {
 	MeleeArmorRating = 30,
 	ExplosiveArmorRating = 80,
 	Weight = 3,
-	SuppressionProtection = 20,
 }
 

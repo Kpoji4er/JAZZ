@@ -29,6 +29,5 @@ DefineClass.JazzArmor_SpectraHelm = {
 	Weight = 4,
 	DustStormProtection = 30,
 	StunGrenadeProtection = 20,
-	SuppressionProtection = 20,
 }
 

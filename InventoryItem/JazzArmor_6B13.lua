@@ -27,6 +27,5 @@ DefineClass.JazzArmor_6B13 = {
 	ExplosiveArmorRating = 24,
 	CanHoldPlate = true,
 	Weight = 3,
-	SuppressionProtection = 10,
 }
 

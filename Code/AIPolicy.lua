@@ -16,7 +16,6 @@ DefineClass.AIPolicyAttackAP = {
 --- @param grid_voxel GridVoxel The grid voxel at the destination.
 --- @return number The score for the destination based on available action points.
 function AIPolicyAttackAP:EvalDest(context, dest, grid_voxel)
-    function AIPolicyAttackAP:EvalDest(context, dest, grid_voxel)
         local unit = context.unit
         local ap = context.dest_ap[dest] or 0
     
@@ -33,8 +32,6 @@ function AIPolicyAttackAP:EvalDest(context, dest, grid_voxel)
         else
             return 0
         end
-    end
-
 end
 
 
@@ -43,14 +40,14 @@ function AIActionBasicAttack:PrecalcAction(context, action_state)
 	local attack = context.default_attack
 
 	if not attack.target then
-		print("❌ BasicAttack: No target in default_attack")
+		--print("❌ BasicAttack: No target in default_attack")
 		context.default_attack = context.default_attack_old or context.default_attack 
 		context.default_attack_cost = context.default_attack_cost_old or context.default_attack_cost
 		attack = context.default_attack
 	end
 
 	if not attack or not IsValidTarget(attack.target) then
-		print("AIActionBasicAttack: invalid target", attack.target)
+		--print("AIActionBasicAttack: invalid target", attack.target)
 
 		return
 	end
@@ -105,6 +102,9 @@ function AIPolicyTakeCover:EvalDest(context, dest, grid_voxel)
 		end
 
 		if visible then
+
+			local coverstd = GetCoverFrom(dest, context.enemy_pack_pos_stance[enemy])
+
 			local packed_enemy = context.enemy_pack_pos_stance[enemy]
 			if not packed_enemy then goto continue end
 
@@ -118,7 +118,7 @@ function AIPolicyTakeCover:EvalDest(context, dest, grid_voxel)
 			local weight = Max(1, 100 - coverage)
 			local cover_score = self.CoverScores[cover] or 0
 			local localscore = DivRound(cover_score, weight)
-			score = score + localscore
+			score = score + localscore * 0.5 + self.CoverScores[coverstd] * 0.5
 		end
 		::continue::
 	end
@@ -195,46 +195,6 @@ function AIPolicyFlanking:EvalDest(context, dest, grid_voxel)
     
     return delta * self.Weight
 end
-
---[[function AIPolicyFlanking:EvalDest(context, dest, grid_voxel)
-	local unit = context.unit
-	local ap = context.dest_ap[dest] or 0
-	if self.ReserveAttackAP and ap < context.default_attack_cost then
-		return 0
-	end
-
-	-- Учитываем позиции союзников
-	context.position_override = context.position_override or {}
-	if self.AllyPlannedPosition then
-		for _, ally in ipairs(unit.team.units) do
-			local ally_dest = ally.ai_context and ally.ai_context.ai_destination
-			if ally_dest then
-				context.position_override[ally] = ally_dest:SetInvalidZ()
-			end
-		end
-	end
-	context.position_override[unit] = dest:SetInvalidZ()
-
-	-- Кэш окружённости
-	context.enemy_surrounded = context.enemy_surrounded or {}
-	for _, enemy in ipairs(context.enemies) do
-		if context.enemy_surrounded[enemy] == nil then
-			context.enemy_surrounded[enemy] = enemy:IsSurrounded({})
-		end
-	end
-
-	-- Считаем дельту угрозы фланга
-	local delta = 0
-	for _, enemy in ipairs(context.enemies) do
-		if IsValid(enemy) and not enemy:IsDead() then
-			local before = enemy:GetFlankThreat(context.enemy_surrounded)
-			local after  = enemy:GetFlankThreat(context.position_override)
-			delta = delta + (after - before)
-		end
-	end
-
-	return delta * self.Weight
-end]]
 
 
 --

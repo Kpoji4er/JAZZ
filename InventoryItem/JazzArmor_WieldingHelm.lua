@@ -24,6 +24,5 @@ DefineClass.JazzArmor_WieldingHelm = {
 	BlockFaceSlot = true,
 	Weight = 4,
 	Vision = -20,
-	SuppressionProtection = 50,
 }
 

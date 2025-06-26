@@ -28,6 +28,5 @@ DefineClass.JazzArmor_GuardianMedium = {
 	ExplosiveArmorRating = 22,
 	CanHoldPlate = true,
 	Weight = 3,
-	SuppressionProtection = 10,
 }
 

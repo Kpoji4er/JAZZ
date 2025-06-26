@@ -1947,7 +1947,7 @@ return {
 							QuestId = "JAZZ_LegionTier",
 						}),
 						PlaceObj('ExecuteCode', {
-							FuncCode = 'RegenerateLegionLoot()\nReceiveEmail("LegionTier1")',
+							FuncCode = 'ReceiveEmail("LegionTier1")',
 						}),
 					},
 					ParamId = "JAZZ_Legion_T1",
@@ -84249,7 +84249,6 @@ return {
 				'ProtectedBodyParts', set( "Head" ),
 				'ArmorRating', 15,
 				'MeleeArmorRating', 10,
-				'SuppressionProtection', 15,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Personal - Equipment",
@@ -84268,7 +84267,6 @@ return {
 				'AdditionalReduction', 0,
 				'ProtectedBodyParts', set( "Torso" ),
 				'ArmorRating', 8,
-				'SuppressionProtection', 15,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Personal - Equipment",
@@ -86557,7 +86555,6 @@ return {
 					'Vision', -20,
 					'DustStormProtection', 30,
 					'StunGrenadeProtection', 20,
-					'SuppressionProtection', 20,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -86631,7 +86628,6 @@ return {
 					'Weight', 2,
 					'Vision', -10,
 					'StunGrenadeProtection', 5,
-					'SuppressionProtection', 20,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -86809,7 +86805,6 @@ return {
 					'BlockFaceSlot', true,
 					'Weight', 4,
 					'Vision', -20,
-					'SuppressionProtection', 50,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87072,7 +87067,6 @@ return {
 					'Weight', 5,
 					'Vision', -15,
 					'StunGrenadeProtection', 10,
-					'SuppressionProtection', 30,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87100,7 +87094,6 @@ return {
 					'Coverage', 85,
 					'ArmorRating', 40,
 					'Weight', 4,
-					'SuppressionProtection', 10,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87131,7 +87124,6 @@ return {
 					'Weight', 4,
 					'Vision', -5,
 					'StunGrenadeProtection', 10,
-					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87162,7 +87154,6 @@ return {
 					'Weight', 4,
 					'Vision', -5,
 					'StunGrenadeProtection', 10,
-					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87218,7 +87209,6 @@ return {
 					'ArmorRating', 25,
 					'Weight', 3,
 					'StunGrenadeProtection', 10,
-					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87300,7 +87290,6 @@ return {
 					'ArmorRating', 32,
 					'MeleeArmorRating', 10,
 					'Weight', 4,
-					'SuppressionProtection', 20,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87352,7 +87341,6 @@ return {
 					'Weight', 4,
 					'DustStormProtection', 30,
 					'StunGrenadeProtection', 20,
-					'SuppressionProtection', 20,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -87378,7 +87366,6 @@ return {
 					'Vision', -10,
 					'DustStormProtection', 30,
 					'StunGrenadeProtection', 30,
-					'SuppressionProtection', 30,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -87665,7 +87652,6 @@ return {
 					'ExplosiveArmorRating', 5,
 					'CamouflagePercent', -10,
 					'Weight', 3,
-					'SuppressionProtection', 5,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87693,7 +87679,6 @@ return {
 					'CamouflagePercent', -15,
 					'CanHoldPlate', true,
 					'Weight', 3,
-					'SuppressionProtection', 10,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87719,7 +87704,6 @@ return {
 					'ArmorRating', 12,
 					'ExplosiveArmorRating', 5,
 					'Weight', 3,
-					'SuppressionProtection', 10,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87776,7 +87760,6 @@ return {
 					'CamouflagePercent', -15,
 					'CanHoldPlate', true,
 					'Weight', 4,
-					'SuppressionProtection', 20,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87803,7 +87786,6 @@ return {
 					'ExplosiveArmorRating', 25,
 					'CamouflagePercent', -15,
 					'Weight', 4,
-					'SuppressionProtection', 5,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87831,7 +87813,6 @@ return {
 					'ExplosiveArmorRating', 40,
 					'CamouflagePercent', -15,
 					'Weight', 4,
-					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87888,7 +87869,6 @@ return {
 					'ExplosiveArmorRating', 24,
 					'CanHoldPlate', true,
 					'Weight', 3,
-					'SuppressionProtection', 10,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87944,7 +87924,6 @@ return {
 					'ExplosiveArmorRating', 22,
 					'CanHoldPlate', true,
 					'Weight', 3,
-					'SuppressionProtection', 10,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87973,7 +87952,6 @@ return {
 					'ExplosiveArmorRating', 35,
 					'CanHoldPlate', true,
 					'Weight', 4,
-					'SuppressionProtection', 25,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88031,7 +88009,6 @@ return {
 					'CamouflagePercent', 10,
 					'CanHoldPlate', true,
 					'Weight', 3,
-					'SuppressionProtection', 10,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88061,7 +88038,6 @@ return {
 					'CamouflagePercent', 5,
 					'CanHoldPlate', true,
 					'Weight', 4,
-					'SuppressionProtection', 25,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88118,7 +88094,6 @@ return {
 					'CamouflagePercent', 2,
 					'CanHoldPlate', true,
 					'Weight', 3,
-					'SuppressionProtection', 10,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88148,7 +88123,6 @@ return {
 					'CamouflagePercent', 1,
 					'CanHoldPlate', true,
 					'Weight', 4,
-					'SuppressionProtection', 25,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88177,7 +88151,6 @@ return {
 					'ExplosiveArmorRating', 40,
 					'CanHoldPlate', true,
 					'Weight', 3,
-					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88206,7 +88179,6 @@ return {
 					'ExplosiveArmorRating', 70,
 					'CanHoldPlate', true,
 					'Weight', 4,
-					'SuppressionProtection', 25,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88236,7 +88208,6 @@ return {
 					'CamouflagePercent', 5,
 					'CanHoldPlate', true,
 					'Weight', 3,
-					'SuppressionProtection', 5,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88266,7 +88237,6 @@ return {
 					'CamouflagePercent', 5,
 					'CanHoldPlate', true,
 					'Weight', 3,
-					'SuppressionProtection', 10,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88296,7 +88266,6 @@ return {
 					'CamouflagePercent', 5,
 					'CanHoldPlate', true,
 					'Weight', 4,
-					'SuppressionProtection', 25,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88325,7 +88294,6 @@ return {
 					'ExplosiveArmorRating', 20,
 					'CanHoldPlate', true,
 					'Weight', 3,
-					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88353,7 +88321,6 @@ return {
 					'ExplosiveArmorRating', 50,
 					'CanHoldPlate', true,
 					'Weight', 4,
-					'SuppressionProtection', 35,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88377,7 +88344,6 @@ return {
 					'ExplosiveArmorRating', 100,
 					'CanHoldPlate', true,
 					'Weight', 4,
-					'SuppressionProtection', 35,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88399,7 +88365,6 @@ return {
 					'PenetrationClass', 2,
 					'AdditionalReduction', 40,
 					'ProtectedBodyParts', set( "Torso" ),
-					'SuppressionProtection', 35,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88421,7 +88386,6 @@ return {
 					'PenetrationClass', 2,
 					'AdditionalReduction', 40,
 					'ProtectedBodyParts', set( "Torso" ),
-					'SuppressionProtection', 35,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -88634,7 +88598,6 @@ return {
 					'MeleeArmorRating', 5,
 					'ExplosiveArmorRating', 10,
 					'Weight', 3,
-					'SuppressionProtection', 5,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88664,7 +88627,6 @@ return {
 					'MeleeArmorRating', 18,
 					'ExplosiveArmorRating', 20,
 					'Weight', 4,
-					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88695,7 +88657,6 @@ return {
 					'ExplosiveArmorRating', 5,
 					'CamouflagePercent', 5,
 					'Weight', 3,
-					'SuppressionProtection', 5,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88726,7 +88687,6 @@ return {
 					'ExplosiveArmorRating', 10,
 					'CamouflagePercent', 3,
 					'Weight', 4,
-					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88756,7 +88716,6 @@ return {
 					'MeleeArmorRating', 5,
 					'ExplosiveArmorRating', 8,
 					'Weight', 3,
-					'SuppressionProtection', 5,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88785,7 +88744,6 @@ return {
 					'MeleeArmorRating', 15,
 					'ExplosiveArmorRating', 15,
 					'Weight', 4,
-					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88815,7 +88773,6 @@ return {
 					'MeleeArmorRating', 30,
 					'ExplosiveArmorRating', 40,
 					'Weight', 3,
-					'SuppressionProtection', 15,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88840,7 +88797,6 @@ return {
 					'MeleeArmorRating', 30,
 					'ExplosiveArmorRating', 80,
 					'Weight', 3,
-					'SuppressionProtection', 20,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88868,7 +88824,6 @@ return {
 					'MeleeArmorRating', 40,
 					'ExplosiveArmorRating', 40,
 					'Weight', 4,
-					'SuppressionProtection', 20,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -88896,7 +88851,6 @@ return {
 					'ArmorRating', 100,
 					'MeleeArmorRating', 100,
 					'StunGrenadeProtection', 100,
-					'SuppressionProtection', 100,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Beasts",
@@ -88920,7 +88874,6 @@ return {
 					'ArmorRating', 10,
 					'MeleeArmorRating', 10,
 					'CamouflagePercent', 60,
-					'SuppressionProtection', 100,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -102704,34 +102657,6 @@ return {
 									local text1 = cnt.StunGrenadeProtection
 									
 									self.idPropVal:SetNameText(T(5623869723891118821, "Защита от СШГ"))
-									self.idPropVal:SetValueText(T{54113904164711288, "<text1>%", text1 = text1})
-								end,
-							}),
-							}),
-						PlaceObj('XTemplateTemplate', {
-							'comment', "Suppression",
-							'__condition', function (parent, context) local cnt = ResolvePropObj(context); return  IsKindOf(cnt, "Armor") and cnt.SuppressionProtection~=0 end,
-							'__template', "RolloverPropTextRight",
-							'OnLayoutComplete', function (self)
-								self.idPropVal:SetTextStyle("PDABrowserFlavorMedium")
-								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
-							end,
-							'BindTo', "CamouflagePercent",
-							'Text', T(245759466344, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
-							'PercentValue', true,
-						}, {
-							PlaceObj('XTemplateFunc', {
-								'name', "Open(self,...)",
-								'func', function (self,...)
-									self.idPropVal:SetTextStyle("PDABrowserFlavorMedium")
-									self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
-									XPropControl.Open(self,...)
-									
-									
-									local cnt = ResolvePropObj(self.context);
-									local text1 = cnt.StunGrenadeProtection
-									
-									self.idPropVal:SetNameText(T(5623869723891118822, "Сопротивление подавлению"))
 									self.idPropVal:SetValueText(T{54113904164711288, "<text1>%", text1 = text1})
 								end,
 							}),

@@ -80,6 +80,8 @@ function PickBestAttack(unit, enemy, basic_attacks)
 		--print(unit:GetActiveWeapons())
 		return end
 
+	if not IsKindOf(weapon,"Firearm") then return false end
+
 	local recoil = weapon.Recoil or 0
 	local burst = weapon.BurstShots or 3
 	local auto = weapon.AutoShots or 5
@@ -1158,6 +1160,8 @@ function AICalcPathDistances(context)
 	end
     ResumeInfiniteLoopDetection("AiCalc")
 end
+
+
 
 
 function ApplyDamagePrediction(attacker, action, args, actionResult)

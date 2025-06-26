@@ -26,6 +26,5 @@ DefineClass.JazzArmor_Chainmail = {
 	ExplosiveArmorRating = 5,
 	CamouflagePercent = -10,
 	Weight = 3,
-	SuppressionProtection = 5,
 }
 

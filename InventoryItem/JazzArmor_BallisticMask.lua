@@ -25,6 +25,5 @@ DefineClass.JazzArmor_BallisticMask = {
 	Weight = 2,
 	Vision = -10,
 	StunGrenadeProtection = 5,
-	SuppressionProtection = 20,
 }
 

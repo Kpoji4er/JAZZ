@@ -175,19 +175,6 @@ Armor.properties[#Armor.properties+1] = {
     modifiable = true
 }
 
-Armor.properties[#Armor.properties+1] = {
-    category = "New Armor System",
-    id = "SuppressionProtection",
-    name = "SuppressionProtection",
-    help = "% защиты от Подавления",
-    editor = "number",
-    default = 0,
-    template = true,
-    slider = true,
-    min = 0,
-    max = 100,
-    modifiable = true
-}
 
 --[[
 function Armor:Init()
@@ -250,18 +237,6 @@ function Armor:CalculateStunGrenadeProtection()
     return StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
 end
 
-function Armor:CalculateSuppressionProtection()  
-	local SuppressionProtection = (self.SuppressionProtection + 0) or 0
-    return SuppressionProtection * self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
-end
-
-function Unit:SuppressionProtection()
-	local SuppressionProtection = 0
-	self:ForEachItem("Armor", function(item, slot)
-		if slot ~= "Inventory" and item.SuppressionProtection then SuppressionProtection = SuppressionProtection + item:CalculateSuppressionProtection() end
-	end)
-	return SuppressionProtection or 0
-end
 function Unit:StunGrenadeProtection()
 	local StunGrenadeProtection = 0
 	self:ForEachItem("Armor", function(item, slot)
@@ -448,7 +423,7 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 			return 
 		end
 		
-			local willPointsDamage = hit.damage * 0.2 * (100-self:SuppressionProtection()) * 0.01
+			local willPointsDamage = hit.damage * 0.2
 --			local willPointsDamage = MulDivRound(100-self:SuppressionProtection(),hit.damage,200) or DivRound(hit.damage,5)
 			self.WillPoints = Max(0,self.WillPoints - willPointsDamage)
 			--print("grenadeWP: "..willPointsDamage)

@@ -30,6 +30,5 @@ DefineClass.JazzArmor_TwaronHelmHeavy = {
 	Weight = 4,
 	Vision = -5,
 	StunGrenadeProtection = 10,
-	SuppressionProtection = 15,
 }
 

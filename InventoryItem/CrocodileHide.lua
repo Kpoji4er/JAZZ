@@ -23,6 +23,5 @@ DefineClass.CrocodileHide = {
 	ArmorRating = 10,
 	MeleeArmorRating = 10,
 	CamouflagePercent = 60,
-	SuppressionProtection = 100,
 }
 

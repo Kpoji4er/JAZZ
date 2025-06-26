@@ -30,6 +30,5 @@ DefineClass.JazzArmor_ZylonHeavyLegs = {
 	ExplosiveArmorRating = 10,
 	CamouflagePercent = 3,
 	Weight = 4,
-	SuppressionProtection = 15,
 }
 

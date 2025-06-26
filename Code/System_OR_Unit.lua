@@ -84,6 +84,50 @@ function Unit:ResolveDefaultFiringModeAction(firingMode, ui, sync)
 	return actions[1] and actions[1].id, actions
 end
 
+local voxel_radius = const.SlabBox:Radius2D()
+local offsetz = const.SlabSizeZ / 2
+local WorldToVoxel = WorldToVoxel
+local point_pack = point_pack
+local GetHeight = terrain.GetHeight
+local abs = abs
+local point = point
+local Lerp = Lerp
+
+function IsLineInSmoke(from_unit, to_unit)
+    local smokes = g_SmokeObjs 
+    if not next(smokes) then
+        return -- no smokes on the whole map
+    end
+    --local st = GetPreciseTicks()
+    local x0, y0, z0 = from_unit:GetPosXYZ()
+    local x1, y1, z1 = to_unit:GetPosXYZ()
+    if z1 ~= z0 then
+        -- not vary accurate but will work most of the time
+        z0 = (z0 or GetHeight(x0, y0)) + offsetz
+        z1 = (z1 or GetHeight(x1, y1)) + offsetz
+    end
+    local adx, ady = abs(x1 - x0), abs(y1 - y0)
+    if adx == 0 and ady == 0 then return end
+    local from = point(x0, y0, z0)
+    local to = point(x1, y1, z1)
+    local dist = from:Dist(to)
+    local steps = 1 + dist / voxel_radius -- check the line roughly on every half voxel
+    local has_smoke
+    --DbgClear(true) DbgAddSegment(from, to, yellow)
+    for i=0,steps do
+        local pt = Lerp(from, to, i, steps)
+        local voxel = point_pack(WorldToVoxel(pt)) -- convert to voxel space and pack the coordinates to a single number
+        local smoke = smokes[voxel]
+        if smoke then -- approximate the voxel by a circle
+            --DbgAddCircle(pt, voxel_radius, red) DbgAddVector(point(x, y, z), 10*guim, red)
+            has_smoke = true
+            break
+        end
+        --DbgAddCircle(pt, voxel_radius, smoke and green or black)
+    end
+    --print("IsLineInSmoke", has_smoke, " | ", GetPreciseTicks() - st)
+    return has_smoke
+end
 
 
 function Unit:GetSightRadius(other, base_sight, step_pos)
@@ -215,15 +259,17 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 	end
 
 	---Smoke
+
+	if other_is_unit and IsLineInSmoke(self,other) then
+		modifier = modifier - 80
+	end
 	
-	if self:HasStatusEffect("Smoked") then
+	--[[if self:HasStatusEffect("Smoked") then
 		modifier = modifier - 40 
-		EnvEffectSmokeTick(self, nil, "")
 	  end
 	if other_is_unit and other:HasStatusEffect("Smoked") then
-		EnvEffectSmokeTick(other, nil, "")
 		modifier = modifier - 50
-	end
+	end]]
 
 
 	if night_time and other then

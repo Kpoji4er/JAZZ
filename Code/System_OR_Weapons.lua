@@ -1000,7 +1000,7 @@ end
 						and u.team and u.team.side ~= attacker.team.side
 				end)
 			
-				local wpBase = Max(self.Damage, 1) * (100 - (IsKindOf(target, "Unit") and target:SuppressionProtection() or 0)) * 0.002
+				local wpBase = Max(self.Damage, 1) * 0.2
 			
 				for _, hit in ipairs(hit_data.hits) do
 					if IsValid(target_unit) and target_unit.team.side ~= attacker.team.side then

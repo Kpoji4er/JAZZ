@@ -25,6 +25,5 @@ DefineClass.Gasmaskenhelm = {
 	Vision = -10,
 	DustStormProtection = 30,
 	StunGrenadeProtection = 30,
-	SuppressionProtection = 30,
 }
 
