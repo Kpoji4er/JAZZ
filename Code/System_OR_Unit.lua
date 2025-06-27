@@ -229,6 +229,12 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 		modifier = modifier - 10
 	end
 
+	if self:HasStatusEffect("Blinded") then
+		modifier = modifier - 100
+	end
+
+	
+
 	-- environmental factors
 	if other then
 		local env_factors = GetVoxelStealthParams(step_pos or other) or 0
@@ -261,7 +267,7 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 	---Smoke
 
 	if other_is_unit and IsLineInSmoke(self,other) then
-		modifier = modifier - 80
+		modifier = modifier - 70
 	end
 	
 	--[[if self:HasStatusEffect("Smoked") then

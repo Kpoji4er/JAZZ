@@ -90147,7 +90147,7 @@ return {
 				'Parameters', {
 					PlaceObj('PresetParamPercent', {
 						'Name', "cth_effect",
-						'Value', -20,
+						'Value', -40,
 						'Tag', "<cth_effect>%",
 					}),
 				},
