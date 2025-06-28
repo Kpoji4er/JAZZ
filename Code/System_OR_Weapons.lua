@@ -1,4 +1,41 @@
+function OnMsg.NewGameSessionStart()
+    g_SuppressionApplyQueue = {}
+end
 
+function OnMsg.LoadGame()
+    g_SuppressionApplyQueue = g_SuppressionApplyQueue or {}
+end
+
+function QueueSuppressionApplication(unit, wp_dmg)
+    if not g_SuppressionApplyQueue then
+        g_SuppressionApplyQueue = {}
+    end
+    if not g_SuppressionApplyThread or not IsValidThread(g_SuppressionApplyThread) then
+        g_SuppressionApplyThread = CreateGameTimeThread(function()
+            while true do
+                if g_SuppressionApplyQueue and #g_SuppressionApplyQueue > 0 then
+                    local entry = table.remove(g_SuppressionApplyQueue, 1)
+                    local u, dmg = entry.unit, entry.damage
+                    if IsValid(u) then
+						Sleep(500)
+                        local old_wp = u.WillPoints
+                        u.WillPoints = Max(0, old_wp - dmg)
+                        if u.WillPoints ~= old_wp then
+                            u:ApplySuppressionStatus()
+                        end
+                    end
+                    Sleep(100)
+                else
+                    Sleep(100)
+                end
+            end
+        end)
+    end
+
+    if IsValid(unit) and not HasPerk(unit, "Psycho") and wp_dmg > 0 then
+        table.insert(g_SuppressionApplyQueue, {unit=unit, damage=wp_dmg})
+    end
+end
 
 local function compile_ignore_colliders(killed_colliders, colliders)
 	if #(killed_colliders or empty_table) == 0 then
@@ -659,7 +696,7 @@ end
 
 	local suppression_CTH = attack_results.chance_to_hit
 
-	local will_damage_by_unit = {}
+
 
 	for i = 1, num_shots do
 	
@@ -1000,18 +1037,18 @@ end
 						and u.team and u.team.side ~= attacker.team.side
 				end)
 			
-				local wpBase = Max(self.Damage, 1) * 0.2
+				local wpBase = Max(self.Damage, 1) * 0.1
 			
 				for _, hit in ipairs(hit_data.hits) do
 					if IsValid(target_unit) and target_unit.team.side ~= attacker.team.side then
-						local cthFactor = Clamp((suppression_CTH / 100)^0.5, 0.2, 1.0)
+						local cthFactor = Clamp((suppression_CTH / 100)^0.5, 0.1, 1.0)
 						local willDamage = wpBase * (0.4 + 0.6 * cthFactor)
 						if willDamage > 0 then
 							if attacker_is_psycho then
 								attacker.WillPoints = Max(attacker.MaxWillPoints, attacker.WillPoints + willDamage)
 							end
 							if not target_is_psycho then
-								will_damage_by_unit[target_unit] = (will_damage_by_unit[target_unit] or 0) + willDamage
+								QueueSuppressionApplication(target_unit, willDamage)
 								--target_unit.WillPoints = Max(0, target_unit.WillPoints - willDamage)
 								--target_unit:ApplySuppressionStatus()
 							end
@@ -1022,14 +1059,15 @@ end
 					for _, unit in ipairs(units) do
 						local dist = unit:GetPos():Dist2D(hit_pos)
 						if dist < 5 * const.SlabSizeX then
-							local clamped = Clamp(4 * const.SlabSizeX - dist, 0, 4 * const.SlabSizeX)
-							local nearDamage = wpBase * clamped * 0.0002
+							local clamped = Clamp((4 * const.SlabSizeX - dist) / const.SlabSizeX, 0, 4)
+							local nearDamage = wpBase * clamped * 0.15
 							if nearDamage > 0 then
 								if attacker_is_psycho then
 									attacker.WillPoints = Max(attacker.MaxWillPoints, attacker.WillPoints + nearDamage)
 								end
 								if not HasPerk(unit, "Psycho") then
-									will_damage_by_unit[unit] = (will_damage_by_unit[unit] or 0) + nearDamage
+									QueueSuppressionApplication(unit, nearDamage)
+
 
 									--unit.WillPoints = Max(0, unit.WillPoints - nearDamage)
 									--unit:ApplySuppressionStatus()
@@ -1043,12 +1081,7 @@ end
 	end
 
 
-	for unit, wp_dmg in pairs(will_damage_by_unit) do
-		if IsValid(unit) and not HasPerk(unit, "Psycho") then
-			unit.WillPoints = Max(0, unit.WillPoints - wp_dmg)
-			unit:ApplySuppressionStatus()
-		end
-	end
+
 
 	
 	attack_results.miss = miss

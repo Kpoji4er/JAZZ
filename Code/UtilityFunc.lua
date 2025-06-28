@@ -23,7 +23,7 @@ function _RegenerateLegionLoot()
                 --  print(unit:IsDead())
                 --  print(unit.IsMercenary)
                 if unitdata and not unitdata.IsMercenary and not unitdata:IsDead() and
-                    unitdata.Affiliation and unitdata.Affiliation == "Legion" then    
+                    unitdata.Affiliation and (unitdata.Affiliation == "Legion" or unitdata.Affiliation == "Rebel") then    
                 
                  unitdata:ForEachItem(function(item, slot_name)
                     unitdata:RemoveItem(slot_name, item)	

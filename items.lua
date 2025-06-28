@@ -29801,14 +29801,11 @@ return {
 						Comment = "enemy legion",
 						group = "Enemy - Legion",
 						id = "Legion_GoonElite_Weapon",
+						loot = "all",
 						PlaceObj('LootEntryLootDef', {
 							amount_modifier = 2000000,
 							loot_def = "LegionElite_Pistol",
 							weight = 70000,
-						}),
-						PlaceObj('LootEntryLootDef', {
-							loot_def = "LegionElite_SMG",
-							weight = 30000,
 						}),
 					}),
 					PlaceObj('ModItemLootDef', {
@@ -37684,82 +37681,31 @@ return {
 					group = "Default",
 					id = "RebelAR",
 					PlaceObj('LootEntryLootDef', {
-						loot_def = "LegionStrong_AK47",
+						loot_def = "LegionStrong_AssaultRifle",
 						weight = 40000,
 					}),
 					PlaceObj('LootEntryLootDef', {
-						loot_def = "LegionStrong_AKM40Mag",
-						weight = 10000,
-					}),
-					PlaceObj('LootEntryLootDef', {
-						loot_def = "LegionStrong_AKM",
-						weight = 10000,
-					}),
-					PlaceObj('LootEntryLootDef', {
-						loot_def = "LegionStrong_ZastavaM70",
-						weight = 20000,
-					}),
-					PlaceObj('LootEntryLootDef', {
-						loot_def = "LegionStrong_ZastavaM92",
-						weight = 20000,
-					}),
-					PlaceObj('LootEntryLootDef', {
-						loot_def = "LegionElite_AK47",
+						loot_def = "LegionStrong_SMG",
 						weight = 40000,
 					}),
 					PlaceObj('LootEntryLootDef', {
-						loot_def = "LegionElite_AKMScope",
-						weight = 10000,
-					}),
-					PlaceObj('LootEntryLootDef', {
-						loot_def = "LegionElite_AKMReflex",
-						weight = 10000,
-					}),
-					PlaceObj('LootEntryLootDef', {
-						loot_def = "LegionStrong_AK47",
-						weight = 10000,
-					}),
-					PlaceObj('LootEntryLootDef', {
-						loot_def = "LegionStrong_SKS",
-						weight = 40000,
+						loot_def = "LegionStrong_SharpRifles",
+						weight = 30000,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
 					group = "Default",
 					id = "RebelSniperRifle",
 					PlaceObj('LootEntryLootDef', {
-						loot_def = "LegionStrong_DragunovSVD",
-						weight = 10000,
-					}),
-					PlaceObj('LootEntryLootDef', {
-						loot_def = "ArmySR_DragunovSVDS",
-						weight = 5000,
-					}),
-					PlaceObj('LootEntryLootDef', {
-						loot_def = "LegionElite_ZastavaM76",
-						weight = 3000,
-					}),
-					PlaceObj('LootEntryLootDef', {
-						loot_def = "ArmySR_FRF2",
+						loot_def = "LegionStrong_SniperRifles",
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
 					group = "Default",
 					id = "RebelMG",
 					PlaceObj('LootEntryLootDef', {
-						loot_def = "LegionStrong_RPD",
+						loot_def = "LegionStrong_MG",
 						weight = 10000,
-					}),
-					PlaceObj('LootEntryLootDef', {
-						loot_def = "LegionStrong_RPKDrum",
-						weight = 5000,
-					}),
-					PlaceObj('LootEntryLootDef', {
-						loot_def = "ArmyEliteMG_PKM",
-						weight = 3000,
-					}),
-					PlaceObj('LootEntryLootDef', {
-						loot_def = "LegionStrong_RPK74",
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -37839,16 +37785,13 @@ return {
 						loot_def = "RebelSniperRifle",
 					}),
 					PlaceObj('LootEntryLootDef', {
-						loot_def = "EnemyValuables",
+						loot_def = "Strong_ReconHead",
 					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_6B3",
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Strong_SharpShooter_Torso",
 					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_UniformPants",
-					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_UniformCap",
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Strong_ReconLegs",
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -37859,14 +37802,14 @@ return {
 					PlaceObj('LootEntryLootDef', {
 						loot_def = "RebelMG",
 					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_6B3",
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Strong_RaiderHead",
 					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_UniformPants",
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Strong_RaiderTorso",
 					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_UniformCap",
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Strong_RaiderLegs",
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -37877,14 +37820,23 @@ return {
 					PlaceObj('LootEntryLootDef', {
 						loot_def = "RebelAR",
 					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_6B3",
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Strong_ReconHead",
 					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_LeatherPants",
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Strong_RaiderTorso",
 					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_SovietHelm",
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Elite_RaiderLegs",
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					Comment = "enemy rebels",
+					group = "Enemy - Rebels",
+					id = "RebelSergeant",
+					loot = "all",
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "AdonisSquadLeader_Elite",
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -37900,19 +37852,17 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryLootDef', {
-						loot_def = "LegionStrong_AKSU",
+						loot_def = "LegionElite_SMG",
+						weight = 40000,
 					}),
 					PlaceObj('LootEntryLootDef', {
-						loot_def = "EnemyValuables",
+						loot_def = "Strong_ReconHead",
 					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_6B3",
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Strong_SharpShooter_Torso",
 					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_LeatherPants",
-					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_SovietHelm",
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Elite_ReconLegs",
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -37920,13 +37870,6 @@ return {
 					group = "Enemy - Rebels",
 					id = "RebelGrenadier",
 					loot = "all",
-					PlaceObj('LootEntryInventoryItem', {
-						Condition = 91,
-						drop_chance_mod = 200,
-						item = "M1897",
-						stack_max = 1,
-						stack_min = 1,
-					}),
 					PlaceObj('LootEntryLootDef', {
 						loot_def = "RebelsExplosives",
 					}),
@@ -37934,16 +37877,13 @@ return {
 						loot_def = "ExplosiveComponents",
 					}),
 					PlaceObj('LootEntryLootDef', {
-						loot_def = "Army_12g",
+						loot_def = "Strong_ReconHead",
 					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_6B3",
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Strong_SharpShooter_Torso",
 					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_LeatherPants",
-					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_SovietHelm",
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Elite_ReconLegs",
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -37952,19 +37892,53 @@ return {
 					id = "RebelSentry",
 					loot = "all",
 					PlaceObj('LootEntryLootDef', {
-						loot_def = "RebelAR",
-					}),
-					PlaceObj('LootEntryLootDef', {
 						loot_def = "EnemyValuables",
 					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_6B3",
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "LegionElite_AssaultRifle",
+						weight = 40000,
 					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_LeatherPants",
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Elite_ReconHead",
 					}),
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Elite_SharpShooter_Torso",
+					}),
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Elite_ReconLegs",
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					group = "Default",
+					id = "RebelRPG",
 					PlaceObj('LootEntryInventoryItem', {
-						item = "JazzArmor_6b7Helm",
+						Condition = 81,
+						item = "RPG7",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "RPG7Ammo",
+					}),
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Elite_SharpShooter_Torso",
+					}),
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "LegionElite_AssaultRifle",
+						weight = 40000,
+					}),
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Elite_ReconHead",
+					}),
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "Elite_ReconLegs",
+					}),
+				}),
+				PlaceObj('ModItemLootDef', {
+					group = "Default",
+					id = "RebelHeavy_Mortar",
+					PlaceObj('LootEntryLootDef', {
+						loot_def = "ArmyMortar",
 					}),
 				}),
 				}),

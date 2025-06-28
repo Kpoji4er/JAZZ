@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 6,
-	'version', 5008,
+	'version', 5014,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -655,8 +655,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1750974806,
-	'code_hash', 4442888520579711790,
+	'saved', 1751112365,
+	'code_hash', 9204574738986711436,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -7000,6 +7000,11 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "LootDef",
+			'Id', "RebelSergeant",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
 			'Id', "RebelFlanker",
 			'ClassDisplayName', "LootDef",
 		}),
@@ -7011,6 +7016,16 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "LootDef",
 			'Id', "RebelSentry",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "RebelRPG",
+			'ClassDisplayName', "LootDef",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "LootDef",
+			'Id', "RebelHeavy_Mortar",
 			'ClassDisplayName', "LootDef",
 		}),
 		PlaceObj('ModResourcePreset', {
