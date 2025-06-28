@@ -1020,9 +1020,9 @@ end
 		end
 
 		--suppression
-		if (action.id == "MGBurstFire") then 
-			suppression_CTH = suppression_CTH * 2
-		end
+		--if (action.id == "MGBurstFire") then 
+		--	suppression_CTH = suppression_CTH * 2
+		--end
 
 
 		--if not prediction and g_Combat then
@@ -1038,6 +1038,10 @@ end
 				end)
 			
 				local wpBase = Max(self.Damage, 1) * 0.1
+
+				if (action.id == "MGBurstFire") then 
+					wpBase = wpBase * 3
+				end
 			
 				for _, hit in ipairs(hit_data.hits) do
 					if IsValid(target_unit) and target_unit.team.side ~= attacker.team.side then
