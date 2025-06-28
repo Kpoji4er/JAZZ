@@ -18,6 +18,10 @@ DefineClass.Bleeding = {
 				if RollSkillCheck(healer, "Medical", 100,-30) then
 					patient:RemoveStatusEffect("Bleeding", "all")
 				end
+				
+				if not IsMerc(healer) then 
+				    patient:RemoveStatusEffect("Bleeding", "all")
+				end
 				end
 			end,
 			HandlerCode = function (self, patient, hp, medkit, healer)
@@ -26,6 +30,10 @@ DefineClass.Bleeding = {
 				end
 				if RollSkillCheck(healer, "Medical", 100,-30) then
 					patient:RemoveStatusEffect("Bleeding", "all")
+				end
+				
+				if not IsMerc(healer) then 
+				    patient:RemoveStatusEffect("Bleeding", "all")
 				end
 			end,
 		}),

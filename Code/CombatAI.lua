@@ -744,6 +744,11 @@ function AIBuildArchetypePaths(unit, pos, context)
 	local goto_stance = archetype.MoveStance
 	local pref_stance = archetype.PrefStance
 
+	if context.restarts and context.restarts > 0 then
+		goto_stance = unit.stance
+		pref_stance = unit.stance
+	end
+
 	--[[local current_stance = unit.stance or pref_stance
 
 	local cover_high, cover_low= GetCover(unit)

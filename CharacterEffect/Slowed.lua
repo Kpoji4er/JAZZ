@@ -12,13 +12,13 @@ DefineClass.Slowed = {
 			Handler = function (self, patient, hp, medkit, healer)
 				local reaction_def = (self.msg_reactions or empty_table)[1]
 				if self:VerifyReaction("OnHeal", reaction_def, patient, patient, hp, medkit, healer) then
-					if RollSkillCheck(healer, "Medical", 100,-40) then
+					if SkillCheck(healer, "Medical", 50) then
 					patient:RemoveStatusEffect("Slowed")
 				end
 				end
 			end,
 			HandlerCode = function (self, patient, hp, medkit, healer)
-				if RollSkillCheck(healer, "Medical", 100,-40) then
+				if SkillCheck(healer, "Medical", 50) then
 					patient:RemoveStatusEffect("Slowed")
 				end
 			end,

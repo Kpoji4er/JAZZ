@@ -61001,7 +61001,7 @@ return {
 					'BaseDamage', 60,
 					'Scatter', 6,
 					'BaseRange', 4,
-					'ThrowMaxRange', 18,
+					'ThrowMaxRange', 28,
 					'CanBounce', false,
 					'InaccurateMinOffset', 3000,
 					'InaccurateMaxOffset', 8000,
@@ -61046,7 +61046,7 @@ return {
 					'BaseDamage', 70,
 					'Scatter', 6,
 					'BaseRange', 3,
-					'ThrowMaxRange', 20,
+					'ThrowMaxRange', 25,
 					'InaccurateMinOffset', 3000,
 					'InaccurateMaxOffset', 8000,
 					'Noise', 60,
@@ -61081,7 +61081,7 @@ return {
 					'Scatter', 8,
 					'AttackAP', 3000,
 					'BaseRange', 2,
-					'ThrowMaxRange', 16,
+					'ThrowMaxRange', 24,
 					'InaccurateMinOffset', 4000,
 					'InaccurateMaxOffset', 10000,
 					'Noise', 30,
@@ -61132,7 +61132,7 @@ return {
 					'Scatter', 6,
 					'AttackAP', 4000,
 					'BaseRange', 12,
-					'ThrowMaxRange', 18,
+					'ThrowMaxRange', 25,
 					'InaccurateMinOffset', 3000,
 					'InaccurateMaxOffset', 10000,
 					'Noise', 10,
@@ -61171,7 +61171,7 @@ return {
 					'Scatter', 8,
 					'AttackAP', 4000,
 					'BaseRange', 12,
-					'ThrowMaxRange', 18,
+					'ThrowMaxRange', 30,
 					'InaccurateMinOffset', 3000,
 					'InaccurateMaxOffset', 10000,
 					'Noise', 0,
@@ -61210,7 +61210,7 @@ return {
 					'Scatter', 6,
 					'AttackAP', 2000,
 					'BaseRange', 14,
-					'ThrowMaxRange', 18,
+					'ThrowMaxRange', 30,
 					'CanBounce', false,
 					'InaccurateMinOffset', 3000,
 					'InaccurateMaxOffset', 10000,
@@ -61249,6 +61249,7 @@ return {
 					'BaseDamage', 25,
 					'Scatter', 6,
 					'BaseRange', 1,
+					'ThrowMaxRange', 18,
 					'CanBounce', false,
 					'InaccurateMinOffset', 3000,
 					'InaccurateMaxOffset', 10000,
@@ -61288,7 +61289,7 @@ return {
 					'Scatter', 5,
 					'AttackAP', 4000,
 					'BaseRange', 12,
-					'ThrowMaxRange', 18,
+					'ThrowMaxRange', 24,
 					'InaccurateMinOffset', 3000,
 					'InaccurateMaxOffset', 10000,
 					'Noise', 5,
@@ -61327,7 +61328,7 @@ return {
 					'Scatter', 5,
 					'AttackAP', 4000,
 					'BaseRange', 12,
-					'ThrowMaxRange', 18,
+					'ThrowMaxRange', 24,
 					'InaccurateMinOffset', 3000,
 					'InaccurateMaxOffset', 10000,
 					'Noise', 5,
@@ -61363,7 +61364,7 @@ return {
 					'Scatter', 5,
 					'AttackAP', 4000,
 					'BaseRange', 12,
-					'ThrowMaxRange', 18,
+					'ThrowMaxRange', 24,
 					'InaccurateMinOffset', 3000,
 					'InaccurateMaxOffset', 10000,
 					'Noise', 5,
@@ -61402,7 +61403,7 @@ return {
 					'BaseDamage', 80,
 					'Scatter', 6,
 					'BaseRange', 0,
-					'ThrowMaxRange', 16,
+					'ThrowMaxRange', 25,
 					'CanBounce', false,
 					'Noise', 60,
 					'Entity', "MilitaryCamp_Grenade_01",
@@ -89566,6 +89567,10 @@ return {
 							if RollSkillCheck(healer, "Medical", 100,-30) then
 								patient:RemoveStatusEffect("Bleeding", "all")
 							end
+							
+							if not IsMerc(healer) then 
+							    patient:RemoveStatusEffect("Bleeding", "all")
+							end
 							end
 						end,
 						HandlerCode = function (self, patient, hp, medkit, healer)
@@ -89574,6 +89579,10 @@ return {
 							end
 							if RollSkillCheck(healer, "Medical", 100,-30) then
 								patient:RemoveStatusEffect("Bleeding", "all")
+							end
+							
+							if not IsMerc(healer) then 
+							    patient:RemoveStatusEffect("Bleeding", "all")
 							end
 						end,
 						helpActor = "patient",
@@ -89758,6 +89767,31 @@ return {
 						helpActor = "attacker",
 						param_bindings = false,
 					}),
+					PlaceObj('MsgActorReaction', {
+						ActorParam = "patient",
+						Event = "OnHeal",
+						Handler = function (self, patient, hp, medkit, healer)
+							local reaction_def = (self.msg_reactions or empty_table)[2]
+							if self:VerifyReaction("OnHeal", reaction_def, patient, patient, hp, medkit, healer) then
+								if not IsMerc(healer) then 
+							    patient:RemoveStatusEffect("Wounded")
+							    patient:RemoveStatusEffect("Blinded")
+								patient:RemoveStatusEffect("Inaccurate")
+								patient:RemoveStatusEffect("Slowed")
+							end
+							end
+						end,
+						HandlerCode = function (self, patient, hp, medkit, healer)
+							if not IsMerc(healer) then 
+							    patient:RemoveStatusEffect("Wounded")
+							    patient:RemoveStatusEffect("Blinded")
+								patient:RemoveStatusEffect("Inaccurate")
+								patient:RemoveStatusEffect("Slowed")
+							end
+						end,
+						helpActor = "patient",
+						param_bindings = false,
+					}),
 				},
 				'unit_reactions', {
 					PlaceObj('UnitReaction', {
@@ -89874,19 +89908,13 @@ return {
 						Handler = function (self, patient, hp, medkit, healer)
 							local reaction_def = (self.msg_reactions or empty_table)[1]
 							if self:VerifyReaction("OnHeal", reaction_def, patient, patient, hp, medkit, healer) then
-								if RollSkillCheck(healer, "Medical", 100,-10) then
-								patient:RemoveStatusEffect("Inaccurate")
-							end
-							if RollSkillCheck(healer, "Medical", 100,-30) then
+								if SkillCheck(healer, "Medical", 50) then
 								patient:RemoveStatusEffect("Inaccurate")
 							end
 							end
 						end,
 						HandlerCode = function (self, patient, hp, medkit, healer)
-							if RollSkillCheck(healer, "Medical", 100,-10) then
-								patient:RemoveStatusEffect("Inaccurate")
-							end
-							if RollSkillCheck(healer, "Medical", 100,-30) then
+							if SkillCheck(healer, "Medical", 50) then
 								patient:RemoveStatusEffect("Inaccurate")
 							end
 						end,
@@ -89957,13 +89985,13 @@ return {
 						Handler = function (self, patient, hp, medkit, healer)
 							local reaction_def = (self.msg_reactions or empty_table)[1]
 							if self:VerifyReaction("OnHeal", reaction_def, patient, patient, hp, medkit, healer) then
-								if RollSkillCheck(healer, "Medical", 100,-40) then
+								if SkillCheck(healer, "Medical", 50) then
 								patient:RemoveStatusEffect("Slowed")
 							end
 							end
 						end,
 						HandlerCode = function (self, patient, hp, medkit, healer)
-							if RollSkillCheck(healer, "Medical", 100,-40) then
+							if SkillCheck(healer, "Medical", 50) then
 								patient:RemoveStatusEffect("Slowed")
 							end
 						end,
@@ -90126,6 +90154,7 @@ return {
 					}),
 				},
 				'object_class', "CharacterEffect",
+				'msg_reactions', {},
 				'unit_reactions', {
 					PlaceObj('UnitReaction', {
 						Event = "OnBeginTurn",
@@ -95348,7 +95377,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ DisplayName]] "Секретные данные"),
+					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Секретные данные"),
 					'Description', T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
 					'Icon', "UI/Icons/Perks/InnerInfo",
 					'Tier', "Personal",
@@ -95410,7 +95439,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ DisplayName]] "Юберрашунг"),
+					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Юберрашунг"),
 					'Description', T(845332100943, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ Description]] "Дает +50% од на первом ходу"),
 					'Icon', "UI/Icons/Perks/GruntyPerk",
 					'Tier', "Personal",

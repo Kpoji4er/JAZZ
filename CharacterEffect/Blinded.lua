@@ -5,6 +5,7 @@ DefineClass.Blinded = {
 
 
 	object_class = "CharacterEffect",
+	msg_reactions = {},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnBeginTurn",

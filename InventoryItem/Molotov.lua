@@ -31,6 +31,7 @@ DefineClass.Molotov = {
 	BaseDamage = 25,
 	Scatter = 6,
 	BaseRange = 1,
+	ThrowMaxRange = 18,
 	CanBounce = false,
 	InaccurateMinOffset = 3000,
 	InaccurateMaxOffset = 10000,
