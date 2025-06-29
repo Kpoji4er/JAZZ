@@ -37899,7 +37899,7 @@ return {
 						loot_def = "EnemyValuables",
 					}),
 					PlaceObj('LootEntryLootDef', {
-						loot_def = "LegionElite_AssaultRifle",
+						loot_def = "LegionStrong_AssaultRifle",
 						weight = 40000,
 					}),
 					PlaceObj('LootEntryLootDef', {
