@@ -109,46 +109,21 @@ function InventoryItem:GetDeteriorationKeywordNoPrefix()
 	local keyword = ""
 
 	-- Огнестрел
-	if IsKindOf(self, "Firearm") then
-		local factory = self:GetFactoryResource() or 1000
-		local max = self:GetMaxResource() or 1000
-		if max <= 0 then max = 1 end
-		local conditionPercent =(MulDivRound(max, 100, factory)) or 100
-
-		if conditionPercent >= 95 then
-			color = "item_green"
-			keyword = T(486989771291111, "идеальное")
-		elseif conditionPercent >= 80 then
-			color = "item_green"
-			keyword = T(2998106563741111, "отремонтированное")
-		elseif conditionPercent >= 30 then
-			color = "yellow"
-			keyword = T(5678579714391111, "изношенное")
-		elseif conditionPercent >= 10 then
-			color = "red"
-			keyword = T(939310080350111, "ржавое")
-		else
-			color = "red"
-			keyword = T(968409848233111, "сломанное")
-		end
-
-	-- Броня и всё остальное
-	elseif IsKindOf(self, "Armor") then
+	if self.ArmorResource then
 		local factory = self:GetFactoryResource() or 1000
 		local max = self:GetMaxResource() or 1000
 		if max <= 0 then max = 1 end
 		local conditionPercent =( MulDivRound(max, 100, factory)) or 100
-
-		if conditionPercent >= 95 then
+		if conditionPercent >= 80 then
 			color = "item_green"
-			keyword = T(4869897712911115, "идеальное")
-		elseif conditionPercent >= 80 then
+			keyword = T(4869897712911115, "")
+		elseif conditionPercent >= 60 then
 			color = "item_green"
-			keyword = T(29981065637411115, "заштопанное")
-		elseif  conditionPercent >= 30 then
+			keyword = T(29981065637411115, "заштопан")
+		elseif  conditionPercent >= 40 then
 			color = "yellow"
 			keyword = T(56785797143911115, "дырявое")
-		elseif conditionPercent >= 10 then
+		elseif conditionPercent >= 15 then
 			color = "red"
 			keyword = T(9393100803501115, "рваное")
 		else
@@ -156,19 +131,22 @@ function InventoryItem:GetDeteriorationKeywordNoPrefix()
 			keyword = T(9684098482331115, "порвано")
 		end
 
-	-- Старый fallback (хз, вдруг на предметах ещё осталась Deterioration)
-	else
-		local conditionPercent = self.Deterioration or 0
-		if conditionPercent <= 1 then
+	elseif self.WeaponResource then
+		local factory = self:GetFactoryResource() or 1000
+		local max = self:GetMaxResource() or 1000
+		if max <= 0 then max = 1 end
+		local conditionPercent =( MulDivRound(max, 100, factory)) or 100
+
+		if conditionPercent >= 80 then
 			color = "item_green"
-			keyword = T(486989771291111, "идеальное")
-		elseif conditionPercent <= 5 then
+			keyword = T(486989771291111, "")
+		elseif conditionPercent >= 60 then
 			color = "item_green"
-			keyword = T(2998106563741111, "отремонтированное")
-		elseif conditionPercent <= 20 then
+			keyword = T(2998106563741111, "отремонт")
+		elseif conditionPercent >= 40 then
 			color = "yellow"
 			keyword = T(5678579714391111, "изношенное")
-		elseif conditionPercent <= 50 then
+		elseif conditionPercent >= 15 then
 			color = "red"
 			keyword = T(939310080350111, "ржавое")
 		else
@@ -194,23 +172,21 @@ function InventoryItem:GetDeteriorationKeywordNoPrefixForInventory()
 	local color = "item_green"
 	local keyword = ""
 
-	
-
 	if self.ArmorResource then
 		local factory = self:GetFactoryResource() or 1000
 		local max = self:GetMaxResource() or 1000
 		if max <= 0 then max = 1 end
 		local conditionPercent =( MulDivRound(max, 100, factory)) or 100
-		if conditionPercent >= 95 then
+		if conditionPercent >= 80 then
 			color = "item_green"
 			keyword = T(4869897712911115, "")
-		elseif conditionPercent >= 80 then
+		elseif conditionPercent >= 60 then
 			color = "item_green"
 			keyword = T(29981065637411115, "заштопан")
-		elseif  conditionPercent >= 30 then
+		elseif  conditionPercent >= 40 then
 			color = "yellow"
 			keyword = T(56785797143911115, "дырявое")
-		elseif conditionPercent >= 10 then
+		elseif conditionPercent >= 15 then
 			color = "red"
 			keyword = T(9393100803501115, "рваное")
 		else
@@ -224,16 +200,16 @@ function InventoryItem:GetDeteriorationKeywordNoPrefixForInventory()
 		if max <= 0 then max = 1 end
 		local conditionPercent =( MulDivRound(max, 100, factory)) or 100
 
-		if conditionPercent >= 95 then
+		if conditionPercent >= 80 then
 			color = "item_green"
 			keyword = T(486989771291111, "")
-		elseif conditionPercent >= 80 then
+		elseif conditionPercent >= 60 then
 			color = "item_green"
 			keyword = T(2998106563741111, "отремонт")
-		elseif conditionPercent >= 30 then
+		elseif conditionPercent >= 40 then
 			color = "yellow"
 			keyword = T(5678579714391111, "изношенное")
-		elseif conditionPercent >= 10 then
+		elseif conditionPercent >= 15 then
 			color = "red"
 			keyword = T(939310080350111, "ржавое")
 		else
