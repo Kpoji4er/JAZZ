@@ -30,7 +30,7 @@ DefineModItemPreset("MercSpecializations", { EditorName = "Merc Specializations"
 DefineModItemPreset("MercStat", { EditorName = "Merc Stat", EditorSubmenu = "Mercs" })
 DefineModItemPreset("SectorOperation", { EditorName = "Sector Operation", EditorSubmenu = "Satellite" })
 DefineModItemPreset("EventOperationOutcome", { EditorName = "Event Operation Outcome", EditorSubmenu = "Satellite" })
-DefineModItemPreset("SatelliteTimelineEventDef", { EditorName = "Event Operation Outcome", EditorSubmenu = "Satellite" })
+DefineModItemPreset("SatelliteTimelineEventDef", { EditorName = "Satellite Timeline Event Def", EditorSubmenu = "Satellite" })
 DefineModItemPreset("ClassDef", { EditorName = "ClassDef", EditorSubmenu = "Weapons" })
 DefineModItemPreset("GameTerm", { EditorName = "Gameterm", EditorSubmenu = "Other" })
 DefineModItemPreset("ChanceToHitModifier", { EditorName = "ChanceToHitModifier", EditorSubmenu = "ChanceToHitModifier" })

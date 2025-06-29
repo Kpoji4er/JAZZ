@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 6,
-	'version', 5020,
+	'version', 5028,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -638,6 +638,7 @@ return PlaceObj('ModDef', {
 		"CharacterEffect/Weight_5Class.lua",
 		"Code/EditorExtension.lua",
 		"Code/System_SectorOperations.lua",
+		"Code/Regions_Sectors.lua",
 		"Code/SatelliteSquadFixes.lua",
 		"Code/POI Extension.lua",
 		"InventoryItem/Auto5_quest.lua",
@@ -655,8 +656,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1751154179,
-	'code_hash', 4621029275093808345,
+	'saved', 1751199969,
+	'code_hash', 2074979250180110903,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -14312,6 +14313,11 @@ return PlaceObj('ModDef', {
 			'Class', "SectorOperation",
 			'Id', "NewSectorOperation",
 			'ClassDisplayName', "Sector Operation",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "Region",
+			'Id', "ErnieIsland",
+			'ClassDisplayName', "Region",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "GameDifficultyDef",
