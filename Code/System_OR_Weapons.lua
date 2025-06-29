@@ -141,9 +141,9 @@ function FirearmGetGrouping(item,dist_slab)
 	if max_res <= 0 then max_res = 1 end
 	if factory <= 0 then factory = 1 end
 
-	local condition_mult = Clamp((curr_res + 0.1) / max_res, 0.0, 1)
+	local condition_mult = Clamp((curr_res + 0.2) / max_res, 0.0, 1)
 
-	local repair_mult = Clamp(0.9 + 0.1 * max_res / factory, 0.6, 1)
+	local repair_mult = Clamp(0.8 + 0.2 * max_res / factory, 0.1, 1)
 
 
 	local grouping = item.Grouping or 10
@@ -182,10 +182,10 @@ function FirearmBase:GetBaseJamChanceRaw()
 	-- ступенчатый множитель износа
 	local degrade_mult = 1 + ((100 - condition_percent) / 100)^2.25 * 6
 
-	if condition_percent <= 5 then degrade_mult = 15.0 end
-	if condition_percent <= 30 then degrade_mult = 8.0 end
-	if condition_percent <= 30 then degrade_mult = 4.0 end
-	if condition_percent <= 80 then degrade_mult = 2.0 end
+	if condition_percent <= 15 then degrade_mult = 24.0 end
+	if condition_percent <= 40 then degrade_mult = 16.0 end
+	if condition_percent <= 60 then degrade_mult = 8.0 end
+	if condition_percent <= 80 then degrade_mult = 4.0 end
 
 	local raw_chance = ((100 - reliability) + base) * degrade_mult
 

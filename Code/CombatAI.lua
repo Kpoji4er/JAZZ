@@ -221,6 +221,10 @@ end
 function AICreateContext(unit, context)
     PauseInfiniteLoopDetection("AiCalc")
 	local gx, gy, gz = unit:GetGridCoords()
+
+	if not unit:GetActiveWeapons() then
+		AIPlayCombatAction("ChangeWeapon", unit, 0)
+	end
 	local weapon = unit:GetActiveWeapons()
 	local default_attack = unit:GetDefaultAttackAction(nil, "ungrouped", nil, "sync")
 	local enemies = table.icopy(GetEnemies(unit))

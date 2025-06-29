@@ -58317,7 +58317,6 @@ return {
 					'Description', T(642546299209, --[[ModItemInventoryItemCompositeDef ScoutSniper Description]] "Австрийская снайперская винтовка. Оптический прицел кратности 2.5Х, установлен низко над стволом и с большим выносом вперед, что обеспечивает удобное прицеливание двумя глазами и быстрый захват цели. Ложа, затвор и спусковой механизм выполнен по индивидуальному заказу для миссисс Стерлинг за несусветное количество денег. Потому что она может  себе это позволить."),
 					'AdditionalHint', T(514313521194, --[[ModItemInventoryItemCompositeDef ScoutSniper AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокий шанс критического попадания\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая эффективность стрельбы навскидку"),
 					'LargeItem', 1,
-					'Cumbersome', 1,
 					'UnitStat', "Marksmanship",
 					'Cost', 160000,
 					'CanAppearInShop', true,
