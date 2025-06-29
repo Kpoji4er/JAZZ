@@ -78,7 +78,7 @@ DefineClass.MP5A2 = {
 	BulletDropRange = 11,
 	Grouping = 85,
 	BaseJamChance = -30,
-	WeaponResource = 11000,
+	WeaponResource = 5000,
 	CanAppearUsed = false,
 }
 

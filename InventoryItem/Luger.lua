@@ -62,6 +62,6 @@ DefineClass.Luger = {
 	BulletDropRange = 6,
 	Grouping = 95,
 	BaseJamChance = 10,
-	WeaponResource = 800,
+	WeaponResource = 400,
 }
 

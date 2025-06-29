@@ -22,5 +22,6 @@ DefineClass.JazzArmorPlates_Scrap = {
 	CanAppearUsed = false,
 	ArmorRating = 10,
 	Weight = 4,
+	ArmorResource = 250,
 }
 

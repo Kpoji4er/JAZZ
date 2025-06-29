@@ -24,5 +24,7 @@ DefineClass.JazzArmor_RaiderKneePads = {
 	MeleeArmorRating = 5,
 	ExplosiveArmorRating = 5,
 	Weight = 2,
+	ArmorResource = 250,
+	Repairability = 95,
 }
 

@@ -54,6 +54,5 @@ DefineClass.Striker = {
 	BulletDropRange = 7,
 	Grouping = 130,
 	BaseJamChance = -20,
-	WeaponResource = 1400,
 }
 

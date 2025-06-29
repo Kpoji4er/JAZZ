@@ -62,6 +62,6 @@ DefineClass.ColtPeacemaker = {
 	BulletDropRange = 7,
 	Grouping = 92,
 	BaseJamChance = -100,
-	WeaponResource = 4500,
+	WeaponResource = 3000,
 }
 

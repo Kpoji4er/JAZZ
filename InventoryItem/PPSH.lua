@@ -57,6 +57,6 @@ DefineClass.PPSH = {
 	Handling = 75,
 	BulletDropRange = 11,
 	Grouping = 70,
-	WeaponResource = 15000,
+	WeaponResource = 6200,
 }
 

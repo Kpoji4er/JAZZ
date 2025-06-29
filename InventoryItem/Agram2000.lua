@@ -65,5 +65,6 @@ DefineClass.Agram2000 = {
 	BulletDropRange = 8,
 	Grouping = 72,
 	BaseJamChance = -10,
+	WeaponResource = 1500,
 }
 

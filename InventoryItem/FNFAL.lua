@@ -136,6 +136,6 @@ DefineClass.FNFAL = {
 	BulletDropRange = 21,
 	Grouping = 285,
 	BaseJamChance = -10,
-	WeaponResource = 9500,
+	WeaponResource = 7500,
 }
 

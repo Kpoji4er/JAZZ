@@ -21,5 +21,7 @@ DefineClass.JazzArmor_SpectraFullCompositum = {
 	PenetrationClass = 2,
 	AdditionalReduction = 40,
 	ProtectedBodyParts = set( "Torso" ),
+	ArmorResource = 1000,
+	Repairability = 10,
 }
 

@@ -26,5 +26,6 @@ DefineClass.JazzArmor_SwatPads = {
 	ArmorRating = 12,
 	MeleeArmorRating = 5,
 	Weight = 2,
+	Repairability = 60,
 }
 

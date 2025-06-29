@@ -28,5 +28,7 @@ DefineClass.JazzArmor_PoliceVest = {
 	CamouflagePercent = -5,
 	CanHoldPlate = true,
 	Weight = 2,
+	ArmorResource = 250,
+	Repairability = 60,
 }
 

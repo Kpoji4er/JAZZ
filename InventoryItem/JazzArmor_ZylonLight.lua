@@ -28,5 +28,7 @@ DefineClass.JazzArmor_ZylonLight = {
 	CamouflagePercent = 15,
 	CanHoldPlate = true,
 	Weight = 2,
+	ArmorResource = 200,
+	Repairability = 70,
 }
 

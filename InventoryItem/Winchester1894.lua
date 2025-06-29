@@ -81,6 +81,6 @@ DefineClass.Winchester1894 = {
 	BulletDropRange = 10,
 	Grouping = 240,
 	BaseJamChance = -100,
-	WeaponResource = 6000,
+	WeaponResource = 3000,
 }
 

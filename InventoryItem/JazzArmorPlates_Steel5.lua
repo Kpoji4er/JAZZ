@@ -26,5 +26,6 @@ DefineClass.JazzArmorPlates_Steel5 = {
 	CanAppearUsed = false,
 	ArmorRating = 20,
 	Weight = 5,
+	ArmorResource = 150,
 }
 

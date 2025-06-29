@@ -56,6 +56,6 @@ DefineClass.Sterling = {
 	BulletDropRange = 10,
 	Grouping = 88,
 	BaseJamChance = -20,
-	WeaponResource = 7500,
+	WeaponResource = 3200,
 }
 

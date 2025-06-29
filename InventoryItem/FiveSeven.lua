@@ -73,7 +73,7 @@ DefineClass.FiveSeven = {
 	BulletDropRange = 7,
 	Grouping = 92,
 	BaseJamChance = -20,
-	WeaponResource = 2700,
+	WeaponResource = 1800,
 	CanAppearUsed = false,
 }
 

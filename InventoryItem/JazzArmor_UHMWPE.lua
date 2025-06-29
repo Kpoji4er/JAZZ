@@ -28,5 +28,7 @@ DefineClass.JazzArmor_UHMWPE = {
 	ExplosiveArmorRating = 40,
 	CanHoldPlate = true,
 	Weight = 3,
+	ArmorResource = 650,
+	Repairability = 45,
 }
 

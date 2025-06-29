@@ -28,5 +28,6 @@ DefineClass.JazzArmor_PASGTHelm = {
 	ArmorRating = 25,
 	CamouflagePercent = 3,
 	Weight = 3,
+	ArmorResource = 150,
 }
 

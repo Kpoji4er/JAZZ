@@ -28,5 +28,7 @@ DefineClass.JazzArmor_TwaronLight = {
 	CamouflagePercent = 3,
 	CanHoldPlate = true,
 	Weight = 2,
+	ArmorResource = 300,
+	Repairability = 80,
 }
 

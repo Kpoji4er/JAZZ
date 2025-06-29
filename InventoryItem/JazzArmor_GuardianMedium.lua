@@ -28,5 +28,7 @@ DefineClass.JazzArmor_GuardianMedium = {
 	ExplosiveArmorRating = 22,
 	CanHoldPlate = true,
 	Weight = 3,
+	ArmorResource = 240,
+	Repairability = 65,
 }
 

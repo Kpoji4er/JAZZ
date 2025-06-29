@@ -96,19 +96,6 @@ Armor.properties[#Armor.properties+1] = {
 
 Armor.properties[#Armor.properties+1] = {
     category = "New Armor System",
-    id = "Deterioration",
-    name = "Deterioration",
-    help = "Уровень износа",
-    editor = "number",
-    default = 0,
-    template = false,
-	modifiable = false,
-    min = 0,
-    max = 100,
-}
-
-Armor.properties[#Armor.properties+1] = {
-    category = "New Armor System",
     id = "Weight",
     help = "Вес",
     editor = "number",
@@ -176,13 +163,56 @@ Armor.properties[#Armor.properties+1] = {
 }
 
 
+
+Armor.properties[#Armor.properties+1] = {
+    category = "New Armor Condition",
+    id = "ArmorResource",
+    name = "Armor Resource",
+    help = "Ресурс брони",
+    editor = "number",
+    default = 100,
+    template = true,
+    min = 0,
+    max = 1000,
+    modifiable = true
+}
+
+Armor.properties[#Armor.properties+1] = {
+    category = "New Armor Condition",
+    id = "Repairability",
+    name = "Ремонтопригодность",
+    help = "Ремонтопригодность (%)",
+    editor = "number",
+    default = 50,
+    template = true,
+    min = 0,
+    max = 100,
+    modifiable = true
+}
+
+
+
+Armor.properties[#Armor.properties+1] = {
+    category = "New Weapon Condition",
+    id = "ArmorResourceMax",
+    name = "Armor Resource",
+    help = "Ресурс оружия Макс",
+    editor = "number",
+    default = -1,
+    template = false,
+    min = -1,
+    max = 50000,
+    modifiable = true
+}
+
+
 --[[
 function Armor:Init()
     local factory = self:GetFactoryResource() or 1000
-    self.MaxCondition = self.WeaponResourceMax or factory
+    self.MaxCondition = self.ArmorResourceMax or factory
     local percent = Clamp(self.Condition or 100, 1, 100)
-    self.WeaponResource = self.WeaponResource or MulDivRound(self.WeaponResourceMax, percent, 100)
-    self.Condition = self.WeaponResource
+    self.ArmorResource = self.ArmorResource or MulDivRound(self.ArmorResourceMax, percent, 100)
+    self.Condition = self.ArmorResource
     self:InitializeItemId()
 end
 ]]
@@ -194,6 +224,57 @@ function GetArmorWeightUIText(id)
 	return ArmorWeightText[id]
 end
 
+function Armor:GetFactoryResource()
+	return InventoryItemDefs[self.class]:GetProperty("ArmorResource") or 1000
+end
+
+function Armor:GetMaxResource()
+    local ArmorResourceMax = 0
+    if self.ArmorResourceMax and self.ArmorResourceMax >= 0 then
+        ArmorResourceMax = self.ArmorResourceMax
+    else
+        ArmorResourceMax = self:GetFactoryResource()
+    end
+	return ArmorResourceMax 
+end
+
+function Armor:GetCurrentResource()
+	return self.ArmorResource or self:GetFactoryResource()
+end
+
+function Armor:GetDegradationMultiplier()
+	local factory = self:GetFactoryResource()
+	local max_res = self:GetMaxResource() or factory
+	local curr_res = self:GetCurrentResource() or max_res
+
+	if max_res <= 0 then max_res = 1 end
+	if factory <= 0 then factory = 1 end
+
+	-- 1) Коэффициент текущего состояния: чем ближе к 0%, тем сильнее деградация
+	local condition_mult = Clamp((curr_res + 0.2) / max_res, 0.0, 1)
+
+	-- 2) Коэффициент деградации ресурса: если max_res сильно меньше factory, значит броня сильно изношена
+	local repair_mult = Clamp(0.8 + 0.2 * max_res / factory, 0.1, 1)
+
+	-- 3) Суммарный множитель
+	local degrade_mult = condition_mult * repair_mult
+
+	-- 4) Пороговая деградация: чтобы были "ломающие" моменты, как в jam chance
+	if condition_mult <= 0.15 then degrade_mult = degrade_mult * 0.2
+	elseif condition_mult <= 0.40 then degrade_mult = degrade_mult * 0.4
+	elseif condition_mult <= 0.60 then degrade_mult = degrade_mult * 0.6
+	elseif condition_mult <= 0.80 then degrade_mult = degrade_mult * 0.8
+	else degrade_mult = degrade_mult * 1.0
+	end
+
+	-- 5) Влияние погоды
+	
+--	if (GameState.RainHeavy or GameState.RainLight) and not self.indoors then
+--		degrade_mult = degrade_mult * (1 - const.EnvEffects.RainArmorDegradeMod/100)
+--	end
+
+	return degrade_mult
+end
 
 function Armor:GetRolloverHint()
 	local hint = {} 	
@@ -211,13 +292,13 @@ function Armor:CalculateArmorRating(weapon_pen_class)
     local ArmorRating = self.ArmorRating
     if IsKindOf(self, "ArmorPlates") then
 		if self.PenetrationClass >= weapon_pen_class then 
-        return self.ArmorRating * self:GetConditionPercent()/100
-		else return self.ArmorRating * self.PenetrationClass^2/weapon_pen_class^2 * self:GetConditionPercent()/100 end end
+        return self.ArmorRating * self:GetDegradationMultiplier()
+		else return floatfloor(self.ArmorRating * self.PenetrationClass^2/weapon_pen_class^2 * self:GetDegradationMultiplier()) end end
 
     if self.PenetrationClass > weapon_pen_class then
-     ArmorRating = (self.ArmorRating + 3*self.PenetrationClass/weapon_pen_class) * self:GetConditionPercent()/100 * (100-self.Deterioration)/100
+     ArmorRating = (self.ArmorRating + 3*self.PenetrationClass/weapon_pen_class) * self:GetDegradationMultiplier()
      else
-     ArmorRating = self.ArmorRating * self.PenetrationClass^2/weapon_pen_class^2 * self:GetConditionPercent()/100 * (100-self.Deterioration)/100 --* (self:GetConditionPercent()-self.Deterioration)^2/100^2
+     ArmorRating = self.ArmorRating * self.PenetrationClass^2/weapon_pen_class^2 * self:GetDegradationMultiplier() --* (self:GetConditionPercent()-self.Deterioration)^2/100^2
     end
    -- print(self.PenetrationClass^2/weapon_pen_class^2)
     --return Min(ArmorRating,100 * self:GetConditionPercent()/100 * (101-self.Deterioration)/100)
@@ -225,16 +306,22 @@ function Armor:CalculateArmorRating(weapon_pen_class)
 end
 
 function Armor:CalculateArmorRatingMelee()  
-    return self.MeleeArmorRating * self:GetConditionPercent()/100 * (101-self.Deterioration)/100
+    return floatfloor(self.MeleeArmorRating * self:GetDegradationMultiplier())
 end
 
 function Armor:CalculateArmorRatingExplosive()  
-    return self.ExplosiveArmorRating *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100
+    return floatfloor(self.ExplosiveArmorRating * self:GetDegradationMultiplier())
 end
 
 function Armor:CalculateStunGrenadeProtection()  
 	local StunGrenadeProtection = (self.StunGrenadeProtection + 0) or 0
-    return StunGrenadeProtection *  self:GetConditionPercent()/100 * (101-self.Deterioration)/100 or 0
+    return floatfloor(StunGrenadeProtection  * self:GetDegradationMultiplier() or 0)
+end
+
+function Armor:GetConditionPercent()
+    local max_res = self:GetMaxResource()
+    if max_res <= 0 then max_res = 1 end
+	return Clamp(MulDivRound(self:GetCurrentResource(), 100, max_res), 0, 100)
 end
 
 function Unit:StunGrenadeProtection()
@@ -320,7 +407,7 @@ function Unit:ApplyHitDamageReduction(hit, weapon, hit_body_part, ignore_cover, 
 				--result = result + 1
 			end
 
-            degrade = MulDivRound(item.Degradation, hit.damage, 100)
+
             --degrade = item.Degradation * result / 100
 			--print(pierced)
 			--print(" "..result.." "..hit.damage.." "..dr)
@@ -343,7 +430,16 @@ function Unit:ApplyHitDamageReduction(hit, weapon, hit_body_part, ignore_cover, 
 			hit.damage = Min(hit.damage, result)
 			if not hit.armor_decay then hit.armor_decay = {} end
 			if not hit.armor_pen then hit.armor_pen = {} end
-			hit.armor_decay[item] = Min(item.Condition, degrade or 0)
+
+			local blocked_damage = Max(Min(hit.damage, dr), 0)
+
+            degrade = hit.damage - dr
+			local max_res = item:GetMaxResource()
+			local degrade_amount = MulDivRound(max_res, blocked_damage, 100)
+			item.ArmorResource = Max(0, item.ArmorResource - degrade_amount)
+			hit.armor_decay[item] = degrade_amount
+
+
 			if pierced then
 				hit.armor_pen[item] = true
 			end
@@ -437,7 +533,13 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 	if not invulnerable then
 		local change = false
 		for item, degrade in pairs(armor_decay) do
-			item.Condition = self:ItemModifyCondition(item, - degrade)
+			if IsKindOf(item, "Armor") then
+				-- уменьшаем ресурс брони напрямую
+				item.ArmorResource = Max(0, item.ArmorResource - degrade)
+			else
+				-- fallback для других предметов, если вдруг armor_decay используется не только для брони
+				item.Condition = self:ItemModifyCondition(item, - degrade)
+			end
 			if IsKindOf(item, "TransmutedItemProperties") and item.RevertCondition=="damage" then
 				item.RevertConditionCounter = item.RevertConditionCounter-1
 				if item.RevertConditionCounter== 0 then

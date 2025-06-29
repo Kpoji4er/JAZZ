@@ -22,5 +22,7 @@ DefineClass.JazzArmor_AdrianHelmet = {
 	Coverage = 40,
 	ArmorRating = 20,
 	Weight = 2,
+	ArmorResource = 80,
+	Repairability = 80,
 }
 

@@ -78,6 +78,6 @@ DefineClass.AK47 = {
 	BulletDropRange = 14,
 	Grouping = 240,
 	BaseJamChance = -10,
-	WeaponResource = 11000,
+	WeaponResource = 12000,
 }
 

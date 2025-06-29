@@ -26,5 +26,7 @@ DefineClass.JazzArmor_TireArmor = {
 	CamouflagePercent = -10,
 	CanHoldPlate = true,
 	Weight = 3,
+	ArmorResource = 250,
+	Repairability = 95,
 }
 

@@ -27,5 +27,7 @@ DefineClass.JazzArmor_6B3 = {
 	MeleeArmorRating = 5,
 	ExplosiveArmorRating = 22,
 	Weight = 3,
+	ArmorResource = 300,
+	Repairability = 60,
 }
 

@@ -94,6 +94,6 @@ DefineClass.P210 = {
 	BulletDropRange = 6,
 	Grouping = 95,
 	BaseJamChance = -50,
-	WeaponResource = 1500,
+	WeaponResource = 1200,
 }
 

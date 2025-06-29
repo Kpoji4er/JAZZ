@@ -102,6 +102,6 @@ DefineClass.M24Sniper = {
 	BulletDropRange = 23,
 	Grouping = 450,
 	BaseJamChance = -20,
-	WeaponResource = 20000,
+	WeaponResource = 5500,
 }
 

@@ -28,5 +28,7 @@ DefineClass.JazzArmor_Spectra = {
 	ExplosiveArmorRating = 20,
 	CanHoldPlate = true,
 	Weight = 3,
+	ArmorResource = 800,
+	Repairability = 30,
 }
 

@@ -110,11 +110,10 @@ function InventoryItem:GetDeteriorationKeywordNoPrefix()
 
 	-- Огнестрел
 	if IsKindOf(self, "Firearm") then
-		local max = self:GetMaxResource() or self:GetFactoryResource() or 1000
-		local curr = self:GetCurrentResource() or max
+		local factory = self:GetFactoryResource() or 1000
+		local max = self:GetMaxResource() or 1000
 		if max <= 0 then max = 1 end
-
-		local conditionPercent = MulDivRound(curr, 100, max)
+		local conditionPercent =(MulDivRound(max, 100, factory)) or 100
 
 		if conditionPercent >= 95 then
 			color = "item_green"
@@ -135,17 +134,21 @@ function InventoryItem:GetDeteriorationKeywordNoPrefix()
 
 	-- Броня и всё остальное
 	elseif IsKindOf(self, "Armor") then
-		local conditionPercent = self.Deterioration or 0
-		if conditionPercent <= 1 then
+		local factory = self:GetFactoryResource() or 1000
+		local max = self:GetMaxResource() or 1000
+		if max <= 0 then max = 1 end
+		local conditionPercent =( MulDivRound(max, 100, factory)) or 100
+
+		if conditionPercent >= 95 then
 			color = "item_green"
 			keyword = T(4869897712911115, "идеальное")
-		elseif conditionPercent <= 10 then
+		elseif conditionPercent >= 80 then
 			color = "item_green"
 			keyword = T(29981065637411115, "заштопанное")
-		elseif conditionPercent <= 30 then
+		elseif  conditionPercent >= 30 then
 			color = "yellow"
 			keyword = T(56785797143911115, "дырявое")
-		elseif conditionPercent <= 50 then
+		elseif conditionPercent >= 10 then
 			color = "red"
 			keyword = T(9393100803501115, "рваное")
 		else
@@ -193,44 +196,49 @@ function InventoryItem:GetDeteriorationKeywordNoPrefixForInventory()
 
 	
 
-	if self.Deterioration then
-		local conditionPercent = self.Deterioration
-		if conditionPercent<=1 then
+	if self.ArmorResource then
+		local factory = self:GetFactoryResource() or 1000
+		local max = self:GetMaxResource() or 1000
+		if max <= 0 then max = 1 end
+		local conditionPercent =( MulDivRound(max, 100, factory)) or 100
+		if conditionPercent >= 95 then
 			color = "item_green"
-			keyword = " "
-		elseif conditionPercent<=10 then
+			keyword = T(4869897712911115, "")
+		elseif conditionPercent >= 80 then
 			color = "item_green"
-			keyword = T(29981065637411112, "б/у")
-		elseif conditionPercent<=30 then
+			keyword = T(29981065637411115, "заштопан")
+		elseif  conditionPercent >= 30 then
 			color = "yellow"
-			keyword = T(56785797143911112, "дырявое")
-		elseif conditionPercent<=50 then
+			keyword = T(56785797143911115, "дырявое")
+		elseif conditionPercent >= 10 then
 			color = "red"
-			keyword = T(9393100803501112, "рваное")
-		else--if conditionPercent>=presets.ItemConditionBroken.name then
+			keyword = T(9393100803501115, "рваное")
+		else
 			color = "red"
-			keyword =  T(9684098482331112, "порвано")
+			keyword = T(9684098482331115, "порвано")
 		end
-	elseif self.WeaponResource then
-		local max = self:GetMaxResource() or 0
-		local factory = self:GetFactoryResource() or 0
-		local conditionPercent =( 100 - MulDivRound(max, 100, factory)) or 100
 
-		if conditionPercent<=5 then
+	elseif self.WeaponResource then
+		local factory = self:GetFactoryResource() or 1000
+		local max = self:GetMaxResource() or 1000
+		if max <= 0 then max = 1 end
+		local conditionPercent =( MulDivRound(max, 100, factory)) or 100
+
+		if conditionPercent >= 95 then
 			color = "item_green"
-			keyword = " "
-		elseif conditionPercent<=10 then
+			keyword = T(486989771291111, "")
+		elseif conditionPercent >= 80 then
 			color = "item_green"
-			keyword = T(29981065637411112, "б/у")
-		elseif conditionPercent<=40 then
+			keyword = T(2998106563741111, "отремонт")
+		elseif conditionPercent >= 30 then
 			color = "yellow"
-			keyword = T(56785797143911112, "износ")
-		elseif conditionPercent<=98 then
+			keyword = T(5678579714391111, "изношенное")
+		elseif conditionPercent >= 10 then
 			color = "red"
-			keyword = T(9393100803501112, "ржавое")
-		else--if conditionPercent>=presets.ItemConditionBroken.name then
+			keyword = T(939310080350111, "ржавое")
+		else
 			color = "red"
-			keyword =  T(9684098482331112, "сломано")
+			keyword = T(968409848233111, "сломанное")
 		end
 	end
 	

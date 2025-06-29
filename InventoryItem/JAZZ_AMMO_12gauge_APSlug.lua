@@ -26,7 +26,7 @@ DefineClass.JAZZ_AMMO_12gauge_APSlug = {
 			target_prop = "OverwatchAngle",
 		}),
 		PlaceObj('CaliberModification', {
-			mod_add = 10,
+			mod_add = 15,
 			target_prop = "WeaponRange",
 		}),
 		PlaceObj('CaliberModification', {
@@ -42,11 +42,11 @@ DefineClass.JAZZ_AMMO_12gauge_APSlug = {
 			target_prop = "ObjDamageMod",
 		}),
 		PlaceObj('CaliberModification', {
-			mod_mul = 3000,
+			mod_mul = 1850,
 			target_prop = "Grouping",
 		}),
 		PlaceObj('CaliberModification', {
-			mod_add = 5,
+			mod_add = 6,
 			mod_mul = 0,
 			target_prop = "BulletDropRange",
 		}),

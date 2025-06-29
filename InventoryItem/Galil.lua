@@ -119,6 +119,6 @@ DefineClass.Galil = {
 	Handling = 65,
 	BulletDropRange = 20,
 	Grouping = 280,
-	WeaponResource = 12000,
+	WeaponResource = 7000,
 }
 

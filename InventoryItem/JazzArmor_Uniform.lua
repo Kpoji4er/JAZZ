@@ -25,5 +25,6 @@ DefineClass.JazzArmor_Uniform = {
 	MeleeArmorRating = 2,
 	ExplosiveArmorRating = 20,
 	CamouflagePercent = 20,
+	Repairability = 80,
 }
 

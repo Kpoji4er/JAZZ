@@ -81,6 +81,6 @@ DefineClass.HK23e = {
 	BulletDropRange = 19,
 	Grouping = 305,
 	BaseJamChance = -30,
-	WeaponResource = 16000,
+	WeaponResource = 10000,
 }
 

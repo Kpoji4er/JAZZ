@@ -67,6 +67,6 @@ DefineClass.Auto5 = {
 	Handling = 70,
 	BulletDropRange = 6,
 	Grouping = 100,
-	WeaponResource = 800,
+	WeaponResource = 500,
 }
 

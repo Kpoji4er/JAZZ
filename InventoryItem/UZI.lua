@@ -84,6 +84,6 @@ DefineClass.UZI = {
 	BulletDropRange = 10,
 	Grouping = 85,
 	BaseJamChance = -20,
-	WeaponResource = 8900,
+	WeaponResource = 3600,
 }
 

@@ -30,5 +30,7 @@ DefineClass.JazzArmor_ZylonLegs = {
 	ExplosiveArmorRating = 5,
 	CamouflagePercent = 5,
 	Weight = 3,
+	ArmorResource = 160,
+	Repairability = 70,
 }
 

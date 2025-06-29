@@ -84,5 +84,6 @@ DefineClass.HiPower = {
 	BulletDropRange = 6,
 	Grouping = 87,
 	BaseJamChance = -10,
+	WeaponResource = 1400,
 }
 

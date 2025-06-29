@@ -110,6 +110,6 @@ DefineClass.PSG1 = {
 	BulletDropRange = 22,
 	Grouping = 400,
 	BaseJamChance = -20,
-	WeaponResource = 14500,
+	WeaponResource = 9000,
 }
 

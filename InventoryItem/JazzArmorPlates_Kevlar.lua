@@ -25,5 +25,6 @@ DefineClass.JazzArmorPlates_Kevlar = {
 	CanAppearUsed = false,
 	ArmorRating = 10,
 	Weight = 2,
+	ArmorResource = 200,
 }
 

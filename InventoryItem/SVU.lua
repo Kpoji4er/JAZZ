@@ -74,6 +74,6 @@ DefineClass.SVU = {
 	BulletDropRange = 24,
 	Grouping = 380,
 	BaseJamChance = -20,
-	WeaponResource = 15000,
+	WeaponResource = 6500,
 }
 

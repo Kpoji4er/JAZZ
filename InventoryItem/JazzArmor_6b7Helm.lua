@@ -26,5 +26,7 @@ DefineClass.JazzArmor_6b7Helm = {
 	Coverage = 60,
 	ArmorRating = 32,
 	Weight = 3,
+	ArmorResource = 130,
+	Repairability = 70,
 }
 

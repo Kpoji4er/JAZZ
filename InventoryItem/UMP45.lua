@@ -108,7 +108,7 @@ DefineClass.UMP45 = {
 	BulletDropRange = 8,
 	Grouping = 90,
 	BaseJamChance = -30,
-	WeaponResource = 12000,
+	WeaponResource = 6000,
 	CanAppearUsed = false,
 }
 

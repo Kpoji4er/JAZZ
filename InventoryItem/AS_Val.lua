@@ -105,6 +105,6 @@ DefineClass.AS_Val = {
 	BulletDropRange = 12,
 	Grouping = 200,
 	BaseJamChance = -30,
-	WeaponResource = 5000,
+	WeaponResource = 3000,
 }
 

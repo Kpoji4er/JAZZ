@@ -26,5 +26,7 @@ DefineClass.JazzArmor_LeatherArmor = {
 	CamouflagePercent = -5,
 	CanHoldPlate = true,
 	Weight = 2,
+	ArmorResource = 150,
+	Repairability = 95,
 }
 

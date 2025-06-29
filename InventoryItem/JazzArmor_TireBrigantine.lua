@@ -27,5 +27,7 @@ DefineClass.JazzArmor_TireBrigantine = {
 	CamouflagePercent = -15,
 	CanHoldPlate = true,
 	Weight = 3,
+	ArmorResource = 300,
+	Repairability = 95,
 }
 

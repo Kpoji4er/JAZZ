@@ -23,5 +23,6 @@ DefineClass.JazzArmor_ESS = {
 	ArmorRating = 4,
 	DustStormProtection = 30,
 	StunGrenadeProtection = 80,
+	Repairability = 60,
 }
 

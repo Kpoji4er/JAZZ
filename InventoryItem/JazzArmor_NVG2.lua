@@ -18,5 +18,6 @@ DefineClass.JazzArmor_NVG2 = {
 	AdditionalReduction = 20,
 	NightVision = 40,
 	StunGrenadeProtection = -20,
+	ArmorResource = 200,
 }
 

@@ -102,6 +102,6 @@ DefineClass.Sig552SWAT = {
 	BulletDropRange = 16,
 	Grouping = 250,
 	BaseJamChance = -30,
-	WeaponResource = 14000,
+	WeaponResource = 9000,
 }
 

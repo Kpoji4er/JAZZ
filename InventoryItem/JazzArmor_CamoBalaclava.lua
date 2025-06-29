@@ -23,5 +23,6 @@ DefineClass.JazzArmor_CamoBalaclava = {
 	ProtectedBodyParts = set( "Head" ),
 	CamouflagePercent = 5,
 	Vision = -5,
+	ArmorResource = 20,
 }
 

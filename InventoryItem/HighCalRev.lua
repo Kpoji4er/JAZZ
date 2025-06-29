@@ -64,6 +64,6 @@ DefineClass.HighCalRev = {
 	BulletDropRange = 10,
 	Grouping = 85,
 	BaseJamChance = -50,
-	WeaponResource = 5000,
+	WeaponResource = 3500,
 }
 

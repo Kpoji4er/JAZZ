@@ -128,6 +128,6 @@ DefineClass.AUG = {
 	BulletDropRange = 16,
 	Grouping = 290,
 	BaseJamChance = -20,
-	WeaponResource = 10000,
+	WeaponResource = 7500,
 }
 

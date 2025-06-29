@@ -27,5 +27,7 @@ DefineClass.JazzArmor_ProTecHelm = {
 	Coverage = 50,
 	ArmorRating = 20,
 	Weight = 2,
+	ArmorResource = 90,
+	Repairability = 70,
 }
 

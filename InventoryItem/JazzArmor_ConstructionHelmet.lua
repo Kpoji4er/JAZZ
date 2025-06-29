@@ -26,5 +26,7 @@ DefineClass.JazzArmor_ConstructionHelmet = {
 	MeleeArmorRating = 24,
 	CamouflagePercent = -8,
 	Weight = 2,
+	ArmorResource = 80,
+	Repairability = 80,
 }
 

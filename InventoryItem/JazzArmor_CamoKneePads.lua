@@ -29,5 +29,7 @@ DefineClass.JazzArmor_CamoKneePads = {
 	MeleeArmorRating = 5,
 	CamouflagePercent = 10,
 	Weight = 2,
+	ArmorResource = 140,
+	Repairability = 60,
 }
 

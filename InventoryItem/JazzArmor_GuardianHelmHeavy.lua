@@ -28,5 +28,7 @@ DefineClass.JazzArmor_GuardianHelmHeavy = {
 	BlockFaceSlot = true,
 	Weight = 4,
 	Vision = -5,
+	ArmorResource = 160,
+	Repairability = 65,
 }
 

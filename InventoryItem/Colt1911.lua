@@ -75,6 +75,6 @@ DefineClass.Colt1911 = {
 	BulletDropRange = 5,
 	Grouping = 92,
 	BaseJamChance = -10,
-	WeaponResource = 1500,
+	WeaponResource = 1400,
 }
 

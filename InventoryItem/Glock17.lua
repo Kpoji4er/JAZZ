@@ -91,7 +91,7 @@ DefineClass.Glock17 = {
 	BulletDropRange = 6,
 	Grouping = 88,
 	BaseJamChance = -20,
-	WeaponResource = 5000,
+	WeaponResource = 2400,
 	CanAppearUsed = false,
 }
 

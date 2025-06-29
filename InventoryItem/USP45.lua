@@ -87,7 +87,7 @@ DefineClass.USP45 = {
 	BulletDropRange = 6,
 	Grouping = 95,
 	BaseJamChance = -20,
-	WeaponResource = 2500,
+	WeaponResource = 2000,
 	CanAppearUsed = false,
 }
 

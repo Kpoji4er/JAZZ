@@ -25,5 +25,7 @@ DefineClass.JazzArmor_RaiderMetalLeggins = {
 	ExplosiveArmorRating = 10,
 	CamouflagePercent = -10,
 	Weight = 4,
+	ArmorResource = 400,
+	Repairability = 95,
 }
 

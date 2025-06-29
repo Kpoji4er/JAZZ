@@ -28,5 +28,7 @@ DefineClass.JazzArmor_ZylonHelm = {
 	ArmorRating = 28,
 	CamouflagePercent = 3,
 	Weight = 3,
+	ArmorResource = 120,
+	Repairability = 60,
 }
 

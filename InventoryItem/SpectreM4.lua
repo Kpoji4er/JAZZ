@@ -57,6 +57,6 @@ DefineClass.SpectreM4 = {
 	BulletDropRange = 9,
 	Grouping = 80,
 	BaseJamChance = -20,
-	WeaponResource = 6000,
+	WeaponResource = 3000,
 }
 

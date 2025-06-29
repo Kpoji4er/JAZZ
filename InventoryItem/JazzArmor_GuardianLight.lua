@@ -27,5 +27,7 @@ DefineClass.JazzArmor_GuardianLight = {
 	ExplosiveArmorRating = 18,
 	CanHoldPlate = true,
 	Weight = 2,
+	ArmorResource = 240,
+	Repairability = 65,
 }
 

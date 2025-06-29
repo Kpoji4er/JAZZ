@@ -27,5 +27,7 @@ DefineClass.JazzArmor_SpectraLegs = {
 	MeleeArmorRating = 40,
 	ExplosiveArmorRating = 40,
 	Weight = 4,
+	ArmorResource = 700,
+	Repairability = 30,
 }
 

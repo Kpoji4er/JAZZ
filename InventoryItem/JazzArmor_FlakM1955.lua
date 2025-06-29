@@ -24,5 +24,7 @@ DefineClass.JazzArmor_FlakM1955 = {
 	MeleeArmorRating = 5,
 	ExplosiveArmorRating = 12,
 	Weight = 2,
+	ArmorResource = 150,
+	Repairability = 65,
 }
 

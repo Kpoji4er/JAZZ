@@ -25,5 +25,7 @@ DefineClass.JazzArmor_SovietHelm = {
 	Coverage = 50,
 	ArmorRating = 30,
 	Weight = 2,
+	ArmorResource = 80,
+	Repairability = 80,
 }
 

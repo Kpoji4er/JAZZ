@@ -25,5 +25,6 @@ DefineClass.JazzArmor_UniformCap = {
 	ArmorRating = 3,
 	CamouflagePercent = 5,
 	Vision = 5,
+	ArmorResource = 30,
 }
 

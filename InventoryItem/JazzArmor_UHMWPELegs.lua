@@ -29,5 +29,7 @@ DefineClass.JazzArmor_UHMWPELegs = {
 	MeleeArmorRating = 30,
 	ExplosiveArmorRating = 40,
 	Weight = 3,
+	ArmorResource = 400,
+	Repairability = 45,
 }
 

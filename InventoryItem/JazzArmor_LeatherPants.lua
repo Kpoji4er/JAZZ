@@ -24,5 +24,7 @@ DefineClass.JazzArmor_LeatherPants = {
 	ProtectedBodyParts = set( "Groin", "Legs" ),
 	ArmorRating = 10,
 	MeleeArmorRating = 7,
+	ArmorResource = 70,
+	Repairability = 80,
 }
 

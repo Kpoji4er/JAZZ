@@ -63,6 +63,6 @@ DefineClass.MAT49 = {
 	BulletDropRange = 8,
 	Grouping = 70,
 	BaseJamChance = 50,
-	WeaponResource = 4200,
+	WeaponResource = 1200,
 }
 

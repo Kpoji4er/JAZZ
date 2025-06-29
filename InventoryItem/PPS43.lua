@@ -60,6 +60,6 @@ DefineClass.PPS43 = {
 	BulletDropRange = 11,
 	Grouping = 82,
 	BaseJamChance = -10,
-	WeaponResource = 12000,
+	WeaponResource = 4800,
 }
 

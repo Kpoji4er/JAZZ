@@ -74,6 +74,6 @@ DefineClass.MAC10 = {
 	BulletDropRange = 5,
 	Grouping = 70,
 	BaseJamChance = -20,
-	WeaponResource = 4500,
+	WeaponResource = 2700,
 }
 

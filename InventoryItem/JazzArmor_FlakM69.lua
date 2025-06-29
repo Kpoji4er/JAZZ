@@ -25,5 +25,7 @@ DefineClass.JazzArmor_FlakM69 = {
 	ExplosiveArmorRating = 15,
 	CamouflagePercent = 3,
 	Weight = 2,
+	ArmorResource = 180,
+	Repairability = 65,
 }
 

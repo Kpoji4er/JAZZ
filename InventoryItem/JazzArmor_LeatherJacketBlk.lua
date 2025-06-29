@@ -24,5 +24,7 @@ DefineClass.JazzArmor_LeatherJacketBlk = {
 	ArmorRating = 5,
 	MeleeArmorRating = 4,
 	ExplosiveArmorRating = 5,
+	ArmorResource = 60,
+	Repairability = 80,
 }
 

@@ -1,9 +1,17 @@
+if FirstLoad then
+	g_SuppressionApplyQueue = {}
+	g_SuppressionApplyThread = {}
+
+end
+
 function OnMsg.NewGameSessionStart()
-    g_SuppressionApplyQueue = {}
+    rawset(_G, "g_SuppressionApplyQueue", g_SuppressionApplyQueue or {})
+rawset(_G, "g_SuppressionApplyThread", g_SuppressionApplyThread or false)
 end
 
 function OnMsg.LoadGame()
-    g_SuppressionApplyQueue = g_SuppressionApplyQueue or {}
+	rawset(_G, "g_SuppressionApplyQueue", g_SuppressionApplyQueue or {})
+	rawset(_G, "g_SuppressionApplyThread", g_SuppressionApplyThread or false)
 end
 
 function QueueSuppressionApplication(unit, wp_dmg)
@@ -162,6 +170,12 @@ function FirearmGetGrouping(item,dist_slab)
 	end	
 
 	return groupingResult
+end
+
+function FirearmBase:GetConditionPercent()
+    local max_res = self:GetMaxResource()
+    if max_res <= 0 then max_res = 1 end
+    return Clamp(MulDivRound(self:GetCurrentResource(), 100, max_res), 0, 100)
 end
 
 function FirearmBase:GetBaseJamChanceRaw()

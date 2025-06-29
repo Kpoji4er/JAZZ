@@ -64,6 +64,6 @@ DefineClass.MPL = {
 	BulletDropRange = 9,
 	Grouping = 92,
 	BaseJamChance = -10,
-	WeaponResource = 10000,
+	WeaponResource = 4000,
 }
 

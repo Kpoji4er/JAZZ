@@ -26,5 +26,6 @@ DefineClass.JazzArmor_Mich2000 = {
 	Coverage = 70,
 	ArmorRating = 28,
 	Weight = 3,
+	ArmorResource = 220,
 }
 

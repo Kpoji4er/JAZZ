@@ -27,5 +27,6 @@ DefineClass.JazzArmor_AssaultCuirass = {
 	ExplosiveArmorRating = 40,
 	CamouflagePercent = -15,
 	Weight = 4,
+	ArmorResource = 400,
 }
 

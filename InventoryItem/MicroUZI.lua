@@ -100,6 +100,6 @@ DefineClass.MicroUZI = {
 	BulletDropRange = 7,
 	Grouping = 75,
 	BaseJamChance = -10,
-	WeaponResource = 8500,
+	WeaponResource = 2500,
 }
 

@@ -69,6 +69,6 @@ DefineClass.Makarov = {
 	BulletDropRange = 6,
 	Grouping = 85,
 	BaseJamChance = -100,
-	WeaponResource = 5000,
+	WeaponResource = 3000,
 }
 

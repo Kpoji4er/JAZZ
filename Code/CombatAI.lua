@@ -280,6 +280,8 @@ function AICreateContext(unit, context)
     context.currentpos_target_cover_score = {}
   	context.min_aim_actions = 0
 	context.restarts = 0
+	context.flank_threat_cache = {}
+	context.surrounded_cache = {}
 
 	context.weapon = weapon
 	context.default_attack = default_attack

@@ -89,6 +89,6 @@ DefineClass.Zastava_M70 = {
 	BulletDropRange = 14,
 	Grouping = 238,
 	BaseJamChance = -20,
-	WeaponResource = 8600,
+	WeaponResource = 4500,
 }
 

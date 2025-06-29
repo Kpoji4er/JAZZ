@@ -60,6 +60,6 @@ DefineClass.M1Garand = {
 	Handling = 42,
 	BulletDropRange = 23,
 	Grouping = 220,
-	WeaponResource = 8000,
+	WeaponResource = 4000,
 }
 

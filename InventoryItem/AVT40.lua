@@ -53,6 +53,5 @@ DefineClass.AVT40 = {
 	BulletDropRange = 24,
 	Grouping = 225,
 	BaseJamChance = 5,
-	WeaponResource = 3000,
 }
 

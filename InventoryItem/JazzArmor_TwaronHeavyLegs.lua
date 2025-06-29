@@ -29,5 +29,7 @@ DefineClass.JazzArmor_TwaronHeavyLegs = {
 	MeleeArmorRating = 18,
 	ExplosiveArmorRating = 20,
 	Weight = 4,
+	ArmorResource = 220,
+	Repairability = 80,
 }
 

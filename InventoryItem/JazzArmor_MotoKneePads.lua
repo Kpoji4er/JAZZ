@@ -26,5 +26,7 @@ DefineClass.JazzArmor_MotoKneePads = {
 	ArmorRating = 3,
 	MeleeArmorRating = 15,
 	Weight = 2,
+	ArmorResource = 50,
+	Repairability = 90,
 }
 

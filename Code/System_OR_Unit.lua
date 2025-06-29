@@ -179,7 +179,7 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 
 	
 		other:ForEachItem("Armor", function(item, slot)
-			if slot ~= "Inventory" 	and item.CamouflagePercent then camo = camo + MulDivRound(item.CamouflagePercent,item:GetConditionPercent()-item.Deterioration,100)
+			if slot ~= "Inventory" 	and item.CamouflagePercent then camo = camo + MulDivRound(item.CamouflagePercent,item:GetConditionPercent()*item:GetDegradationMultiplier(),100)
 			end
 		end)
 		
@@ -191,7 +191,7 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 	end
 
 	self:ForEachItem("Armor", function(item, slot)
-		if slot ~= "Inventory" and item.Vision then visionbonus = visionbonus + MulDivRound(item.Vision,item:GetConditionPercent()-item.Deterioration,100) end
+		if slot ~= "Inventory" and item.Vision then visionbonus = visionbonus + MulDivRound(item.Vision,item:GetConditionPercent()*item:GetDegradationMultiplier(),100) end
 	end)
 
 
@@ -287,7 +287,7 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 			end
 			self:ForEachItem("Armor", function(item, slot)
 				if slot ~= "Inventory" and item.NightVision then
-					 penaltyReduce = penaltyReduce + MulDivRound(item.NightVision,item:GetConditionPercent()-item.Deterioration,100) end
+					 penaltyReduce = penaltyReduce + MulDivRound(item.NightVision,item:GetConditionPercent()*item:GetDegradationMultiplier(),100) end
 			end)
 
 			if penaltyReduce > 100 then penaltyReduce = 100 end

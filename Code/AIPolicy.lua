@@ -178,20 +178,20 @@ function AIPolicyFlanking:EvalDest(context, dest, grid_voxel)
 	if not context.enemy_surrounded then
 		context.enemy_surrounded = {}
 		for _, enemy in ipairs(context.enemies) do
-			if enemy:IsSurrounded() then
+			if enemy:IsSurrounded(context.position_override, context) then
 				context.enemy_surrounded[enemy] = true
 			end
 		end
 	end
 	
-    local delta = 0
-    for _, enemy in ipairs(context.enemies) do
-        if IsValid(enemy) and not enemy:IsDead() then
-            local before = enemy:GetFlankThreat(context.enemy_surrounded)
-            local after  = enemy:GetFlankThreat(context.position_override)
-            delta = delta + (after - before)
-        end
-    end
+	local delta = 0
+	for _, enemy in ipairs(context.enemies) do
+		if IsValid(enemy) and not enemy:IsDead() then
+			local before = enemy:GetFlankThreat(context.enemy_surrounded, context)
+			local after  = enemy:GetFlankThreat(context.position_override, context)
+			delta = delta + (after - before)
+		end
+	end
     
     return delta * self.Weight
 end
@@ -203,9 +203,13 @@ end
 --- @param unitReplace table|nil A table that maps units to their replacement positions. If provided, the function will use the replacement positions instead of the units' actual positions.
 --- @return boolean true if the unit is surrounded, false otherwise
 ---
-function Unit:IsSurrounded(unitReplace)
+function Unit:IsSurrounded(unitReplace, context)
 	if not g_Visibility or not g_Combat or self:IsDead() then
 		return
+	end
+
+	if context and context.surrounded_cache and context.surrounded_cache[self] ~= nil then
+		return context.surrounded_cache[self]
 	end
 	
 	local pos = unitReplace and unitReplace[self] or self:GetPos()
@@ -223,11 +227,17 @@ function Unit:IsSurrounded(unitReplace)
 		end
 	end
 	if #enemy_pos < 2 then
-		return
+			if context and context.surrounded_cache then
+		context.surrounded_cache[self] = false
+	end
+		return false
 	end
 
 	local pts = ConvexHull2D(enemy_pos)
 	if not pts or #pts < 2 then
+			if context and context.surrounded_cache then
+		context.surrounded_cache[self] = false
+	end
 		return false
 	end
 
@@ -237,21 +247,34 @@ function Unit:IsSurrounded(unitReplace)
 			local v2 = pts[j]:Equal2D(pos) and point30 or SetLen(pts[j] - pos, guim)
 			local dp = Dot2D(v1, v2)
 			if dp < cosa then
+				if context and context.surrounded_cache then context.surrounded_cache[self] = true end
 				return true
 			end
 		end
 	end	
+
+		if context and context.surrounded_cache then
+		context.surrounded_cache[self] = false
+	end
+	return false
 end
 
-function Unit:GetFlankThreat(unitReplace)
+function Unit:GetFlankThreat(unitReplace, context)
 	if not g_Visibility or not g_Combat or self:IsDead() then
 		return 0
 	end
 
+	if context and context.flank_threat_cache and context.flank_threat_cache[self] ~= nil then
+		return context.flank_threat_cache[self]
+	end
+
 	local pos = unitReplace and unitReplace[self] or self:GetPos()
 	if not IsPoint(pos) then
+		if context and context.flank_threat_cache then context.flank_threat_cache[self] = 0 end
 		return 0
 	end
+
+	
 	
 	local enemy_pos = {}
 
@@ -266,10 +289,18 @@ function Unit:GetFlankThreat(unitReplace)
 		end
 	end
 
-	if #enemy_pos < 2 then return 0 end
+	if #enemy_pos < 2 then
+		if context and context.flank_threat_cache then
+			context.flank_threat_cache[self] = 0
+		end
+		return 0
+	end
 
 	local pts = ConvexHull2D(enemy_pos)
 	if not pts or #pts < 2 then
+		if context and context.flank_threat_cache then
+			context.flank_threat_cache[self] = 0
+		end
 		return 0
 	end
 	
@@ -298,6 +329,9 @@ function Unit:GetFlankThreat(unitReplace)
 		end
 		::continue_i::
 	end
+
+	if context and context.flank_threat_cache then context.flank_threat_cache[self] = max_flank end
+
 
 	return max_flank
 end

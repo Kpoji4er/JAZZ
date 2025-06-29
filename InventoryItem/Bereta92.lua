@@ -95,6 +95,6 @@ DefineClass.Bereta92 = {
 	BulletDropRange = 6,
 	Grouping = 89,
 	BaseJamChance = -10,
-	WeaponResource = 2000,
+	WeaponResource = 1300,
 }
 

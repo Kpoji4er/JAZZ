@@ -72,6 +72,6 @@ DefineClass.BerettaM12 = {
 	BulletDropRange = 10,
 	Grouping = 94,
 	BaseJamChance = -30,
-	WeaponResource = 10000,
+	WeaponResource = 4500,
 }
 

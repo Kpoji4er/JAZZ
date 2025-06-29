@@ -74,7 +74,7 @@ DefineClass.USAS12 = {
 	Handling = 70,
 	BulletDropRange = 8,
 	Grouping = 145,
-	WeaponResource = 8000,
+	WeaponResource = 2500,
 	CanAppearUsed = false,
 }
 

@@ -1,5 +1,17 @@
+SatelliteSector.properties[#SatelliteSector.properties + 1] = {
+    category = "Region",
+    id = "Heat",
+    name = "Heat",
+    help = "Накопленная жара в этом секторе, влияет на реакцию AI.",
+    editor = "number",
+    default = 0,
+    min = 0,
+    max = 1000,
+}
+
 DefineClass.Region = {
-    __parents = { "PropertyObject" },
+    __parents = {"Preset","PropertyObject" },
+	__generated_by_class = "PresetDef",
   
     properties = {
       { id = "Id", editor = "text", default = "", help = "Уникальный ID региона" },
@@ -38,6 +50,14 @@ DefineClass.Region = {
   function Region:DecreaseLoyalty(amount)
     self.Loyalty = Max(self.Loyalty - amount, 0)
   end
+
+  function SatelliteSector:IncreaseHeat(amount)
+    self.Heat = (self.Heat or 0) + amount
+end
+
+function SatelliteSector:DecreaseHeat(amount)
+    self.Heat = Max((self.Heat or 0) - amount, 0)
+end
 
   function Region:Reset()
     self.Heat = 0

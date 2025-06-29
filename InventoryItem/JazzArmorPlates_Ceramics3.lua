@@ -25,5 +25,6 @@ DefineClass.JazzArmorPlates_Ceramics3 = {
 	CanAppearUsed = false,
 	ArmorRating = 14,
 	Weight = 3,
+	ArmorResource = 80,
 }
 

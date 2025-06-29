@@ -108,6 +108,6 @@ DefineClass.AK74 = {
 	BulletDropRange = 18,
 	Grouping = 270,
 	BaseJamChance = -50,
-	WeaponResource = 15000,
+	WeaponResource = 9800,
 }
 

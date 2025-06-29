@@ -71,6 +71,6 @@ DefineClass.AR10DMR = {
 	BulletDropRange = 20,
 	Grouping = 282,
 	BaseJamChance = -10,
-	WeaponResource = 13000,
+	WeaponResource = 5000,
 }
 

@@ -29,5 +29,7 @@ DefineClass.JazzArmor_GuardianLegs = {
 	MeleeArmorRating = 5,
 	ExplosiveArmorRating = 8,
 	Weight = 3,
+	ArmorResource = 180,
+	Repairability = 65,
 }
 

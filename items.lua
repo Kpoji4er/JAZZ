@@ -41435,7 +41435,7 @@ return {
 							target_prop = "OverwatchAngle",
 						}),
 						PlaceObj('CaliberModification', {
-							mod_add = 10,
+							mod_add = 15,
 							target_prop = "WeaponRange",
 						}),
 						PlaceObj('CaliberModification', {
@@ -41451,7 +41451,7 @@ return {
 							target_prop = "ObjDamageMod",
 						}),
 						PlaceObj('CaliberModification', {
-							mod_mul = 3000,
+							mod_mul = 2000,
 							target_prop = "Grouping",
 						}),
 						PlaceObj('CaliberModification', {
@@ -41487,7 +41487,7 @@ return {
 							target_prop = "OverwatchAngle",
 						}),
 						PlaceObj('CaliberModification', {
-							mod_add = 10,
+							mod_add = 15,
 							target_prop = "WeaponRange",
 						}),
 						PlaceObj('CaliberModification', {
@@ -41503,11 +41503,11 @@ return {
 							target_prop = "ObjDamageMod",
 						}),
 						PlaceObj('CaliberModification', {
-							mod_mul = 3000,
+							mod_mul = 1850,
 							target_prop = "Grouping",
 						}),
 						PlaceObj('CaliberModification', {
-							mod_add = 5,
+							mod_add = 6,
 							mod_mul = 0,
 							target_prop = "BulletDropRange",
 						}),
@@ -48349,7 +48349,7 @@ return {
 					'BulletDropRange', 6,
 					'Grouping', 95,
 					'BaseJamChance', 10,
-					'WeaponResource', 800,
+					'WeaponResource', 400,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Handgun",
@@ -48419,7 +48419,7 @@ return {
 					'BulletDropRange', 6,
 					'Grouping', 85,
 					'BaseJamChance', -100,
-					'WeaponResource', 5000,
+					'WeaponResource', 3000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Handgun",
@@ -48581,7 +48581,7 @@ return {
 					'BulletDropRange', 6,
 					'Grouping', 95,
 					'BaseJamChance', -50,
-					'WeaponResource', 1500,
+					'WeaponResource', 1200,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Handgun",
@@ -48666,6 +48666,7 @@ return {
 					'BulletDropRange', 6,
 					'Grouping', 87,
 					'BaseJamChance', -10,
+					'WeaponResource', 1400,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Handgun",
@@ -48741,7 +48742,7 @@ return {
 					'BulletDropRange', 5,
 					'Grouping', 92,
 					'BaseJamChance', -10,
-					'WeaponResource', 1500,
+					'WeaponResource', 1400,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Handgun",
@@ -48804,7 +48805,7 @@ return {
 					'BulletDropRange', 7,
 					'Grouping', 92,
 					'BaseJamChance', -100,
-					'WeaponResource', 4500,
+					'WeaponResource', 3000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Handgun",
@@ -48900,7 +48901,7 @@ return {
 					'BulletDropRange', 6,
 					'Grouping', 89,
 					'BaseJamChance', -10,
-					'WeaponResource', 2000,
+					'WeaponResource', 1300,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Handgun",
@@ -48974,7 +48975,7 @@ return {
 					'BulletDropRange', 6,
 					'Grouping', 94,
 					'BaseJamChance', -20,
-					'WeaponResource', 4000,
+					'WeaponResource', 1500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Handgun",
@@ -49053,7 +49054,7 @@ return {
 					'BulletDropRange', 7,
 					'Grouping', 91,
 					'BaseJamChance', -100,
-					'WeaponResource', 4500,
+					'WeaponResource', 3500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Handgun",
@@ -49228,7 +49229,7 @@ return {
 					'BulletDropRange', 6,
 					'Grouping', 95,
 					'BaseJamChance', -20,
-					'WeaponResource', 2500,
+					'WeaponResource', 2000,
 					'CanAppearUsed', false,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -49303,7 +49304,7 @@ return {
 					'BulletDropRange', 7,
 					'Grouping', 92,
 					'BaseJamChance', -20,
-					'WeaponResource', 2700,
+					'WeaponResource', 1800,
 					'CanAppearUsed', false,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -49396,7 +49397,7 @@ return {
 					'BulletDropRange', 6,
 					'Grouping', 88,
 					'BaseJamChance', -20,
-					'WeaponResource', 5000,
+					'WeaponResource', 2400,
 					'CanAppearUsed', false,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -49497,7 +49498,7 @@ return {
 					'Handling', 100,
 					'BulletDropRange', 6,
 					'Grouping', 78,
-					'WeaponResource', 2500,
+					'WeaponResource', 1500,
 					'CanAppearUsed', false,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -49589,7 +49590,7 @@ return {
 					'Handling', 82,
 					'BulletDropRange', 7,
 					'Grouping', 80,
-					'WeaponResource', 800,
+					'WeaponResource', 700,
 					'CanAppearUsed', false,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -49710,7 +49711,7 @@ return {
 					'BulletDropRange', 10,
 					'Grouping', 85,
 					'BaseJamChance', -50,
-					'WeaponResource', 5000,
+					'WeaponResource', 3500,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -51481,7 +51482,7 @@ return {
 					'BulletDropRange', 10,
 					'Grouping', 80,
 					'BaseJamChance', 30,
-					'WeaponResource', 3000,
+					'WeaponResource', 1600,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - SMG",
@@ -51545,7 +51546,7 @@ return {
 					'BulletDropRange', 8,
 					'Grouping', 70,
 					'BaseJamChance', 50,
-					'WeaponResource', 4200,
+					'WeaponResource', 1200,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - SMG",
@@ -51604,7 +51605,7 @@ return {
 					'Handling', 88,
 					'BulletDropRange', 8,
 					'Grouping', 75,
-					'WeaponResource', 5000,
+					'WeaponResource', 1800,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - SMG",
@@ -51662,7 +51663,7 @@ return {
 					'Handling', 75,
 					'BulletDropRange', 11,
 					'Grouping', 70,
-					'WeaponResource', 15000,
+					'WeaponResource', 6200,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - SMG",
@@ -51719,7 +51720,7 @@ return {
 					'Handling', 82,
 					'BulletDropRange', 8,
 					'Grouping', 75,
-					'WeaponResource', 7200,
+					'WeaponResource', 4200,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - SMG",
@@ -51789,7 +51790,7 @@ return {
 					'Handling', 88,
 					'BulletDropRange', 6,
 					'Grouping', 70,
-					'WeaponResource', 8000,
+					'WeaponResource', 2000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - SMG",
@@ -51855,6 +51856,7 @@ return {
 					'BulletDropRange', 8,
 					'Grouping', 72,
 					'BaseJamChance', -10,
+					'WeaponResource', 1500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - SMG",
@@ -51955,7 +51957,7 @@ return {
 					'BulletDropRange', 7,
 					'Grouping', 75,
 					'BaseJamChance', -10,
-					'WeaponResource', 8500,
+					'WeaponResource', 2500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - SMG",
@@ -52020,7 +52022,7 @@ return {
 					'BulletDropRange', 9,
 					'Grouping', 92,
 					'BaseJamChance', -10,
-					'WeaponResource', 10000,
+					'WeaponResource', 4000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - SMG",
@@ -52083,7 +52085,7 @@ return {
 					'BulletDropRange', 12,
 					'Grouping', 89,
 					'BaseJamChance', -20,
-					'WeaponResource', 5500,
+					'WeaponResource', 3800,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - SMG",
@@ -52140,7 +52142,7 @@ return {
 					'BulletDropRange', 10,
 					'Grouping', 88,
 					'BaseJamChance', -20,
-					'WeaponResource', 7500,
+					'WeaponResource', 3200,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - SMG",
@@ -52201,7 +52203,7 @@ return {
 					'BulletDropRange', 11,
 					'Grouping', 82,
 					'BaseJamChance', -10,
-					'WeaponResource', 12000,
+					'WeaponResource', 4800,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - SMG",
@@ -52286,7 +52288,7 @@ return {
 					'BulletDropRange', 10,
 					'Grouping', 85,
 					'BaseJamChance', -20,
-					'WeaponResource', 8900,
+					'WeaponResource', 3600,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - SMG",
@@ -52361,7 +52363,7 @@ return {
 					'BulletDropRange', 5,
 					'Grouping', 70,
 					'BaseJamChance', -20,
-					'WeaponResource', 4500,
+					'WeaponResource', 2700,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - SMG",
@@ -52434,7 +52436,7 @@ return {
 					'BulletDropRange', 10,
 					'Grouping', 94,
 					'BaseJamChance', -30,
-					'WeaponResource', 10000,
+					'WeaponResource', 4500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - SMG",
@@ -52492,7 +52494,7 @@ return {
 					'BulletDropRange', 9,
 					'Grouping', 80,
 					'BaseJamChance', -20,
-					'WeaponResource', 6000,
+					'WeaponResource', 3000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - SMG",
@@ -52571,7 +52573,7 @@ return {
 					'BulletDropRange', 11,
 					'Grouping', 85,
 					'BaseJamChance', -30,
-					'WeaponResource', 11000,
+					'WeaponResource', 5000,
 					'CanAppearUsed', false,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52693,7 +52695,7 @@ return {
 					'BulletDropRange', 7,
 					'Grouping', 80,
 					'BaseJamChance', -30,
-					'WeaponResource', 11000,
+					'WeaponResource', 4500,
 					'CanAppearUsed', false,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52789,7 +52791,7 @@ return {
 					'BulletDropRange', 11,
 					'Grouping', 85,
 					'BaseJamChance', -30,
-					'WeaponResource', 11000,
+					'WeaponResource', 5500,
 					'CanAppearUsed', false,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52899,7 +52901,7 @@ return {
 					'BulletDropRange', 8,
 					'Grouping', 90,
 					'BaseJamChance', -30,
-					'WeaponResource', 12000,
+					'WeaponResource', 6000,
 					'CanAppearUsed', false,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52971,7 +52973,7 @@ return {
 					'BulletDropRange', 10,
 					'Grouping', 80,
 					'BaseJamChance', -30,
-					'WeaponResource', 17000,
+					'WeaponResource', 6000,
 					'CanAppearUsed', false,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -53055,7 +53057,7 @@ return {
 					'BulletDropRange', 11,
 					'Grouping', 85,
 					'BaseJamChance', -30,
-					'WeaponResource', 11000,
+					'WeaponResource', 4500,
 					'CanAppearUsed', false,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -53378,7 +53380,7 @@ return {
 					'BulletDropRange', 13,
 					'Grouping', 195,
 					'BaseJamChance', -20,
-					'WeaponResource', 9000,
+					'WeaponResource', 5000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -53477,7 +53479,7 @@ return {
 					'Handling', 79,
 					'BulletDropRange', 15,
 					'Grouping', 220,
-					'WeaponResource', 12000,
+					'WeaponResource', 4000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -53591,7 +53593,7 @@ return {
 					'BulletDropRange', 16,
 					'Grouping', 240,
 					'BaseJamChance', -10,
-					'WeaponResource', 13000,
+					'WeaponResource', 8000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -53706,7 +53708,7 @@ return {
 					'BulletDropRange', 15,
 					'Grouping', 245,
 					'BaseJamChance', -15,
-					'WeaponResource', 12500,
+					'WeaponResource', 6500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - SMG",
@@ -53801,7 +53803,7 @@ return {
 					'BulletDropRange', 14,
 					'Grouping', 200,
 					'BaseJamChance', -50,
-					'WeaponResource', 11000,
+					'WeaponResource', 8500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -53913,7 +53915,7 @@ return {
 					'BulletDropRange', 16,
 					'Grouping', 250,
 					'BaseJamChance', -30,
-					'WeaponResource', 14000,
+					'WeaponResource', 9000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -54016,7 +54018,7 @@ return {
 					'BulletDropRange', 16,
 					'Grouping', 250,
 					'BaseJamChance', -30,
-					'WeaponResource', 14000,
+					'WeaponResource', 9000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -54122,7 +54124,7 @@ return {
 					'BulletDropRange', 12,
 					'Grouping', 200,
 					'BaseJamChance', -30,
-					'WeaponResource', 5000,
+					'WeaponResource', 3000,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -54312,7 +54314,7 @@ return {
 					'Handling', 70,
 					'BulletDropRange', 13,
 					'Grouping', 180,
-					'WeaponResource', 5000,
+					'WeaponResource', 2500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -54435,7 +54437,7 @@ return {
 					'Handling', 62,
 					'BulletDropRange', 21,
 					'Grouping', 242,
-					'WeaponResource', 7500,
+					'WeaponResource', 4500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -54530,7 +54532,7 @@ return {
 					'BulletDropRange', 16,
 					'Grouping', 280,
 					'BaseJamChance', 5,
-					'WeaponResource', 10000,
+					'WeaponResource', 4000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -54620,7 +54622,7 @@ return {
 					'BulletDropRange', 14,
 					'Grouping', 238,
 					'BaseJamChance', -20,
-					'WeaponResource', 8600,
+					'WeaponResource', 4500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -54674,7 +54676,6 @@ return {
 					'BulletDropRange', 24,
 					'Grouping', 225,
 					'BaseJamChance', 5,
-					'WeaponResource', 3000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -54777,7 +54778,7 @@ return {
 					'Handling', 74,
 					'BulletDropRange', 15,
 					'Grouping', 235,
-					'WeaponResource', 8500,
+					'WeaponResource', 4500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -54897,7 +54898,7 @@ return {
 					'Handling', 65,
 					'BulletDropRange', 20,
 					'Grouping', 280,
-					'WeaponResource', 12000,
+					'WeaponResource', 7000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -55005,7 +55006,7 @@ return {
 					'Handling', 72,
 					'BulletDropRange', 17,
 					'Grouping', 296,
-					'WeaponResource', 11000,
+					'WeaponResource', 5500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -55084,7 +55085,7 @@ return {
 					'BulletDropRange', 14,
 					'Grouping', 240,
 					'BaseJamChance', -10,
-					'WeaponResource', 11000,
+					'WeaponResource', 12000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -55215,7 +55216,7 @@ return {
 					'BulletDropRange', 14,
 					'Grouping', 250,
 					'BaseJamChance', -50,
-					'WeaponResource', 15000,
+					'WeaponResource', 10000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -55352,7 +55353,7 @@ return {
 					'BulletDropRange', 21,
 					'Grouping', 285,
 					'BaseJamChance', -10,
-					'WeaponResource', 9500,
+					'WeaponResource', 7500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -55424,7 +55425,7 @@ return {
 					'BulletDropRange', 20,
 					'Grouping', 278,
 					'BaseJamChance', -10,
-					'WeaponResource', 8000,
+					'WeaponResource', 6000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -55553,7 +55554,7 @@ return {
 					'BulletDropRange', 16,
 					'Grouping', 290,
 					'BaseJamChance', -20,
-					'WeaponResource', 10000,
+					'WeaponResource', 7500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -55642,7 +55643,7 @@ return {
 					'BulletDropRange', 20,
 					'Grouping', 296,
 					'BaseJamChance', -30,
-					'WeaponResource', 12500,
+					'WeaponResource', 9000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -55745,7 +55746,7 @@ return {
 					'BulletDropRange', 17,
 					'Grouping', 298,
 					'BaseJamChance', -20,
-					'WeaponResource', 13000,
+					'WeaponResource', 8500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -55871,7 +55872,7 @@ return {
 					'BulletDropRange', 16,
 					'Grouping', 275,
 					'BaseJamChance', -10,
-					'WeaponResource', 13000,
+					'WeaponResource', 7800,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -56012,7 +56013,7 @@ return {
 					'BulletDropRange', 16,
 					'Grouping', 260,
 					'BaseJamChance', -30,
-					'WeaponResource', 9500,
+					'WeaponResource', 7600,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -56109,7 +56110,7 @@ return {
 					'BulletDropRange', 20,
 					'Grouping', 298,
 					'BaseJamChance', -30,
-					'WeaponResource', 12500,
+					'WeaponResource', 9000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -56218,7 +56219,7 @@ return {
 					'BulletDropRange', 17,
 					'Grouping', 300,
 					'BaseJamChance', -30,
-					'WeaponResource', 14000,
+					'WeaponResource', 9500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -56342,7 +56343,7 @@ return {
 					'BulletDropRange', 17,
 					'Grouping', 300,
 					'BaseJamChance', -30,
-					'WeaponResource', 14000,
+					'WeaponResource', 9500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -56451,7 +56452,7 @@ return {
 					'BulletDropRange', 18,
 					'Grouping', 270,
 					'BaseJamChance', -50,
-					'WeaponResource', 15000,
+					'WeaponResource', 9800,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -56538,7 +56539,7 @@ return {
 					'BulletDropRange', 18,
 					'Grouping', 275,
 					'BaseJamChance', -20,
-					'WeaponResource', 12000,
+					'WeaponResource', 8800,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -56595,7 +56596,7 @@ return {
 					'BulletDropRange', 15,
 					'Grouping', 265,
 					'BaseJamChance', -30,
-					'WeaponResource', 12000,
+					'WeaponResource', 6000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Rifle",
@@ -56653,7 +56654,7 @@ return {
 					'Handling', 30,
 					'BulletDropRange', 24,
 					'Grouping', 255,
-					'WeaponResource', 7000,
+					'WeaponResource', 2000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Rifle",
@@ -56714,7 +56715,7 @@ return {
 					'Handling', 42,
 					'BulletDropRange', 23,
 					'Grouping', 220,
-					'WeaponResource', 8000,
+					'WeaponResource', 4000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Rifle",
@@ -56801,7 +56802,7 @@ return {
 					'BulletDropRange', 16,
 					'Grouping', 275,
 					'BaseJamChance', -10,
-					'WeaponResource', 13500,
+					'WeaponResource', 6000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Rifle",
@@ -56926,7 +56927,7 @@ return {
 					'BulletDropRange', 21,
 					'Grouping', 278,
 					'BaseJamChance', -10,
-					'WeaponResource', 7500,
+					'WeaponResource', 4000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Rifle",
@@ -57054,7 +57055,7 @@ return {
 					'BulletDropRange', 20,
 					'Grouping', 340,
 					'BaseJamChance', -30,
-					'WeaponResource', 10000,
+					'WeaponResource', 4500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Rifle",
@@ -57134,7 +57135,7 @@ return {
 					'BulletDropRange', 25,
 					'Grouping', 340,
 					'BaseJamChance', -10,
-					'WeaponResource', 10000,
+					'WeaponResource', 7000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Rifle",
@@ -57229,7 +57230,7 @@ return {
 					'BulletDropRange', 24,
 					'Grouping', 370,
 					'BaseJamChance', -30,
-					'WeaponResource', 15000,
+					'WeaponResource', 8500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -57321,7 +57322,7 @@ return {
 					'BulletDropRange', 20,
 					'Grouping', 310,
 					'BaseJamChance', -30,
-					'WeaponResource', 14500,
+					'WeaponResource', 7000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Assault",
@@ -57393,7 +57394,7 @@ return {
 					'BulletDropRange', 20,
 					'Grouping', 282,
 					'BaseJamChance', -10,
-					'WeaponResource', 13000,
+					'WeaponResource', 5000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Rifle",
@@ -57504,7 +57505,7 @@ return {
 					'BulletDropRange', 22,
 					'Grouping', 400,
 					'BaseJamChance', -20,
-					'WeaponResource', 14500,
+					'WeaponResource', 9000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Rifle",
@@ -57675,7 +57676,7 @@ return {
 					'BulletDropRange', 12,
 					'Grouping', 235,
 					'BaseJamChance', -30,
-					'WeaponResource', 5000,
+					'WeaponResource', 3000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Rifle",
@@ -57750,7 +57751,7 @@ return {
 					'BulletDropRange', 24,
 					'Grouping', 380,
 					'BaseJamChance', -20,
-					'WeaponResource', 15000,
+					'WeaponResource', 6500,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -57836,7 +57837,7 @@ return {
 					'BulletDropRange', 10,
 					'Grouping', 240,
 					'BaseJamChance', -100,
-					'WeaponResource', 6000,
+					'WeaponResource', 3000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Rifle",
@@ -57903,7 +57904,7 @@ return {
 					'Handling', 32,
 					'BulletDropRange', 26,
 					'Grouping', 360,
-					'WeaponResource', 12000,
+					'WeaponResource', 5000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Rifle",
@@ -57957,7 +57958,7 @@ return {
 					'Handling', 33,
 					'BulletDropRange', 23,
 					'Grouping', 379,
-					'WeaponResource', 10000,
+					'WeaponResource', 4500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Rifle",
@@ -58010,7 +58011,7 @@ return {
 					'Handling', 28,
 					'BulletDropRange', 25,
 					'Grouping', 380,
-					'WeaponResource', 14000,
+					'WeaponResource', 7000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Rifle",
@@ -58081,7 +58082,7 @@ return {
 					'BulletDropRange', 23,
 					'Grouping', 450,
 					'BaseJamChance', -10,
-					'WeaponResource', 16000,
+					'WeaponResource', 6000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Rifle",
@@ -58138,7 +58139,7 @@ return {
 					'BulletDropRange', 22,
 					'Grouping', 435,
 					'BaseJamChance', -20,
-					'WeaponResource', 18000,
+					'WeaponResource', 4500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Rifle",
@@ -58241,7 +58242,7 @@ return {
 					'BulletDropRange', 23,
 					'Grouping', 450,
 					'BaseJamChance', -20,
-					'WeaponResource', 20000,
+					'WeaponResource', 5500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Rifle",
@@ -58309,7 +58310,7 @@ return {
 					'BulletDropRange', 24,
 					'Grouping', 500,
 					'BaseJamChance', -30,
-					'WeaponResource', 22000,
+					'WeaponResource', 7000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Rifle",
@@ -58389,7 +58390,7 @@ return {
 					'BulletDropRange', 20,
 					'Grouping', 420,
 					'BaseJamChance', -30,
-					'WeaponResource', 24000,
+					'WeaponResource', 7000,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -58472,7 +58473,7 @@ return {
 					'Handling', 24,
 					'BulletDropRange', 19,
 					'Grouping', 260,
-					'WeaponResource', 3200,
+					'WeaponResource', 2400,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - MG",
@@ -58529,7 +58530,7 @@ return {
 					'BulletDropRange', 25,
 					'Grouping', 290,
 					'BaseJamChance', 3,
-					'WeaponResource', 9000,
+					'WeaponResource', 6000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - MG",
@@ -58585,7 +58586,7 @@ return {
 					'BulletDropRange', 22,
 					'Grouping', 278,
 					'BaseJamChance', -5,
-					'WeaponResource', 50000,
+					'WeaponResource', 15000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - MG",
@@ -58640,7 +58641,7 @@ return {
 					'Handling', 34,
 					'BulletDropRange', 24,
 					'Grouping', 275,
-					'WeaponResource', 6000,
+					'WeaponResource', 6500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - MG",
@@ -58702,7 +58703,7 @@ return {
 					'Handling', 25,
 					'BulletDropRange', 20,
 					'Grouping', 280,
-					'WeaponResource', 10000,
+					'WeaponResource', 8000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - MG",
@@ -58797,7 +58798,7 @@ return {
 					'Handling', 40,
 					'BulletDropRange', 17,
 					'Grouping', 272,
-					'WeaponResource', 8000,
+					'WeaponResource', 5500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - MG",
@@ -58906,7 +58907,7 @@ return {
 					'BulletDropRange', 15,
 					'Grouping', 270,
 					'BaseJamChance', -30,
-					'WeaponResource', 17000,
+					'WeaponResource', 12000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - MG",
@@ -58994,7 +58995,7 @@ return {
 					'BulletDropRange', 14,
 					'Grouping', 250,
 					'BaseJamChance', -10,
-					'WeaponResource', 14000,
+					'WeaponResource', 9000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - MG",
@@ -59051,7 +59052,7 @@ return {
 					'Handling', 16,
 					'BulletDropRange', 26,
 					'Grouping', 292,
-					'WeaponResource', 10000,
+					'WeaponResource', 8000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - MG",
@@ -59136,7 +59137,7 @@ return {
 					'Handling', 28,
 					'BulletDropRange', 20,
 					'Grouping', 285,
-					'WeaponResource', 12000,
+					'WeaponResource', 8500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - MG",
@@ -59239,7 +59240,7 @@ return {
 					'Handling', 32,
 					'BulletDropRange', 20,
 					'Grouping', 290,
-					'WeaponResource', 14000,
+					'WeaponResource', 9000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - MG",
@@ -59320,7 +59321,7 @@ return {
 					'BulletDropRange', 22,
 					'Grouping', 330,
 					'BaseJamChance', -10,
-					'WeaponResource', 16000,
+					'WeaponResource', 10000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - MG",
@@ -59433,7 +59434,7 @@ return {
 					'BulletDropRange', 19,
 					'Grouping', 295,
 					'BaseJamChance', -30,
-					'WeaponResource', 17000,
+					'WeaponResource', 11500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - MG",
@@ -59532,7 +59533,7 @@ return {
 					'Handling', 45,
 					'BulletDropRange', 17,
 					'Grouping', 298,
-					'WeaponResource', 15000,
+					'WeaponResource', 7500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - MG",
@@ -59658,7 +59659,7 @@ return {
 					'BulletDropRange', 20,
 					'Grouping', 300,
 					'BaseJamChance', -30,
-					'WeaponResource', 16000,
+					'WeaponResource', 10000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - MG",
@@ -59740,7 +59741,7 @@ return {
 					'BulletDropRange', 19,
 					'Grouping', 305,
 					'BaseJamChance', -30,
-					'WeaponResource', 16000,
+					'WeaponResource', 10000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - MG",
@@ -59876,7 +59877,7 @@ return {
 					'BulletDropRange', 25,
 					'Grouping', 335,
 					'BaseJamChance', -50,
-					'WeaponResource', 50000,
+					'WeaponResource', 12000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - MG",
@@ -59987,7 +59988,7 @@ return {
 					'BulletDropRange', 8,
 					'Grouping', 140,
 					'BaseJamChance', -100,
-					'WeaponResource', 20000,
+					'WeaponResource', 3000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Shotgun",
@@ -60055,7 +60056,7 @@ return {
 					'Handling', 70,
 					'BulletDropRange', 6,
 					'Grouping', 100,
-					'WeaponResource', 800,
+					'WeaponResource', 500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Shotgun",
@@ -60113,7 +60114,7 @@ return {
 					'BulletDropRange', 7,
 					'Grouping', 110,
 					'BaseJamChance', -10,
-					'WeaponResource', 1200,
+					'WeaponResource', 600,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Shotgun",
@@ -60193,7 +60194,7 @@ return {
 					'BulletDropRange', 9,
 					'Grouping', 150,
 					'BaseJamChance', -10,
-					'WeaponResource', 12000,
+					'WeaponResource', 1400,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Shotgun",
@@ -60275,7 +60276,7 @@ return {
 					'Handling', 76,
 					'BulletDropRange', 8,
 					'Grouping', 145,
-					'WeaponResource', 3200,
+					'WeaponResource', 1800,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Shotgun",
@@ -60330,7 +60331,6 @@ return {
 					'BulletDropRange', 7,
 					'Grouping', 130,
 					'BaseJamChance', -20,
-					'WeaponResource', 1400,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Shotgun",
@@ -60379,7 +60379,7 @@ return {
 					'BulletDropRange', 8,
 					'Grouping', 160,
 					'BaseJamChance', -100,
-					'WeaponResource', 16000,
+					'WeaponResource', 3000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Firearm - Shotgun",
@@ -60469,7 +60469,7 @@ return {
 					'Handling', 75,
 					'BulletDropRange', 9,
 					'Grouping', 155,
-					'WeaponResource', 12000,
+					'WeaponResource', 2400,
 					'CanAppearUsed', false,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -60518,7 +60518,7 @@ return {
 					'Handling', 74,
 					'BulletDropRange', 9,
 					'Grouping', 140,
-					'WeaponResource', 20000,
+					'WeaponResource', 2800,
 					'CanAppearUsed', false,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -60594,7 +60594,7 @@ return {
 					'Handling', 70,
 					'BulletDropRange', 8,
 					'Grouping', 145,
-					'WeaponResource', 8000,
+					'WeaponResource', 2500,
 					'CanAppearUsed', false,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -60694,7 +60694,7 @@ return {
 					'Handling', 73,
 					'BulletDropRange', 8,
 					'Grouping', 150,
-					'WeaponResource', 6000,
+					'WeaponResource', 2200,
 					'CanAppearUsed', false,
 				}),
 				}),
@@ -86536,6 +86536,8 @@ return {
 					'Vision', -20,
 					'DustStormProtection', 30,
 					'StunGrenadeProtection', 20,
+					'ArmorResource', 120,
+					'Repairability', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -86559,6 +86561,7 @@ return {
 					'ProtectedBodyParts', set( "Head" ),
 					'CamouflagePercent', 5,
 					'Vision', -5,
+					'ArmorResource', 20,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -86584,6 +86587,8 @@ return {
 					'NightVision', -10,
 					'Vision', 10,
 					'StunGrenadeProtection', 20,
+					'ArmorResource', 50,
+					'Repairability', 90,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -86609,6 +86614,7 @@ return {
 					'Weight', 2,
 					'Vision', -10,
 					'StunGrenadeProtection', 5,
+					'ArmorResource', 180,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -86632,6 +86638,7 @@ return {
 					'ArmorRating', 4,
 					'DustStormProtection', 30,
 					'StunGrenadeProtection', 80,
+					'Repairability', 60,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -86649,6 +86656,7 @@ return {
 					'AdditionalReduction', 20,
 					'NightVision', 20,
 					'StunGrenadeProtection', -20,
+					'Repairability', 70,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -86667,6 +86675,7 @@ return {
 					'AdditionalReduction', 20,
 					'NightVision', 40,
 					'StunGrenadeProtection', -20,
+					'ArmorResource', 200,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -86685,6 +86694,8 @@ return {
 					'AdditionalReduction', 20,
 					'NightVision', 60,
 					'StunGrenadeProtection', -20,
+					'ArmorResource', 300,
+					'Repairability', 30,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -86714,6 +86725,7 @@ return {
 					'ArmorRating', 3,
 					'CamouflagePercent', 5,
 					'Vision', 5,
+					'ArmorResource', 30,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -86740,6 +86752,8 @@ return {
 					'MeleeArmorRating', 24,
 					'CamouflagePercent', -8,
 					'Weight', 2,
+					'ArmorResource', 80,
+					'Repairability', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -86762,6 +86776,8 @@ return {
 					'Coverage', 80,
 					'ArmorRating', 30,
 					'Weight', 3,
+					'ArmorResource', 250,
+					'Repairability', 95,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -86786,6 +86802,8 @@ return {
 					'BlockFaceSlot', true,
 					'Weight', 4,
 					'Vision', -20,
+					'ArmorResource', 400,
+					'Repairability', 95,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -86808,6 +86826,8 @@ return {
 					'Coverage', 40,
 					'ArmorRating', 20,
 					'Weight', 2,
+					'ArmorResource', 80,
+					'Repairability', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -86831,6 +86851,8 @@ return {
 					'Coverage', 55,
 					'ArmorRating', 14,
 					'Weight', 3,
+					'ArmorResource', 75,
+					'Repairability', 70,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -86857,6 +86879,8 @@ return {
 					'ArmorRating', 13,
 					'CamouflagePercent', 3,
 					'Weight', 3,
+					'ArmorResource', 60,
+					'Repairability', 70,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -86882,6 +86906,8 @@ return {
 					'Coverage', 50,
 					'ArmorRating', 30,
 					'Weight', 2,
+					'ArmorResource', 80,
+					'Repairability', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -86909,6 +86935,8 @@ return {
 					'Coverage', 50,
 					'ArmorRating', 20,
 					'Weight', 2,
+					'ArmorResource', 90,
+					'Repairability', 70,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -86935,6 +86963,8 @@ return {
 					'Coverage', 60,
 					'ArmorRating', 32,
 					'Weight', 3,
+					'ArmorResource', 130,
+					'Repairability', 70,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -86962,6 +86992,8 @@ return {
 					'Coverage', 70,
 					'ArmorRating', 30,
 					'Weight', 3,
+					'ArmorResource', 180,
+					'Repairability', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -86990,6 +87022,8 @@ return {
 					'ArmorRating', 28,
 					'CamouflagePercent', 3,
 					'Weight', 3,
+					'ArmorResource', 120,
+					'Repairability', 60,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87018,6 +87052,7 @@ return {
 					'ArmorRating', 25,
 					'CamouflagePercent', 3,
 					'Weight', 3,
+					'ArmorResource', 150,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87048,6 +87083,8 @@ return {
 					'Weight', 5,
 					'Vision', -15,
 					'StunGrenadeProtection', 10,
+					'ArmorResource', 500,
+					'Repairability', 40,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87075,6 +87112,8 @@ return {
 					'Coverage', 85,
 					'ArmorRating', 40,
 					'Weight', 4,
+					'ArmorResource', 450,
+					'Repairability', 40,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87105,6 +87144,8 @@ return {
 					'Weight', 4,
 					'Vision', -5,
 					'StunGrenadeProtection', 10,
+					'ArmorResource', 120,
+					'Repairability', 70,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87135,6 +87176,8 @@ return {
 					'Weight', 4,
 					'Vision', -5,
 					'StunGrenadeProtection', 10,
+					'ArmorResource', 180,
+					'Repairability', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87162,6 +87205,7 @@ return {
 					'Coverage', 50,
 					'ArmorRating', 20,
 					'Weight', 2,
+					'ArmorResource', 140,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87190,6 +87234,8 @@ return {
 					'ArmorRating', 25,
 					'Weight', 3,
 					'StunGrenadeProtection', 10,
+					'ArmorResource', 160,
+					'Repairability', 65,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87218,6 +87264,8 @@ return {
 					'BlockFaceSlot', true,
 					'Weight', 4,
 					'Vision', -5,
+					'ArmorResource', 160,
+					'Repairability', 65,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87244,6 +87292,7 @@ return {
 					'Coverage', 70,
 					'ArmorRating', 28,
 					'Weight', 3,
+					'ArmorResource', 220,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87271,6 +87320,8 @@ return {
 					'ArmorRating', 32,
 					'MeleeArmorRating', 10,
 					'Weight', 4,
+					'ArmorResource', 400,
+					'Repairability', 45,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87293,6 +87344,8 @@ return {
 					'ProtectedBodyParts', set( "Head" ),
 					'ArmorRating', 40,
 					'Weight', 4,
+					'ArmorResource', 350,
+					'Repairability', 85,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -87322,6 +87375,8 @@ return {
 					'Weight', 4,
 					'DustStormProtection', 30,
 					'StunGrenadeProtection', 20,
+					'ArmorResource', 500,
+					'Repairability', 30,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Other",
@@ -87347,6 +87402,8 @@ return {
 					'Vision', -10,
 					'DustStormProtection', 30,
 					'StunGrenadeProtection', 30,
+					'ArmorResource', 500,
+					'Repairability', 20,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -87375,6 +87432,8 @@ return {
 					'ArmorRating', 5,
 					'MeleeArmorRating', 4,
 					'ExplosiveArmorRating', 5,
+					'ArmorResource', 60,
+					'Repairability', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87399,6 +87458,8 @@ return {
 					'ArmorRating', 5,
 					'MeleeArmorRating', 4,
 					'ExplosiveArmorRating', 5,
+					'ArmorResource', 60,
+					'Repairability', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87425,6 +87486,8 @@ return {
 					'ArmorRating', 6,
 					'MeleeArmorRating', 5,
 					'ExplosiveArmorRating', 5,
+					'ArmorResource', 40,
+					'Repairability', 85,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87451,6 +87514,8 @@ return {
 					'CamouflagePercent', -5,
 					'CanHoldPlate', true,
 					'Weight', 2,
+					'ArmorResource', 150,
+					'Repairability', 95,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87476,6 +87541,7 @@ return {
 					'MeleeArmorRating', 2,
 					'ExplosiveArmorRating', 20,
 					'CamouflagePercent', 20,
+					'Repairability', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87500,6 +87566,8 @@ return {
 					'MeleeArmorRating', 5,
 					'ExplosiveArmorRating', 12,
 					'Weight', 2,
+					'ArmorResource', 150,
+					'Repairability', 65,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87525,6 +87593,8 @@ return {
 					'ExplosiveArmorRating', 15,
 					'CamouflagePercent', 3,
 					'Weight', 2,
+					'ArmorResource', 180,
+					'Repairability', 65,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87551,6 +87621,8 @@ return {
 					'CamouflagePercent', -10,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'ArmorResource', 250,
+					'Repairability', 95,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87579,6 +87651,8 @@ return {
 					'ExplosiveArmorRating', 18,
 					'CamouflagePercent', 8,
 					'Weight', 2,
+					'ArmorResource', 280,
+					'Repairability', 60,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87607,6 +87681,8 @@ return {
 					'CamouflagePercent', -5,
 					'CanHoldPlate', true,
 					'Weight', 2,
+					'ArmorResource', 250,
+					'Repairability', 60,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87633,6 +87709,8 @@ return {
 					'ExplosiveArmorRating', 5,
 					'CamouflagePercent', -10,
 					'Weight', 3,
+					'ArmorResource', 200,
+					'Repairability', 95,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87660,6 +87738,8 @@ return {
 					'CamouflagePercent', -15,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'ArmorResource', 300,
+					'Repairability', 95,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87685,6 +87765,7 @@ return {
 					'ArmorRating', 12,
 					'ExplosiveArmorRating', 5,
 					'Weight', 3,
+					'ArmorResource', 180,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87712,6 +87793,8 @@ return {
 					'MeleeArmorRating', 5,
 					'ExplosiveArmorRating', 22,
 					'Weight', 3,
+					'ArmorResource', 300,
+					'Repairability', 60,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87741,6 +87824,7 @@ return {
 					'CamouflagePercent', -15,
 					'CanHoldPlate', true,
 					'Weight', 4,
+					'ArmorResource', 250,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87767,6 +87851,8 @@ return {
 					'ExplosiveArmorRating', 25,
 					'CamouflagePercent', -15,
 					'Weight', 4,
+					'ArmorResource', 700,
+					'Repairability', 95,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87794,6 +87880,7 @@ return {
 					'ExplosiveArmorRating', 40,
 					'CamouflagePercent', -15,
 					'Weight', 4,
+					'ArmorResource', 400,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87823,6 +87910,7 @@ return {
 					'CamouflagePercent', 8,
 					'CanHoldPlate', true,
 					'Weight', 2,
+					'ArmorResource', 200,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87850,6 +87938,7 @@ return {
 					'ExplosiveArmorRating', 24,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'ArmorResource', 360,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87877,6 +87966,8 @@ return {
 					'ExplosiveArmorRating', 18,
 					'CanHoldPlate', true,
 					'Weight', 2,
+					'ArmorResource', 240,
+					'Repairability', 65,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87905,6 +87996,8 @@ return {
 					'ExplosiveArmorRating', 22,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'ArmorResource', 240,
+					'Repairability', 65,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87933,6 +88026,8 @@ return {
 					'ExplosiveArmorRating', 35,
 					'CanHoldPlate', true,
 					'Weight', 4,
+					'ArmorResource', 240,
+					'Repairability', 65,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87961,6 +88056,8 @@ return {
 					'CamouflagePercent', 15,
 					'CanHoldPlate', true,
 					'Weight', 2,
+					'ArmorResource', 200,
+					'Repairability', 70,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -87990,6 +88087,8 @@ return {
 					'CamouflagePercent', 10,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'ArmorResource', 200,
+					'Repairability', 70,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88019,6 +88118,8 @@ return {
 					'CamouflagePercent', 5,
 					'CanHoldPlate', true,
 					'Weight', 4,
+					'ArmorResource', 200,
+					'Repairability', 70,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88047,6 +88148,8 @@ return {
 					'CamouflagePercent', 3,
 					'CanHoldPlate', true,
 					'Weight', 2,
+					'ArmorResource', 300,
+					'Repairability', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88075,6 +88178,8 @@ return {
 					'CamouflagePercent', 2,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'ArmorResource', 300,
+					'Repairability', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88104,6 +88209,8 @@ return {
 					'CamouflagePercent', 1,
 					'CanHoldPlate', true,
 					'Weight', 4,
+					'ArmorResource', 300,
+					'Repairability', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88132,6 +88239,8 @@ return {
 					'ExplosiveArmorRating', 40,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'ArmorResource', 650,
+					'Repairability', 45,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88160,6 +88269,8 @@ return {
 					'ExplosiveArmorRating', 70,
 					'CanHoldPlate', true,
 					'Weight', 4,
+					'ArmorResource', 650,
+					'Repairability', 45,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88189,6 +88300,7 @@ return {
 					'CamouflagePercent', 5,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'ArmorResource', 340,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88218,6 +88330,7 @@ return {
 					'CamouflagePercent', 5,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'ArmorResource', 340,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88247,6 +88360,7 @@ return {
 					'CamouflagePercent', 5,
 					'CanHoldPlate', true,
 					'Weight', 4,
+					'ArmorResource', 340,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88275,6 +88389,8 @@ return {
 					'ExplosiveArmorRating', 20,
 					'CanHoldPlate', true,
 					'Weight', 3,
+					'ArmorResource', 800,
+					'Repairability', 30,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88302,6 +88418,8 @@ return {
 					'ExplosiveArmorRating', 50,
 					'CanHoldPlate', true,
 					'Weight', 4,
+					'ArmorResource', 800,
+					'Repairability', 30,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88325,6 +88443,8 @@ return {
 					'ExplosiveArmorRating', 100,
 					'CanHoldPlate', true,
 					'Weight', 4,
+					'ArmorResource', 550,
+					'Repairability', 85,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88346,6 +88466,8 @@ return {
 					'PenetrationClass', 2,
 					'AdditionalReduction', 40,
 					'ProtectedBodyParts', set( "Torso" ),
+					'ArmorResource', 1000,
+					'Repairability', 10,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
@@ -88367,6 +88489,8 @@ return {
 					'PenetrationClass', 2,
 					'AdditionalReduction', 40,
 					'ProtectedBodyParts', set( "Torso" ),
+					'ArmorResource', 1000,
+					'Repairability', 10,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -88397,6 +88521,8 @@ return {
 					'ArmorRating', 3,
 					'MeleeArmorRating', 15,
 					'Weight', 2,
+					'ArmorResource', 50,
+					'Repairability', 90,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88421,6 +88547,8 @@ return {
 					'MeleeArmorRating', 5,
 					'ExplosiveArmorRating', 5,
 					'Weight', 2,
+					'ArmorResource', 250,
+					'Repairability', 95,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88447,6 +88575,7 @@ return {
 					'ArmorRating', 12,
 					'MeleeArmorRating', 5,
 					'Weight', 2,
+					'Repairability', 60,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88472,6 +88601,8 @@ return {
 					'ArmorRating', 6,
 					'MeleeArmorRating', 2,
 					'CamouflagePercent', 20,
+					'ArmorResource', 60,
+					'Repairability', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88496,6 +88627,8 @@ return {
 					'ProtectedBodyParts', set( "Groin", "Legs" ),
 					'ArmorRating', 10,
 					'MeleeArmorRating', 7,
+					'ArmorResource', 70,
+					'Repairability', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88521,6 +88654,8 @@ return {
 					'ExplosiveArmorRating', 10,
 					'CamouflagePercent', -10,
 					'Weight', 4,
+					'ArmorResource', 400,
+					'Repairability', 95,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88550,6 +88685,8 @@ return {
 					'MeleeArmorRating', 5,
 					'CamouflagePercent', 10,
 					'Weight', 2,
+					'ArmorResource', 140,
+					'Repairability', 60,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88579,6 +88716,8 @@ return {
 					'MeleeArmorRating', 5,
 					'ExplosiveArmorRating', 10,
 					'Weight', 3,
+					'ArmorResource', 220,
+					'Repairability', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88608,6 +88747,8 @@ return {
 					'MeleeArmorRating', 18,
 					'ExplosiveArmorRating', 20,
 					'Weight', 4,
+					'ArmorResource', 220,
+					'Repairability', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88638,6 +88779,8 @@ return {
 					'ExplosiveArmorRating', 5,
 					'CamouflagePercent', 5,
 					'Weight', 3,
+					'ArmorResource', 160,
+					'Repairability', 70,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88668,6 +88811,8 @@ return {
 					'ExplosiveArmorRating', 10,
 					'CamouflagePercent', 3,
 					'Weight', 4,
+					'ArmorResource', 160,
+					'Repairability', 70,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88697,6 +88842,8 @@ return {
 					'MeleeArmorRating', 5,
 					'ExplosiveArmorRating', 8,
 					'Weight', 3,
+					'ArmorResource', 180,
+					'Repairability', 65,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88725,6 +88872,8 @@ return {
 					'MeleeArmorRating', 15,
 					'ExplosiveArmorRating', 15,
 					'Weight', 4,
+					'ArmorResource', 180,
+					'Repairability', 65,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88754,6 +88903,8 @@ return {
 					'MeleeArmorRating', 30,
 					'ExplosiveArmorRating', 40,
 					'Weight', 3,
+					'ArmorResource', 400,
+					'Repairability', 45,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88778,6 +88929,8 @@ return {
 					'MeleeArmorRating', 30,
 					'ExplosiveArmorRating', 80,
 					'Weight', 3,
+					'ArmorResource', 350,
+					'Repairability', 85,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Quest - Equipment",
@@ -88805,6 +88958,8 @@ return {
 					'MeleeArmorRating', 40,
 					'ExplosiveArmorRating', 40,
 					'Weight', 4,
+					'ArmorResource', 700,
+					'Repairability', 30,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -88880,6 +89035,7 @@ return {
 					'CanAppearUsed', false,
 					'ArmorRating', 10,
 					'Weight', 4,
+					'ArmorResource', 250,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "JazzArmorPlates_Kevlar",
@@ -88904,6 +89060,7 @@ return {
 					'CanAppearUsed', false,
 					'ArmorRating', 10,
 					'Weight', 2,
+					'ArmorResource', 200,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "JazzArmorPlates_Twaron",
@@ -88929,6 +89086,7 @@ return {
 					'ArmorRating', 8,
 					'MeleeArmorRating', 10,
 					'Weight', 2,
+					'ArmorResource', 250,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "JazzArmorPlates_Steel3",
@@ -88953,6 +89111,7 @@ return {
 					'CanAppearUsed', false,
 					'ArmorRating', 10,
 					'Weight', 3,
+					'ArmorResource', 150,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "JazzArmorPlates_Steel4",
@@ -88978,6 +89137,7 @@ return {
 					'CanAppearUsed', false,
 					'ArmorRating', 15,
 					'Weight', 4,
+					'ArmorResource', 150,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "JazzArmorPlates_Steel5",
@@ -89003,6 +89163,7 @@ return {
 					'CanAppearUsed', false,
 					'ArmorRating', 20,
 					'Weight', 5,
+					'ArmorResource', 150,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "JazzArmorPlates_Ceramics3",
@@ -89027,6 +89188,7 @@ return {
 					'CanAppearUsed', false,
 					'ArmorRating', 14,
 					'Weight', 3,
+					'ArmorResource', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "JazzArmorPlates_Ceramics4",
@@ -89052,6 +89214,7 @@ return {
 					'CanAppearUsed', false,
 					'ArmorRating', 20,
 					'Weight', 3,
+					'ArmorResource', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "JazzArmorPlates_Ceramics5",
@@ -89077,6 +89240,7 @@ return {
 					'CanAppearUsed', false,
 					'ArmorRating', 30,
 					'Weight', 3,
+					'ArmorResource', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "JazzArmorPlates_Titan3",
@@ -89102,6 +89266,7 @@ return {
 					'CanAppearUsed', false,
 					'ArmorRating', 12,
 					'Weight', 2,
+					'ArmorResource', 200,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "JazzArmorPlates_Titan4",
@@ -89127,6 +89292,7 @@ return {
 					'CanAppearUsed', false,
 					'ArmorRating', 16,
 					'Weight', 3,
+					'ArmorResource', 200,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "JazzArmorPlates_Titan5",
@@ -89152,6 +89318,7 @@ return {
 					'CanAppearUsed', false,
 					'ArmorRating', 24,
 					'Weight', 3,
+					'ArmorResource', 200,
 				}),
 				}),
 			}),
@@ -102404,7 +102571,7 @@ return {
 									
 									
 									local cnt = ResolvePropObj(self.context);
-									local text1 = MulDivRound(cnt.NightVision,(cnt:GetConditionPercent()-cnt.Deterioration),100)
+									local text1 = MulDivRound(cnt.NightVision,cnt:GetConditionPercent() * cnt:GetDegradationMultiplier(),100)
 									
 									self.idPropVal:SetNameText(T(562386972389111885, "Ночное зрение"))
 									self.idPropVal:SetValueText(T{541139041647112885, "<text1>%", text1 = text1})
@@ -102432,7 +102599,7 @@ return {
 									
 									
 									local cnt = ResolvePropObj(self.context);
-									local text1 = MulDivRound(cnt.Vision,(cnt:GetConditionPercent()-cnt.Deterioration),100)
+									local text1 = MulDivRound(cnt.Vision,cnt:GetConditionPercent()*cnt:GetDegradationMultiplier(),100)
 									
 									self.idPropVal:SetNameText(T(562386972389111885, "Бонус к дневному зрению"))
 									self.idPropVal:SetValueText(T{541139041647112885, "<text1>%", text1 = text1})
@@ -102460,7 +102627,7 @@ return {
 									
 									
 									local cnt = ResolvePropObj(self.context);
-									local text1 = MulDivRound(cnt.DustStormProtection,(cnt:GetConditionPercent()-cnt.Deterioration),100)
+									local text1 = MulDivRound(cnt.DustStormProtection,cnt:GetConditionPercent()*cnt:GetDegradationMultiplier(),100)
 									
 									self.idPropVal:SetNameText(T(562386972389111885, "Защита от пыли"))
 									self.idPropVal:SetValueText(T{541139041647112885, "<text1>%", text1 = text1})
@@ -102521,6 +102688,7 @@ return {
 									
 									
 									local cnt = ResolvePropObj(self.context);
+									
 									--local armorclass = cnt.PenetrationClass
 									local text1 = cnt:CalculateArmorRating(1)
 									local text2 = cnt:CalculateArmorRating(2)
@@ -102530,6 +102698,41 @@ return {
 									
 									self.idPropVal:SetNameText(T(56238697238911188, "Защита от пуль\n(1/2/3/4/5 класс)"))
 									self.idPropVal:SetValueText(T{54113904164711288, "<text1>/<text2>/<text3>/<text4>/<text5>", text1 = text1, text2 = text2, text3 = text3, text4 = text4, text5 = text5})
+								end,
+							}),
+							}),
+						PlaceObj('XTemplateTemplate', {
+							'comment', "Armor Class",
+							'__condition', function (parent, context) local cnt = ResolvePropObj(context); return  IsKindOf(cnt, "Armor") and cnt.ArmorRating > 0 end,
+							'__template', "RolloverPropTextRight",
+							'OnLayoutComplete', function (self)
+								self.idPropVal:SetTextStyle("PDABrowserFlavorMedium")
+								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
+							end,
+							'BindTo', "ArmorRating",
+							'Text', T(369205133397, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+						}, {
+							PlaceObj('XTemplateFunc', {
+								'name', "Open(self,...)",
+								'func', function (self,...)
+									self.idPropVal:SetTextStyle("PDABrowserFlavorMedium")
+									self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
+									XPropControl.Open(self,...)
+									
+									
+									local cnt = ResolvePropObj(self.context);
+									local effective_class = cnt.PenetrationClass * 10 * cnt:GetDegradationMultiplier()
+									effective_class = floatfloor(effective_class, 0.1) * 0.1 -- округлить до 1 знака
+									
+									--local armorclass = cnt.PenetrationClass
+									local text1 = cnt:CalculateArmorRating(1)
+									local text2 = cnt:CalculateArmorRating(2)
+									local text3 = cnt:CalculateArmorRating(3)
+									local text4 = cnt:CalculateArmorRating(4)
+									local text5 = cnt:CalculateArmorRating(5)
+									
+									self.idPropVal:SetNameText(T(562386972389111881, "Эффективный класс брони: "))
+									self.idPropVal:SetValueText(T{541139041647112881, "<eff_class>", eff_class = effective_class})
 								end,
 							}),
 							}),
@@ -102760,7 +102963,7 @@ return {
 							}),
 						PlaceObj('XTemplateTemplate', {
 							'comment', "condition",
-							'__condition', function (parent, context) return context[1] and context[1]:HasCondition() end,
+							'__condition', function (parent, context) return context[1] and context[1]:HasCondition() and not (context[1]:IsKindOfClasses("Firearm","Armor")) end,
 							'__template', "RolloverPropTextRight",
 							'BindTo', "Condition",
 							'PercentValue', true,
@@ -102779,31 +102982,10 @@ return {
 							}),
 							}),
 						PlaceObj('XTemplateTemplate', {
-							'comment', "Deterioration",
-							'__condition', function (parent, context) return context[1] and context[1]:HasCondition() and IsKindOf(context[1],"Armor") end,
-							'__template', "RolloverPropTextRight",
-							'BindTo', "Deterioration",
-							'PercentValue', true,
-						}, {
-							PlaceObj('XTemplateFunc', {
-								'name', "Open(self,...)",
-								'func', function (self,...)
-									XPropControl.Open(self,...)
-									local context = self:GetContext()
-									local cnt = ResolvePropObj(context)
-									self.idPropVal:SetNameText(T(8182360763020011, "Износ"))
-									local condition_percent = cnt.Deterioration
-									local text = cnt:GetDeteriorationKeywordNoPrefix()
-									--self.idPropVal:SetValueText(T{541139041647, "<keyword> (<percent(condPercent)>)",  keyword = text, condPercent = condition_percent})
-									self.idPropVal:SetValueText(T{5411390416471, "<keyword>",  keyword = text})
-								end,
-							}),
-							}),
-						PlaceObj('XTemplateTemplate', {
 							'comment', "Resource",
-							'__condition', function (parent, context) return context[1] and context[1]:HasCondition() and IsKindOf(context[1],"Firearm") end,
+							'__condition', function (parent, context) return context[1] and context[1]:HasCondition() and (context[1]:IsKindOfClasses("Firearm","Armor")) end,
 							'__template', "RolloverPropTextRight",
-							'BindTo', "Deterioration",
+							'BindTo', "Condition",
 							'PercentValue', true,
 						}, {
 							PlaceObj('XTemplateFunc', {
@@ -102813,10 +102995,12 @@ return {
 									local context = self:GetContext()
 									local cnt = ResolvePropObj(context)
 									self.idPropVal:SetNameText(T(8182360763020012, "Ресурс"))
+									self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
+									self.idPropVal:SetTextStyle("PDABrowserFlavorMedium")
 									local current = cnt:GetCurrentResource() or 0
 									local max = cnt:GetMaxResource() or 0
 									local factory = cnt:GetFactoryResource() or 0
-									self.idPropVal:SetValueText(T{54113904164712, "<current>/<max>/<factory>", current = current, max = max, factory = factory})
+									self.idPropVal:SetValueText(T{54113904164712, "<current>/<max>\n (заводской <factory>)", current = current, max = max, factory = factory})
 								end,
 							}),
 							}),
@@ -102824,7 +103008,7 @@ return {
 							'comment', "GetJamChance",
 							'__condition', function (parent, context) return context[1] and context[1]:HasCondition() and IsKindOf(context[1],"Firearm") end,
 							'__template', "RolloverPropTextRight",
-							'BindTo', "Deterioration",
+							'BindTo', "Condition",
 							'PercentValue', true,
 						}, {
 							PlaceObj('XTemplateFunc', {
@@ -132036,66 +132220,83 @@ return {
 								item.WeaponResource = MulDivRound(item.WeaponResourceMax, item.Condition, 100)
 							end
 						end
+					
+						if IsKindOf(item, "Armor") and repaired > 0 then
+							local res_factory = item:GetFactoryResource() or 1000
+							local res_now = item:GetCurrentResource() or 0
+							local res_max = item:GetMaxResource() or res_factory
+						
+							local repairability = item.Repairability or 50 -- 0..100
+							local mech = Max(1, sum_stat / #mercs)
+						
+							-- восстанавливаем ресурс брони пропорционально ремонту и качеству
+							local cond_delta = item.Condition - prev_cond
+							if cond_delta > 0 then
+								local lost = res_max - res_now
+								local loss = MulDivRound(lost, (100 - repairability) * (100 - mech), 100 * 100)
+								item.ArmorResourceMax = Clamp(res_max - loss, res_now, res_factory)
+								item.ArmorResource = MulDivRound(item.ArmorResourceMax, item.Condition, 100)
+							end
+						end
 						
 						if repaired > 0 then
 							if to_repair <= self:ResolveValue("free_repair") then
 							else			
 								-- get one part
 								local border = 0
-								while border<max_condition do
-									border = border + self:ResolveValue("restore_condition_per_Part")
-									if item.Condition<border then
-										break
-									end	
-									if prev_cond<border and item.Condition>=border then
-										-- pay parts
-										local parts, m, mbag, slot_name
-										for _, merc in ipairs(mercs) do
-											parts = merc:GetItem("Parts")			
-											if parts then
-												m = merc			
-												slot_name = merc:GetItemSlot(item)
-												break
-											else	
-												local bag = merc.Squad and GetSquadBagInventory(merc.Squad)
-												if bag then
-													parts = bag:GetItem("Parts")
-													if parts then
-														mbag = bag
-														slot_name = "Inventory"
-													end	
-													break
-												end
-											end
-										end
-										if parts then							
-											parts.Amount = parts.Amount - self:ResolveValue("parts_per_step") 
-											if parts.Amount<=0 then
-												if m then
-													m:RemoveItem(slot_name, parts)
-													DoneObject(parts)
-													ObjModified(m)
-												end	
-												if mbag then
-													mbag:RemoveItem(slot_name,parts)
-													DoneObject(parts)
-													ObjModified(mbag)
-												end
-												parts = false
-											end
-											InventoryUIRespawn()
-										else
-											item.Condition = prev_cond
-											item.repair_progress = prev_progress
-											CombatLog("important", T{788054483744, "Not enough parts to continue <em><activity></em> Operation in sector <SectorName(sector)>.", sector = sector, activity = self.display_name})
-											self:Complete(sector)
-											gv_Sectors[sector.Id].sector_repair_items_queued = {}
-											local queue = gv_Sectors[sector.Id].sector_repair_items_queued
-											ObjModified(queue)
-										end
-										break
-									end
-								end
+								local cond_delta = item.Condition - prev_cond
+						if cond_delta > 0 then
+						    local restore_per_part = self:ResolveValue("restore_condition_per_Part")
+						    local parts_needed = ceil(cond_delta / restore_per_part)
+						    for i=1, parts_needed do
+						        local parts, m, mbag, slot_name
+						        -- попытка найти детали
+						        for _, merc in ipairs(mercs) do
+						            parts = merc:GetItem("Parts")
+						            if parts then
+						                m = merc
+						                slot_name = merc:GetItemSlot(parts)
+						                break
+						            else
+						                local bag = merc.Squad and GetSquadBagInventory(merc.Squad)
+						                if bag then
+						                    parts = bag:GetItem("Parts")
+						                    if parts then
+						                        mbag = bag
+						                        slot_name = "Inventory"
+						                    end
+						                    break
+						                end
+						            end
+						        end
+							
+						        if parts then
+						            parts.Amount = parts.Amount - self:ResolveValue("parts_per_step")
+						            if parts.Amount <= 0 then
+						                if m then
+						                    m:RemoveItem(slot_name, parts)
+						                    DoneObject(parts)
+						                    ObjModified(m)
+						                elseif mbag then
+						                    mbag:RemoveItem(slot_name, parts)
+						                    DoneObject(parts)
+						                    ObjModified(mbag)
+						                end
+						            end
+						            InventoryUIRespawn()
+						        else
+						            -- если деталей не хватает - откат прогресса ремонта
+						            item.Condition = prev_cond
+						            item.repair_progress = prev_progress
+						            CombatLog("important", T{788054483744, "Not enough parts to continue <em><activity></em> Operation in sector <SectorName(sector)>.", sector = sector, activity = self.display_name})
+						            self:Complete(sector)
+						            gv_Sectors[sector.Id].sector_repair_items_queued = {}
+						            local queue = gv_Sectors[sector.Id].sector_repair_items_queued
+						            ObjModified(queue)
+						            break
+						        end
+						    end
+						end
 							end
 						end
 						-- unjam jammed weapon

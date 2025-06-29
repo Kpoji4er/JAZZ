@@ -130,6 +130,6 @@ DefineClass.AKM = {
 	BulletDropRange = 14,
 	Grouping = 250,
 	BaseJamChance = -50,
-	WeaponResource = 15000,
+	WeaponResource = 10000,
 }
 

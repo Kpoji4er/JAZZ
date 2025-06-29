@@ -56,6 +56,6 @@ DefineClass.M3GreaseGun = {
 	Handling = 82,
 	BulletDropRange = 8,
 	Grouping = 75,
-	WeaponResource = 7200,
+	WeaponResource = 4200,
 }
 

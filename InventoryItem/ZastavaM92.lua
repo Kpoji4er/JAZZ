@@ -75,6 +75,6 @@ DefineClass.ZastavaM92 = {
 	BulletDropRange = 13,
 	Grouping = 195,
 	BaseJamChance = -20,
-	WeaponResource = 9000,
+	WeaponResource = 5000,
 }
 

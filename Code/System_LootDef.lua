@@ -89,16 +89,31 @@ function LootEntryInventoryItem:GenerateLoot(looter, looted, seed, items)
                 if self.Deterioration and self.Deterioration > 0 then
                     local deterioration = self.Deterioration
                     local maxResource = MulDivRound(item:GetMaxResource(),
-                                                    deterioration, 100)
+                                                    100-deterioration, 100)
                     item.WeaponResourceMax = maxResource
                 end
 
                 local resource = MulDivRound(item.WeaponResourceMax, condition,
                                              100)
                 item.WeaponResource = resource
+                
+            elseif IsKindOf(item, "Armor") then
+                item.ArmorResource = item:GetCurrentResource()
+                item.ArmorResourceMax = item:GetMaxResource()        
+
+                if self.Deterioration and self.Deterioration > 0 then
+                    local deterioration = self.Deterioration
+                    local maxResource = MulDivRound(item:GetMaxResource(),
+                    100-deterioration, 100)
+                    item.ArmorResourceMax = maxResource
+                end
+
+                local resource = MulDivRound(item.ArmorResourceMax, condition,
+                                             100)
+                item.ArmorResource = resource
             else
 
-                item.Condition = condition
+                item.Condition = item:GetConditionPercent()
             end
             NetUpdateHash("ItemGenerated", item.class, item.Condition)
         end

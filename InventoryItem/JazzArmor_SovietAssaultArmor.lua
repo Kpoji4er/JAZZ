@@ -25,5 +25,6 @@ DefineClass.JazzArmor_SovietAssaultArmor = {
 	ArmorRating = 12,
 	ExplosiveArmorRating = 5,
 	Weight = 3,
+	ArmorResource = 180,
 }
 

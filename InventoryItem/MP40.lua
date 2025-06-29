@@ -56,6 +56,6 @@ DefineClass.MP40 = {
 	BulletDropRange = 10,
 	Grouping = 80,
 	BaseJamChance = 30,
-	WeaponResource = 3000,
+	WeaponResource = 1600,
 }
 

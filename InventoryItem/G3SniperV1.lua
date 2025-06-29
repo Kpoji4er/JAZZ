@@ -91,6 +91,6 @@ DefineClass.G3SniperV1 = {
 	BulletDropRange = 20,
 	Grouping = 310,
 	BaseJamChance = -30,
-	WeaponResource = 14500,
+	WeaponResource = 7000,
 }
 

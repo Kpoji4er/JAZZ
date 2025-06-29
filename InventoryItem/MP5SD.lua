@@ -82,7 +82,7 @@ DefineClass.MP5SD = {
 	BulletDropRange = 11,
 	Grouping = 85,
 	BaseJamChance = -30,
-	WeaponResource = 11000,
+	WeaponResource = 4500,
 	CanAppearUsed = false,
 }
 

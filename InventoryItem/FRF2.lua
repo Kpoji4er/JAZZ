@@ -70,6 +70,6 @@ DefineClass.FRF2 = {
 	BulletDropRange = 23,
 	Grouping = 450,
 	BaseJamChance = -10,
-	WeaponResource = 16000,
+	WeaponResource = 6000,
 }
 

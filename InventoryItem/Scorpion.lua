@@ -69,6 +69,6 @@ DefineClass.Scorpion = {
 	Handling = 88,
 	BulletDropRange = 6,
 	Grouping = 70,
-	WeaponResource = 8000,
+	WeaponResource = 2000,
 }
 

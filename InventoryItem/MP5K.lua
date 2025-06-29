@@ -120,7 +120,7 @@ DefineClass.MP5K = {
 	BulletDropRange = 7,
 	Grouping = 80,
 	BaseJamChance = -30,
-	WeaponResource = 11000,
+	WeaponResource = 4500,
 	CanAppearUsed = false,
 }
 

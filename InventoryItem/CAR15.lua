@@ -98,6 +98,6 @@ DefineClass.CAR15 = {
 	Handling = 79,
 	BulletDropRange = 15,
 	Grouping = 220,
-	WeaponResource = 12000,
+	WeaponResource = 4000,
 }
 

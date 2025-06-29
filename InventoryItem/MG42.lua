@@ -56,6 +56,6 @@ DefineClass.MG42 = {
 	BulletDropRange = 25,
 	Grouping = 290,
 	BaseJamChance = 3,
-	WeaponResource = 9000,
+	WeaponResource = 6000,
 }
 

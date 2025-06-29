@@ -73,6 +73,6 @@ DefineClass.CZ75 = {
 	BulletDropRange = 6,
 	Grouping = 94,
 	BaseJamChance = -20,
-	WeaponResource = 4000,
+	WeaponResource = 1500,
 }
 

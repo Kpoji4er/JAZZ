@@ -99,7 +99,7 @@ DefineClass.Glock18 = {
 	Handling = 100,
 	BulletDropRange = 6,
 	Grouping = 78,
-	WeaponResource = 2500,
+	WeaponResource = 1500,
 	CanAppearUsed = false,
 }
 

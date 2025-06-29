@@ -70,7 +70,7 @@ DefineClass.PP19Bizon = {
 	BulletDropRange = 10,
 	Grouping = 80,
 	BaseJamChance = -30,
-	WeaponResource = 17000,
+	WeaponResource = 6000,
 	CanAppearUsed = false,
 }
 

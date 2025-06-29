@@ -58,6 +58,6 @@ DefineClass.Thompson = {
 	Handling = 88,
 	BulletDropRange = 8,
 	Grouping = 75,
-	WeaponResource = 5000,
+	WeaponResource = 1800,
 }
 

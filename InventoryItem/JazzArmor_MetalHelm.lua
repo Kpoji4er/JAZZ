@@ -22,5 +22,7 @@ DefineClass.JazzArmor_MetalHelm = {
 	Coverage = 80,
 	ArmorRating = 30,
 	Weight = 3,
+	ArmorResource = 250,
+	Repairability = 95,
 }
 

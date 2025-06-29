@@ -65,6 +65,38 @@ function Unit:DropLoot(container)
 				item.Condition = MulDivRound(100, cur, max)
 					
 			
+			elseif IsKindOf(item, "Armor") then
+				local quality_roll = random(100)
+				local max = 0
+				local cur = 0
+				local maxres = item.ArmorResourceMax
+
+				if quality_roll <= 20 then
+					-- Юзабельный
+					max = random(60, 100)
+					cur = random(50, 100)
+
+				elseif quality_roll <= 60 then
+					-- Мусор
+					cur = random(0, 80)
+					max = random(10, 60)
+				
+				else
+					-- Средняк
+					cur = random(0, 90)
+					max = random(20, 80)
+
+				end	
+
+				local factory = item:GetFactoryResource() or 1000
+				max = MulDivRound(factory, max, 100)
+				cur = MulDivRound(max, cur, 100) - (max > item.ArmorResource and (max - item.ArmorResource) or 0)
+
+				cur = item.ArmorResource or 100
+				cur = Clamp(cur,0,max)
+				item.ArmorResourceMax = max
+				item.ArmorResource = cur
+				item.Condition = MulDivRound(100, cur, max)
 			else
 				-- Обычное условие для не-оружия
 				if item.Condition and item.drop_chance < 100 then

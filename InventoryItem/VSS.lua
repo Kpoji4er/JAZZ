@@ -78,6 +78,6 @@ DefineClass.VSS = {
 	BulletDropRange = 12,
 	Grouping = 235,
 	BaseJamChance = -30,
-	WeaponResource = 5000,
+	WeaponResource = 3000,
 }
 

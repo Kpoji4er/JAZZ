@@ -30,5 +30,7 @@ DefineClass.JazzArmor_ZylonHelmHeavy = {
 	Weight = 4,
 	Vision = -5,
 	StunGrenadeProtection = 10,
+	ArmorResource = 120,
+	Repairability = 70,
 }
 

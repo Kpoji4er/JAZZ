@@ -26,5 +26,6 @@ DefineClass.JazzArmorPlates_Titan4 = {
 	CanAppearUsed = false,
 	ArmorRating = 16,
 	Weight = 3,
+	ArmorResource = 200,
 }
 

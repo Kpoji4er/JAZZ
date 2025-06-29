@@ -62,6 +62,6 @@ DefineClass.M45 = {
 	BulletDropRange = 12,
 	Grouping = 89,
 	BaseJamChance = -20,
-	WeaponResource = 5500,
+	WeaponResource = 3800,
 }
 

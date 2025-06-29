@@ -29,5 +29,6 @@ DefineClass.JazzArmor_RBA = {
 	CamouflagePercent = 8,
 	CanHoldPlate = true,
 	Weight = 2,
+	ArmorResource = 200,
 }
 

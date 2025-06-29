@@ -27,5 +27,7 @@ DefineClass.JazzArmor_TwaronHelm = {
 	Coverage = 70,
 	ArmorRating = 30,
 	Weight = 3,
+	ArmorResource = 180,
+	Repairability = 80,
 }
 

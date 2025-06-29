@@ -28,5 +28,7 @@ DefineClass.JazzArmor_PASGT = {
 	ExplosiveArmorRating = 18,
 	CamouflagePercent = 8,
 	Weight = 2,
+	ArmorResource = 280,
+	Repairability = 60,
 }
 

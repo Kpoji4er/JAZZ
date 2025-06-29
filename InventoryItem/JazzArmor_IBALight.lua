@@ -29,5 +29,6 @@ DefineClass.JazzArmor_IBALight = {
 	CamouflagePercent = 5,
 	CanHoldPlate = true,
 	Weight = 3,
+	ArmorResource = 340,
 }
 

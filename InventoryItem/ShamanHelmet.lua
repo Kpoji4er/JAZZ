@@ -22,5 +22,7 @@ DefineClass.ShamanHelmet = {
 	ProtectedBodyParts = set( "Head" ),
 	ArmorRating = 40,
 	Weight = 4,
+	ArmorResource = 350,
+	Repairability = 85,
 }
 

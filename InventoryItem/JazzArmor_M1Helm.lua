@@ -26,5 +26,7 @@ DefineClass.JazzArmor_M1Helm = {
 	ArmorRating = 13,
 	CamouflagePercent = 3,
 	Weight = 3,
+	ArmorResource = 60,
+	Repairability = 70,
 }
 
