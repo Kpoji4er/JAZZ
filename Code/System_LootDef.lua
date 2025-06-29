@@ -96,6 +96,8 @@ function LootEntryInventoryItem:GenerateLoot(looter, looted, seed, items)
                 local resource = MulDivRound(item.WeaponResourceMax, condition,
                                              100)
                 item.WeaponResource = resource
+                condition = MulDivRound(100, item.WeaponResource, item.WeaponResourceMax)
+
                 
             elseif IsKindOf(item, "Armor") then
                 item.ArmorResource = item:GetCurrentResource()
@@ -111,9 +113,11 @@ function LootEntryInventoryItem:GenerateLoot(looter, looted, seed, items)
                 local resource = MulDivRound(item.ArmorResourceMax, condition,
                                              100)
                 item.ArmorResource = resource
+                condition = MulDivRound(100, item.ArmorResource, item.ArmorResourceMax)
+
             else
 
-                item.Condition = item:GetConditionPercent()
+                item.Condition = condition
             end
             NetUpdateHash("ItemGenerated", item.class, item.Condition)
         end
