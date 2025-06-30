@@ -40,7 +40,7 @@ DefineClass.HE_Grenade = {
 	ThrowMaxRange = 22,
 	InaccurateMinOffset = 3000,
 	InaccurateMaxOffset = 8000,
-	Noise = 60,
+	Noise = 80,
 	Entity = "MilitaryCamp_Grenade_02",
 	ActionIcon = "UI/Icons/Hud/throw_grenade",
 }

@@ -34,7 +34,7 @@ DefineClass.ShapedCharge = {
 	BaseRange = 0,
 	ThrowMaxRange = 23,
 	CanBounce = false,
-	Noise = 60,
+	Noise = 100,
 	Entity = "MilitaryCamp_Grenade_01",
 	ActionIcon = "UI/Icons/Hud/shaped_charge",
 }

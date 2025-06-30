@@ -45,7 +45,7 @@ DefineClass.ConcussiveGrenade = {
 	ThrowMaxRange = 22,
 	InaccurateMinOffset = 3000,
 	InaccurateMaxOffset = 10000,
-	Noise = 10,
+	Noise = 40,
 	Entity = "Weapon_StunGrenadeM84",
 	ActionIcon = "UI/Icons/Hud/concussive_grenade",
 }

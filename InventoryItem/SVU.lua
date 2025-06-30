@@ -29,6 +29,7 @@ DefineClass.SVU = {
 	MagazineSize = 10,
 	WeaponRange = 70,
 	OverwatchAngle = 1200,
+	Noise = 30,
 	HandSlot = "TwoHanded",
 	Entity = "SVU",
 	ComponentSlots = {
