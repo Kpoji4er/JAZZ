@@ -1,3 +1,18 @@
+function RegisterRegions()
+    local regions = {}
+    for id, region in pairs(Presets.Region.Default or {}) do
+      regions[id] = region
+    end
+    return regions
+ 
+end
+
+
+
+if FirstLoad then
+	--RegisterRegions()
+end
+
 SatelliteSector.properties[#SatelliteSector.properties + 1] = {
     category = "Region",
     id = "Heat",
@@ -12,6 +27,10 @@ SatelliteSector.properties[#SatelliteSector.properties + 1] = {
 DefineClass.Region = {
     __parents = {"Preset","PropertyObject" },
 	__generated_by_class = "PresetDef",
+    GlobalMap = "Regions",
+    EditorMenubarName = "Regions",
+    EditorIcon = "CommonAssets/UI/Icons/cpu.png",
+    EditorMenubar = "Editors",
   
     properties = {
       { id = "Id", editor = "text", default = "", help = "Уникальный ID региона" },
@@ -19,7 +38,9 @@ DefineClass.Region = {
       { id = "Description", editor = "text", default = "", help = "Описание региона" },
       { id = "Sectors", editor = "string_list", default = {}, item_default = "", items = function (self) return GetCampaignSectorsCombo("") end, help = "Сектора региона" },
       { id = "Heat", editor = "number", default = 0, help = "Накопленная жара в регионе" },
-      { id = "Importance", editor = "number", default = 0, help = "Важность региона для майора" },
+      { id = "LegionScore", editor = "number", default = 0, help = "Важность региона для майора" },
+      { id = "ArmyScore", editor = "number", default = 0, help = "Важность региона для армии" },
+      { id = "AdonisScore", editor = "number", default = 0, help = "Важность региона для адонис" },
       { id = "PanicLevel", editor = "number", default = 0, help = "Уровень паники в регионе" },
       { id = "Loyalty", editor = "number", default = 0, help = "Лояльность" },
     },

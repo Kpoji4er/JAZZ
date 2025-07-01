@@ -223,7 +223,7 @@ function AIReloadWeapons(unit)
                     ObjModified(unit)
                 end
             end
-        elseif firearm.ammo.Amount < Max(1, firearm.MagazineSize / 10) then
+        elseif firearm.ammo.Amount < Max(1, firearm.AutoShots) then
             local ammo = firearm.ammo
             ammo.Amount = firearm.MagazineSize
             unit:ReloadWeapon(firearm, ammo, "delay fx", "ai")

@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 6,
-	'version', 5052,
+	'version', 5055,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -656,8 +656,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1751236349,
-	'code_hash', -5924996044959902441,
+	'saved', 1751316122,
+	'code_hash', -1410972953498534918,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -14433,6 +14433,11 @@ return PlaceObj('ModDef', {
 			'Class', "ConstDef",
 			'Id', "ShootDelayAfterAim",
 			'ClassDisplayName', "Constant",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "Region",
+			'Id', "test_copy",
+			'ClassDisplayName', "Region",
 		}),
 	},
 	'steam_id', "3321938203",

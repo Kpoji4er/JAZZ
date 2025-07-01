@@ -292,7 +292,7 @@ function Armor:CalculateArmorRating(weapon_pen_class)
     local ArmorRating = self.ArmorRating
     if IsKindOf(self, "ArmorPlates") then
 		if self.PenetrationClass >= weapon_pen_class then 
-        return self.ArmorRating * self:GetDegradationMultiplier()
+        return floatfloor(self.ArmorRating * self:GetDegradationMultiplier())
 		else return floatfloor(self.ArmorRating * self.PenetrationClass^2/weapon_pen_class^2 * self:GetDegradationMultiplier()) end end
 
     if self.PenetrationClass > weapon_pen_class then
@@ -407,7 +407,7 @@ function Unit:ApplyHitDamageReduction(hit, weapon, hit_body_part, ignore_cover, 
 				--result = result + 1
 			end
 
-
+            degrade = MulDivRound(item.Degradation, hit.damage, 100)
             --degrade = item.Degradation * result / 100
 			--print(pierced)
 			--print(" "..result.." "..hit.damage.." "..dr)
@@ -430,16 +430,7 @@ function Unit:ApplyHitDamageReduction(hit, weapon, hit_body_part, ignore_cover, 
 			hit.damage = Min(hit.damage, result)
 			if not hit.armor_decay then hit.armor_decay = {} end
 			if not hit.armor_pen then hit.armor_pen = {} end
-
-			local blocked_damage = Max(Min(hit.damage, dr), 0)
-
-            degrade = hit.damage - dr
-			local max_res = item:GetMaxResource()
-			local degrade_amount = MulDivRound(max_res, blocked_damage, 100)
-			item.ArmorResource = Max(0, item.ArmorResource - degrade_amount)
-			hit.armor_decay[item] = degrade_amount
-
-
+			hit.armor_decay[item] = Min(item.ArmorResource, degrade or 0)
 			if pierced then
 				hit.armor_pen[item] = true
 			end
@@ -468,7 +459,7 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 	if self:IsDead() or not IsValid(self) then return end
 --and damage > 0
 	if damage or hit.setpiece then
-		self:TakeDamage(damage or 0, attacker, hit)	
+		self:TakeDamage(damage and floatfloor(damage) or 0, attacker, hit)	
 	end
     local invulnerable = self:IsInvulnerable()
     --if damage and damage > 0 or hit.setpiece then
@@ -536,6 +527,7 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 			if IsKindOf(item, "Armor") then
 				-- уменьшаем ресурс брони напрямую
 				item.ArmorResource = Max(0, item.ArmorResource - degrade)
+				item.Condition = item:GetConditionPercent()
 			else
 				-- fallback для других предметов, если вдруг armor_decay используется не только для брони
 				item.Condition = self:ItemModifyCondition(item, - degrade)

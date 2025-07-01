@@ -335,3 +335,52 @@ function Unit:GetFlankThreat(unitReplace, context)
 
 	return max_flank
 end
+
+
+--- Evaluates the destination position for an AI unit based on its proximity to target units.
+---
+--- @param context AIContext The current AI context.
+--- @param dest point The destination position to evaluate.
+--- @param grid_voxel point The grid voxel at the destination position.
+--- @return number The score of the destination based on its proximity to target units.
+function AIPolicyProximity:EvalDest(context, dest, grid_voxel)
+	local unit = context.unit
+	local target_enemies = self.TargetUnits == "enemies"
+	local units = target_enemies and context.enemies or context.allies
+	local tdist = self.TargetDist
+
+	if #units < 3 then return end
+	
+	local score = 0
+	local num = 0
+	local scale = const.SlabSizeX
+	
+	for _, other in ipairs(units) do
+		if other ~= unit then
+			local upos
+			if target_enemies then
+				upos = context.enemy_pack_pos_stance[other]
+			else
+				upos = context.ally_pack_pos_stance[other]
+				if self.AllyPlannedPosition and other.ai_context then
+					upos = other.ai_context.ai_destination or upos
+				end
+			end
+			local dist = stance_pos_dist(dest, upos) / scale
+			if tdist == "total" or tdist == "average" then
+				score = score + dist
+			else
+				assert(tdist == "min")
+				if not score or score > dist then
+					score = dist
+				end
+			end
+		end
+	end
+	
+	if tdist == "average" and num > 0 then
+		score = score / num
+	end
+	
+	return score >= self.MinScore and score or 0
+end

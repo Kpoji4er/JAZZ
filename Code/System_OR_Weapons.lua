@@ -1,9 +1,3 @@
-if FirstLoad then
-	g_SuppressionApplyQueue = {}
-	g_SuppressionApplyThread = {}
-
-end
-
 function OnMsg.NewGameSessionStart()
     rawset(_G, "g_SuppressionApplyQueue", g_SuppressionApplyQueue or {})
 rawset(_G, "g_SuppressionApplyThread", g_SuppressionApplyThread or false)
