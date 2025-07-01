@@ -54,6 +54,11 @@ DefineClass.FRF2 = {
 				"SuppressorImproved",
 			},
 		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Bipod",
+			'Modifiable', false,
+			'DefaultComponent', "Bipod",
+		}),
 	},
 	HolsterSlot = "Shoulder",
 	PreparedAttackType = "Both",

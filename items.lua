@@ -58067,6 +58067,11 @@ return {
 								"SuppressorImproved",
 							},
 						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Bipod",
+							'Modifiable', false,
+							'DefaultComponent', "Bipod",
+						}),
 					},
 					'HolsterSlot', "Shoulder",
 					'PreparedAttackType', "Both",
