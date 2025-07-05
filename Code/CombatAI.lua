@@ -7,8 +7,9 @@ const.AIFriendlyFire_LOFConeNear = 100*guic 				-- same as above for cone attack
 const.AIFriendlyFire_LOFConeFar = 300*guic 				-- same as above for cone attacks (far side of the cone, positioned at AIFriendlyFire_MaxRange)
 const.AIFriendlyFire_ScoreMod = 10							-- % of damage score evaluation remanining when an ally is in danger
 
-const.AIDecisionThreshold = 85 -- targets/locations up to this percent of max scored target/location can be selected
-const.AIShootAboveCTH = 0
+const.AIDecisionThreshold = 80 -- targets/locations up to this percent of max scored target/location can be selected
+const.AIPointBlankTargetMod = 50 -- targets in point-blank range get +50% score
+
 
 local function lClearPredictedExplosions(list)
 	for i, m in ipairs(list) do
@@ -155,7 +156,7 @@ function PickBestAttack(unit, enemy, basic_attacks)
 			if predicted <= 0 then score = -10 end
 			--print(string.format("Try mode %s aim=%d → cost=%d AP=%d", action.id, aim, total_cost, AP))
 
-			local threshold = best and best_score * 0.9 or -math.huge
+			local threshold = best and best_score * 0.9 or 0
 			if score > threshold and (not best or unit:Random(100) < 10) then
 				best_score = score
 				best = {

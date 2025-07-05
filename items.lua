@@ -132132,7 +132132,7 @@ return {
 					for _, data in ipairs(queue) do
 						local item = SectorOperationRepairItems_GetItemFromData(data)
 						if item then
-							local max_condition = item:GetMaxCondition()			
+							local max_condition = item:GetMaxResource() or item:GetMaxCondition()			
 							max = max + max_condition*item.RepairCost
 						end
 					end
@@ -132146,10 +132146,10 @@ return {
 					for _, data in ipairs(queue) do
 						local item =  SectorOperationRepairItems_GetItemFromData(data)
 						if item then
-							local prev_cond = floatfloor(item.Condition,0)
+							local prev_cond = item:GetCurrentResource() or item.Condition
 							max = max + prev_cond*item.RepairCost + item.repair_progress
 							if not prediction then
-								NetUpdateHash("RepairItem_ProgressCurrent", item.id, item.class, item.Condition, item.repair_progress)
+								NetUpdateHash("RepairItem_ProgressCurrent", item.id, item.class, item.WeaponResource or item.ArmorResource or item.Condition, item.repair_progress)
 							end
 						end
 					end
@@ -132189,7 +132189,7 @@ return {
 					
 					local mercs = GetOperationProfessionals(sector.Id, self.id)
 					table.insert_unique(mercs, merc)
-					
+
 					for i=1,ticks_left do
 						local item, data = SectorOperationItemToRepair(sector.Id)
 						if not item then
@@ -132199,61 +132199,54 @@ return {
 						end
 						-- add progress
 						local sum_stat = GetSumOperationStats(mercs, "Mechanical", self:ResolveValue("stat_multiplier"))
+
+
 						item.Condition = floatfloor(item.Condition,0)
-						local prev_cond = floatfloor(item.Condition,0)
+
+						local prev_cond = item:GetCurrentResource() or item.Condition
 						local prev_progress = item.repair_progress
-						local max_condition = item:GetMaxCondition()
+						local max_condition = item:GetMaxResource() or item:GetMaxCondition()
 						local to_repair = max_condition - prev_cond
-						AddScaledProgress(item, "repair_progress", "Condition", sum_stat,max_condition, item.RepairCost)
+
+
+												-- обновляем ресурс, а не Condition напрямую
+if item.WeaponResource then
+	AddScaledProgress(item, "repair_progress", "WeaponResource", sum_stat, item.WeaponResourceMax, item.RepairCost)
+	item.Condition = MulDivRound(item.WeaponResource, 100, max_condition)
+	item.WeaponResourceMax = max_condition;
+elseif item.ArmorResource then
+	AddScaledProgress(item, "repair_progress", "ArmorResource", sum_stat, item.ArmorResourceMax, item.RepairCost)
+	item.Condition = MulDivRound(item.ArmorResource, 100, max_condition)
+	item.ArmorResourceMax = max_condition;
+else
+	AddScaledProgress(item, "repair_progress", "Condition", sum_stat, item:GetMaxCondition(), item.RepairCost)
+end
+
+
+local repaired =  (item:GetCurrentResource() or item.Condition) - prev_cond
+repairability = item.Repairability or item.Reliability or 100
+local loss = MulDivRound(repaired, (100 - repairability) * (100 - sum_stat/4), 100 * 100)
+max_condition = max_condition - loss;
+
 						
-						local repaired = item.Condition - prev_cond
-						
-						--use parts
-						if IsKindOf(item, "Firearm") and repaired > 0 then
-							local res_factory = item:GetFactoryResource() or 1000
-							local res_now = item:GetCurrentResource() or 0
-							local res_max = item:GetMaxResource() or res_factory
-						
-							local repairability = item.Reliability or 50 -- 0..100
-							local mech = Max(1, sum_stat / #mercs)
-						
-							-- теперь восстанавливаем текущий ресурс пропорционально состоянию
-							local cond_delta = item.Condition - prev_cond
-							if cond_delta > 0 then
-								local lost = res_max - res_now
-								local loss = MulDivRound(lost, (100 - repairability) * (100 - mech), 100 * 100)
-								item.WeaponResourceMax = Clamp(res_max - loss, res_now, res_factory)
-								item.WeaponResource = MulDivRound(item.WeaponResourceMax, item.Condition, 100)
-							end
-						end
-					
-						if IsKindOf(item, "Armor") and repaired > 0 then
-							local res_factory = item:GetFactoryResource() or 1000
-							local res_now = item:GetCurrentResource() or 0
-							local res_max = item:GetMaxResource() or res_factory
-						
-							local repairability = item.Repairability or 50 -- 0..100
-							local mech = Max(1, sum_stat / #mercs)
-						
-							-- восстанавливаем ресурс брони пропорционально ремонту и качеству
-							local cond_delta = item.Condition - prev_cond
-							if cond_delta > 0 then
-								local lost = res_max - res_now
-								local loss = MulDivRound(lost, (100 - repairability) * (100 - mech), 100 * 100)
-								item.ArmorResourceMax = Clamp(res_max - loss, res_now, res_factory)
-								item.ArmorResource = MulDivRound(item.ArmorResourceMax, item.Condition, 100)
-							end
-						end
-						
+if item.ArmorResource then
+	item.ArmorResource = Clamp(item.ArmorResource, 0, max_condition)
+	item.ArmorResourceMax = max_condition;
+  elseif item.WeaponResource then
+	item.WeaponResource = Clamp(item.WeaponResource, 0, max_condition)
+	item.WeaponResourceMax = max_condition;
+  end
+
+
 						if repaired > 0 then
 							if to_repair <= self:ResolveValue("free_repair") then
 							else			
 								-- get one part
 								local border = 0
-								local cond_delta = item.Condition - prev_cond
+								local cond_delta = (item:GetCurrentResource() or item.Condition) - prev_cond
 						if cond_delta > 0 then
 						    local restore_per_part = self:ResolveValue("restore_condition_per_Part")
-						    local parts_needed = ceil(cond_delta / restore_per_part)
+						    local parts_needed = floatfloor(cond_delta / restore_per_part)
 						    for i=1, parts_needed do
 						        local parts, m, mbag, slot_name
 						        -- попытка найти детали
@@ -132292,8 +132285,16 @@ return {
 						            InventoryUIRespawn()
 						        else
 						            -- если деталей не хватает - откат прогресса ремонта
-						            item.Condition = prev_cond
+						            --item.Condition = prev_cond
 						            item.repair_progress = prev_progress
+									item.Condition = prev_cond
+if item.ArmorResource then
+  item.ArmorResource = MulDivRound(prev_cond, max_condition, 100)
+  item.ArmorResourceMax = max_condition;
+elseif item.WeaponResource then
+  item.WeaponResource = MulDivRound(prev_cond, max_condition, 100)
+  item.WeaponResourceMax = max_condition;
+end
 						            CombatLog("important", T{788054483744, "Not enough parts to continue <em><activity></em> Operation in sector <SectorName(sector)>.", sector = sector, activity = self.display_name})
 						            self:Complete(sector)
 						            gv_Sectors[sector.Id].sector_repair_items_queued = {}

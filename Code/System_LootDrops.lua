@@ -38,31 +38,32 @@ function Unit:DropLoot(container)
 				local cur = 0
 				local maxres = item.WeaponResourceMax
 
-				if quality_roll <= 20 then
+				if quality_roll <= 30 then
 					-- Юзабельный
-					max = random(60, 100)
+					max = random(80, 100)
 					cur = random(50, 100)
 
-				elseif quality_roll <= 60 then
+				elseif quality_roll <= 50 then
 					-- Мусор
 					cur = random(0, 80)
-					max = random(10, 60)
+					max = random(10, 70)
 				
 				else
 					-- Средняк
 					cur = random(0, 90)
-					max = random(20, 80)
+					max = random(50, 95)
 
 				end	
 
 				local factory = item:GetFactoryResource() or 1000
-				max = MulDivRound(factory, max, 100)
-				cur = MulDivRound(max, cur, 100) - (max > item.WeaponResource and (max - item.WeaponResource) or 0)
+				max = MulDivRound(factory, 100, max)
+				cur = MulDivRound(max, 100, cur) - (max > item.WeaponResource and (max - item.WeaponResource) or 0)
 
 				cur = Clamp(cur,0,max)
 				item.WeaponResourceMax = max
 				item.WeaponResource = cur
-				item.Condition = MulDivRound(100, cur, max)
+				--item.Condition = MulDivRound(100, cur, max)
+				item.Condition = MulDivRound(cur, 100, max)
 					
 			
 			elseif IsKindOf(item, "Armor") then
@@ -71,12 +72,12 @@ function Unit:DropLoot(container)
 				local cur = 0
 				local maxres = item.ArmorResourceMax
 
-				if quality_roll <= 20 then
+				if quality_roll <= 30 then
 					-- Юзабельный
 					max = random(60, 100)
 					cur = random(50, 100)
 
-				elseif quality_roll <= 60 then
+				elseif quality_roll <= 50 then
 					-- Мусор
 					cur = random(0, 80)
 					max = random(10, 60)
@@ -89,14 +90,14 @@ function Unit:DropLoot(container)
 				end	
 
 				local factory = item:GetFactoryResource() or 1000
-				max = MulDivRound(factory, max, 100)
-				cur = MulDivRound(max, cur, 100) - (max > item.ArmorResource and (max - item.ArmorResource) or 0)
+				max = MulDivRound(factory, 100, max)
+				cur = MulDivRound(max, 100, cur) - (max > item.ArmorResource and (max - item.ArmorResource) or 0)
 
 				cur = item.ArmorResource or 100
 				cur = Clamp(cur,0,max)
 				item.ArmorResourceMax = max
 				item.ArmorResource = cur
-				item.Condition = MulDivRound(100, cur, max)
+				item.Condition = MulDivRound(cur, 100, max)
 			else
 				-- Обычное условие для не-оружия
 				if item.Condition and item.drop_chance < 100 then
