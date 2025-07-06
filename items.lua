@@ -132109,7 +132109,7 @@ return {
 					}),
 					PlaceObj('PresetParamNumber', {
 						'Name', "stat_multiplier",
-						'Value', 200,
+						'Value', 400,
 						'Tag', "<stat_multiplier>",
 					}),
 				},
@@ -132225,7 +132225,7 @@ return {
 					
 					local repaired =  (item:GetCurrentResource() or item.Condition) - prev_cond
 					local repairability = item.Repairability or item.Reliability or 100
-					local loss = MulDivRound(repaired, (100 - repairability) * (100 - sum_stat/4), 100 * 100)
+					local loss = MulDivRound(repaired, (100 - repairability) * (100 - sum_stat/16), 100 * 100)
 					max_condition = max_condition - loss;
 					
 						
