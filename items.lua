@@ -132211,7 +132211,7 @@ return {
 					
 												-- обновляем ресурс, а не Condition напрямую
 					if item.WeaponResource then
-					AddScaledProgress(item, "repair_progress", "WeaponResource", sum_stat, max_condition, item.RepairCost)
+					AddScaledProgress(item, "repair_progress", "WeaponResource", sum_stat * 5, max_condition, item.RepairCost)
 					item.Condition = MulDivRound(item.WeaponResource, 100, max_condition)
 					item.WeaponResourceMax = max_condition;
 					elseif item.ArmorResource then
