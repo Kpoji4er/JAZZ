@@ -136,7 +136,6 @@ function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 		return
 	end
 
-	PushUnitAlert("noise", self, results.weapon.Noise, Presets.NoiseTypes.Default.Gunshot.display_name)
 
 	local shot_threads = {}	
 	
@@ -174,6 +173,9 @@ function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 
         
 		for i, shot in ipairs(attack.shots) do
+
+			PushUnitAlert("noise", self, results.weapon.Noise, Presets.NoiseTypes.Default.Gunshot.display_name)
+
 
 			if action.id == "AbakanAutoFire" and i < 2 then shots_per_animation = 10 end
 			if action.id == "AbakanAutoFire" and i >= 2 then	shots_per_animation = results.weapon.AutoShots / 2 end

@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 6,
-	'version', 5069,
+	'version', 5075,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -617,6 +617,7 @@ return PlaceObj('ModDef', {
 		"Code/Rato_MGSetupPosScore.lua",
 		"Code/Rato_MGSetupAP.lua",
 		"Code/Rato_GrenadeRange.lua",
+		"Code/PushUnitAlert.lua",
 		"Code/System_LootDrops.lua",
 		"Code/System_OR_SquadBag.lua",
 		"Code/System_OR_ItemContainer.lua",
@@ -657,8 +658,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1751765015,
-	'code_hash', -7414032177931004944,
+	'saved', 1751845250,
+	'code_hash', 8903330811443947483,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -14314,6 +14315,11 @@ return PlaceObj('ModDef', {
 			'Class', "SectorOperation",
 			'Id', "NewSectorOperation",
 			'ClassDisplayName', "Sector Operation",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "AwareReasons",
+			'Id', "arSectorAlert",
+			'ClassDisplayName', "AwareReasons",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "Region",

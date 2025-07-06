@@ -1,11 +1,9 @@
-function OnMsg.NewGameSessionStart()
-    rawset(_G, "g_SuppressionApplyQueue", g_SuppressionApplyQueue or {})
-rawset(_G, "g_SuppressionApplyThread", g_SuppressionApplyThread or false)
-end
 
-function OnMsg.LoadGame()
-	rawset(_G, "g_SuppressionApplyQueue", g_SuppressionApplyQueue or {})
-	rawset(_G, "g_SuppressionApplyThread", g_SuppressionApplyThread or false)
+if FirstLoad then
+
+	MapVar("g_SuppressionApplyThread", {})
+
+    g_SuppressionApplyQueue = false
 end
 
 function QueueSuppressionApplication(unit, wp_dmg)
@@ -38,6 +36,8 @@ function QueueSuppressionApplication(unit, wp_dmg)
         table.insert(g_SuppressionApplyQueue, {unit=unit, damage=wp_dmg})
     end
 end
+
+
 
 local function compile_ignore_colliders(killed_colliders, colliders)
 	if #(killed_colliders or empty_table) == 0 then

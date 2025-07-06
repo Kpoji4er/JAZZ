@@ -98797,6 +98797,10 @@ return {
 					'name', "Rato_GrenadeRange",
 					'CodeFileName', "Code/Rato_GrenadeRange.lua",
 				}),
+				PlaceObj('ModItemCode', {
+					'name', "PushUnitAlert",
+					'CodeFileName', "Code/PushUnitAlert.lua",
+				}),
 				}),
 			}),
 		PlaceObj('ModItemFolder', {
@@ -132090,7 +132094,7 @@ return {
 				Parameters = {
 					PlaceObj('PresetParamNumber', {
 						'Name', "restore_condition_per_Part",
-						'Value', 10,
+						'Value', 1,
 						'Tag', "<restore_condition_per_Part>",
 					}),
 					PlaceObj('PresetParamNumber', {
@@ -132109,7 +132113,7 @@ return {
 					}),
 					PlaceObj('PresetParamNumber', {
 						'Name', "stat_multiplier",
-						'Value', 400,
+						'Value', 800,
 						'Tag', "<stat_multiplier>",
 					}),
 				},
@@ -132211,7 +132215,7 @@ return {
 					
 												-- обновляем ресурс, а не Condition напрямую
 					if item.WeaponResource then
-					AddScaledProgress(item, "repair_progress", "WeaponResource", sum_stat * 5, max_condition, item.RepairCost)
+					AddScaledProgress(item, "repair_progress", "WeaponResource", sum_stat, max_condition, item.RepairCost)
 					item.Condition = MulDivRound(item.WeaponResource, 100, max_condition)
 					item.WeaponResourceMax = max_condition;
 					elseif item.ArmorResource then
@@ -132225,7 +132229,7 @@ return {
 					
 					local repaired =  (item:GetCurrentResource() or item.Condition) - prev_cond
 					local repairability = item.Repairability or item.Reliability or 100
-					local loss = MulDivRound(repaired, (100 - repairability) * (100 - sum_stat/16), 100 * 100)
+					local loss = MulDivRound(repaired, (100 - repairability) * (100 - sum_stat/40), 100 * 100)
 					max_condition = max_condition - loss;
 					
 						
@@ -132290,12 +132294,12 @@ return {
 									item.Condition = prev_cond
 					if item.ArmorResource then
 					 -- item.ArmorResource = MulDivRound(prev_cond, max_condition, 100)
-
+					
 					  item.ArmorResourceMax = max_condition;
 					  item.ArmorResource = Clamp(item.ArmorResource, 0, item.ArmorResourceMax)
 					  item.Condition = MulDivRound(item.ArmorResource, 100, item.ArmorResourceMax)
 					elseif item.WeaponResource then
-
+					
 					  item.WeaponResourceMax = max_condition;
 					  item.WeaponResource = Clamp(item.WeaponResource, 0,  item.WeaponResourceMax)
 					  item.Condition = MulDivRound(item.WeaponResource, 100,  item.WeaponResourceMax)
@@ -132350,11 +132354,17 @@ return {
 			'name', "Regions_Sectors",
 			'CodeFileName', "Code/Regions_Sectors.lua",
 		}),
+		PlaceObj('ModItemAwareReasons', {
+			display_name = T(911087494081, --[[ModItemAwareReasons Default arSectorAlert display_name]] "<em><enemy></em> поднят по тревоге"),
+			group = "Default",
+			id = "arSectorAlert",
+		}),
 		PlaceObj('ModItemFolder', {
 			'name', "Regions",
 		}, {
 			PlaceObj('ModItemRegion', {
 				DisplayName = "Остров Эрни",
+				Heat = 161,
 				Sectors = {
 					"M1",
 					"M2",

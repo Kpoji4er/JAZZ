@@ -43,18 +43,18 @@ function Unit:DropLoot(container)
 				if quality_roll <= 30 then
 					-- Юзабельный
 					curroll = random(40, 100)
-					maxroll = random(70, 100)
+					maxroll = random(90, 100)
 					
 
 				elseif quality_roll <= 50 then
 					-- Мусор
 					curroll = random(0, 70)
-					maxroll = random(5, 70)
+					maxroll = random(0, 80)
 				
 				else
 					-- Средняк
 					curroll = random(0, 90)
-					maxroll = random(50, 80)
+					maxroll = random(60, 90)
 
 				end	
 
@@ -79,18 +79,18 @@ function Unit:DropLoot(container)
 				if quality_roll <= 30 then
 					-- Юзабельный
 					curroll = random(40, 100)
-					maxroll = random(70, 100)
+					maxroll = random(90, 100)
 					
 
 				elseif quality_roll <= 50 then
 					-- Мусор
 					curroll = random(0, 70)
-					maxroll = random(5, 70)
+					maxroll = random(0, 80)
 				
 				else
 					-- Средняк
 					curroll = random(0, 90)
-					maxroll = random(50, 80)
+					maxroll = random(60, 90)
 
 				end	
 

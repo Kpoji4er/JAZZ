@@ -90,16 +90,13 @@ function PushUnitAlert(trigger_type, ...)
 		local actor, _units = ...
 		local units
 		for _, unit in ipairs(_units) do
-            --print((unit.seen_bodies ~= {}) and (unit.seen_bodies ~= false))
-            if unit.seen_bodies then
-		    	if  not unit.seen_bodies[actor]
-		    		and not (unit.dummy or unit.team.neutral or unit:IsDead() or unit:IsAware()) -- SetPendingAwareState ignores these units
-		    		and IsCloser(unit, actor, unit:GetSightRadius(actor) + 1)
-		    	then
-		    		if not units then units = {} end
-		    		units[#units + 1] = unit
-		    	end
-            end
+			if not unit.seen_bodies[actor]
+				and not (unit.dummy or unit.team.neutral or unit:IsDead() or unit:IsAware()) -- SetPendingAwareState ignores these units
+				and IsCloser(unit, actor, unit:GetSightRadius(actor) + 1)
+			then
+				if not units then units = {} end
+				units[#units + 1] = unit
+			end
 		end
 		if units then
 			local los_any, los_targets = CheckLOS(units, actor)
@@ -144,7 +141,7 @@ function PushUnitAlert(trigger_type, ...)
 						and IsCloser(unit, actor, radius + 1)
 						and (not unit:HasStatusEffect("Distracted") or IsCloser(unit, actor, MulDivRound(radius, 66, 100) + 1))
 					then
-						local sector = gv_Sectors and gv_Sectors[gv_CurrentSectorId]
+                        local sector = gv_Sectors and gv_Sectors[gv_CurrentSectorId]
                         if sector then
                               sector.CombatHeat = (sector.CombatHeat or 0) + 1
                         end
@@ -289,23 +286,4 @@ function PushUnitAlert(trigger_type, ...)
 	end
 
 	return alerted_count + surprised, suspicious
-end
-
-
-function AIUpdateScoutLocation(unit)
-	if not unit.last_known_enemy_pos then
-		return
-	end
-	local sight = unit:GetSightRadius()
-	if CheckLOS(unit.last_known_enemy_pos, unit, sight) then
-		-- scouted here, next time pick a different location if still necessary
-        if g_NoiseSources and #g_NoiseSources > 0 then
-			local rand = InteractionRand(#g_NoiseSources, "AlarmNoise")
-			local pos = g_NoiseSources[rand + 1].pos
-			unit.last_known_enemy_pos = (pos)
-		else
-
-		unit.last_known_enemy_pos = nil
-		end
-	end
 end

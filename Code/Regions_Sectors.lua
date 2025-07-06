@@ -124,14 +124,20 @@ end
     self.PanicLevel = 0
   end
 
+
+  local raisedAlarm = false
+
   function OnMsg.ConflictEnd(sector, _, playerAttacked, playerWon, autoResolve, isRetreat, startedFromMap)
     -- Проверяем, есть ли сектор
+    raisedAlarm = false
     if not sector then return end
   
     -- 1) Если игрок выиграл
+    local base_heat = 20 + (MulDivRound(sector.CombatHeat, 10, 100) or 0)  -- базовое значение, можешь сделать динамическим
+    sector.CombatHeat = 0
     if playerWon then
       -- Поднять heat в секторе
-      local base_heat = 100  -- базовое значение, можешь сделать динамическим
+     
       sector.Heat = sector.Heat + base_heat
   
       -- Поднять heat в регионе
@@ -165,7 +171,7 @@ end
     -- 2) При поражении или отступлении тоже можно сделать свою логику heat
     if not playerWon or isRetreat then
       -- Например, сильно поднимать heat за проигрыш
-      local penalty_heat = 40
+      local penalty_heat = base_heat
       sector.Heat = sector.Heat + penalty_heat
   
       local region = GetRegionForSector(sector.Id)
@@ -175,6 +181,55 @@ end
       end
     end
   end
+
+
+
+
+  function OnMsg.TurnStart()
+
+    local sector = gv_Sectors and gv_Sectors[gv_CurrentSectorId]
+    if not sector then return end
+  
+    local totalheat = (sector.Heat or 0) + (sector.CombatHeat or 0)
+    if totalheat > 500 then
+
+      local units = GetCurrentMapUnits("enemy")
+      if g_NoiseSources and #g_NoiseSources > 0 then
+        for _, unit in pairs(units) do
+          local rand = InteractionRand(#g_NoiseSources, "AlarmNoise")
+          local pos = g_NoiseSources[rand + 1].pos
+          unit.last_known_enemy_pos = unit.last_known_enemy_pos or (pos)
+        end
+      end
+     -- raisedAlarm = true
+    end
+
+  end
+
+
+  function OnMsg.ExplorationTick()
+    if raisedAlarm then return end
+    local sector = gv_Sectors and gv_Sectors[gv_CurrentSectorId]
+    if not sector then return end
+  
+    local totalheat = (sector.Heat or 0) + (sector.CombatHeat or 0)
+    if totalheat > 500 then
+
+      local units = GetCurrentMapUnits("enemy")
+      for _, unit in pairs(units) do
+        unit:RemoveStatusEffect("Unaware")
+        if g_NoiseSources and #g_NoiseSources > 0 then
+          local rand = InteractionRand(#g_NoiseSources, "AlarmNoise")
+          local pos = g_NoiseSources[rand + 1].pos
+          unit.last_known_enemy_pos = unit.last_known_enemy_pos or (pos)
+        end
+      end
+      raisedAlarm = true
+    end
+
+  end
+
+  
 
 
   function OnMsg.NewHour()
