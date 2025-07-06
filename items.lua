@@ -1325,7 +1325,7 @@ return {
 			Comment = "Sight radius (in tiles) for units aware of the target unit",
 			group = "Combat",
 			id = "UnawareSightRange",
-			value = 18,
+			value = 26,
 		}),
 		PlaceObj('ModItemConstDef', {
 			group = "EnvEffects",
@@ -132189,7 +132189,7 @@ return {
 					
 					local mercs = GetOperationProfessionals(sector.Id, self.id)
 					table.insert_unique(mercs, merc)
-
+					
 					for i=1,ticks_left do
 						local item, data = SectorOperationItemToRepair(sector.Id)
 						if not item then
@@ -132199,45 +132199,45 @@ return {
 						end
 						-- add progress
 						local sum_stat = GetSumOperationStats(mercs, "Mechanical", self:ResolveValue("stat_multiplier"))
-
-
+					
+					
 						item.Condition = floatfloor(item.Condition,0)
-
+					
 						local prev_cond = item:GetCurrentResource() or item.Condition
 						local prev_progress = item.repair_progress
 						local max_condition = item:GetMaxResource() or item:GetMaxCondition()
 						local to_repair = max_condition - prev_cond
-
-
+					
+					
 												-- обновляем ресурс, а не Condition напрямую
-if item.WeaponResource then
-	AddScaledProgress(item, "repair_progress", "WeaponResource", sum_stat, item.WeaponResourceMax, item.RepairCost)
-	item.Condition = MulDivRound(item.WeaponResource, 100, max_condition)
-	item.WeaponResourceMax = max_condition;
-elseif item.ArmorResource then
-	AddScaledProgress(item, "repair_progress", "ArmorResource", sum_stat, item.ArmorResourceMax, item.RepairCost)
-	item.Condition = MulDivRound(item.ArmorResource, 100, max_condition)
-	item.ArmorResourceMax = max_condition;
-else
-	AddScaledProgress(item, "repair_progress", "Condition", sum_stat, item:GetMaxCondition(), item.RepairCost)
-end
-
-
-local repaired =  (item:GetCurrentResource() or item.Condition) - prev_cond
-local repairability = item.Repairability or item.Reliability or 100
-local loss = MulDivRound(repaired, (100 - repairability) * (100 - sum_stat/4), 100 * 100)
-max_condition = max_condition - loss;
-
+					if item.WeaponResource then
+					AddScaledProgress(item, "repair_progress", "WeaponResource", sum_stat, max_condition, item.RepairCost)
+					item.Condition = MulDivRound(item.WeaponResource, 100, max_condition)
+					item.WeaponResourceMax = max_condition;
+					elseif item.ArmorResource then
+					AddScaledProgress(item, "repair_progress", "ArmorResource", sum_stat, max_condition, item.RepairCost)
+					item.Condition = MulDivRound(item.ArmorResource, 100, max_condition)
+					item.ArmorResourceMax = max_condition;
+					else
+					AddScaledProgress(item, "repair_progress", "Condition", sum_stat, max_condition, item.RepairCost)
+					end
+					
+					
+					local repaired =  (item:GetCurrentResource() or item.Condition) - prev_cond
+					local repairability = item.Repairability or item.Reliability or 100
+					local loss = MulDivRound(repaired, (100 - repairability) * (100 - sum_stat/4), 100 * 100)
+					max_condition = max_condition - loss;
+					
 						
-if item.ArmorResource then
-	item.ArmorResource = Clamp(item.ArmorResource, 0, max_condition)
-	item.ArmorResourceMax = max_condition;
-  elseif item.WeaponResource then
-	item.WeaponResource = Clamp(item.WeaponResource, 0, max_condition)
-	item.WeaponResourceMax = max_condition;
-  end
-
-
+					if item.ArmorResource then
+					item.ArmorResource = Clamp(item.ArmorResource, 0, max_condition)
+					item.ArmorResourceMax = max_condition;
+					  elseif item.WeaponResource then
+					item.WeaponResource = Clamp(item.WeaponResource, 0, max_condition)
+					item.WeaponResourceMax = max_condition;
+					  end
+					
+					
 						if repaired > 0 then
 							if to_repair <= self:ResolveValue("free_repair") then
 							else			
@@ -132288,13 +132288,18 @@ if item.ArmorResource then
 						            --item.Condition = prev_cond
 						            item.repair_progress = prev_progress
 									item.Condition = prev_cond
-if item.ArmorResource then
-  item.ArmorResource = MulDivRound(prev_cond, max_condition, 100)
-  item.ArmorResourceMax = max_condition;
-elseif item.WeaponResource then
-  item.WeaponResource = MulDivRound(prev_cond, max_condition, 100)
-  item.WeaponResourceMax = max_condition;
-end
+					if item.ArmorResource then
+					 -- item.ArmorResource = MulDivRound(prev_cond, max_condition, 100)
+
+					  item.ArmorResourceMax = max_condition;
+					  item.ArmorResource = Clamp(item.ArmorResource, 0, item.ArmorResourceMax)
+					  item.Condition = MulDivRound(item.ArmorResource, 100, item.ArmorResourceMax)
+					elseif item.WeaponResource then
+
+					  item.WeaponResourceMax = max_condition;
+					  item.WeaponResource = Clamp(item.WeaponResource, 0,  item.WeaponResourceMax)
+					  item.Condition = MulDivRound(item.WeaponResource, 100,  item.WeaponResourceMax)
+					end
 						            CombatLog("important", T{788054483744, "Not enough parts to continue <em><activity></em> Operation in sector <SectorName(sector)>.", sector = sector, activity = self.display_name})
 						            self:Complete(sector)
 						            gv_Sectors[sector.Id].sector_repair_items_queued = {}
@@ -132338,48 +132343,452 @@ end
 		'name', "Strategic",
 	}, {
 		PlaceObj('ModItemCode', {
+			'name', "Guardpost",
+			'CodeFileName', "Code/Guardpost.lua",
+		}),
+		PlaceObj('ModItemCode', {
 			'name', "Regions_Sectors",
 			'CodeFileName', "Code/Regions_Sectors.lua",
 		}),
-		PlaceObj('ModItemRegion', {
-			DisplayName = "Остров Эрни",
-			Sectors = {
-				"M1",
-				"M2",
-				"M3",
-				"M4",
-				"M5",
-				"M6",
-				"M7",
-				"L1",
-				"L2",
-				"L3",
-				"L4",
-				"L5",
-				"L6",
-				"L7",
-				"K2",
-				"K3",
-				"K4",
-				"K5",
-				"K6",
-				"K7",
-				"J2",
-				"J3",
-				"J4",
-				"J5",
-				"J6",
-				"J7",
-				"I2",
-				"I3",
-				"I4",
-				"I5",
-				"I6",
-				"I7",
-			},
-			group = "Default",
-			id = "ErnieIsland",
-		}),
+		PlaceObj('ModItemFolder', {
+			'name', "Regions",
+		}, {
+			PlaceObj('ModItemRegion', {
+				DisplayName = "Остров Эрни",
+				Sectors = {
+					"M1",
+					"M2",
+					"M3",
+					"M4",
+					"M5",
+					"M6",
+					"M7",
+					"L1",
+					"L2",
+					"L3",
+					"L4",
+					"L5",
+					"L6",
+					"L7",
+					"K2",
+					"K3",
+					"K4",
+					"K5",
+					"K6",
+					"K7",
+					"J2",
+					"J3",
+					"J4",
+					"J5",
+					"J6",
+					"J7",
+					"I2",
+					"I3",
+					"I4",
+					"I5",
+					"I6",
+					"I7",
+				},
+				group = "Default",
+				id = "ErnieIsland",
+			}),
+			}),
+		PlaceObj('ModItemFolder', {
+			'name', "UI",
+		}, {
+			PlaceObj('ModItemXTemplate', {
+				__is_kind_of = "XPopup",
+				group = "Zulu ContextMenu",
+				id = "SatelliteViewMapContextMenu",
+				PlaceObj('XTemplateWindow', {
+					'__condition', function (parent, context) return context end,
+					'__class', "ZuluContextMenu",
+					'Id', "idContextMenu",
+					'HAlign', "left",
+					'VAlign', "top",
+					'MinWidth', 220,
+					'LayoutMethod', "Box",
+					'AnchorType', "right",
+				}, {
+					PlaceObj('XTemplateWindow', {
+						'__class', "XContextWindow",
+						'Id', "idContent",
+						'IdNode', true,
+						'VAlign', "top",
+						'LayoutMethod', "VList",
+						'UseClipBox', false,
+					}, {
+						PlaceObj('XTemplateWindow', {
+							'comment', "actions",
+							'__context', function (parent, context) return context and context.actions end,
+							'__condition', function (parent, context) return context end,
+							'__class', "XContentTemplateList",
+							'BorderWidth', 0,
+							'Padding', box(0, 4, 0, 4),
+							'LayoutVSpacing', 2,
+							'UseClipBox', false,
+							'FoldWhenHidden', true,
+							'Background', RGBA(255, 255, 255, 0),
+							'BackgroundRectGlowColor', RGBA(0, 0, 0, 0),
+							'HandleMouse', false,
+							'FocusedBackground', RGBA(255, 255, 255, 0),
+							'KeepSelectionOnRespawn', true,
+						}, {
+							PlaceObj('XTemplateForEach', {
+								'run_after', function (child, context, item, i, n, last)
+									if type(item) ~= "string" then
+										assert(item.category)
+										child:SetPadding(box(12, 0, 10, 0))
+										child:SetText(item.category)
+										child:SetTextStyle("PDASectorInfo_Green")
+										child:SetHandleMouse(false)
+										child:SetBackground(GameColors.A)
+										child.header = true
+										return
+									end
+									
+									local action = XShortcutsTarget:ActionById(item)
+									child.action = action
+									
+									-- This is a special exception
+									local actionBindingFrom = false
+									
+									if item == "idPerks" or item == "actionOpenCharacterContextMenu"  then
+										actionBindingFrom = "actionOpenCharacter"
+									elseif item == "actionLevelUpViewContextMenu" then
+										actionBindingFrom = "actionLevelUpView"
+									else
+										actionBindingFrom = item
+									end
+									
+									local actionBinding = XShortcutsTarget:ActionById(actionBindingFrom)
+									local shortcut = actionBinding.ActionShortcut
+									if GetUIStyleGamepad() then
+										shortcut = Untranslated(" ")
+									elseif #(shortcut or "") > 0 then
+										shortcut = T{137236581706, "[<u(key)>] ", key = shortcut}
+									else
+										shortcut = ""
+									end
+									child.idBinding:SetText(shortcut)
+									
+									local actionName = action.ActionName
+									if item == "actionToggleSatellite" then
+										actionName = T(119774168141, "Tactical View")
+									end
+									child:SetText(actionName)
+									
+									local host = GetActionsHost(child, true)
+									local actionState = action:ActionState(host)
+									action:ActionState(host)
+									child:SetVisible(actionState ~= "hidden")
+									child:SetEnabled(actionState == "enabled")
+									child:SetId(action.ActionId)
+								end,
+							}, {
+								PlaceObj('XTemplateTemplate', {
+									'__template', "ContextMenuButton",
+									'OnPress', function (self, gamepad)
+										if self.action then
+											local host = GetActionsHost(self, true)
+											if host then
+												host:OnAction(self.action, self)
+												
+												local cabinet = GetSatelliteDialog()
+												if cabinet then cabinet:RemoveContextMenu() end
+											end
+										end
+									end,
+								}),
+								}),
+							PlaceObj('XTemplateForEach', {
+								'array', function (parent, context) return GetSatelliteSquadsForContextMenu(parent.parent.parent.context.sector_id) end,
+								'condition', function (parent, context, item, i) return not parent.parent.parent.context.unit_id end,
+								'__context', function (parent, context, item, i, n) return item end,
+								'run_after', function (child, context, item, i, n, last)
+									if g_SatelliteUI and g_SatelliteUI.selected_squad == item then
+										child:SetEnabled(false)
+									end
+									
+									child:SetText(T{843876025913, "Select <SquadName>", SquadName = Untranslated(item.Name)})
+								end,
+							}, {
+								PlaceObj('XTemplateTemplate', {
+									'__template', "ContextMenuButton",
+									'OnPress', function (self, gamepad)
+										local cabinet = g_SatelliteUI
+										if cabinet then
+											cabinet:SelectSquad(self.context)
+											cabinet:RemoveContextMenu()
+										end
+									end,
+								}),
+								}),
+							PlaceObj('XTemplateCode', {
+								'run', function (self, parent, context)
+									local anyVisible = false
+									for i, p in ipairs(parent) do
+										if p:IsVisible() then
+											anyVisible = true
+											break
+										end
+									end
+									
+									parent:SetVisible(anyVisible)
+								end,
+							}),
+							}),
+						PlaceObj('XTemplateWindow', {
+							'comment', "title",
+							'Dock', "top",
+							'UseClipBox', false,
+							'DrawOnTop', true,
+							'Background', RGBA(52, 55, 61, 255),
+						}, {
+							PlaceObj('XTemplateWindow', {
+								'__class', "XImage",
+								'Id', "idImage",
+								'Dock', "top",
+								'MinWidth', 220,
+								'MaxWidth', 220,
+								'ImageFit', "width",
+							}),
+							PlaceObj('XTemplateWindow', {
+								'RolloverTemplate', "RolloverGeneric",
+								'RolloverAnchor', "center-top",
+								'RolloverOffset', box(10, 10, 10, 10),
+								'Id', "idIntel",
+								'Dock', "bottom",
+								'LayoutMethod', "HList",
+								'FoldWhenHidden', true,
+								'HandleMouse', true,
+								'MouseCursor', "UI/Cursors/Pda_Hand.tga",
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'__class', "XText",
+									'Id', "idtxtIntel",
+									'Margins', box(5, 0, 5, 0),
+									'HAlign', "left",
+									'VAlign', "center",
+									'FoldWhenHidden', true,
+									'TextStyle', "PDASectorInfo_SectionItem",
+									'Translate', true,
+									'TextVAlign', "center",
+								}),
+								}),
+							PlaceObj('XTemplateWindow', {
+								'comment', "city",
+								'Dock', "bottom",
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'comment', "loyalty",
+									'__class', "XNameValueText",
+									'RolloverTemplate', "RolloverGeneric",
+									'RolloverAnchor', "center-top",
+									'RolloverText', T(952592503809, --[[ModItemXTemplate SatelliteViewMapContextMenu RolloverText]] "Local Loyalty will affect Operation and service costs in the current Sector."),
+									'RolloverOffset', box(10, 10, 10, 10),
+									'RolloverTitle', T(836506718468, --[[ModItemXTemplate SatelliteViewMapContextMenu RolloverTitle]] "Loyalty"),
+									'Id', "idLoyalty",
+									'Margins', box(5, 0, 5, 0),
+									'FoldWhenHidden', true,
+									'TextStyle', "PDASectorInfo_Green",
+									'TextStyleRight', "PDASectorInfo_ValueLight",
+								}),
+								}),
+							PlaceObj('XTemplateWindow', {
+								'comment', "region",
+								'Dock', "bottom",
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'comment', "loyalty",
+									'__class', "XText",
+									'RolloverTemplate', "RolloverGeneric",
+									'RolloverAnchor', "center-top",
+									'RolloverText', T(952592503809, --[[ModItemXTemplate SatelliteViewMapContextMenu RolloverText]] "Local Loyalty will affect Operation and service costs in the current Sector."),
+									'RolloverOffset', box(10, 10, 10, 10),
+									'RolloverTitle', T(836506718468, --[[ModItemXTemplate SatelliteViewMapContextMenu RolloverTitle]] "Регион"),
+									'Id', "idRegion",
+									'Margins', box(5, 0, 5, 0),
+									'FoldWhenHidden', true,
+									'TextStyle', "PDASectorInfo_Green",
+								}),
+								}),
+							PlaceObj('XTemplateWindow', {
+								'comment', "control and weather",
+								'Dock', "bottom",
+							}, {
+								PlaceObj('XTemplateWindow', {
+									'Id', "idSectorSquare",
+									'Margins', box(0, 0, 5, 0),
+									'Dock', "left",
+									'HAlign', "left",
+									'VAlign', "center",
+									'MinWidth', 28,
+									'MinHeight', 28,
+									'MaxHeight', 28,
+									'UseClipBox', false,
+								}, {
+									PlaceObj('XTemplateWindow', {
+										'__class', "XText",
+										'Id', "idSectorId",
+										'Margins', box(0, 0, -2, 0),
+										'HAlign', "center",
+										'VAlign', "center",
+										'Clip', false,
+										'UseClipBox', false,
+										'TextStyle', "PDASatelliteRollover_SectorName",
+										'Translate', true,
+										'TextHAlign', "center",
+										'TextVAlign', "center",
+									}),
+									}),
+								PlaceObj('XTemplateWindow', {
+									'comment', "weather",
+									'__condition', function (parent, context)
+										return true
+									end,
+									'Dock', "right",
+									'HAlign', "left",
+									'ScaleModifier', point(500, 500),
+									'LayoutMethod', "HList",
+									'LayoutHSpacing', 2,
+								}, {
+									PlaceObj('XTemplateForEach', {
+										'array', function (parent, context) return GetEnvironmentEffects(context.sector_id) end,
+										'__context', function (parent, context, item, i, n) return item end,
+										'run_after', function (child, context, item, i, n, last)
+											child:SetImage(context.Icon)
+											child:SetRolloverText(context.description)
+											child:SetRolloverTitle(context.display_name)
+										end,
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'__class', "XContextImage",
+											'RolloverTemplate', "RolloverGeneric",
+											'RolloverAnchor', "center-top",
+											'RolloverOffset', box(10, 10, 10, 10),
+											'HandleMouse', true,
+										}),
+										}),
+									}),
+								PlaceObj('XTemplateWindow', {
+									'__class', "XText",
+									'Id', "idTitle",
+									'Margins', box(0, 2, 0, 0),
+									'HAlign', "left",
+									'VAlign', "center",
+									'Clip', false,
+									'UseClipBox', false,
+									'FoldWhenHidden', true,
+									'HandleMouse', false,
+									'TextStyle', "PDASectorInfo_Green",
+									'Translate', true,
+									'TextVAlign', "center",
+								}),
+								}),
+							}),
+						PlaceObj('XTemplateCode', {
+							'run', function (self, parent, context)
+								local sector = false
+								local unit_id
+								if IsKindOf(context, "Context") then
+									sector = ResolvePropObj(context)
+								else
+									sector = gv_Sectors[context.sector_id]
+									unit_id = context.unit_id
+								end
+								if not sector then return end
+								
+								parent.idSectorId:SetText(T{764093693143, "<SectorIdColored(id)>", id = sector.Id})
+								local color = GetSectorControlColor(sector.Side)			
+								parent.idSectorSquare:SetBackground(color)
+								parent.idTitle:SetText(sector.display_name)
+								
+								parent.idImage:SetImage(sector.image)
+								
+								local city_id = sector.City
+								parent.idLoyalty:SetVisible(city_id~="none" and Region=="none")
+								if city_id and city_id~="none" then
+									local city = gv_Cities[city_id]
+									parent.idLoyalty:SetNameText(city.DisplayName)
+									parent.idLoyalty:SetValueText(T{911910307915, "<style PDASectorInfo_ValueDark>Loyalty</style> <percent(loyalty)>",loyalty = GetCityLoyalty(city_id)})
+								end
+								
+								local Region = GetRegionForSector(sector.Id)
+								print(Region:GetRolloverHint())
+								parent.idRegion:SetVisible(Region~="none")
+								if Region and Region~="" then
+								parent.idRegion:SetText(Region:GetRolloverHint(sector.Id))
+								--	parent.idLoyalty:SetNameText(city.DisplayName)
+								--	parent.idLoyalty:SetValueText(T{911910307915, "<style PDASectorInfo_ValueDark>Loyalty</style> <percent(loyalty)>",loyalty = GetCityLoyalty(city_id)})
+								end
+								
+								local intel = sector.Intel and sector.intel_discovered
+								parent.idIntel:SetVisible(intel)
+								parent.idtxtIntel:SetText(intel and T(920666659822, "Intel Acquired") or T(595719599586, "Intel Unknown"))
+								parent.idIntel:SetRolloverText(intel and T(777876251539, "In Tactical View use the overview mode (<ShortcutButton('actionCamOverview')>) to view intel for this sector.") or T(467902135709, "Use the scouting Operation to gain intel. You may also gain intel from certain quests or characters in the world"))
+								parent.idIntel:SetRolloverTitle(T(304425875136, "Intel"))
+							end,
+						}),
+						}),
+					PlaceObj('XTemplateFunc', {
+						'name', "OnCaptureLost(self)",
+						'func', function (self)
+							if self.window_state ~= "open" then return end
+							self:CloseContextMenu()
+						end,
+					}),
+					PlaceObj('XTemplateFunc', {
+						'name', "OnMouseButtonDown(self, pos, button)",
+						'func', function (self, pos, button)
+							if self:MouseInWindow(pos) then return end
+							if self.window_state ~= "open" then return end
+							self:CloseContextMenu()
+						end,
+					}),
+					PlaceObj('XTemplateFunc', {
+						'name', "Open(self)",
+						'func', function (self)
+							ZuluContextMenu.Open(self)
+							self:SetFocus()
+							
+							if not g_SatelliteUI then return end
+							g_SatelliteUI:ShowCursorHint(false)
+							ObjModified("satellite_context_menu")
+						end,
+					}),
+					PlaceObj('XTemplateFunc', {
+						'name', "OnDelete(self)",
+						'func', function (self)
+							if not g_SatelliteUI then return end
+							SetCampaignSpeed(false, GetUICampaignPauseReason("UIContextMenu"))
+							ObjModified("satellite_context_menu")
+							g_SatelliteUI.context_menu = false
+						end,
+					}),
+					PlaceObj('XTemplateFunc', {
+						'name', "OnShortcut(self, shortcut, source, ...)",
+						'func', function (self, shortcut, source, ...)
+							if shortcut == "Escape" or shortcut == "ButtonB" then
+								self:Close()
+								return "break"
+							end
+							return ZuluContextMenu.OnShortcut(self, shortcut, source, ...)
+						end,
+					}),
+					PlaceObj('XTemplateFunc', {
+						'name', "CloseContextMenu(self)",
+						'func', function (self)
+							if g_SatelliteUI then
+								g_SatelliteUI:RemoveContextMenu()
+							else
+								self:Close()
+							end
+						end,
+					}),
+					}),
+			}),
+			}),
 		}),
 	PlaceObj('ModItemFolder', {
 		'name', "SatelliteView",
@@ -132781,22 +133190,4 @@ end
 			value = 250,
 		}),
 		}),
-	PlaceObj('ModItemRegion', {
-		Sectors = {
-			"A21",
-			"A19",
-			"A21",
-			"A22",
-			"A22",
-			"A22",
-			"A10",
-			"A22",
-			"A22",
-			"A16",
-			"A22",
-			"A26",
-		},
-		group = "Default",
-		id = "test_copy",
-	}),
 }

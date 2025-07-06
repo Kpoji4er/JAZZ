@@ -32,7 +32,7 @@ function Unit:DropLoot(container)
 				item.Amount =  Max(1,item.Amount - MulDivRound(item.Amount, percent, 100))
 			end	
 			--qsr print(item)
-			if IsKindOf(item, "Firearm") then
+			if IsKindOf(item, "Firearm") and (item.drop_chance<100) then
 				local quality_roll = random(100)
 				local max = item:GetMaxResource()
 				local cur = item:GetCurrentResource()
@@ -68,7 +68,7 @@ function Unit:DropLoot(container)
 				--item.Condition = MulDivRound(100, cur, max)
 				item.Condition = MulDivRound(cur, 100, max )
 			
-			elseif IsKindOf(item, "Armor") then
+			elseif IsKindOf(item, "Armor") and (item.drop_chance<100) then
 				local quality_roll = random(100)
 				local max = item:GetMaxResource()
 				local cur = item:GetCurrentResource()

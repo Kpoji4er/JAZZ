@@ -435,6 +435,12 @@ function SectorOperation_ItemsCalcRes(sector_id, operation_id)
 	local queued_items = SectorOperationItems_GetItemsQueue(sector_id, operation_id)
 	local operation = SectorOperations[operation_id]
 	local parts = 0	
+	
+
+
+	
+	
+
 
 	if operation_id=="RepairItems" then
 		local free_repair = operation:ResolveValue("free_repair")
@@ -443,10 +449,7 @@ function SectorOperation_ItemsCalcRes(sector_id, operation_id)
 		for _, item_data in ipairs(queued_items) do
 			local item = SectorOperationRepairItems_GetItemFromData(item_data)
 			local cur_cond = item and (item:GetCurrentResource() or item.Condition) or 0
-			local repairability = item.Repairability or item.Reliability or 100
-			local loss = MulDivRound(repaired, (100 - repairability) * (100 - sum_stat/4), 100 * 100)
-			local max_condition = item and (item:GetMaxResource() or item:GetMaxCondition()) or 0
-			max_condition = max_condition - loss;
+			local max_condition = item and item:GetMaxResource() or item:GetMaxCondition() or 0
 			local to_repair = max_condition - cur_cond
 
 			--use parts

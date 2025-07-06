@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 6,
-	'version', 5057,
+	'version', 5069,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -638,6 +638,7 @@ return PlaceObj('ModDef', {
 		"CharacterEffect/Weight_5Class.lua",
 		"Code/EditorExtension.lua",
 		"Code/System_SectorOperations.lua",
+		"Code/Guardpost.lua",
 		"Code/Regions_Sectors.lua",
 		"Code/SatelliteSquadFixes.lua",
 		"Code/POI Extension.lua",
@@ -656,8 +657,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1751400243,
-	'code_hash', -6392763357249814902,
+	'saved', 1751765015,
+	'code_hash', -7414032177931004944,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -14320,6 +14321,11 @@ return PlaceObj('ModDef', {
 			'ClassDisplayName', "Region",
 		}),
 		PlaceObj('ModResourcePreset', {
+			'Class', "XTemplate",
+			'Id', "SatelliteViewMapContextMenu",
+			'ClassDisplayName', "UI Template (XTemplate)",
+		}),
+		PlaceObj('ModResourcePreset', {
 			'Class', "GameDifficultyDef",
 			'Id', "Normal",
 			'ClassDisplayName', "Game difficulty",
@@ -14433,11 +14439,6 @@ return PlaceObj('ModDef', {
 			'Class', "ConstDef",
 			'Id', "ShootDelayAfterAim",
 			'ClassDisplayName', "Constant",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "Region",
-			'Id', "test_copy",
-			'ClassDisplayName', "Region",
 		}),
 	},
 	'steam_id', "3321938203",
