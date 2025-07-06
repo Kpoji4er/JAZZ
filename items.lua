@@ -132090,7 +132090,7 @@ return {
 				Parameters = {
 					PlaceObj('PresetParamNumber', {
 						'Name', "restore_condition_per_Part",
-						'Value', 1,
+						'Value', 10,
 						'Tag', "<restore_condition_per_Part>",
 					}),
 					PlaceObj('PresetParamNumber', {
