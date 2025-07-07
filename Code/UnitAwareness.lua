@@ -296,8 +296,9 @@ function AIUpdateScoutLocation(unit)
 	if not unit.last_known_enemy_pos then
 		return
 	end
-	local sight = unit:GetSightRadius()
-	if CheckLOS(unit.last_known_enemy_pos, unit, sight) then
+	--local sight = MulDivRound(unit:GetSightRadius(),33,100)
+	local sight = MulDivRound(const.Combat.AwareSightRange,50,100)
+	if CheckLOS(unit.last_known_enemy_pos, unit, sight) then 
 		-- scouted here, next time pick a different location if still necessary
         if g_NoiseSources and #g_NoiseSources > 0 then
 			local rand = InteractionRand(#g_NoiseSources, "AlarmNoise")
