@@ -208,47 +208,18 @@ function UnitInventory:AddItemsToInventory(items)
 end
 
 
-function OnMsg.InventoryAddItem(unit, item, amount)
-	LogGotItem(unit, item, amount)
-	ObjModified(unit.Inventory)
-end
 
 GameVar("g_GossipItemsTakenByPlayer",{})
 GameVar("g_GossipItemsSeenByPlayer",{})
 GameVar("g_GossipItemsEquippedByPlayer",{})
 GameVar("g_GossipItemsMoveFromPlayerToContainer",{})
 
-function OnMsg.InventoryTakeAllAddItem(unit, item, amount, bAutoResolve)
-	local item_id = item.id
-	if not g_GossipItemsTakenByPlayer[item_id] and (bAutoResolve or g_GossipItemsSeenByPlayer[item_id]) then
-		NetGossip("Loot","TakeByPlayer", item.class, amount, GetCurrentPlaytime(), Game and Game.CampaignTime)
-		g_GossipItemsTakenByPlayer[item_id] = true
-	end
-	LogGotItem(unit, item, amount)
-end
-
-function OnMsg.SquadBagAddItem(item, amount)
-	LogGotItem(false, item, amount)
-end
-
-function OnMsg.SquadBagTakeAllAddItem(item, amount, bAutoResolve)
-	local item_id = item.id
-	if not g_GossipItemsTakenByPlayer[item_id] and (bAutoResolve or g_GossipItemsSeenByPlayer[item_id])then
-		NetGossip("Loot","TakeByPlayer", item.class, amount, GetCurrentPlaytime(), Game and Game.CampaignTime)
-		g_GossipItemsTakenByPlayer[item_id] = true
-	end	
-	LogGotItem(false, item, amount)
-end
 
 if FirstLoad then
 	DeferredItemLog = false
 	CombatLogActorOverride = false
 end
 
-function OnMsg.NewGame()
-	DeferredItemLog = false
-	CombatLogActorOverride = false
-end
 
 TFormat.ItemLog = function(itemLog, unit, isSingleEntry)
 	local amount = itemLog.amount or 1

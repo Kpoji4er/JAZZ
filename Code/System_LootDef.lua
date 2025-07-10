@@ -114,11 +114,9 @@ function LootEntryInventoryItem:GenerateLoot(looter, looted, seed, items)
                                              100)
                 item.ArmorResource = resource
                 condition = MulDivRound(100, item.ArmorResource, item.ArmorResourceMax)
-
-            else
-
-                item.Condition = condition
+                
             end
+            item.Condition = condition
             NetUpdateHash("ItemGenerated", item.class, item.Condition)
         end
         items[#items + 1] = item

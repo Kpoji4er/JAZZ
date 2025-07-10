@@ -132108,12 +132108,12 @@ return {
 					}),
 					PlaceObj('PresetParamNumber', {
 						'Name', "parts_per_step",
-						'Value', 1,
+						'Value', 10,
 						'Tag', "<parts_per_step>",
 					}),
 					PlaceObj('PresetParamNumber', {
 						'Name', "stat_multiplier",
-						'Value', 800,
+						'Value', 3200,
 						'Tag', "<stat_multiplier>",
 					}),
 				},
@@ -132229,7 +132229,7 @@ return {
 					
 					local repaired =  (item:GetCurrentResource() or item.Condition) - prev_cond
 					local repairability = item.Repairability or item.Reliability or 100
-					local loss = MulDivRound(repaired, (100 - repairability) * (100 - sum_stat/40), 100 * 100)
+					local loss = MulDivRound(repaired, (100 - repairability) * (stat_multiplier*4 - sum_stat), 100 * 100)
 					max_condition = max_condition - loss;
 					
 						
@@ -132354,10 +132354,22 @@ return {
 			'name', "Regions_Sectors",
 			'CodeFileName', "Code/Regions_Sectors.lua",
 		}),
+		PlaceObj('ModItemCode', {
+			'name', "EnemySquad",
+			'CodeFileName', "Code/EnemySquad.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "SatelliteSquad",
+			'CodeFileName', "Code/SatelliteSquad.lua",
+		}),
 		PlaceObj('ModItemAwareReasons', {
 			display_name = T(911087494081, --[[ModItemAwareReasons Default arSectorAlert display_name]] "<em><enemy></em> поднят по тревоге"),
 			group = "Default",
 			id = "arSectorAlert",
+		}),
+		PlaceObj('ModItemEnemySquads', {
+			group = "Default",
+			id = "NewEnemySquads",
 		}),
 		PlaceObj('ModItemFolder', {
 			'name', "Regions",

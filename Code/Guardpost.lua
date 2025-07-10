@@ -15,6 +15,11 @@ DefineClass.GuardpostSessionObject = {
 		{ id = "forced_attack", editor = "text", default = false},
         { id = "Region", editor = "text", default = "", },
 		{ id = "queued_script_attack", editor = "prop_table", default = false},
+        { id = "Supply", editor = "number", default = false },
+		{ id = "scout_squads", editor = "string_list", default = false },
+		{ id = "attack_squads", editor = "text", default = false },
+        { id = "patrol_squads", editor = "text", default = false },
+        { id = "qrf_squads", editor = "text", default = false },        
 	},
 }
 
@@ -308,6 +313,8 @@ function Guardpost:Update(initial)
 	end
 end
 
+--[[
+
 function OnMsg.SatelliteTick(tick, ticks_per_day)
 	for _, gp in sorted_pairs(g_Guardposts) do
 		gp:Update()
@@ -327,7 +334,7 @@ function OnMsg.LoadSessionData()
 	
 		g_Guardposts[guardpost_obj.SectorId] = PlaceObject("Guardpost", {session_obj = guardpost_obj})
 	end
-end
+end]]
 
 ---
 --- Initializes the guardposts for the game.
@@ -354,7 +361,9 @@ function InitializeGuardposts()
 	end
 end
 
+--[[
 OnMsg.InitSatelliteView = InitializeGuardposts
+]]
 
 ---
 --- Creates a new guardpost for the specified sector.

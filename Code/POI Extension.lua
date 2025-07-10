@@ -378,6 +378,15 @@ end, },
 		{ category = "Guardpost", id = "StrongEnemySquadsList", name = "Strong enemy squads list", help = 'When the guardpost performs a "strong attack" it will swap the currently primed squad with one from this array.', 
 			editor = "preset_id_list", default = {}, 
 			no_edit = function(self) return not self.Guardpost end, preset_class = "EnemySquads", item_default = "", },
+		{ category = "Guardpost", id = "EnemySquadsPatroolList", name = "Патрули", help = "Рандомный отряд из листа становится патрулем - ходит по региону и поднимает аггро если видит врагов. Сам не атакует, но переходит в удерживание позиций", 
+			editor = "preset_id_list", default = {}, 
+			no_edit = function(self) return not self.Guardpost end, preset_class = "EnemySquads", item_default = "", },
+			{ category = "Guardpost", id = "EnemySquadsReconList", name = "Быстрое реагирование", help = "Рандомный отряд из листа становится отрядом быстрого реагирования - атакует тех кого нашла разведка", 
+			editor = "preset_id_list", default = {}, 
+			no_edit = function(self) return not self.Guardpost end, preset_class = "EnemySquads", item_default = "", },	
+		{ category = "Guardpost", id = "EnemySquadsQRFList", name = "Быстрое реагирование", help = "Рандомный отряд из листа становится отрядом быстрого реагирования - атакует тех кого нашла разведка", 
+			editor = "preset_id_list", default = {}, 
+			no_edit = function(self) return not self.Guardpost end, preset_class = "EnemySquads", item_default = "", },
 		{ category = "Militia", id = "Militia", 
 			editor = "bool", default = false, 
 			no_edit = function(self) return self.GroundSector end, },
@@ -714,7 +723,7 @@ end
 
 
 
-function GetMineIncome(sector_id, showEvenIfUnowned)
+function _GetMineIncome(sector_id, showEvenIfUnowned)
 	local sector = gv_Sectors[sector_id]
 
 	-- No income for this sector
@@ -1043,8 +1052,9 @@ function GetSectorDailyIncomeWood(sector)
 	return GetSectorDailyIncomeSector(baseVal, sector)
 end
 
-local function GetAllSources(id)
-	return (GetMineIncome(id) or 0) + (GetFarmIncome(id) or 0) + (GetDonationsIncome(id) or 0) + (GetWoodIncome(id) or 0) + (GetSlonIncome(id) or 0)
+--заглушка
+function GetMineIncome(id)
+	return (_GetMineIncome(id) or 0) + (GetFarmIncome(id) or 0) + (GetDonationsIncome(id) or 0) + (GetWoodIncome(id) or 0) + (GetSlonIncome(id) or 0)
 end
 
 function GetIncome(days)
@@ -1052,41 +1062,12 @@ function GetIncome(days)
 	days = days or 1
 	
 	for id, sector in sorted_pairs(gv_Sectors) do
-		income = income + GetAllSources(id)
+		income = income + GetMineIncome(id)
 	end
 	
 	income =  income + GetForgivingModeDailyIncome()
 	
 	return income * days
-end
-
-function OnMsg.SectorsTick(tick, ticks_per_day)
-	for id, sector in sorted_pairs(gv_Sectors) do
-		local income = GetAllSources(id)
-		if income then
-			income = GetAmountPerTick(income, tick, ticks_per_day)
-			AddMoney(income, "income", "noCombatLog")
-			if tick + 1 == ticks_per_day then
-				sector.mine_work_days = (sector.mine_work_days or 0) + 1
-				
-				local sectorDepletionTime = GetSectorDepletionTime(sector)
-				if not sector.mine_depleted and sector.Depletion and sector.mine_work_days >= sectorDepletionTime + const.Satellite.MineDepletingDays then
-					sector.mine_depleted = true
-					CombatLog("important", T{268514931670, "<SectorName(sector)> is depleted.", sector = sector})
-					if g_SatelliteUI then g_SatelliteUI:UpdateSectorVisuals(id) end
-				end
-			end
-		end
-		
-		-- If an enemy had a waiting conflict for this sector that it needs to stop waiting due
-		-- to the squad dying or whatever else
-		local conflict = sector and sector.conflict
-		if conflict and conflict.waiting and not conflict.player_attacking and not EnemyWantsToWait(id) then
-			EnterConflict(sector)
-		end
-		
-		ExecuteSectorEvents("SE_OnTick", id)
-	end
 end
 
 
