@@ -296,17 +296,36 @@ function AIUpdateScoutLocation(unit)
 	if not unit.last_known_enemy_pos then
 		return
 	end
-	--local sight = MulDivRound(unit:GetSightRadius(),33,100)
-	local sight = MulDivRound(const.Combat.AwareSightRange,50,100)
-	if CheckLOS(unit.last_known_enemy_pos, unit, sight) then 
-		-- scouted here, next time pick a different location if still necessary
-        if g_NoiseSources and #g_NoiseSources > 0 then
-			local rand = InteractionRand(#g_NoiseSources, "AlarmNoise")
-			local pos = g_NoiseSources[rand + 1].pos
-			unit.last_known_enemy_pos = (pos)
-		else
 
-		unit.last_known_enemy_pos = nil
+	-- Используем константный sight радиус, как ты решил
+	local sight = MulDivRound(const.Combat.AwareSightRange, 50, 100)
+
+	-- Если цель всё ещё на виду — меняем на шум или сбрасываем
+	if CheckLOS(unit.last_known_enemy_pos, unit, sight) then
+		if g_NoiseSources and #g_NoiseSources > 0 then
+			local valid_noises = {}
+
+			-- Фильтруем шумы, которые исходят от врагов
+			for i = 1, #g_NoiseSources do
+				local src = g_NoiseSources[i]
+				if src.Actor and src.Actor:IsOnEnemySide(unit) then
+					valid_noises[#valid_noises + 1] = i
+				end
+			end
+
+			if #valid_noises > 0 then
+				local index = valid_noises[InteractionRand(#valid_noises, "AlarmNoise") + 1]
+				local noise = g_NoiseSources[index]
+
+				-- Назначаем новую позицию и удаляем шум
+				unit.last_known_enemy_pos = noise.pos
+				table.remove(g_NoiseSources, index)
+			else
+				-- Все шумы от союзников — сбрасываем
+				unit.last_known_enemy_pos = nil
+			end
+		else
+			unit.last_known_enemy_pos = nil
 		end
 	end
 end
