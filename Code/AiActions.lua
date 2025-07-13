@@ -351,7 +351,7 @@ function IsUnitHiddenFromPlayer(unit)
 end
 
 function AIExecuteUnitBehavior(unit, force_or_skip_action)
-    if not g_Combat or not IsValid(unit) or unit:IsDead() then return end
+    if not g_Combat or not IsValid(unit) or unit:IsDead() or unit:HasStatusEffect("Unconscious") or unit:HasStatusEffect("suppressionPinned") then return end
 
     local options = CurrentModOptions or empty_table
 

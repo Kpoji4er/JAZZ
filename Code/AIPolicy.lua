@@ -356,7 +356,7 @@ function AIPolicyProximity:EvalDest(context, dest, grid_voxel)
 	local scale = const.SlabSizeX
 	
 	for _, other in ipairs(units) do
-		if other ~= unit then
+		if other ~= unit and not other:IsDead()  then
 			local upos
 			if target_enemies then
 				upos = context.enemy_pack_pos_stance[other]
@@ -368,7 +368,8 @@ function AIPolicyProximity:EvalDest(context, dest, grid_voxel)
 			end
 			local dist = stance_pos_dist(dest, upos) / scale
 			if tdist == "total" or tdist == "average" then
-				score = score + dist
+				score = (score or 0) + dist
+				num = num + 1
 			else
 				assert(tdist == "min")
 				if not score or score > dist then
@@ -383,4 +384,50 @@ function AIPolicyProximity:EvalDest(context, dest, grid_voxel)
 	end
 	
 	return score >= self.MinScore and score or 0
+end
+
+
+DefineClass.AIPolicyAvoidDeathZones = {
+	__parents = { "AIPositioningPolicy", },
+	__generated_by_class = "ClassDef",
+
+	properties = {
+		{ id = "end_of_turn", editor = "bool", default = true, read_only = true, no_edit = true },
+		{ id = "TargetDist", name = "Death Distance", 
+		  help = "Как далеко от трупа позиция считается опасной", 
+		  editor = "number", default = 5, min = 1 },
+		{ id = "Penalty", name = "Danger Penalty", 
+		  help = "Штраф за нахождение в пределах опасной зоны", 
+		  editor = "number", default = 100, min = 0 },
+		  {id = "end_of_turn", editor = "bool", default = true, read_only = true, no_edit = true},
+			{id = "optimal_location", editor = "bool", default = true, read_only = true, no_edit = true}
+	},
+}
+
+function AIPolicyAvoidDeathZones:EvalDest(context, dest, grid_voxel)
+	local scale = const.SlabSizeX
+	local penalty = 0
+	local radius = self.TargetDist or 5
+	local max_dist = radius
+
+	local unit = context.unit
+	local all_units = g_Units or empty_table
+
+	local x, y, z = stance_pos_unpack(dest)
+	local dest_pt = point(x, y, z)
+
+	for _, other in ipairs(all_units) do
+		if other ~= unit and other:IsDead() and not other:IsOnEnemySide(unit) then
+			local death_pos = other:GetPos()
+			if death_pos then
+				local dist = dest_pt:Dist2D(death_pos) / const.SlabSizeX
+				if dist <= max_dist then
+					local mult = Clamp(1 - dist / max_dist, 0, 1)
+					penalty = penalty + self.Penalty * mult
+				end
+			end
+		end
+	end
+
+	return -penalty
 end
