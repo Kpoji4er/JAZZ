@@ -7,6 +7,7 @@ DefineClass.UMP45 = {
 	comment = ".45 ACP T2+",
 	object_class = "SubmachineGun",
 	ScrapParts = 8,
+	RepairCost = 12,
 	Reliability = 85,
 	Icon = "Mod/e6L4ECj/WeaponIcons/UMP45.png",
 	DisplayName = T(780815176267, --[[ModItemInventoryItemCompositeDef UMP45 DisplayName]] "UMP45"),

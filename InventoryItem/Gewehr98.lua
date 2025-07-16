@@ -7,6 +7,7 @@ DefineClass.Gewehr98 = {
 	comment = "T1-",
 	object_class = "SniperRifle",
 	ScrapParts = 8,
+	RepairCost = 3,
 	Reliability = 25,
 	Icon = "Mod/e6L4ECj/WeaponIcons/K98.png",
 	DisplayName = T(217134868057, --[[ModItemInventoryItemCompositeDef Gewehr98 DisplayName]] "Gewehr 98"),

@@ -7,6 +7,7 @@ DefineClass.MG42 = {
 	comment = "T1-",
 	object_class = "MachineGun",
 	ScrapParts = 12,
+	RepairCost = 3,
 	Icon = "Mod/e6L4ECj/WeaponIcons/MG42.png",
 	DisplayName = T(389483103177, --[[ModItemInventoryItemCompositeDef MG42 DisplayName]] "MG42"),
 	DisplayNamePlural = T(734302797284, --[[ModItemInventoryItemCompositeDef MG42 DisplayNamePlural]] "MG42"),

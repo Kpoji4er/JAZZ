@@ -6,6 +6,7 @@ DefineClass.MortarInventoryItem = {
 
 	object_class = "Mortar",
 	ScrapParts = 16,
+	RepairCost = 100,
 	Reliability = 50,
 	MinMishapChance = 2,
 	MaxMishapChance = 60,

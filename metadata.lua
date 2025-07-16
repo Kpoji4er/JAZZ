@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 6,
-	'version', 5080,
+	'version', 5093,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -643,6 +643,7 @@ return PlaceObj('ModDef', {
 		"Code/Regions_Sectors.lua",
 		"Code/EnemySquad.lua",
 		"Code/SatelliteSquad.lua",
+		"Code/Guardpost_Patrols.lua",
 		"Code/SatelliteSquadFixes.lua",
 		"Code/POI Extension.lua",
 		"InventoryItem/Auto5_quest.lua",
@@ -660,8 +661,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1752411532,
-	'code_hash', -5409912584879659557,
+	'saved', 1752680397,
+	'code_hash', -8463963087462324812,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",

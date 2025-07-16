@@ -7,6 +7,7 @@ DefineClass.CAR15 = {
 	comment = "T1",
 	object_class = "AssaultRifle",
 	ScrapParts = 10,
+	RepairCost = 8,
 	Reliability = 45,
 	Icon = "Mod/e6L4ECj/WeaponIcons/CAR15.png",
 	DisplayName = T(472829589737, --[[ModItemInventoryItemCompositeDef CAR15 DisplayName]] "CAR-15"),

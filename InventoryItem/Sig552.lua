@@ -7,6 +7,7 @@ DefineClass.Sig552 = {
 	comment = "T3+",
 	object_class = "AssaultRifle",
 	ScrapParts = 10,
+	RepairCost = 16,
 	Reliability = 80,
 	Icon = "Mod/e6L4ECj/WeaponIcons/SIG552.png",
 	DisplayName = T(829842196548, --[[ModItemInventoryItemCompositeDef Sig552 DisplayName]] "Sig 552"),

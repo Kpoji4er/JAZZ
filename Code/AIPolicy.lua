@@ -431,3 +431,33 @@ function AIPolicyAvoidDeathZones:EvalDest(context, dest, grid_voxel)
 
 	return -penalty
 end
+
+
+
+function AIPolicyHighGround:EvalDest(context, dest, grid_voxel)
+	local ux, uy, uz = point_unpack(context.unit_grid_voxel)
+	local x, y, z = point_unpack(grid_voxel)
+	local score = self.Weight * (z - uz)
+	local penalty = 0
+	local max_dist = 6
+	local dest_pt = point(x, y, z)
+	local unit = context.unit
+
+	local all_units = g_Units or empty_table
+	for _, other in ipairs(all_units) do
+		if other ~= unit and not other:IsDead() and not other:IsOnEnemySide(unit) then
+
+			local ox, oy, oz = other:GetPosXYZ()
+			if oz == z then
+				local dist = dest_pt:Dist2D(other:GetPos()) / const.SlabSizeX
+				if dist <= max_dist then
+					local mult = Clamp(1 - dist / max_dist, 0, 1)
+					penalty = penalty + 30 * mult
+				end
+			end
+		end
+	end	
+
+
+	return score - penalty
+end

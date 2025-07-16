@@ -6,6 +6,7 @@ DefineClass.Mini14 = {
 
 	object_class = "SniperRifle",
 	ScrapParts = 10,
+	RepairCost = 8,
 	Reliability = 45,
 	Icon = "Mod/e6L4ECj/WeaponIcons/Mini14.png",
 	ItemType = "DMR",

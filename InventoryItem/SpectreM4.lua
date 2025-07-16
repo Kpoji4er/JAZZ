@@ -7,6 +7,7 @@ DefineClass.SpectreM4 = {
 	comment = "T1+",
 	object_class = "SubmachineGun",
 	ScrapParts = 6,
+	RepairCost = 8,
 	Reliability = 65,
 	Icon = "Mod/e6L4ECj/WeaponIcons/SpectreM4.png",
 	DisplayName = T(248441865106, --[[ModItemInventoryItemCompositeDef SpectreM4 DisplayName]] "Spectre M4"),

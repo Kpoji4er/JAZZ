@@ -7,6 +7,7 @@ DefineClass.FAMAS = {
 	comment = "T1-",
 	object_class = "AssaultRifle",
 	ScrapParts = 10,
+	RepairCost = 12,
 	Reliability = 50,
 	Icon = "Mod/e6L4ECj/WeaponIcons/Famas.png",
 	DisplayName = T(730384992135, --[[ModItemInventoryItemCompositeDef FAMAS DisplayName]] "FAMAS"),

@@ -7,6 +7,7 @@ DefineClass.M24Sniper = {
 	comment = "T2+",
 	object_class = "SniperRifle",
 	ScrapParts = 14,
+	RepairCost = 7,
 	Reliability = 80,
 	Icon = "Mod/e6L4ECj/WeaponIcons/M24.png",
 	DisplayName = T(594362204689, --[[ModItemInventoryItemCompositeDef M24Sniper DisplayName]] "M24"),

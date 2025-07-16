@@ -7,6 +7,7 @@ DefineClass.RPD = {
 	comment = "T2-",
 	object_class = "MachineGun",
 	ScrapParts = 16,
+	RepairCost = 8,
 	Reliability = 90,
 	Icon = "Mod/e6L4ECj/WeaponIcons/RPD.png",
 	DisplayName = T(921726795014, --[[ModItemInventoryItemCompositeDef RPD DisplayName]] "РПД"),

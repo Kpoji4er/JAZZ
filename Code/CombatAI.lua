@@ -188,7 +188,7 @@ end
 
 function AICalcAttacksAndAimSmart(context, ap, target)
 	local unit = context.unit
-	local cth_map = context.cth_by_aim_map[target]
+	--local cth_map = context.cth_by_aim_map[target]
 
 	--print("AICALCATTACKS Smart Validations")
 	--print(not not unit)
@@ -317,7 +317,7 @@ function AICreateContext(unit, context)
 	context.forced_signature_action = false
 	context.apply_bias = true
 	context.disable_actions = {}
-	context.cth_by_aim_map = {}
+	--context.cth_by_aim_map = {}
 
 	NetUpdateHash("AICreateContext", unit, pos, unit.stance, context.start_ap, context.archetype.id, context.max_attacks, weapon and weapon.class, weapon and weapon.id, default_attack.id)
 	
@@ -368,26 +368,27 @@ function AICreateContext(unit, context)
 		context.enemy_visible[enemy] = HasVisibilityTo(unit, enemy)
 		context.enemy_visible_by_team[enemy] = HasVisibilityTo(unit.team, enemy)
 
+		local best_attack
+
 		if context.enemy_visible_by_team[enemy] then
-			local args = { aim = 0 }
-			local best_mode_score = 0
+
 
 			--print('basic_attacks')
-			for _, mode in ipairs(basic_attacks.all) do
+			--for _, mode in ipairs(basic_attacks.all) do
 				--print(_)
 				--print(mode)
-				local action = mode.action
+				--local action = mode.action
 				--print('GetCTHByAimLevels Validation')
 				--print(not not unit)
 				--print(not not enemy)
 				--print(not not action)
 				--print(not not weapon.MaxAimActions)
-				local aim_levels = GetCTHByAimLevels(unit, enemy, action, weapon.MaxAimActions or 3)
+				--local aim_levels = GetCTHByAimLevels(unit, enemy, action, weapon.MaxAimActions or 3)
 				--print(not not aim_levels)
 				--print(aim_levels)
-				mode.cth_by_aim = mode.cth_by_aim or {}
-				mode.cth_by_aim[enemy] = aim_levels
-				context.cth_by_aim_map[enemy] = mode.cth_by_aim[enemy]
+				--mode.cth_by_aim = mode.cth_by_aim or {}
+				--mode.cth_by_aim[enemy] = aim_levels
+				--context.cth_by_aim_map[enemy] = mode.cth_by_aim[enemy]
 				
 
 		    	--print('PickBestAttack Validation')
@@ -395,7 +396,10 @@ function AICreateContext(unit, context)
 				--print(not not enemy)
 				--print(not not basic_attacks)
 				--print(not not mode.cth_by_aim[enemy])
-				local best_attack = PickBestAttack(unit, enemy, basic_attacks)
+				best_attack = PickBestAttack(unit, enemy, basic_attacks)
+				if context.enemy_visible[enemy] and best_attack then
+					best_attack.score = best_attack.score * 1.2
+				end
 				--local best_attack = PickBestAttack(unit, enemy, basic_attacks, mode.cth_by_aim[enemy])
           	   if best_attack and best_attack.score >= best_overall_score then
 					--print(best_attack.score)
@@ -403,10 +407,10 @@ function AICreateContext(unit, context)
   		            best_overall_attack = best_attack
             		context.attack_target = enemy
             		context.attack_AP_reserved = best_attack.ap
-					context.cth_by_aim_map[enemy] = mode.cth_by_aim[enemy]
+					--context.cth_by_aim_map[enemy] = mode.cth_by_aim[enemy]
           	end
-		end
-
+		--end
+			
 			local use_cover, cover_value, _, _, type_cover =
 				Presets["ChanceToHitModifier"]["Default"].RangeAttackTargetStanceCover:CalcValue(
 					unit, enemy, nil, default_attack, weapon, nil, nil, nil, nil, unit:GetPos())

@@ -7,6 +7,7 @@ DefineClass.Sig550Custom = {
 	comment = "T3",
 	object_class = "AssaultRifle",
 	ScrapParts = 10,
+	RepairCost = 16,
 	Reliability = 80,
 	Icon = "Mod/e6L4ECj/WeaponIcons/SIG550Custom.png",
 	ItemType = "DMR",

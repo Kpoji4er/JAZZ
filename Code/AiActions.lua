@@ -514,7 +514,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
             end
             -- revert to basic attacks
 
-            local cth_map = context.cth_by_aim_map[target]
+            --local cth_map = context.cth_by_aim_map[target]
            -- local best_attack = PickBestAttack(unit, target,
            --                                    context.basic_attacks, cth_map)
 			local best_attack = PickBestAttack(unit, target,
@@ -667,17 +667,20 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 
   --  end
     if  not unit:HasStatusEffect("Unconscious") and not unit:HasPreparedAttack() and not g_Overwatch[unit] and 
-    (unit.ActionPoints + remaining_free_ap) > (context.default_attack_cost or context.dest_ap[dest] or 4) and not unit:IsIncapacitated() and not unit:IsDead() 
+    not unit:IsIncapacitated() and not unit:IsDead() 
     then    
         context.restarts = (context.restarts or 0) + 1
+        if (unit.ActionPoints + remaining_free_ap) > (context.default_attack_cost or context.dest_ap[dest] or 4) then 
         unit:GainAP(remaining_free_ap)
+        remaining_free_ap = 0;
         if context.restarts < 3 then
             if g_AIExecutionController then
                 g_AIExecutionController:Log("  Unit %s requesting restart (AP left: %d, restart count: %d)", unit.unitdatadef_id, unit.ActionPoints, context.restarts)
             end
             return "restart"
-        else
-        TryChangeStance(unit)
+          else
+          TryChangeStance(unit)
+         end
         end
     end
 

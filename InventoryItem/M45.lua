@@ -7,6 +7,7 @@ DefineClass.M45 = {
 	comment = "9mm T1",
 	object_class = "SubmachineGun",
 	ScrapParts = 8,
+	RepairCost = 3,
 	Reliability = 65,
 	Icon = "Mod/e6L4ECj/WeaponIcons/CarlGustaf.png",
 	DisplayName = T(519964585006, --[[ModItemInventoryItemCompositeDef M45 DisplayName]] "Carl Gustaf M/45"),

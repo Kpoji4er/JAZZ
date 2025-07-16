@@ -7,6 +7,7 @@ DefineClass.PP19Bizon = {
 	comment = "918 T3",
 	object_class = "SubmachineGun",
 	ScrapParts = 8,
+	RepairCost = 12,
 	Reliability = 85,
 	Icon = "Mod/e6L4ECj/WeaponIcons/Bizon.png",
 	DisplayName = T(776690469955, --[[ModItemInventoryItemCompositeDef PP19Bizon DisplayName]] "ПП19 Бизон"),

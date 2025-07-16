@@ -7,6 +7,7 @@ DefineClass.BAR = {
 	comment = "T1-",
 	object_class = "MachineGun",
 	ScrapParts = 12,
+	RepairCost = 3,
 	Reliability = 30,
 	Icon = "Mod/e6L4ECj/WeaponIcons/BAR.png",
 	DisplayName = T(265028974011, --[[ModItemInventoryItemCompositeDef BAR DisplayName]] "BAR"),

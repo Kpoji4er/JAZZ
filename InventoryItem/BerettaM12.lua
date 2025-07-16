@@ -7,6 +7,7 @@ DefineClass.BerettaM12 = {
 	comment = "T1+",
 	object_class = "SubmachineGun",
 	ScrapParts = 6,
+	RepairCost = 4,
 	Reliability = 75,
 	Icon = "Mod/e6L4ECj/WeaponIcons/BerettaM12.png",
 	DisplayName = T(470598723767, --[[ModItemInventoryItemCompositeDef BerettaM12 DisplayName]] "Беретта М12"),

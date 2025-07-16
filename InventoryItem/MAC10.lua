@@ -7,6 +7,7 @@ DefineClass.MAC10 = {
 	comment = "45ACP T1+",
 	object_class = "SubmachineGun",
 	ScrapParts = 6,
+	RepairCost = 4,
 	Reliability = 70,
 	Icon = "Mod/e6L4ECj/WeaponIcons/MAC10.png",
 	DisplayName = T(612255777676, --[[ModItemInventoryItemCompositeDef MAC10 DisplayName]] "MAC-10"),

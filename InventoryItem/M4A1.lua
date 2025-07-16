@@ -7,6 +7,7 @@ DefineClass.M4A1 = {
 	comment = "T2",
 	object_class = "AssaultRifle",
 	ScrapParts = 10,
+	RepairCost = 14,
 	Reliability = 85,
 	Icon = "Mod/e6L4ECj/WeaponIcons/M4A1.png",
 	DisplayName = T(464450575707, --[[ModItemInventoryItemCompositeDef M4A1 DisplayName]] "M4A1"),

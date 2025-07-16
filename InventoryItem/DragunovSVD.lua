@@ -7,6 +7,7 @@ DefineClass.DragunovSVD = {
 	comment = "T2",
 	object_class = "SniperRifle",
 	ScrapParts = 14,
+	RepairCost = 10,
 	Reliability = 85,
 	Icon = "Mod/e6L4ECj/WeaponIcons/SVD.png",
 	DisplayName = T(515926068469, --[[ModItemInventoryItemCompositeDef DragunovSVD DisplayName]] "СВД"),

@@ -7,6 +7,7 @@ DefineClass.HK33 = {
 	comment = "T2+",
 	object_class = "AssaultRifle",
 	ScrapParts = 10,
+	RepairCost = 14,
 	Reliability = 75,
 	Icon = "Mod/e6L4ECj/WeaponIcons/HK33.png",
 	DisplayName = T(918715946710, --[[ModItemInventoryItemCompositeDef HK33 DisplayName]] "HK33"),

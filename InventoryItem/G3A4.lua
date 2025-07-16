@@ -7,6 +7,7 @@ DefineClass.G3A4 = {
 	comment = "T3+",
 	object_class = "AssaultRifle",
 	ScrapParts = 10,
+	RepairCost = 13,
 	Reliability = 85,
 	Icon = "Mod/e6L4ECj/WeaponIcons/G3A4.png",
 	DisplayName = T(555464992529, --[[ModItemInventoryItemCompositeDef G3A4 DisplayName]] "G3A4"),

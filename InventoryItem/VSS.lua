@@ -7,6 +7,7 @@ DefineClass.VSS = {
 	comment = "T3-",
 	object_class = "SniperRifle",
 	ScrapParts = 14,
+	RepairCost = 20,
 	Reliability = 35,
 	Icon = "Mod/e6L4ECj/WeaponIcons/VSS.png",
 	ItemType = "DMR",

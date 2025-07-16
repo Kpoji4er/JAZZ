@@ -7,6 +7,7 @@ DefineClass.ScoutSniper = {
 	comment = "UNIQ",
 	object_class = "SniperRifle",
 	ScrapParts = 14,
+	RepairCost = 10,
 	Reliability = 75,
 	Icon = "Mod/e6L4ECj/WeaponIcons/SteyrScout.png",
 	DisplayName = T(111366988214, --[[ModItemInventoryItemCompositeDef ScoutSniper DisplayName]] "Steyr Scout"),

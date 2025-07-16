@@ -6,7 +6,7 @@ DefineClass.FlareHandgun = {
 
 	object_class = "FlareGun",
 	ScrapParts = 2,
-	RepairCost = 70,
+	RepairCost = 10,
 	Reliability = 20,
 	Icon = "UI/Icons/Weapons/FlareGun",
 	ItemType = "FlareGun",

@@ -7,6 +7,7 @@ DefineClass.PPSH = {
 	comment = "7.62x25 T1-",
 	object_class = "SubmachineGun",
 	ScrapParts = 6,
+	RepairCost = 3,
 	Reliability = 50,
 	Icon = "Mod/e6L4ECj/WeaponIcons/PPSH.png",
 	ItemType = "SMG",

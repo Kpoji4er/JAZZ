@@ -6,6 +6,7 @@ DefineClass.TMP = {
 
 	object_class = "SubmachineGun",
 	ScrapParts = 8,
+	RepairCost = 14,
 	Reliability = 85,
 	Icon = "Mod/e6L4ECj/WeaponIcons/TMP.png",
 	ItemType = "SMG",

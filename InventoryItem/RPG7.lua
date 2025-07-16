@@ -6,6 +6,7 @@ DefineClass.RPG7 = {
 
 	object_class = "RocketLauncher",
 	ScrapParts = 16,
+	RepairCost = 100,
 	Reliability = 50,
 	MinMishapChance = 0,
 	MaxMishapChance = 60,

@@ -7,6 +7,7 @@ DefineClass.M3GreaseGun = {
 	comment = ".45 ACP T1-",
 	object_class = "SubmachineGun",
 	ScrapParts = 6,
+	RepairCost = 1,
 	Icon = "Mod/e6L4ECj/WeaponIcons/M3GreaseGun.png",
 	ItemType = "SMG",
 	DisplayName = T(635674998872, --[[ModItemInventoryItemCompositeDef M3GreaseGun DisplayName]] "M3 Grease Gun"),

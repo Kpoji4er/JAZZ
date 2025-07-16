@@ -7,6 +7,7 @@ DefineClass.FNFAL = {
 	comment = "T1+",
 	object_class = "AssaultRifle",
 	ScrapParts = 10,
+	RepairCost = 11,
 	Reliability = 70,
 	Icon = "Mod/e6L4ECj/WeaponIcons/FNFAL.png",
 	DisplayName = T(830855995643, --[[ModItemInventoryItemCompositeDef FNFAL DisplayName]] "FN-FAL"),

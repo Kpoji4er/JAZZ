@@ -7,6 +7,7 @@ DefineClass.PSG1 = {
 	comment = "T3+",
 	object_class = "SniperRifle",
 	ScrapParts = 14,
+	RepairCost = 25,
 	Reliability = 70,
 	Icon = "Mod/e6L4ECj/WeaponIcons/PSG.png",
 	DisplayName = T(887059977163, --[[ModItemInventoryItemCompositeDef PSG1 DisplayName]] "PSG1"),

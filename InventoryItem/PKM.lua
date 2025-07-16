@@ -7,6 +7,7 @@ DefineClass.PKM = {
 	comment = "T3+",
 	object_class = "MachineGun",
 	ScrapParts = 16,
+	RepairCost = 10,
 	Reliability = 90,
 	Icon = "Mod/e6L4ECj/WeaponIcons/PKM.png",
 	DisplayName = T(870783532014, --[[ModItemInventoryItemCompositeDef PKM DisplayName]] "ПКМ"),

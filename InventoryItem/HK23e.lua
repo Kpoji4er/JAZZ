@@ -7,6 +7,7 @@ DefineClass.HK23e = {
 	comment = "T3",
 	object_class = "MachineGun",
 	ScrapParts = 16,
+	RepairCost = 16,
 	Reliability = 85,
 	Icon = "Mod/e6L4ECj/WeaponIcons/HK23.png",
 	DisplayName = T(109123476314, --[[ModItemInventoryItemCompositeDef HK23e DisplayName]] "HK23e"),

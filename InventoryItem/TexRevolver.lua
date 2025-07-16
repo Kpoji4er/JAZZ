@@ -6,7 +6,7 @@ DefineClass.TexRevolver = {
 
 	object_class = "Revolver",
 	ScrapParts = 8,
-	RepairCost = 50,
+	RepairCost = 15,
 	Reliability = 95,
 	Icon = "Mod/e6L4ECj/WeaponIcons/Tex.png",
 	DisplayName = T(578697354182, --[[ModItemInventoryItemCompositeDef TexRevolver DisplayName]] "Именной револьвер"),

@@ -6,6 +6,7 @@ DefineClass.Sterling = {
 
 	object_class = "SubmachineGun",
 	ScrapParts = 8,
+	RepairCost = 3,
 	Reliability = 75,
 	Icon = "Mod/e6L4ECj/WeaponIcons/Sterling.png",
 	DisplayName = T(488309253436, --[[ModItemInventoryItemCompositeDef Sterling DisplayName]] "Стерлинг"),

@@ -7,6 +7,7 @@ DefineClass.SVU = {
 	comment = "T3",
 	object_class = "SniperRifle",
 	ScrapParts = 14,
+	RepairCost = 15,
 	Reliability = 65,
 	Icon = "Mod/e6L4ECj/WeaponIcons/SVU.png",
 	ItemType = "DMR",

@@ -7,6 +7,7 @@ DefineClass.AR10DMR = {
 	comment = "T1+",
 	object_class = "AssaultRifle",
 	ScrapParts = 10,
+	RepairCost = 18,
 	Reliability = 70,
 	Icon = "Mod/e6L4ECj/WeaponIcons/AR10DMR.png",
 	DisplayName = T(888757996394, --[[ModItemInventoryItemCompositeDef AR10DMR DisplayName]] "AR-10 DMR"),

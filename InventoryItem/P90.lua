@@ -9,6 +9,7 @@ DefineClass.P90 = {
 	msg_reactions = {},
 	unit_reactions = {},
 	ScrapParts = 10,
+	RepairCost = 20,
 	Reliability = 80,
 	Icon = "Mod/e6L4ECj/WeaponIcons/P90.png",
 	DisplayName = T(409531523901, --[[ModItemInventoryItemCompositeDef P90 DisplayName]] "P90"),

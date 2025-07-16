@@ -7,6 +7,7 @@ DefineClass.BarretM82 = {
 	comment = "T3+",
 	object_class = "SniperRifle",
 	ScrapParts = 16,
+	RepairCost = 20,
 	Reliability = 60,
 	Icon = "Mod/e6L4ECj/WeaponIcons/Barret.png",
 	DisplayName = T(869636891023, --[[ModItemInventoryItemCompositeDef BarretM82 DisplayName]] "M82"),

@@ -124,6 +124,52 @@ end
     self.PanicLevel = 0
   end
 
+  function Region:GetPatrolTargetWeights()
+    local weights = {}
+  
+    for _, sector_id in ipairs(self.Sectors or empty_table) do
+      local sector = gv_Sectors[sector_id]
+      if sector and (sector.Side == "neutral" or sector.Side == "enemy1") then
+        local weight = 0
+  
+        -- город
+        if sector.City and sector.City ~= "none" then
+          weight = weight + 50
+        end
+
+        -- бонус за ферму, остальное и так точки интереса
+        if sector.Mine then
+          weight = weight + 50
+        end
+        
+
+        -- Точки интереса в секторе (включая шахту)
+local poi_list = {}
+for _, poi in ipairs(POIDescriptions) do
+    if sector[poi.id] then
+      weight = weight + 50
+    end
+end                
+  
+        -- +1 за каждый очко Heat
+        weight = weight + (sector.Heat or 0)
+  
+        -- +30 если в секторе давно не было врагов (примерно)
+        if sector.LastPatrolledTime then
+          local days_since = (Game.CampaignTime - sector.LastPatrolledTime) / const.Scale.day
+          weight = weight + Clamp(MulDivRound(days_since, 20, 1), 0, 1000)  -- 20 веса за день, макс 100
+        else
+          weight = weight + 100
+        end
+  
+        if weight > 0 then
+          weights[#weights + 1] = {weight, sector_id}
+        end
+      end
+    end
+  
+    return weights
+  end
 
   local raisedAlarm = false
 
@@ -191,7 +237,7 @@ end
     if not sector then return end
   
     local totalheat = (sector.Heat or 0) + (sector.CombatHeat or 0)
-    if totalheat > 500 then
+    if totalheat > 1000 then
 
       local units = GetCurrentMapUnits("enemy")
       if g_NoiseSources and #g_NoiseSources > 0 then
@@ -213,7 +259,7 @@ end
     if not sector then return end
   
     local totalheat = (sector.Heat or 0) + (sector.CombatHeat or 0)
-    if totalheat > 500 then
+    if totalheat > 1000 then
 
       local units = GetCurrentMapUnits("enemy")
       for _, unit in pairs(units) do

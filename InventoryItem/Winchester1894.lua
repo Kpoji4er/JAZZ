@@ -7,6 +7,7 @@ DefineClass.Winchester1894 = {
 	comment = "T1-",
 	object_class = "SniperRifle",
 	ScrapParts = 8,
+	RepairCost = 3,
 	Reliability = 95,
 	Icon = "Mod/e6L4ECj/WeaponIcons/Winchester.png",
 	ItemType = "DMR",

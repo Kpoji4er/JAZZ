@@ -7,6 +7,7 @@ DefineClass.G3SniperV1 = {
 	comment = "T2-",
 	object_class = "SniperRifle",
 	ScrapParts = 14,
+	RepairCost = 14,
 	Reliability = 80,
 	Icon = "Mod/e6L4ECj/WeaponIcons/G3Sniper.png",
 	ItemType = "DMR",

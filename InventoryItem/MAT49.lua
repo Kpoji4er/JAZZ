@@ -7,6 +7,7 @@ DefineClass.MAT49 = {
 	comment = "9mm T1-",
 	object_class = "SubmachineGun",
 	ScrapParts = 6,
+	RepairCost = 1,
 	Reliability = 15,
 	Icon = "Mod/e6L4ECj/WeaponIcons/MAT49.png",
 	DisplayName = T(892229243751, --[[ModItemInventoryItemCompositeDef MAT49 DisplayName]] "MAT-49"),

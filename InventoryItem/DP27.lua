@@ -7,6 +7,7 @@ DefineClass.DP27 = {
 	comment = "T1-",
 	object_class = "MachineGun",
 	ScrapParts = 12,
+	RepairCost = 2,
 	Reliability = 35,
 	Icon = "Mod/e6L4ECj/WeaponIcons/DP27.png",
 	DisplayName = T(973194681593, --[[ModItemInventoryItemCompositeDef DP27 DisplayName]] "ДП-27"),

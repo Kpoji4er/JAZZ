@@ -6,7 +6,7 @@ DefineClass.AK47 = {
 
 	object_class = "AssaultRifle",
 	ScrapParts = 10,
-	RepairCost = 20,
+	RepairCost = 5,
 	Reliability = 95,
 	Icon = "Mod/e6L4ECj/WeaponIcons/AK47.png",
 	DisplayName = T(152496614613, --[[ModItemInventoryItemCompositeDef AK47 DisplayName]] "АК47"),

@@ -7,6 +7,7 @@ DefineClass.UZI = {
 	comment = "9mm T1+",
 	object_class = "SubmachineGun",
 	ScrapParts = 6,
+	RepairCost = 6,
 	Reliability = 70,
 	Icon = "Mod/e6L4ECj/WeaponIcons/UZI.png",
 	DisplayName = T(919841472744, --[[ModItemInventoryItemCompositeDef UZI DisplayName]] "Узи Полноразмерный"),

@@ -7,6 +7,7 @@ DefineClass.M700 = {
 	comment = "T1+",
 	object_class = "SniperRifle",
 	ScrapParts = 14,
+	RepairCost = 5,
 	Reliability = 70,
 	Icon = "Mod/e6L4ECj/WeaponIcons/M700.png",
 	DisplayName = T(539019407378, --[[ModItemInventoryItemCompositeDef M700 DisplayName]] "M700"),

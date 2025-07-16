@@ -7,6 +7,7 @@ DefineClass.PPS43 = {
 	comment = "7.62x25 T2",
 	object_class = "SubmachineGun",
 	ScrapParts = 6,
+	RepairCost = 2,
 	Reliability = 50,
 	Icon = "Mod/e6L4ECj/WeaponIcons/PPS43.png",
 	ItemType = "SMG",

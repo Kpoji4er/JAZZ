@@ -7,6 +7,7 @@ DefineClass.AUG = {
 	comment = "T2",
 	object_class = "AssaultRifle",
 	ScrapParts = 10,
+	RepairCost = 15,
 	Reliability = 75,
 	Icon = "Mod/e6L4ECj/WeaponIcons/Aug.png",
 	DisplayName = T(443884035280, --[[ModItemInventoryItemCompositeDef AUG DisplayName]] "AUG"),

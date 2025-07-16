@@ -7,6 +7,7 @@ DefineClass.Thompson = {
 	comment = ".45 ACP T1-",
 	object_class = "SubmachineGun",
 	ScrapParts = 6,
+	RepairCost = 3,
 	Reliability = 30,
 	Icon = "Mod/e6L4ECj/WeaponIcons/Thompson.png",
 	ItemType = "SMG",

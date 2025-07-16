@@ -7,6 +7,7 @@ DefineClass.M1Garand = {
 	comment = "T1+",
 	object_class = "SniperRifle",
 	ScrapParts = 8,
+	RepairCost = 6,
 	Icon = "Mod/e6L4ECj/WeaponIcons/M1Garand.png",
 	DisplayName = T(729447298300, --[[ModItemInventoryItemCompositeDef M1Garand DisplayName]] "М1 Гаранд"),
 	DisplayNamePlural = T(830429456946, --[[ModItemInventoryItemCompositeDef M1Garand DisplayNamePlural]] "М1 Гаранд"),

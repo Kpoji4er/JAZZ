@@ -7,6 +7,7 @@ DefineClass.AVT40 = {
 	comment = "T1+",
 	object_class = "AssaultRifle",
 	ScrapParts = 8,
+	RepairCost = 5,
 	Reliability = 15,
 	Icon = "Mod/e6L4ECj/WeaponIcons/AVT40.png",
 	DisplayName = T(915359425469, --[[ModItemInventoryItemCompositeDef AVT40 DisplayName]] "АВТ-40"),

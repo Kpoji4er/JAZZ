@@ -7,6 +7,7 @@ DefineClass.FRF2 = {
 	comment = "T1+",
 	object_class = "SniperRifle",
 	ScrapParts = 14,
+	RepairCost = 5,
 	Reliability = 60,
 	Icon = "Mod/e6L4ECj/WeaponIcons/FRF2.png",
 	DisplayName = T(799798287692, --[[ModItemInventoryItemCompositeDef FRF2 DisplayName]] "FR F2"),

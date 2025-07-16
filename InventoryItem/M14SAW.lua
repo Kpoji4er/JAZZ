@@ -7,6 +7,7 @@ DefineClass.M14SAW = {
 	comment = "T1-",
 	object_class = "AssaultRifle",
 	ScrapParts = 10,
+	RepairCost = 10,
 	Reliability = 45,
 	Icon = "Mod/e6L4ECj/WeaponIcons/M14.png",
 	DisplayName = T(383581760129, --[[ModItemInventoryItemCompositeDef M14SAW DisplayName]] "M-14"),

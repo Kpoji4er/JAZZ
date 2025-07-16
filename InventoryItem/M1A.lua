@@ -7,6 +7,7 @@ DefineClass.M1A = {
 	comment = "T1",
 	object_class = "SniperRifle",
 	ScrapParts = 10,
+	RepairCost = 12,
 	Reliability = 75,
 	Icon = "Mod/e6L4ECj/WeaponIcons/M1A.png",
 	ItemType = "DMR",

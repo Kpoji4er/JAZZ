@@ -7,6 +7,7 @@ DefineClass.Springfield = {
 	comment = "T1-",
 	object_class = "SniperRifle",
 	ScrapParts = 8,
+	RepairCost = 3,
 	Reliability = 30,
 	Icon = "Mod/e6L4ECj/WeaponIcons/Springfield.png",
 	DisplayName = T(376570929427, --[[ModItemInventoryItemCompositeDef Springfield DisplayName]] "Springfield 1903"),

@@ -7,6 +7,7 @@ DefineClass.MP5A4 = {
 	comment = "9mm T2",
 	object_class = "SubmachineGun",
 	ScrapParts = 8,
+	RepairCost = 12,
 	Reliability = 85,
 	Icon = "Mod/e6L4ECj/WeaponIcons/MP5A4.png",
 	DisplayName = T(123316525310, --[[ModItemInventoryItemCompositeDef MP5A4 DisplayName]] "MP5A4"),

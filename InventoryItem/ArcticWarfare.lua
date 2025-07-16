@@ -7,6 +7,7 @@ DefineClass.ArcticWarfare = {
 	comment = "T2+",
 	object_class = "SniperRifle",
 	ScrapParts = 14,
+	RepairCost = 20,
 	Reliability = 80,
 	Icon = "Mod/e6L4ECj/WeaponIcons/AWM.png",
 	DisplayName = T(472965483218, --[[ModItemInventoryItemCompositeDef ArcticWarfare DisplayName]] "Arctic Warfare"),

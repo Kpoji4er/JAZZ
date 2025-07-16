@@ -7,6 +7,7 @@ DefineClass.MicroUZI = {
 	comment = "9mm T1 - MICRO",
 	object_class = "SubmachineGun",
 	ScrapParts = 6,
+	RepairCost = 5,
 	Reliability = 50,
 	Icon = "Mod/e6L4ECj/WeaponIcons/MicroUZI.png",
 	DisplayName = T(551535604372, --[[ModItemInventoryItemCompositeDef MicroUZI DisplayName]] "Мини Узи"),

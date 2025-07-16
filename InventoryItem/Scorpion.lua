@@ -6,7 +6,8 @@ DefineClass.Scorpion = {
 
 	comment = "9x18 T1",
 	object_class = "SubmachineGun",
-	ScrapParts = 8,
+	ScrapParts = 3,
+	RepairCost = 3,
 	Icon = "Mod/e6L4ECj/WeaponIcons/Scorpion.png",
 	DisplayName = T(389917013778, --[[ModItemInventoryItemCompositeDef Scorpion DisplayName]] "Scorpion"),
 	DisplayNamePlural = T(505643276959, --[[ModItemInventoryItemCompositeDef Scorpion DisplayNamePlural]] "Scorpion"),

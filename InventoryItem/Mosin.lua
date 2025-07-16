@@ -7,6 +7,7 @@ DefineClass.Mosin = {
 	comment = "T1+",
 	object_class = "SniperRifle",
 	ScrapParts = 8,
+	RepairCost = 3,
 	Reliability = 95,
 	Icon = "Mod/e6L4ECj/WeaponIcons/Mosin.png",
 	DisplayName = T(415053102324, --[[ModItemInventoryItemCompositeDef Mosin DisplayName]] "Винтовка Мосина"),

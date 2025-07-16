@@ -7,6 +7,7 @@ DefineClass.Agram2000 = {
 	comment = "9mm T1",
 	object_class = "SubmachineGun",
 	ScrapParts = 6,
+	RepairCost = 3,
 	Reliability = 45,
 	Icon = "Mod/e6L4ECj/WeaponIcons/Agram2.png",
 	DisplayName = T(137299864819, --[[ModItemInventoryItemCompositeDef Agram2000 DisplayName]] "Аграм 2000"),

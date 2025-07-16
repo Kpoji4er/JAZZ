@@ -7,6 +7,7 @@ DefineClass.SVT40 = {
 	comment = "T1+",
 	object_class = "SniperRifle",
 	ScrapParts = 8,
+	RepairCost = 5,
 	Icon = "Mod/e6L4ECj/WeaponIcons/SVT40.png",
 	DisplayName = T(514199755077, --[[ModItemInventoryItemCompositeDef SVT40 DisplayName]] "СВТ-40"),
 	DisplayNamePlural = T(625382131145, --[[ModItemInventoryItemCompositeDef SVT40 DisplayNamePlural]] "СВТ-40"),

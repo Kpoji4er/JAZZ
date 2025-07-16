@@ -7,6 +7,7 @@ DefineClass.ZastavaM76 = {
 	comment = "T1+",
 	object_class = "SniperRifle",
 	ScrapParts = 14,
+	RepairCost = 8,
 	Reliability = 75,
 	Icon = "Mod/e6L4ECj/WeaponIcons/ZastavaM76.png",
 	DisplayName = T(641866672184, --[[ModItemInventoryItemCompositeDef ZastavaM76 DisplayName]] "Zastava M76"),

@@ -1028,9 +1028,9 @@ end
 		end
 
 		--suppression
-		--if (action.id == "MGBurstFire") then 
-		--	suppression_CTH = suppression_CTH * 2
-		--end
+		if (action.id == "MGBurstFire") then 
+			suppression_CTH = suppression_CTH * 2
+		end
 
 
 		--if not prediction and g_Combat then

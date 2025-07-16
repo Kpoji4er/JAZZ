@@ -7,6 +7,7 @@ DefineClass.FNMAG = {
 	comment = "T3-",
 	object_class = "MachineGun",
 	ScrapParts = 16,
+	RepairCost = 8,
 	Reliability = 75,
 	Icon = "Mod/e6L4ECj/WeaponIcons/FNMAG.png",
 	DisplayName = T(528780556719, --[[ModItemInventoryItemCompositeDef FNMAG DisplayName]] "FN MAG"),

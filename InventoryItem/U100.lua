@@ -7,6 +7,7 @@ DefineClass.U100 = {
 	comment = "T1+",
 	object_class = "MachineGun",
 	ScrapParts = 16,
+	RepairCost = 8,
 	Reliability = 60,
 	Icon = "Mod/e6L4ECj/WeaponIcons/U100.png",
 	DisplayName = T(266437267072, --[[ModItemInventoryItemCompositeDef U100 DisplayName]] "U100"),

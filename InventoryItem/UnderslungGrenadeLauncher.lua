@@ -10,7 +10,6 @@ DefineClass.UnderslungGrenadeLauncher = {
 	MaxMishapChance = 45,
 	MaxMishapRange = 6,
 	Caliber = "JAZZ_Caliber_40mmGrenade",
-	AttackAP = 4000,
 	Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
 	DisplayName = T(527844630900, --[[ModItemInventoryItemCompositeDef UnderslungGrenadeLauncher DisplayName]] "Подствол. гранатомет"),
 	DisplayNamePlural = T(163578052946, --[[ModItemInventoryItemCompositeDef UnderslungGrenadeLauncher DisplayNamePlural]] "Подствол. гранатометы"),

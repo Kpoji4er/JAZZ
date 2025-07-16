@@ -7,6 +7,7 @@ DefineClass.RPK74 = {
 	comment = "T3-",
 	object_class = "MachineGun",
 	ScrapParts = 16,
+	RepairCost = 12,
 	Reliability = 95,
 	Icon = "Mod/e6L4ECj/WeaponIcons/RPK74.png",
 	DisplayName = T(679005533471, --[[ModItemInventoryItemCompositeDef RPK74 DisplayName]] "РПК-74"),

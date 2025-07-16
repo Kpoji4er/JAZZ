@@ -6,12 +6,12 @@ DefineClass.China_Lake = {
 
 	object_class = "GrenadeLauncher",
 	ScrapParts = 16,
+	RepairCost = 70,
 	Reliability = 50,
 	MinMishapChance = -3,
 	MaxMishapChance = 40,
 	MaxMishapRange = 6,
 	Caliber = "JAZZ_Caliber_40mmGrenade",
-	AttackAP = 4000,
 	BombardRadius = 3,
 	ComponentSlots = {},
 	Entity = "China_Lake",

@@ -7,6 +7,7 @@ DefineClass.MPL = {
 	comment = "9mm T1",
 	object_class = "SubmachineGun",
 	ScrapParts = 8,
+	RepairCost = 3,
 	Reliability = 70,
 	Icon = "Mod/e6L4ECj/WeaponIcons/MPL.png",
 	DisplayName = T(555365819120, --[[ModItemInventoryItemCompositeDef MPL DisplayName]] "Walther MP"),
