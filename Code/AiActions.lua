@@ -684,7 +684,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
         end
     end
 
-    
+    TryChangeStance(unit)
     
     --if unit.ActionPoints > 6 and context.restarts >=3 then
     -- AIPlaceFallbackOverwatch(unit, context)
