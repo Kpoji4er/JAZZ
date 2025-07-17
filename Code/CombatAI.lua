@@ -73,7 +73,7 @@ function PickBestAttack(unit, enemy, basic_attacks)
 	--print('function PickBestAttack')
 	local best = false
 	local best_score = 0
-	local AP = unit.ActionPoints
+	local AP = unit.ActionPoints - 1
 
 	local weapon, weapon2 = unit:GetActiveWeapons()
 	if not weapon then
@@ -211,6 +211,8 @@ function AICalcAttacksAndAimSmart(context, ap, target)
 		
 		--print("Attacs - CTH - AIM")
 		--print(n_attacks, best_attack.cth, best_attack.aim)
+
+		if best_attack.ap >= ap then n_attacks = 1 else n_attacks = 0 end
 
 		return n_attacks, { best_attack.aim }
 	end
@@ -410,7 +412,7 @@ function AICreateContext(unit, context)
 					--context.cth_by_aim_map[enemy] = mode.cth_by_aim[enemy]
           	end
 		--end
-			
+
 			local use_cover, cover_value, _, _, type_cover =
 				Presets["ChanceToHitModifier"]["Default"].RangeAttackTargetStanceCover:CalcValue(
 					unit, enemy, nil, default_attack, weapon, nil, nil, nil, nil, unit:GetPos())

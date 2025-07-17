@@ -422,7 +422,7 @@ function AIPolicyAvoidDeathZones:EvalDest(context, dest, grid_voxel)
 			if death_pos then
 				local dist = dest_pt:Dist2D(death_pos) / const.SlabSizeX
 				if dist <= max_dist then
-					local mult = Clamp(1 - dist / max_dist, 0, 1)
+					local mult = Clamp(1 - dist * 1.0 / max_dist, 0, 1)
 					penalty = penalty + self.Penalty * mult
 				end
 			end

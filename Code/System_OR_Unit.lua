@@ -1073,7 +1073,7 @@ function Unit:RecalcWillPoints()
 		--end
 	end
 
-	local buff = 5 + DivRound(leadership,50)
+	local buff = 8 + DivRound(leadership,50)
 
 	if IsMerc(self) and (self.Dislikes or self.Likes) then
 		for _, dislikedMerc in ipairs(self.Dislikes) do
@@ -1114,7 +1114,7 @@ function Unit:RecalcWillPoints()
 		local roll = InteractionRand(100, "Pessimist")
 		if roll < chance then
 			PlayVoiceResponse(self, "Pessimist")
-			buff = buff - 5
+			buff = buff - 4
 		end
 		buff = buff - 1
 	end
