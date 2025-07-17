@@ -44,7 +44,7 @@ DefineClass.Wounded = {
 				local reaction_def = (self.msg_reactions or empty_table)[2]
 				if self:VerifyReaction("OnHeal", reaction_def, patient, patient, hp, medkit, healer) then
 					if not IsMerc(healer) then 
-				    patient:RemoveStatusEffect("Wounded")
+				    --patient:RemoveStatusEffect("Wounded")
 				    patient:RemoveStatusEffect("Blinded")
 					patient:RemoveStatusEffect("Inaccurate")
 					patient:RemoveStatusEffect("Slowed")
@@ -53,7 +53,7 @@ DefineClass.Wounded = {
 			end,
 			HandlerCode = function (self, patient, hp, medkit, healer)
 				if not IsMerc(healer) then 
-				    patient:RemoveStatusEffect("Wounded")
+				    --patient:RemoveStatusEffect("Wounded")
 				    patient:RemoveStatusEffect("Blinded")
 					patient:RemoveStatusEffect("Inaccurate")
 					patient:RemoveStatusEffect("Slowed")

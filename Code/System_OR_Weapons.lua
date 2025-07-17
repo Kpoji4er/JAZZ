@@ -17,16 +17,16 @@ function QueueSuppressionApplication(unit, wp_dmg)
                     local entry = table.remove(g_SuppressionApplyQueue, 1)
                     local u, dmg = entry.unit, entry.damage
                     if IsValid(u) then
-						Sleep(500)
+						Sleep(10)
                         local old_wp = u.WillPoints
                         u.WillPoints = Max(0, old_wp - dmg)
                         if u.WillPoints ~= old_wp then
                             u:ApplySuppressionStatus()
                         end
                     end
-                    Sleep(100)
+                    Sleep(10)
                 else
-                    Sleep(100)
+                    Sleep(10)
                 end
             end
         end)
@@ -1029,7 +1029,7 @@ end
 
 		--suppression
 		if (action.id == "MGBurstFire") then 
-			suppression_CTH = suppression_CTH * 2
+			suppression_CTH = suppression_CTH * 1.5
 		end
 
 

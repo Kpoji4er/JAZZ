@@ -69,11 +69,17 @@ function GetCTHByAimLevels(unit, enemy, action, max_aim)
 end
 
 
-function PickBestAttack(unit, enemy, basic_attacks)
+function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 	--print('function PickBestAttack')
 	local best = false
 	local best_score = 0
 	local AP = unit.ActionPoints - 1
+	if dest_ap then AP = dest_ap end
+
+	print("pickbestattack")
+	print(AP)
+	print(dest_ap or "none")
+
 
 	local weapon, weapon2 = unit:GetActiveWeapons()
 	if not weapon then
@@ -196,7 +202,7 @@ function AICalcAttacksAndAimSmart(context, ap, target)
 	--print(not not context.basic_attacks)
 	--print(not not cth_map)
 	--local best_attack = PickBestAttack(unit, target, context.basic_attacks, cth_map)
-	local best_attack = PickBestAttack(unit, target, context.basic_attacks)
+	local best_attack = PickBestAttack(unit, target, context.basic_attacks, ap)
 	--print("BestAttack:")
 	--print(not not best_attack)
 

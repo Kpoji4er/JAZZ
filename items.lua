@@ -90039,7 +90039,7 @@ return {
 							local reaction_def = (self.msg_reactions or empty_table)[2]
 							if self:VerifyReaction("OnHeal", reaction_def, patient, patient, hp, medkit, healer) then
 								if not IsMerc(healer) then 
-							    patient:RemoveStatusEffect("Wounded")
+							    --patient:RemoveStatusEffect("Wounded")
 							    patient:RemoveStatusEffect("Blinded")
 								patient:RemoveStatusEffect("Inaccurate")
 								patient:RemoveStatusEffect("Slowed")
@@ -90048,7 +90048,7 @@ return {
 						end,
 						HandlerCode = function (self, patient, hp, medkit, healer)
 							if not IsMerc(healer) then 
-							    patient:RemoveStatusEffect("Wounded")
+							    --patient:RemoveStatusEffect("Wounded")
 							    patient:RemoveStatusEffect("Blinded")
 								patient:RemoveStatusEffect("Inaccurate")
 								patient:RemoveStatusEffect("Slowed")
@@ -95450,7 +95450,7 @@ return {
 							Event = "OnBeginTurn",
 							Handler = function (self, target)
 								local ap = target.ActionPoints
-								target.ActionPoints = Min(4,ap)
+								target.ActionPoints = Clamp(target.ActionPoints, 0, 4*const.Scale.AP)
 								target:RemoveStatusEffect("FreeMove")
 							end,
 							param_bindings = false,
@@ -95475,6 +95475,8 @@ return {
 						obj:TakeCover();
 						--obj:SetActionCommand("TakeCover", nil, nil, "Prone")
 						end
+
+						obj.ActionPoints = Clamp(obj.ActionPoints, 0, 4*const.Scale.AP)
 						
 						if not obj:IsDead() then
 						                    if obj:IsMerc() then
@@ -95642,7 +95644,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ DisplayName]] "Секретные данные"),
+					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Секретные данные"),
 					'Description', T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
 					'Icon', "UI/Icons/Perks/InnerInfo",
 					'Tier', "Personal",
@@ -95704,7 +95706,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ DisplayName]] "Юберрашунг"),
+					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Юберрашунг"),
 					'Description', T(845332100943, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ Description]] "Дает +50% од на первом ходу"),
 					'Icon', "UI/Icons/Perks/GruntyPerk",
 					'Tier', "Personal",

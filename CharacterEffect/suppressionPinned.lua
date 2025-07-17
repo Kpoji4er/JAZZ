@@ -23,7 +23,7 @@ DefineClass.suppressionPinned = {
 			Event = "OnBeginTurn",
 			Handler = function (self, target)
 				local ap = target.ActionPoints
-				target.ActionPoints = Min(4,ap)
+				target.ActionPoints = Clamp(target.ActionPoints, 0, 4*const.Scale.AP)
 				target:RemoveStatusEffect("FreeMove")
 			end,
 		}),
@@ -46,6 +46,7 @@ DefineClass.suppressionPinned = {
 		obj:TakeCover();
 		--obj:SetActionCommand("TakeCover", nil, nil, "Prone")
 		end
+		obj.ActionPoints = Clamp(obj.ActionPoints, 0, 4*const.Scale.AP)
 		
 		if not obj:IsDead() then
 		                    if obj:IsMerc() then

@@ -237,16 +237,27 @@ end
     if not sector then return end
   
     local totalheat = (sector.Heat or 0) + (sector.CombatHeat or 0)
-    if totalheat > 1000 then
+    if totalheat > 500 then
 
       local units = GetCurrentMapUnits("enemy")
-      if g_NoiseSources and #g_NoiseSources > 0 then
-        for _, unit in pairs(units) do
-          local rand = InteractionRand(#g_NoiseSources, "AlarmNoise")
-          local pos = g_NoiseSources[rand + 1].pos
-          unit.last_known_enemy_pos = unit.last_known_enemy_pos or (pos)
+      if g_NoiseSources and #g_NoiseSources > 0 and not unit.last_known_enemy_pos then
+
+        for i = 1, #g_NoiseSources do
+          local src = g_NoiseSources[i]
+          if src.Actor and src.Actor:IsOnEnemySide(unit) then
+            valid_noises[#valid_noises + 1] = i
+          end
         end
+  
+        if #valid_noises > 0 then
+          local index = valid_noises[InteractionRand(#valid_noises, "AlarmNoise") + 1]
+          local noise = g_NoiseSources[index]
+  
+          -- Назначаем новую позицию и удаляем шум
+          unit.last_known_enemy_pos = noise.pos
+          table.remove(g_NoiseSources, index)
       end
+    end
      -- raisedAlarm = true
     end
 
@@ -259,16 +270,29 @@ end
     if not sector then return end
   
     local totalheat = (sector.Heat or 0) + (sector.CombatHeat or 0)
-    if totalheat > 1000 then
+    if totalheat > 500 then
 
       local units = GetCurrentMapUnits("enemy")
       for _, unit in pairs(units) do
         unit:RemoveStatusEffect("Unaware")
-        if g_NoiseSources and #g_NoiseSources > 0 then
-          local rand = InteractionRand(#g_NoiseSources, "AlarmNoise")
-          local pos = g_NoiseSources[rand + 1].pos
-          unit.last_known_enemy_pos = unit.last_known_enemy_pos or (pos)
+        if g_NoiseSources and #g_NoiseSources > 0 and not unit.last_known_enemy_pos then
+
+          for i = 1, #g_NoiseSources do
+            local src = g_NoiseSources[i]
+            if src.Actor and src.Actor:IsOnEnemySide(unit) then
+              valid_noises[#valid_noises + 1] = i
+            end
+          end
+    
+          if #valid_noises > 0 then
+            local index = valid_noises[InteractionRand(#valid_noises, "AlarmNoise") + 1]
+            local noise = g_NoiseSources[index]
+    
+            -- Назначаем новую позицию и удаляем шум
+            unit.last_known_enemy_pos = noise.pos
+            table.remove(g_NoiseSources, index)
         end
+      end
       end
       raisedAlarm = true
     end

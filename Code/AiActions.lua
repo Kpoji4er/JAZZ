@@ -518,9 +518,10 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
            -- local best_attack = PickBestAttack(unit, target,
            --                                    context.basic_attacks, cth_map)
 			local best_attack = PickBestAttack(unit, target,
-                                               context.basic_attacks)
+                                               context.basic_attacks, context.dest_ap[dest])
 
 			context.default_attack = best_attack and best_attack.action or context.default_attack	
+            context.default_attack_cost =  best_attack and best_attack.ap or context.default_attack_cost	
             context.attack_target = best_attack and target or context.attack_target	
             
             local attacks, aim
@@ -646,7 +647,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
                     -- we're stuck somewhere and unable to move or act, revert back to being Unaware (only if no sight of any enemies)
                     local sight = false
                     for _, enemy in ipairs(context.enemies) do
-                        sight = sight or HasVisibilityTo(unit, enemy)
+                        sight = sight or HasVisibilityTo(unit.team, enemy)
                     end
                     if not sight then
                         unit.last_known_enemy_pos =
@@ -654,7 +655,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
                                 AIPickScoutLocation(unit)
                         -- local archetype = "Scout_LastLocation"
                         -- unit.current_archetype = archetype or unit.archetype or "Assault"
-                        if not unit.last_known_enemy_pos then
+                        if not (unit.last_known_enemy_pos or sight) then
                             table.insert(g_UnawareQueue, unit)
                         end
                     end
