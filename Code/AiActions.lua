@@ -672,8 +672,8 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
     then    
         context.restarts = (context.restarts or 0) + 1
         if (unit.ActionPoints + remaining_free_ap) > (context.default_attack_cost or context.dest_ap[dest] or 4) then 
-        unit:GainAP(remaining_free_ap)
-        remaining_free_ap = 0;
+        --unit:GainAP(remaining_free_ap)
+        --remaining_free_ap = 0;
         if context.restarts < 3 then
             if g_AIExecutionController then
                 g_AIExecutionController:Log("  Unit %s requesting restart (AP left: %d, restart count: %d)", unit.unitdatadef_id, unit.ActionPoints, context.restarts)
