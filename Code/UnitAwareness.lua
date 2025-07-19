@@ -1,3 +1,135 @@
+
+
+local raisedAlarm = false
+
+function OnMsg.ConflictEnd(sector, _, playerAttacked, playerWon, autoResolve, isRetreat, startedFromMap)
+  -- Проверяем, есть ли сектор
+  raisedAlarm = false
+  if not sector then return end
+
+  -- 1) Если игрок выиграл
+  local base_heat = 20 + (MulDivRound(sector.CombatHeat, 10, 100) or 0)  -- базовое значение, можешь сделать динамическим
+  sector.CombatHeat = 0
+  if playerWon then
+	-- Поднять heat в секторе
+   
+	sector.Heat = sector.Heat + base_heat
+
+	-- Поднять heat в регионе
+	local region = GetRegionForSector(sector.Id)
+	if region then
+	  local regional_heat = MulDivRound(base_heat, 10, 100) -- 10% от heat сектора
+	  region:IncreaseHeat(regional_heat)
+	end
+
+	-- Поднять heat в соседних секторах
+	ForEachSectorAround(sector.Id, 1, function(neighbor_id)
+	  if neighbor_id ~= sector.Id then
+		local neighbor = gv_Sectors[neighbor_id]
+		if neighbor then
+		  local neighbor_heat = MulDivRound(base_heat, 40, 100) -- например, 25% от heat сектора
+		  neighbor.Heat = neighbor.Heat + neighbor_heat
+		end
+	  end
+	end)
+	ForEachSectorAround(sector.Id, 2, function(neighbor_id)
+	  if neighbor_id ~= sector.Id then
+		local neighbor = gv_Sectors[neighbor_id]
+		if neighbor then
+		  local neighbor_heat = MulDivRound(base_heat, 10, 100) -- например, 25% от heat сектора
+		  neighbor.Heat = neighbor.Heat + neighbor_heat
+		end
+	  end
+	end)
+  end
+
+  -- 2) При поражении или отступлении тоже можно сделать свою логику heat
+  if not playerWon or isRetreat then
+	-- Например, сильно поднимать heat за проигрыш
+	local penalty_heat = base_heat
+	sector.Heat = sector.Heat + penalty_heat
+
+	local region = GetRegionForSector(sector.Id)
+	if region then
+	  local regional_heat = MulDivRound(penalty_heat, 20, 100)
+	  region:IncreaseHeat(regional_heat)
+	end
+  end
+end
+
+
+
+
+function OnMsg.TurnStart()
+
+  local sector = gv_Sectors and gv_Sectors[gv_CurrentSectorId]
+  if not sector then return end
+
+  local totalheat = (sector.Heat or 0) + (sector.CombatHeat or 0)
+  if totalheat > 500 then
+	TriggerUnitAlert("script", unit, "suspicious")
+	local units = GetCurrentMapUnits("enemy")
+	for _, unit in pairs(units) do
+	if g_NoiseSources and #g_NoiseSources > 0 and not unit.last_known_enemy_pos then
+
+	  for i = 1, #g_NoiseSources do
+		local src = g_NoiseSources[i]
+		if src.Actor and src.Actor:IsOnEnemySide(unit) then
+		  valid_noises[#valid_noises + 1] = i
+		end
+	  end
+
+	  if #valid_noises > 0 then
+		local index = valid_noises[InteractionRand(#valid_noises, "AlarmNoise") + 1]
+		local noise = g_NoiseSources[index]
+
+		-- Назначаем новую позицию и удаляем шум
+		unit.last_known_enemy_pos = noise.pos
+		table.remove(g_NoiseSources, index)
+	end
+  end
+  end
+   -- raisedAlarm = true
+  end
+
+end
+
+
+function OnMsg.ExplorationTick()
+  if raisedAlarm then return end
+  local sector = gv_Sectors and gv_Sectors[gv_CurrentSectorId]
+  if not sector then return end
+
+  local totalheat = (sector.Heat or 0) + (sector.CombatHeat or 0)
+  if totalheat > 500 then
+
+	local units = GetCurrentMapUnits("enemy")
+	for _, unit in pairs(units) do
+	  TriggerUnitAlert("script", unit, "suspicious")
+	  if g_NoiseSources and #g_NoiseSources > 0 and not unit.last_known_enemy_pos then
+
+		for i = 1, #g_NoiseSources do
+		  local src = g_NoiseSources[i]
+		  if src.Actor and src.Actor:IsOnEnemySide(unit) then
+			valid_noises[#valid_noises + 1] = i
+		  end
+		end
+  
+		if #valid_noises > 0 then
+		  local index = valid_noises[InteractionRand(#valid_noises, "AlarmNoise") + 1]
+		  local noise = g_NoiseSources[index]
+  
+		  -- Назначаем новую позицию и удаляем шум
+		  unit.last_known_enemy_pos = noise.pos
+		  table.remove(g_NoiseSources, index)
+	  end
+	end
+	end
+	raisedAlarm = true
+  end
+
+end
+
 function PushUnitAlert(trigger_type, ...)
 	if trigger_type == "discovered" and CheatEnabled("DisableDiscoveryAlert") then
 		return
@@ -297,15 +429,12 @@ function AIUpdateScoutLocation(unit)
 		return
 	end
 
-	-- Используем константный sight радиус, как ты решил
 	local sight = MulDivRound(const.Combat.AwareSightRange, 50, 100)
 
-	-- Если цель всё ещё на виду — меняем на шум или сбрасываем
 	if CheckLOS(unit.last_known_enemy_pos, unit, sight) then
 		if g_NoiseSources and #g_NoiseSources > 0 then
 			local valid_noises = {}
 
-			-- Фильтруем шумы, которые исходят от врагов
 			for i = 1, #g_NoiseSources do
 				local src = g_NoiseSources[i]
 				if src.Actor and src.Actor:IsOnEnemySide(unit) then
@@ -317,11 +446,9 @@ function AIUpdateScoutLocation(unit)
 				local index = valid_noises[InteractionRand(#valid_noises, "AlarmNoise") + 1]
 				local noise = g_NoiseSources[index]
 
-				-- Назначаем новую позицию и удаляем шум
 				unit.last_known_enemy_pos = noise.pos
 				table.remove(g_NoiseSources, index)
 			else
-				-- Все шумы от союзников — сбрасываем
 				unit.last_known_enemy_pos = nil
 			end
 		else
@@ -331,7 +458,7 @@ function AIUpdateScoutLocation(unit)
 end
 
 
-local SuspicionThreshold = 160 -- Above this much the unit will become alerted
+local SuspicionThreshold = 80 and raisedAlarm or 160 -- Above this much the unit will become alerted
 local lSuspicionTickRate = 100 -- How often to add the tick amount
 local lSuspicionTickAmount = 10 -- The amount to add when hidden
 local lSuspicionTickAmountProjector = 6 -- The amount to add when hidden
