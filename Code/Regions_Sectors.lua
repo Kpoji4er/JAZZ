@@ -238,8 +238,9 @@ end
   
     local totalheat = (sector.Heat or 0) + (sector.CombatHeat or 0)
     if totalheat > 500 then
-
+      --TriggerUnitAlert("discovered", unit)
       local units = GetCurrentMapUnits("enemy")
+      for _, unit in pairs(units) do
       if g_NoiseSources and #g_NoiseSources > 0 and not unit.last_known_enemy_pos then
 
         for i = 1, #g_NoiseSources do
@@ -257,6 +258,7 @@ end
           unit.last_known_enemy_pos = noise.pos
           table.remove(g_NoiseSources, index)
       end
+    end
     end
      -- raisedAlarm = true
     end
