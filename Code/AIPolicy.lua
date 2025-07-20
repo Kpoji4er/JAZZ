@@ -139,7 +139,7 @@ end
 AIPolicyTakeCover.CoverScores = { 
 	[const.CoverPass] = 0, 
 	[const.CoverNone] = 0, 
-	[const.CoverLow] = 50,
+	[const.CoverLow] = 80,
 	[const.CoverHigh] = 100,
 }
 

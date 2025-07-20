@@ -67,9 +67,10 @@ function OnMsg.TurnStart()
 
   local totalheat = (sector.Heat or 0) + (sector.CombatHeat or 0)
   if totalheat > 500 then
-	TriggerUnitAlert("script", unit, "suspicious")
+
 	local units = GetCurrentMapUnits("enemy")
 	for _, unit in pairs(units) do
+	TriggerUnitAlert("script", unit, "suspicious")
 	if g_NoiseSources and #g_NoiseSources > 0 and not unit.last_known_enemy_pos then
 
 	  for i = 1, #g_NoiseSources do
