@@ -1029,7 +1029,7 @@ end
 
 		--suppression
 		if (action.id == "MGBurstFire") then 
-			suppression_CTH = suppression_CTH * 1.5
+			suppression_CTH = suppression_CTH * 1.2
 		end
 
 
@@ -1699,6 +1699,88 @@ function FirearmBase:GetScrapParts()
     if parts < 1 then parts = 1 end
 	return parts
 end
+
+
+local suppression_levels = {
+	{debuff = 80, effect = "suppressionPinned"},
+	{debuff = 45, effect = "suppressionHeavy2"},
+	{debuff = 30, effect = "suppressionHeavy"},
+	{debuff = 15, effect = "suppressionMedium"},
+	{debuff = 5, effect = "suppressionLight"},
+}
+
+---
+--- Calculates the chance of a mishap occurring based on the distance between the attacker and the target.
+---
+--- @param item table The weapon item being used.
+--- @param attacker Unit The unit performing the attack.
+--- @param target Unit The target of the attack.
+--- @param async boolean Whether the calculation should be performed asynchronously.
+--- @return number The chance of a mishap occurring, as a percentage.
+---
+function MishapChanceByDist(item, attacker, target, async)
+	local chance = MishapProperties.GetMishapChance(item, attacker, target, async)
+	local range = item.WeaponRange * const.SlabSizeX
+
+	local dist = attacker:GetDist(target)
+
+
+	for _, data in ipairs(suppression_levels) do
+		if attacker:HasStatusEffect(data.effect) then
+			dist = dist + MulDivRound(range, data.debuff, 100)
+			break
+		end
+	end
+
+
+	local inaccurate = attacker:GetStatusEffect("Inaccurate")
+	if inaccurate then
+		local stacks = inaccurate.stacks or 1
+		dist = dist + MulDivRound(range, stacks * 20, 100) 
+	end
+
+	if dist > range / 2 then
+		chance = Min(100, chance + MulDivRound(dist - range/2, 100 - chance, range/2))
+	end
+	return chance
+end
+
+---
+--- Calculates the deviation vector for a mishap based on the distance between the attacker and the target.
+---
+--- @param item table The weapon item being used.
+--- @param attacker Unit The unit performing the attack.
+--- @param target Unit The target of the attack.
+--- @return Vector3 The deviation vector for the mishap.
+---
+function MishapDeviationVectorByDist(item, attacker, target)
+	local dv = MishapProperties.GetMishapDeviationVector(item, attacker, target)
+	local range = item.WeaponRange * const.SlabSizeX
+	local dist = attacker:GetDist(target)
+
+	for _, data in ipairs(suppression_levels) do
+		if attacker:HasStatusEffect(data.effect) then
+			dist = dist + MulDivRound(range, data.debuff, 100)
+			break
+		end
+	end
+
+
+	local inaccurate = attacker:GetStatusEffect("Inaccurate")
+	if inaccurate then
+		local stacks = inaccurate.stacks or 1
+		dist = dist + MulDivRound(range, stacks * 20, 100) 
+	end
+
+	if dist > range / 2 then
+		local mod = Min(100, MulDivRound(dist - range/2, 100, range/2))
+		dv = MulDivRound(dv, 100 + mod, 100)
+	end
+
+	return dv
+end
+
+
 
 function MishapProperties:GetMishapDeviationVector(unit, target)
 	local explosives = unit.Explosives or 50

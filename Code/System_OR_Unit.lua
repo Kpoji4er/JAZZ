@@ -2503,3 +2503,48 @@ function Unit:UpdateMoveSpeed()
 		self:SetSpeed(self.fallback_walk_speed)
 	end
 end
+
+
+---
+--- Handles the death of a unit, including determining if the unit should get downed instead of dying.
+---
+--- @param attacker Unit|Trap The attacker that caused the unit's death.
+--- @param hit_descr table The hit description containing information about the damage that caused the death.
+---
+function Unit:OnDie(attacker, hit_descr)
+	CombatActionInterruped(self)
+	RemoveFloatingTextsFrom(self, "DamageFloatingText")
+	self.on_die_attacker = IsKindOf(attacker, "Trap") and attacker.attacker or attacker
+	self.on_die_hit_descr = table.copy(hit_descr)
+	self.on_die_hit_descr.armor_decay = nil
+	self.on_die_hit_descr.armor_pen = nil
+	
+	if self:ShouldGetDowned(hit_descr) then
+		hit_descr.explosion_fly = nil -- never do this when downing
+		self.HitPoints = 1 -- make sure the unit is not considered dead and evicted from the UI
+		local value = MulDivRound(self.Health,50,100) or 30
+		if g_Combat then self:ApplyTempHitPoints(value) end
+		--count downed units for tacticalsituation vr
+		if attacker and IsKindOf(attacker, "Unit") and attacker.team.side ~= self.team.side then
+			self.team.tactical_situations_vr.downedUnits = self.team.tactical_situations_vr.downedUnits and self.team.tactical_situations_vr.downedUnits 
+			attacker.team.tactical_situations_vr.downedUnitsByTeam = attacker.team.tactical_situations_vr.downedUnitsByTeam and (attacker.team.tactical_situations_vr.downedUnitsByTeam + 1) or 1
+			PlayVoiceResponseTacticalSituation(table.find(g_Teams, attacker.team), "now")
+		end
+		self:SetCommand("GetDowned")
+	else
+		--printf("%s dies", _InternalTranslate(self.Name or ""))
+		self.on_die_hit_descr = self.on_die_hit_descr or {}
+		 -- Roam is considered visiting but doesn't have a last_visit
+		 if self:IsVisiting() and self.last_visit and self.visit_reached then
+			self.on_die_hit_descr.die_pos = self.last_visit:GetPos()
+		end
+		if string.match(self.session_id, "ClonedFootballPartner") then
+			self.SetCommand = Unit.SetCommand
+			self.zone.player_killed = true
+		end
+		if IsKindOf(self.last_visit, "AL_Football") then
+			self.last_visit.player_killed = true
+		end
+		self:SetCommand("Die")
+	end
+end

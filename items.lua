@@ -1468,7 +1468,7 @@ return {
 			group = "EnvEffects",
 			id = "DarknessDetectionRate",
 			scale = "%",
-			value = -60,
+			value = -40,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "sight penalty (as % of base value) for seeing units in dark or difficult to see locations",
@@ -49494,7 +49494,7 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 9,
 					'BurstShots', 4,
-					'AutoShots', 4,
+					'AutoShots', 12,
 					'Handling', 100,
 					'BulletDropRange', 6,
 					'Grouping', 78,

@@ -467,7 +467,7 @@ local lSuspicionTickAmountProne = 5 -- The amount to add when hidden and in pron
 local lSuspicionTickAmountNotHidden = 32 and GameState.Night or 16 -- The amount to add when not hidden
 local lSuspicionTickDownAmount = 2 -- The amount to remove when no unit is in range
 local lSuspicionTickMinDist = const.SlabSizeX * 2 -- If this close to an enemy then frontness doesn't matter (unless hidden or in the dark)
-local lSuspicionTickDistanceModOuter = const.SlabSizeX * 4 -- Past this distance in the sight radius the distance modifier is 100%
+local lSuspicionTickDistanceModOuter = const.SlabSizeX * ((0.5 and raisedAlarm) or 4)  -- Past this distance in the sight radius the distance modifier is 100%
 local lCubicInIndex = GetEasingIndex("Cubic in")
 
 function UpdateSuspicion(alliedUnits, enemyUnits, intermediate_update)
