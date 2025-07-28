@@ -4,7 +4,7 @@ DefineClass.MP40 = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "9mm T1-",
+	comment = "Tier 1-1",
 	object_class = "SubmachineGun",
 	ScrapParts = 6,
 	RepairCost = 2,
@@ -48,12 +48,11 @@ DefineClass.MP40 = {
 		"CancelShot",
 	},
 	ShootAP = 4000,
-	ReloadAP = 4000,
-	MaxAimActions = 2,
+	ReloadAP = 5000,
 	Recoil = 4,
 	BurstShots = 2,
 	AutoShots = 5,
-	Handling = 78,
+	Handling = 67,
 	BulletDropRange = 10,
 	Grouping = 80,
 	BaseJamChance = 30,

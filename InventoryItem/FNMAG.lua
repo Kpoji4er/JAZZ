@@ -4,7 +4,7 @@ DefineClass.FNMAG = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "T3-",
+	comment = "Tier 2-5",
 	object_class = "MachineGun",
 	ScrapParts = 16,
 	RepairCost = 8,
@@ -27,7 +27,7 @@ DefineClass.FNMAG = {
 	Caliber = "JAZZ_Caliber_762x51",
 	Damage = 36,
 	ObjDamageMod = 80,
-	AimAccuracy = 32,
+	AimAccuracy = 29,
 	MagazineSize = 100,
 	WeaponRange = 62,
 	OverwatchAngle = 1800,
@@ -72,12 +72,12 @@ DefineClass.FNMAG = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 6000,
-	ReloadAP = 7000,
+	ShootAP = 8000,
+	ReloadAP = 10000,
 	Recoil = 16,
 	BurstShots = 8,
 	AutoShots = 8,
-	Handling = 28,
+	Handling = 33,
 	BulletDropRange = 22,
 	Grouping = 330,
 	BaseJamChance = -10,

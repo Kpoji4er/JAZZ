@@ -4,7 +4,7 @@ DefineClass.MAC2429 = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "T1-",
+	comment = "Tier 1-1",
 	object_class = "MachineGun",
 	ScrapParts = 12,
 	RepairCost = 1,
@@ -26,7 +26,7 @@ DefineClass.MAC2429 = {
 	Caliber = "JAZZ_Caliber_75French",
 	Damage = 33,
 	ObjDamageMod = 80,
-	AimAccuracy = 16,
+	AimAccuracy = 17,
 	MagazineSize = 25,
 	WeaponRange = 56,
 	Noise = 68,
@@ -71,12 +71,12 @@ DefineClass.MAC2429 = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 5000,
-	ReloadAP = 5000,
+	ShootAP = 7000,
+	ReloadAP = 7000,
 	Recoil = 32,
 	BurstShots = 4,
 	AutoShots = 4,
-	Handling = 24,
+	Handling = 38,
 	BulletDropRange = 19,
 	Grouping = 260,
 	WeaponResource = 2400,

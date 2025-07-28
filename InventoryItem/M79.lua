@@ -4,6 +4,7 @@ DefineClass.M79 = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
+	comment = "Tier 1-1",
 	object_class = "GrenadeLauncher",
 	ScrapParts = 16,
 	RepairCost = 50,
@@ -36,9 +37,9 @@ DefineClass.M79 = {
 	HandSlot = "TwoHanded",
 	HolsterSlot = "Shoulder",
 	PreparedAttackType = "None",
-	ShootAP = 4000,
-	ReloadAP = 6000,
-	Handling = 85,
+	ShootAP = 7000,
+	ReloadAP = 7000,
+	Handling = 70,
 	WeaponResource = 300,
 }
 

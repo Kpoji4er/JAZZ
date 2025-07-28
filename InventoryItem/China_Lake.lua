@@ -4,6 +4,7 @@ DefineClass.China_Lake = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
+	comment = "Tier 2-4",
 	object_class = "GrenadeLauncher",
 	ScrapParts = 16,
 	RepairCost = 70,
@@ -37,9 +38,9 @@ DefineClass.China_Lake = {
 	HandSlot = "TwoHanded",
 	HolsterSlot = "Shoulder",
 	PreparedAttackType = "None",
-	ShootAP = 4000,
-	ReloadAP = 6000,
-	Handling = 70,
+	ShootAP = 6000,
+	ReloadAP = 9000,
+	Handling = 65,
 	WeaponResource = 100,
 }
 

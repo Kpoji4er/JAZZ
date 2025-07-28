@@ -4,7 +4,7 @@ DefineClass.M3GreaseGun = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = ".45 ACP T1-",
+	comment = "Tier 1-2",
 	object_class = "SubmachineGun",
 	ScrapParts = 6,
 	RepairCost = 1,
@@ -50,11 +50,11 @@ DefineClass.M3GreaseGun = {
 		"CancelShot",
 	},
 	ShootAP = 4000,
-	ReloadAP = 4000,
+	ReloadAP = 5000,
 	Recoil = 8,
 	BurstShots = 2,
 	AutoShots = 5,
-	Handling = 82,
+	Handling = 65,
 	BulletDropRange = 8,
 	Grouping = 75,
 	WeaponResource = 4200,

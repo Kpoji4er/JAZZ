@@ -4,7 +4,7 @@ DefineClass.BAR = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "T1-",
+	comment = "Tier 1-2",
 	object_class = "MachineGun",
 	ScrapParts = 12,
 	RepairCost = 3,
@@ -26,7 +26,7 @@ DefineClass.BAR = {
 	Caliber = "JAZZ_Caliber_3006",
 	Damage = 34,
 	ObjDamageMod = 80,
-	AimAccuracy = 16,
+	AimAccuracy = 21,
 	MagazineSize = 20,
 	WeaponRange = 52,
 	Noise = 66,
@@ -47,12 +47,12 @@ DefineClass.BAR = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 5000,
-	ReloadAP = 5000,
+	ShootAP = 8000,
+	ReloadAP = 7000,
 	Recoil = 16,
 	BurstShots = 5,
 	AutoShots = 5,
-	Handling = 34,
+	Handling = 43,
 	BulletDropRange = 24,
 	Grouping = 275,
 	WeaponResource = 6500,

@@ -4,7 +4,7 @@ DefineClass.FNMinimi = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "T3-",
+	comment = "Tier 2-5",
 	object_class = "MachineGun",
 	ScrapParts = 16,
 	RepairCost = 10,
@@ -25,7 +25,7 @@ DefineClass.FNMinimi = {
 	Caliber = "JAZZ_Caliber_556",
 	Damage = 20,
 	ObjDamageMod = 50,
-	AimAccuracy = 24,
+	AimAccuracy = 28,
 	CritChance = 5,
 	MagazineSize = 100,
 	WeaponRange = 54,
@@ -91,11 +91,11 @@ DefineClass.FNMinimi = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 5000,
-	ReloadAP = 6000,
+	ShootAP = 7000,
+	ReloadAP = 8000,
 	Recoil = 6,
 	BurstShots = 10,
-	Handling = 45,
+	Handling = 50,
 	BulletDropRange = 17,
 	Grouping = 298,
 	WeaponResource = 7500,

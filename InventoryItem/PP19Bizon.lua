@@ -4,7 +4,7 @@ DefineClass.PP19Bizon = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "918 T3",
+	comment = "Tier 2-3",
 	object_class = "SubmachineGun",
 	ScrapParts = 8,
 	RepairCost = 12,
@@ -62,12 +62,12 @@ DefineClass.PP19Bizon = {
 		"RunAndGun",
 		"CancelShot",
 	},
-	ShootAP = 4000,
+	ShootAP = 5000,
 	ReloadAP = 7000,
 	Recoil = 1,
 	BurstShots = 4,
 	AutoShots = 12,
-	Handling = 80,
+	Handling = 78,
 	BulletDropRange = 10,
 	Grouping = 80,
 	BaseJamChance = -30,

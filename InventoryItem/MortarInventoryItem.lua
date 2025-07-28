@@ -35,8 +35,9 @@ DefineClass.MortarInventoryItem = {
 	HandSlot = "TwoHanded",
 	HolsterSlot = "Shoulder",
 	PreparedAttackType = "None",
-	ShootAP = 6000,
-	Handling = 60,
+	ShootAP = 7000,
+	ReloadAP = 4000,
+	Handling = 40,
 	WeaponResource = 80,
 }
 

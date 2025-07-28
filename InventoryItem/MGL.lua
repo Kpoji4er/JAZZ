@@ -4,6 +4,7 @@ DefineClass.MGL = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
+	comment = "Tier 3-1",
 	object_class = "GrenadeLauncher",
 	ScrapParts = 16,
 	Reliability = 50,
@@ -38,9 +39,9 @@ DefineClass.MGL = {
 	HandSlot = "TwoHanded",
 	HolsterSlot = "Shoulder",
 	PreparedAttackType = "None",
-	ShootAP = 4000,
-	ReloadAP = 6000,
-	Handling = 80,
+	ShootAP = 5000,
+	ReloadAP = 10000,
+	Handling = 75,
 	WeaponResource = 250,
 }
 

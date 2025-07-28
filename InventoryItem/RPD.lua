@@ -4,7 +4,7 @@ DefineClass.RPD = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "T2-",
+	comment = "Tier 2-1",
 	object_class = "MachineGun",
 	ScrapParts = 16,
 	RepairCost = 8,
@@ -25,7 +25,7 @@ DefineClass.RPD = {
 	Caliber = "JAZZ_Caliber_762x39",
 	Damage = 28,
 	ObjDamageMod = 50,
-	AimAccuracy = 20,
+	AimAccuracy = 24,
 	MagazineSize = 100,
 	WeaponRange = 40,
 	OverwatchAngle = 1800,
@@ -79,8 +79,8 @@ DefineClass.RPD = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 6000,
-	ReloadAP = 5000,
+	ShootAP = 8000,
+	ReloadAP = 7000,
 	Recoil = 10,
 	BurstShots = 6,
 	AutoShots = 6,

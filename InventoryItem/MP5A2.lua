@@ -4,7 +4,7 @@ DefineClass.MP5A2 = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "9mm T2",
+	comment = "Tier 2-4",
 	object_class = "SubmachineGun",
 	ScrapParts = 8,
 	RepairCost = 12,
@@ -24,7 +24,7 @@ DefineClass.MP5A2 = {
 	Caliber = "JAZZ_Caliber_9x19",
 	Damage = 21,
 	ObjDamageMod = 20,
-	AimAccuracy = 13,
+	AimAccuracy = 18,
 	MagazineSize = 30,
 	WeaponRange = 30,
 	OverwatchAngle = 4320,
@@ -75,7 +75,7 @@ DefineClass.MP5A2 = {
 	Recoil = 3,
 	BurstShots = 4,
 	AutoShots = 8,
-	Handling = 90,
+	Handling = 83,
 	BulletDropRange = 11,
 	Grouping = 85,
 	BaseJamChance = -30,

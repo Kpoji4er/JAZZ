@@ -4,7 +4,7 @@ DefineClass.BerettaM12 = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "T1+",
+	comment = "Tier 2-2",
 	object_class = "SubmachineGun",
 	ScrapParts = 6,
 	RepairCost = 4,
@@ -24,7 +24,7 @@ DefineClass.BerettaM12 = {
 	Caliber = "JAZZ_Caliber_9x19",
 	Damage = 20,
 	ObjDamageMod = 20,
-	AimAccuracy = 12,
+	AimAccuracy = 16,
 	MagazineSize = 32,
 	WeaponRange = 28,
 	OverwatchAngle = 4200,
@@ -69,7 +69,7 @@ DefineClass.BerettaM12 = {
 	Recoil = 3,
 	BurstShots = 2,
 	AutoShots = 6,
-	Handling = 90,
+	Handling = 77,
 	BulletDropRange = 10,
 	Grouping = 94,
 	BaseJamChance = -30,

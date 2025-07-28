@@ -4,7 +4,7 @@ DefineClass.Scorpion = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "9x18 T1",
+	comment = "Tier 1-3",
 	object_class = "SubmachineGun",
 	ScrapParts = 3,
 	RepairCost = 3,
@@ -20,7 +20,7 @@ DefineClass.Scorpion = {
 	Caliber = "JAZZ_Caliber_9x18",
 	Damage = 17,
 	ObjDamageMod = 15,
-	AimAccuracy = 7,
+	AimAccuracy = 9,
 	CritChanceScaled = 5,
 	MagazineSize = 20,
 	WeaponRange = 18,
@@ -67,7 +67,7 @@ DefineClass.Scorpion = {
 	Recoil = 4,
 	BurstShots = 4,
 	AutoShots = 8,
-	Handling = 88,
+	Handling = 73,
 	BulletDropRange = 6,
 	Grouping = 70,
 	WeaponResource = 2000,

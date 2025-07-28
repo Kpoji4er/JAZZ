@@ -4,6 +4,7 @@ DefineClass.RPG7 = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
+	comment = "Tier 2-1",
 	object_class = "RocketLauncher",
 	ScrapParts = 16,
 	RepairCost = 100,
@@ -36,8 +37,8 @@ DefineClass.RPG7 = {
 	HandSlot = "TwoHanded",
 	HolsterSlot = "Shoulder",
 	PreparedAttackType = "None",
-	ShootAP = 7000,
-	ReloadAP = 4000,
+	ShootAP = 9000,
+	ReloadAP = 7000,
 	Handling = 60,
 	WeaponResource = 100,
 	BackfireRange = 2,

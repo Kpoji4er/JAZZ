@@ -479,7 +479,8 @@ function PopulateCrosshairUICth(win, attacker, action, attackResults)
 	local chanceToHit = attackResults.chance_to_hit
 	local modifiers = attackResults.chance_to_hit_modifiers
 	
-	if CthVisible() or chanceToHit <= 0  then
+	if CthVisible() --or chanceToHit <= 0 
+	 then
 		win.idChanceToHit:SetText(T{757275361770, "ACCURACY: <right><percent(chanceToHit)>", chanceToHit = chanceToHit})
 		win.idChanceToHit.parent:SetZOrder(1)
 	else
@@ -496,7 +497,7 @@ function PopulateCrosshairUICth(win, attacker, action, attackResults)
 	for i, mod in ipairs(modifiers) do
 		if mod.uiHidden then goto continue end
 	
-		if mod.value then -- Handle missing value just in case
+		if mod.value ~= 0 then -- Handle missing value just in case
 			local sign = ""
 			if (mod.id and mod.value > 0) then
 				local repeats = Min((DivRound(mod.value,10) - 1),10)
@@ -505,7 +506,7 @@ function PopulateCrosshairUICth(win, attacker, action, attackResults)
 					sign = "<color PDASectorInfo_Green>+</color>"..sign
 					repeats = repeats - 1
 				end
-			elseif mod.value > 50 then
+			elseif mod.value and mod.value > 50 then
 					local repeats = Min((DivRound(mod.value-50,10) - 1),10)
 					sign = "<color PDASectorInfo_Green>+</color>"
 					while repeats > 0 do
@@ -519,7 +520,7 @@ function PopulateCrosshairUICth(win, attacker, action, attackResults)
 					sign = "<color DescriptionTextRed>-</color>"..sign
 					repeats = repeats - 1
 				end
-			elseif mod.value < 50 then
+			elseif mod.value and mod.value < 50 then
 				local repeats = Min((DivRound(mod.value-50,-10) - 1),10)
 				sign = "<color DescriptionTextRed>-</color>"
 				while repeats > 0 do
@@ -527,10 +528,10 @@ function PopulateCrosshairUICth(win, attacker, action, attackResults)
 					repeats = repeats - 1
 				end
 			end
-			--if CthVisible() or true then sign = sign..T{257328164584, "<percent(value)>", value = mod.value} end
+			if CthVisible() then sign = sign..T{257328164584, "<percent(value)>", value = mod.value} end
 			concatList[#concatList + 1] = T{221170966425, "<name><right><style PDABrowserTextLightBold><sign></style>", name = mod.name, sign = sign}
 		else
-			concatList[#concatList + 1] = mod.name
+			--concatList[#concatList + 1] = mod.name
 		end
 		
 		if mod.metaText then

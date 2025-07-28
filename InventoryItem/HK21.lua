@@ -4,7 +4,7 @@ DefineClass.HK21 = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "T3",
+	comment = "Tier 3-2",
 	object_class = "MachineGun",
 	ScrapParts = 16,
 	RepairCost = 15,
@@ -26,7 +26,7 @@ DefineClass.HK21 = {
 	Caliber = "JAZZ_Caliber_762x51",
 	Damage = 35,
 	ObjDamageMod = 80,
-	AimAccuracy = 25,
+	AimAccuracy = 27,
 	MagazineSize = 40,
 	WeaponRange = 58,
 	OverwatchAngle = 1800,
@@ -117,12 +117,12 @@ DefineClass.HK21 = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 5000,
-	ReloadAP = 5000,
+	ShootAP = 7000,
+	ReloadAP = 7000,
 	Recoil = 16,
 	BurstShots = 9,
 	AutoShots = 9,
-	Handling = 50,
+	Handling = 44,
 	BulletDropRange = 20,
 	Grouping = 300,
 	BaseJamChance = -30,

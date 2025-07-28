@@ -4,7 +4,7 @@ DefineClass.U100 = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "T1+",
+	comment = "Tier 2-1",
 	object_class = "MachineGun",
 	ScrapParts = 16,
 	RepairCost = 8,
@@ -25,7 +25,7 @@ DefineClass.U100 = {
 	Caliber = "JAZZ_Caliber_556",
 	Damage = 21,
 	ObjDamageMod = 50,
-	AimAccuracy = 22,
+	AimAccuracy = 20,
 	CritChance = 5,
 	MagazineSize = 100,
 	WeaponRange = 48,
@@ -87,12 +87,12 @@ DefineClass.U100 = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 6000,
-	ReloadAP = 5000,
+	ShootAP = 7000,
+	ReloadAP = 6000,
 	Recoil = 7,
 	BurstShots = 6,
 	AutoShots = 6,
-	Handling = 40,
+	Handling = 50,
 	BulletDropRange = 17,
 	Grouping = 272,
 	WeaponResource = 5500,

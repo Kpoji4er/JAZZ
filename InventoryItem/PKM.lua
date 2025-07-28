@@ -4,7 +4,7 @@ DefineClass.PKM = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "T3+",
+	comment = "Tier 2-5",
 	object_class = "MachineGun",
 	ScrapParts = 16,
 	RepairCost = 10,
@@ -27,7 +27,7 @@ DefineClass.PKM = {
 	Caliber = "JAZZ_Caliber_762x54R",
 	Damage = 38,
 	ObjDamageMod = 120,
-	AimAccuracy = 32,
+	AimAccuracy = 29,
 	CritChance = 10,
 	MagazineSize = 100,
 	WeaponRange = 60,
@@ -127,12 +127,12 @@ DefineClass.PKM = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 6000,
-	ReloadAP = 7000,
+	ShootAP = 8000,
+	ReloadAP = 9000,
 	Recoil = 17,
 	BurstShots = 6,
 	AutoShots = 6,
-	Handling = 32,
+	Handling = 42,
 	BulletDropRange = 25,
 	Grouping = 335,
 	BaseJamChance = -50,

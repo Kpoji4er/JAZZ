@@ -1,0 +1,68 @@
+UndefineClass('RSH12')
+DefineClass.RSH12 = {
+	__parents = { "Revolver" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Tier 3-UNIQ",
+	object_class = "Revolver",
+	ScrapParts = 8,
+	RepairCost = 30,
+	Reliability = 95,
+	Icon = "Mod/e6L4ECj/WeaponIcons/HiCalRev.png",
+	DisplayName = T(363425699078, --[[ModItemInventoryItemCompositeDef RSH12 DisplayName]] "РШ-12"),
+	DisplayNamePlural = T(661023013034, --[[ModItemInventoryItemCompositeDef RSH12 DisplayNamePlural]] "РШ-12"),
+	Description = T(387084840013, --[[ModItemInventoryItemCompositeDef RSH12 Description]] "РШ-12 (револьвер штурмовой калибра 12 мм) - слонобой из Тулы, под патрон ШАК-12. По идее, нужен для того, чтоб с гарантией останавливать террористов в любых возможных средствах защиты при попадании в любую часть тела. Даже в палец на ноге."),
+	AdditionalHint = T(554488493833, --[[ModItemInventoryItemCompositeDef RSH12 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Карманная гаубица"),
+	UnitStat = "Marksmanship",
+	Valuable = 1,
+	Cost = 3100,
+	Tier = 2,
+	CategoryPair = "Handguns",
+	Caliber = "JAZZ_Caliber_50BMG",
+	Damage = 36,
+	ObjDamageMod = 70,
+	AimAccuracy = 16,
+	CritChance = 10,
+	CritChanceScaled = 40,
+	MagazineSize = 6,
+	OverwatchAngle = 5400,
+	Noise = 40,
+	Entity = "HighCalRev",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Side",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"Flashlight",
+				"UVDot",
+				"FlashlightDot",
+				"LaserDot",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Freeswap",
+			'AvailableComponents', {
+				"Freeswap",
+			},
+			'DefaultComponent', "Freeswap",
+		}),
+	},
+	HolsterSlot = "Leg",
+	AvailableAttacks = {
+		"SingleShot",
+		"DualShot",
+		"CancelShot",
+		"MobileShot",
+	},
+	ShootAP = 4000,
+	ReloadAP = 5000,
+	Recoil = 1,
+	AutoShots = 3,
+	Handling = 68,
+	BulletDropRange = 10,
+	Grouping = 85,
+	BaseJamChance = -50,
+	WeaponResource = 3500,
+}
+

@@ -4,7 +4,7 @@ DefineClass.MG58 = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "T2",
+	comment = "Tier 1-UNIQ",
 	object_class = "MachineGun",
 	ScrapParts = 12,
 	RepairCost = 5,
@@ -22,7 +22,7 @@ DefineClass.MG58 = {
 	Caliber = "JAZZ_Caliber_792",
 	Damage = 38,
 	ObjDamageMod = 80,
-	AimAccuracy = 15,
+	AimAccuracy = 22,
 	MagazineSize = 50,
 	WeaponRange = 56,
 	OverwatchAngle = 1800,
@@ -52,9 +52,9 @@ DefineClass.MG58 = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 6000,
-	ReloadAP = 7000,
-	Handling = 16,
+	ShootAP = 8000,
+	ReloadAP = 8000,
+	Handling = 35,
 	BulletDropRange = 26,
 	Grouping = 292,
 	WeaponResource = 8000,

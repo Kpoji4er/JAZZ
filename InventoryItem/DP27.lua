@@ -4,7 +4,7 @@ DefineClass.DP27 = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "T1-",
+	comment = "Tier 1-1",
 	object_class = "MachineGun",
 	ScrapParts = 12,
 	RepairCost = 2,
@@ -26,7 +26,7 @@ DefineClass.DP27 = {
 	Caliber = "JAZZ_Caliber_762x54R",
 	Damage = 37,
 	ObjDamageMod = 90,
-	AimAccuracy = 16,
+	AimAccuracy = 20,
 	MagazineSize = 47,
 	WeaponRange = 57,
 	Noise = 68,
@@ -47,12 +47,12 @@ DefineClass.DP27 = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 6000,
-	ReloadAP = 6000,
+	ShootAP = 8000,
+	ReloadAP = 8000,
 	Recoil = 16,
 	BurstShots = 6,
 	AutoShots = 6,
-	Handling = 21,
+	Handling = 30,
 	BulletDropRange = 22,
 	Grouping = 278,
 	BaseJamChance = -5,

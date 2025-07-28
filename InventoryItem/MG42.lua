@@ -4,7 +4,7 @@ DefineClass.MG42 = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "T1-",
+	comment = "Tier 1-3",
 	object_class = "MachineGun",
 	ScrapParts = 12,
 	RepairCost = 3,
@@ -26,7 +26,7 @@ DefineClass.MG42 = {
 	Caliber = "JAZZ_Caliber_792",
 	Damage = 36,
 	ObjDamageMod = 60,
-	AimAccuracy = 15,
+	AimAccuracy = 22,
 	MagazineSize = 50,
 	WeaponRange = 54,
 	OverwatchAngle = 1800,
@@ -48,12 +48,12 @@ DefineClass.MG42 = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 6000,
-	ReloadAP = 7000,
+	ShootAP = 8000,
+	ReloadAP = 8000,
 	Recoil = 20,
 	BurstShots = 12,
 	AutoShots = 12,
-	Handling = 16,
+	Handling = 33,
 	BulletDropRange = 25,
 	Grouping = 290,
 	BaseJamChance = 3,

@@ -4,7 +4,7 @@ DefineClass.MPL = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "9mm T1",
+	comment = "Tier 1-3",
 	object_class = "SubmachineGun",
 	ScrapParts = 8,
 	RepairCost = 3,
@@ -57,11 +57,11 @@ DefineClass.MPL = {
 		"CancelShot",
 	},
 	ShootAP = 4000,
-	ReloadAP = 4000,
+	ReloadAP = 5000,
 	Recoil = 4,
 	BurstShots = 2,
 	AutoShots = 6,
-	Handling = 84,
+	Handling = 75,
 	BulletDropRange = 9,
 	Grouping = 92,
 	BaseJamChance = -10,

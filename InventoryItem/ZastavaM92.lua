@@ -4,7 +4,7 @@ DefineClass.ZastavaM92 = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "T1-",
+	comment = "Tier 2-1",
 	object_class = "SubmachineGun",
 	ScrapParts = 10,
 	RepairCost = 10,

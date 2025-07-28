@@ -68,6 +68,7 @@ function OnMsg.TurnStart()
   local totalheat = (sector.Heat or 0) + (sector.CombatHeat or 0)
   if totalheat > 500 then
 
+	local valid_noises = {}
 	local units = GetCurrentMapUnits("enemy")
 	for _, unit in pairs(units) do
 	TriggerUnitAlert("script", unit, "suspicious")
@@ -104,6 +105,7 @@ function OnMsg.ExplorationTick()
   local totalheat = (sector.Heat or 0) + (sector.CombatHeat or 0)
   if totalheat > 500 then
 
+	local valid_noises = {}
 	local units = GetCurrentMapUnits("enemy")
 	for _, unit in pairs(units) do
 	  TriggerUnitAlert("script", unit, "suspicious")

@@ -4,7 +4,7 @@ DefineClass.UZI = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "9mm T1+",
+	comment = "Tier 2-1",
 	object_class = "SubmachineGun",
 	ScrapParts = 6,
 	RepairCost = 6,
@@ -24,7 +24,7 @@ DefineClass.UZI = {
 	Caliber = "JAZZ_Caliber_9x19",
 	Damage = 21,
 	ObjDamageMod = 20,
-	AimAccuracy = 8,
+	AimAccuracy = 12,
 	MagazineSize = 32,
 	WeaponRange = 26,
 	OverwatchAngle = 4080,
@@ -81,7 +81,7 @@ DefineClass.UZI = {
 	ReloadAP = 4000,
 	Recoil = 4,
 	AutoShots = 6,
-	Handling = 85,
+	Handling = 72,
 	BulletDropRange = 10,
 	Grouping = 85,
 	BaseJamChance = -20,

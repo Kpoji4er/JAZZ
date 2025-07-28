@@ -73,12 +73,12 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 	--print('function PickBestAttack')
 	local best = false
 	local best_score = 0
-	local AP = unit.ActionPoints - 1
+	local AP = unit.ActionPoints
 	if dest_ap then AP = dest_ap end
 
-	print("pickbestattack")
-	print(AP)
-	print(dest_ap or "none")
+	--print("pickbestattack")
+	--print(AP)
+	--print(dest_ap or "none")
 
 
 	local weapon, weapon2 = unit:GetActiveWeapons()
@@ -205,6 +205,7 @@ function AICalcAttacksAndAimSmart(context, ap, target)
 	local best_attack = PickBestAttack(unit, target, context.basic_attacks, ap)
 	--print("BestAttack:")
 	--print(not not best_attack)
+
 
 	if best_attack then
 		local reserve_ap = 0
@@ -1511,10 +1512,10 @@ function AIGetWeaponCheckRange(unit, weapon, action)
 		local range = (2 * tiles + 1) * const.SlabSizeX / 2
 		return range, true
 	elseif IsKindOf(weapon, "Firearm") then
-		local max_range = weapon.WeaponRange * const.SlabSizeX
-		if action.AimType ~= "cone" then
-			max_range = 15 * max_range / 10
-		end
+		local max_range = (weapon.WeaponRange - 1) * const.SlabSizeX
+		--if action.AimType ~= "cone" then
+		--	max_range = 15 * max_range / 10
+		--end
 		return max_range
 	end
 end

@@ -4,7 +4,7 @@ DefineClass.AKSU = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "T2+",
+	comment = "Tier 2-3",
 	object_class = "SubmachineGun",
 	ScrapParts = 10,
 	RepairCost = 12,
@@ -87,10 +87,10 @@ DefineClass.AKSU = {
 		"CancelShot",
 	},
 	ShootAP = 4000,
-	ReloadAP = 5000,
+	ReloadAP = 6000,
 	Recoil = 12,
 	AutoShots = 6,
-	Handling = 78,
+	Handling = 69,
 	BulletDropRange = 14,
 	Grouping = 200,
 	BaseJamChance = -50,

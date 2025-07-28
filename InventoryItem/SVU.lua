@@ -4,7 +4,7 @@ DefineClass.SVU = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "T3",
+	comment = "Tier 3-2",
 	object_class = "SniperRifle",
 	ScrapParts = 14,
 	RepairCost = 15,
@@ -68,11 +68,11 @@ DefineClass.SVU = {
 		"BurstFire",
 		"CancelShot",
 	},
-	ShootAP = 5000,
-	ReloadAP = 6000,
+	ShootAP = 6000,
+	ReloadAP = 9000,
 	Recoil = 25,
 	AutoShots = 6,
-	Handling = 60,
+	Handling = 56,
 	BulletDropRange = 24,
 	Grouping = 380,
 	BaseJamChance = -20,

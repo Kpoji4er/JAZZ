@@ -46,6 +46,7 @@ DefineClass.suppressionPinned = {
 		obj:TakeCover();
 		--obj:SetActionCommand("TakeCover", nil, nil, "Prone")
 		end
+		
 		obj.ActionPoints = Clamp(obj.ActionPoints, 0, 4*const.Scale.AP)
 		
 		if not obj:IsDead() then

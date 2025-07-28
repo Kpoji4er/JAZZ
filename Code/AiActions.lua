@@ -518,7 +518,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
            -- local best_attack = PickBestAttack(unit, target,
            --                                    context.basic_attacks, cth_map)
 			local best_attack = PickBestAttack(unit, target,
-                                               context.basic_attacks, context.dest_ap[dest])
+                                               context.basic_attacks, context.dest_ap[dest] and unit.ActionPoints - context.dest_ap[dest] or unit.ActionPoints)
 
 			context.default_attack = best_attack and best_attack.action or context.default_attack	
             context.default_attack_cost =  best_attack and best_attack.ap or context.default_attack_cost	
@@ -532,7 +532,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
                                                           unit.ActionPoints,
                                                           target)
             else
-                print('best attack')
+                --print('best attack')
                 attacks = 1;
                 aim = {best_attack.aim} or aim  
             end
@@ -723,6 +723,7 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
     local targets = table.ifilter(action_targets, function(idx, target)
         return unit:IsOnEnemySide(target)
     end)
+
     if #targets == 0 then return end
     context.damage_score_precalced = true
     local target_score_mod = {}
@@ -734,7 +735,7 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
     context.target_score_mod = target_score_mod
 
     local base_mod = unit[weapon.base_skill]
-    local cost_ap = context.override_attack_cost or context.default_attack_cost or 1
+    local cost_ap = context.default_attack_cost or 1
 
     local max_check_range, is_melee =
         AIGetWeaponCheckRange(unit, weapon, action)
@@ -776,6 +777,7 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
     context.dest_cth = dest_cth
     local lof_params
     local attacker_pos = unit:GetPos()
+
 
     -- script-driven modifiers (based on groups)
     local target_modifiers
@@ -835,6 +837,7 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
     NetUpdateHash("AIPrecalcDamageScore", unit, hashParamTable(destinations),
                   hashParamTable(targets), preferred_target)
     for j, upos in ipairs(destinations) do
+        
         local ux, uy, uz, ustance_idx = stance_pos_unpack(upos)
         local ustance = StancesList[ustance_idx]
         uz = uz or terrain.GetHeight(ux, uy)
@@ -843,6 +846,7 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
         local best_target, best_cth
         local best_score = 0
         local potential_targets, target_score, target_cth = {}, {}, {}
+        --print('print(mod)'..ap..' '..cost_ap)
         if weapon and ap >= cost_ap then
             local pos_mod = base_mod
             pos_mod = pos_mod +
@@ -859,6 +863,7 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
             for k, target in ipairs(targets) do
                 local tpos = GetPackedPosAndStance(target)
                 local dist = stance_pos_dist(upos, tpos)
+                
                 if dist <= (max_check_range or dist) and
                     (is_melee or targets_attack_data[k] and
                         not targets_attack_data[k].stuck) then
@@ -905,6 +910,7 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
                     end
                     mod = Max(0, mod)
 
+                    
                     if mod > const.AIShootAboveCTH then
                         -- calc base score based on cth/attacks/aiming
                         local base_mod = mod
@@ -992,9 +998,11 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
                         best_score = Max(best_score, mod)
                         target_cth[target] = base_mod
                         target_score[target] = mod
+                        
                         local threshold =
                             MulDivRound(best_score or 0,
                                         const.AIDecisionThreshold, 100)
+                                        
                         if mod >= threshold then
                             potential_targets[#potential_targets + 1] = target
                             for i = #potential_targets, 1, -1 do

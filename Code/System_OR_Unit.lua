@@ -570,21 +570,18 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 	local attacker_pos = args and (args.step_pos or args.goto_pos) or self:GetPos()
 	local target_pos = args and args.target_pos or IsPoint(target) and target or target:GetPos()
 
-	local handling = weapon.Handling
 
 	local base = 0
 
 	-- Base CTH
-	local skill = (self[weapon.base_skill]+self["Dexterity"]*2+self:GetLevel()*10)/3
-	if IsKindOf(weapon, "MachineGun") then local skill = (self[weapon.base_skill]*2+self["Dexterity"]+self["Strength"]+self:GetLevel()*10)/4 end
+	local wpn_skill = self[weapon.base_skill]
+	local subskill = weapon and IsKindOf(weapon, "MachineGun") and self.Strength  or self.Dexterity
+	local dexdestr = weapon  and IsKindOf(weapon, "MachineGun")  and self:GetPropertyMetadata("Strength") or self:GetPropertyMetadata("Dexterity")
+	local lvl = self:GetLevel()
 
-	skill = 20 + MulDivRound(skill,8,10)
---	if aim == 0 then
---		skill = MulDivRound(skill,0.8*handling,100)
---	else
-	if handling then 
-		skill = MulDivRound(skill,handling,100)
-	end
+	local skill = (wpn_skill * 2 + subskill * 4 + lvl * 5) / 6
+	skill =  20 + (skill ^ 1.2) * 0.25
+	skill = floatfloor(skill,0.5)
 
 --	end
 
@@ -621,25 +618,11 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 			local prop_meta = self:GetPropertyMetadata(weapon.base_skill)
 			if prop_meta then
 				--print(prop_meta)
-				if prop_meta.id=="Marksmanship" then
 					skillmod =
 					{
-						name = T(4621434559001, "Базовый шанс (от эргономики)"),
+						name = T{4621434559001, "Навыки (<name> и <sub>)", name = prop_meta.name, sub = dexdestr.name},
 						value = skill
 					}
---				elseif prop_meta.id=="Marksmanship" and aim > 0 then
---					skillmod =
---					{
---						name = T(4621434559001, "Базовый шанс (100% от эргономики)"),
---						value = skill
---					}
-				else
-					skillmod =
-					{
-						name = prop_meta.name,
-						value = skill
-					}
-				end
 			else
 				assert(false, "weapon base skill '" .. weapon.base_skill .. "' property metadata not found!")
 				skillmod =
@@ -2548,3 +2531,5 @@ function Unit:OnDie(attacker, hit_descr)
 		self:SetCommand("Die")
 	end
 end
+
+

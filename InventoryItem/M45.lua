@@ -4,7 +4,7 @@ DefineClass.M45 = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "9mm T1",
+	comment = "Tier 2-1",
 	object_class = "SubmachineGun",
 	ScrapParts = 8,
 	RepairCost = 3,
@@ -59,7 +59,7 @@ DefineClass.M45 = {
 	ReloadAP = 4000,
 	Recoil = 4,
 	AutoShots = 6,
-	Handling = 86,
+	Handling = 76,
 	BulletDropRange = 12,
 	Grouping = 89,
 	BaseJamChance = -20,

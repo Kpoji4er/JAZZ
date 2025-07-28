@@ -4,7 +4,7 @@ DefineClass.M60 = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "T1",
+	comment = "Tier 2-3",
 	object_class = "MachineGun",
 	ScrapParts = 16,
 	RepairCost = 5,
@@ -26,7 +26,7 @@ DefineClass.M60 = {
 	Caliber = "JAZZ_Caliber_762x51",
 	Damage = 35,
 	ObjDamageMod = 80,
-	AimAccuracy = 20,
+	AimAccuracy = 27,
 	MagazineSize = 100,
 	WeaponRange = 55,
 	OverwatchAngle = 1800,
@@ -54,12 +54,12 @@ DefineClass.M60 = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 6000,
-	ReloadAP = 7000,
+	ShootAP = 8000,
+	ReloadAP = 9000,
 	Recoil = 18,
 	BurstShots = 5,
 	AutoShots = 5,
-	Handling = 25,
+	Handling = 35,
 	BulletDropRange = 20,
 	Grouping = 280,
 	WeaponResource = 8000,

@@ -4,7 +4,7 @@ DefineClass.RPK = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "T1+",
+	comment = "Tier 2-3",
 	object_class = "MachineGun",
 	ScrapParts = 16,
 	RepairCost = 9,
@@ -25,7 +25,7 @@ DefineClass.RPK = {
 	Caliber = "JAZZ_Caliber_762x39",
 	Damage = 29,
 	ObjDamageMod = 50,
-	AimAccuracy = 19,
+	AimAccuracy = 25,
 	MagazineSize = 30,
 	WeaponRange = 42,
 	Noise = 50,
@@ -100,12 +100,12 @@ DefineClass.RPK = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 5000,
-	ReloadAP = 5000,
+	ShootAP = 7000,
+	ReloadAP = 6000,
 	Recoil = 8,
 	BurstShots = 4,
 	AutoShots = 4,
-	Handling = 48,
+	Handling = 54,
 	BulletDropRange = 15,
 	Grouping = 270,
 	BaseJamChance = -30,
