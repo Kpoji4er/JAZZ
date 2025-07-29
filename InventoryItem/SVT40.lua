@@ -51,7 +51,7 @@ DefineClass.SVT40 = {
 		"SingleShot",
 		"CancelShot",
 	},
-	ShootAP = 8000,
+	ShootAP = 7000,
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
