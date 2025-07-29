@@ -415,14 +415,7 @@ function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
                 SafeDoneMesh(blackboard.meshes[i])
                 blackboard.meshes[i] = false
             end
-            if blackboard.meshes[i][1] then
-                SafeDoneMesh(blackboard.meshes[i])
-                blackboard.meshes[i] = false
-            end
-            if blackboard.meshes[i][2] then
-                SafeDoneMesh(blackboard.meshes[i])
-                blackboard.meshes[i] = false
-            end
+
             if blackboard.arc_meshes[i] then
                 SafeDoneMesh(blackboard.arc_meshes[i])
                 blackboard.arc_meshes[i] = false
@@ -474,7 +467,7 @@ function Targeting_AOE_Cone(dialog, blackboard, command, pt)
                 attacker.queued_action_visual = blackboard.mesh
             else
                 
-                SafeDoneMesh(blackboard.mesh)
+                DoneObject(blackboard.mesh)
             end
             blackboard.mesh = false
             
