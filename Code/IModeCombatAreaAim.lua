@@ -121,8 +121,6 @@ end
 
 function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
     local attacker = dialog.attacker
-
-    local attacker = dialog.attacker
     local action = dialog.action
     if dialog:PlayerActionPending(attacker) or dialog.attack_confirmed then
         command = "delete-except-grenade"
@@ -143,6 +141,7 @@ function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
                 SafeDoneMesh(mesh_pair)
             end
         end
+
         blackboard.meshes = false
         blackboard.meshes = false
         for _, mesh in ipairs(blackboard.arc_meshes) do SafeDoneMesh(mesh) end
@@ -285,6 +284,7 @@ function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
 
     local attacks = results.attacks or {results}
     blackboard.meshes = blackboard.meshes or {}
+
     blackboard.arc_meshes = blackboard.arc_meshes or {}
     -- local blackboard2 = blackboard
 
@@ -297,6 +297,7 @@ function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
 
     for i, attack in ipairs(attacks) do
         -- Build mesh
+        blackboard.meshes[i] = blackboard.meshes[i] or {}
         local attack_args = attack.attack_args or attack_args
         local trajectory = attack.trajectory or empty_table
         local atk_pos = attack_args.target
@@ -321,10 +322,10 @@ function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
                                                                   cone_angle,
                                                                   target,
                                                                   "force2d")
-                blackboard.meshes[i] = CreateAOETilesSector(step_positions,
+                blackboard.meshes[i][1] = CreateAOETilesSector(step_positions,
                                                             step_objs,
                                                             los_values,
-                                                            blackboard.meshes[i],
+                                                            blackboard.meshes[i][1],
                                                             explosion_pos,
                                                             target, 0,
                                                             cone_length,
@@ -414,6 +415,14 @@ function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
                 SafeDoneMesh(blackboard.meshes[i])
                 blackboard.meshes[i] = false
             end
+            if blackboard.meshes[i][1] then
+                SafeDoneMesh(blackboard.meshes[i])
+                blackboard.meshes[i] = false
+            end
+            if blackboard.meshes[i][2] then
+                SafeDoneMesh(blackboard.meshes[i])
+                blackboard.meshes[i] = false
+            end
             if blackboard.arc_meshes[i] then
                 SafeDoneMesh(blackboard.arc_meshes[i])
                 blackboard.arc_meshes[i] = false
@@ -457,15 +466,18 @@ function Targeting_AOE_Cone(dialog, blackboard, command, pt)
     if dialog:PlayerActionPending(attacker) then command = "delete" end
 
     if command == "delete" then
+
         if blackboard.mesh then
             if IsActivePaused() and dialog.action and
                 dialog.action.ActivePauseBehavior == "queue" and
                 attacker.queued_action_id == dialog.action.id then
                 attacker.queued_action_visual = blackboard.mesh
             else
-                DoneObject(blackboard.mesh)
+                
+                SafeDoneMesh(blackboard.mesh)
             end
             blackboard.mesh = false
+            
         end
         if blackboard.movement_avatar then
             UpdateMovementAvatar(dialog, point20, nil, "delete")
@@ -600,7 +612,7 @@ function Targeting_AOE_Cone(dialog, blackboard, command, pt)
                     guim)
     if not moved then return end
     local attacker_pos = attack_data.step_pos
-    blackboard.attacker_pos = attacker_pos
+    blackboard.attacker_pos = attacker_pos  
 
     -- Show damage in hp bars, and highlit hit areas
     local aim_pt = lAoEGetAimPoint(attacker, pt, attacker_pos3D)
