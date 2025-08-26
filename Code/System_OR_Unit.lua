@@ -2533,3 +2533,96 @@ function Unit:OnDie(attacker, hit_descr)
 end
 
 
+---
+--- Provokes an opportunity attack from the given object (obj) against the current unit.
+--- This function handles the logic for triggering an overwatch attack, including setting the attack reason,
+--- interrupting the current unit's movement, and setting up the attack arguments.
+---
+--- @param obj Unit The unit that is performing the opportunity attack.
+--- @param attack_args table The attack arguments to be used for the opportunity attack.
+--- @param target_dummy boolean Whether the current unit is a target dummy.
+---
+function Unit:ProvokeOpportunityAttack_Overwatch(obj, attack_args, target_dummy)
+	local overwatch = g_Overwatch[obj]
+	if not overwatch then return end
+	--local action = CombatActions[overwatch.action_id]
+	overwatch.triggered_by[self.handle] = true
+	CombatLog("short", T{353305209140, "<LogName> was revealed by enemy overwatch", self})
+	self:RemoveStatusEffect("Hidden")
+	self:InterruptBegin()
+
+	local reason = T(484641340197, "Overwatch")
+	obj:SetAttackReason(reason, true)
+
+	local cmd_thread = CurrentThread() == self.command_thread
+	if cmd_thread then
+		self:PushDestructor(function(self)
+			obj:FinishOpportunityAttack_Overwatch()
+		end)
+	end
+	attack_args.aim = overwatch.aim
+	attack_args.origin_action_id = overwatch.origin_action_id
+	assert(attack_args.target == self)
+	attack_args.target_dummy = target_dummy
+	attack_args.opportunity_attack = true
+	attack_args.opportunity_attack_type = "Overwatch"
+	if overwatch.cone_angle > 180*60 then
+		attack_args.circular_overwatch = true
+	end
+	local lof_data, highestCth, highestCthPart
+	for _, data in ipairs(attack_args.lof) do
+		if data.ally_hits_count == 0 and data.target_spot_group == attack_args.target_spot_group then
+			local cth = data.chance_to_hit
+			if not highestCthPart or cth > highestCth then
+				highestCthPart = data.target_spot_group
+				highestCth = highestCth
+				lof_data = data
+			end
+			
+			break
+		end
+	end
+	lof_data = lof_data or attack_args.lof[1]
+	table.clear(attack_args.lof)
+
+--	print(highestCthPart)
+	lof_data.target_spot_group = highestCthPart
+	--lof_data.target_spot_group = "Torso" -- treat resulting hits as if they hit the target in the torso
+	attack_args.lof[1] = lof_data
+	attack_args.target_spot_group = highestCthPart
+	--attack_args.target_spot_group = "Torso"
+
+	local status
+	local num_attacks = HasPerk(obj, "Killzone") and 2 or 1
+
+	for i = 1, num_attacks do
+		local weapon = obj:GetActiveWeapons("Firearm")
+		local default_action = obj:GetDefaultAttackAction("ranged", "ungrouped", nil, true, "ignore", {skip_ap_check = true})
+		if not weapon or not default_action or not obj:CanAttack(self, weapon, default_action, 0, nil, "skip_ap_check") then
+			break
+		end
+		overwatch.action_id = default_action.id
+		if IsValidTarget(self) then
+			if IsKindOf(obj.prepared_attack_obj, "AOEActionVisuals") then
+				obj.prepared_attack_obj:SetState("activate", self:GetPos())
+			end
+			obj:SetCommand("OpportunityAttack", default_action.id, attack_args, status)
+			if attack_args.circular_overwatch and obj.combat_behavior == "OverwatchAction" then
+				local shot_vector = self:GetPos() - obj:GetPos()
+				local target_pos = (obj:GetPos() + SetLen(shot_vector, overwatch.dist)):SetZ(overwatch.target_pos:z())
+				local args = obj.combat_behavior_params[3]
+				if args then 
+					args.target = target_pos 
+				end
+ 			end
+			while not obj:IsIdleCommand() do
+				WaitMsg("Idle", 100)
+			end
+		end
+	end
+
+	if cmd_thread then
+		self:PopDestructor()
+	end
+	obj:FinishOpportunityAttack_Overwatch()
+end

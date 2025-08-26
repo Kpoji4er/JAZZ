@@ -41,6 +41,7 @@ DefineClass.APS = {
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"ImprovisedSuppressor",
 				"PistolSuppressor",
@@ -52,6 +53,14 @@ DefineClass.APS = {
 				"Freeswap",
 			},
 			'DefaultComponent', "Freeswap",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Barrel",
+			'AvailableComponents', {
+				"BarrelNormal_Sil",
+				"BarrelNormal_noSil",
+			},
+			'DefaultComponent', "BarrelNormal_noSil",
 		}),
 	},
 	HolsterSlot = "Leg",

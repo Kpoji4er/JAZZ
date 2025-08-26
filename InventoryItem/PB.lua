@@ -9,9 +9,9 @@ DefineClass.PB = {
 	ScrapParts = 6,
 	RepairCost = 5,
 	Reliability = 65,
-	Icon = "Mod/e6L4ECj/WeaponIcons/Makarov.png",
-	DisplayName = T(256183090542, --[[ModItemInventoryItemCompositeDef PB DisplayName]] "Пистолет Макарова"),
-	DisplayNamePlural = T(809762590784, --[[ModItemInventoryItemCompositeDef PB DisplayNamePlural]] "Пистолеты Макарова"),
+	Icon = "Mod/e6L4ECj/WeaponIcons/PB.png",
+	DisplayName = T(256183090542, --[[ModItemInventoryItemCompositeDef PB DisplayName]] "Пистолет ПБ"),
+	DisplayNamePlural = T(809762590784, --[[ModItemInventoryItemCompositeDef PB DisplayNamePlural]] "Пистолеты ПБ"),
 	Description = T(413605184956, --[[ModItemInventoryItemCompositeDef PB Description]] "Самый известный советский и российский пистолет. В современных реалиях его принято ругать, но чаще всего это делают те, кто стреляет разве что в монстров с экрана монитора."),
 	AdditionalHint = T(181579765203, --[[ModItemInventoryItemCompositeDef PB AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшенные затраты ОД на выстрел\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный"),
 	UnitStat = "Marksmanship",
@@ -28,8 +28,8 @@ DefineClass.PB = {
 	MagazineSize = 8,
 	WeaponRange = 16,
 	OverwatchAngle = 5400,
-	Noise = 18,
-	Entity = "Makarov",
+	Noise = 2,
+	Entity = "pb",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",

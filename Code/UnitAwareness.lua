@@ -461,16 +461,16 @@ function AIUpdateScoutLocation(unit)
 end
 
 
-local SuspicionThreshold = 80 and raisedAlarm or 160 -- Above this much the unit will become alerted
+local  SuspicionThreshold = raisedAlarm and 80 or 160 -- Above this much the unit will become alerted
 local lSuspicionTickRate = 100 -- How often to add the tick amount
 local lSuspicionTickAmount = 10 -- The amount to add when hidden
 local lSuspicionTickAmountProjector = 6 -- The amount to add when hidden
 local ProjectorSuspiciousApplyRange = 10 * const.SlabSizeX -- Enemies within this distance of the projector will be alerted
 local lSuspicionTickAmountProne = 5 -- The amount to add when hidden and in prone
-local lSuspicionTickAmountNotHidden = 32 and GameState.Night or 16 -- The amount to add when not hidden
+local lSuspicionTickAmountNotHidden = GameState.Night and 32 or 16 -- The amount to add when not hidden
 local lSuspicionTickDownAmount = 2 -- The amount to remove when no unit is in range
 local lSuspicionTickMinDist = const.SlabSizeX * 2 -- If this close to an enemy then frontness doesn't matter (unless hidden or in the dark)
-local lSuspicionTickDistanceModOuter = const.SlabSizeX * ((0.5 and raisedAlarm) or 4)  -- Past this distance in the sight radius the distance modifier is 100%
+local lSuspicionTickDistanceModOuter = const.SlabSizeX * ((raisedAlarm and 0.5 ) or 4)  -- Past this distance in the sight radius the distance modifier is 100%
 local lCubicInIndex = GetEasingIndex("Cubic in")
 
 function UpdateSuspicion(alliedUnits, enemyUnits, intermediate_update)

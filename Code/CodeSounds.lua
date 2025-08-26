@@ -237,7 +237,7 @@ PlaceObj('ActionFXRemove', {
 	Actor = "Luger",
 	Moment = "start",
 	group = "Weapons VFX",
-	id = "8612833909699323100",
+	id = "fxLugerFire",
 })
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
@@ -247,7 +247,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "Luger_shot",
 	Target = "any",
 	group = "Default",
-	id = "fxLuger",
+	id = "fxLugerFire",
 })
 
 
@@ -3578,4 +3578,13 @@ PlaceObj('ActionFXInherit_Actor', {
 	Inherit = "_40mmFlashbangGrenade",
 	group = "Weapons VFX",
 	id = "fxJAZZ_40mmFlashbangGrenade",
+})
+
+
+---
+PlaceObj('ActionFXInherit_Actor', {
+	Actor = "MAC1950",
+	Inherit = "HiPower",
+	group = "Weapons VFX",
+	id = "fxLuger",
 })

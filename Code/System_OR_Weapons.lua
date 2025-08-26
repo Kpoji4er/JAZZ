@@ -1,3 +1,10 @@
+-- some slots attach to the visual objects of other slots
+SlotDependencies = {
+	["Muzzle"] = "Barrel",
+	["Bipod"] = "Barrel",
+	["Side"] = "Barrel",
+	["Sightsf"] = "Barrel",
+}
 
 if FirstLoad then
 
@@ -242,7 +249,7 @@ function FirearmBase:ReliabilityCheck(attacker, num_shots)
 
 		-- Погодные модификаторы увеличивают износ
 		if (GameState.RainHeavy or GameState.DustStorm or GameState.FireStorm) and not attacker.indoors then
-			loss = loss * 1.3
+			loss = loss * 1.3 
 		elseif GameState.RainLight and not attacker.indoors then
 			loss = loss * 1.1
 		end

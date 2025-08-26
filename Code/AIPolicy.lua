@@ -349,42 +349,84 @@ function AIPolicyProximity:EvalDest(context, dest, grid_voxel)
 	local units = target_enemies and context.enemies or context.allies
 	local tdist = self.TargetDist
 
+
+
+	local height_decay_per_lvl = 0.7   -- 30% штраф за этаж
+	local indoors_mult_single  =  1.15   -- буст, если только мы indoors
+	local indoors_mult_both    =  1.25   -- если оба indoors
+	local max_height_levels    =  5      -- кап на учёт этажей
+
 	if #units < 3 then return end
-	
-	local score = 0
-	local num = 0
+
+	local score = nil          -- для min удобно начать с nil
+	local count = 0
 	local scale = const.SlabSizeX
-	
+  
+	-- высота точки назначения по вокселю
+	local vx_d, vy_d, vz_d = point_unpack(grid_voxel)
+  
+	-- indoors на точке назначения
+	local dest_is_indoors = AICheckIndoors and AICheckIndoors(dest) or false
+  
 	for _, other in ipairs(units) do
-		if other ~= unit and not other:IsDead()  then
-			local upos
-			if target_enemies then
-				upos = context.enemy_pack_pos_stance[other]
-			else
-				upos = context.ally_pack_pos_stance[other]
-				if self.AllyPlannedPosition and other.ai_context then
-					upos = other.ai_context.ai_destination or upos
-				end
-			end
-			local dist = stance_pos_dist(dest, upos) / scale
-			if tdist == "total" or tdist == "average" then
-				score = (score or 0) + dist
-				num = num + 1
-			else
-				assert(tdist == "min")
-				if not score or score > dist then
-					score = dist
-				end
-			end
+	  if other ~= unit and not other:IsDead() then
+		local upos
+		if target_enemies then
+		  upos = context.enemy_pack_pos_stance[other]
+		else
+		  upos = context.ally_pack_pos_stance[other]
+		  if self.AllyPlannedPosition and other.ai_context then
+			upos = other.ai_context.ai_destination or upos
+		  end
 		end
+  
+		if upos then
+		  -- базовая горизонтальная дистанция (как раньше)
+		  local dist = stance_pos_dist(dest, upos) / scale
+  
+		  -- разница по высоте (воксели → уровни)
+		  local wx, wy, wz = stance_pos_unpack(upos)
+		  local vx_o, vy_o, vz_o = WorldToVoxel(wx, wy, wz)
+		  local dz_levels = abs((vz_o or vz_d) - vz_d)
+		  dz_levels = Min(dz_levels or 0, max_h_levels)
+  
+		  -- прогрессивный штраф по высоте
+		  local h_mult = height_decay_per_lvl ^ dz_levels
+  
+		  -- indoors-мультипликатор (снижает эффективную дистанцию)
+		  local other_is_indoors = AICheckIndoors and AICheckIndoors(upos) or false
+		  local ind_mult = 1
+		  if dest_is_indoors and other_is_indoors then
+			ind_mult = indoors_mult_both
+		  elseif dest_is_indoors then
+			ind_mult = indoors_mult_single
+		  end
+  
+		  -- ВКЛАД ЭТОГО ЮНИТА: уже с применёнными множителями
+		  local contrib = dist * h_mult / ind_mult
+  
+		  if tdist == "min" then
+			-- берём минимум ПО УЖЕ ПРЕОБРАЗОВАННЫМ значениям
+			score = (score == nil) and contrib or Min(score, contrib)
+		  else
+			score = (score or 0) + contrib
+			count = count + 1
+		  end
+		end
+	  end
 	end
-	
-	if tdist == "average" and num > 0 then
-		score = score / num
+  
+	if not score then return 0 end
+	if tdist == "average" and count > 0 then
+	  score = score / count
 	end
-	
-	return score >= self.MinScore and score or 0
-end
+  
+	-- сейчас «меньше = лучше», как у тебя. Если где-то нужно «больше = лучше»:
+	-- local utility = 1000 / (1 + score)  -- монотонно убывающая в [0..1000]
+	-- return utility >= (self.MinScore or 0) and utility or 0
+  
+	return score >= (self.MinScore or 0) and score or 0
+  end
 
 
 DefineClass.AIPolicyAvoidDeathZones = {

@@ -64,6 +64,7 @@ end
 
 function AIFilterTargetPoints(unit, target_pts, min_range, max_range)
 
+    print(#target_pts)
     for i = #target_pts, 1, -1 do
         local dist = unit:GetDist(target_pts[i])
         if dist == 0 or (max_range and dist > max_range) then
@@ -518,7 +519,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
            -- local best_attack = PickBestAttack(unit, target,
            --                                    context.basic_attacks, cth_map)
 			local best_attack = PickBestAttack(unit, target,
-                                               context.basic_attacks, context.dest_ap[dest] and unit.ActionPoints - context.dest_ap[dest] or unit.ActionPoints)
+                                               context.basic_attacks, context.dest_ap[dest] or unit.ActionPoints)
 
 			context.default_attack = best_attack and best_attack.action or context.default_attack	
             context.default_attack_cost =  best_attack and best_attack.ap or context.default_attack_cost	
@@ -671,7 +672,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
     not unit:IsIncapacitated() and not unit:IsDead() 
     then    
         context.restarts = (context.restarts or 0) + 1
-        if (unit.ActionPoints + remaining_free_ap) > (context.default_attack_cost or context.dest_ap[dest] or 4) then 
+        if (unit.ActionPoints + remaining_free_ap) > (0) then 
         --unit:GainAP(remaining_free_ap)
         --remaining_free_ap = 0;
         if context.restarts < 3 then
@@ -685,6 +686,9 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
         end
         TryChangeStance(unit)
     end
+
+
+    unit.ai_context.stancechanged = false
 
     
     
@@ -720,9 +724,11 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
     if not destinations and context.damage_score_precalced then return end
 
     local action_targets = action:GetTargets({unit})
+
     local targets = table.ifilter(action_targets, function(idx, target)
         return unit:IsOnEnemySide(target)
     end)
+
 
     if #targets == 0 then return end
     context.damage_score_precalced = true
@@ -847,6 +853,7 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
         local best_score = 0
         local potential_targets, target_score, target_cth = {}, {}, {}
         --print('print(mod)'..ap..' '..cost_ap)
+        print(ap.." ap cost_ap"..cost_ap)
         if weapon and ap >= cost_ap then
             local pos_mod = base_mod
             pos_mod = pos_mod +
@@ -1002,6 +1009,8 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
                         local threshold =
                             MulDivRound(best_score or 0,
                                         const.AIDecisionThreshold, 100)
+
+                        print(mod.." -< mod threshold -> "..threshold)
                                         
                         if mod >= threshold then
                             potential_targets[#potential_targets + 1] = target
@@ -1022,6 +1031,7 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
             end
         end
 
+        print(#potential_targets)
         if #potential_targets > 0 then
             local total = 0
             for _, target in ipairs(potential_targets) do
@@ -1214,6 +1224,8 @@ end
 
 function TryChangeStance(unit)
     if not g_Combat then return 0 end
+
+    unit.ai_context.stancechanged = true
 
     if unit:HasPreparedAttack() or g_Overwatch[unit] then return 0 end
 

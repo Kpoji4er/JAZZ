@@ -48,16 +48,16 @@ function GetCTHByAimLevels(unit, enemy, action, max_aim)
 	if not weapon1 then return end
 	
 	local dist = unit:GetDist(enemy)
-	if dist > (weapon1.WeaponRange * const.SlabSizeX) then
+--	if dist > (weapon1.WeaponRange * const.SlabSizeX) then
 		-- за пределами нормальной дальности — все CTH будут считаться 0
 		--print('dist > weapon range')
 		--print(dist)
 		--print(weapon1.WeaponRange * const.SlabSizeX)
-		for aim = 0, max_aim do
-			cth_by_aim[aim] = 0
-		end
-		return cth_by_aim
-	end
+--		for aim = 0, max_aim do
+--			cth_by_aim[aim] = 0
+--		end
+--		return cth_by_aim
+--	end
 
 	for aim = 0, max_aim do
 		local args = { target_spot_group = false, aim = aim }
@@ -71,8 +71,6 @@ end
 
 function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 	--print('function PickBestAttack')
-	local best = false
-	local best_score = 0
 	local AP = unit.ActionPoints
 	if dest_ap then AP = dest_ap end
 
@@ -96,6 +94,12 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 
 	--print('pickbestattackdebug')
 
+	local candidates = {}
+	local ammo = weapon.ammo and weapon.ammo.Amount or 0
+	local mag = weapon.MagazineSize or 30
+	local ammo_ratio = Clamp(ammo / mag, 0, 1)
+	local ammo_weight = Lerp(1.5, 0.5, ammo_ratio, 1)
+
 
 	for _, attack in ipairs(basic_attacks.all) do
 
@@ -108,10 +112,6 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 		local dist_ratio = Clamp(dist / max_range, 0, 1)
 		local dist_penalty = 0
 
-		local ammo = weapon.ammo and weapon.ammo.Amount or 0
-		local mag = weapon.MagazineSize or 30
-		local ammo_ratio = Clamp(ammo / mag, 0, 1)
-		local ammo_weight = Lerp(1.5, 0.5, ammo_ratio, 1)
 
 
 		
@@ -126,7 +126,7 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 
 		--print('score aim cth range')
 		for aim, cth in pairs(aim_levels) do
-			local total_cost = ap_cost + aim * 1000
+			local total_cost = ap_cost + aim * const.Scale.AP
 			if total_cost > AP then goto next_aim end
 
 			local shots = 1
@@ -145,41 +145,39 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 				dist_penalty = dist_ratio * 1.2
 			end
 			if mode_type == "DoubleBarrel" then
-				shots = burst
-				predicted = predicted * 2
-				dist_penalty = dist_ratio * 2.0
+				shots = 2
+				dist_penalty = dist_ratio * 1.25
 			end
 
 			predicted = Max(0, predicted)
 
-			local expected_damage = base_damage * shots * predicted
+			local expected_damage = base_damage * shots * predicted * 0.01
 
 			local score = (expected_damage - ammo_weight * shots - dist_penalty)*1000 / total_cost
 			--print(' penaltyDist..'..dist_penalty..'..penaltyAmmo..'..(ammo_weight * shots)..' expected_damage '..expected_damage..' total_cost '..total_cost)
 			--print(mode_type..score..' '..aim..' '..cth..' '..weapon.WeaponRange..' '..dist..' '..max_range)
 
 
-			if predicted <= 0 then score = -10 end
+			predicted = Clamp(predicted, 0, 100)
+			if predicted <= 0 then goto next_aim end
 			--print(string.format("Try mode %s aim=%d → cost=%d AP=%d", action.id, aim, total_cost, AP))
 
-			local threshold = best and best_score * 0.9 or 0
-			if score > threshold and (not best or unit:Random(100) < 10) then
-				best_score = score
-				best = {
-					mode = mode_type,
-					aim = aim,
-					ap = total_cost,
-					score = score,
-					action = action,
-					cth = predicted,
-					shots = shots,
-					target = enemy
-				}
+
+			candidates[#candidates+1] = {
+				mode   = mode_type,
+				aim    = aim,
+				ap     = total_cost,
+				score  = score,
+				action = action,
+				cth    = predicted,
+				shots  = shots,
+				target = enemy
+			  }
 				--print('best')
 				--print(best.mode)
 				--print(best.ap)
 				--print(best.cth)
-			end
+			
 
 			--print('best_score: '..best.score..' aim: '..best.aim..' cth: '..best.cth)
 
@@ -189,7 +187,31 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 		::continue::
 	end
 
-	return best
+
+
+	if #candidates == 0 then return false end
+	  -- сортируем по убыванию score
+	  table.sort(candidates, function(a,b) return a.score > b.score end)
+
+	  --лёгкая стохастика из топ-K
+	  local K = math.min(3, #candidates)
+	  local sum = 0
+	  for i = 1, K do
+		-- веса можно «подкрутить» степенью, напр. ^1.25
+		candidates[i].w = math.max(0.0001, candidates[i].score)
+		sum = sum + candidates[i].w
+	  end
+	  local r, acc = math.random() * sum, 0
+	  for i = 1, K do
+		acc = acc + candidates[i].w
+		if r <= acc then 
+
+			return candidates[i] end
+	  end
+
+	  --print(candidates[1])
+	  return candidates[1]
+
 end
 
 function AICalcAttacksAndAimSmart(context, ap, target)
@@ -219,7 +241,7 @@ function AICalcAttacksAndAimSmart(context, ap, target)
 		--print("Attacs - CTH - AIM")
 		--print(n_attacks, best_attack.cth, best_attack.aim)
 
-		if best_attack.ap >= ap then n_attacks = 1 else n_attacks = 0 end
+		if ap >= best_attack.ap  then n_attacks = 1 else n_attacks = 0 end
 
 		return n_attacks, { best_attack.aim }
 	end
@@ -292,6 +314,7 @@ function AICreateContext(unit, context)
 	context.restarts = 0
 	context.flank_threat_cache = {}
 	context.surrounded_cache = {}
+	context.stancechanged = context.stancechanged or false
 
 	context.weapon = weapon
 	context.default_attack = default_attack
@@ -416,9 +439,12 @@ function AICreateContext(unit, context)
   		            best_overall_attack = best_attack
             		context.attack_target = enemy
             		context.attack_AP_reserved = best_attack.ap
+					--context.default_attack_cost = best_attack.ap
 					--context.cth_by_aim_map[enemy] = mode.cth_by_aim[enemy]
           	end
 		--end
+
+			test_context = context
 
 			local use_cover, cover_value, _, _, type_cover =
 				Presets["ChanceToHitModifier"]["Default"].RangeAttackTargetStanceCover:CalcValue(
@@ -534,9 +560,9 @@ function AIFindDestinations(unit, context)
 	local pos = GetPassSlab(unit) or unit:GetPos()
 	
 	local reserved_AP = 0
-	if context.best_attack and context.attack_AP_reserved and context.attack_target then
-		reserved_AP = context.attack_AP_reserved
-	end
+-- if context.best_attack and context.attack_AP_reserved and context.attack_target then
+--   reserved_AP = context.attack_AP_reserved
+-- end
 
 	local original_AP = unit.ActionPoints
 	unit.ActionPoints = Max(0, original_AP - reserved_AP)

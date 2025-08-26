@@ -9,7 +9,7 @@ DefineClass.Webley = {
 	ScrapParts = 6,
 	RepairCost = 3,
 	Reliability = 95,
-	Icon = "Mod/e6L4ECj/WeaponIcons/ColtPeaceMaker.png",
+	Icon = "Mod/e6L4ECj/WeaponIcons/Webley.png",
 	DisplayName = T(436628869426, --[[ModItemInventoryItemCompositeDef Webley DisplayName]] "Colt M1917 .45 Service Revolver"),
 	DisplayNamePlural = T(427566606201, --[[ModItemInventoryItemCompositeDef Webley DisplayNamePlural]] "Colt M1917 .45 Service Revolver"),
 	Description = T(878461703337, --[[ModItemInventoryItemCompositeDef Webley Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
@@ -28,7 +28,7 @@ DefineClass.Webley = {
 	WeaponRange = 16,
 	OverwatchAngle = 5100,
 	Noise = 28,
-	Entity = "Webley",
+	Entity = "Webleyf",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",
@@ -36,6 +36,14 @@ DefineClass.Webley = {
 				"Freeswap",
 			},
 			'DefaultComponent', "Freeswap",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Barrel",
+			'AvailableComponents', {
+				"BarrelNormal",
+				"BarrelLong",
+			},
+			'DefaultComponent', "BarrelNormal",
 		}),
 	},
 	HolsterSlot = "Leg",

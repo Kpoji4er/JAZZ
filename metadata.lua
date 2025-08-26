@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 6,
-	'version', 5147,
+	'version', 5180,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -664,8 +664,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1753817371,
-	'code_hash', -241297819556865518,
+	'saved', 1756230493,
+	'code_hash', 4224027704767667839,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -10904,6 +10904,16 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "WeaponComponent",
+			'Id', "BarrelNormal_Sil",
+			'ClassDisplayName', "Weapon Component",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponent",
+			'Id', "BarrelNormal_noSil",
+			'ClassDisplayName', "Weapon Component",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponent",
 			'Id', "BarrelNormalImproved",
 			'ClassDisplayName', "Weapon Component",
 		}),
@@ -13749,7 +13759,7 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "XTemplate",
-			'Id', "ModifyWeaponDlg_Icons",
+			'Id', "ModifyWeaponDlg_items",
 			'ClassDisplayName', "UI Template (XTemplate)",
 		}),
 		PlaceObj('ModResourcePreset', {
