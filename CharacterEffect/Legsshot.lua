@@ -7,7 +7,7 @@ DefineClass.Legsshot = {
 	object_class = "StatusEffect",
 	msg_reactions = {},
 	unit_reactions = {},
-	DisplayName = T(844850890619, --[[ModItemCharacterEffectCompositeDef Legsshot DisplayName]] "Ранение в ноги"),
+	DisplayName = T(844850890619, "Ранение в ноги"),
 	Description = "",
 	OnAdded = function (self, obj)
 		if obj.TempHitPoints > 0 then return end

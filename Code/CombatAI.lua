@@ -444,7 +444,7 @@ function AICreateContext(unit, context)
           	end
 		--end
 
-			test_context = context
+			--test_context = context
 
 			local use_cover, cover_value, _, _, type_cover =
 				Presets["ChanceToHitModifier"]["Default"].RangeAttackTargetStanceCover:CalcValue(

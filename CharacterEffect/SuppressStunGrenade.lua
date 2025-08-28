@@ -6,7 +6,7 @@ DefineClass.SuppressStunGrenade = {
 
 	object_class = "CharacterEffect",
 	unit_reactions = {},
-	DisplayName = T(609065847626, --[[ModItemCharacterEffectCompositeDef SuppressStunGrenade DisplayName]] "Подавление сш гранатой"),
+	DisplayName = T(609065847626, "Подавление сш гранатой"),
 	Description = "",
 	OnAdded = function (self, obj)
 		local willPointsDamage = 40

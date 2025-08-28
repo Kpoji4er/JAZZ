@@ -6,8 +6,8 @@ DefineClass.Coin = {
 
 	object_class = "QuestItem",
 	Icon = "UI/Icons/Items/ancient_coin",
-	DisplayName = T(277849319772, --[[ModItemInventoryItemCompositeDef Coin DisplayName]] "Жетон Зигфрида"),
-	Description = T(125597210122, --[[ModItemInventoryItemCompositeDef Coin Description]] "Зигфрид сказал, что эта монета откроет вам двери Понтового клуба."),
+	DisplayName = T(277849319772, "Жетон Зигфрида"),
+	Description = T(125597210122, "Зигфрид сказал, что эта монета откроет вам двери Понтового клуба."),
 	RestockWeight = 0,
 }
 

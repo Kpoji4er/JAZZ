@@ -388,7 +388,7 @@ function AIPolicyProximity:EvalDest(context, dest, grid_voxel)
 		  local wx, wy, wz = stance_pos_unpack(upos)
 		  local vx_o, vy_o, vz_o = WorldToVoxel(wx, wy, wz)
 		  local dz_levels = abs((vz_o or vz_d) - vz_d)
-		  dz_levels = Min(dz_levels or 0, max_h_levels)
+		  dz_levels = Min(dz_levels or 0, max_height_levels)
   
 		  -- прогрессивный штраф по высоте
 		  local h_mult = height_decay_per_lvl ^ dz_levels

@@ -15,8 +15,8 @@ DefineClass.Spiritual = {
 			end,
 		}),
 	},
-	DisplayName = T(906477417382, --[[ModItemCharacterEffectCompositeDef Spiritual DisplayName]] "Духовность"),
-	Description = T(233455514627, --[[ModItemCharacterEffectCompositeDef Spiritual Description]] "Гарантированная <em>минимальная точность</em> для безнадежных атак."),
+	DisplayName = T(906477417382, "Духовность"),
+	Description = T(233455514627, "Гарантированная <em>минимальная точность</em> для безнадежных атак."),
 	Icon = "UI/Icons/Perks/Spiritual",
 	Tier = "Quirk",
 }

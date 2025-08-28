@@ -6,9 +6,9 @@ DefineClass.OpticalLens = {
 
 	object_class = "MiscItem",
 	Icon = "UI/Icons/Items/optical_lens",
-	DisplayName = T(234015637580, --[[ModItemInventoryItemCompositeDef OpticalLens DisplayName]] "Линза"),
-	DisplayNamePlural = T(869642347745, --[[ModItemInventoryItemCompositeDef OpticalLens DisplayNamePlural]] "Линзы"),
-	AdditionalHint = T(421377090006, --[[ModItemInventoryItemCompositeDef OpticalLens AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется при создании улучшенных компонентов для оружия"),
+	DisplayName = T(234015637580, "Линза"),
+	DisplayNamePlural = T(869642347745, "Линзы"),
+	AdditionalHint = T(421377090006, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется при создании улучшенных компонентов для оружия"),
 	Cost = 3400,
 	CanAppearInShop = true,
 	Tier = 2,

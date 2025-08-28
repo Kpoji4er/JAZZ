@@ -34,9 +34,9 @@ DefineClass.suppressionPinned = {
 			end,
 		}),
 	},
-	DisplayName = T(279226942480, --[[ModItemCharacterEffectCompositeDef suppressionPinned DisplayName]] "Прижат"),
-	Description = T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Количество од - не более 4."),
-	AddEffectText = T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionPinned AddEffectText]] "Под плотным огнем"),
+	DisplayName = T(279226942480, "Прижат"),
+	Description = T(880250024564, "Количество од - не более 4."),
+	AddEffectText = T(551437047571, "Под плотным огнем"),
 	OnAdded = function (self, obj)
 		local unitStance = obj.stance
 		if unitStance ~= "Prone" or not (obj:CanTakeCover()) then
