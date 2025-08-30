@@ -295,23 +295,7 @@ PlaceObj('ActionFXInherit_Actor', {
 	id = "fxIthaca",
 })
 
-PlaceObj('ActionFXInherit_Actor', {
-	Actor = "Stoeger",
-	Inherit = "DoubleBarrelShotgun",
-	group = "Weapons VFX",
-	id = "fxStoeger",
-})
 
-PlaceObj('ActionFXSound', {
-	Action = "WeaponBuckshot",
-	Actor = "Stoeger",
-	DetailLevel = 100,
-	Moment = "start",
-	Sound = "ShotgunDouble_shot",
-	Target = "any",
-	group = "Default",
-	id = "fxStoeger",
-})
 
 
 PlaceObj('ActionFXInherit_Actor', {

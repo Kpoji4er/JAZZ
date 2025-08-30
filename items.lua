@@ -3011,7 +3011,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "ColtPeacemaker",
+						item = "SWModel29",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						comment = "EASY + MED",
@@ -3222,13 +3222,13 @@ return {
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
 						condition = "Difficulty VeryHard",
-						item = "Bereta92",
+						item = "P38",
 						negate = true,
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "Bereta92",
+						item = "P38",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -3258,35 +3258,13 @@ return {
 					id = "Fox20",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						condition = "Difficulty Normal",
-						item = "TMP",
-						stack_max = 2,
-						stack_min = 2,
-					}),
-					PlaceObj('LootEntryInventoryItem', {
-						condition = "Difficulty VeryHard",
-						item = "MAT49",
-						stack_max = 1,
-						stack_min = 1,
-					}),
-					PlaceObj('LootEntryInventoryItem', {
-						Double = true,
-						condition = "Difficulty Hard",
-						item = "JAZZ_AMMO_9x19_FMJ",
-						negate = true,
-						stack_max = 90,
-						stack_min = 90,
-					}),
-					PlaceObj('LootEntryInventoryItem', {
-						condition = "Difficulty Hard",
-						item = "Colt1911",
+						item = "CZ52",
 						stack_max = 2,
 						stack_min = 2,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
-						condition = "Difficulty Hard",
-						item = "JAZZ_AMMO_45ACP_FMJ",
+						item = "JAZZ_AMMO_762x25_FMJ",
 						stack_max = 70,
 						stack_min = 70,
 					}),
@@ -3314,15 +3292,9 @@ return {
 					id = "Fox10",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						condition = "Difficulty VeryHard",
-						item = "Glock17",
-					}),
-					PlaceObj('LootEntryInventoryItem', {
-						condition = "Difficulty VeryHard",
-						item = "Glock18",
-						negate = true,
-						stack_max = 2,
-						stack_min = 2,
+						item = "SWModel5906",
+						stack_max = 1,
+						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
@@ -3353,11 +3325,10 @@ return {
 					group = "Mercs",
 					id = "Mouse50",
 					loot = "all",
-					PlaceObj('LootEntryUpgradedWeapon', {
-						upgrades = {
-							"ImprovisedSuppressor",
-						},
-						weapon = "HiPower",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Welrod",
+						stack_max = 1,
+						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
@@ -3654,7 +3625,7 @@ return {
 						item = "CustomPDA",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "MicroUZI",
+						item = "MAC1950",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -3918,7 +3889,7 @@ return {
 					id = "Igor50",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						item = "Makarov",
+						item = "PB",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4025,20 +3996,6 @@ return {
 					id = "Igor20",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						condition = "Difficulty VeryHard",
-						item = "AKSU",
-						negate = true,
-						stack_max = 1,
-						stack_min = 1,
-					}),
-					PlaceObj('LootEntryInventoryItem', {
-						condition = "Difficulty VeryHard",
-						item = "JAZZ_AMMO_545_HP",
-						negate = true,
-						stack_max = 60,
-						stack_min = 60,
-					}),
-					PlaceObj('LootEntryInventoryItem', {
 						item = "Makarov",
 						stack_max = 1,
 						stack_min = 1,
@@ -4068,15 +4025,7 @@ return {
 					id = "Igor10",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						condition = "Difficulty VeryHard",
-						item = "PP19Bizon",
-						negate = true,
-						stack_max = 1,
-						stack_min = 1,
-					}),
-					PlaceObj('LootEntryInventoryItem', {
-						condition = "Difficulty VeryHard",
-						item = "Scorpion",
+						item = "Makarov",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4106,13 +4055,13 @@ return {
 					id = "MD50",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						item = "ColtPeacemaker",
+						item = "Colt38Special",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
-						item = "JAZZ_AMMO_44CAL_FMJ",
+						item = "JAZZ_AMMO_38special",
 						stack_max = 24,
 						stack_min = 24,
 					}),
@@ -4170,13 +4119,13 @@ return {
 					id = "MD25",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						item = "Colt1911",
+						item = "SWModel5906",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
-						item = "JAZZ_AMMO_45ACP_FMJ",
+						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 28,
 						stack_min = 28,
 					}),
@@ -4244,17 +4193,13 @@ return {
 					id = "Grizzly50",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						condition = "Difficulty VeryHard",
-						item = "Colt1911",
-						negate = true,
+						item = "GrizzlyLAR",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
-						condition = "Difficulty VeryHard",
-						item = "JAZZ_AMMO_45ACP_P",
-						negate = true,
+						item = "JAZZ_AMMO_50BMG_Basic",
 						stack_max = 30,
 						stack_min = 30,
 					}),
@@ -4305,13 +4250,13 @@ return {
 					id = "Grizzly35",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						item = "DesertEagle",
+						item = "GrizzlyLAR",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
-						item = "JAZZ_AMMO_44CAL_JHP",
+						item = "JAZZ_AMMO_50BMG_Basic",
 						stack_max = 64,
 						stack_min = 64,
 					}),
@@ -4360,13 +4305,13 @@ return {
 					id = "Grizzly25",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						item = "Colt1911",
+						item = "GrizzlyLAR",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
-						item = "JAZZ_AMMO_45ACP_P",
+						item = "JAZZ_AMMO_50BMG_Basic",
 						stack_max = 28,
 						stack_min = 28,
 					}),
@@ -4404,6 +4349,17 @@ return {
 					group = "Mercs",
 					id = "Grizzly20",
 					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "GrizzlyLAR",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						item = "JAZZ_AMMO_50BMG_Basic",
+						stack_max = 28,
+						stack_min = 28,
+					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
 						upgrades = {
 							"MagDrum_30-50",
@@ -4440,6 +4396,17 @@ return {
 					group = "Mercs",
 					id = "Grizzly10",
 					loot = "all",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "GrizzlyLAR",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						item = "JAZZ_AMMO_50BMG_Basic",
+						stack_max = 28,
+						stack_min = 28,
+					}),
 					PlaceObj('LootEntryUpgradedWeapon', {
 						weapon = "M3GreaseGun",
 					}),
@@ -4474,7 +4441,7 @@ return {
 					id = "Barry50",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						item = "TT33",
+						item = "CZ52",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4573,15 +4540,15 @@ return {
 					id = "Barry20",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						item = "Makarov",
+						item = "TT33",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
-						item = "JAZZ_AMMO_9x18_FMJ",
-						stack_max = 28,
-						stack_min = 28,
+						item = "JAZZ_AMMO_762x25_FMJ",
+						stack_max = 48,
+						stack_min = 48,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "PipeBomb",
@@ -4638,7 +4605,7 @@ return {
 						stack_min = 136,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "Luger",
+						item = "P38",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4677,7 +4644,7 @@ return {
 						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "Luger",
+						item = "P38",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4725,7 +4692,7 @@ return {
 						stack_min = 20,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "Luger",
+						item = "P38",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4769,7 +4736,7 @@ return {
 						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "Luger",
+						item = "P38",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4841,7 +4808,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "Bereta92",
+						item = "SWModel5906",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4852,17 +4819,17 @@ return {
 						stack_min = 100,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "M16Bayonet",
-						stack_max = 1,
-						stack_min = 1,
-					}),
-					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_SWAT",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_SwatPads",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Knife_Sharpened",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4931,7 +4898,7 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "M16Bayonet",
+						item = "Knife_Sharpened",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4992,6 +4959,22 @@ return {
 						stack_min = 40,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
+						item = "SWModel10",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						item = "JAZZ_AMMO_38special",
+						stack_max = 12,
+						stack_min = 12,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Knife_Sharpened",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
 						item = "SmokeGrenade",
 						stack_max = 1,
 						stack_min = 1,
@@ -5034,16 +5017,6 @@ return {
 					id = "Raven10",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
-						condition = "Difficulty VeryHard",
-						negate = true,
-						upgrades = {
-							"FlashlightDot",
-							"Compensator",
-						},
-						weapon = "MP5K",
-					}),
-					PlaceObj('LootEntryUpgradedWeapon', {
-						condition = "Difficulty VeryHard",
 						upgrades = {
 							"PistolSuppressor",
 						},
@@ -5056,7 +5029,7 @@ return {
 						stack_min = 90,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "M16Bayonet",
+						item = "Knife_Sharpened",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -5064,6 +5037,17 @@ return {
 						item = "Wirecutter",
 						stack_max = 1,
 						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "SWModel10",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						item = "JAZZ_AMMO_38special",
+						stack_max = 12,
+						stack_min = 12,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						condition = "Difficulty VeryHard",
@@ -5102,15 +5086,14 @@ return {
 					group = "Mercs",
 					id = "Thor50",
 					loot = "all",
-					PlaceObj('LootEntryUpgradedWeapon', {
-						upgrades = {
-							"PistolSuppressor",
-						},
-						weapon = "P220",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "MR73",
+						stack_max = 1,
+						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
-						item = "JAZZ_AMMO_45ACP_FMJ",
+						item = "JAZZ_AMMO_357",
 						stack_max = 40,
 						stack_min = 40,
 					}),
@@ -5192,15 +5175,9 @@ return {
 					id = "Thor25",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						item = "Knife_Sharpened",
+						item = "MR73",
 						stack_max = 1,
 						stack_min = 1,
-					}),
-					PlaceObj('LootEntryUpgradedWeapon', {
-						upgrades = {
-							"BarrelShort",
-						},
-						weapon = "ColtPeacemaker",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JAZZ_AMMO_44CAL_JHP",
@@ -5241,23 +5218,16 @@ return {
 					group = "Mercs",
 					id = "Thor20",
 					loot = "all",
-					PlaceObj('LootEntryUpgradedWeapon', {
-						condition = "Difficulty VeryHard",
-						negate = true,
-						upgrades = {
-							"PistolSuppressor",
-						},
-						weapon = "BerettaM12",
-					}),
-					PlaceObj('LootEntryUpgradedWeapon', {
-						condition = "Difficulty VeryHard",
-						weapon = "HiPower",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Korth",
+						stack_max = 1,
+						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
-						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 60,
-						stack_min = 60,
+						item = "JAZZ_AMMO_357",
+						stack_max = 24,
+						stack_min = 24,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_CamoKneePads",
@@ -5294,16 +5264,6 @@ return {
 					id = "Wolf50",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
-						condition = "Difficulty VeryHard",
-						negate = true,
-						upgrades = {
-							"MagNormal",
-							"LaserDot",
-						},
-						weapon = "MP5K",
-					}),
-					PlaceObj('LootEntryUpgradedWeapon', {
-						condition = "Difficulty VeryHard",
 						weapon = "Agram2000",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
@@ -5700,12 +5660,12 @@ return {
 						stack_min = 120,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "HiPower",
+						item = "SWModel29",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "JAZZ_AMMO_9x19_FMJ",
+						item = "JAZZ_AMMO_44CAL_FMJ",
 						stack_max = 26,
 						stack_min = 26,
 					}),
@@ -5781,15 +5741,14 @@ return {
 						},
 						weapon = "ColtAnaconda",
 					}),
-					PlaceObj('LootEntryUpgradedWeapon', {
-						upgrades = {
-							"BarrelShort",
-						},
-						weapon = "ColtPeacemaker",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "SWModel19",
+						stack_max = 1,
+						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
-						item = "JAZZ_AMMO_44CAL_JHP",
+						item = "JAZZ_AMMO_357",
 						stack_max = 24,
 						stack_min = 24,
 					}),
@@ -5927,11 +5886,10 @@ return {
 					group = "Mercs",
 					id = "Blood35",
 					loot = "all",
-					PlaceObj('LootEntryUpgradedWeapon', {
-						upgrades = {
-							"PistolSuppressor",
-						},
-						weapon = "MP5K",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Agram2000",
+						stack_max = 1,
+						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
@@ -6087,18 +6045,14 @@ return {
 					group = "Mercs",
 					id = "Meltdown25",
 					loot = "all",
-					PlaceObj('LootEntryUpgradedWeapon', {
-						condition = "Difficulty VeryHard",
-						negate = true,
-						upgrades = {
-							"BarrelShort",
-						},
-						weapon = "ColtAnaconda",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "SWModel29",
+						stack_max = 1,
+						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						condition = "Difficulty VeryHard",
-						item = "JAZZ_AMMO_44CAL_FMJ",
-						negate = true,
+						Double = true,
+						item = "JAZZ_AMMO_38special",
 						stack_max = 24,
 						stack_min = 24,
 					}),
@@ -6201,12 +6155,12 @@ return {
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						condition = "Difficulty VeryHard",
-						item = "P210",
+						item = "SWModel52",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
 						condition = "Difficulty VeryHard",
-						item = "JAZZ_AMMO_9x19_FMJ",
+						item = "JAZZ_AMMO_38special",
 						stack_max = 30,
 						stack_min = 30,
 					}),
@@ -6267,14 +6221,16 @@ return {
 					group = "Mercs",
 					id = "Buns20",
 					loot = "all",
-					PlaceObj('LootEntryUpgradedWeapon', {
-						weapon = "M45",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "MR73",
+						stack_max = 1,
+						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
-						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 90,
-						stack_min = 90,
+						item = "JAZZ_AMMO_357",
+						stack_max = 24,
+						stack_min = 24,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						condition = "Difficulty VeryHard",
@@ -6289,16 +6245,10 @@ return {
 					group = "Mercs",
 					id = "Buns10",
 					loot = "all",
-					PlaceObj('LootEntryUpgradedWeapon', {
-						condition = "Difficulty VeryHard",
-						negate = true,
-						upgrades = {
-							"MagNormal",
-						},
-						weapon = "TMP",
-					}),
-					PlaceObj('LootEntryUpgradedWeapon', {
-						weapon = "Bereta92",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "SWModel5906",
+						stack_max = 1,
+						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JAZZ_AMMO_9x19_FMJ",
@@ -6479,11 +6429,11 @@ return {
 					id = "Grunty10",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						item = "Glock17",
+						item = "Korth",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
-						item = "JAZZ_AMMO_9x19_FMJ",
+						item = "JAZZ_AMMO_357",
 						stack_max = 68,
 						stack_min = 68,
 					}),
@@ -6881,13 +6831,16 @@ return {
 					group = "Mercs",
 					id = "Vicki25",
 					loot = "all",
-					PlaceObj('LootEntryUpgradedWeapon', {
-						weapon = "P226",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "SWModel52",
+						stack_max = 2,
+						stack_min = 2,
 					}),
-					PlaceObj('LootEntryUpgradedWeapon', {
-						condition = "Difficulty VeryHard",
-						negate = true,
-						weapon = "P226",
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						item = "JAZZ_AMMO_38special",
+						stack_max = 128,
+						stack_min = 128,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Personal_Vicki_CustomTools",
@@ -6977,29 +6930,21 @@ return {
 					group = "Mercs",
 					id = "Vicki10",
 					loot = "all",
-					PlaceObj('LootEntryUpgradedWeapon', {
-						condition = "Difficulty VeryHard",
-						negate = true,
-						weapon = "MP5K",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "CZ52",
+						stack_max = 1,
+						stack_min = 1,
 					}),
-					PlaceObj('LootEntryUpgradedWeapon', {
-						condition = "Difficulty VeryHard",
-						negate = true,
-						weapon = "MP5K",
-					}),
-					PlaceObj('LootEntryUpgradedWeapon', {
-						condition = "Difficulty VeryHard",
-						weapon = "CZ75",
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						item = "JAZZ_AMMO_762x25_FMJ",
+						stack_max = 24,
+						stack_min = 24,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Personal_Vicki_CustomTools",
 						stack_max = 1,
 						stack_min = 1,
-					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 90,
-						stack_min = 90,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "Wirecutter",
@@ -7024,16 +6969,6 @@ return {
 					id = "Raider50",
 					loot = "all",
 					PlaceObj('LootEntryUpgradedWeapon', {
-						condition = "Difficulty VeryHard",
-						negate = true,
-						upgrades = {
-							"Flashlight",
-							"StockLightFolded",
-						},
-						weapon = "MP5A4",
-					}),
-					PlaceObj('LootEntryUpgradedWeapon', {
-						condition = "Difficulty VeryHard",
 						upgrades = {
 							"StockLightFolded",
 						},
@@ -7123,11 +7058,10 @@ return {
 						stack_max = 16,
 						stack_min = 16,
 					}),
-					PlaceObj('LootEntryUpgradedWeapon', {
-						upgrades = {
-							"Flashlight",
-						},
-						weapon = "Bereta92",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "SWModel5906",
+						stack_max = 1,
+						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
@@ -7275,17 +7209,16 @@ return {
 						stack_max = 100,
 						stack_min = 100,
 					}),
-					PlaceObj('LootEntryUpgradedWeapon', {
-						upgrades = {
-							"Flashlight",
-						},
-						weapon = "Bereta92",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Colt38Special",
+						stack_max = 1,
+						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
-						item = "JAZZ_AMMO_9x19_JHP",
-						stack_max = 90,
-						stack_min = 90,
+						item = "JAZZ_AMMO_38special",
+						stack_max = 24,
+						stack_min = 24,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "ConcussiveGrenade",
@@ -7714,6 +7647,17 @@ return {
 						stack_max = 1,
 						stack_min = 1,
 					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Colt38Special",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						item = "JAZZ_AMMO_38special",
+						stack_max = 48,
+						stack_min = 48,
+					}),
 				}),
 				PlaceObj('ModItemLootDef', {
 					Comment = "merc",
@@ -7724,16 +7668,6 @@ return {
 						item = "Meds",
 						stack_max = 60,
 						stack_min = 60,
-					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "HiPower",
-						stack_max = 1,
-						stack_min = 1,
-					}),
-					PlaceObj('LootEntryInventoryItem', {
-						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 26,
-						stack_min = 26,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "HerbalMedicine",
@@ -7749,6 +7683,17 @@ return {
 						item = "JazzArmor_Uniform",
 						stack_max = 1,
 						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "SWModel10",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						item = "JAZZ_AMMO_38special",
+						stack_max = 48,
+						stack_min = 48,
 					}),
 				}),
 				PlaceObj('ModItemLootDef', {
@@ -7769,13 +7714,15 @@ return {
 						stack_max = 68,
 						stack_min = 68,
 					}),
-					PlaceObj('LootEntryUpgradedWeapon', {
-						weapon = "Colt1911",
-					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JAZZ_AMMO_45ACP_FMJ",
 						stack_max = 14,
 						stack_min = 14,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "ColtM1917",
+						stack_max = 1,
+						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_FlakM69",
@@ -9947,7 +9894,7 @@ return {
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						condition = "Difficulty VeryHard",
-						item = "MP5K",
+						item = "MPL",
 						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
@@ -9978,7 +9925,7 @@ return {
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						condition = "Difficulty VeryHard",
-						item = "TMP",
+						item = "Agram2000",
 						negate = true,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
@@ -12297,6 +12244,26 @@ return {
 						PlaceObj('LootEntryInventoryItem', {
 							Double = true,
 							item = "JAZZ_AMMO_9x19_FMJ",
+							stack_max = 40,
+							stack_min = 1,
+						}),
+					}),
+					PlaceObj('ModItemLootDef', {
+						group = "Enemy - General",
+						id = "Noob_38cal",
+						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
+							item = "JAZZ_AMMO_38special",
+							stack_max = 40,
+							stack_min = 1,
+						}),
+					}),
+					PlaceObj('ModItemLootDef', {
+						group = "Enemy - General",
+						id = "Noob_357cal",
+						PlaceObj('LootEntryInventoryItem', {
+							Double = true,
+							item = "JAZZ_AMMO_357",
 							stack_max = 40,
 							stack_min = 1,
 						}),
@@ -19487,29 +19454,33 @@ return {
 							id = "LegionNoob_Pistol",
 							PlaceObj('LootEntryLootDef', {
 								comment = "T1",
-								game_conditions = {
-									PlaceObj('QuestIsVariableNum', {
-										Amount = 6,
-										Condition = "<=",
-										Prop = "Taken_Sectors",
-										QuestId = "03_DefeatTheLegion",
-									}),
-								},
 								loot_def = "LegionNoob_Luger",
 								weight = 100000,
 							}),
 							PlaceObj('LootEntryLootDef', {
 								comment = "T1",
-								game_conditions = {
-									PlaceObj('QuestIsVariableNum', {
-										Amount = 2,
-										Condition = "<",
-										Prop = "JAZZ_Legion_Tier",
-										QuestId = "JAZZ_LegionTier",
-									}),
-								},
-								loot_def = "LegionNoob_Luger",
+								loot_def = "LegionNoob_MAC1950",
 								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionNoob_SWModel52",
+								weight = 30000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionNoob_ColtM1917",
+								weight = 50000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionNoob_SWModel10",
+								weight = 130000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionNoob_Colt38Special",
+								weight = 150000,
 							}),
 							PlaceObj('LootEntryLootDef', {
 								comment = "T1",
@@ -19519,6 +19490,11 @@ return {
 							PlaceObj('LootEntryLootDef', {
 								comment = "T1",
 								loot_def = "LegionNoob_Makarov",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionNoob_CZ52",
 								weight = 100000,
 							}),
 							PlaceObj('LootEntryLootDef', {
@@ -19544,6 +19520,54 @@ return {
 								},
 								loot_def = "LegionNoob_Colt1911",
 								weight = 75000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionNoob_P38",
+								weight = 75000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionNoob_ColtPeaceMaker",
+								weight = 30000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionNoob_ColtPeaceMakerShort",
+								weight = 75000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionNoob_SWModel19",
+								weight = 10000,
 							}),
 							PlaceObj('LootEntryLootDef', {
 								comment = "T3",
@@ -19578,7 +19602,19 @@ return {
 										QuestId = "JAZZ_LegionTier",
 									}),
 								},
-								loot_def = "LegionNoob_ColtPeaceMaker",
+								loot_def = "LegionNoob_SWModel5906",
+								weight = 125000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionNoob_MR73",
 								weight = 30000,
 							}),
 							PlaceObj('LootEntryLootDef', {
@@ -19590,8 +19626,8 @@ return {
 										QuestId = "JAZZ_LegionTier",
 									}),
 								},
-								loot_def = "LegionNoob_ColtPeaceMakerShort",
-								weight = 75000,
+								loot_def = "LegionNoob_SWModel29",
+								weight = 50000,
 							}),
 							PlaceObj('LootEntryLootDef', {
 								comment = "T4",
@@ -19710,6 +19746,36 @@ return {
 							}),
 							PlaceObj('LootEntryLootDef', {
 								comment = "T1",
+								loot_def = "LegionNoob_MAC1950",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionNoob_SWModel52",
+								weight = 30000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionNoob_ColtM1917",
+								weight = 50000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionNoob_SWModel10",
+								weight = 130000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionNoob_Colt38Special",
+								weight = 150000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
+								loot_def = "LegionNoob_CZ52",
+								weight = 100000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T1",
 								loot_def = "LegionStrong_Luger",
 							}),
 							PlaceObj('LootEntryLootDef', {
@@ -19729,6 +19795,30 @@ return {
 								comment = "T1",
 								loot_def = "LegionStrong_Colt1911",
 								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionNoob_SWModel19",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionNoob_P38",
+								weight = 75000,
 							}),
 							PlaceObj('LootEntryLootDef', {
 								comment = "T2",
@@ -19765,6 +19855,42 @@ return {
 								},
 								loot_def = "LegionStrong_ColtPeaceMaker",
 								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionNoob_SWModel5906",
+								weight = 125000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionNoob_MR73",
+								weight = 30000,
+							}),
+							PlaceObj('LootEntryLootDef', {
+								comment = "T3",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 3,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionNoob_SWModel29",
+								weight = 50000,
 							}),
 							PlaceObj('LootEntryLootDef', {
 								comment = "T3",
@@ -20254,6 +20380,181 @@ return {
 								Comment = "enemy rebels",
 								comment = "T1",
 								group = "Default",
+								id = "LegionNoob_MAC1950",
+								loot = "all",
+								PlaceObj('LootEntryInventoryItem', {
+									item = "MAC1950",
+									stack_max = 1,
+									stack_min = 1,
+								}),
+								PlaceObj('LootEntryLootDef', {
+									loot_def = "Noob_9x19",
+								}),
+							}),
+							PlaceObj('ModItemLootDef', {
+								Comment = "enemy rebels",
+								comment = "T1",
+								group = "Default",
+								id = "LegionNoob_SWModel52",
+								loot = "all",
+								PlaceObj('LootEntryInventoryItem', {
+									item = "SWModel52",
+									stack_max = 1,
+									stack_min = 1,
+								}),
+								PlaceObj('LootEntryLootDef', {
+									loot_def = "Noob_38cal",
+								}),
+							}),
+							PlaceObj('ModItemLootDef', {
+								Comment = "enemy rebels",
+								comment = "T1",
+								group = "Default",
+								id = "LegionNoob_SWModel10",
+								loot = "all",
+								PlaceObj('LootEntryInventoryItem', {
+									item = "SWModel10",
+									stack_max = 1,
+									stack_min = 1,
+								}),
+								PlaceObj('LootEntryLootDef', {
+									loot_def = "Noob_38cal",
+								}),
+							}),
+							PlaceObj('ModItemLootDef', {
+								Comment = "enemy rebels",
+								comment = "T1",
+								group = "Default",
+								id = "LegionNoob_Colt38Special",
+								loot = "all",
+								PlaceObj('LootEntryInventoryItem', {
+									item = "Colt38Special",
+									stack_max = 1,
+									stack_min = 1,
+								}),
+								PlaceObj('LootEntryLootDef', {
+									loot_def = "Noob_38cal",
+								}),
+							}),
+							PlaceObj('ModItemLootDef', {
+								Comment = "enemy rebels",
+								comment = "T1",
+								group = "Default",
+								id = "LegionNoob_Colt38SpecialShort",
+								loot = "all",
+								PlaceObj('LootEntryLootDef', {
+									loot_def = "Noob_38cal",
+								}),
+							}),
+							PlaceObj('ModItemLootDef', {
+								Comment = "enemy rebels",
+								comment = "T1",
+								group = "Default",
+								id = "LegionNoob_CZ52",
+								loot = "all",
+								PlaceObj('LootEntryInventoryItem', {
+									item = "CZ52",
+									stack_max = 1,
+									stack_min = 1,
+								}),
+								PlaceObj('LootEntryLootDef', {
+									loot_def = "Noob_762x25",
+								}),
+							}),
+							PlaceObj('ModItemLootDef', {
+								Comment = "enemy rebels",
+								comment = "T1",
+								group = "Default",
+								id = "LegionNoob_P38",
+								loot = "all",
+								PlaceObj('LootEntryInventoryItem', {
+									item = "P38",
+									stack_max = 1,
+									stack_min = 1,
+								}),
+								PlaceObj('LootEntryLootDef', {
+									loot_def = "Noob_9x19",
+								}),
+							}),
+							PlaceObj('ModItemLootDef', {
+								Comment = "enemy rebels",
+								comment = "T1",
+								group = "Default",
+								id = "LegionNoob_ColtM1917",
+								loot = "all",
+								PlaceObj('LootEntryInventoryItem', {
+									item = "ColtM1917",
+									stack_max = 1,
+									stack_min = 1,
+								}),
+								PlaceObj('LootEntryLootDef', {
+									loot_def = "Noob_45ACP",
+								}),
+							}),
+							PlaceObj('ModItemLootDef', {
+								Comment = "T2",
+								comment = "T2",
+								group = "Default",
+								id = "LegionNoob_SWModel5906",
+								loot = "all",
+								PlaceObj('LootEntryInventoryItem', {
+									item = "SWModel52",
+									stack_max = 1,
+									stack_min = 1,
+								}),
+								PlaceObj('LootEntryLootDef', {
+									loot_def = "Noob_9x19",
+								}),
+							}),
+							PlaceObj('ModItemLootDef', {
+								Comment = "enemy rebels",
+								comment = "T1",
+								group = "Default",
+								id = "LegionNoob_MR73",
+								loot = "all",
+								PlaceObj('LootEntryInventoryItem', {
+									item = "MR73",
+									stack_max = 1,
+									stack_min = 1,
+								}),
+								PlaceObj('LootEntryLootDef', {
+									loot_def = "Noob_357cal",
+								}),
+							}),
+							PlaceObj('ModItemLootDef', {
+								Comment = "T2",
+								comment = "T2",
+								group = "Default",
+								id = "LegionNoob_SWModel19",
+								loot = "all",
+								PlaceObj('LootEntryInventoryItem', {
+									item = "SWModel19",
+									stack_max = 1,
+									stack_min = 1,
+								}),
+								PlaceObj('LootEntryLootDef', {
+									loot_def = "Noob_357cal",
+								}),
+							}),
+							PlaceObj('ModItemLootDef', {
+								Comment = "T3",
+								comment = "T3",
+								group = "Default",
+								id = "LegionNoob_SWModel29",
+								loot = "all",
+								PlaceObj('LootEntryInventoryItem', {
+									item = "SWModel29",
+									stack_max = 1,
+									stack_min = 1,
+								}),
+								PlaceObj('LootEntryLootDef', {
+									loot_def = "Noob_357cal",
+								}),
+							}),
+							PlaceObj('ModItemLootDef', {
+								Comment = "enemy rebels",
+								comment = "T1",
+								group = "Default",
 								id = "LegionNoob_P210",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
@@ -20351,7 +20652,7 @@ return {
 									stack_min = 1,
 								}),
 								PlaceObj('LootEntryLootDef', {
-									loot_def = "Noob_44Cal",
+									loot_def = "Noob_357cal",
 								}),
 							}),
 							PlaceObj('ModItemLootDef', {
@@ -20367,7 +20668,7 @@ return {
 									weapon = "ColtPeacemaker",
 								}),
 								PlaceObj('LootEntryLootDef', {
-									loot_def = "Noob_44Cal",
+									loot_def = "Noob_357cal",
 								}),
 							}),
 							PlaceObj('ModItemLootDef', {
@@ -20529,6 +20830,21 @@ return {
 								Comment = "enemy rebels",
 								comment = "T1",
 								group = "Default",
+								id = "LegionStrong_SWModel52",
+								loot = "all",
+								PlaceObj('LootEntryInventoryItem', {
+									item = "SWModel52",
+									stack_max = 1,
+									stack_min = 1,
+								}),
+								PlaceObj('LootEntryLootDef', {
+									loot_def = "Noob_38cal",
+								}),
+							}),
+							PlaceObj('ModItemLootDef', {
+								Comment = "enemy rebels",
+								comment = "T1",
+								group = "Default",
 								id = "LegionStrong_P210",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
@@ -20626,7 +20942,7 @@ return {
 									stack_min = 1,
 								}),
 								PlaceObj('LootEntryLootDef', {
-									loot_def = "Strong_44Cal",
+									loot_def = "Noob_357cal",
 								}),
 							}),
 							PlaceObj('ModItemLootDef', {
@@ -20876,6 +21192,21 @@ return {
 								Comment = "enemy rebels",
 								comment = "T1",
 								group = "Default",
+								id = "LegionElite_SWModel52",
+								loot = "all",
+								PlaceObj('LootEntryInventoryItem', {
+									item = "SWModel52",
+									stack_max = 1,
+									stack_min = 1,
+								}),
+								PlaceObj('LootEntryLootDef', {
+									loot_def = "Noob_38cal",
+								}),
+							}),
+							PlaceObj('ModItemLootDef', {
+								Comment = "enemy rebels",
+								comment = "T1",
+								group = "Default",
 								id = "LegionElite_P210",
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
@@ -20942,7 +21273,7 @@ return {
 									weapon = "ColtPeacemaker",
 								}),
 								PlaceObj('LootEntryLootDef', {
-									loot_def = "Elite_44Cal",
+									loot_def = "Noob_357cal",
 								}),
 							}),
 							PlaceObj('ModItemLootDef', {
@@ -20958,7 +21289,7 @@ return {
 									weapon = "ColtPeacemaker",
 								}),
 								PlaceObj('LootEntryLootDef', {
-									loot_def = "Elite_44Cal",
+									loot_def = "Noob_357cal",
 								}),
 							}),
 							PlaceObj('ModItemLootDef', {
@@ -21271,6 +21602,36 @@ return {
 								}),
 								PlaceObj('LootEntryLootDef', {
 									loot_def = "Elite_9x19",
+								}),
+							}),
+							PlaceObj('ModItemLootDef', {
+								Comment = "T5",
+								comment = "T5",
+								group = "Default",
+								id = "LegionElite_GrizzlyLAR",
+								loot = "all",
+								PlaceObj('LootEntryInventoryItem', {
+									item = "GrizzlyLAR",
+									stack_max = 1,
+									stack_min = 1,
+								}),
+								PlaceObj('LootEntryLootDef', {
+									loot_def = "Noob_50BMG",
+								}),
+							}),
+							PlaceObj('ModItemLootDef', {
+								Comment = "T5",
+								comment = "T5",
+								group = "Default",
+								id = "LegionElite_Korth",
+								loot = "all",
+								PlaceObj('LootEntryInventoryItem', {
+									item = "Korth",
+									stack_max = 1,
+									stack_min = 1,
+								}),
+								PlaceObj('LootEntryLootDef', {
+									loot_def = "Noob_357cal",
 								}),
 							}),
 							}),
@@ -29840,14 +30201,14 @@ return {
 						id = "Legion_GrenadierNoob_Weapon",
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "LegionNoob_Pistol",
-							weight = 5000,
+							weight = 15000,
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "LegionNoob_AssaultRifle",
 						}),
 						PlaceObj('LootEntryLootDef', {
 							loot_def = "LegionNoob_SMG",
-							weight = 25000,
+							weight = 5000,
 						}),
 					}),
 					PlaceObj('ModItemLootDef', {
@@ -48766,230 +49127,6 @@ return {
 							'name', "FX_TMP",
 							'CodeFileName', "Code/FX_TMP.lua",
 						}),
-						PlaceObj('ModItemFolder', {
-							'name', "ActionFX_Semi",
-						}, {
-							PlaceObj('ModItemCode', {
-								'name', "FX_AR10DMR",
-								'CodeFileName', "Code/FX_AR10DMR.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_AVT40",
-								'CodeFileName', "Code/FX_AVT40.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_DragunovSVD",
-								'CodeFileName', "Code/FX_DragunovSVD.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_G3SniperV1",
-								'CodeFileName', "Code/FX_G3SniperV1.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_M1A",
-								'CodeFileName', "Code/FX_M1A.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_M1Garand",
-								'CodeFileName', "Code/FX_M1Garand.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_M21",
-								'CodeFileName', "Code/FX_M21.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_PSG1",
-								'CodeFileName', "Code/FX_PSG1.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_SKS",
-								'CodeFileName', "Code/FX_SKS.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_SVT40",
-								'CodeFileName', "Code/FX_SVT40.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_SVU",
-								'CodeFileName', "Code/FX_SVU.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_ZastavaM76",
-								'CodeFileName', "Code/FX_ZastavaM76.lua",
-							}),
-							}),
-						PlaceObj('ModItemFolder', {
-							'name', "ActionFX_Carbines",
-						}, {
-							PlaceObj('ModItemCode', {
-								'name', "FX_AKSU",
-								'CodeFileName', "Code/FX_AKSU.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_AS_Val",
-								'CodeFileName', "Code/FX_AS_Val.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_CAR15",
-								'CodeFileName', "Code/FX_CAR15.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_G36c",
-								'CodeFileName', "Code/FX_G36c.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_M4A1",
-								'CodeFileName', "Code/FX_M4A1.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_Mini14",
-								'CodeFileName', "Code/FX_Mini14.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_Sig552",
-								'CodeFileName', "Code/FX_Sig552.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_Sig552SWAT",
-								'CodeFileName', "Code/FX_Sig552SWAT.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_VSS",
-								'CodeFileName', "Code/FX_VSS.lua",
-							}),
-							}),
-						PlaceObj('ModItemFolder', {
-							'name', "ActionFX_Bolt",
-						}, {
-							PlaceObj('ModItemCode', {
-								'name', "FX_ArcticWarfare",
-								'CodeFileName', "Code/FX_ArcticWarfare.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_FRF2",
-								'CodeFileName', "Code/FX_FRF2.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_M24Sniper",
-								'CodeFileName', "Code/FX_M24Sniper.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_Gewehr98",
-								'CodeFileName', "Code/FX_Gewehr98.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_M700",
-								'CodeFileName', "Code/FX_M700.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_Mosin",
-								'CodeFileName', "Code/FX_Mosin.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_ScoutSniper",
-								'CodeFileName', "Code/FX_ScoutSniper.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_Springfield",
-								'CodeFileName', "Code/FX_Springfield.lua",
-							}),
-							}),
-						PlaceObj('ModItemFolder', {
-							'name', "ActionFX_BattleRifles",
-						}, {
-							PlaceObj('ModItemCode', {
-								'name', "FX_AR10",
-								'CodeFileName', "Code/FX_AR10.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_BAR",
-								'CodeFileName', "Code/FX_BAR.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_FNFAL",
-								'CodeFileName', "Code/FX_FNFAL.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_G3A3",
-								'CodeFileName', "Code/FX_G3A3.lua",
-							}),
-							}),
-						PlaceObj('ModItemFolder', {
-							'name', "ActionFX_AR",
-						}, {
-							PlaceObj('ModItemCode', {
-								'name', "FX_AK47",
-								'CodeFileName', "Code/FX_AK47.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_AK74",
-								'CodeFileName', "Code/FX_AK74.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_AN94",
-								'CodeFileName', "Code/FX_AN94.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_HK33",
-								'CodeFileName', "Code/FX_HK33.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_M16",
-								'CodeFileName', "Code/FX_M16.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_Sig550",
-								'CodeFileName', "Code/FX_Sig550.lua",
-							}),
-							}),
-						PlaceObj('ModItemFolder', {
-							'name', "ActionFX_MG",
-						}, {
-							PlaceObj('ModItemCode', {
-								'name', "FX_HK23e",
-								'CodeFileName', "Code/FX_HK23e.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_MAC2429",
-								'CodeFileName', "Code/FX_MAC2429.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_U100",
-								'CodeFileName', "Code/FX_U100.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_RPD",
-								'CodeFileName', "Code/FX_RPD.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_PKM",
-								'CodeFileName', "Code/FX_PKM.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_M60",
-								'CodeFileName', "Code/FX_M60.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_FNMAG",
-								'CodeFileName', "Code/FX_FNMAG.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_DP27",
-								'CodeFileName', "Code/FX_DP27.lua",
-							}),
-							}),
-						PlaceObj('ModItemFolder', {
-							'name', "ActionFX_Launchers",
-						}, {
-							PlaceObj('ModItemCode', {
-								'name', "FX_M79",
-								'CodeFileName', "Code/FX_M79.lua",
-							}),
-							PlaceObj('ModItemCode', {
-								'name', "FX_China_Lake",
-								'CodeFileName', "Code/FX_China_Lake.lua",
-							}),
-							}),
 						}),
 					PlaceObj('ModItemFolder', {
 						'name', "ActionFX_Shotgun",
@@ -49011,18 +49148,6 @@ return {
 							'CodeFileName', "Code/FX_Stoeger.lua",
 						}),
 						PlaceObj('ModItemCode', {
-							'name', "FX_AA12",
-							'CodeFileName', "Code/FX_AA12.lua",
-						}),
-						PlaceObj('ModItemCode', {
-							'name', "FX_Auto5",
-							'CodeFileName', "Code/FX_Auto5.lua",
-						}),
-						PlaceObj('ModItemCode', {
-							'name', "FX_M41Shotgun",
-							'CodeFileName', "Code/FX_M41Shotgun.lua",
-						}),
-						PlaceObj('ModItemCode', {
 							'name', "FX_SPAS12",
 							'CodeFileName', "Code/FX_SPAS12.lua",
 						}),
@@ -49036,11 +49161,231 @@ return {
 						}),
 						}),
 					PlaceObj('ModItemFolder', {
+						'name', "ActionFX_AK",
+					}, {
+						PlaceObj('ModItemCode', {
+							'name', "FX_AK",
+							'CodeFileName', "Code/FX_AK.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_ZastavaM92",
+							'CodeFileName', "Code/FX_ZastavaM92.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_AN94",
+							'CodeFileName', "Code/FX_AN94.lua",
+						}),
+						}),
+					PlaceObj('ModItemFolder', {
+						'name', "ActionFX_AR",
+					}, {
+						PlaceObj('ModItemCode', {
+							'name', "FX_HK33",
+							'CodeFileName', "Code/FX_HK33.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_M16",
+							'CodeFileName', "Code/FX_M16.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Sig552",
+							'CodeFileName', "Code/FX_Sig552.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Sig550",
+							'CodeFileName', "Code/FX_Sig550.lua",
+						}),
+						}),
+					PlaceObj('ModItemFolder', {
+						'name', "ActionFX_Semi",
+					}, {
+						PlaceObj('ModItemCode', {
+							'name', "FX_AR10DMR",
+							'CodeFileName', "Code/FX_AR10DMR.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_AVT40",
+							'CodeFileName', "Code/FX_AVT40.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_DragunovSVD",
+							'CodeFileName', "Code/FX_DragunovSVD.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_G3SniperV1",
+							'CodeFileName', "Code/FX_G3SniperV1.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_M1A",
+							'CodeFileName', "Code/FX_M1A.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_M1Garand",
+							'CodeFileName', "Code/FX_M1Garand.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_M21",
+							'CodeFileName', "Code/FX_M21.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_PSG1",
+							'CodeFileName', "Code/FX_PSG1.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_SKS",
+							'CodeFileName', "Code/FX_SKS.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_SVT40",
+							'CodeFileName', "Code/FX_SVT40.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_SVU",
+							'CodeFileName', "Code/FX_SVU.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_ZastavaM76",
+							'CodeFileName', "Code/FX_ZastavaM76.lua",
+						}),
+						}),
+					PlaceObj('ModItemFolder', {
+						'name', "ActionFX_Carbines",
+					}, {
+						PlaceObj('ModItemCode', {
+							'name', "FX_AKSU",
+							'CodeFileName', "Code/FX_AKSU.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_AS_Val",
+							'CodeFileName', "Code/FX_AS_Val.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_CAR15",
+							'CodeFileName', "Code/FX_CAR15.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_G36c",
+							'CodeFileName', "Code/FX_G36c.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_M4A1",
+							'CodeFileName', "Code/FX_M4A1.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Mini14",
+							'CodeFileName', "Code/FX_Mini14.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_VSS",
+							'CodeFileName', "Code/FX_VSS.lua",
+						}),
+						}),
+					PlaceObj('ModItemFolder', {
+						'name', "ActionFX_Bolt",
+					}, {
+						PlaceObj('ModItemCode', {
+							'name', "FX_ArcticWarfare",
+							'CodeFileName', "Code/FX_ArcticWarfare.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_FRF2",
+							'CodeFileName', "Code/FX_FRF2.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_M24Sniper",
+							'CodeFileName', "Code/FX_M24Sniper.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Gewehr98",
+							'CodeFileName', "Code/FX_Gewehr98.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_M700",
+							'CodeFileName', "Code/FX_M700.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Mosin",
+							'CodeFileName', "Code/FX_Mosin.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_ScoutSniper",
+							'CodeFileName', "Code/FX_ScoutSniper.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Springfield",
+							'CodeFileName', "Code/FX_Springfield.lua",
+						}),
+						}),
+					PlaceObj('ModItemFolder', {
+						'name', "ActionFX_BattleRifles",
+					}, {
+						PlaceObj('ModItemCode', {
+							'name', "FX_AR10",
+							'CodeFileName', "Code/FX_AR10.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_BAR",
+							'CodeFileName', "Code/FX_BAR.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_G3A3",
+							'CodeFileName', "Code/FX_G3A3.lua",
+						}),
+						}),
+					PlaceObj('ModItemFolder', {
 						'name', "ActionFX_Ammo",
 					}, {
 						PlaceObj('ModItemCode', {
 							'name', "FX_Ammo",
 							'CodeFileName', "Code/FX_Ammo.lua",
+						}),
+						}),
+					PlaceObj('ModItemFolder', {
+						'name', "ActionFX_MG",
+					}, {
+						PlaceObj('ModItemCode', {
+							'name', "FX_HK23e",
+							'CodeFileName', "Code/FX_HK23e.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_MAC2429",
+							'CodeFileName', "Code/FX_MAC2429.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_U100",
+							'CodeFileName', "Code/FX_U100.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_RPD",
+							'CodeFileName', "Code/FX_RPD.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_PKM",
+							'CodeFileName', "Code/FX_PKM.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_M60",
+							'CodeFileName', "Code/FX_M60.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_FNMAG",
+							'CodeFileName', "Code/FX_FNMAG.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_DP27",
+							'CodeFileName', "Code/FX_DP27.lua",
+						}),
+						}),
+					PlaceObj('ModItemFolder', {
+						'name', "ActionFX_Launchers",
+					}, {
+						PlaceObj('ModItemCode', {
+							'name', "FX_M79",
+							'CodeFileName', "Code/FX_M79.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_China_Lake",
+							'CodeFileName', "Code/FX_China_Lake.lua",
 						}),
 						}),
 					PlaceObj('ModItemCode', {
@@ -50706,7 +51051,7 @@ return {
 					'CanAppearInShop', true,
 					'Tier', 2,
 					'CategoryPair', "Handguns",
-					'Caliber', "JAZZ_Caliber_44CAL",
+					'Caliber', "JAZZ_Caliber_50AE",
 					'Damage', 34,
 					'ObjDamageMod', 50,
 					'AimAccuracy', 18,
@@ -96384,7 +96729,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ DisplayName]] "Секретные данные"),
+					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Секретные данные"),
 					'Description', T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
 					'Icon', "UI/Icons/Perks/InnerInfo",
 					'Tier', "Personal",
@@ -96446,7 +96791,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ DisplayName]] "Юберрашунг"),
+					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Юберрашунг"),
 					'Description', T(845332100943, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ Description]] "Дает +50% од на первом ходу"),
 					'Icon', "UI/Icons/Perks/GruntyPerk",
 					'Tier', "Personal",
@@ -133244,7 +133589,7 @@ return {
 		}, {
 			PlaceObj('ModItemRegion', {
 				DisplayName = "Остров Эрни",
-				Heat = 380,
+				Heat = 378,
 				Sectors = {
 					"M1",
 					"M2",

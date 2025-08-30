@@ -1,12 +1,50 @@
+
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
-	Actor = "AN94",
+	Actor = "ZastavaM92",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "AN94_shot",
+	Sound = "ZastavaM92_shot",
 	Target = "Basic",
 	group = "Default",
-	id = "fxAN94",
+	id = "1778638083734334415",
+})
+
+PlaceObj('ActionFXSound', {
+	Action = "WeaponFire",
+	Actor = "ZastavaM92",
+	DetailLevel = 100,
+	Moment = "start",
+	Sound = "silencer_submachine",
+	Target = "Silencer",
+	group = "Default",
+	id = "6286208569052615722",
+})
+
+PlaceObj('ActionFXSound', {
+	Action = "WeaponFire",
+	Actor = "ZastavaM92",
+	Delay = 100,
+	DetailLevel = 100,
+	GameTime = true,
+	Moment = "start",
+	Sound = "bullet_casingA_release",
+	Source = "ActionPos",
+	group = "Default",
+	id = "8415297549998697993",
+})
+
+PlaceObj('ActionFXSound', {
+	Action = "WeaponFire",
+	Actor = "ZastavaM92",
+	Delay = 300,
+	DetailLevel = 100,
+	GameTime = true,
+	Moment = "start",
+	Sound = "bullet_casingB_fall",
+	Source = "ActionPos",
+	group = "Default",
+	id = "955508303050111803",
 })
 
 
@@ -15,171 +53,129 @@ PlaceObj('ActionFXSound', {
 	Delay = 400,
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "AK74_reload",
-	Target = "AN94",
+	Sound = "AKSU_reload",
+	Target = "ZastavaM92",
 	group = "Default",
-	id = "fxAN942",
+	id = "439761312414324630",
 })
-
 PlaceObj('ActionFXSound', {
 	Action = "UnjamWeapon",
 	DetailLevel = 100,
 	FadeOut = 50,
 	Moment = "start",
-	Sound = "AK74_reload",
-	Target = "AN94",
-	Time = 301,
+	Sound = "AKSU_reload",
+	Target = "ZastavaM92",
+	Time = 200,
 	group = "Default",
-	id = "fxAN943",
+	id = "2165824837017655994",
 })
-
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponEquip",
-	Actor = "AN94",
+	Actor = "ZastavaM92",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "AK74_reload",
+	Sound = "AKSU_reload",
 	Source = "Camera",
-	Target = "AssaultRifle",
+	Target = "SubmachineGun",
 	group = "Default",
-	id = "fxAN944",
-})
-
-
-
-PlaceObj('ActionFXSound', {
-	Action = "WeaponFire",
-	Actor = "AN94",
-	DetailLevel = 100,
-	Moment = "start",
-	Sound = "silencer_rifle",
-	Target = "Silencer",
-	group = "Default",
-	id = "fxAN945",
-})
-
-PlaceObj('ActionFXSound', {
-	Action = "WeaponFire",
-	Actor = "AN94",
-	Delay = 100,
-	DetailLevel = 100,
-	GameTime = true,
-	Moment = "start",
-	Sound = "bullet_casingA_release",
-	Source = "ActionPos",
-	group = "Default",
-	id = "fxAN946",
-})
-
-PlaceObj('ActionFXSound', {
-	Action = "WeaponFire",
-	Actor = "AN94",
-	Delay = 300,
-	DetailLevel = 100,
-	GameTime = true,
-	Moment = "start",
-	Sound = "bullet_casingB_fall",
-	Source = "ActionPos",
-	group = "Default",
-	id = "fxAN947",
+	id = "7397933128635207713",
 })
 
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponJam",
-	Actor = "AN94",
+	Actor = "ZastavaM92",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "empty_rifle",
 	group = "Default",
-	id = "fxAN948",
+	id = "3291068447471956529",
 })
 
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponLoad",
-	Actor = "AssaultRifle",
+	Actor = "SubmachineGun",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "bullet_load-762",
 	Source = "Camera",
-	Target = "AN94",
+	Target = "ZastavaM92",
 	group = "Default",
-	id = "fxAN949",
+	id = "2783594735332639320",
 })
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponLoad",
-	Actor = "AssaultRifle",
-	Delay = 800,
+	Actor = "SubmachineGun",
+	Delay = 900,
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "mag_AKtype-load",
 	Source = "Camera",
-	Target = "AN94",
+	Target = "ZastavaM92",
 	group = "Default",
-	id = "fxAN9410",
+	id = "7236640185088809535",
 })
 
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponReload",
-	Actor = "AN94",
-	Delay = 2500,
+	Actor = "ZastavaM92",
+	Delay = 1700,
 	DetailLevel = 100,
 	GameTime = true,
 	Moment = "start",
-	Sound = "AK74_reload",
+	Sound = "AKSU_reload",
 	group = "Default",
-	id = "fxAN9411",
+	id = "6634232890178131674",
 })
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponReload",
-	Actor = "AN94",
-	Delay = 1000,
+	Actor = "ZastavaM92",
+	Delay = 800,
 	DetailLevel = 100,
 	GameTime = true,
 	Moment = "start",
 	Sound = "mag_AKtype-load",
 	group = "Default",
-	id = "fxAN9412",
+	id = "8239088374413305727",
 })
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponReload",
-	Actor = "AN94",
+	Actor = "ZastavaM92",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "mag_AKtype-unload",
 	group = "Default",
-	id = "fxAN9413",
+	id = "2655852109194307477",
 })
 
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponUnload",
-	Actor = "AssaultRifle",
-	Delay = 700,
+	Actor = "SubmachineGun",
+	Delay = 800,
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "bullet_unload-762",
 	Source = "Camera",
-	Target = "AN94",
+	Target = "ZastavaM92",
 	group = "Default",
-	id = "fxAN9414",
+	id = "9198434070645398318",
 })
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponUnload",
-	Actor = "AssaultRifle",
+	Actor = "SubmachineGun",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "mag_AKtype-unload",
 	Source = "Camera",
-	Target = "AN94",
+	Target = "ZastavaM92",
 	group = "Default",
-	id = "fxAN9415",
+	id = "1695076074643220996",
 })
-
