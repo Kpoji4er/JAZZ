@@ -19,9 +19,9 @@ DefineClass.suppressionLight = {
 			end,
 		}),
 	},
-	DisplayName = T(279226942480, "Обстрелян"),
-	Description = T(880250024564, "Шанс попасть во врага немного снижен"),
-	AddEffectText = T(551437047571, "Обстрелян"),
+	DisplayName = T(279226942480, --[[ModItemCharacterEffectCompositeDef suppressionLight DisplayName]] "Обстрелян"),
+	Description = T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionLight Description]] "Шанс попасть во врага немного снижен"),
+	AddEffectText = T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionLight AddEffectText]] "Обстрелян"),
 	OnAdded = function (self, obj)
 		if not obj:IsDead() then
 		                    if obj:IsMerc() then

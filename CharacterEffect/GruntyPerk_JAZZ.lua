@@ -15,8 +15,8 @@ DefineClass.GruntyPerk_JAZZ = {
 			end,
 		}),
 	},
-	DisplayName = T(562334332352, "Юберрашунг"),
-	Description = T(845332100943, "Дает +50% од на первом ходу"),
+	DisplayName = T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ DisplayName]] "Юберрашунг"),
+	Description = T(845332100943, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ Description]] "Дает +50% од на первом ходу"),
 	Icon = "UI/Icons/Perks/GruntyPerk",
 	Tier = "Personal",
 }

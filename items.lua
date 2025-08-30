@@ -39630,6 +39630,12 @@ return {
 					}),
 					PlaceObj('ModItemCaliber', {
 						ImpactForce = 1,
+						Name = T(346459575064, --[[ModItemCaliber Default JAZZ_Caliber_357 Name]] "0.357 MAG"),
+						group = "Default",
+						id = "JAZZ_Caliber_357",
+					}),
+					PlaceObj('ModItemCaliber', {
+						ImpactForce = 1,
 						Name = T(346459575064, --[[ModItemCaliber Default JAZZ_Caliber_50AE Name]] "0.50 AE"),
 						group = "Default",
 						id = "JAZZ_Caliber_50AE",
@@ -39736,134 +39742,6 @@ return {
 						SortKey = 7,
 						group = "Default",
 						id = "JAZZ_Caliber_Flare",
-					}),
-					}),
-				PlaceObj('ModItemFolder', {
-					'name', "Vanilla",
-				}, {
-					PlaceObj('ModItemCaliber', {
-						ImpactForce = -1,
-						Name = T(335072063128, --[[ModItemCaliber Default 9mm Name]] "9x19 мм"),
-						SortKey = 1,
-						group = "Default",
-						id = "9mm",
-					}),
-					PlaceObj('ModItemCaliber', {
-						ImpactForce = -1,
-						Name = T(320497078484, --[[ModItemCaliber Default 9x18 Name]] "9x18 мм"),
-						SortKey = 1,
-						group = "Default",
-						id = "9x18",
-					}),
-					PlaceObj('ModItemCaliber', {
-						ImpactForce = 2,
-						Name = T(374254442254, --[[ModItemCaliber Default 9x39 Name]] "9x39 мм"),
-						SortKey = 1,
-						group = "Default",
-						id = "9x39",
-					}),
-					PlaceObj('ModItemCaliber', {
-						ImpactForce = -1,
-						Name = T(356732966741, --[[ModItemCaliber Default 762x25 Name]] "7.62x25 мм"),
-						SortKey = 1,
-						group = "Default",
-						id = "762x25",
-					}),
-					PlaceObj('ModItemCaliber', {
-						ImpactForce = 1,
-						Name = T(740481253224, --[[ModItemCaliber Default 44CAL Name]] "0.44"),
-						group = "Default",
-						id = "44CAL",
-					}),
-					PlaceObj('ModItemCaliber', {
-						ImpactForce = 1,
-						Name = T(378562708039, --[[ModItemCaliber Default 45ACP Name]] "0.45ACP"),
-						group = "Default",
-						id = "45ACP",
-					}),
-					PlaceObj('ModItemCaliber', {
-						ImpactForce = 1,
-						Name = T(276369271320, --[[ModItemCaliber Default 12gauge Name]] "12-й калибр"),
-						group = "Default",
-						id = "12gauge",
-					}),
-					PlaceObj('ModItemCaliber', {
-						ImpactForce = 1,
-						Name = T(440466973403, --[[ModItemCaliber Default 556 Name]] "5,56 мм"),
-						SortKey = 4,
-						group = "Default",
-						id = "556",
-					}),
-					PlaceObj('ModItemCaliber', {
-						ImpactForce = 1,
-						Name = T(511975509415, --[[ModItemCaliber Default 545 Name]] "5,45x39 мм СССР"),
-						SortKey = 4,
-						group = "Default",
-						id = "545",
-					}),
-					PlaceObj('ModItemCaliber', {
-						ImpactForce = -1,
-						Name = T(965337121823, --[[ModItemCaliber Default 57 Name]] "5,7 мм"),
-						SortKey = 4,
-						group = "Default",
-						id = "57",
-					}),
-					PlaceObj('ModItemCaliber', {
-						Name = T(702842521562, --[[ModItemCaliber Default 3006 Name]] "30-06"),
-						SortKey = 6,
-						group = "Default",
-						id = "3006",
-					}),
-					PlaceObj('ModItemCaliber', {
-						Name = T(113369638001, --[[ModItemCaliber Default 762WP Name]] "7,62x39 мм СССР"),
-						SortKey = 5,
-						group = "Default",
-						id = "762WP",
-					}),
-					PlaceObj('ModItemCaliber', {
-						Name = T(344559032585, --[[ModItemCaliber Default 762NATO Name]] "7,62 мм НАТО"),
-						SortKey = 6,
-						group = "Default",
-						id = "762NATO",
-					}),
-					PlaceObj('ModItemCaliber', {
-						Name = T(322796854670, --[[ModItemCaliber Default 762x54R Name]] "762x54R СССР"),
-						SortKey = 6,
-						group = "Default",
-						id = "762x54R",
-					}),
-					PlaceObj('ModItemCaliber', {
-						Name = T(284211381700, --[[ModItemCaliber Default 792 Name]] "7.92х57мм"),
-						SortKey = 6,
-						group = "Default",
-						id = "792",
-					}),
-					PlaceObj('ModItemCaliber', {
-						ImpactForce = 2,
-						Name = T(285914594507, --[[ModItemCaliber Default 50BMG Name]] "0.5"),
-						group = "Default",
-						id = "50BMG",
-					}),
-					PlaceObj('ModItemCaliber', {
-						Name = T(108049936074, --[[ModItemCaliber Default 40mmGrenade Name]] "40 мм"),
-						group = "Default",
-						id = "40mmGrenade",
-					}),
-					PlaceObj('ModItemCaliber', {
-						Name = T(265112106166, --[[ModItemCaliber Default MortarShell Name]] "Выстрел"),
-						group = "Default",
-						id = "MortarShell",
-					}),
-					PlaceObj('ModItemCaliber', {
-						Name = T(756388231557, --[[ModItemCaliber Default Warhead Name]] "Гранатометный снаряд"),
-						group = "Default",
-						id = "Warhead",
-					}),
-					PlaceObj('ModItemCaliber', {
-						Name = T(470322593453, --[[ModItemCaliber Default Flare Name]] "Сигнальная ракета"),
-						SortKey = 7,
-						group = "Default",
-						id = "Flare",
 					}),
 					}),
 				}),
@@ -40246,6 +40124,33 @@ return {
 					'ShopStackSize', 30,
 					'MaxStacks', 120,
 					'Caliber', "JAZZ_Caliber_38",
+					'Modifications', {
+						PlaceObj('CaliberModification', {
+							mod_mul = 0,
+							target_prop = "PenetrationClass",
+						}),
+						PlaceObj('CaliberModification', {
+							mod_mul = 800,
+							target_prop = "Damage",
+						}),
+					},
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Ammo",
+					'Id', "JAZZ_AMMO_357",
+					'object_class', "Ammo",
+					'Icon', "Mod/e6L4ECj/Ammopics/357_big.png",
+					'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357 DisplayName]] ".357 Magnum"),
+					'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357 DisplayNamePlural]] ".357 Magnum"),
+					'colorStyle', "AmmoBasicColor",
+					'Description', T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357 Description]] "Боеприпас для пистолетов, револьверов и пистолетов-пулеметов калибра .38 Special."),
+					'Cost', 10,
+					'CanAppearInShop', true,
+					'MaxStock', 50,
+					'CategoryPair', "44CAL",
+					'ShopStackSize', 30,
+					'MaxStacks', 120,
+					'Caliber', "JAZZ_Caliber_357",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
 							mod_mul = 0,
@@ -46986,6 +46891,42 @@ return {
 						}),
 						PlaceObj('ModItemSoundPreset', {
 							group = "WEAPONS",
+							id = "P90clipin",
+							loud_distance = 20000,
+							type = "Weapons",
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/P90/p90clipin.opus",
+							}),
+						}),
+						PlaceObj('ModItemSoundPreset', {
+							group = "WEAPONS",
+							id = "P90clipout",
+							loud_distance = 20000,
+							type = "Weapons",
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/P90/p90clipout.opus",
+							}),
+						}),
+						PlaceObj('ModItemSoundPreset', {
+							group = "WEAPONS",
+							id = "P90equipncheck",
+							loud_distance = 20000,
+							type = "Weapons",
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/P90/p90equipncheck.opus",
+							}),
+						}),
+						PlaceObj('ModItemSoundPreset', {
+							group = "WEAPONS",
+							id = "P90reload",
+							loud_distance = 20000,
+							type = "Weapons",
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/P90/p90reload.opus",
+							}),
+						}),
+						PlaceObj('ModItemSoundPreset', {
+							group = "WEAPONS",
 							id = "CAR15_shot",
 							loud_distance = 20000,
 							type = "Weapons",
@@ -48598,6 +48539,546 @@ return {
 						'name', "CodeSounds",
 						'CodeFileName', "Code/CodeSounds.lua",
 					}),
+					PlaceObj('ModItemFolder', {
+						'name', "ActionFX_Pistols",
+					}, {
+						PlaceObj('ModItemCode', {
+							'name', "FX_P210",
+							'CodeFileName', "Code/FX_P210.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_P220",
+							'CodeFileName', "Code/FX_P220.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_P226",
+							'CodeFileName', "Code/FX_P226.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_MAC1950",
+							'CodeFileName', "Code/FX_MAC1950.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_TT33",
+							'CodeFileName', "Code/FX_TT33.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Glock",
+							'CodeFileName', "Code/FX_Glock.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_APS",
+							'CodeFileName', "Code/FX_APS.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Beretta",
+							'CodeFileName', "Code/FX_Beretta.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_CZ52",
+							'CodeFileName', "Code/FX_CZ52.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_CZ75",
+							'CodeFileName', "Code/FX_CZ75.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Colt1911",
+							'CodeFileName', "Code/FX_Colt1911.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_FiveSeven",
+							'CodeFileName', "Code/FX_FiveSeven.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_PYA",
+							'CodeFileName', "Code/FX_PYA.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_GrizzlyLAR",
+							'CodeFileName', "Code/FX_GrizzlyLAR.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Luger",
+							'CodeFileName', "Code/FX_Luger.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Makarov",
+							'CodeFileName', "Code/FX_Makarov.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_PB",
+							'CodeFileName', "Code/FX_PB.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_P38",
+							'CodeFileName', "Code/FX_P38.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_SWModel52",
+							'CodeFileName', "Code/FX_SWModel52.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_SWModel5906",
+							'CodeFileName', "Code/FX_SWModel5906.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_USP45",
+							'CodeFileName', "Code/FX_USP45.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_VectorCP1",
+							'CodeFileName', "Code/FX_VectorCP1.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Welrod",
+							'CodeFileName', "Code/FX_Welrod.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "CodeSounds_Pistols",
+							'CodeFileName', "Code/CodeSounds_Pistols.lua",
+						}),
+						}),
+					PlaceObj('ModItemFolder', {
+						'name', "ActionFX_Revolvers",
+					}, {
+						PlaceObj('ModItemCode', {
+							'name', "FX_Colt38Special",
+							'CodeFileName', "Code/FX_Colt38Special.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_ColtM1917",
+							'CodeFileName', "Code/FX_ColtM1917.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Korth",
+							'CodeFileName', "Code/FX_Korth.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_RSH12",
+							'CodeFileName', "Code/FX_RSH12.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_SWModel10",
+							'CodeFileName', "Code/FX_SWModel10.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_SWModel19",
+							'CodeFileName', "Code/FX_SWModel19.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_SWModel29",
+							'CodeFileName', "Code/FX_SWModel29.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_TexRevolver",
+							'CodeFileName', "Code/FX_TexRevolver.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Webley",
+							'CodeFileName', "Code/FX_Webley.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_MR73",
+							'CodeFileName', "Code/FX_MR73.lua",
+						}),
+						}),
+					PlaceObj('ModItemFolder', {
+						'name', "ActionFX_SMG",
+					}, {
+						PlaceObj('ModItemCode', {
+							'name', "FX_Agram2000",
+							'CodeFileName', "Code/FX_Agram2000.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_BerettaM12",
+							'CodeFileName', "Code/FX_BerettaM12.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_M3GreaseGun",
+							'CodeFileName', "Code/FX_M3GreaseGun.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_M45",
+							'CodeFileName', "Code/FX_M45.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_MAT49",
+							'CodeFileName', "Code/FX_MAT49.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_MP5",
+							'CodeFileName', "Code/FX_MP5.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_MPL",
+							'CodeFileName', "Code/FX_MPL.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_P90",
+							'CodeFileName', "Code/FX_P90.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_PP19Bizon",
+							'CodeFileName', "Code/FX_PP19Bizon.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_PPS43",
+							'CodeFileName', "Code/FX_PPS43.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_PPSH",
+							'CodeFileName', "Code/FX_PPSH.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_SpectreM4",
+							'CodeFileName', "Code/FX_SpectreM4.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Sterling",
+							'CodeFileName', "Code/FX_Sterling.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Thompson",
+							'CodeFileName', "Code/FX_Thompson.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_UMP45",
+							'CodeFileName', "Code/FX_UMP45.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_MAC10",
+							'CodeFileName', "Code/FX_MAC10.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_MP7",
+							'CodeFileName', "Code/FX_MP7.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_MicroUZI",
+							'CodeFileName', "Code/FX_MicroUZI.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Scorpion",
+							'CodeFileName', "Code/FX_Scorpion.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_TMP",
+							'CodeFileName', "Code/FX_TMP.lua",
+						}),
+						PlaceObj('ModItemFolder', {
+							'name', "ActionFX_Semi",
+						}, {
+							PlaceObj('ModItemCode', {
+								'name', "FX_AR10DMR",
+								'CodeFileName', "Code/FX_AR10DMR.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_AVT40",
+								'CodeFileName', "Code/FX_AVT40.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_DragunovSVD",
+								'CodeFileName', "Code/FX_DragunovSVD.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_G3SniperV1",
+								'CodeFileName', "Code/FX_G3SniperV1.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_M1A",
+								'CodeFileName', "Code/FX_M1A.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_M1Garand",
+								'CodeFileName', "Code/FX_M1Garand.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_M21",
+								'CodeFileName', "Code/FX_M21.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_PSG1",
+								'CodeFileName', "Code/FX_PSG1.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_SKS",
+								'CodeFileName', "Code/FX_SKS.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_SVT40",
+								'CodeFileName', "Code/FX_SVT40.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_SVU",
+								'CodeFileName', "Code/FX_SVU.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_ZastavaM76",
+								'CodeFileName', "Code/FX_ZastavaM76.lua",
+							}),
+							}),
+						PlaceObj('ModItemFolder', {
+							'name', "ActionFX_Carbines",
+						}, {
+							PlaceObj('ModItemCode', {
+								'name', "FX_AKSU",
+								'CodeFileName', "Code/FX_AKSU.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_AS_Val",
+								'CodeFileName', "Code/FX_AS_Val.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_CAR15",
+								'CodeFileName', "Code/FX_CAR15.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_G36c",
+								'CodeFileName', "Code/FX_G36c.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_M4A1",
+								'CodeFileName', "Code/FX_M4A1.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_Mini14",
+								'CodeFileName', "Code/FX_Mini14.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_Sig552",
+								'CodeFileName', "Code/FX_Sig552.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_Sig552SWAT",
+								'CodeFileName', "Code/FX_Sig552SWAT.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_VSS",
+								'CodeFileName', "Code/FX_VSS.lua",
+							}),
+							}),
+						PlaceObj('ModItemFolder', {
+							'name', "ActionFX_Bolt",
+						}, {
+							PlaceObj('ModItemCode', {
+								'name', "FX_ArcticWarfare",
+								'CodeFileName', "Code/FX_ArcticWarfare.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_FRF2",
+								'CodeFileName', "Code/FX_FRF2.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_M24Sniper",
+								'CodeFileName', "Code/FX_M24Sniper.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_Gewehr98",
+								'CodeFileName', "Code/FX_Gewehr98.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_M700",
+								'CodeFileName', "Code/FX_M700.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_Mosin",
+								'CodeFileName', "Code/FX_Mosin.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_ScoutSniper",
+								'CodeFileName', "Code/FX_ScoutSniper.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_Springfield",
+								'CodeFileName', "Code/FX_Springfield.lua",
+							}),
+							}),
+						PlaceObj('ModItemFolder', {
+							'name', "ActionFX_BattleRifles",
+						}, {
+							PlaceObj('ModItemCode', {
+								'name', "FX_AR10",
+								'CodeFileName', "Code/FX_AR10.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_BAR",
+								'CodeFileName', "Code/FX_BAR.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_FNFAL",
+								'CodeFileName', "Code/FX_FNFAL.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_G3A3",
+								'CodeFileName', "Code/FX_G3A3.lua",
+							}),
+							}),
+						PlaceObj('ModItemFolder', {
+							'name', "ActionFX_AR",
+						}, {
+							PlaceObj('ModItemCode', {
+								'name', "FX_AK47",
+								'CodeFileName', "Code/FX_AK47.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_AK74",
+								'CodeFileName', "Code/FX_AK74.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_AN94",
+								'CodeFileName', "Code/FX_AN94.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_HK33",
+								'CodeFileName', "Code/FX_HK33.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_M16",
+								'CodeFileName', "Code/FX_M16.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_Sig550",
+								'CodeFileName', "Code/FX_Sig550.lua",
+							}),
+							}),
+						PlaceObj('ModItemFolder', {
+							'name', "ActionFX_MG",
+						}, {
+							PlaceObj('ModItemCode', {
+								'name', "FX_HK23e",
+								'CodeFileName', "Code/FX_HK23e.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_MAC2429",
+								'CodeFileName', "Code/FX_MAC2429.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_U100",
+								'CodeFileName', "Code/FX_U100.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_RPD",
+								'CodeFileName', "Code/FX_RPD.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_PKM",
+								'CodeFileName', "Code/FX_PKM.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_M60",
+								'CodeFileName', "Code/FX_M60.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_FNMAG",
+								'CodeFileName', "Code/FX_FNMAG.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_DP27",
+								'CodeFileName', "Code/FX_DP27.lua",
+							}),
+							}),
+						PlaceObj('ModItemFolder', {
+							'name', "ActionFX_Launchers",
+						}, {
+							PlaceObj('ModItemCode', {
+								'name', "FX_M79",
+								'CodeFileName', "Code/FX_M79.lua",
+							}),
+							PlaceObj('ModItemCode', {
+								'name', "FX_China_Lake",
+								'CodeFileName', "Code/FX_China_Lake.lua",
+							}),
+							}),
+						}),
+					PlaceObj('ModItemFolder', {
+						'name', "ActionFX_Shotgun",
+					}, {
+						PlaceObj('ModItemCode', {
+							'name', "FX_Ithaca",
+							'CodeFileName', "Code/FX_Ithaca.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_M1897",
+							'CodeFileName', "Code/FX_M1897.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_R870",
+							'CodeFileName', "Code/FX_R870.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Stoeger",
+							'CodeFileName', "Code/FX_Stoeger.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_AA12",
+							'CodeFileName', "Code/FX_AA12.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Auto5",
+							'CodeFileName', "Code/FX_Auto5.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_M41Shotgun",
+							'CodeFileName', "Code/FX_M41Shotgun.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_SPAS12",
+							'CodeFileName', "Code/FX_SPAS12.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Striker",
+							'CodeFileName', "Code/FX_Striker.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_USAS12",
+							'CodeFileName', "Code/FX_USAS12.lua",
+						}),
+						}),
+					PlaceObj('ModItemFolder', {
+						'name', "ActionFX_Ammo",
+					}, {
+						PlaceObj('ModItemCode', {
+							'name', "FX_Ammo",
+							'CodeFileName', "Code/FX_Ammo.lua",
+						}),
+						}),
+					PlaceObj('ModItemCode', {
+						'name', "CodeSounds_SHOTGUNS",
+						'CodeFileName', "Code/CodeSounds_SHOTGUNS.lua",
+					}),
+					PlaceObj('ModItemCode', {
+						'name', "CodeSounds_AR",
+						'CodeFileName', "Code/CodeSounds_AR.lua",
+					}),
+					PlaceObj('ModItemCode', {
+						'name', "CodeSounds_AR15",
+						'CodeFileName', "Code/CodeSounds_AR15.lua",
+					}),
+					PlaceObj('ModItemCode', {
+						'name', "CodeSounds_BoltR",
+						'CodeFileName', "Code/CodeSounds_BoltR.lua",
+					}),
+					PlaceObj('ModItemCode', {
+						'name', "CodeSounds_SVD",
+						'CodeFileName', "Code/CodeSounds_SVD.lua",
+					}),
+					PlaceObj('ModItemCode', {
+						'name', "CodeSounds_WW2Rifles",
+						'CodeFileName', "Code/CodeSounds_WW2Rifles.lua",
+					}),
+					PlaceObj('ModItemCode', {
+						'name', "CodeSounds_VSS",
+						'CodeFileName', "Code/CodeSounds_VSS.lua",
+					}),
+					PlaceObj('ModItemCode', {
+						'name', "CodeSounds_AK",
+						'CodeFileName', "Code/CodeSounds_AK.lua",
+					}),
+					PlaceObj('ModItemCode', {
+						'name', "CodeSounds_MG",
+						'CodeFileName', "Code/CodeSounds_MG.lua",
+					}),
 					PlaceObj('ModItemCode', {
 						'name', "NoSoundsInRooms",
 						'CodeFileName', "Code/NoSoundsInRooms.lua",
@@ -48787,8 +49268,8 @@ return {
 					'ScrapParts', 6,
 					'RepairCost', 7,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/SW52.png",
-					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef SWModel52 DisplayName]] "CZ52"),
-					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef SWModel52 DisplayNamePlural]] "CZ52"),
+					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef SWModel52 DisplayName]] "S&W Model 52"),
+					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef SWModel52 DisplayNamePlural]] "S&W Model 52"),
 					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef SWModel52 Description]] "Баюн не сделал описание этому предмету :("),
 					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef SWModel52 AdditionalHint]] "Баюн не сделал описание этому предмету :("),
 					'UnitStat', "Marksmanship",
@@ -49347,7 +49828,7 @@ return {
 					'Cost', 500,
 					'CanAppearInShop', true,
 					'CategoryPair', "Handguns",
-					'Caliber', "JAZZ_Caliber_38",
+					'Caliber', "JAZZ_Caliber_9x19",
 					'Damage', 23,
 					'ObjDamageMod', 40,
 					'AimAccuracy', 12,
@@ -49532,9 +50013,9 @@ return {
 					'object_class', "Pistol",
 					'ScrapParts', 6,
 					'RepairCost', 4,
-					'Icon', "Mod/e6L4ECj/WeaponIcons/CZ75.png",
-					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef SWModel5906 DisplayName]] "CZ52"),
-					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef SWModel5906 DisplayNamePlural]] "CZ52"),
+					'Icon', "Mod/e6L4ECj/WeaponIcons/SW5906.png",
+					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef SWModel5906 DisplayName]] "S&W Model 5906"),
+					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef SWModel5906 DisplayNamePlural]] "S&W Model 5906"),
 					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef SWModel5906 Description]] 'Спортивный, боевой, полицейский, гражданский пистолет из Чехии. Практически, победитель оружейного "Евровидения", но первое место принадлежит тому, кого нельзя называть. Иначе придется его купить.'),
 					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef SWModel5906 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая точность"),
 					'UnitStat', "Marksmanship",
@@ -50050,8 +50531,8 @@ return {
 					'RepairCost', 6,
 					'Reliability', 50,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/1911.png",
-					'DisplayName', T(646219544697, --[[ModItemInventoryItemCompositeDef Kimber DisplayName]] "Colt M1911"),
-					'DisplayNamePlural', T(539052887945, --[[ModItemInventoryItemCompositeDef Kimber DisplayNamePlural]] "Colt M1911"),
+					'DisplayName', T(646219544697, --[[ModItemInventoryItemCompositeDef Kimber DisplayName]] "Kimber"),
+					'DisplayNamePlural', T(539052887945, --[[ModItemInventoryItemCompositeDef Kimber DisplayNamePlural]] "Kimber"),
 					'Description', T(239186058142, --[[ModItemInventoryItemCompositeDef Kimber Description]] "Баюн не сделал описание этому предмету :("),
 					'AdditionalHint', T(123923849772, --[[ModItemInventoryItemCompositeDef Kimber AdditionalHint]] "Баюн не сделал описание этому предмету :("),
 					'UnitStat', "Marksmanship",
@@ -50264,7 +50745,7 @@ return {
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Glock17.png",
 					'DisplayName', T(464861298445, --[[ModItemInventoryItemCompositeDef Glock17 DisplayName]] "Glock 17"),
 					'DisplayNamePlural', T(134481114957, --[[ModItemInventoryItemCompositeDef Glock17 DisplayNamePlural]] "Glock 17"),
-					'Description', T(219478192607, --[[ModItemInventoryItemCompositeDef Glock17 Description]] "Glock 17"),
+					'Description', T(219478192607, --[[ModItemInventoryItemCompositeDef Glock17 Description]] "Баюн не сделал описание этому предмету :("),
 					'AdditionalHint', T(593063289584, --[[ModItemInventoryItemCompositeDef Glock17 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бонус при стрельбе навскидку\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая надежность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Возможность модификаций"),
 					'UnitStat', "Marksmanship",
 					'Cost', 7000,
@@ -50764,6 +51245,7 @@ return {
 					'HolsterSlot', "Leg",
 					'AvailableAttacks', {
 						"SingleShot",
+						"BurstFire",
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
@@ -50772,7 +51254,7 @@ return {
 					'ReloadAP', 4000,
 					'MaxAimActions', 2,
 					'Recoil', 1,
-					'AutoShots', 3,
+					'AutoShots', 9,
 					'Handling', 86,
 					'BulletDropRange', 6,
 					'Grouping', 94,
@@ -51033,8 +51515,8 @@ return {
 					'Cost', 500,
 					'CanAppearInShop', true,
 					'CategoryPair', "Handguns",
-					'Caliber', "JAZZ_Caliber_44CAL",
-					'Damage', 29,
+					'Caliber', "JAZZ_Caliber_357",
+					'Damage', 34,
 					'ObjDamageMod', 40,
 					'AimAccuracy', 6,
 					'CritChance', 5,
@@ -51072,7 +51554,7 @@ return {
 					'ReloadAP', 5000,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 80,
+					'Handling', 76,
 					'BulletDropRange', 7,
 					'Grouping', 92,
 					'BaseJamChance', -100,
@@ -51095,7 +51577,7 @@ return {
 					'Cost', 500,
 					'CanAppearInShop', true,
 					'CategoryPair', "Handguns",
-					'Caliber', "45ACP",
+					'Caliber', "JAZZ_Caliber_45ACP",
 					'Damage', 26,
 					'ObjDamageMod', 40,
 					'AimAccuracy', 12,
@@ -51148,7 +51630,7 @@ return {
 					'Cost', 500,
 					'CanAppearInShop', true,
 					'CategoryPair', "Handguns",
-					'Caliber', "JAZZ_Caliber_38",
+					'Caliber', "JAZZ_Caliber_357",
 					'Damage', 28,
 					'ObjDamageMod', 40,
 					'AimAccuracy', 16,
@@ -51213,15 +51695,15 @@ return {
 					'RepairCost', 3,
 					'Reliability', 95,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Webley.png",
-					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef Webley DisplayName]] "Colt M1917 .45 Service Revolver"),
-					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef Webley DisplayNamePlural]] "Colt M1917 .45 Service Revolver"),
+					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef Webley DisplayName]] "Webley Mk VI"),
+					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef Webley DisplayNamePlural]] "Webley Mk VI"),
 					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef Webley Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
 					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef Webley AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер - точный, надежный, но большие затраты ОД на выстрел и перезарядку"),
 					'UnitStat', "Marksmanship",
 					'Cost', 500,
 					'CanAppearInShop', true,
 					'CategoryPair', "Handguns",
-					'Caliber', "JAZZ_Caliber_38",
+					'Caliber', "JAZZ_Caliber_45ACP",
 					'Damage', 27,
 					'ObjDamageMod', 40,
 					'AimAccuracy', 16,
@@ -51282,7 +51764,7 @@ return {
 					'Cost', 500,
 					'CanAppearInShop', true,
 					'CategoryPair', "Handguns",
-					'Caliber', "JAZZ_Caliber_38",
+					'Caliber', "JAZZ_Caliber_357",
 					'Damage', 29,
 					'ObjDamageMod', 40,
 					'AimAccuracy', 17,
@@ -51351,7 +51833,7 @@ return {
 					'CanAppearInShop', true,
 					'CategoryPair', "Handguns",
 					'Caliber', "JAZZ_Caliber_44CAL",
-					'Damage', 36,
+					'Damage', 42,
 					'ObjDamageMod', 40,
 					'AimAccuracy', 16,
 					'CritChance', 5,
@@ -51492,15 +51974,15 @@ return {
 					'RepairCost', 25,
 					'Reliability', 95,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Korth.png",
-					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef Korth DisplayName]] "Manurhin MR 73"),
-					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef Korth DisplayNamePlural]] "Manurhin MR 73"),
+					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef Korth DisplayName]] "Korth Revolver"),
+					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef Korth DisplayNamePlural]] "Korth Revolver"),
 					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef Korth Description]] "Баюн не сделал описание этому предмету :("),
 					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef Korth AdditionalHint]] "Баюн не сделал описание этому предмету :("),
 					'UnitStat', "Marksmanship",
 					'Cost', 500,
 					'CanAppearInShop', true,
 					'CategoryPair', "Handguns",
-					'Caliber', "JAZZ_Caliber_38",
+					'Caliber', "JAZZ_Caliber_357",
 					'Damage', 30,
 					'ObjDamageMod', 40,
 					'AimAccuracy', 20,

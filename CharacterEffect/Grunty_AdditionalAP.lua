@@ -28,8 +28,8 @@ DefineClass.Grunty_AdditionalAP = {
 			Expression = function (self, obj) return g_Combat and IsKindOf(obj, "Unit") end,
 		}),
 	},
-	DisplayName = T(952338905331, "Überraschung"),
-	Description = T(912592808613, "Дает <em><bonus> ОД</em>."),
+	DisplayName = T(952338905331, --[[ModItemCharacterEffectCompositeDef Grunty_AdditionalAP DisplayName]] "Überraschung"),
+	Description = T(912592808613, --[[ModItemCharacterEffectCompositeDef Grunty_AdditionalAP Description]] "Дает <em><bonus> ОД</em>."),
 	OnAdded = function (self, obj)
 		if g_Teams[g_CurrentTeam] == obj.team then
 			local ap = obj:GetMaxActionPoints()
