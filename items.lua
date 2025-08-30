@@ -3559,7 +3559,7 @@ return {
 						item = "CustomPDA",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "M3GreaseGun",
+						item = "Webley",
 						stack_max = 1,
 						stack_min = 1,
 					}),
@@ -4505,15 +4505,14 @@ return {
 					id = "Barry25",
 					loot = "all",
 					PlaceObj('LootEntryInventoryItem', {
-						item = "Scorpion",
+						item = "Webley",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						Double = true,
-						item = "JAZZ_AMMO_9x18_FMJ",
-						stack_max = 80,
-						stack_min = 80,
+						item = "JAZZ_AMMO_45ACP_FMJ",
+						stack_max = 18,
+						stack_min = 18,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "TNT",
@@ -5131,14 +5130,16 @@ return {
 					group = "Mercs",
 					id = "Thor35",
 					loot = "all",
-					PlaceObj('LootEntryUpgradedWeapon', {
-						weapon = "BerettaM12",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Webley",
+						stack_max = 1,
+						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
-						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 128,
-						stack_min = 128,
+						item = "JAZZ_AMMO_45ACP_FMJ",
+						stack_max = 40,
+						stack_min = 40,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_CamoKneePads",
@@ -6118,14 +6119,14 @@ return {
 						stack_min = 6,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "SpectreM4",
+						item = "Webley",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 50,
-						stack_min = 50,
+						item = "JAZZ_AMMO_45ACP_FMJ",
+						stack_max = 36,
+						stack_min = 36,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						condition = "Difficulty VeryHard",
@@ -7648,13 +7649,13 @@ return {
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "Colt38Special",
+						item = "Webley",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
-						item = "JAZZ_AMMO_38special",
+						item = "JAZZ_AMMO_45ACP_FMJ",
 						stack_max = 48,
 						stack_min = 48,
 					}),
@@ -7770,8 +7771,9 @@ return {
 					group = "Mercs",
 					id = "Red35",
 					loot = "all",
-					PlaceObj('LootEntryUpgradedWeapon', {
-						weapon = "Thompson",
+					PlaceObj('LootEntryInventoryItem', {
+						Double = true,
+						item = "Webley",
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						Double = true,
@@ -8680,14 +8682,14 @@ return {
 						stack_min = 150,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "P210",
+						item = "Webley",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 8,
-						stack_min = 8,
+						item = "JAZZ_AMMO_45ACP_FMJ",
+						stack_max = 18,
+						stack_min = 18,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_PASGTHelm",
@@ -8725,14 +8727,14 @@ return {
 						stack_min = 60,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "P210",
+						item = "Webley",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 8,
-						stack_min = 8,
+						item = "JAZZ_AMMO_45ACP_FMJ",
+						stack_max = 18,
+						stack_min = 18,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "HE_Grenade",
@@ -8770,14 +8772,14 @@ return {
 						stack_min = 40,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "P210",
+						item = "Webley",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 8,
-						stack_min = 8,
+						item = "JAZZ_AMMO_45ACP_FMJ",
+						stack_max = 18,
+						stack_min = 18,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "SmokeGrenade",
@@ -8821,14 +8823,14 @@ return {
 						stack_min = 30,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "P210",
+						item = "Webley",
 						stack_max = 1,
 						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 8,
-						stack_min = 8,
+						item = "JAZZ_AMMO_45ACP_FMJ",
+						stack_max = 18,
+						stack_min = 18,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "SmokeGrenade",
@@ -8859,16 +8861,15 @@ return {
 					group = "Mercs",
 					id = "Sidney10",
 					loot = "all",
-					PlaceObj('LootEntryUpgradedWeapon', {
-						upgrades = {
-							"PistolSuppressor",
-						},
-						weapon = "P210",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Webley",
+						stack_max = 1,
+						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "JAZZ_AMMO_9x19_FMJ",
-						stack_max = 16,
-						stack_min = 16,
+						item = "JAZZ_AMMO_45ACP_FMJ",
+						stack_max = 18,
+						stack_min = 18,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "SmokeGrenade",
@@ -9341,8 +9342,10 @@ return {
 						stack_max = 30,
 						stack_min = 20,
 					}),
-					PlaceObj('LootEntryUpgradedWeapon', {
-						weapon = "HiPower",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Welrod",
+						stack_max = 1,
+						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JAZZ_AMMO_9x19_Match",
@@ -9385,13 +9388,15 @@ return {
 						stack_max = 10,
 						stack_min = 10,
 					}),
-					PlaceObj('LootEntryUpgradedWeapon', {
-						weapon = "P220",
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Webley",
+						stack_max = 1,
+						stack_min = 1,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
-						item = "JAZZ_AMMO_45ACP_JHP",
-						stack_max = 30,
-						stack_min = 30,
+						item = "JAZZ_AMMO_45ACP_FMJ",
+						stack_max = 18,
+						stack_min = 18,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_PoliceVest",
@@ -9422,6 +9427,16 @@ return {
 						item = "JAZZ_AMMO_9x19_FMJ",
 						stack_max = 136,
 						stack_min = 136,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "Webley",
+						stack_max = 1,
+						stack_min = 1,
+					}),
+					PlaceObj('LootEntryInventoryItem', {
+						item = "JAZZ_AMMO_45ACP_FMJ",
+						stack_max = 18,
+						stack_min = 18,
 					}),
 					PlaceObj('LootEntryInventoryItem', {
 						item = "JazzArmor_PoliceVest",
@@ -19570,6 +19585,18 @@ return {
 								weight = 10000,
 							}),
 							PlaceObj('LootEntryLootDef', {
+								comment = "T2",
+								game_conditions = {
+									PlaceObj('QuestIsVariableNum', {
+										Amount = 2,
+										Prop = "JAZZ_Legion_Tier",
+										QuestId = "JAZZ_LegionTier",
+									}),
+								},
+								loot_def = "LegionNoob_Webley",
+								weight = 10000,
+							}),
+							PlaceObj('LootEntryLootDef', {
 								comment = "T3",
 								game_conditions = {
 									PlaceObj('QuestIsVariableNum', {
@@ -20484,6 +20511,21 @@ return {
 								loot = "all",
 								PlaceObj('LootEntryInventoryItem', {
 									item = "ColtM1917",
+									stack_max = 1,
+									stack_min = 1,
+								}),
+								PlaceObj('LootEntryLootDef', {
+									loot_def = "Noob_45ACP",
+								}),
+							}),
+							PlaceObj('ModItemLootDef', {
+								Comment = "enemy rebels",
+								comment = "T1",
+								group = "Default",
+								id = "LegionNoob_Webley",
+								loot = "all",
+								PlaceObj('LootEntryInventoryItem', {
+									item = "Webley",
 									stack_max = 1,
 									stack_min = 1,
 								}),
