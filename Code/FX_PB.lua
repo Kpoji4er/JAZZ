@@ -5,7 +5,7 @@ PlaceObj('ActionFXSound', {
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "silencer_pistol",
-	Target = "Any",
+	Target = "Basic",
 	group = "Default",
 	id = "fxPB1",
 })
