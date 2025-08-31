@@ -10,6 +10,7 @@ DefineClass.PierreMachete = {
 	Icon = "UI/Icons/Weapons/pierre_machete",
 	DisplayName = T(856581366127, --[[ModItemInventoryItemCompositeDef PierreMachete DisplayName]] "«Гордость Легиона»"),
 	DisplayNamePlural = T(382530254567, --[[ModItemInventoryItemCompositeDef PierreMachete DisplayNamePlural]] "«Гордость Легиона»"),
+	Description = T(337230371768, --[[ModItemInventoryItemCompositeDef PierreMachete Description]] '"Гордость Легиона". Пафосное имя, выданное, в общем-то, обычной рядовой железяке, рубящей тростник. Это у Пьера возрастное, пройдет.'),
 	AdditionalHint = T(149238847516, --[[ModItemInventoryItemCompositeDef PierreMachete AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенный доп. урон от силы\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая цена атаки"),
 	LargeItem = 1,
 	UnitStat = "Dexterity",
