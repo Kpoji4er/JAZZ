@@ -579,9 +579,18 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 	local dexdestr = weapon  and IsKindOf(weapon, "MachineGun")  and self:GetPropertyMetadata("Strength") or self:GetPropertyMetadata("Dexterity")
 	local lvl = self:GetLevel()
 
+
+
 	local skill = (wpn_skill * 2 + subskill * 4 + lvl * 5) / 6
 	skill =  20 + (skill ^ 1.2) * 0.25
+
+		if weapon and IsKindOf(weapon,"MeleeWeapon") then 
+		skill = (wpn_skill * 2 + subskill * 4 + lvl * 5) / 6
+		end
+
 	skill = floatfloor(skill,0.5)
+
+
 
 --	end
 
