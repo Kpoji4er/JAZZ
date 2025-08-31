@@ -4,7 +4,7 @@ PlaceObj('ActionFXSound', {
 	Actor = "PB",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "Makarov_shot",
+	Sound = "silencer_pistol",
 	Target = "Basic",
 	group = "Default",
 	id = "fxMakarov1",
