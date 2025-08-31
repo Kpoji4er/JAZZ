@@ -1,4 +1,4 @@
---Makarov
+--PB
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
 	Actor = "PB",
@@ -7,7 +7,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "silencer_pistol",
 	Target = "Any",
 	group = "Default",
-	id = "fxMakarov1",
+	id = "fxPB1",
 })
 
 PlaceObj('ActionFXSound', {
@@ -18,7 +18,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "silencer_pistol",
 	Target = "Silencer",
 	group = "Default",
-	id = "fxMakarov2",
+	id = "fxPB2",
 })
 
 PlaceObj('ActionFXSound', {
@@ -31,7 +31,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "bullet_casingA_fall",
 	Source = "ActionPos",
 	group = "Default",
-	id = "Makarov3",
+	id = "PB3",
 })
 
 PlaceObj('ActionFXSound', {
@@ -44,7 +44,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "bullet_casingA_release",
 	Source = "ActionPos",
 	group = "Default",
-	id = "Makarov4",
+	id = "PB4",
 })
 
 
@@ -61,7 +61,7 @@ PlaceObj('ActionFXParticles', {
 	Spot = "Muzzle",
 	Target = "Compensator",
 	group = "Weapons VFX",
-	id = "Makarov5",
+	id = "PB5",
 })
 
 
@@ -70,11 +70,11 @@ PlaceObj('ActionFXSound', {
 	Actor = "PB",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "Makarov_clipout",
+	Sound = "PB_clipout",
 	Source = "Camera",
 	Target = "any",
 	group = "Default",
-	id = "fxMakarov1",
+	id = "fxPB1",
 })
 
 PlaceObj('ActionFXSound', {
@@ -82,12 +82,12 @@ PlaceObj('ActionFXSound', {
 	Actor = "PB",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "Makarov_clipin",
+	Sound = "PB_clipin",
 	Source = "Camera",
 	Delay = 2200,
 	Target = "any",
 	group = "Default",
-	id = "fxMakarov2",
+	id = "fxPB2",
 })
 
 PlaceObj('ActionFXSound', {
@@ -95,12 +95,12 @@ PlaceObj('ActionFXSound', {
 	Actor = "PB",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "Makarov_reload",
+	Sound = "PB_reload",
 	Source = "Camera",
 	Delay = 4200,
 	Target = "any",
 	group = "Default",
-	id = "fxMakarov3",
+	id = "fxPB3",
 })
 
 
@@ -109,11 +109,11 @@ PlaceObj('ActionFXSound', {
 	Actor = "PB",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "Makarov_equipncheck",
+	Sound = "PB_equipncheck",
 	Source = "Camera",
 	Target = "Pistol",
 	group = "Default",
-	id = "Makarov9",
+	id = "PB9",
 })
 
 
@@ -124,7 +124,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "empty_pistol",
 	group = "Default",
-	id = "Makarov10",
+	id = "PB10",
 })
 
 PlaceObj('ActionFXSound', {
@@ -136,7 +136,7 @@ PlaceObj('ActionFXSound', {
 	Source = "Camera",
 	Target = "PB",
 	group = "Default",
-	id = "Makarov11",
+	id = "PB11",
 })
  
 PlaceObj('ActionFXSound', {
@@ -148,7 +148,7 @@ PlaceObj('ActionFXSound', {
 	Source = "Camera",
 	Target = "PB",
 	group = "Default",
-	id = "Makarov12",
+	id = "PB12",
 })
 
 
@@ -157,11 +157,11 @@ PlaceObj('ActionFXSound', {
 	Actor = "PB",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "Makarov_clipout",
+	Sound = "PB_clipout",
 	Target = "any",
 	group = "Default",
 	GameTime = true,
-	id = "fxMakarov13",
+	id = "fxPB13",
 })
 
 PlaceObj('ActionFXSound', {
@@ -169,12 +169,12 @@ PlaceObj('ActionFXSound', {
 	Actor = "PB",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "Makarov_clipin",
+	Sound = "PB_clipin",
 	Delay = 2200,
 	Target = "any",
 	group = "Default",
 	GameTime = true,
-	id = "fxMakarov14",
+	id = "fxPB14",
 })
 
 PlaceObj('ActionFXSound', {
@@ -182,12 +182,12 @@ PlaceObj('ActionFXSound', {
 	Actor = "PB",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "Makarov_reload",
+	Sound = "PB_reload",
 	Delay = 4200,
 	Target = "any",
 	group = "Default",
 	GameTime = true,
-	id = "fxMakarov15",
+	id = "fxPB15",
 })
 
 
@@ -201,7 +201,7 @@ PlaceObj('ActionFXSound', {
 	Source = "Camera",
 	Target = "PB",
 	group = "Default",
-	id = "Makarov17",
+	id = "PB17",
 })
 
 PlaceObj('ActionFXSound', {
@@ -213,6 +213,6 @@ PlaceObj('ActionFXSound', {
 	Source = "Camera",
 	Target = "PB",
 	group = "Default",
-	id = "Makarov18",
+	id = "PB18",
 })
 
