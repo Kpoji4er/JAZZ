@@ -25,6 +25,7 @@ DefineClass.MP5SD = {
 	Damage = 21,
 	ObjDamageMod = 20,
 	AimAccuracy = 18,
+	CritChanceScaled = 25,
 	MagazineSize = 30,
 	WeaponRange = 30,
 	OverwatchAngle = 4320,

@@ -3,7 +3,7 @@ PlaceObj('ActionFXSound', {
 	Actor = "M3GreaseGun",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "M3GreaseGun_shot",
+	Sound = "GreaseGun_shot",
 	Source = "ActionPos",
 	Target = "Basic",
 	group = "Default",

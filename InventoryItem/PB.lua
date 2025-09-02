@@ -24,7 +24,7 @@ DefineClass.PB = {
 	ObjDamageMod = 15,
 	AimAccuracy = 10,
 	CritChance = 5,
-	CritChanceScaled = 35,
+	CritChanceScaled = 45,
 	MagazineSize = 8,
 	WeaponRange = 16,
 	OverwatchAngle = 5400,
@@ -32,18 +32,12 @@ DefineClass.PB = {
 	Entity = "pb",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Magazine",
+			'SlotType', "Muzzle",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"MagNormal",
+				"SuppressorIntegrated",
 			},
-			'DefaultComponent', "MagNormal",
-		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Muzzle",
-			'AvailableComponents', {
-				"ImprovisedSuppressor",
-			},
+			'DefaultComponent', "SuppressorIntegrated",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",

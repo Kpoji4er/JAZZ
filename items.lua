@@ -45222,6 +45222,30 @@ return {
 						}),
 						PlaceObj('ModItemSoundPreset', {
 							group = "WEAPONS",
+							id = "G36c_shot_single",
+							loud_distance = 20000,
+							type = "Weapons",
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/G36/g36c_shot_dry1-01.opus",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/G36/g36c_shot_dry2-01.opus",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/G36/g36c_shot_dry3-01.opus",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/G36/g36c_shot_dry4-01.opus",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/G36/g36c_shot_dry5-01.opus",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/G36/g36c_shot_dry6-01.opus",
+							}),
+						}),
+						PlaceObj('ModItemSoundPreset', {
+							group = "WEAPONS",
 							id = "G36_shot_single-room",
 							loud_distance = 20000,
 							type = "Weapons_shootingRoom",
@@ -45242,6 +45266,30 @@ return {
 							}),
 							PlaceObj('Sample', {
 								'file', "Mod/e6L4ECj/Sounds/G36/g36_shot_dry6-01-room.opus",
+							}),
+						}),
+						PlaceObj('ModItemSoundPreset', {
+							group = "WEAPONS",
+							id = "G36_shot_single-room_copy",
+							loud_distance = 20000,
+							type = "Weapons_shootingRoom",
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/G36/g36c_shot_dry1-01-room.opus",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/G36/g36c_shot_dry2-01-room.opus",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/G36/g36c_shot_dry3-01-room.opus",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/G36/g36c_shot_dry4-01-room.opus",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/G36/g36c_shot_dry5-01-room.opus",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/G36/g36c_shot_dry6-01-room.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -49231,6 +49279,22 @@ return {
 						}),
 						}),
 					PlaceObj('ModItemFolder', {
+						'name', "ActionFX_BattleRifles",
+					}, {
+						PlaceObj('ModItemCode', {
+							'name', "FX_AR10",
+							'CodeFileName', "Code/FX_AR10.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_BAR",
+							'CodeFileName', "Code/FX_BAR.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_G3A3",
+							'CodeFileName', "Code/FX_G3A3.lua",
+						}),
+						}),
+					PlaceObj('ModItemFolder', {
 						'name', "ActionFX_Semi",
 					}, {
 						PlaceObj('ModItemCode', {
@@ -49240,14 +49304,6 @@ return {
 						PlaceObj('ModItemCode', {
 							'name', "FX_AVT40",
 							'CodeFileName', "Code/FX_AVT40.lua",
-						}),
-						PlaceObj('ModItemCode', {
-							'name', "FX_DragunovSVD",
-							'CodeFileName', "Code/FX_DragunovSVD.lua",
-						}),
-						PlaceObj('ModItemCode', {
-							'name', "FX_G3SniperV1",
-							'CodeFileName', "Code/FX_G3SniperV1.lua",
 						}),
 						PlaceObj('ModItemCode', {
 							'name', "FX_M1A",
@@ -49280,38 +49336,6 @@ return {
 						PlaceObj('ModItemCode', {
 							'name', "FX_ZastavaM76",
 							'CodeFileName', "Code/FX_ZastavaM76.lua",
-						}),
-						}),
-					PlaceObj('ModItemFolder', {
-						'name', "ActionFX_Carbines",
-					}, {
-						PlaceObj('ModItemCode', {
-							'name', "FX_AKSU",
-							'CodeFileName', "Code/FX_AKSU.lua",
-						}),
-						PlaceObj('ModItemCode', {
-							'name', "FX_AS_Val",
-							'CodeFileName', "Code/FX_AS_Val.lua",
-						}),
-						PlaceObj('ModItemCode', {
-							'name', "FX_CAR15",
-							'CodeFileName', "Code/FX_CAR15.lua",
-						}),
-						PlaceObj('ModItemCode', {
-							'name', "FX_G36c",
-							'CodeFileName', "Code/FX_G36c.lua",
-						}),
-						PlaceObj('ModItemCode', {
-							'name', "FX_M4A1",
-							'CodeFileName', "Code/FX_M4A1.lua",
-						}),
-						PlaceObj('ModItemCode', {
-							'name', "FX_Mini14",
-							'CodeFileName', "Code/FX_Mini14.lua",
-						}),
-						PlaceObj('ModItemCode', {
-							'name', "FX_VSS",
-							'CodeFileName', "Code/FX_VSS.lua",
 						}),
 						}),
 					PlaceObj('ModItemFolder', {
@@ -49351,19 +49375,27 @@ return {
 						}),
 						}),
 					PlaceObj('ModItemFolder', {
-						'name', "ActionFX_BattleRifles",
+						'name', "ActionFX_Carbines",
 					}, {
 						PlaceObj('ModItemCode', {
-							'name', "FX_AR10",
-							'CodeFileName', "Code/FX_AR10.lua",
+							'name', "FX_AS_Val",
+							'CodeFileName', "Code/FX_AS_Val.lua",
 						}),
 						PlaceObj('ModItemCode', {
-							'name', "FX_BAR",
-							'CodeFileName', "Code/FX_BAR.lua",
+							'name', "FX_CAR15",
+							'CodeFileName', "Code/FX_CAR15.lua",
 						}),
 						PlaceObj('ModItemCode', {
-							'name', "FX_G3A3",
-							'CodeFileName', "Code/FX_G3A3.lua",
+							'name', "FX_G36c",
+							'CodeFileName', "Code/FX_G36c.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_Mini14",
+							'CodeFileName', "Code/FX_Mini14.lua",
+						}),
+						PlaceObj('ModItemCode', {
+							'name', "FX_VSS",
+							'CodeFileName', "Code/FX_VSS.lua",
 						}),
 						}),
 					PlaceObj('ModItemFolder', {
@@ -50212,7 +50244,7 @@ return {
 					'ObjDamageMod', 40,
 					'AimAccuracy', 12,
 					'CritChance', 5,
-					'CritChanceScaled', 30,
+					'CritChanceScaled', 60,
 					'MagazineSize', 6,
 					'WeaponRange', 16,
 					'OverwatchAngle', 5100,
@@ -50225,6 +50257,14 @@ return {
 								"Freeswap",
 							},
 							'DefaultComponent', "Freeswap",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"SuppressorIntegrated",
+							},
+							'DefaultComponent', "SuppressorIntegrated",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -50267,7 +50307,7 @@ return {
 					'ObjDamageMod', 15,
 					'AimAccuracy', 10,
 					'CritChance', 5,
-					'CritChanceScaled', 35,
+					'CritChanceScaled', 45,
 					'MagazineSize', 8,
 					'WeaponRange', 16,
 					'OverwatchAngle', 5400,
@@ -50275,18 +50315,12 @@ return {
 					'Entity', "pb",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Magazine",
+							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"SuppressorIntegrated",
 							},
-							'DefaultComponent', "MagNormal",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Muzzle",
-							'AvailableComponents', {
-								"ImprovisedSuppressor",
-							},
+							'DefaultComponent', "SuppressorIntegrated",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
@@ -53756,6 +53790,7 @@ return {
 					'Damage', 21,
 					'ObjDamageMod', 20,
 					'AimAccuracy', 18,
+					'CritChanceScaled', 25,
 					'MagazineSize', 30,
 					'WeaponRange', 30,
 					'OverwatchAngle', 4320,
@@ -133626,7 +133661,7 @@ return {
 		}, {
 			PlaceObj('ModItemRegion', {
 				DisplayName = "Остров Эрни",
-				Heat = 376,
+				Heat = 440,
 				Sectors = {
 					"M1",
 					"M2",

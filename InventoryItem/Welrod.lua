@@ -23,7 +23,7 @@ DefineClass.Welrod = {
 	ObjDamageMod = 40,
 	AimAccuracy = 12,
 	CritChance = 5,
-	CritChanceScaled = 30,
+	CritChanceScaled = 60,
 	MagazineSize = 6,
 	WeaponRange = 16,
 	OverwatchAngle = 5100,
@@ -36,6 +36,14 @@ DefineClass.Welrod = {
 				"Freeswap",
 			},
 			'DefaultComponent', "Freeswap",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"SuppressorIntegrated",
+			},
+			'DefaultComponent', "SuppressorIntegrated",
 		}),
 	},
 	HolsterSlot = "Leg",
