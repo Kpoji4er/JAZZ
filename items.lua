@@ -30449,14 +30449,14 @@ return {
 						PlaceObj('LootEntryInventoryItem', {
 							generate_chance = 50,
 							item = "GlowStick",
-							stack_max = 1,
+							stack_max = 3,
 							stack_min = 1,
 							weight = 3000,
 						}),
 						PlaceObj('LootEntryInventoryItem', {
 							generate_chance = 50,
 							item = "FlareStick",
-							stack_max = 1,
+							stack_max = 3,
 							stack_min = 1,
 							weight = 10000,
 						}),
@@ -133712,7 +133712,7 @@ return {
 		}, {
 			PlaceObj('ModItemRegion', {
 				DisplayName = "Остров Эрни",
-				Heat = 440,
+				Heat = 582,
 				Sectors = {
 					"M1",
 					"M2",
