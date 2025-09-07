@@ -22,7 +22,7 @@ DefineClass.JAZZ_AMMO_40mmFragGrenade = {
 	CenterAppliedEffects = {
 		"Exposed",
 	},
-	AreaUnitDamageMod = 40,
+	AreaUnitDamageMod = 80,
 	AreaObjDamageMod = 500,
 	PenetrationClass = 4,
 	DeathType = "BlowUp",

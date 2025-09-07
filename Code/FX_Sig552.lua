@@ -4,7 +4,7 @@ PlaceObj('ActionFXSound', {
 	Actor = "Sig552",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "Sig552_shot",
+	Sound = "SIG552_shot",
 	Target = "Basic",
 	group = "Default",
 	id = "fxSig552",

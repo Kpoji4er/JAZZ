@@ -1364,7 +1364,7 @@ return {
 			group = "Combat",
 			id = "SightModStealthStatDiff",
 			scale = "%",
-			value = 50,
+			value = 70,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "sight penalty (as % of base value) for seeing units in tall grass or brush",
@@ -40590,7 +40590,7 @@ return {
 					'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357 DisplayName]] ".357 Magnum"),
 					'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357 DisplayNamePlural]] ".357 Magnum"),
 					'colorStyle', "AmmoBasicColor",
-					'Description', T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357 Description]] "Боеприпас для пистолетов, револьверов и пистолетов-пулеметов калибра .38 Special."),
+					'Description', T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357 Description]] "Боеприпас для пистолетов, револьверов и пистолетов-пулеметов калибра .357"),
 					'Cost', 10,
 					'CanAppearInShop', true,
 					'MaxStock', 50,
@@ -40600,12 +40600,8 @@ return {
 					'Caliber', "JAZZ_Caliber_357",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
-							mod_mul = 0,
+							mod_add = 1,
 							target_prop = "PenetrationClass",
-						}),
-						PlaceObj('CaliberModification', {
-							mod_mul = 800,
-							target_prop = "Damage",
 						}),
 					},
 				}),
@@ -42077,8 +42073,10 @@ return {
 					'CategoryPair', "Ordnance",
 					'MaxStacks', 3,
 					'CenterObjDamageMod', 500,
-					'AreaOfEffect', 2,
-					'AreaObjDamageMod', 500,
+					'AreaOfEffect', 6,
+					'CenterAreaOfEffect', 3,
+					'AreaUnitDamageMod', 20,
+					'AreaObjDamageMod', 250,
 					'PenetrationClass', 4,
 					'DeathType', "BlowUp",
 					'Caliber', "JAZZ_Caliber_MortarShell",
@@ -42196,7 +42194,7 @@ return {
 					'CenterAppliedEffects', {
 						"Exposed",
 					},
-					'AreaUnitDamageMod', 40,
+					'AreaUnitDamageMod', 80,
 					'AreaObjDamageMod', 500,
 					'PenetrationClass', 4,
 					'DeathType', "BlowUp",
@@ -96835,13 +96833,6 @@ return {
 					'object_class', "Perk",
 					'unit_reactions', {
 						PlaceObj('UnitReaction', {
-							Event = "OnCheckIntelVisible",
-							Handler = function (self, target)
-								return gv_CurrentSectorId and gv_Sectors[gv_CurrentSectorId].intel_discovered
-							end,
-							param_bindings = false,
-						}),
-						PlaceObj('UnitReaction', {
 							Event = "OnHackIntelDsicovered",
 							Handler = function (self, target)
 								local discoveredFor = DiscoverIntelForRandomSector(2, "no notification")
@@ -133712,7 +133703,7 @@ return {
 		}, {
 			PlaceObj('ModItemRegion', {
 				DisplayName = "Остров Эрни",
-				Heat = 582,
+				Heat = 581,
 				Sectors = {
 					"M1",
 					"M2",

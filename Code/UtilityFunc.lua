@@ -30,6 +30,7 @@ function _RegenerateLegionLoot()
                 end)
 
                 unitdata:CreateStartingEquipment(unitdata.randomization_seed)
+                unitdata.innerInfoRevealed = false
                 --print("regenerated")
                 end
                 

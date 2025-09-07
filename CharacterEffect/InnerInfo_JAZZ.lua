@@ -8,12 +8,6 @@ DefineClass.InnerInfo_JAZZ = {
 	object_class = "Perk",
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
-			Event = "OnCheckIntelVisible",
-			Handler = function (self, target)
-				return gv_CurrentSectorId and gv_Sectors[gv_CurrentSectorId].intel_discovered
-			end,
-		}),
-		PlaceObj('UnitReaction', {
 			Event = "OnHackIntelDsicovered",
 			Handler = function (self, target)
 				local discoveredFor = DiscoverIntelForRandomSector(2, "no notification")

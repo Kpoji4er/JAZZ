@@ -9,7 +9,7 @@ DefineClass.JAZZ_AMMO_357 = {
 	DisplayName = T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357 DisplayName]] ".357 Magnum"),
 	DisplayNamePlural = T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357 DisplayNamePlural]] ".357 Magnum"),
 	colorStyle = "AmmoBasicColor",
-	Description = T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357 Description]] "Боеприпас для пистолетов, револьверов и пистолетов-пулеметов калибра .38 Special."),
+	Description = T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357 Description]] "Боеприпас для пистолетов, револьверов и пистолетов-пулеметов калибра .357"),
 	Cost = 10,
 	CanAppearInShop = true,
 	MaxStock = 50,
@@ -19,12 +19,8 @@ DefineClass.JAZZ_AMMO_357 = {
 	Caliber = "JAZZ_Caliber_357",
 	Modifications = {
 		PlaceObj('CaliberModification', {
-			mod_mul = 0,
+			mod_add = 1,
 			target_prop = "PenetrationClass",
-		}),
-		PlaceObj('CaliberModification', {
-			mod_mul = 800,
-			target_prop = "Damage",
 		}),
 	},
 }

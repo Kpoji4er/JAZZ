@@ -329,7 +329,7 @@ function CrosshairUI:UpdateAim()
 
 	--if (GameState.Night or GameState.Underground) and not attacker:HasNightVision() and not target:HasStatusEffect("Protected") and not hasflashlight then 
 	if not (hasflashlight or not (GameState.Night or GameState.Underground) or IsIlluminated(target))  then
-		print('cth crosshair - night')
+		--print('cth crosshair - night')
 		pContext.ScopeImage = ""
 		pContext.SmallScopeImage = ""
 		pContext.ScopeOuterImage = ""

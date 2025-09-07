@@ -64,7 +64,7 @@ end
 
 function AIFilterTargetPoints(unit, target_pts, min_range, max_range)
 
-    print(#target_pts)
+    --print(#target_pts)
     for i = #target_pts, 1, -1 do
         local dist = unit:GetDist(target_pts[i])
         if dist == 0 or (max_range and dist > max_range) then
@@ -528,7 +528,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
             local attacks, aim
 
             if not best_attack then
-                print('best attack not found - default attack')
+                --print('best attack not found - default attack')
             attacks, aim = AICalcAttacksAndAim(context,
                                                           unit.ActionPoints,
                                                           target)
@@ -871,7 +871,7 @@ end
         local best_score = 0
         local potential_targets, target_score, target_cth = {}, {}, {}
         --print('print(mod)'..ap..' '..cost_ap)
-        print(ap.." ap cost_ap"..cost_ap)
+        --print(ap.." ap cost_ap"..cost_ap)
         if weapon and ap >= cost_ap then
             local pos_mod = base_mod
             pos_mod = pos_mod +
@@ -1028,7 +1028,7 @@ end
                             MulDivRound(best_score or 0,
                                         const.AIDecisionThreshold, 100)
 
-                        print(mod.." -< mod threshold -> "..threshold)
+                       -- print(mod.." -< mod threshold -> "..threshold)
                                         
                         if mod >= threshold then
                             potential_targets[#potential_targets + 1] = target
@@ -1049,7 +1049,7 @@ end
             end
         end
 
-        print(#potential_targets)
+        --print(#potential_targets)
         if #potential_targets > 0 then
             local total = 0
             for _, target in ipairs(potential_targets) do
