@@ -46,13 +46,19 @@ function AIActionThrowFlare:PrecalcAction(context, action_state)
     local max_range = Min(self.MaxDist, grenade:GetMaxAimRange(context.unit) * const.SlabSizeX)
     local blast_radius = grenade.AreaOfEffect * const.SlabSizeX
     local target_pts
-    if self.TargetLastAttackPos then
+    if self.TargetLastAttackPos or true then
         -- collect enemy last attack positions and pass them as target_pos array to AIPrecalcGrenadeZones
         for _, enemy in ipairs(context.enemies) do
             if enemy.last_attack_pos then
                 target_pts = target_pts or {}
                 target_pts[#target_pts + 1] = enemy.last_attack_pos
             end
+        end
+
+        for _, src in ipairs(g_NoiseSources) do
+				if src.Actor and src.Actor:IsOnEnemySide(context.unit) then
+                    target_pts[#target_pts + 1] = src.pos
+				end
         end
     end
     local zones = AIPrecalcFlareZones(context, action_id, self.MinDist, max_range, blast_radius,

@@ -194,11 +194,11 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 	  table.sort(candidates, function(a,b) return a.score > b.score end)
 
 	  --лёгкая стохастика из топ-K
-	  local K = math.min(3, #candidates)
+	  local K = Min(3, #candidates)
 	  local sum = 0
 	  for i = 1, K do
 		-- веса можно «подкрутить» степенью, напр. ^1.25
-		candidates[i].w = math.max(0.0001, candidates[i].score)
+		candidates[i].w = Max(0.0001, candidates[i].score)
 		sum = sum + candidates[i].w
 	  end
 	  local r, acc = math.random() * sum, 0
@@ -555,17 +555,37 @@ end
 
 
 
-function AIFindDestinations(unit, context)
+function __AIFindDestinations(unit, context)
     PauseInfiniteLoopDetection("AiCalc")
 	local pos = GetPassSlab(unit) or unit:GetPos()
 	
-	local reserved_AP = 0
+	local reserved_AP = 0 
+
+
+
+		local tbl = context.enemies or empty_table
 -- if context.best_attack and context.attack_AP_reserved and context.attack_target then
 --   reserved_AP = context.attack_AP_reserved
 -- end
+	local visible = false
+	for _, enemy in ipairs(tbl) do
+		if context.enemy_visible_by_team[enemy] then
+			visible = true
+			break
+		end
+		
+	end
 
+	 local attack_cost = context.attack_AP_reserved
+                   or context.default_attack_cost
+                   or MulDivRound(unit.ActionPoints,50,100)
+
+	reserved_AP = visible and 0 or (MulDivRound(unit.ActionPoints,50,100) > attack_cost and MulDivRound(unit.ActionPoints,50,100) or attack_cost) 
 	local original_AP = unit.ActionPoints
-	unit.ActionPoints = Max(0, original_AP - reserved_AP)
+--	if reserved_AP > 0 then
+		reserved_AP = reserved_AP +  GetStanceToStanceAP("Standing", "Crouch")
+		unit.ActionPoints = Max(0, original_AP - reserved_AP)
+--	end
 
 	local destinations, paths, dest_ap, dest_path, voxel_to_dest, closest_free_pos = AIBuildArchetypePaths(unit, pos, context)	
 
@@ -607,13 +627,15 @@ function AIFindDestinations(unit, context)
 			-- don't assert here — fallback is valid
 		end
 	end
-	local crouch_idx = StancesList.Crouch
+
 	local important_dests = context.important_dests or {}
 	context.important_dests = important_dests
-	local change_stance_costs = {}
+			local crouch_idx = StancesList.Crouch
+		local change_stance_costs = {}
 	for stance_idx in ipairs(StancesList) do
 		change_stance_costs[stance_idx] = GetStanceToStanceAP(StancesList[stance_idx], "Crouch")
 	end
+
 
 
 
@@ -653,6 +675,137 @@ function AIFindDestinations(unit, context)
 
 	context.all_destinations = AIEnumValidDests(context)
     ResumeInfiniteLoopDetection("AiCalc")
+end
+
+function AIFindDestinations(unit, context)
+  PauseInfiniteLoopDetection("AiCalc")
+  local pos = GetPassSlab(unit) or unit:GetPos()
+
+  -- 0) безопасная видимость
+  local vis_tbl = context.enemy_visible_by_team or empty_table
+  local visible = false
+  for _, enemy in ipairs(context.enemies or empty_table) do
+    if vis_tbl[enemy] then visible = true; break end
+  end
+
+  -- 1) аккуратный резерв без «стоимости приседа» (её спишем из dest_ap позже)
+  local ap = unit.ActionPoints
+  local half = MulDivRound(ap, 50, 100)
+  local attack_cost = context.attack_AP_reserved or context.default_attack_cost or half
+  local min_move_ap = context.min_move_ap or 0
+  local safe_stride  = context.safe_stride_ap or 6000
+
+  -- хотим оставить AP минимум под атаку и не больше safe_stride тратить за вызов
+  local desired_move_ap = Min(ap - attack_cost, safe_stride)
+  desired_move_ap = Max(desired_move_ap, min_move_ap)
+  local reserve_from_stride = Max(0, ap - desired_move_ap)
+
+  local reserved_AP = visible and 0 or Max(attack_cost, reserve_from_stride, half)
+  reserved_AP = Min(reserved_AP, Max(0, ap - min_move_ap))
+  reserved_AP = Max(0, reserved_AP)
+
+  -- 2) временно урежем AP для построения путей, потом ВСЕГДА вернём
+  local original_AP = ap
+  if reserved_AP > 0 then
+    unit.ActionPoints = Max(0, original_AP - reserved_AP)
+  end
+
+  local destinations, paths, dest_ap, dest_path, voxel_to_dest, closest_free_pos =
+    AIBuildArchetypePaths(unit, pos, context)
+
+  unit.ActionPoints = original_AP -- ОБЯЗАТЕЛЬНО восстановить
+
+  -- 3) cover-only фильтр при разведке + автоприсед/прон
+  if not visible and destinations and #destinations > 0 then
+    local filtered = {}
+    local crouch_idx = StancesList.Crouch
+    local prone_idx  = StancesList.Prone
+    for i, dest in ipairs(destinations) do
+      local x, y, z, stance_idx = stance_pos_unpack(dest)
+      local apd = dest_ap[dest] or 0
+      local up, right, down, left = GetCover(x, y, z)
+      local has_cover = (up or right or down or left)
+
+      if has_cover then
+        table.insert(filtered, dest)
+      else
+        local crouch_cost = GetStanceToStanceAP(StancesList[stance_idx], "Crouch") or 0
+        local prone_cost  = GetStanceToStanceAP(StancesList[stance_idx], "Prone")  or 0
+
+        if crouch_cost > 0 and apd >= crouch_cost then
+          local nd = stance_pos_pack(x, y, z, crouch_idx)
+          dest_ap[nd]   = apd - crouch_cost
+          dest_path[nd] = dest_path[dest]
+          voxel_to_dest[point_pack(x, y, z)] = nd
+          table.insert(filtered, nd)
+        elseif prone_cost > 0 and apd >= prone_cost then
+          local nd = stance_pos_pack(x, y, z, prone_idx)
+          dest_ap[nd]   = apd - prone_cost
+          dest_path[nd] = dest_path[dest]
+          voxel_to_dest[point_pack(x, y, z)] = nd
+          table.insert(filtered, nd)
+        end
+      end
+    end
+
+    -- если всё выкинулось, откатимся к исходному списку (чтобы не повиснуть)
+    if #filtered > 0 then destinations = filtered end
+  end
+
+  -- 4) fallback, если совсем негде стоять
+  if not closest_free_pos or not destinations or #destinations == 0 then
+    if original_AP == 0 then
+      assert(not "AI try to act with 0 action points!!!")
+    else
+      local dest = GetPackedPosAndStance(unit)
+      local x, y, z = stance_pos_unpack(dest)
+      local voxel = point_pack(x, y, z)
+      destinations = { dest }
+      dest_ap      = { [dest] = original_AP }
+      dest_path    = { [dest] = StancesList[unit.stance] }
+      voxel_to_dest = { [voxel] = dest }
+      closest_free_pos = voxel
+    end
+  end
+
+  -- 5) (опционально) автоприсед за НИЗКИМ укрытием, если ещё стоим не в crouch
+  local crouch_idx = StancesList.Crouch
+  local change_stance_costs = {}
+  for stance_idx in ipairs(StancesList) do
+    change_stance_costs[stance_idx] = GetStanceToStanceAP(StancesList[stance_idx], "Crouch")
+  end
+  local low = const.CoverLow
+  for i, dest in ipairs(destinations) do
+    local x, y, z, stance_idx = stance_pos_unpack(dest)
+    if stance_idx ~= crouch_idx then
+      local cost = change_stance_costs[stance_idx]
+      local apd  = dest_ap[dest]
+      if cost and apd and apd >= cost then
+        local up, right, down, left = GetCover(x, y, z)
+        if up then
+          local cover_low = (up == low) or (right == low) or (down == low) or (left == low)
+          if cover_low then
+            local nd = stance_pos_pack(x, y, z, crouch_idx)
+            destinations[i] = nd
+            voxel_to_dest[point_pack(x, y, z)] = nd
+            dest_ap[nd]   = apd - cost
+            dest_path[nd] = dest_path[dest]
+          end
+        end
+      end
+    end
+  end
+
+  -- 6) записываем в контекст
+  context.destinations       = destinations
+  context.dest_ap            = dest_ap
+  context.combat_paths       = paths
+  context.dest_combat_path   = dest_path
+  context.voxel_to_dest      = voxel_to_dest
+  context.closest_free_pos   = closest_free_pos
+  context.all_destinations   = AIEnumValidDests(context)
+
+  ResumeInfiniteLoopDetection("AiCalc")
 end
 
 

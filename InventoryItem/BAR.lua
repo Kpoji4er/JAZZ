@@ -1,11 +1,11 @@
 UndefineClass('BAR')
 DefineClass.BAR = {
-	__parents = { "MachineGun" },
+	__parents = { "AssaultRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 1-2",
-	object_class = "MachineGun",
+	object_class = "AssaultRifle",
 	ScrapParts = 12,
 	RepairCost = 3,
 	Reliability = 30,
@@ -21,7 +21,7 @@ DefineClass.BAR = {
 	Tier = 2,
 	MaxStock = 1,
 	RestockWeight = 40,
-	CategoryPair = "MachineGuns",
+	CategoryPair = "AssaultRifles",
 	CanAppearStandard = false,
 	Caliber = "JAZZ_Caliber_3006",
 	Damage = 34,
@@ -43,14 +43,13 @@ DefineClass.BAR = {
 		}),
 	},
 	HolsterSlot = "Shoulder",
-	PreparedAttackType = "Machine Gun",
 	AvailableAttacks = {
-		"MGBurstFire",
+		"BurstFire",
+		"AutoFire",
 	},
 	ShootAP = 8000,
 	ReloadAP = 7000,
 	Recoil = 16,
-	BurstShots = 5,
 	AutoShots = 5,
 	Handling = 40,
 	BulletDropRange = 24,

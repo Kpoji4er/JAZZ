@@ -29,7 +29,7 @@ PlaceObj('ActionFXSound', {
 	Actor = "M1Garand",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "M1Garand_shot",
+	Sound = "Garand_shot",
 	Target = "any",
 	group = "Default",
 	id = "fxM1Garand3",

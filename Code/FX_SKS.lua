@@ -14,7 +14,7 @@ PlaceObj('ActionFXSound', {
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponEquip",
-	Actor = "Gewehr98",
+	Actor = "SKS",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "SKS_reload",
@@ -37,7 +37,7 @@ PlaceObj('ActionFXSound', {
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
-	Actor = "Gewehr98",
+	Actor = "SKS",
 	Delay = 100,
 	DetailLevel = 100,
 	GameTime = true,
@@ -50,7 +50,7 @@ PlaceObj('ActionFXSound', {
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
-	Actor = "Gewehr98",
+	Actor = "SKS",
 	Delay = 400,
 	DetailLevel = 100,
 	GameTime = true,
@@ -63,7 +63,7 @@ PlaceObj('ActionFXSound', {
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponJam",
-	Actor = "Gewehr98",
+	Actor = "SKS",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "Gewehr98_hammer-click",

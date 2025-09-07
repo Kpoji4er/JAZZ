@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 7,
-	'version', 5245,
+	'version', 5252,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -779,8 +779,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1756832780,
-	'code_hash', 2943989654483339,
+	'saved', 1757179195,
+	'code_hash', 7078076184423275176,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -950,6 +950,36 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "ConstDef",
 			'Id', "InventoryGiveDistance",
+			'ClassDisplayName', "Constant",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "ConstDef",
+			'Id', "BufferSizeNoCameraMov",
+			'ClassDisplayName', "Constant",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "ConstDef",
+			'Id', "CrosshairPaddingX_copy",
+			'ClassDisplayName', "Constant",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "ConstDef",
+			'Id', "CrosshairPaddingY_copy",
+			'ClassDisplayName', "Constant",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "ConstDef",
+			'Id', "MaxAngleToActiveAC",
+			'ClassDisplayName', "Constant",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "ConstDef",
+			'Id', "MinTrackDistance",
+			'ClassDisplayName', "Constant",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "ConstDef",
+			'Id', "ShowFloatingTextDist_copy",
 			'ClassDisplayName', "Constant",
 		}),
 		PlaceObj('ModResourcePreset', {

@@ -669,32 +669,38 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 
   --  end
     if  not unit:HasStatusEffect("Unconscious") and not unit:HasPreparedAttack() and not g_Overwatch[unit] and 
-    not unit:IsIncapacitated() and not unit:IsDead() 
-    then    
-        context.restarts = (context.restarts or 0) + 1
-        if (unit.ActionPoints + remaining_free_ap) > (0) then 
-        --unit:GainAP(remaining_free_ap)
-        --remaining_free_ap = 0;
-        if context.restarts < 3 then
-            if g_AIExecutionController then
-                g_AIExecutionController:Log("  Unit %s requesting restart (AP left: %d, restart count: %d)", unit.unitdatadef_id, unit.ActionPoints, context.restarts)
-            end
+        not unit:IsIncapacitated() and not unit:IsDead() 
+        then    
+          context.restarts = (context.restarts or 0) + 1
+          if (unit.ActionPoints + remaining_free_ap) > (0) then 
+            --unit:GainAP(remaining_free_ap)
+            --remaining_free_ap = 0;
+            if context.restarts < 3 then
+               if g_AIExecutionController then
+                 g_AIExecutionController:Log("  Unit %s requesting restart (AP left: %d, restart count: %d)", unit.unitdatadef_id, unit.ActionPoints, context.restarts)
+             end
             return "restart"
           else
-          TryChangeStance(unit)
-         end
+        --  TryChangeStance(unit)
+          end
+        --TryChangeStance(unit)
         end
-        TryChangeStance(unit)
+        
     end
 
-
+    
     unit.ai_context.stancechanged = false
+    
 
     
     
-    --if unit.ActionPoints > 6 and context.restarts >=3 then
-    -- AIPlaceFallbackOverwatch(unit, context)
-    --end
+    if unit.ActionPoints >= 4000 and context.restarts >=3 then
+      AITakeCover(unit)
+    end
+
+    if unit.ActionPoints >= 1000 and context.restarts >=3 then
+      TryChangeStance(unit)
+    end
 
     -- local ProneStanceAP = unit:GetStanceToStanceAP(unit.stance, "Prone")
     -- local CrouchStanceAP = unit:GetStanceToStanceAP(unit.stance, "Crouch")
@@ -840,6 +846,18 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
 	end
 	logdata.preferred_target = preferred_target and (IsKindOf(preferred_target, "Unit") and _InternalTranslate(preferred_target.Name or "") or preferred_target.class) or tostring(preferred_target)--]]
     destinations = destinations or context.destinations
+    -- гарантируем сравнение со "стоя на месте"
+local stay = GetPackedPosAndStance(unit)
+if destinations and not table.find(destinations, stay) then
+  -- не мутируй оригинальный массив из контекста
+  local copy = {}
+  for i = 1, #destinations do copy[i] = destinations[i] end
+  copy[#copy + 1] = stay
+  destinations = copy
+  -- стоя на месте все AP доступны для атаки
+  context.dest_ap[stay] = context.dest_ap[stay] or unit.ActionPoints
+end
+
     NetUpdateHash("AIPrecalcDamageScore", unit, hashParamTable(destinations),
                   hashParamTable(targets), preferred_target)
     for j, upos in ipairs(destinations) do
@@ -1074,6 +1092,36 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
         dest_target[upos] = best_target
         dest_cth[upos] = best_cth
     end
+
+    -- выбираем лучший и сравниваем со "стоя на месте"
+local best_dest, best_score = nil, -1
+for _, d in ipairs(destinations or empty_table) do
+  local s = context.dest_target_score[d] or 0
+  if s > best_score then best_score, best_dest = s, d end
+end
+
+local stay_score = context.dest_target_score[stay] or 0
+local min_gain = context.min_move_gain or 0.10  -- 10% по умолчанию
+
+-- гистерезис: двигаться только если улучшение заметное
+local picked = stay
+if best_dest and best_dest ~= stay and best_score >= stay_score * (1 + min_gain) then
+  picked = best_dest
+end
+
+-- "липкость": если прошлый выбор почти так же хорош — остаёмся при нём
+local prev = context.last_ai_destination
+if prev then
+  local prev_score = context.dest_target_score[prev] or -1
+  local thr = MulDivRound((context.dest_target_score[picked] or 0), const.AIDecisionThreshold, 100)  -- обычно 80%
+  if prev_score >= thr then
+    picked = prev
+  end
+end
+
+context.ai_destination = picked
+context.last_ai_destination = picked
+
 end
 
 function AISignatureAction:MatchUnit(unit)

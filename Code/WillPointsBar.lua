@@ -879,7 +879,7 @@ function DamageNotificationPopup:AnimateDamageTaken(dmg)
 	end)
 end
 
-
+--[[
 function OnMsg.CombatEnd()
 
 	local units = g_Units
@@ -922,7 +922,7 @@ function OnMsg.TurnEnd()
 	end
 
 end
-
+]]
 --function OnMsg.CombatStart()
 --
 --	local units = g_Units
