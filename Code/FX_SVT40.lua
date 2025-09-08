@@ -5,7 +5,7 @@ PlaceObj('ActionFXSound', {
 	Actor = "SVT40",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "SVT40_shot",
+	Sound = "SVT_shot",
 	Target = "Basic",
 	group = "Default",
 	id = "fxSVT40",

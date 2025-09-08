@@ -1609,10 +1609,10 @@ function Unit:GetBasicAttackModes()
 
 	-- Основные режимы
 	result.single = find_mode("SingleShot", 1)
-	result.burst  = find_mode("BurstFire", weapon.BurstShots or 3)
+	result.burst  = find_mode("BurstFire", weapon.BurstShots or 3) or find_mode("MGBurstFire", weapon.BurstShots or 3)
 	result.auto   = find_mode("AutoFire", weapon.AutoShots or 5)
-	result.buck   = find_mode("Buckshot", weapon.BuckshotProjectiles or 6)
-	result.double = find_mode("DoubleBarrel", (weapon.BuckshotProjectiles and weapon.BuckshotProjectiles * 2) or 2)
+	result.buck   = find_mode("Buckshot", 1)
+	result.double = find_mode("DoubleBarrel", 2)
 
 	-- Собрать всё
 	result.all = {}

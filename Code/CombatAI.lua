@@ -693,11 +693,11 @@ function AIFindDestinations(unit, context)
   local half = MulDivRound(ap, 50, 100)
   local attack_cost = context.attack_AP_reserved or context.default_attack_cost or half
   local min_move_ap = context.min_move_ap or 0
-  local safe_stride  = context.safe_stride_ap or 6000
+  local safe_stride  = context.safe_stride_ap or 8 * const.Scale.AP
 
   -- хотим оставить AP минимум под атаку и не больше safe_stride тратить за вызов
   local desired_move_ap = Min(ap - attack_cost, safe_stride)
-  desired_move_ap = Max(desired_move_ap, min_move_ap)
+  desired_move_ap = Max(desired_move_ap, min_move_ap) + 2 * const.Scale.AP
   local reserve_from_stride = Max(0, ap - desired_move_ap)
 
   local reserved_AP = visible and 0 or Max(attack_cost, reserve_from_stride, half)
