@@ -26,7 +26,7 @@ function AIActionThrowFlare:PrecalcAction(context, action_state)
             local weapon = caction:GetAttackWeapons(context.unit)
             local aoetype = weapon.aoeType or "none"
             ---
-            if IsKindOf(weapon, "FlareStick") or IsKindOf(weapon, "GlowStick") then
+            if IsKindOf(weapon, "Flare")  then
                 grenade = weapon
                 break
             end

@@ -9,9 +9,9 @@ DefineClass.Kimber = {
 	ScrapParts = 6,
 	RepairCost = 6,
 	Reliability = 50,
-	Icon = "Mod/e6L4ECj/WeaponIcons/1911.png",
-	DisplayName = T(646219544697, --[[ModItemInventoryItemCompositeDef Kimber DisplayName]] "Kimber DEV"),
-	DisplayNamePlural = T(539052887945, --[[ModItemInventoryItemCompositeDef Kimber DisplayNamePlural]] "Kimber DEV"),
+	Icon = "Mod/e6L4ECj/WeaponIcons/Kimber.png",
+	DisplayName = T(646219544697, --[[ModItemInventoryItemCompositeDef Kimber DisplayName]] "Kimber"),
+	DisplayNamePlural = T(539052887945, --[[ModItemInventoryItemCompositeDef Kimber DisplayNamePlural]] "Kimber"),
 	Description = T(239186058142, --[[ModItemInventoryItemCompositeDef Kimber Description]] "Очередной 1911 современного исполнения, отлично подходящий и для охоты и для спортивной стрельбы. Для снижения мощной отдачи патрона применяется компенсатор оригинальной конструкции. Используется с коллиматорным прицелом."),
 	AdditionalHint = T(123923849772, --[[ModItemInventoryItemCompositeDef Kimber AdditionalHint]] "Баюн не сделал описание этому предмету :("),
 	UnitStat = "Marksmanship",
@@ -28,21 +28,13 @@ DefineClass.Kimber = {
 	WeaponRange = 15,
 	OverwatchAngle = 5400,
 	Noise = 28,
-	Entity = "Colt1911",
+	Entity = "Kimber",
 	ComponentSlots = {
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Magazine",
-			'Modifiable', false,
-			'AvailableComponents', {
-				"MagNormal",
-			},
-			'DefaultComponent', "MagNormal",
-		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"ImprovisedSuppressor",
+				"PistolSuppressor",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -53,9 +45,35 @@ DefineClass.Kimber = {
 			'DefaultComponent', "Freeswap",
 		}),
 		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagNormal",
+				"MagLarge_7_10",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Barrel",
+			'AvailableComponents', {
+				"BarrelLong",
+				"BarrelNormal",
+			},
+			'DefaultComponent', "BarrelNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'AvailableComponents', {
+				"Jazz_IronSight",
+				"JAZZ_Reflex_Pistol",
+			},
+			'DefaultComponent', "Jazz_IronSight",
+		}),
+		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
+			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"Flashlight",
+				"LaserDot",
 			},
 		}),
 	},

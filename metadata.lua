@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 7,
-	'version', 5262,
+	'version', 5290,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -156,6 +156,7 @@ return PlaceObj('ModDef', {
 		"Code/FX_Glock.lua",
 		"Code/FX_APS.lua",
 		"Code/FX_Beretta.lua",
+		"Code/FX_Kimber.lua",
 		"Code/FX_CZ52.lua",
 		"Code/FX_CZ75.lua",
 		"Code/FX_Colt1911.lua",
@@ -242,6 +243,7 @@ return PlaceObj('ModDef', {
 		"Code/FX_G36c.lua",
 		"Code/FX_Mini14.lua",
 		"Code/FX_VSS.lua",
+		"Code/FX_DeLisle.lua",
 		"Code/FX_Ammo.lua",
 		"Code/FX_HK23e.lua",
 		"Code/FX_MAC2429.lua",
@@ -259,7 +261,6 @@ return PlaceObj('ModDef', {
 		"Code/CodeSounds_BoltR.lua",
 		"Code/CodeSounds_SVD.lua",
 		"Code/CodeSounds_WW2Rifles.lua",
-		"Code/CodeSounds_VSS.lua",
 		"Code/CodeSounds_AK.lua",
 		"Code/CodeSounds_MG.lua",
 		"Code/NoSoundsInRooms.lua",
@@ -332,6 +333,7 @@ return PlaceObj('ModDef', {
 		"InventoryItem/MP7.lua",
 		"InventoryItem/Winchester1894.lua",
 		"InventoryItem/Mini14.lua",
+		"InventoryItem/DeLisle.lua",
 		"InventoryItem/ZastavaM92.lua",
 		"InventoryItem/CAR15.lua",
 		"InventoryItem/AKSU.lua",
@@ -779,8 +781,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1757360569,
-	'code_hash', 4624621445481043511,
+	'saved', 1757870196,
+	'code_hash', -7429481951233207836,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -950,36 +952,6 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "ConstDef",
 			'Id', "InventoryGiveDistance",
-			'ClassDisplayName', "Constant",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "ConstDef",
-			'Id', "BufferSizeNoCameraMov",
-			'ClassDisplayName', "Constant",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "ConstDef",
-			'Id', "CrosshairPaddingX_copy",
-			'ClassDisplayName', "Constant",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "ConstDef",
-			'Id', "CrosshairPaddingY_copy",
-			'ClassDisplayName', "Constant",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "ConstDef",
-			'Id', "MaxAngleToActiveAC",
-			'ClassDisplayName', "Constant",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "ConstDef",
-			'Id', "MinTrackDistance",
-			'ClassDisplayName', "Constant",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "ConstDef",
-			'Id', "ShowFloatingTextDist_copy",
 			'ClassDisplayName', "Constant",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -9844,6 +9816,11 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
+			'Id', "DeLisle",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
 			'Id', "ZastavaM92",
 			'ClassDisplayName', "Inventory item",
 		}),
@@ -11745,6 +11722,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "WeaponComponent",
 			'Id', "MagLarge_8_10",
+			'ClassDisplayName', "Weapon Component",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponent",
+			'Id', "MagLarge_7_10",
 			'ClassDisplayName', "Weapon Component",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -13939,7 +13921,7 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "XTemplate",
-			'Id', "ModifyWeaponDlg_items",
+			'Id', "ModifyWeaponDlg__",
 			'ClassDisplayName', "UI Template (XTemplate)",
 		}),
 		PlaceObj('ModResourcePreset', {

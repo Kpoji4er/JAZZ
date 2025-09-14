@@ -8,7 +8,7 @@ function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 	if interrupt then
 		if ActionCameraPlaying then
 			RemoveActionCamera(true)
-			WaitMsg("ActionCameraRemoved", 5000)
+			WaitMsg("ActionCameraRemoved", 1000)
 		end
 		self:PushDestructor(function()
 			Msg("InterruptAttackEnd") 
