@@ -72,7 +72,7 @@ DefineClass.FNMAG = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 8000,
+	ShootAP = 9000,
 	ReloadAP = 10000,
 	Recoil = 16,
 	BurstShots = 8,

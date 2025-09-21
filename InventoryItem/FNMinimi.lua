@@ -91,7 +91,7 @@ DefineClass.FNMinimi = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 7000,
+	ShootAP = 8000,
 	ReloadAP = 8000,
 	Recoil = 6,
 	BurstShots = 10,

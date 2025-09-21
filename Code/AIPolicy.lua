@@ -114,16 +114,17 @@ function AIPolicyTakeCover:EvalDest(context, dest, grid_voxel)
 
 			local cover, any, coverage = GetCoverPercentage(dest_pt, enemy_pt, stance or "Crouch")
 			cover = cover or const.CoverNone
+			coverage = coverage or 0
 
-			local weight = Max(1, 100 - coverage)
-			local cover_score = self.CoverScores[cover] or 0
-			local localscore = DivRound(cover_score, weight)
-			score = score + localscore * 0.5 + self.CoverScores[coverstd] * 0.5
+			score = score + cover * coverage
+			--local cover_score = self.CoverScores[cover] or 0
+			--local localscore = DivRound(cover_score, weight)
+			-- score = score + localscore * 0.5 + self.CoverScores[coverstd] * 0.5
 		end
 		::continue::
 	end
 
-	return score / Max(1, #tbl)
+	return score 
 end
 
 ---

@@ -73,7 +73,7 @@ DefineClass.HK23e = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 7000,
+	ShootAP = 8000,
 	ReloadAP = 9000,
 	Recoil = 6,
 	BurstShots = 7,

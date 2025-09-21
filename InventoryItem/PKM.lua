@@ -127,7 +127,7 @@ DefineClass.PKM = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 8000,
+	ShootAP = 9000,
 	ReloadAP = 9000,
 	Recoil = 17,
 	BurstShots = 6,

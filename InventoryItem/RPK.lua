@@ -100,7 +100,7 @@ DefineClass.RPK = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 7000,
+	ShootAP = 8000,
 	ReloadAP = 6000,
 	Recoil = 16,
 	BurstShots = 6,

@@ -199,6 +199,7 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 	if other_is_unit then
 		local cover, any, coverage = other:GetCoverPercentage(self)
 		local coverbuff = 0
+		if hidden and coverage then coverage = coverage * 0.1 end
 		if cover and coverage > 0 then
 			-- full cover
 			if cover == const.CoverHigh then
@@ -244,7 +245,7 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 			if hidden then
 				modifier = modifier - camo*3
 			else
-				modifier = modifier - camo
+				modifier = modifier - camo*0.5
 			end
 
 			if other.stance == "Prone" then
@@ -255,7 +256,7 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 			if hidden then
 				modifier = modifier - camo
 			else
-				modifier = modifier - camo
+				modifier = modifier - camo*0.25
 			end
 
 			if other.stance == "Prone" then
@@ -339,7 +340,7 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 	
 	--print(modifier)
 	--print(camo)
-	modifier = Clamp(modifier, const.Combat.SightModMinValue, const.Combat.SightModMaxValue)
+	modifier = Clamp(floatfloor(modifier,0.5), const.Combat.SightModMinValue, const.Combat.SightModMaxValue)
 	
 	local sightAmount = MulDivRound(sight, modifier, 100) * const.SlabSizeX
 	
@@ -1411,15 +1412,15 @@ function Unit:GetOverwatchAttacksAndAim(action, args, unit_ap)
 --		aim = maxAim
 --	end
 
-	if IsKindOf(weapon, "AssaultRifle") then
+	if IsKindOf(weapon, "AssaultRifle", "MachineGun") then
 		aim = Min(aim + 1,maxAim)
 	end
-	if IsKindOfClasses(weapon, "MachineGun", "SniperRifle") then
+	if IsKindOfClasses(weapon, "SniperRifle") then
 		aim = Min(aim + 2,maxAim)
 	end
 
 
-	if IsKindOfClasses(weapon, "MachineGun", "SniperRifle") then
+	if IsKindOfClasses(weapon, "SniperRifle") then
 		aim = maxAim
 	end
 

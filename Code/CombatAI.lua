@@ -567,20 +567,21 @@ function __AIFindDestinations(unit, context)
 -- if context.best_attack and context.attack_AP_reserved and context.attack_target then
 --   reserved_AP = context.attack_AP_reserved
 -- end
-	local visible = false
-	for _, enemy in ipairs(tbl) do
-		if context.enemy_visible_by_team[enemy] then
-			visible = true
-			break
-		end
+--	local visible = false
+--	for _, enemy in ipairs(tbl) do
+--		if context.enemy_visible_by_team[enemy] then
+--			visible = true
+--			break
+--		end
 		
-	end
+--	end
 
 	 local attack_cost = context.attack_AP_reserved
                    or context.default_attack_cost
                    or MulDivRound(unit.ActionPoints,50,100)
 
-	reserved_AP = visible and 0 or (MulDivRound(unit.ActionPoints,50,100) > attack_cost and MulDivRound(unit.ActionPoints,50,100) or attack_cost) 
+--	reserved_AP = visible and 0 or (MulDivRound(unit.ActionPoints,50,100) > attack_cost and MulDivRound(unit.ActionPoints,50,100) or attack_cost) 
+	reserved_AP =  0
 	local original_AP = unit.ActionPoints
 --	if reserved_AP > 0 then
 		reserved_AP = reserved_AP +  GetStanceToStanceAP("Standing", "Crouch")
@@ -683,11 +684,11 @@ function AIFindDestinations(unit, context)
 
   -- 0) безопасная видимость
   local vis_tbl = context.enemy_visible_by_team or empty_table
-  local visible = false
-  for _, enemy in ipairs(context.enemies or empty_table) do
-    if vis_tbl[enemy] then visible = true; break end
-  end
-
+  --local visible = false
+  --for _, enemy in ipairs(context.enemies or empty_table) do
+  --  if vis_tbl[enemy] then visible = true; break end
+  --end
+  local visible = true
   -- 1) аккуратный резерв без «стоимости приседа» (её спишем из dest_ap позже)
   local ap = unit.ActionPoints
   local half = MulDivRound(ap, 50, 100)

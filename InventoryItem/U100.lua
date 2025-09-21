@@ -87,7 +87,7 @@ DefineClass.U100 = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 7000,
+	ShootAP = 8000,
 	ReloadAP = 6000,
 	Recoil = 7,
 	BurstShots = 6,

@@ -48,7 +48,7 @@ DefineClass.MG42 = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 8000,
+	ShootAP = 9000,
 	ReloadAP = 8000,
 	Recoil = 20,
 	BurstShots = 12,

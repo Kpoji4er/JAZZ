@@ -79,7 +79,7 @@ DefineClass.RPD = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 8000,
+	ShootAP = 9000,
 	ReloadAP = 7000,
 	Recoil = 10,
 	BurstShots = 6,

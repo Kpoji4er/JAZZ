@@ -95,7 +95,7 @@ DefineClass.M60E4 = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 7000,
+	ShootAP = 8000,
 	ReloadAP = 9000,
 	Recoil = 18,
 	BurstShots = 5,

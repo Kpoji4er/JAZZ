@@ -1313,7 +1313,7 @@ return {
 			Comment = "bonus out-of-turn interrupt attacks with machine guns at 0 ap",
 			group = "Combat",
 			id = "MGFreeInterruptAttacks",
-			value = 5,
+			value = 3,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "Sight radius (in tiles) for units aware of the target unit",
@@ -42144,7 +42144,7 @@ return {
 					},
 					'AreaUnitDamageMod', 80,
 					'AreaObjDamageMod', 500,
-					'PenetrationClass', 4,
+					'PenetrationClass', 1,
 					'DeathType', "BlowUp",
 					'Caliber', "JAZZ_Caliber_40mmGrenade",
 					'BaseDamage', 80,
@@ -59727,7 +59727,7 @@ return {
 					'AvailableAttacks', {
 						"MGBurstFire",
 					},
-					'ShootAP', 7000,
+					'ShootAP', 8000,
 					'ReloadAP', 7000,
 					'Recoil', 32,
 					'BurstShots', 4,
@@ -59823,7 +59823,7 @@ return {
 					'AvailableAttacks', {
 						"MGBurstFire",
 					},
-					'ShootAP', 7000,
+					'ShootAP', 8000,
 					'ReloadAP', 6000,
 					'Recoil', 7,
 					'BurstShots', 6,
@@ -59932,7 +59932,7 @@ return {
 					'AvailableAttacks', {
 						"MGBurstFire",
 					},
-					'ShootAP', 7000,
+					'ShootAP', 8000,
 					'ReloadAP', 6000,
 					'Recoil', 16,
 					'BurstShots', 6,
@@ -60046,7 +60046,7 @@ return {
 						"MGBurstFire",
 						"BurstFire",
 					},
-					'ShootAP', 7000,
+					'ShootAP', 8000,
 					'ReloadAP', 6000,
 					'Recoil', 8,
 					'BurstShots', 6,
@@ -60147,7 +60147,7 @@ return {
 					'AvailableAttacks', {
 						"MGBurstFire",
 					},
-					'ShootAP', 7000,
+					'ShootAP', 8000,
 					'ReloadAP', 8000,
 					'Recoil', 6,
 					'BurstShots', 10,
@@ -60272,7 +60272,7 @@ return {
 					'AvailableAttacks', {
 						"MGBurstFire",
 					},
-					'ShootAP', 7000,
+					'ShootAP', 8000,
 					'ReloadAP', 7000,
 					'Recoil', 16,
 					'BurstShots', 9,
@@ -60355,7 +60355,7 @@ return {
 					'AvailableAttacks', {
 						"MGBurstFire",
 					},
-					'ShootAP', 7000,
+					'ShootAP', 8000,
 					'ReloadAP', 9000,
 					'Recoil', 6,
 					'BurstShots', 7,
@@ -60416,7 +60416,7 @@ return {
 					'AvailableAttacks', {
 						"MGBurstFire",
 					},
-					'ShootAP', 8000,
+					'ShootAP', 9000,
 					'ReloadAP', 8000,
 					'Recoil', 16,
 					'BurstShots', 6,
@@ -60474,7 +60474,7 @@ return {
 					'AvailableAttacks', {
 						"MGBurstFire",
 					},
-					'ShootAP', 8000,
+					'ShootAP', 9000,
 					'ReloadAP', 8000,
 					'Recoil', 20,
 					'BurstShots', 12,
@@ -60536,7 +60536,7 @@ return {
 					'AvailableAttacks', {
 						"MGBurstFire",
 					},
-					'ShootAP', 8000,
+					'ShootAP', 9000,
 					'ReloadAP', 8000,
 					'Handling', 35,
 					'BulletDropRange', 26,
@@ -60621,7 +60621,7 @@ return {
 					'AvailableAttacks', {
 						"MGBurstFire",
 					},
-					'ShootAP', 8000,
+					'ShootAP', 9000,
 					'ReloadAP', 7000,
 					'Recoil', 10,
 					'BurstShots', 6,
@@ -60685,7 +60685,7 @@ return {
 					'AvailableAttacks', {
 						"MGBurstFire",
 					},
-					'ShootAP', 8000,
+					'ShootAP', 9000,
 					'ReloadAP', 9000,
 					'Recoil', 18,
 					'BurstShots', 5,
@@ -60771,7 +60771,7 @@ return {
 					'AvailableAttacks', {
 						"MGBurstFire",
 					},
-					'ShootAP', 8000,
+					'ShootAP', 9000,
 					'ReloadAP', 9000,
 					'Recoil', 18,
 					'BurstShots', 5,
@@ -60852,7 +60852,7 @@ return {
 					'AvailableAttacks', {
 						"MGBurstFire",
 					},
-					'ShootAP', 8000,
+					'ShootAP', 9000,
 					'ReloadAP', 10000,
 					'Recoil', 16,
 					'BurstShots', 8,
@@ -60989,7 +60989,7 @@ return {
 					'AvailableAttacks', {
 						"MGBurstFire",
 					},
-					'ShootAP', 8000,
+					'ShootAP', 9000,
 					'ReloadAP', 9000,
 					'Recoil', 17,
 					'BurstShots', 6,
@@ -61094,7 +61094,7 @@ return {
 					'AvailableAttacks', {
 						"MGBurstFire",
 					},
-					'ShootAP', 7000,
+					'ShootAP', 8000,
 					'ReloadAP', 9000,
 					'Recoil', 18,
 					'BurstShots', 5,
@@ -93526,12 +93526,12 @@ return {
 					Parameters = {
 						PlaceObj('PresetParamNumber', {
 							'Name', "min_cost",
-							'Value', 6,
+							'Value', 7,
 							'Tag', "<min_cost>",
 						}),
 						PlaceObj('PresetParamNumber', {
 							'Name', "max_cost",
-							'Value', 16,
+							'Value', 18,
 							'Tag', "<max_cost>",
 						}),
 						PlaceObj('PresetParamNumber', {
@@ -100091,13 +100091,14 @@ return {
 					if not opportunity_attack then
 						return false, 0
 					end
-					local max = self:ResolveValue("MaxCTH")
-					local min = self:ResolveValue("MinCTH")
+					local max = self:ResolveValue("MaxPenalty")
+					local min = self:ResolveValue("MinPenalty")
 					local dex = attacker.Dexterity
 					local mark = attacker.Marksmanship
 					local lvl = attacker:GetLevel()
 					
-					local value = min + (max - min) * (dex + mark + lvl * 5) / 2 / 100
+					local value = max + MulDivRound(min - max, dex + mark + lvl * 5, 100)
+					--local value = min + (max - min) * (dex + mark + lvl * 5) / 2 / 100
 					
 					
 					--if IsKindOf(weapon1, "MachineGun") then value = value * 2 end
@@ -100113,14 +100114,14 @@ return {
 				end,
 				Parameters = {
 					PlaceObj('PresetParamNumber', {
-						'Name', "MaxCTH",
-						'Value', 20,
-						'Tag', "<MaxCTH>",
+						'Name', "MaxPenalty",
+						'Value', -20,
+						'Tag', "<MaxPenalty>",
 					}),
 					PlaceObj('PresetParamNumber', {
-						'Name', "MinCTH",
-						'Value', -10,
-						'Tag', "<MinCTH>",
+						'Name', "MinPenalty",
+						'Value', 10,
+						'Tag', "<MinPenalty>",
 					}),
 				},
 				display_name = T(654410691274, --[[ModItemChanceToHitModifier Default OpportunityAttack display_name]] "Opportunity Attack"),
@@ -133858,7 +133859,7 @@ return {
 		}, {
 			PlaceObj('ModItemRegion', {
 				DisplayName = "Остров Эрни",
-				Heat = 857,
+				Heat = 837,
 				Sectors = {
 					"M1",
 					"M2",

@@ -47,7 +47,7 @@ DefineClass.DP27 = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 8000,
+	ShootAP = 9000,
 	ReloadAP = 8000,
 	Recoil = 16,
 	BurstShots = 6,

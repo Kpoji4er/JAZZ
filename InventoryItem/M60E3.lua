@@ -77,7 +77,7 @@ DefineClass.M60E3 = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 8000,
+	ShootAP = 9000,
 	ReloadAP = 9000,
 	Recoil = 18,
 	BurstShots = 5,

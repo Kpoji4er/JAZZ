@@ -104,7 +104,7 @@ DefineClass.RPK74 = {
 		"MGBurstFire",
 		"BurstFire",
 	},
-	ShootAP = 7000,
+	ShootAP = 8000,
 	ReloadAP = 6000,
 	Recoil = 8,
 	BurstShots = 6,

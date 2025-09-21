@@ -1036,7 +1036,7 @@ end
 
 		--suppression
 		if (action.id == "MGBurstFire") then 
-			suppression_CTH = suppression_CTH * 1.2
+			--suppression_CTH = suppression_CTH * 1.2
 		end
 
 

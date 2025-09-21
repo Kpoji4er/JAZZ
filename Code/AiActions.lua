@@ -669,12 +669,21 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 
   --  end
     if  not unit:HasStatusEffect("Unconscious") and not unit:HasPreparedAttack() and not g_Overwatch[unit] and 
-        not unit:IsIncapacitated() and not unit:IsDead() 
+        not unit:IsIncapacitated() and not unit:IsDead() and not dest == context.unit_stance_pos
         then    
           context.restarts = (context.restarts or 0) + 1
           if (unit.ActionPoints + remaining_free_ap) > (0) then 
             --unit:GainAP(remaining_free_ap)
             --remaining_free_ap = 0;
+            if AICheckIndoors(dest) then
+                local sight = false
+                for _, enemy in ipairs(context.enemies) do
+                    sight = sight or HasVisibilityTo(unit, enemy)
+                end
+                if not sight then 
+                    return not AIPlaceFallbackOverwatch(unit, context)
+                end
+            end
             if context.restarts < 3 then
                if g_AIExecutionController then
                  g_AIExecutionController:Log("  Unit %s requesting restart (AP left: %d, restart count: %d)", unit.unitdatadef_id, unit.ActionPoints, context.restarts)

@@ -71,7 +71,7 @@ DefineClass.MAC2429 = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 7000,
+	ShootAP = 8000,
 	ReloadAP = 7000,
 	Recoil = 32,
 	BurstShots = 4,

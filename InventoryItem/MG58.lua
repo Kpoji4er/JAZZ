@@ -52,7 +52,7 @@ DefineClass.MG58 = {
 	AvailableAttacks = {
 		"MGBurstFire",
 	},
-	ShootAP = 8000,
+	ShootAP = 9000,
 	ReloadAP = 8000,
 	Handling = 35,
 	BulletDropRange = 26,
