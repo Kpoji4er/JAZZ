@@ -24,7 +24,7 @@ DefineClass.JAZZ_AMMO_40mmFragGrenade = {
 	},
 	AreaUnitDamageMod = 80,
 	AreaObjDamageMod = 500,
-	PenetrationClass = 1,
+	PenetrationClass = 3,
 	DeathType = "BlowUp",
 	Caliber = "JAZZ_Caliber_40mmGrenade",
 	BaseDamage = 80,

@@ -497,7 +497,7 @@ function PopulateCrosshairUICth(win, attacker, action, attackResults)
 	for i, mod in ipairs(modifiers) do
 		if mod.uiHidden then goto continue end
 	
-		if mod.value ~= 0 then -- Handle missing value just in case
+		if mod.value ~= 0 and mod.name then -- Handle missing value just in case
 			local sign = ""
 			if (mod.id and mod.value > 0) then
 				local repeats = Min((DivRound(mod.value,10) - 1),10)

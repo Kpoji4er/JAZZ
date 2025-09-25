@@ -42144,7 +42144,7 @@ return {
 					},
 					'AreaUnitDamageMod', 80,
 					'AreaObjDamageMod', 500,
-					'PenetrationClass', 1,
+					'PenetrationClass', 3,
 					'DeathType', "BlowUp",
 					'Caliber', "JAZZ_Caliber_40mmGrenade",
 					'BaseDamage', 80,
@@ -99884,7 +99884,7 @@ return {
 					skill=MulDivRound(skill,1,3)
 					local debuff = -base-skill
 					
-					if not attacker.team or not VisibilityCheckAll(attacker.team, target, nil, const.uvVisible) then
+					if not attacker.team or not VisibilityCheckAll(attacker.team, target, nil, const.uvVisible) or not lof then
 						return true, self:ResolveValue("BlindFirePenalty")
 					end
 					return true, self:ResolveValue("SpotterPenalty"), T(431888134623, "Seen by Spotter")
@@ -99922,7 +99922,7 @@ return {
 				Parameters = {
 					PlaceObj('PresetParamNumber', {
 						'Name', "Penalty",
-						'Value', -100,
+						'Value', -50,
 						'Tag', "<Penalty>",
 					}),
 				},
@@ -134519,7 +134519,7 @@ return {
 		'name', "ObjMaterials",
 	}, {
 		PlaceObj('ModItemObjMaterial', {
-			armor_class = 3,
+			armor_class = 4,
 			breakdown_defense = 0,
 			destruction_propagation_strength = 10,
 			group = "Default",
@@ -134571,7 +134571,7 @@ return {
 		}),
 		PlaceObj('ModItemObjMaterial', {
 			SortKey = 5,
-			armor_class = 2,
+			armor_class = 3,
 			breakdown_defense = 0,
 			destruction_propagation_strength = 10,
 			group = "Default",
