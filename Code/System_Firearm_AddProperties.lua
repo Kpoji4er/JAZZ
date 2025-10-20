@@ -271,12 +271,26 @@ WeaponComponentVisual.properties[#WeaponComponentVisual.properties+1] = {
 
 
 
+function InventoryItem:GetMaxResource()
+    return InventoryItemDefs[self.class]:GetProperty("Condition")
+end
 
+function InventoryItem:GetMaxCondition()
+	return InventoryItemDefs[self.class]:GetProperty("Condition")
+end
 
+function InventoryItem:GetFactoryResource()
+    return InventoryItemDefs[self.class]:GetProperty("Condition")
+end
 
 function FirearmBase:GetFactoryResource()
 	return InventoryItemDefs[self.class]:GetProperty("WeaponResource") or 1000
 end
+
+function InventoryItem:GetCurrentResource()
+    return self.Condition
+end
+
 
 function FirearmBase:GetMaxResource()
     local WeaponResourceMax = 0
@@ -292,6 +306,40 @@ function FirearmBase:GetCurrentResource()
 	return self.WeaponResource or self:GetFactoryResource()
 end
 
+function Inventory:ItemModifyCondition(item, amount)
+	if not item:HasCondition() then
+		return
+	end
+	local prev = item.Condition
+	local newValue = Max(0, item.Condition + amount)
+	item.Condition = newValue
+	Msg("InventoryChange", self)
+	if prev~=newValue then
+		Msg("ItemChangeCondition", item, prev, newValue, self)
+	end	
+
+    if item.WeaponResource then
+        item.WeaponResource = MulDivRound(newValue, 100, item:GetMaxResource())
+     end
+    if item.ArmorResource then 
+        item.ArmorResource = MulDivRound(newValue, 100, item:GetMaxResource())
+    end
+
+
+
+	ObjModified(item)
+	ObjModified(self)
+	
+	return newValue
+end
+
+function Firearm:CanAutofire()
+	return table.find(self.AvailableAttacks, "AutoFire") or self:HasComponent("EnableFullAuto")
+end
+
+function Firearm:CanBurstfire()
+	return table.find(self.AvailableAttacks, "Burstfire") or self:HasComponent("EnableBurst")
+end
 
 
 

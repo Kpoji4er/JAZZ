@@ -934,7 +934,7 @@ function UnitProperties:GetMaxActionPoints()
 	--local hp = MulDivRound(self:GetProperty("Health"),1,10)
 	local hp = MulDivRound(self:GetProperty("Health"),1,10)
 	if self.HitPoints then
-		local hp = MulDivRound(self.HitPoints,1,10)
+		hp = MulDivRound(self.HitPoints,1,10)
 	end
 
 
@@ -959,19 +959,19 @@ function Unit:CalculateArmorWeight()
 				--print(item)
 				--print(item.Weight)
 				 if item.Weight == 2 then 
-					TotalAPDebuff = TotalAPDebuff + 0.25 * const.Scale.AP
+					--TotalAPDebuff = TotalAPDebuff + 0.25 * const.Scale.AP
 					TotalFreeMoveDebuff = TotalFreeMoveDebuff + 0.5
 				 end
 				 if item.Weight == 3 then 
-					TotalAPDebuff = TotalAPDebuff + 0.5 * const.Scale.AP
+					--TotalAPDebuff = TotalAPDebuff + 0.5 * const.Scale.AP
 					TotalFreeMoveDebuff = TotalFreeMoveDebuff + 1 
 				 end
 				 if item.Weight == 4 then 
-					TotalAPDebuff = TotalAPDebuff + 1 * const.Scale.AP
+					--TotalAPDebuff = TotalAPDebuff + 1 * const.Scale.AP
 					TotalFreeMoveDebuff = TotalFreeMoveDebuff + 2
 				 end
 				 if item.Weight == 5 then 
-					TotalAPDebuff = TotalAPDebuff + 1.5 * const.Scale.AP
+					--TotalAPDebuff = TotalAPDebuff + 1.5 * const.Scale.AP
 					TotalFreeMoveDebuff = TotalFreeMoveDebuff + 3
 				 end
 			end

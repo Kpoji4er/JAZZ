@@ -87,7 +87,7 @@ function Firearm:GetOverwatchConeParam(param)
 		return self.OverwatchAngle
 	elseif param == "MinRange" then
 		--return IsKindOfClasses(self, "MachineGun") and self.WeaponRange or Max(2,MulDivRound(self.WeaponRange, 20, 100))
-		return IsKindOfClasses(self, "BrowningM2HMG") and self.WeaponRange or Max(2,MulDivRound(self.WeaponRange, 20, 100))
+		return IsKindOfClasses(self, "BrowningM2HMG") and self.WeaponRange or self.BulletDropRange--Max(2,MulDivRound(self.WeaponRange, 20, 100))
 	elseif param == "MaxRange" then
 		--return IsKindOfClasses(self, "MachineGun") and self.WeaponRange or MulDivRound(self.WeaponRange, 80, 100)
 		return MulDivRound(self.WeaponRange, 80, 100)	
@@ -1511,7 +1511,7 @@ function Firearm:GetAreaAttackParams(action_id, attacker, target_pos, step_pos, 
 		params.min_range = self:GetOverwatchConeParam("MinRange")
 		params.max_range = self:GetOverwatchConeParam("MaxRange")
 	elseif action_id == "Overwatch" or action_id == "MGRotate" or action_id == "MGSetup" then
-		params.cone_angle = self.OverwatchAngle
+		params.cone_angle = self.OverwatchAngle + (MulDivRound(self.Handling - 70,60,10))
 		if self.emplacement_weapon then
 			params.min_distance_2d = const.EmplacementWeaponMinDistance2D
 		end

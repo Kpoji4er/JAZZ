@@ -28,6 +28,7 @@ DefineClass.RPK = {
 	AimAccuracy = 25,
 	MagazineSize = 30,
 	WeaponRange = 42,
+	OverwatchAngle = 780,
 	Noise = 50,
 	HandSlot = "TwoHanded",
 	Entity = "Weapon_RPK74",

@@ -145,7 +145,7 @@ AIPolicyTakeCover.CoverScores = {
 }
 
 
-
+--[[
 --- Evaluates the desirability of a destination location for the AIPolicyFlanking policy.
 ---
 --- @param context AIContext The AI context for the current unit.
@@ -196,6 +196,7 @@ function AIPolicyFlanking:EvalDest(context, dest, grid_voxel)
     
     return delta * self.Weight
 end
+
 
 
 --
@@ -335,7 +336,7 @@ function Unit:GetFlankThreat(unitReplace, context)
 
 
 	return max_flank
-end
+end--]]
 
 
 --- Evaluates the destination position for an AI unit based on its proximity to target units.

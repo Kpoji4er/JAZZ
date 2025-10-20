@@ -1,0 +1,67 @@
+UndefineClass('STG44')
+DefineClass.STG44 = {
+	__parents = { "AssaultRifle" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Tier 2-1",
+	object_class = "AssaultRifle",
+	ScrapParts = 10,
+	RepairCost = 3,
+	Icon = "Mod/e6L4ECj/WeaponIcons/STG44.png",
+	DisplayName = T(250655452748, --[[ModItemInventoryItemCompositeDef STG44 DisplayName]] "StG-44"),
+	DisplayNamePlural = T(153918269049, --[[ModItemInventoryItemCompositeDef STG44 DisplayNamePlural]] "StG-44"),
+	Description = T(110936392470, --[[ModItemInventoryItemCompositeDef STG44 Description]] 'Первый в мире серийный автомат, или штурмовая винтовка. Собсно, "Штурмгевер" и означает штурмовая винтовка (говорят, Гитлер лично придумал, но больше похоже на байку). Несмотря на то, что на ход войны вундервафля уже влияния не оказала, именно на ней была опробована и успешно получила развитие идея "промежуточного" патрона.'),
+	AdditionalHint = "",
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 1500,
+	CanAppearInShop = true,
+	MaxStock = 5,
+	RestockWeight = 150,
+	CategoryPair = "AssaultRifles",
+	Caliber = "JAZZ_Caliber_792x33",
+	Damage = 26,
+	ObjDamageMod = 50,
+	AimAccuracy = 17,
+	CritChance = 5,
+	MagazineSize = 30,
+	WeaponRange = 32,
+	OverwatchAngle = 1800,
+	Noise = 55,
+	HandSlot = "TwoHanded",
+	Entity = "STG44",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Scope_ZF4",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Side",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"HandlingWrap",
+			},
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	AvailableAttacks = {
+		"BurstFire",
+		"AutoFire",
+		"SingleShot",
+		"CancelShot",
+	},
+	ShootAP = 6000,
+	ReloadAP = 6000,
+	Recoil = 16,
+	BurstShots = 2,
+	AutoShots = 5,
+	Handling = 58,
+	BulletDropRange = 13,
+	Grouping = 210,
+	WeaponResource = 2500,
+}
+

@@ -1,0 +1,57 @@
+UndefineClass('Mas36')
+DefineClass.Mas36 = {
+	__parents = { "SniperRifle" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Tier 1-1",
+	object_class = "SniperRifle",
+	ScrapParts = 8,
+	RepairCost = 3,
+	Reliability = 85,
+	Icon = "Mod/e6L4ECj/WeaponIcons/MAS36.png",
+	DisplayName = T(415053102324, --[[ModItemInventoryItemCompositeDef Mas36 DisplayName]] "MAS36"),
+	DisplayNamePlural = T(826420490062, --[[ModItemInventoryItemCompositeDef Mas36 DisplayNamePlural]] "MAS36"),
+	Description = T(105734133486, --[[ModItemInventoryItemCompositeDef Mas36 Description]] "Линейная пехотная винтовка производства Франции периода ВМВ, была разработана в 1930-х годах, что делает ее относительной новинкой в сравнении с винтовками Мосина, Маузера, Ли Энфильда и Спрингфилда. Но, как известно, особой конкуренции Маузерам у нее составить не получилось."),
+	AdditionalHint = T(191648401008, --[[ModItemInventoryItemCompositeDef Mas36 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Продольно-скользящий затвор - высокие затраты ОД на выстрел\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая дальность, но низкая точность"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	CategoryPair = "Rifles",
+	CanAppearStandard = false,
+	Caliber = "JAZZ_Caliber_75French",
+	Damage = 38,
+	ObjDamageMod = 80,
+	AimAccuracy = 27,
+	CritChanceScaled = 40,
+	MagazineSize = 5,
+	WeaponRange = 57,
+	OverwatchAngle = 300,
+	Noise = 59,
+	HandSlot = "TwoHanded",
+	Entity = "MAS36",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Scope_PU",
+			},
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	ModifyRightHandGrip = true,
+	PreparedAttackType = "Both",
+	AvailableAttacks = {
+		"SingleShot",
+		"CancelShot",
+	},
+	ShootAP = 8000,
+	ReloadAP = 7000,
+	BurstShots = 1,
+	AutoShots = 1,
+	Handling = 48,
+	BulletDropRange = 22,
+	Grouping = 280,
+	WeaponResource = 7000,
+}
+

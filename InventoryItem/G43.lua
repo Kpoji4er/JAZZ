@@ -1,0 +1,58 @@
+UndefineClass('G43')
+DefineClass.G43 = {
+	__parents = { "SniperRifle" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Tier 1-2",
+	object_class = "SniperRifle",
+	ScrapParts = 8,
+	RepairCost = 6,
+	Reliability = 55,
+	Icon = "Mod/e6L4ECj/WeaponIcons/G43.png",
+	DisplayName = T(729447298300, --[[ModItemInventoryItemCompositeDef G43 DisplayName]] "G43"),
+	DisplayNamePlural = T(830429456946, --[[ModItemInventoryItemCompositeDef G43 DisplayNamePlural]] "G43"),
+	Description = T(789944142367, --[[ModItemInventoryItemCompositeDef G43 Description]] "Немецкая самозарядная винтовка периода ВМВ. На конструкцию во многом оказала влияние советская СВТ, как с точки зрения концепции, так и в более приземленном смысле заимстования конструкции газового двигателя."),
+	AdditionalHint = T(546051968989, --[[ModItemInventoryItemCompositeDef G43 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкие од на выстрел\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая точность прицельной стрельбы\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Возможность стрельбы на бегу"),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 2000,
+	CategoryPair = "Rifles",
+	CanAppearStandard = false,
+	Caliber = "JAZZ_Caliber_792",
+	Damage = 40,
+	ObjDamageMod = 80,
+	AimAccuracy = 29,
+	CritChanceScaled = 40,
+	MagazineSize = 10,
+	WeaponRange = 58,
+	OverwatchAngle = 840,
+	Noise = 68,
+	HandSlot = "TwoHanded",
+	Entity = "G43",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Scope_ZF4",
+			},
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	ModifyRightHandGrip = true,
+	AvailableAttacks = {
+		"SingleShot",
+		"CancelShot",
+		"MobileShot",
+	},
+	ShootAP = 7000,
+	ReloadAP = 7000,
+	BurstShots = 1,
+	AutoShots = 1,
+	Handling = 47,
+	BulletDropRange = 25,
+	Grouping = 250,
+	WeaponResource = 4000,
+}
+

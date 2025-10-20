@@ -29,6 +29,7 @@ DefineClass.DP27 = {
 	AimAccuracy = 20,
 	MagazineSize = 47,
 	WeaponRange = 57,
+	OverwatchAngle = 600,
 	Noise = 68,
 	HandSlot = "TwoHanded",
 	Entity = "DP27",

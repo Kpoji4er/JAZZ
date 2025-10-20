@@ -30,22 +30,22 @@ DefineClass.suppressionHeavy2 = {
 	Description = T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionHeavy2 Description]] "Передвижение в 2 раза дороже. Точность стрельбы сильно снижена."),
 	AddEffectText = T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionHeavy2 AddEffectText]] "Под плотным огнем"),
 	OnAdded = function (self, obj)
-		local unitStance = obj.stance
-		if unitStance == "Standing" then
-		obj:SetActionCommand("ChangeStance", nil, nil, "Crouch")
-		end
+		--local unitStance = obj.stance
+		--if unitStance == "Standing" then
+		--obj:SetActionCommand("ChangeStance", nil, nil, "Crouch")
+		--end
 		
-		if unitStance == "Crouch" and not (obj:CanTakeCover()) then
-		obj:SetActionCommand("ChangeStance", nil, nil, "Prone")
-		end
+		--if unitStance == "Crouch" and not (obj:CanTakeCover()) then
+		--obj:SetActionCommand("ChangeStance", nil, nil, "Prone")
+		--end
 		
-		obj:InterruptPreparedAttack()
+		--obj:InterruptPreparedAttack()
 		
-		local unitStance = obj.stance
-		if unitStance == "Standing" then
-		obj:SetActionCommand("ChangeStance", nil, nil, "Crouch")
-		end
-		obj:InterruptPreparedAttack()
+		--local unitStance = obj.stance
+		--if unitStance == "Standing" then
+		--obj:SetActionCommand("ChangeStance", nil, nil, "Crouch")
+		--end
+		--obj:InterruptPreparedAttack()
 		
 		if not obj:IsDead() then
 		                    if obj:IsMerc() then

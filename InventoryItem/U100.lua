@@ -29,6 +29,7 @@ DefineClass.U100 = {
 	CritChance = 5,
 	MagazineSize = 100,
 	WeaponRange = 48,
+	OverwatchAngle = 780,
 	Noise = 48,
 	HandSlot = "TwoHanded",
 	Entity = "U100",

@@ -29,6 +29,7 @@ DefineClass.MAC2429 = {
 	AimAccuracy = 17,
 	MagazineSize = 25,
 	WeaponRange = 56,
+	OverwatchAngle = 780,
 	Noise = 68,
 	HandSlot = "TwoHanded",
 	Entity = "MAC2429",

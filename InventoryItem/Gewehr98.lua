@@ -34,15 +34,13 @@ DefineClass.Gewehr98 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
 			'AvailableComponents', {
-				"JAZZ_CombatScope_FeroZ24",
 				"JAZZ_CombatScope_2x",
-				"JAZZ_Scope_12x",
 				"JAZZ_Scope_Scout",
 				"JAZZ_Scope_DA15_6x",
-				"ImprovedIronsight",
-				"GewehrDefaultSight",
+				"Jazz_IronSight",
+				"JAZZ_Scope_ZF4",
 			},
-			'DefaultComponent', "GewehrDefaultSight",
+			'DefaultComponent', "Jazz_IronSight",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",

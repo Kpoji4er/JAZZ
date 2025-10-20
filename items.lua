@@ -1313,7 +1313,7 @@ return {
 			Comment = "bonus out-of-turn interrupt attacks with machine guns at 0 ap",
 			group = "Combat",
 			id = "MGFreeInterruptAttacks",
-			value = 3,
+			value = 2,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "Sight radius (in tiles) for units aware of the target unit",
@@ -40019,6 +40019,12 @@ return {
 					}),
 					PlaceObj('ModItemCaliber', {
 						ImpactForce = 1,
+						Name = T(346459575064, --[[ModItemCaliber Default JAZZ_Caliber_30CAL Name]] "0.30"),
+						group = "Default",
+						id = "JAZZ_Caliber_30CAL",
+					}),
+					PlaceObj('ModItemCaliber', {
+						ImpactForce = 1,
 						Name = T(346459575064, --[[ModItemCaliber Default JAZZ_Caliber_38 Name]] "0.38"),
 						group = "Default",
 						id = "JAZZ_Caliber_38",
@@ -40086,6 +40092,12 @@ return {
 						SortKey = 5,
 						group = "Default",
 						id = "JAZZ_Caliber_762x39",
+					}),
+					PlaceObj('ModItemCaliber', {
+						Name = T(195287283557, --[[ModItemCaliber Default JAZZ_Caliber_792x33 Name]] "7,62x33 мм Kurz"),
+						SortKey = 5,
+						group = "Default",
+						id = "JAZZ_Caliber_792x33",
 					}),
 					PlaceObj('ModItemCaliber', {
 						Name = T(170260753586, --[[ModItemCaliber Default JAZZ_Caliber_762x51 Name]] "7,62 мм НАТО"),
@@ -40519,6 +40531,33 @@ return {
 					'ShopStackSize', 30,
 					'MaxStacks', 120,
 					'Caliber', "JAZZ_Caliber_38",
+					'Modifications', {
+						PlaceObj('CaliberModification', {
+							mod_mul = 0,
+							target_prop = "PenetrationClass",
+						}),
+						PlaceObj('CaliberModification', {
+							mod_mul = 800,
+							target_prop = "Damage",
+						}),
+					},
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Ammo",
+					'Id', "JAZZ_AMMO_30",
+					'object_class', "Ammo",
+					'Icon', "Mod/e6L4ECj/Ammopics/30cal.png",
+					'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30 DisplayName]] ".30 Cal"),
+					'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30 DisplayNamePlural]] ".30 Cal"),
+					'colorStyle', "AmmoBasicColor",
+					'Description', T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30 Description]] "Боеприпас для пистолетов, револьверов и пистолетов-пулеметов калибра .38 Special."),
+					'Cost', 10,
+					'CanAppearInShop', true,
+					'MaxStock', 50,
+					'CategoryPair', "44CAL",
+					'ShopStackSize', 30,
+					'MaxStacks', 120,
+					'Caliber', "JAZZ_Caliber_30CAL",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
 							mod_mul = 0,
@@ -41320,6 +41359,36 @@ return {
 					'AppliedEffects', {
 						"Burning",
 						"Bleeding",
+					},
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "Ammo",
+					'Id', "JAZZ_AMMO_792x33",
+					'object_class', "Ammo",
+					'RepairCost', 400,
+					'Icon', "Mod/e6L4ECj/Ammopics/792x33.png",
+					'DisplayName', T(333321938927, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33 DisplayName]] "792x33мм"),
+					'DisplayNamePlural', T(789710016757, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33 DisplayNamePlural]] "792x33мм"),
+					'colorStyle', "AmmoGreenColor",
+					'Description', T(527669776671, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33 Description]] "Стандартный советский армейский патрон ПС калибра 7.62х39мм"),
+					'AdditionalHint', T(253050921629, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Обеспечивает уверенное поражение целей обладающих 2-м классом брони"),
+					'Cost', 300,
+					'CanAppearInShop', true,
+					'Tier', 3,
+					'MaxStock', 10,
+					'CategoryPair', "762WP",
+					'ShopStackSize', 30,
+					'MaxStacks', 60,
+					'Caliber', "JAZZ_Caliber_792x33",
+					'Modifications', {
+						PlaceObj('CaliberModification', {
+							mod_add = 1,
+							target_prop = "PenetrationClass",
+						}),
+						PlaceObj('CaliberModification', {
+							mod_add = 1,
+							target_prop = "BulletDropRange",
+						}),
 					},
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -48869,6 +48938,30 @@ return {
 								'file', "Mod/e6L4ECj/Sounds/m79/m79open.opus",
 							}),
 						}),
+						PlaceObj('ModItemSoundPreset', {
+							group = "WEAPONS",
+							id = "STG44_shot",
+							loud_distance = 20000,
+							type = "Weapons",
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/synthesize.wav",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/synthesize.wav",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/synthesize.wav",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/synthesize.wav",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/synthesize.wav",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/synthesize.wav",
+							}),
+						}),
 						}),
 					PlaceObj('ModItemFolder', {
 						'name', "Thompson",
@@ -49263,6 +49356,10 @@ return {
 					PlaceObj('ModItemFolder', {
 						'name', "ActionFX_AR",
 					}, {
+						PlaceObj('ModItemCode', {
+							'name', "FX_STG44",
+							'CodeFileName', "Code/FX_STG44.lua",
+						}),
 						PlaceObj('ModItemCode', {
 							'name', "FX_HK33",
 							'CodeFileName', "Code/FX_HK33.lua",
@@ -54583,6 +54680,94 @@ return {
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - Rifles-Carbines",
+					'Id', "M2Carbine",
+					'comment', "Tier 1-1",
+					'object_class', "SniperRifle",
+					'ScrapParts', 8,
+					'RepairCost', 3,
+					'Reliability', 50,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/M2Carbine.png",
+					'ItemType', "DMR",
+					'DisplayName', T(142435704728, --[[ModItemInventoryItemCompositeDef M2Carbine DisplayName]] "Карбайн"),
+					'DisplayNamePlural', T(875798522299, --[[ModItemInventoryItemCompositeDef M2Carbine DisplayNamePlural]] "Карбайн"),
+					'Description', T(534013565696, --[[ModItemInventoryItemCompositeDef M2Carbine Description]] "Еще не настоящий промежуточный патрон, в том понимании, каким он был у СТГ-44 или Калашникова, но по концепции - очень даже настоящий промежуточный карабин. Меньше вес патрона - больше боекомплект. Больше боекомплект - выше плотность огня. Вот вам еще десантный вариант со складным прикладом, штурмовой с автоогнем, и специальный с ночным прицелом."),
+					'AdditionalHint', T(697050056619, --[[ModItemInventoryItemCompositeDef M2Carbine AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Медленная перезарядка\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Возможность стрельбы на бегу"),
+					'LargeItem', 1,
+					'UnitStat', "Marksmanship",
+					'Cost', 1750,
+					'CanAppearInShop', true,
+					'CategoryPair', "Rifles",
+					'Caliber', "JAZZ_Caliber_30CAL",
+					'Damage', 17,
+					'ObjDamageMod', 50,
+					'AimAccuracy', 18,
+					'CritChanceScaled', 30,
+					'MagazineSize', 30,
+					'WeaponRange', 36,
+					'OverwatchAngle', 1500,
+					'Noise', 30,
+					'HandSlot', "TwoHanded",
+					'Entity', "M2Carbine",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Stock",
+							'AvailableComponents', {
+								"StockLightFolded",
+								"StockLightUnFolded",
+								"StockNo",
+								"StockNormal",
+							},
+							'DefaultComponent', "StockNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'AvailableComponents', {
+								"MagNormal",
+								"MagSmall30_15",
+							},
+							'DefaultComponent', "MagSmall30_15",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Scope",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"JAZZ_CombatScope_2x",
+								"JAZZ_NightScope_M3",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Trigger",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"Autofire",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"FlashHider",
+							},
+						}),
+					},
+					'HolsterSlot', "Shoulder",
+					'AvailableAttacks', {
+						"SingleShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 5000,
+					'ReloadAP', 6000,
+					'Recoil', 10,
+					'AutoShots', 7,
+					'Handling', 60,
+					'BulletDropRange', 12,
+					'Grouping', 190,
+					'BaseJamChance', -100,
+					'WeaponResource', 3000,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - Rifles-Carbines",
 					'Id', "Mini14",
 					'comment', "Tier 1-3",
 					'object_class', "SniperRifle",
@@ -55728,6 +55913,69 @@ return {
 					'Handling', 60,
 					'BulletDropRange', 13,
 					'Grouping', 180,
+					'WeaponResource', 2500,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - Rifles-AR",
+					'Id', "STG44",
+					'comment', "Tier 2-1",
+					'object_class', "AssaultRifle",
+					'ScrapParts', 10,
+					'RepairCost', 3,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/STG44.png",
+					'DisplayName', T(250655452748, --[[ModItemInventoryItemCompositeDef STG44 DisplayName]] "StG-44"),
+					'DisplayNamePlural', T(153918269049, --[[ModItemInventoryItemCompositeDef STG44 DisplayNamePlural]] "StG-44"),
+					'Description', T(110936392470, --[[ModItemInventoryItemCompositeDef STG44 Description]] 'Первый в мире серийный автомат, или штурмовая винтовка. Собсно, "Штурмгевер" и означает штурмовая винтовка (говорят, Гитлер лично придумал, но больше похоже на байку). Несмотря на то, что на ход войны вундервафля уже влияния не оказала, именно на ней была опробована и успешно получила развитие идея "промежуточного" патрона.'),
+					'AdditionalHint', "",
+					'LargeItem', 1,
+					'UnitStat', "Marksmanship",
+					'Cost', 1500,
+					'CanAppearInShop', true,
+					'MaxStock', 5,
+					'RestockWeight', 150,
+					'CategoryPair', "AssaultRifles",
+					'Caliber', "JAZZ_Caliber_792x33",
+					'Damage', 26,
+					'ObjDamageMod', 50,
+					'AimAccuracy', 17,
+					'CritChance', 5,
+					'MagazineSize', 30,
+					'WeaponRange', 32,
+					'OverwatchAngle', 1800,
+					'Noise', 55,
+					'HandSlot', "TwoHanded",
+					'Entity', "STG44",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Scope",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"JAZZ_Scope_ZF4",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Side",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"HandlingWrap",
+							},
+						}),
+					},
+					'HolsterSlot', "Shoulder",
+					'AvailableAttacks', {
+						"BurstFire",
+						"AutoFire",
+						"SingleShot",
+						"CancelShot",
+					},
+					'ShootAP', 6000,
+					'ReloadAP', 6000,
+					'Recoil', 16,
+					'BurstShots', 2,
+					'AutoShots', 5,
+					'Handling', 58,
+					'BulletDropRange', 13,
+					'Grouping', 210,
 					'WeaponResource', 2500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -57336,6 +57584,69 @@ return {
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - Rifles-Battle",
+					'Id', "FG42",
+					'comment', "Tier 1-2",
+					'object_class', "AssaultRifle",
+					'ScrapParts', 12,
+					'RepairCost', 3,
+					'Reliability', 30,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/FG42.png",
+					'DisplayName', T(265028974011, --[[ModItemInventoryItemCompositeDef FG42 DisplayName]] "FG42"),
+					'DisplayNamePlural', T(414328375447, --[[ModItemInventoryItemCompositeDef FG42 DisplayNamePlural]] "FG42"),
+					'Description', T(588154036612, --[[ModItemInventoryItemCompositeDef FG42 Description]] 'Оружие элиты вооруженных сил Германии в ВМВ - парашютистов Люфтваффе. Винтовка реализует концепцию "все свое ношу с собой" - тут и компоновка с магазином слева для компактности, и длинный ход поршня с поворотным затвором для надежности, и автоматический огонь для плотности, и оптический прицел для точности, и дульная мортирка для гранатометности, и сошки для лежкости, и даже штык для сувания в почку. И много-много рейхсмарок в смете.'),
+					'AdditionalHint', T(657931851868, --[[ModItemInventoryItemCompositeDef FG42 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Легкий\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая эффективность стрельбы навскидку"),
+					'LargeItem', 1,
+					'UnitStat', "Marksmanship",
+					'Cost', 3000,
+					'CanAppearInShop', true,
+					'Tier', 2,
+					'MaxStock', 1,
+					'RestockWeight', 40,
+					'CategoryPair', "AssaultRifles",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_792",
+					'Damage', 38,
+					'ObjDamageMod', 80,
+					'AimAccuracy', 23,
+					'MagazineSize', 20,
+					'WeaponRange', 53,
+					'Noise', 66,
+					'HandSlot', "TwoHanded",
+					'Entity', "FG42",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Bipod",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"Bipod",
+							},
+							'DefaultComponent', "Bipod",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Scope",
+							'AvailableComponents', {
+								"JAZZ_Scope_ZF4",
+								"Jazz_IronSight",
+							},
+							'DefaultComponent', "Jazz_IronSight",
+						}),
+					},
+					'HolsterSlot', "Shoulder",
+					'AvailableAttacks', {
+						"BurstFire",
+						"AutoFire",
+					},
+					'ShootAP', 8000,
+					'ReloadAP', 7000,
+					'Recoil', 36,
+					'AutoShots', 7,
+					'Handling', 40,
+					'BulletDropRange', 22,
+					'Grouping', 220,
+					'WeaponResource', 6500,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - Rifles-Battle",
 					'Id', "AR10",
 					'comment', "Tier 2-1",
 					'object_class', "AssaultRifle",
@@ -58096,6 +58407,123 @@ return {
 					'Handling', 45,
 					'BulletDropRange', 23,
 					'Grouping', 220,
+					'WeaponResource', 4000,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - Rifles-Semi",
+					'Id', "MAS49",
+					'comment', "Tier 1-2",
+					'object_class', "SniperRifle",
+					'ScrapParts', 8,
+					'RepairCost', 6,
+					'Reliability', 55,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/MAS49.png",
+					'DisplayName', T(729447298300, --[[ModItemInventoryItemCompositeDef MAS49 DisplayName]] "MAS-49/56"),
+					'DisplayNamePlural', T(830429456946, --[[ModItemInventoryItemCompositeDef MAS49 DisplayNamePlural]] "MAS-49/56"),
+					'Description', T(789944142367, --[[ModItemInventoryItemCompositeDef MAS49 Description]] "После Второй Мировой Войны деоккупированная Франция нуждалась в новом современном оружии, и еще в 1944 году была разработана и выпущена первая партия этих винтовок с газовым двигателем с прямым отводом пороховых газов (да, как в AR-15 потом). Практически сразу им пришлось повоевать в Индокитае и Вьетнаме, с неплохими отзывами по надежности и кучности боя."),
+					'AdditionalHint', T(546051968989, --[[ModItemInventoryItemCompositeDef MAS49 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкие од на выстрел\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая точность прицельной стрельбы\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Возможность стрельбы на бегу"),
+					'LargeItem', 1,
+					'UnitStat', "Marksmanship",
+					'Cost', 2000,
+					'CategoryPair', "Rifles",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_75French",
+					'Damage', 36,
+					'ObjDamageMod', 80,
+					'AimAccuracy', 29,
+					'CritChanceScaled', 40,
+					'MagazineSize', 10,
+					'WeaponRange', 55,
+					'OverwatchAngle', 840,
+					'Noise', 68,
+					'HandSlot', "TwoHanded",
+					'Entity', "MAS49",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Scope",
+							'AvailableComponents', {
+								"JAZZ_Reflex_Garand",
+								"JAZZ_Scope_Garand",
+								"DefaultIronsight_AR15",
+							},
+							'DefaultComponent', "DefaultIronsight_AR15",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"Suppressor",
+							},
+						}),
+					},
+					'HolsterSlot', "Shoulder",
+					'ModifyRightHandGrip', true,
+					'AvailableAttacks', {
+						"SingleShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 7000,
+					'ReloadAP', 7000,
+					'BurstShots', 1,
+					'AutoShots', 1,
+					'Handling', 50,
+					'BulletDropRange', 23,
+					'Grouping', 260,
+					'WeaponResource', 4000,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - Rifles-Semi",
+					'Id', "G43",
+					'comment', "Tier 1-2",
+					'object_class', "SniperRifle",
+					'ScrapParts', 8,
+					'RepairCost', 6,
+					'Reliability', 55,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/G43.png",
+					'DisplayName', T(729447298300, --[[ModItemInventoryItemCompositeDef G43 DisplayName]] "G43"),
+					'DisplayNamePlural', T(830429456946, --[[ModItemInventoryItemCompositeDef G43 DisplayNamePlural]] "G43"),
+					'Description', T(789944142367, --[[ModItemInventoryItemCompositeDef G43 Description]] "Немецкая самозарядная винтовка периода ВМВ. На конструкцию во многом оказала влияние советская СВТ, как с точки зрения концепции, так и в более приземленном смысле заимстования конструкции газового двигателя."),
+					'AdditionalHint', T(546051968989, --[[ModItemInventoryItemCompositeDef G43 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкие од на выстрел\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая точность прицельной стрельбы\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Возможность стрельбы на бегу"),
+					'LargeItem', 1,
+					'UnitStat', "Marksmanship",
+					'Cost', 2000,
+					'CategoryPair', "Rifles",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_792",
+					'Damage', 40,
+					'ObjDamageMod', 80,
+					'AimAccuracy', 29,
+					'CritChanceScaled', 40,
+					'MagazineSize', 10,
+					'WeaponRange', 58,
+					'OverwatchAngle', 840,
+					'Noise', 68,
+					'HandSlot', "TwoHanded",
+					'Entity', "G43",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Scope",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"JAZZ_Scope_ZF4",
+							},
+						}),
+					},
+					'HolsterSlot', "Shoulder",
+					'ModifyRightHandGrip', true,
+					'AvailableAttacks', {
+						"SingleShot",
+						"CancelShot",
+						"MobileShot",
+					},
+					'ShootAP', 7000,
+					'ReloadAP', 7000,
+					'BurstShots', 1,
+					'AutoShots', 1,
+					'Handling', 47,
+					'BulletDropRange', 25,
+					'Grouping', 250,
 					'WeaponResource', 4000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -59150,6 +59578,59 @@ return {
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - Rifles-Bolt",
+					'Id', "Mas36",
+					'comment', "Tier 1-1",
+					'object_class', "SniperRifle",
+					'ScrapParts', 8,
+					'RepairCost', 3,
+					'Reliability', 85,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/MAS36.png",
+					'DisplayName', T(415053102324, --[[ModItemInventoryItemCompositeDef Mas36 DisplayName]] "MAS36"),
+					'DisplayNamePlural', T(826420490062, --[[ModItemInventoryItemCompositeDef Mas36 DisplayNamePlural]] "MAS36"),
+					'Description', T(105734133486, --[[ModItemInventoryItemCompositeDef Mas36 Description]] "Линейная пехотная винтовка производства Франции периода ВМВ, была разработана в 1930-х годах, что делает ее относительной новинкой в сравнении с винтовками Мосина, Маузера, Ли Энфильда и Спрингфилда. Но, как известно, особой конкуренции Маузерам у нее составить не получилось."),
+					'AdditionalHint', T(191648401008, --[[ModItemInventoryItemCompositeDef Mas36 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Продольно-скользящий затвор - высокие затраты ОД на выстрел\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая дальность, но низкая точность"),
+					'LargeItem', 1,
+					'UnitStat', "Marksmanship",
+					'CategoryPair', "Rifles",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_75French",
+					'Damage', 38,
+					'ObjDamageMod', 80,
+					'AimAccuracy', 27,
+					'CritChanceScaled', 40,
+					'MagazineSize', 5,
+					'WeaponRange', 57,
+					'OverwatchAngle', 300,
+					'Noise', 59,
+					'HandSlot', "TwoHanded",
+					'Entity', "MAS36",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Scope",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"JAZZ_Scope_PU",
+							},
+						}),
+					},
+					'HolsterSlot', "Shoulder",
+					'ModifyRightHandGrip', true,
+					'PreparedAttackType', "Both",
+					'AvailableAttacks', {
+						"SingleShot",
+						"CancelShot",
+					},
+					'ShootAP', 8000,
+					'ReloadAP', 7000,
+					'BurstShots', 1,
+					'AutoShots', 1,
+					'Handling', 48,
+					'BulletDropRange', 22,
+					'Grouping', 280,
+					'WeaponResource', 7000,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - Rifles-Bolt",
 					'Id', "Gewehr98",
 					'comment', "Tier 1-2",
 					'object_class', "SniperRifle",
@@ -59181,15 +59662,13 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
 							'AvailableComponents', {
-								"JAZZ_CombatScope_FeroZ24",
 								"JAZZ_CombatScope_2x",
-								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
 								"JAZZ_Scope_DA15_6x",
-								"ImprovedIronsight",
-								"GewehrDefaultSight",
+								"Jazz_IronSight",
+								"JAZZ_Scope_ZF4",
 							},
-							'DefaultComponent', "GewehrDefaultSight",
+							'DefaultComponent', "Jazz_IronSight",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
@@ -59685,6 +60164,7 @@ return {
 					'AimAccuracy', 17,
 					'MagazineSize', 25,
 					'WeaponRange', 56,
+					'OverwatchAngle', 780,
 					'Noise', 68,
 					'HandSlot', "TwoHanded",
 					'Entity', "MAC2429",
@@ -59765,6 +60245,7 @@ return {
 					'CritChance', 5,
 					'MagazineSize', 100,
 					'WeaponRange', 48,
+					'OverwatchAngle', 780,
 					'Noise', 48,
 					'HandSlot', "TwoHanded",
 					'Entity', "U100",
@@ -59860,6 +60341,7 @@ return {
 					'AimAccuracy', 25,
 					'MagazineSize', 30,
 					'WeaponRange', 42,
+					'OverwatchAngle', 780,
 					'Noise', 50,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_RPK74",
@@ -59972,6 +60454,7 @@ return {
 					'MagazineSize', 30,
 					'WeaponRange', 50,
 					'PointBlankBonus', 1,
+					'OverwatchAngle', 780,
 					'Noise', 48,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_RPK74",
@@ -60085,7 +60568,7 @@ return {
 					'CritChance', 5,
 					'MagazineSize', 100,
 					'WeaponRange', 54,
-					'OverwatchAngle', 2700,
+					'OverwatchAngle', 780,
 					'Noise', 48,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_FNMinimi",
@@ -60184,7 +60667,7 @@ return {
 					'AimAccuracy', 27,
 					'MagazineSize', 40,
 					'WeaponRange', 58,
-					'OverwatchAngle', 1800,
+					'OverwatchAngle', 780,
 					'Noise', 66,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_HK21",
@@ -60312,7 +60795,7 @@ return {
 					'CritChance', 5,
 					'MagazineSize', 100,
 					'WeaponRange', 52,
-					'OverwatchAngle', 1800,
+					'OverwatchAngle', 780,
 					'Noise', 55,
 					'HandSlot', "TwoHanded",
 					'Entity', "HK23e",
@@ -60398,6 +60881,7 @@ return {
 					'AimAccuracy', 20,
 					'MagazineSize', 47,
 					'WeaponRange', 57,
+					'OverwatchAngle', 600,
 					'Noise', 68,
 					'HandSlot', "TwoHanded",
 					'Entity', "DP27",
@@ -60455,7 +60939,7 @@ return {
 					'AimAccuracy', 22,
 					'MagazineSize', 50,
 					'WeaponRange', 54,
-					'OverwatchAngle', 1800,
+					'OverwatchAngle', 600,
 					'Noise', 72,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_MG42",
@@ -60509,7 +60993,7 @@ return {
 					'AimAccuracy', 22,
 					'MagazineSize', 50,
 					'WeaponRange', 56,
-					'OverwatchAngle', 1800,
+					'OverwatchAngle', 600,
 					'Noise', 75,
 					'HandSlot', "TwoHanded",
 					'Entity', "Weapon_MG42",
@@ -60570,7 +61054,7 @@ return {
 					'AimAccuracy', 24,
 					'MagazineSize', 100,
 					'WeaponRange', 40,
-					'OverwatchAngle', 1800,
+					'OverwatchAngle', 600,
 					'Noise', 52,
 					'HandSlot', "TwoHanded",
 					'Entity', "RPD",
@@ -60660,7 +61144,7 @@ return {
 					'AimAccuracy', 27,
 					'MagazineSize', 100,
 					'WeaponRange', 55,
-					'OverwatchAngle', 1800,
+					'OverwatchAngle', 600,
 					'Noise', 64,
 					'HandSlot', "TwoHanded",
 					'Entity', "M60",
@@ -60723,7 +61207,7 @@ return {
 					'AimAccuracy', 27,
 					'MagazineSize', 100,
 					'WeaponRange', 56,
-					'OverwatchAngle', 1800,
+					'OverwatchAngle', 600,
 					'Noise', 64,
 					'HandSlot', "TwoHanded",
 					'Entity', "M60E3",
@@ -60810,7 +61294,7 @@ return {
 					'AimAccuracy', 29,
 					'MagazineSize', 100,
 					'WeaponRange', 62,
-					'OverwatchAngle', 1800,
+					'OverwatchAngle', 600,
 					'Noise', 65,
 					'HandSlot', "TwoHanded",
 					'Entity', "KSP_58_B",
@@ -60893,7 +61377,7 @@ return {
 					'CritChance', 10,
 					'MagazineSize', 100,
 					'WeaponRange', 60,
-					'OverwatchAngle', 1800,
+					'OverwatchAngle', 600,
 					'Noise', 70,
 					'HandSlot', "TwoHanded",
 					'Entity', "PKM",
@@ -61028,7 +61512,7 @@ return {
 					'AimAccuracy', 28,
 					'MagazineSize', 100,
 					'WeaponRange', 56,
-					'OverwatchAngle', 1800,
+					'OverwatchAngle', 600,
 					'Noise', 64,
 					'HandSlot', "TwoHanded",
 					'Entity', "M60E4",
@@ -66025,6 +66509,11 @@ return {
 					group = "ChanceToHit",
 					id = "MinorAccuracyBonus",
 				}),
+				PlaceObj('ModItemWeaponComponentEffect', {
+					Description = T(957597806032, --[[ModItemWeaponComponentEffect EnableBurst Description]] "Разблокирует режим <em>Стрельбы очередями</em> "),
+					group = "Default",
+					id = "EnableBurst",
+				}),
 				}),
 			PlaceObj('ModItemFolder', {
 				'name', "ComponentsNew",
@@ -66240,9 +66729,34 @@ return {
 							Slot = "Bipod",
 							param_bindings = false,
 						}),
+						PlaceObj('WeaponComponentVisual', {
+							ApplyTo = "FG42",
+							Entity = "FG42Bipod",
+							Slot = "Bipod",
+							param_bindings = false,
+						}),
 					},
 					group = "Underslung",
 					id = "Bipod",
+				}),
+				PlaceObj('ModItemWeaponComponent', {
+					DisplayName = T(535138608885, --[[ModItemWeaponComponent Autofire DisplayName]] "Автоматический огонь"),
+					ModificationEffects = {
+						"EnableFullAuto",
+						"EnableBurst",
+						"EnableRunNGun",
+					},
+					Slot = "Trigger",
+					Visuals = {
+						PlaceObj('WeaponComponentVisual', {
+							ApplyTo = "M2Carbine",
+							Entity = "M2CarAutofire",
+							Slot = "Autofire",
+							param_bindings = false,
+						}),
+					},
+					group = "Underslung",
+					id = "Autofire",
 				}),
 				PlaceObj('ModItemFolder', {
 					'name', "Barrels",
@@ -68602,6 +69116,12 @@ return {
 								Slot = "Stock",
 								param_bindings = false,
 							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "M2Carbine",
+								Entity = "M2CarStockLightF",
+								Slot = "Stock",
+								param_bindings = false,
+							}),
 						},
 						group = "Stock",
 						id = "StockLightFolded",
@@ -68881,6 +69401,12 @@ return {
 								Slot = "Stock",
 								param_bindings = false,
 							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "M2Carbine",
+								Entity = "M2CarStockLightU",
+								Slot = "Stock",
+								param_bindings = false,
+							}),
 						},
 						group = "Stock",
 						id = "StockLightUnFolded",
@@ -68895,6 +69421,10 @@ return {
 						ModificationDifficulty = 20,
 						ModificationEffects = {
 							"ReduceShootAP",
+							"ReduceAimAccuracy90Percent",
+							"RecoilIncrease",
+							"ExtraOverwatchShots",
+							"StockHandlingIncrease",
 						},
 						Parameters = {
 							PlaceObj('PresetParamPercent', {
@@ -68917,6 +69447,16 @@ return {
 								'Value', 1,
 								'Tag', "<ShootAPDecrease>",
 							}),
+							PlaceObj('PresetParamNumber', {
+								'Name', "Recoil",
+								'Value', 5,
+								'Tag', "<Recoil>",
+							}),
+							PlaceObj('PresetParamNumber', {
+								'Name', "StockHandlingIncrease",
+								'Value', 15,
+								'Tag', "<StockHandlingIncrease>",
+							}),
 						},
 						Slot = "Stock",
 						Visuals = {
@@ -68935,6 +69475,12 @@ return {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "Ithaca",
 								Entity = "Ithaca37_NoStock",
+								Slot = "Stock",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "M2Carbine",
+								Entity = "M2CarNoStock",
 								Slot = "Stock",
 								param_bindings = false,
 							}),
@@ -69181,6 +69727,13 @@ return {
 								ApplyTo = "Ithaca",
 								Entity = "Ithaca_Sling",
 								Slot = "General",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "M2Carbine",
+								Entity = "M2CarStockFull",
+								ModifyRightHandGrip = true,
+								Slot = "Stock",
 								param_bindings = false,
 							}),
 						},
@@ -71422,6 +71975,31 @@ return {
 						group = "AA12 Specific",
 						id = "UVDot_aa12",
 					}),
+					PlaceObj('ModItemWeaponComponent', {
+						Cost = 10,
+						DisplayName = T(684571159127, --[[ModItemWeaponComponent HandlingWrap DisplayName]] "Обмотка на цевье"),
+						Icon = "Mod/e6L4ECj/WeaponComponents/Side/Wrap.png",
+						ModificationEffects = {
+							"BarrelHandlingIncrease",
+						},
+						Parameters = {
+							PlaceObj('PresetParamNumber', {
+								'Name', "BarrelHandlingIncrease",
+								'Value', 1,
+								'Tag', "<BarrelHandlingIncrease>",
+							}),
+						},
+						Slot = "Side",
+						Visuals = {
+							PlaceObj('WeaponComponentVisual', {
+								Entity = "STG44Wrap",
+								Slot = "Side",
+								param_bindings = false,
+							}),
+						},
+						group = "Side",
+						id = "HandlingWrap",
+					}),
 					}),
 				PlaceObj('ModItemFolder', {
 					'name', "Muzzle",
@@ -71717,7 +72295,7 @@ return {
 							}),
 							PlaceObj('PresetParamPercent', {
 								'Name', "stealth_kill_bonus",
-								'Value', 20,
+								'Value', 80,
 								'Tag', "<stealth_kill_bonus>%",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -71853,7 +72431,7 @@ return {
 							}),
 							PlaceObj('PresetParamPercent', {
 								'Name', "stealth_kill_bonus",
-								'Value', 10,
+								'Value', 100,
 								'Tag', "<stealth_kill_bonus>%",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -71948,7 +72526,7 @@ return {
 							}),
 							PlaceObj('PresetParamPercent', {
 								'Name', "stealth_kill_bonus",
-								'Value', 10,
+								'Value', 50,
 								'Tag', "<stealth_kill_bonus>%",
 							}),
 							PlaceObj('PresetParamNumber', {
@@ -72267,6 +72845,55 @@ return {
 						},
 						group = "Muzzle",
 						id = "Suppressor",
+					}),
+					PlaceObj('ModItemWeaponComponent', {
+						AdditionalCosts = {
+							PlaceObj('WeaponComponentCost', {
+								'Amount', 2,
+								'Type', "FineSteelPipe",
+							}),
+							PlaceObj('WeaponComponentCost', {
+								'Amount', 50,
+								'Type', "Parts",
+							}),
+						},
+						Cost = 10,
+						DisplayName = T(701275994916, --[[ModItemWeaponComponent FlashHider DisplayName]] "Глушитель"),
+						Icon = "UI/Icons/Upgrades/beretta_silencer",
+						ModificationDifficulty = 0,
+						ModificationEffects = {
+							"RecoilDecrease",
+							"StealthKillBonusPerAim",
+							"SilencerHandlingReduce",
+						},
+						Parameters = {
+							PlaceObj('PresetParamPercent', {
+								'Name', "crit",
+								'Value', 10,
+								'Tag', "<crit>%",
+							}),
+							PlaceObj('PresetParamNumber', {
+								'Name', "Recoil",
+								'Value', 1,
+								'Tag', "<Recoil>",
+							}),
+							PlaceObj('PresetParamPercent', {
+								'Name', "stealth_kill_bonus",
+								'Value', 20,
+								'Tag', "<stealth_kill_bonus>%",
+							}),
+						},
+						Slot = "Muzzle",
+						Visuals = {
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "M2Carbine",
+								Entity = "M2CarFlashHider",
+								Slot = "Muzzle",
+								param_bindings = false,
+							}),
+						},
+						group = "Muzzle",
+						id = "FlashHider",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -79700,6 +80327,106 @@ return {
 								}),
 							},
 							Cost = 50,
+							DisplayName = T(540881009334, --[[ModItemWeaponComponent JAZZ_Scope_ZF4 DisplayName]] "Оптический Прицел ZF4 (4x)"),
+							Icon = "Mod/e6L4ECj/WeaponComponents/Optics/ZF4.png",
+							ModificationDifficulty = 0,
+							ModificationEffects = {
+								"ScopeMagnification",
+								"IncreaseShotAP",
+								"CritBonusWhenFullyAimed",
+								"ScopeHandlingReduce",
+								"ScopeOverwatchAngleDecreaseBig",
+								"ScopeCTHBonus",
+							},
+							Parameters = {
+								PlaceObj('PresetParamNumber', {
+									'Name', "IncreaseMaxAimActions",
+									'Value', 1,
+									'Tag', "<IncreaseMaxAimActions>",
+								}),
+								PlaceObj('PresetParamNumber', {
+									'Name', "ShotAP",
+									'Value', 1,
+									'Tag', "<ShotAP>",
+								}),
+								PlaceObj('PresetParamNumber', {
+									'Name', "ScopeMagnification",
+									'Value', 4,
+									'Tag', "<ScopeMagnification>",
+								}),
+								PlaceObj('PresetParamNumber', {
+									'Name', "ScopeAimLevel",
+									'Value', 3,
+									'Tag', "<ScopeAimLevel>",
+								}),
+								PlaceObj('PresetParamNumber', {
+									'Name', "ScopeHandlingReduce",
+									'Value', 12,
+									'Tag', "<ScopeHandlingReduce>",
+								}),
+								PlaceObj('PresetParamNumber', {
+									'Name', "ScopeCTH",
+									'Value', 6,
+									'Tag', "<ScopeCTH>",
+								}),
+							},
+							ReticleInner = "Mod/e6L4ECj/Icons/scope/PU_reticle.png",
+							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
+							Slot = "Scope",
+							Visuals = {
+								PlaceObj('WeaponComponentVisual', {
+									Entity = "ZF4Scope",
+									Slot = "Scope",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "G43",
+									Entity = "ZF4Scope",
+									Offset = point(-5, 10, 0),
+									Slot = "Scope",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "FG42",
+									Entity = "FG42Scope",
+									Slot = "Scope",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "Gewehr98",
+									Entity = "ZF4Scope",
+									Offset = point(-200, 15, -20),
+									Slot = "Scope",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "Gewehr98",
+									Entity = "WeaponAttA_IronSightGewehr",
+									Slot = "Mount",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "FG42",
+									Entity = "FG42SightsF",
+									Slot = "Scope",
+									param_bindings = false,
+								}),
+							},
+							group = "Scope",
+							id = "JAZZ_Scope_ZF4",
+						}),
+						PlaceObj('ModItemWeaponComponent', {
+							AdditionalCosts = {
+								PlaceObj('WeaponComponentCost', {
+									'Amount', 2,
+									'Type', "OpticalLens",
+								}),
+								PlaceObj('WeaponComponentCost', {
+									'Amount', 1,
+									'Type', "FineSteelPipe",
+								}),
+							},
+							Cost = 50,
 							DisplayName = T(413751028775, --[[ModItemWeaponComponent JAZZ_Scope_PSG DisplayName]] "Оптический Прицел Hensoldt ZF PSG1 (6x)"),
 							Icon = "Mod/e6L4ECj/WeaponComponents/Optics/PSGScope.png",
 							ModificationDifficulty = 0,
@@ -80100,9 +80827,82 @@ return {
 							group = "Scope",
 							id = "JAZZ_NightScope",
 						}),
+						PlaceObj('ModItemWeaponComponent', {
+							AdditionalCosts = {
+								PlaceObj('WeaponComponentCost', {
+									'Amount', 1,
+									'Type', "Microchip",
+								}),
+								PlaceObj('WeaponComponentCost', {
+									'Amount', 1,
+									'Type', "OpticalLens",
+								}),
+								PlaceObj('WeaponComponentCost', {
+									'Amount', 1,
+									'Type', "FineSteelPipe",
+								}),
+							},
+							Cost = 100,
+							DisplayName = T(264111342594, --[[ModItemWeaponComponent JAZZ_NightScope_M3 DisplayName]] "Ночной прицел (5х)"),
+							Icon = "Mod/e6L4ECj/WeaponComponents/Optics/NSPU.png",
+							ModificationDifficulty = 10,
+							ModificationEffects = {
+								"IncreaseShotAP",
+								"ScopeMagnification",
+								"IgnoreInTheDarkWhenFullyAimed",
+								"ScopeHandlingReduce",
+							},
+							Parameters = {
+								PlaceObj('PresetParamNumber', {
+									'Name', "ShotAP",
+									'Value', 1,
+									'Tag', "<ShotAP>",
+								}),
+								PlaceObj('PresetParamNumber', {
+									'Name', "ScopeMagnification",
+									'Value', 1,
+									'Tag', "<ScopeMagnification>",
+								}),
+								PlaceObj('PresetParamNumber', {
+									'Name', "ScopeSubMagnification",
+									'Value', 5,
+									'Tag', "<ScopeSubMagnification>",
+								}),
+								PlaceObj('PresetParamNumber', {
+									'Name', "ScopeAimLevel",
+									'Value', 3,
+									'Tag', "<ScopeAimLevel>",
+								}),
+								PlaceObj('PresetParamNumber', {
+									'Name', "ScopeHandlingReduce",
+									'Value', 2,
+									'Tag', "<ScopeHandlingReduce>",
+								}),
+							},
+							ReticleInner = "Mod/e6L4ECj/Icons/scope/PU_reticle.png",
+							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuterGreen.png",
+							Slot = "Scope",
+							Visuals = {
+								PlaceObj('WeaponComponentVisual', {
+									Entity = "M2CarNightScope",
+									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/NVS.png",
+									Slot = "Scope",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									Entity = "M2CarScopeMount",
+									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/NVS.png",
+									Slot = "Mount",
+									param_bindings = false,
+								}),
+							},
+							group = "Scope",
+							id = "JAZZ_NightScope_M3",
+						}),
 						}),
 					PlaceObj('ModItemWeaponComponent', {
 						DisplayName = T(842926988549, --[[ModItemWeaponComponent Jazz_IronSight DisplayName]] "Стандартный прицел"),
+						Icon = "UI/Icons/Upgrades/ironsights",
 						ModificationDifficulty = -10,
 						Slot = "Scope",
 						Visuals = {
@@ -80170,6 +80970,18 @@ return {
 								ApplyTo = "DeLisle",
 								Entity = "DeLisleSights",
 								Slot = "Scope",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "FG42",
+								Entity = "FG42SightsUF",
+								Slot = "Scope",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "Gewehr98",
+								Entity = "WeaponAttA_IronSightGewehr",
+								Slot = "Mount",
 								param_bindings = false,
 							}),
 						},
@@ -81450,7 +82262,8 @@ return {
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
-								Entity = "P226Mag",
+								ApplyTo = "M2Carbine",
+								Entity = "M2Carmag30",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -82456,6 +83269,12 @@ return {
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "TMP",
 									Entity = "TMP_Small_Mag",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "M2Carbine",
+									Entity = "M2Carmag15",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
@@ -92470,7 +93289,7 @@ return {
 						return Min(range, sight)
 					end,
 					GetMinAimRange = function (self, unit, weapon)
-						local range = weapon:GetOverwatchConeParam("MinRange")
+						local range =  unit.IsMercenary and weapon:GetOverwatchConeParam("MinRange") or MulDivRound(weapon:GetOverwatchConeParam("MaxRange"),80,100)
 						local sight = unit:GetSightRadius() / const.SlabSizeX
 						return Min(range, sight)
 					end,
@@ -93177,6 +93996,106 @@ return {
 					UseFreeMove = true,
 					group = "WeaponAttacks",
 					id = "MobileShot",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionCamera = true,
+					ActionPointDelta = 2000,
+					ActionPoints = 6000,
+					ActionType = "Ranged Attack",
+					AimType = "mobile",
+					CostBasedOnWeapon = true,
+					Description = T(986970516880, --[[ModItemCombatAction RunAndGun Description]] "<em>Один раз за ход</em>.\nПереход на новую позицию, в процессе которого вы выпускаете до <em><num_shots> коротких очередей</em> по ближайшим целям. Каждый выстрел получает <em>-<percent(penalty)> к точности</em>."),
+					DisplayName = T(624088050886, --[[ModItemCombatAction RunAndGun DisplayName]] "Маневренный бой"),
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						if not weapon then return 0 end
+						local damage = unit:GetBaseDamage(weapon)
+						local num_shots = self:ResolveValue("mobile_num_shots")
+						return damage, damage / num_shots, 0
+					end,
+					GetActionDescription = function (self, units)
+						local description = self.Description
+						local unit = units and units[1]
+						if not unit then
+							return self:GetActionDisplayName()
+						end
+						
+						local damage, base, bonus = self:GetActionDamage(unit)
+						local num_shots = self:ResolveValue("mobile_num_shots")
+						local penalty = Presets.ChanceToHitModifier.Default.RunAndGun:ResolveValue("Penalty")
+						description = T{description, damage = damage, basedamage = base, bonusdamage = bonus, num_shots = num_shots, penalty = penalty}
+						
+						if unit.stance ~= "Standing" then
+							description = description .. T(801805830695, "<newline>You will end up in Standing stance.")
+						end
+						
+						return description
+					end,
+					GetActionResults = function (self, unit, args)
+						local weapon = self:GetAttackWeapons(unit)
+						args.attack_id = "BurstFire"		
+						args.num_shots = weapon and weapon:GetAutofireShots("BurstFire") or CombatActions.BurstFire:ResolveValue("num_shots")
+						args.multishot = true
+						return GetMobileShotResults(self, unit, args)
+					end,
+					GetAnyTarget = function (self, units)
+						return self:GetTargets(units)[1]
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						if args and args.weapon then return args.weapon end
+						local weapon = unit:GetActiveWeapons("Firearm")
+						return weapon -- make sure to return only 1 weapon, the attack doesn't use 2
+					end,
+					GetTargets = function (self, units)
+						local unit = units[1]
+						if unit then	
+							return GetEnemies(unit)
+						end
+						return {}
+					end,
+					GetUIState = function (self, units, args)
+						if not g_Combat then
+							return "disabled", AttackDisableReasons.CombatOnly
+						end
+						return CombatActionGenericAttackGetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/run_and_gun",
+					IdDefault = "RunAndGundefault",
+					IsAimableAttack = false,
+					KeybindingSortId = "2372",
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "mobile_move_ap",
+							'Value', 8,
+							'Tag', "<mobile_move_ap>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "cooldown",
+							'Tag', "<cooldown>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "mobile_num_shots",
+							'Value', 3,
+							'Tag', "<mobile_num_shots>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "num_shots",
+							'Value', 9,
+							'Tag', "<num_shots>",
+						}),
+					},
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("RunAndGun", self.id, ap, ...)
+					end,
+					SortKey = 2,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatMovingAttack")
+					end,
+					group = "WeaponAttacks",
+					id = "RunAndGun",
 				}),
 				PlaceObj('ModItemCombatAction', {
 					ActionCamera = true,
@@ -96703,11 +97622,11 @@ return {
 					'Description', T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionHeavy Description]] "Шанс попасть во врага снижен\n+2 ОД свободного перемещения"),
 					'AddEffectText', T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionHeavy AddEffectText]] "Под плотным огнем"),
 					'OnAdded', function (self, obj)
-						local unitStance = obj.stance
-						if unitStance == "Standing" then
-						obj:SetActionCommand("ChangeStance", nil, nil, "Crouch")
-						end
-						obj:InterruptPreparedAttack()
+						--local unitStance = obj.stance
+						--if unitStance == "Standing" then
+						--obj:SetActionCommand("ChangeStance", nil, nil, "Crouch")
+						--end
+						--obj:InterruptPreparedAttack()
 						
 						if not obj:IsDead() then
 						                    if obj:IsMerc() then
@@ -96759,22 +97678,22 @@ return {
 					'Description', T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionHeavy2 Description]] "Передвижение в 2 раза дороже. Точность стрельбы сильно снижена."),
 					'AddEffectText', T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionHeavy2 AddEffectText]] "Под плотным огнем"),
 					'OnAdded', function (self, obj)
-						local unitStance = obj.stance
-						if unitStance == "Standing" then
-						obj:SetActionCommand("ChangeStance", nil, nil, "Crouch")
-						end
+						--local unitStance = obj.stance
+						--if unitStance == "Standing" then
+						--obj:SetActionCommand("ChangeStance", nil, nil, "Crouch")
+						--end
 						
-						if unitStance == "Crouch" and not (obj:CanTakeCover()) then
-						obj:SetActionCommand("ChangeStance", nil, nil, "Prone")
-						end
+						--if unitStance == "Crouch" and not (obj:CanTakeCover()) then
+						--obj:SetActionCommand("ChangeStance", nil, nil, "Prone")
+						--end
 						
-						obj:InterruptPreparedAttack()
+						--obj:InterruptPreparedAttack()
 						
-						local unitStance = obj.stance
-						if unitStance == "Standing" then
-						obj:SetActionCommand("ChangeStance", nil, nil, "Crouch")
-						end
-						obj:InterruptPreparedAttack()
+						--local unitStance = obj.stance
+						--if unitStance == "Standing" then
+						--obj:SetActionCommand("ChangeStance", nil, nil, "Crouch")
+						--end
+						--obj:InterruptPreparedAttack()
 						
 						if not obj:IsDead() then
 						                    if obj:IsMerc() then
@@ -96812,7 +97731,7 @@ return {
 							Handler = function (self, target)
 								local ap = target.ActionPoints
 								target.ActionPoints = Clamp(target.ActionPoints, 0, 4*const.Scale.AP)
-								target:RemoveStatusEffect("FreeMove")
+								--target:RemoveStatusEffect("FreeMove")
 							end,
 							param_bindings = false,
 						}),
@@ -96828,16 +97747,16 @@ return {
 					'Description', T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Количество од - не более 4."),
 					'AddEffectText', T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionPinned AddEffectText]] "Под плотным огнем"),
 					'OnAdded', function (self, obj)
-						local unitStance = obj.stance
-						if unitStance ~= "Prone" or not (obj:CanTakeCover()) then
-						obj:SetActionCommand("ChangeStance", nil, nil, "Prone")
-						end
-						if obj:CanTakeCover() then
-						obj:TakeCover();
+						--local unitStance = obj.stance
+						--if unitStance ~= "Prone" or not (obj:CanTakeCover()) then
+						--obj:SetActionCommand("ChangeStance", nil, nil, "Prone")
+						--end
+						--if obj:CanTakeCover() then
+						--obj:TakeCover();
 						--obj:SetActionCommand("TakeCover", nil, nil, "Prone")
-						end
+						--end
 						
-						obj.ActionPoints = Clamp(obj.ActionPoints, 0, 4*const.Scale.AP)
+						--obj.ActionPoints = Clamp(obj.ActionPoints, 0, 4*const.Scale.AP)
 						
 						if not obj:IsDead() then
 						                    if obj:IsMerc() then
@@ -97312,14 +98231,14 @@ return {
 					'TargetClass', "CharacterEffectCompositeDef",
 					'TargetId', "AutoWeapons",
 					'TargetProp', "Description",
-					'TargetValue', T(253479657834, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Увеличивает количество выстрелов без отдачи на 1 при стрельбе очередями или в автоогне"),
+					'TargetValue', T(253479657834, "Увеличивает количество выстрелов без отдачи на 1 при стрельбе очередями или в автоогне"),
 				}),
 				PlaceObj('ModItemChangeProp', {
 					'name', "HeavyWeaponsTraining",
 					'TargetClass', "CharacterEffectCompositeDef",
 					'TargetId', "HeavyWeaponsTraining",
 					'TargetProp', "Description",
-					'TargetValue', T(415344339832, --[[ModItemCharacterEffectCompositeDef HeavyWeaponsTraining Description]] "Уменьшен расход <em>ОД</em> на атаки из <em>тяжелого вооружения</em> и <em>пулеметов</em> и приведение его в <GameTerm('Setup')>."),
+					'TargetValue', T(415344339832, "Уменьшен расход <em>ОД</em> на атаки из <em>тяжелого вооружения</em> и <em>пулеметов</em> и приведение его в <GameTerm('Setup')>."),
 				}),
 				PlaceObj('ModItemChangeProp', {
 					'name', "FleetingShadow",
@@ -99897,7 +100816,7 @@ return {
 					}),
 					PlaceObj('PresetParamPercent', {
 						'Name', "BlindFirePenalty",
-						'Value', -50,
+						'Value', -60,
 						'Tag', "<BlindFirePenalty>%",
 					}),
 				},
@@ -133709,7 +134628,7 @@ return {
 					
 					local repaired =  (item:GetCurrentResource() or item.Condition) - prev_cond
 					local repairability = item.Repairability or item.Reliability or 100
-					local loss = MulDivRound(repaired, (100 - repairability) * (stat_multiplier*4 - sum_stat), 100 * 100)
+					local loss = MulDivRound(repaired, (100 - repairability) * (self:ResolveValue("stat_multiplier")*4 - sum_stat), 100 * 100)
 					max_condition = max_condition - loss;
 					
 						
@@ -133829,6 +134748,10 @@ return {
 	PlaceObj('ModItemFolder', {
 		'name', "Strategic",
 	}, {
+		PlaceObj('ModItemCode', {
+			'name', "Deployment",
+			'CodeFileName', "Code/Deployment.lua",
+		}),
 		PlaceObj('ModItemCode', {
 			'name', "Guardpost",
 			'CodeFileName', "Code/Guardpost.lua",
@@ -134529,10 +135452,10 @@ return {
 			SortKey = 3,
 			armor_class = 3,
 			breakdown_defense = 0,
-			destruction_propagation_strength = 10,
+			destruction_propagation_strength = 15,
 			group = "Default",
 			id = "Tin",
-			max_hp = 130,
+			max_hp = 70,
 		}),
 		PlaceObj('ModItemObjMaterial', {
 			Comment = "--",
@@ -134553,7 +135476,7 @@ return {
 			destruction_propagation_strength = 10,
 			group = "Default",
 			id = "Brick_Solid",
-			max_hp = 120,
+			max_hp = 135,
 			noise_on_break = 15,
 			noise_on_hit = 2,
 		}),
@@ -134576,7 +135499,6 @@ return {
 			destruction_propagation_strength = 10,
 			group = "Default",
 			id = "Planks",
-			max_hp = 180,
 		}),
 		PlaceObj('ModItemObjMaterial', {
 			SortKey = 6,

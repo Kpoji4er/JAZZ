@@ -24,7 +24,7 @@ DefineClass.suppressionPinned = {
 			Handler = function (self, target)
 				local ap = target.ActionPoints
 				target.ActionPoints = Clamp(target.ActionPoints, 0, 4*const.Scale.AP)
-				target:RemoveStatusEffect("FreeMove")
+				--target:RemoveStatusEffect("FreeMove")
 			end,
 		}),
 		PlaceObj('UnitReaction', {
@@ -38,16 +38,16 @@ DefineClass.suppressionPinned = {
 	Description = T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Количество од - не более 4."),
 	AddEffectText = T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionPinned AddEffectText]] "Под плотным огнем"),
 	OnAdded = function (self, obj)
-		local unitStance = obj.stance
-		if unitStance ~= "Prone" or not (obj:CanTakeCover()) then
-		obj:SetActionCommand("ChangeStance", nil, nil, "Prone")
-		end
-		if obj:CanTakeCover() then
-		obj:TakeCover();
+		--local unitStance = obj.stance
+		--if unitStance ~= "Prone" or not (obj:CanTakeCover()) then
+		--obj:SetActionCommand("ChangeStance", nil, nil, "Prone")
+		--end
+		--if obj:CanTakeCover() then
+		--obj:TakeCover();
 		--obj:SetActionCommand("TakeCover", nil, nil, "Prone")
-		end
+		--end
 		
-		obj.ActionPoints = Clamp(obj.ActionPoints, 0, 4*const.Scale.AP)
+		--obj.ActionPoints = Clamp(obj.ActionPoints, 0, 4*const.Scale.AP)
 		
 		if not obj:IsDead() then
 		                    if obj:IsMerc() then

@@ -49,7 +49,8 @@ local ammo_pistol = {
   "JAZZ_AMMO_50BMG_Basic",
   "JAZZ_AMMO_50BMG_HE",
   "JAZZ_AMMO_50BMG_Incendiary",
-  "JAZZ_AMMO_50BMG_SLAP"
+  "JAZZ_AMMO_50BMG_SLAP",
+  "JAZZ_AMMO_792x33"
   -- и т.д.
 }
 
