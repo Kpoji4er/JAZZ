@@ -67,7 +67,7 @@ DefineClass.BarretM82 = {
 				"JAZZ_Scope_Scout",
 				"ImprovedIronsight",
 			},
-			'DefaultComponent', "ImprovedIronsight",
+			'DefaultComponent', "JAZZ_Scope_6x",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",

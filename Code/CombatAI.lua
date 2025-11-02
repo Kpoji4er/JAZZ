@@ -149,6 +149,9 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 				shots = 2
 				dist_penalty = dist_ratio * 1.25
 			end
+			if mode_type == "DualShot" then
+				shots = 2
+			end
 
 			predicted = Max(0, predicted)
 

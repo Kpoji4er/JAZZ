@@ -20,6 +20,9 @@ translatedModifications = {
 function Ammo:GetRolloverHint()
 	local hint = {} 	
 	local parts = {}
+    local penbonus = 0
+    local pen = 0
+    local penname = ""
 
 	for part,val in sorted_pairs(self.Modifications) do
 
@@ -47,15 +50,23 @@ function Ammo:GetRolloverHint()
         if val.mod_add and val.mod_add > 0 then mod_add = mod_add.."+"..val.mod_add end
         if val.mod_add and val.mod_add < 0 then mod_add = mod_add.."-"..(-val.mod_add) end
         if val.mod_mul and val.mod_mul ~= 1000 and val.mod_mul ~= 0 then 
-            mod_mul = "*"..((val.mod_mul + .0) / 1000)        
+            mod_mul = " *"..((val.mod_mul + .0) / 1000)        
         end
         if val.mod_add and val.mod_mull then mod_add = "("..mod_add..")" end
        -- print(preset)
 		--local preset= Presets.TargetBodyPart.Default[part]
 
        if target_prop == translatedModifications["BaseJamChance"] then mod_add = "+0.0"..val.mod_add.."%" end
+
+         if target_prop == translatedModifications["PenetrationBonus"] then penbonus = val.mod_add
+        end
+         if target_prop == translatedModifications["PenetrationClass"] then
+             pen = ((val.mod_mul + .0) / 1000)
+             penname = Untranslated(target_prop)
+        end
      
-        if val.mod_add ~= 0 or (val.mod_mull ~= 1000 and val.mod_mul ~= 0) then
+        if val.mod_add ~= 0 or (val.mod_mull ~= 1000 and val.mod_mul ~= 0) and target_prop ~= translatedModifications["PenetrationClass"]
+        and target_prop ~= translatedModifications["PenetrationBonus"] then
         hint[#hint+1] = T{378508273050111, "<bullet_point> <target_prop>: <mod_add> <mod_mul>",target_prop = Untranslated(target_prop), mod_add = Untranslated(mod_add), mod_mul = Untranslated(mod_mul)}
         end
 		--parts[#parts+1] = val.target_prop
@@ -78,5 +89,10 @@ function Ammo:GetRolloverHint()
         end
 	--hint[#hint+1] = T{378508273050111, "<bullet_point> Body parts - <parts>", parts = table.concat(parts, ", ")}
 	--hint[#hint+1] = self.AdditionalHint or ""
+    pen = pen * 10 + penbonus
+    pen = floatfloor(pen, 0.1) * 0.1
+    hint[#hint+1] = T{378508273050111, "<bullet_point> <target_prop>: <pen>",target_prop = Untranslated(penname), pen = pen}
+
+
 	return table.concat(hint, "\n")
 end	

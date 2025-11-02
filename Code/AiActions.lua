@@ -640,16 +640,17 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 
             if unit:GetDist(context.unit_pos) < const.SlabSizeX / 2 then
                 local revert = true
-                if context.archetype.FallbackAction == "overwatch" then
+                local sight = false
+                    for _, enemy in ipairs(context.enemies) do
+                        sight = sight or HasVisibilityTo(unit.team, enemy)
+                    end
+                if context.archetype.FallbackAction == "overwatch" and not sight then
                     -- try to place overwatch
                     revert = not AIPlaceFallbackOverwatch(unit, context)
                 end
                 if revert then
                     -- we're stuck somewhere and unable to move or act, revert back to being Unaware (only if no sight of any enemies)
-                    local sight = false
-                    for _, enemy in ipairs(context.enemies) do
-                        sight = sight or HasVisibilityTo(unit.team, enemy)
-                    end
+
                     if not sight then
                         unit.last_known_enemy_pos =
                             unit.last_known_enemy_pos or

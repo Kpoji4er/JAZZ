@@ -295,7 +295,7 @@ function Armor:CalculateArmorRating(weapon_pen_class)
         return floatfloor(self.ArmorRating * self:GetDegradationMultiplier())
 		else return floatfloor(self.ArmorRating * self.PenetrationClass^2/weapon_pen_class^2 * self:GetDegradationMultiplier()) end end
 
-    if self.PenetrationClass > weapon_pen_class then
+    if self.PenetrationClass  > weapon_pen_class then
      ArmorRating = (self.ArmorRating + 3*self.PenetrationClass/weapon_pen_class) * self:GetDegradationMultiplier()
      else
      ArmorRating = self.ArmorRating * self.PenetrationClass^2/weapon_pen_class^2 * self:GetDegradationMultiplier() --* (self:GetConditionPercent()-self.Deterioration)^2/100^2
@@ -344,7 +344,7 @@ function Unit:ApplyHitDamageReduction(hit, weapon, hit_body_part, ignore_cover, 
 	local drMelee = 0
 	local drFireArmBreakdown = 0
 	local itemscount = 0
-	local weapon_pen_class = weapon:HasMember("PenetrationClass") and weapon.PenetrationClass or 1
+	local weapon_pen_class = weapon:HasMember("PenetrationClass") and weapon.PenetrationClass or 1 + weapon.PenetrationBonus and 0.1 * weapon.PenetrationBonus or 0
 	local cachedrandom = Unit:Random(100)
 	self:ForEachItem("Armor", function(item, slot, left, top, hit, ignore_armor, record_breakdown, weapon_pen_class)
 		if hit.damage > 0 and slot ~= "Inventory" and item.ProtectedBodyParts and item.ProtectedBodyParts[hit_body_part] then

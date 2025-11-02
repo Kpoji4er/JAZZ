@@ -17,6 +17,15 @@ DefineClass.JAZZ_AMMO_9x19_FMJ = {
 	ShopStackSize = 30,
 	MaxStacks = 120,
 	Caliber = "JAZZ_Caliber_9x19",
-	Modifications = {},
+	Modifications = {
+		PlaceObj('CaliberModification', {
+			target_prop = "PenetrationClass",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = 1,
+			mod_mul = 0,
+			target_prop = "PenetrationBonus",
+		}),
+	},
 }
 

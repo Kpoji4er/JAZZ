@@ -29,6 +29,7 @@ DefineClass.BAR = {
 	AimAccuracy = 18,
 	MagazineSize = 20,
 	WeaponRange = 52,
+	OverwatchAngle = 960,
 	Noise = 66,
 	HandSlot = "TwoHanded",
 	Entity = "BAR",

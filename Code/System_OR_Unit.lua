@@ -1,3 +1,10 @@
+UnitProperties.properties[#UnitProperties.properties+1] = {
+    category = "XP", id = "StartingLevel", name = "Starting Level", help = "The level at which this merc starts in a new game", 
+	editor = "number", default = 1, template = true, slider = true, min = 1, max = 20,
+    modifiable = true
+}
+
+
 local function add_weapon_attacks(actions, unit, weapon)
 	if IsKindOf(weapon, "MachineGun") and not unit:HasStatusEffect("StationedMachineGun") then
 		table.insert_unique(actions, "MGSetup")
@@ -1614,10 +1621,11 @@ function Unit:GetBasicAttackModes()
 	result.auto   = find_mode("AutoFire", weapon.AutoShots or 5)
 	result.buck   = find_mode("Buckshot", 1)
 	result.double = find_mode("DoubleBarrel", 2)
+	result.dual = find_mode("Dualshot", 2)
 
 	-- Собрать всё
 	result.all = {}
-	for _, mode in pairs({result.single, result.burst, result.auto, result.buck, result.double}) do
+	for _, mode in pairs({result.single, result.burst, result.auto, result.buck, result.double,result.dual}) do
 		if type(mode) == "table" and mode.mode then
 			table.insert(result.all, mode)
 		end
@@ -1627,7 +1635,7 @@ function Unit:GetBasicAttackModes()
 	if #result.all == 0 and default_attack then
 		local mode = default_attack.id
 		local shots = 1
-
+		
 		if mode == "BurstFire" then
 			shots = weapon.BurstShots or 3
 		elseif mode == "AutoFire" then
@@ -1637,6 +1645,8 @@ function Unit:GetBasicAttackModes()
 		elseif mode == "DoubleBarrel" then
 			local b = weapon.BuckshotProjectiles or 1
 			shots = b * 2
+		elseif mode == "DualShot" then
+			shots = 2
 		end
 
 		table.insert(result.all, {
@@ -2033,7 +2043,6 @@ function GetUnitWirecutter(unit)
 end
 
 
-
 local constRandomizationStats = 3
 function UnitData:RandomizeStats(seed)
 	local stats = GetUnitStatsCombo()
@@ -2043,7 +2052,7 @@ function UnitData:RandomizeStats(seed)
 
 	local rand
 	for _, stat in ipairs(stats) do
-		if stat == "Marksmanship" or stat == "Agility" or stat == "Dexterity" then constRandomizationStats = 3 else constRandomizationStats = 12 end
+		if stat == "Marksmanship" or stat == "Agility" or stat == "Dexterity" or stat == "Strength" or stat == "Health" then constRandomizationStats = 3 else constRandomizationStats = 12 end
 
 		rand, seed = BraidRandom(seed, 2 * constRandomizationStats + 1)
 		
@@ -2056,8 +2065,16 @@ function UnitData:RandomizeStats(seed)
 		end
 		
 		self:AddModifier("randstat", stat, false, modValue)
+
+		if Game.game_difficulty == "VeryHard" then
+			rand, seed = BraidRandom(seed, 20)
+			local modValue = rand
+			self:AddModifier("randstat", stat, false, modValue)
+		end
 	end
 end
+
+
 
 
 function GainStat(unit, stat, gainAmount, modId, reason)

@@ -1655,7 +1655,7 @@ function BaseWeapon:PrecalcDamageAndStatusEffects(attacker, target, attack_pos, 
 		local pen_class = self:HasMember("PenetrationClass") and self.PenetrationClass or #PenetrationClassIds
 		local armor_class = target and target.armor_class or 0
 		--if self.PenetrationClass then self.PenetrationClass = self.PenetrationClass - 1 end
-		if pen_class >= armor_class then
+		if pen_class >= armor_class * 10 then
 			hit.damage = damage or 0
 			hit.armor_prevented = 0
 		else

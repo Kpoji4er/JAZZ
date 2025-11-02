@@ -17,6 +17,7 @@ DefineModItemPreset("GameStateDef", { EditorName = "GameStateDef", EditorSubmenu
 DefineModItemPreset("EnemySquads", { EditorName = "Enemy Squads", EditorSubmenu = "Enemy" })
 DefineModItemPreset("AIArchetype", { EditorName = "AIArchetype", EditorSubmenu = "Enemy" })
 DefineModItemPreset("EnemyRole", { EditorName = "EnemyRole", EditorSubmenu = "Enemy" })
+DefineModItemPreset("EliteEnemyName", { EditorName = "EliteEnemyName", EditorSubmenu = "Enemy" })
 DefineModItemPreset("BobbyRayShopCategory", { EditorName = "Shop category", EditorSubmenu = "Bobby Ray" })
 DefineModItemPreset("BobbyRayShopSubCategory", { EditorName = "Shop subcategory", EditorSubmenu = "Bobby Ray" })
 DefineModItemPreset("BobbyRayShopDeliveryDef", { EditorName = "Shop Delivery Def", EditorSubmenu = "Bobby Ray" })

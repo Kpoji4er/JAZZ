@@ -12,7 +12,7 @@ function _RegenerateLegionLoot()
     --print("regenerate loot")
     for _, sector in pairs(gv_Sectors) do
         local squads = sector.enemy_squads
-        print(#squads)
+        --print(#squads)
            for _, squad in pairs(squads) do
             local  units = squad.units
              for _, unit_id in pairs(units) do
@@ -31,6 +31,7 @@ function _RegenerateLegionLoot()
 
                 unitdata:CreateStartingEquipment(unitdata.randomization_seed)
                 unitdata.innerInfoRevealed = false
+                --unitdata:EquipStartingGear(items)
                 --print("regenerated")
                 end
                 

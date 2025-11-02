@@ -69,6 +69,9 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
     max = 25,
     modifiable = true
 }
+
+
+
 --deprecated
 --FirearmProperties.properties[#FirearmProperties.properties+1] = {
 --    category = "New Weapon System",

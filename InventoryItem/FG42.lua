@@ -29,6 +29,7 @@ DefineClass.FG42 = {
 	AimAccuracy = 23,
 	MagazineSize = 20,
 	WeaponRange = 53,
+	OverwatchAngle = 960,
 	Noise = 66,
 	HandSlot = "TwoHanded",
 	Entity = "FG42",
