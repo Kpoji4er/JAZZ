@@ -20,16 +20,16 @@ function Unit:DropLoot(container)
 	self:ForEachItem(function(item, slot_name, left, top, self, container, is_npc)
 		if slot_name == "InventoryDead" then return end
 		self:RemoveItem(slot_name, item)	
-
 				
 		local dropped
-		local roll = self:Random(100)
 		local slot = container and "Inventory" or "InventoryDead"
+		local roll = self:Random(100)
 		
 	
 --		if not item.locked and (not is_npc or roll < item.drop_chance) then
-		if (not item.locked and (item.drop_chance>0) and not IsKindOfClasses(item,{"Ammo", "Ordnance", "Grenade", "ThrowableTrapItem", "Flare"})) or ((not is_npc or roll < item.drop_chance) and IsKindOfClasses(item,{"Ammo", "Ordnance", "Grenade", "ThrowableTrapItem", "Flare"})) then
-			if IsGameRuleActive("AmmoScarcity") and is_npc and IsKindOf(item, "InventoryStack") and IsKindOfClasses(item,{"Ammo", "Ordnance", "Grenade", "ThrowableTrapItem", "Flare"}) then
+		if (not item.locked and (item.drop_chance>0) and not IsKindOfClasses(item,{"Ammo", "Ordnance", "Grenade", "ThrowableTrapItem", "Flare"}))
+		or (IsKindOfClasses(item,{"Ammo", "Ordnance", "Grenade", "ThrowableTrapItem", "Flare"}) and (not is_npc or roll < item.drop_chance)) then
+			if IsGameRuleActive("AmmoScarcity") and is_npc and IsKindOf(item, "InventoryStack")  then
 				local percent = GameRuleDefs.AmmoScarcity:ResolveValue("LootDecrease")
 				item.Amount =  Max(1,item.Amount - MulDivRound(item.Amount, percent, 100))
 			end	

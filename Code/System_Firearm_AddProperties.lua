@@ -341,7 +341,7 @@ function Firearm:CanAutofire()
 end
 
 function Firearm:CanBurstfire()
-	return table.find(self.AvailableAttacks, "Burstfire") or self:HasComponent("EnableBurst")
+	return table.find(self.AvailableAttacks, "BurstFire") or self:HasComponent("EnableBurst")
 end
 
 
