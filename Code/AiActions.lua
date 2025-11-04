@@ -689,11 +689,11 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
                     return not AIPlaceFallbackOverwatch(unit, context)
                 end
             end
-            if context.restarts < 3 then
-               if g_AIExecutionController then
-                 g_AIExecutionController:Log("  Unit %s requesting restart (AP left: %d, restart count: %d)", unit.unitdatadef_id, unit.ActionPoints, context.restarts)
-             end
-            return "restart"
+          if context.restarts < 3 then
+              if g_AIExecutionController then
+                g_AIExecutionController:Log("  Unit %s requesting restart (AP left: %d, restart count: %d)", unit.unitdatadef_id, unit.ActionPoints, context.restarts)
+          end
+          return "restart"
           else
           --TryChangeStance(unit)
           end
@@ -703,7 +703,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
     end
 
     
-    unit.ai_context.stancechanged = false
+    --unit.ai_context.stancechanged = false
     
 
     
@@ -1289,7 +1289,7 @@ end
 function TryChangeStance(unit)
     if not g_Combat then return 0 end
 
-    unit.ai_context.stancechanged = true
+    --unit.ai_context.stancechanged = true
 
     if unit:HasPreparedAttack() or g_Overwatch[unit] then return 0 end
 

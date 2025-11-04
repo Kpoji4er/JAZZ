@@ -7,10 +7,10 @@ DefineClass.SkillMag_Medical = {
 	object_class = "MiscItem",
 	Repairable = false,
 	Icon = "UI/Icons/Items/mag_national_paramedic",
-	DisplayName = T(520828600732, "Для тех, кто вяжет"),
-	DisplayNamePlural = T(981036857917, "Для тех, кто вяжет"),
-	Description = T(505843277064, "Модные схемы для перевязки и узорная работа жгутом."),
-	AdditionalHint = T(438853574488, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает навык «Медицина»"),
+	DisplayName = T(520828600732, --[[ModItemInventoryItemCompositeDef SkillMag_Medical DisplayName]] "Для тех, кто вяжет"),
+	DisplayNamePlural = T(981036857917, --[[ModItemInventoryItemCompositeDef SkillMag_Medical DisplayNamePlural]] "Для тех, кто вяжет"),
+	Description = T(505843277064, --[[ModItemInventoryItemCompositeDef SkillMag_Medical Description]] "Модные схемы для перевязки и узорная работа жгутом."),
+	AdditionalHint = T(438853574488, --[[ModItemInventoryItemCompositeDef SkillMag_Medical AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает навык «Медицина»"),
 	UnitStat = "Medical",
 	Valuable = 1,
 	Cost = 1500,
@@ -25,7 +25,7 @@ DefineClass.SkillMag_Medical = {
 			Stat = "Medical",
 		}),
 	},
-	action_name = T(887526961257, "ЧИТАТЬ"),
+	action_name = T(887526961257, --[[ModItemInventoryItemCompositeDef SkillMag_Medical action_name]] "ЧИТАТЬ"),
 	destroy_item = true,
 }
 

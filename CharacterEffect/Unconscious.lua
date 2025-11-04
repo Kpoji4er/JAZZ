@@ -31,10 +31,10 @@ DefineClass.Unconscious = {
 			end,
 		}),
 	},
-	DisplayName = T(609065847626, "Потеря сознания"),
-	Description = T(104028003398, "Без сознания и не может ничего делать."),
-	AddEffectText = T(319734703137, "<color EmStyle><DisplayName></color> без сознания"),
-	RemoveEffectText = T(483912406649, "<color EmStyle><DisplayName></color> приходит в себя"),
+	DisplayName = T(609065847626, --[[ModItemCharacterEffectCompositeDef Unconscious DisplayName]] "Потеря сознания"),
+	Description = T(104028003398, --[[ModItemCharacterEffectCompositeDef Unconscious Description]] "Без сознания и не может ничего делать."),
+	AddEffectText = T(319734703137, --[[ModItemCharacterEffectCompositeDef Unconscious AddEffectText]] "<color EmStyle><DisplayName></color> без сознания"),
+	RemoveEffectText = T(483912406649, --[[ModItemCharacterEffectCompositeDef Unconscious RemoveEffectText]] "<color EmStyle><DisplayName></color> приходит в себя"),
 	OnAdded = function (self, obj)
 		self:SetParameter("recovery_turn", (g_Combat and g_Combat.current_turn or 1) + self:ResolveValue("recovery_delay_turns"))
 		self:SetParameter("recovery_time", GameTime() + self:ResolveValue("recovery_delay_seconds") * 1000)

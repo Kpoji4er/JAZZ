@@ -5,8 +5,8 @@ DefineClass.Pessimist = {
 
 
 	object_class = "Perk",
-	DisplayName = T(755896070667, "Пессимист"),
-	Description = T(932094612672, "Небольшой шанс <em>не допустить</em>, чтобы <GameTerm('Morale')> команды повысился."),
+	DisplayName = T(755896070667, --[[ModItemCharacterEffectCompositeDef Pessimist DisplayName]] "Пессимист"),
+	Description = T(932094612672, --[[ModItemCharacterEffectCompositeDef Pessimist Description]] "Небольшой шанс <em>не допустить</em>, чтобы <GameTerm('Morale')> команды повысился."),
 	Icon = "UI/Icons/Perks/Pessimist",
 	Tier = "Quirk",
 }

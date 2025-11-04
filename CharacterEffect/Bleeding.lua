@@ -118,9 +118,9 @@ DefineClass.Bleeding = {
 			end,
 		}),
 	},
-	DisplayName = T(425969373535, "Кровотечение"),
-	Description = T(326849165819, "Этот боец каждый ход будет <color EmStyle>получать урон до <DamagePerTurn> ОЗ</color> за уровень кровотечения до тех пор пока не будет <color EmStyle>перевязан</color>. При третьем уровне кровотечения макс. количество <color EmStyle>ОД будет снижено на <APLoss></color>."),
-	AddEffectText = T(488938284982, "<color EmStyle><DisplayName></color> истекает кровью"),
+	DisplayName = T(425969373535, --[[ModItemCharacterEffectCompositeDef Bleeding DisplayName]] "Кровотечение"),
+	Description = T(326849165819, --[[ModItemCharacterEffectCompositeDef Bleeding Description]] "Этот боец каждый ход будет <color EmStyle>получать урон до <DamagePerTurn> ОЗ</color> за уровень кровотечения до тех пор пока не будет <color EmStyle>перевязан</color>. При третьем уровне кровотечения макс. количество <color EmStyle>ОД будет снижено на <APLoss></color>."),
+	AddEffectText = T(488938284982, --[[ModItemCharacterEffectCompositeDef Bleeding AddEffectText]] "<color EmStyle><DisplayName></color> истекает кровью"),
 	OnAdded = function (self, obj)
 		if g_Teams[g_CurrentTeam] == obj.team and not obj:HasStatusEffect("BeingBandaged") then
 		-------------------

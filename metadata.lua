@@ -32,8 +32,8 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 7,
-	'version', 5386,
+	'version_minor', 8,
+	'version', 5390,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -393,7 +393,7 @@ return PlaceObj('ModDef', {
 		"InventoryItem/BarretM82.lua",
 		"InventoryItem/PSG1.lua",
 		"InventoryItem/Mosin.lua",
-		"InventoryItem/Mas36.lua",
+		"InventoryItem/MAS36.lua",
 		"InventoryItem/Gewehr98.lua",
 		"InventoryItem/Springfield.lua",
 		"InventoryItem/FRF2.lua",
@@ -798,8 +798,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1762222217,
-	'code_hash', -816608981599986060,
+	'saved', 1762297806,
+	'code_hash', -2258727242181548603,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -3548,7 +3548,7 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
-			'Id', "Mas36",
+			'Id', "MAS36",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {

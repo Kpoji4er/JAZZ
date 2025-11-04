@@ -322,7 +322,7 @@ function AICreateContext(unit, context)
 	context.restarts = 0
 	context.flank_threat_cache = {}
 	context.surrounded_cache = {}
-	context.stancechanged = context.stancechanged or false
+	--context.stancechanged = context.stancechanged or false
 
 	context.weapon = weapon
 	context.default_attack = default_attack

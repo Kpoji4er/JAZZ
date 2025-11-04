@@ -1,5 +1,5 @@
-UndefineClass('Mas36')
-DefineClass.Mas36 = {
+UndefineClass('MAS36')
+DefineClass.MAS36 = {
 	__parents = { "SniperRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
@@ -10,10 +10,10 @@ DefineClass.Mas36 = {
 	RepairCost = 3,
 	Reliability = 85,
 	Icon = "Mod/e6L4ECj/WeaponIcons/MAS36.png",
-	DisplayName = T(415053102324, "MAS36"),
-	DisplayNamePlural = T(826420490062, "MAS36"),
-	Description = T(105734133486, "Линейная пехотная винтовка производства Франции периода ВМВ, была разработана в 1930-х годах, что делает ее относительной новинкой в сравнении с винтовками Мосина, Маузера, Ли Энфильда и Спрингфилда. Но, как известно, особой конкуренции Маузерам у нее составить не получилось."),
-	AdditionalHint = T(191648401008, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Продольно-скользящий затвор - высокие затраты ОД на выстрел\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая дальность, но низкая точность"),
+	DisplayName = T(415053102324, --[[ModItemInventoryItemCompositeDef MAS36 DisplayName]] "MAS36"),
+	DisplayNamePlural = T(826420490062, --[[ModItemInventoryItemCompositeDef MAS36 DisplayNamePlural]] "MAS36"),
+	Description = T(105734133486, --[[ModItemInventoryItemCompositeDef MAS36 Description]] "Линейная пехотная винтовка производства Франции периода ВМВ, была разработана в 1930-х годах, что делает ее относительной новинкой в сравнении с винтовками Мосина, Маузера, Ли Энфильда и Спрингфилда. Но, как известно, особой конкуренции Маузерам у нее составить не получилось."),
+	AdditionalHint = T(191648401008, --[[ModItemInventoryItemCompositeDef MAS36 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Продольно-скользящий затвор - высокие затраты ОД на выстрел\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая дальность, но низкая точность"),
 	LargeItem = 1,
 	UnitStat = "Marksmanship",
 	CategoryPair = "Rifles",

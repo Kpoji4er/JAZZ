@@ -48,9 +48,9 @@ DefineClass.Burning = {
 			target_prop = "Wisdom",
 		}),
 	},
-	DisplayName = T(178364189448, "Горение"),
-	Description = T(661121942943, "Этот персонаж может <em>запаниковать</em> и будет <em>получать <damage> ед. урона</em> в конце каждого хода, пока не выйдет из области горения. <em>Перевязка</em> мгновенно снимает этот эффект."),
-	AddEffectText = T(251545639918, "<em><DisplayName></em> горит"),
+	DisplayName = T(178364189448, --[[ModItemCharacterEffectCompositeDef Burning DisplayName]] "Горение"),
+	Description = T(661121942943, --[[ModItemCharacterEffectCompositeDef Burning Description]] "Этот персонаж может <em>запаниковать</em> и будет <em>получать <damage> ед. урона</em> в конце каждого хода, пока не выйдет из области горения. <em>Перевязка</em> мгновенно снимает этот эффект."),
+	AddEffectText = T(251545639918, --[[ModItemCharacterEffectCompositeDef Burning AddEffectText]] "<em><DisplayName></em> горит"),
 	OnAdded = function (self, obj)
 		PlayFX("UnitBurning", "start", obj)
 		self:SetParameter("burning_start_time", GameTime())

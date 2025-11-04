@@ -7,7 +7,7 @@ DefineClass.Groinshot = {
 	object_class = "StatusEffect",
 	msg_reactions = {},
 	unit_reactions = {},
-	DisplayName = T(158615306685, "Ранение в пах"),
+	DisplayName = T(158615306685, --[[ModItemCharacterEffectCompositeDef Groinshot DisplayName]] "Ранение в пах"),
 	Description = "",
 	OnAdded = function (self, obj)
 		if obj.TempHitPoints > 0 then return end

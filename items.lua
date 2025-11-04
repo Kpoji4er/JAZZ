@@ -21896,17 +21896,17 @@ return {
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - Rifles-Bolt",
-					'Id', "Mas36",
+					'Id', "MAS36",
 					'comment', "Tier 1-1",
 					'object_class', "SniperRifle",
 					'ScrapParts', 8,
 					'RepairCost', 3,
 					'Reliability', 85,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/MAS36.png",
-					'DisplayName', T(415053102324, --[[ModItemInventoryItemCompositeDef Mas36 DisplayName]] "MAS36"),
-					'DisplayNamePlural', T(826420490062, --[[ModItemInventoryItemCompositeDef Mas36 DisplayNamePlural]] "MAS36"),
-					'Description', T(105734133486, --[[ModItemInventoryItemCompositeDef Mas36 Description]] "Линейная пехотная винтовка производства Франции периода ВМВ, была разработана в 1930-х годах, что делает ее относительной новинкой в сравнении с винтовками Мосина, Маузера, Ли Энфильда и Спрингфилда. Но, как известно, особой конкуренции Маузерам у нее составить не получилось."),
-					'AdditionalHint', T(191648401008, --[[ModItemInventoryItemCompositeDef Mas36 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Продольно-скользящий затвор - высокие затраты ОД на выстрел\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая дальность, но низкая точность"),
+					'DisplayName', T(415053102324, --[[ModItemInventoryItemCompositeDef MAS36 DisplayName]] "MAS36"),
+					'DisplayNamePlural', T(826420490062, --[[ModItemInventoryItemCompositeDef MAS36 DisplayNamePlural]] "MAS36"),
+					'Description', T(105734133486, --[[ModItemInventoryItemCompositeDef MAS36 Description]] "Линейная пехотная винтовка производства Франции периода ВМВ, была разработана в 1930-х годах, что делает ее относительной новинкой в сравнении с винтовками Мосина, Маузера, Ли Энфильда и Спрингфилда. Но, как известно, особой конкуренции Маузерам у нее составить не получилось."),
+					'AdditionalHint', T(191648401008, --[[ModItemInventoryItemCompositeDef MAS36 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Продольно-скользящий затвор - высокие затраты ОД на выстрел\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая дальность, но низкая точность"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
 					'CategoryPair', "Rifles",
@@ -55806,7 +55806,7 @@ return {
 						if not weapon or not weapon:CanBurstfire() then
 							return -1
 						end
-						return unit:GetMaxActionPoints()
+						return unit:GetAttackAPCost(self, weapon, false, args and args.aim or 0, self.ActionPointDelta) or -1
 					end,
 					GetActionDamage = function (self, unit, target, args)
 						local weapon = self:GetAttackWeapons(unit, args)
@@ -56094,7 +56094,7 @@ return {
 						if not weapon or not weapon:CanAutofire() then
 							return -1
 						end
-						return unit:GetMaxActionPoints()
+						return unit:GetAttackAPCost(self, weapon, false, args and args.aim or 0, self.ActionPointDelta) or -1
 					end,
 					GetActionDamage = function (self, unit, target, args)
 						local weapon = self:GetAttackWeapons(unit, args)
