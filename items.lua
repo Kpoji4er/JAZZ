@@ -1511,35 +1511,35 @@ return {
 			'CodeFileName', "Code/UtilityFunc.lua",
 		}),
 		PlaceObj('ModItemEmail', {
-			body = T(767218055918, --[[ModItemEmail LegionTier1 body]] "Тир1\n"),
+			body = T(767218055918, --[[ModItemEmail LegionTier1 body]] "Тир1-1\n"),
 			group = "Default",
 			id = "LegionTier1",
 			sender = T(342619813681, --[[ModItemEmail LegionTier1 sender]] "JAZZ"),
 			title = T(183093543791, --[[ModItemEmail LegionTier1 title]] "LegionTier1"),
 		}),
 		PlaceObj('ModItemEmail', {
-			body = T(767218055918, --[[ModItemEmail LegionTier2 body]] "Тир2\n"),
+			body = T(767218055918, --[[ModItemEmail LegionTier2 body]] "Тир1-2\n"),
 			group = "Default",
 			id = "LegionTier2",
 			sender = T(342619813681, --[[ModItemEmail LegionTier2 sender]] "JAZZ"),
 			title = T(183093543791, --[[ModItemEmail LegionTier2 title]] "LegionTier2"),
 		}),
 		PlaceObj('ModItemEmail', {
-			body = T(767218055918, --[[ModItemEmail LegionTier3 body]] "Тир3\n"),
+			body = T(767218055918, --[[ModItemEmail LegionTier3 body]] "Тир1-3\n"),
 			group = "Default",
 			id = "LegionTier3",
 			sender = T(342619813681, --[[ModItemEmail LegionTier3 sender]] "JAZZ"),
 			title = T(183093543791, --[[ModItemEmail LegionTier3 title]] "LegionTier3"),
 		}),
 		PlaceObj('ModItemEmail', {
-			body = T(767218055918, --[[ModItemEmail LegionTier4 body]] "Тир4\n"),
+			body = T(767218055918, --[[ModItemEmail LegionTier4 body]] "Тир2-1\n"),
 			group = "Default",
 			id = "LegionTier4",
 			sender = T(342619813681, --[[ModItemEmail LegionTier4 sender]] "JAZZ"),
 			title = T(183093543791, --[[ModItemEmail LegionTier4 title]] "LegionTier4"),
 		}),
 		PlaceObj('ModItemEmail', {
-			body = T(767218055918, --[[ModItemEmail LegionTier5 body]] "Тир5"),
+			body = T(767218055918, --[[ModItemEmail LegionTier5 body]] "Тир2-2\n"),
 			group = "Default",
 			id = "LegionTier5",
 			sender = T(342619813681, --[[ModItemEmail LegionTier5 sender]] "JAZZ"),
@@ -1874,62 +1874,6 @@ return {
 		PlaceObj('ModItemQuestsDef', {
 			Chapter = "Utility",
 			DisplayName = T(329699433258, --[[ModItemQuestsDef JAZZ_LegionTier DisplayName]] "Тиры легиона"),
-			EffectOnChangeVarValue = {
-				PlaceObj('QuestEffectOnStatus', {
-					Effects = {
-						PlaceObj('QuestSetVariableNum', {
-							Amount = 1,
-							Operation = "set",
-							Prop = "JAZZ_Legion_Tier",
-							QuestId = "JAZZ_LegionTier",
-						}),
-					},
-					Prop = "JAZZ_Legion_T1",
-				}),
-				PlaceObj('QuestEffectOnStatus', {
-					Effects = {
-						PlaceObj('QuestSetVariableNum', {
-							Amount = 2,
-							Operation = "set",
-							Prop = "JAZZ_Legion_Tier",
-							QuestId = "JAZZ_LegionTier",
-						}),
-					},
-					Prop = "JAZZ_Legion_T2",
-				}),
-				PlaceObj('QuestEffectOnStatus', {
-					Effects = {
-						PlaceObj('QuestSetVariableNum', {
-							Amount = 3,
-							Operation = "set",
-							Prop = "JAZZ_Legion_Tier",
-							QuestId = "JAZZ_LegionTier",
-						}),
-					},
-					Prop = "JAZZ_Legion_T3",
-				}),
-				PlaceObj('QuestEffectOnStatus', {
-					Effects = {
-						PlaceObj('QuestSetVariableNum', {
-							Amount = 4,
-							Operation = "set",
-							Prop = "JAZZ_Legion_Tier",
-							QuestId = "JAZZ_LegionTier",
-						}),
-					},
-					Prop = "JAZZ_Legion_T4",
-				}),
-				PlaceObj('QuestEffectOnStatus', {
-					Effects = {
-						PlaceObj('QuestSetVariableNum', {
-							Amount = 1,
-							Prop = "JAZZ_Legion_Tier",
-							QuestId = "JAZZ_LegionTier",
-						}),
-					},
-					Prop = "JAZZ_Legion_T5",
-				}),
-			},
 			QuestGroup = "Other",
 			TCEs = {
 				PlaceObj('TriggeredConditionalEvent', {
@@ -1941,7 +1885,7 @@ return {
 					},
 					Effects = {
 						PlaceObj('QuestSetVariableNum', {
-							Amount = 1,
+							Amount = 11,
 							Operation = "set",
 							Prop = "JAZZ_Legion_Tier",
 							QuestId = "JAZZ_LegionTier",
@@ -1950,19 +1894,19 @@ return {
 							FuncCode = 'ReceiveEmail("LegionTier1")',
 						}),
 					},
-					ParamId = "JAZZ_Legion_T1",
+					ParamId = "JAZZ_Legion_T11",
 					QuestId = "JAZZ_LegionTier",
 					SequentialEffects = false,
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('PlayerControlSectors', {
-							Amount = 1,
+							Amount = 5,
 						}),
 					},
 					Effects = {
 						PlaceObj('QuestSetVariableNum', {
-							Amount = 2,
+							Amount = 12,
 							Operation = "set",
 							Prop = "JAZZ_Legion_Tier",
 							QuestId = "JAZZ_LegionTier",
@@ -1971,14 +1915,14 @@ return {
 							FuncCode = 'RegenerateLegionLoot()\nReceiveEmail("LegionTier2")',
 						}),
 					},
-					ParamId = "JAZZ_Legion_T2",
+					ParamId = "JAZZ_Legion_T12",
 					QuestId = "JAZZ_LegionTier",
 					SequentialEffects = false,
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('PlayerControlSectors', {
-							Amount = 3,
+							Amount = 8,
 						}),
 					},
 					Effects = {
@@ -1992,14 +1936,14 @@ return {
 							FuncCode = 'RegenerateLegionLoot()\nReceiveEmail("LegionTier3")',
 						}),
 					},
-					ParamId = "JAZZ_Legion_T3",
+					ParamId = "JAZZ_Legion_T13",
 					QuestId = "JAZZ_LegionTier",
 					SequentialEffects = false,
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('PlayerControlSectors', {
-							Amount = 6,
+							Amount = 20,
 						}),
 					},
 					Effects = {
@@ -2013,14 +1957,14 @@ return {
 							FuncCode = 'RegenerateLegionLoot()\nReceiveEmail("LegionTier4")',
 						}),
 					},
-					ParamId = "JAZZ_Legion_T4",
+					ParamId = "JAZZ_Legion_T21",
 					QuestId = "JAZZ_LegionTier",
 					SequentialEffects = false,
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('PlayerControlSectors', {
-							Amount = 10,
+							Amount = 30,
 						}),
 					},
 					Effects = {
@@ -2034,7 +1978,7 @@ return {
 							FuncCode = 'RegenerateLegionLoot()\nReceiveEmail("LegionTier5")',
 						}),
 					},
-					ParamId = "JAZZ_Legion_T5",
+					ParamId = "JAZZ_Legion_T22",
 					QuestId = "JAZZ_LegionTier",
 					SequentialEffects = false,
 				}),
@@ -2058,19 +2002,19 @@ return {
 					Value = 1,
 				}),
 				PlaceObj('QuestVarTCEState', {
-					Name = "JAZZ_Legion_T1",
+					Name = "JAZZ_Legion_T11",
 				}),
 				PlaceObj('QuestVarTCEState', {
-					Name = "JAZZ_Legion_T2",
+					Name = "JAZZ_Legion_T12",
 				}),
 				PlaceObj('QuestVarTCEState', {
-					Name = "JAZZ_Legion_T3",
+					Name = "JAZZ_Legion_T13",
 				}),
 				PlaceObj('QuestVarTCEState', {
-					Name = "JAZZ_Legion_T4",
+					Name = "JAZZ_Legion_T21",
 				}),
 				PlaceObj('QuestVarTCEState', {
-					Name = "JAZZ_Legion_T5",
+					Name = "JAZZ_Legion_T22",
 				}),
 			},
 			group = "Default",
@@ -52202,7 +52146,7 @@ return {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Armor - Camo",
 					'Id', "JazzArmor_LeatherArmor",
-					'comment', "Class1 M T1",
+					'comment', "Class1 L T1",
 					'object_class', "Armor",
 					'ScrapParts', 4,
 					'Icon', "Mod/e6L4ECj/ArmorIcons/LeatherArmor.png",

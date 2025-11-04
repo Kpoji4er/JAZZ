@@ -505,3 +505,35 @@ function AIPolicyHighGround:EvalDest(context, dest, grid_voxel)
 
 	return score - penalty
 end
+
+
+
+
+DefineClass.AITargetingEnemyWill = {
+	__parents = { "AITargetingPolicy", },
+	__generated_by_class = "ClassDef",
+
+	properties = {
+		{ id = "Score", 
+			editor = "number", default = 100, },
+		{ id = "Will", 
+			editor = "number", default = 100, scale = "%", min = 1, max = 100, },
+		{ id = "AboveWill", 
+			editor = "bool", default = false, },
+	},
+}
+
+function AITargetingEnemyWill:GetEditorView()
+	if self.AboveWill then
+		return string.format("Enemy Will >= %d%%", self.Will)
+	end
+	return string.format("Enemy Will <= %d%%", self.Will)
+end
+
+function AITargetingEnemyWill:EvalTarget(unit, target)
+	local health_perc = MulDivRound(target.WillPoints, 100, target.MaxWillPoints)
+	if self.AboveWill then
+		return health_perc >= self.Will and self.Score or 0
+	end
+	return health_perc <= self.Will and self.Score or 0
+end

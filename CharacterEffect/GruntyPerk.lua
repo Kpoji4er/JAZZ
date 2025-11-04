@@ -25,8 +25,8 @@ DefineClass.GruntyPerk = {
 			end,
 		}),
 	},
-	DisplayName = T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Юберрашунг"),
-	Description = T(742416202176, --[[ModItemCharacterEffectCompositeDef GruntyPerk Description]] "<em>Атакует</em> <em>ближайшего</em> противника из огнестрельного оружия <em>в начале боя</em> (если есть возможность).\n\nНеприменимо к тяжелому оружию."),
+	DisplayName = T(562334332352, "Юберрашунг"),
+	Description = T(742416202176, "<em>Атакует</em> <em>ближайшего</em> противника из огнестрельного оружия <em>в начале боя</em> (если есть возможность).\n\nНеприменимо к тяжелому оружию."),
 	Icon = "UI/Icons/Perks/GruntyPerk",
 	Tier = "Personal",
 }

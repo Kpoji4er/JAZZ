@@ -1652,10 +1652,10 @@ function BaseWeapon:PrecalcDamageAndStatusEffects(attacker, target, attack_pos, 
 			if record_breakdown then record_breakdown[#record_breakdown + 1] = { name = collateralDamage.DisplayName, value = damageBonus } end
 		end
 		--apply armor for non units
-		local pen_class = self:HasMember("PenetrationClass") and self.PenetrationClass or #PenetrationClassIds
+		local pen_class = ((self:HasMember("PenetrationClass") and self.PenetrationClass) + (self:HasMember("PenetrationBonus") and self.PenetrationBonus or 0)) or #PenetrationClassIds
 		local armor_class = target and target.armor_class or 0
 		--if self.PenetrationClass then self.PenetrationClass = self.PenetrationClass - 1 end
-		if pen_class >= armor_class * 10 then
+		if pen_class >= armor_class then
 			hit.damage = damage or 0
 			hit.armor_prevented = 0
 		else

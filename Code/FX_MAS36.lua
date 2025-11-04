@@ -2,24 +2,24 @@
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
-	Actor = "MAS49",
+	Actor = "MAS36",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "MAS36_shot",
 	Target = "Basic",
 	group = "Default",
-	id = "fxMAS49",
+	id = "fxMAS36",
 })
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
-	Actor = "MAS49",
+	Actor = "MAS36",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "silencer_shotgun",
 	Target = "Silencer",
 	group = "Default",
-	id = "fxMAS492",
+	id = "fxMAS362",
 })
 
 PlaceObj('ActionFXSound', {
@@ -36,7 +36,7 @@ PlaceObj('ActionFXSound', {
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
-	Actor = "MAS49",
+	Actor = "MAS36",
 	Delay = 100,
 	DetailLevel = 100,
 	GameTime = true,
@@ -44,12 +44,12 @@ PlaceObj('ActionFXSound', {
 	Sound = "bullet_casingA_release",
 	Source = "ActionPos",
 	group = "Default",
-	id = "fxMAS493",
+	id = "fxMAS363",
 })
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
-	Actor = "MAS49",
+	Actor = "MAS36",
 	Delay = 300,
 	DetailLevel = 100,
 	GameTime = true,
@@ -57,7 +57,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "bullet_casingC_fall",
 	Source = "ActionPos",
 	group = "Default",
-	id = "fxMAS494",
+	id = "fxMAS364",
 })
 
 PlaceObj('ActionFXSound', {
@@ -66,10 +66,10 @@ PlaceObj('ActionFXSound', {
 	FadeOut = 150,
 	Moment = "start",
 	Sound = "Gewehr98_reload",
-	Target = "MAS49",
+	Target = "MAS36",
 	Time = 300,
 	group = "Default",
-	id = "fxMAS495",
+	id = "fxMAS365",
 })
 
 PlaceObj('ActionFXSound', {
@@ -80,10 +80,10 @@ PlaceObj('ActionFXSound', {
 	GameTime = true,
 	Moment = "start",
 	Sound = "Gewehr98_reload",
-	Target = "MAS49",
+	Target = "MAS36",
 	Time = 300,
 	group = "Default",
-	id = "fxMAS496",
+	id = "fxMAS366",
 })
 
 PlaceObj('ActionFXSound', {
@@ -93,29 +93,29 @@ PlaceObj('ActionFXSound', {
 	GameTime = true,
 	Moment = "start",
 	Sound = "Gewehr98_reload",
-	Target = "MAS49",
+	Target = "MAS36",
 	group = "Default",
-	id = "fxMAS497",
+	id = "fxMAS367",
 })
 PlaceObj('ActionFXSound', {
 	Action = "WeaponEquip",
-	Actor = "MAS49",
+	Actor = "MAS36",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "Gewehr98_reload",
 	Source = "Camera",
 	Target = "SniperRifle",
 	group = "Default",
-	id = "fxMAS498",
+	id = "fxMAS368",
 })
 PlaceObj('ActionFXSound', {
 	Action = "WeaponJam",
-	Actor = "MAS49",
+	Actor = "MAS36",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "empty_sniper",
 	group = "Default",
-	id = "fxMAS499",
+	id = "fxMAS369",
 })
 
 PlaceObj('ActionFXSound', {
@@ -126,9 +126,9 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "bullet_load-762",
 	Source = "Camera",
-	Target = "MAS49",
+	Target = "MAS36",
 	group = "Default",
-	id = "fxMAS4910",
+	id = "fxMAS3610",
 })
 
 PlaceObj('ActionFXSound', {
@@ -139,43 +139,43 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "mag_AKtype-load",
 	Source = "Camera",
-	Target = "MAS49",
+	Target = "MAS36",
 	group = "Default",
-	id = "fxMAS4911",
+	id = "fxMAS3611",
 })
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponReload",
-	Actor = "MAS49",
+	Actor = "MAS36",
 	Delay = 2300,
 	DetailLevel = 100,
 	GameTime = true,
 	Moment = "start",
 	Sound = "Gewehr98_reload",
 	group = "Default",
-	id = "fxMAS4912",
+	id = "fxMAS3612",
 })
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponReload",
-	Actor = "MAS49",
+	Actor = "MAS36",
 	Delay = 1000,
 	DetailLevel = 100,
 	GameTime = true,
 	Moment = "start",
 	Sound = "mag_AKtype-load",
 	group = "Default",
-	id = "fxMAS4913",
+	id = "fxMAS3613",
 })
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponReload",
-	Actor = "MAS49",
+	Actor = "MAS36",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "mag_AKtype-unload",
 	group = "Default",
-	id = "fxMAS4914",
+	id = "fxMAS3614",
 })
 PlaceObj('ActionFXSound', {
 	Action = "WeaponUnload",
@@ -185,7 +185,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "mag_AKtype-unload",
 	Source = "Camera",
-	Target = "MAS49",
+	Target = "MAS36",
 	group = "Default",
-	id = "fxMAS4915",
+	id = "fxMAS3615",
 })

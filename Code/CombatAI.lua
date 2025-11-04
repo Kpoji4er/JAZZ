@@ -1,12 +1,12 @@
 const.AIAvoidFireWeigth = -2000
 const.AIAvoidGasWeigth = -2000
 
-const.AIFriendlyFire_MaxRange = 20 * const.SlabSizeX	-- max range to ally for it to be considered in danger
+const.AIFriendlyFire_MaxRange = 50 * const.SlabSizeX	-- max range to ally for it to be considered in danger
 const.AIFriendlyFire_LOFWidth = 100*guic 					-- max distance from an ally to the line between position and target considered in danger
 const.AIFriendlyFire_LOFConeNear = 100*guic 				-- same as above for cone attacks (near side of the cone, positioned at attacker)
 const.AIFriendlyFire_LOFConeFar = 300*guic 				-- same as above for cone attacks (far side of the cone, positioned at AIFriendlyFire_MaxRange)
-const.AIFriendlyFire_ScoreMod = 1							-- % of damage score evaluation remanining when an ally is in danger
-const.AIShootAboveCTH = 1
+const.AIFriendlyFire_ScoreMod = 0							-- % of damage score evaluation remanining when an ally is in danger
+const.AIShootAboveCTH = 0
 
 const.AIDecisionThreshold = 80 -- targets/locations up to this percent of max scored target/location can be selected
 const.AIPointBlankTargetMod = 50 -- targets in point-blank range get +50% score
@@ -72,8 +72,12 @@ end
 
 function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 	--print('function PickBestAttack')
+		
 	local AP = unit.ActionPoints
+		--print(AP)
 	if dest_ap then AP = dest_ap end
+
+	--print(dest_ap and dest_ap or "false")
 
 	--print("pickbestattack")
 	--print(AP)
@@ -128,7 +132,7 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 		--print('score aim cth range')
 		for aim, cth in pairs(aim_levels) do
 			local total_cost = ap_cost + aim * const.Scale.AP
-			if total_cost > AP then goto next_aim end
+			if total_cost >= AP then goto next_aim end
 
 			local shots = 1
 			local predicted = cth
@@ -192,7 +196,7 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 	end
 
 
-
+	--print(#candidates)
 	if #candidates == 0 then return false end
 	  -- сортируем по убыванию score
 	  table.sort(candidates, function(a,b) return a.score > b.score end)
@@ -209,7 +213,7 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 	  for i = 1, K do
 		acc = acc + candidates[i].w
 		if r <= acc then 
-
+			 --print(candidates[i])
 			return candidates[i] end
 	  end
 
@@ -334,7 +338,8 @@ function AICreateContext(unit, context)
 
 
 
-	context.ExtremeRange = IsKindOf(weapon, "Firearm") and weapon.WeaponRange or 1
+	--context.ExtremeRange = IsKindOf(weapon, "Firearm") and weapon.WeaponRange or 1
+	context.ExtremeRange = context.EffectiveRange
 	context.enemies = enemies
 	context.attack_target = {}
 	context.enemy_visible = {}
@@ -432,7 +437,14 @@ function AICreateContext(unit, context)
 				--print(not not enemy)
 				--print(not not basic_attacks)
 				--print(not not mode.cth_by_aim[enemy])
-				best_attack = PickBestAttack(unit, enemy, basic_attacks)
+				local dest = context.ai_destination or
+                 GetPackedPosAndStance(unit)
+
+        		-- recalc target to make sure we're firing at a valid target, but prefer the already picked target if there's one
+        		-- table.insert(g_AIDamageScoreLog, string.format("[%s] AIPlayAttacks (%s)", _InternalTranslate(unit.Name or ""), context.archetype.id))
+        		local destap = 	unit.ActionPoints
+
+				best_attack = PickBestAttack(unit, enemy, basic_attacks, destap)
 				if context.enemy_visible[enemy] and best_attack then
 					best_attack.score = best_attack.score * 1.2
 				end
@@ -465,6 +477,7 @@ function AICreateContext(unit, context)
 	context.basic_attacks = basic_attacks or unit:GetBasicAttackModes()
 	--print("context_basic_attacks ")
 	--print(context.basic_attacks)
+	--print(best_overall_attack and 'best attack found' or "not found")
 
 	if best_overall_attack then
 		context.override_attack_cost = best_overall_attack.ap

@@ -84,6 +84,7 @@ local function IsUnitHit(hit)
     for _, effect in ipairs(hit.effects) do
         if effect and effect ~= "" then return true end
     end
+    --return true
 end
 
 function AIPrecalcGrenadeZones(context, action_id, min_range, max_range,
@@ -224,10 +225,12 @@ function AIReloadWeapons(unit)
                     ObjModified(unit)
                 end
             end
-        elseif firearm.ammo.Amount < Max(1, 
-        table.find(firearm.AvailableAttacks, "BurstFire") and firearm.BurstShots or
-        table.find(firearm.AvailableAttacks, "AutoFire") and firearm.Autoshots or
-        table.find(firearm.AvailableAttacks, "MGBurstFire") and firearm.BurstShots * 2 or 1) then
+        elseif firearm.ammo.Amount < Max(1, firearm.MagazineSize / 2) then    
+  --      elseif firearm.ammo.Amount < Max(1, 
+        
+  --      table.find(firearm.AvailableAttacks, "AutoFire") and firearm.Autoshots or
+  --      table.find(firearm.AvailableAttacks, "MGBurstFire") and firearm.BurstShots * 2 
+  --      or table.find(firearm.AvailableAttacks, "BurstFire") and firearm.BurstShots or 1 ) then
             local ammo = firearm.ammo
             ammo.Amount = firearm.MagazineSize
             unit:ReloadWeapon(firearm, ammo, "delay fx", "ai")
@@ -534,7 +537,8 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
                                                           target)
             else
                 --print('best attack')
-                attacks = 1;
+                --attacks = 1;
+                attacks = DivRound(unit.ActionPoints, best_attack.ap or context.default_attack_cost)
                 aim = {best_attack.aim} or aim  
             end
             
@@ -691,9 +695,9 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
              end
             return "restart"
           else
-        --  TryChangeStance(unit)
+          --TryChangeStance(unit)
           end
-        --TryChangeStance(unit)
+        TryChangeStance(unit)
         end
         
     end
@@ -727,6 +731,8 @@ end
 
 function AIPrecalcDamageScore(context, destinations, preferred_target,
                               debug_data)
+
+    --print('AIPrecalcDamageScore')
     local unit = context.unit
     local weapon = context.weapon
     local action = CombatActions[context.override_attack_id or false] or

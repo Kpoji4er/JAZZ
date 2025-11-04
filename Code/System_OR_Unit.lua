@@ -891,7 +891,7 @@ function UnitBase:GetPersonalMorale()
 			end
 		end
 		--increase morale for no disliked and at least one liked merc
-		--if not isDisliking then
+		if not isDisliking then
 			for _, likedMerc in ipairs(self.Likes) do
 				local likedIndex = table.find(self.team.units, "session_id", likedMerc)
 				if likedIndex and not self.team.units[likedIndex]:IsDead()  then
@@ -899,7 +899,7 @@ function UnitBase:GetPersonalMorale()
 					break
 				end
 			end
-		--end
+		end
 	end
 	--lower morale if below 50% or 3+ wounds (REVERT for psycho perk)
 	local isWounded = false
@@ -2068,7 +2068,7 @@ function UnitData:RandomizeStats(seed)
 
 		if Game.game_difficulty == "VeryHard" then
 			rand, seed = BraidRandom(seed, 20)
-			local modValue = rand
+			local modValue = rand+10
 			self:AddModifier("randstat", stat, false, modValue)
 		end
 	end

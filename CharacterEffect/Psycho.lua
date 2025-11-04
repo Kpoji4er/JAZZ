@@ -24,8 +24,8 @@ DefineClass.Psycho = {
 			end,
 		}),
 	},
-	DisplayName = T(256373672615, --[[ModItemCharacterEffectCompositeDef Psycho DisplayName]] "Психопат"),
-	Description = T(966163673727, --[[ModItemCharacterEffectCompositeDef Psycho Description]] "Может выполнить более жестокую атаку, чем была выбрана.\n\nОткрывает дополнительные <em>варианты диалогов</em>."),
+	DisplayName = T(256373672615, "Психопат"),
+	Description = T(966163673727, "Может выполнить более жестокую атаку, чем была выбрана.\n\nОткрывает дополнительные <em>варианты диалогов</em>."),
 	Icon = "UI/Icons/Perks/Psycho",
 	Tier = "Personality",
 }
