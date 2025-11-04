@@ -55059,11 +55059,11 @@ return {
 						Event = "OnBeginTurn",
 						Handler = function (self, target)
 							local chance = 50 - Max(0, target.Health - 50) / 2 - MulDivRound(target:GetLevel(), 25, 10)
-							if target:Random(100) < chance then
-								target:AddStatusEffect("Panicked")
-							end
+							--if target:Random(100) < chance then
+							--	target:AddStatusEffect("Panicked")
+							--end
 							
-							local willPointsDamage = 10
+							local willPointsDamage = 20
 							
 							target.WillPoints = target.WillPoints - willPointsDamage
 							target:ApplySuppressionStatus()
