@@ -22,7 +22,6 @@ DefineClass.P38 = {
 	Damage = 20,
 	ObjDamageMod = 20,
 	AimAccuracy = 10,
-	CritChance = 5,
 	CritChanceScaled = 35,
 	MagazineSize = 8,
 	WeaponRange = 18,

@@ -22,7 +22,6 @@ DefineClass.Welrod = {
 	Damage = 23,
 	ObjDamageMod = 40,
 	AimAccuracy = 12,
-	CritChance = 30,
 	CritChanceScaled = 60,
 	MagazineSize = 6,
 	WeaponRange = 16,

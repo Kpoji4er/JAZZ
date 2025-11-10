@@ -26,7 +26,6 @@ DefineClass.G36 = {
 	Damage = 21,
 	ObjDamageMod = 50,
 	AimAccuracy = 22,
-	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
 	WeaponRange = 44,

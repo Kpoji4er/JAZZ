@@ -4,7 +4,7 @@ DefineClass.JazzArmor_Chainmail = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "Class2 M T1",
+	comment = "Class1 M T1",
 	object_class = "Armor",
 	ScrapParts = 4,
 	Degradation = 60,
@@ -18,7 +18,6 @@ DefineClass.JazzArmor_Chainmail = {
 	MaxStock = 1,
 	RestockWeight = 25,
 	CategoryPair = "Light",
-	PenetrationClass = 2,
 	AdditionalReduction = 40,
 	ProtectedBodyParts = set( "Arms", "Groin", "Neck", "Torso" ),
 	ArmorRating = 5,

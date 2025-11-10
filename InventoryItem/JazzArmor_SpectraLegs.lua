@@ -19,6 +19,7 @@ DefineClass.JazzArmor_SpectraLegs = {
 	Tier = 3,
 	RestockWeight = 3,
 	Slot = "Legs",
+	PenetrationClass = 4,
 	DamageReduction = 20,
 	AdditionalReduction = 60,
 	ProtectedBodyParts = set( "Groin", "Legs" ),

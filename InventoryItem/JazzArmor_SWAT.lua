@@ -4,7 +4,7 @@ DefineClass.JazzArmor_SWAT = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "Class2 L T2",
+	comment = "Class2 H T2",
 	object_class = "Armor",
 	ScrapParts = 4,
 	Degradation = 15,
@@ -23,7 +23,7 @@ DefineClass.JazzArmor_SWAT = {
 	AdditionalReduction = 40,
 	ProtectedBodyParts = set( "Arms", "Groin", "Neck", "Torso" ),
 	Coverage = 95,
-	ArmorRating = 12,
+	ArmorRating = 18,
 	MeleeArmorRating = 30,
 	ExplosiveArmorRating = 30,
 	CamouflagePercent = -15,

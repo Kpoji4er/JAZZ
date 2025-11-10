@@ -26,7 +26,6 @@ DefineClass.AUG = {
 	Damage = 21,
 	ObjDamageMod = 50,
 	AimAccuracy = 24,
-	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
 	WeaponRange = 46,

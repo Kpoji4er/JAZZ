@@ -4,7 +4,7 @@ DefineClass.JazzArmor_TwaronMedium = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "Class3 M T4",
+	comment = "Class2 M T4",
 	object_class = "Armor",
 	ScrapParts = 4,
 	Degradation = 15,
@@ -18,11 +18,11 @@ DefineClass.JazzArmor_TwaronMedium = {
 	MaxStock = 1,
 	RestockWeight = 25,
 	CategoryPair = "Medium",
-	PenetrationClass = 3,
+	PenetrationClass = 2,
 	AdditionalReduction = 40,
 	ProtectedBodyParts = set( "Groin", "Neck", "Torso" ),
 	Coverage = 70,
-	ArmorRating = 14,
+	ArmorRating = 22,
 	MeleeArmorRating = 15,
 	ExplosiveArmorRating = 28,
 	CamouflagePercent = 2,

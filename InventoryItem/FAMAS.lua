@@ -23,7 +23,6 @@ DefineClass.FAMAS = {
 	Damage = 18,
 	ObjDamageMod = 50,
 	AimAccuracy = 21,
-	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 25,
 	WeaponRange = 38,

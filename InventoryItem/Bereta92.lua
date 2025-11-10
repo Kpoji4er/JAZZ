@@ -22,7 +22,6 @@ DefineClass.Bereta92 = {
 	Damage = 22,
 	ObjDamageMod = 20,
 	AimAccuracy = 16,
-	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 17,
 	WeaponRange = 17,

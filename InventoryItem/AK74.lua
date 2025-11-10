@@ -26,7 +26,6 @@ DefineClass.AK74 = {
 	Damage = 25,
 	ObjDamageMod = 45,
 	AimAccuracy = 24,
-	CritChance = 10,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
 	WeaponRange = 48,

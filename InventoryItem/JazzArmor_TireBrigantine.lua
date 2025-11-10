@@ -4,7 +4,7 @@ DefineClass.JazzArmor_TireBrigantine = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "Class2 M T1",
+	comment = "Class1 M T1",
 	object_class = "Armor",
 	ScrapParts = 4,
 	Icon = "Mod/e6L4ECj/ArmorIcons/TireBrigantine.png",
@@ -17,16 +17,15 @@ DefineClass.JazzArmor_TireBrigantine = {
 	MaxStock = 1,
 	RestockWeight = 25,
 	CategoryPair = "Light",
-	PenetrationClass = 2,
 	AdditionalReduction = 40,
 	ProtectedBodyParts = set( "Torso" ),
 	Coverage = 70,
-	ArmorRating = 8,
+	ArmorRating = 30,
 	MeleeArmorRating = 25,
 	ExplosiveArmorRating = 10,
 	CamouflagePercent = -15,
 	CanHoldPlate = true,
-	Weight = 3,
+	Weight = 4,
 	ArmorResource = 300,
 	Repairability = 95,
 }

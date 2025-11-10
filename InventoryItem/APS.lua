@@ -24,7 +24,6 @@ DefineClass.APS = {
 	Damage = 18,
 	ObjDamageMod = 20,
 	AimAccuracy = 12,
-	CritChance = 5,
 	MagazineSize = 18,
 	WeaponRange = 17,
 	OverwatchAngle = 5400,

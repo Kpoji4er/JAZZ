@@ -28,7 +28,6 @@ DefineClass.PKM = {
 	Damage = 38,
 	ObjDamageMod = 120,
 	AimAccuracy = 29,
-	CritChance = 10,
 	MagazineSize = 100,
 	WeaponRange = 60,
 	OverwatchAngle = 600,

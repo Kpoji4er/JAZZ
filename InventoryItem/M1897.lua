@@ -24,6 +24,7 @@ DefineClass.M1897 = {
 	Damage = 4,
 	ObjDamageMod = 50,
 	AimAccuracy = 33,
+	CritChanceScaled = 20,
 	MagazineSize = 5,
 	WeaponRange = 21,
 	PointBlankBonus = 1,

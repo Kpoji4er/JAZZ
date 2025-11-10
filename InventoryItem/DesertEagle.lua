@@ -24,7 +24,6 @@ DefineClass.DesertEagle = {
 	Damage = 32,
 	ObjDamageMod = 50,
 	AimAccuracy = 14,
-	CritChance = 10,
 	CritChanceScaled = 45,
 	MagazineSize = 8,
 	OverwatchAngle = 4920,

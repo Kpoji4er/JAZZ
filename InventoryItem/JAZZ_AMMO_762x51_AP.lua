@@ -1,0 +1,60 @@
+UndefineClass('JAZZ_AMMO_762x51_AP')
+DefineClass.JAZZ_AMMO_762x51_AP = {
+	__parents = { "Ammo" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "Ammo",
+	Icon = "Mod/e6L4ECj/Ammopics/762NATOM61.png",
+	DisplayName = T(213865838245, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_AP DisplayName]] "7.62х51мм НАТО, M61"),
+	DisplayNamePlural = T(732360181829, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_AP DisplayNamePlural]] "7.62х51мм НАТО, M61"),
+	colorStyle = "AmmoAPColor",
+	Description = T(134217744335, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_AP Description]] "Бронебойный армейский патрон М61 калибра 7.62х51мм НАТО"),
+	AdditionalHint = T(887338728380, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_AP AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышенная бронебойность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Обеспечивает уверенное поражение целей обладающих 4-м классом брони"),
+	Cost = 3000,
+	CanAppearInShop = true,
+	Tier = "5",
+	MaxStock = 15,
+	RestockWeight = 5,
+	CategoryPair = "762NATO",
+	ShopStackSize = 20,
+	MaxStacks = 40,
+	Caliber = "JAZZ_Caliber_762x51",
+	Modifications = {
+		PlaceObj('CaliberModification', {
+			mod_mul = 3000,
+			target_prop = "PenetrationClass",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = 2,
+			mod_mul = 0,
+			target_prop = "PenetrationBonus",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = -3,
+			target_prop = "Reliability",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_mul = 800,
+			target_prop = "Damage",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_mul = 980,
+			target_prop = "Grouping",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = 3,
+			target_prop = "BulletDropRange",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = 20,
+			target_prop = "BaseJamChance",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = 5,
+			target_prop = "Recoil",
+		}),
+	},
+	ammo_type_icon = "UI/Icons/Items/ta_ap.png",
+}
+

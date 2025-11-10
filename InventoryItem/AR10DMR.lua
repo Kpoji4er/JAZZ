@@ -25,6 +25,7 @@ DefineClass.AR10DMR = {
 	Damage = 32,
 	ObjDamageMod = 80,
 	AimAccuracy = 33,
+	CritChanceScaled = 30,
 	MagazineSize = 20,
 	WeaponRange = 58,
 	OverwatchAngle = 900,

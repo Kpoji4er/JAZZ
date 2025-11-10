@@ -22,7 +22,6 @@ DefineClass.Colt38Special = {
 	Damage = 16,
 	ObjDamageMod = 40,
 	AimAccuracy = 11,
-	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 6,
 	WeaponRange = 15,

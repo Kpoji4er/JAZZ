@@ -24,7 +24,6 @@ DefineClass.Sig550 = {
 	Damage = 23,
 	ObjDamageMod = 50,
 	AimAccuracy = 25,
-	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
 	WeaponRange = 48,

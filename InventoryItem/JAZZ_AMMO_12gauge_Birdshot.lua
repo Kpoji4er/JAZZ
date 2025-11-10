@@ -12,11 +12,11 @@ DefineClass.JAZZ_AMMO_12gauge_Birdshot = {
 	colorStyle = "AmmoBasicColor",
 	Description = T(561107124860, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_12gauge_Birdshot Description]] "Дробь 12-го калибра."),
 	AdditionalHint = T(526169544903, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_12gauge_Birdshot AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 20 частиц. Вызывают <color EmStyle>кровотечение</color>"),
-	Cost = 60,
+	Cost = 375,
 	CanAppearInShop = true,
 	MaxStock = 50,
-	RestockWeight = 80,
-	ShopStackSize = 12,
+	RestockWeight = 30,
+	ShopStackSize = 25,
 	MaxStacks = 20,
 	Caliber = "JAZZ_Caliber_12gauge",
 	Modifications = {
@@ -25,8 +25,19 @@ DefineClass.JAZZ_AMMO_12gauge_Birdshot = {
 			target_prop = "AutoShots",
 		}),
 		PlaceObj('CaliberModification', {
-			mod_mul = 800,
+			mod_mul = 1250,
 			target_prop = "Grouping",
+		}),
+		PlaceObj('CaliberModification', {
+			target_prop = "PenetrationClass",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = -5,
+			target_prop = "PenetrationBonus",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = 3,
+			target_prop = "CritChance",
 		}),
 	},
 	AppliedEffects = {

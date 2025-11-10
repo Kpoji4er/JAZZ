@@ -23,7 +23,6 @@ DefineClass.ColtAnaconda = {
 	Damage = 35,
 	ObjDamageMod = 40,
 	AimAccuracy = 14,
-	CritChance = 10,
 	CritChanceScaled = 40,
 	MagazineSize = 6,
 	WeaponRange = 21,

@@ -23,7 +23,6 @@ DefineClass.RSH12 = {
 	Damage = 36,
 	ObjDamageMod = 70,
 	AimAccuracy = 16,
-	CritChance = 10,
 	CritChanceScaled = 40,
 	MagazineSize = 6,
 	OverwatchAngle = 5400,

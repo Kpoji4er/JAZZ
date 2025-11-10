@@ -272,6 +272,10 @@ WeaponComponentVisual.properties[#WeaponComponentVisual.properties+1] = {
     image_preview_size = 75
 }
 
+SetPropMeta("BobbyRayShopItemProperties", "Tier", "max", 10)
+SetPropMeta("BobbyRayShopItemProperties", "ShopStackSize", "max", 500)
+SetPropMeta("BobbyRayShopItemProperties", "MaxStacks", "max", 500)
+
 
 
 function InventoryItem:GetMaxResource()

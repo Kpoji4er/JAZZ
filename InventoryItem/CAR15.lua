@@ -24,7 +24,6 @@ DefineClass.CAR15 = {
 	Damage = 19,
 	ObjDamageMod = 50,
 	AimAccuracy = 18,
-	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
 	WeaponRange = 40,

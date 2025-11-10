@@ -281,6 +281,7 @@ function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 			self.team.tactical_situations_vr.missedShots = self.team.tactical_situations_vr.missedShots and self.team.tactical_situations_vr.missedShots + 1 or 1
 			PlayVoiceResponseTacticalSituation(table.find(g_Teams, self.team), "now")
 
+
 			
 			if chance_to_hit >= 70 then
 				if not target_unit or not target_unit:IsCivilian() then
@@ -301,6 +302,17 @@ function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 	end
 	
 	for i, attack in ipairs(attacks) do
+		if target_unit and chance_to_hit > 0 then
+			for _,effect in pairs(attack.weapon.ammo.AppliedEffects) do
+			
+				if effect == 'Exposed' 
+				then
+					target_unit:AddStatusEffect(effect)
+				end
+			end
+				
+			end
+		
 		local holdXpLog = i ~= #attacks
 		self:OnAttack(action, target_unit, attack, attack_args, holdXpLog)
 	end

@@ -22,7 +22,6 @@ DefineClass.Luger = {
 	Damage = 19,
 	ObjDamageMod = 20,
 	AimAccuracy = 10,
-	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 8,
 	WeaponRange = 17,

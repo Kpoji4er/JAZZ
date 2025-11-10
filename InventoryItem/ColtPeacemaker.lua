@@ -22,7 +22,6 @@ DefineClass.ColtPeacemaker = {
 	Damage = 34,
 	ObjDamageMod = 40,
 	AimAccuracy = 6,
-	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 6,
 	WeaponRange = 19,

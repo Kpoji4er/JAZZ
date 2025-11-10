@@ -25,7 +25,6 @@ DefineClass.DeLisle = {
 	Damage = 30,
 	ObjDamageMod = 50,
 	AimAccuracy = 25,
-	CritChance = 30,
 	CritChanceScaled = 80,
 	MagazineSize = 7,
 	WeaponRange = 28,

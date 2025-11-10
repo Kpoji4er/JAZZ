@@ -24,7 +24,6 @@ DefineClass.GrizzlyLAR = {
 	Damage = 34,
 	ObjDamageMod = 50,
 	AimAccuracy = 18,
-	CritChance = 10,
 	CritChanceScaled = 45,
 	MagazineSize = 6,
 	OverwatchAngle = 4920,

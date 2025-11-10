@@ -23,7 +23,6 @@ DefineClass.P226 = {
 	Damage = 21,
 	ObjDamageMod = 25,
 	AimAccuracy = 10,
-	CritChance = 5,
 	CritChanceScaled = 25,
 	MagazineSize = 15,
 	WeaponRange = 19,

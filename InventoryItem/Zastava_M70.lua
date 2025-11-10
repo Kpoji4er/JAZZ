@@ -26,7 +26,6 @@ DefineClass.Zastava_M70 = {
 	Damage = 27,
 	ObjDamageMod = 50,
 	AimAccuracy = 20,
-	CritChance = 5,
 	MagazineSize = 30,
 	WeaponRange = 38,
 	OverwatchAngle = 1380,

@@ -23,7 +23,6 @@ DefineClass.Makarov = {
 	Damage = 18,
 	ObjDamageMod = 15,
 	AimAccuracy = 7,
-	CritChance = 5,
 	CritChanceScaled = 35,
 	MagazineSize = 8,
 	WeaponRange = 16,

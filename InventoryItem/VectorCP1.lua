@@ -22,7 +22,6 @@ DefineClass.VectorCP1 = {
 	Damage = 19,
 	ObjDamageMod = 20,
 	AimAccuracy = 6,
-	CritChance = 5,
 	CritChanceScaled = 35,
 	MagazineSize = 15,
 	WeaponRange = 17,

@@ -26,7 +26,6 @@ DefineClass.U100 = {
 	Damage = 21,
 	ObjDamageMod = 50,
 	AimAccuracy = 20,
-	CritChance = 5,
 	MagazineSize = 30,
 	WeaponRange = 48,
 	OverwatchAngle = 840,

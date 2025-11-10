@@ -4,7 +4,7 @@ DefineClass.JazzArmor_ImprovisedCuirass = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "Class2 H T1",
+	comment = "Class1 H T1",
 	object_class = "Armor",
 	ScrapParts = 4,
 	Icon = "Mod/e6L4ECj/ArmorIcons/ImprovisedCuirass.png",
@@ -17,11 +17,10 @@ DefineClass.JazzArmor_ImprovisedCuirass = {
 	MaxStock = 1,
 	RestockWeight = 25,
 	CategoryPair = "Light",
-	PenetrationClass = 2,
 	AdditionalReduction = 40,
 	ProtectedBodyParts = set( "Torso" ),
 	Coverage = 50,
-	ArmorRating = 18,
+	ArmorRating = 24,
 	MeleeArmorRating = 30,
 	ExplosiveArmorRating = 25,
 	CamouflagePercent = -15,

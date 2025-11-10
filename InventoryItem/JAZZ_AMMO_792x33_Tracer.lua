@@ -1,0 +1,56 @@
+UndefineClass('JAZZ_AMMO_792x33_Tracer')
+DefineClass.JAZZ_AMMO_792x33_Tracer = {
+	__parents = { "Ammo" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "Ammo",
+	RepairCost = 400,
+	Icon = "Mod/e6L4ECj/Ammopics/792x33Tracer.png",
+	DisplayName = T(333321938927, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_Tracer DisplayName]] "792x33мм L'spur Трассер"),
+	DisplayNamePlural = T(789710016757, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_Tracer DisplayNamePlural]] "792x33мм L'spur Трассер"),
+	colorStyle = "AmmoBasicColor",
+	Description = T(527669776671, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_Tracer Description]] "Трассирующий вариант для визуальной корректировки огня и маркеров боевых действий. Полезен в подавляющих и ориентирующих задачах."),
+	AdditionalHint = "",
+	Cost = 675,
+	CanAppearInShop = true,
+	MaxStock = 10,
+	RestockWeight = 1,
+	CategoryPair = "762WP",
+	ShopStackSize = 100,
+	MaxStacks = 60,
+	Caliber = "JAZZ_Caliber_792x33",
+	Modifications = {
+		PlaceObj('CaliberModification', {
+			target_prop = "PenetrationClass",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = 6,
+			target_prop = "PenetrationBonus",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = -2,
+			target_prop = "Reliability",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = -1,
+			target_prop = "BulletDropRange",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = 2,
+			target_prop = "CritChance",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_mul = 950,
+			target_prop = "Grouping",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = 20,
+			target_prop = "BaseJamChance",
+		}),
+	},
+	AppliedEffects = {
+		"Exposed",
+	},
+}
+

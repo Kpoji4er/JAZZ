@@ -10,12 +10,23 @@ DefineClass.JAZZ_AMMO_50BMG_Basic = {
 	DisplayNamePlural = T(272581385016, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic DisplayNamePlural]] ".50, обычные"),
 	colorStyle = "AmmoBasicColor",
 	Description = T(928449338739, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic Description]] "Боеприпас для пулеметов, снайперских винтовок, пистолетов и револьверов калибра .50."),
-	Cost = 250,
+	Cost = 9000,
 	CanAppearInShop = true,
-	Tier = 2,
+	Tier = 3,
 	MaxStock = 10,
+	RestockWeight = 1,
 	CategoryPair = "50BMG",
-	ShopStackSize = 10,
+	ShopStackSize = 5,
 	Caliber = "JAZZ_Caliber_50BMG",
+	Modifications = {
+		PlaceObj('CaliberModification', {
+			mod_mul = 3000,
+			target_prop = "PenetrationClass",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = 5,
+			target_prop = "PenetrationBonus",
+		}),
+	},
 }
 

@@ -26,7 +26,6 @@ DefineClass.HK33 = {
 	Damage = 22,
 	ObjDamageMod = 50,
 	AimAccuracy = 26,
-	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
 	WeaponRange = 46,

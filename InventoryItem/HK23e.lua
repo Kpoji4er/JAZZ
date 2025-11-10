@@ -27,7 +27,6 @@ DefineClass.HK23e = {
 	Damage = 22,
 	ObjDamageMod = 50,
 	AimAccuracy = 28,
-	CritChance = 5,
 	MagazineSize = 100,
 	WeaponRange = 52,
 	OverwatchAngle = 840,

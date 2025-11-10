@@ -23,7 +23,6 @@ DefineClass.BrowningM2HMG = {
 	Damage = 60,
 	ObjDamageMod = 300,
 	AimAccuracy = 30,
-	CritChance = 10,
 	MagazineSize = 100,
 	WeaponRange = 95,
 	OverwatchAngle = 3900,

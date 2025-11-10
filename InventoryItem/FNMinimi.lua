@@ -26,7 +26,6 @@ DefineClass.FNMinimi = {
 	Damage = 20,
 	ObjDamageMod = 50,
 	AimAccuracy = 28,
-	CritChance = 5,
 	MagazineSize = 100,
 	WeaponRange = 54,
 	OverwatchAngle = 840,

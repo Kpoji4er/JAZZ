@@ -4,7 +4,7 @@ DefineClass.JazzArmor_AssaultCuirass = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "Class2 H T1",
+	comment = "Class1 H T1",
 	object_class = "Armor",
 	ScrapParts = 4,
 	Degradation = 60,
@@ -18,11 +18,10 @@ DefineClass.JazzArmor_AssaultCuirass = {
 	MaxStock = 1,
 	RestockWeight = 25,
 	CategoryPair = "Light",
-	PenetrationClass = 2,
 	AdditionalReduction = 40,
 	ProtectedBodyParts = set( "Groin", "Torso" ),
 	Coverage = 70,
-	ArmorRating = 20,
+	ArmorRating = 36,
 	MeleeArmorRating = 75,
 	ExplosiveArmorRating = 40,
 	CamouflagePercent = -15,

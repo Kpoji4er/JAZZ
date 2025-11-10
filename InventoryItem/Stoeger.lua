@@ -23,6 +23,7 @@ DefineClass.Stoeger = {
 	Damage = 4,
 	ObjDamageMod = 50,
 	AimAccuracy = 30,
+	CritChanceScaled = 30,
 	MagazineSize = 2,
 	WeaponRange = 21,
 	PointBlankBonus = 1,

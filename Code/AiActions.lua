@@ -674,7 +674,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 
   --  end
     if  not unit:HasStatusEffect("Unconscious") and not unit:HasPreparedAttack() and not g_Overwatch[unit] and 
-        not unit:IsIncapacitated() and not unit:IsDead() and not dest == context.unit_stance_pos
+        not unit:IsIncapacitated() and not unit:IsDead() and not dest == context.unit_stance_pos and (not ud:HasStatusEffect("Berserk") and not ud:HasStatusEffect("Panicked"))
         then    
           context.restarts = (context.restarts or 0) + 1
           if (unit.ActionPoints + remaining_free_ap) > (0) then 
@@ -692,12 +692,12 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
           if context.restarts < 3 then
               if g_AIExecutionController then
                 g_AIExecutionController:Log("  Unit %s requesting restart (AP left: %d, restart count: %d)", unit.unitdatadef_id, unit.ActionPoints, context.restarts)
-          end
-          return "restart"
+             end
+             return "restart"
           else
-          --TryChangeStance(unit)
+            TryChangeStance(unit)
           end
-        TryChangeStance(unit)
+        --TryChangeStance(unit)
         end
         
     end
@@ -706,15 +706,6 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
     --unit.ai_context.stancechanged = false
     
 
-    
-    
-    if unit.ActionPoints >= 4000 and context.restarts >=3 then
-      AITakeCover(unit)
-    end
-
-    if unit.ActionPoints >= 1000 and context.restarts >=3 then
-      TryChangeStance(unit)
-    end
 
     -- local ProneStanceAP = unit:GetStanceToStanceAP(unit.stance, "Prone")
     -- local CrouchStanceAP = unit:GetStanceToStanceAP(unit.stance, "Crouch")

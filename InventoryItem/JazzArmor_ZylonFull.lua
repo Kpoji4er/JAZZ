@@ -4,7 +4,7 @@ DefineClass.JazzArmor_ZylonFull = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "Class3 H T4",
+	comment = "Class2 H T4",
 	object_class = "Armor",
 	ScrapParts = 4,
 	Degradation = 40,
@@ -19,16 +19,16 @@ DefineClass.JazzArmor_ZylonFull = {
 	MaxStock = 1,
 	RestockWeight = 25,
 	CategoryPair = "Heavy",
-	PenetrationClass = 3,
+	PenetrationClass = 2,
 	AdditionalReduction = 40,
 	ProtectedBodyParts = set( "Arms", "Groin", "Neck", "Torso" ),
 	Coverage = 95,
-	ArmorRating = 14,
+	ArmorRating = 16,
 	MeleeArmorRating = 10,
 	ExplosiveArmorRating = 32,
 	CamouflagePercent = 5,
 	CanHoldPlate = true,
-	Weight = 4,
+	Weight = 3,
 	ArmorResource = 200,
 	Repairability = 70,
 }

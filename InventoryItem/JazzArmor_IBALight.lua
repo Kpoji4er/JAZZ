@@ -4,7 +4,7 @@ DefineClass.JazzArmor_IBALight = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "Class4 M T4",
+	comment = "Class3 L T4",
 	object_class = "Armor",
 	ScrapParts = 4,
 	Degradation = 15,
@@ -19,11 +19,11 @@ DefineClass.JazzArmor_IBALight = {
 	MaxStock = 1,
 	RestockWeight = 10,
 	CategoryPair = "Medium",
-	PenetrationClass = 4,
+	PenetrationClass = 3,
 	AdditionalReduction = 40,
 	ProtectedBodyParts = set( "Neck", "Torso" ),
 	Coverage = 60,
-	ArmorRating = 10,
+	ArmorRating = 19,
 	MeleeArmorRating = 5,
 	ExplosiveArmorRating = 22,
 	CamouflagePercent = 5,

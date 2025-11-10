@@ -4,7 +4,7 @@ DefineClass.JazzArmor_SovietAssaultArmor = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "Class 2 M T1",
+	comment = "Class 1 M T1",
 	object_class = "Armor",
 	ScrapParts = 4,
 	Degradation = 60,
@@ -18,11 +18,11 @@ DefineClass.JazzArmor_SovietAssaultArmor = {
 	MaxStock = 1,
 	RestockWeight = 25,
 	CategoryPair = "Light",
-	PenetrationClass = 2,
 	AdditionalReduction = 40,
 	ProtectedBodyParts = set( "Torso" ),
 	Coverage = 40,
-	ArmorRating = 12,
+	ArmorRating = 26,
+	MeleeArmorRating = 10,
 	ExplosiveArmorRating = 5,
 	Weight = 3,
 	ArmorResource = 180,

@@ -23,11 +23,11 @@ DefineClass.JazzArmor_PASGT = {
 	AdditionalReduction = 40,
 	ProtectedBodyParts = set( "Neck", "Torso" ),
 	Coverage = 60,
-	ArmorRating = 15,
+	ArmorRating = 16,
 	MeleeArmorRating = 5,
 	ExplosiveArmorRating = 18,
 	CamouflagePercent = 8,
-	Weight = 2,
+	Weight = 3,
 	ArmorResource = 280,
 	Repairability = 60,
 }

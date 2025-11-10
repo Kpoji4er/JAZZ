@@ -24,7 +24,6 @@ DefineClass.M16A2 = {
 	Damage = 22,
 	ObjDamageMod = 50,
 	AimAccuracy = 23,
-	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
 	WeaponRange = 48,

@@ -22,7 +22,6 @@ DefineClass.P220 = {
 	Damage = 26,
 	ObjDamageMod = 25,
 	AimAccuracy = 16,
-	CritChance = 15,
 	CritChanceScaled = 40,
 	MagazineSize = 8,
 	WeaponRange = 16,

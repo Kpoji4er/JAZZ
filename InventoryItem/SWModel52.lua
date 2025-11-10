@@ -22,7 +22,6 @@ DefineClass.SWModel52 = {
 	Damage = 16,
 	ObjDamageMod = 20,
 	AimAccuracy = 14,
-	CritChance = 5,
 	CritChanceScaled = 35,
 	MagazineSize = 5,
 	WeaponRange = 18,

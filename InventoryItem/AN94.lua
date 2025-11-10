@@ -26,7 +26,6 @@ DefineClass.AN94 = {
 	Damage = 26,
 	ObjDamageMod = 45,
 	AimAccuracy = 25,
-	CritChance = 10,
 	CritChanceScaled = 30,
 	MagazineSize = 30,
 	WeaponRange = 49,

@@ -24,7 +24,6 @@ DefineClass.Glock17 = {
 	Damage = 20,
 	ObjDamageMod = 15,
 	AimAccuracy = 8,
-	CritChance = 5,
 	MagazineSize = 17,
 	WeaponRange = 18,
 	OverwatchAngle = 5400,

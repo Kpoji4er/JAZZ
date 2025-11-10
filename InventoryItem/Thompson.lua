@@ -25,7 +25,6 @@ DefineClass.Thompson = {
 	Damage = 26,
 	ObjDamageMod = 25,
 	AimAccuracy = 7,
-	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 30,
 	WeaponRange = 19,

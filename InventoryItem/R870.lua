@@ -22,6 +22,7 @@ DefineClass.R870 = {
 	Damage = 4,
 	ObjDamageMod = 50,
 	AimAccuracy = 23,
+	CritChanceScaled = 20,
 	MagazineSize = 6,
 	WeaponRange = 22,
 	PointBlankBonus = 1,

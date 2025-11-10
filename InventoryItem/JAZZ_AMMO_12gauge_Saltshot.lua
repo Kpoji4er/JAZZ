@@ -12,11 +12,11 @@ DefineClass.JAZZ_AMMO_12gauge_Saltshot = {
 	colorStyle = "AmmoHPColor",
 	Description = T(790667718698, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_12gauge_Saltshot Description]] "Боеприпас с солью 12-го калибра."),
 	AdditionalHint = T(901574745246, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_12gauge_Saltshot AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> очень низкий урон\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сниженная дальнобойность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенный сектор атаки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает у цели <color EmStyle>случайные травмы</color>"),
-	Cost = 100,
+	Cost = 180,
 	CanAppearInShop = true,
 	MaxStock = 5,
-	RestockWeight = 80,
-	ShopStackSize = 12,
+	RestockWeight = 5,
+	ShopStackSize = 25,
 	MaxStacks = 20,
 	Caliber = "JAZZ_Caliber_12gauge",
 	Modifications = {
@@ -37,8 +37,21 @@ DefineClass.JAZZ_AMMO_12gauge_Saltshot = {
 			target_prop = "AutoShots",
 		}),
 		PlaceObj('CaliberModification', {
-			mod_mul = 800,
+			mod_mul = 1300,
 			target_prop = "Grouping",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = -2,
+			mod_mul = 0,
+			target_prop = "BulletDropRange",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_mul = 0,
+			target_prop = "PenetrationClass",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = 1,
+			target_prop = "PenetrationBonus",
 		}),
 	},
 	AppliedEffects = {

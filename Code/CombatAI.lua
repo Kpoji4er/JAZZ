@@ -382,8 +382,8 @@ function AICreateContext(unit, context)
 	local aim_sample_cth_count = 0
 	local best_cth = 0
 	local worst_cth = 100
-	local bullet_range = weapon.BulletDropRange or 0
-	local weapon_range = weapon.WeaponRange or 0
+	local bullet_range = not not weapon.BulletDropRange and weapon.BulletDropRange or 0
+	local weapon_range = not not weapon.WeaponRange and weapon.WeaponRange or 0
 	local basic_attacks = unit:GetBasicAttackModes()
 
     local best_overall_attack

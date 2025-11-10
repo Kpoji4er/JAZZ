@@ -24,7 +24,6 @@ DefineClass.M4A1 = {
 	Damage = 22,
 	ObjDamageMod = 50,
 	AimAccuracy = 24,
-	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
 	WeaponRange = 42,

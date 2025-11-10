@@ -22,7 +22,6 @@ DefineClass.MP446VIKING = {
 	Damage = 23,
 	ObjDamageMod = 20,
 	AimAccuracy = 9,
-	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 17,
 	WeaponRange = 18,

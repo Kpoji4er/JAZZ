@@ -22,7 +22,6 @@ DefineClass.Colt1911 = {
 	Damage = 25,
 	ObjDamageMod = 25,
 	AimAccuracy = 9,
-	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 7,
 	WeaponRange = 15,

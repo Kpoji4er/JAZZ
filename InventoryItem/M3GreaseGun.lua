@@ -24,7 +24,6 @@ DefineClass.M3GreaseGun = {
 	Damage = 27,
 	ObjDamageMod = 25,
 	AimAccuracy = 9,
-	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 30,
 	OverwatchAngle = 4320,

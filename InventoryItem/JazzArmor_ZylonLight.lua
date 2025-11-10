@@ -4,7 +4,7 @@ DefineClass.JazzArmor_ZylonLight = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "Class3 L T3",
+	comment = "Class2 L T3",
 	object_class = "Armor",
 	ScrapParts = 4,
 	Degradation = 40,
@@ -18,7 +18,7 @@ DefineClass.JazzArmor_ZylonLight = {
 	Tier = 2,
 	RestockWeight = 25,
 	CategoryPair = "Light",
-	PenetrationClass = 3,
+	PenetrationClass = 2,
 	AdditionalReduction = 40,
 	ProtectedBodyParts = set( "Torso" ),
 	Coverage = 55,
@@ -27,7 +27,6 @@ DefineClass.JazzArmor_ZylonLight = {
 	ExplosiveArmorRating = 16,
 	CamouflagePercent = 15,
 	CanHoldPlate = true,
-	Weight = 2,
 	ArmorResource = 200,
 	Repairability = 70,
 }

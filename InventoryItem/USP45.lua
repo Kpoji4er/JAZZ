@@ -23,7 +23,6 @@ DefineClass.USP45 = {
 	Damage = 28,
 	ObjDamageMod = 25,
 	AimAccuracy = 14,
-	CritChance = 10,
 	CritChanceScaled = 45,
 	MagazineSize = 12,
 	WeaponRange = 16,

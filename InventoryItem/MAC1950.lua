@@ -22,7 +22,6 @@ DefineClass.MAC1950 = {
 	Damage = 20,
 	ObjDamageMod = 20,
 	AimAccuracy = 6,
-	CritChance = 5,
 	CritChanceScaled = 35,
 	MagazineSize = 8,
 	WeaponRange = 17,

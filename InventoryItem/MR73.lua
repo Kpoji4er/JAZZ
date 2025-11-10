@@ -22,7 +22,6 @@ DefineClass.MR73 = {
 	Damage = 29,
 	ObjDamageMod = 40,
 	AimAccuracy = 17,
-	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 6,
 	OverwatchAngle = 5100,

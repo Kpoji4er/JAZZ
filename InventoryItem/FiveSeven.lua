@@ -23,7 +23,6 @@ DefineClass.FiveSeven = {
 	Damage = 18,
 	ObjDamageMod = 25,
 	AimAccuracy = 11,
-	CritChance = 10,
 	CritChanceScaled = 45,
 	MagazineSize = 20,
 	WeaponRange = 23,

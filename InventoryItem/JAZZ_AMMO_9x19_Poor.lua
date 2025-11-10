@@ -1,0 +1,59 @@
+UndefineClass('JAZZ_AMMO_9x19_Poor')
+DefineClass.JAZZ_AMMO_9x19_Poor = {
+	__parents = { "Ammo" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	object_class = "Ammo",
+	Icon = "Mod/e6L4ECj/Ammopics/919Substandart.png",
+	DisplayName = T(156976081814, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Poor DisplayName]] "9х19 мм, 9mm Ball Substandard"),
+	DisplayNamePlural = T(372328100854, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Poor DisplayNamePlural]] "9х19 мм, 9mm Ball Substandard"),
+	colorStyle = "AmmoSubstandardColor",
+	Description = T(246192403774, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Poor Description]] "Это как стрелять из огнестрельного оружия шариками из жеваной бумаги, из плюсов можно выделить то, что это очень дешево и много. \nСтабильная работа не гарантируется, кучность тоже, а ещё размокшая жеваная бумага может быстро засрать ваше оружие."),
+	Cost = 150,
+	CanAppearInShop = true,
+	MaxStock = 50,
+	RestockWeight = 30,
+	CategoryPair = "9mm",
+	ShopStackSize = 50,
+	MaxStacks = 120,
+	Caliber = "JAZZ_Caliber_9x19",
+	Modifications = {
+		PlaceObj('CaliberModification', {
+			target_prop = "PenetrationClass",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = -1,
+			target_prop = "PenetrationBonus",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_mul = 900,
+			target_prop = "Damage",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = -15,
+			target_prop = "Reliability",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = 180,
+			target_prop = "BaseJamChance",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_mul = 900,
+			target_prop = "Grouping",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = -2,
+			target_prop = "BulletDropRange",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = 1,
+			target_prop = "CritChance",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = -1,
+			target_prop = "Recoil",
+		}),
+	},
+}
+

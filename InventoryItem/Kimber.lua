@@ -22,7 +22,6 @@ DefineClass.Kimber = {
 	Damage = 29,
 	ObjDamageMod = 25,
 	AimAccuracy = 10,
-	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 7,
 	WeaponRange = 15,

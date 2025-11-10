@@ -24,6 +24,7 @@ DefineClass.Ithaca = {
 	Damage = 4,
 	ObjDamageMod = 50,
 	AimAccuracy = 30,
+	CritChanceScaled = 20,
 	MagazineSize = 4,
 	WeaponRange = 21,
 	PointBlankBonus = 1,

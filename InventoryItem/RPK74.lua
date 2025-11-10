@@ -26,7 +26,6 @@ DefineClass.RPK74 = {
 	Damage = 26,
 	ObjDamageMod = 50,
 	AimAccuracy = 27,
-	CritChance = 10,
 	MagazineSize = 30,
 	WeaponRange = 50,
 	PointBlankBonus = 1,

@@ -6,15 +6,16 @@ DefineClass.JAZZ_AMMO_9x19_FMJ = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/919FMJ.png",
-	DisplayName = T(156976081814, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_FMJ DisplayName]] "9х19 мм, FMJ"),
-	DisplayNamePlural = T(372328100854, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_FMJ DisplayNamePlural]] "9х19 мм, FMJ"),
+	DisplayName = T(156976081814, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_FMJ DisplayName]] "9х19 мм, Luger FMJ"),
+	DisplayNamePlural = T(372328100854, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_FMJ DisplayNamePlural]] "9х19 мм, Luger FMJ"),
 	colorStyle = "AmmoBasicColor",
-	Description = T(246192403774, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_FMJ Description]] "Стандартный патрон калибра 9х19мм"),
-	Cost = 60,
+	Description = T(246192403774, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_FMJ Description]] "Заводской патрон 9х19, ни больше ни меньше, можно стрелять по не бронированным целям без опасений, что вам выбьет глаз затвором."),
+	Cost = 300,
 	CanAppearInShop = true,
 	MaxStock = 50,
+	RestockWeight = 20,
 	CategoryPair = "9mm",
-	ShopStackSize = 30,
+	ShopStackSize = 50,
 	MaxStacks = 120,
 	Caliber = "JAZZ_Caliber_9x19",
 	Modifications = {
@@ -22,9 +23,11 @@ DefineClass.JAZZ_AMMO_9x19_FMJ = {
 			target_prop = "PenetrationClass",
 		}),
 		PlaceObj('CaliberModification', {
-			mod_add = 1,
-			mod_mul = 0,
 			target_prop = "PenetrationBonus",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = 5,
+			target_prop = "CritChance",
 		}),
 	},
 }

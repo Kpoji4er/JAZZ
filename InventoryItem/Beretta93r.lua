@@ -22,7 +22,6 @@ DefineClass.Beretta93r = {
 	Damage = 21,
 	ObjDamageMod = 20,
 	AimAccuracy = 15,
-	CritChance = 5,
 	CritChanceScaled = 35,
 	MagazineSize = 16,
 	WeaponRange = 18,

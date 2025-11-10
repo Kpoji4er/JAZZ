@@ -25,7 +25,6 @@ DefineClass.UMP45 = {
 	Damage = 27,
 	ObjDamageMod = 25,
 	AimAccuracy = 20,
-	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 25,
 	WeaponRange = 23,

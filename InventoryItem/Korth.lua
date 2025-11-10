@@ -22,7 +22,6 @@ DefineClass.Korth = {
 	Damage = 30,
 	ObjDamageMod = 40,
 	AimAccuracy = 20,
-	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 6,
 	OverwatchAngle = 5100,

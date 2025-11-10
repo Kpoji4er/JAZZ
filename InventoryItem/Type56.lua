@@ -25,7 +25,6 @@ DefineClass.Type56 = {
 	Damage = 26,
 	ObjDamageMod = 50,
 	AimAccuracy = 18,
-	CritChance = 5,
 	MagazineSize = 30,
 	WeaponRange = 38,
 	OverwatchAngle = 1320,

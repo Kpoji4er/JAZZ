@@ -9,19 +9,27 @@ DefineClass.JAZZ_AMMO_44CAL_FMJ = {
 	DisplayName = T(283758588700, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_44CAL_FMJ DisplayName]] ".44, FMJ"),
 	DisplayNamePlural = T(124552577193, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_44CAL_FMJ DisplayNamePlural]] ".44, FMJ"),
 	colorStyle = "AmmoBasicColor",
-	Description = T(472698757891, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_44CAL_FMJ Description]] "Стандартный патрон для револьверов и винтовок калибра .44."),
-	AdditionalHint = T(985517357738, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_44CAL_FMJ AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Обеспечивает уверенное поражение целей обладающих 2-м классом брони"),
-	Cost = 40,
+	Description = T(472698757891, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_44CAL_FMJ Description]] "Это Магнум, он не нуждается в представлении, им можно даже не попадать, все итак поймут кто тут папа."),
+	AdditionalHint = "",
+	Cost = 972,
 	CanAppearInShop = true,
 	MaxStock = 50,
+	RestockWeight = 10,
 	CategoryPair = "44CAL",
-	ShopStackSize = 12,
+	ShopStackSize = 25,
 	MaxStacks = 80,
 	Caliber = "JAZZ_Caliber_44CAL",
 	Modifications = {
 		PlaceObj('CaliberModification', {
-			mod_add = 1,
 			target_prop = "PenetrationClass",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = 5,
+			target_prop = "PenetrationBonus",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = 10,
+			target_prop = "CritChance",
 		}),
 	},
 }

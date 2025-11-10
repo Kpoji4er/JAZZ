@@ -25,7 +25,6 @@ DefineClass.PP19Bizon = {
 	Damage = 16,
 	ObjDamageMod = 15,
 	AimAccuracy = 12,
-	CritChance = 5,
 	CritChanceScaled = 30,
 	MagazineSize = 64,
 	WeaponRange = 24,

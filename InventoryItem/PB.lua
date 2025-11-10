@@ -23,7 +23,6 @@ DefineClass.PB = {
 	Damage = 22,
 	ObjDamageMod = 15,
 	AimAccuracy = 10,
-	CritChance = 5,
 	CritChanceScaled = 45,
 	MagazineSize = 8,
 	WeaponRange = 16,

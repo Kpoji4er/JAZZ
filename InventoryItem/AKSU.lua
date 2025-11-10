@@ -25,7 +25,6 @@ DefineClass.AKSU = {
 	Damage = 24,
 	ObjDamageMod = 45,
 	AimAccuracy = 16,
-	CritChance = 10,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
 	WeaponRange = 38,

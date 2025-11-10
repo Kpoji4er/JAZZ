@@ -23,7 +23,6 @@ DefineClass.TT33 = {
 	Damage = 18,
 	ObjDamageMod = 20,
 	AimAccuracy = 8,
-	CritChance = 5,
 	MagazineSize = 8,
 	WeaponRange = 19,
 	OverwatchAngle = 5280,

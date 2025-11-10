@@ -23,7 +23,6 @@ DefineClass.HiPower = {
 	Damage = 22,
 	ObjDamageMod = 20,
 	AimAccuracy = 10,
-	CritChance = 5,
 	CritChanceScaled = 20,
 	MagazineSize = 13,
 	WeaponRange = 17,

@@ -1,0 +1,50 @@
+UndefineClass('JAZZ_AMMO_9x39_AP')
+DefineClass.JAZZ_AMMO_9x39_AP = {
+	__parents = { "Ammo" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "СП6",
+	object_class = "Ammo",
+	Icon = "Mod/e6L4ECj/Ammopics/939SP6.png",
+	DisplayName = T(508580108192, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x39_AP DisplayName]] "9x39 мм, СП-6 (бронебойный)"),
+	DisplayNamePlural = T(724138101974, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x39_AP DisplayNamePlural]] "9x39 мм, СП-6 (бронебойный)"),
+	colorStyle = "AmmoAPColor",
+	Description = T(343666682437, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x39_AP Description]] "Бронебойный вариант 9×39 для поражения защищённых целей на средних дистанциях. Используется спецподразделениями и на специализированном оружии."),
+	Cost = 4500,
+	CanAppearInShop = true,
+	Tier = "4",
+	MaxStock = 10,
+	RestockWeight = 5,
+	CategoryPair = "556",
+	ShopStackSize = 20,
+	MaxStacks = 60,
+	Caliber = "JAZZ_Caliber_9x39",
+	Modifications = {
+		PlaceObj('CaliberModification', {
+			mod_mul = 3000,
+			target_prop = "PenetrationClass",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_mul = 0,
+			target_prop = "PenetrationBonus",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_mul = 800,
+			target_prop = "Damage",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = -3,
+			target_prop = "Reliability",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = 1,
+			target_prop = "CritChance",
+		}),
+		PlaceObj('CaliberModification', {
+			mod_add = 1,
+			target_prop = "Recoil",
+		}),
+	},
+}
+

@@ -26,7 +26,6 @@ DefineClass.AKM = {
 	Damage = 27,
 	ObjDamageMod = 50,
 	AimAccuracy = 22,
-	CritChance = 5,
 	MagazineSize = 30,
 	WeaponRange = 39,
 	OverwatchAngle = 1320,
