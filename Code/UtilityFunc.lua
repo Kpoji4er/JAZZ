@@ -71,7 +71,7 @@ function __RegenerateLegionLoot()
             print("regenerated")
 
         end
-        print(#units)
+        --print(#units)
     end
     RegenerateLegionLootVar = false
 end

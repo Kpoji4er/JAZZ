@@ -226,7 +226,7 @@ function FirearmBase:GetJamChance(attacker)
 		jam_chance = jam_chance - attacker.Mechanical * 3
 	end
 
-	return Clamp(jam_chance, 0, 10000)
+	return Clamp(a, 0, 10000)
 end
 
 function FirearmBase:GetBaseDegradePerShot()

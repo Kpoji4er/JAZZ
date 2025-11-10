@@ -9,8 +9,8 @@ DefineClass.JAZZ_AMMO_545_Army = {
 	DisplayName = T(827774006254, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Army DisplayName]] "5,45 мм, ПС Армейский"),
 	DisplayNamePlural = T(138469521759, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Army DisplayNamePlural]] "5,45 мм,ПС Армейский"),
 	colorStyle = "AmmoArmyColor",
-	Description = T(930854241886, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Army Description]] "Стандартный российский армейский патрон 7Н6 калибра 5.45x39мм"),
-	AdditionalHint = T(213021415103, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Army AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Обеспечивает уверенное поражение целей обладающих 2-м классом брони"),
+	Description = T(930854241886, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Army Description]] "Стандартный армейский патрон, залетит в пятку, сделает сальто, вылетит через затылок. Патроны для садистов..."),
+	AdditionalHint = "",
 	Cost = 900,
 	CanAppearInShop = true,
 	Tier = 3,
@@ -32,7 +32,7 @@ DefineClass.JAZZ_AMMO_545_Army = {
 			target_prop = "Damage",
 		}),
 		PlaceObj('CaliberModification', {
-			mod_add = 2,
+			mod_add = 20,
 			target_prop = "CritChance",
 		}),
 		PlaceObj('CaliberModification', {
