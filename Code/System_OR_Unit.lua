@@ -1956,8 +1956,6 @@ function Unit:GetActiveWeapons(class, strict_order)
 			equipped = self:GetEquippedWeapons(self.current_weapon)
 		end
 
-		--local knife = self:GetEquippedWeapons("KnifeInventory")
-
 		for _, o in ipairs(equipped) do
 			local match = not class or (class ~= "Firearm") or not IsKindOfClasses(o, "HeavyWeapon", "FlareGun")
 			match = match and (not class or IsKindOf(o, class))
@@ -1968,30 +1966,16 @@ function Unit:GetActiveWeapons(class, strict_order)
 				table.insert(firearms, o)
 			end
 		end		
-
-		--if knife 
-		--	for _, o in ipairs(knife) do
-		--		local match = not class or (class ~= "Firearm") or not IsKindOfClasses(o, "HeavyWeapon", "FlareGun")
-		--		match = match and (not class or IsKindOf(o, class))
-		--		if match then
-		--			table.insert(weapons, o)
-		--		end
-		--		if IsKindOf(o, "FirearmBase") then
-		--			table.insert(firearms, o)
-		--		end
-		--	end	
-		--end
 		-- second pass to add subweapons at the end of the list
 		for _, item in ipairs(firearms) do
 			for slot, weapon in sorted_pairs(item.subweapons) do
-				local match = not class or not IsKindOfClasses(weapon, "HeavyWeapon", "FlareGun")
+				local match = not class or (class ~= "Firearm") or not IsKindOfClasses(weapon, "HeavyWeapon", "FlareGun")
 				match = match and (not class or IsKindOf(weapon, class))
 				if match then
 					table.insert(weapons, weapon)
 				end
 			end
 		end
-
 	end
 	
 	-- If weapon1 is exhausted and weapon 2 isnt then weapon2 is the main weapon
@@ -2003,8 +1987,6 @@ function Unit:GetActiveWeapons(class, strict_order)
 			weapons[1], weapons[2] = weapons[2], weapons[1]
 		end
 	end
-
-	--print(weapons)
 	
 	return weapons[1], weapons[2], weapons
 end

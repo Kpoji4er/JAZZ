@@ -10,10 +10,10 @@ DefineClass.AKM = {
 	RepairCost = 7,
 	Reliability = 95,
 	Icon = "Mod/e6L4ECj/WeaponIcons/AKM.png",
-	DisplayName = T(257808768357, --[[ModItemInventoryItemCompositeDef AKM DisplayName]] "AKM"),
-	DisplayNamePlural = T(722956910106, --[[ModItemInventoryItemCompositeDef AKM DisplayNamePlural]] "AKM"),
-	Description = T(608879436685, --[[ModItemInventoryItemCompositeDef AKM Description]] "Второе поколение автоматов Калашникова с максимально обкатанной и оптимизированной технологией производства. Именно этот автомат стал символом освобождения мирового пролетариата от мирового империализма."),
-	AdditionalHint = T(350741631140, --[[ModItemInventoryItemCompositeDef AKM AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокий урон\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая надежность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Возможности модификаций"),
+	DisplayName = T(257808768357, "AKM"),
+	DisplayNamePlural = T(722956910106, "AKM"),
+	Description = T(608879436685, "Второе поколение автоматов Калашникова с максимально обкатанной и оптимизированной технологией производства. Именно этот автомат стал символом освобождения мирового пролетариата от мирового империализма."),
+	AdditionalHint = T(350741631140, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокий урон\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая надежность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Возможности модификаций"),
 	LargeItem = 1,
 	UnitStat = "Marksmanship",
 	Cost = 5200,
@@ -38,6 +38,7 @@ DefineClass.AKM = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"GP25",
+				"GrenadeLauncher",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {

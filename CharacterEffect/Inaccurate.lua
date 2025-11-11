@@ -28,8 +28,14 @@ DefineClass.Inaccurate = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcChanceToHit",
 			Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+				local effect = target:GetStatusEffect("Inaccurate")
+				local count = 1
+												if effect then
+												 	count = effect.stacks 
+												end
+				
 				if target == attacker then
-					ApplyCthModifier_Add(self, data, self:ResolveValue("accuracy_modifier"))
+					ApplyCthModifier_Add(self, data, count * self:ResolveValue("accuracy_modifier"))
 				end
 			end,
 		}),

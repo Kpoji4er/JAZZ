@@ -4183,6 +4183,7 @@ return {
 						},
 						'AppliedEffects', {
 							"Exposed",
+							"MarkedTraccers",
 						},
 					}),
 					PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -4329,6 +4330,7 @@ return {
 						},
 						'AppliedEffects', {
 							"Exposed",
+							"",
 						},
 					}),
 					PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -4805,6 +4807,7 @@ return {
 						},
 						'AppliedEffects', {
 							"Exposed",
+							"MarkedTraccers",
 						},
 					}),
 					}),
@@ -5113,6 +5116,7 @@ return {
 						'AppliedEffects', {
 							"Exposed",
 							"BleedingChance",
+							"MarkedTraccers",
 						},
 					}),
 					}),
@@ -5524,6 +5528,7 @@ return {
 						},
 						'AppliedEffects', {
 							"Exposed",
+							"MarkedTraccers",
 						},
 						'ammo_type_icon', "UI/Icons/Items/ta_tracer.png",
 					}),
@@ -5737,6 +5742,7 @@ return {
 						},
 						'AppliedEffects', {
 							"Exposed",
+							"MarkedTraccers",
 						},
 					}),
 					PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -6138,6 +6144,7 @@ return {
 						},
 						'AppliedEffects', {
 							"Exposed",
+							"MarkedTraccers",
 						},
 						'ammo_type_icon', "UI/Icons/Items/ta_tracer.png",
 					}),
@@ -27761,6 +27768,9 @@ return {
 					'HandSlot', "TwoHanded",
 					'fxClass', "MGL",
 					'PreparedAttackType', "None",
+					'AvailableAttacks', {
+						"GrenadeLauncherFire",
+					},
 					'ShootAP', 8000,
 					'ReloadAP', 8000,
 					'Handling', 58,
@@ -46783,7 +46793,7 @@ return {
 					},
 					Cost = 50,
 					DisplayName = T(304182346557, --[[ModItemWeaponComponent GP25 DisplayName]] "ГП-25"),
-					EnableWeapon = "UnderslungGrenadeLauncher",
+					EnableWeapon = "M79",
 					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
@@ -57639,8 +57649,14 @@ return {
 					PlaceObj('UnitReaction', {
 						Event = "OnCalcChanceToHit",
 						Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+							local effect = target:GetStatusEffect("Inaccurate")
+							local count = 1
+															if effect then
+															 	count = effect.stacks 
+															end
+							
 							if target == attacker then
-								ApplyCthModifier_Add(self, data, self:ResolveValue("accuracy_modifier"))
+								ApplyCthModifier_Add(self, data, count * self:ResolveValue("accuracy_modifier"))
 							end
 						end,
 						param_bindings = false,
@@ -58059,6 +58075,59 @@ return {
 				'RemoveOnCampaignTimeAdvance', true,
 				'Shown', true,
 				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "MarkedTraccers",
+				'Parameters', {
+					PlaceObj('PresetParamNumber', {
+						'Name', "accuracy_modifier",
+						'Value', 2,
+						'Tag', "<accuracy_modifier>",
+					}),
+				},
+				'object_class', "StatusEffect",
+				'msg_reactions', {},
+				'unit_reactions', {
+					PlaceObj('UnitReaction', {
+						Event = "OnModifyCTHModifier",
+						Handler = function (self, target, id, attacker, attack_target, action, weapon1, weapon2, data)
+							return value - 1
+						end,
+						param_bindings = false,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnBeginTurn",
+						Handler = function (self, target)
+							target:RemoveStatusEffect(self.class)
+						end,
+						param_bindings = false,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcChanceToHit",
+						Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+							local effect = target:GetStatusEffect("MarkedTraccers")
+							local count = 1
+															if effect then
+															 	count = effect.stacks 
+															end
+							
+							if target == attacker then
+								ApplyCthModifier_Add(self, data, count * self:ResolveValue("accuracy_modifier"))
+							end
+						end,
+						param_bindings = false,
+					}),
+				},
+				'DisplayName', T(279226942480, --[[ModItemCharacterEffectCompositeDef MarkedTraccers DisplayName]] "Помечен Трассерами"),
+				'Description', T(697150397247, --[[ModItemCharacterEffectCompositeDef MarkedTraccers Description]] "Незначительное повышение шанса попадания за каждый уровень эффекта"),
+				'AddEffectText', T(551437047571, --[[ModItemCharacterEffectCompositeDef MarkedTraccers AddEffectText]] "Под плотным огнем"),
+				'OnAdded', function (self, obj)  end,
+				'type', "Debuff",
+				'lifetime', "Until End of Turn",
+				'Icon', "Mod/e6L4ECj/Icons/MarkedTraccers.png",
+				'max_stacks', 10,
+				'RemoveOnEndCombat', true,
+				'Shown', true,
 			}),
 			}),
 		PlaceObj('ModItemFolder', {

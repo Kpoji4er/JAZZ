@@ -25,6 +25,9 @@ DefineClass.UnderslungGrenadeLauncher = {
 	HandSlot = "TwoHanded",
 	fxClass = "MGL",
 	PreparedAttackType = "None",
+	AvailableAttacks = {
+		"GrenadeLauncherFire",
+	},
 	ShootAP = 8000,
 	ReloadAP = 8000,
 	Handling = 58,

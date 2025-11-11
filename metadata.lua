@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 9,
-	'version', 5431,
+	'version', 5436,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -739,6 +739,7 @@ return PlaceObj('ModDef', {
 		"CharacterEffect/Blinded.lua",
 		"CharacterEffect/Burning.lua",
 		"CharacterEffect/Choking.lua",
+		"CharacterEffect/MarkedTraccers.lua",
 		"Code/CombatBadge_DeathRoll.lua",
 		"Code/GritOnStart.lua",
 		"Code/CombatActions.lua",
@@ -840,8 +841,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1762802448,
-	'code_hash', 2102428131815134627,
+	'saved', 1762833459,
+	'code_hash', -889476690970808829,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -7006,6 +7007,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "CharacterEffectCompositeDef",
 			'Id', "Choking",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "MarkedTraccers",
 			'ClassDisplayName', "Character effect",
 		}),
 		PlaceObj('ModResourcePreset', {

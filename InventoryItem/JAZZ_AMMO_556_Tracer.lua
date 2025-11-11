@@ -53,6 +53,7 @@ DefineClass.JAZZ_AMMO_556_Tracer = {
 	},
 	AppliedEffects = {
 		"Exposed",
+		"MarkedTraccers",
 	},
 }
 
