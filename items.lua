@@ -2471,7 +2471,7 @@ return {
 						'Icon', "Mod/e6L4ECj/Ammopics/919JHP.png",
 						'DisplayName', T(378106180006, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_JHP DisplayName]] "9х19 мм, Luger JHP"),
 						'DisplayNamePlural', T(888021825675, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_JHP DisplayNamePlural]] "9х19 мм, Luger JHP"),
-						'colorStyle', "AmmoHPColor",
+						'colorStyle', "AmmoJHPColor",
 						'Description', T(442624820314, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_JHP Description]] "Гражданский патрон для стрельбы по тарелкам, бронебойности от него не дождешься, зато экспансивное действие хорошее, так что цельтесь в ноги, там много артерий!"),
 						'AdditionalHint', "",
 						'Cost', 360,
@@ -63254,7 +63254,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Секретные данные"),
+					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ DisplayName]] "Секретные данные"),
 					'Description', T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
 					'Icon', "UI/Icons/Perks/InnerInfo",
 					'Tier', "Personal",
@@ -63316,7 +63316,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Юберрашунг"),
+					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ DisplayName]] "Юберрашунг"),
 					'Description', T(845332100943, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ Description]] "Дает +50% од на первом ходу"),
 					'Icon', "UI/Icons/Perks/GruntyPerk",
 					'Tier', "Personal",
@@ -100084,7 +100084,7 @@ return {
 		}, {
 			PlaceObj('ModItemRegion', {
 				DisplayName = "Остров Эрни",
-				Heat = 835,
+				Heat = 831,
 				Sectors = {
 					"M1",
 					"M2",
