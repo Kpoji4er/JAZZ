@@ -124,7 +124,7 @@ function AIPolicyTakeCover:EvalDest(context, dest, grid_voxel)
 		::continue::
 	end
 
-	return score 
+	return  score / Max(1, #tbl)
 end
 
 ---
