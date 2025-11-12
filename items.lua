@@ -65700,7 +65700,7 @@ return {
 					local ScopeAimLevel = GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeAimLevel")
 					if ScopeAimLevel and aim >= ScopeAimLevel then
 						cth, compDef = GetComponentEffectValue(weapon1, "ScopeCTHBonus", "ScopeCTH")
-						print(cth)
+						--print(cth)
 						if cth then
 							return true, cth, compDef.DisplayName
 						end
@@ -65710,7 +65710,7 @@ return {
 					return false, 0
 				end,
 				RequireActionType = "Any Ranged Attack",
-				display_name = T(353057401634, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Эргономика"),
+				display_name = T(353057401634, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Оптика"),
 				group = "Default",
 				id = "Scope",
 			}),
@@ -66168,7 +66168,7 @@ return {
 													if effect then
 													 	count = effect.stacks 
 													end
-												print(count)
+												--print(count)
 					
 					
 					 if count > 0 then
