@@ -23,3 +23,10 @@ PlaceObj('ActionFXSound', {
 	group = "Default",
 	id = "fxZastavaM76",
 })
+
+PlaceObj('ActionFXInherit_Actor', {
+	Actor = "DragunovSVD_Custom",
+	Inherit = "DragunovSVD",
+	group = "Weapons VFX",
+	id = "fxDragunovSVD_Custom",
+})

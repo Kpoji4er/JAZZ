@@ -1,0 +1,68 @@
+UndefineClass('DragunovSVD_Custom')
+DefineClass.DragunovSVD_Custom = {
+	__parents = { "SniperRifle" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Tier 2-4",
+	object_class = "SniperRifle",
+	ScrapParts = 14,
+	RepairCost = 10,
+	Reliability = 85,
+	Icon = "Mod/e6L4ECj/WeaponIcons/SVDUniq.png",
+	DisplayName = T(515926068469, --[[ModItemInventoryItemCompositeDef DragunovSVD_Custom DisplayName]] '"Шах и Мат"'),
+	DisplayNamePlural = T(613799960953, --[[ModItemInventoryItemCompositeDef DragunovSVD_Custom DisplayNamePlural]] '"Шах и Мат"'),
+	Description = T(133828253291, --[[ModItemInventoryItemCompositeDef DragunovSVD_Custom Description]] "Тщательно подогнанная и пристрелянная версия СВД. На прикладе виднеется несколько дюжин насечек."),
+	AdditionalHint = "",
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 16000,
+	CanAppearInShop = true,
+	Tier = 2,
+	CategoryPair = "Rifles",
+	Caliber = "JAZZ_Caliber_762x54R",
+	Damage = 38,
+	ObjDamageMod = 80,
+	AimAccuracy = 35,
+	CritChanceScaled = 80,
+	MagazineSize = 10,
+	WeaponRange = 72,
+	OverwatchAngle = 720,
+	Noise = 68,
+	HandSlot = "TwoHanded",
+	Entity = "SVDCustom",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'Modifiable', false,
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Scope_3x_9x",
+			},
+			'DefaultComponent', "JAZZ_Scope_3x_9x",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'AvailableComponents', {
+				"SuppressorIntegrated",
+			},
+			'DefaultComponent', "SuppressorIntegrated",
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	PreparedAttackType = "Both",
+	AvailableAttacks = {
+		"SingleShot",
+		"CancelShot",
+	},
+	ShootAP = 7000,
+	ReloadAP = 7000,
+	BurstShots = 1,
+	AutoShots = 1,
+	Handling = 53,
+	BulletDropRange = 24,
+	Grouping = 450,
+	BaseJamChance = -30,
+	WeaponResource = 8500,
+}
+

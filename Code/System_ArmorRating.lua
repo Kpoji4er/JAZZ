@@ -450,7 +450,7 @@ function Unit:ApplyHitDamageReduction(hit, weapon, hit_body_part, ignore_cover, 
 	local armor = next(hit.armor_decay)
 	hit.armor = armor and armor.DisplayName
 	hit.armor_prevented = armor_prevented
-	--print("chipichipichapachapa")
+
 	--print(GetPreciseTicks(1000)- start)
 end
 

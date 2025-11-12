@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 9,
-	'version', 5447,
+	'version', 5450,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -428,6 +428,7 @@ return PlaceObj('ModDef', {
 		"InventoryItem/ZastavaM76.lua",
 		"InventoryItem/M21.lua",
 		"InventoryItem/DragunovSVD.lua",
+		"InventoryItem/DragunovSVD_Custom.lua",
 		"InventoryItem/AR10DMR.lua",
 		"InventoryItem/G3SniperV1.lua",
 		"InventoryItem/M1A.lua",
@@ -841,8 +842,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1762952859,
-	'code_hash', 8621086183607777823,
+	'saved', 1762972145,
+	'code_hash', -6794043639408117549,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -3777,6 +3778,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "DragunovSVD",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "DragunovSVD_Custom",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
