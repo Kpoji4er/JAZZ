@@ -1313,7 +1313,7 @@ return {
 			Comment = "bonus out-of-turn interrupt attacks with machine guns at 0 ap",
 			group = "Combat",
 			id = "MGFreeInterruptAttacks",
-			value = 2,
+			value = 1,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "Sight radius (in tiles) for units aware of the target unit",
@@ -1937,14 +1937,18 @@ return {
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
-						PlaceObj('QuestIsTCEState', {
-							Prop = "TCE_MachineGunFound",
-							QuestId = "FortifyErnie",
-							Value = true,
+						PlaceObj('QuestIsVariableBool', {
+							QuestId = "01_Landing",
+							Vars = set( "Completed" ),
 						}),
 						PlaceObj('QuestIsVariableNum', {
 							Amount = 13,
 							Condition = "<=",
+							Prop = "JAZZ_Legion_Tier",
+							QuestId = "JAZZ_LegionTier",
+						}),
+						PlaceObj('QuestIsVariableNum', {
+							Amount = 12,
 							Prop = "JAZZ_Legion_Tier",
 							QuestId = "JAZZ_LegionTier",
 						}),
@@ -5806,6 +5810,7 @@ return {
 							"Burning",
 							"Bleeding",
 							"Exposed",
+							"MarkedTraccers",
 						},
 					}),
 					}),
@@ -32035,7 +32040,6 @@ return {
 					ModificationEffects = {
 						"EnableFullAuto",
 						"EnableBurst",
-						"EnableRunNGun",
 					},
 					Slot = "Trigger",
 					Visuals = {
@@ -58081,51 +58085,20 @@ return {
 				'Parameters', {
 					PlaceObj('PresetParamNumber', {
 						'Name', "accuracy_modifier",
-						'Value', 2,
+						'Value', 5,
 						'Tag', "<accuracy_modifier>",
 					}),
 				},
 				'object_class', "StatusEffect",
 				'msg_reactions', {},
-				'unit_reactions', {
-					PlaceObj('UnitReaction', {
-						Event = "OnModifyCTHModifier",
-						Handler = function (self, target, id, attacker, attack_target, action, weapon1, weapon2, data)
-							return value - 1
-						end,
-						param_bindings = false,
-					}),
-					PlaceObj('UnitReaction', {
-						Event = "OnBeginTurn",
-						Handler = function (self, target)
-							target:RemoveStatusEffect(self.class)
-						end,
-						param_bindings = false,
-					}),
-					PlaceObj('UnitReaction', {
-						Event = "OnCalcChanceToHit",
-						Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
-							local effect = target:GetStatusEffect("MarkedTraccers")
-							local count = 1
-															if effect then
-															 	count = effect.stacks 
-															end
-							
-							if target == attacker then
-								ApplyCthModifier_Add(self, data, count * self:ResolveValue("accuracy_modifier"))
-							end
-						end,
-						param_bindings = false,
-					}),
-				},
+				'unit_reactions', {},
 				'DisplayName', T(279226942480, --[[ModItemCharacterEffectCompositeDef MarkedTraccers DisplayName]] "Помечен Трассерами"),
 				'Description', T(697150397247, --[[ModItemCharacterEffectCompositeDef MarkedTraccers Description]] "Незначительное повышение шанса попадания за каждый уровень эффекта"),
-				'AddEffectText', T(551437047571, --[[ModItemCharacterEffectCompositeDef MarkedTraccers AddEffectText]] "Под плотным огнем"),
 				'OnAdded', function (self, obj)  end,
 				'type', "Debuff",
 				'lifetime', "Until End of Turn",
 				'Icon', "Mod/e6L4ECj/Icons/MarkedTraccers.png",
-				'max_stacks', 10,
+				'max_stacks', 5,
 				'RemoveOnEndCombat', true,
 				'Shown', true,
 			}),
@@ -63558,8 +63531,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(575851829180, --[[ModItemCharacterEffectCompositeDef HeavyWeaponsTraining DisplayName]] "Тяжелое вооружение"),
-					'Description', T(415344339832, --[[ModItemCharacterEffectCompositeDef HeavyWeaponsTraining Description]] "Уменьшен расход <em>ОД</em> на атаки из <em>тяжелого вооружения</em> и <em>пулеметов</em> и приведение его в <GameTerm('Setup')>."),
+					'DisplayName', T(575851829180, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Тяжелое вооружение"),
+					'Description', T(415344339832, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Уменьшен расход <em>ОД</em> на атаки из <em>тяжелого вооружения</em> и <em>пулеметов</em> и приведение его в <GameTerm('Setup')>."),
 					'Icon', "UI/Icons/Perks/HeavyWeaponsTraining",
 					'Tier', "Specialization",
 				}),
@@ -63568,14 +63541,14 @@ return {
 					'TargetClass', "CharacterEffectCompositeDef",
 					'TargetId', "AutoWeapons",
 					'TargetProp', "Description",
-					'TargetValue', T(253479657834, "Увеличивает количество выстрелов без отдачи на 1 при стрельбе очередями или в автоогне"),
+					'TargetValue', T(253479657834, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Увеличивает количество выстрелов без отдачи на 1 при стрельбе очередями или в автоогне"),
 				}),
 				PlaceObj('ModItemChangeProp', {
 					'name', "HeavyWeaponsTraining",
 					'TargetClass', "CharacterEffectCompositeDef",
 					'TargetId', "HeavyWeaponsTraining",
 					'TargetProp', "Description",
-					'TargetValue', T(415344339832, "Уменьшен расход <em>ОД</em> на атаки из <em>тяжелого вооружения</em> и <em>пулеметов</em> и приведение его в <GameTerm('Setup')>."),
+					'TargetValue', T(415344339832, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Уменьшен расход <em>ОД</em> на атаки из <em>тяжелого вооружения</em> и <em>пулеметов</em> и приведение его в <GameTerm('Setup')>."),
 				}),
 				PlaceObj('ModItemChangeProp', {
 					'name', "FleetingShadow",
@@ -63605,7 +63578,7 @@ return {
 					'TargetClass', "CharacterEffectCompositeDef",
 					'TargetId', "FleetingShadow",
 					'TargetProp', "Description",
-					'TargetValue', T(432485322544, "Умеет <em>красться</em> стоя. Имеет свою маскировку. Бонус к скрытности не зависит от положения тела.\n\nПолучает <GameTerm('Grit')> (<em><gritOnStealthKill></em>), выполняя успешные <GameTerm('StealthKills')>."),
+					'TargetValue', T(432485322544, --[[ModItemCharacterEffectCompositeDef AutoWeapons tweaked_value]] "Умеет <em>красться</em> стоя. Имеет свою маскировку. Бонус к скрытности не зависит от положения тела.\n\nПолучает <GameTerm('Grit')> (<em><gritOnStealthKill></em>), выполняя успешные <GameTerm('StealthKills')>."),
 				}),
 				PlaceObj('ModItemChangeProp', {
 					'name', "NightOps",
@@ -63634,7 +63607,7 @@ return {
 					ActivePauseBehavior = "instant",
 					Comment = "toggle",
 					ConfigurableKeybind = false,
-					DisplayName = T(301546040789, --[[ModItemCombatAction Jazz_Perk_00 DisplayName]] "<placeholder>"),
+					DisplayName = T(301546040789, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "<placeholder>"),
 					GetActionDescription = function (self, units)
 						local unit = units[1]
 						local enabled = self:IsToggledOn(unit)
@@ -63683,8 +63656,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(163764621255, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_00 DisplayName]] "00:00"),
-					'Description', T(841645965970, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_00 Description]] "При активации взрывчатка с таймером, кинутая Споуком, взорвётся в начале вражеского хода."),
+					'DisplayName', T(163764621255, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "00:00"),
+					'Description', T(841645965970, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "При активации взрывчатка с таймером, кинутая Споуком, взорвётся в начале вражеского хода."),
 					'Icon', "UI/Icons/Perks/DesignerExplosives",
 					'Tier', "Personal",
 				}),
@@ -63697,7 +63670,7 @@ return {
 					ActivePauseBehavior = "instant",
 					Comment = "toggle",
 					ConfigurableKeybind = false,
-					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Lynx DisplayName]] "<placeholder>"),
+					DisplayName = T(115026001164, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "<placeholder>"),
 					GetActionDescription = function (self, units)
 						local unit = units[1]
 						local enabled = self:IsToggledOn(unit)
@@ -63738,8 +63711,8 @@ return {
 					'Id', "Jazz_Perk_Lynx",
 					'object_class', "Perk",
 					'unit_reactions', {},
-					'DisplayName', T(623665702916, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lynx DisplayName]] "Рысий взгляд"),
-					'Description', T(663250628462, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lynx Description]] "Дальность видимости днем повышена, а штрафы за дальность - понижены"),
+					'DisplayName', T(623665702916, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Рысий взгляд"),
+					'Description', T(663250628462, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Дальность видимости днем повышена, а штрафы за дальность - понижены"),
 					'Icon', "Mod/e6L4ECj/Perks/Lynx.png",
 					'Tier', "Personal",
 				}),
@@ -63805,7 +63778,7 @@ return {
 								'TextStyle', "CrosshairBadgeName",
 								'ContextUpdateOnOpen', true,
 								'Translate', true,
-								'Text', T(972332466585, --[[ModItemXTemplate ActionCameraCrosshair Text]] "<DisplayName>"),
+								'Text', T(972332466585, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<DisplayName>"),
 							}),
 							PlaceObj('XTemplateWindow', {
 								'LayoutMethod', "HList",
@@ -63870,7 +63843,7 @@ return {
 											'__context', function (parent, context) return parent:ResolveId("node").context end,
 											'__class', "XContextWindow",
 											'RolloverTemplate', "StatusEffectsRollover",
-											'RolloverText', T(190650275316, --[[ModItemXTemplate ActionCameraCrosshair RolloverText]] "ЭФФЕКТЫ"),
+											'RolloverText', T(190650275316, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "ЭФФЕКТЫ"),
 											'UseClipBox', false,
 										}, {
 											PlaceObj('XTemplateWindow', {
@@ -64386,7 +64359,7 @@ return {
 										'UseClipBox', false,
 										'TextStyle', "Crosshair_Range",
 										'Translate', true,
-										'Text', T(575734781283, --[[ModItemXTemplate ActionCameraCrosshair Text]] "ДАЛЬНОСТЬ"),
+										'Text', T(575734781283, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "ДАЛЬНОСТЬ"),
 										'TextHAlign', "right",
 									}),
 									PlaceObj('XTemplateWindow', {
@@ -64715,7 +64688,7 @@ return {
 											end
 										end,
 										'Translate', true,
-										'Text', T(909646377219, --[[ModItemXTemplate ActionCameraCrosshair Text]] "<DPadLeft> Режимы стрельбы"),
+										'Text', T(909646377219, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<DPadLeft> Режимы стрельбы"),
 									}),
 									PlaceObj('XTemplateWindow', {
 										'comment', "controller hint",
@@ -64742,7 +64715,7 @@ return {
 											end
 										end,
 										'Translate', true,
-										'Text', T(510160303784, --[[ModItemXTemplate ActionCameraCrosshair Text]] "<DPadRight> Части тела"),
+										'Text', T(510160303784, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<DPadRight> Части тела"),
 									}),
 									}),
 								}),
@@ -65537,7 +65510,7 @@ return {
 								'FoldWhenHidden', true,
 								'TextStyle', "PDABrowserNameSmall",
 								'Translate', true,
-								'Text', T(392264332209, --[[ModItemXTemplate CrosshairAttackRollover Text]] "СТАТУС"),
+								'Text', T(392264332209, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "СТАТУС"),
 								'TextVAlign', "center",
 							}),
 							PlaceObj('XTemplateWindow', {
@@ -65599,26 +65572,26 @@ return {
 				}),
 		}),
 		PlaceObj('ModItemGameTerm', {
-			Description = T(269544488292, --[[ModItemGameTerm Default Recoil Description]] "Отдача влияет на потерю точности каждого последующего выстрела при стрельбе очередями. Наемники с более высокой силой стреляют с меньшей отдачей."),
-			Name = T(421610325320, --[[ModItemGameTerm Default Recoil Name]] "Отдача"),
+			Description = T(269544488292, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Отдача влияет на потерю точности каждого последующего выстрела при стрельбе очередями. Наемники с более высокой силой стреляют с меньшей отдачей."),
+			Name = T(421610325320, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Отдача"),
 			group = "Default",
 			id = "Recoil",
 		}),
 		PlaceObj('ModItemGameTerm', {
-			Description = T(618139082202, --[[ModItemGameTerm Default BulletDropRange Description]] "Дальность, при которой начинается падение точности из-за падения пули"),
-			Name = T(282231548024, --[[ModItemGameTerm Default BulletDropRange Name]] "Настильность"),
+			Description = T(618139082202, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Дальность, при которой начинается падение точности из-за падения пули"),
+			Name = T(282231548024, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Настильность"),
 			group = "Default",
 			id = "BulletDropRange",
 		}),
 		PlaceObj('ModItemGameTerm', {
-			Description = T(132504479324, --[[ModItemGameTerm Default Handling Description]] "Начальная меткость оружия (без прицеливания) зависит от эргономики оружия, ловкости, меткости и уровня наемника"),
-			Name = T(488984189913, --[[ModItemGameTerm Default Handling Name]] "Эргономика"),
+			Description = T(132504479324, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Начальная меткость оружия (без прицеливания) зависит от эргономики оружия, ловкости, меткости и уровня наемника"),
+			Name = T(488984189913, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Эргономика"),
 			group = "Default",
 			id = "Handling",
 		}),
 		PlaceObj('ModItemGameTerm', {
-			Description = T(540297819036, --[[ModItemGameTerm Default Grouping Description]] "Максимальная точность оружия (для дистанции в 40 клеток без учета других факторов)"),
-			Name = T(488426500978, --[[ModItemGameTerm Default Grouping Name]] "Точность оружия"),
+			Description = T(540297819036, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Максимальная точность оружия (для дистанции в 40 клеток без учета других факторов)"),
+			Name = T(488426500978, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Точность оружия"),
 			group = "Default",
 			id = "Grouping",
 		}),
@@ -65635,7 +65608,7 @@ return {
 					return false, 0
 				end,
 				RequireActionType = "Any Ranged Attack",
-				display_name = T(353057401634, --[[ModItemChanceToHitModifier Default Handling display_name]] "Эргономика"),
+				display_name = T(353057401634, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Эргономика"),
 				group = "Default",
 				id = "Handling",
 			}),
@@ -65659,7 +65632,7 @@ return {
 					return false, 0
 				end,
 				RequireActionType = "Any Ranged Attack",
-				display_name = T(353057401634, --[[ModItemChanceToHitModifier Default Scope display_name]] "Эргономика"),
+				display_name = T(353057401634, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Эргономика"),
 				group = "Default",
 				id = "Scope",
 			}),
@@ -65733,7 +65706,7 @@ return {
 					}),
 				},
 				RequireTarget = true,
-				display_name = T(689049582614, --[[ModItemChanceToHitModifier Default RangeAttackTargetStanceCover display_name]] "В укрытии"),
+				display_name = T(689049582614, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "В укрытии"),
 				group = "Default",
 				id = "RangeAttackTargetStanceCover",
 			}),
@@ -65831,7 +65804,7 @@ return {
 						'Tag', "<mg_burst_cumbersome_penalty>%",
 					}),
 				},
-				display_name = T(487905424717, --[[ModItemChanceToHitModifier Default Autofire display_name]] "Автоогонь"),
+				display_name = T(487905424717, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Автоогонь"),
 				group = "Default",
 				id = "Autofire",
 			}),
@@ -65924,7 +65897,7 @@ return {
 						'Tag', "<DexScale>%",
 					}),
 				},
-				display_name = T(740390022763, --[[ModItemChanceToHitModifier Default Aim display_name]] "Прицеливание"),
+				display_name = T(740390022763, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Прицеливание"),
 				group = "Default",
 				id = "Aim",
 				param_bindings = {},
@@ -65944,7 +65917,7 @@ return {
 						'Tag', "<bonus>%",
 					}),
 				},
-				display_name = T(277372719027, --[[ModItemChanceToHitModifier Default Laser display_name]] "Подсветка лазером"),
+				display_name = T(277372719027, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Подсветка лазером"),
 				group = "Default",
 				id = "Laser",
 			}),
@@ -65965,7 +65938,7 @@ return {
 						'Tag', "<bonus>%",
 					}),
 				},
-				display_name = T(733589978306, --[[ModItemChanceToHitModifier Default PointBlank display_name]] "Стрельба в упор"),
+				display_name = T(733589978306, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Стрельба в упор"),
 				group = "Default",
 				id = "PointBlank",
 			}),
@@ -65985,7 +65958,7 @@ return {
 					end
 					return false, 0
 				end,
-				display_name = T(733589978306, --[[ModItemChanceToHitModifier Default Suppression display_name]] "Подавление"),
+				display_name = T(733589978306, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Подавление"),
 				group = "Default",
 				id = "Suppression",
 			}),
@@ -66074,7 +66047,7 @@ return {
 					}),
 				},
 				RequireActionType = "Any Ranged Attack",
-				display_name = T(254908977776, --[[ModItemChanceToHitModifier Default Distance display_name]] "Видимость цели"),
+				display_name = T(254908977776, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Видимость цели"),
 				group = "Default",
 				id = "Distance",
 			}),
@@ -66104,9 +66077,39 @@ return {
 					}),
 				},
 				RequireActionType = "Any Ranged Attack",
-				display_name = T(353057401634, --[[ModItemChanceToHitModifier Default Grouping display_name]] "Влияние кучности оружия"),
+				display_name = T(353057401634, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Влияние кучности оружия"),
 				group = "Default",
 				id = "Grouping",
+			}),
+			PlaceObj('ModItemChanceToHitModifier', {
+				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
+					if attacker and IsKindOf(weapon1, "Firearm") then
+					
+					local effect = target:GetStatusEffect("MarkedTraccers")
+					local count = 0
+													if effect then
+													 	count = effect.stacks 
+													end
+												print(count)
+					
+					
+					 if count > 0 then
+					  return true,  count * self:ResolveValue("cth")
+					 end
+					end
+					return false, 0
+				end,
+				Parameters = {
+					PlaceObj('PresetParamPercent', {
+						'Name', "cth",
+						'Value', 5,
+						'Tag', "<cth>%",
+					}),
+				},
+				RequireActionType = "Any Ranged Attack",
+				display_name = T(353057401634, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Помечен Трассерами"),
+				group = "Default",
+				id = "MarkedTraccers",
 			}),
 			PlaceObj('ModItemChanceToHitModifier', {
 				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
@@ -66160,7 +66163,7 @@ return {
 				RequireActionType = "Any Ranged Attack",
 				RequireTarget = true,
 				comment = "было -20/-20. Пенальти если не видно цель (или видно тиммейту)",
-				display_name = T(126273205496, --[[ModItemChanceToHitModifier Default SeenBySpotter display_name]] "Стрельба вслепую"),
+				display_name = T(126273205496, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Стрельба вслепую"),
 				group = "Default",
 				id = "SeenBySpotter",
 			}),
@@ -66184,7 +66187,7 @@ return {
 				},
 				RequireTarget = true,
 				comment = "было -50",
-				display_name = T(604340497539, --[[ModItemChanceToHitModifier Default NoLineOfSight display_name]] "Нет линии огня"),
+				display_name = T(604340497539, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Нет линии огня"),
 				group = "Default",
 				id = "NoLineOfSight",
 			}),
@@ -66203,7 +66206,7 @@ return {
 				},
 				RequireTarget = true,
 				comment = "Было 15, сделал 40. Не убивать из стелса это рак",
-				display_name = T(621519772188, --[[ModItemChanceToHitModifier Default MeleeStealthStrike display_name]] "Нападение из засады"),
+				display_name = T(621519772188, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Нападение из засады"),
 				group = "Default",
 				id = "MeleeStealthStrike",
 			}),
@@ -66220,7 +66223,7 @@ return {
 						attacker:AddStatusEffect("BipodUnfolded")
 					return not not value, value
 				end,
-				display_name = T(839955828537, --[[ModItemChanceToHitModifier Default Bipod display_name]] "Сошки"),
+				display_name = T(839955828537, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Сошки"),
 				group = "Default",
 				id = "Bipod",
 			}),
@@ -66230,7 +66233,7 @@ return {
 					if IsKindOf(weapon1, "Firearm") then value = value  end
 					return not not value, value
 				end,
-				display_name = T(373951788563, --[[ModItemChanceToHitModifier Default NightsIronsBonus display_name]] "Контрастный прицел"),
+				display_name = T(373951788563, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Контрастный прицел"),
 				group = "Default",
 				id = "NightsIronsBonus",
 			}),
@@ -66260,7 +66263,7 @@ return {
 					}),
 				},
 				RequireTarget = true,
-				display_name = T(678867022834, --[[ModItemChanceToHitModifier Default TrainingAdvantage display_name]] "Больше опыта"),
+				display_name = T(678867022834, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Больше опыта"),
 				group = "Default",
 				id = "TrainingAdvantage",
 			}),
@@ -66283,7 +66286,7 @@ return {
 					}),
 				},
 				RequireTarget = true,
-				display_name = T(678867022834, --[[ModItemChanceToHitModifier Default Morale display_name]] "Боевой дух"),
+				display_name = T(678867022834, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Боевой дух"),
 				group = "Default",
 				id = "Morale",
 			}),
@@ -66313,7 +66316,7 @@ return {
 					}),
 				},
 				RequireTarget = true,
-				display_name = T(387682849264, --[[ModItemChanceToHitModifier Default TrainingDisadvantage display_name]] "Меньше опыта"),
+				display_name = T(387682849264, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Меньше опыта"),
 				group = "Default",
 				id = "TrainingDisadvantage",
 			}),
@@ -66338,7 +66341,7 @@ return {
 				Comment = "Penalty when it's Night or in Underground; aim UI indication for Thermal Scope",
 				RequireActionType = "Any Ranged Attack",
 				comment = "off",
-				display_name = T(909298976640, --[[ModItemChanceToHitModifier Default Darkness display_name]] "In the dark"),
+				display_name = T(909298976640, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "In the dark"),
 				group = "Default",
 				id = "Darkness",
 			}),
@@ -66380,7 +66383,7 @@ return {
 						'Tag', "<MinPenalty>",
 					}),
 				},
-				display_name = T(654410691274, --[[ModItemChanceToHitModifier Default OpportunityAttack display_name]] "Opportunity Attack"),
+				display_name = T(654410691274, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Opportunity Attack"),
 				group = "Default",
 				id = "OpportunityAttack",
 			}),
@@ -66400,7 +66403,7 @@ return {
 						'Tag', "<Bonus>",
 					}),
 				},
-				display_name = T(204842611158, --[[ModItemChanceToHitModifier Default PinDown display_name]] "Сосредоточение огня"),
+				display_name = T(204842611158, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Сосредоточение огня"),
 				group = "Default",
 				id = "PinDown",
 			}),
@@ -66417,7 +66420,7 @@ return {
 						'Tag', "<Penalty>",
 					}),
 				},
-				display_name = T(103436126815, --[[ModItemChanceToHitModifier Default RunAndGun display_name]] "Run and Gun"),
+				display_name = T(103436126815, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Run and Gun"),
 				group = "Default",
 				id = "RunAndGun",
 			}),
@@ -66428,7 +66431,7 @@ return {
 					local chance = GetWeaponConditionPenalty(min_condition)
 					return chance > 0, -chance
 				end,
-				display_name = T(611934221021, --[[ModItemChanceToHitModifier Default WeaponCondition display_name]] "Состояние оружия"),
+				display_name = T(611934221021, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Состояние оружия"),
 				group = "Default",
 				id = "WeaponCondition",
 			}),
@@ -66546,11 +66549,11 @@ return {
 				end,
 				SortKey = 3,
 				bind_to = "MaxAimActions",
-				display_name = T(902961136022, --[[ModItemWeaponPropertyDef Default MaxAimActions display_name]] "Всего уровней прицеливания"),
+				display_name = T(902961136022, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Всего уровней прицеливания"),
 				group = "Default",
 				id = "MaxAimActions",
 				max_progress = 10,
-				short_display_name = T(430330255471, --[[ModItemWeaponPropertyDef Default MaxAimActions short_display_name]] "Прицел"),
+				short_display_name = T(430330255471, --[[ModItemCharacterEffectCompositeDef AutoWeapons short_display_name]] "Прицел"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -66558,11 +66561,11 @@ return {
 				end,
 				SortKey = 3,
 				bind_to = "OverwatchAngle",
-				display_name = T(143897686071, --[[ModItemWeaponPropertyDef Default OverwatchAngle display_name]] "Сектор контроля"),
+				display_name = T(143897686071, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Сектор контроля"),
 				group = "Default",
 				id = "OverwatchAngle",
 				max_progress = 3000,
-				short_display_name = T(946802477359, --[[ModItemWeaponPropertyDef Default OverwatchAngle short_display_name]] "Сектор контроля"),
+				short_display_name = T(946802477359, --[[ModItemCharacterEffectCompositeDef AutoWeapons short_display_name]] "Сектор контроля"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -66574,13 +66577,13 @@ return {
 				SortKey = 50,
 				bind_to = "Recoil",
 				comment = "Потеря точности при каждом выстреле",
-				description = T(666643530404, --[[ModItemWeaponPropertyDef Default Recoil description]] "Потеря точности при каждом последующем выстреле в очереди"),
-				display_name = T(472448154262, --[[ModItemWeaponPropertyDef Default Recoil display_name]] "Отдача"),
+				description = T(666643530404, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Потеря точности при каждом последующем выстреле в очереди"),
+				display_name = T(472448154262, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Отдача"),
 				group = "Default",
 				id = "Recoil",
 				max_progress = 25,
 				reverse_bar = true,
-				short_display_name = T(737969743393, --[[ModItemWeaponPropertyDef Default Recoil short_display_name]] "Отдача"),
+				short_display_name = T(737969743393, --[[ModItemCharacterEffectCompositeDef AutoWeapons short_display_name]] "Отдача"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -66592,12 +66595,12 @@ return {
 				SortKey = 51,
 				bind_to = "BurstShots",
 				comment = "Количество патрон в очереди",
-				description = T(265079856338, --[[ModItemWeaponPropertyDef Default BurstShots description]] "Количество патрон в очереди"),
-				display_name = T(879334993502, --[[ModItemWeaponPropertyDef Default BurstShots display_name]] "Длина очереди"),
+				description = T(265079856338, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Количество патрон в очереди"),
+				display_name = T(879334993502, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Длина очереди"),
 				group = "Default",
 				id = "BurstShots",
 				max_progress = 12,
-				short_display_name = T(508072904270, --[[ModItemWeaponPropertyDef Default BurstShots short_display_name]] "Длина очереди"),
+				short_display_name = T(508072904270, --[[ModItemCharacterEffectCompositeDef AutoWeapons short_display_name]] "Длина очереди"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -66609,12 +66612,12 @@ return {
 				SortKey = 52,
 				bind_to = "AutoShots",
 				comment = "Количество патрон в автоогне",
-				description = T(516026181508, --[[ModItemWeaponPropertyDef Default AutoShots description]] "Количество патрон в режиме автоогня"),
-				display_name = T(436108183662, --[[ModItemWeaponPropertyDef Default AutoShots display_name]] "Длина автоогня"),
+				description = T(516026181508, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Количество патрон в режиме автоогня"),
+				display_name = T(436108183662, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Длина автоогня"),
 				group = "Default",
 				id = "AutoShots",
 				max_progress = 12,
-				short_display_name = T(703285597871, --[[ModItemWeaponPropertyDef Default AutoShots short_display_name]] "Длина автоогня"),
+				short_display_name = T(703285597871, --[[ModItemCharacterEffectCompositeDef AutoWeapons short_display_name]] "Длина автоогня"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -66626,13 +66629,13 @@ return {
 				SortKey = 53,
 				bind_to = "BoltingAP",
 				comment = "Количество ОД на передергивание затвора",
-				description = T(862802283785, --[[ModItemWeaponPropertyDef Default BoltingAP description]] "Количество ОД на передергивание затвора"),
-				display_name = T(347116257752, --[[ModItemWeaponPropertyDef Default BoltingAP display_name]] "Количество ОД на передергивание затвора"),
+				description = T(862802283785, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Количество ОД на передергивание затвора"),
+				display_name = T(347116257752, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Количество ОД на передергивание затвора"),
 				group = "Default",
 				id = "BoltingAP",
 				max_progress = 5,
 				reverse_bar = true,
-				short_display_name = T(992513377784, --[[ModItemWeaponPropertyDef Default BoltingAP short_display_name]] "Количество ОД на передергивание затвора"),
+				short_display_name = T(992513377784, --[[ModItemCharacterEffectCompositeDef AutoWeapons short_display_name]] "Количество ОД на передергивание затвора"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -66640,11 +66643,11 @@ return {
 				end,
 				SortKey = 3,
 				bind_to = "WeaponRange",
-				description = T(652024164313, --[[ModItemWeaponPropertyDef Default WeaponRange description]] "Максимальное расстояние, на которое можно прицельно стрелять из оружия."),
-				display_name = T(313710601358, --[[ModItemWeaponPropertyDef Default WeaponRange display_name]] "Дальность"),
+				description = T(652024164313, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Максимальное расстояние, на которое можно прицельно стрелять из оружия."),
+				display_name = T(313710601358, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Дальность"),
 				group = "Default",
 				id = "WeaponRange",
-				short_display_name = T(448734636097, --[[ModItemWeaponPropertyDef Default WeaponRange short_display_name]] "ДЛНСТ"),
+				short_display_name = T(448734636097, --[[ModItemCharacterEffectCompositeDef AutoWeapons short_display_name]] "ДЛНСТ"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -66652,12 +66655,12 @@ return {
 				end,
 				SortKey = 5,
 				bind_to = "AimAccuracy",
-				description = T(185987205816, --[[ModItemWeaponPropertyDef Default AimAccuracy description]] "Величина, на которую повышается меткость за каждый уровень прицеливания."),
-				display_name = T(531190657805, --[[ModItemWeaponPropertyDef Default AimAccuracy display_name]] "Бонус прицеливания"),
+				description = T(185987205816, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Величина, на которую повышается меткость за каждый уровень прицеливания."),
+				display_name = T(531190657805, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Бонус прицеливания"),
 				group = "Default",
 				id = "AimAccuracy",
 				max_progress = 40,
-				short_display_name = T(674996944199, --[[ModItemWeaponPropertyDef Default AimAccuracy short_display_name]] "Точность"),
+				short_display_name = T(674996944199, --[[ModItemCharacterEffectCompositeDef AutoWeapons short_display_name]] "Точность"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -66668,12 +66671,12 @@ return {
 				end,
 				SortKey = 4,
 				bind_to = "BulletDropRange",
-				description = T(825317920467, --[[ModItemWeaponPropertyDef Default BulletDropRange description]] "Дальность, при которой начинается падение точности из-за падения пули"),
-				display_name = T(734746536521, --[[ModItemWeaponPropertyDef Default BulletDropRange display_name]] "Настильность"),
+				description = T(825317920467, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Дальность, при которой начинается падение точности из-за падения пули"),
+				display_name = T(734746536521, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Настильность"),
 				group = "Default",
 				id = "BulletDropRange",
 				max_progress = 50,
-				short_display_name = T(549476191424, --[[ModItemWeaponPropertyDef Default BulletDropRange short_display_name]] "НСТЛ"),
+				short_display_name = T(549476191424, --[[ModItemCharacterEffectCompositeDef AutoWeapons short_display_name]] "НСТЛ"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -66684,11 +66687,11 @@ return {
 				end,
 				SortKey = 4,
 				bind_to = "Handling",
-				description = T(602841133219, --[[ModItemWeaponPropertyDef Default Handling description]] "Начальная меткость оружия (без прицеливания) зависит от эргономики оружия, ловкости, меткости и уровня наемника"),
-				display_name = T(740699694210, --[[ModItemWeaponPropertyDef Default Handling display_name]] "Эргономика"),
+				description = T(602841133219, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Начальная меткость оружия (без прицеливания) зависит от эргономики оружия, ловкости, меткости и уровня наемника"),
+				display_name = T(740699694210, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Эргономика"),
 				group = "Default",
 				id = "Handling",
-				short_display_name = T(662923526727, --[[ModItemWeaponPropertyDef Default Handling short_display_name]] "ЭРНГ"),
+				short_display_name = T(662923526727, --[[ModItemCharacterEffectCompositeDef AutoWeapons short_display_name]] "ЭРНГ"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -66699,11 +66702,11 @@ return {
 				end,
 				SortKey = 4,
 				bind_to = "Grouping",
-				description = T(260503330036, --[[ModItemWeaponPropertyDef Default Grouping description]] "Максимальная точность оружия (для дистанции в 10 клеток без учета других факторов)"),
-				display_name = T(253801005854, --[[ModItemWeaponPropertyDef Default Grouping display_name]] "Кучность (10 клеток)"),
+				description = T(260503330036, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Максимальная точность оружия (для дистанции в 10 клеток без учета других факторов)"),
+				display_name = T(253801005854, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Кучность (10 клеток)"),
 				group = "Default",
 				id = "Grouping",
-				short_display_name = T(508072904270, --[[ModItemWeaponPropertyDef Default Grouping short_display_name]] "КУЧНОСТЬ"),
+				short_display_name = T(508072904270, --[[ModItemCharacterEffectCompositeDef AutoWeapons short_display_name]] "КУЧНОСТЬ"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -66711,12 +66714,12 @@ return {
 				end,
 				SortKey = 4,
 				bind_to = "Noise",
-				description = T(363679483637, --[[ModItemWeaponPropertyDef Default Noise description]] "Дальность, на которой выстрел из оружия слышен"),
-				display_name = T(563377598001, --[[ModItemWeaponPropertyDef Default Noise display_name]] "Громкость выстрела"),
+				description = T(363679483637, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Дальность, на которой выстрел из оружия слышен"),
+				display_name = T(563377598001, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Громкость выстрела"),
 				group = "Default",
 				id = "Noise",
 				max_progress = 80,
-				short_display_name = T(877827161258, --[[ModItemWeaponPropertyDef Default Noise short_display_name]] "ГРОМКОСТЬ"),
+				short_display_name = T(877827161258, --[[ModItemCharacterEffectCompositeDef AutoWeapons short_display_name]] "ГРОМКОСТЬ"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -66724,11 +66727,11 @@ return {
 				end,
 				SortKey = 1,
 				bind_to = "Damage",
-				description = T(346197075293, --[[ModItemWeaponPropertyDef Default Damage description]] "Количество очков здоровья, которое теряет небронированная цель при попадании по ней."),
-				display_name = T(278882190381, --[[ModItemWeaponPropertyDef Default Damage display_name]] "Урон"),
+				description = T(346197075293, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Количество очков здоровья, которое теряет небронированная цель при попадании по ней."),
+				display_name = T(278882190381, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Урон"),
 				group = "Default",
 				id = "Damage",
-				short_display_name = T(431119605493, --[[ModItemWeaponPropertyDef Default Damage short_display_name]] "УРОН"),
+				short_display_name = T(431119605493, --[[ModItemCharacterEffectCompositeDef AutoWeapons short_display_name]] "УРОН"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -66754,11 +66757,11 @@ return {
 				end,
 				SortKey = 1,
 				bind_to = "BaseDamage",
-				description = T(555477546004, --[[ModItemWeaponPropertyDef Default BaseDamage description]] "Количество очков здоровья, которое теряет небронированная цель при попадании по ней."),
-				display_name = T(996972440911, --[[ModItemWeaponPropertyDef Default BaseDamage display_name]] "Урон"),
+				description = T(555477546004, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Количество очков здоровья, которое теряет небронированная цель при попадании по ней."),
+				display_name = T(996972440911, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Урон"),
 				group = "Default",
 				id = "BaseDamage",
-				short_display_name = T(772250609996, --[[ModItemWeaponPropertyDef Default BaseDamage short_display_name]] "УРОН"),
+				short_display_name = T(772250609996, --[[ModItemCharacterEffectCompositeDef AutoWeapons short_display_name]] "УРОН"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -66772,11 +66775,11 @@ return {
 				end,
 				SortKey = 3,
 				bind_to = "WeaponRange",
-				description = T(604262212558, --[[ModItemWeaponPropertyDef Default AimWeaponRange description]] "Максимальное расстояние, на которое можно прицельно стрелять из оружия."),
-				display_name = T(366322569846, --[[ModItemWeaponPropertyDef Default AimWeaponRange display_name]] "Прицельная дальность"),
+				description = T(604262212558, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Максимальное расстояние, на которое можно прицельно стрелять из оружия."),
+				display_name = T(366322569846, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Прицельная дальность"),
 				group = "Default",
 				id = "AimWeaponRange",
-				short_display_name = T(464473863107, --[[ModItemWeaponPropertyDef Default AimWeaponRange short_display_name]] "ДЛНСТ"),
+				short_display_name = T(464473863107, --[[ModItemCharacterEffectCompositeDef AutoWeapons short_display_name]] "ДЛНСТ"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -66790,11 +66793,11 @@ return {
 				end,
 				SortKey = 3,
 				bind_to = "WeaponRange",
-				description = T(871636626540, --[[ModItemWeaponPropertyDef Default UnAimWeaponRange description]] "Максимальное расстояние, на которое можно прицельно стрелять из оружия."),
-				display_name = T(182639959001, --[[ModItemWeaponPropertyDef Default UnAimWeaponRange display_name]] "Дальность навскидку"),
+				description = T(871636626540, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Максимальное расстояние, на которое можно прицельно стрелять из оружия."),
+				display_name = T(182639959001, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Дальность навскидку"),
 				group = "Default",
 				id = "UnAimWeaponRange",
-				short_display_name = T(384710280128, --[[ModItemWeaponPropertyDef Default UnAimWeaponRange short_display_name]] "ДЛНСТ"),
+				short_display_name = T(384710280128, --[[ModItemCharacterEffectCompositeDef AutoWeapons short_display_name]] "ДЛНСТ"),
 			}),
 			}),
 		PlaceObj('ModItemFolder', {
@@ -66804,7 +66807,7 @@ return {
 				ShadowColor = 4278978568,
 				ShadowSize = 2,
 				TextColor = 4286286946,
-				TextFont = T(864589389246, --[[ModItemTextStyle AmmoSubstandardColor TextFont]] "HMGothic Rough A, 16"),
+				TextFont = T(864589389246, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "HMGothic Rough A, 16"),
 				group = "Zulu Ammo",
 				id = "AmmoSubstandardColor",
 			}),
@@ -66812,7 +66815,7 @@ return {
 				ShadowColor = 4278978568,
 				ShadowSize = 2,
 				TextColor = 4289769648,
-				TextFont = T(158052641318, --[[ModItemTextStyle AmmoBasicColor TextFont]] "HMGothic Rough A, 16"),
+				TextFont = T(158052641318, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "HMGothic Rough A, 16"),
 				group = "Zulu Ammo",
 				id = "AmmoBasicColor",
 			}),
@@ -66820,7 +66823,7 @@ return {
 				ShadowColor = 4278978568,
 				ShadowSize = 2,
 				TextColor = 4290215222,
-				TextFont = T(158052641318, --[[ModItemTextStyle AmmoCraftedColor TextFont]] "HMGothic Rough A, 16"),
+				TextFont = T(158052641318, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "HMGothic Rough A, 16"),
 				group = "Zulu Ammo",
 				id = "AmmoCraftedColor",
 			}),
@@ -66828,7 +66831,7 @@ return {
 				ShadowColor = 4278978568,
 				ShadowSize = 2,
 				TextColor = 4288924145,
-				TextFont = T(386811370690, --[[ModItemTextStyle AmmoJHPColor TextFont]] "HMGothic Rough A, 16"),
+				TextFont = T(386811370690, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "HMGothic Rough A, 16"),
 				group = "Zulu Ammo",
 				id = "AmmoJHPColor",
 			}),
@@ -66836,7 +66839,7 @@ return {
 				ShadowColor = 4278978568,
 				ShadowSize = 2,
 				TextColor = 4278203391,
-				TextFont = T(386811370690, --[[ModItemTextStyle AmmoJHPPColor TextFont]] "HMGothic Rough A, 16"),
+				TextFont = T(386811370690, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "HMGothic Rough A, 16"),
 				group = "Zulu Ammo",
 				id = "AmmoJHPPColor",
 			}),
@@ -66844,7 +66847,7 @@ return {
 				ShadowColor = 4278978568,
 				ShadowSize = 2,
 				TextColor = 4292998654,
-				TextFont = T(316521819145, --[[ModItemTextStyle AmmoMatchColor TextFont]] "HMGothic Rough A, 16"),
+				TextFont = T(316521819145, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "HMGothic Rough A, 16"),
 				group = "Zulu Ammo",
 				id = "AmmoMatchColor",
 			}),
@@ -66852,7 +66855,7 @@ return {
 				ShadowColor = 4278978568,
 				ShadowSize = 2,
 				TextColor = 4291559424,
-				TextFont = T(638558837429, --[[ModItemTextStyle AmmoAPColor TextFont]] "HMGothic Rough A, 16"),
+				TextFont = T(638558837429, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "HMGothic Rough A, 16"),
 				group = "Zulu Ammo",
 				id = "AmmoAPColor",
 			}),
@@ -66860,7 +66863,7 @@ return {
 				ShadowColor = 4278978568,
 				ShadowSize = 2,
 				TextColor = 4288217088,
-				TextFont = T(935483169035, --[[ModItemTextStyle AmmoAPPColor TextFont]] "HMGothic Rough A, 16"),
+				TextFont = T(935483169035, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "HMGothic Rough A, 16"),
 				group = "Zulu Ammo",
 				id = "AmmoAPPColor",
 			}),
@@ -66868,7 +66871,7 @@ return {
 				ShadowColor = 4278978568,
 				ShadowSize = 2,
 				TextColor = 4283283116,
-				TextFont = T(386811370690, --[[ModItemTextStyle AmmoHPColor TextFont]] "HMGothic Rough A, 16"),
+				TextFont = T(386811370690, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "HMGothic Rough A, 16"),
 				group = "Zulu Ammo",
 				id = "AmmoHPColor",
 			}),
@@ -66876,7 +66879,7 @@ return {
 				ShadowColor = 4278978568,
 				ShadowSize = 2,
 				TextColor = 4283215696,
-				TextFont = T(864589389246, --[[ModItemTextStyle AmmoArmyColor TextFont]] "HMGothic Rough A, 16"),
+				TextFont = T(864589389246, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "HMGothic Rough A, 16"),
 				group = "Zulu Ammo",
 				id = "AmmoArmyColor",
 			}),
@@ -66884,7 +66887,7 @@ return {
 				ShadowColor = 4278978568,
 				ShadowSize = 2,
 				TextColor = 4294951680,
-				TextFont = T(654724230309, --[[ModItemTextStyle AmmoTracerColor TextFont]] "HMGothic Rough A, 16"),
+				TextFont = T(654724230309, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "HMGothic Rough A, 16"),
 				group = "Zulu Ammo",
 				id = "AmmoTracerColor",
 			}),
@@ -66892,7 +66895,7 @@ return {
 				ShadowColor = 4278978568,
 				ShadowSize = 2,
 				TextColor = 4286529471,
-				TextFont = T(654724230309, --[[ModItemTextStyle AmmoSubsonicColor TextFont]] "HMGothic Rough A, 16"),
+				TextFont = T(654724230309, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "HMGothic Rough A, 16"),
 				group = "Zulu Ammo",
 				id = "AmmoSubsonicColor",
 			}),
@@ -66900,7 +66903,7 @@ return {
 				ShadowColor = 4278978568,
 				ShadowSize = 2,
 				TextColor = 4291143808,
-				TextFont = T(654724230309, --[[ModItemTextStyle AmmoBirdshotColor TextFont]] "HMGothic Rough A, 16"),
+				TextFont = T(654724230309, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "HMGothic Rough A, 16"),
 				group = "Zulu Ammo",
 				id = "AmmoBirdshotColor",
 			}),
@@ -66908,7 +66911,7 @@ return {
 				ShadowColor = 4278978568,
 				ShadowSize = 2,
 				TextColor = 4289649078,
-				TextFont = T(654724230309, --[[ModItemTextStyle AmmoSaltshotColor TextFont]] "HMGothic Rough A, 16"),
+				TextFont = T(654724230309, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "HMGothic Rough A, 16"),
 				group = "Zulu Ammo",
 				id = "AmmoSaltshotColor",
 			}),
@@ -66917,7 +66920,7 @@ return {
 				ShadowColor = 4278190080,
 				ShadowSize = 1,
 				TextColor = 4292663497,
-				TextFont = T(646857477608, --[[ModItemTextStyle PDAQuests_HeaderBig TextFont]] "HMGothic Rough A, 24"),
+				TextFont = T(646857477608, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "HMGothic Rough A, 24"),
 				group = "Zulu PDA Quests",
 				id = "PDAQuests_HeaderBig",
 			}),
@@ -66928,7 +66931,7 @@ return {
 				ShadowColor = 4278978568,
 				ShadowSize = 1,
 				TextColor = 4291018156,
-				TextFont = T(698388856753, --[[ModItemTextStyle WeaponModExtraModifications TextFont]] "HMGothic Rough A, 20"),
+				TextFont = T(698388856753, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "HMGothic Rough A, 20"),
 				group = "Zulu",
 				id = "WeaponModExtraModifications",
 			}),
@@ -66937,7 +66940,7 @@ return {
 				ShadowColor = 4278190080,
 				ShadowSize = 1,
 				TextColor = 4286742648,
-				TextFont = T(418820402486, --[[ModItemTextStyle WeaponModSubHeaderDark TextFont]] "HMGothic Rough A, 30"),
+				TextFont = T(418820402486, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "HMGothic Rough A, 30"),
 				group = "PDA Sector Info",
 				id = "WeaponModSubHeaderDark",
 			}),
@@ -66946,7 +66949,7 @@ return {
 				ShadowColor = 4279308047,
 				ShadowSize = 1,
 				TextColor = 4291018156,
-				TextFont = T(109046041841, --[[ModItemTextStyle WeaponModSubHeaderLight TextFont]] "HMGothic Rough A, 30"),
+				TextFont = T(109046041841, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "HMGothic Rough A, 30"),
 				group = "PDA Sector Info",
 				id = "WeaponModSubHeaderLight",
 			}),
@@ -66984,7 +66987,7 @@ return {
 					end
 				end,
 				SortKey = 2,
-				display_name = T(595922456311, --[[ModItemInventoryTab Melee display_name]] "Медикаменты"),
+				display_name = T(595922456311, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Медикаменты"),
 				group = "Default",
 				icon = "Mod/e6L4ECj/InventoryTabs/knife",
 				id = "Melee",
@@ -67031,7 +67034,7 @@ return {
 					return group == "Other - Meds"
 				end,
 				SortKey = 4,
-				display_name = T(862621941813, --[[ModItemInventoryTab Meds display_name]] "Медикаменты"),
+				display_name = T(862621941813, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Медикаменты"),
 				group = "Default",
 				icon = "Mod/e6L4ECj/InventoryTabs/stop_bleeding",
 				id = "Meds",
@@ -67044,7 +67047,7 @@ return {
 						  or group == "Grenade - Throwable"
 				end,
 				SortKey = 3,
-				display_name = T(576809695729, --[[ModItemInventoryTab Grenades display_name]] "Гранаты"),
+				display_name = T(576809695729, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Гранаты"),
 				group = "Default",
 				icon = "Mod/e6L4ECj/InventoryTabs/frag_grenade",
 				id = "Grenades",
@@ -67056,7 +67059,7 @@ return {
 					return  group == "Resources"
 				end,
 				SortKey = 4,
-				display_name = T(258760835486, --[[ModItemInventoryTab resources display_name]] "Ресурсы"),
+				display_name = T(258760835486, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Ресурсы"),
 				group = "Default",
 				icon = "UI/Inventory/tabs_supplies",
 				id = "resources",
@@ -67249,7 +67252,7 @@ return {
 											'ChildrenHandleMouse', false,
 											'TextStyle', "WeaponModHeader",
 											'Translate', true,
-											'Text', T(652740353462, --[[ModItemXTemplate ModifyWeaponDlg Text]] "<DisplayName>"),
+											'Text', T(652740353462, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<DisplayName>"),
 										}),
 										PlaceObj('XTemplateWindow', {
 											'__class', "XText",
@@ -67258,7 +67261,7 @@ return {
 											'ChildrenHandleMouse', false,
 											'TextStyle', "WeaponModHeader",
 											'Translate', true,
-											'Text', T(330442935061, --[[ModItemXTemplate ModifyWeaponDlg Text]] "ХАРАКТЕРИСТИКИ ОРУЖИЯ"),
+											'Text', T(330442935061, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "ХАРАКТЕРИСТИКИ ОРУЖИЯ"),
 										}),
 										}),
 									PlaceObj('XTemplateWindow', {
@@ -67286,7 +67289,7 @@ return {
 												'ChildrenHandleMouse', false,
 												'TextStyle', "PDAQuests_EmailDate",
 												'Translate', true,
-												'Text', T(763838308642, --[[ModItemXTemplate ModifyWeaponDlg Text]] "<Description>"),
+												'Text', T(763838308642, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<Description>"),
 											}),
 											PlaceObj('XTemplateWindow', {
 												'__class', "XText",
@@ -67390,9 +67393,9 @@ return {
 													'__class', "XContextWindow",
 													'RolloverTemplate', "RolloverGeneric",
 													'RolloverAnchor', "left",
-													'RolloverText', T(489906538430, --[[ModItemXTemplate ModifyWeaponDlg RolloverText]] "<description>"),
+													'RolloverText', T(489906538430, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "<description>"),
 													'RolloverOffset', box(0, 0, 20, 0),
-													'RolloverTitle', T(301626423422, --[[ModItemXTemplate ModifyWeaponDlg RolloverTitle]] "Бронебойность"),
+													'RolloverTitle', T(301626423422, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "Бронебойность"),
 													'IdNode', true,
 													'HAlign', "right",
 												}, {
@@ -67425,7 +67428,7 @@ return {
 														'Margins', box(0, 0, 10, 0),
 														'TextStyle', "PDAQuests_HeaderBig",
 														'Translate', true,
-														'Text', T(264299149532, --[[ModItemXTemplate ModifyWeaponDlg Text]] "Бронебойность"),
+														'Text', T(264299149532, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Бронебойность"),
 														'TextVAlign', "center",
 													}),
 													PlaceObj('XTemplateWindow', {
@@ -67594,7 +67597,7 @@ return {
 												'__class', "XText",
 												'TextStyle', "WeaponModSubHeader",
 												'Translate', true,
-												'Text', T(933079022251, --[[ModItemXTemplate ModifyWeaponDlg Text]] "СОСТОЯНИЕ"),
+												'Text', T(933079022251, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "СОСТОЯНИЕ"),
 											}),
 											PlaceObj('XTemplateTemplate', {
 												'__template', "WeaponModProgressLine",
@@ -67645,7 +67648,7 @@ return {
 											'FoldWhenHidden', true,
 											'TextStyle', "WeaponModStatChangeBadShadow",
 											'Translate', true,
-											'Text', T(637799234294, --[[ModItemXTemplate ModifyWeaponDlg Text]] "ОРУЖИЕ СЛОМАНО. НЕВОЗМОЖНО МОДИФИЦИРОВАТЬ"),
+											'Text', T(637799234294, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "ОРУЖИЕ СЛОМАНО. НЕВОЗМОЖНО МОДИФИЦИРОВАТЬ"),
 										}),
 										PlaceObj('XTemplateWindow', {
 											'__context', function (parent, context) return "WeaponModificationWeaponLookingChanged" end,
@@ -67661,7 +67664,7 @@ return {
 												self:SetVisible(otherPlayerLookingAtIt)
 											end,
 											'Translate', true,
-											'Text', T(348798061120, --[[ModItemXTemplate ModifyWeaponDlg Text]] "ИГРОК  МОДИФИЦИРУЕТ ЭТО ОРУЖИЕ"),
+											'Text', T(348798061120, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "ИГРОК  МОДИФИЦИРУЕТ ЭТО ОРУЖИЕ"),
 										}),
 										PlaceObj('XTemplateWindow', {
 											'__class', "XText",
@@ -67671,7 +67674,7 @@ return {
 											'FoldWhenHidden', true,
 											'TextStyle', "WeaponModStatChangeBadShadow",
 											'Translate', true,
-											'Text', T(345236880761, --[[ModItemXTemplate ModifyWeaponDlg Text]] "НЕВОЗМОЖНО МОДИФИЦИРОВАТЬ: ОРУЖИЕ НЕ В ИНВЕНТАРЕ НАЁМНИКА"),
+											'Text', T(345236880761, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "НЕВОЗМОЖНО МОДИФИЦИРОВАТЬ: ОРУЖИЕ НЕ В ИНВЕНТАРЕ НАЁМНИКА"),
 										}),
 										}),
 									PlaceObj('XTemplateWindow', {
@@ -67752,7 +67755,7 @@ return {
 								}),
 							PlaceObj('XTemplateAction', {
 								'ActionId', "actionPrev",
-								'ActionName', T(808641812558, --[[ModItemXTemplate ModifyWeaponDlg ActionName]] "ПРЕДЫДУЩЕЕ"),
+								'ActionName', T(808641812558, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "ПРЕДЫДУЩЕЕ"),
 								'ActionToolbar', "ActionBar",
 								'ActionShortcut', "P",
 								'ActionGamepad', "LeftShoulder",
@@ -67782,7 +67785,7 @@ return {
 							}),
 							PlaceObj('XTemplateAction', {
 								'ActionId', "actionNext",
-								'ActionName', T(788722705219, --[[ModItemXTemplate ModifyWeaponDlg ActionName]] "СЛЕДУЮЩЕЕ"),
+								'ActionName', T(788722705219, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "СЛЕДУЮЩЕЕ"),
 								'ActionToolbar', "ActionBar",
 								'ActionShortcut', "N",
 								'ActionGamepad', "RightShoulder",
@@ -67812,7 +67815,7 @@ return {
 							}),
 							PlaceObj('XTemplateAction', {
 								'ActionId', "actionResetRotation",
-								'ActionName', T(186683938298, --[[ModItemXTemplate ModifyWeaponDlg ActionName]] "СБРОСИТЬ ПОЛОЖЕНИЕ"),
+								'ActionName', T(186683938298, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "СБРОСИТЬ ПОЛОЖЕНИЕ"),
 								'ActionToolbar', "ActionBar",
 								'ActionShortcut', "R",
 								'ActionGamepad', "RightThumbClick",
@@ -67833,7 +67836,7 @@ return {
 							}),
 							PlaceObj('XTemplateAction', {
 								'ActionId', "actionClosePanel",
-								'ActionName', T(159780746064, --[[ModItemXTemplate ModifyWeaponDlg ActionName]] "ЗАКРЫТЬ"),
+								'ActionName', T(159780746064, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "ЗАКРЫТЬ"),
 								'ActionToolbar', "ActionBar",
 								'ActionShortcut', "Escape",
 								'ActionGamepad', "ButtonB",
@@ -68040,7 +68043,7 @@ return {
 											'ChildrenHandleMouse', false,
 											'TextStyle', "WeaponModHeader",
 											'Translate', true,
-											'Text', T(735120904990, --[[ModItemXTemplate ModifyWeaponDlg__ Text]] "<DisplayName>"),
+											'Text', T(735120904990, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<DisplayName>"),
 										}),
 										PlaceObj('XTemplateWindow', {
 											'__class', "XText",
@@ -68049,7 +68052,7 @@ return {
 											'ChildrenHandleMouse', false,
 											'TextStyle', "WeaponModHeader",
 											'Translate', true,
-											'Text', T(790197779044, --[[ModItemXTemplate ModifyWeaponDlg__ Text]] "ХАРАКТЕРИСТИКИ ОРУЖИЯ"),
+											'Text', T(790197779044, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "ХАРАКТЕРИСТИКИ ОРУЖИЯ"),
 										}),
 										}),
 									PlaceObj('XTemplateWindow', {
@@ -68077,7 +68080,7 @@ return {
 												'ChildrenHandleMouse', false,
 												'TextStyle', "PDAQuests_EmailDate",
 												'Translate', true,
-												'Text', T(503996625887, --[[ModItemXTemplate ModifyWeaponDlg__ Text]] "<Description>"),
+												'Text', T(503996625887, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<Description>"),
 											}),
 											PlaceObj('XTemplateWindow', {
 												'__class', "XText",
@@ -68181,9 +68184,9 @@ return {
 													'__class', "XContextWindow",
 													'RolloverTemplate', "RolloverGeneric",
 													'RolloverAnchor', "left",
-													'RolloverText', T(670333226793, --[[ModItemXTemplate ModifyWeaponDlg__ RolloverText]] "<description>"),
+													'RolloverText', T(670333226793, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "<description>"),
 													'RolloverOffset', box(0, 0, 20, 0),
-													'RolloverTitle', T(439711152788, --[[ModItemXTemplate ModifyWeaponDlg__ RolloverTitle]] "Бронебойность"),
+													'RolloverTitle', T(439711152788, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "Бронебойность"),
 													'IdNode', true,
 													'HAlign', "right",
 												}, {
@@ -68216,7 +68219,7 @@ return {
 														'Margins', box(0, 0, 10, 0),
 														'TextStyle', "PDAQuests_HeaderBig",
 														'Translate', true,
-														'Text', T(280720698646, --[[ModItemXTemplate ModifyWeaponDlg__ Text]] "Бронебойность"),
+														'Text', T(280720698646, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Бронебойность"),
 														'TextVAlign', "center",
 													}),
 													PlaceObj('XTemplateWindow', {
@@ -68385,7 +68388,7 @@ return {
 												'__class', "XText",
 												'TextStyle', "WeaponModSubHeader",
 												'Translate', true,
-												'Text', T(452885873764, --[[ModItemXTemplate ModifyWeaponDlg__ Text]] "СОСТОЯНИЕ"),
+												'Text', T(452885873764, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "СОСТОЯНИЕ"),
 											}),
 											PlaceObj('XTemplateTemplate', {
 												'__template', "WeaponModProgressLine",
@@ -68436,7 +68439,7 @@ return {
 											'FoldWhenHidden', true,
 											'TextStyle', "WeaponModStatChangeBadShadow",
 											'Translate', true,
-											'Text', T(737586237410, --[[ModItemXTemplate ModifyWeaponDlg__ Text]] "ОРУЖИЕ СЛОМАНО. НЕВОЗМОЖНО МОДИФИЦИРОВАТЬ"),
+											'Text', T(737586237410, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "ОРУЖИЕ СЛОМАНО. НЕВОЗМОЖНО МОДИФИЦИРОВАТЬ"),
 										}),
 										PlaceObj('XTemplateWindow', {
 											'__context', function (parent, context) return "WeaponModificationWeaponLookingChanged" end,
@@ -68452,7 +68455,7 @@ return {
 												self:SetVisible(otherPlayerLookingAtIt)
 											end,
 											'Translate', true,
-											'Text', T(709310146798, --[[ModItemXTemplate ModifyWeaponDlg__ Text]] "ИГРОК  МОДИФИЦИРУЕТ ЭТО ОРУЖИЕ"),
+											'Text', T(709310146798, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "ИГРОК  МОДИФИЦИРУЕТ ЭТО ОРУЖИЕ"),
 										}),
 										PlaceObj('XTemplateWindow', {
 											'__class', "XText",
@@ -68462,7 +68465,7 @@ return {
 											'FoldWhenHidden', true,
 											'TextStyle', "WeaponModStatChangeBadShadow",
 											'Translate', true,
-											'Text', T(968187583167, --[[ModItemXTemplate ModifyWeaponDlg__ Text]] "НЕВОЗМОЖНО МОДИФИЦИРОВАТЬ: ОРУЖИЕ НЕ В ИНВЕНТАРЕ НАЁМНИКА"),
+											'Text', T(968187583167, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "НЕВОЗМОЖНО МОДИФИЦИРОВАТЬ: ОРУЖИЕ НЕ В ИНВЕНТАРЕ НАЁМНИКА"),
 										}),
 										}),
 									PlaceObj('XTemplateWindow', {
@@ -68543,7 +68546,7 @@ return {
 								}),
 							PlaceObj('XTemplateAction', {
 								'ActionId', "actionPrev",
-								'ActionName', T(554954487359, --[[ModItemXTemplate ModifyWeaponDlg__ ActionName]] "ПРЕДЫДУЩЕЕ"),
+								'ActionName', T(554954487359, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "ПРЕДЫДУЩЕЕ"),
 								'ActionToolbar', "ActionBar",
 								'ActionShortcut', "P",
 								'ActionGamepad', "LeftShoulder",
@@ -68573,7 +68576,7 @@ return {
 							}),
 							PlaceObj('XTemplateAction', {
 								'ActionId', "actionNext",
-								'ActionName', T(235358681352, --[[ModItemXTemplate ModifyWeaponDlg__ ActionName]] "СЛЕДУЮЩЕЕ"),
+								'ActionName', T(235358681352, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "СЛЕДУЮЩЕЕ"),
 								'ActionToolbar', "ActionBar",
 								'ActionShortcut', "N",
 								'ActionGamepad', "RightShoulder",
@@ -68603,7 +68606,7 @@ return {
 							}),
 							PlaceObj('XTemplateAction', {
 								'ActionId', "actionResetRotation",
-								'ActionName', T(791254955343, --[[ModItemXTemplate ModifyWeaponDlg__ ActionName]] "СБРОСИТЬ ПОЛОЖЕНИЕ"),
+								'ActionName', T(791254955343, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "СБРОСИТЬ ПОЛОЖЕНИЕ"),
 								'ActionToolbar', "ActionBar",
 								'ActionShortcut', "R",
 								'ActionGamepad', "RightThumbClick",
@@ -68624,7 +68627,7 @@ return {
 							}),
 							PlaceObj('XTemplateAction', {
 								'ActionId', "actionClosePanel",
-								'ActionName', T(303258012748, --[[ModItemXTemplate ModifyWeaponDlg__ ActionName]] "ЗАКРЫТЬ"),
+								'ActionName', T(303258012748, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "ЗАКРЫТЬ"),
 								'ActionToolbar', "ActionBar",
 								'ActionShortcut', "Escape",
 								'ActionGamepad', "ButtonB",
@@ -68730,21 +68733,21 @@ return {
 		PlaceObj('ModItemTextStyle', {
 			RolloverTextColor = 4286742648,
 			TextColor = 4287479154,
-			TextFont = T(799357390986, --[[ModItemTextStyle PDABrowserFlavorMediumGreen TextFont]] "Source Code Pro, 16"),
+			TextFont = T(799357390986, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "Source Code Pro, 16"),
 			group = "PDA Browser",
 			id = "PDABrowserFlavorMediumGreen",
 		}),
 		PlaceObj('ModItemTextStyle', {
 			RolloverTextColor = 4286742648,
 			TextColor = 4285703357,
-			TextFont = T(509761061296, --[[ModItemTextStyle PDABrowserFlavorMediumBlue TextFont]] "Source Code Pro, 16"),
+			TextFont = T(509761061296, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "Source Code Pro, 16"),
 			group = "PDA Browser",
 			id = "PDABrowserFlavorMediumBlue",
 		}),
 		PlaceObj('ModItemTextStyle', {
 			RolloverTextColor = 4286742648,
 			TextColor = 4290605682,
-			TextFont = T(179417854348, --[[ModItemTextStyle PDABrowserFlavorMediumRed TextFont]] "Source Code Pro, 16"),
+			TextFont = T(179417854348, --[[ModItemCharacterEffectCompositeDef AutoWeapons TextFont]] "Source Code Pro, 16"),
 			group = "PDA Browser",
 			id = "PDABrowserFlavorMediumRed",
 		}),
@@ -68862,7 +68865,7 @@ return {
 									'__class', "XImage",
 									'RolloverTemplate', "RolloverInventory",
 									'RolloverAnchor', "custom",
-									'RolloverText', T(980711730163, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "затычка"),
+									'RolloverText', T(980711730163, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "затычка"),
 									'RolloverOffset', box(0, 0, 0, 20),
 									'Id', "idIcon",
 									'Padding', box(5, 0, 5, 0),
@@ -68872,7 +68875,7 @@ return {
 									PlaceObj('XTemplateWindow', {
 										'__condition', function (parent, context) return context:IsWeapon() and context.ComponentSlots and #context.ComponentSlots>0 and CountWeaponUpgrades(context)>0 end,
 										'__class', "XImage",
-										'RolloverText', T(222984534204, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "затычка"),
+										'RolloverText', T(222984534204, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "затычка"),
 										'Id', "idModIcon",
 										'Margins', box(5, 8, 0, 0),
 										'HAlign', "left",
@@ -68905,7 +68908,7 @@ return {
 												'HAlign', "right",
 												'TextStyle', "HUDHeader",
 												'Translate', true,
-												'Text', T(425029539528, --[[ModItemXTemplate UIWeaponDisplay Text]] "<bullets()>"),
+												'Text', T(425029539528, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<bullets()>"),
 											}),
 											}),
 										}),
@@ -68915,7 +68918,7 @@ return {
 										'Padding', box(2, 2, 2, 0),
 										'TextStyle', "HUDHeader",
 										'Translate', true,
-										'Text', T(950060314213, --[[ModItemXTemplate UIWeaponDisplay Text]] "<bullets()>"),
+										'Text', T(950060314213, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<bullets()>"),
 									}),
 									}),
 								PlaceObj('XTemplateWindow', {
@@ -69068,7 +69071,7 @@ return {
 													'RolloverAnchor', "bottom-right",
 													'RolloverAnchorId', "idWeaponUI",
 													'RolloverOffset', box(20, 0, 0, 0),
-													'RolloverTitle', T(283921836958, --[[ModItemXTemplate UIWeaponDisplay RolloverTitle]] "Перезарядить"),
+													'RolloverTitle', T(283921836958, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "Перезарядить"),
 													'Id', "idSubReloadButton",
 													'Margins', box(0, -2, 0, 0),
 													'BorderWidth', 2,
@@ -69340,7 +69343,7 @@ return {
 											'__class', "XContextWindow",
 											'RolloverTemplate', "RolloverInventory",
 											'RolloverAnchor', "custom",
-											'RolloverText', T(625499865681, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "затычка"),
+											'RolloverText', T(625499865681, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "затычка"),
 											'RolloverOffset', box(0, 0, 0, 10),
 											'IdNode', true,
 										}, {
@@ -69397,7 +69400,7 @@ return {
 													'__class', "XImage",
 													'RolloverTemplate', "RolloverInventory",
 													'RolloverAnchor', "center-top",
-													'RolloverText', T(344059506942, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "затычка"),
+													'RolloverText', T(344059506942, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "затычка"),
 													'RolloverOffset', box(0, 0, 0, 20),
 													'Id', "idIcon",
 													'Padding', box(5, 0, 5, 0),
@@ -69407,7 +69410,7 @@ return {
 													PlaceObj('XTemplateWindow', {
 														'__condition', function (parent, context) return context:IsWeapon() and context.ComponentSlots and #context.ComponentSlots>0 and CountWeaponUpgrades(context)>0 end,
 														'__class', "XImage",
-														'RolloverText', T(635343119975, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "затычка"),
+														'RolloverText', T(635343119975, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "затычка"),
 														'Id', "idModIcon",
 														'Margins', box(5, 8, 0, 0),
 														'HAlign', "left",
@@ -69441,7 +69444,7 @@ return {
 															'HAlign', "right",
 															'TextStyle', "HUDHeader",
 															'Translate', true,
-															'Text', T(640228732655, --[[ModItemXTemplate UIWeaponDisplay Text]] "<bullets()>"),
+															'Text', T(640228732655, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<bullets()>"),
 														}),
 														}),
 													}),
@@ -69451,7 +69454,7 @@ return {
 													'Padding', box(2, 2, 2, 0),
 													'TextStyle', "HUDHeader",
 													'Translate', true,
-													'Text', T(955143813467, --[[ModItemXTemplate UIWeaponDisplay Text]] "<bullets()>"),
+													'Text', T(955143813467, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<bullets()>"),
 													'TextVAlign', "center",
 												}),
 												}),
@@ -69482,7 +69485,7 @@ return {
 												'HandleMouse', false,
 												'TextStyle', "InventoryItemsCount",
 												'Translate', true,
-												'Text', T(812137287750, --[[ModItemXTemplate UIWeaponDisplay Text]] "<percent(Condition)>"),
+												'Text', T(812137287750, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<percent(Condition)>"),
 												'TextHAlign', "right",
 											}),
 											}),
@@ -69673,7 +69676,7 @@ return {
 								'FoldWhenHidden', true,
 								'TextStyle', "InventoryRolloverValuableItemName",
 								'Translate', true,
-								'Text', T(271023940577, --[[ModItemXTemplate RolloverInventoryBase Text]] "Value:"),
+								'Text', T(271023940577, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Value:"),
 								'TextHAlign', "center",
 								'TextVAlign', "center",
 							}),
@@ -69684,7 +69687,7 @@ return {
 								'FoldWhenHidden', true,
 								'TextStyle', "InventoryRolloverValuableItemValue",
 								'Translate', true,
-								'Text', T(546250812078, --[[ModItemXTemplate RolloverInventoryBase Text]] "<money(Cost)>"),
+								'Text', T(546250812078, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<money(Cost)>"),
 								'HideOnEmpty', true,
 								'TextHAlign', "center",
 								'TextVAlign', "center",
@@ -69816,7 +69819,7 @@ return {
 								'ChildrenHandleMouse', false,
 								'TextStyle', "RolloverTextItalicRed",
 								'Translate', true,
-								'Text', T(128792603707, --[[ModItemXTemplate RolloverInventoryBase Text]] "You can't move this item"),
+								'Text', T(128792603707, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "You can't move this item"),
 							}),
 							}),
 						}),
@@ -70370,7 +70373,7 @@ return {
 								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
 							end,
 							'BindTo', "CamouflagePercent",
-							'Text', T(306160371091, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+							'Text', T(306160371091, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Уровень защиты"),
 							'PercentValue', true,
 						}, {
 							PlaceObj('XTemplateFunc', {
@@ -70398,7 +70401,7 @@ return {
 								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
 							end,
 							'BindTo', "CamouflagePercent",
-							'Text', T(698700407824, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+							'Text', T(698700407824, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Уровень защиты"),
 							'PercentValue', true,
 						}, {
 							PlaceObj('XTemplateFunc', {
@@ -70426,7 +70429,7 @@ return {
 								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
 							end,
 							'BindTo', "CamouflagePercent",
-							'Text', T(605345929215, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+							'Text', T(605345929215, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Уровень защиты"),
 							'PercentValue', true,
 						}, {
 							PlaceObj('XTemplateFunc', {
@@ -70454,7 +70457,7 @@ return {
 								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
 							end,
 							'BindTo', "ArmorRating",
-							'Text', T(527484246339, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+							'Text', T(527484246339, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Уровень защиты"),
 						}, {
 							PlaceObj('XTemplateFunc', {
 								'name', "Open(self,...)",
@@ -70488,7 +70491,7 @@ return {
 								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
 							end,
 							'BindTo', "ArmorRating",
-							'Text', T(227418014128, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+							'Text', T(227418014128, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Уровень защиты"),
 						}, {
 							PlaceObj('XTemplateFunc', {
 								'name', "Open(self,...)",
@@ -70521,7 +70524,7 @@ return {
 								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
 							end,
 							'BindTo', "ArmorRating",
-							'Text', T(369205133397, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+							'Text', T(369205133397, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Уровень защиты"),
 						}, {
 							PlaceObj('XTemplateFunc', {
 								'name', "Open(self,...)",
@@ -70556,7 +70559,7 @@ return {
 								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
 							end,
 							'BindTo', "ArmorRating",
-							'Text', T(793718590072, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+							'Text', T(793718590072, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Уровень защиты"),
 						}, {
 							PlaceObj('XTemplateFunc', {
 								'name', "Open(self,...)",
@@ -70583,7 +70586,7 @@ return {
 								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
 							end,
 							'BindTo', "ArmorRating",
-							'Text', T(886452040462, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+							'Text', T(886452040462, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Уровень защиты"),
 						}, {
 							PlaceObj('XTemplateFunc', {
 								'name', "Open(self,...)",
@@ -70610,7 +70613,7 @@ return {
 								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
 							end,
 							'BindTo', "ArmorRating",
-							'Text', T(323469449534, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+							'Text', T(323469449534, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Уровень защиты"),
 						}, {
 							PlaceObj('XTemplateFunc', {
 								'name', "Open(self,...)",
@@ -70637,7 +70640,7 @@ return {
 								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
 							end,
 							'BindTo', "CamouflagePercent",
-							'Text', T(245759466344, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+							'Text', T(245759466344, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Уровень защиты"),
 							'PercentValue', true,
 						}, {
 							PlaceObj('XTemplateFunc', {
@@ -70665,7 +70668,7 @@ return {
 								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
 							end,
 							'BindTo', "CamouflagePercent",
-							'Text', T(245759466344, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+							'Text', T(245759466344, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Уровень защиты"),
 							'PercentValue', true,
 						}, {
 							PlaceObj('XTemplateFunc', {
@@ -70693,7 +70696,7 @@ return {
 								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
 							end,
 							'BindTo', "CanHoldPlate",
-							'Text', T(724608997137, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+							'Text', T(724608997137, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Уровень защиты"),
 							'PercentValue', true,
 						}, {
 							PlaceObj('XTemplateFunc', {
@@ -70725,7 +70728,7 @@ return {
 								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
 							end,
 							'BindTo', "CanHoldPlate",
-							'Text', T(516469303127, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+							'Text', T(516469303127, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Уровень защиты"),
 							'PercentValue', true,
 						}, {
 							PlaceObj('XTemplateFunc', {
@@ -70753,7 +70756,7 @@ return {
 								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
 							end,
 							'BindTo', "ArmorRating",
-							'Text', T(371754764107, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Уровень защиты"),
+							'Text', T(371754764107, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Уровень защиты"),
 						}, {
 							PlaceObj('XTemplateFunc', {
 								'name', "Open(self,...)",
@@ -71234,7 +71237,7 @@ return {
 								'ChildrenHandleMouse', false,
 								'TextStyle', "RolloverTextItalicRed",
 								'Translate', true,
-								'Text', T(171964271406, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Этот предмет невозможно переместить"),
+								'Text', T(171964271406, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Этот предмет невозможно переместить"),
 							}),
 							}),
 						}),
@@ -71297,7 +71300,7 @@ return {
 						'FoldWhenHidden', true,
 						'TextStyle', "PDACombatActionHeader",
 						'Translate', true,
-						'Text', T(184043349031, --[[ModItemXTemplate InventoryRolloverInfo Text]] "Info"),
+						'Text', T(184043349031, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Info"),
 						'TextVAlign', "bottom",
 					}),
 					PlaceObj('XTemplateWindow', nil, {
@@ -71308,7 +71311,7 @@ return {
 							'Dock', "left",
 							'TextStyle', "PDACombatActionHeader",
 							'Translate', true,
-							'Text', T(611405286573, --[[ModItemXTemplate InventoryRolloverInfo Text]] "<DisplayName>"),
+							'Text', T(611405286573, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<DisplayName>"),
 							'TextVAlign', "bottom",
 						}),
 						PlaceObj('XTemplateWindow', {
@@ -71486,7 +71489,7 @@ return {
 								'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeCommonUnitControl") or IsKindOf(GetDialog(parent), "IModeDeployment") end,
 								'__class', "XContextWindow",
 								'RolloverTemplate', "RolloverGeneric",
-								'RolloverTitle', T(362204247435, --[[ModItemXTemplate SquadsAndMercs2 RolloverTitle]] "Morale"),
+								'RolloverTitle', T(362204247435, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "Morale"),
 								'Id', "idMorale",
 								'Margins', box(7, 1, 0, 0),
 								'Dock', "left",
@@ -71528,7 +71531,7 @@ return {
 										'__class', "XImage",
 										'RolloverTemplate', "RolloverGeneric",
 										'RolloverOffset', box(10, 0, 0, 0),
-										'RolloverTitle', T(679215652471, --[[ModItemXTemplate SquadsAndMercs2 RolloverTitle]] "Morale"),
+										'RolloverTitle', T(679215652471, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "Morale"),
 										'Id', "idMoraleIcon",
 										'IdNode', false,
 										'HAlign', "center",
@@ -71919,7 +71922,7 @@ return {
 													'RolloverTemplate', "PDAOperationRollover",
 													'RolloverAnchor', "right",
 													'RolloverAnchorId', "idContent",
-													'RolloverText', T(615377721869, --[[ModItemXTemplate SquadsAndMercs2 RolloverText]] "placeholder"),
+													'RolloverText', T(615377721869, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "placeholder"),
 													'Id', "idOperationContainer",
 													'Margins', box(-5, 4, 0, 0),
 													'Dock', "bottom",
@@ -72532,7 +72535,7 @@ return {
 															XContextControl.OnContextUpdate(self, context)
 														end,
 														'Translate', true,
-														'Text', T(580982509124, --[[ModItemXTemplate SquadsAndMercs2 Text]] "<apn(GetUIActionPoints())>"),
+														'Text', T(580982509124, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<apn(GetUIActionPoints())>"),
 													}),
 													}),
 												}),
@@ -72724,7 +72727,7 @@ return {
 													'__class', "XImage",
 													'RolloverTemplate', "RolloverGeneric",
 													'RolloverAnchor', "right",
-													'RolloverText', T(638571901171, --[[ModItemXTemplate SquadsAndMercs2 RolloverText]] "Wounds are being bandaged."),
+													'RolloverText', T(638571901171, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "Wounds are being bandaged."),
 													'RolloverOffset', box(15, 0, 0, 0),
 													'Id', "idBeingBandagedIndicator",
 													'HAlign', "center",
@@ -72849,7 +72852,7 @@ return {
 														XContextControl.OnContextUpdate(self, context)
 													end,
 													'Translate', true,
-													'Text', T(531913452382, --[[ModItemXTemplate SquadsAndMercs2 Text]] "<apn(GetUIActionPoints())>"),
+													'Text', T(531913452382, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<apn(GetUIActionPoints())>"),
 												}),
 												PlaceObj('XTemplateWindow', {
 													'__class', "XImage",
@@ -72863,7 +72866,7 @@ return {
 												'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeDeployment") end,
 												'RolloverTemplate', "SmallRolloverGeneric",
 												'RolloverAnchor', "top",
-												'RolloverText', T(961263404010, --[[ModItemXTemplate SquadsAndMercs2 RolloverText]] "Аwaiting deployment"),
+												'RolloverText', T(961263404010, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "Аwaiting deployment"),
 												'RolloverOffset', box(-15, 0, 0, -15),
 												'Id', "idDeployed",
 												'Margins', box(-5, 0, 0, -5),
@@ -73077,7 +73080,7 @@ return {
 								'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeCommonUnitControl") or IsKindOf(GetDialog(parent), "IModeDeployment") end,
 								'__class', "XContextWindow",
 								'RolloverTemplate', "RolloverGeneric",
-								'RolloverTitle', T(399146812726, --[[ModItemXTemplate SquadsAndMercs_copy RolloverTitle]] "Morale"),
+								'RolloverTitle', T(399146812726, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "Morale"),
 								'Id', "idMorale",
 								'Margins', box(7, 1, 0, 0),
 								'Dock', "left",
@@ -73119,7 +73122,7 @@ return {
 										'__class', "XImage",
 										'RolloverTemplate', "RolloverGeneric",
 										'RolloverOffset', box(10, 0, 0, 0),
-										'RolloverTitle', T(817404388036, --[[ModItemXTemplate SquadsAndMercs_copy RolloverTitle]] "Morale"),
+										'RolloverTitle', T(817404388036, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "Morale"),
 										'Id', "idMoraleIcon",
 										'IdNode', false,
 										'HAlign', "center",
@@ -73509,7 +73512,7 @@ return {
 													'RolloverTemplate', "PDAOperationRollover",
 													'RolloverAnchor', "right",
 													'RolloverAnchorId', "idContent",
-													'RolloverText', T(115318172545, --[[ModItemXTemplate SquadsAndMercs_copy RolloverText]] "placeholder"),
+													'RolloverText', T(115318172545, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "placeholder"),
 													'Id', "idOperationContainer",
 													'Margins', box(-5, 4, 0, 0),
 													'Dock', "bottom",
@@ -74114,7 +74117,7 @@ return {
 															XContextControl.OnContextUpdate(self, context)
 														end,
 														'Translate', true,
-														'Text', T(788717079012, --[[ModItemXTemplate SquadsAndMercs_copy Text]] "<apn(GetUIActionPoints())>"),
+														'Text', T(788717079012, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<apn(GetUIActionPoints())>"),
 													}),
 													}),
 												}),
@@ -74297,7 +74300,7 @@ return {
 													'__class', "XImage",
 													'RolloverTemplate', "RolloverGeneric",
 													'RolloverAnchor', "right",
-													'RolloverText', T(301759703755, --[[ModItemXTemplate SquadsAndMercs_copy RolloverText]] "Wounds are being bandaged."),
+													'RolloverText', T(301759703755, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "Wounds are being bandaged."),
 													'RolloverOffset', box(15, 0, 0, 0),
 													'Id', "idBeingBandagedIndicator",
 													'HAlign', "center",
@@ -74422,7 +74425,7 @@ return {
 														XContextControl.OnContextUpdate(self, context)
 													end,
 													'Translate', true,
-													'Text', T(348547901304, --[[ModItemXTemplate SquadsAndMercs_copy Text]] "<apn(GetUIActionPoints())>"),
+													'Text', T(348547901304, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<apn(GetUIActionPoints())>"),
 												}),
 												PlaceObj('XTemplateWindow', {
 													'__class', "XImage",
@@ -74436,7 +74439,7 @@ return {
 												'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeDeployment") end,
 												'RolloverTemplate', "SmallRolloverGeneric",
 												'RolloverAnchor', "top",
-												'RolloverText', T(251040816715, --[[ModItemXTemplate SquadsAndMercs_copy RolloverText]] "Аwaiting deployment"),
+												'RolloverText', T(251040816715, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "Аwaiting deployment"),
 												'RolloverOffset', box(-15, 0, 0, -15),
 												'Id', "idDeployed",
 												'Margins', box(-5, 0, 0, -5),
@@ -74650,7 +74653,7 @@ return {
 								'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeCommonUnitControl") or IsKindOf(GetDialog(parent), "IModeDeployment") end,
 								'__class', "XContextWindow",
 								'RolloverTemplate', "RolloverGeneric",
-								'RolloverTitle', T(626890466814, --[[ModItemXTemplate SquadsAndMercs RolloverTitle]] "Morale"),
+								'RolloverTitle', T(626890466814, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "Morale"),
 								'Id', "idMorale",
 								'Margins', box(7, 1, 0, 0),
 								'Dock', "left",
@@ -74692,7 +74695,7 @@ return {
 										'__class', "XImage",
 										'RolloverTemplate', "RolloverGeneric",
 										'RolloverOffset', box(10, 0, 0, 0),
-										'RolloverTitle', T(223227921982, --[[ModItemXTemplate SquadsAndMercs RolloverTitle]] "Morale"),
+										'RolloverTitle', T(223227921982, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "Morale"),
 										'Id', "idMoraleIcon",
 										'IdNode', false,
 										'HAlign', "center",
@@ -75090,7 +75093,7 @@ return {
 														'RolloverTemplate', "PDAOperationRollover",
 														'RolloverAnchor', "right",
 														'RolloverAnchorId', "idContent",
-														'RolloverText', T(265053006937, --[[ModItemXTemplate SquadsAndMercs RolloverText]] "placeholder"),
+														'RolloverText', T(265053006937, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "placeholder"),
 														'Id', "idOperationContainer",
 														'Margins', box(-5, 4, 0, 0),
 														'Dock', "bottom",
@@ -75715,7 +75718,7 @@ return {
 																XContextControl.OnContextUpdate(self, context)
 															end,
 															'Translate', true,
-															'Text', T(269806592085, --[[ModItemXTemplate SquadsAndMercs Text]] "<apn(GetUIActionPoints())>"),
+															'Text', T(269806592085, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<apn(GetUIActionPoints())>"),
 														}),
 														}),
 													}),
@@ -75907,7 +75910,7 @@ return {
 														'__class', "XImage",
 														'RolloverTemplate', "RolloverGeneric",
 														'RolloverAnchor', "right",
-														'RolloverText', T(823568393704, --[[ModItemXTemplate SquadsAndMercs RolloverText]] "Wounds are being bandaged."),
+														'RolloverText', T(823568393704, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "Wounds are being bandaged."),
 														'RolloverOffset', box(15, 0, 0, 0),
 														'Id', "idBeingBandagedIndicator",
 														'HAlign', "center",
@@ -76032,7 +76035,7 @@ return {
 															XContextControl.OnContextUpdate(self, context)
 														end,
 														'Translate', true,
-														'Text', T(911599978706, --[[ModItemXTemplate SquadsAndMercs Text]] "<apn(GetUIActionPoints())>"),
+														'Text', T(911599978706, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<apn(GetUIActionPoints())>"),
 													}),
 													PlaceObj('XTemplateWindow', {
 														'__class', "XImage",
@@ -76046,7 +76049,7 @@ return {
 													'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeDeployment") end,
 													'RolloverTemplate', "SmallRolloverGeneric",
 													'RolloverAnchor', "top",
-													'RolloverText', T(364309207482, --[[ModItemXTemplate SquadsAndMercs RolloverText]] "Аwaiting deployment"),
+													'RolloverText', T(364309207482, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "Аwaiting deployment"),
 													'RolloverOffset', box(-15, 0, 0, -15),
 													'Id', "idDeployed",
 													'Margins', box(-5, 0, 0, -5),
@@ -76869,7 +76872,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "NextUnit",
-					'ActionName', T(687809121967, --[[ModItemXTemplate Inventory_dev ActionName]] "Следующий боец"),
+					'ActionName', T(687809121967, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Следующий боец"),
 					'ActionShortcut', "Tab",
 					'ActionGamepad', "RightShoulder",
 					'ActionBindable', true,
@@ -76903,7 +76906,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "PrevUnit",
-					'ActionName', T(293909228919, --[[ModItemXTemplate Inventory_dev ActionName]] "Предыдущий боец"),
+					'ActionName', T(293909228919, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Предыдущий боец"),
 					'ActionGamepad', "LeftShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -76933,7 +76936,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "NextSquad",
-					'ActionName', T(584198055716, --[[ModItemXTemplate Inventory_dev ActionName]] "Следующий отряд"),
+					'ActionName', T(584198055716, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Следующий отряд"),
 					'ActionGamepad', "LeftTrigger-RightShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -76955,7 +76958,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "PrevSquad",
-					'ActionName', T(791668570095, --[[ModItemXTemplate Inventory_dev ActionName]] "Предыдущий отряд"),
+					'ActionName', T(791668570095, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Предыдущий отряд"),
 					'ActionGamepad', "LeftTrigger-LeftShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -76977,7 +76980,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Actions",
-					'ActionName', T(748156428562, --[[ModItemXTemplate Inventory_dev ActionName]] "Меню предмета"),
+					'ActionName', T(748156428562, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Меню предмета"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "right_click",
 					'ActionGamepad', "ButtonX",
@@ -76992,7 +76995,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Multiselect",
-					'ActionName', T(555043861532, --[[ModItemXTemplate Inventory_dev ActionName]] "Мультивыбор"),
+					'ActionName', T(555043861532, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Мультивыбор"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Ctrl",
 					'ActionGamepad', "LeftTrigger-ButtonA",
@@ -77007,7 +77010,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CompareItems",
-					'ActionName', T(298371369333, --[[ModItemXTemplate Inventory_dev ActionName]] "Сравнить"),
+					'ActionName', T(298371369333, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Сравнить"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Shift",
 					'ActionGamepad', "RightTrigger-ButtonY",
@@ -77050,7 +77053,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CloseInventory",
-					'ActionName', T(676125159407, --[[ModItemXTemplate Inventory_dev ActionName]] "Закрыть"),
+					'ActionName', T(676125159407, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Закрыть"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionGamepad', "ButtonB",
 					'ActionButtonTemplate', "InventoryActionBarButton",
@@ -77136,7 +77139,7 @@ return {
 							'HAlign', "center",
 							'TextStyle', "InventoryContainerTitle",
 							'Translate', true,
-							'Text', T(958370723687, --[[ModItemXTemplate Inventory_dev Text]] "Рюкзаки отряда"),
+							'Text', T(958370723687, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Рюкзаки отряда"),
 						}),
 						PlaceObj('XTemplateWindow', {
 							'comment', "right",
@@ -77163,7 +77166,7 @@ return {
 								'Visible', false,
 								'TextStyle', "PDABrowserTextLight",
 								'Translate', true,
-								'Text', T(775573284389, --[[ModItemXTemplate Inventory_dev Text]] "Недостаточно ОД "),
+								'Text', T(775573284389, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Недостаточно ОД "),
 								'TextHAlign', "center",
 							}),
 							PlaceObj('XTemplateWindow', {
@@ -77320,7 +77323,7 @@ return {
 										}),
 										PlaceObj('XTemplateAction', {
 											'ActionId', "Secondary",
-											'ActionName', T(618389212486, --[[ModItemXTemplate Inventory_dev ActionName]] "Комплект II"),
+											'ActionName', T(618389212486, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Комплект II"),
 											'ActionToolbar', "InventoryActionBar",
 											'ActionShortcut', "X",
 											'ActionShortcut2', "Shift-X",
@@ -77344,7 +77347,7 @@ return {
 										}),
 										PlaceObj('XTemplateAction', {
 											'ActionId', "Primary",
-											'ActionName', T(704345551247, --[[ModItemXTemplate Inventory_dev ActionName]] "Комплект I"),
+											'ActionName', T(704345551247, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Комплект I"),
 											'ActionToolbar', "InventoryActionBar",
 											'ActionShortcut', "Z",
 											'ActionShortcut2', "Shift-Z",
@@ -77368,7 +77371,7 @@ return {
 										}),
 										PlaceObj('XTemplateAction', {
 											'ActionId', "CurrentWeapon2",
-											'ActionName', T(440328144287, --[[ModItemXTemplate Inventory_dev ActionName]] "Активное оружие II"),
+											'ActionName', T(440328144287, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Активное оружие II"),
 											'ActionShortcut', "X",
 											'ActionButtonTemplate', "InventoryActionBarButton",
 											'ActionState', function (self, host)
@@ -77390,7 +77393,7 @@ return {
 										}),
 										PlaceObj('XTemplateAction', {
 											'ActionId', "CurrentWeapon1",
-											'ActionName', T(684051997528, --[[ModItemXTemplate Inventory_dev ActionName]] "Активное оружие I"),
+											'ActionName', T(684051997528, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Активное оружие I"),
 											'ActionShortcut', "Z",
 											'ActionButtonTemplate', "InventoryActionBarButton",
 											'ActionState', function (self, host)
@@ -77427,7 +77430,7 @@ return {
 												'HandleMouse', false,
 												'TextStyle', "InventoryBackpackTitle",
 												'Translate', true,
-												'Text', T(255206300456, --[[ModItemXTemplate Inventory_dev Text]] "Снаряжение - <Nick>"),
+												'Text', T(255206300456, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Снаряжение - <Nick>"),
 												'TextVAlign', "center",
 											}, {
 												PlaceObj('XTemplateFunc', {
@@ -77602,7 +77605,7 @@ return {
 																'__condition', function (parent, context) return true end,
 																'__class', "XToggleButton",
 																'RolloverTemplate', "ChangeActiveWeaponAPRollover",
-																'RolloverTitle', T(968308952428, --[[ModItemXTemplate Inventory_dev RolloverTitle]] "ОД"),
+																'RolloverTitle', T(968308952428, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "ОД"),
 																'Id', "idWeapons1",
 																'Margins', box(5, 0, 0, 0),
 																'HAlign', "left",
@@ -77672,7 +77675,7 @@ return {
 															PlaceObj('XTemplateWindow', {
 																'__class', "XToggleButton",
 																'RolloverTemplate', "ChangeActiveWeaponAPRollover",
-																'RolloverTitle', T(658901200357, --[[ModItemXTemplate Inventory_dev RolloverTitle]] "ОД"),
+																'RolloverTitle', T(658901200357, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "ОД"),
 																'Id', "idWeapons2",
 																'Margins', box(5, 0, 0, 0),
 																'HAlign', "left",
@@ -78153,7 +78156,7 @@ return {
 												'HandleMouse', false,
 												'TextStyle', "InventoryBackpackTitle",
 												'Translate', true,
-												'Text', T(412195913541, --[[ModItemXTemplate Inventory_dev Text]] "Имущество отряда"),
+												'Text', T(412195913541, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Имущество отряда"),
 												'TextVAlign', "center",
 											}, {
 												PlaceObj('XTemplateFunc', {
@@ -78209,7 +78212,7 @@ return {
 							'Padding', box(0, 0, 0, 0),
 							'TextStyle', "InventoryContainerTitle",
 							'Translate', true,
-							'Text', T(593012404899, --[[ModItemXTemplate Inventory_dev Text]] "Обыскать"),
+							'Text', T(593012404899, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Обыскать"),
 							'TextHAlign', "center",
 							'TextVAlign', "center",
 						}),
@@ -78303,7 +78306,7 @@ return {
 											'MaxHeight', 60,
 											'TextStyle', "InventoryWarning",
 											'Translate', true,
-											'Text', T(539738949129, --[[ModItemXTemplate Inventory_dev Text]] "Выбранный отряд находится в другом секторе"),
+											'Text', T(539738949129, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Выбранный отряд находится в другом секторе"),
 											'TextHAlign', "center",
 											'TextVAlign', "center",
 										}),
@@ -78373,7 +78376,7 @@ return {
 															'FoldWhenHidden', true,
 															'TextStyle', "InventoryBackpackTitle",
 															'Translate', true,
-															'Text', T(769163944888, --[[ModItemXTemplate Inventory_dev Text]] "МЕШОК"),
+															'Text', T(769163944888, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "МЕШОК"),
 															'HideOnEmpty', true,
 															'TextVAlign', "center",
 														}),
@@ -78611,7 +78614,7 @@ return {
 												'FoldWhenHidden', true,
 												'TextStyle', "InventoryActionsTextRedBig",
 												'Translate', true,
-												'Text', T(444676209300, --[[ModItemXTemplate Inventory_dev Text]] "Инвентарь заполнен"),
+												'Text', T(444676209300, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Инвентарь заполнен"),
 												'HideOnEmpty', true,
 											}),
 											PlaceObj('XTemplateTemplate', {
@@ -78733,7 +78736,7 @@ return {
 										}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "TakeAll",
-										'ActionName', T(997206919165, --[[ModItemXTemplate Inventory_dev ActionName]] "ВЗЯТЬ ВСЁ"),
+										'ActionName', T(997206919165, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "ВЗЯТЬ ВСЁ"),
 										'ActionShortcut', "T",
 										'ActionGamepad', "LeftTrigger-ButtonY",
 										'ActionState', function (self, host)
@@ -78745,7 +78748,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "SelectAll",
-										'ActionName', T(201923898196, --[[ModItemXTemplate Inventory_dev ActionName]] "ВЫБРАТЬ ВСЕ"),
+										'ActionName', T(201923898196, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "ВЫБРАТЬ ВСЕ"),
 										'ActionShortcut', "A",
 										'ActionGamepad', "LeftTrigger-ButtonX",
 										'ActionState', function (self, host)
@@ -78782,7 +78785,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "Sort",
-										'ActionName', T(784863689068, --[[ModItemXTemplate Inventory_dev ActionName]] "Сортировка"),
+										'ActionName', T(784863689068, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Сортировка"),
 										'ActionShortcut', "S",
 										'ActionGamepad', "LeftTrigger-ButtonX",
 										'ActionState', function (self, host)
@@ -78851,7 +78854,7 @@ return {
 														'Padding', box(6, 2, 2, 2),
 														'TextStyle', "InventoryBackpackTitle",
 														'Translate', true,
-														'Text', T(842292431082, --[[ModItemXTemplate Inventory_dev Text]] "МЕШОК"),
+														'Text', T(842292431082, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "МЕШОК"),
 														'TextVAlign', "center",
 													}),
 													}),
@@ -78947,7 +78950,7 @@ return {
 												'FoldWhenHidden', true,
 												'TextStyle', "InventoryActionsTextRedBig",
 												'Translate', true,
-												'Text', T(736534736998, --[[ModItemXTemplate Inventory_dev Text]] "Инвентарь заполнен"),
+												'Text', T(736534736998, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Инвентарь заполнен"),
 												'HideOnEmpty', true,
 											}),
 											PlaceObj('XTemplateTemplate', {
@@ -78974,7 +78977,7 @@ return {
 										}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "Loot",
-										'ActionName', T(989845701750, --[[ModItemXTemplate Inventory_dev ActionName]] "Показать трофеи"),
+										'ActionName', T(989845701750, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Показать трофеи"),
 										'ActionToolbar', "ActionBarCenter",
 										'ActionShortcut', "L",
 										'ActionState', function (self, host)
@@ -78995,7 +78998,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "TakeLoot",
-										'ActionName', T(776162888663, --[[ModItemXTemplate Inventory_dev ActionName]] "Забрать трофеи"),
+										'ActionName', T(776162888663, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Забрать трофеи"),
 										'ActionToolbar', "ActionBarCenter",
 										'ActionShortcut', "T",
 										'ActionGamepad', "LeftTrigger-ButtonY",
@@ -79836,7 +79839,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "NextUnit",
-					'ActionName', T(354430427553, --[[ModItemXTemplate Inventory_bkp ActionName]] "Следующий боец"),
+					'ActionName', T(354430427553, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Следующий боец"),
 					'ActionShortcut', "Tab",
 					'ActionGamepad', "RightShoulder",
 					'ActionBindable', true,
@@ -79870,7 +79873,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "PrevUnit",
-					'ActionName', T(251878484707, --[[ModItemXTemplate Inventory_bkp ActionName]] "Предыдущий боец"),
+					'ActionName', T(251878484707, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Предыдущий боец"),
 					'ActionGamepad', "LeftShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -79900,7 +79903,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "NextSquad",
-					'ActionName', T(307422297560, --[[ModItemXTemplate Inventory_bkp ActionName]] "Следующий отряд"),
+					'ActionName', T(307422297560, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Следующий отряд"),
 					'ActionGamepad', "LeftTrigger-RightShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -79922,7 +79925,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "PrevSquad",
-					'ActionName', T(452339232924, --[[ModItemXTemplate Inventory_bkp ActionName]] "Предыдущий отряд"),
+					'ActionName', T(452339232924, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Предыдущий отряд"),
 					'ActionGamepad', "LeftTrigger-LeftShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -79944,7 +79947,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CurrentWeapon1",
-					'ActionName', T(612093267033, --[[ModItemXTemplate Inventory_bkp ActionName]] "Активное оружие I"),
+					'ActionName', T(612093267033, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Активное оружие I"),
 					'ActionShortcut', "Z",
 					'ActionButtonTemplate', "InventoryActionBarButton",
 					'ActionState', function (self, host)
@@ -79965,7 +79968,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CurrentWeapon2",
-					'ActionName', T(279066519667, --[[ModItemXTemplate Inventory_bkp ActionName]] "Активное оружие II"),
+					'ActionName', T(279066519667, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Активное оружие II"),
 					'ActionShortcut', "X",
 					'ActionButtonTemplate', "InventoryActionBarButton",
 					'ActionState', function (self, host)
@@ -79986,7 +79989,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Primary",
-					'ActionName', T(617369583185, --[[ModItemXTemplate Inventory_bkp ActionName]] "Комплект I"),
+					'ActionName', T(617369583185, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Комплект I"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Z",
 					'ActionShortcut2', "Shift-Z",
@@ -80010,7 +80013,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Secondary",
-					'ActionName', T(274672146017, --[[ModItemXTemplate Inventory_bkp ActionName]] "Комплект II"),
+					'ActionName', T(274672146017, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Комплект II"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "X",
 					'ActionShortcut2', "Shift-X",
@@ -80034,7 +80037,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Actions",
-					'ActionName', T(317875796297, --[[ModItemXTemplate Inventory_bkp ActionName]] "Меню предмета"),
+					'ActionName', T(317875796297, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Меню предмета"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "right_click",
 					'ActionGamepad', "ButtonX",
@@ -80049,7 +80052,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Multiselect",
-					'ActionName', T(643555258341, --[[ModItemXTemplate Inventory_bkp ActionName]] "Мультивыбор"),
+					'ActionName', T(643555258341, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Мультивыбор"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Ctrl",
 					'ActionGamepad', "LeftTrigger-ButtonA",
@@ -80064,7 +80067,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CompareItems",
-					'ActionName', T(901851988416, --[[ModItemXTemplate Inventory_bkp ActionName]] "Сравнить"),
+					'ActionName', T(901851988416, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Сравнить"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Shift",
 					'ActionGamepad', "RightTrigger-ButtonY",
@@ -80107,7 +80110,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CloseInventory",
-					'ActionName', T(106281506048, --[[ModItemXTemplate Inventory_bkp ActionName]] "Закрыть"),
+					'ActionName', T(106281506048, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Закрыть"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionGamepad', "ButtonB",
 					'ActionButtonTemplate', "InventoryActionBarButton",
@@ -80193,7 +80196,7 @@ return {
 							'HAlign', "center",
 							'TextStyle', "InventoryContainerTitle",
 							'Translate', true,
-							'Text', T(974978026563, --[[ModItemXTemplate Inventory_bkp Text]] "Рюкзаки отряда"),
+							'Text', T(974978026563, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Рюкзаки отряда"),
 						}),
 						PlaceObj('XTemplateWindow', {
 							'comment', "right",
@@ -80220,7 +80223,7 @@ return {
 								'Visible', false,
 								'TextStyle', "PDABrowserTextLight",
 								'Translate', true,
-								'Text', T(879795630148, --[[ModItemXTemplate Inventory_bkp Text]] "Недостаточно ОД "),
+								'Text', T(879795630148, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Недостаточно ОД "),
 								'TextHAlign', "center",
 							}),
 							PlaceObj('XTemplateWindow', {
@@ -80297,7 +80300,7 @@ return {
 												'HandleMouse', false,
 												'TextStyle', "InventoryBackpackTitle",
 												'Translate', true,
-												'Text', T(176393454855, --[[ModItemXTemplate Inventory_bkp Text]] "Снаряжение - <Nick>"),
+												'Text', T(176393454855, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Снаряжение - <Nick>"),
 												'TextVAlign', "center",
 											}, {
 												PlaceObj('XTemplateFunc', {
@@ -80478,7 +80481,7 @@ return {
 																'__condition', function (parent, context) return true end,
 																'__class', "XToggleButton",
 																'RolloverTemplate', "ChangeActiveWeaponAPRollover",
-																'RolloverTitle', T(894438976034, --[[ModItemXTemplate Inventory_bkp RolloverTitle]] "ОД"),
+																'RolloverTitle', T(894438976034, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "ОД"),
 																'Id', "idWeapons1",
 																'Margins', box(5, 0, 0, 0),
 																'HAlign', "left",
@@ -80548,7 +80551,7 @@ return {
 															PlaceObj('XTemplateWindow', {
 																'__class', "XToggleButton",
 																'RolloverTemplate', "ChangeActiveWeaponAPRollover",
-																'RolloverTitle', T(723060490960, --[[ModItemXTemplate Inventory_bkp RolloverTitle]] "ОД"),
+																'RolloverTitle', T(723060490960, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "ОД"),
 																'Id', "idWeapons2",
 																'Margins', box(5, 0, 0, 0),
 																'HAlign', "left",
@@ -81056,7 +81059,7 @@ return {
 												'HandleMouse', false,
 												'TextStyle', "InventoryBackpackTitle",
 												'Translate', true,
-												'Text', T(379027931612, --[[ModItemXTemplate Inventory_bkp Text]] "Имущество отряда"),
+												'Text', T(379027931612, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Имущество отряда"),
 												'TextVAlign', "center",
 											}, {
 												PlaceObj('XTemplateFunc', {
@@ -81112,7 +81115,7 @@ return {
 							'Padding', box(0, 0, 0, 0),
 							'TextStyle', "InventoryContainerTitle",
 							'Translate', true,
-							'Text', T(806529866191, --[[ModItemXTemplate Inventory_bkp Text]] "Обыскать"),
+							'Text', T(806529866191, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Обыскать"),
 							'TextHAlign', "center",
 							'TextVAlign', "center",
 						}),
@@ -81206,7 +81209,7 @@ return {
 											'MaxHeight', 60,
 											'TextStyle', "InventoryWarning",
 											'Translate', true,
-											'Text', T(753664405458, --[[ModItemXTemplate Inventory_bkp Text]] "Выбранный отряд находится в другом секторе"),
+											'Text', T(753664405458, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Выбранный отряд находится в другом секторе"),
 											'TextHAlign', "center",
 											'TextVAlign', "center",
 										}),
@@ -81276,7 +81279,7 @@ return {
 															'FoldWhenHidden', true,
 															'TextStyle', "InventoryBackpackTitle",
 															'Translate', true,
-															'Text', T(485347082440, --[[ModItemXTemplate Inventory_bkp Text]] "МЕШОК"),
+															'Text', T(485347082440, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "МЕШОК"),
 															'HideOnEmpty', true,
 															'TextVAlign', "center",
 														}),
@@ -81514,7 +81517,7 @@ return {
 												'FoldWhenHidden', true,
 												'TextStyle', "InventoryActionsTextRedBig",
 												'Translate', true,
-												'Text', T(667357295479, --[[ModItemXTemplate Inventory_bkp Text]] "Инвентарь заполнен"),
+												'Text', T(667357295479, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Инвентарь заполнен"),
 												'HideOnEmpty', true,
 											}),
 											PlaceObj('XTemplateTemplate', {
@@ -81636,7 +81639,7 @@ return {
 										}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "TakeAll",
-										'ActionName', T(641667501712, --[[ModItemXTemplate Inventory_bkp ActionName]] "ВЗЯТЬ ВСЁ"),
+										'ActionName', T(641667501712, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "ВЗЯТЬ ВСЁ"),
 										'ActionShortcut', "T",
 										'ActionGamepad', "LeftTrigger-ButtonY",
 										'ActionState', function (self, host)
@@ -81648,7 +81651,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "SelectAll",
-										'ActionName', T(814409180000, --[[ModItemXTemplate Inventory_bkp ActionName]] "ВЫБРАТЬ ВСЕ"),
+										'ActionName', T(814409180000, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "ВЫБРАТЬ ВСЕ"),
 										'ActionShortcut', "A",
 										'ActionGamepad', "LeftTrigger-ButtonX",
 										'ActionState', function (self, host)
@@ -81685,7 +81688,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "Sort",
-										'ActionName', T(772176371354, --[[ModItemXTemplate Inventory_bkp ActionName]] "Сортировка"),
+										'ActionName', T(772176371354, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Сортировка"),
 										'ActionShortcut', "S",
 										'ActionGamepad', "LeftTrigger-ButtonX",
 										'ActionState', function (self, host)
@@ -81754,7 +81757,7 @@ return {
 														'Padding', box(6, 2, 2, 2),
 														'TextStyle', "InventoryBackpackTitle",
 														'Translate', true,
-														'Text', T(401221755552, --[[ModItemXTemplate Inventory_bkp Text]] "МЕШОК"),
+														'Text', T(401221755552, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "МЕШОК"),
 														'TextVAlign', "center",
 													}),
 													}),
@@ -81850,7 +81853,7 @@ return {
 												'FoldWhenHidden', true,
 												'TextStyle', "InventoryActionsTextRedBig",
 												'Translate', true,
-												'Text', T(711831526724, --[[ModItemXTemplate Inventory_bkp Text]] "Инвентарь заполнен"),
+												'Text', T(711831526724, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Инвентарь заполнен"),
 												'HideOnEmpty', true,
 											}),
 											PlaceObj('XTemplateTemplate', {
@@ -81877,7 +81880,7 @@ return {
 										}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "Loot",
-										'ActionName', T(930946940668, --[[ModItemXTemplate Inventory_bkp ActionName]] "Показать трофеи"),
+										'ActionName', T(930946940668, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Показать трофеи"),
 										'ActionToolbar', "ActionBarCenter",
 										'ActionShortcut', "L",
 										'ActionState', function (self, host)
@@ -81898,7 +81901,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "TakeLoot",
-										'ActionName', T(870874601153, --[[ModItemXTemplate Inventory_bkp ActionName]] "Забрать трофеи"),
+										'ActionName', T(870874601153, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Забрать трофеи"),
 										'ActionToolbar', "ActionBarCenter",
 										'ActionShortcut', "T",
 										'ActionGamepad', "LeftTrigger-ButtonY",
@@ -82739,7 +82742,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "NextUnit",
-					'ActionName', T(685525071391, --[[ModItemXTemplate Inventory_jazz ActionName]] "Следующий боец"),
+					'ActionName', T(685525071391, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Следующий боец"),
 					'ActionShortcut', "Tab",
 					'ActionGamepad', "RightShoulder",
 					'ActionBindable', true,
@@ -82773,7 +82776,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "PrevUnit",
-					'ActionName', T(341131714166, --[[ModItemXTemplate Inventory_jazz ActionName]] "Предыдущий боец"),
+					'ActionName', T(341131714166, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Предыдущий боец"),
 					'ActionGamepad', "LeftShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -82803,7 +82806,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "NextSquad",
-					'ActionName', T(223971847712, --[[ModItemXTemplate Inventory_jazz ActionName]] "Следующий отряд"),
+					'ActionName', T(223971847712, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Следующий отряд"),
 					'ActionGamepad', "LeftTrigger-RightShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -82825,7 +82828,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "PrevSquad",
-					'ActionName', T(403630606358, --[[ModItemXTemplate Inventory_jazz ActionName]] "Предыдущий отряд"),
+					'ActionName', T(403630606358, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Предыдущий отряд"),
 					'ActionGamepad', "LeftTrigger-LeftShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -82847,7 +82850,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CurrentWeapon1",
-					'ActionName', T(121141697489, --[[ModItemXTemplate Inventory_jazz ActionName]] "Активное оружие I"),
+					'ActionName', T(121141697489, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Активное оружие I"),
 					'ActionShortcut', "Z",
 					'ActionButtonTemplate', "InventoryActionBarButton",
 					'ActionState', function (self, host)
@@ -82868,7 +82871,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CurrentWeapon2",
-					'ActionName', T(401513833052, --[[ModItemXTemplate Inventory_jazz ActionName]] "Активное оружие II"),
+					'ActionName', T(401513833052, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Активное оружие II"),
 					'ActionShortcut', "X",
 					'ActionButtonTemplate', "InventoryActionBarButton",
 					'ActionState', function (self, host)
@@ -82889,7 +82892,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Primary",
-					'ActionName', T(496415606741, --[[ModItemXTemplate Inventory_jazz ActionName]] "Комплект I"),
+					'ActionName', T(496415606741, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Комплект I"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Z",
 					'ActionShortcut2', "Shift-Z",
@@ -82913,7 +82916,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Secondary",
-					'ActionName', T(631908893433, --[[ModItemXTemplate Inventory_jazz ActionName]] "Комплект II"),
+					'ActionName', T(631908893433, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Комплект II"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "X",
 					'ActionShortcut2', "Shift-X",
@@ -82937,7 +82940,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Actions",
-					'ActionName', T(655838211940, --[[ModItemXTemplate Inventory_jazz ActionName]] "Меню предмета"),
+					'ActionName', T(655838211940, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Меню предмета"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "right_click",
 					'ActionGamepad', "ButtonX",
@@ -82952,7 +82955,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Multiselect",
-					'ActionName', T(845995818811, --[[ModItemXTemplate Inventory_jazz ActionName]] "Мультивыбор"),
+					'ActionName', T(845995818811, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Мультивыбор"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Ctrl",
 					'ActionGamepad', "LeftTrigger-ButtonA",
@@ -82967,7 +82970,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CompareItems",
-					'ActionName', T(786438577601, --[[ModItemXTemplate Inventory_jazz ActionName]] "Сравнить"),
+					'ActionName', T(786438577601, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Сравнить"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Shift",
 					'ActionGamepad', "RightTrigger-ButtonY",
@@ -83010,7 +83013,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CloseInventory",
-					'ActionName', T(479448243931, --[[ModItemXTemplate Inventory_jazz ActionName]] "Закрыть"),
+					'ActionName', T(479448243931, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Закрыть"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionGamepad', "ButtonB",
 					'ActionButtonTemplate', "InventoryActionBarButton",
@@ -83096,7 +83099,7 @@ return {
 							'HAlign', "center",
 							'TextStyle', "InventoryContainerTitle",
 							'Translate', true,
-							'Text', T(197360050229, --[[ModItemXTemplate Inventory_jazz Text]] "Рюкзаки отряда"),
+							'Text', T(197360050229, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Рюкзаки отряда"),
 						}),
 						PlaceObj('XTemplateWindow', {
 							'comment', "right",
@@ -83123,7 +83126,7 @@ return {
 								'Visible', false,
 								'TextStyle', "PDABrowserTextLight",
 								'Translate', true,
-								'Text', T(680087796963, --[[ModItemXTemplate Inventory_jazz Text]] "Недостаточно ОД "),
+								'Text', T(680087796963, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Недостаточно ОД "),
 								'TextHAlign', "center",
 							}),
 							PlaceObj('XTemplateWindow', {
@@ -83201,7 +83204,7 @@ return {
 												'HandleMouse', false,
 												'TextStyle', "InventoryBackpackTitle",
 												'Translate', true,
-												'Text', T(496187320548, --[[ModItemXTemplate Inventory_jazz Text]] "Снаряжение - <Nick>"),
+												'Text', T(496187320548, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Снаряжение - <Nick>"),
 												'TextVAlign', "center",
 											}, {
 												PlaceObj('XTemplateFunc', {
@@ -83382,7 +83385,7 @@ return {
 																'__condition', function (parent, context) return true end,
 																'__class', "XToggleButton",
 																'RolloverTemplate', "ChangeActiveWeaponAPRollover",
-																'RolloverTitle', T(294949010792, --[[ModItemXTemplate Inventory_jazz RolloverTitle]] "ОД"),
+																'RolloverTitle', T(294949010792, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "ОД"),
 																'Id', "idWeapons1",
 																'Margins', box(5, 0, 0, 0),
 																'HAlign', "left",
@@ -83452,7 +83455,7 @@ return {
 															PlaceObj('XTemplateWindow', {
 																'__class', "XToggleButton",
 																'RolloverTemplate', "ChangeActiveWeaponAPRollover",
-																'RolloverTitle', T(553619365745, --[[ModItemXTemplate Inventory_jazz RolloverTitle]] "ОД"),
+																'RolloverTitle', T(553619365745, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "ОД"),
 																'Id', "idWeapons2",
 																'Margins', box(5, 0, 0, 0),
 																'HAlign', "left",
@@ -84025,7 +84028,7 @@ return {
 												'HandleMouse', false,
 												'TextStyle', "InventoryBackpackTitle",
 												'Translate', true,
-												'Text', T(514182313918, --[[ModItemXTemplate Inventory_jazz Text]] "Имущество отряда"),
+												'Text', T(514182313918, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Имущество отряда"),
 												'TextVAlign', "center",
 											}, {
 												PlaceObj('XTemplateFunc', {
@@ -84081,7 +84084,7 @@ return {
 							'Padding', box(0, 0, 0, 0),
 							'TextStyle', "InventoryContainerTitle",
 							'Translate', true,
-							'Text', T(109181961514, --[[ModItemXTemplate Inventory_jazz Text]] "Обыскать"),
+							'Text', T(109181961514, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Обыскать"),
 							'TextHAlign', "center",
 							'TextVAlign', "center",
 						}),
@@ -84175,7 +84178,7 @@ return {
 											'MaxHeight', 60,
 											'TextStyle', "InventoryWarning",
 											'Translate', true,
-											'Text', T(278792927663, --[[ModItemXTemplate Inventory_jazz Text]] "Выбранный отряд находится в другом секторе"),
+											'Text', T(278792927663, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Выбранный отряд находится в другом секторе"),
 											'TextHAlign', "center",
 											'TextVAlign', "center",
 										}),
@@ -84245,7 +84248,7 @@ return {
 															'FoldWhenHidden', true,
 															'TextStyle', "InventoryBackpackTitle",
 															'Translate', true,
-															'Text', T(891216644273, --[[ModItemXTemplate Inventory_jazz Text]] "МЕШОК"),
+															'Text', T(891216644273, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "МЕШОК"),
 															'HideOnEmpty', true,
 															'TextVAlign', "center",
 														}),
@@ -84483,7 +84486,7 @@ return {
 												'FoldWhenHidden', true,
 												'TextStyle', "InventoryActionsTextRedBig",
 												'Translate', true,
-												'Text', T(823586987523, --[[ModItemXTemplate Inventory_jazz Text]] "Инвентарь заполнен"),
+												'Text', T(823586987523, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Инвентарь заполнен"),
 												'HideOnEmpty', true,
 											}),
 											PlaceObj('XTemplateTemplate', {
@@ -84605,7 +84608,7 @@ return {
 										}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "TakeAll",
-										'ActionName', T(626268669241, --[[ModItemXTemplate Inventory_jazz ActionName]] "ВЗЯТЬ ВСЁ"),
+										'ActionName', T(626268669241, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "ВЗЯТЬ ВСЁ"),
 										'ActionShortcut', "T",
 										'ActionGamepad', "LeftTrigger-ButtonY",
 										'ActionState', function (self, host)
@@ -84617,7 +84620,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "SelectAll",
-										'ActionName', T(178481563517, --[[ModItemXTemplate Inventory_jazz ActionName]] "ВЫБРАТЬ ВСЕ"),
+										'ActionName', T(178481563517, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "ВЫБРАТЬ ВСЕ"),
 										'ActionShortcut', "A",
 										'ActionGamepad', "LeftTrigger-ButtonX",
 										'ActionState', function (self, host)
@@ -84654,7 +84657,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "Sort",
-										'ActionName', T(450240566354, --[[ModItemXTemplate Inventory_jazz ActionName]] "Сортировка"),
+										'ActionName', T(450240566354, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Сортировка"),
 										'ActionShortcut', "S",
 										'ActionGamepad', "LeftTrigger-ButtonX",
 										'ActionState', function (self, host)
@@ -84723,7 +84726,7 @@ return {
 														'Padding', box(6, 2, 2, 2),
 														'TextStyle', "InventoryBackpackTitle",
 														'Translate', true,
-														'Text', T(622734644944, --[[ModItemXTemplate Inventory_jazz Text]] "МЕШОК"),
+														'Text', T(622734644944, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "МЕШОК"),
 														'TextVAlign', "center",
 													}),
 													}),
@@ -84819,7 +84822,7 @@ return {
 												'FoldWhenHidden', true,
 												'TextStyle', "InventoryActionsTextRedBig",
 												'Translate', true,
-												'Text', T(430239587618, --[[ModItemXTemplate Inventory_jazz Text]] "Инвентарь заполнен"),
+												'Text', T(430239587618, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Инвентарь заполнен"),
 												'HideOnEmpty', true,
 											}),
 											PlaceObj('XTemplateTemplate', {
@@ -84846,7 +84849,7 @@ return {
 										}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "Loot",
-										'ActionName', T(433865850668, --[[ModItemXTemplate Inventory_jazz ActionName]] "Показать трофеи"),
+										'ActionName', T(433865850668, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Показать трофеи"),
 										'ActionToolbar', "ActionBarCenter",
 										'ActionShortcut', "L",
 										'ActionState', function (self, host)
@@ -84867,7 +84870,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "TakeLoot",
-										'ActionName', T(816169052092, --[[ModItemXTemplate Inventory_jazz ActionName]] "Забрать трофеи"),
+										'ActionName', T(816169052092, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Забрать трофеи"),
 										'ActionToolbar', "ActionBarCenter",
 										'ActionShortcut', "T",
 										'ActionGamepad', "LeftTrigger-ButtonY",
@@ -85719,7 +85722,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "NextUnit",
-					'ActionName', T(865764281952, --[[ModItemXTemplate Inventory_vanilla ActionName]] "Следующий боец"),
+					'ActionName', T(865764281952, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Следующий боец"),
 					'ActionShortcut', "Tab",
 					'ActionGamepad', "RightShoulder",
 					'ActionBindable', true,
@@ -85753,7 +85756,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "PrevUnit",
-					'ActionName', T(369600990531, --[[ModItemXTemplate Inventory_vanilla ActionName]] "Предыдущий боец"),
+					'ActionName', T(369600990531, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Предыдущий боец"),
 					'ActionGamepad', "LeftShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -85783,7 +85786,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "NextSquad",
-					'ActionName', T(722525538826, --[[ModItemXTemplate Inventory_vanilla ActionName]] "Следующий отряд"),
+					'ActionName', T(722525538826, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Следующий отряд"),
 					'ActionGamepad', "LeftTrigger-RightShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -85805,7 +85808,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "PrevSquad",
-					'ActionName', T(230111363759, --[[ModItemXTemplate Inventory_vanilla ActionName]] "Предыдущий отряд"),
+					'ActionName', T(230111363759, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Предыдущий отряд"),
 					'ActionGamepad', "LeftTrigger-LeftShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -85827,7 +85830,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CurrentWeapon1",
-					'ActionName', T(179970994159, --[[ModItemXTemplate Inventory_vanilla ActionName]] "Активное оружие I"),
+					'ActionName', T(179970994159, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Активное оружие I"),
 					'ActionShortcut', "Z",
 					'ActionButtonTemplate', "InventoryActionBarButton",
 					'ActionState', function (self, host)
@@ -85848,7 +85851,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CurrentWeapon2",
-					'ActionName', T(556429667616, --[[ModItemXTemplate Inventory_vanilla ActionName]] "Активное оружие II"),
+					'ActionName', T(556429667616, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Активное оружие II"),
 					'ActionShortcut', "X",
 					'ActionButtonTemplate', "InventoryActionBarButton",
 					'ActionState', function (self, host)
@@ -85869,7 +85872,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Primary",
-					'ActionName', T(911301197772, --[[ModItemXTemplate Inventory_vanilla ActionName]] "Комплект I"),
+					'ActionName', T(911301197772, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Комплект I"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Z",
 					'ActionShortcut2', "Shift-Z",
@@ -85893,7 +85896,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Secondary",
-					'ActionName', T(162137665594, --[[ModItemXTemplate Inventory_vanilla ActionName]] "Комплект II"),
+					'ActionName', T(162137665594, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Комплект II"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "X",
 					'ActionShortcut2', "Shift-X",
@@ -85917,7 +85920,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Actions",
-					'ActionName', T(682111041231, --[[ModItemXTemplate Inventory_vanilla ActionName]] "Меню предмета"),
+					'ActionName', T(682111041231, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Меню предмета"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "right_click",
 					'ActionGamepad', "ButtonX",
@@ -85932,7 +85935,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Multiselect",
-					'ActionName', T(624125561075, --[[ModItemXTemplate Inventory_vanilla ActionName]] "Мультивыбор"),
+					'ActionName', T(624125561075, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Мультивыбор"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Ctrl",
 					'ActionGamepad', "LeftTrigger-ButtonA",
@@ -85947,7 +85950,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CompareItems",
-					'ActionName', T(391748044376, --[[ModItemXTemplate Inventory_vanilla ActionName]] "Сравнить"),
+					'ActionName', T(391748044376, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Сравнить"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Shift",
 					'ActionGamepad', "RightTrigger-ButtonY",
@@ -85990,7 +85993,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CloseInventory",
-					'ActionName', T(685453250020, --[[ModItemXTemplate Inventory_vanilla ActionName]] "Закрыть"),
+					'ActionName', T(685453250020, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Закрыть"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionGamepad', "ButtonB",
 					'ActionButtonTemplate', "InventoryActionBarButton",
@@ -86298,7 +86301,7 @@ return {
 										PlaceObj('XTemplateWindow', {
 											'__class', "XToggleButton",
 											'RolloverTemplate', "ChangeActiveWeaponAPRollover",
-											'RolloverTitle', T(453066495894, --[[ModItemXTemplate Inventory_vanilla RolloverTitle]] "ОД"),
+											'RolloverTitle', T(453066495894, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "ОД"),
 											'Id', "idWeapons1",
 											'Margins', box(0, 5, 39, 0),
 											'HAlign', "right",
@@ -86364,7 +86367,7 @@ return {
 										PlaceObj('XTemplateWindow', {
 											'__class', "XToggleButton",
 											'RolloverTemplate', "ChangeActiveWeaponAPRollover",
-											'RolloverTitle', T(297699282859, --[[ModItemXTemplate Inventory_vanilla RolloverTitle]] "ОД"),
+											'RolloverTitle', T(297699282859, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "ОД"),
 											'Id', "idWeapons2",
 											'Margins', box(0, 5, 39, 0),
 											'HAlign', "right",
@@ -86409,7 +86412,7 @@ return {
 								'Visible', false,
 								'TextStyle', "PDABrowserTextLight",
 								'Translate', true,
-								'Text', T(971967791890, --[[ModItemXTemplate Inventory_vanilla Text]] "Недостаточно ОД "),
+								'Text', T(971967791890, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Недостаточно ОД "),
 								'TextHAlign', "center",
 							}),
 							}),
@@ -86427,7 +86430,7 @@ return {
 							'Padding', box(0, 0, 0, 0),
 							'TextStyle', "InventoryContainerTitle",
 							'Translate', true,
-							'Text', T(963730227126, --[[ModItemXTemplate Inventory_vanilla Text]] "Обыскать"),
+							'Text', T(963730227126, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Обыскать"),
 							'TextHAlign', "center",
 							'TextVAlign', "center",
 						}),
@@ -86519,7 +86522,7 @@ return {
 											'MaxHeight', 60,
 											'TextStyle', "InventoryWarning",
 											'Translate', true,
-											'Text', T(714604792936, --[[ModItemXTemplate Inventory_vanilla Text]] "Выбранный отряд находится в другом секторе"),
+											'Text', T(714604792936, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Выбранный отряд находится в другом секторе"),
 											'TextHAlign', "center",
 											'TextVAlign', "center",
 										}),
@@ -86589,7 +86592,7 @@ return {
 															'FoldWhenHidden', true,
 															'TextStyle', "InventoryBackpackTitle",
 															'Translate', true,
-															'Text', T(678176575768, --[[ModItemXTemplate Inventory_vanilla Text]] "МЕШОК"),
+															'Text', T(678176575768, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "МЕШОК"),
 															'HideOnEmpty', true,
 															'TextVAlign', "center",
 														}),
@@ -86823,7 +86826,7 @@ return {
 												'FoldWhenHidden', true,
 												'TextStyle', "InventoryActionsTextRedBig",
 												'Translate', true,
-												'Text', T(967012672827, --[[ModItemXTemplate Inventory_vanilla Text]] "Инвентарь заполнен"),
+												'Text', T(967012672827, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Инвентарь заполнен"),
 												'HideOnEmpty', true,
 											}),
 											PlaceObj('XTemplateTemplate', {
@@ -86903,7 +86906,7 @@ return {
 										}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "AmmoPack",
-										'ActionName', T(404805301174, --[[ModItemXTemplate Inventory_vanilla ActionName]] "ИМУЩЕСТВО ОТРЯДА"),
+										'ActionName', T(404805301174, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "ИМУЩЕСТВО ОТРЯДА"),
 										'ActionShortcut', "A",
 										'ActionState', function (self, host)
 											local context = host:GetContext()
@@ -86921,7 +86924,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "TakeAll",
-										'ActionName', T(308727225690, --[[ModItemXTemplate Inventory_vanilla ActionName]] "ВЗЯТЬ ВСЁ"),
+										'ActionName', T(308727225690, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "ВЗЯТЬ ВСЁ"),
 										'ActionShortcut', "T",
 										'ActionGamepad', "LeftTrigger-ButtonY",
 										'ActionState', function (self, host)
@@ -86933,7 +86936,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "SelectAll",
-										'ActionName', T(724254397142, --[[ModItemXTemplate Inventory_vanilla ActionName]] "ВЫБРАТЬ ВСЕ"),
+										'ActionName', T(724254397142, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "ВЫБРАТЬ ВСЕ"),
 										'ActionShortcut', "S",
 										'ActionGamepad', "LeftTrigger-ButtonX",
 										'ActionState', function (self, host)
@@ -87007,7 +87010,7 @@ return {
 														'Padding', box(6, 2, 2, 2),
 														'TextStyle', "InventoryBackpackTitle",
 														'Translate', true,
-														'Text', T(221904344919, --[[ModItemXTemplate Inventory_vanilla Text]] "МЕШОК"),
+														'Text', T(221904344919, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "МЕШОК"),
 														'TextVAlign', "center",
 													}),
 													}),
@@ -87102,7 +87105,7 @@ return {
 												'FoldWhenHidden', true,
 												'TextStyle', "InventoryActionsTextRedBig",
 												'Translate', true,
-												'Text', T(404179068868, --[[ModItemXTemplate Inventory_vanilla Text]] "Инвентарь заполнен"),
+												'Text', T(404179068868, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Инвентарь заполнен"),
 												'HideOnEmpty', true,
 											}),
 											PlaceObj('XTemplateTemplate', {
@@ -87129,7 +87132,7 @@ return {
 										}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "Loot",
-										'ActionName', T(121631884276, --[[ModItemXTemplate Inventory_vanilla ActionName]] "Показать трофеи"),
+										'ActionName', T(121631884276, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Показать трофеи"),
 										'ActionToolbar', "ActionBarCenter",
 										'ActionShortcut', "L",
 										'ActionState', function (self, host)
@@ -87150,7 +87153,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "TakeLoot",
-										'ActionName', T(695991301531, --[[ModItemXTemplate Inventory_vanilla ActionName]] "Забрать трофеи"),
+										'ActionName', T(695991301531, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Забрать трофеи"),
 										'ActionToolbar', "ActionBarCenter",
 										'ActionShortcut', "T",
 										'ActionGamepad', "LeftTrigger-ButtonY",
@@ -87178,7 +87181,7 @@ return {
 							'HAlign', "center",
 							'TextStyle', "InventoryContainerTitle",
 							'Translate', true,
-							'Text', T(368019382724, --[[ModItemXTemplate Inventory_vanilla Text]] "Рюкзаки отряда"),
+							'Text', T(368019382724, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Рюкзаки отряда"),
 						}),
 						PlaceObj('XTemplateWindow', {
 							'comment', "right",
@@ -87242,7 +87245,7 @@ return {
 												'HandleMouse', false,
 												'TextStyle', "InventoryBackpackTitle",
 												'Translate', true,
-												'Text', T(134733428032, --[[ModItemXTemplate Inventory_vanilla Text]] "РЮКЗАК - <Nick>"),
+												'Text', T(134733428032, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "РЮКЗАК - <Nick>"),
 												'TextVAlign', "center",
 											}, {
 												PlaceObj('XTemplateFunc', {
@@ -87306,7 +87309,7 @@ return {
 												'HandleMouse', false,
 												'TextStyle', "InventoryBackpackTitle",
 												'Translate', true,
-												'Text', T(102100347129, --[[ModItemXTemplate Inventory_vanilla Text]] "Имущество отряда"),
+												'Text', T(102100347129, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Имущество отряда"),
 												'TextVAlign', "center",
 											}, {
 												PlaceObj('XTemplateFunc', {
@@ -88205,7 +88208,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "NextUnit",
-					'ActionName', T(949970128832, --[[ModItemXTemplate Inventory ActionName]] "Следующий боец"),
+					'ActionName', T(949970128832, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Следующий боец"),
 					'ActionShortcut', "Tab",
 					'ActionGamepad', "RightShoulder",
 					'ActionBindable', true,
@@ -88239,7 +88242,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "PrevUnit",
-					'ActionName', T(209289987305, --[[ModItemXTemplate Inventory ActionName]] "Предыдущий боец"),
+					'ActionName', T(209289987305, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Предыдущий боец"),
 					'ActionGamepad', "LeftShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -88269,7 +88272,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "NextSquad",
-					'ActionName', T(464029690997, --[[ModItemXTemplate Inventory ActionName]] "Следующий отряд"),
+					'ActionName', T(464029690997, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Следующий отряд"),
 					'ActionGamepad', "LeftTrigger-RightShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -88291,7 +88294,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "PrevSquad",
-					'ActionName', T(849730730220, --[[ModItemXTemplate Inventory ActionName]] "Предыдущий отряд"),
+					'ActionName', T(849730730220, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Предыдущий отряд"),
 					'ActionGamepad', "LeftTrigger-LeftShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -88313,7 +88316,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CurrentWeapon1",
-					'ActionName', T(451260237052, --[[ModItemXTemplate Inventory ActionName]] "Активное оружие I"),
+					'ActionName', T(451260237052, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Активное оружие I"),
 					'ActionShortcut', "Z",
 					'ActionButtonTemplate', "InventoryActionBarButton",
 					'ActionState', function (self, host)
@@ -88334,7 +88337,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CurrentWeapon2",
-					'ActionName', T(139050187635, --[[ModItemXTemplate Inventory ActionName]] "Активное оружие II"),
+					'ActionName', T(139050187635, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Активное оружие II"),
 					'ActionShortcut', "X",
 					'ActionButtonTemplate', "InventoryActionBarButton",
 					'ActionState', function (self, host)
@@ -88355,7 +88358,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Primary",
-					'ActionName', T(221259696539, --[[ModItemXTemplate Inventory ActionName]] "Комплект I"),
+					'ActionName', T(221259696539, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Комплект I"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Z",
 					'ActionShortcut2', "Shift-Z",
@@ -88379,7 +88382,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Secondary",
-					'ActionName', T(332523149938, --[[ModItemXTemplate Inventory ActionName]] "Комплект II"),
+					'ActionName', T(332523149938, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Комплект II"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "X",
 					'ActionShortcut2', "Shift-X",
@@ -88403,7 +88406,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Actions",
-					'ActionName', T(717792492405, --[[ModItemXTemplate Inventory ActionName]] "Меню предмета"),
+					'ActionName', T(717792492405, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Меню предмета"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "right_click",
 					'ActionGamepad', "ButtonX",
@@ -88418,7 +88421,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Multiselect",
-					'ActionName', T(517027826385, --[[ModItemXTemplate Inventory ActionName]] "Мультивыбор"),
+					'ActionName', T(517027826385, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Мультивыбор"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Ctrl",
 					'ActionGamepad', "LeftTrigger-ButtonA",
@@ -88433,7 +88436,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CompareItems",
-					'ActionName', T(747154387883, --[[ModItemXTemplate Inventory ActionName]] "Сравнить"),
+					'ActionName', T(747154387883, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Сравнить"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Shift",
 					'ActionGamepad', "RightTrigger-ButtonY",
@@ -88476,7 +88479,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CloseInventory",
-					'ActionName', T(958290929962, --[[ModItemXTemplate Inventory ActionName]] "Закрыть"),
+					'ActionName', T(958290929962, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Закрыть"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionGamepad', "ButtonB",
 					'ActionButtonTemplate', "InventoryActionBarButton",
@@ -88625,7 +88628,7 @@ return {
 												'__condition', function (parent, context) return true end,
 												'__class', "XToggleButton",
 												'RolloverTemplate', "ChangeActiveWeaponAPRollover",
-												'RolloverTitle', T(768635415350, --[[ModItemXTemplate Inventory RolloverTitle]] "ОД"),
+												'RolloverTitle', T(768635415350, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "ОД"),
 												'Id', "idWeapons1",
 												'Margins', box(5, 0, 0, 0),
 												'HAlign', "left",
@@ -88695,7 +88698,7 @@ return {
 											PlaceObj('XTemplateWindow', {
 												'__class', "XToggleButton",
 												'RolloverTemplate', "ChangeActiveWeaponAPRollover",
-												'RolloverTitle', T(466716414310, --[[ModItemXTemplate Inventory RolloverTitle]] "ОД"),
+												'RolloverTitle', T(466716414310, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "ОД"),
 												'Id', "idWeapons2",
 												'Margins', box(5, 0, 0, 0),
 												'HAlign', "left",
@@ -88953,7 +88956,7 @@ return {
 								'Visible', false,
 								'TextStyle', "PDABrowserTextLight",
 								'Translate', true,
-								'Text', T(478240676850, --[[ModItemXTemplate Inventory Text]] "Недостаточно ОД "),
+								'Text', T(478240676850, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Недостаточно ОД "),
 								'TextHAlign', "center",
 							}),
 							}),
@@ -89100,7 +89103,7 @@ return {
 									'HandleMouse', false,
 									'TextStyle', "InventoryBackpackTitle",
 									'Translate', true,
-									'Text', T(527917492172, --[[ModItemXTemplate Inventory Text]] "Разгрузка"),
+									'Text', T(527917492172, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Разгрузка"),
 									'TextVAlign', "center",
 								}, {
 									PlaceObj('XTemplateFunc', {
@@ -89182,7 +89185,7 @@ return {
 										'HandleMouse', false,
 										'TextStyle', "InventoryBackpackTitle",
 										'Translate', true,
-										'Text', T(941078239129, --[[ModItemXTemplate Inventory Text]] "Пояс"),
+										'Text', T(941078239129, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Пояс"),
 										'TextVAlign', "center",
 									}, {
 										PlaceObj('XTemplateFunc', {
@@ -89429,7 +89432,7 @@ return {
 										'HandleMouse', false,
 										'TextStyle', "InventoryBackpackTitle",
 										'Translate', true,
-										'Text', T(355556655572, --[[ModItemXTemplate Inventory Text]] "РЮКЗАК"),
+										'Text', T(355556655572, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "РЮКЗАК"),
 										'TextVAlign', "center",
 									}, {
 										PlaceObj('XTemplateFunc', {
@@ -89514,7 +89517,7 @@ return {
 								'ScaleModifier', point(500, 500),
 								'TextStyle', "InventoryContainerTitle",
 								'Translate', true,
-								'Text', T(155790195023, --[[ModItemXTemplate Inventory Text]] "Рюкзаки отряда"),
+								'Text', T(155790195023, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Рюкзаки отряда"),
 							}),
 							PlaceObj('XTemplateWindow', {
 								'__class', "XImage",
@@ -89569,7 +89572,7 @@ return {
 												'HandleMouse', false,
 												'TextStyle', "InventoryBackpackTitle",
 												'Translate', true,
-												'Text', T(913004608921, --[[ModItemXTemplate Inventory Text]] "РЮКЗАК - <Nick>"),
+												'Text', T(913004608921, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "РЮКЗАК - <Nick>"),
 												'TextVAlign', "center",
 											}, {
 												PlaceObj('XTemplateFunc', {
@@ -89635,7 +89638,7 @@ return {
 												'HandleMouse', false,
 												'TextStyle', "InventoryBackpackTitle",
 												'Translate', true,
-												'Text', T(640630058269, --[[ModItemXTemplate Inventory Text]] "Имущество отряда"),
+												'Text', T(640630058269, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Имущество отряда"),
 												'TextVAlign', "center",
 											}, {
 												PlaceObj('XTemplateFunc', {
@@ -89710,7 +89713,7 @@ return {
 							'Padding', box(0, 0, 0, 0),
 							'TextStyle', "InventoryContainerTitle",
 							'Translate', true,
-							'Text', T(177007106881, --[[ModItemXTemplate Inventory Text]] "Обыскать"),
+							'Text', T(177007106881, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Обыскать"),
 							'TextHAlign', "center",
 							'TextVAlign', "center",
 						}),
@@ -89825,7 +89828,7 @@ return {
 											'MaxHeight', 60,
 											'TextStyle', "InventoryWarning",
 											'Translate', true,
-											'Text', T(414699096395, --[[ModItemXTemplate Inventory Text]] "Выбранный отряд находится в другом секторе"),
+											'Text', T(414699096395, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Выбранный отряд находится в другом секторе"),
 											'TextHAlign', "center",
 											'TextVAlign', "center",
 										}),
@@ -89895,7 +89898,7 @@ return {
 															'FoldWhenHidden', true,
 															'TextStyle', "InventoryBackpackTitle",
 															'Translate', true,
-															'Text', T(591752923759, --[[ModItemXTemplate Inventory Text]] "МЕШОК"),
+															'Text', T(591752923759, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "МЕШОК"),
 															'HideOnEmpty', true,
 															'TextVAlign', "center",
 														}),
@@ -90133,7 +90136,7 @@ return {
 												'FoldWhenHidden', true,
 												'TextStyle', "InventoryActionsTextRedBig",
 												'Translate', true,
-												'Text', T(151605790645, --[[ModItemXTemplate Inventory Text]] "Инвентарь заполнен"),
+												'Text', T(151605790645, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Инвентарь заполнен"),
 												'HideOnEmpty', true,
 											}),
 											PlaceObj('XTemplateTemplate', {
@@ -90255,7 +90258,7 @@ return {
 										}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "TakeAll",
-										'ActionName', T(247319674992, --[[ModItemXTemplate Inventory ActionName]] "ВЗЯТЬ ВСЁ"),
+										'ActionName', T(247319674992, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "ВЗЯТЬ ВСЁ"),
 										'ActionShortcut', "T",
 										'ActionGamepad', "LeftTrigger-ButtonY",
 										'ActionState', function (self, host)
@@ -90267,7 +90270,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "SelectAll",
-										'ActionName', T(881143667416, --[[ModItemXTemplate Inventory ActionName]] "ВЫБРАТЬ ВСЕ"),
+										'ActionName', T(881143667416, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "ВЫБРАТЬ ВСЕ"),
 										'ActionShortcut', "A",
 										'ActionGamepad', "LeftTrigger-ButtonX",
 										'ActionState', function (self, host)
@@ -90304,7 +90307,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "Sort",
-										'ActionName', T(649843836390, --[[ModItemXTemplate Inventory ActionName]] "Сортировка"),
+										'ActionName', T(649843836390, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Сортировка"),
 										'ActionShortcut', "S",
 										'ActionGamepad', "LeftTrigger-ButtonX",
 										'ActionState', function (self, host)
@@ -90379,7 +90382,7 @@ return {
 														'Padding', box(6, 2, 2, 2),
 														'TextStyle', "InventoryBackpackTitle",
 														'Translate', true,
-														'Text', T(502804742595, --[[ModItemXTemplate Inventory Text]] "МЕШОК"),
+														'Text', T(502804742595, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "МЕШОК"),
 														'TextVAlign', "center",
 													}),
 													}),
@@ -90475,7 +90478,7 @@ return {
 												'FoldWhenHidden', true,
 												'TextStyle', "InventoryActionsTextRedBig",
 												'Translate', true,
-												'Text', T(142138054817, --[[ModItemXTemplate Inventory Text]] "Инвентарь заполнен"),
+												'Text', T(142138054817, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Инвентарь заполнен"),
 												'HideOnEmpty', true,
 											}),
 											PlaceObj('XTemplateTemplate', {
@@ -90502,7 +90505,7 @@ return {
 										}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "Loot",
-										'ActionName', T(787275330939, --[[ModItemXTemplate Inventory ActionName]] "Показать трофеи"),
+										'ActionName', T(787275330939, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Показать трофеи"),
 										'ActionToolbar', "ActionBarCenter",
 										'ActionShortcut', "L",
 										'ActionState', function (self, host)
@@ -90523,7 +90526,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "TakeLoot",
-										'ActionName', T(748373316660, --[[ModItemXTemplate Inventory ActionName]] "Забрать трофеи"),
+										'ActionName', T(748373316660, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Забрать трофеи"),
 										'ActionToolbar', "ActionBarCenter",
 										'ActionShortcut', "T",
 										'ActionGamepad', "LeftTrigger-ButtonY",
@@ -91375,7 +91378,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "NextUnit",
-					'ActionName', T(197398376473, --[[ModItemXTemplate Inventory_dev2 ActionName]] "Следующий боец"),
+					'ActionName', T(197398376473, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Следующий боец"),
 					'ActionShortcut', "Tab",
 					'ActionGamepad', "RightShoulder",
 					'ActionBindable', true,
@@ -91409,7 +91412,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "PrevUnit",
-					'ActionName', T(397662298505, --[[ModItemXTemplate Inventory_dev2 ActionName]] "Предыдущий боец"),
+					'ActionName', T(397662298505, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Предыдущий боец"),
 					'ActionGamepad', "LeftShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -91439,7 +91442,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "NextSquad",
-					'ActionName', T(363439280256, --[[ModItemXTemplate Inventory_dev2 ActionName]] "Следующий отряд"),
+					'ActionName', T(363439280256, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Следующий отряд"),
 					'ActionGamepad', "LeftTrigger-RightShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -91461,7 +91464,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "PrevSquad",
-					'ActionName', T(973796258100, --[[ModItemXTemplate Inventory_dev2 ActionName]] "Предыдущий отряд"),
+					'ActionName', T(973796258100, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Предыдущий отряд"),
 					'ActionGamepad', "LeftTrigger-LeftShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -91483,7 +91486,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CurrentWeapon1",
-					'ActionName', T(984933709029, --[[ModItemXTemplate Inventory_dev2 ActionName]] "Активное оружие I"),
+					'ActionName', T(984933709029, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Активное оружие I"),
 					'ActionShortcut', "Z",
 					'ActionButtonTemplate', "InventoryActionBarButton",
 					'ActionState', function (self, host)
@@ -91504,7 +91507,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CurrentWeapon2",
-					'ActionName', T(678095938457, --[[ModItemXTemplate Inventory_dev2 ActionName]] "Активное оружие II"),
+					'ActionName', T(678095938457, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Активное оружие II"),
 					'ActionShortcut', "X",
 					'ActionButtonTemplate', "InventoryActionBarButton",
 					'ActionState', function (self, host)
@@ -91525,7 +91528,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Primary",
-					'ActionName', T(789310960782, --[[ModItemXTemplate Inventory_dev2 ActionName]] "Комплект I"),
+					'ActionName', T(789310960782, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Комплект I"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Z",
 					'ActionShortcut2', "Shift-Z",
@@ -91549,7 +91552,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Secondary",
-					'ActionName', T(427339353021, --[[ModItemXTemplate Inventory_dev2 ActionName]] "Комплект II"),
+					'ActionName', T(427339353021, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Комплект II"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "X",
 					'ActionShortcut2', "Shift-X",
@@ -91573,7 +91576,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Actions",
-					'ActionName', T(352131150886, --[[ModItemXTemplate Inventory_dev2 ActionName]] "Меню предмета"),
+					'ActionName', T(352131150886, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Меню предмета"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "right_click",
 					'ActionGamepad', "ButtonX",
@@ -91588,7 +91591,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Multiselect",
-					'ActionName', T(646158250293, --[[ModItemXTemplate Inventory_dev2 ActionName]] "Мультивыбор"),
+					'ActionName', T(646158250293, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Мультивыбор"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Ctrl",
 					'ActionGamepad', "LeftTrigger-ButtonA",
@@ -91603,7 +91606,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CompareItems",
-					'ActionName', T(585430510273, --[[ModItemXTemplate Inventory_dev2 ActionName]] "Сравнить"),
+					'ActionName', T(585430510273, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Сравнить"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Shift",
 					'ActionGamepad', "RightTrigger-ButtonY",
@@ -91646,7 +91649,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CloseInventory",
-					'ActionName', T(246905362571, --[[ModItemXTemplate Inventory_dev2 ActionName]] "Закрыть"),
+					'ActionName', T(246905362571, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Закрыть"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionGamepad', "ButtonB",
 					'ActionButtonTemplate', "InventoryActionBarButton",
@@ -91762,7 +91765,7 @@ return {
 										'HandleMouse', false,
 										'TextStyle', "InventoryBackpackTitle",
 										'Translate', true,
-										'Text', T(852932508226, --[[ModItemXTemplate Inventory_dev2 Text]] "Снаряжение - <Nick>"),
+										'Text', T(852932508226, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Снаряжение - <Nick>"),
 										'TextVAlign', "center",
 									}, {
 										PlaceObj('XTemplateFunc', {
@@ -91940,7 +91943,7 @@ return {
 													PlaceObj('XTemplateWindow', {
 														'__class', "XToggleButton",
 														'RolloverTemplate', "ChangeActiveWeaponAPRollover",
-														'RolloverTitle', T(396249040457, --[[ModItemXTemplate Inventory_dev2 RolloverTitle]] "ОД"),
+														'RolloverTitle', T(396249040457, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "ОД"),
 														'Id', "idWeapons1",
 														'Margins', box(5, 0, 0, 0),
 														'HAlign', "left",
@@ -92009,7 +92012,7 @@ return {
 													PlaceObj('XTemplateWindow', {
 														'__class', "XToggleButton",
 														'RolloverTemplate', "ChangeActiveWeaponAPRollover",
-														'RolloverTitle', T(637476007613, --[[ModItemXTemplate Inventory_dev2 RolloverTitle]] "ОД"),
+														'RolloverTitle', T(637476007613, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "ОД"),
 														'Id', "idWeapons2",
 														'Margins', box(5, 0, 0, 0),
 														'HAlign', "left",
@@ -92512,7 +92515,7 @@ return {
 								'HAlign', "left",
 								'TextStyle', "InventoryContainerTitle",
 								'Translate', true,
-								'Text', T(850200576474, --[[ModItemXTemplate Inventory_dev2 Text]] "Рюкзаки отряда"),
+								'Text', T(850200576474, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Рюкзаки отряда"),
 							}),
 							PlaceObj('XTemplateWindow', {
 								'comment', "right",
@@ -92539,7 +92542,7 @@ return {
 									'Visible', false,
 									'TextStyle', "PDABrowserTextLight",
 									'Translate', true,
-									'Text', T(914665506642, --[[ModItemXTemplate Inventory_dev2 Text]] "Недостаточно ОД "),
+									'Text', T(914665506642, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Недостаточно ОД "),
 									'TextHAlign', "center",
 								}),
 								PlaceObj('XTemplateWindow', {
@@ -92626,7 +92629,7 @@ return {
 													'HandleMouse', false,
 													'TextStyle', "InventoryBackpackTitle",
 													'Translate', true,
-													'Text', T(867306961363, --[[ModItemXTemplate Inventory_dev2 Text]] "Снаряжение - <Nick>"),
+													'Text', T(867306961363, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Снаряжение - <Nick>"),
 													'TextVAlign', "center",
 												}, {
 													PlaceObj('XTemplateFunc', {
@@ -92807,7 +92810,7 @@ return {
 																	'__condition', function (parent, context) return true end,
 																	'__class', "XToggleButton",
 																	'RolloverTemplate', "ChangeActiveWeaponAPRollover",
-																	'RolloverTitle', T(803292038563, --[[ModItemXTemplate Inventory_dev2 RolloverTitle]] "ОД"),
+																	'RolloverTitle', T(803292038563, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "ОД"),
 																	'Id', "idWeapons1",
 																	'Margins', box(5, 0, 0, 0),
 																	'HAlign', "left",
@@ -92877,7 +92880,7 @@ return {
 																PlaceObj('XTemplateWindow', {
 																	'__class', "XToggleButton",
 																	'RolloverTemplate', "ChangeActiveWeaponAPRollover",
-																	'RolloverTitle', T(538715768276, --[[ModItemXTemplate Inventory_dev2 RolloverTitle]] "ОД"),
+																	'RolloverTitle', T(538715768276, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "ОД"),
 																	'Id', "idWeapons2",
 																	'Margins', box(5, 0, 0, 0),
 																	'HAlign', "left",
@@ -93386,7 +93389,7 @@ return {
 													'HandleMouse', false,
 													'TextStyle', "InventoryBackpackTitle",
 													'Translate', true,
-													'Text', T(781210276275, --[[ModItemXTemplate Inventory_dev2 Text]] "Имущество отряда"),
+													'Text', T(781210276275, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Имущество отряда"),
 													'TextVAlign', "center",
 												}, {
 													PlaceObj('XTemplateFunc', {
@@ -93443,7 +93446,7 @@ return {
 							'Padding', box(0, 0, 0, 0),
 							'TextStyle', "InventoryContainerTitle",
 							'Translate', true,
-							'Text', T(100773939801, --[[ModItemXTemplate Inventory_dev2 Text]] "Обыскать"),
+							'Text', T(100773939801, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Обыскать"),
 							'TextHAlign', "center",
 							'TextVAlign', "center",
 						}),
@@ -93539,7 +93542,7 @@ return {
 											'MaxHeight', 60,
 											'TextStyle', "InventoryWarning",
 											'Translate', true,
-											'Text', T(262874118643, --[[ModItemXTemplate Inventory_dev2 Text]] "Выбранный отряд находится в другом секторе"),
+											'Text', T(262874118643, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Выбранный отряд находится в другом секторе"),
 											'TextHAlign', "center",
 											'TextVAlign', "center",
 										}),
@@ -93609,7 +93612,7 @@ return {
 															'FoldWhenHidden', true,
 															'TextStyle', "InventoryBackpackTitle",
 															'Translate', true,
-															'Text', T(714332352023, --[[ModItemXTemplate Inventory_dev2 Text]] "МЕШОК"),
+															'Text', T(714332352023, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "МЕШОК"),
 															'HideOnEmpty', true,
 															'TextVAlign', "center",
 														}),
@@ -93847,7 +93850,7 @@ return {
 												'FoldWhenHidden', true,
 												'TextStyle', "InventoryActionsTextRedBig",
 												'Translate', true,
-												'Text', T(449582226358, --[[ModItemXTemplate Inventory_dev2 Text]] "Инвентарь заполнен"),
+												'Text', T(449582226358, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Инвентарь заполнен"),
 												'HideOnEmpty', true,
 											}),
 											PlaceObj('XTemplateTemplate', {
@@ -93969,7 +93972,7 @@ return {
 										}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "TakeAll",
-										'ActionName', T(434587750396, --[[ModItemXTemplate Inventory_dev2 ActionName]] "ВЗЯТЬ ВСЁ"),
+										'ActionName', T(434587750396, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "ВЗЯТЬ ВСЁ"),
 										'ActionShortcut', "T",
 										'ActionGamepad', "LeftTrigger-ButtonY",
 										'ActionState', function (self, host)
@@ -93981,7 +93984,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "SelectAll",
-										'ActionName', T(675759588510, --[[ModItemXTemplate Inventory_dev2 ActionName]] "ВЫБРАТЬ ВСЕ"),
+										'ActionName', T(675759588510, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "ВЫБРАТЬ ВСЕ"),
 										'ActionShortcut', "A",
 										'ActionGamepad', "LeftTrigger-ButtonX",
 										'ActionState', function (self, host)
@@ -94018,7 +94021,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "Sort",
-										'ActionName', T(743701290510, --[[ModItemXTemplate Inventory_dev2 ActionName]] "Сортировка"),
+										'ActionName', T(743701290510, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Сортировка"),
 										'ActionShortcut', "S",
 										'ActionGamepad', "LeftTrigger-ButtonX",
 										'ActionState', function (self, host)
@@ -94087,7 +94090,7 @@ return {
 														'Padding', box(6, 2, 2, 2),
 														'TextStyle', "InventoryBackpackTitle",
 														'Translate', true,
-														'Text', T(233388371084, --[[ModItemXTemplate Inventory_dev2 Text]] "МЕШОК"),
+														'Text', T(233388371084, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "МЕШОК"),
 														'TextVAlign', "center",
 													}),
 													}),
@@ -94183,7 +94186,7 @@ return {
 												'FoldWhenHidden', true,
 												'TextStyle', "InventoryActionsTextRedBig",
 												'Translate', true,
-												'Text', T(364694550872, --[[ModItemXTemplate Inventory_dev2 Text]] "Инвентарь заполнен"),
+												'Text', T(364694550872, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Инвентарь заполнен"),
 												'HideOnEmpty', true,
 											}),
 											PlaceObj('XTemplateTemplate', {
@@ -94210,7 +94213,7 @@ return {
 										}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "Loot",
-										'ActionName', T(424352932462, --[[ModItemXTemplate Inventory_dev2 ActionName]] "Показать трофеи"),
+										'ActionName', T(424352932462, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Показать трофеи"),
 										'ActionToolbar', "ActionBarCenter",
 										'ActionShortcut', "L",
 										'ActionState', function (self, host)
@@ -94231,7 +94234,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "TakeLoot",
-										'ActionName', T(618183796178, --[[ModItemXTemplate Inventory_dev2 ActionName]] "Забрать трофеи"),
+										'ActionName', T(618183796178, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Забрать трофеи"),
 										'ActionToolbar', "ActionBarCenter",
 										'ActionShortcut', "T",
 										'ActionGamepad', "LeftTrigger-ButtonY",
@@ -94330,12 +94333,12 @@ return {
 		PlaceObj('ModItemInventoryItemCompositeDef', {
 			'Id', "Vest_test",
 			'object_class', "Vest",
-			'DisplayName', T(428938093531, --[[ModItemInventoryItemCompositeDef Vest_test DisplayName]] "Vest"),
+			'DisplayName', T(428938093531, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Vest"),
 		}),
 		PlaceObj('ModItemInventoryItemCompositeDef', {
 			'Id', "Backpack_test",
 			'object_class', "Vest",
-			'DisplayName', T(263441472933, --[[ModItemInventoryItemCompositeDef Backpack_test DisplayName]] "Backpack"),
+			'DisplayName', T(263441472933, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Backpack"),
 			'Slot', "Backpack",
 		}),
 		PlaceObj('ModItemCode', {
@@ -94700,7 +94703,7 @@ return {
 								self:SetVisible(GetUIStyleGamepad() and not focused)
 							end,
 							'Translate', true,
-							'Text', T(374914593600, --[[ModItemXTemplate CombatActionBar Text]] "<color EmStyle>Не назначено</color>"),
+							'Text', T(374914593600, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<color EmStyle>Не назначено</color>"),
 						}, {
 							PlaceObj('XTemplateWindow', {
 								'comment', "UICombatBarShown observer",
@@ -94752,7 +94755,7 @@ return {
 								self:SetVisible(GetUIStyleGamepad() and not focused)
 							end,
 							'Translate', true,
-							'Text', T(543874682518, --[[ModItemXTemplate CombatActionBar Text]] "<color EmStyle>Не назначено</color>"),
+							'Text', T(543874682518, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "<color EmStyle>Не назначено</color>"),
 						}, {
 							PlaceObj('XTemplateWindow', {
 								'comment', "UICombatBarShown observer",
@@ -95001,8 +95004,8 @@ return {
 			'object_class', "StatusEffect",
 			'msg_reactions', {},
 			'unit_reactions', {},
-			'DisplayName', T(355508047345, --[[ModItemCharacterEffectCompositeDef Weight_1Class DisplayName]] "Вес брони (1 Класс)"),
-			'Description', T(538937825340, --[[ModItemCharacterEffectCompositeDef Weight_1Class Description]] "ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов"),
+			'DisplayName', T(355508047345, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Вес брони (1 Класс)"),
+			'Description', T(538937825340, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов"),
 			'AddEffectText', "",
 			'OnAdded', function (self, obj)  end,
 			'OnRemoved', function (self, obj)  end,
@@ -95019,8 +95022,8 @@ return {
 			'object_class', "StatusEffect",
 			'msg_reactions', {},
 			'unit_reactions', {},
-			'DisplayName', T(118150789498, --[[ModItemCharacterEffectCompositeDef Weight_2Class DisplayName]] "Вес брони (2 Класс)"),
-			'Description', T(997296420646, --[[ModItemCharacterEffectCompositeDef Weight_2Class Description]] "ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов"),
+			'DisplayName', T(118150789498, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Вес брони (2 Класс)"),
+			'Description', T(997296420646, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов"),
 			'AddEffectText', "",
 			'OnRemoved', function (self, obj)  end,
 			'type', "Debuff",
@@ -95036,8 +95039,8 @@ return {
 			'object_class', "StatusEffect",
 			'msg_reactions', {},
 			'unit_reactions', {},
-			'DisplayName', T(696428661966, --[[ModItemCharacterEffectCompositeDef Weight_3Class DisplayName]] "Вес брони (3 Класс)"),
-			'Description', T(806830590860, --[[ModItemCharacterEffectCompositeDef Weight_3Class Description]] "ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов"),
+			'DisplayName', T(696428661966, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Вес брони (3 Класс)"),
+			'Description', T(806830590860, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов"),
 			'AddEffectText', "",
 			'OnRemoved', function (self, obj)  end,
 			'type', "Debuff",
@@ -95053,8 +95056,8 @@ return {
 			'object_class', "StatusEffect",
 			'msg_reactions', {},
 			'unit_reactions', {},
-			'DisplayName', T(617262153487, --[[ModItemCharacterEffectCompositeDef Weight_4Class DisplayName]] "Вес брони (4 Класс)"),
-			'Description', T(197266793683, --[[ModItemCharacterEffectCompositeDef Weight_4Class Description]] "ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов"),
+			'DisplayName', T(617262153487, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Вес брони (4 Класс)"),
+			'Description', T(197266793683, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов"),
 			'AddEffectText', "",
 			'OnRemoved', function (self, obj)  end,
 			'type', "Debuff",
@@ -95070,8 +95073,8 @@ return {
 			'object_class', "StatusEffect",
 			'msg_reactions', {},
 			'unit_reactions', {},
-			'DisplayName', T(410074002761, --[[ModItemCharacterEffectCompositeDef Weight_5Class DisplayName]] "Вес брони (5 Класс)"),
-			'Description', T(549247357132, --[[ModItemCharacterEffectCompositeDef Weight_5Class Description]] "ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов"),
+			'DisplayName', T(410074002761, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Вес брони (5 Класс)"),
+			'Description', T(549247357132, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов"),
 			'AddEffectText', "",
 			'OnRemoved', function (self, obj)  end,
 			'type', "Debuff",
@@ -97961,8 +97964,8 @@ return {
 		},
 		SortKey = 90,
 		advanced = true,
-		description = T(420106629203, --[[ModItemGameRuleDef HeavyWounds description]] "Ранения также затрудняют свободное перемещение и снижают точность. Действует на всех персонажей - будь то наемники, союзники или противники."),
-		display_name = T(272512954896, --[[ModItemGameRuleDef HeavyWounds display_name]] "Тяжелые ранения"),
+		description = T(420106629203, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Ранения также затрудняют свободное перемещение и снижают точность. Действует на всех персонажей - будь то наемники, союзники или противники."),
+		display_name = T(272512954896, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Тяжелые ранения"),
 		group = "Default",
 		id = "HeavyWounds",
 		show_in_new_game = false,
@@ -98006,8 +98009,8 @@ return {
 	PlaceObj('ModItemGameRuleDef', {
 		SortKey = 100,
 		advanced = true,
-		description = T(618984980458, --[[ModItemGameRuleDef AlwaysOnline description]] "Наемники всегда в сети и не откажутся от контракта без веских на то причин."),
-		display_name = T(891476726175, --[[ModItemGameRuleDef AlwaysOnline display_name]] "A.I.M. - всегда в сети!"),
+		description = T(618984980458, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Наемники всегда в сети и не откажутся от контракта без веских на то причин."),
+		display_name = T(891476726175, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "A.I.M. - всегда в сети!"),
 		group = "Default",
 		id = "AlwaysOnline",
 		show_in_new_game = false,
@@ -98015,8 +98018,8 @@ return {
 	PlaceObj('ModItemGameRuleDef', {
 		SortKey = 120,
 		advanced = true,
-		description = T(544360650563, --[[ModItemGameRuleDef AllStars description]] "Разблокирует доступ к легендарным наемникам на старте игры (за исключением вышедших в отставку наемников)."),
-		display_name = T(367161753497, --[[ModItemGameRuleDef AllStars display_name]] "Платиновый пакет A.I.M."),
+		description = T(544360650563, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Разблокирует доступ к легендарным наемникам на старте игры (за исключением вышедших в отставку наемников)."),
+		display_name = T(367161753497, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Платиновый пакет A.I.M."),
 		effects = {
 			PlaceObj('ExecuteCode', {
 				FuncCode = 'ChangeAIMPremiumState("active")',
@@ -98085,7 +98088,7 @@ return {
 							'HandleMouse', false,
 							'TextStyle', "UIDlgTitle",
 							'Translate', true,
-							'Text', T(479617843711, --[[ModItemXTemplate SectorOperationsAssignDlgUI_1 Text]] "ДОБАВИТЬ НАЁМНИКА"),
+							'Text', T(479617843711, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "ДОБАВИТЬ НАЁМНИКА"),
 							'TextVAlign', "center",
 						}),
 						}),
@@ -98153,7 +98156,7 @@ return {
 								'Margins', box(16, 8, 16, -8),
 								'FoldWhenHidden', true,
 								'HandleMouse', false,
-								'NameText', T(935310631119, --[[ModItemXTemplate SectorOperationsAssignDlgUI_1 NameText]] "Доступно медикаментов"),
+								'NameText', T(935310631119, --[[ModItemCharacterEffectCompositeDef AutoWeapons NameText]] "Доступно медикаментов"),
 								'TextStyle', "PDAActivitiesAssignDlgResName",
 								'TextStyleRight', "PDAActivitiesAssignDlgResValue",
 							}),
@@ -98326,7 +98329,7 @@ return {
 											'VAlign', "center",
 											'TextStyle', "PDAActivitiesButton",
 											'Translate', true,
-											'Text', T(782878054225, --[[ModItemXTemplate SectorOperationsAssignDlgUI_1 Text]] "Цена:"),
+											'Text', T(782878054225, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Цена:"),
 										}),
 										PlaceObj('XTemplateWindow', {
 											'LayoutMethod', "HWrap",
@@ -98404,7 +98407,7 @@ return {
 					}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "idSelect",
-					'ActionName', T(458040864725, --[[ModItemXTemplate SectorOperationsAssignDlgUI_1 ActionName]] "Подтвердить"),
+					'ActionName', T(458040864725, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Подтвердить"),
 					'ActionToolbar', "ActionBar",
 					'ActionShortcut', "Enter",
 					'ActionGamepad', "ButtonX",
@@ -98454,7 +98457,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "idClose",
-					'ActionName', T(224390500196, --[[ModItemXTemplate SectorOperationsAssignDlgUI_1 ActionName]] "Закрыть"),
+					'ActionName', T(224390500196, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Закрыть"),
 					'ActionToolbar', "ActionBar",
 					'ActionShortcut', "Escape",
 					'ActionGamepad', "ButtonB",
@@ -98620,7 +98623,7 @@ return {
 								PlaceObj('XTemplateAction', {
 									'comment', "train mercs",
 									'ActionId', "ChangeStat",
-									'ActionName', T(978233101335, --[[ModItemXTemplate SectorOperationMainUI_1 ActionName]] "Сменить характеристику"),
+									'ActionName', T(978233101335, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Сменить характеристику"),
 									'ActionToolbar', "ActionBar",
 									'ActionGamepad', "ButtonY",
 									'ActionState', function (self, host)
@@ -98664,7 +98667,7 @@ return {
 								}),
 								PlaceObj('XTemplateAction', {
 									'ActionId', "Start",
-									'ActionName', T(494621670829, --[[ModItemXTemplate SectorOperationMainUI_1 ActionName]] "Начать"),
+									'ActionName', T(494621670829, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Начать"),
 									'ActionToolbar', "ActionBar",
 									'ActionShortcut', "S",
 									'ActionGamepad', "ButtonX",
@@ -98708,7 +98711,7 @@ return {
 								PlaceObj('XTemplateAction', {
 									'comment', "repair items",
 									'ActionId', "PickItem",
-									'ActionName', T(226223786359, --[[ModItemXTemplate SectorOperationMainUI_1 ActionName]] "Выбрать предмет"),
+									'ActionName', T(226223786359, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Выбрать предмет"),
 									'ActionToolbar', "ActionBar",
 									'ActionShortcut', "P",
 									'ActionGamepad', "ButtonY",
@@ -98773,7 +98776,7 @@ return {
 									}),
 								PlaceObj('XTemplateAction', {
 									'ActionId', "PickMechanics",
-									'ActionName', T(644987158236, --[[ModItemXTemplate SectorOperationMainUI_1 ActionName]] "Выбрать механиков"),
+									'ActionName', T(644987158236, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Выбрать механиков"),
 									'ActionToolbar', "ActionBar",
 									'ActionShortcut', "P",
 									'ActionGamepad', "LeftShoulder",
@@ -98803,7 +98806,7 @@ return {
 								}),
 								PlaceObj('XTemplateAction', {
 									'ActionId', "Autofill",
-									'ActionName', T(436816526646, --[[ModItemXTemplate SectorOperationMainUI_1 ActionName]] "Автовыбор"),
+									'ActionName', T(436816526646, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Автовыбор"),
 									'ActionToolbar', "ActionBar",
 									'ActionGamepad', "ButtonY",
 									'ActionState', function (self, host)
@@ -98832,7 +98835,7 @@ return {
 								PlaceObj('XTemplateAction', {
 									'comment', "repair item",
 									'ActionId', "Start",
-									'ActionName', T(952675719083, --[[ModItemXTemplate SectorOperationMainUI_1 ActionName]] "Начать"),
+									'ActionName', T(952675719083, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Начать"),
 									'ActionToolbar', "ActionBar",
 									'ActionShortcut', "S",
 									'ActionGamepad', "ButtonX",
@@ -98883,7 +98886,7 @@ return {
 									}),
 								PlaceObj('XTemplateAction', {
 									'ActionId', "Change",
-									'ActionName', T(392535052044, --[[ModItemXTemplate SectorOperationMainUI_1 ActionName]] "Изменить"),
+									'ActionName', T(392535052044, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Изменить"),
 									'ActionToolbar', "ActionBar",
 									'ActionGamepad', "ButtonX",
 									'OnAction', function (self, host, source, ...)
@@ -98968,7 +98971,7 @@ return {
 								}),
 							PlaceObj('XTemplateAction', {
 								'ActionId', "InterruptActivity",
-								'ActionName', T(681343667463, --[[ModItemXTemplate SectorOperationMainUI_1 ActionName]] "Отменить"),
+								'ActionName', T(681343667463, --[[ModItemCharacterEffectCompositeDef AutoWeapons ActionName]] "Отменить"),
 								'ActionToolbar', "ActionBar",
 								'ActionGamepad', "RightThumbClick",
 								'ActionState', function (self, host)
@@ -99141,7 +99144,7 @@ return {
 											'HandleMouse', false,
 											'TextStyle', "PDAActivitiesSubTitleDark",
 											'Translate', true,
-											'Text', T(286935390389, --[[ModItemXTemplate SectorOperationSelectItemsUI Text]] "Предметы в очереди"),
+											'Text', T(286935390389, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Предметы в очереди"),
 											'HideOnEmpty', true,
 											'TextVAlign', "center",
 										}),
@@ -99437,7 +99440,7 @@ return {
 									'Visible', false,
 									'TextStyle', "PDAActivityAssignDlgDescriptionRed",
 									'Translate', true,
-									'Text', T(640523315068, --[[ModItemXTemplate SectorOperationSelectItemsUI Text]] "Недостаточно запчастей для завершения"),
+									'Text', T(640523315068, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Недостаточно запчастей для завершения"),
 									'TextVAlign', "bottom",
 								}),
 								PlaceObj('XTemplateWindow', {
@@ -99461,7 +99464,7 @@ return {
 											'HandleMouse', false,
 											'TextStyle', "PDAActivitiesSubTitleDark",
 											'Translate', true,
-											'Text', T(201653857225, --[[ModItemXTemplate SectorOperationSelectItemsUI Text]] "Поврежденное снаряжение"),
+											'Text', T(201653857225, --[[ModItemCharacterEffectCompositeDef AutoWeapons Text]] "Поврежденное снаряжение"),
 											'HideOnEmpty', true,
 											'TextVAlign', "center",
 										}),
@@ -99819,11 +99822,11 @@ return {
 				Professions = {
 					PlaceObj('SectorOperationProfession', {
 						'id', "Repair",
-						'display_name', T(717830910070, --[[ModItemSectorOperation RepairItems display_name]] "Механик"),
-						'description', T(671435530451, --[[ModItemSectorOperation RepairItems description]] "Механик будет ремонтировать выбранные предметы."),
-						'display_name_all_caps', T(886575604370, --[[ModItemSectorOperation RepairItems display_name_all_caps]] "МЕХАНИКИ"),
-						'display_name_plural', T(354713063180, --[[ModItemSectorOperation RepairItems display_name_plural]] "Механик"),
-						'display_name_plural_all_caps', T(162738516067, --[[ModItemSectorOperation RepairItems display_name_plural_all_caps]] "МЕХАНИКИ"),
+						'display_name', T(717830910070, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Механик"),
+						'description', T(671435530451, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Механик будет ремонтировать выбранные предметы."),
+						'display_name_all_caps', T(886575604370, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name_all_caps]] "МЕХАНИКИ"),
+						'display_name_plural', T(354713063180, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name_plural]] "Механик"),
+						'display_name_plural_all_caps', T(162738516067, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name_plural_all_caps]] "МЕХАНИКИ"),
 					}),
 				},
 				ProgressCompleteThreshold = function (self, merc, sector, prediction)
@@ -100029,8 +100032,8 @@ return {
 				Tick = function (self, merc)
 					return
 				end,
-				description = T(896760300833, --[[ModItemSectorOperation RepairItems description]] "Ремонт поврежденного снаряжения с использованием механических запчастей. Участие наемников с высокой характеристикой «<color EmStyle>Механика</color>» ускорит операцию. Оружие с состоянием ниже 90% получает износ при ремонте."),
-				display_name = T(810510705491, --[[ModItemSectorOperation RepairItems display_name]] "Ремонт предметов"),
+				description = T(896760300833, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Ремонт поврежденного снаряжения с использованием механических запчастей. Участие наемников с высокой характеристикой «<color EmStyle>Механика</color>» ускорит операцию. Оружие с состоянием ниже 90% получает износ при ремонте."),
+				display_name = T(810510705491, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Ремонт предметов"),
 				group = "Default",
 				icon = "UI/SectorOperations/T_Icon_Activity_Repair",
 				id = "RepairItems",
@@ -100038,8 +100041,8 @@ return {
 				min_requirement_stat = "Mechanical",
 				min_requirement_stat_value = 20,
 				related_stat = "Mechanical",
-				short_name = T(868231175581, --[[ModItemSectorOperation RepairItems short_name]] "Ремонт"),
-				sub_title = T(150722843550, --[[ModItemSectorOperation RepairItems sub_title]] "Снаряжение нуждается в ремонте"),
+				short_name = T(868231175581, --[[ModItemCharacterEffectCompositeDef AutoWeapons short_name]] "Ремонт"),
+				sub_title = T(150722843550, --[[ModItemCharacterEffectCompositeDef AutoWeapons sub_title]] "Снаряжение нуждается в ремонте"),
 			}),
 			PlaceObj('ModItemSectorOperation', {
 				group = "Default",
@@ -100075,7 +100078,7 @@ return {
 			'CodeFileName', "Code/Guardpost_Patrols.lua",
 		}),
 		PlaceObj('ModItemAwareReasons', {
-			display_name = T(911087494081, --[[ModItemAwareReasons Default arSectorAlert display_name]] "<em><enemy></em> поднят по тревоге"),
+			display_name = T(911087494081, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "<em><enemy></em> поднят по тревоге"),
 			group = "Default",
 			id = "arSectorAlert",
 		}),
@@ -100084,7 +100087,7 @@ return {
 		}, {
 			PlaceObj('ModItemRegion', {
 				DisplayName = "Остров Эрни",
-				Heat = 831,
+				Heat = 921,
 				Sectors = {
 					"M1",
 					"M2",
@@ -100315,9 +100318,9 @@ return {
 									'__class', "XNameValueText",
 									'RolloverTemplate', "RolloverGeneric",
 									'RolloverAnchor', "center-top",
-									'RolloverText', T(952592503809, --[[ModItemXTemplate SatelliteViewMapContextMenu RolloverText]] "Уровень лояльности в данном секторе будет влиять на стоимость операций и услуг."),
+									'RolloverText', T(952592503809, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "Уровень лояльности в данном секторе будет влиять на стоимость операций и услуг."),
 									'RolloverOffset', box(10, 10, 10, 10),
-									'RolloverTitle', T(836506718468, --[[ModItemXTemplate SatelliteViewMapContextMenu RolloverTitle]] "Лояльность"),
+									'RolloverTitle', T(836506718468, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "Лояльность"),
 									'Id', "idLoyalty",
 									'Margins', box(5, 0, 5, 0),
 									'FoldWhenHidden', true,
@@ -100334,9 +100337,9 @@ return {
 									'__class', "XText",
 									'RolloverTemplate', "RolloverGeneric",
 									'RolloverAnchor', "center-top",
-									'RolloverText', T(952592503809, --[[ModItemXTemplate SatelliteViewMapContextMenu RolloverText]] "Уровень лояльности в данном секторе будет влиять на стоимость операций и услуг."),
+									'RolloverText', T(952592503809, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverText]] "Уровень лояльности в данном секторе будет влиять на стоимость операций и услуг."),
 									'RolloverOffset', box(10, 10, 10, 10),
-									'RolloverTitle', T(836506718468, --[[ModItemXTemplate SatelliteViewMapContextMenu RolloverTitle]] "Лояльность"),
+									'RolloverTitle', T(836506718468, --[[ModItemCharacterEffectCompositeDef AutoWeapons RolloverTitle]] "Лояльность"),
 									'Id', "idRegion",
 									'Margins', box(5, 0, 5, 0),
 									'FoldWhenHidden', true,
@@ -100541,10 +100544,10 @@ return {
 		'Reliability', 20,
 		'Icon', "UI/Icons/Weapons/Auto5Quest",
 		'ItemType', "Shotgun",
-		'DisplayName', T(649146508338, --[[ModItemInventoryItemCompositeDef Auto5_quest DisplayName]] "«Усмиритель» Мамаши"),
-		'DisplayNamePlural', T(432332068612, --[[ModItemInventoryItemCompositeDef Auto5_quest DisplayNamePlural]] "«Усмирители» Мамаши"),
-		'Description', T(580584506617, --[[ModItemInventoryItemCompositeDef Auto5_quest Description]] "Легендарная владелица бара в Порт-Какао, Мамаша Бакстер, использовала этот кастомный дробовик Auto-5, чтобы заканчивать кабацкие драки максимально эффективным и ультимативным способом."),
-		'AdditionalHint', T(269691251565, --[[ModItemInventoryItemCompositeDef Auto5_quest AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Быстрое усмирение"),
+		'DisplayName', T(649146508338, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "«Усмиритель» Мамаши"),
+		'DisplayNamePlural', T(432332068612, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayNamePlural]] "«Усмирители» Мамаши"),
+		'Description', T(580584506617, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Легендарная владелица бара в Порт-Какао, Мамаша Бакстер, использовала этот кастомный дробовик Auto-5, чтобы заканчивать кабацкие драки максимально эффективным и ультимативным способом."),
+		'AdditionalHint', T(269691251565, --[[ModItemCharacterEffectCompositeDef AutoWeapons AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Быстрое усмирение"),
 		'LargeItem', 1,
 		'Valuable', 1,
 		'Cost', 1200,
@@ -100814,8 +100817,8 @@ return {
 					'Tag', "<DepletedMineIncomePerc>%",
 				}),
 			},
-			description = T(852333811131, --[[ModItemGameDifficultyDef Normal description]] "Стандартный уровень сложности. Увеличенное количество стартовых денег на 25%.\n<newline><newline><color FlavorStyle>Уровень сложности можно будет изменить в любой момент.</color>"),
-			display_name = T(707100354718, --[[ModItemGameDifficultyDef Normal display_name]] "Первая кровь"),
+			description = T(852333811131, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Стандартный уровень сложности. Увеличенное количество стартовых денег на 25%.\n<newline><newline><color FlavorStyle>Уровень сложности можно будет изменить в любой момент.</color>"),
+			display_name = T(707100354718, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Первая кровь"),
 			group = "Default",
 			id = "Normal",
 		}),
@@ -100865,8 +100868,8 @@ return {
 				}),
 			},
 			SortKey = 1,
-			description = T(698130726969, --[[ModItemGameDifficultyDef Hard description]] "Повышенный уровень сложности.<newline><newline><color FlavorStyle>Уровень сложности можно будет изменить в любой момент.</color>"),
-			display_name = T(725723470683, --[[ModItemGameDifficultyDef Hard display_name]] "Коммандос"),
+			description = T(698130726969, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Повышенный уровень сложности.<newline><newline><color FlavorStyle>Уровень сложности можно будет изменить в любой момент.</color>"),
+			display_name = T(725723470683, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Коммандос"),
 			group = "Default",
 			id = "Hard",
 		}),
@@ -100918,8 +100921,8 @@ return {
 				}),
 			},
 			SortKey = 2,
-			description = T(830857112086, --[[ModItemGameDifficultyDef VeryHard description]] "Высокий уровень сложности. Количество стартовых денег уменьшено на 50%<newline><newline><color FlavorStyle>Уровень сложности можно будет изменить в любой момент.</color>\nВраги сильнее и имеют более высокие статы"),
-			display_name = T(245706641868, --[[ModItemGameDifficultyDef VeryHard display_name]] "Миссия невыполнима"),
+			description = T(830857112086, --[[ModItemCharacterEffectCompositeDef AutoWeapons description]] "Высокий уровень сложности. Количество стартовых денег уменьшено на 50%<newline><newline><color FlavorStyle>Уровень сложности можно будет изменить в любой момент.</color>\nВраги сильнее и имеют более высокие статы"),
+			display_name = T(245706641868, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Миссия невыполнима"),
 			group = "Default",
 			id = "VeryHard",
 		}),

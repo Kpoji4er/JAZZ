@@ -5,6 +5,6 @@ DefineClass.Vest_test = {
 
 
 	object_class = "Vest",
-	DisplayName = T(428938093531, --[[ModItemInventoryItemCompositeDef Vest_test DisplayName]] "Vest"),
+	DisplayName = T(428938093531, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Vest"),
 }
 

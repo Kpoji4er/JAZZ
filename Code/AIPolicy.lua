@@ -145,7 +145,7 @@ AIPolicyTakeCover.CoverScores = {
 }
 
 
---[[
+
 --- Evaluates the desirability of a destination location for the AIPolicyFlanking policy.
 ---
 --- @param context AIContext The AI context for the current unit.

@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 9,
-	'version', 5437,
+	'version', 5447,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -841,8 +841,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1762836904,
-	'code_hash', 8610628050778964854,
+	'saved', 1762952859,
+	'code_hash', 8621086183607777823,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -7482,6 +7482,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "Grouping",
+			'ClassDisplayName', "ChanceToHitModifier",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "ChanceToHitModifier",
+			'Id', "MarkedTraccers",
 			'ClassDisplayName', "ChanceToHitModifier",
 		}),
 		PlaceObj('ModResourcePreset', {

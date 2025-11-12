@@ -62,6 +62,7 @@ DefineClass.JAZZ_AMMO_762x54_APIT = {
 		"Burning",
 		"Bleeding",
 		"Exposed",
+		"MarkedTraccers",
 	},
 }
 

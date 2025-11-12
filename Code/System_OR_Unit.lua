@@ -55,6 +55,8 @@ function Unit:ResolveDefaultFiringModeAction(firingMode, ui, sync)
 		table.insert_unique(actions, CombatActions.RightHandShot)
 	elseif firing_id == "Attack" and weapon:HasComponent("EnableFullAuto") then
 		table.insert_unique(actions, CombatActions.AutoFire)
+	elseif firing_id == "Attack" and weapon:HasComponent("EnableBurst")	then
+		table.insert_unique(actions, CombatActions.BurstFire)
 	elseif firing_id == "Attack" and weapon:HasComponent("TwoHanded") then
 		if table.find(actions, "id", "AttackDual") then
 		table.remove(actions, CombatActions.AttackDual) end
@@ -1178,6 +1180,23 @@ function Unit:RecalcWillPoints()
 
 end
 
+
+function Unit:GetNumMGInterruptAttacks(skip_check)
+	if not skip_check and not self:HasStatusEffect("StationedMachineGun") and not self:HasStatusEffect("ManningEmplacement") then
+		return 0
+	end
+	local action = self:GetDefaultAttackAction()
+	local ap_cost = action:GetAPCost(self)
+	if ap_cost <= 0 then
+		return 0
+	end
+	local ap = g_Combat and self:GetUIActionPoints() or self:GetMaxActionPoints()
+
+	local PerkBonus = (HasPerk(self, "HeavyWeaponsTraining")) and 1 or 0
+	
+	return const.Combat.MGFreeInterruptAttacks + PerkBonus + ap / ap_cost
+end
+
 function Unit:BeginTurn(new_turn)	
 	NetUpdateHash("BeginTurn_Start")
 	self:SetAttackReason()
@@ -1522,6 +1541,7 @@ function Unit:EnumUIActions()
 		
 		if self:GetThrowableKnife() then
 			actions[#actions + 1] = "KnifeThrow"
+			actions[#actions + 1] = "MeleeAttack"
 		end
 		
 		if table.find(actions, "DualShot") then
@@ -1536,6 +1556,9 @@ function Unit:EnumUIActions()
 			end
 			if main_weapon:HasComponent("EnableFullAuto") then
 				table.insert_unique(actions, "AutoFire")
+			end
+			if main_weapon:HasComponent("EnableBurst") then
+				table.insert_unique(actions, "BurstFire")
 			end
 		end
 				
