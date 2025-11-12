@@ -32101,6 +32101,7 @@ return {
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(535138608885, --[[ModItemWeaponComponent Autofire DisplayName]] "Автоматический огонь"),
+					Icon = "Mod/e6L4ECj/WeaponComponents/Carbine/AUTO.png",
 					ModificationEffects = {
 						"EnableFullAuto",
 						"EnableBurst",
@@ -34478,6 +34479,7 @@ return {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M2Carbine",
 								Entity = "M2CarStockLightF",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Carbine/CarbineStockU.png",
 								Slot = "Stock",
 								param_bindings = false,
 							}),
@@ -34763,6 +34765,7 @@ return {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M2Carbine",
 								Entity = "M2CarStockLightU",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Carbine/CarbineStockFolded.png",
 								Slot = "Stock",
 								param_bindings = false,
 							}),
@@ -34840,6 +34843,7 @@ return {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M2Carbine",
 								Entity = "M2CarNoStock",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Carbine/CarbineStocNo.png",
 								Slot = "Stock",
 								param_bindings = false,
 							}),
@@ -35091,6 +35095,7 @@ return {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M2Carbine",
 								Entity = "M2CarStockFull",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Carbine/CarbineStockFull.png",
 								ModifyRightHandGrip = true,
 								Slot = "Stock",
 								param_bindings = false,
@@ -38218,7 +38223,7 @@ return {
 						},
 						Cost = 10,
 						DisplayName = T(701275994916, --[[ModItemWeaponComponent FlashHider DisplayName]] "Глушитель"),
-						Icon = "UI/Icons/Upgrades/beretta_silencer",
+						Icon = "Mod/e6L4ECj/WeaponComponents/Carbine/CarbineFlashHider.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"RecoilDecrease",
@@ -38247,6 +38252,7 @@ return {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M2Carbine",
 								Entity = "M2CarFlashHider",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Carbine/CarbineFlashHider.png",
 								Slot = "Muzzle",
 								param_bindings = false,
 							}),
@@ -46217,7 +46223,7 @@ return {
 							},
 							Cost = 100,
 							DisplayName = T(264111342594, --[[ModItemWeaponComponent JAZZ_NightScope_M3 DisplayName]] "Ночной прицел (5х)"),
-							Icon = "Mod/e6L4ECj/WeaponComponents/Optics/NSPU.png",
+							Icon = "Mod/e6L4ECj/WeaponComponents/Carbine/CarbineNVScope.png",
 							ModificationDifficulty = 10,
 							ModificationEffects = {
 								"IncreaseShotAP",
@@ -47637,6 +47643,7 @@ return {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M2Carbine",
 								Entity = "M2Carmag30",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Carbine/CarbineMAG30.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -48648,6 +48655,7 @@ return {
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M2Carbine",
 									Entity = "M2Carmag15",
+									Icon = "Mod/e6L4ECj/WeaponComponents/Carbine/CarbineMag15.png",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
@@ -63305,7 +63313,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ DisplayName]] "Секретные данные"),
+					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Секретные данные"),
 					'Description', T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
 					'Icon', "UI/Icons/Perks/InnerInfo",
 					'Tier', "Personal",
@@ -63367,7 +63375,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ DisplayName]] "Юберрашунг"),
+					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Юберрашунг"),
 					'Description', T(845332100943, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ Description]] "Дает +50% од на первом ходу"),
 					'Icon', "UI/Icons/Perks/GruntyPerk",
 					'Tier', "Personal",
@@ -100165,7 +100173,7 @@ return {
 		}, {
 			PlaceObj('ModItemRegion', {
 				DisplayName = "Остров Эрни",
-				Heat = 985,
+				Heat = 1070,
 				Sectors = {
 					"M1",
 					"M2",
