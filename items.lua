@@ -5544,7 +5544,7 @@ return {
 						'Group', "Ammo",
 						'Id', "JAZZ_AMMO_762x54_Poor",
 						'object_class', "Ammo",
-						'Icon', "Mod/e6L4ECj/Ammopics/762x54RSub.png",
+						'Icon', "Mod/e6L4ECj/Ammopics/762x54RPoor.png",
 						'DisplayName', T(685074706095, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Poor DisplayName]] "7,62x54R мм 188-57 CN Type 53 Substandard"),
 						'DisplayNamePlural', T(544176135141, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Poor DisplayNamePlural]] "7,62x54R мм 188-57 CN Type 53 Substandard"),
 						'colorStyle', "AmmoSubstandardColor",
@@ -23669,24 +23669,7 @@ return {
 					'Noise', 68,
 					'HandSlot', "TwoHanded",
 					'Entity', "MAS49",
-					'ComponentSlots', {
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Scope",
-							'AvailableComponents', {
-								"JAZZ_Reflex_Garand",
-								"JAZZ_Scope_Garand",
-								"DefaultIronsight_AR15",
-							},
-							'DefaultComponent', "DefaultIronsight_AR15",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Muzzle",
-							'CanBeEmpty', true,
-							'AvailableComponents', {
-								"Suppressor",
-							},
-						}),
-					},
+					'ComponentSlots', {},
 					'HolsterSlot', "Shoulder",
 					'ModifyRightHandGrip', true,
 					'AvailableAttacks', {
@@ -24899,15 +24882,7 @@ return {
 					'Noise', 59,
 					'HandSlot', "TwoHanded",
 					'Entity', "MAS36",
-					'ComponentSlots', {
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Scope",
-							'CanBeEmpty', true,
-							'AvailableComponents', {
-								"JAZZ_Scope_PU",
-							},
-						}),
-					},
+					'ComponentSlots', {},
 					'HolsterSlot', "Shoulder",
 					'ModifyRightHandGrip', true,
 					'PreparedAttackType', "Both",
@@ -56963,6 +56938,24 @@ return {
 				}),
 				}),
 			}),
+		PlaceObj('ModItemFolder', {
+			'name', "Resources",
+		}, {
+			PlaceObj('ModItemInventoryItemCompositeDef', {
+				'Group', "ValuablesStack",
+				'Id', "Dollars",
+				'object_class', "ValuablesStack",
+				'Repairable', false,
+				'Icon', "Mod/e6L4ECj/Icons/Dollars.png",
+				'DisplayName', T(334056626449, --[[ModItemInventoryItemCompositeDef Dollars DisplayName]] "Пачка Долларов"),
+				'DisplayNamePlural', T(378523647884, --[[ModItemInventoryItemCompositeDef Dollars DisplayNamePlural]] "Пачки Долларов"),
+				'Description', T(427448658637, --[[ModItemInventoryItemCompositeDef Dollars Description]] "Пачка размером в 1000$"),
+				'AdditionalHint', T(671464185480, --[[ModItemInventoryItemCompositeDef Dollars AdditionalHint]] "<bullet_point> <GameColorD>Можно продать за деньги</GameColorD>"),
+				'Valuable', 1,
+				'RestockWeight', 0,
+				'MaxStacks', 100,
+			}),
+			}),
 		}),
 	PlaceObj('ModItemFolder', {
 		'name', "System_Wounds",
@@ -63314,7 +63307,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ DisplayName]] "Секретные данные"),
+					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Секретные данные"),
 					'Description', T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
 					'Icon', "UI/Icons/Perks/InnerInfo",
 					'Tier', "Personal",
@@ -63376,7 +63369,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ DisplayName]] "Юберрашунг"),
+					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Юберрашунг"),
 					'Description', T(845332100943, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ Description]] "Дает +50% од на первом ходу"),
 					'Icon', "UI/Icons/Perks/GruntyPerk",
 					'Tier', "Personal",
@@ -70920,7 +70913,7 @@ return {
 									local cnt = ResolvePropObj(context)
 									self.idPropVal:SetNameText(T(81823607630200123, "Шанс Клина"))
 									local base = cnt:GetBaseJamChanceRaw() or 0
-									local base = base > 0 and base * 0.1 or 0
+									local base = base > 0 and base * 0.01 or 0
 									 
 									local unit_id = self:GetContext().owner
 									local unit = g_Units[unit_id]
@@ -70931,7 +70924,7 @@ return {
 									self.idPropVal:SetValueText(T{54113904164712, "<base>%", base = floatfloor(base+0.5)})
 									else
 									local merc = cnt:GetJamChance(unit) or 0
-									local merc = merc > 0 and merc * 0.1 or 0
+									local merc = merc > 0 and merc * 0.01 or 0
 									if merc ~= base then
 									self.idPropVal:SetNameText(T{81823607630200123, "Шанс Клина (<name>)", name=unit.Nick})
 									self.idPropVal:SetValueText(T{54113904164712, "<base>% (<merc>%)", base = floatfloor(base+0.5), merc = floatfloor(merc+0.5)})
@@ -100174,7 +100167,7 @@ return {
 		}, {
 			PlaceObj('ModItemRegion', {
 				DisplayName = "Остров Эрни",
-				Heat = 1070,
+				Heat = 1069,
 				Sectors = {
 					"M1",
 					"M2",

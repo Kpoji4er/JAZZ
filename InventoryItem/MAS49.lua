@@ -30,24 +30,7 @@ DefineClass.MAS49 = {
 	Noise = 68,
 	HandSlot = "TwoHanded",
 	Entity = "MAS49",
-	ComponentSlots = {
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Scope",
-			'AvailableComponents', {
-				"JAZZ_Reflex_Garand",
-				"JAZZ_Scope_Garand",
-				"DefaultIronsight_AR15",
-			},
-			'DefaultComponent', "DefaultIronsight_AR15",
-		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Muzzle",
-			'CanBeEmpty', true,
-			'AvailableComponents', {
-				"Suppressor",
-			},
-		}),
-	},
+	ComponentSlots = {},
 	HolsterSlot = "Shoulder",
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {

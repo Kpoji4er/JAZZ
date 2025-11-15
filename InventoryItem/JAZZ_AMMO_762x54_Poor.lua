@@ -5,7 +5,7 @@ DefineClass.JAZZ_AMMO_762x54_Poor = {
 
 
 	object_class = "Ammo",
-	Icon = "Mod/e6L4ECj/Ammopics/762x54RSub.png",
+	Icon = "Mod/e6L4ECj/Ammopics/762x54RPoor.png",
 	DisplayName = T(685074706095, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Poor DisplayName]] "7,62x54R мм 188-57 CN Type 53 Substandard"),
 	DisplayNamePlural = T(544176135141, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Poor DisplayNamePlural]] "7,62x54R мм 188-57 CN Type 53 Substandard"),
 	colorStyle = "AmmoSubstandardColor",

@@ -29,15 +29,7 @@ DefineClass.MAS36 = {
 	Noise = 59,
 	HandSlot = "TwoHanded",
 	Entity = "MAS36",
-	ComponentSlots = {
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Scope",
-			'CanBeEmpty', true,
-			'AvailableComponents', {
-				"JAZZ_Scope_PU",
-			},
-		}),
-	},
+	ComponentSlots = {},
 	HolsterSlot = "Shoulder",
 	ModifyRightHandGrip = true,
 	PreparedAttackType = "Both",

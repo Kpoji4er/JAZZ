@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 9,
-	'version', 5459,
+	'version', 5464,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -721,6 +721,7 @@ return PlaceObj('ModDef', {
 		"InventoryItem/JazzArmorPlates_Titan3.lua",
 		"InventoryItem/JazzArmorPlates_Titan4.lua",
 		"InventoryItem/JazzArmorPlates_Titan5.lua",
+		"InventoryItem/Dollars.lua",
 		"CharacterEffect/TrueGrit.lua",
 		"Code/Systems_Wounds_HealWounds.lua",
 		"Code/System_Wounds_OperationHeal.lua",
@@ -842,8 +843,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1763180959,
-	'code_hash', -8985770053063196890,
+	'saved', 1763235940,
+	'code_hash', -421462328958719744,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -6918,6 +6919,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "JazzArmorPlates_Titan5",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "Dollars",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
