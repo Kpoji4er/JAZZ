@@ -35,6 +35,7 @@ DefineClass.ConcussiveGrenade = {
 	AreaObjDamageMod = 0,
 	AreaAppliedEffects = {
 		"CancelShot",
+		"Blinded",
 	},
 	PenetrationClass = 1,
 	BurnGround = false,

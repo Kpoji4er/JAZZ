@@ -7,10 +7,10 @@ function OnMsg.ClassesBuilt()
 		CampaignSide:new{ Id = "enemy2",       DisplayName = T(456135028453, "Enemy 2"), Enemy = true },
 		CampaignSide:new{ Id = "enemyNeutral", DisplayName = T(607169506860, "Enemy Neutral"), },
 		CampaignSide:new{ Id = "ally",         DisplayName = T(346100175449, "Ally"), },
-        CampaignSide:new{ Id = "Rebels",         DisplayName = T(34610017544911, "Повстанцы"), },
-        CampaignSide:new{ Id = "Legion",       DisplayName = T(69291389245512, "Легион"), Enemy = true },
-        CampaignSide:new{ Id = "Army",       DisplayName = T(69291389245511, "Армия"), Enemy = true },
-		CampaignSide:new{ Id = "Adonis",       DisplayName = T(45613502845311, "Адонис"), Enemy = true },
+        CampaignSide:new{ Id = "Rebels",         DisplayName = T(34610017544911, "Повстанцы"), loyalty = 0 },
+        CampaignSide:new{ Id = "Legion",       DisplayName = T(69291389245512, "Легион"), Enemy = true, loyalty = 0 },
+        CampaignSide:new{ Id = "Army",       DisplayName = T(69291389245511, "Армия"), Enemy = true, loyalty = 0 },
+		CampaignSide:new{ Id = "Adonis",       DisplayName = T(45613502845311, "Адонис"), Enemy = true, loyalty = 0 },
 	}
 	Sides = table.map(SideDefs, "Id")
 end

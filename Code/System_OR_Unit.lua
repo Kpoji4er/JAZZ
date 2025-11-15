@@ -1192,7 +1192,7 @@ function Unit:GetNumMGInterruptAttacks(skip_check)
 	end
 	local ap = g_Combat and self:GetUIActionPoints() or self:GetMaxActionPoints()
 
-	local PerkBonus = (HasPerk(self, "HeavyWeaponsTraining")) and 1 or 0
+	local PerkBonus = (HasPerk(self, "HeavyWeaponsTraining")) and 2 or 0
 	
 	return const.Combat.MGFreeInterruptAttacks + PerkBonus + ap / ap_cost
 end
