@@ -8,7 +8,7 @@ function OnMsg.OpenSatelliteView()
 end
 
 
-function _RegenerateLegionLoot()
+function ___RegenerateLegionLoot()
     --print("regenerate loot")
     for _, sector in pairs(gv_Sectors) do
         local squads = sector.enemy_squads
@@ -43,7 +43,7 @@ function _RegenerateLegionLoot()
     RegenerateLegionLootVar = false
 end
 
-function __RegenerateLegionLoot()
+function _RegenerateLegionLoot()
     print("regenerate loot")
     for _, squad in ipairs(gv_Squads) do
         local units = squad.units
@@ -67,6 +67,9 @@ function __RegenerateLegionLoot()
 
             end
             unitdata.Items = {}
+            unitdata:ForEachItem(function(item, slot_name)
+                    unitdata:RemoveItem(slot_name, item)	
+                end)
             unitdata:CreateStartingEquipment(unitdata.randomization_seed)
             print("regenerated")
 
