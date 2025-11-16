@@ -1917,7 +1917,7 @@ return {
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('PlayerControlSectors', {
-							Amount = 5,
+							Amount = 3,
 						}),
 					},
 					Effects = {
@@ -100167,7 +100167,7 @@ return {
 		}, {
 			PlaceObj('ModItemRegion', {
 				DisplayName = "Остров Эрни",
-				Heat = 1069,
+				Heat = 1178,
 				Sectors = {
 					"M1",
 					"M2",
