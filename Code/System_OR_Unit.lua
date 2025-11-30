@@ -53,13 +53,16 @@ function Unit:ResolveDefaultFiringModeAction(firingMode, ui, sync)
 	if firing_id == "AttackDual" then
 		table.insert_unique(actions, CombatActions.LeftHandShot)
 		table.insert_unique(actions, CombatActions.RightHandShot)
-	elseif firing_id == "Attack" and weapon:HasComponent("EnableFullAuto") then
-		table.insert_unique(actions, CombatActions.AutoFire)
-	elseif firing_id == "Attack" and weapon:HasComponent("EnableBurst")	then
-		table.insert_unique(actions, CombatActions.BurstFire)
 	elseif firing_id == "Attack" and weapon:HasComponent("TwoHanded") then
 		if table.find(actions, "id", "AttackDual") then
 		table.remove(actions, CombatActions.AttackDual) end
+	elseif firing_id == "Attack" then
+		if weapon:HasComponent("EnableFullAuto") then
+		table.insert_unique(actions, CombatActions.AutoFire) 
+		end
+		if weapon:HasComponent("EnableBurst") then
+		table.insert_unique(actions, CombatActions.BurstFire) 
+		end
 	end
 	table.sort(actions, function(a, b)
 		return a.SortKey < b.SortKey
@@ -1541,8 +1544,13 @@ function Unit:EnumUIActions()
 		
 		if self:GetThrowableKnife() then
 			actions[#actions + 1] = "KnifeThrow"
+			
+		end
+
+		if self:GetThrowableKnife() and g_Combat then
 			actions[#actions + 1] = "MeleeAttack"
 		end
+		
 		
 		if table.find(actions, "DualShot") then
 			-- special case: add left/right hand shot modes automatically

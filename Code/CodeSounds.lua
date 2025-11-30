@@ -56,6 +56,12 @@ PlaceObj('ActionFXInherit_Actor', {
 	id = "fxDefMuzzle",
 })
 
+PlaceObj('ActionFXInherit_Actor', {
+	Actor = "FlashHider",
+	Inherit = "Compensator",
+	group = "Weapons VFX",
+	id = "fxFlashHider",
+})
 
 
 

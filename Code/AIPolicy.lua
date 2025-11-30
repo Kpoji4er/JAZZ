@@ -93,6 +93,8 @@ function AIPolicyTakeCover:EvalDest(context, dest, grid_voxel)
 	local x, y, z, stance = stance_pos_unpack(dest)
 	local dest_pt = point(x, y, z)
 
+	local count = 0
+
 	for _, enemy in ipairs(tbl) do
 		local visible = true
 		if self.visibility_mode == "self" then
@@ -104,19 +106,21 @@ function AIPolicyTakeCover:EvalDest(context, dest, grid_voxel)
 		if visible then
 
 			local coverstd = GetCoverFrom(dest, context.enemy_pack_pos_stance[enemy])
+			local base = self.CoverScores[coverstd] or 0
 
-			local packed_enemy = context.enemy_pack_pos_stance[enemy]
-			if not packed_enemy then goto continue end
-
-            local x, y, z = point_unpack(packed_enemy)
+            x, y, z = point_unpack(context.enemy_pack_pos_stance[enemy])
             local enemy_pt = point(x, y, z)
             if not enemy_pt:IsValidZ() then goto continue end
 
 			local cover, any, coverage = GetCoverPercentage(dest_pt, enemy_pt, stance or "Crouch")
-			cover = cover or const.CoverNone
 			coverage = coverage or 0
 
-			score = score + cover * coverage
+
+			local bonus = MulDivRound(base, coverage, 200)      -- максимум +50% к базовому
+			score = score + base + bonus
+
+			count = count + 1
+
 			--local cover_score = self.CoverScores[cover] or 0
 			--local localscore = DivRound(cover_score, weight)
 			-- score = score + localscore * 0.5 + self.CoverScores[coverstd] * 0.5
@@ -124,7 +128,7 @@ function AIPolicyTakeCover:EvalDest(context, dest, grid_voxel)
 		::continue::
 	end
 
-	return  score / Max(1, #tbl)
+	return score / Max(1, count)
 end
 
 ---

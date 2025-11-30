@@ -35,10 +35,6 @@ DefineClass.JAZZ_AMMO_30_Tracer = {
 			target_prop = "BulletDropRange",
 		}),
 		PlaceObj('CaliberModification', {
-			mod_add = 2,
-			target_prop = "CritChance",
-		}),
-		PlaceObj('CaliberModification', {
 			mod_mul = 950,
 			target_prop = "Grouping",
 		}),

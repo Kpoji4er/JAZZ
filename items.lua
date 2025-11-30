@@ -4133,10 +4133,6 @@ return {
 								mod_mul = 0,
 								target_prop = "PenetrationBonus",
 							}),
-							PlaceObj('CaliberModification', {
-								mod_add = 5,
-								target_prop = "CritChance",
-							}),
 						},
 					}),
 					PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -4171,10 +4167,6 @@ return {
 							PlaceObj('CaliberModification', {
 								mod_add = -1,
 								target_prop = "BulletDropRange",
-							}),
-							PlaceObj('CaliberModification', {
-								mod_add = 2,
-								target_prop = "CritChance",
 							}),
 							PlaceObj('CaliberModification', {
 								mod_mul = 950,
@@ -4235,10 +4227,6 @@ return {
 							PlaceObj('CaliberModification', {
 								mod_add = 2,
 								target_prop = "BulletDropRange",
-							}),
-							PlaceObj('CaliberModification', {
-								mod_add = 3,
-								target_prop = "CritChance",
 							}),
 							PlaceObj('CaliberModification', {
 								mod_add = 2,
@@ -19952,10 +19940,9 @@ return {
 					'CanAppearInShop', true,
 					'CategoryPair', "Rifles",
 					'Caliber', "JAZZ_Caliber_30CAL",
-					'Damage', 23,
+					'Damage', 20,
 					'ObjDamageMod', 50,
 					'AimAccuracy', 18,
-					'CritChanceScaled', 30,
 					'MagazineSize', 30,
 					'WeaponRange', 36,
 					'OverwatchAngle', 1200,
@@ -38198,7 +38185,7 @@ return {
 							}),
 						},
 						Cost = 10,
-						DisplayName = T(701275994916, --[[ModItemWeaponComponent FlashHider DisplayName]] "Глушитель"),
+						DisplayName = T(102033365013, --[[ModItemWeaponComponent FlashHider DisplayName]] "Пламегаситель"),
 						Icon = "Mod/e6L4ECj/WeaponComponents/Carbine/CarbineFlashHider.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -70400,11 +70387,10 @@ return {
 									end
 									
 									local penclass = cnt.PenetrationClass * 10
-									local subclass = 0
-									if cnt.PenetrationBonus then
+									
+									
 									subclass = cnt.PenetrationBonus
 									penclass = penclass  + subclass
-									end
 									
 									
 									penclass = floatfloor(penclass, 0.1) * 0.1 -- округлить до 1 знака
@@ -100167,7 +100153,7 @@ return {
 		}, {
 			PlaceObj('ModItemRegion', {
 				DisplayName = "Остров Эрни",
-				Heat = 1178,
+				Heat = 1177,
 				Sectors = {
 					"M1",
 					"M2",
