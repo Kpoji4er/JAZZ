@@ -20000,6 +20000,7 @@ return {
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
 					'Recoil', 10,
+					'BurstShots', 2,
 					'AutoShots', 7,
 					'Handling', 60,
 					'BulletDropRange', 12,
