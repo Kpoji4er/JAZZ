@@ -54,7 +54,7 @@ DefineClass.BAR = {
 	AutoShots = 5,
 	Handling = 40,
 	BulletDropRange = 24,
-	Grouping = 275,
+	Grouping = 200,
 	WeaponResource = 6500,
 }
 

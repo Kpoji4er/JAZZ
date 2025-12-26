@@ -70,7 +70,7 @@ DefineClass.AR10 = {
 	AutoShots = 7,
 	Handling = 50,
 	BulletDropRange = 20,
-	Grouping = 278,
+	Grouping = 242,
 	BaseJamChance = -10,
 	WeaponResource = 6000,
 }

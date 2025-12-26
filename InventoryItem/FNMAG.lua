@@ -79,7 +79,7 @@ DefineClass.FNMAG = {
 	AutoShots = 8,
 	Handling = 33,
 	BulletDropRange = 22,
-	Grouping = 330,
+	Grouping = 230,
 	BaseJamChance = -10,
 	WeaponResource = 10000,
 }

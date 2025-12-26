@@ -51,7 +51,7 @@ DefineClass.Mosin = {
 	AutoShots = 1,
 	Handling = 45,
 	BulletDropRange = 25,
-	Grouping = 380,
+	Grouping = 270,
 	WeaponResource = 7000,
 }
 

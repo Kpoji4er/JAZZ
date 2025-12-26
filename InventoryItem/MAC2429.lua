@@ -79,7 +79,7 @@ DefineClass.MAC2429 = {
 	AutoShots = 4,
 	Handling = 38,
 	BulletDropRange = 19,
-	Grouping = 260,
+	Grouping = 180,
 	WeaponResource = 2400,
 }
 

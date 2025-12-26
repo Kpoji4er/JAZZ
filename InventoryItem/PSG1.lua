@@ -109,7 +109,7 @@ DefineClass.PSG1 = {
 	AutoShots = 1,
 	Handling = 52,
 	BulletDropRange = 22,
-	Grouping = 400,
+	Grouping = 380,
 	BaseJamChance = -20,
 	WeaponResource = 9000,
 }

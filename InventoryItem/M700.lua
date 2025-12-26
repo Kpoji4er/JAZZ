@@ -54,7 +54,7 @@ DefineClass.M700 = {
 	AutoShots = 1,
 	Handling = 55,
 	BulletDropRange = 22,
-	Grouping = 435,
+	Grouping = 375,
 	BaseJamChance = -20,
 	WeaponResource = 4500,
 }

@@ -63,7 +63,7 @@ DefineClass.Gewehr98 = {
 	AutoShots = 1,
 	Handling = 43,
 	BulletDropRange = 26,
-	Grouping = 360,
+	Grouping = 280,
 	WeaponResource = 5000,
 }
 

@@ -122,7 +122,7 @@ DefineClass.M14SAW = {
 	AutoShots = 7,
 	Handling = 52,
 	BulletDropRange = 21,
-	Grouping = 242,
+	Grouping = 255,
 	WeaponResource = 4500,
 }
 

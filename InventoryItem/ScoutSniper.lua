@@ -77,7 +77,7 @@ DefineClass.ScoutSniper = {
 	AutoShots = 1,
 	Handling = 55,
 	BulletDropRange = 20,
-	Grouping = 420,
+	Grouping = 380,
 	BaseJamChance = -30,
 	WeaponResource = 7000,
 }

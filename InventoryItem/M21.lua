@@ -123,7 +123,7 @@ DefineClass.M21 = {
 	AutoShots = 1,
 	Handling = 51,
 	BulletDropRange = 21,
-	Grouping = 278,
+	Grouping = 260,
 	BaseJamChance = -10,
 	WeaponResource = 4000,
 }

@@ -84,7 +84,7 @@ DefineClass.M60E3 = {
 	AutoShots = 5,
 	Handling = 42,
 	BulletDropRange = 20,
-	Grouping = 285,
+	Grouping = 215,
 	WeaponResource = 8500,
 }
 

@@ -55,7 +55,7 @@ DefineClass.MG42 = {
 	AutoShots = 12,
 	Handling = 33,
 	BulletDropRange = 25,
-	Grouping = 290,
+	Grouping = 185,
 	BaseJamChance = 3,
 	WeaponResource = 6000,
 }

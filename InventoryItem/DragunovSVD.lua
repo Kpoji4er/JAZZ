@@ -93,7 +93,7 @@ DefineClass.DragunovSVD = {
 	AutoShots = 1,
 	Handling = 53,
 	BulletDropRange = 24,
-	Grouping = 370,
+	Grouping = 330,
 	BaseJamChance = -30,
 	WeaponResource = 8500,
 }

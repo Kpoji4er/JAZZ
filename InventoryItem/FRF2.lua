@@ -73,7 +73,7 @@ DefineClass.FRF2 = {
 	AutoShots = 1,
 	Handling = 50,
 	BulletDropRange = 23,
-	Grouping = 450,
+	Grouping = 360,
 	BaseJamChance = -10,
 	WeaponResource = 6000,
 }

@@ -108,7 +108,7 @@ DefineClass.RPK = {
 	AutoShots = 6,
 	Handling = 54,
 	BulletDropRange = 15,
-	Grouping = 270,
+	Grouping = 260,
 	BaseJamChance = -30,
 	WeaponResource = 12000,
 }

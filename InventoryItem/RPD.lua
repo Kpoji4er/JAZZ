@@ -86,7 +86,7 @@ DefineClass.RPD = {
 	AutoShots = 6,
 	Handling = 40,
 	BulletDropRange = 14,
-	Grouping = 250,
+	Grouping = 260,
 	BaseJamChance = -10,
 	WeaponResource = 9000,
 }

@@ -78,7 +78,7 @@ DefineClass.ZastavaM76 = {
 	AutoShots = 1,
 	Handling = 52,
 	BulletDropRange = 25,
-	Grouping = 340,
+	Grouping = 290,
 	BaseJamChance = -10,
 	WeaponResource = 7000,
 }

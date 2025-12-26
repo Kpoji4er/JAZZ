@@ -133,7 +133,7 @@ DefineClass.PKM = {
 	AutoShots = 6,
 	Handling = 42,
 	BulletDropRange = 25,
-	Grouping = 335,
+	Grouping = 250,
 	BaseJamChance = -50,
 	WeaponResource = 12000,
 }

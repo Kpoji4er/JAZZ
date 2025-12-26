@@ -52,7 +52,7 @@ DefineClass.G43 = {
 	AutoShots = 1,
 	Handling = 47,
 	BulletDropRange = 25,
-	Grouping = 250,
+	Grouping = 230,
 	WeaponResource = 4000,
 }
 

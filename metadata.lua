@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 9,
-	'version', 5470,
+	'version', 5472,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -837,14 +837,18 @@ return PlaceObj('ModDef', {
 			filename = "Mod/e6L4ECj/Russian.csv",
 			language = "Russian",
 		},
+		{
+			filename = "English",
+			language = "English",
+		},
 	},
 	'default_options', {
 		AutoFastForward = "Running",
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1764829423,
-	'code_hash', 9123303768387421463,
+	'saved', 1766346387,
+	'code_hash', 8071624097913528351,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",

@@ -103,7 +103,7 @@ function AIPolicyTakeCover:EvalDest(context, dest, grid_voxel)
 			visible = context.enemy_visible_by_team[enemy]
 		end
 
-		if visible thene
+		if visible then
 
 			local coverstd = GetCoverFrom(dest, context.enemy_pack_pos_stance[enemy])
 			local base = self.CoverScores[coverstd] or 0

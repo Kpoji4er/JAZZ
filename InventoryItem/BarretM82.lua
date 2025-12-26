@@ -89,7 +89,7 @@ DefineClass.BarretM82 = {
 	AutoShots = 1,
 	Handling = 30,
 	BulletDropRange = 30,
-	Grouping = 420,
+	Grouping = 290,
 	BaseJamChance = -20,
 	WeaponResource = 3000,
 }

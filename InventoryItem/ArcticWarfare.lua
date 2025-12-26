@@ -65,7 +65,7 @@ DefineClass.ArcticWarfare = {
 	AutoShots = 1,
 	Handling = 54,
 	BulletDropRange = 24,
-	Grouping = 500,
+	Grouping = 400,
 	BaseJamChance = -30,
 	WeaponResource = 7000,
 }

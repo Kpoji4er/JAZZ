@@ -52,7 +52,7 @@ DefineClass.Springfield = {
 	AutoShots = 1,
 	Handling = 44,
 	BulletDropRange = 23,
-	Grouping = 379,
+	Grouping = 290,
 	WeaponResource = 4500,
 }
 

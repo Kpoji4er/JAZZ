@@ -79,7 +79,7 @@ DefineClass.HK23e = {
 	AutoShots = 7,
 	Handling = 48,
 	BulletDropRange = 18,
-	Grouping = 305,
+	Grouping = 310,
 	BaseJamChance = -30,
 	WeaponResource = 10000,
 }

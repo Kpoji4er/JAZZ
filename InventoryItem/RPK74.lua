@@ -111,7 +111,7 @@ DefineClass.RPK74 = {
 	AutoShots = 6,
 	Handling = 56,
 	BulletDropRange = 19,
-	Grouping = 295,
+	Grouping = 280,
 	BaseJamChance = -30,
 	WeaponResource = 11500,
 }

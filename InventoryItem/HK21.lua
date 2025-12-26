@@ -124,7 +124,7 @@ DefineClass.HK21 = {
 	AutoShots = 9,
 	Handling = 44,
 	BulletDropRange = 20,
-	Grouping = 300,
+	Grouping = 310,
 	BaseJamChance = -30,
 	WeaponResource = 10000,
 }
