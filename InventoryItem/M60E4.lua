@@ -26,7 +26,7 @@ DefineClass.M60E4 = {
 	Caliber = "JAZZ_Caliber_762x51",
 	Damage = 35,
 	ObjDamageMod = 80,
-	AimAccuracy = 28,
+	AimAccuracy = 13,
 	MagazineSize = 100,
 	WeaponRange = 56,
 	OverwatchAngle = 600,
@@ -100,9 +100,9 @@ DefineClass.M60E4 = {
 	Recoil = 18,
 	BurstShots = 5,
 	AutoShots = 5,
-	Handling = 46,
+	Handling = -24,
 	BulletDropRange = 20,
-	Grouping = 225,
+	Grouping = 40,
 	WeaponResource = 9000,
 }
 

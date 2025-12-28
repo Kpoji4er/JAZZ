@@ -76,7 +76,7 @@ end
 
 
 
-
+--
 ---
 --- Evaluates the destination position for the AI policy to take cover.
 ---
@@ -116,8 +116,12 @@ function AIPolicyTakeCover:EvalDest(context, dest, grid_voxel)
 			coverage = coverage or 0
 
 
-			local bonus = MulDivRound(base, coverage, 200)      -- максимум +50% к базовому
-			score = score + base + bonus
+if not any or coverage < 30 then
+  score = score + base * 0.1   -- открытая/ложная позиция
+else
+  local bonus = MulDivRound(base, coverage, 200)
+  score = score + base + bonus
+end
 
 			count = count + 1
 

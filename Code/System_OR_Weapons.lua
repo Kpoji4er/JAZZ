@@ -142,6 +142,30 @@ function FirearmBase:GetAutofireShots(action)
 end
 
 
+function FirearmGetGroupingBase(item,dist_slab)
+
+
+	local groupingEnd = item.Grouping or 10 --Кучность на предельной дистанции
+	local groupingStart = 100
+	local Dist_Start = item.BulletDropRange or 0
+	local Dist_End = item.WeaponRange or 100
+
+	local Dist = dist_slab or 1
+	
+  -- до bullet drop range держим 100
+  if Dist <= Dist_Start then
+    return groupingStart
+  end
+
+  -- после weapon range держим конечное
+  if Dist >= Dist_End then
+    return groupingEnd
+  end
+
+	return Lerp(groupingStart, groupingEnd, Dist - Dist_Start, Dist_End - Dist_Start)
+
+end
+
 function FirearmGetGrouping(item,dist_slab)
 	local factory = item:GetFactoryResource()
 	local max_res = item:GetMaxResource() or factory
@@ -156,21 +180,9 @@ function FirearmGetGrouping(item,dist_slab)
 
 
 	local grouping = item.Grouping or 10
-	local effective_grouping = grouping * condition_mult * repair_mult
+	local effective_grouping = FirearmGetGroupingBase(item,dist_slab) * condition_mult * repair_mult
 
---	print("grouping debug")
---	print(curr_res/max_res)
---	print(factory,max_res,curr_res)
---	print(condition_mult,repair_mult)
---	print(grouping,effective_grouping)
-
-	local groupingPerSlab = effective_grouping * 10
-	local groupingResult = groupingPerSlab
-	if dist_slab then
-		groupingResult = DivRound(groupingPerSlab, dist_slab)
-	end	
-
-	return groupingResult
+	return DivRound(effective_grouping, 1)
 end
 
 function FirearmBase:GetConditionPercent()

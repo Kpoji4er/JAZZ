@@ -21,7 +21,7 @@ DefineClass.SWModel29 = {
 	Caliber = "JAZZ_Caliber_44CAL",
 	Damage = 42,
 	ObjDamageMod = 40,
-	AimAccuracy = 16,
+	AimAccuracy = 10,
 	CritChanceScaled = 30,
 	MagazineSize = 6,
 	WeaponRange = 21,
@@ -67,9 +67,9 @@ DefineClass.SWModel29 = {
 	ReloadAP = 5000,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 75,
+	Handling = 5,
 	BulletDropRange = 7,
-	Grouping = 92,
+	Grouping = 48,
 	BaseJamChance = -100,
 }
 

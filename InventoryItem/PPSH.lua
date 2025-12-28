@@ -23,7 +23,7 @@ DefineClass.PPSH = {
 	Caliber = "JAZZ_Caliber_762x25",
 	Damage = 20,
 	ObjDamageMod = 15,
-	AimAccuracy = 9,
+	AimAccuracy = 6,
 	CritChanceScaled = 5,
 	MagazineSize = 35,
 	WeaponRange = 27,
@@ -54,9 +54,9 @@ DefineClass.PPSH = {
 	ReloadAP = 5000,
 	Recoil = 6,
 	BurstShots = 5,
-	Handling = 65,
+	Handling = -5,
 	BulletDropRange = 11,
-	Grouping = 70,
+	Grouping = 26,
 	WeaponResource = 6200,
 }
 

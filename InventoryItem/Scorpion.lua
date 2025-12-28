@@ -20,7 +20,7 @@ DefineClass.Scorpion = {
 	Caliber = "JAZZ_Caliber_9x18",
 	Damage = 17,
 	ObjDamageMod = 15,
-	AimAccuracy = 9,
+	AimAccuracy = 6,
 	CritChanceScaled = 5,
 	MagazineSize = 20,
 	WeaponRange = 18,
@@ -67,9 +67,9 @@ DefineClass.Scorpion = {
 	Recoil = 4,
 	BurstShots = 4,
 	AutoShots = 8,
-	Handling = 73,
+	Handling = 3,
 	BulletDropRange = 6,
-	Grouping = 70,
+	Grouping = 39,
 	WeaponResource = 2000,
 }
 

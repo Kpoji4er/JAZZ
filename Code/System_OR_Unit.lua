@@ -594,7 +594,7 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 
 
 
-	local skill = (wpn_skill * 2 + subskill * 4 + lvl * 5) / 6
+	local skill = (wpn_skill * 4 + subskill * 2 + lvl * 5) / 6
 	skill =  20 + (skill ^ 1.2) * 0.25
 
 		if weapon and IsKindOf(weapon,"MeleeWeapon") then 
@@ -2665,4 +2665,23 @@ function Unit:ProvokeOpportunityAttack_Overwatch(obj, attack_args, target_dummy)
 		self:PopDestructor()
 	end
 	obj:FinishOpportunityAttack_Overwatch()
+end
+
+
+function MarksmanshipInfluence(mrk)
+  mrk = Clamp(mrk or 0, 0, 100)
+  local infl = 0
+  infl = infl + MulDivRound(Min(mrk, 60), 20, 60)
+  if mrk > 60 then infl = infl + MulDivRound(Min(mrk - 60, 20), 20, 20) end
+  if mrk > 80 then infl = infl + MulDivRound(Min(mrk - 80, 10), 20, 10) end
+  if mrk > 90 then infl = infl + MulDivRound(Min(mrk - 90, 6),  20, 6)  end
+  if mrk > 96 then infl = infl + MulDivRound(Min(mrk - 96, 4),  20, 4)  end
+  return Clamp(infl, 0, 100)
+end
+
+function ScopeSkillEffPct(mrk)
+  mrk = Clamp(mrk or 0, 0, 100)
+  if mrk < 90 then return 50 end
+  local t = mrk - 90 -- 0..10
+  return 50 + DivRound(50 * t * t, 100)
 end

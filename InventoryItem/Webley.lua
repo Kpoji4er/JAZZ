@@ -21,7 +21,7 @@ DefineClass.Webley = {
 	Caliber = "JAZZ_Caliber_45ACP",
 	Damage = 27,
 	ObjDamageMod = 40,
-	AimAccuracy = 16,
+	AimAccuracy = 9,
 	CritChanceScaled = 30,
 	MagazineSize = 6,
 	WeaponRange = 16,
@@ -56,9 +56,9 @@ DefineClass.Webley = {
 	ReloadAP = 4000,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 90,
+	Handling = 20,
 	BulletDropRange = 7,
-	Grouping = 92,
+	Grouping = 68,
 	BaseJamChance = -100,
 }
 

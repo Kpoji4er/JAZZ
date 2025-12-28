@@ -26,7 +26,7 @@ DefineClass.MAC2429 = {
 	Caliber = "JAZZ_Caliber_75French",
 	Damage = 33,
 	ObjDamageMod = 80,
-	AimAccuracy = 17,
+	AimAccuracy = 9,
 	MagazineSize = 25,
 	WeaponRange = 56,
 	OverwatchAngle = 840,
@@ -77,9 +77,9 @@ DefineClass.MAC2429 = {
 	Recoil = 32,
 	BurstShots = 4,
 	AutoShots = 4,
-	Handling = 38,
+	Handling = -32,
 	BulletDropRange = 19,
-	Grouping = 180,
+	Grouping = 32,
 	WeaponResource = 2400,
 }
 

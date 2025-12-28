@@ -25,7 +25,7 @@ DefineClass.U100 = {
 	Caliber = "JAZZ_Caliber_556",
 	Damage = 21,
 	ObjDamageMod = 50,
-	AimAccuracy = 20,
+	AimAccuracy = 10,
 	MagazineSize = 30,
 	WeaponRange = 48,
 	OverwatchAngle = 840,
@@ -92,9 +92,9 @@ DefineClass.U100 = {
 	Recoil = 7,
 	BurstShots = 6,
 	AutoShots = 6,
-	Handling = 50,
+	Handling = -20,
 	BulletDropRange = 17,
-	Grouping = 200,
+	Grouping = 42,
 	WeaponResource = 5500,
 }
 

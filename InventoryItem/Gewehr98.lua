@@ -22,7 +22,7 @@ DefineClass.Gewehr98 = {
 	Caliber = "JAZZ_Caliber_792",
 	Damage = 42,
 	ObjDamageMod = 80,
-	AimAccuracy = 29,
+	AimAccuracy = 13,
 	CritChanceScaled = 50,
 	MagazineSize = 5,
 	WeaponRange = 62,
@@ -61,9 +61,9 @@ DefineClass.Gewehr98 = {
 	ReloadAP = 8000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = 43,
+	Handling = -27,
 	BulletDropRange = 26,
-	Grouping = 280,
+	Grouping = 45,
 	WeaponResource = 5000,
 }
 

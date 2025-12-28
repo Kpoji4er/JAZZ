@@ -24,7 +24,7 @@ DefineClass.Galil = {
 	Caliber = "JAZZ_Caliber_762x51",
 	Damage = 32,
 	ObjDamageMod = 80,
-	AimAccuracy = 25,
+	AimAccuracy = 12,
 	MagazineSize = 25,
 	WeaponRange = 54,
 	OverwatchAngle = 960,
@@ -116,9 +116,9 @@ DefineClass.Galil = {
 	ReloadAP = 7000,
 	Recoil = 34,
 	AutoShots = 6,
-	Handling = 56,
+	Handling = -14,
 	BulletDropRange = 20,
-	Grouping = 280,
+	Grouping = 52,
 	WeaponResource = 7000,
 }
 

@@ -21,7 +21,7 @@ DefineClass.M1Garand = {
 	Caliber = "JAZZ_Caliber_3006",
 	Damage = 36,
 	ObjDamageMod = 80,
-	AimAccuracy = 28,
+	AimAccuracy = 13,
 	CritChanceScaled = 30,
 	MagazineSize = 8,
 	WeaponRange = 60,
@@ -58,9 +58,9 @@ DefineClass.M1Garand = {
 	ReloadAP = 8000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = 45,
+	Handling = -25,
 	BulletDropRange = 23,
-	Grouping = 220,
+	Grouping = 37,
 	WeaponResource = 4000,
 }
 

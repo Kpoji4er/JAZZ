@@ -23,7 +23,7 @@ DefineClass.CAR15 = {
 	Caliber = "JAZZ_Caliber_556",
 	Damage = 19,
 	ObjDamageMod = 50,
-	AimAccuracy = 18,
+	AimAccuracy = 9,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
 	WeaponRange = 40,
@@ -95,9 +95,9 @@ DefineClass.CAR15 = {
 	Recoil = 12,
 	BurstShots = 4,
 	AutoShots = 8,
-	Handling = 68,
+	Handling = -2,
 	BulletDropRange = 15,
-	Grouping = 220,
+	Grouping = 55,
 	WeaponResource = 4000,
 }
 

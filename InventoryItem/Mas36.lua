@@ -21,7 +21,7 @@ DefineClass.MAS36 = {
 	Caliber = "JAZZ_Caliber_75French",
 	Damage = 38,
 	ObjDamageMod = 80,
-	AimAccuracy = 27,
+	AimAccuracy = 12,
 	CritChanceScaled = 50,
 	MagazineSize = 5,
 	WeaponRange = 57,
@@ -41,9 +41,9 @@ DefineClass.MAS36 = {
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = 48,
+	Handling = -22,
 	BulletDropRange = 22,
-	Grouping = 230,
+	Grouping = 40,
 	WeaponResource = 7000,
 }
 

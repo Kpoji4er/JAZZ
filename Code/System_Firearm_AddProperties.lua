@@ -122,8 +122,8 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
     editor = "number",
     default = 0,
     template = true,
-    min = 0,
-    max = 120,
+    min = -100,
+    max = 100,
     modifiable = true
 }
 

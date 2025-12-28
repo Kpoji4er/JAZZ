@@ -22,7 +22,7 @@ DefineClass.M14SAW = {
 	Caliber = "JAZZ_Caliber_762x51",
 	Damage = 33,
 	ObjDamageMod = 80,
-	AimAccuracy = 27,
+	AimAccuracy = 12,
 	MagazineSize = 20,
 	WeaponRange = 62,
 	OverwatchAngle = 960,
@@ -120,9 +120,9 @@ DefineClass.M14SAW = {
 	Recoil = 25,
 	BurstShots = 4,
 	AutoShots = 7,
-	Handling = 52,
+	Handling = -18,
 	BulletDropRange = 21,
-	Grouping = 255,
+	Grouping = 41,
 	WeaponResource = 4500,
 }
 

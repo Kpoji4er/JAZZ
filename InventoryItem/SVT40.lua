@@ -20,7 +20,7 @@ DefineClass.SVT40 = {
 	CanAppearStandard = false,
 	Caliber = "JAZZ_Caliber_762x54R",
 	Damage = 38,
-	AimAccuracy = 27,
+	AimAccuracy = 12,
 	CritChanceScaled = 30,
 	MagazineSize = 10,
 	WeaponRange = 64,
@@ -55,9 +55,9 @@ DefineClass.SVT40 = {
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = 44,
+	Handling = -26,
 	BulletDropRange = 24,
-	Grouping = 225,
+	Grouping = 38,
 	WeaponResource = 2000,
 }
 

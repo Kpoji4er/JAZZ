@@ -25,7 +25,7 @@ DefineClass.FNMinimi = {
 	Caliber = "JAZZ_Caliber_556",
 	Damage = 20,
 	ObjDamageMod = 50,
-	AimAccuracy = 28,
+	AimAccuracy = 13,
 	MagazineSize = 100,
 	WeaponRange = 54,
 	OverwatchAngle = 840,
@@ -94,9 +94,9 @@ DefineClass.FNMinimi = {
 	ReloadAP = 8000,
 	Recoil = 6,
 	BurstShots = 10,
-	Handling = 50,
+	Handling = -20,
 	BulletDropRange = 17,
-	Grouping = 285,
+	Grouping = 57,
 	WeaponResource = 7500,
 }
 

@@ -23,7 +23,7 @@ DefineClass.STG44 = {
 	Caliber = "JAZZ_Caliber_792x33",
 	Damage = 24,
 	ObjDamageMod = 50,
-	AimAccuracy = 17,
+	AimAccuracy = 9,
 	MagazineSize = 30,
 	WeaponRange = 32,
 	OverwatchAngle = 1140,
@@ -58,9 +58,9 @@ DefineClass.STG44 = {
 	Recoil = 16,
 	BurstShots = 2,
 	AutoShots = 5,
-	Handling = 58,
+	Handling = -12,
 	BulletDropRange = 13,
-	Grouping = 210,
+	Grouping = 66,
 	WeaponResource = 2500,
 }
 

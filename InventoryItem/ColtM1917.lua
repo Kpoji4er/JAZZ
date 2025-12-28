@@ -21,7 +21,7 @@ DefineClass.ColtM1917 = {
 	Caliber = "JAZZ_Caliber_45ACP",
 	Damage = 26,
 	ObjDamageMod = 40,
-	AimAccuracy = 12,
+	AimAccuracy = 8,
 	CritChanceScaled = 30,
 	MagazineSize = 6,
 	WeaponRange = 16,
@@ -48,9 +48,9 @@ DefineClass.ColtM1917 = {
 	ReloadAP = 5000,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 88,
+	Handling = 18,
 	BulletDropRange = 7,
-	Grouping = 92,
+	Grouping = 54,
 	BaseJamChance = -100,
 }
 

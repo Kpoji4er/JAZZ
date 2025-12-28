@@ -7,7 +7,7 @@ DefineClass.BleedingChance = {
 	object_class = "StatusEffect",
 	msg_reactions = {},
 	unit_reactions = {},
-	DisplayName = T(757391949802, --[[ModItemCharacterEffectCompositeDef BleedingChance DisplayName]] "Шанс получить кровотечение"),
+	DisplayName = T(757391949802, "Шанс получить кровотечение"),
 	Description = "",
 	OnAdded = function (self, obj)
 		if obj.TempHitPoints > 0 then return end

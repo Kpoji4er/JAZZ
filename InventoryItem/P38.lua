@@ -21,7 +21,7 @@ DefineClass.P38 = {
 	Caliber = "JAZZ_Caliber_9x19",
 	Damage = 20,
 	ObjDamageMod = 20,
-	AimAccuracy = 10,
+	AimAccuracy = 7,
 	CritChanceScaled = 35,
 	MagazineSize = 8,
 	WeaponRange = 18,
@@ -74,9 +74,9 @@ DefineClass.P38 = {
 	MaxAimActions = 2,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 88,
+	Handling = 18,
 	BulletDropRange = 6,
-	Grouping = 94,
+	Grouping = 54,
 	BaseJamChance = -20,
 }
 

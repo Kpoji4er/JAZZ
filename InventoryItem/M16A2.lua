@@ -23,7 +23,7 @@ DefineClass.M16A2 = {
 	Caliber = "JAZZ_Caliber_556",
 	Damage = 22,
 	ObjDamageMod = 50,
-	AimAccuracy = 23,
+	AimAccuracy = 11,
 	CritChanceScaled = 20,
 	MagazineSize = 30,
 	WeaponRange = 48,
@@ -104,9 +104,9 @@ DefineClass.M16A2 = {
 	ReloadAP = 6000,
 	Recoil = 9,
 	AutoShots = 8,
-	Handling = 64,
+	Handling = -6,
 	BulletDropRange = 17,
-	Grouping = 296,
+	Grouping = 62,
 	WeaponResource = 5500,
 }
 

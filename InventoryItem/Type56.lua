@@ -24,7 +24,7 @@ DefineClass.Type56 = {
 	Caliber = "JAZZ_Caliber_762x39",
 	Damage = 26,
 	ObjDamageMod = 50,
-	AimAccuracy = 18,
+	AimAccuracy = 9,
 	MagazineSize = 30,
 	WeaponRange = 38,
 	OverwatchAngle = 1320,
@@ -70,9 +70,9 @@ DefineClass.Type56 = {
 	ReloadAP = 6000,
 	Recoil = 16,
 	AutoShots = 6,
-	Handling = 60,
+	Handling = -10,
 	BulletDropRange = 13,
-	Grouping = 180,
+	Grouping = 47,
 	WeaponResource = 2500,
 }
 

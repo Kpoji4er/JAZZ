@@ -21,7 +21,7 @@ DefineClass.SWModel5906 = {
 	Caliber = "JAZZ_Caliber_9x19",
 	Damage = 23,
 	ObjDamageMod = 20,
-	AimAccuracy = 10,
+	AimAccuracy = 8,
 	CritChanceScaled = 35,
 	MagazineSize = 16,
 	WeaponRange = 18,
@@ -78,9 +78,9 @@ DefineClass.SWModel5906 = {
 	MaxAimActions = 2,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 84,
+	Handling = 14,
 	BulletDropRange = 6,
-	Grouping = 94,
+	Grouping = 47,
 	BaseJamChance = -20,
 }
 

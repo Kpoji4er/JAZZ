@@ -22,7 +22,7 @@ DefineClass.MAS49 = {
 	Caliber = "JAZZ_Caliber_75French",
 	Damage = 36,
 	ObjDamageMod = 80,
-	AimAccuracy = 29,
+	AimAccuracy = 13,
 	CritChanceScaled = 30,
 	MagazineSize = 10,
 	WeaponRange = 55,
@@ -42,9 +42,9 @@ DefineClass.MAS49 = {
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = 50,
+	Handling = -20,
 	BulletDropRange = 23,
-	Grouping = 240,
+	Grouping = 44,
 	WeaponResource = 4000,
 }
 

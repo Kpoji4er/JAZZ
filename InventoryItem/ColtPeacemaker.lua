@@ -56,9 +56,9 @@ DefineClass.ColtPeacemaker = {
 	ReloadAP = 5000,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 76,
+	Handling = 6,
 	BulletDropRange = 7,
-	Grouping = 92,
+	Grouping = 52,
 	BaseJamChance = -100,
 	WeaponResource = 3000,
 }

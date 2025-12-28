@@ -22,7 +22,7 @@ DefineClass.Springfield = {
 	Caliber = "JAZZ_Caliber_3006",
 	Damage = 36,
 	ObjDamageMod = 80,
-	AimAccuracy = 30,
+	AimAccuracy = 13,
 	CritChanceScaled = 50,
 	MagazineSize = 5,
 	WeaponRange = 58,
@@ -50,9 +50,9 @@ DefineClass.Springfield = {
 	ReloadAP = 8000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = 44,
+	Handling = -26,
 	BulletDropRange = 23,
-	Grouping = 290,
+	Grouping = 50,
 	WeaponResource = 4500,
 }
 

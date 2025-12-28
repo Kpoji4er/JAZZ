@@ -60,9 +60,9 @@ DefineClass.MAT49 = {
 	MaxAimActions = 2,
 	Recoil = 5,
 	AutoShots = 6,
-	Handling = 68,
+	Handling = -2,
 	BulletDropRange = 8,
-	Grouping = 70,
+	Grouping = 29,
 	BaseJamChance = 50,
 	WeaponResource = 1200,
 }

@@ -26,7 +26,7 @@ DefineClass.BAR = {
 	Caliber = "JAZZ_Caliber_3006",
 	Damage = 34,
 	ObjDamageMod = 80,
-	AimAccuracy = 18,
+	AimAccuracy = 10,
 	MagazineSize = 20,
 	WeaponRange = 52,
 	OverwatchAngle = 960,
@@ -52,9 +52,9 @@ DefineClass.BAR = {
 	ReloadAP = 7000,
 	Recoil = 16,
 	AutoShots = 5,
-	Handling = 40,
+	Handling = -24,
 	BulletDropRange = 24,
-	Grouping = 200,
+	Grouping = 38,
 	WeaponResource = 6500,
 }
 

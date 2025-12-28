@@ -24,7 +24,7 @@ DefineClass.Thompson = {
 	Caliber = "JAZZ_Caliber_45ACP",
 	Damage = 26,
 	ObjDamageMod = 25,
-	AimAccuracy = 7,
+	AimAccuracy = 6,
 	CritChanceScaled = 30,
 	MagazineSize = 30,
 	WeaponRange = 19,
@@ -55,9 +55,9 @@ DefineClass.Thompson = {
 	Recoil = 8,
 	BurstShots = 4,
 	AutoShots = 8,
-	Handling = 66,
+	Handling = -4,
 	BulletDropRange = 8,
-	Grouping = 75,
+	Grouping = 39,
 	WeaponResource = 1800,
 }
 

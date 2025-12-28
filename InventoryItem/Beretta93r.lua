@@ -21,7 +21,7 @@ DefineClass.Beretta93r = {
 	Caliber = "JAZZ_Caliber_9x19",
 	Damage = 21,
 	ObjDamageMod = 20,
-	AimAccuracy = 15,
+	AimAccuracy = 8,
 	CritChanceScaled = 35,
 	MagazineSize = 16,
 	WeaponRange = 18,
@@ -69,9 +69,9 @@ DefineClass.Beretta93r = {
 	MaxAimActions = 2,
 	Recoil = 1,
 	AutoShots = 9,
-	Handling = 86,
+	Handling = 16,
 	BulletDropRange = 6,
-	Grouping = 94,
+	Grouping = 46,
 	BaseJamChance = -20,
 }
 

@@ -554,5 +554,5 @@ end
 
 function CthVisible()
 	--return table.find(ModsLoaded, "id", "KAJY0RB")
-	return false
+	return AreModdingToolsActive()
 end

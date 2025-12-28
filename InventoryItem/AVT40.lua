@@ -20,7 +20,7 @@ DefineClass.AVT40 = {
 	CanAppearStandard = false,
 	Caliber = "JAZZ_Caliber_762x54R",
 	Damage = 38,
-	AimAccuracy = 27,
+	AimAccuracy = 12,
 	CritChanceScaled = 30,
 	MagazineSize = 15,
 	WeaponRange = 64,
@@ -50,9 +50,9 @@ DefineClass.AVT40 = {
 	ReloadAP = 7000,
 	Recoil = 35,
 	AutoShots = 7,
-	Handling = 44,
+	Handling = -26,
 	BulletDropRange = 24,
-	Grouping = 225,
+	Grouping = 35,
 	BaseJamChance = 5,
 }
 

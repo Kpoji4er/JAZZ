@@ -21,7 +21,7 @@ DefineClass.Welrod = {
 	Caliber = "JAZZ_Caliber_9x19",
 	Damage = 23,
 	ObjDamageMod = 40,
-	AimAccuracy = 12,
+	AimAccuracy = 7,
 	CritChanceScaled = 60,
 	MagazineSize = 6,
 	WeaponRange = 16,
@@ -57,9 +57,9 @@ DefineClass.Welrod = {
 	MaxAimActions = 2,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 76,
+	Handling = 6,
 	BulletDropRange = 7,
-	Grouping = 92,
+	Grouping = 53,
 	BaseJamChance = -100,
 }
 

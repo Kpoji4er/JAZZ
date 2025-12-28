@@ -21,7 +21,7 @@ DefineClass.Mosin = {
 	Caliber = "JAZZ_Caliber_762x54R",
 	Damage = 40,
 	ObjDamageMod = 80,
-	AimAccuracy = 28,
+	AimAccuracy = 13,
 	CritChanceScaled = 50,
 	MagazineSize = 5,
 	WeaponRange = 66,
@@ -49,9 +49,9 @@ DefineClass.Mosin = {
 	ReloadAP = 8000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = 45,
+	Handling = -25,
 	BulletDropRange = 25,
-	Grouping = 270,
+	Grouping = 41,
 	WeaponResource = 7000,
 }
 

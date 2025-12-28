@@ -26,7 +26,7 @@ DefineClass.FG42 = {
 	Caliber = "JAZZ_Caliber_792",
 	Damage = 38,
 	ObjDamageMod = 80,
-	AimAccuracy = 23,
+	AimAccuracy = 11,
 	MagazineSize = 20,
 	WeaponRange = 53,
 	OverwatchAngle = 960,
@@ -60,9 +60,9 @@ DefineClass.FG42 = {
 	ReloadAP = 7000,
 	Recoil = 36,
 	AutoShots = 7,
-	Handling = 40,
+	Handling = -30,
 	BulletDropRange = 22,
-	Grouping = 220,
+	Grouping = 42,
 	WeaponResource = 6500,
 }
 

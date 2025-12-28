@@ -23,7 +23,7 @@ DefineClass.M3GreaseGun = {
 	Caliber = "JAZZ_Caliber_45ACP",
 	Damage = 27,
 	ObjDamageMod = 25,
-	AimAccuracy = 9,
+	AimAccuracy = 7,
 	CritChanceScaled = 30,
 	MagazineSize = 30,
 	OverwatchAngle = 4320,
@@ -53,9 +53,9 @@ DefineClass.M3GreaseGun = {
 	Recoil = 8,
 	BurstShots = 2,
 	AutoShots = 5,
-	Handling = 65,
+	Handling = -5,
 	BulletDropRange = 8,
-	Grouping = 75,
+	Grouping = 38,
 	WeaponResource = 4200,
 }
 

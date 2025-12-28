@@ -22,7 +22,7 @@ DefineClass.FAMAS = {
 	Caliber = "JAZZ_Caliber_556",
 	Damage = 18,
 	ObjDamageMod = 50,
-	AimAccuracy = 21,
+	AimAccuracy = 10,
 	CritChanceScaled = 20,
 	MagazineSize = 25,
 	WeaponRange = 38,
@@ -99,9 +99,9 @@ DefineClass.FAMAS = {
 	ShootAP = 6000,
 	ReloadAP = 8000,
 	Recoil = 10,
-	Handling = 68,
+	Handling = -2,
 	BulletDropRange = 15,
-	Grouping = 235,
+	Grouping = 62,
 	WeaponResource = 4500,
 }
 

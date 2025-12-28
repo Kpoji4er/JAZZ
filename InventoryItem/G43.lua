@@ -22,7 +22,7 @@ DefineClass.G43 = {
 	Caliber = "JAZZ_Caliber_792",
 	Damage = 40,
 	ObjDamageMod = 80,
-	AimAccuracy = 29,
+	AimAccuracy = 13,
 	CritChanceScaled = 30,
 	MagazineSize = 10,
 	WeaponRange = 58,
@@ -50,9 +50,9 @@ DefineClass.G43 = {
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = 47,
+	Handling = -23,
 	BulletDropRange = 25,
-	Grouping = 230,
+	Grouping = 40,
 	WeaponResource = 4000,
 }
 

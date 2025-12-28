@@ -22,7 +22,7 @@ DefineClass.BrowningM2HMG = {
 	Caliber = "JAZZ_Caliber_50BMG",
 	Damage = 60,
 	ObjDamageMod = 300,
-	AimAccuracy = 30,
+	AimAccuracy = 13,
 	MagazineSize = 100,
 	WeaponRange = 95,
 	OverwatchAngle = 3900,
@@ -40,9 +40,8 @@ DefineClass.BrowningM2HMG = {
 	Recoil = 25,
 	BurstShots = 6,
 	AutoShots = 6,
-	Handling = 20,
 	BulletDropRange = 40,
-	Grouping = 200,
+	Grouping = 21,
 	WeaponResource = 50000,
 }
 

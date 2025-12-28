@@ -54,9 +54,9 @@ DefineClass.MG58 = {
 	},
 	ShootAP = 9000,
 	ReloadAP = 8000,
-	Handling = 35,
+	Handling = -35,
 	BulletDropRange = 26,
-	Grouping = 195,
+	Grouping = 35,
 	WeaponResource = 8000,
 }
 
