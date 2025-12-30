@@ -1523,7 +1523,8 @@ function Firearm:GetAreaAttackParams(action_id, attacker, target_pos, step_pos, 
 		params.min_range = self:GetOverwatchConeParam("MinRange")
 		params.max_range = self:GetOverwatchConeParam("MaxRange")
 	elseif action_id == "Overwatch" or action_id == "MGRotate" or action_id == "MGSetup" then
-		params.cone_angle = self.OverwatchAngle + (MulDivRound(self.Handling - 70,60,10))
+		params.cone_angle = self.OverwatchAngle + (MulDivRound(self.Handling,60,10))
+		params.cone_angle = Max(params.cone_angle,1)
 		if self.emplacement_weapon then
 			params.min_distance_2d = const.EmplacementWeaponMinDistance2D
 		end
