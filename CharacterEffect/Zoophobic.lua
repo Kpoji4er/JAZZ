@@ -36,8 +36,8 @@ DefineClass.Zoophobic = {
 			end,
 		}),
 	},
-	DisplayName = T(619689762390, "Зоофобия"),
-	Description = T(467565005573, "<GameTerm('Morale')> снижается, если этого персонажа <em>атакует</em> <em>животное</em>."),
+	DisplayName = T(619689762390, --[[ModItemCharacterEffectCompositeDef Zoophobic DisplayName]] "Зоофобия"),
+	Description = T(467565005573, --[[ModItemCharacterEffectCompositeDef Zoophobic Description]] "<GameTerm('Morale')> снижается, если этого персонажа <em>атакует</em> <em>животное</em>."),
 	Icon = "UI/Icons/Perks/Zoophobic",
 	Tier = "Quirk",
 }

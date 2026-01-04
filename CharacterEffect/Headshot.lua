@@ -7,7 +7,7 @@ DefineClass.Headshot = {
 	object_class = "StatusEffect",
 	msg_reactions = {},
 	unit_reactions = {},
-	DisplayName = T(664162876607, "Ранение в голову"),
+	DisplayName = T(664162876607, --[[ModItemCharacterEffectCompositeDef Headshot DisplayName]] "Ранение в голову"),
 	Description = "",
 	OnAdded = function (self, obj)
 		if obj.TempHitPoints > 0 then return end

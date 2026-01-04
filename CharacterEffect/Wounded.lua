@@ -81,8 +81,8 @@ DefineClass.Wounded = {
 			end,
 		}),
 	},
-	DisplayName = T(738668654416, "Ранен"),
-	Description = T(345786294171, "Макс. количество <color EmStyle>ОЗ снижается на <MaxHpReductionPerStack></color> за каждую рану. Так же с каждой раной снижается <color EmStyle>Количество ОД </color>. Можно вылечить операцией <color EmStyle>Лечение ран</color> в режиме Вида со спутника."),
+	DisplayName = T(738668654416, --[[ModItemCharacterEffectCompositeDef Wounded DisplayName]] "Ранен"),
+	Description = T(345786294171, --[[ModItemCharacterEffectCompositeDef Wounded Description]] "Макс. количество <color EmStyle>ОЗ снижается на <MaxHpReductionPerStack></color> за каждую рану. Так же с каждой раной снижается <color EmStyle>Количество ОД </color>. Можно вылечить операцией <color EmStyle>Лечение ран</color> в режиме Вида со спутника."),
 	OnAdded = function (self, obj)
 		RecalcMaxHitPoints(obj)
 		

@@ -20,8 +20,8 @@ DefineClass.Loner = {
 			end,
 		}),
 	},
-	DisplayName = T(487342591563, "Одиночка"),
-	Description = T(124325843871, "Дает <GameTerm('Inspired')>, если в начале хода рядом с вами нет бойцов вашего отряда."),
+	DisplayName = T(487342591563, --[[ModItemCharacterEffectCompositeDef Loner DisplayName]] "Одиночка"),
+	Description = T(124325843871, --[[ModItemCharacterEffectCompositeDef Loner Description]] "Дает <GameTerm('Inspired')>, если в начале хода рядом с вами нет бойцов вашего отряда."),
 	Icon = "UI/Icons/Perks/Loner",
 	Tier = "Quirk",
 }

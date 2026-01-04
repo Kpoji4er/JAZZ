@@ -17,8 +17,8 @@ DefineClass.InnerInfo_JAZZ = {
 			end,
 		}),
 	},
-	DisplayName = T(380316218017, "Секретные данные"),
-	Description = T(391831963748, "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
+	DisplayName = T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Секретные данные"),
+	Description = T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
 	Icon = "UI/Icons/Perks/InnerInfo",
 	Tier = "Personal",
 }
