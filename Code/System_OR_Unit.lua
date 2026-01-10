@@ -642,7 +642,7 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 				--print(prop_meta)
 					skillmod =
 					{
-						name = T{4621434559001, "Навыки (<name> и <sub>)", name = prop_meta.name, sub = dexdestr.name},
+						name = T{4621434559001, "Навыки (<name>, <sub>)", name = prop_meta.name, sub = dexdestr.name},
 						value = skill
 					}
 			else

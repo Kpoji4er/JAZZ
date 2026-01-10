@@ -1337,7 +1337,7 @@ return {
 			Comment = "in tiles",
 			group = "Weapons",
 			id = "PointBlankRange",
-			value = 10,
+			value = 5,
 		}),
 		PlaceObj('ModItemConstDef', {
 			group = "Combat",
@@ -31824,6 +31824,23 @@ return {
 					group = "Default",
 					id = "EnableBurst",
 				}),
+				PlaceObj('ModItemWeaponComponentEffect', {
+					Description = T(957597806032, --[[ModItemWeaponComponentEffect LaserMark Description]] "Лазер: +<LaserCTH> шанс попасть на дистанции до  <LaserDistance> клеток"),
+					Parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "LaserCTH",
+							'Value', 15,
+							'Tag', "<LaserCTH>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "LaserDistance",
+							'Value', 10,
+							'Tag', "<LaserDistance>",
+						}),
+					},
+					group = "Default",
+					id = "LaserMark",
+				}),
 				}),
 			PlaceObj('ModItemFolder', {
 				'name', "ComponentsNew",
@@ -36615,9 +36632,9 @@ return {
 						ModificationDifficulty = 10,
 						ModificationEffects = {
 							"IncreaseCritChangeScaled",
-							"PointBlankBonus",
 							"IncreaseOverwatchAngle",
 							"MarkWhenFullyAimed",
+							"LaserMark",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
@@ -36631,9 +36648,14 @@ return {
 								'Tag', "<OverwatchAngleIncrease>",
 							}),
 							PlaceObj('PresetParamNumber', {
-								'Name', "PointBlankBonus",
-								'Value', 1,
-								'Tag', "<PointBlankBonus>",
+								'Name', "LaserCTH",
+								'Value', 15,
+								'Tag', "<LaserCTH>",
+							}),
+							PlaceObj('PresetParamNumber', {
+								'Name', "LaserDistance",
+								'Value', 10,
+								'Tag', "<LaserDistance>",
 							}),
 						},
 						Slot = "Side",
@@ -36896,9 +36918,9 @@ return {
 						ModificationDifficulty = 10,
 						ModificationEffects = {
 							"IncreaseCritChangeScaled",
-							"PointBlankBonus",
 							"IncreaseOverwatchAngle",
 							"MarkWhenFullyAimed",
+							"LaserMark",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
@@ -36915,6 +36937,16 @@ return {
 								'Name', "OverwatchAngleIncrease",
 								'Value', 140,
 								'Tag', "<OverwatchAngleIncrease>",
+							}),
+							PlaceObj('PresetParamNumber', {
+								'Name', "LaserCTH",
+								'Value', 15,
+								'Tag', "<LaserCTH>",
+							}),
+							PlaceObj('PresetParamNumber', {
+								'Name', "LaserDistance",
+								'Value', 10,
+								'Tag', "<LaserDistance>",
 							}),
 						},
 						Slot = "Scope",
@@ -36951,7 +36983,7 @@ return {
 							"IncreaseCritChangeScaled",
 							"MarkWhenFullyAimed",
 							"IncreaseOverwatchAngle",
-							"PointBlankBonus",
+							"LaserMark",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
@@ -36968,6 +37000,16 @@ return {
 								'Name', "OverwatchAngleIncrease",
 								'Value', 140,
 								'Tag', "<OverwatchAngleIncrease>",
+							}),
+							PlaceObj('PresetParamNumber', {
+								'Name', "LaserCTH",
+								'Value', 15,
+								'Tag', "<LaserCTH>",
+							}),
+							PlaceObj('PresetParamNumber', {
+								'Name', "LaserDistance",
+								'Value', 10,
+								'Tag', "<LaserDistance>",
 							}),
 						},
 						Slot = "Side",
@@ -63287,7 +63329,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Секретные данные"),
+					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ DisplayName]] "Секретные данные"),
 					'Description', T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
 					'Icon', "UI/Icons/Perks/InnerInfo",
 					'Tier', "Personal",
@@ -63349,7 +63391,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Юберрашунг"),
+					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ DisplayName]] "Юберрашунг"),
 					'Description', T(845332100943, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ Description]] "Дает +50% од на первом ходу"),
 					'Icon', "UI/Icons/Perks/GruntyPerk",
 					'Tier', "Personal",
@@ -65661,21 +65703,61 @@ return {
 			PlaceObj('ModItemChanceToHitModifier', {
 				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
 					if attacker and IsKindOf(weapon1, "Firearm") then
-					   local dex = attacker.Dexterity
-						local handling = weapon1.Handling
-						local cth = MulDivRound(handling ,dex,100)
-						if handling < 0 then
-							cth = handling  + DivRound(dex ,10)  
-						end
-						
-						local	fade = Clamp(3-aim, 0, 3)
-						
-						return true,  MulDivRound(cth, fade, 3)
+					  local min_distance = 5
+					  local max_distance = 20
+					
+					  local attacker_pos = attacker:GetPos()
+					  local target_pos = IsPoint(target) and target or target:GetPos()
+					  local dist = Max(1, attacker_pos:Dist(target_pos) / const.SlabSizeX)
+					
+					  local dex = attacker.Dexterity
+					  local handling = weapon1.Handling
+					
+					  -- линейное угасание handling от 5 до 20
+					  local fade_num = Clamp(max_distance - dist, 0, max_distance - min_distance) -- 0..15
+					  local fade_den = (max_distance - min_distance)                              -- 15
+					
+					  local handlingByDistance = handling
+					  if dist > min_distance then
+					    handlingByDistance = MulDivRound(handling, fade_num, fade_den)
+					  end
+					
+					  -- по умолчанию: плюсовая эрго как есть
+					  local handlingEff = handlingByDistance
+					
+					  -- если эрго отрицательная: dex компенсирует, но не более 50% штрафа
+					  if handlingEff < 0 then
+					    local relief = DivRound(dex, 10)                 -- твой "бонус от ловкости"
+					    local maxRelief = (-handlingEff) / 2             -- 50% компенсации
+					    relief = Min(relief, maxRelief)
+					    handlingEff = handlingEff + relief               -- всё ещё <= 0
+					  end
+					
+					  local cth = handlingEff
+					
+					  if handling < 0 then
+					    local fadeAim = Clamp(3 - aim, 0, 3)
+					    return true, MulDivRound(cth, fadeAim, 3)
+					  end
+					
+					  return true, cth
 					end
 					return false, 0
 				end,
+				Parameters = {
+					PlaceObj('PresetParamNumber', {
+						'Name', "MinDistance",
+						'Value', 5,
+						'Tag', "<MinDistance>",
+					}),
+					PlaceObj('PresetParamNumber', {
+						'Name', "MaxDistance",
+						'Value', 20,
+						'Tag', "<MaxDistance>",
+					}),
+				},
 				RequireActionType = "Any Ranged Attack",
-				display_name = T(353057401634, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Эргономика"),
+				display_name = T(353057401634, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Эргономика (от ловкости и дистанции до цели)"),
 				group = "Default",
 				id = "Handling",
 			}),
@@ -65969,7 +66051,7 @@ return {
 					
 					
 					--local bonus = num * min_bonus + MulDivRound(Max(0, dex - min_dex) * num, dex_scale, 100)
-					local bonus = MulDivRound(min_bonus ,MarksmanshipInfluence(mrk),100)
+					local bonus = MulDivRound(weapon1.AimAccuracy * aim ,MarksmanshipInfluence(mrk),100)
 						--if num > 3 then bonus = bonus + MulDivRound(weapon1.AimAccuracy,mrk,100) * (num-3) end
 					-- target camo
 					
@@ -66009,8 +66091,17 @@ return {
 			}),
 			PlaceObj('ModItemChanceToHitModifier', {
 				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
-					if attacker and IsKindOf(weapon1, "FirearmProperties") and weapon1:HasPointBlankBonus() and attacker:IsPointBlankRange(target) then
-						return true, self:ResolveValue("bonus")
+					if attacker and IsKindOf(weapon1, "FirearmProperties")  then
+						local modifyVal, compDef = GetComponentEffectValue(weapon1, "LaserMark", "LaserCTH")
+						if modifyVal then
+						    local attacker_pos = attacker:GetPos()
+					 	   local target_pos = IsPoint(target) and target or target:GetPos()
+					        local dist = Max(1, attacker_pos:Dist(target_pos) / const.SlabSizeX)
+					        local laserdist = GetComponentEffectValue(weapon1, "LaserMark", "LaserDist") or 0
+					        if dist <= laserdist then
+								return true, modifyVal
+							end
+						end
 					end
 					
 					return false, 0
@@ -66028,13 +66119,14 @@ return {
 			}),
 			PlaceObj('ModItemChanceToHitModifier', {
 				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
-					if attacker and IsCloser(target, attacker, 5 * const.SlabSizeX + 1) and IsKindOf(weapon1, "Firearm") then
+					return false, 0
+					--[[if attacker and IsCloser(target, attacker, 5 * const.SlabSizeX + 1) and IsKindOf(weapon1, "Firearm") then
 						if IsKindOf(weapon1, "Pistol") then return true, self:ResolveValue("bonus") end
 						if IsKindOf(weapon1, "SubmachineGun") then return true, self:ResolveValue("bonus") end
 						return true, self:ResolveValue("bonus")
 					end
 					
-					return false, 0
+					return false, 0]]
 				end,
 				Parameters = {
 					PlaceObj('PresetParamPercent', {

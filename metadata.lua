@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 9,
-	'version', 5494,
+	'version', 5507,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -847,8 +847,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1767922195,
-	'code_hash', 7617869377796786040,
+	'saved', 1768067966,
+	'code_hash', -3701248009644536750,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -4803,6 +4803,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "WeaponComponentEffect",
 			'Id', "EnableBurst",
+			'ClassDisplayName', "Modification Effects",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponComponentEffect",
+			'Id', "LaserMark",
 			'ClassDisplayName', "Modification Effects",
 		}),
 		PlaceObj('ModResourcePreset', {
