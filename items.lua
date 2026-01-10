@@ -1919,6 +1919,12 @@ return {
 						PlaceObj('PlayerControlSectors', {
 							Amount = 3,
 						}),
+						PlaceObj('QuestIsVariableNum', {
+							Amount = 13,
+							Condition = "<=",
+							Prop = "JAZZ_Legion_Tier",
+							QuestId = "JAZZ_LegionTier",
+						}),
 					},
 					Effects = {
 						PlaceObj('QuestSetVariableNum', {
@@ -1937,25 +1943,15 @@ return {
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
-						PlaceObj('QuestIsVariableBool', {
-							QuestId = "01_Landing",
-							Vars = set( "Completed" ),
-						}),
-						PlaceObj('QuestIsVariableNum', {
-							Amount = 13,
-							Condition = "<=",
-							Prop = "JAZZ_Legion_Tier",
-							QuestId = "JAZZ_LegionTier",
-						}),
-						PlaceObj('QuestIsVariableNum', {
-							Amount = 12,
-							Prop = "JAZZ_Legion_Tier",
-							QuestId = "JAZZ_LegionTier",
+						PlaceObj('PlayerIsInSectors', {
+							Sectors = {
+								"K4",
+							},
 						}),
 					},
 					Effects = {
 						PlaceObj('QuestSetVariableNum', {
-							Amount = 3,
+							Amount = 13,
 							Operation = "set",
 							Prop = "JAZZ_Legion_Tier",
 							QuestId = "JAZZ_LegionTier",
@@ -1971,7 +1967,7 @@ return {
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('PlayerControlSectors', {
-							Amount = 20,
+							Amount = 12,
 						}),
 					},
 					Effects = {
@@ -66252,7 +66248,7 @@ return {
 					skill=MulDivRound(skill,1,3)
 					local debuff = -base-skill
 					
-					if not attacker.team or not VisibilityCheckAll(attacker.team, target, nil, const.uvVisible) or not lof then
+					if not attacker.team or not VisibilityCheckAll(attacker.team, target, nil, const.uvVisible) then
 						return true, self:ResolveValue("BlindFirePenalty")
 					end
 					return true, self:ResolveValue("SpotterPenalty"), T(431888134623, "Seen by Spotter")
