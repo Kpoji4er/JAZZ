@@ -1907,7 +1907,7 @@ return {
 							QuestId = "JAZZ_LegionTier",
 						}),
 						PlaceObj('ExecuteCode', {
-							FuncCode = 'ReceiveEmail("LegionTier1")',
+							FuncCode = 'RegenerateLegionLoot()\nReceiveEmail("LegionTier1")',
 						}),
 					},
 					ParamId = "JAZZ_Legion_T11",
@@ -63349,7 +63349,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ DisplayName]] "Секретные данные"),
+					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Секретные данные"),
 					'Description', T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
 					'Icon', "UI/Icons/Perks/InnerInfo",
 					'Tier', "Personal",
@@ -63411,7 +63411,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ DisplayName]] "Юберрашунг"),
+					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Юберрашунг"),
 					'Description', T(845332100943, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ Description]] "Дает +50% од на первом ходу"),
 					'Icon', "UI/Icons/Perks/GruntyPerk",
 					'Tier', "Personal",
@@ -66071,7 +66071,7 @@ return {
 					
 					
 					--local bonus = num * min_bonus + MulDivRound(Max(0, dex - min_dex) * num, dex_scale, 100)
-					local bonus = MulDivRound(weapon1.AimAccuracy * aim ,MarksmanshipInfluence(mrk),100)
+					local bonus = MulDivRound(min_bonus ,MarksmanshipInfluence(mrk),100)
 						--if num > 3 then bonus = bonus + MulDivRound(weapon1.AimAccuracy,mrk,100) * (num-3) end
 					-- target camo
 					
@@ -100305,7 +100305,7 @@ return {
 		}, {
 			PlaceObj('ModItemRegion', {
 				DisplayName = "Остров Эрни",
-				Heat = 1177,
+				Heat = 1175,
 				Sectors = {
 					"M1",
 					"M2",
