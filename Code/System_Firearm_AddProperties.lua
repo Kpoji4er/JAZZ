@@ -326,10 +326,10 @@ function Inventory:ItemModifyCondition(item, amount)
 	end	
 
     if item.WeaponResource then
-        item.WeaponResource = MulDivRound(newValue, 100, item:GetMaxResource())
+        item.WeaponResource = MulDivRound(item:GetMaxResource(), newValue, 100)
      end
     if item.ArmorResource then 
-        item.ArmorResource = MulDivRound(newValue, 100, item:GetMaxResource())
+        item.ArmorResource = MulDivRound(item:GetMaxResource(), newValue, 100)
     end
 
 
