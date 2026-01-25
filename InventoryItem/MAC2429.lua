@@ -35,7 +35,6 @@ DefineClass.MAC2429 = {
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
-			'Modifiable', false,
 			'AvailableComponents', {
 				"Bipod",
 			},

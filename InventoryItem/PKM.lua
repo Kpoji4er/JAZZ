@@ -47,9 +47,6 @@ DefineClass.PKM = {
 			'SlotType', "Mount",
 			'Modifiable', false,
 			'CanBeEmpty', true,
-			'AvailableComponents', {
-				"PKMModern",
-			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",

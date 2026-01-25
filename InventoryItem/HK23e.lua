@@ -66,6 +66,13 @@ DefineClass.HK23e = {
 				"FlashlightDot",
 			},
 		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Bipod",
+			'AvailableComponents', {
+				"Bipod",
+			},
+			'DefaultComponent', "Bipod",
+		}),
 	},
 	HolsterSlot = "Shoulder",
 	PreparedAttackType = "Machine Gun",

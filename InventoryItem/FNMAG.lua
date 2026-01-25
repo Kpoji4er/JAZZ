@@ -37,7 +37,6 @@ DefineClass.FNMAG = {
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
-			'Modifiable', false,
 			'AvailableComponents', {
 				"KSP_BIPOD",
 			},

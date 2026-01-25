@@ -61,6 +61,14 @@ DefineClass.USAS12 = {
 				"Compensator",
 			},
 		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"MagNormal",
+				"MagLarge",
+			},
+			'DefaultComponent', "MagNormal",
+		}),
 	},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {

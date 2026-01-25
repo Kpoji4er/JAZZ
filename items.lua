@@ -25439,7 +25439,6 @@ return {
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
-							'Modifiable', false,
 							'AvailableComponents', {
 								"Bipod",
 							},
@@ -26096,6 +26095,13 @@ return {
 								"FlashlightDot",
 							},
 						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Bipod",
+							'AvailableComponents', {
+								"Bipod",
+							},
+							'DefaultComponent', "Bipod",
+						}),
 					},
 					'HolsterSlot', "Shoulder",
 					'PreparedAttackType', "Machine Gun",
@@ -26625,7 +26631,6 @@ return {
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
-							'Modifiable', false,
 							'AvailableComponents', {
 								"KSP_BIPOD",
 							},
@@ -26717,9 +26722,6 @@ return {
 							'SlotType', "Mount",
 							'Modifiable', false,
 							'CanBeEmpty', true,
-							'AvailableComponents', {
-								"PKMModern",
-							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -27628,6 +27630,14 @@ return {
 								"Suppressor",
 								"Compensator",
 							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'AvailableComponents', {
+								"MagNormal",
+								"MagLarge",
+							},
+							'DefaultComponent', "MagNormal",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -30693,6 +30703,10 @@ return {
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(371387506492, --[[ModItemWeaponComponent KSP_BIPOD DisplayName]] "Сошка от KSP 58"),
+					ModificationEffects = {
+						"AccuracyBonusProne",
+						"ShotsBeforeRecoilProne",
+					},
 					Slot = "Bipod",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
@@ -32088,9 +32102,18 @@ return {
 							Slot = "Bipod",
 							param_bindings = false,
 						}),
+						PlaceObj('WeaponComponentVisual', {
+							ApplyTo = "MAC2429",
+							Entity = "MAC2429_Bipod_unfld",
+							Slot = "Bipod",
+							param_bindings = false,
+						}),
 					},
 					group = "Underslung",
 					id = "Bipod",
+					zzFoldingPair = {
+						"",
+					},
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(535138608885, --[[ModItemWeaponComponent Autofire DisplayName]] "Автоматический огонь"),
@@ -41709,6 +41732,12 @@ return {
 									param_bindings = false,
 								}),
 								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "PKM",
+									Entity = "PKM_Zenit",
+									Slot = "Mount",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "AKM",
 									Entity = "AKSeriaMount",
 									Slot = "General",
@@ -41958,6 +41987,12 @@ return {
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "AKM",
 									Entity = "WeaponAttA_MountAK47",
+									Slot = "Mount",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "PKM",
+									Entity = "PKM_Zenit",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
@@ -42270,6 +42305,12 @@ return {
 									param_bindings = false,
 								}),
 								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "PKM",
+									Entity = "PKM_Zenit",
+									Slot = "Mount",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "AKM",
 									Entity = "AKSeriaMount",
 									Slot = "General",
@@ -42380,6 +42421,12 @@ return {
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "AKM",
 									Entity = "WeaponAttA_MountAK47",
+									Slot = "Mount",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "PKM",
+									Entity = "PKM_Zenit",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
@@ -42873,6 +42920,12 @@ return {
 									Slot = "Mount1",
 									param_bindings = false,
 								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "PKM",
+									Entity = "PKM_Zenit",
+									Slot = "Mount",
+									param_bindings = false,
+								}),
 							},
 							comment = "Reflex Open T2",
 							group = "Scope",
@@ -43308,6 +43361,12 @@ return {
 									Slot = "Scope",
 									param_bindings = false,
 								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "PKM",
+									Entity = "PKM_Zenit",
+									Slot = "Mount",
+									param_bindings = false,
+								}),
 							},
 							comment = "Reflex Open T4",
 							group = "Scope",
@@ -43378,6 +43437,12 @@ return {
 									ApplyTo = "AKM",
 									Entity = "WeaponAttA_MountAK47",
 									ReticleZoom = 4,
+									Slot = "Mount",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "PKM",
+									Entity = "PKM_Zenit",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
@@ -43628,6 +43693,12 @@ return {
 									Entity = "M16ScopeX3",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/m163x.png",
 									Slot = "Scope",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "PKM",
+									Entity = "PKM_Zenit",
+									Slot = "Mount",
 									param_bindings = false,
 								}),
 							},
@@ -44053,6 +44124,12 @@ return {
 									Slot = "Mount",
 									param_bindings = false,
 								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "PKM",
+									Entity = "PKM_Zenit",
+									Slot = "Mount",
+									param_bindings = false,
+								}),
 							},
 							group = "Scope",
 							id = "JAZZ_CombatScope_ACOG",
@@ -44470,6 +44547,12 @@ return {
 									Slot = "Mount",
 									param_bindings = false,
 								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "PKM",
+									Entity = "PKM_Zenit",
+									Slot = "Mount",
+									param_bindings = false,
+								}),
 							},
 							group = "Scope",
 							id = "JAZZ_Scope_12x",
@@ -44665,6 +44748,12 @@ return {
 									Slot = "Mount",
 									param_bindings = false,
 								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "PKM",
+									Entity = "PKM_Zenit",
+									Slot = "Mount",
+									param_bindings = false,
+								}),
 							},
 							group = "Scope",
 							id = "JAZZ_Scope_6x",
@@ -44850,6 +44939,12 @@ return {
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK33",
 									Entity = "HK33__Mount",
+									Slot = "Mount",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "PKM",
+									Entity = "PKM_Zenit",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
@@ -45068,6 +45163,12 @@ return {
 									Slot = "Mount",
 									param_bindings = false,
 								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "PKM",
+									Entity = "PKM_Zenit",
+									Slot = "Mount",
+									param_bindings = false,
+								}),
 							},
 							group = "Scope",
 							id = "JAZZ_Scope_Scout",
@@ -45161,6 +45262,12 @@ return {
 									ApplyTo = "AKM",
 									Entity = "WeaponAttA_MountAK47",
 									ReticleZoom = 4,
+									Slot = "Mount",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "PKM",
+									Entity = "PKM_Zenit",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
@@ -46220,6 +46327,12 @@ return {
 									Slot = "Mount",
 									param_bindings = false,
 								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "PKM",
+									Entity = "PKM_Zenit",
+									Slot = "Mount",
+									param_bindings = false,
+								}),
 							},
 							group = "Scope",
 							id = "JAZZ_NightScope",
@@ -47029,7 +47142,7 @@ return {
 				}, {
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 25,
-						DisplayName = T(741738016165, --[[ModItemWeaponComponent MagNormal DisplayName]] "Default Mag"),
+						DisplayName = T(741738016165, --[[ModItemWeaponComponent MagNormal DisplayName]] "Заводской магазин"),
 						Icon = "UI/Icons/Upgrades/default_magazine",
 						ModificationDifficulty = 0,
 						Slot = "Magazine",
@@ -48836,7 +48949,7 @@ return {
 					}, {
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 15,
-							DisplayName = T(213094233610, --[[ModItemWeaponComponent MagLarge DisplayName]] "Expanded Mag"),
+							DisplayName = T(213094233610, --[[ModItemWeaponComponent MagLarge DisplayName]] "Расширенный магазин"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
@@ -49126,6 +49239,12 @@ return {
 									ApplyTo = "HK21",
 									Entity = "WeaponAttA_MagazineHK21_02",
 									Icon = "UI/Icons/Upgrades/hk21_mag_large",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "USAS12",
+									Entity = "USAS12Drum",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
