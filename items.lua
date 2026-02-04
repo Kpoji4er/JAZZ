@@ -1901,13 +1901,13 @@ return {
 					},
 					Effects = {
 						PlaceObj('QuestSetVariableNum', {
-							Amount = 21,
+							Amount = 11,
 							Operation = "set",
 							Prop = "JAZZ_Legion_Tier",
 							QuestId = "JAZZ_LegionTier",
 						}),
 						PlaceObj('ExecuteCode', {
-							FuncCode = 'RegenerateLegionLoot()\nReceiveEmail("LegionTier1")',
+							FuncCode = "RegenerateLegionLoot()",
 						}),
 					},
 					ParamId = "JAZZ_Legion_T11",
@@ -1917,7 +1917,7 @@ return {
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('PlayerControlSectors', {
-							Amount = 3,
+							Amount = 1,
 						}),
 						PlaceObj('QuestIsVariableNum', {
 							Amount = 23,
@@ -1928,13 +1928,13 @@ return {
 					},
 					Effects = {
 						PlaceObj('QuestSetVariableNum', {
-							Amount = 23,
+							Amount = 12,
 							Operation = "set",
 							Prop = "JAZZ_Legion_Tier",
 							QuestId = "JAZZ_LegionTier",
 						}),
 						PlaceObj('ExecuteCode', {
-							FuncCode = 'RegenerateLegionLoot()\nReceiveEmail("LegionTier2")',
+							FuncCode = "RegenerateLegionLoot()",
 						}),
 					},
 					ParamId = "JAZZ_Legion_T12",
@@ -1943,10 +1943,113 @@ return {
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
-						PlaceObj('PlayerIsInSectors', {
-							Sectors = {
-								"K4",
-							},
+						PlaceObj('PlayerControlSectors', {
+							Amount = 2,
+						}),
+					},
+					Effects = {
+						PlaceObj('QuestSetVariableNum', {
+							Amount = 13,
+							Operation = "set",
+							Prop = "JAZZ_Legion_Tier",
+							QuestId = "JAZZ_LegionTier",
+						}),
+						PlaceObj('ExecuteCode', {
+							FuncCode = "RegenerateLegionLoot()",
+						}),
+					},
+					ParamId = "JAZZ_Legion_T13",
+					QuestId = "JAZZ_LegionTier",
+					SequentialEffects = false,
+				}),
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('PlayerControlSectors', {
+							Amount = 3,
+						}),
+					},
+					Effects = {
+						PlaceObj('QuestSetVariableNum', {
+							Amount = 21,
+							Operation = "set",
+							Prop = "JAZZ_Legion_Tier",
+							QuestId = "JAZZ_LegionTier",
+						}),
+						PlaceObj('ExecuteCode', {
+							FuncCode = "RegenerateLegionLoot()",
+						}),
+					},
+					ParamId = "JAZZ_Legion_T21",
+					QuestId = "JAZZ_LegionTier",
+					SequentialEffects = false,
+				}),
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('PlayerControlSectors', {
+							Amount = 4,
+						}),
+					},
+					Effects = {
+						PlaceObj('QuestSetVariableNum', {
+							Amount = 22,
+							Operation = "set",
+							Prop = "JAZZ_Legion_Tier",
+							QuestId = "JAZZ_LegionTier",
+						}),
+						PlaceObj('ExecuteCode', {
+							FuncCode = "RegenerateLegionLoot()",
+						}),
+					},
+					ParamId = "JAZZ_Legion_T22",
+					QuestId = "JAZZ_LegionTier",
+					SequentialEffects = false,
+				}),
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('PlayerControlSectors', {
+							Amount = 5,
+						}),
+					},
+					Effects = {
+						PlaceObj('QuestSetVariableNum', {
+							Amount = 23,
+							Operation = "set",
+							Prop = "JAZZ_Legion_Tier",
+							QuestId = "JAZZ_LegionTier",
+						}),
+						PlaceObj('ExecuteCode', {
+							FuncCode = "RegenerateLegionLoot()",
+						}),
+					},
+					ParamId = "JAZZ_Legion_T23",
+					QuestId = "JAZZ_LegionTier",
+					SequentialEffects = false,
+				}),
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('PlayerControlSectors', {
+							Amount = 6,
+						}),
+					},
+					Effects = {
+						PlaceObj('QuestSetVariableNum', {
+							Amount = 24,
+							Operation = "set",
+							Prop = "JAZZ_Legion_Tier",
+							QuestId = "JAZZ_LegionTier",
+						}),
+						PlaceObj('ExecuteCode', {
+							FuncCode = "RegenerateLegionLoot()",
+						}),
+					},
+					ParamId = "JAZZ_Legion_T24",
+					QuestId = "JAZZ_LegionTier",
+					SequentialEffects = false,
+				}),
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('PlayerControlSectors', {
+							Amount = 7,
 						}),
 					},
 					Effects = {
@@ -1957,17 +2060,17 @@ return {
 							QuestId = "JAZZ_LegionTier",
 						}),
 						PlaceObj('ExecuteCode', {
-							FuncCode = 'RegenerateLegionLoot()\nReceiveEmail("LegionTier3")',
+							FuncCode = "RegenerateLegionLoot()",
 						}),
 					},
-					ParamId = "JAZZ_Legion_T13",
+					ParamId = "JAZZ_Legion_T25",
 					QuestId = "JAZZ_LegionTier",
 					SequentialEffects = false,
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('PlayerControlSectors', {
-							Amount = 12,
+							Amount = 8,
 						}),
 					},
 					Effects = {
@@ -1978,31 +2081,52 @@ return {
 							QuestId = "JAZZ_LegionTier",
 						}),
 						PlaceObj('ExecuteCode', {
-							FuncCode = 'RegenerateLegionLoot()\nReceiveEmail("LegionTier4")',
+							FuncCode = "RegenerateLegionLoot()",
 						}),
 					},
-					ParamId = "JAZZ_Legion_T21",
+					ParamId = "JAZZ_Legion_T31",
 					QuestId = "JAZZ_LegionTier",
 					SequentialEffects = false,
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('PlayerControlSectors', {
-							Amount = 30,
+							Amount = 9,
 						}),
 					},
 					Effects = {
 						PlaceObj('QuestSetVariableNum', {
-							Amount = 35,
+							Amount = 32,
 							Operation = "set",
 							Prop = "JAZZ_Legion_Tier",
 							QuestId = "JAZZ_LegionTier",
 						}),
 						PlaceObj('ExecuteCode', {
-							FuncCode = 'RegenerateLegionLoot()\nReceiveEmail("LegionTier5")',
+							FuncCode = "RegenerateLegionLoot()",
 						}),
 					},
-					ParamId = "JAZZ_Legion_T22",
+					ParamId = "JAZZ_Legion_T32",
+					QuestId = "JAZZ_LegionTier",
+					SequentialEffects = false,
+				}),
+				PlaceObj('TriggeredConditionalEvent', {
+					Conditions = {
+						PlaceObj('PlayerControlSectors', {
+							Amount = 10,
+						}),
+					},
+					Effects = {
+						PlaceObj('QuestSetVariableNum', {
+							Amount = 33,
+							Operation = "set",
+							Prop = "JAZZ_Legion_Tier",
+							QuestId = "JAZZ_LegionTier",
+						}),
+						PlaceObj('ExecuteCode', {
+							FuncCode = "RegenerateLegionLoot()",
+						}),
+					},
+					ParamId = "JAZZ_Legion_T33",
 					QuestId = "JAZZ_LegionTier",
 					SequentialEffects = false,
 				}),
@@ -2023,7 +2147,7 @@ return {
 				}),
 				PlaceObj('QuestVarNum', {
 					Name = "JAZZ_Legion_Tier",
-					Value = 21,
+					Value = 11,
 				}),
 				PlaceObj('QuestVarTCEState', {
 					Name = "JAZZ_Legion_T11",
@@ -2039,6 +2163,24 @@ return {
 				}),
 				PlaceObj('QuestVarTCEState', {
 					Name = "JAZZ_Legion_T22",
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "JAZZ_Legion_T23",
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "JAZZ_Legion_T24",
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "JAZZ_Legion_T25",
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "JAZZ_Legion_T31",
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "JAZZ_Legion_T32",
+				}),
+				PlaceObj('QuestVarTCEState', {
+					Name = "JAZZ_Legion_T33",
 				}),
 			},
 			group = "Default",
@@ -63468,7 +63610,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ DisplayName]] "Секретные данные"),
+					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Секретные данные"),
 					'Description', T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
 					'Icon', "UI/Icons/Perks/InnerInfo",
 					'Tier', "Personal",
@@ -63530,7 +63672,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ DisplayName]] "Юберрашунг"),
+					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Юберрашунг"),
 					'Description', T(845332100943, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ Description]] "Дает +50% од на первом ходу"),
 					'Icon', "UI/Icons/Perks/GruntyPerk",
 					'Tier', "Personal",
