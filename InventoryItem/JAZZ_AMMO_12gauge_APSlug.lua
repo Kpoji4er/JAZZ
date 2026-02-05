@@ -43,7 +43,6 @@ DefineClass.JAZZ_AMMO_12gauge_APSlug = {
 		}),
 		PlaceObj('CaliberModification', {
 			mod_add = 9,
-			mod_mul = 0,
 			target_prop = "BulletDropRange",
 		}),
 		PlaceObj('CaliberModification', {

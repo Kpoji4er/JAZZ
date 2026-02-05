@@ -6921,7 +6921,6 @@ return {
 							}),
 							PlaceObj('CaliberModification', {
 								mod_add = 8,
-								mod_mul = 0,
 								target_prop = "BulletDropRange",
 							}),
 							PlaceObj('CaliberModification', {
@@ -6988,7 +6987,6 @@ return {
 							}),
 							PlaceObj('CaliberModification', {
 								mod_add = 9,
-								mod_mul = 0,
 								target_prop = "BulletDropRange",
 							}),
 							PlaceObj('CaliberModification', {
@@ -7047,7 +7045,6 @@ return {
 							}),
 							PlaceObj('CaliberModification', {
 								mod_add = -2,
-								mod_mul = 0,
 								target_prop = "BulletDropRange",
 							}),
 							PlaceObj('CaliberModification', {

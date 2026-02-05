@@ -42,7 +42,6 @@ DefineClass.JAZZ_AMMO_12gauge_Saltshot = {
 		}),
 		PlaceObj('CaliberModification', {
 			mod_add = -2,
-			mod_mul = 0,
 			target_prop = "BulletDropRange",
 		}),
 		PlaceObj('CaliberModification', {
