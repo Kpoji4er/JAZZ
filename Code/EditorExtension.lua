@@ -36,6 +36,7 @@ DefineModItemPreset("ClassDef", { EditorName = "ClassDef", EditorSubmenu = "Weap
 DefineModItemPreset("GameTerm", { EditorName = "Gameterm", EditorSubmenu = "Other" })
 DefineModItemPreset("ChanceToHitModifier", { EditorName = "ChanceToHitModifier", EditorSubmenu = "ChanceToHitModifier" })
 DefineModItemPreset("ObjMaterial", { EditorName = "ObjMaterial", EditorSubmenu = "Other" })
+DefineModItemPreset("SectorTerrain", { EditorName = "SectorTerrain", EditorSubmenu = "Satellite" })
 
 
 
