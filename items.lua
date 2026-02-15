@@ -1518,6 +1518,20 @@ return {
 			id = "Grenade",
 			value = 20,
 		}),
+		PlaceObj('ModItemConstDef', {
+			Comment = "This is the time to cross the distance from the center of the sector to it's edge (not from center to center)",
+			group = "Satellite",
+			id = "SectorTravelTime",
+			scale = "h",
+			value = 10800,
+		}),
+		PlaceObj('ModItemConstDef', {
+			Comment = "This is the time to cross the distance from the center of the sector to it's edge (not from center to center)",
+			group = "Satellite",
+			id = "SectorTravelTimeEnemy",
+			scale = "h",
+			value = 7200,
+		}),
 		}),
 	PlaceObj('ModItemFolder', {
 		'name', "Utility_Quests",
@@ -63607,7 +63621,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Секретные данные"),
+					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ DisplayName]] "Секретные данные"),
 					'Description', T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
 					'Icon', "UI/Icons/Perks/InnerInfo",
 					'Tier', "Personal",
@@ -63669,7 +63683,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Юберрашунг"),
+					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ DisplayName]] "Юберрашунг"),
 					'Description', T(845332100943, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ Description]] "Дает +50% од на первом ходу"),
 					'Icon', "UI/Icons/Perks/GruntyPerk",
 					'Tier', "Personal",
@@ -66644,7 +66658,7 @@ return {
 			}),
 			PlaceObj('ModItemChanceToHitModifier', {
 				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
-					if HasVisibilityTo(attacker.team or attacker, target) then
+					if HasVisibilityTo(attacker, target) then
 						return false, 0
 					end
 					if not IsKindOf(weapon1, "Firearm") or not attacker or not target then
