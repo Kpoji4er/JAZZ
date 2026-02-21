@@ -1,11 +1,11 @@
 UndefineClass('MAC2429')
 DefineClass.MAC2429 = {
-	__parents = { "MachineGun" },
+	__parents = { "LightMachineGun" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 1-1",
-	object_class = "MachineGun",
+	object_class = "LightMachineGun",
 	ScrapParts = 12,
 	RepairCost = 1,
 	Icon = "Mod/e6L4ECj/WeaponIcons/2429.png",

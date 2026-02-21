@@ -1,11 +1,11 @@
 UndefineClass('DeLisle')
 DefineClass.DeLisle = {
-	__parents = { "SniperRifle" },
+	__parents = { "Carbine" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 1-3",
-	object_class = "SniperRifle",
+	object_class = "Carbine",
 	ScrapParts = 10,
 	RepairCost = 8,
 	Reliability = 50,

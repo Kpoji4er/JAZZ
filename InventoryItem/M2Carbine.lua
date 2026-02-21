@@ -1,11 +1,11 @@
 UndefineClass('M2Carbine')
 DefineClass.M2Carbine = {
-	__parents = { "SniperRifle" },
+	__parents = { "Carbine" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 1-1",
-	object_class = "SniperRifle",
+	object_class = "Carbine",
 	ScrapParts = 8,
 	RepairCost = 3,
 	Reliability = 50,

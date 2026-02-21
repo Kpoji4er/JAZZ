@@ -1,11 +1,11 @@
 UndefineClass('AKSU')
 DefineClass.AKSU = {
-	__parents = { "SubmachineGun" },
+	__parents = { "Carbine" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 2-3",
-	object_class = "SubmachineGun",
+	object_class = "Carbine",
 	ScrapParts = 10,
 	RepairCost = 12,
 	Reliability = 65,

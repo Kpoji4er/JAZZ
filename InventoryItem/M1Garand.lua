@@ -1,11 +1,11 @@
 UndefineClass('M1Garand')
 DefineClass.M1Garand = {
-	__parents = { "SniperRifle" },
+	__parents = { "BattleRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 1-2",
-	object_class = "SniperRifle",
+	object_class = "BattleRifle",
 	ScrapParts = 8,
 	RepairCost = 6,
 	Reliability = 60,

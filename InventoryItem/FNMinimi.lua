@@ -1,11 +1,11 @@
 UndefineClass('FNMinimi')
 DefineClass.FNMinimi = {
-	__parents = { "MachineGun" },
+	__parents = { "LightMachineGun" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 2-5",
-	object_class = "MachineGun",
+	object_class = "LightMachineGun",
 	ScrapParts = 16,
 	RepairCost = 10,
 	Reliability = 75,

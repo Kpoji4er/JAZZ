@@ -1,11 +1,11 @@
 UndefineClass('SKS')
 DefineClass.SKS = {
-	__parents = { "SniperRifle" },
+	__parents = { "BattleRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 1-1",
-	object_class = "SniperRifle",
+	object_class = "BattleRifle",
 	msg_reactions = {},
 	unit_reactions = {},
 	ScrapParts = 10,

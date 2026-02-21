@@ -1,11 +1,11 @@
 UndefineClass('FG42')
 DefineClass.FG42 = {
-	__parents = { "AssaultRifle" },
+	__parents = { "BattleRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 1-2",
-	object_class = "AssaultRifle",
+	object_class = "BattleRifle",
 	ScrapParts = 12,
 	RepairCost = 3,
 	Icon = "Mod/e6L4ECj/WeaponIcons/FG42.png",

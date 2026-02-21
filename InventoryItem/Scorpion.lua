@@ -1,11 +1,11 @@
 UndefineClass('Scorpion')
 DefineClass.Scorpion = {
-	__parents = { "SubmachineGun" },
+	__parents = { "CompactSubmachineGun" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 1-3",
-	object_class = "SubmachineGun",
+	object_class = "CompactSubmachineGun",
 	ScrapParts = 3,
 	RepairCost = 3,
 	Icon = "Mod/e6L4ECj/WeaponIcons/Scorpion.png",

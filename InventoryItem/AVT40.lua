@@ -1,11 +1,11 @@
 UndefineClass('AVT40')
 DefineClass.AVT40 = {
-	__parents = { "AssaultRifle" },
+	__parents = { "BattleRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 1-UNIQ",
-	object_class = "AssaultRifle",
+	object_class = "BattleRifle",
 	ScrapParts = 8,
 	RepairCost = 5,
 	Icon = "Mod/e6L4ECj/WeaponIcons/AVT40.png",

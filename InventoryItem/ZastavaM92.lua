@@ -1,11 +1,11 @@
 UndefineClass('ZastavaM92')
 DefineClass.ZastavaM92 = {
-	__parents = { "SubmachineGun" },
+	__parents = { "Carbine" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 2-1",
-	object_class = "SubmachineGun",
+	object_class = "Carbine",
 	ScrapParts = 10,
 	RepairCost = 10,
 	Reliability = 70,

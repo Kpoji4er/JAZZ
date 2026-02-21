@@ -1,11 +1,11 @@
 UndefineClass('VSS')
 DefineClass.VSS = {
-	__parents = { "SniperRifle" },
+	__parents = { "Carbine" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 2-5",
-	object_class = "SniperRifle",
+	object_class = "Carbine",
 	ScrapParts = 14,
 	RepairCost = 20,
 	Reliability = 65,

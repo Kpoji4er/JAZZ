@@ -1,11 +1,11 @@
 UndefineClass('CAR15')
 DefineClass.CAR15 = {
-	__parents = { "AssaultRifle" },
+	__parents = { "Carbine" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 2-2",
-	object_class = "AssaultRifle",
+	object_class = "Carbine",
 	ScrapParts = 10,
 	RepairCost = 8,
 	Reliability = 55,

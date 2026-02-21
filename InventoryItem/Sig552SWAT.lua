@@ -1,11 +1,11 @@
 UndefineClass('Sig552SWAT')
 DefineClass.Sig552SWAT = {
-	__parents = { "AssaultRifle" },
+	__parents = { "Carbine" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 3-2",
-	object_class = "AssaultRifle",
+	object_class = "Carbine",
 	ScrapParts = 10,
 	RepairCost = 16,
 	Reliability = 85,

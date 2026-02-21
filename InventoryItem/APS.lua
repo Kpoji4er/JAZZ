@@ -1,11 +1,11 @@
 UndefineClass('APS')
 DefineClass.APS = {
-	__parents = { "Pistol" },
+	__parents = { "Autopistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 2-2",
-	object_class = "Pistol",
+	object_class = "Autopistol",
 	ScrapParts = 6,
 	RepairCost = 10,
 	Reliability = 55,

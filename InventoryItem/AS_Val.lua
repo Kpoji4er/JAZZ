@@ -1,11 +1,11 @@
 UndefineClass('AS_Val')
 DefineClass.AS_Val = {
-	__parents = { "AssaultRifle" },
+	__parents = { "Carbine" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 3-3",
-	object_class = "AssaultRifle",
+	object_class = "Carbine",
 	ScrapParts = 10,
 	RepairCost = 30,
 	Reliability = 60,

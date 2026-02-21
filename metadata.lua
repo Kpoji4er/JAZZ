@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 10,
-	'version', 5574,
+	'version', 5588,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -316,7 +316,6 @@ return PlaceObj('ModDef', {
 		"Code/CodeSounds_MG.lua",
 		"Code/NoSoundsInRooms.lua",
 		"Code/Systems_Compontents_FoldingStocks.lua",
-		"Code/WeaponClasses.lua",
 		"InventoryItem/MAC1950.lua",
 		"InventoryItem/TT33.lua",
 		"InventoryItem/SWModel52.lua",
@@ -425,6 +424,7 @@ return PlaceObj('ModDef', {
 		"InventoryItem/AVT40.lua",
 		"InventoryItem/G43.lua",
 		"InventoryItem/MAS49.lua",
+		"InventoryItem/MAS36.lua",
 		"InventoryItem/ZastavaM76.lua",
 		"InventoryItem/M21.lua",
 		"InventoryItem/DragunovSVD.lua",
@@ -435,7 +435,6 @@ return PlaceObj('ModDef', {
 		"InventoryItem/SVU.lua",
 		"InventoryItem/BarretM82.lua",
 		"InventoryItem/PSG1.lua",
-		"InventoryItem/MAS36.lua",
 		"InventoryItem/Mosin.lua",
 		"InventoryItem/Gewehr98.lua",
 		"InventoryItem/Springfield.lua",
@@ -818,6 +817,7 @@ return PlaceObj('ModDef', {
 		"CharacterEffect/Weight_3Class.lua",
 		"CharacterEffect/Weight_4Class.lua",
 		"CharacterEffect/Weight_5Class.lua",
+		"Code/WeaponClasses.lua",
 		"Code/EditorExtension.lua",
 		"Code/System_SectorOperations.lua",
 		"Code/Deployment.lua",
@@ -831,6 +831,7 @@ return PlaceObj('ModDef', {
 		"InventoryItem/Auto5_quest.lua",
 		"Code/Debug.lua",
 		"Code/WorldFlipSpawnUnits.lua",
+		"Code/ConsoleFont.lua",
 	},
 	'loctables', {
 		{
@@ -847,8 +848,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1771163149,
-	'code_hash', -7286537455389191850,
+	'saved', 1771694905,
+	'code_hash', 1684344954683437923,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -1079,11 +1080,6 @@ return PlaceObj('ModDef', {
 			'Class', "QuestsDef",
 			'Id', "JAZZ_LegionTier",
 			'ClassDisplayName', "QuestsEditor",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "WeaponType",
-			'Id', "DMR",
-			'ClassDisplayName', "Weapon Type",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "Caliber",
@@ -3236,11 +3232,6 @@ return PlaceObj('ModDef', {
 			'ClassDisplayName', "Particle system",
 		}),
 		PlaceObj('ModResourcePreset', {
-			'Class', "WeaponType",
-			'Id', "NewWeaponType",
-			'ClassDisplayName', "Weapon Type",
-		}),
-		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "MAC1950",
 			'ClassDisplayName', "Inventory item",
@@ -3782,6 +3773,11 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
+			'Id', "MAS36",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
 			'Id', "ZastavaM76",
 			'ClassDisplayName', "Inventory item",
 		}),
@@ -3828,11 +3824,6 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "PSG1",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
-			'Id', "MAS36",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -7944,6 +7935,66 @@ return PlaceObj('ModDef', {
 			'Class', "CharacterEffectCompositeDef",
 			'Id', "Weight_5Class",
 			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponType",
+			'Id', "Pistol",
+			'ClassDisplayName', "Weapon Type",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponType",
+			'Id', "Autopistol",
+			'ClassDisplayName', "Weapon Type",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponType",
+			'Id', "Revolver",
+			'ClassDisplayName', "Weapon Type",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponType",
+			'Id', "CompactSMG",
+			'ClassDisplayName', "Weapon Type",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponType",
+			'Id', "SMG",
+			'ClassDisplayName', "Weapon Type",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponType",
+			'Id', "AssaultRifle",
+			'ClassDisplayName', "Weapon Type",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponType",
+			'Id', "Carbine",
+			'ClassDisplayName', "Weapon Type",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponType",
+			'Id', "Shotgun",
+			'ClassDisplayName', "Weapon Type",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponType",
+			'Id', "BattleRifle",
+			'ClassDisplayName', "Weapon Type",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponType",
+			'Id', "MachineGun",
+			'ClassDisplayName', "Weapon Type",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponType",
+			'Id', "LightMachineGun",
+			'ClassDisplayName', "Weapon Type",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "WeaponType",
+			'Id', "Sniper",
+			'ClassDisplayName', "Weapon Type",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "LightmodelPreset",

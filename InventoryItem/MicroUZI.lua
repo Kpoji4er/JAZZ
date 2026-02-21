@@ -1,11 +1,11 @@
 UndefineClass('MicroUZI')
 DefineClass.MicroUZI = {
-	__parents = { "SubmachineGun" },
+	__parents = { "CompactSubmachineGun" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 2-1",
-	object_class = "SubmachineGun",
+	object_class = "CompactSubmachineGun",
 	ScrapParts = 6,
 	RepairCost = 5,
 	Reliability = 50,

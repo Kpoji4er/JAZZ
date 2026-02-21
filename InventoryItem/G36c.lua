@@ -1,11 +1,11 @@
 UndefineClass('G36c')
 DefineClass.G36c = {
-	__parents = { "AssaultRifle" },
+	__parents = { "Carbine" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 2-5",
-	object_class = "AssaultRifle",
+	object_class = "Carbine",
 	ScrapParts = 10,
 	RepairCost = 16,
 	Reliability = 85,

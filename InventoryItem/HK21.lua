@@ -1,11 +1,11 @@
 UndefineClass('HK21')
 DefineClass.HK21 = {
-	__parents = { "MachineGun" },
+	__parents = { "LightMachineGun" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 3-2",
-	object_class = "MachineGun",
+	object_class = "LightMachineGun",
 	ScrapParts = 16,
 	RepairCost = 15,
 	Reliability = 80,

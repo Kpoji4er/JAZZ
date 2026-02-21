@@ -1,11 +1,11 @@
 UndefineClass('Galil')
 DefineClass.Galil = {
-	__parents = { "AssaultRifle" },
+	__parents = { "BattleRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 2-4",
-	object_class = "AssaultRifle",
+	object_class = "BattleRifle",
 	ScrapParts = 10,
 	RepairCost = 11,
 	Reliability = 75,

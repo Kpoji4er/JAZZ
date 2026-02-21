@@ -1,11 +1,11 @@
 UndefineClass('SVT40')
 DefineClass.SVT40 = {
-	__parents = { "SniperRifle" },
+	__parents = { "BattleRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 1-3",
-	object_class = "SniperRifle",
+	object_class = "BattleRifle",
 	ScrapParts = 8,
 	RepairCost = 5,
 	Reliability = 50,

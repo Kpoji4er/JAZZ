@@ -1,11 +1,11 @@
 UndefineClass('RPK74')
 DefineClass.RPK74 = {
-	__parents = { "MachineGun" },
+	__parents = { "LightMachineGun" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 2-4",
-	object_class = "MachineGun",
+	object_class = "LightMachineGun",
 	ScrapParts = 16,
 	RepairCost = 12,
 	Reliability = 85,

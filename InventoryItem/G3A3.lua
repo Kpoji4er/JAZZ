@@ -1,11 +1,11 @@
 UndefineClass('G3A3')
 DefineClass.G3A3 = {
-	__parents = { "AssaultRifle" },
+	__parents = { "BattleRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 2-5",
-	object_class = "AssaultRifle",
+	object_class = "BattleRifle",
 	ScrapParts = 10,
 	RepairCost = 13,
 	Reliability = 80,

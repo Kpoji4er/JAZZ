@@ -1,11 +1,11 @@
 UndefineClass('MP5K')
 DefineClass.MP5K = {
-	__parents = { "SubmachineGun" },
+	__parents = { "CompactSubmachineGun" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 2-3",
-	object_class = "SubmachineGun",
+	object_class = "CompactSubmachineGun",
 	ScrapParts = 8,
 	RepairCost = 12,
 	Reliability = 85,

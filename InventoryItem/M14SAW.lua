@@ -1,11 +1,11 @@
 UndefineClass('M14SAW')
 DefineClass.M14SAW = {
-	__parents = { "AssaultRifle" },
+	__parents = { "BattleRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 2-2",
-	object_class = "AssaultRifle",
+	object_class = "BattleRifle",
 	ScrapParts = 10,
 	RepairCost = 10,
 	Reliability = 50,

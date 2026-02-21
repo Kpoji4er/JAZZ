@@ -1,11 +1,11 @@
 UndefineClass('FNFAL')
 DefineClass.FNFAL = {
-	__parents = { "AssaultRifle" },
+	__parents = { "BattleRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 2-3",
-	object_class = "AssaultRifle",
+	object_class = "BattleRifle",
 	ScrapParts = 10,
 	RepairCost = 11,
 	Reliability = 65,

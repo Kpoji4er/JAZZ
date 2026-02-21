@@ -1,11 +1,11 @@
 UndefineClass('TMP')
 DefineClass.TMP = {
-	__parents = { "SubmachineGun" },
+	__parents = { "CompactSubmachineGun" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 2-4",
-	object_class = "SubmachineGun",
+	object_class = "CompactSubmachineGun",
 	ScrapParts = 8,
 	RepairCost = 14,
 	Reliability = 85,
