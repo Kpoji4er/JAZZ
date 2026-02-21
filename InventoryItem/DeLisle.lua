@@ -10,7 +10,6 @@ DefineClass.DeLisle = {
 	RepairCost = 8,
 	Reliability = 50,
 	Icon = "Mod/e6L4ECj/WeaponIcons/DeLisle.png",
-	ItemType = "DMR",
 	DisplayName = T(732531674185, --[[ModItemInventoryItemCompositeDef DeLisle DisplayName]] "De Lisle Carbine"),
 	DisplayNamePlural = T(707630654921, --[[ModItemInventoryItemCompositeDef DeLisle DisplayNamePlural]] "De Lisle Carbines"),
 	Description = T(748776660318, --[[ModItemInventoryItemCompositeDef DeLisle Description]] 'Карабин "Де Лизла" (или Де Лайла, как его читают на своем британском английском) представляет собой первый серийный образец оружия с интегрированным глушителем. В конструкции использовались элементы трех различных серийных видов оружия: затвор от Lee-Enfield Мk III, магазин от пистолета Colt 1911 и  ствол от автомата Томпсона.'),

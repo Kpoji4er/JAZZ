@@ -10,7 +10,6 @@ DefineClass.VSS = {
 	RepairCost = 20,
 	Reliability = 65,
 	Icon = "Mod/e6L4ECj/WeaponIcons/VSS.png",
-	ItemType = "DMR",
 	DisplayName = T(851891287061, --[[ModItemInventoryItemCompositeDef VSS DisplayName]] "ВСС"),
 	DisplayNamePlural = T(752413737694, --[[ModItemInventoryItemCompositeDef VSS DisplayNamePlural]] "ВСС"),
 	Description = T(339208756765, --[[ModItemInventoryItemCompositeDef VSS Description]] 'Культовая среди спецназовцев и геймеров всех мастей советская и российская бесшумная снайперская винтовка. Громкость звука выстрела из нее на уровне звука пневматической винтовки. К огромному сожалению, как и "Вал", на экспорт Россией не продается.'),

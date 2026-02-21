@@ -10,7 +10,6 @@ DefineClass.Sig550Custom = {
 	RepairCost = 16,
 	Reliability = 85,
 	Icon = "Mod/e6L4ECj/WeaponIcons/SIG550Custom.png",
-	ItemType = "DMR",
 	DisplayName = T(518572936824, --[[ModItemInventoryItemCompositeDef Sig550Custom DisplayName]] "Sig 550 RIS"),
 	DisplayNamePlural = T(927601720702, --[[ModItemInventoryItemCompositeDef Sig550Custom DisplayNamePlural]] "Sig 550 RIS"),
 	Description = T(755003574664, --[[ModItemInventoryItemCompositeDef Sig550Custom Description]] "Вариант винтовки SIG 500 в современном кастомном обвесе, позволяющем установить дополнительные приспособления. Стильно, модно, молодежно. Даже завидно."),

@@ -10,7 +10,6 @@ DefineClass.Mini14 = {
 	RepairCost = 8,
 	Reliability = 60,
 	Icon = "Mod/e6L4ECj/WeaponIcons/Mini14.png",
-	ItemType = "DMR",
 	DisplayName = T(732531674185, --[[ModItemInventoryItemCompositeDef Mini14 DisplayName]] "Мини-14"),
 	DisplayNamePlural = T(707630654921, --[[ModItemInventoryItemCompositeDef Mini14 DisplayNamePlural]] "Мини-14"),
 	Description = T(250336798974, --[[ModItemInventoryItemCompositeDef Mini14 Description]] "Облегченный уменьшенный карабин на базе армейской винтовки М14, максимально доступен для гражданского стрелка - от охоты и самообороны, до обучения стрельбе в тире. Валовый карабин требует серьезной доводки напильником."),

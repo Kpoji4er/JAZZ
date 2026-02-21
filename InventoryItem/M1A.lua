@@ -10,7 +10,6 @@ DefineClass.M1A = {
 	RepairCost = 12,
 	Reliability = 75,
 	Icon = "Mod/e6L4ECj/WeaponIcons/M1A.png",
-	ItemType = "DMR",
 	DisplayName = T(877495623062, --[[ModItemInventoryItemCompositeDef M1A DisplayName]] "M1A"),
 	DisplayNamePlural = T(477348066740, --[[ModItemInventoryItemCompositeDef M1A DisplayNamePlural]] "M1A"),
 	Description = T(535323373272, --[[ModItemInventoryItemCompositeDef M1A Description]] "Самозарядная винтовка Springfield M1A. Выпускается в США для гражданского рынка, с полимерной ложей и 10-зарядным магазином. Конструктивно представляет собой винтовку М14, без режима автоматического огня."),

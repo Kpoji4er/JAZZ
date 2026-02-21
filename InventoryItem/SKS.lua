@@ -12,7 +12,6 @@ DefineClass.SKS = {
 	RepairCost = 4,
 	Reliability = 75,
 	Icon = "Mod/e6L4ECj/WeaponIcons/SKS.png",
-	ItemType = "DMR",
 	DisplayName = T(532780533839, --[[ModItemInventoryItemCompositeDef SKS DisplayName]] "СКС"),
 	DisplayNamePlural = T(941296279714, --[[ModItemInventoryItemCompositeDef SKS DisplayNamePlural]] "СКС"),
 	Description = T(410577681665, --[[ModItemInventoryItemCompositeDef SKS Description]] "Не востребованный в Советской Армии, тем не менее, весьма любим гражданскими стрелками в России за точность боя. Но это капля в море перед маниакальной страстью к нему стрелков в США. Хорошим тоном считается хотя бы один СКС на коллекцию. Хотя бы и китайский."),

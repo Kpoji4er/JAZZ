@@ -10,7 +10,6 @@ DefineClass.Winchester1894 = {
 	RepairCost = 3,
 	Reliability = 70,
 	Icon = "Mod/e6L4ECj/WeaponIcons/Winchester.png",
-	ItemType = "DMR",
 	DisplayName = T(142435704728, --[[ModItemInventoryItemCompositeDef Winchester1894 DisplayName]] "Winchester 1894"),
 	DisplayNamePlural = T(875798522299, --[[ModItemInventoryItemCompositeDef Winchester1894 DisplayNamePlural]] "Winchester 1894"),
 	Description = T(534013565696, --[[ModItemInventoryItemCompositeDef Winchester1894 Description]] "Классическая винтовка прямиком из фильмов про ковбоев и индейцев. Подствольный трубчатый магазин вмещает больше патронов, чем в обычной винтовке с продольно-скользящим затвором. Как она очутилась в здешних краях - тайна, покрытая мраком."),

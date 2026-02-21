@@ -10,7 +10,6 @@ DefineClass.G3SniperV1 = {
 	RepairCost = 14,
 	Reliability = 80,
 	Icon = "Mod/e6L4ECj/WeaponIcons/G3Sniper.png",
-	ItemType = "DMR",
 	DisplayName = T(958223576910, --[[ModItemInventoryItemCompositeDef G3SniperV1 DisplayName]] "G3 SG"),
 	DisplayNamePlural = T(933103009214, --[[ModItemInventoryItemCompositeDef G3SniperV1 DisplayNamePlural]] "G3 SG"),
 	Description = T(213918680889, --[[ModItemInventoryItemCompositeDef G3SniperV1 Description]] "Heckler-Koch G3SG1 - cнайперская целевая винтовка, разработанная путем незначительной доработки серийной штурмовой винтовки G3. Для модернизации отбирались винтовки, показавшие лучшую кучность на заводских тестах."),

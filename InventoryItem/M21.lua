@@ -10,7 +10,6 @@ DefineClass.M21 = {
 	RepairCost = 12,
 	Reliability = 60,
 	Icon = "Mod/e6L4ECj/WeaponIcons/M21.png",
-	ItemType = "DMR",
 	DisplayName = T(502906359887, --[[ModItemInventoryItemCompositeDef M21 DisplayName]] "M-21"),
 	DisplayNamePlural = T(838944198380, --[[ModItemInventoryItemCompositeDef M21 DisplayNamePlural]] "M-21"),
 	Description = T(950654199607, --[[ModItemInventoryItemCompositeDef M21 Description]] "Американская армейская снайперская винтовка, представляет собой винтовку М14 со снятым переводчиком огня, и установленным оптическим прицелом. Дешево, сердито, эффективно."),

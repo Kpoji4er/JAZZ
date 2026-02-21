@@ -10,7 +10,6 @@ DefineClass.SVU = {
 	RepairCost = 15,
 	Reliability = 65,
 	Icon = "Mod/e6L4ECj/WeaponIcons/SVU.png",
-	ItemType = "DMR",
 	DisplayName = T(945667888261, --[[ModItemInventoryItemCompositeDef SVU DisplayName]] "СВУ"),
 	DisplayNamePlural = T(220809633195, --[[ModItemInventoryItemCompositeDef SVU DisplayNamePlural]] "СВУ"),
 	Description = T(109657201401, --[[ModItemInventoryItemCompositeDef SVU Description]] 'СВД в компоновке буллпап. Из-за чего, а также из-за укороченного ствола, короче старшей сестры на 25 см, что повышает ее эффективность в маневренном городском бою. Однако, из-за компоновки буллпап спуск на длинной тяге вынесен вперед, что для снайперской винтовки неблагоприятно. Стрелок не чувствует момент "срыва курка".'),

@@ -11,7 +11,7 @@ UndefineClass('GrenadeLauncher')
 UndefineClass('Mortar')
 
 DefineClass.Pistol = { __parents = { "Firearm", }, WeaponType = "Pistol", ImpactForce = -1, }
-DefineClass.Autopistol = { __parents = { "Firearm", }, WeaponType = "Handgun", ImpactForce = -1, }
+DefineClass.Autopistol = { __parents = { "Firearm", }, WeaponType = "Autopistol", ImpactForce = -1, }
 DefineClass.Revolver = { __parents = { "Firearm", }, WeaponType = "Revolver", ImpactForce = 0, }
 DefineClass.SniperRifle = { __parents = { "Firearm", }, WeaponType = "Sniper", ImpactForce = 0, }
 DefineClass.SubmachineGun = { __parents = { "Firearm", }, WeaponType = "SMG", ImpactForce = 0, }
@@ -44,6 +44,7 @@ DefineClass.Mortar = { __parents = {"HeavyWeapon"}, trajectory_type = "bombard",
 
 local WeaponTypePrefix = {
 	["Handgun"] = "hg_",
+	["Pistol"] = "hg_",
 	["Autopistol"] = "hg_",
 	["Revolver"] = "hg_",
 	["FlareGun"] = "hg_",

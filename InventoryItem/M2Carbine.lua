@@ -10,7 +10,6 @@ DefineClass.M2Carbine = {
 	RepairCost = 3,
 	Reliability = 50,
 	Icon = "Mod/e6L4ECj/WeaponIcons/M2Carbine.png",
-	ItemType = "DMR",
 	DisplayName = T(142435704728, --[[ModItemInventoryItemCompositeDef M2Carbine DisplayName]] "Карбайн"),
 	DisplayNamePlural = T(875798522299, --[[ModItemInventoryItemCompositeDef M2Carbine DisplayNamePlural]] "Карбайн"),
 	Description = T(534013565696, --[[ModItemInventoryItemCompositeDef M2Carbine Description]] "Еще не настоящий промежуточный патрон, в том понимании, каким он был у СТГ-44 или Калашникова, но по концепции - очень даже настоящий промежуточный карабин. Меньше вес патрона - больше боекомплект. Больше боекомплект - выше плотность огня. Вот вам еще десантный вариант со складным прикладом, штурмовой с автоогнем, и специальный с ночным прицелом."),
