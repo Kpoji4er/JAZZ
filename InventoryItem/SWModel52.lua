@@ -73,6 +73,7 @@ DefineClass.SWModel52 = {
 		"DualShot",
 		"CancelShot",
 		"MobileShot",
+		"PistolPerk_Mozambique",
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,

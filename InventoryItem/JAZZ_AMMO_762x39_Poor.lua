@@ -5,7 +5,7 @@ DefineClass.JAZZ_AMMO_762x39_Poor = {
 
 
 	object_class = "Ammo",
-	Icon = "Mod/e6L4ECj/Ammopics/762x39Sub.png",
+	Icon = "Mod/e6L4ECj/Ammopics/762x39SUB.png",
 	DisplayName = T(403807663771, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Poor DisplayName]] "7,62х39мм, Norinco Lot 66-3 CN Substandard"),
 	DisplayNamePlural = T(578647545074, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Poor DisplayNamePlural]] "7,62х39мм, Norinco Lot 66-3 CN Substandard"),
 	colorStyle = "AmmoSubstandardColor",

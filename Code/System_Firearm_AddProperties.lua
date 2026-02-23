@@ -227,6 +227,8 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
 }
 
 
+
+
 FirearmProperties.properties[#FirearmProperties.properties+1] = {
     category = "New Weapon Condition",
     id = "WeaponResourceMax",
@@ -271,6 +273,20 @@ WeaponComponentVisual.properties[#WeaponComponentVisual.properties+1] = {
     default =  "",
     image_preview_size = 75
 }
+
+InventoryItemProperties.properties[#InventoryItemProperties.properties+1] = {
+    category = "General",
+    id = "UnitSubStat",
+    name = "Unit Stat (Second)",
+    help = "Unit Properties stat.",
+    editor = "choice",
+    items = function (self) return GetUnitStatsCombo() end,
+    default = false,
+    template = true,
+
+}
+
+
 
 SetPropMeta("BobbyRayShopItemProperties", "Tier", "max", 10)
 SetPropMeta("BobbyRayShopItemProperties", "ShopStackSize", "max", 500)

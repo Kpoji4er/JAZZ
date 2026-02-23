@@ -3655,7 +3655,7 @@ return {
 						'Group', "Ammo",
 						'Id', "JAZZ_AMMO_762x25_Poor",
 						'object_class', "Ammo",
-						'Icon', "Mod/e6L4ECj/Ammopics/762x25sub.png",
+						'Icon', "Mod/e6L4ECj/Ammopics/762x25Sub.png",
 						'DisplayName', T(527688384074, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_Poor DisplayName]] "7.62x25, Lot 66-3 CN Substandard"),
 						'DisplayNamePlural', T(871962221654, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_Poor DisplayNamePlural]] "7.62x25, Lot 66-3 CN"),
 						'colorStyle', "AmmoBasicColor",
@@ -4283,7 +4283,7 @@ return {
 						'Group', "Ammo",
 						'Id', "JAZZ_AMMO_30_Tracer",
 						'object_class', "Ammo",
-						'Icon', "Mod/e6L4ECj/Ammopics/30caltracer.png",
+						'Icon', "Mod/e6L4ECj/Ammopics/30calTracer.png",
 						'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_Tracer DisplayName]] ".30 Cal M27 Трассер"),
 						'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_Tracer DisplayNamePlural]] ".30 Cal M27 Трассер"),
 						'colorStyle', "AmmoTracerColor",
@@ -4330,7 +4330,7 @@ return {
 						'Group', "Ammo",
 						'Id', "JAZZ_AMMO_30_P",
 						'object_class', "Ammo",
-						'Icon', "Mod/e6L4ECj/Ammopics/30calhp.png",
+						'Icon', "Mod/e6L4ECj/Ammopics/30calHP.png",
 						'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_P DisplayName]] ".30 Cal M18 +P"),
 						'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_P DisplayNamePlural]] ".30 Cal M18 +P"),
 						'colorStyle', "AmmoHPColor",
@@ -5263,7 +5263,7 @@ return {
 						'Group', "Ammo",
 						'Id', "JAZZ_AMMO_762x39_Poor",
 						'object_class', "Ammo",
-						'Icon', "Mod/e6L4ECj/Ammopics/762x39Sub.png",
+						'Icon', "Mod/e6L4ECj/Ammopics/762x39SUB.png",
 						'DisplayName', T(403807663771, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Poor DisplayName]] "7,62х39мм, Norinco Lot 66-3 CN Substandard"),
 						'DisplayNamePlural', T(578647545074, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Poor DisplayNamePlural]] "7,62х39мм, Norinco Lot 66-3 CN Substandard"),
 						'colorStyle', "AmmoSubstandardColor",
@@ -11456,22 +11456,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry1-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry1-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry2-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry2-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry3-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry3-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry4-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry4-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry5-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry5-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry6-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry6-01.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -11480,22 +11480,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons_shootingRoom",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry1-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry1-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry2-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry2-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry3-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry3-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry4-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry4-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry5-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry5-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry6-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry6-01-room.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -11504,22 +11504,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry1-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry1-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry2-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry2-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry3-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry3-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry4-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry4-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry5-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry5-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry6-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry6-01.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -11528,22 +11528,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons_shootingRoom",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry1-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry1-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry2-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry2-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry3-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry3-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry4-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry4-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry5-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry5-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/p210/sigp210_shot_dry6-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry6-01-room.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -15106,6 +15106,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15127,7 +15128,7 @@ return {
 					'RepairCost', 3,
 					'Reliability', 50,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/TT.png",
-					'DisplayName', T(143708290099, --[[ModItemInventoryItemCompositeDef TT33 DisplayName]] "Пистолет ТТ"),
+					'DisplayName', T(916379475854, --[[ModItemInventoryItemCompositeDef TT33 DisplayName]] "Мозамбик"),
 					'DisplayNamePlural', T(377868313170, --[[ModItemInventoryItemCompositeDef TT33 DisplayNamePlural]] "Пистолеты ТТ"),
 					'Description', T(492983145408, --[[ModItemInventoryItemCompositeDef TT33 Description]] 'Пистолет "Тульский-Токарева" представляет собой очередную вариацию схемы Браунинга на избитую советскую тему "у нас есть куча патронов на складах, нужно оружие для них".'),
 					'AdditionalHint', T(998090805654, --[[ModItemInventoryItemCompositeDef TT33 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Пробивает броню\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Малый магазин\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Лучше, чем карате"),
@@ -15172,6 +15173,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15256,6 +15258,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15318,6 +15321,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15402,6 +15406,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15471,6 +15476,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15566,6 +15572,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 3000,
@@ -15646,6 +15653,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 3000,
@@ -15720,6 +15728,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15782,6 +15791,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 4000,
@@ -15844,6 +15854,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15917,6 +15928,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 2000,
 					'ReloadAP', 3000,
@@ -15999,6 +16011,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -16082,6 +16095,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -16168,6 +16182,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -16242,6 +16257,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -16337,6 +16353,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 3000,
@@ -16428,6 +16445,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 4000,
@@ -16520,6 +16538,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 3000,
@@ -16607,6 +16626,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -16655,6 +16675,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 4000,
@@ -16744,6 +16765,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 2000,
 					'ReloadAP', 3000,
@@ -16834,6 +16856,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 3000,
@@ -16941,6 +16964,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 2000,
 					'ReloadAP', 3000,
@@ -17015,6 +17039,7 @@ return {
 						"DualShot",
 						"CancelShot",
 						"MobileShot",
+						"PistolPerk_Mozambique",
 					},
 					'ShootAP', 2000,
 					'ReloadAP', 3000,
@@ -47289,7 +47314,7 @@ return {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "P210",
 								Entity = "WeaponAttA_MagazineBHP_01",
-								Icon = "Mod/e6L4ECj/magpictures/p210mag.png",
+								Icon = "Mod/e6L4ECj/magpictures/P210mag.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -47938,7 +47963,7 @@ return {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "P210",
 								Entity = "WeaponAttA_MagazineBHP_01",
-								Icon = "Mod/e6L4ECj/magpictures/p210mag.png",
+								Icon = "Mod/e6L4ECj/magpictures/P210mag.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -59613,7 +59638,7 @@ return {
 						return T{description, damage = damage, basedamage = base, bonusdamage = bonus}
 					end,
 					GetActionResults = function (self, unit, args)
-						return GetMobileShotResults(self, unit, args)
+						return GetMobileShotResults_EndingPos(self, unit, args)
 					end,
 					GetAnyTarget = function (self, units)
 						return self:GetTargets(units)[1]
@@ -59660,7 +59685,7 @@ return {
 					RequireState = "any",
 					RequireWeapon = true,
 					Run = function (self, unit, ap, ...)
-						unit:SetActionCommand("RunAndGun", self.id, ap, ...)
+						unit:SetActionCommand("MoveThenShot", self.id, ap, ...)
 					end,
 					SortKey = 2,
 					UIBegin = function (self, units, args)
@@ -60733,6 +60758,97 @@ return {
 					end,
 					group = "WeaponAttacks",
 					id = "PinDown",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionCamera = true,
+					ActionPointDelta = 2000,
+					ActionType = "Ranged Attack",
+					AimType = "line",
+					ConfigurableKeybind = false,
+					CostBasedOnWeapon = true,
+					Description = T(864948067398, --[[ModItemCombatAction PistolPerk_Mozambique Description]] "Два выстрела в тело, один в голову. Заряжается после убийства."),
+					DisplayName = T(696629111160, --[[ModItemCombatAction PistolPerk_Mozambique DisplayName]] "Мозамбик"),
+					DisplayNameShort = T(466948292860, --[[ModItemCombatAction PistolPerk_Mozambique DisplayNameShort]] "Мозамбик"),
+					GetAPCost = function (self, unit, args)
+						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
+						if unit:OutOfAmmo(weapon2) or unit:IsWeaponJammed(weapon2) then
+							weapon2 = nil
+						end
+						if weapon1 and weapon2 then
+							return -1
+						end
+						if not weapon1 then return -1 end
+						return unit:GetAttackAPCost(self, weapon1, false, args and args.aim or 0, self.ActionPointDelta) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						if not weapon then return 0 end
+						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
+						local num_shots = 3
+						local damage = num_shots*base
+						return damage, base, damage - base
+					end,
+					GetActionDescription = function (self, units)
+						local unit = units[1]
+						local weapon = self:GetAttackWeapons(unit)
+						local damage = unit and unit:GetBaseDamage(weapon)
+						return T{self.Description, damage = damage}
+					end,
+					GetActionDisplayName = function (self, units)
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return name
+					end,
+					GetActionResults = function (self, unit, args)
+						args.anim_speed_mod = self:ResolveValue("anim_speed_mod")
+						local attack_args = unit:PrepareAttackArgs(self.id, args)
+						local results = attack_args.weapon:GetAttackResults(self, attack_args)
+						return results, attack_args
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						if args and args.weapon then return args.weapon end
+						local w1 = unit:GetActiveWeapons("Firearm", "HeavyWeapon")
+						return w1
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local weapon = self:GetAttackWeapons(unit, args)
+						local unit = units[1]
+						if not IsKindOf(weapon, "Pistol") then
+							return "hidden"
+						end
+						return CombatActionGenericAttackGetUIState(self, units, args)
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Mozambique.png",
+					IdDefault = "PistolPerk_Mozambiquedefault",
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "recharge_on_kill",
+							'Value', 1,
+							'Tag', "<recharge_on_kill>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "anim_speed_mod",
+							'Value', 100000,
+							'Tag', "<anim_speed_mod>",
+						}),
+					},
+					RequireState = "any",
+					RequireTargets = true,
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("Mozambique", self.id, ap, ...)
+					end,
+					SortKey = 4,
+					StealthAttack = true,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAttack")
+					end,
+					group = "WeaponAttacks",
+					id = "PistolPerk_Mozambique",
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -66892,6 +67008,46 @@ return {
 				display_name = T(611934221021, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Состояние оружия"),
 				group = "Default",
 				id = "WeaponCondition",
+			}),
+			PlaceObj('ModItemChanceToHitModifier', {
+				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
+					if attacker and IsCloser(target, attacker, 10 * const.SlabSizeX) and IsKindOf(weapon1, "Pistol") then
+						local attacker_pos = attacker:GetPos()
+						local target_pos = IsPoint(target) and target or target:GetPos()
+						local dist = Max(1,attacker_pos:Dist(target_pos)/const.SlabSizeX)
+						return true, MulDivRound(self:ResolveValue("bonus"),11-dist,10)
+					end
+					
+					return false, 0
+				end,
+				Parameters = {
+					PlaceObj('PresetParamPercent', {
+						'Name', "bonus",
+						'Value', 20,
+						'Tag', "<bonus>%",
+					}),
+				},
+				display_name = T(733589978306, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Бонус к точности (Пистолеты)"),
+				group = "Default",
+				id = "WeaponPistol_PointBlank",
+			}),
+			PlaceObj('ModItemChanceToHitModifier', {
+				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
+					if action.id ~= "testPistolPerk_Mozambique" then
+						return false, 0
+					end
+					return true, self:ResolveValue("Bonus")
+				end,
+				Parameters = {
+					PlaceObj('PresetParamNumber', {
+						'Name', "Bonus",
+						'Value', -20,
+						'Tag', "<Bonus>",
+					}),
+				},
+				display_name = T(204842611158, --[[ModItemCharacterEffectCompositeDef AutoWeapons display_name]] "Мозамбик"),
+				group = "Default",
+				id = "WeaponPistol_Mozambique",
 			}),
 			}),
 		PlaceObj('ModItemFolder', {
@@ -95555,95 +95711,95 @@ return {
 			'name', "WeaponTypes",
 		}, {
 			PlaceObj('ModItemWeaponType', {
-				Description = T(468887219553, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] 'Пистолеты компактны, удобны и очень точны на коротких дистанциях. Опытный пистолетчик может дать "серию выстрелов" в противника быстрее, чем тот хотя бы поднимет оружие. А самые лютые профи настолько быстры, что могут опередить уже прицелившегося по ним врага.'),
+				Description = T(468887219553, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Пистолеты компактны, удобны и очень точны на коротких дистанциях.\nПолучают бонус к точности по целям на близкой дистанции\n\nОсобая атака: выстрел в движении"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Pistol.png",
-				Name = T(317905531555, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Пистолеты"),
+				Name = T(317905531555, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Пистолет"),
 				SortKey = 1,
 				group = "Default",
 				id = "Pistol",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(981045518000, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Пистолеты с режимом автоогня. Позволяют эффективно подавлять цели на близких дистанциях. \nОпытные владельцы могут эффективно подавлять в движении\nЭксперты по владению могут быстро разорвать контакт, заливая противника огнем"),
+				Description = T(981045518000, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Пистолеты с режимом автоогня. Позволяют эффективно подавлять цели на близких дистанциях."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Autopistol.png",
 				Name = T(245455655146, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Автоматические пистолеты"),
 				group = "Default",
 				id = "Autopistol",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(506514969558, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Револьвер - это классическое точное, мощное и надежное оружие. Для опытного стрелка владение парой трюков со стрельбой по уязвимым местам не является чем-то из ряда вон выходящим."),
+				Description = T(506514969558, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Револьвер - это классическое точное, мощное и надежное оружие.\nИмеют бонус к точности и к шансу крита, если это первое действие за ход"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Revolver.png",
 				Name = T(245455655146, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Револьверы"),
 				group = "Default",
 				id = "Revolver",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(614148544769, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Компактный пистолет-пулемет, пригодный для стрельбы с одной руки. Стреляет в основном куда-то туда, но в этом-то и есть вся соль. А если попадет?"),
+				Description = T(614148544769, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Компактный пистолет-пулемет, пригодный для стрельбы с одной руки.\n\nОсобая атака: маневренный бой (4 атаки)"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/CompactSMG.png",
-				Name = T(731752089698, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Компактные ПП"),
+				Name = T(731752089698, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Пистолет-пулемет"),
 				SortKey = 6,
 				group = "Default",
 				id = "CompactSMG",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(614148544769, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Пистолет-пулеметы универсальны и одинаково хороши на коротких дистациях как для нападения так, и для обороны. Лучше всего себя показывают в контактном маневренном бою, когда можно легко прицелиться в уязвимые, незащищенные броней места."),
+				Description = T(614148544769, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Пистолет-пулеметы универсальны и одинаково хороши на коротких дистациях как для нападения так, и для обороны. \n\nОсобая атака: маневренный бой (3 атаки)"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/SMG.png",
-				Name = T(731752089698, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Пистолеты-пулеметы"),
+				Name = T(731752089698, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Пистолет-пулемет"),
 				SortKey = 6,
 				group = "Default",
 				id = "SMG",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(277712105498, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Штурмовые винтовки наиболее полезны в перестрелке на средней дистанции. Из автомата можно как плотно залить потоком свинца одну цель, так и хорошенько занять беспокоящим огнем нескольких противников."),
+				Description = T(277712105498, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Штурмовые винтовки наиболее полезны в перестрелке на средней дистанции.\n\nОсобая такая: Автоматический огонь"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/AssaultRifle.png",
-				Name = T(987446796163, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Штурмовые винтовки"),
+				Name = T(987446796163, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Штурмовая винтовка"),
 				SortKey = 5,
 				group = "Default",
 				id = "AssaultRifle",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(277712105498, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Карабины созданы для подвижного и маневренного боя, они позволяют делать точные выстрелы в движении и наносить противнику высокий урон с флангов. Опытный карабинер почти не отстает от автоматчика по плотности огня."),
+				Description = T(277712105498, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Карабины созданы для подвижного и маневренного боя\n\nОсобая атака: маневренный бой (1 атака)"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Carbine.png",
-				Name = T(987446796163, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Карабины"),
+				Name = T(987446796163, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Штурмовая винтовка"),
 				SortKey = 5,
 				group = "Default",
 				id = "Carbine",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(675593980719, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Боевой дробовик - это оружие абсолютной разрушительной силы. Если цель не имеет брони - урон будет просто ужасающим. Однако, даже попадание в бронежилет вызовет ступор и паралич."),
-				Icon = "Mod/e6L4ECj/WeaponTypes/Shotguns.png",
-				Name = T(861547101159, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Дробовики"),
-				SortKey = 2,
-				group = "Default",
-				id = "Shotgun",
-			}),
-			PlaceObj('ModItemWeaponType', {
-				Description = T(277712105498, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Пехотные боевые винтовки хорошо себя показывают в позиционных перестрелках со средней и дальней дистанции. Стрельба из винтовки требует долгого прицеливания, а стрелок уязвим для ответного огня. Однако, опытный стрелок из винтовки вполне может выдать несколько точных и убийственно смертоносных выстрелов подряд за небольшое время."),
+				Description = T(277712105498, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Пехотные боевые винтовки хорошо себя показывают в позиционных перестрелках со средней и дальней дистанции. \nИмеют бонус к точности при стрельбе с упора"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/BattleRifle.png",
-				Name = T(987446796163, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Боевые винтовки"),
+				Name = T(987446796163, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Штурмовая винтовка"),
 				SortKey = 5,
 				group = "Default",
 				id = "BattleRifle",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(420551480759, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Единый пулемет - лучшее оружие для обороны. Выдающаяся огневая мощь и высокая плотность огня на средних и дальних дистанциях. Грамотно организованная позиция для пулеметчика заставит захлебнуться кровью любую вражескую атаку."),
+				Description = T(675593980719, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Боевой дробовик - это оружие абсолютной разрушительной силы. Имеют увеличенное подавление."),
+				Icon = "Mod/e6L4ECj/WeaponTypes/Shotguns.png",
+				Name = T(861547101159, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Дробовик"),
+				SortKey = 2,
+				group = "Default",
+				id = "Shotgun",
+			}),
+			PlaceObj('ModItemWeaponType', {
+				Description = T(420551480759, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Единый пулемет - лучшее оружие для обороны. Выдающаяся огневая мощь и высокая плотность огня на средних и дальних дистанциях. \n\nПереведя пулемет в боевое положение, вы сможете эффективно прикрывать определенный участок местности. "),
 				Icon = "Mod/e6L4ECj/WeaponTypes/MachineGun.png",
-				Name = T(823987842090, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Единые пулеметы"),
+				Name = T(823987842090, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Пулемет"),
 				SortKey = 6,
 				group = "Default",
 				id = "MachineGun",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(420551480759, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Ручной пулемет - оружие с высокой плотностью огня, созданное для замены обычного автомата. За огневую мощь солдат платит мобильностью, однако, опытные пулеметчики могут задавить противника шквалом огня из любой позиции."),
+				Description = T(420551480759, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Легкий пулемет - оружие с высокой плотностью огня, созданное для замены обычного автомата.\nВ отличие от Единого пулемета, легкий пулемет гораздо легче привести в боевое положение.\nОтдача при стрельбе короткими очередями сильно снижена"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/LightMachineGun.png",
-				Name = T(823987842090, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Ручные пулеметы"),
+				Name = T(823987842090, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Пулемет"),
 				SortKey = 6,
 				group = "Default",
 				id = "LightMachineGun",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(521528587114, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Снайперские винтовки - оружие самых метких стрелков. Стрельба на дальние дистанции требует огромных знаний и умений. В результате, снайпер в совершенстве владеет своим инструментом и опасен даже своими промахами. Потому что снайпер, как известно, не промахивается."),
+				Description = T(521528587114, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Снайперские винтовки - оружие самых метких стрелков. \nИмеют бонус к точности при стрельбе с упора, если это первое действие на этом ходу"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Sniper.png",
-				Name = T(117519310837, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Снайперские винтовки"),
+				Name = T(117519310837, --[[ModItemCharacterEffectCompositeDef AutoWeapons Name]] "Винтовки"),
 				SortKey = 6,
 				group = "Default",
 				id = "Sniper",

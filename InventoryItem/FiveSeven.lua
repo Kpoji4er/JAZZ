@@ -62,6 +62,7 @@ DefineClass.FiveSeven = {
 		"DualShot",
 		"CancelShot",
 		"MobileShot",
+		"PistolPerk_Mozambique",
 	},
 	ShootAP = 2000,
 	ReloadAP = 3000,

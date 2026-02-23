@@ -5,7 +5,7 @@ DefineClass.JAZZ_AMMO_30_Tracer = {
 
 
 	object_class = "Ammo",
-	Icon = "Mod/e6L4ECj/Ammopics/30caltracer.png",
+	Icon = "Mod/e6L4ECj/Ammopics/30calTracer.png",
 	DisplayName = T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_Tracer DisplayName]] ".30 Cal M27 Трассер"),
 	DisplayNamePlural = T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_Tracer DisplayNamePlural]] ".30 Cal M27 Трассер"),
 	colorStyle = "AmmoTracerColor",

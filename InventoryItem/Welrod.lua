@@ -51,6 +51,7 @@ DefineClass.Welrod = {
 		"DualShot",
 		"CancelShot",
 		"MobileShot",
+		"PistolPerk_Mozambique",
 	},
 	ShootAP = 4000,
 	ReloadAP = 4000,

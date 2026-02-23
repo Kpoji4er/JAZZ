@@ -30,3 +30,495 @@ function GetMeleeAttackAPCost(action, unit, args)
 	end
 	return cost
 end
+
+
+--Combat Actions
+
+function GetMobileShotResults_EndingPos(action, unit, args)
+	local weapon = action:GetAttackWeapons(unit)
+
+	args = table.copy(args)
+	args.step_pos = args.goto_pos -- needed in PrepareAttackArgs
+	local shot_positions, shot_targets, shot_ch, shot_canceling_reason = CalcMobileShotAttacks(unit, action, args.goto_pos)
+	local attacks = {}
+	local attack_args
+
+	-- resolve attack action
+	local attack_id, atk_action	
+	if args.attack_id and args.attack_id ~= action.id then
+		attack_id = args.attack_id
+		atk_action = CombatActions[attack_id] or CombatActions.SingleShot
+	else
+		attack_id = "SingleShot"
+		atk_action = CombatActions.SingleShot
+	end
+	local canceling_reason
+
+	for i, pos in ipairs(shot_positions) do
+		local target = shot_targets[i]
+		local results, attack_args
+		if pos and IsValidTarget(target) and not shot_canceling_reason[i] then
+			--[[ 
+				In prediction mode we need to presim the attacks (and merge the results later) for UI / damage prediction.
+				When simulating the actual attack this extra work isn't needed as Unit:RunAndGun needs to recalculate it anyway after movement.
+				Thus, we only pack the relevant data - the position and target. The target can also change, but we have it anyway and we prefer
+				to stick to it so the gameplay effects better reflect what we show the user in prediction.
+			--]]
+			if args.prediction then
+				args.target = target
+				args.step_pos = point(point_unpack(shot_positions[#shot_positions]))
+				args.attack_roll = args.attack_rolls and args.attack_rolls[i]
+				args.crit_roll = args.crit_rolls and args.crit_rolls[i]
+				args.stealth_kill_roll = args.stealth_kill_rolls and args.stealth_kill_rolls[i]
+				args.used_action_id = action.id -- so that cth is calculated for the master/parent action instead of the actual attack action
+				args.stance = "Standing"
+				args.can_use_covers = false
+				local results, attack_args = atk_action:GetActionResults(unit, args)
+				attacks[i] = results
+				attacks[i].mobile_attack_id = attack_id
+				attacks[i].mobile_attack_pos = shot_positions[#shot_positions]
+				attacks[i].mobile_attack_target = target
+				attacks[i].attack_args = attack_args
+			else
+				attacks[i] = {
+					mobile_attack_id = attack_id,
+					mobile_attack_pos = shot_positions[#shot_positions],
+					mobile_attack_target = target,
+				}
+			end
+		else
+			attacks[i] = {}
+		end
+	end
+
+	local results
+	if args.prediction then
+		results = MergeAttacks(attacks)
+		results.shot_canceling_reason = shot_canceling_reason and shot_canceling_reason[#shot_canceling_reason]
+	else
+		results = { attacks = attacks }
+	end
+	return results, attack_args
+end
+
+
+function GetMobileShotResults_StartPos(action, unit, args)
+	local weapon = action:GetAttackWeapons(unit)
+
+	args = table.copy(args)
+	args.step_pos = args.goto_pos -- needed in PrepareAttackArgs
+	local shot_positions, shot_targets, shot_ch, shot_canceling_reason = CalcMobileShotAttacks(unit, action, args.goto_pos)
+	local attacks = {}
+	local attack_args
+
+	-- resolve attack action
+	local attack_id, atk_action	
+	if args.attack_id and args.attack_id ~= action.id then
+		attack_id = args.attack_id
+		atk_action = CombatActions[attack_id] or CombatActions.SingleShot
+	else
+		attack_id = "SingleShot"
+		atk_action = CombatActions.SingleShot
+	end
+	local canceling_reason
+
+	for i, pos in ipairs(shot_positions) do
+		local target = shot_targets[i]
+		local results, attack_args
+		if pos and IsValidTarget(target) and not shot_canceling_reason[i] then
+			--[[ 
+				In prediction mode we need to presim the attacks (and merge the results later) for UI / damage prediction.
+				When simulating the actual attack this extra work isn't needed as Unit:RunAndGun needs to recalculate it anyway after movement.
+				Thus, we only pack the relevant data - the position and target. The target can also change, but we have it anyway and we prefer
+				to stick to it so the gameplay effects better reflect what we show the user in prediction.
+			--]]
+			if args.prediction then
+				args.target = target
+				args.step_pos = point(point_unpack(shot_positions[0]))
+				args.attack_roll = args.attack_rolls and args.attack_rolls[i]
+				args.crit_roll = args.crit_rolls and args.crit_rolls[i]
+				args.stealth_kill_roll = args.stealth_kill_rolls and args.stealth_kill_rolls[i]
+				args.used_action_id = action.id -- so that cth is calculated for the master/parent action instead of the actual attack action
+				args.stance = "Standing"
+				args.can_use_covers = false
+				local results, attack_args = atk_action:GetActionResults(unit, args)
+				attacks[i] = results
+				attacks[i].mobile_attack_id = attack_id
+				attacks[i].mobile_attack_pos = shot_positions[0]
+				attacks[i].mobile_attack_target = target
+				attacks[i].attack_args = attack_args
+			else
+				attacks[i] = {
+					mobile_attack_id = attack_id,
+					mobile_attack_pos = shot_positions[0],
+					mobile_attack_target = target,
+				}
+			end
+		else
+			attacks[i] = {}
+		end
+	end
+
+	local results
+	if args.prediction then
+		results = MergeAttacks(attacks)
+		results.shot_canceling_reason = shot_canceling_reason and shot_canceling_reason[#shot_canceling_reason]
+	else
+		results = { attacks = attacks }
+	end
+	return results, attack_args
+end
+
+
+local tf_smooth_sleep = 100
+local tf_smooth_thread = false
+function SetTimeFactorSmooth(tf, time)
+	DeleteThread(tf_smooth_thread)
+	tf_smooth_thread = CreateRealTimeThread(function()
+		local curr_tf = GetTimeFactor()
+		if curr_tf == tf then
+			return
+		end
+		local delta = MulDivRound(tf - curr_tf, tf_smooth_sleep, time)
+		local cmp = curr_tf < tf 
+		while cmp == (curr_tf + delta < tf) do
+			curr_tf = curr_tf + delta
+			SetTimeFactor(curr_tf)
+			Sleep(tf_smooth_sleep)
+		end
+		SetTimeFactor(tf)
+	end)
+end
+
+
+local smooth_tf_change_duration = 1500
+function Unit:MoveThenShot(action_id, cost_ap, args)
+	local action = CombatActions[action_id]
+	local target = args.goto_pos
+	local weapon = action:GetAttackWeapons(self)
+	if not weapon then 
+		self:GainAP(cost_ap)
+		CombatActionInterruped(self)
+		return 
+	end
+	local aim_params = action:GetAimParams(self, weapon)
+	local num_shots = aim_params.num_shots
+	
+	if self.stance ~= "Standing" then
+		self:ChangeStance(action_id, 0, "Standing")
+	end
+	
+	-- do the attack/crit rolls
+	args.attack_rolls = {}
+	args.crit_rolls = {}
+	args.stealth_kill_rolls = {}
+	for i = 1, num_shots do
+		args.attack_rolls[i] = 1 + self:Random(100)
+		args.crit_rolls[i] = 1 + self:Random(100)
+		if action.StealthAttack then
+			args.stealth_kill_rolls[i] = 1 + self:Random(100)
+		end
+	end
+	args.prediction = false
+	NetUpdateHash("RunAndGun_0", self, args)
+	local results = action:GetActionResults(self, args)
+	local action_camera = false --[[ disable action camera for now ]]
+	if #(results.attacks or empty_table) == 0 then
+		self:GainAP(cost_ap)
+		CombatActionInterruped(self)
+		return 
+	end
+	
+	local pathObj, path
+	self:PushDestructor(function(self)
+		if pathObj then
+			DoneObject(pathObj)
+		end
+	end)
+	pathObj = CombatPath:new()
+	
+	if action_camera then
+		local tf = GetTimeFactor()
+		self:PushDestructor(function()
+			SetTimeFactorSmooth(tf, smooth_tf_change_duration)
+		end)
+	end
+	local base_idle = self:GetIdleBaseAnim()
+	local shot_threads
+	
+pathObj:RebuildPaths(self, aim_params.move_ap)
+path = pathObj:GetCombatPathFromPos(target) -- target = args.goto_pos
+self:CombatGoto(action_id, 0, nil, path, true, args.toDoStance)
+
+
+	for i, attack in ipairs(results.attacks) do
+		if not self:CanUseWeapon(weapon) then -- might jam, run out of ammo, etc
+			goto continue
+		end
+		
+		NetUpdateHash("MobileShot_1", self, attack.mobile_attack_pos, attack.mobile_attack_target)		
+		if attack.mobile_attack_pos and (not IsValidTarget(attack.mobile_attack_target) or attack.mobile_attack_target:IsIncapacitated()) then
+			local enemies = table.ifilter(action:GetTargets({self}), function(idx, u) return IsValidTarget(u) and not u:IsIncapacitated() end)
+			NetUpdateHash("MobileShot_Branch_1", self, attack.mobile_attack_pos, #enemies)
+			attack.mobile_attack_target = FindTargetFromPos(action_id, self, action, enemies, point(point_unpack(attack.mobile_attack_pos)), weapon)
+		end
+		if attack.mobile_attack_pos and IsValidTarget(attack.mobile_attack_target) then
+			if action_camera and i == 1 then
+				SetTimeFactorSmooth(tf/2, smooth_tf_change_duration)
+			end
+			
+			-- We need to build the path outside of the function so that it
+			-- doesn't refund us the ap cost difference.
+			local targetPos = point(point_unpack(attack.mobile_attack_pos))
+			local occupiedPos = self:GetOccupiedPos()
+
+
+			-- recheck target, as they might have died while we were moving
+			if not IsValidTarget(attack.mobile_attack_target) or attack.mobile_attack_target:IsIncapacitated() then
+				local enemies = table.ifilter(action:GetTargets({self}), function(idx, u) return IsValidTarget(u) and not u:IsIncapacitated() end)
+				NetUpdateHash("MobileShotn_Branch_1_1", self, attack.mobile_attack_pos, #enemies)
+				attack.mobile_attack_target = FindTargetFromPos(action_id, self, action, enemies, point(point_unpack(attack.mobile_attack_pos)), weapon)
+				if not IsValidTarget(attack.mobile_attack_target) then
+					goto continue
+				end
+			end
+
+			if action_camera then
+				if i == #results.attacks then
+					SetTimeFactorSmooth(tf, smooth_tf_change_duration)
+				end
+				SetActionCamera(self, attack.mobile_attack_target)
+			end
+			self:SetRandomAnim(base_idle)
+			local atk_action = CombatActions[attack.mobile_attack_id] or action
+			
+			-- rerun simulation to account for changes happened in the meantime (broken covers, etc)
+			local atk_args = {
+				prediction = false,
+				target = attack.mobile_attack_target,
+				stance = "Standing",
+				can_use_covers = i == #results.attacks,
+				used_action_id = action_id, -- so that cth is calculated for the master/parent action instead of the actual attack action
+			}			
+			
+			NetUpdateHash("MobileShot_2", self, atk_args.target, args.goto_pos)
+			local atk_results, attack_args = atk_action:GetActionResults(self, atk_args)			
+			attack_args.origin_action_id = action_id
+			attack_args.keep_ui_mode = true
+			attack_args.unit_moved = true
+			attack_args.dont_restore_aim = true
+			if atk_action.id == "KnifeThrow" then
+				self:ExecKnifeThrow(atk_action, cost_ap, attack_args, atk_results)
+			else
+				shot_threads = shot_threads or {}
+				attack_args.external_wait_shots = shot_threads
+				self:ExecFirearmAttacks(atk_action, cost_ap, attack_args, atk_results)
+			end
+		end
+		::continue::
+	end
+	
+	local cooldown = action:ResolveValue("cooldown")
+	if cooldown then
+		self:SetEffectExpirationTurn(action.id, "cooldown", g_Combat.current_turn + cooldown)
+	end
+	if action_camera then
+		RemoveActionCamera()
+		self:PopAndCallDestructor() -- camera
+	end
+
+	-- if not at target loc, goto there (there mustn't be a target when that happens)	
+	local occupiedPos = self:GetOccupiedPos()
+	if self.return_pos and self.return_pos:Dist(target) < const.SlabSizeX / 2 then
+		self:ReturnToCover()
+	elseif self:GetDist(occupiedPos) > const.SlabSizeX / 2 and self:GetDist(target) < const.SlabSizeX / 2 then
+		self:SetTargetDummyFromPos()
+	else
+		pathObj:RebuildPaths(self, aim_params.move_ap)
+		path = pathObj:GetCombatPathFromPos(target)
+		self:CombatGoto(action_id, 0, nil, path, true)
+	end
+	if shot_threads then
+		Firearm:WaitFiredShots(shot_threads)
+	end	
+	self:PopAndCallDestructor() -- pathObj 
+end
+
+function Unit:ShotThenMove(action_id, cost_ap, args)
+	local action = CombatActions[action_id]
+	local target = args.goto_pos
+	local weapon = action:GetAttackWeapons(self)
+	if not weapon then 
+		self:GainAP(cost_ap)
+		CombatActionInterruped(self)
+		return 
+	end
+	local aim_params = action:GetAimParams(self, weapon)
+	local num_shots = aim_params.num_shots
+	
+	if self.stance ~= "Standing" then
+		self:ChangeStance(action_id, 0, "Standing")
+	end
+	
+	-- do the attack/crit rolls
+	args.attack_rolls = {}
+	args.crit_rolls = {}
+	args.stealth_kill_rolls = {}
+	for i = 1, num_shots do
+		args.attack_rolls[i] = 1 + self:Random(100)
+		args.crit_rolls[i] = 1 + self:Random(100)
+		if action.StealthAttack then
+			args.stealth_kill_rolls[i] = 1 + self:Random(100)
+		end
+	end
+	args.prediction = false
+	NetUpdateHash("RunAndGun_0", self, args)
+	local results = action:GetActionResults(self, args)
+	
+	local action_camera = false --[[ disable action camera for now ]]
+	if #(results.attacks or empty_table) == 0 then
+		self:GainAP(cost_ap)
+		CombatActionInterruped(self)
+		return 
+	end
+	
+	local pathObj, path
+	self:PushDestructor(function(self)
+		if pathObj then
+			DoneObject(pathObj)
+		end
+	end)
+	pathObj = CombatPath:new()
+	
+	if action_camera then
+		local tf = GetTimeFactor()
+		self:PushDestructor(function()
+			SetTimeFactorSmooth(tf, smooth_tf_change_duration)
+		end)
+	end
+	local base_idle = self:GetIdleBaseAnim()
+	local shot_threads
+	
+	path = pathObj:RebuildPaths(self, aim_params.move_ap)	
+	self:CombatGoto(action_id, 0, nil, path, true, args.toDoStance)
+	for i, attack in ipairs(results.attacks) do
+		if not self:CanUseWeapon(weapon) then -- might jam, run out of ammo, etc
+			goto continue
+		end
+		attack.mobile_attack_pos = target -- args.goto_pos
+		NetUpdateHash("MobileShot_1", self, attack.mobile_attack_pos, attack.mobile_attack_target)		
+		if attack.mobile_attack_pos and (not IsValidTarget(attack.mobile_attack_target) or attack.mobile_attack_target:IsIncapacitated()) then
+			local enemies = table.ifilter(action:GetTargets({self}), function(idx, u) return IsValidTarget(u) and not u:IsIncapacitated() end)
+			NetUpdateHash("MobileShot_Branch_1", self, attack.mobile_attack_pos, #enemies)
+			attack.mobile_attack_target = FindTargetFromPos(action_id, self, action, enemies, point(point_unpack(attack.mobile_attack_pos)), weapon)
+		end
+		if attack.mobile_attack_pos and IsValidTarget(attack.mobile_attack_target) then
+			if action_camera and i == 1 then
+				SetTimeFactorSmooth(tf/2, smooth_tf_change_duration)
+			end
+			
+			-- We need to build the path outside of the function so that it
+			-- doesn't refund us the ap cost difference.
+			local targetPos = point(point_unpack(attack.mobile_attack_pos))
+			local occupiedPos = self:GetOccupiedPos()
+
+
+			-- recheck target, as they might have died while we were moving
+			if not IsValidTarget(attack.mobile_attack_target) or attack.mobile_attack_target:IsIncapacitated() then
+				local enemies = table.ifilter(action:GetTargets({self}), function(idx, u) return IsValidTarget(u) and not u:IsIncapacitated() end)
+				NetUpdateHash("RunAndGun_Branch_1_1", self, attack.mobile_attack_pos, #enemies)
+				attack.mobile_attack_target = FindTargetFromPos(action_id, self, action, enemies, point(point_unpack(attack.mobile_attack_pos)), weapon)
+				if not IsValidTarget(attack.mobile_attack_target) then
+					goto continue
+				end
+			end
+
+			if action_camera then
+				if i == #results.attacks then
+					SetTimeFactorSmooth(tf, smooth_tf_change_duration)
+				end
+				SetActionCamera(self, attack.mobile_attack_target)
+			end
+			self:SetRandomAnim(base_idle)
+			local atk_action = CombatActions[attack.mobile_attack_id] or action
+			
+			-- rerun simulation to account for changes happened in the meantime (broken covers, etc)
+			local atk_args = {
+				prediction = false,
+				target = attack.mobile_attack_target,
+				stance = "Standing",
+				can_use_covers = i == #results.attacks,
+				used_action_id = action_id, -- so that cth is calculated for the master/parent action instead of the actual attack action
+			}			
+			
+			NetUpdateHash("RunAndGun_2", self, atk_args.target, args.goto_pos)
+			local atk_results, attack_args = atk_action:GetActionResults(self, atk_args)			
+			attack_args.origin_action_id = action_id
+			attack_args.keep_ui_mode = true
+			attack_args.unit_moved = true
+			attack_args.dont_restore_aim = true
+			if atk_action.id == "KnifeThrow" then
+				self:ExecKnifeThrow(atk_action, cost_ap, attack_args, atk_results)
+			else
+				shot_threads = shot_threads or {}
+				attack_args.external_wait_shots = shot_threads
+				self:ExecFirearmAttacks(atk_action, cost_ap, attack_args, atk_results)
+			end
+		end
+		::continue::
+	end
+	
+	local cooldown = action:ResolveValue("cooldown")
+	if cooldown then
+		self:SetEffectExpirationTurn(action.id, "cooldown", g_Combat.current_turn + cooldown)
+	end
+	if action_camera then
+		RemoveActionCamera()
+		self:PopAndCallDestructor() -- camera
+	end
+
+	-- if not at target loc, goto there (there mustn't be a target when that happens)	
+	local occupiedPos = self:GetOccupiedPos()
+	if self.return_pos and self.return_pos:Dist(target) < const.SlabSizeX / 2 then
+		self:ReturnToCover()
+	elseif self:GetDist(occupiedPos) > const.SlabSizeX / 2 and self:GetDist(target) < const.SlabSizeX / 2 then
+		self:SetTargetDummyFromPos()
+	else
+		pathObj:RebuildPaths(self, aim_params.move_ap)
+		path = pathObj:GetCombatPathFromPos(target)
+		self:CombatGoto(action_id, 0, nil, path, true)
+	end
+	if shot_threads then
+		Firearm:WaitFiredShots(shot_threads)
+	end	
+	self:PopAndCallDestructor() -- pathObj 
+end
+
+-- Мозамбик - 2 в тело, 1 в голову
+function Unit:Mozambique(action_id, cost_ap, args)
+  local target = args.target
+  if not IsKindOf(target, "Unit") then return end
+  print(args)
+
+  local action = CombatActions[action_id]
+  local weapon = self:GetActiveWeapons()
+  if not weapon then return end
+
+  local bodyParts = { "Torso", "Torso", "Head" }
+
+  for i = 1, #bodyParts do
+    if not self:CanUseWeapon(weapon, 1) then break end
+
+    local spot = bodyParts[i]
+	if i == #bodyParts then
+		--args.chance_to_hit = self:CalcChanceToHit(target, self, args) + 40
+		args.critChance = 100
+	end
+	
+    args.target_spot_group = spot
+    self:FirearmAttack(action_id, 0, args)
+  end
+
+  local recharge_on_kill = action:ResolveValue("recharge_on_kill") or 0
+  self:AddSignatureRechargeTime(action_id, const.Combat.SignatureAbilityRechargeTime, recharge_on_kill > 0)
+end
