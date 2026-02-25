@@ -6,7 +6,7 @@ PlaceObj('ActionFXSound', {
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "45welrod_shot",
-	Target = "Basic",
+	Target = "DeLisle",
 	group = "Default",
 	id = "fxDeLisle1",
 })

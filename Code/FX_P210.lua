@@ -1,30 +1,30 @@
 
---P210_temp
+--P210
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
-	Actor = "P210_temp",
+	Actor = "P210",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "P210_temp_shot",
+	Sound = "P210_shot",
 	Target = "Basic",
 	group = "Default",
-	id = "fxP210_temp1",
+	id = "fxP2101",
 })
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
-	Actor = "P210_temp",
+	Actor = "P210",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "silencer_pistol",
 	Target = "Silencer",
 	group = "Default",
-	id = "fxP210_temp2",
+	id = "fxP2102",
 })
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
-	Actor = "P210_temp",
+	Actor = "P210",
 	Delay = 200,
 	DetailLevel = 100,
 	GameTime = true,
@@ -32,12 +32,12 @@ PlaceObj('ActionFXSound', {
 	Sound = "bullet_casingA_fall",
 	Source = "ActionPos",
 	group = "Default",
-	id = "P210_temp3",
+	id = "P2103",
 })
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
-	Actor = "P210_temp",
+	Actor = "P210",
 	Delay = 100,
 	DetailLevel = 100,
 	GameTime = true,
@@ -45,13 +45,13 @@ PlaceObj('ActionFXSound', {
 	Sound = "bullet_casingA_release",
 	Source = "ActionPos",
 	group = "Default",
-	id = "P210_temp4",
+	id = "P2104",
 })
 
 
 PlaceObj('ActionFXParticles', {
 	Action = "WeaponFire",
-	Actor = "P210_temp",
+	Actor = "P210",
 	Attach = true,
 	GameTime = true,
 	Moment = "start",
@@ -62,7 +62,7 @@ PlaceObj('ActionFXParticles', {
 	Spot = "Muzzle",
 	Target = "Compensator",
 	group = "Weapons VFX",
-	id = "P210_temp5",
+	id = "P2105",
 })
 
 
@@ -72,10 +72,10 @@ PlaceObj('ActionFXSound', {
 	FadeOut = 50,
 	Moment = "start",
 	Sound = "HiPower_reload",
-	Target = "P210_temp",
+	Target = "P210",
 	Time = 200,
 	group = "Default",
-	id = "P210_temp6",
+	id = "P2106",
 })
 
 PlaceObj('ActionFXSound', {
@@ -84,9 +84,9 @@ PlaceObj('ActionFXSound', {
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "HiPower_reload",
-	Target = "P210_temp",
+	Target = "P210",
 	group = "Default",
-	id = "P210_temp7",
+	id = "P2107",
 })
 
 PlaceObj('ActionFXSound', {
@@ -96,34 +96,34 @@ PlaceObj('ActionFXSound', {
 	FadeOut = 50,
 	Moment = "start",
 	Sound = "HiPower_reload",
-	Target = "P210_temp",
+	Target = "P210",
 	Time = 200,
 	group = "Default",
-	id = "P210_temp8",
+	id = "P2108",
 })
 
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponEquip",
-	Actor = "P210_temp",
+	Actor = "P210",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "HiPower_reload",
 	Source = "Camera",
 	Target = "Pistol",
 	group = "Default",
-	id = "P210_temp9",
+	id = "P2109",
 })
 
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponJam",
-	Actor = "P210_temp",
+	Actor = "P210",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "empty_pistol",
 	group = "Default",
-	id = "P210_temp10",
+	id = "P21010",
 })
 
 PlaceObj('ActionFXSound', {
@@ -133,9 +133,9 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "bullet_load-9mm",
 	Source = "Camera",
-	Target = "P210_temp",
+	Target = "P210",
 	group = "Default",
-	id = "P210_temp11",
+	id = "P21011",
 })
  
 PlaceObj('ActionFXSound', {
@@ -145,56 +145,56 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "bullet_load-9mm",
 	Source = "Camera",
-	Target = "P210_temp",
+	Target = "P210",
 	group = "Default",
-	id = "P210_temp12",
+	id = "P21012",
 })
 
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponReload",
-	Actor = "P210_temp",
+	Actor = "P210",
 	Delay = 1700,
 	DetailLevel = 100,
 	GameTime = true,
 	Moment = "start",
 	Sound = "HiPower_slide-load",
 	group = "Default",
-	id = "P210_temp13",
+	id = "P21013",
 })
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponReload",
-	Actor = "P210_temp",
+	Actor = "P210",
 	Delay = 1300,
 	DetailLevel = 100,
 	GameTime = true,
 	Moment = "start",
 	Sound = "HiPower_slide-move",
 	group = "Default",
-	id = "P210_temp14",
+	id = "P21014",
 })
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponReload",
-	Actor = "P210_temp",
+	Actor = "P210",
 	Delay = 500,
 	DetailLevel = 100,
 	GameTime = true,
 	Moment = "start",
 	Sound = "mag_pistol-load",
 	group = "Default",
-	id = "P210_temp15",
+	id = "P21015",
 })
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponReload",
-	Actor = "P210_temp",
+	Actor = "P210",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "mag_pistol-unload",
 	group = "Default",
-	id = "P210_temp16",
+	id = "P21016",
 })
 
 
@@ -206,9 +206,9 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "bullet_unload-9mm",
 	Source = "Camera",
-	Target = "P210_temp",
+	Target = "P210",
 	group = "Default",
-	id = "P210_temp17",
+	id = "P21017",
 })
 
 PlaceObj('ActionFXSound', {
@@ -218,8 +218,8 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "mag_pistol-unload",
 	Source = "Camera",
-	Target = "P210_temp",
+	Target = "P210",
 	group = "Default",
-	id = "P210_temp18",
+	id = "P21018",
 })
 

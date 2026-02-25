@@ -6,7 +6,7 @@ PlaceObj('ActionFXSound', {
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "MAS36_shot",
-	Target = "Basic",
+	Target = "MAS49",
 	group = "Default",
 	id = "fxMAS49",
 })

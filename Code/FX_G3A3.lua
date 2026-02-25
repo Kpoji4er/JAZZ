@@ -1,11 +1,11 @@
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
-	Actor = "G3",
+	Actor = "G3A3",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "G3_shot",
-	Target = "Basic",
+	Target = "G3A3",
 	group = "Default",
 	id = "fxG3",
 })
@@ -16,14 +16,14 @@ PlaceObj('ActionFXSound', {
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "HK21_reload",
-	Target = "G3",
+	Target = "G3A3",
 	group = "Default",
 	id = "fxG32",
 })
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponEquip",
-	Actor = "G3",
+	Actor = "G3A3",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "HK21_reload",
@@ -36,7 +36,7 @@ PlaceObj('ActionFXSound', {
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
-	Actor = "G3",
+	Actor = "G3A3",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "silencer_rifle",
@@ -47,7 +47,7 @@ PlaceObj('ActionFXSound', {
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
-	Actor = "G3",
+	Actor = "G3A3",
 	Delay = 100,
 	DetailLevel = 100,
 	GameTime = true,
@@ -60,7 +60,7 @@ PlaceObj('ActionFXSound', {
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
-	Actor = "G3",
+	Actor = "G3A3",
 	Delay = 300,
 	DetailLevel = 100,
 	GameTime = true,
@@ -73,7 +73,7 @@ PlaceObj('ActionFXSound', {
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponJam",
-	Actor = "G3",
+	Actor = "G3A3",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "empty_shotgun",
@@ -89,7 +89,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "bullet_load-762",
 	Source = "Camera",
-	Target = "G3",
+	Target = "G3A3",
 	group = "Default",
 	id = "fxG38",
 })
@@ -102,14 +102,14 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "mag_rifle-load",
 	Source = "Camera",
-	Target = "G3",
+	Target = "G3A3",
 	group = "Default",
 	id = "fxG39",
 })
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponReload",
-	Actor = "G3",
+	Actor = "G3A3",
 	Delay = 1500,
 	DetailLevel = 100,
 	GameTime = true,
@@ -121,7 +121,7 @@ PlaceObj('ActionFXSound', {
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponReload",
-	Actor = "G3",
+	Actor = "G3A3",
 	Delay = 100,
 	DetailLevel = 100,
 	GameTime = true,
@@ -139,7 +139,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "bullet_unload-762",
 	Source = "Camera",
-	Target = "G3",
+	Target = "G3A3",
 	group = "Default",
 	id = "fxG312",
 })
@@ -152,7 +152,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "mag_rifle-unload",
 	Source = "Camera",
-	Target = "G3",
+	Target = "G3A3",
 	group = "Default",
 	id = "fxG313",
 })

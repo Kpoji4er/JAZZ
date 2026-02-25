@@ -5,7 +5,7 @@ PlaceObj('ActionFXSound', {
 	Moment = "start",
 	Sound = "TMP_shot",
 	Source = "ActionPos",
-	Target = "Basic",
+	Target = "TMP",
 	group = "Default",
 	id = "fxTMP",
 })

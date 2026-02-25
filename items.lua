@@ -9966,22 +9966,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningM2_shot_dry1-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningm2_shot_dry1-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningM2_shot_dry2-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningm2_shot_dry2-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningM2_shot_dry3-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningm2_shot_dry3-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningM2_shot_dry4-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningm2_shot_dry4-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningM2_shot_dry5-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningm2_shot_dry5-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningM2_shot_dry6-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningm2_shot_dry6-01.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -9990,22 +9990,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningM2_shot_dry1-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningm2_shot_dry1-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningM2_shot_dry2-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningm2_shot_dry2-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningM2_shot_dry3-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningm2_shot_dry3-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningM2_shot_dry4-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningm2_shot_dry4-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningM2_shot_dry5-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningm2_shot_dry5-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningM2_shot_dry6-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/BrowningM2/browningm2_shot_dry6-01-room.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -10150,6 +10150,30 @@ return {
 							}),
 							PlaceObj('Sample', {
 								'file', "Mod/e6L4ECj/Sounds/1911/1911_shot_dry6-01.opus",
+							}),
+						}),
+						PlaceObj('ModItemSoundPreset', {
+							group = "WEAPONS",
+							id = "Colt1911_shot-room",
+							loud_distance = 20000,
+							type = "Weapons",
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/1911/1911_shot_dry1-01-room.opus",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/1911/1911_shot_dry2-01-room.opus",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/1911/1911_shot_dry3-01-room.opus",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/1911/1911_shot_dry4-01-room.opus",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/1911/1911_shot_dry5-01-room.opus",
+							}),
+							PlaceObj('Sample', {
+								'file', "Mod/e6L4ECj/Sounds/1911/1911_shot_dry6-01-room.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -10516,7 +10540,7 @@ return {
 						}),
 						PlaceObj('ModItemSoundPreset', {
 							group = "WEAPONS",
-							id = "G36_shot_single-room_copy",
+							id = "G36c_shot_single-room",
 							loud_distance = 20000,
 							type = "Weapons_shootingRoom",
 							PlaceObj('Sample', {
@@ -10976,22 +11000,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Benellim4/Benellim4_shot_dry1-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/Benellim4/benellim4_shot_dry1-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Benellim4/Benellim4_shot_dry2-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/Benellim4/benellim4_shot_dry2-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Benellim4/Benellim4_shot_dry3-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/Benellim4/benellim4_shot_dry3-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Benellim4/Benellim4_shot_dry4-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/Benellim4/benellim4_shot_dry4-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Benellim4/Benellim4_shot_dry5-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/Benellim4/benellim4_shot_dry5-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Benellim4/Benellim4_shot_dry6-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/Benellim4/benellim4_shot_dry6-01.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -11000,22 +11024,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons_shootingRoom",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Benellim4/Benellim4_shot_01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/Benellim4/benellim4_shot_01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Benellim4/Benellim4_shot_02-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/Benellim4/benellim4_shot_02-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Benellim4/Benellim4_shot_03-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/Benellim4/benellim4_shot_03-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Benellim4/Benellim4_shot_04-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/Benellim4/benellim4_shot_04-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Benellim4/Benellim4_shot_05-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/Benellim4/benellim4_shot_05-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Benellim4/Benellim4_shot_06-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/Benellim4/benellim4_shot_06-room.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -11216,22 +11240,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/RPK74/RPK74_shot_dry1-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/RPK74/rpk74_shot_dry1-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/RPK74/RPK74_shot_dry2-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/RPK74/rpk74_shot_dry2-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/RPK74/RPK74_shot_dry3-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/RPK74/rpk74_shot_dry3-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/RPK74/RPK74_shot_dry4-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/RPK74/rpk74_shot_dry4-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/RPK74/RPK74_shot_dry5-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/RPK74/rpk74_shot_dry5-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/RPK74/RPK74_shot_dry6-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/RPK74/rpk74_shot_dry6-01.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -11240,22 +11264,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons_shootingRoom",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/RPK74/RPK74_shot_dry1-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/RPK74/rpk74_shot_dry1-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/RPK74/RPK74_shot_dry2-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/RPK74/rpk74_shot_dry2-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/RPK74/RPK74_shot_dry3-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/RPK74/rpk74_shot_dry3-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/RPK74/RPK74_shot_dry4-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/RPK74/rpk74_shot_dry4-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/RPK74/RPK74_shot_dry5-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/RPK74/rpk74_shot_dry5-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/RPK74/RPK74_shot_dry6-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/RPK74/rpk74_shot_dry6-01-room.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -11456,22 +11480,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry1-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry1-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry2-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry2-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry3-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry3-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry4-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry4-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry5-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry5-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry6-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry6-01.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -11480,22 +11504,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons_shootingRoom",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry1-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry1-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry2-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry2-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry3-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry3-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry4-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry4-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry5-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry5-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry6-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry6-01-room.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -11504,22 +11528,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry1-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry1-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry2-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry2-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry3-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry3-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry4-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry4-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry5-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry5-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry6-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry6-01.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -11528,22 +11552,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons_shootingRoom",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry1-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry1-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry2-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry2-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry3-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry3-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry4-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry4-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry5-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry5-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/P210/sigP210_shot_dry6-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/p210/sigP210_shot_dry6-01-room.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -11696,22 +11720,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/makarov/Makarov_shot_dry1-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/makarov/makarov_shot_dry1-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/makarov/Makarov_shot_dry2-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/makarov/makarov_shot_dry2-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/makarov/Makarov_shot_dry3-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/makarov/makarov_shot_dry3-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/makarov/Makarov_shot_dry4-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/makarov/makarov_shot_dry4-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/makarov/Makarov_shot_dry5-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/makarov/makarov_shot_dry5-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/makarov/Makarov_shot_dry6-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/makarov/makarov_shot_dry6-01.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -11720,22 +11744,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons_shootingRoom",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/makarov/Makarov_shot_dry1-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/makarov/makarov_shot_dry1-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/makarov/Makarov_shot_dry2-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/makarov/makarov_shot_dry2-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/makarov/Makarov_shot_dry3-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/makarov/makarov_shot_dry3-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/makarov/Makarov_shot_dry4-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/makarov/makarov_shot_dry4-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/makarov/Makarov_shot_dry5-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/makarov/makarov_shot_dry5-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/makarov/Makarov_shot_dry6-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/makarov/makarov_shot_dry6-01-room.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -11876,22 +11900,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygin_shot_dry1-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygin_shot_dry1-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygin_shot_dry2-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygin_shot_dry2-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygin_shot_dry3-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygin_shot_dry3-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygin_shot_dry4-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygin_shot_dry4-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygin_shot_dry5-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygin_shot_dry5-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygin_shot_dry6-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygin_shot_dry6-01.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -11900,22 +11924,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons_shootingRoom",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygin_shot_dry1-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygin_shot_dry1-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygin_shot_dry2-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygin_shot_dry2-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygin_shot_dry3-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygin_shot_dry3-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygin_shot_dry4-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygin_shot_dry4-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygin_shot_dry5-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygin_shot_dry5-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygin_shot_dry6-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygin_shot_dry6-01-room.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -11924,19 +11948,19 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygaclipin1.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygaclipin1.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygaclipin2.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygaclipin2.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygaclipin3.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygaclipin3.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygaclipin4.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygaclipin4.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygaclipin5.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygaclipin5.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -11945,19 +11969,19 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygaclipout1.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygaclipout1.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygaclipout2.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygaclipout2.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygaclipout3.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygaclipout3.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygaclipout4.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygaclipout4.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygaclipout5.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygaclipout5.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -11966,19 +11990,19 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygaequipncheck1.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygaequipncheck1.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygaequipncheck2.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygaequipncheck2.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygaequipncheck3.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygaequipncheck3.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygaequipncheck4.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygaequipncheck4.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygaequipncheck6.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygaequipncheck6.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -11987,19 +12011,19 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygareload1.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygareload1.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygareload2.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygareload2.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygareload3.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygareload3.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygareload4.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygareload4.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/PYA/yarygareload5.opus",
+								'file', "Mod/e6L4ECj/Sounds/pya/yarygareload5.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -13781,22 +13805,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Garand/garand_shot_dry1-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/garand/garand_shot_dry1-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Garand/garand_shot_dry2-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/garand/garand_shot_dry2-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Garand/garand_shot_dry3-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/garand/garand_shot_dry3-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Garand/garand_shot_dry4-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/garand/garand_shot_dry4-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Garand/garand_shot_dry5-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/garand/garand_shot_dry5-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Garand/garand_shot_dry6-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/garand/garand_shot_dry6-01.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -13805,22 +13829,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons_shootingRoom",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Garand/garand_shot_dry1-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/garand/garand_shot_dry1-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Garand/garand_shot_dry2-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/garand/garand_shot_dry2-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Garand/garand_shot_dry3-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/garand/garand_shot_dry3-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Garand/garand_shot_dry4-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/garand/garand_shot_dry4-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Garand/garand_shot_dry5-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/garand/garand_shot_dry5-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Garand/garand_shot_dry6-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/garand/garand_shot_dry6-01-room.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -14123,22 +14147,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/STG/7.92kurz_shot_dry1-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/Stg/792kurz_shot_dry1-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/STG/7.92kurz_shot_dry2-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/Stg/792kurz_shot_dry2-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/STG/7.92kurz_shot_dry3-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/Stg/792kurz_shot_dry3-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/STG/7.92kurz_shot_dry4-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/Stg/792kurz_shot_dry4-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/STG/7.92kurz_shot_dry5-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/Stg/792kurz_shot_dry5-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/STG/7.92kurz_shot_dry6-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/Stg/792kurz_shot_dry6-01.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -14147,22 +14171,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/STG/7.92kurz_shot_dry1-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/Stg/792kurz_shot_dry1-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/STG/7.92kurz_shot_dry2-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/Stg/792kurz_shot_dry2-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/STG/7.92kurz_shot_dry3-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/Stg/792kurz_shot_dry3-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/STG/7.92kurz_shot_dry4-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/Stg/792kurz_shot_dry4-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/STG/7.92kurz_shot_dry5-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/Stg/792kurz_shot_dry5-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/STG/7.92kurz_shot_dry6-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/Stg/792kurz_shot_dry6-01-room.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -14171,22 +14195,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/FG42/7.92semi_shot_dry1-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/FG42/792semi_shot_dry1-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/FG42/7.92semi_shot_dry2-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/FG42/792semi_shot_dry2-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/FG42/7.92semi_shot_dry3-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/FG42/792semi_shot_dry3-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/FG42/7.92semi_shot_dry4-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/FG42/792semi_shot_dry4-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/FG42/7.92semi_shot_dry5-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/FG42/792semi_shot_dry5-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/FG42/7.92semi_shot_dry6-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/FG42/792semi_shot_dry6-01.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -14195,22 +14219,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/FG42/7.92semi_shot_dry1-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/FG42/792semi_shot_dry1-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/FG42/7.92semi_shot_dry2-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/FG42/792semi_shot_dry2-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/FG42/7.92semi_shot_dry3-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/FG42/792semi_shot_dry3-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/FG42/7.92semi_shot_dry4-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/FG42/792semi_shot_dry4-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/FG42/7.92semi_shot_dry5-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/FG42/792semi_shot_dry5-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/FG42/7.92semi_shot_dry6-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/FG42/792semi_shot_dry6-01-room.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -14219,22 +14243,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Carbine/.30carbinem1a1_shot_dry1-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/Carbine/30carbinem1a1_shot_dry1-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Carbine/.30carbinem1a1_shot_dry2-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/Carbine/30carbinem1a1_shot_dry2-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Carbine/.30carbinem1a1_shot_dry3-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/Carbine/30carbinem1a1_shot_dry3-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Carbine/.30carbinem1a1_shot_dry4-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/Carbine/30carbinem1a1_shot_dry4-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Carbine/.30carbinem1a1_shot_dry5-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/Carbine/30carbinem1a1_shot_dry5-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Carbine/.30carbinem1a1_shot_dry6-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/Carbine/30carbinem1a1_shot_dry6-01.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -14243,22 +14267,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Carbine/.30carbinem1a1_shot_dry1-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/Carbine/30carbinem1a1_shot_dry1-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Carbine/.30carbinem1a1_shot_dry2-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/Carbine/30carbinem1a1_shot_dry2-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Carbine/.30carbinem1a1_shot_dry3-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/Carbine/30carbinem1a1_shot_dry3-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Carbine/.30carbinem1a1_shot_dry4-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/Carbine/30carbinem1a1_shot_dry4-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Carbine/.30carbinem1a1_shot_dry5-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/Carbine/30carbinem1a1_shot_dry5-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/Carbine/.30carbinem1a1_shot_dry6-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/Carbine/30carbinem1a1_shot_dry6-01-room.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -14267,22 +14291,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnh_shot_dry1-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnh_shot_dry1-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnh_shot_dry2-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnh_shot_dry2-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnh_shot_dry3-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnh_shot_dry3-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnh_shot_dry4-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnh_shot_dry4-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnh_shot_dry5-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnh_shot_dry5-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnh_shot_dry6-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnh_shot_dry6-01.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -14291,22 +14315,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnh_shot_dry1-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnh_shot_dry1-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnh_shot_dry2-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnh_shot_dry2-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnh_shot_dry3-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnh_shot_dry3-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnh_shot_dry4-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnh_shot_dry4-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnh_shot_dry5-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnh_shot_dry5-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnh_shot_dry6-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnh_shot_dry6-01-room.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -14315,22 +14339,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnhmg_shot_dry1-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnhmg_shot_dry1-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnhmg_shot_dry2-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnhmg_shot_dry2-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnhmg_shot_dry3-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnhmg_shot_dry3-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnhmg_shot_dry4-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnhmg_shot_dry4-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnhmg_shot_dry5-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnhmg_shot_dry5-01.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnhmg_shot_dry6-01.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnhmg_shot_dry6-01.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -14339,22 +14363,22 @@ return {
 							loud_distance = 20000,
 							type = "Weapons",
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnhmg_shot_dry1-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnhmg_shot_dry1-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnhmg_shot_dry2-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnhmg_shot_dry2-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnhmg_shot_dry3-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnhmg_shot_dry3-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnhmg_shot_dry4-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnhmg_shot_dry4-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnhmg_shot_dry5-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnhmg_shot_dry5-01-room.opus",
 							}),
 							PlaceObj('Sample', {
-								'file', "Mod/e6L4ECj/Sounds/75french/7.5frecnhmg_shot_dry6-01-room.opus",
+								'file', "Mod/e6L4ECj/Sounds/75french/75frecnhmg_shot_dry6-01-room.opus",
 							}),
 						}),
 						PlaceObj('ModItemSoundPreset', {
@@ -15107,6 +15131,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15174,6 +15199,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15259,6 +15285,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15322,6 +15349,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15407,6 +15435,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15477,6 +15506,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15573,6 +15603,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 3000,
@@ -15654,6 +15685,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 3000,
@@ -15729,6 +15761,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15792,6 +15825,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 4000,
@@ -15855,6 +15889,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15929,6 +15964,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 2000,
 					'ReloadAP', 3000,
@@ -16012,6 +16048,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -16096,6 +16133,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -16183,6 +16221,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -16258,6 +16297,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -16354,6 +16394,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 3000,
@@ -16446,6 +16487,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 4000,
@@ -16539,6 +16581,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 3000,
@@ -16627,6 +16670,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -16676,6 +16720,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 4000,
@@ -16766,6 +16811,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 2000,
 					'ReloadAP', 3000,
@@ -16857,6 +16903,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 3000,
@@ -16965,6 +17012,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 2000,
 					'ReloadAP', 3000,
@@ -17040,6 +17088,7 @@ return {
 						"CancelShot",
 						"MobileShot",
 						"PistolPerk_Mozambique",
+						"PistolPerk_TrickShotRun",
 					},
 					'ShootAP', 2000,
 					'ReloadAP', 3000,
@@ -59648,6 +59697,27 @@ return {
 						local weapon = unit:GetActiveWeapons("Firearm")
 						return weapon -- make sure to return only 1 weapon, the attack doesn't use 2
 					end,
+					GetDefaultTarget = function (self, unit)
+						local best_eval, best_target
+						local units = {unit}
+						local targets = self:GetTargets(units)
+						local distance_to_best = 0
+						for _, target in ipairs(targets or empty_table) do
+							local eval = self:EvalTarget(units, target)
+							if not best_eval or eval > best_eval then
+								distance_to_best = IsKindOf(target, "Unit") and unit:GetDist(target:GetPos()) or 0
+								best_target, best_eval = target, eval
+							elseif eval == best_eval  then
+								local distance_to_this = IsKindOf(target, "Unit") and unit:GetDist(target:GetPos()) or 0
+								if distance_to_this < distance_to_best then
+									distance_to_best = distance_to_this
+									best_target = target
+								end
+							end
+						end
+						
+						return best_target, best_eval
+					end,
 					GetTargets = function (self, units)
 						local unit = units[1]
 						if unit then	
@@ -59661,7 +59731,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "UI/Icons/Hud/mobile_shot",
+					Icon = "Mod/e6L4ECj/Perks/MobileShot.png",
 					IdDefault = "MobileShotdefault",
 					IsAimableAttack = false,
 					KeybindingSortId = "2371",
@@ -59685,7 +59755,7 @@ return {
 					RequireState = "any",
 					RequireWeapon = true,
 					Run = function (self, unit, ap, ...)
-						unit:SetActionCommand("MoveThenShot", self.id, ap, ...)
+						unit:SetActionCommand("MoveThenShoot", self.id, ap, ...)
 					end,
 					SortKey = 2,
 					UIBegin = function (self, units, args)
@@ -60766,7 +60836,7 @@ return {
 					AimType = "line",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(864948067398, --[[ModItemCombatAction PistolPerk_Mozambique Description]] "Два выстрела в тело, один в голову. Заряжается после убийства."),
+					Description = T(864948067398, --[[ModItemCombatAction PistolPerk_Mozambique Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nДва выстрела в тело, один в голову. "),
 					DisplayName = T(696629111160, --[[ModItemCombatAction PistolPerk_Mozambique DisplayName]] "Мозамбик"),
 					DisplayNameShort = T(466948292860, --[[ModItemCombatAction PistolPerk_Mozambique DisplayNameShort]] "Мозамбик"),
 					GetAPCost = function (self, unit, args)
@@ -60849,6 +60919,111 @@ return {
 					end,
 					group = "WeaponAttacks",
 					id = "PistolPerk_Mozambique",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionCamera = true,
+					ActionPointDelta = 2000,
+					ActionType = "Ranged Attack",
+					AimType = "mobile",
+					CostBasedOnWeapon = true,
+					Description = T(799980728478, --[[ModItemCombatAction PistolPerk_TrickShotRun Description]] "<color EmStyle>Один раз за ход</color>.\nВыстрел, снимающий наблюдение при попадании, затем перемещение на заданную позицию."),
+					DisplayName = T(615888335880, --[[ModItemCombatAction PistolPerk_TrickShotRun DisplayName]] "Побег с отвлечением"),
+					GetActionDamage = function (self, unit, target, args)
+						local rangedAttack = unit:GetDefaultAttackAction("ranged") 
+						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
+						if weapon1 and weapon2 then args.attack_id = "AttackDual" end
+						
+						return rangedAttack:GetActionDamage(unit, target, args)
+					end,
+					GetActionDescription = function (self, units)
+						local description = self.Description
+						local unit = units and units[1]
+						if not unit then
+							return self:GetActionDisplayName()
+						end
+						
+						local damage, base, bonus = self:GetActionDamage(unit)
+						return T{description, damage = damage, basedamage = base, bonusdamage = bonus}
+					end,
+					GetActionResults = function (self, unit, args)
+						args.attack_id = "CancelShot"
+						args.applied_status = "CancelShot"
+						return GetMobileShotResults_StartPos(self, unit, args)
+					end,
+					GetAnyTarget = function (self, units)
+						local attack_id = "CancelShot"
+						local atk_action = CombatActions[attack_id]
+						return CombatActionGetOneAttackableEnemy(atk_action, units and units[1])
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						if args and args.weapon then return args.weapon end
+						local weapon = unit:GetActiveWeapons("Firearm")
+						return weapon -- make sure to return only 1 weapon, the attack doesn't use 2
+					end,
+					GetDefaultTarget = function (self, unit)
+						local units = {unit}
+						local targets = self:GetTargets(units)
+						local distance_to_best = 10000*guim
+						local best_eval, best_target, best_prep = 0, false, false
+						
+						for _, target in ipairs(targets or empty_table) do
+							local eval = self:EvalTarget(units, target)
+							local prep = target:HasPreparedAttack()
+							local dist = IsKindOf(target, "Unit") and unit:GetDist(target) or 0
+							if not best_target or (not best_prep and prep) then
+								best_target, best_eval, best_prep, distance_to_best = target, eval, prep, dist
+							elseif best_prep == prep then
+								if eval > best_eval or (eval == best_eval and dist < distance_to_best) then
+									best_target, best_eval, best_prep, distance_to_best = target, eval, prep, dist
+								end
+							end
+						end
+						
+						return best_target, best_eval
+					end,
+					GetTargets = function (self, units)
+						local attack_id = "CancelShot"
+						local atk_action = CombatActions[attack_id]
+						return CombatActionGetAttackableEnemies(atk_action, units and units[1])
+					end,
+					GetUIState = function (self, units, args)
+						if not g_Combat then
+							return "disabled", AttackDisableReasons.CombatOnly
+						end
+						return CombatActionGenericAttackGetUIState(self, units, args)
+					end,
+					Icon = "Mod/e6L4ECj/Perks/TrickShotRun.png",
+					IdDefault = "PistolPerk_TrickShotRundefault",
+					IsAimableAttack = false,
+					KeybindingSortId = "2371",
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "mobile_move_ap",
+							'Value', 9,
+							'Tag', "<mobile_move_ap>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "cooldown",
+							'Tag', "<cooldown>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "mobile_num_shots",
+							'Value', 1,
+							'Tag', "<mobile_num_shots>",
+						}),
+					},
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("ShootThenMove", self.id, ap, ...)
+					end,
+					SortKey = 2,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatMovingAttack")
+					end,
+					group = "WeaponAttacks",
+					id = "PistolPerk_TrickShotRun",
 				}),
 				}),
 			PlaceObj('ModItemFolder', {

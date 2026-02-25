@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "Фиксы иконок",
+	'last_changes', 'Фиксы звуков, фиксы перков, абилка "Побег с отвлечением"',
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 10,
-	'version', 5619,
+	'version', 5652,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -848,8 +848,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1771830408,
-	'code_hash', 5741879291702754701,
+	'saved', 1772044110,
+	'code_hash', 6774952442414923721,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -2248,6 +2248,11 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "SoundPreset",
+			'Id', "Colt1911_shot-room",
+			'ClassDisplayName', "Sound",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "SoundPreset",
 			'Id', "DesertEagle_shot",
 			'ClassDisplayName', "Sound",
 		}),
@@ -2323,7 +2328,7 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "SoundPreset",
-			'Id', "G36_shot_single-room_copy",
+			'Id', "G36c_shot_single-room",
 			'ClassDisplayName', "Sound",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -7179,6 +7184,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
 			'Id', "PistolPerk_Mozambique",
+			'ClassDisplayName', "Combat Actions",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "PistolPerk_TrickShotRun",
 			'ClassDisplayName', "Combat Actions",
 		}),
 		PlaceObj('ModResourcePreset', {

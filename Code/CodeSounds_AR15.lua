@@ -22,12 +22,12 @@ PlaceObj('ActionFXSound', {
 	Sound = "G3_shot",
 	Target = "Basic",
 	group = "Default",
-	id = "fxG3",
+	id = "fxAR10",
 })
 
 PlaceObj('ActionFXInherit_Actor', {
 	Actor = "AR10DMR",
 	Inherit = "AR10",
 	group = "Weapons VFX",
-	id = "fxG3",
+	id = "fxAR10DMR",
 })

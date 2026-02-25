@@ -97,6 +97,7 @@ DefineClass.P226 = {
 		"CancelShot",
 		"MobileShot",
 		"PistolPerk_Mozambique",
+		"PistolPerk_TrickShotRun",
 	},
 	ShootAP = 2000,
 	ReloadAP = 3000,

@@ -6,6 +6,9 @@ UnitProperties.properties[#UnitProperties.properties+1] = {
 
 
 local function add_weapon_attacks(actions, unit, weapon)
+	if IsKindOf(weapon, "LightMachineGun") and not unit:HasStatusEffect("StationedMachineGun") then
+		table.insert_unique(actions, "MGSetup")
+	end
 	if IsKindOf(weapon, "MachineGun") and not unit:HasStatusEffect("StationedMachineGun") then
 		table.insert_unique(actions, "MGSetup")
 	elseif IsKindOf(weapon, "HeavyWeapon") then

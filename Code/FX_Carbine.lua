@@ -4,7 +4,7 @@ PlaceObj('ActionFXSound', {
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "Carbine_shot",
-	Target = "Basic",
+	Target = "M2Carbine",
 	group = "Default",
 	id = "fxM2Carbine",
 })

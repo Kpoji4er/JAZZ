@@ -64,6 +64,7 @@ DefineClass.CZ75 = {
 		"CancelShot",
 		"MobileShot",
 		"PistolPerk_Mozambique",
+		"PistolPerk_TrickShotRun",
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
