@@ -532,14 +532,19 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 
             if not best_attack then
                 --print('best attack not found - default attack')
-            attacks, aim = AICalcAttacksAndAim(context,
+                attacks, aim = AICalcAttacksAndAimSmart(context,
                                                           unit.ActionPoints,
                                                           target)
             else
                 --print('best attack')
                 --attacks = 1;
-                attacks = DivRound(unit.ActionPoints, best_attack.ap or context.default_attack_cost)
+                local cost = best_attack.ap or context.default_attack_cost
+                attacks = cost and (unit.ActionPoints / cost) or 0
+                attacks = attacks and (attacks - attacks % 1) or 0 
                 aim = {best_attack.aim} or aim  
+                if not best_attack or attacks < 1 then
+                    attacks, aim = AICalcAttacksAndAim(context, unit.ActionPoints, target)
+                end
             end
             
             if context.default_attack.id == "Bombard" and AICheckIndoors(dest) then
@@ -555,7 +560,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
                 AIGetAttackTargetingOptions(unit, context, target)
 
             for i = 1, attacks do
-                args.aim = aim[i]
+                args.aim = aim[i] or 0
                 args.target_spot_group = nil
                 if body_parts and #body_parts > 0 then
                     local pick = table.weighted_rand(body_parts, "chance",
@@ -674,7 +679,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 
   --  end
     if  not unit:HasStatusEffect("Unconscious") and not unit:HasPreparedAttack() and not g_Overwatch[unit] and 
-        not unit:IsIncapacitated() and not unit:IsDead() and not dest == context.unit_stance_pos and (not ud:HasStatusEffect("Berserk") and not ud:HasStatusEffect("Panicked"))
+        not unit:IsIncapacitated() and not unit:IsDead() and dest ~= context.unit_stance_pos and (not unit:HasStatusEffect("Berserk") and not unit:HasStatusEffect("Panicked"))
         then    
           context.restarts = (context.restarts or 0) + 1
           if (unit.ActionPoints + remaining_free_ap) > (0) then 

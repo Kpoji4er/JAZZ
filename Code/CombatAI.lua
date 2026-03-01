@@ -223,39 +223,32 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 end
 
 function AICalcAttacksAndAimSmart(context, ap, target)
-	local unit = context.unit
-	--local cth_map = context.cth_by_aim_map[target]
+    local unit = context.unit
+    local best_attack = PickBestAttack(unit, target, context.basic_attacks, ap)
 
-	--print("AICALCATTACKS Smart Validations")
-	--print(not not unit)
-	--print(not not target)
-	--print(not not context.basic_attacks)
-	--print(not not cth_map)
-	--local best_attack = PickBestAttack(unit, target, context.basic_attacks, cth_map)
-	local best_attack = PickBestAttack(unit, target, context.basic_attacks, ap)
-	--print("BestAttack:")
-	--print(not not best_attack)
+    if not best_attack or type(best_attack.ap) ~= "number" then
+        return AICalcAttacksAndAim(context, ap, target)
+    end
 
+    local cost = best_attack.ap
+    if cost <= 0 then
+        return AICalcAttacksAndAim(context, ap, target)
+    end
 
-	if best_attack then
-		local reserve_ap = 0
-		if best_attack.ap + reserve_ap > ap then
-			reserve_ap = 0
-		end
+    local max_attacks = context.max_attacks or 1
+    local n_attacks = math.floor(ap / cost)
+    n_attacks = Min(n_attacks, max_attacks)
 
-		local final_ap = ap - reserve_ap
-		local n_attacks = math.floor(final_ap / best_attack.ap)
-		
-		--print("Attacs - CTH - AIM")
-		--print(n_attacks, best_attack.cth, best_attack.aim)
+    if n_attacks <= 0 then
+        return 0, {}
+    end
 
-		if ap >= best_attack.ap  then n_attacks = 1 else n_attacks = 0 end
+    local aims = {}
+    for i = 1, n_attacks do
+        aims[i] = best_attack.aim or 0
+    end
 
-		return n_attacks, { best_attack.aim }
-	end
-
-	--print("calcvanilla")
-	return AICalcAttacksAndAim(context, ap, target)
+    return n_attacks, aims
 end
 
 function AICreateContext(unit, context)
