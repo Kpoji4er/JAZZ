@@ -1325,7 +1325,7 @@ return {
 			Comment = "Sight radius (in tiles) for units aware of the target unit",
 			group = "Combat",
 			id = "UnawareSightRange",
-			value = 26,
+			value = 22,
 		}),
 		PlaceObj('ModItemConstDef', {
 			group = "EnvEffects",
@@ -1364,7 +1364,7 @@ return {
 			group = "Combat",
 			id = "SightModStealthStatDiff",
 			scale = "%",
-			value = 70,
+			value = 50,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "sight penalty (as % of base value) for seeing units in tall grass or brush",
@@ -60891,7 +60891,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Mozambique.png",
+					Icon = "Mod/e6L4ECj/Perks/MozambiquePerk2.png",
 					IdDefault = "PistolPerk_Mozambiquedefault",
 					MultiSelectBehavior = "first",
 					Parameters = {

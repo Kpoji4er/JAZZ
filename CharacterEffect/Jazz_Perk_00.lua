@@ -13,8 +13,8 @@ DefineClass.Jazz_Perk_00 = {
 			end,
 		}),
 	},
-	DisplayName = T(163764621255, "00:00"),
-	Description = T(841645965970, "При активации взрывчатка с таймером, кинутая Споуком, взорвётся в начале вражеского хода."),
+	DisplayName = T(163764621255, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "00:00"),
+	Description = T(841645965970, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "При активации взрывчатка с таймером, кинутая Споуком, взорвётся в начале вражеского хода."),
 	Icon = "UI/Icons/Perks/DesignerExplosives",
 	Tier = "Personal",
 }

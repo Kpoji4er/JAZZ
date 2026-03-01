@@ -7,7 +7,7 @@ DefineClass.Torsoshot = {
 	object_class = "StatusEffect",
 	msg_reactions = {},
 	unit_reactions = {},
-	DisplayName = T(147224231156, "Ранение в торс"),
+	DisplayName = T(147224231156, --[[ModItemCharacterEffectCompositeDef Torsoshot DisplayName]] "Ранение в торс"),
 	Description = "",
 	OnAdded = function (self, obj)
 		--print(obj.TempHitPoints)

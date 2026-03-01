@@ -26,9 +26,9 @@ DefineClass.suppressionMedium = {
 			end,
 		}),
 	},
-	DisplayName = T(279226942480, "Под огнем"),
-	Description = T(880250024564, "Шанс попасть во врага снижен\n+1 ОД свободного перемещения"),
-	AddEffectText = T(551437047571, "Под плотным огнем"),
+	DisplayName = T(279226942480, --[[ModItemCharacterEffectCompositeDef suppressionMedium DisplayName]] "Под огнем"),
+	Description = T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionMedium Description]] "Шанс попасть во врага снижен\n+1 ОД свободного перемещения"),
+	AddEffectText = T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionMedium AddEffectText]] "Под плотным огнем"),
 	OnAdded = function (self, obj)
 		if not obj:IsDead() then
 		                    if obj:IsMerc() then

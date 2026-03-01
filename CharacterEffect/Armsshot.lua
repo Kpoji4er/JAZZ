@@ -7,7 +7,7 @@ DefineClass.Armsshot = {
 	object_class = "StatusEffect",
 	msg_reactions = {},
 	unit_reactions = {},
-	DisplayName = T(564797563324, "Ранение в руки"),
+	DisplayName = T(564797563324, --[[ModItemCharacterEffectCompositeDef Armsshot DisplayName]] "Ранение в руки"),
 	Description = "",
 	OnAdded = function (self, obj)
 		if obj.TempHitPoints > 0 then return end
