@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', 'Фиксы звуков, фиксы перков, абилка "Побег с отвлечением"',
+	'last_changes', "Переделка трейтов:\n Автоматический огонь - убирает отдачу после 5го выстрела в очереди\n Тяжелое оружие - дает баф к количеству атак при овервотче с пулеметов. Баф на пулемете убран (по крайней мере временно)",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 10,
-	'version', 5653,
+	'version', 5661,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -839,7 +839,7 @@ return PlaceObj('ModDef', {
 			language = "Russian",
 		},
 		{
-			filename = "English",
+			filename = "Mod/e6L4ECj/English.csv",
 			language = "English",
 		},
 	},
@@ -848,8 +848,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1772316735,
-	'code_hash', -7098366367678601987,
+	'saved', 1772519347,
+	'code_hash', -8248828021740654899,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -7389,18 +7389,6 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "CharacterEffectCompositeDef",
 			'Id', "HeavyWeaponsTraining",
-			'ClassDisplayName', "Character effect",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "CharacterEffectCompositeDef",
-			'Id', "AutoWeapons",
-			'Prop', "Description",
-			'ClassDisplayName', "Character effect",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "CharacterEffectCompositeDef",
-			'Id', "HeavyWeaponsTraining",
-			'Prop', "Description",
 			'ClassDisplayName', "Character effect",
 		}),
 		PlaceObj('ModResourcePreset', {

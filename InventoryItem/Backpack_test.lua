@@ -5,7 +5,7 @@ DefineClass.Backpack_test = {
 
 
 	object_class = "Vest",
-	DisplayName = T(263441472933, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Backpack"),
+	DisplayName = T(263441472933, --[[ModItemInventoryItemCompositeDef Backpack_test DisplayName]] "Backpack"),
 	Slot = "Backpack",
 }
 

@@ -6,8 +6,8 @@ DefineClass.Jazz_Perk_Lynx = {
 
 	object_class = "Perk",
 	unit_reactions = {},
-	DisplayName = T(623665702916, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Рысий взгляд"),
-	Description = T(663250628462, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "Дальность видимости днем повышена, а штрафы за дальность - понижены"),
+	DisplayName = T(623665702916, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lynx DisplayName]] "Рысий взгляд"),
+	Description = T(663250628462, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lynx Description]] "Дальность видимости днем повышена, а штрафы за дальность - понижены"),
 	Icon = "Mod/e6L4ECj/Perks/Lynx.png",
 	Tier = "Personal",
 }

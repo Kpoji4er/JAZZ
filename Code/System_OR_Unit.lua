@@ -1200,7 +1200,7 @@ function Unit:GetNumMGInterruptAttacks(skip_check)
 
 	local PerkBonus = (HasPerk(self, "HeavyWeaponsTraining")) and 2 or 0
 	
-	return const.Combat.MGFreeInterruptAttacks + PerkBonus + ap / ap_cost
+	return PerkBonus + ap / ap_cost
 end
 
 function Unit:BeginTurn(new_turn)	

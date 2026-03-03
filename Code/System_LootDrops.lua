@@ -102,7 +102,7 @@ function Unit:DropLoot(container)
 				cur = Clamp(cur,0,max)
 				item.ArmorResourceMax = max
 				item.ArmorResource = cur
-				item.Condition = MulDivRound(cur, 100, max )
+				item.Condition = MulDivRound(cur, 100, max ) or item.Condition
 			else
 				-- Обычное условие для не-оружия
 				if item.Condition and item.drop_chance < 100 then

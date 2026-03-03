@@ -9,6 +9,17 @@ PlaceObj('ActionFXSound', {
 	id = "fxM2Carbine",
 })
 
+PlaceObj('ActionFXSound', {
+	Action = "WeaponFire",
+	Actor = "M2Carbine",
+	DetailLevel = 100,
+	Moment = "start",
+	Sound = "Carbine_shot",
+	Target = "FlashHider",
+	group = "Default",
+	id = "fxM2Carbine",
+})
+
 
 PlaceObj('ActionFXSound', {
 	Action = "UnjamWeapon",

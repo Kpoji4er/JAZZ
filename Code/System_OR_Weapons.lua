@@ -598,6 +598,10 @@ end
         shot_cth = self:GetShotChanceToHit(attack_results.chance_to_hit)
     end
 
+	if HasPerk(attacker, "AutoWeapons") and (i>5) then
+		 shot_cth = self:GetShotChanceToHit(attack_results.chance_to_hit)
+	end
+
 	if 	shot_cth and distAttackerToTarget > ((self.WeaponRange +1) * const.SlabSizeX) then
 		shot_cth = shot_cth * 0.5
 	end

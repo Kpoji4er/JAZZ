@@ -5,7 +5,7 @@ PlaceObj('ActionFXSound', {
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "ZastavaM92_shot",
-	Target = "Basic",
+	Target = "ZastavaM92",
 	group = "Default",
 	id = "1778638083734334415",
 })
