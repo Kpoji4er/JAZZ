@@ -1200,7 +1200,7 @@ function Unit:GetNumMGInterruptAttacks(skip_check)
 
 	local PerkBonus = (HasPerk(self, "HeavyWeaponsTraining")) and 2 or 0
 	
-	return PerkBonus + ap / ap_cost
+	return  PerkBonus + ap / ap_cost
 end
 
 function Unit:BeginTurn(new_turn)	
@@ -2432,6 +2432,8 @@ end
 ---
 function RollSkillCheck(unit, skill, modifier, add)
 	assert(IsKindOf(unit, "UnitPropertiesStats"))
+
+	if not unit then return false end
 	
 	modifier = modifier or 100
 	add = add or 0

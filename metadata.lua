@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "Переделка трейтов:\n Автоматический огонь - убирает отдачу после 5го выстрела в очереди\n Тяжелое оружие - дает баф к количеству атак при овервотче с пулеметов. Баф на пулемете убран (по крайней мере временно)",
+	'last_changes', "Сигнатурные перки:\n Паук - Удвоенная скорость лечения на глобальной карте\n Тоска - +50% увеличенная длина очереди и автоогня",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 10,
-	'version', 5661,
+	'version', 5680,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -775,6 +775,8 @@ return PlaceObj('ModDef', {
 		"CharacterEffect/HeavyWeaponsTraining.lua",
 		"CharacterEffect/Jazz_Perk_00.lua",
 		"CharacterEffect/Jazz_Perk_Lynx.lua",
+		"CharacterEffect/Jazz_Perk_Buzz.lua",
+		"CharacterEffect/Jazz_Perk_Spider.lua",
 		"Code/UnitAwareness.lua",
 		"Code/CrossHairUI.lua",
 		"Code/System_OR_Traps.lua",
@@ -848,8 +850,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1772519347,
-	'code_hash', -8248828021740654899,
+	'saved', 1772643547,
+	'code_hash', 6033183092536653857,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -7427,6 +7429,26 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "CharacterEffectCompositeDef",
 			'Id', "Jazz_Perk_Lynx",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "Jazz_Perk_Buzz",
+			'ClassDisplayName', "Combat Actions",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Buzz",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "Jazz_Perk_Spider",
+			'ClassDisplayName', "Combat Actions",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Spider",
 			'ClassDisplayName', "Character effect",
 		}),
 		PlaceObj('ModResourcePreset', {

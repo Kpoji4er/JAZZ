@@ -1493,7 +1493,7 @@ return {
 			group = "Combat",
 			id = "LieutenantHpMod",
 			scale = "%",
-			value = 200,
+			value = 150,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "noise modifier during rain",
@@ -15153,7 +15153,7 @@ return {
 					'RepairCost', 3,
 					'Reliability', 50,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/TT.png",
-					'DisplayName', T(916379475854, --[[ModItemInventoryItemCompositeDef TT33 DisplayName]] "Мозамбик"),
+					'DisplayName', T(916379475854, --[[ModItemInventoryItemCompositeDef TT33 DisplayName]] "<placeholder>"),
 					'DisplayNamePlural', T(377868313170, --[[ModItemInventoryItemCompositeDef TT33 DisplayNamePlural]] "Пистолеты ТТ"),
 					'Description', T(492983145408, --[[ModItemInventoryItemCompositeDef TT33 Description]] 'Пистолет "Тульский-Токарева" представляет собой очередную вариацию схемы Браунинга на избитую советскую тему "у нас есть куча патронов на складах, нужно оружие для них".'),
 					'AdditionalHint', T(998090805654, --[[ModItemInventoryItemCompositeDef TT33 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Пробивает броню\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Малый магазин\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Лучше, чем карате"),
@@ -20457,7 +20457,7 @@ return {
 					'AutoShots', 6,
 					'Handling', 6,
 					'BulletDropRange', 13,
-					'Grouping', 195,
+					'Grouping', 53,
 					'BaseJamChance', -20,
 					'WeaponResource', 5000,
 				}),
@@ -59160,7 +59160,10 @@ return {
 					Execute = function (self, units, args)
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
-						args.num_shots = weapon:GetAutofireShots(self)
+						local num_shots =  weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
 						args.multishot = true
 						local ap = self:GetAPCost(unit, args)
 						NetStartCombatAction(self.id, unit, ap, args)
@@ -59179,6 +59182,9 @@ return {
 						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
 						local penalty = self:ResolveValue("dmg_penalty")
 						local num_shots = weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
 						base = MulDivRound(base, Max(0, 100 + penalty), 100)
 						local damage = num_shots*base
 						return damage, base, damage - base
@@ -59198,6 +59204,9 @@ return {
 						
 						local damage, base, bonus = self:GetActionDamage(unit)
 						local num_shots = weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
 						local descr = T{description, num = num_shots, damage = base}
 						return CombatActionsAppendFreeAimDescription(self, unit, descr)
 					end,
@@ -59233,6 +59242,9 @@ return {
 						local args = table.copy(args)
 						args.weapon = self:GetAttackWeapons(unit, args)
 						args.num_shots = args.num_shots or args.weapon and args.weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								args.num_shots = MulDivRound(args.num_shots,150,100)
+							end
 						args.multishot = true
 						args.damage_bonus = self:ResolveValue("dmg_penalty")
 						args.cth_loss_per_shot = args.weapon:GetProperty("Recoil")
@@ -59250,7 +59262,10 @@ return {
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
 						local num_shots = weapon:GetAutofireShots(self)
-						if not weapon.ammo or weapon.ammo.Amount < num_shots then
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
+						if not weapon.ammo or weapon.ammo.Amount < 1 then
 							return "disabled", AttackDisableReasons.InsufficientAmmo
 						end
 						
@@ -59380,7 +59395,7 @@ return {
 						args.multishot = true
 						args.damage_bonus = self:ResolveValue("dmg_penalty")
 						args.cth_loss_per_shot = args.weapon:GetProperty("Recoil")
-						--args.shots_before_recoil = 1
+						args.shots_before_recoil = 1
 						local attack_args = unit:PrepareAttackArgs(self.id, args)
 						local results = attack_args.weapon:GetAttackResults(self, attack_args)
 						return results, attack_args
@@ -59449,7 +59464,10 @@ return {
 						local unit = units[1]
 						args.multishot = true
 						local weapon = self:GetAttackWeapons(unit, args)
-						args.num_shots = weapon:GetAutofireShots(self)
+						local num_shots =  weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
 						local ap = self:GetAPCost(unit, args)
 						NetStartCombatAction(self.id, unit, ap, args)
 					end,
@@ -59467,6 +59485,9 @@ return {
 						local base = unit:GetBaseDamage(weapon)
 						local penalty = self:ResolveValue("dmg_penalty")
 						local num_shots = weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
 						base = MulDivRound(base, Max(0, 100 + penalty), 100)
 						local damage = num_shots*base
 						return damage, base, damage - base
@@ -59491,6 +59512,9 @@ return {
 						local args = table.copy(args)
 						args.weapon = self:GetAttackWeapons(unit, args)
 						args.num_shots = args.num_shots or args.weapon and args.weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								args.num_shots = MulDivRound(args.num_shots,150,100)
+							end
 						args.multishot = true
 						args.damage_bonus = self:ResolveValue("dmg_penalty")
 						args.cth_loss_per_shot = args.weapon:GetProperty("Recoil")
@@ -59508,6 +59532,9 @@ return {
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
 						local num_shots = weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+										num_shots = MulDivRound(num_shots,150,100)
+							end
 						if not weapon.ammo or weapon.ammo.Amount < num_shots then
 							return "disabled", AttackDisableReasons.InsufficientAmmo
 						end
@@ -59607,8 +59634,7 @@ return {
 						args.multishot = true
 						args.damage_bonus = self:ResolveValue("dmg_penalty")
 						args.cth_loss_per_shot = args.weapon:GetProperty("Recoil")
-						
-						--if HasPerk(unit, "AutoWeapons") then args.shots_before_recoil = 3 else args.shots_before_recoil = 1 end
+						args.shots_before_recoil = 1
 						local attack_args = unit:PrepareAttackArgs(self.id, args)
 						local results = attack_args.weapon:GetAttackResults(self, attack_args)
 						return results, attack_args
@@ -60004,7 +60030,10 @@ return {
 					Execute = function (self, units, args)
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
-						args.num_shots = weapon:GetAutofireShots(self)
+						local num_shots =  weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
 						args.multishot = true
 						local ap = self:GetAPCost(unit, args)
 						NetStartCombatAction(self.id, unit, ap, args)
@@ -60022,6 +60051,9 @@ return {
 						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
 						local penalty = self:ResolveValue("dmg_penalty")
 						local num_shots = weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
 						base = MulDivRound(base, Max(0, 100 + penalty), 100)
 						local damage = num_shots*base
 						return damage, base, damage - base
@@ -60066,6 +60098,9 @@ return {
 						local args = table.copy(args)
 						args.weapon = args.weapon or self:GetAttackWeapons(unit, args)
 						args.num_shots = args.num_shots or args.weapon and args.weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								args.num_shots = MulDivRound(args.num_shots,150,100)
+							end
 						args.multishot = true
 						args.damage_bonus = self:ResolveValue("dmg_penalty")
 						args.cth_loss_per_shot = args.weapon:GetProperty("Recoil")*0.8
@@ -64301,12 +64336,7 @@ return {
 					ConfigurableKeybind = false,
 					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Lynx DisplayName]] "<placeholder>"),
 					GetActionDescription = function (self, units)
-						local unit = units[1]
-						local enabled = self:IsToggledOn(unit)
-						local description = GetSignatureActionDescription(self)
-						description = description .. T{237402056493, "<newline><newline><em><status></em>", status = enabled and T(685311187808, "Active") or T(183198352286, --[[Perk or skill that can be disabled]] "Inactive")}
-						
-						return description
+						return GetSignatureActionDescription(self)
 					end,
 					GetActionDisplayName = function (self, units)
 						return GetSignatureActionDisplayName(self)
@@ -64343,6 +64373,107 @@ return {
 					'DisplayName', T(623665702916, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lynx DisplayName]] "Рысий взгляд"),
 					'Description', T(663250628462, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lynx Description]] "Дальность видимости днем повышена, а штрафы за дальность - понижены"),
 					'Icon', "Mod/e6L4ECj/Perks/Lynx.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Buzz",
+			}, {
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "toggle",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Buzz DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Buzz2.png",
+					IdDefault = "Jazz_Perk_Buzzdefault",
+					IsAimableAttack = false,
+					IsToggledOn = function (self, unit)
+						return unit and unit:GetEffectValue("Jazz_Perk_00") or false
+					end,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						unit:SetEffectValue("Jazz_Perk_00", not unit:GetEffectValue("Jazz_Perk_00"))
+						ObjModified("combat_bar")
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Buzz",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Buzz",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(621389468053, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Buzz DisplayName]] "Свинцовый дождь"),
+					'Description', T(663250628462, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Buzz Description]] "Увеличивает длину очереди на 50%"),
+					'Icon', "Mod/e6L4ECj/Perks/Buzz.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Spider",
+			}, {
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "toggle",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Spider DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Spider2.png",
+					IdDefault = "Jazz_Perk_Spiderdefault",
+					IsToggledOn = function (self, unit)
+						return unit and unit:GetEffectValue("Jazz_Perk_00") or false
+					end,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						unit:SetEffectValue("Jazz_Perk_00", not unit:GetEffectValue("Jazz_Perk_00"))
+						ObjModified("combat_bar")
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Spider",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Spider",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(621389468053, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Spider DisplayName]] "Полевая хирургия"),
+					'Description', T(663250628462, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Spider Description]] "Удваивает значение навыка медицины при лечении на глобальной карте\n"),
+					'Icon', "Mod/e6L4ECj/Perks/Spider.png",
 					'Tier', "Personal",
 				}),
 				}),
@@ -95861,7 +95992,7 @@ return {
 			'name', "WeaponTypes",
 		}, {
 			PlaceObj('ModItemWeaponType', {
-				Description = T(468887219553, --[[ModItemWeaponType Default Pistol Description]] "Пистолеты компактны, удобны и очень точны на коротких дистанциях.\nПолучают бонус к точности по целям на близкой дистанции\n\nОсобая атака: выстрел в движении"),
+				Description = T(468887219553, --[[ModItemWeaponType Default Pistol Description]] "Пистолеты и револьверы позволяют с высокой точностью поражать различные части тела противника выстрелами в упор. Однако максимальная дальность и бронебойность этого оружия оставляет желать лучшего.\n\nОсобая атака: выстрел в движении"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Pistol.png",
 				Name = T(317905531555, --[[ModItemWeaponType Default Pistol Name]] "Пистолет"),
 				SortKey = 1,
@@ -95883,7 +96014,7 @@ return {
 				id = "Revolver",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(614148544769, --[[ModItemWeaponType Default CompactSMG Description]] "Компактный пистолет-пулемет, пригодный для стрельбы с одной руки.\n\nОсобая атака: маневренный бой (4 атаки)"),
+				Description = T(614148544769, --[[ModItemWeaponType Default CompactSMG Description]] "Пистолеты-пулеметы обладают высокой скорострельностью и очень эффективны на дистанциях стрельбы в упор. При этом они пригодны максимум для средних дистанций боя, а их бронебойность оставляет желать лучшего.\n\nОсобая атака: маневренный бой"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/CompactSMG.png",
 				Name = T(731752089698, --[[ModItemWeaponType Default CompactSMG Name]] "Пистолет-пулемет"),
 				SortKey = 6,
@@ -95891,7 +96022,7 @@ return {
 				id = "CompactSMG",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(614148544769, --[[ModItemWeaponType Default SMG Description]] "Пистолет-пулеметы универсальны и одинаково хороши на коротких дистациях как для нападения так, и для обороны. \n\nОсобая атака: маневренный бой (3 атаки)"),
+				Description = T(614148544769, --[[ModItemWeaponType Default SMG Description]] "Пистолеты-пулеметы обладают высокой скорострельностью и очень эффективны на дистанциях стрельбы в упор. При этом они пригодны максимум для средних дистанций боя, а их бронебойность оставляет желать лучшего.\n\nОсобая атака: маневренный бой"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/SMG.png",
 				Name = T(731752089698, --[[ModItemWeaponType Default SMG Name]] "Пистолет-пулемет"),
 				SortKey = 6,
@@ -95899,7 +96030,7 @@ return {
 				id = "SMG",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(277712105498, --[[ModItemWeaponType Default AssaultRifle Description]] "Штурмовые винтовки наиболее полезны в перестрелке на средней дистанции.\n\nОсобая такая: Автоматический огонь"),
+				Description = T(277712105498, --[[ModItemWeaponType Default AssaultRifle Description]] "Штурмовые винтовки - это универсальное оружие без каких-либо выраженных преимуществ. Они обладают неплохим останавливающим действием, дальностью и бронебойностью, а также поддерживают большое количество разнообразных модулей."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/AssaultRifle.png",
 				Name = T(987446796163, --[[ModItemWeaponType Default AssaultRifle Name]] "Штурмовая винтовка"),
 				SortKey = 5,
@@ -95907,7 +96038,7 @@ return {
 				id = "AssaultRifle",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(277712105498, --[[ModItemWeaponType Default Carbine Description]] "Карабины созданы для подвижного и маневренного боя\n\nОсобая атака: маневренный бой (1 атака)"),
+				Description = T(277712105498, --[[ModItemWeaponType Default Carbine Description]] "Штурмовые винтовки - это универсальное оружие без каких-либо выраженных преимуществ. Они обладают неплохим останавливающим действием, дальностью и бронебойностью, а также поддерживают большое количество разнообразных модулей."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Carbine.png",
 				Name = T(987446796163, --[[ModItemWeaponType Default Carbine Name]] "Штурмовая винтовка"),
 				SortKey = 5,
@@ -95915,7 +96046,7 @@ return {
 				id = "Carbine",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(277712105498, --[[ModItemWeaponType Default BattleRifle Description]] "Пехотные боевые винтовки хорошо себя показывают в позиционных перестрелках со средней и дальней дистанции. \nИмеют бонус к точности при стрельбе с упора"),
+				Description = T(277712105498, --[[ModItemWeaponType Default BattleRifle Description]] "Штурмовые винтовки - это универсальное оружие без каких-либо выраженных преимуществ. Они обладают неплохим останавливающим действием, дальностью и бронебойностью, а также поддерживают большое количество разнообразных модулей."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/BattleRifle.png",
 				Name = T(987446796163, --[[ModItemWeaponType Default BattleRifle Name]] "Штурмовая винтовка"),
 				SortKey = 5,
@@ -95923,7 +96054,7 @@ return {
 				id = "BattleRifle",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(675593980719, --[[ModItemWeaponType Default Shotgun Description]] "Боевой дробовик - это оружие абсолютной разрушительной силы. Имеют увеличенное подавление."),
+				Description = T(675593980719, --[[ModItemWeaponType Default Shotgun Description]] "Дробовики сокрушительны на ближних дистанциях, но неспособны пробить большинство бронежилетов. Зона поражения их выстрелов имеет форму конуса, расширяющегося в направлении атаки, но теряющего в убойной силе по мере увеличения дистанции.\n\nПолучив попадание из дробовика, цель утрачивает преимущества, даваемые укрытием, и приобретает статус «Вне укрытия».\n\nАтаки с дробовиком могут вызывать дополнительные эффекты в зависимости от типа боеприпасов."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Shotguns.png",
 				Name = T(861547101159, --[[ModItemWeaponType Default Shotgun Name]] "Дробовик"),
 				SortKey = 2,
@@ -95931,7 +96062,7 @@ return {
 				id = "Shotgun",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(420551480759, --[[ModItemWeaponType Default MachineGun Description]] "Единый пулемет - лучшее оружие для обороны. Выдающаяся огневая мощь и высокая плотность огня на средних и дальних дистанциях. \n\nПереведя пулемет в боевое положение, вы сможете эффективно прикрывать определенный участок местности. "),
+				Description = T(420551480759, --[[ModItemWeaponType Default MachineGun Description]] "Пулеметы обладают огромной скорострельностью, но точность их отдельных выстрелов оставляет желать лучшего.\n\nПереведя пулемет в боевое положение, вы сможете эффективно прикрывать определенный участок местности. При стрельбе из установленных в боевое положение или стационарных пулеметов имеется ограниченное количество внеочередных атак-прерываний по перемещающимся в секторе обстрела противникам. Число атак-прерываний зависит от числа оставшихся ОД."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/MachineGun.png",
 				Name = T(823987842090, --[[ModItemWeaponType Default MachineGun Name]] "Пулемет"),
 				SortKey = 6,
@@ -95939,7 +96070,7 @@ return {
 				id = "MachineGun",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(420551480759, --[[ModItemWeaponType Default LightMachineGun Description]] "Легкий пулемет - оружие с высокой плотностью огня, созданное для замены обычного автомата.\nВ отличие от Единого пулемета, легкий пулемет гораздо легче привести в боевое положение.\nОтдача при стрельбе короткими очередями сильно снижена"),
+				Description = T(420551480759, --[[ModItemWeaponType Default LightMachineGun Description]] "Пулеметы обладают огромной скорострельностью, но точность их отдельных выстрелов оставляет желать лучшего.\n\nПереведя пулемет в боевое положение, вы сможете эффективно прикрывать определенный участок местности. При стрельбе из установленных в боевое положение или стационарных пулеметов имеется ограниченное количество внеочередных атак-прерываний по перемещающимся в секторе обстрела противникам. Число атак-прерываний зависит от числа оставшихся ОД."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/LightMachineGun.png",
 				Name = T(823987842090, --[[ModItemWeaponType Default LightMachineGun Name]] "Пулемет"),
 				SortKey = 6,
@@ -95947,7 +96078,7 @@ return {
 				id = "LightMachineGun",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(521528587114, --[[ModItemWeaponType Default Sniper Description]] "Снайперские винтовки - оружие самых метких стрелков. \nИмеют бонус к точности при стрельбе с упора, если это первое действие на этом ходу"),
+				Description = T(521528587114, --[[ModItemWeaponType Default Sniper Description]] "Винтовки обладают хорошей бронебойностью и позволяют точно поражать определенные части тела. Они достаточно дальнобойны, но их скорострельность оставляет желать лучшего.\n\nОсобая атака: сосредоточение огня"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Sniper.png",
 				Name = T(117519310837, --[[ModItemWeaponType Default Sniper Name]] "Винтовки"),
 				SortKey = 6,
@@ -100958,7 +101089,7 @@ return {
 		}, {
 			PlaceObj('ModItemRegion', {
 				DisplayName = "Остров Эрни",
-				Heat = 1175,
+				Heat = 1178,
 				Sectors = {
 					"M1",
 					"M2",

@@ -486,3 +486,22 @@ function SectorOperation_ItemsCalcRes(sector_id, operation_id)
 	end
 	return parts
 end
+
+function GetHealingBonus(sector, operation_id)
+	local bonus = 0
+	local doctors = GetOperationProfessionals(sector.Id, operation_id, "Doctor")
+	if #doctors>0 then
+		bonus = 100
+		local forgiving_mode = IsGameRuleActive("ForgivingMode")
+		local min_stat_boost = GameRuleDefs.ForgivingMode:ResolveValue("MinStatBoost") or 0
+		for _, unit in ipairs(doctors) do
+			local stat = unit.Medical
+			if HasPerk(unit, "Jazz_Perk_Spider") then stat = stat * 2 end
+			if forgiving_mode and stat < min_stat_boost then
+				stat = stat + (min_stat_boost-stat)/2
+			end
+			bonus = bonus + stat * 2
+		end
+	end
+	return bonus
+end
