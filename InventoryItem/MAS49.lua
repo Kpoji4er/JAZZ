@@ -35,8 +35,7 @@ DefineClass.MAS49 = {
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {
 		"SingleShot",
-		"CancelShot",
-		"MobileShot",
+		"JAZZ_Salvo",
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,

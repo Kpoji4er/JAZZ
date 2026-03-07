@@ -85,7 +85,7 @@ DefineClass.MP5A4 = {
 		"AutoFire",
 		"SingleShot",
 		"RunAndGun",
-		"CancelShot",
+		"JAZZ_Zipper",
 	},
 	ShootAP = 4000,
 	ReloadAP = 4000,

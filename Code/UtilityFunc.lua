@@ -32,7 +32,7 @@ function ___RegenerateLegionLoot()
                 unitdata:CreateStartingEquipment(unitdata.randomization_seed)
                 unitdata.innerInfoRevealed = false
                 --unitdata:EquipStartingGear(items)
-                print("regenerated")
+                --print("regenerated")
                 end
                 
     
@@ -44,7 +44,7 @@ function ___RegenerateLegionLoot()
 end
 
 function _RegenerateLegionLoot()
-    print("regenerate loot")
+   -- print("regenerate loot")
     for _, squad in ipairs(gv_Squads) do
         local units = squad.units
 

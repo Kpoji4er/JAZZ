@@ -53,7 +53,7 @@ DefineClass.M45 = {
 		"BurstFire",
 		"AutoFire",
 		"RunAndGun",
-		"CancelShot",
+		"JAZZ_Zipper",
 	},
 	ShootAP = 4000,
 	ReloadAP = 4000,

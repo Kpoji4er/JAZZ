@@ -70,8 +70,7 @@ DefineClass.Winchester1894 = {
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {
 		"SingleShot",
-		"CancelShot",
-		"MobileShot",
+		"RunAndGun_Carbine",
 	},
 	ShootAP = 6000,
 	ReloadAP = 8000,

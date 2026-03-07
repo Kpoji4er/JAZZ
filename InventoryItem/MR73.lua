@@ -56,8 +56,8 @@ DefineClass.MR73 = {
 	AvailableAttacks = {
 		"SingleShot",
 		"DualShot",
-		"CancelShot",
-		"MobileShot",
+		"JAZZ_Fanning",
+		"JAZZ_Bullseye",
 	},
 	ShootAP = 5000,
 	ReloadAP = 5000,

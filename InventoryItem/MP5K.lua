@@ -1,19 +1,20 @@
 UndefineClass('MP5K')
 DefineClass.MP5K = {
-	__parents = { "CompactSubmachineGun" },
+	__parents = { "SubmachineGun" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 2-3",
-	object_class = "CompactSubmachineGun",
+	object_class = "SubmachineGun",
 	ScrapParts = 8,
 	RepairCost = 12,
 	Reliability = 85,
-	Icon = "Mod/e6L4ECj/WeaponIcons/MP5K.png",
+	Icon = "Mod/e6L4ECj/WeaponIcons/MP5K2.png",
 	DisplayName = T(294278763005, --[[ModItemInventoryItemCompositeDef MP5K DisplayName]] "MP5K"),
 	DisplayNamePlural = T(568806073246, --[[ModItemInventoryItemCompositeDef MP5K DisplayNamePlural]] "MP5K"),
 	Description = T(544608570700, --[[ModItemInventoryItemCompositeDef MP5K Description]] "Максимально укороченная версия MP5, созданная для боя на ближних дистанциях и самообороны. Для него даже есть специальный чехол-чемоданчик со спусковым крючком в ручке - на случай секретных операций."),
-	AdditionalHint = T(713555595193, --[[ModItemInventoryItemCompositeDef MP5K AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноручный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Без приклада\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> MP5-Короткий"),
+	AdditionalHint = T(713555595193, --[[ModItemInventoryItemCompositeDef MP5K AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Больше не одноручный (по просьбе Ливси)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Без приклада\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> MP5-Короткий"),
+	LargeItem = 1,
 	UnitStat = "Marksmanship",
 	Cost = 4200,
 	CanAppearInShop = true,
@@ -27,6 +28,7 @@ DefineClass.MP5K = {
 	WeaponRange = 22,
 	OverwatchAngle = 4680,
 	Noise = 30,
+	HandSlot = "TwoHanded",
 	Entity = "Weapon_MP5",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
@@ -53,7 +55,6 @@ DefineClass.MP5K = {
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
-			'Modifiable', false,
 			'AvailableComponents', {
 				"StockNormal",
 				"StockHeavy",
@@ -108,8 +109,7 @@ DefineClass.MP5K = {
 		"AutoFire",
 		"SingleShot",
 		"RunAndGun",
-		"CancelShot",
-		"DualShot",
+		"JAZZ_Zipper",
 	},
 	ShootAP = 4000,
 	ReloadAP = 4000,

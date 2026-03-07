@@ -582,6 +582,9 @@ function Unit:IsArmorPiercedBy(weapon, aim, target_spot_group, action) -- Can Cr
 	if action and action.id == "KalynaPerk" then
 		return true, "ignored"
 	end
+	if action and action.id == "JAZZ_Bullseye" then
+		return true, "ignored"
+	end
 	--if action and action.ActionType == "Melee Attack" then
 	--	return true, "ignored"
 	--end

@@ -15128,10 +15128,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15196,10 +15195,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15282,10 +15280,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15346,10 +15343,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15432,10 +15428,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15503,10 +15498,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15600,10 +15594,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 3000,
@@ -15682,10 +15675,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 3000,
@@ -15758,10 +15750,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15822,10 +15813,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 4000,
@@ -15886,10 +15876,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -15961,10 +15950,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 2000,
 					'ReloadAP', 3000,
@@ -16045,10 +16033,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -16130,10 +16117,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -16218,10 +16204,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -16294,10 +16279,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -16391,10 +16375,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 3000,
@@ -16484,10 +16467,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 4000,
@@ -16578,10 +16560,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 3000,
@@ -16667,10 +16648,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -16717,10 +16697,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 4000,
@@ -16808,10 +16787,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 2000,
 					'ReloadAP', 3000,
@@ -16900,10 +16878,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 3000,
@@ -17009,10 +16986,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 2000,
 					'ReloadAP', 3000,
@@ -17085,10 +17061,9 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
 						"MobileShot",
-						"PistolPerk_Mozambique",
-						"PistolPerk_TrickShotRun",
+						"JAZZ_Mozambique",
+						"JAZZ_DoubleTap",
 					},
 					'ShootAP', 2000,
 					'ReloadAP', 3000,
@@ -17172,8 +17147,8 @@ return {
 						"SingleShot",
 						"BurstFire",
 						"DualShot",
-						"CancelShot",
-						"MobileShot",
+						"JAZZ_SmgStorm",
+						"JAZZ_RunAndSMGStorm",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -17248,8 +17223,8 @@ return {
 						"SingleShot",
 						"BurstFire",
 						"DualShot",
-						"CancelShot",
-						"MobileShot",
+						"JAZZ_SmgStorm",
+						"JAZZ_RunAndSMGStorm",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 4000,
@@ -17346,8 +17321,8 @@ return {
 						"BurstFire",
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
-						"MobileShot",
+						"JAZZ_SmgStorm",
+						"JAZZ_RunAndSMGStorm",
 					},
 					'ShootAP', 2000,
 					'ReloadAP', 3000,
@@ -17360,6 +17335,254 @@ return {
 					'Grouping', 43,
 					'WeaponResource', 1500,
 					'CanAppearUsed', false,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - SMG-1H",
+					'Id', "Scorpion",
+					'comment', "Tier 1-3",
+					'object_class', "CompactSubmachineGun",
+					'ScrapParts', 3,
+					'RepairCost', 3,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/Scorpion.png",
+					'DisplayName', T(389917013778, --[[ModItemInventoryItemCompositeDef Scorpion DisplayName]] "Scorpion"),
+					'DisplayNamePlural', T(505643276959, --[[ModItemInventoryItemCompositeDef Scorpion DisplayNamePlural]] "Scorpion"),
+					'Description', T(276327014875, --[[ModItemInventoryItemCompositeDef Scorpion Description]] "Маленький и удаленький чехословацкий автомат под советский пистолетный 9мм патрон. Оказался крайне удачным в использовании в контртеррористических операциях."),
+					'AdditionalHint', T(842942928399, --[[ModItemInventoryItemCompositeDef Scorpion AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноручный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Складной приклад \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Маленький \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Удаленький"),
+					'UnitStat', "Marksmanship",
+					'CanAppearInShop', true,
+					'RestockWeight', 50,
+					'CategoryPair', "SubmachineGuns",
+					'Caliber', "JAZZ_Caliber_9x18",
+					'Damage', 17,
+					'ObjDamageMod', 15,
+					'AimAccuracy', 4,
+					'CritChanceScaled', 5,
+					'MagazineSize', 20,
+					'WeaponRange', 18,
+					'OverwatchAngle', 4680,
+					'Noise', 22,
+					'Entity', "Scorpion",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"MagNormal",
+							},
+							'DefaultComponent', "MagNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Stock",
+							'AvailableComponents', {
+								"StockLightFolded",
+								"StockLightUnFolded",
+							},
+							'DefaultComponent', "StockLightFolded",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"BurstFire",
+						"AutoFire",
+						"SingleShot",
+						"DualShot",
+						"JAZZ_SmgStorm",
+						"JAZZ_RunAndSMGStorm",
+					},
+					'ShootAP', 3000,
+					'ReloadAP', 4000,
+					'MaxAimActions', 2,
+					'Recoil', 4,
+					'BurstShots', 4,
+					'AutoShots', 8,
+					'Handling', 10,
+					'BulletDropRange', 6,
+					'Grouping', 39,
+					'WeaponResource', 2000,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - SMG-1H",
+					'Id', "MicroUZI",
+					'comment', "Tier 2-1",
+					'object_class', "CompactSubmachineGun",
+					'ScrapParts', 6,
+					'RepairCost', 5,
+					'Reliability', 50,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/MicroUZI.png",
+					'DisplayName', T(551535604372, --[[ModItemInventoryItemCompositeDef MicroUZI DisplayName]] "Мини Узи"),
+					'DisplayNamePlural', T(492773756154, --[[ModItemInventoryItemCompositeDef MicroUZI DisplayNamePlural]] "Мини Узи"),
+					'Description', T(111329132858, --[[ModItemInventoryItemCompositeDef MicroUZI Description]] 'Максимально компактный и скорострельный израильский пистолет-пулемет. На тот случай, если вы должны кому-то денег и "гости" приехали на лифте. Не сметь работать в шабат!'),
+					'AdditionalHint', T(305727013459, --[[ModItemInventoryItemCompositeDef MicroUZI AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноручный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Складной приклад\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> УЗИшка"),
+					'UnitStat', "Marksmanship",
+					'Cost', 2200,
+					'CanAppearInShop', true,
+					'MaxStock', 5,
+					'RestockWeight', 150,
+					'CategoryPair', "SubmachineGuns",
+					'Caliber', "JAZZ_Caliber_9x19",
+					'Damage', 20,
+					'ObjDamageMod', 20,
+					'AimAccuracy', 6,
+					'MagazineSize', 20,
+					'WeaponRange', 19,
+					'OverwatchAngle', 4920,
+					'Noise', 28,
+					'Entity', "Weapon_Uzi",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Barrel",
+							'AvailableComponents', {
+								"BarrelNormal",
+								"BarrelNormalImproved",
+							},
+							'DefaultComponent', "BarrelNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'AvailableComponents', {
+								"MagNormal",
+								"MagLarge_20_30",
+							},
+							'DefaultComponent', "MagNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Side",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"Flashlight",
+								"LaserDot",
+								"FlashlightDot",
+								"UVDot",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Scope",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"JAZZ_Reflex_Pistol",
+								"JAZZ_Reflex_Closed",
+								"JAZZ_Reflex_Eotech",
+								"JAZZ_Reflex_M68",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"Compensator",
+								"PistolSuppressor",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"BurstFire",
+						"AutoFire",
+						"SingleShot",
+						"DualShot",
+						"JAZZ_SmgStorm",
+						"JAZZ_RunAndSMGStorm",
+					},
+					'ShootAP', 4000,
+					'ReloadAP', 5000,
+					'MaxAimActions', 2,
+					'Recoil', 7,
+					'BurstShots', 6,
+					'AutoShots', 12,
+					'Handling', 4,
+					'BulletDropRange', 7,
+					'Grouping', 39,
+					'BaseJamChance', -10,
+					'WeaponResource', 2500,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - SMG-1H",
+					'Id', "MAC10",
+					'comment', "Tier 2-1",
+					'object_class', "CompactSubmachineGun",
+					'ScrapParts', 6,
+					'RepairCost', 4,
+					'Reliability', 70,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/MAC10.png",
+					'DisplayName', T(612255777676, --[[ModItemInventoryItemCompositeDef MAC10 DisplayName]] "MAC-10"),
+					'DisplayNamePlural', T(799100522418, --[[ModItemInventoryItemCompositeDef MAC10 DisplayNamePlural]] "MAC-10"),
+					'Description', T(500943915358, --[[ModItemInventoryItemCompositeDef MAC10 Description]] "Компактный скорострельный американский автомат, сделанный под влиянием УЗИ. Его качества делают его максимально удобным для действий в замкнутых пространствах, заполненных людьми. Например, при захвате заложников в самолете. В смысле, освобождении захваченного самолета."),
+					'AdditionalHint', T(104635909892, --[[ModItemInventoryItemCompositeDef MAC10 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноручный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Складной приклад\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Как УЗИшка, только не УЗИ"),
+					'UnitStat', "Marksmanship",
+					'Cost', 3000,
+					'CanAppearInShop', true,
+					'MaxStock', 5,
+					'RestockWeight', 150,
+					'CategoryPair', "SubmachineGuns",
+					'Caliber', "JAZZ_Caliber_45ACP",
+					'Damage', 27,
+					'ObjDamageMod', 25,
+					'AimAccuracy', 4,
+					'CritChanceScaled', 30,
+					'MagazineSize', 30,
+					'WeaponRange', 16,
+					'OverwatchAngle', 4680,
+					'Noise', 30,
+					'Entity', "MAC10",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"MagNormal",
+							},
+							'DefaultComponent', "MagNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"PistolSuppressor",
+								"Compensator",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Stock",
+							'AvailableComponents', {
+								"StockLightUnFolded",
+								"StockLightFolded",
+							},
+							'DefaultComponent', "StockLightFolded",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"BurstFire",
+						"AutoFire",
+						"SingleShot",
+						"DualShot",
+						"JAZZ_SmgStorm",
+						"JAZZ_RunAndSMGStorm",
+					},
+					'ShootAP', 4000,
+					'ReloadAP', 5000,
+					'MaxAimActions', 2,
+					'Recoil', 9,
+					'BurstShots', 5,
+					'Handling', 6,
+					'BulletDropRange', 5,
+					'Grouping', 44,
+					'BaseJamChance', -20,
+					'WeaponResource', 2700,
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -17424,8 +17647,8 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
-						"MobileShot",
+						"JAZZ_Fanning",
+						"JAZZ_Bullseye",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 5000,
@@ -17484,8 +17707,8 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
-						"MobileShot",
+						"JAZZ_Fanning",
+						"JAZZ_Bullseye",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 5000,
@@ -17544,8 +17767,8 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
-						"MobileShot",
+						"JAZZ_Fanning",
+						"JAZZ_Bullseye",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 5000,
@@ -17597,8 +17820,8 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
-						"MobileShot",
+						"JAZZ_Fanning",
+						"JAZZ_Bullseye",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 5000,
@@ -17669,8 +17892,8 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
-						"MobileShot",
+						"JAZZ_Fanning",
+						"JAZZ_Bullseye",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 5000,
@@ -17729,8 +17952,8 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
-						"MobileShot",
+						"JAZZ_Fanning",
+						"JAZZ_Bullseye",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 4000,
@@ -17796,8 +18019,8 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
-						"MobileShot",
+						"JAZZ_Fanning",
+						"JAZZ_Bullseye",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 5000,
@@ -17867,8 +18090,8 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
-						"MobileShot",
+						"JAZZ_Fanning",
+						"JAZZ_Bullseye",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 5000,
@@ -17943,8 +18166,8 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
-						"MobileShot",
+						"JAZZ_Fanning",
+						"JAZZ_Bullseye",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 5000,
@@ -18011,8 +18234,8 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
-						"MobileShot",
+						"JAZZ_Fanning",
+						"JAZZ_Bullseye",
 					},
 					'ShootAP', 3000,
 					'ReloadAP', 5000,
@@ -18064,8 +18287,8 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
-						"MobileShot",
+						"JAZZ_Fanning",
+						"JAZZ_Bullseye",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 5000,
@@ -18127,8 +18350,8 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"DualShot",
-						"CancelShot",
-						"MobileShot",
+						"JAZZ_Fanning",
+						"JAZZ_Bullseye",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 5000,
@@ -18196,7 +18419,7 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 5000,
@@ -18253,7 +18476,7 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
@@ -18313,7 +18536,7 @@ return {
 						"AutoFire",
 						"SingleShot",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
@@ -18372,7 +18595,7 @@ return {
 						"AutoFire",
 						"SingleShot",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
@@ -18433,7 +18656,7 @@ return {
 						"AutoFire",
 						"SingleShot",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 5000,
@@ -18495,7 +18718,7 @@ return {
 						"AutoFire",
 						"SingleShot",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 6000,
@@ -18555,7 +18778,7 @@ return {
 						"AutoFire",
 						"SingleShot",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 6000,
@@ -18620,7 +18843,7 @@ return {
 						"AutoFire",
 						"SingleShot",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
@@ -18686,7 +18909,7 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 4000,
@@ -18749,9 +18972,8 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"DualShot",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 5000,
@@ -18839,7 +19061,7 @@ return {
 						"AutoFire",
 						"SingleShot",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 4000,
@@ -18912,7 +19134,7 @@ return {
 						"AutoFire",
 						"SingleShot",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 4000,
@@ -18924,6 +19146,129 @@ return {
 					'Grouping', 34,
 					'BaseJamChance', -30,
 					'WeaponResource', 4500,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - SMG-1H",
+					'Id', "MP5K",
+					'comment', "Tier 2-3",
+					'object_class', "SubmachineGun",
+					'ScrapParts', 8,
+					'RepairCost', 12,
+					'Reliability', 85,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/MP5K2.png",
+					'DisplayName', T(294278763005, --[[ModItemInventoryItemCompositeDef MP5K DisplayName]] "MP5K"),
+					'DisplayNamePlural', T(568806073246, --[[ModItemInventoryItemCompositeDef MP5K DisplayNamePlural]] "MP5K"),
+					'Description', T(544608570700, --[[ModItemInventoryItemCompositeDef MP5K Description]] "Максимально укороченная версия MP5, созданная для боя на ближних дистанциях и самообороны. Для него даже есть специальный чехол-чемоданчик со спусковым крючком в ручке - на случай секретных операций."),
+					'AdditionalHint', T(713555595193, --[[ModItemInventoryItemCompositeDef MP5K AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Больше не одноручный (по просьбе Ливси)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Без приклада\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> MP5-Короткий"),
+					'LargeItem', 1,
+					'UnitStat', "Marksmanship",
+					'Cost', 4200,
+					'CanAppearInShop', true,
+					'RestockWeight', 40,
+					'CategoryPair', "SubmachineGuns",
+					'Caliber', "JAZZ_Caliber_9x19",
+					'Damage', 20,
+					'ObjDamageMod', 20,
+					'AimAccuracy', 7,
+					'MagazineSize', 30,
+					'WeaponRange', 22,
+					'OverwatchAngle', 4680,
+					'Noise', 30,
+					'HandSlot', "TwoHanded",
+					'Entity', "Weapon_MP5",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Under",
+							'AvailableComponents', {
+								"VerticalGrip",
+							},
+							'DefaultComponent', "VerticalGrip",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Barrel",
+							'AvailableComponents', {
+								"BarrelShort",
+							},
+							'DefaultComponent', "BarrelShort",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'AvailableComponents', {
+								"MagNormal",
+								"MagSmall30_15",
+							},
+							'DefaultComponent', "MagSmall30_15",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Stock",
+							'AvailableComponents', {
+								"StockNormal",
+								"StockHeavy",
+								"StockNo",
+							},
+							'DefaultComponent', "StockNo",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Side",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"Flashlight",
+								"LaserDot",
+								"FlashlightDot",
+								"UVDot",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Scope",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"JAZZ_Reflex_Aimpoint5000",
+								"JAZZ_Reflex_Closed",
+								"JAZZ_Reflex_Open",
+								"JAZZ_Reflex_M68",
+								"JAZZ_Reflex_Eotech",
+								"JAZZ_CombatScope_2x",
+								"JAZZ_CombatScope_FeroZ24",
+								"JAZZ_Scope_DA15_6x",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"Compensator",
+								"PistolSuppressor",
+								"ImprovisedSuppressor",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Freeswap",
+							'AvailableComponents', {
+								"Freeswap",
+							},
+							'DefaultComponent', "Freeswap",
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"BurstFire",
+						"AutoFire",
+						"SingleShot",
+						"RunAndGun",
+						"JAZZ_Zipper",
+					},
+					'ShootAP', 4000,
+					'ReloadAP', 4000,
+					'MaxAimActions', 2,
+					'Recoil', 7,
+					'BurstShots', 4,
+					'AutoShots', 9,
+					'Handling', 7,
+					'BulletDropRange', 7,
+					'Grouping', 36,
+					'BaseJamChance', -30,
+					'WeaponResource', 4500,
+					'CanAppearUsed', false,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - SMG",
@@ -18970,7 +19315,7 @@ return {
 						"AutoFire",
 						"SingleShot",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 6000,
@@ -19042,7 +19387,7 @@ return {
 						"AutoFire",
 						"SingleShot",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 7000,
@@ -19123,7 +19468,7 @@ return {
 						"AutoFire",
 						"SingleShot",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 4000,
@@ -19136,6 +19481,80 @@ return {
 					'BaseJamChance', -30,
 					'WeaponResource', 5000,
 					'CanAppearUsed', false,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - SMG-1H",
+					'Id', "TMP",
+					'comment', "Tier 2-4",
+					'object_class', "SubmachineGun",
+					'ScrapParts', 8,
+					'RepairCost', 14,
+					'Reliability', 85,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/TMP2.png",
+					'ItemType', "SMG",
+					'DisplayName', T(408152361455, --[[ModItemInventoryItemCompositeDef TMP DisplayName]] "TMP"),
+					'DisplayNamePlural', T(432962097320, --[[ModItemInventoryItemCompositeDef TMP DisplayNamePlural]] "TMP"),
+					'Description', T(484204389251, --[[ModItemInventoryItemCompositeDef TMP Description]] 'Современный "маленький да удаленький" ПП австрийского производства. Изготовлен из высокопрочных полимеров, и является очень удобным оружием, хорошо контролируемым при автоматической стрельбе.'),
+					'AdditionalHint', T(887308010165, --[[ModItemInventoryItemCompositeDef TMP AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Больше не одноручный (по просьбе Ливси)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Без приклада\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный"),
+					'LargeItem', 1,
+					'UnitStat', "Marksmanship",
+					'Cost', 28000,
+					'CanAppearInShop', true,
+					'Tier', 2,
+					'RestockWeight', 40,
+					'CategoryPair', "SubmachineGuns",
+					'Caliber', "JAZZ_Caliber_9x19",
+					'Damage', 20,
+					'ObjDamageMod', 20,
+					'AimAccuracy', 8,
+					'MagazineSize', 30,
+					'OverwatchAngle', 4920,
+					'Noise', 25,
+					'HandSlot', "TwoHanded",
+					'Entity', "TMP",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'AvailableComponents', {
+								"MagSmall30_15",
+								"MagNormal",
+							},
+							'DefaultComponent', "MagSmall30_15",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "General",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"HolsterBelt",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"PistolSuppressor",
+							},
+						}),
+					},
+					'HolsterSlot', "Leg",
+					'AvailableAttacks', {
+						"BurstFire",
+						"AutoFire",
+						"SingleShot",
+						"RunAndGun",
+						"JAZZ_Zipper",
+					},
+					'ShootAP', 3000,
+					'ReloadAP', 4000,
+					'MaxAimActions', 2,
+					'Recoil', 6,
+					'BurstShots', 5,
+					'AutoShots', 9,
+					'Handling', 9,
+					'BulletDropRange', 7,
+					'Grouping', 44,
+					'BaseJamChance', -30,
+					'WeaponResource', 8500,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - SMG",
@@ -19221,7 +19640,7 @@ return {
 						"AutoFire",
 						"SingleShot",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 4000,
@@ -19330,7 +19749,7 @@ return {
 						"AutoFire",
 						"SingleShot",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 4000,
@@ -19417,7 +19836,7 @@ return {
 						"AutoFire",
 						"SingleShot",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 4000,
@@ -19498,7 +19917,7 @@ return {
 						"AutoFire",
 						"SingleShot",
 						"RunAndGun",
-						"CancelShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 7000,
@@ -19512,468 +19931,20 @@ return {
 					'WeaponResource', 9500,
 					'CanAppearUsed', false,
 				}),
-				}),
-			PlaceObj('ModItemFolder', {
-				'name', "JAZZ - Firearm - SMG-1H",
-			}, {
-				PlaceObj('ModItemInventoryItemCompositeDef', {
-					'Group', "JAZZ - Firearm - SMG-1H",
-					'Id', "Scorpion",
-					'comment', "Tier 1-3",
-					'object_class', "CompactSubmachineGun",
-					'ScrapParts', 3,
-					'RepairCost', 3,
-					'Icon', "Mod/e6L4ECj/WeaponIcons/Scorpion.png",
-					'DisplayName', T(389917013778, --[[ModItemInventoryItemCompositeDef Scorpion DisplayName]] "Scorpion"),
-					'DisplayNamePlural', T(505643276959, --[[ModItemInventoryItemCompositeDef Scorpion DisplayNamePlural]] "Scorpion"),
-					'Description', T(276327014875, --[[ModItemInventoryItemCompositeDef Scorpion Description]] "Маленький и удаленький чехословацкий автомат под советский пистолетный 9мм патрон. Оказался крайне удачным в использовании в контртеррористических операциях."),
-					'AdditionalHint', T(842942928399, --[[ModItemInventoryItemCompositeDef Scorpion AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноручный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Складной приклад \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Маленький \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Удаленький"),
-					'UnitStat', "Marksmanship",
-					'CanAppearInShop', true,
-					'RestockWeight', 50,
-					'CategoryPair', "SubmachineGuns",
-					'Caliber', "JAZZ_Caliber_9x18",
-					'Damage', 17,
-					'ObjDamageMod', 15,
-					'AimAccuracy', 4,
-					'CritChanceScaled', 5,
-					'MagazineSize', 20,
-					'WeaponRange', 18,
-					'OverwatchAngle', 4680,
-					'Noise', 22,
-					'Entity', "Scorpion",
-					'ComponentSlots', {
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Magazine",
-							'Modifiable', false,
-							'AvailableComponents', {
-								"MagNormal",
-							},
-							'DefaultComponent', "MagNormal",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Stock",
-							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
-							},
-							'DefaultComponent', "StockLightFolded",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Freeswap",
-							'AvailableComponents', {
-								"Freeswap",
-							},
-							'DefaultComponent', "Freeswap",
-						}),
-					},
-					'HolsterSlot', "Leg",
-					'AvailableAttacks', {
-						"BurstFire",
-						"AutoFire",
-						"SingleShot",
-						"DualShot",
-						"RunAndGun",
-						"CancelShot",
-					},
-					'ShootAP', 3000,
-					'ReloadAP', 4000,
-					'MaxAimActions', 2,
-					'Recoil', 4,
-					'BurstShots', 4,
-					'AutoShots', 8,
-					'Handling', 10,
-					'BulletDropRange', 6,
-					'Grouping', 39,
-					'WeaponResource', 2000,
-				}),
-				PlaceObj('ModItemInventoryItemCompositeDef', {
-					'Group', "JAZZ - Firearm - SMG-1H",
-					'Id', "MicroUZI",
-					'comment', "Tier 2-1",
-					'object_class', "CompactSubmachineGun",
-					'ScrapParts', 6,
-					'RepairCost', 5,
-					'Reliability', 50,
-					'Icon', "Mod/e6L4ECj/WeaponIcons/MicroUZI.png",
-					'DisplayName', T(551535604372, --[[ModItemInventoryItemCompositeDef MicroUZI DisplayName]] "Мини Узи"),
-					'DisplayNamePlural', T(492773756154, --[[ModItemInventoryItemCompositeDef MicroUZI DisplayNamePlural]] "Мини Узи"),
-					'Description', T(111329132858, --[[ModItemInventoryItemCompositeDef MicroUZI Description]] 'Максимально компактный и скорострельный израильский пистолет-пулемет. На тот случай, если вы должны кому-то денег и "гости" приехали на лифте. Не сметь работать в шабат!'),
-					'AdditionalHint', T(305727013459, --[[ModItemInventoryItemCompositeDef MicroUZI AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноручный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Складной приклад\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> УЗИшка"),
-					'UnitStat', "Marksmanship",
-					'Cost', 2200,
-					'CanAppearInShop', true,
-					'MaxStock', 5,
-					'RestockWeight', 150,
-					'CategoryPair', "SubmachineGuns",
-					'Caliber', "JAZZ_Caliber_9x19",
-					'Damage', 20,
-					'ObjDamageMod', 20,
-					'AimAccuracy', 6,
-					'MagazineSize', 20,
-					'WeaponRange', 19,
-					'OverwatchAngle', 4920,
-					'Noise', 28,
-					'Entity', "Weapon_Uzi",
-					'ComponentSlots', {
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Barrel",
-							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelNormalImproved",
-							},
-							'DefaultComponent', "BarrelNormal",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Magazine",
-							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_20_30",
-							},
-							'DefaultComponent', "MagNormal",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Side",
-							'CanBeEmpty', true,
-							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
-							},
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Scope",
-							'CanBeEmpty', true,
-							'AvailableComponents', {
-								"JAZZ_Reflex_Pistol",
-								"JAZZ_Reflex_Closed",
-								"JAZZ_Reflex_Eotech",
-								"JAZZ_Reflex_M68",
-							},
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Muzzle",
-							'CanBeEmpty', true,
-							'AvailableComponents', {
-								"Compensator",
-								"PistolSuppressor",
-							},
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Freeswap",
-							'AvailableComponents', {
-								"Freeswap",
-							},
-							'DefaultComponent', "Freeswap",
-						}),
-					},
-					'HolsterSlot', "Leg",
-					'AvailableAttacks', {
-						"BurstFire",
-						"AutoFire",
-						"SingleShot",
-						"DualShot",
-						"RunAndGun",
-						"CancelShot",
-					},
-					'ShootAP', 4000,
-					'ReloadAP', 5000,
-					'MaxAimActions', 2,
-					'Recoil', 7,
-					'BurstShots', 6,
-					'AutoShots', 12,
-					'Handling', 4,
-					'BulletDropRange', 7,
-					'Grouping', 39,
-					'BaseJamChance', -10,
-					'WeaponResource', 2500,
-				}),
-				PlaceObj('ModItemInventoryItemCompositeDef', {
-					'Group', "JAZZ - Firearm - SMG-1H",
-					'Id', "MAC10",
-					'comment', "Tier 2-1",
-					'object_class', "CompactSubmachineGun",
-					'ScrapParts', 6,
-					'RepairCost', 4,
-					'Reliability', 70,
-					'Icon', "Mod/e6L4ECj/WeaponIcons/MAC10.png",
-					'DisplayName', T(612255777676, --[[ModItemInventoryItemCompositeDef MAC10 DisplayName]] "MAC-10"),
-					'DisplayNamePlural', T(799100522418, --[[ModItemInventoryItemCompositeDef MAC10 DisplayNamePlural]] "MAC-10"),
-					'Description', T(500943915358, --[[ModItemInventoryItemCompositeDef MAC10 Description]] "Компактный скорострельный американский автомат, сделанный под влиянием УЗИ. Его качества делают его максимально удобным для действий в замкнутых пространствах, заполненных людьми. Например, при захвате заложников в самолете. В смысле, освобождении захваченного самолета."),
-					'AdditionalHint', T(104635909892, --[[ModItemInventoryItemCompositeDef MAC10 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноручный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Складной приклад\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Как УЗИшка, только не УЗИ"),
-					'UnitStat', "Marksmanship",
-					'Cost', 3000,
-					'CanAppearInShop', true,
-					'MaxStock', 5,
-					'RestockWeight', 150,
-					'CategoryPair', "SubmachineGuns",
-					'Caliber', "JAZZ_Caliber_45ACP",
-					'Damage', 27,
-					'ObjDamageMod', 25,
-					'AimAccuracy', 4,
-					'CritChanceScaled', 30,
-					'MagazineSize', 30,
-					'WeaponRange', 16,
-					'OverwatchAngle', 4680,
-					'Noise', 30,
-					'Entity', "MAC10",
-					'ComponentSlots', {
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Magazine",
-							'Modifiable', false,
-							'AvailableComponents', {
-								"MagNormal",
-							},
-							'DefaultComponent', "MagNormal",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Muzzle",
-							'CanBeEmpty', true,
-							'AvailableComponents', {
-								"PistolSuppressor",
-								"Compensator",
-							},
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Stock",
-							'AvailableComponents', {
-								"StockLightUnFolded",
-								"StockLightFolded",
-							},
-							'DefaultComponent', "StockLightFolded",
-						}),
-					},
-					'HolsterSlot', "Leg",
-					'AvailableAttacks', {
-						"BurstFire",
-						"AutoFire",
-						"SingleShot",
-						"DualShot",
-						"RunAndGun",
-						"CancelShot",
-					},
-					'ShootAP', 4000,
-					'ReloadAP', 5000,
-					'MaxAimActions', 2,
-					'Recoil', 9,
-					'BurstShots', 5,
-					'Handling', 6,
-					'BulletDropRange', 5,
-					'Grouping', 44,
-					'BaseJamChance', -20,
-					'WeaponResource', 2700,
-				}),
-				PlaceObj('ModItemInventoryItemCompositeDef', {
-					'Group', "JAZZ - Firearm - SMG-1H",
-					'Id', "MP5K",
-					'comment', "Tier 2-3",
-					'object_class', "CompactSubmachineGun",
-					'ScrapParts', 8,
-					'RepairCost', 12,
-					'Reliability', 85,
-					'Icon', "Mod/e6L4ECj/WeaponIcons/MP5K.png",
-					'DisplayName', T(294278763005, --[[ModItemInventoryItemCompositeDef MP5K DisplayName]] "MP5K"),
-					'DisplayNamePlural', T(568806073246, --[[ModItemInventoryItemCompositeDef MP5K DisplayNamePlural]] "MP5K"),
-					'Description', T(544608570700, --[[ModItemInventoryItemCompositeDef MP5K Description]] "Максимально укороченная версия MP5, созданная для боя на ближних дистанциях и самообороны. Для него даже есть специальный чехол-чемоданчик со спусковым крючком в ручке - на случай секретных операций."),
-					'AdditionalHint', T(713555595193, --[[ModItemInventoryItemCompositeDef MP5K AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноручный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Без приклада\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> MP5-Короткий"),
-					'UnitStat', "Marksmanship",
-					'Cost', 4200,
-					'CanAppearInShop', true,
-					'RestockWeight', 40,
-					'CategoryPair', "SubmachineGuns",
-					'Caliber', "JAZZ_Caliber_9x19",
-					'Damage', 20,
-					'ObjDamageMod', 20,
-					'AimAccuracy', 7,
-					'MagazineSize', 30,
-					'WeaponRange', 22,
-					'OverwatchAngle', 4680,
-					'Noise', 30,
-					'Entity', "Weapon_MP5",
-					'ComponentSlots', {
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Under",
-							'AvailableComponents', {
-								"VerticalGrip",
-							},
-							'DefaultComponent', "VerticalGrip",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Barrel",
-							'AvailableComponents', {
-								"BarrelShort",
-							},
-							'DefaultComponent', "BarrelShort",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Magazine",
-							'AvailableComponents', {
-								"MagNormal",
-								"MagSmall30_15",
-							},
-							'DefaultComponent', "MagSmall30_15",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Stock",
-							'Modifiable', false,
-							'AvailableComponents', {
-								"StockNormal",
-								"StockHeavy",
-								"StockNo",
-							},
-							'DefaultComponent', "StockNo",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Side",
-							'CanBeEmpty', true,
-							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
-							},
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Scope",
-							'CanBeEmpty', true,
-							'AvailableComponents', {
-								"JAZZ_Reflex_Aimpoint5000",
-								"JAZZ_Reflex_Closed",
-								"JAZZ_Reflex_Open",
-								"JAZZ_Reflex_M68",
-								"JAZZ_Reflex_Eotech",
-								"JAZZ_CombatScope_2x",
-								"JAZZ_CombatScope_FeroZ24",
-								"JAZZ_Scope_DA15_6x",
-							},
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Muzzle",
-							'CanBeEmpty', true,
-							'AvailableComponents', {
-								"Compensator",
-								"PistolSuppressor",
-								"ImprovisedSuppressor",
-							},
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Freeswap",
-							'AvailableComponents', {
-								"Freeswap",
-							},
-							'DefaultComponent', "Freeswap",
-						}),
-					},
-					'HolsterSlot', "Leg",
-					'AvailableAttacks', {
-						"BurstFire",
-						"AutoFire",
-						"SingleShot",
-						"RunAndGun",
-						"CancelShot",
-						"DualShot",
-					},
-					'ShootAP', 4000,
-					'ReloadAP', 4000,
-					'MaxAimActions', 2,
-					'Recoil', 7,
-					'BurstShots', 4,
-					'AutoShots', 9,
-					'Handling', 7,
-					'BulletDropRange', 7,
-					'Grouping', 36,
-					'BaseJamChance', -30,
-					'WeaponResource', 4500,
-					'CanAppearUsed', false,
-				}),
-				PlaceObj('ModItemInventoryItemCompositeDef', {
-					'Group', "JAZZ - Firearm - SMG-1H",
-					'Id', "TMP",
-					'comment', "Tier 2-4",
-					'object_class', "CompactSubmachineGun",
-					'ScrapParts', 8,
-					'RepairCost', 14,
-					'Reliability', 85,
-					'Icon', "Mod/e6L4ECj/WeaponIcons/TMP.png",
-					'ItemType', "SMG",
-					'DisplayName', T(408152361455, --[[ModItemInventoryItemCompositeDef TMP DisplayName]] "TMP"),
-					'DisplayNamePlural', T(432962097320, --[[ModItemInventoryItemCompositeDef TMP DisplayNamePlural]] "TMP"),
-					'Description', T(484204389251, --[[ModItemInventoryItemCompositeDef TMP Description]] 'Современный "маленький да удаленький" ПП австрийского производства. Изготовлен из высокопрочных полимеров, и является очень удобным оружием, хорошо контролируемым при автоматической стрельбе.'),
-					'AdditionalHint', T(887308010165, --[[ModItemInventoryItemCompositeDef TMP AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120>Одноручный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Без приклада\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный"),
-					'UnitStat', "Marksmanship",
-					'Cost', 28000,
-					'CanAppearInShop', true,
-					'Tier', 2,
-					'RestockWeight', 40,
-					'CategoryPair', "SubmachineGuns",
-					'Caliber', "JAZZ_Caliber_9x19",
-					'Damage', 20,
-					'ObjDamageMod', 20,
-					'AimAccuracy', 8,
-					'MagazineSize', 30,
-					'OverwatchAngle', 4920,
-					'Noise', 25,
-					'HandSlot', "TwoHanded",
-					'Entity', "TMP",
-					'ComponentSlots', {
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Magazine",
-							'AvailableComponents', {
-								"MagSmall30_15",
-								"MagNormal",
-							},
-							'DefaultComponent', "MagSmall30_15",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "General",
-							'CanBeEmpty', true,
-							'AvailableComponents', {
-								"HolsterBelt",
-							},
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Muzzle",
-							'CanBeEmpty', true,
-							'AvailableComponents', {
-								"PistolSuppressor",
-							},
-						}),
-					},
-					'HolsterSlot', "Leg",
-					'AvailableAttacks', {
-						"BurstFire",
-						"AutoFire",
-						"SingleShot",
-						"RunAndGun",
-						"CancelShot",
-						"DualShot",
-					},
-					'ShootAP', 3000,
-					'ReloadAP', 4000,
-					'MaxAimActions', 2,
-					'Recoil', 6,
-					'BurstShots', 5,
-					'AutoShots', 9,
-					'Handling', 9,
-					'BulletDropRange', 7,
-					'Grouping', 44,
-					'BaseJamChance', -30,
-					'WeaponResource', 8500,
-				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - SMG-1H",
 					'Id', "MP7",
 					'comment', "Tier 3-2",
-					'object_class', "CompactSubmachineGun",
+					'object_class', "SubmachineGun",
 					'ScrapParts', 10,
 					'RepairCost', 18,
 					'Reliability', 80,
-					'Icon', "Mod/e6L4ECj/WeaponIcons/MP7.png",
+					'Icon', "Mod/e6L4ECj/WeaponIcons/MP72.png",
 					'DisplayName', T(584704183227, --[[ModItemInventoryItemCompositeDef MP7 DisplayName]] "MP7"),
 					'DisplayNamePlural', T(150579573516, --[[ModItemInventoryItemCompositeDef MP7 DisplayNamePlural]] "MP7"),
 					'Description', T(174939633208, --[[ModItemInventoryItemCompositeDef MP7 Description]] "Прямой конкурент бельгийского P90 за звание главного PDWаста в блоке НАТО. Внутри устроен как настоящая большая винтовка, что дает неплохую мощность при использовании патронов малого калибра. "),
-					'AdditionalHint', T(142265159773, --[[ModItemInventoryItemCompositeDef MP7 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Топовый\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноручный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Складной приклад\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный"),
+					'AdditionalHint', T(142265159773, --[[ModItemInventoryItemCompositeDef MP7 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Топовый\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Больше не одноручный (по просьбе Ливси)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Складной приклад\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный"),
+					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
 					'Valuable', 1,
 					'Cost', 30000,
@@ -19990,6 +19961,7 @@ return {
 					'WeaponRange', 26,
 					'OverwatchAngle', 4680,
 					'Noise', 32,
+					'HandSlot', "TwoHanded",
 					'Entity', "MP7",
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
@@ -20037,8 +20009,7 @@ return {
 						"AutoFire",
 						"SingleShot",
 						"RunAndGun",
-						"CancelShot",
-						"DualShot",
+						"JAZZ_Zipper",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 5000,
@@ -20124,8 +20095,7 @@ return {
 					'ModifyRightHandGrip', true,
 					'AvailableAttacks', {
 						"SingleShot",
-						"CancelShot",
-						"MobileShot",
+						"RunAndGun_Carbine",
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 8000,
@@ -20210,8 +20180,7 @@ return {
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"SingleShot",
-						"CancelShot",
-						"MobileShot",
+						"RunAndGun_Carbine",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
@@ -20285,8 +20254,7 @@ return {
 					'ModifyRightHandGrip', true,
 					'AvailableAttacks', {
 						"SingleShot",
-						"CancelShot",
-						"MobileShot",
+						"RunAndGun_Carbine",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
@@ -20373,8 +20341,7 @@ return {
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"SingleShot",
-						"CancelShot",
-						"MobileShot",
+						"RunAndGun_Carbine",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
@@ -20448,8 +20415,7 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
-						"RunAndGun",
+						"RunAndGun_Carbine",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 5000,
@@ -20548,7 +20514,7 @@ return {
 						"BurstFire",
 						"SingleShot",
 						"AutoFire",
-						"RunAndGun",
+						"RunAndGun_Carbine",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 5000,
@@ -20641,8 +20607,7 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"RunAndGun",
-						"CancelShot",
+						"RunAndGun_Carbine",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 6000,
@@ -20752,9 +20717,8 @@ return {
 					'AvailableAttacks', {
 						"BurstFire",
 						"SingleShot",
-						"CancelShot",
 						"AutoFire",
-						"RunAndGun",
+						"RunAndGun_Carbine",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
@@ -20869,8 +20833,7 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
-						"RunAndGun",
+						"RunAndGun_Carbine",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 6000,
@@ -20948,7 +20911,7 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"BurstFire",
-						"CancelShot",
+						"RunAndGun_Carbine",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
@@ -21059,8 +21022,7 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
-						"RunAndGun",
+						"RunAndGun_Carbine",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
@@ -21162,8 +21124,7 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
-						"RunAndGun",
+						"RunAndGun_Carbine",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 6000,
@@ -21268,8 +21229,7 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
-						"RunAndGun",
+						"RunAndGun_Carbine",
 					},
 					'ShootAP', 4000,
 					'ReloadAP', 6000,
@@ -21336,7 +21296,9 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_ManeuverAR",
+						"JAZZ_ControllableBurst",
+						"JAZZ_LargeAutoFire",
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 6000,
@@ -21411,7 +21373,9 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_ManeuverAR",
+						"JAZZ_ControllableBurst",
+						"JAZZ_LargeAutoFire",
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 6000,
@@ -21506,6 +21470,9 @@ return {
 						"BurstFire",
 						"SingleShot",
 						"AutoFire",
+						"JAZZ_ManeuverAR",
+						"JAZZ_ControllableBurst",
+						"JAZZ_LargeAutoFire",
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 6000,
@@ -21597,6 +21564,9 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
+						"JAZZ_ManeuverAR",
+						"JAZZ_ControllableBurst",
+						"JAZZ_LargeAutoFire",
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 6000,
@@ -21701,7 +21671,9 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_ManeuverAR",
+						"JAZZ_ControllableBurst",
+						"JAZZ_LargeAutoFire",
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 8000,
@@ -21809,6 +21781,9 @@ return {
 						"BurstFire",
 						"SingleShot",
 						"CancelShot",
+						"JAZZ_ManeuverAR",
+						"JAZZ_ControllableBurst",
+						"JAZZ_LargeAutoFire",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
@@ -21887,7 +21862,9 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_ManeuverAR",
+						"JAZZ_ControllableBurst",
+						"JAZZ_LargeAutoFire",
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 6000,
@@ -22017,7 +21994,9 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_ManeuverAR",
+						"JAZZ_ControllableBurst",
+						"JAZZ_LargeAutoFire",
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 6000,
@@ -22157,7 +22136,9 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_ManeuverAR",
+						"JAZZ_ControllableBurst",
+						"JAZZ_LargeAutoFire",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
@@ -22265,7 +22246,9 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_ManeuverAR",
+						"JAZZ_ControllableBurst",
+						"JAZZ_LargeAutoFire",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
@@ -22394,7 +22377,9 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_ManeuverAR",
+						"JAZZ_ControllableBurst",
+						"JAZZ_LargeAutoFire",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 8000,
@@ -22497,7 +22482,9 @@ return {
 					'AvailableAttacks', {
 						"BurstFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_ManeuverAR",
+						"JAZZ_ControllableBurst",
+						"JAZZ_LargeAutoFire",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
@@ -22622,7 +22609,9 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_ManeuverAR",
+						"JAZZ_ControllableBurst",
+						"JAZZ_LargeAutoFire",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
@@ -22732,7 +22721,9 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_ManeuverAR",
+						"JAZZ_ControllableBurst",
+						"JAZZ_LargeAutoFire",
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 6000,
@@ -22854,7 +22845,9 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_ManeuverAR",
+						"JAZZ_ControllableBurst",
+						"JAZZ_LargeAutoFire",
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 6000,
@@ -22940,7 +22933,9 @@ return {
 						"AbakanBurst",
 						"AbakanAutoFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_ManeuverAR",
+						"JAZZ_ControllableBurst",
+						"JAZZ_LargeAutoFire",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
@@ -22957,6 +22952,199 @@ return {
 			PlaceObj('ModItemFolder', {
 				'name', "JAZZ - Firearm - Rifles-Battle",
 			}, {
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - Rifles-Bolt",
+					'Id', "MAS36",
+					'comment', "Tier 1-1",
+					'object_class', "BattleRifle",
+					'ScrapParts', 8,
+					'RepairCost', 3,
+					'Reliability', 85,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/MAS36.png",
+					'DisplayName', T(415053102324, --[[ModItemInventoryItemCompositeDef MAS36 DisplayName]] "MAS36"),
+					'DisplayNamePlural', T(826420490062, --[[ModItemInventoryItemCompositeDef MAS36 DisplayNamePlural]] "MAS36"),
+					'Description', T(105734133486, --[[ModItemInventoryItemCompositeDef MAS36 Description]] "Линейная пехотная винтовка производства Франции периода ВМВ, была разработана в 1930-х годах, что делает ее относительной новинкой в сравнении с винтовками Мосина, Маузера, Ли Энфильда и Спрингфилда. Но, как известно, особой конкуренции Маузерам у нее составить не получилось."),
+					'AdditionalHint', T(191648401008, --[[ModItemInventoryItemCompositeDef MAS36 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Винтовка с ручным перезаряжанием \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный Медленно стреляет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дед сдавался"),
+					'LargeItem', 1,
+					'UnitStat', "Marksmanship",
+					'CategoryPair', "Rifles",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_75French",
+					'Damage', 38,
+					'ObjDamageMod', 80,
+					'AimAccuracy', 11,
+					'CritChanceScaled', 50,
+					'MagazineSize', 5,
+					'WeaponRange', 57,
+					'OverwatchAngle', 420,
+					'Noise', 59,
+					'HandSlot', "TwoHanded",
+					'Entity', "MAS36",
+					'ComponentSlots', {},
+					'HolsterSlot', "Shoulder",
+					'ModifyRightHandGrip', true,
+					'AvailableAttacks', {
+						"SingleShot",
+						"JAZZ_Salvo",
+					},
+					'ShootAP', 8000,
+					'ReloadAP', 5000,
+					'BurstShots', 1,
+					'AutoShots', 1,
+					'Handling', -32,
+					'BulletDropRange', 22,
+					'Grouping', 40,
+					'WeaponResource', 7000,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - Rifles-Semi",
+					'Id', "SKS",
+					'comment', "Tier 1-1",
+					'object_class', "BattleRifle",
+					'msg_reactions', {},
+					'unit_reactions', {},
+					'ScrapParts', 10,
+					'RepairCost', 4,
+					'Reliability', 75,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/SKS.png",
+					'DisplayName', T(532780533839, --[[ModItemInventoryItemCompositeDef SKS DisplayName]] "СКС"),
+					'DisplayNamePlural', T(941296279714, --[[ModItemInventoryItemCompositeDef SKS DisplayNamePlural]] "СКС"),
+					'Description', T(410577681665, --[[ModItemInventoryItemCompositeDef SKS Description]] "Не востребованный в Советской Армии, тем не менее, весьма любим гражданскими стрелками в России за точность боя. Но это капля в море перед маниакальной страстью к нему стрелков в США. Хорошим тоном считается хотя бы один СКС на коллекцию. Хотя бы и китайский."),
+					'AdditionalHint', T(874658345000, --[[ModItemInventoryItemCompositeDef SKS AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Карабин под семерку \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Быстро стреляет"),
+					'LargeItem', 1,
+					'UnitStat', "Marksmanship",
+					'CanAppearInShop', true,
+					'MaxStock', 5,
+					'RestockWeight', 120,
+					'CategoryPair', "Rifles",
+					'Caliber', "JAZZ_Caliber_762x39",
+					'Damage', 28,
+					'ObjDamageMod', 50,
+					'AimAccuracy', 13,
+					'CritChanceScaled', 30,
+					'MagazineSize', 10,
+					'WeaponRange', 44,
+					'PointBlankBonus', 1,
+					'OverwatchAngle', 1320,
+					'Noise', 52,
+					'HandSlot', "TwoHanded",
+					'Entity', "SKS",
+					'ComponentSlots', {},
+					'HolsterSlot', "Shoulder",
+					'ModifyRightHandGrip', true,
+					'AvailableAttacks', {
+						"SingleShot",
+						"JAZZ_Salvo",
+					},
+					'ShootAP', 6000,
+					'ReloadAP', 5000,
+					'BurstShots', 1,
+					'AutoShots', 1,
+					'Handling', -10,
+					'BulletDropRange', 16,
+					'Grouping', 60,
+					'BaseJamChance', -30,
+					'WeaponResource', 6000,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - Rifles-Semi",
+					'Id', "G43",
+					'comment', "Tier 1-2",
+					'object_class', "BattleRifle",
+					'ScrapParts', 8,
+					'RepairCost', 6,
+					'Reliability', 45,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/G43.png",
+					'DisplayName', T(729447298300, --[[ModItemInventoryItemCompositeDef G43 DisplayName]] "G43"),
+					'DisplayNamePlural', T(830429456946, --[[ModItemInventoryItemCompositeDef G43 DisplayNamePlural]] "G43"),
+					'Description', T(789944142367, --[[ModItemInventoryItemCompositeDef G43 Description]] "Немецкая самозарядная винтовка периода ВМВ. На конструкцию во многом оказала влияние советская СВТ, как с точки зрения концепции, так и в более приземленном смысле заимстования конструкции газового двигателя."),
+					'AdditionalHint', T(546051968989, --[[ModItemInventoryItemCompositeDef G43 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный"),
+					'LargeItem', 1,
+					'UnitStat', "Marksmanship",
+					'Cost', 2000,
+					'CategoryPair', "Rifles",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_792",
+					'Damage', 40,
+					'ObjDamageMod', 80,
+					'AimAccuracy', 13,
+					'CritChanceScaled', 30,
+					'MagazineSize', 10,
+					'WeaponRange', 58,
+					'OverwatchAngle', 900,
+					'Noise', 68,
+					'HandSlot', "TwoHanded",
+					'Entity', "G43",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Scope",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"JAZZ_Scope_ZF4",
+							},
+						}),
+					},
+					'HolsterSlot', "Shoulder",
+					'ModifyRightHandGrip', true,
+					'AvailableAttacks', {
+						"SingleShot",
+						"CancelShot",
+						"JAZZ_Salvo",
+					},
+					'ShootAP', 7000,
+					'ReloadAP', 7000,
+					'BurstShots', 1,
+					'AutoShots', 1,
+					'Handling', -23,
+					'BulletDropRange', 25,
+					'Grouping', 40,
+					'WeaponResource', 4000,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - Rifles-Semi",
+					'Id', "MAS49",
+					'comment', "Tier 1-2",
+					'object_class', "BattleRifle",
+					'ScrapParts', 8,
+					'RepairCost', 6,
+					'Reliability', 55,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/MAS49.png",
+					'DisplayName', T(729447298300, --[[ModItemInventoryItemCompositeDef MAS49 DisplayName]] "MAS-49/56"),
+					'DisplayNamePlural', T(830429456946, --[[ModItemInventoryItemCompositeDef MAS49 DisplayNamePlural]] "MAS-49/56"),
+					'Description', T(789944142367, --[[ModItemInventoryItemCompositeDef MAS49 Description]] "После Второй Мировой Войны деоккупированная Франция нуждалась в новом современном оружии, и еще в 1944 году была разработана и выпущена первая партия этих винтовок с газовым двигателем с прямым отводом пороховых газов (да, как в AR-15 потом). Практически сразу им пришлось повоевать в Индокитае и Вьетнаме, с неплохими отзывами по надежности и кучности боя."),
+					'AdditionalHint', T(546051968989, --[[ModItemInventoryItemCompositeDef MAS49 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Средняя по всем показателям винтовка"),
+					'LargeItem', 1,
+					'UnitStat', "Marksmanship",
+					'Cost', 2000,
+					'CategoryPair', "Rifles",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_75French",
+					'Damage', 36,
+					'ObjDamageMod', 80,
+					'AimAccuracy', 10,
+					'CritChanceScaled', 30,
+					'MagazineSize', 10,
+					'WeaponRange', 55,
+					'OverwatchAngle', 1320,
+					'Noise', 68,
+					'HandSlot', "TwoHanded",
+					'Entity', "MAS49",
+					'ComponentSlots', {},
+					'HolsterSlot', "Shoulder",
+					'ModifyRightHandGrip', true,
+					'AvailableAttacks', {
+						"SingleShot",
+						"JAZZ_Salvo",
+					},
+					'ShootAP', 7000,
+					'ReloadAP', 7000,
+					'BurstShots', 1,
+					'AutoShots', 1,
+					'Handling', -20,
+					'BulletDropRange', 23,
+					'Grouping', 44,
+					'WeaponResource', 4000,
+				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - Rifles-Battle",
 					'Id', "BAR",
@@ -23003,6 +23191,7 @@ return {
 					'AvailableAttacks', {
 						"BurstFire",
 						"AutoFire",
+						"JAZZ_ControllableBurst",
 					},
 					'ShootAP', 7000,
 					'ReloadAP', 8000,
@@ -23064,8 +23253,11 @@ return {
 					},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
+						"SingleShot",
 						"BurstFire",
 						"AutoFire",
+						"JAZZ_Salvo",
+						"JAZZ_ControllableBurst",
 					},
 					'ShootAP', 7000,
 					'ReloadAP', 7000,
@@ -23075,6 +23267,120 @@ return {
 					'BulletDropRange', 22,
 					'Grouping', 42,
 					'WeaponResource', 6500,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - Rifles-Semi",
+					'Id', "SVT40",
+					'comment', "Tier 1-3",
+					'object_class', "BattleRifle",
+					'ScrapParts', 8,
+					'RepairCost', 5,
+					'Reliability', 50,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/SVT40.png",
+					'DisplayName', T(514199755077, --[[ModItemInventoryItemCompositeDef SVT40 DisplayName]] "СВТ-40"),
+					'DisplayNamePlural', T(625382131145, --[[ModItemInventoryItemCompositeDef SVT40 DisplayNamePlural]] "СВТ-40"),
+					'Description', T(683949352379, --[[ModItemInventoryItemCompositeDef SVT40 Description]] '"Светлана" Федоровна Токарева, прошу любить и жаловать. Самозарядная винтовка СССР периода начала ВОВ. "Света" оказалась дамой очень капризной и требовательной к уходу, так что с работой в боевых частях Красной армии у нее не заладилось, а вот более подготовленные морские пехотинцы "Светку" использовали с удовольствием вплоть до самого конца войны.'),
+					'AdditionalHint', T(561907040232, --[[ModItemInventoryItemCompositeDef SVT40 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный Неудобный"),
+					'LargeItem', 1,
+					'UnitStat', "Marksmanship",
+					'Cost', 5000,
+					'CategoryPair', "Rifles",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_762x54R",
+					'Damage', 38,
+					'AimAccuracy', 12,
+					'CritChanceScaled', 30,
+					'MagazineSize', 10,
+					'WeaponRange', 64,
+					'OverwatchAngle', 900,
+					'Noise', 70,
+					'HandSlot', "TwoHanded",
+					'Entity', "SVT_40",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Scope",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"JAZZ_Scope_PU",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"MagNormal",
+							},
+							'DefaultComponent', "MagNormal",
+						}),
+					},
+					'HolsterSlot', "Shoulder",
+					'ModifyRightHandGrip', true,
+					'AvailableAttacks', {
+						"SingleShot",
+						"JAZZ_Salvo",
+					},
+					'ShootAP', 7000,
+					'ReloadAP', 7000,
+					'BurstShots', 1,
+					'AutoShots', 1,
+					'Handling', -26,
+					'BulletDropRange', 24,
+					'Grouping', 38,
+					'WeaponResource', 2000,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - Rifles-Semi",
+					'Id', "AVT40",
+					'comment', "Tier 1-UNIQ",
+					'object_class', "BattleRifle",
+					'ScrapParts', 8,
+					'RepairCost', 5,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/AVT40.png",
+					'DisplayName', T(915359425469, --[[ModItemInventoryItemCompositeDef AVT40 DisplayName]] "АВТ-40"),
+					'DisplayNamePlural', T(210255337735, --[[ModItemInventoryItemCompositeDef AVT40 DisplayNamePlural]] "АВТ-40"),
+					'Description', T(734026650686, --[[ModItemInventoryItemCompositeDef AVT40 Description]] 'Автоматическая версия винтовки Токарева. Отличается, собственно, наличием режима полностью автоматического огня. Эффективность этого огня, правда, чрезвычайно низкая, а сама "Света" оказалась для стрельбы очередями слишком хрупкой. Найти винтовку в хорошем состоянии не так-то просто.'),
+					'AdditionalHint', T(109475921134, --[[ModItemInventoryItemCompositeDef AVT40 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Стреляет очередями \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильная отдача \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный"),
+					'LargeItem', 1,
+					'UnitStat', "Marksmanship",
+					'CategoryPair', "Rifles",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_762x54R",
+					'Damage', 38,
+					'AimAccuracy', 10,
+					'CritChanceScaled', 30,
+					'MagazineSize', 15,
+					'WeaponRange', 64,
+					'OverwatchAngle', 900,
+					'Noise', 70,
+					'HandSlot', "TwoHanded",
+					'Entity', "SVT_40",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"MagNormal",
+							},
+							'DefaultComponent', "MagNormal",
+						}),
+					},
+					'HolsterSlot', "Shoulder",
+					'ModifyRightHandGrip', true,
+					'AvailableAttacks', {
+						"BurstFire",
+						"AutoFire",
+						"SingleShot",
+						"JAZZ_Salvo",
+						"JAZZ_ControllableBurst",
+					},
+					'ShootAP', 7000,
+					'ReloadAP', 7000,
+					'Recoil', 45,
+					'AutoShots', 7,
+					'Handling', -20,
+					'BulletDropRange', 24,
+					'Grouping', 35,
+					'BaseJamChance', 5,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - Rifles-Battle",
@@ -23137,7 +23443,8 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_Salvo",
+						"JAZZ_ControllableBurst",
 					},
 					'ShootAP', 7000,
 					'ReloadAP', 7000,
@@ -23261,7 +23568,8 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_Salvo",
+						"JAZZ_ControllableBurst",
 					},
 					'ShootAP', 7000,
 					'ReloadAP', 7000,
@@ -23399,7 +23707,8 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_Salvo",
+						"JAZZ_ControllableBurst",
 					},
 					'ShootAP', 7000,
 					'ReloadAP', 7000,
@@ -23520,7 +23829,8 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_Salvo",
+						"JAZZ_ControllableBurst",
 					},
 					'ShootAP', 6000,
 					'ReloadAP', 7000,
@@ -23609,7 +23919,8 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_Salvo",
+						"JAZZ_ControllableBurst",
 					},
 					'ShootAP', 7000,
 					'ReloadAP', 7000,
@@ -23708,7 +24019,8 @@ return {
 						"BurstFire",
 						"AutoFire",
 						"SingleShot",
-						"CancelShot",
+						"JAZZ_Salvo",
+						"JAZZ_ControllableBurst",
 					},
 					'ShootAP', 7000,
 					'ReloadAP', 7000,
@@ -23720,57 +24032,6 @@ return {
 					'Grouping', 51,
 					'BaseJamChance', -30,
 					'WeaponResource', 9000,
-				}),
-				PlaceObj('ModItemInventoryItemCompositeDef', {
-					'Group', "JAZZ - Firearm - Rifles-Semi",
-					'Id', "SKS",
-					'comment', "Tier 1-1",
-					'object_class', "BattleRifle",
-					'msg_reactions', {},
-					'unit_reactions', {},
-					'ScrapParts', 10,
-					'RepairCost', 4,
-					'Reliability', 75,
-					'Icon', "Mod/e6L4ECj/WeaponIcons/SKS.png",
-					'DisplayName', T(532780533839, --[[ModItemInventoryItemCompositeDef SKS DisplayName]] "СКС"),
-					'DisplayNamePlural', T(941296279714, --[[ModItemInventoryItemCompositeDef SKS DisplayNamePlural]] "СКС"),
-					'Description', T(410577681665, --[[ModItemInventoryItemCompositeDef SKS Description]] "Не востребованный в Советской Армии, тем не менее, весьма любим гражданскими стрелками в России за точность боя. Но это капля в море перед маниакальной страстью к нему стрелков в США. Хорошим тоном считается хотя бы один СКС на коллекцию. Хотя бы и китайский."),
-					'AdditionalHint', T(874658345000, --[[ModItemInventoryItemCompositeDef SKS AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Карабин под семерку \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Быстро стреляет"),
-					'LargeItem', 1,
-					'UnitStat', "Marksmanship",
-					'CanAppearInShop', true,
-					'MaxStock', 5,
-					'RestockWeight', 120,
-					'CategoryPair', "Rifles",
-					'Caliber', "JAZZ_Caliber_762x39",
-					'Damage', 28,
-					'ObjDamageMod', 50,
-					'AimAccuracy', 13,
-					'CritChanceScaled', 30,
-					'MagazineSize', 10,
-					'WeaponRange', 44,
-					'PointBlankBonus', 1,
-					'OverwatchAngle', 1320,
-					'Noise', 52,
-					'HandSlot', "TwoHanded",
-					'Entity', "SKS",
-					'ComponentSlots', {},
-					'HolsterSlot', "Shoulder",
-					'ModifyRightHandGrip', true,
-					'AvailableAttacks', {
-						"SingleShot",
-						"CancelShot",
-						"MobileShot",
-					},
-					'ShootAP', 6000,
-					'ReloadAP', 5000,
-					'BurstShots', 1,
-					'AutoShots', 1,
-					'Handling', -10,
-					'BulletDropRange', 16,
-					'Grouping', 60,
-					'BaseJamChance', -30,
-					'WeaponResource', 6000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - Rifles-Semi",
@@ -23824,7 +24085,7 @@ return {
 					'AvailableAttacks', {
 						"SingleShot",
 						"CancelShot",
-						"MobileShot",
+						"JAZZ_Salvo",
 					},
 					'ShootAP', 7000,
 					'ReloadAP', 5000,
@@ -23835,267 +24096,9 @@ return {
 					'Grouping', 37,
 					'WeaponResource', 4000,
 				}),
-				PlaceObj('ModItemInventoryItemCompositeDef', {
-					'Group', "JAZZ - Firearm - Rifles-Semi",
-					'Id', "SVT40",
-					'comment', "Tier 1-3",
-					'object_class', "BattleRifle",
-					'ScrapParts', 8,
-					'RepairCost', 5,
-					'Reliability', 50,
-					'Icon', "Mod/e6L4ECj/WeaponIcons/SVT40.png",
-					'DisplayName', T(514199755077, --[[ModItemInventoryItemCompositeDef SVT40 DisplayName]] "СВТ-40"),
-					'DisplayNamePlural', T(625382131145, --[[ModItemInventoryItemCompositeDef SVT40 DisplayNamePlural]] "СВТ-40"),
-					'Description', T(683949352379, --[[ModItemInventoryItemCompositeDef SVT40 Description]] '"Светлана" Федоровна Токарева, прошу любить и жаловать. Самозарядная винтовка СССР периода начала ВОВ. "Света" оказалась дамой очень капризной и требовательной к уходу, так что с работой в боевых частях Красной армии у нее не заладилось, а вот более подготовленные морские пехотинцы "Светку" использовали с удовольствием вплоть до самого конца войны.'),
-					'AdditionalHint', T(561907040232, --[[ModItemInventoryItemCompositeDef SVT40 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный Неудобный"),
-					'LargeItem', 1,
-					'UnitStat', "Marksmanship",
-					'Cost', 5000,
-					'CategoryPair', "Rifles",
-					'CanAppearStandard', false,
-					'Caliber', "JAZZ_Caliber_762x54R",
-					'Damage', 38,
-					'AimAccuracy', 12,
-					'CritChanceScaled', 30,
-					'MagazineSize', 10,
-					'WeaponRange', 64,
-					'OverwatchAngle', 900,
-					'Noise', 70,
-					'HandSlot', "TwoHanded",
-					'Entity', "SVT_40",
-					'ComponentSlots', {
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Scope",
-							'CanBeEmpty', true,
-							'AvailableComponents', {
-								"JAZZ_Scope_PU",
-							},
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Magazine",
-							'Modifiable', false,
-							'AvailableComponents', {
-								"MagNormal",
-							},
-							'DefaultComponent', "MagNormal",
-						}),
-					},
-					'HolsterSlot', "Shoulder",
-					'ModifyRightHandGrip', true,
-					'AvailableAttacks', {
-						"SingleShot",
-						"CancelShot",
-					},
-					'ShootAP', 7000,
-					'ReloadAP', 7000,
-					'BurstShots', 1,
-					'AutoShots', 1,
-					'Handling', -26,
-					'BulletDropRange', 24,
-					'Grouping', 38,
-					'WeaponResource', 2000,
-				}),
-				PlaceObj('ModItemInventoryItemCompositeDef', {
-					'Group', "JAZZ - Firearm - Rifles-Semi",
-					'Id', "AVT40",
-					'comment', "Tier 1-UNIQ",
-					'object_class', "BattleRifle",
-					'ScrapParts', 8,
-					'RepairCost', 5,
-					'Icon', "Mod/e6L4ECj/WeaponIcons/AVT40.png",
-					'DisplayName', T(915359425469, --[[ModItemInventoryItemCompositeDef AVT40 DisplayName]] "АВТ-40"),
-					'DisplayNamePlural', T(210255337735, --[[ModItemInventoryItemCompositeDef AVT40 DisplayNamePlural]] "АВТ-40"),
-					'Description', T(734026650686, --[[ModItemInventoryItemCompositeDef AVT40 Description]] 'Автоматическая версия винтовки Токарева. Отличается, собственно, наличием режима полностью автоматического огня. Эффективность этого огня, правда, чрезвычайно низкая, а сама "Света" оказалась для стрельбы очередями слишком хрупкой. Найти винтовку в хорошем состоянии не так-то просто.'),
-					'AdditionalHint', T(109475921134, --[[ModItemInventoryItemCompositeDef AVT40 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Стреляет очередями \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильная отдача \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный"),
-					'LargeItem', 1,
-					'UnitStat', "Marksmanship",
-					'CategoryPair', "Rifles",
-					'CanAppearStandard', false,
-					'Caliber', "JAZZ_Caliber_762x54R",
-					'Damage', 38,
-					'AimAccuracy', 10,
-					'CritChanceScaled', 30,
-					'MagazineSize', 15,
-					'WeaponRange', 64,
-					'OverwatchAngle', 900,
-					'Noise', 70,
-					'HandSlot', "TwoHanded",
-					'Entity', "SVT_40",
-					'ComponentSlots', {
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Magazine",
-							'Modifiable', false,
-							'AvailableComponents', {
-								"MagNormal",
-							},
-							'DefaultComponent', "MagNormal",
-						}),
-					},
-					'HolsterSlot', "Shoulder",
-					'ModifyRightHandGrip', true,
-					'AvailableAttacks', {
-						"BurstFire",
-						"AutoFire",
-						"SingleShot",
-						"CancelShot",
-					},
-					'ShootAP', 7000,
-					'ReloadAP', 7000,
-					'Recoil', 45,
-					'AutoShots', 7,
-					'Handling', -20,
-					'BulletDropRange', 24,
-					'Grouping', 35,
-					'BaseJamChance', 5,
-				}),
-				PlaceObj('ModItemInventoryItemCompositeDef', {
-					'Group', "JAZZ - Firearm - Rifles-Semi",
-					'Id', "G43",
-					'comment', "Tier 1-2",
-					'object_class', "BattleRifle",
-					'ScrapParts', 8,
-					'RepairCost', 6,
-					'Reliability', 45,
-					'Icon', "Mod/e6L4ECj/WeaponIcons/G43.png",
-					'DisplayName', T(729447298300, --[[ModItemInventoryItemCompositeDef G43 DisplayName]] "G43"),
-					'DisplayNamePlural', T(830429456946, --[[ModItemInventoryItemCompositeDef G43 DisplayNamePlural]] "G43"),
-					'Description', T(789944142367, --[[ModItemInventoryItemCompositeDef G43 Description]] "Немецкая самозарядная винтовка периода ВМВ. На конструкцию во многом оказала влияние советская СВТ, как с точки зрения концепции, так и в более приземленном смысле заимстования конструкции газового двигателя."),
-					'AdditionalHint', T(546051968989, --[[ModItemInventoryItemCompositeDef G43 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный"),
-					'LargeItem', 1,
-					'UnitStat', "Marksmanship",
-					'Cost', 2000,
-					'CategoryPair', "Rifles",
-					'CanAppearStandard', false,
-					'Caliber', "JAZZ_Caliber_792",
-					'Damage', 40,
-					'ObjDamageMod', 80,
-					'AimAccuracy', 13,
-					'CritChanceScaled', 30,
-					'MagazineSize', 10,
-					'WeaponRange', 58,
-					'OverwatchAngle', 900,
-					'Noise', 68,
-					'HandSlot', "TwoHanded",
-					'Entity', "G43",
-					'ComponentSlots', {
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Scope",
-							'CanBeEmpty', true,
-							'AvailableComponents', {
-								"JAZZ_Scope_ZF4",
-							},
-						}),
-					},
-					'HolsterSlot', "Shoulder",
-					'ModifyRightHandGrip', true,
-					'AvailableAttacks', {
-						"SingleShot",
-						"CancelShot",
-						"MobileShot",
-					},
-					'ShootAP', 7000,
-					'ReloadAP', 7000,
-					'BurstShots', 1,
-					'AutoShots', 1,
-					'Handling', -23,
-					'BulletDropRange', 25,
-					'Grouping', 40,
-					'WeaponResource', 4000,
-				}),
-				PlaceObj('ModItemInventoryItemCompositeDef', {
-					'Group', "JAZZ - Firearm - Rifles-Semi",
-					'Id', "MAS49",
-					'comment', "Tier 1-2",
-					'object_class', "BattleRifle",
-					'ScrapParts', 8,
-					'RepairCost', 6,
-					'Reliability', 55,
-					'Icon', "Mod/e6L4ECj/WeaponIcons/MAS49.png",
-					'DisplayName', T(729447298300, --[[ModItemInventoryItemCompositeDef MAS49 DisplayName]] "MAS-49/56"),
-					'DisplayNamePlural', T(830429456946, --[[ModItemInventoryItemCompositeDef MAS49 DisplayNamePlural]] "MAS-49/56"),
-					'Description', T(789944142367, --[[ModItemInventoryItemCompositeDef MAS49 Description]] "После Второй Мировой Войны деоккупированная Франция нуждалась в новом современном оружии, и еще в 1944 году была разработана и выпущена первая партия этих винтовок с газовым двигателем с прямым отводом пороховых газов (да, как в AR-15 потом). Практически сразу им пришлось повоевать в Индокитае и Вьетнаме, с неплохими отзывами по надежности и кучности боя."),
-					'AdditionalHint', T(546051968989, --[[ModItemInventoryItemCompositeDef MAS49 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Средняя по всем показателям винтовка"),
-					'LargeItem', 1,
-					'UnitStat', "Marksmanship",
-					'Cost', 2000,
-					'CategoryPair', "Rifles",
-					'CanAppearStandard', false,
-					'Caliber', "JAZZ_Caliber_75French",
-					'Damage', 36,
-					'ObjDamageMod', 80,
-					'AimAccuracy', 10,
-					'CritChanceScaled', 30,
-					'MagazineSize', 10,
-					'WeaponRange', 55,
-					'OverwatchAngle', 1320,
-					'Noise', 68,
-					'HandSlot', "TwoHanded",
-					'Entity', "MAS49",
-					'ComponentSlots', {},
-					'HolsterSlot', "Shoulder",
-					'ModifyRightHandGrip', true,
-					'AvailableAttacks', {
-						"SingleShot",
-						"CancelShot",
-						"MobileShot",
-					},
-					'ShootAP', 7000,
-					'ReloadAP', 7000,
-					'BurstShots', 1,
-					'AutoShots', 1,
-					'Handling', -20,
-					'BulletDropRange', 23,
-					'Grouping', 44,
-					'WeaponResource', 4000,
-				}),
-				PlaceObj('ModItemInventoryItemCompositeDef', {
-					'Group', "JAZZ - Firearm - Rifles-Bolt",
-					'Id', "MAS36",
-					'comment', "Tier 1-1",
-					'object_class', "BattleRifle",
-					'ScrapParts', 8,
-					'RepairCost', 3,
-					'Reliability', 85,
-					'Icon', "Mod/e6L4ECj/WeaponIcons/MAS36.png",
-					'DisplayName', T(415053102324, --[[ModItemInventoryItemCompositeDef MAS36 DisplayName]] "MAS36"),
-					'DisplayNamePlural', T(826420490062, --[[ModItemInventoryItemCompositeDef MAS36 DisplayNamePlural]] "MAS36"),
-					'Description', T(105734133486, --[[ModItemInventoryItemCompositeDef MAS36 Description]] "Линейная пехотная винтовка производства Франции периода ВМВ, была разработана в 1930-х годах, что делает ее относительной новинкой в сравнении с винтовками Мосина, Маузера, Ли Энфильда и Спрингфилда. Но, как известно, особой конкуренции Маузерам у нее составить не получилось."),
-					'AdditionalHint', T(191648401008, --[[ModItemInventoryItemCompositeDef MAS36 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Винтовка с ручным перезаряжанием \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный Медленно стреляет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дед сдавался"),
-					'LargeItem', 1,
-					'UnitStat', "Marksmanship",
-					'CategoryPair', "Rifles",
-					'CanAppearStandard', false,
-					'Caliber', "JAZZ_Caliber_75French",
-					'Damage', 38,
-					'ObjDamageMod', 80,
-					'AimAccuracy', 11,
-					'CritChanceScaled', 50,
-					'MagazineSize', 5,
-					'WeaponRange', 57,
-					'OverwatchAngle', 420,
-					'Noise', 59,
-					'HandSlot', "TwoHanded",
-					'Entity', "MAS36",
-					'ComponentSlots', {},
-					'HolsterSlot', "Shoulder",
-					'ModifyRightHandGrip', true,
-					'PreparedAttackType', "Both",
-					'AvailableAttacks', {
-						"SingleShot",
-						"CancelShot",
-					},
-					'ShootAP', 8000,
-					'ReloadAP', 5000,
-					'BurstShots', 1,
-					'AutoShots', 1,
-					'Handling', -32,
-					'BulletDropRange', 22,
-					'Grouping', 40,
-					'WeaponResource', 7000,
-				}),
 				}),
 			PlaceObj('ModItemFolder', {
-				'name', "JAZZ - Firearm - Rifles-Semi",
+				'name', "JAZZ - Firearm - Rifles-Sniper",
 			}, {
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - Rifles-Semi",
@@ -58865,8 +58868,8 @@ return {
 					ActivePauseBehavior = "queue",
 					AimType = "cone",
 					ConfigurableKeybind = false,
-					Description = T(240638495863, --[[ModItemCombatAction Overwatch Description]] "<em>Spends all AP</em>\nAny targets who move or shoot in the overwatch area will provoke <GameTerm('Interrupt')> <em>attacks</em>.\nAccuracy is influenced by <em><dexterity></em>."),
-					DisplayName = T(220225989499, --[[ModItemCombatAction Overwatch DisplayName]] "Overwatch"),
+					Description = T(240638495863, --[[ModItemCombatAction Overwatch Description]] "<em>Тратит все ОД</em>\nЛюбой враг, который совершает движение или действие спровоцирует <GameTerm('Interrupt')> с 1-2 уровнями прицеливания.\nТочность зависит от параметра <em><dexterity></em>.\nКоличество атак зависит от количества ОД."),
+					DisplayName = T(220225989499, --[[ModItemCombatAction Overwatch DisplayName]] "Режим наблюдения"),
 					EvalTarget = function (self, units, target, args)
 						--return units[1]:CalcChanceToHit(target, self, args, "chance_only")
 						if not units or not units[1] then return 0 end
@@ -59693,8 +59696,8 @@ return {
 					ActionType = "Ranged Attack",
 					AimType = "mobile",
 					CostBasedOnWeapon = true,
-					Description = T(799980728478, --[[ModItemCombatAction MobileShot Description]] "<color EmStyle>Один раз за ход</color>.\nПереход на новую позицию и два выстрела по ближайшим целям.\n<color EmStyle>Использует свободное перемещение</color>."),
-					DisplayName = T(615888335880, --[[ModItemCombatAction MobileShot DisplayName]] "Выстрел в движении"),
+					Description = T(799980728478, --[[ModItemCombatAction MobileShot Description]] "<color EmStyle>Один раз за ход</color>.\nПереход на новую позицию и два выстрела по ближайшим целям."),
+					DisplayName = T(615888335880, --[[ModItemCombatAction MobileShot DisplayName]] "Маневр с Пистолетом"),
 					GetActionDamage = function (self, unit, target, args)
 						local rangedAttack = unit:GetDefaultAttackAction("ranged") 
 						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
@@ -59757,7 +59760,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/MobileShot.png",
+					Icon = "Mod/e6L4ECj/Perks/MobileShot_Pistol.png",
 					IdDefault = "MobileShotdefault",
 					IsAimableAttack = false,
 					KeybindingSortId = "2371",
@@ -59787,7 +59790,6 @@ return {
 					UIBegin = function (self, units, args)
 						CombatActionAttackStart(self, units, args, "IModeCombatMovingAttack")
 					end,
-					UseFreeMove = true,
 					group = "WeaponAttacks",
 					id = "MobileShot",
 				}),
@@ -59798,8 +59800,8 @@ return {
 					ActionType = "Ranged Attack",
 					AimType = "mobile",
 					CostBasedOnWeapon = true,
-					Description = T(986970516880, --[[ModItemCombatAction RunAndGun Description]] "<em>Один раз за ход</em>.\nПереход на новую позицию, в процессе которого вы выпускаете до <em><num_shots> коротких очередей</em> по ближайшим целям. Каждый выстрел получает <em>-<percent(penalty)> к точности</em>."),
-					DisplayName = T(624088050886, --[[ModItemCombatAction RunAndGun DisplayName]] "Маневренный бой"),
+					Description = T(423077222090, --[[ModItemCombatAction RunAndGun Description]] "<em>Один раз за ход</em>.\nПереход на новую позицию, в процессе которого вы выпускаете до <em><num_shots> коротких очередей</em> по ближайшим целям. "),
+					DisplayName = T(455062954204, --[[ModItemCombatAction RunAndGun DisplayName]] "Стрельба на бегу"),
 					GetActionDamage = function (self, unit, target, args)
 						local weapon = self:GetAttackWeapons(unit, args)
 						if not weapon then return 0 end
@@ -59853,7 +59855,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "UI/Icons/Hud/run_and_gun",
+					Icon = "Mod/e6L4ECj/Perks/RunNGun.png",
 					IdDefault = "RunAndGundefault",
 					IsAimableAttack = false,
 					KeybindingSortId = "2372",
@@ -59865,8 +59867,9 @@ return {
 							'Tag', "<mobile_move_ap>",
 						}),
 						PlaceObj('PresetParamNumber', {
-							'Name', "cooldown",
-							'Tag', "<cooldown>",
+							'Name', "recharge_on_kill",
+							'Value', 1,
+							'Tag', "<recharge_on_kill>",
 						}),
 						PlaceObj('PresetParamNumber', {
 							'Name', "mobile_num_shots",
@@ -59890,6 +59893,107 @@ return {
 					end,
 					group = "WeaponAttacks",
 					id = "RunAndGun",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionCamera = true,
+					ActionPointDelta = 2000,
+					ActionPoints = 6000,
+					ActionType = "Ranged Attack",
+					AimType = "mobile",
+					CostBasedOnWeapon = true,
+					Description = T(423077222090, --[[ModItemCombatAction RunAndGun_Carbine Description]] "<em>Один раз за ход</em>.\nПереход на новую позицию, в процессе которого вы выпускаете до <em><num_shots> коротких очередей</em> по ближайшим целям. "),
+					DisplayName = T(455062954204, --[[ModItemCombatAction RunAndGun_Carbine DisplayName]] "Стрельба на бегу"),
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						if not weapon then return 0 end
+						local damage = unit:GetBaseDamage(weapon)
+						local num_shots = self:ResolveValue("mobile_num_shots")
+						return damage, damage / num_shots, 0
+					end,
+					GetActionDescription = function (self, units)
+						local description = self.Description
+						local unit = units and units[1]
+						if not unit then
+							return self:GetActionDisplayName()
+						end
+						
+						local damage, base, bonus = self:GetActionDamage(unit)
+						local num_shots = self:ResolveValue("mobile_num_shots")
+						local penalty = Presets.ChanceToHitModifier.Default.RunAndGun:ResolveValue("Penalty")
+						description = T{description, damage = damage, basedamage = base, bonusdamage = bonus, num_shots = num_shots, penalty = penalty}
+						
+						if unit.stance ~= "Standing" then
+							description = description .. T(801805830695, "<newline>You will end up in Standing stance.")
+						end
+						
+						return description
+					end,
+					GetActionResults = function (self, unit, args)
+						local weapon = self:GetAttackWeapons(unit)
+						args.attack_id = "BurstFire"		
+						args.num_shots = weapon and weapon:GetAutofireShots("BurstFire") or CombatActions.BurstFire:ResolveValue("num_shots")
+						args.multishot = true
+						return GetMobileShotResults(self, unit, args)
+					end,
+					GetAnyTarget = function (self, units)
+						return self:GetTargets(units)[1]
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						if args and args.weapon then return args.weapon end
+						local weapon = unit:GetActiveWeapons("Firearm")
+						return weapon -- make sure to return only 1 weapon, the attack doesn't use 2
+					end,
+					GetTargets = function (self, units)
+						local unit = units[1]
+						if unit then	
+							return GetEnemies(unit)
+						end
+						return {}
+					end,
+					GetUIState = function (self, units, args)
+						if not g_Combat then
+							return "disabled", AttackDisableReasons.CombatOnly
+						end
+						return CombatActionGenericAttackGetUIState(self, units, args)
+					end,
+					Icon = "Mod/e6L4ECj/Perks/RunNGun.png",
+					IdDefault = "RunAndGun_Carbinedefault",
+					IsAimableAttack = false,
+					KeybindingSortId = "2372",
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "mobile_move_ap",
+							'Value', 8,
+							'Tag', "<mobile_move_ap>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "recharge_on_kill",
+							'Value', 1,
+							'Tag', "<recharge_on_kill>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "mobile_num_shots",
+							'Value', 2,
+							'Tag', "<mobile_num_shots>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "num_shots",
+							'Value', 9,
+							'Tag', "<num_shots>",
+						}),
+					},
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("RunAndGun", self.id, ap, ...)
+					end,
+					SortKey = 2,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatMovingAttack")
+					end,
+					group = "WeaponAttacks",
+					id = "RunAndGun_Carbine",
 				}),
 				PlaceObj('ModItemCombatAction', {
 					ActionCamera = true,
@@ -60864,6 +60968,148 @@ return {
 					group = "WeaponAttacks",
 					id = "PinDown",
 				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "JAZZ_Perks_Fire",
+			}, {
+				PlaceObj('ModItemCombatAction', {
+					ActionCamera = true,
+					ActionPointDelta = 1000,
+					ActionPoints = 3000,
+					ActionType = "Ranged Attack",
+					AimType = "line",
+					Comment = "-> Attack FiringMode",
+					ConfigurableKeybind = false,
+					CostBasedOnWeapon = true,
+					Description = T(684956692325, --[[ModItemCombatAction JAZZ_Fanning Description]] "<color EmStyle>Один раз в ход.</color>.\nВыстрел <color EmStyle><num> патронами</color> по цели. Точность снижается под влиянием отдачи"),
+					DisplayName = T(701429996300, --[[ModItemCombatAction JAZZ_Fanning DisplayName]] "Фэннинг"),
+					DisplayNameShort = T(554267744489, --[[ModItemCombatAction JAZZ_Fanning DisplayNameShort]] "Фэннинг"),
+					Execute = function (self, units, args)
+						local unit = units[1]
+						local weapon = self:GetAttackWeapons(unit, args)
+						local num_shots =  self:ResolveValue("num_shots")
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
+						args.multishot = true
+						local ap = self:GetAPCost(unit, args)
+						NetStartCombatAction(self.id, unit, ap, args)
+					end,
+					GetAPCost = function (self, unit, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						if not weapon then
+							return -1
+						end
+						return unit:GetAttackAPCost(self, weapon, false, args and args.aim or 0, self.ActionPointDelta) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						if not weapon then return 0 end
+						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
+						local num_shots = weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
+						base = MulDivRound(base, Max(0, 100), 100)
+						local damage = num_shots*base
+						return damage, base, damage - base
+					end,
+					GetActionDescription = function (self, units)
+						local description = self.Description
+						local unit = units and units[1]
+						if not unit then
+							return self:GetActionDisplayName()
+						end
+						local weapon = self:GetAttackWeapons(unit)
+						
+						
+						
+						local damage, base, bonus = self:GetActionDamage(unit)
+						local num_shots = weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
+						local descr = T{description, num = num_shots, damage = base}
+						return CombatActionsAppendFreeAimDescription(self, unit, descr)
+					end,
+					GetActionDisplayName = function (self, units)
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return name
+					end,
+					GetActionIcon = function (self, units)
+						return self.Icon
+					end,
+					GetActionResults = function (self, unit, args)
+						local args = table.copy(args)
+						args.weapon = self:GetAttackWeapons(unit, args)
+						args.num_shots = args.num_shots or args.weapon and args.weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								args.num_shots = MulDivRound(args.num_shots,150,100)
+							end
+						args.multishot = true
+						args.cth_loss_per_shot = self:ResolveValue("cth_loss_per_shot")
+						--if HasPerk(unit, "AutoWeapons") then args.shots_before_recoil = 1 else args.shots_before_recoil = 0 end
+						local attack_args = unit:PrepareAttackArgs(self.id, args)
+						local results = attack_args.weapon:GetAttackResults(self, attack_args)
+						return results, attack_args
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						if args and args.weapon then return args.weapon end
+						local weapon, _, list = unit:GetActiveWeapons("Firearm")
+						return weapon
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local weapon = self:GetAttackWeapons(unit, args)
+						local num_shots = self:ResolveValue("num_shots")
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
+						if not weapon.ammo or weapon.ammo.Amount < 1 then
+							return "disabled", AttackDisableReasons.InsufficientAmmo
+						end
+						
+						return CombatActionGenericAttackGetUIState(self, units, args)
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Fanning.png",
+					IconFiringMode = "UI/Hud/fm_burst_fire",
+					IdDefault = "JAZZ_Fanningdefault",
+					IsAimableAttack = false,
+					IsTargetableAttack = true,
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "num_shots",
+							'Value', 3,
+							'Tag', "<num_shots>",
+						}),
+						PlaceObj('PresetParamPercent', {
+							'Name', "cth_loss_per_shot",
+							'Value', 20,
+							'Tag', "<cth_loss_per_shot>%",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "cooldown",
+							'Tag', "<cooldown>",
+						}),
+					},
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("FirearmAttack", self.id, ap, ...)
+					end,
+					SortKey = 2,
+					StealthAttack = true,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAttack")
+					end,
+					basicAttack = true,
+					group = "WeaponAttacks",
+					id = "JAZZ_Fanning",
+				}),
 				PlaceObj('ModItemCombatAction', {
 					ActionCamera = true,
 					ActionPointDelta = 2000,
@@ -60871,9 +61117,326 @@ return {
 					AimType = "line",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(864948067398, --[[ModItemCombatAction PistolPerk_Mozambique Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nДва выстрела в тело, один в голову. "),
-					DisplayName = T(696629111160, --[[ModItemCombatAction PistolPerk_Mozambique DisplayName]] "Мозамбик"),
-					DisplayNameShort = T(466948292860, --[[ModItemCombatAction PistolPerk_Mozambique DisplayNameShort]] "Мозамбик"),
+					Description = T(864948067398, --[[ModItemCombatAction JAZZ_Bullseye Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nВыстрел в голову с +100% шансом крита\nИгнорирует броню "),
+					DisplayName = T(696629111160, --[[ModItemCombatAction JAZZ_Bullseye DisplayName]] "В Яблочко"),
+					DisplayNameShort = T(466948292860, --[[ModItemCombatAction JAZZ_Bullseye DisplayNameShort]] "В Яблочко"),
+					GetAPCost = function (self, unit, args)
+						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
+						if unit:OutOfAmmo(weapon2) or unit:IsWeaponJammed(weapon2) then
+							weapon2 = nil
+						end
+						if weapon1 and weapon2 then
+							return -1
+						end
+						if not weapon1 then return -1 end
+						return unit:GetAttackAPCost(self, weapon1, false, args and args.aim or 0, self.ActionPointDelta) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						if not weapon then return 0 end
+						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
+						local num_shots = 1
+						local damage = num_shots*base
+						return damage, base, damage - base
+					end,
+					GetActionDescription = function (self, units)
+						local unit = units[1]
+						local weapon = self:GetAttackWeapons(unit)
+						local damage = unit and unit:GetBaseDamage(weapon)
+						return T{self.Description, damage = damage}
+					end,
+					GetActionDisplayName = function (self, units)
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return name
+					end,
+					GetActionResults = function (self, unit, args)
+						args.anim_speed_mod = self:ResolveValue("anim_speed_mod")
+						args.critchance = 100
+						local attack_args = unit:PrepareAttackArgs(self.id, args)
+						local results = attack_args.weapon:GetAttackResults(self, attack_args)
+						return results, attack_args
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						if args and args.weapon then return args.weapon end
+						local w1 = unit:GetActiveWeapons("Firearm", "HeavyWeapon")
+						return w1
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local weapon = self:GetAttackWeapons(unit, args)
+						local unit = units[1]
+						if not IsKindOf(weapon, "Revolver") then
+							return "hidden"
+						end
+						return CombatActionGenericAttackGetUIState(self, units, args)
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Bullseye.png",
+					IdDefault = "JAZZ_Bullseyedefault",
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "recharge_on_kill",
+							'Value', 1,
+							'Tag', "<recharge_on_kill>",
+						}),
+					},
+					RequireState = "any",
+					RequireTargets = true,
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("Bullseye", self.id, ap, ...)
+					end,
+					SortKey = 4,
+					StealthAttack = true,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAttack")
+					end,
+					critchance = 100,
+					group = "WeaponAttacks",
+					id = "JAZZ_Bullseye",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionPointDelta = 2000,
+					ActionPoints = 8000,
+					ActionType = "Ranged Attack",
+					AimType = "line",
+					Comment = "-> Attack FiringMode",
+					ConfigurableKeybind = false,
+					CostBasedOnWeapon = true,
+					Description = T(520867907852, --[[ModItemCombatAction JAZZ_SmgStorm Description]] "<color EmStyle>Один раз в ход.</color>.\nСтрельба длинной очередью из <color EmStyle><bullets> патронов</color> с увеличенным подавлением, но более низкой точностью. Точность снижается под влиянием отдачи"),
+					DisplayName = T(918161184141, --[[ModItemCombatAction JAZZ_SmgStorm DisplayName]] "Шквал"),
+					DisplayNameShort = T(699280021986, --[[ModItemCombatAction JAZZ_SmgStorm DisplayNameShort]] "Шквал"),
+					Execute = function (self, units, args)
+						local unit = units[1]
+						args.multishot = true
+						local weapon = self:GetAttackWeapons(unit, args)
+						local num_shots =  weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
+						local ap = self:GetAPCost(unit, args)
+						NetStartCombatAction(self.id, unit, ap, args)
+					end,
+					GetAPCost = function (self, unit, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						if not weapon then
+							return -1
+						end
+						return unit:GetAttackAPCost(self, weapon, false, args and args.aim or 0, self.ActionPointDelta) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						if not weapon then return 0 end
+						local base = unit:GetBaseDamage(weapon)
+						local penalty = self:ResolveValue("dmg_penalty")
+						local num_shots = weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
+						base = MulDivRound(base, Max(0, 100 + penalty), 100)
+						local damage = num_shots*base
+						return damage, base, damage - base
+					end,
+					GetActionDescription = function (self, units)
+						local unit = units[1]
+						local weapon = self:GetAttackWeapons(unit)
+						local damage, base, bonus = self:GetActionDamage(unit)
+						local params = weapon:GetAreaAttackParams("AutoFire")
+						local descr = T{self.Description, damage = base, bullets = weapon:GetAutofireShots(self)}
+						return CombatActionsAppendFreeAimDescription(self, unit, descr)
+					end,
+					GetActionDisplayName = function (self, units)
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						local unit = units[1]
+						return CombatActionsAppendFreeAimActionName(self, unit, name)
+					end,
+					GetActionResults = function (self, unit, args)
+						local args = table.copy(args)
+						args.weapon = self:GetAttackWeapons(unit, args)
+						args.num_shots = args.num_shots or args.weapon and args.weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								args.num_shots = MulDivRound(args.num_shots,150,100)
+							end
+						args.multishot = true
+						args.suppressionbonus = 300
+						args.damage_bonus = self:ResolveValue("dmg_penalty")
+						args.cth_loss_per_shot = args.weapon:GetProperty("Recoil")
+						--if HasPerk(unit, "AutoWeapons") then args.shots_before_recoil = 2 else args.shots_before_recoil = 0 end
+						local attack_args = unit:PrepareAttackArgs(self.id, args)
+						local results = attack_args.weapon:GetAttackResults(self, attack_args)
+						return results, attack_args
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						if args and args.weapon then return args.weapon end
+						local weapon, _, list = unit:GetActiveWeapons("Firearm")
+						return weapon
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local weapon = self:GetAttackWeapons(unit, args)
+						local num_shots = weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+										num_shots = MulDivRound(num_shots,150,100)
+							end
+						if not weapon.ammo or weapon.ammo.Amount < num_shots then
+							return "disabled", AttackDisableReasons.InsufficientAmmo
+						end
+						
+						return CombatActionGenericAttackGetUIState(self, units, args)
+					end,
+					Icon = "Mod/e6L4ECj/Perks/SmgStorm.png",
+					IdDefault = "JAZZ_SmgStormdefault",
+					IsAimableAttack = false,
+					IsTargetableAttack = true,
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamPercent', {
+							'Name', "cth_loss_per_shot",
+							'Tag', "<cth_loss_per_shot>%",
+						}),
+						PlaceObj('PresetParamPercent', {
+							'Name', "dmg_penalty",
+							'Tag', "<dmg_penalty>%",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "num_shots",
+							'Value', 15,
+							'Tag', "<num_shots>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "cooldown",
+							'Tag', "<cooldown>",
+						}),
+					},
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("FirearmAttack", self.id, ap, ...)
+					end,
+					SortKey = 4,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAttack")
+					end,
+					group = "WeaponAttacks",
+					id = "JAZZ_SmgStorm",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionCamera = true,
+					ActionPointDelta = 2000,
+					ActionPoints = 6000,
+					ActionType = "Ranged Attack",
+					AimType = "mobile",
+					CostBasedOnWeapon = true,
+					Description = T(154889571623, --[[ModItemCombatAction JAZZ_RunAndSMGStorm Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию, в процессе которого вы выпускаете до <em><num_shots> шквалов</em> по ближайшим целям. "),
+					DisplayName = T(621916692056, --[[ModItemCombatAction JAZZ_RunAndSMGStorm DisplayName]] "Шквал на бегу"),
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						if not weapon then return 0 end
+						local damage = unit:GetBaseDamage(weapon)
+						local num_shots = self:ResolveValue("mobile_num_shots") * weapon:GetAutofireShots("JAZZ_SmgStorm")
+						return damage, damage / num_shots, 0
+					end,
+					GetActionDescription = function (self, units)
+						local description = self.Description
+						local unit = units and units[1]
+						if not unit then
+							return self:GetActionDisplayName()
+						end
+						
+						local damage, base, bonus = self:GetActionDamage(unit)
+						local num_shots = self:ResolveValue("mobile_num_shots") 
+						local penalty = Presets.ChanceToHitModifier.Default.RunAndGun:ResolveValue("Penalty")
+						description = T{description, damage = damage, basedamage = base, bonusdamage = bonus, num_shots = num_shots, penalty = penalty}
+						
+						if unit.stance ~= "Standing" then
+							description = description .. T(801805830695, "<newline>You will end up in Standing stance.")
+						end
+						
+						return description
+					end,
+					GetActionResults = function (self, unit, args)
+						local weapon = self:GetAttackWeapons(unit)
+						args.attack_id = "JAZZ_SmgStorm"		
+						args.num_shots = weapon and weapon:GetAutofireShots("JAZZ_SmgStorm") or CombatActions.JAZZ_SmgStorm:ResolveValue("num_shots")
+						args.multishot = true
+						return GetMobileShotResults(self, unit, args)
+					end,
+					GetAnyTarget = function (self, units)
+						return self:GetTargets(units)[1]
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						if args and args.weapon then return args.weapon end
+						local weapon = unit:GetActiveWeapons("Firearm")
+						return weapon -- make sure to return only 1 weapon, the attack doesn't use 2
+					end,
+					GetTargets = function (self, units)
+						local unit = units[1]
+						if unit then	
+							return GetEnemies(unit)
+						end
+						return {}
+					end,
+					GetUIState = function (self, units, args)
+						if not g_Combat then
+							return "disabled", AttackDisableReasons.CombatOnly
+						end
+						return CombatActionGenericAttackGetUIState(self, units, args)
+					end,
+					Icon = "Mod/e6L4ECj/Perks/SmgStormRun.png",
+					IdDefault = "JAZZ_RunAndSMGStormdefault",
+					IsAimableAttack = false,
+					KeybindingSortId = "2372",
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "mobile_move_ap",
+							'Value', 8,
+							'Tag', "<mobile_move_ap>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "recharge_on_kill",
+							'Value', 1,
+							'Tag', "<recharge_on_kill>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "mobile_num_shots",
+							'Value', 2,
+							'Tag', "<mobile_num_shots>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "num_shots",
+							'Value', 9,
+							'Tag', "<num_shots>",
+						}),
+					},
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("RunAndGun", self.id, ap, ...)
+					end,
+					SortKey = 5,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatMovingAttack")
+					end,
+					group = "WeaponAttacks",
+					id = "JAZZ_RunAndSMGStorm",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionCamera = true,
+					ActionPointDelta = 2000,
+					ActionType = "Ranged Attack",
+					AimType = "line",
+					ConfigurableKeybind = false,
+					CostBasedOnWeapon = true,
+					Description = T(864948067398, --[[ModItemCombatAction JAZZ_Mozambique Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nДва выстрела в тело, один в голову. "),
+					DisplayName = T(696629111160, --[[ModItemCombatAction JAZZ_Mozambique DisplayName]] "Мозамбик"),
+					DisplayNameShort = T(466948292860, --[[ModItemCombatAction JAZZ_Mozambique DisplayNameShort]] "Мозамбик"),
 					GetAPCost = function (self, unit, args)
 						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
 						if unit:OutOfAmmo(weapon2) or unit:IsWeaponJammed(weapon2) then
@@ -60890,6 +61453,176 @@ return {
 						if not weapon then return 0 end
 						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
 						local num_shots = 3
+						local damage = num_shots*base
+						return damage, base, damage - base
+					end,
+					GetActionDescription = function (self, units)
+						local unit = units[1]
+						local weapon = self:GetAttackWeapons(unit)
+						local damage = unit and unit:GetBaseDamage(weapon)
+						return T{self.Description, damage = damage}
+					end,
+					GetActionDisplayName = function (self, units)
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return name
+					end,
+					GetActionResults = function (self, unit, args)
+						args.anim_speed_mod = self:ResolveValue("anim_speed_mod")
+						args.critchance = 0
+						local attack_args = unit:PrepareAttackArgs(self.id, args)
+						local results = attack_args.weapon:GetAttackResults(self, attack_args)
+						return results, attack_args
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						if args and args.weapon then return args.weapon end
+						local w1 = unit:GetActiveWeapons("Firearm", "HeavyWeapon")
+						return w1
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local weapon = self:GetAttackWeapons(unit, args)
+						local unit = units[1]
+						if not IsKindOf(weapon, "Pistol") then
+							return "hidden"
+						end
+						return CombatActionGenericAttackGetUIState(self, units, args)
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Mozambique.png",
+					IdDefault = "JAZZ_Mozambiquedefault",
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "recharge_on_kill",
+							'Value', 1,
+							'Tag', "<recharge_on_kill>",
+						}),
+					},
+					RequireState = "any",
+					RequireTargets = true,
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("Mozambique", self.id, ap, ...)
+					end,
+					SortKey = 4,
+					StealthAttack = true,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAttack")
+					end,
+					group = "WeaponAttacks",
+					id = "JAZZ_Mozambique",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionCamera = true,
+					ActionPointDelta = 3000,
+					ActionType = "Ranged Attack",
+					AimType = "line",
+					ConfigurableKeybind = false,
+					CostBasedOnWeapon = true,
+					Description = T(864948067398, --[[ModItemCombatAction JAZZ_Zipper Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nТри коротких очереди Ноги-Пах-Торс"),
+					DisplayName = T(696629111160, --[[ModItemCombatAction JAZZ_Zipper DisplayName]] "Зажимай"),
+					DisplayNameShort = T(466948292860, --[[ModItemCombatAction JAZZ_Zipper DisplayNameShort]] "Зажимай"),
+					GetAPCost = function (self, unit, args)
+						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
+						if unit:OutOfAmmo(weapon2) or unit:IsWeaponJammed(weapon2) then
+							weapon2 = nil
+						end
+						if weapon1 and weapon2 then
+							return -1
+						end
+						if not weapon1 then return -1 end
+						return unit:GetAttackAPCost(self, weapon1, false, args and args.aim or 0, self.ActionPointDelta) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						if not weapon then return 0 end
+						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
+						local num_shots = weapon:GetAutofireShots("JAZZ_Zipper")
+						local damage = num_shots*base
+						return damage, base, damage - base
+					end,
+					GetActionDescription = function (self, units)
+						local unit = units[1]
+						local weapon = self:GetAttackWeapons(unit)
+						local damage = unit and unit:GetBaseDamage(weapon)
+						return T{self.Description, damage = damage}
+					end,
+					GetActionDisplayName = function (self, units)
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return name
+					end,
+					GetActionResults = function (self, unit, args)
+						args.anim_speed_mod = self:ResolveValue("anim_speed_mod")
+						args.critchance = 0
+						local attack_args = unit:PrepareAttackArgs(self.id, args)
+						local results = attack_args.weapon:GetAttackResults(self, attack_args)
+						return results, attack_args
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						if args and args.weapon then return args.weapon end
+						local w1 = unit:GetActiveWeapons("Firearm", "HeavyWeapon")
+						return w1
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local weapon = self:GetAttackWeapons(unit, args)
+						local unit = units[1]
+						return CombatActionGenericAttackGetUIState(self, units, args)
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Zipper.png",
+					IdDefault = "JAZZ_Zipperdefault",
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "recharge_on_kill",
+							'Value', 1,
+							'Tag', "<recharge_on_kill>",
+						}),
+					},
+					RequireState = "any",
+					RequireTargets = true,
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("Zipper", "BurstFire", ap, ...)
+					end,
+					SortKey = 4,
+					StealthAttack = true,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAttack")
+					end,
+					group = "WeaponAttacks",
+					id = "JAZZ_Zipper",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionCamera = true,
+					ActionType = "Ranged Attack",
+					AimType = "line",
+					ConfigurableKeybind = false,
+					CostBasedOnWeapon = true,
+					Description = T(864948067398, --[[ModItemCombatAction JAZZ_DoubleTap Description]] "<color EmStyle>Один раз в ход.</color>.\nДва быстрых выстрела"),
+					DisplayName = T(696629111160, --[[ModItemCombatAction JAZZ_DoubleTap DisplayName]] "Двоечка"),
+					DisplayNameShort = T(466948292860, --[[ModItemCombatAction JAZZ_DoubleTap DisplayNameShort]] "Двоечка"),
+					GetAPCost = function (self, unit, args)
+						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
+						if unit:OutOfAmmo(weapon2) or unit:IsWeaponJammed(weapon2) then
+							weapon2 = nil
+						end
+						if weapon1 and weapon2 then
+							return -1
+						end
+						if not weapon1 then return -1 end
+						return unit:GetAttackAPCost(self, weapon1, false, args and args.aim or 0, self.ActionPointDelta) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						if not weapon then return 0 end
+						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
+						local num_shots = 2
 						local damage = num_shots*base
 						return damage, base, damage - base
 					end,
@@ -60926,26 +61659,22 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/MozambiquePerk.png",
-					IdDefault = "PistolPerk_Mozambiquedefault",
+					Icon = "Mod/e6L4ECj/Perks/DoubleTap.png",
+					IdDefault = "JAZZ_DoubleTapdefault",
+					IsAimableAttack = false,
+					IsTargetableAttack = true,
 					MultiSelectBehavior = "first",
 					Parameters = {
 						PlaceObj('PresetParamNumber', {
-							'Name', "recharge_on_kill",
-							'Value', 1,
-							'Tag', "<recharge_on_kill>",
-						}),
-						PlaceObj('PresetParamNumber', {
-							'Name', "anim_speed_mod",
-							'Value', 100000,
-							'Tag', "<anim_speed_mod>",
+							'Name', "cooldown",
+							'Tag', "<cooldown>",
 						}),
 					},
 					RequireState = "any",
 					RequireTargets = true,
 					RequireWeapon = true,
 					Run = function (self, unit, ap, ...)
-						unit:SetActionCommand("Mozambique", self.id, ap, ...)
+						unit:SetActionCommand("DoubleTap", self.id, ap, ...)
 					end,
 					SortKey = 4,
 					StealthAttack = true,
@@ -60953,22 +61682,108 @@ return {
 						CombatActionAttackStart(self, units, args, "IModeCombatAttack")
 					end,
 					group = "WeaponAttacks",
-					id = "PistolPerk_Mozambique",
+					id = "JAZZ_DoubleTap",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionCamera = true,
+					ActionPointDelta = 3000,
+					ActionType = "Ranged Attack",
+					AimType = "line",
+					ConfigurableKeybind = false,
+					CostBasedOnWeapon = true,
+					Description = T(864948067398, --[[ModItemCombatAction JAZZ_Salvo Description]] "<color EmStyle>Один раз в ход.</color>.\nДва выстрела в тело"),
+					DisplayName = T(696629111160, --[[ModItemCombatAction JAZZ_Salvo DisplayName]] "Залп"),
+					DisplayNameShort = T(466948292860, --[[ModItemCombatAction JAZZ_Salvo DisplayNameShort]] "Залп"),
+					GetAPCost = function (self, unit, args)
+						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
+						if unit:OutOfAmmo(weapon2) or unit:IsWeaponJammed(weapon2) then
+							weapon2 = nil
+						end
+						if weapon1 and weapon2 then
+							return -1
+						end
+						if not weapon1 then return -1 end
+						return unit:GetAttackAPCost(self, weapon1, false, args and args.aim or 0, self.ActionPointDelta) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						if not weapon then return 0 end
+						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
+						local num_shots = 2
+						local damage = num_shots*base
+						return damage, base, damage - base
+					end,
+					GetActionDescription = function (self, units)
+						local unit = units[1]
+						local weapon = self:GetAttackWeapons(unit)
+						local damage = unit and unit:GetBaseDamage(weapon)
+						return T{self.Description, damage = damage}
+					end,
+					GetActionDisplayName = function (self, units)
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return name
+					end,
+					GetActionResults = function (self, unit, args)
+						args.anim_speed_mod = self:ResolveValue("anim_speed_mod")
+						local attack_args = unit:PrepareAttackArgs(self.id, args)
+						local results = attack_args.weapon:GetAttackResults(self, attack_args)
+						return results, attack_args
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						if args and args.weapon then return args.weapon end
+						local w1 = unit:GetActiveWeapons("Firearm", "HeavyWeapon")
+						return w1
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local weapon = self:GetAttackWeapons(unit, args)
+						local unit = units[1]
+						if not IsKindOf(weapon, "Pistol") then
+							return "hidden"
+						end
+						return CombatActionGenericAttackGetUIState(self, units, args)
+					end,
+					Icon = "Mod/e6L4ECj/Perks/DoubleTap.png",
+					IdDefault = "JAZZ_Salvodefault",
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "cooldown",
+							'Tag', "<cooldown>",
+						}),
+					},
+					RequireState = "any",
+					RequireTargets = true,
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("DoubleTap", self.id, ap, ...)
+					end,
+					SortKey = 4,
+					StealthAttack = true,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAttack")
+					end,
+					group = "WeaponAttacks",
+					id = "JAZZ_Salvo",
 				}),
 				PlaceObj('ModItemCombatAction', {
 					ActionCamera = true,
 					ActionPointDelta = 2000,
+					ActionPoints = 6000,
 					ActionType = "Ranged Attack",
 					AimType = "mobile",
 					CostBasedOnWeapon = true,
-					Description = T(799980728478, --[[ModItemCombatAction PistolPerk_TrickShotRun Description]] "<color EmStyle>Один раз за ход</color>.\nВыстрел, снимающий наблюдение при попадании, затем перемещение на заданную позицию."),
-					DisplayName = T(615888335880, --[[ModItemCombatAction PistolPerk_TrickShotRun DisplayName]] "Побег с отвлечением"),
+					Description = T(154889571623, --[[ModItemCombatAction JAZZ_ManeuverAR Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nАтака по двум ближайшим целям, затем перебежка."),
+					DisplayName = T(621916692056, --[[ModItemCombatAction JAZZ_ManeuverAR DisplayName]] "Манёвр"),
 					GetActionDamage = function (self, unit, target, args)
-						local rangedAttack = unit:GetDefaultAttackAction("ranged") 
-						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
-						if weapon1 and weapon2 then args.attack_id = "AttackDual" end
-						
-						return rangedAttack:GetActionDamage(unit, target, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						if not weapon then return 0 end
+						local damage = unit:GetBaseDamage(weapon)
+						local num_shots = self:ResolveValue("mobile_num_shots") * weapon:GetAutofireShots("BurstFire")
+						return damage*num_shots, num_shots, 0
 					end,
 					GetActionDescription = function (self, units)
 						local description = self.Description
@@ -60976,50 +61791,39 @@ return {
 						if not unit then
 							return self:GetActionDisplayName()
 						end
-						
+						local weapon = self:GetAttackWeapons(unit)
 						local damage, base, bonus = self:GetActionDamage(unit)
-						return T{description, damage = damage, basedamage = base, bonusdamage = bonus}
+						local num_shots = self:ResolveValue("mobile_num_shots") 
+						local penalty = Presets.ChanceToHitModifier.Default.RunAndGun:ResolveValue("Penalty")
+						description = T{description, damage = damage, basedamage = base, bonusdamage = bonus, num_shots = num_shots, penalty = penalty}
+						
+						if unit.stance ~= "Standing" then
+							description = description .. T(801805830695, "<newline>You will end up in Standing stance.")
+						end
+						
+						return description
 					end,
 					GetActionResults = function (self, unit, args)
-						args.attack_id = "CancelShot"
-						args.applied_status = "CancelShot"
+						local weapon = self:GetAttackWeapons(unit)
+						args.attack_id = "BurstFire"		
+						args.num_shots = weapon and weapon:GetAutofireShots("BurstFire") or CombatActions.BurstFire:ResolveValue("num_shots")
+						args.multishot = true
 						return GetMobileShotResults_StartPos(self, unit, args)
 					end,
 					GetAnyTarget = function (self, units)
-						local attack_id = "CancelShot"
-						local atk_action = CombatActions[attack_id]
-						return CombatActionGetOneAttackableEnemy(atk_action, units and units[1])
+						return self:GetTargets(units)[1]
 					end,
 					GetAttackWeapons = function (self, unit, args)
 						if args and args.weapon then return args.weapon end
 						local weapon = unit:GetActiveWeapons("Firearm")
 						return weapon -- make sure to return only 1 weapon, the attack doesn't use 2
 					end,
-					GetDefaultTarget = function (self, unit)
-						local units = {unit}
-						local targets = self:GetTargets(units)
-						local distance_to_best = 10000*guim
-						local best_eval, best_target, best_prep = 0, false, false
-						
-						for _, target in ipairs(targets or empty_table) do
-							local eval = self:EvalTarget(units, target)
-							local prep = target:HasPreparedAttack()
-							local dist = IsKindOf(target, "Unit") and unit:GetDist(target) or 0
-							if not best_target or (not best_prep and prep) then
-								best_target, best_eval, best_prep, distance_to_best = target, eval, prep, dist
-							elseif best_prep == prep then
-								if eval > best_eval or (eval == best_eval and dist < distance_to_best) then
-									best_target, best_eval, best_prep, distance_to_best = target, eval, prep, dist
-								end
-							end
-						end
-						
-						return best_target, best_eval
-					end,
 					GetTargets = function (self, units)
-						local attack_id = "CancelShot"
-						local atk_action = CombatActions[attack_id]
-						return CombatActionGetAttackableEnemies(atk_action, units and units[1])
+						local unit = units[1]
+						if unit then	
+							return GetEnemies(unit)
+						end
+						return {}
 					end,
 					GetUIState = function (self, units, args)
 						if not g_Combat then
@@ -61027,25 +61831,31 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/TrickShotRun.png",
-					IdDefault = "PistolPerk_TrickShotRundefault",
+					Icon = "Mod/e6L4ECj/Perks/MobileShot_Rifle.png",
+					IdDefault = "JAZZ_ManeuverARdefault",
 					IsAimableAttack = false,
-					KeybindingSortId = "2371",
+					KeybindingSortId = "2372",
 					MultiSelectBehavior = "first",
 					Parameters = {
 						PlaceObj('PresetParamNumber', {
 							'Name', "mobile_move_ap",
-							'Value', 9,
+							'Value', 8,
 							'Tag', "<mobile_move_ap>",
 						}),
 						PlaceObj('PresetParamNumber', {
-							'Name', "cooldown",
-							'Tag', "<cooldown>",
+							'Name', "recharge_on_kill",
+							'Value', 1,
+							'Tag', "<recharge_on_kill>",
 						}),
 						PlaceObj('PresetParamNumber', {
 							'Name', "mobile_num_shots",
-							'Value', 1,
+							'Value', 2,
 							'Tag', "<mobile_num_shots>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "num_shots",
+							'Value', 9,
+							'Tag', "<num_shots>",
 						}),
 					},
 					RequireState = "any",
@@ -61053,12 +61863,284 @@ return {
 					Run = function (self, unit, ap, ...)
 						unit:SetActionCommand("ShootThenMove", self.id, ap, ...)
 					end,
-					SortKey = 2,
+					SortKey = 5,
 					UIBegin = function (self, units, args)
 						CombatActionAttackStart(self, units, args, "IModeCombatMovingAttack")
 					end,
 					group = "WeaponAttacks",
-					id = "PistolPerk_TrickShotRun",
+					id = "JAZZ_ManeuverAR",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionCamera = true,
+					ActionPointDelta = 1000,
+					ActionPoints = 3000,
+					ActionType = "Ranged Attack",
+					AimType = "line",
+					Comment = "-> Attack FiringMode",
+					ConfigurableKeybind = false,
+					CostBasedOnWeapon = true,
+					Description = T(684956692325, --[[ModItemCombatAction JAZZ_ControllableBurst Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nКороткая очередь из  <color EmStyle><num> патрон</color>\nПервые два выстрела в очереди без отдачи"),
+					DisplayName = T(701429996300, --[[ModItemCombatAction JAZZ_ControllableBurst DisplayName]] "Контролируемая очередь"),
+					DisplayNameShort = T(554267744489, --[[ModItemCombatAction JAZZ_ControllableBurst DisplayNameShort]] "Контролируемая очередь"),
+					Execute = function (self, units, args)
+						local unit = units[1]
+						local weapon = self:GetAttackWeapons(unit, args)
+						local num_shots =  weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
+						args.multishot = true
+						local ap = self:GetAPCost(unit, args)
+						NetStartCombatAction(self.id, unit, ap, args)
+					end,
+					GetAPCost = function (self, unit, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						if not weapon or not weapon:CanBurstfire() then
+							return -1
+						end
+						return unit:GetAttackAPCost(self, weapon, false, args and args.aim or 0, self.ActionPointDelta) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						if not weapon then return 0 end
+						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
+						local num_shots = weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
+						base = MulDivRound(base, Max(0, 100), 100)
+						local damage = num_shots*base
+						return damage, base, damage - base
+					end,
+					GetActionDescription = function (self, units)
+						local description = self.Description
+						local unit = units and units[1]
+						if not unit then
+							return self:GetActionDisplayName()
+						end
+						local weapon = self:GetAttackWeapons(unit)
+						
+						-- replace description when using Revolver
+						if IsKindOf(weapon, "Revolver") then
+							description = CombatActions.Fanning.Description
+						end
+						
+						local damage, base, bonus = self:GetActionDamage(unit)
+						local num_shots = weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
+						local descr = T{description, num = num_shots, damage = base}
+						return CombatActionsAppendFreeAimDescription(self, unit, descr)
+					end,
+					GetActionDisplayName = function (self, units)
+						local name = self.DisplayName
+						
+						-- replace name when using Revolver
+						local unit = units and units[1]
+						if unit then
+							local weapon = self:GetAttackWeapons(unit)
+							if IsKindOf(weapon, "Revolver") then
+								name = CombatActions.Fanning.DisplayName
+							end
+						end
+						
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						return CombatActionsAppendFreeAimActionName(self, unit, name)
+					end,
+					GetActionIcon = function (self, units)
+						-- replace icon when using Revolver
+						local unit = units and units[1]
+						if unit then
+							local weapon = self:GetAttackWeapons(unit)
+							if IsKindOf(weapon, "Revolver") then
+								return CombatActions.Fanning.Icon
+							end
+						end
+						return self.Icon
+					end,
+					GetActionResults = function (self, unit, args)
+						local args = table.copy(args)
+						args.weapon = self:GetAttackWeapons(unit, args)
+						args.num_shots = args.num_shots or args.weapon and args.weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								args.num_shots = MulDivRound(args.num_shots,150,100)
+							end
+						args.multishot = true
+						args.cth_loss_per_shot = args.weapon:GetProperty("Recoil")
+						args.shots_before_recoil = 1
+						--if HasPerk(unit, "AutoWeapons") then args.shots_before_recoil = 1 else args.shots_before_recoil = 0 end
+						local attack_args = unit:PrepareAttackArgs(self.id, args)
+						local results = attack_args.weapon:GetAttackResults(self, attack_args)
+						return results, attack_args
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						if args and args.weapon then return args.weapon end
+						local weapon, _, list = unit:GetActiveWeapons("Firearm")
+						return weapon
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local weapon = self:GetAttackWeapons(unit, args)
+						local num_shots = weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
+						if not weapon.ammo or weapon.ammo.Amount < 1 then
+							return "disabled", AttackDisableReasons.InsufficientAmmo
+						end
+						
+						return CombatActionGenericAttackGetUIState(self, units, args)
+					end,
+					Icon = "Mod/e6L4ECj/Perks/ControlledBurst.png",
+					IconFiringMode = "UI/Hud/fm_burst_fire",
+					IdDefault = "JAZZ_ControllableBurstdefault",
+					IsTargetableAttack = true,
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "num_shots",
+							'Value', 3,
+							'Tag', "<num_shots>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "recharge_on_kill",
+							'Value', 1,
+							'Tag', "<recharge_on_kill>",
+						}),
+					},
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("FirearmAttack", self.id, ap, ...)
+					end,
+					SortKey = 2,
+					StealthAttack = true,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAttack")
+					end,
+					group = "WeaponAttacks",
+					id = "JAZZ_ControllableBurst",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionPointDelta = 4000,
+					ActionPoints = 8000,
+					ActionType = "Ranged Attack",
+					AimType = "line",
+					Comment = "-> Attack FiringMode",
+					ConfigurableKeybind = false,
+					CostBasedOnWeapon = true,
+					Description = T(520867907852, --[[ModItemCombatAction JAZZ_LargeAutoFire Description]] "Стрельба двойной длинной очередью из <color EmStyle><bullets> патронов</color>. \nУвеличен эффект подавления."),
+					DisplayName = T(918161184141, --[[ModItemCombatAction JAZZ_LargeAutoFire DisplayName]] "Двойная длинная очередь"),
+					DisplayNameShort = T(699280021986, --[[ModItemCombatAction JAZZ_LargeAutoFire DisplayNameShort]] "Двойная длинная очередь"),
+					Execute = function (self, units, args)
+						local unit = units[1]
+						args.multishot = true
+						local weapon = self:GetAttackWeapons(unit, args)
+						local num_shots =  weapon:GetAutofireShots(self) 
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
+						local ap = self:GetAPCost(unit, args)
+						NetStartCombatAction(self.id, unit, ap, args)
+					end,
+					GetAPCost = function (self, unit, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						if not weapon or not weapon:CanAutofire() then
+							return -1
+						end
+						return unit:GetAttackAPCost(self, weapon, false, args and args.aim or 0, self.ActionPointDelta) or -1
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						if not weapon then return 0 end
+						local base = unit:GetBaseDamage(weapon)
+						local num_shots = weapon:GetAutofireShots("AutoFire") * 2
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
+						base = MulDivRound(base, Max(0, 100), 100)
+						local damage = num_shots*base
+						return damage, base, damage - base
+					end,
+					GetActionDescription = function (self, units)
+						local unit = units[1]
+						local weapon = self:GetAttackWeapons(unit)
+						local damage, base, bonus = self:GetActionDamage(unit)
+						local params = weapon:GetAreaAttackParams("AutoFire")
+						local descr = T{self.Description, damage = base, bullets = weapon:GetAutofireShots(self)}
+						return CombatActionsAppendFreeAimDescription(self, unit, descr)
+					end,
+					GetActionDisplayName = function (self, units)
+						local name = self.DisplayName
+						if (name or "") == "" then
+							name = Untranslated(self.id)
+						end
+						local unit = units[1]
+						return CombatActionsAppendFreeAimActionName(self, unit, name)
+					end,
+					GetActionResults = function (self, unit, args)
+						local args = table.copy(args)
+						args.weapon = self:GetAttackWeapons(unit, args)
+						args.num_shots = args.num_shots or args.weapon and args.weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								args.num_shots = MulDivRound(args.num_shots,150,100)
+							end
+						args.multishot = true
+						args.suppressionbonus = 500
+						args.cth_loss_per_shot = args.weapon:GetProperty("Recoil")
+						--if HasPerk(unit, "AutoWeapons") then args.shots_before_recoil = 2 else args.shots_before_recoil = 0 end
+						local attack_args = unit:PrepareAttackArgs(self.id, args)
+						local results = attack_args.weapon:GetAttackResults(self, attack_args)
+						return results, attack_args
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						if args and args.weapon then return args.weapon end
+						local weapon, _, list = unit:GetActiveWeapons("Firearm")
+						return weapon
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local weapon = self:GetAttackWeapons(unit, args)
+						local num_shots = weapon:GetAutofireShots(self) 
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+										num_shots = MulDivRound(num_shots,150,100)
+							end
+						if not weapon.ammo or weapon.ammo.Amount < num_shots then
+							return "disabled", AttackDisableReasons.InsufficientAmmo
+						end
+						
+						return CombatActionGenericAttackGetUIState(self, units, args)
+					end,
+					Icon = "Mod/e6L4ECj/Perks/LongestBurst.png",
+					IconFiringMode = "UI/Hud/fm_autoshot",
+					IdDefault = "JAZZ_LargeAutoFiredefault",
+					IsAimableAttack = false,
+					IsTargetableAttack = true,
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamPercent', {
+							'Name', "cth_loss_per_shot",
+							'Tag', "<cth_loss_per_shot>%",
+						}),
+						PlaceObj('PresetParamPercent', {
+							'Name', "dmg_penalty",
+							'Tag', "<dmg_penalty>%",
+						}),
+					},
+					RequireState = "any",
+					RequireWeapon = true,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("FirearmAttack", self.id, ap, ...)
+					end,
+					SortKey = 4,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAttack")
+					end,
+					group = "WeaponAttacks",
+					id = "JAZZ_LargeAutoFire",
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -67314,7 +68396,7 @@ return {
 			}),
 			PlaceObj('ModItemChanceToHitModifier', {
 				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
-					if action.id ~= "testPistolPerk_Mozambique" then
+					if action.id ~= "JAZZ_Mozambique" then
 						return false, 0
 					end
 					return true, self:ResolveValue("Bonus")
@@ -67322,13 +68404,49 @@ return {
 				Parameters = {
 					PlaceObj('PresetParamNumber', {
 						'Name', "Bonus",
-						'Value', -20,
+						'Value', -10,
 						'Tag', "<Bonus>",
 					}),
 				},
 				display_name = T(204842611158, --[[ModItemChanceToHitModifier Default WeaponPistol_Mozambique display_name]] "Мозамбик"),
 				group = "Default",
 				id = "WeaponPistol_Mozambique",
+			}),
+			PlaceObj('ModItemChanceToHitModifier', {
+				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
+					if action.id ~= "JAZZ_DoubleTap" then
+						return false, 0
+					end
+					return true, self:ResolveValue("Bonus")
+				end,
+				Parameters = {
+					PlaceObj('PresetParamNumber', {
+						'Name', "Bonus",
+						'Value', -30,
+						'Tag', "<Bonus>",
+					}),
+				},
+				display_name = T(204842611158, --[[ModItemChanceToHitModifier Default WeaponPistol_DoubleTap display_name]] "Двоечка"),
+				group = "Default",
+				id = "WeaponPistol_DoubleTap",
+			}),
+			PlaceObj('ModItemChanceToHitModifier', {
+				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
+					if action.id ~= "JAZZ_SmgStorm" then
+						return false, 0
+					end
+					return true, self:ResolveValue("Bonus")
+				end,
+				Parameters = {
+					PlaceObj('PresetParamNumber', {
+						'Name', "Bonus",
+						'Value', -30,
+						'Tag', "<Bonus>",
+					}),
+				},
+				display_name = T(204842611158, --[[ModItemChanceToHitModifier Default WeaponAutoPistol_SmgStorm display_name]] "Шквал"),
+				group = "Default",
+				id = "WeaponAutoPistol_SmgStorm",
 			}),
 			}),
 		PlaceObj('ModItemFolder', {

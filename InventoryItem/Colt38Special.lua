@@ -49,8 +49,8 @@ DefineClass.Colt38Special = {
 	AvailableAttacks = {
 		"SingleShot",
 		"DualShot",
-		"CancelShot",
-		"MobileShot",
+		"JAZZ_Fanning",
+		"JAZZ_Bullseye",
 	},
 	ShootAP = 3000,
 	ReloadAP = 5000,

@@ -67,7 +67,7 @@ DefineClass.VSS = {
 	AvailableAttacks = {
 		"SingleShot",
 		"BurstFire",
-		"CancelShot",
+		"RunAndGun_Carbine",
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,

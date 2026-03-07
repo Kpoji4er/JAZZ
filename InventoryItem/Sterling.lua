@@ -47,7 +47,7 @@ DefineClass.Sterling = {
 		"AutoFire",
 		"SingleShot",
 		"RunAndGun",
-		"CancelShot",
+		"JAZZ_Zipper",
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,

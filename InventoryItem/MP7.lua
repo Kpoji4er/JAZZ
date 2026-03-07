@@ -1,19 +1,20 @@
 UndefineClass('MP7')
 DefineClass.MP7 = {
-	__parents = { "CompactSubmachineGun" },
+	__parents = { "SubmachineGun" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 3-2",
-	object_class = "CompactSubmachineGun",
+	object_class = "SubmachineGun",
 	ScrapParts = 10,
 	RepairCost = 18,
 	Reliability = 80,
-	Icon = "Mod/e6L4ECj/WeaponIcons/MP7.png",
+	Icon = "Mod/e6L4ECj/WeaponIcons/MP72.png",
 	DisplayName = T(584704183227, --[[ModItemInventoryItemCompositeDef MP7 DisplayName]] "MP7"),
 	DisplayNamePlural = T(150579573516, --[[ModItemInventoryItemCompositeDef MP7 DisplayNamePlural]] "MP7"),
 	Description = T(174939633208, --[[ModItemInventoryItemCompositeDef MP7 Description]] "Прямой конкурент бельгийского P90 за звание главного PDWаста в блоке НАТО. Внутри устроен как настоящая большая винтовка, что дает неплохую мощность при использовании патронов малого калибра. "),
-	AdditionalHint = T(142265159773, --[[ModItemInventoryItemCompositeDef MP7 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Топовый\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноручный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Складной приклад\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный"),
+	AdditionalHint = T(142265159773, --[[ModItemInventoryItemCompositeDef MP7 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Топовый\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Больше не одноручный (по просьбе Ливси)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Складной приклад\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный"),
+	LargeItem = 1,
 	UnitStat = "Marksmanship",
 	Valuable = 1,
 	Cost = 30000,
@@ -30,6 +31,7 @@ DefineClass.MP7 = {
 	WeaponRange = 26,
 	OverwatchAngle = 4680,
 	Noise = 32,
+	HandSlot = "TwoHanded",
 	Entity = "MP7",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
@@ -77,8 +79,7 @@ DefineClass.MP7 = {
 		"AutoFire",
 		"SingleShot",
 		"RunAndGun",
-		"CancelShot",
-		"DualShot",
+		"JAZZ_Zipper",
 	},
 	ShootAP = 4000,
 	ReloadAP = 5000,

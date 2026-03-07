@@ -88,7 +88,7 @@ DefineClass.CAR15 = {
 		"BurstFire",
 		"SingleShot",
 		"AutoFire",
-		"RunAndGun",
+		"RunAndGun_Carbine",
 	},
 	ShootAP = 4000,
 	ReloadAP = 5000,

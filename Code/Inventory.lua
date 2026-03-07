@@ -28,29 +28,7 @@ function Inventory:CanAddItem(slot_name, item, left, top, local_changes)
 	if slot_name == "ArmorPlate" and not self:GetItemInSlot("Torso") then return false, "No torso item" end
 	if slot_name == "ArmorPlate" and self:GetItemInSlot("Torso") and not canholdplate then return false, "Torse item bloks armor plates" end
 	if slot_name == "HeadGear" and blockfaceslot then return false, "Head item blocks headgear slot" end
-	--print(canholdplate)
 
-
-
-	
-
-    --print(self.Inventory)
-    --if slot_name ~= "InventoryDead" and (not self:GetItemInSlot("Torso") or not self:GetItemInSlot("Torso").CanHoldPlate) and self:GetItemInSlot("ArmorPlate")  then 
-    --    local armorplate = self:GetItemInSlot("ArmorPlate")
-    --    self:RemoveItem("ArmorPlate",armorplate)
-    --    self:AddItem("Inventory",armorplate)
-    --end
---
-	--if slot_name ~= "InventoryDead" and (self:GetItemInSlot("Head") and not self:GetItemInSlot("Head").BlockFaceSlot) and self:GetItemInSlot("HeadGear")  then 
-    --    local HeadGear = self:GetItemInSlot("HeadGear")
-    --    self:RemoveItem("HeadGear",HeadGear)
-    --    self:AddToInventory(HeadGear)
-    --end
-
-
-   -- if slot_name == "Torso" then return false, "full or smaller
-
-	-- if not given left and top find empty space
 	reason = ""
 	local stack = false
 	if left and top then 
@@ -86,18 +64,6 @@ function Inventory:CanAddItem(slot_name, item, left, top, local_changes)
 	end
 	pos = point_pack(left, top)
 
-  --  if slot_name ~= "InventoryDead" and (not self:GetItemInSlot("Torso") or canholdplate == false) and self:GetItemInSlot("ArmorPlate") then 
-  --      local armorplate = self:GetItemInSlot("ArmorPlate")
---		--local slot = self:GetSlotData(slot_name)
---	--	local args = {item = armorplate, dest_container = self, dest_slot = "Inventory"}
---	--	local r, r2 = MoveItem(args)
---		
-  --      self:RemoveItem("ArmorPlate",armorplate)
---		--PlaceInventoryItem(armorplate)
---		--AddItemsToInventory(self, armorplate)
---		self:AddItem("Inventory",armorplate)
---
-  --  end
 
 	return pos, reason
 end

@@ -32,10 +32,9 @@ DefineClass.MAS36 = {
 	ComponentSlots = {},
 	HolsterSlot = "Shoulder",
 	ModifyRightHandGrip = true,
-	PreparedAttackType = "Both",
 	AvailableAttacks = {
 		"SingleShot",
-		"CancelShot",
+		"JAZZ_Salvo",
 	},
 	ShootAP = 8000,
 	ReloadAP = 5000,

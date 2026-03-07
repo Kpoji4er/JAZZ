@@ -2690,3 +2690,50 @@ function ScopeSkillEffPct(mrk)
   local t = mrk - 90 -- 0..10
   return 50 + DivRound(50 * t * t, 100)
 end
+
+
+function Unit:CalcCritChance(weapon, target, action, args, attack_pos)
+	if not IsKindOfClasses(weapon, "Firearm", "MeleeWeapon") then
+		return 0
+	end
+	
+	local target_spot_group = args and args.target_spot_group or g_DefaultShotBodyPart	
+	local aim = args and args.aim or 0
+
+	if IsKindOf(target, "Unit") and not target:IsArmorPiercedBy(weapon, aim, target_spot_group, action) then
+		return 0
+	end
+	local critChance = self:GetBaseCrit(weapon) + (args and args.stealth_bonus_crit_chance or 0)
+	local data = {
+		crit_chance = critChance,
+		action_id = action and action.id,
+		weapon = weapon,
+		aim = aim,
+		opportunity_attack = args and args.opportunity_attack,
+		opportunity_attack_type = args and args.opportunity_attack_type,
+		crit_per_aim = const.Combat.AimCritBonus,
+		stealth_attack = args and args.stealth_attack,
+		target_spot_group = target_spot_group,
+		guaranteed_crit = false,
+		guaranteed_noncrit = false,
+	}
+
+	local actioncritchance = (args and args.critchance or 0) + (action and action.critchance or 0)
+	
+	Msg("GatherCritChanceModifications", self, target, action and action.id, weapon, data)
+	self:CallReactions("OnCalcCritChance", self, target, action, weapon, data)
+	if IsKindOf(target, "Unit") then
+		target:CallReactions("OnCalcCritChance", self, target, action, weapon, data)
+	end
+
+
+	--dbg_action = action
+	
+	if data.guaranteed_noncrit or data.opportunity_attack then return 0 end
+	if data.guaranteed_crit then return 100 end
+
+	local critChance = data.crit_chance + aim * data.crit_per_aim + actioncritchance
+	--print("critChance="..critChance)
+
+	return Clamp(critChance, 0, 100)
+end

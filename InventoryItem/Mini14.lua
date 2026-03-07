@@ -76,8 +76,7 @@ DefineClass.Mini14 = {
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"SingleShot",
-		"CancelShot",
-		"MobileShot",
+		"RunAndGun_Carbine",
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,

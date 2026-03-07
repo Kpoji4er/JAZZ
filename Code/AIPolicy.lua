@@ -39,23 +39,28 @@ function AIActionBasicAttack:PrecalcAction(context, action_state)
 	local unit = context.unit
 	local attack = context.default_attack
 
-	if not attack.target then
-		--print("❌ BasicAttack: No target in default_attack")
-		context.default_attack = context.default_attack_old or context.default_attack 
+	if not attack then
+		context.default_attack = context.default_attack_old or context.default_attack
 		context.default_attack_cost = context.default_attack_cost_old or context.default_attack_cost
 		attack = context.default_attack
 	end
 
-	if not attack or not IsValidTarget(attack.target) then
-		--print("AIActionBasicAttack: invalid target", attack.target)
-
+	if not attack then
 		return
 	end
-	
+
+	local target =
+		context.attack_target or
+		((context.dest_target or empty_table)[context.ai_destination])
+
+	if not IsValidTarget(target) then
+		return
+	end
+
 	local cost = context.default_attack_cost or attack.ap or 0
 	if cost >= 0 and unit:HasAP(cost) then
 		action_state.args = {
-			target = attack.target,
+			target = target,
 			aim = attack.aim or 0,
 			target_spot_group = attack.target_spot_group,
 		}

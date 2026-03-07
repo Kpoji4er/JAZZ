@@ -53,7 +53,7 @@ DefineClass.MAT49 = {
 		"BurstFire",
 		"AutoFire",
 		"RunAndGun",
-		"CancelShot",
+		"JAZZ_Zipper",
 	},
 	ShootAP = 5000,
 	ReloadAP = 5000,

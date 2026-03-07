@@ -62,8 +62,7 @@ DefineClass.DeLisle = {
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {
 		"SingleShot",
-		"CancelShot",
-		"MobileShot",
+		"RunAndGun_Carbine",
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,

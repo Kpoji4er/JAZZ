@@ -39,8 +39,7 @@ DefineClass.SKS = {
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {
 		"SingleShot",
-		"CancelShot",
-		"MobileShot",
+		"JAZZ_Salvo",
 	},
 	ShootAP = 6000,
 	ReloadAP = 5000,

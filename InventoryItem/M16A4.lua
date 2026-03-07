@@ -92,7 +92,9 @@ DefineClass.M16A4 = {
 	AvailableAttacks = {
 		"BurstFire",
 		"SingleShot",
-		"CancelShot",
+		"JAZZ_ManeuverAR",
+		"JAZZ_ControllableBurst",
+		"JAZZ_LargeAutoFire",
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,

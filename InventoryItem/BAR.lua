@@ -47,6 +47,7 @@ DefineClass.BAR = {
 	AvailableAttacks = {
 		"BurstFire",
 		"AutoFire",
+		"JAZZ_ControllableBurst",
 	},
 	ShootAP = 7000,
 	ReloadAP = 8000,

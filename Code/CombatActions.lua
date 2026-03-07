@@ -126,10 +126,10 @@ function GetMobileShotResults_StartPos(action, unit, args)
 	local num_shots = aim_params.num_shots
 
 	local shot_targets = CombatActionGetAttackableEnemies(atk_action, unit)
-	shot_targets[1] =  atk_action.GetDefaultTarget(atk_action, unit)
+	--shot_targets[1] =  atk_action.GetDefaultTarget(atk_action, unit)
+	if not shot_targets[2] then shot_targets[2] = shot_targets[1] end
 
-	print(shot_targets)
-	ttar = shot_targets
+
 
 	for i = 1, num_shots do
 		local target = shot_targets[i]
@@ -255,6 +255,11 @@ function Unit:MoveThenShoot(action_id, cost_ap, args)
 	end
 	local base_idle = self:GetIdleBaseAnim()
 	local shot_threads
+
+		local recharge_on_kill = action:ResolveValue("recharge_on_kill")
+		if recharge_on_kill then
+			self:AddSignatureRechargeTime(action_id, const.Combat.SignatureAbilityRechargeTime, recharge_on_kill > 0)
+		end
 	
 	pathObj:RebuildPaths(self, aim_params.move_ap)
 	path = pathObj:GetCombatPathFromPos(target) -- target = args.goto_pos
@@ -268,7 +273,7 @@ function Unit:MoveThenShoot(action_id, cost_ap, args)
 		
 		NetUpdateHash("MobileShot_1", self, attack.mobile_attack_pos, attack.mobile_attack_target)		
 		if attack.mobile_attack_pos and (not IsValidTarget(attack.mobile_attack_target) or attack.mobile_attack_target:IsIncapacitated()) then
-			local enemies = table.ifilter(action:GetTargets({self}), function(idx, u) return IsValidTarget(u) and not u:IsIncapacitated() end)
+			local enemies = table.ifilter(action:GetTargets({self}), function(idx, u) return IsValidTarget(u) end)
 			NetUpdateHash("MobileShot_Branch_1", self, attack.mobile_attack_pos, #enemies)
 			attack.mobile_attack_target = FindTargetFromPos(action_id, self, action, enemies, point(point_unpack(attack.mobile_attack_pos)), weapon)
 		end
@@ -285,7 +290,7 @@ function Unit:MoveThenShoot(action_id, cost_ap, args)
 
 			-- recheck target, as they might have died while we were moving
 			if not IsValidTarget(attack.mobile_attack_target) or attack.mobile_attack_target:IsIncapacitated() then
-				local enemies = table.ifilter(action:GetTargets({self}), function(idx, u) return IsValidTarget(u) and not u:IsIncapacitated() end)
+				local enemies = table.ifilter(action:GetTargets({self}), function(idx, u) return IsValidTarget(u) end)
 				NetUpdateHash("MobileShotn_Branch_1_1", self, attack.mobile_attack_pos, #enemies)
 				attack.mobile_attack_target = FindTargetFromPos(action_id, self, action, enemies, point(point_unpack(attack.mobile_attack_pos)), weapon)
 				if not IsValidTarget(attack.mobile_attack_target) then
@@ -435,7 +440,7 @@ function Unit:ShootThenMove(action_id, cost_ap, args)
 
 			-- recheck target, as they might have died while we were moving
 			if not IsValidTarget(attack.mobile_attack_target) or attack.mobile_attack_target:IsIncapacitated() then
-				local enemies = table.ifilter(action:GetTargets({self}), function(idx, u) return IsValidTarget(u) and not u:IsIncapacitated() end)
+				local enemies = table.ifilter(action:GetTargets({self}), function(idx, u) return IsValidTarget(u) end)
 				NetUpdateHash("MobileShotn_Branch_1_1", self, attack.mobile_attack_pos, #enemies)
 				attack.mobile_attack_target = FindTargetFromPos(action_id, self, action, enemies, point(point_unpack(attack.mobile_attack_pos)), weapon)
 				if not IsValidTarget(attack.mobile_attack_target) then
@@ -501,6 +506,12 @@ function Unit:ShootThenMove(action_id, cost_ap, args)
 	if shot_threads then
 		Firearm:WaitFiredShots(shot_threads)
 	end	
+
+		local recharge_on_kill = action:ResolveValue("recharge_on_kill")
+		if recharge_on_kill then
+			self:AddSignatureRechargeTime(action_id, const.Combat.SignatureAbilityRechargeTime, recharge_on_kill > 0)
+		end
+
 	self:PopAndCallDestructor() -- pathObj 
 	
 	
@@ -523,8 +534,64 @@ function Unit:Mozambique(action_id, cost_ap, args)
 
     local spot = bodyParts[i]
 	if i == #bodyParts then
-		--args.chance_to_hit = self:CalcChanceToHit(target, self, args) + 40
-		args.critChance = 100
+		args.critchance = 100
+	end
+	
+    args.target_spot_group = spot
+    self:FirearmAttack(action_id, 0, args)
+  end
+
+		local recharge_on_kill = action:ResolveValue("recharge_on_kill")
+		if recharge_on_kill then
+			self:AddSignatureRechargeTime(action_id, const.Combat.SignatureAbilityRechargeTime, recharge_on_kill > 0)
+		end
+end
+
+-- Даблтап - 2 в тело
+function Unit:DoubleTap(action_id, cost_ap, args)
+  local target = args.target
+  if not IsKindOf(target, "Unit") then return end
+
+
+  local action = CombatActions[action_id]
+  local weapon = self:GetActiveWeapons()
+  if not weapon then return end
+
+  local bodyParts = { "Torso", "Torso"}
+
+  for i = 1, #bodyParts do
+    if not self:CanUseWeapon(weapon, 1) then break end
+
+    local spot = bodyParts[i]
+	if i == #bodyParts then
+	end
+	
+    args.target_spot_group = spot
+    self:FirearmAttack(action_id, 0, args)
+  end
+
+  local recharge_on_kill = action:ResolveValue("recharge_on_kill") or 0
+  --self:AddSignatureRechargeTime(action_id, const.Combat.SignatureAbilityRechargeTime, recharge_on_kill > 0)
+end
+
+-- В яблочко - 1 в голову
+function Unit:Bullseye(action_id, cost_ap, args)
+  local target = args.target
+  if not IsKindOf(target, "Unit") then return end
+
+
+  local action = CombatActions[action_id]
+  local weapon = self:GetActiveWeapons()
+  if not weapon then return end
+	action.critchance = 100
+  local bodyParts = { "Head"}
+
+  for i = 1, #bodyParts do
+
+    if not self:CanUseWeapon(weapon, 1) then break end
+
+    local spot = bodyParts[i]
+	if i == #bodyParts then
 	end
 	
     args.target_spot_group = spot
@@ -533,4 +600,278 @@ function Unit:Mozambique(action_id, cost_ap, args)
 
   local recharge_on_kill = action:ResolveValue("recharge_on_kill") or 0
   self:AddSignatureRechargeTime(action_id, const.Combat.SignatureAbilityRechargeTime, recharge_on_kill > 0)
+end
+
+-- Мозамбик - 2 в тело, 1 в голову
+function Unit:Zipper(action_id, cost_ap, args)
+  local target = args.target
+  if not IsKindOf(target, "Unit") then return end
+
+
+  local action = CombatActions[action_id]
+  local weapon = self:GetActiveWeapons()
+  if not weapon then return end
+
+  local bodyParts = { "Legs", "Torso", "Head" }
+
+  for i = 1, #bodyParts do
+    if not self:CanUseWeapon(weapon, 1) then break end
+
+    local spot = bodyParts[i]
+	if i == #bodyParts then
+		args.critchance = 100
+	end
+	
+    args.target_spot_group = spot
+    self:FirearmAttack(action_id, 0, args)
+  end
+
+  local recharge_on_kill = action:ResolveValue("recharge_on_kill") or 0
+  self:AddSignatureRechargeTime(action_id, const.Combat.SignatureAbilityRechargeTime, recharge_on_kill > 0)
+end
+
+function Unit:RunAndGun(action_id, cost_ap, args)
+	local action = CombatActions[action_id]
+	local target = args.goto_pos
+	local weapon = action:GetAttackWeapons(self)
+	if not weapon then 
+		self:GainAP(cost_ap)
+		CombatActionInterruped(self)
+		return 
+	end
+	local aim_params = action:GetAimParams(self, weapon)
+	local num_shots = aim_params.num_shots
+	
+	if self.stance ~= "Standing" then
+		self:ChangeStance(action_id, 0, "Standing")
+	end
+	
+	-- do the attack/crit rolls
+	args.attack_rolls = {}
+	args.crit_rolls = {}
+	args.stealth_kill_rolls = {}
+	for i = 1, num_shots do
+		args.attack_rolls[i] = 1 + self:Random(100)
+		args.crit_rolls[i] = 1 + self:Random(100)
+		if action.StealthAttack then
+			args.stealth_kill_rolls[i] = 1 + self:Random(100)
+		end
+	end
+	args.prediction = false
+	NetUpdateHash("RunAndGun_0", self, args)
+	local results = action:GetActionResults(self, args)
+	local action_camera = false --[[ disable action camera for now ]]
+	if #(results.attacks or empty_table) == 0 then
+		self:GainAP(cost_ap)
+		CombatActionInterruped(self)
+		return 
+	end
+	
+	local pathObj, path
+	self:PushDestructor(function(self)
+		if pathObj then
+			DoneObject(pathObj)
+		end
+	end)
+	pathObj = CombatPath:new()
+	
+	if action_camera then
+		local tf = GetTimeFactor()
+		self:PushDestructor(function()
+			SetTimeFactorSmooth(tf, smooth_tf_change_duration)
+		end)
+	end
+	local base_idle = self:GetIdleBaseAnim()
+	local shot_threads
+	for i, attack in ipairs(results.attacks) do
+		if not self:CanUseWeapon(weapon) then -- might jam, run out of ammo, etc
+			goto continue
+		end
+		NetUpdateHash("RunAndGun_1", self, attack.mobile_attack_pos, attack.mobile_attack_target)		
+		if attack.mobile_attack_pos and (not IsValidTarget(attack.mobile_attack_target) or attack.mobile_attack_target:IsIncapacitated()) then
+			local enemies = table.ifilter(action:GetTargets({self}), function(idx, u) return IsValidTarget(u) end)
+			NetUpdateHash("RunAndGun_Branch_1", self, attack.mobile_attack_pos, #enemies)
+			attack.mobile_attack_target = FindTargetFromPos(action_id, self, action, enemies, point(point_unpack(attack.mobile_attack_pos)), weapon)
+		end
+		if attack.mobile_attack_pos and IsValidTarget(attack.mobile_attack_target) then
+			if action_camera and i == 1 then
+				SetTimeFactorSmooth(tf/2, smooth_tf_change_duration)
+			end
+			
+			-- We need to build the path outside of the function so that it
+			-- doesn't refund us the ap cost difference.
+			local targetPos = point(point_unpack(attack.mobile_attack_pos))
+			local occupiedPos = self:GetOccupiedPos()
+			if self:GetDist(occupiedPos) > const.SlabSizeX / 2 and self:GetDist(targetPos) < const.SlabSizeX / 2 then
+				-- already at target position because of expose/aim
+				self:SetTargetDummy(nil, nil, base_idle, 0)
+			else
+				pathObj:RebuildPaths(self, aim_params.move_ap)
+				path = pathObj:GetCombatPathFromPos(targetPos)			
+				self:CombatGoto(action_id, 0, nil, path, true, i == #results.attacks and args.toDoStance)
+			end
+
+			-- recheck target, as they might have died while we were moving
+			if not IsValidTarget(attack.mobile_attack_target) or attack.mobile_attack_target:IsIncapacitated() then
+				local enemies = table.ifilter(action:GetTargets({self}), function(idx, u) return IsValidTarget(u) end)
+				NetUpdateHash("RunAndGun_Branch_1_1", self, attack.mobile_attack_pos, #enemies)
+				attack.mobile_attack_target = FindTargetFromPos(action_id, self, action, enemies, point(point_unpack(attack.mobile_attack_pos)), weapon)
+				if not IsValidTarget(attack.mobile_attack_target) then
+					goto continue
+				end
+			end
+
+			if action_camera then
+				if i == #results.attacks then
+					SetTimeFactorSmooth(tf, smooth_tf_change_duration)
+				end
+				SetActionCamera(self, attack.mobile_attack_target)
+			end
+			self:SetRandomAnim(base_idle)
+			local atk_action = CombatActions[attack.mobile_attack_id] or action
+			
+			-- rerun simulation to account for changes happened in the meantime (broken covers, etc)
+			local atk_args = {
+				prediction = false,
+				target = attack.mobile_attack_target,
+				stance = "Standing",
+				can_use_covers = i == #results.attacks,
+				used_action_id = action_id, -- so that cth is calculated for the master/parent action instead of the actual attack action
+			}			
+			
+			NetUpdateHash("RunAndGun_2", self, atk_args.target, args.goto_pos)
+			local atk_results, attack_args = atk_action:GetActionResults(self, atk_args)			
+			attack_args.origin_action_id = action_id
+			attack_args.keep_ui_mode = true
+			attack_args.unit_moved = true
+			attack_args.dont_restore_aim = true
+			if atk_action.id == "KnifeThrow" then
+				self:ExecKnifeThrow(atk_action, cost_ap, attack_args, atk_results)
+			else
+				shot_threads = shot_threads or {}
+				attack_args.external_wait_shots = shot_threads
+				self:ExecFirearmAttacks(atk_action, cost_ap, attack_args, atk_results)
+			end
+		end
+		::continue::
+	end
+	
+	local cooldown = action:ResolveValue("cooldown")
+	if cooldown then
+		self:SetEffectExpirationTurn(action.id, "cooldown", g_Combat.current_turn + cooldown)
+	end
+	if action_camera then
+		RemoveActionCamera()
+		self:PopAndCallDestructor() -- camera
+	end
+
+	-- if not at target loc, goto there (there mustn't be a target when that happens)	
+	local occupiedPos = self:GetOccupiedPos()
+	if self.return_pos and self.return_pos:Dist(target) < const.SlabSizeX / 2 then
+		self:ReturnToCover()
+	elseif self:GetDist(occupiedPos) > const.SlabSizeX / 2 and self:GetDist(target) < const.SlabSizeX / 2 then
+		self:SetTargetDummyFromPos()
+	else
+		pathObj:RebuildPaths(self, aim_params.move_ap)
+		path = pathObj:GetCombatPathFromPos(target)
+		self:CombatGoto(action_id, 0, nil, path, true)
+	end
+	if shot_threads then
+		Firearm:WaitFiredShots(shot_threads)
+	end	
+
+		local recharge_on_kill = action:ResolveValue("recharge_on_kill")
+		if recharge_on_kill then
+			self:AddSignatureRechargeTime(action_id, const.Combat.SignatureAbilityRechargeTime, recharge_on_kill > 0)
+		end
+
+
+	self:PopAndCallDestructor() -- pathObj 
+	
+end
+
+
+function Unit:FirearmAttack(action_id, cost_ap, args, applied_status) -- SingleShot/DualShot
+	if true then	 -- net debug code
+		local effects = {}
+		for i, effect in ipairs(self.StatusEffects) do
+			effects[i] = effect.class
+		end
+		effects = table.concat(effects, ",")
+		local target_effects = "-"
+		if IsKindOf(args.target, "Unit") then
+			target_effects = {}
+			for i, effect in ipairs(args.target.StatusEffects) do
+				target_effects[i] = effect.class
+			end
+			target_effects = table.concat(target_effects, ",")
+		end
+
+		NetUpdateHash("Unit:FirearmAttack", action_id, cost_ap, self, effects, args.target, target_effects)
+	end -- end net debug code
+	local target = args.target
+	self:CallReactions("OnFirearmAttackStart", self, target, CombatActions[action_id], args)
+	if IsKindOf(target, "Unit") then
+		target:CallReactions("OnFirearmAttackStart", self, target, CombatActions[action_id], args)
+	end
+	while not args.opportunity_attack and IsKindOf(target, "Unit") and not target:IsIdleOrRunningBehavior() do
+		WaitMsg("Idle", 50)
+	end
+	if args.replace_action then
+		action_id = args.replace_action
+	end
+	
+	if IsPoint(target) or IsValidTarget(target) then
+		local action = CombatActions[action_id]
+		
+		if action.StealthAttack then
+			args.stealth_kill_roll = 1 + self:Random(100)
+		end
+		args.prediction = false
+		
+		local units_waiting = {}
+		
+		self:PushDestructor(function()
+			for _, unit in ipairs(units_waiting) do
+				unit.waiting_attack = false
+			end
+		end)
+		
+		if not g_Combat and IsKindOf(target, "Unit") then
+			units_waiting[1] = target
+			PropagateAwareness(units_waiting)
+			for _, unit in ipairs(units_waiting) do
+				if unit:IsInterruptable() then
+					unit.waiting_attack = true
+					unit:InterruptCommand("WaitAttack")
+				end
+			end
+			repeat
+				local waiting = false
+				for _, unit in ipairs(units_waiting) do
+					waiting = waiting or (unit.command == "WaitAttack" and not unit.waiting_attack)
+				end
+				if waiting then
+					Sleep(10)
+				end
+			until not waiting
+		end
+		
+		local results, attack_args = action:GetActionResults(self, args)
+		self:ExecFirearmAttacks(action, cost_ap, attack_args, results)
+		self:PopAndCallDestructor()
+	else
+		self:GainAP(cost_ap)
+		CombatActionInterruped(self)
+	end
+		print(action_id)
+		local action = CombatActions[action_id]
+		local cooldown = action:ResolveValue("cooldown")
+		if cooldown then
+			self:SetEffectExpirationTurn(action_id, "cooldown", g_Combat.current_turn + cooldown)
+		end
+		local recharge_on_kill = action:ResolveValue("recharge_on_kill")
+		if recharge_on_kill then
+			self:AddSignatureRechargeTime(action_id, const.Combat.SignatureAbilityRechargeTime, recharge_on_kill > 0)
+		end
 end

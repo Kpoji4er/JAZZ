@@ -50,7 +50,7 @@ DefineClass.SVT40 = {
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {
 		"SingleShot",
-		"CancelShot",
+		"JAZZ_Salvo",
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,

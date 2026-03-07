@@ -86,11 +86,7 @@ function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 			self.last_attack_session_id = false
 		end
 		
-		local cooldown = action:ResolveValue("cooldown")
-		if cooldown then
-			self:SetEffectExpirationTurn(action.id, "cooldown", g_Combat.current_turn + cooldown)
-		end
-		
+
 		if IsValid(target) then
 			ObjModified(target)
 		end

@@ -44,7 +44,7 @@ DefineClass.G43 = {
 	AvailableAttacks = {
 		"SingleShot",
 		"CancelShot",
-		"MobileShot",
+		"JAZZ_Salvo",
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,

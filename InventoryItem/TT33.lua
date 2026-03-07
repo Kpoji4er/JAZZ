@@ -53,10 +53,9 @@ DefineClass.TT33 = {
 	AvailableAttacks = {
 		"SingleShot",
 		"DualShot",
-		"CancelShot",
 		"MobileShot",
-		"PistolPerk_Mozambique",
-		"PistolPerk_TrickShotRun",
+		"JAZZ_Mozambique",
+		"JAZZ_DoubleTap",
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,

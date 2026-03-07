@@ -100,9 +100,8 @@ DefineClass.M4A1 = {
 	AvailableAttacks = {
 		"BurstFire",
 		"SingleShot",
-		"CancelShot",
 		"AutoFire",
-		"RunAndGun",
+		"RunAndGun_Carbine",
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,

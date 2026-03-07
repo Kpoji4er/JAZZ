@@ -46,7 +46,7 @@ DefineClass.SpectreM4 = {
 		"AutoFire",
 		"SingleShot",
 		"RunAndGun",
-		"CancelShot",
+		"JAZZ_Zipper",
 	},
 	ShootAP = 4000,
 	ReloadAP = 6000,

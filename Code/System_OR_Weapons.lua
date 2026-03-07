@@ -119,8 +119,16 @@ function FirearmBase:GetAutofireShots(action)
 		shots = self.AutoShots 
 		if shotsBoost then shotsBoost = shotsBoost  end
 	end
-    if (action.id) == "BurstFire" then 
+	if (action.id) == "JAZZ_LargeAutoFire" then 
+		shots = self.AutoShots  * 2
+		if shotsBoost then shotsBoost = shotsBoost  end
+	end
+    if (action.id) == "BurstFire" or (action.id) == "JAZZ_Zipper" then 
 		shots = self.BurstShots 
+		if shotsBoost then shotsBoost = shotsBoost  end
+	end
+    if (action.id) == "JAZZ_SmgStorm" then 
+		shots = self.BurstShots * 2 
 		if shotsBoost then shotsBoost = shotsBoost  end
 	end
 	if (action.id) == "MGBurstFire" then 
@@ -351,7 +359,7 @@ function Firearm:GetAttackResults(action, attack_args)
 	assert(target_pos)
 
 	local num_shots = attack_args.num_shots or 0
-
+	local suppressionbonus = attack_args.suppressionbonus or 100
 
 	local seed = Unit:Random()
 	local random = BraidRandomCreate(seed)
@@ -583,7 +591,7 @@ end
 		local shot_miss, shot_crit, shot_cth
 
     if (i > shots_before_cth_loss) then
-        if (i-shots_before_cth_loss < 5) then
+        if (i-shots_before_cth_loss < 20) then
             if (attack_results.chance_to_hit - shot_attack_args.cth_loss_per_shot * (i - shots_before_cth_loss - 1)) > 0 then
 		    shot_cth = self:GetShotChanceToHit(attack_results.chance_to_hit - cth_loss_per_shot * (i - shots_before_cth_loss - 1))
             else
@@ -725,8 +733,8 @@ end
 	local precalc_damage_data = {}
 	local killed_colliders = {}
 
-	local suppression_CTH = attack_results.chance_to_hit
-
+	local suppression_CTH = attack_results.chance_to_hit + DivRound(suppressionbonus,10)
+	--print('suppressionbonus='..suppressionbonus)
 
 
 	for i = 1, num_shots do
@@ -1069,10 +1077,8 @@ end
 				end)
 			
 				local wpBase = Max(self.Damage, 1) * 0.1
-
-				if (action.id == "MGBurstFire") then 
-					wpBase = wpBase * 3
-				end
+				
+				wpBase = MulDivRound(wpBase,suppressionbonus,100)
 			
 				for _, hit in ipairs(hit_data.hits) do
 					if IsValid(target_unit) and target_unit.team.side ~= attacker.team.side then
@@ -1230,8 +1236,8 @@ function FirearmBase:Unjam(unit)
 
 	local loss = MulDivRound(max * 1.0, condLoss * 1.0, 100) 
 
-	print("jam debug")
-	print(max,loss,condLoss,amount)
+	--print("jam debug")
+	--print(max,loss,condLoss,amount)
 
 	self.WeaponResourceMax = Max(1, max - loss)
 	self.WeaponResource = Min(self.WeaponResource or 0, self.WeaponResourceMax)

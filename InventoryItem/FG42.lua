@@ -52,8 +52,11 @@ DefineClass.FG42 = {
 	},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
+		"SingleShot",
 		"BurstFire",
 		"AutoFire",
+		"JAZZ_Salvo",
+		"JAZZ_ControllableBurst",
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,

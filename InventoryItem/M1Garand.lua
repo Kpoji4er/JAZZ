@@ -53,7 +53,7 @@ DefineClass.M1Garand = {
 	AvailableAttacks = {
 		"SingleShot",
 		"CancelShot",
-		"MobileShot",
+		"JAZZ_Salvo",
 	},
 	ShootAP = 7000,
 	ReloadAP = 5000,

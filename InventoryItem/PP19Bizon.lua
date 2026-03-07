@@ -59,7 +59,7 @@ DefineClass.PP19Bizon = {
 		"AutoFire",
 		"SingleShot",
 		"RunAndGun",
-		"CancelShot",
+		"JAZZ_Zipper",
 	},
 	ShootAP = 5000,
 	ReloadAP = 7000,

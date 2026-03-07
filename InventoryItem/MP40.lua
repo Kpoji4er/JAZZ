@@ -45,7 +45,7 @@ DefineClass.MP40 = {
 		"BurstFire",
 		"AutoFire",
 		"RunAndGun",
-		"CancelShot",
+		"JAZZ_Zipper",
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,

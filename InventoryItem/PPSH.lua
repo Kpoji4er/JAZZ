@@ -48,7 +48,7 @@ DefineClass.PPSH = {
 		"AutoFire",
 		"SingleShot",
 		"RunAndGun",
-		"CancelShot",
+		"JAZZ_Zipper",
 	},
 	ShootAP = 6000,
 	ReloadAP = 6000,
