@@ -89,6 +89,7 @@ DefineClass.CAR15 = {
 		"SingleShot",
 		"AutoFire",
 		"RunAndGun_Carbine",
+		"JAZZ_TargetSweep",
 	},
 	ShootAP = 4000,
 	ReloadAP = 5000,

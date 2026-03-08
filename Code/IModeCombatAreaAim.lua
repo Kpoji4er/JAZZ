@@ -625,7 +625,7 @@ function Targeting_AOE_Cone(dialog, blackboard, command, pt)
     -- halfcover = attacker:HasStatusEffect("BipodUnfolded")
     -- Show targeting cone
     local cone2d = action.id == "Overwatch" or action.id == "DanceForMe" or
-                       action.id == "MGSetup"
+                       action.id == "MGSetup" or action.id == "JAZZ_TargetSweep"
     local cone_target = cone2d and CalcOrientation(attacker_pos, aim_pt) or
                             aim_pt
     local stance = action.id == "MGSetup" and "Prone" or attacker.stance

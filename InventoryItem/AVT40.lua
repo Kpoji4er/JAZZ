@@ -44,7 +44,7 @@ DefineClass.AVT40 = {
 		"AutoFire",
 		"SingleShot",
 		"JAZZ_Salvo",
-		"JAZZ_ControllableBurst",
+		"JAZZ_LargeAutoFire",
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,

@@ -58,7 +58,8 @@ DefineClass.Auto5 = {
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {
 		"Buckshot",
-		"CancelShot",
+		"JAZZ_JokerShot",
+		"JAZZ_MobileShotgun",
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,

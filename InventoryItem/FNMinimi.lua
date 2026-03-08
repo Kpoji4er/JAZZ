@@ -89,6 +89,10 @@ DefineClass.FNMinimi = {
 	PreparedAttackType = "Machine Gun",
 	AvailableAttacks = {
 		"MGBurstFire",
+		"BurstFire",
+		"JAZZ_ControllableBurst",
+		"JAZZ_LargeAutoFire",
+		"JAZZ_TargetSweep",
 	},
 	ShootAP = 8000,
 	ReloadAP = 8000,

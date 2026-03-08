@@ -875,3 +875,42 @@ function Unit:FirearmAttack(action_id, cost_ap, args, applied_status) -- SingleS
 			self:AddSignatureRechargeTime(action_id, const.Combat.SignatureAbilityRechargeTime, recharge_on_kill > 0)
 		end
 end
+
+function Unit:TargetSweep(action_id, cost_ap, args)
+	local action = CombatActions[action_id]
+	local weapon = self:GetActiveWeapons()
+	local aoeParams = weapon:GetAreaAttackParams(action_id, self)
+	local attackData = self:ResolveAttackParams(action_id, args.target, {})
+	
+	local attackerPos = attackData.step_pos
+	local attackerPos3D = attackerPos
+	if not attackerPos3D:IsValidZ() then
+		attackerPos3D = attackerPos3D:SetTerrainZ()
+	end
+	local targetPos = args.target
+	
+	local targetAngle = CalcOrientation(attackerPos, targetPos)
+	
+	local distance = Clamp(attackerPos3D:Dist(targetPos), aoeParams.min_range * const.SlabSizeX, aoeParams.max_range * const.SlabSizeX)
+
+	local enemies = GetEnemies(self)
+	local maxValue, losValues = CheckLOS(enemies, attackerPos, distance, attackData.stance, aoeParams.cone_angle, targetAngle, false)
+	
+	if maxValue then
+		for i, los in ipairs(losValues) do
+			if los then
+				local defaultAttack = self:GetDefaultAttackAction("ranged")
+				local tempArgs = table.copy(args)
+				tempArgs.target = enemies[i]
+				tempArgs.target_spot_group = "Torso"
+				if defaultAttack and self:CanAttack(tempArgs.target, weapon, defaultAttack, nil, nil, "skip_ap_check") then
+					self:FirearmAttack(defaultAttack.id, 0, tempArgs)
+				end
+			end
+		end
+	end
+	
+	local recharge_on_kill = action:ResolveValue("recharge_on_kill") or 0
+	self:AddSignatureRechargeTime(action_id, const.Combat.SignatureAbilityRechargeTime, recharge_on_kill > 0)
+
+end

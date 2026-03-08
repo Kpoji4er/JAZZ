@@ -70,6 +70,7 @@ DefineClass.FNMAG = {
 	PreparedAttackType = "Machine Gun",
 	AvailableAttacks = {
 		"MGBurstFire",
+		"JAZZ_MGSuppressionFire",
 	},
 	ShootAP = 9000,
 	ReloadAP = 10000,

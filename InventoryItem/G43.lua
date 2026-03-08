@@ -43,7 +43,6 @@ DefineClass.G43 = {
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {
 		"SingleShot",
-		"CancelShot",
 		"JAZZ_Salvo",
 	},
 	ShootAP = 7000,

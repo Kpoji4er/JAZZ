@@ -41,10 +41,10 @@ DefineClass.Springfield = {
 	},
 	HolsterSlot = "Shoulder",
 	ModifyRightHandGrip = true,
-	PreparedAttackType = "Both",
 	AvailableAttacks = {
 		"SingleShot",
-		"CancelShot",
+		"JAZZ_JokerShot",
+		"JAZZ_Bullseye",
 	},
 	ShootAP = 8000,
 	ReloadAP = 5000,

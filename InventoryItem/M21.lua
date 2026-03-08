@@ -114,7 +114,8 @@ DefineClass.M21 = {
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"SingleShot",
-		"CancelShot",
+		"JAZZ_JokerShot",
+		"JAZZ_Bullseye",
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,

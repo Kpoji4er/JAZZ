@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 10,
-	'version', 5762,
+	'version', 5829,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -414,6 +414,7 @@ return PlaceObj('ModDef', {
 		"InventoryItem/SKS.lua",
 		"InventoryItem/G43.lua",
 		"InventoryItem/MAS49.lua",
+		"InventoryItem/M1Garand.lua",
 		"InventoryItem/BAR.lua",
 		"InventoryItem/FG42.lua",
 		"InventoryItem/SVT40.lua",
@@ -424,24 +425,23 @@ return PlaceObj('ModDef', {
 		"InventoryItem/Galil.lua",
 		"InventoryItem/G3A3.lua",
 		"InventoryItem/G3A4.lua",
-		"InventoryItem/M1Garand.lua",
-		"InventoryItem/ZastavaM76.lua",
-		"InventoryItem/M21.lua",
-		"InventoryItem/DragunovSVD.lua",
-		"InventoryItem/DragunovSVD_Custom.lua",
-		"InventoryItem/AR10DMR.lua",
-		"InventoryItem/G3SniperV1.lua",
-		"InventoryItem/M1A.lua",
-		"InventoryItem/SVU.lua",
-		"InventoryItem/BarretM82.lua",
-		"InventoryItem/PSG1.lua",
 		"InventoryItem/Mosin.lua",
 		"InventoryItem/Gewehr98.lua",
 		"InventoryItem/Springfield.lua",
+		"InventoryItem/ZastavaM76.lua",
 		"InventoryItem/FRF2.lua",
+		"InventoryItem/M21.lua",
+		"InventoryItem/DragunovSVD.lua",
+		"InventoryItem/DragunovSVD_Custom.lua",
 		"InventoryItem/M700.lua",
+		"InventoryItem/AR10DMR.lua",
+		"InventoryItem/G3SniperV1.lua",
 		"InventoryItem/M24Sniper.lua",
+		"InventoryItem/M1A.lua",
+		"InventoryItem/SVU.lua",
 		"InventoryItem/ArcticWarfare.lua",
+		"InventoryItem/BarretM82.lua",
+		"InventoryItem/PSG1.lua",
 		"InventoryItem/ScoutSniper.lua",
 		"InventoryItem/MAC2429.lua",
 		"InventoryItem/U100.lua",
@@ -850,8 +850,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1772896615,
-	'code_hash', 2207894028316069861,
+	'saved', 1772944541,
+	'code_hash', 1144795339967826840,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -3730,6 +3730,11 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
+			'Id', "M1Garand",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
 			'Id', "BAR",
 			'ClassDisplayName', "Inventory item",
 		}),
@@ -3780,12 +3785,27 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
-			'Id', "M1Garand",
+			'Id', "Mosin",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "Gewehr98",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "Springfield",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "ZastavaM76",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "FRF2",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -3805,12 +3825,22 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
+			'Id', "M700",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
 			'Id', "AR10DMR",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "G3SniperV1",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "M24Sniper",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -3825,47 +3855,17 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
+			'Id', "ArcticWarfare",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
 			'Id', "BarretM82",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "PSG1",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
-			'Id', "Mosin",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
-			'Id', "Gewehr98",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
-			'Id', "Springfield",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
-			'Id', "FRF2",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
-			'Id', "M700",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
-			'Id', "M24Sniper",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
-			'Id', "ArcticWarfare",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -7245,6 +7245,31 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",
+			'Id', "JAZZ_TargetSweep",
+			'ClassDisplayName', "Combat Actions",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "JAZZ_JokerShot",
+			'ClassDisplayName', "Combat Actions",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "JAZZ_MobileShotgun",
+			'ClassDisplayName', "Combat Actions",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "JAZZ_MGSuppressionFire",
+			'ClassDisplayName', "Combat Actions",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "JAZZ_VovaVist",
+			'ClassDisplayName', "Combat Actions",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
 			'Id', "ThrowGrenadeAG",
 			'ClassDisplayName', "Combat Actions",
 		}),
@@ -7659,6 +7684,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "ChanceToHitModifier",
 			'Id', "WeaponPistol_Mozambique",
+			'ClassDisplayName', "ChanceToHitModifier",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "ChanceToHitModifier",
+			'Id', "WeaponPistol_Bullseye",
 			'ClassDisplayName', "ChanceToHitModifier",
 		}),
 		PlaceObj('ModResourcePreset', {

@@ -73,7 +73,8 @@ DefineClass.Ithaca = {
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {
 		"Buckshot",
-		"CancelShot",
+		"JAZZ_JokerShot",
+		"JAZZ_MobileShotgun",
 	},
 	ShootAP = 6000,
 	ReloadAP = 5000,

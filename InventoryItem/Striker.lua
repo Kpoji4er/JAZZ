@@ -44,7 +44,8 @@ DefineClass.Striker = {
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"Buckshot",
-		"CancelShot",
+		"JAZZ_JokerShot",
+		"JAZZ_MobileShotgun",
 	},
 	ShootAP = 4000,
 	ReloadAP = 5000,

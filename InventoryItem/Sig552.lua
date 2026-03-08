@@ -101,6 +101,7 @@ DefineClass.Sig552 = {
 		"AutoFire",
 		"SingleShot",
 		"RunAndGun_Carbine",
+		"JAZZ_TargetSweep",
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,

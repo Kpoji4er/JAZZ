@@ -52,7 +52,6 @@ DefineClass.M1Garand = {
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {
 		"SingleShot",
-		"CancelShot",
 		"JAZZ_Salvo",
 	},
 	ShootAP = 7000,

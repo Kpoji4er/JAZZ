@@ -78,10 +78,10 @@ DefineClass.BarretM82 = {
 		}),
 	},
 	HolsterSlot = "Shoulder",
-	PreparedAttackType = "Both",
 	AvailableAttacks = {
 		"SingleShot",
-		"CancelShot",
+		"JAZZ_JokerShot",
+		"JAZZ_Bullseye",
 	},
 	ShootAP = 10000,
 	ReloadAP = 9000,

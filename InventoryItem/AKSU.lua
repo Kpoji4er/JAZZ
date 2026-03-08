@@ -83,6 +83,7 @@ DefineClass.AKSU = {
 		"AutoFire",
 		"SingleShot",
 		"RunAndGun_Carbine",
+		"JAZZ_TargetSweep",
 	},
 	ShootAP = 4000,
 	ReloadAP = 6000,

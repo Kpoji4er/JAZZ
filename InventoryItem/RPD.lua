@@ -75,9 +75,10 @@ DefineClass.RPD = {
 		}),
 	},
 	HolsterSlot = "Shoulder",
-	PreparedAttackType = "Machine Gun",
 	AvailableAttacks = {
 		"MGBurstFire",
+		"JAZZ_MGSuppressionFire",
+		"JAZZ_VovaVist",
 	},
 	ShootAP = 9000,
 	ReloadAP = 7000,

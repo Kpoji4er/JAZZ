@@ -76,6 +76,7 @@ DefineClass.M60E3 = {
 	PreparedAttackType = "Machine Gun",
 	AvailableAttacks = {
 		"MGBurstFire",
+		"JAZZ_MGSuppressionFire",
 	},
 	ShootAP = 9000,
 	ReloadAP = 9000,

@@ -80,7 +80,8 @@ DefineClass.M41Shotgun = {
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"Buckshot",
-		"CancelShot",
+		"JAZZ_JokerShot",
+		"JAZZ_MobileShotgun",
 	},
 	ShootAP = 5000,
 	ReloadAP = 7000,

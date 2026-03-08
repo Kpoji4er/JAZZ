@@ -81,7 +81,8 @@ DefineClass.G3SniperV1 = {
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"SingleShot",
-		"CancelShot",
+		"JAZZ_JokerShot",
+		"JAZZ_Bullseye",
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,

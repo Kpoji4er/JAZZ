@@ -376,7 +376,7 @@ function Firearm:GetAttackResults(action, attack_args)
 		consumed_ammo = Max(consumed_ammo, aoe_params and aoe_params.used_ammo or 0)
 	end
 
-	if action.id == "BulletHell" then
+	if action.id == "BulletHell"  or action_id == "JAZZ_VovaVist"  then
 		target_pos = attack_args.step_pos + SetLen2D((target_pos - attack_args.step_pos):SetZ(0), aoe_params.max_range * const.SlabSizeX)
 		if not target_pos:IsValidZ() then
 			target_pos = target_pos:SetTerrainZ()
@@ -420,17 +420,16 @@ function Firearm:GetAttackResults(action, attack_args)
 		end
 --	end
 
-if action.id == "Buckshot"  then 
+if IsKindOf(self,"Shotgun") then
 	num_shots = self.AutoShots
 end
+
 
 if action.id == "DoubleBarrel" then 
 	num_shots = self.AutoShots * 2
 end
 
-if action.id == "BuckshotBurst" then 
-	num_shots = self.AutoShots
-end
+
 
 	local cth, baseCth, modifiers
 	local cth_action = shot_attack_args.used_action_id and CombatActions[shot_attack_args.used_action_id] or action
@@ -556,7 +555,17 @@ end
 	local shots_data = {}
 	local graze_threshold = point_blank and 6 or 3
 
-    cth_loss_per_shot = shot_attack_args.cth_loss_per_shot
+	cth_loss_per_shot = shot_attack_args.cth_loss_per_shot
+
+	local deployed = g_Overwatch[attacker] and g_Overwatch[attacker].permanent
+
+	if IsKindOf(self, "MachineGun") and not deployed
+	 then
+		cth_loss_per_shot = MulDivRound(cth_loss_per_shot,200,100)
+	 elseif  IsKindOf(self, "LightMachineGun") and not deployed
+	 then
+		cth_loss_per_shot = MulDivRound(cth_loss_per_shot,150,100)
+	end
 
 	if (attacker.Strength) > 80 then
 		if cth_loss_per_shot > 15 then  cth_loss_per_shot = cth_loss_per_shot - cth_loss_per_shot*(attacker.Strength-80)*1.5/100 end
@@ -571,6 +580,7 @@ end
 		local bipodshots = GetComponentEffectValue(self, "ShotsBeforeRecoilProne", "ShotsBeforeRecoilProne")
 		if (bipodshots) then shots_before_cth_loss = shots_before_cth_loss + 1 or 1 end
     end	
+	 
 
 
 local ScopeMagn = GetComponentEffectValue(self, "ScopeMagnification", "ScopeMagnification") or 1
@@ -606,7 +616,7 @@ end
         shot_cth = self:GetShotChanceToHit(attack_results.chance_to_hit)
     end
 
-	if HasPerk(attacker, "AutoWeapons") and (i>5) then
+	if HasPerk(attacker, "AutoWeapons") and (i>5) and not IsKindOfClasses(self, "MachineGun", "LightMachineGun") then
 		 shot_cth = self:GetShotChanceToHit(attack_results.chance_to_hit)
 	end
 
@@ -733,7 +743,7 @@ end
 	local precalc_damage_data = {}
 	local killed_colliders = {}
 
-	local suppression_CTH = attack_results.chance_to_hit + DivRound(suppressionbonus,10)
+	local suppression_CTH = attack_results.chance_to_hit + suppressionbonus
 	--print('suppressionbonus='..suppressionbonus)
 
 
@@ -1078,12 +1088,13 @@ end
 			
 				local wpBase = Max(self.Damage, 1) * 0.1
 				
-				wpBase = MulDivRound(wpBase,suppressionbonus,100)
+	
 			
 				for _, hit in ipairs(hit_data.hits) do
 					if IsValid(target_unit) and target_unit.team.side ~= attacker.team.side then
-						local cthFactor = Clamp((suppression_CTH / 100)^0.5, 0.1, 1.0)
+						local cthFactor = Clamp((suppression_CTH / 100)^0.5, 0.1, 2.0)
 						local willDamage = wpBase * (0.4 + 0.6 * cthFactor)
+						willDamage = MulDivRound(willDamage,suppressionbonus,100)
 						if willDamage > 0 then
 							if attacker_is_psycho then
 								attacker.WillPoints = Max(attacker.MaxWillPoints, attacker.WillPoints + willDamage)
@@ -1102,6 +1113,7 @@ end
 						if dist < 5 * const.SlabSizeX then
 							local clamped = Clamp((4 * const.SlabSizeX - dist) / const.SlabSizeX, 0, 4)
 							local nearDamage = wpBase * clamped * 0.15
+							nearDamage = MulDivRound(nearDamage,suppressionbonus,100)
 							if nearDamage > 0 then
 								if attacker_is_psycho then
 									attacker.WillPoints = Max(attacker.MaxWillPoints, attacker.WillPoints + nearDamage)
@@ -1540,7 +1552,7 @@ function Firearm:GetAreaAttackParams(action_id, attacker, target_pos, step_pos, 
 		end
 		params.min_range = self:GetOverwatchConeParam("MinRange")
 		params.max_range = self:GetOverwatchConeParam("MaxRange")
-	elseif action_id == "BulletHell" or action_id == "DanceForMe" then
+	elseif action_id == "BulletHell" or action_id == "DanceForMe" or action_id == "JAZZ_TargetSweep"  or action_id == "JAZZ_VovaVist" then
 		params.cone_angle = self.OverwatchAngle
 		params.min_range = self:GetOverwatchConeParam("MinRange")
 		params.max_range = self:GetOverwatchConeParam("MaxRange")

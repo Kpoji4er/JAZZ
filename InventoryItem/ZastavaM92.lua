@@ -64,6 +64,7 @@ DefineClass.ZastavaM92 = {
 		"AutoFire",
 		"SingleShot",
 		"RunAndGun_Carbine",
+		"JAZZ_TargetSweep",
 	},
 	ShootAP = 5000,
 	ReloadAP = 5000,

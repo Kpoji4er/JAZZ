@@ -71,7 +71,8 @@ DefineClass.R870 = {
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {
 		"Buckshot",
-		"CancelShot",
+		"JAZZ_JokerShot",
+		"JAZZ_MobileShotgun",
 	},
 	ShootAP = 6000,
 	ReloadAP = 7000,

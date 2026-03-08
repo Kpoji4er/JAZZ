@@ -65,7 +65,8 @@ DefineClass.SVU = {
 	AvailableAttacks = {
 		"SingleShot",
 		"BurstFire",
-		"CancelShot",
+		"JAZZ_JokerShot",
+		"JAZZ_Bullseye",
 	},
 	ShootAP = 6000,
 	ReloadAP = 9000,

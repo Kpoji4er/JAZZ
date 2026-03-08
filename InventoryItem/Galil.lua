@@ -111,7 +111,7 @@ DefineClass.Galil = {
 		"AutoFire",
 		"SingleShot",
 		"JAZZ_Salvo",
-		"JAZZ_ControllableBurst",
+		"JAZZ_LargeAutoFire",
 	},
 	ShootAP = 6000,
 	ReloadAP = 7000,

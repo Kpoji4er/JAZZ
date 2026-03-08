@@ -98,10 +98,10 @@ DefineClass.PSG1 = {
 		}),
 	},
 	HolsterSlot = "Shoulder",
-	PreparedAttackType = "Both",
 	AvailableAttacks = {
 		"SingleShot",
-		"CancelShot",
+		"JAZZ_JokerShot",
+		"JAZZ_Bullseye",
 	},
 	ShootAP = 8000,
 	ReloadAP = 7000,

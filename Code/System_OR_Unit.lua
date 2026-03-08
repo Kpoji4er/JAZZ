@@ -2737,3 +2737,18 @@ function Unit:CalcCritChance(weapon, target, action, args, attack_pos)
 
 	return Clamp(critChance, 0, 100)
 end
+
+
+function Unit:IsStanceChangeLocked()
+	if IsKindOf(self:GetActiveWeapons(), "MachineGun") and (self.behavior == "OverwatchAction" or self.combat_behavior == "OverwatchAction") then 
+		return true
+	end
+	if IsKindOf(self:GetActiveWeapons(), "LightMachineGun") and (self.behavior == "OverwatchAction" or self.combat_behavior == "OverwatchAction") then 
+		return true
+	end
+	if self:GetBandageTarget() then -- bandaging other unit
+		return true
+	end
+	
+	return false
+end

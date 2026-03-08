@@ -114,7 +114,7 @@ DefineClass.M14SAW = {
 		"AutoFire",
 		"SingleShot",
 		"JAZZ_Salvo",
-		"JAZZ_ControllableBurst",
+		"JAZZ_LargeAutoFire",
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,

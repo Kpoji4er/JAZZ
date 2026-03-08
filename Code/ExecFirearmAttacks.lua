@@ -150,19 +150,17 @@ function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 	for attackIdx, attack in ipairs(attacks) do
 		local attackArg = attackArgs[attackIdx]
 		local fx_action = attackArg.fx_action
-		if action.id == "BulletHell" then
+		if action.id == "BulletHell" or "JAZZ_VovaVist"  then
 			BulletHellOverwriteShots(attack)
 		end
 		local shots_per_animation = results.weapon.AutoShots / 2
 		if action.id == "BurstFire" or action.id == "MGBurstFire" then
 			shots_per_animation = results.weapon.AutoShots / 2
 		end
-        if action.id == "Buckshot" or action.id == "DoubleBarrel" then
+        if IsKindOf(results.weapon, "Shotgun") then
 			shots_per_animation = 500
 		end
-        if action.id == "BuckshotBurst" then
-			shots_per_animation = 1500
-		end
+
 		if action.id == "AbakanBurst"  then
 			shots_per_animation = 10
 		end
@@ -458,4 +456,23 @@ function Unit:ShotgunBurst(action_id, cost_ap, args)
 	end
 	
 	return
+end
+
+
+-- makes the actual bullets do no damage and spreads them in a repeating pattern
+function BulletHellOverwriteShots(attack)
+	local weapon = attack.weapon
+	
+	local halfAngle = DivRound(weapon.OverwatchAngle, 2)
+	local newAngle = halfAngle
+	local angleStep = MulDivRound(weapon.OverwatchAngle, 2, #attack.shots)
+
+	for i, shot in ipairs(attack.shots) do
+		shot.target_pos = RotateAxis(shot.target_pos, point(0, 0, 4069) , newAngle, shot.attack_pos)
+		--shot.stuck_pos = RotateAxis(shot.stuck_pos, point(0, 0, 4069) , newAngle, shot.attack_pos)
+		if abs(newAngle) >= halfAngle then
+			angleStep = -angleStep
+		end
+		newAngle = newAngle + angleStep
+	end
 end

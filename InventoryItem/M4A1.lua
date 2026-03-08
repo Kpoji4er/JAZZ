@@ -102,6 +102,7 @@ DefineClass.M4A1 = {
 		"SingleShot",
 		"AutoFire",
 		"RunAndGun_Carbine",
+		"JAZZ_TargetSweep",
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,

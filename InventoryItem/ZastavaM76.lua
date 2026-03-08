@@ -67,10 +67,10 @@ DefineClass.ZastavaM76 = {
 		}),
 	},
 	HolsterSlot = "Shoulder",
-	PreparedAttackType = "Both",
 	AvailableAttacks = {
 		"SingleShot",
-		"CancelShot",
+		"JAZZ_JokerShot",
+		"JAZZ_Bullseye",
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,

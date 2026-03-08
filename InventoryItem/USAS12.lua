@@ -73,7 +73,8 @@ DefineClass.USAS12 = {
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"Buckshot",
-		"CancelShot",
+		"JAZZ_JokerShot",
+		"JAZZ_MobileShotgun",
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,

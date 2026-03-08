@@ -39,7 +39,8 @@ DefineClass.Stoeger = {
 	AvailableAttacks = {
 		"Buckshot",
 		"DoubleBarrel",
-		"CancelShot",
+		"JAZZ_JokerShot",
+		"JAZZ_MobileShotgun",
 	},
 	ShootAP = 5000,
 	ReloadAP = 3000,

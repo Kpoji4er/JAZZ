@@ -71,6 +71,7 @@ DefineClass.Winchester1894 = {
 	AvailableAttacks = {
 		"SingleShot",
 		"RunAndGun_Carbine",
+		"JAZZ_TargetSweep",
 	},
 	ShootAP = 6000,
 	ReloadAP = 8000,

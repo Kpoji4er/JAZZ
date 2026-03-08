@@ -66,10 +66,10 @@ DefineClass.ScoutSniper = {
 	},
 	HolsterSlot = "Shoulder",
 	ModifyRightHandGrip = true,
-	PreparedAttackType = "Both",
 	AvailableAttacks = {
 		"SingleShot",
-		"CancelShot",
+		"JAZZ_JokerShot",
+		"JAZZ_Bullseye",
 	},
 	ShootAP = 6000,
 	ReloadAP = 7000,
