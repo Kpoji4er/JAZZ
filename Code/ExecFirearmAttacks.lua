@@ -150,7 +150,7 @@ function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 	for attackIdx, attack in ipairs(attacks) do
 		local attackArg = attackArgs[attackIdx]
 		local fx_action = attackArg.fx_action
-		if action.id == "BulletHell" or "JAZZ_VovaVist"  then
+		if action.id == "BulletHell"  then
 			BulletHellOverwriteShots(attack)
 		end
 		local shots_per_animation = results.weapon.AutoShots / 2
