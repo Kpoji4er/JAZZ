@@ -1552,8 +1552,12 @@ function Firearm:GetAreaAttackParams(action_id, attacker, target_pos, step_pos, 
 		end
 		params.min_range = self:GetOverwatchConeParam("MinRange")
 		params.max_range = self:GetOverwatchConeParam("MaxRange")
-	elseif action_id == "BulletHell" or action_id == "DanceForMe" or action_id == "JAZZ_TargetSweep"  or action_id == "JAZZ_VovaVist" then
+	elseif action_id == "BulletHell" or action_id == "DanceForMe" or action_id == "JAZZ_TargetSweep"  then
 		params.cone_angle = self.OverwatchAngle
+		params.min_range = self:GetOverwatchConeParam("MinRange")
+		params.max_range = self:GetOverwatchConeParam("MaxRange")
+		elseif action_id == "JAZZ_VovaVist" then
+		params.cone_angle = self.OverwatchAngle * 2
 		params.min_range = self:GetOverwatchConeParam("MinRange")
 		params.max_range = self:GetOverwatchConeParam("MaxRange")
 	elseif action_id == "FireFlare" then	
