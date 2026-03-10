@@ -619,7 +619,7 @@ function Unit:Zipper(action_id, cost_ap, args)
 
     local spot = bodyParts[i]
 	if i == #bodyParts then
-		args.critchance = 100
+		--args.critchance = 100
 	end
 	
     args.target_spot_group = spot

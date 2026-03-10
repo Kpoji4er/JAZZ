@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 10,
-	'version', 5829,
+	'version', 5857,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -415,7 +415,6 @@ return PlaceObj('ModDef', {
 		"InventoryItem/G43.lua",
 		"InventoryItem/MAS49.lua",
 		"InventoryItem/M1Garand.lua",
-		"InventoryItem/BAR.lua",
 		"InventoryItem/FG42.lua",
 		"InventoryItem/SVT40.lua",
 		"InventoryItem/AVT40.lua",
@@ -444,16 +443,17 @@ return PlaceObj('ModDef', {
 		"InventoryItem/PSG1.lua",
 		"InventoryItem/ScoutSniper.lua",
 		"InventoryItem/MAC2429.lua",
+		"InventoryItem/BAR.lua",
 		"InventoryItem/U100.lua",
 		"InventoryItem/RPK.lua",
 		"InventoryItem/RPK74.lua",
+		"InventoryItem/RPD.lua",
 		"InventoryItem/FNMinimi.lua",
 		"InventoryItem/HK21.lua",
 		"InventoryItem/HK23e.lua",
 		"InventoryItem/DP27.lua",
 		"InventoryItem/MG42.lua",
 		"InventoryItem/MG58.lua",
-		"InventoryItem/RPD.lua",
 		"InventoryItem/AA52.lua",
 		"InventoryItem/M60.lua",
 		"InventoryItem/M60E3.lua",
@@ -850,8 +850,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1772944541,
-	'code_hash', 1144795339967826840,
+	'saved', 1773101107,
+	'code_hash', 870883793285269618,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -3735,11 +3735,6 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
-			'Id', "BAR",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
 			'Id', "FG42",
 			'ClassDisplayName', "Inventory item",
 		}),
@@ -3880,6 +3875,11 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
+			'Id', "BAR",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
 			'Id', "U100",
 			'ClassDisplayName', "Inventory item",
 		}),
@@ -3891,6 +3891,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "RPK74",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "RPD",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -3921,11 +3926,6 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "MG58",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
-			'Id', "RPD",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {

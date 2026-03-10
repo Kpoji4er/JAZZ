@@ -273,7 +273,7 @@ function AICalcAttacksAndAim(context, ap, target)
 
     local aim = 0
 
-    -- if IsKindOfClasses(context.weapon,"SniperRifle") then local aim = max_aim end
+     if IsKindOfClasses(context.weapon,"SniperRifle") then local aim = max_aim end
     -- if IsKindOfClasses(context.weapon,"AssaultRifle","MachineGun","SubmachineGun","Shotgun","Pistol") then local aim = Clamp(Unit:Random(3),min_aim, max_aim) end
 
     local aim_cost = const.Scale.AP

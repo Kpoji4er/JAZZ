@@ -74,8 +74,8 @@ DefineClass.M2Carbine = {
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"SingleShot",
-		"RunAndGun_Carbine",
 		"JAZZ_TargetSweep",
+		"RunAndGun_Carbine",
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,

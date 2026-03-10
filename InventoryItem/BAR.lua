@@ -1,11 +1,11 @@
 UndefineClass('BAR')
 DefineClass.BAR = {
-	__parents = { "BattleRifle" },
+	__parents = { "LightMachineGun" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 1-2",
-	object_class = "BattleRifle",
+	object_class = "LightMachineGun",
 	ScrapParts = 12,
 	RepairCost = 3,
 	Reliability = 50,

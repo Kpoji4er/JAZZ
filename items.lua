@@ -15152,7 +15152,7 @@ return {
 					'RepairCost', 3,
 					'Reliability', 50,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/TT.png",
-					'DisplayName', T(916379475854, --[[ModItemInventoryItemCompositeDef TT33 DisplayName]] "<placeholder>"),
+					'DisplayName', T(879285674370, --[[ModItemInventoryItemCompositeDef TT33 DisplayName]] "Пистолет ТТ"),
 					'DisplayNamePlural', T(377868313170, --[[ModItemInventoryItemCompositeDef TT33 DisplayNamePlural]] "Пистолеты ТТ"),
 					'Description', T(492983145408, --[[ModItemInventoryItemCompositeDef TT33 Description]] 'Пистолет "Тульский-Токарева" представляет собой очередную вариацию схемы Браунинга на избитую советскую тему "у нас есть куча патронов на складах, нужно оружие для них".'),
 					'AdditionalHint', T(998090805654, --[[ModItemInventoryItemCompositeDef TT33 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Пробивает броню\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Малый магазин\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Лучше, чем карате"),
@@ -20181,8 +20181,8 @@ return {
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"SingleShot",
-						"RunAndGun_Carbine",
 						"JAZZ_TargetSweep",
+						"RunAndGun_Carbine",
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
@@ -23221,63 +23221,6 @@ return {
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - Rifles-Battle",
-					'Id', "BAR",
-					'comment', "Tier 1-2",
-					'object_class', "BattleRifle",
-					'ScrapParts', 12,
-					'RepairCost', 3,
-					'Reliability', 50,
-					'Icon', "Mod/e6L4ECj/WeaponIcons/BAR.png",
-					'DisplayName', T(265028974011, --[[ModItemInventoryItemCompositeDef BAR DisplayName]] "BAR"),
-					'DisplayNamePlural', T(414328375447, --[[ModItemInventoryItemCompositeDef BAR DisplayNamePlural]] "BAR"),
-					'Description', T(588154036612, --[[ModItemInventoryItemCompositeDef BAR Description]] 'Джон Мозес Браунинг конечно гений, и все такой, но вот с разработкой BAR он явно опоздал. Концепция "ружья-пулемета", как в автомате Федорова или пулемете Гочкисса к началу 30-х годов уже безнадежно устарела, и потому BAR выглядит как неуклюжий косплей ручного пулемета, будучи слишком тяжелым для автоматической винтовки. Говорят, с тех пор американцы делать пулеметы так и не научились.'),
-					'AdditionalHint', T(657931851868, --[[ModItemInventoryItemCompositeDef BAR AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ружье-недопулемет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильная отдача \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный"),
-					'LargeItem', 1,
-					'UnitStat', "Marksmanship",
-					'Cost', 3000,
-					'CanAppearInShop', true,
-					'Tier', 2,
-					'MaxStock', 1,
-					'RestockWeight', 40,
-					'CategoryPair', "AssaultRifles",
-					'CanAppearStandard', false,
-					'Caliber', "JAZZ_Caliber_3006",
-					'Damage', 34,
-					'ObjDamageMod', 80,
-					'AimAccuracy', 8,
-					'MagazineSize', 20,
-					'WeaponRange', 52,
-					'OverwatchAngle', 960,
-					'Noise', 66,
-					'HandSlot', "TwoHanded",
-					'Entity', "BAR",
-					'ComponentSlots', {
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Bipod",
-							'Modifiable', false,
-							'AvailableComponents', {
-								"Bipod",
-							},
-							'DefaultComponent', "Bipod",
-						}),
-					},
-					'HolsterSlot', "Shoulder",
-					'AvailableAttacks', {
-						"BurstFire",
-						"AutoFire",
-						"JAZZ_LargeAutoFire",
-					},
-					'ShootAP', 7000,
-					'ReloadAP', 8000,
-					'Recoil', 35,
-					'AutoShots', 5,
-					'Handling', -35,
-					'BulletDropRange', 24,
-					'Grouping', 38,
-					'WeaponResource', 6500,
-				}),
-				PlaceObj('ModItemInventoryItemCompositeDef', {
-					'Group', "JAZZ - Firearm - Rifles-Battle",
 					'Id', "FG42",
 					'comment', "Tier 1-2",
 					'object_class', "BattleRifle",
@@ -23327,8 +23270,8 @@ return {
 					},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
-						"SingleShot",
 						"BurstFire",
+						"SingleShot",
 						"AutoFire",
 						"JAZZ_Salvo",
 						"JAZZ_LargeAutoFire",
@@ -25699,6 +25642,63 @@ return {
 					'WeaponResource', 2400,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - Rifles-Battle",
+					'Id', "BAR",
+					'comment', "Tier 1-2",
+					'object_class', "LightMachineGun",
+					'ScrapParts', 12,
+					'RepairCost', 3,
+					'Reliability', 50,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/BAR.png",
+					'DisplayName', T(265028974011, --[[ModItemInventoryItemCompositeDef BAR DisplayName]] "BAR"),
+					'DisplayNamePlural', T(414328375447, --[[ModItemInventoryItemCompositeDef BAR DisplayNamePlural]] "BAR"),
+					'Description', T(588154036612, --[[ModItemInventoryItemCompositeDef BAR Description]] 'Джон Мозес Браунинг конечно гений, и все такой, но вот с разработкой BAR он явно опоздал. Концепция "ружья-пулемета", как в автомате Федорова или пулемете Гочкисса к началу 30-х годов уже безнадежно устарела, и потому BAR выглядит как неуклюжий косплей ручного пулемета, будучи слишком тяжелым для автоматической винтовки. Говорят, с тех пор американцы делать пулеметы так и не научились.'),
+					'AdditionalHint', T(657931851868, --[[ModItemInventoryItemCompositeDef BAR AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ружье-недопулемет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильная отдача \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный"),
+					'LargeItem', 1,
+					'UnitStat', "Marksmanship",
+					'Cost', 3000,
+					'CanAppearInShop', true,
+					'Tier', 2,
+					'MaxStock', 1,
+					'RestockWeight', 40,
+					'CategoryPair', "AssaultRifles",
+					'CanAppearStandard', false,
+					'Caliber', "JAZZ_Caliber_3006",
+					'Damage', 34,
+					'ObjDamageMod', 80,
+					'AimAccuracy', 8,
+					'MagazineSize', 20,
+					'WeaponRange', 52,
+					'OverwatchAngle', 960,
+					'Noise', 66,
+					'HandSlot', "TwoHanded",
+					'Entity', "BAR",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Bipod",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"Bipod",
+							},
+							'DefaultComponent', "Bipod",
+						}),
+					},
+					'HolsterSlot', "Shoulder",
+					'AvailableAttacks', {
+						"BurstFire",
+						"AutoFire",
+						"JAZZ_LargeAutoFire",
+					},
+					'ShootAP', 7000,
+					'ReloadAP', 8000,
+					'Recoil', 35,
+					'AutoShots', 5,
+					'Handling', -35,
+					'BulletDropRange', 24,
+					'Grouping', 38,
+					'WeaponResource', 6500,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - MG-SAW",
 					'Id', "U100",
 					'comment', "Tier 2-1",
@@ -26026,6 +26026,96 @@ return {
 					'Grouping', 56,
 					'BaseJamChance', -30,
 					'WeaponResource', 11500,
+				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - MG-GPMG",
+					'Id', "RPD",
+					'comment', "Tier 2-1",
+					'object_class', "LightMachineGun",
+					'ScrapParts', 16,
+					'RepairCost', 8,
+					'Reliability', 70,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/RPD.png",
+					'DisplayName', T(921726795014, --[[ModItemInventoryItemCompositeDef RPD DisplayName]] "РПД"),
+					'DisplayNamePlural', T(960477150592, --[[ModItemInventoryItemCompositeDef RPD DisplayNamePlural]] "РПД"),
+					'Description', T(214801991188, --[[ModItemInventoryItemCompositeDef RPD Description]] "Ручной пулемет Дегтярева (РПД) был разработан в 1944 году под новый на тот момент патрон 7.62х39 мм. Впоследствии был заменен на РПК, но успел широко распространиться по странам соцлагеря, так что до сих пор встречается на поле боя."),
+					'AdditionalHint', T(753688782220, --[[ModItemInventoryItemCompositeDef RPD AdditionalHint]] '<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ручной пулемет под "семерку" \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В остальном средний'),
+					'LargeItem', 1,
+					'UnitStat', "Marksmanship",
+					'Cost', 9000,
+					'CanAppearInShop', true,
+					'Tier', 2,
+					'MaxStock', 1,
+					'RestockWeight', 40,
+					'CategoryPair', "MachineGuns",
+					'Caliber', "JAZZ_Caliber_762x39",
+					'Damage', 28,
+					'ObjDamageMod', 50,
+					'AimAccuracy', 10,
+					'MagazineSize', 100,
+					'WeaponRange', 40,
+					'OverwatchAngle', 600,
+					'Noise', 52,
+					'HandSlot', "TwoHanded",
+					'Entity', "RPD",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"MagNormal",
+							},
+							'DefaultComponent', "MagNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Barrel",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"BarrelsDefs",
+							},
+							'DefaultComponent', "BarrelsDefs",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Stock",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"StockNormal",
+							},
+							'DefaultComponent', "StockNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Bipod",
+							'AvailableComponents', {
+								"FoldBipod",
+								"UnfoldBipod",
+							},
+							'DefaultComponent', "UnfoldBipod",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Scope",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"Jazz_IronSight",
+							},
+							'DefaultComponent', "Jazz_IronSight",
+						}),
+					},
+					'HolsterSlot', "Shoulder",
+					'AvailableAttacks', {
+						"MGBurstFire",
+						"JAZZ_MGSuppressionFire",
+						"JAZZ_VovaVist",
+					},
+					'ShootAP', 9000,
+					'ReloadAP', 7000,
+					'Recoil', 9,
+					'BurstShots', 6,
+					'AutoShots', 6,
+					'Handling', -25,
+					'BulletDropRange', 14,
+					'Grouping', 65,
+					'BaseJamChance', -10,
+					'WeaponResource', 9000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - MG-SAW",
@@ -26533,96 +26623,6 @@ return {
 					'BulletDropRange', 26,
 					'Grouping', 35,
 					'WeaponResource', 8000,
-				}),
-				PlaceObj('ModItemInventoryItemCompositeDef', {
-					'Group', "JAZZ - Firearm - MG-GPMG",
-					'Id', "RPD",
-					'comment', "Tier 2-1",
-					'object_class', "MachineGun",
-					'ScrapParts', 16,
-					'RepairCost', 8,
-					'Reliability', 70,
-					'Icon', "Mod/e6L4ECj/WeaponIcons/RPD.png",
-					'DisplayName', T(921726795014, --[[ModItemInventoryItemCompositeDef RPD DisplayName]] "РПД"),
-					'DisplayNamePlural', T(960477150592, --[[ModItemInventoryItemCompositeDef RPD DisplayNamePlural]] "РПД"),
-					'Description', T(214801991188, --[[ModItemInventoryItemCompositeDef RPD Description]] "Ручной пулемет Дегтярева (РПД) был разработан в 1944 году под новый на тот момент патрон 7.62х39 мм. Впоследствии был заменен на РПК, но успел широко распространиться по странам соцлагеря, так что до сих пор встречается на поле боя."),
-					'AdditionalHint', T(753688782220, --[[ModItemInventoryItemCompositeDef RPD AdditionalHint]] '<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ручной пулемет под "семерку" \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В остальном средний'),
-					'LargeItem', 1,
-					'UnitStat', "Marksmanship",
-					'Cost', 9000,
-					'CanAppearInShop', true,
-					'Tier', 2,
-					'MaxStock', 1,
-					'RestockWeight', 40,
-					'CategoryPair', "MachineGuns",
-					'Caliber', "JAZZ_Caliber_762x39",
-					'Damage', 28,
-					'ObjDamageMod', 50,
-					'AimAccuracy', 10,
-					'MagazineSize', 100,
-					'WeaponRange', 40,
-					'OverwatchAngle', 600,
-					'Noise', 52,
-					'HandSlot', "TwoHanded",
-					'Entity', "RPD",
-					'ComponentSlots', {
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Magazine",
-							'Modifiable', false,
-							'AvailableComponents', {
-								"MagNormal",
-							},
-							'DefaultComponent', "MagNormal",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Barrel",
-							'Modifiable', false,
-							'AvailableComponents', {
-								"BarrelsDefs",
-							},
-							'DefaultComponent', "BarrelsDefs",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Stock",
-							'Modifiable', false,
-							'AvailableComponents', {
-								"StockNormal",
-							},
-							'DefaultComponent', "StockNormal",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Bipod",
-							'AvailableComponents', {
-								"FoldBipod",
-								"UnfoldBipod",
-							},
-							'DefaultComponent', "UnfoldBipod",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Scope",
-							'Modifiable', false,
-							'AvailableComponents', {
-								"Jazz_IronSight",
-							},
-							'DefaultComponent', "Jazz_IronSight",
-						}),
-					},
-					'HolsterSlot', "Shoulder",
-					'AvailableAttacks', {
-						"MGBurstFire",
-						"JAZZ_MGSuppressionFire",
-						"JAZZ_VovaVist",
-					},
-					'ShootAP', 9000,
-					'ReloadAP', 7000,
-					'Recoil', 9,
-					'BurstShots', 6,
-					'AutoShots', 6,
-					'Handling', -25,
-					'BulletDropRange', 14,
-					'Grouping', 65,
-					'BaseJamChance', -10,
-					'WeaponResource', 9000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - MG-GPMG",
@@ -58727,6 +58727,7 @@ return {
 									weapon1:SetWeaponComponent("Stock", WeaponComponents[comp].zzFoldingPair[1])
 						        return false
 					end,
+					ShowIn = "SignatureAbilities",
 					SortKey = 10,
 					group = "Default",
 					id = "FoldStock",
@@ -58766,6 +58767,7 @@ return {
 									weapon1:SetWeaponComponent("Stock", WeaponComponents[comp].zzFoldingPair[1])
 						        return false
 					end,
+					ShowIn = "SignatureAbilities",
 					SortKey = 10,
 					group = "Default",
 					id = "UnFoldStock",
@@ -58805,6 +58807,7 @@ return {
 									weapon1:SetWeaponComponent("Side", WeaponComponents[comp].zzFoldingPair[1])
 						        return false
 					end,
+					ShowIn = "SignatureAbilities",
 					SortKey = 11,
 					group = "Default",
 					id = "FlashlightOn",
@@ -58844,6 +58847,7 @@ return {
 									weapon1:SetWeaponComponent("Side", WeaponComponents[comp].zzFoldingPair[1])
 						        return false
 					end,
+					ShowIn = "SignatureAbilities",
 					SortKey = 11,
 					group = "Default",
 					id = "FlashlightOff",
@@ -58909,6 +58913,7 @@ return {
 					Run = function (self, unit, ap, args)
 						unit:SetActionCommand("UnjamWeapon", self.id, ap, args)
 					end,
+					ShowIn = "SignatureAbilities",
 					SortKey = 10,
 					group = "Default",
 					id = "Unjam",
@@ -59219,9 +59224,9 @@ return {
 					Execute = function (self, units, args)
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
-						local num_shots =  weapon:GetAutofireShots(self)
+						args.num_shots =  weapon:GetAutofireShots(self)
 						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
+								args.num_shots = MulDivRound(args.num_shots,150,100)
 							end
 						args.multishot = true
 						local ap = self:GetAPCost(unit, args)
@@ -59520,9 +59525,9 @@ return {
 						local unit = units[1]
 						args.multishot = true
 						local weapon = self:GetAttackWeapons(unit, args)
-						local num_shots =  weapon:GetAutofireShots(self)
+						args.num_shots =  weapon:GetAutofireShots(self)
 						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
+								args.num_shots = MulDivRound(args.num_shots,150,100)
 							end
 						local ap = self:GetAPCost(unit, args)
 						NetStartCombatAction(self.id, unit, ap, args)
@@ -59749,7 +59754,7 @@ return {
 					ActionType = "Ranged Attack",
 					AimType = "mobile",
 					CostBasedOnWeapon = true,
-					Description = T(799980728478, --[[ModItemCombatAction MobileShot Description]] "<color EmStyle>Один раз за ход</color>.\nПереход на новую позицию и два выстрела по ближайшим целям."),
+					Description = T(799980728478, --[[ModItemCombatAction MobileShot Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию и два выстрела по ближайшим целям."),
 					DisplayName = T(615888335880, --[[ModItemCombatAction MobileShot DisplayName]] "Маневр с Пистолетом"),
 					GetActionDamage = function (self, unit, target, args)
 						local rangedAttack = unit:GetDefaultAttackAction("ranged") 
@@ -59854,7 +59859,7 @@ return {
 					ActionType = "Ranged Attack",
 					AimType = "mobile",
 					CostBasedOnWeapon = true,
-					Description = T(423077222090, --[[ModItemCombatAction RunAndGun Description]] "<em>Один раз за ход</em>.\nПереход на новую позицию, в процессе которого вы выпускаете до <em><num_shots> коротких очередей</em> по ближайшим целям. "),
+					Description = T(423077222090, --[[ModItemCombatAction RunAndGun Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию, в процессе которого вы выпускаете до <em><num_shots> коротких очередей</em> по ближайшим целям. "),
 					DisplayName = T(455062954204, --[[ModItemCombatAction RunAndGun DisplayName]] "Стрельба на бегу"),
 					GetActionDamage = function (self, unit, target, args)
 						local weapon = self:GetAttackWeapons(unit, args)
@@ -59956,8 +59961,8 @@ return {
 					ActionType = "Ranged Attack",
 					AimType = "mobile",
 					CostBasedOnWeapon = true,
-					Description = T(423077222090, --[[ModItemCombatAction RunAndGun_Carbine Description]] "<em>Один раз за ход</em>.\nПереход на новую позицию, в процессе которого вы аттакуете до <em><num_shots></em> ближайших целей. "),
-					DisplayName = T(455062954204, --[[ModItemCombatAction RunAndGun_Carbine DisplayName]] "Стрельба на бегу"),
+					Description = T(423077222090, --[[ModItemCombatAction RunAndGun_Carbine Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию, в процессе которого вы аттакуете до <em><num_shots></em> ближайших целей. "),
+					DisplayName = T(455062954204, --[[ModItemCombatAction RunAndGun_Carbine DisplayName]] "Стрельба на бегу (Карабин)"),
 					GetActionDamage = function (self, unit, target, args)
 						local weapon = self:GetAttackWeapons(unit, args)
 						if not weapon then return 0 end
@@ -59986,8 +59991,8 @@ return {
 					GetActionResults = function (self, unit, args)
 						local weapon = self:GetAttackWeapons(unit)
 						args.attack_id =  weapon:CanBurstfire() and "BurstFire" or "SingleShot"
-						args.num_shots = weapon and weapon:GetAutofireShots(args.attack_id) 
-						and weapon:CanBurstfire() or 1
+						args.num_shots = weapon and weapon:CanBurstfire() and  weapon:GetAutofireShots(args.attack_id) 
+						or 1
 						args.multishot = true
 						return GetMobileShotResults(self, unit, args)
 					end,
@@ -61587,6 +61592,16 @@ return {
 					Description = T(864948067398, --[[ModItemCombatAction JAZZ_Zipper Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nТри коротких очереди Ноги-Пах-Торс"),
 					DisplayName = T(696629111160, --[[ModItemCombatAction JAZZ_Zipper DisplayName]] "Зажимай"),
 					DisplayNameShort = T(466948292860, --[[ModItemCombatAction JAZZ_Zipper DisplayNameShort]] "Зажимай"),
+					Execute = function (self, units, args)
+						local unit = units[1]
+						local ap = self:GetAPCost(unit, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						args.num_shots =  weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								args.num_shots = MulDivRound(args.num_shots,150,100)
+							end
+						NetStartCombatAction(self.id, unit, ap, args)
+					end,
 					GetAPCost = function (self, unit, args)
 						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
 						if unit:OutOfAmmo(weapon2) or unit:IsWeaponJammed(weapon2) then
@@ -61602,8 +61617,11 @@ return {
 						local weapon = self:GetAttackWeapons(unit, args)
 						if not weapon then return 0 end
 						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
-						local num_shots = weapon:GetAutofireShots("JAZZ_Zipper")
-						local damage = num_shots*base
+						local num_shots = weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
+						local damage = num_shots*base*3
 						return damage, base, damage - base
 					end,
 					GetActionDescription = function (self, units)
@@ -61634,7 +61652,13 @@ return {
 					GetUIState = function (self, units, args)
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
-						local unit = units[1]
+						local num_shots = weapon:GetAutofireShots(self)
+						if HasPerk(unit, "Jazz_Perk_Buzz") then
+								num_shots = MulDivRound(num_shots,150,100)
+							end
+						if not weapon.ammo or weapon.ammo.Amount < num_shots then
+							return "disabled", AttackDisableReasons.InsufficientAmmo
+						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
 					Icon = "Mod/e6L4ECj/Perks/Zipper.png",
@@ -61651,7 +61675,7 @@ return {
 					RequireTargets = true,
 					RequireWeapon = true,
 					Run = function (self, unit, ap, ...)
-						unit:SetActionCommand("Zipper", "BurstFire", ap, ...)
+						unit:SetActionCommand("Zipper", self.id, ap, ...)
 					end,
 					SortKey = 4,
 					StealthAttack = true,
@@ -62025,7 +62049,7 @@ return {
 						local args = table.copy(args)
 						args.weapon = self:GetAttackWeapons(unit, args)
 						local weapon = self:GetAttackWeapons(unit)
-						local num_shots = weapon:GetAutofireShots(self)
+						args.num_shots = weapon:GetAutofireShots(self)
 						if HasPerk(unit, "Jazz_Perk_Buzz") then
 								args.num_shots = MulDivRound(args.num_shots,150,100)
 							end
@@ -62573,7 +62597,7 @@ return {
 					UIBegin = function (self, units, args)
 						CombatActionAttackStart(self, units, args, "IModeCombatAttack")
 					end,
-					group = "MachineGun",
+					group = "WeaponAttacks",
 					id = "JAZZ_MGSuppressionFire",
 				}),
 				PlaceObj('ModItemCombatAction', {
@@ -62694,7 +62718,7 @@ return {
 					UIBegin = function (self, units, args)
 						CombatActionAttackStart(self, units, args, "IModeCombatAreaAim")
 					end,
-					group = "MachineGun",
+					group = "WeaponAttacks",
 					id = "JAZZ_VovaVist",
 				}),
 				}),
@@ -72496,11 +72520,23 @@ return {
 					'Background', RGBA(52, 55, 61, 255),
 				}, {
 					PlaceObj('XTemplateWindow', {
+						'__class', "XText",
+						'Id', "idTitle",
+						'Margins', box(10, 0, 0, 0),
+						'Dock', "left",
+						'HAlign', "left",
+						'Clip', false,
+						'UseClipBox', false,
+						'FoldWhenHidden', true,
+						'TextStyle', "PDACombatActionHeader",
+						'Translate', true,
+						'TextVAlign', "bottom",
+					}),
+					PlaceObj('XTemplateWindow', {
 						'comment', "ap indicator",
 						'__condition', function (parent, context) local cnt = ResolvePropObj(context); return cnt:IsWeapon() or IsKindOfClasses(cnt, "Grenade") end,
 						'__class', "XText",
 						'RolloverTemplate', "PDAPerkRollover",
-						'Dock', "right",
 						'HAlign', "right",
 						'VAlign', "top",
 						'Clip', false,
@@ -72524,23 +72560,52 @@ return {
 						'TextHAlign', "right",
 						'TextVAlign', "bottom",
 					}),
-					PlaceObj('XTemplateWindow', {
-						'__class', "XText",
-						'Id', "idTitle",
-						'Margins', box(10, 0, 0, 0),
-						'Dock', "left",
-						'HAlign', "left",
-						'Clip', false,
-						'UseClipBox', false,
-						'FoldWhenHidden', true,
-						'TextStyle', "PDACombatActionHeader",
-						'Translate', true,
-						'TextVAlign', "bottom",
-					}),
 					}),
 				PlaceObj('XTemplateWindow', {
 					'LayoutMethod', "VList",
 				}, {
+					PlaceObj('XTemplateWindow', {
+						'__class', "XContextControl",
+						'Id', "idContentInfo",
+						'Margins', box(0, 0, 6, 0),
+						'Padding', box(0, 6, 6, 6),
+						'HAlign', "left",
+						'VAlign', "top",
+						'MinWidth', 356,
+						'MaxWidth', 356,
+						'LayoutMethod', "HWrap",
+						'LayoutVSpacing', 5,
+						'FoldWhenHidden', true,
+						'BorderColor', RGBA(0, 0, 0, 0),
+						'BackgroundRectGlowColor', RGBA(32, 35, 47, 255),
+						'OnContextUpdate', function (self, context, ...)
+							local ctx = ResolvePropObj(context)
+							if IsKindOf(ctx, "Ordnance") then
+								self.idType:SetText(ctx.DisplayName)
+								--self.idIcon:SetImage(ctx.Icon or "")
+								return
+							end
+							local weaponType = ctx:GetRolloverType()
+							local description = ctx.Description
+							local preset = Presets.WeaponType.Default[weaponType]
+							self.idType:SetText(preset and preset.Name or "")
+							if preset and preset.Icon then
+								self.idIcon:SetImage(preset.Icon)
+							end
+						end,
+					}, {
+						PlaceObj('XTemplateWindow', {
+							'__class', "XText",
+							'Id', "idType",
+							'Margins', box(10, 0, 0, 0),
+							'Dock', "left",
+							'HAlign', "right",
+							'TextStyle', "PDABrowserFlavorMedium",
+							'Translate', true,
+							'Text', T(611405286573, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "<DisplayName>"),
+							'TextVAlign', "bottom",
+						}),
+						}),
 					PlaceObj('XTemplateWindow', {
 						'comment', "dmg, crit,range",
 						'__context', function (parent, context) return ResolvePropObj(context) end,
@@ -97673,14 +97738,14 @@ return {
 			PlaceObj('ModItemWeaponType', {
 				Description = T(981045518000, --[[ModItemWeaponType Default Autopistol Description]] "Пистолеты с режимом автоогня. Позволяют эффективно подавлять цели на близких дистанциях."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Autopistol.png",
-				Name = T(245455655146, --[[ModItemWeaponType Default Autopistol Name]] "Автоматические пистолеты"),
+				Name = T(245455655146, --[[ModItemWeaponType Default Autopistol Name]] "Автоматический пистолет"),
 				group = "Default",
 				id = "Autopistol",
 			}),
 			PlaceObj('ModItemWeaponType', {
 				Description = T(506514969558, --[[ModItemWeaponType Default Revolver Description]] "Револьвер - это классическое точное, мощное и надежное оружие.\nИмеют бонус к точности и к шансу крита, если это первое действие за ход"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Revolver.png",
-				Name = T(245455655146, --[[ModItemWeaponType Default Revolver Name]] "Револьверы"),
+				Name = T(245455655146, --[[ModItemWeaponType Default Revolver Name]] "Револьвер"),
 				group = "Default",
 				id = "Revolver",
 			}),
@@ -97711,7 +97776,7 @@ return {
 			PlaceObj('ModItemWeaponType', {
 				Description = T(277712105498, --[[ModItemWeaponType Default Carbine Description]] "Штурмовые винтовки - это универсальное оружие без каких-либо выраженных преимуществ. Они обладают неплохим останавливающим действием, дальностью и бронебойностью, а также поддерживают большое количество разнообразных модулей."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Carbine.png",
-				Name = T(987446796163, --[[ModItemWeaponType Default Carbine Name]] "Штурмовая винтовка"),
+				Name = T(274027037052, --[[ModItemWeaponType Default Carbine Name]] "Карабин"),
 				SortKey = 5,
 				group = "Default",
 				id = "Carbine",
@@ -97719,7 +97784,7 @@ return {
 			PlaceObj('ModItemWeaponType', {
 				Description = T(277712105498, --[[ModItemWeaponType Default BattleRifle Description]] "Штурмовые винтовки - это универсальное оружие без каких-либо выраженных преимуществ. Они обладают неплохим останавливающим действием, дальностью и бронебойностью, а также поддерживают большое количество разнообразных модулей."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/BattleRifle.png",
-				Name = T(987446796163, --[[ModItemWeaponType Default BattleRifle Name]] "Штурмовая винтовка"),
+				Name = T(322415689229, --[[ModItemWeaponType Default BattleRifle Name]] "Боевая Винтовка"),
 				SortKey = 5,
 				group = "Default",
 				id = "BattleRifle",
@@ -97735,7 +97800,7 @@ return {
 			PlaceObj('ModItemWeaponType', {
 				Description = T(420551480759, --[[ModItemWeaponType Default MachineGun Description]] "Пулеметы обладают огромной скорострельностью, но точность их отдельных выстрелов оставляет желать лучшего.\n\nПереведя пулемет в боевое положение, вы сможете эффективно прикрывать определенный участок местности. При стрельбе из установленных в боевое положение или стационарных пулеметов имеется ограниченное количество внеочередных атак-прерываний по перемещающимся в секторе обстрела противникам. Число атак-прерываний зависит от числа оставшихся ОД."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/MachineGun.png",
-				Name = T(823987842090, --[[ModItemWeaponType Default MachineGun Name]] "Пулемет"),
+				Name = T(934155710549, --[[ModItemWeaponType Default MachineGun Name]] "Единый пулемёт"),
 				SortKey = 6,
 				group = "Default",
 				id = "MachineGun",
@@ -97743,7 +97808,7 @@ return {
 			PlaceObj('ModItemWeaponType', {
 				Description = T(420551480759, --[[ModItemWeaponType Default LightMachineGun Description]] "Пулеметы обладают огромной скорострельностью, но точность их отдельных выстрелов оставляет желать лучшего.\n\nПереведя пулемет в боевое положение, вы сможете эффективно прикрывать определенный участок местности. При стрельбе из установленных в боевое положение или стационарных пулеметов имеется ограниченное количество внеочередных атак-прерываний по перемещающимся в секторе обстрела противникам. Число атак-прерываний зависит от числа оставшихся ОД."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/LightMachineGun.png",
-				Name = T(823987842090, --[[ModItemWeaponType Default LightMachineGun Name]] "Пулемет"),
+				Name = T(620492797462, --[[ModItemWeaponType Default LightMachineGun Name]] "Ручной пулемёт"),
 				SortKey = 6,
 				group = "Default",
 				id = "LightMachineGun",
@@ -97751,7 +97816,7 @@ return {
 			PlaceObj('ModItemWeaponType', {
 				Description = T(521528587114, --[[ModItemWeaponType Default Sniper Description]] "Винтовки обладают хорошей бронебойностью и позволяют точно поражать определенные части тела. Они достаточно дальнобойны, но их скорострельность оставляет желать лучшего.\n\nОсобая атака: сосредоточение огня"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Sniper.png",
-				Name = T(117519310837, --[[ModItemWeaponType Default Sniper Name]] "Винтовки"),
+				Name = T(546961178289, --[[ModItemWeaponType Default Sniper Name]] "Снайперская винтовка"),
 				SortKey = 6,
 				group = "Default",
 				id = "Sniper",
@@ -102760,7 +102825,7 @@ return {
 		}, {
 			PlaceObj('ModItemRegion', {
 				DisplayName = "Остров Эрни",
-				Heat = 1178,
+				Heat = 1536,
 				Sectors = {
 					"M1",
 					"M2",

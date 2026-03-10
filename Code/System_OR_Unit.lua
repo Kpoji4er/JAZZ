@@ -1444,7 +1444,7 @@ function Unit:GetOverwatchAttacksAndAim(action, args, unit_ap)
 --		aim = maxAim
 --	end
 
-	if IsKindOf(weapon, "AssaultRifle", "MachineGun") then
+	if IsKindOf(weapon, "AssaultRifle", "MachineGun", "LightMachineGun", "BattleRifle") then
 		aim = Min(aim + 1,maxAim)
 	end
 	if IsKindOfClasses(weapon, "SniperRifle") then
