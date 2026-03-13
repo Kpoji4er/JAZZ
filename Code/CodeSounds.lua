@@ -57,10 +57,10 @@ PlaceObj('ActionFXInherit_Actor', {
 })
 
 PlaceObj('ActionFXInherit_Actor', {
-	Actor = "flashhider",
+	Actor = "FlashHider",
 	Inherit = "Basic",
 	group = "Weapons VFX",
-	id = "fxflashhider",
+	id = "fxFlashHider",
 })
 
 

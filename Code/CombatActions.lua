@@ -127,7 +127,7 @@ function GetMobileShotResults_StartPos(action, unit, args)
 
 	local shot_targets = CombatActionGetAttackableEnemies(atk_action, unit)
 	--shot_targets[1] =  atk_action.GetDefaultTarget(atk_action, unit)
-	if not shot_targets[2] then shot_targets[2] = shot_targets[1] end
+	if shot_targets[1] and not shot_targets[2] then shot_targets[2] = shot_targets[1] end
 
 
 
