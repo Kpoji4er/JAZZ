@@ -45,9 +45,11 @@ DefineClass.BAR = {
 	},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
+		"MGBurstFire",
 		"BurstFire",
-		"AutoFire",
-		"JAZZ_LargeAutoFire",
+		"JAZZ_ControllableBurst",
+		"JAZZ_TargetSweep",
+		"JAZZ_ControllableBurst",
 	},
 	ShootAP = 7000,
 	ReloadAP = 8000,

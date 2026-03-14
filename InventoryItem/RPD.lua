@@ -77,8 +77,10 @@ DefineClass.RPD = {
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"MGBurstFire",
-		"JAZZ_MGSuppressionFire",
-		"JAZZ_VovaVist",
+		"BurstFire",
+		"JAZZ_ControllableBurst",
+		"JAZZ_LargeAutoFire",
+		"JAZZ_TargetSweep",
 	},
 	ShootAP = 9000,
 	ReloadAP = 7000,

@@ -25685,9 +25685,11 @@ return {
 					},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
+						"MGBurstFire",
 						"BurstFire",
-						"AutoFire",
-						"JAZZ_LargeAutoFire",
+						"JAZZ_ControllableBurst",
+						"JAZZ_TargetSweep",
+						"JAZZ_ControllableBurst",
 					},
 					'ShootAP', 7000,
 					'ReloadAP', 8000,
@@ -26103,8 +26105,10 @@ return {
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"MGBurstFire",
-						"JAZZ_MGSuppressionFire",
-						"JAZZ_VovaVist",
+						"BurstFire",
+						"JAZZ_ControllableBurst",
+						"JAZZ_LargeAutoFire",
+						"JAZZ_TargetSweep",
 					},
 					'ShootAP', 9000,
 					'ReloadAP', 7000,
@@ -65577,7 +65581,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Секретные данные"),
+					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ DisplayName]] "Секретные данные"),
 					'Description', T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
 					'Icon', "UI/Icons/Perks/InnerInfo",
 					'Tier', "Personal",
@@ -65639,7 +65643,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Юберрашунг"),
+					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ DisplayName]] "Юберрашунг"),
 					'Description', T(845332100943, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ Description]] "Дает +50% од на первом ходу"),
 					'Icon', "UI/Icons/Perks/GruntyPerk",
 					'Tier', "Personal",
@@ -72955,7 +72959,7 @@ return {
 									local penclass = cnt.PenetrationClass * 10
 									
 									
-									subclass = cnt.PenetrationBonus
+									local subclass = cnt.PenetrationBonus
 									penclass = penclass  + subclass
 									
 									
@@ -97758,9 +97762,9 @@ return {
 				id = "CompactSMG",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(614148544769, --[[ModItemWeaponType Default CompactSMG Description]] "Пистолеты-пулеметы обладают высокой скорострельностью и очень эффективны на дистанциях стрельбы в упор. При этом они пригодны максимум для средних дистанций боя, а их бронебойность оставляет желать лучшего.\n\nОсобая атака: маневренный бой"),
+				Description = T(614148544769, --[[ModItemWeaponType Default SMG Description]] "Пистолеты-пулеметы обладают высокой скорострельностью и очень эффективны на дистанциях стрельбы в упор. При этом они пригодны максимум для средних дистанций боя, а их бронебойность оставляет желать лучшего.\n\nОсобая атака: маневренный бой"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/SMG.png",
-				Name = T(731752089698, --[[ModItemWeaponType Default CompactSMG Name]] "Пистолет-пулемет"),
+				Name = T(731752089698, --[[ModItemWeaponType Default SMG Name]] "Пистолет-пулемет"),
 				SortKey = 6,
 				group = "Default",
 				id = "SMG",
@@ -97774,7 +97778,7 @@ return {
 				id = "AssaultRifle",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(277712105498, --[[ModItemWeaponType Default AssaultRifle Description]] "Штурмовые винтовки - это универсальное оружие без каких-либо выраженных преимуществ. Они обладают неплохим останавливающим действием, дальностью и бронебойностью, а также поддерживают большое количество разнообразных модулей."),
+				Description = T(277712105498, --[[ModItemWeaponType Default Carbine Description]] "Штурмовые винтовки - это универсальное оружие без каких-либо выраженных преимуществ. Они обладают неплохим останавливающим действием, дальностью и бронебойностью, а также поддерживают большое количество разнообразных модулей."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Carbine.png",
 				Name = T(274027037052, --[[ModItemWeaponType Default Carbine Name]] "Карабин"),
 				SortKey = 5,
@@ -97782,7 +97786,7 @@ return {
 				id = "Carbine",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(277712105498, --[[ModItemWeaponType Default AssaultRifle Description]] "Штурмовые винтовки - это универсальное оружие без каких-либо выраженных преимуществ. Они обладают неплохим останавливающим действием, дальностью и бронебойностью, а также поддерживают большое количество разнообразных модулей."),
+				Description = T(277712105498, --[[ModItemWeaponType Default BattleRifle Description]] "Штурмовые винтовки - это универсальное оружие без каких-либо выраженных преимуществ. Они обладают неплохим останавливающим действием, дальностью и бронебойностью, а также поддерживают большое количество разнообразных модулей."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/BattleRifle.png",
 				Name = T(322415689229, --[[ModItemWeaponType Default BattleRifle Name]] "Боевая Винтовка"),
 				SortKey = 5,
@@ -97806,7 +97810,7 @@ return {
 				id = "MachineGun",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(420551480759, --[[ModItemWeaponType Default MachineGun Description]] "Пулеметы обладают огромной скорострельностью, но точность их отдельных выстрелов оставляет желать лучшего.\n\nПереведя пулемет в боевое положение, вы сможете эффективно прикрывать определенный участок местности. При стрельбе из установленных в боевое положение или стационарных пулеметов имеется ограниченное количество внеочередных атак-прерываний по перемещающимся в секторе обстрела противникам. Число атак-прерываний зависит от числа оставшихся ОД."),
+				Description = T(420551480759, --[[ModItemWeaponType Default LightMachineGun Description]] "Пулеметы обладают огромной скорострельностью, но точность их отдельных выстрелов оставляет желать лучшего.\n\nПереведя пулемет в боевое положение, вы сможете эффективно прикрывать определенный участок местности. При стрельбе из установленных в боевое положение или стационарных пулеметов имеется ограниченное количество внеочередных атак-прерываний по перемещающимся в секторе обстрела противникам. Число атак-прерываний зависит от числа оставшихся ОД."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/LightMachineGun.png",
 				Name = T(620492797462, --[[ModItemWeaponType Default LightMachineGun Name]] "Ручной пулемёт"),
 				SortKey = 6,
