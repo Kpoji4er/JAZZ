@@ -1053,7 +1053,7 @@ end
 function Unit:RecalcWillPoints()
 
 	if HasPerk(self, "Psycho") and not self:HasStatusEffect("Berserk") then
-		self.WillPoints = Clamp(self.WillPoints - 5, 0, self.MaxWillPoints)
+		self.WillPoints = Clamp(self.WillPoints - 12, 0, self.MaxWillPoints)
 		self:ApplySuppressionStatus()
 		return end		
 
@@ -1198,9 +1198,15 @@ function Unit:GetNumMGInterruptAttacks(skip_check)
 	end
 	local ap = g_Combat and self:GetUIActionPoints() or self:GetMaxActionPoints()
 
+	local bonus = 0
+	local weapon = action:GetAttackWeapons(self)
+	if weapon and IsKindOf(weapon,"MachineGun") then 
+		bonus = 1
+	end
+
 	local PerkBonus = (HasPerk(self, "HeavyWeaponsTraining")) and 2 or 0
 	
-	return  PerkBonus + ap / ap_cost + const.Combat.MGFreeInterruptAttacks
+	return  PerkBonus + ap / ap_cost + const.Combat.MGFreeInterruptAttacks + bonus
 end
 
 function Unit:BeginTurn(new_turn)	
@@ -1619,8 +1625,18 @@ function Unit:EnumUIActions()
 	end
 
 	actions[#actions + 1] = "ItemSkills"
+
+	local seen, unique = {}, {}
+		for _, action in ipairs(actions) do
+			if not seen[action] then
+				seen[action] = true
+				unique[#unique + 1] = action
+			end
+		end
+	return unique
+
 	
-	return actions
+	--return actions
 end
 
 
@@ -2163,7 +2179,7 @@ function Unit:ApplySuppressionStatus()
 
 	if HasPerk(self, "Psycho") and (self.WillPoints) <= 10 then
 	    self:AddStatusEffect("Berserk")
-		self.WillPoints = self.MaxWillPoints
+		self.WillPoints = self.WillPoints+5
 		return
 	end		
 

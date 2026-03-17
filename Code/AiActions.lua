@@ -704,10 +704,10 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
           end
         
         end
-        TryChangeStance(unit)
+        --TryChangeStance(unit)
     end
 
-    --TryChangeStance(unit)
+    TryChangeStance(unit)
     --unit.ai_context.stancechanged = false
     
 

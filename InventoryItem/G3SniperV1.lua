@@ -44,12 +44,12 @@ DefineClass.G3SniperV1 = {
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"DefMuzzle",
+				"",
 				"Compensator",
 				"SuppressorImproved",
 			},
-			'DefaultComponent', "DefMuzzle",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",

@@ -33,13 +33,15 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 11,
-	'version', 5862,
+	'version', 5881,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
 		"Code/Camera.lua",
 		"Code/SpecializationGiver.lua",
 		"Code/System_AimHiringFilters.lua",
+		"Const/Ammo.lua",
+		"Const/Grenade.lua",
 		"Code/UtilityFunc.lua",
 		"InventoryItem/FlareAmmo.lua",
 		"InventoryItem/JAZZ_AMMO_9x19_Poor.lua",
@@ -773,6 +775,7 @@ return PlaceObj('ModDef', {
 		"CharacterEffect/Stealthy.lua",
 		"CharacterEffect/AutoWeapons.lua",
 		"CharacterEffect/HeavyWeaponsTraining.lua",
+		"CharacterEffect/GrizzlyPerk.lua",
 		"CharacterEffect/Jazz_Perk_00.lua",
 		"CharacterEffect/Jazz_Perk_Lynx.lua",
 		"CharacterEffect/Jazz_Perk_Buzz.lua",
@@ -834,6 +837,7 @@ return PlaceObj('ModDef', {
 		"Code/Debug.lua",
 		"Code/WorldFlipSpawnUnits.lua",
 		"Code/ConsoleFont.lua",
+		"Code/Weather.lua",
 	},
 	'loctables', {
 		{
@@ -850,8 +854,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1773428865,
-	'code_hash', -965768297897041506,
+	'saved', 1773679352,
+	'code_hash', -2640106702489824362,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -7485,6 +7489,16 @@ return PlaceObj('ModDef', {
 			'Id', "NightOps",
 			'Prop', "Parameters",
 			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "GrizzlyPerk",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "GrizzlyPerk",
+			'ClassDisplayName', "Combat Actions",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "CombatAction",

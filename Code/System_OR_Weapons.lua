@@ -376,7 +376,7 @@ function Firearm:GetAttackResults(action, attack_args)
 		consumed_ammo = Max(consumed_ammo, aoe_params and aoe_params.used_ammo or 0)
 	end
 
-	if action.id == "BulletHell"  or action_id == "JAZZ_VovaVist"  then
+	if action.id == "BulletHell"  or action.id == "JAZZ_VovaVist"  then
 		target_pos = attack_args.step_pos + SetLen2D((target_pos - attack_args.step_pos):SetZ(0), aoe_params.max_range * const.SlabSizeX)
 		if not target_pos:IsValidZ() then
 			target_pos = target_pos:SetTerrainZ()
@@ -581,6 +581,7 @@ end
 		if (bipodshots) then shots_before_cth_loss = shots_before_cth_loss + 1 or 1 end
     end	
 	 
+	if action.id == "GrizzlyPerk" then shots_before_cth_loss = 20 end
 
 
 local ScopeMagn = GetComponentEffectValue(self, "ScopeMagnification", "ScopeMagnification") or 1
@@ -1097,7 +1098,7 @@ end
 						willDamage = MulDivRound(willDamage,suppressionbonus,100)
 						if willDamage > 0 then
 							if attacker_is_psycho then
-								attacker.WillPoints = Max(attacker.MaxWillPoints, attacker.WillPoints + willDamage)
+								attacker.WillPoints = Min(attacker.MaxWillPoints, attacker.WillPoints + willDamage)
 							end
 							if not target_is_psycho then
 								QueueSuppressionApplication(target_unit, willDamage)

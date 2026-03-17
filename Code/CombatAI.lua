@@ -49,16 +49,16 @@ function GetCTHByAimLevels(unit, enemy, action, max_aim)
 	if not weapon1 then return end
 	
 	local dist = unit:GetDist(enemy)
---	if dist > (weapon1.WeaponRange * const.SlabSizeX) then
+	if dist > (weapon1.WeaponRange * const.SlabSizeX) then
 		-- за пределами нормальной дальности — все CTH будут считаться 0
 		--print('dist > weapon range')
 		--print(dist)
 		--print(weapon1.WeaponRange * const.SlabSizeX)
---		for aim = 0, max_aim do
---			cth_by_aim[aim] = 0
---		end
---		return cth_by_aim
---	end
+		for aim = 0, max_aim do
+			cth_by_aim[aim] = 0
+		end
+		return cth_by_aim
+	end
 
 	for aim = 0, max_aim do
 		local args = { target_spot_group = false, aim = aim }

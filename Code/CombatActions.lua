@@ -106,10 +106,12 @@ function GetMobileShotResults_StartPos(action, unit, args)
 	local weapon = action:GetAttackWeapons(unit)
 
 	args = table.copy(args)
-	args.step_pos = unit:GetPos()-- needed in PrepareAttackArgs
-	local shot_positions, shot_targets, shot_ch, shot_canceling_reason = CalcMobileShotAttacks(unit, action, args.goto_pos)
+	args.step_pos = args.goto_pos -- needed in PrepareAttackArgs
+	---local shot_positions, shot_targets, shot_ch, shot_canceling_reason = CalcMobileShotAttacks(unit, action, args.goto_pos)
 	local attacks = {}
 	local attack_args
+	local start_packed = GetPackedPosAndStance(unit)
+	local start_point = unit:GetPos()
 
 	-- resolve attack action
 	local attack_id, atk_action	
@@ -122,19 +124,21 @@ function GetMobileShotResults_StartPos(action, unit, args)
 	end
 	local canceling_reason
 
-	local aim_params = action:GetAimParams(unit, weapon)
-	local num_shots = aim_params.num_shots
+	--print(shot_positions[1])
+	--print(shot_positions[1] and point(point_unpack(shot_positions[1])))
+	--print(unit:GetPos())
+	--print(unit:GetPos() and (point_unpack(unit:GetPos())))
+	--print(point(point_unpack((shot_positions[1]))))
+	--dbgargs = args
+	--dbgenemies = action:GetTargets({unit})
+	--dbgtargets = FindTargetFromPos(action.id, unit, action, action:GetTargets({unit}), unit:GetPos(), weapon, true)
+	local shot_targets = action:GetTargets({unit})
 
-	local shot_targets = CombatActionGetAttackableEnemies(atk_action, unit)
-	--shot_targets[1] =  atk_action.GetDefaultTarget(atk_action, unit)
-	if shot_targets[1] and not shot_targets[2] then shot_targets[2] = shot_targets[1] end
-
-
-
-	for i = 1, num_shots do
+	for i=1, 2 do
 		local target = shot_targets[i]
 		local results, attack_args
-		if target and IsValidTarget(target) then
+		if target and IsValidTarget(target)  then
+			--print("validtarget")
 			--[[ 
 				In prediction mode we need to presim the attacks (and merge the results later) for UI / damage prediction.
 				When simulating the actual attack this extra work isn't needed as Unit:RunAndGun needs to recalculate it anyway after movement.
@@ -143,7 +147,7 @@ function GetMobileShotResults_StartPos(action, unit, args)
 			--]]
 			if args.prediction then
 				args.target = target
-				args.step_pos =  unit:GetPos()
+				args.step_pos = start_point
 				args.attack_roll = args.attack_rolls and args.attack_rolls[i]
 				args.crit_roll = args.crit_rolls and args.crit_rolls[i]
 				args.stealth_kill_roll = args.stealth_kill_rolls and args.stealth_kill_rolls[i]
@@ -153,26 +157,29 @@ function GetMobileShotResults_StartPos(action, unit, args)
 				local results, attack_args = atk_action:GetActionResults(unit, args)
 				attacks[i] = results
 				attacks[i].mobile_attack_id = attack_id
-				attacks[i].mobile_attack_pos = point_pack(unit:GetPos())
+				attacks[i].mobile_attack_pos = start_packed
 				attacks[i].mobile_attack_target = target
 				attacks[i].attack_args = attack_args
+
+				--dbgargs = args
+				--dbgattacks = attacks
 			else
 				attacks[i] = {
 					mobile_attack_id = attack_id,
-					mobile_attack_pos = point_pack(unit:GetPos()),
+					mobile_attack_pos = start_packed,
 					mobile_attack_target = target,
 				}
+				dbgattacks = attacks
 			end
 		else
 			attacks[i] = {}
-		end	
+		end
 	end
-
 
 	local results
 	if args.prediction then
 		results = MergeAttacks(attacks)
-		results.shot_canceling_reason = shot_canceling_reason and shot_canceling_reason[#shot_canceling_reason]
+		results.shot_canceling_reason = false
 	else
 		results = { attacks = attacks }
 	end
@@ -388,7 +395,7 @@ function Unit:ShootThenMove(action_id, cost_ap, args)
 		end
 	end
 	args.prediction = false
-	NetUpdateHash("RunAndGun_0", self, args)
+	NetUpdateHash("ShootThenMove_0", self, args)
 	local results = action:GetActionResults(self, args)
 	local action_camera = false --[[ disable action camera for now ]]
 	if #(results.attacks or empty_table) == 0 then
@@ -421,10 +428,10 @@ function Unit:ShootThenMove(action_id, cost_ap, args)
 			goto continue
 		end
 		
-		NetUpdateHash("MobileShot_1", self, attack.mobile_attack_pos, attack.mobile_attack_target)		
+		NetUpdateHash("ShootThenMove_1", self, attack.mobile_attack_pos, attack.mobile_attack_target)		
 		if attack.mobile_attack_pos and (not IsValidTarget(attack.mobile_attack_target) or attack.mobile_attack_target:IsIncapacitated()) then
 			local enemies = table.ifilter(action:GetTargets({self}), function(idx, u) return IsValidTarget(u) end)
-			NetUpdateHash("MobileShot_Branch_1", self, attack.mobile_attack_pos, #enemies)
+			NetUpdateHash("ShootThenMove_Branch_1", self, attack.mobile_attack_pos, #enemies)
 			attack.mobile_attack_target = FindTargetFromPos(action_id, self, action, enemies, point(point_unpack(attack.mobile_attack_pos)), weapon)
 		end
 		if attack.mobile_attack_pos and IsValidTarget(attack.mobile_attack_target) then

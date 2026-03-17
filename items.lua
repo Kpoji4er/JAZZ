@@ -1509,11 +1509,13 @@ return {
 			value = 4800,
 		}),
 		PlaceObj('ModItemConstDef', {
+			GenerateCode = true,
 			group = "BaseDropChance",
 			id = "Ammo",
 			value = 25,
 		}),
 		PlaceObj('ModItemConstDef', {
+			GenerateCode = true,
 			group = "BaseDropChance",
 			id = "Grenade",
 			value = 30,
@@ -24844,12 +24846,12 @@ return {
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
+							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"DefMuzzle",
+								"",
 								"Compensator",
 								"SuppressorImproved",
 							},
-							'DefaultComponent', "DefMuzzle",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -60350,6 +60352,11 @@ return {
 					GetAPCost = function (self, unit, args)
 						local base = self:ResolveValue("max_cost") * const.Scale.AP
 						local min = self:ResolveValue("min_cost") * const.Scale.AP
+						local weapon = self:GetAttackWeapons(unit, args)
+						if weapon and IsKindOf(weapon,"LightMachineGun") then 
+							base = MulDivRound(base,50,100)
+							min = MulDivRound(min,50,100)
+						end
 						local min_str = self:ResolveValue("min_str")
 						local cost = base - MulDivRound(Max(0, unit.Strength - min_str), base - min, 100 - min_str)
 						cost = Max(min, (cost / const.Scale.AP) * const.Scale.AP)
@@ -65926,6 +65933,106 @@ return {
 							'Tag', "<night_vision_penalty_reduction>%",
 						}),
 					},
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "GrizzlyPerk",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnModifyCTHModifier",
+							Handler = function (self, target, id, attacker, attack_target, action, weapon1, weapon2, data)
+								if action.id == self.id and target == attacker then
+									data.mod_mul = AutoWeapons:ResolveValue("automatics_penalty_reduction")
+									data.meta_text[#data.meta_text+1] = T{776394275735, "Perk: <name>", name = self.DisplayName}
+								end
+							end,
+							param_bindings = false,
+						}),
+					},
+					'DisplayName', T(380626033173, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk DisplayName]] "Рэмбо"),
+					'Description', T(272740235755, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk Description]] "<em>Атака с помощью пулемета</em> без <em>отдачи</em>."),
+					'Icon', "UI/Icons/Perks/GrizzlyPerk",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionCamera = true,
+					ActionType = "Ranged Attack",
+					AimType = "line",
+					ConfigurableKeybind = false,
+					CostBasedOnWeapon = true,
+					DisplayName = T(845495135915, --[[ModItemCombatAction GrizzlyPerk DisplayName]] "<placeholder>"),
+					GetAPCost = function (self, unit, args)
+						if self.CostBasedOnWeapon then
+							local weapon = self:GetAttackWeapons(unit, args)	
+							return weapon and unit:GetAttackAPCost(self, weapon, nil, args and args.aim or 0, self.ActionPointDelta) or -1
+						end
+						return self.ActionPoints
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						return CombatActions.MGBurstFire:GetActionDamage(unit, target, args)
+					end,
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetActionResults = function (self, unit, args)
+						return CombatActions.MGBurstFire.GetActionResults(self, unit, args)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						if args and args.weapon then return args.weapon end
+						return unit:GetActiveWeapons("MachineGun") or unit:GetActiveWeapons("LightMachineGun")
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local weapon1 = self:GetAttackWeapons(unit, args)
+						if not weapon1 then return "disabled", AttackDisableReasons.RequiresMachineGun end
+						return CombatActionGenericAttackGetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/perk_grizzly_perk",
+					IdDefault = "GrizzlyPerkdefault",
+					IsTargetableAttack = true,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "rechargeTime",
+							'Tag', "<rechargeTime>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "num_shots",
+							'Value', 8,
+							'Tag', "<num_shots>",
+						}),
+						PlaceObj('PresetParamPercent', {
+							'Name', "cth_loss_per_shot",
+							'Tag', "<cth_loss_per_shot>%",
+						}),
+						PlaceObj('PresetParamPercent', {
+							'Name', "dmg_penalty",
+							'Value', -50,
+							'Tag', "<dmg_penalty>%",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "min_shots",
+							'Value', 1,
+							'Tag', "<min_shots>",
+						}),
+					},
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("GrizzlyPerk", self.id, ap, ...)
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					StealthAttack = true,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAttack")
+					end,
+					group = "SignatureAbilities",
+					id = "GrizzlyPerk",
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -103676,5 +103783,9 @@ return {
 	PlaceObj('ModItemCode', {
 		'name', "ConsoleFont",
 		'CodeFileName', "Code/ConsoleFont.lua",
+	}),
+	PlaceObj('ModItemCode', {
+		'name', "Weather",
+		'CodeFileName', "Code/Weather.lua",
 	}),
 }
