@@ -17,7 +17,7 @@ DefineClass.GrizzlyPerk = {
 		}),
 	},
 	DisplayName = T(380626033173, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk DisplayName]] "Рэмбо"),
-	Description = T(272740235755, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk Description]] "<em>Атака с помощью пулемета</em> без <em>отдачи</em>."),
+	Description = T(272740235755, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk Description]] "<em>Атака с помощью пулемета</em> с пониженным штрафом к <em>точности</em>, которая не страдает от дополнительных штрафов, когда отсутствует <GameTerm('Setup')>."),
 	Icon = "UI/Icons/Perks/GrizzlyPerk",
 	Tier = "Personal",
 }

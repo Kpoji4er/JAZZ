@@ -1287,7 +1287,7 @@ function TryChangeStance(unit)
 
     --unit.ai_context.stancechanged = true
 
-    if unit:HasPreparedAttack() or g_Overwatch[unit] or g_Overwatch[unit].permanent then return 0 end
+    if unit:HasPreparedAttack() or g_Overwatch[unit] or (g_Overwatch[unit] and g_Overwatch[unit].permanent) then return 0 end
 
     local weapon = unit:GetActiveWeapons()
     if not weapon or not IsKindOf(weapon, "Firearm") then return 0 end
