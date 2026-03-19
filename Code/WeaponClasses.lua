@@ -43,6 +43,44 @@ DefineClass.GrenadeLauncher = { __parents = {"HeavyWeapon"}, trajectory_type = "
 DefineClass.Mortar = { __parents = {"HeavyWeapon"}, trajectory_type = "bombard", WeaponType = "Mortar", RolloverClassTemplate = "HeavyWeapon"}
 
 
+function GrenadeLauncher:GetBaseDegradePerShot()
+	return const.Weapons.DegradePerShot_GrenadeLauncher
+end
+
+function RocketLauncher:GetBaseDegradePerShot()
+	return const.Weapons.DegradePerShot_RocketLauncher
+end
+
+function Mortar:GetBaseDegradePerShot()
+	return const.Weapons.DegradePerShot_Mortar
+end
+
+
+function RocketLauncher:UpdateRocket()
+	local visual_obj = self.visual_obj
+	if not IsValid(visual_obj) then return end
+	
+	visual_obj:DestroyAttaches("OrdnanceVisual")
+	if self.ammo and self.ammo.Amount > 0 then
+		local rocket = PlaceObject("OrdnanceVisual", {fx_actor_class = self.ammo.class})
+		visual_obj:Attach(rocket, visual_obj:GetSpotBeginIndex("Muzzle"))
+	end
+end
+
+function RocketLauncher:OnUnloadWeapon()
+	self:UpdateRocket()
+end
+
+function RocketLauncher:Reload(...)
+	Firearm.Reload(self, ...)
+	self:UpdateRocket()
+end
+
+function RocketLauncher:UpdateVisualObj(...)
+	Firearm.UpdateVisualObj(self, ...)
+	self:UpdateRocket()
+end
+
 local WeaponTypePrefix = {
 	["Handgun"] = "hg_",
 	["Pistol"] = "hg_",

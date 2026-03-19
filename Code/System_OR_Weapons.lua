@@ -606,12 +606,12 @@ end
             if (attack_results.chance_to_hit - shot_attack_args.cth_loss_per_shot * (i - shots_before_cth_loss - 1)) > 0 then
 		    shot_cth = self:GetShotChanceToHit(attack_results.chance_to_hit - cth_loss_per_shot * (i - shots_before_cth_loss - 1))
             else
-            shot_cth = 1
+            shot_cth = 0
             end
         else
             if ((attack_results.chance_to_hit - cth_loss_per_shot * (5)) > 0) then 
                 shot_cth = self:GetShotChanceToHit(attack_results.chance_to_hit - cth_loss_per_shot * (5))
-            else shot_cth = 1 end
+            else shot_cth = 0 end
         end
     else 
         shot_cth = self:GetShotChanceToHit(attack_results.chance_to_hit)

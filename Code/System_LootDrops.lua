@@ -24,15 +24,15 @@ function Unit:DropLoot(container)
 		local dropped
 		local slot = container and "Inventory" or "InventoryDead"
 		local roll = self:Random(100)
+
+		if IsKindOf(item,"Ammo") then item.drop_chance = 30 end
+		if IsKindOf(item,"Ordnance") then item.drop_chance = 25 end
+		if IsKindOf(item,"Grenade") then item.drop_chance = 20 end
 		
 	
 --		if not item.locked and (not is_npc or roll < item.drop_chance) then
 		if (not item.locked and (item.drop_chance>0) and not IsKindOfClasses(item,{"Ammo", "Ordnance", "Grenade", "ThrowableTrapItem", "Flare"}))
 		or (IsKindOfClasses(item,{"Ammo", "Ordnance", "Grenade", "ThrowableTrapItem", "Flare"}) and (not is_npc or roll < item.drop_chance)) then
-			if IsGameRuleActive("AmmoScarcity") and is_npc and IsKindOf(item, "InventoryStack")  then
-				local percent = GameRuleDefs.AmmoScarcity:ResolveValue("LootDecrease")
-				item.Amount =  Max(1,item.Amount - MulDivRound(item.Amount, percent, 100))
-			end	
 			--qsr print(item)
 			if IsKindOf(item, "Firearm") and (item.drop_chance<100) then
 				local quality_roll = random(100)
@@ -40,7 +40,7 @@ function Unit:DropLoot(container)
 				local cur = item:GetCurrentResource()
 				local maxres = item.WeaponResourceMax
 				local maxroll = 0
-				local curroll maxroll = 0
+				local curroll = 0
 
 				if quality_roll <= 30 then
 					-- Юзабельный
@@ -76,7 +76,7 @@ function Unit:DropLoot(container)
 				local cur = item:GetCurrentResource()
 				local maxres = item.ArmorResourceMax
 				local maxroll = 0
-				local curroll maxroll = 0
+				local curroll = 0
 
 				if quality_roll <= 30 then
 					-- Юзабельный

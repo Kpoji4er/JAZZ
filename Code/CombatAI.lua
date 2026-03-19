@@ -6,7 +6,7 @@ const.AIFriendlyFire_LOFWidth = 100*guic 					-- max distance from an ally to th
 const.AIFriendlyFire_LOFConeNear = 100*guic 				-- same as above for cone attacks (near side of the cone, positioned at attacker)
 const.AIFriendlyFire_LOFConeFar = 300*guic 				-- same as above for cone attacks (far side of the cone, positioned at AIFriendlyFire_MaxRange)
 const.AIFriendlyFire_ScoreMod = 0							-- % of damage score evaluation remanining when an ally is in danger
-const.AIShootAboveCTH = 1
+const.AIShootAboveCTH = 0
 
 const.AIDecisionThreshold = 80 -- targets/locations up to this percent of max scored target/location can be selected
 const.AIPointBlankTargetMod = 50 -- targets in point-blank range get +50% score

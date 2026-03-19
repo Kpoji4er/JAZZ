@@ -1053,7 +1053,7 @@ end
 function Unit:RecalcWillPoints()
 
 	if HasPerk(self, "Psycho") and not self:HasStatusEffect("Berserk") then
-		self.WillPoints = Clamp(self.WillPoints - 12, 0, self.MaxWillPoints)
+		self.WillPoints = Clamp(self.WillPoints - 8, 0, self.MaxWillPoints)
 		self:ApplySuppressionStatus()
 		return end		
 

@@ -20,10 +20,16 @@ DefineClass.JAZZ_AMMO_MortarShell_HE = {
 	CategoryPair = "Ordnance",
 	MaxStacks = 3,
 	CenterObjDamageMod = 500,
+	CenterAppliedEffects = {
+		"suppressionHeavy2",
+	},
 	AreaOfEffect = 6,
 	CenterAreaOfEffect = 3,
 	AreaUnitDamageMod = 20,
 	AreaObjDamageMod = 250,
+	AreaAppliedEffects = {
+		"SuppressStunGrenade",
+	},
 	PenetrationClass = 4,
 	DeathType = "BlowUp",
 	Caliber = "JAZZ_Caliber_MortarShell",
