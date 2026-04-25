@@ -40,7 +40,7 @@ DefineClass.BrowningM2HMG = {
 	Recoil = 25,
 	BurstShots = 6,
 	AutoShots = 6,
-	BulletDropRange = 40,
+	BulletDropRange = 28,
 	Grouping = 21,
 	WeaponResource = 50000,
 }

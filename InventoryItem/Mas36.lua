@@ -41,7 +41,7 @@ DefineClass.MAS36 = {
 	BurstShots = 1,
 	AutoShots = 1,
 	Handling = -32,
-	BulletDropRange = 22,
+	BulletDropRange = 17,
 	Grouping = 40,
 	WeaponResource = 7000,
 }

@@ -18,7 +18,7 @@ DefineClass.Scorpion = {
 	RestockWeight = 50,
 	CategoryPair = "SubmachineGuns",
 	Caliber = "JAZZ_Caliber_9x18",
-	Damage = 17,
+	Damage = 15,
 	ObjDamageMod = 15,
 	AimAccuracy = 4,
 	CritChanceScaled = 5,
@@ -68,7 +68,7 @@ DefineClass.Scorpion = {
 	BurstShots = 4,
 	AutoShots = 8,
 	Handling = 10,
-	BulletDropRange = 6,
+	BulletDropRange = 5,
 	Grouping = 39,
 	WeaponResource = 2000,
 }

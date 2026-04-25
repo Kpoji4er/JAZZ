@@ -51,7 +51,7 @@ DefineClass.Springfield = {
 	BurstShots = 1,
 	AutoShots = 1,
 	Handling = -36,
-	BulletDropRange = 23,
+	BulletDropRange = 15,
 	Grouping = 50,
 	WeaponResource = 4500,
 }

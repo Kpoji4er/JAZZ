@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "Сигнатурные перки:\n Паук - Удвоенная скорость лечения на глобальной карте\n Тоска - +50% увеличенная длина очереди и автоогня",
+	'last_changes', "Оружие разбито на классы, у каждого класса свои уникальные абилки.",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 11,
-	'version', 5884,
+	'version', 5898,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -343,12 +343,12 @@ return PlaceObj('ModDef', {
 		"InventoryItem/P220.lua",
 		"InventoryItem/P226.lua",
 		"InventoryItem/FiveSeven.lua",
-		"InventoryItem/APS.lua",
-		"InventoryItem/Beretta93r.lua",
-		"InventoryItem/Glock18.lua",
 		"InventoryItem/Scorpion.lua",
 		"InventoryItem/MicroUZI.lua",
 		"InventoryItem/MAC10.lua",
+		"InventoryItem/APS.lua",
+		"InventoryItem/Beretta93r.lua",
+		"InventoryItem/Glock18.lua",
 		"InventoryItem/SWModel10.lua",
 		"InventoryItem/Colt38Special.lua",
 		"InventoryItem/ColtPeacemaker.lua",
@@ -373,9 +373,9 @@ return PlaceObj('ModDef', {
 		"InventoryItem/Agram2000.lua",
 		"InventoryItem/UZI.lua",
 		"InventoryItem/BerettaM12.lua",
-		"InventoryItem/MP5K.lua",
 		"InventoryItem/SpectreM4.lua",
 		"InventoryItem/PP19Bizon.lua",
+		"InventoryItem/MP5K.lua",
 		"InventoryItem/MP5A2.lua",
 		"InventoryItem/TMP.lua",
 		"InventoryItem/MP5A4.lua",
@@ -854,8 +854,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1773956444,
-	'code_hash', -7286448608429781605,
+	'saved', 1777155137,
+	'code_hash', 3841023726680311649,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -3369,21 +3369,6 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
-			'Id', "APS",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
-			'Id', "Beretta93r",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
-			'Id', "Glock18",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
 			'Id', "Scorpion",
 			'ClassDisplayName', "Inventory item",
 		}),
@@ -3395,6 +3380,21 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "MAC10",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "APS",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "Beretta93r",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "Glock18",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -3519,17 +3519,17 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
-			'Id', "MP5K",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
 			'Id', "SpectreM4",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "PP19Bizon",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "MP5K",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {

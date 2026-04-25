@@ -42,7 +42,7 @@ DefineClass.MAS49 = {
 	BurstShots = 1,
 	AutoShots = 1,
 	Handling = -20,
-	BulletDropRange = 23,
+	BulletDropRange = 16,
 	Grouping = 44,
 	WeaponResource = 4000,
 }

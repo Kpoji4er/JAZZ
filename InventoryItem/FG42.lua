@@ -63,7 +63,7 @@ DefineClass.FG42 = {
 	Recoil = 30,
 	AutoShots = 7,
 	Handling = -10,
-	BulletDropRange = 22,
+	BulletDropRange = 15,
 	Grouping = 42,
 	WeaponResource = 6500,
 }

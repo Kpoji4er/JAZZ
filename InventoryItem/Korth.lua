@@ -24,6 +24,7 @@ DefineClass.Korth = {
 	AimAccuracy = 14,
 	CritChanceScaled = 30,
 	MagazineSize = 6,
+	WeaponRange = 24,
 	OverwatchAngle = 5100,
 	Noise = 32,
 	Entity = "KorthRev",

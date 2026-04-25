@@ -108,7 +108,7 @@ DefineClass.M16A2 = {
 	Recoil = 9,
 	AutoShots = 8,
 	Handling = -8,
-	BulletDropRange = 17,
+	BulletDropRange = 16,
 	Grouping = 62,
 	WeaponResource = 5500,
 }

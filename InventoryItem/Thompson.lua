@@ -22,7 +22,7 @@ DefineClass.Thompson = {
 	CategoryPair = "SubmachineGuns",
 	CanAppearStandard = false,
 	Caliber = "JAZZ_Caliber_45ACP",
-	Damage = 26,
+	Damage = 23,
 	ObjDamageMod = 25,
 	AimAccuracy = 8,
 	CritChanceScaled = 30,
@@ -56,7 +56,7 @@ DefineClass.Thompson = {
 	BurstShots = 4,
 	AutoShots = 8,
 	Handling = -4,
-	BulletDropRange = 8,
+	BulletDropRange = 6,
 	Grouping = 39,
 	WeaponResource = 1800,
 }

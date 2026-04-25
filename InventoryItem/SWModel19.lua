@@ -69,7 +69,7 @@ DefineClass.SWModel19 = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 15,
-	BulletDropRange = 7,
+	BulletDropRange = 6,
 	Grouping = 54,
 	BaseJamChance = -100,
 }

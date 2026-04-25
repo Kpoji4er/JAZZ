@@ -21,7 +21,7 @@ DefineClass.PPSH = {
 	CategoryPair = "SubmachineGuns",
 	CanAppearStandard = false,
 	Caliber = "JAZZ_Caliber_762x25",
-	Damage = 20,
+	Damage = 18,
 	ObjDamageMod = 15,
 	AimAccuracy = 6,
 	CritChanceScaled = 5,
@@ -56,7 +56,7 @@ DefineClass.PPSH = {
 	Recoil = 6,
 	BurstShots = 5,
 	Handling = -7,
-	BulletDropRange = 11,
+	BulletDropRange = 10,
 	Grouping = 26,
 	WeaponResource = 6200,
 }

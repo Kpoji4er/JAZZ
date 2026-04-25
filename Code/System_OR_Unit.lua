@@ -1665,7 +1665,6 @@ function Unit:GetBasicAttackModes()
 		return false
 	end
 
-	-- Основные режимы
 	result.single = find_mode("SingleShot", 1)
 	result.burst  = find_mode("BurstFire", weapon.BurstShots or 3) or find_mode("MGBurstFire", weapon.BurstShots or 3)
 	result.auto   = find_mode("AutoFire", weapon.AutoShots or 5)
@@ -1673,7 +1672,6 @@ function Unit:GetBasicAttackModes()
 	result.double = find_mode("DoubleBarrel", 2)
 	result.dual = find_mode("Dualshot", 2)
 
-	-- Собрать всё
 	result.all = {}
 	for _, mode in pairs({result.single, result.burst, result.auto, result.buck, result.double,result.dual}) do
 		if type(mode) == "table" and mode.mode then
@@ -1681,7 +1679,6 @@ function Unit:GetBasicAttackModes()
 		end
 	end
 
-	-- Если вообще ничего не найдено — fallback по default_attack
 	if #result.all == 0 and default_attack then
 		local mode = default_attack.id
 		local shots = 1

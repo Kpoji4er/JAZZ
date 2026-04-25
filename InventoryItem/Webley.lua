@@ -57,7 +57,7 @@ DefineClass.Webley = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 20,
-	BulletDropRange = 7,
+	BulletDropRange = 5,
 	Grouping = 68,
 	BaseJamChance = -100,
 }

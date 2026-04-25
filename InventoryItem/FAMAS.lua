@@ -102,7 +102,7 @@ DefineClass.FAMAS = {
 	ReloadAP = 8000,
 	Recoil = 15,
 	Handling = 5,
-	BulletDropRange = 15,
+	BulletDropRange = 13,
 	Grouping = 62,
 	WeaponResource = 4500,
 }

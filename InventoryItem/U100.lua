@@ -96,7 +96,7 @@ DefineClass.U100 = {
 	BurstShots = 4,
 	AutoShots = 6,
 	Handling = -20,
-	BulletDropRange = 17,
+	BulletDropRange = 14,
 	Grouping = 42,
 	WeaponResource = 5500,
 }

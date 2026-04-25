@@ -25,9 +25,10 @@ function Unit:DropLoot(container)
 		local slot = container and "Inventory" or "InventoryDead"
 		local roll = self:Random(100)
 
-		if IsKindOf(item,"Ammo") then item.drop_chance = 30 end
-		if IsKindOf(item,"Ordnance") then item.drop_chance = 25 end
-		if IsKindOf(item,"Grenade") then item.drop_chance = 20 end
+		if IsKindOf(item,"Ammo") then item.drop_chance = 5 end
+		if IsKindOf(item,"Ordnance") then item.drop_chance = 15 end
+		if IsKindOf(item,"Grenade") then item.drop_chance = 10 end
+		if IsKindOf(item,"Flare") then item.drop_chance = 10 end
 		
 	
 --		if not item.locked and (not is_npc or roll < item.drop_chance) then

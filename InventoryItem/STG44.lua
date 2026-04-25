@@ -58,10 +58,9 @@ DefineClass.STG44 = {
 	ShootAP = 6000,
 	ReloadAP = 6000,
 	Recoil = 18,
-	BurstShots = 2,
 	AutoShots = 5,
 	Handling = -15,
-	BulletDropRange = 13,
+	BulletDropRange = 12,
 	Grouping = 66,
 	WeaponResource = 2500,
 }

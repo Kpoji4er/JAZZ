@@ -1665,6 +1665,21 @@ function BaseWeapon:PrecalcDamageAndStatusEffects(attacker, target, attack_pos, 
 				end
 				EffectTableAdd(effects, part_def.applied_effect)
 			end
+            
+			local dist = attacker:GetDist(target)/const.SlabSizeX or 0
+			if self.BulletDropRange and dist > self.BulletDropRange then
+				local damage_mod = GetRangeAccuracy(self, ((dist)*const.SlabSizeX)) - 100
+				--print(GetRangeAccuracy(self, ((dist - self.BulletDropRange)*const.SlabSizeX)))
+				--print(damage_mod)
+				damage = MulDivRound(damage, 100 + damage_mod, 100)
+				if record_breakdown then
+					record_breakdown[#record_breakdown + 1] = {
+					name = T{36076769923711, "Падение скорости пули"},
+					value = damage_mod
+					}
+				end
+				EffectTableAdd(effects, T{36076769923711, "Падение скорости пули", self})
+			end
 			
 		else
 			damage = MulDivRound(damage, 50, 100)

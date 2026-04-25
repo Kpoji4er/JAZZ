@@ -57,7 +57,7 @@ DefineClass.Colt38Special = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 16,
-	BulletDropRange = 7,
+	BulletDropRange = 5,
 	Grouping = 56,
 	BaseJamChance = -100,
 }

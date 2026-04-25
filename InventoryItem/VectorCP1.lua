@@ -20,7 +20,7 @@ DefineClass.VectorCP1 = {
 	CategoryPair = "Handguns",
 	CanAppearStandard = false,
 	Caliber = "JAZZ_Caliber_9x19",
-	Damage = 19,
+	Damage = 20,
 	ObjDamageMod = 20,
 	AimAccuracy = 5,
 	CritChanceScaled = 35,
@@ -69,7 +69,7 @@ DefineClass.VectorCP1 = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 25,
-	BulletDropRange = 6,
+	BulletDropRange = 5,
 	Grouping = 44,
 	BaseJamChance = -20,
 }
