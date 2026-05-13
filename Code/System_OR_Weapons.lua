@@ -1666,11 +1666,11 @@ function BaseWeapon:PrecalcDamageAndStatusEffects(attacker, target, attack_pos, 
 				EffectTableAdd(effects, part_def.applied_effect)
 			end
             
-			local dist = attacker:GetDist(target)/const.SlabSizeX or 0
-			if self.BulletDropRange and dist > self.BulletDropRange then
+			local dist = attacker and attacker:GetDist(target)/const.SlabSizeX or 0
+			if (attacker and IsKindOf(self, "Firearm") and self.BulletDropRange) and dist > self.BulletDropRange then
 				local damage_mod = GetRangeAccuracy(self, ((dist)*const.SlabSizeX)) - 100
 				--print(GetRangeAccuracy(self, ((dist - self.BulletDropRange)*const.SlabSizeX)))
-				--print(damage_mod)
+				--print("damage reduction")
 				damage = MulDivRound(damage, 100 + damage_mod, 100)
 				if record_breakdown then
 					record_breakdown[#record_breakdown + 1] = {
