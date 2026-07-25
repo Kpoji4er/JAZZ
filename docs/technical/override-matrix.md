@@ -22,8 +22,14 @@ JAZZ поддерживает только последнюю опубликов
 | `AIPolicyProximity:EvalDest` | `Lua/ClassDefs/ClassDef-AI.generated.lua` | `Code/FixAI.lua` | `Code/AIPolicy.lua` | JAZZ; проверить дистанционные веса |
 | `AISelectAction` | `Lua/Tactical/CombatAI.lua` | `Code/FixAI.lua` | `Code/CombatAI.lua` | JAZZ; сигнатуры слоёв различаются, высокий риск |
 | `GetRandomSquadLogo` | `Lua/Satellite/SatelliteSquad.lua` | `Code/ModItems.lua` | `Code/SatelliteSquad.lua` | JAZZ; проверить пользовательские squad logos |
+| `SetupCrocodilePatrolSquad` | `Lua/HotDiamonds.lua` | — | maps `Code/System_JAZZ_CrocodilePatrol.lua` | Дом/маршрут I18–I19–J19 вместо G14/G13–G15 (ремап wetlands) |
+| `OnMsg.ReachSectorCenter` (crocodile) | `Lua/HotDiamonds.lua` | — | maps `Code/System_JAZZ_CrocodilePatrol.lua` (замена handler через upvalue `message_to_staticfuncs`) | Vanilla `for i=1,place` падает при place=nil вне G13–G14 |
+| `GetSectorTravelTime` | `Lua/Satellite/SatelliteSquad.lua` | — | core `Code/SatelliteSquad.lua`, затем maps wrapper `Code/System_JAZZ_Vehicles.lua` | Maps ускоряет/блокирует путь для mounted squad; грузить maps после core |
+| `GetCombatPath` | `Lua/Tactical/Combat.lua` | — | maps `Code/System_JAZZ_VehicleCombat.lua` | Фильтр reachable для `JAZZ_IsVehicle` (поворот ≤±90°) |
+| `Unit:CombatGoto` | `Lua/Tactical/Unit.lua` | — | maps `Code/System_JAZZ_VehicleCombat.lua` | Snap-move без Walk-анимов для боевого транспорта |
+| `Unit:GotoSlab` | `Lua/Tactical/Unit.lua` | — | maps `Code/System_JAZZ_VehicleCombat.lua` | Exploration-move для боевого транспорта |
+| `Unit:EnumUIActions` | `Lua/UI/UnitCaching.lua` | `Code/TweaksUI.lua` | core `Code/System_OR_Unit.lua`, затем maps `Code/System_JAZZ_VehicleCombat.lua` | Core меняет UI actions; maps добавляет Pivot/Turret для vehicle unit — грузить maps после core |
 | `IsLineInSmoke` | Не найдено как глобальный символ в экспортированном source | `Code/_Utils.lua` | `Code/System_OR_Unit.lua` | JAZZ заменяет функцию, введённую CLib |
-| `Unit:EnumUIActions` | `Lua/UI/UnitCaching.lua` | `Code/TweaksUI.lua` | `Code/System_OR_Unit.lua` | JAZZ; проверить кеш UI actions и действия CLib |
 | `Unit:RunAndGun` | `Lua/Tactical/UnitActions.lua` | `Code/FixAI.lua` | `Code/CombatActions.lua` | JAZZ; проверить AP, движение, очередь и AI |
 | `Unit:UpdateMeleeTrainingVisual` | `Lua/Tactical/UnitOverwatch.lua` | `Code/FixesFromFys.lua` | `Code/System_OR_Unit.lua` | JAZZ; проверить очистку визуализации |
 | `UpdateSuspicion` | `Lua/Tactical/UnitAwareness.lua` | `Code/FixAI.lua` | `Code/UnitAwareness.lua` | JAZZ; высокий риск для stealth/awareness |

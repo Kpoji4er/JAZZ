@@ -15,6 +15,7 @@
 | [Видимость, погода и внешний вид](visibility-weather-appearance.md) | Свет, дым, погода, маски, визуальные состояния оружия и персонажей | [AI, скрытность и погода](../../wiki/ai-stealth-weather.md) |
 | [Юниты, прогрессия и специализации](units-progression-specializations.md) | UnitData, squads, archetypes, опыт до 21 уровня, stat gain и AIM-фильтры | [Наёмники и прогрессия](../../wiki/mercenaries-and-progression.md) |
 | [Стратегия, отряды и сектора](strategy-squads-sectors.md) | SatelliteSquad, guardposts, POI, регионы, экономика, операции и World Flip | [Стратегия и мир](../../wiki/strategy-and-world.md) |
+| [Автотранспорт (сателлит + тактика)](satellite-vehicles.md) | Парковка / сесть / выйти, ускорение по дорогам; тактический Unit, car-move, турель (maps Vehicles + VehicleCombat) | [Стратегия и мир](../../wiki/strategy-and-world.md) |
 | [Карты, квесты и диалоги](maps-quests-dialogue.md) | 317 каталогов карт, 245 секторов, 110 квестов, разговоры, banters и setpiece | [Стратегия и мир](../../wiki/strategy-and-world.md) |
 | [Интерфейс, звук и FX](ui-audio-fx.md) | Crosshair, combat badge, inventory UI, Will bar, sound presets и оружейные FX | [Контент и ограничения](../../wiki/content-and-limitations.md) |
 | [Entities и ресурсы](assets-entities.md) | 490 зарегистрированных Entity ModItems, meshes, materials, textures и контракты имён | [Контент и ограничения](../../wiki/content-and-limitations.md) |

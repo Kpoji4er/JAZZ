@@ -97,6 +97,11 @@
 | Файл | Статус | Документация |
 |---|---|---|
 | `Rebels_Loyalty.lua` | loaded | [Карты](maps-quests-dialogue.md), [стратегия](strategy-squads-sectors.md) |
+| `System_JAZZ_CrocodilePatrol.lua` | loaded | [Карты](maps-quests-dialogue.md) |
+| `System_JAZZ_Vehicles.lua` | loaded | [Автотранспорт](satellite-vehicles.md), [стратегия](strategy-squads-sectors.md) |
+| `System_JAZZ_VehicleCombat.lua` | loaded; tactical spawn dormant (`tactical_enabled=false`) | [Автотранспорт](satellite-vehicles.md) |
+| `UnitData/JAZZ_CombatHMMWV.lua` | loaded companion stub (не спавнится) | [Автотранспорт](satellite-vehicles.md) |
+| Appearance `JAZZ_HMMWV_Stub` | loaded stub (items) | [Автотранспорт](satellite-vehicles.md); для будущего tactical Unit |
 | `AIMechanism.lua` | dormant | [Карты](maps-quests-dialogue.md), [AI](ai-awareness.md), [runtime](runtime-editor-integration.md) |
 
 ## `jazz-units`

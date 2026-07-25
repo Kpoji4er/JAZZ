@@ -61,6 +61,8 @@ Maps добавляет четыре `GuardpostObjective` ModItems. Units пре
 
 Core `EnemySquad.lua` задаёт runtime/power и связи с autoresolve. Units содержит 69 generated enemy squad definitions. Squad composition соединяет UnitData, faction, archetype, loot и стратегическую силу; тактический spawn и autoresolve должны использовать совместимый состав.
 
+Diamond shipment: vanilla `InitDiamondBriefcaseSquads` (`Lua/DiamondBriefcase.lua`, вызов из Campaign `Initialize`) делает `assert(EnemySquadDefs.DiamondBriefcase.DiamondBriefcaseCarrier)`. Carrier — индекс слота в `Units[]` с `UnitCountMin == UnitCountMax == 1`. Override `DiamondBriefcase` / `StartingShipments` в jazz-units обязан задавать `DiamondBriefcaseCarrier` (иначе assert `squadDefCarrier` на new game).
+
 ## Regions, loyalty, heat и panic
 
 `Regions_Sectors.lua` обновляет региональные показатели на `NewHour`. Maps загружает `Code/Rebels_Loyalty.lua`, содержащий `FactionGrantLoyalty`. Loyalty, heat и panic связаны с control/conflict/POI и квестовыми последствиями.
@@ -83,9 +85,13 @@ Core `EnemySquad.lua` задаёт runtime/power и связи с autoresolve. U
 
 `GetRandomSquadLogo`: vanilla `SatelliteSquad.lua` → CommonLib `Code/ModItems.lua` → JAZZ `Code/SatelliteSquad.lua`. Обновления CommonLib могут добавлять поддержку custom logos, которую JAZZ-версия затем скрывает.
 
+## Автотранспорт (maps)
+
+Сателлитные машины (парковка / сесть / выйти / ускорение по дорогам) — `Code/System_JAZZ_Vehicles.lua`. Тактический Unit в `System_JAZZ_VehicleCombat.lua` сейчас dormant (`tactical_enabled=false`). Подробности: [Автотранспорт](satellite-vehicles.md).
+
 ## Межпакетные зависимости
 
-- maps: campaign, 245 sectors, geography, quests, guardpost objectives и placed markers;
+- maps: campaign, 245 sectors, geography, quests, guardpost objectives, placed markers и satellite vehicles;
 - units: UnitData, factions, 69 enemy squads, roles/archetypes;
 - assets: map/entity resources;
 - core: runtime, items, effects, economy, UI и serialization.

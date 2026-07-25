@@ -15,6 +15,7 @@
 ## Реализация и load-state
 
 - `jazz-maps/Code/Rebels_Loyalty.lua` — loaded runtime; определяет `FactionGrantLoyalty`.
+- `jazz-maps/Code/System_JAZZ_CrocodilePatrol.lua` — loaded; патч `CampCrocodile_CirclingPatrol`: заменяет vanilla `OnMsg.ReachSectorCenter` из `HotDiamonds.lua` (иначе `for` по `nil` place, когда патруль не на G13–G14), переопределяет `SetupCrocodilePatrolSquad` на дом `I19` и маршрут `I18→I19→J19`. `Setup` всегда через RealTimeThread после `IsChangingMap` (TCE на M1 + sync `AssignSatelliteSquadRoute` иначе может столлить `NetSyncEventFence` на loading screen). Триггер квеста `ReduceCrocodileCampStrength` в JAZZ — сектор `M1` (ваниль: `I1`). Статический анализ; полный баланс/маршрут wetlands — отдельная задача.
 - `jazz-maps/Code/AIMechanism.lua` — dormant/unlisted; содержит варианты AIM/stealth options, но metadata его не загружает.
 - MapItem/ModItem definitions, `mapdata.lua`, `objects.lua`, grids и patches — generated and loaded согласно metadata/Map Editor.
 
