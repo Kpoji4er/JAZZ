@@ -17,6 +17,7 @@ JAZZ — большой tactical overhaul для Jagged Alliance 3. Он мен�
 - [AI, скрытность, видимость и погода](ai-stealth-weather.md)
 - [Наёмники, противники и прогрессия](mercenaries-and-progression.md)
 - [Стратегическая карта и мир](strategy-and-world.md)
+- [Остров Эрни: локации, квесты и враги](ernie-island-content.md)
 - [Текущие ограничения и совместимость](content-and-limitations.md)
 
 ## Главная идея мода

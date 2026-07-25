@@ -2,7 +2,7 @@
 
 ## Назначение и эффект для игрока
 
-`jazz-maps` является campaign/content-пакетом: он задаёт карту мира, тактические карты, сектора, квесты, разговоры, banters, loot, guardpost objectives и setpieces. Текущая публичная версия полностью ориентирована на остров Эрни; остальная кампания содержит незавершённые материалы.
+`jazz-maps` является campaign/content-пакетом: он задаёт карту мира, тактические карты, сектора, квесты, разговоры, banters, loot, guardpost objectives и setpieces. Текущая публичная версия полностью ориентирована на остров Эрни; остальная кампания содержит незавершённые материалы. Именованный снимок квестов, секторов и вражеских squad refs — в [каталоге контента](maps-quests-content-catalog.md); пользовательский обзор Эрни — в [wiki](../../wiki/ernie-island-content.md).
 
 ## Происхождение по слоям
 
@@ -35,10 +35,10 @@
 - 4 XTemplates;
 - 4 InventoryItem definitions;
 - 2 ChangeProp и 2 UnitData;
-- 1 setpiece `EncounterHerman`;
+- 2 setpiece (`M1Landing` на стартовом M1 / map `EPA7FVN`, `EncounterHerman`);
 - 1 camera preset и 9 constants.
 
-На диске — примерно 317 map directories. Количество каталогов не равно количеству активных campaign sectors: служебные, варианты, underground и незавершённые карты могут не быть связаны с текущей кампанией.
+Старт кампании: `InitialSector = M1` («Зона высадки»), не ванильный I1. На диске — примерно 317–321 map directories. Количество каталогов не равно количеству активных campaign sectors: служебные, варианты, underground и незавершённые карты могут не быть связаны с текущей кампанией. Около 22 секторов помечены как Эрни (`Label`/`City`/`WeatherZone=Erny` / `Rebels_Ernie`); 74 сектора имеют хотя бы одну ссылку на enemy squad list.
 
 ## Campaign и sector schema
 
@@ -72,7 +72,7 @@ Sector ID является публичным ключом savegame, quest state
 
 ## Setpiece и guardposts
 
-`EncounterHerman` — единственный зарегистрированный setpiece snapshot. Четыре `GuardpostObjective` потребляются core `Guardpost.lua`. Их map markers и sector associations должны совпадать с runtime IDs.
+Зарегистрированы setpiece `M1Landing` (высадка на M1) и `EncounterHerman` (линия Германа / map `qJApdx`). Четыре `GuardpostObjective` (`Bunker`, `EmeraldCoast`, `H4_copy`, `Bastien`) потребляются core `Guardpost.lua`. Их map markers и sector associations должны совпадать с runtime IDs.
 
 ## Loyalty
 
@@ -107,4 +107,4 @@ Maps package не объявлен обязательной dependency в core m
 
 ## Сопровождение
 
-Новый или изменённый sector/quest/conversation/banter/setpiece обновляет эту страницу, strategy docs и профильные smoke tests. Load-state обоих Code-файлов всегда фиксировать явно.
+Новый или изменённый sector/quest/conversation/banter/setpiece обновляет эту страницу, [каталог контента](maps-quests-content-catalog.md) при затронутых ID/привязках, strategy/wiki docs и профильные smoke tests. Load-state loaded Code-файлов maps всегда фиксировать явно.

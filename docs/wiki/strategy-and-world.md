@@ -66,4 +66,6 @@ Deployment зависит от направления входа, markers и с�
 
 Полностью поддерживается остров Эрни. За его пределами могут существовать карты, сектора и данные, которые ещё не образуют завершённую кампанию. Планируйте прохождение демо вокруг поддерживаемой области.
 
-Техническая модель: [стратегия, отряды и сектора](../technical/systems/strategy-squads-sectors.md) и [карты, квесты и диалоги](../technical/systems/maps-quests-dialogue.md).
+Практический обзор локаций, квестов и ожидаемых боёв на Эрни: [остров Эрни](ernie-island-content.md).
+
+Техническая модель: [стратегия, отряды и сектора](../technical/systems/strategy-squads-sectors.md), [карты, квесты и диалоги](../technical/systems/maps-quests-dialogue.md) и [каталог квестов/локаций/врагов](../technical/systems/maps-quests-content-catalog.md).
