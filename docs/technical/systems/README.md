@@ -1,0 +1,53 @@
+# Системы JAZZ
+
+Этот каталог описывает JAZZ как единый продукт из четырёх пакетов. Срез сделан 25 июля 2026 года по текущим working tree; количества объектов являются снимком, а не вечным контрактом.
+
+## Карта систем
+
+| Система | Что описано | Гайд для игроков |
+|---|---|---|
+| [Бой, CTH и боевые действия](combat-cth-actions.md) | Формула попадания, дальность, прицеливание, очереди, recoil, 53 действия и combat UI | [Бой и точность](../../wiki/combat-and-accuracy.md) |
+| [Оружие, боеприпасы и компоненты](weapons-ammo-components.md) | Классы оружия, ресурс, износ, заклинивание, 27 калибров, 64 component effects и рецепты | [Оружие и боеприпасы](../../wiki/weapons-and-ammo.md) |
+| [Взрывчатка, ловушки и тяжёлое оружие](explosives-traps-heavy-weapons.md) | Гранаты, мины, газ, гранатомёты, миномёты, подавление и AI применения | [Оружие и боеприпасы](../../wiki/weapons-and-ammo.md) |
+| [Броня, повреждения, ранения и воля](armor-damage-wounds-will.md) | Покрытие, рейтинг, пластины, состояния тела, лечение, Grit и Will Points | [Броня, ранения и воля](../../wiki/armor-wounds-and-will.md) |
+| [Инвентарь, предметы, loot и crafting](inventory-items-loot-crafting.md) | Слоты, UI, контейнеры, squad bag, таблицы добычи и рецепты | [Инвентарь, добыча и крафт](../../wiki/inventory-loot-crafting.md) |
+| [Тактический AI и awareness](ai-awareness.md) | Выбор действий, политики позиций, роли, укрытия, фланги, suspicion и alert | [AI, скрытность и погода](../../wiki/ai-stealth-weather.md) |
+| [Видимость, погода и внешний вид](visibility-weather-appearance.md) | Свет, дым, погода, маски, визуальные состояния оружия и персонажей | [AI, скрытность и погода](../../wiki/ai-stealth-weather.md) |
+| [Юниты, прогрессия и специализации](units-progression-specializations.md) | UnitData, squads, archetypes, опыт до 21 уровня, stat gain и AIM-фильтры | [Наёмники и прогрессия](../../wiki/mercenaries-and-progression.md) |
+| [Стратегия, отряды и сектора](strategy-squads-sectors.md) | SatelliteSquad, guardposts, POI, регионы, экономика, операции и World Flip | [Стратегия и мир](../../wiki/strategy-and-world.md) |
+| [Карты, квесты и диалоги](maps-quests-dialogue.md) | 317 каталогов карт, 245 секторов, 110 квестов, разговоры, banters и setpiece | [Стратегия и мир](../../wiki/strategy-and-world.md) |
+| [Интерфейс, звук и FX](ui-audio-fx.md) | Crosshair, combat badge, inventory UI, Will bar, sound presets и оружейные FX | [Контент и ограничения](../../wiki/content-and-limitations.md) |
+| [Entities и ресурсы](assets-entities.md) | 490 зарегистрированных Entity ModItems, meshes, materials, textures и контракты имён | [Контент и ограничения](../../wiki/content-and-limitations.md) |
+| [Runtime, загрузка и инструменты](runtime-editor-integration.md) | metadata, Mod Editor, generated data, hooks, placeholders, dormant-код и диагностика | [Начало игры](../../wiki/getting-started.md) |
+| [Релизы и версионирование](release-versioning.md) | Версия из committed metadata, manifest четырёх repos, GitHub Releases и safeguards | Технический процесс |
+| [Покрытие файлов](file-coverage.md) | Явный владелец документации и load-state каждого `Code/*.lua` | Технический реестр |
+
+## Как читать происхождение поведения
+
+Каждая страница использует три слоя:
+
+1. **Vanilla JA3** — классы, функции, presets и данные установленного билда из `<JA3_ROOT>\ModTools\Src`.
+2. **CommonLib** — dependency `JA3_CommonLib`, которая может заменить vanilla-код, добавить hooks или изменить данные до загрузки JAZZ.
+3. **JAZZ** — итоговые расширения и замены в `jazz`, `jazz_assets`, `jazz-maps` и `jazz-units`.
+
+Официальный репозиторий [THQNordic/JaggedAlliance3Modding](https://github.com/THQNordic/JaggedAlliance3Modding) удобен для истории, но его source drop 1.5 старее установленного ModTools. Для текущего runtime приоритет имеет установленный исходник. JAZZ всегда ориентирован на последнюю upstream-версию [ja3_commonlib](https://gitlab.com/injto4ka/ja3_commonlib); старые версии не поддерживаются. На дату среза последним был CommonLib 1.11 build 1056, commit `1adf9f232680d3b011248d180fd0ad1e609a8e2c`; это снимок аудита, не pin.
+
+## Статусы реализации
+
+- **loaded runtime** — путь присутствует в массиве `code` соответствующего `metadata.lua`;
+- **generated and loaded** — объект сериализован Mod Editor/Map Editor и зарегистрирован в `items.lua`/metadata;
+- **dormant/unlisted** — файл существует, но metadata его не загружает;
+- **empty placeholder** — зарегистрированный или незарегистрированный файл нулевой длины;
+- **loaded but inert** — файл загружается, но активная логика отсутствует или закомментирована;
+- **editor/development only** — расширяет редактор или диагностику, а не игровое правило.
+
+## Контракт сопровождения
+
+Любое изменение кода, generated data, публичного ID, зависимости или порядка загрузки должно в той же задаче обновить:
+
+- страницу затронутой системы;
+- [покрытие файлов](file-coverage.md), если меняется файл или load-state;
+- [матрицу переопределений](../override-matrix.md), если появляется пересечение с vanilla/CommonLib;
+- [совместимость](../compatibility.md), [тестирование](../testing.md) и [конкретный wiki-гайд](../../wiki/README.md), когда это применимо.
+
+Проверка автоматизирована skill `$document-jazz-systems` и скриптом `.agents/skills/document-jazz-systems/scripts/check-system-docs.ps1`.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Синхронизация generated data JAZZ"
+  short_description: "Синхронизация metadata, items и Lua JAZZ"
+  default_prompt: "Используй $sync-jazz-generated-data, чтобы безопасно синхронизировать metadata.lua, items.lua и companion Lua-файлы JAZZ."

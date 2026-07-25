@@ -1,0 +1,4 @@
+interface:
+  display_name: "Работа с модом JAZZ"
+  short_description: "AI-first работа с четырьмя пакетами JAZZ"
+  default_prompt: "Используй $work-on-jazz-mod, чтобы в AI-first-процессе безопасно проверить или изменить мод JAZZ во всех четырёх пакетах."

@@ -1,0 +1,177 @@
+sheet_tab,sheet_weapon_name,weapon_id,tier_label,migration_status
+Пист,MAC1950,MAC1950,1-1,mapped
+Пист,TT33,TT33,1-2,mapped
+Пист,SWModel52,SWModel52,1-2,mapped
+Пист,Luger,Luger,1-2,mapped
+Пист,CZ52,CZ52,1-3,mapped
+Пист,Makarov,Makarov,1-3,mapped
+Пист,P210,P210,1-3,mapped
+Пист,P38,P38,1-3,mapped
+Пист,Colt1911,Colt1911,1-3,mapped
+Пист,Welrod,Welrod,1-UNIQ,mapped
+Пист,PB,PB,1-UNIQ,mapped
+Пист,Vector CP1,VectorCP1,2-1,mapped
+Пист,SWModel5906,SWModel5906,2-1,mapped
+Пист,HiPower,HiPower,2-1,mapped
+Пист,MP446 Viking,MP446VIKING,2-2,mapped
+Пист,CZ75,CZ75,2-2,mapped
+Пист,Beretta 92,Bereta92,2-2,mapped
+Пист,Desert Eagle,DesertEagle,2-3,mapped
+Пист,Kimber,Kimber,2-4,mapped
+Пист,USP45,USP45,2-4,mapped
+Пист,Grizzly LAR,GrizzlyLAR,2-5,mapped
+Пист,Glock 17,Glock17,2-5,mapped
+Пист,P220,P220,3-1,mapped
+Пист,P226,P226,3-4,mapped
+Пист,FiveSeven,FiveSeven,3-5,mapped
+АвтоП,Scorpion,Scorpion,1-3,mapped
+АвтоП,MicroUZI,MicroUZI,2-1,mapped
+АвтоП,MAC10,MAC10,2-1,mapped
+АвтоП,Beretta 93r,Beretta93r,2-3,mapped
+АвтоП,APS,APS,2-4,mapped
+АвтоП,Glock18,Glock18,2-5,mapped
+Рев,SWModel10,SWModel10,1-1,mapped
+Рев,Colt38Special,Colt38Special,1-2,mapped
+Рев,ColtPeacemaker,ColtPeacemaker,1-2,mapped
+Рев,ColtM1917,ColtM1917,1-2,mapped
+Рев,SWModel19,SWModel19,1-3,mapped
+Рев,Webley,Webley,2-1,mapped
+Рев,MR73,MR73,2-3,mapped
+Рев,SWModel29,SWModel29,2-4,mapped
+Рев,ColtAnaconda,ColtAnaconda,2-5,mapped
+Рев,RSH12,RSH12,2-UNIQ,mapped
+Рев,Korth,Korth,3-1,mapped
+Рев,TexRevolver,TexRevolver,3-UNIQ,mapped
+ПП,MAT49,MAT49,1-1,mapped
+ПП,MP40,MP40,1-1,mapped
+ПП,M3GreaseGun,M3GreaseGun,1-2,mapped
+ПП,Sterling,Sterling,1-2,mapped
+ПП,Thompson,Thompson,1-3,mapped
+ПП,PPS43,PPS43,1-3,mapped
+ПП,PPSH,PPSH,1-3,mapped
+ПП,MPL,MPL,1-3,mapped
+ПП,M45,M45,2-1,mapped
+ПП,Agram2000,Agram2000,2-1,mapped
+ПП,UZI,UZI,2-1,mapped
+ПП,BerettaM12,BerettaM12,2-2,mapped
+ПП,Beretta MX4 Storm,,2-2,not_in_runtime
+ПП,SpectreM4,SpectreM4,2-3,mapped
+ПП,PP19Bizon,PP19Bizon,2-3,mapped
+ПП,MP5K,MP5K,2-4,mapped
+ПП,MP5A2,MP5A2,2-4,mapped
+ПП,TMP,TMP,2-4,mapped
+ПП,MP5A4,MP5A4,2-5,mapped
+ПП,UMP45,UMP45,2-5,mapped
+ПП,MP5SD,MP5SD,3-1,mapped
+ПП,PP-19 Vityaz,,3-2,not_in_runtime
+ПП,P90,P90,3-2,mapped
+ПП,MP7,MP7,3-2,mapped
+КАР,Winchester1894,Winchester1894,1-1,mapped
+КАР,M2Carbine,M2Carbine,1-2,mapped
+КАР,De Lisle Carbine,DeLisle,1-UNIQ,mapped
+КАР,Mini14,Mini14,2-1,mapped
+КАР,Zastava M92,ZastavaM92,2-1,mapped
+КАР,CAR15,CAR15,2-2,mapped
+КАР,AKSU,AKSU,2-3,mapped
+КАР,M4A1,M4A1,2-4,mapped
+КАР,G36c,G36c,2-5,mapped
+КАР,VSS,VSS,2-5,mapped
+КАР,AK-105,,3-1,not_in_runtime
+КАР,Sig552,Sig552,3-1,mapped
+КАР,Sig552SWAT,Sig552SWAT,3-2,mapped
+КАР,FN F2000,,3-2,not_in_runtime
+КАР,AS Val,AS_Val,3-3,mapped
+ШВ,StG-44,STG44,1-2,mapped
+ШВ,Type56,Type56,2-1,mapped
+ШВ,M16A1,M16A1,2-1,mapped
+ШВ,ZastavaM70,Zastava_M70,2-2,mapped
+ШВ,Famas,FAMAS,2-2,mapped
+ШВ,M16A2,M16A2,2-3,mapped
+ШВ,АК47,AK47,2-3,mapped
+ШВ,АКМ,AKM,2-3,mapped
+ШВ,Stoner 63A,,2-3,not_in_runtime
+ШВ,HK33,HK33,2-4,mapped
+ШВ,AK74,AK74,2-4,mapped
+ШВ,AUG,AUG,2-5,mapped
+ШВ,FB Beryl,,2-5,not_in_runtime
+ШВ,M16A4,M16A4,2-5,mapped
+ШВ,G36,G36,2-5,mapped
+ШВ,AK-103,,2-5,not_in_runtime
+ШВ,HK G11,,2-UNIQ,not_in_runtime
+ШВ,XM29 OICW,,2-UNIQ,not_in_runtime
+ШВ,АК-74М,,3-1,not_in_runtime
+ШВ,Sig550,Sig550,3-1,mapped
+ШВ,HK416,,3-1,not_in_runtime
+ШВ,Sig550Custom,Sig550Custom,3-2,mapped
+ШВ,АЕК-973,,3-2,not_in_runtime
+ШВ,H&K XM8,,3-3,not_in_runtime
+ШВ,AN94,AN94,3-UNIQ,mapped
+БВ,MAS-36,Mas36,1-1,mapped
+БВ,SKS,SKS,1-1,mapped
+БВ,G43,G43,1-3,mapped
+БВ,MAS 49/56,MAS49,2-1,mapped
+БВ,M1 Garand,M1Garand,1-2,mapped
+БВ,FG42,FG42,1-3,mapped
+БВ,SVT40,SVT40,1-3,mapped
+БВ,AVT40,AVT40,1-UNIQ,mapped
+БВ,AR10,AR10,2-1,mapped
+БВ,M14,M14SAW,2-2,mapped
+БВ,FNFAL,FNFAL,2-3,mapped
+БВ,Galil,Galil,2-4,mapped
+БВ,G3A3,G3A3,2-5,mapped
+БВ,G3A4,G3A4,2-5,mapped
+БВ,FN SCAR,,3-1,not_in_runtime
+СВ,Mosin,Mosin,1-1,mapped
+СВ,Gewehr98,Gewehr98,1-2,mapped
+СВ,Springfield,Springfield,1-2,mapped
+СВ,Zastava M76,ZastavaM76,2-2,mapped
+СВ,FRF2,FRF2,2-2,mapped
+СВ,M21,M21,2-3,mapped
+СВ,DragunovSVD,DragunovSVD,2-4,mapped
+СВ,DragunovSVD_Custom,DragunovSVD_Custom,,unassigned_in_sheet
+СВ,M700,M700,2-4,mapped
+СВ,AR10DMR,AR10DMR,2-4,mapped
+СВ,G3SniperV1,G3SniperV1,2-5,mapped
+СВ,M24Sniper,M24Sniper,2-5,mapped
+СВ,M1A,M1A,3-1,mapped
+СВ,SVU,SVU,3-2,mapped
+СВ,ArcticWarfare,ArcticWarfare,3-2,mapped
+СВ,BarretM82,BarretM82,3-3,mapped
+СВ,PSG1,PSG1,3-3,mapped
+СВ,ScoutSniper,ScoutSniper,3-UNIQ,mapped
+ПУЛ,MAC2429,MAC2429,1-1,mapped
+ПУЛ,BAR,BAR,1-2,mapped
+ПУЛ,U100,U100,2-1,mapped
+ПУЛ,RPK,RPK,2-3,mapped
+ПУЛ,RPK74,RPK74,2-4,mapped
+ПУЛ,FNMinimi,FNMinimi,2-5,mapped
+ПУЛ,Negev,,3-1,not_in_runtime
+ПУЛ,HK21,HK21,3-2,mapped
+ПУЛ,HK23e,HK23e,3-2,mapped
+ПУЛ,MG4,,3-3,not_in_runtime
+ПУЛ,DP27,DP27,1-1,mapped
+ПУЛ,MG42,MG42,1-3,mapped
+ПУЛ,MG58,MG58,1-UNIQ,mapped
+ПУЛ,RPD,RPD,2-1,mapped
+ПУЛ,AA-52,AA52,2-2,mapped
+ПУЛ,M60,M60,2-3,mapped
+ПУЛ,M60E3,M60E3,2-4,mapped
+ПУЛ,FNMAG,FNMAG,2-5,mapped
+ПУЛ,PKM,PKM,2-5,mapped
+ПУЛ,M60E4,M60E4,3-1,mapped
+ПУЛ,PKP Pecheneg,,3-3,not_in_runtime
+ПУЛ,BrowningM2HMG,BrowningM2HMG,,unassigned_in_sheet
+ДРБ,DoubleBarrelShotgun,DoubleBarrelShotgun,1-1,mapped
+ДРБ,M1897,M1897,1-2,mapped
+ДРБ,Ithaca,Ithaca,2-1,mapped
+ДРБ,R870,R870,2-2,mapped
+ДРБ,Mossberg500,,2-3,not_in_runtime
+ДРБ,Stoeger,Stoeger,2-UNIQ,mapped
+ДРБ,KS-23,,3-1,not_in_runtime
+ДРБ,Auto5,Auto5,1-3,mapped
+ДРБ,Striker,Striker,2-3,mapped
+ДРБ,SPAS12,SPAS12,2-4,mapped
+ДРБ,Saiga-12,,2-5,not_in_runtime
+ДРБ,M41Shotgun,M41Shotgun,3-1,mapped
+ДРБ,USAS12,USAS12,3-2,mapped
+ДРБ,AA12,AA12,3-3,mapped

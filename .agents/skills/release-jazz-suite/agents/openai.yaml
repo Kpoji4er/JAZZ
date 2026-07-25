@@ -1,0 +1,4 @@
+interface:
+  display_name: "Release JAZZ Suite"
+  short_description: "Release JAZZ from committed metadata"
+  default_prompt: "Use $release-jazz-suite to derive a JAZZ release version from committed metadata and validate the four packages."

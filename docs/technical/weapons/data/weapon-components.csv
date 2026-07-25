@@ -1,0 +1,248 @@
+component_id,display_name,slot,cost,modification_difficulty,effects,parameters,additional_costs,group,used_by_count,source,snapshot_commit
+AdvancedHOLO,Улучшеный коллиматор,Scope,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+AK47_VerticalGrip,Вертикальная рукоять,Handguard,50,0,RecoilDecrease,Recoil=1,FineSteelPipe=1,AK47 Specific,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+AKSU_Hanguard_Basic,Default Handguard,Handguard,0,-25,,,,AKSU Specific,1,vanilla_233360,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+AKSU_VerticalGrip,Вертикальная рукоять,Handguard,40,20,RecoilDecrease,Recoil=1,FineSteelPipe=1,AKSU Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+AnotherOptic,Оптический прицел,Scope,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+AUGCompensator_01,Default Compensator,Muzzle,10,-25,AccuracyBonusSameTarget,,,AUG Specific,1,vanilla_233360,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+AUGCompensator_03,Advanced Compensator,Muzzle,15,0,AccuracyBonusSameTarget;IncreaseReliability,ReliabilityIncrease=10,,AUG Specific,1,vanilla_233360,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+AUGCompensator_1,Стандартный компенсатор,Muzzle,10,-25,AccuracyBonusSameTarget;RecoilDecrease,Recoil=3,,AUG Specific,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+AUGCompensator_3,Улучшенный компенсатор,Muzzle,15,0,AccuracyBonusSameTarget;IncreaseReliability;RecoilDecrease,ReliabilityIncrease=10;Recoil=4,,AUG Specific,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+AUGMount,Rail Mount,Mount,0,-25,,,,AUG Specific,1,vanilla_233360,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+AUGScope_Default,Прицел AUG (1.5x),Scope,0,-25,IncreaseShotAP;ScopeMagnification;ScopeHandlingReduce;ScopeOverwatchAngleDecrease,IncreaseMaxAimActions=1;ShotAP=1;ScopeMagnification=1;ScopeSubMagnification=5;ScopeAimLevel=2;ScopeHandlingReduce=1,,AUG Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Auto5_Basic_LMag,Магазин повышенной емкости,Barrel,15,0,MagazineSizeMultiplier,MagazineSizeMultiplier=150,FineSteelPipe=1,Auto5 Specific,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Auto5_Basic_NMag,Базовая конфигурация,Barrel,0,0,,,FineSteelPipe=1,Auto5 Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Auto5_Long_LMag,"Длинный ствол, магазин повышенной емкости",Barrel,50,0,HalfRangeDmgIncrease;MagazineSizeMultiplier;IncreaseRange,RangeIncrease=4;MagazineSizeMultiplier=150,FineSteelPipe=1,Auto5 Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Auto5_Long_NMag,Длинный ствол,Barrel,30,0,HalfRangeDmgIncrease;IncreaseRange,RangeIncrease=4,FineSteelPipe=1,Auto5 Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Auto5_Short_NMag,Короткий ствол,Barrel,20,0,ReduceShootAP;ReduceRange;ReduceReliability;IncreaseBuckshotAngle,ShootAPDecrease=1;ReliabilityDecrease=10;BuckshotAngleIncrease=115;RangeDecrease=2,FineSteelPipe=1,Auto5 Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Autofire,Автоматический огонь,Trigger,0,0,EnableFullAuto;EnableBurst,,,Underslung,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Barrel50BMG_DesertEagle,Ствол под калибр .50 BMG,Barrel,20,-25,IncreaseDamage;ReduceReliabilityPercent;ChangeCaliberToBMG,DamageIncrease=10;ReliabilityDecreasePercent=30,FineSteelPipe=1,Desert Eagle Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelHeavy,Утяжеленный ствол,Barrel,30,0,IncreasedSingleShotAccuracy;BarrelHandlingReduce;BarrelRecoilRecude;BarrelBulletDropIncrease,xrng=2;dmg=3;bonus_cth=5;BarrelRecoilRecude=-3,FineSteelPipe=1,Barrel,3,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelLong,Удлиненный ствол,Barrel,75,0,BarrelRangeIncrease;BarrelBulletDropIncrease;BarrelAccuracyIncrease;BarrelHandlingReduce;BarrelRecoilRecude;BarrelGroupingIncrease,RangeIncrease=6;AimAccuracyIncrease=2;EffectiveRange=2,FineSteelPipe=3,Barrel,18,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelLong_AUG,Удлиненный ствол с сошками,Barrel,70,0,AccuracyBonusProne;BarrelHandlingReduce;BarrelBulletDropIncrease;BarrelGroupingIncrease;BarrelRecoilRecude;BarrelRangeIncrease;BarrelAccuracyIncrease,RangeIncrease=6;AimAccuracyIncrease=2,FineSteelPipe=1,AUG Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelLongImproved,Удлиненный нарезной ствол с возрастающим шагом,Barrel,100,0,IncreaseReliability;BarrelRangeIncrease;BarrelBulletDropIncrease;BarrelAccuracyIncrease;BarrelHandlingReduce;BarrelGroupingIncrease;BarrelRecoilRecude,ReliabilityIncrease=10;AimAccuracyIncrease=2;RangeIncrease=6,FineSteelPipe=3,Barrel,6,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelLongImproved_AUG,Удлиненный нарезной ствол с возрастающим шагом (с сошками),Barrel,100,0,AccuracyBonusProne;IncreaseReliability;BarrelBulletDropIncrease;BarrelGroupingIncrease;BarrelHandlingReduce;BarrelRecoilRecude;BarrelAccuracyIncrease;BarrelRangeIncrease,AimAccuracyIncrease=2;RangeIncrease=6;ReliabilityIncrease=10,FineSteelPipe=1,AUG Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelLongShotgun,Удлиненный ствол,Barrel,75,0,BarrelRangeIncrease;BarrelBulletDropIncrease;BarrelAccuracyIncrease;BarrelHandlingReduce;BarrelGroupingIncrease,RangeIncrease=4,FineSteelPipe=3,Barrel,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelNormal,Стандартный ствол,Barrel,50,10,,,FineSteelPipe=2,Barrel,39,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelNormal_noSil,Стандартный ствол,Barrel,50,10,,,FineSteelPipe=2,Barrel,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelNormal_Sil,Ствол под глушитель,Barrel,50,10,,,FineSteelPipe=2,Barrel,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelNormalImproved,Нарезной ствол с возрастающим шагом,Barrel,15,0,IncreaseReliability,ReliabilityIncrease=10,FineSteelPipe=1,Barrel,10,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelsDefs,Заводской ствол,Barrel,0,0,,,,Default,6,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelShort,Короткий ствол,Barrel,15,0,ReduceReliability;BarrelRangeReduce;BarrelBulletDropReduce;BarrelHandlingIncrease;BarrelGroupingReduce;BarrelRecoilIncrease,ReliabilityDecrease=10;ShootAPDecrease=1;RangeDecrease=4;EffectiveRange=4,FineSteelPipe=1,Barrel,12,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelShort_AUG,Короткий ствол,Barrel,15,0,ReduceReliability;BarrelRangeReduce;BarrelBulletDropReduce;BarrelGroupingReduce;BarrelRecoilIncrease,ShootAPDecrease=1;ReliabilityDecrease=10,FineSteelPipe=1,AUG Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelShort_Pistol,Короткий ствол,Barrel,15,0,BarrelRangeReduce;BarrelBulletDropReduce;BarrelHandlingIncrease;BarrelGroupingReduce;ReduceShootAP,ShootAPDecrease=1;RangeDecrease=4;EffectiveRange=4,FineSteelPipe=1,Barrel,6,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelShort_Winchester,Short Barrel,Barrel,15,0,ReduceShootAP;ReduceRange;ReduceReliability;ReduceMagazineSize,ShootAPDecrease=1;RangeDecrease=4;ReliabilityDecrease=10;MagazineSizeDecrease=4,FineSteelPipe=1,Winchester Specific,1,vanilla_233360,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelShortImproved,Короткий нарезной ствол с возрастающим шагом,Barrel,35,0,BarrelRangeReduce;BarrelBulletDropReduce;BarrelHandlingIncrease;BarrelGroupingReduce;BarrelRecoilIncrease,ShootAPDecrease=1;RangeDecrease=4;EffectiveRange=1,FineSteelPipe=1,Barrel,8,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelShortImproved_AUG,Короткий нарезной ствол с возрастающим шагом,Barrel,35,0,BarrelHandlingIncrease;BarrelBulletDropReduce;BarrelGroupingReduce;BarrelRecoilIncrease;BarrelRangeReduce,RangeDecrease=4;ShootAPDecrease=1,FineSteelPipe=1,AUG Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelShortRunNGun,Короткий ствол,Barrel,15,0,ReduceReliability;EnableRunNGun;BarrelRangeReduce;BarrelBulletDropReduce;BarrelHandlingIncrease;BarrelGroupingIncrease;BarrelRecoilIncrease,ReliabilityDecrease=10;ShootAPDecrease=1;RangeDecrease=4;EffectiveRange=4,FineSteelPipe=1,Barrel,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelShortShotgun,Укороченный ствол,Barrel,15,0,BarrelRangeReduce;BarrelBulletDropReduce;BarrelGroupingReduce;BarrelHandlingIncrease,ShootAPDecrease=1;ReliabilityDecrease=10;RangeDecrease=2;BuckshotAngleIncrease=115,FineSteelPipe=1,Barrel,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BarrelShortShotgun_Benelli,Укороченный ствол,Barrel,15,0,ReduceReliability;ReduceMagazineSize;IncreaseBuckshotAngle;ReduceRange;ReduceShootAP,ReliabilityDecrease=10;MagazineSizeDecrease=2;BuckshotAngleIncrease=115;RangeDecrease=2;ShootAPDecrease=1,FineSteelPipe=1,M1014 Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BaseIronsight_Anaconda,Базовый механический прицел,Scope,10,0,,bonus_cth=5,,Anaconda Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+BigMag,Магазин увеличенной емкости,Magazine,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Bipod,Сошки,Bipod,60,20,AccuracyBonusProne;ShotsBeforeRecoilProne;BipodsHandlingDecrease,bonus_cth_bipod=10,,Underslung,31,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Bipod_Galil,Сошки,Under,60,20,AccuracyBonusProne;ShotsBeforeRecoilProne,,,Galil Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Bipod_MG42,Сошки,Bipod,60,20,AccuracyBonusProne;ShotsBeforeRecoilProne,,,MG42 Specific,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Bipod_Under,Сошки,Under,60,20,AccuracyBonusProne;ShotsBeforeRecoilProne,,,Underslung,3,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Bubny,Бубенец,Magazine,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+CAR15Mount,Крепление для рукоятки переноски от CAR15,Mount,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+CollimatorMP7,Коллиматор для ближних дистанций,Scope,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Compensator,Компенсатор,Muzzle,0,0,RecoilDecrease;AccuracyBonusSameTarget,Recoil=3,FineSteelPipe=1;Parts=25,Muzzle,40,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+DefaultIronsight_AR15,Стандартный механический прицел,Scope,10,0,,,,AR15 Specific,7,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+DefaultMuzzle_HK21,Default Flash Hider,Muzzle,0,-25,,,,HK 21 Specific,1,vanilla_233360,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+DefMuzzle,Заводской дульный тормоз,Muzzle,0,0,,,,Default,6,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+DuckbillChoke,Плоский чок,Muzzle,20,0,IncreaseBuckshotAngle,BuckshotAngleIncrease=120,,Muzzle,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+FlashHider,Пламегаситель,Muzzle,10,0,RecoilDecrease;StealthKillBonusPerAim;SilencerHandlingReduce,Recoil=1;crit=10;stealth_kill_bonus=20,FineSteelPipe=2;Parts=50,Muzzle,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Flashlight,Фонарик,Side,25,-25,IgnoreInTheDark,,,Side,53,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Flashlight_aa12,Фонарик,Side,10,-25,IgnoreInTheDark,,,AA12 Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Flashlight_Anaconda,Фонарик,Scope,10,-25,IgnoreInTheDark,,,Anaconda Specific,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Flashlight_Grip,Рукоятка с фонариком,Side,25,-25,IgnoreInTheDark;RecoilDecrease,Recoil=1,,Side,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Flashlight_Grip_Off,Рукоятка с фонариком,Side,25,-25,RecoilDecrease,Recoil=1,,Side,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Flashlight_PSG_M1,Фонарик,Side,10,-25,IgnoreInTheDark,,,PSG1-Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Flashlight_R870,Фонарик,Side,0,-25,IgnoreInTheDark,,,Side,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+FlashlightDot,Тактическое устройство,Side,50,10,StealthKillBonusPerAim;IncreaseOverwatchAngle;MarkWhenFullyAimed,maxaims=1;OverwatchAngleIncrease=140;aim_bonus=1;stealth_kill_bonus=2,Microchip=3,Side,48,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+FlashlightDot_aa12,Тактическое устройство,Side,20,10,IgnoreInTheDark;StealthKillBonusPerAim;IncreaseOverwatchAngle,maxaims=1;EffectiveRange=1;OverwatchAngleIncrease=140;aim_bonus=1;stealth_kill_bonus=2,Microchip=1,AA12 Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+FlashlightDot_Anaconda,Тактическое устройство,Scope,20,10,IgnoreInTheDark;StealthKillBonusPerAim;IncreaseOverwatchAngle,maxaims=1;EffectiveRange=1;OverwatchAngleIncrease=140;aim_bonus=1;stealth_kill_bonus=2,Microchip=1,Anaconda Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+FlashlightDot_PSG_M1,Тактическое устройство,Side,20,10,IgnoreInTheDark;StealthKillBonusPerAim,stealth_kill_bonus=2,Microchip=1,PSG1-Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+FlashlightOff,Фонарик,Side,25,-25,,,,Side,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+FNFAL_Handguard,Default Handguard,Handguard,0,-25,,,,FNFAL Specific,1,vanilla_233360,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+FoldBipod,Сложенная сошка,Bipod,0,0,,,,Default,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+FoldStocks,Сложенный приклад,Stock,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Freeswap,Пистолет,Freeswap,10,0,FreeWeaponSwap,,FineSteelPipe=1,Muzzle,41,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+FullChoke,Полный чок,Muzzle,20,0,DecreaseBuckshotAngle;IncreaseRange,RangeIncrease=4;BuckshotAngleDecrease=80,,Muzzle,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+G3Mount,Крепление с универсальной планкой для G3,Mount,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+G3MuzzleV2,Заводской пламегаситель G3 SG,Muzzle,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Galil_Brake_Default,Стандартный дульный тормоз,Muzzle,2,-25,IncreaseAimAccuracy,AimAccuracyIncrease=1,,Galil Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Galil_Handguard_Default,Default Handguard,Under,2,-25,,,,Galil Specific,1,vanilla_233360,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+GewehrDefaultSight,Стандартный механический прицел,Scope,2,-25,,,,Gewehr-specific,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+GP25,ГП-25,Under,50,20,GrenadeLauncher;GLHandlingDecrease,,FineSteelPipe=2,Underslung,3,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+GrenadeLauncher,Гранатомет,Under,50,20,GrenadeLauncher;GLHandlingDecrease,,FineSteelPipe=2,Underslung,7,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+GrenadeLauncher_AUG,Гранатомет,Grenadelauncher,20,20,GrenadeLauncher,,FineSteelPipe=1,AUG Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+GrenadeLauncher_Commando,Гранатомет,Under,20,20,GrenadeLauncher,,FineSteelPipe=1,M4 Commando Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+GrenadeLauncher_Galil,Гранатомет,Under,50,20,GrenadeLauncher;GLHandlingDecrease,,FineSteelPipe=2,Galil Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+GrenadeLauncher_M14,Гранатомет,Under,20,20,GrenadeLauncher,,FineSteelPipe=1,M14 Specific,4,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+GrenadeLauncher_M16A1,Гранатомет,Under,20,20,GrenadeLauncher,,FineSteelPipe=1,M16A2 Specific,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Handgrip_Default,Стандартная рукоять,Handgrip,0,0,,,,Underslung,4,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Handgrip_Ergo,Эргономичная рукоять,Handgrip,0,0,GripHandlingIncrease,,,Underslung,4,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Handguard,Цевьё,Handguard,0,0,,,,Underslung,4,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Handguard_Commando,Default Handguard,Under,40,20,,,,M4 Commando Specific,1,vanilla_233360,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+HandguardM1A,Цевьё,Handguard,25,10,,,,Underslung,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+HandguardM1ARail,Цевьё с рельсой,Handguard,150,20,,,,Underslung,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+HandguardRail,Цевьё с рельсой,HandguardRail,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+HandlingWrap,Обмотка на цевье,Side,10,0,BarrelHandlingIncrease,BarrelHandlingIncrease=1,,Side,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+HK33Handguard,Цевье,Handguard,20,10,,,,Underslung,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+HK33HandguardMod,Цевье с планками,Handguard,20,10,,,,Underslung,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+HK33Lower,Lower,General,20,10,,,,Underslung,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+HK33LowerMod,Улучшенный lower,General,20,10,,,,Underslung,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+HolsterBelt,Ремень,General,20,10,FreeWeaponSwap,,,Underslung,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+ImprovedIronsight,Ул. механический прицел,Scope,10,0,MinorAccuracyBonus,,,Scope,5,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+ImprovedIronsight_AR15,Ул. механический прицел,Scope,10,0,AccuracyBonusWhenAimed,bonus_cth=5,,AR15 Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+ImprovisedSuppressor,Масляной фильтр,Muzzle,20,-25,StealthKillBonusPerAim;ReduceReliabilityPercent;SilencerGroupingReduce50;SilencerHandlingReduce;SilencerJamChance;ReduceAimAccuracy15Percent;SilentShots,NoiseMultiplier=33;ReliabilityDecreasePercent=50;SilencerHandlingReduce=10;crit=25;stealth_kill_bonus=100,,Muzzle,50,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+ImprovisedSuppressor_Anaconda,Самодельный глушитель,Muzzle,20,0,SilentShots,crit=25,,Anaconda Specific,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_CombatScope_1P29,Тюльпан,Scope,100,0,IncreaseShotAP;ScopeMagnification;ScopeHandlingReduce;ScopeCTHBonus;ScopeOverwatchAngleDecrease,ShotAP=1;ScopeMagnification=4;ScopeSubMagnification=;ScopeAimLevel=2;ScopeHandlingReduce=10;ScopeCTH=5,OpticalLens=3;FineSteelPipe=3,Scope,8,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_CombatScope_2x,Штурмовой прицел (2x),Scope,50,0,IncreaseShotAP;ScopeMagnification;ScopeHandlingReduce;ScopeOverwatchAngleDecrease,ShotAP=1;ScopeMagnification=2;ScopeSubMagnification=;ScopeAimLevel=1;ScopeHandlingReduce=6,OpticalLens=1;FineSteelPipe=1,Scope,53,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_CombatScope_3x,Штурмовой прицел (3x),Scope,50,0,IncreaseShotAP;ScopeMagnification;ScopeHandlingReduce;ScopeCTHBonus;ScopeOverwatchAngleDecrease,ShotAP=1;ScopeMagnification=3;ScopeSubMagnification=;ScopeAimLevel=2;ScopeHandlingReduce=6;ScopeCTH=3,OpticalLens=1;FineSteelPipe=1,Scope,5,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),Scope,100,0,IncreaseShotAP;ScopeMagnification;ScopeHandlingReduce;ScopeCTHBonus;ScopeOverwatchAngleDecrease,ShotAP=1;ScopeMagnification=4;ScopeSubMagnification=;ScopeAimLevel=2;ScopeHandlingReduce=6;ScopeCTH=5,OpticalLens=3;FineSteelPipe=3,Scope,46,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_CombatScope_FeroZ24,Штурмовой прицел Fero Z24 (4х),Scope,100,0,IncreaseShotAP;ScopeMagnification;ScopeHandlingReduce;ScopeCTHBonus;ScopeOverwatchAngleDecrease,ShotAP=1;ScopeMagnification=4;ScopeSubMagnification=;ScopeAimLevel=2;ScopeHandlingReduce=10;ScopeCTH=4,OpticalLens=3;FineSteelPipe=3,Scope,7,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Jazz_G36Scope,Прицел G36 3x,Scope,0,-25,IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecrease,ShotAP=1;ScopeMagnification=3;ScopeSubMagnification=;ScopeAimLevel=2,,AUG Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Jazz_G36Sight,Прицел G36 1.5x,Scope,0,-25,ScopeMagnification,ScopeMagnification=1;ScopeSubMagnification=5;ScopeAimLevel=1,,AUG Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Jazz_IronSight,Стандартный прицел,Scope,0,-10,,,,Default,9,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Jazz_IronSight_AIM,Точный прицел,Scope,50,10,IncreaseAimAccuracy;CritBonusWhenFullyAimed,BonusCTH=;AimAccuracyIncrease=5,,Default,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Jazz_IronSight_FAST,Быстрый прицел,Scope,50,10,MinorAccuracyBonus,BonusCTH=3,,Default,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Jazz_IronSight_NIGHT,Ночной прицел,Scope,50,20,NightsIronsBonus,NightsIronsBonus=10,,Default,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_NightScope,Ночной прицел (5х),Scope,100,10,IncreaseShotAP;ScopeMagnification;IgnoreInTheDarkWhenFullyAimed;ScopeHandlingReduce,ShotAP=1;ScopeMagnification=5;ScopeSubMagnification=;ScopeAimLevel=3;ScopeHandlingReduce=24,Microchip=4;OpticalLens=4;FineSteelPipe=4,Scope,47,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_NightScope_M3,Ночной прицел (5х),Scope,100,10,IncreaseShotAP;ScopeMagnification;IgnoreInTheDarkWhenFullyAimed;ScopeHandlingReduce,ShotAP=1;ScopeMagnification=1;ScopeSubMagnification=5;ScopeAimLevel=3;ScopeHandlingReduce=2,Microchip=1;OpticalLens=1;FineSteelPipe=1,Scope,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_NightScope_NSPU,Ночной прицел НСПУ (3.5х),Scope,100,10,IncreaseShotAP;IgnoreInTheDarkWhenFullyAimed;ScopeMagnification;ScopeHandlingReduce,ShotAP=1;ScopeMagnification=3;ScopeSubMagnification=5;ScopeAimLevel=3;ScopeHandlingReduce=32,Microchip=4;OpticalLens=4;FineSteelPipe=4,Scope,8,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Reflex_Aimpoint5000,Коллиматор Aimpoint5000,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;ScopeOverwatchAngleIncreace;MinAim;OpportunityAttackBonusCth;ScopeHandlingReduce;ScopeAccuracyIncreace,OverwatchAngleIncrease=120;MaxAimActionsDecrease=1;extra_attacks=1;ScopeHandlingReduce=3;ScopeAccuracyIncreace=3,Microchip=1;OpticalLens=1,Scope,45,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Reflex_Closed,Коллиматор Закрытый,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;ScopeOverwatchAngleIncreace;MinAim;OpportunityAttackBonusCth;ScopeHandlingReduce;ScopeAccuracyIncreace,OverwatchAngleIncrease=120;MaxAimActionsDecrease=1;extra_attacks=1;ScopeHandlingReduce=1;ScopeAccuracyIncreace=1,Microchip=1;OpticalLens=1,Scope,50,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Reflex_Cobra,Коллиматор Кобра,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;ScopeOverwatchAngleIncreaceBig;MinAim,OverwatchAngleIncrease=120;MaxAimActionsDecrease=1;extra_attacks=1,Microchip=1;OpticalLens=1,Scope,8,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Reflex_Eotech,Коллиматор Eotech,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;ScopeOverwatchAngleIncreaceBig;MinAim;OpportunityAttackBonusCth;ScopeAccuracyIncreace,OverwatchAngleIncrease=120;MaxAimActionsDecrease=1;extra_attacks=1;ScopeAccuracyIncreace=3,Microchip=1;OpticalLens=1,Scope,50,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Reflex_Garand,Коллиматор,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;MinAim;OpportunityAttackBonusCth;ScopeHandlingReduce;ScopeAccuracyIncreace;ScopeOverwatchAngleIncreace,OverwatchAngleIncrease=120;MaxAimActionsDecrease=1;extra_attacks=1;ScopeHandlingReduce=5;ScopeAccuracyIncreace=3,Microchip=1;OpticalLens=1,Scope,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Reflex_M68,Коллиматор Aimpoint M68,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;ScopeOverwatchAngleIncreace;MinAim;OpportunityAttackBonusCth;ScopeHandlingReduce;ScopeAccuracyIncreace,OverwatchAngleIncrease=120;MaxAimActionsDecrease=1;extra_attacks=1;ScopeHandlingReduce=2;ScopeAccuracyIncreace=3,Microchip=1;OpticalLens=1,Scope,50,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Reflex_Open,Коллиматор Компактный,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;ScopeOverwatchAngleIncreaceBig;MinAim;OpportunityAttackBonusCth,OverwatchAngleIncrease=120;MaxAimActionsDecrease=1;extra_attacks=1,Microchip=1;OpticalLens=1,Scope,16,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Reflex_Pistol,Коллиматор Пистолетный,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;ScopeOverwatchAngleIncreaceBig;MinAim;OpportunityAttackBonusCth,OverwatchAngleIncrease=120;MaxAimActionsDecrease=1;extra_attacks=1,Microchip=1;OpticalLens=1,Scope,5,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Reflex_PKAS,Коллиматор ПК-АА,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;ScopeOverwatchAngleIncreace;MinAim;OpportunityAttackBonusCth;ScopeHandlingReduce;ScopeAccuracyIncreace,OverwatchAngleIncrease=120;MaxAimActionsDecrease=1;extra_attacks=1;ScopeHandlingReduce=3;ScopeAccuracyIncreace=3,Microchip=1;OpticalLens=1,Scope,8,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Scope_12x,Оптический Прицел Leupold Mark 4 (12x),Scope,50,0,IncreaseMaxAimActions;ScopeMagnification;IncreaseShotAP;CritBonusWhenFullyAimed;ScopeHandlingReduce;ScopeOverwatchAngleDecreaseBig;ScopeCTHBonus,IncreaseMaxAimActions=1;ShotAP=1;ScopeMagnification=10;ScopeAimLevel=4;ScopeHandlingReduce=30;ScopeCTH=20,OpticalLens=2;FineSteelPipe=1,Scope,47,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Scope_3x_9x,Оптический Прицел Redfield (3-9x),Scope,50,0,IncreaseMaxAimActions;ScopeMagnification;IncreaseShotAP;CritBonusWhenFullyAimed;ScopeHandlingReduce;ScopeOverwatchAngleDecreaseBig;ScopeCTHBonus;SmallMagnification,IncreaseMaxAimActions=1;ShotAP=1;ScopeMagnification=9;ScopeSubMagnification=;ScopeAimLevel=4;SmallAimLevel=2;SmallMagnification=3;SmallSubMagnification=;ScopeHandlingReduce=16;ScopeCTH=12,OpticalLens=2;FineSteelPipe=1,Scope,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Scope_6x,Оптический Прицел 1-6x,Scope,50,0,ScopeMagnification;IncreaseShotAP;CritBonusWhenFullyAimed;ScopeHandlingReduce;ScopeOverwatchAngleDecreaseBig;ScopeCTHBonus,ShotAP=1;ScopeMagnification=6;ScopeAimLevel=3;ScopeHandlingReduce=20;ScopeCTH=14,OpticalLens=2;FineSteelPipe=1,Scope,47,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Scope_8x_SCROME,Оптический Прицел 8x,Scope,50,0,ScopeMagnification;IncreaseShotAP;CritBonusWhenFullyAimed;ScopeHandlingReduce;ScopeOverwatchAngleDecreaseBig;ScopeCTHBonus,IncreaseMaxAimActions=1;ShotAP=2;ScopeMagnification=8;ScopeAimLevel=3;ScopeHandlingReduce=16;ScopeCTH=10,OpticalLens=2;FineSteelPipe=1,Scope,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Scope_DA15_6x,Оптический Прицел Zeiss Diavari-DA (1.5-6x),Scope,50,0,ScopeMagnification;SmallMagnification;IncreaseShotAP;CritBonusWhenFullyAimed;ScopeHandlingReduce;ScopeOverwatchAngleDecreaseBig;ScopeCTHBonus,ShotAP=1;ScopeMagnification=6;ScopeAimLevel=3;SmallAimLevel=1;SmallMagnification=1;SmallSubMagnification=5;ScopeHandlingReduce=12;BonusCTH=9,OpticalLens=2;FineSteelPipe=1,Scope,8,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Scope_Garand,Оптический Прицел M84 (2.2x),Scope,50,0,ScopeMagnification;IncreaseShotAP;CritBonusWhenFullyAimed;ScopeHandlingReduce;ScopeOverwatchAngleDecreaseBig,ShotAP=1;ScopeMagnification=2;ScopeSubMagnification=2;ScopeAimLevel=2;ScopeHandlingReduce=12,OpticalLens=2;FineSteelPipe=1,Scope,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Scope_PSG,Оптический Прицел Hensoldt ZF PSG1 (6x),Scope,50,0,ScopeMagnification;IncreaseShotAP;CritBonusWhenFullyAimed;ScopeHandlingReduce;ScopeOverwatchAngleDecreaseBig;ScopeCTHBonus,ShotAP=1;ScopeMagnification=6;ScopeSubMagnification=;ScopeAimLevel=3;ScopeHandlingReduce=16;ScopeCTH=12,OpticalLens=2;FineSteelPipe=1,Scope,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Scope_PSO,Оптический Прицел ПСО (4x),Scope,50,0,ScopeMagnification;IncreaseShotAP;CritBonusWhenFullyAimed;ScopeHandlingReduce;ScopeOverwatchAngleDecreaseBig;ScopeCTHBonus,ShotAP=1;ScopeMagnification=4;ScopeAimLevel=3;ScopeHandlingReduce=16;ScopeCTH=14,OpticalLens=2;FineSteelPipe=1,Scope,8,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Scope_PU,Оптический Прицел ПУ (3.5x),Scope,50,0,ScopeMagnification;IncreaseShotAP;CritBonusWhenFullyAimed;ScopeHandlingReduce;ScopeOverwatchAngleDecreaseBig;ScopeCTHBonus,IncreaseMaxAimActions=1;ShotAP=1;ScopeMagnification=3;ScopeSubMagnification=5;ScopeAimLevel=2;ScopeHandlingReduce=16,OpticalLens=2;FineSteelPipe=1,Scope,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),Scope,50,0,ScopeMagnification;SmallMagnification;IncreaseShotAP;CritBonusWhenFullyAimed;ScopeHandlingReduce;ScopeOverwatchAngleDecreaseBig,ShotAP=1;ScopeMagnification=7;ScopeSubMagnification=;ScopeAimLevel=3;SmallAimLevel=1;SmallMagnification=2;SmallSubMagnification=;ScopeHandlingReduce=12;ScopeCTH=3,OpticalLens=2;FineSteelPipe=1,Scope,48,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Scope_Springfield,Оптический Прицел (2.75x),Scope,50,0,ScopeMagnification;IncreaseShotAP;CritBonusWhenFullyAimed;ScopeHandlingReduce;ScopeOverwatchAngleDecreaseBig;ScopeCTHBonus,IncreaseMaxAimActions=1;ShotAP=1;ScopeMagnification=2;ScopeSubMagnification=7;ScopeAimLevel=3;ScopeHandlingReduce=20,OpticalLens=2;FineSteelPipe=1,Scope,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Scope_ZF4,Оптический Прицел ZF4 (4x),Scope,50,0,ScopeMagnification;IncreaseShotAP;CritBonusWhenFullyAimed;ScopeHandlingReduce;ScopeOverwatchAngleDecreaseBig;ScopeCTHBonus,IncreaseMaxAimActions=1;ShotAP=1;ScopeMagnification=4;ScopeAimLevel=3;ScopeHandlingReduce=12;ScopeCTH=6,OpticalLens=2;FineSteelPipe=1,Scope,4,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+JAZZ_Scope_ZRAK,Оптический Прицел ZRAK (4x),Scope,50,0,ScopeMagnification;IncreaseShotAP;CritBonusWhenFullyAimed;ScopeHandlingReduce;ScopeOverwatchAngleDecreaseBig;ScopeCTHBonus,IncreaseMaxAimActions=1;ShotAP=1;ScopeMagnification=4;ScopeAimLevel=3;ScopeHandlingReduce=16;ScopeCTH=10,OpticalLens=2;FineSteelPipe=1,Scope,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+KSP_BIPOD,Сошка от KSP 58,Bipod,0,0,AccuracyBonusProne;ShotsBeforeRecoilProne,,,Default,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+LaserDot,Лазерный целеуказатель,Side,50,10,IncreaseCritChangeScaled;IncreaseOverwatchAngle;MarkWhenFullyAimed;LaserMark,CritChangeScaledIncrease=15;OverwatchAngleIncrease=140;LaserCTH=15;LaserDistance=10,Microchip=2,Side,51,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+LaserDot_aa12,Коллиматор,Side,10,10,IncreaseCritChangeScaled;MarkWhenFullyAimed;IncreaseOverwatchAngle;LaserMark,CritChangeScaledIncrease=15;EffectiveRange=2;OverwatchAngleIncrease=140;LaserCTH=15;LaserDistance=10,Microchip=1,AA12 Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+LaserDot_Anaconda,Коллиматор,Scope,10,10,IncreaseCritChangeScaled;IncreaseOverwatchAngle;MarkWhenFullyAimed;LaserMark,CritChangeScaledIncrease=15;EffectiveRange=2;OverwatchAngleIncrease=140;LaserCTH=15;LaserDistance=10,Microchip=1,Anaconda Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+LaserDot_PSG_M1,Коллиматор,Side,10,10,MarkWhenFullyAimed,,Microchip=1,PSG1-Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+LROptics,Оптический прицел,Scope,50,0,IncreaseMaxAimActions;IncreasedSingleShotAccuracy;IncreaseShotAP;CritBonusWhenFullyAimed;ReduceAuto75Percent;ReduceBurst50Percent,IncreaseMaxAimActions=1;ShotAP=2;min_aim=2;AimAccuracyIncrease=5,OpticalLens=2;FineSteelPipe=1,Scope,6,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+LROptics_DragunovDefault,Снайперский прицел с 5-кратным увеличением,Scope,20,0,IncreaseMaxAimActions,IncreaseMaxAimActions=1,OpticalLens=1,Dragunov-Specific,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+LROpticsAdvanced,Снайперский прицел с 10-кратным увеличением,Scope,100,10,IncreaseMaxAimActions;IncreasedSingleShotAccuracy;IncreaseShotAP;CritBonusWhenFullyAimed;ReduceAuto75Percent;ReduceBurst50Percent,AimAccuracyIncrease=7;IncreaseMaxAimActions=2;min_aim=3;ShotAP=3,OpticalLens=4;FineSteelPipe=4,Scope,4,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+M14_Default_Muzzle,Стандартный дульный тормоз,Muzzle,2,-25,,,,M14 Specific,3,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+M16A1LaunchHandGuard,Гранатомет,Handguard,1,-10,GrenadeLauncher,,,Default,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+M16BarrelRedDot,ЛЦУ на уникальном спецкреплении,Side,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+M16Bayonet,Штык-нож для М16,Side2,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+M4ModernStanag,Кастомный магазин STANAG,Magazine,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+M60E3HandGrip,Цевье с рукоятью для cовременных М60,Mount,0,0,,,,Default,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+M60E4ModernMount,Современные крепления с планками для М60,Mount,0,0,,,,Default,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+M70_Fld_GL,Сложенный прицел,General,0,0,,,,Underslung,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+M70_Grenade,Наствольная граната для М70,Muzzle,0,0,GrenadeLauncher,,,Underslung,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+M70_Unfld_GL,Разложенный прицел,General,0,0,,,,Underslung,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagBelt,Expanded Mag,Magazine,15,0,,,,Clip,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagBelt_100-200,Увеличенный короб,Magazine,100,0,MagazineHandlingDecrease;ReduceReliability;IncreaseReloadAP;ReduceAimAccuracy15Percent;MagazineSizeMultiplier,extra_shots=5;ReliabilityDecrease=15;ReloadAPIncrease=2;MagazineSizeMultiplier=200,,Clip,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagBelt_40-100,Короб,Magazine,50,0,MagazineHandlingDecrease;ReduceReliability;IncreaseReloadAP;ReduceAimAccuracy15Percent;MagazineSizeMultiplier,extra_shots=5;ReliabilityDecrease=15;ReloadAPIncrease=2;MagazineSizeMultiplier=250,,Clip,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagBeltLarge,LMG and MG Magazines,Magazine,25,0,ExtraBurstShots;ExtraOverwatchShots;ReduceReliabilityPercent,AimAccuracyDecrease=1;extra_shots=5;APincrease=2;ReliabilityDecreasePercent=33,,Clip,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagDrum_30-100,Бубен,Magazine,50,0,MagazineHandlingDecrease;ReduceReliability;IncreaseReloadAP;ReduceAimAccuracy15Percent;MagazineSizeMultiplier,extra_shots=5;ReliabilityDecrease=15;ReloadAPIncrease=2;MagazineSizeMultiplier=333,,Clip,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagDrum_30-100_cumbersome,Бубен,Magazine,50,0,MagazineHandlingDecrease;IncreaseReloadAP;ReduceAimAccuracy15Percent;MagazineSizeMultiplier,extra_shots=5;ReliabilityDecrease=15;ReloadAPIncrease=2;MagazineSizeMultiplier=333,,Clip,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagDrum_30-50,Бубен,Magazine,50,0,MagazineHandlingDecrease;ReduceReliability;IncreaseReloadAP;MagazineSizeAdd;ReduceAimAccuracy15Percent,extra_shots=5;ReliabilityDecrease=15;ReloadAPIncrease=2;MagazineSize=20,,Clip,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagDrum_30-75,Бубен,Magazine,50,0,MagazineHandlingDecrease;ExtraOverwatchShots;ReduceReliability;IncreaseReloadAP;ReduceAimAccuracy15Percent;MagazineSizeMultiplier;Cumbersome,extra_shots=5;ReliabilityDecrease=15;ReloadAPIncrease=2;MagazineSizeMultiplier=250,,Clip,4,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagDrum_35-71,Бубен,Magazine,50,0,MagazineHandlingDecrease;ReduceReliability;IncreaseReloadAP;ReduceAimAccuracy15Percent;MagazineSizeAdd,extra_shots=5;ReliabilityDecrease=15;ReloadAPIncrease=2;MagazineSize=36,,Clip,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagLarge,Расширенный магазин,Magazine,15,0,MagazineHandlingDecrease;ReduceReliability;ReduceAimAccuracy15Percent;MagazineSizeMultiplier;IncreaseReloadAP,ReliabilityDecrease=15;ReloadAPIncrease=1;MagazineSizeMultiplier=166,,Clip,25,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagLarge_10_20,Магазин на 20 патрон,Magazine,25,0,MagazineHandlingDecrease;ReduceReliability;IncreaseReloadAP;MagazineSizeMultiplier,extra_shots=5;ReliabilityDecrease=5;ReloadAPIncrease=1;MagazineSizeMultiplier=200,,Clip,3,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagLarge_17_33,Магазин на 33 патрона,Magazine,15,0,MagazineHandlingDecrease;ReduceReliability;ReduceAimAccuracy15Percent;MagazineSizeAdd;IncreaseReloadAP,ReliabilityDecrease=15;ReloadAPIncrease=1;MagazineSize=16,,Clip,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagLarge_18_20,Магазин на 20 патрон,Magazine,25,0,ReduceReliability;MagazineSizeMultiplier,ReliabilityDecrease=5;MagazineSizeMultiplier=112,,Clip,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagLarge_20_30,Магазин на 30 патрон,Magazine,25,0,MagazineHandlingDecrease;ReduceReliability;IncreaseReloadAP;MagazineSizeAdd,extra_shots=5;ReliabilityDecrease=5;ReloadAPIncrease=1;MagazineSize=10,,Clip,3,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagLarge_25_40,Магазин на 40 патрон,Magazine,25,0,MagazineHandlingDecrease;ReduceReliability;IncreaseReloadAP;MagazineSizeAdd,extra_shots=5;ReliabilityDecrease=5;ReloadAPIncrease=1;MagazineSize=15,,Clip,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagLarge_30_40,Магазин на 40 патрон,Magazine,25,0,MagazineHandlingDecrease;ReduceReliability;IncreaseReloadAP;MagazineSizeAdd,extra_shots=5;ReliabilityDecrease=5;ReloadAPIncrease=1;MagazineSize=10;MagazineHandlingDecrease=5,,Clip,5,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagLarge_30_42,Магазин на 42 патрона,Magazine,25,0,MagazineHandlingDecrease;ReduceReliability;IncreaseReloadAP;MagazineSizeAdd,extra_shots=5;ReliabilityDecrease=5;ReloadAPIncrease=1;MagazineSize=12,,Clip,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagLarge_30_45,Магазин на 45 патрон,Magazine,25,0,MagazineHandlingDecrease;ReduceReliability;IncreaseReloadAP;MagazineSizeAdd,extra_shots=5;ReliabilityDecrease=5;ReloadAPIncrease=1;MagazineSize=15,,Clip,4,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagLarge_5_10,Магазин на 10 патрон,Magazine,25,0,MagazineHandlingDecrease;ReduceReliability;IncreaseReloadAP;MagazineSizeMultiplier,extra_shots=5;ReliabilityDecrease=5;ReloadAPIncrease=1;MagazineSizeMultiplier=200,,Clip,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagLarge_7_10,Магазин на 10 патрон,Magazine,25,0,ReduceReliability;MagazineSizeMultiplier,ReliabilityDecrease=5;MagazineSizeMultiplier=142,,Clip,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagLarge_8_10,Магазин на 10 патрон,Magazine,25,0,ReduceReliability;MagazineSizeMultiplier,ReliabilityDecrease=5;MagazineSizeMultiplier=125,,Clip,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagLargeFine,Эргономичный увеличенный магазин,Magazine,25,0,MagazineSizeMultiplier,MagazineSizeMultiplier=150,,Clip,3,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagLarger,Бубен,Magazine,25,0,ExtraBurstShots;ExtraAutoShots;ExtraOverwatchShots;ReduceReliability;IncreaseReloadAP;ReduceAimAccuracy15Percent,extra_shots=5;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagNormal,Заводской магазин,Magazine,25,0,,,,Clip,104,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagNormalFine,Улучшенный магазин,Magazine,15,0,IncreaseReliability,ReliabilityIncrease=10,,Clip,6,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagNormalG18,Магазин на 20 патрон,Magazine,25,0,,MagazineSizeMultiplier=117,,Clip,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagQuick,Быстросъемный магазин,Magazine,15,0,ReduceReloadAP,ReloadAPDecrease=1,,Clip,8,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagSmall20_10,Магазин на 10 патрон,Magazine,15,0,ReduceReloadAP;IncreaseReliability;ReduceMagazineSize;MagazineHandlingIncrease,ReloadAPDecrease=1;ReliabilityIncrease=15;MagazineSizeDecrease=10,,Clip,5,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagSmall30_15,Магазин на 15 патрон,Magazine,15,0,ReduceReloadAP;IncreaseReliability;ReduceMagazineSize;MagazineHandlingIncrease,ReloadAPDecrease=1;ReliabilityIncrease=15;MagazineSizeDecrease=15,,Clip,6,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MagSmall30_20,Магазин на 20 патрон,Magazine,15,0,ReduceReloadAP;IncreaseReliability;ReduceMagazineSize;MagazineHandlingIncrease,ReloadAPDecrease=1;ReliabilityIncrease=15;MagazineSizeDecrease=10,,Clip,4,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MGmug,"Ещё один бубенец, только пулеметный",Magazine,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+ModernSupressor,Мультикалиберная банка,Muzzle,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MP5_Handguard,Basic Handguard,Under,2,-25,,,,MP5 Specific,1,vanilla_233360,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MP5A4FlashLight,Фонарь для MP5A4,Side,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MP5A4RedDot,ЛЦУ для Цевья MP5A4,Side,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MP5MagV2,Магазин для МР5 на 30 патронов,Magazine,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Mp7_Fld_Grip,Сложенная рукоять,Under,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MP7_SideRail,Боковые направляющие,Mountside,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MP7_Unfld_Grip,Разложенная рукоять,Under,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MuzzleBooster,Усилитель отдачи,Muzzle,15,0,,,,Muzzle,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+MuzzleBooster_Glock18,Default Chamber,Handguard,15,0,ExtraBurstShots,,,Glock18 Specific,1,vanilla_233360,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+PistolSuppressor,Глушитель,Muzzle,10,-10,RecoilDecrease;ReduceReliability;SilencerGroupingReduce10;SilencerHandlingReduce;StealthKillBonusPerAim;SilentShots,NoiseMultiplier=15;Recoil=1;RangeDecrease=3;ReliabilityDecrease=5;SilencerHandlingReduce=5;crit=25;stealth_kill_bonus=80,FineSteelPipe=1;Parts=50,Muzzle,24,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+PKMDefHandGrip,Заводская рукоять ПКМ,Handguard,0,0,,,,Default,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+PKMModern,Комплект кастомных планок для ПКМ,Mount,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+PKMModHandGrip,Модифицированная рукоять ПКМ,Handguard,0,0,,,,Default,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+PKMModStock,Кастомный приклад ПКМ,Stock,0,0,,,,Default,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+PSG_DefaultScope,Стандартный оптический прицел,Scope,2,-25,IncreaseMaxAimActions,IncreaseMaxAimActions=1,,PSG1-Specific,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+R870AmmoSide_1,Патронтаж для 870го рема,Side,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+ReflexSight,Коллиматор,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;IncreaseOverwatchAngle;MinAim,OverwatchAngleIncrease=140;MaxAimActionsDecrease=1;extra_attacks=1,Microchip=1;OpticalLens=1,Scope,12,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+ReflexSightAdvanced,Улучшенный коллиматор,Scope,100,10,DecreaseMaxAimActions;OpportunityAttackBonusCth;IncreaseOverwatchAngle;MinAim,OverwatchAngleIncrease=140;MaxAimActionsDecrease=1;extra_attacks=1,Microchip=3;OpticalLens=2,Scope,8,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+ReflexSightAdvanced_Glock,Улучшенный зеркальный прицел,Scope,35,0,OpportunityAttackBonusCth;IncreaseAimAccuracy;IncreaseOverwatchAngle,AimAccuracyIncrease=1;OverwatchAngleIncrease=140,Microchip=1,Glock18 Specific,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+RPK74_Hanguard_Basic,Стандартное цевье,Handguard,0,-25,,,,RPK 74 Specific,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+RPK74_VerticalGrip,Вертикальная рукоять,Handguard,40,20,RecoilDecrease,Recoil=1,,RPK 74 Specific,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+ScopeCOG,Прицел малой кратности,Scope,50,0,FirstShotIncreasedAim;ReduceAuto25Percent;ReduceBurst25Percent;IncreaseShotAP,min_aim=2;ShotAP=1,OpticalLens=1;FineSteelPipe=1,Scope,8,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+ScopeCOGQuick,Штурмовой прицел,Scope,100,0,FirstShotIncreasedAim;ReduceAuto25Percent;ReduceBurst25Percent;AccuracyBonusWhenAimed;IncreaseAimAccuracy;IncreaseShotAP,AimAccuracyIncrease=10;min_aim=2;ShotAP=1,OpticalLens=3;FineSteelPipe=3,Scope,6,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+SigDefHandGuard,Заводская рукоять Sig,Handguard,0,0,,,,Underslung,4,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+SigErgoHandGrip,Эргономичная рукоять для Sig,Handguard,0,0,GripHandlingIncrease,,,Underslung,4,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+SpeedLoader,Ускорение перезарядки,Side2,30,0,ReduceReloadAP,ReloadAPDecrease=2,,Muzzle,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+StockBump,Bump Stock,Stock,15,20,EnableFullAuto,,FineSteelPipe=1,Stock,1,vanilla_233360,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+StockFolded,Складывающийся приклад,Stock,50,20,ReduceAimAccuracy;ExtraOverwatchShots,extra_attacks=1;crit_display=15;accuracy_penalty=-50,,Stock,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+StockFull,Деревянный приклад АК,Stock,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+StockHeavy,Тяжелый приклад,Stock,40,20,IncreaseAimAccuracy15Percent,range=10;bonus_cth=10,,Stock,14,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+StockHeavy_AR_BurstOnly,Heavy Stock,Stock,30,20,BonusAccuracyWhenFullyAimed;NoFullAuto,range=10;bonus_cth=10,,Stock,1,vanilla_233360,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+StockLight,Легкий приклад,Stock,150,20,RecoilIncrease;StockHandlingIncrease,Recoil=1;StockHandlingIncrease=5,FineSteelPipe=1,Stock,9,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+StockLight_AR_BurstOnly,Light Stock,Stock,15,20,ReduceAimAccuracy;NoFullAuto;ExtraOverwatchShots,extra_attacks=1;crit_display=15;accuracy_penalty=-50,,Stock,1,vanilla_233360,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+StockLightFolded,Складной приклад (Сложенный),Stock,50,20,ReduceAimAccuracy90Percent;ReduceShootAP;RecoilIncrease;zzStockEquipped;ExtraOverwatchShots;StockHandlingIncrease,Recoil=5;ShootAPDecrease=1,FineSteelPipe=1,Stock,31,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+StockLightUnFolded,Рамочный приклад (Разложенный),Stock,50,20,zzStockEquipped,,,Stock,31,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+StockNo,Нет приклада,Stock,15,20,ReduceShootAP;ReduceAimAccuracy90Percent;RecoilIncrease;ExtraOverwatchShots;StockHandlingIncrease,extra_attacks=1;ShootAPDecrease=1;Recoil=5;StockHandlingIncrease=15;crit_display=15;accuracy_penalty=-50,,Stock,4,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+StockNormal,Стандартный приклад,Stock,50,0,RecoilDecrease;IncreaseAimAccuracy15Percent,Recoil=1,FineSteelPipe=1,Stock,28,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Suppressor,Глушитель,Muzzle,10,0,SilentShots;SilencerGroupingReduce30;RecoilDecrease;StealthKillBonusPerAim;SilencerHandlingReduce;SilencerJamChance;ReduceReliability,NoiseMultiplier=33;Recoil=1;RangeDecrease=8;ReliabilityDecrease=10;SilencerHandlingReduce=5;crit=25;stealth_kill_bonus=50,FineSteelPipe=2;Parts=50,Muzzle,38,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Suppressor_Anaconda,Глушитель,Muzzle,10,0,SilentShots;CritBonusSameTarget,crit=25,FineSteelPipe=1,Anaconda Specific,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+SuppressorImproved,Улучшенный глушитель,Muzzle,10,10,SilentShots;RecoilDecrease;StealthKillBonusPerAim;ReduceReliability;SilencerGroupingReduce10,NoiseMultiplier=25;Recoil=2;RangeDecrease=5;ReliabilityDecrease=5;SilencerHandlingReduce=2;crit=25;stealth_kill_bonus=20,FineSteelPipe=5;Parts=250,Muzzle,24,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+SuppressorIntegrated,Глушитель Интегрированный,Muzzle,10,0,StealthKillBonusPerAim,stealth_kill_bonus=30,FineSteelPipe=1,Muzzle,6,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+TacGrip,Тактическая рукоять,Under,20,10,GripHandlingIncrease,accuracy=5,,Underslung,10,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+TacGrip_M14,Тактическая рукоять,Under,20,10,FreeWeaponSwap,accuracy=5,,M14 Specific,3,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+ThermalScope,Ночной прицел,Scope,100,10,IncreaseShotAP;IgnoreInTheDarkWhenFullyAimed;IgnoreLightOfSightWhenFullyAimed;ReduceAimAccuracy20Percent;ReduceAuto75Percent;ReduceBurst50Percent,ShotAP=2,Microchip=4;OpticalLens=4;FineSteelPipe=4,Scope,6,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Type56Bayo,Штык-нож,Under,30,0,zzStockEquipped,,FineSteelPipe=1,Type56,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Type56BayoF,Штык-нож,Under,30,0,zzStockEquipped,,FineSteelPipe=1,Type56,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+U100Handle,Рукоять удержания,Mountfront,0,0,,,,Default,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+UnfoldBipod,Разложенная сошка,Bipod,0,0,ShotsBeforeRecoilProne;AccuracyBonusProne,,,Default,2,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+UnfoldStocks,Разложенный приклад,Stock,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+UVDot,УФ-прицел,Side,10,10,MinAim,,Microchip=1,Side,42,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+UVDot_aa12,УФ-прицел,Side,10,10,MinAim,,Microchip=1,AA12 Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+UVDot_Anaconda,УФ-прицел,Scope,10,10,MinAim,,Microchip=1,Anaconda Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+UVDot_PSG_M1,УФ-прицел,Side,10,10,MinAim,,Microchip=1,PSG1-Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Val_VSS_wing1,Крепление для ВАЛ/ВСС,Side2,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+Val_VSS_wing2,Крепление для ВАЛ/ВСС,Side3,0,0,,,,Default,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+VerticalGrip,Вертикальная рукоять,Under,40,20,RecoilDecrease,Recoil=1,FineSteelPipe=1,Underslung,16,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+VerticalGrip_AUG,Вертикальная рукоять,Under,40,20,FirstAimBonusModifier,,,AUG Specific,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+VerticalGrip_Commando,Вертикальная рукоять,Under,40,20,FirstAimBonusModifier,,,M4 Commando Specific,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+VerticalGrip_M14,Вертикальная рукоять,Under,40,20,RecoilDecrease,Recoil=1,FineSteelPipe=1,M14 Specific,3,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+VerticalGrip_M16,Вертикальная рукоять,Under,40,20,RecoilDecrease,Recoil=1,FineSteelPipe=1,M16A2 Specific,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+VerticalGripFld,Вертикальная рукоять (Сложенная),Under,40,20,,Recoil=1,FineSteelPipe=1,Underslung,1,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+VSSFlashLight,Мощный Фонарь,Side,0,0,,,,Underslung,0,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
