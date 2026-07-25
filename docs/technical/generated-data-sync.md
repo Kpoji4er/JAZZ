@@ -99,7 +99,12 @@ Project skill: `.agents/skills/sync-jazz-generated-data/SKILL.md`.
 
 # Один пакет
 .agents/skills/sync-jazz-generated-data/scripts/check-generated-sync.ps1 -Package jazz-units
+
+# Только по прямому указанию на карты
+.agents/skills/sync-jazz-generated-data/scripts/check-generated-sync.ps1 -Package jazz-maps -IncludeMapsContent
 ```
+
+Без `-IncludeMapsContent` аудитор не обходит тяжёлый `jazz-maps/Maps/`, но продолжает проверять metadata и остальные generated layers пакета. Флаг включается только для прямо указанной карты, сектора или map patch.
 
 Коды завершения: `0` — core/parser исправны, обычный режим мог напечатать baseline; `1` — отсутствует core-файл или не разобрана структура; `2` — строгий режим нашёл расхождение или предупреждение.
 

@@ -1,7 +1,8 @@
 ﻿[CmdletBinding()]
 param(
     [string]$SuiteRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..\..')).Path,
-    [switch]$RequireCurrentCommonLibDependency
+    [switch]$RequireCurrentCommonLibDependency,
+    [switch]$IncludeMapsContent
 )
 
 $ErrorActionPreference = 'Stop'
@@ -28,7 +29,11 @@ Write-Host "Комплект JAZZ: $($main.Path)"
 foreach ($repo in $repos) {
     Write-Host "`n[$($repo.Name)] $($repo.Path)"
     if (Test-Path -LiteralPath (Join-Path $repo.Path '.git')) {
-        git -C $repo.Path status --short
+        if ($repo.Name -eq 'jazz-maps' -and -not $IncludeMapsContent) {
+            git -C $repo.Path status --short -- . ':(exclude)Maps/**'
+        } else {
+            git -C $repo.Path status --short
+        }
     } else {
         Write-Warning 'Каталог не является рабочим деревом Git.'
     }
@@ -103,9 +108,26 @@ try {
 }
 
 $markdown = foreach ($repo in $repos) {
-    Get-ChildItem -LiteralPath $repo.Path -Recurse -File -Filter '*.md' -ErrorAction SilentlyContinue |
-        Where-Object { $_.FullName -notmatch '[\\/]\.git[\\/]' }
+    if (Test-Path -LiteralPath (Join-Path $repo.Path '.git')) {
+        $pathspec = @('*.md')
+        if ($repo.Name -eq 'jazz-maps' -and -not $IncludeMapsContent) {
+            $pathspec += ':(exclude)Maps/**'
+        }
+        $relativePaths = @(& git -C $repo.Path ls-files --cached --others --exclude-standard -- $pathspec)
+        if ($LASTEXITCODE -ne 0) {
+            throw "Не удалось получить Markdown inventory: $($repo.Name)"
+        }
+        foreach ($relativePath in $relativePaths) {
+            $fullPath = Join-Path $repo.Path $relativePath
+            if (Test-Path -LiteralPath $fullPath -PathType Leaf) {
+                Get-Item -LiteralPath $fullPath
+            }
+        }
+    } else {
+        Get-ChildItem -LiteralPath $repo.Path -File -Filter '*.md' -ErrorAction SilentlyContinue
+    }
 }
+
 $leaks = foreach ($file in $markdown) {
     Select-String -LiteralPath $file.FullName -Pattern '(?i)\b[A-Z]:[\\/]' -AllMatches -ErrorAction SilentlyContinue
 }

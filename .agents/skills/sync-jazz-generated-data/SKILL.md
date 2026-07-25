@@ -16,6 +16,8 @@ description: Безопасная синхронизация generated data мо
 
 Официальный `SaveWholeMod()` сначала обновляет и пишет `metadata.lua`, затем сериализует `items.lua`; во время `SaveItems()` каждый ModItem выполняет `PostSave()` и может перезаписать свой companion-файл. Поэтому ручная правка только companion-файла недолговечна и может исчезнуть при следующем editor save. Mod Editor является companion UI, но сохранение выполняет основная игра: не закрывать её до завершения save и всегда проверять панель сообщений после load/save/reload.
 
+По умолчанию аудитор не обходит тяжёлый `jazz-maps/Maps/`. Использовать `-IncludeMapsContent` только по прямому указанию на эту папку, конкретную карту, сектор или map patch.
+
 Перед работой полностью прочитать [generated-data-contract.md](references/generated-data-contract.md).
 
 ## Начало задачи
@@ -27,6 +29,12 @@ description: Безопасная синхронизация generated data мо
 
    ```powershell
    .agents/skills/sync-jazz-generated-data/scripts/check-generated-sync.ps1
+   ```
+
+   Для прямо указанной картографической задачи:
+
+   ```powershell
+   .agents/skills/sync-jazz-generated-data/scripts/check-generated-sync.ps1 -Package jazz-maps -IncludeMapsContent
    ```
 
 5. Классифицировать каждый затронутый файл:
@@ -115,4 +123,4 @@ description: Безопасная синхронизация generated data мо
 ## Ресурсы
 
 - [generated-data-contract.md](references/generated-data-contract.md) — официальный save pipeline, роли слоёв и восстановление после рассинхронизации.
-- `scripts/check-generated-sync.ps1` — read-only аудит всех четырёх пакетов.
+- `scripts/check-generated-sync.ps1` — read-only аудит четырёх пакетов; тяжёлый `jazz-maps/Maps/` исключён, пока явно не передан `-IncludeMapsContent`.

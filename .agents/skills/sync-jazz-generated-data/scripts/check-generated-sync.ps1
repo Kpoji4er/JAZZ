@@ -3,7 +3,8 @@ param(
     [string]$SuiteRoot,
     [ValidateSet('jazz', 'jazz_assets', 'jazz-maps', 'jazz-units')]
     [string[]]$Package,
-    [switch]$Strict
+    [switch]$Strict,
+    [switch]$IncludeMapsContent
 )
 
 Set-StrictMode -Version Latest
@@ -186,11 +187,21 @@ foreach ($repoName in $selectedNames) {
 
     $generated = New-Object 'System.Collections.Generic.List[object]'
     $classFolders = @{}
-    $luaFiles = Get-ChildItem -LiteralPath $repoRoot -Recurse -File -Filter '*.lua' | Where-Object {
-        $_.FullName -notmatch '\\(?:\.git|\.agents|docs)\\' -and
+    $excludedTopLevel = @('.git', '.agents', 'docs', 'Code', 'Entities')
+    if ($repoName -eq 'jazz-maps' -and -not $IncludeMapsContent) {
+        $excludedTopLevel += 'Maps'
+    }
+    $scanRoots = Get-ChildItem -LiteralPath $repoRoot -Directory -Force | Where-Object {
+        $_.Name -notin $excludedTopLevel
+    }
+    $luaFiles = @(
+        Get-ChildItem -LiteralPath $repoRoot -File -Filter '*.lua'
+        foreach ($scanRoot in $scanRoots) {
+            Get-ChildItem -LiteralPath $scanRoot.FullName -Recurse -File -Filter '*.lua'
+        }
+    ) | Where-Object {
         $_.Name -notin @('items.lua', 'metadata.lua') -and
-        $_.FullName -notmatch '\\Code\\' -and
-        $_.FullName -notmatch '\\Entities\\'
+        $_.FullName -notmatch '\\(?:\.git|\.agents|docs|Code|Entities)\\'
     }
 
     foreach ($file in $luaFiles) {
