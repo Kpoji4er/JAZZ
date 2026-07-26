@@ -115,6 +115,12 @@ git diff --check
 
 Проверить основные сектора Эрни, входы и deployment, квестовые маркеры, setpieces, guardpost, патрули, стратегические отряды, squad logo, POI, доход, World Flip, разговоры, banters и лояльность.
 
+### Автотранспорт
+
+**Сейчас (сателлит only):** M1 → сесть в транспорт → ускорение по дороге; вход в сектор **без** тактического Unit машины; токен после exit/сектора на месте.
+
+**Дизайн боевого авто** (канон): [`JAZZ Maps/docs/combat-vehicle-design.md`](../../JAZZ%20Maps/docs/combat-vehicle-design.md); suite-указатель [systems/combat-vehicle-design.md](systems/combat-vehicle-design.md). Код в runtime ещё не внедрён. Фаза 1 → тест-контракты A/B; `tactical_enabled` → контракт C.
+
 ## Assets
 
 Проверить оружие в руках и на земле, состояния компонентов, магазины, сошки, прицелы, материалы и отсутствие `missing entity/state/spot` в логе. После re-export/re-import повторить проверку в новом процессе игры, чтобы исключить устаревшую cached Entity.
