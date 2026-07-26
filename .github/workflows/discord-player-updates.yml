@@ -1,0 +1,118 @@
+name: Discord player updates
+
+on:
+  push:
+    branches:
+      - main
+  workflow_call:
+    inputs:
+      before_sha:
+        description: Optional base commit SHA; defaults to the parent of after_sha
+        required: false
+        default: ""
+        type: string
+      after_sha:
+        description: Optional target commit SHA; defaults to the caller event SHA
+        required: false
+        default: ""
+        type: string
+      dry_run:
+        description: Build and log the sanitized payload without sending it to Discord
+        required: false
+        default: false
+        type: boolean
+      force_publish:
+        description: Test the same behavior as the [discord] commit marker
+        required: false
+        default: false
+        type: boolean
+      openai_model:
+        description: Optional model override from the caller repository
+        required: false
+        default: ""
+        type: string
+      discord_update_role_id:
+        description: Optional Discord role ID from the caller repository
+        required: false
+        default: ""
+        type: string
+      discord_mention_update_role:
+        description: Optional true/false role mention switch from the caller repository
+        required: false
+        default: ""
+        type: string
+    secrets:
+      DISCORD_WEBHOOK_URL:
+        description: Discord Incoming Webhook URL for the caller repository
+        required: false
+      OPENAI_API_KEY:
+        description: Optional OpenAI API key for AI-enhanced summaries
+        required: false
+  workflow_dispatch:
+    inputs:
+      before_sha:
+        description: Optional base commit SHA; defaults to the parent of after_sha
+        required: false
+        type: string
+      after_sha:
+        description: Optional target commit SHA; defaults to the selected workflow ref
+        required: false
+        type: string
+      dry_run:
+        description: Build and log the sanitized payload without sending it to Discord
+        required: true
+        default: true
+        type: boolean
+      force_publish:
+        description: Test the same behavior as the [discord] commit marker
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Build player update
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      AUTOMATION_ROOT: ${{ github.repository == 'Kpoji4er/JAZZ' && '.' || '.jazz-automation' }}
+      DISCORD_MENTION_UPDATE_ROLE: ${{ inputs.discord_mention_update_role || vars.DISCORD_MENTION_UPDATE_ROLE }}
+      DISCORD_UPDATE_ROLE_ID: ${{ inputs.discord_update_role_id || vars.DISCORD_UPDATE_ROLE_ID }}
+      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+      DRY_RUN: ${{ inputs.dry_run && 'true' || 'false' }}
+      EXPECTED_BRANCH: main
+      MANUAL_AFTER_SHA: ${{ inputs.after_sha }}
+      MANUAL_BEFORE_SHA: ${{ inputs.before_sha }}
+      MANUAL_FORCE_PUBLISH: ${{ inputs.force_publish && 'true' || 'false' }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_MODEL: ${{ inputs.openai_model || vars.OPENAI_MODEL }}
+
+    steps:
+      - name: Check out the complete caller repository history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check out the trusted JAZZ automation implementation
+        if: github.repository != 'Kpoji4er/JAZZ'
+        uses: actions/checkout@v4
+        with:
+          repository: Kpoji4er/JAZZ
+          ref: main
+          path: .jazz-automation
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Generate or fallback and publish the player update
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save --package-lock=false --ignore-scripts openai@6.49.0
+          node "$AUTOMATION_ROOT/.github/scripts/discord-player-update.mjs"
