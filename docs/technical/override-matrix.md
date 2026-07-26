@@ -24,6 +24,7 @@ JAZZ поддерживает только последнюю опубликов
 | `AIPolicyProximity:EvalDest` | `Lua/ClassDefs/ClassDef-AI.generated.lua` | `Code/FixAI.lua` | `Code/AIPolicy.lua` | JAZZ; проверить дистанционные веса |
 | `AISelectAction` | `Lua/Tactical/CombatAI.lua` | `Code/FixAI.lua` | `Code/CombatAI.lua` | JAZZ; сигнатуры слоёв различаются, высокий риск |
 | `GetRandomSquadLogo` | `Lua/Satellite/SatelliteSquad.lua` | `Code/ModItems.lua` | `Code/SatelliteSquad.lua` | JAZZ; проверить пользовательские squad logos |
+| `gameOverState` (`MapVar`) | `Lua/Satellite/SatelliteSquad.lua` | — | `Code/SatelliteSquad.lua` использует значение, но не регистрирует его | Владелец registration — vanilla; повторный `MapVar` в JAZZ вызывает cold-load assert |
 | `SetupCrocodilePatrolSquad` | `Lua/HotDiamonds.lua` | — | maps `Code/System_JAZZ_CrocodilePatrol.lua` | Дом/маршрут I18–I19–J19 вместо G14/G13–G15 (ремап wetlands) |
 | `OnMsg.ReachSectorCenter` (crocodile) | `Lua/HotDiamonds.lua` | — | maps `Code/System_JAZZ_CrocodilePatrol.lua` (замена handler через upvalue `message_to_staticfuncs`) | Vanilla `for i=1,place` падает при place=nil вне G13–G14 |
 | `GetSectorTravelTime` | `Lua/Satellite/SatelliteSquad.lua` | — | core `Code/SatelliteSquad.lua`, затем maps wrapper `Code/System_JAZZ_Vehicles.lua` | Maps ускоряет/блокирует путь для mounted squad; грузить maps после core |
@@ -62,9 +63,11 @@ JAZZ поддерживает только последнюю опубликов
 
 | Символ | Vanilla JA3 | JAZZ | Граница совместимости |
 | --- | --- | --- | --- |
-| `GetSatelliteIconImages` | `Lua/UI/XSatelliteObjects.lua` | `Code/Guardpost_Patrols.lua` | Managed squad получает exact role image; unmanaged context передаётся сохранённой base-функции |
-| `GetSatelliteIconImagesSquad` | `Lua/UI/XSatelliteObjects.lua` | `Code/Guardpost_Patrols.lua` | Managed squad обходит vanilla `_2`/`_s` suffix lookup; остальные вызовы передаются base-функции |
+| `GetSatelliteIconImages` | `Lua/UI/XSatelliteObjects.lua` | `Code/Guardpost_Patrols.lua`, затем `Code/POI Extension.lua` | Итоговый владелец по `metadata.code` — POI; для squad с `image` возвращает exact image, для POI добавляет custom overlay |
+| `GetSatelliteIconImagesSquad` | `Lua/UI/XSatelliteObjects.lua` | `Code/Guardpost_Patrols.lua` | Managed squad обходит vanilla `_2`/`_s` suffix lookup; остальные вызовы передаются сохранённой base-функции |
 | `SquadWindow:GetRolloverText` | `Lua/UI/XSatelliteObjects.lua` | `Code/Guardpost_Patrols.lua` | Managed squad получает UI-only context с `Задача:`; unmanaged squad возвращается без изменений |
+
+`Guardpost_Patrols.lua` получает optional сохранённые base-ссылки через `rawget(_G, ...)`, чтобы cold load не обращался к отсутствующему strict global, а reload не захватывал собственный wrapper как новую base-функцию.
 
 CommonLib 1.11 / commit `1adf9f232680d3b011248d180fd0ad1e609a8e2c` эти три символа не переопределяет. После обновления игры или CommonLib повторно проверять сигнатуры и rollover template.
 

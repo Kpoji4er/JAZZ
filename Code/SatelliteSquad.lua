@@ -2978,8 +2978,6 @@ function NetSyncEvents.JoinFarAwaySquad(unit_id, joining_squad_id, old_squad_id,
 	end
 end
 
-MapVar("gameOverState", 0)
-
 local function lInternalCheckGameOver()
 	if GameState.no_gameover then
 		return

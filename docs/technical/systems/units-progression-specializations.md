@@ -71,6 +71,10 @@ Offline merc randomization детерминирован. Это означает
 
 AI keywords перечислены в [AI-системе](ai-awareness.md). UnitData связывает faction, archetype, role, stats, perks, appearance, voice, inventory, loot и equipment. Изменение любого item/entity/action ID может сломать spawn unit даже без прямого Lua import.
 
+### Легион
+
+Current-state каталог 37 классов Легиона, шесть линий дизайна и независимая от класса прогрессия equipment tier описаны отдельно: [Легион: схема юнитов и тиры снаряжения](legion-units-equipment-tiers.md). Диаграмма задаёт таксономию и стрелки эскалации, а загружаемые UnitData/LootDef остаются runtime-источником истины.
+
 ## Межпакетные зависимости
 
 - core предоставляет item/effect/action/class/slot IDs;
@@ -89,6 +93,8 @@ Maps имеют прямые ссылки на units package; неполная �
 - save/load level, XP, gained stats и generated elite name;
 - специализации named mercs после new game/load/mod reload;
 - AIM filters online/offline и повторяемость seed;
+- все 37 `JAZZ_Legion_*` ID, их root equipment и ветви схемы;
+- пороги `JAZZ_Legion_Tier`, deferred regeneration и non-Legion side effect текущей реализации;
 - squad spawn/autoresolve/death/despawn;
 - отсутствие missing item/entity/voice/archetype IDs.
 

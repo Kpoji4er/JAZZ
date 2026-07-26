@@ -14426,7 +14426,7 @@ return {
 								'angle', range(0, 360),
 								'size_min', 2000,
 								'shader', "Add",
-								'texture', "Mod/SPmVHLE/ParticleTextures/Explosion_emissive.dds",
+								'texture', "Mod/e6L4ECj/ParticleTextures/Explosion_emissive.dds",
 								'frames', point(7, 7),
 								'self_illum', 25,
 								'light_softness', 1000,
@@ -60779,7 +60779,7 @@ return {
 				}),
 				PlaceObj('ModItemCombatAction', {
 					ActionType = "Ranged Attack",
-					AimType = "cone",
+					AimType = "line",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
 					Description = T(406630009702, --[[ModItemCombatAction AttackShotgun Description]] "Make an attack using your equipped weapon. Targets in the attack cone take guaranteed damage. Some weapons have alternative firing modes."),
@@ -66107,10 +66107,6 @@ return {
 						'Id', "idContainer",
 						'LayoutMethod', "VList",
 						'UseClipBox', false,
-						'OnContextUpdate', function (self, context, ...)
-							
-							XImage.Open(self)
-						end,
 					}, {
 						PlaceObj('XTemplateWindow', {
 							'comment', "combat badge for the crosshair",
@@ -72429,7 +72425,7 @@ return {
 							local description = ctx.Description
 							local preset = Presets.WeaponType.Default[weaponType]
 							self.idType:SetText(preset and preset.Name or "")
-							if preset and preset.Icon then
+							if self.idIcon and preset and preset.Icon then
 								self.idIcon:SetImage(preset.Icon)
 							end
 						end,
@@ -103023,22 +103019,18 @@ return {
 								
 								parent.idImage:SetImage(sector.image)
 								
+								local region = GetRegionForSector(sector.Id)
+								local has_region = region and region~="none"
 								local city_id = sector.City
-								parent.idLoyalty:SetVisible(city_id~="none" and Region=="none")
+								parent.idLoyalty:SetVisible(city_id and city_id~="none" and not has_region)
 								if city_id and city_id~="none" then
 									local city = gv_Cities[city_id]
 									parent.idLoyalty:SetNameText(city.DisplayName)
 									parent.idLoyalty:SetValueText(T{911910307915, "<style PDASectorInfo_ValueDark>Loyalty</style> <percent(loyalty)>",loyalty = GetCityLoyalty(city_id)})
 								end
 								
-								local Region = GetRegionForSector(sector.Id)
-								print(Region:GetRolloverHint())
-								parent.idRegion:SetVisible(Region~="none")
-								if Region and Region~="" then
-								parent.idRegion:SetText(Region:GetRolloverHint(sector.Id))
-								--	parent.idLoyalty:SetNameText(city.DisplayName)
-								--	parent.idLoyalty:SetValueText(T{911910307915, "<style PDASectorInfo_ValueDark>Loyalty</style> <percent(loyalty)>",loyalty = GetCityLoyalty(city_id)})
-								end
+								parent.idRegion:SetVisible(not not has_region)
+								parent.idRegion:SetText(has_region and region:GetRolloverHint(sector.Id) or "")
 								
 								local intel = sector.Intel and sector.intel_discovered
 								parent.idIntel:SetVisible(intel)

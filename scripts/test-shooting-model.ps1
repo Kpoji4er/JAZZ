@@ -257,6 +257,7 @@ Assert-True ($nearOptic.OpticFactor -lt 1) 'strong optic must have a near-range 
 $factorOrderA = Get-FinalChance 100 @(0.75, 0.9, 1.1)
 $factorOrderB = Get-FinalChance 100 @(1.1, 0.75, 0.9)
 Assert-True ($factorOrderA -eq $factorOrderB) 'factor product must not depend on modifier order'
+Assert-True ((Get-FinalChance 82 @(0.9)) -eq 74) 'a 0.9 visibility factor must produce 74%, not the 2% floor'
 
 $standingRetention = Get-RecoilRetention 30 50
 $supportedRetention = Get-RecoilRetention 30 90 0.75 0.65
@@ -292,7 +293,14 @@ $comparison = foreach ($distance in @(20, 30, 37)) {
 }
 
 $accuracySource = Get-Content -LiteralPath (Join-Path $RepoRoot 'Code/AccuracyRangeCTH.lua') -Raw
+$crosshairSource = Get-Content -LiteralPath (Join-Path $RepoRoot 'Code/CrossHairUI.lua') -Raw
 $generatedItems = Get-Content -LiteralPath (Join-Path $RepoRoot 'items.lua') -Raw
+Assert-True (
+    $accuracySource -match 'local product = 1\.0'
+) 'factor product must start as a float in the JA3 runtime'
+Assert-True (
+    $crosshairSource -match 'mod\.factor \* 1\.0 / JAZZ_CTH_FACTOR_SCALE'
+) 'debug factor formatting must use floating-point division'
 Assert-True (
     $accuracySource -match 'AbakanBurst = 1' -and
     $accuracySource -match 'JAZZ_ControllableBurst = 1' -and

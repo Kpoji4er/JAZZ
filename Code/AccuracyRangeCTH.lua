@@ -80,7 +80,9 @@ local function JAZZ_CTHSortedFactors(factors)
 end
 
 function JAZZ_CTHCalculateFactorProduct(factors)
-	local product = 1
+	-- JA3 preserves the integer/float distinction: starting from integer 1
+	-- truncates the first sub-unit factor (1 * 900 / 1000) to zero.
+	local product = 1.0
 	for _, factor in ipairs(JAZZ_CTHSortedFactors(factors)) do
 		product = product * factor.factor / JAZZ_CTH_FACTOR_SCALE
 	end

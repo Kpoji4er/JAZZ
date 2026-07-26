@@ -1,5 +1,9 @@
 # Runtime, загрузка и инструменты
 
+## Связанные specs
+
+- `JAZZ-HOTFIX-001` — controlled manual transaction для load/runtime asserts и generated UI.
+
 ## Назначение
 
 Эта страница описывает не отдельную механику, а условия, при которых все системы JAZZ действительно работают: четыре Git-репозитория, dependency/load order, metadata, generated files, engine messages, NetSync, Mod Editor и dormant-код.
@@ -49,6 +53,8 @@ Dependency в Mod Editor задаёт минимальную пару `version_m
 4. `ReloadLua` переиспользует существующий Lua-state и перезаписывает определения. Старые globals, таблицы, обработчики и потоки не исчезают только потому, что файл выполнился заново.
 5. `FirstLoad` внутри mod sandbox не следует смешивать с глобальной lifecycle-семантикой vanilla.
 
+Strict globals, существование которых не гарантировано на cold load, проверяются через `rawget(_G, "Name")`, а не выражением `Name or fallback`: второе само падает до применения fallback. Для hot reload сохранённую base-ссылку нельзя заменять текущей wrapper-функцией.
+
 На верхнем уровне ручного `Code/*.lua` регистрируются definitions, class extensions и handlers. Работу с построенными классами и данными переносить на точную lifecycle-стадию:
 
 | Стадия | Использование |
@@ -71,6 +77,8 @@ Dependency в Mod Editor задаёт минимальную пару `version_m
 - entities и resource metadata.
 
 Изменять generated object через редактор, если тип поддерживается. После сохранения проверять все связанные сериализованные файлы. Не смешивать функциональный refactor ручного Lua с массовой регенерацией.
+
+Транзакция `JAZZ-HOTFIX-001` точечно меняет существующие `AttackShotgun`, `ParticlesThompson`, `ActionCameraCrosshair`, `RolloverInventoryWeaponBase` и `SatelliteViewMapContextMenu` в `items.lua`. `metadata.lua`, IDs, companions и `metadata.code` проверяются вместе, но не меняются при отсутствии contract delta. Перед следующим editor save мод нужно reload с диска, иначе открытое устаревшее состояние перезапишет hotfix.
 
 Mod Editor является companion UI, но загрузку, сохранение и тест мода выполняет основная игра. Закрытие игры без сохранения теряет изменения. После открытия, загрузки, сохранения и reload обязательно просматривать панель сообщений: ignored mod, load error, runtime error или assert означают, что round-trip не подтверждён.
 
@@ -126,7 +134,7 @@ Savegame surfaces включают custom item/unit properties, resource/max res
 | Механизм | Жизненный цикл и риск |
 |---|---|
 | `GameVar` | Инициализируется для новой игры, сохраняется и получает default в старом save; не присваивать `nil` |
-| `MapVar` | Сбрасывается на новой карте; не присваивать `nil` |
+| `MapVar` | Сбрасывается на новой карте; не присваивать `nil` и не регистрировать повторно имя, уже объявленное vanilla. `gameOverState` принадлежит vanilla, JAZZ только использует его |
 | `GlobalVar` | Использовать только после проверки конкретной save/map-семантики установленного source; для mutable table нужен новый initializer, а не общая таблица |
 | game-time thread | Следует simulation time, удаляется при смене карты и сериализуется в save вместе со стеком, upvalues и байткодом |
 | real-time thread | Подходит UI/application lifetime, не сериализуется как game-time thread и переживает паузу игры |
@@ -155,7 +163,7 @@ Map enumeration оптимизирован прежде всего для XY. Е
 - применять `MapForEach` или dedicated enum/flag operation вместо создания списка и Lua-цикла;
 - не создавать массово временные Lua wrappers для декоративных `CObject` в hot path AI, visibility или UI.
 
-В X UI `SubContext()` объединяет lookup нескольких объектов, но не становится владельцем их mutable state. Mutating-метод нужно вызывать на настоящем объекте, а не на результате `SubContext()`, иначе функция получит неправильный `self`. Именованные `XWindow:CreateThread` являются real-time threads и автоматически удаляются вместе с окном.
+В X UI `SubContext()` объединяет lookup нескольких объектов, но не становится владельцем их mutable state. Mutating-метод нужно вызывать на настоящем объекте, а не на результате `SubContext()`, иначе функция получит неправильный `self`. XTemplate/XWindow framework владеет переходом `new → open`; `OnContextUpdate` не должен повторно вызывать `Open` уже открытого child window. Именованные `XWindow:CreateThread` являются real-time threads и автоматически удаляются вместе с окном.
 
 ## Project skills и обязательная документация
 

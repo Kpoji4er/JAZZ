@@ -1,0 +1,185 @@
+diff a/Code/Guardpost_Patrols.lua b/Code/Guardpost_Patrols.lua	(rejected hunks)
+@@ -1389,99 +1422,137 @@ function JAZZ_LegionAIGetDiagnostics()
+ 	return diagnostics
+ end
+ 
+-// The seven JAZZ role assets are authored as final 64x64 satellite icons and
+-// intentionally have no vanilla `_2`/`_s` companions.
+-function GetSatelliteIconImages(context)
+-	local squad_id = context and context.squad
+-	local squad = squad_id and gv_Squads and gv_Squads[squad_id]
+-	if squad
+-	and squad.image
+-	and JAZZ_IsLegionAIManagedSquad(squad_id)
+-	then
+-		return squad.image, false
+-	end
+-	return g_JAZZ_BaseGetSatelliteIconImages(context)
++-- The seven JAZZ role assets are final 64x64 PNGs and intentionally have no
++-- vanilla `_2`/`_s` companions.
++function JAZZ_GetLegionAISquadIcon(squad_or_id)
++	local squad_id = type(squad_or_id) == "table" and squad_or_id.UniqueId or squad_or_id
++	local root = gv_JAZZ_LegionAI
++	local squad_state = type(root) == "table" and root.squads and root.squads[squad_id]
++	return squad_state and lRoleImages[squad_state.role] or false
+ end
+ 
+-function GetSatelliteIconImagesSquad(squad, from_ui)
+-	if squad
+-	and squad.image
+-	and JAZZ_IsLegionAIManagedSquad(squad)
+-	then
+-		return squad.image
++function JAZZ_LegionAIGetSatelliteIconImages(context)
++	local icon = context and JAZZ_GetLegionAISquadIcon(context.squad)
++	if icon then
++		return icon, false
+ 	end
+-	return g_JAZZ_BaseGetSatelliteIconImagesSquad(squad, from_ui)
++	return g_JAZZ_BaseGetSatelliteIconImages(context)
++end
++
++function JAZZ_LegionAIGetSatelliteIconImagesSquad(squad, from_ui)
++	local icon = squad and JAZZ_GetLegionAISquadIcon(squad)
++	if icon then
++		return icon
++	end
++	return g_JAZZ_BaseGetSatelliteIconImagesSquad(squad, from_ui)
+ end
+ 
+ local lRoleDisplayNames = {
+-	garrison = "Гарнизон",
+-	patrol = "Патруль",
+-	recon = "Разведка",
+-	qrf = "QRF",
+-	major = "Отряд Майора",
+-	supply = "Конвой снабжения",
+-	shipment = "Алмазный конвой",
++	garrison = T(890000000001424, "Garrison"),
++	patrol = T(890000000001425, "Patrol"),
++	recon = T(890000000001426, "Recon"),
++	qrf = T(890000000001427, "QRF"),
++	major = T(890000000001428, "Major response"),
++	supply = T(890000000001429, "Supply convoy"),
++	shipment = T(890000000001430, "Diamond convoy"),
+ }
+ 
+ function JAZZ_GetLegionAISquadTaskText(squad_or_id)
+@@ -1431,40 +1502,59 @@ function JAZZ_GetLegionAISquadTaskText(squad_or_id)
+ 		return false
+ 	end
+ 
+-	local role = lRoleDisplayNames[squad_state.role] or tostring(squad_state.role)
++	local role = lRoleDisplayNames[squad_state.role] or Untranslated(tostring(squad_state.role))
+ 	local task = squad_state.task
+ 	local target = task and task.target_sector
+ 	if squad_state.state == "orphaned" then
+-		return string.format("%s — без связи: аванпост %s потерян", role, squad_state.home_sector)
++		return T{890000000001431, "<role> — outpost <home> lost; no contact", role = role, home = Untranslated(squad_state.home_sector)}
+ 	elseif squad_state.state == "ready_for_orders" then
+-		return string.format("%s — ожидает приказов аванпоста %s", role, squad_state.home_sector)
++		return T{890000000001432, "<role> — awaiting orders from outpost <home>", role = role, home = Untranslated(squad_state.home_sector)}
+ 	elseif squad_state.state == "returning" then
+ 		if task and task.task_type == "return_with_intel" then
+-			return string.format("%s — возвращается с разведданными в %s", role, squad_state.home_sector)
++			return T{890000000001433, "<role> — returning with intelligence to <home>", role = role, home = Untranslated(squad_state.home_sector)}
+ 		end
+-		return string.format("%s — возвращается на базу %s", role, squad_state.home_sector)
++		return T{890000000001434, "<role> — returning to base <home>", role = role, home = Untranslated(squad_state.home_sector)}
+ 	elseif not task then
+-		return string.format("%s — ожидает задачу", role)
++		return T{890000000001435, "<role> — awaiting assignment", role = role}
+ 	elseif squad_state.role == "garrison" then
+-		local action = squad_state.state == "working" and "удерживает" or "идёт удерживать"
+-		return string.format("%s — %s сектор %s", role, action, target or "?")
++		if squad_state.state == "working" then
++			return T{890000000001436, "<role> — holding sector <target>", role = role, target = Untranslated(target or "?")}
++		end
++		return T{890000000001437, "<role> — moving to hold sector <target>", role = role, target = Untranslated(target or "?")}
+ 	elseif squad_state.role == "patrol" then
+-		return string.format("%s — патрулирует ключевые точки, следующая: %s", role, target or "?")
++		return T{890000000001438, "<role> — patrolling key sites; next: <target>", role = role, target = Untranslated(target or "?")}
+ 	elseif squad_state.role == "recon" then
+ 		local observed = task.observed_sector or target or "?"
+-		local action = squad_state.state == "working" and "наблюдает район" or "выдвигается к району"
+-		return string.format("%s — %s %s", role, action, observed)
++		if squad_state.state == "working" then
++			return T{890000000001439, "<role> — observing area <target>", role = role, target = Untranslated(observed)}
++		end
++		return T{890000000001440, "<role> — moving to observe area <target>", role = role, target = Untranslated(observed)}
+ 	elseif squad_state.role == "qrf" then
+-		local action = task.task_type == "retake" and "отбивает сектор" or "реагирует по разведданным в секторе"
+-		return string.format("%s — %s %s", role, action, target or "?")
++		if task.task_type == "retake" then
++			return T{890000000001441, "<role> — retaking sector <target>", role = role, target = Untranslated(target or "?")}
++		end
++		return T{890000000001442, "<role> — responding to intelligence in sector <target>", role = role, target = Untranslated(target or "?")}
+ 	elseif squad_state.role == "major" then
+-		return string.format("%s — штурмует сектор %s", role, target or "?")
++		return T{890000000001443, "<role> — assaulting sector <target>", role = role, target = Untranslated(target or "?")}
+ 	elseif squad_state.role == "supply" then
+-		return string.format("%s — везёт снабжение в %s", role, target or "?")
++		return T{890000000001444, "<role> — delivering supplies to <target>", role = role, target = Untranslated(target or "?")}
+ 	elseif squad_state.role == "shipment" then
+-		return string.format("%s — везёт алмазы в штаб %s", role, target or "?")
++		return T{890000000001445, "<role> — delivering diamonds to HQ <target>", role = role, target = Untranslated(target or "?")}
+ 	end
+-	return string.format("%s — задача в секторе %s", role, target or "?")
++	return T{890000000001446, "<role> — task in sector <target>", role = role, target = Untranslated(target or "?")}
+ end
+ 
+-// Keep the vanilla rollover for every unmanaged squad. Managed Legion squads
+-// receive a shallow UI-only context whose title includes the live task.
++function JAZZ_LegionAISquadNameColored(context_obj)
++	local squad_name = g_JAZZ_BaseTFormatSquadNameColored(context_obj)
++	local task_text = context_obj and JAZZ_GetLegionAISquadTaskText(context_obj)
++	if not task_text then
++		return squad_name
++	end
++	return T{
++		890000000001447,
++		"<squad_name>\nTask: <task>",
++		squad_name = squad_name,
++		task = task_text,
++	}
++end
++
++-- SquadWindow:CreateRolloverWindow bypasses GetRolloverText and feeds the
++-- persistent SatelliteSquad directly to SquadRolloverMap. Keep the vanilla
++-- return value here and extend the TFormat actually used by that template.
+ function SquadWindow:GetRolloverText()
+-	local squad = self.context
+-	local task_text = squad and JAZZ_GetLegionAISquadTaskText(squad)
+-	if not task_text then
+-		return squad
+-	end
+-	local context = table.copy(squad)
+-	local squad_name = squad.Name
+-	if IsT and IsT(squad_name) then
+-		squad_name = _InternalTranslate(squad_name)
++	return self.context
++end
++
++local function lInstallLegionAIUIWrappers()
++	if GetSatelliteIconImages ~= JAZZ_LegionAIGetSatelliteIconImages then
++		g_JAZZ_BaseGetSatelliteIconImages = GetSatelliteIconImages
++		GetSatelliteIconImages = JAZZ_LegionAIGetSatelliteIconImages
+ 	end
+-	context.Name = Untranslated(string.format("%s\nЗадача: %s", tostring(squad_name or ""), task_text))
+-	return context
++	GetSatelliteIconImagesSquad = JAZZ_LegionAIGetSatelliteIconImagesSquad
++	TFormat.SquadNameColored = JAZZ_LegionAISquadNameColored
+ end
+ 
++GetSatelliteIconImages = JAZZ_LegionAIGetSatelliteIconImages
++GetSatelliteIconImagesSquad = JAZZ_LegionAIGetSatelliteIconImagesSquad
++TFormat.SquadNameColored = JAZZ_LegionAISquadNameColored
++
++function OnMsg.ModsReloaded()
++	lInstallLegionAIUIWrappers()
++	JAZZ_LegionAIEnsureState()
++end
++
+ function OnMsg.NewGame()
+ 	gv_JAZZ_LegionAI = lNewRootState()
+ 	JAZZ_LegionAIEnsureState()

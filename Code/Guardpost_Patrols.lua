@@ -3,8 +3,9 @@
 
 g_JAZZ_LegionAISpawning = false
 
-g_JAZZ_BaseGetSatelliteIconImages = g_JAZZ_BaseGetSatelliteIconImages or GetSatelliteIconImages
-g_JAZZ_BaseGetSatelliteIconImagesSquad = g_JAZZ_BaseGetSatelliteIconImagesSquad or GetSatelliteIconImagesSquad
+g_JAZZ_BaseGetSatelliteIconImages = rawget(_G, "g_JAZZ_BaseGetSatelliteIconImages") or GetSatelliteIconImages
+g_JAZZ_BaseGetSatelliteIconImagesSquad = rawget(_G, "g_JAZZ_BaseGetSatelliteIconImagesSquad") or GetSatelliteIconImagesSquad
+g_JAZZ_BaseTFormatSquadNameColored = rawget(_G, "g_JAZZ_BaseTFormatSquadNameColored") or TFormat.SquadNameColored
 
 local lSchemaVersion = 1
 
@@ -16,13 +17,13 @@ local lRegularRoles = {
 }
 
 local lRoleImages = {
-	major = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_BASE_squad",
-	supply = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_SUPPLY_squad",
-	shipment = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_SHIPMENT_squad",
-	recon = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_RECON_squad",
-	qrf = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_QRF_squad",
-	patrol = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_PATROL_squad",
-	garrison = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_GARRISON_squad",
+	major = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_BASE_squad.png",
+	supply = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_SUPPLY_squad.png",
+	shipment = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_SHIPMENT_squad.png",
+	recon = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_RECON_squad.png",
+	qrf = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_QRF_squad.png",
+	patrol = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_PATROL_squad.png",
+	garrison = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_GARRISON_squad.png",
 }
 
 local lRoleCaps = {
@@ -1073,10 +1074,20 @@ local function lTickRecon(root)
 			if spotted or (task.observe_until and task.observe_until <= lNow()) then
 				if not task.report then
 					local observed = task.observed_sector or squad.CurrentSector
+					local observed_sector = gv_Sectors[observed]
+					local region = lGetRegionPreset(squad_state.region_id)
+					local reduction = lConfig(region, "ReconNoContactHeatReduction", 50)
+					if observed_sector and reduction > 0 then
+						local previous_heat = observed_sector.Heat or 0
+						observed_sector.Heat = lClampHeat(previous_heat - reduction)
+						task.heat_reduced = previous_heat - observed_sector.Heat
+						ObjModified(observed_sector)
+					end
 					task.report = {
 						target_sector = observed,
 						observed_at = lNow(),
 						generic = true,
+						heat_reduced = task.heat_reduced or 0,
 					}
 				end
 				task.task_type = "return_with_intel"
@@ -1356,12 +1367,29 @@ function JAZZ_LegionAIGetDiagnostics()
 		regions = {},
 	}
 	for region_id, region_state in sorted_pairs(root.regions) do
+		local region = lGetRegionPreset(region_id)
 		local region_data = {
 			heat = region_state.heat,
 			intel_points = region_state.intel_points,
 			reports = table.count(region_state.reports),
 			outposts = {},
 			squads = {},
+			caps = {
+				regular = lConfig(region, "RegularSquadCap", 6),
+				garrison = lConfig(region, "GarrisonCap", 2),
+				patrol = lConfig(region, "PatrolCap", 2),
+				recon = lConfig(region, "ReconCap", 1),
+				qrf = lConfig(region, "QRFCap", 1),
+			},
+			costs = {
+				garrison = lConfig(region, "GarrisonCost", 180),
+				patrol = lConfig(region, "PatrolCost", 90),
+				recon = lConfig(region, "ReconCost", 50),
+				qrf = lConfig(region, "QRFCost", 140),
+				supply_convoy = lConfig(region, "SupplyConvoyCargo", 150),
+				major = lConfig(region, "MajorResponseCost", 300),
+			},
+			active_counts = { regular = 0 },
 		}
 		for sector_id in sorted_pairs(region_state.outposts) do
 			local outpost = root.outposts[sector_id]
@@ -1371,10 +1399,16 @@ function JAZZ_LegionAIGetDiagnostics()
 				diamond_stock = outpost.diamond_stock,
 				next_command_time = outpost.next_command_time,
 				reboot_until = outpost.reboot_until,
+				supply_capacity = lConfig(region, "SupplyCapacity", 500),
 			} or false
 		end
 		for squad_id, squad_state in sorted_pairs(root.squads) do
 			if squad_state.region_id == region_id then
+				local role = squad_state.role or "unknown"
+				region_data.active_counts[role] = (region_data.active_counts[role] or 0) + 1
+				if lRegularRoles[role] then
+					region_data.active_counts.regular = region_data.active_counts.regular + 1
+				end
 				region_data.squads[squad_id] = {
 					role = squad_state.role,
 					state = squad_state.state,

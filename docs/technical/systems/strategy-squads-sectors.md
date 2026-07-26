@@ -1,5 +1,9 @@
 # Стратегия, отряды и сектора
 
+## Связанные specs
+
+- `JAZZ-HOTFIX-001` — исправление cold-load globals, vanilla MapVar ownership и sector context для отсутствующего Region.
+
 ## Назначение и эффект для игрока
 
 JAZZ заменяет значительную часть satellite-логики: создание и перемещение отрядов, найм/увольнение, split/join, guardposts и патрули, нападения, регионы, POI-экономику, sector operations, deployment и World Flip. Это самый крупный cross-package и savegame-чувствительный контур.
@@ -16,7 +20,7 @@ JAZZ заменяет значительную часть satellite-логики
 
 Загружаемые core-файлы:
 
-- `Code/SatelliteSquad.lua` — 4323 строки, центральный runtime отрядов;
+- `Code/SatelliteSquad.lua` — крупный центральный runtime отрядов;
 - `Code/Guardpost.lua` — guardpost attacks, objectives, aggression и patrols;
 - `Code/Guardpost_Patrols.lua` — региональный director Legion Global AI, persistent state, экономика, задачи, маршруты, role icons и squad rollover;
 - `Code/SatelliteSquadFixes.lua` — loaded empty placeholder;
@@ -49,6 +53,8 @@ Dormant/unlisted core-файлы:
 
 Он содержит множество `NetSyncEvents` и handlers `LoadSessionData`, new-game/hiring/travel/intel/death. Это делает сигнатуры событий, payload и порядок мутаций публичным сетевым/savegame контрактом.
 
+`gameOverState` объявляет установленная vanilla через `MapVar`. JAZZ использует это же значение в скопированном game-over flow, но не регистрирует имя повторно: duplicate `MapVar` блокирует холодную загрузку ещё до выполнения логики.
+
 ## Guardposts и патрули
 
 `Guardpost.lua` реагирует на `SatelliteTick`, `LoadSessionData`, `ConflictEnd`, squad travel/spawn/attack, new day/hour и sector/intel changes. Система вычисляет aggression, objectives, attack scheduling и patrol destinations.
@@ -73,7 +79,7 @@ Maps добавляет четыре `GuardpostObjective` ModItems. Units пре
 
 У регулярных ролей есть mission budget; после исчерпания отряд возвращается на базу и удаляется. Потеря `I7` переводит связанные регулярные отряды в `orphaned`, прекращает экономику и выдачу приказов; после возвращения контроля действует reboot delay 12 часов. Quest-forced attacks остаются в legacy `Guardpost.lua`, а обычный legacy spawn/patrol для managed `I7` блокируется, чтобы не было двойных отрядов.
 
-Managed squad хранит role image из `SquadsIcons/Enemy`. Обёртки `GetSatelliteIconImages*` возвращают исходный 64×64 файл без vanilla-суффиксов `_2`/`_s`. `SquadWindow:GetRolloverText` для managed squad добавляет строку `Задача:` с live role, state, target и возвратом/orphaned; unmanaged squad получает исходный context без изменений.
+Managed squad хранит role image из `SquadsIcons/Enemy`. `Guardpost_Patrols.lua` сохраняет vanilla base-функции через `rawget(_G, ...)` с fallback на текущую функцию, поэтому cold load не читает отсутствующий strict global, а hot reload не перезаписывает уже сохранённую base-ссылку. Его финальная `GetSatelliteIconImagesSquad` возвращает исходный 64×64 файл без vanilla-суффиксов `_2`/`_s`; более поздний по `metadata.code` `POI Extension.lua` владеет итоговой `GetSatelliteIconImages` и также возвращает `squad.image` напрямую. `SquadWindow:GetRolloverText` для managed squad добавляет строку `Задача:`; unmanaged squad получает исходный context без изменений.
 
 Планировщик использует абсолютный CampaignTime, сортированный обход и `InteractionRand`; интервалы защищены минимумом в один игровой час, а пропущенные интервалы снижения Heat догоняются после скачка времени. Public diagnostics доступны через `JAZZ_LegionAIGetDiagnostics()`.
 
@@ -88,6 +94,8 @@ Diamond shipment: vanilla `InitDiamondBriefcaseSquads` (`Lua/DiamondBriefcase.lu
 `Regions_Sectors.lua` обновляет региональные показатели на `NewHour`. Maps загружает `Code/Rebels_Loyalty.lua`, содержащий `FactionGrantLoyalty`. Loyalty, heat и panic связаны с control/conflict/POI и квестовыми последствиями.
 
 Для Region с `LegionAIEnabled` методы Heat читают/меняют `gv_JAZZ_LegionAI`; legacy Region продолжает хранить Heat в preset. Sector Heat и Region Heat пилота ограничены диапазоном `0..1000`. Старый hourly decay пропускает managed-регион, чтобы его не применяли одновременно два владельца; director снижает sector Heat на 10 и region Heat на 5 каждые 7 часов.
+
+Generated `SatelliteViewMapContextMenu` считает отсутствие Region preset допустимым состоянием: скрывает region-блок, очищает его текст и не вызывает методы на `nil`. Loyalty показывается только для city-сектора без отдельного region-блока.
 
 Изменение tick interval или порядка updates может переиграть экономику существующего save, поэтому его нужно считать балансным и migration-sensitive.
 

@@ -1,5 +1,9 @@
 # Интерфейс, звук и FX
 
+## Связанные specs
+
+- `JAZZ-HOTFIX-001` — исправление lifecycle crosshair, optional rollover controls и Thompson particle resource.
+
 ## Назначение и эффект для игрока
 
 JAZZ перестраивает ключевые tactical/inventory элементы интерфейса и предоставляет собственный звуковой/FX слой для большого оружейного каталога. UI отображает новые свойства, CTH, состояния оружия/брони, Will, очередь действий и тактические предупреждения.
@@ -36,7 +40,11 @@ JAZZ перестраивает ключевые tactical/inventory элемен
 
 При активных modding/debug tools та же разбивка показывает точный итоговый CTH, процент эффекта, множитель `×factor`, `before → after` и список процентов каждой пули очереди. UI читает результат `Unit:CalcChanceToHit` и `attack_results.shot_cth`, а не вычисляет отдельную витринную формулу.
 
-Area-aim обслуживает shotgun/grenade/zone attacks. Проверять границы зоны, mouse/controller input, selection cancel, препятствия и friendly targets.
+Area-aim обслуживает grenade/zone attacks и только те shotgun firing members, которые действительно объявляют cone targeting. Мета-действие `AttackShotgun` использует line targeting и обычный `IModeCombatAttack`.
+
+Generated `ActionCameraCrosshair` не вызывает `Open` для `idContainer` из `OnContextUpdate`: lifecycle дочернего `XContextWindow` принадлежит XTemplate/XWindow framework. Повторный ручной `Open` уже открытого окна нарушает `window_state == "new"`.
+
+Динамические подписи увеличения оптики передаются в `T` как `Untranslated`, поэтому строка вида `1.0x` не интерпретируется как localization ID.
 
 ## Combat badge
 
@@ -56,6 +64,8 @@ Area-aim обслуживает shotgun/grenade/zone attacks. Проверять
 
 Inventory UI визуализирует специализированные slots, resource/max resource, armor/plate, ammo modifications, weapon properties/components и ограничения экипировки. Rollover должен корректно обрабатывать отсутствующие optional properties и generated items старого save.
 
+Generated `RolloverInventoryWeaponBase` обновляет icon только при наличии optional control `idIcon`; варианты template без такого control продолжают показывать тип оружия без Lua-ошибки.
+
 ## Will bar
 
 `WillPointsBar.lua` — крупный UI-модуль, реагирующий на `CombatEnd`, `TurnEnd` и runtime updates. Он связан с suppression/damage системой; после удаления/деспавна unit не должны оставаться orphaned controls или stale values.
@@ -73,6 +83,8 @@ Sound IDs потребляются actions и FX. Отсутствующий `.o
 ## FX
 
 113 `FX_*.lua` покрывают конкретные модели оружия и общий ammo FX. Они загружаются из metadata индивидуально и образуют реестр moments/particles/sounds для shot, reload, casing, muzzle и других событий. В [покрытии файлов](file-coverage.md) они учитываются одной управляемой группой, но каждое добавление/удаление должно сопровождаться metadata и ресурсами.
+
+Generated `ParticlesThompson` использует self-contained путь `Mod/e6L4ECj/ParticleTextures/Explosion_emissive.dds`; основной DDS и `ParticleTextures/Fallbacks/Explosion_emissive.dds` принадлежат core-пакету и должны поставляться вместе.
 
 ## Межпакетные зависимости
 
