@@ -9,7 +9,7 @@ DefineClass.WeirdosMap = {
 	Icon = "UI/Icons/Items/pirate_map",
 	DisplayName = T(964348464741, --[[ModItemInventoryItemCompositeDef WeirdosMap DisplayName]] "Church Treasure Map"),
 	DisplayNamePlural = T(394347228122, --[[ModItemInventoryItemCompositeDef WeirdosMap DisplayNamePlural]] "Church Treasure Map"),
-	Description = T(787937696839, --[[ModItemInventoryItemCompositeDef WeirdosMap Description]] "A messy map clearly showing an \"X\" inside the Fleatown church."),
+	Description = T(787937696839, --[[ModItemInventoryItemCompositeDef WeirdosMap Description]] 'A messy map clearly showing an "X" inside the Fleatown church.'),
 	RestockWeight = 0,
 }
 

@@ -25283,7 +25283,7 @@ return {
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Barret.png",
 					'DisplayName', T(370732763913, --[[ModItemInventoryItemCompositeDef BarretM82 DisplayName]] "M82"),
 					'DisplayNamePlural', T(682970362005, --[[ModItemInventoryItemCompositeDef BarretM82 DisplayNamePlural]] "M82s"),
-					'Description', T(600238639136, --[[ModItemInventoryItemCompositeDef BarretM82 Description]] "The .50 BMG is a heavy machine gun cartridge - hence the name. But place it in a semi auto long range gun and you have a great anti-materiel rifle. Or \"shoot through walls\" gun. It does need a muzzle break the size of a small shovel to counteract that recoil however. "),
+					'Description', T(600238639136, --[[ModItemInventoryItemCompositeDef BarretM82 Description]] 'The .50 BMG is a heavy machine gun cartridge - hence the name. But place it in a semi auto long range gun and you have a great anti-materiel rifle. Or "shoot through walls" gun. It does need a muzzle break the size of a small shovel to counteract that recoil however. '),
 					'AdditionalHint', T(236109853304, --[[ModItemInventoryItemCompositeDef BarretM82 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Легкая пятидесятка \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Медленно стреляет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Огромная убойность \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тяжелый - ограничивает свободу движений"),
 					'LargeItem', 1,
 					'Cumbersome', 1,
@@ -25375,7 +25375,7 @@ return {
 					'Icon', "Mod/e6L4ECj/WeaponIcons/PSG.png",
 					'DisplayName', T(648722056158, --[[ModItemInventoryItemCompositeDef PSG1 DisplayName]] "PSG1"),
 					'DisplayNamePlural', T(681840099367, --[[ModItemInventoryItemCompositeDef PSG1 DisplayNamePlural]] "PSG1s"),
-					'Description', T(938045092300, --[[ModItemInventoryItemCompositeDef PSG1 Description]] "Semi-auto precision rifle initially designed for law enforcement after the 1972 Munich Olympics. They skipped adding any iron sights and went straight to a scope. Adjustable buttstock, cheekpiece, trigger unit, and much more. This gun screams \"I can watch this hostage situation all day as I wait for the greenlight\". "),
+					'Description', T(938045092300, --[[ModItemInventoryItemCompositeDef PSG1 Description]] 'Semi-auto precision rifle initially designed for law enforcement after the 1972 Munich Olympics. They skipped adding any iron sights and went straight to a scope. Adjustable buttstock, cheekpiece, trigger unit, and much more. This gun screams "I can watch this hostage situation all day as I wait for the greenlight". '),
 					'AdditionalHint', T(707852110578, --[[ModItemInventoryItemCompositeDef PSG1 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Самая точная снайперка \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -52283,7 +52283,7 @@ return {
 				'object_class', "QuestItem",
 				'Icon', "UI/Icons/Items/diary",
 				'DisplayName', T(992445338639, --[[ModItemInventoryItemCompositeDef MedicalReport DisplayName]] "Medical Report"),
-				'Description', T(747623428299, --[[ModItemInventoryItemCompositeDef MedicalReport Description]] "\"Wilcox proved to be a perfect subject for my studies. His body reacted to the new strain just as I suspected. The blood cells completely ignored the mutation phase and went into complete disorder. Let's hope that Dr. Kronenberg won't find about my discovery.\""),
+				'Description', T(747623428299, --[[ModItemInventoryItemCompositeDef MedicalReport Description]] '"Wilcox proved to be a perfect subject for my studies. His body reacted to the new strain just as I suspected. The blood cells completely ignored the mutation phase and went into complete disorder. Let\'s hope that Dr. Kronenberg won\'t find about my discovery."'),
 				'RestockWeight', 0,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52292,7 +52292,7 @@ return {
 				'object_class', "QuestItem",
 				'Icon', "UI/Icons/Items/torn_page",
 				'DisplayName', T(938802430479, --[[ModItemInventoryItemCompositeDef PaBaggzWill DisplayName]] "Old Farmer's Will"),
-				'Description', T(982979719943, --[[ModItemInventoryItemCompositeDef PaBaggzWill Description]] "\"Whoever findes this stuff, make sure me stupid useless relativses don't lay their filty hands on it! \nAnd if YOU is my relativest, that's what I says to you: DAMN U AND MAY U CHOKE ON IT!\""),
+				'Description', T(982979719943, --[[ModItemInventoryItemCompositeDef PaBaggzWill Description]] '"Whoever findes this stuff, make sure me stupid useless relativses don\'t lay their filty hands on it! \nAnd if YOU is my relativest, that\'s what I says to you: DAMN U AND MAY U CHOKE ON IT!"'),
 				'RestockWeight', 0,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52355,7 +52355,7 @@ return {
 				'Icon', "UI/Icons/Items/pirate_map",
 				'DisplayName', T(964348464741, --[[ModItemInventoryItemCompositeDef WeirdosMap DisplayName]] "Church Treasure Map"),
 				'DisplayNamePlural', T(394347228122, --[[ModItemInventoryItemCompositeDef WeirdosMap DisplayNamePlural]] "Church Treasure Map"),
-				'Description', T(787937696839, --[[ModItemInventoryItemCompositeDef WeirdosMap Description]] "A messy map clearly showing an \"X\" inside the Fleatown church."),
+				'Description', T(787937696839, --[[ModItemInventoryItemCompositeDef WeirdosMap Description]] 'A messy map clearly showing an "X" inside the Fleatown church.'),
 				'RestockWeight', 0,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52495,8 +52495,8 @@ return {
 				'object_class', "MiscItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/mag_an_apple_a_day",
-				'DisplayName', T(211277073057, --[[ModItemInventoryItemCompositeDef SkillMag_Health DisplayName]] "An Apple a Day "),
-				'DisplayNamePlural', T(312204213439, --[[ModItemInventoryItemCompositeDef SkillMag_Health DisplayNamePlural]] "An Apple a Day "),
+				'DisplayName', T(211277073057, --[[ModItemInventoryItemCompositeDef SkillMag_Health DisplayName]] "An Apple a Day"),
+				'DisplayNamePlural', T(312204213439, --[[ModItemInventoryItemCompositeDef SkillMag_Health DisplayNamePlural]] "An Apple a Day"),
 				'Description', T(862144835554, --[[ModItemInventoryItemCompositeDef SkillMag_Health Description]] "Doctors really hate this one simple trick."),
 				'AdditionalHint', T(617196311086, --[[ModItemInventoryItemCompositeDef SkillMag_Health AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает здоровье"),
 				'UnitStat', "Health",
@@ -52548,8 +52548,8 @@ return {
 				'object_class', "MiscItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/mag_long_distance_relations",
-				'DisplayName', T(262432851703, --[[ModItemInventoryItemCompositeDef SkillMag_Marksmanship DisplayName]] "Long Distance Relations "),
-				'DisplayNamePlural', T(130303695300, --[[ModItemInventoryItemCompositeDef SkillMag_Marksmanship DisplayNamePlural]] "Long Distance Relations "),
+				'DisplayName', T(262432851703, --[[ModItemInventoryItemCompositeDef SkillMag_Marksmanship DisplayName]] "Long Distance Relations"),
+				'DisplayNamePlural', T(130303695300, --[[ModItemInventoryItemCompositeDef SkillMag_Marksmanship DisplayNamePlural]] "Long Distance Relations"),
 				'Description', T(658693817283, --[[ModItemInventoryItemCompositeDef SkillMag_Marksmanship Description]] "The articles really hit the mark."),
 				'AdditionalHint', T(690633844355, --[[ModItemInventoryItemCompositeDef SkillMag_Marksmanship AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает меткость"),
 				'UnitStat', "Marksmanship",
@@ -52655,8 +52655,8 @@ return {
 				'object_class', "MiscItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/mag_grilled_bears_survival_guide",
-				'DisplayName', T(281562344902, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom DisplayName]] "Grilled Bears' Survival Guide "),
-				'DisplayNamePlural', T(338161393803, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom DisplayNamePlural]] "Grilled Bears' Survival Guide "),
+				'DisplayName', T(281562344902, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom DisplayName]] "Grilled Bears' Survival Guide"),
+				'DisplayNamePlural', T(338161393803, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom DisplayNamePlural]] "Grilled Bears' Survival Guide"),
 				'Description', T(672223422197, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom Description]] "The latest pee-based recipes for your outdoor trips."),
 				'AdditionalHint', T(513564123523, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает интеллект"),
 				'UnitStat', "Wisdom",
@@ -61783,7 +61783,7 @@ return {
 						if not unit then
 							return self:GetActionDisplayName()
 						end
-
+						
 						local damage, base, bonus = self:GetActionDamage(unit)
 						local num_shots = self:ResolveValue("mobile_num_shots") 
 						local penalty = Presets.ChanceToHitModifier.Default.RunAndGun:ResolveValue("Penalty")
@@ -69061,7 +69061,6 @@ return {
 				display_name = T(472448154262, --[[ModItemWeaponPropertyDef Default Recoil display_name]] "Отдача"),
 				group = "Default",
 				id = "Recoil",
-				max_progress = 100,
 				reverse_bar = true,
 				short_display_name = T(737969743393, --[[ModItemWeaponPropertyDef Default Recoil short_display_name]] "Отдача"),
 			}),
@@ -100575,7 +100574,7 @@ return {
 	PlaceObj('ModItemGameRuleDef', {
 		SortKey = 100,
 		advanced = true,
-		description = T(227968522548, --[[ModItemGameRuleDef AlwaysOnline description]] "Mercs are never \"offline\" and will not refuse contracts without a good reason."),
+		description = T(227968522548, --[[ModItemGameRuleDef AlwaysOnline description]] 'Mercs are never "offline" and will not refuse contracts without a good reason.'),
 		display_name = T(642676461544, --[[ModItemGameRuleDef AlwaysOnline display_name]] "A.I.M. Always Online"),
 		group = "Default",
 		id = "AlwaysOnline",

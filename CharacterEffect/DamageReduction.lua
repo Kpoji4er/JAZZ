@@ -16,3 +16,4 @@ DefineClass.DamageReduction = {
 	max_stacks = 5,
 	RemoveOnEndCombat = true,
 }
+
