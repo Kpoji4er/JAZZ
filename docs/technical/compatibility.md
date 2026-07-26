@@ -9,7 +9,7 @@
 
 Локальная установка игры во время аудита соответствовала Steam app `1084160`, build `17409065`. Экспортированные исходники и документация брались из локальной папки `ModTools`.
 
-JAZZ поддерживает только последнюю опубликованную CommonLib из официальной ветки `main`/Steam Workshop; совместимость со старыми версиями не заявляется. Перед каждой задачей и каждым поддерживаемым тестом upstream и установленная копия сверяются заново. Перед релизом `version_major`/`version_minor` объявленной зависимости `JA3_CommonLib` также обновляются до текущих значений upstream. На 25 июля 2026 года последним был CommonLib 1.11, build 1056, commit `1adf9f232680d3b011248d180fd0ad1e609a8e2c`; это снимок проверки, не pin. JA3 проверяет у dependency минимальную пару `version_major.version_minor`; автоматически увеличиваемый revision/build не является частью ограничения зависимости.
+JAZZ поддерживает только последнюю опубликованную CommonLib из официальной ветки `main`/Steam Workshop; совместимость со старыми версиями не заявляется. Перед каждой задачей и каждым поддерживаемым тестом upstream и установленная копия сверяются заново. Перед релизом `version_major`/`version_minor` объявленной зависимости `JA3_CommonLib` также обновляются до текущих значений upstream. На 26 июля 2026 года последним был CommonLib 1.11, build 1056, commit `1adf9f232680d3b011248d180fd0ad1e609a8e2c`; это снимок проверки, не pin. JA3 проверяет у dependency минимальную пару `version_major.version_minor`; автоматически увеличиваемый revision/build не является частью ограничения зависимости.
 
 ## Поддерживаемая конфигурация
 
@@ -47,6 +47,14 @@ JAZZ поддерживает только последнюю опубликов
 Любая намеренная полная замена vanilla-класса сохраняет исходные class name и preset ID и использует `UndefineClass('<Id>')` непосредственно перед `DefineClass.<Id> = { ... }`; переименование создаёт другой класс и не является replacement. `DamageReduction` следует этому общему правилу. Совместимость такого override проверяется по структуре класса, сериализованным данным и всем обращениям к исходному ID, а не по наличию namespace-префикса.
 
 Game-time thread сохраняется вместе со стеком, upvalues и байткодом. Existing save после обновления способен продолжить старое тело функции, тогда как новые вызовы уже используют новый код. Поэтому совместимый рефакторинг coroutine или кода между `Sleep`/`WaitMsg` обязан учитывать обе версии до завершения старых потоков либо вводить явную миграционную границу.
+
+### Save-контракт пилота Legion Global AI
+
+`gv_JAZZ_LegionAI` имеет schema `1` и сериализует только числа, строки, boolean и таблицы ID: Major reserve/cooldown, region Heat/reports, outpost resources/timers и squad role/task/state/payload. На existing save состояние создаётся лениво; уже подготовленный `primed_squad` в `I7` принимается как managed garrison, а отсутствующие squad IDs удаляются reconciliation. Feature flag `Region.LegionAIEnabled` ограничивает новый consumer пилотом `ErnieIsland`.
+
+Публичные обёртки `GetSatelliteIconImages`, `GetSatelliteIconImagesSquad` и `SquadWindow:GetRolloverText` сохраняют исходные функции и передают им unmanaged contexts. Для managed squads они возвращают role icon и UI-only копию context с live-задачей. Fresh CommonLib 1.11 не определяет эти три символа, но любой поздний мод, который заменит их после JAZZ, может изменить итог.
+
+Отсутствующий EnemySquad ID не вызывает assert/retry loop: соответствующий role spawn пропускается и диагностируется один раз. Полная поддерживаемая конфигурация пилота всё равно требует `jazz-units` и `jazz-maps`. Committed `jazz-units` preset `DiamondBriefcase` не задаёт требуемый vanilla `DiamondBriefcaseCarrier`; director компенсирует это только для своего динамического shipment, поэтому new-game путь `InitDiamondBriefcaseSquads` остаётся отдельным известным риском до исправления в пакете-владельце.
 
 Проверять загрузку сохранения предыдущей поддерживаемой версии, создание новой игры, defaults declared variables, спящие game-time threads/repeats, инвентари существующих юнитов, предметы в контейнерах, стратегические отряды, сектора, активные квесты и setpieces.
 

@@ -102863,7 +102863,15 @@ return {
 		}, {
 			PlaceObj('ModItemRegion', {
 				DisplayName = "Остров Эрни",
-				Heat = 1528,
+				LegionAIEnabled = true,
+				MajorHQSector = "B28",
+				MajorResponseSquads = {
+					"LegionJAZZSquadT3",
+					"LegionHeavyTroops",
+				},
+				ManagedOutposts = {
+					"I7",
+				},
 				Sectors = {
 					"M1",
 					"M2",
@@ -102897,6 +102905,12 @@ return {
 					"I5",
 					"I6",
 					"I7",
+				},
+				ShipmentSquads = {
+					"DiamondBriefcase",
+				},
+				SupplySquads = {
+					"LegionDefenders_Mobile_Easy",
 				},
 				group = "Default",
 				id = "ErnieIsland",

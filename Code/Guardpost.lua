@@ -172,6 +172,12 @@ end
 ---
 function Guardpost:CanSpawnNewSquad()
 	local so = self.session_obj
+	local queued_script_attack = so.queued_script_attack and #so.queued_script_attack > 0
+	if JAZZ_IsLegionAIManagedGuardpost
+	and JAZZ_IsLegionAIManagedGuardpost(so.SectorId)
+	and not so.forced_attack
+	and not queued_script_attack
+	then return false end
 	
 	-- Squad ready to attack
 	if so.primed_squad then
@@ -229,6 +235,12 @@ end
 --- @param self Guardpost The guardpost instance.
 function Guardpost:SpawnEnemySquad()
 	local so = self.session_obj
+	local queued_script_attack = so.queued_script_attack and #so.queued_script_attack > 0
+	if JAZZ_IsLegionAIManagedGuardpost
+	and JAZZ_IsLegionAIManagedGuardpost(so.SectorId)
+	and not so.forced_attack
+	and not queued_script_attack
+	then return end
 	local sector = gv_Sectors[so.SectorId]
 	if sector.Side == "player1" or sector.Side == "player2" then
 		return
@@ -275,6 +287,16 @@ end
 ---
 function Guardpost:Update(initial)
 	local so = self.session_obj
+	local queued_script_attack = so.queued_script_attack and #so.queued_script_attack > 0
+	if JAZZ_IsLegionAIManagedGuardpost
+	and JAZZ_IsLegionAIManagedGuardpost(so.SectorId)
+	and not so.forced_attack
+	and not queued_script_attack
+	then
+		so.next_spawn_time = false
+		so.next_spawn_time_duration = false
+		return
+	end
 	local sector = gv_Sectors[so.SectorId]
 	if sector.Side == "player1" or sector.Side == "player2" then return end
 	
@@ -1106,6 +1128,12 @@ end
 ---
 function PatrollingSquadSetDestination(squadId)
 	local squad = gv_Squads[squadId]
+	if not squad
+	or g_JAZZ_LegionAISpawning
+	or (JAZZ_IsLegionAIManagedSquad and JAZZ_IsLegionAIManagedSquad(squadId))
+	then
+		return
+	end
 	local enemySquadDef = EnemySquadDefs[squad.enemy_squad_def]
 	if enemySquadDef and enemySquadDef.patrolling then
 		local waypoints = table.icopy(enemySquadDef.waypoints)
@@ -1228,7 +1256,11 @@ function SatelliteAggroInitiateAttack(dryRun)
 		if gp and gp.session_obj then
 			local sessionObj = gp.session_obj
 			-- Guardposts dont clear primed squad if taken over, so we need to check if the squad exists
-			if gv_Squads[sessionObj.primed_squad] and not sessionObj.forced_attack and not IsConflictMode(sessionObj.SectorId) then
+			if gv_Squads[sessionObj.primed_squad]
+			and not sessionObj.forced_attack
+			and not IsConflictMode(sessionObj.SectorId)
+			and not (JAZZ_IsLegionAIManagedGuardpost and JAZZ_IsLegionAIManagedGuardpost(sessionObj.SectorId))
+			then
 				guardpostsReady[#guardpostsReady + 1] = sessionObj
 			end
 		end

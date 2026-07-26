@@ -11,7 +11,7 @@ SatelliteSector.properties[#SatelliteSector.properties + 1] = {
 
 
 function GetRegionForSector(sector_id)
-  for _, region in pairs(Regions) do
+  for _, region in sorted_pairs(Regions or empty_table) do
       if region.Sectors then
           for _, s_id in ipairs(region.Sectors) do
               if s_id == sector_id then
@@ -33,11 +33,51 @@ DefineClass.Region = {
     EditorMenubar = "Editors",
   
     properties = {
+      { category = "Legion AI", id = "LegionAIEnabled", name = "Enable Legion AI", editor = "bool", default = false },
+      { category = "Legion AI", id = "ManagedOutposts", name = "Managed outposts", editor = "string_list", default = {}, item_default = "", items = function(self) return GetCampaignSectorsCombo("") end },
+      { category = "Legion AI", id = "MajorHQSector", name = "Major HQ sector", editor = "combo", default = "", items = function(self) return GetCampaignSectorsCombo("") end },
+      { category = "Legion AI", id = "CommandInterval", name = "Command interval (hours)", editor = "number", default = 6 * const.Scale.h, scale = const.Scale.h, min = const.Scale.h, max = 168 * const.Scale.h },
+      { category = "Legion AI", id = "OutpostRebootDelay", name = "Outpost reboot (hours)", editor = "number", default = 12 * const.Scale.h, scale = const.Scale.h, min = 0, max = 168 * const.Scale.h },
+      { category = "Legion AI/Economy", id = "StartingSupply", name = "Starting supply", editor = "number", default = 150, min = 0 },
+      { category = "Legion AI/Economy", id = "SupplyCapacity", name = "Supply capacity", editor = "number", default = 500, min = 1 },
+      { category = "Legion AI/Economy", id = "PassiveSupplyPerHour", name = "Base supply per hour", editor = "number", default = 5, min = 0 },
+      { category = "Legion AI/Economy", id = "CitySupplyBonus", name = "City supply bonus", editor = "number", default = 2, min = 0 },
+      { category = "Legion AI/Economy", id = "FarmSupplyBonus", name = "Farm supply bonus", editor = "number", default = 3, min = 0 },
+      { category = "Legion AI/Economy", id = "MineDiamondPerHour", name = "Mine diamonds per hour", editor = "number", default = 5, min = 0 },
+      { category = "Legion AI/Economy", id = "SupplyConvoyTriggerPercent", name = "Supply convoy trigger (%)", editor = "number", default = 40, min = 0, max = 100 },
+      { category = "Legion AI/Economy", id = "SupplyConvoyCargo", name = "Supply convoy cargo", editor = "number", default = 100, min = 1 },
+      { category = "Legion AI/Economy", id = "DiamondShipmentThreshold", name = "Diamond shipment threshold", editor = "number", default = 50, min = 1 },
+      { category = "Legion AI/Economy", id = "MajorStartingReserve", name = "Major starting reserve", editor = "number", default = 1000, min = 0 },
+      { category = "Legion AI/Caps", id = "RegularSquadCap", name = "Regular squad cap", editor = "number", default = 6, min = 0 },
+      { category = "Legion AI/Caps", id = "GarrisonCap", name = "Garrison cap", editor = "number", default = 2, min = 0 },
+      { category = "Legion AI/Caps", id = "PatrolCap", name = "Patrol cap", editor = "number", default = 2, min = 0 },
+      { category = "Legion AI/Caps", id = "ReconCap", name = "Recon cap", editor = "number", default = 1, min = 0 },
+      { category = "Legion AI/Caps", id = "QRFCap", name = "QRF cap", editor = "number", default = 1, min = 0 },
+      { category = "Legion AI/Costs", id = "GarrisonCost", name = "Garrison cost", editor = "number", default = 60, min = 0 },
+      { category = "Legion AI/Costs", id = "PatrolCost", name = "Patrol cost", editor = "number", default = 40, min = 0 },
+      { category = "Legion AI/Costs", id = "ReconCost", name = "Recon cost", editor = "number", default = 30, min = 0 },
+      { category = "Legion AI/Costs", id = "QRFCost", name = "QRF cost", editor = "number", default = 80, min = 0 },
+      { category = "Legion AI/Missions", id = "GarrisonMissions", name = "Garrison missions", editor = "number", default = 3, min = 1 },
+      { category = "Legion AI/Missions", id = "PatrolMissions", name = "Patrol missions", editor = "number", default = 3, min = 1 },
+      { category = "Legion AI/Missions", id = "ReconMissions", name = "Recon missions", editor = "number", default = 2, min = 1 },
+      { category = "Legion AI/Missions", id = "QRFMissions", name = "QRF missions", editor = "number", default = 2, min = 1 },
+      { category = "Legion AI/Recon", id = "ReconHeatThreshold", name = "Recon Heat threshold", editor = "number", default = 250, min = 0, max = 1000 },
+      { category = "Legion AI/Recon", id = "ReconObservationTime", name = "Recon observation (hours)", editor = "number", default = 3 * const.Scale.h, scale = const.Scale.h, min = const.Scale.h, max = 168 * const.Scale.h },
+      { category = "Legion AI/Recon", id = "ReportExpiryTime", name = "Report expiry (hours)", editor = "number", default = 24 * const.Scale.h, scale = const.Scale.h, min = const.Scale.h, max = 720 * const.Scale.h },
+      { category = "Legion AI/Major", id = "MajorResponseHeat", name = "Major response Heat", editor = "number", default = 800, min = 0, max = 1000 },
+      { category = "Legion AI/Major", id = "MajorResponseCost", name = "Major response cost", editor = "number", default = 200, min = 0 },
+      { category = "Legion AI/Major", id = "MajorResponseCooldown", name = "Major response cooldown (hours)", editor = "number", default = 72 * const.Scale.h, scale = const.Scale.h, min = 0, max = 720 * const.Scale.h },
+      { category = "Legion AI/Heat", id = "SectorHeatDecay", name = "Sector Heat decay", editor = "number", default = 10, min = 0, max = 1000 },
+      { category = "Legion AI/Heat", id = "RegionHeatDecay", name = "Region Heat decay", editor = "number", default = 5, min = 0, max = 1000 },
+      { category = "Legion AI/Heat", id = "HeatDecayInterval", name = "Heat decay interval (hours)", editor = "number", default = 7 * const.Scale.h, scale = const.Scale.h, min = const.Scale.h, max = 168 * const.Scale.h },
+      { category = "Legion AI/Squads", id = "SupplySquads", name = "Supply squads", editor = "preset_id_list", default = {}, preset_class = "EnemySquads", item_default = "" },
+      { category = "Legion AI/Squads", id = "ShipmentSquads", name = "Shipment squads", editor = "preset_id_list", default = {}, preset_class = "EnemySquads", item_default = "" },
+      { category = "Legion AI/Squads", id = "MajorResponseSquads", name = "Major response squads", editor = "preset_id_list", default = {}, preset_class = "EnemySquads", item_default = "" },
       { id = "Id", editor = "text", default = "", help = "Уникальный ID региона" },
       { id = "DisplayName", editor = "text", default = "", help = "Отображаемое имя региона" },
       { id = "Description", editor = "text", default = "", help = "Описание региона" },
       { id = "Sectors", editor = "string_list", default = {}, item_default = "", items = function (self) return GetCampaignSectorsCombo("") end, help = "Сектора региона" },
-      { id = "Heat", editor = "number", default = 0, help = "Накопленная жара в регионе" },
+      { id = "Heat", editor = "number", default = 0, help = "Legacy/default Heat; managed runtime state lives in gv_JAZZ_LegionAI", min = 0, max = 1000 },
       { id = "LegionScore", editor = "number", default = 0, help = "Важность региона для майора" },
       { id = "ArmyScore", editor = "number", default = 0, help = "Важность региона для армии" },
       { id = "AdonisScore", editor = "number", default = 0, help = "Важность региона для адонис" },
@@ -89,18 +129,36 @@ DefineClass.Region = {
         hint[#hint+1] = T{23785082730502, "<Description>", Description = self.Description} 
     end
     hint[#hint+1] = T{2378508273055, "  Лояльность: <loyalty>%", loyalty = self.Loyalty or 0}
-    hint[#hint+1] = T{2378508273056, "  Уровень тревоги: <heat>", heat = self.Heat or 0}
+    hint[#hint+1] = T{2378508273056, "  Уровень тревоги: <heat>", heat = self:GetHeat()}
 
     return table.concat(hint, "\n")
 end
   
 
+  function Region:GetRuntimeState(create)
+    local region_id = self.id or self.Id
+    if self.LegionAIEnabled and JAZZ_GetLegionAIRegionState then
+      return JAZZ_GetLegionAIRegionState(region_id, create)
+    end
+    return false
+  end
+
+  function Region:GetHeat()
+    local state = self:GetRuntimeState(false)
+    return state and state.heat or Clamp(self.Heat or 0, 0, 1000)
+  end
+
   function Region:IncreaseHeat(amount)
-    self.Heat = self.Heat + amount
+    local region_id = self.id or self.Id
+    if self.LegionAIEnabled and JAZZ_LegionAIChangeRegionHeat then
+      return JAZZ_LegionAIChangeRegionHeat(region_id, amount or 0)
+    end
+    self.Heat = Clamp((self.Heat or 0) + (amount or 0), 0, 1000)
+    return self.Heat
   end
   
   function Region:DecreaseHeat(amount)
-    self.Heat = Max(self.Heat - amount, 0)
+    return self:IncreaseHeat(-(amount or 0))
   end
   
   function Region:IncreasePanic(amount)
@@ -120,7 +178,12 @@ end
   end
 
   function Region:Reset()
-    self.Heat = 0
+    local region_id = self.id or self.Id
+    if self.LegionAIEnabled and JAZZ_LegionAISetRegionHeat then
+      JAZZ_LegionAISetRegionHeat(region_id, 0)
+    else
+      self.Heat = 0
+    end
     self.PanicLevel = 0
   end
 
@@ -174,6 +237,23 @@ end
 
   
 
+function JAZZ_DecaySectorHeat(region, amount)
+  if not region or not gv_Sectors then
+    return
+  end
+  for _, sector_id in ipairs(region.Sectors or empty_table) do
+    local sector = gv_Sectors[sector_id]
+    if sector then
+      sector.Heat = Clamp((sector.Heat or 0) - (amount or 0), 0, 1000)
+    end
+  end
+end
+
+function JAZZ_ClampAllSectorHeat()
+  for _, sector in sorted_pairs(gv_Sectors or empty_table) do
+    sector.Heat = Clamp(sector.Heat or 0, 0, 1000)
+  end
+end
 
   function OnMsg.NewHour()
     local time = Game.CampaignTime
@@ -181,14 +261,15 @@ end
     local heatdecay = 10;
     if hours % 7 ~= 0 then return end
     for _, region in pairs(Regions) do
-      if region and region.Heat and region.Heat > 0 then
+      if region and not region.LegionAIEnabled and region.Heat and region.Heat > 0 then
         region:DecreaseHeat(MulDivRound(heatdecay, 10, 100))
       end
     end
      
   -- Уменьшаем Heat по всем открытым секторам
   for sector_id, sector in pairs(gv_Sectors) do
-    if sector.Heat and sector.Heat > 0 then
+    local region = GetRegionForSector(sector_id)
+    if not (region and region.LegionAIEnabled) and sector.Heat and sector.Heat > 0 then
       sector.Heat = Clamp(sector.Heat - heatdecay, 0, 1000)
     end
   end

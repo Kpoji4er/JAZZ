@@ -58,6 +58,16 @@ JAZZ поддерживает только последнюю опубликов
 | `Code/Weather.lua` | `Lua/Weather.lua` | Погода и эффекты |
 | `CharacterEffect/DamageReduction.lua` | vanilla-класс `DamageReduction` | Намеренная полная замена CharacterEffect с сохранением исходного class name и preset ID |
 
+### Точечные UI wrappers пилота Legion Global AI
+
+| Символ | Vanilla JA3 | JAZZ | Граница совместимости |
+| --- | --- | --- | --- |
+| `GetSatelliteIconImages` | `Lua/UI/XSatelliteObjects.lua` | `Code/Guardpost_Patrols.lua` | Managed squad получает exact role image; unmanaged context передаётся сохранённой base-функции |
+| `GetSatelliteIconImagesSquad` | `Lua/UI/XSatelliteObjects.lua` | `Code/Guardpost_Patrols.lua` | Managed squad обходит vanilla `_2`/`_s` suffix lookup; остальные вызовы передаются base-функции |
+| `SquadWindow:GetRolloverText` | `Lua/UI/XSatelliteObjects.lua` | `Code/Guardpost_Patrols.lua` | Managed squad получает UI-only context с `Задача:`; unmanaged squad возвращается без изменений |
+
+CommonLib 1.11 / commit `1adf9f232680d3b011248d180fd0ad1e609a8e2c` эти три символа не переопределяет. После обновления игры или CommonLib повторно проверять сигнатуры и rollover template.
+
 При обновлении игры эти файлы требуют трёхстороннего сравнения: старая vanilla-версия, новая vanilla-версия и JAZZ-версия. Простое копирование нового vanilla-файла поверх JAZZ уничтожит механику мода. Слепое сохранение старой копии может вернуть исправленные разработчиками игры ошибки.
 
 `DamageReduction` — отдельный намеренный override, а не новое глобальное имя JAZZ. Его generated companion должен сначала удалить vanilla-определение через `UndefineClass('DamageReduction')`, а затем объявить замену через `DefineClass.DamageReduction`. Имя нельзя менять на `JAZZ_DamageReduction`: совпадение class name и preset ID необходимо, чтобы заменить vanilla-класс и сохранить существующие обращения к `DamageReduction`. Поэтому правило о префиксе `JAZZ_` к этому символу не применяется; предмет аудита здесь — полнота замены и совместимость с обновлениями vanilla, а не отсутствие namespace-префикса.

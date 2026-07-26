@@ -18,7 +18,7 @@ JAZZ заменяет значительную часть satellite-логики
 
 - `Code/SatelliteSquad.lua` — 4323 строки, центральный runtime отрядов;
 - `Code/Guardpost.lua` — guardpost attacks, objectives, aggression и patrols;
-- `Code/Guardpost_Patrols.lua` — loaded empty placeholder;
+- `Code/Guardpost_Patrols.lua` — региональный director Legion Global AI, persistent state, экономика, задачи, маршруты, role icons и squad rollover;
 - `Code/SatelliteSquadFixes.lua` — loaded empty placeholder;
 - `Code/EnemySquad.lua` — enemy squad definitions/power/autoresolve integration;
 - `Code/Regions_Sectors.lua` — heat, panic, loyalty и hourly updates;
@@ -57,15 +57,37 @@ Dormant/unlisted core-файлы:
 
 Maps добавляет четыре `GuardpostObjective` ModItems. Units предоставляет enemy squads/roles/UnitData, которые guardpost должен уметь создать.
 
+### Пилот Legion Global AI: `ErnieIsland` / `I7`
+
+Пилот включён только для Region `ErnieIsland`, управляемого аванпоста `I7` и штаба Майора `B28`; остальные guardposts продолжают legacy-путь. Статическая конфигурация находится в Region/SatelliteSector presets, а изменяемый source of truth — versioned `GameVar("gv_JAZZ_LegionAI", ...)` со schema `1`. Existing save создаёт состояние лениво, начальный Heat региона получает как максимум Heat его секторов с clamp `0..1000`, затем director сверяет существующие и исчезнувшие отряды.
+
+Почасовой tick даёт `I7` supply и алмазный stock от удерживаемых Легионом городов, ферм и шахт. Раз в 6 часов командное окно завершает готовые работы, обновляет retake-цели, назначает следующие задачи и создаёт отряды до общего/ролевых лимитов при наличии supply. Роли пилота:
+
+- `garrison` — занимает ключевые сектора по приоритету Outpost → City → Mine → Farm;
+- `patrol` — после каждой точки заново выбирает город, шахту, ферму или базу;
+- `recon` — выходит к нагретому сектору, наблюдает, при обнаружении merc squad возвращает target-specific report;
+- `qrf` — расходует свежий report либо получает retake-задачу на занятую игроком ключевую точку;
+- `supply` — доставляет из `B28` абстрактный supply и при возврате недоставленного груза восстанавливает резерв Майора;
+- `shipment` — везёт накопленные алмазы из `I7` в `B28`;
+- `major` — при Heat региона 800+ и наличии резерва создаёт отдельный тяжёлый ответ с cooldown 72 часа.
+
+У регулярных ролей есть mission budget; после исчерпания отряд возвращается на базу и удаляется. Потеря `I7` переводит связанные регулярные отряды в `orphaned`, прекращает экономику и выдачу приказов; после возвращения контроля действует reboot delay 12 часов. Quest-forced attacks остаются в legacy `Guardpost.lua`, а обычный legacy spawn/patrol для managed `I7` блокируется, чтобы не было двойных отрядов.
+
+Managed squad хранит role image из `SquadsIcons/Enemy`. Обёртки `GetSatelliteIconImages*` возвращают исходный 64×64 файл без vanilla-суффиксов `_2`/`_s`. `SquadWindow:GetRolloverText` для managed squad добавляет строку `Задача:` с live role, state, target и возвратом/orphaned; unmanaged squad получает исходный context без изменений.
+
+Планировщик использует абсолютный CampaignTime, сортированный обход и `InteractionRand`; интервалы защищены минимумом в один игровой час, а пропущенные интервалы снижения Heat догоняются после скачка времени. Public diagnostics доступны через `JAZZ_LegionAIGetDiagnostics()`.
+
 ## Enemy squads и autoresolve
 
 Core `EnemySquad.lua` задаёт runtime/power и связи с autoresolve. Units содержит 69 generated enemy squad definitions. Squad composition соединяет UnitData, faction, archetype, loot и стратегическую силу; тактический spawn и autoresolve должны использовать совместимый состав.
 
-Diamond shipment: vanilla `InitDiamondBriefcaseSquads` (`Lua/DiamondBriefcase.lua`, вызов из Campaign `Initialize`) делает `assert(EnemySquadDefs.DiamondBriefcase.DiamondBriefcaseCarrier)`. Carrier — индекс слота в `Units[]` с `UnitCountMin == UnitCountMax == 1`. Override `DiamondBriefcase` / `StartingShipments` в jazz-units обязан задавать `DiamondBriefcaseCarrier` (иначе assert `squadDefCarrier` на new game).
+Diamond shipment: vanilla `InitDiamondBriefcaseSquads` (`Lua/DiamondBriefcase.lua`, вызов из Campaign `Initialize`) требует `EnemySquadDefs.DiamondBriefcase.DiamondBriefcaseCarrier`. Текущий committed preset `DiamondBriefcase` в `jazz-units` имеет `DiamondBriefcase = true`, но не объявляет carrier; это существующее cross-package расхождение и отдельный риск new-game инициализации. Director пилота не меняет units preset: для своего динамического shipment он детерминированно кладёт реальный `DiamondBriefcase` первому созданному юниту, задаёт drop chance 100% и помечает squad. Этот fallback обеспечивает груз пилота, но не считается исправлением общего vanilla startup-контракта.
 
 ## Regions, loyalty, heat и panic
 
 `Regions_Sectors.lua` обновляет региональные показатели на `NewHour`. Maps загружает `Code/Rebels_Loyalty.lua`, содержащий `FactionGrantLoyalty`. Loyalty, heat и panic связаны с control/conflict/POI и квестовыми последствиями.
+
+Для Region с `LegionAIEnabled` методы Heat читают/меняют `gv_JAZZ_LegionAI`; legacy Region продолжает хранить Heat в preset. Sector Heat и Region Heat пилота ограничены диапазоном `0..1000`. Старый hourly decay пропускает managed-регион, чтобы его не применяли одновременно два владельца; director снижает sector Heat на 10 и region Heat на 5 каждые 7 часов.
 
 Изменение tick interval или порядка updates может переиграть экономику существующего save, поэтому его нужно считать балансным и migration-sensitive.
 

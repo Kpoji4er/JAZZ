@@ -72,7 +72,7 @@
 | `Deployment.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
 | `EnemySquad.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
 | `Guardpost.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
-| `Guardpost_Patrols.lua` | loaded, empty | [Стратегия](strategy-squads-sectors.md) |
+| `Guardpost_Patrols.lua` | loaded, Legion Global AI director | [Стратегия](strategy-squads-sectors.md) |
 | `Regions_Sectors.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
 | `SatelliteSquad.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
 | `SatelliteSquadFixes.lua` | loaded, empty | [Стратегия](strategy-squads-sectors.md) |

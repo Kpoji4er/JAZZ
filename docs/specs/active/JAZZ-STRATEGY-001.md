@@ -1,6 +1,6 @@
 ---
 id: JAZZ-STRATEGY-001
-status: draft
+status: approved
 owner: project-owner
 systems:
   - legion-global-ai
@@ -37,7 +37,7 @@ exclusive_resources:
   - GameVar:gv_JAZZ_LegionAI
 related_decisions:
   - none
-approved_by: pending
+approved_by: project-owner
 ---
 
 # JAZZ-STRATEGY-001: региональный Global AI Легиона — пилот ErnieIsland
@@ -69,6 +69,7 @@ approved_by: pending
 - сделать потерю `I7` фактически парализующей связанные регулярные отряды;
 - сохранить quest-forced guardpost attacks и совместимые публичные функции legacy aggro;
 - подготовить data-driven архитектуру, которую можно расширить на остальные регионы отдельным data-rollout change set.
+- показывать в штатном rollover каждого managed-отряда его текущую роль, задачу, цель и состояние, не меняя rollover обычных отрядов;
 
 ## Non-goals
 
@@ -106,7 +107,7 @@ approved_by: pending
 - Major HQ: `B28`;
 - остальные guardposts продолжают legacy-поведение.
 
-`B28` выбран как стартовое предположение: в `HotDiamonds` он имеет label `Boss` и initial squad `A20_TheMajorsCamp`, тогда как сектор `A20` сейчас `Blocked`, `neutral` и без карты. Перед `approved` владелец подтверждает `B28` либо указывает другой фактически проходимый сектор.
+`B28` выбран и одобрен владельцем как Major HQ: в `HotDiamonds` он имеет label `Boss` и initial squad `A20_TheMajorsCamp`, тогда как сектор `A20` сейчас `Blocked`, `neutral` и без карты.
 
 Пилот переиспользует существующие squad definitions:
 
@@ -304,6 +305,7 @@ Runtime устанавливает существующее saveable поле `S
 - `JAZZ-STRATEGY-001-REQ-018` — random/iteration/route mutations детерминированы и совместимы с multiplayer NetSync.
 - `JAZZ-STRATEGY-001-REQ-019` — debug diagnostics показывают Region, Outpost resources, managed squads, tasks, reports и причины отказа spawn без нового player-facing UI.
 - `JAZZ-STRATEGY-001-REQ-020` — пилот включён только для `ErnieIsland`/`I7`; расширение на остальные регионы выполняется после приёмки отдельным data-rollout spec.
+- `JAZZ-STRATEGY-001-REQ-021` — штатный `SquadRolloverMap` для managed-отряда показывает live role/task/target/state; unmanaged squads сохраняют vanilla rollover.
 
 ## Инварианты и ограничения
 
@@ -341,6 +343,7 @@ Runtime устанавливает существующее saveable поле `S
 - `JAZZ-STRATEGY-001-AC-018` — spawn/autoresolve/tactical entry проверены для каждого переиспользованного EnemySquad ID без изменения `jazz-units`.
 - `JAZZ-STRATEGY-001-AC-019` — static checks не находят коллизий GameVar, custom Msg, class properties и public signatures; metadata подтверждает load order.
 - `JAZZ-STRATEGY-001-AC-020` — technical current-state docs, compatibility/override matrix, file coverage и evidence синхронизированы с фактической реализацией.
+- `JAZZ-STRATEGY-001-AC-021` — при наведении на каждый managed-отряд видны актуальные роль, задача, target sector и состояния ожидания/маршрута/работы/возврата/orphaned; обычный squad rollover не изменён.
 
 ## Impact и совместимость
 
@@ -374,38 +377,40 @@ Runtime устанавливает существующее saveable поле `S
 
 ## Решение владельца
 
-Для перевода в `approved` владелец проекта должен одним решением подтвердить или изменить:
+26 июля 2026 года владелец проекта одобрил:
 
 1. пилот сначала только на `ErnieIsland`/`I7`, затем отдельный rollout остальных guardposts;
 2. `B28` как Major HQ вместо blocked `A20`;
 3. стартовые tuning values и предварительные EnemySquad mappings из этой spec.
+4. дополнение scope: задача каждого managed-отряда должна быть видна игроку при наведении на отряд на глобальной карте.
 
-- Статус: ожидает решения.
-- Кто подтвердил: pending.
-- Дата: pending.
+- Статус: approved.
+- Кто подтвердил: project-owner.
+- Дата: 2026-07-26.
 
 ## Evidence
 
-- `JAZZ-STRATEGY-001-AC-001`: `BLOCKED` — реализация не начата.
-- `JAZZ-STRATEGY-001-AC-002`: `BLOCKED` — migration не реализована.
-- `JAZZ-STRATEGY-001-AC-003`: `BLOCKED` — runtime economy test не выполнен.
-- `JAZZ-STRATEGY-001-AC-004`: `BLOCKED` — cap/resource test не выполнен.
-- `JAZZ-STRATEGY-001-AC-005`: `BLOCKED` — patrol runtime test не выполнен.
-- `JAZZ-STRATEGY-001-AC-006`: `BLOCKED` — recon runtime test не выполнен.
-- `JAZZ-STRATEGY-001-AC-007`: `BLOCKED` — QRF runtime test не выполнен.
-- `JAZZ-STRATEGY-001-AC-008`: `BLOCKED` — retake/garrison runtime test не выполнен.
-- `JAZZ-STRATEGY-001-AC-009`: `BLOCKED` — Major response runtime test не выполнен.
-- `JAZZ-STRATEGY-001-AC-010`: `BLOCKED` — supply convoy runtime test не выполнен.
-- `JAZZ-STRATEGY-001-AC-011`: `BLOCKED` — diamond shipment runtime test не выполнен.
-- `JAZZ-STRATEGY-001-AC-012`: `BLOCKED` — task budget/retire runtime test не выполнен.
-- `JAZZ-STRATEGY-001-AC-013`: `BLOCKED` — Outpost capture/recapture runtime test не выполнен.
-- `JAZZ-STRATEGY-001-AC-014`: `BLOCKED` — icon/save-load visual test не выполнен.
-- `JAZZ-STRATEGY-001-AC-015`: `BLOCKED` — legacy/forced attack test не выполнен.
-- `JAZZ-STRATEGY-001-AC-016`: `BLOCKED` — deterministic multiplayer test не выполнен.
-- `JAZZ-STRATEGY-001-AC-017`: `BLOCKED` — editor round-trip/generated sync не выполнен.
-- `JAZZ-STRATEGY-001-AC-018`: `BLOCKED` — cross-package squad validation не выполнена.
-- `JAZZ-STRATEGY-001-AC-019`: `BLOCKED` — static/load-order audit не выполнен.
-- `JAZZ-STRATEGY-001-AC-020`: `BLOCKED` — documentation delta не реализована.
+- `JAZZ-STRATEGY-001-AC-001`: `BLOCKED` — schema-1 state, idempotent ensure, legacy primed adoption и reconciliation реализованы; new-game/ReloadLua проверка в игре не выполнена.
+- `JAZZ-STRATEGY-001-AC-002`: `BLOCKED` — lazy existing-save migration, Heat clamp и очистка отсутствующих squad IDs реализованы; реальный existing save не загружен.
+- `JAZZ-STRATEGY-001-AC-003`: `BLOCKED` — экономика реализована, runtime/save-load проверка totals не выполнена.
+- `JAZZ-STRATEGY-001-AC-004`: `BLOCKED` — cap/resource guards реализованы, runtime проверка не выполнена.
+- `JAZZ-STRATEGY-001-AC-005`: `BLOCKED` — weighted POI patrol и command-window reassignment реализованы, runtime маршрут не проверен.
+- `JAZZ-STRATEGY-001-AC-006`: `BLOCKED` — recon observation/return/report state machine реализована, runtime обнаружение merc squad не проверено.
+- `JAZZ-STRATEGY-001-AC-007`: `BLOCKED` — QRF consume/expiry реализованы, runtime stale/completion не проверены.
+- `JAZZ-STRATEGY-001-AC-008`: `BLOCKED` — retake queue и приоритет garrison реализованы, runtime capture path не проверен.
+- `JAZZ-STRATEGY-001-AC-009`: `BLOCKED` — Major reserve/cooldown/single-active guard реализованы, runtime response не проверен.
+- `JAZZ-STRATEGY-001-AC-010`: `BLOCKED` — supply payload/delivery/refund path реализован, уничтожение конвоя в игре не проверено.
+- `JAZZ-STRATEGY-001-AC-011`: `BLOCKED` — shipment stock/reserve и deterministic briefcase fallback реализованы, runtime delivery/destruction не проверены.
+- `JAZZ-STRATEGY-001-AC-012`: `BLOCKED` — mission budget/return/retire/despawn cleanup реализованы, runtime cap release не проверен.
+- `JAZZ-STRATEGY-001-AC-013`: `BLOCKED` — orphaned paralysis и 12 h reboot реализованы, capture/recapture в игре не проверены.
+- `JAZZ-STRATEGY-001-AC-014`: `BLOCKED` — семь exact role PNG статически подтверждены как 64×64 и icon bridge реализован; visual/save-load проверка не выполнена.
+- `JAZZ-STRATEGY-001-AC-015`: `BLOCKED` — managed I7 исключён из legacy spawn/global aggro/patrol, queued/forced path сохранён; quest runtime test не выполнен.
+- `JAZZ-STRATEGY-001-AC-016`: `BLOCKED` — simulation iteration сортирована и target/def selection использует `InteractionRand`; multiplayer host/client test не выполнен.
+- `JAZZ-STRATEGY-001-AC-017`: `BLOCKED` — strict generated sync прошёл для `jazz` (`errors=0`, `warnings=0`) и `jazz-maps` (`errors=0`, `warnings=0`); Mod Editor round-trip не выполнен.
+- `JAZZ-STRATEGY-001-AC-018`: `BLOCKED` — все восемь EnemySquad ID найдены ровно по одному разу; spawn/autoresolve/tactical entry не выполнены, у committed `DiamondBriefcase` отдельно зафиксирован отсутствующий vanilla carrier contract.
+- `JAZZ-STRATEGY-001-AC-019`: `PASS` — проверены JA3 build `17409065`, CommonLib 1.11/build 1056/commit `1adf9f232680d3b011248d180fd0ad1e609a8e2c`, vanilla signatures, уникальность новых GameVar/Msg/properties и metadata load order; Lua parser не сообщил syntax errors, `git diff --check` чист.
+- `JAZZ-STRATEGY-001-AC-020`: `PASS` — strategy current-state, file coverage, compatibility и override matrix синхронизированы с реализацией и известными ограничениями.
+- `JAZZ-STRATEGY-001-AC-021`: `BLOCKED` — `JAZZ_GetLegionAISquadTaskText` и managed-only `SquadWindow:GetRolloverText` реализованы для всех state/roles; визуальная проверка наведения в игре не выполнена.
 
 ## Documentation delta
 
