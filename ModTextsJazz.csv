@@ -3109,9 +3109,6 @@ Accuracy is influenced by <em><dexterity></em>.",,,ModItemCombatAction Overwatch
 716048130364,Grenade,,,ModItemCombatAction ThrowGrenadeDG DisplayName
 405554936480,Grenade,,,ModItemCombatAction ThrowGrenadeAO DisplayName
 815075531261,Grenade,,,ModItemCombatAction ThrowGrenadeBO DisplayName
-508625921588,«Затвор»,,,ModItemCombatAction Bolting DisplayName
-744710149249,Передернуть затвор,,,ModItemCombatAction Bolting Description
-545875046429,Передернуть затвор,,,ModItemCombatAction Bolting QueuedBadgeText
 296828702350,Рукопашная атака,,,ModItemCombatAction MeleeAttack DisplayName
 305356869820,"Враг, находящийся в укрытии, получает статус «<GameTerm('Exposed')>».",,,ModItemCombatAction MeleeAttack Description
 548684733743,АНКЕТА A.I.M.,,,ModItemXTemplate PDAAimEvaluation Text
@@ -3289,9 +3286,6 @@ Gains <em><gritOnStealthKill></em> <GameTerm('Grit')> on successful <GameTerm('S
 436108183662,Длина автоогня,,,ModItemCharacterEffectCompositeDef AutoWeapons display_name
 703285597871,Длина автоогня,,,ModItemCharacterEffectCompositeDef AutoWeapons short_display_name
 516026181508,Количество патрон в режиме автоогня,,,ModItemCharacterEffectCompositeDef AutoWeapons description
-347116257752,Количество ОД на передергивание затвора,,,ModItemCharacterEffectCompositeDef AutoWeapons display_name
-992513377784,Количество ОД на передергивание затвора,,,ModItemCharacterEffectCompositeDef AutoWeapons short_display_name
-862802283785,Количество ОД на передергивание затвора,,,ModItemCharacterEffectCompositeDef AutoWeapons description
 313710601358,Дальность,,,ModItemCharacterEffectCompositeDef AutoWeapons display_name
 448734636097,ДЛНСТ,,,ModItemCharacterEffectCompositeDef AutoWeapons short_display_name
 652024164313,"Максимальное расстояние, на которое можно прицельно стрелять из оружия.",,,ModItemCharacterEffectCompositeDef AutoWeapons description

@@ -167,7 +167,7 @@ end
 
 function FirearmGetGroupingBase(item)
 
-	return item.Grouping or 10
+	return item:GetProperty("Grouping") or item.Grouping or 10
 
 end
 
@@ -184,7 +184,6 @@ function FirearmGetGrouping(item)
 	local repair_mult = Clamp(0.8 + 0.2 * max_res / factory, 0.1, 1)
 
 
-	local grouping = item.Grouping or 10
 	local effective_grouping = FirearmGetGroupingBase(item) * condition_mult * repair_mult
 
 	return DivRound(effective_grouping, 1)
@@ -343,8 +342,6 @@ function Firearm:GetAttackResults(action, attack_args)
 	local prediction = attack_args.prediction
 	local lof_idx = table.find(attack_args.lof, "target_spot_group", attack_args.target_spot_group or "Torso")
 	local lof_data = attack_args.lof and attack_args.lof[lof_idx or 1]
-    local cth_loss_per_shot = attack_args.cth_loss_per_shot
-    local shots_before_cth_loss = attack_args.shots_before_recoil or 0
 	local target = attack_args.target or lof_data.target_pos
 	local target_pos = lof_data.target_pos or (IsValid(target) and target:GetPos())
 	if not target_pos:IsValidZ() then
@@ -381,16 +378,13 @@ function Firearm:GetAttackResults(action, attack_args)
 			target = target_pos
 		end
 	end
-    --print(attack_args)
-    --print(attack_args.weapon.BoltingAP)
-  
+
 	local shot_attack_args = table.copy(attack_args)
 	shot_attack_args.num_shots = num_shots
 	shot_attack_args.target_pos = target_pos
 	shot_attack_args.target_spot_group = shot_attack_args.target_spot_group or target_unit and g_DefaultShotBodyPart
 	shot_attack_args.aim = shot_attack_args.aim or 0
 	shot_attack_args.damage_bonus = shot_attack_args.damage_bonus or 0
-	shot_attack_args.cth_loss_per_shot = cth_loss_per_shot or 0
 	shot_attack_args.stealth_kill_chance = shot_attack_args.stealth_kill_chance or 0
 	shot_attack_args.stealth_bonus_crit_chance = shot_attack_args.stealth_bonus_crit_chance or 0
 	shot_attack_args.prediction = prediction
@@ -400,8 +394,6 @@ function Firearm:GetAttackResults(action, attack_args)
 	shot_attack_args.additional_colliders = target -- Non-units (such as mines) need to be added manually.
 	shot_attack_args.require_los = nil
 
-   -- local bolted = attack_args.weapon.bolted
-   --print(consumed_ammo)
 	local fired, jammed, condition, ammo_type = self:PrecalcAmmoUse(attacker, consumed_ammo, prediction)
 	--Проверка на шотганы
 --	if action.id == "Buckshot" then 
@@ -414,7 +406,6 @@ function Firearm:GetAttackResults(action, attack_args)
 		if type(fired) == "number" and num_shots > 0 then
 			num_shots = Min(fired, num_shots)
 			shot_attack_args.num_shots = fired
-   		--     if (attack_args.weapon.BoltingAP > 0) then attack_args.weapon.bolted = true end
 		end
 --	end
 
@@ -442,7 +433,6 @@ end
 		weapon = self,
 		fired = fired,
 		jammed = jammed,
-    --    bolted = bolted,
 		condition = condition,
 		chance_to_hit = cth,
 		chance_to_hit_modifiers = modifiers,
@@ -553,83 +543,33 @@ end
 	local shots_data = {}
 	local graze_threshold = point_blank and 6 or 3
 
-	cth_loss_per_shot = shot_attack_args.cth_loss_per_shot
-
-	local deployed = g_Overwatch[attacker] and g_Overwatch[attacker].permanent
-
-	if IsKindOf(self, "MachineGun") and not deployed
-	 then
-		cth_loss_per_shot = MulDivRound(cth_loss_per_shot,200,100)
-	 elseif  IsKindOf(self, "LightMachineGun") and not deployed
-	 then
-		cth_loss_per_shot = MulDivRound(cth_loss_per_shot,150,100)
-	end
-
-	if (attacker.Strength) > 80 then
-		if cth_loss_per_shot > 15 then  cth_loss_per_shot = cth_loss_per_shot - cth_loss_per_shot*(attacker.Strength-80)*1.5/100 end
-		else cth_loss_per_shot = cth_loss_per_shot - cth_loss_per_shot*(attacker.Strength-80)/100 end
-
-    if (shot_attack_args.stance) == 'Crouch'
-    then
-        cth_loss_per_shot = cth_loss_per_shot * 0.9
-    elseif (shot_attack_args.stance) == 'Prone'
-    then
-        cth_loss_per_shot = cth_loss_per_shot * 0.6
-		local bipodshots = GetComponentEffectValue(self, "ShotsBeforeRecoilProne", "ShotsBeforeRecoilProne")
-		if (bipodshots) then shots_before_cth_loss = shots_before_cth_loss + 1 or 1 end
-    end	
-	 
-	if action.id == "GrizzlyPerk" then shots_before_cth_loss = 20 end
-
-
-local ScopeMagn = GetComponentEffectValue(self, "ScopeMagnification", "ScopeMagnification") or 1
-local ScopeAimLevel = GetComponentEffectValue(self, "ScopeMagnification", "ScopeAimLevel")
-
-local SmallMagn = GetComponentEffectValue(self, "SmallMagnification", "SmallMagnification") or 1
-local SmallAimLevel = GetComponentEffectValue(self, "SmallMagnification", "SmallAimLevel") 
-
-if ScopeAimLevel and shot_attack_args.aim >= ScopeAimLevel then 
-	cth_loss_per_shot = cth_loss_per_shot * Max(ScopeMagn/2,1)
-end
-if SmallAimLevel and shot_attack_args.aim >= SmallAimLevel then 
-	cth_loss_per_shot = cth_loss_per_shot * Max(SmallMagn/2,1)
-end
+	shot_attack_args.deployed =
+		shot_attack_args.deployed
+		or g_Overwatch and g_Overwatch[attacker] and g_Overwatch[attacker].permanent
+	local recoil_profile =
+		JAZZ_CTHGetRecoilProfile(self, attacker, shot_attack_args.stance, action, shot_attack_args)
+	attack_results.recoil_profile = recoil_profile
+	attack_results.shot_cth = {}
 
 	for i = 1, num_shots do
-
-		local shot_miss, shot_crit, shot_cth
-
-    if (i > shots_before_cth_loss) then
-        if (i-shots_before_cth_loss < 20) then
-            if (attack_results.chance_to_hit - shot_attack_args.cth_loss_per_shot * (i - shots_before_cth_loss - 1)) > 0 then
-		    shot_cth = self:GetShotChanceToHit(attack_results.chance_to_hit - cth_loss_per_shot * (i - shots_before_cth_loss - 1))
-            else
-            shot_cth = 0
-            end
-        else
-            if ((attack_results.chance_to_hit - cth_loss_per_shot * (5)) > 0) then 
-                shot_cth = self:GetShotChanceToHit(attack_results.chance_to_hit - cth_loss_per_shot * (5))
-            else shot_cth = 0 end
-        end
-    else 
-        shot_cth = self:GetShotChanceToHit(attack_results.chance_to_hit)
-    end
-
-	if HasPerk(attacker, "AutoWeapons") and (i>5) and not IsKindOfClasses(self, "MachineGun", "LightMachineGun") then
-		 shot_cth = self:GetShotChanceToHit(attack_results.chance_to_hit)
-	end
-
-	if 	shot_cth and distAttackerToTarget > ((self.WeaponRange +1) * const.SlabSizeX) then
-		shot_cth = shot_cth * 0.5
-	end
-
-
+		local shot_miss, shot_crit
+		local shot_cth = JAZZ_CTHGetBulletChance(
+			attack_results.chance_to_hit,
+			i,
+			recoil_profile,
+			attack_results.chance_to_hit > 0
+		)
 
 		shot_cth = attacker:CallReactions_Modify("OnCalcShotChanceToHit", shot_cth, attacker, target, i, num_shots)
 		if target_unit then
 			shot_cth = target_unit:CallReactions_Modify("OnCalcShotChanceToHit", shot_cth, attacker, target, i, num_shots)
-			
 		end
+		shot_cth = Clamp(
+			math.floor(shot_cth + 0.5),
+			attack_results.chance_to_hit > 0 and JAZZ_CTH_VALID_SHOT_FLOOR or 0,
+			100
+		)
+		attack_results.shot_cth[i] = shot_cth
 		if shot_attack_args.multishot then
 			roll = attack_results.attack_roll[i]
 			shot_miss = roll > shot_cth

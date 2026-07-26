@@ -32,16 +32,27 @@ local function lClearPredictedAOE(list)
 	end
 end
 
-function PredictCTH(base_cth, recoil, shots)
-	if shots == 1 then return base_cth end
+function PredictCTH(base_cth, recoil, shots, weapon, unit, stance, action)
+	if shots <= 1 then
+		return base_cth
+	end
+
+	local recoil_profile
+	if weapon and unit then
+		recoil_profile = JAZZ_CTHGetRecoilProfile(weapon, unit, stance or unit.stance, action)
+	else
+		recoil_profile = {
+			retention = math.floor(Clamp(1 - (recoil or 0) / 100, 0.15, 1) * JAZZ_CTH_FACTOR_SCALE + 0.5),
+			shots_before_recoil = 0,
+		}
+	end
+
 	local sum = 0
-	for i = 0, shots - 1 do
-		local penalty = recoil * Min(i,5)
-		sum = sum + Max(0, base_cth - penalty)
+	for i = 1, shots do
+		sum = sum + JAZZ_CTHGetBulletChance(base_cth, i, recoil_profile, base_cth > 0)
 	end
 	return sum / shots
 end
-
 function GetCTHByAimLevels(unit, enemy, action, max_aim)
 	local cth_by_aim = {}
 	local weapon1, weapon2 = unit:GetActiveWeapons()
@@ -142,11 +153,11 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 
 			if mode_type == "BurstFire" then
 				shots = burst
-				predicted = PredictCTH(cth, recoil, shots)
+				predicted = PredictCTH(cth, recoil, shots, weapon, unit, unit.stance, action)
 				dist_penalty = dist_ratio * 1.0
 			elseif mode_type == "AutoFire" then
 				shots = auto
-				predicted = PredictCTH(cth, recoil, shots)
+				predicted = PredictCTH(cth, recoil, shots, weapon, unit, unit.stance, action)
 				dist_penalty = dist_ratio * 1.2
 			end
 			if mode_type == "DoubleBarrel" then

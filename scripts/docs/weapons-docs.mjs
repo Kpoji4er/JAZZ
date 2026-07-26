@@ -875,7 +875,6 @@ function familyPage(family, weapons, optionsByWeapon, snapshotCommit) {
     "Прицел",
     "BDR / дальность",
     "Кучность",
-    "Эрг.",
     "Отдача",
     "Режимы",
   ];
@@ -901,7 +900,6 @@ function familyPage(family, weapons, optionsByWeapon, snapshotCommit) {
     `${weapon.max_aim_actions} × ${weapon.aim_accuracy}`,
     `${weapon.bullet_drop_range} / ${weapon.weapon_range}`,
     weapon.grouping,
-    weapon.handling,
     weapon.recoil,
     attackModes(weapon),
   ]);
@@ -953,7 +951,11 @@ function componentsPage(data) {
     useCounts.get(option.component_id).add(option.weapon_id);
   }
   const usedComponents = data.components
-    .filter((component) => useCounts.has(component.component_id))
+    .filter(
+      (component) =>
+        useCounts.has(component.component_id) &&
+        component.component_id !== "DefaultIronsight_AR15",
+    )
     .sort(
       (a, b) =>
         a.slot.localeCompare(b.slot, "ru") ||
@@ -1029,7 +1031,7 @@ function indexPage(data, invalidDefaults) {
 - **Тир** — заметный силовой диапазон внутри семейства. Переход между тирами должен ощущаться в суммарной боевой ценности.
 - **Под-тир** — порядок и вариативность внутри одного тира. Он не должен превращаться в скрытый дополнительный тир.
 - **\`UNIQ\`** — уникальное оружие с особым профилем; первая цифра всё равно задаёт его силовой диапазон.
-- Сравнивать нужно не один урон: магазин, ОД, дальность, кучность, эргономика, отдача, ресурс, надёжность и доступные компоненты образуют общий бюджет оружия.
+- Сравнивать нужно не один урон: магазин, ОД, прицеливание, дальность, кучность, отдача, ресурс, надёжность и доступные компоненты образуют общий бюджет оружия.
 - Поле \`engine_tier\` магазина/лут-системы не является balance-tier и хранится отдельно.
 
 ## Семейства

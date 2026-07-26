@@ -48,8 +48,7 @@ ScopeAccuracyIncreace,ScopeAccuracyIncreace,Прицел: Увеличивает
 ScopeAccuracyReduce,ScopeAccuracyReduce,Прицел: Уменьшает бонус точности на <ScopeAccuracyReduce>,ScopeAccuracyReduce=5,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
 ScopeCTHBonus,ScopeCTHBonus,Прицел: бонус к точности в <ScopeCTH>%   (при использовании прицела),ScopeCTH=1;ScopeAimLevel=3,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
 ScopeHandlingReduce,ScopeHandlingReduce,Прицел: Уменьшает эргономику на <ScopeHandlingReduce>,ScopeHandlingReduce=10,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
-ScopeMagnification,ScopeMagnification,"Прицел <ScopeMagnification>.<ScopeSubMagnification> кратности  (от <ScopeAimLevel> уровня прицеливания и выше)
-Увеличенная потеря точности при стрельбе очередями при использовании прицела",ScopeMagnification=1;ScopeSubMagnification=;ScopeAimLevel=3,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
+ScopeMagnification,ScopeMagnification,Оптика <ScopeMagnification>.<ScopeSubMagnification>× сдвигает эффективную зону дальше после <ScopeAimLevel>-го уровня прицеливания. Сильная оптика менее удобна вблизи.,ScopeMagnification=1;ScopeSubMagnification=;ScopeAimLevel=3,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
 ScopeOverwatchAngleDecrease,ScopeOverwatchAngleDecrease,Прицел: Уменьшает сектор контроля на 30%,ScopeOverwatchAngle=70,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
 ScopeOverwatchAngleDecreaseBig,ScopeOverwatchAngleDecreaseBig,Прицел: Уменьшает сектор контроля на 50%,,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220
 ScopeOverwatchAngleIncreace,ScopeOverwatchAngleIncreace,Прицел: Увеличивает сектор контроля на 30%,ScopeOverwatchAngle=130,jazz,5db078dfb2c9206f39e491a1d26b6e7f1f6f1220

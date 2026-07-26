@@ -31621,7 +31621,7 @@ return {
 					id = "MagazineSizeAdd",
 				}),
 				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(756735304143, --[[ModItemWeaponComponentEffect ScopeMagnification Description]] "Прицел <ScopeMagnification>.<ScopeSubMagnification> кратности  (от <ScopeAimLevel> уровня прицеливания и выше)\nУвеличенная потеря точности при стрельбе очередями при использовании прицела"),
+					Description = T(756735304143, --[[ModItemWeaponComponentEffect ScopeMagnification Description]] "Оптика <ScopeMagnification>.<ScopeSubMagnification>× сдвигает эффективную зону дальше после <ScopeAimLevel>-го уровня прицеливания. Сильная оптика менее удобна вблизи."),
 					Parameters = {
 						PlaceObj('PresetParamNumber', {
 							'Name', "ScopeMagnification",
@@ -40470,7 +40470,6 @@ return {
 								"FirstShotIncreasedAim",
 								"ReduceAuto25Percent",
 								"ReduceBurst25Percent",
-								"AccuracyBonusWhenAimed",
 								"IncreaseAimAccuracy",
 								"IncreaseShotAP",
 							},
@@ -40813,7 +40812,6 @@ return {
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"IncreaseMaxAimActions",
-								"IncreasedSingleShotAccuracy",
 								"IncreaseShotAP",
 								"CritBonusWhenFullyAimed",
 								"ReduceAuto75Percent",
@@ -41188,7 +41186,6 @@ return {
 							ModificationDifficulty = 10,
 							ModificationEffects = {
 								"IncreaseMaxAimActions",
-								"IncreasedSingleShotAccuracy",
 								"IncreaseShotAP",
 								"CritBonusWhenFullyAimed",
 								"ReduceAuto75Percent",
@@ -41747,7 +41744,6 @@ return {
 								"MinAim",
 								"OpportunityAttackBonusCth",
 								"ScopeHandlingReduce",
-								"ScopeAccuracyIncreace",
 								"ScopeOverwatchAngleIncreace",
 							},
 							Parameters = {
@@ -41770,11 +41766,6 @@ return {
 									'Name', "ScopeHandlingReduce",
 									'Value', 5,
 									'Tag', "<ScopeHandlingReduce>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeAccuracyIncreace",
-									'Value', 3,
-									'Tag', "<ScopeAccuracyIncreace>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/C79.png",
@@ -41912,7 +41903,6 @@ return {
 								"MinAim",
 								"OpportunityAttackBonusCth",
 								"ScopeHandlingReduce",
-								"ScopeAccuracyIncreace",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -41934,11 +41924,6 @@ return {
 									'Name', "ScopeHandlingReduce",
 									'Value', 3,
 									'Tag', "<ScopeHandlingReduce>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeAccuracyIncreace",
-									'Value', 3,
-									'Tag', "<ScopeAccuracyIncreace>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/Aimpoint_reticle.png",
@@ -42203,7 +42188,6 @@ return {
 								"MinAim",
 								"OpportunityAttackBonusCth",
 								"ScopeHandlingReduce",
-								"ScopeAccuracyIncreace",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -42225,11 +42209,6 @@ return {
 									'Name', "ScopeHandlingReduce",
 									'Value', 1,
 									'Tag', "<ScopeHandlingReduce>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeAccuracyIncreace",
-									'Value', 1,
-									'Tag', "<ScopeAccuracyIncreace>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/Aimpoint_reticle.png",
@@ -42499,7 +42478,6 @@ return {
 								"MinAim",
 								"OpportunityAttackBonusCth",
 								"ScopeHandlingReduce",
-								"ScopeAccuracyIncreace",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -42521,11 +42499,6 @@ return {
 									'Name', "ScopeHandlingReduce",
 									'Value', 3,
 									'Tag', "<ScopeHandlingReduce>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeAccuracyIncreace",
-									'Value', 3,
-									'Tag', "<ScopeAccuracyIncreace>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/PKAS_reticle.png",
@@ -42637,7 +42610,6 @@ return {
 								"MinAim",
 								"OpportunityAttackBonusCth",
 								"ScopeHandlingReduce",
-								"ScopeAccuracyIncreace",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -42659,11 +42631,6 @@ return {
 									'Name', "ScopeHandlingReduce",
 									'Value', 2,
 									'Tag', "<ScopeHandlingReduce>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeAccuracyIncreace",
-									'Value', 3,
-									'Tag', "<ScopeAccuracyIncreace>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/Aimpoint_reticle.png",
@@ -43374,7 +43341,6 @@ return {
 								"ScopeOverwatchAngleIncreaceBig",
 								"MinAim",
 								"OpportunityAttackBonusCth",
-								"ScopeAccuracyIncreace",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -43391,11 +43357,6 @@ return {
 									'Name', "extra_attacks",
 									'Value', 1,
 									'Tag', "<extra_attacks>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeAccuracyIncreace",
-									'Value', 3,
-									'Tag', "<ScopeAccuracyIncreace>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/Eotech_Reticle.png",
@@ -43915,7 +43876,6 @@ return {
 								"IncreaseShotAP",
 								"ScopeMagnification",
 								"ScopeHandlingReduce",
-								"ScopeCTHBonus",
 								"ScopeOverwatchAngleDecrease",
 							},
 							Parameters = {
@@ -43942,11 +43902,6 @@ return {
 									'Name', "ScopeHandlingReduce",
 									'Value', 6,
 									'Tag', "<ScopeHandlingReduce>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeCTH",
-									'Value', 3,
-									'Tag', "<ScopeCTH>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/Cross_reticle.png",
@@ -43988,7 +43943,6 @@ return {
 								"IncreaseShotAP",
 								"ScopeMagnification",
 								"ScopeHandlingReduce",
-								"ScopeCTHBonus",
 								"ScopeOverwatchAngleDecrease",
 							},
 							Parameters = {
@@ -44015,11 +43969,6 @@ return {
 									'Name', "ScopeHandlingReduce",
 									'Value', 10,
 									'Tag', "<ScopeHandlingReduce>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeCTH",
-									'Value', 5,
-									'Tag', "<ScopeCTH>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/1P29_reticle.png",
@@ -44091,7 +44040,6 @@ return {
 								"IncreaseShotAP",
 								"ScopeMagnification",
 								"ScopeHandlingReduce",
-								"ScopeCTHBonus",
 								"ScopeOverwatchAngleDecrease",
 							},
 							Parameters = {
@@ -44118,11 +44066,6 @@ return {
 									'Name', "ScopeHandlingReduce",
 									'Value', 10,
 									'Tag', "<ScopeHandlingReduce>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeCTH",
-									'Value', 4,
-									'Tag', "<ScopeCTH>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/FeroZ24_reticle.png",
@@ -44192,7 +44135,6 @@ return {
 								"IncreaseShotAP",
 								"ScopeMagnification",
 								"ScopeHandlingReduce",
-								"ScopeCTHBonus",
 								"ScopeOverwatchAngleDecrease",
 							},
 							Parameters = {
@@ -44219,11 +44161,6 @@ return {
 									'Name', "ScopeHandlingReduce",
 									'Value', 6,
 									'Tag', "<ScopeHandlingReduce>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeCTH",
-									'Value', 5,
-									'Tag', "<ScopeCTH>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/ACOG_reticle.png",
@@ -44565,7 +44502,6 @@ return {
 								"CritBonusWhenFullyAimed",
 								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
-								"ScopeCTHBonus",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -44587,11 +44523,6 @@ return {
 									'Name', "ScopeHandlingReduce",
 									'Value', 16,
 									'Tag', "<ScopeHandlingReduce>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeCTH",
-									'Value', 14,
-									'Tag', "<ScopeCTH>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/PSO1_Reticle.png",
@@ -44629,7 +44560,6 @@ return {
 								"CritBonusWhenFullyAimed",
 								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
-								"ScopeCTHBonus",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -44656,11 +44586,6 @@ return {
 									'Name', "ScopeHandlingReduce",
 									'Value', 30,
 									'Tag', "<ScopeHandlingReduce>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeCTH",
-									'Value', 20,
-									'Tag', "<ScopeCTH>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/Mildotx20_reticle.png",
@@ -44842,7 +44767,6 @@ return {
 								"CritBonusWhenFullyAimed",
 								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
-								"ScopeCTHBonus",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -44864,11 +44788,6 @@ return {
 									'Name', "ScopeHandlingReduce",
 									'Value', 20,
 									'Tag', "<ScopeHandlingReduce>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeCTH",
-									'Value', 14,
-									'Tag', "<ScopeCTH>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/Cross_reticle.png",
@@ -45043,7 +44962,6 @@ return {
 								"CritBonusWhenFullyAimed",
 								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
-								"ScopeCTHBonus",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -45070,11 +44988,6 @@ return {
 									'Name', "ScopeHandlingReduce",
 									'Value', 16,
 									'Tag', "<ScopeHandlingReduce>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeCTH",
-									'Value', 10,
-									'Tag', "<ScopeCTH>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/FrenchFR1_reticle.png",
@@ -45278,11 +45191,6 @@ return {
 									'Value', 12,
 									'Tag', "<ScopeHandlingReduce>",
 								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeCTH",
-									'Value', 3,
-									'Tag', "<ScopeCTH>",
-								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/ScopeCrossZoom2.png",
 							ReticleInnerSub = "Mod/e6L4ECj/Icons/scope/ScopeCrossZoom1.png",
@@ -45459,7 +45367,6 @@ return {
 								"CritBonusWhenFullyAimed",
 								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
-								"ScopeCTHBonus",
 								"SmallMagnification",
 							},
 							Parameters = {
@@ -45505,11 +45412,6 @@ return {
 									'Name', "ScopeHandlingReduce",
 									'Value', 16,
 									'Tag', "<ScopeHandlingReduce>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeCTH",
-									'Value', 12,
-									'Tag', "<ScopeCTH>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/Mildotx20_reticle.png",
@@ -45686,7 +45588,6 @@ return {
 								"CritBonusWhenFullyAimed",
 								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
-								"ScopeCTHBonus",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -45754,7 +45655,6 @@ return {
 								"CritBonusWhenFullyAimed",
 								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
-								"ScopeCTHBonus",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -45829,7 +45729,6 @@ return {
 								"CritBonusWhenFullyAimed",
 								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
-								"ScopeCTHBonus",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -45866,11 +45765,6 @@ return {
 									'Name', "ScopeHandlingReduce",
 									'Value', 12,
 									'Tag', "<ScopeHandlingReduce>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "BonusCTH",
-									'Value', 9,
-									'Tag', "<BonusCTH>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/DA6_reticle.png",
@@ -46036,7 +45930,6 @@ return {
 								"CritBonusWhenFullyAimed",
 								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
-								"ScopeCTHBonus",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -46063,11 +45956,6 @@ return {
 									'Name', "ScopeHandlingReduce",
 									'Value', 16,
 									'Tag', "<ScopeHandlingReduce>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeCTH",
-									'Value', 10,
-									'Tag', "<ScopeCTH>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/PSO1_Reticle.png",
@@ -46104,7 +45992,6 @@ return {
 								"CritBonusWhenFullyAimed",
 								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
-								"ScopeCTHBonus",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -46131,11 +46018,6 @@ return {
 									'Name', "ScopeHandlingReduce",
 									'Value', 12,
 									'Tag', "<ScopeHandlingReduce>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeCTH",
-									'Value', 6,
-									'Tag', "<ScopeCTH>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/PU_reticle.png",
@@ -46204,7 +46086,6 @@ return {
 								"CritBonusWhenFullyAimed",
 								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
-								"ScopeCTHBonus",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -46230,11 +46111,6 @@ return {
 									'Name', "ScopeHandlingReduce",
 									'Value', 16,
 									'Tag', "<ScopeHandlingReduce>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeCTH",
-									'Value', 12,
-									'Tag', "<ScopeCTH>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/ScopeCrossZoom2.png",
@@ -63209,70 +63085,6 @@ return {
 				}),
 				}),
 			PlaceObj('ModItemCombatAction', {
-				ActivePauseBehavior = "queue",
-				Description = T(744710149249, --[[ModItemCombatAction Bolting Description]] "Передернуть затвор"),
-				DisplayName = T(508625921588, --[[ModItemCombatAction Bolting DisplayName]] "«Затвор»"),
-				GetAPCost = function (self, unit, args)
-					if HasPerk(unit, "MrFixit") then
-						return  CharacterEffectDefs.MrFixit:ResolveValue("mrfixit_ap") * const.Scale.AP
-					end
-					if self.CostBasedOnWeapon then
-						local weapon = self:GetAttackWeapons(unit, args)	
-						return weapon and unit:GetAttackAPCost(self, weapon, nil, args and args.aim or 0, self.ActionPointDelta) or -1
-					end
-					return self.ActionPoints
-				end,
-				GetUIState = function (self, units, args)
-					local unit = units[1]
-					local cost = self:GetAPCost(unit, args)
-					if cost < 0 then return "hidden" end
-					
-					local weapon = false
-					if args and args.pos then
-						weapon = unit:GetItemAtPackedPos(args.pos)
-					elseif args and args.weapon then
-						weapon = unit:GetWeaponByDefIdOrDefault("Firearm", args and args.weapon, args and args.pos)
-					end	
-					
-					if weapon then -- from Inventory
-						local bolted = false
-						if IsKindOf(weapon, "Firearm") and weapon.bolted and not weapon:IsCondition("Broken") then
-							bolted = true
-						end
-						if not bolted then return "hidden" end
-					else
-						local weapon1, weapon2 = unit:GetActiveWeapons()
-						local weaponbolted1, weaponbolted2 = false, false
-						if IsKindOf(weapon1, "Firearm") and weapon1.bolted and not weapon1:IsCondition("Broken") then
-							weaponbolted1 = true
-						end
-						if IsKindOf(weapon2, "Firearm") and weapon2.bolted and not weapon2:IsCondition("Broken") then
-							weaponbolted2 = true
-						end
-						if not weaponbolted1 and not weaponbolted2 then
-							return "hidden"
-						end
-					end
-					
-					if not unit:UIHasAP(cost) then return "disabled", GetUnitNoApReason(unit) end
-					
-					return "enabled"
-				end,
-				Icon = "UI/Icons/Hud/repair_weapon",
-				IdDefault = "Boltingdefault",
-				IsAimableAttack = false,
-				KeybindingSortId = "2505",
-				MultiSelectBehavior = "first",
-				QueuedBadgeText = T(545875046429, --[[ModItemCombatAction Bolting QueuedBadgeText]] "Передернуть затвор"),
-				RequireState = "any",
-				Run = function (self, unit, ap, args)
-					unit:SetActionCommand("UnjamWeapon", self.id, ap, args)
-				end,
-				SortKey = 10,
-				group = "Default",
-				id = "Bolting",
-			}),
-			PlaceObj('ModItemCombatAction', {
 				ActionType = "Melee Attack",
 				AimType = "melee",
 				ConfigurableKeybind = false,
@@ -69241,7 +69053,7 @@ return {
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
-					return  context:IsWeapon() and IsKindOfClasses(context, "Submachinegun", "Machinegun", "AssaultRifle")
+					return context:IsWeapon() and IsKindOf(context, "Firearm") and (context.Recoil or 0) > 0
 				end,
 				GetProp = function (self, item, unit_id)
 					return item:GetProperty(self.bind_to)
@@ -69249,11 +69061,11 @@ return {
 				SortKey = 50,
 				bind_to = "Recoil",
 				comment = "Потеря точности при каждом выстреле",
-				description = T(666643530404, --[[ModItemWeaponPropertyDef Default Recoil description]] "Потеря точности при каждом последующем выстреле в очереди"),
+				description = T(666643530404, --[[ModItemWeaponPropertyDef Default Recoil description]] "Потеря удержания точности последующих пуль. Чем меньше отдача, тем медленнее снижается шанс попадания в очереди. Сила, стойка, опора и модификации уменьшают её влияние."),
 				display_name = T(472448154262, --[[ModItemWeaponPropertyDef Default Recoil display_name]] "Отдача"),
 				group = "Default",
 				id = "Recoil",
-				max_progress = 25,
+				max_progress = 100,
 				reverse_bar = true,
 				short_display_name = T(737969743393, --[[ModItemWeaponPropertyDef Default Recoil short_display_name]] "Отдача"),
 			}),
@@ -69290,24 +69102,6 @@ return {
 				id = "AutoShots",
 				max_progress = 12,
 				short_display_name = T(703285597871, --[[ModItemWeaponPropertyDef Default AutoShots short_display_name]] "Длина автоогня"),
-			}),
-			PlaceObj('ModItemWeaponPropertyDef', {
-				DisplayForContext = function (self, context)
-					return  context:IsWeapon()
-				end,
-				GetProp = function (self, item, unit_id)
-					return item:GetProperty(self.bind_to)
-				end,
-				SortKey = 53,
-				bind_to = "BoltingAP",
-				comment = "Количество ОД на передергивание затвора",
-				description = T(862802283785, --[[ModItemWeaponPropertyDef Default BoltingAP description]] "Количество ОД на передергивание затвора"),
-				display_name = T(347116257752, --[[ModItemWeaponPropertyDef Default BoltingAP display_name]] "Количество ОД на передергивание затвора"),
-				group = "Default",
-				id = "BoltingAP",
-				max_progress = 5,
-				reverse_bar = true,
-				short_display_name = T(992513377784, --[[ModItemWeaponPropertyDef Default BoltingAP short_display_name]] "Количество ОД на передергивание затвора"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -69352,7 +69146,7 @@ return {
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
-					return  context:IsWeapon() and (item:GetProperty(self.bind_to) > 0)
+					return false
 				end,
 				GetProp = function (self, item, unit_id)
 					return item:GetProperty(self.bind_to)

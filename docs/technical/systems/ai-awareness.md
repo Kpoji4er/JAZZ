@@ -54,6 +54,8 @@ JAZZ существенно меняет выбор действий AI, оце�
 6. `AISelectAction` запускает действие; execution проходит общие combat/weapon systems.
 7. Noise, damage, sight и события боя обновляют alerts/suspicion.
 
+`GetCTHByAimLevels` вызывает тот же `Unit:CalcChanceToHit`, что UI и фактическая атака. `PredictCTH` больше не вычитает линейный recoil: он строит общий `JAZZ_CTHGetRecoilProfile` и суммирует `JAZZ_CTHGetBulletChance` для той же последовательности пуль. Поэтому отдельная правка AI-точности должна считаться изменением общего CTH-контракта.
+
 ## Policies и тактические расширения
 
 JAZZ оценивает attack AP, cover, anti-flank, proximity, high ground, enemy Will и безопасность позиции. Rato-модули добавляют custom seek-cover, grenade range, MG setup AP и запрет очевидного подставления под фланг. Machine gun требует согласованности setup position, AP, action availability и visual/entity state.
@@ -90,7 +92,8 @@ AI keywords в units: `Melee`, `CQB`, `Soldier`, `Marksman`, `Sniper`, `Leader`,
 - переход exploration → conflict → turn → combat end;
 - отсутствие зацикливания и разумное время AI turn;
 - разрешение текущего upstream CommonLib перед каждой задачей и повторное сравнение всех AI-коллизий при изменении HEAD;
-- deterministic multiplayer/replay.
+- deterministic multiplayer/replay;
+- совпадение выбранного aim-level и predicted multishot CTH с crosshair/фактической атакой для одинакового контекста.
 
 ## Сопровождение
 

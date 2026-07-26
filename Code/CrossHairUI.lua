@@ -556,3 +556,110 @@ function CthVisible()
 	--return table.find(ModsLoaded, "id", "KAJY0RB")
 	return AreModdingToolsActive()
 end
+
+local function JAZZ_CTHQualitativeSign(value)
+	if not value or value == 0 then
+		return ""
+	end
+
+	local count = Clamp(math.ceil(abs(value) / 10), 1, 10)
+	local token = value > 0
+		and "<color PDASectorInfo_Green>+</color>"
+		or "<color DescriptionTextRed>-</color>"
+	local sign = ""
+	for _ = 1, count do
+		sign = sign .. token
+	end
+	return sign
+end
+
+local function JAZZ_CTHDebugValue(mod)
+	local value = mod.ui_value ~= nil and mod.ui_value or mod.value or 0
+	local rounded = value >= 0 and math.floor(value + 0.5) or math.ceil(value - 0.5)
+	local text = string.format("%+d%%", rounded)
+	if mod.factor then
+		text = text .. string.format("  x%.3f", mod.factor / JAZZ_CTH_FACTOR_SCALE)
+	end
+	if mod.before ~= nil and mod.after ~= nil then
+		text = text .. string.format("  %.1f -> %.1f", mod.before, mod.after)
+	end
+	return Untranslated(text)
+end
+
+function PopulateCrosshairUICth(win, attacker, action, attackResults)
+	local dont_show = action.AlwaysHits
+	win:SetVisible(not dont_show)
+	if dont_show or not attackResults then
+		return
+	end
+
+	local chance_to_hit = attackResults.chance_to_hit
+	local modifiers = attackResults.chance_to_hit_modifiers
+	local debug_cth = CthVisible()
+
+	if debug_cth then
+		win.idChanceToHit:SetText(T{
+			757275361770,
+			"ACCURACY: <right><percent(chanceToHit)>",
+			chanceToHit = chance_to_hit,
+		})
+		win.idChanceToHit.parent:SetZOrder(1)
+	else
+		win.idChanceToHit:SetText(T(906758075439, "ACCURACY"))
+		win.idChanceToHit.parent:SetZOrder(0)
+	end
+
+	if not modifiers then
+		win:SetVisible(false)
+		return
+	end
+
+	local concat_list = {}
+	for _, mod in ipairs(modifiers) do
+		if not mod.uiHidden and mod.name then
+			local ui_value = mod.ui_value ~= nil and mod.ui_value or mod.value or 0
+			if ui_value ~= 0 then
+				local sign = debug_cth and JAZZ_CTHDebugValue(mod) or JAZZ_CTHQualitativeSign(ui_value)
+				concat_list[#concat_list + 1] = T{
+					221170966425,
+					"<name><right><style PDABrowserTextLightBold><sign></style>",
+					name = mod.name,
+					sign = sign,
+				}
+			end
+
+			if mod.metaText then
+				if IsT(mod.metaText) then
+					concat_list[#concat_list + 1] = T{
+						399490205680,
+						"<left> <metaText>",
+						metaText = mod.metaText,
+					}
+				else
+					for _, text in ipairs(mod.metaText) do
+						concat_list[#concat_list + 1] = T{
+							399490205680,
+							"<left> <metaText>",
+							metaText = text,
+						}
+					end
+				end
+			end
+		end
+	end
+
+	if debug_cth and attackResults.shot_cth and #attackResults.shot_cth > 0 then
+		local bullet_values = {}
+		for i, value in ipairs(attackResults.shot_cth) do
+			bullet_values[i] = string.format("%d: %d%%", i, value)
+		end
+		concat_list[#concat_list + 1] = T{
+			982641736203,
+			"Пули<right><values>",
+			values = Untranslated(table.concat(bullet_values, " / ")),
+		}
+	end
+
+	win.idModifiers:SetVisible(true)
+	win.idModifiers:SetText(Untranslated(table.concat(concat_list, "\n<left>")))
+end

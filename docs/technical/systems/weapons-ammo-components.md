@@ -29,7 +29,7 @@ JAZZ превращает оружие из набора vanilla-статов в
 
 В core-пакете зарегистрировано 558 `InventoryItem` definitions. Крупные оружейные семейства: 24 pistol, 24 SMG, 18 assault rifle, 17 sniper rifle, 14 battle rifle, 13 carbine, 13 revolver, 12 shotgun, 10 machine gun, 9 LMG, 6 autopistol и 4 grenade launcher. Также присутствуют ammo, armor, ordnance, misc/quest items и melee.
 
-Определены 11 типов оружия: `Pistol`, `Autopistol`, `Revolver`, `SMG`, `AssaultRifle`, `Carbine`, `BattleRifle`, `Shotgun`, `LightMachineGun`, `MachineGun`, `Sniper`; 27 калибров; 236 `WeaponComponent`; 64 `WeaponComponentEffect`; 14 `WeaponPropertyDef`.
+Определены 11 типов оружия: `Pistol`, `Autopistol`, `Revolver`, `SMG`, `AssaultRifle`, `Carbine`, `BattleRifle`, `Shotgun`, `LightMachineGun`, `MachineGun`, `Sniper`; 27 калибров; 236 `WeaponComponent`; 64 `WeaponComponentEffect`; 13 `WeaponPropertyDef`.
 
 Устаревшие `CompactSMG` и `CompactSubmachineGun` удалены, а компактные образцы входят в единый класс `SMG` / `SubmachineGun`. `LightMachineGun` соответствует лёгкому пулемёту, а `MachineGun` — тяжёлому/позиционному. Назначение, компромиссы и будущие перковые действия всех классов зафиксированы в [ролях классов оружия](../weapons/class-roles.md).
 
@@ -44,13 +44,15 @@ JAZZ превращает оружие из набора vanilla-статов в
 
 В актуальном документальном контракте используются 13 weapon property definitions: `AimAccuracy`, `AutoShots`, `BaseDamage`, `BulletDropRange`, `BurstShots`, `Damage`, `Grouping`, `Handling`, `MaxAimActions`, `Noise`, `OverwatchAngle`, `Recoil`, `WeaponRange`.
 
-В [целевой модели стрельбы](../weapons/accuracy-model.md) `Handling` становится legacy-полем и перестаёт участвовать в CTH. `Recoil` мигрирует на шкалу удержания точности последующих пуль, а оптика получает параметры переноса эффективной прицельной зоны. Это ещё не действующее runtime-поведение.
+В [модели стрельбы](../weapons/accuracy-model.md) `Handling` является скрытым сериализованным legacy-полем и не участвует в CTH. `Recoil` задаёт тяжесть множительного удержания точности последующих пуль. Оптика переносит эффективную прицельную зону через aim progress, не увеличивает физическую дальность и больше не получает старые плоские CTH-effects.
 
 ## Канонический каталог
 
 Полная таблица 160 технических weapon ID, 157 активных игроковых записей, balance-tier, характеристик и слотов находится в [каноническом каталоге оружия](../weapons/README.md). Тиры из профильных Google Sheets были использованы только для первичной миграции и выявили 25 расхождений с Lua-комментариями; после миграции источником истины является CSV. AR15, M4Commando и базовый MP5 отмечены как excluded_disabled и не публикуются в wiki.
 
 ## Компоненты
+
+Канонические связи компонентов и эффектов находятся в `docs/technical/weapons/data/weapon-components.csv` и `weapon-component-effects.csv`. Runtime сначала использует resolved свойства оружия, поэтому component modifier `Recoil` не умножается второй раз при построении recoil profile.
 
 64 effects покрывают:
 

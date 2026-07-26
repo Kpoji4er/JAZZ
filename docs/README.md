@@ -4,11 +4,12 @@
 
 - [`specs/`](specs/README.md) — требования, DoR, DoD и evidence до приёмки изменения;
 - [`decisions/`](decisions/README.md) — долгоживущие архитектурные решения;
-- [`technical/`](technical/README.md) — фактически загруженное текущее состояние;
+- [`technical/`](technical/README.md) — фактически загруженное текущее состояние для разработчика и агента;
+- [`wiki/`](wiki/README.md) — игроковый справочник без внутренних реализационных деталей;
 - [ownership/](ownership/README.md) — write sets и exclusive resources параллельных агентов;
 - [`glossary.md`](glossary.md) — единый словарь терминов.
 
-`docs/wiki/` сейчас отсутствует и не входит в Definition of Done. Не создавать ссылки или обязательные проверки wiki до отдельного ADR о её восстановлении.
+`docs/wiki/` восстановлена решением [ADR-0002](decisions/ADR-0002-technical-and-player-docs.md). Для заметного игроку изменения technical current-state и соответствующая wiki-страница обновляются вместе; generated weapon pages изменяются только через канонические CSV и генератор.
 
 ## Контракт изменения
 

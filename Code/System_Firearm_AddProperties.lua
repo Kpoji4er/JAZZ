@@ -2,7 +2,7 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
     category = "New Weapon System - Autofire",
     id = "Recoil",
     name = "Recoil",
-    help = "Падение CTH на каждый последующий выстрел в очереди",
+    help = "Accuracy retention loss for follow-up bullets; lower is easier to control",
     editor = "number",
     default = 100,
     template = true,
@@ -23,26 +23,6 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
     modifiable = true
 }
 
-
-FirearmProperties.properties[#FirearmProperties.properties+1] = {
-    category = "Caliber",
-    id = "BoltingAP",
-    name = "BoltingAP",
-    help = "Количество ОД на передергивание затвора",
-    editor = "number",
-    default = 0,
-    template = true,
-    min = 0,
-    max = 1,
-    modifiable = true
-}
-
-FirearmProperties.properties[#FirearmProperties.properties+1] = {
-    id = "Bolted",
-    name = "Bolted",
-    editor = "bool",
-    default = false,
-}
 
 FirearmProperties.properties[#FirearmProperties.properties+1] = {
     category = "New Weapon System - Autofire",
@@ -118,7 +98,7 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
     category = "New Weapon System",
     id = "Handling",
     name = "Handling",
-    help = "Эргономика",
+    help = "Legacy serialized value; does not affect chance to hit",
     editor = "number",
     default = 0,
     template = true,
@@ -394,9 +374,6 @@ function GetWeaponModifyProperties(item)
 
 	local GroupingPreset = Presets.WeaponPropertyDef.Default.Grouping
 	statList[#statList + 1] = { max = GroupingPreset.max_progress, bind_to = GroupingPreset.bind_to }
-
-	local HandlingPreset = Presets.WeaponPropertyDef.Default.Handling
-	statList[#statList + 1] = { max = HandlingPreset.max_progress, bind_to = HandlingPreset.bind_to }
 
     if (item.BulletDropRange > 0) then
     local effRange = Presets.WeaponPropertyDef.Default.BulletDropRange
