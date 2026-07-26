@@ -157,6 +157,7 @@ function Normalize-LocalizationText {
 
 function Get-TextKey {
     param([string] $Text)
+
     $normalized = Normalize-LocalizationText -Text $Text
     return [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($normalized))
 }
@@ -344,6 +345,16 @@ function Get-CommentOwnerTokens {
     return @($tokens.Keys)
 }
 
+function Get-NormalizedGeneratedContext {
+    param([string] $Comment)
+
+    $context = $Comment.Trim()
+    if ($context.StartsWith("ModItem", [StringComparison]::Ordinal)) {
+        $context = $context.Substring(7)
+    }
+    return $context
+}
+
 function Select-GameCandidate {
     param(
         [string] $OldID,
@@ -355,16 +366,95 @@ function Select-GameCandidate {
     $candidateRows = @($Candidates)
     if ($candidateRows.Count -eq 0) {
         return [pscustomobject]@{
-            Row        = $null
-            MatchKind  = ""
-            Ambiguous  = $false
+            Row          = $null
+            MatchKind    = ""
+            Ambiguous    = $false
             CandidateIDs = ""
+        }
+    }
+
+    $candidateIds = @($candidateRows.ID | Sort-Object { [decimal]$_ }) -join " | "
+    $comments = @(
+        $Uses |
+            ForEach-Object { Get-NormalizedGeneratedContext -Comment $_.Comment } |
+            Where-Object { $_ } |
+            Sort-Object -Unique
+    )
+
+    if ($comments.Count -gt 0) {
+        $ownerTokens = @(Get-CommentOwnerTokens -Uses $Uses)
+        $scored = foreach ($row in $candidateRows) {
+            $score = 0
+            $gameContext = if ($row.Context) { $row.Context.Trim() } else { "" }
+            foreach ($comment in $comments) {
+                if ($gameContext -and $comment.Equals($gameContext, [StringComparison]::Ordinal)) {
+                    $score = [Math]::Max($score, 100000)
+                }
+                elseif (
+                    $gameContext -and
+                    (
+                        $comment.StartsWith($gameContext + " ", [StringComparison]::Ordinal) -or
+                        $gameContext.StartsWith($comment + " ", [StringComparison]::Ordinal)
+                    )
+                ) {
+                    $score = [Math]::Max(
+                        $score,
+                        50000 + [Math]::Min($comment.Length, $gameContext.Length)
+                    )
+                }
+            }
+            foreach ($token in $ownerTokens) {
+                if ($row.Context -match ('[\\/]' + [regex]::Escape($token) + '(?:\.generated)?\.lua\(')) {
+                    $score = [Math]::Max($score, 1000)
+                }
+            }
+            [pscustomobject]@{
+                Row   = $row
+                Score = $score
+            }
+        }
+
+        $maxScore = @($scored | Measure-Object Score -Maximum).Maximum
+        $best = @($scored | Where-Object Score -eq $maxScore)
+        if ($maxScore -gt 0 -and $best.Count -eq 1) {
+            return [pscustomobject]@{
+                Row          = $best[0].Row
+                MatchKind    = "generated-context"
+                Ambiguous    = $false
+                CandidateIDs = $candidateIds
+            }
+        }
+        if ($maxScore -gt 0) {
+            $currentBest = @($best | Where-Object { $_.Row.ID -eq $OldID })
+            if ($currentBest.Count -eq 1) {
+                return [pscustomobject]@{
+                    Row          = $currentBest[0].Row
+                    MatchKind    = "generated-context-current-id"
+                    Ambiguous    = $false
+                    CandidateIDs = $candidateIds
+                }
+            }
+            return [pscustomobject]@{
+                Row          = $null
+                MatchKind    = "ambiguous-generated-context"
+                Ambiguous    = $true
+                CandidateIDs = $candidateIds
+            }
+        }
+        return [pscustomobject]@{
+            Row          = $null
+            MatchKind    = "generated-context-not-in-game"
+            Ambiguous    = $false
+            CandidateIDs = $candidateIds
         }
     }
 
     $current = @($candidateRows | Where-Object ID -eq $OldID)
     if ($current.Count -eq 1) {
-        $kind = if ((Normalize-LocalizationText $OldText) -eq (Normalize-LocalizationText $current[0].Text)) {
+        $kind = if (
+            (Normalize-LocalizationText $OldText) -eq
+            (Normalize-LocalizationText $current[0].Text)
+        ) {
             "current-game-text"
         }
         else {
@@ -374,13 +464,16 @@ function Select-GameCandidate {
             Row          = $current[0]
             MatchKind    = $kind
             Ambiguous    = $false
-            CandidateIDs = $OldID
+            CandidateIDs = $candidateIds
         }
     }
 
     if ($candidateRows.Count -eq 1) {
         $row = $candidateRows[0]
-        $kind = if ((Normalize-LocalizationText $OldText) -eq (Normalize-LocalizationText $row.Text)) {
+        $kind = if (
+            (Normalize-LocalizationText $OldText) -eq
+            (Normalize-LocalizationText $row.Text)
+        ) {
             "unique-game-text"
         }
         else {
@@ -390,31 +483,7 @@ function Select-GameCandidate {
             Row          = $row
             MatchKind    = $kind
             Ambiguous    = $false
-            CandidateIDs = $row.ID
-        }
-    }
-
-    $ownerTokens = @(Get-CommentOwnerTokens -Uses $Uses)
-    $scored = foreach ($row in $candidateRows) {
-        $score = 0
-        foreach ($token in $ownerTokens) {
-            if ($row.Context -match ('[\\/]' + [regex]::Escape($token) + '\.lua\(')) {
-                $score += 10
-            }
-        }
-        [pscustomobject]@{
-            Row   = $row
-            Score = $score
-        }
-    }
-    $maxScore = @($scored | Measure-Object Score -Maximum).Maximum
-    $best = @($scored | Where-Object Score -eq $maxScore)
-    if ($maxScore -gt 0 -and $best.Count -eq 1) {
-        return [pscustomobject]@{
-            Row          = $best[0].Row
-            MatchKind    = "generated-owner-context"
-            Ambiguous    = $false
-            CandidateIDs = @($candidateRows.ID | Sort-Object { [decimal]$_ }) -join " | "
+            CandidateIDs = $candidateIds
         }
     }
 
@@ -426,7 +495,7 @@ function Select-GameCandidate {
             Row          = $row
             MatchKind    = "equivalent-game-rows"
             Ambiguous    = $false
-            CandidateIDs = @($candidateRows.ID | Sort-Object { [decimal]$_ }) -join " | "
+            CandidateIDs = $candidateIds
         }
     }
 
@@ -434,7 +503,7 @@ function Select-GameCandidate {
         Row          = $null
         MatchKind    = "ambiguous-game-match"
         Ambiguous    = $true
-        CandidateIDs = @($candidateRows.ID | Sort-Object { [decimal]$_ }) -join " | "
+        CandidateIDs = $candidateIds
     }
 }
 
@@ -469,22 +538,27 @@ if ($Mode -eq "Plan") {
     $ambiguityRows = New-Object "System.Collections.Generic.List[object]"
     foreach ($group in $pairGroups) {
         $first = $group.Group[0]
-        $activeUses = @($group.Group | Where-Object State -ne "dormant")
+        $groupUses = @($group.Group | ForEach-Object { $_ })
+        $activeUses = @($groupUses | Where-Object State -ne "dormant")
         $candidates = @(Get-GameCandidates -Text $first.Text)
         $selection = Select-GameCandidate `
             -OldID $first.ID `
             -OldText $first.Text `
-            -Uses $group.Group `
+            -Uses $groupUses `
             -Candidates $candidates
 
         if ($selection.Ambiguous) {
             $ambiguityRows.Add([pscustomobject]@{
-                OldID       = $first.ID
-                SourceText  = $first.Text
+                OldID        = $first.ID
+                SourceText   = $first.Text
                 CandidateIDs = $selection.CandidateIDs
-                Comments    = @($group.Group.Comment | Where-Object { $_ } | Sort-Object -Unique) -join " | "
-                Locations   = @(
-                    $group.Group |
+                Comments     = @(
+                    $groupUses.Comment |
+                        Where-Object { $_ } |
+                        Sort-Object -Unique
+                ) -join " | "
+                Locations    = @(
+                    $groupUses |
                         Sort-Object Package, File, Line |
                         ForEach-Object { "$($_.Package):$($_.File):$($_.Line)" }
                 ) -join " | "
@@ -492,18 +566,18 @@ if ($Mode -eq "Plan") {
         }
 
         $analysisRows.Add([pscustomobject]@{
-            PairKey          = Get-PairKey -ID $first.ID -Text $first.Text
-            OldID            = $first.ID
-            OldText          = $first.Text
-            Uses             = @($group.Group)
+            PairKey           = Get-PairKey -ID $first.ID -Text $first.Text
+            OldID             = $first.ID
+            OldText           = $first.Text
+            Uses              = $groupUses
             ActiveOccurrences = $activeUses.Count
-            GameRow          = $selection.Row
-            MatchKind        = $selection.MatchKind
-            CandidateIDs     = $selection.CandidateIDs
-            Ambiguous        = $selection.Ambiguous
-            Action           = ""
-            NewID            = ""
-            NewText          = ""
+            GameRow           = $selection.Row
+            MatchKind         = $selection.MatchKind
+            CandidateIDs      = $selection.CandidateIDs
+            Ambiguous         = $selection.Ambiguous
+            Action            = ""
+            NewID             = ""
+            NewText           = ""
         })
     }
 
@@ -538,7 +612,10 @@ if ($Mode -eq "Plan") {
 
     $nextId = $RangeStart
     foreach ($oldId in @($remainingByOldId.Keys | Sort-Object { [decimal]$_ })) {
-        $remaining = @($remainingByOldId[$oldId] | ForEach-Object { $_ })
+        $remaining = @(
+            $remainingByOldId[$oldId] |
+                ForEach-Object { $_ }
+        )
         $requiresNewId = (
             $gameById.ContainsKey($oldId) -or
             [decimal]$oldId -ge 9007199254740992 -or
@@ -548,7 +625,10 @@ if ($Mode -eq "Plan") {
             continue
         }
 
-        foreach ($analysis in @($remaining | Sort-Object { Get-TextKey -Text $_.OldText })) {
+        foreach ($analysis in @(
+            $remaining |
+                Sort-Object { Get-TextKey -Text $_.OldText }
+        )) {
             while ($nextId -le $RangeEnd -and $usedIds.ContainsKey([string]$nextId)) {
                 $nextId++
             }
@@ -582,7 +662,7 @@ if ($Mode -eq "Plan") {
             continue
         }
 
-        $uses = @($analysis.Uses)
+        $uses = @($analysis.Uses | ForEach-Object { $_ })
         $locations = @(
             $uses |
                 Sort-Object Package, File, Line |
@@ -600,7 +680,12 @@ if ($Mode -eq "Plan") {
             Packages          = @($uses.Package | Sort-Object -Unique) -join " | "
             States            = @($uses.State | Sort-Object -Unique) -join " | "
             Locations         = $locations -join " | "
-            GameLocation      = if ($null -ne $analysis.GameRow) { $analysis.GameRow.Context } else { "" }
+            GameLocation      = if ($null -ne $analysis.GameRow) {
+                $analysis.GameRow.Context
+            }
+            else {
+                ""
+            }
             CandidateIDs      = $analysis.CandidateIDs
             Applied           = "no"
         })
@@ -639,12 +724,11 @@ if ($Mode -eq "Plan") {
 
     $restoreRows = @($manifestRows | Where-Object Action -eq "restore-vanilla")
     $newRows = @($manifestRows | Where-Object Action -like "assign-mod-id*")
-    $keptPairs = $analysisRows.Count - $manifestRows.Count
     Write-Output "JAZZ localization clone/ID migration plan"
     Write-Output "Lua ID+text pairs: $($analysisRows.Count)"
     Write-Output "Restore vanilla pairs: $($restoreRows.Count); occurrences=$(($restoreRows | Measure-Object Occurrences -Sum).Sum)"
     Write-Output "Assign mod IDs: $($newRows.Count); occurrences=$(($newRows | Measure-Object Occurrences -Sum).Sum)"
-    Write-Output "Keep unchanged pairs: $keptPairs"
+    Write-Output "Keep unchanged pairs: $($analysisRows.Count - $manifestRows.Count)"
     Write-Output "Ambiguous vanilla matches: $($ambiguityRows.Count)"
     if ($newRows.Count -gt 0) {
         Write-Output "Allocated mod range: $($newRows[0].NewID)..$($newRows[-1].NewID)"
@@ -674,6 +758,7 @@ if (Test-Path -LiteralPath $AmbiguityPath -PathType Leaf) {
 
 $mappingByOldPair = @{}
 $expectedTextByNewId = @{}
+$finalPairKeys = @{}
 foreach ($row in $manifestRows) {
     if ($row.OldID -notmatch '^\d+$' -or $row.NewID -notmatch '^\d+$') {
         throw "Manifest contains a non-numeric ID."
@@ -695,6 +780,7 @@ foreach ($row in $manifestRows) {
         throw "NewID $($row.NewID) maps to different final texts."
     }
     $expectedTextByNewId[$row.NewID] = $newTextKey
+    $finalPairKeys[(Get-PairKey -ID $row.NewID -Text $row.NewText)] = $true
 }
 
 foreach ($use in $luaUses) {
@@ -704,60 +790,49 @@ foreach ($use in $luaUses) {
             -not $mappingByOldPair.ContainsKey($oldPairKey) -and
             $expectedTextByNewId[$use.ID] -ne (Get-TextKey -Text $use.Text)
         ) {
-            throw "Final ID $($use.ID) is currently used by an unrelated text at $($use.Package):$($use.File):$($use.Line)."
+            throw "Final ID $($use.ID) is used by an unrelated text at $($use.Package):$($use.File):$($use.Line)."
         }
     }
 }
 
 $replacementsByFile = @{}
-$oldPairCounts = @{}
-$newPairCounts = @{}
+$seenOldPairs = @{}
+$seenFinalPairs = @{}
 foreach ($use in $luaUses) {
-    $oldPairKey = Get-PairKey -ID $use.ID -Text $use.Text
-    if ($mappingByOldPair.ContainsKey($oldPairKey)) {
+    $pairKey = Get-PairKey -ID $use.ID -Text $use.Text
+    if ($mappingByOldPair.ContainsKey($pairKey)) {
         if (-not $replacementsByFile.ContainsKey($use.FullPath)) {
             $replacementsByFile[$use.FullPath] = New-Object "System.Collections.Generic.List[object]"
         }
-        $mapping = $mappingByOldPair[$oldPairKey]
-        if ($mapping.OldText -ne $mapping.NewText) {
+        $mapping = $mappingByOldPair[$pairKey]
+        if (
+            (Normalize-LocalizationText $mapping.OldText) -ne
+            (Normalize-LocalizationText $mapping.NewText)
+        ) {
             $replacementsByFile[$use.FullPath].Add([pscustomobject]@{
-                Index = $use.TextIndex
+                Index  = $use.TextIndex
                 Length = $use.TextLength
-                Value = ConvertTo-LuaQuotedText -Text $mapping.NewText -Quote $use.Quote
+                Value  = ConvertTo-LuaQuotedText -Text $mapping.NewText -Quote $use.Quote
             })
         }
         if ($mapping.OldID -ne $mapping.NewID) {
             $replacementsByFile[$use.FullPath].Add([pscustomobject]@{
-                Index = $use.IDIndex
+                Index  = $use.IDIndex
                 Length = $use.IDLength
-                Value = $mapping.NewID
+                Value  = $mapping.NewID
             })
         }
-        if (-not $oldPairCounts.ContainsKey($oldPairKey)) {
-            $oldPairCounts[$oldPairKey] = 0
-        }
-        $oldPairCounts[$oldPairKey]++
+        $seenOldPairs[$pairKey] = $true
     }
-
-    foreach ($row in $manifestRows) {
-        if (
-            $row.NewID -eq $use.ID -and
-            (Get-TextKey -Text $row.NewText) -eq (Get-TextKey -Text $use.Text)
-        ) {
-            $key = Get-PairKey -ID $row.OldID -Text $row.OldText
-            if (-not $newPairCounts.ContainsKey($key)) {
-                $newPairCounts[$key] = 0
-            }
-            $newPairCounts[$key]++
-        }
+    if ($finalPairKeys.ContainsKey($pairKey)) {
+        $seenFinalPairs[$pairKey] = $true
     }
 }
 
 foreach ($row in $manifestRows) {
-    $key = Get-PairKey -ID $row.OldID -Text $row.OldText
-    $oldCount = if ($oldPairCounts.ContainsKey($key)) { $oldPairCounts[$key] } else { 0 }
-    $newCount = if ($newPairCounts.ContainsKey($key)) { $newPairCounts[$key] } else { 0 }
-    if ($oldCount -eq 0 -and $newCount -eq 0) {
+    $oldKey = Get-PairKey -ID $row.OldID -Text $row.OldText
+    $finalKey = Get-PairKey -ID $row.NewID -Text $row.NewText
+    if (-not $seenOldPairs.ContainsKey($oldKey) -and -not $seenFinalPairs.ContainsKey($finalKey)) {
         throw "Manifest pair is absent with both old and final representation: $($row.OldID) -> $($row.NewID)."
     }
 }
@@ -767,7 +842,10 @@ $replacementCount = 0
 foreach ($filePath in ($replacementsByFile.Keys | Sort-Object)) {
     $fileData = Read-Utf8File -Path $filePath
     $updated = $fileData.Text
-    foreach ($replacement in @($replacementsByFile[$filePath] | Sort-Object Index -Descending)) {
+    foreach ($replacement in @(
+        $replacementsByFile[$filePath] |
+            Sort-Object Index -Descending
+    )) {
         $updated = $updated.Remove($replacement.Index, $replacement.Length).Insert(
             $replacement.Index,
             $replacement.Value

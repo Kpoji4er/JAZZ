@@ -15,12 +15,14 @@ function Add-DocError {
 $main = (Resolve-Path $SuiteRoot).Path
 $parent = Split-Path $main -Parent
 $roots = @(
-    $main,
-    (Join-Path $parent 'jazz_assets'),
-    (Join-Path $parent 'jazz-assets'),
-    (Join-Path $parent 'jazz-maps'),
-    (Join-Path $parent 'jazz-units')
-) | Where-Object { Test-Path -LiteralPath $_ -PathType Container } | Select-Object -Unique
+    @(
+        $main,
+        (Join-Path $parent 'jazz_assets'),
+        (Join-Path $parent 'jazz-assets'),
+        (Join-Path $parent 'jazz-maps'),
+        (Join-Path $parent 'jazz-units')
+    ) | Where-Object { Test-Path -LiteralPath $_ -PathType Container } | Select-Object -Unique
+)
 
 $required = @(
     'docs/README.md',
