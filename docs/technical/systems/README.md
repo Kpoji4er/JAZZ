@@ -16,7 +16,8 @@
 | [Юниты, прогрессия и специализации](units-progression-specializations.md) | UnitData, squads, archetypes, опыт до 21 уровня, stat gain и AIM-фильтры | Не ведётся |
 | [Легион: схема юнитов и тиры снаряжения](legion-units-equipment-tiers.md) | 37 UnitData, шесть боевых семейств, ветви эскалации и campaign equipment tier 11–33 | Не ведётся |
 | [Стратегия, отряды и сектора](strategy-squads-sectors.md) | SatelliteSquad, guardposts, POI, регионы, экономика, операции и World Flip | Не ведётся |
-| [Автотранспорт (сателлит + тактика)](satellite-vehicles.md) | Парковка / сесть / выйти, ускорение по дорогам; тактический Unit, car-move, турель (maps Vehicles + VehicleCombat) | Не ведётся |
+| [Автотранспорт (сателлит + тактика)](satellite-vehicles.md) | Парковка / сесть / выйти, ускорение по дорогам; тактический stub dormant | Не ведётся |
+| [Боевой автомобиль — указатель](combat-vehicle-design.md) | Канон спеки в **JAZZ Maps** `docs/combat-vehicle-design.md`; код ещё не в runtime | Не ведётся |
 | [Карты, квесты и диалоги](maps-quests-dialogue.md) | 317 каталогов карт, 245 секторов, 110 квестов, разговоры, banters и setpiece | Не ведётся |
 | [Каталог квестов, локаций и врагов](maps-quests-content-catalog.md) | Снимок quest/sector/squad IDs из jazz-maps; детально остров Эрни | Не ведётся |
 | [Интерфейс, звук и FX](ui-audio-fx.md) | Crosshair, combat badge, inventory UI, Will bar, sound presets и оружейные FX | Не ведётся |

@@ -2,7 +2,7 @@
 
 ## Назначение и эффект для игрока
 
-Система публикует в Discord короткие русскоязычные заметки о подтверждённых изменениях JAZZ после push в основную ветку `main`. Она переводит технический diff на понятный игрокам язык, но не объявляет работу в репозитории уже выпущенным обновлением.
+Система публикует в Discord короткие русскоязычные заметки об изменениях JAZZ, уже добавленных push в основную ветку `main`. Она переводит подтверждённый implementation diff на понятный игрокам язык, но не утверждает, что изменения уже вошли в опубликованную игровую сборку или релиз.
 
 Автоматизация не меняет игровой runtime, generated data, баланс или порядок загрузки модов. Публикация выполняется только GitHub Actions; отдельный постоянно работающий бот или сервер не нужен.
 
@@ -16,13 +16,15 @@
 
 Контракт подключения четырёх репозиториев зафиксирован в `JAZZ-DISCORD-001`. Каждый push обрабатывается отдельно в контексте репозитория-источника; межрепозиторной агрегации нет.
 
+Контракт разделения implementation evidence и документации зафиксирован в `JAZZ-DISCORD-002`: обычные изменения под `docs/` не доказывают реализацию игрового поведения.
+
 ## Файлы реализации и load-state
 
 | Файл | Статус | Назначение |
 |---|---|---|
 | `jazz/.github/workflows/discord-player-updates.yml` | GitHub Actions only | Прямой запуск core, `workflow_call`, checkout caller-истории и доверенной core-реализации; минимальные `contents: read` permissions |
-| `.github/scripts/discord-player-update.mjs` | CI only | Сбор диапазона, фильтрация, Structured Output, fallback и Discord payload |
-| `.github/scripts/discord-player-update.test.mjs` | development/test only | Локальные тесты чистых функций и временного Git-репозитория |
+| `.github/scripts/discord-player-update.mjs` | CI only | Сбор диапазона, классификация evidence, Structured Output, fallback и Discord payload |
+| `.github/scripts/discord-player-update.test.mjs` | development/test only | Локальные тесты чистых функций, docs-маркеров и временных Git-репозиториев |
 | `jazz_assets/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | Push/ручной запуск для ресурсов; вызывает reusable workflow из `Kpoji4er/JAZZ@main` |
 | `jazz-maps/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | Push/ручной запуск для карт; вызывает reusable workflow из `Kpoji4er/JAZZ@main` |
 | `jazz-units/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | Push/ручной запуск для юнитов; вызывает reusable workflow из `Kpoji4er/JAZZ@main` |
@@ -79,12 +81,14 @@ DISCORD_MENTION_UPDATE_ROLE
 2. В `jazz` выполняется собственный workflow; в `jazz_assets`, `jazz-maps` и `jazz-units` тонкий caller вызывает `Kpoji4er/JAZZ/.github/workflows/discord-player-updates.yml@main`.
 3. Reusable workflow получает `github` context caller, а первый `actions/checkout` получает полную историю репозитория-источника (`fetch-depth: 0`). Для соседнего пакета второй checkout с `persist-credentials: false` получает доверенный скрипт из `Kpoji4er/JAZZ@main` в `.jazz-automation/`.
 4. Скрипт запускается из core checkout, но Git-команды выполняются в корне caller workspace; он разрешает `before` и `after`, собирает все коммиты диапазона, авторов, changed files, line stats и compare URL источника.
-5. Бинарные, generated, localization, lock, build/vendor, agent и CI-файлы остаются в списке имён, но их содержимое не передаётся модели.
-6. Текстовый diff приоритизирует `Code/`, player wiki и Lua, ограничивается на файл и суммарно примерно 50 тысячами символов. Для `jazz-maps` используется только Git diff: рекурсивного обхода `Maps/` нет. Обрезка явно передаётся модели.
-7. Динамические данные проходят базовую редакцию токенов, ключей, паролей, private keys и webhook URL.
-8. При доступном OpenAI Responses API возвращается строгий JSON по JSON Schema: `should_publish`, заголовок, вступление, разделы, development note и confidence. Без ключа или при ошибке API формируется fallback из subject-строк коммитов.
-9. AI-результат или fallback повторно валидируется, редактируется и укладывается в ограничения одного Discord embed.
-10. Discord webhook получает embed с именем репозитория-источника, compare link, short SHA, количеством коммитов и файлов, line stats и timestamp.
+5. Все пути под `docs/` отдельно перечисляются как `documentation_changed_files` и по умолчанию исключаются из diff-контекста. Runtime/data/content-файлы отдельно передаются как `implementation_changed_files`.
+6. Только `[discord implemented]` включает документационный diff и устанавливает `documentation_implementation_explicit=true`. Обычный `[discord]` этого не делает.
+7. Бинарные, generated, localization, lock, build/vendor, agent и CI-файлы остаются в списке имён, но их содержимое не передаётся модели.
+8. Implementation diff приоритизирует `Code/` и Lua, ограничивается на файл и суммарно примерно 50 тысячами символов. Для `jazz-maps` используется только Git diff: рекурсивного обхода `Maps/` нет. Обрезка явно передаётся модели.
+9. Динамические данные проходят базовую редакцию токенов, ключей, паролей, private keys и webhook URL.
+10. При доступном OpenAI Responses API возвращается строгий JSON по JSON Schema: `should_publish`, заголовок, вступление, разделы и confidence. Без ключа или при ошибке API формируется fallback из subject-строк коммитов.
+11. AI-результат или fallback повторно валидируется, редактируется и укладывается в ограничения одного Discord embed. Отдельного `development_note` и секции «За кулисами» нет.
+12. Discord webhook получает embed с именем репозитория-источника, compare link, short SHA, количеством коммитов и файлов, line stats и timestamp.
 
 Commit messages, имена файлов и diff считаются недоверенным вводом. Они передаются как данные, не выполняются shell и не могут изменить системную инструкцию. Git вызывается через массив аргументов без shell interpolation.
 
@@ -102,24 +106,27 @@ Commit messages, имена файлов и diff считаются недове
 До обращения к API workflow успешно завершает задачу без публикации, если:
 
 - commit содержит `[skip discord]`;
-- изменены только CI, тесты, tooling или внутренняя technical/agent-документация;
+- изменены только CI, тесты, tooling или любые файлы под `docs/`, а явного публикующего маркера нет;
 - отсутствуют diff и содержательные сообщения коммитов.
 
-После обращения к API сообщение не публикуется при `should_publish=false` или `confidence=low` без ручного override. Обычно публикуются только изменения кода, игровых данных, контента, ресурсов или player wiki, которым модель может дать подтверждённое игрокоориентированное объяснение.
+После обращения к API сообщение не публикуется при `should_publish=false` или `confidence=low` без ручного override. Факты из implementation diff описываются как уже изменённые в основной ветке, но не как выпущенные в игровой сборке или релизе.
 
 Маркеры сообщений коммитов:
 
-- `[discord]` — запросить публикацию даже для пограничного изменения;
+- `[discord]` — запросить публикацию даже для пограничного изменения; для docs-only это публикация об обновлении документации без утверждения реализации;
+- `[discord implemented]` — явное подтверждение владельца, что документация описывает уже реализованное состояние; разрешает использовать docs diff как supporting evidence;
 - `[skip discord]` — ничего не публиковать;
-- `[skip discord]` всегда имеет приоритет.
+- `[skip discord]` всегда имеет приоритет над обоими публикующими маркерами.
 
-Маркеры регистронезависимы. В fallback они удаляются из публичного текста.
+Маркеры регистронезависимы. В AI-контекст отдельно передаются docs-only и explicit implementation flags; в fallback маркеры удаляются из публичного текста.
 
 ## Fallback без AI
 
 Отсутствие `OPENAI_API_KEY` и любая ошибка OpenAI, включая исчерпанную квоту, автоматически включают fallback:
 
 - override не требуется: после прохождения prefilter формируется нейтральный список subject-строк коммитов без технических выводов;
+- docs-only push без маркера пропускается, а с `[discord]` получает заголовок «JAZZ — обновление документации» и явную оговорку об отсутствии выводов о реализации;
+- fallback для implementation changes называется «JAZZ — изменения в основной ветке», а не «изменения в разработке»;
 - fallback публикуется даже с внутренним `confidence=low`, потому что этот порог относится только к AI-оценке;
 - `[skip discord]` и prefilter служебных изменений по-прежнему имеют приоритет;
 - stack trace, API key, request body и чувствительные данные не отправляются в Discord;
@@ -136,14 +143,14 @@ Commit messages, имена файлов и diff считаются недове
 5. Просмотреть в log причину skip/fallback или sanitized Discord payload.
 6. После успешного dry run повторить с `dry_run=false` только при наличии тестового webhook или при осознанной проверке публичного канала.
 
-Без `OPENAI_API_KEY` обычный dry run автоматически покажет sanitized fallback payload. `force_publish=true` нужен только для осознанного обхода prefilter или AI-решения `should_publish=false`.
+Без `OPENAI_API_KEY` обычный dry run автоматически покажет sanitized fallback payload. Docs-only диапазон без маркера будет пропущен; для проверки документационной публикации нужен `[discord]`, а для явного implementation evidence из docs — `[discord implemented]`. `force_publish=true` нужен только для осознанного обхода prefilter или AI-решения `should_publish=false`.
 
 ## Пример ожидаемого сообщения
 
 ```text
-JAZZ — новости разработки
+Обновлено поведение патрулей и подкреплений JAZZ
 
-Продолжается работа над поведением противников и глобальной картой.
+В основную ветку добавлены изменения поведения противников на глобальной карте.
 
 Что изменилось
 • Вражеские патрули точнее учитывают последствия недавних боёв.
@@ -184,7 +191,7 @@ git diff --check
 - разобрать YAML трёх caller workflows и проверить ссылку на `Kpoji4er/JAZZ/.github/workflows/discord-player-updates.yml@main`;
 - проверить push range на двух коммитах и zero-before;
 - проверить, что `GITHUB_REPOSITORY=Kpoji4er/JAZZ-units` создаёт compare URL caller и метку `JAZZ-units` в Discord footer;
-- проверить valid/invalid JSON, `should_publish=false`, оба commit marker и автоматический fallback без ключа и при ошибке API;
+- проверить valid/invalid JSON, `should_publish=false`, `[discord]`, `[discord implemented]`, приоритет `[skip discord]` и автоматический fallback без ключа и при ошибке API;
 - проверить Discord limits, empty `allowed_mentions.parse`, redaction и mention neutralization;
 - выполнить `workflow_dispatch` с `dry_run=true`;
 - не отправлять реальный webhook без доступного тестового канала.
@@ -196,6 +203,7 @@ git diff --check
 - Для private/internal-репозиториев GitHub требует отдельно разрешить callers доступ к reusable workflow; для public-репозиториев достаточно разрешённого Actions policy.
 - Качество формулировок и стоимость зависят от выбранной модели; изменение `OPENAI_MODEL` требует повторного dry-run теста.
 - Generated и binary content виден модели только по именам файлов и сообщениям коммитов, поэтому недостаточно описанный commit может быть пропущен.
+- Обычная документация видна модели только отдельным списком имён и не является implementation evidence; её содержимое включается только по явному `[discord implemented]`.
 - GitHub-hosted runner должен иметь сетевой доступ к npm, OpenAI API и Discord.
 - Реальная отправка и ответы внешних сервисов не проверяются локальными unit tests.
 

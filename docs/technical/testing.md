@@ -142,6 +142,12 @@ Standalone `lua`/`luac` не является repository dependency. В evidence
 
 Проверить основные сектора Эрни, входы и deployment, квестовые маркеры, setpieces, guardpost, патрули, стратегические отряды, squad logo, POI, доход, World Flip, разговоры, banters и лояльность.
 
+### Автотранспорт
+
+**Сейчас (сателлит only):** M1 → сесть в транспорт → ускорение по дороге; вход в сектор **без** тактического Unit машины; токен после exit/сектора на месте.
+
+**Дизайн боевого авто** (канон): [`JAZZ Maps/docs/combat-vehicle-design.md`](../../JAZZ%20Maps/docs/combat-vehicle-design.md); suite-указатель [systems/combat-vehicle-design.md](systems/combat-vehicle-design.md). Код в runtime ещё не внедрён. Фаза 1 → тест-контракты A/B; `tactical_enabled` → контракт C.
+
 ## Assets
 
 Проверить оружие в руках и на земле, состояния компонентов, магазины, сошки, прицелы, материалы и отсутствие `missing entity/state/spot` в логе. После re-export/re-import повторить проверку в новом процессе игры, чтобы исключить устаревшую cached Entity.
@@ -156,7 +162,9 @@ node --check .github/scripts/discord-player-update.test.mjs
 node --test .github/scripts/discord-player-update.test.mjs
 ```
 
-Отдельно разобрать `.github/workflows/discord-player-updates.yml` YAML-парсером и выполнить `workflow_dispatch` с `dry_run=true`. Тесты должны покрывать полный `before..after`, zero-before, Structured Output JSON, invalid JSON, `should_publish=false`, `[discord]`, `[skip discord]`, автоматический fallback без ключа и при ошибке API, redaction, neutralization Discord mentions, embed limits и `allowed_mentions.parse=[]`.
+Отдельно разобрать `.github/workflows/discord-player-updates.yml` YAML-парсером и выполнить `workflow_dispatch` с `dry_run=true`. Тесты должны покрывать полный `before..after`, zero-before, Structured Output JSON, invalid JSON, `should_publish=false`, `[discord]`, `[discord implemented]`, приоритет `[skip discord]`, автоматический fallback без ключа и при ошибке API, redaction, neutralization Discord mentions, embed limits и `allowed_mentions.parse=[]`.
+
+Обязательно проверить четыре документационных сценария: docs-only без маркера пропускается до OpenAI; `[discord]` публикует только обновление документации без вывода о реализации; `[discord implemented]` включает docs diff и explicit implementation flag; смешанный code+docs диапазон использует код как implementation evidence, а обычные docs исключает из diff. Fallback и Discord embed не должны автоматически содержать «в разработке» или секцию «За кулисами».
 
 Реальный Discord webhook не вызывать без тестового канала. Отсутствие ключа или ошибка OpenAI должны автоматически публиковать fallback после prefilter; ошибка Discord после решения публиковать должна завершать workflow ошибкой.
 
