@@ -1,6 +1,6 @@
 ---
 id: JAZZ-DISCORD-001
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - discord-player-updates
@@ -100,12 +100,12 @@ approved_by: project-owner
 
 ## Evidence
 
-- `JAZZ-DISCORD-001-AC-001`: `BLOCKED` — реализация и проверки ещё не выполнены.
-- `JAZZ-DISCORD-001-AC-002`: `BLOCKED` — workflow-файлы ещё не созданы.
-- `JAZZ-DISCORD-001-AC-003`: `BLOCKED` — тест caller-репозитория ещё не добавлен.
-- `JAZZ-DISCORD-001-AC-004`: `BLOCKED` — callers ещё не созданы.
-- `JAZZ-DISCORD-001-AC-005`: `BLOCKED` — итоговые diff ещё не сформированы.
-- `JAZZ-DISCORD-001-AC-006`: `BLOCKED` — Done-проверки ещё не выполнялись.
+- `JAZZ-DISCORD-001-AC-001`: `PASS` — static: `node --check` для обоих MJS-файлов и `node --test` завершены, 16/16 тестов прошли; core implementation commit `ae3015d`.
+- `JAZZ-DISCORD-001-AC-002`: `PASS` — static: `js-yaml@4.1.0` разобрал core workflow и три caller workflow без ошибок.
+- `JAZZ-DISCORD-001-AC-003`: `PASS` — static: тест диапазона использует `Kpoji4er/JAZZ-units`, проверяет caller compare URL и AI context; payload-тест проверяет footer `JAZZ-maps`.
+- `JAZZ-DISCORD-001-AC-004`: `PASS` — static: callers содержат только `contents: read`, ссылку на `Kpoji4er/JAZZ/.github/workflows/discord-player-updates.yml@main` и именованные secrets; commits `dc2e95d` (assets), `3d76ac5` (maps), `384c35a` (units).
+- `JAZZ-DISCORD-001-AC-005`: `PASS` — static: `git diff --check` прошёл отдельно для core declared write set и трёх caller worktrees; staged scope каждого коммита просмотрен до фиксации.
+- `JAZZ-DISCORD-001-AC-006`: `PASS` — static: Ready validator, `check-system-docs.ps1` и Done validator прошли. Для CRLF-файла Done-проверка использовала session-only нормализацию строк из-за ограничения heading-regex; исходный валидатор не менялся.
 
 ## Documentation delta
 
