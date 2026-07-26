@@ -2766,3 +2766,414 @@ function Unit:IsStanceChangeLocked()
 	
 	return false
 end
+-- JAZZ multiplicative firearm CTH pipeline.
+-- Non-firearm attacks keep the existing JA3/JAZZ calculation.
+local JAZZ_CTHLegacyCalcChanceToHit = Unit.CalcChanceToHit
+
+local JAZZ_CTHCoreModifierIds = {
+	Aim = true,
+	Bipod = true,
+	Grouping = true,
+	Handling = true,
+	Scope = true,
+}
+
+local JAZZ_CTHFactorCategories = {
+	RangeAttackTargetStanceCover = "Cover",
+	Distance = "Visibility",
+	SeenBySpotter = "Visibility",
+	NoLineOfSight = "Visibility",
+	Suppression = "Suppression",
+	Morale = "MoraleAndStatus",
+	TrainingAdvantage = "MoraleAndStatus",
+	TrainingDisadvantage = "MoraleAndStatus",
+	MarkedTraccers = "MoraleAndStatus",
+	WeaponCondition = "WeaponCondition",
+	Laser = "Component",
+	NightsIronsBonus = "Component",
+	OpportunityAttack = "Action",
+	PinDown = "Action",
+	RunAndGun = "Action",
+}
+
+local function JAZZ_CTHAppendLegacyFactor(factors, id, name, value, meta_text, category)
+	if not value or value == 0 then
+		return
+	end
+	JAZZ_CTHAddFactor(
+		factors,
+		id,
+		name,
+		JAZZ_CTHPercentToFactor(value),
+		meta_text,
+		category or JAZZ_CTHFactorCategories[id] or "Perk"
+	)
+end
+
+local function JAZZ_CTHModifierAppliesToAction(mod, action)
+	local req_action = mod.RequireActionType
+	if req_action == "Any Attack" then
+		return action.ActionType ~= "Other"
+	elseif req_action == "Any Melee Attack" then
+		return action.ActionType == "Melee Attack"
+	elseif req_action == "Any Ranged Attack" then
+		return action.ActionType == "Ranged Attack"
+	end
+	return req_action == action.id
+end
+
+function Unit:CalcChanceToHit(target, action, args, chance_only)
+	if not (IsPoint(target) or IsValid(target) and IsKindOf(target, "CombatObject")) then
+		return 0
+	end
+
+	local weapon1, weapon2 = action:GetAttackWeapons(self)
+	local weapon = args and args.weapon or weapon1
+	if not IsKindOf(weapon, "Firearm") then
+		return JAZZ_CTHLegacyCalcChanceToHit(self, target, action, args, chance_only)
+	end
+
+	local modifiers = not chance_only and {}
+	if CheatEnabled("AlwaysHit") then
+		if modifiers then
+			modifiers[#modifiers + 1] = {
+				name = T(521586645369, "Cheat: Always Hit"),
+				value = 100,
+				ui_value = 100,
+				id = "cheat",
+			}
+		end
+		return 100, 100, modifiers
+	elseif CheatEnabled("AlwaysMiss") then
+		if modifiers then
+			modifiers[#modifiers + 1] = {
+				name = T(455715392693, "Cheat: Always Miss"),
+				value = 0,
+				ui_value = -100,
+				id = "cheat",
+			}
+		end
+		return 0, 0, modifiers
+	end
+
+	local target_spot_group = args and args.target_spot_group or nil
+	if type(target_spot_group) == "table" then
+		target_spot_group = target_spot_group.id
+	end
+	target_spot_group = target_spot_group or g_DefaultShotBodyPart
+	if type(target_spot_group) == "string" then
+		target_spot_group = Presets.TargetBodyPart.Default[target_spot_group]
+	end
+
+	local aim = args and args.aim or 0
+	local opportunity_attack = args and args.opportunity_attack
+	local attacker_pos = args and (args.step_pos or args.goto_pos) or self:GetPos()
+	local target_pos = args and args.target_pos or IsPoint(target) and target or target:GetPos()
+	local core, skill_profile = JAZZ_CTHGetShooterCore(self, weapon, aim)
+	skill_profile.uncapped_core = core
+	core = Clamp(core, 0, 100)
+
+	if args and not args.prediction then
+		local effects = {}
+		for i, effect in ipairs(self.StatusEffects) do
+			effects[i] = effect.class
+		end
+		effects = table.concat(effects, ",")
+		local target_effects = "-"
+		if IsKindOf(target, "Unit") then
+			target_effects = {}
+			for i, effect in ipairs(target.StatusEffects) do
+				target_effects[i] = effect.class
+			end
+			target_effects = table.concat(target_effects, ",")
+		end
+		NetUpdateHash(
+			"CalcChanceToHit_Base",
+			self,
+			target,
+			action.id,
+			weapon.class,
+			weapon.id,
+			core,
+			effects,
+			target_effects,
+			weapon1 and weapon1.class,
+			weapon1 and weapon1.id,
+			weapon1 and weapon1.Condition,
+			weapon1 and weapon1.MaxCondition,
+			weapon2 and weapon2.class,
+			weapon2 and weapon2.id,
+			weapon2 and weapon2.Condition,
+			weapon2 and weapon2.MaxCondition
+		)
+	end
+
+	if modifiers then
+		local dexterity_meta = self:GetPropertyMetadata("Dexterity")
+		local marksmanship_meta = self:GetPropertyMetadata("Marksmanship")
+		modifiers[#modifiers + 1] = {
+			name = dexterity_meta and dexterity_meta.name or T(462143455900, "Marksmanship"),
+			value = math.floor(skill_profile.snap + 0.5),
+			ui_value = math.floor(skill_profile.snap + 0.5),
+			id = "ShooterSkill",
+			before = 0,
+			after = skill_profile.snap,
+			snap = skill_profile.snap,
+			precision = skill_profile.precision,
+		}
+		if aim > 0 then
+			modifiers[#modifiers + 1] = {
+				name = marksmanship_meta and marksmanship_meta.name or T(740390022763, "Aiming"),
+				value = math.floor(core - skill_profile.snap + 0.5),
+				ui_value = math.floor(core - skill_profile.snap + 0.5),
+				id = "Aim",
+				before = skill_profile.snap,
+				after = core,
+				aim_progress = skill_profile.aim_progress,
+				aim_mastery = skill_profile.aim_mastery,
+			}
+		end
+	end
+
+	local factors = {}
+	local mod_data = {
+		attacker = self,
+		target = target,
+		target_spot_group = target_spot_group,
+		action = action,
+		weapon1 = weapon1,
+		weapon2 = weapon2,
+		aim = aim,
+		opportunity_attack = opportunity_attack,
+		attacker_pos = attacker_pos,
+		target_pos = target_pos,
+		min = JAZZ_CTH_VALID_SHOT_FLOOR,
+		max = 100,
+		mod_add = 0,
+		mod_mul = 100,
+		enabled = true,
+		factors = factors,
+	}
+
+	ForEachPreset("ChanceToHitModifier", function(mod)
+		if mod.RequireTarget and not IsValidTarget(target) then
+			return
+		end
+		if not JAZZ_CTHModifierAppliesToAction(mod, action) then
+			return
+		end
+
+		local lof = false
+		local apply, value, name_override, meta_text, id_override = mod:CalcValue(
+			self,
+			target,
+			target_spot_group,
+			action,
+			weapon,
+			weapon2,
+			lof,
+			aim,
+			opportunity_attack,
+			attacker_pos,
+			target_pos
+		)
+		if args and not args.prediction then
+			NetUpdateHash("CalcChanceToHit_Modifier", mod.id, apply, value)
+		end
+		if not apply then
+			return
+		end
+
+		mod_data.enabled = true
+		mod_data.display_name = name_override or mod.display_name
+		mod_data.meta_text = (IsT(meta_text) and {meta_text} or meta_text) or {}
+		value = self:GatherCTHModifications(mod.id, value, mod_data)
+		if args and not args.prediction then
+			NetUpdateHash("CalcChanceToHit_Modifier_Mods", mod.id, value)
+		end
+
+		if JAZZ_CTHCoreModifierIds[mod.id] then
+			return
+		end
+		if mod.id == "NightsIronsBonus" and not (GameState.Night or GameState.Underground) then
+			return
+		end
+
+		JAZZ_CTHAppendLegacyFactor(
+			factors,
+			id_override or mod.id,
+			mod_data.display_name or mod.display_name,
+			value,
+			#mod_data.meta_text > 0 and mod_data.meta_text,
+			JAZZ_CTHFactorCategories[mod.id]
+		)
+	end)
+
+	for _, effect in ipairs(self.StatusEffects) do
+		mod_data.enabled = true
+		mod_data.display_name = effect.DisplayName
+		mod_data.meta_text = {}
+		local value = self:GatherCTHModifications(effect.class, 0, mod_data)
+		if args and not args.prediction then
+			NetUpdateHash("CalcChanceToHit_Effect_Mods", effect.class, value)
+		end
+		JAZZ_CTHAppendLegacyFactor(
+			factors,
+			effect.id or effect.class,
+			mod_data.display_name,
+			value,
+			#mod_data.meta_text > 0 and mod_data.meta_text,
+			"MoraleAndStatus"
+		)
+	end
+
+	mod_data.weapon1 = nil
+	mod_data.weapon2 = nil
+	for _, current_weapon in ipairs({weapon1, weapon2}) do
+		if IsKindOf(current_weapon, "Firearm") then
+			for slot_id, component_id in sorted_pairs(current_weapon.components) do
+				local def = WeaponComponents[component_id]
+				local effects = def and def.ModificationEffects or empty_table
+				if next(effects) ~= nil then
+					mod_data.enabled = true
+					mod_data.weapon1 = current_weapon
+					mod_data.display_name = def.DisplayName
+					mod_data.meta_text = {}
+					local value = self:GatherCTHModifications(component_id, 0, mod_data)
+					if args and not args.prediction then
+						NetUpdateHash("CalcChanceToHit_Component_Mods", current_weapon.id, component_id, value)
+					end
+					JAZZ_CTHAppendLegacyFactor(
+						factors,
+						component_id,
+						mod_data.display_name,
+						value,
+						#mod_data.meta_text > 0 and mod_data.meta_text,
+						"Component"
+					)
+				end
+			end
+		end
+	end
+
+	mod_data.weapon1 = weapon1
+	mod_data.weapon2 = weapon2
+	mod_data.modifiers = modifiers
+	mod_data.enabled = true
+	self:CallReactions("OnCalcChanceToHit", self, action, target, weapon1, weapon2, mod_data)
+	if IsKindOf(target, "Unit") then
+		target:CallReactions("OnCalcChanceToHit", self, action, target, weapon1, weapon2, mod_data)
+	end
+
+	JAZZ_CTHAppendLegacyFactor(
+		factors,
+		"ReactionAdd",
+		T(982641736201, "Навыки и эффекты"),
+		mod_data.mod_add,
+		nil,
+		"Perk"
+	)
+	if mod_data.mod_mul and mod_data.mod_mul ~= 100 then
+		JAZZ_CTHAddFactor(
+			factors,
+			"ReactionMultiplier",
+			T(982641736201, "Навыки и эффекты"),
+			Clamp(mod_data.mod_mul * 10, 50, 2000),
+			nil,
+			"Perk"
+		)
+	end
+
+	local distance = attacker_pos:Dist(target_pos)
+	local range_factor, range_profile = JAZZ_CTHGetRangeProfile(weapon, distance, self, action, aim)
+	local core_before_range = core
+	core = core * range_factor / JAZZ_CTH_FACTOR_SCALE
+	local range_ui_value = JAZZ_CTHFactorToPercent(range_factor)
+
+	if modifiers and range_factor ~= JAZZ_CTH_FACTOR_SCALE then
+		modifiers[#modifiers + 1] = {
+			name = range_profile.possible and T(30158603055711, "Bullet Drop") or T(162704513413, "Out of Range"),
+			value = range_ui_value,
+			ui_value = range_ui_value,
+			id = "Range",
+			factor = range_factor,
+			before = core_before_range,
+			after = core,
+			range_profile = range_profile,
+		}
+	end
+	if modifiers
+		and range_profile.optic.effect_id
+		and range_factor > range_profile.unassisted_factor
+	then
+		local core_without_optic =
+			core_before_range * range_profile.unassisted_factor / JAZZ_CTH_FACTOR_SCALE
+		local optic_factor = range_profile.unassisted_factor > 0
+			and Min(
+				2000,
+				math.floor(range_factor * JAZZ_CTH_FACTOR_SCALE / range_profile.unassisted_factor + 0.5)
+			)
+			or 2000
+		local optic_ui_value = JAZZ_CTHFactorToPercent(optic_factor)
+		modifiers[#modifiers + 1] = {
+			name = T(982641736202, "Оптика"),
+			value = optic_ui_value,
+			ui_value = optic_ui_value,
+			id = "Optic",
+			factor = optic_factor,
+			before = core_without_optic,
+			after = core,
+			optic_profile = range_profile.optic,
+		}
+	end
+
+	if range_profile.optic_factor ~= JAZZ_CTH_FACTOR_SCALE then
+		JAZZ_CTHAddFactor(
+			factors,
+			"OpticNearRange",
+			T(982641736202, "Оптика"),
+			range_profile.optic_factor,
+			nil,
+			"Component"
+		)
+	end
+
+	local possible = range_profile.possible and mod_data.enabled ~= false
+	local min_chance = Max(JAZZ_CTH_VALID_SHOT_FLOOR, mod_data.min or JAZZ_CTH_VALID_SHOT_FLOOR)
+	local max_chance = Clamp(mod_data.max or 100, min_chance, 100)
+	local final, before_clamp, factor_product = JAZZ_CTHApplyFactors(
+		core,
+		factors,
+		possible,
+		min_chance,
+		max_chance
+	)
+
+	if modifiers then
+		for _, factor in ipairs(factors) do
+			modifiers[#modifiers + 1] = factor
+		end
+	end
+
+	if args then
+		args.jazz_cth = {
+			final = final,
+			core = core,
+			core_before_range = core_before_range,
+			before_clamp = before_clamp,
+			factor_product = factor_product,
+			range_profile = range_profile,
+			skill_profile = skill_profile,
+			factors = factors,
+		}
+	end
+
+	if args and not args.prediction then
+		NetUpdateHash("CalcChanceToHit_Final", final, core, factor_product)
+	end
+	if chance_only then
+		return final
+	end
+
+	return final, core, modifiers, range_ui_value
+end

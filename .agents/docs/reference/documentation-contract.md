@@ -4,9 +4,10 @@
 
 - `docs/specs/` — утверждённые требования, DoR, acceptance criteria и evidence.
 - `docs/decisions/` — долгоживущие архитектурные решения.
-- `docs/technical/` — фактически загруженное текущее состояние реализации.
+- `docs/technical/` — фактически загруженное текущее состояние реализации для разработчика и агента.
+- `docs/wiki/` — игроковый справочник: наблюдаемое поведение, роли, способы чтения интерфейса и каталог контента без внутренних деталей реализации.
 
-`docs/wiki/` сейчас отсутствует и не входит в Definition of Done.
+Разделение слоёв принято в `docs/decisions/ADR-0002-technical-and-player-docs.md`. Technical остаётся источником истины по реализации; wiki не должна спорить с ним или вручную дублировать generated weapon stats.
 
 ## Specification → implementation
 
@@ -20,6 +21,7 @@
 - `compatibility.md` — при изменении dependency, save, network или public contract.
 - `testing.md` — при изменении общего validation profile.
 - Spec evidence — для каждого `AC-*`.
+- Профильная `docs/wiki/*` — если изменение заметно игроку; generated weapon pages обновляются через `docs/technical/weapons/data/*.csv` и `scripts/docs/weapons-docs.mjs`.
 
 Не требовать изменения сводного документа, если его факт не изменился. Отсутствие documentation delta фиксировать в spec с причиной.
 

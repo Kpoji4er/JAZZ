@@ -47,7 +47,7 @@ if ($errors.Count -gt 0) {
 
 $docsIndex = Join-Path $main 'docs/README.md'
 $docsIndexText = [IO.File]::ReadAllText($docsIndex, [Text.Encoding]::UTF8)
-foreach ($target in @('specs/README.md', 'decisions/README.md', 'ownership/README.md', 'technical/README.md')) {
+foreach ($target in @('specs/README.md', 'decisions/README.md', 'ownership/README.md', 'technical/README.md', 'wiki/README.md')) {
     if ($docsIndexText -notmatch [regex]::Escape($target)) {
         Add-DocError "docs/README.md не ведёт к $target."
     }
@@ -109,10 +109,6 @@ foreach ($file in $markdown) {
         if ($target -match '^https?://' -or $target -match '^mailto:' -or $target.StartsWith('#')) { continue }
         $target = ($target -split '#', 2)[0]
         if ([string]::IsNullOrWhiteSpace($target)) { continue }
-        if ($target -match '(?i)(?:^|[\\/])docs[\\/]wiki[\\/]' -or $target -match '(?i)(?:^|[\\/])wiki[\\/]') {
-            Add-DocError "Ссылка на отключённую wiki: $relativeSource -> $target"
-            continue
-        }
         try {
             $resolvedTarget = [IO.Path]::GetFullPath((Join-Path $file.DirectoryName $target))
         } catch {
