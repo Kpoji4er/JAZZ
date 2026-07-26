@@ -142,6 +142,8 @@ Standalone `lua`/`luac` не является repository dependency. В evidence
 
 Проверить основные сектора Эрни, входы и deployment, квестовые маркеры, setpieces, guardpost, патрули, стратегические отряды, squad logo, POI, доход, World Flip, разговоры, banters и лояльность.
 
+`CampCrocodile_CirclingPatrol`: после старта квеста на M1 в логе не должно быть `System_JAZZ_CrocodilePatrol.lua` / `attempt to index a nil value` (debug) и `'for' limit must be a number` от HotDiamonds; патруль крутит маршрут I18–I19–J19.
+
 ### Автотранспорт
 
 **Сейчас (сателлит only):** M1 → сесть в транспорт → ускорение по дороге; вход в сектор **без** тактического Unit машины; токен после exit/сектора на месте.

@@ -1220,8 +1220,6 @@ function AIActionMGSetup:PrecalcAction(context, action_state)
     end
 end
 
-----RATO
-
 function AIActionBaseZoneAttack:EvalZones(context, zones)
     return AIEvalZones(context, zones, self.min_score, self.enemy_score,
                        self.team_score, self.self_score_mod,

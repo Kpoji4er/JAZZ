@@ -39,7 +39,7 @@
 | ModItemSector | 245 |
 | Сектора с любыми enemy squad refs (`InitialSquads` / patrol / strong / extra) | 74 |
 | Guardpost-сектора | 9 |
-| Сектора Эрни (label/city/`WeatherZone=Erny` / Rebels_Ernie) | 22 |
+| Сектора Эрни (label/city/`WeatherZone=Erny` / Rebels_Ernie) | 23 (J7: `Label1=Ernie`, 26 июля 2026) |
 | ModItemQuestsDef | 110 (83 видимых, 27 hidden) |
 | Conversations | 23 |
 | Banters | 41 |
@@ -89,7 +89,7 @@
 | I7 | Форт Ло-Блё | Guardpost; ForceConflict; цель `TakeTheFortress` | `FortressPierre`, `FortressDefenders`, `LegionFortressDefenders`, `LegionAttackers_Ordnance_Easy` | Patrol: Assault_Easy, `LegionJAZZSquadT1`, Melee_T2; Strong: `LegionJAZZSquadT2`, Heavy, AttackSquad_01; Extra: Balanced_Easy, FireArms_T2 |
 | J4 | Дорога в Эрни | Переход | — | — |
 | J5 | Фермы Эрни | City ErnieVillage | FireArms, 2×Shooters_Easy, Balanced_Easy | — |
-| J7 | Изумрудный берег | `EncounterHerman` map; RescueHerMan | — | — |
+| J7 | Изумрудный берег | Label Ernie; `EncounterHerman` / RescueHerMan; враги на карте (не InitialSquads); music Ernie_* | — | — |
 | K4 | Флаговый холм | Label Ernie; ForceConflict | — | — |
 | K5 | Походный лагерь Легиона | Вилла / rescue rebels | `JAZZ_Legion_SentrySquad_AroundVilla`, `JAZZ_Legion_VillaAttackers_K5` | — |
 | K6 | Запасной лагерь контрабандистов | City ErnieVillage | — | — |

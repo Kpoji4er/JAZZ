@@ -99,6 +99,7 @@ Release manifest фиксирует для каждого пакета:
 - Политика: `.agents/skills/release-jazz-suite/references/versioning-policy.md`.
 - Контракт GitHub/manifest: `.agents/skills/release-jazz-suite/references/release-contract.md`.
 - Read-only preflight: `.agents/skills/release-jazz-suite/scripts/test-release-state.ps1`.
+- Релизный changelog core: [`CHANGELOG.md`](../../../CHANGELOG.md) (секции по engine display из metadata).
 - Центральный владелец release metadata и workflow: core repository `JAZZ`.
 
 ## Проверка

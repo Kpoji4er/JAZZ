@@ -26,7 +26,7 @@ JAZZ поддерживает только последнюю опубликов
 | `GetRandomSquadLogo` | `Lua/Satellite/SatelliteSquad.lua` | `Code/ModItems.lua` | `Code/SatelliteSquad.lua` | JAZZ; проверить пользовательские squad logos |
 | `gameOverState` (`MapVar`) | `Lua/Satellite/SatelliteSquad.lua` | — | `Code/SatelliteSquad.lua` использует значение, но не регистрирует его | Владелец registration — vanilla; повторный `MapVar` в JAZZ вызывает cold-load assert |
 | `SetupCrocodilePatrolSquad` | `Lua/HotDiamonds.lua` | — | maps `Code/System_JAZZ_CrocodilePatrol.lua` | Дом/маршрут I18–I19–J19 вместо G14/G13–G15 (ремап wetlands) |
-| `OnMsg.ReachSectorCenter` (crocodile) | `Lua/HotDiamonds.lua` | — | maps `Code/System_JAZZ_CrocodilePatrol.lua` (замена handler через upvalue `message_to_staticfuncs`) | Vanilla `for i=1,place` падает при place=nil вне G13–G14 |
+| `OnMsg.ReachSectorCenter` (crocodile) | `Lua/HotDiamonds.lua` | — | maps `Code/System_JAZZ_CrocodilePatrol.lua` (upvalue-replace при `debug`, иначе wrap `Msg`) | Vanilla `for i=1,place` падает при place=nil вне G13–G14; shipping часто без `debug` |
 | `GetSectorTravelTime` | `Lua/Satellite/SatelliteSquad.lua` | — | core `Code/SatelliteSquad.lua`, затем maps wrapper `Code/System_JAZZ_Vehicles.lua` | Maps ускоряет/блокирует путь для mounted squad; грузить maps после core |
 | `GetCombatPath` | `Lua/Tactical/Combat.lua` | — | maps `Code/System_JAZZ_VehicleCombat.lua` | Фильтр reachable для `JAZZ_IsVehicle` (поворот ≤±90°) |
 | `Unit:CombatGoto` | `Lua/Tactical/Unit.lua` | — | maps `Code/System_JAZZ_VehicleCombat.lua` | Snap-move без Walk-анимов для боевого транспорта |
