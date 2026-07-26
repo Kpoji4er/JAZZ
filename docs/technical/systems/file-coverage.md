@@ -128,6 +128,9 @@
 | `.github/workflows/discord-player-updates.yml` | GitHub Actions only | [Сводки изменений в Discord](discord-player-updates.md) |
 | `.github/scripts/discord-player-update.mjs` | CI only; automatic OpenAI fallback | [Сводки изменений в Discord](discord-player-updates.md) |
 | `.github/scripts/discord-player-update.test.mjs` | development/test only | [Сводки изменений в Discord](discord-player-updates.md) |
+| `jazz_assets/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | [Сводки изменений в Discord](discord-player-updates.md) |
+| `jazz-maps/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | [Сводки изменений в Discord](discord-player-updates.md) |
+| `jazz-units/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | [Сводки изменений в Discord](discord-player-updates.md) |
 
 ## Generated data coverage
 

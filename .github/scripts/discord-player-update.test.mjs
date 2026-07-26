@@ -306,7 +306,8 @@ test("Discord payload disables mentions and respects explicit role opt-in", () =
     confidence: "high",
   };
   const changeSet = {
-    compareUrl: "https://github.com/Kpoji4er/JAZZ/compare/a...b",
+    repository: "Kpoji4er/JAZZ-maps",
+    compareUrl: "https://github.com/Kpoji4er/JAZZ-maps/compare/a...b",
     commitCount: 2,
     changedFiles: ["Code/A.lua"],
     additions: 10,
@@ -319,7 +320,10 @@ test("Discord payload disables mentions and respects explicit role opt-in", () =
   assert.deepEqual(safePayload.allowed_mentions.parse, []);
   assert.equal("content" in safePayload, false);
   assert.doesNotMatch(safePayload.embeds[0].title, /@everyone/);
-  assert.match(safePayload.embeds[0].footer.text, /2 коммита · 1 файл/);
+  assert.match(
+    safePayload.embeds[0].footer.text,
+    /JAZZ-maps · 2 коммита · 1 файл/,
+  );
 
   const rolePayload = buildDiscordPayload({
     summary,
@@ -348,6 +352,7 @@ test("Discord embed remains inside field and total size limits", () => {
     confidence: "high",
   };
   const changeSet = {
+    repository: "Kpoji4er/JAZZ",
     compareUrl: "https://github.com/Kpoji4er/JAZZ/compare/a...b",
     commitCount: 1,
     changedFiles: ["Code/A.lua"],
@@ -390,7 +395,7 @@ test("full before..after range includes every commit in a multi-commit push", as
       event,
       env: {
         GITHUB_EVENT_NAME: "push",
-        GITHUB_REPOSITORY: "Kpoji4er/JAZZ",
+        GITHUB_REPOSITORY: "Kpoji4er/JAZZ-units",
         GITHUB_SERVER_URL: "https://github.com",
         GITHUB_REF_NAME: "main",
       },
@@ -400,10 +405,13 @@ test("full before..after range includes every commit in a multi-commit push", as
     assert.equal(changeSet.commits.length, 2);
     assert.deepEqual(changeSet.changedFiles.sort(), ["Code.lua", "Notes.md"]);
     assert.match(changeSet.text, /return 2/);
+    assert.equal(changeSet.repository, "Kpoji4er/JAZZ-units");
+    assert.match(changeSet.compareUrl, /Kpoji4er\/JAZZ-units\/compare\//);
 
     const context = buildAiContext(changeSet, false);
     assert.equal(context.commit_count, 2);
     assert.equal(context.diff_truncated, false);
+    assert.equal(context.repository, "Kpoji4er/JAZZ-units");
   } finally {
     await rm(repository.cwd, { recursive: true, force: true });
   }

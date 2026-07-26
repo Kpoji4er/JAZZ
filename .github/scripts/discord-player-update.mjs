@@ -1230,8 +1230,10 @@ export function buildDiscordPayload({
     "файла",
     "файлов",
   ]);
+  const repositoryLabel = validateRepositoryName(changeSet.repository)
+    .split("/").at(-1);
   const footerText = sanitizeForDiscord(
-    `${changeSet.commitCount} ${commitWord} · ${changeSet.changedFiles.length} ${fileWord} · +${changeSet.additions} / −${changeSet.deletions} · ${changeSet.afterSha.slice(0, 7)}`,
+    `${repositoryLabel} · ${changeSet.commitCount} ${commitWord} · ${changeSet.changedFiles.length} ${fileWord} · +${changeSet.additions} / −${changeSet.deletions} · ${changeSet.afterSha.slice(0, 7)}`,
     MAX_DISCORD_FOOTER,
   );
   const embed = enforceEmbedTotalLimit({
