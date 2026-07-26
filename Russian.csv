@@ -6943,6 +6943,36 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000001421,Область защиты,Область защиты,,jazz:items.lua:73253
 890000000001422,<text1>%,<text1>%,,jazz:items.lua:73452
 890000000001423,Прочность,Прочность,,jazz:items.lua:73451
+890000000001424,Garrison,Гарнизон,,jazz:Code/Guardpost_Patrols.lua
+890000000001425,Patrol,Патруль,,jazz:Code/Guardpost_Patrols.lua
+890000000001426,Recon,Разведка,,jazz:Code/Guardpost_Patrols.lua
+890000000001427,QRF,QRF,,jazz:Code/Guardpost_Patrols.lua
+890000000001428,Major response,Отряд Майора,,jazz:Code/Guardpost_Patrols.lua
+890000000001429,Supply convoy,Конвой снабжения,,jazz:Code/Guardpost_Patrols.lua
+890000000001430,Diamond convoy,Алмазный конвой,,jazz:Code/Guardpost_Patrols.lua
+890000000001431,<role> — outpost <home> lost; no contact,<role> — без связи: аванпост <home> потерян,,jazz:Code/Guardpost_Patrols.lua
+890000000001432,<role> — awaiting orders from outpost <home>,<role> — ожидает приказов аванпоста <home>,,jazz:Code/Guardpost_Patrols.lua
+890000000001433,<role> — returning with intelligence to <home>,<role> — возвращается с разведданными в <home>,,jazz:Code/Guardpost_Patrols.lua
+890000000001434,<role> — returning to base <home>,<role> — возвращается на базу <home>,,jazz:Code/Guardpost_Patrols.lua
+890000000001435,<role> — awaiting assignment,<role> — ожидает задачу,,jazz:Code/Guardpost_Patrols.lua
+890000000001436,<role> — holding sector <target>,<role> — удерживает сектор <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001437,<role> — moving to hold sector <target>,<role> — идёт удерживать сектор <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001438,<role> — patrolling key sites; next: <target>,"<role> — патрулирует ключевые точки, следующая: <target>",,jazz:Code/Guardpost_Patrols.lua
+890000000001439,<role> — observing area <target>,<role> — наблюдает район <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001440,<role> — moving to observe area <target>,<role> — выдвигается к району <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001441,<role> — retaking sector <target>,<role> — отбивает сектор <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001442,<role> — responding to intelligence in sector <target>,<role> — реагирует по разведданным в секторе <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001443,<role> — assaulting sector <target>,<role> — штурмует сектор <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001444,<role> — delivering supplies to <target>,<role> — везёт снабжение в <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001445,<role> — delivering diamonds to HQ <target>,<role> — везёт алмазы в штаб <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001446,<role> — task in sector <target>,<role> — задача в секторе <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001447,"<squad_name>
+Task: <task>","<squad_name>
+Задача: <task>",,jazz:Code/Guardpost_Patrols.lua
+890000000001448,Legion Recon,Разведка Легиона,,jazz-units:items.lua
+890000000001449,Legion Patrol,Патруль Легиона,,jazz-units:items.lua
+890000000001450,Legion Convoy,Конвой Легиона,,jazz-units:items.lua
+890000000001451,Legion Garrison,Гарнизон Легиона,,jazz-units:items.lua
 939310080350111,ржавое,ржавое,,jazz:Code/Inventory.lua:117 | jazz:Code/Inventory.lua:180
 968409848233111,сломанное,сломанное,,jazz:Code/Inventory.lua:120 | jazz:Code/Inventory.lua:183
 1786863112811235,Укрепления,Укрепления,,jazz:Code/POI Extension.lua:9

@@ -60,9 +60,9 @@ function Resolve-PackageRoot {
 
 $packageRoots = [ordered]@{
     "jazz"        = $repoRoot
-    "jazz_assets" = Resolve-PackageRoot -Names @("jazz_assets", "jazz-assets")
-    "jazz-maps"   = Resolve-PackageRoot -Names @("jazz-maps")
-    "jazz-units"  = Resolve-PackageRoot -Names @("jazz-units")
+    "jazz_assets" = Resolve-PackageRoot -Names @("jazz_assets", "jazz-assets", "Jazz Assets", "jazz assets")
+    "jazz-maps"   = Resolve-PackageRoot -Names @("jazz-maps", "JAZZ Maps", "jazz maps")
+    "jazz-units"  = Resolve-PackageRoot -Names @("jazz-units", "JAZZ Units", "jazz units")
 }
 
 foreach ($entry in $packageRoots.GetEnumerator()) {
@@ -100,12 +100,14 @@ function Read-LocalizationCsv {
             if ($row.ID -notmatch '^\d+$') {
                 continue
             }
+            $statusProp = $row.PSObject.Properties['Status']
+            $contextProp = $row.PSObject.Properties['Context']
             $rows.Add([pscustomobject]@{
                 ID          = $row.ID
                 Text        = $row.Text
                 Translation = $row.Translation
-                Context     = $row.Context
-                Status      = $row.Status
+                Context     = if ($contextProp) { $contextProp.Value } else { $null }
+                Status      = if ($statusProp) { $statusProp.Value } else { $null }
                 FieldCount  = $header.Count
             })
         }

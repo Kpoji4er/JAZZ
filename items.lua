@@ -102677,10 +102677,10 @@ return {
 					"I7",
 				},
 				ShipmentSquads = {
-					"DiamondBriefcase",
+					"LegionGlobalAI_Convoy",
 				},
 				SupplySquads = {
-					"LegionDefenders_Mobile_Easy",
+					"LegionGlobalAI_Convoy",
 				},
 				group = "Default",
 				id = "ErnieIsland",

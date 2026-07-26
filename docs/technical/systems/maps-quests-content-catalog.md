@@ -86,7 +86,7 @@
 | I5 | Деревня Эрни | Главный хаб; ForceConflict; setpieces `ErnieReturn_FirstEnter`, `PierreLucTalk` | `LegionErnieVillage`, `LegionExtraSquadFireArms` | — |
 | I6 | Жестянка | Связан с liberate / fortify | — | — |
 | I6_Underground | Бункер FB45-68 | Underground I6; ForceConflict | — | — |
-| I7 | Форт Ло-Блё | Guardpost; ForceConflict; цель `TakeTheFortress` | `FortressPierre`, `FortressDefenders`, `LegionFortressDefenders`, `LegionAttackers_Ordnance_Easy` | Patrol: Assault_Easy, `LegionJAZZSquadT1`, Melee_T2; Strong: `LegionJAZZSquadT2`, Heavy, AttackSquad_01; Extra: Balanced_Easy, FireArms_T2 |
+| I7 | Форт Ло-Блё | Guardpost; ForceConflict; цель `TakeTheFortress`; Global AI outpost | `FortressPierre`, `FortressDefenders`, `LegionFortressDefenders`, `LegionAttackers_Ordnance_Easy` | Global AI: `LegionGlobalAI_Garrison` / `_Patrol` / `_Recon`, QRF `LegionJAZZSquadT2`; legacy Patrol/Strong/Extra списки без изменений |
 | J4 | Дорога в Эрни | Переход | — | — |
 | J5 | Фермы Эрни | City ErnieVillage | FireArms, 2×Shooters_Easy, Balanced_Easy | — |
 | J7 | Изумрудный берег | Label Ernie; `EncounterHerman` / RescueHerMan; враги на карте (не InitialSquads); music Ernie_* | — | — |

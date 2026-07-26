@@ -71,23 +71,29 @@ Maps добавляет четыре `GuardpostObjective` ModItems. Units пре
 
 - `garrison` — занимает ключевые сектора по приоритету Outpost → City → Mine → Farm;
 - `patrol` — после каждой точки заново выбирает город, шахту, ферму или базу;
-- `recon` — выходит к нагретому сектору, наблюдает, при обнаружении merc squad возвращает target-specific report;
+- `recon` — выходит к нагретому сектору, наблюдает; при обнаружении merc squad возвращает target-specific report; при полном observation timeout без контакта один раз снижает Heat наблюдаемого сектора на `ReconNoContactHeatReduction` (default 50, clamp `0..1000`);
 - `qrf` — расходует свежий report либо получает retake-задачу на занятую игроком ключевую точку;
 - `supply` — доставляет из `B28` абстрактный supply и при возврате недоставленного груза восстанавливает резерв Майора;
 - `shipment` — везёт накопленные алмазы из `I7` в `B28`;
 - `major` — при Heat региона 800+ и наличии резерва создаёт отдельный тяжёлый ответ с cooldown 72 часа.
 
+Ролевые составы (JAZZ-STRATEGY-002, static): I7 ссылается на `LegionGlobalAI_Garrison` / `_Patrol` / `_Recon` (диапазоны 25–40 / 12–18 / 8–12, только `JAZZ_Legion_*`); QRF остаётся на `LegionJAZZSquadT2`. Region `ErnieIsland` использует `LegionGlobalAI_Convoy` (15–25) для supply и shipment; Major response — `LegionJAZZSquadT3` (+ legacy `LegionHeavyTroops` в списке). Экономика по умолчанию: starting supply/capacity 250/500; costs recon 50, patrol 90, QRF 140, garrison 180, supply convoy cargo 150, major 300; regular cap 6; role caps garrison 2, patrol 2, recon 1, qrf 1.
+
 У регулярных ролей есть mission budget; после исчерпания отряд возвращается на базу и удаляется. Потеря `I7` переводит связанные регулярные отряды в `orphaned`, прекращает экономику и выдачу приказов; после возвращения контроля действует reboot delay 12 часов. Quest-forced attacks остаются в legacy `Guardpost.lua`, а обычный legacy spawn/patrol для managed `I7` блокируется, чтобы не было двойных отрядов.
 
-Managed squad хранит role image из `SquadsIcons/Enemy`. `Guardpost_Patrols.lua` сохраняет vanilla base-функции через `rawget(_G, ...)` с fallback на текущую функцию, поэтому cold load не читает отсутствующий strict global, а hot reload не перезаписывает уже сохранённую base-ссылку. Его финальная `GetSatelliteIconImagesSquad` возвращает исходный 64×64 файл без vanilla-суффиксов `_2`/`_s`; более поздний по `metadata.code` `POI Extension.lua` владеет итоговой `GetSatelliteIconImages` и также возвращает `squad.image` напрямую. `SquadWindow:GetRolloverText` для managed squad добавляет строку `Задача:`; unmanaged squad получает исходный context без изменений.
+### UI managed squad (JAZZ-STRATEGY-002)
 
-Планировщик использует абсолютный CampaignTime, сортированный обход и `InteractionRand`; интервалы защищены минимумом в один игровой час, а пропущенные интервалы снижения Heat догоняются после скачка времени. Public diagnostics доступны через `JAZZ_LegionAIGetDiagnostics()`.
+Role icons — семь PNG в `SquadsIcons/Enemy/*.png` (без vanilla `_2`/`_s`). Иконка резолвится по managed `role` через `JAZZ_GetLegionAISquadIcon`, не только по потенциально устаревшему `SatelliteSquad.image`. `Guardpost_Patrols.lua` захватывает base-функции через `rawget(_G, ...)`; после `POI Extension.lua` (более поздний в `metadata.code`) wrappers переустанавливаются на `ModsReloaded` / `LoadGame` / `InitSatelliteView`, чтобы managed role icon оставался поверх POI без recursive chain.
+
+Текст задачи добавляется в `TFormat.SquadNameColored` (его реально вызывает `SquadRolloverMap`). `SquadWindow:GetRolloverText` для managed squad — passthrough: `CreateRolloverWindow` не использует его для имени. Persistent `SatelliteSquad.Name` не мутируется. Unmanaged squad делегируется сохранённой base-реализации. Строки ролей/задач локализованы (`890000000001424`–`447`).
+
+Планировщик использует абсолютный CampaignTime, сортированный обход и `InteractionRand`; интервалы защищены минимумом в один игровой час, а пропущенные интервалы снижения Heat догоняются после скачка времени. Public diagnostics `JAZZ_LegionAIGetDiagnostics()` возвращают caps, costs и active counts по ролям.
 
 ## Enemy squads и autoresolve
 
-Core `EnemySquad.lua` задаёт runtime/power и связи с autoresolve. Units содержит 69 generated enemy squad definitions. Squad composition соединяет UnitData, faction, archetype, loot и стратегическую силу; тактический spawn и autoresolve должны использовать совместимый состав.
+Core `EnemySquad.lua` задаёт runtime/power и связи с autoresolve. Units содержит generated enemy squad definitions, включая четыре role presets `LegionGlobalAI_*` (JAZZ-STRATEGY-002). Squad composition соединяет UnitData, faction, archetype, loot и стратегическую силу; тактический spawn и autoresolve должны использовать совместимый состав.
 
-Diamond shipment: vanilla `InitDiamondBriefcaseSquads` (`Lua/DiamondBriefcase.lua`, вызов из Campaign `Initialize`) требует `EnemySquadDefs.DiamondBriefcase.DiamondBriefcaseCarrier`. Текущий committed preset `DiamondBriefcase` в `jazz-units` имеет `DiamondBriefcase = true`, но не объявляет carrier; это существующее cross-package расхождение и отдельный риск new-game инициализации. Director пилота не меняет units preset: для своего динамического shipment он детерминированно кладёт реальный `DiamondBriefcase` первому созданному юниту, задаёт drop chance 100% и помечает squad. Этот fallback обеспечивает груз пилота, но не считается исправлением общего vanilla startup-контракта.
+Diamond shipment: vanilla `InitDiamondBriefcaseSquads` (`Lua/DiamondBriefcase.lua`, вызов из Campaign `Initialize`) требует `EnemySquadDefs.DiamondBriefcase.DiamondBriefcaseCarrier`. Текущий committed preset `DiamondBriefcase` в `jazz-units` имеет `DiamondBriefcase = true`, но не объявляет carrier; это существующее cross-package расхождение и отдельный риск new-game инициализации. Director пилота для динамического shipment использует `LegionGlobalAI_Convoy` и детерминированно кладёт реальный `DiamondBriefcase` первому созданному юниту (drop chance 100%). Этот fallback обеспечивает груз пилота, но не считается исправлением общего vanilla startup-контракта.
 
 ## Regions, loyalty, heat и panic
 

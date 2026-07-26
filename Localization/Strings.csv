@@ -7631,3 +7631,34 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 4869897712911115,,,,,russian-override;new-id,jazz:Code/Inventory.lua:85 | jazz:Code/Inventory.lua:148,jazz,jazz:Code/Inventory.lua:85 | jazz:Code/Inventory.lua:148,
 5678579714391111,изношенное,,изношенное,worn out,russian-override;new-id,jazz:Code/Inventory.lua:114 | jazz:Code/Inventory.lua:177,jazz,jazz:Code/Inventory.lua:114 | jazz:Code/Inventory.lua:177,
 8182360763020012,Ресурс,,Ресурс,Resource,russian-override;new-id,jazz:items.lua:73489,jazz,jazz:items.lua:73283,
+890000000001424,Garrison,,Гарнизон,Garrison,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001425,Patrol,,Патруль,Patrol,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001426,Recon,,Разведка,Recon,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001427,QRF,,QRF,QRF,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001428,Major response,,Отряд Майора,Major response,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001429,Supply convoy,,Конвой снабжения,Supply convoy,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001430,Diamond convoy,,Алмазный конвой,Diamond convoy,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001431,<role> — outpost <home> lost; no contact,,<role> — без связи: аванпост <home> потерян,<role> — outpost <home> lost; no contact,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001432,<role> — awaiting orders from outpost <home>,,<role> — ожидает приказов аванпоста <home>,<role> — awaiting orders from outpost <home>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001433,<role> — returning with intelligence to <home>,,<role> — возвращается с разведданными в <home>,<role> — returning with intelligence to <home>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001434,<role> — returning to base <home>,,<role> — возвращается на базу <home>,<role> — returning to base <home>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001435,<role> — awaiting assignment,,<role> — ожидает задачу,<role> — awaiting assignment,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001436,<role> — holding sector <target>,,<role> — удерживает сектор <target>,<role> — holding sector <target>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001437,<role> — moving to hold sector <target>,,<role> — идёт удерживать сектор <target>,<role> — moving to hold sector <target>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001438,<role> — patrolling key sites; next: <target>,,"<role> — патрулирует ключевые точки, следующая: <target>",<role> — patrolling key sites; next: <target>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001439,<role> — observing area <target>,,<role> — наблюдает район <target>,<role> — observing area <target>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001440,<role> — moving to observe area <target>,,<role> — выдвигается к району <target>,<role> — moving to observe area <target>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001441,<role> — retaking sector <target>,,<role> — отбивает сектор <target>,<role> — retaking sector <target>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001442,<role> — responding to intelligence in sector <target>,,<role> — реагирует по разведданным в секторе <target>,<role> — responding to intelligence in sector <target>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001443,<role> — assaulting sector <target>,,<role> — штурмует сектор <target>,<role> — assaulting sector <target>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001444,<role> — delivering supplies to <target>,,<role> — везёт снабжение в <target>,<role> — delivering supplies to <target>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001445,<role> — delivering diamonds to HQ <target>,,<role> — везёт алмазы в штаб <target>,<role> — delivering diamonds to HQ <target>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001446,<role> — task in sector <target>,,<role> — задача в секторе <target>,<role> — task in sector <target>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001447,"<squad_name>
+Task: <task>",,"<squad_name>
+Задача: <task>","<squad_name>
+Task: <task>",russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-002
+890000000001448,Legion Recon,,Разведка Легиона,Legion Recon,russian-override;new-id,jazz-units:items.lua,jazz-units,jazz-units:items.lua,JAZZ-STRATEGY-002
+890000000001449,Legion Patrol,,Патруль Легиона,Legion Patrol,russian-override;new-id,jazz-units:items.lua,jazz-units,jazz-units:items.lua,JAZZ-STRATEGY-002
+890000000001450,Legion Convoy,,Конвой Легиона,Legion Convoy,russian-override;new-id,jazz-units:items.lua,jazz-units,jazz-units:items.lua,JAZZ-STRATEGY-002
+890000000001451,Legion Garrison,,Гарнизон Легиона,Legion Garrison,russian-override;new-id,jazz-units:items.lua,jazz-units,jazz-units:items.lua,JAZZ-STRATEGY-002

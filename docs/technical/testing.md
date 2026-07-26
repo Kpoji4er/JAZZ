@@ -170,6 +170,19 @@ node --test .github/scripts/discord-player-update.test.mjs
 
 Реальный Discord webhook не вызывать без тестового канала. Отсутствие ключа или ошибка OpenAI должны автоматически публиковать fallback после prefilter; ошибка Discord после решения публиковать должна завершать workflow ошибкой.
 
+## Runtime smoke: Legion Global AI / I7 (JAZZ-STRATEGY-002)
+
+Уровень подтверждения до прогона владельцем: только static. Не закрывать AC runtime этим чеклистом без игры.
+
+1. Все четыре пакета + свежая CommonLib; Reload модов с диска (не Save из устаревшей памяти редактора).
+2. Новая игра `HotDiamonds`, старт на Эрни; дождаться командного окна I7 и появления managed squads.
+3. На сателлите: у garrison/patrol/recon/qrf/supply/shipment/major — своя PNG из `SquadsIcons/Enemy`, не `enemy_squad`.
+4. Hover managed squad: локализованная роль, задача, state/target; unmanaged Legion/player rollover без строки задачи Global AI.
+5. `ReloadLua`, повторное открытие satellite view, save/load — иконки и задачи на месте, без recursion/error в логе.
+6. `JAZZ_LegionAIGetDiagnostics()`: caps regular 6 / garrison 2 / patrol 2 / recon 1 / qrf 1; costs и active_counts заполнены; при полном cap дополнительный spawn не списывает supply.
+7. Recon: observation timeout без player squad → Heat сектора −50 один раз; при контакте с merc squad Heat не снижается, появляется report.
+8. Editor round-trip: load/save/reload `jazz-units` и `jazz-maps`, затем strict generated audit — presets `LegionGlobalAI_*` и ссылки I7/ErnieIsland не затёрты.
+
 ## Критерий завершения
 
 В отчёте всегда разделять: проверено статически, проверено в Mod Editor, проверено в игре, не проверено и почему. Runtime-изменение не считается полностью проверенным по одному статическому анализу.

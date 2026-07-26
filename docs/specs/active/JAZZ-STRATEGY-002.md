@@ -189,17 +189,17 @@ Runtime-владелец — `jazz`; владелец EnemySquads/UnitData — `
 
 ## Evidence
 
-- `JAZZ-STRATEGY-002-AC-001`: `BLOCKED` — ожидает реализацию и повторный runtime screenshot.
-- `JAZZ-STRATEGY-002-AC-002`: `BLOCKED` — ожидает реализацию и runtime hover.
-- `JAZZ-STRATEGY-002-AC-003`: `BLOCKED` — ожидает ReloadLua/save-load test.
-- `JAZZ-STRATEGY-002-AC-004`: `BLOCKED` — ожидает generated presets и статический подсчёт.
-- `JAZZ-STRATEGY-002-AC-005`: `BLOCKED` — ожидает cross-package binding и runtime spawn.
+- `JAZZ-STRATEGY-002-AC-001`: `BLOCKED` — реализация UI на диске; нужен runtime screenshot.
+- `JAZZ-STRATEGY-002-AC-002`: `BLOCKED` — реализация rollover/`TFormat` на диске; нужен runtime hover.
+- `JAZZ-STRATEGY-002-AC-003`: `BLOCKED` — late install на ModsReloaded/LoadGame/InitSatelliteView; нужен ReloadLua/save-load.
+- `JAZZ-STRATEGY-002-AC-004`: `PASS (static)` — четыре presets в `jazz-units`, суммы слотов 8–12 / 12–18 / 15–25 / 25–40, только `JAZZ_Legion_*`.
+- `JAZZ-STRATEGY-002-AC-005`: `PASS (static binding)` / `BLOCKED (runtime spawn)` — I7 и ErnieIsland ссылаются на новые ID; QRF/Major не переведены на новые presets.
 - `JAZZ-STRATEGY-002-AC-006`: `BLOCKED` — runtime cap test обязателен.
-- `JAZZ-STRATEGY-002-AC-007`: `BLOCKED` — ожидает diagnostics change.
-- `JAZZ-STRATEGY-002-AC-008`: `BLOCKED` — ожидает generated audit/editor round-trip.
-- `JAZZ-STRATEGY-002-AC-009`: `BLOCKED` — ожидает localization audit/export.
-- `JAZZ-STRATEGY-002-AC-010`: `BLOCKED` — ожидает documentation delta.
-- `JAZZ-STRATEGY-002-AC-011`: `BLOCKED` — ожидает static state-machine check и runtime no-contact/contact test.
+- `JAZZ-STRATEGY-002-AC-007`: `PASS (static)` — diagnostics отдаёт caps/costs/active_counts; runtime чтение не подтверждено.
+- `JAZZ-STRATEGY-002-AC-008`: `PASS (static audit jazz-units/jazz-maps)` / `BLOCKED (editor round-trip)` — strict generated sync: units/maps errors=0 warnings=0; 6 pre-existing warnings только в `jazz` (не STRATEGY-002). Editor Save/Reload владельцем ещё нужен.
+- `JAZZ-STRATEGY-002-AC-009`: `PASS (static for STRATEGY-002 IDs)` / `OPEN (suite debt)` — 28 ID `1424`–`451` в обоих runtime CSV с переводами; suite-wide audit: needs Russian=26, needs English=24, collisions against Game.csv=66 (pre-existing, не эти ID).
+- `JAZZ-STRATEGY-002-AC-010`: `PASS (static)` — technical + wiki delta записаны; human review wiki открыт.
+- `JAZZ-STRATEGY-002-AC-011`: `PASS (static state-machine)` / `BLOCKED (runtime)` — `lTickRecon` снижает Heat без контакта один раз; нужен игровой тест contact/no-contact.
 
 ## Documentation delta
 

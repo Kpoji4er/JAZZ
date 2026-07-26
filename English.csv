@@ -6954,6 +6954,36 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000001421,Область защиты,Protection area,,jazz:items.lua:73253
 890000000001422,<text1>%,<text1>%,,jazz:items.lua:73452
 890000000001423,Прочность,Strength,,jazz:items.lua:73451
+890000000001424,Garrison,Garrison,,jazz:Code/Guardpost_Patrols.lua
+890000000001425,Patrol,Patrol,,jazz:Code/Guardpost_Patrols.lua
+890000000001426,Recon,Recon,,jazz:Code/Guardpost_Patrols.lua
+890000000001427,QRF,QRF,,jazz:Code/Guardpost_Patrols.lua
+890000000001428,Major response,Major response,,jazz:Code/Guardpost_Patrols.lua
+890000000001429,Supply convoy,Supply convoy,,jazz:Code/Guardpost_Patrols.lua
+890000000001430,Diamond convoy,Diamond convoy,,jazz:Code/Guardpost_Patrols.lua
+890000000001431,<role> — outpost <home> lost; no contact,<role> — outpost <home> lost; no contact,,jazz:Code/Guardpost_Patrols.lua
+890000000001432,<role> — awaiting orders from outpost <home>,<role> — awaiting orders from outpost <home>,,jazz:Code/Guardpost_Patrols.lua
+890000000001433,<role> — returning with intelligence to <home>,<role> — returning with intelligence to <home>,,jazz:Code/Guardpost_Patrols.lua
+890000000001434,<role> — returning to base <home>,<role> — returning to base <home>,,jazz:Code/Guardpost_Patrols.lua
+890000000001435,<role> — awaiting assignment,<role> — awaiting assignment,,jazz:Code/Guardpost_Patrols.lua
+890000000001436,<role> — holding sector <target>,<role> — holding sector <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001437,<role> — moving to hold sector <target>,<role> — moving to hold sector <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001438,<role> — patrolling key sites; next: <target>,<role> — patrolling key sites; next: <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001439,<role> — observing area <target>,<role> — observing area <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001440,<role> — moving to observe area <target>,<role> — moving to observe area <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001441,<role> — retaking sector <target>,<role> — retaking sector <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001442,<role> — responding to intelligence in sector <target>,<role> — responding to intelligence in sector <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001443,<role> — assaulting sector <target>,<role> — assaulting sector <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001444,<role> — delivering supplies to <target>,<role> — delivering supplies to <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001445,<role> — delivering diamonds to HQ <target>,<role> — delivering diamonds to HQ <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001446,<role> — task in sector <target>,<role> — task in sector <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001447,"<squad_name>
+Task: <task>","<squad_name>
+Task: <task>",,jazz:Code/Guardpost_Patrols.lua
+890000000001448,Legion Recon,Legion Recon,,jazz-units:items.lua
+890000000001449,Legion Patrol,Legion Patrol,,jazz-units:items.lua
+890000000001450,Legion Convoy,Legion Convoy,,jazz-units:items.lua
+890000000001451,Legion Garrison,Legion Garrison,,jazz-units:items.lua
 939310080350111,ржавое,rusty,,jazz:Code/Inventory.lua:117 | jazz:Code/Inventory.lua:180
 968409848233111,сломанное,broken,,jazz:Code/Inventory.lua:120 | jazz:Code/Inventory.lua:183
 1786863112811235,Укрепления,Fortifications,,jazz:Code/POI Extension.lua:9

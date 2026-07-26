@@ -37,7 +37,7 @@
 
 - 179 `UnitData`;
 - 158 appearance presets;
-- 69 enemy squad definitions;
+- 73 enemy squad definitions (включая четыре `LegionGlobalAI_*` role presets пилота Global AI);
 - 33 AI archetypes;
 - 1257 `LootDef`;
 - 10 voice response presets и 2 translated voice presets;
