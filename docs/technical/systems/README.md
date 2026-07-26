@@ -22,6 +22,7 @@
 | [Entities и ресурсы](assets-entities.md) | 490 зарегистрированных Entity ModItems, meshes, materials, textures и контракты имён | [Контент и ограничения](../../wiki/content-and-limitations.md) |
 | [Runtime, загрузка и инструменты](runtime-editor-integration.md) | metadata, Mod Editor, generated data, hooks, placeholders, dormant-код и диагностика | [Начало игры](../../wiki/getting-started.md) |
 | [Релизы и версионирование](release-versioning.md) | Версия из committed metadata, manifest четырёх repos, GitHub Releases и safeguards | Технический процесс |
+| [Сводки изменений в Discord](discord-player-updates.md) | Push range, OpenAI Structured Outputs, фильтрация, fallback и Discord webhook | Технический процесс |
 | [Покрытие файлов](file-coverage.md) | Явный владелец документации и load-state каждого `Code/*.lua` | Технический реестр |
 
 ## Как читать происхождение поведения

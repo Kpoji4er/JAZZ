@@ -96,6 +96,20 @@ git diff --check
 
 Проверить оружие в руках и на земле, состояния компонентов, магазины, сошки, прицелы, материалы и отсутствие `missing entity/state/spot` в логе. После re-export/re-import повторить проверку в новом процессе игры, чтобы исключить устаревшую cached Entity.
 
+## GitHub automation
+
+Для workflow сводок изменений выполнить:
+
+```powershell
+node --check .github/scripts/discord-player-update.mjs
+node --check .github/scripts/discord-player-update.test.mjs
+node --test .github/scripts/discord-player-update.test.mjs
+```
+
+Отдельно разобрать `.github/workflows/discord-player-updates.yml` YAML-парсером и выполнить `workflow_dispatch` с `dry_run=true`. Тесты должны покрывать полный `before..after`, zero-before, Structured Output JSON, invalid JSON, `should_publish=false`, `[discord]`, `[skip discord]`, fallback без ключа, redaction, neutralization Discord mentions, embed limits и `allowed_mentions.parse=[]`.
+
+Реальный Discord webhook не вызывать без тестового канала. Ошибка OpenAI должна приводить к безопасному skip или fallback только при override; ошибка Discord после решения публиковать должна завершать workflow ошибкой.
+
 ## Критерий завершения
 
 В отчёте всегда разделять: проверено статически, проверено в Mod Editor, проверено в игре, не проверено и почему. Runtime-изменение не считается полностью проверенным по одному статическому анализу.

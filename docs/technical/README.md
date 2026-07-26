@@ -20,6 +20,7 @@
 - [Канонический каталог оружия](weapons/README.md) — тиры, характеристики, компоненты, CSV-схема и правила синхронизации.
 - [Целевая модель точности](weapons/accuracy-model.md) — формулы из финальной вкладки «Пист» и открытые решения.
 - [Релизы и версионирование](systems/release-versioning.md) — версия из committed metadata, manifest четырех repos, packaging и GitHub Releases.
+- [Сводки изменений в Discord](systems/discord-player-updates.md) — GitHub Actions, OpenAI Structured Outputs, фильтрация diff и безопасный Discord webhook.
 - [Технический долг](technical-debt.md) — результаты аудита и безопасный план рефакторинга.
 
 ## Подробный каталог систем
