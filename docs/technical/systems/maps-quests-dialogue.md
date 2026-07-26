@@ -15,7 +15,7 @@
 ## Реализация и load-state
 
 - `jazz-maps/Code/Rebels_Loyalty.lua` — loaded runtime; определяет `FactionGrantLoyalty`.
-- `jazz-maps/Code/System_JAZZ_CrocodilePatrol.lua` — loaded; патч `CampCrocodile_CirclingPatrol`: заменяет vanilla `OnMsg.ReachSectorCenter` из `HotDiamonds.lua` (иначе `for` по `nil` place, когда патруль не на G13–G14), переопределяет `SetupCrocodilePatrolSquad` на дом `I19` и маршрут `I18→I19→J19`. `Setup` всегда через RealTimeThread после `IsChangingMap` (TCE на M1 + sync `AssignSatelliteSquadRoute` иначе может столлить `NetSyncEventFence` на loading screen). Триггер квеста `ReduceCrocodileCampStrength` в JAZZ — сектор `M1` (ваниль: `I1`). Статический анализ; полный баланс/маршрут wetlands — отдельная задача.
+- `jazz-maps/Code/System_JAZZ_CrocodilePatrol.lua` — loaded; патч `CampCrocodile_CirclingPatrol`: нейтрализует vanilla `OnMsg.ReachSectorCenter` из `HotDiamonds.lua` (иначе `for` по `nil` place, когда патруль не на G13–G14), переопределяет `SetupCrocodilePatrolSquad` на дом `I19` и маршрут `I18→I19→J19`. Установка handler: при наличии `debug.getupvalue` — точечная замена HotDiamonds в `message_to_staticfuncs`; в shipping (часто `debug == nil`) — wrap `Msg`, явный вызов JAZZ-handler и временный сброс `enemy_squad_def`, чтобы vanilla пропустил цикл. `Setup` всегда через RealTimeThread после `IsChangingMap` (TCE на M1 + sync `AssignSatelliteSquadRoute` иначе может столлить `NetSyncEventFence` на loading screen). Триггер квеста `ReduceCrocodileCampStrength` в JAZZ — сектор `M1` (ваниль: `I1`). Статический анализ; полный баланс/маршрут wetlands — отдельная задача.
 - `jazz-maps/Code/AIMechanism.lua` — dormant/unlisted; содержит варианты AIM/stealth options, но metadata его не загружает.
 - MapItem/ModItem definitions, `mapdata.lua`, `objects.lua`, grids и patches — generated and loaded согласно metadata/Map Editor.
 
@@ -38,7 +38,7 @@
 - 2 setpiece (`M1Landing` на стартовом M1 / map `EPA7FVN`, `EncounterHerman`);
 - 1 camera preset и 9 constants.
 
-Старт кампании: `InitialSector = M1` («Зона высадки»), не ванильный I1. На диске — примерно 317–321 map directories. Количество каталогов не равно количеству активных campaign sectors: служебные, варианты, underground и незавершённые карты могут не быть связаны с текущей кампанией. Около 22 секторов помечены как Эрни (`Label`/`City`/`WeatherZone=Erny` / `Rebels_Ernie`); 74 сектора имеют хотя бы одну ссылку на enemy squad list.
+Старт кампании: `InitialSector = M1` («Зона высадки»), не ванильный I1. На диске — примерно 317–321 map directories. Количество каталогов не равно количеству активных campaign sectors: служебные, варианты, underground и незавершённые карты могут не быть связаны с текущей кампанией. Около 23 секторов помечены как Эрни (`Label`/`City`/`WeatherZone=Erny` / `Rebels_Ernie`, включая J7 с `Label1=Ernie`); 74 сектора имеют хотя бы одну ссылку на enemy squad list.
 
 ## Campaign и sector schema
 
