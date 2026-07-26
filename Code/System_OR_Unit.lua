@@ -796,17 +796,18 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 
 	local MaxCTH = 100
 
-	if weapon1 and weapon1.Grouping then
-		local groupingResult = FirearmGetGrouping(weapon1,dist)
-		if groupingResult < 100 then
-			MaxCTH = groupingResult
-			--print(MaxCTH)
-		end
-	end
+--	if weapon1 and weapon1.Grouping then
+--		local groupingResult = FirearmGetGrouping(weapon1,dist)
+--		if groupingResult < 100 then
+--			MaxCTH = groupingResult
+--			--print(MaxCTH)
+--		end
+--	end
 
 	local target_pos = IsPoint(target) and target or target:GetPos()
 	local knife_throw = IsKindOf(weapon, "MeleeWeapon") and (action.ActionType == "Ranged Attack")
 	local penalty = weapon:GetAccuracy(attacker_pos:Dist(target_pos), self, action, knife_throw) - 100
+	--print(penalty)
 	local final = Clamp(base + penalty, 0, MaxCTH)
 	final = Clamp(final, mod_data.min, mod_data.max)
 		
@@ -820,7 +821,7 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 	if chance_only then
 		return final
 	end
-	if penalty < 0 then
+	if penalty ~= 0 then
 		if action.ActionType == "Melee Attack" then
 			modifiers[#modifiers + 1] = {
 				name = T(660754354729, "Weapon Accuracy"),

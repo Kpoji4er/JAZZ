@@ -86,9 +86,9 @@ DefineClass.MP7 = {
 	MaxAimActions = 2,
 	Recoil = 6,
 	BurstShots = 5,
-	Handling = 20,
-	BulletDropRange = 10,
-	Grouping = 31,
+	Handling = 12,
+	BulletDropRange = 12,
+	Grouping = 72,
 	BaseJamChance = -30,
 	WeaponResource = 8000,
 }

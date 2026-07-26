@@ -1,0 +1,67 @@
+name: Suite package gate
+
+on:
+  workflow_call:
+    inputs:
+      package:
+        description: Package key accepted by generated-data checker
+        required: true
+        type: string
+      directory:
+        description: Checkout directory next to the canonical jazz repository
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate-package:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout changed package
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          path: suite/${{ inputs.directory }}
+
+      - name: Checkout canonical process contract
+        uses: actions/checkout@v4
+        with:
+          repository: Kpoji4er/JAZZ
+          ref: main
+          path: suite/jazz
+
+      - name: Validate generated-data graph
+        shell: pwsh
+        run: suite/jazz/.agents/skills/sync-jazz-generated-data/scripts/check-generated-sync.ps1 -SuiteRoot suite/jazz -Package '${{ inputs.package }}'
+
+      - name: Validate package overlay
+        shell: pwsh
+        run: |
+          $overlay = 'suite/${{ inputs.directory }}/AGENTS.md'
+          if (-not (Test-Path -LiteralPath $overlay -PathType Leaf)) {
+            throw "Missing package AGENTS.md: $overlay"
+          }
+          $text = Get-Content -LiteralPath $overlay -Raw
+          foreach ($required in @('../jazz/AGENTS.md', '../jazz/docs/specs/active/', '../jazz/.agents/skills/work-on-jazz-mod/SKILL.md')) {
+            if (-not $text.Contains($required)) {
+              throw "Package overlay does not route to $required"
+            }
+          }
+          if ($text -match 'docs/wiki/') {
+            throw 'Package overlay still requires disabled docs/wiki.'
+          }
+
+      - name: Check whitespace in changed lines
+        shell: pwsh
+        working-directory: suite/${{ inputs.directory }}
+        run: |
+          if ($env:GITHUB_BASE_REF) {
+            git diff --check "origin/$env:GITHUB_BASE_REF...HEAD"
+          } elseif (git rev-parse --verify HEAD^ 2>$null) {
+            git diff --check HEAD^ HEAD
+          } else {
+            git diff --check --cached
+          }

@@ -25,28 +25,26 @@ AI-first не расширяет полномочия задачи и не пр�
 
 Особенно полезны `LuaStartup`, `LuaMessages`, `LuaReactions`, `LuaClasses`, `LuaVars`, `LuaSavegame`, `LuaThreads`, `LuaRepeats`, `LuaCObject`, `LuaMapEnumeration`, `LuaUI`, `ModItemCode`, `ModItemLocTable`, `ModItemEntity`, `MapEditor`, `GridMarkers`, `Pathfinding`, `Destruction` и `JA3_AI`. Сводный обязательный контракт вынесен в [runtime, загрузку и инструменты](systems/runtime-editor-integration.md).
 
-## Рабочий цикл изменения кода
+## Spec-Driven рабочий цикл
 
-1. Найти текущее исходное имя в `<JA3_ROOT>\ModTools\Src` и посмотреть историю в официальном GitHub.
-2. Запросить последнюю версию официального CommonLib `main`, сверить локальную/установленную копию и найти то же имя именно в этом актуальном срезе.
-3. Найти все определения и вызовы во всех пакетах JAZZ.
-4. Проверить массив `code` в соответствующем `metadata.lua`.
-5. Определить владельца поведения после полной загрузки.
-6. Внести минимальное изменение в пакет-владелец.
-7. Обновить [матрицу переопределений](override-matrix.md), если граница слоёв изменилась.
-8. Выполнить статические и игровые проверки.
+1. Сформулировать problem, goals и non-goals в `docs/specs/active/<SPEC-ID>.md`.
+2. Зафиксировать `REQ-*`, invariants, `AC-*`, package ownership, declared write set и exclusive resources.
+3. Получить решение владельца проекта и пройти DoR через `$specify-jazz-change`.
+4. Только после approval исследовать точные vanilla/CommonLib/JAZZ symbols и построить минимальный implementation plan.
+5. Внести изменение в package-owner, не выходя за write set без ревизии spec.
+6. Выполнить профильные static/generated/editor/runtime проверки и записать evidence для каждого `AC-*`.
+7. Синхронизировать `docs/technical/` с фактически загруженным состоянием.
+8. Пройти DoD, независимое conformance review и human acceptance.
 
-Пример поиска:
+Read-only диагностика и исправление явной опечатки в документации могут не создавать spec, если не меняют контракт.
 
-```powershell
-$ja3Source = Join-Path $env:JA3_ROOT "ModTools\Src"
-rg -n -F "AISelectAction" `
-  -g "!Maps/**" `
-  $ja3Source `
-  "<checkout JA3_CommonLib>" `
-  "..\jazz" "..\jazz_assets" "..\jazz-maps" "..\jazz-units"
-```
+## Исследование реализации
 
+- Начинать с exact ID/path и narrow `rg`.
+- Использовать свежий CommonLib snapshot аудитора; обновлять upstream при истёкшем snapshot или compatibility/dependency/release scope.
+- Сравнивать только затронутые symbols, а не повторять полный трёхслойный аудит без impact.
+- Проверять `metadata.lua.code`, package ownership и межпакетные ссылки.
+- Не читать целиком `items.lua`, metadata или generated каталоги, когда достаточно индексированного slice.
 ## Lua runtime
 
 Перед изменением ручного Lua определить:
@@ -146,7 +144,8 @@ Metadata должен ссылаться на реально существую�
 
 Для любой разработки в четырёх пакетах использовать:
 
-- `.agents/skills/work-on-jazz-mod/SKILL.md` — анализ ownership, source layers, generated data и безопасная проверка;
+- .agents/skills/specify-jazz-change/SKILL.md — change spec, DoR, DoD и evidence;
+- .agents/skills/work-on-jazz-mod/SKILL.md — маршрутизация ownership, source layers и профильных skills;
 - `.agents/skills/sync-jazz-generated-data/SKILL.md` — синхронизация `items.lua`, `metadata.lua` и generated companion;
 - `.agents/skills/document-jazz-systems/SKILL.md` — обязательное обновление документации в той же задаче;
 - `.agents/skills/release-jazz-suite/SKILL.md` — версия из metadata, release manifest, packaging и GitHub Releases.
@@ -159,4 +158,4 @@ Read-only проверки:
 .agents/skills/document-jazz-systems/scripts/check-system-docs.ps1
 ```
 
-Definition of done включает актуальную профильную страницу `docs/technical/systems/`, file coverage, override/compatibility/testing docs по необходимости и diff всех затронутых Git-репозиториев.
+Definition of Done определяется утверждённой spec: все `AC-*` имеют требуемое evidence, technical current-state docs актуальны, профильные checks пройдены, diff остаётся в declared write set и выполнено независимое conformance review.

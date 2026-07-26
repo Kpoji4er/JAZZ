@@ -21,10 +21,10 @@ DefineClass.SWModel19 = {
 	Caliber = "JAZZ_Caliber_357",
 	Damage = 28,
 	ObjDamageMod = 40,
-	AimAccuracy = 10,
+	AimAccuracy = 16,
 	CritChanceScaled = 30,
 	MagazineSize = 6,
-	WeaponRange = 18,
+	WeaponRange = 17,
 	OverwatchAngle = 5100,
 	Noise = 28,
 	Entity = "SW19",
@@ -68,9 +68,8 @@ DefineClass.SWModel19 = {
 	ReloadAP = 5000,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 15,
 	BulletDropRange = 6,
-	Grouping = 54,
+	Grouping = 36,
 	BaseJamChance = -100,
 }
 

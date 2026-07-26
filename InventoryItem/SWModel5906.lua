@@ -25,7 +25,7 @@ DefineClass.SWModel5906 = {
 	AimAccuracy = 8,
 	CritChanceScaled = 35,
 	MagazineSize = 16,
-	WeaponRange = 18,
+	WeaponRange = 19,
 	OverwatchAngle = 5400,
 	Noise = 22,
 	Entity = "SWModel5906",
@@ -80,9 +80,9 @@ DefineClass.SWModel5906 = {
 	MaxAimActions = 2,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 14,
+	Handling = 2,
 	BulletDropRange = 6,
-	Grouping = 47,
+	Grouping = 74,
 	BaseJamChance = -20,
 }
 

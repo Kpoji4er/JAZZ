@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 11,
-	'version', 5899,
+	'version', 5938,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -346,8 +346,8 @@ return PlaceObj('ModDef', {
 		"InventoryItem/Scorpion.lua",
 		"InventoryItem/MicroUZI.lua",
 		"InventoryItem/MAC10.lua",
-		"InventoryItem/APS.lua",
 		"InventoryItem/Beretta93r.lua",
+		"InventoryItem/APS.lua",
 		"InventoryItem/Glock18.lua",
 		"InventoryItem/SWModel10.lua",
 		"InventoryItem/Colt38Special.lua",
@@ -358,9 +358,9 @@ return PlaceObj('ModDef', {
 		"InventoryItem/MR73.lua",
 		"InventoryItem/SWModel29.lua",
 		"InventoryItem/ColtAnaconda.lua",
+		"InventoryItem/RSH12.lua",
 		"InventoryItem/Korth.lua",
 		"InventoryItem/TexRevolver.lua",
-		"InventoryItem/RSH12.lua",
 		"InventoryItem/MAT49.lua",
 		"InventoryItem/MP40.lua",
 		"InventoryItem/M3GreaseGun.lua",
@@ -743,6 +743,7 @@ return PlaceObj('ModDef', {
 		"CharacterEffect/Burning.lua",
 		"CharacterEffect/Choking.lua",
 		"CharacterEffect/MarkedTraccers.lua",
+		"CharacterEffect/DamageReduction.lua",
 		"Code/CombatBadge_DeathRoll.lua",
 		"Code/GritOnStart.lua",
 		"Code/CombatActions.lua",
@@ -854,8 +855,8 @@ return PlaceObj('ModDef', {
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,
-	'saved', 1778688733,
-	'code_hash', -2910581883130616473,
+	'saved', 1779053184,
+	'code_hash', -7302069464539853611,
 	'affected_resources', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "MercSpecializations",
@@ -3384,12 +3385,12 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
-			'Id', "APS",
+			'Id', "Beretta93r",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
-			'Id', "Beretta93r",
+			'Id', "APS",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -3444,17 +3445,17 @@ return PlaceObj('ModDef', {
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
+			'Id', "RSH12",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
 			'Id', "Korth",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "TexRevolver",
-			'ClassDisplayName', "Inventory item",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "InventoryItemCompositeDef",
-			'Id', "RSH12",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {
@@ -7048,6 +7049,11 @@ return PlaceObj('ModDef', {
 			'ClassDisplayName', "Character effect",
 		}),
 		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "DamageReduction",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
 			'Class', "TargetBodyPart",
 			'Id', "Head",
 			'ClassDisplayName', "TargetBodyPart",
@@ -7786,16 +7792,6 @@ return PlaceObj('ModDef', {
 			'ClassDisplayName', "WeaponPropertyDef",
 		}),
 		PlaceObj('ModResourcePreset', {
-			'Class', "WeaponPropertyDef",
-			'Id', "AimWeaponRange",
-			'ClassDisplayName', "WeaponPropertyDef",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "WeaponPropertyDef",
-			'Id', "UnAimWeaponRange",
-			'ClassDisplayName', "WeaponPropertyDef",
-		}),
-		PlaceObj('ModResourcePreset', {
 			'Class', "TextStyle",
 			'Id', "AmmoSubstandardColor",
 			'ClassDisplayName', "Text style",
@@ -8088,11 +8084,6 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "WeaponType",
 			'Id', "Revolver",
-			'ClassDisplayName', "Weapon Type",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "WeaponType",
-			'Id', "CompactSMG",
 			'ClassDisplayName', "Weapon Type",
 		}),
 		PlaceObj('ModResourcePreset', {

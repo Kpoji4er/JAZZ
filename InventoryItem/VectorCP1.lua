@@ -22,10 +22,10 @@ DefineClass.VectorCP1 = {
 	Caliber = "JAZZ_Caliber_9x19",
 	Damage = 20,
 	ObjDamageMod = 20,
-	AimAccuracy = 5,
+	AimAccuracy = 4,
 	CritChanceScaled = 35,
 	MagazineSize = 15,
-	WeaponRange = 17,
+	WeaponRange = 18,
 	OverwatchAngle = 5400,
 	Entity = "VectorCP1",
 	ComponentSlots = {
@@ -68,9 +68,9 @@ DefineClass.VectorCP1 = {
 	ReloadAP = 3000,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 25,
-	BulletDropRange = 5,
-	Grouping = 44,
+	Handling = 13,
+	BulletDropRange = 6,
+	Grouping = 60,
 	BaseJamChance = -20,
 }
 

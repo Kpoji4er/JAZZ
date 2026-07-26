@@ -1,0 +1,7 @@
+interface:
+  display_name: "JAZZ Localization CSV"
+  short_description: "Проверка и экспорт CSV локализации JAZZ"
+  default_prompt: "Use $manage-jazz-localization to audit translation IDs, update the catalog, and prepare a safe localization CSV."
+
+policy:
+  allow_implicit_invocation: true

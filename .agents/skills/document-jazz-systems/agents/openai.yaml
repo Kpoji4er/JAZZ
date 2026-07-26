@@ -1,4 +1,4 @@
 interface:
   display_name: "Документация систем JAZZ"
-  short_description: "Техническая документация и wiki систем JAZZ"
-  default_prompt: "Используй $document-jazz-systems, чтобы обновить техническое описание затронутых систем JAZZ, соответствующие wiki-гайды и проверить полноту двух контуров документации."
+  short_description: "Current-state техническая документация JAZZ"
+  default_prompt: "Используй $document-jazz-systems, чтобы синхронизировать technical docs с фактическим изменением JAZZ и проверить ссылки."

@@ -4,6 +4,7 @@ param(
     [ValidateSet('jazz', 'jazz_assets', 'jazz-maps', 'jazz-units')]
     [string[]]$Package,
     [switch]$Strict,
+    [switch]$DetailedWarnings,
     [switch]$IncludeMapsContent
 )
 
@@ -187,7 +188,7 @@ foreach ($repoName in $selectedNames) {
 
     $generated = New-Object 'System.Collections.Generic.List[object]'
     $classFolders = @{}
-    $excludedTopLevel = @('.git', '.agents', 'docs', 'Code', 'Entities')
+    $excludedTopLevel = @('.git', '.agents', '.codex', '.openai', 'codex_worktrees', 'docs', 'Code', 'Entities')
     if ($repoName -eq 'jazz-maps' -and -not $IncludeMapsContent) {
         $excludedTopLevel += 'Maps'
     }
@@ -201,7 +202,7 @@ foreach ($repoName in $selectedNames) {
         }
     ) | Where-Object {
         $_.Name -notin @('items.lua', 'metadata.lua') -and
-        $_.FullName -notmatch '\\(?:\.git|\.agents|docs|Code|Entities)\\'
+        $_.FullName -notmatch '\\(?:\.git|\.agents|\.codex|\.openai|codex_worktrees|docs|Code|Entities)\\'
     }
 
     foreach ($file in $luaFiles) {
@@ -232,11 +233,17 @@ foreach ($repoName in $selectedNames) {
             $classFolders[$entry.Class].Add($folder) | Out-Null
         }
 
-        if (-not $codeSet.ContainsKey($relative)) {
-            Add-Issue -Level 'ERROR' -Repo $repoName -Path $relative -Message 'Generated companion отсутствует в metadata.code.'
-        }
-        if (-not $itemKeys.ContainsKey($entry.Class + '|' + $entry.Id)) {
-            Add-Issue -Level 'ERROR' -Repo $repoName -Path $relative -Message ("Нет соответствующего ModItem в items.lua: {0} / {1}." -f $entry.Class, $entry.Id)
+        $hasCodePath = $codeSet.ContainsKey($relative)
+        $hasModItem = $itemKeys.ContainsKey($entry.Class + '|' + $entry.Id)
+        if (-not $hasCodePath -and -not $hasModItem) {
+            Add-Issue -Level 'WARNING' -Repo $repoName -Path $relative -Message ("Generated companion находится вне активного items/metadata graph; классифицировать как intentional dormant или orphan: {0} / {1}." -f $entry.Class, $entry.Id)
+        } else {
+            if (-not $hasCodePath) {
+                Add-Issue -Level 'ERROR' -Repo $repoName -Path $relative -Message 'Активный generated companion отсутствует в metadata.code.'
+            }
+            if (-not $hasModItem) {
+                Add-Issue -Level 'ERROR' -Repo $repoName -Path $relative -Message ("Активный generated companion не имеет ModItem в items.lua: {0} / {1}." -f $entry.Class, $entry.Id)
+            }
         }
     }
 
@@ -341,8 +348,20 @@ foreach ($repoName in $selectedNames) {
     Write-Output ("[{0}] metadata.code={1}; ModItem={2}; generated={3}; entities={4}; errors={5}; warnings={6}" -f $repoName, $codePaths.Count, $records.Count, $generated.Count, $entityFiles.Count, $repoErrors, $repoWarnings)
 }
 
-foreach ($issue in $script:issues) {
+$displayBlocking = @($script:issues | Where-Object { $_.Level -in @('ERROR', 'FATAL') })
+$displayWarnings = @($script:issues | Where-Object { $_.Level -eq 'WARNING' })
+foreach ($issue in $displayBlocking) {
     Write-Output ("{0} [{1}] {2}: {3}" -f $issue.Level, $issue.Repo, $issue.Path, $issue.Message)
+}
+if ($DetailedWarnings -or $Strict) {
+    foreach ($issue in $displayWarnings) {
+        Write-Output ("{0} [{1}] {2}: {3}" -f $issue.Level, $issue.Repo, $issue.Path, $issue.Message)
+    }
+} else {
+    foreach ($group in @($displayWarnings | Group-Object Repo)) {
+        $examples = @($group.Group | Select-Object -First 3 | ForEach-Object { $_.Path }) -join ', '
+        Write-Output ("WARNING SUMMARY [{0}] count={1}; examples: {2}" -f $group.Name, $group.Count, $examples)
+    }
 }
 
 if ($script:fatal) {
@@ -350,15 +369,22 @@ if ($script:fatal) {
     exit 1
 }
 
-if ($script:issues.Count -eq 0) {
+$blocking = @($script:issues | Where-Object { $_.Level -in @('ERROR', 'FATAL') })
+$warnings = @($script:issues | Where-Object { $_.Level -eq 'WARNING' })
+if ($blocking.Count -gt 0) {
+    Write-Output ("RESULT: FAILED ({0} blocking issue(s), {1} warning(s))" -f $blocking.Count, $warnings.Count)
+    exit 1
+}
+
+if ($warnings.Count -eq 0) {
     Write-Output 'RESULT: OK'
     exit 0
 }
 
 if ($Strict) {
-    Write-Output ("RESULT: FAILED STRICT ({0} issue(s))" -f $script:issues.Count)
+    Write-Output ("RESULT: FAILED STRICT ({0} warning(s))" -f $warnings.Count)
     exit 2
 }
 
-Write-Output ("RESULT: WARNINGS ({0} issue(s)); rerun with -Strict to enforce." -f $script:issues.Count)
+Write-Output ("RESULT: WARNINGS ({0}); blocking errors are always fatal, use -Strict to reject warnings." -f $warnings.Count)
 exit 0

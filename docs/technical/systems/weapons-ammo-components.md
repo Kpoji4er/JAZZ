@@ -29,7 +29,9 @@ JAZZ превращает оружие из набора vanilla-статов в
 
 В core-пакете зарегистрировано 558 `InventoryItem` definitions. Крупные оружейные семейства: 24 pistol, 24 SMG, 18 assault rifle, 17 sniper rifle, 14 battle rifle, 13 carbine, 13 revolver, 12 shotgun, 10 machine gun, 9 LMG, 6 autopistol и 4 grenade launcher. Также присутствуют ammo, armor, ordnance, misc/quest items и melee.
 
-Определены 12 типов оружия: `AR`, `Autopistol`, `BattleRifle`, `Carbine`, `CompactSMG`, `LMG`, `MG`, `Pistol`, `Revolver`, `Shotgun`, `SMG`, `Sniper`; 27 калибров; 236 `WeaponComponent`; 64 `WeaponComponentEffect`; 14 `WeaponPropertyDef`.
+Определены 11 типов оружия: `Pistol`, `Autopistol`, `Revolver`, `SMG`, `AssaultRifle`, `Carbine`, `BattleRifle`, `Shotgun`, `LightMachineGun`, `MachineGun`, `Sniper`; 27 калибров; 236 `WeaponComponent`; 64 `WeaponComponentEffect`; 14 `WeaponPropertyDef`.
+
+Устаревшие `CompactSMG` и `CompactSubmachineGun` удалены, а компактные образцы входят в единый класс `SMG` / `SubmachineGun`. `LightMachineGun` соответствует лёгкому пулемёту, а `MachineGun` — тяжёлому/позиционному. Назначение, компромиссы и будущие перковые действия всех классов зафиксированы в [ролях классов оружия](../weapons/class-roles.md).
 
 Публичные weapon properties:
 
@@ -41,6 +43,8 @@ JAZZ превращает оружие из набора vanilla-статов в
 - `WeaponName`, `WeaponIconMod`, reticle images и `UnitSubStat`.
 
 В актуальном документальном контракте используются 13 weapon property definitions: `AimAccuracy`, `AutoShots`, `BaseDamage`, `BulletDropRange`, `BurstShots`, `Damage`, `Grouping`, `Handling`, `MaxAimActions`, `Noise`, `OverwatchAngle`, `Recoil`, `WeaponRange`.
+
+В [целевой модели стрельбы](../weapons/accuracy-model.md) `Handling` становится legacy-полем и перестаёт участвовать в CTH. `Recoil` мигрирует на шкалу удержания точности последующих пуль, а оптика получает параметры переноса эффективной прицельной зоны. Это ещё не действующее runtime-поведение.
 
 ## Канонический каталог
 
@@ -77,6 +81,12 @@ raw_jam = ((100 - Reliability) + BaseJamChance) × degrade_multiplier
 
 Ammo ModItems наследуют `Ammo`; rollover выводит модификации и effects, а reload использует специализированный `AmmoInventory`. Зарегистрированы 49 `CraftOperationsRecipe` для боеприпасов и mortar/ordnance и 33 `RecipeDef`, главным образом преобразования брони. Категории Bobby Ray включают 10 ammo subcategories.
 
+### Трассерные боеприпасы
+
+Наличие `MarkedTraccers` в `Ammo.AppliedEffects` включает shot-level правило: выбранная unit-цель получает один stack за каждый фактически произведённый выстрел, если итоговый шанс этого выстрела `shot_cth > 0`. Попадание не требуется, поэтому маркер отражает трассирующий/подавляющий огонь; при невозможном выстреле с CTH `0`, jam или отсутствии произведённого выстрела stack не добавляется.
+
+`MarkedTraccers` исключён из обычного `hit.effects`, чтобы попадание не добавляло второй stack. Остальные ammo/body-part effects остаются hit-level и применяются только при отсутствии закрывающей брони либо при её пробитии.
+
 ## Дубли и порядок загрузки
 
 Внутри JAZZ повторно определяются `FirearmBase:GetScrapParts` и связанные методы состояния. `GrenadeLauncher:GetBaseDegradePerShot`, `RocketLauncher:GetBaseDegradePerShot` и `Mortar:GetBaseDegradePerShot` сначала появляются в `System_OR_Grenade.lua`, затем в `WeaponClasses.lua`; итог задаёт более поздний файл metadata. Это намеренная зона осторожного рефакторинга: сначала зафиксировать реально активное тело, затем переносить без изменения поведения.
@@ -97,10 +107,12 @@ Ammo ModItems наследуют `Ammo`; rollover выводит модифик�
 - деградация Grouping и совпадение CTH UI;
 - установка/снятие каждого класса компонентов, folded/unfolded визуал;
 - reload из правильного ammo slot и отказ для неподходящего калибра;
+- трассерный одиночный/серийный огонь: попадание и промах при CTH больше нуля, CTH `0`, jam и нехватка патронов;
+- обычные ammo effects при непробитой и пробитой броне;
 - scrap и crafting recipes;
 - save/load экземпляра с неполным и уменьшенным максимальным ресурсом;
 - AI с модифицированным оружием.
 
 ## Сопровождение
 
-При изменении свойств, component effects, калибров, jam/degrade или generated items обновлять эту страницу, [гайд по оружию и боеприпасам](../../wiki/weapons-and-ammo.md), соответствующие таблицы data snapshot и тесты. Для изменений duplicated methods обязательно проверить `metadata.lua`.
+При изменении свойств, component effects, калибров, jam/degrade или generated items обновлять эту страницу, соответствующие таблицы data snapshot и тесты. Для изменений duplicated methods обязательно проверить `metadata.lua`. Наблюдаемый игроком current-state контракт фиксируется на этой technical-странице; target behavior — в связанной spec.

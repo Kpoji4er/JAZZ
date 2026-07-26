@@ -1,118 +1,46 @@
 ---
 name: work-on-jazz-mod
-description: AI-first процесс безопасной разработки, диагностики, ревью и рефакторинга модификации JAZZ для Jagged Alliance 3, состоящей из четырёх пакетов. Использовать для изменений Lua, ModItem, карт, юнитов, entities, аудио, генерируемых данных, зависимостей, порядка загрузки, совместимости и межпакетных контрактов; для сравнения JAZZ с установленными исходниками игры, официальным source drop и последней upstream-версией CommonLib; а также для любых изменений runtime-поведения. Перед анализом и тестами всегда определяет текущую версию CommonLib из ветки main.
+description: Маршрутизировать безопасную разработку, диагностику и ревью JAZZ как комплекта из четырёх репозиториев. Использовать для изменений runtime Lua, generated data, карт, юнитов, assets, dependencies, load order и межпакетных контрактов, а также для impact analysis по vanilla, CommonLib и JAZZ. Подключает только профильные references и специализированные skills.
 ---
 
-# Работа с модом JAZZ
+# Работа с JAZZ
 
-Рассматривать JAZZ как единый продукт из четырёх репозиториев. Сохранять пользовательское поведение, если задача явно не требует его изменить. Не определять владельца системы только по имени файла.
+Рассматривать `jazz`, `jazz_assets`, `jazz-maps` и `jazz-units` как один runtime-продукт с отдельными Git-границами.
 
-## Экономия контекста
+## Маршрутизация
 
-- Использовать минимально достаточный контекст: точные IDs и пути, узкие `rg`-запросы, диапазоны строк и сводки вместо полных дампов.
-- Не повторять чтение уже проверенного неизменившегося файла.
-- По умолчанию исключать generated/binary и другие тяжёлые каталоги из обзорных обходов.
-- Не перечислять и не анализировать `jazz-maps/Maps/` рекурсивно. Заходить туда только по прямому указанию пользователя на `Maps/`, конкретную карту, сектор или map patch; начинать с названного пути.
-- Передавать `-IncludeMapsContent` аудиторам только в такой явно картографической задаче.
+1. Прочитать применимые `AGENTS.md` и `.agents/docs/index.md`.
+2. Для изменения поведения, архитектуры, generated data, dependencies, load order, публичных ID или save/network contract сначала использовать `$specify-jazz-change` и пройти DoR.
+3. Определить пакет-владелец данных, runtime-владельца и exact target ID/path. Не определять ownership только по имени файла.
+4. Прочитать только профильный playbook и системную technical-страницу.
+5. Подключить специализированный skill:
+   - `$sync-jazz-generated-data` — ModItem, `items.lua`, `metadata.lua`, companion, Entity или editor-owned data;
+   - `$document-jazz-systems` — фактическое изменение реализации, load-state или technical contract;
+   - `$release-jazz-suite` — release candidate, version, manifest, tag или публикация.
+6. Не выполнять recursive scan `jazz-maps/Maps/` без прямого картографического scope.
 
-## AI-first-режим
+## Исследование
 
-Считать AI-агента основным исполнителем исследования, реализации, рефакторинга, документирования и статических проверок. Оставлять владельцу проекта дизайн, баланс, расширение scope, субъективную оценку, runtime-приёмку и релиз.
+- Начинать с narrow `rg`, exact ID и диапазонов строк; не загружать целиком `items.lua` или большие metadata/data-каталоги.
+- Проверять `git status --short` только в затронутых репозиториях и сохранять посторонний dirty state.
+- Сравнивать один и тот же символ в установленной vanilla, подтверждённой CommonLib и JAZZ только для compatibility-sensitive изменения. Повторно использовать свежий CommonLib snapshot аудитора.
+- Проверять фактическую регистрацию в `metadata.lua.code`; наличие файла на диске не доказывает загрузку.
+- Для изменённого визуального или звукового представления синхронизировать repository-relative media path в technical docs либо явно зафиксировать отсутствие изменения asset contract.
 
-Не считать AI-first разрешением на автономное расширение задачи. Сохранять существовавшую до 25 июля 2026 года ручную кодовую базу как исторический baseline, не переписывать её ради удобства агента и не приписывать AI незакоммиченные изменения владельца. Подробности читать в `docs/technical/ai-first-development.md`.
+## Реализация
 
-## Начало каждой задачи
+- Работать в пакете-владельце и в declared write set утверждённой spec.
+- Не смешивать логическое изменение, mass regeneration, formatting и migration.
+- Сохранять публичные IDs, signatures, load order, save/network state и deterministic RNG, если spec явно не меняет контракт.
+- Generated data менять одной транзакцией и проверять editor round-trip.
+- Не активировать dormant/unlisted код неявно.
 
-1. Найти корень комплекта относительно репозитория `jazz` и прочитать все применимые `AGENTS.md`.
-2. Прочитать `references/project-layout.md`, профильные страницы из `docs/` и релевантные официальные страницы `<JA3_ROOT>/ModTools/Docs`. Для Lua runtime начинать с `LuaStartup`, `LuaMessages`, `LuaVars`, `LuaSavegame`, `LuaThreads`, `LuaRepeats`, `LuaCObject`, `LuaMapEnumeration` и `LuaUI`.
-3. Запросить официальную ветку CommonLib `main` и её metadata. Зафиксировать текущие commit/version, сверить установленную или локально клонированную копию и сравнить `version_major`/`version_minor` объявленной зависимости в metadata JAZZ.
-4. До изменений запустить `scripts/audit-project.ps1`. Не пропускать upstream-проверку CommonLib, если результат должен считаться поддерживаемым.
-5. Найти затронутый ID, класс, hook, preset, sector, unit, entity или resource во всех четырёх репозиториях, сохраняя исключение `jazz-maps/Maps/` по умолчанию.
-6. Классифицировать каждую реализацию:
-   - runtime установленной vanilla-игры;
-   - история официальных исходников vanilla;
-   - замена или расширение последней CommonLib;
-   - замена, расширение, generated definition или dormant-файл JAZZ.
+Runtime guardrails читать в `.agents/docs/reference/runtime-model.md`; полный change checklist — в [change-checklist.md](references/change-checklist.md).
 
-## Сравнение слоёв реализации
+## Завершение
 
-Использовать следующий приоритет источников:
-
-1. `<JA3_ROOT>/ModTools/Src` — runtime-эталон установленного билда игры.
-2. Официальный репозиторий `THQNordic/JaggedAlliance3Modding` — читаемая историческая база, которая не обязана совпадать с установленным билдом.
-3. Текущая ветка `main` репозитория `ja3_commonlib` — dependency-слой, способный заменить vanilla-функции до загрузки JAZZ.
-4. Четыре пакета JAZZ — продуктовый слой. Учитывать порядок зависимостей, `OnMsg`, классы, presets и композицию данных: правило «последнее определение выигрывает» применимо не всегда.
-
-Для каждого override сравнивать один и тот же символ во всех доступных слоях. Существенные пересечения фиксировать в `docs/technical/override-matrix.md`, последствия — в `docs/technical/compatibility.md`.
-
-## Политика версии CommonLib
-
-- Поддерживать только последнюю версию из официальной ветки CommonLib `main`/Steam Workshop. Старые версии не являются целью совместимости.
-- Проверять upstream перед каждой задачей, даже если в документации уже есть датированный снимок аудита.
-- Считать записанные version, build и commit доказательством конкретного аудита, а не pin или верхней границей версии.
-- Обновлять или заменять устаревший локальный checkout до анализа коллизий. Поддерживаемые игровые тесты проводить с последней установленной CommonLib.
-- Перед изменением dependency metadata и перед каждым поддерживаемым релизом обновлять `version_major`/`version_minor` всех объявленных `ModDependency` с ID `JA3_CommonLib` до значений из текущего upstream `metadata.lua`.
-- Не оставлять намеренно старую версию зависимости ради обратной совместимости: JAZZ поддерживает только последний CommonLib. Не изменять числа вслепую, если upstream не подтверждён.
-- Для dependency/release-задач запускать `scripts/audit-project.ps1 -RequireCurrentCommonLibDependency`; несовпадение объявленной и upstream-версии считать блокирующей ошибкой.
-- Если пакет использует CommonLib, но не объявляет его напрямую, отдельно определить, допустима ли транзитивная зависимость. Не добавлять и не удалять dependency без анализа порядка загрузки и документации.
-- Если upstream недоступен, явно указывать, что последняя версия не подтверждена, и не заявлять актуальную совместимость.
-
-## Безопасное внесение изменений
-
-- Сохранять generated-файлы Mod Editor генерируемыми. Менять их через редактор, если задача явно не требует проверенной ручной правки.
-- При изменении `items.lua`, `metadata.lua`, ModItem, preset или generated companion обязательно использовать `$sync-jazz-generated-data` и проверять все представления одной транзакцией.
-- Пользовательскую логику размещать преимущественно в ручных модулях `Code/`.
-- Сохранять незакоммиченные и не относящиеся к задаче изменения пользователя.
-- Перед переименованием ID или изменением схемы искать потребителей во всех пакетах.
-- Считать savegame fields, NetSync events, replicated state, presets, свойства классов, sector/unit/entity/audio IDs поверхностью совместимости.
-- Не активировать dormant или unlisted-код неявно.
-- При рефакторинге сохранять поведение, порядок загрузки, публичные IDs, сериализацию, последовательность RNG и сетевой детерминизм.
-- Если пользователь отдельно разрешил создать commit, писать его заголовок и пояснение на русском; технические идентификаторы, пути, версии и теги не переводить.
-
-Для проверок по типам изменений читать `references/change-checklist.md`.
-
-## Lua runtime guardrails
-
-Перед изменением Lua зафиксировать lifecycle-stage, registration order, thread clock, declared state и save/load surface. Применять следующие правила:
-
-- file scope использовать для definitions/registrations; ModItem во время reload может быть ещё не загружен;
-- считать `ReloadLua` продолжением существующего Lua-state, а не clean start;
-- учитывать, что `Msg` синхронен, `OnMsg` не должен спать, ordering следует регистрации, а `MsgClear` удаляет handlers всех слоёв;
-- различать `GameVar`, `MapVar` и `GlobalVar`; не присваивать `nil` GameVar/MapVar;
-- считать game-time thread сериализуемым вместе со старым bytecode; для periodic map work предпочитать engine repeat, если подходит lifecycle;
-- использовать game-time threads для simulation и real-time/XWindow threads для UI; не допускать busy loop;
-- не хранить persistent state только в Lua-таблице обычного `CObject`;
-- сужать map enumeration и использовать `MapCount`/dedicated operations вместо лишних списков;
-- вызывать mutating UI methods на настоящем объекте, не на `SubContext()`.
-
-Полный контракт и тестовые последствия читать в `docs/technical/systems/runtime-editor-integration.md`, `docs/technical/compatibility.md` и `docs/technical/testing.md`.
-
-## Документация в том же изменении
-
-Для любого изменения кода, данных, gameplay, dependency, load order или границ пакетов использовать skill `$document-jazz-systems`. Документация является частью definition of done.
-
-Как минимум:
-
-- обновить профильную страницу `docs/technical/systems/`;
-- обновить `docs/technical/systems/file-coverage.md`, если файл появился, исчез, переместился, начал загружаться или стал dormant;
-- обновить разделение vanilla/CommonLib/JAZZ при изменении владельца поведения;
-- обновить тесты и заметки о совместимости при изменении рисков;
-- обновить соответствующий гайд `docs/wiki/`, если правило, контент или ограничение заметно игроку.
-
-Technical-раздел является источником истины по реализации; wiki объясняет механику человеческим языком. Не заменять один раздел другим.
-
-## Проверка результата
-
-1. Повторно подтвердить upstream commit/version CommonLib, сверить объявленные `ModDependency` и выполнить профильные syntax/load/editor/gameplay проверки с этой последней версией.
-2. Проверить clean start, mod reload, новую игру и existing save; просмотреть панель сообщений Mod Editor на ignored mod, load/runtime errors и asserts.
-3. Повторно запустить `scripts/audit-project.ps1`.
-4. Для затронутых generated data запустить строгую проверку из `$sync-jazz-generated-data`.
-5. Запустить documentation checker из `$document-jazz-systems`.
-6. Просмотреть `git diff` каждого затронутого репозитория и подтвердить отсутствие посторонних изменений.
-7. Указать, какие пакеты изменены и какие runtime-файлы намеренно не затрагивались.
-
-## Ресурсы
-
-- `references/project-layout.md` — роли пакетов, граф зависимостей и приоритет источников.
-- `references/change-checklist.md` — проверки по категориям изменений.
-- `scripts/audit-project.ps1` — read-only аудит комплекта и последней CommonLib.
+1. Выполнить профильные static/generated/editor/runtime проверки.
+2. Обновить technical current-state docs без требования отсутствующей wiki.
+3. Записать evidence для каждого `AC-*` и выполнить DoD validator.
+4. Просмотреть diff каждого затронутого репозитория и перечислить непроверенные риски.
+5. Если runtime недоступен, не заменять его статическим выводом: оставить соответствующий `AC-*` незакрытым.

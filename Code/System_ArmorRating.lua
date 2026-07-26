@@ -463,18 +463,23 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 	end
     local invulnerable = self:IsInvulnerable()
     --if damage and damage > 0 or hit.setpiece then
-	    if not invulnerable then --and damage > 3 then
-	    	local effects = hit.effects
-	    	if type(effects) == "string" and effects ~= "" then
-	    		self:AddStatusEffect(effects)
-	    	else
-	    		for _, effect in ipairs(effects) do
-	    			if effect and effect ~= "" then
-	    				self:AddStatusEffect(effect)
-	    			end
-	    		end
-	    	end
-	    end
+	if not invulnerable then --and damage > 3 then
+		local effects = hit.effects
+		local armor_hit = hit.armor_decay and next(hit.armor_decay) ~= nil
+		local armor_pierced = not armor_hit or hit.armor_pen and next(hit.armor_pen) ~= nil
+		local function apply_hit_effect(effect)
+			if armor_pierced and effect and effect ~= "" and effect ~= "MarkedTraccers" then
+				self:AddStatusEffect(effect)
+			end
+		end
+		if type(effects) == "string" then
+			apply_hit_effect(effects)
+		else
+			for _, effect in ipairs(effects or empty_table) do
+				apply_hit_effect(effect)
+			end
+		end
+	end
     --end
 	
 	-- blood/soot stains

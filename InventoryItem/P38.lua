@@ -76,9 +76,9 @@ DefineClass.P38 = {
 	MaxAimActions = 2,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 18,
+	Handling = 12,
 	BulletDropRange = 6,
-	Grouping = 54,
+	Grouping = 56,
 	BaseJamChance = -20,
 }
 

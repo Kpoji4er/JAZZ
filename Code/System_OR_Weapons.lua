@@ -13,7 +13,7 @@ if FirstLoad then
     g_SuppressionApplyQueue = false
 end
 
-function QueueSuppressionApplication(unit, wp_dmg)
+function QueueSuppressionApplication(unit, wp_dmg, effect)
     if not g_SuppressionApplyQueue then
         g_SuppressionApplyQueue = {}
     end
@@ -22,13 +22,18 @@ function QueueSuppressionApplication(unit, wp_dmg)
             while true do
                 if g_SuppressionApplyQueue and #g_SuppressionApplyQueue > 0 then
                     local entry = table.remove(g_SuppressionApplyQueue, 1)
-                    local u, dmg = entry.unit, entry.damage
+                    local u, dmg, status_effect = entry.unit, entry.damage or 0, entry.effect
                     if IsValid(u) then
 						Sleep(10)
-                        local old_wp = u.WillPoints
-                        u.WillPoints = Max(0, old_wp - dmg)
-                        if u.WillPoints ~= old_wp then
-                            u:ApplySuppressionStatus()
+                        if dmg > 0 then
+                            local old_wp = u.WillPoints
+                            u.WillPoints = Max(0, old_wp - dmg)
+                            if u.WillPoints ~= old_wp then
+                                u:ApplySuppressionStatus()
+                            end
+                        end
+                        if status_effect and not u:IsDead() then
+                            u:AddStatusEffect(status_effect)
                         end
                     end
                     Sleep(10)
@@ -39,9 +44,19 @@ function QueueSuppressionApplication(unit, wp_dmg)
         end)
     end
 
-    if IsValid(unit) and not HasPerk(unit, "Psycho") and wp_dmg > 0 then
-        table.insert(g_SuppressionApplyQueue, {unit=unit, damage=wp_dmg})
+    local apply_suppression = IsValid(unit) and not HasPerk(unit, "Psycho") and wp_dmg and wp_dmg > 0
+    local apply_effect = IsValid(unit) and type(effect) == "string" and effect ~= ""
+    if apply_suppression or apply_effect then
+        table.insert(g_SuppressionApplyQueue, {
+            unit = unit,
+            damage = apply_suppression and wp_dmg or 0,
+            effect = apply_effect and effect or nil,
+        })
     end
+end
+
+function JAZZ_QueueStatusEffectApplication(unit, effect)
+    QueueSuppressionApplication(unit, 0, effect)
 end
 
 
@@ -150,31 +165,13 @@ function FirearmBase:GetAutofireShots(action)
 end
 
 
-function FirearmGetGroupingBase(item,dist_slab)
+function FirearmGetGroupingBase(item)
 
-
-	local groupingEnd = item.Grouping or 10 --Кучность на предельной дистанции
-	local groupingStart = 100
-	local Dist_Start = item.BulletDropRange or 0
-	local Dist_End = item.WeaponRange or 100
-
-	local Dist = dist_slab or 1
-	
-  -- до bullet drop range держим 100
-  if Dist <= Dist_Start then
-    return groupingStart
-  end
-
-  -- после weapon range держим конечное
-  if Dist >= Dist_End then
-    return groupingEnd
-  end
-
-	return Lerp(groupingStart, groupingEnd, Dist - Dist_Start, Dist_End - Dist_Start)
+	return item.Grouping or 10
 
 end
 
-function FirearmGetGrouping(item,dist_slab)
+function FirearmGetGrouping(item)
 	local factory = item:GetFactoryResource()
 	local max_res = item:GetMaxResource() or factory
 	local curr_res = item:GetCurrentResource() or max_res
@@ -188,7 +185,7 @@ function FirearmGetGrouping(item,dist_slab)
 
 
 	local grouping = item.Grouping or 10
-	local effective_grouping = FirearmGetGroupingBase(item,dist_slab) * condition_mult * repair_mult
+	local effective_grouping = FirearmGetGroupingBase(item) * condition_mult * repair_mult
 
 	return DivRound(effective_grouping, 1)
 end
@@ -354,6 +351,7 @@ function Firearm:GetAttackResults(action, attack_args)
 		target_pos = target_pos:SetTerrainZ()
 	end
 	local target_unit = IsKindOf(target, "Unit") and target
+	local applies_tracer_mark = self.ammo and table.find(self.ammo.AppliedEffects or empty_table, "MarkedTraccers")
 	local aoe_target_pos = target_unit and target_unit:GetPos() or target_pos -- target_pos is where the shot lands. For AOE attacks we want the object position.
 	assert(target)
 	assert(target_pos)
@@ -1079,6 +1077,9 @@ end
 			if not prediction then
 				local attacker_is_psycho = HasPerk(attacker, "Psycho")
 				local target_is_psycho = IsValid(target_unit) and HasPerk(target_unit, "Psycho")
+				if fired and applies_tracer_mark and shot_cth > 0 and IsValid(target_unit) and not target_unit:IsDead() then
+					JAZZ_QueueStatusEffectApplication(target_unit, "MarkedTraccers")
+				end
 				local units = table.ifilter(g_Units, function(_, u)
 					return u.HireStatus ~= "Dead"
 						and u.session_id ~= target.session_id
@@ -1667,18 +1668,13 @@ function BaseWeapon:PrecalcDamageAndStatusEffects(attacker, target, attack_pos, 
 			end
             
 			local dist = attacker and attacker:GetDist(target)/const.SlabSizeX or 0
-			if (attacker and IsKindOf(self, "Firearm") and self.BulletDropRange) and dist > self.BulletDropRange then
-				local damage_mod = GetRangeAccuracy(self, ((dist)*const.SlabSizeX)) - 100
+			if (attacker and IsKindOf(self, "Firearm") and self.BulletDropRange) then
+				local damage_mod = GetRangeDamageReduction(self, ((dist)*const.SlabSizeX), attacker, action) - 100
 				--print(GetRangeAccuracy(self, ((dist - self.BulletDropRange)*const.SlabSizeX)))
 				--print("damage reduction")
+				local effect_def = CharacterEffectDefs.DamageReduction
 				damage = MulDivRound(damage, 100 + damage_mod, 100)
-				if record_breakdown then
-					record_breakdown[#record_breakdown + 1] = {
-					name = T{36076769923711, "Падение скорости пули"},
-					value = damage_mod
-					}
-				end
-				EffectTableAdd(effects, T{36076769923711, "Падение скорости пули", self})
+				if record_breakdown then record_breakdown[#record_breakdown + 1] = { name = effect_def.DisplayName, value = damage_mod } end
 			end
 			
 		else

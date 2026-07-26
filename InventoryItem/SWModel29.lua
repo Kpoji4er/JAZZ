@@ -24,7 +24,7 @@ DefineClass.SWModel29 = {
 	AimAccuracy = 10,
 	CritChanceScaled = 30,
 	MagazineSize = 6,
-	WeaponRange = 21,
+	WeaponRange = 19,
 	OverwatchAngle = 5100,
 	Noise = 32,
 	Entity = "SWModel29",
@@ -69,7 +69,7 @@ DefineClass.SWModel29 = {
 	AutoShots = 3,
 	Handling = 5,
 	BulletDropRange = 7,
-	Grouping = 48,
+	Grouping = 68,
 	BaseJamChance = -100,
 }
 

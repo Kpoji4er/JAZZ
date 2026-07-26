@@ -4,23 +4,24 @@
 
 ## Карта систем
 
-| Система | Что описано | Гайд для игроков |
+| Система | Что описано | Пользовательский слой |
 |---|---|---|
-| [Бой, CTH и боевые действия](combat-cth-actions.md) | Формула попадания, дальность, прицеливание, очереди, recoil, 53 действия и combat UI | [Бой и точность](../../wiki/combat-and-accuracy.md) |
-| [Оружие, боеприпасы и компоненты](weapons-ammo-components.md) | Классы оружия, ресурс, износ, заклинивание, 27 калибров, 64 component effects и рецепты | [Оружие и боеприпасы](../../wiki/weapons-and-ammo.md) |
-| [Взрывчатка, ловушки и тяжёлое оружие](explosives-traps-heavy-weapons.md) | Гранаты, мины, газ, гранатомёты, миномёты, подавление и AI применения | [Оружие и боеприпасы](../../wiki/weapons-and-ammo.md) |
-| [Броня, повреждения, ранения и воля](armor-damage-wounds-will.md) | Покрытие, рейтинг, пластины, состояния тела, лечение, Grit и Will Points | [Броня, ранения и воля](../../wiki/armor-wounds-and-will.md) |
-| [Инвентарь, предметы, loot и crafting](inventory-items-loot-crafting.md) | Слоты, UI, контейнеры, squad bag, таблицы добычи и рецепты | [Инвентарь, добыча и крафт](../../wiki/inventory-loot-crafting.md) |
-| [Тактический AI и awareness](ai-awareness.md) | Выбор действий, политики позиций, роли, укрытия, фланги, suspicion и alert | [AI, скрытность и погода](../../wiki/ai-stealth-weather.md) |
-| [Видимость, погода и внешний вид](visibility-weather-appearance.md) | Свет, дым, погода, маски, визуальные состояния оружия и персонажей | [AI, скрытность и погода](../../wiki/ai-stealth-weather.md) |
-| [Юниты, прогрессия и специализации](units-progression-specializations.md) | UnitData, squads, archetypes, опыт до 21 уровня, stat gain и AIM-фильтры | [Наёмники и прогрессия](../../wiki/mercenaries-and-progression.md) |
-| [Стратегия, отряды и сектора](strategy-squads-sectors.md) | SatelliteSquad, guardposts, POI, регионы, экономика, операции и World Flip | [Стратегия и мир](../../wiki/strategy-and-world.md) |
-| [Автотранспорт (сателлит + тактика)](satellite-vehicles.md) | Парковка / сесть / выйти, ускорение по дорогам; тактический Unit, car-move, турель (maps Vehicles + VehicleCombat) | [Стратегия и мир](../../wiki/strategy-and-world.md) |
-| [Карты, квесты и диалоги](maps-quests-dialogue.md) | 317 каталогов карт, 245 секторов, 110 квестов, разговоры, banters и setpiece | [Стратегия и мир](../../wiki/strategy-and-world.md), [Эрни: контент](../../wiki/ernie-island-content.md) |
-| [Каталог квестов, локаций и врагов](maps-quests-content-catalog.md) | Снимок quest/sector/squad IDs из jazz-maps; детально остров Эрни | [Эрни: контент](../../wiki/ernie-island-content.md) |
-| [Интерфейс, звук и FX](ui-audio-fx.md) | Crosshair, combat badge, inventory UI, Will bar, sound presets и оружейные FX | [Контент и ограничения](../../wiki/content-and-limitations.md) |
-| [Entities и ресурсы](assets-entities.md) | 490 зарегистрированных Entity ModItems, meshes, materials, textures и контракты имён | [Контент и ограничения](../../wiki/content-and-limitations.md) |
-| [Runtime, загрузка и инструменты](runtime-editor-integration.md) | metadata, Mod Editor, generated data, hooks, placeholders, dormant-код и диагностика | [Начало игры](../../wiki/getting-started.md) |
+| [Бой, CTH и боевые действия](combat-cth-actions.md) | Формула попадания, дальность, прицеливание, очереди, recoil, 53 действия и combat UI | Не ведётся |
+| [Оружие, боеприпасы и компоненты](weapons-ammo-components.md) | Классы оружия, ресурс, износ, заклинивание, 27 калибров, 64 component effects и рецепты | Не ведётся |
+| [Взрывчатка, ловушки и тяжёлое оружие](explosives-traps-heavy-weapons.md) | Гранаты, мины, газ, гранатомёты, миномёты, подавление и AI применения | Не ведётся |
+| [Броня, повреждения, ранения и воля](armor-damage-wounds-will.md) | Покрытие, рейтинг, пластины, состояния тела, лечение, Grit и Will Points | Не ведётся |
+| [Инвентарь, предметы, loot и crafting](inventory-items-loot-crafting.md) | Слоты, UI, контейнеры, squad bag, таблицы добычи и рецепты | Не ведётся |
+| [Тактический AI и awareness](ai-awareness.md) | Выбор действий, политики позиций, роли, укрытия, фланги, suspicion и alert | Не ведётся |
+| [Видимость, погода и внешний вид](visibility-weather-appearance.md) | Свет, дым, погода, маски, визуальные состояния оружия и персонажей | Не ведётся |
+| [Юниты, прогрессия и специализации](units-progression-specializations.md) | UnitData, squads, archetypes, опыт до 21 уровня, stat gain и AIM-фильтры | Не ведётся |
+| [Стратегия, отряды и сектора](strategy-squads-sectors.md) | SatelliteSquad, guardposts, POI, регионы, экономика, операции и World Flip | Не ведётся |
+| [Автотранспорт (сателлит + тактика)](satellite-vehicles.md) | Парковка / сесть / выйти, ускорение по дорогам; тактический Unit, car-move, турель (maps Vehicles + VehicleCombat) | Не ведётся |
+| [Карты, квесты и диалоги](maps-quests-dialogue.md) | 317 каталогов карт, 245 секторов, 110 квестов, разговоры, banters и setpiece | Не ведётся |
+| [Каталог квестов, локаций и врагов](maps-quests-content-catalog.md) | Снимок quest/sector/squad IDs из jazz-maps; детально остров Эрни | Не ведётся |
+| [Интерфейс, звук и FX](ui-audio-fx.md) | Crosshair, combat badge, inventory UI, Will bar, sound presets и оружейные FX | Не ведётся |
+| [Entities и ресурсы](assets-entities.md) | 490 зарегистрированных Entity ModItems, meshes, materials, textures и контракты имён | Не ведётся |
+| [Runtime, загрузка и инструменты](runtime-editor-integration.md) | metadata, Mod Editor, generated data, hooks, placeholders, dormant-код и диагностика | Не ведётся |
+| [Локализация](localization.md) | Numeric localization ID, приоритет CSV, аудит коллизий и рабочий каталог русского/английского перевода | Технический процесс |
 | [Релизы и версионирование](release-versioning.md) | Версия из committed metadata, manifest четырёх repos, GitHub Releases и safeguards | Технический процесс |
 | [Сводки изменений в Discord](discord-player-updates.md) | Push range, OpenAI Structured Outputs, фильтрация, fallback и Discord webhook | Технический процесс |
 | [Покрытие файлов](file-coverage.md) | Явный владелец документации и load-state каждого `Code/*.lua` | Технический реестр |
@@ -51,6 +52,6 @@
 - страницу затронутой системы;
 - [покрытие файлов](file-coverage.md), если меняется файл или load-state;
 - [матрицу переопределений](../override-matrix.md), если появляется пересечение с vanilla/CommonLib;
-- [совместимость](../compatibility.md), [тестирование](../testing.md) и [конкретный wiki-гайд](../../wiki/README.md), когда это применимо.
+- [совместимость](../compatibility.md) и [тестирование](../testing.md), когда меняется соответствующий контракт.
 
 Проверка автоматизирована skill `$document-jazz-systems` и скриптом `.agents/skills/document-jazz-systems/scripts/check-system-docs.ps1`.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Спецификация изменения JAZZ"
+  short_description: "Spec, DoR и DoD для изменений JAZZ"
+  default_prompt: "Используй $specify-jazz-change, чтобы оформить и проверить спецификацию изменения JAZZ до реализации."

@@ -1,4 +1,4 @@
-﻿# Правила работы с JAZZ
+# Правила работы с JAZZ
 
 JAZZ состоит из четырёх репозиториев:
 
@@ -13,37 +13,37 @@ JAZZ состоит из четырёх репозиториев:
 
 ## Быстрый путь чтения
 
-Новый корень — это не источник всех правил целиком, а индекс по ролям.
-Сначала открой `.agents/docs/index.md`, затем выбирай релевантный документ:
+Сначала открыть `.agents/docs/index.md`, затем только релевантный reference/playbook:
 
-- Общий контур проекта: `.agents/docs/reference/project-scope.md`
-- Сложные runtime/потоки/сообщения: `.agents/docs/reference/runtime-model.md`
-- Generated data (`items.lua`, `metadata.lua`, companion): `.agents/docs/reference/generated-data-sync.md`
-- Проверки, git- и release-рутины: `.agents/docs/reference/checklists-and-release.md`
-- Документационный контракт (technical/wiki): `.agents/docs/reference/documentation-contract.md`
+- Spec/DoR/DoD: `.agents/skills/specify-jazz-change/SKILL.md`, `docs/specs/README.md`
+- Общий контур: `.agents/docs/reference/project-scope.md`
+- Runtime/потоки/сообщения: `.agents/docs/reference/runtime-model.md`
+- Generated data: `.agents/docs/reference/generated-data-sync.md`
+- Проверки и release: `.agents/docs/reference/checklists-and-release.md`
+- Current-state документация: `.agents/docs/reference/documentation-contract.md`
 
 ## Ролевые playbookы
 
-- AI / CTH / боеприпасы в тактике: `.agents/docs/playbooks/ai-system.md`
+- AI / CTH / боеприпасы: `.agents/docs/playbooks/ai-system.md`
 - Оружие и баланс: `.agents/docs/playbooks/weapons-balance.md`
-- Карты, квесты, диалоги, контент: `.agents/docs/playbooks/maps-content.md`
-- Юниты, отряды и прогрессия: `.agents/docs/playbooks/units-squads.md`
-- Ассеты, интерфейс, звук, FX: `.agents/docs/playbooks/assets-and-ui.md`
-
-## Основные источники
-
-- Vanilla/источники `JA3`: `<JA3_ROOT>\ModTools\Src`
-- Official docs: `<JA3_ROOT>\ModTools\Docs\index.md.html`
-- Official samples: `<JA3_ROOT>\ModTools\Samples`
-- Официальная история: <https://github.com/THQNordic/JaggedAlliance3Modding>
-- CommonLib: <https://gitlab.com/injto4ka/ja3_commonlib>
-
-`<JA3_ROOT>` — локальный путь к установленной игре, **не коммитится** и не пишется в документацию в виде абсолютного значения.
+- Карты, квесты, диалоги: `.agents/docs/playbooks/maps-content.md`
+- Юниты и прогрессия: `.agents/docs/playbooks/units-squads.md`
+- Assets, UI, звук, FX: `.agents/docs/playbooks/assets-and-ui.md`
 
 ## Минимальные обязательства
 
-1. Перед началом сверять актуальный upstream CommonLib (`main`/Workshop) и работать с ним как с текущей базой.
-2. Любое изменение кода/данных: читать исходный контракт в релевантных playbook/ссылках и фиксировать в diff вместе с проверками.
-3. Для generated data всегда поддерживать синхронизацию `items.lua` + `metadata.lua` + companion-файла и проверять через read-only `sync`-skill.
-4. Не делать маскирующий рефакторинг: не смешивать перепаковку/перегенерацию с логическим код-рефакторингом.
+1. Изменение поведения, архитектуры, generated data, dependencies, load order, публичных ID или save/network contract начинается с approved spec и прошедшего DoR.
+2. Перед compatibility-sensitive изменением использовать свежий CommonLib snapshot аудитора; обновлять upstream при истёкшем snapshot или dependency/release scope.
+3. Generated data изменять транзакцией `items.lua` + `metadata.lua` + companion и проверять профильным sync-аудитом.
+4. Не смешивать логическое изменение с перепаковкой, массовой регенерацией или форматированием.
 5. Не запускать общий обход `jazz-maps/Maps/` без прямого запроса на конкретную карту/сектор/patch.
+6. Полная замена vanilla-класса сохраняет исходные class name/ID и пару `UndefineClass('<Id>')` → `DefineClass.<Id> = { ... }`; подробности живут в generated-data contract.
+7. `docs/technical/` описывает текущее состояние, `docs/specs/` — утверждённое намерение; отсутствующая `docs/wiki` не входит в DoD.
+
+## Источники
+
+- Runtime JA3: `<JA3_ROOT>\ModTools\Src`
+- Официальная документация: `<JA3_ROOT>\ModTools\Docs`
+- CommonLib: <https://gitlab.com/injto4ka/ja3_commonlib>
+
+Абсолютное значение `<JA3_ROOT>` не коммитить.

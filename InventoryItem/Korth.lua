@@ -21,7 +21,7 @@ DefineClass.Korth = {
 	Caliber = "JAZZ_Caliber_357",
 	Damage = 30,
 	ObjDamageMod = 40,
-	AimAccuracy = 14,
+	AimAccuracy = 19,
 	CritChanceScaled = 30,
 	MagazineSize = 6,
 	WeaponRange = 24,
@@ -62,11 +62,12 @@ DefineClass.Korth = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 5000,
+	MaxAimActions = 4,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 18,
+	Handling = 12,
 	BulletDropRange = 7,
-	Grouping = 48,
+	Grouping = 55,
 	BaseJamChance = -100,
 }
 

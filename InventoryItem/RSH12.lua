@@ -58,9 +58,9 @@ DefineClass.RSH12 = {
 	ReloadAP = 5000,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = -2,
+	Handling = -5,
 	BulletDropRange = 10,
-	Grouping = 40,
+	Grouping = 88,
 	BaseJamChance = -50,
 	WeaponResource = 3500,
 }

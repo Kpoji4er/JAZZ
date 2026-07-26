@@ -1,0 +1,43 @@
+name: Quality gates
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  process-contracts:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate change specifications
+        shell: pwsh
+        run: .agents/skills/specify-jazz-change/scripts/test-change-spec.ps1 -Path docs/specs -Phase All
+
+      - name: Validate documentation and skills
+        shell: pwsh
+        run: .agents/skills/document-jazz-systems/scripts/check-system-docs.ps1
+
+      - name: Validate core generated-data graph
+        shell: pwsh
+        run: .agents/skills/sync-jazz-generated-data/scripts/check-generated-sync.ps1 -Package jazz
+
+      - name: Check whitespace in changed lines
+        shell: pwsh
+        run: |
+          if ($env:GITHUB_BASE_REF) {
+            git fetch origin $env:GITHUB_BASE_REF --depth=1
+            git diff --check "origin/$env:GITHUB_BASE_REF...HEAD"
+          } elseif (git rev-parse --verify HEAD^ 2>$null) {
+            git diff --check HEAD^ HEAD
+          } else {
+            git diff --check --cached
+          }

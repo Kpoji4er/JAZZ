@@ -1,30 +1,32 @@
-﻿# Документационный контракт JAZZ
+# Документационный контракт JAZZ
 
-## 1) Два контура
+## Типы истины
 
-- `docs/technical/` — техническая истина реализации.
-- `docs/wiki/` — пользовательский гайд.
+- `docs/specs/` — утверждённые требования, DoR, acceptance criteria и evidence.
+- `docs/decisions/` — долгоживущие архитектурные решения.
+- `docs/technical/` — фактически загруженное текущее состояние реализации.
 
-Пока `docs/wiki` временно удалена, все изменения по заметным механикам документируются в technical с пометкой о временном флаге wiki.
+`docs/wiki/` сейчас отсутствует и не входит в Definition of Done.
 
-## 2) Что должно идти вместе с кодом
+## Specification → implementation
 
-Любой поведенческий change set требует:
+Изменение поведения, архитектуры, generated data, dependencies, load order, public ID или save/network contract начинается с spec. Technical docs обновляются после реализации и не должны выдавать approved target за current runtime.
 
-- Обновления в профильной системе `docs/technical/systems/*`.
-- При изменении публичного поведения — соответствующего гайда (пока временно в technical как технический контракт).
-- Обновления `docs/technical/override-matrix.md` при изменении пересечения или переопределений.
-- Обновления `docs/technical/systems/file-coverage.md` при изменении статусов файлов (новый/удалён/перемещён/dormant/inert).
-- Проверки consistency между diff реализации и doc-изменениями.
+## Что меняется вместе с реализацией
 
-## 3) Риск и трассируемость
+- Профильная `docs/technical/systems/*` — при изменении current-state поведения.
+- `file-coverage.md` — при новом, удалённом, перемещённом, dormant или впервые загружаемом файле.
+- `override-matrix.md` — при изменении пересечения vanilla/CommonLib/JAZZ.
+- `compatibility.md` — при изменении dependency, save, network или public contract.
+- `testing.md` — при изменении общего validation profile.
+- Spec evidence — для каждого `AC-*`.
 
-- Отдельно фиксировать, что изменение касается: vanilla/CommonLib/JAZZ.
-- Не описывать неустановившееся поведение как уже действующее.
-- Зафиксировать, что поведение подтверждено (runtime), либо пометить как статический анализ.
+Не требовать изменения сводного документа, если его факт не изменился. Отсутствие documentation delta фиксировать в spec с причиной.
 
-## 4) Что читать конкретно перед документационным апдейтом
+## Риск и подтверждение
 
-- `.agents/skills/document-jazz-systems/SKILL.md`
-- `.agents/skills/work-on-jazz-mod/SKILL.md`
-- `.agents/skills/sync-jazz-generated-data/SKILL.md` (если меняется generated data)
+- Разделять vanilla, CommonLib и JAZZ.
+- Изменчивый dependency snapshot хранить канонически и ссылать, а не копировать.
+- Указывать уровень подтверждения: static, editor, runtime или human.
+- Не считать static evidence заменой runtime, если acceptance criterion требует игру или редактор.
+- Для media contract использовать repository-relative paths; абсолютные локальные пути не сохранять.

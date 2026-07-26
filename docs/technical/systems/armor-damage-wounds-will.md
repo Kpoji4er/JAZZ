@@ -60,6 +60,25 @@ JAZZ добавляет/использует свойства:
 
 27 effects наследуют `Perk`, 22 — `StatusEffect`, остальные — базовый `CharacterEffect` или специализированные родители. IDs являются публичным контрактом actions, UI, unit presets и лечения.
 
+`hit.effects` содержит только непустые строковые ID CharacterEffect. Обычный эффект попадания применяется, если закрывающая точку броня не участвовала в расчёте либо хотя бы один участвовавший предмет присутствует в `hit.armor_pen`. Поэтому непробитая броня блокирует `Bleeding`, body-part effects и другие физические статусы, даже когда минимальный урон попадания остался ненулевым.
+
+`MarkedTraccers` является исключением из damage pipeline: он не применяется из `hit.effects`, а ставится на выбранную цель один раз за каждый фактически произведённый выстрел трассерным боеприпасом с итоговым `shot_cth > 0`. Фактическое попадание и пробитие брони для маркера не требуются; при `shot_cth == 0` эффект не ставится.
+
+### Намеренная замена `DamageReduction`
+
+CharacterEffect `DamageReduction` намеренно сохраняет имя vanilla-класса и одноимённый preset ID. JAZZ не создаёт параллельный effect с собственным namespace, а полностью заменяет vanilla-определение:
+
+```lua
+UndefineClass('DamageReduction')
+DefineClass.DamageReduction = {
+```
+
+Эта пара является обязательной частью generated companion `CharacterEffect/DamageReduction.lua`: первый вызов удаляет уже построенный vanilla-класс, второй регистрирует реализацию JAZZ под тем же именем. Переименование в `JAZZ_DamageReduction`, наследование под новым ID или сохранение обоих классов не эквивалентны полной замене, поскольку runtime и presets обращаются к точному имени `DamageReduction`. Правило о префиксе `JAZZ_` здесь неприменимо; отсутствие префикса не является дефектом.
+
+Актуальный CommonLib 1.11, build 1056, commit `1adf9f232680d3b011248d180fd0ad1e609a8e2c` не содержит одноимённого определения. При обновлении vanilla необходимо заново сравнить родителя, properties, reactions, lifetime и обращения к preset. При синхронизации generated data обе строки заголовка должны сохраняться вместе с definition в `items.lua` и metadata-записью; отсутствие `UndefineClass` или `DefineClass.DamageReduction` означает неполную generated-транзакцию, а не основание вводить новое имя.
+
+В damage breakdown `DamageReduction` используется только как источник локализованного `DisplayName`. Объект preset/class запрещено помещать в `hit.effects`: `EffectTableAdd` и `Unit:AddStatusEffect` принимают строковый effect ID.
+
 ## Ранения и лечение
 
 Тактическое и стратегическое лечение объединяет набор связанных состояний. Текущая operation heal снимает `Wounded`, `Inaccurate`, `Slowed` и `Bleeding` вместе. Это значимое правило, а не косметический cleanup: разделение вызовов может изменить стоимость/время операции и сохранённые статусы.
@@ -91,6 +110,9 @@ Will связан одновременно с damage, AI, effects и UI. Люб�
 - face/head slot conflict и gas mask;
 - весовые классы на бойцах с разной Strength;
 - получение/лечение каждого wound-related status;
+- обычные effects при непробитой броне, пробитой броне и отсутствии покрытия;
+- трассерный выстрел при попадании/промахе с CTH больше нуля и невозможный выстрел с CTH `0`;
+- после чистого запуска `g_Classes.DamageReduction` и preset `DamageReduction` разрешаются в реализацию JAZZ, без параллельного класса под новым ID;
 - Bandage против operation heal, save/load между стадиями;
 - Grit на старте и очистка после боя;
 - Will loss, suppression tiers, UI bar, end-turn/end-combat;

@@ -21,9 +21,10 @@ DefineClass.MR73 = {
 	Caliber = "JAZZ_Caliber_357",
 	Damage = 29,
 	ObjDamageMod = 40,
-	AimAccuracy = 12,
+	AimAccuracy = 18,
 	CritChanceScaled = 30,
 	MagazineSize = 6,
+	WeaponRange = 19,
 	OverwatchAngle = 5100,
 	Noise = 32,
 	Entity = "M73Base",
@@ -63,9 +64,9 @@ DefineClass.MR73 = {
 	ReloadAP = 5000,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 17,
+	Handling = 7,
 	BulletDropRange = 7,
-	Grouping = 51,
+	Grouping = 45,
 	BaseJamChance = -100,
 }
 

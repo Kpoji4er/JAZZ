@@ -59,8 +59,8 @@ DefineClass.Beretta93r = {
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
-		"SingleShot",
 		"BurstFire",
+		"SingleShot",
 		"DualShot",
 		"JAZZ_SmgStorm",
 		"JAZZ_RunAndSMGStorm",
@@ -70,9 +70,9 @@ DefineClass.Beretta93r = {
 	MaxAimActions = 2,
 	Recoil = 1,
 	AutoShots = 9,
-	Handling = 16,
+	Handling = 14,
 	BulletDropRange = 6,
-	Grouping = 46,
+	Grouping = 65,
 	BaseJamChance = -20,
 }
 

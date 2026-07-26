@@ -24,7 +24,7 @@ DefineClass.ColtM1917 = {
 	AimAccuracy = 8,
 	CritChanceScaled = 30,
 	MagazineSize = 6,
-	WeaponRange = 16,
+	WeaponRange = 15,
 	OverwatchAngle = 5100,
 	Noise = 28,
 	Entity = "Colt1917",
@@ -48,9 +48,9 @@ DefineClass.ColtM1917 = {
 	ReloadAP = 5000,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 18,
+	Handling = -3,
 	BulletDropRange = 5,
-	Grouping = 54,
+	Grouping = 78,
 	BaseJamChance = -100,
 }
 

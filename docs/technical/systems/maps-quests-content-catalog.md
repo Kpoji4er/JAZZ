@@ -215,5 +215,5 @@
 
 1. обновить эту страницу (таблица локации/квеста);
 2. обновить [maps-quests-dialogue.md](maps-quests-dialogue.md) при смене schema/counts;
-3. обновить wiki [ernie-island-content.md](../../wiki/ernie-island-content.md) и при необходимости [strategy-and-world.md](../../wiki/strategy-and-world.md) / [content-and-limitations.md](../../wiki/content-and-limitations.md);
+3. обновить wiki ernie-island-content.md и при необходимости strategy-and-world.md / content-and-limitations.md;
 4. прогнать профильные smoke из [testing.md](../testing.md).

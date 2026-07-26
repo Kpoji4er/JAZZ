@@ -23,7 +23,7 @@ DefineClass.M45 = {
 	Caliber = "JAZZ_Caliber_9x19",
 	Damage = 25,
 	ObjDamageMod = 20,
-	AimAccuracy = 8,
+	AimAccuracy = 7,
 	MagazineSize = 32,
 	WeaponRange = 26,
 	OverwatchAngle = 4320,
@@ -61,7 +61,7 @@ DefineClass.M45 = {
 	AutoShots = 6,
 	Handling = 6,
 	BulletDropRange = 12,
-	Grouping = 34,
+	Grouping = 55,
 	BaseJamChance = -20,
 	WeaponResource = 3800,
 }

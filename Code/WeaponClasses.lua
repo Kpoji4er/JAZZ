@@ -16,7 +16,6 @@ DefineClass.Autopistol = { __parents = { "Firearm", }, WeaponType = "Autopistol"
 DefineClass.Revolver = { __parents = { "Firearm", }, WeaponType = "Revolver", ImpactForce = 0, }
 DefineClass.SniperRifle = { __parents = { "Firearm", }, WeaponType = "Sniper", ImpactForce = 0, }
 DefineClass.SubmachineGun = { __parents = { "Firearm", }, WeaponType = "SMG", ImpactForce = 0, }
-DefineClass.CompactSubmachineGun = { __parents = { "Firearm", }, WeaponType = "CompactSMG", ImpactForce = 0, }
 DefineClass.Shotgun = { __parents = { "Firearm", }, WeaponType = "Shotgun", ImpactForce = 2, }
 DefineClass.Carbine = { __parents = { "Firearm", }, WeaponType = "Carbine", ImpactForce = 1, }
 DefineClass.AssaultRifle = { __parents = { "Firearm", }, WeaponType = "AssaultRifle", ImpactForce = 1, }

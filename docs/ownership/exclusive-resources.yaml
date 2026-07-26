@@ -1,0 +1,34 @@
+schema: 1
+resources:
+  - id: jazz-generated-root
+    repository: jazz
+    paths: [items.lua, metadata.lua]
+    mode: exclusive
+  - id: jazz-assets-generated-root
+    repository: jazz_assets
+    paths: [items.lua, metadata.lua]
+    mode: exclusive
+  - id: jazz-maps-generated-root
+    repository: jazz-maps
+    paths: [items.lua, metadata.lua]
+    mode: exclusive
+  - id: jazz-units-generated-root
+    repository: jazz-units
+    paths: [items.lua, metadata.lua]
+    mode: exclusive
+  - id: mod-editor-state
+    repository: suite
+    paths: [Mod Editor session]
+    mode: exclusive
+  - id: map-editor-target
+    repository: jazz-maps
+    paths: [specific Maps/<map-or-patch>]
+    mode: exclusive-per-target
+  - id: localization-id-allocation
+    repository: suite
+    paths: [localization IDs and collision registry]
+    mode: exclusive
+  - id: release-manifest
+    repository: jazz
+    paths: [release/manifests, release tag]
+    mode: exclusive
