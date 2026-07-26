@@ -68994,26 +68994,6 @@ return {
 					'CodeFileName', "Code/AIPolicy.lua",
 				}),
 				PlaceObj('ModItemCode', {
-					'name', "Rato_CustomSeekCover",
-					'CodeFileName', "Code/Rato_CustomSeekCover.lua",
-				}),
-				PlaceObj('ModItemCode', {
-					'name', "Rato_TryNotToBeFlanked",
-					'CodeFileName', "Code/Rato_TryNotToBeFlanked.lua",
-				}),
-				PlaceObj('ModItemCode', {
-					'name', "Rato_MGSetupPosScore",
-					'CodeFileName', "Code/Rato_MGSetupPosScore.lua",
-				}),
-				PlaceObj('ModItemCode', {
-					'name', "Rato_MGSetupAP",
-					'CodeFileName', "Code/Rato_MGSetupAP.lua",
-				}),
-				PlaceObj('ModItemCode', {
-					'name', "Rato_GrenadeRange",
-					'CodeFileName', "Code/Rato_GrenadeRange.lua",
-				}),
-				PlaceObj('ModItemCode', {
 					'name', "PushUnitAlert",
 					'CodeFileName', "Code/PushUnitAlert.lua",
 				}),
