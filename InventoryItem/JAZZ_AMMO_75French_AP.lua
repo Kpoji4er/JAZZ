@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_75French_AP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/75AP.png",
-	DisplayName = T(195831313662, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_AP DisplayName]] "7,5х54 мм, Balle P (AP)"),
-	DisplayNamePlural = T(790852334727, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_AP DisplayNamePlural]] "7,5х54 мм, Balle P (AP)"),
+	DisplayName = T(890000000000134, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_AP DisplayName]] "7,5х54 мм, Balle P (AP)"),
+	DisplayNamePlural = T(890000000001059, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_AP DisplayNamePlural]] "7,5х54 мм, Balle P (AP)"),
 	colorStyle = "AmmoAPColor",
-	Description = T(634152164577, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_AP Description]] "Бронебойные патроны, действительно суровые и эффективные, можно не только прошибать броню, но ещё и броню за стенами."),
+	Description = T(890000000000827, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_AP Description]] "Бронебойные патроны, действительно суровые и эффективные, можно не только прошибать броню, но ещё и броню за стенами."),
 	Cost = 1080,
 	CanAppearInShop = true,
 	MaxStock = 5,

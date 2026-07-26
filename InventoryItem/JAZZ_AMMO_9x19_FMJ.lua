@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_9x19_FMJ = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/919FMJ.png",
-	DisplayName = T(156976081814, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_FMJ DisplayName]] "9х19 мм, Luger FMJ"),
-	DisplayNamePlural = T(372328100854, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_FMJ DisplayNamePlural]] "9х19 мм, Luger FMJ"),
+	DisplayName = T(890000000000080, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_FMJ DisplayName]] "9х19 мм, Luger FMJ"),
+	DisplayNamePlural = T(890000000000438, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_FMJ DisplayNamePlural]] "9х19 мм, Luger FMJ"),
 	colorStyle = "AmmoBasicColor",
-	Description = T(246192403774, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_FMJ Description]] "Заводской патрон 9х19, ни больше ни меньше, можно стрелять по не бронированным целям без опасений, что вам выбьет глаз затвором."),
+	Description = T(890000000000197, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_FMJ Description]] "Заводской патрон 9х19, ни больше ни меньше, можно стрелять по не бронированным целям без опасений, что вам выбьет глаз затвором."),
 	Cost = 300,
 	CanAppearInShop = true,
 	MaxStock = 50,

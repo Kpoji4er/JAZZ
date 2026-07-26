@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_46_AP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/46AP.png",
-	DisplayName = T(111421465880, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_AP DisplayName]] "4,6 мм, DM11 ББ"),
-	DisplayNamePlural = T(171557918481, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_AP DisplayNamePlural]] "4,6 мм, DM11 ББ"),
+	DisplayName = T(890000000000020, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_AP DisplayName]] "4,6 мм, DM11 ББ"),
+	DisplayNamePlural = T(890000000000090, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_AP DisplayNamePlural]] "4,6 мм, DM11 ББ"),
 	colorStyle = "AmmoAPColor",
-	Description = T(468404152064, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_AP Description]] "Бронебойный патрон для МП-7, Редкий боеприпас, вы либо мажор, либо счастливчик. Считайте, что стреляете золотыми слитками."),
+	Description = T(890000000000574, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_AP Description]] "Бронебойный патрон для МП-7, Редкий боеприпас, вы либо мажор, либо счастливчик. Считайте, что стреляете золотыми слитками."),
 	AdditionalHint = "",
 	Cost = 1200,
 	CanAppearInShop = true,

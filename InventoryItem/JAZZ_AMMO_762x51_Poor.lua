@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_762x51_Poor = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/762NATOSub.png",
-	DisplayName = T(816293484485, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Poor DisplayName]] "7.62х51мм НАТО, FMJ Substandard"),
-	DisplayNamePlural = T(784212637278, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Poor DisplayNamePlural]] "7.62х51мм НАТО, FMJ Substandard"),
+	DisplayName = T(890000000001099, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Poor DisplayName]] "7.62х51мм НАТО, FMJ Substandard"),
+	DisplayNamePlural = T(890000000001035, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Poor DisplayNamePlural]] "7.62х51мм НАТО, FMJ Substandard"),
 	colorStyle = "AmmoSubstandardColor",
-	Description = T(868039456416, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Poor Description]] "В эти патроны забыли насыпать порох, так что ваш автомат откатится до состояния винтовки, скажите спасибо британцам. Их кстати никто не любит."),
+	Description = T(890000000001209, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Poor Description]] "В эти патроны забыли насыпать порох, так что ваш автомат откатится до состояния винтовки, скажите спасибо британцам. Их кстати никто не любит."),
 	AdditionalHint = "",
 	Cost = 660,
 	CanAppearInShop = true,

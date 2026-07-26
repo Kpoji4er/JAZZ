@@ -6,7 +6,7 @@ DefineClass.AutoWeapons = {
 
 	object_class = "Perk",
 	unit_reactions = {},
-	DisplayName = T(971350457853, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Автоматическое оружие"),
+	DisplayName = T(971350457853, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Auto Weapons"),
 	Description = T(253479657834, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "При стрельбе длинными очередями или при автоогне убирает влияние отдачи начиная с 5го выстрела"),
 	Icon = "UI/Icons/Perks/AutoWeapons",
 	Tier = "Specialization",

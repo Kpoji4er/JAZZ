@@ -7,9 +7,9 @@ DefineClass.SkillMag_Mechanical = {
 	object_class = "MiscItem",
 	Repairable = false,
 	Icon = "UI/Icons/Items/mag_screw_you",
-	DisplayName = T(481761492155, --[[ModItemInventoryItemCompositeDef SkillMag_Mechanical DisplayName]] "Поршни и цилиндры"),
-	DisplayNamePlural = T(937997865248, --[[ModItemInventoryItemCompositeDef SkillMag_Mechanical DisplayNamePlural]] "Поршни и цилиндры"),
-	Description = T(780424103597, --[[ModItemInventoryItemCompositeDef SkillMag_Mechanical Description]] "Не путать с одноимённым журналом 18+."),
+	DisplayName = T(593394887790, --[[ModItemInventoryItemCompositeDef SkillMag_Mechanical DisplayName]] "Nuts and Bolts Magazine"),
+	DisplayNamePlural = T(115283650556, --[[ModItemInventoryItemCompositeDef SkillMag_Mechanical DisplayNamePlural]] "Nuts and Bolts Magazine"),
+	Description = T(882249328783, --[[ModItemInventoryItemCompositeDef SkillMag_Mechanical Description]] "Not to be confused with the NSFW magazine with the same name."),
 	AdditionalHint = T(311674409919, --[[ModItemInventoryItemCompositeDef SkillMag_Mechanical AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает навык «Механика»"),
 	UnitStat = "Mechanical",
 	Valuable = 1,
@@ -25,7 +25,7 @@ DefineClass.SkillMag_Mechanical = {
 			Stat = "Mechanical",
 		}),
 	},
-	action_name = T(421574848456, --[[ModItemInventoryItemCompositeDef SkillMag_Mechanical action_name]] "ЧИТАТЬ"),
+	action_name = T(196171082016, --[[ModItemInventoryItemCompositeDef SkillMag_Mechanical action_name]] "READ"),
 	destroy_item = true,
 }
 

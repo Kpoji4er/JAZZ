@@ -33,6 +33,27 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test-shooting-model.
 
 Standalone `lua`/`luac` не является repository dependency. В evidence конкретного change set можно использовать внешний parser для синтаксической проверки, но загрузку, engine globals, реакции и runtime всё равно необходимо подтверждать самой игрой и Mod Editor.
 
+## Локализация
+
+1. Запустить `migrate-localization-ids.ps1 -Mode Plan` с актуальными
+   `Game.csv` и `<JA3_ROOT>\ModTools\Src`; `IdAmbiguities.csv` должен быть пуст.
+2. Проверить manifest: `restore-vanilla` указывает на существующий exact
+   `Game.csv.Text`, а каждый `assign-mod-id` отсутствует в `Game.csv`, меньше
+   `2^53` и не связывает один ID с разными текстами.
+3. После Apply повторить Apply: число замен и изменённых файлов должно быть нулём.
+4. Запустить `audit-localization.ps1 -UpdateCatalog`; требовать ноль активных,
+   game и Russian CSV коллизий, `needs Russian=0` и `needs English=0`. Dormant
+   warnings учитывать отдельно.
+5. Экспортировать `Russian.csv` и `English.csv`, выполнить CSV round-trip и
+   проверить: пять колонок, уникальные numeric ID, одинаковое точное множество
+   активных mod-only ID, отсутствие ID из `Game.csv`, нетехнических пустых
+   `Translation`, повреждённых тегов и placeholder-ов. В английском переводе
+   не должно быть видимой кириллицы. Для каждой новой или изменённой mod-only
+   строки оба runtime CSV должны быть обновлены в одном change set.
+6. Выполнить Mod Editor load/save/reload трёх изменённых пакетов, затем clean
+   start и загрузку существующего save на русском и английском языках.
+   Проверить панель сообщений и отсутствие `<missing translation>`, чужого
+   текста или повреждённой разметки.
 ## Базовый запуск
 
 1. Сверить установленную CommonLib с последней опубликованной версией из официального `main`, затем включить её и все четыре пакета JAZZ. Тест со старой CommonLib не считается поддерживаемым.

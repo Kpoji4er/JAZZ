@@ -51,8 +51,8 @@ DefineClass.InnerInfo = {
 			end,
 		}),
 	},
-	DisplayName = T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Секретные данные"),
-	Description = T(222768539188, --[[ModItemCharacterEffectCompositeDef InnerInfo Description]] "Открывает месторасположение всех <em>врагов</em>, если у вас есть <em>разведданные</em> для этого сектора."),
+	DisplayName = T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Inside Dope"),
+	Description = T(222768539188, --[[ModItemCharacterEffectCompositeDef InnerInfo Description]] "<em>Reveals</em> all <em>Enemies</em> if you have <em>Intel</em> for the Sector."),
 	Icon = "UI/Icons/Perks/InnerInfo",
 	Tier = "Personal",
 }

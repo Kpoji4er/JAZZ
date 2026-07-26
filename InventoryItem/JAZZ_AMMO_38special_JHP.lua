@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_38special_JHP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/38Sp.png",
-	DisplayName = T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_JHP DisplayName]] ".38 Special JHP"),
-	DisplayNamePlural = T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_JHP DisplayNamePlural]] ".38 Special JHP"),
+	DisplayName = T(890000000001191, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_JHP DisplayName]] ".38 Special JHP"),
+	DisplayNamePlural = T(890000000000414, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_JHP DisplayNamePlural]] ".38 Special JHP"),
 	colorStyle = "AmmoJHPColor",
-	Description = T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_JHP Description]] "Стандартный патрон для дамских сверчков, но экспансивный, можно вытащить револьвер из носка и размозжить кому-то голову в упор."),
+	Description = T(890000000000285, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_JHP Description]] "Стандартный патрон для дамских сверчков, но экспансивный, можно вытащить револьвер из носка и размозжить кому-то голову в упор."),
 	Cost = 135,
 	CanAppearInShop = true,
 	MaxStock = 50,

@@ -6,8 +6,8 @@ DefineClass.PaBaggzWill = {
 
 	object_class = "QuestItem",
 	Icon = "UI/Icons/Items/torn_page",
-	DisplayName = T(977446330010, --[[ModItemInventoryItemCompositeDef PaBaggzWill DisplayName]] "Завещание фермера"),
-	Description = T(244767806892, --[[ModItemInventoryItemCompositeDef PaBaggzWill Description]] "«Кто б ни нашел эту бамажку, убедитесь, что до нее не дотянут свои грязные пальцы мои тупые роцтвенички! \nА если этот ты роцственичек сейчас читаешь эту бамажку, то вот что я тебе скажу: ПОДАВИСЬ ТЫ ЕЙ И ЗДОХНИ!»"),
+	DisplayName = T(938802430479, --[[ModItemInventoryItemCompositeDef PaBaggzWill DisplayName]] "Old Farmer's Will"),
+	Description = T(982979719943, --[[ModItemInventoryItemCompositeDef PaBaggzWill Description]] "\"Whoever findes this stuff, make sure me stupid useless relativses don't lay their filty hands on it! \nAnd if YOU is my relativest, that's what I says to you: DAMN U AND MAY U CHOKE ON IT!\""),
 	RestockWeight = 0,
 }
 

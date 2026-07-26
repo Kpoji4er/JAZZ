@@ -59,10 +59,10 @@ DefineClass.Bleeding = {
 				--print(value)
 				----------------------------------------------------
 				
-				local floating_text = T{193053798048, "<num> (кровотечение)", num = value}
+				local floating_text = T{193053798048, "<num> (bleeding)", num = value}
 				local pov_team = GetPoVTeam()
 				local has_visibility = HasVisibilityTo(pov_team, target)
-				local log_msg = T{729241506274, "<name> получает <em>урон в <num> </em> из-за кровотечения", name = target:GetLogName(), num = value}
+				local log_msg = T{890000000000971, "<name> получает <em>урон в <num> </em> из-за кровотечения", name = target:GetLogName(), num = value}
 				target:TakeDirectDamage(value, has_visibility and floating_text or false, "short", log_msg)
 			end,
 		}),
@@ -118,7 +118,7 @@ DefineClass.Bleeding = {
 			end,
 		}),
 	},
-	DisplayName = T(425969373535, --[[ModItemCharacterEffectCompositeDef Bleeding DisplayName]] "Кровотечение"),
+	DisplayName = T(779855732255, --[[ModItemCharacterEffectCompositeDef Bleeding DisplayName]] "Bleeding"),
 	Description = T(326849165819, --[[ModItemCharacterEffectCompositeDef Bleeding Description]] "Этот боец каждый ход будет <color EmStyle>получать урон до <DamagePerTurn> ОЗ</color> за уровень кровотечения до тех пор пока не будет <color EmStyle>перевязан</color>. При третьем уровне кровотечения макс. количество <color EmStyle>ОД будет снижено на <APLoss></color>."),
 	AddEffectText = T(488938284982, --[[ModItemCharacterEffectCompositeDef Bleeding AddEffectText]] "<color EmStyle><DisplayName></color> истекает кровью"),
 	OnAdded = function (self, obj)

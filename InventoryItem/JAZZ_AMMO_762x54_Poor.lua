@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_762x54_Poor = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/762x54RPoor.png",
-	DisplayName = T(685074706095, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Poor DisplayName]] "7,62x54R мм 188-57 CN Type 53 Substandard"),
-	DisplayNamePlural = T(544176135141, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Poor DisplayNamePlural]] "7,62x54R мм 188-57 CN Type 53 Substandard"),
+	DisplayName = T(890000000000895, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Poor DisplayName]] "7,62x54R мм 188-57 CN Type 53 Substandard"),
+	DisplayNamePlural = T(890000000000687, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Poor DisplayNamePlural]] "7,62x54R мм 188-57 CN Type 53 Substandard"),
 	colorStyle = "AmmoSubstandardColor",
-	Description = T(316044940928, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Poor Description]] "Сделано в китае, нет ничего хуже, чем быть патроном, произведенным в китае."),
+	Description = T(890000000000332, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Poor Description]] "Сделано в китае, нет ничего хуже, чем быть патроном, произведенным в китае."),
 	Cost = 750,
 	CanAppearInShop = true,
 	Tier = 2,

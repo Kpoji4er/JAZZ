@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_762x25_JHP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/762x25jhp.png",
-	DisplayName = T(527688384074, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_JHP DisplayName]] "7.62x25, Wolf JHP"),
-	DisplayNamePlural = T(871962221654, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_JHP DisplayNamePlural]] "7.62x25, Wolf JHP"),
+	DisplayName = T(890000000000665, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_JHP DisplayName]] "7.62x25, Wolf JHP"),
+	DisplayNamePlural = T(890000000001217, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_JHP DisplayNamePlural]] "7.62x25, Wolf JHP"),
 	colorStyle = "AmmoJHPColor",
-	Description = T(496628262702, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_JHP Description]] "Экспансивный патрон, на сколько это вообще возможно, коммерческий дешевый, но какой есть. Тут надо брать не качеством, а количеством."),
+	Description = T(890000000000622, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_JHP Description]] "Экспансивный патрон, на сколько это вообще возможно, коммерческий дешевый, но какой есть. Тут надо брать не качеством, а количеством."),
 	Cost = 234,
 	CanAppearInShop = true,
 	MaxStock = 50,

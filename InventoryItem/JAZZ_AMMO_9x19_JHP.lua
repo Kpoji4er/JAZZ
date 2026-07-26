@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_9x19_JHP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/919JHP.png",
-	DisplayName = T(378106180006, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_JHP DisplayName]] "9х19 мм, Luger JHP"),
-	DisplayNamePlural = T(888021825675, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_JHP DisplayNamePlural]] "9х19 мм, Luger JHP"),
+	DisplayName = T(890000000000444, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_JHP DisplayName]] "9х19 мм, Luger JHP"),
+	DisplayNamePlural = T(890000000001247, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_JHP DisplayNamePlural]] "9х19 мм, Luger JHP"),
 	colorStyle = "AmmoJHPColor",
-	Description = T(442624820314, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_JHP Description]] "Гражданский патрон для стрельбы по тарелкам, бронебойности от него не дождешься, зато экспансивное действие хорошее, так что цельтесь в ноги, там много артерий!"),
+	Description = T(890000000000538, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_JHP Description]] "Гражданский патрон для стрельбы по тарелкам, бронебойности от него не дождешься, зато экспансивное действие хорошее, так что цельтесь в ноги, там много артерий!"),
 	AdditionalHint = "",
 	Cost = 360,
 	CanAppearInShop = true,

@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_9x19_JHP_copy = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/Untitled-13.png",
-	DisplayName = T(378106180006, "9х19 мм, JHP"),
-	DisplayNamePlural = T(888021825675, "9х19 мм, JHP"),
+	DisplayName = T(890000000000443, "9х19 мм, JHP"),
+	DisplayNamePlural = T(890000000001246, "9х19 мм, JHP"),
 	colorStyle = "AmmoHPColor",
-	Description = T(442624820314, "Экспансивный патрон калибра 9х19мм"),
+	Description = T(890000000000539, "Экспансивный патрон калибра 9х19мм"),
 	AdditionalHint = T(932865416694, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Нулевая бронебойность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышенный урон\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышенный шанс критического попадания\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>кровотечение</color>"),
 	Cost = 120,
 	CanAppearInShop = true,

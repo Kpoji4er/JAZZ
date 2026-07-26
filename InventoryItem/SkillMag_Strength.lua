@@ -7,9 +7,9 @@ DefineClass.SkillMag_Strength = {
 	object_class = "MiscItem",
 	Repairable = false,
 	Icon = "UI/Icons/Items/mag_flex_em",
-	DisplayName = T(906939250168, --[[ModItemInventoryItemCompositeDef SkillMag_Strength DisplayName]] "Качай железо!"),
-	DisplayNamePlural = T(561764144197, --[[ModItemInventoryItemCompositeDef SkillMag_Strength DisplayNamePlural]] "Качай железо!"),
-	Description = T(952959192834, --[[ModItemInventoryItemCompositeDef SkillMag_Strength Description]] "Сила есть - интеллекта не надо."),
+	DisplayName = T(949216271403, --[[ModItemInventoryItemCompositeDef SkillMag_Strength DisplayName]] "Flex 'em!"),
+	DisplayNamePlural = T(246425010309, --[[ModItemInventoryItemCompositeDef SkillMag_Strength DisplayNamePlural]] "Flex 'em!"),
+	Description = T(817037902641, --[[ModItemInventoryItemCompositeDef SkillMag_Strength Description]] "For bros who even lift."),
 	AdditionalHint = T(970224447052, --[[ModItemInventoryItemCompositeDef SkillMag_Strength AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает силу"),
 	UnitStat = "Strength",
 	Valuable = 1,
@@ -24,7 +24,7 @@ DefineClass.SkillMag_Strength = {
 			Stat = "Strength",
 		}),
 	},
-	action_name = T(562074647455, --[[ModItemInventoryItemCompositeDef SkillMag_Strength action_name]] "ЧИТАТЬ"),
+	action_name = T(919614237926, --[[ModItemInventoryItemCompositeDef SkillMag_Strength action_name]] "READ"),
 	destroy_item = true,
 }
 

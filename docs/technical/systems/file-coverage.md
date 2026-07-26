@@ -116,6 +116,22 @@
 
 Пакет не содержит `Code/`. Его generated entity/resource coverage описано в [Entities и ресурсы](assets-entities.md): 490 registered Entity ModItems при 503 entity definitions на диске; 13 файлов требуют индивидуального orphan/reference-аудита, но не автоматического удаления.
 
+## Localization tooling
+
+| Файл | Статус | Документация |
+|---|---|---|
+| Russian.csv | loaded runtime, Russian mod-only IDs | [Локализация](localization.md) |
+| `English.csv` | loaded runtime, English mod-only IDs | [Локализация](localization.md) |
+| `Localization/Strings.csv` | development-only catalog | [Локализация](localization.md) |
+| Localization/RussianManual.csv | development-only translation memory | [Локализация](localization.md) |
+| `Localization/EnglishManual.csv` | development-only English translation memory | [Локализация](localization.md) |
+| `Localization/Collisions.csv` | generated audit report | [Локализация](localization.md) |
+| `Localization/IdMigration.csv` | development-only applied ID manifest | [Локализация](localization.md) |
+| `Localization/IdAmbiguities.csv` | generated ambiguity report | [Локализация](localization.md) |
+| `scripts/localization/audit-localization.ps1` | development-only auditor/exporter | [Локализация](localization.md) |
+| scripts/localization/migrate-localization-ids.ps1 | development-only clone-aware Plan/Apply | [Локализация](localization.md) |
+| `scripts/localization/translate-english-google.ps1` | development-only opt-in draft translator | [Локализация](localization.md) |
+| `.agents/skills/manage-jazz-localization/` | agent workflow only | [Локализация](localization.md) |
 ## GitHub automation
 
 | Файл | Статус | Документация |

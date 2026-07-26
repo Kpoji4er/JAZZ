@@ -4,7 +4,7 @@ POIDescriptions = {
 	{id = "Port",      display_name = T(682491033993, "Port"),      descr = T(301024708154, "You can initiate travel over water sectors from a port under your control. Boat travel usually costs money"), icon = "port"},
 	{id = "Hospital",  display_name = T(928160208169, "Hospital"),  descr = T(113589428451, "Hospitals allow fast healing of wounds for money via the Hospital Treatment Operation"), icon = "hospital"},
 	{id = "RepairShop",  display_name = T(333237565365, "Repair Shop"),  descr = T(653771367256, "Repair shops allow mercs to craft ammo and explosives via the corresponding operations"), icon = "repair_shop"},
-	{id = "Farm",  display_name = T(178686311281123, "Ферма"),  descr = T(1786863112821, "Фермы приносят доход в зависимости от лояльности ближайшего города"), icon = "farm"},
+	{id = "Farm",  display_name = T(726559932256, "Homestead"),  descr = T(1786863112821, "Фермы приносят доход в зависимости от лояльности ближайшего города"), icon = "farm"},
     {id = "Donations",  display_name = T(178686311281214, "Пожертвования"),  descr = T(1786863112822, "Добровольные пожертвования в зависимости от лояльности"), icon = "donations"},
 	{id = "Bunker",  display_name = T(1786863112811235, "Укрепления"),  descr = T(1786863112823, "Данный сектор укреплен"), icon = "bunker"},
 	{id = "Slon",  display_name = T(1786863112811236, "Слоновая кость"),  descr = T(1786863112824, "В этом секторе добывают слоновую кость. Доход не зависит от лояльности"), icon = "slon"},

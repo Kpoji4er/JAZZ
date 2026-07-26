@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_9x18_AP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/9x18AP.png",
-	DisplayName = T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_AP DisplayName]] "9x18мм, ПСТ ББ"),
-	DisplayNamePlural = T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_AP DisplayNamePlural]] "9x18мм, ПСТ ББ"),
+	DisplayName = T(890000000001199, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_AP DisplayName]] "9x18мм, ПСТ ББ"),
+	DisplayNamePlural = T(890000000000422, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_AP DisplayNamePlural]] "9x18мм, ПСТ ББ"),
 	colorStyle = "AmmoAPColor",
-	Description = T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_AP Description]] "Стандартный патрон 9х18 с повышенными характеристиками, может он и не такой убойный, но способен противостоять базовой бронезащите."),
+	Description = T(890000000000286, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_AP Description]] "Стандартный патрон 9х18 с повышенными характеристиками, может он и не такой убойный, но способен противостоять базовой бронезащите."),
 	Cost = 810,
 	CanAppearInShop = true,
 	MaxStock = 50,

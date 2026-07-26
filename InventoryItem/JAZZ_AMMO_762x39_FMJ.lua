@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_762x39_FMJ = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/762x39CHN.png",
-	DisplayName = T(403807663771, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_FMJ DisplayName]] "7,62х39мм, Norinco FMJ"),
-	DisplayNamePlural = T(578647545074, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_FMJ DisplayNamePlural]] "7,62х39мм, Norinco FMJ"),
+	DisplayName = T(890000000000470, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_FMJ DisplayName]] "7,62х39мм, Norinco FMJ"),
+	DisplayNamePlural = T(890000000000744, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_FMJ DisplayNamePlural]] "7,62х39мм, Norinco FMJ"),
 	colorStyle = "AmmoBasicColor",
-	Description = T(296646736495, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_FMJ Description]] "Гражданский коммерческий патрон, из-за веса и калибра пуля всё равно имеет, хоть и посредственные, но какие никакие бронебойные качества."),
+	Description = T(890000000000310, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_FMJ Description]] "Гражданский коммерческий патрон, из-за веса и калибра пуля всё равно имеет, хоть и посредственные, но какие никакие бронебойные качества."),
 	AdditionalHint = "",
 	Cost = 600,
 	CanAppearInShop = true,

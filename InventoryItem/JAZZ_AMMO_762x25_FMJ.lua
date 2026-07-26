@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_762x25_FMJ = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/762x25.png",
-	DisplayName = T(527688384074, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_FMJ DisplayName]] "7.62x25, 57-Н-134С (FMJ)"),
-	DisplayNamePlural = T(871962221654, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_FMJ DisplayNamePlural]] "7.62x25, 57-Н-134С (FMJ)"),
+	DisplayName = T(890000000000663, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_FMJ DisplayName]] "7.62x25, 57-Н-134С (FMJ)"),
+	DisplayNamePlural = T(890000000001215, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_FMJ DisplayNamePlural]] "7.62x25, 57-Н-134С (FMJ)"),
 	colorStyle = "AmmoBasicColor",
-	Description = T(496628262702, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_FMJ Description]] "Базовый устаревший во всех смыслах пистолетный патрон, но это всё тот же паровозик, который смог."),
+	Description = T(890000000000620, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_FMJ Description]] "Базовый устаревший во всех смыслах пистолетный патрон, но это всё тот же паровозик, который смог."),
 	Cost = 180,
 	CanAppearInShop = true,
 	MaxStock = 50,

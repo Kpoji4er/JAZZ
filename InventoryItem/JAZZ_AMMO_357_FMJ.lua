@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_357_FMJ = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/357.png",
-	DisplayName = T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_FMJ DisplayName]] ".357 Mag FMJ"),
-	DisplayNamePlural = T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_FMJ DisplayNamePlural]] ".357 Mag FMJ"),
+	DisplayName = T(890000000001188, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_FMJ DisplayName]] ".357 Mag FMJ"),
+	DisplayNamePlural = T(890000000000411, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_FMJ DisplayNamePlural]] ".357 Mag FMJ"),
 	colorStyle = "AmmoBasicColor",
-	Description = T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_FMJ Description]] "Один из лучших револьверных патронов, не стареющая классика, хорош везде и всем."),
+	Description = T(890000000000277, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_FMJ Description]] "Один из лучших револьверных патронов, не стареющая классика, хорош везде и всем."),
 	Cost = 270,
 	CanAppearInShop = true,
 	MaxStock = 50,

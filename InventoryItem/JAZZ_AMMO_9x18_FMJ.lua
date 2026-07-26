@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_9x18_FMJ = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/9x18.png",
-	DisplayName = T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_FMJ DisplayName]] "9x18мм, ПСО FMJ"),
-	DisplayNamePlural = T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_FMJ DisplayNamePlural]] "9x18мм, ПСО FMJ"),
+	DisplayName = T(890000000001198, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_FMJ DisplayName]] "9x18мм, ПСО FMJ"),
+	DisplayNamePlural = T(890000000000421, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_FMJ DisplayNamePlural]] "9x18мм, ПСО FMJ"),
 	colorStyle = "AmmoBasicColor",
-	Description = T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_FMJ Description]] "Гражданский патрон для спортивной и охотничьей стрельбы, на кого охотятся с 9х18 надо ещё уточнить, но как минимум оружие будет стрелять исправно и возможно кто-то сегодня умрет."),
+	Description = T(890000000000281, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_FMJ Description]] "Гражданский патрон для спортивной и охотничьей стрельбы, на кого охотятся с 9х18 надо ещё уточнить, но как минимум оружие будет стрелять исправно и возможно кто-то сегодня умрет."),
 	Cost = 240,
 	CanAppearInShop = true,
 	MaxStock = 50,

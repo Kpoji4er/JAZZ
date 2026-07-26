@@ -16,8 +16,8 @@ DefineClass.GrizzlyPerk = {
 			end,
 		}),
 	},
-	DisplayName = T(380626033173, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk DisplayName]] "Рэмбо"),
-	Description = T(272740235755, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk Description]] "<em>Атака с помощью пулемета</em> с пониженным штрафом к <em>точности</em>, которая не страдает от дополнительных штрафов, когда отсутствует <GameTerm('Setup')>."),
+	DisplayName = T(380626033173, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk DisplayName]] "Off the Hip"),
+	Description = T(272740235755, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk Description]] "<em>Machine Gun attack</em> with reduced <em>Accuracy</em> penalty that does not suffer increased penalties if firing without <GameTerm('Setup')>."),
 	Icon = "UI/Icons/Perks/GrizzlyPerk",
 	Tier = "Personal",
 }

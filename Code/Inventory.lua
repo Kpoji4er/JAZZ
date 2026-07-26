@@ -85,16 +85,16 @@ function InventoryItem:GetDeteriorationKeywordNoPrefix()
 			keyword = T(4869897712911115, "")
 		elseif conditionPercent >= 60 then
 			color = "item_green"
-			keyword = T(29981065637411115, "заштопан")
+			keyword = T(890000000001400, "заштопан")
 		elseif  conditionPercent >= 40 then
 			color = "yellow"
-			keyword = T(56785797143911115, "дырявое")
+			keyword = T(890000000001405, "дырявое")
 		elseif conditionPercent >= 15 then
 			color = "red"
-			keyword = T(9393100803501115, "рваное")
+			keyword = T(890000000001397, "рваное")
 		else
 			color = "red"
-			keyword = T(9684098482331115, "порвано")
+			keyword = T(890000000001398, "порвано")
 		end
 
 	elseif self.WeaponResource then
@@ -148,16 +148,16 @@ function InventoryItem:GetDeteriorationKeywordNoPrefixForInventory()
 			keyword = T(4869897712911115, "")
 		elseif conditionPercent >= 60 then
 			color = "item_green"
-			keyword = T(29981065637411115, "заштопан")
+			keyword = T(890000000001400, "заштопан")
 		elseif  conditionPercent >= 40 then
 			color = "yellow"
-			keyword = T(56785797143911115, "дырявое")
+			keyword = T(890000000001405, "дырявое")
 		elseif conditionPercent >= 15 then
 			color = "red"
-			keyword = T(9393100803501115, "рваное")
+			keyword = T(890000000001397, "рваное")
 		else
 			color = "red"
-			keyword = T(9684098482331115, "порвано")
+			keyword = T(890000000001398, "порвано")
 		end
 
 	elseif self.WeaponResource then

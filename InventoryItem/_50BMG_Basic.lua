@@ -6,10 +6,10 @@ DefineClass._50BMG_Basic = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/TEST.png",
-	DisplayName = T(605680061115, --[[ModItemInventoryItemCompositeDef _50BMG_Basic DisplayName]] ".50, обычный"),
-	DisplayNamePlural = T(260375641580, --[[ModItemInventoryItemCompositeDef _50BMG_Basic DisplayNamePlural]] ".50, обычные"),
+	DisplayName = T(304613136713, --[[ModItemInventoryItemCompositeDef _50BMG_Basic DisplayName]] ".50 Standard"),
+	DisplayNamePlural = T(930163832052, --[[ModItemInventoryItemCompositeDef _50BMG_Basic DisplayNamePlural]] ".50 Standard"),
 	colorStyle = "AmmoBasicColor",
-	Description = T(768671153312, --[[ModItemInventoryItemCompositeDef _50BMG_Basic Description]] "Боеприпас для пулеметов, снайперских винтовок, пистолетов и револьверов калибра .50."),
+	Description = T(340399158576, --[[ModItemInventoryItemCompositeDef _50BMG_Basic Description]] ".50 Ammo for Machine Guns, Snipers and Handguns."),
 	Cost = 250,
 	Tier = 2,
 	MaxStock = 10,

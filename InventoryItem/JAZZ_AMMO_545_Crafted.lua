@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_545_Crafted = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/545Crafted.png",
-	DisplayName = T(402352878282, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Crafted DisplayName]] "5,45 мм, Кустарный"),
-	DisplayNamePlural = T(875634951024, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Crafted DisplayNamePlural]] "5,45 мм, Кустарный"),
+	DisplayName = T(890000000000467, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Crafted DisplayName]] "5,45 мм, Кустарный"),
+	DisplayNamePlural = T(890000000001223, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Crafted DisplayNamePlural]] "5,45 мм, Кустарный"),
 	colorStyle = "AmmoCraftedColor",
-	Description = T(979485744753, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Crafted Description]] "Заклинивший автомат калашникова больше не выдуманная история, используйте так, чтобы никто не видел."),
+	Description = T(890000000001352, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Crafted Description]] "Заклинивший автомат калашникова больше не выдуманная история, используйте так, чтобы никто не видел."),
 	Cost = 90,
 	CategoryPair = "545",
 	ShopStackSize = 30,

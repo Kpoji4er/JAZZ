@@ -5,8 +5,8 @@ DefineClass.Hemophobic = {
 
 
 	object_class = "Perk",
-	DisplayName = T(152237634088, --[[ModItemCharacterEffectCompositeDef Hemophobic DisplayName]] "Гемофобия"),
-	Description = T(105025202773, --[[ModItemCharacterEffectCompositeDef Hemophobic Description]] "Шанс <em>неудачи</em> при использовании <em>перевязки</em>."),
+	DisplayName = T(152237634088, --[[ModItemCharacterEffectCompositeDef Hemophobic DisplayName]] "Hemophobic"),
+	Description = T(105025202773, --[[ModItemCharacterEffectCompositeDef Hemophobic Description]] "Chance of <em>failure</em> when using <em>Bandage</em>."),
 	Icon = "UI/Icons/Perks/Hemophobic",
 	Tier = "Quirk",
 }

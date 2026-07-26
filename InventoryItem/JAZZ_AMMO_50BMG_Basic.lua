@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_50BMG_Basic = {
 
 	object_class = "Ammo",
 	Icon = "UI/Icons/Items/50bmg_basic",
-	DisplayName = T(224747486019, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic DisplayName]] ".50, обычный"),
-	DisplayNamePlural = T(272581385016, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic DisplayNamePlural]] ".50, обычные"),
+	DisplayName = T(890000000000164, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic DisplayName]] ".50, обычный"),
+	DisplayNamePlural = T(890000000000243, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic DisplayNamePlural]] ".50, обычные"),
 	colorStyle = "AmmoBasicColor",
-	Description = T(928449338739, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic Description]] "Обычный натовский палтишок, убивает гарантированно, но не всё, если не убивает, то делает очень больно."),
+	Description = T(890000000001295, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic Description]] "Обычный натовский палтишок, убивает гарантированно, но не всё, если не убивает, то делает очень больно."),
 	Cost = 9000,
 	CanAppearInShop = true,
 	Tier = 3,

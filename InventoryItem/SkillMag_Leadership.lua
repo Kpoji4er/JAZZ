@@ -7,9 +7,9 @@ DefineClass.SkillMag_Leadership = {
 	object_class = "MiscItem",
 	Repairable = false,
 	Icon = "UI/Icons/Items/mag_puntastic_dad_jokes",
-	DisplayName = T(337969805989, --[[ModItemInventoryItemCompositeDef SkillMag_Leadership DisplayName]] "Шутки-самосмейки"),
-	DisplayNamePlural = T(761905965424, --[[ModItemInventoryItemCompositeDef SkillMag_Leadership DisplayNamePlural]] "Шутки-самосмейки"),
-	Description = T(251292542025, --[[ModItemInventoryItemCompositeDef SkillMag_Leadership Description]] "Как стать душой частной военной компании."),
+	DisplayName = T(624085403180, --[[ModItemInventoryItemCompositeDef SkillMag_Leadership DisplayName]] "Puntastic Dad Jokes"),
+	DisplayNamePlural = T(542345156012, --[[ModItemInventoryItemCompositeDef SkillMag_Leadership DisplayNamePlural]] "Puntastic Dad Jokes"),
+	Description = T(437039053771, --[[ModItemInventoryItemCompositeDef SkillMag_Leadership Description]] "Why is issue six afraid of issue seven?"),
 	AdditionalHint = T(575413455352, --[[ModItemInventoryItemCompositeDef SkillMag_Leadership AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает лидерство"),
 	UnitStat = "Leadership",
 	Valuable = 1,
@@ -25,7 +25,7 @@ DefineClass.SkillMag_Leadership = {
 			Stat = "Leadership",
 		}),
 	},
-	action_name = T(406257852737, --[[ModItemInventoryItemCompositeDef SkillMag_Leadership action_name]] "ЧИТАТЬ"),
+	action_name = T(134463686670, --[[ModItemInventoryItemCompositeDef SkillMag_Leadership action_name]] "READ"),
 	destroy_item = true,
 }
 

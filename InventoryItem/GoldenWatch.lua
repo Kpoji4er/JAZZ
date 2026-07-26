@@ -6,8 +6,8 @@ DefineClass.GoldenWatch = {
 
 	object_class = "QuestItemValuable",
 	Icon = "UI/Icons/Items/watch",
-	DisplayName = T(327212579368, --[[ModItemInventoryItemCompositeDef GoldenWatch DisplayName]] "Золотые часы"),
-	Description = T(212626116157, --[[ModItemInventoryItemCompositeDef GoldenWatch Description]] "Золотые часы Генриха."),
+	DisplayName = T(424339741886, --[[ModItemInventoryItemCompositeDef GoldenWatch DisplayName]] "Golden Watch"),
+	Description = T(815681556557, --[[ModItemInventoryItemCompositeDef GoldenWatch Description]] "Heinrich's golden watch."),
 	Valuable = 1,
 	RestockWeight = 0,
 }

@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_50AE_FMJ = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/50AE.png",
-	DisplayName = T(224747486019, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_FMJ DisplayName]] ".50AE FMJ"),
-	DisplayNamePlural = T(272581385016, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_FMJ DisplayNamePlural]] ".50AE FMJ"),
+	DisplayName = T(890000000000165, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_FMJ DisplayName]] ".50AE FMJ"),
+	DisplayNamePlural = T(890000000000244, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_FMJ DisplayNamePlural]] ".50AE FMJ"),
 	colorStyle = "AmmoBasicColor",
-	Description = T(928449338739, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_FMJ Description]] "Дорогой, мощный и бесполезный, подходит для боевиков, но не для войны."),
+	Description = T(890000000001297, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_FMJ Description]] "Дорогой, мощный и бесполезный, подходит для боевиков, но не для войны."),
 	Cost = 1200,
 	CanAppearInShop = true,
 	MaxStock = 10,

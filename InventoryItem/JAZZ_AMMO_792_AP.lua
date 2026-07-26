@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_792_AP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/792x57AP.png",
-	DisplayName = T(195831313662, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_AP DisplayName]] "7,92х57 мм, SmK (ББ)"),
-	DisplayNamePlural = T(790852334727, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_AP DisplayNamePlural]] "7,92х57 мм, SmK (ББ)"),
+	DisplayName = T(890000000000136, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_AP DisplayName]] "7,92х57 мм, SmK (ББ)"),
+	DisplayNamePlural = T(890000000001061, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_AP DisplayNamePlural]] "7,92х57 мм, SmK (ББ)"),
 	colorStyle = "AmmoAPColor",
-	Description = T(634152164577, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_AP Description]] "Бронебойная версия армейского патрона, не понятно что потребовало его изобрести, но вероятно вы рады, что у вас есть такая опция."),
+	Description = T(890000000000826, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_AP Description]] "Бронебойная версия армейского патрона, не понятно что потребовало его изобрести, но вероятно вы рады, что у вас есть такая опция."),
 	AdditionalHint = "",
 	Cost = 1080,
 	CanAppearInShop = true,

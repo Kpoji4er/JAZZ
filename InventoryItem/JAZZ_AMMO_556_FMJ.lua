@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_556_FMJ = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/556.png",
-	DisplayName = T(574593171535, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_FMJ DisplayName]] "5,56мм, FMJ"),
-	DisplayNamePlural = T(785279043850, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_FMJ DisplayNamePlural]] "5,56 мм, FMJ"),
+	DisplayName = T(890000000000738, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_FMJ DisplayName]] "5,56мм, FMJ"),
+	DisplayNamePlural = T(890000000001037, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_FMJ DisplayNamePlural]] "5,56 мм, FMJ"),
 	colorStyle = "AmmoBasicColor",
-	Description = T(790646713962, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_FMJ Description]] "Старый базовый патрон, повода для слез нет, как и выдающихся характеристик. Серая мышь в мире промежуточных патронов."),
+	Description = T(890000000001056, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_FMJ Description]] "Старый базовый патрон, повода для слез нет, как и выдающихся характеристик. Серая мышь в мире промежуточных патронов."),
 	AdditionalHint = "",
 	Cost = 1200,
 	CanAppearInShop = true,

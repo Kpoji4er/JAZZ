@@ -26,9 +26,9 @@ DefineClass.suppressionHeavy = {
 			end,
 		}),
 	},
-	DisplayName = T(279226942480, --[[ModItemCharacterEffectCompositeDef suppressionHeavy DisplayName]] "Под плотным огнем"),
-	Description = T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionHeavy Description]] "Шанс попасть во врага снижен\n+2 ОД свободного перемещения"),
-	AddEffectText = T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionHeavy AddEffectText]] "Под плотным огнем"),
+	DisplayName = T(890000000000259, --[[ModItemCharacterEffectCompositeDef suppressionHeavy DisplayName]] "Под плотным огнем"),
+	Description = T(890000000001237, --[[ModItemCharacterEffectCompositeDef suppressionHeavy Description]] "Шанс попасть во врага снижен\n+2 ОД свободного перемещения"),
+	AddEffectText = T(890000000000704, --[[ModItemCharacterEffectCompositeDef suppressionHeavy AddEffectText]] "Под плотным огнем"),
 	OnAdded = function (self, obj)
 		--local unitStance = obj.stance
 		--if unitStance == "Standing" then

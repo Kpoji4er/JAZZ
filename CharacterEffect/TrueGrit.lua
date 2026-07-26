@@ -22,7 +22,7 @@ DefineClass.TrueGrit = {
 			end,
 		}),
 	},
-	DisplayName = T(589779671581, --[[ModItemCharacterEffectCompositeDef TrueGrit DisplayName]] "Авангард"),
+	DisplayName = T(551122384582, --[[ModItemCharacterEffectCompositeDef TrueGrit DisplayName]] "Vanguard"),
 	Description = T(835802440630, --[[ModItemCharacterEffectCompositeDef TrueGrit Description]] "Вам дается <color EmStyle>Сила воли</color> (<color EmStyle><outOfCoverGrit></color>), если вы заканчиваете ход вне <color EmStyle>укрытия</color>.\n\nВам дается <color EmStyle>Сила воли</color> (<color EmStyle><nextToEnemyGrit></color>), если вы заканчиваете ход <color EmStyle>вплотную</color> к врагу."),
 	Icon = "UI/Icons/Perks/ContestGround",
 	Tier = "Silver",

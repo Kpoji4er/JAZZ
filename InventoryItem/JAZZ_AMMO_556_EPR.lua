@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_556_EPR = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/556HP.png",
-	DisplayName = T(326742931642, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_EPR DisplayName]] "5,56 мм, M855A1 Повышенной Пробиваемости"),
-	DisplayNamePlural = T(946968976971, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_EPR DisplayNamePlural]] "5,56 мм, M855A1 Повышенной Пробиваемости"),
+	DisplayName = T(890000000000348, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_EPR DisplayName]] "5,56 мм, M855A1 Повышенной Пробиваемости"),
+	DisplayNamePlural = T(890000000001315, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_EPR DisplayNamePlural]] "5,56 мм, M855A1 Повышенной Пробиваемости"),
 	colorStyle = "AmmoHPColor",
-	Description = T(758340761081, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_EPR Description]] "Стандартные армейские патроны с повышенным пробитием, вы можете стать грозой любой брони, относительно дорого и относительно эффективно."),
+	Description = T(890000000001005, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_EPR Description]] "Стандартные армейские патроны с повышенным пробитием, вы можете стать грозой любой брони, относительно дорого и относительно эффективно."),
 	Cost = 2400,
 	CanAppearInShop = true,
 	Tier = "4",

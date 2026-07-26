@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_57_JHP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/57JHP.png",
-	DisplayName = T(674003227379, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_JHP DisplayName]] "5,7 мм, SS197SR JHP"),
-	DisplayNamePlural = T(278698960462, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_JHP DisplayNamePlural]] "5,7 мм, SS197SR JHP"),
+	DisplayName = T(890000000000882, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_JHP DisplayName]] "5,7 мм, SS197SR JHP"),
+	DisplayNamePlural = T(890000000000255, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_JHP DisplayNamePlural]] "5,7 мм, SS197SR JHP"),
 	colorStyle = "AmmoJHPColor",
-	Description = T(761420797793, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_JHP Description]] "Экспансивные патроны для редких бельгийских игрушек. Несмотря на экспансивную пулю патрон способен наносить урон базовой броне."),
+	Description = T(890000000001011, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_JHP Description]] "Экспансивные патроны для редких бельгийских игрушек. Несмотря на экспансивную пулю патрон способен наносить урон базовой броне."),
 	Cost = 2025,
 	CanAppearInShop = true,
 	Tier = 3,

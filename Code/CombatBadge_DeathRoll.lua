@@ -144,12 +144,12 @@ function CombatBadgeAboveNameTextUpdate(win)
 				end
 				
 				if Turns == 1 then
-				text = T{778469746308111, "Умрёт через <chanceAsText> ход", chanceAsText = Turns}
+				text = T{890000000001392, "Умрёт через <chanceAsText> ход", chanceAsText = Turns}
 				elseif Turns < 5 then
-				text = T{778469746308111, "Умрёт через <chanceAsText> хода", chanceAsText = Turns}
-				else text = T{778469746308111, "Умрёт через <chanceAsText> ходов", chanceAsText = Turns}
+				text = T{890000000001394, "Умрёт через <chanceAsText> хода", chanceAsText = Turns}
+				else text = T{890000000001393, "Умрёт через <chanceAsText> ходов", chanceAsText = Turns}
 				end
-				text = T{778469746308111, "Умрёт без перевязки", chanceAsText = Turns}
+				text = T{890000000001391, "Умрёт без перевязки", chanceAsText = Turns}
 
 				style = "BadgeName_Red"
 			elseif unit:HasStatusEffect("BandageInCombat") then

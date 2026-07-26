@@ -6,8 +6,8 @@ DefineClass.Meds = {
 
 	object_class = "ResourceItem",
 	Icon = "UI/Icons/Items/medicine",
-	DisplayName = T(658657633995, --[[ModItemInventoryItemCompositeDef Meds DisplayName]] "Медикаменты"),
-	DisplayNamePlural = T(587879132073, --[[ModItemInventoryItemCompositeDef Meds DisplayNamePlural]] "Медикаменты"),
+	DisplayName = T(182769023737, --[[ModItemInventoryItemCompositeDef Meds DisplayName]] "Meds"),
+	DisplayNamePlural = T(186822751180, --[[ModItemInventoryItemCompositeDef Meds DisplayNamePlural]] "Meds"),
 	AdditionalHint = T(834156151134, --[[ModItemInventoryItemCompositeDef Meds AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используются для операции «Лечение ран» в виде со спутника\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используются для восполнения аптечек и наборов первой помощи"),
 	Cost = 100,
 	CanAppearInShop = true,

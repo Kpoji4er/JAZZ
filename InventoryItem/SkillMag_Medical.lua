@@ -7,9 +7,9 @@ DefineClass.SkillMag_Medical = {
 	object_class = "MiscItem",
 	Repairable = false,
 	Icon = "UI/Icons/Items/mag_national_paramedic",
-	DisplayName = T(520828600732, --[[ModItemInventoryItemCompositeDef SkillMag_Medical DisplayName]] "Для тех, кто вяжет"),
-	DisplayNamePlural = T(981036857917, --[[ModItemInventoryItemCompositeDef SkillMag_Medical DisplayNamePlural]] "Для тех, кто вяжет"),
-	Description = T(505843277064, --[[ModItemInventoryItemCompositeDef SkillMag_Medical Description]] "Модные схемы для перевязки и узорная работа жгутом."),
+	DisplayName = T(843836306167, --[[ModItemInventoryItemCompositeDef SkillMag_Medical DisplayName]] "National Paramedic"),
+	DisplayNamePlural = T(324921685110, --[[ModItemInventoryItemCompositeDef SkillMag_Medical DisplayNamePlural]] "National Paramedic"),
+	Description = T(526556854684, --[[ModItemInventoryItemCompositeDef SkillMag_Medical Description]] "90+ beats to which you can perform CPR."),
 	AdditionalHint = T(438853574488, --[[ModItemInventoryItemCompositeDef SkillMag_Medical AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает навык «Медицина»"),
 	UnitStat = "Medical",
 	Valuable = 1,
@@ -25,7 +25,7 @@ DefineClass.SkillMag_Medical = {
 			Stat = "Medical",
 		}),
 	},
-	action_name = T(887526961257, --[[ModItemInventoryItemCompositeDef SkillMag_Medical action_name]] "ЧИТАТЬ"),
+	action_name = T(889884758137, --[[ModItemInventoryItemCompositeDef SkillMag_Medical action_name]] "READ"),
 	destroy_item = true,
 }
 

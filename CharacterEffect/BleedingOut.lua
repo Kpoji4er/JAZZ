@@ -25,7 +25,7 @@ DefineClass.BleedingOut = {
 	Conditions = {
 		PlaceObj('CombatIsActive', {}),
 	},
-	DisplayName = T(216716472184, --[[ModItemCharacterEffectCompositeDef BleedingOut DisplayName]] "Тяжелое ранение"),
+	DisplayName = T(833314215129, --[[ModItemCharacterEffectCompositeDef BleedingOut DisplayName]] "Downed"),
 	Description = T(910957860179, --[[ModItemCharacterEffectCompositeDef BleedingOut Description]] "Этот персонаж находится в <color EmStyle>критическом состоянии</color> и истечет кровью, если его не <color EmStyle>перевязать</color>. Каждый ход персонаж будет терять 8 единиц здоровья."),
 	OnAdded = function (self, obj)  end,
 	Icon = "UI/Hud/Status effects/bleedingout",

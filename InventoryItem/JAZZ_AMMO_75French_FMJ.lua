@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_75French_FMJ = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/75.png",
-	DisplayName = T(195831313662, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_FMJ DisplayName]] "7,5х54 мм, Balle C (FMJ)"),
-	DisplayNamePlural = T(790852334727, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_FMJ DisplayNamePlural]] "7,5х54 мм, Balle C (FMJ)"),
+	DisplayName = T(890000000000133, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_FMJ DisplayName]] "7,5х54 мм, Balle C (FMJ)"),
+	DisplayNamePlural = T(890000000001058, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_FMJ DisplayNamePlural]] "7,5х54 мм, Balle C (FMJ)"),
 	colorStyle = "AmmoBasicColor",
-	Description = T(634152164577, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_FMJ Description]] "Что-то на французском, вроде как базовый патрон, но пенетрирует не хуже некоторых бронебойных, жаль оружие под него вышло в тираж."),
+	Description = T(890000000000828, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_FMJ Description]] "Что-то на французском, вроде как базовый патрон, но пенетрирует не хуже некоторых бронебойных, жаль оружие под него вышло в тираж."),
 	Cost = 540,
 	CanAppearInShop = true,
 	MaxStock = 5,

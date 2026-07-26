@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_30_Tracer = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/30calTracer.png",
-	DisplayName = T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_Tracer DisplayName]] ".30 Cal M27 Трассер"),
-	DisplayNamePlural = T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_Tracer DisplayNamePlural]] ".30 Cal M27 Трассер"),
+	DisplayName = T(890000000001192, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_Tracer DisplayName]] ".30 Cal M27 Трассер"),
+	DisplayNamePlural = T(890000000000415, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_Tracer DisplayNamePlural]] ".30 Cal M27 Трассер"),
 	colorStyle = "AmmoTracerColor",
-	Description = T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_Tracer Description]] "Более современный армейский трассирующий вариант, современный ли? Как бы то ни было им можно выстрелить и даже попасть и помочь попасть другим"),
+	Description = T(890000000000278, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_Tracer Description]] "Более современный армейский трассирующий вариант, современный ли? Как бы то ни было им можно выстрелить и даже попасть и помочь попасть другим"),
 	Cost = 540,
 	CanAppearInShop = true,
 	MaxStock = 50,

@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_9x19_Poor = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/919Substandart.png",
-	DisplayName = T(156976081814, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Poor DisplayName]] "9х19 мм, 9mm Ball Substandard"),
-	DisplayNamePlural = T(372328100854, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Poor DisplayNamePlural]] "9х19 мм, 9mm Ball Substandard"),
+	DisplayName = T(890000000000079, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Poor DisplayName]] "9х19 мм, 9mm Ball Substandard"),
+	DisplayNamePlural = T(890000000000437, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Poor DisplayNamePlural]] "9х19 мм, 9mm Ball Substandard"),
 	colorStyle = "AmmoSubstandardColor",
-	Description = T(246192403774, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Poor Description]] "Это как стрелять из огнестрельного оружия шариками из жеваной бумаги, из плюсов можно выделить то, что это очень дешево и много. \nСтабильная работа не гарантируется, кучность тоже, а ещё размокшая жеваная бумага может быстро засрать ваше оружие."),
+	Description = T(890000000000198, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Poor Description]] "Это как стрелять из огнестрельного оружия шариками из жеваной бумаги, из плюсов можно выделить то, что это очень дешево и много. \nСтабильная работа не гарантируется, кучность тоже, а ещё размокшая жеваная бумага может быстро засрать ваше оружие."),
 	Cost = 150,
 	CanAppearInShop = true,
 	MaxStock = 50,

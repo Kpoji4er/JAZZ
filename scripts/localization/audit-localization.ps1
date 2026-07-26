@@ -5,6 +5,10 @@ param(
 
     [string] $RussianCsv,
 
+    [string] $RussianManualCsv,
+
+    [string] $EnglishManualCsv,
+
     [string] $CatalogPath,
 
     [string] $CollisionPath,
@@ -28,6 +32,13 @@ $modsRoot = Split-Path -Parent $repoRoot
 if (-not $RussianCsv) {
     $RussianCsv = Join-Path $repoRoot "Russian.csv"
 }
+if (-not $RussianManualCsv) {
+    $RussianManualCsv = Join-Path $repoRoot "Localization\RussianManual.csv"
+}
+if (-not $EnglishManualCsv) {
+    $EnglishManualCsv = Join-Path $repoRoot "Localization\EnglishManual.csv"
+}
+
 if (-not $CatalogPath) {
     $CatalogPath = Join-Path $repoRoot "Localization\Strings.csv"
 }
@@ -71,6 +82,43 @@ Add-Type -AssemblyName Microsoft.VisualBasic
 
 function Read-LocalizationCsv {
     param([string] $Path)
+
+    $fullPath = [IO.Path]::GetFullPath($Path)
+    if ($fullPath.Equals(
+        [IO.Path]::GetFullPath($GameCsv),
+        [StringComparison]::OrdinalIgnoreCase
+    )) {
+        $imported = @(Import-Csv -LiteralPath $fullPath -Encoding UTF8)
+        $header = if ($imported.Count -gt 0) {
+            @($imported[0].PSObject.Properties.Name)
+        }
+        else {
+            @()
+        }
+        $rows = New-Object "System.Collections.Generic.List[object]"
+        foreach ($row in $imported) {
+            if ($row.ID -notmatch '^\d+$') {
+                continue
+            }
+            $rows.Add([pscustomobject]@{
+                ID          = $row.ID
+                Text        = $row.Text
+                Translation = $row.Translation
+                Context     = $row.Context
+                Status      = $row.Status
+                FieldCount  = $header.Count
+            })
+        }
+        return [pscustomobject]@{
+            Path             = $fullPath
+            Header           = $header
+            Rows             = $rows
+            HadSeparatorHint = $false
+            WideRows         = 0
+            RecoveredRows    = 0
+            ParseErrors      = @()
+        }
+    }
 
     $parser = New-Object Microsoft.VisualBasic.FileIO.TextFieldParser(
         $Path,
@@ -302,7 +350,17 @@ function Get-LuaFilesWithoutMaps {
     foreach ($file in Get-ChildItem -LiteralPath $PackageRoot -File -Filter "*.lua") {
         $files.Add($file)
     }
+    $excludedTopDirectories = @(
+        ".git",
+        ".agents",
+        ".codex",
+        "codex_worktrees",
+        "docs"
+    )
     foreach ($directory in Get-ChildItem -LiteralPath $PackageRoot -Directory) {
+        if ($directory.Name -in $excludedTopDirectories) {
+            continue
+        }
         if ($PackageName -eq "jazz-maps" -and $directory.Name -eq "Maps") {
             continue
         }
@@ -354,6 +412,20 @@ function Read-LuaLocalizationUses {
                 }
 
                 foreach ($match in $tCallPattern.Matches($scanText)) {
+                    $matchLineStart = $scanText.LastIndexOf(
+                        "`n",
+                        [Math]::Max(0, $match.Index - 1)
+                    ) + 1
+                    $matchPrefix = $scanText.Substring(
+                        $matchLineStart,
+                        $match.Index - $matchLineStart
+                    )
+                    if ($matchPrefix.TrimStart().StartsWith(
+                        "--",
+                        [StringComparison]::Ordinal
+                    )) {
+                        continue
+                    }
                     $rawText = if ($match.Groups["double"].Success) {
                         $match.Groups["double"].Value
                     }
@@ -415,11 +487,45 @@ function Test-ContainsCyrillic {
     return $Text -match '[\p{IsCyrillic}]'
 }
 
+function ConvertTo-LocalizationTextKey {
+    param([AllowNull()] $Text)
+
+    if ($null -eq $Text) {
+        return ""
+    }
+    $value = [string] $Text
+    return $value.Replace([string][char]13 + [char]10, [string][char]10).Replace([string][char]13, [string][char]10)
+}
+
+function Test-LocalizationTextEqual {
+    param(
+        [AllowNull()] $Left,
+        [AllowNull()] $Right
+    )
+
+    $leftText = ConvertTo-LocalizationTextKey $Left
+    $rightText = ConvertTo-LocalizationTextKey $Right
+    return $leftText.Equals($rightText, [StringComparison]::Ordinal)
+}
+function Test-LocalizationTextIn {
+    param(
+        [AllowNull()] $Text,
+        [System.Collections.IEnumerable] $Values
+    )
+
+    foreach ($value in $Values) {
+        if (Test-LocalizationTextEqual -Left $Text -Right $value) {
+            return $true
+        }
+    }
+    return $false
+}
+
 function ConvertTo-CsvCell {
     param([AllowNull()] $Value)
 
     $text = if ($null -eq $Value) { "" } else { [string] $Value }
-    if ($text -match '[,"\r\n]') {
+    if ($text -match '[,"\r\n]|^\s|\s$') {
         return '"' + $text.Replace('"', '""') + '"'
     }
     return $text
@@ -475,8 +581,86 @@ $baseTable = Read-LocalizationCsv -Path $GameCsv
 $russianTable = Read-LocalizationCsv -Path $RussianCsv
 $baseById = Group-RowsById -Rows $baseTable.Rows
 $russianById = Group-RowsById -Rows $russianTable.Rows
+$gameRussianCandidatesByText = @{}
+foreach ($row in $baseTable.Rows) {
+    $key = ConvertTo-LocalizationTextKey $row.Text
+    if (-not $gameRussianCandidatesByText.ContainsKey($key)) {
+        $gameRussianCandidatesByText[$key] = New-Object "System.Collections.Generic.List[string]"
+    }
+    if (-not [string]::IsNullOrEmpty($row.Translation)) {
+        $gameRussianCandidatesByText[$key].Add([string] $row.Translation)
+    }
+}
+$gameRussianByText = @{}
+foreach ($key in $gameRussianCandidatesByText.Keys) {
+    $variants = @($gameRussianCandidatesByText[$key] | Sort-Object -Unique)
+    if ($variants.Count -eq 1) {
+        $gameRussianByText[$key] = $variants[0]
+    }
+}
 
+$gameEnglishCandidatesByText = @{}
+foreach ($row in $baseTable.Rows) {
+    if ([string]::IsNullOrEmpty($row.Translation) -or [string]::IsNullOrEmpty($row.Text)) {
+        continue
+    }
+    $key = ConvertTo-LocalizationTextKey $row.Translation
+    if (-not $gameEnglishCandidatesByText.ContainsKey($key)) {
+        $gameEnglishCandidatesByText[$key] = New-Object "System.Collections.Generic.List[string]"
+    }
+    $gameEnglishCandidatesByText[$key].Add([string] $row.Text)
+}
+$gameEnglishByText = @{}
+foreach ($key in $gameEnglishCandidatesByText.Keys) {
+    $variants = @($gameEnglishCandidatesByText[$key] | Sort-Object -Unique)
+    if ($variants.Count -eq 1) {
+        $gameEnglishByText[$key] = $variants[0]
+    }
+}
+$manualRussianByText = @{}
+$technicalRussianByText = @{}
+if (Test-Path -LiteralPath $RussianManualCsv -PathType Leaf) {
+    foreach ($row in Import-Csv -LiteralPath $RussianManualCsv -Encoding UTF8) {
+        if ([string]::IsNullOrEmpty($row.Russian)) {
+            continue
+        }
+        $key = ConvertTo-LocalizationTextKey $row.SourceText
+        $target = if ($row.Notes -eq "manual-translation") {
+            $manualRussianByText
+        }
+        else {
+            $technicalRussianByText
+        }
+        if ($target.ContainsKey($key) -and $target[$key] -ne $row.Russian) {
+            throw "Conflicting RussianManual.csv translations for source text anchored at ID $($row.AnchorID)."
+        }
+        $target[$key] = [string] $row.Russian
+    }
+}
+
+$manualEnglishByText = @{}
+$technicalEnglishByText = @{}
+if (Test-Path -LiteralPath $EnglishManualCsv -PathType Leaf) {
+    foreach ($row in Import-Csv -LiteralPath $EnglishManualCsv -Encoding UTF8) {
+        if ([string]::IsNullOrEmpty($row.English)) {
+            continue
+        }
+        $key = ConvertTo-LocalizationTextKey $row.SourceText
+        $target = if ($row.Notes -eq "technical-copy") {
+            $technicalEnglishByText
+        }
+        else {
+            $manualEnglishByText
+        }
+        if ($target.ContainsKey($key) -and $target[$key] -ne $row.English) {
+            throw "Conflicting EnglishManual.csv translations for source text anchored at ID $($row.AnchorID)."
+        }
+        $target[$key] = [string] $row.English
+    }
+}
 $luaScan = Read-LuaLocalizationUses
+
+
 $activeUses = @($luaScan.Uses | Where-Object { $_.State -in @("loaded", "moditems") })
 $dormantUses = @($luaScan.Uses | Where-Object { $_.State -eq "dormant" })
 $activeById = Group-UsesById -Uses $activeUses
@@ -510,7 +694,7 @@ foreach ($id in $activeById.Keys) {
     if ($baseById.ContainsKey($id)) {
         $baseTexts = Get-DistinctStrings -Values $baseById[$id] -Property "Text"
         foreach ($text in $texts) {
-            if ($text -notin $baseTexts) {
+            if (-not (Test-LocalizationTextIn -Text $text -Values $baseTexts)) {
                 $blockingIds[$id] = $true
                 $collisionRows.Add([pscustomobject]@{
                     ID            = $id
@@ -656,29 +840,53 @@ foreach ($id in @($catalogIds.Keys | Sort-Object { [decimal] $_ })) {
     elseif ($null -ne $old -and -not [string]::IsNullOrEmpty($old.Russian)) {
         $russian = $old.Russian
     }
+    elseif ($manualRussianByText.ContainsKey((ConvertTo-LocalizationTextKey $sourceText))) {
+        $russian = $manualRussianByText[(ConvertTo-LocalizationTextKey $sourceText)]
+    }
+    elseif ([string]::IsNullOrWhiteSpace($sourceText)) {
+        $russian = $sourceText
+    }
     elseif (Test-ContainsCyrillic $sourceText) {
         $russian = $sourceText
     }
-    elseif ($baseRows.Count -gt 0 -and $sourceText -in $baseTexts) {
+    elseif ($gameRussianByText.ContainsKey((ConvertTo-LocalizationTextKey $sourceText))) {
+        $russian = $gameRussianByText[(ConvertTo-LocalizationTextKey $sourceText)]
+    }
+    elseif ($technicalRussianByText.ContainsKey((ConvertTo-LocalizationTextKey $sourceText))) {
+        $russian = $technicalRussianByText[(ConvertTo-LocalizationTextKey $sourceText)]
+    }
+    elseif ($baseRows.Count -gt 0 -and (Test-LocalizationTextIn -Text $sourceText -Values $baseTexts)) {
         $russian = $baseRows[-1].Translation
     }
 
     $english = ""
-    if ($null -ne $old -and -not [string]::IsNullOrEmpty($old.English)) {
+    $englishKey = ConvertTo-LocalizationTextKey $sourceText
+    if ($manualEnglishByText.ContainsKey($englishKey)) {
+        $english = $manualEnglishByText[$englishKey]
+    }
+    elseif ($null -ne $old -and -not [string]::IsNullOrEmpty($old.English)) {
         $english = $old.English
+    }
+    elseif ([string]::IsNullOrWhiteSpace($sourceText)) {
+        $english = $sourceText
     }
     elseif ($texts.Count -le 1 -and $sourceText -and -not (Test-ContainsCyrillic $sourceText)) {
         $english = $sourceText
     }
-    elseif ($baseTexts.Count -eq 1 -and $sourceText -eq $baseTexts[0]) {
+    elseif ($gameEnglishByText.ContainsKey($englishKey)) {
+        $english = $gameEnglishByText[$englishKey]
+    }
+    elseif ($technicalEnglishByText.ContainsKey($englishKey)) {
+        $english = $technicalEnglishByText[$englishKey]
+    }
+    elseif ($baseTexts.Count -eq 1 -and (Test-LocalizationTextEqual -Left $sourceText -Right $baseTexts[0])) {
         $english = $baseTexts[0]
     }
-
     $statuses = New-Object "System.Collections.Generic.List[string]"
     if ($texts.Count -gt 1) {
         $statuses.Add("active-id-collision")
     }
-    if ($baseTexts.Count -gt 0 -and @($texts | Where-Object { $_ -notin $baseTexts }).Count -gt 0) {
+    if ($baseTexts.Count -gt 0 -and @($texts | Where-Object { -not (Test-LocalizationTextIn -Text $_ -Values $baseTexts) }).Count -gt 0) {
         $statuses.Add("game-id-collision")
     }
     if ($russianRows.Count -gt 1) {
@@ -700,10 +908,10 @@ foreach ($id in @($catalogIds.Keys | Sort-Object { [decimal] $_ })) {
     if ($uses.Count -eq 0) {
         $statuses.Add("unreferenced-russian-override")
     }
-    if (-not $russian) {
+    if (-not $russian -and -not [string]::IsNullOrWhiteSpace($sourceText)) {
         $statuses.Add("needs-russian")
     }
-    if (-not $english) {
+    if (-not $english -and -not [string]::IsNullOrWhiteSpace($sourceText)) {
         $statuses.Add("needs-english")
     }
     if ($statuses.Count -eq 0) {
@@ -766,10 +974,17 @@ function Export-EngineLocalizationTable {
     )
 
     $translationProperty = if ($Language -eq "Russian") { "Russian" } else { "English" }
-    $incomplete = @(
+    $exportRows = @(
         $catalogRows |
             Where-Object {
-                -not $_.$translationProperty -or
+                $activeById.ContainsKey([string]$_.ID) -and
+                -not $baseById.ContainsKey([string]$_.ID)
+            }
+    )
+    $incomplete = @(
+        $exportRows |
+            Where-Object {
+                (-not $_.$translationProperty -and -not [string]::IsNullOrWhiteSpace($_.SourceText)) -or
                 $_.Status -match 'collision'
             }
     )
@@ -777,7 +992,7 @@ function Export-EngineLocalizationTable {
         throw "Cannot export $Language table: $($incomplete.Count) catalog row(s) are incomplete or colliding."
     }
 
-    $engineRows = foreach ($row in $catalogRows) {
+    $engineRows = foreach ($row in $exportRows) {
         [pscustomobject]@{
             ID          = $row.ID
             Text        = $row.SourceText

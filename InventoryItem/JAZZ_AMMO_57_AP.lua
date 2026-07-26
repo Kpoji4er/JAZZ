@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_57_AP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/57AP.png",
-	DisplayName = T(674003227379, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_AP DisplayName]] "5,7 мм, S109 ББ"),
-	DisplayNamePlural = T(278698960462, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_AP DisplayNamePlural]] "5,7 мм, S109 ББ"),
+	DisplayName = T(890000000000880, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_AP DisplayName]] "5,7 мм, S109 ББ"),
+	DisplayNamePlural = T(890000000000253, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_AP DisplayNamePlural]] "5,7 мм, S109 ББ"),
 	colorStyle = "AmmoAPColor",
-	Description = T(761420797793, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_AP Description]] "Армейский бронебойный, он же и базовый патрон довольно редкого калибра. Пуля хоть и пистолетная, но эффективность практически как у автомата."),
+	Description = T(890000000001009, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_AP Description]] "Армейский бронебойный, он же и базовый патрон довольно редкого калибра. Пуля хоть и пистолетная, но эффективность практически как у автомата."),
 	Cost = 2250,
 	CanAppearInShop = true,
 	Tier = 3,

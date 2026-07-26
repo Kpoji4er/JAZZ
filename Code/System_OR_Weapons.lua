@@ -1213,7 +1213,7 @@ function FirearmBase:Unjam(unit)
 		CreateFloatingText(unit, T(456744290565, "Jammed"))
 	end
 
-	CombatLog("important", T{276992233611, "Jammed weapon was <em>damaged in attempt to fix</em> by <DisplayName> (<Mechanical> Mechanical): <condLoss> condition lost", SubContext(unit, {condLoss = condLoss})})
+	CombatLog("important", T{890000000000250, "Jammed weapon was <em>damaged in attempt to fix</em> by <DisplayName> (<Mechanical> Mechanical): <condLoss> condition lost", SubContext(unit, {condLoss = condLoss})})
 	Msg("InventoryChange", unit)
 	if IsKindOf(unit, "Unit") then unit:RecalcUIActions() end
 	ObjModified(unit)
@@ -1251,7 +1251,7 @@ function InventoryStack:GetItemSlotUI()
 	if self.colorStyle then
 			return  Untranslated("<style "..self.colorStyle..">"..self.Amount.."<valign bottom 0><style "..self.colorStyle..">/"..self.MaxStacks.."</style>")
 	else
-			return T{709831548751, "<style InventoryItemsCount><cur><valign bottom 0><style InventoryItemsCountMax>/<max></style>", 
+			return T{709831548750, "<style InventoryItemsCount><cur><valign bottom 0><style InventoryItemsCountMax>/<max></style>", 
 				 cur = self.Amount, max = self.MaxStacks}
 	end
 end

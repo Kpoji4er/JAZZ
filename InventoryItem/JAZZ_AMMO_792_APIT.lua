@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_792_APIT = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/792x57API.png",
-	DisplayName = T(195831313662, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_APIT DisplayName]] "7,92х57 мм, SmK L'spur (API-T)"),
-	DisplayNamePlural = T(790852334727, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_APIT DisplayNamePlural]] "7,92х57 мм, SmK L'spur (API-T)"),
+	DisplayName = T(890000000000137, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_APIT DisplayName]] "7,92х57 мм, SmK L'spur (API-T)"),
+	DisplayNamePlural = T(890000000001062, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_APIT DisplayNamePlural]] "7,92х57 мм, SmK L'spur (API-T)"),
 	colorStyle = "AmmoAPPColor",
-	Description = T(634152164577, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_APIT Description]] "БЗТ патрон, что ещё тут надо добавлять? Он прекрасен, хоть и стар. Превратите войну в искусство."),
+	Description = T(890000000000825, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_APIT Description]] "БЗТ патрон, что ещё тут надо добавлять? Он прекрасен, хоть и стар. Превратите войну в искусство."),
 	AdditionalHint = "",
 	Cost = 1440,
 	CanAppearInShop = true,

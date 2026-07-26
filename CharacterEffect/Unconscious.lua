@@ -31,8 +31,8 @@ DefineClass.Unconscious = {
 			end,
 		}),
 	},
-	DisplayName = T(609065847626, --[[ModItemCharacterEffectCompositeDef Unconscious DisplayName]] "Потеря сознания"),
-	Description = T(104028003398, --[[ModItemCharacterEffectCompositeDef Unconscious Description]] "Без сознания и не может ничего делать."),
+	DisplayName = T(132204403941, --[[ModItemCharacterEffectCompositeDef Unconscious DisplayName]] "Unconscious"),
+	Description = T(801008446056, --[[ModItemCharacterEffectCompositeDef Unconscious Description]] "Unconscious and unable to take any action. "),
 	AddEffectText = T(319734703137, --[[ModItemCharacterEffectCompositeDef Unconscious AddEffectText]] "<color EmStyle><DisplayName></color> без сознания"),
 	RemoveEffectText = T(483912406649, --[[ModItemCharacterEffectCompositeDef Unconscious RemoveEffectText]] "<color EmStyle><DisplayName></color> приходит в себя"),
 	OnAdded = function (self, obj)

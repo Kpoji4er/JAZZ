@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_556_AP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/556AP.png",
-	DisplayName = T(326742931642, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_AP DisplayName]] "5,56 мм, M995 Бронебойный"),
-	DisplayNamePlural = T(946968976971, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_AP DisplayNamePlural]] "5,56 мм, M995 Бронебойный"),
+	DisplayName = T(890000000000349, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_AP DisplayName]] "5,56 мм, M995 Бронебойный"),
+	DisplayNamePlural = T(890000000001316, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_AP DisplayNamePlural]] "5,56 мм, M995 Бронебойный"),
 	colorStyle = "AmmoAPColor",
-	Description = T(758340761081, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_AP Description]] "Серьезный бронебойный армейский боеприпас, крайне эффективен против брони любого класса защиты, скажи нет Джагернаутам!!! Дико дорого, но прекрасно."),
+	Description = T(890000000001003, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_AP Description]] "Серьезный бронебойный армейский боеприпас, крайне эффективен против брони любого класса защиты, скажи нет Джагернаутам!!! Дико дорого, но прекрасно."),
 	Cost = 4500,
 	CanAppearInShop = true,
 	Tier = "5",

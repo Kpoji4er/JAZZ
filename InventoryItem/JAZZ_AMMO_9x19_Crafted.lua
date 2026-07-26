@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_9x19_Crafted = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/919Crafted.png",
-	DisplayName = T(156976081814, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Crafted DisplayName]] "9х19 мм, Кустарные"),
-	DisplayNamePlural = T(372328100854, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Crafted DisplayNamePlural]] "9х19 мм, Кустарные"),
+	DisplayName = T(890000000000078, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Crafted DisplayName]] "9х19 мм, Кустарные"),
+	DisplayNamePlural = T(890000000000436, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Crafted DisplayNamePlural]] "9х19 мм, Кустарные"),
 	colorStyle = "AmmoCraftedColor",
-	Description = T(246192403774, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Crafted Description]] "Производитель не известен, возможно это вы сами, рекомендуется использовать с оружием которое вы ненавидите, тогда эти патроны помогут вам скорее от него избавиться. Сильно снижают надежность оружия."),
+	Description = T(890000000000196, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Crafted Description]] "Производитель не известен, возможно это вы сами, рекомендуется использовать с оружием которое вы ненавидите, тогда эти патроны помогут вам скорее от него избавиться. Сильно снижают надежность оружия."),
 	Cost = 60,
 	MaxStock = 50,
 	CategoryPair = "9mm",

@@ -7,9 +7,9 @@ DefineClass.WeirdosMap = {
 	object_class = "QuestItem",
 	Repairable = false,
 	Icon = "UI/Icons/Items/pirate_map",
-	DisplayName = T(941948052853, --[[ModItemInventoryItemCompositeDef WeirdosMap DisplayName]] "Карта клада в церкви"),
-	DisplayNamePlural = T(177941052207, --[[ModItemInventoryItemCompositeDef WeirdosMap DisplayNamePlural]] "Карта клада в церкви"),
-	Description = T(463131468639, --[[ModItemInventoryItemCompositeDef WeirdosMap Description]] "Неаккуратно нарисованная карта сокровищ. Внутренность флитаунской церкви отмечена жирным крестом."),
+	DisplayName = T(964348464741, --[[ModItemInventoryItemCompositeDef WeirdosMap DisplayName]] "Church Treasure Map"),
+	DisplayNamePlural = T(394347228122, --[[ModItemInventoryItemCompositeDef WeirdosMap DisplayNamePlural]] "Church Treasure Map"),
+	Description = T(787937696839, --[[ModItemInventoryItemCompositeDef WeirdosMap Description]] "A messy map clearly showing an \"X\" inside the Fleatown church."),
 	RestockWeight = 0,
 }
 

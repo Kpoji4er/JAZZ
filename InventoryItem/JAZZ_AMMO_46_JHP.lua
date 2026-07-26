@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_46_JHP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/46JHP.png",
-	DisplayName = T(111421465880, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_JHP DisplayName]] "4,6 мм, V-Max JHP"),
-	DisplayNamePlural = T(171557918481, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_JHP DisplayNamePlural]] "4,6 мм, V-Max JHP"),
+	DisplayName = T(890000000000022, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_JHP DisplayName]] "4,6 мм, V-Max JHP"),
+	DisplayNamePlural = T(890000000000092, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_JHP DisplayNamePlural]] "4,6 мм, V-Max JHP"),
 	colorStyle = "AmmoJHPColor",
-	Description = T(468404152064, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_JHP Description]] "Экспансивная версия патрона для МП-7, разумеется это не обычный пистолетный патрон, так что и экспансивность не на высоте, но и в бронепробитии данный патрон не сильно потерял."),
+	Description = T(890000000000575, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_JHP Description]] "Экспансивная версия патрона для МП-7, разумеется это не обычный пистолетный патрон, так что и экспансивность не на высоте, но и в бронепробитии данный патрон не сильно потерял."),
 	AdditionalHint = "",
 	Cost = 1440,
 	CanAppearInShop = true,

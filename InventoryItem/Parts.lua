@@ -6,8 +6,8 @@ DefineClass.Parts = {
 
 	object_class = "ResourceItem",
 	Icon = "UI/Icons/Items/parts",
-	DisplayName = T(446617998255, --[[ModItemInventoryItemCompositeDef Parts DisplayName]] "Запчасти"),
-	DisplayNamePlural = T(527810279336, --[[ModItemInventoryItemCompositeDef Parts DisplayNamePlural]] "Запчасти"),
+	DisplayName = T(807651722561, --[[ModItemInventoryItemCompositeDef Parts DisplayName]] "Parts"),
+	DisplayNamePlural = T(476110713802, --[[ModItemInventoryItemCompositeDef Parts DisplayNamePlural]] "Parts"),
 	AdditionalHint = T(683993796357, --[[ModItemInventoryItemCompositeDef Parts AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используются для модификации оружия\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используются для операции «Ремонт предметов» в виде со спутника."),
 	Cost = 250,
 	CanAppearInShop = true,

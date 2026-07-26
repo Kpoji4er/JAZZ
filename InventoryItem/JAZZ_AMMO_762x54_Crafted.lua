@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_762x54_Crafted = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/762x54RCrafted.png",
-	DisplayName = T(685074706095, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Crafted DisplayName]] "7,62x54R мм Кустарный"),
-	DisplayNamePlural = T(544176135141, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Crafted DisplayNamePlural]] "7,62x54R мм Кустарный"),
+	DisplayName = T(890000000000897, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Crafted DisplayName]] "7,62x54R мм Кустарный"),
+	DisplayNamePlural = T(890000000000689, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Crafted DisplayNamePlural]] "7,62x54R мм Кустарный"),
 	colorStyle = "AmmoCraftedColor",
-	Description = T(316044940928, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Crafted Description]] "Если уж делать хуже чем китайцы, то делать на коленке, плюс тут ровно один, приличный урон, но поплатитесь вы... Поверьте вы поплатитесь."),
+	Description = T(890000000000331, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Crafted Description]] "Если уж делать хуже чем китайцы, то делать на коленке, плюс тут ровно один, приличный урон, но поплатитесь вы... Поверьте вы поплатитесь."),
 	Cost = 240,
 	Tier = 2,
 	MaxStock = 5,

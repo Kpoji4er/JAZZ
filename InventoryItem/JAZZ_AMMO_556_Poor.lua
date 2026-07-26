@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_556_Poor = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/556Sub.png",
-	DisplayName = T(574593171535, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Poor DisplayName]] "5,56мм, .223 Rem Commercial Substandard"),
-	DisplayNamePlural = T(785279043850, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Poor DisplayNamePlural]] "5,56 мм, .223 Rem Commercial Substandard"),
+	DisplayName = T(890000000000737, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Poor DisplayName]] "5,56мм, .223 Rem Commercial Substandard"),
+	DisplayNamePlural = T(890000000001036, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Poor DisplayNamePlural]] "5,56 мм, .223 Rem Commercial Substandard"),
 	colorStyle = "AmmoSubstandardColor",
-	Description = T(790646713962, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Poor Description]] "Можно сказать что это коммерческий патрон калибра 5.56, на деле же это не выдающийся охотничий .223, нет даже уверенности, что в нем хватит мощности для автоматической стрельбы."),
+	Description = T(890000000001054, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Poor Description]] "Можно сказать что это коммерческий патрон калибра 5.56, на деле же это не выдающийся охотничий .223, нет даже уверенности, что в нем хватит мощности для автоматической стрельбы."),
 	AdditionalHint = "",
 	Cost = 750,
 	CanAppearInShop = true,

@@ -6,9 +6,9 @@ DefineClass.Trophy = {
 
 	object_class = "InventoryStack",
 	Icon = "UI/Icons/Items/trophy",
-	DisplayName = T(401946586716, --[[ModItemInventoryItemCompositeDef Trophy DisplayName]] "Трофей"),
-	DisplayNamePlural = T(281509227035, --[[ModItemInventoryItemCompositeDef Trophy DisplayNamePlural]] "Трофеи"),
-	AdditionalHint = T(778824641671, --[[ModItemInventoryItemCompositeDef Trophy AdditionalHint]] "Удобно для отчётности."),
+	DisplayName = T(634440316482, --[[ModItemInventoryItemCompositeDef Trophy DisplayName]] "Trophy"),
+	DisplayNamePlural = T(570576081589, --[[ModItemInventoryItemCompositeDef Trophy DisplayNamePlural]] "Trophies"),
+	AdditionalHint = T(520396775412, --[[ModItemInventoryItemCompositeDef Trophy AdditionalHint]] "It's easier to keep count this way."),
 	locked = true,
 	RestockWeight = 0,
 	MaxStacks = 1000,

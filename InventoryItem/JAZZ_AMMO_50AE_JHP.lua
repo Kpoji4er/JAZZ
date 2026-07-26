@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_50AE_JHP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/50AEJHP.png",
-	DisplayName = T(224747486019, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_JHP DisplayName]] ".50AE JHP"),
-	DisplayNamePlural = T(272581385016, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_JHP DisplayNamePlural]] ".50AE JHP"),
+	DisplayName = T(890000000000166, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_JHP DisplayName]] ".50AE JHP"),
+	DisplayNamePlural = T(890000000000245, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_JHP DisplayNamePlural]] ".50AE JHP"),
 	colorStyle = "AmmoBasicColor",
-	Description = T(928449338739, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_JHP Description]] "Дорогой, даже дороже обычной версии патрона, экспансивный и бесполезный. Но крутость данного патрона не оспорима."),
+	Description = T(890000000001296, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_JHP Description]] "Дорогой, даже дороже обычной версии патрона, экспансивный и бесполезный. Но крутость данного патрона не оспорима."),
 	Cost = 1800,
 	CanAppearInShop = true,
 	MaxStock = 10,

@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_762x51_FMJ = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/762NATO.png",
-	DisplayName = T(816293484485, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_FMJ DisplayName]] "7.62х51мм НАТО, FMJ"),
-	DisplayNamePlural = T(784212637278, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_FMJ DisplayNamePlural]] "7.62х51мм НАТО, FMJ"),
+	DisplayName = T(890000000001098, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_FMJ DisplayName]] "7.62х51мм НАТО, FMJ"),
+	DisplayNamePlural = T(890000000001034, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_FMJ DisplayNamePlural]] "7.62х51мм НАТО, FMJ"),
 	colorStyle = "AmmoBasicColor",
-	Description = T(868039456416, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_FMJ Description]] "Какой-то не выдающийся патрон, просто работает, кого-то убивает, зачем-то существует. Скучно, без изюминки."),
+	Description = T(890000000001210, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_FMJ Description]] "Какой-то не выдающийся патрон, просто работает, кого-то убивает, зачем-то существует. Скучно, без изюминки."),
 	AdditionalHint = "",
 	Cost = 1500,
 	CanAppearInShop = true,

@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_45ACP_Crafted = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/45ACPCrafted.png",
-	DisplayName = T(270886313378, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Crafted DisplayName]] ".45ACP, Кустарный"),
-	DisplayNamePlural = T(136983924045, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Crafted DisplayNamePlural]] ".45ACP, Кустарный"),
+	DisplayName = T(890000000000239, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Crafted DisplayName]] ".45ACP, Кустарный"),
+	DisplayNamePlural = T(890000000000054, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Crafted DisplayNamePlural]] ".45ACP, Кустарный"),
 	colorStyle = "AmmoSubstandardColor",
-	Description = T(654722607287, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Crafted Description]] "Большой пистолетный патрон калибра .45, тут поддерживается дуализм, патрон по сути экспансивный, но и кустарный, а значит лизнуть мысли может как цели так и стрелку."),
+	Description = T(890000000000860, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Crafted Description]] "Большой пистолетный патрон калибра .45, тут поддерживается дуализм, патрон по сути экспансивный, но и кустарный, а значит лизнуть мысли может как цели так и стрелку."),
 	AdditionalHint = "",
 	Cost = 60,
 	MaxStock = 50,

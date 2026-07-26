@@ -6,10 +6,10 @@ DefineClass._50BMG_SLAP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/TEST.png",
-	DisplayName = T(286919767423, --[[ModItemInventoryItemCompositeDef _50BMG_SLAP DisplayName]] ".50, ПК"),
-	DisplayNamePlural = T(757638084303, --[[ModItemInventoryItemCompositeDef _50BMG_SLAP DisplayNamePlural]] ".50, ПК"),
+	DisplayName = T(328537436087, --[[ModItemInventoryItemCompositeDef _50BMG_SLAP DisplayName]] ".50 SLAP"),
+	DisplayNamePlural = T(152196917983, --[[ModItemInventoryItemCompositeDef _50BMG_SLAP DisplayNamePlural]] ".50 SLAP"),
 	colorStyle = "AmmoAPColor",
-	Description = T(392473700789, --[[ModItemInventoryItemCompositeDef _50BMG_SLAP Description]] "Подкалиберный боеприпас для пулеметов, снайперских винтовок, пистолетов и револьверов калибра .50."),
+	Description = T(189786149121, --[[ModItemInventoryItemCompositeDef _50BMG_SLAP Description]] ".50 Ammo for Machine Guns, Snipers and Handguns."),
 	AdditionalHint = T(181724059889, --[[ModItemInventoryItemCompositeDef _50BMG_SLAP AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышенная бронебойность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Немного повышенный шанс критического попадания"),
 	Cost = 500,
 	Tier = 3,

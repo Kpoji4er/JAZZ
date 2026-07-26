@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_357_JHP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/357JHP.png",
-	DisplayName = T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_JHP DisplayName]] ".357 Mag JHP"),
-	DisplayNamePlural = T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_JHP DisplayNamePlural]] ".357 Mag JHP"),
+	DisplayName = T(890000000001189, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_JHP DisplayName]] ".357 Mag JHP"),
+	DisplayNamePlural = T(890000000000412, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_JHP DisplayNamePlural]] ".357 Mag JHP"),
 	colorStyle = "AmmoJHPColor",
-	Description = T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_JHP Description]] "Экспансивный патрон калибра .357, если вам мало мощи обычной пули, с броней он разумеется не справляется, зато откусить кому-то бочок можно легко."),
+	Description = T(890000000000282, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_JHP Description]] "Экспансивный патрон калибра .357, если вам мало мощи обычной пули, с броней он разумеется не справляется, зато откусить кому-то бочок можно легко."),
 	Cost = 324,
 	CanAppearInShop = true,
 	MaxStock = 50,

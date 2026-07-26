@@ -6,8 +6,8 @@ DefineClass.HerbalMedicine = {
 
 	object_class = "MiscItem",
 	Icon = "UI/Icons/Items/herbal_medicine",
-	DisplayName = T(438786398028, --[[ModItemInventoryItemCompositeDef HerbalMedicine DisplayName]] "Травяной сбор"),
-	DisplayNamePlural = T(903861071149, --[[ModItemInventoryItemCompositeDef HerbalMedicine DisplayNamePlural]] "Травяной сбор"),
+	DisplayName = T(603680939283, --[[ModItemInventoryItemCompositeDef HerbalMedicine DisplayName]] "Herbal Medicine"),
+	DisplayNamePlural = T(722930256983, --[[ModItemInventoryItemCompositeDef HerbalMedicine DisplayNamePlural]] "Herbal Medicine"),
 	AdditionalHint = T(952277134603, --[[ModItemInventoryItemCompositeDef HerbalMedicine AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Укрепляет силу воли\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Непредсказуемые побочные эффекты\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Без ГМО"),
 	CategoryPair = "Medicine",
 	MaxStacks = 20,
@@ -40,7 +40,7 @@ DefineClass.HerbalMedicine = {
 			},
 		}),
 	},
-	action_name = T(613485992454, --[[ModItemInventoryItemCompositeDef HerbalMedicine action_name]] "ПРИМЕНИТЬ"),
+	action_name = T(679583097578, --[[ModItemInventoryItemCompositeDef HerbalMedicine action_name]] "APPLY"),
 	destroy_item = true,
 }
 

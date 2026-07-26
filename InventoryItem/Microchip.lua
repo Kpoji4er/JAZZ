@@ -6,8 +6,8 @@ DefineClass.Microchip = {
 
 	object_class = "MiscItem",
 	Icon = "UI/Icons/Items/microchip",
-	DisplayName = T(171241193345, --[[ModItemInventoryItemCompositeDef Microchip DisplayName]] "Чип"),
-	DisplayNamePlural = T(722836023605, --[[ModItemInventoryItemCompositeDef Microchip DisplayNamePlural]] "Чипы"),
+	DisplayName = T(176640963638, --[[ModItemInventoryItemCompositeDef Microchip DisplayName]] "Chip"),
+	DisplayNamePlural = T(767899744987, --[[ModItemInventoryItemCompositeDef Microchip DisplayNamePlural]] "Chips"),
 	AdditionalHint = T(859152016185, --[[ModItemInventoryItemCompositeDef Microchip AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется при создании улучшенных компонентов для оружия"),
 	Valuable = 1,
 	Cost = 4900,

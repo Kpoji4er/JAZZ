@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_46_FMJ = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/46.png",
-	DisplayName = T(111421465880, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ DisplayName]] "4,6 мм, FMJ"),
-	DisplayNamePlural = T(171557918481, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ DisplayNamePlural]] "4,6 мм, FMJ"),
+	DisplayName = T(890000000000021, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ DisplayName]] "4,6 мм, FMJ"),
+	DisplayNamePlural = T(890000000000091, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ DisplayNamePlural]] "4,6 мм, FMJ"),
 	colorStyle = "AmmoBasicColor",
-	Description = T(468404152064, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ Description]] "Базовый армейский патрон 4.6мм, для МП-7. Ни убавить ни прибавить, сочетает в себе легкий вес пули, дешевизну и наличие бронебойных свойств из-за своих размеров."),
+	Description = T(890000000000573, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ Description]] "Базовый армейский патрон 4.6мм, для МП-7. Ни убавить ни прибавить, сочетает в себе легкий вес пули, дешевизну и наличие бронебойных свойств из-за своих размеров."),
 	Cost = 600,
 	CanAppearInShop = true,
 	Tier = 3,

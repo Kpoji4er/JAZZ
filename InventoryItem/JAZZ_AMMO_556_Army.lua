@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_556_Army = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/556M855.png",
-	DisplayName = T(326742931642, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Army DisplayName]] "5,56 мм, M855 Армейский"),
-	DisplayNamePlural = T(946968976971, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Army DisplayNamePlural]] "5,56 мм, M855 Армейский"),
+	DisplayName = T(890000000000347, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Army DisplayName]] "5,56 мм, M855 Армейский"),
+	DisplayNamePlural = T(890000000001314, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Army DisplayNamePlural]] "5,56 мм, M855 Армейский"),
 	colorStyle = "AmmoArmyColor",
-	Description = T(758340761081, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Army Description]] "Современный базовый армейский патрон, неплох во всём, вы точно не пожалеете.\n"),
+	Description = T(890000000001004, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Army Description]] "Современный базовый армейский патрон, неплох во всём, вы точно не пожалеете.\n"),
 	AdditionalHint = "",
 	Cost = 1800,
 	CanAppearInShop = true,

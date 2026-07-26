@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_45ACP_FMJ = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/45ACP.png",
-	DisplayName = T(270886313378, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_FMJ DisplayName]] ".45ACP, FMJ"),
-	DisplayNamePlural = T(136983924045, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_FMJ DisplayNamePlural]] ".45ACP, FMJ"),
+	DisplayName = T(890000000000237, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_FMJ DisplayName]] ".45ACP, FMJ"),
+	DisplayNamePlural = T(890000000000052, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_FMJ DisplayNamePlural]] ".45ACP, FMJ"),
 	colorStyle = "AmmoBasicColor",
-	Description = T(654722607287, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_FMJ Description]] "Базовый армейский патрон калибра .45, против брони он бессилен, зато способен нанести огромный урон, по мерка пистолетов. Это база."),
+	Description = T(890000000000859, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_FMJ Description]] "Базовый армейский патрон калибра .45, против брони он бессилен, зато способен нанести огромный урон, по мерка пистолетов. Это база."),
 	AdditionalHint = "",
 	Cost = 360,
 	CanAppearInShop = true,

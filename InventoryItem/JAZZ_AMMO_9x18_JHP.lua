@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_9x18_JHP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/9x18JHP.png",
-	DisplayName = T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_JHP DisplayName]] "9x18мм, СП7 JHP+"),
-	DisplayNamePlural = T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_JHP DisplayNamePlural]] "9x18мм, СП7 JHP+"),
+	DisplayName = T(890000000001200, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_JHP DisplayName]] "9x18мм, СП7 JHP+"),
+	DisplayNamePlural = T(890000000000423, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_JHP DisplayNamePlural]] "9x18мм, СП7 JHP+"),
 	colorStyle = "AmmoJHPPColor",
-	Description = T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_JHP Description]] "Экспансивный спец патрон, бесполезен против брони, зато по мягким тканям отрабатывает не хуже старших братьев, все равно что выстрелить в человека из дробовика."),
+	Description = T(890000000000283, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_JHP Description]] "Экспансивный спец патрон, бесполезен против брони, зато по мягким тканям отрабатывает не хуже старших братьев, все равно что выстрелить в человека из дробовика."),
 	Cost = 600,
 	CanAppearInShop = true,
 	MaxStock = 50,

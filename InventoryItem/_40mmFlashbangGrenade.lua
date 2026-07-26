@@ -6,9 +6,9 @@ DefineClass._40mmFlashbangGrenade = {
 
 	object_class = "Ordnance",
 	Icon = "Mod/e6L4ECj/Ammopics/TEST.png",
-	DisplayName = T(725404168171, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade DisplayName]] "40-мм с/ш граната"),
-	DisplayNamePlural = T(197284197871, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade DisplayNamePlural]] "40-мм с/ш гранаты"),
-	Description = T(288672948029, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade Description]] "Светошумовой боеприпас для гранатометов калибра 40 мм."),
+	DisplayName = T(805412560134, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade DisplayName]] "40 mm Flashbang"),
+	DisplayNamePlural = T(753721174279, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade DisplayNamePlural]] "40 mm Flashbangs"),
+	Description = T(637064167762, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade Description]] "40 mm ordnance ammo for Grenade Launchers."),
 	AdditionalHint = T(523265065541, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В эпицентре взрыва снижает уровень энергии целей (один раз за бой)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> <color EmStyle>Подавляет</color> цели\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Издает меньше шума"),
 	Cost = 800,
 	Tier = 2,

@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_30_P = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/30calHP.png",
-	DisplayName = T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_P DisplayName]] ".30 Cal M18 +P"),
-	DisplayNamePlural = T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_P DisplayNamePlural]] ".30 Cal M18 +P"),
+	DisplayName = T(890000000001194, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_P DisplayName]] ".30 Cal M18 +P"),
+	DisplayNamePlural = T(890000000000417, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_P DisplayNamePlural]] ".30 Cal M18 +P"),
 	colorStyle = "AmmoHPColor",
-	Description = T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_P Description]] "Попытка сделать устаревший патрон бронебойным путем повышения давления. Уверенно справится с фанерой или кожанной курткой."),
+	Description = T(890000000000276, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_P Description]] "Попытка сделать устаревший патрон бронебойным путем повышения давления. Уверенно справится с фанерой или кожанной курткой."),
 	Cost = 540,
 	CanAppearInShop = true,
 	MaxStock = 50,

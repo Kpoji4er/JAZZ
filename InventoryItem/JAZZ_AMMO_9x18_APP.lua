@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_9x18_APP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/9x18APP.png",
-	DisplayName = T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_APP DisplayName]] "9x18мм, 7н25 ББ+"),
-	DisplayNamePlural = T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_APP DisplayNamePlural]] "9x18мм, 7н25 ББ+"),
+	DisplayName = T(890000000001195, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_APP DisplayName]] "9x18мм, 7н25 ББ+"),
+	DisplayNamePlural = T(890000000000418, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_APP DisplayNamePlural]] "9x18мм, 7н25 ББ+"),
 	colorStyle = "AmmoAPPColor",
-	Description = T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_APP Description]] "Бронебойный патрон 9х18, из которого выжали всё что могли, чтоб пробивать более или менее серьезную защиту. Бронебойность негативно сказывается на надежности, но положительно на эффективности."),
+	Description = T(890000000000279, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_APP Description]] "Бронебойный патрон 9х18, из которого выжали всё что могли, чтоб пробивать более или менее серьезную защиту. Бронебойность негативно сказывается на надежности, но положительно на эффективности."),
 	Cost = 960,
 	CanAppearInShop = true,
 	Tier = "4",

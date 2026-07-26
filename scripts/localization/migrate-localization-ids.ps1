@@ -3,6 +3,8 @@ param(
     [Parameter(Mandatory = $true)]
     [string] $GameCsv,
 
+    [string] $GameSourceRoot,
+
     [ValidateSet("Plan", "Apply")]
     [string] $Mode = "Plan",
 
@@ -69,7 +71,7 @@ function ConvertTo-CsvCell {
     param([AllowNull()] $Value)
 
     $text = if ($null -eq $Value) { "" } else { [string]$Value }
-    if ($text -match '[,"\r\n]') {
+    if ($text -match '[,"\r\n]' -or $text -ne $text.Trim()) {
         return '"' + $text.Replace('"', '""') + '"'
     }
     return $text
@@ -170,6 +172,31 @@ function Get-PairKey {
     return $ID + [char]31 + (Get-TextKey -Text $Text)
 }
 
+function Get-UseContextKey {
+    param([object] $Use)
+
+    if ([string]::IsNullOrWhiteSpace($Use.Comment)) {
+        return ""
+    }
+    return Get-NormalizedGeneratedContext -Comment $Use.Comment
+}
+
+function Get-GroupKey {
+    param(
+        [string] $ID,
+        [string] $Text,
+        [string] $ContextKey
+    )
+
+    return (
+        $ID +
+        [char]31 +
+        (Get-TextKey -Text $Text) +
+        [char]31 +
+        $ContextKey
+    )
+}
+
 function Get-LuaFilesWithoutMaps {
     param(
         [string] $PackageName,
@@ -236,6 +263,57 @@ $tCallPattern = [regex]::new(
     '\bT\s*(?:\(\s*\{\s*|\(\s*|\{\s*)(?<id>\d{6,})\s*,\s*(?:--\[\[(?<comment>.*?)\]\]\s*)*(?:"(?<double>(?:\\.|[^"\\])*)"|''(?<single>(?:\\.|[^''\\])*)'')'
 )
 
+function Test-IsLineCommentedTCall {
+    param(
+        [string] $FileText,
+        [Text.RegularExpressions.Match] $Match
+    )
+
+    $lineStart = $FileText.LastIndexOf("`n", [Math]::Max(0, $Match.Index - 1)) + 1
+    $prefix = $FileText.Substring($lineStart, $Match.Index - $lineStart)
+    return $prefix.TrimStart().StartsWith("--", [StringComparison]::Ordinal)
+}
+
+function Get-InferredGeneratedComment {
+    param(
+        [string] $FileText,
+        [Text.RegularExpressions.Match] $Match
+    )
+
+    $lineStart = $FileText.LastIndexOf("`n", [Math]::Max(0, $Match.Index - 1)) + 1
+    $prefix = $FileText.Substring($lineStart, $Match.Index - $lineStart)
+    if ($prefix -notmatch "'display_name'\s*,\s*$") {
+        return ""
+    }
+
+    $nextSector = $FileText.IndexOf(
+        "PlaceObj('SatelliteSector'",
+        $Match.Index + $Match.Length,
+        [StringComparison]::Ordinal
+    )
+    $scanEnd = [Math]::Min($FileText.Length, $Match.Index + $Match.Length + 3000)
+    if ($nextSector -ge 0) {
+        $scanEnd = [Math]::Min($scanEnd, $nextSector)
+    }
+    $after = $FileText.Substring(
+        $Match.Index + $Match.Length,
+        $scanEnd - ($Match.Index + $Match.Length)
+    )
+    $imageMatch = [regex]::Match(
+        $after,
+        "'image'\s*,\s*[`"']UI/SatelliteView/SectorImages/(?<letters>[A-Z]+)(?<digits>\d+)[`"']"
+    )
+    if (-not $imageMatch.Success) {
+        return ""
+    }
+
+    $sector = (
+        $imageMatch.Groups["letters"].Value +
+        ([int]$imageMatch.Groups["digits"].Value).ToString()
+    )
+    return "ModItemCampaignPreset HotDiamonds display_name Sector name for $sector"
+}
+
 function Read-LuaUses {
     $uses = New-Object "System.Collections.Generic.List[object]"
 
@@ -267,6 +345,10 @@ function Read-LuaUses {
                 }
                 $lastIndex = $match.Index
 
+                if (Test-IsLineCommentedTCall -FileText $fileData.Text -Match $match) {
+                    continue
+                }
+
                 $isDouble = $match.Groups["double"].Success
                 $textGroup = if ($isDouble) {
                     $match.Groups["double"]
@@ -274,10 +356,16 @@ function Read-LuaUses {
                 else {
                     $match.Groups["single"]
                 }
+                $comment = $match.Groups["comment"].Value
+                if ([string]::IsNullOrWhiteSpace($comment)) {
+                    $comment = Get-InferredGeneratedComment `
+                        -FileText $fileData.Text `
+                        -Match $match
+                }
                 $uses.Add([pscustomobject]@{
                     ID          = $match.Groups["id"].Value
                     Text        = ConvertFrom-LuaQuotedText -Text $textGroup.Value
-                    Comment     = $match.Groups["comment"].Value
+                    Comment     = $comment
                     Quote       = if ($isDouble) { '"' } else { "'" }
                     Package     = $package.Key
                     PackageRoot = $package.Value
@@ -507,6 +595,192 @@ function Select-GameCandidate {
     }
 }
 
+function Get-AnalysisOrderKey {
+    param([object] $Analysis)
+
+    $use = @(
+        $Analysis.Uses |
+            Sort-Object `
+                @{ Expression = { if ($_.File -eq "items.lua") { 0 } else { 1 } } }, `
+                Package, `
+                File, `
+                Line
+    )[0]
+    $fileRank = if ($use.File -eq "items.lua") { "0" } else { "1" }
+    return (
+        $use.Package +
+        [char]31 +
+        $fileRank +
+        [char]31 +
+        $use.File +
+        [char]31 +
+        ([int]$use.Line).ToString("0000000000")
+    )
+}
+
+function Get-GameSourceRelativePath {
+    param([string] $Location)
+
+    if ($Location -match '^Trunk[\\/]Zulu[\\/](?<relative>.+?)\(\d+\)$') {
+        return $Matches["relative"].Replace("/", "\")
+    }
+    return ""
+}
+
+function Read-VanillaSourceUsesForAnalyses {
+    param([System.Collections.IEnumerable] $Analyses)
+
+    if ([string]::IsNullOrWhiteSpace($GameSourceRoot)) {
+        return @()
+    }
+    if (-not (Test-Path -LiteralPath $GameSourceRoot -PathType Container)) {
+        throw "Game source root does not exist: $GameSourceRoot"
+    }
+
+    $paths = @{}
+    foreach ($analysis in $Analyses) {
+        if (-not $analysis.Ambiguous -or -not $analysis.ContextKey) {
+            continue
+        }
+        foreach ($candidate in @(Get-GameCandidates -Text $analysis.OldText)) {
+            if (-not $candidate.Context) {
+                continue
+            }
+            if (-not $candidate.Context.Trim().Equals(
+                $analysis.ContextKey,
+                [StringComparison]::Ordinal
+            )) {
+                continue
+            }
+            $relative = Get-GameSourceRelativePath -Location $candidate.Location
+            if (-not $relative) {
+                continue
+            }
+            $fullPath = [IO.Path]::GetFullPath((Join-Path $GameSourceRoot $relative))
+            if (Test-Path -LiteralPath $fullPath -PathType Leaf) {
+                $paths[$fullPath] = $relative.Replace("\", "/")
+            }
+        }
+    }
+
+    $uses = New-Object "System.Collections.Generic.List[object]"
+    foreach ($entry in $paths.GetEnumerator()) {
+        $fileData = Read-Utf8File -Path $entry.Key
+        $line = 1
+        $lastIndex = 0
+        foreach ($match in $tCallPattern.Matches($fileData.Text)) {
+            if ($match.Index -gt $lastIndex) {
+                $segment = $fileData.Text.Substring($lastIndex, $match.Index - $lastIndex)
+                $line += ([regex]::Matches($segment, "`n")).Count
+            }
+            $lastIndex = $match.Index
+
+            $isDouble = $match.Groups["double"].Success
+            $textGroup = if ($isDouble) {
+                $match.Groups["double"]
+            }
+            else {
+                $match.Groups["single"]
+            }
+            $comment = $match.Groups["comment"].Value
+            $uses.Add([pscustomobject]@{
+                ID         = $match.Groups["id"].Value
+                Text       = ConvertFrom-LuaQuotedText -Text $textGroup.Value
+                ContextKey = if ($comment) {
+                    Get-NormalizedGeneratedContext -Comment $comment
+                }
+                else {
+                    ""
+                }
+                File       = $entry.Value
+                Line       = $line
+            })
+        }
+    }
+    return $uses
+}
+
+function Test-VanillaUseTextMatch {
+    param(
+        [object] $VanillaUse,
+        [object] $Analysis
+    )
+
+    $oldText = Normalize-LocalizationText -Text $Analysis.OldText
+    if ($oldText -eq (Normalize-LocalizationText -Text $VanillaUse.Text)) {
+        return $true
+    }
+    if ($gameById.ContainsKey($VanillaUse.ID)) {
+        return $oldText -eq (
+            Normalize-LocalizationText -Text $gameById[$VanillaUse.ID].Translation
+        )
+    }
+    return $false
+}
+
+function Resolve-AmbiguitiesFromVanillaSource {
+    param([System.Collections.IEnumerable] $Analyses)
+
+    $analysisArray = @($Analyses | ForEach-Object { $_ })
+    $vanillaUses = @(
+        Read-VanillaSourceUsesForAnalyses -Analyses $analysisArray |
+            ForEach-Object { $_ }
+    )
+    if ($vanillaUses.Count -eq 0) {
+        return 0
+    }
+
+    $resolved = 0
+    $buckets = @(
+        $analysisArray |
+            Where-Object { $_.ContextKey } |
+            Group-Object {
+                $_.ContextKey + [char]31 + (Get-TextKey -Text $_.OldText)
+            }
+    )
+    foreach ($bucket in $buckets) {
+        $modRows = @(
+            $bucket.Group |
+                Sort-Object { Get-AnalysisOrderKey -Analysis $_ }
+        )
+        if (@($modRows | Where-Object Ambiguous).Count -eq 0) {
+            continue
+        }
+
+        $contextKey = $modRows[0].ContextKey
+        $vanillaRows = @(
+            $vanillaUses |
+                Where-Object {
+                    $_.ContextKey -eq $contextKey -and
+                    (Test-VanillaUseTextMatch -VanillaUse $_ -Analysis $modRows[0])
+                } |
+                Sort-Object File, Line
+        )
+        if ($vanillaRows.Count -eq 0 -or $vanillaRows.Count -ne $modRows.Count) {
+            continue
+        }
+
+        for ($index = 0; $index -lt $modRows.Count; $index++) {
+            $analysis = $modRows[$index]
+            $vanilla = $vanillaRows[$index]
+            if (-not $gameById.ContainsKey($vanilla.ID)) {
+                continue
+            }
+            if ($analysis.Ambiguous) {
+                $resolved++
+            }
+            $analysis.GameRow = $gameById[$vanilla.ID]
+            $analysis.MatchKind = "vanilla-source-sequence"
+            $analysis.CandidateIDs = @(
+                $vanillaRows.ID |
+                    Sort-Object { [decimal]$_ } -Unique
+            ) -join " | "
+            $analysis.Ambiguous = $false
+        }
+    }
+    return $resolved
+}
+
 $gameRows = @(Import-Csv -LiteralPath $GameCsv -Encoding UTF8)
 $gameById = @{}
 $gameByText = @{}
@@ -525,21 +799,28 @@ $luaUses = @(Read-LuaUses)
 if ($Mode -eq "Plan") {
     $pairGroups = @(
         $luaUses |
-            Group-Object { Get-PairKey -ID $_.ID -Text $_.Text } |
+            Group-Object {
+                Get-GroupKey `
+                    -ID $_.ID `
+                    -Text $_.Text `
+                    -ContextKey (Get-UseContextKey -Use $_)
+            } |
             Sort-Object {
                 $first = $_.Group[0]
                 ([decimal]$first.ID).ToString("00000000000000000000") +
                     [char]31 +
-                    (Get-TextKey -Text $first.Text)
+                    (Get-TextKey -Text $first.Text) +
+                    [char]31 +
+                    (Get-UseContextKey -Use $first)
             }
     )
 
     $analysisRows = New-Object "System.Collections.Generic.List[object]"
-    $ambiguityRows = New-Object "System.Collections.Generic.List[object]"
     foreach ($group in $pairGroups) {
         $first = $group.Group[0]
         $groupUses = @($group.Group | ForEach-Object { $_ })
         $activeUses = @($groupUses | Where-Object State -ne "dormant")
+        $contextKey = Get-UseContextKey -Use $first
         $candidates = @(Get-GameCandidates -Text $first.Text)
         $selection = Select-GameCandidate `
             -OldID $first.ID `
@@ -547,26 +828,12 @@ if ($Mode -eq "Plan") {
             -Uses $groupUses `
             -Candidates $candidates
 
-        if ($selection.Ambiguous) {
-            $ambiguityRows.Add([pscustomobject]@{
-                OldID        = $first.ID
-                SourceText   = $first.Text
-                CandidateIDs = $selection.CandidateIDs
-                Comments     = @(
-                    $groupUses.Comment |
-                        Where-Object { $_ } |
-                        Sort-Object -Unique
-                ) -join " | "
-                Locations    = @(
-                    $groupUses |
-                        Sort-Object Package, File, Line |
-                        ForEach-Object { "$($_.Package):$($_.File):$($_.Line)" }
-                ) -join " | "
-            })
-        }
-
         $analysisRows.Add([pscustomobject]@{
-            PairKey           = Get-PairKey -ID $first.ID -Text $first.Text
+            GroupKey          = Get-GroupKey `
+                -ID $first.ID `
+                -Text $first.Text `
+                -ContextKey $contextKey
+            ContextKey        = $contextKey
             OldID             = $first.ID
             OldText           = $first.Text
             Uses              = $groupUses
@@ -581,6 +848,27 @@ if ($Mode -eq "Plan") {
         })
     }
 
+    $sourceResolved = Resolve-AmbiguitiesFromVanillaSource -Analyses $analysisRows
+    $ambiguityRows = New-Object "System.Collections.Generic.List[object]"
+    foreach ($analysis in @($analysisRows | Where-Object Ambiguous)) {
+        $groupUses = @($analysis.Uses | ForEach-Object { $_ })
+        $ambiguityRows.Add([pscustomobject]@{
+            OldID        = $analysis.OldID
+            SourceText   = $analysis.OldText
+            ContextKey   = $analysis.ContextKey
+            CandidateIDs = $analysis.CandidateIDs
+            Comments     = @(
+                $groupUses.Comment |
+                    Where-Object { $_ } |
+                    Sort-Object -Unique
+            ) -join " | "
+            Locations    = @(
+                $groupUses |
+                    Sort-Object Package, File, Line |
+                    ForEach-Object { "$($_.Package):$($_.File):$($_.Line)" }
+            ) -join " | "
+        })
+    }
     $remainingByOldId = @{}
     foreach ($analysis in $analysisRows) {
         if ($null -ne $analysis.GameRow) {
@@ -616,34 +904,47 @@ if ($Mode -eq "Plan") {
             $remainingByOldId[$oldId] |
                 ForEach-Object { $_ }
         )
+        $remainingTextKeys = @(
+            $remaining |
+                ForEach-Object { Get-TextKey -Text $_.OldText } |
+                Sort-Object -Unique
+        )
         $requiresNewId = (
             $gameById.ContainsKey($oldId) -or
             [decimal]$oldId -ge 9007199254740992 -or
-            $remaining.Count -gt 1
+            $remainingTextKeys.Count -gt 1
         )
         if (-not $requiresNewId) {
             continue
         }
 
-        foreach ($analysis in @(
+        $textGroups = @(
             $remaining |
-                Sort-Object { Get-TextKey -Text $_.OldText }
-        )) {
+                Group-Object { Get-TextKey -Text $_.OldText } |
+                Sort-Object Name
+        )
+        foreach ($textGroup in $textGroups) {
             while ($nextId -le $RangeEnd -and $usedIds.ContainsKey([string]$nextId)) {
                 $nextId++
             }
             if ($nextId -gt $RangeEnd) {
                 throw "Localization ID range is exhausted."
             }
-            $analysis.Action = if ($analysis.Ambiguous) {
-                "assign-mod-id-ambiguous"
+            $newId = [string]$nextId
+            foreach ($analysis in @(
+                $textGroup.Group |
+                    Sort-Object ContextKey
+            )) {
+                $analysis.Action = if ($analysis.Ambiguous) {
+                    "assign-mod-id-ambiguous"
+                }
+                else {
+                    "assign-mod-id"
+                }
+                $analysis.NewID = $newId
+                $analysis.NewText = $analysis.OldText
             }
-            else {
-                "assign-mod-id"
-            }
-            $analysis.NewID = [string]$nextId
-            $analysis.NewText = $analysis.OldText
-            $usedIds[$analysis.NewID] = $true
+            $usedIds[$newId] = $true
             $nextId++
         }
     }
@@ -671,6 +972,7 @@ if ($Mode -eq "Plan") {
         $manifestRows.Add([pscustomobject]@{
             Action            = $analysis.Action
             MatchKind         = $analysis.MatchKind
+            ContextKey        = $analysis.ContextKey
             OldID             = $analysis.OldID
             NewID             = $analysis.NewID
             OldText           = $analysis.OldText
@@ -696,6 +998,7 @@ if ($Mode -eq "Plan") {
         -Columns @(
             "Action",
             "MatchKind",
+            "ContextKey",
             "OldID",
             "NewID",
             "OldText",
@@ -716,6 +1019,7 @@ if ($Mode -eq "Plan") {
         -Columns @(
             "OldID",
             "SourceText",
+            "ContextKey",
             "CandidateIDs",
             "Comments",
             "Locations"
@@ -729,6 +1033,7 @@ if ($Mode -eq "Plan") {
     Write-Output "Restore vanilla pairs: $($restoreRows.Count); occurrences=$(($restoreRows | Measure-Object Occurrences -Sum).Sum)"
     Write-Output "Assign mod IDs: $($newRows.Count); occurrences=$(($newRows | Measure-Object Occurrences -Sum).Sum)"
     Write-Output "Keep unchanged pairs: $($analysisRows.Count - $manifestRows.Count)"
+    Write-Output "Resolved by vanilla source sequence: $sourceResolved"
     Write-Output "Ambiguous vanilla matches: $($ambiguityRows.Count)"
     if ($newRows.Count -gt 0) {
         Write-Output "Allocated mod range: $($newRows[0].NewID)..$($newRows[-1].NewID)"
@@ -756,7 +1061,7 @@ if (Test-Path -LiteralPath $AmbiguityPath -PathType Leaf) {
     }
 }
 
-$mappingByOldPair = @{}
+$mappingByOldGroup = @{}
 $expectedTextByNewId = @{}
 $finalPairKeys = @{}
 foreach ($row in $manifestRows) {
@@ -766,11 +1071,17 @@ foreach ($row in $manifestRows) {
     if ([decimal]$row.NewID -ge 9007199254740992) {
         throw "Manifest NewID is not IEEE-754-safe: $($row.NewID)"
     }
-    $oldPairKey = Get-PairKey -ID $row.OldID -Text $row.OldText
-    if ($mappingByOldPair.ContainsKey($oldPairKey)) {
-        throw "Duplicate old ID+text pair in manifest: $($row.OldID)"
+    $oldGroupKey = Get-GroupKey `
+        -ID $row.OldID `
+        -Text $row.OldText `
+        -ContextKey ([string]$row.ContextKey)
+    if ($mappingByOldGroup.ContainsKey($oldGroupKey)) {
+        throw (
+            "Duplicate old ID+text+context group in manifest: " +
+            "$($row.OldID) [$($row.ContextKey)]"
+        )
     }
-    $mappingByOldPair[$oldPairKey] = $row
+    $mappingByOldGroup[$oldGroupKey] = $row
 
     $newTextKey = Get-TextKey -Text $row.NewText
     if (
@@ -785,9 +1096,12 @@ foreach ($row in $manifestRows) {
 
 foreach ($use in $luaUses) {
     if ($expectedTextByNewId.ContainsKey($use.ID)) {
-        $oldPairKey = Get-PairKey -ID $use.ID -Text $use.Text
+        $oldGroupKey = Get-GroupKey `
+            -ID $use.ID `
+            -Text $use.Text `
+            -ContextKey (Get-UseContextKey -Use $use)
         if (
-            -not $mappingByOldPair.ContainsKey($oldPairKey) -and
+            -not $mappingByOldGroup.ContainsKey($oldGroupKey) -and
             $expectedTextByNewId[$use.ID] -ne (Get-TextKey -Text $use.Text)
         ) {
             throw "Final ID $($use.ID) is used by an unrelated text at $($use.Package):$($use.File):$($use.Line)."
@@ -796,15 +1110,19 @@ foreach ($use in $luaUses) {
 }
 
 $replacementsByFile = @{}
-$seenOldPairs = @{}
+$seenOldGroups = @{}
 $seenFinalPairs = @{}
 foreach ($use in $luaUses) {
+    $groupKey = Get-GroupKey `
+        -ID $use.ID `
+        -Text $use.Text `
+        -ContextKey (Get-UseContextKey -Use $use)
     $pairKey = Get-PairKey -ID $use.ID -Text $use.Text
-    if ($mappingByOldPair.ContainsKey($pairKey)) {
+    if ($mappingByOldGroup.ContainsKey($groupKey)) {
         if (-not $replacementsByFile.ContainsKey($use.FullPath)) {
             $replacementsByFile[$use.FullPath] = New-Object "System.Collections.Generic.List[object]"
         }
-        $mapping = $mappingByOldPair[$pairKey]
+        $mapping = $mappingByOldGroup[$groupKey]
         if (
             (Normalize-LocalizationText $mapping.OldText) -ne
             (Normalize-LocalizationText $mapping.NewText)
@@ -822,7 +1140,7 @@ foreach ($use in $luaUses) {
                 Value  = $mapping.NewID
             })
         }
-        $seenOldPairs[$pairKey] = $true
+        $seenOldGroups[$groupKey] = $true
     }
     if ($finalPairKeys.ContainsKey($pairKey)) {
         $seenFinalPairs[$pairKey] = $true
@@ -830,13 +1148,15 @@ foreach ($use in $luaUses) {
 }
 
 foreach ($row in $manifestRows) {
-    $oldKey = Get-PairKey -ID $row.OldID -Text $row.OldText
+    $oldKey = Get-GroupKey `
+        -ID $row.OldID `
+        -Text $row.OldText `
+        -ContextKey ([string]$row.ContextKey)
     $finalKey = Get-PairKey -ID $row.NewID -Text $row.NewText
-    if (-not $seenOldPairs.ContainsKey($oldKey) -and -not $seenFinalPairs.ContainsKey($finalKey)) {
-        throw "Manifest pair is absent with both old and final representation: $($row.OldID) -> $($row.NewID)."
+    if (-not $seenOldGroups.ContainsKey($oldKey) -and -not $seenFinalPairs.ContainsKey($finalKey)) {
+        throw "Manifest group is absent with both old and final representation: $($row.OldID) -> $($row.NewID)."
     }
 }
-
 $changedFiles = New-Object "System.Collections.Generic.List[string]"
 $replacementCount = 0
 foreach ($filePath in ($replacementsByFile.Keys | Sort-Object)) {
@@ -866,6 +1186,7 @@ Write-CsvUtf8 `
     -Columns @(
         "Action",
         "MatchKind",
+        "ContextKey",
         "OldID",
         "NewID",
         "OldText",

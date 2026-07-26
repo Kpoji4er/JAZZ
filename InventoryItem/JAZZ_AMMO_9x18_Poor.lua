@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_9x18_Poor = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/9x18substandart.png",
-	DisplayName = T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Poor DisplayName]] "9x18мм, 57-Н-181С Substandard"),
-	DisplayNamePlural = T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Poor DisplayNamePlural]] "9x18мм, 57-Н-181С Substandard"),
+	DisplayName = T(890000000001196, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Poor DisplayName]] "9x18мм, 57-Н-181С Substandard"),
+	DisplayNamePlural = T(890000000000419, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Poor DisplayNamePlural]] "9x18мм, 57-Н-181С Substandard"),
 	colorStyle = "AmmoSubstandardColor",
-	Description = T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Poor Description]] "Патрон для стрельбы по крысам, с первого раза может убить разве что ничего."),
+	Description = T(890000000000274, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Poor Description]] "Патрон для стрельбы по крысам, с первого раза может убить разве что ничего."),
 	Cost = 120,
 	CanAppearInShop = true,
 	MaxStock = 50,

@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_545_Poor = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/545SP.png",
-	DisplayName = T(402352878282, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Poor DisplayName]] "5,45 мм, Барнаул SP Substandard"),
-	DisplayNamePlural = T(875634951024, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Poor DisplayNamePlural]] "5,45 мм, Барнаул SP Substandard"),
+	DisplayName = T(890000000000466, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Poor DisplayName]] "5,45 мм, Барнаул SP Substandard"),
+	DisplayNamePlural = T(890000000001222, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Poor DisplayNamePlural]] "5,45 мм, Барнаул SP Substandard"),
 	colorStyle = "AmmoSubstandardColor",
-	Description = T(979485744753, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Poor Description]] "Гражданский патрон для спортивной и развлекательной стрельбы, поэтому стреляйте и развлекайтесь, для войны лучше выбрать что-то посерьёзнее."),
+	Description = T(890000000001353, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Poor Description]] "Гражданский патрон для спортивной и развлекательной стрельбы, поэтому стреляйте и развлекайтесь, для войны лучше выбрать что-то посерьёзнее."),
 	Cost = 540,
 	CanAppearInShop = true,
 	Tier = 2,

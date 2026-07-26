@@ -8,7 +8,7 @@ function OnMsg.ClassesBuilt()
 		CampaignSide:new{ Id = "enemyNeutral", DisplayName = T(607169506860, "Enemy Neutral"), },
 		CampaignSide:new{ Id = "ally",         DisplayName = T(346100175449, "Ally"), },
         CampaignSide:new{ Id = "Rebels",         DisplayName = T(34610017544911, "Повстанцы"), loyalty = 0 },
-        CampaignSide:new{ Id = "Legion",       DisplayName = T(69291389245512, "Легион"), Enemy = true, loyalty = 0 },
+        CampaignSide:new{ Id = "Legion",       DisplayName = T(769785309076, "Legion"), Enemy = true, loyalty = 0 },
         CampaignSide:new{ Id = "Army",       DisplayName = T(69291389245511, "Армия"), Enemy = true, loyalty = 0 },
 		CampaignSide:new{ Id = "Adonis",       DisplayName = T(45613502845311, "Адонис"), Enemy = true, loyalty = 0 },
 	}

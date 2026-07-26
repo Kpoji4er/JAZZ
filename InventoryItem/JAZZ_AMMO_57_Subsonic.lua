@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_57_Subsonic = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/57sb.png",
-	DisplayName = T(674003227379, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_Subsonic DisplayName]] "5,7 мм, SB193 Дозвуковой"),
-	DisplayNamePlural = T(278698960462, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_Subsonic DisplayNamePlural]] "5,7 мм, SB193 Дозвуковой"),
+	DisplayName = T(890000000000881, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_Subsonic DisplayName]] "5,7 мм, SB193 Дозвуковой"),
+	DisplayNamePlural = T(890000000000254, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_Subsonic DisplayNamePlural]] "5,7 мм, SB193 Дозвуковой"),
 	colorStyle = "AmmoSubsonicColor",
-	Description = T(761420797793, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_Subsonic Description]] "Дозвуковой патрон калибра 5.7, редкий и не очень нужный, однако если нужно работать швейной машинкой без шансов на обнаружение, это то что нужно. НЕ ЗАБУДЬТЕ НАДЕТЬ ГЛУШИТЕЛЬ !!!"),
+	Description = T(890000000001010, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_Subsonic Description]] "Дозвуковой патрон калибра 5.7, редкий и не очень нужный, однако если нужно работать швейной машинкой без шансов на обнаружение, это то что нужно. НЕ ЗАБУДЬТЕ НАДЕТЬ ГЛУШИТЕЛЬ !!!"),
 	Cost = 1350,
 	CanAppearInShop = true,
 	Tier = 3,

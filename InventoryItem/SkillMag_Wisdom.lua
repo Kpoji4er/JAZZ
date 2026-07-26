@@ -7,9 +7,9 @@ DefineClass.SkillMag_Wisdom = {
 	object_class = "MiscItem",
 	Repairable = false,
 	Icon = "UI/Icons/Items/mag_grilled_bears_survival_guide",
-	DisplayName = T(269425865026, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom DisplayName]] "Руководство Бори Гриля"),
-	DisplayNamePlural = T(515674122433, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom DisplayNamePlural]] "Руководство Бори Гриля"),
-	Description = T(526814679764, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom Description]] "Руководство по выживанию. Если вам откусил ногу медведь - пописайте на рану."),
+	DisplayName = T(281562344902, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom DisplayName]] "Grilled Bears' Survival Guide "),
+	DisplayNamePlural = T(338161393803, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom DisplayNamePlural]] "Grilled Bears' Survival Guide "),
+	Description = T(672223422197, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom Description]] "The latest pee-based recipes for your outdoor trips."),
 	AdditionalHint = T(513564123523, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает интеллект"),
 	UnitStat = "Wisdom",
 	Valuable = 1,
@@ -24,7 +24,7 @@ DefineClass.SkillMag_Wisdom = {
 			Stat = "Wisdom",
 		}),
 	},
-	action_name = T(389102616843, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom action_name]] "ЧИТАТЬ"),
+	action_name = T(887349045271, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom action_name]] "READ"),
 	destroy_item = true,
 }
 

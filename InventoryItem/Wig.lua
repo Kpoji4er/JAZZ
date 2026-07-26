@@ -7,9 +7,9 @@ DefineClass.Wig = {
 	object_class = "QuestItem",
 	Repairable = false,
 	Icon = "UI/Icons/Items/red_wig",
-	DisplayName = T(455031779576, --[[ModItemInventoryItemCompositeDef Wig DisplayName]] "Рыжий кудрявый парик"),
-	DisplayNamePlural = T(590236322434, --[[ModItemInventoryItemCompositeDef Wig DisplayNamePlural]] "Рыжий кудрявый парик"),
-	Description = T(756232027903, --[[ModItemInventoryItemCompositeDef Wig Description]] "85 - баба ягодка опять."),
+	DisplayName = T(348364466688, --[[ModItemInventoryItemCompositeDef Wig DisplayName]] "Red curly wig"),
+	DisplayNamePlural = T(699472559460, --[[ModItemInventoryItemCompositeDef Wig DisplayNamePlural]] "Red curly wig"),
+	Description = T(196951336122, --[[ModItemInventoryItemCompositeDef Wig Description]] "The haircut of a lady that certainly doesn't look a day over 40."),
 	Cost = 100,
 	RestockWeight = 0,
 }

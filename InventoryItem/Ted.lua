@@ -6,9 +6,9 @@ DefineClass.Ted = {
 
 	object_class = "InventoryItem",
 	Icon = "UI/Icons/Items/Ted",
-	DisplayName = T(248517754069, --[[ModItemInventoryItemCompositeDef Ted DisplayName]] "Тед"),
-	DisplayNamePlural = T(503375009822, --[[ModItemInventoryItemCompositeDef Ted DisplayNamePlural]] "Теды"),
-	AdditionalHint = T(364544485274, --[[ModItemInventoryItemCompositeDef Ted AdditionalHint]] "Тед мёртв, детка"),
+	DisplayName = T(278554004196, --[[ModItemInventoryItemCompositeDef Ted DisplayName]] "Ted"),
+	DisplayNamePlural = T(153775721377, --[[ModItemInventoryItemCompositeDef Ted DisplayNamePlural]] "Teds"),
+	AdditionalHint = T(317995733561, --[[ModItemInventoryItemCompositeDef Ted AdditionalHint]] "Ted is dead"),
 	locked = true,
 	RestockWeight = 0,
 }

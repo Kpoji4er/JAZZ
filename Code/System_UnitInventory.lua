@@ -236,20 +236,20 @@ TFormat.ItemLog = function(itemLog, unit, isSingleEntry)
 			if IsKindOf(unit, "SectorStash") then
 				res = T(585970067597, "Some of the items were placed in the sector stash")
 			else	
-				res = T{849649099073, " <amount> x <em><itemNameT></em> taken by <mercName>", amount = amount, itemNameT = itemNameT, mercName = unit:GetDisplayName()}
+				res = T{890000000001158, " <amount> x <em><itemNameT></em> taken by <mercName>", amount = amount, itemNameT = itemNameT, mercName = unit:GetDisplayName()}
 			end
 		else
-			res = T{359344947585, " <amount> x <em><itemNameT></em> added in the squad bag", amount = amount, itemNameT = itemNameT}
+			res = T{890000000000409, " <amount> x <em><itemNameT></em> added in the squad bag", amount = amount, itemNameT = itemNameT}
 		end
 	else
 		if unit then
 			if IsKindOf(unit, "SectorStash") then
 				res = T(585970067597, "Some of the items were placed in the sector stash")
 			else	
-				res = T{581384045758, " <amount> x <em><itemNameT></em> (<mercName>)", amount = amount, itemNameT = itemNameT, mercName = unit:GetDisplayName()}
+				res = T{890000000000749, " <amount> x <em><itemNameT></em> (<mercName>)", amount = amount, itemNameT = itemNameT, mercName = unit:GetDisplayName()}
 			end
 		else
-			res = T{437609056132, " <amount> x <em><itemNameT></em> (squad bag)", amount = amount, itemNameT = itemNameT}
+			res = T{890000000000531, " <amount> x <em><itemNameT></em> (squad bag)", amount = amount, itemNameT = itemNameT}
 		end
 	end
 	return res

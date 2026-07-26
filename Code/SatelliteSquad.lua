@@ -1713,7 +1713,7 @@ function GetSectorTravelTime(from_sector_id, to_sector_id, route, units, pass_mo
 			end
 			local difficultyText = false
 			if mod == 100 then
-				difficultyText = T(714191851131, --[[Terrain difficulty]] "Normal")
+				difficultyText = T(890000000000949, --[[Terrain difficulty]] "Normal")
 			elseif mod <= 25 then
 				difficultyText = T(367857875968, --[[Terrain difficulty]] "Very Easy")
 			elseif mod <= 75 then
@@ -3775,7 +3775,7 @@ function DiscoverIntelForSectors(sector_ids, suppressNotification)
 		local sector = gv_Sectors[discoveredFor[1]]
 		local text = T{Presets.TacticalNotification.Default.intelFound.text, sector}
 		if alreadyKnown then
-			text = text .. T(504828030360, " (already known)")
+			text = text .. T(890000000000634, " (already known)")
 		end
 		CombatLog("important", text)
 	else

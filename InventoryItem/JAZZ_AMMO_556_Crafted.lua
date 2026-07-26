@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_556_Crafted = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/556Crafted.png",
-	DisplayName = T(574593171535, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Crafted DisplayName]] "5,56мм, Кустарный"),
-	DisplayNamePlural = T(785279043850, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Crafted DisplayNamePlural]] "5,56 мм, Кустарный"),
+	DisplayName = T(890000000000739, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Crafted DisplayName]] "5,56мм, Кустарный"),
+	DisplayNamePlural = T(890000000001038, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Crafted DisplayNamePlural]] "5,56 мм, Кустарный"),
 	colorStyle = "AmmoCraftedColor",
-	Description = T(790646713962, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Crafted Description]] "Что будет, если на коленке собрать современный патрон, наплевав на всякие допуски? Правильно, он заклинит, отымеет ваше оружие и поможет отыметь вас, но у него хотя бы пуля не из бумаги..."),
+	Description = T(890000000001055, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Crafted Description]] "Что будет, если на коленке собрать современный патрон, наплевав на всякие допуски? Правильно, он заклинит, отымеет ваше оружие и поможет отыметь вас, но у него хотя бы пуля не из бумаги..."),
 	AdditionalHint = "",
 	Cost = 200,
 	Tier = 2,

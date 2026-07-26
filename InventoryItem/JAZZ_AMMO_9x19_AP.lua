@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_9x19_AP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/919AP.png",
-	DisplayName = T(469395250369, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_AP DisplayName]] "9х19 мм, 7н21 ББ"),
-	DisplayNamePlural = T(997988678362, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_AP DisplayNamePlural]] "9х19 мм, 7н21 ББ"),
+	DisplayName = T(890000000000578, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_AP DisplayName]] "9х19 мм, 7н21 ББ"),
+	DisplayNamePlural = T(890000000001378, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_AP DisplayNamePlural]] "9х19 мм, 7н21 ББ"),
 	colorStyle = "AmmoAPColor",
-	Description = T(482446833075, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_AP Description]] "Бронебойные патроны 9х19, наконец-то можно прострелить фанерную переборку, кусок шифера и (чем не шутит черт) сможете пробить вражескую каску. Отдача усилена соответственно."),
+	Description = T(890000000000598, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_AP Description]] "Бронебойные патроны 9х19, наконец-то можно прострелить фанерную переборку, кусок шифера и (чем не шутит черт) сможете пробить вражескую каску. Отдача усилена соответственно."),
 	AdditionalHint = "",
 	Cost = 900,
 	CanAppearInShop = true,

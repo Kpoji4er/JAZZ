@@ -25,9 +25,9 @@ DefineClass.Choking = {
 			end,
 		}),
 	},
-	DisplayName = T(720153419307, --[[ModItemCharacterEffectCompositeDef Choking DisplayName]] "Удушье"),
-	Description = T(120652127957, --[[ModItemCharacterEffectCompositeDef Choking Description]] "Этот персонаж будет <em>получать <damage> ед. урона</em> в конце своего хода. Также этот персонаж <em>теряет энергию</em>."),
-	AddEffectText = T(478064574365, --[[ModItemCharacterEffectCompositeDef Choking AddEffectText]] "<em><DisplayName></em> задыхается"),
+	DisplayName = T(720153419307, --[[ModItemCharacterEffectCompositeDef Choking DisplayName]] "Choking"),
+	Description = T(120652127957, --[[ModItemCharacterEffectCompositeDef Choking Description]] "This character will <em>take <damage> damage</em> at the end of their turn. The character also <em>loses Energy</em>."),
+	AddEffectText = T(478064574365, --[[ModItemCharacterEffectCompositeDef Choking AddEffectText]] "<em><DisplayName></em> is choking"),
 	OnAdded = function (self, obj)
 		self:SetParameter("choking_start_time", GameTime())
 		if obj:IsMerc() then

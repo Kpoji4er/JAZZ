@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_762x51_Crafted = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/762NATOCrafted.png",
-	DisplayName = T(816293484485, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Crafted DisplayName]] "7.62х51мм НАТО, FMJ"),
-	DisplayNamePlural = T(784212637278, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Crafted DisplayNamePlural]] "7.62х51мм НАТО, FMJ"),
+	DisplayName = T(890000000001098, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Crafted DisplayName]] "7.62х51мм НАТО, FMJ"),
+	DisplayNamePlural = T(890000000001034, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Crafted DisplayNamePlural]] "7.62х51мм НАТО, FMJ"),
 	colorStyle = "AmmoCraftedColor",
-	Description = T(868039456416, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Crafted Description]] "Поздравляем, вы собрали на коленке довольно эффективный боеприпас, вас порадует его бюджетность относительно эффективности ровно до того момента, когда он убьет вас, а не цель."),
+	Description = T(890000000001208, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Crafted Description]] "Поздравляем, вы собрали на коленке довольно эффективный боеприпас, вас порадует его бюджетность относительно эффективности ровно до того момента, когда он убьет вас, а не цель."),
 	AdditionalHint = "",
 	Cost = 200,
 	Tier = 2,

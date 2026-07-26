@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_762x39_Crafted = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/762x39Crafted.png",
-	DisplayName = T(403807663771, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Crafted DisplayName]] "7,62х39мм, Кустарный"),
-	DisplayNamePlural = T(578647545074, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Crafted DisplayNamePlural]] "7,62х39мм, Кустарный"),
+	DisplayName = T(890000000000471, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Crafted DisplayName]] "7,62х39мм, Кустарный"),
+	DisplayNamePlural = T(890000000000745, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Crafted DisplayNamePlural]] "7,62х39мм, Кустарный"),
 	colorStyle = "AmmoCraftedColor",
-	Description = T(296646736495, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Crafted Description]] "Сперва хочется сказать что он охотничий, но нет, он собран на коленке из старых гильз, мокрого пороха и фекалий местной фауны. Пользуется популярностью у местных, дешевизна берет своё!"),
+	Description = T(890000000000311, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Crafted Description]] "Сперва хочется сказать что он охотничий, но нет, он собран на коленке из старых гильз, мокрого пороха и фекалий местной фауны. Пользуется популярностью у местных, дешевизна берет своё!"),
 	Cost = 100,
 	RestockWeight = 150,
 	CategoryPair = "762WP",

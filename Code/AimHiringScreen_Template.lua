@@ -697,7 +697,7 @@ PlaceObj('XTemplate', {
 										'MinWidth', 120,
 										'TextStyle', "Hiring_Bio_Header",
 										'Translate', true,
-										'Text', T(295504655111, --[[XTemplate PDAAIMBrowser Text]] " "),
+										'Text', T(890000000000305, --[[XTemplate PDAAIMBrowser Text]] " "),
 									}),
 									PlaceObj('XTemplateWindow', {
 										'__class', "XFrame",

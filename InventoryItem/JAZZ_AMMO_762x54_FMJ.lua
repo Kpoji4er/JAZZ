@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_762x54_FMJ = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/762x54RLPS.png",
-	DisplayName = T(685074706095, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_FMJ DisplayName]] "7,62x54R мм ЛПС (FMJ)"),
-	DisplayNamePlural = T(544176135141, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_FMJ DisplayNamePlural]] "7,62x54R мм ЛПС (FMJ)"),
+	DisplayName = T(890000000000896, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_FMJ DisplayName]] "7,62x54R мм ЛПС (FMJ)"),
+	DisplayNamePlural = T(890000000000688, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_FMJ DisplayNamePlural]] "7,62x54R мм ЛПС (FMJ)"),
 	colorStyle = "AmmoBasicColor",
-	Description = T(316044940928, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_FMJ Description]] "Легкий патрон для пулеметов, где важна не меткость и характеристики, а плотность огня и количество патронов, массовые, дешевые, не выдающиеся боеприпасы."),
+	Description = T(890000000000330, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_FMJ Description]] "Легкий патрон для пулеметов, где важна не меткость и характеристики, а плотность огня и количество патронов, массовые, дешевые, не выдающиеся боеприпасы."),
 	Cost = 1200,
 	CanAppearInShop = true,
 	Tier = 3,

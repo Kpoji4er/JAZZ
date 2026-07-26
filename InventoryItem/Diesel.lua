@@ -6,8 +6,8 @@ DefineClass.Diesel = {
 
 	object_class = "QuestItem",
 	Icon = "UI/Icons/Items/gallons",
-	DisplayName = T(819590825275, --[[ModItemInventoryItemCompositeDef Diesel DisplayName]] "Канистры с дизелем"),
-	Description = T(105122152253, --[[ModItemInventoryItemCompositeDef Diesel Description]] "Это - украденный у Зигфрида дизель."),
+	DisplayName = T(485475051607, --[[ModItemInventoryItemCompositeDef Diesel DisplayName]] "Gallons of Diesel"),
+	Description = T(705795398886, --[[ModItemInventoryItemCompositeDef Diesel Description]] "This is the Diesel which got stolen from Siegfried."),
 	RestockWeight = 0,
 }
 

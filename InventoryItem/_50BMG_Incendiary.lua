@@ -6,10 +6,10 @@ DefineClass._50BMG_Incendiary = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/TEST.png",
-	DisplayName = T(194196164000, --[[ModItemInventoryItemCompositeDef _50BMG_Incendiary DisplayName]] ".50, ЗЖ"),
-	DisplayNamePlural = T(223133671389, --[[ModItemInventoryItemCompositeDef _50BMG_Incendiary DisplayNamePlural]] ".50, ЗЖ"),
+	DisplayName = T(727344246325, --[[ModItemInventoryItemCompositeDef _50BMG_Incendiary DisplayName]] ".50 Frag"),
+	DisplayNamePlural = T(468293090203, --[[ModItemInventoryItemCompositeDef _50BMG_Incendiary DisplayNamePlural]] ".50 Frag"),
 	colorStyle = "AmmoTracerColor",
-	Description = T(881228785592, --[[ModItemInventoryItemCompositeDef _50BMG_Incendiary Description]] "Зажигательный боеприпас для пулеметов, снайперских винтовок, пистолетов и револьверов калибра .50."),
+	Description = T(196314399167, --[[ModItemInventoryItemCompositeDef _50BMG_Incendiary Description]] ".50 Ammo for Machine Guns, Snipers and Handguns."),
 	AdditionalHint = T(478819781584, --[[ModItemInventoryItemCompositeDef _50BMG_Incendiary AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Пораженные цели получают статус «<color EmStyle>Вне укрытия</color>» и лишаются его преимуществ\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>горение</color>"),
 	Cost = 500,
 	Tier = 3,

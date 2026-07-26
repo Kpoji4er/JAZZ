@@ -65,7 +65,7 @@ DefineClass.Inaccurate = {
 			end,
 		}),
 	},
-	DisplayName = T(116769410151, --[[ModItemCharacterEffectCompositeDef Inaccurate DisplayName]] "Снижение точности"),
+	DisplayName = T(260481671641, --[[ModItemCharacterEffectCompositeDef Inaccurate DisplayName]] "Inaccurate"),
 	Description = T(538313284813, --[[ModItemCharacterEffectCompositeDef Inaccurate Description]] "Значительный <color EmStyle>штраф к точности</color> для всех атак. \nИмеет шанс вылечиться со временем после лечения или при высоком здоровье"),
 	type = "Debuff",
 	Icon = "UI/Hud/Status effects/arms_pain",

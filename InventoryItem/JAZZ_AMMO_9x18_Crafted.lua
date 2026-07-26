@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_9x18_Crafted = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/9x18Crafted.png",
-	DisplayName = T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Crafted DisplayName]] "9x18мм, Кустарный"),
-	DisplayNamePlural = T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Crafted DisplayNamePlural]] "9x18мм, Кустарный"),
+	DisplayName = T(890000000001197, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Crafted DisplayName]] "9x18мм, Кустарный"),
+	DisplayNamePlural = T(890000000000420, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Crafted DisplayNamePlural]] "9x18мм, Кустарный"),
 	colorStyle = "AmmoCraftedColor",
-	Description = T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Crafted Description]] "Патрон собранный на коленке, по известным причинам автор возможно умер, с этим боеприпасом вы опасны для всех и даже для себя."),
+	Description = T(890000000000275, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Crafted Description]] "Патрон собранный на коленке, по известным причинам автор возможно умер, с этим боеприпасом вы опасны для всех и даже для себя."),
 	Cost = 30,
 	MaxStock = 50,
 	CategoryPair = "9x18",

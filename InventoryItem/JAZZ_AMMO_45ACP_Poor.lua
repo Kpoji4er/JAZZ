@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_45ACP_Poor = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/45ACPsub.png",
-	DisplayName = T(270886313378, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Poor DisplayName]] ".45ACP, M1911 Substandard"),
-	DisplayNamePlural = T(136983924045, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Poor DisplayNamePlural]] ".45ACP, M1911 Substandard"),
+	DisplayName = T(890000000000238, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Poor DisplayName]] ".45ACP, M1911 Substandard"),
+	DisplayNamePlural = T(890000000000053, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Poor DisplayNamePlural]] ".45ACP, M1911 Substandard"),
 	colorStyle = "AmmoSubstandardColor",
-	Description = T(654722607287, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Poor Description]] "Какая-то китайская хренотень, работает плохо, как и всё китайское, если вам больше нечем стрелять или не хватает острых ощущений, используйте данные патроны, это лучше чем ничего."),
+	Description = T(890000000000861, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Poor Description]] "Какая-то китайская хренотень, работает плохо, как и всё китайское, если вам больше нечем стрелять или не хватает острых ощущений, используйте данные патроны, это лучше чем ничего."),
 	AdditionalHint = "",
 	Cost = 180,
 	CanAppearInShop = true,

@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_9x19_APP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/919APP.png",
-	DisplayName = T(469395250369, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_APP DisplayName]] "9х19 мм, 7н31 ББ+"),
-	DisplayNamePlural = T(997988678362, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_APP DisplayNamePlural]] "9х19 мм, 7н31 ББ+"),
+	DisplayName = T(890000000000579, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_APP DisplayName]] "9х19 мм, 7н31 ББ+"),
+	DisplayNamePlural = T(890000000001379, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_APP DisplayNamePlural]] "9х19 мм, 7н31 ББ+"),
 	colorStyle = "AmmoAPPColor",
-	Description = T(482446833075, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_APP Description]] "Очень серьезный боеприпас, кроме шуток способен пробивать многие базовые бронежилеты, хорошая кучность, точность и настильность. Немного негативно сказывается на износе оружия, но вы же хотите наконец простреливать бронеплиты пистолетным патроном? Это ваш шанс."),
+	Description = T(890000000000597, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_APP Description]] "Очень серьезный боеприпас, кроме шуток способен пробивать многие базовые бронежилеты, хорошая кучность, точность и настильность. Немного негативно сказывается на износе оружия, но вы же хотите наконец простреливать бронеплиты пистолетным патроном? Это ваш шанс."),
 	AdditionalHint = "",
 	Cost = 1200,
 	CanAppearInShop = true,

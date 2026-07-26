@@ -6,10 +6,10 @@ DefineClass.JAZZ_AMMO_762x25_AP = {
 
 	object_class = "Ammo",
 	Icon = "Mod/e6L4ECj/Ammopics/762x25ap.png",
-	DisplayName = T(527688384074, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_AP DisplayName]] "7.62x25, ПСТ (ББ)"),
-	DisplayNamePlural = T(871962221654, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_AP DisplayNamePlural]] "7.62x25, ПСТ (ББ)"),
+	DisplayName = T(890000000000662, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_AP DisplayName]] "7.62x25, ПСТ (ББ)"),
+	DisplayNamePlural = T(890000000001214, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_AP DisplayNamePlural]] "7.62x25, ПСТ (ББ)"),
 	colorStyle = "AmmoAPColor",
-	Description = T(496628262702, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_AP Description]] "Бронебойный патрон 7.62х25, на самом деле он не бронебойный, но ничего лучше в данном калибре нету. Неплохо подходит для стрельбы в спину союзников."),
+	Description = T(890000000000621, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_AP Description]] "Бронебойный патрон 7.62х25, на самом деле он не бронебойный, но ничего лучше в данном калибре нету. Неплохо подходит для стрельбы в спину союзников."),
 	Cost = 162,
 	CanAppearInShop = true,
 	MaxStock = 50,

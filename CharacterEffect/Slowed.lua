@@ -64,7 +64,7 @@ DefineClass.Slowed = {
 			end,
 		}),
 	},
-	DisplayName = T(816046468188, --[[ModItemCharacterEffectCompositeDef Slowed DisplayName]] "Замедление"),
+	DisplayName = T(801987474984, --[[ModItemCharacterEffectCompositeDef Slowed DisplayName]] "Slowed"),
 	Description = T(298835539293, --[[ModItemCharacterEffectCompositeDef Slowed Description]] "<color EmStyle>Стоимость перемещения</color> повышена на <color EmStyle><move_ap_modifier>%</color> за уровень.\nИмеет шанс вылечиться со временем после лечения или при высоком здоровье"),
 	AddEffectText = T(501562259156, --[[ModItemCharacterEffectCompositeDef Slowed AddEffectText]] "<color EmStyle><DisplayName></color> в состоянии замедления"),
 	OnAdded = function (self, obj)
