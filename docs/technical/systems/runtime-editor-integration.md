@@ -93,7 +93,7 @@ Entity export является инкрементальным и не удаля
 - `Code/AIPolicyAttackAP.lua` — dormant empty placeholder.
 - `jazz-maps/Code/AIMechanism.lua` — dormant/unlisted.
 
-Loaded empty placeholders: `AIPolicyAttackAP.lua` не loaded; зато `Debug.lua`, `Guardpost_Patrols.lua`, `PushUnitAlert.lua`, `Rato_MGSetupPosScore.lua` и `SatelliteSquadFixes.lua` входят в соответствующие категории по metadata/содержимому. Точный перечень — в [file coverage](file-coverage.md).
+Loaded empty placeholders: `AIPolicyAttackAP.lua` не loaded; зато `Debug.lua`, `Guardpost_Patrols.lua`, `PushUnitAlert.lua` и `SatelliteSquadFixes.lua` входят в соответствующие категории по metadata/содержимому. Точный перечень — в [file coverage](file-coverage.md).
 
 ## Engine messages и NetSync
 

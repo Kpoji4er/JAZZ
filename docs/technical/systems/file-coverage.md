@@ -49,11 +49,6 @@
 | `AIPolicy.lua` | loaded | [AI](ai-awareness.md) |
 | `CombatAI.lua` | loaded | [AI](ai-awareness.md) |
 | `UnitAwareness.lua` | loaded | [AI](ai-awareness.md) |
-| `Rato_CustomSeekCover.lua` | loaded | [AI](ai-awareness.md) |
-| `Rato_GrenadeRange.lua` | loaded | [AI](ai-awareness.md), [взрывчатка](explosives-traps-heavy-weapons.md) |
-| `Rato_MGSetupAP.lua` | loaded | [AI](ai-awareness.md) |
-| `Rato_MGSetupPosScore.lua` | loaded, empty | [AI](ai-awareness.md) |
-| `Rato_TryNotToBeFlanked.lua` | loaded | [AI](ai-awareness.md) |
 | `PushUnitAlert.lua` | loaded, empty | [AI](ai-awareness.md) |
 | `AIPolicyAttackAP.lua` | dormant, empty | [AI](ai-awareness.md), [runtime](runtime-editor-integration.md) |
 | `InfiniteLoopFix.lua` | loaded guard | [AI](ai-awareness.md), [runtime](runtime-editor-integration.md) |

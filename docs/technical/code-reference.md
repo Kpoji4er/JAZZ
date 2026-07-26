@@ -9,14 +9,13 @@
 | Точность | `AccuracyRangeCTH.lua`, `System_OR_Unit.lua`, `CrossHairUI.lua` | Базовый CTH, дистанция, модификаторы и отображение |
 | Оружие | `System_OR_Weapons.lua`, `System_Firearm_AddProperties.lua`, `WeaponClasses.lua` | Свойства оружия, износ, классовые способности |
 | Атаки | `CombatActions.lua`, `ExecFirearmAttacks.lua`, `IModeCombatAreaAim.lua` | Выполнение выстрелов, очередей и area aim |
-| Гранаты | `System_OR_Grenade.lua`, `AiAction_ThrowFlare.lua`, `Rato_GrenadeRange.lua` | Взрывчатка, осветительные средства и AI |
+| Гранаты | `System_OR_Grenade.lua`, `AiAction_ThrowFlare.lua` | Взрывчатка, осветительные средства и AI |
 | Броня | `System_ArmorRating.lua`, `System_Vest.lua` | Типы защиты, ресурс брони и бронеплиты |
 | Ранения | `Systems_Wounds_HealWounds.lua`, `System_Wounds_OperationHeal.lua` | Боевые статусы и стратегическое лечение |
 | Инвентарь | `System_UnitInventory.lua`, `Inventory.lua`, `InventoryUI.lua` | Слоты, ограничения, перенос и интерфейс |
 | Предметы | `System_OR_ItemContainer.lua`, `System_OR_SquadBag.lua`, `System_LootDef.lua`, `System_LootDrops.lua` | Контейнеры, squad bag и loot |
 | Видимость | `System_OR_Unit.lua`, `System_GasMask.lua`, `Weather.lua` | Свет, дым, погода, камуфляж и защита |
 | AI | `AiActions.lua`, `CombatAI.lua`, `AIPolicy.lua`, `AIBehaviours.lua`, `UnitAwareness.lua` | Выбор действий, позиции и обнаружение |
-| AI-политики | `Rato_CustomSeekCover.lua`, `Rato_MGSetupAP.lua`, `Rato_TryNotToBeFlanked.lua` | Укрытия, пулемёты и фланги |
 | Стратегия | `Guardpost.lua`, `EnemySquad.lua`, `SatelliteSquad.lua`, `Regions_Sectors.lua` | Патрули, отряды, регионы и сектора |
 | Точки интереса | `POI Extension.lua`, `WorldFlipSpawnUnits.lua` | Доходы, POI и атаки World Flip |
 | Наёмники | `System_AimHiringFilters.lua`, `SpecializationGiver.lua`, `Deployment.lua` | Фильтры, роли и размещение |

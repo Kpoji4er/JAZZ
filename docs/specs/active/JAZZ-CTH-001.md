@@ -17,7 +17,6 @@ write_set:
   - jazz/Code/System_OR_Unit.lua
   - jazz/Code/System_OR_Weapons.lua
   - jazz/Code/CombatAI.lua
-  - jazz/Code/Rato_CustomSeekCover.lua
   - jazz/Code/CrossHairUI.lua
   - jazz/Code/System_Firearm_AddProperties.lua
   - jazz/InventoryItem/*.lua

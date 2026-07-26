@@ -19,7 +19,6 @@
 - `Code/System_OR_Grenade.lua` — grenade, grenade launcher, rocket launcher и mortar extensions;
 - `Code/System_OR_Traps.lua` — динамические мины, принадлежность, шум и alert;
 - `Code/System_GasMask.lua` — защита от toxic/tear gas;
-- `Code/Rato_GrenadeRange.lua` — AI-дальность применения;
 - `Code/AiAction_ThrowFlare.lua` — AI action для flare/броска;
 - `Code/IModeCombatAreaAim.lua` — выбор зоны;
 - `Code/WeaponClasses.lua` — финальные class methods тяжёлого оружия;

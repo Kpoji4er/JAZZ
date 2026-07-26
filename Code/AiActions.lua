@@ -1304,7 +1304,6 @@ function TryChangeStance(unit)
             local prone_AP = unit.stance == "Crouch" and 1000 or 2000
             if HasPerk(unit, "HitTheDeck") then prone_AP = 0 end
             if ap >= prone_AP then
-                -- unit:SetActionCommand("ChangeStance", "RATOAI_ChangeStance", prone_AP, "Prone")
                 AIPlayChangeStance(unit, "Prone")
                 unit.ActionPoints = unit.ActionPoints - prone_AP
                 return prone_AP
@@ -1314,7 +1313,6 @@ function TryChangeStance(unit)
         if unit.stance ~= "Crouch" then
             local crouch_ap = 1000
             if ap >= crouch_ap then
-                -- unit:SetActionCommand("ChangeStance", "RATOAI_ChangeStance", crouch_ap, "Crouch")
                 AIPlayChangeStance(unit, "Crouch")
                 unit.ActionPoints = unit.ActionPoints - crouch_ap
                 return crouch_ap
