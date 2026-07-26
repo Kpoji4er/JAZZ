@@ -129,7 +129,9 @@ node --check .github/scripts/discord-player-update.test.mjs
 node --test .github/scripts/discord-player-update.test.mjs
 ```
 
-Отдельно разобрать `.github/workflows/discord-player-updates.yml` YAML-парсером и выполнить `workflow_dispatch` с `dry_run=true`. Тесты должны покрывать полный `before..after`, zero-before, Structured Output JSON, invalid JSON, `should_publish=false`, `[discord]`, `[skip discord]`, автоматический fallback без ключа и при ошибке API, redaction, neutralization Discord mentions, embed limits и `allowed_mentions.parse=[]`.
+Отдельно разобрать `.github/workflows/discord-player-updates.yml` YAML-парсером и выполнить `workflow_dispatch` с `dry_run=true`. Тесты должны покрывать полный `before..after`, zero-before, Structured Output JSON, invalid JSON, `should_publish=false`, `[discord]`, `[discord implemented]`, приоритет `[skip discord]`, автоматический fallback без ключа и при ошибке API, redaction, neutralization Discord mentions, embed limits и `allowed_mentions.parse=[]`.
+
+Обязательно проверить четыре документационных сценария: docs-only без маркера пропускается до OpenAI; `[discord]` публикует только обновление документации без вывода о реализации; `[discord implemented]` включает docs diff и explicit implementation flag; смешанный code+docs диапазон использует код как implementation evidence, а обычные docs исключает из diff. Fallback и Discord embed не должны автоматически содержать «в разработке» или секцию «За кулисами».
 
 Реальный Discord webhook не вызывать без тестового канала. Отсутствие ключа или ошибка OpenAI должны автоматически публиковать fallback после prefilter; ошибка Discord после решения публиковать должна завершать workflow ошибкой.
 
