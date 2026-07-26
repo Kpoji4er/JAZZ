@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { mkdtemp, rm, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
@@ -51,24 +51,79 @@ async function createTestRepository() {
   git(cwd, ["add", "Code.lua"]);
   git(cwd, ["commit", "-m", "Изменена логика боя"]);
 
-  await writeFile(join(cwd, "Notes.md"), "Описание изменения\n", "utf8");
-  git(cwd, ["add", "Notes.md"]);
+  await mkdir(join(cwd, "docs", "technical"), { recursive: true });
+  await writeFile(join(cwd, "docs", "technical", "Notes.md"), "Описание изменения\n", "utf8");
+  git(cwd, ["add", "docs/technical/Notes.md"]);
   git(cwd, ["commit", "-m", "Добавлено описание"]);
   const after = git(cwd, ["rev-parse", "HEAD"]);
 
   return { cwd, before, after };
 }
 
-test("skip marker has priority over force marker", () => {
+async function createDocumentationRepository(commitMessage) {
+  const cwd = await mkdtemp(join(tmpdir(), "jazz-discord-docs-"));
+  git(cwd, ["init", "-b", "main"]);
+  git(cwd, ["config", "user.name", "JAZZ Test"]);
+  git(cwd, ["config", "user.email", "jazz-test@example.invalid"]);
+
+  await mkdir(join(cwd, "docs", "technical"), { recursive: true });
+  await writeFile(
+    join(cwd, "docs", "technical", "system.md"),
+    "Реализованная механика описана здесь.\n",
+    "utf8",
+  );
+  git(cwd, ["add", "docs/technical/system.md"]);
+  git(cwd, ["commit", "-m", commitMessage]);
+
+  return {
+    cwd,
+    after: git(cwd, ["rev-parse", "HEAD"]),
+  };
+}
+
+function documentationPushEvent(after) {
+  return {
+    before: "0000000000000000000000000000000000000000",
+    after,
+    ref: "refs/heads/main",
+    forced: false,
+    pusher: { name: "tester" },
+    head_commit: { timestamp: "2026-07-26T10:00:00Z" },
+  };
+}
+
+function testPushEnvironment(repository = "Kpoji4er/JAZZ") {
+  return {
+    GITHUB_EVENT_NAME: "push",
+    GITHUB_REPOSITORY: repository,
+    GITHUB_SERVER_URL: "https://github.com",
+    GITHUB_REF_NAME: "main",
+  };
+}
+
+test("skip marker has priority over force and implementation markers", () => {
   const result = analyzeCommitMarkers([
-    { message: "Показать [discord]" },
+    { message: "Показать [discord implemented]" },
     { message: "Не публиковать [skip discord]" },
   ]);
 
-  assert.deepEqual(result, { skip: true, force: false });
+  assert.deepEqual(result, {
+    skip: true,
+    force: false,
+    documentationImplementationExplicit: false,
+  });
+  assert.deepEqual(analyzeCommitMarkers([{ message: "Показать [discord]" }]), {
+    skip: false,
+    force: true,
+    documentationImplementationExplicit: false,
+  });
   assert.deepEqual(
-    analyzeCommitMarkers([{ message: "Показать [discord]" }]),
-    { skip: false, force: true },
+    analyzeCommitMarkers([{ message: "Подтверждено [discord implemented]" }]),
+    {
+      skip: false,
+      force: true,
+      documentationImplementationExplicit: true,
+    },
   );
 });
 
@@ -77,6 +132,8 @@ test("service-only paths are recognized as noise", () => {
     isClearlyNoiseOnly([
       ".github/workflows/discord.yml",
       "docs/technical/testing.md",
+      "docs/specs/active/JAZZ-DISCORD-999.md",
+      "docs/wiki/player-guide.md",
       "tests/update.test.mjs",
     ]),
     true,
@@ -84,13 +141,161 @@ test("service-only paths are recognized as noise", () => {
   assert.equal(isClearlyNoiseOnly(["Code/CombatAI.lua"]), false);
 });
 
+test("ordinary documentation is excluded from implementation evidence", async () => {
+  const repository = await createDocumentationRepository(
+    "Обновить техническое описание",
+  );
+  try {
+    const changeSet = collectPushChanges({
+      cwd: repository.cwd,
+      event: documentationPushEvent(repository.after),
+      env: testPushEnvironment(),
+    });
+    const context = buildAiContext(changeSet);
+
+    assert.equal(changeSet.text, "");
+    assert.equal(changeSet.documentationImplementationExplicit, false);
+    assert.ok(
+      changeSet.excluded.some(
+        (entry) =>
+          entry.filePath === "docs/technical/system.md" &&
+          entry.reason === "documentation",
+      ),
+    );
+    assert.equal(context.documentation_only, true);
+    assert.equal(context.documentation_implementation_explicit, false);
+    assert.deepEqual(context.implementation_changed_files, []);
+    assert.deepEqual(context.documentation_changed_files, [
+      "docs/technical/system.md",
+    ]);
+  } finally {
+    await rm(repository.cwd, { recursive: true, force: true });
+  }
+});
+
+test("explicit implementation marker includes documentation as evidence", async () => {
+  const repository = await createDocumentationRepository(
+    "Подтвердить реализованное состояние [discord implemented]",
+  );
+  try {
+    const changeSet = collectPushChanges({
+      cwd: repository.cwd,
+      event: documentationPushEvent(repository.after),
+      env: testPushEnvironment(),
+    });
+    const context = buildAiContext(changeSet);
+
+    assert.equal(changeSet.documentationImplementationExplicit, true);
+    assert.match(changeSet.text, /Реализованная механика/);
+    assert.equal(
+      changeSet.excluded.some((entry) => entry.reason === "documentation"),
+      false,
+    );
+    assert.equal(context.documentation_only, true);
+    assert.equal(context.documentation_implementation_explicit, true);
+    assert.deepEqual(context.implementation_changed_files, []);
+  } finally {
+    await rm(repository.cwd, { recursive: true, force: true });
+  }
+});
+
+test("docs-only push without marker is skipped before OpenAI fallback", async () => {
+  const repository = await createDocumentationRepository(
+    "Обновить техническое описание",
+  );
+  try {
+    const eventPath = join(repository.cwd, "event.json");
+    await writeFile(
+      eventPath,
+      JSON.stringify(documentationPushEvent(repository.after)),
+      "utf8",
+    );
+    const scriptPath = fileURLToPath(
+      new URL("./discord-player-update.mjs", import.meta.url),
+    );
+    const result = spawnSync(process.execPath, [scriptPath], {
+      cwd: repository.cwd,
+      encoding: "utf8",
+      windowsHide: true,
+      env: {
+        ...process.env,
+        ...testPushEnvironment(),
+        DISCORD_WEBHOOK_URL: "",
+        DRY_RUN: "true",
+        EXPECTED_BRANCH: "main",
+        GITHUB_EVENT_PATH: eventPath,
+        MANUAL_FORCE_PUBLISH: "false",
+        OPENAI_API_KEY: "",
+      },
+    });
+
+    assert.equal(result.status, 0, result.stderr);
+    assert.match(result.stdout, /only CI, tests, tooling, or documentation/);
+    assert.doesNotMatch(result.stdout, /OpenAI fallback/);
+  } finally {
+    await rm(repository.cwd, { recursive: true, force: true });
+  }
+});
+
+test("[discord] publishes docs-only fallback without implementation claims", async () => {
+  const repository = await createDocumentationRepository(
+    "Обновить руководство [discord]",
+  );
+  try {
+    const eventPath = join(repository.cwd, "event.json");
+    await writeFile(
+      eventPath,
+      JSON.stringify(documentationPushEvent(repository.after)),
+      "utf8",
+    );
+    const scriptPath = fileURLToPath(
+      new URL("./discord-player-update.mjs", import.meta.url),
+    );
+    const result = spawnSync(process.execPath, [scriptPath], {
+      cwd: repository.cwd,
+      encoding: "utf8",
+      windowsHide: true,
+      env: {
+        ...process.env,
+        ...testPushEnvironment(),
+        DISCORD_WEBHOOK_URL: "",
+        DRY_RUN: "true",
+        EXPECTED_BRANCH: "main",
+        GITHUB_EVENT_PATH: eventPath,
+        MANUAL_FORCE_PUBLISH: "false",
+        OPENAI_API_KEY: "",
+      },
+    });
+
+    assert.equal(result.status, 0, result.stderr);
+    assert.match(result.stdout, /JAZZ — обновление документации/);
+    assert.match(result.stdout, /без выводов о реализации/);
+    assert.doesNotMatch(result.stdout, /в разработке/);
+  } finally {
+    await rm(repository.cwd, { recursive: true, force: true });
+  }
+});
+
+test("prompt treats documentation as non-implementation evidence", async () => {
+  const source = await readFile(
+    fileURLToPath(new URL("./discord-player-update.mjs", import.meta.url)),
+    "utf8",
+  );
+
+  assert.match(source, /documentation_only=true/);
+  assert.match(source, /сами по себе не\s+доказывают/);
+  assert.doesNotMatch(
+    source,
+    /Изменения в основной ветке называй работой в разработке/,
+  );
+});
+
 test("valid AI JSON is parsed and invalid JSON is rejected", () => {
   const valid = JSON.stringify({
     should_publish: false,
-    title: "JAZZ — новости разработки",
+    title: "JAZZ — изменения",
     summary: "",
     sections: [],
-    development_note: null,
     confidence: "high",
   });
 
@@ -109,11 +314,24 @@ test("valid AI JSON is parsed and invalid JSON is rejected", () => {
               items: Array.from({ length: 9 }, (_, index) => `Item ${index}`),
             },
           ],
-          development_note: null,
           confidence: "high",
         }),
       ),
     /too many items/,
+  );
+  assert.throws(
+    () =>
+      parseAiOutput(
+        JSON.stringify({
+          should_publish: false,
+          title: "Title",
+          summary: "",
+          sections: [],
+          development_note: null,
+          confidence: "high",
+        }),
+      ),
+    /unsupported development_note/,
   );
 });
 
@@ -196,11 +414,19 @@ test("secrets and mass mentions are neutralized", () => {
 
 test("fallback uses commit subjects and removes control markers", () => {
   const fallback = buildFallbackSummary([
-    { message: "Исправлена ошибка [discord]\n\nПодробности" },
+    { message: "Исправлена ошибка [discord implemented]\n\nПодробности" },
   ]);
 
   assert.equal(fallback.should_publish, true);
   assert.deepEqual(fallback.sections[0].items, ["Исправлена ошибка"]);
+  assert.doesNotMatch(fallback.title, /в разработке/);
+
+  const docsFallback = buildFallbackSummary(
+    [{ message: "Обновлено руководство [discord]" }],
+    { documentationOnly: true },
+  );
+  assert.equal(docsFallback.title, "JAZZ — обновление документации");
+  assert.match(docsFallback.summary, /без выводов о реализации/);
 });
 
 test("missing OpenAI key automatically uses fallback without override", async () => {
@@ -302,7 +528,6 @@ test("Discord payload disables mentions and respects explicit role opt-in", () =
     title: "Новости @everyone",
     summary: "Проверка @here",
     sections: [{ name: "Что изменилось", items: ["Первый пункт"] }],
-    development_note: null,
     confidence: "high",
   };
   const changeSet = {
@@ -377,6 +602,10 @@ test("Discord embed remains inside field and total size limits", () => {
   assert.ok(embed.description.length <= 4_096);
   assert.ok(embed.fields.every((field) => field.value.length <= 1_024));
   assert.ok(total <= 6_000);
+  assert.equal(
+    embed.fields.some((field) => field.name === "За кулисами"),
+    false,
+  );
 });
 
 test("full before..after range includes every commit in a multi-commit push", async () => {
@@ -403,7 +632,7 @@ test("full before..after range includes every commit in a multi-commit push", as
 
     assert.equal(changeSet.commitCount, 2);
     assert.equal(changeSet.commits.length, 2);
-    assert.deepEqual(changeSet.changedFiles.sort(), ["Code.lua", "Notes.md"]);
+    assert.deepEqual(changeSet.changedFiles.sort(), ["Code.lua", "docs/technical/Notes.md"]);
     assert.match(changeSet.text, /return 2/);
     assert.equal(changeSet.repository, "Kpoji4er/JAZZ-units");
     assert.match(changeSet.compareUrl, /Kpoji4er\/JAZZ-units\/compare\//);
@@ -412,6 +641,12 @@ test("full before..after range includes every commit in a multi-commit push", as
     assert.equal(context.commit_count, 2);
     assert.equal(context.diff_truncated, false);
     assert.equal(context.repository, "Kpoji4er/JAZZ-units");
+    assert.equal(context.documentation_only, false);
+    assert.deepEqual(context.implementation_changed_files, ["Code.lua"]);
+    assert.deepEqual(context.documentation_changed_files, [
+      "docs/technical/Notes.md",
+    ]);
+    assert.equal(context.excluded_diff_file_counts.documentation, 1);
   } finally {
     await rm(repository.cwd, { recursive: true, force: true });
   }
