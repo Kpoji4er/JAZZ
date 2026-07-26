@@ -1082,6 +1082,45 @@ export function buildFallbackSummary(commits) {
   };
 }
 
+export async function resolvePlayerSummary({
+  apiKey,
+  model = DEFAULT_MODEL,
+  aiContext,
+  commits,
+  forcePublish = false,
+  requestSummary = requestAiSummary,
+  log = console.log,
+}) {
+  if (!apiKey) {
+    log("OpenAI fallback: OPENAI_API_KEY is not configured.");
+    return {
+      summary: buildFallbackSummary(commits),
+      usedFallback: true,
+    };
+  }
+
+  try {
+    const summary = await requestSummary({
+      apiKey,
+      model,
+      aiContext,
+    });
+    if (forcePublish && !summary.should_publish) {
+      throw new Error("AI did not produce the requested forced publication.");
+    }
+    return {
+      summary,
+      usedFallback: false,
+    };
+  } catch (error) {
+    log(`OpenAI fallback: ${safeErrorMessage(error)}`);
+    return {
+      summary: buildFallbackSummary(commits),
+      usedFallback: true,
+    };
+  }
+}
+
 function buildSectionValue(items) {
   return items.map((item) => `• ${sanitizeForDiscord(item, 850)}`).join("\n");
 }
@@ -1354,38 +1393,14 @@ async function main() {
     return;
   }
 
-  let summary;
   const apiKey = String(process.env.OPENAI_API_KEY ?? "").trim();
-  if (!apiKey) {
-    console.log("OpenAI fallback: OPENAI_API_KEY is not configured.");
-    if (!forcePublish) {
-      console.log(
-        "Discord update skipped: fallback publishing requires [discord] or manual force_publish.",
-      );
-      return;
-    }
-    summary = buildFallbackSummary(changeSet.commits);
-  } else {
-    try {
-      summary = await requestAiSummary({
-        apiKey,
-        model: process.env.OPENAI_MODEL || DEFAULT_MODEL,
-        aiContext: buildAiContext(changeSet, forcePublish),
-      });
-      if (forcePublish && !summary.should_publish) {
-        throw new Error("AI did not produce the requested forced publication.");
-      }
-    } catch (error) {
-      console.log(`OpenAI fallback: ${safeErrorMessage(error)}`);
-      if (!forcePublish) {
-        console.log(
-          "Discord update skipped: AI failed and no [discord] override is present.",
-        );
-        return;
-      }
-      summary = buildFallbackSummary(changeSet.commits);
-    }
-  }
+  const { summary, usedFallback } = await resolvePlayerSummary({
+    apiKey,
+    model: process.env.OPENAI_MODEL || DEFAULT_MODEL,
+    aiContext: buildAiContext(changeSet, forcePublish),
+    commits: changeSet.commits,
+    forcePublish,
+  });
 
   if (!summary) {
     console.log(
@@ -1393,7 +1408,9 @@ async function main() {
     );
     return;
   }
-  const aiSkipReason = getSummarySkipReason(summary, forcePublish);
+  const aiSkipReason = usedFallback
+    ? null
+    : getSummarySkipReason(summary, forcePublish);
   if (aiSkipReason) {
     console.log(`Discord update skipped: ${aiSkipReason}.`);
     return;

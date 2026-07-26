@@ -56,7 +56,7 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Generate and publish the player update
+      - name: Generate or fallback and publish the player update
         shell: bash
         run: |
           set -euo pipefail

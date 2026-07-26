@@ -106,9 +106,9 @@ node --check .github/scripts/discord-player-update.test.mjs
 node --test .github/scripts/discord-player-update.test.mjs
 ```
 
-Отдельно разобрать `.github/workflows/discord-player-updates.yml` YAML-парсером и выполнить `workflow_dispatch` с `dry_run=true`. Тесты должны покрывать полный `before..after`, zero-before, Structured Output JSON, invalid JSON, `should_publish=false`, `[discord]`, `[skip discord]`, fallback без ключа, redaction, neutralization Discord mentions, embed limits и `allowed_mentions.parse=[]`.
+Отдельно разобрать `.github/workflows/discord-player-updates.yml` YAML-парсером и выполнить `workflow_dispatch` с `dry_run=true`. Тесты должны покрывать полный `before..after`, zero-before, Structured Output JSON, invalid JSON, `should_publish=false`, `[discord]`, `[skip discord]`, автоматический fallback без ключа и при ошибке API, redaction, neutralization Discord mentions, embed limits и `allowed_mentions.parse=[]`.
 
-Реальный Discord webhook не вызывать без тестового канала. Ошибка OpenAI должна приводить к безопасному skip или fallback только при override; ошибка Discord после решения публиковать должна завершать workflow ошибкой.
+Реальный Discord webhook не вызывать без тестового канала. Отсутствие ключа или ошибка OpenAI должны автоматически публиковать fallback после prefilter; ошибка Discord после решения публиковать должна завершать workflow ошибкой.
 
 ## Критерий завершения
 

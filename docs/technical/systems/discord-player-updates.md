@@ -44,12 +44,19 @@ Webhook должен принадлежать публичному каналу 
 2. Ограничить его проектом и бюджетом, достаточным для коротких сводок.
 3. Добавить ключ в GitHub Actions repository secret `OPENAI_API_KEY`.
 
+OpenAI является опциональным улучшением качества. Если secret отсутствует, закончился API-баланс, модель недоступна или запрос завершается любой другой ошибкой, workflow автоматически публикует безопасный fallback из заголовков коммитов.
+
 По умолчанию используется `gpt-5.6-luna`: официальная модель для cost-sensitive workloads с поддержкой Responses API и Structured Outputs на момент реализации. Repository variable `OPENAI_MODEL` может переопределить модель без изменения workflow. Выбранная модель обязана поддерживать `text.format` с JSON Schema.
 
-Обязательные secrets:
+Обязательный secret:
 
 ```text
 DISCORD_WEBHOOK_URL
+```
+
+Опциональный secret:
+
+```text
 OPENAI_API_KEY
 ```
 
@@ -71,8 +78,8 @@ DISCORD_MENTION_UPDATE_ROLE
 4. Бинарные, generated, localization, lock, build/vendor, agent и CI-файлы остаются в списке имён, но их содержимое не передаётся модели.
 5. Текстовый diff приоритизирует `Code/`, player wiki и Lua, ограничивается на файл и суммарно примерно 50 тысячами символов. Обрезка явно передаётся модели.
 6. Динамические данные проходят базовую редакцию токенов, ключей, паролей, private keys и webhook URL.
-7. OpenAI Responses API возвращает строгий JSON по JSON Schema: `should_publish`, заголовок, вступление, разделы, development note и confidence.
-8. Результат повторно валидируется, редактируется и укладывается в ограничения одного Discord embed.
+7. При доступном OpenAI Responses API возвращается строгий JSON по JSON Schema: `should_publish`, заголовок, вступление, разделы, development note и confidence. Без ключа или при ошибке API формируется fallback из subject-строк коммитов.
+8. AI-результат или fallback повторно валидируется, редактируется и укладывается в ограничения одного Discord embed.
 9. Discord webhook получает embed с compare link, short SHA, количеством коммитов и файлов, line stats и timestamp.
 
 Commit messages, имена файлов и diff считаются недоверенным вводом. Они передаются как данные, не выполняются shell и не могут изменить системную инструкцию. Git вызывается через массив аргументов без shell interpolation.
@@ -106,10 +113,11 @@ Commit messages, имена файлов и diff считаются недове
 
 ## Fallback без AI
 
-Ошибка OpenAI не делает workflow красным сама по себе:
+Отсутствие `OPENAI_API_KEY` и любая ошибка OpenAI, включая исчерпанную квоту, автоматически включают fallback:
 
-- без `[discord]` или ручного `force_publish` публикация пропускается;
-- с override формируется нейтральный список subject-строк коммитов без технических выводов;
+- override не требуется: после прохождения prefilter формируется нейтральный список subject-строк коммитов без технических выводов;
+- fallback публикуется даже с внутренним `confidence=low`, потому что этот порог относится только к AI-оценке;
+- `[skip discord]` и prefilter служебных изменений по-прежнему имеют приоритет;
 - stack trace, API key, request body и чувствительные данные не отправляются в Discord;
 - причина fallback записывается в Actions log в редактированном виде.
 
@@ -124,7 +132,7 @@ Commit messages, имена файлов и diff считаются недове
 5. Просмотреть в log причину skip/fallback или sanitized Discord payload.
 6. После успешного dry run повторить с `dry_run=false` только при наличии тестового webhook или при осознанной проверке публичного канала.
 
-Без `OPENAI_API_KEY` обычный dry run завершится skip. Чтобы проверить fallback payload без ключа, использовать `force_publish=true`.
+Без `OPENAI_API_KEY` обычный dry run автоматически покажет sanitized fallback payload. `force_publish=true` нужен только для осознанного обхода prefilter или AI-решения `should_publish=false`.
 
 ## Пример ожидаемого сообщения
 
@@ -170,7 +178,7 @@ git diff --check
 
 - разобрать YAML workflow;
 - проверить push range на двух коммитах и zero-before;
-- проверить valid/invalid JSON, `should_publish=false`, оба commit marker и fallback;
+- проверить valid/invalid JSON, `should_publish=false`, оба commit marker и автоматический fallback без ключа и при ошибке API;
 - проверить Discord limits, empty `allowed_mentions.parse`, redaction и mention neutralization;
 - выполнить `workflow_dispatch` с `dry_run=true`;
 - не отправлять реальный webhook без доступного тестового канала.

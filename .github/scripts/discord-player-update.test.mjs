@@ -4,6 +4,7 @@ import { mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 
 import {
   analyzeCommitMarkers,
@@ -17,6 +18,7 @@ import {
   neutralizeDiscordMentions,
   parseAiOutput,
   redactSecrets,
+  resolvePlayerSummary,
   safeErrorMessage,
 } from "./discord-player-update.mjs";
 
@@ -199,6 +201,99 @@ test("fallback uses commit subjects and removes control markers", () => {
 
   assert.equal(fallback.should_publish, true);
   assert.deepEqual(fallback.sections[0].items, ["Исправлена ошибка"]);
+});
+
+test("missing OpenAI key automatically uses fallback without override", async () => {
+  let requestCalled = false;
+  const result = await resolvePlayerSummary({
+    apiKey: "",
+    model: "test-model",
+    aiContext: {},
+    commits: [{ message: "Updated combat rules" }],
+    forcePublish: false,
+    requestSummary: async () => {
+      requestCalled = true;
+      return null;
+    },
+    log: () => {},
+  });
+
+  assert.equal(requestCalled, false);
+  assert.equal(result.usedFallback, true);
+  assert.equal(result.summary.should_publish, true);
+  assert.deepEqual(result.summary.sections[0].items, [
+    "Updated combat rules",
+  ]);
+});
+
+test("OpenAI failure automatically uses fallback without override", async () => {
+  const logs = [];
+  const result = await resolvePlayerSummary({
+    apiKey: "test-api-key",
+    model: "test-model",
+    aiContext: {},
+    commits: [{ message: "Improved enemy behavior" }],
+    forcePublish: false,
+    requestSummary: async () => {
+      throw new Error("insufficient_quota");
+    },
+    log: (message) => logs.push(message),
+  });
+
+  assert.equal(result.usedFallback, true);
+  assert.equal(result.summary.should_publish, true);
+  assert.deepEqual(result.summary.sections[0].items, [
+    "Improved enemy behavior",
+  ]);
+  assert.match(logs.join("\n"), /insufficient_quota/);
+});
+
+test("dry run publishes automatic fallback without OpenAI key or override", async () => {
+  const repository = await createTestRepository();
+  try {
+    const eventPath = join(repository.cwd, "event.json");
+    await writeFile(
+      eventPath,
+      JSON.stringify({
+        before: repository.before,
+        after: repository.after,
+        ref: "refs/heads/main",
+        forced: false,
+        pusher: { name: "tester" },
+        head_commit: { timestamp: "2026-07-26T10:00:00Z" },
+      }),
+      "utf8",
+    );
+
+    const scriptPath = fileURLToPath(
+      new URL("./discord-player-update.mjs", import.meta.url),
+    );
+    const result = spawnSync(process.execPath, [scriptPath], {
+      cwd: repository.cwd,
+      encoding: "utf8",
+      windowsHide: true,
+      env: {
+        ...process.env,
+        DISCORD_WEBHOOK_URL: "",
+        DRY_RUN: "true",
+        EXPECTED_BRANCH: "main",
+        GITHUB_EVENT_NAME: "push",
+        GITHUB_EVENT_PATH: eventPath,
+        GITHUB_REF_NAME: "main",
+        GITHUB_REPOSITORY: "Kpoji4er/JAZZ",
+        GITHUB_SERVER_URL: "https://github.com",
+        MANUAL_FORCE_PUBLISH: "false",
+        OPENAI_API_KEY: "",
+      },
+    });
+
+    assert.equal(result.status, 0, result.stderr);
+    assert.match(result.stdout, /OPENAI_API_KEY is not configured/);
+    assert.match(result.stdout, /Dry run: Discord publication skipped/);
+    assert.match(result.stdout, /Updated combat rules|Improved enemy behavior|Изменена логика боя/);
+  } finally {
+    await rm(repository.cwd, { recursive: true, force: true });
+  }
 });
 
 test("Discord payload disables mentions and respects explicit role opt-in", () => {
