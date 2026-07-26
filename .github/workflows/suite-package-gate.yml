@@ -37,6 +37,11 @@ jobs:
         shell: pwsh
         run: suite/jazz/.agents/skills/sync-jazz-generated-data/scripts/check-generated-sync.ps1 -SuiteRoot suite/jazz -Package '${{ inputs.package }}'
 
+      - name: Validate asset integrity
+        if: ${{ inputs.package == 'jazz_assets' }}
+        shell: pwsh
+        run: suite/jazz/.agents/skills/sync-jazz-generated-data/scripts/check-asset-integrity.ps1 -SuiteRoot suite/jazz -AssetsRoot 'suite/${{ inputs.directory }}'
+
       - name: Validate package overlay
         shell: pwsh
         run: |
