@@ -116,7 +116,7 @@
 121141697489,Активное оружие I,,Активное оружие I,Active Weapon I,russian-override;new-id,jazz:items.lua:85531,jazz,jazz:items.lua:85325,
 121264662868,Grizzly LAR,,Grizzly LAR,Grizzly LAR,russian-override;new-id,jazz:InventoryItem/GrizzlyLAR.lua:13 | jazz:items.lua:16682,jazz,jazz:InventoryItem/GrizzlyLAR.lua:13 | jazz:items.lua:16682,
 121631884276,Показать трофеи,,Показать трофеи,Show Loot,russian-override;new-id,jazz:items.lua:89813,jazz,jazz:items.lua:89607,
-121809489098,Ствол: Увеличивает настильность на <BulletDropIncrease>,,Ствол: Увеличивает настильность на <BulletDropIncrease>,Barrel: Increases durability by <BulletDropIncrease>,russian-override;new-id,jazz:items.lua:31889,jazz,jazz:items.lua:31889,
+121809489098,Ствол: Увеличивает настильность на <BulletDropIncrease>,,Ствол: Увеличивает настильность на <BulletDropIncrease>,Barrel: Increases bullet drop range by <BulletDropIncrease>,russian-override;new-id,jazz:items.lua:31889,jazz,jazz:items.lua:31889,
 122093727509,556Match ОТКЛЮЧЕНО,,556Match ОТКЛЮЧЕНО,556Match DISABLED,russian-override;new-id,jazz:InventoryItem/_556_Match.lua:10 | jazz:items.lua:7910,jazz,jazz:InventoryItem/_556_Match.lua:10 | jazz:items.lua:7910,
 122264591303,Нужен медик...,,Нужен медик...,Need a medic...,russian-override;new-id,jazz-units:items.lua:70746,jazz-units,jazz-units:items.lua:70744,
 123316525310,MP5A4,,MP5A4,MP5A4,russian-override;new-id,jazz:InventoryItem/MP5A4.lua:13 | jazz:items.lua:19569,jazz,jazz:InventoryItem/MP5A4.lua:13 | jazz:items.lua:19569,
@@ -978,7 +978,7 @@ The chance of hitting the target is increased and depends on the mercenary’s a
 281399517249,"The <em>Hermit</em> turned out to be <em>Mr. Ditch</em>, owner of the <em><SectorName('I16')></em> and friend of the <em>""Ghost"" Butler</em>",,"<em>Отшельник</em> оказался <em>мистером Дитчем</em>, владельцем <em><SectorName('I16')></em> и другом <em>дворецкого «Призрака»</em>","The <em>Hermit</em> turned out to be <em>Mr. Ditch</em>, owner of the <em><SectorName('I16')></em> and friend of the <em>""Ghost"" Butler</em>",russian-override;new-id,jazz-maps:items.lua:69203,jazz-maps,jazz-maps:items.lua:69215,
 281807945653,я на некоторое время займусь научной работой.,,я на некоторое время займусь научной работой.,I will take up scientific work for a while.,russian-override;new-id,jazz-units:items.lua:70023,jazz-units,jazz-units:items.lua:70021,
 282059758278,Керамическая плита 4 класса защиты,,Керамическая плита 4 класса защиты,Ceramic plate 4 protection class,russian-override;new-id,jazz:InventoryItem/JazzArmorPlates_Ceramics4.lua:13 | jazz:items.lua:57242,jazz,jazz:InventoryItem/JazzArmorPlates_Ceramics4.lua:13 | jazz:items.lua:57118,
-282231548024,Настильность,,Настильность,Flatness,russian-override;new-id,jazz:items.lua:68135,jazz,jazz:items.lua:67947,
+282231548024,Настильность,,Настильность,Bullet Drop Range,russian-override;new-id,jazz:items.lua:68135,jazz,jazz:items.lua:67947,
 282257107633,Оазис,,Оазис,Oasis,russian-override;new-id,jazz-maps:items.lua:34278,jazz-maps,jazz-maps:items.lua:34290,
 282291513363,кашляет,,кашляет,coughs,russian-override;new-id,jazz-units:items.lua:68918,jazz-units,jazz-units:items.lua:68916,
 282394383624,На цыпочках.,,На цыпочках.,On tiptoe.,russian-override;new-id,jazz-units:items.lua:70964,jazz-units,jazz-units:items.lua:70962,
@@ -3455,7 +3455,7 @@ Apparently they were unloading explosives here to attack the mansion",russian-ov
 714579125139,Чем ты стал так не угоден Легиону?,,Чем ты стал так не угоден Легиону?,What did you do to anger the Legion so much?,russian-override;new-id,jazz-maps:items.lua:30276,jazz-maps,jazz-maps:items.lua:30288,
 714604792936,Выбранный отряд находится в другом секторе,,Выбранный отряд находится в другом секторе,The selected squad is not in the sector,russian-override;new-id,jazz:items.lua:89203,jazz,jazz:items.lua:88997,
 714830943923,<em>Outcome:</em> The outbreak in the <em><SectorName('I19')></em> got out of control,,<em>Итог:</em> вспышка болезни в <em><SectorName('I19')></em> вышла из-под контроля,<em>Outcome:</em> The outbreak in the <em><SectorName('I19')></em> got out of control,russian-override;new-id,jazz-maps:items.lua:97780,jazz-maps,jazz-maps:items.lua:97792,
-714841794333,Ствол: Уменьшает настильность на <BulletDropReduce>,,Ствол: Уменьшает настильность на <BulletDropReduce>,Barrel: Reduces flatness by <BulletDropReduce>,russian-override;new-id,jazz:items.lua:31821,jazz,jazz:items.lua:31821,
+714841794333,Ствол: Уменьшает настильность на <BulletDropReduce>,,Ствол: Уменьшает настильность на <BulletDropReduce>,Barrel: Reduces bullet drop range by <BulletDropReduce>,russian-override;new-id,jazz:items.lua:31821,jazz,jazz:items.lua:31821,
 714899319454,Прицел G36 3x,,Прицел G36 3x,G36 3x scope,russian-override;new-id,jazz:items.lua:44500,jazz,jazz:items.lua:44437,
 715959020275,"Фартануло, мля!",,"Фартануло, мля!","Fartanulo, blah!",russian-override;new-id,jazz-units:items.lua:71032,jazz-units,jazz-units:items.lua:71030,
 716048130364,Grenade,,Grenade,Grenade,russian-override;new-id,jazz:items.lua:62990,jazz,jazz:items.lua:62866,
@@ -3526,7 +3526,7 @@ Apparently they were unloading explosives here to attack the mansion",russian-ov
 734026650686,"Автоматическая версия винтовки Токарева. Отличается, собственно, наличием режима полностью автоматического огня. Эффективность этого огня, правда, чрезвычайно низкая, а сама ""Света"" оказалась для стрельбы очередями слишком хрупкой. Найти винтовку в хорошем состоянии не так-то просто.",,"Автоматическая версия винтовки Токарева. Отличается, собственно, наличием режима полностью автоматического огня. Эффективность этого огня, правда, чрезвычайно низкая, а сама ""Света"" оказалась для стрельбы очередями слишком хрупкой. Найти винтовку в хорошем состоянии не так-то просто.","Automatic version of the Tokarev rifle. It differs, in fact, in the presence of a fully automatic fire mode. The effectiveness of this fire, however, is extremely low, and the Sveta itself turned out to be too fragile for burst fire. Finding a rifle in good condition is not easy.",russian-override;new-id,jazz:InventoryItem/AVT40.lua:14 | jazz:items.lua:23359,jazz,jazz:InventoryItem/AVT40.lua:14 | jazz:items.lua:23359,
 734426222215,Эмма находится в секторе <em>K4</em>,,Эмма находится в секторе <em>K4</em>,Emma is in sector <em>K4</em>,russian-override;new-id,jazz-maps:items.lua:30791,jazz-maps,jazz-maps:items.lua:30803,
 734743271825,Штаны Спектра,,Штаны Спектра,Spectra Pants,russian-override;new-id,jazz:InventoryItem/JazzArmor_SpectraLegs.lua:13 | jazz:items.lua:56984,jazz,jazz:InventoryItem/JazzArmor_SpectraLegs.lua:13 | jazz:items.lua:56860,
-734746536521,Настильность,,Настильность,Flatness,russian-override;new-id,jazz:items.lua:69347,jazz,jazz:items.lua:69141,
+734746536521,Настильность,,Настильность,Bullet Drop Range,russian-override;new-id,jazz:items.lua:69347,jazz,jazz:items.lua:69141,
 735120904990,<DisplayName>,,<DisplayName>,<DisplayName>,russian-override;new-id,jazz:items.lua:70682,jazz,jazz:items.lua:70476,
 735135614427,Чужак!,,Чужак!,Stranger!,russian-override;new-id,jazz-units:items.lua:69571,jazz-units,jazz-units:items.lua:69569,
 735360883220,Компенсаторы,,Компенсаторы,Compensators,russian-override;new-id,jazz:InventoryItem/OilFilter.lua:11 | jazz:items.lua:51524,jazz,jazz:InventoryItem/OilFilter.lua:11 | jazz:items.lua:51400,
@@ -7574,7 +7574,7 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
  (заводской <factory>)",,"<current>/<max>
  (заводской <factory>)","<current>/<max>
  (factory <factory>)",russian-override;new-id,jazz:items.lua:73495,jazz,jazz:items.lua:73289,
-890000000001384,Настильность,,Настильность,Flatness,russian-override;new-id,jazz:Code/AmmoRolloverHint.lua:13,jazz,jazz:Code/AmmoRolloverHint.lua:13,
+890000000001384,Настильность,,Настильность,Bullet Drop Range,russian-override;new-id,jazz:Code/AmmoRolloverHint.lua:13,jazz,jazz:Code/AmmoRolloverHint.lua:13,
 890000000001385,Дробь,,Дробь,Fraction,russian-override;new-id,jazz:Code/AmmoRolloverHint.lua:9,jazz,jazz:Code/AmmoRolloverHint.lua:9,
 890000000001386,Кучность,,Кучность,Accuracy,russian-override;new-id,jazz:Code/AmmoRolloverHint.lua:14,jazz,jazz:Code/AmmoRolloverHint.lua:14,
 890000000001387,Шанс клина,,Шанс клина,Wedge chance,russian-override;new-id,jazz:Code/AmmoRolloverHint.lua:15,jazz,jazz:Code/AmmoRolloverHint.lua:15,
@@ -7662,3 +7662,4 @@ Task: <task>",russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:
 890000000001449,Legion Patrol,,Патруль Легиона,Legion Patrol,russian-override;new-id,jazz-units:items.lua,jazz-units,jazz-units:items.lua,JAZZ-STRATEGY-002
 890000000001450,Legion Convoy,,Конвой Легиона,Legion Convoy,russian-override;new-id,jazz-units:items.lua,jazz-units,jazz-units:items.lua,JAZZ-STRATEGY-002
 890000000001451,Legion Garrison,,Гарнизон Легиона,Legion Garrison,russian-override;new-id,jazz-units:items.lua,jazz-units,jazz-units:items.lua,JAZZ-STRATEGY-002
+
