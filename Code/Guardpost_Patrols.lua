@@ -11,25 +11,30 @@ g_JAZZ_BaseSquadWindowCreateRolloverWindow = rawget(_G, "g_JAZZ_BaseSquadWindowC
 local g_JAZZ_BaseXMapRollerableContextImageGetImage = rawget(_G, "g_JAZZ_BaseXMapRollerableContextImageGetImage")
 
 -- Ensure squad icons shown by XMapRollerableContextImage honor JAZZ role icons and any persisted override.
+local function JAZZ_LegionAIXMapRollerableContextImage_GetImage(self, context)
+	local squad = context and (context.squad or context)
+	if squad then
+		local icon = squad.JAZZSquadIcon or squad.jazz_squad_icon
+		if not icon and JAZZ_GetLegionAISquadIcon then
+			icon = JAZZ_GetLegionAISquadIcon(squad)
+		end
+		if not icon and type(squad.image) == "string" and squad.image:sub(-4):lower() == ".png" then
+			icon = squad.image
+		end
+		if icon and type(icon) == "string" and icon ~= "" then
+			return icon
+		end
+	end
+	return g_JAZZ_BaseXMapRollerableContextImageGetImage(self, context)
+end
+
 local function lInstallLegionAIXMapRollerableContextImageWrapper()
 	if not XMapRollerableContextImage or type(XMapRollerableContextImage.GetImage) ~= "function" then
 		return
 	end
-	if not g_JAZZ_BaseXMapRollerableContextImageGetImage then
+	if XMapRollerableContextImage.GetImage ~= JAZZ_LegionAIXMapRollerableContextImage_GetImage then
 		g_JAZZ_BaseXMapRollerableContextImageGetImage = XMapRollerableContextImage.GetImage
-	end
-	XMapRollerableContextImage.GetImage = function(self, context)
-		local squad = context and (context.squad or context)
-		if squad then
-			local icon = squad.JAZZSquadIcon or squad.jazz_squad_icon
-			if not icon and JAZZ_GetLegionAISquadIcon then
-				icon = JAZZ_GetLegionAISquadIcon(squad)
-			end
-			if icon and type(icon) == "string" and icon ~= "" then
-				return icon
-			end
-		end
-		return g_JAZZ_BaseXMapRollerableContextImageGetImage(self, context)
+		XMapRollerableContextImage.GetImage = JAZZ_LegionAIXMapRollerableContextImage_GetImage
 	end
 end
 
@@ -1630,8 +1635,14 @@ local function lInstallLegionAIUIWrappers()
 		g_JAZZ_BaseGetSatelliteIconImages = GetSatelliteIconImages
 		GetSatelliteIconImages = JAZZ_LegionAIGetSatelliteIconImages
 	end
-	GetSatelliteIconImagesSquad = JAZZ_LegionAIGetSatelliteIconImagesSquad
-	SquadWindow.CreateRolloverWindow = JAZZ_LegionAICreateRolloverWindow
+	if GetSatelliteIconImagesSquad ~= JAZZ_LegionAIGetSatelliteIconImagesSquad then
+		g_JAZZ_BaseGetSatelliteIconImagesSquad = GetSatelliteIconImagesSquad
+		GetSatelliteIconImagesSquad = JAZZ_LegionAIGetSatelliteIconImagesSquad
+	end
+	if SquadWindow.CreateRolloverWindow ~= JAZZ_LegionAICreateRolloverWindow then
+		g_JAZZ_BaseSquadWindowCreateRolloverWindow = SquadWindow.CreateRolloverWindow
+		SquadWindow.CreateRolloverWindow = JAZZ_LegionAICreateRolloverWindow
+	end
 	lInstallLegionAIXMapRollerableContextImageWrapper()
 	TFormat.SquadNameColored = g_JAZZ_BaseTFormatSquadNameColored
 end

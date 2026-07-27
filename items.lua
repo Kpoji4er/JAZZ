@@ -73999,18 +73999,23 @@ return {
 							PlaceObj('XTemplateForEach', {
 								'__context', function (parent, context, item, i, n) return item end,
 								'run_after', function (child, context, item, i, n, last)
-									local image = item.image or "UI/Icons/SquadLogo/squad_logo_01"
-									child.idSquadIcon:SetImage(image .. "_s")
-									child.drop_reason = false
+                                    local image = item.image or "UI/Icons/SquadLogo/squad_logo_01"
+                                    local icon = image
+                                    if icon:sub(-4):lower() ~= ".png" then
+                                        icon = icon .. "_s"
+                                    end
+                                    child.idSquadIcon:SetImage(icon)
+                                    child.drop_reason = false
 								end,
 							}, {
-								PlaceObj('XTemplateWindow', {
-									'__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) ~= GetDialog("FullscreenGameDialogs") end,
-									'__class', "XButton",
-									'VAlign', "top",
-									'BorderColor', RGBA(0, 0, 0, 0),
-									'Background', RGBA(0, 0, 0, 0),
-									'BackgroundRectGlowColor', RGBA(0, 0, 0, 0),
+                                PlaceObj('XTemplateWindow', {
+                                    '__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) ~= GetDialog("FullscreenGameDialogs") end,
+                                    '__class', "XButton",
+                                    'VAlign', "top",
+                                }, {
+                                    'BorderColor', RGBA(0, 0, 0, 0),
+                                    'Background', RGBA(0, 0, 0, 0),
+                                    'BackgroundRectGlowColor', RGBA(0, 0, 0, 0),
 									'OnContextUpdate', function (self, context, ...)
 										
 									end,
@@ -75590,13 +75595,17 @@ return {
 							PlaceObj('XTemplateForEach', {
 								'__context', function (parent, context, item, i, n) return item end,
 								'run_after', function (child, context, item, i, n, last)
-									local image = item.image or "UI/Icons/SquadLogo/squad_logo_01"
-									child.idSquadIcon:SetImage(image .. "_s")
-									child.drop_reason = false
-								end,
-							}, {
-								PlaceObj('XTemplateWindow', {
-									'__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) ~= GetDialog("FullscreenGameDialogs") end,
+                                    local image = item.image or "UI/Icons/SquadLogo/squad_logo_01"
+                                    local icon = image
+                                    if icon:sub(-4):lower() ~= ".png" then
+                                        icon = icon .. "_s"
+                                    end
+                                    child.idSquadIcon:SetImage(icon)
+                                    child.drop_reason = false
+                                    end,
+                                }, {
+                                PlaceObj('XTemplateWindow', {
+                                    '__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) ~= GetDialog("FullscreenGameDialogs") end,
 									'__class', "XButton",
 									'VAlign', "top",
 									'BorderColor', RGBA(0, 0, 0, 0),
@@ -77163,17 +77172,21 @@ return {
 							PlaceObj('XTemplateForEach', {
 								'__context', function (parent, context, item, i, n) return item end,
 								'run_after', function (child, context, item, i, n, last)
-									local image = item.image or "UI/Icons/SquadLogo/squad_logo_01"
-									child.idSquadIcon:SetImage(image .. "_s")
-									child.drop_reason = false
-								end,
-							}, {
-								PlaceObj('XTemplateWindow', {
-									'__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) ~= GetDialog("FullscreenGameDialogs") end,
-									'__class', "XButton",
-									'VAlign', "top",
-									'BorderColor', RGBA(0, 0, 0, 0),
-									'Background', RGBA(0, 0, 0, 0),
+										local image = item.image or "UI/Icons/SquadLogo/squad_logo_01"
+										local icon = image
+										if icon:sub(-4):lower() ~= ".png" then
+											icon = icon .. "_s"
+										end
+										child.idSquadIcon:SetImage(icon)
+										child.drop_reason = false
+									end,
+                            }, {
+									PlaceObj('XTemplateWindow', {
+										'__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) ~= GetDialog("FullscreenGameDialogs") end,
+										'__class', "XButton",
+										'VAlign', "top",
+										'BorderColor', RGBA(0, 0, 0, 0),
+										'Background', RGBA(0, 0, 0, 0),
 									'BackgroundRectGlowColor', RGBA(0, 0, 0, 0),
 									'OnContextUpdate', function (self, context, ...)
 										
