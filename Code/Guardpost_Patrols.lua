@@ -118,6 +118,29 @@ local function lConfig(region, field, fallback)
 	return value
 end
 
+
+local function lGetSquadLookupId(context_or_squad)
+	if type(context_or_squad) ~= "table" then
+		return context_or_squad
+	end
+	local squad_id = context_or_squad.squad or context_or_squad.UniqueId or context_or_squad.id
+	if type(squad_id) == "table" then
+		squad_id = squad_id.UniqueId or squad_id.id
+	end
+	return squad_id
+end
+
+local function lGetLegionAISquadState(context_or_squad)
+	local root = gv_JAZZ_LegionAI
+	if type(root) ~= "table" or type(root.squads) ~= "table" then
+		return false
+	end
+	local squad_id = lGetSquadLookupId(context_or_squad)
+	if squad_id == nil then
+		return false
+	end
+	return root.squads[squad_id] or root.squads[tostring(squad_id)] or root.squads[tonumber(squad_id)] or false
+end
 local function lInterval(region, field, fallback)
 	return Max(lConfig(region, field, fallback), lHourScale())
 end
@@ -144,12 +167,7 @@ function JAZZ_IsLegionAIManagedGuardpost(sector_id)
 end
 
 function JAZZ_IsLegionAIManagedSquad(squad_or_id)
-	local squad_id = type(squad_or_id) == "table" and squad_or_id.UniqueId or squad_or_id
-	return type(gv_JAZZ_LegionAI) == "table"
-		and gv_JAZZ_LegionAI.squads
-		and gv_JAZZ_LegionAI.squads[squad_id]
-		and true
-		or false
+	return not not lGetLegionAISquadState(squad_or_id)
 end
 
 local function lInitialRegionHeat(region)
@@ -1427,14 +1445,12 @@ end
 -- vanilla `_2`/`_s` companions. Resolve by managed role, not potentially stale
 -- SatelliteSquad.image, so save/load and ReloadLua keep the correct icon.
 function JAZZ_GetLegionAISquadIcon(squad_or_id)
-	local squad_id = type(squad_or_id) == "table" and squad_or_id.UniqueId or squad_or_id
-	local root = gv_JAZZ_LegionAI
-	local squad_state = type(root) == "table" and root.squads and root.squads[squad_id]
+	local squad_state = lGetLegionAISquadState(squad_or_id)
 	return squad_state and lRoleImages[squad_state.role] or false
 end
 
 function JAZZ_LegionAIGetSatelliteIconImages(context)
-	local icon = context and JAZZ_GetLegionAISquadIcon(context.squad)
+	local icon = context and JAZZ_GetLegionAISquadIcon(context)
 	if icon then
 		return icon, false
 	end
@@ -1460,9 +1476,7 @@ local lRoleDisplayNames = {
 }
 
 function JAZZ_GetLegionAISquadTaskText(squad_or_id)
-	local squad_id = type(squad_or_id) == "table" and squad_or_id.UniqueId or squad_or_id
-	local root = gv_JAZZ_LegionAI
-	local squad_state = type(root) == "table" and root.squads and root.squads[squad_id]
+	local squad_state = lGetLegionAISquadState(squad_or_id)
 	if not squad_state then
 		return false
 	end
