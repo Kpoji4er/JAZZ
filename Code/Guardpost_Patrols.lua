@@ -1662,6 +1662,10 @@ function OnMsg.InitSatelliteView()
 	JAZZ_LegionAIEnsureState()
 end
 
+function OnMsg.ClassesBuilt()
+	lInstallLegionAIXMapRollerableContextImageWrapper()
+end
+
 function OnMsg.NewHour()
 	JAZZ_LegionAIProcessHour()
 end
