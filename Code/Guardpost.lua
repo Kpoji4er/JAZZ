@@ -629,17 +629,22 @@ function GenerateEnemySquad(enemy_squad_id, sector_id, base_session_id, unit_tem
 	end
 	
 	side = side or "enemy1"
-	local squad_id = CreateNewSatelliteSquad(
-		{
-			militia = militiaTest,
-			Side = side,
-			CurrentSector = sector_id,
-			Name = enemy_squad_def.displayName and _InternalTranslate(enemy_squad_def.displayName) or SquadName:GetNewSquadName(side, units),
-			diamond_briefcase = diamondBriefcase or nil,
-			guardpost = base_session_id == "Guardpost"
-		},
-		units, nil, nil, enemy_squad_id
-	)
+	local squad_props = {
+		militia = militiaTest,
+		Side = side,
+		CurrentSector = sector_id,
+		Name = enemy_squad_def.displayName and _InternalTranslate(enemy_squad_def.displayName) or SquadName:GetNewSquadName(side, units),
+		diamond_briefcase = diamondBriefcase or nil,
+		guardpost = base_session_id == "Guardpost"
+	}
+	-- Legion Global AI sets g_JAZZ_LegionAIPendingSquadImage so SquadWindow binds the
+	-- role PNG during SquadSpawned, matching diamond/weapon shipment predef.image timing.
+	local pending_image = rawget(_G, "g_JAZZ_LegionAIPendingSquadImage")
+	if type(pending_image) == "string" and pending_image ~= "" then
+		squad_props.image = pending_image
+		squad_props.jazz_squad_icon = pending_image
+	end
+	local squad_id = CreateNewSatelliteSquad(squad_props, units, nil, nil, enemy_squad_id)
 	
 	return squad_id
 end

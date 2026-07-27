@@ -2,33 +2,15 @@
 -- Static authoring lives in Region/SatelliteSector presets. Mutable state lives only here.
 
 g_JAZZ_LegionAISpawning = false
+-- Injected into CreateNewSatelliteSquad via GenerateEnemySquad so SquadWindow:SpawnSquadIcon
+-- sees the role PNG before Msg("SquadSpawned") binds XMapRollerableContextImage:SetImage.
+g_JAZZ_LegionAIPendingSquadImage = false
 
 g_JAZZ_BaseGetSatelliteIconImages = rawget(_G, "g_JAZZ_BaseGetSatelliteIconImages") or GetSatelliteIconImages
 g_JAZZ_BaseGetSatelliteIconImagesSquad = rawget(_G, "g_JAZZ_BaseGetSatelliteIconImagesSquad") or GetSatelliteIconImagesSquad
 g_JAZZ_BaseTFormatSquadNameColored = rawget(_G, "g_JAZZ_BaseTFormatSquadNameColored") or TFormat.SquadNameColored
 
 g_JAZZ_BaseSquadWindowCreateRolloverWindow = rawget(_G, "g_JAZZ_BaseSquadWindowCreateRolloverWindow") or SquadWindow.CreateRolloverWindow
-local g_JAZZ_BaseXMapRollerableContextImageGetImage = rawget(_G, "g_JAZZ_BaseXMapRollerableContextImageGetImage")
-
--- Ensure squad icons shown by XMapRollerableContextImage honor JAZZ role icons and any persisted override.
-local function JAZZ_LegionAIXMapRollerableContextImage_GetImage(self, context)
-	local squad = context and (context.squad or context)
-	local icon = lResolveLegionAISquadIcon(squad)
-	if icon then
-		return icon
-	end
-	return g_JAZZ_BaseXMapRollerableContextImageGetImage(self, context)
-end
-
-local function lInstallLegionAIXMapRollerableContextImageWrapper()
-	if not XMapRollerableContextImage or type(XMapRollerableContextImage.GetImage) ~= "function" then
-		return
-	end
-	if XMapRollerableContextImage.GetImage ~= JAZZ_LegionAIXMapRollerableContextImage_GetImage then
-		g_JAZZ_BaseXMapRollerableContextImageGetImage = XMapRollerableContextImage.GetImage
-		XMapRollerableContextImage.GetImage = JAZZ_LegionAIXMapRollerableContextImage_GetImage
-	end
-end
 
 local lSchemaVersion = 1
 
@@ -39,17 +21,32 @@ local lRegularRoles = {
 	qrf = true,
 }
 
--- Role icons are final 64x64 PNG assets. Use UI icon paths without the extension,
--- which matches the rest of the satellite icon system.
+-- Role icons are final 64x64 PNGs with no vanilla `_2`/`_s` companions.
+-- Paths must keep the `.png` extension: GetSatelliteIconImagesSquad otherwise
+-- appends `_2` for map icons, and Mod/ file assets do not resolve without it.
 local lRoleImages = {
-	major = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_BASE_squad",
-	supply = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_SUPPLY_squad",
-	shipment = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_SHIPMENT_squad",
-	recon = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_RECON_squad",
-	qrf = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_QRF_squad",
-	patrol = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_PATROL_squad",
-	garrison = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_GARRISON_squad",
+	major = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_BASE_squad.png",
+	supply = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_SUPPLY_squad.png",
+	shipment = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_SHIPMENT_squad.png",
+	recon = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_RECON_squad.png",
+	qrf = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_QRF_squad.png",
+	patrol = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_PATROL_squad.png",
+	garrison = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_GARRISON_squad.png",
 }
+
+local function lEnsureRoleIconPng(icon)
+	if type(icon) ~= "string" or icon == "" then
+		return false
+	end
+	if icon:sub(-4):lower() == ".png" then
+		return icon
+	end
+	-- Existing saves / interim commits may have stored the path without extension.
+	if icon:find("SquadsIcons/Enemy/", 1, true) then
+		return icon .. ".png"
+	end
+	return false
+end
 
 local function lResolveLegionAISquadIcon(squad)
 	if not squad then
@@ -57,24 +54,48 @@ local function lResolveLegionAISquadIcon(squad)
 	end
 
 	if type(squad) ~= "table" then
-		return JAZZ_GetLegionAISquadIcon and JAZZ_GetLegionAISquadIcon(squad) or false
+		return lEnsureRoleIconPng(JAZZ_GetLegionAISquadIcon and JAZZ_GetLegionAISquadIcon(squad))
 	end
 
-	local icon = squad.JAZZSquadIcon or squad.jazz_squad_icon
+	-- Only managed / explicit JAZZ PNG overrides short-circuit vanilla. Generic
+	-- squad.image paths must keep vanilla `_2` handling for map icons.
+	local icon = lEnsureRoleIconPng(squad.JAZZSquadIcon or squad.jazz_squad_icon)
 	if not icon and JAZZ_GetLegionAISquadIcon then
-		icon = JAZZ_GetLegionAISquadIcon(squad)
+		icon = lEnsureRoleIconPng(JAZZ_GetLegionAISquadIcon(squad))
 	end
-	if not icon and type(squad.image) == "string" then
-		icon = squad.image
+	if not icon then
+		icon = lEnsureRoleIconPng(type(squad.image) == "string" and squad.image)
 	end
-	if type(icon) ~= "string" or icon == "" then
+	return icon or false
+end
+
+-- SquadWindow:SpawnSquadIcon binds via SetImage(GetSatelliteIconImagesSquad(...)).
+-- DrawContent reads self.Image, so live windows need an explicit SetImage refresh.
+local function lRefreshSatelliteSquadIcon(squad)
+	if not squad or not squad.UniqueId then
+		return
+	end
+	local wnd = g_SatelliteUI and g_SatelliteUI.squad_to_wnd and g_SatelliteUI.squad_to_wnd[squad.UniqueId]
+	local icon_wnd = wnd and wnd.idSquadIcon
+	if not icon_wnd or not icon_wnd.SetImage then
+		return
+	end
+	local icon = GetSatelliteIconImagesSquad(squad)
+	if icon then
+		icon_wnd:SetImage(icon)
+	end
+end
+
+local function lApplySquadRoleIcon(squad, role)
+	local image = role and lRoleImages[role] or false
+	if not squad or not image then
 		return false
 	end
-
-	if icon:sub(-4):lower() == ".png" then
-		icon = icon:sub(1, -5)
-	end
-	return icon
+	squad.image = image
+	squad.jazz_squad_icon = image
+	lRefreshSatelliteSquadIcon(squad)
+	ObjModified(squad)
+	return true
 end
 
 local lRoleCaps = {
@@ -304,7 +325,6 @@ local function lAdoptLegacyPrimedSquads(root)
 		and not root.squads[squad_id]
 		then
 			local region = lGetRegionPreset(outpost.region_id)
-			local image = lRoleImages.garrison
 			root.squads[squad_id] = {
 				squad_id = squad_id,
 				region_id = outpost.region_id,
@@ -315,12 +335,10 @@ local function lAdoptLegacyPrimedSquads(root)
 				payload = {},
 				task = false,
 			}
-			squad.image = image
-			squad.jazz_squad_icon = image
+			lApplySquadRoleIcon(squad, "garrison")
 			session_obj.primed_squad = false
 			session_obj.next_spawn_time = false
 			session_obj.next_spawn_time_duration = false
-			ObjModified(squad)
 			local sector = gv_Sectors[sector_id]
 			if sector then
 				ObjModified(sector)
@@ -337,10 +355,11 @@ local function lReconcileSquads(root)
 			root.squads[squad_id] = nil
 		else
 			local image = lRoleImages[squad_state.role]
-			if image and squad.image ~= image then
-				squad.image = image
-				squad.jazz_squad_icon = image
-				ObjModified(squad)
+			if image and (squad.image ~= image or squad.jazz_squad_icon ~= image) then
+				lApplySquadRoleIcon(squad, squad_state.role)
+			elseif image then
+				-- Keep live windows in sync after ReloadLua / wrapper reinstall.
+				lRefreshSatelliteSquadIcon(squad)
 			end
 		end
 	end
@@ -734,9 +753,13 @@ local function lSpawnManaged(root, region, home_sector, role, origin_sector, mis
 	local serial = root.spawn_serial
 	root.spawn_serial = serial + 1
 	local base_session_id = string.format("JAZZLegionAI_%s_%s_%d", role, home_sector, serial)
+	local image = lRoleImages[role] or false
+	-- Mirror diamond/weapon shipment: image must exist before SquadSpawned → SpawnSquadIcon.
+	g_JAZZ_LegionAIPendingSquadImage = image
 	g_JAZZ_LegionAISpawning = true
 	local squad_id = GenerateEnemySquad(squad_def_id, origin_sector, base_session_id, nil, "enemy1")
 	g_JAZZ_LegionAISpawning = false
+	g_JAZZ_LegionAIPendingSquadImage = false
 	local squad = squad_id and gv_Squads[squad_id]
 	if not squad then
 		return false
@@ -747,12 +770,6 @@ local function lSpawnManaged(root, region, home_sector, role, origin_sector, mis
 		return false
 	end
 
-	local image = lRoleImages[role]
-	if image then
-		squad.image = image
-		squad.jazz_squad_icon = image
-	end
-	ObjModified(squad)
 	root.squads[squad_id] = {
 		squad_id = squad_id,
 		region_id = lRegionId(region),
@@ -763,6 +780,7 @@ local function lSpawnManaged(root, region, home_sector, role, origin_sector, mis
 		payload = payload or {},
 		task = false,
 	}
+	lApplySquadRoleIcon(squad, role)
 	Msg("JAZZ_LegionAISquadManaged", squad_id, role, home_sector)
 	return squad_id, root.squads[squad_id]
 end
@@ -1664,7 +1682,6 @@ local function lInstallLegionAIUIWrappers()
 		g_JAZZ_BaseSquadWindowCreateRolloverWindow = SquadWindow.CreateRolloverWindow
 		SquadWindow.CreateRolloverWindow = JAZZ_LegionAICreateRolloverWindow
 	end
-	lInstallLegionAIXMapRollerableContextImageWrapper()
 	TFormat.SquadNameColored = g_JAZZ_BaseTFormatSquadNameColored
 end
 
@@ -1692,10 +1709,6 @@ end
 function OnMsg.InitSatelliteView()
 	lInstallLegionAIUIWrappers()
 	JAZZ_LegionAIEnsureState()
-end
-
-function OnMsg.ClassesBuilt()
-	lInstallLegionAIXMapRollerableContextImageWrapper()
 end
 
 function OnMsg.NewHour()
