@@ -412,7 +412,7 @@ return PlaceObj('ModDef', {
 		"InventoryItem/Sig550.lua",
 		"InventoryItem/Sig550Custom.lua",
 		"InventoryItem/AN94.lua",
-		"InventoryItem/MAS36.lua",
+		"InventoryItem/Mas36.lua",
 		"InventoryItem/SKS.lua",
 		"InventoryItem/G43.lua",
 		"InventoryItem/MAS49.lua",
