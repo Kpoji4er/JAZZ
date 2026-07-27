@@ -5695,3 +5695,29 @@ Task: <task>","manual-translation"
 "4440","890000000001450","Legion Convoy","Legion Convoy","manual-translation"
 "4441","890000000001451","Legion Garrison","Legion Garrison","manual-translation"
 
+4442,666643530404,"Потеря удержания точности последующих пуль. Чем меньше отдача, тем медленнее снижается шанс попадания в очереди. Сила, стойка, опора и модификации уменьшают её влияние.","Accuracy retention loss for subsequent bullets. The lower the recoil, the slower the chance to hit decreases during a burst. Strength, stance, bracing, and modifications reduce its impact.",manual-translation
+4443,756735304143,Оптика <ScopeMagnification>.<ScopeSubMagnification>× сдвигает эффективную зону дальше после <ScopeAimLevel>-го уровня прицеливания. Сильная оптика менее удобна вблизи.,Optics with <ScopeMagnification>.<ScopeSubMagnification>× magnification shift the effective range farther after aim level <ScopeAimLevel>. Powerful optics are less convenient at close range.,manual-translation
+4444,872401100010,Прибывающий отряд не может сесть в транспорт,The arriving squad cannot board the vehicle,manual-translation
+4445,872401100011,Нельзя сесть в транспорт во время перемещения,Cannot board a vehicle while moving,manual-translation
+4446,872401100012,Отряд уже в транспорте,The squad is already in a vehicle,manual-translation
+4447,872401100013,Транспорт занят,The vehicle is occupied,manual-translation
+4448,872401100014,Транспорт в другом секторе,The vehicle is in another sector,manual-translation
+4449,872401100015,Слишком большой отряд (макс. <cap>),Squad too large (max. <cap>),manual-translation
+4450,872401100016,Нельзя сесть в транспорт во время конфликта,Cannot board a vehicle during a conflict,manual-translation
+4451,872401100017,Сначала остановите перемещение,Stop moving first,manual-translation
+4452,872401100018,Нельзя выйти из транспорта во время конфликта,Cannot leave a vehicle during a conflict,manual-translation
+4453,872401100019,Транспорт уничтожен,Vehicle destroyed,manual-translation
+4454,872401100020,<em>(Транспорт)</em>,<em>(Vehicle)</em>,manual-translation
+4455,872401100030,Сесть в транспорт,Board vehicle,manual-translation
+4456,872401100031,Покинуть транспорт,Leave vehicle,manual-translation
+4457,872401100050,Транспорт: <list>,Vehicle: <list>,manual-translation
+4458,872401100060,Поворот влево,Turn left,manual-translation
+4459,872401100061,Повернуть транспорт на 90° влево на месте.,Rotate the vehicle 90° counterclockwise in place.,manual-translation
+4460,872401100062,Поворот вправо,Turn right,manual-translation
+4461,872401100063,Повернуть транспорт на 90° вправо на месте.,Rotate the vehicle 90° clockwise in place.,manual-translation
+4462,872401100064,Турель,Turret,manual-translation
+4463,872401100065,Огонь из турели транспорта (MVP).,Fire the vehicle turret (MVP).,manual-translation
+4464,872401100066,Нет оружия турели,No turret weapon,manual-translation
+4465,872401100067,Транспорт уничтожен,Vehicle destroyed,manual-translation
+4466,951442777109,Тёмный Властелин,Dark Lord,manual-translation
+4467,978218324840,"Санаторий ""Лазурь""","""Lazur"" Sanatorium",manual-translation

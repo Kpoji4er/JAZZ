@@ -1028,10 +1028,18 @@ if ($Mode -eq "Plan") {
 
     $restoreRows = @($manifestRows | Where-Object Action -eq "restore-vanilla")
     $newRows = @($manifestRows | Where-Object Action -like "assign-mod-id*")
+    $restoreOccurrences = if ($restoreRows.Count -gt 0) {
+        ($restoreRows | Measure-Object -Property Occurrences -Sum).Sum
+    }
+    else { 0 }
+    $newOccurrences = if ($newRows.Count -gt 0) {
+        ($newRows | Measure-Object -Property Occurrences -Sum).Sum
+    }
+    else { 0 }
     Write-Output "JAZZ localization clone/ID migration plan"
     Write-Output "Lua ID+text pairs: $($analysisRows.Count)"
-    Write-Output "Restore vanilla pairs: $($restoreRows.Count); occurrences=$(($restoreRows | Measure-Object Occurrences -Sum).Sum)"
-    Write-Output "Assign mod IDs: $($newRows.Count); occurrences=$(($newRows | Measure-Object Occurrences -Sum).Sum)"
+    Write-Output "Restore vanilla pairs: $($restoreRows.Count); occurrences=$restoreOccurrences"
+    Write-Output "Assign mod IDs: $($newRows.Count); occurrences=$newOccurrences"
     Write-Output "Keep unchanged pairs: $($analysisRows.Count - $manifestRows.Count)"
     Write-Output "Resolved by vanilla source sequence: $sourceResolved"
     Write-Output "Ambiguous vanilla matches: $($ambiguityRows.Count)"

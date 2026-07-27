@@ -2923,7 +2923,7 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 		}
 		if aim > 0 then
 			modifiers[#modifiers + 1] = {
-				name = marksmanship_meta and marksmanship_meta.name or T(740390022763, "Aiming"),
+				name = marksmanship_meta and marksmanship_meta.name or T(154175220541, "Aiming"),
 				value = math.floor(core - skill_profile.snap + 0.5),
 				ui_value = math.floor(core - skill_profile.snap + 0.5),
 				id = "Aim",

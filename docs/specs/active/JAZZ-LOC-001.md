@@ -156,6 +156,16 @@ approved_by: project-owner
 - `JAZZ-LOC-001-AC-014`: `PASS (static)` — защищённые токены сохранены, видимая кириллица в английском экспорте 0, strict tag/placeholder mismatch 0; 2 896 строк остаются явно помеченными `google-draft`.
 - `JAZZ-LOC-001-REQ-008`: `PASS (static)` — повторный Apply: token replacements 0, changed files 0.
 - Дополнительно: PowerShell AST обоих инструментов — 0 ошибок; documentation contract passed; project skill обновлён и проверен вручную, штатный `quick_validate.py` не запустился из-за отсутствующего `PyYAML` в локальном runtime.
+### Follow-up 2026-07-28
+
+- `JAZZ-LOC-001-AC-001`: `PASS (static)` — повторный Plan не создал ни одной строки неоднозначности; `IdAmbiguities.csv` содержит только заголовок.
+- `JAZZ-LOC-001-REQ-008`: `PASS (static)` — applied-manifest содержит 255 пар и везде `Applied=yes`; повторный Apply дал 0 замен и 0 изменённых файлов, повторный Plan во временные пути дал 0 manifest rows и 0 ambiguities. Для пустого Plan исправлен отчёт по `occurrences=0`.
+- `JAZZ-LOC-001-AC-003`: `PASS (static)` — follow-up восстановил 52 vanilla-пары и назначил 203 mod-only пары (318 вхождений) на 179 уникальных ID из диапазона `890000000001452..890000000001630`; пересечений и неоднозначностей нет.
+- `JAZZ-LOC-001-AC-004`: `PASS (static)` — финальный аудит: 13 502 активных вызова, 9 625 активных ID, 5 751 строка каталога; active, against `Game.csv`, `Russian.csv` и dormant коллизии равны 0; `needs Russian=0`, `needs English=0`.
+- `JAZZ-LOC-001-AC-005`: `PASS (static)` — postflight generated sync: 0 errors и те же 20 известных warnings.
+- `JAZZ-LOC-001-AC-006` / `JAZZ-LOC-001-AC-011`: `PASS (static)` — `Russian.csv` и `English.csv` содержат по 5 735 уникальных ID с точным совпадением множеств и без дублей; два намеренно пустых технических T (`486989771291111`, `4869897712911115`) совпадают в обоих языках.
+- `JAZZ-LOC-001-AC-008`, `JAZZ-LOC-001-AC-009`, `JAZZ-LOC-001-AC-013`: `BLOCKED (editor/runtime)` — после follow-up всё ещё требуются Mod Editor load/save/reload и smoke-test обоих языков на новой игре и существующем save.
+
 ## Documentation delta
 
 - `docs/technical/systems/localization.md` обновлён для двуязычного runtime и translation memory.

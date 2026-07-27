@@ -1468,8 +1468,8 @@ end
 
 local lRoleDisplayNames = {
 	garrison = T(890000000001424, "Garrison"),
-	patrol = T(890000000001425, "Patrol"),
-	recon = T(890000000001426, "Recon"),
+	patrol = T(111675813514, "Patrol"),
+	recon = T(363102176749, "Recon"),
 	qrf = T(890000000001427, "QRF"),
 	major = T(890000000001428, "Major response"),
 	supply = T(890000000001429, "Supply convoy"),

@@ -41,6 +41,8 @@ Standalone `lua`/`luac` не является repository dependency. В evidence
    `Game.csv.Text`, а каждый `assign-mod-id` отсутствует в `Game.csv`, меньше
    `2^53` и не связывает один ID с разными текстами.
 3. После Apply повторить Apply: число замен и изменённых файлов должно быть нулём.
+   Для отдельной проверки повторного Plan передавать временные `ManifestPath` и
+   `AmbiguityPath`, чтобы не перезаписывать сохранённый applied-manifest пустым результатом.
 4. Запустить `audit-localization.ps1 -UpdateCatalog`; требовать ноль активных,
    game и Russian CSV коллизий, `needs Russian=0` и `needs English=0`. Dormant
    warnings учитывать отдельно.
