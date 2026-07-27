@@ -85,7 +85,7 @@ Maps добавляет четыре `GuardpostObjective` ModItems. Units пре
 
 Role icons — семь PNG в `SquadsIcons/Enemy/*.png` (без vanilla `_2`/`_s`). Иконка резолвится по managed `role` через `JAZZ_GetLegionAISquadIcon`, не только по потенциально устаревшему `SatelliteSquad.image`. `Guardpost_Patrols.lua` захватывает base-функции через `rawget(_G, ...)`; после `POI Extension.lua` (более поздний в `metadata.code`) wrappers переустанавливаются на `ModsReloaded` / `LoadGame` / `InitSatelliteView`, чтобы managed role icon оставался поверх POI без recursive chain.
 
-Текст задачи добавляется в `TFormat.SquadNameColored` (его реально вызывает `SquadRolloverMap`). `SquadWindow:GetRolloverText` для managed squad — passthrough: `CreateRolloverWindow` не использует его для имени. Persistent `SatelliteSquad.Name` не мутируется. Unmanaged squad делегируется сохранённой base-реализации. Строки ролей/задач локализованы (`890000000001424`–`447`).
+`SquadWindow:CreateRolloverWindow` после создания `SquadRolloverMap` добавляет `idJAZZLegionAITask` в стабильный VList под `idCurrentSquadCont`. Блок показывает `JAZZ_GetLegionAISquadTaskText` только для managed squad, сворачивается для unmanaged squad и обновляется вместе с `CycleSquadsInRollover`; заголовок остаётся vanilla через восстановленный `TFormat.SquadNameColored`. Persistent `SatelliteSquad.Name` не мутируется. Строки ролей/задач локализованы (`890000000001424`–`447`).
 
 Планировщик использует абсолютный CampaignTime, сортированный обход и `InteractionRand`; интервалы защищены минимумом в один игровой час, а пропущенные интервалы снижения Heat догоняются после скачка времени. Public diagnostics `JAZZ_LegionAIGetDiagnostics()` возвращают caps, costs и active counts по ролям.
 

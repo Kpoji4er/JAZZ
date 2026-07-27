@@ -65,10 +65,11 @@ JAZZ поддерживает только последнюю опубликов
 | --- | --- | --- | --- |
 | `GetSatelliteIconImages` | `Lua/UI/XSatelliteObjects.lua` | `POI Extension.lua` (load order), затем late re-wrap `JAZZ_LegionAIGetSatelliteIconImages` | После POI Legion AI снова становится итоговым владельцем для managed squad: icon по role PNG; unmanaged/POI делегируется сохранённой base (POI) |
 | `GetSatelliteIconImagesSquad` | `Lua/UI/XSatelliteObjects.lua` | `Code/Guardpost_Patrols.lua` | Managed squad: role PNG без `_2`/`_s`; unmanaged → base |
-| `TFormat.SquadNameColored` | `Lua/Tactical/Utility.lua` | `JAZZ_LegionAISquadNameColored` в `Guardpost_Patrols.lua` | Managed: colored name + локализованная задача; unmanaged → base. Это фактический hook `SquadRolloverMap` |
+| `TFormat.SquadNameColored` | `Lua/Tactical/Utility.lua` | сохранённая base-реализация | Заголовок managed/unmanaged squad остаётся vanilla; task больше не встраивается в name |
+| `SquadWindow:CreateRolloverWindow` | `Lua/UI/XSatelliteObjects.lua` | `JAZZ_LegionAICreateRolloverWindow` в `Guardpost_Patrols.lua` | После vanilla spawn/open добавляет сворачиваемый `idJAZZLegionAITask` под составом; обновляет его при cycle squad, unmanaged скрывает |
 | `SquadWindow:GetRolloverText` | `Lua/UI/XSatelliteObjects.lua` | passthrough `self.context` | Не мутирует persistent `Name`; CreateRolloverWindow этот путь для заголовка не использует |
 
-`Guardpost_Patrols.lua` сохраняет base через `rawget(_G, ...)` и переустанавливает wrappers на `ModsReloaded` / `LoadGame` / `InitSatelliteView`, только если глобаль ещё не наш wrapper — иначе ReloadLua не строит recursive chain.
+`Guardpost_Patrols.lua` сохраняет base через `rawget(_G, ...)` и переустанавливает icon/rollover wrappers на `ModsReloaded` / `LoadGame` / `InitSatelliteView`. Base `SquadWindow:CreateRolloverWindow` хранится отдельно и не перехватывается повторно, поэтому ReloadLua не строит recursive chain.
 
 CommonLib 1.11 / commit `1adf9f232680d3b011248d180fd0ad1e609a8e2c` эти символы не переопределяет. После обновления игры или CommonLib повторно проверять сигнатуры и rollover template.
 

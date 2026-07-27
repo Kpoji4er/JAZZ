@@ -7,6 +7,7 @@ g_JAZZ_BaseGetSatelliteIconImages = rawget(_G, "g_JAZZ_BaseGetSatelliteIconImage
 g_JAZZ_BaseGetSatelliteIconImagesSquad = rawget(_G, "g_JAZZ_BaseGetSatelliteIconImagesSquad") or GetSatelliteIconImagesSquad
 g_JAZZ_BaseTFormatSquadNameColored = rawget(_G, "g_JAZZ_BaseTFormatSquadNameColored") or TFormat.SquadNameColored
 
+g_JAZZ_BaseSquadWindowCreateRolloverWindow = rawget(_G, "g_JAZZ_BaseSquadWindowCreateRolloverWindow") or SquadWindow.CreateRolloverWindow
 local lSchemaVersion = 1
 
 local lRegularRoles = {
@@ -1523,21 +1524,67 @@ function JAZZ_GetLegionAISquadTaskText(squad_or_id)
 	return T{890000000001446, "<role> — task in sector <target>", role = role, target = Untranslated(target or "?")}
 end
 
--- SquadRolloverMap calls TFormat.SquadNameColored, not SquadWindow:GetRolloverText.
--- CreateRolloverWindow feeds the persistent SatelliteSquad directly to the template,
--- so mutating Name here never reached the UI and is left as a passthrough.
-function JAZZ_LegionAISquadNameColored(context_obj)
-	local squad_name = g_JAZZ_BaseTFormatSquadNameColored(context_obj)
-	local task_text = context_obj and JAZZ_GetLegionAISquadTaskText(context_obj)
-	if not task_text then
-		return squad_name
+-- SquadRolloverMap inherits SquadRollover. Its idCurrentSquadCont owns the
+-- displayed/cycled squad, while the parent VList is the stable place for an
+-- extra task row that is not destroyed by XContentTemplate:RespawnContent().
+local function lUpdateLegionAITaskPanel(squad_content)
+	local panel = squad_content and rawget(squad_content, "jazz_legion_ai_task_panel")
+	if not panel then
+		return
 	end
-	return T{
-		890000000001447,
-		"<squad_name>\nTask: <task>",
-		squad_name = squad_name,
-		task = task_text,
-	}
+
+	local squads = rawget(squad_content, "allSquads")
+	local selected = rawget(squad_content, "selectedSquad") or 1
+	local squad = squads and squads[selected] or squad_content.context
+	local task_text = squad and JAZZ_GetLegionAISquadTaskText(squad)
+	panel:SetText(task_text or "")
+	panel:SetVisible(task_text and true or false)
+end
+
+local function lAttachLegionAITaskPanel(rollover)
+	local squad_content = rollover and rollover:ResolveId("idCurrentSquadCont")
+	if not squad_content or rawget(squad_content, "jazz_legion_ai_task_panel") then
+		return
+	end
+
+	local outer_content = squad_content.parent
+	if not outer_content then
+		return
+	end
+
+	local panel = XText:new({
+		Id = "idJAZZLegionAITask",
+		Margins = box(0, 6, 0, 0),
+		Padding = box(8, 6, 8, 6),
+		HAlign = "stretch",
+		FoldWhenHidden = true,
+		HandleMouse = false,
+		TextStyle = "SquadMapRollover",
+		Translate = true,
+		Visible = false,
+		Background = RGBA(32, 35, 47, 255),
+	}, outer_content, squad_content.context)
+	rawset(squad_content, "jazz_legion_ai_task_panel", panel)
+
+	local base_update = squad_content.UpdateMultiSquadSection
+	if type(base_update) == "function" then
+		squad_content.UpdateMultiSquadSection = function(self, ...)
+			local result = base_update(self, ...)
+			lUpdateLegionAITaskPanel(self)
+			return result
+		end
+	end
+
+	panel:Open()
+	lUpdateLegionAITaskPanel(squad_content)
+end
+
+function JAZZ_LegionAICreateRolloverWindow(self, gamepad, context, pos)
+	local rollover = g_JAZZ_BaseSquadWindowCreateRolloverWindow(self, gamepad, context, pos)
+	if rollover then
+		lAttachLegionAITaskPanel(rollover)
+	end
+	return rollover
 end
 
 function SquadWindow:GetRolloverText()
@@ -1545,20 +1592,21 @@ function SquadWindow:GetRolloverText()
 end
 
 -- POI Extension.lua loads after this file and replaces GetSatelliteIconImages.
--- Re-wrap after mod load/reload so managed role icons win without recursion:
--- base is captured only when the global is not already our wrapper.
+-- Re-wrap after mod load/reload so managed role icons win without recursion.
 local function lInstallLegionAIUIWrappers()
 	if GetSatelliteIconImages ~= JAZZ_LegionAIGetSatelliteIconImages then
 		g_JAZZ_BaseGetSatelliteIconImages = GetSatelliteIconImages
 		GetSatelliteIconImages = JAZZ_LegionAIGetSatelliteIconImages
 	end
 	GetSatelliteIconImagesSquad = JAZZ_LegionAIGetSatelliteIconImagesSquad
-	TFormat.SquadNameColored = JAZZ_LegionAISquadNameColored
+	SquadWindow.CreateRolloverWindow = JAZZ_LegionAICreateRolloverWindow
+	TFormat.SquadNameColored = g_JAZZ_BaseTFormatSquadNameColored
 end
 
 GetSatelliteIconImages = JAZZ_LegionAIGetSatelliteIconImages
 GetSatelliteIconImagesSquad = JAZZ_LegionAIGetSatelliteIconImagesSquad
-TFormat.SquadNameColored = JAZZ_LegionAISquadNameColored
+SquadWindow.CreateRolloverWindow = JAZZ_LegionAICreateRolloverWindow
+TFormat.SquadNameColored = g_JAZZ_BaseTFormatSquadNameColored
 
 function OnMsg.ModsReloaded()
 	lInstallLegionAIUIWrappers()

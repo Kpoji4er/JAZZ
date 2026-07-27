@@ -115,12 +115,13 @@ Supply и shipment не входят в regular cap; одновременно р
 - Role icon берётся по managed state role, а не только из потенциально устаревшего `squad.image`.
 - Raw PNG path содержит `.png`; vanilla `_2`/`_s` к нему не добавляются.
 - Поздний wrapper `GetSatelliteIconImages` устанавливается после загрузки остальных mod code и делегирует unmanaged context фактической предыдущей реализации.
-- Текст задачи добавляется через `TFormat.SquadNameColored`, который реально вызывается `SquadRolloverMap`; unmanaged squad делегируется vanilla/JAZZ predecessor.
+- Текст задачи показывается отдельным сворачиваемым блоком под составом в `SquadRolloverMap`; заголовок отряда остаётся vanilla.
+- Wrapper фактического `SquadWindow:CreateRolloverWindow` добавляет блок только для managed squad и обновляет его при `CycleSquadsInRollover`; unmanaged squad и rollover без ожидаемого контейнера остаются без изменений.
 - `ReloadLua` не создаёт recursive wrapper chain.
 
 ## Требования
 
-- `JAZZ-STRATEGY-002-REQ-001` — исправить фактические UI extension points без мутации persistent squad name.
+- `JAZZ-STRATEGY-002-REQ-001` — исправить фактические UI extension points без мутации persistent squad name: задача managed squad отображается отдельным блоком под составом, а не частью заголовка.
 - `JAZZ-STRATEGY-002-REQ-002` — все семь role icons используют существующие файлы `SquadsIcons/Enemy/*.png`.
 - `JAZZ-STRATEGY-002-REQ-003` — четыре новых EnemySquad IDs принадлежат `jazz-units` и содержат только `JAZZ_Legion_*`.
 - `JAZZ-STRATEGY-002-REQ-004` — размеры новых presets находятся внутри утверждённых диапазонов.
@@ -134,7 +135,7 @@ Supply и shipment не входят в regular cap; одновременно р
 ## Acceptance criteria
 
 - `JAZZ-STRATEGY-002-AC-001` — managed squad каждого role показывает свой PNG вместо `enemy_squad`.
-- `JAZZ-STRATEGY-002-AC-002` — rollover показывает локализованную роль, задачу, state и target; unmanaged rollover не изменён.
+- `JAZZ-STRATEGY-002-AC-002` — rollover показывает отдельным блоком под составом локализованную роль, задачу, state и target; блок обновляется при переключении нескольких squad, unmanaged rollover не изменён.
 - `JAZZ-STRATEGY-002-AC-003` — `ReloadLua`, повторное открытие satellite view и save/load не теряют icon/task и не создают recursion/error.
 - `JAZZ-STRATEGY-002-AC-004` — четыре новых presets имеют диапазоны 8–12, 12–18, 15–25 и 25–40 и не содержат UnitData вне `JAZZ_Legion_*`.
 - `JAZZ-STRATEGY-002-AC-005` — I7 создаёт новые garrison/patrol/recon, оба convoy role используют новый convoy, QRF/Major остаются на Legion JAZZ T2/T3.
@@ -184,14 +185,15 @@ Runtime-владелец — `jazz`; владелец EnemySquads/UnitData — `
 4. утвердил диапазоны patrol 10–20, recon 8–12, convoy 10–30 и garrison 20–50;
 5. потребовал различающуюся стоимость ролей.
 6. уточнил, что разведка без обнаруженного врага должна снижать Heat сектора.
+7. после runtime-проверки подтвердил, что title-hook не показывает задачу, и потребовал отдельный task-блок рядом с составом отряда.
 
 Статус: approved.
 
 ## Evidence
 
 - `JAZZ-STRATEGY-002-AC-001`: `BLOCKED` — реализация UI на диске; нужен runtime screenshot.
-- `JAZZ-STRATEGY-002-AC-002`: `BLOCKED` — реализация rollover/`TFormat` на диске; нужен runtime hover.
-- `JAZZ-STRATEGY-002-AC-003`: `BLOCKED` — late install на ModsReloaded/LoadGame/InitSatelliteView; нужен ReloadLua/save-load.
+- `JAZZ-STRATEGY-002-AC-002`: `PASS (static vanilla hook audit)` / `BLOCKED (runtime)` — `CreateRolloverWindow` добавляет отдельный сворачиваемый task-блок под `idCurrentSquadCont`, wrapper `UpdateMultiSquadSection` обновляет его при cycle; нужен runtime hover.
+- `JAZZ-STRATEGY-002-AC-003`: `PASS (static wrapper ownership)` / `BLOCKED (runtime)` — vanilla CreateRollover сохранён один раз через `rawget`, а install всегда ставит один JAZZ wrapper; нужен ReloadLua/save-load.
 - `JAZZ-STRATEGY-002-AC-004`: `PASS (static)` — четыре presets в `jazz-units`, суммы слотов 8–12 / 12–18 / 15–25 / 25–40, только `JAZZ_Legion_*`.
 - `JAZZ-STRATEGY-002-AC-005`: `PASS (static binding)` / `BLOCKED (runtime spawn)` — I7 и ErnieIsland ссылаются на новые ID; QRF/Major не переведены на новые presets.
 - `JAZZ-STRATEGY-002-AC-006`: `BLOCKED` — runtime cap test обязателен.
@@ -203,7 +205,7 @@ Runtime-владелец — `jazz`; владелец EnemySquads/UnitData — `
 
 ## Documentation delta
 
-- `docs/technical/systems/strategy-squads-sectors.md` — фактические UI hooks, caps, цены и recon Heat transition.
+- `docs/technical/systems/strategy-squads-sectors.md` — фактический rollover task-блок, caps, цены и recon Heat transition.
 - `docs/technical/systems/units-progression-specializations.md` — четыре role-specific EnemySquad presets.
 - `docs/technical/systems/legion-units-equipment-tiers.md` — использование 37-unit pool новыми составами.
 - `docs/technical/compatibility.md` — save/reload и late-wrapper contract.
