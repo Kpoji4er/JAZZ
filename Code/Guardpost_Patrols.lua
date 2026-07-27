@@ -13,17 +13,9 @@ local g_JAZZ_BaseXMapRollerableContextImageGetImage = rawget(_G, "g_JAZZ_BaseXMa
 -- Ensure squad icons shown by XMapRollerableContextImage honor JAZZ role icons and any persisted override.
 local function JAZZ_LegionAIXMapRollerableContextImage_GetImage(self, context)
 	local squad = context and (context.squad or context)
-	if squad then
-		local icon = squad.JAZZSquadIcon or squad.jazz_squad_icon
-		if not icon and JAZZ_GetLegionAISquadIcon then
-			icon = JAZZ_GetLegionAISquadIcon(squad)
-		end
-		if not icon and type(squad.image) == "string" and squad.image:sub(-4):lower() == ".png" then
-			icon = squad.image
-		end
-		if icon and type(icon) == "string" and icon ~= "" then
-			return icon
-		end
+	local icon = lResolveLegionAISquadIcon(squad)
+	if icon then
+		return icon
 	end
 	return g_JAZZ_BaseXMapRollerableContextImageGetImage(self, context)
 end
@@ -47,15 +39,43 @@ local lRegularRoles = {
 	qrf = true,
 }
 
+-- Role icons are final 64x64 PNG assets. Use UI icon paths without the extension,
+-- which matches the rest of the satellite icon system.
 local lRoleImages = {
-	major = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_BASE_squad.png",
-	supply = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_SUPPLY_squad.png",
-	shipment = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_SHIPMENT_squad.png",
-	recon = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_RECON_squad.png",
-	qrf = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_QRF_squad.png",
-	patrol = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_PATROL_squad.png",
-	garrison = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_GARRISON_squad.png",
+	major = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_BASE_squad",
+	supply = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_SUPPLY_squad",
+	shipment = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_SHIPMENT_squad",
+	recon = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_RECON_squad",
+	qrf = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_QRF_squad",
+	patrol = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_PATROL_squad",
+	garrison = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_GARRISON_squad",
 }
+
+local function lResolveLegionAISquadIcon(squad)
+	if not squad then
+		return false
+	end
+
+	if type(squad) ~= "table" then
+		return JAZZ_GetLegionAISquadIcon and JAZZ_GetLegionAISquadIcon(squad) or false
+	end
+
+	local icon = squad.JAZZSquadIcon or squad.jazz_squad_icon
+	if not icon and JAZZ_GetLegionAISquadIcon then
+		icon = JAZZ_GetLegionAISquadIcon(squad)
+	end
+	if not icon and type(squad.image) == "string" then
+		icon = squad.image
+	end
+	if type(icon) ~= "string" or icon == "" then
+		return false
+	end
+
+	if icon:sub(-4):lower() == ".png" then
+		icon = icon:sub(1, -5)
+	end
+	return icon
+end
 
 local lRoleCaps = {
 	garrison = "GarrisonCap",
@@ -1488,7 +1508,8 @@ function JAZZ_GetLegionAISquadIcon(squad_or_id)
 end
 
 function JAZZ_LegionAIGetSatelliteIconImages(context)
-	local icon = context and JAZZ_GetLegionAISquadIcon(context)
+	local squad = context and (context.squad or context)
+	local icon = lResolveLegionAISquadIcon(squad)
 	if icon then
 		return icon, false
 	end
@@ -1496,7 +1517,7 @@ function JAZZ_LegionAIGetSatelliteIconImages(context)
 end
 
 function JAZZ_LegionAIGetSatelliteIconImagesSquad(squad, from_ui)
-	local icon = squad and JAZZ_GetLegionAISquadIcon(squad)
+	local icon = lResolveLegionAISquadIcon(squad)
 	if icon then
 		return icon
 	end
