@@ -111,11 +111,24 @@ if ([string]::IsNullOrWhiteSpace($SuiteRoot)) {
 }
 
 $suiteParent = Split-Path -Parent $SuiteRoot
+
+function Resolve-SuitePackageRoot {
+    param([string[]] $Names)
+    foreach ($name in $Names) {
+        $candidate = Join-Path $suiteParent $name
+        if (Test-Path -LiteralPath $candidate -PathType Container) {
+            return [IO.Path]::GetFullPath($candidate)
+        }
+    }
+    # Fallback to the first candidate so missing-package diagnostics keep a path.
+    return [IO.Path]::GetFullPath((Join-Path $suiteParent $Names[0]))
+}
+
 $packageRoots = [ordered]@{
     'jazz' = $SuiteRoot
-    'jazz_assets' = Join-Path $suiteParent 'jazz_assets'
-    'jazz-maps' = Join-Path $suiteParent 'jazz-maps'
-    'jazz-units' = Join-Path $suiteParent 'jazz-units'
+    'jazz_assets' = Resolve-SuitePackageRoot -Names @('jazz_assets', 'jazz-assets', 'Jazz Assets', 'jazz assets')
+    'jazz-maps' = Resolve-SuitePackageRoot -Names @('jazz-maps', 'JAZZ Maps', 'jazz maps')
+    'jazz-units' = Resolve-SuitePackageRoot -Names @('jazz-units', 'JAZZ Units', 'jazz units')
 }
 
 $selectedNames = if ($Package -and $Package.Count -gt 0) { @($Package) } else { @($packageRoots.Keys) }

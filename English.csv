@@ -104,7 +104,7 @@ ID,Text,Translation,VoiceActor,Context
 121141697489,Активное оружие I,Active Weapon I,,jazz:items.lua:85531
 121264662868,Grizzly LAR,Grizzly LAR,,jazz:InventoryItem/GrizzlyLAR.lua:13 | jazz:items.lua:16682
 121631884276,Показать трофеи,Show Loot,,jazz:items.lua:89813
-121809489098,Ствол: Увеличивает настильность на <BulletDropIncrease>,Barrel: Increases durability by <BulletDropIncrease>,,jazz:items.lua:31889
+121809489098,Ствол: Увеличивает настильность на <BulletDropIncrease>,Barrel: Increases bullet drop range by <BulletDropIncrease>,,jazz:items.lua:31889
 122093727509,556Match ОТКЛЮЧЕНО,556Match DISABLED,,jazz:InventoryItem/_556_Match.lua:10 | jazz:items.lua:7910
 122264591303,Нужен медик...,Need a medic...,,jazz-units:items.lua:70746
 123316525310,MP5A4,MP5A4,,jazz:InventoryItem/MP5A4.lua:13 | jazz:items.lua:19569
@@ -860,7 +860,7 @@ The chance of hitting the target is increased and depends on the mercenary’s a
 281399517249,"The <em>Hermit</em> turned out to be <em>Mr. Ditch</em>, owner of the <em><SectorName('I16')></em> and friend of the <em>""Ghost"" Butler</em>","The <em>Hermit</em> turned out to be <em>Mr. Ditch</em>, owner of the <em><SectorName('I16')></em> and friend of the <em>""Ghost"" Butler</em>",,jazz-maps:items.lua:69203
 281807945653,я на некоторое время займусь научной работой.,I will take up scientific work for a while.,,jazz-units:items.lua:70023
 282059758278,Керамическая плита 4 класса защиты,Ceramic plate 4 protection class,,jazz:InventoryItem/JazzArmorPlates_Ceramics4.lua:13 | jazz:items.lua:57242
-282231548024,Настильность,Flatness,,jazz:items.lua:68135
+282231548024,Настильность,Bullet Drop Range,,jazz:items.lua:68135
 282257107633,Оазис,Oasis,,jazz-maps:items.lua:34278
 282291513363,кашляет,coughs,,jazz-units:items.lua:68918
 282394383624,На цыпочках.,On tiptoe.,,jazz-units:items.lua:70964
@@ -3074,7 +3074,7 @@ Apparently they were unloading explosives here to attack the mansion",,jazz-maps
 714579125139,Чем ты стал так не угоден Легиону?,What did you do to anger the Legion so much?,,jazz-maps:items.lua:30276
 714604792936,Выбранный отряд находится в другом секторе,The selected squad is not in the sector,,jazz:items.lua:89203
 714830943923,<em>Outcome:</em> The outbreak in the <em><SectorName('I19')></em> got out of control,<em>Outcome:</em> The outbreak in the <em><SectorName('I19')></em> got out of control,,jazz-maps:items.lua:97780
-714841794333,Ствол: Уменьшает настильность на <BulletDropReduce>,Barrel: Reduces flatness by <BulletDropReduce>,,jazz:items.lua:31821
+714841794333,Ствол: Уменьшает настильность на <BulletDropReduce>,Barrel: Reduces bullet drop range by <BulletDropReduce>,,jazz:items.lua:31821
 714899319454,Прицел G36 3x,G36 3x scope,,jazz:items.lua:44500
 715959020275,"Фартануло, мля!","Fartanulo, blah!",,jazz-units:items.lua:71032
 716048130364,Grenade,Grenade,,jazz:items.lua:62990
@@ -3142,7 +3142,7 @@ Apparently they were unloading explosives here to attack the mansion",,jazz-maps
 734026650686,"Автоматическая версия винтовки Токарева. Отличается, собственно, наличием режима полностью автоматического огня. Эффективность этого огня, правда, чрезвычайно низкая, а сама ""Света"" оказалась для стрельбы очередями слишком хрупкой. Найти винтовку в хорошем состоянии не так-то просто.","Automatic version of the Tokarev rifle. It differs, in fact, in the presence of a fully automatic fire mode. The effectiveness of this fire, however, is extremely low, and the Sveta itself turned out to be too fragile for burst fire. Finding a rifle in good condition is not easy.",,jazz:InventoryItem/AVT40.lua:14 | jazz:items.lua:23359
 734426222215,Эмма находится в секторе <em>K4</em>,Emma is in sector <em>K4</em>,,jazz-maps:items.lua:30791
 734743271825,Штаны Спектра,Spectra Pants,,jazz:InventoryItem/JazzArmor_SpectraLegs.lua:13 | jazz:items.lua:56984
-734746536521,Настильность,Flatness,,jazz:items.lua:69347
+734746536521,Настильность,Bullet Drop Range,,jazz:items.lua:69347
 735120904990,<DisplayName>,<DisplayName>,,jazz:items.lua:70682
 735135614427,Чужак!,Stranger!,,jazz-units:items.lua:69571
 735360883220,Компенсаторы,Compensators,,jazz:InventoryItem/OilFilter.lua:11 | jazz:items.lua:51524
@@ -6908,7 +6908,7 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000001383,"<current>/<max>
  (заводской <factory>)","<current>/<max>
  (factory <factory>)",,jazz:items.lua:73495
-890000000001384,Настильность,Flatness,,jazz:Code/AmmoRolloverHint.lua:13
+890000000001384,Настильность,Bullet Drop Range,,jazz:Code/AmmoRolloverHint.lua:13
 890000000001385,Дробь,Fraction,,jazz:Code/AmmoRolloverHint.lua:9
 890000000001386,Кучность,Accuracy,,jazz:Code/AmmoRolloverHint.lua:14
 890000000001387,Шанс клина,Wedge chance,,jazz:Code/AmmoRolloverHint.lua:15
@@ -6954,6 +6954,36 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000001421,Область защиты,Protection area,,jazz:items.lua:73253
 890000000001422,<text1>%,<text1>%,,jazz:items.lua:73452
 890000000001423,Прочность,Strength,,jazz:items.lua:73451
+890000000001424,Garrison,Garrison,,jazz:Code/Guardpost_Patrols.lua
+890000000001425,Patrol,Patrol,,jazz:Code/Guardpost_Patrols.lua
+890000000001426,Recon,Recon,,jazz:Code/Guardpost_Patrols.lua
+890000000001427,QRF,QRF,,jazz:Code/Guardpost_Patrols.lua
+890000000001428,Major response,Major response,,jazz:Code/Guardpost_Patrols.lua
+890000000001429,Supply convoy,Supply convoy,,jazz:Code/Guardpost_Patrols.lua
+890000000001430,Diamond convoy,Diamond convoy,,jazz:Code/Guardpost_Patrols.lua
+890000000001431,<role> — outpost <home> lost; no contact,<role> — outpost <home> lost; no contact,,jazz:Code/Guardpost_Patrols.lua
+890000000001432,<role> — awaiting orders from outpost <home>,<role> — awaiting orders from outpost <home>,,jazz:Code/Guardpost_Patrols.lua
+890000000001433,<role> — returning with intelligence to <home>,<role> — returning with intelligence to <home>,,jazz:Code/Guardpost_Patrols.lua
+890000000001434,<role> — returning to base <home>,<role> — returning to base <home>,,jazz:Code/Guardpost_Patrols.lua
+890000000001435,<role> — awaiting assignment,<role> — awaiting assignment,,jazz:Code/Guardpost_Patrols.lua
+890000000001436,<role> — holding sector <target>,<role> — holding sector <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001437,<role> — moving to hold sector <target>,<role> — moving to hold sector <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001438,<role> — patrolling key sites; next: <target>,<role> — patrolling key sites; next: <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001439,<role> — observing area <target>,<role> — observing area <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001440,<role> — moving to observe area <target>,<role> — moving to observe area <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001441,<role> — retaking sector <target>,<role> — retaking sector <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001442,<role> — responding to intelligence in sector <target>,<role> — responding to intelligence in sector <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001443,<role> — assaulting sector <target>,<role> — assaulting sector <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001444,<role> — delivering supplies to <target>,<role> — delivering supplies to <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001445,<role> — delivering diamonds to HQ <target>,<role> — delivering diamonds to HQ <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001446,<role> — task in sector <target>,<role> — task in sector <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001447,"<squad_name>
+Task: <task>","<squad_name>
+Task: <task>",,jazz:Code/Guardpost_Patrols.lua
+890000000001448,Legion Recon,Legion Recon,,jazz-units:items.lua
+890000000001449,Legion Patrol,Legion Patrol,,jazz-units:items.lua
+890000000001450,Legion Convoy,Legion Convoy,,jazz-units:items.lua
+890000000001451,Legion Garrison,Legion Garrison,,jazz-units:items.lua
 939310080350111,ржавое,rusty,,jazz:Code/Inventory.lua:117 | jazz:Code/Inventory.lua:180
 968409848233111,сломанное,broken,,jazz:Code/Inventory.lua:120 | jazz:Code/Inventory.lua:183
 1786863112811235,Укрепления,Fortifications,,jazz:Code/POI Extension.lua:9
@@ -6962,3 +6992,21 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 4869897712911115,,,,jazz:Code/Inventory.lua:85 | jazz:Code/Inventory.lua:148
 5678579714391111,изношенное,worn out,,jazz:Code/Inventory.lua:114 | jazz:Code/Inventory.lua:177
 8182360763020012,Ресурс,Resource,,jazz:items.lua:73489
+266087238479,Bank Account,Bank Account,,jazz:items.lua:278
+284104494351,Contact,Contact,,jazz:items.lua:1111
+351463573859,<MercLevel()>,<MercLevel()>,,jazz:items.lua:540
+440475746284,<name>,<name>,,jazz:items.lua:128
+457158173170,Weekly Cost,Weekly Cost,,jazz:items.lua:778
+529989041592,See Bio,See Bio,,jazz:items.lua:1183
+550507290667,Equipment,Equipment,,jazz:items.lua:861
+801008989746,Backpack,Backpack,,jazz:items.lua:951
+661110761557,Bio,Bio,,jazz:items.lua:1013
+642133584014,BIO - <Title>,БИОГРАФИЯ - <Title>,,jazz:items.lua:1018
+872907861571,Loadout,Loadout,,jazz:items.lua:1208
+891740393419,About Us,About Us,,jazz:items.lua:396
+984976462387,Perks,Perks,,jazz:items.lua:821
+111807730937,Terms of Service,Terms of Service,,jazz:items.lua:407
+141041371501,Level,Level,,jazz:items.lua:547
+163956682203,Dismiss,Dismiss,,jazz:items.lua:1147
+976520897583,<name>,<name>,,jazz:items.lua:656
+157340803747,<help>,<help>,,jazz:items.lua:654

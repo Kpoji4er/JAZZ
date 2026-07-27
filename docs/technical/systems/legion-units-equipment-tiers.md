@@ -204,6 +204,8 @@ Quest `JAZZ_LegionTier` создаётся с `Given = true`, а `JAZZ_Legion_Ti
 - 37 public `JAZZ_Legion_*` ID;
 - `<Unit>_Inventory` и вложенных LootDef ID, на которые ссылаются UnitData.
 
+Пилот Legion Global AI (JAZZ-STRATEGY-002) потребляет тот же 37-unit pool через четыре EnemySquad ID в `jazz-units`: `LegionGlobalAI_Recon` (8–12), `_Patrol` (12–18), `_Convoy` (15–25), `_Garrison` (25–40). Новые UnitData не добавляются; составы содержат только `JAZZ_Legion_*`.
+
 Изменение любого из этих ID требует синхронного impact audit обоих репозиториев и generated-data проверки.
 
 ## Расхождения diagram revision с current UnitData

@@ -79932,9 +79932,9 @@ return {
 													PlaceObj('XTemplateFunc', {
 														'name', "IsDropTarget(self, draw_win, pt)",
 														'func', function (self, draw_win, pt)
-															return 	IsKindOf(InventoryDragItem,"MiscItem")
-																	 	and InventoryDragItem.effect_moment=="on_use" 
-																		and not next(InventoryDragItems)
+															return InventoryDragItem
+																and IsKindOf(InventoryDragItem, "Item")
+																and not next(InventoryDragItems or empty_table)
 																		--and (gv_SatelliteView or InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()))
 														end,
 													}),
@@ -82803,9 +82803,9 @@ return {
 													PlaceObj('XTemplateFunc', {
 														'name', "IsDropTarget(self, draw_win, pt)",
 														'func', function (self, draw_win, pt)
-															return 	IsKindOf(InventoryDragItem,"MiscItem")
-																	 	and InventoryDragItem.effect_moment=="on_use" 
-																		and not next(InventoryDragItems)
+															return InventoryDragItem
+																and IsKindOf(InventoryDragItem, "Item")
+																and not next(InventoryDragItems or empty_table)
 																		--and (gv_SatelliteView or InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()))
 														end,
 													}),
@@ -85707,9 +85707,9 @@ return {
 													PlaceObj('XTemplateFunc', {
 														'name', "IsDropTarget(self, draw_win, pt)",
 														'func', function (self, draw_win, pt)
-															return 	IsKindOf(InventoryDragItem,"MiscItem")
-																	 	and InventoryDragItem.effect_moment=="on_use" 
-																		and not next(InventoryDragItems)
+															return InventoryDragItem
+																and IsKindOf(InventoryDragItem, "Item")
+																and not next(InventoryDragItems or empty_table)
 																		--and (gv_SatelliteView or InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()))
 														end,
 													}),
@@ -88561,9 +88561,9 @@ return {
 								PlaceObj('XTemplateFunc', {
 									'name', "IsDropTarget(self, draw_win, pt)",
 									'func', function (self, draw_win, pt)
-										return 	IsKindOf(InventoryDragItem,"MiscItem")
-												 	and InventoryDragItem.effect_moment=="on_use" 
-													and not next(InventoryDragItems)
+										return InventoryDragItem
+											and IsKindOf(InventoryDragItem, "Item")
+											and not next(InventoryDragItems or empty_table)
 													--and (gv_SatelliteView or InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()))
 									end,
 								}),
@@ -91455,9 +91455,9 @@ return {
 									PlaceObj('XTemplateFunc', {
 										'name', "IsDropTarget(self, draw_win, pt)",
 										'func', function (self, draw_win, pt)
-											return 	IsKindOf(InventoryDragItem,"MiscItem")
-													 	and InventoryDragItem.effect_moment=="on_use" 
-														and not next(InventoryDragItems)
+											return InventoryDragItem
+												and IsKindOf(InventoryDragItem, "Item")
+												and not next(InventoryDragItems or empty_table)
 														--and (gv_SatelliteView or InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()))
 										end,
 									}),
@@ -94268,9 +94268,9 @@ return {
 											PlaceObj('XTemplateFunc', {
 												'name', "IsDropTarget(self, draw_win, pt)",
 												'func', function (self, draw_win, pt)
-													return 	IsKindOf(InventoryDragItem,"MiscItem")
-															 	and InventoryDragItem.effect_moment=="on_use" 
-																and not next(InventoryDragItems)
+													return InventoryDragItem
+														and IsKindOf(InventoryDragItem, "Item")
+														and not next(InventoryDragItems or empty_table)
 																--and (gv_SatelliteView or InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()))
 												end,
 											}),
@@ -95132,9 +95132,9 @@ return {
 														PlaceObj('XTemplateFunc', {
 															'name', "IsDropTarget(self, draw_win, pt)",
 															'func', function (self, draw_win, pt)
-																return 	IsKindOf(InventoryDragItem,"MiscItem")
-																		 	and InventoryDragItem.effect_moment=="on_use" 
-																			and not next(InventoryDragItems)
+																return InventoryDragItem
+																	and IsKindOf(InventoryDragItem, "Item")
+																	and not next(InventoryDragItems or empty_table)
 																			--and (gv_SatelliteView or InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()))
 															end,
 														}),
@@ -102676,10 +102676,10 @@ return {
 					"I7",
 				},
 				ShipmentSquads = {
-					"DiamondBriefcase",
+					"LegionGlobalAI_Convoy",
 				},
 				SupplySquads = {
-					"LegionDefenders_Mobile_Easy",
+					"LegionGlobalAI_Convoy",
 				},
 				group = "Default",
 				id = "ErnieIsland",

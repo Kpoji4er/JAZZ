@@ -8,6 +8,7 @@ systems:
   - ui-audio-fx
   - strategy-squads-sectors
   - assets-entities
+  - weapons-ammo-components
 repositories:
   - jazz
   - jazz_assets
@@ -19,6 +20,7 @@ write_set:
   - Code/Guardpost_Patrols.lua
   - Code/SatelliteSquad.lua
   - items.lua
+  - metadata.lua
   - ParticleTextures/Explosion_emissive.dds
   - ParticleTextures/Fallbacks/Explosion_emissive.dds
   - docs/specs/active/JAZZ-HOTFIX-001.md
@@ -52,6 +54,7 @@ exclusive_resources:
   - items.lua
   - metadata.lua
   - ModItemCombatAction/AttackShotgun
+  - ModItemInventoryItemCompositeDef/MAS36
   - ModItemParticleSystemPreset/ParticlesThompson
   - ModItemXTemplate/ActionCameraCrosshair
   - ModItemXTemplate/RolloverInventoryWeaponBase
@@ -75,12 +78,13 @@ approved_by: project-owner
 
 ## Проблема
 
-При холодной загрузке JAZZ и в игровых UI-сценариях воспроизводятся независимые assert-ошибки: повторная регистрация vanilla `MapVar("gameOverState")`, чтение ещё не объявленных strict globals в Legion AI, повторный `Open` crosshair-окна, индексирование числовых aim-параметров конусом, индексирование отсутствующего региона в satellite context menu и несовместимые либо отсутствующие asset resources. В журнале рендера повреждённый материал патронной коробки непосредственно предшествует assert в `reRenderQueue.cpp`, а `ParticlesThompson` ссылается на ресурс другого мода.
+При холодной загрузке JAZZ и в игровых UI-сценариях воспроизводятся независимые assert-ошибки: повторная регистрация vanilla `MapVar("gameOverState")`, чтение ещё не объявленных strict globals в Legion AI, повторный `Open` crosshair-окна, индексирование числовых aim-параметров конусом, индексирование отсутствующего региона в satellite context menu и несовместимые либо отсутствующие asset resources. В журнале рендера повреждённый материал патронной коробки непосредственно предшествует assert в `reRenderQueue.cpp`, а `ParticlesThompson` ссылается на ресурс другого мода. Загрузчик также сообщает `InventoryItem/MAS36.lua - File Not Found`: tracked companion называется `InventoryItem/Mas36.lua`, а `metadata.code` использует другой регистр.
 
 ## Цели
 
 - Устранить показанные пользователем Lua/XWindow asserts при загрузке, выборе атаки и открытии satellite context menu.
 - Восстановить самодостаточный resource contract JAZZ/JAZZ Assets для подтверждённых отсутствующих textures и Thompson particle.
+- Синхронизировать точный регистр metadata-пути `MAS36` с существующим companion без изменения ModItem ID, свойств оружия или порядка загрузки.
 - Устранить подтверждённую несовместимую комбинацию opaque/blending properties материала патронной коробки.
 - Сохранить публичные IDs, текущие формулы боя, save/network contract и владельцев данных.
 
@@ -101,6 +105,7 @@ approved_by: project-owner
 - `JAZZ-HOTFIX-001-REQ-005` — weapon rollover не должен предполагать наличие необъявленного `idIcon`.
 - `JAZZ-HOTFIX-001-REQ-006` — `ParticlesThompson` должен ссылаться на ресурс собственного пакета JAZZ, существующий в основном и fallback слоях.
 - `JAZZ-HOTFIX-001-REQ-007` — подтверждённые texture IDs должны существовать в `jazz_assets`, отсутствующие Tyulpan RM-ссылки не должны оставаться активными, а opaque cartridge-box material не должен включать translucency/distortion/depth-softness.
+- `JAZZ-HOTFIX-001-REQ-008` — `metadata.code` должен загружать существующий `InventoryItem/Mas36.lua` с точным регистром; `items.lua`, companion content и публичный ID `MAS36` не меняются.
 
 ## Инварианты и ограничения
 
@@ -119,13 +124,14 @@ approved_by: project-owner
 - `JAZZ-HOTFIX-001-AC-004` — статический asset-аудит не находит заявленных missing DDS/particle paths и несовместимых cartridge-box material flags.
 - `JAZZ-HOTFIX-001-AC-005` — generated-data sync проходит по комплекту из четырёх пакетов без нового `FAIL`.
 - `JAZZ-HOTFIX-001-AC-006` — системная документация и override matrix описывают фактический post-fix contract.
+- `JAZZ-HOTFIX-001-AC-007` — metadata/items/companion для `MAS36` согласованы, active path существует с точным регистром, а холодная загрузка не выдаёт `InventoryItem/MAS36.lua - File Not Found`.
 
 ## Impact и совместимость
 
 - Vanilla/CommonLib/JAZZ: удаляется только дублирующая JAZZ-регистрация vanilla `MapVar`; CommonLib snapshot `main` подтверждён на commit `1adf9f232680d3b011248d180fd0ad1e609a8e2c`, версия 1.11. Публичные функции и IDs сохраняются.
 - Saves: новое persistent state не добавляется, существующее значение `gameOverState` остаётся vanilla MapVar.
 - Network/determinism: NetSync events, RNG, формулы и порядок действий не изменяются.
-- Generated data: точечно меняются properties/handlers пяти существующих ModItems; список `metadata.code`, companions и IDs остаётся прежним.
+- Generated data: точечно меняются properties/handlers пяти существующих ModItems; для `MAS36` меняется только регистр пути в `metadata.code` до уже существующего companion. Порядок списка, содержимое `items.lua`/companion и IDs остаются прежними.
 - Cross-package references: texture/material resources принадлежат `jazz_assets`; particle preset и его texture принадлежат `jazz`.
 - Rollback/recovery: текстовые изменения откатываются по точному diff, добавленные binaries удаляются только вместе с возвратом ссылок; Mod Editor перед последующим save обязан reload мод с диска.
 
@@ -143,6 +149,8 @@ approved_by: project-owner
 - Кто подтвердил: project-owner, команда «чини» после предъявления конкретных стеков и предложенного hotfix scope.
 - Дата: 2026-07-26.
 
+- Дополнение 2026-07-27: project-owner предъявил load error MAS36 и поручил закоммитить все незакоммиченные изменения перед merge в `main`; scope ограничен восстановлением валидного metadata-пути без editor mojibake.
+
 ## Evidence
 
 - `JAZZ-HOTFIX-001-AC-001`: `BLOCKED` — требуется холодная загрузка игры после реализации.
@@ -152,7 +160,10 @@ approved_by: project-owner
 - `JAZZ-HOTFIX-001-AC-005`: `BLOCKED` — generated-data audit выполняется после реализации.
 - `JAZZ-HOTFIX-001-AC-006`: `BLOCKED` — documentation audit выполняется после реализации.
 
+- `JAZZ-HOTFIX-001-AC-007`: `PASS (static/generated)` / `BLOCKED (runtime)` — tracked и metadata path точно совпадают как `InventoryItem/Mas36.lua`, старый uppercase path отсутствует, generated audit errors=0; остаются 20 baseline orphan warnings и ожидаемый timestamp warning ручной metadata-транзакции. Холодная загрузка остаётся проверкой владельца.
+
 ## Documentation delta
 
 - После реализации обновляются профильные страницы runtime/editor, combat, UI/FX, strategy, assets, точное описание `AttackShotgun` и override matrix.
 - Игроковая wiki не меняется: hotfix восстанавливает заявленное текущее поведение, не вводя нового правила, числа или публичного ID.
+- Для MAS36 профильный technical-каталог уже фиксирует `InventoryItem/Mas36.lua`; изменение документации ограничено этой spec, поскольку item properties, public ID и игроковый контракт не меняются.

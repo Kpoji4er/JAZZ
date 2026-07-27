@@ -63,13 +63,15 @@ JAZZ поддерживает только последнюю опубликов
 
 | Символ | Vanilla JA3 | JAZZ | Граница совместимости |
 | --- | --- | --- | --- |
-| `GetSatelliteIconImages` | `Lua/UI/XSatelliteObjects.lua` | `Code/Guardpost_Patrols.lua`, затем `Code/POI Extension.lua` | Итоговый владелец по `metadata.code` — POI; для squad с `image` возвращает exact image, для POI добавляет custom overlay |
-| `GetSatelliteIconImagesSquad` | `Lua/UI/XSatelliteObjects.lua` | `Code/Guardpost_Patrols.lua` | Managed squad обходит vanilla `_2`/`_s` suffix lookup; остальные вызовы передаются сохранённой base-функции |
-| `SquadWindow:GetRolloverText` | `Lua/UI/XSatelliteObjects.lua` | `Code/Guardpost_Patrols.lua` | Managed squad получает UI-only context с `Задача:`; unmanaged squad возвращается без изменений |
+| `GetSatelliteIconImages` | `Lua/UI/XSatelliteObjects.lua` | `POI Extension.lua` (load order), затем late re-wrap `JAZZ_LegionAIGetSatelliteIconImages` | После POI Legion AI снова становится итоговым владельцем для managed squad: icon по role PNG; unmanaged/POI делегируется сохранённой base (POI) |
+| `GetSatelliteIconImagesSquad` | `Lua/UI/XSatelliteObjects.lua` | `Code/Guardpost_Patrols.lua` | Managed squad: role PNG без `_2`/`_s`; unmanaged → base |
+| `TFormat.SquadNameColored` | `Lua/Tactical/Utility.lua` | сохранённая base-реализация | Заголовок managed/unmanaged squad остаётся vanilla; task больше не встраивается в name |
+| `SquadWindow:CreateRolloverWindow` | `Lua/UI/XSatelliteObjects.lua` | `JAZZ_LegionAICreateRolloverWindow` в `Guardpost_Patrols.lua` | После vanilla spawn/open добавляет сворачиваемый `idJAZZLegionAITask` под составом; обновляет его при cycle squad, unmanaged скрывает |
+| `SquadWindow:GetRolloverText` | `Lua/UI/XSatelliteObjects.lua` | passthrough `self.context` | Не мутирует persistent `Name`; CreateRolloverWindow этот путь для заголовка не использует |
 
-`Guardpost_Patrols.lua` получает optional сохранённые base-ссылки через `rawget(_G, ...)`, чтобы cold load не обращался к отсутствующему strict global, а reload не захватывал собственный wrapper как новую base-функцию.
+`Guardpost_Patrols.lua` сохраняет base через `rawget(_G, ...)` и переустанавливает icon/rollover wrappers на `ModsReloaded` / `LoadGame` / `InitSatelliteView`. Base `SquadWindow:CreateRolloverWindow` хранится отдельно и не перехватывается повторно, поэтому ReloadLua не строит recursive chain.
 
-CommonLib 1.11 / commit `1adf9f232680d3b011248d180fd0ad1e609a8e2c` эти три символа не переопределяет. После обновления игры или CommonLib повторно проверять сигнатуры и rollover template.
+CommonLib 1.11 / commit `1adf9f232680d3b011248d180fd0ad1e609a8e2c` эти символы не переопределяет. После обновления игры или CommonLib повторно проверять сигнатуры и rollover template.
 
 При обновлении игры эти файлы требуют трёхстороннего сравнения: старая vanilla-версия, новая vanilla-версия и JAZZ-версия. Простое копирование нового vanilla-файла поверх JAZZ уничтожит механику мода. Слепое сохранение старой копии может вернуть исправленные разработчиками игры ошибки.
 

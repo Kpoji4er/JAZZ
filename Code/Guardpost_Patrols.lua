@@ -7,6 +7,7 @@ g_JAZZ_BaseGetSatelliteIconImages = rawget(_G, "g_JAZZ_BaseGetSatelliteIconImage
 g_JAZZ_BaseGetSatelliteIconImagesSquad = rawget(_G, "g_JAZZ_BaseGetSatelliteIconImagesSquad") or GetSatelliteIconImagesSquad
 g_JAZZ_BaseTFormatSquadNameColored = rawget(_G, "g_JAZZ_BaseTFormatSquadNameColored") or TFormat.SquadNameColored
 
+g_JAZZ_BaseSquadWindowCreateRolloverWindow = rawget(_G, "g_JAZZ_BaseSquadWindowCreateRolloverWindow") or SquadWindow.CreateRolloverWindow
 local lSchemaVersion = 1
 
 local lRegularRoles = {
@@ -118,6 +119,29 @@ local function lConfig(region, field, fallback)
 	return value
 end
 
+
+local function lGetSquadLookupId(context_or_squad)
+	if type(context_or_squad) ~= "table" then
+		return context_or_squad
+	end
+	local squad_id = context_or_squad.squad or context_or_squad.UniqueId or context_or_squad.id
+	if type(squad_id) == "table" then
+		squad_id = squad_id.UniqueId or squad_id.id
+	end
+	return squad_id
+end
+
+local function lGetLegionAISquadState(context_or_squad)
+	local root = gv_JAZZ_LegionAI
+	if type(root) ~= "table" or type(root.squads) ~= "table" then
+		return false
+	end
+	local squad_id = lGetSquadLookupId(context_or_squad)
+	if squad_id == nil then
+		return false
+	end
+	return root.squads[squad_id] or root.squads[tostring(squad_id)] or root.squads[tonumber(squad_id)] or false
+end
 local function lInterval(region, field, fallback)
 	return Max(lConfig(region, field, fallback), lHourScale())
 end
@@ -144,12 +168,7 @@ function JAZZ_IsLegionAIManagedGuardpost(sector_id)
 end
 
 function JAZZ_IsLegionAIManagedSquad(squad_or_id)
-	local squad_id = type(squad_or_id) == "table" and squad_or_id.UniqueId or squad_or_id
-	return type(gv_JAZZ_LegionAI) == "table"
-		and gv_JAZZ_LegionAI.squads
-		and gv_JAZZ_LegionAI.squads[squad_id]
-		and true
-		or false
+	return not not lGetLegionAISquadState(squad_or_id)
 end
 
 local function lInitialRegionHeat(region)
@@ -170,7 +189,7 @@ local function lEnsureOutpost(root, region, region_state, sector_id)
 			sector_id = sector_id,
 			region_id = lRegionId(region),
 			enabled = controlled,
-			supply = lConfig(region, "StartingSupply", 150),
+			supply = lConfig(region, "StartingSupply", 250),
 			diamond_stock = 0,
 			next_command_time = lNow() + lInterval(region, "CommandInterval", 6 * lHourScale()),
 			reboot_until = 0,
@@ -1423,99 +1442,175 @@ function JAZZ_LegionAIGetDiagnostics()
 	return diagnostics
 end
 
--- The seven JAZZ role assets are authored as final 64x64 satellite icons and
--- intentionally have no vanilla `_2`/`_s` companions.
-function GetSatelliteIconImages(context)
-	local squad_id = context and context.squad
-	local squad = squad_id and gv_Squads and gv_Squads[squad_id]
-	if squad
-	and squad.image
-	and JAZZ_IsLegionAIManagedSquad(squad_id)
-	then
-		return squad.image, false
+-- The seven JAZZ role assets are final 64x64 PNGs and intentionally have no
+-- vanilla `_2`/`_s` companions. Resolve by managed role, not potentially stale
+-- SatelliteSquad.image, so save/load and ReloadLua keep the correct icon.
+function JAZZ_GetLegionAISquadIcon(squad_or_id)
+	local squad_state = lGetLegionAISquadState(squad_or_id)
+	return squad_state and lRoleImages[squad_state.role] or false
+end
+
+function JAZZ_LegionAIGetSatelliteIconImages(context)
+	local icon = context and JAZZ_GetLegionAISquadIcon(context)
+	if icon then
+		return icon, false
 	end
 	return g_JAZZ_BaseGetSatelliteIconImages(context)
 end
 
-function GetSatelliteIconImagesSquad(squad, from_ui)
-	if squad
-	and squad.image
-	and JAZZ_IsLegionAIManagedSquad(squad)
-	then
-		return squad.image
+function JAZZ_LegionAIGetSatelliteIconImagesSquad(squad, from_ui)
+	local icon = squad and JAZZ_GetLegionAISquadIcon(squad)
+	if icon then
+		return icon
 	end
 	return g_JAZZ_BaseGetSatelliteIconImagesSquad(squad, from_ui)
 end
 
 local lRoleDisplayNames = {
-	garrison = "Гарнизон",
-	patrol = "Патруль",
-	recon = "Разведка",
-	qrf = "QRF",
-	major = "Отряд Майора",
-	supply = "Конвой снабжения",
-	shipment = "Алмазный конвой",
+	garrison = T(890000000001424, "Garrison"),
+	patrol = T(890000000001425, "Patrol"),
+	recon = T(890000000001426, "Recon"),
+	qrf = T(890000000001427, "QRF"),
+	major = T(890000000001428, "Major response"),
+	supply = T(890000000001429, "Supply convoy"),
+	shipment = T(890000000001430, "Diamond convoy"),
 }
 
 function JAZZ_GetLegionAISquadTaskText(squad_or_id)
-	local squad_id = type(squad_or_id) == "table" and squad_or_id.UniqueId or squad_or_id
-	local root = gv_JAZZ_LegionAI
-	local squad_state = type(root) == "table" and root.squads and root.squads[squad_id]
+	local squad_state = lGetLegionAISquadState(squad_or_id)
 	if not squad_state then
 		return false
 	end
 
-	local role = lRoleDisplayNames[squad_state.role] or tostring(squad_state.role)
+	local role = lRoleDisplayNames[squad_state.role] or Untranslated(tostring(squad_state.role))
 	local task = squad_state.task
 	local target = task and task.target_sector
 	if squad_state.state == "orphaned" then
-		return string.format("%s — без связи: аванпост %s потерян", role, squad_state.home_sector)
+		return T{890000000001431, "<role> — outpost <home> lost; no contact", role = role, home = Untranslated(squad_state.home_sector)}
 	elseif squad_state.state == "ready_for_orders" then
-		return string.format("%s — ожидает приказов аванпоста %s", role, squad_state.home_sector)
+		return T{890000000001432, "<role> — awaiting orders from outpost <home>", role = role, home = Untranslated(squad_state.home_sector)}
 	elseif squad_state.state == "returning" then
 		if task and task.task_type == "return_with_intel" then
-			return string.format("%s — возвращается с разведданными в %s", role, squad_state.home_sector)
+			return T{890000000001433, "<role> — returning with intelligence to <home>", role = role, home = Untranslated(squad_state.home_sector)}
 		end
-		return string.format("%s — возвращается на базу %s", role, squad_state.home_sector)
+		return T{890000000001434, "<role> — returning to base <home>", role = role, home = Untranslated(squad_state.home_sector)}
 	elseif not task then
-		return string.format("%s — ожидает задачу", role)
+		return T{890000000001435, "<role> — awaiting assignment", role = role}
 	elseif squad_state.role == "garrison" then
-		local action = squad_state.state == "working" and "удерживает" or "идёт удерживать"
-		return string.format("%s — %s сектор %s", role, action, target or "?")
+		if squad_state.state == "working" then
+			return T{890000000001436, "<role> — holding sector <target>", role = role, target = Untranslated(target or "?")}
+		end
+		return T{890000000001437, "<role> — moving to hold sector <target>", role = role, target = Untranslated(target or "?")}
 	elseif squad_state.role == "patrol" then
-		return string.format("%s — патрулирует ключевые точки, следующая: %s", role, target or "?")
+		return T{890000000001438, "<role> — patrolling key sites; next: <target>", role = role, target = Untranslated(target or "?")}
 	elseif squad_state.role == "recon" then
 		local observed = task.observed_sector or target or "?"
-		local action = squad_state.state == "working" and "наблюдает район" or "выдвигается к району"
-		return string.format("%s — %s %s", role, action, observed)
+		if squad_state.state == "working" then
+			return T{890000000001439, "<role> — observing area <target>", role = role, target = Untranslated(observed)}
+		end
+		return T{890000000001440, "<role> — moving to observe area <target>", role = role, target = Untranslated(observed)}
 	elseif squad_state.role == "qrf" then
-		local action = task.task_type == "retake" and "отбивает сектор" or "реагирует по разведданным в секторе"
-		return string.format("%s — %s %s", role, action, target or "?")
+		if task.task_type == "retake" then
+			return T{890000000001441, "<role> — retaking sector <target>", role = role, target = Untranslated(target or "?")}
+		end
+		return T{890000000001442, "<role> — responding to intelligence in sector <target>", role = role, target = Untranslated(target or "?")}
 	elseif squad_state.role == "major" then
-		return string.format("%s — штурмует сектор %s", role, target or "?")
+		return T{890000000001443, "<role> — assaulting sector <target>", role = role, target = Untranslated(target or "?")}
 	elseif squad_state.role == "supply" then
-		return string.format("%s — везёт снабжение в %s", role, target or "?")
+		return T{890000000001444, "<role> — delivering supplies to <target>", role = role, target = Untranslated(target or "?")}
 	elseif squad_state.role == "shipment" then
-		return string.format("%s — везёт алмазы в штаб %s", role, target or "?")
+		return T{890000000001445, "<role> — delivering diamonds to HQ <target>", role = role, target = Untranslated(target or "?")}
 	end
-	return string.format("%s — задача в секторе %s", role, target or "?")
+	return T{890000000001446, "<role> — task in sector <target>", role = role, target = Untranslated(target or "?")}
 end
 
--- Keep the vanilla rollover for every unmanaged squad. Managed Legion squads
--- receive a shallow UI-only context whose title includes the live task.
-function SquadWindow:GetRolloverText()
-	local squad = self.context
+-- SquadRolloverMap inherits SquadRollover. Its idCurrentSquadCont owns the
+-- displayed/cycled squad, while the parent VList is the stable place for an
+-- extra task row that is not destroyed by XContentTemplate:RespawnContent().
+local function lUpdateLegionAITaskPanel(squad_content)
+	local panel = squad_content and rawget(squad_content, "jazz_legion_ai_task_panel")
+	if not panel then
+		return
+	end
+
+	local squads = rawget(squad_content, "allSquads")
+	local selected = rawget(squad_content, "selectedSquad") or 1
+	local squad = squads and squads[selected] or squad_content.context
 	local task_text = squad and JAZZ_GetLegionAISquadTaskText(squad)
-	if not task_text then
-		return squad
+	panel:SetText(task_text or "")
+	panel:SetVisible(task_text and true or false)
+end
+
+local function lAttachLegionAITaskPanel(rollover)
+	local squad_content = rollover and rollover:ResolveId("idCurrentSquadCont")
+	if not squad_content or rawget(squad_content, "jazz_legion_ai_task_panel") then
+		return
 	end
-	local context = table.copy(squad)
-	local squad_name = squad.Name
-	if IsT and IsT(squad_name) then
-		squad_name = _InternalTranslate(squad_name)
+
+	local outer_content = squad_content.parent
+	if not outer_content then
+		return
 	end
-	context.Name = Untranslated(string.format("%s\nЗадача: %s", tostring(squad_name or ""), task_text))
-	return context
+
+	local panel = XText:new({
+		Id = "idJAZZLegionAITask",
+		Margins = box(0, 6, 0, 0),
+		Padding = box(8, 6, 8, 6),
+		HAlign = "stretch",
+		FoldWhenHidden = true,
+		HandleMouse = false,
+		TextStyle = "SquadMapRollover",
+		Translate = true,
+		Visible = false,
+		Background = RGBA(32, 35, 47, 255),
+	}, outer_content, squad_content.context)
+	rawset(squad_content, "jazz_legion_ai_task_panel", panel)
+
+	local base_update = squad_content.UpdateMultiSquadSection
+	if type(base_update) == "function" then
+		squad_content.UpdateMultiSquadSection = function(self, ...)
+			local result = base_update(self, ...)
+			lUpdateLegionAITaskPanel(self)
+			return result
+		end
+	end
+
+	panel:Open()
+	lUpdateLegionAITaskPanel(squad_content)
+end
+
+function JAZZ_LegionAICreateRolloverWindow(self, gamepad, context, pos)
+	local rollover = g_JAZZ_BaseSquadWindowCreateRolloverWindow(self, gamepad, context, pos)
+	if rollover then
+		lAttachLegionAITaskPanel(rollover)
+	end
+	return rollover
+end
+
+function SquadWindow:GetRolloverText()
+	return self.context
+end
+
+-- POI Extension.lua loads after this file and replaces GetSatelliteIconImages.
+-- Re-wrap after mod load/reload so managed role icons win without recursion.
+local function lInstallLegionAIUIWrappers()
+	if GetSatelliteIconImages ~= JAZZ_LegionAIGetSatelliteIconImages then
+		g_JAZZ_BaseGetSatelliteIconImages = GetSatelliteIconImages
+		GetSatelliteIconImages = JAZZ_LegionAIGetSatelliteIconImages
+	end
+	GetSatelliteIconImagesSquad = JAZZ_LegionAIGetSatelliteIconImagesSquad
+	SquadWindow.CreateRolloverWindow = JAZZ_LegionAICreateRolloverWindow
+	TFormat.SquadNameColored = g_JAZZ_BaseTFormatSquadNameColored
+end
+
+GetSatelliteIconImages = JAZZ_LegionAIGetSatelliteIconImages
+GetSatelliteIconImagesSquad = JAZZ_LegionAIGetSatelliteIconImagesSquad
+SquadWindow.CreateRolloverWindow = JAZZ_LegionAICreateRolloverWindow
+TFormat.SquadNameColored = g_JAZZ_BaseTFormatSquadNameColored
+
+function OnMsg.ModsReloaded()
+	lInstallLegionAIUIWrappers()
+	JAZZ_LegionAIEnsureState()
 end
 
 function OnMsg.NewGame()
@@ -1524,10 +1619,12 @@ function OnMsg.NewGame()
 end
 
 function OnMsg.LoadGame()
+	lInstallLegionAIUIWrappers()
 	JAZZ_LegionAIEnsureState()
 end
 
 function OnMsg.InitSatelliteView()
+	lInstallLegionAIUIWrappers()
 	JAZZ_LegionAIEnsureState()
 end
 

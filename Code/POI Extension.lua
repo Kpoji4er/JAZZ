@@ -952,6 +952,11 @@ end
 
 
 function GetSatelliteIconImages(context)
+	local legion_icon = context and JAZZ_GetLegionAISquadIcon and JAZZ_GetLegionAISquadIcon(context)
+	if legion_icon then
+		return legion_icon, false
+	end
+
 	local base_img, upper_img = "UI/Icons/SateliteView/icon_neutral", "UI/Icons/SateliteView/hospital"
 	local side = context.side
 	local is_enemy = side=="enemy1" or side=="enemy2"

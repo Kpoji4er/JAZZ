@@ -8,6 +8,7 @@
 - [Как читать оружие и компоненты](weapons-and-ammo.md)
 - [Полный каталог оружия по тирам](weapons/README.md)
 - [Все компоненты](weapons/components.md)
+- [Global AI Легиона на Эрни](legion-global-ai.md)
 
 ## Как читать этот справочник
 
