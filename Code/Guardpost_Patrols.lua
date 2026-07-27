@@ -8,6 +8,31 @@ g_JAZZ_BaseGetSatelliteIconImagesSquad = rawget(_G, "g_JAZZ_BaseGetSatelliteIcon
 g_JAZZ_BaseTFormatSquadNameColored = rawget(_G, "g_JAZZ_BaseTFormatSquadNameColored") or TFormat.SquadNameColored
 
 g_JAZZ_BaseSquadWindowCreateRolloverWindow = rawget(_G, "g_JAZZ_BaseSquadWindowCreateRolloverWindow") or SquadWindow.CreateRolloverWindow
+local g_JAZZ_BaseXMapRollerableContextImageGetImage = rawget(_G, "g_JAZZ_BaseXMapRollerableContextImageGetImage")
+
+-- Ensure squad icons shown by XMapRollerableContextImage honor JAZZ role icons and any persisted override.
+local function lInstallLegionAIXMapRollerableContextImageWrapper()
+	if not XMapRollerableContextImage or type(XMapRollerableContextImage.GetImage) ~= "function" then
+		return
+	end
+	if not g_JAZZ_BaseXMapRollerableContextImageGetImage then
+		g_JAZZ_BaseXMapRollerableContextImageGetImage = XMapRollerableContextImage.GetImage
+	end
+	XMapRollerableContextImage.GetImage = function(self, context)
+		local squad = context and (context.squad or context)
+		if squad then
+			local icon = squad.JAZZSquadIcon or squad.jazz_squad_icon
+			if not icon and JAZZ_GetLegionAISquadIcon then
+				icon = JAZZ_GetLegionAISquadIcon(squad)
+			end
+			if icon and type(icon) == "string" and icon ~= "" then
+				return icon
+			end
+		end
+		return g_JAZZ_BaseXMapRollerableContextImageGetImage(self, context)
+	end
+end
+
 local lSchemaVersion = 1
 
 local lRegularRoles = {
@@ -254,6 +279,7 @@ local function lAdoptLegacyPrimedSquads(root)
 		and not root.squads[squad_id]
 		then
 			local region = lGetRegionPreset(outpost.region_id)
+			local image = lRoleImages.garrison
 			root.squads[squad_id] = {
 				squad_id = squad_id,
 				region_id = outpost.region_id,
@@ -264,7 +290,8 @@ local function lAdoptLegacyPrimedSquads(root)
 				payload = {},
 				task = false,
 			}
-			squad.image = lRoleImages.garrison
+			squad.image = image
+			squad.jazz_squad_icon = image
 			session_obj.primed_squad = false
 			session_obj.next_spawn_time = false
 			session_obj.next_spawn_time_duration = false
@@ -287,6 +314,7 @@ local function lReconcileSquads(root)
 			local image = lRoleImages[squad_state.role]
 			if image and squad.image ~= image then
 				squad.image = image
+				squad.jazz_squad_icon = image
 				ObjModified(squad)
 			end
 		end
@@ -694,7 +722,11 @@ local function lSpawnManaged(root, region, home_sector, role, origin_sector, mis
 		return false
 	end
 
-	squad.image = lRoleImages[role] or squad.image
+	local image = lRoleImages[role]
+	if image then
+		squad.image = image
+		squad.jazz_squad_icon = image
+	end
 	ObjModified(squad)
 	root.squads[squad_id] = {
 		squad_id = squad_id,
@@ -1600,6 +1632,7 @@ local function lInstallLegionAIUIWrappers()
 	end
 	GetSatelliteIconImagesSquad = JAZZ_LegionAIGetSatelliteIconImagesSquad
 	SquadWindow.CreateRolloverWindow = JAZZ_LegionAICreateRolloverWindow
+	lInstallLegionAIXMapRollerableContextImageWrapper()
 	TFormat.SquadNameColored = g_JAZZ_BaseTFormatSquadNameColored
 end
 
@@ -1614,6 +1647,7 @@ function OnMsg.ModsReloaded()
 end
 
 function OnMsg.NewGame()
+	lInstallLegionAIUIWrappers()
 	gv_JAZZ_LegionAI = lNewRootState()
 	JAZZ_LegionAIEnsureState()
 end
