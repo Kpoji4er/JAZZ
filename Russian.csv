@@ -6981,3 +6981,21 @@ Task: <task>","<squad_name>
 4869897712911115,,,,jazz:Code/Inventory.lua:85 | jazz:Code/Inventory.lua:148
 5678579714391111,изношенное,изношенное,,jazz:Code/Inventory.lua:114 | jazz:Code/Inventory.lua:177
 8182360763020012,Ресурс,Ресурс,,jazz:items.lua:73489
+266087238479,Bank Account,Банковский счёт,,jazz:items.lua:278
+284104494351,Contact,Контактная информация,,jazz:items.lua:1111
+351463573859,<MercLevel()>,<MercLevel()>,,jazz:items.lua:540
+440475746284,<name>,<name>,,jazz:items.lua:128
+457158173170,Weekly Cost,Стоимость за неделю,,jazz:items.lua:778
+529989041592,See Bio,Смотреть биографию,,jazz:items.lua:1183
+550507290667,Equipment,Снаряжение,,jazz:items.lua:861
+801008989746,Backpack,Рюкзак,,jazz:items.lua:951
+661110761557,Bio,Биография,,jazz:items.lua:1013
+642133584014,BIO - <Title>,БИОГРАФИЯ - <Title>,,jazz:items.lua:1018
+872907861571,Loadout,Комплект,,jazz:items.lua:1208
+891740393419,About Us,О нас,,jazz:items.lua:396
+984976462387,Perks,Черты,,jazz:items.lua:821
+111807730937,Terms of Service,Условия использования,,jazz:items.lua:407
+141041371501,Level,Ур.,,jazz:items.lua:547
+163956682203,Dismiss,Уволить,,jazz:items.lua:1147
+976520897583,<name>,<name>,,jazz:items.lua:656
+157340803747,<help>,<help>,,jazz:items.lua:654
