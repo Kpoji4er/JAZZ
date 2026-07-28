@@ -1068,9 +1068,18 @@ function GetSectorDailyIncomeWood(sector)
 	return GetSectorDailyIncomeSector(baseVal, sector)
 end
 
---заглушка
-function GetMineIncome(id)
-	return (_GetMineIncome(id) or 0) + (GetFarmIncome(id) or 0) + (GetDonationsIncome(id) or 0) + (GetWoodIncome(id) or 0) + (GetSlonIncome(id) or 0)
+-- JAZZ-HOTFIX-002: sum POI incomes; return nil when zero so vanilla SectorsTick
+-- can early-out (Lua treats 0 as truthy). Forward showEvenIfUnowned to sources.
+function GetMineIncome(id, showEvenIfUnowned)
+	local income = (_GetMineIncome(id, showEvenIfUnowned) or 0)
+		+ (GetFarmIncome(id, showEvenIfUnowned) or 0)
+		+ (GetDonationsIncome(id, showEvenIfUnowned) or 0)
+		+ (GetWoodIncome(id, showEvenIfUnowned) or 0)
+		+ (GetSlonIncome(id, showEvenIfUnowned) or 0)
+	if income == 0 then
+		return
+	end
+	return income
 end
 
 function GetIncome(days)

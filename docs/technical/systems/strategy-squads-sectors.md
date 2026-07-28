@@ -3,6 +3,7 @@
 ## Связанные specs
 
 - `JAZZ-HOTFIX-001` — исправление cold-load globals, vanilla MapVar ownership и sector context для отсутствующего Region.
+- `JAZZ-HOTFIX-002` — снять duplicate `OnMsg.SatelliteTick` из полного копипаста `SatelliteSquad.lua`; `GetMineIncome` возвращает `nil` при нулевом доходе.
 
 ## Назначение и эффект для игрока
 
@@ -54,6 +55,8 @@ Dormant/unlisted core-файлы:
 Он содержит множество `NetSyncEvents` и handlers `LoadSessionData`, new-game/hiring/travel/intel/death. Это делает сигнатуры событий, payload и порядок мутаций публичным сетевым/savegame контрактом.
 
 `gameOverState` объявляет установленная vanilla через `MapVar`. JAZZ использует это же значение в скопированном game-over flow, но не регистрирует имя повторно: duplicate `MapVar` блокирует холодную загрузку ещё до выполнения логики.
+
+`OnMsg` в движке **накапливает** handlers. Полный копипаст файла поэтому опасен: повторная регистрация того же `OnMsg.*` удваивает работу. JAZZ-HOTFIX-002 **не регистрирует** `OnMsg.SatelliteTick` (тело было идентично vanilla); единственный handler остаётся у vanilla и вызывает актуальные global overrides (`SatelliteUnitsTick` и др.). Другие duplicate `OnMsg` в том же файле пока не сняты — отдельный follow-up.
 
 ## Guardposts и патрули
 
@@ -108,6 +111,8 @@ Generated `SatelliteViewMapContextMenu` считает отсутствие Regi
 ## POI и экономика
 
 `POI Extension.lua` добавляет/расширяет mine, farm, wood, slon и donations income, travel price и sector editor properties. Income зависит от sector/region state и времени. Данные являются одновременно gameplay rules и editor schema.
+
+`GetMineIncome(id, showEvenIfUnowned)` суммирует пять источников и **возвращает `nil` при сумме 0** (JAZZ-HOTFIX-002), чтобы vanilla `SectorsTick` мог early-out: в Lua `if 0 then` истинно, поэтому старый stub `(a or 0)+…` гонял income-ветку по всем секторам. Аргумент `showEvenIfUnowned` пробрасывается во все источники.
 
 ## Sector operations и лечение
 

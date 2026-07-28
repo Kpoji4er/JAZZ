@@ -25,6 +25,8 @@ JAZZ поддерживает только последнюю опубликов
 | `AISelectAction` | `Lua/Tactical/CombatAI.lua` | `Code/FixAI.lua` | `Code/CombatAI.lua` | JAZZ; сигнатуры слоёв различаются, высокий риск |
 | `GetRandomSquadLogo` | `Lua/Satellite/SatelliteSquad.lua` | `Code/ModItems.lua` | `Code/SatelliteSquad.lua` | JAZZ; проверить пользовательские squad logos |
 | `gameOverState` (`MapVar`) | `Lua/Satellite/SatelliteSquad.lua` | — | `Code/SatelliteSquad.lua` использует значение, но не регистрирует его | Владелец registration — vanilla; повторный `MapVar` в JAZZ вызывает cold-load assert |
+| `OnMsg.SatelliteTick` | `Lua/Satellite/SatelliteSquad.lua` | — | JAZZ-HOTFIX-002: **не регистрируется** (был identical duplicate; `OnMsg` append) | Один handler — vanilla; global `SatelliteUnitsTick` и др. по-прежнему заменяются по имени |
+| `GetMineIncome` | `Lua/Satellite/SatelliteView.lua` | — | `Code/POI Extension.lua` (сумма mine/farm/donations/wood/slon; `nil` при 0) | JAZZ; `SectorsTick` early-out на секторах без дохода |
 | `SetupCrocodilePatrolSquad` | `Lua/HotDiamonds.lua` | — | maps `Code/System_JAZZ_CrocodilePatrol.lua` | Дом/маршрут I18–I19–J19 вместо G14/G13–G15 (ремап wetlands) |
 | `OnMsg.ReachSectorCenter` (crocodile) | `Lua/HotDiamonds.lua` | — | maps `Code/System_JAZZ_CrocodilePatrol.lua` (upvalue-replace при `debug`, иначе wrap `Msg`) | Vanilla `for i=1,place` падает при place=nil вне G13–G14; shipping часто без `debug` |
 | `GetSectorTravelTime` | `Lua/Satellite/SatelliteSquad.lua` | — | core `Code/SatelliteSquad.lua`, затем maps wrapper `Code/System_JAZZ_Vehicles.lua` | Maps ускоряет/блокирует путь для mounted squad; грузить maps после core |

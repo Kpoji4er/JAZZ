@@ -3386,6 +3386,12 @@ function GenerateRouteDijkstra(start_sector, end_sector, fullRoute, units, pass_
 	end
 end
 
+-- JAZZ-HOTFIX-002: do NOT register OnMsg.SatelliteTick here.
+-- Engine OnMsg appends handlers; this file is a near-full vanilla copy, so a second
+-- identical SatelliteTick doubled SatelliteUnitsTick + ObjModified every campaign tick
+-- and caused satellite-map micro-stutters. Vanilla keeps the single handler; global
+-- function overrides below (e.g. SatelliteUnitsTick) still replace by name.
+--[[
 function OnMsg.SatelliteTick()
 	local removeSquads = false
 
@@ -3417,6 +3423,7 @@ function OnMsg.SatelliteTick()
 		end
 	end
 end
+]]
 
 ---
 --- Turns a squad that was previously joining another squad into a normal standalone squad.
