@@ -1087,10 +1087,11 @@ function GetIncome(days)
 	days = days or 1
 	
 	for id, sector in sorted_pairs(gv_Sectors) do
-		income = income + GetMineIncome(id)
+		-- GetMineIncome returns nil at 0 (SectorsTick early-out); sum must tolerate nil.
+		income = income + (GetMineIncome(id) or 0)
 	end
 	
-	income =  income + GetForgivingModeDailyIncome()
+	income = income + (GetForgivingModeDailyIncome() or 0)
 	
 	return income * days
 end
