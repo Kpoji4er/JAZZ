@@ -99,7 +99,8 @@ Roadmap 7b: spawn должен тратить людей; recruits копятс�
 
 ## Evidence
 
-- pending
+- `JAZZ-STRATEGY-010-AC-001`..`004`: static PASS
+- `JAZZ-STRATEGY-010-AC-005`: `BLOCKED (runtime)`
 
 ## Documentation delta
 

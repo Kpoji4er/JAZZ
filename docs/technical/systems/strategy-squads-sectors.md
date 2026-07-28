@@ -68,7 +68,7 @@ Maps добавляет четыре `GuardpostObjective` ModItems. Units пре
 
 ### Пилот Legion Global AI: `ErnieIsland` / `I7`
 
-Пилот включён только для Region `ErnieIsland`, управляемого аванпоста `I7` и штаба Майора `B28`; остальные guardposts продолжают legacy-путь. Статическая конфигурация находится в Region/SatelliteSector presets, а изменяемый source of truth — versioned `GameVar("gv_JAZZ_LegionAI", ...)` со schema **`2`** (деньги `$`). Existing save со schema `1` мигрирует лениво: abstract `supply`/`reserve` **сбрасываются** на starting `$` (не масштабируются). Начальный Heat региона — максимум Heat секторов с clamp `0..1000`; director сверяет существующие и исчезнувшие отряды.
+Пилот включён только для Region `ErnieIsland`, управляемого аванпоста `I7` и штаба Майора `B28`; остальные guardposts продолжают legacy-путь. Статическая конфигурация находится в Region/SatelliteSector presets, а изменяемый source of truth — versioned `GameVar("gv_JAZZ_LegionAI", ...)` со schema **`3`** ($ + manpower). Existing save со schema `1` мигрирует на `$` (v2), затем на manpower pools (v3). Начальный Heat региона — максимум Heat секторов с clamp `0..1000`; director сверяет существующие и исчезнувшие отряды.
 
 Почасовой tick: city/farm `$` **целиком в** `outpost.money` (capacity **120000**); base passive default **0**; mine `$` копятся в `diamond_stock` и едут shipment’ом. Hourly tick в `major.money` не пишет. Major capacity **1200000**, starting **120000** (≥ одного supply cargo **12000**). Outpost starting **12000** (&lt; 40% trigger) — supply-конвой легален сразу, spawn не форсируется. Раз в 6 часов командное окно завершает работы, обновляет retake-цели, назначает задачи и спавнит regular-отряды **только при нужде** и наличии `$`. Роли пилота:
 
@@ -79,6 +79,8 @@ Maps добавляет четыре `GuardpostObjective` ModItems. Units пре
 - `reinforce` — пограничное усиление: Legion key/POI, соседний с player Side или player squad; иконка REINFORCE;
 - `supply` — доставляет из `B28` `$` (`payload.money`); task UI показывает сумму; маршрут `land_water_boatless`; при возврате недоставленного груза восстанавливает `major.money`;
 - `tax` — обходит Legion city/farm с `region_state.poi_money`, собирает `$`, сдаёт на аванпост (cap 2, threshold 1000, cooldown 24h); city/farm hourly больше не льются напрямую в `outpost.money`;
+- `recruiter` — зеркало tax для `poi_recruits` → `outpost.manpower` (threshold 8, cap 2, 24h);
+- `manpower` — Major→outpost recruits cargo (16) при outpost ниже 40% capacity;
 - `shipment` — везёт `$` shipment-stock из `I7` в `B28`; inventory = `lEnsureMoneyCargo` (DiamondBriefcase @$12000 + TinyDiamonds @$500, остаток вверх); task UI показывает сумму; тот же boatless route; supply и shipment могут сосуществовать в одном командном окне при обоих гейтах;
 - `major` (Retribution) — при Heat региона 800+ и наличии `$` создаёт тяжёлый ответ с HQ `B28` (иконка RETRIBUTION); цель — delivered recon report или max player noise; cooldown 72 часа.
 

@@ -7062,6 +7062,10 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000001633,<role> — moving to reinforce sector <target>,<role> — moving to reinforce sector <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001634,Tax collector,Tax collector,,jazz:Code/Guardpost_Patrols.lua
 890000000001635,<role> — collecting taxes ($<money>); next: <target>,<role> — collecting taxes ($<money>); next: <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001636,Recruiter,Recruiter,,jazz:Code/Guardpost_Patrols.lua
+890000000001637,Manpower convoy,Manpower convoy,,jazz:Code/Guardpost_Patrols.lua
+890000000001638,<role> — recruiting (<people> people); next: <target>,<role> — recruiting (<people> people); next: <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001639,<role> — delivering <people> recruits to <target>,<role> — delivering <people> recruits to <target>,,jazz:Code/Guardpost_Patrols.lua
 939310080350111,ржавое,rusty,,jazz:Code/Inventory.lua:117 | jazz:Code/Inventory.lua:180
 968409848233111,сломанное,broken,,jazz:Code/Inventory.lua:120 | jazz:Code/Inventory.lua:183
 1786863112811235,Укрепления,Fortifications,,jazz:Code/POI Extension.lua:9

@@ -39,6 +39,7 @@ approved_by: project-owner
 | JAZZ-STRATEGY-007 | Convoys valuables + boatless routes; patrol into player sectors; reinforce; retribution icon/targeting; recon intel text; role recipes data |
 | JAZZ-STRATEGY-008 | Composition generator + per-unit `$` spawn costs for combat roles |
 | JAZZ-STRATEGY-009 | Tax collector: city/farm `$` → poi_money → outpost via TAX role |
+| JAZZ-STRATEGY-010 | Manpower schema v3; recruiter; manpower convoy; spawn manpower gate |
 
 ## Валюта (утверждено)
 
@@ -134,53 +135,13 @@ Vanilla якоря:
 
 Major держит свои пулы (`major.money`, `major.manpower`) с capacity ≫ аванпоста; подпитывает I7 конвоями, когда локально пусто.
 
-#### 7a. Tax collector (сборщик налогов) — $
-- Роль доставляет накопленное с POI **на аванпост** (в $).
-- Порог выезда: **≥ $1000** суммарно к сбору.
-- Не чаще **1 раза в сутки**; за рейс — **маршрут по всем** налоговым секторам региона, затем разгрузка на I7.
-- Cap: **2** отряда.
-- Иконка: `legion_TAX_squad.png`.
+#### 7a. Tax collector (сборщик налогов) — $ → [JAZZ-STRATEGY-009](JAZZ-STRATEGY-009.md)
 
-POI $/час (см. п.0): ферма 10 / город 50 / шахта 250.
+Реализовано: city/farm → `poi_money`; tax circuit; cap 2; threshold 1000; cooldown 24h; TAX icon. Mine остаётся в shipment stock.
 
-#### 7b. Людской ресурс — модель
+#### 7b. Людской ресурс — модель → [JAZZ-STRATEGY-010](JAZZ-STRATEGY-010.md)
 
-**Накопление recruits на точке**
-- City и farm копят `sector.recruits` (или region-keyed stock) каждый час.
-- Шахты **не** дают людей (только $).
-- Черновые rates (утвердить в spec): ферма **1 чел/сутки**, город **2–3 чел/сутки** (или почасовой эквивалент); cap на точке, чтобы не бесконечно копилось без вербовщика.
-
-**Recruiter (вербовщик)**
-- Иконка `legion_RECRUITER_squad.png` (громкоговоритель / рупор; не машина).
-- Зеркало tax collector по ритму (черновик, утвердить в spec):
-  - cap **2**;
-  - не чаще **1 раза в сутки**;
-  - за рейс обходит **все** city/farm с recruits;
-  - порог выезда: суммарно **≥ N** людей на точках (черновик N = **8–10**, уточнить);
-  - разгрузка в `outpost.manpower`.
-
-**Пулы**
-- `outpost.manpower` + capacity (черновик: порядка **40–80**, хватит на несколько полных отрядов).
-- `major.manpower` + capacity на порядок выше.
-- Спавн: `manpower_cost ≈ число юнитов в выбранном составе`; `money_cost` из таблицы ролей / preset.
-
-**Manpower convoy (Major → I7)**
-- Иконка `legion_MANPOWER_squad.png` (колонна людей; не SUPPLY-грузовик).
-- Условие: `outpost.manpower` ниже trigger (аналог supply % или абсолютный floor) **и** у Major хватает людей на cargo.
-- Cargo (черновик): **12–20** человек за рейс.
-- Spawn не форсить; только гейты.
-- Обратный «избыток людей I7→Major» — non-goal v1.
-
-**Связь со спавном (п.6)**
-1. Есть нужда (role request).
-2. Recipe роли + generator выбирает poor/full набор юнитов.
-3. Хватает money (= сумма цен юнитов) и manpower (= число бойцов).
-4. Иначе downgrade / ждать / Major шлёт manpower-конвой.
-
-**Игрок и militia (фаза 7c, позже)**
-- Тот же пул recruits на city/farm, когда сектор под игроком: vanilla Militia Training **потребляет** local recruits (или параллельный stock), вместо «бесконечных» сессий.
-- Точные цифры и хук в Operation — отдельный spec после стабилизации AI-контура 7a/7b.
-- Non-goal v1: ломать текущий militia UX до готового AI recruiter.
+Реализовано (locked defaults): farm +1/day, city +2/day; outpost 20/60; Major 80/600; recruiter threshold 8 / cap 2 / 24h; manpower convoy cargo 16 @40% trigger. Spawn combat списывает manpower.
 
 #### 7 — порядок внутри пункта
 1. 7a Tax ($ delivery) после п.0 валюты.  
