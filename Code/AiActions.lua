@@ -701,105 +701,102 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
             end
             AIReloadWeapons(unit)
 
-            local target = (context.dest_target or empty_table)[dest]
-            if not IsValidTarget(target)
-                or (IsKindOf(target, "Unit") and target:IsIncapacitated()) then
+            local sig_target = (context.dest_target or empty_table)[dest]
+            if not IsValidTarget(sig_target)
+                or (IsKindOf(sig_target, "Unit") and sig_target:IsIncapacitated()) then
                 if context.archetype.TargetChangePolicy == "restart" then
                     return "restart"
                 end
                 context.dest_ap[dest] = unit.ActionPoints
                 context.target_locked = nil
             end
-            goto continue_dump
-        end
+        else
+            local target = (context.dest_target or empty_table)[dest]
+            if not IsValidTarget(target) then
+                if g_AIExecutionController then
+                    g_AIExecutionController:Log("  No target")
+                end
+                break
+            end
 
-        local target = (context.dest_target or empty_table)[dest]
-        if not IsValidTarget(target) then
             if g_AIExecutionController then
-                g_AIExecutionController:Log("  No target")
+                g_AIExecutionController:Log("  Target: %s",
+                    IsKindOf(target, "Unit") and target.unitdatadef_id or target.class)
             end
-            break
-        end
 
-        if g_AIExecutionController then
-            g_AIExecutionController:Log("  Target: %s",
-                IsKindOf(target, "Unit") and target.unitdatadef_id or target.class)
-        end
+            local best_attack = PickBestAttack(unit, target, context.basic_attacks, unit.ActionPoints)
+            if best_attack and best_attack.action then
+                context.default_attack = best_attack.action
+                context.default_attack_cost = best_attack.ap or context.default_attack_cost
+                context.attack_target = target
+            end
 
-        local best_attack = PickBestAttack(unit, target, context.basic_attacks, unit.ActionPoints)
-        if best_attack and best_attack.action then
-            context.default_attack = best_attack.action
-            context.default_attack_cost = best_attack.ap or context.default_attack_cost
-            context.attack_target = target
-        end
-
-        if context.default_attack and context.default_attack.id == "Bombard" and AICheckIndoors(dest) then
-            break
-        end
-
-        if not best_attack and not context.default_attack then
-            break
-        end
-
-        local attack_action = (best_attack and best_attack.action) or context.default_attack
-        local aim = best_attack and best_attack.aim or 0
-        if not best_attack then
-            local attacks, aims = AICalcAttacksAndAim(context, unit.ActionPoints, target)
-            if not attacks or attacks < 1 then
+            if context.default_attack and context.default_attack.id == "Bombard" and AICheckIndoors(dest) then
                 break
             end
-            aim = aims and aims[1] or 0
-        end
 
-        local cost = best_attack and best_attack.ap
-            or (context.default_attack_cost or attack_action:GetAPCost(unit))
-        if not cost or cost <= 0 or unit.ActionPoints < cost then
-            -- last AP edge: still try if HasAP
-            if not unit:HasAP(cost or 0) then
+            if not best_attack and not context.default_attack then
                 break
             end
-        end
 
-        local args = {target = target, voiceResponse = voice_response, aim = aim}
-        local body_parts = AIGetAttackTargetingOptions(unit, context, target)
-        if body_parts and #body_parts > 0 then
-            local pick = table.weighted_rand(body_parts, "chance",
-                InteractionRand(1000000, "Combat"))
-            if pick then
-                args.target_spot_group = pick.id
+            local attack_action = (best_attack and best_attack.action) or context.default_attack
+            local aim = best_attack and best_attack.aim or 0
+            if not best_attack then
+                local attacks, aims = AICalcAttacksAndAim(context, unit.ActionPoints, target)
+                if not attacks or attacks < 1 then
+                    break
+                end
+                aim = aims and aims[1] or 0
             end
-        end
 
-        Sleep(0)
-        local result = AIPlayCombatAction(attack_action.id, unit, nil, args)
-        context.max_attacks = context.max_attacks - 1
-        did_attack = true
-        if g_AIExecutionController then
-            g_AIExecutionController:Log("  Attack result: %s", tostring(result))
-        end
-        if IsSetpiecePlaying() then
-            unit:SequentialActionsEnd()
-            return
-        end
-        AIReloadWeapons(unit)
-        if not result or not IsValidTarget(unit) or context.max_attacks <= 0 then
-            break
-        end
+            local cost = best_attack and best_attack.ap
+                or (context.default_attack_cost or attack_action:GetAPCost(unit))
+            if not cost or cost <= 0 or unit.ActionPoints < cost then
+                if not unit:HasAP(cost or 0) then
+                    break
+                end
+            end
 
-        while IsKindOf(target, "Unit") and target:IsGettingDowned() do
-            WaitMsg("UnitDowned", 20)
-        end
-        if not IsValidTarget(target)
-            or (IsKindOf(target, "Unit") and target:IsIncapacitated()) then
-            if context.archetype.TargetChangePolicy == "restart" then
+            local args = {target = target, voiceResponse = voice_response, aim = aim}
+            local body_parts = AIGetAttackTargetingOptions(unit, context, target)
+            if body_parts and #body_parts > 0 then
+                local pick = table.weighted_rand(body_parts, "chance",
+                    InteractionRand(1000000, "Combat"))
+                if pick then
+                    args.target_spot_group = pick.id
+                end
+            end
+
+            Sleep(0)
+            local result = AIPlayCombatAction(attack_action.id, unit, nil, args)
+            context.max_attacks = context.max_attacks - 1
+            did_attack = true
+            if g_AIExecutionController then
+                g_AIExecutionController:Log("  Attack result: %s", tostring(result))
+            end
+            if IsSetpiecePlaying() then
                 unit:SequentialActionsEnd()
-                return "restart"
+                return
             end
-            context.dest_ap[dest] = unit.ActionPoints
-            context.target_locked = nil
+            AIReloadWeapons(unit)
+            if not result or not IsValidTarget(unit) or context.max_attacks <= 0 then
+                break
+            end
+
+            while IsKindOf(target, "Unit") and target:IsGettingDowned() do
+                WaitMsg("UnitDowned", 20)
+            end
+            if not IsValidTarget(target)
+                or (IsKindOf(target, "Unit") and target:IsIncapacitated()) then
+                if context.archetype.TargetChangePolicy == "restart" then
+                    unit:SequentialActionsEnd()
+                    return "restart"
+                end
+                context.dest_ap[dest] = unit.ActionPoints
+                context.target_locked = nil
+            end
         end
 
-        ::continue_dump::
         Sleep(0)
     end
 
