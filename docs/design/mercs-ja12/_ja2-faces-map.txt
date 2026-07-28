@@ -1,0 +1,47 @@
+﻿slug	file	source
+allik	allik.ja2-face.gif	Янно Аллик Знаток.gif
+biggens	biggens.ja2-face.jpg	Полковник Фредерерик Биггенс.jpg
+blade	blade.ja2-face.gif	Билл Ламонт Бритва.gif
+bull	bull.ja2-face.gif	Джон Питерс Бык.gif
+carlos	carlos.ja2-face.gif	Карлос Дасуза.gif
+colby	colby.ja2-face.gif	Тревор Колби.gif
+conrad	conrad.ja2-face.gif	Лейтенант Конрад Джиллит.gif
+cord	cord.ja2-face.gif	Даг Милтон Кардан.gif
+cougar	cougar.ja2-face.gif	Джим Уоллес Пума.gif
+devin	devin.ja2-face.gif	Девин Коннелл.gif
+dimitri	dimitri.ja2-face.gif	Димитрий Газзо.gif
+dynamo	dynamo.ja2-face.gif	Грег Дункан Динамо.gif
+eskimo	eskimo.ja2-face.gif	Эмиль Кимос Эскимо.gif
+flo	flo.ja2-face.gif	Флоренс Габриель.gif
+gamos	gamos.ja2-face.gif	Гамос.gif
+gaston	gaston.ja2-face.jpg	Гастон Кавалье.jpg
+grace	grace.ja2-face.gif	Грациелла Джирелли Грейс.gif
+grom	grom.ja2-face.gif	Сергей Громов Гром.gif
+henning	henning.ja2-face.gif	Хеннинг фон Браниц.gif
+highball	highball.ja2-face.gif	Доктор Клиффорд Хайбол Скала.gif
+hitman	hitman.ja2-face.gif	Ричард Рутвен Убийца.gif
+hobbit	hobbit.ja2-face.gif	Тим Хиллман Хоббит.gif
+horg	horg.ja2-face.jpg	Лейтенант Хорг Сигара.jpg
+ira	ira.ja2-face.gif	Айра Смит.gif
+kulba	kulba.ja2-face.jpg	Джон Кульба.jpg
+laura	laura.ja2-face.gif	Доктор Лора Колин.gif
+lucky	lucky.ja2-face.gif	Люк Фабр Лаки.gif
+lynx	lynx.ja2-face.gif	Руди Роберт Рысь.gif
+madman	madman.ja2-face.gif	Кевин Камерон бешеный.gif
+manuel	manuel.ja2-face.gif	Мануэль.gif
+meat	meat.ja2-face.gif	Тортон Джонс Мясо.gif
+miguel	miguel.ja2-face.gif	Мигель Кордона.gif
+mike	mike.ja2-face.gif	Майк.gif
+monk	monk.ja2-face.gif	Виктор Колесников Монк.gif
+nervous	nervous.ja2-face.gif	Френки Гордон Нервный.gif
+quinten	quinten.ja2-face.gif	Доктор Дэниел Квинтен.gif
+ricochet	ricochet.ja2-face.gif	Тим Саттон Рикошет.gif
+rothman	rothman.ja2-face.gif	Стефан Ротман.gif
+shank	shank.ja2-face.gif	Брием Друз Шенк.gif
+spider	spider.ja2-face.gif	Доктор Донна Хьюстон Паук.gif
+static	static.ja2-face.gif	Кирк Стивенсон Статик.gif
+steiger	steiger.ja2-face.gif	Рудольф Штайгер.gif
+tosca	tosca.ja2-face.gif	Луиза Гарно Тоска.gif
+vicious	vicious.ja2-face.gif	Жан-Пьер Вио Злобный.gif
+vilde	vilde.ja2-face.gif	Леннарт Вильде Зануда.gif
+vince	vince.ja2-face.gif	Доктор Винсент Воймонт.gif

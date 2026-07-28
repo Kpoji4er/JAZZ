@@ -2,6 +2,8 @@
 
 Каталог PNG для сателлитных иконок отрядов Global AI / фракций. Файлы — `64×64`, **прозрачный** canvas вне щита (как у `legion.png` / `army.png`), щит фракции + ivory-силуэт роли.
 
+Новые иконки создавать по skill [`.agents/skills/create-jazz-squad-icons/SKILL.md`](../../../.agents/skills/create-jazz-squad-icons/SKILL.md).
+
 Пути runtime: `Mod/e6L4ECj/SquadsIcons/Enemy/<file>.png`  
 Ассеты: [`SquadsIcons/Enemy/`](../../../SquadsIcons/Enemy/)  
 Стратегический контекст: [strategy-squads-sectors.md](strategy-squads-sectors.md) · wiki: [legion-global-ai.md](../../wiki/legion-global-ai.md)
