@@ -92,7 +92,7 @@ Entity export является инкрементальным и не удаля
 
 - `Code/EditorExtension.lua` — loaded editor/development helper; добавляет доступные ModItem preset types.
 - `Code/InfiniteLoopFix.lua` — loaded runtime guard thresholds.
-- `Code/Debug.lua` — loaded empty placeholder.
+- `Code/Debug.lua` — loaded empty placeholder. Рабочий набор console/cheat-команд (включая satellite teleport Ctrl-T) — в [debug.md](../debug.md).
 - `Code/UtilityFunc.lua` — loaded utility с gameplay side effect при satellite open.
 - `Code/Savefix.lua` — dormant/unlisted.
 - `Code/EmptySquadFix.lua` — dormant/unlisted.

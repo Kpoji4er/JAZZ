@@ -24,6 +24,7 @@
 | [Интерфейс, звук и FX](ui-audio-fx.md) | Crosshair, combat badge, inventory UI, Will bar, sound presets и оружейные FX | Не ведётся |
 | [Entities и ресурсы](assets-entities.md) | 490 зарегистрированных Entity ModItems, meshes, materials, textures и контракты имён | Не ведётся |
 | [Runtime, загрузка и инструменты](runtime-editor-integration.md) | metadata, Mod Editor, generated data, hooks, placeholders, dormant-код и диагностика | Не ведётся |
+| [Debug и читы](../debug.md) | Консоль, Ctrl-T satellite teleport, боевые/стратегические читы, JAZZ diagnostics | Не ведётся |
 | [Локализация](localization.md) | Numeric localization ID, приоритет CSV, аудит коллизий и рабочий каталог русского/английского перевода | Технический процесс |
 | [Релизы и версионирование](release-versioning.md) | Версия из committed metadata, manifest четырёх repos, GitHub Releases и safeguards | Технический процесс |
 | [Сводки изменений в Discord](discord-player-updates.md) | Push range, OpenAI Structured Outputs, фильтрация, fallback и Discord webhook | Технический процесс |
