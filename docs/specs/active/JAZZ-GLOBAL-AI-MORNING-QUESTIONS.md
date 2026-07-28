@@ -27,4 +27,4 @@ Overnight реализованы STRATEGY-008…011 (011 частично). Ни
 - `1bc41f8` / `c4398d5` STRATEGY-008
 - `f7548fd` / `2e15240` STRATEGY-009
 - `c46a105` / `77b00cb` STRATEGY-010
-- (+ STRATEGY-011 commit после этого файла)
+- `1f1111f` STRATEGY-011 partial + this questions file

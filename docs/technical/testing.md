@@ -172,21 +172,18 @@ node --test .github/scripts/discord-player-update.test.mjs
 
 Реальный Discord webhook не вызывать без тестового канала. Отсутствие ключа или ошибка OpenAI должны автоматически публиковать fallback после prefilter; ошибка Discord после решения публиковать должна завершать workflow ошибкой.
 
-## Runtime smoke: Legion Global AI / I7 (JAZZ-STRATEGY-002/003/006/007)
+## Runtime smoke: Legion Global AI / I7 (JAZZ-STRATEGY-002…011)
 
 Уровень подтверждения до прогона владельцем: только static. Не закрывать AC runtime этим чеклистом без игры.
 
 1. Все четыре пакета + свежая CommonLib; Reload модов с диска (не Save из устаревшей памяти редактора).
-2. Новая игра `HotDiamonds`, старт на Эрни; diagnostics: новый outpost `money` стартует с **12000**, major `money` **120000**; дождаться командного окна I7.
-3. На сателлите: у garrison/patrol/recon/qrf/reinforce/supply/shipment/major — своя PNG (включая REINFORCE / RETRIBUTION); у supply/shipment в task-блоке видна сумма `$`.
-4. Hover managed squad: под составом отдельный тёмный блок с локализованной ролью, задачей, state/target; recon return называет spotted sector; при нескольких squad клавиша cycle обновляет блок.
-5. `ReloadLua`, повторное открытие satellite view, save/load — иконки и задачи на месте, без recursion/error в логе.
-6. `JAZZ_LegionAIGetDiagnostics()`: caps regular **7** / garrison 2 / patrol 2 / recon 1 / qrf 1 / reinforce 1; costs в `$` и active_counts заполнены.
-7. Need gates: без высокого sector Heat recon не появляется; без report/retake qrf не появляется; key POI с pre-placed Legion squad не получает второй garrison; reinforce только у Legion border next to player.
-8. Hourly: city/farm `$` целиком в `outpost.money` (cap 120000); mine `$` в `diamond_stock`; `major.money` растёт только от convoys/shipment и clamp к 1200000; supply cargo/shipment threshold 12000; shipment loot = DB + TinyDiamonds по сумме; маршруты enemy boatless.
-9. Patrol может зайти на player Side; пустые сектора предпочтительнее.
-10. Recon: observation timeout без player squad → Heat сектора −50 один раз; при контакте с merc squad Heat не снижается, появляется report; QRF/retribution могут его потребить.
-11. Editor round-trip: load/save/reload `jazz-units` и `jazz-maps`, затем strict generated audit — presets `LegionGlobalAI_*` и ссылки I7/ErnieIsland не затёрты.
+2. Новая игра `HotDiamonds`, старт на Эрни; diagnostics: schema **3**; outpost `money` **12000**, `manpower` **20**; major `money` **120000**, `manpower` **80**.
+3. На сателлите: combat/logistics роли со своими PNG (REINFORCE/RETRIBUTION/TAX/RECRUITER/MANPOWER); supply/shipment показывают `$`; recruiter/manpower — people.
+4. City/farm `$` копятся в poi_money (tax), не напрямую в outpost; recruits копятся daily; mine → diamond_stock.
+5. Combat spawn: generator composition; списывает money_cost + manpower_cost; без людей/денег на min — не спавнит.
+6. Need gates + border reinforce + patrol into player Side + recon return sector text.
+7. `ReloadLua` / save/load — иконки и задачи на месте.
+8. Militia: `JAZZ_GetSectorRecruits` растёт на player city/farm; Operation gate — проверить после подтверждения ID (morning Q).
 
 ## Критерий завершения
 

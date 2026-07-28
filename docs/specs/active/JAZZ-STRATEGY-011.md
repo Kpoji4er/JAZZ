@@ -59,14 +59,24 @@ Roadmap 7c: militia training should consume local recruits from the same city/fa
 ## Инварианты и ограничения
 
 - Legion recruiter still only collects Legion-side stocks.
-- Militia UX remains vanilla until Operation hook approved.
+- Militia UX remains vanilla until Operation hook confirmed in morning questions.
+- Soft gate activates only if `SectorOperations.MilitiaTraining` or `TrainMilitia` exists at runtime.
 
 ## Acceptance criteria
 
 - `JAZZ-STRATEGY-011-AC-001` — static: player accrual + API.
 - `JAZZ-STRATEGY-011-AC-002` — docs + morning questions.
-- `JAZZ-STRATEGY-011-AC-003` — Operation consume hook: `BLOCKED` (needs morning).
+- `JAZZ-STRATEGY-011-AC-003` — Operation consume hook: `BLOCKED` (needs morning confirmation of operation id).
 - `JAZZ-STRATEGY-011-AC-004` — runtime: `BLOCKED`.
+
+## Impact и совместимость
+
+- Vanilla/CommonLib/JAZZ: optional wrap of MilitiaTraining/TrainMilitia when present.
+- Saves: uses existing schema v3 `poi_recruits`.
+- Network/determinism: no new RNG.
+- Generated data: none.
+- Cross-package: none.
+- Rollback: remove LegionMilitiaRecruits.lua registration.
 
 ## План и ownership
 
@@ -75,7 +85,7 @@ Roadmap 7c: militia training should consume local recruits from the same city/fa
 
 ## Решение владельца
 
-28 июля 2026 — finish Global AI; 7c may leave Operation hook as morning Q.
+28 июля 2026 — finish Global AI; 7c may leave Operation hook as morning question.
 
 ## Evidence
 
