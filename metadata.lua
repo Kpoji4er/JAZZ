@@ -795,6 +795,7 @@ return PlaceObj('ModDef', {
 		"Code/InfiniteLoopFix.lua",
 		"Code/System_LootDef.lua",
 		"Code/AIBehaviours.lua",
+		"Code/AiFastForward.lua",
 		"Code/AiActions.lua",
 		"Code/CombatAI.lua",
 		"Code/AiAction_ThrowFlare.lua",
@@ -849,7 +850,8 @@ return PlaceObj('ModDef', {
 		},
 	},
 	'default_options', {
-		AutoFastForward = "Running",
+		AutoFastForward = "Always",
+		EnemyTurnFreeCamera = true,
 		ShowLastEnemy = 1,
 	},
 	'has_data', true,

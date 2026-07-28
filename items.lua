@@ -100503,26 +100503,33 @@ return {
 	PlaceObj('ModItemFolder', {
 		'name', "AiFastforward",
 	}, {
+		PlaceObj('ModItemCode', {
+			'name', "AiFastForward",
+			'CodeFileName', "Code/AiFastForward.lua",
+		}),
 		PlaceObj('ModItemOptionChoice', {
 			'name', "AutoFastForward",
 			'DisplayName', "Автоматическое ускорение хода невидимых врагов",
-			'Help', "Off - выкл\nRunning - Только при беге\nAlways - при беге и во время атак\nВключается если мерки не видят врагов",
-			'OnApply', function (self, value)
-				return
-			end,
-			'DefaultValue', "Running",
+			'Help', "Off - выкл\nRunning - выставить скорость в начале хода юнита\nAlways - ещё раз проверить перед атаками\nУскорение, если PoV-команда не видит юнита",
+			'DefaultValue', "Always",
 			'ChoiceList', {
 				"Off",
 				"Running",
 				"Always",
 			},
 		}),
+		PlaceObj('ModItemOptionToggle', {
+			'name', "EnemyTurnFreeCamera",
+			'DisplayName', "Свободная камера на чужом ходе",
+			'Help', "Разрешить двигать и зумить камеру во время хода врага/союзника (action camera не отключается).",
+			'DefaultValue', true,
+		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "Game speed change in combat during the enemy/ally turn, when the Fast Forward mode is checked.",
 			group = "Combat",
 			id = "FastForwardGameSpeed",
 			scale = "%",
-			value = 200,
+			value = 300,
 		}),
 		PlaceObj('ModItemOptionNumber', {
 			'name', "ShowLastEnemy",

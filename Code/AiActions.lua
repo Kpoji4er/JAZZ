@@ -336,21 +336,6 @@ function AICalcAttacksAndAim(context, ap, target)
     return num_attacks, aims
 end
 
-function IsUnitHiddenFromPlayer(unit)
-    if not unit or unit:IsDead() then return true end
-
-    for _, player in ipairs(g_Units) do
-        if player.team and player.team.side == "player1" and not player:IsDead() then
-            if player:CanSee(unit) then
-                return false -- хотя бы один игрок видит юнита
-            end
-        end
-    end
-
-    return true -- никто не видит
-end
-
-
 -- JAZZ-AI-002: Commit → Dump → Disengage / BunkerDown
 local JAZZ_AI_SOFT_DUMP_CAP = 4
 
@@ -567,15 +552,8 @@ function AIExecuteUnitBehavior(unit, force_or_skip_action)
         return
     end
 
-    if CurrentModOptions and CurrentModOptions.AutoFastForward ~= "Off" then
-        if IsUnitHiddenFromPlayer(unit) then
-            g_FastForwardGameSpeed = "Fast"
-            UpdateFastForwardGameSpeed()
-        else
-            g_FastForwardGameSpeed = "Normal"
-            UpdateFastForwardGameSpeed()
-        end
-    end
+    -- JAZZ-QOL-001: auto speed for unseen AI (see Code/AiFastForward.lua)
+    JAZZ_UpdateAutoFastForward(unit, "behavior")
 
     if unit.ai_context and unit.ai_context.behavior then
         local status = unit.ai_context.behavior:Play(unit)
@@ -591,15 +569,7 @@ function AIExecuteUnitBehavior(unit, force_or_skip_action)
     end
 
     if IsValid(unit) and not unit:IsDead() then
-        if CurrentModOptions and CurrentModOptions.AutoFastForward == "Always" then
-            if IsUnitHiddenFromPlayer(unit) then
-                g_FastForwardGameSpeed = "Fast"
-                UpdateFastForwardGameSpeed()
-            else
-                g_FastForwardGameSpeed = "Normal"
-                UpdateFastForwardGameSpeed()
-            end
-        end
+        JAZZ_UpdateAutoFastForward(unit, "attacks")
     end
 
     local status = AIPlayAttacks(unit, unit.ai_context,

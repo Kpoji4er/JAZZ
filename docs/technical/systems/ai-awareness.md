@@ -9,6 +9,7 @@
 ## Связанные specs
 
 - [JAZZ-AI-001](../../specs/active/JAZZ-AI-001.md) — удаление заимствованного policy-слоя и перевод `GuardArea` на `AIPolicyTakeCover`.
+- [JAZZ-QOL-001](../../specs/active/JAZZ-QOL-001.md) — auto fast-forward скрытых AI и свободная камера на чужом ходе.
 
 ## Граница и доказательная база
 
@@ -45,13 +46,22 @@
 1. `Code/UnitAwareness.lua`;
 2. `Code/InfiniteLoopFix.lua`;
 3. `Code/AIBehaviours.lua`;
-4. `Code/AiActions.lua`;
-5. `Code/CombatAI.lua`;
-6. `Code/AiAction_ThrowFlare.lua`;
-7. `Code/AIPolicy.lua`;
-8. `Code/PushUnitAlert.lua`.
+4. `Code/AiFastForward.lua` (JAZZ-QOL-001);
+5. `Code/AiActions.lua`;
+6. `Code/CombatAI.lua`;
+7. `Code/AiAction_ThrowFlare.lua`;
+8. `Code/AIPolicy.lua`;
+9. `Code/PushUnitAlert.lua`.
 
 Load-state важен: одинаковое глобальное имя предоставляет последняя загруженная реализация. `PushUnitAlert.lua` пуст. `Code/AIPolicyAttackAP.lua` тоже пуст и metadata его не загружает; активный класс `AIPolicyAttackAP` переопределён в `Code/AIPolicy.lua`.
+
+### QoL: auto fast-forward и свободная камера (JAZZ-QOL-001)
+
+`Code/AiFastForward.lua`:
+
+- `JAZZ_UpdateAutoFastForward(unit, phase)` — по mod option `AutoFastForward` (`Off` / `Running` / `Always`, default `Always`) ставит `g_FastForwardGameSpeed` в Fast/Normal через `HasVisibilityTo(GetPoVTeam(), unit)`; Fast только если PoV не видит юнита; скорость меняется только при смене значения.
+- `const.Combat.FastForwardGameSpeed` = 300% (vanilla 200%).
+- `EnemyTurnFreeCamera` (default on): `LockCameraMovement` no-op на чужом ходе / при `g_AIExecutionController`; на `ExecutionControllerActivate` снимает movement-locks. Action camera не отключается.
 
 ## Модель vanilla AI
 
@@ -165,7 +175,7 @@ Generated archetype `GuardArea` использует `AIPolicyTakeCover` с `vis
 - target points включают last attack position; smoke/fire/gas оцениваются через прогноз области распространения, обычные боеприпасы — через ожидаемые hits;
 - `AIReloadWeapons()` чинит jam активного оружия, поднимает `Mechanical` на 1, пополняет AI-магазины и поддерживает `AmmoInventory` (всегда валидный `ammo` object перед reload);
 - `AICalcAttacksAndAim()` распределяет оставшиеся AP по aim levels к CTH 100, списывая `aim_cost` один раз на шаг;
-- `AIExecuteUnitBehavior()` пропускает `Unconscious` и `suppressionPinned`, а fast-forward связывает с видимостью противника и mod option;
+- `AIExecuteUnitBehavior()` пропускает `Unconscious` и `suppressionPinned`; auto fast-forward делегирован в `JAZZ_UpdateAutoFastForward` (`Code/AiFastForward.lua`);
 - **`AIPlayAttacks()` (JAZZ-AI-002):** модель **Commit → Dump → Disengage/BunkerDown** — локальный dump до `SoftDumpCap=4` / `max_attacks`, одно действие за step с retarget; `"restart"` только target-change / MGPack / explicit status; без leftover-Think restart;
 - **Disengage/BunkerDown:** optional один cover-move, затем TakeCover → crouch-low → prone-open → PrefStance (`GetStanceToStanceAP`); `TryChangeStance` — alias на bunker; `AITakeCover` no-op если `context.bunker_used`;
 - `AIActionMGSetup` выбирает crouch при хорошем low cover, иначе prone, и умеет развернуть/свернуть уже установленный MG;
