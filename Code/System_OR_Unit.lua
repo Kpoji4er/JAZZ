@@ -109,15 +109,13 @@ local point = point
 local Lerp = Lerp
 
 function IsLineInSmoke(from_unit, to_unit)
-    local smokes = g_SmokeObjs 
-    if not next(smokes) then
-        return -- no smokes on the whole map
+    local smokes = g_SmokeObjs
+    if not smokes or not next(smokes) then
+        return
     end
-    --local st = GetPreciseTicks()
     local x0, y0, z0 = from_unit:GetPosXYZ()
     local x1, y1, z1 = to_unit:GetPosXYZ()
     if z1 ~= z0 then
-        -- not vary accurate but will work most of the time
         z0 = (z0 or GetHeight(x0, y0)) + offsetz
         z1 = (z1 or GetHeight(x1, y1)) + offsetz
     end
@@ -126,37 +124,39 @@ function IsLineInSmoke(from_unit, to_unit)
     local from = point(x0, y0, z0)
     local to = point(x1, y1, z1)
     local dist = from:Dist(to)
-    local steps = 1 + dist / voxel_radius -- check the line roughly on every half voxel
-    local has_smoke
-    --DbgClear(true) DbgAddSegment(from, to, yellow)
-    for i=0,steps do
+    local steps = 1 + DivRound(dist, voxel_radius)
+    for i = 0, steps do
         local pt = Lerp(from, to, i, steps)
-        local voxel = point_pack(WorldToVoxel(pt)) -- convert to voxel space and pack the coordinates to a single number
-        local smoke = smokes[voxel]
-        if smoke then -- approximate the voxel by a circle
-            --DbgAddCircle(pt, voxel_radius, red) DbgAddVector(point(x, y, z), 10*guim, red)
-            has_smoke = true
-            break
+        if smokes[point_pack(WorldToVoxel(pt))] then
+            return true
         end
-        --DbgAddCircle(pt, voxel_radius, smoke and green or black)
     end
-    --print("IsLineInSmoke", has_smoke, " | ", GetPreciseTicks() - st)
-    return has_smoke
 end
 
+-- Cover stance multipliers in percent of coverage (was coverage * 0.30 etc.).
+local JAZZ_SightCoverMul = {
+	Standing = { [const.CoverHigh] = 30, [const.CoverLow] = 15 },
+	Crouch = { [const.CoverHigh] = 35, [const.CoverLow] = 20 },
+	Prone = { [const.CoverHigh] = 50, [const.CoverLow] = 35 },
+}
+
+local function JAZZ_SightScaledArmorStat(value, condition_percent, degrade_mult)
+	if not value or value == 0 then
+		return 0
+	end
+	-- Preserve prior MulDivRound(value, condition% * degrade_mult, 100).
+	return MulDivRound(value, condition_percent * degrade_mult, 100)
+end
 
 function Unit:GetSightRadius(other, base_sight, step_pos)
-	--print('getSightRadius '..self.Name)
---	ic()
-	-- base sight radius, based on awareness (in-combat only) and illumination	
 	local modifier = 100
 	local camo = 0
 	local visionbonus = 0
-	local DustStormProtection = 0
+	local dust_storm_protection = 0
+	local nightvision_bonus = 0
 
 	local other_is_unit = other and IsKindOf(other, "Unit") or false
 	local hidden = other_is_unit and other:HasStatusEffect("Hidden")
-	--local sight = base_sight or (not hidden and self:IsAware() and const.Combat.AwareSightRange or const.Combat.UnawareSightRange)
 	local sight = base_sight or (self:IsAware() and const.Combat.AwareSightRange or const.Combat.UnawareSightRange)
 	local night_time = GameState.Night or GameState.Underground
 	if night_time and other and IsIlluminated(other, nil, nil, step_pos) then
@@ -168,177 +168,151 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 	end
 
 	local force_min_sight = self:CallReactions_Or("OnCheckForceMinSight", self, other, step_pos, night_time)
-	force_min_sight = force_min_sight or (IsKindOf(other, "Unit") and other:CallReactions_Or("OnCheckForceMinSight", self, other, step_pos, night_time))
+	force_min_sight = force_min_sight or (other_is_unit and other:CallReactions_Or("OnCheckForceMinSight", self, other, step_pos, night_time))
 	if force_min_sight then
 		return MulDivRound(sight, const.Combat.SightModMinValue, 100) * const.SlabSizeX, hidden, night_time
 	end
+
 	modifier = self:CallReactions_Modify("OnCalcSightModifier", modifier, self, other, step_pos, night_time)
-	if IsKindOf(other, "Unit") then
+	if other_is_unit then
 		modifier = other:CallReactions_Modify("OnCalcSightModifier", modifier, self, other, step_pos, night_time)
 	end
-	
-	if other_is_unit and not other:IsDead() and not other:IsDowned() then
-		if hidden then
-			-- add (clamped) attrib difference as modifier
-			local steath_mod = Max(0, MulDivRound(other.Agility - self.Wisdom, const.Combat.SightModStealthStatDiff, 100))		
-			--if self:IsAware() and other.stance ~= "Prone"  then steath_mod = DivRound(steath_mod,2) end
 
-			modifier = modifier - steath_mod
-		end
+	local need_dust = GameState.DustStorm
+	local dust_storm_sight = need_dust and const.EnvEffects.DustStormSightMod or 0
 
-
-		if other:HasStatusEffect("FleetingShadow") then 
-			camo = camo + 20
-		end
-
-
-	
-		other:ForEachItem("Armor", function(item, slot)
-			if slot ~= "Inventory" 	and item.CamouflagePercent then camo = camo + MulDivRound(item.CamouflagePercent,item:GetConditionPercent()*item:GetDegradationMultiplier(),100)
-			end
-		end)
-		
-
---		if (armor and armor.Camouflage) or other:HasStatusEffect("FleetingShadow") then
-
---		end
-
-	end
-
+	-- One pass over observer armor: Vision (+ NightVision / DustStorm when relevant).
 	self:ForEachItem("Armor", function(item, slot)
-		if slot ~= "Inventory" and item.Vision then visionbonus = visionbonus + MulDivRound(item.Vision,item:GetConditionPercent()*item:GetDegradationMultiplier(),100) end
+		if slot == "Inventory" then
+			return
+		end
+		local cond = item:GetConditionPercent()
+		local deg = item:GetDegradationMultiplier()
+		if item.Vision then
+			visionbonus = visionbonus + JAZZ_SightScaledArmorStat(item.Vision, cond, deg)
+		end
+		if night_time and item.NightVision then
+			nightvision_bonus = nightvision_bonus + JAZZ_SightScaledArmorStat(item.NightVision, cond, deg)
+		end
+		if need_dust and item.DustStormProtection then
+			-- Keep legacy scale: DustStormProtection × Condition / 100 (not degradation mult).
+			dust_storm_protection = dust_storm_protection + MulDivRound(item.DustStormProtection, item.Condition, 100)
+		end
 	end)
 
+	if other_is_unit and not other:IsDead() and not other:IsDowned() then
+		if hidden then
+			modifier = modifier - Max(0, MulDivRound(other.Agility - self.Wisdom, const.Combat.SightModStealthStatDiff, 100))
+		end
+		if other:HasStatusEffect("FleetingShadow") then
+			camo = camo + 20
+		end
+		other:ForEachItem("Armor", function(item, slot)
+			if slot ~= "Inventory" and item.CamouflagePercent then
+				camo = camo + JAZZ_SightScaledArmorStat(
+					item.CamouflagePercent,
+					item:GetConditionPercent(),
+					item:GetDegradationMultiplier())
+			end
+		end)
+	end
 
-	--cover
+	-- Cover applies for any living/dead unit target (same as prior hot path).
 	if other_is_unit then
-		local cover, any, coverage = other:GetCoverPercentage(self)
+		local cover, _, coverage = other:GetCoverPercentage(self)
 		local coverbuff = 0
-		if hidden and coverage then coverage = coverage * 0.1 end
-		if cover and coverage > 0 then
-			-- full cover
-			if cover == const.CoverHigh then
-				if other.stance == "Standing" then
-					coverbuff = coverage * 0.30 -- цель торчит больше
-				elseif other.stance == "Crouch" then
-					coverbuff = coverage * 0.35 -- сидит, меньше видно
-				elseif other.stance == "Prone" then
-					coverbuff = coverage * 0.50 -- лежит за фулл кавером = почти невидим
-				end
-				-- half cover
-			elseif cover == const.CoverLow then
-				if other.stance == "Standing" then
-					coverbuff = coverage * 0.15 -- половинка прикрыта
-				elseif other.stance == "Crouch" then
-					coverbuff = coverage * 0.20 -- сидит за половинкой — норм
-				elseif other.stance == "Prone" then
-					coverbuff = coverage * 0.35 -- лег, всё ещё видно, но хуже
-				end
+		if coverage and coverage > 0 then
+			if hidden then
+				coverage = MulDivRound(coverage, 10, 100)
+			end
+			local mul = JAZZ_SightCoverMul[other.stance]
+			mul = mul and mul[cover]
+			if mul then
+				coverbuff = MulDivRound(coverage, mul, 100)
 			end
 		end
-		if hidden then coverbuff = coverbuff * 1.5 end
-		if other:HasStatusEffect("Protected") then coverbuff = coverbuff * 1.25 end
+		if hidden then
+			coverbuff = MulDivRound(coverbuff, 150, 100)
+		end
+		if other:HasStatusEffect("Protected") then
+			coverbuff = MulDivRound(coverbuff, 125, 100)
+		end
 		modifier = modifier - coverbuff
 	end
 
 	if self:HasStatusEffect("Protected") then
 		modifier = modifier - 10
 	end
-
 	if self:HasStatusEffect("Blinded") then
 		modifier = modifier - 100
 	end
 
-	
-
-	-- environmental factors
 	if other then
 		local env_factors = GetVoxelStealthParams(step_pos or other) or 0
-		if band(env_factors, const.vsFlagTallGrass) ~= 0 then
+		local in_brush = band(env_factors, const.vsFlagTallGrass) ~= 0
+		local other_prone = other_is_unit and other.stance == "Prone"
+		if in_brush then
 			modifier = modifier + const.EnvEffects.BrushSightMod
-
 			if hidden then
-				modifier = modifier - camo*3
+				modifier = modifier - camo * 3
 			else
-				modifier = modifier - camo*0.5
+				modifier = modifier - MulDivRound(camo, 50, 100)
 			end
-
-			if other.stance == "Prone" then
-				modifier = modifier - const.Combat.SightModHiddenProne*2
+			if other_prone then
+				modifier = modifier - const.Combat.SightModHiddenProne * 2
 			end
-
 		else
 			if hidden then
 				modifier = modifier - camo
 			else
-				modifier = modifier - camo*0.25
+				modifier = modifier - MulDivRound(camo, 25, 100)
 			end
-
-			if other.stance == "Prone" then
+			if other_prone then
 				modifier = modifier - const.Combat.SightModHiddenProne
 			end
 		end
 	end
 
-	---Smoke
-
-	if other_is_unit and IsLineInSmoke(self,other) then
+	-- Skip smoke LOS when already at floor or no smoke objects on the map.
+	local sight_min = const.Combat.SightModMinValue
+	if other_is_unit and modifier > sight_min and IsLineInSmoke(self, other) then
 		modifier = modifier - 70
 	end
-	
-	--[[if self:HasStatusEffect("Smoked") then
-		modifier = modifier - 40 
-	  end
-	if other_is_unit and other:HasStatusEffect("Smoked") then
-		modifier = modifier - 50
-	end]]
-
 
 	if night_time and other then
 		local darknessMod = const.EnvEffects.DarknessSightMod
 		if self:HasNightVision() then
-			local penaltyReduce = 0
+			local penaltyReduce = nightvision_bonus
 			if HasPerk(self, "NightOps") then
-				penaltyReduce = CharacterEffectDefs.NightOps:ResolveValue("night_vision_penalty_reduction")
+				penaltyReduce = penaltyReduce + CharacterEffectDefs.NightOps:ResolveValue("night_vision_penalty_reduction")
 			end
-			self:ForEachItem("Armor", function(item, slot)
-				if slot ~= "Inventory" and item.NightVision then
-					 penaltyReduce = penaltyReduce + MulDivRound(item.NightVision,item:GetConditionPercent()*item:GetDegradationMultiplier(),100) end
-			end)
-
-			if penaltyReduce > 100 then penaltyReduce = 100 end
-			--penaltyReduce = 100 - penaltyReduce
-			
-			darknessMod = MulDivRound(darknessMod, 100-penaltyReduce, 100)
+			if penaltyReduce > 100 then
+				penaltyReduce = 100
+			end
+			darknessMod = MulDivRound(darknessMod, 100 - penaltyReduce, 100)
 		end
 		modifier = modifier + darknessMod
-		--if visionbonus < 0 then modifier = modifier + visionbonus end
 	else
 		modifier = modifier + visionbonus
-	end	
+	end
+
 	if GameState.Fog then
 		modifier = modifier + const.EnvEffects.FogSightMod
 	end
-	if GameState.DustStorm then
-
-		self:ForEachItem("Armor", function(item, slot)
-			if slot ~= "Inventory" and item.DustStormProtection then DustStormProtection = DustStormProtection + MulDivRound(item.DustStormProtection,item.Condition,100) end
-		end)
-		modifier = modifier + const.EnvEffects.DustStormSightMod + DustStormProtection
+	if need_dust then
+		modifier = modifier + dust_storm_sight + dust_storm_protection
 	end
 	if GameState.FireStorm then
 		modifier = modifier + const.EnvEffects.FireStormSightMod
 	end
-
 	if GameState.RainLight then
 		modifier = modifier - 5
 	end
-
 	if GameState.RainHeavy then
 		modifier = modifier - 15
 	end
 
-	if other_is_unit then	-- height difference check
+	if other_is_unit then
 		local ox, oy, oz
 		if step_pos then
 			ox, oy, oz = PosToGridCoords(step_pos:xyz())
@@ -348,22 +322,16 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 		local x, y, z = self:GetGridCoords()
 		if oz >= z + const.EnvEffects.SightHeightDiffThreshold then
 			modifier = modifier + const.EnvEffects.SightHeightDiffMod
-		elseif oz + const.EnvEffects.SightHeightDiffThreshold < z  then
-			modifier = modifier + -(const.EnvEffects.SightHeightDiffMod * 2)
+		elseif oz + const.EnvEffects.SightHeightDiffThreshold < z then
+			modifier = modifier - const.EnvEffects.SightHeightDiffMod * 2
 		end
 	end
-	
-	--print(modifier)
-	--print(camo)
-	modifier = Clamp(floatfloor(modifier,0.5), const.Combat.SightModMinValue, const.Combat.SightModMaxValue)
-	
+
+	modifier = Clamp(modifier, sight_min, const.Combat.SightModMaxValue)
 	local sightAmount = MulDivRound(sight, modifier, 100) * const.SlabSizeX
-	
-	-- Prevent going in and out of sus state due to Pos/VisualPos differences.
 	if self.command == "IdleSuspicious" then
 		sightAmount = sightAmount + const.SlabSizeX / 4
 	end
-	
 	return sightAmount, hidden, night_time
 end
 

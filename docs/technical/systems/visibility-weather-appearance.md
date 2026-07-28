@@ -43,11 +43,11 @@
 
 ## Дым, LOS и обнаружение
 
-`IsLineInSmoke` не найден как экспортированный глобальный символ в просмотренном vanilla source, появляется в CommonLib и затем заменяется JAZZ. Это dependency-owned API, поверх которого JAZZ строит собственную семантику.
+`IsLineInSmoke` не найден как экспортированный глобальный символ в просмотренном vanilla source, появляется в CommonLib и затем заменяется JAZZ. Это dependency-owned API, поверх которого JAZZ строит собственную семантику. В `System_OR_Unit.lua` линия `self → other` режется по voxel-шагам; при попадании в `g_SmokeObjs` дальность обнаружения получает **−70** к sight modifier.
 
 Smoke участвует в:
 
-- расчёте линии видимости/атаки;
+- расчёте линии видимости/атаки и `GetSightRadius`;
 - CTH modifiers;
 - suspicion и awareness;
 - AI targeting и позиции;
@@ -55,11 +55,103 @@ Smoke участвует в:
 
 После обновления CommonLib проверять сигнатуру, тип результата и используемые call sites. Простое совпадение имени не гарантирует совместимость тел.
 
+## Радиус обнаружения (`Unit:GetSightRadius`)
+
+Канонический override: `Code/System_OR_Unit.lua`. Call sites: `UnitAwareness.lua`, `CombatAI.lua` и vanilla visibility pipeline.
+
+### Формула
+
+```text
+sight = base_sight
+      or (IsAware → AwareSightRange else UnawareSightRange)
+      + (Jazz_Perk_Lynx ? 8 : 0)
+
+modifier = 100 + Σ(сдвиги), затем Clamp(modifier, SightModMinValue, SightModMaxValue)
+
+sightAmount = MulDivRound(sight, modifier, 100) × SlabSizeX
+            + (IdleSuspicious ? SlabSizeX/4 : 0)
+```
+
+Возврат: `sightAmount, hidden, night_time`.
+
+В отличие от vanilla, **aware база не сбрасывается в Unaware**, когда цель `Hidden`: aware наблюдатель всегда стартует с `AwareSightRange`.
+
+### ConstDef (JAZZ `items.lua` vs vanilla)
+
+| Const | Группа | JAZZ | Vanilla |
+|---|---|---|---|
+| `AwareSightRange` | Combat | **46** | 24 |
+| `UnawareSightRange` | Combat | **22** | 12 |
+| `SightModMinValue` | Combat | **20** | 40 |
+| `SightModMaxValue` | Combat | **150** | 120 |
+| `SightModHiddenProne` | Combat | **30** | 10 |
+| `SightModStealthStatDiff` | Combat | 50% | 50% |
+| `CamoSightPenalty` | Combat | 60% | (vanilla bool camo path) |
+| `BrushSightMod` | EnvEffects | **−50** | −15 |
+| `DarknessSightMod` | EnvEffects | **−65** | −10 |
+| `DustStormSightMod` | EnvEffects | **−40** | −10 |
+| `FireStormSightMod` | EnvEffects | **−40** | −10 |
+| `FogSightMod` | EnvEffects | −30 | −30 |
+| `SightHeightDiffMod` | EnvEffects | **−20** | −15 |
+
+Hardcoded в override (не ConstDef): smoke **−70**; rain light **−5**, heavy **−15**; observer `Protected` **−10**; `Blinded` **−100**; Lynx **+8** к base sight.
+
+### Сдвиги modifier (порядок логики)
+
+1. Reactions `OnCalcSightModifier` (наблюдатель и цель).
+2. Hidden: `max(0, (Agility−Wisdom) × SightModStealthStatDiff/100)`.
+3. Camo цели: сумма экипированного `CamouflagePercent` × condition×degradation; `FleetingShadow` **+20** к camo-пулу.
+4. Vision наблюдателя: сумма `Vision` брони (днём в modifier; ночью через NightVision / darkness).
+5. Укрытие цели: `GetCoverPercentage` × коэффициент стойки через `MulDivRound(coverage, mul%, 100)`:
+
+   | Cover | Standing | Crouch | Prone |
+   |---|---|---|---|
+   | High | 30% | 35% | 50% |
+   | Low | 15% | 20% | 35% |
+
+   Hidden: `coverage × 10%` до расчёта, затем `coverbuff × 150%`; цель с `Protected` → `coverbuff × 125%`.
+6. Observer `Protected` / `Blinded`.
+7. Brush (`vsFlagTallGrass`): `BrushSightMod`, затем camo ×3 (Hidden) / ×50% (видимо) или вне кустов ×1 / ×25%.
+8. **Prone всегда** режет sight: `−SightModHiddenProne` вне кустов, `×2` в кустах. Это намеренно шире vanilla (там prone-штраф только при Hidden).
+9. Smoke на линии: **−70** (пропуск `IsLineInSmoke`, если modifier уже на полу или на карте нет smoke).
+10. Night / Fog / Dust (+`DustStormProtection` брони) / FireStorm / rain.
+11. Разница высоты: выше цели → `SightHeightDiffMod`; ниже → `−2×` mod (в JAZZ всегда, не только exploration).
+
+Камуфляж влияет на detection через modifier, не отключает LOS. Night vision: `HasNightVision()` + стек `NightVision` брони уменьшают `DarknessSightMod` как `MulDivRound(darkness, 100−penaltyReduce, 100)`.
+
+### Hot path (perf)
+
+На каждый вызов максимум **два** `ForEachItem("Armor")`: один по наблюдателю (Vision + при необходимости NightVision / DustStormProtection), один по цели (Camouflage). Cover/camo/dust — integer `MulDivRound`; финальный `Clamp` без float. `DustStormProtection` по-прежнему масштабируется через `item.Condition` (не degradation mult).
+### Опорные сценарии (Aware base = 46)
+
+Оценка: `tiles ≈ 46 × modifier/100`, clamp modifier **20…150** → пол **~9**, потолок **~69**. Числа ориентировочные для плейтеста (coverage/camo condition могут сдвигать результат).
+
+| Сценарий | ≈ modifier | ≈ тайлов |
+|---|---|---|
+| Эталон: день, standing, открыто | 100 | **46** |
+| Prone на открытом (−30) | 70 | **~32** |
+| Кусты (−50) | 50 | **~23** |
+| Prone в кустах (−50 −60) | clamp 20 | **~9** |
+| Fog (−30) | 70 | **~32** |
+| Night без NV (−65) | 35 | **~16** |
+| Smoke (−70) | 30 | **~14** |
+| Fog + smoke | clamp 20 | **~9** |
+| Hidden + camo 20 в кустах (−50 −60) | clamp 20 | **~9** |
+| Lynx (+8 base), эталон | 100 | **54** |
+
+Unaware base **22**: те же % дают примерно вдвое короче (эталон **22**, пол **~4**).
+
+Замечания по тюнингу:
+
+- штрафы вроде дыма/−70 и camo×3 в кустах часто упираются в `SightModMinValue` (20), а не в «ещё сильнее»;
+- cover зависит от фактического `coverage`, не всегда от максимума таблицы;
+- константы тюнить в `items.lua` ConstDef; hardcoded smoke/rain/Lynx — в `System_OR_Unit.lua`.
+
 ## Камуфляж и защита от среды
 
-Armor properties `CamouflagePercent`, `NightVision`, `Vision`, `DustStormProtection` и `StunGrenadeProtection` меняют tactical условия. Gas mask отдельно защищает от toxic/tear gas и зависит от состояния ресурса.
+Armor properties `CamouflagePercent`, `NightVision`, `Vision`, `DustStormProtection` и `StunGrenadeProtection` меняют tactical условия через `GetSightRadius` и связанные checks. Gas mask отдельно защищает от toxic/tear gas и зависит от состояния ресурса; типичный `Vision` штраф маски режет дневную дальность.
 
-Камуфляж должен влиять на detection pipeline, а не напрямую скрывать unit независимо от LOS. Night vision/vision обязаны согласоваться с light/darkness modifiers и UI-индикацией.
+Примеры порядка величин (снапшот InventoryItem): форма ~`CamouflagePercent = 20`, `CrocodileHide = 60`, gas mask `Vision = −20` / `DustStormProtection = 30`.
 
 ## Внешний вид и attachments
 
@@ -82,14 +174,17 @@ Core snapshot содержит 31 `LightmodelPreset`, 10 `ObjMaterial` и partic
 - день/ночь, indoor/outdoor и переход времени;
 - Wet/Dry/CursedForest, rain/fog/heat/dust/firestorm;
 - одинаковое сохранение/seed в singleplayer и multiplayer;
+- эталон Aware ~46 тайлов днём на открытом standing;
+- prone открыто / prone в кустах / full cover prone (см. таблицу сценариев);
 - LOS через smoke, на границе дыма и без дыма;
+- Hidden + camo в кустах vs без camo; высокий camo упирается в SightModMinValue;
 - AI detection/suspicion с camo, night vision и плохой погодой;
 - rain jam и dust protection;
-- gas mask новая/сломанная, toxic/tear gas;
+- gas mask новая/сломанная, toxic/tear gas, Vision penalty;
 - bipod, stock, magazine, scope и mask entity states;
 - отсутствие `missing entity/state/spot/material` в логе;
 - подтверждение, что `NoSoundsInRooms.lua` остаётся inert до намеренной активации.
 
 ## Сопровождение
 
-При изменении weather, smoke, visibility property или appearance state обновлять эту страницу, AI/weapon/assets docs и тесты. Активация `NoSoundsInRooms.lua` считается новым runtime-поведением и должна отдельно документироваться.
+При изменении weather, smoke, `GetSightRadius`, ConstDef sight/env, armor camo/vision или appearance state обновлять эту страницу (включая таблицы const и сценариев), AI/weapon/assets docs и тесты. Активация `NoSoundsInRooms.lua` считается новым runtime-поведением и должна отдельно документироваться. Уровень подтверждения формул: static по `System_OR_Unit.lua` + `items.lua`; баланс сценариев — human playtest.
