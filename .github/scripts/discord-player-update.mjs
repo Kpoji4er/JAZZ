@@ -263,12 +263,37 @@ function stripDiscordMarkers(value) {
     .trim();
 }
 
+function commitHasDiscordMarker(message, markerPattern) {
+  const lines = String(message ?? "").split(/\r?\n/);
+  return lines.some((line) => {
+    const trimmed = line.trim();
+    if (!trimmed) {
+      return false;
+    }
+
+    // Active markers are a whole line or sit at the end of a line.
+    // Mid-sentence mentions like "A single [skip discord] docs commit..." are ignored.
+    if (new RegExp(`${markerPattern.source}\\s*$`, markerPattern.flags).test(trimmed)) {
+      return true;
+    }
+
+    return false;
+  });
+}
+
 function commitHasSkipDiscord(message) {
-  return /\[skip discord\]/i.test(String(message ?? ""));
+  return commitHasDiscordMarker(message, /\[skip discord\]/i);
 }
 
 function commitHasDiscordImplemented(message) {
-  return /\[discord\s+implemented\]/i.test(String(message ?? ""));
+  return commitHasDiscordMarker(message, /\[discord\s+implemented\]/i);
+}
+
+function commitHasDiscordForce(message) {
+  return (
+    commitHasDiscordImplemented(message) ||
+    commitHasDiscordMarker(message, /\[discord\]/i)
+  );
 }
 
 export function analyzeCommitMarkers(commits) {
@@ -294,15 +319,12 @@ export function analyzeCommitMarkers(commits) {
     };
   }
 
-  const messages = publishableCommits.map((commit) =>
-    String(commit.message ?? ""),
+  const documentationImplementationExplicit = publishableCommits.some((commit) =>
+    commitHasDiscordImplemented(commit.message),
   );
-  const documentationImplementationExplicit = messages.some((message) =>
-    commitHasDiscordImplemented(message),
+  const force = publishableCommits.some((commit) =>
+    commitHasDiscordForce(commit.message),
   );
-  const force =
-    documentationImplementationExplicit ||
-    messages.some((message) => /\[discord\]/i.test(message));
 
   return {
     skip: false,

@@ -115,6 +115,20 @@ test("skip marker excludes only marked commits in a mixed push range", () => {
   });
 });
 
+test("mid-sentence marker mentions do not activate skip or force", () => {
+  const prose = {
+    message:
+      "Fix Discord skip marker canceling mixed jazz push ranges.\n\nA single [skip discord] docs commit no longer suppresses the whole push summary.",
+  };
+  assert.deepEqual(analyzeCommitMarkers([prose]), {
+    skip: false,
+    force: false,
+    documentationImplementationExplicit: false,
+    publishableCommits: [prose],
+    skippedCommits: [],
+  });
+});
+
 test("skip marker has priority on the same commit and skips an all-skip range", () => {
   const both = { message: "Показать [discord] [skip discord]" };
   assert.deepEqual(analyzeCommitMarkers([both]), {
