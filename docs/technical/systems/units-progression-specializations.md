@@ -65,7 +65,13 @@ Offline merc randomization детерминирован. Это означает
 
 ## Имена элитных противников
 
-`EliteEnemyNamesFuncs.lua` комбинирует first/last-name pools и специальные presets. Генерация должна быть детерминированной, не создавать пустые/повторные комбинации сверх ожидаемого и сохраняться в unit instance/save. Localization и склонение являются пользовательски заметной частью системы.
+`EliteEnemyNamesFuncs.lua` комбинирует first/last-name pools (`Legion.lua`, `Rebels.lua`, `Mercenary.lua`) и nicknames, затем регистрирует presets `EliteEnemyName` через `PlaceObj`. Группы JAZZ: `Legion`, `Rebels`, `Mercenary`. Bare first-name без last — намеренная часть пула. Отдельного пула `Foreigners`/Adonis пока нет (Adonis elite остаются на vanilla-группе `Foreigners`).
+
+Контракт имени совпадает с vanilla: поле `EliteEnemyName.name` имеет `translate = true`, а `GenerateEliteUnitName` копирует его в `unit.Name`. Поэтому name хранится как `T(...)` или составной `T{ 890000000001650, "<first> <last>", first = ..., last = ... }` с вложенными T first/last. Нельзя запекать `_InternalTranslate`/`Untranslated` на этапе регистрации — иначе английский CSV не применяется к элитным именам.
+
+Дедуп идёт по переведённому тексту текущего языка загрузки (только для уникальности пула). Порядок preset id `JazzMerc_<Group>_NNN` детерминирован индексом списка. Уже выданные имена в existing save могут остаться старыми запечёнными строками до нового elite spawn.
+
+Канонический runtime-перевод — `jazz/English.csv` и `jazz/Russian.csv` (все active mod-only ID комплекта, включая пулы имён и format ID). `jazz-units/English.csv` — файл, на который указывает units `metadata.loctables`; содержимое согласовано с каталогом основного пакета.
 
 ## Роли, keywords и экипировка
 
