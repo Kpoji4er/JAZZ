@@ -5697,6 +5697,8 @@ Task: <task>","manual-translation"
 "4442","890000000001631","Reinforce","Reinforce","manual-translation"
 "4443","890000000001632","<role> — reinforcing border sector <target>","<role> — reinforcing border sector <target>","manual-translation"
 "4444","890000000001633","<role> — moving to reinforce sector <target>","<role> — moving to reinforce sector <target>","manual-translation"
+"4445","890000000001634","Tax collector","Tax collector","manual-translation"
+"4446","890000000001635","<role> — collecting taxes ($<money>); next: <target>","<role> — collecting taxes ($<money>); next: <target>","manual-translation"
 
 4442,666643530404,"Потеря удержания точности последующих пуль. Чем меньше отдача, тем медленнее снижается шанс попадания в очереди. Сила, стойка, опора и модификации уменьшают её влияние.","Accuracy retention loss for subsequent bullets. The lower the recoil, the slower the chance to hit decreases during a burst. Strength, stance, bracing, and modifications reduce its impact.",manual-translation
 4443,756735304143,Оптика <ScopeMagnification>.<ScopeSubMagnification>× сдвигает эффективную зону дальше после <ScopeAimLevel>-го уровня прицеливания. Сильная оптика менее удобна вблизи.,Optics with <ScopeMagnification>.<ScopeSubMagnification>× magnification shift the effective range farther after aim level <ScopeAimLevel>. Powerful optics are less convenient at close range.,manual-translation
