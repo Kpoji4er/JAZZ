@@ -67,17 +67,17 @@ Maps добавляет четыре `GuardpostObjective` ModItems. Units пре
 
 Пилот включён только для Region `ErnieIsland`, управляемого аванпоста `I7` и штаба Майора `B28`; остальные guardposts продолжают legacy-путь. Статическая конфигурация находится в Region/SatelliteSector presets, а изменяемый source of truth — versioned `GameVar("gv_JAZZ_LegionAI", ...)` со schema `1`. Existing save создаёт состояние лениво, начальный Heat региона получает как максимум Heat его секторов с clamp `0..1000`, затем director сверяет существующие и исчезнувшие отряды.
 
-Почасовой tick даёт `I7` supply и алмазный stock от удерживаемых Легионом городов, ферм и шахт. Раз в 6 часов командное окно завершает готовые работы, обновляет retake-цели, назначает следующие задачи и создаёт отряды до общего/ролевых лимитов при наличии supply. Роли пилота:
+Почасовой tick даёт `I7` base + city/farm supply **целиком в пул аванпоста** (`outpost.supply`, capacity 500) — на локальный spend и будущую отгрузку Майору конвоями; hourly tick в `major.reserve` не пишет. Алмазы шахт копятся в `diamond_stock` и едут shipment’ом. `MajorReserveCapacity` default **5000** (на порядок выше аванпоста); `MajorStartingReserve` **1000** (≥ одного supply cargo 150). Starting supply аванпоста **50** (&lt; 40% trigger) — supply-конвой легален сразу, но spawn не форсируется. Раз в 6 часов командное окно завершает работы, обновляет retake-цели, назначает задачи и спавнит regular-отряды **только при нужде** и наличии supply. Роли пилота:
 
-- `garrison` — занимает ключевые сектора по приоритету Outpost → City → Mine → Farm;
-- `patrol` — после каждой точки заново выбирает город, шахту, ферму или базу;
-- `recon` — выходит к нагретому сектору, наблюдает; при обнаружении merc squad возвращает target-specific report; при полном observation timeout без контакта один раз снижает Heat наблюдаемого сектора на `ReconNoContactHeatReduction` (default 50, clamp `0..1000`);
-- `qrf` — расходует свежий report либо получает retake-задачу на занятую игроком ключевую точку;
+- `garrison` — занимает key/POI (Outpost → City → Mine → Farm), только если сектор Легиона без обороны: нет managed garrison-задачи и нет уже стоящего Legion/enemy отряда (включая pre-placed);
+- `patrol` — после каждой точки заново выбирает город, шахту, ферму или базу (нужда «всегда», пока есть цель/слот/supply);
+- `recon` — только при sector Heat ≥ `ReconHeatThreshold` («шум»); выходит к нагретому сектору, наблюдает; при обнаружении merc squad возвращает report; при observation timeout без контакта один раз снижает Heat наблюдаемого сектора на `ReconNoContactHeatReduction` (default 50, clamp `0..1000`);
+- `qrf` — только при угрозе: retake player key-сектора или свежий recon report;
 - `supply` — доставляет из `B28` абстрактный supply и при возврате недоставленного груза восстанавливает резерв Майора;
 - `shipment` — везёт накопленные алмазы из `I7` в `B28`;
 - `major` — при Heat региона 800+ и наличии резерва создаёт отдельный тяжёлый ответ с cooldown 72 часа.
 
-Ролевые составы (JAZZ-STRATEGY-002, static): I7 ссылается на `LegionGlobalAI_Garrison` / `_Patrol` / `_Recon` (диапазоны 25–40 / 12–18 / 8–12, только `JAZZ_Legion_*`); QRF остаётся на `LegionJAZZSquadT2`. Region `ErnieIsland` использует `LegionGlobalAI_Convoy` (15–25) для supply и shipment; Major response — `LegionJAZZSquadT3` (+ legacy `LegionHeavyTroops` в списке). Экономика по умолчанию: starting supply/capacity 250/500; costs recon 50, patrol 90, QRF 140, garrison 180, supply convoy cargo 150, major 300; regular cap 6; role caps garrison 2, patrol 2, recon 1, qrf 1.
+Ролевые составы (JAZZ-STRATEGY-002, static): I7 ссылается на `LegionGlobalAI_Garrison` / `_Patrol` / `_Recon` (диапазоны 25–40 / 12–18 / 8–12, только `JAZZ_Legion_*`); QRF остаётся на `LegionJAZZSquadT2`. Region `ErnieIsland` использует `LegionGlobalAI_Convoy` (15–25) для supply и shipment; Major response — `LegionJAZZSquadT3` (+ legacy `LegionHeavyTroops` в списке). Экономика (JAZZ-STRATEGY-003): starting supply/capacity **50**/500; Major reserve start/capacity **1000**/5000; costs recon 50, patrol 90, QRF 140, garrison 180, supply convoy cargo 150, major 300; regular cap 6; role caps garrison 2, patrol 2, recon 1, qrf 1.
 
 У регулярных ролей есть mission budget; после исчерпания отряд возвращается на базу и удаляется. Потеря `I7` переводит связанные регулярные отряды в `orphaned`, прекращает экономику и выдачу приказов; после возвращения контроля действует reboot delay 12 часов. Quest-forced attacks остаются в legacy `Guardpost.lua`, а обычный legacy spawn/patrol для managed `I7` блокируется, чтобы не было двойных отрядов.
 

@@ -151,6 +151,19 @@ local function lClampHeat(value)
 	return Clamp(value or 0, 0, 1000)
 end
 
+local function lMajorReserveCapacity(region)
+	return lConfig(region, "MajorReserveCapacity", 5000)
+end
+
+local function lClampMajorReserve(root, region, value)
+	return Clamp(value or 0, 0, lMajorReserveCapacity(region))
+end
+
+local function lAddMajorReserve(root, region, amount)
+	root.major.reserve = lClampMajorReserve(root, region, (root.major.reserve or 0) + (amount or 0))
+	return root.major.reserve
+end
+
 local function lRegionId(region)
 	return region and (region.id or region.Id)
 end
@@ -260,7 +273,7 @@ local function lEnsureOutpost(root, region, region_state, sector_id)
 			sector_id = sector_id,
 			region_id = lRegionId(region),
 			enabled = controlled,
-			supply = lConfig(region, "StartingSupply", 250),
+			supply = lConfig(region, "StartingSupply", 50),
 			diamond_stock = 0,
 			next_command_time = lNow() + lInterval(region, "CommandInterval", 6 * lHourScale()),
 			reboot_until = 0,
@@ -308,7 +321,13 @@ local function lEnsureRegion(root, region)
 	if hq_sector and hq_sector ~= "" then
 		root.major.hq_sector = root.major.hq_sector or hq_sector
 		if root.major.reserve == false then
-			root.major.reserve = lConfig(region, "MajorStartingReserve", 1000)
+			root.major.reserve = lClampMajorReserve(
+				root,
+				region,
+				lConfig(region, "MajorStartingReserve", 1000)
+			)
+		else
+			root.major.reserve = lClampMajorReserve(root, region, root.major.reserve)
 		end
 	end
 	return region_state
@@ -434,6 +453,21 @@ local function lPlayerSquadInSector(sector_id)
 	for _, squad in sorted_pairs(gv_Squads or empty_table) do
 		if lIsPlayerSide(squad.Side) and squad.CurrentSector == sector_id then
 			return squad
+		end
+	end
+	return false
+end
+
+-- Any non-arrival Legion/enemy squad already in the sector counts as defense,
+-- including campaign-preplaced squads outside gv_JAZZ_LegionAI management.
+local function lSectorHasLegionDefense(sector_id)
+	for _, squad in sorted_pairs(gv_Squads or empty_table) do
+		if squad
+		and squad.CurrentSector == sector_id
+		and not squad.arrival_squad
+		and JAZZ_IsLegionSide(squad.Side)
+		then
+			return true
 		end
 	end
 	return false
@@ -586,6 +620,7 @@ local function lGarrisonTarget(root, region, region_state)
 		and lSectorIsKey(sector)
 		and JAZZ_IsLegionSide(sector.Side)
 		and not lHasRoleTarget(root, region_state.region_id, "garrison", sector_id)
+		and not lSectorHasLegionDefense(sector_id)
 		then
 			local sector_priority = lSectorPriority(sector)
 			if sector_priority >= priority then
@@ -845,7 +880,7 @@ local function lOnSquadArrived(root, squad, squad_state)
 
 	if task.task_type == "return" then
 		if squad_state.role == "supply" and (squad_state.payload.supply or 0) > 0 then
-			root.major.reserve = (root.major.reserve or 0) + squad_state.payload.supply
+			lAddMajorReserve(root, lGetRegionPreset(squad_state.region_id), squad_state.payload.supply)
 			squad_state.payload.supply = 0
 		end
 		lRetireSquad(root, squad.UniqueId)
@@ -876,7 +911,7 @@ local function lOnSquadArrived(root, squad, squad_state)
 	elseif squad_state.role == "shipment" then
 		local hq = gv_Sectors[root.major.hq_sector]
 		if hq and JAZZ_IsLegionSide(hq.Side) then
-			root.major.reserve = (root.major.reserve or 0) + (squad_state.payload.diamonds or 0)
+			lAddMajorReserve(root, lGetRegionPreset(squad_state.region_id), squad_state.payload.diamonds or 0)
 			squad_state.payload.diamonds = 0
 			lRetireSquad(root, squad.UniqueId)
 		else
@@ -1119,7 +1154,8 @@ local function lRunCommandWindow(root, region, region_state, outpost)
 	lCompleteWorkingTasks(root, region, region_state, outpost)
 	lAssignReadySquads(root, region, region_state, outpost)
 
-	-- Emergency/territorial work is filled before routine reconnaissance and patrol.
+	-- Need-gated fill: qrf/recon only with threat/noise; garrison only undefended
+	-- key/POI; patrol always if a patrol target exists. Each spawn requires supply.
 	lSpawnRegularRole(root, region, region_state, outpost, "qrf")
 	while lSpawnRegularRole(root, region, region_state, outpost, "garrison") do end
 	lSpawnRegularRole(root, region, region_state, outpost, "recon")
@@ -1247,6 +1283,7 @@ local function lTickEconomyAndHeat(root, region, region_state)
 		local outpost = root.outposts[sector_id]
 		local sector = gv_Sectors[sector_id]
 		if outpost.enabled and sector and JAZZ_IsLegionSide(sector.Side) then
+			-- All POI/base supply lands in the outpost pool (local spend + later export via convoys).
 			local income = lConfig(region, "PassiveSupplyPerHour", 5)
 				+ legion_cities * lConfig(region, "CitySupplyBonus", 2)
 				+ legion_farms * lConfig(region, "FarmSupplyBonus", 3)
@@ -1460,8 +1497,12 @@ function JAZZ_LegionAIGetDiagnostics()
 		major = table.copy(root.major),
 		regions = {},
 	}
+	diagnostics.major.reserve_capacity = false
 	for region_id, region_state in sorted_pairs(root.regions) do
 		local region = lGetRegionPreset(region_id)
+		if not diagnostics.major.reserve_capacity then
+			diagnostics.major.reserve_capacity = lMajorReserveCapacity(region)
+		end
 		local region_data = {
 			heat = region_state.heat,
 			intel_points = region_state.intel_points,
@@ -1794,7 +1835,7 @@ function OnMsg.ConflictEnd(sector)
 			elseif squad_state.role == "shipment" then
 				local hq = gv_Sectors[root.major.hq_sector]
 				if sector_id == root.major.hq_sector and hq and JAZZ_IsLegionSide(hq.Side) then
-					root.major.reserve = (root.major.reserve or 0) + (squad_state.payload.diamonds or 0)
+					lAddMajorReserve(root, lGetRegionPreset(squad_state.region_id), squad_state.payload.diamonds or 0)
 					squad_state.payload.diamonds = 0
 					lRetireSquad(root, squad_id)
 				end
