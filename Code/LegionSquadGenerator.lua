@@ -291,3 +291,85 @@ function JAZZ_LegionRoleUsesCompositionGenerator(role)
 		or role == "reinforce"
 		or role == "major"
 end
+
+--- Build a list of UnitData template IDs to add onto an existing squad.
+-- existing_template_ids: current living unit class/template ids (for soft-cap accounting).
+-- Returns { units = {...}, money_cost, manpower_cost } or false if nothing affordable.
+function JAZZ_GenerateLegionSquadTopUp(existing_template_ids, role, budget_money, budget_manpower, rand_context)
+	local recipe_role = role == "major" and "retribution" or role
+	local recipe = JAZZ_GetLegionRoleRecipe(recipe_role)
+	if not recipe then
+		return false
+	end
+	existing_template_ids = existing_template_ids or {}
+	local current = {}
+	for _, id in ipairs(existing_template_ids) do
+		current[#current + 1] = id
+	end
+	budget_money = math.floor(tonumber(budget_money) or 0)
+	if budget_manpower ~= nil then
+		budget_manpower = math.floor(tonumber(budget_manpower) or 0)
+	end
+	local target = recipe.size_max
+	if budget_manpower then
+		target = Min(target, #current + budget_manpower)
+	end
+	if #current >= target or budget_money <= 0 then
+		return false
+	end
+
+	local eligible = lEligibleUnits(recipe_role)
+	local added = {}
+	local spent = 0
+	local slot = 0
+	while #current < target do
+		slot = slot + 1
+		local candidates = {}
+		for _, entry in ipairs(eligible) do
+			if entry.bucket ~= "officer"
+				and spent + entry.price <= budget_money
+				and (not budget_manpower or (#added + 1) <= budget_manpower)
+				and not lWouldBreakSoftCap(current, entry.id, target)
+			then
+				local weight = lTierWeight(entry, recipe.tier_bias, "full")
+				if entry.bucket == "line" then
+					weight = weight + 2
+				end
+				if weight > 0 then
+					candidates[#candidates + 1] = {
+						id = entry.id,
+						price = entry.price,
+						weight = weight,
+					}
+				end
+			end
+		end
+		local picked = lPickWeighted(candidates, tostring(rand_context or recipe_role) .. "_topup_" .. slot)
+		if not picked then
+			break
+		end
+		current[#current + 1] = picked.id
+		added[#added + 1] = picked.id
+		spent = spent + picked.price
+	end
+	if #added == 0 then
+		return false
+	end
+	return {
+		units = added,
+		money_cost = spent,
+		manpower_cost = #added,
+		role = recipe_role,
+		target_size = target,
+	}
+end
+
+function JAZZ_GetLegionRoleOptimalSize(role)
+	local recipe = JAZZ_GetLegionRoleRecipe(role == "major" and "retribution" or role)
+	return recipe and recipe.size_max or false
+end
+
+function JAZZ_GetLegionRoleMinSize(role)
+	local recipe = JAZZ_GetLegionRoleRecipe(role == "major" and "retribution" or role)
+	return recipe and recipe.size_min or false
+end

@@ -1017,16 +1017,158 @@ local function lRetireSquad(root, squad_id)
 	end
 end
 
-local function lBeginReturn(root, squad, squad_state)
+local function lSquadLivingUnitInfos(squad)
+	local templates = {}
+	local living = 0
+	local wounded = 0
+	for _, session_id in ipairs(squad.units or empty_table) do
+		local ud = gv_UnitData[session_id]
+		if ud then
+			local dead = (ud.HitPoints or 0) <= 0 or (ud.IsDead and ud:IsDead())
+			if not dead then
+				living = living + 1
+				local template = ud.class or ud.unitdatadef_id or ud.species
+				templates[#templates + 1] = template
+				local low_hp = (ud.MaxHitPoints or 0) > 0
+					and (ud.HitPoints or 0) < MulDivRound(ud.MaxHitPoints, 50, 100)
+				local has_wound = ud.HasStatusEffect and ud:HasStatusEffect("Wounded")
+				if low_hp or has_wound then
+					wounded = wounded + 1
+				end
+			end
+		end
+	end
+	return living, wounded, templates
+end
+
+local function lPurgeDeadAndHealSquad(squad)
+	if not squad then
+		return
+	end
+	local to_remove = {}
+	for _, session_id in ipairs(squad.units or empty_table) do
+		local ud = gv_UnitData[session_id]
+		if ud then
+			local dead = (ud.HitPoints or 0) <= 0 or (ud.IsDead and ud:IsDead())
+			if dead then
+				to_remove[#to_remove + 1] = session_id
+			else
+				ud.HitPoints = ud.MaxHitPoints or ud.HitPoints
+				if ud.RemoveStatusEffect then
+					ud:RemoveStatusEffect("Wounded")
+				end
+			end
+		end
+	end
+	for _, session_id in ipairs(to_remove) do
+		local ud = gv_UnitData[session_id]
+		if ud and RemoveUnitFromSquad then
+			RemoveUnitFromSquad(ud)
+		end
+	end
+end
+
+local function lSquadNeedsWoundedRetreat(squad, role)
+	if not squad or not JAZZ_GetLegionRoleMinSize then
+		return false
+	end
+	local min_size = JAZZ_GetLegionRoleMinSize(role) or 1
+	local living, wounded = lSquadLivingUnitInfos(squad)
+	if living <= 0 then
+		return true
+	end
+	if living < min_size then
+		return true
+	end
+	if wounded >= Max(1, DivRound(living, 2)) then
+		return true
+	end
+	return false
+end
+
+local function lTryTopUpSquad(root, region, outpost, squad, squad_state)
+	if not squad or not squad_state or not outpost or not JAZZ_GenerateLegionSquadTopUp then
+		return false
+	end
+	if squad.CurrentSector ~= squad_state.home_sector then
+		return false
+	end
+	local living, _, templates = lSquadLivingUnitInfos(squad)
+	local optimal = JAZZ_GetLegionRoleOptimalSize(squad_state.role) or living
+	if living >= optimal then
+		return false
+	end
+	local topup = JAZZ_GenerateLegionSquadTopUp(
+		templates,
+		squad_state.role,
+		outpost.money or 0,
+		outpost.manpower,
+		squad_state.role .. "_refit_" .. tostring(squad.UniqueId) .. "_" .. tostring(root.spawn_serial)
+	)
+	if not topup or #(topup.units or empty_table) == 0 then
+		return false
+	end
+	if (outpost.money or 0) < (topup.money_cost or 0) then
+		return false
+	end
+	if outpost.manpower ~= nil and (outpost.manpower or 0) < (topup.manpower_cost or 0) then
+		return false
+	end
+	AddUnitsToSquad(squad, topup.units, nil, InteractionRand(nil, "JAZZ_LegionRefit"))
+	outpost.money = (outpost.money or 0) - (topup.money_cost or 0)
+	if outpost.manpower ~= nil then
+		outpost.manpower = Max((outpost.manpower or 0) - (topup.manpower_cost or 0), 0)
+	end
+	ObjModified(squad)
+	Msg("JAZZ_LegionAISquadRefit", squad.UniqueId, topup.manpower_cost, topup.money_cost)
+	return true
+end
+
+local function lEnterBaseRefit(root, squad, squad_state)
 	if not squad or not squad_state then
 		return false
 	end
+	lPurgeDeadAndHealSquad(squad)
+	local living = lSquadLivingUnitInfos(squad)
+	if living <= 0 then
+		lRetireSquad(root, squad.UniqueId)
+		return true
+	end
+	squad_state.task = false
+	local region = lGetRegionPreset(squad_state.region_id)
+	local outpost = root.outposts[squad_state.home_sector]
+	local optimal = JAZZ_GetLegionRoleOptimalSize and JAZZ_GetLegionRoleOptimalSize(squad_state.role) or living
+	local topped = outpost and lTryTopUpSquad(root, region, outpost, squad, squad_state)
+	living = lSquadLivingUnitInfos(squad)
+	if living >= optimal then
+		local missions_key = lRoleMissions[squad_state.role]
+		squad_state.missions_left = missions_key and lConfig(region, missions_key, 1) or (squad_state.missions_left or 1)
+		if squad_state.missions_left <= 0 then
+			squad_state.missions_left = 1
+		end
+		squad_state.state = "ready_for_orders"
+	else
+		squad_state.state = "wounded"
+	end
+	ObjModified(squad)
+	return topped or true
+end
+
+local function lBeginReturn(root, squad, squad_state, reason)
+	if not squad or not squad_state then
+		return false
+	end
+	reason = reason or "refit"
+	local refill_regular = lRegularRoles[squad_state.role]
 	if squad.CurrentSector == squad_state.home_sector then
+		if refill_regular then
+			return lEnterBaseRefit(root, squad, squad_state)
+		end
 		lRetireSquad(root, squad.UniqueId)
 		return true
 	end
 	squad_state.task = {
-		task_type = "return",
+		task_type = reason == "wounded" and "return_wounded" or "return",
 		target_sector = squad_state.home_sector,
 	}
 	squad_state.state = "returning"
@@ -1037,7 +1179,11 @@ local function lBeginReturn(root, squad, squad_state)
 		ObjModified(squad)
 		return false
 	elseif routed == "arrived" then
-		lRetireSquad(root, squad.UniqueId)
+		if refill_regular then
+			lEnterBaseRefit(root, squad, squad_state)
+		else
+			lRetireSquad(root, squad.UniqueId)
+		end
 	end
 	return true
 end
@@ -1062,7 +1208,7 @@ local function lOnSquadArrived(root, squad, squad_state)
 		return
 	end
 
-	if task.task_type == "return" then
+	if task.task_type == "return" or task.task_type == "return_wounded" then
 		local cargo = lPayloadMoney(squad_state.payload)
 		if squad_state.role == "supply" and cargo > 0 then
 			lAddMajorMoney(root, lGetRegionPreset(squad_state.region_id), cargo)
@@ -1072,7 +1218,11 @@ local function lOnSquadArrived(root, squad, squad_state)
 			root.major.manpower = (root.major.manpower or 0) + (squad_state.payload.manpower or 0)
 			squad_state.payload.manpower = 0
 		end
-		lRetireSquad(root, squad.UniqueId)
+		if lRegularRoles[squad_state.role] then
+			lEnterBaseRefit(root, squad, squad_state)
+		else
+			lRetireSquad(root, squad.UniqueId)
+		end
 	elseif squad_state.role == "patrol" then
 		local region_state = root.regions[squad_state.region_id]
 		region_state.last_patrolled[squad.CurrentSector] = lNow()
@@ -1284,15 +1434,35 @@ local function lAssignReadySquads(root, region, region_state, outpost)
 	for squad_id, squad_state in sorted_pairs(root.squads) do
 		if squad_state.home_sector == outpost.sector_id
 		and lRegularRoles[squad_state.role]
-		and squad_state.state == "ready_for_orders"
+		and (squad_state.state == "ready_for_orders" or squad_state.state == "wounded")
 		then
 			local squad = gv_Squads[squad_id]
 			if squad and not IsSquadTravelling(squad, "skip_tick_pass") and not IsConflictMode(squad.CurrentSector) then
-				if squad_state.missions_left <= 0 then
-					lBeginReturn(root, squad, squad_state)
-				else
+				if squad.CurrentSector == outpost.sector_id then
+					lPurgeDeadAndHealSquad(squad)
+					lTryTopUpSquad(root, region, outpost, squad, squad_state)
+					local living = lSquadLivingUnitInfos(squad)
+					local optimal = JAZZ_GetLegionRoleOptimalSize and JAZZ_GetLegionRoleOptimalSize(squad_state.role) or living
+					if living <= 0 then
+						lRetireSquad(root, squad_id)
+					elseif living < optimal then
+						squad_state.state = "wounded"
+						squad_state.task = false
+						ObjModified(squad)
+					else
+						if squad_state.state == "wounded" or (squad_state.missions_left or 0) <= 0 then
+							local missions_key = lRoleMissions[squad_state.role]
+							squad_state.missions_left = missions_key and lConfig(region, missions_key, 1) or Max(squad_state.missions_left or 1, 1)
+						end
+						squad_state.state = "ready_for_orders"
+						ObjModified(squad)
+					end
+				end
+				if squad_state.state == "ready_for_orders" and (squad_state.missions_left or 0) > 0 then
 					local request = lRoleRequest(root, region, region_state, outpost, squad, squad_state.role)
 					lAssignTask(root, region, region_state, outpost, squad, squad_state, request)
+				elseif squad_state.state == "ready_for_orders" and (squad_state.missions_left or 0) <= 0 then
+					lBeginReturn(root, squad, squad_state, "refit")
 				end
 			end
 		end
@@ -2031,6 +2201,27 @@ local function lProcessOutpostWindow(root, region, region_state, outpost)
 	until outpost.next_command_time > lNow()
 end
 
+local function lTickWoundedRetreats(root)
+	for squad_id, squad_state in sorted_pairs(root.squads) do
+		if lRegularRoles[squad_state.role]
+			and squad_state.state ~= "retired"
+			and squad_state.state ~= "returning"
+			and squad_state.state ~= "wounded"
+			and squad_state.state ~= "orphaned"
+		then
+			local squad = gv_Squads[squad_id]
+			if squad
+				and squad.CurrentSector ~= squad_state.home_sector
+				and not IsSquadTravelling(squad, "skip_tick_pass")
+				and not IsConflictMode(squad.CurrentSector)
+				and lSquadNeedsWoundedRetreat(squad, squad_state.role)
+			then
+				lBeginReturn(root, squad, squad_state, "wounded")
+			end
+		end
+	end
+end
+
 function JAZZ_LegionAIProcessHour()
 	local root = JAZZ_LegionAIEnsureState()
 	if not root then
@@ -2044,6 +2235,7 @@ function JAZZ_LegionAIProcessHour()
 
 	lTickRecon(root)
 	lTickMajor(root)
+	lTickWoundedRetreats(root)
 	for region_id, region_state in sorted_pairs(root.regions) do
 		local region = lGetRegionPreset(region_id)
 		if region and region.LegionAIEnabled then
@@ -2205,9 +2397,14 @@ function JAZZ_GetLegionAISquadTaskText(squad_or_id)
 	local target = task and task.target_sector
 	if squad_state.state == "orphaned" then
 		return T{890000000001431, "<role> — outpost <home> lost; no contact", role = role, home = Untranslated(squad_state.home_sector)}
+	elseif squad_state.state == "wounded" then
+		return T{890000000001641, "<role> — wounded at outpost <home>; awaiting reinforcements", role = role, home = Untranslated(squad_state.home_sector)}
 	elseif squad_state.state == "ready_for_orders" then
 		return T{890000000001432, "<role> — awaiting orders from outpost <home>", role = role, home = Untranslated(squad_state.home_sector)}
 	elseif squad_state.state == "returning" then
+		if task and task.task_type == "return_wounded" then
+			return T{890000000001642, "<role> — retreating wounded to <home>", role = role, home = Untranslated(squad_state.home_sector)}
+		end
 		if task and task.task_type == "return_with_intel" then
 			local intel_sector = (task.report and task.report.target_sector)
 				or task.observed_sector

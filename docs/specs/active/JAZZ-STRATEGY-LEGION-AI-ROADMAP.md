@@ -41,6 +41,7 @@ approved_by: project-owner
 | JAZZ-STRATEGY-009 | Tax collector: city/farm `$` → poi_money → outpost via TAX role |
 | JAZZ-STRATEGY-010 | Manpower schema v3; recruiter; manpower convoy; spawn manpower gate |
 | JAZZ-STRATEGY-011 | Player recruit accrual + militia API (Operation hook morning Q) |
+| JAZZ-STRATEGY-012 | Base refit / wounded retreat / idle top-up for regular combat roles |
 
 ## Валюта (утверждено)
 

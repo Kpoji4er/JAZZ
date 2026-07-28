@@ -17,7 +17,11 @@ Overnight реализованы STRATEGY-008…011 (011 частично). Ни
 8. На каких методах вешать consume: `CanPerform` + `Complete` / `OnComplete` / progress tick?
 9. Если рекрутов 0 — блокировать старт операции или только показывать warning?
 
-## Runtime smoke (приоритет)
+## Refit / wounded (STRATEGY-012)
+
+11. Optimal size = recipe size_max; retreat if living &lt; size_min or ≥50% wounded/low-HP — ok?
+12. Wounded stays at base until **optimal** (not just min) before new orders — ok?
+13. Heal to full on base entry — ok, or gradual heal?
 
 10. После Reload модов с диска: schema diagnostics = **3**; tax/recruiter/manpower иконки; combat spawn списывает money+manpower; city/farm не капают outpost.money напрямую.
 
