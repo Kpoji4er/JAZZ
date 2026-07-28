@@ -1826,7 +1826,7 @@ local function lTickEconomyAndHeat(root, region, region_state)
 		for _ = 1, cycles do
 			for _, sector_id in ipairs(region.Sectors or empty_table) do
 				local sector = gv_Sectors[sector_id]
-				if sector and JAZZ_IsLegionSide(sector.Side) then
+				if sector and (JAZZ_IsLegionSide(sector.Side) or lIsPlayerSide(sector.Side)) then
 					local add = 0
 					local cap = 0
 					if sector.City and sector.City ~= "none" then

@@ -40,6 +40,7 @@ approved_by: project-owner
 | JAZZ-STRATEGY-008 | Composition generator + per-unit `$` spawn costs for combat roles |
 | JAZZ-STRATEGY-009 | Tax collector: city/farm `$` → poi_money → outpost via TAX role |
 | JAZZ-STRATEGY-010 | Manpower schema v3; recruiter; manpower convoy; spawn manpower gate |
+| JAZZ-STRATEGY-011 | Player recruit accrual + militia API (Operation hook morning Q) |
 
 ## Валюта (утверждено)
 
@@ -143,11 +144,9 @@ Major держит свои пулы (`major.money`, `major.manpower`) с capaci
 
 Реализовано (locked defaults): farm +1/day, city +2/day; outpost 20/60; Major 80/600; recruiter threshold 8 / cap 2 / 24h; manpower convoy cargo 16 @40% trigger. Spawn combat списывает manpower.
 
-#### 7 — порядок внутри пункта
-1. 7a Tax ($ delivery) после п.0 валюты.  
-2. 7b Recruits + recruiter + outpost/major manpower + manpower convoy.  
-3. П.6 подключить manpower-gate к spawn.  
-4. 7c Player militia ↔ recruits.
+#### 7c. Player militia ↔ recruits → [JAZZ-STRATEGY-011](JAZZ-STRATEGY-011.md)
+
+Частично: player city/farm копят тот же `poi_recruits`; API get/consume; optional soft gate если найден `MilitiaTraining`/`TrainMilitia`. Полный Operation contract — [morning questions](JAZZ-GLOBAL-AI-MORNING-QUESTIONS.md).
 
 ## Иконки (ассеты)
 
