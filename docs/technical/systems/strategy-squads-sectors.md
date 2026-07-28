@@ -78,6 +78,7 @@ Maps добавляет четыре `GuardpostObjective` ModItems. Units пре
 - `qrf` — только при угрозе: retake player key-сектора или свежий recon report;
 - `reinforce` — пограничное усиление: Legion key/POI, соседний с player Side или player squad; иконка REINFORCE;
 - `supply` — доставляет из `B28` `$` (`payload.money`); task UI показывает сумму; маршрут `land_water_boatless`; при возврате недоставленного груза восстанавливает `major.money`;
+- `tax` — обходит Legion city/farm с `region_state.poi_money`, собирает `$`, сдаёт на аванпост (cap 2, threshold 1000, cooldown 24h); city/farm hourly больше не льются напрямую в `outpost.money`;
 - `shipment` — везёт `$` shipment-stock из `I7` в `B28`; inventory = `lEnsureMoneyCargo` (DiamondBriefcase @$12000 + TinyDiamonds @$500, остаток вверх); task UI показывает сумму; тот же boatless route; supply и shipment могут сосуществовать в одном командном окне при обоих гейтах;
 - `major` (Retribution) — при Heat региона 800+ и наличии `$` создаёт тяжёлый ответ с HQ `B28` (иконка RETRIBUTION); цель — delivered recon report или max player noise; cooldown 72 часа.
 

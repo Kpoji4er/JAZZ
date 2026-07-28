@@ -167,6 +167,19 @@ JAZZ_LegionRoleRecipes = {
 			"JAZZ_Legion_LeaderT2",
 		},
 	},
+	tax = {
+		size_min = 6,
+		size_max = 12,
+		tier_bias = "escort",
+		allow_prefixes = {
+			"JAZZ_Legion_AssaultT1",
+			"JAZZ_Legion_AssaultT2",
+			"JAZZ_Legion_FrontT1",
+			"JAZZ_Legion_FrontT2",
+			"JAZZ_Legion_LeaderT1",
+			"JAZZ_Legion_LeaderT2",
+		},
+	},
 }
 
 function JAZZ_GetLegionRoleRecipe(role)

@@ -1,4 +1,4 @@
-﻿sep=,
+sep=,
 ID,Text,Translation,VoiceActor,Context
 987654321,<style WeaponModHeader><display_name></style>,<style WeaponModHeader><display_name></style>,,jazz:Code/System_Firearm_AddProperties.lua:477
 100047705770,The <em>Le Domas</em> and <em>Van Tassel</em> families are gathered to hear findings of the <em>murder investigation</em>,"Семьи <em>Ле Домасов</em> и <em>Ван Тасселей</em> собрались, чтобы выслушать результаты <em>расследования убийств</em>",,jazz-maps:items.lua:96149
@@ -7049,6 +7049,8 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000001631,Reinforce,Усиление,,jazz:Code/Guardpost_Patrols.lua
 890000000001632,<role> — reinforcing border sector <target>,<role> — усиливает пограничный сектор <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001633,<role> — moving to reinforce sector <target>,<role> — идёт усиливать сектор <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001634,Tax collector,Сборщик налогов,,jazz:Code/Guardpost_Patrols.lua
+890000000001635,<role> — collecting taxes ($<money>); next: <target>,<role> — собирает налоги ($<money>); далее: <target>,,jazz:Code/Guardpost_Patrols.lua
 939310080350111,ржавое,ржавое,,jazz:Code/Inventory.lua:117 | jazz:Code/Inventory.lua:180
 968409848233111,сломанное,сломанное,,jazz:Code/Inventory.lua:120 | jazz:Code/Inventory.lua:183
 1786863112811235,Укрепления,Укрепления,,jazz:Code/POI Extension.lua:9
@@ -7057,3 +7059,4 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 4869897712911115,,,,jazz:Code/Inventory.lua:85 | jazz:Code/Inventory.lua:148
 5678579714391111,изношенное,изношенное,,jazz:Code/Inventory.lua:114 | jazz:Code/Inventory.lua:177
 8182360763020012,Ресурс,Ресурс,,jazz:items.lua:73489
+890000000001650,<first> <last>,<first> <last>,,jazz-units:Code/EliteEnemyNamesFuncs.lua

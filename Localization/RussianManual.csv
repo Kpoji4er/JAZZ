@@ -1,4 +1,4 @@
-﻿"N","AnchorID","SourceText","Russian","Notes"
+"N","AnchorID","SourceText","Russian","Notes"
 "1","890000000001388","
 <bullet_point> <target_prop>: <pen>","
 <bullet_point> <target_prop>: <pen>","technical-copy"
@@ -396,6 +396,8 @@ Task: <task>","<squad_name>
 "388","890000000001631","Reinforce","Усиление","manual-translation"
 "389","890000000001632","<role> — reinforcing border sector <target>","<role> — усиливает пограничный сектор <target>","manual-translation"
 "390","890000000001633","<role> — moving to reinforce sector <target>","<role> — идёт усиливать сектор <target>","manual-translation"
+"391","890000000001634","Tax collector","Сборщик налогов","manual-translation"
+"392","890000000001635","<role> — collecting taxes ($<money>); next: <target>","<role> — собирает налоги ($<money>); далее: <target>","manual-translation"
 388,872401100001,HMMWV,HMMWV,technical-copy
 389,872401100070,HMMWV,HMMWV,technical-copy
 390,890000000001465,Long Distance Relations,Отношения на расстоянии,manual-translation
@@ -404,3 +406,4 @@ Task: <task>","<squad_name>
 393,890000000001496,Grilled Bears' Survival Guide,Руководство по выживанию «Жареных медведей»,manual-translation
 394,890000000001502,An Apple a Day,Яблоко в день,manual-translation
 395,890000000001506,Grilled Bears' Survival Guide,Руководство по выживанию «Жареных медведей»,manual-translation
+"396","890000000001650","<first> <last>","<first> <last>","technical-copy"

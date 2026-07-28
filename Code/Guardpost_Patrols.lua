@@ -34,6 +34,7 @@ local lRoleImages = {
 	patrol = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_PATROL_squad.png",
 	garrison = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_GARRISON_squad.png",
 	reinforce = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_REINFORCE_squad.png",
+	tax = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_TAX_squad.png",
 }
 
 local function lEnsureRoleIconPng(icon)
@@ -293,10 +294,12 @@ local function lEnsureOutpost(root, region, region_state, sector_id)
 			next_command_time = lNow() + lInterval(region, "CommandInterval", 6 * lHourScale()),
 			reboot_until = 0,
 			retake_targets = {},
+			last_tax_time = 0,
 		}
 		root.outposts[sector_id] = outpost
 	end
 	outpost.retake_targets = outpost.retake_targets or {}
+	outpost.last_tax_time = outpost.last_tax_time or 0
 	outpost.region_id = lRegionId(region)
 	region_state.outposts[sector_id] = true
 	return outpost
@@ -319,6 +322,7 @@ local function lEnsureRegion(root, region)
 			reports = {},
 			outposts = {},
 			last_patrolled = {},
+			poi_money = {},
 			next_heat_decay_time = lNow() + lInterval(region, "HeatDecayInterval", 7 * lHourScale()),
 		}
 		root.regions[region_id] = region_state
@@ -326,6 +330,7 @@ local function lEnsureRegion(root, region)
 	region_state.reports = region_state.reports or {}
 	region_state.outposts = region_state.outposts or {}
 	region_state.last_patrolled = region_state.last_patrolled or {}
+	region_state.poi_money = region_state.poi_money or {}
 	region_state.heat = lClampHeat(region_state.heat)
 
 	for _, sector_id in ipairs(region.ManagedOutposts or empty_table) do
@@ -823,6 +828,8 @@ local function lRoleSquadList(region, sector, role)
 		return lNonEmptyList(sector.EnemySquadsQRFList, sector.StrongEnemySquadsList)
 	elseif role == "supply" then
 		return region.SupplySquads
+	elseif role == "tax" then
+		return lNonEmptyList(region.TaxSquads, region.SupplySquads)
 	elseif role == "shipment" then
 		return region.ShipmentSquads
 	elseif role == "major" then
@@ -1030,6 +1037,50 @@ local function lOnSquadArrived(root, squad, squad_state)
 			lRetireSquad(root, squad.UniqueId)
 		else
 			squad_state.state = "working"
+		end
+	elseif squad_state.role == "tax" then
+		local region_state = root.regions[squad_state.region_id]
+		local region = lGetRegionPreset(squad_state.region_id)
+		local outpost = root.outposts[squad_state.home_sector]
+		local circuit = task.circuit or empty_table
+		local index = task.circuit_index or 1
+		if index <= #circuit and squad.CurrentSector == circuit[index] then
+			local collected = region_state.poi_money[circuit[index]] or 0
+			region_state.poi_money[circuit[index]] = 0
+			squad_state.payload = squad_state.payload or {}
+			squad_state.payload.money = lPayloadMoney(squad_state.payload) + collected
+			task.circuit_index = index + 1
+			if task.circuit_index <= #circuit then
+				task.target_sector = circuit[task.circuit_index]
+				squad_state.state = "en_route"
+				ObjModified(squad)
+				local routed = lSetRoute(squad, task.target_sector)
+				if not routed then
+					squad_state.state = "orphaned"
+				elseif routed == "arrived" then
+					lOnSquadArrived(root, squad, squad_state)
+				end
+			else
+				task.target_sector = squad_state.home_sector
+				task.task_type = "tax_return"
+				squad_state.state = "en_route"
+				ObjModified(squad)
+				local routed = lSetRoute(squad, squad_state.home_sector)
+				if not routed then
+					squad_state.state = "orphaned"
+				elseif routed == "arrived" then
+					lOnSquadArrived(root, squad, squad_state)
+				end
+			end
+		elseif task.task_type == "tax_return" and squad.CurrentSector == squad_state.home_sector then
+			if outpost then
+				outpost.money = Min(
+					(outpost.money or 0) + lPayloadMoney(squad_state.payload),
+					lOutpostMoneyCapacity(region)
+				)
+				squad_state.payload.money = 0
+			end
+			lRetireSquad(root, squad.UniqueId)
 		end
 	elseif squad_state.role == "garrison" or squad_state.role == "reinforce" then
 		squad_state.state = "working"
@@ -1253,6 +1304,78 @@ local function lTryDiamondShipment(root, region, region_state, outpost)
 	return true
 end
 
+local function lCountHomeRole(root, home_sector, role)
+	local count = 0
+	for _, squad_state in sorted_pairs(root.squads) do
+		if squad_state.home_sector == home_sector
+			and squad_state.role == role
+			and squad_state.state ~= "retired"
+		then
+			count = count + 1
+		end
+	end
+	return count
+end
+
+local function lTaxCircuitSectors(region, region_state)
+	local list = {}
+	local total = 0
+	for _, sector_id in ipairs(region.Sectors or empty_table) do
+		local money = region_state.poi_money[sector_id] or 0
+		if money > 0 then
+			local sector = gv_Sectors[sector_id]
+			if sector and JAZZ_IsLegionSide(sector.Side)
+				and ((sector.City and sector.City ~= "none") or sector.Farm)
+			then
+				list[#list + 1] = sector_id
+				total = total + money
+			end
+		end
+	end
+	table.sort(list)
+	return list, total
+end
+
+local function lTryTaxCollector(root, region, region_state, outpost)
+	local cap = lConfig(region, "TaxCap", 2)
+	if lCountHomeRole(root, outpost.sector_id, "tax") >= cap then
+		return false
+	end
+	local cooldown = lConfig(region, "TaxCooldown", 24 * lHourScale())
+	if (outpost.last_tax_time or 0) + cooldown > lNow() then
+		return false
+	end
+	local circuit, total = lTaxCircuitSectors(region, region_state)
+	if total < lConfig(region, "TaxThreshold", 1000) or #circuit == 0 then
+		return false
+	end
+	local squad_id, squad_state = lSpawnManaged(
+		root, region, outpost.sector_id, "tax", outpost.sector_id, 1, { money = 0 }
+	)
+	local squad = squad_id and gv_Squads[squad_id]
+	if not squad then
+		return false
+	end
+	squad_state.task = {
+		task_type = "tax",
+		circuit = circuit,
+		circuit_index = 1,
+		target_sector = circuit[1],
+	}
+	squad_state.state = "en_route"
+	local routed = lSetRoute(squad, circuit[1])
+	if not routed then
+		lRetireSquad(root, squad_id)
+		return false
+	end
+	outpost.last_tax_time = lNow()
+	ObjModified(squad)
+	if routed == "arrived" then
+		lOnSquadArrived(root, squad, squad_state)
+	end
+	return true
+end
+
 local function lCompleteWorkingTasks(root, region, region_state, outpost)
 	for squad_id, squad_state in sorted_pairs(root.squads) do
 		local squad = gv_Squads[squad_id]
@@ -1318,6 +1441,7 @@ local function lRunCommandWindow(root, region, region_state, outpost)
 
 	lTrySupplyConvoy(root, region, region_state, outpost)
 	lTryDiamondShipment(root, region, region_state, outpost)
+	lTryTaxCollector(root, region, region_state, outpost)
 end
 
 local function lParalyzeOutpost(root, outpost)
@@ -1422,15 +1546,23 @@ local function lExpireReports(region_state)
 end
 
 local function lTickEconomyAndHeat(root, region, region_state)
-	local legion_cities = 0
-	local legion_farms = 0
 	local legion_mines = 0
 	for _, sector_id in ipairs(region.Sectors or empty_table) do
 		local sector = gv_Sectors[sector_id]
 		if sector and JAZZ_IsLegionSide(sector.Side) then
-			if sector.City and sector.City ~= "none" then legion_cities = legion_cities + 1 end
-			if sector.Farm then legion_farms = legion_farms + 1 end
-			if sector.Mine then legion_mines = legion_mines + 1 end
+			if sector.Mine then
+				legion_mines = legion_mines + 1
+			end
+			local add = 0
+			if sector.City and sector.City ~= "none" then
+				add = add + lConfig(region, "CitySupplyBonus", 50)
+			end
+			if sector.Farm then
+				add = add + lConfig(region, "FarmSupplyBonus", 10)
+			end
+			if add > 0 then
+				region_state.poi_money[sector_id] = (region_state.poi_money[sector_id] or 0) + add
+			end
 		end
 	end
 
@@ -1438,10 +1570,8 @@ local function lTickEconomyAndHeat(root, region, region_state)
 		local outpost = root.outposts[sector_id]
 		local sector = gv_Sectors[sector_id]
 		if outpost.enabled and sector and JAZZ_IsLegionSide(sector.Side) then
-			-- City/farm/base $ lands in outpost.money; mine $ accumulates for shipment.
+			-- Base passive stays on outpost; city/farm $ wait for tax; mine → shipment stock.
 			local income = lConfig(region, "PassiveSupplyPerHour", 0)
-				+ legion_cities * lConfig(region, "CitySupplyBonus", 50)
-				+ legion_farms * lConfig(region, "FarmSupplyBonus", 10)
 			outpost.money = Min(
 				(outpost.money or 0) + income,
 				lOutpostMoneyCapacity(region)
@@ -1802,6 +1932,7 @@ local lRoleDisplayNames = {
 	major = T(890000000001428, "Retribution"),
 	supply = T(890000000001429, "Supply convoy"),
 	shipment = T(890000000001430, "Diamond convoy"),
+	tax = T(890000000001634, "Tax collector"),
 }
 
 function JAZZ_GetLegionAISquadTaskText(squad_or_id)
@@ -1870,6 +2001,14 @@ function JAZZ_GetLegionAISquadTaskText(squad_or_id)
 		return T{
 			890000000001445,
 			"<role> — delivering $<money> to HQ <target>",
+			role = role,
+			money = Untranslated(tostring(lPayloadMoney(squad_state.payload))),
+			target = Untranslated(target or "?"),
+		}
+	elseif squad_state.role == "tax" then
+		return T{
+			890000000001635,
+			"<role> — collecting taxes ($<money>); next: <target>",
 			role = role,
 			money = Untranslated(tostring(lPayloadMoney(squad_state.payload))),
 			target = Untranslated(target or "?"),

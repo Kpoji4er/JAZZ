@@ -7729,6 +7729,8 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000001631,Reinforce,,Усиление,Reinforce,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-007
 890000000001632,<role> — reinforcing border sector <target>,,<role> — усиливает пограничный сектор <target>,<role> — reinforcing border sector <target>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-007
 890000000001633,<role> — moving to reinforce sector <target>,,<role> — идёт усиливать сектор <target>,<role> — moving to reinforce sector <target>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-007
+890000000001634,Tax collector,,Сборщик налогов,Tax collector,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-009
+890000000001635,<role> — collecting taxes ($<money>); next: <target>,,<role> — собирает налоги ($<money>); далее: <target>,<role> — collecting taxes ($<money>); next: <target>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-009
 939310080350111,ржавое,,ржавое,rusty,russian-override;new-id,jazz:Code/Inventory.lua:117 | jazz:Code/Inventory.lua:180,jazz,jazz:Code/Inventory.lua:117 | jazz:Code/Inventory.lua:180,
 968409848233111,сломанное,,сломанное,broken,russian-override;new-id,jazz:Code/Inventory.lua:120 | jazz:Code/Inventory.lua:183,jazz,jazz:Code/Inventory.lua:120 | jazz:Code/Inventory.lua:183,
 1786863112811235,Укрепления,,Укрепления,Fortifications,russian-override;new-id,jazz:Code/POI Extension.lua:9,jazz,jazz:Code/POI Extension.lua:9,
@@ -7737,3 +7739,4 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 4869897712911115,,,,,russian-override;new-id,jazz:Code/Inventory.lua:85 | jazz:Code/Inventory.lua:148,jazz,jazz:Code/Inventory.lua:85 | jazz:Code/Inventory.lua:148,
 5678579714391111,изношенное,,изношенное,worn out,russian-override;new-id,jazz:Code/Inventory.lua:114 | jazz:Code/Inventory.lua:177,jazz,jazz:Code/Inventory.lua:114 | jazz:Code/Inventory.lua:177,
 8182360763020012,Ресурс,,Ресурс,Resource,russian-override;new-id,jazz:items.lua:73489,jazz,jazz:items.lua:73239,
+890000000001650,<first> <last>,,<first> <last>,<first> <last>,new-id;ready,jazz-units:Code/EliteEnemyNamesFuncs.lua,jazz-units,jazz-units:Code/EliteEnemyNamesFuncs.lua,technical-copy

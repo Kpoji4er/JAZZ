@@ -38,6 +38,7 @@ approved_by: project-owner
 | JAZZ-STRATEGY-006 | Money ledger `$` (schema v2); POI rates; flat costs in `$`; cargo `$` in task UI |
 | JAZZ-STRATEGY-007 | Convoys valuables + boatless routes; patrol into player sectors; reinforce; retribution icon/targeting; recon intel text; role recipes data |
 | JAZZ-STRATEGY-008 | Composition generator + per-unit `$` spawn costs for combat roles |
+| JAZZ-STRATEGY-009 | Tax collector: city/farm `$` → poi_money → outpost via TAX role |
 
 ## Валюта (утверждено)
 

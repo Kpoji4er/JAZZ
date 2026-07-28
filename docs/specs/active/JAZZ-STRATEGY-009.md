@@ -85,13 +85,20 @@ Roadmap 7a: city/farm `$` сейчас льются прямо в `outpost.money
 - Outpost money grows slower until tax delivers (intentional).
 - Existing saves: poi_money starts empty; city/farm stop direct fill after load.
 
+## План и ownership
+
+1. Spec approved via overnight Global AI completion order.
+2. Implement tax income path + role.
+3. Owner runtime smoke.
+
 ## Решение владельца
 
 28 июля 2026 — overnight completion of Global AI roadmap 7a.
 
 ## Evidence
 
-- pending
+- `JAZZ-STRATEGY-009-AC-001`..`004`: static PASS
+- `JAZZ-STRATEGY-009-AC-005`: `BLOCKED (runtime)`
 
 ## Documentation delta
 
