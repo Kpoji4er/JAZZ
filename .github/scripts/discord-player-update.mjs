@@ -165,8 +165,9 @@ webhook URL, внутренние инструкции агентов или с�
 Если force_publish=true, подготовь нейтральную фактическую публикацию даже для пограничных
 изменений и установи should_publish=true. Не обходи требования безопасности и evidence.
 
-Суммарно используй не более 8 пунктов. Не добавляй пустые разделы. Верни только JSON,
-строго соответствующий заданной JSON Schema.
+Суммарно используй не более 8 пунктов во всех разделах вместе. Если изменений
+больше — оставь самые заметные для игрока и объедини близкие правки. Не добавляй
+пустые разделы. Верни только JSON, строго соответствующий заданной JSON Schema.
 `.trim();
 
 function normalizeRepoPath(value) {
@@ -1080,9 +1081,8 @@ function validateAiSummary(value) {
     itemCount += section.items.length;
   }
 
-  if (itemCount > MAX_PUBLIC_ITEMS) {
-    throw new Error("AI response contains too many items.");
-  }
+  // Excess bullets are truncated in normalizeSummary; do not reject the whole
+  // response and fall back to commit subjects for large push ranges.
   if (value.should_publish && !value.summary.trim() && itemCount === 0) {
     throw new Error("AI response has no publishable content.");
   }
@@ -1102,7 +1102,7 @@ export function parseAiOutput(outputText) {
     throw new Error("AI response was not valid JSON.");
   }
 
-  return validateAiSummary(parsed);
+  return normalizeSummary(validateAiSummary(parsed));
 }
 
 function normalizeSummary(summary) {
@@ -1172,7 +1172,7 @@ async function requestAiSummary({
     },
   });
 
-  return normalizeSummary(parseAiOutput(response.output_text));
+  return parseAiOutput(response.output_text);
 }
 
 export function buildFallbackSummary(commits, { documentationOnly = false } = {}) {

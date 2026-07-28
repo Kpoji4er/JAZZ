@@ -333,24 +333,34 @@ test("valid AI JSON is parsed and invalid JSON is rejected", () => {
 
   assert.equal(parseAiOutput(valid).should_publish, false);
   assert.throws(() => parseAiOutput("{broken"), /valid JSON/);
-  assert.throws(
-    () =>
-      parseAiOutput(
-        JSON.stringify({
-          should_publish: true,
-          title: "Title",
-          summary: "Summary",
-          sections: [
-            {
-              name: "Too many",
-              items: Array.from({ length: 9 }, (_, index) => `Item ${index}`),
-            },
-          ],
-          confidence: "high",
-        }),
-      ),
-    /too many items/,
+
+  const truncated = parseAiOutput(
+    JSON.stringify({
+      should_publish: true,
+      title: "Title",
+      summary: "Summary",
+      sections: [
+        {
+          name: "Too many",
+          items: Array.from({ length: 9 }, (_, index) => `Item ${index}`),
+        },
+      ],
+      confidence: "high",
+    }),
   );
+  assert.equal(truncated.sections.length, 1);
+  assert.equal(truncated.sections[0].items.length, 8);
+  assert.deepEqual(truncated.sections[0].items, [
+    "Item 0",
+    "Item 1",
+    "Item 2",
+    "Item 3",
+    "Item 4",
+    "Item 5",
+    "Item 6",
+    "Item 7",
+  ]);
+
   assert.throws(
     () =>
       parseAiOutput(
