@@ -1,34 +1,28 @@
-# Global AI — вопросы на утро (28→29 июля 2026)
+# Global AI — playtest notes (28 июля 2026)
 
-Overnight реализованы STRATEGY-008…011 (011 частично). Ниже locked defaults — подтверди или поправь.
+Locked defaults after playtest (militia training out of scope).
 
-## Баланс / числа
+## Economy / POI
 
-1. **Soft caps генератора** (MG ≤ min(4, 35%), sniper ≤ min(3, 25%), specialist ≤ min(3, 20%)) — ок?
-2. **Tax**: только city/farm через tax; mine остаётся в diamond_stock/shipment — ок, или mine тоже через tax?
-3. **Recruits**: farm **+1/сутки**, city **+2/сутки**; caps 8/20 — ок? (roadmap говорил city 2–3)
-4. **Outpost manpower** start **20** / cap **60**; Major **80** / **600** — ок?
-5. **RecruiterThreshold=8**, cargo manpower convoy **16**, trigger **40%** — ок?
-6. **Militia training** жрёт **4** рекрута за сессию — ок?
+1. **POI pulse** every **3 days** (`POIGenerationInterval=72h`): city/farm `$` + recruits on **economic POI only** (Farm/Mine/Guardpost/Port, or City+Militia/Hospital) — not every City-tagged wilderness tile.
+2. Per pulse defaults: city **$2500**, farm **$800**; city recruits **3**, farm **2**; caps 16/8.
+3. Tax cargo max **$12000**, Recruiter cargo max **16**; TaxCap/RecruiterCap **1**.
+4. Mine diamond stock remains hourly → shipment (not tax).
 
-## Militia Operation (STRATEGY-011)
+## Caps / spawn
 
-7. Точный vanilla/preset id операции обучения ополчения: `MilitiaTraining`? `TrainMilitia`? другой?
-8. На каких методах вешать consume: `CanPerform` + `Complete` / `OnComplete` / progress tick?
-9. Если рекрутов 0 — блокировать старт операции или только показывать warning?
+5. Max **1 squad spawn / day / outpost** (regular + logistics share the gate).
+6. Garrison cap = **important Legion sectors + 1**; garrison with **≤10 living** returns to base for refit.
+7. Soft caps: MG / sniper / **heavy** (separate) / specialist.
 
-## Refit / wounded (STRATEGY-012)
+## Hospital
 
-11. Optimal size = recipe size_max; retreat if living &lt; size_min or ≥50% wounded/low-HP — ok?
-12. Wounded stays at base until **optimal** (not just min) before new orders — ok?
-13. Heal to full on base entry — ok, or gradual heal?
+8. Unlocked Hospital **buffs** managed Legion squads (`Inspired`, 24h) — no HP heal (satellite enemies have no usable HP). Re-applied on CombatStart.
 
-10. После Reload модов с диска: schema diagnostics = **3**; tax/recruiter/manpower иконки; combat spawn списывает money+manpower; city/farm не капают outpost.money напрямую.
+## Recruiter
 
-## Commits overnight
+8b. Recruits: strip into `outpost.manpower` (cap 32); overflow → `outbound_manpower` → manpower caravan **to Major**. Major→outpost caravan only when outpost manpower is **0**.
 
-- `4e268cf` STRATEGY-007
-- `1bc41f8` / `c4398d5` STRATEGY-008
-- `f7548fd` / `2e15240` STRATEGY-009
-- `c46a105` / `77b00cb` STRATEGY-010
-- `1f1111f` STRATEGY-011 partial + this questions file
+## Out of scope
+
+9. Militia training Operation — not in this task.

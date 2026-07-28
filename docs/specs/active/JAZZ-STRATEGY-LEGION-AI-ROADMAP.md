@@ -42,6 +42,7 @@ approved_by: project-owner
 | JAZZ-STRATEGY-010 | Manpower schema v3; recruiter; manpower convoy; spawn manpower gate |
 | JAZZ-STRATEGY-011 | Player recruit accrual + militia API (Operation hook morning Q) |
 | JAZZ-STRATEGY-012 | Base refit / wounded retreat / idle top-up for regular combat roles |
+| JAZZ-STRATEGY-013 | Persistent squads (no despawn); mission-budget rest 12–36h; patrol sector dwell; recon/QRF idle garrison assist |
 
 ## Валюта (утверждено)
 
@@ -139,7 +140,7 @@ Major держит свои пулы (`major.money`, `major.manpower`) с capaci
 
 #### 7a. Tax collector (сборщик налогов) — $ → [JAZZ-STRATEGY-009](JAZZ-STRATEGY-009.md)
 
-Реализовано: city/farm → `poi_money`; tax circuit; cap 2; threshold 1000; cooldown 24h; TAX icon. Mine остаётся в shipment stock.
+Реализовано: economic POI → `poi_money` пульсом раз в 3 суток; tax circuit; cap 1; cargo max $12000; threshold 1000; cooldown 24h; TAX icon. Mine остаётся в shipment stock.
 
 #### 7b. Людской ресурс — модель → [JAZZ-STRATEGY-010](JAZZ-STRATEGY-010.md)
 
@@ -171,7 +172,7 @@ Major держит свои пулы (`major.money`, `major.manpower`) с capaci
 
 - единая валюта **$**; full shipment = **DiamondBriefcase $12000**;
 - TinyDiamonds $500 как минимальная монета лута;
-- POI $/ч ферма/город/шахта = 10/50/250; tax threshold **$1000**, tax cap **2**, daily full-region circuit;
+- POI pulse **72h**: city/farm `$` 2500/800 на economic POI; tax threshold **$1000**, tax cap **1**, cargo max **$12000**;
 - двухресурсная модель **$ + manpower**; recruiter с рупором; manpower-конвой с Major при нехватке людей;
 - spawn жрёт money+manpower; **per-unit $ prices**, role recipes, poor/full generator, **anti-skew balance** (не 12 MG; 4 MG без снайпера ок и наоборот);
 - player militia из того же recruit-пула — фаза 7c после AI;

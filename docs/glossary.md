@@ -68,13 +68,14 @@
 | RU | EN | UnitData stem |
 | --- | --- | --- |
 | Головорез | Roughneck | `AssaultT1_Roughneck` |
+| Новобранец | Recruit | `JAZZ_Legion_Recruit` (weaker Roughneck clone for recruiter) |
 | Громила | Crusher | `AssaultT1_Crusher` |
 | Череполом | Skull Crusher | `AssaultT3_SkullCrusher` *(EN пока `Skullbreaker` в CSV — выровнять отдельно)* |
 | Грабитель | Pillager | `AssaultT2_Pillager` |
 | Штурмовик | Shock Trooper | `AssaultT2_ShockTrooper` |
 | Палач | Headsman | `AssaultT4_Headsman` |
 
-Localization IDs для первых двух: `217901684853` (Roughneck), `188332474737` (Crusher). Память: `Localization/EnglishManual.csv` (`manual-translation;class-id`).
+Localization IDs для первых двух: `217901684853` (Roughneck), `188332474737` (Crusher); Recruit: `890000000001643`. Память: `Localization/EnglishManual.csv` (`manual-translation;class-id`).
 
 ## Правила перевода в этой документации
 

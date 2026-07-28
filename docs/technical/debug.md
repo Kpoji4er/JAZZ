@@ -132,6 +132,13 @@ Inspect(GetSatelliteDialog() and GetSatelliteDialog().selected_squad)
 -- Сектор по ID
 Inspect(gv_Sectors["H12"])
 
+-- Legion AI: деньги и рекруты (Major + аванпосты + POI stocks)
+JAZZ_LegionAIPrintEconomy()
+-- принудительный пульс рекрутов/$ на POI:
+Inspect(JAZZ_LegionAIForcePoiPulse())
+-- или таблицей:
+Inspect(JAZZ_LegionAIGetEconomy())
+
 -- Включить полный fog reveal
 RevealAllSectors()
 ```
@@ -141,6 +148,10 @@ RevealAllSectors()
 | Действие | Lua | Примечание |
 |---|---|---|
 | Legion Global AI diagnostics | `Inspect(JAZZ_LegionAIGetDiagnostics())` | Сводка major + regions; `Code/Guardpost_Patrols.lua` |
+| Legion AI money / manpower | `JAZZ_LegionAIPrintEconomy()` | Печать в консоль: Major `$`+manpower, каждый outpost, POI stocks |
+| Legion AI economy table | `Inspect(JAZZ_LegionAIGetEconomy())` | Тот же снимок таблицей |
+| Force POI recruit/$ pulse | `Inspect(JAZZ_LegionAIForcePoiPulse())` | Один пульс сейчас (timer=`lNow()`, не 0) |
+| Sanitize POI money stocks | `Inspect(JAZZ_LegionAISanitizePoiMoney())` | Clamp `poi_money` ≤ `PoiMoneyCap` (после catch-up blowup) |
 | Region heat / state | `Inspect(JAZZ_GetLegionAIRegionState("Ernie"))` | Без `create` — только существующее |
 | Squad role icon (managed) | `JAZZ_GetLegionAISquadIcon(squad)` | |
 | Squad task text | `JAZZ_GetLegionAISquadTaskText(squad)` | |
@@ -155,6 +166,6 @@ RevealAllSectors()
 | Hotkeys / Cheats menu actions | `<JA3_ROOT>/ModTools/Src/Lua/XTemplates/GameShortcuts.lua` |
 | Cheats UI list | `<JA3_ROOT>/ModTools/Src/Lua/XTemplates/CheatsList.lua` |
 | Satellite teleport (JAZZ) | `Code/SatelliteSquad.lua` → `NetSyncEvents.CheatSatelliteTeleportSquad` |
-| Legion AI diagnostics | `Code/Guardpost_Patrols.lua` → `JAZZ_LegionAIGetDiagnostics` |
+| Legion AI diagnostics | `Code/Guardpost_Patrols.lua` → `JAZZ_LegionAIGetDiagnostics` / `JAZZ_LegionAIPrintEconomy` |
 | Runtime / placeholders | [runtime-editor-integration.md](systems/runtime-editor-integration.md) |
 | CTH debug UI | [weapons/accuracy-model.md](weapons/accuracy-model.md) |

@@ -4,6 +4,7 @@
 
 JAZZ_LegionUnitPrices = {
 	JAZZ_Legion_AssaultT1_Roughneck = 300,
+	JAZZ_Legion_Recruit = 200,
 	JAZZ_Legion_AssaultT1_Grenadier = 800,
 	JAZZ_Legion_AssaultT1_Crusher = 400,
 	JAZZ_Legion_AssaultT2_Pillager = 800,

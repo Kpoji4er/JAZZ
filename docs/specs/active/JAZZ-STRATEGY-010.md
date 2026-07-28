@@ -55,7 +55,7 @@ Roadmap 7b: spawn должен тратить людей; recruits копятс�
 ## Locked defaults (morning Q)
 
 - Farm +1 recruit / 24h; City +2 / 24h; sector caps farm 8 / city 20.
-- Outpost manpower start 20 / capacity 60; Major start 80 / capacity 600.
+- Outpost manpower start 20 / capacity **32**; Major start 80 / capacity 600.
 - RecruiterThreshold=8, RecruiterCap=2, RecruiterCooldown=24h.
 - ManpowerConvoyCargo=16; trigger at 40% of outpost capacity.
 

@@ -43,7 +43,7 @@
 - 10 voice response presets и 2 translated voice presets;
 - 2 enemy roles, 3 effects, combat action, banter и localization table.
 
-Грубая faction taxonomy UnitData: 37 JAZZ Legion, 24 Army, 23 Adonis/Corazon, 22 Rebels/Militia, 22 Thugs; остальные относятся к mercenary, civilian, named/boss и служебным группам. Эти числа — snapshot и должны пересчитываться после Mod Editor regeneration.
+Грубая faction taxonomy UnitData: 38 JAZZ Legion, 24 Army, 23 Adonis/Corazon, 22 Rebels/Militia, 22 Thugs; остальные относятся к mercenary, civilian, named/boss и служебным группам. Эти числа — snapshot и должны пересчитываться после Mod Editor regeneration.
 
 ## Прогрессия
 

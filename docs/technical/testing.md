@@ -180,7 +180,7 @@ node --test .github/scripts/discord-player-update.test.mjs
 2. Новая игра `HotDiamonds`, старт на Эрни; diagnostics: schema **3**; outpost `money` **12000**, `manpower` **20**; major `money` **120000**, `manpower` **80**.
 3. На сателлите: combat/logistics роли со своими PNG (REINFORCE/RETRIBUTION/TAX/RECRUITER/MANPOWER); supply/shipment показывают `$`; recruiter/manpower — people.
 4. City/farm `$` копятся в poi_money (tax), не напрямую в outpost; recruits копятся daily; mine → diamond_stock.
-5. Combat spawn: generator composition; списывает money_cost + manpower_cost; без людей/денег на min — не спавнит.
+5. Combat spawn: только generator composition; списывает money_cost + manpower_cost (= число тел); без людей/денег на min — не спавнит; нет free EnemySquadDef fallback. После лимита приказов — return → resting 12–36h (не garrison) → reuse; tax/recruiter не despawn. Patrol dwell 6–24h на сектор пути. Recruiter deposit → abstract manpower, эскорт rest (не wipe).
 6. Need gates + border reinforce + patrol into player Side + recon return sector text.
 7. `ReloadLua` / save/load — иконки и задачи на месте.
 8. Militia: `JAZZ_GetSectorRecruits` растёт на player city/farm; Operation gate — проверить после подтверждения ID (morning Q).

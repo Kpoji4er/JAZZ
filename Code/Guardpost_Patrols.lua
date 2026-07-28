@@ -39,6 +39,21 @@ local lRoleImages = {
 	manpower = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_MANPOWER_squad.png",
 }
 
+-- Short role titles for satellite Name / rollover (not EnemySquadDef DisplayName).
+local lRoleDisplayNames = {
+	garrison = T(890000000001424, "Garrison"),
+	patrol = T(890000000001425, "Patrol"),
+	recon = T(890000000001426, "Recon"),
+	qrf = T(890000000001427, "QRF"),
+	reinforce = T(890000000001631, "Reinforce"),
+	major = T(890000000001428, "Retribution"),
+	supply = T(890000000001429, "Supply convoy"),
+	shipment = T(890000000001430, "Diamond convoy"),
+	tax = T(890000000001634, "Tax collector"),
+	recruiter = T(890000000001636, "Recruiter"),
+	manpower = T(890000000001637, "Manpower convoy"),
+}
+
 local function lEnsureRoleIconPng(icon)
 	if type(icon) ~= "string" or icon == "" then
 		return false
@@ -93,8 +108,19 @@ end
 
 local function lApplySquadRoleIcon(squad, role)
 	local image = role and lRoleImages[role] or false
-	if not squad or not image then
+	if not squad then
 		return false
+	end
+	local name = role and lRoleDisplayNames[role]
+	if name then
+		-- UI reads SatelliteSquad.Name in many places; keep role title, not shared EnemySquadDef name.
+		squad.Name = name
+	end
+	if not image then
+		if name then
+			ObjModified(squad)
+		end
+		return not not name
 	end
 	squad.image = image
 	squad.jazz_squad_icon = image
@@ -179,6 +205,19 @@ end
 local function lAddMajorMoney(root, region, amount)
 	root.major.money = lClampMajorMoney(root, region, (root.major.money or 0) + (amount or 0))
 	return root.major.money
+end
+
+local function lMajorManpowerCapacity(region)
+	return lConfig(region, "MajorManpowerCapacity", 600)
+end
+
+local function lAddMajorManpower(root, region, amount)
+	root.major.manpower = Clamp(
+		(root.major.manpower or 0) + (amount or 0),
+		0,
+		lMajorManpowerCapacity(region)
+	)
+	return root.major.manpower
 end
 
 local function lOutpostMoneyCapacity(region)
@@ -300,12 +339,16 @@ local function lEnsureOutpost(root, region, region_state, sector_id)
 			retake_targets = {},
 			last_tax_time = 0,
 			last_recruiter_time = 0,
+			last_spawn_time = 0,
+			outbound_manpower = 0,
 		}
 		root.outposts[sector_id] = outpost
 	end
 	outpost.retake_targets = outpost.retake_targets or {}
 	outpost.last_tax_time = outpost.last_tax_time or 0
 	outpost.last_recruiter_time = outpost.last_recruiter_time or 0
+	outpost.last_spawn_time = outpost.last_spawn_time or 0
+	outpost.outbound_manpower = outpost.outbound_manpower or 0
 	if outpost.manpower == false or outpost.manpower == nil then
 		outpost.manpower = lConfig(region, "StartingManpower", 20)
 	end
@@ -333,7 +376,7 @@ local function lEnsureRegion(root, region)
 			last_patrolled = {},
 			poi_money = {},
 			poi_recruits = {},
-			next_recruit_time = lNow() + 24 * lHourScale(),
+			next_poi_pulse_time = lNow(), -- first hour accrues POI $ / recruits
 			next_heat_decay_time = lNow() + lInterval(region, "HeatDecayInterval", 7 * lHourScale()),
 		}
 		root.regions[region_id] = region_state
@@ -343,7 +386,23 @@ local function lEnsureRegion(root, region)
 	region_state.last_patrolled = region_state.last_patrolled or {}
 	region_state.poi_money = region_state.poi_money or {}
 	region_state.poi_recruits = region_state.poi_recruits or {}
-	region_state.next_recruit_time = region_state.next_recruit_time or (lNow() + 24 * lHourScale())
+	-- Prefer unified 3-day POI pulse; fall back from legacy daily recruit timer.
+	-- Treat 0 as unset (Lua falsy) but also sanitize timers stuck far in the past
+	-- from ForcePoiPulse/debug or pre-campaign GameVar init.
+	if not region_state.next_poi_pulse_time or region_state.next_poi_pulse_time <= 0 then
+		region_state.next_poi_pulse_time = region_state.next_recruit_time
+			and region_state.next_recruit_time > 0
+			and region_state.next_recruit_time
+			or (lNow() + lInterval(region, "POIGenerationInterval", 72 * lHourScale()))
+	end
+	local money_cap = lConfig(region, "PoiMoneyCap", 12000)
+	for sector_id, money in pairs(region_state.poi_money) do
+		if type(money) == "number" and money > money_cap then
+			region_state.poi_money[sector_id] = money_cap
+		elseif type(money) == "number" and money < 0 then
+			region_state.poi_money[sector_id] = 0
+		end
+	end
 	region_state.heat = lClampHeat(region_state.heat)
 
 	for _, sector_id in ipairs(region.ManagedOutposts or empty_table) do
@@ -414,13 +473,8 @@ local function lReconcileSquads(root)
 		if not squad then
 			root.squads[squad_id] = nil
 		else
-			local image = lRoleImages[squad_state.role]
-			if image and (squad.image ~= image or squad.jazz_squad_icon ~= image) then
-				lApplySquadRoleIcon(squad, squad_state.role)
-			elseif image then
-				-- Keep live windows in sync after ReloadLua / wrapper reinstall.
-				lRefreshSatelliteSquadIcon(squad)
-			end
+			-- Icon + role display name (tax/recruiter/etc. must not keep shared Convoy title).
+			lApplySquadRoleIcon(squad, squad_state.role)
 		end
 	end
 end
@@ -457,7 +511,9 @@ local function lMigrateSchemaToManpower(root)
 	end
 	for _, region_state in sorted_pairs(root.regions or empty_table) do
 		region_state.poi_recruits = region_state.poi_recruits or {}
-		region_state.next_recruit_time = region_state.next_recruit_time or (lNow() + 24 * lHourScale())
+		region_state.next_poi_pulse_time = region_state.next_poi_pulse_time
+			or region_state.next_recruit_time
+			or (lNow() + 72 * lHourScale())
 	end
 	root.schema_version = 3
 	lLog("migrated Legion AI schema to manpower pools (v3)")
@@ -510,7 +566,7 @@ function JAZZ_LegionAIEnsureState()
 		if outpost.manpower == false or outpost.manpower == nil then
 			outpost.manpower = lConfig(region, "StartingManpower", 20)
 		end
-		outpost.manpower = Clamp(outpost.manpower or 0, 0, lConfig(region, "ManpowerCapacity", 60))
+		outpost.manpower = Clamp(outpost.manpower or 0, 0, lConfig(region, "ManpowerCapacity", 32))
 	end
 	if root.major.manpower == false or root.major.manpower == nil then
 		local any_region = false
@@ -549,23 +605,44 @@ function JAZZ_GetLegionAIRegionState(region_id, create)
 end
 
 local function lSectorIsSurface(sector)
-	return sector and not sector.GroundSector and sector.Passability ~= "Blocked"
+	return sector and not sector.GroundSector and sector.Passability ~= "Water" and sector.Passability ~= "Blocked"
 end
 
+-- Key sites for patrol/garrison/retake (includes city-tagged wilderness hubs).
 local function lSectorIsKey(sector)
 	return sector
 		and (sector.Guardpost
 			or (sector.City and sector.City ~= "none")
 			or sector.Mine
-			or sector.Farm)
+			or sector.Farm
+			or sector.Port
+			or sector.Hospital)
+end
+
+-- Tax/recruit only on real economic POI — not every wilderness tile sharing City=Ernie.
+local function lSectorIsEconomicPOI(sector)
+	if not sector then
+		return false
+	end
+	if sector.Farm or sector.Mine or sector.Guardpost or sector.Port then
+		return true
+	end
+	if sector.City and sector.City ~= "none" and (sector.Militia or sector.Hospital) then
+		return true
+	end
+	return false
 end
 
 local function lSectorPriority(sector)
 	if not sector then return 0 end
 	if sector.Guardpost then return 400 end
-	if sector.City and sector.City ~= "none" then return 300 end
+	if sector.Port then return 350 end
+	if sector.City and sector.City ~= "none" and (sector.Militia or sector.Hospital or sector.Guardpost) then
+		return 300
+	end
 	if sector.Mine then return 200 end
 	if sector.Farm then return 100 end
+	if sector.Hospital then return 80 end
 	return 0
 end
 
@@ -619,6 +696,51 @@ local function lActiveRole(root, region_id, home_sector, role)
 	return false
 end
 
+local function lCountImportantLegionSectors(region)
+	local count = 0
+	for _, sector_id in ipairs(region.Sectors or empty_table) do
+		local sector = gv_Sectors[sector_id]
+		if sector and JAZZ_IsLegionSide(sector.Side) and lSectorIsKey(sector) and lSectorIsSurface(sector) then
+			count = count + 1
+		end
+	end
+	return count
+end
+
+local function lGarrisonCap(region)
+	-- Cap = important Legion sectors + 1 (fallback to preset if region empty).
+	local key_count = lCountImportantLegionSectors(region)
+	if key_count > 0 then
+		return key_count + 1
+	end
+	return lConfig(region, "GarrisonCap", 2)
+end
+
+local function lCountRegionRole(root, region_id, role)
+	local count = 0
+	for _, squad_state in sorted_pairs(root.squads) do
+		if squad_state.region_id == region_id
+			and squad_state.role == role
+			and squad_state.state ~= "retired"
+		then
+			count = count + 1
+		end
+	end
+	return count
+end
+
+local function lOutpostCanSpawn(outpost)
+	-- Combat fill only: one new regular spawn per outpost per day.
+	-- Logistics (tax/recruiter/supply/shipment/manpower) use their own cooldowns
+	-- and must not be starved by garrison/patrol while-loops in the same window.
+	local day = 24 * lHourScale()
+	return (outpost.last_spawn_time or 0) + day <= lNow()
+end
+
+local function lMarkOutpostSpawn(outpost)
+	outpost.last_spawn_time = lNow()
+end
+
 local function lCountRegular(root, home_sector, role)
 	local count = 0
 	for _, squad_state in sorted_pairs(root.squads) do
@@ -637,10 +759,10 @@ local function lHasRoleTarget(root, region_id, role, target_sector)
 	for _, squad_state in sorted_pairs(root.squads) do
 		local task = squad_state.task
 		if squad_state.region_id == region_id
-			and squad_state.role == role
 			and squad_state.state ~= "retired"
 			and task
 			and task.target_sector == target_sector
+			and (squad_state.role == role or task.task_type == role)
 		then
 			return true
 		end
@@ -833,6 +955,20 @@ local function lQRFRequest(root, region_state, outpost)
 	return false
 end
 
+-- Major↔outpost convoys may cross water freely (island logistics).
+-- All other managed roles prefer land; water only if no land path exists.
+local lMajorSeaConvoyRoles = {
+	supply = true,
+	shipment = true,
+	manpower = true,
+}
+
+local function lManagedSquadRole(squad)
+	local root = gv_JAZZ_LegionAI
+	local squad_state = root and root.squads and squad and root.squads[squad.UniqueId]
+	return squad_state and squad_state.role or false
+end
+
 local function lRoutePath(squad, target_sector)
 	if not squad or not squad.CurrentSector or not target_sector then
 		return false
@@ -840,7 +976,23 @@ local function lRoutePath(squad, target_sector)
 	if squad.CurrentSector == target_sector then
 		return {}
 	end
-	-- Enemy/Legion uses boatless water edges; "land_water" requires player port + boat money.
+	local role = lManagedSquadRole(squad)
+	local allow_water_first = role and lMajorSeaConvoyRoles[role]
+	if not allow_water_first then
+		local land = GenerateRouteDijkstra(
+			squad.CurrentSector,
+			target_sector,
+			false,
+			squad.units,
+			"land_only",
+			nil,
+			squad.Side
+		)
+		if land then
+			return land
+		end
+	end
+	-- Enemy/Legion boatless water edges; "land_water" needs player port + boat money.
 	return GenerateRouteDijkstra(
 		squad.CurrentSector,
 		target_sector,
@@ -956,6 +1108,120 @@ local function lEnsureDiamondCargo(squad)
 	return lEnsureMoneyCargo(squad, 12000)
 end
 
+local function lRecruitUnitTemplate(region)
+	return lConfig(region, "RecruiterUnitTemplate", "JAZZ_Legion_Recruit")
+end
+
+local function lSquadRecruitRoom(squad, cargo_max, have)
+	local max_people = Max((const.Satellite and const.Satellite.MercSquadMaxPeople) or 18, 28)
+	local room_squad = Max(0, max_people - #(squad.units or empty_table))
+	local room_cargo = Max(0, (cargo_max or 16) - (have or 0))
+	return Min(room_squad, room_cargo)
+end
+
+-- Create N recruit UnitData and attach them to squad. Returns added session ids.
+local function lAddRecruitUnitsToSquad(root, squad, count, unit_template, context)
+	local added = {}
+	if not squad or not count or count <= 0 then
+		return added
+	end
+	unit_template = unit_template or "JAZZ_Legion_Recruit"
+	if not (UnitDataDefs and UnitDataDefs[unit_template]) then
+		lLog(string.format("recruit unit template missing: %s", tostring(unit_template)))
+		return added
+	end
+	if not CreateUnitData then
+		lLog("CreateUnitData unavailable; cannot add recruits")
+		return added
+	end
+
+	local serial = root.spawn_serial or 1
+	root.spawn_serial = serial + 1
+	local base = string.format("JAZZLegionRecruit_%s_%s_%d", context or "x", tostring(squad.CurrentSector or "sec"), serial)
+	local templates = {}
+	for _ = 1, count do
+		templates[#templates + 1] = unit_template
+	end
+
+	local session_ids
+	if GenerateUnitsFromTemplates then
+		local ok, result = pcall(GenerateUnitsFromTemplates, squad.CurrentSector or squad.CurrentSector, templates, base)
+		if ok then
+			session_ids = result
+		else
+			lLog(string.format("GenerateUnitsFromTemplates failed: %s", tostring(result)))
+		end
+	end
+
+	if type(session_ids) ~= "table" or #session_ids == 0 then
+		session_ids = {}
+		for i = 1, count do
+			local session_id = string.format("%s_%d", base, i)
+			local ok, err = pcall(CreateUnitData, unit_template, session_id, InteractionRand(nil, "JAZZ_LegionRecruit"))
+			if ok and gv_UnitData[session_id] then
+				session_ids[#session_ids + 1] = session_id
+			else
+				lLog(string.format("CreateUnitData recruit failed: %s", tostring(err)))
+			end
+		end
+	end
+
+	for _, session_id in ipairs(session_ids) do
+		if gv_UnitData[session_id] and AddUnitToSquad then
+			AddUnitToSquad(squad.UniqueId, session_id, false, true)
+			added[#added + 1] = session_id
+		end
+	end
+	if #added > 0 then
+		ObjModified(gv_Squads)
+		ObjModified(squad)
+	end
+	return added
+end
+
+-- Despawn recruited units still in the squad. Returns how many were removed.
+local function lStripRecruitedUnits(squad, recruited_ids, limit)
+	local removed = 0
+	local keep = {}
+	limit = limit or 100000
+	for _, session_id in ipairs(recruited_ids or empty_table) do
+		local ud = gv_UnitData[session_id]
+		if ud and squad and table.find(squad.units, session_id) then
+			if removed < limit then
+				RemoveUnitFromSquad(ud, "despawn")
+				removed = removed + 1
+			else
+				keep[#keep + 1] = session_id
+			end
+		end
+	end
+	return removed, keep
+end
+
+-- All recruit cargo currently in the squad (tracked ids + any JAZZ_Legion_Recruit present).
+local function lGatherRecruitCargoIds(squad, tracked_ids, unit_template)
+	unit_template = unit_template or "JAZZ_Legion_Recruit"
+	local ids = {}
+	local seen = {}
+	for _, session_id in ipairs(tracked_ids or empty_table) do
+		if squad and table.find(squad.units, session_id) and not seen[session_id] then
+			ids[#ids + 1] = session_id
+			seen[session_id] = true
+		end
+	end
+	for _, session_id in ipairs(squad and squad.units or empty_table) do
+		if not seen[session_id] then
+			local ud = gv_UnitData[session_id]
+			local class_id = ud and (ud.class or ud.unitdatadef_id or ud.species)
+			if class_id == unit_template then
+				ids[#ids + 1] = session_id
+				seen[session_id] = true
+			end
+		end
+	end
+	return ids
+end
+
 local function lSpawnManaged(root, region, home_sector, role, origin_sector, missions_left, payload, unit_template_ids)
 	local source_sector = gv_Sectors[home_sector]
 	local list = lRoleSquadList(region, source_sector, role)
@@ -1010,11 +1276,22 @@ local function lRetireSquad(root, squad_id)
 	if squad_state then
 		squad_state.state = "retired"
 	end
-	if squad then
-		RemoveSquad(squad)
-	else
-		root.squads[squad_id] = nil
+	if not squad then
+		if root.squads then
+			root.squads[squad_id] = nil
+		end
+		return
 	end
+	-- Defer RemoveSquad: travel/UI frames still hold the squad reference.
+	CreateRealTimeThread(function()
+		Sleep(1)
+		local alive = gv_Squads[squad_id]
+		if alive then
+			RemoveSquad(alive)
+		elseif type(root) == "table" and root.squads then
+			root.squads[squad_id] = nil
+		end
+	end)
 end
 
 local function lSquadLivingUnitInfos(squad)
@@ -1124,7 +1401,35 @@ local function lTryTopUpSquad(root, region, outpost, squad, squad_state)
 	return true
 end
 
-local function lEnterBaseRefit(root, squad, squad_state)
+local function lRefreshMissions(squad_state, region)
+	if not squad_state then
+		return
+	end
+	local missions_key = lRoleMissions[squad_state.role]
+	if missions_key then
+		squad_state.missions_left = Max(1, lConfig(region, missions_key, 1))
+	else
+		-- Logistics / one-shot roles: one order per outing.
+		squad_state.missions_left = 1
+	end
+end
+
+local function lRandDuration(min_t, max_t, context)
+	min_t = min_t or 0
+	max_t = max_t or min_t
+	if max_t < min_t then
+		min_t, max_t = max_t, min_t
+	end
+	local span = max_t - min_t
+	if span <= 0 then
+		return min_t
+	end
+	return min_t + InteractionRand(span + 1, context)
+end
+
+-- After mission budget (or logistics delivery): heal/top-up, then mandatory rest
+-- at home for all roles except garrison. Empty squads still retire.
+local function lBeginBaseRest(root, squad, squad_state)
 	if not squad or not squad_state then
 		return false
 	end
@@ -1137,35 +1442,102 @@ local function lEnterBaseRefit(root, squad, squad_state)
 	squad_state.task = false
 	local region = lGetRegionPreset(squad_state.region_id)
 	local outpost = root.outposts[squad_state.home_sector]
-	local optimal = JAZZ_GetLegionRoleOptimalSize and JAZZ_GetLegionRoleOptimalSize(squad_state.role) or living
-	local topped = outpost and lTryTopUpSquad(root, region, outpost, squad, squad_state)
-	living = lSquadLivingUnitInfos(squad)
-	if living >= optimal then
-		local missions_key = lRoleMissions[squad_state.role]
-		squad_state.missions_left = missions_key and lConfig(region, missions_key, 1) or (squad_state.missions_left or 1)
-		if squad_state.missions_left <= 0 then
-			squad_state.missions_left = 1
+	if outpost and lRegularRoles[squad_state.role] then
+		lTryTopUpSquad(root, region, outpost, squad, squad_state)
+		living = lSquadLivingUnitInfos(squad)
+		if living <= 0 then
+			lRetireSquad(root, squad.UniqueId)
+			return true
 		end
-		squad_state.state = "ready_for_orders"
-	else
-		squad_state.state = "wounded"
+		local optimal = JAZZ_GetLegionRoleOptimalSize and JAZZ_GetLegionRoleOptimalSize(squad_state.role) or living
+		if living < optimal then
+			squad_state.state = "wounded"
+			squad_state.rest_until = nil
+			ObjModified(squad)
+			return true
+		end
 	end
+	if squad_state.role == "garrison" then
+		lRefreshMissions(squad_state, region)
+		squad_state.state = "ready_for_orders"
+		squad_state.rest_until = nil
+		ObjModified(squad)
+		return true
+	end
+	local min_t = lConfig(region, "BaseRestMin", 12 * lHourScale())
+	local max_t = lConfig(region, "BaseRestMax", 36 * lHourScale())
+	squad_state.state = "resting"
+	squad_state.rest_until = lNow() + lRandDuration(
+		min_t,
+		max_t,
+		"JAZZ_Rest_" .. tostring(squad.UniqueId) .. "_" .. tostring(root.spawn_serial or 0)
+	)
 	ObjModified(squad)
-	return topped or true
+	return true
+end
+
+local function lFinishBaseRest(root, squad, squad_state)
+	if not squad or not squad_state then
+		return false
+	end
+	local region = lGetRegionPreset(squad_state.region_id)
+	local outpost = root.outposts[squad_state.home_sector]
+	if outpost and lRegularRoles[squad_state.role] then
+		lPurgeDeadAndHealSquad(squad)
+		lTryTopUpSquad(root, region, outpost, squad, squad_state)
+		local living = lSquadLivingUnitInfos(squad)
+		if living <= 0 then
+			lRetireSquad(root, squad.UniqueId)
+			return true
+		end
+		local optimal = JAZZ_GetLegionRoleOptimalSize and JAZZ_GetLegionRoleOptimalSize(squad_state.role) or living
+		if living < optimal then
+			squad_state.state = "wounded"
+			squad_state.rest_until = nil
+			ObjModified(squad)
+			return true
+		end
+	end
+	lRefreshMissions(squad_state, region)
+	squad_state.state = "ready_for_orders"
+	squad_state.rest_until = nil
+	ObjModified(squad)
+	return true
+end
+
+local function lEnterBaseRefit(root, squad, squad_state)
+	-- Budget return / logistics park: rest cycle (garrison skips timer).
+	return lBeginBaseRest(root, squad, squad_state)
 end
 
 local function lBeginReturn(root, squad, squad_state, reason)
 	if not squad or not squad_state then
 		return false
 	end
-	reason = reason or "refit"
-	local refill_regular = lRegularRoles[squad_state.role]
+	reason = reason or "rest"
 	if squad.CurrentSector == squad_state.home_sector then
-		if refill_regular then
-			return lEnterBaseRefit(root, squad, squad_state)
+		if reason == "wounded" then
+			lPurgeDeadAndHealSquad(squad)
+			local living = lSquadLivingUnitInfos(squad)
+			if living <= 0 then
+				lRetireSquad(root, squad.UniqueId)
+				return true
+			end
+			local region = lGetRegionPreset(squad_state.region_id)
+			local outpost = root.outposts[squad_state.home_sector]
+			if outpost then
+				lTryTopUpSquad(root, region, outpost, squad, squad_state)
+			end
+			living = lSquadLivingUnitInfos(squad)
+			local optimal = JAZZ_GetLegionRoleOptimalSize and JAZZ_GetLegionRoleOptimalSize(squad_state.role) or living
+			if living > 0 and living < optimal then
+				squad_state.task = false
+				squad_state.state = "wounded"
+				ObjModified(squad)
+				return true
+			end
 		end
-		lRetireSquad(root, squad.UniqueId)
-		return true
+		return lBeginBaseRest(root, squad, squad_state)
 	end
 	squad_state.task = {
 		task_type = reason == "wounded" and "return_wounded" or "return",
@@ -1179,11 +1551,7 @@ local function lBeginReturn(root, squad, squad_state, reason)
 		ObjModified(squad)
 		return false
 	elseif routed == "arrived" then
-		if refill_regular then
-			lEnterBaseRefit(root, squad, squad_state)
-		else
-			lRetireSquad(root, squad.UniqueId)
-		end
+		return lBeginReturn(root, squad, squad_state, reason)
 	end
 	return true
 end
@@ -1192,10 +1560,102 @@ local function lCompleteRegularTask(root, squad, squad_state)
 	squad_state.missions_left = Max((squad_state.missions_left or 1) - 1, 0)
 	squad_state.task = false
 	if squad_state.missions_left <= 0 then
-		return lBeginReturn(root, squad, squad_state)
+		return lBeginReturn(root, squad, squad_state, "rest")
 	end
 	squad_state.state = "ready_for_orders"
 	ObjModified(squad)
+	return true
+end
+
+local function lFindIdleHomeRole(root, home_sector, role)
+	if not home_sector or not role then
+		return false, false
+	end
+	for squad_id, squad_state in sorted_pairs(root.squads) do
+		if squad_state.home_sector == home_sector
+			and squad_state.role == role
+			and squad_state.state == "ready_for_orders"
+			and (squad_state.missions_left or 0) > 0
+		then
+			local squad = gv_Squads[squad_id]
+			if squad
+				and squad.CurrentSector == home_sector
+				and not IsSquadTravelling(squad, "skip_tick_pass")
+				and not IsConflictMode(squad.CurrentSector)
+			then
+				return squad, squad_state
+			end
+		end
+	end
+	return false, false
+end
+
+local function lPatrolDwellDuration(region, squad)
+	local min_t = lConfig(region, "PatrolSectorDwellMin", 6 * lHourScale())
+	local max_t = lConfig(region, "PatrolSectorDwellMax", 24 * lHourScale())
+	return lRandDuration(
+		min_t,
+		max_t,
+		"JAZZ_PatrolDwell_" .. tostring(squad and squad.UniqueId or 0)
+	)
+end
+
+local function lBuildPatrolPath(squad, target_sector)
+	local route = lRoutePath(squad, target_sector)
+	if not route then
+		return false
+	end
+	local path = {}
+	for _, sector_id in ipairs(route) do
+		path[#path + 1] = sector_id
+	end
+	if #path == 0 or path[#path] ~= target_sector then
+		path[#path + 1] = target_sector
+	end
+	return path
+end
+
+local function lStartPatrolSectorDwell(root, squad, squad_state)
+	local task = squad_state.task
+	local region = lGetRegionPreset(squad_state.region_id)
+	if not task then
+		return false
+	end
+	task.task_type = "patrol_dwell"
+	task.hold_until = lNow() + lPatrolDwellDuration(region, squad)
+	squad_state.state = "working"
+	ObjModified(squad)
+	return true
+end
+
+local function lAdvancePatrolAfterDwell(root, squad, squad_state)
+	local task = squad_state.task
+	if not task then
+		return lCompleteRegularTask(root, squad, squad_state)
+	end
+	local region_state = root.regions[squad_state.region_id]
+	if region_state then
+		region_state.last_patrolled = region_state.last_patrolled or {}
+		region_state.last_patrolled[squad.CurrentSector] = lNow()
+	end
+	task.path_index = (task.path_index or 1) + 1
+	local path = task.path or empty_table
+	if task.path_index > #path then
+		return lCompleteRegularTask(root, squad, squad_state)
+	end
+	task.target_sector = path[task.path_index]
+	task.task_type = "patrol"
+	task.hold_until = nil
+	squad_state.state = "en_route"
+	ObjModified(squad)
+	local routed = lSetRoute(squad, task.target_sector)
+	if not routed then
+		squad_state.state = "orphaned"
+		ObjModified(squad)
+		return false
+	elseif routed == "arrived" then
+		lStartPatrolSectorDwell(root, squad, squad_state)
+	end
 	return true
 end
 
@@ -1214,19 +1674,34 @@ local function lOnSquadArrived(root, squad, squad_state)
 			lAddMajorMoney(root, lGetRegionPreset(squad_state.region_id), cargo)
 			squad_state.payload.money = 0
 		end
-		if squad_state.role == "manpower" and (squad_state.payload.manpower or 0) > 0 then
-			root.major.manpower = (root.major.manpower or 0) + (squad_state.payload.manpower or 0)
-			squad_state.payload.manpower = 0
+		if squad_state.role == "manpower" then
+			local region = lGetRegionPreset(squad_state.region_id)
+			local recruited = lGatherRecruitCargoIds(
+				squad,
+				squad_state.payload and squad_state.payload.recruited_ids,
+				lRecruitUnitTemplate(region)
+			)
+			local delivered = select(1, lStripRecruitedUnits(squad, recruited))
+			if delivered <= 0 then
+				delivered = squad_state.payload and squad_state.payload.manpower or 0
+			end
+			if delivered > 0 then
+				lAddMajorManpower(root, region, delivered)
+			end
+			if squad_state.payload then
+				squad_state.payload.manpower = 0
+				squad_state.payload.recruited_ids = {}
+			end
 		end
-		if lRegularRoles[squad_state.role] then
-			lEnterBaseRefit(root, squad, squad_state)
-		else
-			lRetireSquad(root, squad.UniqueId)
-		end
+		lBeginReturn(root, squad, squad_state, task.task_type == "return_wounded" and "wounded" or "rest")
 	elseif squad_state.role == "patrol" then
-		local region_state = root.regions[squad_state.region_id]
-		region_state.last_patrolled[squad.CurrentSector] = lNow()
-		lCompleteRegularTask(root, squad, squad_state)
+		lStartPatrolSectorDwell(root, squad, squad_state)
+	elseif squad_state.role == "recon" and (task.task_type == "garrison" or task.task_type == "reinforce") then
+		squad_state.state = "working"
+		task.hold_until = lNow() + lInterval(lGetRegionPreset(squad_state.region_id), "CommandInterval", 6 * lHourScale())
+	elseif squad_state.role == "qrf" and (task.task_type == "garrison" or task.task_type == "reinforce") then
+		squad_state.state = "working"
+		task.hold_until = lNow() + lInterval(lGetRegionPreset(squad_state.region_id), "CommandInterval", 6 * lHourScale())
 	elseif squad_state.role == "recon" then
 		squad_state.state = "working"
 		task.observe_until = lNow() + lConfig(lGetRegionPreset(squad_state.region_id), "ReconObservationTime", 3 * lHourScale())
@@ -1245,14 +1720,15 @@ local function lOnSquadArrived(root, squad, squad_state)
 			)
 			squad_state.payload.money = 0
 		end
+		-- Park/rest at Major HQ after delivery (home becomes HQ).
 		squad_state.home_sector = root.major.hq_sector
-		lBeginReturn(root, squad, squad_state)
+		lBeginReturn(root, squad, squad_state, "rest")
 	elseif squad_state.role == "shipment" then
 		local hq = gv_Sectors[root.major.hq_sector]
 		if hq and JAZZ_IsLegionSide(hq.Side) then
 			lAddMajorMoney(root, lGetRegionPreset(squad_state.region_id), lPayloadMoney(squad_state.payload))
 			squad_state.payload.money = 0
-			lRetireSquad(root, squad.UniqueId)
+			lBeginReturn(root, squad, squad_state, "rest")
 		else
 			squad_state.state = "working"
 		end
@@ -1263,12 +1739,18 @@ local function lOnSquadArrived(root, squad, squad_state)
 		local circuit = task.circuit or empty_table
 		local index = task.circuit_index or 1
 		if index <= #circuit and squad.CurrentSector == circuit[index] then
-			local collected = region_state.poi_money[circuit[index]] or 0
-			region_state.poi_money[circuit[index]] = 0
+			local cargo_max = lConfig(region, "TaxCargoMax", 12000)
+			local have = lPayloadMoney(squad_state.payload)
+			local room = Max(0, cargo_max - have)
+			local stock = region_state.poi_money[circuit[index]] or 0
+			local collected = Min(stock, room)
+			region_state.poi_money[circuit[index]] = stock - collected
 			squad_state.payload = squad_state.payload or {}
-			squad_state.payload.money = lPayloadMoney(squad_state.payload) + collected
+			squad_state.payload.money = have + collected
 			task.circuit_index = index + 1
-			if task.circuit_index <= #circuit then
+			-- Stop circuit early when cargo is full.
+			local full = (have + collected) >= cargo_max
+			if not full and task.circuit_index <= #circuit then
 				task.target_sector = circuit[task.circuit_index]
 				squad_state.state = "en_route"
 				ObjModified(squad)
@@ -1298,7 +1780,8 @@ local function lOnSquadArrived(root, squad, squad_state)
 				)
 				squad_state.payload.money = 0
 			end
-			lRetireSquad(root, squad.UniqueId)
+			squad_state.missions_left = 0
+			lBeginBaseRest(root, squad, squad_state)
 		end
 	elseif squad_state.role == "recruiter" then
 		local region_state = root.regions[squad_state.region_id]
@@ -1307,12 +1790,40 @@ local function lOnSquadArrived(root, squad, squad_state)
 		local circuit = task.circuit or empty_table
 		local index = task.circuit_index or 1
 		if index <= #circuit and squad.CurrentSector == circuit[index] then
-			local collected = region_state.poi_recruits[circuit[index]] or 0
-			region_state.poi_recruits[circuit[index]] = 0
+			local cargo_max = lConfig(region, "RecruiterCargoMax", 16)
 			squad_state.payload = squad_state.payload or {}
-			squad_state.payload.manpower = (squad_state.payload.manpower or 0) + collected
+			squad_state.payload.recruited_ids = squad_state.payload.recruited_ids or {}
+			local have = #(squad_state.payload.recruited_ids)
+			local room = lSquadRecruitRoom(squad, cargo_max, have)
+			local stock = region_state.poi_recruits[circuit[index]] or 0
+			local want = Min(stock, room)
+			local added = lAddRecruitUnitsToSquad(
+				root,
+				squad,
+				want,
+				lRecruitUnitTemplate(region),
+				"poi_" .. tostring(circuit[index])
+			)
+			for _, session_id in ipairs(added) do
+				squad_state.payload.recruited_ids[#squad_state.payload.recruited_ids + 1] = session_id
+			end
+			local collected = #added
+			if want > 0 and collected <= 0 then
+				lLog(string.format(
+					"recruiter %s failed to materialize %d recruits at %s (stock=%d room=%d)",
+					tostring(squad.UniqueId),
+					want,
+					tostring(circuit[index]),
+					stock,
+					room
+				))
+			end
+			region_state.poi_recruits[circuit[index]] = Max(0, stock - collected)
+			squad_state.payload.manpower = #(squad_state.payload.recruited_ids)
 			task.circuit_index = index + 1
-			if task.circuit_index <= #circuit then
+			local full = #(squad_state.payload.recruited_ids) >= cargo_max
+				or lSquadRecruitRoom(squad, cargo_max, #(squad_state.payload.recruited_ids)) <= 0
+			if not full and task.circuit_index <= #circuit then
 				task.target_sector = circuit[task.circuit_index]
 				squad_state.state = "en_route"
 				ObjModified(squad)
@@ -1336,32 +1847,99 @@ local function lOnSquadArrived(root, squad, squad_state)
 			end
 		elseif task.task_type == "recruiter_return" and squad.CurrentSector == squad_state.home_sector then
 			if outpost then
-				outpost.manpower = Min(
-					(outpost.manpower or 0) + (squad_state.payload.manpower or 0),
-					lConfig(region, "ManpowerCapacity", 60)
+				local capacity = lConfig(region, "ManpowerCapacity", 32)
+				local room = Max(0, capacity - (outpost.manpower or 0))
+				local recruit_template = lRecruitUnitTemplate(region)
+				local recruited = lGatherRecruitCargoIds(
+					squad,
+					squad_state.payload and squad_state.payload.recruited_ids,
+					recruit_template
 				)
-				squad_state.payload.manpower = 0
+				local delivered, leftover = lStripRecruitedUnits(squad, recruited, room)
+				-- Overflow recruits still on squad → outbound queue, then strip rest.
+				if #leftover > 0 then
+					local overflow = select(1, lStripRecruitedUnits(squad, leftover, #leftover))
+					outpost.outbound_manpower = (outpost.outbound_manpower or 0) + overflow
+				elseif delivered <= 0 and (squad_state.payload and squad_state.payload.manpower or 0) > 0 then
+					-- Legacy abstract payload fallback.
+					delivered = Min(room, squad_state.payload.manpower or 0)
+					local overflow = Max(0, (squad_state.payload.manpower or 0) - delivered)
+					outpost.outbound_manpower = (outpost.outbound_manpower or 0) + overflow
+				end
+				outpost.manpower = Min((outpost.manpower or 0) + delivered, capacity)
+				lLog(string.format(
+					"recruiter %s deposited %d manpower at %s (now %d, outbound %d); resting",
+					tostring(squad.UniqueId),
+					delivered,
+					tostring(outpost.sector_id),
+					outpost.manpower or 0,
+					outpost.outbound_manpower or 0
+				))
+				if squad_state.payload then
+					squad_state.payload.manpower = 0
+					squad_state.payload.recruited_ids = {}
+				end
+				ObjModified(squad)
 			end
-			lRetireSquad(root, squad.UniqueId)
+			squad_state.missions_left = 0
+			lBeginBaseRest(root, squad, squad_state)
 		end
 	elseif squad_state.role == "manpower" then
 		local outpost = root.outposts[squad_state.home_sector]
 		local region = lGetRegionPreset(squad_state.region_id)
-		local outpost_sector = outpost and gv_Sectors[outpost.sector_id]
-		local delivered = outpost
-			and outpost.enabled
-			and outpost_sector
-			and JAZZ_IsLegionSide(outpost_sector.Side)
-		if delivered then
-			outpost.manpower = Min(
-				(outpost.manpower or 0) + (squad_state.payload.manpower or 0),
-				lConfig(region, "ManpowerCapacity", 60)
-			)
-			squad_state.payload.manpower = 0
+		if task.task_type == "manpower_outbound" then
+			local hq = root.major.hq_sector and gv_Sectors[root.major.hq_sector]
+			if hq and JAZZ_IsLegionSide(hq.Side) and squad.CurrentSector == root.major.hq_sector then
+				local recruited = lGatherRecruitCargoIds(
+					squad,
+					squad_state.payload and squad_state.payload.recruited_ids,
+					lRecruitUnitTemplate(region)
+				)
+				local delivered = select(1, lStripRecruitedUnits(squad, recruited))
+				if delivered <= 0 then
+					delivered = squad_state.payload and squad_state.payload.manpower or 0
+				end
+				lAddMajorManpower(root, region, delivered)
+				if squad_state.payload then
+					squad_state.payload.manpower = 0
+					squad_state.payload.recruited_ids = {}
+				end
+				-- Return to outpost home for rest (home_sector stays outpost).
+				lBeginReturn(root, squad, squad_state, "rest")
+			else
+				squad_state.state = "orphaned"
+			end
+		else
+			local outpost_sector = outpost and gv_Sectors[outpost.sector_id]
+			local delivered_ok = outpost
+				and outpost.enabled
+				and outpost_sector
+				and JAZZ_IsLegionSide(outpost_sector.Side)
+			if delivered_ok then
+				local capacity = lConfig(region, "ManpowerCapacity", 32)
+				local room = Max(0, capacity - (outpost.manpower or 0))
+				local recruited = lGatherRecruitCargoIds(
+					squad,
+					squad_state.payload and squad_state.payload.recruited_ids,
+					lRecruitUnitTemplate(region)
+				)
+				local deposited, leftover = lStripRecruitedUnits(squad, recruited, room)
+				if deposited <= 0 and (squad_state.payload.manpower or 0) > 0 then
+					deposited = Min(room, squad_state.payload.manpower or 0)
+					squad_state.payload.manpower = Max(0, (squad_state.payload.manpower or 0) - deposited)
+				else
+					squad_state.payload = squad_state.payload or {}
+					squad_state.payload.recruited_ids = leftover
+					squad_state.payload.manpower = #leftover
+				end
+				outpost.manpower = Min((outpost.manpower or 0) + deposited, capacity)
+			end
+			squad_state.home_sector = root.major.hq_sector
+			lBeginReturn(root, squad, squad_state, "rest")
 		end
-		squad_state.home_sector = root.major.hq_sector
-		lBeginReturn(root, squad, squad_state)
-	elseif squad_state.role == "garrison" or squad_state.role == "reinforce" then
+	elseif squad_state.role == "garrison" or squad_state.role == "reinforce"
+		or task.task_type == "garrison" or task.task_type == "reinforce"
+	then
 		squad_state.state = "working"
 		task.hold_until = lNow() + lInterval(lGetRegionPreset(squad_state.region_id), "CommandInterval", 6 * lHourScale())
 	elseif squad_state.role == "qrf" or squad_state.role == "major" then
@@ -1378,14 +1956,25 @@ local function lAssignTask(root, region, region_state, outpost, squad, squad_sta
 		return false
 	end
 	local task_type = request.task_type or squad_state.role
-	squad_state.task = {
+	local task = {
 		task_type = task_type,
 		target_sector = request.target_sector,
 		observed_sector = request.observed_sector,
 		report_id = request.report_id,
 	}
+	if task_type == "patrol" then
+		local path = lBuildPatrolPath(squad, request.target_sector)
+		if not path or #path == 0 then
+			return false
+		end
+		task.path = path
+		task.path_index = 1
+		task.target_sector = path[1]
+		task.task_type = "patrol"
+	end
+	squad_state.task = task
 	squad_state.state = "en_route"
-	local routed = lSetRoute(squad, request.target_sector)
+	local routed = lSetRoute(squad, task.target_sector)
 	if not routed then
 		squad_state.task = false
 		squad_state.state = "ready_for_orders"
@@ -1400,7 +1989,7 @@ local function lAssignTask(root, region, region_state, outpost, squad, squad_sta
 		end
 	end
 	ObjModified(squad)
-	Msg("JAZZ_LegionAITaskAssigned", squad.UniqueId, task_type, request.target_sector)
+	Msg("JAZZ_LegionAITaskAssigned", squad.UniqueId, task.task_type, task.target_sector)
 	if routed == "arrived" then
 		lOnSquadArrived(root, squad, squad_state)
 	end
@@ -1430,39 +2019,65 @@ local function lRoleRequest(root, region, region_state, outpost, squad, role)
 	return false
 end
 
+local function lIdleAssistRequest(root, region, region_state, role)
+	-- Only recon/QRF may assist garrison when they have nothing else to do.
+	if role ~= "recon" and role ~= "qrf" then
+		return false
+	end
+	local garrison = lGarrisonTarget(root, region, region_state)
+	if garrison then
+		return { task_type = "garrison", target_sector = garrison }
+	end
+	local reinforce = lReinforceTarget(root, region, region_state)
+	if reinforce then
+		return { task_type = "reinforce", target_sector = reinforce }
+	end
+	return false
+end
+
 local function lAssignReadySquads(root, region, region_state, outpost)
 	for squad_id, squad_state in sorted_pairs(root.squads) do
 		if squad_state.home_sector == outpost.sector_id
 		and lRegularRoles[squad_state.role]
-		and (squad_state.state == "ready_for_orders" or squad_state.state == "wounded")
+		and (squad_state.state == "ready_for_orders"
+			or squad_state.state == "wounded"
+			or squad_state.state == "resting")
 		then
 			local squad = gv_Squads[squad_id]
 			if squad and not IsSquadTravelling(squad, "skip_tick_pass") and not IsConflictMode(squad.CurrentSector) then
 				if squad.CurrentSector == outpost.sector_id then
-					lPurgeDeadAndHealSquad(squad)
-					lTryTopUpSquad(root, region, outpost, squad, squad_state)
-					local living = lSquadLivingUnitInfos(squad)
-					local optimal = JAZZ_GetLegionRoleOptimalSize and JAZZ_GetLegionRoleOptimalSize(squad_state.role) or living
-					if living <= 0 then
-						lRetireSquad(root, squad_id)
-					elseif living < optimal then
-						squad_state.state = "wounded"
-						squad_state.task = false
-						ObjModified(squad)
-					else
-						if squad_state.state == "wounded" or (squad_state.missions_left or 0) <= 0 then
-							local missions_key = lRoleMissions[squad_state.role]
-							squad_state.missions_left = missions_key and lConfig(region, missions_key, 1) or Max(squad_state.missions_left or 1, 1)
+					if squad_state.state == "resting" then
+						if (squad_state.rest_until or 0) <= lNow() then
+							lFinishBaseRest(root, squad, squad_state)
 						end
-						squad_state.state = "ready_for_orders"
-						ObjModified(squad)
+					elseif squad_state.state == "wounded" or squad_state.state == "ready_for_orders" then
+						lPurgeDeadAndHealSquad(squad)
+						lTryTopUpSquad(root, region, outpost, squad, squad_state)
+						local living = lSquadLivingUnitInfos(squad)
+						local optimal = JAZZ_GetLegionRoleOptimalSize and JAZZ_GetLegionRoleOptimalSize(squad_state.role) or living
+						if living <= 0 then
+							lRetireSquad(root, squad_id)
+						elseif living < optimal then
+							squad_state.state = "wounded"
+							squad_state.task = false
+							ObjModified(squad)
+						elseif squad_state.state == "wounded" then
+							-- Healed/topped to optimal after wounded wait → mandatory rest before new orders.
+							lBeginBaseRest(root, squad, squad_state)
+						end
 					end
 				end
 				if squad_state.state == "ready_for_orders" and (squad_state.missions_left or 0) > 0 then
 					local request = lRoleRequest(root, region, region_state, outpost, squad, squad_state.role)
-					lAssignTask(root, region, region_state, outpost, squad, squad_state, request)
+					if not request then
+						request = lIdleAssistRequest(root, region, region_state, squad_state.role)
+					end
+					if request then
+						lAssignTask(root, region, region_state, outpost, squad, squad_state, request)
+					end
+					-- else: sit idle at base — no despawn
 				elseif squad_state.state == "ready_for_orders" and (squad_state.missions_left or 0) <= 0 then
-					lBeginReturn(root, squad, squad_state, "refit")
+					lBeginReturn(root, squad, squad_state, "rest")
 				end
 			end
 		end
@@ -1470,10 +2085,17 @@ local function lAssignReadySquads(root, region, region_state, outpost)
 end
 
 local function lSpawnRegularRole(root, region, region_state, outpost, role)
+	if not lOutpostCanSpawn(outpost) then
+		return false
+	end
 	local total_cap = lConfig(region, "RegularSquadCap", 7)
-	local role_cap = lConfig(region, lRoleCaps[role], 0)
-	if lCountRegular(root, outpost.sector_id) >= total_cap
-	or lCountRegular(root, outpost.sector_id, role) >= role_cap
+	local role_cap = role == "garrison" and lGarrisonCap(region) or lConfig(region, lRoleCaps[role], 0)
+	if role == "garrison" then
+		if lCountRegionRole(root, region_state.region_id, "garrison") >= role_cap then
+			return false
+		end
+	elseif lCountRegular(root, outpost.sector_id) >= total_cap
+		or lCountRegular(root, outpost.sector_id, role) >= role_cap
 	then
 		return false
 	end
@@ -1491,24 +2113,24 @@ local function lSpawnRegularRole(root, region, region_state, outpost, role)
 		local composition = JAZZ_GenerateLegionSquadComposition(
 			role,
 			outpost.money or 0,
-			outpost.manpower, -- nil until STRATEGY-010 means unlimited
+			outpost.manpower or 0,
 			"auto",
 			role .. "_" .. outpost.sector_id .. "_" .. tostring(root.spawn_serial)
 		)
-		if composition then
-			unit_templates = composition.units
-			money_cost = composition.money_cost
-			manpower_cost = composition.manpower_cost or #composition.units
-		elseif (outpost.money or 0) < money_cost then
+		-- No free EnemySquadDef fallback: combat roles always spend $ + manpower.
+		if not composition then
 			return false
 		end
+		unit_templates = composition.units
+		money_cost = composition.money_cost or 0
+		manpower_cost = composition.manpower_cost or #(composition.units or empty_table)
 	elseif (outpost.money or 0) < money_cost then
 		return false
 	end
 	if (outpost.money or 0) < money_cost then
 		return false
 	end
-	if outpost.manpower ~= nil and manpower_cost > 0 and (outpost.manpower or 0) < manpower_cost then
+	if (outpost.manpower or 0) < manpower_cost then
 		return false
 	end
 
@@ -1528,21 +2150,43 @@ local function lSpawnRegularRole(root, region, region_state, outpost, role)
 		if squad then lRetireSquad(root, squad_id) end
 		return false
 	end
-	outpost.money = (outpost.money or 0) - money_cost
-	if outpost.manpower ~= nil and manpower_cost > 0 then
-		outpost.manpower = Max((outpost.manpower or 0) - manpower_cost, 0)
+	-- Charge actual living bodies if generator under-counted.
+	local spawned = #(squad.units or empty_table)
+	if spawned > manpower_cost then
+		manpower_cost = spawned
 	end
+	if (outpost.manpower or 0) < manpower_cost then
+		-- Should be rare (generator gated); retire rather than spawn free troops.
+		lLog(string.format(
+			"%s spawn at %s aborted after create: need %d manpower, have %d",
+			tostring(role),
+			tostring(outpost.sector_id),
+			manpower_cost,
+			outpost.manpower or 0
+		))
+		lRetireSquad(root, squad_id)
+		return false
+	end
+	outpost.money = (outpost.money or 0) - money_cost
+	outpost.manpower = Max((outpost.manpower or 0) - manpower_cost, 0)
 	if squad_state then
 		squad_state.spawn_money_cost = money_cost
 		squad_state.spawn_manpower_cost = manpower_cost
 	end
+	lLog(string.format(
+		"spawned %s at %s: -$%d -%d manpower (left $%d / %d people)",
+		tostring(role),
+		tostring(outpost.sector_id),
+		money_cost,
+		manpower_cost,
+		outpost.money or 0,
+		outpost.manpower or 0
+	))
+	lMarkOutpostSpawn(outpost)
 	return true
 end
 
 local function lTrySupplyConvoy(root, region, region_state, outpost)
-	if lActiveRole(root, region_state.region_id, outpost.sector_id, "supply") then
-		return false
-	end
 	local capacity = lOutpostMoneyCapacity(region)
 	local trigger = MulDivRound(capacity, lConfig(region, "SupplyConvoyTriggerPercent", 40), 100)
 	local cargo = lConfig(region, "SupplyConvoyCargo", 12000)
@@ -1552,6 +2196,39 @@ local function lTrySupplyConvoy(root, region, region_state, outpost)
 	local hq_sector = root.major.hq_sector
 	local hq = hq_sector and gv_Sectors[hq_sector]
 	if not hq or not JAZZ_IsLegionSide(hq.Side) then
+		return false
+	end
+	local function lDispatchSupply(squad, squad_state)
+		squad_state.home_sector = outpost.sector_id
+		squad_state.payload = squad_state.payload or {}
+		squad_state.payload.money = cargo
+		if not lEnsureMoneyCargo(squad, cargo) then
+			lLog("supply reuse failed to load cargo $")
+			return false
+		end
+		squad_state.task = { task_type = "supply", target_sector = outpost.sector_id }
+		squad_state.state = "en_route"
+		local routed = lSetRoute(squad, outpost.sector_id)
+		if not routed then
+			squad_state.task = false
+			squad_state.state = "ready_for_orders"
+			return false
+		end
+		root.major.money = (root.major.money or 0) - cargo
+		ObjModified(squad)
+		if routed == "arrived" then
+			lOnSquadArrived(root, squad, squad_state)
+		end
+		return true
+	end
+	-- Prefer idle supply parked at HQ after previous rest.
+	local idle_squad, idle_state = lFindIdleHomeRole(root, hq_sector, "supply")
+	if idle_squad then
+		return lDispatchSupply(idle_squad, idle_state)
+	end
+	if lActiveRole(root, region_state.region_id, outpost.sector_id, "supply")
+		or lActiveRole(root, region_state.region_id, hq_sector, "supply")
+	then
 		return false
 	end
 	local squad_id, squad_state = lSpawnManaged(
@@ -1573,9 +2250,6 @@ local function lTrySupplyConvoy(root, region, region_state, outpost)
 end
 
 local function lTryDiamondShipment(root, region, region_state, outpost)
-	if lActiveRole(root, region_state.region_id, outpost.sector_id, "shipment") then
-		return false
-	end
 	local threshold = lConfig(region, "DiamondShipmentThreshold", 12000)
 	if (outpost.diamond_stock or 0) < threshold then
 		return false
@@ -1583,6 +2257,35 @@ local function lTryDiamondShipment(root, region, region_state, outpost)
 	local hq_sector = root.major.hq_sector
 	local hq = hq_sector and gv_Sectors[hq_sector]
 	if not hq or not JAZZ_IsLegionSide(hq.Side) then
+		return false
+	end
+	local function lDispatchShipment(squad, squad_state)
+		squad_state.payload = squad_state.payload or {}
+		squad_state.payload.money = threshold
+		if not lEnsureMoneyCargo(squad, threshold) then
+			lLog("shipment reuse failed to load valuables")
+			return false
+		end
+		squad_state.task = { task_type = "shipment", target_sector = hq_sector }
+		squad_state.state = "en_route"
+		local routed = lSetRoute(squad, hq_sector)
+		if not routed then
+			squad_state.task = false
+			squad_state.state = "ready_for_orders"
+			return false
+		end
+		outpost.diamond_stock = outpost.diamond_stock - threshold
+		ObjModified(squad)
+		if routed == "arrived" then
+			lOnSquadArrived(root, squad, squad_state)
+		end
+		return true
+	end
+	local idle_squad, idle_state = lFindIdleHomeRole(root, outpost.sector_id, "shipment")
+	if idle_squad then
+		return lDispatchShipment(idle_squad, idle_state)
+	end
+	if lActiveRole(root, region_state.region_id, outpost.sector_id, "shipment") then
 		return false
 	end
 	local squad_id, squad_state = lSpawnManaged(
@@ -1623,9 +2326,7 @@ local function lTaxCircuitSectors(region, region_state)
 		local money = region_state.poi_money[sector_id] or 0
 		if money > 0 then
 			local sector = gv_Sectors[sector_id]
-			if sector and JAZZ_IsLegionSide(sector.Side)
-				and ((sector.City and sector.City ~= "none") or sector.Farm)
-			then
+			if sector and JAZZ_IsLegionSide(sector.Side) and lSectorIsEconomicPOI(sector) then
 				list[#list + 1] = sector_id
 				total = total + money
 			end
@@ -1636,16 +2337,43 @@ local function lTaxCircuitSectors(region, region_state)
 end
 
 local function lTryTaxCollector(root, region, region_state, outpost)
-	local cap = lConfig(region, "TaxCap", 2)
-	if lCountHomeRole(root, outpost.sector_id, "tax") >= cap then
-		return false
-	end
 	local cooldown = lConfig(region, "TaxCooldown", 24 * lHourScale())
 	if (outpost.last_tax_time or 0) + cooldown > lNow() then
 		return false
 	end
 	local circuit, total = lTaxCircuitSectors(region, region_state)
 	if total < lConfig(region, "TaxThreshold", 1000) or #circuit == 0 then
+		return false
+	end
+	local function lDispatchTax(squad, squad_state)
+		squad_state.payload = squad_state.payload or {}
+		squad_state.payload.money = 0
+		squad_state.task = {
+			task_type = "tax",
+			circuit = circuit,
+			circuit_index = 1,
+			target_sector = circuit[1],
+		}
+		squad_state.state = "en_route"
+		local routed = lSetRoute(squad, circuit[1])
+		if not routed then
+			squad_state.task = false
+			squad_state.state = "ready_for_orders"
+			return false
+		end
+		outpost.last_tax_time = lNow()
+		ObjModified(squad)
+		if routed == "arrived" then
+			lOnSquadArrived(root, squad, squad_state)
+		end
+		return true
+	end
+	local idle_squad, idle_state = lFindIdleHomeRole(root, outpost.sector_id, "tax")
+	if idle_squad then
+		return lDispatchTax(idle_squad, idle_state)
+	end
+	local cap = lConfig(region, "TaxCap", 1)
+	if lCountHomeRole(root, outpost.sector_id, "tax") >= cap then
 		return false
 	end
 	local squad_id, squad_state = lSpawnManaged(
@@ -1655,22 +2383,9 @@ local function lTryTaxCollector(root, region, region_state, outpost)
 	if not squad then
 		return false
 	end
-	squad_state.task = {
-		task_type = "tax",
-		circuit = circuit,
-		circuit_index = 1,
-		target_sector = circuit[1],
-	}
-	squad_state.state = "en_route"
-	local routed = lSetRoute(squad, circuit[1])
-	if not routed then
+	if not lDispatchTax(squad, squad_state) then
 		lRetireSquad(root, squad_id)
 		return false
-	end
-	outpost.last_tax_time = lNow()
-	ObjModified(squad)
-	if routed == "arrived" then
-		lOnSquadArrived(root, squad, squad_state)
 	end
 	return true
 end
@@ -1682,9 +2397,7 @@ local function lRecruitCircuitSectors(region, region_state)
 		local recruits = region_state.poi_recruits[sector_id] or 0
 		if recruits > 0 then
 			local sector = gv_Sectors[sector_id]
-			if sector and JAZZ_IsLegionSide(sector.Side)
-				and ((sector.City and sector.City ~= "none") or sector.Farm)
-			then
+			if sector and JAZZ_IsLegionSide(sector.Side) and lSectorIsEconomicPOI(sector) then
 				list[#list + 1] = sector_id
 				total = total + recruits
 			end
@@ -1695,10 +2408,6 @@ local function lRecruitCircuitSectors(region, region_state)
 end
 
 local function lTryRecruiter(root, region, region_state, outpost)
-	local cap = lConfig(region, "RecruiterCap", 2)
-	if lCountHomeRole(root, outpost.sector_id, "recruiter") >= cap then
-		return false
-	end
 	local cooldown = lConfig(region, "RecruiterCooldown", 24 * lHourScale())
 	if (outpost.last_recruiter_time or 0) + cooldown > lNow() then
 		return false
@@ -1707,41 +2416,62 @@ local function lTryRecruiter(root, region, region_state, outpost)
 	if total < lConfig(region, "RecruiterThreshold", 8) or #circuit == 0 then
 		return false
 	end
+	local function lDispatchRecruiter(squad, squad_state)
+		squad_state.payload = squad_state.payload or {}
+		squad_state.payload.manpower = 0
+		squad_state.payload.recruited_ids = {}
+		squad_state.task = {
+			task_type = "recruiter",
+			circuit = circuit,
+			circuit_index = 1,
+			target_sector = circuit[1],
+		}
+		squad_state.state = "en_route"
+		local routed = lSetRoute(squad, circuit[1])
+		if not routed then
+			squad_state.task = false
+			squad_state.state = "ready_for_orders"
+			return false
+		end
+		outpost.last_recruiter_time = lNow()
+		ObjModified(squad)
+		if routed == "arrived" then
+			lOnSquadArrived(root, squad, squad_state)
+		end
+		return true
+	end
+	local idle_squad, idle_state = lFindIdleHomeRole(root, outpost.sector_id, "recruiter")
+	if idle_squad then
+		return lDispatchRecruiter(idle_squad, idle_state)
+	end
+	local cap = lConfig(region, "RecruiterCap", 1)
+	if lCountHomeRole(root, outpost.sector_id, "recruiter") >= cap then
+		return false
+	end
 	local squad_id, squad_state = lSpawnManaged(
-		root, region, outpost.sector_id, "recruiter", outpost.sector_id, 1, { manpower = 0 }
+		root, region, outpost.sector_id, "recruiter", outpost.sector_id, 1, { manpower = 0, recruited_ids = {} }
 	)
 	local squad = squad_id and gv_Squads[squad_id]
 	if not squad then
 		return false
 	end
-	squad_state.task = {
-		task_type = "recruiter",
-		circuit = circuit,
-		circuit_index = 1,
-		target_sector = circuit[1],
-	}
-	squad_state.state = "en_route"
-	local routed = lSetRoute(squad, circuit[1])
-	if not routed then
+	if not lDispatchRecruiter(squad, squad_state) then
 		lRetireSquad(root, squad_id)
 		return false
-	end
-	outpost.last_recruiter_time = lNow()
-	ObjModified(squad)
-	if routed == "arrived" then
-		lOnSquadArrived(root, squad, squad_state)
 	end
 	return true
 end
 
 local function lTryManpowerConvoy(root, region, region_state, outpost)
+	-- Major → outpost only when the outpost has no manpower left.
+	if (outpost.manpower or 0) > 0 then
+		return false
+	end
 	if lActiveRole(root, region_state.region_id, outpost.sector_id, "manpower") then
 		return false
 	end
-	local capacity = lConfig(region, "ManpowerCapacity", 60)
-	local trigger = MulDivRound(capacity, lConfig(region, "ManpowerConvoyTriggerPercent", 40), 100)
 	local cargo = lConfig(region, "ManpowerConvoyCargo", 16)
-	if (outpost.manpower or 0) >= trigger or (root.major.manpower or 0) < cargo then
+	if (root.major.manpower or 0) < cargo then
 		return false
 	end
 	local hq_sector = root.major.hq_sector
@@ -1750,12 +2480,20 @@ local function lTryManpowerConvoy(root, region, region_state, outpost)
 		return false
 	end
 	local squad_id, squad_state = lSpawnManaged(
-		root, region, outpost.sector_id, "manpower", hq_sector, 1, { manpower = cargo }
+		root, region, outpost.sector_id, "manpower", hq_sector, 1, { manpower = 0, recruited_ids = {} }
 	)
 	local squad = squad_id and gv_Squads[squad_id]
 	if not squad then
 		return false
 	end
+	local added = lAddRecruitUnitsToSquad(root, squad, cargo, lRecruitUnitTemplate(region), "inbound")
+	if #added <= 0 then
+		lLog(string.format("manpower inbound failed to spawn %d recruits", cargo))
+		lRetireSquad(root, squad_id)
+		return false
+	end
+	squad_state.payload.recruited_ids = added
+	squad_state.payload.manpower = #added
 	squad_state.task = { task_type = "manpower", target_sector = outpost.sector_id }
 	squad_state.state = "en_route"
 	local routed = lSetRoute(squad, outpost.sector_id)
@@ -1763,7 +2501,59 @@ local function lTryManpowerConvoy(root, region, region_state, outpost)
 		lRetireSquad(root, squad_id)
 		return false
 	end
-	root.major.manpower = (root.major.manpower or 0) - cargo
+	root.major.manpower = Max((root.major.manpower or 0) - #added, 0)
+	ObjModified(squad)
+	if routed == "arrived" then
+		lOnSquadArrived(root, squad, squad_state)
+	end
+	return true
+end
+
+-- Outpost surplus recruits → Major via the same manpower caravan role (reverse route).
+local function lTryManpowerOutbound(root, region, region_state, outpost)
+	if lActiveRole(root, region_state.region_id, outpost.sector_id, "manpower") then
+		return false
+	end
+	local pending = outpost.outbound_manpower or 0
+	if pending <= 0 then
+		return false
+	end
+	local cargo_max = lConfig(region, "ManpowerConvoyCargo", 16)
+	local cargo = Min(pending, cargo_max)
+	if cargo <= 0 then
+		return false
+	end
+	local hq_sector = root.major.hq_sector
+	local hq = hq_sector and gv_Sectors[hq_sector]
+	if not hq or not JAZZ_IsLegionSide(hq.Side) then
+		return false
+	end
+	local squad_id, squad_state = lSpawnManaged(
+		root, region, outpost.sector_id, "manpower", outpost.sector_id, 1, { manpower = 0, recruited_ids = {} }
+	)
+	local squad = squad_id and gv_Squads[squad_id]
+	if not squad then
+		return false
+	end
+	local added = lAddRecruitUnitsToSquad(root, squad, cargo, lRecruitUnitTemplate(region), "outbound")
+	if #added <= 0 then
+		lLog(string.format("manpower outbound failed to spawn %d recruits", cargo))
+		lRetireSquad(root, squad_id)
+		return false
+	end
+	squad_state.payload.recruited_ids = added
+	squad_state.payload.manpower = #added
+	squad_state.task = {
+		task_type = "manpower_outbound",
+		target_sector = hq_sector,
+	}
+	squad_state.state = "en_route"
+	local routed = lSetRoute(squad, hq_sector)
+	if not routed then
+		lRetireSquad(root, squad_id)
+		return false
+	end
+	outpost.outbound_manpower = Max(0, pending - #added)
 	ObjModified(squad)
 	if routed == "arrived" then
 		lOnSquadArrived(root, squad, squad_state)
@@ -1782,16 +2572,21 @@ local function lCompleteWorkingTasks(root, region, region_state, outpost)
 		and task.hold_until
 		and task.hold_until <= lNow()
 		then
-			local target = gv_Sectors[task.target_sector]
-			if (squad_state.role == "garrison" or squad_state.role == "reinforce")
-			and target and JAZZ_IsLegionSide(target.Side)
-			then
-				lCompleteRegularTask(root, squad, squad_state)
-			elseif squad_state.role == "qrf" then
-				if target and not lIsPlayerSide(target.Side) and not lPlayerSquadInSector(target.Id) then
+			if task.task_type == "patrol_dwell" then
+				lAdvancePatrolAfterDwell(root, squad, squad_state)
+			else
+				local target = gv_Sectors[task.target_sector]
+				local assist = task.task_type == "garrison" or task.task_type == "reinforce"
+				if (squad_state.role == "garrison" or squad_state.role == "reinforce" or assist)
+				and target and JAZZ_IsLegionSide(target.Side)
+				then
 					lCompleteRegularTask(root, squad, squad_state)
-				elseif task.hold_until + lInterval(region, "CommandInterval", 6 * lHourScale()) <= lNow() then
-					lCompleteRegularTask(root, squad, squad_state)
+				elseif squad_state.role == "qrf" then
+					if target and not lIsPlayerSide(target.Side) and not lPlayerSquadInSector(target.Id) then
+						lCompleteRegularTask(root, squad, squad_state)
+					elseif task.hold_until + lInterval(region, "CommandInterval", 6 * lHourScale()) <= lNow() then
+						lCompleteRegularTask(root, squad, squad_state)
+					end
 				end
 			end
 		end
@@ -1826,8 +2621,8 @@ local function lRunCommandWindow(root, region, region_state, outpost)
 
 	-- Need-gated fill: qrf/recon only with threat/noise; garrison only undefended
 	-- key/POI; reinforce on player-adjacent borders; patrol if a target exists.
-	-- Supply and shipment may both spawn in the same window when both gates pass
-	-- (opposing Major↔outpost routes; no force-spawn API).
+	-- Combat uses a shared 1/day outpost spawn slot. Logistics (supply/shipment/
+	-- tax/recruiter/manpower) use role cooldowns/caps and may spawn same window.
 	lSpawnRegularRole(root, region, region_state, outpost, "qrf")
 	while lSpawnRegularRole(root, region, region_state, outpost, "garrison") do end
 	lSpawnRegularRole(root, region, region_state, outpost, "reinforce")
@@ -1838,6 +2633,8 @@ local function lRunCommandWindow(root, region, region_state, outpost)
 	lTryDiamondShipment(root, region, region_state, outpost)
 	lTryTaxCollector(root, region, region_state, outpost)
 	lTryRecruiter(root, region, region_state, outpost)
+	-- Outbound surplus first; inbound only when outpost manpower is empty.
+	lTryManpowerOutbound(root, region, region_state, outpost)
 	lTryManpowerConvoy(root, region, region_state, outpost)
 end
 
@@ -1946,20 +2743,8 @@ local function lTickEconomyAndHeat(root, region, region_state)
 	local legion_mines = 0
 	for _, sector_id in ipairs(region.Sectors or empty_table) do
 		local sector = gv_Sectors[sector_id]
-		if sector and JAZZ_IsLegionSide(sector.Side) then
-			if sector.Mine then
-				legion_mines = legion_mines + 1
-			end
-			local add = 0
-			if sector.City and sector.City ~= "none" then
-				add = add + lConfig(region, "CitySupplyBonus", 50)
-			end
-			if sector.Farm then
-				add = add + lConfig(region, "FarmSupplyBonus", 10)
-			end
-			if add > 0 then
-				region_state.poi_money[sector_id] = (region_state.poi_money[sector_id] or 0) + add
-			end
+		if sector and JAZZ_IsLegionSide(sector.Side) and sector.Mine then
+			legion_mines = legion_mines + 1
 		end
 	end
 
@@ -1967,7 +2752,7 @@ local function lTickEconomyAndHeat(root, region, region_state)
 		local outpost = root.outposts[sector_id]
 		local sector = gv_Sectors[sector_id]
 		if outpost.enabled and sector and JAZZ_IsLegionSide(sector.Side) then
-			-- Base passive stays on outpost; city/farm $ wait for tax; mine → shipment stock.
+			-- Base passive stays on outpost; city/farm $ wait for tax pulse; mine → shipment stock.
 			local income = lConfig(region, "PassiveSupplyPerHour", 0)
 			outpost.money = Min(
 				(outpost.money or 0) + income,
@@ -1990,33 +2775,79 @@ local function lTickEconomyAndHeat(root, region, region_state)
 		region_state.next_heat_decay_time = region_state.next_heat_decay_time + interval * cycles
 	end
 
-	if (region_state.next_recruit_time or 0) <= lNow() then
-		local day = 24 * lHourScale()
-		local cycles = 1 + math.floor((lNow() - (region_state.next_recruit_time or lNow())) / day)
+	-- City/farm $ and recruits accrue on economic POIs every N days (default 3).
+	local pulse_due = region_state.next_poi_pulse_time or region_state.next_recruit_time or 0
+	if pulse_due > 0 and pulse_due <= lNow() then
+		local interval = lInterval(region, "POIGenerationInterval", 72 * lHourScale())
+		local raw_cycles = 1 + math.floor((lNow() - pulse_due) / interval)
+		local max_catchup = lConfig(region, "POIGenerationMaxCatchup", 1)
+		local cycles = Min(raw_cycles, max_catchup)
+		local money_cap = lConfig(region, "PoiMoneyCap", 12000)
+		if raw_cycles > max_catchup then
+			lLog(string.format(
+				"POI pulse %s: clamped catch-up %d → %d cycles",
+				tostring(region_state.region_id),
+				raw_cycles,
+				cycles
+			))
+		end
 		for _ = 1, cycles do
 			for _, sector_id in ipairs(region.Sectors or empty_table) do
 				local sector = gv_Sectors[sector_id]
-				if sector and (JAZZ_IsLegionSide(sector.Side) or lIsPlayerSide(sector.Side)) then
-					local add = 0
-					local cap = 0
-					if sector.City and sector.City ~= "none" then
-						add = add + lConfig(region, "CityRecruitsPerDay", 2)
-						cap = lConfig(region, "CityRecruitCap", 20)
+				if sector and lSectorIsEconomicPOI(sector) then
+					if JAZZ_IsLegionSide(sector.Side) then
+						local money_add = 0
+						if sector.City and sector.City ~= "none" and (sector.Militia or sector.Hospital) then
+							money_add = money_add + lConfig(region, "CitySupplyBonus", 2500)
+						end
+						if sector.Farm then
+							money_add = money_add + lConfig(region, "FarmSupplyBonus", 800)
+						end
+						-- Mines/ports/guardposts do not accrue tax stock here.
+						if money_add > 0 then
+							region_state.poi_money[sector_id] = Min(
+								(region_state.poi_money[sector_id] or 0) + money_add,
+								money_cap
+							)
+						end
 					end
-					if sector.Farm then
-						add = add + lConfig(region, "FarmRecruitsPerDay", 1)
-						cap = Max(cap, lConfig(region, "FarmRecruitCap", 8))
-					end
-					if add > 0 then
-						region_state.poi_recruits[sector_id] = Min(
-							(region_state.poi_recruits[sector_id] or 0) + add,
-							cap
-						)
+					if JAZZ_IsLegionSide(sector.Side) or lIsPlayerSide(sector.Side) then
+						local recruit_add = 0
+						local cap = 0
+						if sector.City and sector.City ~= "none" and (sector.Militia or sector.Hospital) then
+							recruit_add = recruit_add + lConfig(region, "CityRecruitsPerDay", 3)
+							cap = lConfig(region, "CityRecruitCap", 16)
+						end
+						if sector.Farm then
+							recruit_add = recruit_add + lConfig(region, "FarmRecruitsPerDay", 2)
+							cap = Max(cap, lConfig(region, "FarmRecruitCap", 8))
+						end
+						-- Guardpost/Port also feed the recruiter circuit (Ernie often has few Militia cities).
+						if sector.Guardpost then
+							recruit_add = recruit_add + lConfig(region, "GuardpostRecruitsPerDay", 2)
+							cap = Max(cap, lConfig(region, "GuardpostRecruitCap", 12))
+						end
+						if sector.Port then
+							recruit_add = recruit_add + lConfig(region, "PortRecruitsPerDay", 1)
+							cap = Max(cap, lConfig(region, "PortRecruitCap", 8))
+						end
+						if recruit_add > 0 then
+							region_state.poi_recruits[sector_id] = Min(
+								(region_state.poi_recruits[sector_id] or 0) + recruit_add,
+								cap
+							)
+						end
 					end
 				end
 			end
 		end
-		region_state.next_recruit_time = (region_state.next_recruit_time or lNow()) + day * cycles
+		-- Advance from "now", not from a stale due time * raw_cycles (that recreates the bomb).
+		region_state.next_poi_pulse_time = lNow() + interval
+		region_state.next_recruit_time = region_state.next_poi_pulse_time
+	elseif pulse_due <= 0 then
+		region_state.next_poi_pulse_time = lNow()
+			+ lInterval(region, "POIGenerationInterval", 72 * lHourScale())
+		region_state.next_recruit_time = region_state.next_poi_pulse_time
 	end
 
 	lExpireReports(region_state)
@@ -2068,36 +2899,79 @@ end
 local function lTryMajorResponse(root, region, region_state)
 	if region_state.heat < lConfig(region, "MajorResponseHeat", 800)
 	or root.major.next_response_time > lNow()
-	or lActiveRole(root, region_state.region_id, false, "major")
 	then
-		return false
-	end
-	local fallback_cost = lConfig(region, "MajorResponseCost", 50000)
-	local unit_templates = false
-	local cost = fallback_cost
-	if JAZZ_GenerateLegionSquadComposition then
-		local composition = JAZZ_GenerateLegionSquadComposition(
-			"major",
-			root.major.money or 0,
-			root.major.manpower,
-			"auto",
-			"major_" .. tostring(root.spawn_serial)
-		)
-		if composition then
-			unit_templates = composition.units
-			cost = composition.money_cost
-		end
-	end
-	if (root.major.money or 0) < cost then
-		return false
-	end
-	if root.major.manpower ~= nil and unit_templates and (root.major.manpower or 0) < #unit_templates then
 		return false
 	end
 	local hq_sector = root.major.hq_sector
 	local hq = hq_sector and gv_Sectors[hq_sector]
 	local target_sector, report_id = lMajorTarget(region, region_state)
 	if not hq or not JAZZ_IsLegionSide(hq.Side) or not target_sector then
+		return false
+	end
+	local function lDispatchMajor(squad, squad_state, charge)
+		squad_state.task = {
+			task_type = "major_response",
+			target_sector = target_sector,
+			report_id = report_id or nil,
+		}
+		squad_state.state = "en_route"
+		local routed = lSetRoute(squad, target_sector)
+		if not routed then
+			squad_state.task = false
+			squad_state.state = "ready_for_orders"
+			return false
+		end
+		if report_id then
+			local report = region_state.reports[report_id]
+			if report then
+				report.consumed = true
+			end
+		end
+		if charge then
+			root.major.money = (root.major.money or 0) - (charge.money or 0)
+			root.major.manpower = Max((root.major.manpower or 0) - (charge.manpower or 0), 0)
+			squad_state.spawn_money_cost = charge.money
+			squad_state.spawn_manpower_cost = charge.manpower
+		end
+		ObjModified(squad)
+		root.major.next_response_time = lNow()
+			+ lConfig(region, "MajorResponseCooldown", 72 * lHourScale())
+		if routed == "arrived" then
+			lOnSquadArrived(root, squad, squad_state)
+		end
+		Msg("JAZZ_LegionAIMajorResponse", squad.UniqueId, target_sector)
+		return true
+	end
+	local idle_squad, idle_state = lFindIdleHomeRole(root, hq_sector, "major")
+	if idle_squad then
+		return lDispatchMajor(idle_squad, idle_state, false)
+	end
+	if lActiveRole(root, region_state.region_id, false, "major") then
+		return false
+	end
+	local fallback_cost = lConfig(region, "MajorResponseCost", 50000)
+	local unit_templates = false
+	local cost = fallback_cost
+	local manpower_cost = 0
+	if JAZZ_GenerateLegionSquadComposition then
+		local composition = JAZZ_GenerateLegionSquadComposition(
+			"major",
+			root.major.money or 0,
+			root.major.manpower or 0,
+			"auto",
+			"major_" .. tostring(root.spawn_serial)
+		)
+		if not composition then
+			return false
+		end
+		unit_templates = composition.units
+		cost = composition.money_cost or 0
+		manpower_cost = composition.manpower_cost or #(composition.units or empty_table)
+	end
+	if (root.major.money or 0) < cost then
+		return false
+	end
+	if (root.major.manpower or 0) < manpower_cost then
 		return false
 	end
 
@@ -2115,36 +2989,34 @@ local function lTryMajorResponse(root, region, region_state)
 	if not squad then
 		return false
 	end
-	squad_state.task = {
-		task_type = "major_response",
-		target_sector = target_sector,
-		report_id = report_id or nil,
-	}
-	squad_state.state = "en_route"
-	local routed = lSetRoute(squad, target_sector)
-	if not routed then
+	local spawned = #(squad.units or empty_table)
+	if spawned > manpower_cost then
+		manpower_cost = spawned
+	end
+	if (root.major.manpower or 0) < manpower_cost then
 		lRetireSquad(root, squad_id)
 		return false
 	end
-	if report_id then
-		local report = region_state.reports[report_id]
-		if report then
-			report.consumed = true
+	if not lDispatchMajor(squad, squad_state, { money = cost, manpower = manpower_cost }) then
+		lRetireSquad(root, squad_id)
+		return false
+	end
+	return true
+end
+
+local function lTickRestingSquads(root)
+	for squad_id, squad_state in sorted_pairs(root.squads) do
+		if squad_state.state == "resting" and (squad_state.rest_until or 0) <= lNow() then
+			local squad = gv_Squads[squad_id]
+			if squad
+				and squad.CurrentSector == squad_state.home_sector
+				and not IsSquadTravelling(squad, "skip_tick_pass")
+				and not IsConflictMode(squad.CurrentSector)
+			then
+				lFinishBaseRest(root, squad, squad_state)
+			end
 		end
 	end
-	root.major.money = (root.major.money or 0) - cost
-	if root.major.manpower ~= nil and unit_templates then
-		root.major.manpower = Max((root.major.manpower or 0) - #unit_templates, 0)
-	end
-	squad_state.spawn_money_cost = cost
-	ObjModified(squad)
-	root.major.next_response_time = lNow()
-		+ lConfig(region, "MajorResponseCooldown", 72 * lHourScale())
-	if routed == "arrived" then
-		lOnSquadArrived(root, squad, squad_state)
-	end
-	Msg("JAZZ_LegionAIMajorResponse", squad_id, target_sector)
-	return true
 end
 
 local function lTickMajor(root)
@@ -2156,9 +3028,9 @@ local function lTickMajor(root)
 			and task.hold_until <= lNow()
 			and not IsConflictMode(squad.CurrentSector)
 			then
-				lBeginReturn(root, squad, squad_state)
+				lBeginReturn(root, squad, squad_state, "rest")
 			elseif squad and squad_state.state == "orphaned" then
-				lBeginReturn(root, squad, squad_state)
+				lBeginReturn(root, squad, squad_state, "rest")
 			end
 		end
 	end
@@ -2207,6 +3079,7 @@ local function lTickWoundedRetreats(root)
 			and squad_state.state ~= "retired"
 			and squad_state.state ~= "returning"
 			and squad_state.state ~= "wounded"
+			and squad_state.state ~= "resting"
 			and squad_state.state ~= "orphaned"
 		then
 			local squad = gv_Squads[squad_id]
@@ -2214,10 +3087,65 @@ local function lTickWoundedRetreats(root)
 				and squad.CurrentSector ~= squad_state.home_sector
 				and not IsSquadTravelling(squad, "skip_tick_pass")
 				and not IsConflictMode(squad.CurrentSector)
-				and lSquadNeedsWoundedRetreat(squad, squad_state.role)
 			then
-				lBeginReturn(root, squad, squad_state, "wounded")
+				local living = lSquadLivingUnitInfos(squad)
+				local weak_garrison = squad_state.role == "garrison" and living > 0 and living <= 10
+				if weak_garrison or lSquadNeedsWoundedRetreat(squad, squad_state.role) then
+					lBeginReturn(root, squad, squad_state, weak_garrison and "rest" or "wounded")
+				end
 			end
+		end
+	end
+end
+
+-- Legion hospital: satellite enemies have no meaningful HP — buff for combat instead.
+local function lTickHospitalHeals(root)
+	for squad_id, squad_state in sorted_pairs(root.squads) do
+		if squad_state.state == "retired" then
+			goto continue_hospital
+		end
+		local squad = gv_Squads[squad_id]
+		if not squad or IsSquadTravelling(squad, "skip_tick_pass") or IsConflictMode(squad.CurrentSector) then
+			goto continue_hospital
+		end
+		local sector = gv_Sectors[squad.CurrentSector]
+		if not sector or not sector.Hospital or sector.HospitalLocked then
+			goto continue_hospital
+		end
+		squad_state.hospital_buffed = true
+		squad_state.hospital_buff_until = lNow() + 24 * lHourScale()
+		for _, session_id in ipairs(squad.units or empty_table) do
+			local ud = gv_UnitData[session_id]
+			if ud and ud.AddStatusEffect and CharacterEffectDefs and CharacterEffectDefs.Inspired then
+				if not (ud.HasStatusEffect and ud:HasStatusEffect("Inspired")) then
+					ud:AddStatusEffect("Inspired")
+				end
+			end
+		end
+		ObjModified(squad)
+		::continue_hospital::
+	end
+end
+
+-- Re-apply hospital buff when units enter tactical (UnitData effects can be wiped on spawn).
+function OnMsg.CombatStart()
+	local root = gv_JAZZ_LegionAI
+	if type(root) ~= "table" or not root.squads then
+		return
+	end
+	if not (CharacterEffectDefs and CharacterEffectDefs.Inspired) then
+		return
+	end
+	for _, unit in ipairs(g_Units or empty_table) do
+		local squad_id = unit and unit.Squad
+		local squad_state = squad_id and root.squads[squad_id]
+		if squad_state
+			and squad_state.hospital_buffed
+			and (squad_state.hospital_buff_until or 0) > lNow()
+			and unit.AddStatusEffect
+			and not (unit.HasStatusEffect and unit:HasStatusEffect("Inspired"))
+		then
+			unit:AddStatusEffect("Inspired")
 		end
 	end
 end
@@ -2235,7 +3163,9 @@ function JAZZ_LegionAIProcessHour()
 
 	lTickRecon(root)
 	lTickMajor(root)
+	lTickRestingSquads(root)
 	lTickWoundedRetreats(root)
+	lTickHospitalHeals(root)
 	for region_id, region_state in sorted_pairs(root.regions) do
 		local region = lGetRegionPreset(region_id)
 		if region and region.LegionAIEnabled then
@@ -2285,10 +3215,14 @@ function JAZZ_LegionAIGetDiagnostics()
 		regions = {},
 	}
 	diagnostics.major.money_capacity = false
+	diagnostics.major.manpower_capacity = false
 	for region_id, region_state in sorted_pairs(root.regions) do
 		local region = lGetRegionPreset(region_id)
 		if not diagnostics.major.money_capacity then
 			diagnostics.major.money_capacity = lMajorMoneyCapacity(region)
+		end
+		if not diagnostics.major.manpower_capacity then
+			diagnostics.major.manpower_capacity = lMajorManpowerCapacity(region)
 		end
 		local region_data = {
 			heat = region_state.heat,
@@ -2296,9 +3230,11 @@ function JAZZ_LegionAIGetDiagnostics()
 			reports = table.count(region_state.reports),
 			outposts = {},
 			squads = {},
+			poi_money_total = 0,
+			poi_recruits_total = 0,
 			caps = {
 				regular = lConfig(region, "RegularSquadCap", 7),
-				garrison = lConfig(region, "GarrisonCap", 2),
+				garrison = lGarrisonCap(region),
 				patrol = lConfig(region, "PatrolCap", 2),
 				recon = lConfig(region, "ReconCap", 1),
 				qrf = lConfig(region, "QRFCap", 1),
@@ -2315,15 +3251,24 @@ function JAZZ_LegionAIGetDiagnostics()
 			},
 			active_counts = { regular = 0 },
 		}
+		for sector_id, money in sorted_pairs(region_state.poi_money or empty_table) do
+			region_data.poi_money_total = region_data.poi_money_total + (money or 0)
+		end
+		for sector_id, recruits in sorted_pairs(region_state.poi_recruits or empty_table) do
+			region_data.poi_recruits_total = region_data.poi_recruits_total + (recruits or 0)
+		end
 		for sector_id in sorted_pairs(region_state.outposts) do
 			local outpost = root.outposts[sector_id]
 			region_data.outposts[sector_id] = outpost and {
 				enabled = outpost.enabled,
 				money = outpost.money,
+				manpower = outpost.manpower,
+				outbound_manpower = outpost.outbound_manpower or 0,
 				diamond_stock = outpost.diamond_stock,
 				next_command_time = outpost.next_command_time,
 				reboot_until = outpost.reboot_until,
 				money_capacity = lOutpostMoneyCapacity(region),
+				manpower_capacity = lConfig(region, "ManpowerCapacity", 32),
 			} or false
 		end
 		for squad_id, squad_state in sorted_pairs(root.squads) do
@@ -2345,6 +3290,143 @@ function JAZZ_LegionAIGetDiagnostics()
 		diagnostics.regions[region_id] = region_data
 	end
 	return diagnostics
+end
+
+-- Compact money/manpower snapshot for console smoke tests.
+function JAZZ_LegionAIGetEconomy()
+	local root = JAZZ_LegionAIEnsureState()
+	if not root then
+		return { enabled = false, reason = "state unavailable" }
+	end
+	local snap = {
+		enabled = true,
+		schema_version = root.schema_version,
+		major = {
+			hq = root.major.hq_sector,
+			money = root.major.money,
+			manpower = root.major.manpower,
+		},
+		outposts = {},
+		poi = {},
+	}
+	for region_id, region_state in sorted_pairs(root.regions) do
+		local region = lGetRegionPreset(region_id)
+		snap.major.money_capacity = snap.major.money_capacity or lMajorMoneyCapacity(region)
+		snap.major.manpower_capacity = snap.major.manpower_capacity or lMajorManpowerCapacity(region)
+		local poi_money = {}
+		local poi_recruits = {}
+		for sector_id, money in sorted_pairs(region_state.poi_money or empty_table) do
+			if (money or 0) > 0 then
+				poi_money[sector_id] = money
+			end
+		end
+		for sector_id, recruits in sorted_pairs(region_state.poi_recruits or empty_table) do
+			if (recruits or 0) > 0 then
+				poi_recruits[sector_id] = recruits
+			end
+		end
+		snap.poi[region_id] = {
+			money = poi_money,
+			recruits = poi_recruits,
+		}
+		for sector_id in sorted_pairs(region_state.outposts) do
+			local outpost = root.outposts[sector_id]
+			if outpost then
+				snap.outposts[sector_id] = {
+					region = region_id,
+					enabled = outpost.enabled,
+					money = outpost.money or 0,
+					money_capacity = lOutpostMoneyCapacity(region),
+					manpower = outpost.manpower or 0,
+					manpower_capacity = lConfig(region, "ManpowerCapacity", 32),
+					outbound_manpower = outpost.outbound_manpower or 0,
+					diamond_stock = outpost.diamond_stock or 0,
+				}
+			end
+		end
+	end
+	return snap
+end
+
+function JAZZ_LegionAIPrintEconomy()
+	local snap = JAZZ_LegionAIGetEconomy()
+	if not snap.enabled then
+		print("[JAZZ LegionAI] economy unavailable:", snap.reason or "?")
+		return snap
+	end
+	print(string.format(
+		"[JAZZ LegionAI] Major HQ=%s  $%s/%s  manpower %s/%s",
+		tostring(snap.major.hq),
+		tostring(snap.major.money),
+		tostring(snap.major.money_capacity),
+		tostring(snap.major.manpower),
+		tostring(snap.major.manpower_capacity)
+	))
+	for sector_id, op in sorted_pairs(snap.outposts) do
+		print(string.format(
+			"[JAZZ LegionAI] Outpost %s (%s) enabled=%s  $%s/%s  manpower %s/%s  outbound=%s  diamonds=%s",
+			tostring(sector_id),
+			tostring(op.region),
+			tostring(op.enabled),
+			tostring(op.money),
+			tostring(op.money_capacity),
+			tostring(op.manpower),
+			tostring(op.manpower_capacity),
+			tostring(op.outbound_manpower),
+			tostring(op.diamond_stock)
+		))
+	end
+	for region_id, poi in sorted_pairs(snap.poi) do
+		print(string.format("[JAZZ LegionAI] POI stocks %s:", tostring(region_id)))
+		for sector_id, money in sorted_pairs(poi.money or empty_table) do
+			print(string.format("  %s money=$%s", tostring(sector_id), tostring(money)))
+		end
+		for sector_id, recruits in sorted_pairs(poi.recruits or empty_table) do
+			print(string.format("  %s recruits=%s", tostring(sector_id), tostring(recruits)))
+		end
+	end
+	return snap
+end
+
+-- Force one POI money/recruit pulse now (debug/smoke).
+-- IMPORTANT: do not set timer to 0 — that used to replay thousands of catch-up cycles.
+function JAZZ_LegionAIForcePoiPulse()
+	local root = JAZZ_LegionAIEnsureState()
+	if not root then
+		return false
+	end
+	for _, region_state in sorted_pairs(root.regions) do
+		region_state.next_poi_pulse_time = lNow()
+		region_state.next_recruit_time = lNow()
+	end
+	root.last_processed_hour = false
+	JAZZ_LegionAIProcessHour()
+	return JAZZ_LegionAIGetEconomy()
+end
+
+-- Clamp absurd POI $ stocks (debug recovery after catch-up blowup).
+function JAZZ_LegionAISanitizePoiMoney()
+	local root = JAZZ_LegionAIEnsureState()
+	if not root then
+		return false
+	end
+	for region_id, region_state in sorted_pairs(root.regions) do
+		local region = lGetRegionPreset(region_id)
+		local money_cap = lConfig(region, "PoiMoneyCap", 12000)
+		for sector_id, money in pairs(region_state.poi_money or empty_table) do
+			if type(money) == "number" and money > money_cap then
+				lLog(string.format(
+					"sanitize poi_money %s:%s $%s → $%s",
+					tostring(region_id),
+					tostring(sector_id),
+					tostring(money),
+					tostring(money_cap)
+				))
+				region_state.poi_money[sector_id] = money_cap
+			end
+		end
+	end
+	return JAZZ_LegionAIGetEconomy()
 end
 
 -- The JAZZ role assets are final 64x64 PNGs and intentionally have no
@@ -2372,20 +3454,6 @@ function JAZZ_LegionAIGetSatelliteIconImagesSquad(squad, from_ui)
 	return g_JAZZ_BaseGetSatelliteIconImagesSquad(squad, from_ui)
 end
 
-local lRoleDisplayNames = {
-	garrison = T(890000000001424, "Garrison"),
-	patrol = T(111675813514, "Patrol"),
-	recon = T(363102176749, "Recon"),
-	qrf = T(890000000001427, "QRF"),
-	reinforce = T(890000000001631, "Reinforce"),
-	major = T(890000000001428, "Retribution"),
-	supply = T(890000000001429, "Supply convoy"),
-	shipment = T(890000000001430, "Diamond convoy"),
-	tax = T(890000000001634, "Tax collector"),
-	recruiter = T(890000000001636, "Recruiter"),
-	manpower = T(890000000001637, "Manpower convoy"),
-}
-
 function JAZZ_GetLegionAISquadTaskText(squad_or_id)
 	local squad_state = lGetLegionAISquadState(squad_or_id)
 	if not squad_state then
@@ -2397,6 +3465,8 @@ function JAZZ_GetLegionAISquadTaskText(squad_or_id)
 	local target = task and task.target_sector
 	if squad_state.state == "orphaned" then
 		return T{890000000001431, "<role> — outpost <home> lost; no contact", role = role, home = Untranslated(squad_state.home_sector)}
+	elseif squad_state.state == "resting" then
+		return T{890000000001644, "<role> - resting and refitting at <home>", role = role, home = Untranslated(tostring(squad_state.home_sector or "?"))}
 	elseif squad_state.state == "wounded" then
 		return T{890000000001641, "<role> — wounded at outpost <home>; awaiting reinforcements", role = role, home = Untranslated(squad_state.home_sector)}
 	elseif squad_state.state == "ready_for_orders" then
@@ -2420,6 +3490,13 @@ function JAZZ_GetLegionAISquadTaskText(squad_or_id)
 		return T{890000000001434, "<role> — returning to base <home>", role = role, home = Untranslated(squad_state.home_sector)}
 	elseif not task then
 		return T{890000000001435, "<role> — awaiting assignment", role = role}
+	elseif task.task_type == "patrol_dwell" then
+		return T{890000000001645, "<role> - holding patrol sector <target>", role = role, target = Untranslated(target or "?")}
+	elseif task.task_type == "garrison" or task.task_type == "reinforce" then
+		if squad_state.state == "working" then
+			return T{890000000001646, "<role> - reinforcing garrison at <target>", role = role, target = Untranslated(target or "?")}
+		end
+		return T{890000000001633, "<role> — moving to reinforce sector <target>", role = role, target = Untranslated(target or "?")}
 	elseif squad_state.role == "garrison" then
 		if squad_state.state == "working" then
 			return T{890000000001436, "<role> — holding sector <target>", role = role, target = Untranslated(target or "?")}
@@ -2501,9 +3578,19 @@ local function lUpdateLegionAITaskPanel(squad_content)
 	local squads = rawget(squad_content, "allSquads")
 	local selected = rawget(squad_content, "selectedSquad") or 1
 	local squad = squads and squads[selected] or squad_content.context
-	local task_text = squad and JAZZ_GetLegionAISquadTaskText(squad)
-	panel:SetText(task_text or "")
-	panel:SetVisible(task_text and true or false)
+	local ok, task_text = pcall(JAZZ_GetLegionAISquadTaskText, squad)
+	if not ok then
+		lLog(string.format("task text failed: %s", tostring(task_text)))
+		task_text = false
+	end
+	-- Never let a bad T / SetText error kill the whole SquadRolloverMap.
+	local set_ok, set_err = pcall(function()
+		panel:SetText(task_text or "")
+		panel:SetVisible(not not task_text)
+	end)
+	if not set_ok then
+		lLog(string.format("task panel set failed: %s", tostring(set_err)))
+	end
 end
 
 local function lAttachLegionAITaskPanel(rollover)
@@ -2535,7 +3622,7 @@ local function lAttachLegionAITaskPanel(rollover)
 	if type(base_update) == "function" then
 		squad_content.UpdateMultiSquadSection = function(self, ...)
 			local result = base_update(self, ...)
-			lUpdateLegionAITaskPanel(self)
+			pcall(lUpdateLegionAITaskPanel, self)
 			return result
 		end
 	end
@@ -2547,7 +3634,10 @@ end
 function JAZZ_LegionAICreateRolloverWindow(self, gamepad, context, pos)
 	local rollover = g_JAZZ_BaseSquadWindowCreateRolloverWindow(self, gamepad, context, pos)
 	if rollover then
-		lAttachLegionAITaskPanel(rollover)
+		local ok, err = pcall(lAttachLegionAITaskPanel, rollover)
+		if not ok then
+			lLog(string.format("task panel attach failed: %s", tostring(err)))
+		end
 	end
 	return rollover
 end
@@ -2679,13 +3769,13 @@ function OnMsg.ConflictEnd(sector)
 		local squad = gv_Squads[squad_id]
 		if squad and squad.CurrentSector == sector_id and squad_state.state == "working" then
 			if squad_state.role == "major" and not lPlayerSquadInSector(sector_id) then
-				lBeginReturn(root, squad, squad_state)
+				lBeginReturn(root, squad, squad_state, "rest")
 			elseif squad_state.role == "shipment" then
 				local hq = gv_Sectors[root.major.hq_sector]
 				if sector_id == root.major.hq_sector and hq and JAZZ_IsLegionSide(hq.Side) then
 					lAddMajorMoney(root, lGetRegionPreset(squad_state.region_id), lPayloadMoney(squad_state.payload))
 					squad_state.payload.money = 0
-					lRetireSquad(root, squad_id)
+					lBeginReturn(root, squad, squad_state, "rest")
 				end
 			end
 		end

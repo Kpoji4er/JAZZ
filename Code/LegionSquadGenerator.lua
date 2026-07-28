@@ -25,8 +25,10 @@ function JAZZ_GetLegionUnitClassBucket(unit_id)
 	if string.find(unit_id, "Sniper", 1, true) or string.find(unit_id, "Marksman", 1, true) then
 		return "sniper"
 	end
-	if string.find(unit_id, "Heavy", 1, true)
-		or string.find(unit_id, "Grenadier", 1, true)
+	if string.find(unit_id, "Heavy", 1, true) then
+		return "heavy"
+	end
+	if string.find(unit_id, "Grenadier", 1, true)
 		or string.find(unit_id, "Pyro", 1, true)
 		or string.find(unit_id, "Rocketeer", 1, true)
 		or string.find(unit_id, "Mortar", 1, true)
@@ -41,6 +43,7 @@ local function lSoftCaps(n)
 	return {
 		mg = math.min(4, math.floor(n * 0.35)),
 		sniper = math.min(3, math.floor(n * 0.25)),
+		heavy = math.min(2, math.floor(n * 0.15)),
 		specialist = math.min(3, math.floor(n * 0.20)),
 	}
 end
