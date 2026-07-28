@@ -41,6 +41,8 @@
 | `jazz-units/items.lua` | generated and loaded | equipment, firearm, ammo, armor, valuable и utility LootDef с tier conditions |
 | `jazz-units/metadata.lua` | generated and loaded | явно регистрирует все 37 `JAZZ_Legion_*` файлов |
 | `jazz-units/Code/Legion.lua` | loaded runtime | пул имён для `eliteCategory = "Legion"`; не владеет таксономией и equipment tier |
+| `jazz/Code/LegionUnitPrices.lua` | loaded runtime | strategic `$` каталог на 37 `JAZZ_Legion_*` (JAZZ-STRATEGY-004); пока не подключён к spawn |
+| `jazz/Code/LegionSquadComposition.lua` | loaded runtime | officer density + T4 MercCaptain gate (JAZZ-STRATEGY-005); пока не подключён к generator |
 
 ## Два разных значения слова «тир»
 
@@ -50,6 +52,8 @@
 | Campaign equipment tier | `11`–`13`, `21`–`25`, `31`–`33` | Да, после regeneration | допустимые LootEntry и их веса внутри оружия, патронов, брони и расходников |
 
 Стрелка на диаграмме означает линию дизайна/эскалации состава. В runtime нет функции, которая заменяет объект `JAZZ_Legion_*T1*` объектом `*T2*`. Конкретный public UnitData ID выбирается squad/map/spawn data.
+
+Strategic generator (STRATEGY-005): class-tiers **дополняют** друг друга (T3/T4 добавляются к line, не вычищают T1/T2). Офицеры по density: Sergeant `/8`, Lieutenant `/15–20`, Captain `/30`; `MercenaryCaptain` обязателен для T4-отрядов.
 
 ## Таксономия UnitData
 
@@ -208,6 +212,19 @@ Quest `JAZZ_LegionTier` создаётся с `Given = true`, а `JAZZ_Legion_Ti
 
 Изменение любого из этих ID требует синхронного impact audit обоих репозиториев и generated-data проверки.
 
+## Strategic unit price ($)
+
+Владелец каталога — пакет `jazz` (`Code/LegionUnitPrices.lua`), не поля UnitData в `jazz-units`. Цены заданы в `$` на каждый public ID; полный перечень и шкала — в [JAZZ-STRATEGY-004](../../specs/active/JAZZ-STRATEGY-004.md).
+
+| Accessor | Назначение |
+| --- | --- |
+| `JAZZ_LegionUnitPrices[id]` | static table |
+| `JAZZ_GetLegionUnitPrice(unit_or_id)` | цена одного ID / unit object, иначе `false` |
+| `JAZZ_GetLegionSquadUnitPriceSum(unit_ids)` | сумма цен списка ID; `false` при неизвестном ID |
+
+Шкала (class-tier × family): Line T1–T4 = 500/1000/2000/3500; Specialist = 800/1500/2800/4500; Leader = 800/1500/2500/4000. Specialist в каталоге: MG, demo/pyro, medic (`Bonemaker`), arty (`Heavy*`), sniper (`FrontT3_Sniper`, `FrontT4_MercenarySniper`).
+
+Экономический якорь: полный дорогой garrison (~40, T3/T4) ≈ **$120000** ≈ целевой полный пул аванпоста ≈ **10×** Major shipment (`DiamondBriefcase` $12000). Лёгкие recon/patrol ≪ capacity. Spawn (`lSpawnRegularRole` / flat role costs из STRATEGY-003) **пока не читает** эту таблицу; capacity runtime меняется в п.0 money ledger.
 ## Расхождения diagram revision с current UnitData
 
 | Узел | Diagram revision | Загружаемый UnitData |

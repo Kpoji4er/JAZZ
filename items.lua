@@ -102603,6 +102603,14 @@ return {
 			'name', "Guardpost_Patrols",
 			'CodeFileName', "Code/Guardpost_Patrols.lua",
 		}),
+		PlaceObj('ModItemCode', {
+			'name', "LegionUnitPrices",
+			'CodeFileName', "Code/LegionUnitPrices.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "LegionSquadComposition",
+			'CodeFileName', "Code/LegionSquadComposition.lua",
+		}),
 		PlaceObj('ModItemAwareReasons', {
 			display_name = T(911087494081, --[[ModItemAwareReasons Default arSectorAlert display_name]] "<em><enemy></em> поднят по тревоге"),
 			group = "Default",

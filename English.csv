@@ -380,7 +380,7 @@ At least 30 rounds must be loaded",,jazz:items.lua:62642
 186545142817,"Современный американский военный бронежилет в тяжелом штурмовом исполнении. Выполнен по всем стандартам проектирования брони - арамидные пакеты усилены керамическими пластинами. Имеет дополнительную защиту шеи, рук и паха.","Modern American military body armor in a heavy assault version. Made according to all armor design standards - aramid bags are reinforced with ceramic plates. Has additional protection for the neck, arms and groin.",,jazz:InventoryItem/JazzArmor_IBAFull.lua:14 | jazz:items.lua:56351
 187482808739,Доктор Хьюстон.,Dr. Houston.,,jazz-units:items.lua:70178
 188243913550,Sig 552 SWAT,Sig 552 SWAT,,jazz:InventoryItem/Sig552SWAT.lua:14 | jazz:items.lua:21060
-188332474737,Громила,Brute,,jazz-units:items.lua:39309 | jazz-units:UnitData/JAZZ_Legion_AssaultT1_Crusher.lua:21
+188332474737,Громила,Crusher,,jazz-units:items.lua:39309 | jazz-units:UnitData/JAZZ_Legion_AssaultT1_Crusher.lua:21
 188362278685,Камуфляжная кепка,Camouflage cap,,jazz:InventoryItem/JazzArmor_UniformCap.lua:15 | jazz:items.lua:54736
 188581782749,"Черт. Руди же не мог сделать этого случайно. Это такой намек, чтоб я укрытие занял, точно.","Damn. Rudy couldn't have done this by accident. This is a hint for me to take cover, for sure.",,jazz-units:items.lua:79434
 188867442685,<em>Operation</em>: Train <em>Militia</em> in the <em><SectorName('I5')></em>,<em>Operation</em>: Train <em>Militia</em> in the <em><SectorName('I5')></em>,,jazz-maps:items.lua:99906
@@ -511,7 +511,7 @@ At least 30 rounds must be loaded",,jazz:items.lua:62642
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Causes <color EmStyle>Asphyxiation</color>
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Shots fired through clouds of gas only produce minor hits
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Almost silent",,jazz:InventoryItem/MortarShell_Gas.lua:15 | jazz:items.lua:8612
-217901684853,Головорез,Goon,,jazz-units:items.lua:39174 | jazz-units:UnitData/JAZZ_Legion_AssaultT1_Roughneck.lua:22
+217901684853,Головорез,Roughneck,,jazz-units:items.lua:39174 | jazz-units:UnitData/JAZZ_Legion_AssaultT1_Roughneck.lua:22
 217996558203,Уф-ф сука,Ugh bitch,,jazz-units:items.lua:70922
 218380185132,"7.62х51мм НАТО, M118LR","7.62x51mm NATO, M118LR",,jazz:InventoryItem/JAZZ_AMMO_762x51_Match.lua:10 | jazz:items.lua:6196
 218461390224,P-226,P-226,,jazz:InventoryItem/P226.lua:13 | jazz:items.lua:16912
@@ -6871,8 +6871,8 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000001441,<role> — retaking sector <target>,<role> — retaking sector <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001442,<role> — responding to intelligence in sector <target>,<role> — responding to intelligence in sector <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001443,<role> — assaulting sector <target>,<role> — assaulting sector <target>,,jazz:Code/Guardpost_Patrols.lua
-890000000001444,<role> — delivering supplies to <target>,<role> — delivering supplies to <target>,,jazz:Code/Guardpost_Patrols.lua
-890000000001445,<role> — delivering diamonds to HQ <target>,<role> — delivering diamonds to HQ <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001444,<role> — delivering $<money> to <target>,<role> — delivering $<money> to <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001445,<role> — delivering $<money> to HQ <target>,<role> — delivering $<money> to HQ <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001446,<role> — task in sector <target>,<role> — task in sector <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001448,Legion Recon,Legion Recon,,jazz-units:items.lua
 890000000001449,Legion Patrol,Legion Patrol,,jazz-units:items.lua

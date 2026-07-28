@@ -61,6 +61,21 @@
 - **patch** > карта-патч/патч карты
 - **localization** > локализация
 
+## Имена классов Легиона (display Name)
+
+Английский display name совпадает с class-stem в `JAZZ_Legion_*` ID, а не с vanilla `LegionGoon` / `LegionManiac` (там были Goon / Brute).
+
+| RU | EN | UnitData stem |
+| --- | --- | --- |
+| Головорез | Roughneck | `AssaultT1_Roughneck` |
+| Громила | Crusher | `AssaultT1_Crusher` |
+| Череполом | Skull Crusher | `AssaultT3_SkullCrusher` *(EN пока `Skullbreaker` в CSV — выровнять отдельно)* |
+| Грабитель | Pillager | `AssaultT2_Pillager` |
+| Штурмовик | Shock Trooper | `AssaultT2_ShockTrooper` |
+| Палач | Headsman | `AssaultT4_Headsman` |
+
+Localization IDs для первых двух: `217901684853` (Roughneck), `188332474737` (Crusher). Память: `Localization/EnglishManual.csv` (`manual-translation;class-id`).
+
 ## Правила перевода в этой документации
 
 1. Если термин есть в этом глоссарии, используем его везде одинаково.

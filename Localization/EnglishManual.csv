@@ -380,7 +380,7 @@ At least 30 rounds must be loaded","manual-reviewed-google"
 "287","186545142817","Современный американский военный бронежилет в тяжелом штурмовом исполнении. Выполнен по всем стандартам проектирования брони - арамидные пакеты усилены керамическими пластинами. Имеет дополнительную защиту шеи, рук и паха.","Modern American military body armor in a heavy assault version. Made according to all armor design standards - aramid bags are reinforced with ceramic plates. Has additional protection for the neck, arms and groin.","google-draft"
 "288","187482808739","Доктор Хьюстон.","Dr. Houston.","google-draft"
 "289","188243913550","Sig 552 SWAT","Sig 552 SWAT","technical-copy"
-"290","188332474737","Громила","Brute","vanilla-reverse"
+"290","188332474737","Громила","Crusher","manual-translation;class-id"
 "291","188362278685","Камуфляжная кепка","Camouflage cap","google-draft"
 "292","188581782749","Черт. Руди же не мог сделать этого случайно. Это такой намек, чтоб я укрытие занял, точно.","Damn. Rudy couldn't have done this by accident. This is a hint for me to take cover, for sure.","google-draft"
 "293","188867442685","<em>Operation</em>: Train <em>Militia</em> in the <em><SectorName('I5')></em>","<em>Operation</em>: Train <em>Militia</em> in the <em><SectorName('I5')></em>","technical-copy"
@@ -504,7 +504,7 @@ At least 30 rounds must be loaded","manual-reviewed-google"
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Reliable 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Fires quickly 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> The best weapon for your war.","google-draft"
-"384","217901684853","Головорез","Goon","vanilla-reverse"
+"384","217901684853","Головорез","Roughneck","manual-translation;class-id"
 "385","217996558203","Уф-ф сука","Ugh bitch","google-draft"
 "386","218370018046","Великий лес","Great Forest","vanilla-reverse"
 "387","218380185132","7.62х51мм НАТО, M118LR","7.62x51mm NATO, M118LR","google-draft"
@@ -5684,8 +5684,8 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 "4431","890000000001441","<role> — retaking sector <target>","<role> — retaking sector <target>","manual-translation"
 "4432","890000000001442","<role> — responding to intelligence in sector <target>","<role> — responding to intelligence in sector <target>","manual-translation"
 "4433","890000000001443","<role> — assaulting sector <target>","<role> — assaulting sector <target>","manual-translation"
-"4434","890000000001444","<role> — delivering supplies to <target>","<role> — delivering supplies to <target>","manual-translation"
-"4435","890000000001445","<role> — delivering diamonds to HQ <target>","<role> — delivering diamonds to HQ <target>","manual-translation"
+"4434","890000000001444","<role> — delivering $<money> to <target>","<role> — delivering $<money> to <target>","manual-translation"
+"4435","890000000001445","<role> — delivering $<money> to HQ <target>","<role> — delivering $<money> to HQ <target>","manual-translation"
 "4436","890000000001446","<role> — task in sector <target>","<role> — task in sector <target>","manual-translation"
 "4437","890000000001447","<squad_name>
 Task: <task>","<squad_name>

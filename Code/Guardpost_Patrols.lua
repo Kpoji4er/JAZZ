@@ -12,7 +12,7 @@ g_JAZZ_BaseTFormatSquadNameColored = rawget(_G, "g_JAZZ_BaseTFormatSquadNameColo
 
 g_JAZZ_BaseSquadWindowCreateRolloverWindow = rawget(_G, "g_JAZZ_BaseSquadWindowCreateRolloverWindow") or SquadWindow.CreateRolloverWindow
 
-local lSchemaVersion = 1
+local lSchemaVersion = 2
 
 local lRegularRoles = {
 	garrison = true,
@@ -127,7 +127,7 @@ local function lNewRootState()
 		spawn_serial = 1,
 		major = {
 			hq_sector = false,
-			reserve = false,
+			money = false,
 			next_response_time = 0,
 		},
 		regions = {},
@@ -151,17 +151,36 @@ local function lClampHeat(value)
 	return Clamp(value or 0, 0, 1000)
 end
 
-local function lMajorReserveCapacity(region)
-	return lConfig(region, "MajorReserveCapacity", 5000)
+local function lConfig(region, field, fallback)
+	local value = region and region[field]
+	if value == nil or value == false then
+		return fallback
+	end
+	return value
 end
 
-local function lClampMajorReserve(root, region, value)
-	return Clamp(value or 0, 0, lMajorReserveCapacity(region))
+local function lMajorMoneyCapacity(region)
+	return lConfig(region, "MajorReserveCapacity", 1200000)
 end
 
-local function lAddMajorReserve(root, region, amount)
-	root.major.reserve = lClampMajorReserve(root, region, (root.major.reserve or 0) + (amount or 0))
-	return root.major.reserve
+local function lClampMajorMoney(root, region, value)
+	return Clamp(value or 0, 0, lMajorMoneyCapacity(region))
+end
+
+local function lAddMajorMoney(root, region, amount)
+	root.major.money = lClampMajorMoney(root, region, (root.major.money or 0) + (amount or 0))
+	return root.major.money
+end
+
+local function lOutpostMoneyCapacity(region)
+	return lConfig(region, "SupplyCapacity", 120000)
+end
+
+local function lPayloadMoney(payload)
+	if type(payload) ~= "table" then
+		return 0
+	end
+	return payload.money or payload.supply or payload.diamonds or 0
 end
 
 local function lRegionId(region)
@@ -194,15 +213,6 @@ end
 local function lContains(list, value)
 	return list and table.find(list, value) and true or false
 end
-
-local function lConfig(region, field, fallback)
-	local value = region and region[field]
-	if value == nil or value == false then
-		return fallback
-	end
-	return value
-end
-
 
 local function lGetSquadLookupId(context_or_squad)
 	if type(context_or_squad) ~= "table" then
@@ -273,7 +283,7 @@ local function lEnsureOutpost(root, region, region_state, sector_id)
 			sector_id = sector_id,
 			region_id = lRegionId(region),
 			enabled = controlled,
-			supply = lConfig(region, "StartingSupply", 50),
+			money = lConfig(region, "StartingSupply", 12000),
 			diamond_stock = 0,
 			next_command_time = lNow() + lInterval(region, "CommandInterval", 6 * lHourScale()),
 			reboot_until = 0,
@@ -320,14 +330,14 @@ local function lEnsureRegion(root, region)
 	local hq_sector = region.MajorHQSector
 	if hq_sector and hq_sector ~= "" then
 		root.major.hq_sector = root.major.hq_sector or hq_sector
-		if root.major.reserve == false then
-			root.major.reserve = lClampMajorReserve(
+		if root.major.money == false or root.major.money == nil then
+			root.major.money = lClampMajorMoney(
 				root,
 				region,
-				lConfig(region, "MajorStartingReserve", 1000)
+				lConfig(region, "MajorStartingReserve", 120000)
 			)
 		else
-			root.major.reserve = lClampMajorReserve(root, region, root.major.reserve)
+			root.major.money = lClampMajorMoney(root, region, root.major.money)
 		end
 	end
 	return region_state
@@ -384,31 +394,71 @@ local function lReconcileSquads(root)
 	end
 end
 
+local function lMigrateSchemaToMoney(root)
+	-- Abstract supply/reserve units are not dollars; reset pools to starting $.
+	root.major = root.major or {}
+	root.major.money = false
+	root.major.reserve = nil
+	for _, outpost in sorted_pairs(root.outposts or empty_table) do
+		local region = lGetRegionPreset(outpost.region_id)
+		outpost.money = lConfig(region, "StartingSupply", 12000)
+		outpost.supply = nil
+		outpost.diamond_stock = 0
+	end
+	for _, squad_state in sorted_pairs(root.squads or empty_table) do
+		local payload = squad_state.payload
+		if type(payload) == "table" then
+			payload.money = lPayloadMoney(payload)
+			payload.supply = nil
+			payload.diamonds = nil
+		end
+	end
+	root.schema_version = 2
+	lLog("migrated Legion AI economy schema to money ($); outpost/major pools reset to starting values")
+end
+
 function JAZZ_LegionAIEnsureState()
 	if type(gv_JAZZ_LegionAI) ~= "table" then
 		gv_JAZZ_LegionAI = lNewRootState()
 	end
 	local root = gv_JAZZ_LegionAI
-	root.schema_version = root.schema_version or lSchemaVersion
+	root.schema_version = root.schema_version or 1
 	root.last_processed_hour = root.last_processed_hour or false
 	root.next_report_id = root.next_report_id or 1
 	root.spawn_serial = root.spawn_serial or 1
-	root.major = root.major or { hq_sector = false, reserve = false, next_response_time = 0 }
+	root.major = root.major or { hq_sector = false, money = false, next_response_time = 0 }
 	root.major.next_response_time = root.major.next_response_time or 0
 	root.regions = root.regions or {}
 	root.outposts = root.outposts or {}
 	root.squads = root.squads or {}
 	root.missing_defs_logged = root.missing_defs_logged or {}
 
-	if root.schema_version ~= lSchemaVersion then
+	if root.schema_version > lSchemaVersion then
 		lLog(string.format("unsupported save schema %s; feature disabled", tostring(root.schema_version)))
 		return false
 	end
+	if root.schema_version < lSchemaVersion then
+		lMigrateSchemaToMoney(root)
+	elseif root.major.money == nil and root.major.reserve ~= nil then
+		-- Partial/legacy state on schema 2 marker: still migrate once.
+		lMigrateSchemaToMoney(root)
+	end
+	root.major.reserve = nil
+
 	if not Regions or not gv_Sectors then
 		return false
 	end
 	for _, region in sorted_pairs(Regions) do
 		lEnsureRegion(root, region)
+	end
+	for _, outpost in sorted_pairs(root.outposts) do
+		local region = lGetRegionPreset(outpost.region_id)
+		if outpost.money == nil then
+			outpost.money = lConfig(region, "StartingSupply", 12000)
+			outpost.supply = nil
+		end
+		outpost.money = Clamp(outpost.money or 0, 0, lOutpostMoneyCapacity(region))
+		outpost.diamond_stock = outpost.diamond_stock or 0
 	end
 	lAdoptLegacyPrimedSquads(root)
 	lReconcileSquads(root)
@@ -879,9 +929,10 @@ local function lOnSquadArrived(root, squad, squad_state)
 	end
 
 	if task.task_type == "return" then
-		if squad_state.role == "supply" and (squad_state.payload.supply or 0) > 0 then
-			lAddMajorReserve(root, lGetRegionPreset(squad_state.region_id), squad_state.payload.supply)
-			squad_state.payload.supply = 0
+		local cargo = lPayloadMoney(squad_state.payload)
+		if squad_state.role == "supply" and cargo > 0 then
+			lAddMajorMoney(root, lGetRegionPreset(squad_state.region_id), cargo)
+			squad_state.payload.money = 0
 		end
 		lRetireSquad(root, squad.UniqueId)
 	elseif squad_state.role == "patrol" then
@@ -900,19 +951,19 @@ local function lOnSquadArrived(root, squad, squad_state)
 			and outpost_sector
 			and JAZZ_IsLegionSide(outpost_sector.Side)
 		if delivered then
-			outpost.supply = Min(
-				outpost.supply + (squad_state.payload.supply or 0),
-				lConfig(region, "SupplyCapacity", 500)
+			outpost.money = Min(
+				(outpost.money or 0) + lPayloadMoney(squad_state.payload),
+				lOutpostMoneyCapacity(region)
 			)
-			squad_state.payload.supply = 0
+			squad_state.payload.money = 0
 		end
 		squad_state.home_sector = root.major.hq_sector
 		lBeginReturn(root, squad, squad_state)
 	elseif squad_state.role == "shipment" then
 		local hq = gv_Sectors[root.major.hq_sector]
 		if hq and JAZZ_IsLegionSide(hq.Side) then
-			lAddMajorReserve(root, lGetRegionPreset(squad_state.region_id), squad_state.payload.diamonds or 0)
-			squad_state.payload.diamonds = 0
+			lAddMajorMoney(root, lGetRegionPreset(squad_state.region_id), lPayloadMoney(squad_state.payload))
+			squad_state.payload.money = 0
 			lRetireSquad(root, squad.UniqueId)
 		else
 			squad_state.state = "working"
@@ -1011,7 +1062,7 @@ local function lSpawnRegularRole(root, region, region_state, outpost, role)
 		return false
 	end
 	local cost = lConfig(region, lRoleCosts[role], 0)
-	if outpost.supply < cost then
+	if (outpost.money or 0) < cost then
 		return false
 	end
 
@@ -1035,7 +1086,7 @@ local function lSpawnRegularRole(root, region, region_state, outpost, role)
 		if squad then lRetireSquad(root, squad_id) end
 		return false
 	end
-	outpost.supply = outpost.supply - cost
+	outpost.money = (outpost.money or 0) - cost
 	return true
 end
 
@@ -1043,10 +1094,10 @@ local function lTrySupplyConvoy(root, region, region_state, outpost)
 	if lActiveRole(root, region_state.region_id, outpost.sector_id, "supply") then
 		return false
 	end
-	local capacity = lConfig(region, "SupplyCapacity", 500)
+	local capacity = lOutpostMoneyCapacity(region)
 	local trigger = MulDivRound(capacity, lConfig(region, "SupplyConvoyTriggerPercent", 40), 100)
-	local cargo = lConfig(region, "SupplyConvoyCargo", 100)
-	if outpost.supply >= trigger or (root.major.reserve or 0) < cargo then
+	local cargo = lConfig(region, "SupplyConvoyCargo", 12000)
+	if (outpost.money or 0) >= trigger or (root.major.money or 0) < cargo then
 		return false
 	end
 	local hq_sector = root.major.hq_sector
@@ -1055,7 +1106,7 @@ local function lTrySupplyConvoy(root, region, region_state, outpost)
 		return false
 	end
 	local squad_id, squad_state = lSpawnManaged(
-		root, region, outpost.sector_id, "supply", hq_sector, 1, { supply = cargo }
+		root, region, outpost.sector_id, "supply", hq_sector, 1, { money = cargo }
 	)
 	local squad = squad_id and gv_Squads[squad_id]
 	if not squad then return false end
@@ -1066,7 +1117,7 @@ local function lTrySupplyConvoy(root, region, region_state, outpost)
 		lRetireSquad(root, squad_id)
 		return false
 	end
-	root.major.reserve = root.major.reserve - cargo
+	root.major.money = (root.major.money or 0) - cargo
 	ObjModified(squad)
 	if routed == "arrived" then lOnSquadArrived(root, squad, squad_state) end
 	return true
@@ -1076,8 +1127,8 @@ local function lTryDiamondShipment(root, region, region_state, outpost)
 	if lActiveRole(root, region_state.region_id, outpost.sector_id, "shipment") then
 		return false
 	end
-	local threshold = lConfig(region, "DiamondShipmentThreshold", 50)
-	if outpost.diamond_stock < threshold then
+	local threshold = lConfig(region, "DiamondShipmentThreshold", 12000)
+	if (outpost.diamond_stock or 0) < threshold then
 		return false
 	end
 	local hq_sector = root.major.hq_sector
@@ -1086,7 +1137,7 @@ local function lTryDiamondShipment(root, region, region_state, outpost)
 		return false
 	end
 	local squad_id, squad_state = lSpawnManaged(
-		root, region, outpost.sector_id, "shipment", outpost.sector_id, 1, { diamonds = threshold }
+		root, region, outpost.sector_id, "shipment", outpost.sector_id, 1, { money = threshold }
 	)
 	local squad = squad_id and gv_Squads[squad_id]
 	if not squad then return false end
@@ -1283,16 +1334,16 @@ local function lTickEconomyAndHeat(root, region, region_state)
 		local outpost = root.outposts[sector_id]
 		local sector = gv_Sectors[sector_id]
 		if outpost.enabled and sector and JAZZ_IsLegionSide(sector.Side) then
-			-- All POI/base supply lands in the outpost pool (local spend + later export via convoys).
-			local income = lConfig(region, "PassiveSupplyPerHour", 5)
-				+ legion_cities * lConfig(region, "CitySupplyBonus", 2)
-				+ legion_farms * lConfig(region, "FarmSupplyBonus", 3)
-			outpost.supply = Min(
-				outpost.supply + income,
-				lConfig(region, "SupplyCapacity", 500)
+			-- City/farm/base $ lands in outpost.money; mine $ accumulates for shipment.
+			local income = lConfig(region, "PassiveSupplyPerHour", 0)
+				+ legion_cities * lConfig(region, "CitySupplyBonus", 50)
+				+ legion_farms * lConfig(region, "FarmSupplyBonus", 10)
+			outpost.money = Min(
+				(outpost.money or 0) + income,
+				lOutpostMoneyCapacity(region)
 			)
-			outpost.diamond_stock = outpost.diamond_stock
-				+ legion_mines * lConfig(region, "MineDiamondPerHour", 5)
+			outpost.diamond_stock = (outpost.diamond_stock or 0)
+				+ legion_mines * lConfig(region, "MineDiamondPerHour", 250)
 		end
 	end
 
@@ -1337,8 +1388,8 @@ local function lTryMajorResponse(root, region, region_state)
 	then
 		return false
 	end
-	local cost = lConfig(region, "MajorResponseCost", 200)
-	if (root.major.reserve or 0) < cost then
+	local cost = lConfig(region, "MajorResponseCost", 50000)
+	if (root.major.money or 0) < cost then
 		return false
 	end
 	local hq_sector = root.major.hq_sector
@@ -1371,7 +1422,7 @@ local function lTryMajorResponse(root, region, region_state)
 		lRetireSquad(root, squad_id)
 		return false
 	end
-	root.major.reserve = root.major.reserve - cost
+	root.major.money = (root.major.money or 0) - cost
 	ObjModified(squad)
 	root.major.next_response_time = lNow()
 		+ lConfig(region, "MajorResponseCooldown", 72 * lHourScale())
@@ -1497,11 +1548,11 @@ function JAZZ_LegionAIGetDiagnostics()
 		major = table.copy(root.major),
 		regions = {},
 	}
-	diagnostics.major.reserve_capacity = false
+	diagnostics.major.money_capacity = false
 	for region_id, region_state in sorted_pairs(root.regions) do
 		local region = lGetRegionPreset(region_id)
-		if not diagnostics.major.reserve_capacity then
-			diagnostics.major.reserve_capacity = lMajorReserveCapacity(region)
+		if not diagnostics.major.money_capacity then
+			diagnostics.major.money_capacity = lMajorMoneyCapacity(region)
 		end
 		local region_data = {
 			heat = region_state.heat,
@@ -1517,12 +1568,12 @@ function JAZZ_LegionAIGetDiagnostics()
 				qrf = lConfig(region, "QRFCap", 1),
 			},
 			costs = {
-				garrison = lConfig(region, "GarrisonCost", 180),
-				patrol = lConfig(region, "PatrolCost", 90),
-				recon = lConfig(region, "ReconCost", 50),
-				qrf = lConfig(region, "QRFCost", 140),
-				supply_convoy = lConfig(region, "SupplyConvoyCargo", 150),
-				major = lConfig(region, "MajorResponseCost", 300),
+				garrison = lConfig(region, "GarrisonCost", 120000),
+				patrol = lConfig(region, "PatrolCost", 18000),
+				recon = lConfig(region, "ReconCost", 8000),
+				qrf = lConfig(region, "QRFCost", 40000),
+				supply_convoy = lConfig(region, "SupplyConvoyCargo", 12000),
+				major = lConfig(region, "MajorResponseCost", 50000),
 			},
 			active_counts = { regular = 0 },
 		}
@@ -1530,11 +1581,11 @@ function JAZZ_LegionAIGetDiagnostics()
 			local outpost = root.outposts[sector_id]
 			region_data.outposts[sector_id] = outpost and {
 				enabled = outpost.enabled,
-				supply = outpost.supply,
+				money = outpost.money,
 				diamond_stock = outpost.diamond_stock,
 				next_command_time = outpost.next_command_time,
 				reboot_until = outpost.reboot_until,
-				supply_capacity = lConfig(region, "SupplyCapacity", 500),
+				money_capacity = lOutpostMoneyCapacity(region),
 			} or false
 		end
 		for squad_id, squad_state in sorted_pairs(root.squads) do
@@ -1634,9 +1685,21 @@ function JAZZ_GetLegionAISquadTaskText(squad_or_id)
 	elseif squad_state.role == "major" then
 		return T{890000000001443, "<role> — assaulting sector <target>", role = role, target = Untranslated(target or "?")}
 	elseif squad_state.role == "supply" then
-		return T{890000000001444, "<role> — delivering supplies to <target>", role = role, target = Untranslated(target or "?")}
+		return T{
+			890000000001444,
+			"<role> — delivering $<money> to <target>",
+			role = role,
+			money = Untranslated(tostring(lPayloadMoney(squad_state.payload))),
+			target = Untranslated(target or "?"),
+		}
 	elseif squad_state.role == "shipment" then
-		return T{890000000001445, "<role> — delivering diamonds to HQ <target>", role = role, target = Untranslated(target or "?")}
+		return T{
+			890000000001445,
+			"<role> — delivering $<money> to HQ <target>",
+			role = role,
+			money = Untranslated(tostring(lPayloadMoney(squad_state.payload))),
+			target = Untranslated(target or "?"),
+		}
 	end
 	return T{890000000001446, "<role> — task in sector <target>", role = role, target = Untranslated(target or "?")}
 end
@@ -1835,8 +1898,8 @@ function OnMsg.ConflictEnd(sector)
 			elseif squad_state.role == "shipment" then
 				local hq = gv_Sectors[root.major.hq_sector]
 				if sector_id == root.major.hq_sector and hq and JAZZ_IsLegionSide(hq.Side) then
-					lAddMajorReserve(root, lGetRegionPreset(squad_state.region_id), squad_state.payload.diamonds or 0)
-					squad_state.payload.diamonds = 0
+					lAddMajorMoney(root, lGetRegionPreset(squad_state.region_id), lPayloadMoney(squad_state.payload))
+					squad_state.payload.money = 0
 					lRetireSquad(root, squad_id)
 				end
 			end

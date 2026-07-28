@@ -172,18 +172,18 @@ node --test .github/scripts/discord-player-update.test.mjs
 
 Реальный Discord webhook не вызывать без тестового канала. Отсутствие ключа или ошибка OpenAI должны автоматически публиковать fallback после prefilter; ошибка Discord после решения публиковать должна завершать workflow ошибкой.
 
-## Runtime smoke: Legion Global AI / I7 (JAZZ-STRATEGY-002 + JAZZ-STRATEGY-003)
+## Runtime smoke: Legion Global AI / I7 (JAZZ-STRATEGY-002/003/006)
 
 Уровень подтверждения до прогона владельцем: только static. Не закрывать AC runtime этим чеклистом без игры.
 
 1. Все четыре пакета + свежая CommonLib; Reload модов с диска (не Save из устаревшей памяти редактора).
-2. Новая игра `HotDiamonds`, старт на Эрни; diagnostics: новый outpost supply стартует с **50**; дождаться командного окна I7.
-3. На сателлите: у garrison/patrol/recon/qrf/supply/shipment/major — своя PNG из `SquadsIcons/Enemy`, не `enemy_squad`.
+2. Новая игра `HotDiamonds`, старт на Эрни; diagnostics: новый outpost `money` стартует с **12000**, major `money` **120000**; дождаться командного окна I7.
+3. На сателлите: у garrison/patrol/recon/qrf/supply/shipment/major — своя PNG из `SquadsIcons/Enemy`, не `enemy_squad`; у supply/shipment в task-блоке видна сумма `$`.
 4. Hover managed squad: под составом отдельный тёмный блок с локализованной ролью, задачей, state/target; при нескольких squad клавиша cycle обновляет блок, unmanaged Legion/player rollover сворачивает его без пустого места.
 5. `ReloadLua`, повторное открытие satellite view, save/load — иконки и задачи на месте, без recursion/error в логе.
-6. `JAZZ_LegionAIGetDiagnostics()`: caps regular 6 / garrison 2 / patrol 2 / recon 1 / qrf 1; costs и active_counts заполнены; при полном cap или отсутствии нужды дополнительный spawn не списывает supply.
+6. `JAZZ_LegionAIGetDiagnostics()`: caps regular 6 / garrison 2 / patrol 2 / recon 1 / qrf 1; costs в `$` и active_counts заполнены; при полном cap или отсутствии нужды дополнительный spawn не списывает `money`.
 7. Need gates: без высокого sector Heat recon не появляется; без report/retake qrf не появляется; key POI с pre-placed Legion squad не получает второй garrison.
-8. Hourly: base+city/farm supply целиком в outpost.supply (cap 500); major.reserve растёт только от convoys/shipment и clamp к capacity 5000; start major reserve ≥ одного supply cargo.
+8. Hourly: city/farm `$` целиком в `outpost.money` (cap 120000); mine `$` в `diamond_stock`; `major.money` растёт только от convoys/shipment и clamp к 1200000; supply cargo/shipment threshold 12000.
 9. Recon: observation timeout без player squad → Heat сектора −50 один раз; при контакте с merc squad Heat не снижается, появляется report.
 10. Editor round-trip: load/save/reload `jazz-units` и `jazz-maps`, затем strict generated audit — presets `LegionGlobalAI_*` и ссылки I7/ErnieIsland не затёрты.
 

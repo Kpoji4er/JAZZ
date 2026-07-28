@@ -6860,8 +6860,8 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000001441,<role> — retaking sector <target>,<role> — отбивает сектор <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001442,<role> — responding to intelligence in sector <target>,<role> — реагирует по разведданным в секторе <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001443,<role> — assaulting sector <target>,<role> — штурмует сектор <target>,,jazz:Code/Guardpost_Patrols.lua
-890000000001444,<role> — delivering supplies to <target>,<role> — везёт снабжение в <target>,,jazz:Code/Guardpost_Patrols.lua
-890000000001445,<role> — delivering diamonds to HQ <target>,<role> — везёт алмазы в штаб <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001444,<role> — delivering $<money> to <target>,<role> — везёт $<money> в <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001445,<role> — delivering $<money> to HQ <target>,<role> — везёт $<money> в штаб <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001446,<role> — task in sector <target>,<role> — задача в секторе <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001448,Legion Recon,Разведка Легиона,,jazz-units:items.lua
 890000000001449,Legion Patrol,Патруль Легиона,,jazz-units:items.lua

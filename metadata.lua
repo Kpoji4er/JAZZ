@@ -828,6 +828,8 @@ return PlaceObj('ModDef', {
 		"Code/EnemySquad.lua",
 		"Code/SatelliteSquad.lua",
 		"Code/Guardpost_Patrols.lua",
+		"Code/LegionUnitPrices.lua",
+		"Code/LegionSquadComposition.lua",
 		"Code/SatelliteSquadFixes.lua",
 		"Code/POI Extension.lua",
 		"InventoryItem/Auto5_quest.lua",
