@@ -37,6 +37,7 @@ approved_by: project-owner
 | JAZZ-STRATEGY-005 | Officer density (Sgt/8, Lt/15–20, Capt/30; MercCapt для T4); tiers дополняют |
 | JAZZ-STRATEGY-006 | Money ledger `$` (schema v2); POI rates; flat costs in `$`; cargo `$` in task UI |
 | JAZZ-STRATEGY-007 | Convoys valuables + boatless routes; patrol into player sectors; reinforce; retribution icon/targeting; recon intel text; role recipes data |
+| JAZZ-STRATEGY-008 | Composition generator + per-unit `$` spawn costs for combat roles |
 
 ## Валюта (утверждено)
 
@@ -111,51 +112,9 @@ Vanilla якоря:
 
 **Class-tier complementarity:** T1…T4 **дополняют** состав; старший tier сильнее, но не вытесняет младших. Poor = больше T1/T2; full/elite **добавляет** T3/T4.
 
-#### 6c. Политика генерации (вместо «всегда один preset»)
-При спавне роли director:
+#### 6c. Политика генерации → [JAZZ-STRATEGY-008](JAZZ-STRATEGY-008.md)
 
-1. Берёт **role recipe** (слоты: min/max, веса классов, обязательный officer и т.д.).
-2. Считает бюджет: доступные `outpost.money` + `outpost.manpower` (+ caps роли).
-3. Собирает состав **жадно/weighted** в пределах recipe + **balance rules** (ниже):
-   - **full** — цель к max размера / нормальной кривой;
-   - **poor** — к min размера, предпочитает дешёвые tier;
-   - если не хватает даже на **min viable** → не спавнить.
-4. `manpower_cost` = число юнитов (v1); позже можно weighting по tier.
-5. Детерминизм: `InteractionRand` с устойчивым context (`role_home_serial`).
-
-**Balance rules (анти-перекос состава)**  
-Отряды не должны быть «12 пулемётчиков». Специалисты ок в разумной доле; «дыры» в саппорте допустимы.
-
-Черновик политики (точные числа — в дочернем spec / recipe):
-
-| Класс (пример) | Soft cap доля / count | Комментарий |
-|---|---|---|
-| MG / support heavy | ≤ ~25–35% состава или ≤4 в среднем отряде | 4 MG без снайпера — **норм** |
-| Sniper / marksman | ≤ ~20–25% или ≤2–3 | 2–3 снайпера без MG — **норм** |
-| Officer / commander | density STRATEGY-005 (Sgt/8, Lt/15–20, Capt/30; MercCapt для T4) | несколько уровней ок в пределах cap |
-| Specialist (demo, med, …) | низкий soft cap | не стак одинаковых |
-| Line rifle / assault | fill remainder | основа отряда |
-
-Правила:
-- Hard reject / reroll кандидата, если добавление юнита ломает soft cap класса.
-- **Не** требовать полный «идеальный» микс: отсутствие снайпера при наличии MG (и наоборот) — допустимо.
-- Перегиб = доминирование одного specialist-класса (пример owner: 12 MG — запрещено).
-- Poor-бюджет сначала заполняет line, потом 0–few specialists в пределах cap.
-
-Лимиты (уже частично есть + новые):
-
-| Лимит | Смысл |
-|---|---|
-| RegularSquadCap / role caps | сколько отрядов роли живо |
-| money / manpower | можно ли собрать min/full |
-| need-gate (003) | зачем вообще спавнить |
-| class soft caps | неравномерность состава |
-| (опц.) regional elite cap | сколько T3 одновременно |
-
-**Миграция с фиксированных EnemySquad:**  
-v1 — несколько пресетов `_Poor` / `_Full` на роль (быстрый путь);  
-v2 — runtime builder по recipe + unit price table + balance rules в `jazz-units` / static Lua.  
-Owner preference: **разнести**, не держать один фиксированный состав навсегда → целевой v2; v1 допустим как ступень в том же spec-эпике.
+Реализовано: `JAZZ_GenerateLegionSquadComposition` + soft caps + poor/full auto; combat spawn списывает сумму цен. Manpower gate — с 010.
 
 #### 6d. Порядок внутри пункта 6
 1. Таблица цен `JAZZ_Legion_*` + документы.  

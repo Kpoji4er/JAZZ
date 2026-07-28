@@ -97,7 +97,7 @@ Roadmap 6c: spawn всё ещё берёт фиксированный EnemySquad
 
 ## Evidence
 
-- `JAZZ-STRATEGY-008-AC-001`..`004`: pending
+- `JAZZ-STRATEGY-008-AC-001`..`004`: static PASS
 - `JAZZ-STRATEGY-008-AC-005`: `BLOCKED (runtime)`
 
 ## Documentation delta

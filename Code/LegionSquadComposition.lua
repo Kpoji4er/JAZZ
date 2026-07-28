@@ -51,7 +51,7 @@ function JAZZ_GetLegionOfficerCaps(squad_size, squad_tier)
 	}
 end
 
--- Role composition allow-lists (roadmap 6b data). Not wired into spawn/generator yet.
+-- Role composition allow-lists (roadmap 6b). Consumed by LegionSquadGenerator (STRATEGY-008).
 -- `allow_prefixes` match UnitData IDs; officers always use Leader* within density caps.
 JAZZ_LegionRoleRecipes = {
 	recon = {

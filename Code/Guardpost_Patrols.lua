@@ -885,7 +885,7 @@ local function lEnsureDiamondCargo(squad)
 	return lEnsureMoneyCargo(squad, 12000)
 end
 
-local function lSpawnManaged(root, region, home_sector, role, origin_sector, missions_left, payload)
+local function lSpawnManaged(root, region, home_sector, role, origin_sector, missions_left, payload, unit_template_ids)
 	local source_sector = gv_Sectors[home_sector]
 	local list = lRoleSquadList(region, source_sector, role)
 	local squad_def_id = lPickSquadDef(list, role .. "_" .. home_sector)
@@ -905,7 +905,7 @@ local function lSpawnManaged(root, region, home_sector, role, origin_sector, mis
 	-- Mirror diamond/weapon shipment: image must exist before SquadSpawned → SpawnSquadIcon.
 	g_JAZZ_LegionAIPendingSquadImage = image
 	g_JAZZ_LegionAISpawning = true
-	local squad_id = GenerateEnemySquad(squad_def_id, origin_sector, base_session_id, nil, "enemy1")
+	local squad_id = GenerateEnemySquad(squad_def_id, origin_sector, base_session_id, unit_template_ids, "enemy1")
 	g_JAZZ_LegionAISpawning = false
 	g_JAZZ_LegionAIPendingSquadImage = false
 	local squad = squad_id and gv_Squads[squad_id]
@@ -1127,14 +1127,38 @@ local function lSpawnRegularRole(root, region, region_state, outpost, role)
 	then
 		return false
 	end
-	local cost = lConfig(region, lRoleCosts[role], 0)
-	if (outpost.money or 0) < cost then
-		return false
-	end
 
 	local mock_squad = { CurrentSector = outpost.sector_id, UniqueId = root.spawn_serial }
 	local request = lRoleRequest(root, region, region_state, outpost, mock_squad, role)
 	if not request then
+		return false
+	end
+
+	local unit_templates = false
+	local money_cost = lConfig(region, lRoleCosts[role], 0)
+	local manpower_cost = 0
+	if JAZZ_LegionRoleUsesCompositionGenerator and JAZZ_LegionRoleUsesCompositionGenerator(role) then
+		local composition = JAZZ_GenerateLegionSquadComposition(
+			role,
+			outpost.money or 0,
+			outpost.manpower, -- nil until STRATEGY-010 means unlimited
+			"auto",
+			role .. "_" .. outpost.sector_id .. "_" .. tostring(root.spawn_serial)
+		)
+		if composition then
+			unit_templates = composition.units
+			money_cost = composition.money_cost
+			manpower_cost = composition.manpower_cost or #composition.units
+		elseif (outpost.money or 0) < money_cost then
+			return false
+		end
+	elseif (outpost.money or 0) < money_cost then
+		return false
+	end
+	if (outpost.money or 0) < money_cost then
+		return false
+	end
+	if outpost.manpower ~= nil and manpower_cost > 0 and (outpost.manpower or 0) < manpower_cost then
 		return false
 	end
 
@@ -1145,14 +1169,23 @@ local function lSpawnRegularRole(root, region, region_state, outpost, role)
 		outpost.sector_id,
 		role,
 		outpost.sector_id,
-		missions
+		missions,
+		nil,
+		unit_templates
 	)
 	local squad = squad_id and gv_Squads[squad_id]
 	if not squad or not lAssignTask(root, region, region_state, outpost, squad, squad_state, request) then
 		if squad then lRetireSquad(root, squad_id) end
 		return false
 	end
-	outpost.money = (outpost.money or 0) - cost
+	outpost.money = (outpost.money or 0) - money_cost
+	if outpost.manpower ~= nil and manpower_cost > 0 then
+		outpost.manpower = Max((outpost.manpower or 0) - manpower_cost, 0)
+	end
+	if squad_state then
+		squad_state.spawn_money_cost = money_cost
+		squad_state.spawn_manpower_cost = manpower_cost
+	end
 	return true
 end
 
@@ -1482,8 +1515,26 @@ local function lTryMajorResponse(root, region, region_state)
 	then
 		return false
 	end
-	local cost = lConfig(region, "MajorResponseCost", 50000)
+	local fallback_cost = lConfig(region, "MajorResponseCost", 50000)
+	local unit_templates = false
+	local cost = fallback_cost
+	if JAZZ_GenerateLegionSquadComposition then
+		local composition = JAZZ_GenerateLegionSquadComposition(
+			"major",
+			root.major.money or 0,
+			root.major.manpower,
+			"auto",
+			"major_" .. tostring(root.spawn_serial)
+		)
+		if composition then
+			unit_templates = composition.units
+			cost = composition.money_cost
+		end
+	end
 	if (root.major.money or 0) < cost then
+		return false
+	end
+	if root.major.manpower ~= nil and unit_templates and (root.major.manpower or 0) < #unit_templates then
 		return false
 	end
 	local hq_sector = root.major.hq_sector
@@ -1500,7 +1551,8 @@ local function lTryMajorResponse(root, region, region_state)
 		"major",
 		hq_sector,
 		1,
-		{}
+		{},
+		unit_templates
 	)
 	local squad = squad_id and gv_Squads[squad_id]
 	if not squad then
@@ -1524,6 +1576,10 @@ local function lTryMajorResponse(root, region, region_state)
 		end
 	end
 	root.major.money = (root.major.money or 0) - cost
+	if root.major.manpower ~= nil and unit_templates then
+		root.major.manpower = Max((root.major.manpower or 0) - #unit_templates, 0)
+	end
+	squad_state.spawn_money_cost = cost
 	ObjModified(squad)
 	root.major.next_response_time = lNow()
 		+ lConfig(region, "MajorResponseCooldown", 72 * lHourScale())
