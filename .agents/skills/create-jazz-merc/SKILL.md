@@ -61,3 +61,4 @@ description: >-
 - Обновить `status: ready` в статье и указать пути UnitData/loot/perk/portraits.
 - Индекс `docs/design/mercs-ja12/README.md` — перенести slug в Ready.
 - Technical note при изменении публичных ID/load: `$document-jazz-systems`.
+- При одобренном push выкладывать `jazz` и `jazz-units` **отдельными push**: Discord публикует отдельную новость на каждый пакет, без межпакетной агрегации.

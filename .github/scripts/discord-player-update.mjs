@@ -263,21 +263,53 @@ function stripDiscordMarkers(value) {
     .trim();
 }
 
+function commitHasSkipDiscord(message) {
+  return /\[skip discord\]/i.test(String(message ?? ""));
+}
+
+function commitHasDiscordImplemented(message) {
+  return /\[discord\s+implemented\]/i.test(String(message ?? ""));
+}
+
 export function analyzeCommitMarkers(commits) {
-  const messages = commits.map((commit) => String(commit.message ?? ""));
-  const skip = messages.some((message) => /\[skip discord\]/i.test(message));
+  const publishableCommits = [];
+  const skippedCommits = [];
+
+  for (const commit of commits) {
+    if (commitHasSkipDiscord(commit.message)) {
+      // Within one commit [skip discord] still beats [discord] / [discord implemented].
+      skippedCommits.push(commit);
+    } else {
+      publishableCommits.push(commit);
+    }
+  }
+
+  if (publishableCommits.length === 0) {
+    return {
+      skip: true,
+      force: false,
+      documentationImplementationExplicit: false,
+      publishableCommits,
+      skippedCommits,
+    };
+  }
+
+  const messages = publishableCommits.map((commit) =>
+    String(commit.message ?? ""),
+  );
   const documentationImplementationExplicit = messages.some((message) =>
-    /\[discord\s+implemented\]/i.test(message),
+    commitHasDiscordImplemented(message),
   );
   const force =
     documentationImplementationExplicit ||
     messages.some((message) => /\[discord\]/i.test(message));
 
   return {
-    skip,
-    force: force && !skip,
-    documentationImplementationExplicit:
-      documentationImplementationExplicit && !skip,
+    skip: false,
+    force,
+    documentationImplementationExplicit,
+    publishableCommits,
+    skippedCommits,
   };
 }
 
@@ -1446,6 +1478,11 @@ async function main() {
   }
 
   const markers = analyzeCommitMarkers(changeSet.commits);
+  if (markers.skippedCommits.length > 0) {
+    console.log(
+      `Excluded ${markers.skippedCommits.length} commit(s) marked [skip discord] from the player summary.`,
+    );
+  }
   const manualForce = parseBoolean(process.env.MANUAL_FORCE_PUBLISH);
   const forcePublish = (markers.force || manualForce) && !markers.skip;
   const reason = skipReason(changeSet, markers, forcePublish);
@@ -1454,13 +1491,14 @@ async function main() {
     return;
   }
 
+  const summaryCommits = markers.publishableCommits;
   const apiKey = String(process.env.OPENAI_API_KEY ?? "").trim();
   const aiContext = buildAiContext(changeSet, forcePublish);
   const { summary, usedFallback } = await resolvePlayerSummary({
     apiKey,
     model: process.env.OPENAI_MODEL || DEFAULT_MODEL,
     aiContext,
-    commits: changeSet.commits,
+    commits: summaryCommits,
     forcePublish,
     documentationOnly: aiContext.documentation_only,
   });

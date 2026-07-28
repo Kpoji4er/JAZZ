@@ -101,21 +101,35 @@ function testPushEnvironment(repository = "Kpoji4er/JAZZ") {
   };
 }
 
-test("skip marker has priority over force and implementation markers", () => {
-  const result = analyzeCommitMarkers([
-    { message: "Показать [discord implemented]" },
-    { message: "Не публиковать [skip discord]" },
-  ]);
+test("skip marker excludes only marked commits in a mixed push range", () => {
+  const implemented = { message: "Показать [discord implemented]" };
+  const skipped = { message: "Не публиковать [skip discord]" };
+  const result = analyzeCommitMarkers([implemented, skipped]);
 
   assert.deepEqual(result, {
+    skip: false,
+    force: true,
+    documentationImplementationExplicit: true,
+    publishableCommits: [implemented],
+    skippedCommits: [skipped],
+  });
+});
+
+test("skip marker has priority on the same commit and skips an all-skip range", () => {
+  const both = { message: "Показать [discord] [skip discord]" };
+  assert.deepEqual(analyzeCommitMarkers([both]), {
     skip: true,
     force: false,
     documentationImplementationExplicit: false,
+    publishableCommits: [],
+    skippedCommits: [both],
   });
   assert.deepEqual(analyzeCommitMarkers([{ message: "Показать [discord]" }]), {
     skip: false,
     force: true,
     documentationImplementationExplicit: false,
+    publishableCommits: [{ message: "Показать [discord]" }],
+    skippedCommits: [],
   });
   assert.deepEqual(
     analyzeCommitMarkers([{ message: "Подтверждено [discord implemented]" }]),
@@ -123,6 +137,10 @@ test("skip marker has priority over force and implementation markers", () => {
       skip: false,
       force: true,
       documentationImplementationExplicit: true,
+      publishableCommits: [
+        { message: "Подтверждено [discord implemented]" },
+      ],
+      skippedCommits: [],
     },
   );
 });
