@@ -36,6 +36,7 @@ approved_by: project-owner
 | JAZZ-STRATEGY-004 | Per-unit `$` prices (37 IDs) + accessors; spawn ещё на flat costs |
 | JAZZ-STRATEGY-005 | Officer density (Sgt/8, Lt/15–20, Capt/30; MercCapt для T4); tiers дополняют |
 | JAZZ-STRATEGY-006 | Money ledger `$` (schema v2); POI rates; flat costs in `$`; cargo `$` in task UI |
+| JAZZ-STRATEGY-007 | Convoys valuables + boatless routes; patrol into player sectors; reinforce; retribution icon/targeting; recon intel text; role recipes data |
 
 ## Валюта (утверждено)
 
@@ -58,57 +59,19 @@ Vanilla якоря:
 
 ## Очередь
 
-### 0. Миграция экономики на $ + POI rates → [JAZZ-STRATEGY-006](JAZZ-STRATEGY-006.md)
-Целевые величины в $ (реализованы defaults Region + schema v2):
+### 0–5. Экономика $ + логистика + patrol/reinforce/retribution/intel → [JAZZ-STRATEGY-006](JAZZ-STRATEGY-006.md), [JAZZ-STRATEGY-007](JAZZ-STRATEGY-007.md)
 
-| Параметр | $ |
-|---|---:|
-| Outpost starting money | 12000 (≈ 1 shipment) |
-| Outpost capacity | **120000** (≈ **10** Major→I7 shipments; полный пул) |
-| Major capacity | 1200000 |
-| Major starting money | 120000 (≥ 1× outpost fill / 10 cargo) |
-| Supply convoy cargo (Major→I7) | **12000** (1 shipment; 10 рейсов = full outpost) |
-| Standard diamond shipment (I7→Major) | **12000** (1× DiamondBriefcase) |
-| Role costs recon/patrol/qrf/garrison (fallback до per-unit) | ~8000 / ~18000 / ~40000 / ~120000 |
-| MajorResponseCost | ~50000 |
+Сделано в коде (runtime smoke — за владельцем):
 
-Якорь цен юнитов ([STRATEGY-004](JAZZ-STRATEGY-004.md)): один **полный дорогой** garrison ≈ весь outpost pool; без полного бака такой отряд не собирается.
-
-Налог/доход точек (копится на точке → забирает tax collector), $/час:
-
-| POI | $/час |
-|---|---:|
-| Ферма | 10 |
-| Город | 50 |
-| Шахта | 250 |
-
-(Соотношение 1 : 5 : 25 сохранено; шкала подогнана под $ и суточный круг.)
-
-Supply-конвой: start outpost ≪ 40% trigger — легален сразу; **spawn не форсить**.
-
-### 1. Конвои (логистика Major ↔ I7)
-- Стартовые условия делают supply-конвой легальным; спавн только через обычные гейты.
-- Major на старте имеет money на ≥1 supply-конвой в Эрни.
-- Shipment: inventory valuables = сумма рейса; полный рейс = DiamondBriefcase $12000.
-- Встречные рейсы (I7→B28 и B28→I7) — когда оба гейта выполнены, без force-spawn API.
-- **Task UI:** supply/shipment показывают **сумму $** в task-блоке (STRATEGY-006). Tax и будущие money-cargo роли — тем же контрактом.
-
-### 2. Патруль по чужим секторам
-- Игнорирует Side; может ходить по секторам игрока.
-- Приоритет пустым (нет player squad).
-
-### 3. Reinforce (пограничное усиление)
-- Отдельная роль + `legion_REINFORCE_squad.png`.
-- Триггер: «страх» / соседство с игроком; держит приграничные сектора.
-
-### 4. Retribution (возмездие Майора)
-- С B28 при пороге шума → сектор с максимальным шумом игрока.
-- Не путать с локальным QRF.
-- Иконка `legion_RETRIBUTION_squad.png` (текущий major/BASE — заменить или оставить рядом: решить в spec).
-
-### 5. Разведданные
-- Recon носит конкретный intel: «игрок замечен в секторе XXX».
-- QRF / Retribution читают report (частично уже есть — довести контракт и тексты).
+- Schema v2 money ledger; POI $/h; cargo `$` в task UI.
+- Enemy routes: `land_water_boatless`.
+- Shipment inventory = сумма рейса (DB @$12000 + TinyDiamonds @$500).
+- Supply и shipment могут идти навстречу в одном командном окне (оба гейта, без force-spawn).
+- Patrol: player Side + приоритет пустых.
+- Reinforce: роль, иконка, cap/cost, border trigger.
+- Retribution: RETRIBUTION icon; report / max player noise.
+- Recon return text называет spotted sector; QRF/retribution consume reports.
+- `JAZZ_LegionRoleRecipes` allow-lists (data only).
 
 ### 6. Составы отрядов: цена юнита, пулы роли, политика генерации
 
@@ -120,8 +83,8 @@ Supply-конвой: start outpost ≪ 40% trigger — легален сразу
 - Плоские role costs в п.0 — fallback; **полный дорогой garrison ≈ $120000 ≈ full outpost ≈ 10 shipments**.
 - Утверждённая шкала и полная таблица 37 ID — в STRATEGY-004 (Line/Specialist/Leader × T1–T4; ×10 от раннего черновика).
 
-#### 6b. Из каких юнитов может состоять роль → [JAZZ-STRATEGY-005](JAZZ-STRATEGY-005.md) (officer + tier policy)
-Для каждой strategic-роли — **allow-list / slots**, не один монолитный preset:
+#### 6b. Из каких юнитов может состоять роль → [JAZZ-STRATEGY-005](JAZZ-STRATEGY-005.md) + recipes в [007](JAZZ-STRATEGY-007.md)
+Для каждой strategic-роли — **allow-list / slots** (`JAZZ_LegionRoleRecipes`, data only; generator ещё не подключён):
 
 | Роль | Состав (контракт) | Размер (ориентир из 002) |
 |---|---|---|

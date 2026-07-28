@@ -6855,12 +6855,12 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000001423,Прочность,Strength,,jazz:items.lua:73451
 890000000001424,Garrison,Garrison,,jazz:Code/Guardpost_Patrols.lua
 890000000001427,QRF,QRF,,jazz:Code/Guardpost_Patrols.lua
-890000000001428,Major response,Major response,,jazz:Code/Guardpost_Patrols.lua
+890000000001428,Retribution,Retribution,,jazz:Code/Guardpost_Patrols.lua
 890000000001429,Supply convoy,Supply convoy,,jazz:Code/Guardpost_Patrols.lua
 890000000001430,Diamond convoy,Diamond convoy,,jazz:Code/Guardpost_Patrols.lua
 890000000001431,<role> — outpost <home> lost; no contact,<role> — outpost <home> lost; no contact,,jazz:Code/Guardpost_Patrols.lua
 890000000001432,<role> — awaiting orders from outpost <home>,<role> — awaiting orders from outpost <home>,,jazz:Code/Guardpost_Patrols.lua
-890000000001433,<role> — returning with intelligence to <home>,<role> — returning with intelligence to <home>,,jazz:Code/Guardpost_Patrols.lua
+890000000001433,<role> — returning with intelligence about <sector> to <home>,<role> — returning with intelligence about <sector> to <home>,,jazz:Code/Guardpost_Patrols.lua
 890000000001434,<role> — returning to base <home>,<role> — returning to base <home>,,jazz:Code/Guardpost_Patrols.lua
 890000000001435,<role> — awaiting assignment,<role> — awaiting assignment,,jazz:Code/Guardpost_Patrols.lua
 890000000001436,<role> — holding sector <target>,<role> — holding sector <target>,,jazz:Code/Guardpost_Patrols.lua
@@ -7057,6 +7057,9 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000001628,Burial Grounds,Burial Grounds,,jazz-maps:items.lua:38842
 890000000001629,The Good Place,The Good Place,,jazz-maps:items.lua:43202
 890000000001630,Savanna,Savanna,,jazz-maps:items.lua:34811
+890000000001631,Reinforce,Reinforce,,jazz:Code/Guardpost_Patrols.lua
+890000000001632,<role> — reinforcing border sector <target>,<role> — reinforcing border sector <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001633,<role> — moving to reinforce sector <target>,<role> — moving to reinforce sector <target>,,jazz:Code/Guardpost_Patrols.lua
 939310080350111,ржавое,rusty,,jazz:Code/Inventory.lua:117 | jazz:Code/Inventory.lua:180
 968409848233111,сломанное,broken,,jazz:Code/Inventory.lua:120 | jazz:Code/Inventory.lua:183
 1786863112811235,Укрепления,Fortifications,,jazz:Code/POI Extension.lua:9

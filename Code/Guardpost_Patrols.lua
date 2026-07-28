@@ -19,19 +19,21 @@ local lRegularRoles = {
 	patrol = true,
 	recon = true,
 	qrf = true,
+	reinforce = true,
 }
 
 -- Role icons are final 64x64 PNGs with no vanilla `_2`/`_s` companions.
 -- Paths must keep the `.png` extension: GetSatelliteIconImagesSquad otherwise
 -- appends `_2` for map icons, and Mod/ file assets do not resolve without it.
 local lRoleImages = {
-	major = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_BASE_squad.png",
+	major = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_RETRIBUTION_squad.png",
 	supply = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_SUPPLY_squad.png",
 	shipment = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_SHIPMENT_squad.png",
 	recon = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_RECON_squad.png",
 	qrf = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_QRF_squad.png",
 	patrol = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_PATROL_squad.png",
 	garrison = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_GARRISON_squad.png",
+	reinforce = "Mod/e6L4ECj/SquadsIcons/Enemy/legion_REINFORCE_squad.png",
 }
 
 local function lEnsureRoleIconPng(icon)
@@ -103,6 +105,7 @@ local lRoleCaps = {
 	patrol = "PatrolCap",
 	recon = "ReconCap",
 	qrf = "QRFCap",
+	reinforce = "ReinforceCap",
 }
 
 local lRoleCosts = {
@@ -110,6 +113,7 @@ local lRoleCosts = {
 	patrol = "PatrolCost",
 	recon = "ReconCost",
 	qrf = "QRFCost",
+	reinforce = "ReinforceCost",
 }
 
 local lRoleMissions = {
@@ -117,6 +121,7 @@ local lRoleMissions = {
 	patrol = "PatrolMissions",
 	recon = "ReconMissions",
 	qrf = "QRFMissions",
+	reinforce = "ReinforceMissions",
 }
 
 local function lNewRootState()
@@ -604,20 +609,56 @@ local function lPatrolTarget(root, region, region_state, squad)
 	local entries = {}
 	for _, sector_id in ipairs(region.Sectors or empty_table) do
 		local sector = gv_Sectors[sector_id]
+		-- Side is ignored: patrol may enter player-controlled key/POI sectors.
 		if sector_id ~= squad.CurrentSector
 			and lSectorIsSurface(sector)
 			and lSectorIsKey(sector)
-			and not lIsPlayerSide(sector.Side)
 		then
 			local last_time = region_state.last_patrolled[sector_id] or 0
 			local age_hours = Max(0, (lNow() - last_time) / lHourScale())
+			-- Prefer empty sectors (no player squad present).
+			local empty_bonus = lPlayerSquadInSector(sector_id) and 0 or 500
 			entries[#entries + 1] = {
 				id = sector_id,
-				weight = lSectorPriority(sector) + (sector.Heat or 0) + Min(age_hours * 20, 1000),
+				weight = lSectorPriority(sector) + (sector.Heat or 0) + Min(age_hours * 20, 1000) + empty_bonus,
 			}
 		end
 	end
 	local picked = lWeightedChoice(entries, "Patrol_" .. tostring(squad.UniqueId))
+	return picked and picked.id
+end
+
+local function lSectorNeighborsPlayerThreat(sector_id, region)
+	for _, other_id in ipairs(region.Sectors or empty_table) do
+		if other_id ~= sector_id then
+			local other = gv_Sectors[other_id]
+			local distance = lSectorIsSurface(other) and GetSectorDistance(sector_id, other_id)
+			if distance == 1 and (lIsPlayerSide(other.Side) or lPlayerSquadInSector(other_id)) then
+				return true
+			end
+		end
+	end
+	return false
+end
+
+local function lReinforceTarget(root, region, region_state)
+	local entries = {}
+	for _, sector_id in ipairs(region.Sectors or empty_table) do
+		local sector = gv_Sectors[sector_id]
+		if lSectorIsSurface(sector)
+		and lSectorIsKey(sector)
+		and JAZZ_IsLegionSide(sector.Side)
+		and not lHasRoleTarget(root, region_state.region_id, "reinforce", sector_id)
+		and lSectorNeighborsPlayerThreat(sector_id, region)
+		then
+			local empty_bonus = lPlayerSquadInSector(sector_id) and 0 or 400
+			entries[#entries + 1] = {
+				id = sector_id,
+				weight = lSectorPriority(sector) + (sector.Heat or 0) + empty_bonus,
+			}
+		end
+	end
+	local picked = lWeightedChoice(entries, "Reinforce_" .. region_state.region_id)
 	return picked and picked.id
 end
 
@@ -734,12 +775,13 @@ local function lRoutePath(squad, target_sector)
 	if squad.CurrentSector == target_sector then
 		return {}
 	end
+	-- Enemy/Legion uses boatless water edges; "land_water" requires player port + boat money.
 	return GenerateRouteDijkstra(
 		squad.CurrentSector,
 		target_sector,
 		false,
 		squad.units,
-		"land_water",
+		"land_water_boatless",
 		nil,
 		squad.Side
 	)
@@ -771,7 +813,7 @@ local function lRoleSquadList(region, sector, role)
 	if lRegularRoles[role] and not sector then
 		return empty_table
 	end
-	if role == "garrison" then
+	if role == "garrison" or role == "reinforce" then
 		return lNonEmptyList(sector.EnemySquadsGarrisonList, sector.ExtraDefenderSquads)
 	elseif role == "patrol" then
 		return lNonEmptyList(sector.EnemySquadsPatroolList, sector.EnemySquadsList)
@@ -803,23 +845,44 @@ local function lPickSquadDef(list, context)
 	return valid[index]
 end
 
-local function lEnsureDiamondCargo(squad)
-	if squad.diamond_briefcase then
-		return true
+local function lEnsureMoneyCargo(squad, dollars)
+	if not squad then
+		return false
 	end
 	local carrier_id = squad.units and squad.units[1]
 	local carrier = carrier_id and gv_UnitData[carrier_id]
 	if not carrier then
 		return false
 	end
-	local briefcase = PlaceInventoryItem("DiamondBriefcase")
-	if not briefcase then
-		return false
+	dollars = math.max(0, math.floor(tonumber(dollars) or 0))
+	if dollars <= 0 then
+		return true
 	end
-	briefcase.drop_chance = 100
-	carrier:AddItem("Inventory", briefcase)
+	while dollars >= 12000 do
+		local briefcase = PlaceInventoryItem("DiamondBriefcase")
+		if not briefcase then
+			return false
+		end
+		briefcase.drop_chance = 100
+		carrier:AddItem("Inventory", briefcase)
+		dollars = dollars - 12000
+	end
+	-- TinyDiamonds are $500 each; round remainder up to next coin.
+	local coins = math.ceil(dollars / 500)
+	for _ = 1, coins do
+		local chip = PlaceInventoryItem("TinyDiamonds")
+		if not chip then
+			return false
+		end
+		chip.drop_chance = 100
+		carrier:AddItem("Inventory", chip)
+	end
 	squad.diamond_briefcase = true
 	return true
+end
+
+local function lEnsureDiamondCargo(squad)
+	return lEnsureMoneyCargo(squad, 12000)
 end
 
 local function lSpawnManaged(root, region, home_sector, role, origin_sector, missions_left, payload)
@@ -849,8 +912,8 @@ local function lSpawnManaged(root, region, home_sector, role, origin_sector, mis
 	if not squad then
 		return false
 	end
-	if role == "shipment" and not lEnsureDiamondCargo(squad) then
-		lLog("shipment spawned without a valid DiamondBriefcase carrier; squad retired")
+	if role == "shipment" and not lEnsureMoneyCargo(squad, lPayloadMoney(payload)) then
+		lLog("shipment spawned without valuables matching payload $; squad retired")
 		RemoveSquad(squad)
 		return false
 	end
@@ -968,7 +1031,7 @@ local function lOnSquadArrived(root, squad, squad_state)
 		else
 			squad_state.state = "working"
 		end
-	elseif squad_state.role == "garrison" then
+	elseif squad_state.role == "garrison" or squad_state.role == "reinforce" then
 		squad_state.state = "working"
 		task.hold_until = lNow() + lInterval(lGetRegionPreset(squad_state.region_id), "CommandInterval", 6 * lHourScale())
 	elseif squad_state.role == "qrf" or squad_state.role == "major" then
@@ -1030,6 +1093,9 @@ local function lRoleRequest(root, region, region_state, outpost, squad, role)
 	elseif role == "garrison" then
 		local target = lGarrisonTarget(root, region, region_state)
 		return target and { task_type = "garrison", target_sector = target }
+	elseif role == "reinforce" then
+		local target = lReinforceTarget(root, region, region_state)
+		return target and { task_type = "reinforce", target_sector = target }
 	end
 	return false
 end
@@ -1054,7 +1120,7 @@ local function lAssignReadySquads(root, region, region_state, outpost)
 end
 
 local function lSpawnRegularRole(root, region, region_state, outpost, role)
-	local total_cap = lConfig(region, "RegularSquadCap", 6)
+	local total_cap = lConfig(region, "RegularSquadCap", 7)
 	local role_cap = lConfig(region, lRoleCaps[role], 0)
 	if lCountRegular(root, outpost.sector_id) >= total_cap
 	or lCountRegular(root, outpost.sector_id, role) >= role_cap
@@ -1166,7 +1232,9 @@ local function lCompleteWorkingTasks(root, region, region_state, outpost)
 		and task.hold_until <= lNow()
 		then
 			local target = gv_Sectors[task.target_sector]
-			if squad_state.role == "garrison" and target and JAZZ_IsLegionSide(target.Side) then
+			if (squad_state.role == "garrison" or squad_state.role == "reinforce")
+			and target and JAZZ_IsLegionSide(target.Side)
+			then
 				lCompleteRegularTask(root, squad, squad_state)
 			elseif squad_state.role == "qrf" then
 				if target and not lIsPlayerSide(target.Side) and not lPlayerSquadInSector(target.Id) then
@@ -1206,9 +1274,12 @@ local function lRunCommandWindow(root, region, region_state, outpost)
 	lAssignReadySquads(root, region, region_state, outpost)
 
 	-- Need-gated fill: qrf/recon only with threat/noise; garrison only undefended
-	-- key/POI; patrol always if a patrol target exists. Each spawn requires supply.
+	-- key/POI; reinforce on player-adjacent borders; patrol if a target exists.
+	-- Supply and shipment may both spawn in the same window when both gates pass
+	-- (opposing Major↔outpost routes; no force-spawn API).
 	lSpawnRegularRole(root, region, region_state, outpost, "qrf")
 	while lSpawnRegularRole(root, region, region_state, outpost, "garrison") do end
+	lSpawnRegularRole(root, region, region_state, outpost, "reinforce")
 	lSpawnRegularRole(root, region, region_state, outpost, "recon")
 	while lSpawnRegularRole(root, region, region_state, outpost, "patrol") do end
 
@@ -1361,9 +1432,31 @@ local function lTickEconomyAndHeat(root, region, region_state)
 	lExpireReports(region_state)
 end
 
-local function lMajorTarget(region)
+-- Retribution (role "major"): prefer delivered recon reports, else max player noise.
+local function lMajorTarget(region, region_state)
 	local best_id = false
 	local best_score = -1
+	local best_report_id = false
+	local report_ids = table.keys(region_state.reports or empty_table, true)
+	for _, report_id in ipairs(report_ids) do
+		local report = region_state.reports[report_id]
+		if report and report.delivered and not report.consumed and report.expires_at > lNow() then
+			local sector = gv_Sectors[report.target_sector]
+			local score = 2000
+				+ (sector and sector.Heat or 0)
+				+ lSectorPriority(sector or {})
+			if score > best_score or (score == best_score and (not best_id or report.target_sector < best_id)) then
+				best_id = report.target_sector
+				best_score = score
+				best_report_id = report_id
+			end
+		end
+	end
+	if best_id then
+		return best_id, best_report_id
+	end
+
+	best_score = -1
 	for _, sector_id in ipairs(region.Sectors or empty_table) do
 		local sector = gv_Sectors[sector_id]
 		local player_squad = sector and lPlayerSquadInSector(sector_id)
@@ -1372,13 +1465,14 @@ local function lMajorTarget(region)
 			local score = (sector.Heat or 0)
 				+ lSectorPriority(sector)
 				+ (player_controlled and 1000 or 0)
+				+ (player_squad and 500 or 0)
 			if score > best_score or (score == best_score and (not best_id or sector_id < best_id)) then
 				best_id = sector_id
 				best_score = score
 			end
 		end
 	end
-	return best_id
+	return best_id, false
 end
 
 local function lTryMajorResponse(root, region, region_state)
@@ -1394,7 +1488,7 @@ local function lTryMajorResponse(root, region, region_state)
 	end
 	local hq_sector = root.major.hq_sector
 	local hq = hq_sector and gv_Sectors[hq_sector]
-	local target_sector = lMajorTarget(region)
+	local target_sector, report_id = lMajorTarget(region, region_state)
 	if not hq or not JAZZ_IsLegionSide(hq.Side) or not target_sector then
 		return false
 	end
@@ -1415,12 +1509,19 @@ local function lTryMajorResponse(root, region, region_state)
 	squad_state.task = {
 		task_type = "major_response",
 		target_sector = target_sector,
+		report_id = report_id or nil,
 	}
 	squad_state.state = "en_route"
 	local routed = lSetRoute(squad, target_sector)
 	if not routed then
 		lRetireSquad(root, squad_id)
 		return false
+	end
+	if report_id then
+		local report = region_state.reports[report_id]
+		if report then
+			report.consumed = true
+		end
 	end
 	root.major.money = (root.major.money or 0) - cost
 	ObjModified(squad)
@@ -1561,17 +1662,19 @@ function JAZZ_LegionAIGetDiagnostics()
 			outposts = {},
 			squads = {},
 			caps = {
-				regular = lConfig(region, "RegularSquadCap", 6),
+				regular = lConfig(region, "RegularSquadCap", 7),
 				garrison = lConfig(region, "GarrisonCap", 2),
 				patrol = lConfig(region, "PatrolCap", 2),
 				recon = lConfig(region, "ReconCap", 1),
 				qrf = lConfig(region, "QRFCap", 1),
+				reinforce = lConfig(region, "ReinforceCap", 1),
 			},
 			costs = {
 				garrison = lConfig(region, "GarrisonCost", 120000),
 				patrol = lConfig(region, "PatrolCost", 18000),
 				recon = lConfig(region, "ReconCost", 8000),
 				qrf = lConfig(region, "QRFCost", 40000),
+				reinforce = lConfig(region, "ReinforceCost", 25000),
 				supply_convoy = lConfig(region, "SupplyConvoyCargo", 12000),
 				major = lConfig(region, "MajorResponseCost", 50000),
 			},
@@ -1609,7 +1712,7 @@ function JAZZ_LegionAIGetDiagnostics()
 	return diagnostics
 end
 
--- The seven JAZZ role assets are final 64x64 PNGs and intentionally have no
+-- The JAZZ role assets are final 64x64 PNGs and intentionally have no
 -- vanilla `_2`/`_s` companions. Resolve by managed role, not potentially stale
 -- SatelliteSquad.image, so save/load and ReloadLua keep the correct icon.
 function JAZZ_GetLegionAISquadIcon(squad_or_id)
@@ -1639,7 +1742,8 @@ local lRoleDisplayNames = {
 	patrol = T(111675813514, "Patrol"),
 	recon = T(363102176749, "Recon"),
 	qrf = T(890000000001427, "QRF"),
-	major = T(890000000001428, "Major response"),
+	reinforce = T(890000000001631, "Reinforce"),
+	major = T(890000000001428, "Retribution"),
 	supply = T(890000000001429, "Supply convoy"),
 	shipment = T(890000000001430, "Diamond convoy"),
 }
@@ -1659,7 +1763,16 @@ function JAZZ_GetLegionAISquadTaskText(squad_or_id)
 		return T{890000000001432, "<role> — awaiting orders from outpost <home>", role = role, home = Untranslated(squad_state.home_sector)}
 	elseif squad_state.state == "returning" then
 		if task and task.task_type == "return_with_intel" then
-			return T{890000000001433, "<role> — returning with intelligence to <home>", role = role, home = Untranslated(squad_state.home_sector)}
+			local intel_sector = (task.report and task.report.target_sector)
+				or task.observed_sector
+				or "?"
+			return T{
+				890000000001433,
+				"<role> — returning with intelligence about <sector> to <home>",
+				role = role,
+				sector = Untranslated(intel_sector),
+				home = Untranslated(squad_state.home_sector),
+			}
 		end
 		return T{890000000001434, "<role> — returning to base <home>", role = role, home = Untranslated(squad_state.home_sector)}
 	elseif not task then
@@ -1669,6 +1782,11 @@ function JAZZ_GetLegionAISquadTaskText(squad_or_id)
 			return T{890000000001436, "<role> — holding sector <target>", role = role, target = Untranslated(target or "?")}
 		end
 		return T{890000000001437, "<role> — moving to hold sector <target>", role = role, target = Untranslated(target or "?")}
+	elseif squad_state.role == "reinforce" then
+		if squad_state.state == "working" then
+			return T{890000000001632, "<role> — reinforcing border sector <target>", role = role, target = Untranslated(target or "?")}
+		end
+		return T{890000000001633, "<role> — moving to reinforce sector <target>", role = role, target = Untranslated(target or "?")}
 	elseif squad_state.role == "patrol" then
 		return T{890000000001438, "<role> — patrolling key sites; next: <target>", role = role, target = Untranslated(target or "?")}
 	elseif squad_state.role == "recon" then

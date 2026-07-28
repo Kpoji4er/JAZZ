@@ -7524,12 +7524,12 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000001423,Прочность,,Прочность,Strength,russian-override;new-id,jazz:items.lua:73451,jazz,jazz:items.lua:73201,
 890000000001424,Garrison,,Гарнизон,Garrison,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua:1587,JAZZ-STRATEGY-002
 890000000001427,QRF,,QRF,QRF,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua:1590,JAZZ-STRATEGY-002
-890000000001428,Major response,,Отряд Майора,Major response,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua:1591,JAZZ-STRATEGY-002
+890000000001428,Retribution,,Возмездие,Retribution,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-007
 890000000001429,Supply convoy,,Конвой снабжения,Supply convoy,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua:1592,JAZZ-STRATEGY-002
 890000000001430,Diamond convoy,,Алмазный конвой,Diamond convoy,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua:1593,JAZZ-STRATEGY-002
 890000000001431,<role> — outpost <home> lost; no contact,,<role> — без связи: аванпост <home> потерян,<role> — outpost <home> lost; no contact,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua:1606,JAZZ-STRATEGY-002
 890000000001432,<role> — awaiting orders from outpost <home>,,<role> — ожидает приказов аванпоста <home>,<role> — awaiting orders from outpost <home>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua:1608,JAZZ-STRATEGY-002
-890000000001433,<role> — returning with intelligence to <home>,,<role> — возвращается с разведданными в <home>,<role> — returning with intelligence to <home>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua:1611,JAZZ-STRATEGY-002
+890000000001433,<role> — returning with intelligence about <sector> to <home>,,<role> — возвращается с разведданными о <sector> в <home>,<role> — returning with intelligence about <sector> to <home>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-007
 890000000001434,<role> — returning to base <home>,,<role> — возвращается на базу <home>,<role> — returning to base <home>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua:1613,JAZZ-STRATEGY-002
 890000000001435,<role> — awaiting assignment,,<role> — ожидает задачу,<role> — awaiting assignment,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua:1615,JAZZ-STRATEGY-002
 890000000001436,<role> — holding sector <target>,,<role> — удерживает сектор <target>,<role> — holding sector <target>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua:1618,JAZZ-STRATEGY-002
@@ -7726,6 +7726,9 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000001628,Burial Grounds,,Земли мертвых,Burial Grounds,russian-override;new-id,jazz-maps:items.lua:38842,jazz-maps,jazz-maps:items.lua:38842,
 890000000001629,The Good Place,,«Хорошее место»,The Good Place,russian-override;new-id,jazz-maps:items.lua:43202,jazz-maps,jazz-maps:items.lua:43202,
 890000000001630,Savanna,,Саванна,Savanna,russian-override;new-id,jazz-maps:items.lua:34811,jazz-maps,jazz-maps:items.lua:34811,
+890000000001631,Reinforce,,Усиление,Reinforce,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-007
+890000000001632,<role> — reinforcing border sector <target>,,<role> — усиливает пограничный сектор <target>,<role> — reinforcing border sector <target>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-007
+890000000001633,<role> — moving to reinforce sector <target>,,<role> — идёт усиливать сектор <target>,<role> — moving to reinforce sector <target>,russian-override;new-id,jazz:Code/Guardpost_Patrols.lua,jazz,jazz:Code/Guardpost_Patrols.lua,JAZZ-STRATEGY-007
 939310080350111,ржавое,,ржавое,rusty,russian-override;new-id,jazz:Code/Inventory.lua:117 | jazz:Code/Inventory.lua:180,jazz,jazz:Code/Inventory.lua:117 | jazz:Code/Inventory.lua:180,
 968409848233111,сломанное,,сломанное,broken,russian-override;new-id,jazz:Code/Inventory.lua:120 | jazz:Code/Inventory.lua:183,jazz,jazz:Code/Inventory.lua:120 | jazz:Code/Inventory.lua:183,
 1786863112811235,Укрепления,,Укрепления,Fortifications,russian-override;new-id,jazz:Code/POI Extension.lua:9,jazz,jazz:Code/POI Extension.lua:9,

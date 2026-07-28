@@ -367,12 +367,12 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 "361","890000000001425","Patrol","Патруль","manual-translation"
 "362","890000000001426","Recon","Разведка","manual-translation"
 "363","890000000001427","QRF","QRF","manual-translation"
-"364","890000000001428","Major response","Отряд Майора","manual-translation"
+"364","890000000001428","Retribution","Возмездие","manual-translation"
 "365","890000000001429","Supply convoy","Конвой снабжения","manual-translation"
 "366","890000000001430","Diamond convoy","Алмазный конвой","manual-translation"
 "367","890000000001431","<role> — outpost <home> lost; no contact","<role> — без связи: аванпост <home> потерян","manual-translation"
 "368","890000000001432","<role> — awaiting orders from outpost <home>","<role> — ожидает приказов аванпоста <home>","manual-translation"
-"369","890000000001433","<role> — returning with intelligence to <home>","<role> — возвращается с разведданными в <home>","manual-translation"
+"369","890000000001433","<role> — returning with intelligence about <sector> to <home>","<role> — возвращается с разведданными о <sector> в <home>","manual-translation"
 "370","890000000001434","<role> — returning to base <home>","<role> — возвращается на базу <home>","manual-translation"
 "371","890000000001435","<role> — awaiting assignment","<role> — ожидает задачу","manual-translation"
 "372","890000000001436","<role> — holding sector <target>","<role> — удерживает сектор <target>","manual-translation"
@@ -393,6 +393,9 @@ Task: <task>","<squad_name>
 "385","890000000001449","Legion Patrol","Патруль Легиона","manual-translation"
 "386","890000000001450","Legion Convoy","Конвой Легиона","manual-translation"
 "387","890000000001451","Legion Garrison","Гарнизон Легиона","manual-translation"
+"388","890000000001631","Reinforce","Усиление","manual-translation"
+"389","890000000001632","<role> — reinforcing border sector <target>","<role> — усиливает пограничный сектор <target>","manual-translation"
+"390","890000000001633","<role> — moving to reinforce sector <target>","<role> — идёт усиливать сектор <target>","manual-translation"
 388,872401100001,HMMWV,HMMWV,technical-copy
 389,872401100070,HMMWV,HMMWV,technical-copy
 390,890000000001465,Long Distance Relations,Отношения на расстоянии,manual-translation
