@@ -115,41 +115,26 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 	local mag = weapon.MagazineSize or 30
 	local ammo_ratio = Clamp(ammo / mag, 0, 1)
 	local ammo_weight = Lerp(1.5, 0.5, ammo_ratio, 1)
-
+	local max_range = Max(1, DivRound(unit:GetSightRadius(enemy), const.SlabSizeX))
+	local dist = DivRound(unit:GetDist(enemy), const.SlabSizeX)
+	local dist_ratio = Clamp(dist / max_range, 0, 1)
 
 	for _, attack in ipairs(basic_attacks.all) do
-
-
 		local action = attack.action
-		if not action or attack.id == "Melee Attack" or attack.id == "MeleeAttack"  then goto continue end
+		if not action or attack.id == "Melee Attack" or attack.id == "MeleeAttack" then goto continue end
 
-		local dist = DivRound(unit:GetDist(enemy),const.SlabSizeX)
-		local max_range = DivRound(unit:GetSightRadius(enemy),const.SlabSizeX)
-		local dist_ratio = Clamp(dist / max_range, 0, 1)
-		local dist_penalty = 0
-
-
-
-		
 		local ap_cost = action:GetAPCost(unit)
 		local aim_levels = GetCTHByAimLevels(unit, enemy, action, weapon.MaxAimActions or 3)
-		
-		--print('aim_levels')
-		--print(aim_levels)
-
 		if not aim_levels then goto continue end
 
-
-		--print('score aim cth range')
 		for aim, cth in pairs(aim_levels) do
 			local total_cost = ap_cost + aim * const.Scale.AP
-			if total_cost >= AP then goto next_aim end
+			if total_cost > AP then goto next_aim end
 
 			local shots = 1
 			local predicted = cth
 			local mode_type = action.id
-
-			dist_penalty = dist_ratio * 0.5
+			local dist_penalty = dist_ratio * 0.5
 
 			if mode_type == "BurstFire" then
 				shots = burst
@@ -212,23 +197,21 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 	  -- сортируем по убыванию score
 	  table.sort(candidates, function(a,b) return a.score > b.score end)
 
-	  --лёгкая стохастика из топ-K
+	  --лёгкая стохастика из топ-K (deterministic)
 	  local K = Min(3, #candidates)
 	  local sum = 0
 	  for i = 1, K do
-		-- веса можно «подкрутить» степенью, напр. ^1.25
-		candidates[i].w = Max(0.0001, candidates[i].score)
+		candidates[i].w = Max(1, floatfloor(Max(0.0001, candidates[i].score)))
 		sum = sum + candidates[i].w
 	  end
-	  local r, acc = math.random() * sum, 0
+	  local r = InteractionRand(sum, "AIDecision", unit)
 	  for i = 1, K do
-		acc = acc + candidates[i].w
-		if r <= acc then 
-			 --print(candidates[i])
-			return candidates[i] end
+		if r <= candidates[i].w then
+			return candidates[i]
+		end
+		r = r - candidates[i].w
 	  end
 
-	  --print(candidates[1])
 	  return candidates[1]
 
 end
@@ -705,17 +688,18 @@ function AIFindDestinations(unit, context)
 
   -- 0) безопасная видимость
   local vis_tbl = context.enemy_visible_by_team or empty_table
-  --local visible = false
-  --for _, enemy in ipairs(context.enemies or empty_table) do
-  --  if vis_tbl[enemy] then visible = true; break end
-  --end
-  local visible = true
+  local visible = false
+  for _, enemy in ipairs(context.enemies or empty_table) do
+    if vis_tbl[enemy] then visible = true; break end
+  end
+
   -- 1) аккуратный резерв без «стоимости приседа» (её спишем из dest_ap позже)
   local ap = unit.ActionPoints
   local half = MulDivRound(ap, 50, 100)
   local attack_cost = context.attack_AP_reserved or context.default_attack_cost or half
   local min_move_ap = context.min_move_ap or 0
   local safe_stride  = context.safe_stride_ap or 8 * const.Scale.AP
+  local disengage_reserve = 2 * const.Scale.AP -- SoftDisengageTiles = 2
 
   -- хотим оставить AP минимум под атаку и не больше safe_stride тратить за вызов
   local desired_move_ap = Min(ap - attack_cost, safe_stride)
@@ -723,6 +707,7 @@ function AIFindDestinations(unit, context)
   local reserve_from_stride = Max(0, ap - desired_move_ap)
 
   local reserved_AP = visible and 0 or Max(attack_cost, reserve_from_stride, half)
+  reserved_AP = reserved_AP + disengage_reserve
   reserved_AP = Min(reserved_AP, Max(0, ap - min_move_ap))
   reserved_AP = Max(0, reserved_AP)
 

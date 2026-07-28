@@ -196,29 +196,26 @@ function AIReloadWeapons(unit)
             ----print(ammos)
             local ammo
             if #ammos > 0 then
-                -- ammo = ammos[1]
                 if unit:CanAddItem("AmmoInventory", ammos[1]) then
                     unit:TryEquip("AmmoInventory", ammos[1])
+                    ammo = ammos[1]
                 else
                     ammo = PlaceInventoryItem(ammos[1].id)
                 end
                 ammo.Amount = firearm.MagazineSize
-                -- InventoryAddItem(unit, ammo)   
-                -- ammo.Amount = Max(ammo.Amount, firearm.MagazineSize)
                 unit:ReloadWeapon(firearm, ammo, "delay fx", "ai")
                 CreateFloatingText(unit, T(160472488023, "Reload"))
-                -- DoneObject(ammo)
                 ObjModified(unit)
             else
                 ammos = GetAmmosWithCaliber(firearm.Caliber, "sorted")
                 if #ammos > 0 then
                     if unit:CanAddItem("AmmoInventory", ammos[1]) then
                         unit:TryEquip("AmmoInventory", ammos[1])
+                        ammo = PlaceInventoryItem(ammos[1].id)
                     else
                         ammo = PlaceInventoryItem(ammos[1].id)
                     end
                     ammo.Amount = firearm.MagazineSize
-                    -- InventoryAddItem(unit, ammo)   
                     unit:ReloadWeapon(firearm, ammo, "delay fx", "ai")
                     CreateFloatingText(unit, T(160472488023, "Reload"))
                     DoneObject(ammo)
@@ -319,7 +316,7 @@ function AICalcAttacksAndAim(context, ap, target)
                                                      context.default_attack)
             while cth < 100 and aim <= (max_aim) and remaining > aim_cost do
                 aim = aim + 1
-                remaining = remaining - 1
+                remaining = remaining - aim_cost
                 args.aim = aim
                 cth = context.unit:CalcChanceToHit(target,
                                                    context.default_attack, args)
@@ -332,7 +329,6 @@ function AICalcAttacksAndAim(context, ap, target)
         attack_idx = attack_idx + 1
         if attack_idx > num_attacks then attack_idx = 1 end
         ----print(aims)
-        remaining = remaining - aim_cost
     end
 
     NetUpdateHash("AICalcAttacksAndAimSmart", num_attacks, aims, aim_cost,
@@ -354,13 +350,224 @@ function IsUnitHiddenFromPlayer(unit)
     return true -- никто не видит
 end
 
+
+-- JAZZ-AI-002: Commit → Dump → Disengage / BunkerDown
+local JAZZ_AI_SOFT_DUMP_CAP = 4
+
+local function JAZZ_AIFilterEnemies(context)
+    local enemies = context.enemies
+    for i = #enemies, 1, -1 do
+        if not IsValidTarget(enemies[i]) then
+            table.remove(enemies, i)
+        end
+    end
+    return enemies
+end
+
+local function JAZZ_AICanDump(unit, context)
+    return IsValid(unit) and not unit:IsDead() and not unit:IsIncapacitated()
+        and not unit:HasStatusEffect("Unconscious")
+        and not unit:HasStatusEffect("suppressionPinned")
+        and not IsSetpiecePlaying()
+        and not unit:HasPreparedAttack()
+        and not g_Overwatch[unit]
+        and (context.max_attacks or 0) > 0
+        and unit.ActionPoints > 0
+end
+
+local function JAZZ_AIHasGoodCover(unit)
+    local cover_high, cover_low = GetCoverTypes(unit)
+    return cover_high or cover_low
+end
+
+function JAZZ_AIBunkerDown(unit, context, did_attack)
+    context = context or (unit and unit.ai_context)
+    if not g_Combat or not IsValid(unit) or unit:IsDead() then
+        return
+    end
+    if context and context.bunker_used then
+        return
+    end
+    if unit:HasPreparedAttack() or g_Overwatch[unit] then
+        return
+    end
+    if unit.species ~= "Human" then
+        return
+    end
+    if unit:HasStatusEffect("StationedMachineGun") or unit:HasStatusEffect("ManningEmplacement") then
+        return
+    end
+
+    local cover_high, cover_low = GetCoverTypes(unit)
+
+    -- 1) TakeCover when possible
+    if unit:CanTakeCover() and (cover_high or cover_low) then
+        local take = did_attack
+        if not take then
+            local chance = context and context.behavior and context.behavior.TakeCoverChance or 0
+            take = chance >= 100 or (chance > 0 and unit:Random(100) < chance)
+        end
+        if take then
+            local dest = GetPackedPosAndStance(unit)
+            local enemy_visible = context and context.enemy_visible or empty_table
+            local enemy_pos = context and context.enemy_pack_pos_stance or empty_table
+            local ok = false
+            for _, enemy in ipairs((context and context.enemies) or empty_table) do
+                if (enemy_visible[enemy] and GetCoverFrom(dest, enemy_pos[enemy]) or 0) > 0 then
+                    ok = true
+                    break
+                end
+            end
+            if ok or did_attack then
+                if AIPlayCombatAction("TakeCover", unit, 0) then
+                    if context then context.bunker_used = true end
+                    return true
+                end
+            end
+        end
+    end
+
+    -- 2) Crouch behind low cover
+    if cover_low and not cover_high and unit.stance ~= "Crouch" and unit.stance ~= "Prone" then
+        local cost = GetStanceToStanceAP(unit.stance, "Crouch") or 0
+        if cost >= 0 and unit.ActionPoints >= cost then
+            if AIPlayChangeStance(unit, "Crouch") then
+                if context then context.bunker_used = true end
+                return true
+            end
+        end
+    end
+
+    -- 3) Prone in the open
+    if not cover_high and not cover_low and unit.stance ~= "Prone" then
+        local cost = GetStanceToStanceAP(unit.stance, "Prone") or 0
+        if HasPerk(unit, "HitTheDeck") then
+            cost = 0
+        end
+        if cost >= 0 and unit.ActionPoints >= cost then
+            if AIPlayChangeStance(unit, "Prone") then
+                if context then context.bunker_used = true end
+                return true
+            end
+        end
+    end
+
+    -- 4) PrefStance
+    local pref = context and context.archetype and context.archetype.PrefStance
+    if pref and (pref == "Crouch" or pref == "Prone") and unit.stance == "Standing" then
+        local cost = GetStanceToStanceAP(unit.stance, pref) or 0
+        if pref == "Prone" and HasPerk(unit, "HitTheDeck") then
+            cost = 0
+        end
+        if cost >= 0 and unit.ActionPoints >= cost then
+            if AIPlayChangeStance(unit, pref) then
+                if context then context.bunker_used = true end
+                return true
+            end
+        end
+    end
+end
+
+local function JAZZ_AITryCoverMove(unit, context)
+    if not context or context.disengage_used then
+        return
+    end
+    if JAZZ_AIHasGoodCover(unit) then
+        return
+    end
+    local ap = unit.ActionPoints
+    if ap <= 0 then
+        return
+    end
+
+    local best_dest, best_score, best_path, best_goto_ap, best_move_stance
+    local dests = context.all_destinations or context.destinations or empty_table
+    for _, dest in ipairs(dests) do
+        local x, y, z, stance_idx = stance_pos_unpack(dest)
+        local up, right, down, left = GetCover(x, y, z)
+        if not (up or right or down or left) then
+            goto continue
+        end
+        local move_stance_idx = context.dest_combat_path and context.dest_combat_path[dest]
+        local cpath = move_stance_idx and context.combat_paths and context.combat_paths[move_stance_idx]
+        local pt = SnapToPassSlab(x, y, z)
+        local path = pt and cpath and cpath:GetCombatPathFromPos(pt)
+        local goto_ap = (pt and cpath and cpath.paths_ap[point_pack(pt)]) or 0
+        if path and goto_ap > 0 and goto_ap <= ap then
+            local score = 40
+            local high = const.CoverHigh
+            if up == high or right == high or down == high or left == high then
+                score = 100
+            end
+            score = score - DivRound(goto_ap, const.Scale.AP)
+            if not best_score or score > best_score then
+                best_dest, best_score = dest, score
+                best_path, best_goto_ap = path, goto_ap
+                best_move_stance = move_stance_idx
+            end
+        end
+        ::continue::
+    end
+
+    if not best_dest or not best_path then
+        return
+    end
+
+    local x, y, z, stance_idx = stance_pos_unpack(best_dest)
+    local goto_stance = StancesList[best_move_stance or stance_idx]
+    if goto_stance and goto_stance ~= unit.stance and best_path[2] then
+        AIPlayChangeStance(unit, goto_stance, point(point_unpack(best_path[2])))
+    end
+    context.ai_destination = best_path[1]
+    AIPlayCombatAction("Move", unit, best_goto_ap, {
+        goto_pos = point(point_unpack(best_path[1])),
+        fallbackMove = true,
+        goto_stance = stance_idx
+    })
+    context.disengage_used = true
+    while not unit:IsIdleCommand() do
+        WaitMsg("Idle", 50)
+    end
+end
+
+function JAZZ_AIDisengage(unit, context, did_attack)
+    if not IsValid(unit) or unit:IsDead() then
+        return
+    end
+    if unit:HasStatusEffect("Berserk") or unit:HasStatusEffect("Panicked") then
+        return
+    end
+    JAZZ_AITryCoverMove(unit, context)
+    JAZZ_AIBunkerDown(unit, context, did_attack)
+
+    if context and not context.bunker_used and context.archetype
+        and context.archetype.FallbackAction == "overwatch" then
+        local sight = false
+        for _, enemy in ipairs(context.enemies or empty_table) do
+            sight = sight or HasVisibilityTo(unit, enemy)
+        end
+        if not sight then
+            AIPlaceFallbackOverwatch(unit, context)
+        end
+    end
+end
+
+function AITakeCover(unit, context)
+    context = context or (unit and unit.ai_context)
+    if context and context.bunker_used then
+        return
+    end
+    return JAZZ_AIBunkerDown(unit, context, false)
+end
+
 function AIExecuteUnitBehavior(unit, force_or_skip_action)
-    if not g_Combat or not IsValid(unit) or unit:IsDead() or unit:HasStatusEffect("Unconscious") or unit:HasStatusEffect("suppressionPinned") then return end
+    if not g_Combat or not IsValid(unit) or unit:IsDead()
+        or unit:HasStatusEffect("Unconscious")
+        or unit:HasStatusEffect("suppressionPinned") then
+        return
+    end
 
-    local options = CurrentModOptions or empty_table
-
-    if CurrentModOptions.AutoFastForward ~= "Off" then
-
+    if CurrentModOptions and CurrentModOptions.AutoFastForward ~= "Off" then
         if IsUnitHiddenFromPlayer(unit) then
             g_FastForwardGameSpeed = "Fast"
             UpdateFastForwardGameSpeed()
@@ -370,7 +577,7 @@ function AIExecuteUnitBehavior(unit, force_or_skip_action)
         end
     end
 
-    if unit.ai_context.behavior then
+    if unit.ai_context and unit.ai_context.behavior then
         local status = unit.ai_context.behavior:Play(unit)
         if g_AIExecutionController then
             g_AIExecutionController:Log(
@@ -378,17 +585,13 @@ function AIExecuteUnitBehavior(unit, force_or_skip_action)
                 unit.ai_context.behavior:GetEditorView(), unit.unitdatadef_id,
                 unit.handle, tostring(status))
         end
-
-        if status then -- support behaviors that want to restart or stop the unit's ai
+        if status then
             return status
         end
     end
 
-    -- recheck unit, they could be killed or despawned during Play
     if IsValid(unit) and not unit:IsDead() then
-
-        if CurrentModOptions.AutoFastForward == "Always" then
-
+        if CurrentModOptions and CurrentModOptions.AutoFastForward == "Always" then
             if IsUnitHiddenFromPlayer(unit) then
                 g_FastForwardGameSpeed = "Fast"
                 UpdateFastForwardGameSpeed()
@@ -397,333 +600,272 @@ function AIExecuteUnitBehavior(unit, force_or_skip_action)
                 UpdateFastForwardGameSpeed()
             end
         end
-
     end
 
-    -- use the rest of the ap (if any) in signature actions and basic attacks
-    return AIPlayAttacks(unit, unit.ai_context,
-                         unit.ai_context.forced_signature_action,
-                         force_or_skip_action) or AITakeCover(unit)
+    local status = AIPlayAttacks(unit, unit.ai_context,
+        unit.ai_context.forced_signature_action, force_or_skip_action)
+    if status then
+        return status
+    end
+    return AITakeCover(unit, unit.ai_context)
 end
 
 function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
+    if g_AIExecutionController then
+        g_AIExecutionController:Log("Unit %s (%d) start attack sequence",
+            unit.unitdatadef_id, unit.handle)
+    end
 
-   -- while unit.ActionPoints > 0 and context.max_attacks > 0 do
-        -- filter enemies because they might have been killed by a teammate
-        if g_AIExecutionController then
-            g_AIExecutionController:Log("Unit %s (%d) start attack sequence",
-                                        unit.unitdatadef_id, unit.handle)
-        end
-        local enemies = context.enemies
-        for i = #enemies, 1, -1 do
-            if not IsValidTarget(enemies[i]) then
-                table.remove(enemies, i)
+    local remaining_free_ap = unit.free_move_ap
+    unit:RemoveStatusEffect("FreeMove")
+    AIUpdateContext(context, unit)
+    JAZZ_AIFilterEnemies(context)
+
+    if g_AIExecutionController then
+        g_AIExecutionController:Log("  Num enemies: %d", #context.enemies)
+        g_AIExecutionController:Log("  Action Points: %d", unit.ActionPoints)
+    end
+
+    local start_ap = context.start_ap
+    local did_attack = false
+    local dump_steps = 0
+    local voice_response
+
+    while JAZZ_AICanDump(unit, context) and dump_steps < JAZZ_AI_SOFT_DUMP_CAP do
+        dump_steps = dump_steps + 1
+        JAZZ_AIFilterEnemies(context)
+        AIUpdateContext(context, unit)
+
+        local dest = GetPackedPosAndStance(unit)
+        if dump_steps == 1 and not force_or_skip_action and context.ai_destination then
+            -- prefer planned dest target on first step if still standing on it
+            local planned = context.ai_destination
+            if stance_pos_dist(planned, dest) == 0 then
+                dest = planned
             end
         end
 
-        local remaining_free_ap = unit.free_move_ap
-        unit:RemoveStatusEffect("FreeMove") -- lose any remaining free movement points, we're going to use actions now
-        AIUpdateContext(context, unit)
+        context.dest_ap[dest] = unit.ActionPoints
+        local preferred = context.target_locked
+            or (context.dest_target or empty_table)[dest]
+        AIPrecalcDamageScore(context, {dest}, preferred)
 
-        if g_AIExecutionController then
-            g_AIExecutionController:Log("  Num enemies: %d", #enemies)
-            g_AIExecutionController:Log("  Action Points: %d", unit.ActionPoints)
-        end
-
-        local dest = not force_or_skip_action and context.ai_destination or
-                         GetPackedPosAndStance(unit)
-
-        -- recalc target to make sure we're firing at a valid target, but prefer the already picked target if there's one
-        -- table.insert(g_AIDamageScoreLog, string.format("[%s] AIPlayAttacks (%s)", _InternalTranslate(unit.Name or ""), context.archetype.id))
-        context.dest_ap[dest] = context.dest_ap[dest] or unit.ActionPoints
-        AIPrecalcDamageScore(context, {dest}, context.target_locked or
-                                 (context.dest_target or empty_table)[dest])
-
-        -- archetype signature actions
         local signature_action
-        if dbg_action then
+        if dump_steps == 1 and dbg_action then
             context.action_states = context.action_states or {}
             context.action_states[dbg_action] = {}
             dbg_action:PrecalcAction(context, context.action_states[dbg_action])
             if dbg_action:IsAvailable(context, context.action_states[dbg_action]) then
                 signature_action = dbg_action
             elseif force_or_skip_action then
-                table.insert(failed_actions,
-                             dbg_action.BiasId or dbg_action.class)
+                table.insert(failed_actions, dbg_action.BiasId or dbg_action.class)
                 return
             end
         end
-        if not context.reposition and not unit:HasStatusEffect("Numbness") then
-            signature_action = signature_action or
-                                   AIChooseSignatureAction(context)
+        if dump_steps == 1 and not context.reposition and not unit:HasStatusEffect("Numbness") then
+            signature_action = signature_action or AIChooseSignatureAction(context)
         end
 
         local default_attack = context.default_attack
         local default_attack_vr = "AIAttack"
-        if default_attack and default_attack.FiringModeMember and
-            default_attack.FiringModeMember == "AttackShotgun" then
+        if default_attack and default_attack.FiringModeMember
+            and default_attack.FiringModeMember == "AttackShotgun" then
             default_attack_vr = "AIDoubleBarrel"
         end
-        local voice_response = signature_action and
-                                   (signature_action:GetVoiceResponse() or "") or
-                                   default_attack_vr
-        if voice_response == "" then voice_response = nil end
+        voice_response = signature_action and (signature_action:GetVoiceResponse() or "")
+            or default_attack_vr
+        if voice_response == "" then
+            voice_response = nil
+        end
 
         if signature_action then
             if g_AIExecutionController then
                 g_AIExecutionController:Log("  Signature Action: %s",
-                                            signature_action:GetEditorView())
+                    signature_action:GetEditorView())
             end
+            context.action_states = context.action_states or {}
+            context.action_states[signature_action] = context.action_states[signature_action] or {}
             signature_action:OnActivate(unit)
-            ----printf("[signature] %s (%d)", _InternalTranslate(unit.Name or ""), unit.handle)
             if voice_response then
                 context.action_states[signature_action].args =
                     context.action_states[signature_action].args or {}
-                context.action_states[signature_action].args.voiceResponse =
-                    voice_response
+                context.action_states[signature_action].args.voiceResponse = voice_response
             end
             local status = signature_action:Execute(context,
-                                                    context.action_states[signature_action])
+                context.action_states[signature_action])
             context.ap_after_signature = unit.ActionPoints
-            if status then -- support signature actions that want to restart or stop ai turn execution
+            context.max_attacks = context.max_attacks - 1
+            did_attack = true
+            if status then
                 return status
             end
             AIReloadWeapons(unit)
-            context.max_attacks = context.max_attacks - 1
-        else
-            if g_AIExecutionController then
-                g_AIExecutionController:Log("  No Signature Action chosen")
+
+            local target = (context.dest_target or empty_table)[dest]
+            if not IsValidTarget(target)
+                or (IsKindOf(target, "Unit") and target:IsIncapacitated()) then
+                if context.archetype.TargetChangePolicy == "restart" then
+                    return "restart"
+                end
+                context.dest_ap[dest] = unit.ActionPoints
+                context.target_locked = nil
             end
+            goto continue_dump
         end
 
         local target = (context.dest_target or empty_table)[dest]
-        if signature_action and (not IsValidTarget(target) or
-            (IsKindOf(target, "Unit") and target:IsIncapacitated())) then
-            -- table.insert(g_AIDamageScoreLog, string.format("[%s] TargetChange (%s)", _InternalTranslate(unit.Name or ""), context.archetype.TargetChangePolicy))
+        if not IsValidTarget(target) then
+            if g_AIExecutionController then
+                g_AIExecutionController:Log("  No target")
+            end
+            break
+        end
+
+        if g_AIExecutionController then
+            g_AIExecutionController:Log("  Target: %s",
+                IsKindOf(target, "Unit") and target.unitdatadef_id or target.class)
+        end
+
+        local best_attack = PickBestAttack(unit, target, context.basic_attacks, unit.ActionPoints)
+        if best_attack and best_attack.action then
+            context.default_attack = best_attack.action
+            context.default_attack_cost = best_attack.ap or context.default_attack_cost
+            context.attack_target = target
+        end
+
+        if context.default_attack and context.default_attack.id == "Bombard" and AICheckIndoors(dest) then
+            break
+        end
+
+        if not best_attack and not context.default_attack then
+            break
+        end
+
+        local attack_action = (best_attack and best_attack.action) or context.default_attack
+        local aim = best_attack and best_attack.aim or 0
+        if not best_attack then
+            local attacks, aims = AICalcAttacksAndAim(context, unit.ActionPoints, target)
+            if not attacks or attacks < 1 then
+                break
+            end
+            aim = aims and aims[1] or 0
+        end
+
+        local cost = best_attack and best_attack.ap
+            or (context.default_attack_cost or attack_action:GetAPCost(unit))
+        if not cost or cost <= 0 or unit.ActionPoints < cost then
+            -- last AP edge: still try if HasAP
+            if not unit:HasAP(cost or 0) then
+                break
+            end
+        end
+
+        local args = {target = target, voiceResponse = voice_response, aim = aim}
+        local body_parts = AIGetAttackTargetingOptions(unit, context, target)
+        if body_parts and #body_parts > 0 then
+            local pick = table.weighted_rand(body_parts, "chance",
+                InteractionRand(1000000, "Combat"))
+            if pick then
+                args.target_spot_group = pick.id
+            end
+        end
+
+        Sleep(0)
+        local result = AIPlayCombatAction(attack_action.id, unit, nil, args)
+        context.max_attacks = context.max_attacks - 1
+        did_attack = true
+        if g_AIExecutionController then
+            g_AIExecutionController:Log("  Attack result: %s", tostring(result))
+        end
+        if IsSetpiecePlaying() then
+            unit:SequentialActionsEnd()
+            return
+        end
+        AIReloadWeapons(unit)
+        if not result or not IsValidTarget(unit) or context.max_attacks <= 0 then
+            break
+        end
+
+        while IsKindOf(target, "Unit") and target:IsGettingDowned() do
+            WaitMsg("UnitDowned", 20)
+        end
+        if not IsValidTarget(target)
+            or (IsKindOf(target, "Unit") and target:IsIncapacitated()) then
             if context.archetype.TargetChangePolicy == "restart" then
+                unit:SequentialActionsEnd()
                 return "restart"
             end
             context.dest_ap[dest] = unit.ActionPoints
             context.target_locked = nil
-            AIPrecalcDamageScore(context, {dest})
-            target = context.dest_target[dest]
         end
 
-        if IsValidTarget(target) then
-            if g_AIExecutionController then
-                g_AIExecutionController:Log("  Target: %s", IsKindOf(target,
-                                                                     "Unit") and
-                                                target.unitdatadef_id or
-                                                target.class)
-            end
-            -- revert to basic attacks
-
-            --local cth_map = context.cth_by_aim_map[target]
-           -- local best_attack = PickBestAttack(unit, target,
-           --                                    context.basic_attacks, cth_map)
-			local best_attack = PickBestAttack(unit, target,
-                                               context.basic_attacks, context.dest_ap[dest] or unit.ActionPoints)
-
-			context.default_attack = best_attack and best_attack.action or context.default_attack	
-            context.default_attack_cost =  best_attack and best_attack.ap or context.default_attack_cost	
-            context.attack_target = best_attack and target or context.attack_target	
-            
-            local attacks, aim
-
-            if not best_attack then
-                --print('best attack not found - default attack')
-                attacks, aim = AICalcAttacksAndAimSmart(context,
-                                                          unit.ActionPoints,
-                                                          target)
-            else
-                --print('best attack')
-                --attacks = 1;
-                local cost = best_attack.ap or context.default_attack_cost
-                attacks = cost and (unit.ActionPoints / cost) or 0
-                attacks = attacks and (attacks - attacks % 1) or 0 
-                aim = {best_attack.aim} or aim  
-                if not best_attack or attacks < 1 then
-                    attacks, aim = AICalcAttacksAndAim(context, unit.ActionPoints, target)
-                end
-            end
-            
-            if context.default_attack.id == "Bombard" and AICheckIndoors(dest) then
-                attacks = 0
-            end
-
-            local args = {target = target, voiceResponse = voice_response}
-            if attacks > 1 then unit:SequentialActionsStart() end
-            if g_AIExecutionController then
-                g_AIExecutionController:Log("  Executing %d attacks...", attacks)
-            end
-            local body_parts =
-                AIGetAttackTargetingOptions(unit, context, target)
-
-            for i = 1, attacks do
-                args.aim = aim[i] or 0
-                args.target_spot_group = nil
-                if body_parts and #body_parts > 0 then
-                    local pick = table.weighted_rand(body_parts, "chance",
-                                                     InteractionRand(1000000,
-                                                                     "Combat"))
-                    if pick then
-                        args.target_spot_group = pick.id
-                    end
-                end
-                Sleep(0)
-                local result = AIPlayCombatAction(context.default_attack.id,
-                                                  unit, nil, args)
-                context.max_attack = context.max_attacks - 1
-                if g_AIExecutionController then
-                    g_AIExecutionController:Log("  Attack %d result: %s", i,
-                                                tostring(result))
-                end
-                if IsSetpiecePlaying() then
-                    unit:SequentialActionsEnd()
-                    return
-                end
-                AIReloadWeapons(unit)
-                if not result or i == attacks or not IsValidTarget(unit) or
-                    context.max_attacks <= 0 then break end
-                while IsKindOf(target, "Unit") and target:IsGettingDowned() do
-                    WaitMsg("UnitDowned", 20)
-                end
-                if not IsValidTarget(target) or
-                    (IsKindOf(target, "Unit") and target:IsIncapacitated()) then
-                    -- table.insert(g_AIDamageScoreLog, string.format("[%s] TargetChange (%s)", _InternalTranslate(unit.Name or ""), context.archetype.TargetChangePolicy))
-                    if context.archetype.TargetChangePolicy == "restart" then
-                        unit:SequentialActionsEnd()
-                        return "restart"
-                    end
-                    -- look for another target
-                    context.dest_ap[dest] = unit.ActionPoints
-                    context.target_locked = nil
-                    AIPrecalcDamageScore(context, {dest})
-                    target = context.dest_target[dest]
-                    if not IsValidTarget(target) then break end
-                end
-                Sleep(0)
-            end
-            unit:SequentialActionsEnd()
-        elseif unit:HasStatusEffect("StationedMachineGun") and
-            CombatActions.MGPack:GetUIState({unit}) == "enabled" then
-            unit:SequentialActionsEnd()
-            AIPlayCombatAction("MGPack", unit)
-            return "restart"
-        else
-            if g_AIExecutionController then
-                g_AIExecutionController:Log("  No target")
-            end
-        end
-        unit:SequentialActionsEnd()
-
-        while not unit:IsIdleCommand() do WaitMsg("Idle", 50) end
-
-        if unit.ActionPoints + remaining_free_ap == context.start_ap and
-            not unit:HasStatusEffect("ManningEmplacement") then
-            -- no action was taken, use a fallback one
-            -- if all fails, move toward optimal loc
-            if context.closest_dest then
-                unit:GainAP(remaining_free_ap)
-                local dest = context.closest_dest
-                local x, y, z, stance_idx = stance_pos_unpack(dest)
-                local move_stance_idx = context.dest_combat_path[dest]
-                local cpath = context.combat_paths[move_stance_idx]
-                local pt = SnapToPassSlab(x, y, z)
-                local path = pt and cpath and cpath:GetCombatPathFromPos(pt)
-                if path then
-                    local goto_stance = StancesList[move_stance_idx]
-                    if goto_stance ~= unit.stance then
-                        AIPlayChangeStance(unit, goto_stance,
-                                           point(point_unpack(path[2])))
-                    end
-                    local goto_ap = unit.ActionPoints -- context.dest_ap[dest] --cpath.paths_ap[point_pack(x, y, z)] or 0
-                    context.ai_destination = path[1]
-                    AIPlayCombatAction("Move", unit, goto_ap, {
-                        goto_pos = point(point_unpack(path[1])),
-                        fallbackMove = true,
-                        goto_stance = stance_idx
-                    })
-                end
-            end
-
-            if unit:GetDist(context.unit_pos) < const.SlabSizeX / 2 then
-                local revert = true
-                local sight = false
-                    for _, enemy in ipairs(context.enemies) do
-                        sight = sight or HasVisibilityTo(unit.team, enemy)
-                    end
-                if context.archetype.FallbackAction == "overwatch" and not sight then
-                    -- try to place overwatch
-                    revert = not AIPlaceFallbackOverwatch(unit, context)
-                end
-                if revert then
-                    -- we're stuck somewhere and unable to move or act, revert back to being Unaware (only if no sight of any enemies)
-
-                    if not sight then
-                        unit.last_known_enemy_pos =
-                            unit.last_known_enemy_pos or
-                                AIPickScoutLocation(unit)
-                        -- local archetype = "Scout_LastLocation"
-                        -- unit.current_archetype = archetype or unit.archetype or "Assault"
-                        if not (unit.last_known_enemy_pos or sight) then
-                            table.insert(g_UnawareQueue, unit)
-                        end
-                    end
-                    -- if not sight and unit.current_archetype == "Scout_LastLocation" then
-                    --	table.insert(g_UnawareQueue, unit)
-                    -- end
-                end
-            end
-        end
-
-  --  end
-    if  not unit:HasStatusEffect("Unconscious") and not unit:HasPreparedAttack() and not g_Overwatch[unit] and 
-        not unit:IsIncapacitated() and not unit:IsDead() and dest ~= context.unit_stance_pos and (not unit:HasStatusEffect("Berserk") and not unit:HasStatusEffect("Panicked"))
-        then    
-          context.restarts = (context.restarts or 0) + 1
-          if (unit.ActionPoints + remaining_free_ap) > (0) then 
-            --unit:GainAP(remaining_free_ap)
-            --remaining_free_ap = 0;
-            if AICheckIndoors(dest) then
-                local sight = false
-                for _, enemy in ipairs(context.enemies) do
-                    sight = sight or HasVisibilityTo(unit, enemy)
-                end
-                if not sight then 
-                    return not AIPlaceFallbackOverwatch(unit, context)
-                end
-            end
-          if context.restarts < 3 then
-              if g_AIExecutionController then
-                g_AIExecutionController:Log("  Unit %s requesting restart (AP left: %d, restart count: %d)", unit.unitdatadef_id, unit.ActionPoints, context.restarts)
-             end
-             return "restart"
-          else
-            TryChangeStance(unit)
-          end
-        
-        end
-        --TryChangeStance(unit)
+        ::continue_dump::
+        Sleep(0)
     end
 
-    TryChangeStance(unit)
-    --unit.ai_context.stancechanged = false
-    
+    unit:SequentialActionsEnd()
 
+    if unit:HasStatusEffect("StationedMachineGun")
+        and CombatActions.MGPack:GetUIState({unit}) == "enabled" then
+        unit:SequentialActionsEnd()
+        AIPlayCombatAction("MGPack", unit)
+        return "restart"
+    end
 
-    -- local ProneStanceAP = unit:GetStanceToStanceAP(unit.stance, "Prone")
-    -- local CrouchStanceAP = unit:GetStanceToStanceAP(unit.stance, "Crouch")
-    -- if unit.ActionPoints >= ProneStanceAP and unit.stance ~= "Prone" and not g_Overwatch[unit] then 
-    --	--unit:ChangeStance("StanceProne", ProneStanceAP, unit.stance)
-    --	AIPlayChangeStance(unit, "Prone")
-    -- end
-    -- if unit.ActionPoints >= CrouchStanceAP and unit.stance ~= "Prone" and unit.stance ~= "Crouch" and not g_Overwatch[unit] then 
-    --	--unit:ChangeStance("CrouchStance", CrouchStanceAP, unit.stance)
-    --	AIPlayChangeStance(unit, "Crouch")
-    -- end
+    while not unit:IsIdleCommand() do
+        WaitMsg("Idle", 50)
+    end
+
+    -- Vanilla-style fallback when nothing was spent
+    if unit.ActionPoints + remaining_free_ap == start_ap
+        and not unit:HasStatusEffect("ManningEmplacement") then
+        if context.closest_dest then
+            unit:GainAP(remaining_free_ap)
+            local dest = context.closest_dest
+            local x, y, z, stance_idx = stance_pos_unpack(dest)
+            local move_stance_idx = context.dest_combat_path[dest]
+            local cpath = context.combat_paths[move_stance_idx]
+            local pt = SnapToPassSlab(x, y, z)
+            local path = pt and cpath and cpath:GetCombatPathFromPos(pt)
+            if path then
+                local goto_stance = StancesList[move_stance_idx]
+                if goto_stance ~= unit.stance then
+                    AIPlayChangeStance(unit, goto_stance, point(point_unpack(path[2])))
+                end
+                local goto_ap = unit.ActionPoints
+                context.ai_destination = path[1]
+                AIPlayCombatAction("Move", unit, goto_ap, {
+                    goto_pos = point(point_unpack(path[1])),
+                    fallbackMove = true,
+                    goto_stance = stance_idx
+                })
+            end
+        end
+        if unit:GetDist(context.unit_pos) < const.SlabSizeX / 2 then
+            local revert = true
+            local sight = false
+            for _, enemy in ipairs(context.enemies) do
+                sight = sight or HasVisibilityTo(unit.team, enemy)
+            end
+            if context.archetype.FallbackAction == "overwatch" and not sight then
+                revert = not AIPlaceFallbackOverwatch(unit, context)
+            end
+            if revert and not sight then
+                unit.last_known_enemy_pos = unit.last_known_enemy_pos or AIPickScoutLocation(unit)
+                if not unit.last_known_enemy_pos then
+                    table.insert(g_UnawareQueue, unit)
+                end
+            end
+        end
+    end
+
+    JAZZ_AIDisengage(unit, context, did_attack)
 end
 
+-- Legacy name kept so accidental callers resolve to BunkerDown.
+function TryChangeStance(unit)
+    return JAZZ_AIBunkerDown(unit, unit and unit.ai_context, false)
+end
 
 function AIPrecalcDamageScore(context, destinations, preferred_target,
                               debug_data)
@@ -1138,10 +1280,10 @@ end
 
 function AISignatureAction:MatchUnit(unit)
     for state, _ in pairs(self.AvailableInState) do
-        if not GameState.state then return end
+        if not GameState[state] then return end
     end
     for state, _ in pairs(self.ForbiddenInState) do
-        if GameState and GameState.state then return end
+        if GameState[state] then return end
     end
     for _, keyword in ipairs(self.RequiredKeywords) do
         if not table.find(unit.AIKeywords or empty_table, keyword) then
@@ -1277,48 +1419,9 @@ end
 
 function AIPolicyIndoorsOutdoors:EvalDest(context, dest, grid_voxel)
     local check = AICheckIndoors(dest) == self.Indoors
-    return check and self.Weight or 0
+    return check and 100 or 0
 end
 
-function TryChangeStance(unit)
-    if not g_Combat then return 0 end
-
-    --unit.ai_context.stancechanged = true
-
-    if unit:HasPreparedAttack() or g_Overwatch[unit] or (g_Overwatch[unit] and g_Overwatch[unit].permanent) then return 0 end
-
-    local weapon = unit:GetActiveWeapons()
-    if not weapon or not IsKindOf(weapon, "Firearm") then return 0 end
-
-    if unit:CanTakeCover() then
-        AITakeCover(unit)
-        return 0
-    end
-
-    if unit.species == "Human" and unit.stance ~= "Prone" then
-        local cover_high, cover_low = GetCoverTypes(unit)
-        local ap = unit.ActionPoints
-        if not cover_high and not cover_low then
-            local prone_AP = unit.stance == "Crouch" and 1000 or 2000
-            if HasPerk(unit, "HitTheDeck") then prone_AP = 0 end
-            if ap >= prone_AP then
-                AIPlayChangeStance(unit, "Prone")
-                unit.ActionPoints = unit.ActionPoints - prone_AP
-                return prone_AP
-            end
-        end
-
-        if unit.stance ~= "Crouch" then
-            local crouch_ap = 1000
-            if ap >= crouch_ap then
-                AIPlayChangeStance(unit, "Crouch")
-                unit.ActionPoints = unit.ActionPoints - crouch_ap
-                return crouch_ap
-            end
-        end
-    end
-    return 0
-end
 
 function AIGetAttackTargetingOptions(unit, context, target, action, targeting)
     local visible_parts, targeted_parts
@@ -1340,4 +1443,3 @@ function AIGetAttackTargetingOptions(unit, context, target, action, targeting)
     end
     return targeted_parts or visible_parts
 end
-

@@ -155,7 +155,7 @@ Turn controller делит юнитов на `Early`, `Normal` и `Late`; угр
 
 Generated archetype `GuardArea` использует `AIPolicyTakeCover` с `visibility_mode = "team"` и в `CustomAI.EndTurnPolicies`, и в `OptLocPolicies`. Поэтому удерживающий область юнит оценивает укрытие по видимости всей команды, не вводя отдельный policy-класс.
 
-Некоторые policy-методы возвращают значение уже с `self.Weight`, после чего `AIScoreDest()` ещё раз умножает его на `Weight / 100`. Для `Flanking`/`HighGround` это унаследованная форма, а JAZZ распространил её на `IndoorsOutdoors`; фактическая чувствительность к весу может быть квадратичной.
+Некоторые policy-методы раньше возвращали значение уже с `self.Weight`, после чего `AIScoreDest()` ещё раз умножал на `Weight / 100` (квадратично). JAZZ-AI-002: Flanking / HighGround / IndoorsOutdoors возвращают raw (канон ×100 при Weight=100); единственный множитель — `AIScoreDest`.
 
 ### `AIActions`
 
@@ -163,32 +163,36 @@ Generated archetype `GuardArea` использует `AIPolicyTakeCover` с `vis
 
 - `AIActionThrowGrenade:PrecalcAction()` перебирает десять grenade action slots и принимает grenade, ordnance, flare, Molotov и совместимые grenade items;
 - target points включают last attack position; smoke/fire/gas оцениваются через прогноз области распространения, обычные боеприпасы — через ожидаемые hits;
-- `AIReloadWeapons()` чинит jam активного оружия, поднимает `Mechanical` на 1, пополняет AI-магазины и поддерживает `AmmoInventory`;
-- `AICalcAttacksAndAim()` распределяет оставшиеся AP по aim levels к CTH 100;
+- `AIReloadWeapons()` чинит jam активного оружия, поднимает `Mechanical` на 1, пополняет AI-магазины и поддерживает `AmmoInventory` (всегда валидный `ammo` object перед reload);
+- `AICalcAttacksAndAim()` распределяет оставшиеся AP по aim levels к CTH 100, списывая `aim_cost` один раз на шаг;
 - `AIExecuteUnitBehavior()` пропускает `Unconscious` и `suppressionPinned`, а fast-forward связывает с видимостью противника и mod option;
-- `AIPlayAttacks()` ограничивает одну подготовленную последовательность signature/basic attacks, затем допускает до трёх restart-попыток и смену стойки;
+- **`AIPlayAttacks()` (JAZZ-AI-002):** модель **Commit → Dump → Disengage/BunkerDown** — локальный dump до `SoftDumpCap=4` / `max_attacks`, одно действие за step с retarget; `"restart"` только target-change / MGPack / explicit status; без leftover-Think restart;
+- **Disengage/BunkerDown:** optional один cover-move, затем TakeCover → crouch-low → prone-open → PrefStance (`GetStanceToStanceAP`); `TryChangeStance` — alias на bunker; `AITakeCover` no-op если `context.bunker_used`;
 - `AIActionMGSetup` выбирает crouch при хорошем low cover, иначе prone, и умеет развернуть/свернуть уже установленный MG;
 - `AIGetAttackTargetingOptions()` симулирует body parts и взвешивает их по текущему CTH;
-- `TryChangeStance()` сначала пытается использовать `TakeCover`, затем вручную выбирает prone/crouch.
+- `AISignatureAction:MatchUnit()` читает `GameState[state]`.
 
 Важно: vanilla `AIReloadWeapons()` уже создаёт подходящие боеприпасы для non-merc AI и заполняет магазин. JAZZ расширяет этот механизм jam-repair и `AmmoInventory`; «бесконечные патроны AI» не являются исключительно механикой мода.
 
-`Code/AiAction_ThrowFlare.lua` добавляет `AIActionThrowFlare`: действие доступно ночью или под землёй, ищет last attack positions и noise sources противника и предпочитает осветить units под эффектом `Darkness`.
+`Code/AiAction_ThrowFlare.lua` добавляет `AIActionThrowFlare`: действие доступно ночью или под землёй; `TargetLastAttackPos` уважается; noise sources всегда могут добавлять точки (с инициализацией `target_pts`).
 
 ### `CombatAI`
 
 JAZZ заменяет большую часть вычислительного слоя:
 
 - `PredictCTH()` и `GetCTHByAimLevels()` прогнозируют шанс попадания по aim;
-- `PickBestAttack()` сравнивает firearm modes и aim levels по ожидаемому урону на AP, учитывая recoil, число выстрелов, остаток магазина и дистанцию;
+- `PickBestAttack()` сравнивает firearm modes и aim levels по ожидаемому урону на AP; выбор top-K через `InteractionRand`; допускает `total_cost <= AP`;
 - лучший mode записывается в context как `best_attack`, вместе с `attack_AP_reserved` и эффективной дальностью;
 - effective range ограничивается sight radius в `Dust`, `FireStorm`, `Underground`, ночью и в тумане;
+- `AIFindDestinations()` считает team visibility и резервирует SoftDisengageTiles (2 AP-тайла) под post-attack bunker/cover-move;
 - `AIPrecalcDamageScore()` объединяет текущий CTH, лучшую атаку/aim, targeting policies и hysteresis позиции; friendly fire имеет нулевой score modifier и отбрасывает вариант;
 - `AISelectAction()` выбирает по весу конкретного кандидата, а не по суммарному весу списка;
 - low-cover destination преобразуется в crouch с вычетом AP на стойку;
 - при отсутствии найденной destination AI остаётся на текущей позиции;
 - `AIGetWeaponCheckRange()` использует `WeaponRange - 1`;
 - scout, cone/AOE, interactable и custom behavior calculations также заменены локальными версиями.
+
+Policies Flanking / HighGround / IndoorsOutdoors возвращают raw score без встроенного `Weight` (множитель только в `AIScoreDest`), чтобы Weight не был квадратичным.
 
 Стабилизация позиции использует два механизма: переход стоит делать только при выигрыше примерно от 10%, а предыдущая destination сохраняется, если остаётся в пределах `const.AIDecisionThreshold` от лучшей.
 
@@ -244,9 +248,9 @@ Legion и Rebels используют зеркальные role templates. Ко�
 
 ## Randomness, save и network
 
-Большинство vanilla/JAZZ-развилок использует `InteractionRand`, что даёт воспроизводимый выбор при одинаковом tactical state. Исключение: `PickBestAttack()` выбирает один из трёх лучших вариантов через обычный `math.random()`. Это активный риск расхождения multiplayer/replay и сложного воспроизведения AI-решения.
+Большинство vanilla/JAZZ-развилок использует `InteractionRand`, что даёт воспроизводимый выбор при одинаковом tactical state. `PickBestAttack()` top-K также на `InteractionRand("AIDecision")`.
 
-`ai_context`, path/LOS caches и damage predictions пересоздаются для решения. `g_AIDest` и `g_AIBiases` являются map-scoped состоянием. Локальный `raisedAlarm` — Lua-upvalue файла, не объявленный `GameVar`; его значение и рассчитанные рядом константы не имеют явного save-schema JAZZ.
+`ai_context`, path/LOS caches и damage predictions пересоздаются для решения. `g_AIDest` и `g_AIBiases` являются map-scoped состоянием. Локальный `raisedAlarm` — Lua-upvalue файла, не объявленный `GameVar`; его значение и рассчитанные рядом константы не имеют явного save-schema JAZZ. Флаги `bunker_used` / `disengage_used` ephemeral в `ai_context`.
 
 Обновление AI-кода во время существующей тактической сессии требует нового боя/карты для чистой проверки: сохранённые game-time threads могут продолжить старый байткод до завершения.
 
@@ -271,16 +275,18 @@ Legion и Rebels используют зеркальные role templates. Ко�
 
 Это не результаты runtime-теста; это места, которые текущий код требует проверить или исправить отдельным change scope.
 
-1. `AISignatureAction:MatchUnit()` обращается к `GameState.state`, а не к `GameState[state]`. Непустой `AvailableInState` фактически блокирует action, а `ForbiddenInState` не фильтрует ожидаемое состояние.
-2. `PickBestAttack()` использует `math.random()` и отбрасывает вариант с `total_cost == AP`; последний AP нельзя потратить этим кандидатом.
-3. `AIFindDestinations()` задаёт `local visible = true`; ветви резервирования AP/cover-only для невидимого врага недостижимы. Отдельная `__AIFindDestinations()` определена, но consumers не найдены.
-4. В fallback-цикле `AICalcAttacksAndAim()` счётчик оставшихся AP уменьшается на 1 вместо `aim_cost`, а затем стоимость aim вычитается повторно снаружи; возможен завышенный aim.
-5. В `AIReloadWeapons()` ветка успешного `CanAddItem("AmmoInventory", ammos[1])` вызывает `TryEquip`, но не присваивает локальный `ammo`; последующее `ammo.Amount` может обратиться к `nil`.
-6. `AIActionThrowFlare` содержит `if self.TargetLastAttackPos or true`, поэтому настройка всегда включена. Если last attack point отсутствует, а noise source существует, `target_pts` может остаться `nil` до добавления точки.
+1. ~~MatchUnit `GameState.state`~~ — исправлено в JAZZ-AI-002 (`GameState[state]`).
+2. ~~`PickBestAttack` `math.random` / `total_cost == AP`~~ — исправлено (`InteractionRand`, `<= AP`).
+3. ~~`AIFindDestinations` `visible = true`~~ — исправлено (team visibility + SoftDisengage reserve).
+4. ~~`AICalcAttacksAndAim` double aim_cost~~ — исправлено.
+5. ~~`AIReloadWeapons` nil ammo~~ — исправлено.
+6. ~~flare `or true` / nil `target_pts`~~ — исправлено.
 7. `InfiniteLoopFix.lua` выставляет очень большие global thresholds детектора. Обёртки `PauseInfiniteLoopDetection()` вокруг тяжёлых расчётов дополнительно уменьшают шанс раннего обнаружения зависшего AI-хода.
 8. `AIBehavior:OnStart()` может дублировать `VoiceResponse` поведения, которое воспроизводит её самостоятельно.
 9. Suspicion threshold/distance/night tick захватываются при загрузке файла и не следуют позднему `raisedAlarm`/смене времени.
 10. Крупные замены `CombatAI`/`AiActions` включают локальные копии vanilla-функций для AOE, scout, interactable и custom behavior; они имеют высокий drift-риск после patch игры.
+11. Cover-move Disengage опирается на `context.all_destinations` / combat_paths с начала Think — после длинного боя пути могут устареть; One Re-engage / свежий pathing — follow-up.
+12. Dynamic archetype transitions — вне JAZZ-AI-002.
 
 ## Проверка поведения
 

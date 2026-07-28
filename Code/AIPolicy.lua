@@ -207,7 +207,7 @@ function AIPolicyFlanking:EvalDest(context, dest, grid_voxel)
 		end
 	end
     
-    return delta * self.Weight
+    return delta * 100
 end
 
 
@@ -494,7 +494,7 @@ end
 function AIPolicyHighGround:EvalDest(context, dest, grid_voxel)
 	local ux, uy, uz = point_unpack(context.unit_grid_voxel)
 	local x, y, z = point_unpack(grid_voxel)
-	local score = self.Weight * (z - uz)
+	local score = 100 * (z - uz)
 	local penalty = 0
 	local max_dist = 6
 	local dest_pt = point(x, y, z)
