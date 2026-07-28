@@ -121,11 +121,11 @@ end
 function JAZZ_CTHGetAimMastery(marksmanship)
 	local m = Clamp(marksmanship or 0, 0, 100)
 	local mastery =
-		Min(m, 60) * 20 / 60
-		+ Clamp(m - 60, 0, 20) * 20 / 20
-		+ Clamp(m - 80, 0, 10) * 20 / 10
-		+ Clamp(m - 90, 0, 6) * 20 / 6
-		+ Clamp(m - 96, 0, 4) * 20 / 4
+		Min(m, 60) * 20 * 1.0 / 60
+		+ Clamp(m - 60, 0, 20) * 20 * 1.0 / 20
+		+ Clamp(m - 80, 0, 10) * 20 * 1.0 / 10
+		+ Clamp(m - 90, 0, 6) * 20 * 1.0 / 6
+		+ Clamp(m - 96, 0, 4) * 20 * 1.0 / 4
 	return Min(100, JAZZ_CTHRound(mastery))
 end
 
@@ -134,22 +134,22 @@ function JAZZ_CTHGetAimProgress(weapon, aim)
 	if max_aim <= 0 then
 		return 0, max_aim
 	end
-	return Clamp((aim or 0) / max_aim, 0, 1), max_aim
+	return Clamp((aim or 0) * 1.0 / max_aim, 0, 1), max_aim
 end
 
 function JAZZ_CTHGetShooterCore(attacker, weapon, aim)
 	local dexterity = Clamp(attacker and attacker.Dexterity or 0, 0, 100)
 	local marksmanship = Clamp(attacker and attacker.Marksmanship or 0, 0, 100)
 	local level = attacker and attacker.GetLevel and attacker:GetLevel() or 1
-	local snap_raw = (dexterity * 4 + marksmanship + level * 5) / 6
-	local precision_raw = (marksmanship * 4 + dexterity + level * 5) / 6
+	local snap_raw = (dexterity * 4 + marksmanship + level * 5) * 1.0 / 6
+	local precision_raw = (marksmanship * 4 + dexterity + level * 5) * 1.0 / 6
 	local snap = JAZZ_CTHSkillCurve(snap_raw)
 	local precision = JAZZ_CTHSkillCurve(precision_raw)
 	local aim_progress, max_aim = JAZZ_CTHGetAimProgress(weapon, aim)
 	local shot_skill = snap + aim_progress * Max(precision - snap, 0)
 	local aim_mastery = JAZZ_CTHGetAimMastery(marksmanship)
 	local aim_accuracy = Max(0, JAZZ_CTHGetWeaponProperty(weapon, "AimAccuracy", 0))
-	local aim_gain = Max(0, aim or 0) * aim_accuracy * aim_mastery / 100
+	local aim_gain = Max(0, aim or 0) * aim_accuracy * aim_mastery * 1.0 / 100
 	local core = shot_skill + aim_gain
 
 	return core, {
@@ -178,7 +178,7 @@ local function JAZZ_CTHBuildOpticProfile(weapon, effect_id, magnification_id, su
 		return nil
 	end
 
-	magnification = Max(1, magnification + sub_magnification / 10)
+	magnification = Max(1, magnification + (sub_magnification or 0) * 1.0 / 10)
 	local explicit_reach = JAZZ_CTHGetComponentValue(weapon, effect_id, "OpticReach")
 	local explicit_min_range = JAZZ_CTHGetComponentValue(weapon, effect_id, "OpticMinRange")
 	local explicit_near_factor = JAZZ_CTHGetComponentValue(weapon, effect_id, "OpticNearFactor")
@@ -294,8 +294,8 @@ function JAZZ_CTHGetRangeProfile(weapon, distance, unit, action, aim)
 		}
 	end
 
-	local tiles = Max(0, (distance or 0) / const.SlabSizeX)
-	local bullet_drop_range = JAZZ_CTHGetWeaponProperty(weapon, "BulletDropRange", weapon_range / 2)
+	local tiles = Max(0, (distance or 0) * 1.0 / const.SlabSizeX)
+	local bullet_drop_range = JAZZ_CTHGetWeaponProperty(weapon, "BulletDropRange", weapon_range * 1.0 / 2)
 	bullet_drop_range = Clamp(bullet_drop_range, 0, weapon_range)
 	local grouping = FirearmGetGrouping and FirearmGetGrouping(weapon)
 		or JAZZ_CTHGetWeaponProperty(weapon, "Grouping", 50)
@@ -304,7 +304,7 @@ function JAZZ_CTHGetRangeProfile(weapon, distance, unit, action, aim)
 	local epsilon = 0.01
 	local effective_range = Min(weapon_range - epsilon, bullet_drop_range + optic.reach * aim_progress)
 	effective_range = Clamp(effective_range, 0, weapon_range - epsilon)
-	local curve_power = Max(0.25, bullet_drop_range * 0.05 + grouping / 100)
+	local curve_power = Max(0.25, bullet_drop_range * 0.05 + grouping * 1.0 / 100)
 
 	local possible = tiles < weapon_range
 	local factor
@@ -403,13 +403,13 @@ function JAZZ_CTHGetRecoilProfile(weapon, attacker, stance, action, attack_args)
 	end
 
 	local strength = Clamp(attacker and attacker.Strength or 50, 0, 100)
-	local strength_factor = Clamp(1.25 - strength / 200, 0.75, 1.25)
+	local strength_factor = Clamp(1.25 - strength * 1.0 / 200, 0.75, 1.25)
 	local stance_factor = stance == "Prone" and 0.75 or stance == "Crouch" and 0.90 or 1
 	local support_factor = 1
 	local perk_factor = 1
 	local action_factor = 1
 	local class_factor = 1
-	local component_factor = base_recoil > 0 and weapon_recoil / base_recoil or 1
+	local component_factor = base_recoil > 0 and (weapon_recoil * 1.0 / base_recoil) or 1
 	local shots_before_recoil = action_protected_shots
 	if attack_args and type(attack_args.shots_before_recoil) == "number" then
 		shots_before_recoil = Max(0, attack_args.shots_before_recoil)
@@ -454,7 +454,7 @@ function JAZZ_CTHGetRecoilProfile(weapon, attacker, stance, action, attack_args)
 		* perk_factor
 		* action_factor
 		* class_factor
-	local retention = Clamp(1 - effective_recoil / 100, 0.15, 1)
+	local retention = Clamp(1 - effective_recoil * 1.0 / 100, 0.15, 1)
 
 	return {
 		recoil = weapon_recoil,
@@ -481,6 +481,10 @@ function JAZZ_CTHGetBulletChance(first_bullet_chance, bullet_index, recoil_profi
 	local protected_shots = recoil_profile and recoil_profile.shots_before_recoil or 0
 	local exponent = Max(0, (bullet_index or 1) - 1 - protected_shots)
 	local retention = recoil_profile and recoil_profile.retention or JAZZ_CTH_FACTOR_SCALE
-	local chance = first_bullet_chance * (retention / JAZZ_CTH_FACTOR_SCALE) ^ exponent
+	-- JA3 truncates integer/integer (850/1000 -> 0). Force float like JAZZ_CTHCalculateFactorProduct.
+	local chance = (first_bullet_chance or 0) * 1.0
+	if exponent > 0 then
+		chance = chance * (retention * 1.0 / JAZZ_CTH_FACTOR_SCALE) ^ exponent
+	end
 	return Clamp(JAZZ_CTHRound(chance), JAZZ_CTH_VALID_SHOT_FLOOR, 100)
 end

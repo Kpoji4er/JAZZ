@@ -42,7 +42,7 @@ function PredictCTH(base_cth, recoil, shots, weapon, unit, stance, action)
 		recoil_profile = JAZZ_CTHGetRecoilProfile(weapon, unit, stance or unit.stance, action)
 	else
 		recoil_profile = {
-			retention = math.floor(Clamp(1 - (recoil or 0) / 100, 0.15, 1) * JAZZ_CTH_FACTOR_SCALE + 0.5),
+			retention = math.floor(Clamp(1 - (recoil or 0) * 1.0 / 100, 0.15, 1) * JAZZ_CTH_FACTOR_SCALE + 0.5),
 			shots_before_recoil = 0,
 		}
 	end
