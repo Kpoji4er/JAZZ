@@ -201,18 +201,7 @@ function Grenade:GetAttackResults(action, attack_args)
 end
 
 function HeavyWeapon:GetJamChance(attacker)
-	local item = self.parent_weapon or self
-	local jam_chance = self:GetBaseJamChanceRaw()
-	
-
-	if IsMerc(attacker) then
-		local skill_bonus = ((attacker.Mechanical * 4 + attacker.Marksmanship + attacker.Wisdom + attacker:GetLevel())  / 3)
-		jam_chance = jam_chance - skill_bonus
-	else
-		jam_chance = jam_chance - attacker.Mechanical * 3
-	end
-
-	return Clamp(jam_chance, 0, 10000)
+	return FirearmBase.GetJamChance(self, attacker)
 end
 
 --- Calculates the attack results for a heavy weapon.

@@ -67961,27 +67961,8 @@ return {
 		}, {
 			PlaceObj('ModItemChanceToHitModifier', {
 				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
-					if attacker and IsKindOf(weapon1, "Firearm") then
-						local dex = attacker.Dexterity or 0
-						local handling = weapon1.Handling or 0
-					
-						-- Dexterity масштабирует влияние эргономики
-						-- 50 dex = 50% эффекта
-						-- 100 dex = 100% эффекта
-						local dex_mult = Clamp(dex, 0, 100)
-					
-						local cth
-					
-						if handling >= 0 then
-							cth = MulDivRound(handling, dex, 100)
-						else
-							local penalty_mult = 100 - Clamp(dex, 0, 100) / 2
-							cth = MulDivRound(handling, penalty_mult, 100)
-						end
-					
-						return true, cth
-						end
-					
+					-- Legacy Handling / Эргономика: property stays serialized for saves,
+					-- but no longer contributes to CTH (JAZZ-WEAPONS-001 / JAZZ-CTH-001).
 					return false, 0
 				end,
 				Parameters = {
@@ -68003,21 +67984,8 @@ return {
 			}),
 			PlaceObj('ModItemChanceToHitModifier', {
 				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
-					if attacker and IsKindOf(weapon1, "Firearm") then
-					-- ScopeBonus
-					local cth, compDef
-					local metaText = {}
-					
-					local ScopeAimLevel = GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeAimLevel")
-					if ScopeAimLevel and aim >= ScopeAimLevel then
-						cth, compDef = GetComponentEffectValue(weapon1, "ScopeCTHBonus", "ScopeCTH")
-						--print(cth)
-						if cth then
-							return true, cth, compDef.DisplayName
-						end
-							
-					end
-					end
+					-- Legacy Handling / Эргономика: property stays serialized for saves,
+					-- but no longer contributes to CTH (JAZZ-WEAPONS-001 / JAZZ-CTH-001).
 					return false, 0
 				end,
 				RequireActionType = "Any Ranged Attack",

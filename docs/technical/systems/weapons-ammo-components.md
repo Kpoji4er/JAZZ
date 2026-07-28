@@ -69,19 +69,36 @@ JAZZ превращает оружие из набора vanilla-статов в
 
 ## Ресурс, кучность и износ
 
-`WeaponResource` ограничен `WeaponResourceMax`. `DegradePerShot` уменьшает состояние после выстрелов. Текущая `Grouping` масштабируется состоянием и repair multiplier, поэтому повреждение сначала ухудшает дальний CTH, а затем повышает вероятность jam/поломки.
+`WeaponResource` ограничен `WeaponResourceMax`. `DegradePerShot` уменьшает состояние после выстрелов. Текущая `Grouping` масштабируется integer condition/repair permille multipliers, поэтому повреждение сначала ухудшает дальний CTH, а затем повышает вероятность jam/поломки.
 
-Базовая часть jam chance:
+Jam использует единую шкалу **JamScore** `0..1000` (те же единицы, что `attacker:Random(1000)` в `ReliabilityCheck`). Приведённый процент для UI/ammo rollover: `DivRound(JamScore, 10)`. Окно модификации оружия показывает **Reliability**, не Jam %.
+
+Базовый weapon score (без стрелка):
 
 ```text
-raw_jam = ((100 - Reliability) + BaseJamChance) × degrade_multiplier
+base = max(0, (100 - Reliability) + BaseJamChance)
+JamScore = clamp(base × degrade_multiplier [× rain], 0, 1000)
 ```
 
-`degrade_multiplier` меняется ступенчато и резко усиливается при состоянии не выше 80, 60, 40 и 15. Дождь добавляет модификатор; навык стрелка и Mechanical уменьшают риск. Jam/unjam способен необратимо снизить максимальный ресурс или окончательно сломать оружие. Поэтому refactor обязан сохранять не только итоговый процент, но и порядок проверок, RNG и побочные изменения экземпляра.
+`BaseJamChance` — единицы JamScore (10 ≈ 1% в rollover). `degrade_multiplier` через `elseif` по condition % от weighted resource:
+
+| Condition % | Multiplier |
+|---|---|
+| > 80 | ×1 |
+| ≤ 80 | ×4 |
+| ≤ 60 | ×8 |
+| ≤ 40 | ×16 |
+| ≤ 15 | ×24 |
+
+Mechanical снижает score **пропорционально** (`MulDivRound(score, Mechanical, 120)` у мерков + малый secondary Marks/Wisdom/Level; у AI знаменатель 150). Одиночный выстрел делит score пополам через `DivRound`. `FirearmBase:GetDisplayJamChancePercent(attacker?)` отдаёт приведённый %.
+
+`Handling` («Эргономика») остаётся сериализованным legacy-полем для сейвов/generated data, но CTH-модификатор инертный, а угол overwatch берётся только из `OverwatchAngle` (`JAZZ-WEAPONS-001`).
+
+Jam/unjam способен необратимо снизить максимальный ресурс или окончательно сломать оружие. Refactor обязан сохранять шкалу 0..1000, порядок проверок, RNG и побочные изменения экземпляра.
 
 ## Боеприпасы и crafting
 
-Ammo ModItems наследуют `Ammo`; rollover выводит модификации и effects, а reload использует специализированный `AmmoInventory`. Зарегистрированы 49 `CraftOperationsRecipe` для боеприпасов и mortar/ordnance и 33 `RecipeDef`, главным образом преобразования брони. Категории Bobby Ray включают 10 ammo subcategories.
+Ammo ModItems наследуют `Ammo`; rollover выводит модификации и effects (`BaseJamChance` как `%` через `/10`), а reload использует специализированный `AmmoInventory`. Зарегистрированы 49 `CraftOperationsRecipe` для боеприпасов и mortar/ordnance и 33 `RecipeDef`, главным образом преобразования брони. Категории Bobby Ray включают 10 ammo subcategories.
 
 ### Трассерные боеприпасы
 
@@ -91,7 +108,7 @@ Ammo ModItems наследуют `Ammo`; rollover выводит модифик�
 
 ## Дубли и порядок загрузки
 
-Внутри JAZZ повторно определяются `FirearmBase:GetScrapParts` и связанные методы состояния. `GrenadeLauncher:GetBaseDegradePerShot`, `RocketLauncher:GetBaseDegradePerShot` и `Mortar:GetBaseDegradePerShot` сначала появляются в `System_OR_Grenade.lua`, затем в `WeaponClasses.lua`; итог задаёт более поздний файл metadata. Это намеренная зона осторожного рефакторинга: сначала зафиксировать реально активное тело, затем переносить без изменения поведения.
+Канонические `FirearmBase:GetScrapParts` / `ItemWithCondition:AmountOfScrapPartsFromItem` живут в `GetScrapParts.lua` (грузится после `System_OR_Weapons.lua`). Штраф Condition&lt;50 (`/20`) применяется только в `AmountOfScrapPartsFromItem`. `GrenadeLauncher`/`RocketLauncher`/`Mortar:GetBaseDegradePerShot` в `WeaponClasses.lua` (после `System_OR_Grenade.lua`) возвращают `self.DegradePerShot or const.Weapons.DegradePerShot_*`.
 
 ## Межпакетные зависимости
 

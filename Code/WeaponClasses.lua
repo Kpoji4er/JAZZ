@@ -43,15 +43,15 @@ DefineClass.Mortar = { __parents = {"HeavyWeapon"}, trajectory_type = "bombard",
 
 
 function GrenadeLauncher:GetBaseDegradePerShot()
-	return const.Weapons.DegradePerShot_GrenadeLauncher
+	return self.DegradePerShot or const.Weapons.DegradePerShot_GrenadeLauncher
 end
 
 function RocketLauncher:GetBaseDegradePerShot()
-	return const.Weapons.DegradePerShot_RocketLauncher
+	return self.DegradePerShot or const.Weapons.DegradePerShot_RocketLauncher
 end
 
 function Mortar:GetBaseDegradePerShot()
-	return const.Weapons.DegradePerShot_Mortar
+	return self.DegradePerShot or const.Weapons.DegradePerShot_Mortar
 end
 
 

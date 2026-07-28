@@ -15,13 +15,25 @@ end
 
 function QueueSuppressionApplication(unit, wp_dmg, effect)
     if not g_SuppressionApplyQueue then
-        g_SuppressionApplyQueue = {}
+        g_SuppressionApplyQueue = { head = 1 }
     end
     if not g_SuppressionApplyThread or not IsValidThread(g_SuppressionApplyThread) then
         g_SuppressionApplyThread = CreateGameTimeThread(function()
             while true do
-                if g_SuppressionApplyQueue and #g_SuppressionApplyQueue > 0 then
-                    local entry = table.remove(g_SuppressionApplyQueue, 1)
+                local queue = g_SuppressionApplyQueue
+                local head = queue and (queue.head or 1) or 1
+                local entry = queue and queue[head]
+                if entry then
+                    queue[head] = nil
+                    queue.head = head + 1
+                    if queue.head > 32 and queue.head * 2 > #queue then
+                        local compact, n = { head = 1 }, 0
+                        for i = queue.head, #queue do
+                            n = n + 1
+                            compact[n] = queue[i]
+                        end
+                        g_SuppressionApplyQueue = compact
+                    end
                     local u, dmg, status_effect = entry.unit, entry.damage or 0, entry.effect
                     if IsValid(u) then
 						Sleep(10)
@@ -38,6 +50,12 @@ function QueueSuppressionApplication(unit, wp_dmg, effect)
                     end
                     Sleep(10)
                 else
+                    if queue then
+                        queue.head = 1
+                        for i = #queue, 1, -1 do
+                            queue[i] = nil
+                        end
+                    end
                     Sleep(10)
                 end
             end
@@ -127,48 +145,22 @@ function FirearmBase:GetAutofireShots(action)
 		action = CombatActions[action]
 	end
 	local shots = action:ResolveValue("num_shots") or 1
-    --print(self.BurstShots)
-	local shotsBoost = GetComponentEffectValue(self, "ExtraBurstShots", action.id)
-
-    if (action.id) == "AutoFire" then 
-		shots = self.AutoShots 
-		if shotsBoost then shotsBoost = shotsBoost  end
+	-- ExtraBurstShots intentionally disabled: shot counts come only from BurstShots/AutoShots.
+	if action.id == "AutoFire" or action.id == "MGBurstFire" then
+		shots = self.AutoShots
+	elseif action.id == "JAZZ_LargeAutoFire" then
+		shots = self.AutoShots * 2
+	elseif action.id == "BurstFire" or action.id == "JAZZ_Zipper" then
+		shots = self.BurstShots
+	elseif action.id == "JAZZ_SmgStorm" then
+		shots = self.BurstShots * 2
 	end
-	if (action.id) == "JAZZ_LargeAutoFire" then 
-		shots = self.AutoShots  * 2
-		if shotsBoost then shotsBoost = shotsBoost  end
-	end
-    if (action.id) == "BurstFire" or (action.id) == "JAZZ_Zipper" then 
-		shots = self.BurstShots 
-		if shotsBoost then shotsBoost = shotsBoost  end
-	end
-    if (action.id) == "JAZZ_SmgStorm" then 
-		shots = self.BurstShots * 2 
-		if shotsBoost then shotsBoost = shotsBoost  end
-	end
-	if (action.id) == "MGBurstFire" then 
-		shots = self.AutoShots 
-		if shotsBoost then shotsBoost = shotsBoost  end
-	end
---	if IsKindOf(self, "Shotgun") then 
---		shots = self.AutoShots
---		if shotsBoost then shotsBoost = shotsBoost  end
---	end
-
---	print(action.id)
---	print(shots)
-
-	--if shotsBoost then
-	--	shots = shots + shotsBoost
-	--end 
 	return shots
 end
 
 
 function FirearmGetGroupingBase(item)
-
 	return item:GetProperty("Grouping") or item.Grouping or 10
-
 end
 
 function FirearmGetGrouping(item)
@@ -179,70 +171,78 @@ function FirearmGetGrouping(item)
 	if max_res <= 0 then max_res = 1 end
 	if factory <= 0 then factory = 1 end
 
-	local condition_mult = Clamp((curr_res + 0.2) / max_res, 0.0, 1)
-
-	local repair_mult = Clamp(0.8 + 0.2 * max_res / factory, 0.1, 1)
-
-
-	local effective_grouping = FirearmGetGroupingBase(item) * condition_mult * repair_mult
-
-	return DivRound(effective_grouping, 1)
+	-- Permille multipliers: condition and remaining repair headroom.
+	local condition_permille = Clamp(MulDivRound(curr_res, 1000, max_res), 0, 1000)
+	local repair_permille = Clamp(800 + MulDivRound(200, max_res, factory), 100, 1000)
+	return MulDivRound(MulDivRound(FirearmGetGroupingBase(item), condition_permille, 1000), repair_permille, 1000)
 end
 
 function FirearmBase:GetConditionPercent()
-    local max_res = self:GetMaxResource()
-    if max_res <= 0 then max_res = 1 end
-    return Clamp(MulDivRound(self:GetCurrentResource(), 100, max_res), 0, 100)
+	local max_res = self:GetMaxResource()
+	if max_res <= 0 then max_res = 1 end
+	return Clamp(MulDivRound(self:GetCurrentResource(), 100, max_res), 0, 100)
 end
 
+-- JamScore scale 0..1000 matches ReliabilityCheck roll; display % = DivRound(score, 10).
 function FirearmBase:GetBaseJamChanceRaw()
 	local item = self.parent_weapon or self
 
 	local resource = item:GetCurrentResource() or 1
 	local max_resource = item:GetMaxResource() or item:GetFactoryResource() or 1000
-	local factory = item:GetFactoryResource()
-
+	local factory = item:GetFactoryResource() or max_resource
 	if max_resource <= 0 then max_resource = 1 end
+	if factory <= 0 then factory = 1 end
 
-	local resourcefactor = factory * 0.25 + max_resource * 0.75
+	-- Weighted resource headroom: 25% factory + 75% current max.
+	local resourcefactor = MulDivRound(factory, 25, 100) + MulDivRound(max_resource, 75, 100)
+	if resourcefactor <= 0 then resourcefactor = 1 end
 
 	local condition_percent = MulDivRound(resource, 100, resourcefactor)
 	local reliability = item.Reliability or 50
-	local base = item.BaseJamChance or 5
+	local base_jam = item.BaseJamChance or 5
+	local base = Max(0, (100 - reliability) + base_jam)
 
-	-- ступенчатый множитель износа
-	local degrade_mult = 1 + ((100 - condition_percent) / 100)^2.25 * 6
+	local degrade_mult = 1
+	if condition_percent <= 15 then
+		degrade_mult = 24
+	elseif condition_percent <= 40 then
+		degrade_mult = 16
+	elseif condition_percent <= 60 then
+		degrade_mult = 8
+	elseif condition_percent <= 80 then
+		degrade_mult = 4
+	end
 
-	if condition_percent <= 15 then degrade_mult = 24.0 end
-	if condition_percent <= 40 then degrade_mult = 16.0 end
-	if condition_percent <= 60 then degrade_mult = 8.0 end
-	if condition_percent <= 80 then degrade_mult = 4.0 end
-
-	local raw_chance = ((100 - reliability) + base) * degrade_mult
-
-
-
-	-- модификаторы погоды
+	local raw_chance = base * degrade_mult
 	if (GameState.RainHeavy or GameState.RainLight) and not item.indoors then
 		raw_chance = MulDivRound(raw_chance, 100 + const.EnvEffects.RainJamChanceMod, 100)
 	end
 
-	return raw_chance
+	return Clamp(raw_chance, 0, 1000)
 end
 
 function FirearmBase:GetJamChance(attacker)
-	local item = self.parent_weapon or self
 	local jam_chance = self:GetBaseJamChanceRaw()
-	
-
-	if IsMerc(attacker) then
-		local skill_bonus = ((attacker.Mechanical * 4 + attacker.Marksmanship + attacker.Wisdom + attacker:GetLevel())  / 3)
-		jam_chance = jam_chance - skill_bonus
-	else
-		jam_chance = jam_chance - attacker.Mechanical * 3
+	if not attacker then
+		return jam_chance
 	end
 
-	return Clamp(jam_chance, 0, 10000)
+	-- Mechanical cuts jam proportionally (strong for mechanics); mercs get a small flat secondary.
+	if IsMerc(attacker) then
+		jam_chance = jam_chance - MulDivRound(jam_chance, attacker.Mechanical or 0, 120)
+		jam_chance = jam_chance - DivRound(
+			(attacker.Marksmanship or 0) + (attacker.Wisdom or 0) + attacker:GetLevel(),
+			6)
+	else
+		jam_chance = jam_chance - MulDivRound(jam_chance, attacker.Mechanical or 0, 150)
+	end
+
+	return Clamp(jam_chance, 0, 1000)
+end
+
+function FirearmBase:GetDisplayJamChancePercent(attacker)
+	local score = attacker and self:GetJamChance(attacker) or self:GetBaseJamChanceRaw()
+	return DivRound(score, 10)
 end
 
 function FirearmBase:GetBaseDegradePerShot()
@@ -259,34 +259,23 @@ function FirearmBase:ReliabilityCheck(attacker, num_shots)
 	local jammed = false
 
 	if not attacker.infinite_condition then
-		local jam_chance = item:GetJamChance(attacker) -- уже учитывает ресурс и reliability
-		local seed = Unit:Random()
-		local random = BraidRandomCreate(seed)
+		local jam_chance = item:GetJamChance(attacker)
 
-		-- Погодные модификаторы увеличивают износ
 		if (GameState.RainHeavy or GameState.DustStorm or GameState.FireStorm) and not attacker.indoors then
-			loss = loss * 1.3 
+			loss = MulDivRound(loss, 130, 100)
 		elseif GameState.RainLight and not attacker.indoors then
-			loss = loss * 1.1
+			loss = MulDivRound(loss, 110, 100)
 		end
-
-		--[[ Боты не теряют ресурс
-		if not IsMerc(attacker) then
-			loss = 0
-		end]]
 
 		if num_shots == 1 then
-			jam_chance = jam_chance / 2
+			jam_chance = DivRound(jam_chance, 2)
 		end
 
-		local base_roll = 1000
-		local jam_roll = random(base_roll)
-
-		if item.num_safe_attacks <= 0 and jam_roll < (jam_chance - attacker.Mechanical * 3) then
+		local jam_roll = attacker:Random(1000)
+		if item.num_safe_attacks <= 0 and jam_roll < jam_chance then
 			jammed = true
 		end
 
-		-- Всегда теряем ресурс за каждый выстрел, даже если заклинило
 		resource = Max(0, resource - num_shots * loss)
 	end
 
@@ -685,6 +674,35 @@ end
 	local suppression_CTH = attack_results.chance_to_hit + suppressionbonus
 	--print('suppressionbonus='..suppressionbonus)
 
+	-- Build once per attack: filtering g_Units every shot is O(shots * units).
+	local suppression_enemies, attacker_is_psycho, target_is_psycho, target_will_damage
+	local slab = const.SlabSizeX
+	local near_range = 5 * slab
+	if not prediction then
+		attacker_is_psycho = HasPerk(attacker, "Psycho")
+		target_is_psycho = IsValid(target_unit) and HasPerk(target_unit, "Psycho")
+		local target_sid = target and target.session_id
+		local attacker_sid = attacker.session_id
+		local attacker_side = attacker.team and attacker.team.side
+		suppression_enemies = {}
+		for _, u in ipairs(g_Units) do
+			if u.HireStatus ~= "Dead"
+				and u.session_id ~= target_sid
+				and u.session_id ~= attacker_sid
+				and IsKindOf(u, "Unit")
+				and u.team and u.team.side ~= attacker_side
+			then
+				suppression_enemies[#suppression_enemies + 1] = u
+			end
+		end
+		-- willDamage ≈ (Damage/10) * (0.4 + 0.6 * sqrt(CTH/100)); compute once.
+		local f_x100 = Clamp(floatfloor(((Max(suppression_CTH, 1) + 0.0) / 100) ^ 0.5 * 100 + 0.5), 10, 200)
+		target_will_damage = MulDivRound(
+			Max(self.Damage, 1),
+			40 + MulDivRound(60 * f_x100, 100),
+			1000)
+		target_will_damage = MulDivRound(target_will_damage, suppressionbonus, 100)
+	end
 
 	for i = 1, num_shots do
 	
@@ -1013,65 +1031,48 @@ end
 		end
 
 
-		--if not prediction and g_Combat then
-			if not prediction then
-				local attacker_is_psycho = HasPerk(attacker, "Psycho")
-				local target_is_psycho = IsValid(target_unit) and HasPerk(target_unit, "Psycho")
-				if fired and applies_tracer_mark and shot_cth > 0 and IsValid(target_unit) and not target_unit:IsDead() then
-					JAZZ_QueueStatusEffectApplication(target_unit, "MarkedTraccers")
+		if not prediction then
+			if fired and applies_tracer_mark and shot_cth > 0 and IsValid(target_unit) and not target_unit:IsDead() then
+				JAZZ_QueueStatusEffectApplication(target_unit, "MarkedTraccers")
+			end
+
+			if target_will_damage and target_will_damage > 0
+				and IsValid(target_unit) and target_unit.team and target_unit.team.side ~= attacker.team.side
+			then
+				if attacker_is_psycho then
+					attacker.WillPoints = Min(attacker.MaxWillPoints, attacker.WillPoints + target_will_damage)
 				end
-				local units = table.ifilter(g_Units, function(_, u)
-					return u.HireStatus ~= "Dead"
-						and u.session_id ~= target.session_id
-						and u.session_id ~= attacker.session_id
-						and IsKindOf(u, "Unit")
-						and u.team and u.team.side ~= attacker.team.side
-				end)
-			
-				local wpBase = Max(self.Damage, 1) * 0.1
-				
-	
-			
-				for _, hit in ipairs(hit_data.hits) do
-					if IsValid(target_unit) and target_unit.team.side ~= attacker.team.side then
-						local cthFactor = Clamp((suppression_CTH / 100)^0.5, 0.1, 2.0)
-						local willDamage = wpBase * (0.4 + 0.6 * cthFactor)
-						willDamage = MulDivRound(willDamage,suppressionbonus,100)
-						if willDamage > 0 then
-							if attacker_is_psycho then
-								attacker.WillPoints = Min(attacker.MaxWillPoints, attacker.WillPoints + willDamage)
-							end
-							if not target_is_psycho then
-								QueueSuppressionApplication(target_unit, willDamage)
-								--target_unit.WillPoints = Max(0, target_unit.WillPoints - willDamage)
-								--target_unit:ApplySuppressionStatus()
-							end
-						end
-					end
-			
+				if not target_is_psycho then
+					QueueSuppressionApplication(target_unit, target_will_damage)
+				end
+			end
+
+			local hits = hit_data.hits
+			if hits and #hits > 0 and suppression_enemies and #suppression_enemies > 0 then
+				local damage = Max(self.Damage, 1)
+				for _, hit in ipairs(hits) do
 					local hit_pos = hit.pos or hit_data.target_pos
-					for _, unit in ipairs(units) do
-						local dist = unit:GetPos():Dist2D(hit_pos)
-						if dist < 5 * const.SlabSizeX then
-							local clamped = Clamp((4 * const.SlabSizeX - dist) / const.SlabSizeX, 0, 4)
-							local nearDamage = wpBase * clamped * 0.15
-							nearDamage = MulDivRound(nearDamage,suppressionbonus,100)
-							if nearDamage > 0 then
-								if attacker_is_psycho then
-									attacker.WillPoints = Max(attacker.MaxWillPoints, attacker.WillPoints + nearDamage)
-								end
-								if not HasPerk(unit, "Psycho") then
-									QueueSuppressionApplication(unit, nearDamage)
-
-
-									--unit.WillPoints = Max(0, unit.WillPoints - nearDamage)
-									--unit:ApplySuppressionStatus()
+					if hit_pos then
+						for _, unit in ipairs(suppression_enemies) do
+							local dist = unit:GetPos():Dist2D(hit_pos)
+							if dist < near_range then
+								local clamped = Clamp(DivRound(4 * slab - dist, slab), 0, 4)
+								-- nearDamage ≈ (Damage/10) * clamped * 0.15
+								local nearDamage = MulDivRound(MulDivRound(damage * clamped * 15, 1, 1000), suppressionbonus, 100)
+								if nearDamage > 0 then
+									if attacker_is_psycho then
+										attacker.WillPoints = Max(attacker.MaxWillPoints, attacker.WillPoints + nearDamage)
+									end
+									if not HasPerk(unit, "Psycho") then
+										QueueSuppressionApplication(unit, nearDamage)
+									end
 								end
 							end
 						end
 					end
 				end
 			end
+		end
 
 	end
 
@@ -1184,11 +1185,9 @@ function FirearmBase:Unjam(unit)
 		return
 	end
 
-	-- Урон при неудаче
-	local condLoss = Clamp(amount * 0.1, 0.1, 3)
-	condLoss = floatfloor(condLoss + 0.5)
-
-	local loss = MulDivRound(max * 1.0, condLoss * 1.0, 100) 
+	-- Урон при неудаче (JamScore-style percent loss of max resource)
+	local condLoss = Clamp(DivRound(amount, 10), 1, 3)
+	local loss = MulDivRound(max, condLoss, 100) 
 
 	--print("jam debug")
 	--print(max,loss,condLoss,amount)
@@ -1487,7 +1486,7 @@ function Firearm:GetAreaAttackParams(action_id, attacker, target_pos, step_pos, 
 		params.min_range = self:GetOverwatchConeParam("MinRange")
 		params.max_range = self:GetOverwatchConeParam("MaxRange")
 	elseif action_id == "Overwatch" or action_id == "MGRotate" or action_id == "MGSetup" then
-		params.cone_angle = self.OverwatchAngle + (MulDivRound(self.Handling,60,10))
+		params.cone_angle = self.OverwatchAngle
 		params.cone_angle = Max(params.cone_angle,1)
 		if self.emplacement_weapon then
 			params.min_distance_2d = const.EmplacementWeaponMinDistance2D
@@ -1675,29 +1674,7 @@ end
 --	return self.ItemType or self.RolloverClassTemplate or self.WeaponType
 --end
 
-function ItemWithCondition:AmountOfScrapPartsFromItem()
-	local parts = self:GetScrapParts()
-	if self.Condition and self.Condition < 50 then
-		parts = parts / 20
-        --if parts < 1 then parts = 1 end
-	end
-    --print(parts)
-    if parts < 1 then parts = 1 end
-	return parts
-end
-
-function FirearmBase:GetScrapParts()
-	local parts = InventoryItem.GetScrapParts(self)
-	parts = parts + (#(self.components or empty_table) * const.Weapons.UpgradeScrapParts)
-    if self.Condition and self.Condition < 50 then
-		parts = parts / 20
-       -- if parts < 1 then parts = 1 end
-	end
-    --print(parts)
-    if parts < 1 then parts = 1 end
-	return parts
-end
-
+-- Scrap overrides live in GetScrapParts.lua (loads later). Do not redefine here.
 
 local suppression_levels = {
 	{debuff = 80, effect = "suppressionPinned"},

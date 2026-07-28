@@ -1,4 +1,3 @@
-
 translatedModifications = {
 	["Damage"]  = T(287944595070, "Damage"),	
     ["ObjDamageMod"]  = T(28794459507035, "Урон по объектам"),	
@@ -19,92 +18,77 @@ translatedModifications = {
 
 function Ammo:GetRolloverHint()
 	local hint = {} 	
-	local parts = {}
-    local penbonus = 0
-    local pen = 0
-    local penname = ""
+	local penbonus = 0
+	local pen = 0
+	local penname = ""
 
-	for part,val in sorted_pairs(self.Modifications) do
+	for _, val in sorted_pairs(self.Modifications) do
+		local mod_mul = ""
+		local mod_add = ""
+		local target_prop = val.target_prop
+		local display_prop = translatedModifications[target_prop] or target_prop
+		local skip = false
 
-     --   print(val)
-       -- local preset = Presets.WeaponPropertyDef.Default[val.target_prop]
-       local mod_mul = ""
-       local mod_add = ""
-       local target_prop = val.target_prop
-       local meta = g_Classes.Firearm:GetPropertyMetadata(target_prop)
-       local name = meta.name
+		if val.mod_add and val.mod_add > 0 then
+			mod_add = "+" .. val.mod_add
+		elseif val.mod_add and val.mod_add < 0 then
+			mod_add = "-" .. (-val.mod_add)
+		end
+		if val.mod_mul and val.mod_mul ~= 1000 and val.mod_mul ~= 0 then
+			mod_mul = " " .. DivRound(val.mod_mul, 10) .. "% "
+		end
 
+		-- BaseJamChance is JamScore units (0..1000); display as % via /10.
+		if target_prop == "BaseJamChance" then
+			mod_add = (val.mod_add >= 0 and "+" or "") .. DivRound(val.mod_add, 10) .. "%"
+		end
+		if target_prop == "CritChance" then
+			mod_add = (val.mod_add >= 0 and "+" or "") .. val.mod_add .. "%"
+		end
+		if target_prop == "PenetrationBonus" then
+			penbonus = val.mod_add
+			skip = true
+		end
+		if target_prop == "PenetrationClass" then
+			pen = DivRound(val.mod_mul or 1000, 100)
+			penname = Untranslated(display_prop)
+			skip = true
+		end
 
-    --   for i,def in sorted_pairs(Presets.WeaponPropertyDef.Default) do
-    --    print(def)
-    --    if target_prop == def.id then 
-    --        target_prop = def.display_name
-    --    end
-    --   end
-
-        local target_prop = translatedModifications[target_prop] or target_prop
-
-
-
-
-        if val.mod_add and val.mod_add > 0 then mod_add = mod_add.."+"..val.mod_add end
-        if val.mod_add and val.mod_add < 0 then mod_add = mod_add.."-"..(-val.mod_add) end
-        if val.mod_mul and val.mod_mul ~= 1000 and val.mod_mul ~= 0 then 
-            mod_mul = " "..((val.mod_mul + .0) / 1000*100).."% "
-        end
-        if val.mod_add and val.mod_mull then mod_add = "("..mod_add..")" end
-       -- print(preset)
-		--local preset= Presets.TargetBodyPart.Default[part]
-
-        local skip = false
-
-       if target_prop == translatedModifications["BaseJamChance"] then mod_add = "+"..DivRound(val.mod_add,10).."%" end
-
-       if target_prop == translatedModifications["CritChance"] then mod_add = "+"..val.mod_add.."%" end
-
-
-         if target_prop == translatedModifications["PenetrationBonus"] then 
-            penbonus = val.mod_add
-            skip = true
-        end
-         if target_prop == translatedModifications["PenetrationClass"] then
-             pen = ((val.mod_mul + .0) / 1000)
-             penname = Untranslated(target_prop)
-             skip = true
-
-        end
-     
-        if (val.mod_add ~= 0 or (val.mod_mull ~= 1000 and val.mod_mul ~= 0)) and not skip  then
-        hint[#hint+1] = T{890000000001390, "<bullet_point> <target_prop>: <mod_add> <mod_mul>",target_prop = Untranslated(target_prop), mod_add = Untranslated(mod_add), mod_mul = Untranslated(mod_mul)}
-        end
-		--parts[#parts+1] = val.target_prop
+		local has_mul = val.mod_mul and val.mod_mul ~= 1000 and val.mod_mul ~= 0
+		if (val.mod_add ~= 0 or has_mul) and not skip then
+			hint[#hint + 1] = T{
+				890000000001390,
+				"<bullet_point> <target_prop>: <mod_add> <mod_mul>",
+				target_prop = Untranslated(display_prop),
+				mod_add = Untranslated(mod_add),
+				mod_mul = Untranslated(mod_mul),
+			}
+		end
 	end
 
-
-    pen = pen * 10 + penbonus
-    pen = floatfloor(pen, 0.1) * 0.1
-    hint[#hint+1] = T{890000000001388, "\n<bullet_point> <target_prop>: <pen>",target_prop = Untranslated(penname), pen = pen}
-
-
-    local effects = {} 
-	for effect,val in sorted_pairs(self.AppliedEffects) do
-
- --       print(val)
- --       local preset= Presets.CharacterEffect.Default[part]
- --       print(preset.display_name)
-
-        effects[#effects+1] = g_Classes[val].DisplayName
-      --  local effect = self:GetStatusEffect(val)
-
-
+	pen = pen * 10 + penbonus
+	pen = DivRound(pen, 1)
+	if penname ~= "" then
+		hint[#hint + 1] = T{
+			890000000001388,
+			"\n<bullet_point> <target_prop>: <pen>",
+			target_prop = Untranslated(penname),
+			pen = pen,
+		}
 	end
-        if effects[1] then
-       hint[#hint+1] = T{890000000001389, "\n<bullet_point> Эффекты при попадании: <effects>", effects = table.concat(effects, ", ")}
-        end
-	--hint[#hint+1] = T{378508273050111, "<bullet_point> Body parts - <parts>", parts = table.concat(parts, ", ")}
-	--hint[#hint+1] = self.AdditionalHint or ""
 
-
+	local effects = {}
+	for _, val in sorted_pairs(self.AppliedEffects) do
+		effects[#effects + 1] = g_Classes[val].DisplayName
+	end
+	if effects[1] then
+		hint[#hint + 1] = T{
+			890000000001389,
+			"\n<bullet_point> Эффекты при попадании: <effects>",
+			effects = table.concat(effects, ", "),
+		}
+	end
 
 	return table.concat(hint, "\n")
-end	
+end

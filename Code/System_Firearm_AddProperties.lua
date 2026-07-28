@@ -137,7 +137,7 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
     category = "New Weapon System",
     id = "BaseJamChance",
     name = "Jam Chance",
-    help = "Базовый шанс клина (1 = 1/100)",
+    help = "JamScore units on 0..1000 scale (10 ≈ 1% displayed); added to (100 - Reliability)",
     editor = "number",
     default = 0,
     template = true,
