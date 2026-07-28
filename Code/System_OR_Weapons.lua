@@ -699,7 +699,7 @@ end
 		local f_x100 = Clamp(floatfloor(((Max(suppression_CTH, 1) + 0.0) / 100) ^ 0.5 * 100 + 0.5), 10, 200)
 		target_will_damage = MulDivRound(
 			Max(self.Damage, 1),
-			40 + MulDivRound(60 * f_x100, 100),
+			40 + MulDivRound(60, f_x100, 100),
 			1000)
 		target_will_damage = MulDivRound(target_will_damage, suppressionbonus, 100)
 	end
