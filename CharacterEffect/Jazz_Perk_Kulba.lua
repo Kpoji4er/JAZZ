@@ -5,7 +5,7 @@ DefineClass.Jazz_Perk_Kulba = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000005015, "Оружейник старой закалки"),
-	Description = T(890000000005016, "Автоматическое оружие Кульбы стреляет точнее и реже заклинивает"),
-	Icon = "UI/Icons/Perks/Thinking",
+	Description = T(890000000005016, "WIP — механика сигнатурного перка в разработке."),
+	Icon = "Mod/e6L4ECj/Perks/Personal/Kulba.png",
 	Tier = "Personal",
 }

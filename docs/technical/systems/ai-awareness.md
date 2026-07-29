@@ -155,9 +155,11 @@ Turn controller делит юнитов на `Early`, `Normal` и `Late`; угр
 | Policy | Текущее изменение JAZZ |
 | --- | --- |
 | `AIPolicyAttackAP` | Полная замена класса: 120 при AP выше стоимости лучшей атаки, 110 при равенстве; fallback 100/90 по default attack cost |
-| `AIPolicyTakeCover` | Укрытие оценивается по реальному percentage: none 0, low 40, high 100; слабое перекрытие получает резкое снижение |
+| `AIPolicyTakeCover` | POL-001: threat-weighted average (дистанция, `IsThreatened`, `best_attack.target`) + cover×shot (`0.5`/`1.0` через `dest_target_score` или враг в `EffectiveRange`); CoverScores none 0 / low 40 / high 100; coverage &lt;30 → ×0.1 |
 | `AIPolicyFlanking` | Учитывает планируемые позиции союзников и непрерывный `GetFlankThreat`; результат кэшируется в context |
-| `AIPolicyProximity` | Исправляет minimum/average accounting, добавляет этаж и indoor/outdoor; при менее чем трёх подходящих units не даёт оценки |
+| `AIPolicyProximity` | Этаж + indoor/outdoor; `&lt;3` units → 0. POL-001: `ScoreMode` (`farther_better` default = legacy distance; `closer_better` = `1000/(1+dist)`). Legion/Rebels Front/Assault/Flank OptLoc ally proximity → `closer_better` |
+| `AIPolicyAllyRoleAnchor` | POL-002: screen (между Sniper/Marksman и врагом) / retinue (к Leader) |
+| `AIPolicyAvoidPeekVoxel` | POL-002: штраф за dest у `last_attack_pos` |
 | `AIPolicyHighGround` | Сохраняет высотный бонус и штрафует скопление живых союзников на том же уровне в радиусе шести тайлов |
 | `AIPolicyIndoorsOutdoors` | Возвращает числовой вес при совпадении типа позиции |
 | `AIPolicyAvoidDeathZones` | Новая отрицательная оценка рядом с погибшими союзниками, по умолчанию в радиусе пяти тайлов |
@@ -236,9 +238,9 @@ Keywords — capability tags. Они не запускают действие с
 
 ### Зарегистрированные archetypes
 
-В metadata зарегистрированы 33 ID:
+В metadata зарегистрированы **35** ID (после JAZZ-AI-ROLE-001):
 
-- faction templates: `Legion_Assaulter`, `Legion_Frontliner`, `Legion_Machinegunner`, `Rebels_Assaulter`, `Rebels_Frontliner`, `Rebels_Machinegunner`;
+- faction templates: `Legion_Assaulter`, `Legion_Frontliner`, **`Legion_Flanker`**, `Legion_Machinegunner`, `Rebels_Assaulter`, `Rebels_Frontliner`, **`Rebels_Flanker`**, `Rebels_Machinegunner`;
 - общие боевые: `Melee`, `Soldier`, `Soldier_Sniper`, `Skirmisher`, `Brute`, `HeavyGunner`;
 - специалисты: `Artillery`, `Grenadier`, `Medic`, `Medic_Low`, `TheMajor`, `PierreGuard`;
 - scenario/state: `Beast_Hyena`, `Turret`, `TurretBoss`, `Scout_LastLocation`, `__Scout_LastLocation`, `PinnedDown`, `Panicked`, `GuardArea`, `EmplacementGunner`, `Deserter`, `Berserk`;
@@ -250,9 +252,12 @@ Keywords — capability tags. Они не запускают действие с
 
 | Роль | Behaviors | Основные positioning policies | Targeting | Характерные actions |
 | --- | --- | --- | --- | --- |
-| Assaulter | `PositioningAI`, `StandardAI` | avoid death, damage, flank, indoor/outdoor, LOS, proximity, cover, weapon range | health, weapon | basic, cancel, charge, mobile shot, landmine, flare, grenade, overwatch/run-and-gun |
+| Assaulter | `PositioningAI`, `StandardAI` | avoid death, damage, indoor/outdoor, LOS, proximity, cover, weapon range; flank weight ослаблен (ROLE-001) | health, weapon | basic, cancel, charge, mobile shot, landmine, flare, grenade, overwatch/run-and-gun |
 | Frontliner | `PositioningAI`, `StandardAI` | как Assaulter плюс high ground | health, weapon | basic, heavy weapon, mobile shot, landmine, flare, grenade, overwatch/run-and-gun |
+| **Flanker** | `StandardAI`, `PositioningAI` (flank-primary) | высокий `AIPolicyFlanking`, CQB/RunAndGun range, OptLoc TakeCover ~15 (POL-001); ally Proximity `closer_better` | health, weapon | basic, mobile shot, run-and-gun, charge (Melee), flare, smoke/grenade, landmine |
 | Machinegunner | `PositioningAI`, `StandardAI` | damage, range, cover, flank/position constraints | health, weapon, enemy Will | basic, MG setup, MG burst, landmine, flare, grenade |
+
+`JAZZ_Legion_FlankerT*` → `Legion_Flanker`; `RebelFlanker` → `Rebels_Flanker`. Design: [`tactical-ai-archetypes.md`](../../design/tactical-ai-archetypes.md); change: [JAZZ-AI-ROLE-001](../../specs/active/JAZZ-AI-ROLE-001.md).
 
 Legion и Rebels используют зеркальные role templates. Конкретные stats, вооружение и переходы tiers принадлежат `UnitData` и описаны в [схеме юнитов Legion и тирах снаряжения](legion-units-equipment-tiers.md). AI archetype не выбирает tier предметов; он работает с уже выданным текущему юниту инвентарём.
 
@@ -296,7 +301,8 @@ Legion и Rebels используют зеркальные role templates. Ко�
 9. Suspicion threshold/distance/night tick захватываются при загрузке файла и не следуют позднему `raisedAlarm`/смене времени.
 10. Крупные замены `CombatAI`/`AiActions` включают локальные копии vanilla-функций для AOE, scout, interactable и custom behavior; они имеют высокий drift-риск после patch игры.
 11. Cover-move Disengage опирается на `context.all_destinations` / combat_paths с начала Think — после длинного боя пути могут устареть; One Re-engage / свежий pathing — follow-up.
-12. Dynamic archetype transitions — вне JAZZ-AI-002.
+12. **Dynamic archetype / stance (ROLE-002 / ROLE-003):** `jazz-units/Code/AICombatStance.lua` → `JazzAI_PickCombatStance`. F2 NeedPush/NeedFlank; F4+F9 melee secondary AP-reach; F3+F11 panic tiers (T3 cap, T4≈0, Rebels ×0.6); нет `Hide()` в PickCustom; ChangeWeapon только при реальном alt-оружии. Legion + Rebel UnitData → thin PickCustom.
+13. **Context / command / actions (CTX/CMD/ACT/MED/POL-002):** `jazz/Code/AIContextProfiles.lua` (Urban/LowVis profiles, officer aura MapVar, peek streak); Medic fail-safe + early bleed; AllyRoleAnchor/AvoidPeekVoxel; smoke LOS-break; flare→Push; LowVis OW min_score.
 
 ## Проверка поведения
 

@@ -1330,9 +1330,14 @@ function AIActionMGSetup:PrecalcAction(context, action_state)
 end
 
 function AIActionBaseZoneAttack:EvalZones(context, zones)
-    return AIEvalZones(context, zones, self.min_score, self.enemy_score,
-                       self.team_score, self.self_score_mod,
-                       self.enemy_cover_mod)
+	local smoke = self.AllowedAoeTypes and self.AllowedAoeTypes.smoke
+	if smoke then
+		context.jazz_smoke_eval = true
+	end
+	local best_target, best_score = AIEvalZones(context, zones, self.min_score, self.enemy_score,
+		self.team_score, self.self_score_mod, self.enemy_cover_mod)
+	context.jazz_smoke_eval = nil
+	return best_target, best_score
 end
 
 function AIEvalZones(context, zones, min_score, enemy_score, team_score,
@@ -1371,17 +1376,95 @@ function AIEvalZones(context, zones, min_score, enemy_score, team_score,
             score = (score or 0) + uscore
         end
 
-        score = score and MulDivRound(score, zone.score_mod or 100, 100)
-        score = score and MulDivRound(score, 100 + selfmod, 100)
+		score = score and MulDivRound(score, zone.score_mod or 100, 100)
+		score = score and MulDivRound(score, 100 + selfmod, 100)
 
-        -- print("score "..score.."/")
-        if score and score > best_score then
-            best_target, best_score = zone, score
-        end
-        zone.score = score
-    end
-    ----print("AIEvalZones"..best_target.." "..best_score)
-    return best_target, best_score
+		-- ACT-001: smoke LOS-break — bonus when smoke sits on LOS from ally cluster to enemies
+		if score and zones and zone.units and context.jazz_smoke_eval then
+			local los_break = 0
+			for _, u in ipairs(zone.units) do
+				if u.team == context.unit.team and u ~= context.unit then
+					los_break = los_break + 40
+				elseif u:IsOnEnemySide(context.unit) then
+					los_break = los_break + 20
+				end
+			end
+			score = score + los_break
+		end
+
+		-- print("score "..score.."/")
+		if score and score > best_score then
+			best_target, best_score = zone, score
+		end
+		zone.score = score
+	end
+	----print("AIEvalZones"..best_target.." "..best_score)
+	return best_target, best_score
+end
+
+-- MED-001: Bandage fail-safe — do not freeze turn when target unreachable
+function AIActionBandage:Execute(context, action_state)
+	assert(action_state.has_ap)
+	local unit = context.unit
+	local target = action_state.args and action_state.args.target
+	if not IsValidTarget(target) then
+		context.jazz_medic_bandage_fail = true
+		return
+	end
+	if not IsMeleeRangeTarget(unit, nil, nil, target) then
+		context.jazz_medic_bandage_fail = true
+		-- revert to faction Frontliner for remainder of Think/Play
+		if JazzAI_FactionArchetypePrefix then
+			local id = JazzAI_FactionArchetypePrefix(unit) .. "Frontliner"
+			unit.archetype = id
+			if context.archetype and Presets and Presets.AIArchetype then
+				local preset = Presets.AIArchetype.Default and Presets.AIArchetype.Default[id]
+				if preset then
+					context.archetype = preset
+				end
+			end
+		end
+		return
+	end
+	unit:Face(target)
+	AIPlayCombatAction("Bandage", unit, nil, action_state.args)
+	return "stop"
+end
+
+-- ACT-001: lower OW min_score in LowVis when few enemies visible
+local JazzAI_AIConeAttack_Precalc = AIConeAttack and AIConeAttack.PrecalcAction
+if AIConeAttack and JazzAI_AIConeAttack_Precalc then
+	function AIConeAttack:PrecalcAction(context, action_state)
+		local profile = context and context.jazz_profile
+		local saved
+		if profile and profile.OverwatchMinScore and self.action_id == "Overwatch" then
+			local visible = 0
+			for _, e in ipairs(context.enemies or empty_table) do
+				if context.enemy_visible and context.enemy_visible[e] then
+					visible = visible + 1
+				end
+			end
+			local peek_boost = false
+			for _, e in ipairs(context.enemies or empty_table) do
+				if JazzAI_EnemyPeekStreak and JazzAI_EnemyPeekStreak(e) >= 2 then
+					peek_boost = true
+					break
+				end
+			end
+			if visible <= 2 or peek_boost then
+				saved = self.min_score
+				self.min_score = Min(self.min_score or 300, profile.OverwatchMinScore)
+				if peek_boost then
+					self.min_score = Min(self.min_score, 100)
+				end
+			end
+		end
+		local result = JazzAI_AIConeAttack_Precalc(self, context, action_state)
+		if saved ~= nil then
+			self.min_score = saved
+		end
+		return result
+	end
 end
 
 function AIPolicyIndoorsOutdoors:EvalDest(context, dest, grid_voxel)

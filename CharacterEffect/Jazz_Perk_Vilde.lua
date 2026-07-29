@@ -5,7 +5,7 @@ DefineClass.Jazz_Perk_Vilde = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000005017, "Ночной автоматчик"),
-	Description = T(890000000005018, "Ночью автоматный огонь Вильде точнее"),
-	Icon = "UI/Icons/Perks/Thinking",
+	Description = T(890000000005018, "WIP — механика сигнатурного перка в разработке."),
+	Icon = "Mod/e6L4ECj/Perks/Personal/Vilde.png",
 	Tier = "Personal",
 }

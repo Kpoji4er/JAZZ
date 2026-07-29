@@ -6844,6 +6844,8 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000001422,<text1>%,<text1>%,,jazz:items.lua:73452
 890000000001423,Прочность,Прочность,,jazz:items.lua:73451
 890000000001424,Garrison,Гарнизон,,jazz:Code/Guardpost_Patrols.lua
+890000000001425,Patrol,Патруль,,jazz:Code/Guardpost_Patrols.lua
+890000000001426,Recon,Разведка,,jazz:Code/Guardpost_Patrols.lua
 890000000001427,QRF,QRF,,jazz:Code/Guardpost_Patrols.lua
 890000000001428,Retribution,Возмездие,,jazz:Code/Guardpost_Patrols.lua
 890000000001429,Supply convoy,Конвой снабжения,,jazz:Code/Guardpost_Patrols.lua
@@ -7059,6 +7061,10 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000001640,Not enough local recruits,Недостаточно местных рекрутов,,jazz:Code/LegionMilitiaRecruits.lua
 890000000001641,<role> — wounded at outpost <home>; awaiting reinforcements,<role> — ранен на аванпосте <home>; ждёт пополнения,,jazz:Code/Guardpost_Patrols.lua
 890000000001642,<role> — retreating wounded to <home>,<role> — раненый отходит на <home>,,jazz:Code/Guardpost_Patrols.lua
+890000000001643,Новобранец,Новобранец,,jazz-units:items.lua | jazz-units:UnitData/JAZZ_Legion_Recruit.lua
+890000000001644,<role> - resting and refitting at <home>,<role> - отдыхает и пополняется на <home>,,jazz:Code/Guardpost_Patrols.lua
+890000000001645,<role> - holding patrol sector <target>,<role> - стоит в секторе патруля <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001646,<role> - reinforcing garrison at <target>,<role> - усиливает гарнизон в <target>,,jazz:Code/Guardpost_Patrols.lua
 939310080350111,ржавое,ржавое,,jazz:Code/Inventory.lua:117 | jazz:Code/Inventory.lua:180
 968409848233111,сломанное,сломанное,,jazz:Code/Inventory.lua:120 | jazz:Code/Inventory.lua:183
 1786863112811235,Укрепления,Укрепления,,jazz:Code/POI Extension.lua:9
@@ -7068,3 +7074,594 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 5678579714391111,изношенное,изношенное,,jazz:Code/Inventory.lua:114 | jazz:Code/Inventory.lua:177
 8182360763020012,Ресурс,Ресурс,,jazz:items.lua:73489
 890000000001650,<first> <last>,<first> <last>,,jazz-units:Code/EliteEnemyNamesFuncs.lua
+890000000001700,Цепная паника,Цепная паника,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001701,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001702,[WIP] Тревор Колби,[WIP] Тревор Колби,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001703,Колби,Колби,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001704,КОЛБИ,КОЛБИ,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001705,work in progress,work in progress,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001706,Ловушечник,Ловушечник,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001707,Colby@aim.com,Colby@aim.com,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001708,tripwire,tripwire,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001709,Нет. Пока Фидель на контракте — я пас. Не хочу делить периметр с психом.,Нет. Пока Фидель на контракте — я пас. Не хочу делить периметр с психом.,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001710,Слишком много трупов на вашем счету. Наймите кого-то другого.,Слишком много трупов на вашем счету. Наймите кого-то другого.,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001711,"Кошелёк тонкий. Перезвоните, когда будет бюджет на нормальную зарядку.","Кошелёк тонкий. Перезвоните, когда будет бюджет на нормальную зарядку.",,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001712,"Американцы в отряде… Ладно, но надбавка за нервы.","Американцы в отряде… Ладно, но надбавка за нервы.",,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001713,Тор уже с вами? Тогда ок. С ним я работаю.,Тор уже с вами? Тогда ок. С ним я работаю.,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001714,Если нужен ещё один спокойный спец — берите Тора.,Если нужен ещё один спокойный спец — берите Тора.,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001715,"Колби. Меня нет. Оставьте сообщение — перезвоню, если не взорвусь.","Колби. Меня нет. Оставьте сообщение — перезвоню, если не взорвусь.",,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001716,Колби на линии. Что взрываем?,Колби на линии. Что взрываем?,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001717,Вернёмся к делу.,Вернёмся к делу.,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001718,Время тикает.,Время тикает.,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001719,Беру зарядку и выхожу.,Беру зарядку и выхожу.,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001720,Контракт заканчивается. Продлеваем?,Контракт заканчивается. Продлеваем?,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001721,Остаюсь.,Остаюсь.,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001722,На мушке.,На мушке.,,jazz-units:items.lua:71188
+890000000001723,Патроны!,Патроны!,,jazz-units:items.lua:71191
+890000000001724,В бой.,В бой.,,jazz-units:items.lua:71194
+890000000001725,Тор!..,Тор!..,,jazz-units:items.lua:71197
+890000000001726,Чёрт...,Чёрт...,,jazz-units:items.lua:71200
+890000000001727,Меня подбили!,Меня подбили!,,jazz-units:items.lua:71203
+890000000001728,Жду.,Жду.,,jazz-units:items.lua:71206
+890000000001729,Ещё лучше.,Ещё лучше.,,jazz-units:items.lua:71209
+890000000001730,"Как обычно, Фидель.","Как обычно, Фидель.",,jazz-units:items.lua:71212
+890000000001731,Готово.,Готово.,,jazz-units:items.lua:71215
+890000000001732,Колби!,Колби!,,jazz-units:items.lua:71218
+890000000002431,Шахтёрский надзор,Шахтёрский надзор,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002432,"Пока Ротман гарнизоном стоит в секторе с шахтой, он может провести спецоперацию, ловящую ворующих штейгеров и временно поднимающую доход шахты","Пока Ротман гарнизоном стоит в секторе с шахтой, он может провести спецоперацию, ловящую ворующих штейгеров и временно поднимающую доход шахты",,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002433,Стефан Ротман,Стефан Ротман,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002434,Ротман,Ротман,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002435,РОТМАН,РОТМАН,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002436,"Бывший начальник службы безопасности алмазных рудников ЮАР — умеет и охранять шахту, и подрывать её, если понадобится. Дружит с Лавой; не любит Статика и Гвоздя, презирает вечно обдолбанного Ларри; недолюбливает американцев.","Бывший начальник службы безопасности алмазных рудников ЮАР — умеет и охранять шахту, и подрывать её, если понадобится. Дружит с Лавой; не любит Статика и Гвоздя, презирает вечно обдолбанного Ларри; недолюбливает американцев.",,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002437,Шахтёрский безопасник,Шахтёрский безопасник,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002438,Rothman@aim.com,Rothman@aim.com,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002439,mineboss,mineboss,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002440,"Пока Статик, Гвоздь или обдолбанный Ларри у вас — я не подписываюсь. Не тот уровень дисциплины.","Пока Статик, Гвоздь или обдолбанный Ларри у вас — я не подписываюсь. Не тот уровень дисциплины.",,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002441,Слишком много трупов на вашем счету для нормального контракта.,Слишком много трупов на вашем счету для нормального контракта.,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002442,"Отряд из одних американцев... Ладно, но с доплатой.","Отряд из одних американцев... Ладно, но с доплатой.",,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002443,"Если нужен ещё один надёжный специалист по шахтам — ищите Лаву, я о нём наслышан.","Если нужен ещё один надёжный специалист по шахтам — ищите Лаву, я о нём наслышан.",,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002444,Ротман. Занят на объекте. Перезвоните.,Ротман. Занят на объекте. Перезвоните.,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002445,Ротман слушает. Контракт по делу?,Ротман слушает. Контракт по делу?,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002446,Связь прервалась. Вернёмся к делу.,Связь прервалась. Вернёмся к делу.,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002447,"Время — деньги, а у меня их и так немного.","Время — деньги, а у меня их и так немного.",,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002448,Договорились. Беру людей и выхожу.,Договорились. Беру людей и выхожу.,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002449,Контракт заканчивается. Продлеваем?,Контракт заканчивается. Продлеваем?,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002450,Остаюсь. Работа ещё не закончена.,Остаюсь. Работа ещё не закончена.,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000001800,Ураган клинков,Ураган клинков,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001801,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001802,[WIP] Билл «Бритва» Ламонт,[WIP] Билл «Бритва» Ламонт,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001803,Бритва,Бритва,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001804,БРИТВА,БРИТВА,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001805,work in progress,work in progress,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001806,Нож не кончается,Нож не кончается,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001807,Blade@merc.com,Blade@merc.com,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001808,sharpstuff,sharpstuff,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001809,Слишком много наших полегло. Даже мне это не по вкусу.,Слишком много наших полегло. Даже мне это не по вкусу.,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001810,За такие копейки я лучше дома ножи точить буду.,За такие копейки я лучше дома ножи точить буду.,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001811,У тебя тут одни местные. Скучно и опасно — доплати.,У тебя тут одни местные. Скучно и опасно — доплати.,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001812,"О, Нервный/Фидель уже здесь? Тогда не откажусь, будет весело.","О, Нервный/Фидель уже здесь? Тогда не откажусь, будет весело.",,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001813,Хочешь ещё психа в команду — зови Фиделя.,Хочешь ещё психа в команду — зови Фиделя.,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001814,"Бритва занят — режет. Оставь сообщение, если жить надоело.","Бритва занят — режет. Оставь сообщение, если жить надоело.",,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001815,Чо надо? Резать будем?,Чо надо? Резать будем?,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001816,"Связь прервалась. Ну, продолжай, а то нож стынет.","Связь прервалась. Ну, продолжай, а то нож стынет.",,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001817,Ножницы тупые — ножи нет. Двигай давай.,Ножницы тупые — ножи нет. Двигай давай.,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001818,"Я уже в пути, хе-хе. Кто-то там не доживёт до утра.","Я уже в пути, хе-хе. Кто-то там не доживёт до утра.",,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001819,Контракт горит. Продлеваем или мне точить нож на кого-то другого?,Контракт горит. Продлеваем или мне точить нож на кого-то другого?,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001820,Остаюсь. Ещё не всех порезал.,Остаюсь. Ещё не всех порезал.,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001821,Бритва на связи.,Бритва на связи.,,jazz-units:items.lua:71780
+890000000001822,Ближе... ближе...,Ближе... ближе...,,jazz-units:items.lua:71749
+890000000001823,Порежу на ленточки.,Порежу на ленточки.,,jazz-units:items.lua:71750
+890000000001824,Чисто прошёл.,Чисто прошёл.,,jazz-units:items.lua:71774
+890000000001825,Не тот нож взял...,Не тот нож взял...,,jazz-units:items.lua:71759
+890000000001826,"Зацепили, гады!","Зацепили, гады!",,jazz-units:items.lua:71762
+890000000001827,"О, наконец-то!","О, наконец-то!",,jazz-units:items.lua:71756
+890000000001828,Острее не бывает.,Острее не бывает.,,jazz-units:items.lua:71768
+890000000001829,Нож не кончается — но патроны да.,Нож не кончается — но патроны да.,,jazz-units:items.lua:71753
+890000000001830,Ну где веселье?,Ну где веселье?,,jazz-units:items.lua:71765
+890000000001831,Опять этот зануда рядом.,Опять этот зануда рядом.,,jazz-units:items.lua:71771
+890000000001832,Хорошая компания подобралась.,Хорошая компания подобралась.,,jazz-units:items.lua:71777
+890000000001900,Народный командир,Народный командир,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001901,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001902,[WIP] Айра Смит,[WIP] Айра Смит,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001903,Айра,Айра,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001904,АЙРА,АЙРА,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001905,work in progress,work in progress,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001906,Царица ополчения,Царица ополчения,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001907,Ira@arulco.reb,Ira@arulco.reb,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001908,givegun,givegun,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001909,Пока Злобный у вас — я в отряд не пойду. Он моих людей пугает.,Пока Злобный у вас — я в отряд не пойду. Он моих людей пугает.,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001910,"Раз кто-то из наших уже с вами — значит, вам можно доверять. Согласна.","Раз кто-то из наших уже с вами — значит, вам можно доверять. Согласна.",,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001911,"Найдёте Мигеля, Карлоса или Димитрия — берите не думая, это наши лучшие люди.","Найдёте Мигеля, Карлоса или Димитрия — берите не думая, это наши лучшие люди.",,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001912,Айра. Если это про пулемёт для ребят — говорите после сигнала.,Айра. Если это про пулемёт для ребят — говорите после сигнала.,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001913,Ну? Пулемёта дашь или опять только советы?,Ну? Пулемёта дашь или опять только советы?,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001914,Связь прервалась. Ополчение ждать не будет — давай к делу.,Связь прервалась. Ополчение ждать не будет — давай к делу.,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001915,"Война идёт — не мешкай, у меня люди на позициях.","Война идёт — не мешкай, у меня люди на позициях.",,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001916,"Беру своих ребят и иду. Только скажи, где стрелять.","Беру своих ребят и иду. Только скажи, где стрелять.",,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001917,Контракт заканчивается. Сектор ещё не спокоен — продлеваем?,Контракт заканчивается. Сектор ещё не спокоен — продлеваем?,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001918,Остаюсь. Мои люди меня одну не отпустят.,Остаюсь. Мои люди меня одну не отпустят.,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001919,Айра здесь.,Айра здесь.,,jazz-units:items.lua:71979
+890000000001920,За Арулько!,За Арулько!,,jazz-units:items.lua:71948
+890000000001921,Держим позицию.,Держим позицию.,,jazz-units:items.lua:71949
+890000000001922,Один меньше.,Один меньше.,,jazz-units:items.lua:71973
+890000000001923,"Простите, ребята...","Простите, ребята...",,jazz-units:items.lua:71958
+890000000001924,Меня ранили — прикройте!,Меня ранили — прикройте!,,jazz-units:items.lua:71961
+890000000001925,К оружию!,К оружию!,,jazz-units:items.lua:71955
+890000000001926,Учусь на ходу.,Учусь на ходу.,,jazz-units:items.lua:71967
+890000000001927,Патроны на исходе!,Патроны на исходе!,,jazz-units:items.lua:71952
+890000000001928,Жду сигнала.,Жду сигнала.,,jazz-units:items.lua:71964
+890000000001929,Хоть бы Злобного тут не было.,Хоть бы Злобного тут не было.,,jazz-units:items.lua:71970
+890000000001930,Рада драться рядом со своими.,Рада драться рядом со своими.,,jazz-units:items.lua:71976
+890000000002000,Точильщик,Точильщик,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002001,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002002,[WIP] Димитрий Газзо,[WIP] Димитрий Газзо,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002003,Димитрий,Димитрий,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002004,ДИМИТРИЙ,ДИМИТРИЙ,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002005,work in progress,work in progress,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002006,Я забыл опять,Я забыл опять,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002007,Dima@arulco.reb,Dima@arulco.reb,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002008,forgotagain,forgotagain,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002009,"Пока Ротман у вас — извини, нет. Он на местных смотрит свысока.","Пока Ротман у вас — извини, нет. Он на местных смотрит свысока.",,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002010,"О, Мигель или Карлос уже здесь? Тогда я спокоен, иду.","О, Мигель или Карлос уже здесь? Тогда я спокоен, иду.",,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002011,Если найдёте Мигеля или Карлоса — берите. С ними я работаю лучше.,Если найдёте Мигеля или Карлоса — берите. С ними я работаю лучше.,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002012,"Дима... э-э... перезвоните. Я забыл, зачем мне телефон.","Дима... э-э... перезвоните. Я забыл, зачем мне телефон.",,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002013,А? Это я. Димитрий. Кажется. Работа есть?,А? Это я. Димитрий. Кажется. Работа есть?,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002014,"Стоп, о чём мы говорили? А, точно — вернёмся к делу.","Стоп, о чём мы говорили? А, точно — вернёмся к делу.",,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002015,"Стой... куда я шёл? А, точно, помогать тебе.","Стой... куда я шёл? А, точно, помогать тебе.",,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002016,"Так, ножи с собой... вроде все. Иду.","Так, ножи с собой... вроде все. Иду.",,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002017,"Контракт заканчивается. Продлеваем, или я опять забуду, где мои ножи?","Контракт заканчивается. Продлеваем, или я опять забуду, где мои ножи?",,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002018,"Остаюсь. Ножи точить веселее, когда есть цель.","Остаюсь. Ножи точить веселее, когда есть цель.",,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002019,"Димитрий! Э-э, да, я тут.","Димитрий! Э-э, да, я тут.",,jazz-units:items.lua:72177
+890000000002020,"Куда я его дел... а, вот!","Куда я его дел... а, вот!",,jazz-units:items.lua:72146
+890000000002021,Летит!,Летит!,,jazz-units:items.lua:72147
+890000000002022,Попал! Даже сам не ожидал.,Попал! Даже сам не ожидал.,,jazz-units:items.lua:72171
+890000000002023,Забыл пригнуться...,Забыл пригнуться...,,jazz-units:items.lua:72153
+890000000002024,Меня зацепило! Кто меня подстрелил?,Меня зацепило! Кто меня подстрелил?,,jazz-units:items.lua:72156
+890000000002025,"О! Бой! Погодите, я готов?","О! Бой! Погодите, я готов?",,jazz-units:items.lua:72150
+890000000002026,"Кажется, я что-то запомнил на этот раз.","Кажется, я что-то запомнил на этот раз.",,jazz-units:items.lua:72162
+890000000002027,Ножи кончились!,Ножи кончились!,,jazz-units:items.lua:72168
+890000000002028,А что я должен делать?,А что я должен делать?,,jazz-units:items.lua:72159
+890000000002029,Опять этот Ротман бы поворчал.,Опять этот Ротман бы поворчал.,,jazz-units:items.lua:72165
+890000000002030,"Хорошо, что свои рядом.","Хорошо, что свои рядом.",,jazz-units:items.lua:72174
+890000000002100,Штурм в упор,Штурм в упор,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002101,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002102,[WIP] Кевин «Бешеный» Камерон,[WIP] Кевин «Бешеный» Камерон,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002103,Бешеный,Бешеный,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002104,БЕШЕНЫЙ,БЕШЕНЫЙ,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002105,work in progress,work in progress,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002106,Ржавый бампер,Ржавый бампер,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002107,Madman@merc.com,Madman@merc.com,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002108,bumper,bumper,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002109,"О, Лиска с вами? Ну тогда я точно остаюсь, хе-хе.","О, Лиска с вами? Ну тогда я точно остаюсь, хе-хе.",,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002110,"Если увидите Лиску — скажите, что Бешеный спрашивал.","Если увидите Лиску — скажите, что Бешеный спрашивал.",,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002111,"Бешеный не берёт трубку — он ею бьёт. Перезвони, если не боишься.","Бешеный не берёт трубку — он ею бьёт. Перезвони, если не боишься.",,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002112,"Да я лучше бампером всех перемочу! Ну, есть дело или как?","Да я лучше бампером всех перемочу! Ну, есть дело или как?",,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002113,"Ты пропал, а я тут заскучал. Продолжай давай.","Ты пропал, а я тут заскучал. Продолжай давай.",,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002114,Ну где драка? Мне бы уже кого-то стукнуть.,Ну где драка? Мне бы уже кого-то стукнуть.,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002115,"Ха! Поехали крушить. Бесплатно, лишь бы весело было.","Ха! Поехали крушить. Бесплатно, лишь бы весело было.",,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002116,"Контракт заканчивается, но я всё равно бесплатный — продлеваем?","Контракт заканчивается, но я всё равно бесплатный — продлеваем?",,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002117,Остаюсь. Тут ещё есть что чинить и кого бить.,Остаюсь. Тут ещё есть что чинить и кого бить.,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002118,Бешеный готов крушить!,Бешеный готов крушить!,,jazz-units:items.lua:72351
+890000000002119,А ну иди сюда!,А ну иди сюда!,,jazz-units:items.lua:72323
+890000000002120,Бампером по башке!,Бампером по башке!,,jazz-units:items.lua:72324
+890000000002121,Красота!,Красота!,,jazz-units:items.lua:72345
+890000000002122,Не так я хотел кончить...,Не так я хотел кончить...,,jazz-units:items.lua:72330
+890000000002123,"Меня приложило! Ха, но норм!","Меня приложило! Ха, но норм!",,jazz-units:items.lua:72333
+890000000002124,ДА! Наконец-то!,ДА! Наконец-то!,,jazz-units:items.lua:72327
+890000000002125,Ещё крепче стал!,Ещё крепче стал!,,jazz-units:items.lua:72339
+890000000002126,Патроны? Кому они нужны!,Патроны? Кому они нужны!,,jazz-units:items.lua:72342
+890000000002127,Скучно! Дай мне что-нибудь сломать.,Скучно! Дай мне что-нибудь сломать.,,jazz-units:items.lua:72336
+890000000002128,Лиска рядом — день удался.,Лиска рядом — день удался.,,jazz-units:items.lua:72348
+890000000002200,Строгий инструктор,Строгий инструктор,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002201,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002202,[WIP] Лейтенант Конрад Джиллет,[WIP] Лейтенант Конрад Джиллет,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002203,Конрад,Конрад,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002204,КОНРАД,КОНРАД,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002205,work in progress,work in progress,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002206,Дорогой лейтенант,Дорогой лейтенант,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002207,Conrad@merc.com,Conrad@merc.com,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002208,ltgillett,ltgillett,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002209,"Пока пьяный Ларри в отряде — я не подписываюсь. Это не армия, а балаган.","Пока пьяный Ларри в отряде — я не подписываюсь. Это не армия, а балаган.",,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002210,Моя ставка не обсуждается — разве что в большую сторону.,Моя ставка не обсуждается — разве что в большую сторону.,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002211,"Отряд полон американцев. Ясно, доплата за акцент, который приходится терпеть.","Отряд полон американцев. Ясно, доплата за акцент, который приходится терпеть.",,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002212,Игги или Ротман уже здесь? Тогда условия меня устраивают.,Игги или Ротман уже здесь? Тогда условия меня устраивают.,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002213,Наймите ещё Игги — с толковым напарником дисциплина держится сама.,Наймите ещё Игги — с толковым напарником дисциплина держится сама.,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002214,"Лейтенант Джиллет. Оставьте сообщение — отвечу, если условия того стоят.","Лейтенант Джиллет. Оставьте сообщение — отвечу, если условия того стоят.",,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002215,Джиллет слушает. Излагайте условия — и не жадничайте.,Джиллет слушает. Излагайте условия — и не жадничайте.,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002216,"Связь прервалась. Продолжим — время дорого, как и я.","Связь прервалась. Продолжим — время дорого, как и я.",,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002217,Время — деньги. Моё особенно.,Время — деньги. Моё особенно.,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002218,Контракт принят. Постройте людей — начинаем с дисциплины.,Контракт принят. Постройте людей — начинаем с дисциплины.,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002219,Контракт заканчивается. У меня есть и другие предложения — решайте.,Контракт заканчивается. У меня есть и другие предложения — решайте.,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002220,Остаюсь. Ваша дисциплина меня почти впечатлила.,Остаюсь. Ваша дисциплина меня почти впечатлила.,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002221,"Лейтенант Джиллет, к вашим услугам.","Лейтенант Джиллет, к вашим услугам.",,jazz-units:items.lua:72577
+890000000002222,Цель захвачена.,Цель захвачена.,,jazz-units:items.lua:72546
+890000000002223,Точность прежде всего.,Точность прежде всего.,,jazz-units:items.lua:72547
+890000000002224,Учебная цель поражена.,Учебная цель поражена.,,jazz-units:items.lua:72571
+890000000002225,Недостойный конец...,Недостойный конец...,,jazz-units:items.lua:72556
+890000000002226,Ранен. Требую медицинской помощи.,Ранен. Требую медицинской помощи.,,jazz-units:items.lua:72559
+890000000002227,"Внимание, противник обнаружен.","Внимание, противник обнаружен.",,jazz-units:items.lua:72553
+890000000002228,Дисциплина приносит плоды.,Дисциплина приносит плоды.,,jazz-units:items.lua:72565
+890000000002229,Боезапас на исходе.,Боезапас на исходе.,,jazz-units:items.lua:72550
+890000000002230,Жду распоряжений.,Жду распоряжений.,,jazz-units:items.lua:72562
+890000000002231,Хоть бы Ларри протрезвел когда-нибудь.,Хоть бы Ларри протрезвел когда-нибудь.,,jazz-units:items.lua:72568
+890000000002232,С надёжным напарником и служба легче.,С надёжным напарником и служба легче.,,jazz-units:items.lua:72574
+890000000002300,Быстрая реакция,Быстрая реакция,,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002301,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002302,[WIP] Майк,[WIP] Майк,,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002303,Майк,Майк,,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002304,МАЙК,МАЙК,,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002305,work in progress,work in progress,,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002306,Старый друг,Старый друг,,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002307,Mike@aim.com,Mike@aim.com,,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002308,oldfriend,oldfriend,,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002309,"Стероид уже в отряде? Тогда ладно, с ним сработаемся.","Стероид уже в отряде? Тогда ладно, с ним сработаемся.",,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002310,Если нужен ещё один надёжный ствол — зовите Стероида.,Если нужен ещё один надёжный ствол — зовите Стероида.,,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002311,"Майк. Перезвоните — если срочно, я перезвоню первым.","Майк. Перезвоните — если срочно, я перезвоню первым.",,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002312,"Старый друг на линии. Ну, что у тебя за дело?","Старый друг на линии. Ну, что у тебя за дело?",,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002313,"Пропала связь. Ладно, продолжаем — я никуда не спешу.","Пропала связь. Ладно, продолжаем — я никуда не спешу.",,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002314,"Говори. Я слушаю, но недолго.","Говори. Я слушаю, но недолго.",,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002315,Как в старые добрые. Я в деле.,Как в старые добрые. Я в деле.,,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002316,Контракт заканчивается. Обычно я ухожу тихо — но спрошу: продлеваем?,Контракт заканчивается. Обычно я ухожу тихо — но спрошу: продлеваем?,,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002317,"Остаюсь. Одному веселее, но и тут ничего.","Остаюсь. Одному веселее, но и тут ничего.",,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002318,Майк на месте.,Майк на месте.,,jazz-units:items.lua:72751
+890000000002319,Вижу цель.,Вижу цель.,,jazz-units:items.lua:72723
+890000000002320,Работаю спокойно.,Работаю спокойно.,,jazz-units:items.lua:72724
+890000000002321,Чисто.,Чисто.,,jazz-units:items.lua:72745
+890000000002322,Не в этот раз...,Не в этот раз...,,jazz-units:items.lua:72733
+890000000002323,Подбили — но я держусь.,Подбили — но я держусь.,,jazz-units:items.lua:72736
+890000000002324,Вижу их первым.,Вижу их первым.,,jazz-units:items.lua:72730
+890000000002325,Опыт не пропьёшь.,Опыт не пропьёшь.,,jazz-units:items.lua:72742
+890000000002326,Патроны на исходе.,Патроны на исходе.,,jazz-units:items.lua:72727
+890000000002327,"Жду сигнала — один, как обычно.","Жду сигнала — один, как обычно.",,jazz-units:items.lua:72739
+890000000002328,"Хорошо, что Стероид рядом.","Хорошо, что Стероид рядом.",,jazz-units:items.lua:72748
+890000000002400,Артподготовка,Артподготовка,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002401,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002402,[WIP] Майор Сергей «Гром» Громов,[WIP] Майор Сергей «Гром» Громов,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002403,Гром,Гром,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002404,ГРОМ,ГРОМ,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002405,work in progress,work in progress,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002406,Афганец,Афганец,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002407,Grom@vvs.ru,Grom@vvs.ru,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002408,gromov,gromov,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002409,"Пока Скоуп у вас — нет. Он вечно критикует чужую наводку, а я его слышать не хочу.","Пока Скоуп у вас — нет. Он вечно критикует чужую наводку, а я его слышать не хочу.",,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002410,"Иван, Игорь или Игги уже здесь? Тогда своих не бросаю.","Иван, Игорь или Игги уже здесь? Тогда своих не бросаю.",,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002411,"Найдёте Ивана или Игоря — берите без раздумий, проверенные бойцы.","Найдёте Ивана или Игоря — берите без раздумий, проверенные бойцы.",,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002412,Громов. Связь позже — сейчас занят проверкой боекомплекта.,Громов. Связь позже — сейчас занят проверкой боекомплекта.,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002413,"Майор Громов. Аэродром ваш — значит, и я ваш.","Майор Громов. Аэродром ваш — значит, и я ваш.",,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002414,"Связь прервалась. Продолжайте, товарищ.","Связь прервалась. Продолжайте, товарищ.",,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002415,Жду приказа. Гранатомёт заряжен.,Жду приказа. Гранатомёт заряжен.,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002416,Гранатомёт с собой. Идём.,Гранатомёт с собой. Идём.,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002417,Контракт заканчивается. Я всё равно бесплатный — продолжаем службу?,Контракт заканчивается. Я всё равно бесплатный — продолжаем службу?,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002418,Остаюсь. Служба есть служба.,Остаюсь. Служба есть служба.,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002419,Майор Громов на позиции.,Майор Громов на позиции.,,jazz-units:items.lua:72950
+890000000002420,Огонь по цели!,Огонь по цели!,,jazz-units:items.lua:72919
+890000000002421,Гранатомёт готов.,Гранатомёт готов.,,jazz-units:items.lua:72920
+890000000002422,Цель уничтожена.,Цель уничтожена.,,jazz-units:items.lua:72944
+890000000002423,"Держитесь, ребята...","Держитесь, ребята...",,jazz-units:items.lua:72929
+890000000002424,"Ранен, но держу оружие.","Ранен, но держу оружие.",,jazz-units:items.lua:72932
+890000000002425,"Противник на подходе, к бою!","Противник на подходе, к бою!",,jazz-units:items.lua:72926
+890000000002426,Опыт Афгана не забывается.,Опыт Афгана не забывается.,,jazz-units:items.lua:72938
+890000000002427,Заряды на исходе!,Заряды на исходе!,,jazz-units:items.lua:72923
+890000000002428,"Жду приказа, майор наготове.","Жду приказа, майор наготове.",,jazz-units:items.lua:72935
+890000000002429,"Скоуп бы тут что-то поправил, наверное.","Скоуп бы тут что-то поправил, наверное.",,jazz-units:items.lua:72941
+890000000002430,Хорошо служить со своими.,Хорошо служить со своими.,,jazz-units:items.lua:72947
+890000000004601,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Meat
+890000000004602,[WIP] Тим «Рикошет» Саттонн,[WIP] Тим «Рикошет» Саттонн,,Jazz_Meat
+890000000004603,[WIP] Тортон «Мясо» Джонс,[WIP] Тортон «Мясо» Джонс,,Jazz_Meat
+890000000004604,Мясо,Мясо,,Jazz_Meat
+890000000004605,work in progress,work in progress,,Jazz_Meat
+890000000004606,work in progress,work in progress,,Jazz_Meat
+890000000004607,Гора,Гора,,Jazz_Meat
+890000000004608,Meat@merc.com,Meat@merc.com,,Jazz_Meat
+890000000004609,meat,meat,,Jazz_Meat
+890000000004610,Meat offline.,Meat offline.,,Jazz_Meat
+890000000004611,Meat here.,Meat here.,,Jazz_Meat
+890000000004612,Continue.,Continue.,,Jazz_Meat
+890000000004613,Waiting.,Waiting.,,Jazz_Meat
+890000000004614,Hired.,Hired.,,Jazz_Meat
+890000000004615,Contract ending?,Contract ending?,,Jazz_Meat
+890000000004616,Staying.,Staying.,,Jazz_Meat
+890000000004617,Тихая тень,Тихая тень,,Jazz_Carlos
+890000000004618,Скрытное убийство ножом не выдаёт позицию и возвращает потраченные ОД,Скрытное убийство ножом не выдаёт позицию и возвращает потраченные ОД,,Jazz_Carlos
+890000000004619,[WIP] Карлос Дасуза,[WIP] Карлос Дасуза,,Jazz_Carlos
+890000000004620,Карлос,Карлос,,Jazz_Carlos
+890000000004621,КАРЛОС,КАРЛОС,,Jazz_Carlos
+890000000004622,work in progress,work in progress,,Jazz_Carlos
+890000000004623,Пессимист,Пессимист,,Jazz_Carlos
+890000000004624,Carlos@arulco.reb,Carlos@arulco.reb,,Jazz_Carlos
+890000000004625,carlos,carlos,,Jazz_Carlos
+890000000004626,Carlos offline.,Carlos offline.,,Jazz_Carlos
+890000000004627,Carlos here.,Carlos here.,,Jazz_Carlos
+890000000004628,Continue.,Continue.,,Jazz_Carlos
+890000000004629,Waiting.,Waiting.,,Jazz_Carlos
+890000000004630,Hired.,Hired.,,Jazz_Carlos
+890000000004631,Contract ending?,Contract ending?,,Jazz_Carlos
+890000000004632,Staying.,Staying.,,Jazz_Carlos
+890000000004633,IRA,IRA,,Jazz_Devin
+890000000004634,Взрывы Девина крушат укрытия и поджигают всё вокруг,Взрывы Девина крушат укрытия и поджигают всё вокруг,,Jazz_Devin
+890000000004635,[WIP] Девин Коннелл,[WIP] Девин Коннелл,,Jazz_Devin
+890000000004636,Девин,Девин,,Jazz_Devin
+890000000004637,ДЕВИН,ДЕВИН,,Jazz_Devin
+890000000004638,work in progress,work in progress,,Jazz_Devin
+890000000004639,IRA,IRA,,Jazz_Devin
+890000000004640,Devin@arulco.local,Devin@arulco.local,,Jazz_Devin
+890000000004641,ira,ira,,Jazz_Devin
+890000000004642,Devin offline.,Devin offline.,,Jazz_Devin
+890000000004643,Devin here.,Devin here.,,Jazz_Devin
+890000000004644,Continue.,Continue.,,Jazz_Devin
+890000000004645,Waiting.,Waiting.,,Jazz_Devin
+890000000004646,Hired.,Hired.,,Jazz_Devin
+890000000004647,Contract ending?,Contract ending?,,Jazz_Devin
+890000000004648,Staying.,Staying.,,Jazz_Devin
+890000000004649,Не трогай меня,Не трогай меня,,Jazz_Shank
+890000000004650,Врагам сложнее попасть по Шенку в ближнем бою,Врагам сложнее попасть по Шенку в ближнем бою,,Jazz_Shank
+890000000004651,[WIP] Брием «Шенк» Друз,[WIP] Брием «Шенк» Друз,,Jazz_Shank
+890000000004652,Шенк,Шенк,,Jazz_Shank
+890000000004653,ШЕНК,ШЕНК,,Jazz_Shank
+890000000004654,work in progress,work in progress,,Jazz_Shank
+890000000004655,Манчкин,Манчкин,,Jazz_Shank
+890000000004656,Shank@merc.com,Shank@merc.com,,Jazz_Shank
+890000000004657,shank,shank,,Jazz_Shank
+890000000004658,Shank offline.,Shank offline.,,Jazz_Shank
+890000000004659,Shank here.,Shank here.,,Jazz_Shank
+890000000004660,Continue.,Continue.,,Jazz_Shank
+890000000004661,Waiting.,Waiting.,,Jazz_Shank
+890000000004662,Hired.,Hired.,,Jazz_Shank
+890000000004663,Contract ending?,Contract ending?,,Jazz_Shank
+890000000004664,Staying.,Staying.,,Jazz_Shank
+890000000004665,Полевой наставник,Полевой наставник,,Jazz_Vince
+890000000004666,Раз за бой лечение или подъём товарища возвращает ему ОД,Раз за бой лечение или подъём товарища возвращает ему ОД,,Jazz_Vince
+890000000004667,[WIP] Доктор Винсент «Винс»,[WIP] Доктор Винсент «Винс»,,Jazz_Vince
+890000000004668,Винс,Винс,,Jazz_Vince
+890000000004669,ВИНС,ВИНС,,Jazz_Vince
+890000000004670,work in progress,work in progress,,Jazz_Vince
+890000000004671,Ментор,Ментор,,Jazz_Vince
+890000000004672,Vince@arulco.med,Vince@arulco.med,,Jazz_Vince
+890000000004673,vince,vince,,Jazz_Vince
+890000000004674,Vince offline.,Vince offline.,,Jazz_Vince
+890000000004675,Vince here.,Vince here.,,Jazz_Vince
+890000000004676,Continue.,Continue.,,Jazz_Vince
+890000000004677,Waiting.,Waiting.,,Jazz_Vince
+890000000004678,Hired.,Hired.,,Jazz_Vince
+890000000004679,Contract ending?,Contract ending?,,Jazz_Vince
+890000000004680,Staying.,Staying.,,Jazz_Vince
+890000000004681,Вырубить,Вырубить,,Jazz_Hitman
+890000000004682,Раз за миссию выстрел из винтовки вырубает вместо убийства,Раз за миссию выстрел из винтовки вырубает вместо убийства,,Jazz_Hitman
+890000000004683,[WIP] Ричард «Убийца» Рутвен,[WIP] Ричард «Убийца» Рутвен,,Jazz_Hitman
+890000000004684,Убийца,Убийца,,Jazz_Hitman
+890000000004685,УБИЙЦА,УБИЙЦА,,Jazz_Hitman
+890000000004686,work in progress,work in progress,,Jazz_Hitman
+890000000004687,Разыскиваемый,Разыскиваемый,,Jazz_Hitman
+890000000004688,Hitman@dark.net,Hitman@dark.net,,Jazz_Hitman
+890000000004689,ruthven,ruthven,,Jazz_Hitman
+890000000004690,Hitman offline.,Hitman offline.,,Jazz_Hitman
+890000000004691,Hitman here.,Hitman here.,,Jazz_Hitman
+890000000004692,Continue.,Continue.,,Jazz_Hitman
+890000000004693,Waiting.,Waiting.,,Jazz_Hitman
+890000000004694,Hired.,Hired.,,Jazz_Hitman
+890000000004695,Contract ending?,Contract ending?,,Jazz_Hitman
+890000000004696,Staying.,Staying.,,Jazz_Hitman
+890000000004697,Старая школа,Старая школа,,Jazz_Biggens
+890000000004698,Заряды Биггенса труднее обнаружить и они быстрее взводятся,Заряды Биггенса труднее обнаружить и они быстрее взводятся,,Jazz_Biggens
+890000000004699,[WIP] Полковник Фредерик Биггенс,[WIP] Полковник Фредерик Биггенс,,Jazz_Biggens
+890000000004700,Биггенс,Биггенс,,Jazz_Biggens
+890000000004701,БИГГЕНС,БИГГЕНС,,Jazz_Biggens
+890000000004702,work in progress,work in progress,,Jazz_Biggens
+890000000004703,Усталый дед,Усталый дед,,Jazz_Biggens
+890000000004704,Biggens@ub.mil,Biggens@ub.mil,,Jazz_Biggens
+890000000004705,biggens,biggens,,Jazz_Biggens
+890000000004706,Biggens offline.,Biggens offline.,,Jazz_Biggens
+890000000004707,Biggens here.,Biggens here.,,Jazz_Biggens
+890000000004708,Continue.,Continue.,,Jazz_Biggens
+890000000004709,Waiting.,Waiting.,,Jazz_Biggens
+890000000004710,Hired.,Hired.,,Jazz_Biggens
+890000000004711,Contract ending?,Contract ending?,,Jazz_Biggens
+890000000004712,Staying.,Staying.,,Jazz_Biggens
+890000000004713,Оружейник старой закалки,Оружейник старой закалки,,Jazz_Kulba
+890000000004714,Автоматическое оружие Кульбы стреляет точнее и реже заклинивает,Автоматическое оружие Кульбы стреляет точнее и реже заклинивает,,Jazz_Kulba
+890000000004715,[WIP] Джон Кульба,[WIP] Джон Кульба,,Jazz_Kulba
+890000000004716,Кульба,Кульба,,Jazz_Kulba
+890000000004717,КУЛЬБА,КУЛЬБА,,Jazz_Kulba
+890000000004718,work in progress,work in progress,,Jazz_Kulba
+890000000004719,Патриот-дед,Патриот-дед,,Jazz_Kulba
+890000000004720,Kulba@ub.mil,Kulba@ub.mil,,Jazz_Kulba
+890000000004721,kulba,kulba,,Jazz_Kulba
+890000000004722,Kulba offline.,Kulba offline.,,Jazz_Kulba
+890000000004723,Kulba here.,Kulba here.,,Jazz_Kulba
+890000000004724,Continue.,Continue.,,Jazz_Kulba
+890000000004725,Waiting.,Waiting.,,Jazz_Kulba
+890000000004726,Hired.,Hired.,,Jazz_Kulba
+890000000004727,Contract ending?,Contract ending?,,Jazz_Kulba
+890000000004728,Staying.,Staying.,,Jazz_Kulba
+890000000004729,Ночной автоматчик,Ночной автоматчик,,Jazz_Vilde
+890000000004730,Ночью автоматный огонь Вильде точнее,Ночью автоматный огонь Вильде точнее,,Jazz_Vilde
+890000000004731,[WIP] Леннарт «Зануда» Вильде,[WIP] Леннарт «Зануда» Вильде,,Jazz_Vilde
+890000000004732,Зануда,Зануда,,Jazz_Vilde
+890000000004733,ЗАНУДА,ЗАНУДА,,Jazz_Vilde
+890000000004734,work in progress,work in progress,,Jazz_Vilde
+890000000004735,Тоже эстонец,Тоже эстонец,,Jazz_Vilde
+890000000004736,Vilde@aim.com,Vilde@aim.com,,Jazz_Vilde
+890000000004737,vilde,vilde,,Jazz_Vilde
+890000000004738,Vilde offline.,Vilde offline.,,Jazz_Vilde
+890000000004739,Vilde here.,Vilde here.,,Jazz_Vilde
+890000000004740,Continue.,Continue.,,Jazz_Vilde
+890000000004741,Waiting.,Waiting.,,Jazz_Vilde
+890000000004742,Hired.,Hired.,,Jazz_Vilde
+890000000004743,Contract ending?,Contract ending?,,Jazz_Vilde
+890000000004744,Staying.,Staying.,,Jazz_Vilde
+890000000004745,Точный бросок,Точный бросок,,Jazz_Grace
+890000000004746,Первый брошенный за ход нож никогда не промахивается по ближней цели,Первый брошенный за ход нож никогда не промахивается по ближней цели,,Jazz_Grace
+890000000004747,[WIP] Грациелла «Грейс» Джирелли,[WIP] Грациелла «Грейс» Джирелли,,Jazz_Grace
+890000000004748,Грейс,Грейс,,Jazz_Grace
+890000000004749,ГРЕЙС,ГРЕЙС,,Jazz_Grace
+890000000004750,work in progress,work in progress,,Jazz_Grace
+890000000004751,Итальянка,Итальянка,,Jazz_Grace
+890000000004752,Grace@aim.com,Grace@aim.com,,Jazz_Grace
+890000000004753,grace,grace,,Jazz_Grace
+890000000004754,Grace offline.,Grace offline.,,Jazz_Grace
+890000000004755,Grace here.,Grace here.,,Jazz_Grace
+890000000004756,Continue.,Continue.,,Jazz_Grace
+890000000004757,Waiting.,Waiting.,,Jazz_Grace
+890000000004758,Hired.,Hired.,,Jazz_Grace
+890000000004759,Contract ending?,Contract ending?,,Jazz_Grace
+890000000004760,Staying.,Staying.,,Jazz_Grace
+890000000004761,Ночной инструктор,Ночной инструктор,,Jazz_Steiger
+890000000004762,Ночью Штайгер обучает соседних союзников лучше стрелять,Ночью Штайгер обучает соседних союзников лучше стрелять,,Jazz_Steiger
+890000000004763,[WIP] Рудольф Штайгер,[WIP] Рудольф Штайгер,,Jazz_Steiger
+890000000004764,Штайгер,Штайгер,,Jazz_Steiger
+890000000004765,ШТАЙГЕР,ШТАЙГЕР,,Jazz_Steiger
+890000000004766,work in progress,work in progress,,Jazz_Steiger
+890000000004767,Дорогой немец,Дорогой немец,,Jazz_Steiger
+890000000004768,Steiger@aim.com,Steiger@aim.com,,Jazz_Steiger
+890000000004769,steiger,steiger,,Jazz_Steiger
+890000000004770,Steiger offline.,Steiger offline.,,Jazz_Steiger
+890000000004771,Steiger here.,Steiger here.,,Jazz_Steiger
+890000000004772,Continue.,Continue.,,Jazz_Steiger
+890000000004773,Waiting.,Waiting.,,Jazz_Steiger
+890000000004774,Hired.,Hired.,,Jazz_Steiger
+890000000004775,Contract ending?,Contract ending?,,Jazz_Steiger
+890000000004776,Staying.,Staying.,,Jazz_Steiger
+890000000004777,Второе дыхание,Второе дыхание,,Jazz_Lucky
+890000000004778,Раз за бой промах Лаки превращается в попадание,Раз за бой промах Лаки превращается в попадание,,Jazz_Lucky
+890000000004779,[WIP] Люк «Лаки» Фабр,[WIP] Люк «Лаки» Фабр,,Jazz_Lucky
+890000000004780,Лаки,Лаки,,Jazz_Lucky
+890000000004781,ЛАКИ,ЛАКИ,,Jazz_Lucky
+890000000004782,work in progress,work in progress,,Jazz_Lucky
+890000000004783,Бельгиец,Бельгиец,,Jazz_Lucky
+890000000004784,Lucky@aim.com,Lucky@aim.com,,Jazz_Lucky
+890000000004785,lucky,lucky,,Jazz_Lucky
+890000000004786,Lucky offline.,Lucky offline.,,Jazz_Lucky
+890000000004787,Lucky here.,Lucky here.,,Jazz_Lucky
+890000000004788,Continue.,Continue.,,Jazz_Lucky
+890000000004789,Waiting.,Waiting.,,Jazz_Lucky
+890000000004790,Hired.,Hired.,,Jazz_Lucky
+890000000004791,Contract ending?,Contract ending?,,Jazz_Lucky
+890000000004792,Staying.,Staying.,,Jazz_Lucky
+890000000004793,Скрытный врач,Скрытный врач,,Jazz_Laura
+890000000004794,Лечение и подъём союзников не выдают позицию Лоры,Лечение и подъём союзников не выдают позицию Лоры,,Jazz_Laura
+890000000004795,[WIP] Доктор Лора Колин,[WIP] Доктор Лора Колин,,Jazz_Laura
+890000000004796,Лора,Лора,,Jazz_Laura
+890000000004797,ЛОРА,ЛОРА,,Jazz_Laura
+890000000004798,work in progress,work in progress,,Jazz_Laura
+890000000004799,Цыганский врач,Цыганский врач,,Jazz_Laura
+890000000004800,Laura@aim.com,Laura@aim.com,,Jazz_Laura
+890000000004801,laura,laura,,Jazz_Laura
+890000000004802,Laura offline.,Laura offline.,,Jazz_Laura
+890000000004803,Laura here.,Laura here.,,Jazz_Laura
+890000000004804,Continue.,Continue.,,Jazz_Laura
+890000000004805,Waiting.,Waiting.,,Jazz_Laura
+890000000004806,Hired.,Hired.,,Jazz_Laura
+890000000004807,Contract ending?,Contract ending?,,Jazz_Laura
+890000000004808,Staying.,Staying.,,Jazz_Laura
+890000000004809,Тюремная выдержка,Тюремная выдержка,,Jazz_Eskimo
+890000000004810,Годы в тюрьме Альмы закалили Эскимо: он не паникует и стреляет метко даже раненым,Годы в тюрьме Альмы закалили Эскимо: он не паникует и стреляет метко даже раненым,,Jazz_Eskimo
+890000000004811,[WIP] Эмиль «Эскимо» Кимос,[WIP] Эмиль «Эскимо» Кимос,,Jazz_Eskimo
+890000000004812,Эскимо,Эскимо,,Jazz_Eskimo
+890000000004813,ЭСКИМО,ЭСКИМО,,Jazz_Eskimo
+890000000004814,work in progress,work in progress,,Jazz_Eskimo
+890000000004815,Пленный снайпер,Пленный снайпер,,Jazz_Eskimo
+890000000004816,Eskimo@arulco.reb,Eskimo@arulco.reb,,Jazz_Eskimo
+890000000004817,eskimo,eskimo,,Jazz_Eskimo
+890000000004818,Eskimo offline.,Eskimo offline.,,Jazz_Eskimo
+890000000004819,Eskimo here.,Eskimo here.,,Jazz_Eskimo
+890000000004820,Continue.,Continue.,,Jazz_Eskimo
+890000000004821,Waiting.,Waiting.,,Jazz_Eskimo
+890000000004822,Hired.,Hired.,,Jazz_Eskimo
+890000000004823,Contract ending?,Contract ending?,,Jazz_Eskimo
+890000000004824,Staying.,Staying.,,Jazz_Eskimo
+890000000005001,Толстокожий,Толстокожий,,Jazz_Perk_Meat
+890000000005002,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Meat
+890000000005003,Тихая тень,Тихая тень,,Jazz_Perk_Carlos
+890000000005004,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Carlos
+890000000005005,IRA,IRA,,Jazz_Perk_Devin
+890000000005006,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Devin
+890000000005007,Не трогай меня,Не трогай меня,,Jazz_Perk_Shank
+890000000005008,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Shank
+890000000005009,Полевой наставник,Полевой наставник,,Jazz_Perk_Vince
+890000000005010,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Vince
+890000000005011,Вырубить,Вырубить,,Jazz_Perk_Hitman
+890000000005012,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Hitman
+890000000005013,Старая школа,Старая школа,,Jazz_Perk_Biggens
+890000000005014,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Biggens
+890000000005015,Оружейник старой закалки,Оружейник старой закалки,,Jazz_Perk_Kulba
+890000000005016,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Kulba
+890000000005017,Ночной автоматчик,Ночной автоматчик,,Jazz_Perk_Vilde
+890000000005018,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Vilde
+890000000005019,Точный бросок,Точный бросок,,Jazz_Perk_Grace
+890000000005020,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Grace
+890000000005021,Ночной инструктор,Ночной инструктор,,Jazz_Perk_Steiger
+890000000005022,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Steiger
+890000000005023,Второе дыхание,Второе дыхание,,Jazz_Perk_Lucky
+890000000005024,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Lucky
+890000000005025,Скрытный врач,Скрытный врач,,Jazz_Perk_Laura
+890000000005026,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Laura
+890000000005027,Тюремная выдержка,Тюремная выдержка,,Jazz_Perk_Eskimo
+890000000005028,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Eskimo
+890000000002505,work in progress,work in progress,,Jazz_Bio_WIP
+890000000002605,work in progress,work in progress,,Jazz_Bio_WIP
+890000000002705,work in progress,work in progress,,Jazz_Bio_WIP
+890000000002805,work in progress,work in progress,,Jazz_Bio_WIP
+890000000002905,work in progress,work in progress,,Jazz_Bio_WIP
+890000000003005,work in progress,work in progress,,Jazz_Bio_WIP
+890000000003105,work in progress,work in progress,,Jazz_Bio_WIP
+890000000003205,work in progress,work in progress,,Jazz_Bio_WIP
+890000000003305,work in progress,work in progress,,Jazz_Bio_WIP
+890000000003405,work in progress,work in progress,,Jazz_Bio_WIP
+890000000003505,work in progress,work in progress,,Jazz_Bio_WIP
+890000000003605,work in progress,work in progress,,Jazz_Bio_WIP
+890000000003705,work in progress,work in progress,,Jazz_Bio_WIP
+890000000003805,work in progress,work in progress,,Jazz_Bio_WIP
+890000000003905,work in progress,work in progress,,Jazz_Bio_WIP
+890000000004005,work in progress,work in progress,,Jazz_Bio_WIP
+890000000004105,work in progress,work in progress,,Jazz_Bio_WIP
+890000000004205,work in progress,work in progress,,Jazz_Bio_WIP
+890000000004305,work in progress,work in progress,,Jazz_Bio_WIP
+890000000004405,work in progress,work in progress,,Jazz_Bio_WIP
+890000000004505,work in progress,work in progress,,Jazz_Bio_WIP
+890000000002501,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000002601,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000002701,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000002801,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000002901,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000003001,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000003101,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000003201,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000003301,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000003401,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000003501,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000003601,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000003701,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000003801,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000003901,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000004001,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000004101,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000004201,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000004301,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000004401,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000003501,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000003202,[WIP] Мигель Кордона,[WIP] Мигель Кордона,,Jazz_Name_WIP
+890000000003402,[WIP] Грег «Динамо» Дункан,[WIP] Грег «Динамо» Дункан,,Jazz_Name_WIP
+890000000004502,[WIP] Тим «Хоббит» Хиллман,[WIP] Тим «Хоббит» Хиллман,,Jazz_Name_WIP
+890000000003302,[WIP] Гамос,[WIP] Гамос,,Jazz_Name_WIP
+890000000003502,[WIP] Гастон Кавалье,[WIP] Гастон Кавалье,,Jazz_Name_WIP
+890000000004102,[WIP] Кирк «Статик» Стивенсон,[WIP] Кирк «Статик» Стивенсон,,Jazz_Name_WIP
+890000000004402,[WIP] Даг «Кардан» Милтон,[WIP] Даг «Кардан» Милтон,,Jazz_Name_WIP
+890000000004202,[WIP] Клиффорд «Скала» Хайбол,[WIP] Клиффорд «Скала» Хайбол,,Jazz_Name_WIP
+890000000004302,[WIP] Джон «Бык» Питерс,[WIP] Джон «Бык» Питерс,,Jazz_Name_WIP
+890000000002502,[WIP] Стефан Ротман,[WIP] Стефан Ротман,,Jazz_Name_WIP
+890000000003002,[WIP] Флоренс «Фло» Габриель,[WIP] Флоренс «Фло» Габриель,,Jazz_Name_WIP
+890000000003702,[WIP] Мануэль,[WIP] Мануэль,,Jazz_Name_WIP
+890000000003602,[WIP] Лейтенант Хорг «Сигара»,[WIP] Лейтенант Хорг «Сигара»,,Jazz_Name_WIP
+890000000003902,[WIP] Янно «Знаток» Аллик,[WIP] Янно «Знаток» Аллик,,Jazz_Name_WIP
+890000000003802,[WIP] Виктор «Монк» Колесников,[WIP] Виктор «Монк» Колесников,,Jazz_Name_WIP
+890000000004002,[WIP] Хеннинг фон Браниц,[WIP] Хеннинг фон Браниц,,Jazz_Name_WIP
+890000000003102,[WIP] Джим «Пума» Уоллесс,[WIP] Джим «Пума» Уоллесс,,Jazz_Name_WIP
+890000000002602,[WIP] Доктор Дэниел «Дэнни» Квинтен,[WIP] Доктор Дэниел «Дэнни» Квинтен,,Jazz_Name_WIP
+890000000002702,[WIP] Жан-Пьер «Злобный» Вио,[WIP] Жан-Пьер «Злобный» Вио,,Jazz_Name_WIP
+890000000002802,[WIP] Бифф Апскотт,[WIP] Бифф Апскотт,,Jazz_Name_WIP
+890000000002902,[WIP] Фрэнки «Нервный» Гордон,[WIP] Фрэнки «Нервный» Гордон,,Jazz_Name_WIP
+890000000006100,РљРѕРјР°РЅРґРЅР°СЏ Р°СѓСЂР°,РљРѕРјР°РЅРґРЅР°СЏ Р°СѓСЂР°,,Jazz_Perk_OfficerAura
+890000000006101,"Р­С‚РѕС‚ РєРѕРјР°РЅРґРёСЂ РґРµСЂР¶РёС‚ Р°СѓСЂСѓ РїСЂРёРєР°Р·Р° РЅР°Рґ СЃРѕСЋР·РЅРёРєР°РјРё РІ СЂР°РґРёСѓСЃРµ (СЃРµСЂР¶Р°РЅС‚ 15, Р»РµР№С‚РµРЅР°РЅС‚ 25, РєР°РїРёС‚Р°РЅ вЂ” РІСЃСЏ РєР°СЂС‚Р°).\n\nР’РѕР·РјРѕР¶РЅС‹Рµ РїСЂРёРєР°Р·С‹: <em>Р”РµСЂР¶Р°С‚СЊ Р»РёРЅРёСЋ</em>, <em>Р”Р°РІРёС‚СЊ</em>, <em>РћС…РІР°С‚</em>, <em>РћС‚С…РѕРґ</em>, <em>РЎРѕСЃСЂРµРґРѕС‚РѕС‡РёС‚СЊ РѕРіРѕРЅСЊ</em>, <em>РќРёР·РєР°СЏ РІРёРґРёРјРѕСЃС‚СЊ вЂ” РґРµСЂР¶Р°С‚СЊ</em>. РџСЂРёРєР°Р· РѕР±РЅРѕРІР»СЏРµС‚СЃСЏ РїРѕ РѕР±СЃС‚Р°РЅРѕРІРєРµ.","Р­С‚РѕС‚ РєРѕРјР°РЅРґРёСЂ РґРµСЂР¶РёС‚ Р°СѓСЂСѓ РїСЂРёРєР°Р·Р° РЅР°Рґ СЃРѕСЋР·РЅРёРєР°РјРё РІ СЂР°РґРёСѓСЃРµ (СЃРµСЂР¶Р°РЅС‚ 15, Р»РµР№С‚РµРЅР°РЅС‚ 25, РєР°РїРёС‚Р°РЅ вЂ” РІСЃСЏ РєР°СЂС‚Р°).\n\nР’РѕР·РјРѕР¶РЅС‹Рµ РїСЂРёРєР°Р·С‹: <em>Р”РµСЂР¶Р°С‚СЊ Р»РёРЅРёСЋ</em>, <em>Р”Р°РІРёС‚СЊ</em>, <em>РћС…РІР°С‚</em>, <em>РћС‚С…РѕРґ</em>, <em>РЎРѕСЃСЂРµРґРѕС‚РѕС‡РёС‚СЊ РѕРіРѕРЅСЊ</em>, <em>РќРёР·РєР°СЏ РІРёРґРёРјРѕСЃС‚СЊ вЂ” РґРµСЂР¶Р°С‚СЊ</em>. РџСЂРёРєР°Р· РѕР±РЅРѕРІР»СЏРµС‚СЃСЏ РїРѕ РѕР±СЃС‚Р°РЅРѕРІРєРµ.",,Jazz_Perk_OfficerAura
+890000000006102,РћС‚РґР°С‘С‚ РїСЂРёРєР°Р·С‹,РћС‚РґР°С‘С‚ РїСЂРёРєР°Р·С‹,,Jazz_Perk_OfficerAura
+890000000006103,РџРѕРґ РІР»РёСЏРЅРёРµРј Р°СѓСЂС‹,РџРѕРґ РІР»РёСЏРЅРёРµРј Р°СѓСЂС‹,,Jazz_Perk_OfficerAuraInfluence
+890000000006104,"Р‘РѕРµС† РІ СЂР°РґРёСѓСЃРµ РєРѕРјР°РЅРґРёСЂСЃРєРѕР№ Р°СѓСЂС‹ Рё СЃР»РµРґСѓРµС‚ С‚РµРєСѓС‰РµРјСѓ РїСЂРёРєР°Р·Сѓ РѕС‚СЂСЏРґР° (СѓРґРµСЂР¶Р°РЅРёРµ, РЅР°С‚РёСЃРє, РѕС…РІР°С‚ Рё С‚.Рґ.). Р­С„С„РµРєС‚ СЃРЅРёРјР°РµС‚СЃСЏ, РµСЃР»Рё РєРѕРјР°РЅРґРёСЂ РїРѕРіРёР± РёР»Рё Р±РѕРµС† РІС‹С€РµР» РёР· СЂР°РґРёСѓСЃР°.","Р‘РѕРµС† РІ СЂР°РґРёСѓСЃРµ РєРѕРјР°РЅРґРёСЂСЃРєРѕР№ Р°СѓСЂС‹ Рё СЃР»РµРґСѓРµС‚ С‚РµРєСѓС‰РµРјСѓ РїСЂРёРєР°Р·Сѓ РѕС‚СЂСЏРґР° (СѓРґРµСЂР¶Р°РЅРёРµ, РЅР°С‚РёСЃРє, РѕС…РІР°С‚ Рё С‚.Рґ.). Р­С„С„РµРєС‚ СЃРЅРёРјР°РµС‚СЃСЏ, РµСЃР»Рё РєРѕРјР°РЅРґРёСЂ РїРѕРіРёР± РёР»Рё Р±РѕРµС† РІС‹С€РµР» РёР· СЂР°РґРёСѓСЃР°.",,Jazz_Perk_OfficerAuraInfluence
+890000000006105,РџРѕРґ РїСЂРёРєР°Р·РѕРј,РџРѕРґ РїСЂРёРєР°Р·РѕРј,,Jazz_Perk_OfficerAuraInfluence

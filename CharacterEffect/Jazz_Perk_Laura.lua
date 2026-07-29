@@ -5,7 +5,7 @@ DefineClass.Jazz_Perk_Laura = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000005025, "Скрытный врач"),
-	Description = T(890000000005026, "Лечение и подъём союзников не выдают позицию Лоры"),
-	Icon = "UI/Icons/Perks/Thinking",
+	Description = T(890000000005026, "WIP — механика сигнатурного перка в разработке."),
+	Icon = "Mod/e6L4ECj/Perks/Personal/Laura.png",
 	Tier = "Personal",
 }

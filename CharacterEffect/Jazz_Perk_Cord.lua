@@ -7,7 +7,7 @@ DefineClass.Jazz_Perk_Cord = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000004400, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cord DisplayName]] "Тихий ремонт"),
-	Description = T(890000000004401, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cord Description]] "Ремонт обходится быстрее и дешевле"),
-	Icon = "UI/Icons/Perks/MrFixit",
+	Description = T(890000000004401, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cord Description]] "WIP — механика сигнатурного перка в разработке."),
+	Icon = "Mod/e6L4ECj/Perks/Personal/Cord.png",
 	Tier = "Personal",
 }

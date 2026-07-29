@@ -63,7 +63,12 @@ approved_by: project-owner chat 2026-07-28 generate-all-mercs-by-priority
 - `JAZZ-UNITS-002-REQ-003` — новые loc-строки в том же change set в `Russian.csv` и `English.csv` (needs=0).
 - `JAZZ-UNITS-002-REQ-004` — именной перк с combat Mechanics получает Code hook или явно помеченный stub+follow-up AC; Colby Chain Panic — полный hook (+20% AoE, 20% panic).
 - `JAZZ-UNITS-002-REQ-005` — sync transaction: companion + items.lua + metadata.lua для затронутых пакетов.
-- `JAZZ-UNITS-002-REQ-006` — портреты: no weapons, class kit, no rank chevrons, soft alpha, JA3 color grade.
+- `JAZZ-UNITS-002-REQ-006` — портреты: no weapons, class kit, no rank chevrons, soft alpha, JA3 color grade, `#FF00FF` soft-cut, proportions, Big без crop головы/стоп; style-refs только `MercPortraits/References/`.
+- `JAZZ-UNITS-002-REQ-007` — **3 варианта** портретов на мерка в `MercPortraits/wip-regen/`:
+  - `v1_appearance_backstory_bio/` — APPEARANCE + BACKSTORY/LOOK + BIO
+  - `v2_appearance_only/` — только APPEARANCE (внешность)
+  - `v3_bio_backstory/` — BIO + BACKSTORY/LOOK
+  Источник: [`_appearance-sheet.md`](../../design/mercs-ja12/_appearance-sheet.md) / Google Sheet. Огнестрел из sheet не рисовать.
 
 ## Инварианты и ограничения
 
@@ -79,6 +84,7 @@ approved_by: project-owner chat 2026-07-28 generate-all-mercs-by-priority
 - `JAZZ-UNITS-002-AC-003` — static: loc audit needs Russian=0, needs English=0 для волны.
 - `JAZZ-UNITS-002-AC-004` — static: Colby perk hooks присутствуют в Code.
 - `JAZZ-UNITS-002-AC-005` — human/runtime: AIM hire + portrait display + perk smoke (owner playtest accepted 2026-07-28 for shipped Colby).
+- `JAZZ-UNITS-002-AC-006` — static: в `wip-regen` для каждого slug очереди есть пары 300/2000 во всех трёх вариантах v1/v2/v3.
 
 ## Impact и совместимость
 

@@ -55,7 +55,7 @@ DefineClass.suppressionHeavy2 = {
 		                    end
 		                end
 	end,
-	Icon = "Mod/e6L4ECj/Icons/suppressionHeavy2.png",
+	Icon = "Mod/e6L4ECj/Icons/StatusEffects/suppressionHeavy2.png",
 	RemoveOnEndCombat = true,
 	Shown = true,
 }

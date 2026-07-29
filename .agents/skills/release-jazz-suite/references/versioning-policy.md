@@ -23,10 +23,10 @@ version_major.version_minor-version
 | Поле metadata | Правило |
 |---|---|
 | `version_major` | Несовместимое поколение после стабилизации публичного контракта |
-| `version_minor` | Новый совместимый функционал; до `1.0` также явно объявленный breaking change |
-| `version` | Read-only Revision, автоматически обновляемая Mod Editor; третье число tag |
+| `version_minor` | Новый совместимый функционал; до `1.0` также явно объявленный breaking change. При коммите крупного/feature изменения пакета — `+1` в том же change set |
+| `version` | Read-only Revision, автоматически обновляемая Mod Editor; третье число tag; при коммите вручную не менять |
 
-Для совместимого исправления major/minor не менять. Выпуск получает новый tag из нового committed editor revision.
+Для мелкого совместимого исправления major/minor можно не менять. Крупный/feature коммит пакета обязан поднять его `version_minor`. Выпуск комплекта получает новый tag из нового committed **core** editor revision. См. `.cursor/rules/jazz-commits-versioning.mdc`.
 
 Revision не сбрасывать и не выравнивать вручную при изменении major/minor. Значения metadata имеют приоритет над чистой арифметикой SemVer.
 

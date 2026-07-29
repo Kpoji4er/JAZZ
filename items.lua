@@ -32112,12 +32112,12 @@ return {
 					id = "MinorAccuracyBonus",
 				}),
 				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(890000000001324, --[[ModItemWeaponComponentEffect EnableBurst Description]] "Разблокирует режим <em>Стрельбы очередями</em> "),
+					Description = T(890000000001324, --[[ModItemWeaponComponentEffect EnableBurst Description]] "WIP — механика сигнатурного перка в разработке."),
 					group = "Default",
 					id = "EnableBurst",
 				}),
 				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(890000000001323, --[[ModItemWeaponComponentEffect LaserMark Description]] "Лазер: +<LaserCTH> шанс попасть на дистанции до  <LaserDistance> клеток"),
+					Description = T(890000000001323, --[[ModItemWeaponComponentEffect LaserMark Description]] "WIP — механика сигнатурного перка в разработке."),
 					Parameters = {
 						PlaceObj('PresetParamNumber', {
 							'Name', "LaserCTH",
@@ -58478,7 +58478,7 @@ return {
 				'OnAdded', function (self, obj)  end,
 				'type', "Debuff",
 				'lifetime', "Until End of Turn",
-				'Icon', "Mod/e6L4ECj/Icons/MarkedTraccers.png",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/MarkedTraccers.png",
 				'max_stacks', 5,
 				'RemoveOnEndCombat', true,
 				'Shown', true,
@@ -58495,7 +58495,7 @@ return {
 				'OnAdded', function (self, obj)  end,
 				'type', "Debuff",
 				'lifetime', "Until End of Turn",
-				'Icon', "Mod/e6L4ECj/Icons/MarkedTraccers.png",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/MarkedTraccers.png",
 				'max_stacks', 5,
 				'RemoveOnEndCombat', true,
 			}),
@@ -59121,7 +59121,7 @@ return {
 					Comment = "-> Attack FiringMode",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(890000000000892, --[[ModItemCombatAction BurstFire Description]] "Выстрел <color EmStyle><num> патронами</color> по цели. Точность снижается под влиянием отдачи"),
+					Description = T(890000000000892, --[[ModItemCombatAction BurstFire Description]] "WIP — механика сигнатурного перка в разработке."),
 					DisplayName = T(885711257338, --[[ModItemCombatAction BurstFire DisplayName]] "Burst Fire"),
 					DisplayNameShort = T(421007639739, --[[ModItemCombatAction BurstFire DisplayNameShort]] "Burst"),
 					Execute = function (self, units, args)
@@ -59421,7 +59421,7 @@ return {
 					Comment = "-> Attack FiringMode",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(890000000000649, --[[ModItemCombatAction AutoFire Description]] "Стрельба длинной очередью из <color EmStyle><bullets> патронов</color>. Точность снижается под влиянием отдачи"),
+					Description = T(890000000000649, --[[ModItemCombatAction AutoFire Description]] "WIP — механика сигнатурного перка в разработке."),
 					DisplayName = T(890000000001276, --[[ModItemCombatAction AutoFire DisplayName]] "Длинная очередь"),
 					DisplayNameShort = T(810267106493, --[[ModItemCombatAction AutoFire DisplayNameShort]] "Auto"),
 					Execute = function (self, units, args)
@@ -59657,7 +59657,7 @@ return {
 					ActionType = "Ranged Attack",
 					AimType = "mobile",
 					CostBasedOnWeapon = true,
-					Description = T(890000000001073, --[[ModItemCombatAction MobileShot Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию и два выстрела по ближайшим целям."),
+					Description = T(890000000001073, --[[ModItemCombatAction MobileShot Description]] "WIP — механика сигнатурного перка в разработке."),
 					DisplayName = T(890000000000791, --[[ModItemCombatAction MobileShot DisplayName]] "Маневр с Пистолетом"),
 					GetActionDamage = function (self, unit, target, args)
 						local rangedAttack = unit:GetDefaultAttackAction("ranged") 
@@ -59721,7 +59721,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/MobileShot_Pistol.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/MobileShot_Pistol.png",
 					IdDefault = "MobileShotdefault",
 					IsAimableAttack = false,
 					KeybindingSortId = "2371",
@@ -59762,7 +59762,7 @@ return {
 					ActionType = "Ranged Attack",
 					AimType = "mobile",
 					CostBasedOnWeapon = true,
-					Description = T(890000000000492, --[[ModItemCombatAction RunAndGun Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию, в процессе которого вы выпускаете до <em><num_shots> коротких очередей</em> по ближайшим целям. "),
+					Description = T(890000000000492, --[[ModItemCombatAction RunAndGun Description]] "WIP — механика сигнатурного перка в разработке."),
 					DisplayName = T(890000000000550, --[[ModItemCombatAction RunAndGun DisplayName]] "Стрельба на бегу"),
 					GetActionDamage = function (self, unit, target, args)
 						local weapon = self:GetAttackWeapons(unit, args)
@@ -59818,7 +59818,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/RunNGun.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/RunNGun.png",
 					IdDefault = "RunAndGundefault",
 					IsAimableAttack = false,
 					KeybindingSortId = "2372",
@@ -59864,7 +59864,7 @@ return {
 					ActionType = "Ranged Attack",
 					AimType = "mobile",
 					CostBasedOnWeapon = true,
-					Description = T(890000000000491, --[[ModItemCombatAction RunAndGun_Carbine Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию, в процессе которого вы аттакуете до <em><num_shots></em> ближайших целей. "),
+					Description = T(890000000000491, --[[ModItemCombatAction RunAndGun_Carbine Description]] "WIP — механика сигнатурного перка в разработке."),
 					DisplayName = T(890000000000551, --[[ModItemCombatAction RunAndGun_Carbine DisplayName]] "Стрельба на бегу (Карабин)"),
 					GetActionDamage = function (self, unit, target, args)
 						local weapon = self:GetAttackWeapons(unit, args)
@@ -59920,7 +59920,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/RunNGun.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/RunNGun.png",
 					IdDefault = "RunAndGun_Carbinedefault",
 					IsAimableAttack = false,
 					KeybindingSortId = "2372",
@@ -60957,7 +60957,7 @@ return {
 					Comment = "-> Attack FiringMode",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(890000000000893, --[[ModItemCombatAction JAZZ_Fanning Description]] "<color EmStyle>Один раз в ход.</color>.\nВыстрел <color EmStyle><num> патронами</color> по цели. Точность снижается под влиянием отдачи"),
+					Description = T(890000000000893, --[[ModItemCombatAction JAZZ_Fanning Description]] "WIP — механика сигнатурного перка в разработке."),
 					DisplayName = T(890000000000928, --[[ModItemCombatAction JAZZ_Fanning DisplayName]] "Фэннинг"),
 					DisplayNameShort = T(890000000000715, --[[ModItemCombatAction JAZZ_Fanning DisplayNameShort]] "Фэннинг"),
 					Execute = function (self, units, args)
@@ -61050,7 +61050,7 @@ return {
 						
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Fanning.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/Fanning.png",
 					IconFiringMode = "UI/Hud/fm_burst_fire",
 					IdDefault = "JAZZ_Fanningdefault",
 					IsAimableAttack = false,
@@ -61093,7 +61093,7 @@ return {
 					AimType = "line",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(890000000001185, --[[ModItemCombatAction JAZZ_Bullseye Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nВыстрел в голову с +100% шансом крита\nИгнорирует броню "),
+					Description = T(890000000001185, --[[ModItemCombatAction JAZZ_Bullseye Description]] "WIP — механика сигнатурного перка в разработке."),
 					DisplayName = T(890000000000912, --[[ModItemCombatAction JAZZ_Bullseye DisplayName]] "В Яблочко"),
 					DisplayNameShort = T(890000000000569, --[[ModItemCombatAction JAZZ_Bullseye DisplayNameShort]] "В Яблочко"),
 					GetAPCost = function (self, unit, args)
@@ -61149,7 +61149,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Bullseye.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/Bullseye.png",
 					IdDefault = "JAZZ_Bullseyedefault",
 					MultiSelectBehavior = "first",
 					Parameters = {
@@ -61182,7 +61182,7 @@ return {
 					Comment = "-> Attack FiringMode",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(890000000000650, --[[ModItemCombatAction JAZZ_SmgStorm Description]] "<color EmStyle>Один раз в ход.</color>.\nСтрельба длинной очередью из <color EmStyle><bullets> патронов</color> с увеличенным подавлением, но более низкой точностью. Точность снижается под влиянием отдачи"),
+					Description = T(890000000000650, --[[ModItemCombatAction JAZZ_SmgStorm Description]] "WIP — механика сигнатурного перка в разработке."),
 					DisplayName = T(890000000001277, --[[ModItemCombatAction JAZZ_SmgStorm DisplayName]] "Шквал"),
 					DisplayNameShort = T(890000000000926, --[[ModItemCombatAction JAZZ_SmgStorm DisplayNameShort]] "Шквал"),
 					Execute = function (self, units, args)
@@ -61266,7 +61266,7 @@ return {
 						
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/SmgStorm.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/SmgStorm.png",
 					IdDefault = "JAZZ_SmgStormdefault",
 					IsAimableAttack = false,
 					IsTargetableAttack = true,
@@ -61309,7 +61309,7 @@ return {
 					ActionType = "Ranged Attack",
 					AimType = "mobile",
 					CostBasedOnWeapon = true,
-					Description = T(890000000000076, --[[ModItemCombatAction JAZZ_RunAndSMGStorm Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию, в процессе которого вы выпускаете до <em><num_shots> шквалов</em> по ближайшим целям. "),
+					Description = T(890000000000076, --[[ModItemCombatAction JAZZ_RunAndSMGStorm Description]] "WIP — механика сигнатурного перка в разработке."),
 					DisplayName = T(890000000000810, --[[ModItemCombatAction JAZZ_RunAndSMGStorm DisplayName]] "Шквал на бегу"),
 					GetActionDamage = function (self, unit, target, args)
 						local weapon = self:GetAttackWeapons(unit, args)
@@ -61364,7 +61364,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/SmgStormRun.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/SmgStormRun.png",
 					IdDefault = "JAZZ_RunAndSMGStormdefault",
 					IsAimableAttack = false,
 					KeybindingSortId = "2372",
@@ -61410,7 +61410,7 @@ return {
 					AimType = "line",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(890000000001186, --[[ModItemCombatAction JAZZ_Mozambique Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nДва выстрела в тело, один в голову. "),
+					Description = T(890000000001186, --[[ModItemCombatAction JAZZ_Mozambique Description]] "WIP — механика сигнатурного перка в разработке."),
 					DisplayName = T(890000000000914, --[[ModItemCombatAction JAZZ_Mozambique DisplayName]] "Мозамбик"),
 					DisplayNameShort = T(890000000000571, --[[ModItemCombatAction JAZZ_Mozambique DisplayNameShort]] "Мозамбик"),
 					GetAPCost = function (self, unit, args)
@@ -61466,7 +61466,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Mozambique.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/Mozambique.png",
 					IdDefault = "JAZZ_Mozambiquedefault",
 					MultiSelectBehavior = "first",
 					Parameters = {
@@ -61497,7 +61497,7 @@ return {
 					AimType = "line",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(890000000001187, --[[ModItemCombatAction JAZZ_Zipper Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nТри коротких очереди Ноги-Пах-Торс"),
+					Description = T(890000000001187, --[[ModItemCombatAction JAZZ_Zipper Description]] "WIP — механика сигнатурного перка в разработке."),
 					DisplayName = T(890000000000910, --[[ModItemCombatAction JAZZ_Zipper DisplayName]] "Зажимай"),
 					DisplayNameShort = T(890000000000567, --[[ModItemCombatAction JAZZ_Zipper DisplayNameShort]] "Зажимай"),
 					Execute = function (self, units, args)
@@ -61569,7 +61569,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Zipper.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/Zipper.png",
 					IdDefault = "JAZZ_Zipperdefault",
 					MultiSelectBehavior = "first",
 					Parameters = {
@@ -61599,7 +61599,7 @@ return {
 					AimType = "line",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(890000000001183, --[[ModItemCombatAction JAZZ_DoubleTap Description]] "<color EmStyle>Один раз в ход.</color>.\nДва быстрых выстрела"),
+					Description = T(890000000001183, --[[ModItemCombatAction JAZZ_DoubleTap Description]] "WIP — механика сигнатурного перка в разработке."),
 					DisplayName = T(890000000000913, --[[ModItemCombatAction JAZZ_DoubleTap DisplayName]] "Двоечка"),
 					DisplayNameShort = T(890000000000570, --[[ModItemCombatAction JAZZ_DoubleTap DisplayNameShort]] "Двоечка"),
 					GetAPCost = function (self, unit, args)
@@ -61654,7 +61654,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/DoubleTap.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/DoubleTap.png",
 					IdDefault = "JAZZ_DoubleTapdefault",
 					IsAimableAttack = false,
 					IsTargetableAttack = true,
@@ -61686,7 +61686,7 @@ return {
 					AimType = "line",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(890000000001184, --[[ModItemCombatAction JAZZ_Salvo Description]] "<color EmStyle>Один раз в ход.</color>.\nДва выстрела в тело"),
+					Description = T(890000000001184, --[[ModItemCombatAction JAZZ_Salvo Description]] "WIP — механика сигнатурного перка в разработке."),
 					DisplayName = T(890000000000911, --[[ModItemCombatAction JAZZ_Salvo DisplayName]] "Залп"),
 					DisplayNameShort = T(890000000000568, --[[ModItemCombatAction JAZZ_Salvo DisplayNameShort]] "Залп"),
 					GetAPCost = function (self, unit, args)
@@ -61738,7 +61738,7 @@ return {
 						local unit = units[1]
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Salvo.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/Salvo.png",
 					IdDefault = "JAZZ_Salvodefault",
 					MultiSelectBehavior = "first",
 					Parameters = {
@@ -61768,7 +61768,7 @@ return {
 					ActionType = "Ranged Attack",
 					AimType = "mobile",
 					CostBasedOnWeapon = true,
-					Description = T(890000000000075, --[[ModItemCombatAction JAZZ_ManeuverAR Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию, в процессе которого выпускается двойная длинная очередь по врагу "),
+					Description = T(890000000000075, --[[ModItemCombatAction JAZZ_ManeuverAR Description]] "WIP — механика сигнатурного перка в разработке."),
 					DisplayName = T(890000000000809, --[[ModItemCombatAction JAZZ_ManeuverAR DisplayName]] "Огонь и манёвр"),
 					GetActionDamage = function (self, unit, target, args)
 						local weapon = self:GetAttackWeapons(unit, args)
@@ -61823,7 +61823,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/MobileShot_Rifle.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/MobileShot_Rifle.png",
 					IdDefault = "JAZZ_ManeuverARdefault",
 					IsAimableAttack = false,
 					KeybindingSortId = "2372",
@@ -61871,7 +61871,7 @@ return {
 					Comment = "-> Attack FiringMode",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(890000000000894, --[[ModItemCombatAction JAZZ_ControllableBurst Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nКороткая очередь из  <color EmStyle><num> патрон</color>\nПервые два выстрела в очереди без отдачи"),
+					Description = T(890000000000894, --[[ModItemCombatAction JAZZ_ControllableBurst Description]] "WIP — механика сигнатурного перка в разработке."),
 					DisplayName = T(890000000000927, --[[ModItemCombatAction JAZZ_ControllableBurst DisplayName]] "Контролируемая очередь"),
 					DisplayNameShort = T(890000000000714, --[[ModItemCombatAction JAZZ_ControllableBurst DisplayNameShort]] "Контролируемая очередь"),
 					Execute = function (self, units, args)
@@ -61987,7 +61987,7 @@ return {
 						
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/ControlledBurst.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/ControlledBurst.png",
 					IconFiringMode = "UI/Hud/fm_burst_fire",
 					IdDefault = "JAZZ_ControllableBurstdefault",
 					IsTargetableAttack = true,
@@ -62025,7 +62025,7 @@ return {
 					Comment = "-> Attack FiringMode",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(890000000000648, --[[ModItemCombatAction JAZZ_LargeAutoFire Description]] "Неприцельная стрельба двойной длинной очередью из <color EmStyle><bullets> патронов</color>. \nУвеличен эффект подавления."),
+					Description = T(890000000000648, --[[ModItemCombatAction JAZZ_LargeAutoFire Description]] "WIP — механика сигнатурного перка в разработке."),
 					DisplayName = T(890000000001275, --[[ModItemCombatAction JAZZ_LargeAutoFire DisplayName]] "Двойная длинная очередь"),
 					DisplayNameShort = T(890000000000925, --[[ModItemCombatAction JAZZ_LargeAutoFire DisplayNameShort]] "Двойная длинная очередь"),
 					Execute = function (self, units, args)
@@ -62108,7 +62108,7 @@ return {
 						
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/LongestBurst.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/LongestBurst.png",
 					IconFiringMode = "UI/Hud/fm_autoshot",
 					IdDefault = "JAZZ_LargeAutoFiredefault",
 					IsAimableAttack = false,
@@ -62216,7 +62216,7 @@ return {
 						local state, reason = attack:GetUIState(units, args)
 						return state, reason
 					end,
-					Icon = "Mod/e6L4ECj/Perks/TargetSweep.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/TargetSweep.png",
 					IdDefault = "JAZZ_TargetSweepdefault",
 					KeybindingFromAction = "actionRedirectSignatureAbility",
 					MultiSelectBehavior = "first",
@@ -62299,7 +62299,7 @@ return {
 						if not attackWep then return "hidden" end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/JokerShot.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/JokerShot.png",
 					IconFiringMode = "UI/Hud/fm_single_shot",
 					IdDefault = "JAZZ_JokerShotdefault",
 					IsTargetableAttack = true,
@@ -62332,7 +62332,7 @@ return {
 					ActionType = "Ranged Attack",
 					AimType = "mobile",
 					CostBasedOnWeapon = true,
-					Description = T(890000000001072, --[[ModItemCombatAction JAZZ_MobileShotgun Description]] "<color EmStyle>Один раз за ход</color>.\nПереход на новую позицию и выстрел по ближайшей цели."),
+					Description = T(890000000001072, --[[ModItemCombatAction JAZZ_MobileShotgun Description]] "WIP — механика сигнатурного перка в разработке."),
 					DisplayName = T(890000000000792, --[[ModItemCombatAction JAZZ_MobileShotgun DisplayName]] "Маневр с Дробовиком"),
 					GetActionDamage = function (self, unit, target, args)
 						local rangedAttack = unit:GetDefaultAttackAction("ranged") 
@@ -62396,7 +62396,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/MobileShot_shotgun.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/MobileShot_shotgun.png",
 					IdDefault = "JAZZ_MobileShotgundefault",
 					IsAimableAttack = false,
 					KeybindingSortId = "2371",
@@ -62437,7 +62437,7 @@ return {
 					AimType = "line",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(890000000001182, --[[ModItemCombatAction JAZZ_MGSuppressionFire Description]] "Две длинная очереди с увеличенным подавлением"),
+					Description = T(890000000001182, --[[ModItemCombatAction JAZZ_MGSuppressionFire Description]] "WIP — механика сигнатурного перка в разработке."),
 					DisplayName = T(890000000000909, --[[ModItemCombatAction JAZZ_MGSuppressionFire DisplayName]] "Огонь на подавление"),
 					DisplayNameShort = T(890000000000566, --[[ModItemCombatAction JAZZ_MGSuppressionFire DisplayNameShort]] "Огонь на подавление"),
 					Execute = function (self, units, args)
@@ -62491,7 +62491,7 @@ return {
 						local unit = units[1]
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/LongestBurst.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/LongestBurst.png",
 					IdDefault = "JAZZ_MGSuppressionFiredefault",
 					MultiSelectBehavior = "first",
 					RequireState = "any",
@@ -62591,7 +62591,7 @@ return {
 						
 						return "enabled"
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Vova.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/Vova.png",
 					IdDefault = "JAZZ_VovaVistdefault",
 					IsAimableAttack = false,
 					KeybindingFromAction = "actionRedirectSignatureAbility",
@@ -65048,7 +65048,7 @@ return {
 						                    end
 						                end
 					end,
-					'Icon', "Mod/e6L4ECj/Icons/suppressionLight.png",
+					'Icon', "Mod/e6L4ECj/Icons/StatusEffects/suppressionLight.png",
 					'RemoveOnEndCombat', true,
 					'Shown', true,
 				}),
@@ -65091,7 +65091,7 @@ return {
 						                    end
 						                end
 					end,
-					'Icon', "Mod/e6L4ECj/Icons/suppressionMedium.png",
+					'Icon', "Mod/e6L4ECj/Icons/StatusEffects/suppressionMedium.png",
 					'RemoveOnEndCombat', true,
 					'Shown', true,
 				}),
@@ -65140,7 +65140,7 @@ return {
 						                    end
 						                end
 					end,
-					'Icon', "Mod/e6L4ECj/Icons/suppressionHeavy.png",
+					'Icon', "Mod/e6L4ECj/Icons/StatusEffects/suppressionHeavy.png",
 					'RemoveOnEndCombat', true,
 					'Shown', true,
 				}),
@@ -65207,7 +65207,7 @@ return {
 						                    end
 						                end
 					end,
-					'Icon', "Mod/e6L4ECj/Icons/suppressionHeavy2.png",
+					'Icon', "Mod/e6L4ECj/Icons/StatusEffects/suppressionHeavy2.png",
 					'RemoveOnEndCombat', true,
 					'Shown', true,
 				}),
@@ -65270,7 +65270,7 @@ return {
 						                    end
 						                end
 					end,
-					'Icon', "Mod/e6L4ECj/Icons/suppressionPinned.png",
+					'Icon', "Mod/e6L4ECj/Icons/StatusEffects/suppressionPinned.png",
 					'RemoveOnEndCombat', true,
 					'Shown', true,
 				}),
@@ -65953,7 +65953,7 @@ return {
 						if not unit:UIHasAP(cost) then return "disabled" end
 						return "enabled"
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Lynx6.png",
+					Icon = "Mod/e6L4ECj/Perks/Personal/Lynx6.png",
 					IdDefault = "Jazz_Perk_Lynxdefault",
 					IsToggledOn = function (self, unit)
 						return unit and unit:GetEffectValue("Jazz_Perk_00") or false
@@ -65977,7 +65977,7 @@ return {
 					'unit_reactions', {},
 					'DisplayName', T(623665702916, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lynx DisplayName]] "Рысий взгляд"),
 					'Description', T(890000000000868, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lynx Description]] "Дальность видимости днем повышена, а штрафы за дальность - понижены"),
-					'Icon', "Mod/e6L4ECj/Perks/Lynx.png",
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Lynx.png",
 					'Tier', "Personal",
 				}),
 				}),
@@ -66003,7 +66003,7 @@ return {
 						if not unit:UIHasAP(cost) then return "disabled" end
 						return "enabled"
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Buzz2.png",
+					Icon = "Mod/e6L4ECj/Perks/Personal/Buzz2.png",
 					IdDefault = "Jazz_Perk_Buzzdefault",
 					IsAimableAttack = false,
 					IsToggledOn = function (self, unit)
@@ -66028,7 +66028,7 @@ return {
 					'unit_reactions', {},
 					'DisplayName', T(890000000000805, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Buzz DisplayName]] "Свинцовый дождь"),
 					'Description', T(890000000000869, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Buzz Description]] "Увеличивает длину очереди на 50%"),
-					'Icon', "Mod/e6L4ECj/Perks/Buzz.png",
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Buzz.png",
 					'Tier', "Personal",
 				}),
 				}),
@@ -66054,7 +66054,7 @@ return {
 						if not unit:UIHasAP(cost) then return "disabled" end
 						return "enabled"
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Spider2.png",
+					Icon = "Mod/e6L4ECj/Perks/Personal/Spider2.png",
 					IdDefault = "Jazz_Perk_Spiderdefault",
 					IsToggledOn = function (self, unit)
 						return unit and unit:GetEffectValue("Jazz_Perk_00") or false
@@ -66078,7 +66078,7 @@ return {
 					'unit_reactions', {},
 					'DisplayName', T(890000000000804, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Spider DisplayName]] "Полевая хирургия"),
 					'Description', T(890000000000870, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Spider Description]] "Удваивает значение навыка медицины при лечении на глобальной карте\n"),
-					'Icon', "Mod/e6L4ECj/Perks/Spider.png",
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Spider.png",
 					'Tier', "Personal",
 				}),
 				}),
@@ -66104,7 +66104,7 @@ return {
 						if not unit:UIHasAP(cost) then return "disabled" end
 						return "enabled"
 					end,
-					Icon = "UI/Icons/Perks/DesignerExplosives",
+					Icon = "Mod/e6L4ECj/Perks/Personal/Colby.png",
 					IdDefault = "Jazz_Perk_Colbydefault",
 					IsToggledOn = function (self, unit)
 						return unit and unit:GetEffectValue("Jazz_Perk_00") or false
@@ -66149,8 +66149,8 @@ return {
 						}),
 					},
 					'DisplayName', T(890000000001700, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Colby DisplayName]] "Цепная паника"),
-					'Description', T(890000000001701, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Colby Description]] "Взрывы Колби сеют панику: +20% к радиусу и 20% шанс паники у раненых врагов в зоне"),
-					'Icon', "UI/Icons/Perks/DesignerExplosives",
+					'Description', T(890000000001701, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Colby Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Colby.png",
 					'Tier', "Personal",
 				}),
 				}),
@@ -66163,8 +66163,8 @@ return {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(890000000001800, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Blade DisplayName]] "Ураган клинков"),
-					'Description', T(890000000001801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Blade Description]] "Заряд клинком достаёт дальше; атаки бойни получают +20% к шансу попадания, но не могут критовать"),
-					'Icon', "UI/Icons/Perks/Psycho",
+					'Description', T(890000000001801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Blade Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Blade.png",
 					'Tier', "Personal",
 				}),
 				}),
@@ -66177,8 +66177,8 @@ return {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(890000000001900, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Ira DisplayName]] "Народный командир"),
-					'Description', T(890000000001901, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Ira Description]] "Пока Айра стоит гарнизоном в секторе, обучение местного ополчения там идёт вдвое быстрее"),
-					'Icon', "UI/Icons/Perks/Spiritual",
+					'Description', T(890000000001901, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Ira Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Ira.png",
 					'Tier', "Personal",
 				}),
 				}),
@@ -66191,8 +66191,8 @@ return {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(890000000002000, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Dimitri DisplayName]] "Точильщик"),
-					'Description', T(890000000002001, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Dimitri Description]] "Носит с собой запас доведённых до остроты бритвы метательных ножей: +20 к проверке ведущего навыка броска"),
-					'Icon', "UI/Icons/Perks/ContestGround",
+					'Description', T(890000000002001, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Dimitri Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Dimitri.png",
 					'Tier', "Personal",
 				}),
 				}),
@@ -66205,8 +66205,8 @@ return {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(890000000002100, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Madman DisplayName]] "Штурм в упор"),
-					'Description', T(890000000002101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Madman Description]] "Убийство в упор (оружием ближнего боя или выстрелом почти в упор) даёт Воодушевление"),
-					'Icon', "UI/Icons/Perks/GrizzlyPerk",
+					'Description', T(890000000002101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Madman Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Madman.png",
 					'Tier', "Personal",
 				}),
 				}),
@@ -66219,8 +66219,8 @@ return {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(890000000002200, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Conrad DisplayName]] "Строгий инструктор"),
-					'Description', T(890000000002201, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Conrad Description]] "Конрад всегда тренирует на полной скорости и не теряет темп рядом с другими инструкторами"),
-					'Icon', "UI/Icons/Perks/Bond",
+					'Description', T(890000000002201, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Conrad Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Conrad.png",
 					'Tier', "Personal",
 				}),
 				}),
@@ -66233,8 +66233,8 @@ return {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(890000000002300, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Mike DisplayName]] "Быстрая реакция"),
-					'Description', T(890000000002301, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Mike Description]] "Первым замечает угрозу и получает свободное действие при обнаружении врага вне боя"),
-					'Icon', "UI/Icons/Perks/GruntyPerk",
+					'Description', T(890000000002301, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Mike Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Mike.png",
 					'Tier', "Personal",
 				}),
 				}),
@@ -66247,11 +66247,486 @@ return {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(890000000002400, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Grom DisplayName]] "Артподготовка"),
-					'Description', T(890000000002401, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Grom Description]] "Первое попадание из тяжёлого оружия или бросок в ходе применяет статус «Подавление» ко всем врагам в радиусе поражения"),
-					'Icon', "UI/Icons/Perks/HeavyWeaponsTraining",
+					'Description', T(890000000002401, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Grom Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Grom.png",
 					'Tier', "Personal",
 				}),
 				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Rothman",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Rothman",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Rothman.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Quinten",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Quinten",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Quinten.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Vicious",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Vicious",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Vicious.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Biff",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Biff",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Biff.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Nervous",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Nervous",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Nervous.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Dynamo",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Dynamo",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Dynamo.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Gaston",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Gaston",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Gaston.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Horg",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Horg",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Horg.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Manuel",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Manuel",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Manuel.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Monk",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Monk",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Monk.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Allik",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Allik",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Allik.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Henning",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Henning",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Henning.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Static",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Static",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Static.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Highball",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Highball",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Highball.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Bull",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Bull",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Bull.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Cord",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Cord",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Cord.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Hobbit",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Hobbit",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Hobbit.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Ricochet",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Ricochet",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Ricochet.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Meat",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Meat",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Meat.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Carlos",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Carlos",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Carlos.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Devin",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Devin",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Devin.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Shank",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Shank",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Shank.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Vince",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Vince",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Vince.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Hitman",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Hitman",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Hitman.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Biggens",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Biggens",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Biggens.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Kulba",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Kulba",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Kulba.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Vilde",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Vilde",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Vilde.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Grace",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Grace",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Grace.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Steiger",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Steiger",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Steiger.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Lucky",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Lucky",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Lucky.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Laura",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Laura",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Laura.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Eskimo",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Eskimo",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Eskimo.png",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "System",
+					'Id', "Jazz_Perk_OfficerAura",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000006100, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAura DisplayName]] "Командная аура"),
+					'Description', T(890000000006101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAura Description]] "Этот командир держит ауру приказа над союзниками в радиусе (сержант 15, лейтенант 25, капитан — вся карта).\n\nВозможные приказы: <em>Держать линию</em>, <em>Давить</em>, <em>Охват</em>, <em>Отход</em>, <em>Сосредоточить огонь</em>, <em>Низкая видимость — держать</em>. Приказ обновляется по обстановке."),
+					'AddEffectText', T(890000000006102, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAura AddEffectText]] "Отдаёт приказы"),
+					'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Jazz_OfficerAura.png",
+					'Tier', "System",
+					'RemoveOnEndCombat', true,
+					'Shown', true,
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "System",
+					'Id', "Jazz_Perk_OfficerAuraInfluence",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000006103, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAuraInfluence DisplayName]] "Под влиянием ауры"),
+					'Description', T(890000000006104, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAuraInfluence Description]] "Боец в радиусе командирской ауры и следует текущему приказу отряда (удержание, натиск, охват и т.д.). Эффект снимается, если командир погиб или боец вышел из радиуса."),
+					'AddEffectText', T(890000000006105, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAuraInfluence AddEffectText]] "Под приказом"),
+					'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Jazz_OfficerAuraInfluence.png",
+					'Tier', "System",
+					'RemoveOnEndCombat', true,
+					'Shown', true,
+				}),
+				}),
+
 			PlaceObj('ModItemFolder', {
 				'name', "Flo",
 			}, {
@@ -66261,8 +66736,8 @@ return {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(890000000003000, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Flo DisplayName]] "Барахольщица"),
-					'Description', T(890000000003001, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Flo Description]] "Скидки у торговцев на покупку и продажу"),
-					'Icon', "UI/Icons/Perks/Negotiator",
+					'Description', T(890000000003001, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Flo Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Flo.png",
 					'Tier', "Personal",
 				}),
 				}),
@@ -66275,8 +66750,8 @@ return {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(890000000003100, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cougar DisplayName]] "Мягкая лапа"),
-					'Description', T(890000000003101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cougar Description]] "Шум от выстрелов Пумы вдвое тише; выше шанс скрытного убийства"),
-					'Icon', "UI/Icons/Perks/Stealthy",
+					'Description', T(890000000003101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cougar Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Cougar.png",
 					'Tier', "Personal",
 				}),
 				}),
@@ -66289,8 +66764,8 @@ return {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(890000000003200, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Miguel DisplayName]] "Команданте"),
-					'Description', T(890000000003201, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Miguel Description]] "Пока Мигель гарнизоном стоит в секторе с ополчением, оно получает бонус к прочности и меткости; при бою вместе с ополчением все ополченцы получают дополнительное очко действия в начале боя"),
-					'Icon', "UI/Icons/Perks/LeadFromTheFront",
+					'Description', T(890000000003201, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Miguel Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Miguel.png",
 					'Tier', "Personal",
 				}),
 				}),
@@ -66303,8 +66778,8 @@ return {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(890000000003300, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Gamos DisplayName]] "Тропы джунглей"),
-					'Description', T(890000000003301, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Gamos Description]] "Быстрее передвигается вне дорог по джунглям и болотам"),
-					'Icon', "UI/Icons/Perks/Stealthy",
+					'Description', T(890000000003301, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Gamos Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Gamos.png",
 					'Tier', "Personal",
 				}),
 				}),
@@ -69186,6 +69661,10 @@ return {
 				PlaceObj('ModItemCode', {
 					'name', "AIPolicy",
 					'CodeFileName', "Code/AIPolicy.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "AIContextProfiles",
+					'CodeFileName', "Code/AIContextProfiles.lua",
 				}),
 				PlaceObj('ModItemCode', {
 					'name', "PushUnitAlert",
@@ -74202,14 +74681,13 @@ return {
                                     child.drop_reason = false
 								end,
 							}, {
-                                PlaceObj('XTemplateWindow', {
-                                    '__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) ~= GetDialog("FullscreenGameDialogs") end,
-                                    '__class', "XButton",
-                                    'VAlign', "top",
-                                }, {
-                                    'BorderColor', RGBA(0, 0, 0, 0),
-                                    'Background', RGBA(0, 0, 0, 0),
-                                    'BackgroundRectGlowColor', RGBA(0, 0, 0, 0),
+								PlaceObj('XTemplateWindow', {
+									'__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) ~= GetDialog("FullscreenGameDialogs") end,
+									'__class', "XButton",
+									'VAlign', "top",
+									'BorderColor', RGBA(0, 0, 0, 0),
+									'Background', RGBA(0, 0, 0, 0),
+									'BackgroundRectGlowColor', RGBA(0, 0, 0, 0),
 									'OnContextUpdate', function (self, context, ...)
 										
 									end,
@@ -96996,6 +97474,11 @@ return {
 			'Slot', "Backpack",
 		}),
 		PlaceObj('ModItemCode', {
+			'name', "WeaponIconBake",
+			'comment', "JAZZ-UI-001 side-view baked weapon icons with attachments",
+			'CodeFileName', "Code/WeaponIconBake.lua",
+		}),
+		PlaceObj('ModItemCode', {
 			'name', "InventoryUI",
 			'CodeFileName', "Code/InventoryUI.lua",
 		}),
@@ -97750,7 +98233,7 @@ return {
 			'name', "WeaponTypes",
 		}, {
 			PlaceObj('ModItemWeaponType', {
-				Description = T(890000000000576, --[[ModItemWeaponType Default Pistol Description]] "Пистолеты и револьверы позволяют с высокой точностью поражать различные части тела противника выстрелами в упор. Однако максимальная дальность и бронебойность этого оружия оставляет желать лучшего.\n\nОсобая атака: выстрел в движении"),
+				Description = T(890000000000576, --[[ModItemWeaponType Default Pistol Description]] "WIP — механика сигнатурного перка в разработке."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Pistol.png",
 				Name = T(890000000000333, --[[ModItemWeaponType Default Pistol Name]] "Пистолет"),
 				SortKey = 1,
@@ -97788,7 +98271,7 @@ return {
 				id = "AssaultRifle",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(890000000000252, --[[ModItemWeaponType Default Carbine Description]] "Штурмовые винтовки - это универсальное оружие без каких-либо выраженных преимуществ. Они обладают неплохим останавливающим действием, дальностью и бронебойностью, а также поддерживают большое количество разнообразных модулей."),
+				Description = T(890000000000252, --[[ModItemWeaponType Default Carbine Description]] "WIP — механика сигнатурного перка в разработке."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Carbine.png",
 				Name = T(274027037052, --[[ModItemWeaponType Default Carbine Name]] "Карабин"),
 				SortKey = 5,
@@ -97796,7 +98279,7 @@ return {
 				id = "Carbine",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(890000000000252, --[[ModItemWeaponType Default BattleRifle Description]] "Штурмовые винтовки - это универсальное оружие без каких-либо выраженных преимуществ. Они обладают неплохим останавливающим действием, дальностью и бронебойностью, а также поддерживают большое количество разнообразных модулей."),
+				Description = T(890000000000252, --[[ModItemWeaponType Default BattleRifle Description]] "WIP — механика сигнатурного перка в разработке."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/BattleRifle.png",
 				Name = T(322415689229, --[[ModItemWeaponType Default BattleRifle Name]] "Боевая Винтовка"),
 				SortKey = 5,
@@ -97820,7 +98303,7 @@ return {
 				id = "MachineGun",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(890000000000488, --[[ModItemWeaponType Default LightMachineGun Description]] "Пулеметы обладают огромной скорострельностью, но точность их отдельных выстрелов оставляет желать лучшего.\n\nПереведя пулемет в боевое положение, вы сможете эффективно прикрывать определенный участок местности. При стрельбе из установленных в боевое положение или стационарных пулеметов имеется ограниченное количество внеочередных атак-прерываний по перемещающимся в секторе обстрела противникам. Число атак-прерываний зависит от числа оставшихся ОД."),
+				Description = T(890000000000488, --[[ModItemWeaponType Default LightMachineGun Description]] "WIP — механика сигнатурного перка в разработке."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/LightMachineGun.png",
 				Name = T(620492797462, --[[ModItemWeaponType Default LightMachineGun Name]] "Ручной пулемёт"),
 				SortKey = 6,

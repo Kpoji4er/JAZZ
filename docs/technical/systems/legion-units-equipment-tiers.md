@@ -106,12 +106,12 @@ Strategic generator (STRATEGY-005): class-tiers **дополняют** друг 
 
 | Tier | Public ID | Display name | Level | Role | Archetype | Equipment |
 | --- | --- | --- | ---: | --- | --- | --- |
-| T1 | `JAZZ_Legion_FlankerT1_Warden` | Дозорный | 3 | `Recon` | `Legion_Frontliner` | `Warden_Inventory` |
-| T2 | `JAZZ_Legion_FlankerT2_Scout` | Скаут | 6 | `Recon` | `Legion_Assaulter` | `Scout_Inventory` |
-| T2 | `JAZZ_Legion_FlankerT2_Skirmisher` | Застрельщик | 6 | `Recon` | `Legion_Frontliner` | `Skirmisher_Inventory` |
-| T3 | `JAZZ_Legion_FlankerT3_Recon` | Разведчик | 10 | `Recon` | `Legion_Assaulter` | `Recon_Inventory` |
-| T3 | `JAZZ_Legion_FlankerT3_Pathfinder` | Следопыт | 10 | `Recon` | `Legion_Frontliner` | `Pathfinder_Inventory` |
-| T4 | `JAZZ_Legion_FlankerT4_Ranger` | Рейнджер | 18 | `Recon` | `Legion_Assaulter` | `Ranger_Inventory` |
+| T1 | `JAZZ_Legion_FlankerT1_Warden` | Дозорный | 3 | `Recon` | `Legion_Flanker` | `Warden_Inventory` |
+| T2 | `JAZZ_Legion_FlankerT2_Scout` | Скаут | 6 | `Recon` | `Legion_Flanker` | `Scout_Inventory` |
+| T2 | `JAZZ_Legion_FlankerT2_Skirmisher` | Застрельщик | 6 | `Recon` | `Legion_Flanker` | `Skirmisher_Inventory` |
+| T3 | `JAZZ_Legion_FlankerT3_Recon` | Разведчик | 10 | `Recon` | `Legion_Flanker` | `Recon_Inventory` |
+| T3 | `JAZZ_Legion_FlankerT3_Pathfinder` | Следопыт | 10 | `Recon` | `Legion_Flanker` | `Pathfinder_Inventory` |
+| T4 | `JAZZ_Legion_FlankerT4_Ranger` | Рейнджер | 18 | `Recon` | `Legion_Flanker` | `Ranger_Inventory` |
 
 Ветви диаграммы:
 

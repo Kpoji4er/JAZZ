@@ -81,24 +81,60 @@ end
 
 
 
---
----
---- Evaluates the destination position for the AI policy to take cover.
----
---- @param context table The AI context, containing information about the unit, allies, enemies, and other relevant data.
---- @param dest table The destination position, represented as a 3D point.
---- @param grid_voxel table The grid voxel associated with the destination.
---- @return number The calculated score for the destination.
+-- POL-001: ScoreMode for ally/enemy clustering (default preserves raw-distance math).
+AppendClass.AIPolicyProximity = {
+	properties = {
+		{
+			id = "ScoreMode",
+			name = "Score Mode",
+			help = "farther_better: higher distance score (legacy). closer_better: utility 1000/(1+dist).",
+			editor = "choice",
+			default = "farther_better",
+			items = function()
+				return { "closer_better", "farther_better" }
+			end,
+		},
+	},
+}
+
+local function JazzAICoverThreatWeight(context, unit, enemy, dest)
+	local weight = 40
+	local epos = context.enemy_pack_pos_stance[enemy]
+	if epos then
+		local dist = Max(1, DivRound(stance_pos_dist(dest, epos), const.SlabSizeX))
+		weight = 40 + DivRound(160, dist)
+	end
+	local best = context.best_attack
+	if (best and best.target == enemy) or context.attack_target == enemy then
+		weight = MulDivRound(weight, 150, 100)
+	end
+	if unit.IsThreatened and unit:IsThreatened({ enemy }) then
+		weight = MulDivRound(weight, 130, 100)
+	end
+	return Max(1, weight)
+end
+
+local function JazzAICoverCanShot(context, dest, any_in_range)
+	local dts = (context.dest_target_score or empty_table)[dest]
+	if dts and dts > 0 then
+		return true
+	end
+	if (context.dest_target or empty_table)[dest] then
+		return true
+	end
+	return not not any_in_range
+end
+
+--- Evaluates cover with threat-weighted enemies and cover×shot composite (POL-001).
 function AIPolicyTakeCover:EvalDest(context, dest, grid_voxel)
-	local score = 0
 	local unit = context.unit
 	local tbl = context.enemies or empty_table
-
-	-- распаковка позиции назначения
 	local x, y, z, stance = stance_pos_unpack(dest)
 	local dest_pt = point(x, y, z)
-
-	local count = 0
+	local score_acc = 0
+	local threat_acc = 0
+	local any_in_range = false
+	local eff_range = context.EffectiveRange or context.ExtremeRange or 20
 
 	for _, enemy in ipairs(tbl) do
 		local visible = true
@@ -109,50 +145,58 @@ function AIPolicyTakeCover:EvalDest(context, dest, grid_voxel)
 		end
 
 		if visible then
+			local epos = context.enemy_pack_pos_stance[enemy]
+			if not epos then
+				goto continue
+			end
 
-			local coverstd = GetCoverFrom(dest, context.enemy_pack_pos_stance[enemy])
+			local coverstd = GetCoverFrom(dest, epos)
 			local base = self.CoverScores[coverstd] or 0
 
-            x, y, z = point_unpack(context.enemy_pack_pos_stance[enemy])
-            local enemy_pt = point(x, y, z)
-            if not enemy_pt:IsValidZ() then goto continue end
+			local ex, ey, ez = point_unpack(epos)
+			local enemy_pt = point(ex, ey, ez)
+			if not enemy_pt:IsValidZ() then
+				goto continue
+			end
 
-			local cover, any, coverage = GetCoverPercentage(dest_pt, enemy_pt, stance or "Crouch")
+			local dist = Max(1, DivRound(stance_pos_dist(dest, epos), const.SlabSizeX))
+			if dist <= eff_range then
+				any_in_range = true
+			end
+
+			local _, any, coverage = GetCoverPercentage(dest_pt, enemy_pt, stance or "Crouch")
 			coverage = coverage or 0
 
+			local local_cover
+			if not any or coverage < 30 then
+				local_cover = MulDivRound(base, 10, 100)
+			else
+				local_cover = base + MulDivRound(base, coverage, 200)
+			end
 
-if not any or coverage < 30 then
-  score = score + base * 0.1   -- открытая/ложная позиция
-else
-  local bonus = MulDivRound(base, coverage, 200)
-  score = score + base + bonus
-end
-
-			count = count + 1
-
-			--local cover_score = self.CoverScores[cover] or 0
-			--local localscore = DivRound(cover_score, weight)
-			-- score = score + localscore * 0.5 + self.CoverScores[coverstd] * 0.5
+			local threat = JazzAICoverThreatWeight(context, unit, enemy, dest)
+			score_acc = score_acc + local_cover * threat
+			threat_acc = threat_acc + threat
 		end
 		::continue::
 	end
 
-	return score / Max(1, count)
+	if threat_acc <= 0 then
+		return 0
+	end
+
+	local cover_term = DivRound(score_acc, threat_acc)
+	local shot_mult = JazzAICoverCanShot(context, dest, any_in_range) and 100 or 50
+	return MulDivRound(cover_term, shot_mult, 100)
 end
 
----
---- Returns a string describing the editor view for the AIPolicyTakeCover class.
----
---- @return string The editor view description.
 function AIPolicyTakeCover:GetEditorView()
 	return "Seek Cover"
 end
 
------ AIPolicyTakeCover CoverScores
-
-AIPolicyTakeCover.CoverScores = { 
-	[const.CoverPass] = 0, 
-	[const.CoverNone] = 0, 
+AIPolicyTakeCover.CoverScores = {
+	[const.CoverPass] = 0,
+	[const.CoverNone] = 0,
 	[const.CoverLow] = 40,
 	[const.CoverHigh] = 100,
 }
@@ -433,13 +477,15 @@ function AIPolicyProximity:EvalDest(context, dest, grid_voxel)
   
 	if not score then return 0 end
 	if tdist == "average" and count > 0 then
-	  score = score / count
+	  score = DivRound(score, count)
 	end
-  
-	-- сейчас «меньше = лучше», как у тебя. Если где-то нужно «больше = лучше»:
-	-- local utility = 1000 / (1 + score)  -- монотонно убывающая в [0..1000]
-	-- return utility >= (self.MinScore or 0) and utility or 0
-  
+
+	-- POL-001: closer_better converts distance into a utility; farther_better keeps legacy score.
+	local mode = self.ScoreMode or "farther_better"
+	if mode == "closer_better" then
+		score = DivRound(1000, 1 + Max(0, score))
+	end
+
 	return score >= (self.MinScore or 0) and score or 0
   end
 
@@ -549,4 +595,131 @@ function AITargetingEnemyWill:EvalTarget(unit, target)
 		return health_perc >= self.Will and self.Score or 0
 	end
 	return health_perc <= self.Will and self.Score or 0
+end
+
+----- POL-002: AllyRoleAnchor + AvoidPeekVoxel
+
+DefineClass.AIPolicyAllyRoleAnchor = {
+	__parents = { "AIPositioningPolicy" },
+	properties = {
+		{ id = "end_of_turn", editor = "bool", default = true, read_only = true, no_edit = true },
+		{ id = "optimal_location", editor = "bool", default = true, read_only = true, no_edit = true },
+		{ id = "Mode", editor = "choice", default = "screen", items = function() return { "screen", "retinue" } end },
+		{ id = "AnchorKeyword", editor = "choice", default = "Sniper", items = function() return { "Sniper", "Marksman", "Leader" } end },
+		{ id = "MaxDist", editor = "number", default = 12, min = 1 },
+	},
+}
+
+function AIPolicyAllyRoleAnchor:GetEditorView()
+	return string.format("Ally anchor %s/%s", self.Mode, self.AnchorKeyword)
+end
+
+function AIPolicyAllyRoleAnchor:EvalDest(context, dest, grid_voxel)
+	local unit = context.unit
+	local team = unit.team
+	if not team then
+		return 0
+	end
+	local anchor
+	for _, ally in ipairs(team.units) do
+		if ally ~= unit and not ally:IsDead() then
+			local keys = ally.AIKeywords or empty_table
+			for _, k in ipairs(keys) do
+				if k == self.AnchorKeyword then
+					anchor = ally
+					break
+				end
+			end
+			if anchor then
+				break
+			end
+		end
+	end
+	if not anchor then
+		return 0
+	end
+
+	local ax, ay, az = stance_pos_unpack(context.ally_pack_pos_stance[anchor] or GetPackedPosAndStance(anchor))
+	local dx, dy, dz = stance_pos_unpack(dest)
+	local dist = DivRound(point(dx, dy, dz):Dist2D(point(ax, ay, az)), const.SlabSizeX)
+	if dist > (self.MaxDist or 12) then
+		return 0
+	end
+
+	if self.Mode == "retinue" then
+		return Max(0, 100 - dist * 8)
+	end
+
+	-- screen: prefer dest between anchor and nearest enemy
+	local enemy = GetNearestEnemy(anchor)
+	if not enemy then
+		return Max(0, 60 - dist * 5)
+	end
+	local ex, ey, ez = enemy:GetPosXYZ()
+	local to_enemy = point(ex, ey, ez):Dist2D(point(ax, ay, az))
+	local to_dest = point(dx, dy, dz):Dist2D(point(ax, ay, az))
+	local dest_to_enemy = point(dx, dy, dz):Dist2D(point(ex, ey, ez))
+	if to_dest < to_enemy and dest_to_enemy < to_enemy then
+		return 100 - dist * 5
+	end
+	return Max(0, 40 - dist * 4)
+end
+
+DefineClass.AIPolicyAvoidPeekVoxel = {
+	__parents = { "AIPositioningPolicy" },
+	properties = {
+		{ id = "end_of_turn", editor = "bool", default = true, read_only = true, no_edit = true },
+		{ id = "optimal_location", editor = "bool", default = true, read_only = true, no_edit = true },
+		{ id = "Penalty", editor = "number", default = 80, min = 0 },
+		{ id = "Radius", editor = "number", default = 1, min = 0 },
+	},
+}
+
+function AIPolicyAvoidPeekVoxel:GetEditorView()
+	return "Avoid peek voxels"
+end
+
+function AIPolicyAvoidPeekVoxel:EvalDest(context, dest, grid_voxel)
+	local penalty = 0
+	local radius = self.Radius or 1
+	local dx, dy, dz = stance_pos_unpack(dest)
+	local dest_pt = point(dx, dy, dz)
+	local function consider(pos)
+		if not pos then
+			return
+		end
+		local dist = DivRound(dest_pt:Dist2D(pos), const.SlabSizeX)
+		if dist <= radius then
+			penalty = penalty + self.Penalty
+		end
+	end
+	consider(context.unit and context.unit.last_attack_pos)
+	for _, enemy in ipairs(context.enemies or empty_table) do
+		consider(enemy.last_attack_pos)
+	end
+	return -penalty
+end
+
+----- POL-003: optional Weightable ally spacing (mirrors JazzAI_AllySpacingScore)
+
+DefineClass.AIPolicyAllySpacing = {
+	__parents = { "AIPositioningPolicy" },
+	properties = {
+		{ id = "end_of_turn", editor = "bool", default = true, read_only = true, no_edit = true },
+		{ id = "optimal_location", editor = "bool", default = true, read_only = true, no_edit = true },
+		{ id = "MinDist", editor = "number", default = 2, min = 1 },
+		{ id = "Penalty", editor = "number", default = 50, min = 0 },
+		{ id = "AllyPlannedPosition", editor = "bool", default = true },
+	},
+}
+
+function AIPolicyAllySpacing:GetEditorView()
+	return string.format("Ally spacing min %d", self.MinDist or 2)
+end
+
+function AIPolicyAllySpacing:EvalDest(context, dest, grid_voxel)
+	if JazzAI_AllySpacingScore then
+		return JazzAI_AllySpacingScore(context, dest, self.MinDist or 2, self.Penalty or 50)
+	end
+	return 0
 end

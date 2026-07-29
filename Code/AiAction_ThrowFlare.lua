@@ -77,6 +77,10 @@ end
 
 function AIActionThrowFlare:Execute(context, action_state)
     assert(action_state.action_id and action_state.target_pos)
+    -- ACT-001: after flare, bias Push for one combat turn
+    if g_Combat then
+        JazzAI_FlarePushUntil = (g_Combat.current_turn or 0) + 1
+    end
     AIPlayCombatAction(action_state.action_id, context.unit, nil, {target = action_state.target_pos})
 end
 

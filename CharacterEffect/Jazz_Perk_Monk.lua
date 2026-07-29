@@ -7,7 +7,7 @@ DefineClass.Jazz_Perk_Monk = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000003800, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Monk DisplayName]] "Маскировка"),
-	Description = T(890000000003801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Monk Description]] "Бонус к скрытности и точности при первом выстреле из укрытия"),
-	Icon = "UI/Icons/Perks/Stealthy",
+	Description = T(890000000003801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Monk Description]] "WIP — механика сигнатурного перка в разработке."),
+	Icon = "Mod/e6L4ECj/Perks/Personal/Monk.png",
 	Tier = "Personal",
 }

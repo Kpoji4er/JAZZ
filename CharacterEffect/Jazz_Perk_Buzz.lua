@@ -8,7 +8,7 @@ DefineClass.Jazz_Perk_Buzz = {
 	unit_reactions = {},
 	DisplayName = T(890000000000805, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Buzz DisplayName]] "Свинцовый дождь"),
 	Description = T(890000000000869, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Buzz Description]] "Увеличивает длину очереди на 50%"),
-	Icon = "Mod/e6L4ECj/Perks/Buzz.png",
+	Icon = "Mod/e6L4ECj/Perks/Personal/Buzz.png",
 	Tier = "Personal",
 }
 

@@ -23,6 +23,7 @@ JAZZ превращает оружие из набора vanilla-статов в
 - `Code/GetScrapParts.lua` — scrap-значения;
 - `Code/AmmoRolloverHint.lua` — UI эффектов и модификаций патронов;
 - `Code/Inventory.lua` и `Code/InventoryUI.lua` — применение предметов/боеприпасов;
+- `Code/WeaponIconBake.lua` — JAZZ-UI-001 side-view bake иконок оружия с аттачами (`GetItemUIIcon`, fingerprint cache);
 - generated InventoryItem, Caliber, WeaponType, WeaponComponent, WeaponComponentEffect, WeaponPropertyDef и recipe ModItems.
 
 ## Снимок данных
@@ -66,6 +67,18 @@ JAZZ превращает оружие из набора vanilla-статов в
 - folding stock и two-handed состояние.
 
 `Systems_Compontents_FoldingStocks.lua` добавляет `zzFoldingPair`; runtime использует `zzStockEquipped` и actions `FoldStock`/`UnFoldStock`. Эти имена являются межфайловым контрактом generated components, UI и визуального состояния entity.
+
+## Inventory icons (JAZZ-UI-001)
+
+Не-stock firearm/heavy weapon с изменёнными компонентами получает side-view bake иконки:
+
+- fingerprint = `class` + sorted `slot=component`;
+- cache PNG: `AppData/Editor/<CurrentModId>/WeaponIcons/<xxhash>.png` (не в сейве);
+- `FirearmBase:GetItemUIIcon` отдаёт baked path при cache hit, иначе template `Icon` и ставит lazy bake в async queue;
+- bake: `UIClone` → `CreateVisualObj`/`UpdateVisualObj` → hide-map + side camera → `WaitCaptureScreenshot`;
+- triggers: `SetWeaponComponent` (non-clone), `WeaponModifiedSuccess`, UI miss;
+- `XInventoryItem:OnContextUpdate` биндит AppData path через `UIL.MeasureImage` src_rect и скрывает `w_mod`, если baked icon активна;
+- stock/default component set и bake fail → template `Icon`.
 
 ## Ресурс, кучность и износ
 

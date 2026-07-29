@@ -5,7 +5,7 @@ DefineClass.Jazz_Perk_Eskimo = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000005027, "Тюремная выдержка"),
-	Description = T(890000000005028, "Годы в тюрьме Альмы закалили Эскимо: он не паникует и стреляет метко даже раненым"),
-	Icon = "UI/Icons/Perks/Thinking",
+	Description = T(890000000005028, "WIP — механика сигнатурного перка в разработке."),
+	Icon = "Mod/e6L4ECj/Perks/Personal/Eskimo.png",
 	Tier = "Personal",
 }

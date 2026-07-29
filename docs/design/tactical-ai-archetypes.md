@@ -20,7 +20,7 @@ Design-only. Код не меняет. Runtime-контракт: [`ai-awareness.
 | F8 | **Aura radius:** Sergeant **15** тайлов; Lieutenant **25**; Captain / MercCaptain — **вся карта**. |
 | F9 | **Melee engage:** не фиксированные 8/10 тайлов, а «хватит AP **добрести и ударить хотя бы раз**». |
 | F10 | **Medic:** лечить **как можно раньше**; кровотечение — приоритетнее HP%. |
-| F11 | **Rebels panic** — спокойнее, чем у Legion low-tier. |
+| F12 | **Night ≠ Fog:** ночью снайперы AI **держат позицию**, пока союзники не подсветят flare; Fog/Dust — без схемы «ждать свет». |
 
 ---
 
@@ -32,12 +32,12 @@ Design-only. Код не меняет. Runtime-контракт: [`ai-awareness.
 | --- | --- | --- |
 | Assaulter | `JAZZ_Legion_AssaultT*` | `Legion_Assaulter` |
 | Frontliner | `JAZZ_Legion_FrontT*` | `Legion_Frontliner` |
-| Flanker | `JAZZ_Legion_FlankerT*` | **нет ID** — Assaulter или Frontliner + keyword `Flank` |
+| Flanker | `JAZZ_Legion_FlankerT*` | **`Legion_Flanker`** (ROLE-001) | `Flank`, `RunAndGun`, `CQB` |
 | (спец) MG | `JAZZ_Legion_GunnerT*` | `Legion_Machinegunner` |
 
-Rebels зеркально: Flanker (`RebelFlanker`) сидит на `Rebels_Assaulter`.
+Rebels: `RebelFlanker` → **`Rebels_Flanker`**.
 
-`*_Machinegunner` ≠ Flanker. Фланговая тактика сейчас — PositioningAI внутри Assaulter/Frontliner с `RequiredKeywords = { "Flank" }`.
+`*_Machinegunner` ≠ Flanker. Situational Press/Flank switch и чистка PickCustom — ROLE-002.
 
 ### PickCustomArchetype — зачем оно было
 
@@ -380,6 +380,8 @@ Bonemaker сейчас: любой союзник &lt;70% HP → `Medic`. У `Me
 | **JAZZ-AI-ACT-001** | Smoke LOS-break score; anti-peek overwatch; flare→push; LowVis min_score OW |
 | **JAZZ-AI-MED-001** | Medic freeze repro + fail-safes; early heal; bleed-first |
 | **JAZZ-AI-ROLE-003** | Rebels на ту же схему |
+| **JAZZ-AI-REG-001** | Isolated Legion → `Legion_Regroup` к дальнему ally cluster |
+| **JAZZ-AI-POL-003** | Anti-stack: hard same-voxel dibs + soft ally spacing in AIScoreDest |
 
 Рекомендуемый порядок: **001 → POL-001 → 002 → MED-001** (быстрый playfeel + не убить бой медиком), затем CTX/CMD/ACT.
 
@@ -395,8 +397,10 @@ Bonemaker сейчас: любой союзник &lt;70% HP → `Medic`. У `Me
 6. После 2+ peek игрока — OW/MG cone на выход.
 7. Дым бьёт LOS перебежки, а не «рандом в толпу».
 8. Медик не вешает ход; лечит рано, bleed первым.
-9. В Night — flare+OW+cover; в Fog/Dust — cover/indoors/smoke/OW на last known (без flare, пока нет альтернативы).
+9. **Night:** снайперы AI держат позицию, пока свои жгут светилки, потом стрельба/Press. **Fog/Dust:** без flare-схемы — cover/indoors/smoke/OW на last known.
 10. Replay/seed стабилен.
+11. Одиночный/пара Legion далеко от толпы (≥3 своих ≥18 тайлов) бежит к кластеру (`Legion_Regroup`), не на exit.
+12. AI не толкутся в одну клетку / shoulder-to-shoulder на одном cover (POL-003).
 
 ---
 
@@ -440,19 +444,32 @@ Bonemaker сейчас: любой союзник &lt;70% HP → `Medic`. У `Me
 
 Итог: AI **уже стреляет ближе**, но **архетипы не меняют доктрину** (всё ещё могут Press в открытое, слабо бустят flare/OW).
 
-### 15.2. Целевая доктрина по условиям
+### 15.2. Night ≠ Fog (зафиксировано владельцем)
+
+Ночной бой **не** копирует туман: ночью есть illumination (flare), и роль линии/снайпера другая.
+
+| | **Night** (и Underground с flare) | **Fog** (и Dust без illumination) |
+| --- | --- | --- |
+| Освещение | Свои кидают **светилки**; после подсвета — Press/стрельба по illuminated | Flare **не** доступен (`AIActionThrowFlare` только Night/Underground) |
+| **Снайпер / Marksman AI** | Может **сидеть на позиции** (Hold + high ground/cover + OW), пока остальные не подсветят; не лезть в Press «в темноту» | Нет схемы «ждём подсвет»; короче range, cover/OW на last known, без дальнего снайперского окна |
+| Assaulter / Flanker | Flare carriers / CQB push после light; Flanker stealth до контакта | Smoke-перебежки, короткий advance, не ExtremeRange |
+| Лидер | `LowVisHold` + приоритет flare у носителей | `LowVisHold` без flare-gate |
+
+Итог: Night = **Illuminate → затем действуй**; Fog/Dust = **сжимай дистанцию / укрывайся**, без ожидания света.
+
+### 15.3. Целевая доктрина по условиям
 
 | Условие | Stance bias | Policies | Actions |
 | --- | --- | --- | --- |
-| **Night** | Hold / LowVisHold; Flanker stealth↑; Press↓ | TakeCover↑; WeaponRange окна уже (через EffectiveRange); Proximity closer (не терять контакт) | **Flare** Weight↑ + TargetLastAttackPos/noise; Overwatch↑ на last known; MobileShot↓ |
-| **Fog** | как Night, без flare (flare не открыт на Fog) | Cover↑; Flanking осторожнее (хуже подтверждение surround) | Smoke для перебежек↑; OW на last_attack; не гнаться за ExtremeRange |
-| **DustStorm** | Hold; меньше reposition | Cover↑; Indoors↑ (пыль режет сильнее снаружи) | Indoors OptLoc; flare нет; CQB/Assaulter ближе к зданиям |
+| **Night** | Sniper/Marksman **Hold на позиции**; остальные LowVisHold/flare; Press↓ до illumination | TakeCover↑ у линии; WeaponRange уважает sight; Sniper RangeMin не требовать выше sight | **Flare** Weight↑ (не-снайперы) + last_attack/noise; после flare Bias → Press 1 ход; Sniper OW на last known / illuminated; MobileShot↓ |
+| **Fog** | Hold у всех; **нет** «снайпер ждёт свет» | Cover↑; Flanking осторожнее | Smoke перебежки↑; OW на last_attack; не гнаться за ExtremeRange; **без flare** |
+| **DustStorm** | Hold; меньше reposition | Cover↑; Indoors↑ | Indoors OptLoc; flare нет; CQB к зданиям |
 | **FireStorm** | Avoid fire voxels уже в `AIScoreDest`; Hold | AvoidDeathZones/fire weight↑ | Не Press через горящие зоны |
-| **Underground** | как Night + Indoors | Indoors weight↑; range коротко | Flare↑; CQB↑ |
+| **Underground** | как Night + Indoors (flare есть) | Indoors↑; range коротко | Flare↑; снайпер может Hold до light; CQB↑ |
 | **RainHeavy** | лёгкий Hold | TakeCover чуть↑ | MobileShot↓; jam уже в weapon env |
 | **Smoke на линии** | локально | dest в своём дыму ок для Fallback; не стоять в токсике | Smoke scoring LOS-break (§8) |
 
-### 15.3. Конкретные правки policies под LowVis
+### 15.4. Конкретные правки policies под LowVis
 
 | Policy | LowVis изменение |
 | --- | --- |
@@ -461,36 +478,37 @@ Bonemaker сейчас: любой союзник &lt;70% HP → `Medic`. У `Me
 | `AIPolicyLosToEnemy` | Required soft осторожнее: в Fog часто нет LOS → иначе все dest fail; использовать last known / noise pos |
 | `AIPolicyFlanking` | снизить Weight у не-Flanker; у Flanker оставить, но ReserveAttackAP |
 | `AIPolicyProximity` | closer_better к своему кластеру (не разбегаться в тумане) |
-| `AIPolicyHighGround` | Night/Fog: слабее (высота без sight бесполезна); Dust: indoors важнее height |
+| `AIPolicyHighGround` | **Night sniper:** оставить/усилить (сидеть на позиции). Fog: слабее. Dust: indoors важнее height |
 | `AIPolicyIndoorsOutdoors` | Dust/Fire/Rain: Indoors score↑ |
 | `AIPolicyAttackAP` | выше — не тратить всё на бег к невидимой цели |
 | **Новый hint** `AIPolicyLastEnemyPos` | уже есть у Medic SeekEnemy — включить в LowVis Front/Flank EndTurn |
 
-### 15.4. Actions под LowVis
+### 15.5. Actions под LowVis
 
 | Action | Поведение |
 | --- | --- |
-| `AIActionThrowFlare` | Night/Underground: поднять Weight, не дублировать два одинаковых entry; после flare Bias → Assaulter Press на illuminated voxel (1 ход) |
-| `AIConeAttack` Overwatch | LowVis + peek_streak: целиться в last_attack_pos / noise; min_score чуть снизить если мало видимых enemies (иначе OW никогда не набирает 300) |
-| `AIActionThrowGrenade` smoke | Fog/Dust перебежки; не вместо flare ночью |
-| `AIActionMobileShot` / RunAndGun | Weight↓ — в low-vis дорого и слепо |
-| Basic attack | aim levels уважают CTH; не dump в пустоту без last known |
-| MGSetup | cone на last known / corridor; cur_zone_mod уже есть |
+| `AIActionThrowFlare` | **Night/Underground only**; Weight↑ у не-снайперов (Assaulter/Flanker/Soldier); после flare Bias → Assaulter Press на illuminated voxel (1 ход). Снайпер flare не обязан кидать |
+| `AIConeAttack` Overwatch | Night: снайпер на позиции — OW на last known / corridor; LowVis+peek: min_score снизить если мало видимых |
+| `AIActionThrowGrenade` smoke | Fog/Dust перебежки; ночью не заменяет flare |
+| `AIActionMobileShot` / RunAndGun | Weight↓ в low-vis |
+| Basic attack | Night sniper: стрелять после illumination / при контакте; не dump в темноту |
+| MGSetup | cone на last known / corridor |
 
-### 15.5. Роли в LowVis
+### 15.6. Роли в LowVis
 
-| Роль | Ожидание |
-| --- | --- |
-| Frontliner | Hold + cover + OW; sniper не лезет на «идеальный» range без sight |
-| Assaulter | Press только после flare/illumination или при CQB contact; иначе Hold/short advance |
-| Flanker | default Flank/stealth; Push только при контакте; recon noise |
-| MG | setup на коридор last known |
-| Leader | directive `LowVisHold`; Capt на всю карту |
-| Medic | без изменений приоритета heal; путь к bleed осторожнее (cover) |
+| Роль | Night | Fog / Dust |
+| --- | --- | --- |
+| Frontliner Sniper/Marksman | **Hold на позиции**, ждать подсвет союзников; OW | Cover + короткий range; без «ждать свет» |
+| Frontliner Soldier | Flare если есть; cover; OW | Cover; smoke-assist |
+| Assaulter | Flare/CQB; Press после light | Короткий push / buildings (Dust) |
+| Flanker | Stealth до контакта; не ломать снайперский Hold | Обход короткий; smoke |
+| MG | Setup на коридор last known | То же |
+| Leader | `LowVisHold` + flare priority у носителей | `LowVisHold` без flare |
+| Medic | heal как обычно; путь осторожнее | то же |
 
-### 15.6. Spec
+### 15.7. Spec
 
-Вынести в **JAZZ-AI-CTX-001** (или под-spec **CTX-LOWVIS**): таблица GameState → множители Weight + gate flare/OW; runtime smoke-тест Night Ernie / Fog / Dust отдельно.
+Вынести в **JAZZ-AI-CTX-001** / **CTX-LOWVIS**: отдельно ветки Night (Illuminate→Act, sniper Hold) и Fog/Dust (no flare). Runtime: Night Ernie + Fog отдельно.
 
 ---
 
@@ -588,12 +606,14 @@ StartAI → archetype (+ PickCustom)
 
 Пока идут ROLE-001 / POL-001, вести чеклист (design → evidence):
 
-- [ ] TakeCover: threat-weight prototype на бумаге + желаемые Weight по ролям
-- [ ] Proximity: closer_better формула
-- [ ] Smoke: LOS-break score vs текущий self_score_mod 1000
-- [ ] Overwatch: таблица когда срабатывает сейчас (Soldier/Control/min_score/Bias)
-- [ ] Flare: Night-only gap для Fog/Dust (оставить gap или дать «осветительный» альтернативный item?)
-- [ ] LowVis: множители §15.2 на одном тестовом archetype
-- [ ] Medic Bandage fail path
+- [x] TakeCover: threat-weight + cover×shot в `AIPolicy.lua` (POL-001); Weights Front 80–120 / Assault ~40 / Flank OptLoc 15
+- [x] Proximity: `ScoreMode` closer_better / farther_better; шесть faction templates → closer_better
+- [x] ROLE-002/003: `AICombatStance.lua` + thin PickCustom Legion/Rebel
+- [x] Smoke LOS-break / OW LowVis / flare→Push (ACT-001)
+- [x] LowVis + Urban profiles (CTX-001)
+- [x] Medic Bandage fail-safe + early bleed (MED-001)
+- [x] Officer aura / AllyRoleAnchor / AvoidPeek (CMD-001 / POL-002)
+- [x] Isolated Legion Regroup (REG-001)
+- [x] Ally anti-stack spacing (POL-003)
 
 Fog/Dust **без** flare — осознанный gap: либо принять «только Night/Underground illumination», либо отдельный design на сигнальные/шумные маркеры.

@@ -57,7 +57,7 @@ DefineClass.suppressionPinned = {
 		                    end
 		                end
 	end,
-	Icon = "Mod/e6L4ECj/Icons/suppressionPinned.png",
+	Icon = "Mod/e6L4ECj/Icons/StatusEffects/suppressionPinned.png",
 	RemoveOnEndCombat = true,
 	Shown = true,
 }

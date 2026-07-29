@@ -5,7 +5,7 @@ DefineClass.Jazz_Perk_Biggens = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000005013, "Старая школа"),
-	Description = T(890000000005014, "Заряды Биггенса труднее обнаружить и они быстрее взводятся"),
-	Icon = "UI/Icons/Perks/Thinking",
+	Description = T(890000000005014, "WIP — механика сигнатурного перка в разработке."),
+	Icon = "Mod/e6L4ECj/Perks/Personal/Biggens.png",
 	Tier = "Personal",
 }

@@ -31,7 +31,7 @@ DefineClass.suppressionLight = {
 		                    end
 		                end
 	end,
-	Icon = "Mod/e6L4ECj/Icons/suppressionLight.png",
+	Icon = "Mod/e6L4ECj/Icons/StatusEffects/suppressionLight.png",
 	RemoveOnEndCombat = true,
 	Shown = true,
 }

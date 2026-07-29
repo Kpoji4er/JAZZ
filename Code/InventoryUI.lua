@@ -1,3 +1,20 @@
+-- JAZZ-UI-001: bind AppData baked weapon icons + suppress w_mod when baked.
+local JazzWeaponIcon_OldOnContextUpdate = XInventoryItem.OnContextUpdate
+function XInventoryItem:OnContextUpdate(item, ...)
+	JazzWeaponIcon_OldOnContextUpdate(self, item, ...)
+	if not item then
+		return
+	end
+	local icon = item:GetItemUIIcon()
+	if JazzWeaponIcon_IsCachePath and JazzWeaponIcon_IsCachePath(icon) then
+		JazzWeaponIcon_ApplyToXImage(self.idItemImg, icon)
+	end
+	local mod = self.idItemImg and rawget(self.idItemImg, "idItemModImg")
+	if mod and JazzWeaponIcon_HasBakedIcon then
+		mod:SetVisible(not JazzWeaponIcon_HasBakedIcon(item))
+	end
+end
+
 local InventoryUIRespawn_shield
 function InventoryUIRespawn()
     if InventoryUIRespawn_shield then

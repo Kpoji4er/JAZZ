@@ -29,10 +29,10 @@ Release tooling читает metadata через `git show <core-sha>:metadata.l
 | Поле | Когда меняется |
 |---|---|
 | `version_major` | Несовместимое поколение после стабилизации публичного контракта |
-| `version_minor` | Новый совместимый функционал; до `1.0` также breaking change |
-| `version` | Автоматический revision Mod Editor; новое третье число release tag |
+| `version_minor` | Новый совместимый функционал; до `1.0` также breaking change. При **коммите** крупного/feature изменения пакета поднимать `version_minor` этого пакета на `+1` в том же change set |
+| `version` | Автоматический revision Mod Editor; новое третье число release tag; вручную при коммите не править |
 
-Для совместимого исправления major/minor остаются прежними. Conventional Commits помогают классифицировать изменение и сформировать changelog, но не определяют номер версии.
+Для мелкого совместимого исправления major/minor пакета могут остаться прежними. Conventional Commits помогают классифицировать изменение и сформировать changelog, но не заменяют явный bump `version_minor` на крупном коммите. Агентское правило: `.cursor/rules/jazz-commits-versioning.mdc`.
 
 Поверхность совместимости включает saves, package IDs, dependencies/load order, Lua/API/IDs, generated data, межпакетные paths и структуру установки.
 

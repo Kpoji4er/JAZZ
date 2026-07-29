@@ -487,6 +487,13 @@ function AICreateContext(unit, context)
 	end
 
     ResumeInfiniteLoopDetection("AiCalc")
+	if JazzAI_ApplyProfileToContext then
+		JazzAI_ApplyProfileToContext(context)
+	end
+	-- ACT-001: one-turn Push bias after flare
+	if JazzAI_FlarePushUntil and g_Combat and (g_Combat.current_turn or 0) <= JazzAI_FlarePushUntil then
+		context.jazz_flare_push = true
+	end
 	unit.ai_context = context
 	return context
 end
@@ -1097,12 +1104,25 @@ function AIBuildArchetypePaths(unit, pos, context)
 	end
 
 	-- filter out destinations someone already called dibs for
+	-- JAZZ-AI-POL-003: same XYZ voxel (stance-agnostic), not only exact packed dest
 	for _, u in ipairs(context.allies) do
-		if u ~= unit and u.ai_context then
-			local idx = table.find(destinations, u.ai_context.ai_destination)
-			if idx then
-				destinations[idx] = destinations[#destinations]
-				destinations[#destinations] = nil
+		if u ~= unit and u.ai_context and u.ai_context.ai_destination then
+			local claimed = u.ai_context.ai_destination
+			local cx, cy, cz = stance_pos_unpack(claimed)
+			local i = 1
+			while i <= #destinations do
+				local dest = destinations[i]
+				local remove = dest == claimed
+				if not remove then
+					local dx, dy, dz = stance_pos_unpack(dest)
+					remove = dx == cx and dy == cy and dz == cz
+				end
+				if remove then
+					destinations[i] = destinations[#destinations]
+					destinations[#destinations] = nil
+				else
+					i = i + 1
+				end
 			end
 		end
 	end
@@ -1113,6 +1133,33 @@ function AIBuildArchetypePaths(unit, pos, context)
 	paths[pref_stance_idx] = pref_path
     ResumeInfiniteLoopDetection("AiCalc")
 	return destinations, paths, dest_ap, dest_path, voxel_to_dest, move_path.closest_free_pos
+end
+
+--- JAZZ-AI-POL-003 soft spacing: penalize standing shoulder-to-shoulder with allies.
+function JazzAI_AllySpacingScore(context, dest, min_dist, penalty_per)
+	min_dist = min_dist or 2
+	penalty_per = penalty_per or 50
+	local unit = context and context.unit
+	if not unit or not dest then
+		return 0
+	end
+	local penalty = 0
+	local scale = const.SlabSizeX
+	for _, ally in ipairs(context.allies or empty_table) do
+		if ally ~= unit and not ally:IsDead() then
+			local upos = context.ally_pack_pos_stance and context.ally_pack_pos_stance[ally]
+			if ally.ai_context and ally.ai_context.ai_destination then
+				upos = ally.ai_context.ai_destination
+			end
+			if upos then
+				local dist = stance_pos_dist(dest, upos) / scale
+				if dist < min_dist then
+					penalty = penalty + penalty_per * (min_dist - dist)
+				end
+			end
+		end
+	end
+	return -penalty
 end
 
 function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_voxels, score_details)
@@ -1138,7 +1185,17 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 			score_details[#score_details + 1] = const.AIAvoidGasWeigth
 		end
 	end
-	
+
+	-- POL-003: soft anti-stack vs ally current/planned positions
+	local spacing = JazzAI_AllySpacingScore(context, dest)
+	if spacing ~= 0 then
+		score = score + spacing
+		if score_details then
+			score_details[#score_details + 1] = "ALLY SPACING"
+			score_details[#score_details + 1] = spacing
+		end
+	end
+
 	for _, policy in ipairs(policies) do
 		local peval = policy:EvalDest(context, dest, grid_voxel)
 		local pscore = MulDivRound(peval or 0, policy.Weight, 100)

@@ -1,11 +1,11 @@
 return PlaceObj('ModDef', {
-	'title', "[EN/RU] JAZZ - Tactical Overhaul - v0.14 Демо Острова Эрни",
+	'title', "[EN/RU] JAZZ - Tactical Overhaul - v0.15 Демо Острова Эрни",
 	'description', "# JAZZ — Tactical Overhaul\n\n## English\n\nJAZZ is a large-scale tactical overhaul for Jagged Alliance 3. It does not simply add more weapons or adjust a few balance values: the mod reworks combat, weapons, armor, injuries, inventory, enemies, tactical AI, maps, quests, and parts of the strategic layer.\n\nThe main goal of JAZZ is to make decisions more important than simple stat growth. Positioning, distance, mercenary skills, weapon choice, ammunition, equipment condition, carried weight, lighting, weather, and available resources can significantly affect the outcome of a fight.\n\n### Key features\n\n• Weapons have distinct roles, effective ranges, handling characteristics, recoil, reliability, and ammunition options.\n\n• Automatic fire uses sequential recoil. Strength, skills, stance, and weapon configuration affect how well a mercenary controls a burst.\n\n• Weapon condition and permanent wear influence reliability, malfunctions, and maintenance.\n\n• Armor takes coverage, damage type, weight, condition, camouflage, and replaceable armor plates into account.\n\n• Equipment weight affects mobility, while stronger mercenaries can handle heavy loadouts more effectively.\n\n• Injuries, body-part hits, treatment, and strategic recovery form a connected medical system.\n\n• Inventory uses specialized slots for ammunition, grenades, medical supplies, knives, armor plates, and other equipment.\n\n• Ammunition and consumables are real resources: available actions are limited by what the squad actually carries.\n\n• Tactical AI uses revised logic for positioning, target selection, cover, flanking, suppression, and special actions.\n\n• Enemies have more distinct roles, squad compositions, equipment, and progression.\n\n• Lighting, darkness, interiors, smoke, rain, fog, and other conditions affect visibility and combat efficiency.\n\n• Optics, flashlights, night vision, and illumination equipment become meaningful tactical tools.\n\n• Tactical maps, sector entrances, points of interest, quests, conversations, events, patrols, guardposts, and strategic squads are being expanded or reworked.\n\n### Current status\n\nJAZZ is currently in demo development.\n\nErnie Island is the fully supported part of the campaign. Content outside Ernie is still in development and may be unfinished or unavailable. A new game is recommended for the first playthrough and after major updates.\n\nRussian and English localizations are included.\n\n### Installation requirement\n\nJAZZ is one complete mod suite divided into four technical packages. \nYou must install and enable all of the following:\n\n1. JAZZ Assets\n2. JAZZ Units\n3. JAZZ Maps\n4. JAZZ\n\nThe latest published version of JA3_CommonLib is also required.\n\nAn incomplete installation is not supported, even if the Mod Manager allows the game to start. Leave the advanced JA3 difficulty settings at their default values.\n\n---\n\n# JAZZ — тактический оверхол\n\n## Русский\n\nJAZZ — масштабный тактический оверхол для Jagged Alliance 3. Мод не ограничивается добавлением нового оружия или отдельными изменениями баланса: он перерабатывает бой, оружие, броню, ранения, инвентарь, противников, тактический AI, карты, задания и часть стратегического слоя.\n\nГлавная цель JAZZ — сделать решения важнее простого роста характеристик. Позиция, дистанция, навыки наёмника, выбранное оружие, боеприпасы, состояние экипировки, переносимый вес, освещение, погода и доступные ресурсы заметно влияют на исход боя.\n\n### Основные особенности\n\n• Оружие получает выраженные роли, эффективную дальность, особенности обращения, отдачу, надёжность и разные варианты боеприпасов.\n\n• Автоматический огонь использует последовательную отдачу. Сила, навыки, стойка и конфигурация оружия влияют на контроль очереди.\n\n• Состояние и постоянный износ оружия влияют на надёжность, заклинивания и необходимость обслуживания.\n\n• Броня учитывает покрытие тела, тип урона, вес, состояние, камуфляж и сменные бронеплиты.\n\n• Вес снаряжения влияет на мобильность, а сильные наёмники лучше справляются с тяжёлой экипировкой.\n\n• Ранения, попадания по частям тела, лечение и стратегическое восстановление образуют связанную медицинскую систему.\n\n• Инвентарь использует специализированные слоты для боеприпасов, гранат, медикаментов, ножей, бронеплит и другого снаряжения.\n\n• Боеприпасы и расходники являются полноценными ресурсами: доступные действия ограничиваются тем, что отряд действительно несёт с собой.\n\n• Тактический AI по-новому выбирает позиции, цели, укрытия, фланги, подавление и специальные действия.\n\n• Противники получают более выраженные роли, составы отрядов, экипировку и прогрессию.\n\n• Освещение, темнота, помещения, дым, дождь, туман и другие условия влияют на видимость и эффективность ведения огня.\n\n• Оптика, фонари, ночное зрение и осветительные средства становятся полноценной частью тактического выбора.\n\n• Перерабатываются тактические карты, точки входа, интересные места, задания, диалоги, события, патрули, блокпосты и стратегические отряды.\n\n### Текущий статус\n\nJAZZ находится в стадии демо.\n\nПолностью поддерживаемая часть кампании — остров Эрни. Контент за пределами Эрни всё ещё находится в разработке и может быть незавершён или недоступен. Для первого прохождения и после крупных обновлений рекомендуется начинать новую игру.\n\nВ комплект входят русская и английская локализации.\n\n### Требования для установки\n\nJAZZ — это единый мод-комплект, разделённый на четыре технических пакета.\nНеобходимо установить и включить все четыре пакета:\n\n1. JAZZ Assets\n2. JAZZ Units\n3. JAZZ Maps\n4. JAZZ\n\nТакже необходима последняя опубликованная версия JA3_CommonLib.",
 	'image', "Mod/e6L4ECj/Images/JAZZLOGO.jpg",
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- Очередная переработка стрельбы\n- Зачатки АИ на глобальной карте\n- Full English Loc (in test stage)",
+	'last_changes', "- Тактический AI: роли/политики/контекст (WIP)\n- JAZZ-UI-001: bake иконок оружия с аттачами (промежуточный)\n- Перки/status icons, officer aura",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 14,
+	'version_minor', 15,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
@@ -826,6 +826,8 @@ return PlaceObj('ModDef', {
 		"CharacterEffect/Jazz_Perk_Lucky.lua",
 		"CharacterEffect/Jazz_Perk_Laura.lua",
 		"CharacterEffect/Jazz_Perk_Eskimo.lua",
+		"CharacterEffect/Jazz_Perk_OfficerAura.lua",
+		"CharacterEffect/Jazz_Perk_OfficerAuraInfluence.lua",
 		"Code/UnitAwareness.lua",
 		"Code/CrossHairUI.lua",
 		"Code/System_OR_Traps.lua",
@@ -844,6 +846,7 @@ return PlaceObj('ModDef', {
 		"Code/CombatAI.lua",
 		"Code/AiAction_ThrowFlare.lua",
 		"Code/AIPolicy.lua",
+		"Code/AIContextProfiles.lua",
 		"Code/PushUnitAlert.lua",
 		"Code/System_LootDrops.lua",
 		"Code/System_OR_SquadBag.lua",
@@ -856,6 +859,7 @@ return PlaceObj('ModDef', {
 		"Code/GetScrapParts.lua",
 		"InventoryItem/Vest_test.lua",
 		"InventoryItem/Backpack_test.lua",
+		"Code/WeaponIconBake.lua",
 		"Code/InventoryUI.lua",
 		"Code/System_ArmorRating.lua",
 		"Code/System_GasMask.lua",
@@ -7632,6 +7636,197 @@ return PlaceObj('ModDef', {
 			'Id', "Jazz_Perk_Grom",
 			'ClassDisplayName', "Character effect",
 		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Rothman",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Quinten",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Vicious",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Biff",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Nervous",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Flo",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Cougar",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Miguel",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Gamos",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Dynamo",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Gaston",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Horg",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Manuel",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Monk",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Allik",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Henning",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Static",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Highball",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Bull",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Cord",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Hobbit",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Ricochet",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Meat",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Carlos",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Devin",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Shank",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Vince",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Hitman",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Biggens",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Kulba",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Vilde",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Grace",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Steiger",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Lucky",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Laura",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_Eskimo",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_OfficerAura",
+			'ClassDisplayName', "Character effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Jazz_Perk_OfficerAuraInfluence",
+			'ClassDisplayName', "Character effect",
+		}),
+
 		PlaceObj('ModResourcePreset', {
 			'Class', "XTemplate",
 			'Id', "ActionCameraCrosshair",

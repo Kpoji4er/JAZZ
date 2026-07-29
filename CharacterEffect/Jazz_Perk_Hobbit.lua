@@ -7,7 +7,7 @@ DefineClass.Jazz_Perk_Hobbit = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000003500, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Hobbit DisplayName]] "Несу вас"),
-	Description = T(890000000003501, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Hobbit Description]] "Товарищи по отряду ставят взрывчатку и мины так же хорошо, как Хоббит"),
-	Icon = "UI/Icons/Perks/DesignerExplosives",
+	Description = T(890000000003501, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Hobbit Description]] "WIP — механика сигнатурного перка в разработке."),
+	Icon = "Mod/e6L4ECj/Perks/Personal/Hobbit.png",
 	Tier = "Personal",
 }

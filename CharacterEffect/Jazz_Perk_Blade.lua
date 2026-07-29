@@ -7,7 +7,7 @@ DefineClass.Jazz_Perk_Blade = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000001800, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Blade DisplayName]] "Ураган клинков"),
-	Description = T(890000000001801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Blade Description]] "Заряд клинком достаёт дальше; атаки бойни получают +20% к шансу попадания, но не могут критовать"),
-	Icon = "UI/Icons/Perks/Psycho",
+	Description = T(890000000001801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Blade Description]] "WIP — механика сигнатурного перка в разработке."),
+	Icon = "Mod/e6L4ECj/Perks/Personal/Blade.png",
 	Tier = "Personal",
 }

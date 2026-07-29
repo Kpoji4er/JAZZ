@@ -5,7 +5,7 @@ DefineClass.Jazz_Perk_Steiger = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000005021, "Ночной инструктор"),
-	Description = T(890000000005022, "Ночью Штайгер обучает соседних союзников лучше стрелять"),
-	Icon = "UI/Icons/Perks/Thinking",
+	Description = T(890000000005022, "WIP — механика сигнатурного перка в разработке."),
+	Icon = "Mod/e6L4ECj/Perks/Personal/Steiger.png",
 	Tier = "Personal",
 }

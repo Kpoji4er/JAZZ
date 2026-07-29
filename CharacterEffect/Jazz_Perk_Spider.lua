@@ -8,7 +8,7 @@ DefineClass.Jazz_Perk_Spider = {
 	unit_reactions = {},
 	DisplayName = T(890000000000804, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Spider DisplayName]] "Полевая хирургия"),
 	Description = T(890000000000870, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Spider Description]] "Удваивает значение навыка медицины при лечении на глобальной карте\n"),
-	Icon = "Mod/e6L4ECj/Perks/Spider.png",
+	Icon = "Mod/e6L4ECj/Perks/Personal/Spider.png",
 	Tier = "Personal",
 }
 

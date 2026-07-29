@@ -38,7 +38,7 @@ DefineClass.suppressionMedium = {
 		                    end
 		                end
 	end,
-	Icon = "Mod/e6L4ECj/Icons/suppressionMedium.png",
+	Icon = "Mod/e6L4ECj/Icons/StatusEffects/suppressionMedium.png",
 	RemoveOnEndCombat = true,
 	Shown = true,
 }

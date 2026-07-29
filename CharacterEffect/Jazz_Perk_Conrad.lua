@@ -7,7 +7,7 @@ DefineClass.Jazz_Perk_Conrad = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000002200, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Conrad DisplayName]] "Строгий инструктор"),
-	Description = T(890000000002201, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Conrad Description]] "Конрад всегда тренирует на полной скорости и не теряет темп рядом с другими инструкторами"),
-	Icon = "UI/Icons/Perks/Bond",
+	Description = T(890000000002201, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Conrad Description]] "WIP — механика сигнатурного перка в разработке."),
+	Icon = "Mod/e6L4ECj/Perks/Personal/Conrad.png",
 	Tier = "Personal",
 }

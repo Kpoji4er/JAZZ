@@ -7,7 +7,7 @@ DefineClass.Jazz_Perk_Highball = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000004200, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Highball DisplayName]] "Полевой химик"),
-	Description = T(890000000004201, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Highball Description]] "Может скрафтить стимулятор из бинтов без доступа к сумке врача — раз в игровой день"),
-	Icon = "UI/Icons/Perks/Savior",
+	Description = T(890000000004201, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Highball Description]] "WIP — механика сигнатурного перка в разработке."),
+	Icon = "Mod/e6L4ECj/Perks/Personal/Highball.png",
 	Tier = "Personal",
 }

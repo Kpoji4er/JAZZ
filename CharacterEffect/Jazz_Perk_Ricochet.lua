@@ -7,7 +7,7 @@ DefineClass.Jazz_Perk_Ricochet = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000004600, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Ricochet DisplayName]] "Рикошет"),
-	Description = T(890000000004601, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Ricochet Description]] "Смертельный бросок ножа может отскочить на второго врага"),
-	Icon = "UI/Icons/Perks/Throwing",
+	Description = T(890000000004601, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Ricochet Description]] "WIP — механика сигнатурного перка в разработке."),
+	Icon = "Mod/e6L4ECj/Perks/Personal/Ricochet.png",
 	Tier = "Personal",
 }
