@@ -1,0 +1,28 @@
+---
+description: Двуязычная GitHub Wiki-витрина из docs/showcase; обновлять RU+EN при player-facing изменениях.
+alwaysApply: true
+---
+
+# GitHub Wiki showcase (витрина)
+
+## Канон
+
+- Публичная витрина: `docs/showcase/ru/` + `docs/showcase/en/` + `docs/showcase/pages.json` (ADR-0003).
+- GitHub Wiki — **только публикация**. Не править страницы руками на github.com/…/wiki.
+- Репозиторный игроковый справочник: `docs/wiki/` (ADR-0002). Technical — источник формул и CSV оружия.
+
+## Обязательное обновление
+
+Если изменение заметно игроку и требует правки `docs/wiki/` (или меняет факт, уже описанный в showcase):
+
+1. Обновить профильную `docs/wiki/`-страницу (оружейные числа — только через CSV + `scripts/docs/weapons-docs.mjs`).
+2. В том же change set обновить **обе** языковые страницы затронутого аспекта в `docs/showcase/ru/` и `docs/showcase/en/`.
+3. Новый аспект витрины: добавить slug в `pages.json` `order`/`pages` и файлы `ru/<slug>.md` + `en/<slug>.md`.
+4. Не коммитить собранный `.tmp/github-wiki*`.
+
+После merge в `main` workflow `Publish GitHub Wiki` публикует витрину. Локально: `scripts/docs/publish-github-wiki.ps1` (сборка) или `-Publish` (push в `*.wiki.git`).
+
+## Стиль витрины
+
+- Конкретика для игрока (числа ролей, `+`/`−`, тиры, размеры отрядов), без load order, generated-data provenance и absolute paths.
+- Внутренние ссылки в исходниках — относительные `.md` между `ru/`/`en/`; скрипт публикации переписывает их в имена wiki-страниц.

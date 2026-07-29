@@ -1,0 +1,48 @@
+{
+  "order": [
+    "home",
+    "about",
+    "combat-and-accuracy",
+    "weapon-classes",
+    "combat-actions",
+    "weapons-and-ammo",
+    "legion-strategy"
+  ],
+  "pages": {
+    "home": {
+      "wikiBase": "Home",
+      "ru": "Обзор",
+      "en": "Overview"
+    },
+    "about": {
+      "wikiBase": "About",
+      "ru": "Что такое JAZZ",
+      "en": "What is JAZZ"
+    },
+    "combat-and-accuracy": {
+      "wikiBase": "Combat-and-Accuracy",
+      "ru": "Бой и точность",
+      "en": "Combat and accuracy"
+    },
+    "weapon-classes": {
+      "wikiBase": "Weapon-Classes",
+      "ru": "Классы оружия",
+      "en": "Weapon classes"
+    },
+    "combat-actions": {
+      "wikiBase": "Combat-Actions",
+      "ru": "Боевые действия",
+      "en": "Combat actions"
+    },
+    "weapons-and-ammo": {
+      "wikiBase": "Weapons-and-Ammo",
+      "ru": "Оружие и компоненты",
+      "en": "Weapons and components"
+    },
+    "legion-strategy": {
+      "wikiBase": "Legion-Strategy",
+      "ru": "Легион на стратегии",
+      "en": "Legion on the strategic map"
+    }
+  }
+}

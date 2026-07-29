@@ -6,8 +6,9 @@
 - `docs/decisions/` — долгоживущие архитектурные решения.
 - `docs/technical/` — фактически загруженное текущее состояние реализации для разработчика и агента.
 - `docs/wiki/` — игроковый справочник: наблюдаемое поведение, роли, способы чтения интерфейса и каталог контента без внутренних деталей реализации.
+- `docs/showcase/` — двуязычная (RU/EN) публичная витрина аспектов мода; GitHub Wiki публикуется из неё (ADR-0003), а не является вторым каноном.
 
-Разделение слоёв принято в `docs/decisions/ADR-0002-technical-and-player-docs.md`. Technical остаётся источником истины по реализации; wiki не должна спорить с ним или вручную дублировать generated weapon stats.
+Разделение слоёв принято в `docs/decisions/ADR-0002-technical-and-player-docs.md` и `docs/decisions/ADR-0003-github-wiki-showcase.md`. Technical остаётся источником истины по реализации; wiki и showcase не должны спорить с ним или вручную дублировать generated weapon stats.
 
 ## Specification → implementation
 
@@ -22,6 +23,7 @@
 - `testing.md` — при изменении общего validation profile.
 - Spec evidence — для каждого `AC-*`.
 - Профильная `docs/wiki/*` — если изменение заметно игроку; generated weapon pages обновляются через `docs/technical/weapons/data/*.csv` и `scripts/docs/weapons-docs.mjs`.
+- Соответствующие `docs/showcase/ru/*` и `docs/showcase/en/*` — если затронут аспект публичной витрины; после merge в `main` GitHub Wiki обновляет workflow.
 
 Не требовать изменения сводного документа, если его факт не изменился. Отсутствие documentation delta фиксировать в spec с причиной.
 

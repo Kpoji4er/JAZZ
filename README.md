@@ -81,6 +81,7 @@ JAZZ поддерживает только последнюю опубликов
 
 - [Установка и первый запуск](docs/wiki/getting-started.md)
 - [Wiki по механикам для игроков](docs/wiki/README.md)
+- [Публичная витрина RU/EN (GitHub Wiki)](https://github.com/Kpoji4er/JAZZ/wiki)
 - [Текущие ограничения и совместимость](docs/wiki/content-and-limitations.md)
 - [Техническая документация](docs/technical/README.md)
 - [Каталог систем](docs/technical/systems/README.md)

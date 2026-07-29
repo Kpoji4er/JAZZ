@@ -1,3 +1,4 @@
 .agents/cache/
 .tmp_*.md
+.tmp/
 codex_worktrees/

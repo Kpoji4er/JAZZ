@@ -15,7 +15,7 @@
 3. Для compatibility-sensitive изменения подтвердить свежий CommonLib snapshot; для dependency/release scope использовать strict dependency audit.
 4. Выполнить `git diff --check` в каждом изменённом репозитории.
 5. Выполнить профильные static/generated/editor/runtime проверки.
-6. Синхронизировать technical current-state docs.
+6. Синхронизировать technical current-state docs; для заметного игроку поведения — `docs/wiki/` и при затронутом аспекте витрины — `docs/showcase` RU+EN.
 7. Запустить spec validator с `-Phase Done`.
 8. Провести независимое conformance review и human acceptance для субъективного/runtime результата.
 

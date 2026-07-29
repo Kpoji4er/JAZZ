@@ -47,10 +47,64 @@ if ($errors.Count -gt 0) {
 
 $docsIndex = Join-Path $main 'docs/README.md'
 $docsIndexText = [IO.File]::ReadAllText($docsIndex, [Text.Encoding]::UTF8)
-foreach ($target in @('specs/README.md', 'decisions/README.md', 'ownership/README.md', 'technical/README.md', 'wiki/README.md')) {
+foreach ($target in @('specs/README.md', 'decisions/README.md', 'ownership/README.md', 'technical/README.md', 'wiki/README.md', 'showcase/README.md')) {
     if ($docsIndexText -notmatch [regex]::Escape($target)) {
         Add-DocError "docs/README.md не ведёт к $target."
     }
+}
+
+$showcaseRoot = Join-Path $main 'docs/showcase'
+$showcaseManifest = Join-Path $showcaseRoot 'pages.json'
+$showcaseReadme = Join-Path $showcaseRoot 'README.md'
+if (-not (Test-Path -LiteralPath $showcaseReadme -PathType Leaf)) {
+    Add-DocError 'Не найден обязательный файл: docs/showcase/README.md'
+}
+if (-not (Test-Path -LiteralPath $showcaseManifest -PathType Leaf)) {
+    Add-DocError 'Не найден обязательный файл: docs/showcase/pages.json'
+}
+else {
+    try {
+        $showcase = [IO.File]::ReadAllText($showcaseManifest, [Text.Encoding]::UTF8) | ConvertFrom-Json
+        $order = @($showcase.order)
+        if ($order.Count -lt 1) {
+            Add-DocError 'docs/showcase/pages.json: пустой order.'
+        }
+        foreach ($slug in $order) {
+            $entry = $showcase.pages.$slug
+            if (-not $entry) {
+                Add-DocError "docs/showcase/pages.json: slug '$slug' есть в order, но нет в pages."
+                continue
+            }
+            foreach ($prop in @('wikiBase', 'ru', 'en')) {
+                if (-not $entry.$prop) {
+                    Add-DocError "docs/showcase/pages.json: у '$slug' нет поля $prop."
+                }
+            }
+            foreach ($lang in @('ru', 'en')) {
+                $pagePath = Join-Path $showcaseRoot "$lang/$slug.md"
+                if (-not (Test-Path -LiteralPath $pagePath -PathType Leaf)) {
+                    Add-DocError "Нет страницы showcase: docs/showcase/$lang/$slug.md"
+                }
+            }
+        }
+        foreach ($lang in @('ru', 'en')) {
+            $langDir = Join-Path $showcaseRoot $lang
+            if (-not (Test-Path -LiteralPath $langDir -PathType Container)) { continue }
+            $extra = @(Get-ChildItem -LiteralPath $langDir -File -Filter '*.md' |
+                Where-Object { $order -notcontains [IO.Path]::GetFileNameWithoutExtension($_.Name) })
+            foreach ($file in $extra) {
+                Add-DocError ("Страница showcase не описана в pages.json order: docs/showcase/{0}/{1}" -f $lang, $file.Name)
+            }
+        }
+    }
+    catch {
+        Add-DocError ("Не удалось разобрать docs/showcase/pages.json: {0}" -f $_.Exception.Message)
+    }
+}
+
+$publishScript = Join-Path $main 'scripts/docs/publish-github-wiki.ps1'
+if (-not (Test-Path -LiteralPath $publishScript -PathType Leaf)) {
+    Add-DocError 'Не найден scripts/docs/publish-github-wiki.ps1'
 }
 
 $systemsRoot = Join-Path $main 'docs/technical/systems'
