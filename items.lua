@@ -75369,7 +75369,7 @@ return {
 										PlaceObj('XTemplateFunc', {
 											'name', "IsDropTarget(self, draw_win, pt)",
 											'func', function (self, draw_win, pt)
-												return false
+												return true
 											end,
 										}),
 										PlaceObj('XTemplateFunc', {
@@ -78585,18 +78585,6 @@ return {
 											PlaceObj('XTemplateFunc', {
 												'name', "OnDrop(self, drag_win, pt, drag_source_win)",
 												'func', function (self, drag_win, pt, drag_source_win)
-													if (not gv_SatelliteView or InventoryIsCombatMode()) and not InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()) then
-														PlayFX("IactDisabled", "start", InventoryDragItem)
-														return true
-													end
-													if InventoryUnitCanUseItem(self.context, InventoryDragItem) and (not g_Combat or self.context:HasAP(InventoryDragItem.APCost * const.Scale.AP)) then
-														InventoryUseItem(self.context, InventoryDragItem, InventoryStartDragContext,InventoryStartDragSlotName )								
-														if InventoryDragItem and StartDragSource then
-														StartDragSource:ClearDragState(drag_win)
-														end
-													else
-														PlayFX("IactDisabled", "start", InventoryDragItem)
-													end
 													self:SelectUnit()
 													return "not valid target"
 												end,

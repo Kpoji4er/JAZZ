@@ -81,9 +81,12 @@ Snapshot core содержит 558 InventoryItem definitions:
 - Slot names и instance properties являются savegame surface.
 - Generated definitions нельзя править только в одной сериализованной копии.
 - Неполная установка четырёх пакетов даёт отсутствующие entity/item/loot references.
+- `const.InventoryGiveDistance` = `4800` (`voxelSizeX`) — намеренно короче vanilla `24000`.
+- XTemplate `SquadsAndMercs` (активный party panel для `Inventory`): `OnDrop` на HUDMerc только `SelectUnit()` — не подменять логикой «use item» с большого портрета.
 
 ## Проверка
 
+- drag/drop предмета на иконку другого мерка в party panel (`SquadsAndMercs`): runtime PASS (owner, 2026-07-30) — `OnDrop` = `SelectUnit()` only; `InventoryGiveDistance` = `4800`;
 - drag/drop между каждой парой совместимых/несовместимых слотов;
 - reload при ammo в правильном и неправильном slot;
 - вместимость при разных stats/perks;
