@@ -29,7 +29,7 @@ DefineClass.Jazz_Perk_Colby = {
 		}),
 	},
 	DisplayName = T(890000000001700, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Colby DisplayName]] "Цепная паника"),
-	Description = T(890000000001701, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Colby Description]] "WIP — механика сигнатурного перка в разработке."),
+	Description = T(890000000001701, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Colby Description]] "Взрывы Колби сеют панику: +20% к радиусу и 20% шанс паники у раненых врагов в зоне взрыва."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Colby.png",
 	Tier = "Personal",
 }

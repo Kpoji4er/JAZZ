@@ -122,68 +122,34 @@ executable: true
 
 ## Phrases — AIM chat
 
+As-shipped in UnitData (JA2-flavored):
+
 ### Offline
-- RU: Колби. Меня нет. Оставьте сообщение — перезвоню, если не взорвусь.
-- EN: This is Colby. Leave a message. I'll call back if I don't blow myself up.
+- RU/EN: автоответчик Тревор+Шейла / beach answering machine
 
 ### GreetingAndOffer
-- RU: Колби на линии. Что взрываем?
-- EN: Colby here. What are we blowing up?
+- RU: Говорит Тревор Колби. Как дела?
+- EN: Trevor Colby speaking. How're you going?
 
-### ConversationRestart
-- RU: Вернёмся к делу.
-- EN: Let's get back to it.
-
-### IdleLine
-- RU: Время тикает.
-- EN: Waiting on you. Clock's ticking.
-
-### PartingWords
-- RU: Беру зарядку и выхожу.
-- EN: Grabbing charges. I'm in.
-
-### RehireIntro
-- RU: Контракт заканчивается. Продлеваем?
-- EN: Contract's ending. Extending?
-
-### RehireOutro
-- RU: Остаюсь.
-- EN: I'm staying.
+### ConversationRestart / IdleLine / PartingWords / Rehire*
+- As in `UnitData/Jazz_Colby.lua` (JA2 hire-sheet lines)
 
 ### Refusals
-- Fidel hired RU: Нет. Пока Фидель на контракте — я пас. Не хочу делить периметр с психом.
-- Fidel hired EN: No. Not while Fidel's on the payroll. I don't share a perimeter with that psycho.
-- Death toll RU: Слишком много трупов на вашем счету. Наймите кого-то другого.
-- Death toll EN: Too many bodies on your ledger. Hire someone else.
-- Money RU: Кошелёк тонкий. Перезвоните, когда будет бюджет на нормальную зарядку.
-- Money EN: Wallet's light. Call when you can afford a proper charge kit.
+- Fidel / death toll / money — JA2 AIM refuse lines
 
-### Haggles
-- USA mercs hired RU: Американцы в отряде… Ладно, но надбавка за нервы.
-- USA mercs hired EN: Americans on the squad… Fine, but I want a hazard bump for my nerves.
-
-### Mitigations
-- Thor hired RU: Тор уже с вами? Тогда ок. С ним я работаю.
-- Thor hired EN: Thor's already with you? Then I'm in. I work with him.
-
-### ExtraPartingWords
-- RU: Если нужен ещё один спокойный спец — берите Тора.
-- EN: If you need another steady specialist — grab Thor.
+### Haggles / Mitigations / ExtraPartingWords
+- USA haggle; Thor mitigation + recommend Thor
 
 ## Phrases — VoiceResponse
 
-- `voice_source: ja2` — reuse legacy VO where available; RU/EN subtitle drafts:
-  - Selection: «Колби!» / «Colby!»
-  - AimAttack: «На мушке.» / «On target.»
-  - OpponentKilled: «Готово.» / «Done.»
-  - DeathGeneral: «Чёрт...» / «Damn...»
-  - Downed: «Меня подбили!» / «I'm hit!»
-  - CombatStartPlayer: «В бой.» / «Engage.»
-  - LevelUp: «Ещё лучше.» / «Getting better.»
-  - AmmoLow: «Патроны!» / «Ammo!»
-  - Idle: «Жду.» / «Waiting.»
-  - DeathBuddy (Thor): «Тор!..» / «Thor!..»
-  - MockDislike (Fidel): «Как обычно, Фидель.» / «Typical Fidel.»
+`voice_source: ja2` — shipped expanded set (~94 lines / 63 slots):
+
+- Texts: JA2 Trevor lines where mapped; remaining slots filled with **Trevor-analog** RU/EN (Aussie merc voice)
+- Spoken lines: **silero-stress + `stress_overrides.json` → Silero `v5_5_ru`/`aidar` → RVC Trevor → loudnorm** → opus (JA2 tempo match optional via `--tempo`, off by default)
+- Non-verbal emotes (Pain/Laugh/DIE/HIT): original JA2 WAV→opus
+- Emotes Climbing/Jumping/GasAreaSelection without audio → `FallbackMissingVR = Ice`
+- Loc IDs: `890000000001722`–`1799` + spill `2506`–`2521`
+- Tooling: `D:\py-voice\gen_silero_ru.py`, `gen_silero_rvc.py`, `stress_overrides.json`; A/B `compare_no_tempo/`
 
 ## Wiring
 
@@ -209,5 +175,6 @@ executable: true
 - Loot: `Loot_JAZZ_Colby` / `JAZZ_Colby50/35/25/20` (`jazz-units/items.lua`)
 - Appearance: `Colby` (`jazz-units/items.lua`)
 - Portraits: `jazz-units/MercPortraits/Colby.png`, `Colby_Big.png`
-- Localization: `890000000001700`–`890000000001732` (`jazz/Russian.csv`, `jazz/English.csv`)
+- Localization: `890000000001700`–`1799` + VR spill `2506`–`2521` (`jazz/Russian.csv`, `jazz/English.csv`)
+- Voices: `jazz-units/voices/<T-id>.opus` via `ModItemTranslatedVoices` — Silero+RVC RU clone of JA2 Trevor (+ JA2 emotes)
 - Combat hooks: `jazz/Code/System_OR_Grenade.lua` (+20% radius), perk `OnCalcDamageAndEffects` (20% Panicked on wounded enemies in explosion)
