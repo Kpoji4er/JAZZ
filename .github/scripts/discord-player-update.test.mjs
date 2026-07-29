@@ -284,6 +284,8 @@ test("prompt treats documentation as non-implementation evidence", async () => {
 
   assert.match(source, /documentation_only=true/);
   assert.match(source, /сами по себе не\s+доказывают/);
+  assert.match(source, /видимый игроку эффект/);
+  assert.match(source, /оружие с обвесом/);
   assert.doesNotMatch(
     source,
     /Изменения в основной ветке называй работой в разработке/,
