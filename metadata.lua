@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- MP desync follow-up: mishap/armor/CTH integer math, AI sorted RNG\n- MP: детерминизм — GainStat modId, Legion retire sync, awareness MapVar, AI move gain, FX ammo ids\n- Инвентарь: dual stack limits (bag/stash 10000 vs loadout MaxStacks); ejected ammo в разгрузку/под ноги",
+	'last_changes', "- Без jazz-maps: StandaloneNoMapsFallback — авто-регионы Legion AI, wiring отрядов, remap squad/loot\n- MP desync follow-up: mishap/armor/CTH integer math, AI sorted RNG\n- MP: детерминизм — GainStat modId, Legion retire sync, awareness MapVar, AI move gain, FX ammo ids",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 26,
+	'version_minor', 27,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
@@ -879,6 +879,7 @@ return PlaceObj('ModDef', {
 		"Code/EnemySquad.lua",
 		"Code/SatelliteSquad.lua",
 		"Code/Guardpost_Patrols.lua",
+		"Code/StandaloneNoMapsFallback.lua",
 		"Code/LegionUnitPrices.lua",
 		"Code/LegionSquadComposition.lua",
 		"Code/LegionSquadGenerator.lua",

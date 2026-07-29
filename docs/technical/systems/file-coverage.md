@@ -82,6 +82,7 @@
 | `POI Extension.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
 | `System_SectorOperations.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
 | `WorldFlipSpawnUnits.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
+| `StandaloneNoMapsFallback.lua` | loaded, active only without `FhNNYd` | [Стратегия](strategy-squads-sectors.md), [совместимость](../compatibility.md) |
 | `UtilityFunc.lua` | loaded | [Стратегия](strategy-squads-sectors.md), [runtime](runtime-editor-integration.md) |
 | `EmptySquadFix.lua` | dormant | [Стратегия](strategy-squads-sectors.md), [runtime](runtime-editor-integration.md) |
 | `PatrollingFix.lua` | dormant | [Стратегия](strategy-squads-sectors.md), [runtime](runtime-editor-integration.md) |

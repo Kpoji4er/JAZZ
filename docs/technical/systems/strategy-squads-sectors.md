@@ -148,6 +148,21 @@ Generated `SatelliteViewMapContextMenu` считает отсутствие Regi
 
 Основной metadata объявляет assets обязательным, CommonLib/units — optional, maps не объявлен, хотя прямые ссылки существуют. Поддерживаемая конфигурация требует все четыре пакета и CommonLib.
 
+### Fallback без `jazz-maps` (JAZZ-COMPAT-001)
+
+`Code/StandaloneNoMapsFallback.lua` загружается всегда, но **активен только если** мод `FhNNYd` не найден в `ModsLoaded` / `IsModLoaded`. При активном maps — полный no-op.
+
+Без maps файл:
+
+- строит runtime Region `JAZZ_Auto_<guardpost>` для каждого unmanaged аванпоста (Voronoi по Chebyshev-дистанции секторов, радиус ≤8);
+- включает урезанный Legion AI (`TaxCap`/`RecruiterCap` = 0, HQ = сам аванпост);
+- заполняет пустые `EnemySquads*List` пресетами `LegionGlobalAI_*` / `LegionJAZZSquad*` при наличии defs из `jazz-units`;
+- remaps spawn `GenerateEnemySquad` и sector squad refs на jazz ID;
+- один раз пересобирает starting gear врагов Legion/Army/Adonis/Rebel;
+- на Exploration/Combat inject'ит jazz loot в `ItemContainer` (детерминированный roll).
+
+Authored `ErnieIsland` / already managed outposts не дублируются. Это **урезанный** режим, не паритет квестов/карт jazz-maps.
+
 ## Проверка
 
 - new game и existing save;
