@@ -2,36 +2,85 @@
 
 [Overview](home.md) · [Legion units](legion-units.md) · [Legion strategy](legion-strategy.md) · [Русский](../ru/ernie-campaign.md)
 
-## Demo scope
+Source: `jazz-maps/items.lua` (sectors, quests, setpieces). Demo scope is Ernie Island; mainland data exists, full playthrough is not promised.
 
-The supported playthrough right now is **Ernie Island**. Start sector: **M1** (“Landing Zone”), landing setpiece `M1Landing` (not vanilla I1). The rest of Grand Chien exists in data but is **not** a supported full playthrough.
+## Start
 
-About **23** Ernie-tagged sectors sit on the island. The maps package holds hundreds of campaign sectors/quests overall; for the demo, Intro / Ernie lines matter most.
+| | |
+| --- | --- |
+| Campaign | `HotDiamonds` |
+| InitialSector | **M1** — Landing Zone («Зона высадки») |
+| Enter setpiece | `M1Landing` (map `EPA7FVN`) |
+| Boot | reveal `M1`/`M2`/`M3` |
 
-## Key places
+Cities: **Ernie** (`ErnieVillage`), rebel base (`Rebels_Ernie`), smugglers (`SmugglersErnie`).
 
-| Sector | Place | Why it matters |
+## Ernie sectors (from code)
+
+Filter: `WeatherZone=Erny` **or** city `ErnieVillage`/`Rebels_Ernie` **or** `Label1=Ernie` → **20** sectors (not the older catalog’s “23”).
+
+| Id | Data name | Note |
 | --- | --- | --- |
-| M1 | Landing Zone | Campaign start |
-| I5 | Ernie Village | Main hub; liberate the village |
-| I7 | Fort L'Eau Bleu | Legion guardpost; “take the fortress”; Global AI outpost on the island |
-| L1 | Rebel base | Meet the rebels |
-| M4 | Outlook | Rebel / outlook line |
-| I2 | Lighthouse clinic | Doctor quest |
-| J7 | Emerald Coast | Rescue Herman (`EncounterHerman`) |
-| K5 / L5 | Villa camps | Clear the way / villa fights |
-| I6 / L6 | Underground / bunker | Fortify line, Luigi-related content |
+| M1 | Landing Zone | Start |
+| M2 | Rocky shore | |
+| M4 | The Outlook | Label Ernie |
+| M5 | Coastline | |
+| M6 | Old port | |
+| I2 | Lighthouse clinic | City ErnieVillage |
+| I5 | Village of Ernie | Hub |
+| I6 | The Rust | Label Ernie |
+| I6_Underground | Bunker FB45-68 | Label Ernie |
+| I7 | Fort L'Eau Bleu | Outpost / Global AI |
+| J5 | Ernie farms | |
+| J7 | Emerald Coast | Herman |
+| K4 | Flag Hill | |
+| K5 | Legion camp | |
+| K6 | Smuggler fallback camp | |
+| L1 | Partisan base | City Rebels_Ernie |
+| L2 | Impassable terrain | Rebels_Ernie |
+| L5 | Legion camp | |
+| L6 | Abandoned bunker entrance | Rebels_Ernie |
+| L7 | Fishing village | |
 
-## Quest lines (examples)
+On the island but **without** Ernie tags in ModItemSector: `I3`/`I4` (road to lighthouse), `M3` (waterfall), `K3`/`L3`/`L4` (villa quest), `I7_Underground`, `L6_Underground`.
 
-- Liberate Ernie village / island.
-- Take Fort L'Eau Bleu.
-- Rescue Herman; fortify Ernie (incl. Browning .50 for I5 defense).
-- Pierre, Bastien, meet the rebels, seize the outlook.
-- Save Kiki; doctor line; lighthouse defense; clear the villa.
+## Quests (from items.lua)
 
-Exact IDs and sector bindings live in the maps-package catalog; this page is the player-visible demo plot shape.
+### QuestGroup “Ernie Island”
 
-## Enemies on the map
+| Id | DisplayName | Hidden |
+| --- | --- | --- |
+| `TakeTheFortress` | Fort L'Eau Bleu | no |
+| `RescueHerMan` | Herman is missing | no |
+| `FortifyErnie` | Helping Ernie Village | no |
+| `ReduceFortressStrength` | How to reduce the Fort's defenses | yes |
+| `LegionFlag` | Fooling Pierre | yes |
+| `Ernie_CounterAttack` | *(unnamed)* | yes |
+| `ErnieSideQuests` | *(unnamed)* | yes |
+| `ErnieSideQuests_WorldFlip` | *(unnamed)* | yes |
+| `RescueTeam` | We were hired as rescuers (RU title) | no |
+| `RebelsSavior` | Small rescue op (RU title) | no |
 
-Ernie hosts Legion squads built from JAZZ classes (assault, marksmen, gunners, officers…). How hard they hit grows from squad composition **and** the **campaign gear tier** — see [Legion units](legion-units.md). On the satellite map the same forces show roles and tasks — [Legion strategy](legion-strategy.md).
+### Intro / liberation
+
+| Id | DisplayName |
+| --- | --- |
+| `01_Landing` | Meet the employer (RU) |
+| `02_LiberateErnie` | Retake Ernie Village |
+| `02A_LiberateErnie_2` | Liberate Ernie Island (RU) |
+| `PierreDefeated` | Pierre |
+| `JoseFamily` | Bastien |
+
+### Ernie_Rebels / local JAZZ
+
+| Id | DisplayName |
+| --- | --- |
+| `JAZZ_REBELS_0_MeetTheRebels` | The rebels (RU) |
+| `JAZZ_REBELS_1_SeizeTheOutlook` | Attack the Outlook (RU) |
+| `Jazz_Doctor_need_Help` | Unwanted doctor (RU) |
+| `JAZZ_Ernie_Locals_M2_SaveMyFamily` | Save Kiki (RU) |
+| `Jazz_ClearTheWay` | Clear camps around the villa (RU) |
+
+## Setpieces
+
+Registered in maps: **`M1Landing`**, **`EncounterHerman`**. Ernie flow also plays (often vanilla IDs): `PierreLucTalk`, `ErnieReturn_FirstEnter`, `FortressBasement_FirstEnter`, `PierreDies` / `PierreRetreat`, `HangingLuc`, `BastienDies`.

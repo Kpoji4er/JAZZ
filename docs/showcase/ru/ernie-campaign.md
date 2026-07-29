@@ -2,36 +2,85 @@
 
 [К обзору](home.md) · [Юниты Легиона](legion-units.md) · [Легион на стратегии](legion-strategy.md) · [English](../en/ernie-campaign.md)
 
-## Демо-скоуп
+Источник: `jazz-maps/items.lua` (сектора, квесты, setpieces). Демо-скоуп — остров Эрни; mainland в данных есть, полный playthrough не обещан.
 
-Поддерживаемое прохождение сейчас — **остров Эрни**. Старт: сектор **M1** («Зона высадки»), setpiece высадки `M1Landing` (не vanilla I1). Остальной Grand Chien в данных есть, но как полный playthrough **не поддерживается**.
+## Старт
 
-На острове порядка **23** секторов с меткой/городом Эрни. В пакете maps — сотни секторов и квестов целиком по кампании; для демо важны линии Intro / Ernie.
+| | |
+| --- | --- |
+| Кампания | `HotDiamonds` |
+| InitialSector | **M1** — «Зона высадки» |
+| Setpiece входа | `M1Landing` (карта `EPA7FVN`) |
+| Старт | reveal `M1`/`M2`/`M3` |
 
-## Ключевые места
+Города: **Ernie** (`ErnieVillage`), база повстанцев (`Rebels_Ernie`), контрабандисты (`SmugglersErnie`).
 
-| Сектор | Место | Зачем игроку |
+## Сектора Эрни (код)
+
+Фильтр: `WeatherZone=Erny` **или** город `ErnieVillage`/`Rebels_Ernie` **или** `Label1=Ernie` → **20** секторов (не «23 из старого каталога»).
+
+| Id | Имя в данных | Заметка |
 | --- | --- | --- |
-| M1 | Зона высадки | Старт кампании |
-| I5 | Деревня Эрни | Главный хаб; освобождение деревни |
-| I7 | Форт Ло-Блё | Guardpost Легиона; цель «взять крепость»; штаб Global AI на острове |
-| L1 | База партизан | Встреча с повстанцами |
-| M4 | Смотровая площадка | Линия повстанцев / outlook |
-| I2 | Лечебница в маяке | Квест доктора |
-| J7 | Изумрудный берег | Спасение Хермана (`EncounterHerman`) |
-| K5 / L5 | Лагеря у виллы | Зачистка / «расчистить путь» |
-| I6 / L6 | Подземка / бункер | Фортификация, Luigi и связанные линии |
+| M1 | Зона высадки | Старт |
+| M2 | Скалистый берег | |
+| M4 | The Outlook / смотровая | Label Ernie |
+| M5 | Береговая линия | |
+| M6 | Старый порт | |
+| I2 | Лечебница в маяке | City ErnieVillage |
+| I5 | Village of Ernie | Хаб |
+| I6 | The Rust / Жестянка | Label Ernie |
+| I6_Underground | Bunker FB45-68 | Label Ernie |
+| I7 | Fort L'Eau Bleu | Outpost / Global AI |
+| J5 | Фермы Эрни | |
+| J7 | Emerald Coast | Herman |
+| K4 | Flag Hill | |
+| K5 | Походный лагерь Легиона | |
+| K6 | Запасной лагерь контрабандистов | |
+| L1 | База партизан | City Rebels_Ernie |
+| L2 | Непроходимая местность | Rebels_Ernie |
+| L5 | Походный лагерь Легиона | |
+| L6 | Заброшенный вход в бункер | Rebels_Ernie |
+| L7 | Рыбацкая деревня | |
 
-## Квестовые линии (примеры)
+Рядом на острове, но **без** Ernie-тега в ModItemSector: `I3`/`I4` (дорога к маяку), `M3` (водопад), `K3`/`L3`/`L4` (квест виллы), `I7_Underground`, `L6_Underground`.
 
-- Освободить деревню Эрни / остров.
-- Взять Fort L'Eau Bleu.
-- Спасти Хермана; укрепить Эрни (в т.ч. Browning .50 для обороны I5).
-- Пьер, Бастьен, встретить повстанцев, захватить смотровую площадку.
-- Спасти Кики; линия доктора; оборона маяка; зачистка виллы.
+## Квесты (из items.lua)
 
-Точный список ID и привязок к секторам — в каталоге maps-пакета; здесь — то, что заметно как сюжет демо.
+### QuestGroup «Ernie Island»
 
-## Враги на карте
+| Id | DisplayName | Hidden |
+| --- | --- | --- |
+| `TakeTheFortress` | Fort L'Eau Bleu | нет |
+| `RescueHerMan` | Herman is missing | нет |
+| `FortifyErnie` | Helping Ernie Village | нет |
+| `ReduceFortressStrength` | How to reduce the Fort's defenses | да |
+| `LegionFlag` | Fooling Pierre | да |
+| `Ernie_CounterAttack` | *(без имени)* | да |
+| `ErnieSideQuests` | *(без имени)* | да |
+| `ErnieSideQuests_WorldFlip` | *(без имени)* | да |
+| `RescueTeam` | Мы в спасатели нанимались | нет |
+| `RebelsSavior` | Маленькая спасательная операция | нет |
 
-На Эрни стоят отряды Легиона с JAZZ-классами (штурм, стрелки, пулемёты, офицеры…). Состав и «крутизна» лута растут не только от названия отряда, но и от **campaign gear tier** — см. [юниты Легиона](legion-units.md). На стратегии те же силы показывают роли и задачи — [Легион на стратегии](legion-strategy.md).
+### Intro / освобождение
+
+| Id | DisplayName |
+| --- | --- |
+| `01_Landing` | Встреча с нанимателем |
+| `02_LiberateErnie` | Retake Ernie Village |
+| `02A_LiberateErnie_2` | Освобождение острова Эрни |
+| `PierreDefeated` | Pierre |
+| `JoseFamily` | Bastien |
+
+### Ernie_Rebels / локальные JAZZ
+
+| Id | DisplayName |
+| --- | --- |
+| `JAZZ_REBELS_0_MeetTheRebels` | Повстанцы |
+| `JAZZ_REBELS_1_SeizeTheOutlook` | Атака на Смотровую Площадку |
+| `Jazz_Doctor_need_Help` | Неугодный доктор |
+| `JAZZ_Ernie_Locals_M2_SaveMyFamily` | Спасти Кики |
+| `Jazz_ClearTheWay` | Зачистить лагеря вокруг Виллы |
+
+## Setpieces
+
+Зарегистрированы в maps: **`M1Landing`**, **`EncounterHerman`**. По ходу Эрни также вызываются (часто vanilla ID): `PierreLucTalk`, `ErnieReturn_FirstEnter`, `FortressBasement_FirstEnter`, `PierreDies` / `PierreRetreat`, `HangingLuc`, `BastienDies`.

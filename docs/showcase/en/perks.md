@@ -2,33 +2,37 @@
 
 [Overview](home.md) · [Mercenaries](mercenaries.md) · [Combat actions](combat-actions.md) · [Русский](../ru/perks.md)
 
-## Three different “perks” in JAZZ
+Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz). Class weapon buttons (`JAZZ_Fanning`, etc.) live on [combat actions](combat-actions.md); this page is **named / personal**.
 
-Do not mix these layers:
+## Layers
 
-1. **Weapon class techniques** — buttons like Fanning, Bullseye, Mozambique, Controllable Burst. They depend on the weapon class / unlocks. Details: [combat actions](combat-actions.md).
-2. **Named merc perks** — `Jazz_Perk_*` on AIM hireables (one signature effect per character).
-3. **Status effects / auras** — in-combat CharacterEffects (suppression, officer aura, etc.): not an AIM build pick, a battlefield state.
+1. Named merc perk (`Jazz_Perk_*` in StartingPerks).
+2. Personal combat action (button id = perk / `GrizzlyPerk`).
+3. Status/aura (`Jazz_Perk_OfficerAura*`) — not an AIM build pick.
 
-Accuracy impact always goes through the **same** CTH pipeline as a normal shot (multipliers; no separate “showcase math”).
+## What actually works in code
 
-## Named perks (how to read them)
-
-| Example | Merc | Design intent |
+| Id | Who | Runtime effect |
 | --- | --- | --- |
-| Chain Panic | Colby | ~+20% blast radius; panic chance on wounded targets in the blast |
-| People's Commander / Teacher stack | Ira | Faster locals militia training |
-| Blade Storm | Blade | Signature close-combat technique |
-| Lynx's Eye | Lynx | Named sniper ability |
-| Field Surgery | Spider | Field medicine |
-| Lead Rain / SMG-storm line | Tosca | Dense automatic fire |
+| `Jazz_Perk_00` | Spouke (`JAZZ_Merc_Spouke`) | Toggle: timed explosives detonate at enemy turn start |
+| `Jazz_Perk_Buzz` | Tosca (`Jazz_Buzz`) | +50% autofire bullet count (WeaponAttacks / items hooks) |
+| `Jazz_Perk_Lynx` | Lynx | +8 sight (`System_OR_Unit`); range-CTH text is **not** backed by code |
+| `Jazz_Perk_Spider` | Spider | ×2 Medical on sector heal ops |
+| `Jazz_Perk_Colby` | Colby | +20% grenade AoE; 20% panic on wounded in blast |
+| `GrizzlyPerk` | Grizzly | Personal MG attack + CTH/recoil hooks |
+| `GruntyPerk_JAZZ` | Grunty (+ Doctor_Leevsy) | On combat start → +50% AP first turn |
+| `Jazz_Perk_OfficerAura` / `…Influence` | AI officers | Commander aura markers (`AIContextProfiles`) |
 
-Combat also has personal actions like `JAZZ_VovaVist` and `GrizzlyPerk` — character grant-paths, not the shared AIM pool.
+**Note:** Lynx/Buzz/Spider/Colby HUD buttons currently copy-paste the `Jazz_Perk_00` toggle. The passive may still work; the button does not.
 
-## Readiness
+`JAZZ_VovaVist` has full attack code but **no UnitData grant path** found.
 
-- The mod’s CharacterEffect catalog is large (dozens of perks and statuses).
-- JA1/2 wave mercs have named-perk **slots**, but many runtime hooks are still **empty stubs**. Do not expect every nick’s design article to already reshape combat.
-- Class weapon actions are generally closer to “pressable in a fight”; named perks — verify in your build.
+## Stubs
 
-When a perk ships for real, this page and the merc blurb get updated together.
+Other wave `Jazz_Perk_*` (Allik, Blade, Ira, Miguel, … — **~40** files): empty `unit_reactions`, WIP text, no `Code/` gameplay refs. Slot exists on the merc; no combat effect yet.
+
+Orphan: `Jazz_Perk_44840` — file present, not registered in `items.lua`/`metadata`.
+
+## Player takeaway
+
+Expect working named effects from **Spouke, Tosca, Lynx, Spider, Colby** (+ Grizzly/Grunty). The rest of the wave is hireable, but the “signature” perk is still empty.

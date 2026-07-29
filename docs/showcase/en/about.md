@@ -60,8 +60,9 @@ This is one mod suite, not four independent mods. Partial installs are unsupport
 
 ### Mercenaries and perks
 
-- AIM wave from JA1/2 (nicks, roles, named perks) — [mercenaries](mercenaries.md).
-- Weapon class techniques ≠ named merc perk ≠ battlefield status — [perks](perks.md).
+- **48** hireable Jazz mercs in `jazz-units` (AIM/MERC) — full roster: [mercenaries](mercenaries.md).
+- Named perks with code: Spouke, Tosca, Lynx, Spider, Colby (+ Grizzly/Grunty); other wave slots are stubs — [perks](perks.md).
+- Class weapon techniques are separate: [combat actions](combat-actions.md).
 
 ## This wiki
 
