@@ -16,10 +16,29 @@ translatedModifications = {
     
 }
 
+-- Ammo pen UI: work in integer tenths, never put a Lua float into T{} <number>
+-- (JA3 truncates toward zero → 0.9 shows as 0). See skill jazz-penetration-scales.
+function FormatAmmoPenetrationDisplay(mod_mul, mod_add)
+	local mul = mod_mul
+	if mul == nil then
+		mul = 1000
+	end
+	-- tenths: mod_mul 1000 → 10 (=1.0), bonus +2 → +2 tenths (=0.2)
+	local tenths = DivRound(mul, 100) + (mod_add or 0)
+	local sign = ""
+	if tenths < 0 then
+		sign = "-"
+		tenths = -tenths
+	end
+	local whole = floatfloor(tenths / 10)
+	local frac = tenths - whole * 10
+	return sign .. whole .. "." .. frac
+end
+
 function Ammo:GetRolloverHint()
 	local hint = {} 	
 	local penbonus = 0
-	local pen = 0
+	local pen_mul = nil
 	local penname = ""
 
 	for _, val in sorted_pairs(self.Modifications) do
@@ -50,8 +69,7 @@ function Ammo:GetRolloverHint()
 			skip = true
 		end
 		if target_prop == "PenetrationClass" then
-			-- CaliberModification: 1000 = ×1. Display class as mod_mul/1000 (e.g. 2000 → 2.0).
-			pen = ((val.mod_mul or 1000) + 0.0) / 1000
+			pen_mul = val.mod_mul
 			penname = Untranslated(display_prop)
 			skip = true
 		end
@@ -68,15 +86,12 @@ function Ammo:GetRolloverHint()
 		end
 	end
 
-	-- Combined pen: class + tenths from PenetrationBonus (e.g. 2.0 + 2 → 2.2).
 	if penname ~= "" then
-		local display_pen = pen + penbonus * 0.1
-		display_pen = floatfloor(display_pen * 10 + (display_pen >= 0 and 0.5 or -0.5)) / 10
 		hint[#hint + 1] = T{
 			890000000001388,
 			"\n<bullet_point> <target_prop>: <pen>",
 			target_prop = Untranslated(penname),
-			pen = display_pen,
+			pen = Untranslated(FormatAmmoPenetrationDisplay(pen_mul, penbonus)),
 		}
 	end
 

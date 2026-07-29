@@ -60,7 +60,7 @@ weapon_pen = PenetrationClass + 0.1 × PenetrationBonus
 
 Снимок данных (static): у `JazzArmor*` преобладают классы 2–3, реже 4–5; `ArmorRating` по классам в среднем ~18–27. У JAZZ-ammo эффективный display-диапазон примерно **0.1–4.0** (соль/дробь → .50 BMG APIT).
 
-Связанный UI патрона: `Ammo:GetRolloverHint` в [оружии/боеприпасах](weapons-ammo-components.md).
+Связанный UI патрона: `FormatAmmoPenetrationDisplay` / `Ammo:GetRolloverHint` в [оружии/боеприпасах](weapons-ammo-components.md). Skill: `.agents/skills/jazz-penetration-scales/SKILL.md` (не класть float в `T{}` number-slot).
 
 ### Расчёт DR по пуле (`Armor:CalculateArmorRating`)
 
@@ -99,7 +99,7 @@ weapon_pen = PenetrationClass + 0.1 × PenetrationBonus
 
 1. Legacy: `AdditionalReduction` / старый pierce-branch в `ApplyHitDamageReduction` закомментированы; актуальный DR — только через `CalculateArmorRating*`.
 2. Часть vanilla/ранних жилетов без явного `PenetrationClass`/`ArmorRating` в companion (например часть `Flak*`) опирается на defaults шаблона — проверять перед балансными правками.
-3. Исправлено (2026-07-30): unit/object path и ammo rollover снова сходятся на `class + 0.1×bonus` (ранее bonus игнорировался из‑за `and`/`or`, UI показывал целые порядка 202 после `9d1eee3`).
+3. Исправлено (2026-07-30): unit/object path на `GetAttackPenetrationClass`; ammo UI сначала вернули float в `T{}` (`.45ACP` **0.9** показывалось как **0** из‑за усечения), затем — целые десятые + `Untranslated` (`FormatAmmoPenetrationDisplay`).
 
 ### Аудит дизайна и кода (static, 2026-07-30)
 

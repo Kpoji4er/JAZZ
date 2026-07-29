@@ -16,10 +16,13 @@ description: Маршрутизировать безопасную разраб�
 5. Подключить специализированный skill:
    - `$sync-jazz-generated-data` — ModItem, `items.lua`, `metadata.lua`, companion, Entity или editor-owned data;
    - `$document-jazz-systems` — фактическое изменение реализации, load-state или technical contract;
-   - `$create-jazz-squad-icons` — сателлитные PNG ролей отрядов в `SquadsIcons/Enemy`;
-   - `$create-jazz-merc-portraits` — PNG Portrait/BigPortrait мерков и NPC в `jazz-units/MercPortraits` и `NPCPortraits`;
-   - `$create-jazz-merc` — полный наёмник из `docs/design/mercs-ja12/<slug>.md` (UnitData, perk, loot, portraits, loc, VR);
-   - `$release-jazz-suite` — release candidate, version, manifest, tag или публикация.
+  - `$create-jazz-squad-icons` — сателлитные PNG ролей отрядов в `SquadsIcons/Enemy`;
+  - `$create-jazz-component-icons` — полная `WeaponComponent.Icon` (`Icons/Upgrades/Full/`);
+  - `$create-jazz-chip-icons` — `ChipIcon` миниатюры чипов (`Icons/Upgrades/Chips/`);
+  - `$create-jazz-merc-portraits` — PNG Portrait/BigPortrait мерков и NPC в `jazz-units/MercPortraits` и `NPCPortraits`;
+  - `$create-jazz-merc` — полный наёмник из `docs/design/mercs-ja12/<slug>.md` (UnitData, perk, loot, portraits, loc, VR);
+  - `$jazz-penetration-scales` — дробное пробитие (класс + десятые), ammo UI / `GetAttackPenetrationClass`;
+  - `$release-jazz-suite` — release candidate, version, manifest, tag или публикация.
 6. Не выполнять recursive scan `jazz-maps/Maps/` без прямого картографического scope.
 
 ## Исследование

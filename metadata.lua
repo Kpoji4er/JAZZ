@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- Colby: RU AIM/VR texts + Chain Panic perk description (Silero+RVC voices in jazz-units)\n- Пробитие: единый class+0.1×bonus в DR/UI/object armor; фикс tooltip патронов\n- AI: SameTarget/Пристрелка в score цели + sticky fire mode в Dump (JAZZ-AI-003)",
+	'last_changes', "- Пробитие UI: десятые через Untranslated (0.9 не режется в 0); skill jazz-penetration-scales\n- Colby: RU AIM/VR texts + Chain Panic perk description (Silero+RVC voices in jazz-units)\n- Пробитие: единый class+0.1×bonus в DR/UI/object armor",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 22,
+	'version_minor', 23,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,

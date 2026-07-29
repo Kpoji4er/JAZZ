@@ -70,13 +70,16 @@ JAZZ превращает оружие из набора vanilla-статов в
 
 ## Inventory icons (JAZZ-UI-001)
 
-Path **B** (chips): template `Icon` оружия не подменяется. Non-default компоненты → chip row из `WeaponComponent.ChipIcon` (иначе `Icon`, иначе `Icons/Upgrades/slot_*`).
+Path **B** (chips): template `Icon` оружия не подменяется. Chip column (VList, left edge) из `WeaponComponent.ChipIcon` (иначе `Icon`, иначе `Icons/Upgrades/slot_*`).
 
 - Chip PNG: `Icons/Upgrades/Chips/<ComponentId>.png` → `Mod/e6L4ECj/Icons/Upgrades/Chips/<…>.png`
 - Full кабинет: `Icon` (vanilla `UI/Icons/Upgrades/…` или `Icons/Upgrades/Full/`) — skill `$create-jazz-component-icons`
 - Chip миниатюры — skill `$create-jazz-chip-icons`
 - Runtime: `Code/WeaponAttachChips.lua` + hooks в `InventoryUI.lua`; bake (`WeaponIconBake.lua`) dormant (`JazzWeaponIcon_BakeEnabled = false`)
-- `w_mod` скрывается, когда показан chip row
+- Показ: non-default **или** default + `CanBeEmpty` + `ModificationEffects` (как `CountWeaponUpgrades` — builtin flashlight на MP5A4)
+- Порядок (top→bottom): Scope → Side* → Under → Muzzle → …; `JazzAttachChips_Max = 6`
+- Mount* слоты не чипуются
+- `w_mod` скрывается, когда показан chip column
 - Scope/Sights: ChipIcon проставлен для 30 компонентов (2026-07-30)
 
 ## Ресурс, кучность и износ
@@ -114,15 +117,18 @@ Ammo ModItems наследуют `Ammo`; rollover выводит модифик�
 
 ### Пробитие патрона (`PenetrationClass` + `PenetrationBonus`)
 
-Контракт данных и UI:
+Контракт данных и UI (канон skill `.agents/skills/jazz-penetration-scales/SKILL.md`):
 
 ```text
-display_pen ≈ (mod_mul / 1000) + (mod_add_bonus / 10)
+tenths = DivRound(mod_mul_or_1000, 100) + mod_add_bonus
+display = "W.F"   -- 9 → 0.9, 22 → 2.2
 ```
 
-где `mod_mul` — `CaliberModification` на `PenetrationClass`, `mod_add_bonus` — на `PenetrationBonus`. Оружие с базовым классом `1` и FMJ `mod_mul=2000`, `mod_add=+2` даёт **2.2**. Боевой pen атаки: `GetAttackPenetrationClass` = `PenetrationClass + 0.1×PenetrationBonus` — см. [броня/урон](armor-damage-wounds-will.md).
+Боевой pen: `GetAttackPenetrationClass` = `PenetrationClass + 0.1×PenetrationBonus` — см. [броня/урон](armor-damage-wounds-will.md).
 
-`Ammo:GetRolloverHint` (`Code/AmmoRolloverHint.lua`) склеивает оба модификатора в одну строку «Penetration» и не показывает их отдельными bullet points. После регрессии `9d1eee3` формула снова восстановлена (2026-07-30).
+`Ammo:GetRolloverHint` склеивает оба модификатора в одну строку и передаёт **`Untranslated` строку**, не Lua float: подстановка числа в `T{}` усекает к нулю (`0.9` → `0`). Форматтер: `FormatAmmoPenetrationDisplay`.
+
+Не делать `DivRound(mul, 100) * 10 + bonus` (двойной масштаб → 202) и не путать с jam `%` (`/10`).
 
 ### Трассерные боеприпасы
 
