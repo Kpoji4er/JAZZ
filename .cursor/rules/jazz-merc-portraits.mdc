@@ -1,8 +1,8 @@
----
+﻿---
 description: >-
-  Генерация PNG-портретов мерков/NPC JAZZ в стиле JA3 (300+2000, фиолетовый
-  хромакей #FF00FF, color grade как vanilla, мягкая альфа, kit, не военный).
-  При запросе мерка/портрета/BigPortrait.
+  Генерация PNG-портретов мерков/NPC JAZZ в стиле JA3 (300+2000, рендер на
+  #504633, альфа отдельным neural cut BiRefNet/useknockout, color grade как
+  vanilla, kit, не военный). При запросе мерка/портрета/BigPortrait.
 alwaysApply: false
 ---
 
@@ -13,12 +13,16 @@ alwaysApply: false
 
 ## Выход
 
-| Слот | Файл | Размер |
-| --- | --- | --- |
-| Portrait | `MercPortraits/<Id>.png` | **300×300** RGBA |
-| BigPortrait | `…/<Id>_Big.png` | **2000×2000** RGBA |
+| Слот | Файл | Размер | Кадр |
+| --- | --- | --- | --- |
+| Portrait | `MercPortraits/<Id>.png` | **300×300** RGBA | **tight headshot** — лицо почти на всю плоскость (как Blood/Ice) |
+| BigPortrait | `…/<Id>_Big.png` | **2000×2000** RGBA | full-body |
 
-Черновики: `*/_wip/`. Не в `Images/`.
+Оба слота обязательны в одном прогоне. Portrait ≠ поясной/chest-up.  
+Skill кадра UI: `.agents/skills/frame-jazz-merc-ui-portrait/`.  
+Эталон: `_quality_bar/OK_ui_portrait_framing_Blood.png`.
+
+Черновики: `*/_wip/`. Сырьё до cut: `*/_raw/`. Не в `Images/`.
 
 ## Style-референсы (обязательно)
 
@@ -27,67 +31,196 @@ alwaysApply: false
 `jazz-units/MercPortraits/References/` (+ `References/Portraits/`)
 
 **Больше нигде** (не extract UI вне папки, не другие моды, не NPCPortraits, не чужие _wip).  
-Face/pose пользователя и `*.ja2-face.*` — identity only.
+Face/pose пользователя и `*.ja2-face.*` — **identity** (узнаваемость), не замена `References/` по стилю тела/гамы.
+
+## Лицо (узнаваемое + чуть реалистичнее)
+
+Источник identity: `docs/design/mercs-ja12/<slug>.ja2-face.*` (+ face от пользователя).
+
+- **Узнаваемость обязательна:** тот же человек — возраст, этничность, причёска, ключевые черты (нос/глаза/челюсть/шрамы).
+- **Вдохновляться** JA2-face, **не копировать** как плоский пиксель-стикер / mask paste.
+- Анатомия **чуть реалистичнее**, в духе лиц JA3 Mercs в `References/`: объём, челюсть, глаза, уши, шея, кожа — правдоподобнее; не кукольное и не «фотошоп beauty».
+- Не терять характер JA2 (узнал с первого взгляда) ради realism.
+- Big = то же лицо, что Portrait (не старить / не перерисовывать с нуля).
+
+Reject: чужое лицо; JA2-стикер без объёма; over-beautify / plastic skin.
 
 ## Фон генерации
 
-- **Всегда** solid `#FF00FF` (фиолетовый/magenta chroma).
+- **Всегда** solid `#504633` (olive-brown chroma).
 - **Не** black / transparent / checkerboard в промпте.
-- На персонаже magenta быть не должно.
+- На персонаже избегать **плоской заливки ровно `#504633`** (иначе сольётся с фоном); обычные khaki/olive ткани ок — cut через rembg.
+- GenerateImage **не** делает альфу — только opaque на `#504633`.
+- **Сырые кадры до обрезания** класть в отдельную папку **`_raw/`** (рядом с целевым слотом). Не перезаписывать финальные RGBA и не смешивать raw с cut в одной папке.
 
-## Альфа
+Примеры путей:
 
-Удачный кадр: **не перегенерировать**.  
-Key `#FF00FF` → **blur маски** (soft AA) → лёгкий despill на fringe.  
-Не choke. Не key по чёрному.
+```text
+MercPortraits/_wip/_raw/<Id>.png
+MercPortraits/_wip/_raw/<Id>_Big.png
+MercPortraits/wip-regen/v1_appearance_backstory_bio/_raw/<Id>_bust.png
+MercPortraits/wip-regen/v1_appearance_backstory_bio/_raw/<Id>_big.png
+```
 
-DoD: `cornerA=0`, soft alpha на кромке, силуэт не выгрызен.
+Cut/resize → в родительскую папку варианта или финальный `MercPortraits/<Id>.png` / `<Id>_Big.png` только после approve.
+
+## Альфа — отдельный проход (нейронка)
+
+Удачный кадр: **не перегенерировать**. Снятие фона — **отдельный** шаг после approve стиля/лица/позы.
+
+**Предпочтительно (сторонние нейронки, SOTA matting):**
+
+| Приоритет | Инструмент | Заметки |
+| --- | --- | --- |
+| 1 | **BiRefNet** локально через `rembg` | На этой машине: Python 3.12 + `rembg.exe i -m birefnet-general` (агент ставит/зовёт сам) |
+| 1b | **BiRefNet** через [useknockout](https://useknockout.com/) | Если есть `KNOCKOUT_TOKEN` |
+| 2 | Photoroom / remove.bg | Ручной UI |
+
+Хромакей `#504633` в исходнике помогает нейронке (чистый фон ≠ субъект). После cut: resize к 300 / 2000, проверить `cornerA=0`, волосы/мех не выгрызены.
+
+**Fallback** (нет доступа к нейронке): классический soft chroma-key (#504633) (`_softcut.ps1` / skill script) — blur маски, лёгкий despill. Не choke. Не key по чёрному.
+
+DoD: прозрачный PNG, soft fringe ок, силуэт не пожеван.
 
 ## Наёмник, не солдат
 
-- **Нет** лычек / rank chevrons / sergeant stripes.
+- Это **наёмники / PMC**, не армия: без армейских лычек, sergeant stripes, national army rank insignia.
+- **Ок:** шевроны / патчи / нашивки наёмников, агентства, PMC, moral/unit patches — гражданский contractor look.
 - Класс — PMC kit (red cross, IFAK, инструменты). Полевой медик ≠ стетоскоп-доктор.
-- **Оружие в кадре запрещено.**
+- **Оружие:**
+  - **Ок:** пистолет **в кобуре** (на бедре / поясе), не в руке.
+  - **Запрещено:** оружие в руках; пистолет/винтовка на столе, на земле, как prop; винтовки/автоматы/дробовики в кадре (даже на ремне за спиной); стрельба/прицеливание.
 
-## Цвет как в vanilla
+## Quality bar (идеал нашей генерации)
 
-Канон: **только** `MercPortraits/References/` (+ `Portraits/`).  
-Match JA3 color grade; не muddy chocolate crush.
+Пользовательский эталон «идеальной работы»:
 
-## Пропорции
+`jazz-units/MercPortraits/_quality_bar/Highball_ideal_Big.png`  
+(также `newrules/Highball_Big.png`)
 
-Сверять с `References/` до принятия:
+Сверять **каждый** Big с этим уровнем качества (не копировать Highball-kit на других мерков — копировать **уровень**):
 
-- **не карлики** — нормальный взрослый рост, ноги полной длины;
-- **не большеголовые** — голова не доминирует над телом;
-- руки/кисти/стопы как у взрослых JA3 Mercs;
-- Portrait и Big — одно телосложение;
-- pose-ref не оправдывает сломанные пропорции.
+- взрослые пропорции, **ноги полной длины**;
+- живая поза с характером (вес/опора/асимметрия рук — у Highball трость + рука в кармане);
+- читаемый class kit / prop персонажа, без огнестрела в руках;
+- чистый силуэт после cut, спокойная экспозиция, без AI-шума складок/грязи;
+- лицо узнаваемое, слегка реалистичнее JA2, не стикер и не beauty-filter;
+- full-body framing: голова и стопы в кадре.
 
-## Big framing
+Ниже этого бара = reject / переген.
 
-На BigPortrait **запрещено обрезать** голову/волосы сверху и ноги/ботинки снизу.  
-Нужны небольшие поля `#FF00FF`. Crop = reject / переген.
+## QA: пропорции и цвет по References (обязательно)
 
-В промпте: `PROPORTIONS: ... no dwarf, no oversized head, full-length natural legs` + `FRAMING: head-to-toe fully inside frame`.
+До принятия любого кадра (Portrait/Big) **визуально сверить** с:
 
-## Appearance sheet — 3 варианта
+1. `jazz-units/MercPortraits/References/` (+ `Portraits/` для bust) — стиль JA3 / пропорции / гамма  
+2. `_quality_bar/Highball_ideal_Big.png` — целевой уровень нашей генерации
 
-Источник: `docs/design/mercs-ja12/_appearance-sheet.md`
+Порядок: `Read` кандидата + `Read` 1–2 refs + при сомнении quality bar. Без сверки кадр не принимать.
 
-| Папка | Промпт |
+**Пропорции тела (жёстко)** — как у refs (Raven/Buns/MD и др.), **анатомически взрослые**:
+
+- **Эталон:** ~7.5–8 голов в рост; промежность примерно на середине высоты фигуры; **ноги ≈ половина роста** (бедро+голень+стопа полные).
+- **Запрещены карлики / короткие ноги:** сжатый торс, «пенек»-ноги, детский силуэт, ноги заметно короче refs — **reject / переген**, даже если лицо/kit ок.
+- **Не большеголовые:** голова не доминирует над телом (нет bobblehead).
+- Руки/кисти/стопы — взрослые, не «детские» и не гипертрофия.
+- Крупный/эндоморф (Bull/Meat и т.п.) = шире и массивнее, **но ноги всё равно полной длины**, не коротышки. Для эндоморфов в промпте **усиливать** long legs / crotch mid-height — модель иначе укорачивает ноги из‑за живота; reject «пенек» даже если kit ок.
+- Portrait и Big — одно телосложение; pose-ref не оправдывает сломанные пропорции.
+- В промпте Big явно: длинные ноги / full-length legs / no short legs / no dwarf. В QA сравнивать длину ног с refs side-by-side.
+
+**Цветовая гамма / экспозиция** — как у тех же refs:
+
+- Match JA3 color grade (cleaner midtones, не muddy chocolate crush);
+- кожа/ткани/тени по тону ближе к refs, не «грязный» AI-рендер;
+- **экспозиция** как у refs: не пересвет, не underexposed muddy crush; midtones читаемые, блики/тени в том же «окне яркости», что у Raven/Buns/MD (и bust → `References/Portraits/`).
+
+**Чистый силуэт / меньше шума** — как у refs (Buns/Raven читаемые плоскости):
+
+- **HARD REJECT — excess fabric folds:** сетка мелких/плотных складок и морщин по штанам/куртке (особенно crotch/бёдра/колени) = **reject / переген**, даже если лицо/kit/пропорции ок.
+- Негатив: `_quality_bar/REJECT_excess_folds_Laura_pants.png` (шумные штаны).
+- **Как чинить:** **GPT image denoise** (GenerateImage), не OpenCV/bilateral (даёт мыло и не снимает сетку складок).
+  1. `reference_image_paths`: шумный Big **первым** + `OK_clean_folds_Laura_pants.png` (уровень чистки) + опционально `FIX_pants_folds_before_after_Laura.png`.
+  2. Промпт: тот же персонаж/поза/kit/лицо; **сохранить резкость**; убрать только dense micro-wrinkles на ткани; оставить несколько крупных заломов. Эталон чистоты — Laura OK.
+  3. Можно **2–3 прохода** GPT-денойза подряд, если после первого ещё шум.
+  4. Затем rembg при необходимости (если фон снова `#504633`).
+- Bilateral/NLM скрипт — **не использовать** для складок.
+- **Ок:** умеренные крупные заломы как у Highball / JA3 `References/` / Laura OK.
+- **не** AI-шум: грязная микротекстура, «грязь ради грязи», крап, over-sharpen grain;
+- кожа без лишнего pore-noise / plastic roughness;
+- kit и лицо читаются с первого взгляда — деталь служит форме, не шумит.
+
+Расхождение с refs / quality bar по пропорциям, гамме, **экспозиции**, позе, **складкам** или «шумности» = reject / переген.
+
+**После полного gen-батча:** пройти все слоты **последовательно** ещё раз по тем же критериям; все reject — перегенерировать и снова QA (один regen-pass).
+
+## Позы (интересные, как в References)
+
+По умолчанию **не** делать симметричный front-facing mannequin (обе руки вдоль тела, стопы параллельно, «паспортное фото»).
+
+Канон позы — мерки в `MercPortraits/References/` (Buns / Raven / MD и др.):
+
+- **¾ корпус** + голова чуть к камере (или взгляд мимо);
+- **вес на одной ноге** / лёгкий contrapposto, силуэт с характером;
+- **асимметрия рук:** рука на бедре / на ремне / держит kit (медаптечка, инструмент, радио) / одна согнута — другая свободна;
+- поза читает **роль и характер** (медик, разведчик, тяжёлый, нервный…) — не одна и та же стойка на всех;
+- **Portrait (bust):** кадр как Ice/Blood/Omryn — **вся голова** + верх плеч; лицо крупное, без обрезания макушки/подбородка. Не поясной (0.42) и не extreme zoom (0.15). Эталон: `_quality_bar/OK_ui_portrait_framing_Blood.png`. Skill: `frame-jazz-merc-ui-portrait`. Crop: `bust_crop_tight.py --frac 0.28`.
+- если пользователь дал **pose-ref** — копировать его, не упрощать.
+
+Запрещено ради «интересности»: огнестрел в руках / на земле / винтовки (пистолет в кобуре ок), сломанные суставы, crop головы/ног, карлик/большеголовость. Kit класса должен оставаться читаемым.
+
+## Appearance sheet — 5 вариантов (`newrules2/`)
+
+Источник: `docs/design/mercs-ja12/_appearance-sheet.md`  
+https://docs.google.com/spreadsheets/d/1h6Q_NXa3M1W8nQ59KQAJZIn58SNbDcR7_6IvdfpPuLY/edit?gid=0
+
+Структура: **папка на мерка**, вариант — **суффикс** файла:
+
+```text
+newrules2/<Id>/<Id>_<variant>.png | <Id>_<variant>_Big.png
+```
+
+| Суффикс | Промпт |
 | --- | --- |
-| `wip-regen/v1_appearance_backstory_bio/` | APPEARANCE + BACKSTORY/LOOK + BIO |
-| `wip-regen/v2_appearance_only/` | только APPEARANCE |
-| `wip-regen/v3_bio_backstory/` | BIO + BACKSTORY/LOOK |
+| `_appearance` | APPEARANCE |
+| `_appearance_backstory` | APPEARANCE + BACKSTORY/LOOK |
+| `_appearance_backstory_bio` | APPEARANCE + BACKSTORY/LOOK + BIO JA2 |
+| `_bio` | BIO JA2 |
+| `_bio_backstory` | BIO JA2 + BACKSTORY/LOOK |
 
-Нет строки → не генерить. Огнестрел из sheet не рисовать.
+Нет строки → не генерить. Длинноствол / оружие в руках из sheet не рисовать; пистолет в кобуре — ок.
 
 ## Промпт-обязательства
 
 - `aspect_ratio` `1:1`
-- BACKGROUND `#FF00FF`
-- JA3 color grade
+- BACKGROUND `#504633` (opaque; alpha later)
+- **CLIMATE / SETTING:** hot African country (Arulco) — heat-appropriate clothing (rolled sleeves, lighter fabrics, sweat/dust ok); no winter/arctic kit unless sheet says so
+- JA3 color grade + EXPOSURE match refs
 - VARIANT v1/v2/v3 + соответствующие поля sheet
-- PROPORTIONS; Big: голова и стопы в кадре
-- merc not military; no firearms
+- PROPORTIONS: adult ~7.5–8 heads; legs ~half body height; **no short legs / no dwarf** (reject like squat Bull; OK like Lynx/refs)
+- merc not army: PMC/merc patches & chevrons OK; no army rank insignia / sergeant stripes; holstered pistol OK; no guns in hands / on props / rifles
+- После генерации: QA пропорций, гаммы, экспозиции и чистоты vs `MercPortraits/References/`
+- POSE: interesting ¾ / weight-shift / asymmetric arms like References (not mannequin)
+- FACE: recognizable from JA2-face, slightly more realistic anatomy like JA3 refs (not flat sticker)
+- SURFACE: **HARD reject excess wrinkles** — clean large folds only like Highball/refs; no dense wrinkle grid on pants/jacket (see `_quality_bar/REJECT_excess_folds_Laura_pants.png`)
+- EXPOSURE: match brightness/midtones of References (Portraits/ for bust)
+- Cut: отдельный rembg BiRefNet (fallback soft-key)
+
+## NPC portraits (`NPCPortraits/newgen/`)
+
+Не мерки. Один слот: **только full-body** `<Id>_Big.png` (2000×2000 RGBA). Bust 300 **не** требуется.
+
+Выход: `jazz-units/NPCPortraits/newgen/<Id>_Big.png` (+ `_raw/` до cut).  
+Пайплайн тот же: opaque `#504633` → rembg BiRefNet → resize 2000 → QA → regen rejects.
+
+**Стиль / identity:** сильно сохранять текущий PNG в `NPCPortraits/<Id>_Big.png` и appearance preset юнита — не «переодевать» в AIM-наёмника. Style-lock: существующий NPC Big **первым** в `reference_image_paths`; пропорции/чистота — как у merc quality bar / `MercPortraits/References/`.
+
+**Роль по префиксу Id:**
+
+| Префикс | Кто |
+| --- | --- |
+| `Rebels_` | повстанцы / irregulars |
+| `Adonis_` | силы Adonis (корп./контрактники, не «AIM-merc») |
+| `Local_` | местные гражданские |
+
+Faction patches/шевроны своей фракции — ок; не превращать в чужой archetype. Оружие/kit — как у текущего портрета / роли (у combat NPC допускается то, что уже в style-ref).  
+DoD: gen → sequential QA vs old NPC Big + proportions → regen rejects.
