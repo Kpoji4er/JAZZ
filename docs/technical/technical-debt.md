@@ -4,6 +4,12 @@
 
 ## Высокий приоритет
 
+### Дробное пробитие: runtime и ammo UI
+
+Модель: классы брони/атаки **1–5**, эффективный pen `GetAttackPenetrationClass` = `PenetrationClass + 0.1 × PenetrationBonus`. Канон — [armor-damage-wounds-will.md](systems/armor-damage-wounds-will.md), UI — [weapons-ammo-components.md](systems/weapons-ammo-components.md).
+
+**Исправлено 2026-07-30 (static):** unit DR / `IsArmorPiercedBy` / object armor / ammo rollover сведены на одну формулу. Остаётся runtime smoke на границе класса (например pen 2.8 vs armor 3) и визуальная проверка tooltip FMJ 5.56 → **2.2**.
+
 ### Переопределения CommonLib
 
 Одиннадцать функций и методов определяются и CommonLib, и JAZZ. Наиболее чувствительны AI selection, targeting, suspicion, UI actions и Run and Gun. Перед каждой задачей необходимо разрешить последнюю upstream-версию CLib; после любого изменения HEAD повторять трёхстороннее сравнение. Полный список находится в [override-matrix.md](override-matrix.md).

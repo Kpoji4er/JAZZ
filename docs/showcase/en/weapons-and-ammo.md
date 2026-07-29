@@ -15,7 +15,7 @@ A **sub-tier** orders close variants (magazine, RoF, range, reliability, modules
 | Field | Meaning |
 | --- | --- |
 | Damage | Base damage per bullet before armor and other effects. |
-| Penetration | How well it works against better-protected targets. |
+| Penetration | Armor class scale 1–5; ammo sets class plus a fractional tenth-step bonus. |
 | Mag | Magazine capacity. |
 | AP shot / reload | Attack tempo and upkeep cost. |
 | Aim | Aim clicks × value per click. |

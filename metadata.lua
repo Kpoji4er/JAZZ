@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- AI: SameTarget/Пристрелка в score цели + sticky fire mode в Dump (JAZZ-AI-003)\n- Wiki: roster мерков/перков/Эрни/Легион из кода (не design-доков)\n- Автопубликация каталога оружия",
+	'last_changes', "- Пробитие: единый class+0.1×bonus в DR/UI/object armor; фикс tooltip патронов\n- AI: SameTarget/Пристрелка в score цели + sticky fire mode в Dump (JAZZ-AI-003)\n- Wiki: roster мерков/перков/Эрни/Легион из кода (не design-доков)",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 20,
+	'version_minor', 21,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,

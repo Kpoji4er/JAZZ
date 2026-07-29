@@ -70,15 +70,14 @@ JAZZ превращает оружие из набора vanilla-статов в
 
 ## Inventory icons (JAZZ-UI-001)
 
-Не-stock firearm/heavy weapon с изменёнными компонентами получает side-view bake иконки:
+Path **B** (chips): template `Icon` оружия не подменяется. Non-default компоненты → chip row из `WeaponComponent.ChipIcon` (иначе `Icon`, иначе `Icons/Upgrades/slot_*`).
 
-- fingerprint = `class` + sorted `slot=component`;
-- cache PNG: `AppData/Editor/<CurrentModId>/WeaponIcons/<xxhash>.png` (не в сейве);
-- `FirearmBase:GetItemUIIcon` отдаёт baked path при cache hit, иначе template `Icon` и ставит lazy bake в async queue;
-- bake: `UIClone` → `CreateVisualObj`/`UpdateVisualObj` → hide-map + side camera → `WaitCaptureScreenshot`;
-- triggers: `SetWeaponComponent` (non-clone), `WeaponModifiedSuccess`, UI miss;
-- `XInventoryItem:OnContextUpdate` биндит AppData path через `UIL.MeasureImage` src_rect и скрывает `w_mod`, если baked icon активна;
-- stock/default component set и bake fail → template `Icon`.
+- Chip PNG: `Icons/Upgrades/Chips/<ComponentId>.png` → `Mod/e6L4ECj/Icons/Upgrades/Chips/<…>.png`
+- Full кабинет: `Icon` (vanilla `UI/Icons/Upgrades/…` или `Icons/Upgrades/Full/`) — skill `$create-jazz-component-icons`
+- Chip миниатюры — skill `$create-jazz-chip-icons`
+- Runtime: `Code/WeaponAttachChips.lua` + hooks в `InventoryUI.lua`; bake (`WeaponIconBake.lua`) dormant (`JazzWeaponIcon_BakeEnabled = false`)
+- `w_mod` скрывается, когда показан chip row
+- Scope/Sights: ChipIcon проставлен для 30 компонентов (2026-07-30)
 
 ## Ресурс, кучность и износ
 
@@ -113,6 +112,18 @@ Jam/unjam способен необратимо снизить максимал�
 
 Ammo ModItems наследуют `Ammo`; rollover выводит модификации и effects (`BaseJamChance` как `%` через `/10`), а reload использует специализированный `AmmoInventory`. Зарегистрированы 49 `CraftOperationsRecipe` для боеприпасов и mortar/ordnance и 33 `RecipeDef`, главным образом преобразования брони. Категории Bobby Ray включают 10 ammo subcategories.
 
+### Пробитие патрона (`PenetrationClass` + `PenetrationBonus`)
+
+Контракт данных и UI:
+
+```text
+display_pen ≈ (mod_mul / 1000) + (mod_add_bonus / 10)
+```
+
+где `mod_mul` — `CaliberModification` на `PenetrationClass`, `mod_add_bonus` — на `PenetrationBonus`. Оружие с базовым классом `1` и FMJ `mod_mul=2000`, `mod_add=+2` даёт **2.2**. Боевой pen атаки: `GetAttackPenetrationClass` = `PenetrationClass + 0.1×PenetrationBonus` — см. [броня/урон](armor-damage-wounds-will.md).
+
+`Ammo:GetRolloverHint` (`Code/AmmoRolloverHint.lua`) склеивает оба модификатора в одну строку «Penetration» и не показывает их отдельными bullet points. После регрессии `9d1eee3` формула снова восстановлена (2026-07-30).
+
 ### Трассерные боеприпасы
 
 Наличие `MarkedTraccers` в `Ammo.AppliedEffects` включает shot-level правило: выбранная unit-цель получает один stack за каждый фактически произведённый выстрел, если итоговый шанс этого выстрела `shot_cth > 0`. Попадание не требуется, поэтому маркер отражает трассирующий/подавляющий огонь; при невозможном выстреле с CTH `0`, jam или отсутствии произведённого выстрела stack не добавляется.
@@ -139,6 +150,7 @@ Ammo ModItems наследуют `Ammo`; rollover выводит модифик�
 - деградация Grouping и совпадение CTH UI;
 - установка/снятие каждого класса компонентов, folded/unfolded визуал;
 - reload из правильного ammo slot и отказ для неподходящего калибра;
+- ammo rollover: Penetration = `(mod_mul/1000) + (PenetrationBonus/10)` (не целое ×100), jam `%` через `/10`;
 - трассерный одиночный/серийный огонь: попадание и промах при CTH больше нуля, CTH `0`, jam и нехватка патронов;
 - обычные ammo effects при непробитой и пробитой броне;
 - scrap и crafting recipes;

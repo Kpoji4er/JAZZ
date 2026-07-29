@@ -46,11 +46,12 @@ function Ammo:GetRolloverHint()
 			mod_add = (val.mod_add >= 0 and "+" or "") .. val.mod_add .. "%"
 		end
 		if target_prop == "PenetrationBonus" then
-			penbonus = val.mod_add
+			penbonus = val.mod_add or 0
 			skip = true
 		end
 		if target_prop == "PenetrationClass" then
-			pen = DivRound(val.mod_mul or 1000, 100)
+			-- CaliberModification: 1000 = ×1. Display class as mod_mul/1000 (e.g. 2000 → 2.0).
+			pen = ((val.mod_mul or 1000) + 0.0) / 1000
 			penname = Untranslated(display_prop)
 			skip = true
 		end
@@ -67,14 +68,15 @@ function Ammo:GetRolloverHint()
 		end
 	end
 
-	pen = pen * 10 + penbonus
-	pen = DivRound(pen, 1)
+	-- Combined pen: class + tenths from PenetrationBonus (e.g. 2.0 + 2 → 2.2).
 	if penname ~= "" then
+		local display_pen = pen + penbonus * 0.1
+		display_pen = floatfloor(display_pen * 10 + (display_pen >= 0 and 0.5 or -0.5)) / 10
 		hint[#hint + 1] = T{
 			890000000001388,
 			"\n<bullet_point> <target_prop>: <pen>",
 			target_prop = Untranslated(penname),
-			pen = pen,
+			pen = display_pen,
 		}
 	end
 

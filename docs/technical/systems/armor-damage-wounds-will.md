@@ -38,9 +38,76 @@ JAZZ добавляет/использует свойства:
 - `BlockFaceSlot`;
 - `Weight` и весовой класс;
 - `NightVision`, `Vision`, `DustStormProtection`, `StunGrenadeProtection`;
-- `ArmorResource`, `ArmorResourceMax`, `Repairability`.
+- `ArmorResource`, `ArmorResourceMax`, `Repairability`;
+- `PenetrationClass` (целый класс защиты 1–5 на броне/плите; та же шкала, что у оружия/патрона).
 
 При атаке сначала определяется, покрывает ли предмет поражённую часть тела. Затем рейтинг масштабируется penetration class и состоянием предмета; для пули, melee и explosion используются разные ratings. Если установлена пластина, её защита и деградация рассматриваются отдельно. Броня теряет ресурс при поглощении урона.
+
+Уровень подтверждения формул ниже: **static** (`Code/System_ArmorRating.lua`, companion armor/ammo). Runtime smoke по дробному пробитию не закрыт.
+
+## Пять классов и дробное пробитие
+
+Шкала общая для брони, плит и атаки: целые классы **1–5**. У оружия дополнительно есть `PenetrationBonus` (десятые доли класса). Эффективный pen атаки собирает `GetAttackPenetrationClass(weapon)`:
+
+```text
+weapon_pen = PenetrationClass + 0.1 × PenetrationBonus
+```
+
+Патрон через `CaliberModification` обычно:
+
+- множит `PenetrationClass` (`mod_mul`, база `1000` = ×1; типичный FMJ промежуточного калибра `2000` → класс 2 при базовом оружии `1`);
+- задаёт `PenetrationBonus` (`mod_add`, единицы «десятых»: `+2` → `+0.2` к классу).
+
+Снимок данных (static): у `JazzArmor*` преобладают классы 2–3, реже 4–5; `ArmorRating` по классам в среднем ~18–27. У JAZZ-ammo эффективный display-диапазон примерно **0.1–4.0** (соль/дробь → .50 BMG APIT).
+
+Связанный UI патрона: `Ammo:GetRolloverHint` в [оружии/боеприпасах](weapons-ammo-components.md).
+
+### Расчёт DR по пуле (`Armor:CalculateArmorRating`)
+
+`degrade = GetDegradationMultiplier()` (состояние ресурса + износ max относительно factory).
+
+Обычная броня (`Armor`, не плита):
+
+| Условие | Формула |
+|---|---|
+| `armor.PenetrationClass > weapon_pen` | `(ArmorRating + 3 × class / weapon_pen) × degrade` |
+| иначе (класс брони ≤ pen) | `ArmorRating × (class / weapon_pen)² × degrade` |
+
+Плита (`ArmorPlates`):
+
+| Условие | Формула |
+|---|---|
+| `plate.PenetrationClass >= weapon_pen` | `ArmorRating × degrade` |
+| иначе | `ArmorRating × (class / weapon_pen)² × degrade` |
+
+Асимметрия намеренная в коде: при **равных** классах плита даёт полный `ArmorRating`, жилет уже идёт по «пробитой» квадратичной ветке. Melee/explosion не сравнивают классы — только `MeleeArmorRating` / `ExplosiveArmorRating` × degrade.
+
+### `Unit:ApplyHitDamageReduction`
+
+1. Собрать все надетые `Armor` с `ProtectedBodyParts[hit_body_part]`.
+2. Вычислить `weapon_pen` через `GetAttackPenetrationClass(weapon)`.
+3. Флаг pierce для `hit.armor_pen`: `weapon_pen < item.PenetrationClass` → непробито; иначе пробито (равенство = пробито для статусов).
+4. Промах по `Coverage` (один `Random(100)` на hit): если `Coverage <= roll`, локально `weapon_pen += 1` для последующего DR этого предмета.
+5. Суммировать DR по всем покрывающим предметам; `hit.damage = max(1, damage − dr)`.
+6. Деградация ресурса: `MulDivRound(item.Degradation, hit.damage, 100)` в `hit.armor_decay`.
+
+`IsArmorPiercedBy` (криты и т.п.) сравнивает `damage − DR` с `Min(damage/2, 10)` по тому же `GetAttackPenetrationClass` и **не** использует тот же pierce-флаг, что статусы.
+
+Урон по не-юнитам (`System_OR_Weapons.lua`) использует ту же `GetAttackPenetrationClass(self)` против `target.armor_class`.
+
+### Известные оговорки реализации (static)
+
+1. Legacy: `AdditionalReduction` / старый pierce-branch в `ApplyHitDamageReduction` закомментированы; актуальный DR — только через `CalculateArmorRating*`.
+2. Часть vanilla/ранних жилетов без явного `PenetrationClass`/`ArmorRating` в companion (например часть `Flak*`) опирается на defaults шаблона — проверять перед балансными правками.
+3. Исправлено (2026-07-30): unit/object path и ammo rollover снова сходятся на `class + 0.1×bonus` (ранее bonus игнорировался из‑за `and`/`or`, UI показывал целые порядка 202 после `9d1eee3`).
+
+### Аудит дизайна и кода (static, 2026-07-30)
+
+**Геймплей.** Пять классов + десятые — хороший язык: AP vs soft, плита vs жилет, покрытие vs дыры (`Coverage`). Квадратичный штраф при недопробитии даёт плавный, а не бинарный «пробил/нет». Слабое место данных: почти все `JazzArmor` сидят в классах 2–3 при похожем среднем `ArmorRating` (~18–21), так что дифференциация часто идёт через вес/покрытие/плиту, а не через «толщину». После починки wiring дробная калибровка патронов снова должна работать на unit DR — нужен runtime smoke.
+
+**Код.** Ядро формул (`CalculateArmorRating*`, degrade, plates) локально согласовано; `GetAttackPenetrationClass` — единая точка для unit DR, crit pierce и object armor. `ApplyHitDamageReduction` всё ещё перегружен legacy-комментариями и смешивает два определения «pierce» (статусы vs криты).
+
+Asset contract не менялся.
 
 ## Вес и слоты
 
@@ -105,7 +172,8 @@ Will связан одновременно с damage, AI, effects и UI. Люб�
 ## Проверка
 
 - каждую body part с покрытием/без покрытия;
-- bullet, melee и explosion при разных penetration classes;
+- bullet, melee и explosion при разных penetration classes **и** дробном `PenetrationBonus` (ожидание: `class + 0.1×bonus` в unit DR);
+- патрон с `PenetrationBonus ≠ 0` против брони на границе класса (например pen 2.8 vs armor 3);
 - новую, повреждённую и разрушенную броню/пластину;
 - face/head slot conflict и gas mask;
 - весовые классы на бойцах с разной Strength;

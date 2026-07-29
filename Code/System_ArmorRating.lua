@@ -332,7 +332,15 @@ function Unit:StunGrenadeProtection()
 	return StunGrenadeProtection or 0
 end
 
-
+-- Effective attack penetration: whole PenetrationClass + tenths from PenetrationBonus.
+function GetAttackPenetrationClass(weapon)
+	if not weapon then
+		return 0
+	end
+	local pen = (weapon:HasMember("PenetrationClass") and weapon.PenetrationClass) or 1
+	local bonus = (weapon:HasMember("PenetrationBonus") and weapon.PenetrationBonus) or 0
+	return pen + 0.1 * bonus
+end
 
 function Unit:ApplyHitDamageReduction(hit, weapon, hit_body_part, ignore_cover, ignore_armor, record_breakdown)
 	--local start = GetPreciseTicks(1000)
@@ -344,7 +352,7 @@ function Unit:ApplyHitDamageReduction(hit, weapon, hit_body_part, ignore_cover, 
 	local drMelee = 0
 	local drFireArmBreakdown = 0
 	local itemscount = 0
-	local weapon_pen_class = weapon:HasMember("PenetrationClass") and weapon.PenetrationClass or 1 + weapon.PenetrationBonus and 0.1 * weapon.PenetrationBonus or 0
+	local weapon_pen_class = GetAttackPenetrationClass(weapon)
 	local cachedrandom = Unit:Random(100)
 	self:ForEachItem("Armor", function(item, slot, left, top, hit, ignore_armor, record_breakdown, weapon_pen_class)
 		if hit.damage > 0 and slot ~= "Inventory" and item.ProtectedBodyParts and item.ProtectedBodyParts[hit_body_part] then
@@ -593,6 +601,7 @@ function Unit:IsArmorPiercedBy(weapon, aim, target_spot_group, action) -- Can Cr
 	--if action and action.ActionType == "Melee Attack" then
 	--	return true, "ignored"
 	--end
+	local weapon_pen_class = GetAttackPenetrationClass(weapon)
 	self:ForEachItem("Armor", function(item, slot)
 		local drFireArm = 0
 		if slot ~= "Inventory" and item.Condition > 0 and (item.ProtectedBodyParts or empty_table)[target_spot_group] then
@@ -602,7 +611,7 @@ function Unit:IsArmorPiercedBy(weapon, aim, target_spot_group, action) -- Can Cr
             else damage = weapon.BaseDamage
             end
             local dr = item:CalculateArmorRatingExplosive()  
-			drFireArm = drFireArm + item:CalculateArmorRating(weapon.PenetrationClass)
+			drFireArm = drFireArm + item:CalculateArmorRating(weapon_pen_class)
             if IsKindOf(weapon, "Firearm") then
             dr = drFireArm end
             if IsKindOf(weapon, "MeleeWeapon") then
