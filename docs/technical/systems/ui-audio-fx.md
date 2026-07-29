@@ -44,6 +44,8 @@ Area-aim обслуживает grenade/zone attacks и только те shotgu
 
 Generated `ActionCameraCrosshair` не вызывает `Open` для `idContainer` из `OnContextUpdate`: lifecycle дочернего `XContextWindow` принадлежит XTemplate/XWindow framework. Повторный ручной `Open` уже открытого окна нарушает `window_state == "new"`.
 
+Ретикл оптики (`ScopeOuter` / `idTarget2`, пути `ReticleInner`/`ReticleOuter` компонента) и подпись кратности обновляются в `CrosshairUI:UpdateAim` при смене aim-level ≥ `ScopeAimLevel` / `SmallAimLevel`, а не через повторный `Open` контейнера.
+
 Динамические подписи увеличения оптики передаются в `T` как `Untranslated`, поэтому строка вида `1.0x` не интерпретируется как localization ID.
 
 ## Combat badge

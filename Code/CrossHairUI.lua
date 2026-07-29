@@ -411,13 +411,19 @@ function CrosshairUI:UpdateAim()
 
 --	print(pContext.ScopeLevelText)
 --	print(pContext.aim)
-	if self.ScopeZoom and pContext.ScopeLevelText and pContext.aim >= pContext.ScopeAimLevel and pContext.ScopeAimLevel > 0 then
+	local aim = pContext.aim or 0
+	local scopeAimLevel = pContext.ScopeAimLevel or -1
+	local smallAimLevel = pContext.SmallAimLevel or -1
+	local showScopeReticle = scopeAimLevel > 0 and aim >= scopeAimLevel
+	local showSmallReticle = smallAimLevel > 0 and aim >= smallAimLevel
+
+	if self.ScopeZoom and pContext.ScopeLevelText and showScopeReticle then
 		self.ZoomLevelWindow:SetVisible(true)
 		local ScopeLevelText = pContext.ScopeLevelText
 		self.ScopeZoom:SetText(
 			T{444327862984111, "<ScopeLevelText>", ScopeLevelText = Untranslated(ScopeLevelText or "")}
 		)   
-	elseif self.ScopeZoom and pContext.SmallScopeLevelText and pContext.aim >= pContext.SmallAimLevel and pContext.SmallAimLevel > 0 then
+	elseif self.ScopeZoom and pContext.SmallScopeLevelText and showSmallReticle then
 			local ScopeLevelText = pContext.SmallScopeLevelText
 			self.ScopeZoom:SetText(
 				T{444327862984111, "<ScopeLevelText>", ScopeLevelText = Untranslated(ScopeLevelText or "")}
@@ -429,6 +435,26 @@ function CrosshairUI:UpdateAim()
 			)   
 			self.ZoomLevelWindow:SetVisible(false)
 
+	end
+
+	-- Reticle images used to refresh via idContainer:Open on ObjModified("crosshair").
+	-- HOTFIX-001 removed that re-Open (window_state assert); ScopeZoom already updates here —
+	-- keep ScopeOuter / idTarget2 in sync on every aim change.
+	if self.ScopeOuter then
+		if showScopeReticle or showSmallReticle then
+			self.ScopeOuter:SetImage(pContext.ScopeOuterImage or "")
+		else
+			self.ScopeOuter:SetImage("")
+		end
+	end
+	if self.idTarget2 then
+		if showScopeReticle then
+			self.idTarget2:SetImage(pContext.ScopeImage or "")
+		elseif showSmallReticle then
+			self.idTarget2:SetImage(pContext.SmallScopeImage or "")
+		else
+			self.idTarget2:SetImage("")
+		end
 	end
 	
 	WeaponRangeTutorial(self)
