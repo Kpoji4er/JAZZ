@@ -125,7 +125,7 @@ return {
 									'SqueezeY', true,
 									'TextStyle', "Hiring_Filter_Unselected",
 									'Translate', true,
-									'Text', T(951344242125, --[[ModItemXTemplate PDAAIMBrowser Text]] "<name>"),
+									'Text', T(440475746284, --[[ModItemXTemplate PDAAIMBrowser Text]] "<name>"),
 									'UseXTextControl', true,
 								}, {
 									PlaceObj('XTemplateWindow', {
@@ -275,7 +275,7 @@ return {
 												'VAlign', "center",
 												'TextStyle', "PDAAIMMoneyDisplayLabel",
 												'Translate', true,
-												'Text', T(195398296794, --[[ModItemXTemplate PDAAIMBrowser Text]] "Банковский счёт"),
+												'Text', T(266087238479, --[[ModItemXTemplate PDAAIMBrowser Text]] "Bank Account"),
 											}),
 											PlaceObj('XTemplateWindow', {
 												'__context', function (parent, context) return Game end,
@@ -393,7 +393,7 @@ return {
 											CreateMessageBox(self.desktop, T(193416941017, "Error Page"), T(399424889814, "HTTP Error 400. The request URL is invalid."), T({"OK"}))
 										end,
 										'TextStyle', "WebLinkButton_Hiring",
-										'Text', T(382014103388, --[[ModItemXTemplate PDAAIMBrowser Text]] "О нас"),
+										'Text', T(891740393419, --[[ModItemXTemplate PDAAIMBrowser Text]] "About Us"),
 										'ActiveTextStyle', "WebLinkButton_Hiring_Heavy",
 									}),
 									PlaceObj('XTemplateTemplate', {
@@ -404,7 +404,7 @@ return {
 											CreateMessageBox(self.desktop, T(193416941017, "Error Page"), T(548899058407, "HTTP Error 403. You don't have permission to access on this server."), T({"OK"}))
 										end,
 										'TextStyle', "WebLinkButton_Hiring",
-										'Text', T(418277357103, --[[ModItemXTemplate PDAAIMBrowser Text]] "Условия использования"),
+										'Text', T(111807730937, --[[ModItemXTemplate PDAAIMBrowser Text]] "Terms of Service"),
 										'ActiveTextStyle', "WebLinkButton_Hiring_Heavy",
 									}),
 									}),
@@ -537,14 +537,14 @@ return {
 													'HAlign', "center",
 													'TextStyle', "Hiring_MercLevel",
 													'Translate', true,
-													'Text', T(346086449883, --[[ModItemXTemplate PDAAIMBrowser Text]] "<MercLevel()>"),
+													'Text', T(351463573859, --[[ModItemXTemplate PDAAIMBrowser Text]] "<MercLevel()>"),
 												}),
 												PlaceObj('XTemplateWindow', {
 													'__class', "XText",
 													'HAlign', "center",
 													'TextStyle', "PDASMLevelTxt",
 													'Translate', true,
-													'Text', T(562906327304, --[[ModItemXTemplate PDAAIMBrowser Text]] "Ур."),
+													'Text', T(141041371501, --[[ModItemXTemplate PDAAIMBrowser Text]] "Level"),
 												}),
 												}),
 											PlaceObj('XTemplateWindow', {
@@ -651,9 +651,9 @@ return {
 													'__class', "XContextWindow",
 													'RolloverTemplate', "RolloverGeneric",
 													'RolloverAnchor', "center-top",
-													'RolloverText', T(709674725815, --[[ModItemXTemplate PDAAIMBrowser RolloverText]] "<help>"),
+													'RolloverText', T(157340803747, --[[ModItemXTemplate PDAAIMBrowser RolloverText]] "<help>"),
 													'RolloverOffset', box(0, 0, 0, 5),
-													'RolloverTitle', T(729159373320, --[[ModItemXTemplate PDAAIMBrowser RolloverTitle]] "<name>"),
+													'RolloverTitle', T(976520897583, --[[ModItemXTemplate PDAAIMBrowser RolloverTitle]] "<name>"),
 													'IdNode', true,
 												}, {
 													PlaceObj('XTemplateWindow', {
@@ -775,7 +775,7 @@ return {
 												'RolloverTemplate', "RolloverGeneric",
 												'RolloverAnchor', "center-top",
 												'RolloverOffset', box(0, 0, 60, 10),
-												'RolloverTitle', T(750450877596, --[[ModItemXTemplate PDAAIMBrowser RolloverTitle]] "Стоимость за неделю"),
+												'RolloverTitle', T(457158173170, --[[ModItemXTemplate PDAAIMBrowser RolloverTitle]] "Weekly Cost"),
 												'Id', "idValue",
 												'HAlign', "right",
 												'VAlign', "center",
@@ -818,7 +818,7 @@ return {
 											'VAlign', "top",
 											'TextStyle', "Hiring_Bio_Header",
 											'Translate', true,
-											'Text', T(287234349037, --[[ModItemXTemplate PDAAIMBrowser Text]] "Черты"),
+											'Text', T(984976462387, --[[ModItemXTemplate PDAAIMBrowser Text]] "Perks"),
 											'TextVAlign', "center",
 										}),
 										PlaceObj('XTemplateWindow', {
@@ -858,7 +858,7 @@ return {
 												'VAlign', "center",
 												'TextStyle', "Hiring_Bio_Header",
 												'Translate', true,
-												'Text', T(275295702962, --[[ModItemXTemplate PDAAIMBrowser Text]] "Снаряжение"),
+												'Text', T(550507290667, --[[ModItemXTemplate PDAAIMBrowser Text]] "Equipment"),
 												'TextVAlign', "center",
 											}),
 											PlaceObj('XTemplateWindow', {
@@ -948,7 +948,7 @@ return {
 												'VAlign', "center",
 												'TextStyle', "Hiring_Bio_Header",
 												'Translate', true,
-												'Text', T(977908382668, --[[ModItemXTemplate PDAAIMBrowser Text]] "Рюкзак"),
+												'Text', T(801008989746, --[[ModItemXTemplate PDAAIMBrowser Text]] "Backpack"),
 												'TextVAlign', "center",
 											}),
 											PlaceObj('XTemplateWindow', {
@@ -1015,7 +1015,7 @@ return {
 											end,
 											'TextStyle', "Hiring_Bio_Header",
 											'Translate', true,
-											'Text', T(623039804594, --[[ModItemXTemplate PDAAIMBrowser Text]] "БИОГРАФИЯ - <Title>"),
+											'Text', T(642133584014, --[[ModItemXTemplate PDAAIMBrowser Text]] "BIO - <Title>"),
 										}),
 										PlaceObj('XTemplateWindow', {
 											'__class', "XScrollArea",
@@ -1108,7 +1108,7 @@ return {
 						'RolloverTemplate', "RolloverGeneric",
 						'RolloverOffset', box(0, 0, 0, 8),
 						'ActionId', "idContact",
-						'ActionName', T(128093190012, --[[ModItemXTemplate PDAAIMBrowser ActionName]] "Контактная информация"),
+						'ActionName', T(284104494351, --[[ModItemXTemplate PDAAIMBrowser ActionName]] "Contact"),
 						'ActionToolbar', "ActionBar",
 						'ActionGamepad', "ButtonX",
 						'ActionButtonTemplate', "PDACommonButtonBlueSnype",
@@ -1144,7 +1144,7 @@ return {
 						'RolloverTemplate', "RolloverGeneric",
 						'RolloverOffset', box(0, 0, 0, 8),
 						'ActionId', "idDismiss",
-						'ActionName', T(605299648012, --[[ModItemXTemplate PDAAIMBrowser ActionName]] "Уволить"),
+						'ActionName', T(163956682203, --[[ModItemXTemplate PDAAIMBrowser ActionName]] "Dismiss"),
 						'ActionToolbar', "ActionBar",
 						'ActionButtonTemplate', "PDACommonButtonBlueSnype",
 						'ActionState', function (self, host)
@@ -1180,7 +1180,7 @@ return {
 					}),
 					PlaceObj('XTemplateAction', {
 						'ActionId', "idSeeBio",
-						'ActionName', T(510250753405, --[[ModItemXTemplate PDAAIMBrowser ActionName]] "Смотреть биографию"),
+						'ActionName', T(529989041592, --[[ModItemXTemplate PDAAIMBrowser ActionName]] "See Bio"),
 						'ActionToolbar', "ActionBar",
 						'ActionShortcut', "S",
 						'ActionState', function (self, host)
@@ -1205,7 +1205,7 @@ return {
 					}),
 					PlaceObj('XTemplateAction', {
 						'ActionId', "idHideBio",
-						'ActionName', T(915717676997, --[[ModItemXTemplate PDAAIMBrowser ActionName]] "Комплект"),
+						'ActionName', T(872907861571, --[[ModItemXTemplate PDAAIMBrowser ActionName]] "Loadout"),
 						'ActionToolbar', "ActionBar",
 						'ActionShortcut', "S",
 						'ActionState', function (self, host)
@@ -1545,39 +1545,39 @@ return {
 			'CodeFileName', "Code/UtilityFunc.lua",
 		}),
 		PlaceObj('ModItemEmail', {
-			body = T(767218055918, --[[ModItemEmail LegionTier1 body]] "Тир1-1\n"),
+			body = T(890000000001015, --[[ModItemEmail LegionTier1 body]] "Тир1-1\n"),
 			group = "Default",
 			id = "LegionTier1",
 			sender = T(342619813681, --[[ModItemEmail LegionTier1 sender]] "JAZZ"),
-			title = T(183093543791, --[[ModItemEmail LegionTier1 title]] "LegionTier1"),
+			title = T(890000000000106, --[[ModItemEmail LegionTier1 title]] "LegionTier1"),
 		}),
 		PlaceObj('ModItemEmail', {
-			body = T(767218055918, --[[ModItemEmail LegionTier2 body]] "Тир1-2\n"),
+			body = T(890000000001016, --[[ModItemEmail LegionTier2 body]] "Тир1-2\n"),
 			group = "Default",
 			id = "LegionTier2",
 			sender = T(342619813681, --[[ModItemEmail LegionTier2 sender]] "JAZZ"),
-			title = T(183093543791, --[[ModItemEmail LegionTier2 title]] "LegionTier2"),
+			title = T(890000000000107, --[[ModItemEmail LegionTier2 title]] "LegionTier2"),
 		}),
 		PlaceObj('ModItemEmail', {
-			body = T(767218055918, --[[ModItemEmail LegionTier3 body]] "Тир1-3\n"),
+			body = T(890000000001017, --[[ModItemEmail LegionTier3 body]] "Тир1-3\n"),
 			group = "Default",
 			id = "LegionTier3",
 			sender = T(342619813681, --[[ModItemEmail LegionTier3 sender]] "JAZZ"),
-			title = T(183093543791, --[[ModItemEmail LegionTier3 title]] "LegionTier3"),
+			title = T(890000000000108, --[[ModItemEmail LegionTier3 title]] "LegionTier3"),
 		}),
 		PlaceObj('ModItemEmail', {
-			body = T(767218055918, --[[ModItemEmail LegionTier4 body]] "Тир2-1\n"),
+			body = T(890000000001013, --[[ModItemEmail LegionTier4 body]] "Тир2-1\n"),
 			group = "Default",
 			id = "LegionTier4",
 			sender = T(342619813681, --[[ModItemEmail LegionTier4 sender]] "JAZZ"),
-			title = T(183093543791, --[[ModItemEmail LegionTier4 title]] "LegionTier4"),
+			title = T(890000000000109, --[[ModItemEmail LegionTier4 title]] "LegionTier4"),
 		}),
 		PlaceObj('ModItemEmail', {
-			body = T(767218055918, --[[ModItemEmail LegionTier5 body]] "Тир2-2\n"),
+			body = T(890000000001014, --[[ModItemEmail LegionTier5 body]] "Тир2-2\n"),
 			group = "Default",
 			id = "LegionTier5",
 			sender = T(342619813681, --[[ModItemEmail LegionTier5 sender]] "JAZZ"),
-			title = T(183093543791, --[[ModItemEmail LegionTier5 title]] "LegionTier5"),
+			title = T(890000000000110, --[[ModItemEmail LegionTier5 title]] "LegionTier5"),
 		}),
 		PlaceObj('ModItemQuestsDef', {
 			Author = "Diogo",
@@ -2247,31 +2247,31 @@ return {
 					}),
 					PlaceObj('ModItemCaliber', {
 						ImpactForce = 1,
-						Name = T(346459575064, --[[ModItemCaliber Default JAZZ_Caliber_44CAL Name]] "0.44"),
+						Name = T(890000000000385, --[[ModItemCaliber Default JAZZ_Caliber_44CAL Name]] "0.44"),
 						group = "Default",
 						id = "JAZZ_Caliber_44CAL",
 					}),
 					PlaceObj('ModItemCaliber', {
 						ImpactForce = 1,
-						Name = T(346459575064, --[[ModItemCaliber Default JAZZ_Caliber_30CAL Name]] "0.30"),
+						Name = T(890000000000387, --[[ModItemCaliber Default JAZZ_Caliber_30CAL Name]] "0.30"),
 						group = "Default",
 						id = "JAZZ_Caliber_30CAL",
 					}),
 					PlaceObj('ModItemCaliber', {
 						ImpactForce = 1,
-						Name = T(346459575064, --[[ModItemCaliber Default JAZZ_Caliber_38 Name]] "0.38"),
+						Name = T(890000000000389, --[[ModItemCaliber Default JAZZ_Caliber_38 Name]] "0.38"),
 						group = "Default",
 						id = "JAZZ_Caliber_38",
 					}),
 					PlaceObj('ModItemCaliber', {
 						ImpactForce = 1,
-						Name = T(346459575064, --[[ModItemCaliber Default JAZZ_Caliber_357 Name]] "0.357 MAG"),
+						Name = T(890000000000388, --[[ModItemCaliber Default JAZZ_Caliber_357 Name]] "0.357 MAG"),
 						group = "Default",
 						id = "JAZZ_Caliber_357",
 					}),
 					PlaceObj('ModItemCaliber', {
 						ImpactForce = 1,
-						Name = T(346459575064, --[[ModItemCaliber Default JAZZ_Caliber_50AE Name]] "0.50 AE"),
+						Name = T(890000000000386, --[[ModItemCaliber Default JAZZ_Caliber_50AE Name]] "0.50 AE"),
 						group = "Default",
 						id = "JAZZ_Caliber_50AE",
 					}),
@@ -2322,13 +2322,13 @@ return {
 						id = "JAZZ_Caliber_3006",
 					}),
 					PlaceObj('ModItemCaliber', {
-						Name = T(195287283557, --[[ModItemCaliber Default JAZZ_Caliber_762x39 Name]] "7,62x39 мм СССР"),
+						Name = T(890000000000131, --[[ModItemCaliber Default JAZZ_Caliber_762x39 Name]] "7,62x39 мм СССР"),
 						SortKey = 5,
 						group = "Default",
 						id = "JAZZ_Caliber_762x39",
 					}),
 					PlaceObj('ModItemCaliber', {
-						Name = T(195287283557, --[[ModItemCaliber Default JAZZ_Caliber_792x33 Name]] "7,62x33 мм Kurz"),
+						Name = T(890000000000130, --[[ModItemCaliber Default JAZZ_Caliber_792x33 Name]] "7,62x33 мм Kurz"),
 						SortKey = 5,
 						group = "Default",
 						id = "JAZZ_Caliber_792x33",
@@ -2346,13 +2346,13 @@ return {
 						id = "JAZZ_Caliber_762x54R",
 					}),
 					PlaceObj('ModItemCaliber', {
-						Name = T(315192221511, --[[ModItemCaliber Default JAZZ_Caliber_792 Name]] "7.92х57мм"),
+						Name = T(890000000000329, --[[ModItemCaliber Default JAZZ_Caliber_792 Name]] "7.92х57мм"),
 						SortKey = 6,
 						group = "Default",
 						id = "JAZZ_Caliber_792",
 					}),
 					PlaceObj('ModItemCaliber', {
-						Name = T(315192221511, --[[ModItemCaliber Default JAZZ_Caliber_75French Name]] "7.5×54мм"),
+						Name = T(890000000000328, --[[ModItemCaliber Default JAZZ_Caliber_75French Name]] "7.5×54мм"),
 						SortKey = 6,
 						group = "Default",
 						id = "JAZZ_Caliber_75French",
@@ -2469,9 +2469,9 @@ return {
 					'object_class', "Ordnance",
 					'Repairable', false,
 					'Icon', "UI/Icons/Items/FlareBullet",
-					'DisplayName', T(483700492318, --[[ModItemInventoryItemCompositeDef FlareAmmo DisplayName]] "Сигнальная ракета"),
-					'DisplayNamePlural', T(165119929821, --[[ModItemInventoryItemCompositeDef FlareAmmo DisplayNamePlural]] "Сигнальные ракеты"),
-					'Description', T(691614229608, --[[ModItemInventoryItemCompositeDef FlareAmmo Description]] "Осветительные боеприпасы для ракетницы."),
+					'DisplayName', T(422329947007, --[[ModItemInventoryItemCompositeDef FlareAmmo DisplayName]] "Flare Cartridge"),
+					'DisplayNamePlural', T(355303195226, --[[ModItemInventoryItemCompositeDef FlareAmmo DisplayNamePlural]] "Flare Cartridges"),
+					'Description', T(286757968282, --[[ModItemInventoryItemCompositeDef FlareAmmo Description]] "Ammo for the Flare Gun."),
 					'Cost', 100,
 					'CanAppearInShop', true,
 					'MaxStock', 5,
@@ -2492,10 +2492,10 @@ return {
 						'Id', "JAZZ_AMMO_9x19_Poor",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/919Substandart.png",
-						'DisplayName', T(156976081814, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Poor DisplayName]] "9х19 мм, 9mm Ball Substandard"),
-						'DisplayNamePlural', T(372328100854, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Poor DisplayNamePlural]] "9х19 мм, 9mm Ball Substandard"),
+						'DisplayName', T(890000000000079, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Poor DisplayName]] "9х19 мм, 9mm Ball Substandard"),
+						'DisplayNamePlural', T(890000000000437, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Poor DisplayNamePlural]] "9х19 мм, 9mm Ball Substandard"),
 						'colorStyle', "AmmoSubstandardColor",
-						'Description', T(246192403774, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Poor Description]] "Это как стрелять из огнестрельного оружия шариками из жеваной бумаги, из плюсов можно выделить то, что это очень дешево и много. \nСтабильная работа не гарантируется, кучность тоже, а ещё размокшая жеваная бумага может быстро засрать ваше оружие."),
+						'Description', T(890000000000198, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Poor Description]] "Это как стрелять из огнестрельного оружия шариками из жеваной бумаги, из плюсов можно выделить то, что это очень дешево и много. \nСтабильная работа не гарантируется, кучность тоже, а ещё размокшая жеваная бумага может быстро засрать ваше оружие."),
 						'Cost', 150,
 						'CanAppearInShop', true,
 						'MaxStock', 50,
@@ -2547,10 +2547,10 @@ return {
 						'Id', "JAZZ_AMMO_9x19_FMJ",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/919FMJ.png",
-						'DisplayName', T(156976081814, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_FMJ DisplayName]] "9х19 мм, Luger FMJ"),
-						'DisplayNamePlural', T(372328100854, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_FMJ DisplayNamePlural]] "9х19 мм, Luger FMJ"),
+						'DisplayName', T(890000000000080, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_FMJ DisplayName]] "9х19 мм, Luger FMJ"),
+						'DisplayNamePlural', T(890000000000438, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_FMJ DisplayNamePlural]] "9х19 мм, Luger FMJ"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(246192403774, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_FMJ Description]] "Заводской патрон 9х19, ни больше ни меньше, можно стрелять по не бронированным целям без опасений, что вам выбьет глаз затвором."),
+						'Description', T(890000000000197, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_FMJ Description]] "Заводской патрон 9х19, ни больше ни меньше, можно стрелять по не бронированным целям без опасений, что вам выбьет глаз затвором."),
 						'Cost', 300,
 						'CanAppearInShop', true,
 						'MaxStock', 50,
@@ -2577,10 +2577,10 @@ return {
 						'Id', "JAZZ_AMMO_9x19_Crafted",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/919Crafted.png",
-						'DisplayName', T(156976081814, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Crafted DisplayName]] "9х19 мм, Кустарные"),
-						'DisplayNamePlural', T(372328100854, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Crafted DisplayNamePlural]] "9х19 мм, Кустарные"),
+						'DisplayName', T(890000000000078, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Crafted DisplayName]] "9х19 мм, Кустарные"),
+						'DisplayNamePlural', T(890000000000436, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Crafted DisplayNamePlural]] "9х19 мм, Кустарные"),
 						'colorStyle', "AmmoCraftedColor",
-						'Description', T(246192403774, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Crafted Description]] "Производитель не известен, возможно это вы сами, рекомендуется использовать с оружием которое вы ненавидите, тогда эти патроны помогут вам скорее от него избавиться. Сильно снижают надежность оружия."),
+						'Description', T(890000000000196, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Crafted Description]] "Производитель не известен, возможно это вы сами, рекомендуется использовать с оружием которое вы ненавидите, тогда эти патроны помогут вам скорее от него избавиться. Сильно снижают надежность оружия."),
 						'Cost', 60,
 						'MaxStock', 50,
 						'CategoryPair', "9mm",
@@ -2621,10 +2621,10 @@ return {
 						'Id', "JAZZ_AMMO_9x19_JHP",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/919JHP.png",
-						'DisplayName', T(378106180006, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_JHP DisplayName]] "9х19 мм, Luger JHP"),
-						'DisplayNamePlural', T(888021825675, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_JHP DisplayNamePlural]] "9х19 мм, Luger JHP"),
+						'DisplayName', T(890000000000444, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_JHP DisplayName]] "9х19 мм, Luger JHP"),
+						'DisplayNamePlural', T(890000000001247, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_JHP DisplayNamePlural]] "9х19 мм, Luger JHP"),
 						'colorStyle', "AmmoJHPColor",
-						'Description', T(442624820314, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_JHP Description]] "Гражданский патрон для стрельбы по тарелкам, бронебойности от него не дождешься, зато экспансивное действие хорошее, так что цельтесь в ноги, там много артерий!"),
+						'Description', T(890000000000538, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_JHP Description]] "Гражданский патрон для стрельбы по тарелкам, бронебойности от него не дождешься, зато экспансивное действие хорошее, так что цельтесь в ноги, там много артерий!"),
 						'AdditionalHint', "",
 						'Cost', 360,
 						'CanAppearInShop', true,
@@ -2729,10 +2729,10 @@ return {
 						'Id', "JAZZ_AMMO_9x19_AP",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/919AP.png",
-						'DisplayName', T(469395250369, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_AP DisplayName]] "9х19 мм, 7н21 ББ"),
-						'DisplayNamePlural', T(997988678362, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_AP DisplayNamePlural]] "9х19 мм, 7н21 ББ"),
+						'DisplayName', T(890000000000578, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_AP DisplayName]] "9х19 мм, 7н21 ББ"),
+						'DisplayNamePlural', T(890000000001378, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_AP DisplayNamePlural]] "9х19 мм, 7н21 ББ"),
 						'colorStyle', "AmmoAPColor",
-						'Description', T(482446833075, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_AP Description]] "Бронебойные патроны 9х19, наконец-то можно прострелить фанерную переборку, кусок шифера и (чем не шутит черт) сможете пробить вражескую каску. Отдача усилена соответственно."),
+						'Description', T(890000000000598, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_AP Description]] "Бронебойные патроны 9х19, наконец-то можно прострелить фанерную переборку, кусок шифера и (чем не шутит черт) сможете пробить вражескую каску. Отдача усилена соответственно."),
 						'AdditionalHint', "",
 						'Cost', 900,
 						'CanAppearInShop', true,
@@ -2786,10 +2786,10 @@ return {
 						'Id', "JAZZ_AMMO_9x19_APP",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/919APP.png",
-						'DisplayName', T(469395250369, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_APP DisplayName]] "9х19 мм, 7н31 ББ+"),
-						'DisplayNamePlural', T(997988678362, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_APP DisplayNamePlural]] "9х19 мм, 7н31 ББ+"),
+						'DisplayName', T(890000000000579, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_APP DisplayName]] "9х19 мм, 7н31 ББ+"),
+						'DisplayNamePlural', T(890000000001379, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_APP DisplayNamePlural]] "9х19 мм, 7н31 ББ+"),
 						'colorStyle', "AmmoAPPColor",
-						'Description', T(482446833075, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_APP Description]] "Очень серьезный боеприпас, кроме шуток способен пробивать многие базовые бронежилеты, хорошая кучность, точность и настильность. Немного негативно сказывается на износе оружия, но вы же хотите наконец простреливать бронеплиты пистолетным патроном? Это ваш шанс."),
+						'Description', T(890000000000597, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_APP Description]] "Очень серьезный боеприпас, кроме шуток способен пробивать многие базовые бронежилеты, хорошая кучность, точность и настильность. Немного негативно сказывается на износе оружия, но вы же хотите наконец простреливать бронеплиты пистолетным патроном? Это ваш шанс."),
 						'AdditionalHint', "",
 						'Cost', 1200,
 						'CanAppearInShop', true,
@@ -2849,10 +2849,10 @@ return {
 						'Id', "JAZZ_AMMO_9x18_Poor",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/9x18substandart.png",
-						'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Poor DisplayName]] "9x18мм, 57-Н-181С Substandard"),
-						'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Poor DisplayNamePlural]] "9x18мм, 57-Н-181С Substandard"),
+						'DisplayName', T(890000000001196, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Poor DisplayName]] "9x18мм, 57-Н-181С Substandard"),
+						'DisplayNamePlural', T(890000000000419, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Poor DisplayNamePlural]] "9x18мм, 57-Н-181С Substandard"),
 						'colorStyle', "AmmoSubstandardColor",
-						'Description', T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Poor Description]] "Патрон для стрельбы по крысам, с первого раза может убить разве что ничего."),
+						'Description', T(890000000000274, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Poor Description]] "Патрон для стрельбы по крысам, с первого раза может убить разве что ничего."),
 						'Cost', 120,
 						'CanAppearInShop', true,
 						'MaxStock', 50,
@@ -2892,10 +2892,10 @@ return {
 						'Id', "JAZZ_AMMO_9x18_FMJ",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/9x18.png",
-						'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_FMJ DisplayName]] "9x18мм, ПСО FMJ"),
-						'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_FMJ DisplayNamePlural]] "9x18мм, ПСО FMJ"),
+						'DisplayName', T(890000000001198, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_FMJ DisplayName]] "9x18мм, ПСО FMJ"),
+						'DisplayNamePlural', T(890000000000421, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_FMJ DisplayNamePlural]] "9x18мм, ПСО FMJ"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_FMJ Description]] "Гражданский патрон для спортивной и охотничьей стрельбы, на кого охотятся с 9х18 надо ещё уточнить, но как минимум оружие будет стрелять исправно и возможно кто-то сегодня умрет."),
+						'Description', T(890000000000281, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_FMJ Description]] "Гражданский патрон для спортивной и охотничьей стрельбы, на кого охотятся с 9х18 надо ещё уточнить, но как минимум оружие будет стрелять исправно и возможно кто-то сегодня умрет."),
 						'Cost', 240,
 						'CanAppearInShop', true,
 						'MaxStock', 50,
@@ -2922,10 +2922,10 @@ return {
 						'Id', "JAZZ_AMMO_9x18_Crafted",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/9x18Crafted.png",
-						'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Crafted DisplayName]] "9x18мм, Кустарный"),
-						'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Crafted DisplayNamePlural]] "9x18мм, Кустарный"),
+						'DisplayName', T(890000000001197, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Crafted DisplayName]] "9x18мм, Кустарный"),
+						'DisplayNamePlural', T(890000000000420, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Crafted DisplayNamePlural]] "9x18мм, Кустарный"),
 						'colorStyle', "AmmoCraftedColor",
-						'Description', T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Crafted Description]] "Патрон собранный на коленке, по известным причинам автор возможно умер, с этим боеприпасом вы опасны для всех и даже для себя."),
+						'Description', T(890000000000275, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_Crafted Description]] "Патрон собранный на коленке, по известным причинам автор возможно умер, с этим боеприпасом вы опасны для всех и даже для себя."),
 						'Cost', 30,
 						'MaxStock', 50,
 						'CategoryPair', "9x18",
@@ -2974,10 +2974,10 @@ return {
 						'Id', "JAZZ_AMMO_9x18_JHP",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/9x18JHP.png",
-						'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_JHP DisplayName]] "9x18мм, СП7 JHP+"),
-						'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_JHP DisplayNamePlural]] "9x18мм, СП7 JHP+"),
+						'DisplayName', T(890000000001200, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_JHP DisplayName]] "9x18мм, СП7 JHP+"),
+						'DisplayNamePlural', T(890000000000423, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_JHP DisplayNamePlural]] "9x18мм, СП7 JHP+"),
 						'colorStyle', "AmmoJHPPColor",
-						'Description', T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_JHP Description]] "Экспансивный спец патрон, бесполезен против брони, зато по мягким тканям отрабатывает не хуже старших братьев, все равно что выстрелить в человека из дробовика."),
+						'Description', T(890000000000283, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_JHP Description]] "Экспансивный спец патрон, бесполезен против брони, зато по мягким тканям отрабатывает не хуже старших братьев, все равно что выстрелить в человека из дробовика."),
 						'Cost', 600,
 						'CanAppearInShop', true,
 						'MaxStock', 50,
@@ -3028,10 +3028,10 @@ return {
 						'Id', "JAZZ_AMMO_9x18_AP",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/9x18AP.png",
-						'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_AP DisplayName]] "9x18мм, ПСТ ББ"),
-						'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_AP DisplayNamePlural]] "9x18мм, ПСТ ББ"),
+						'DisplayName', T(890000000001199, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_AP DisplayName]] "9x18мм, ПСТ ББ"),
+						'DisplayNamePlural', T(890000000000422, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_AP DisplayNamePlural]] "9x18мм, ПСТ ББ"),
 						'colorStyle', "AmmoAPColor",
-						'Description', T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_AP Description]] "Стандартный патрон 9х18 с повышенными характеристиками, может он и не такой убойный, но способен противостоять базовой бронезащите."),
+						'Description', T(890000000000286, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_AP Description]] "Стандартный патрон 9х18 с повышенными характеристиками, может он и не такой убойный, но способен противостоять базовой бронезащите."),
 						'Cost', 810,
 						'CanAppearInShop', true,
 						'MaxStock', 50,
@@ -3083,10 +3083,10 @@ return {
 						'Id', "JAZZ_AMMO_9x18_APP",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/9x18APP.png",
-						'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_APP DisplayName]] "9x18мм, 7н25 ББ+"),
-						'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_APP DisplayNamePlural]] "9x18мм, 7н25 ББ+"),
+						'DisplayName', T(890000000001195, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_APP DisplayName]] "9x18мм, 7н25 ББ+"),
+						'DisplayNamePlural', T(890000000000418, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_APP DisplayNamePlural]] "9x18мм, 7н25 ББ+"),
 						'colorStyle', "AmmoAPPColor",
-						'Description', T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_APP Description]] "Бронебойный патрон 9х18, из которого выжали всё что могли, чтоб пробивать более или менее серьезную защиту. Бронебойность негативно сказывается на надежности, но положительно на эффективности."),
+						'Description', T(890000000000279, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x18_APP Description]] "Бронебойный патрон 9х18, из которого выжали всё что могли, чтоб пробивать более или менее серьезную защиту. Бронебойность негативно сказывается на надежности, но положительно на эффективности."),
 						'Cost', 960,
 						'CanAppearInShop', true,
 						'Tier', "4",
@@ -3144,10 +3144,10 @@ return {
 						'Id', "JAZZ_AMMO_45ACP_Poor",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/45ACPsub.png",
-						'DisplayName', T(270886313378, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Poor DisplayName]] ".45ACP, M1911 Substandard"),
-						'DisplayNamePlural', T(136983924045, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Poor DisplayNamePlural]] ".45ACP, M1911 Substandard"),
+						'DisplayName', T(890000000000238, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Poor DisplayName]] ".45ACP, M1911 Substandard"),
+						'DisplayNamePlural', T(890000000000053, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Poor DisplayNamePlural]] ".45ACP, M1911 Substandard"),
 						'colorStyle', "AmmoSubstandardColor",
-						'Description', T(654722607287, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Poor Description]] "Какая-то китайская хренотень, работает плохо, как и всё китайское, если вам больше нечем стрелять или не хватает острых ощущений, используйте данные патроны, это лучше чем ничего."),
+						'Description', T(890000000000861, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Poor Description]] "Какая-то китайская хренотень, работает плохо, как и всё китайское, если вам больше нечем стрелять или не хватает острых ощущений, используйте данные патроны, это лучше чем ничего."),
 						'AdditionalHint', "",
 						'Cost', 180,
 						'CanAppearInShop', true,
@@ -3200,10 +3200,10 @@ return {
 						'Id', "JAZZ_AMMO_45ACP_FMJ",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/45ACP.png",
-						'DisplayName', T(270886313378, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_FMJ DisplayName]] ".45ACP, FMJ"),
-						'DisplayNamePlural', T(136983924045, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_FMJ DisplayNamePlural]] ".45ACP, FMJ"),
+						'DisplayName', T(890000000000237, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_FMJ DisplayName]] ".45ACP, FMJ"),
+						'DisplayNamePlural', T(890000000000052, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_FMJ DisplayNamePlural]] ".45ACP, FMJ"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(654722607287, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_FMJ Description]] "Базовый армейский патрон калибра .45, против брони он бессилен, зато способен нанести огромный урон, по мерка пистолетов. Это база."),
+						'Description', T(890000000000859, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_FMJ Description]] "Базовый армейский патрон калибра .45, против брони он бессилен, зато способен нанести огромный урон, по мерка пистолетов. Это база."),
 						'AdditionalHint', "",
 						'Cost', 360,
 						'CanAppearInShop', true,
@@ -3232,10 +3232,10 @@ return {
 						'Id', "JAZZ_AMMO_45ACP_Crafted",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/45ACPCrafted.png",
-						'DisplayName', T(270886313378, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Crafted DisplayName]] ".45ACP, Кустарный"),
-						'DisplayNamePlural', T(136983924045, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Crafted DisplayNamePlural]] ".45ACP, Кустарный"),
+						'DisplayName', T(890000000000239, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Crafted DisplayName]] ".45ACP, Кустарный"),
+						'DisplayNamePlural', T(890000000000054, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Crafted DisplayNamePlural]] ".45ACP, Кустарный"),
 						'colorStyle', "AmmoSubstandardColor",
-						'Description', T(654722607287, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Crafted Description]] "Большой пистолетный патрон калибра .45, тут поддерживается дуализм, патрон по сути экспансивный, но и кустарный, а значит лизнуть мысли может как цели так и стрелку."),
+						'Description', T(890000000000860, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Crafted Description]] "Большой пистолетный патрон калибра .45, тут поддерживается дуализм, патрон по сути экспансивный, но и кустарный, а значит лизнуть мысли может как цели так и стрелку."),
 						'AdditionalHint', "",
 						'Cost', 60,
 						'MaxStock', 50,
@@ -3398,10 +3398,10 @@ return {
 						'Id', "JAZZ_AMMO_57_AP",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/57AP.png",
-						'DisplayName', T(674003227379, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_AP DisplayName]] "5,7 мм, S109 ББ"),
-						'DisplayNamePlural', T(278698960462, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_AP DisplayNamePlural]] "5,7 мм, S109 ББ"),
+						'DisplayName', T(890000000000880, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_AP DisplayName]] "5,7 мм, S109 ББ"),
+						'DisplayNamePlural', T(890000000000253, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_AP DisplayNamePlural]] "5,7 мм, S109 ББ"),
 						'colorStyle', "AmmoAPColor",
-						'Description', T(761420797793, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_AP Description]] "Армейский бронебойный, он же и базовый патрон довольно редкого калибра. Пуля хоть и пистолетная, но эффективность практически как у автомата."),
+						'Description', T(890000000001009, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_AP Description]] "Армейский бронебойный, он же и базовый патрон довольно редкого калибра. Пуля хоть и пистолетная, но эффективность практически как у автомата."),
 						'Cost', 2250,
 						'CanAppearInShop', true,
 						'Tier', 3,
@@ -3439,10 +3439,10 @@ return {
 						'Id', "JAZZ_AMMO_57_JHP",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/57JHP.png",
-						'DisplayName', T(674003227379, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_JHP DisplayName]] "5,7 мм, SS197SR JHP"),
-						'DisplayNamePlural', T(278698960462, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_JHP DisplayNamePlural]] "5,7 мм, SS197SR JHP"),
+						'DisplayName', T(890000000000882, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_JHP DisplayName]] "5,7 мм, SS197SR JHP"),
+						'DisplayNamePlural', T(890000000000255, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_JHP DisplayNamePlural]] "5,7 мм, SS197SR JHP"),
 						'colorStyle', "AmmoJHPColor",
-						'Description', T(761420797793, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_JHP Description]] "Экспансивные патроны для редких бельгийских игрушек. Несмотря на экспансивную пулю патрон способен наносить урон базовой броне."),
+						'Description', T(890000000001011, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_JHP Description]] "Экспансивные патроны для редких бельгийских игрушек. Несмотря на экспансивную пулю патрон способен наносить урон базовой броне."),
 						'Cost', 2025,
 						'CanAppearInShop', true,
 						'Tier', 3,
@@ -3482,10 +3482,10 @@ return {
 						'Id', "JAZZ_AMMO_57_Subsonic",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/57sb.png",
-						'DisplayName', T(674003227379, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_Subsonic DisplayName]] "5,7 мм, SB193 Дозвуковой"),
-						'DisplayNamePlural', T(278698960462, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_Subsonic DisplayNamePlural]] "5,7 мм, SB193 Дозвуковой"),
+						'DisplayName', T(890000000000881, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_Subsonic DisplayName]] "5,7 мм, SB193 Дозвуковой"),
+						'DisplayNamePlural', T(890000000000254, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_Subsonic DisplayNamePlural]] "5,7 мм, SB193 Дозвуковой"),
 						'colorStyle', "AmmoSubsonicColor",
-						'Description', T(761420797793, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_Subsonic Description]] "Дозвуковой патрон калибра 5.7, редкий и не очень нужный, однако если нужно работать швейной машинкой без шансов на обнаружение, это то что нужно. НЕ ЗАБУДЬТЕ НАДЕТЬ ГЛУШИТЕЛЬ !!!"),
+						'Description', T(890000000001010, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_57_Subsonic Description]] "Дозвуковой патрон калибра 5.7, редкий и не очень нужный, однако если нужно работать швейной машинкой без шансов на обнаружение, это то что нужно. НЕ ЗАБУДЬТЕ НАДЕТЬ ГЛУШИТЕЛЬ !!!"),
 						'Cost', 1350,
 						'CanAppearInShop', true,
 						'Tier', 3,
@@ -3526,10 +3526,10 @@ return {
 						'Id', "JAZZ_AMMO_46_FMJ",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/46.png",
-						'DisplayName', T(111421465880, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ DisplayName]] "4,6 мм, FMJ"),
-						'DisplayNamePlural', T(171557918481, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ DisplayNamePlural]] "4,6 мм, FMJ"),
+						'DisplayName', T(890000000000021, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ DisplayName]] "4,6 мм, FMJ"),
+						'DisplayNamePlural', T(890000000000091, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ DisplayNamePlural]] "4,6 мм, FMJ"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(468404152064, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ Description]] "Базовый армейский патрон 4.6мм, для МП-7. Ни убавить ни прибавить, сочетает в себе легкий вес пули, дешевизну и наличие бронебойных свойств из-за своих размеров."),
+						'Description', T(890000000000573, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_FMJ Description]] "Базовый армейский патрон 4.6мм, для МП-7. Ни убавить ни прибавить, сочетает в себе легкий вес пули, дешевизну и наличие бронебойных свойств из-за своих размеров."),
 						'Cost', 600,
 						'CanAppearInShop', true,
 						'Tier', 3,
@@ -3558,10 +3558,10 @@ return {
 						'Id', "JAZZ_AMMO_46_AP",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/46AP.png",
-						'DisplayName', T(111421465880, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_AP DisplayName]] "4,6 мм, DM11 ББ"),
-						'DisplayNamePlural', T(171557918481, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_AP DisplayNamePlural]] "4,6 мм, DM11 ББ"),
+						'DisplayName', T(890000000000020, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_AP DisplayName]] "4,6 мм, DM11 ББ"),
+						'DisplayNamePlural', T(890000000000090, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_AP DisplayNamePlural]] "4,6 мм, DM11 ББ"),
 						'colorStyle', "AmmoAPColor",
-						'Description', T(468404152064, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_AP Description]] "Бронебойный патрон для МП-7, Редкий боеприпас, вы либо мажор, либо счастливчик. Считайте, что стреляете золотыми слитками."),
+						'Description', T(890000000000574, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_AP Description]] "Бронебойный патрон для МП-7, Редкий боеприпас, вы либо мажор, либо счастливчик. Считайте, что стреляете золотыми слитками."),
 						'AdditionalHint', "",
 						'Cost', 1200,
 						'CanAppearInShop', true,
@@ -3604,10 +3604,10 @@ return {
 						'Id', "JAZZ_AMMO_46_JHP",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/46JHP.png",
-						'DisplayName', T(111421465880, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_JHP DisplayName]] "4,6 мм, V-Max JHP"),
-						'DisplayNamePlural', T(171557918481, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_JHP DisplayNamePlural]] "4,6 мм, V-Max JHP"),
+						'DisplayName', T(890000000000022, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_JHP DisplayName]] "4,6 мм, V-Max JHP"),
+						'DisplayNamePlural', T(890000000000092, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_JHP DisplayNamePlural]] "4,6 мм, V-Max JHP"),
 						'colorStyle', "AmmoJHPColor",
-						'Description', T(468404152064, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_JHP Description]] "Экспансивная версия патрона для МП-7, разумеется это не обычный пистолетный патрон, так что и экспансивность не на высоте, но и в бронепробитии данный патрон не сильно потерял."),
+						'Description', T(890000000000575, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_46_JHP Description]] "Экспансивная версия патрона для МП-7, разумеется это не обычный пистолетный патрон, так что и экспансивность не на высоте, но и в бронепробитии данный патрон не сильно потерял."),
 						'AdditionalHint', "",
 						'Cost', 1440,
 						'CanAppearInShop', true,
@@ -3660,10 +3660,10 @@ return {
 						'Id', "JAZZ_AMMO_762x25_Poor",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/762x25Sub.png",
-						'DisplayName', T(527688384074, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_Poor DisplayName]] "7.62x25, Lot 66-3 CN Substandard"),
-						'DisplayNamePlural', T(871962221654, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_Poor DisplayNamePlural]] "7.62x25, Lot 66-3 CN"),
+						'DisplayName', T(890000000000664, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_Poor DisplayName]] "7.62x25, Lot 66-3 CN Substandard"),
+						'DisplayNamePlural', T(890000000001216, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_Poor DisplayNamePlural]] "7.62x25, Lot 66-3 CN"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(496628262702, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_Poor Description]] "Это самое отвратительное что вы можете вставить в своё оружие, если ты этим пользовался, я не хочу иметь с тобой дел."),
+						'Description', T(890000000000623, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_Poor Description]] "Это самое отвратительное что вы можете вставить в своё оружие, если ты этим пользовался, я не хочу иметь с тобой дел."),
 						'Cost', 90,
 						'CanAppearInShop', true,
 						'MaxStock', 50,
@@ -3699,10 +3699,10 @@ return {
 						'Id', "JAZZ_AMMO_762x25_FMJ",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/762x25.png",
-						'DisplayName', T(527688384074, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_FMJ DisplayName]] "7.62x25, 57-Н-134С (FMJ)"),
-						'DisplayNamePlural', T(871962221654, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_FMJ DisplayNamePlural]] "7.62x25, 57-Н-134С (FMJ)"),
+						'DisplayName', T(890000000000663, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_FMJ DisplayName]] "7.62x25, 57-Н-134С (FMJ)"),
+						'DisplayNamePlural', T(890000000001215, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_FMJ DisplayNamePlural]] "7.62x25, 57-Н-134С (FMJ)"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(496628262702, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_FMJ Description]] "Базовый устаревший во всех смыслах пистолетный патрон, но это всё тот же паровозик, который смог."),
+						'Description', T(890000000000620, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_FMJ Description]] "Базовый устаревший во всех смыслах пистолетный патрон, но это всё тот же паровозик, который смог."),
 						'Cost', 180,
 						'CanAppearInShop', true,
 						'MaxStock', 50,
@@ -3738,10 +3738,10 @@ return {
 						'Id', "JAZZ_AMMO_762x25_AP",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/762x25ap.png",
-						'DisplayName', T(527688384074, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_AP DisplayName]] "7.62x25, ПСТ (ББ)"),
-						'DisplayNamePlural', T(871962221654, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_AP DisplayNamePlural]] "7.62x25, ПСТ (ББ)"),
+						'DisplayName', T(890000000000662, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_AP DisplayName]] "7.62x25, ПСТ (ББ)"),
+						'DisplayNamePlural', T(890000000001214, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_AP DisplayNamePlural]] "7.62x25, ПСТ (ББ)"),
 						'colorStyle', "AmmoAPColor",
-						'Description', T(496628262702, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_AP Description]] "Бронебойный патрон 7.62х25, на самом деле он не бронебойный, но ничего лучше в данном калибре нету. Неплохо подходит для стрельбы в спину союзников."),
+						'Description', T(890000000000621, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_AP Description]] "Бронебойный патрон 7.62х25, на самом деле он не бронебойный, но ничего лучше в данном калибре нету. Неплохо подходит для стрельбы в спину союзников."),
 						'Cost', 162,
 						'CanAppearInShop', true,
 						'MaxStock', 50,
@@ -3793,10 +3793,10 @@ return {
 						'Id', "JAZZ_AMMO_762x25_JHP",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/762x25jhp.png",
-						'DisplayName', T(527688384074, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_JHP DisplayName]] "7.62x25, Wolf JHP"),
-						'DisplayNamePlural', T(871962221654, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_JHP DisplayNamePlural]] "7.62x25, Wolf JHP"),
+						'DisplayName', T(890000000000665, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_JHP DisplayName]] "7.62x25, Wolf JHP"),
+						'DisplayNamePlural', T(890000000001217, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_JHP DisplayNamePlural]] "7.62x25, Wolf JHP"),
 						'colorStyle', "AmmoJHPColor",
-						'Description', T(496628262702, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_JHP Description]] "Экспансивный патрон, на сколько это вообще возможно, коммерческий дешевый, но какой есть. Тут надо брать не качеством, а количеством."),
+						'Description', T(890000000000622, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_JHP Description]] "Экспансивный патрон, на сколько это вообще возможно, коммерческий дешевый, но какой есть. Тут надо брать не качеством, а количеством."),
 						'Cost', 234,
 						'CanAppearInShop', true,
 						'MaxStock', 50,
@@ -3854,10 +3854,10 @@ return {
 						'Id', "JAZZ_AMMO_38special_FMJ",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/38Sp.png",
-						'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_FMJ DisplayName]] ".38 Special FMJ"),
-						'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_FMJ DisplayNamePlural]] ".38 Special FMJ"),
+						'DisplayName', T(890000000001190, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_FMJ DisplayName]] ".38 Special FMJ"),
+						'DisplayNamePlural', T(890000000000413, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_FMJ DisplayNamePlural]] ".38 Special FMJ"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_FMJ Description]] "Стандартный патрон для дамских сверчков, мелкий револьверный патрон, нельзя носить россыпью, можно просто не нащупать в кармане."),
+						'Description', T(890000000000284, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_FMJ Description]] "Стандартный патрон для дамских сверчков, мелкий револьверный патрон, нельзя носить россыпью, можно просто не нащупать в кармане."),
 						'Cost', 90,
 						'CanAppearInShop', true,
 						'MaxStock', 50,
@@ -3885,10 +3885,10 @@ return {
 						'Id', "JAZZ_AMMO_38special_JHP",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/38Sp.png",
-						'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_JHP DisplayName]] ".38 Special JHP"),
-						'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_JHP DisplayNamePlural]] ".38 Special JHP"),
+						'DisplayName', T(890000000001191, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_JHP DisplayName]] ".38 Special JHP"),
+						'DisplayNamePlural', T(890000000000414, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_JHP DisplayNamePlural]] ".38 Special JHP"),
 						'colorStyle', "AmmoJHPColor",
-						'Description', T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_JHP Description]] "Стандартный патрон для дамских сверчков, но экспансивный, можно вытащить револьвер из носка и размозжить кому-то голову в упор."),
+						'Description', T(890000000000285, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_JHP Description]] "Стандартный патрон для дамских сверчков, но экспансивный, можно вытащить револьвер из носка и размозжить кому-то голову в упор."),
 						'Cost', 135,
 						'CanAppearInShop', true,
 						'MaxStock', 50,
@@ -3943,10 +3943,10 @@ return {
 						'Id', "JAZZ_AMMO_357_FMJ",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/357.png",
-						'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_FMJ DisplayName]] ".357 Mag FMJ"),
-						'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_FMJ DisplayNamePlural]] ".357 Mag FMJ"),
+						'DisplayName', T(890000000001188, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_FMJ DisplayName]] ".357 Mag FMJ"),
+						'DisplayNamePlural', T(890000000000411, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_FMJ DisplayNamePlural]] ".357 Mag FMJ"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_FMJ Description]] "Один из лучших револьверных патронов, не стареющая классика, хорош везде и всем."),
+						'Description', T(890000000000277, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_FMJ Description]] "Один из лучших револьверных патронов, не стареющая классика, хорош везде и всем."),
 						'Cost', 270,
 						'CanAppearInShop', true,
 						'MaxStock', 50,
@@ -3974,10 +3974,10 @@ return {
 						'Id', "JAZZ_AMMO_357_JHP",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/357JHP.png",
-						'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_JHP DisplayName]] ".357 Mag JHP"),
-						'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_JHP DisplayNamePlural]] ".357 Mag JHP"),
+						'DisplayName', T(890000000001189, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_JHP DisplayName]] ".357 Mag JHP"),
+						'DisplayNamePlural', T(890000000000412, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_JHP DisplayNamePlural]] ".357 Mag JHP"),
 						'colorStyle', "AmmoJHPColor",
-						'Description', T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_JHP Description]] "Экспансивный патрон калибра .357, если вам мало мощи обычной пули, с броней он разумеется не справляется, зато откусить кому-то бочок можно легко."),
+						'Description', T(890000000000282, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_357_JHP Description]] "Экспансивный патрон калибра .357, если вам мало мощи обычной пули, с броней он разумеется не справляется, зато откусить кому-то бочок можно легко."),
 						'Cost', 324,
 						'CanAppearInShop', true,
 						'MaxStock', 50,
@@ -4173,10 +4173,10 @@ return {
 						'Id', "JAZZ_AMMO_50AE_FMJ",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/50AE.png",
-						'DisplayName', T(224747486019, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_FMJ DisplayName]] ".50AE FMJ"),
-						'DisplayNamePlural', T(272581385016, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_FMJ DisplayNamePlural]] ".50AE FMJ"),
+						'DisplayName', T(890000000000165, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_FMJ DisplayName]] ".50AE FMJ"),
+						'DisplayNamePlural', T(890000000000244, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_FMJ DisplayNamePlural]] ".50AE FMJ"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(928449338739, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_FMJ Description]] "Дорогой, мощный и бесполезный, подходит для боевиков, но не для войны."),
+						'Description', T(890000000001297, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_FMJ Description]] "Дорогой, мощный и бесполезный, подходит для боевиков, но не для войны."),
 						'Cost', 1200,
 						'CanAppearInShop', true,
 						'MaxStock', 10,
@@ -4203,10 +4203,10 @@ return {
 						'Id', "JAZZ_AMMO_50AE_JHP",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/50AEJHP.png",
-						'DisplayName', T(224747486019, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_JHP DisplayName]] ".50AE JHP"),
-						'DisplayNamePlural', T(272581385016, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_JHP DisplayNamePlural]] ".50AE JHP"),
+						'DisplayName', T(890000000000166, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_JHP DisplayName]] ".50AE JHP"),
+						'DisplayNamePlural', T(890000000000245, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_JHP DisplayNamePlural]] ".50AE JHP"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(928449338739, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_JHP Description]] "Дорогой, даже дороже обычной версии патрона, экспансивный и бесполезный. Но крутость данного патрона не оспорима."),
+						'Description', T(890000000001296, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50AE_JHP Description]] "Дорогой, даже дороже обычной версии патрона, экспансивный и бесполезный. Но крутость данного патрона не оспорима."),
 						'Cost', 1800,
 						'CanAppearInShop', true,
 						'MaxStock', 10,
@@ -4260,10 +4260,10 @@ return {
 						'Id', "JAZZ_AMMO_30_FMJ",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/30cal.png",
-						'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_FMJ DisplayName]] ".30 Cal M1 Ball"),
-						'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_FMJ DisplayNamePlural]] ".30 Cal M1 Ball"),
+						'DisplayName', T(890000000001193, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_FMJ DisplayName]] ".30 Cal M1 Ball"),
+						'DisplayNamePlural', T(890000000000416, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_FMJ DisplayNamePlural]] ".30 Cal M1 Ball"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_FMJ Description]] "Вроде это армейский образец, но это не точно, он на столько стар, что его просто продают ведрами вместе с другими старыми патронами."),
+						'Description', T(890000000000280, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_FMJ Description]] "Вроде это армейский образец, но это не точно, он на столько стар, что его просто продают ведрами вместе с другими старыми патронами."),
 						'Cost', 360,
 						'CanAppearInShop', true,
 						'MaxStock', 50,
@@ -4288,10 +4288,10 @@ return {
 						'Id', "JAZZ_AMMO_30_Tracer",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/30calTracer.png",
-						'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_Tracer DisplayName]] ".30 Cal M27 Трассер"),
-						'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_Tracer DisplayNamePlural]] ".30 Cal M27 Трассер"),
+						'DisplayName', T(890000000001192, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_Tracer DisplayName]] ".30 Cal M27 Трассер"),
+						'DisplayNamePlural', T(890000000000415, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_Tracer DisplayNamePlural]] ".30 Cal M27 Трассер"),
 						'colorStyle', "AmmoTracerColor",
-						'Description', T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_Tracer Description]] "Более современный армейский трассирующий вариант, современный ли? Как бы то ни было им можно выстрелить и даже попасть и помочь попасть другим"),
+						'Description', T(890000000000278, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_Tracer Description]] "Более современный армейский трассирующий вариант, современный ли? Как бы то ни было им можно выстрелить и даже попасть и помочь попасть другим"),
 						'Cost', 540,
 						'CanAppearInShop', true,
 						'MaxStock', 50,
@@ -4335,10 +4335,10 @@ return {
 						'Id', "JAZZ_AMMO_30_P",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/30calHP.png",
-						'DisplayName', T(865245516789, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_P DisplayName]] ".30 Cal M18 +P"),
-						'DisplayNamePlural', T(360885048478, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_P DisplayNamePlural]] ".30 Cal M18 +P"),
+						'DisplayName', T(890000000001194, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_P DisplayName]] ".30 Cal M18 +P"),
+						'DisplayNamePlural', T(890000000000417, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_P DisplayNamePlural]] ".30 Cal M18 +P"),
 						'colorStyle', "AmmoHPColor",
-						'Description', T(285060449915, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_P Description]] "Попытка сделать устаревший патрон бронебойным путем повышения давления. Уверенно справится с фанерой или кожанной курткой."),
+						'Description', T(890000000000276, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_30_P Description]] "Попытка сделать устаревший патрон бронебойным путем повышения давления. Уверенно справится с фанерой или кожанной курткой."),
 						'Cost', 540,
 						'CanAppearInShop', true,
 						'MaxStock', 50,
@@ -4392,10 +4392,10 @@ return {
 						'object_class', "Ammo",
 						'RepairCost', 400,
 						'Icon', "Mod/e6L4ECj/Ammopics/792x33.png",
-						'DisplayName', T(333321938927, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_FMJ DisplayName]] "792x33мм Pist. Patr. 43 Ball"),
-						'DisplayNamePlural', T(789710016757, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_FMJ DisplayNamePlural]] "792x33мм Pist. Patr. 43 Ball"),
+						'DisplayName', T(890000000000364, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_FMJ DisplayName]] "792x33мм Pist. Patr. 43 Ball"),
+						'DisplayNamePlural', T(890000000001048, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_FMJ DisplayNamePlural]] "792x33мм Pist. Patr. 43 Ball"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(527669776671, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_FMJ Description]] "Конечно было бы не плохо сдать их в ломбард, но они ничерта не стоят, так что поливайте от души, это бесплатно. Стандартный армейский патрон."),
+						'Description', T(890000000000660, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_FMJ Description]] "Конечно было бы не плохо сдать их в ломбард, но они ничерта не стоят, так что поливайте от души, это бесплатно. Стандартный армейский патрон."),
 						'AdditionalHint', "",
 						'Cost', 600,
 						'CanAppearInShop', true,
@@ -4426,10 +4426,10 @@ return {
 						'object_class', "Ammo",
 						'RepairCost', 400,
 						'Icon', "Mod/e6L4ECj/Ammopics/792x33Tracer.png",
-						'DisplayName', T(333321938927, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_Tracer DisplayName]] "792x33мм L'spur Трассер"),
-						'DisplayNamePlural', T(789710016757, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_Tracer DisplayNamePlural]] "792x33мм L'spur Трассер"),
+						'DisplayName', T(890000000000363, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_Tracer DisplayName]] "792x33мм L'spur Трассер"),
+						'DisplayNamePlural', T(890000000001047, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_Tracer DisplayNamePlural]] "792x33мм L'spur Трассер"),
 						'colorStyle', "AmmoTracerColor",
-						'Description', T(527669776671, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_Tracer Description]] "Версия патрона с трассером, иными словами прокладывающий путь к душам и сердцам по ту сторону ствола, патрон старый, но светит всё также.... кажется."),
+						'Description', T(890000000000658, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_Tracer Description]] "Версия патрона с трассером, иными словами прокладывающий путь к душам и сердцам по ту сторону ствола, патрон старый, но светит всё также.... кажется."),
 						'AdditionalHint', "",
 						'Cost', 675,
 						'CanAppearInShop', true,
@@ -4479,10 +4479,10 @@ return {
 						'object_class', "Ammo",
 						'RepairCost', 400,
 						'Icon', "Mod/e6L4ECj/Ammopics/792x33AP.png",
-						'DisplayName', T(333321938927, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_AP DisplayName]] "792x33мм Pist. Patr. 43 m.E. (ББ)"),
-						'DisplayNamePlural', T(789710016757, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_AP DisplayNamePlural]] "792x33мм Pist. Patr. 43 m.E. (ББ)"),
+						'DisplayName', T(890000000000365, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_AP DisplayName]] "792x33мм Pist. Patr. 43 m.E. (ББ)"),
+						'DisplayNamePlural', T(890000000001049, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_AP DisplayNamePlural]] "792x33мм Pist. Patr. 43 m.E. (ББ)"),
 						'colorStyle', "AmmoAPColor",
-						'Description', T(527669776671, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_AP Description]] "Бронебойный вариант армейского патрона 7.92х33 FMJ, на сколько это вообще возможно, все кто может подтвердить умерли от старости."),
+						'Description', T(890000000000657, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_AP Description]] "Бронебойный вариант армейского патрона 7.92х33 FMJ, на сколько это вообще возможно, все кто может подтвердить умерли от старости."),
 						'AdditionalHint', "",
 						'Cost', 1350,
 						'CanAppearInShop', true,
@@ -4539,10 +4539,10 @@ return {
 						'Id', "JAZZ_AMMO_556_Poor",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/556Sub.png",
-						'DisplayName', T(574593171535, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Poor DisplayName]] "5,56мм, .223 Rem Commercial Substandard"),
-						'DisplayNamePlural', T(785279043850, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Poor DisplayNamePlural]] "5,56 мм, .223 Rem Commercial Substandard"),
+						'DisplayName', T(890000000000737, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Poor DisplayName]] "5,56мм, .223 Rem Commercial Substandard"),
+						'DisplayNamePlural', T(890000000001036, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Poor DisplayNamePlural]] "5,56 мм, .223 Rem Commercial Substandard"),
 						'colorStyle', "AmmoSubstandardColor",
-						'Description', T(790646713962, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Poor Description]] "Можно сказать что это коммерческий патрон калибра 5.56, на деле же это не выдающийся охотничий .223, нет даже уверенности, что в нем хватит мощности для автоматической стрельбы."),
+						'Description', T(890000000001054, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Poor Description]] "Можно сказать что это коммерческий патрон калибра 5.56, на деле же это не выдающийся охотничий .223, нет даже уверенности, что в нем хватит мощности для автоматической стрельбы."),
 						'AdditionalHint', "",
 						'Cost', 750,
 						'CanAppearInShop', true,
@@ -4592,10 +4592,10 @@ return {
 						'Id', "JAZZ_AMMO_556_Crafted",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/556Crafted.png",
-						'DisplayName', T(574593171535, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Crafted DisplayName]] "5,56мм, Кустарный"),
-						'DisplayNamePlural', T(785279043850, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Crafted DisplayNamePlural]] "5,56 мм, Кустарный"),
+						'DisplayName', T(890000000000739, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Crafted DisplayName]] "5,56мм, Кустарный"),
+						'DisplayNamePlural', T(890000000001038, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Crafted DisplayNamePlural]] "5,56 мм, Кустарный"),
 						'colorStyle', "AmmoCraftedColor",
-						'Description', T(790646713962, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Crafted Description]] "Что будет, если на коленке собрать современный патрон, наплевав на всякие допуски? Правильно, он заклинит, отымеет ваше оружие и поможет отыметь вас, но у него хотя бы пуля не из бумаги..."),
+						'Description', T(890000000001055, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Crafted Description]] "Что будет, если на коленке собрать современный патрон, наплевав на всякие допуски? Правильно, он заклинит, отымеет ваше оружие и поможет отыметь вас, но у него хотя бы пуля не из бумаги..."),
 						'AdditionalHint', "",
 						'Cost', 200,
 						'Tier', 2,
@@ -4643,10 +4643,10 @@ return {
 						'Id', "JAZZ_AMMO_556_FMJ",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/556.png",
-						'DisplayName', T(574593171535, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_FMJ DisplayName]] "5,56мм, FMJ"),
-						'DisplayNamePlural', T(785279043850, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_FMJ DisplayNamePlural]] "5,56 мм, FMJ"),
+						'DisplayName', T(890000000000738, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_FMJ DisplayName]] "5,56мм, FMJ"),
+						'DisplayNamePlural', T(890000000001037, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_FMJ DisplayNamePlural]] "5,56 мм, FMJ"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(790646713962, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_FMJ Description]] "Старый базовый патрон, повода для слез нет, как и выдающихся характеристик. Серая мышь в мире промежуточных патронов."),
+						'Description', T(890000000001056, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_FMJ Description]] "Старый базовый патрон, повода для слез нет, как и выдающихся характеристик. Серая мышь в мире промежуточных патронов."),
 						'AdditionalHint', "",
 						'Cost', 1200,
 						'CanAppearInShop', true,
@@ -4728,10 +4728,10 @@ return {
 						'Id', "JAZZ_AMMO_556_Army",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/556M855.png",
-						'DisplayName', T(326742931642, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Army DisplayName]] "5,56 мм, M855 Армейский"),
-						'DisplayNamePlural', T(946968976971, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Army DisplayNamePlural]] "5,56 мм, M855 Армейский"),
+						'DisplayName', T(890000000000347, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Army DisplayName]] "5,56 мм, M855 Армейский"),
+						'DisplayNamePlural', T(890000000001314, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Army DisplayNamePlural]] "5,56 мм, M855 Армейский"),
 						'colorStyle', "AmmoArmyColor",
-						'Description', T(758340761081, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Army Description]] "Современный базовый армейский патрон, неплох во всём, вы точно не пожалеете.\n"),
+						'Description', T(890000000001004, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Army Description]] "Современный базовый армейский патрон, неплох во всём, вы точно не пожалеете.\n"),
 						'AdditionalHint', "",
 						'Cost', 1800,
 						'CanAppearInShop', true,
@@ -4786,10 +4786,10 @@ return {
 						'Id', "JAZZ_AMMO_556_EPR",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/556HP.png",
-						'DisplayName', T(326742931642, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_EPR DisplayName]] "5,56 мм, M855A1 Повышенной Пробиваемости"),
-						'DisplayNamePlural', T(946968976971, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_EPR DisplayNamePlural]] "5,56 мм, M855A1 Повышенной Пробиваемости"),
+						'DisplayName', T(890000000000348, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_EPR DisplayName]] "5,56 мм, M855A1 Повышенной Пробиваемости"),
+						'DisplayNamePlural', T(890000000001315, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_EPR DisplayNamePlural]] "5,56 мм, M855A1 Повышенной Пробиваемости"),
 						'colorStyle', "AmmoHPColor",
-						'Description', T(758340761081, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_EPR Description]] "Стандартные армейские патроны с повышенным пробитием, вы можете стать грозой любой брони, относительно дорого и относительно эффективно."),
+						'Description', T(890000000001005, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_EPR Description]] "Стандартные армейские патроны с повышенным пробитием, вы можете стать грозой любой брони, относительно дорого и относительно эффективно."),
 						'Cost', 2400,
 						'CanAppearInShop', true,
 						'Tier', "4",
@@ -4843,10 +4843,10 @@ return {
 						'Id', "JAZZ_AMMO_556_AP",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/556AP.png",
-						'DisplayName', T(326742931642, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_AP DisplayName]] "5,56 мм, M995 Бронебойный"),
-						'DisplayNamePlural', T(946968976971, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_AP DisplayNamePlural]] "5,56 мм, M995 Бронебойный"),
+						'DisplayName', T(890000000000349, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_AP DisplayName]] "5,56 мм, M995 Бронебойный"),
+						'DisplayNamePlural', T(890000000001316, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_AP DisplayNamePlural]] "5,56 мм, M995 Бронебойный"),
 						'colorStyle', "AmmoAPColor",
-						'Description', T(758340761081, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_AP Description]] "Серьезный бронебойный армейский боеприпас, крайне эффективен против брони любого класса защиты, скажи нет Джагернаутам!!! Дико дорого, но прекрасно."),
+						'Description', T(890000000001003, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_AP Description]] "Серьезный бронебойный армейский боеприпас, крайне эффективен против брони любого класса защиты, скажи нет Джагернаутам!!! Дико дорого, но прекрасно."),
 						'Cost', 4500,
 						'CanAppearInShop', true,
 						'Tier', "5",
@@ -4959,10 +4959,10 @@ return {
 						'Id', "JAZZ_AMMO_545_Poor",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/545SP.png",
-						'DisplayName', T(402352878282, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Poor DisplayName]] "5,45 мм, Барнаул SP Substandard"),
-						'DisplayNamePlural', T(875634951024, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Poor DisplayNamePlural]] "5,45 мм, Барнаул SP Substandard"),
+						'DisplayName', T(890000000000466, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Poor DisplayName]] "5,45 мм, Барнаул SP Substandard"),
+						'DisplayNamePlural', T(890000000001222, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Poor DisplayNamePlural]] "5,45 мм, Барнаул SP Substandard"),
 						'colorStyle', "AmmoSubstandardColor",
-						'Description', T(979485744753, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Poor Description]] "Гражданский патрон для спортивной и развлекательной стрельбы, поэтому стреляйте и развлекайтесь, для войны лучше выбрать что-то посерьёзнее."),
+						'Description', T(890000000001353, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Poor Description]] "Гражданский патрон для спортивной и развлекательной стрельбы, поэтому стреляйте и развлекайтесь, для войны лучше выбрать что-то посерьёзнее."),
 						'Cost', 540,
 						'CanAppearInShop', true,
 						'Tier', 2,
@@ -5017,10 +5017,10 @@ return {
 						'Id', "JAZZ_AMMO_545_Crafted",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/545Crafted.png",
-						'DisplayName', T(402352878282, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Crafted DisplayName]] "5,45 мм, Кустарный"),
-						'DisplayNamePlural', T(875634951024, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Crafted DisplayNamePlural]] "5,45 мм, Кустарный"),
+						'DisplayName', T(890000000000467, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Crafted DisplayName]] "5,45 мм, Кустарный"),
+						'DisplayNamePlural', T(890000000001223, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Crafted DisplayNamePlural]] "5,45 мм, Кустарный"),
 						'colorStyle', "AmmoCraftedColor",
-						'Description', T(979485744753, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Crafted Description]] "Заклинивший автомат калашникова больше не выдуманная история, используйте так, чтобы никто не видел."),
+						'Description', T(890000000001352, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Crafted Description]] "Заклинивший автомат калашникова больше не выдуманная история, используйте так, чтобы никто не видел."),
 						'Cost', 90,
 						'CategoryPair', "545",
 						'ShopStackSize', 30,
@@ -5268,10 +5268,10 @@ return {
 						'Id', "JAZZ_AMMO_762x39_Poor",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/762x39SUB.png",
-						'DisplayName', T(403807663771, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Poor DisplayName]] "7,62х39мм, Norinco Lot 66-3 CN Substandard"),
-						'DisplayNamePlural', T(578647545074, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Poor DisplayNamePlural]] "7,62х39мм, Norinco Lot 66-3 CN Substandard"),
+						'DisplayName', T(890000000000469, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Poor DisplayName]] "7,62х39мм, Norinco Lot 66-3 CN Substandard"),
+						'DisplayNamePlural', T(890000000000743, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Poor DisplayNamePlural]] "7,62х39мм, Norinco Lot 66-3 CN Substandard"),
 						'colorStyle', "AmmoSubstandardColor",
-						'Description', T(296646736495, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Poor Description]] "Перед тем как произвести данные боеприпасы порох тщательно вымачивают в воде, а пули скатывают под языком. Не позорьтесь, китайцы никогда не делали хороших патронов."),
+						'Description', T(890000000000309, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Poor Description]] "Перед тем как произвести данные боеприпасы порох тщательно вымачивают в воде, а пули скатывают под языком. Не позорьтесь, китайцы никогда не делали хороших патронов."),
 						'Cost', 270,
 						'CanAppearInShop', true,
 						'Tier', 2,
@@ -5323,10 +5323,10 @@ return {
 						'Id', "JAZZ_AMMO_762x39_Crafted",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/762x39Crafted.png",
-						'DisplayName', T(403807663771, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Crafted DisplayName]] "7,62х39мм, Кустарный"),
-						'DisplayNamePlural', T(578647545074, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Crafted DisplayNamePlural]] "7,62х39мм, Кустарный"),
+						'DisplayName', T(890000000000471, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Crafted DisplayName]] "7,62х39мм, Кустарный"),
+						'DisplayNamePlural', T(890000000000745, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Crafted DisplayNamePlural]] "7,62х39мм, Кустарный"),
 						'colorStyle', "AmmoCraftedColor",
-						'Description', T(296646736495, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Crafted Description]] "Сперва хочется сказать что он охотничий, но нет, он собран на коленке из старых гильз, мокрого пороха и фекалий местной фауны. Пользуется популярностью у местных, дешевизна берет своё!"),
+						'Description', T(890000000000311, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Crafted Description]] "Сперва хочется сказать что он охотничий, но нет, он собран на коленке из старых гильз, мокрого пороха и фекалий местной фауны. Пользуется популярностью у местных, дешевизна берет своё!"),
 						'Cost', 100,
 						'RestockWeight', 150,
 						'CategoryPair', "762WP",
@@ -5372,10 +5372,10 @@ return {
 						'Id', "JAZZ_AMMO_762x39_FMJ",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/762x39CHN.png",
-						'DisplayName', T(403807663771, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_FMJ DisplayName]] "7,62х39мм, Norinco FMJ"),
-						'DisplayNamePlural', T(578647545074, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_FMJ DisplayNamePlural]] "7,62х39мм, Norinco FMJ"),
+						'DisplayName', T(890000000000470, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_FMJ DisplayName]] "7,62х39мм, Norinco FMJ"),
+						'DisplayNamePlural', T(890000000000744, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_FMJ DisplayNamePlural]] "7,62х39мм, Norinco FMJ"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(296646736495, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_FMJ Description]] "Гражданский коммерческий патрон, из-за веса и калибра пуля всё равно имеет, хоть и посредственные, но какие никакие бронебойные качества."),
+						'Description', T(890000000000310, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_FMJ Description]] "Гражданский коммерческий патрон, из-за веса и калибра пуля всё равно имеет, хоть и посредственные, но какие никакие бронебойные качества."),
 						'AdditionalHint', "",
 						'Cost', 600,
 						'CanAppearInShop', true,
@@ -5410,10 +5410,10 @@ return {
 						'object_class', "Ammo",
 						'RepairCost', 400,
 						'Icon', "Mod/e6L4ECj/Ammopics/762x39JHP.png",
-						'DisplayName', T(333321938927, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_JHP DisplayName]] "7,62х39мм, ПС"),
-						'DisplayNamePlural', T(789710016757, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_JHP DisplayNamePlural]] "7,62х39мм, ПС"),
+						'DisplayName', T(890000000000362, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_JHP DisplayName]] "7,62х39мм, ПС"),
+						'DisplayNamePlural', T(890000000001046, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_JHP DisplayNamePlural]] "7,62х39мм, ПС"),
 						'colorStyle', "AmmoJHPColor",
-						'Description', T(527669776671, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_JHP Description]] "Коммерческий патрон, в отличии от FMJ раскрывается в цели, т.е. Экспансивный, хороший убой за низкую цену."),
+						'Description', T(890000000000659, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_JHP Description]] "Коммерческий патрон, в отличии от FMJ раскрывается в цели, т.е. Экспансивный, хороший убой за низкую цену."),
 						'AdditionalHint', "",
 						'Cost', 750,
 						'CanAppearInShop', true,
@@ -5527,10 +5527,10 @@ return {
 						'object_class', "Ammo",
 						'RepairCost', 400,
 						'Icon', "Mod/e6L4ECj/Ammopics/762x39PS.png",
-						'DisplayName', T(333321938927, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Army DisplayName]] "7,62х39мм, ПС"),
-						'DisplayNamePlural', T(789710016757, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Army DisplayNamePlural]] "7,62х39мм, ПС"),
+						'DisplayName', T(890000000000362, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Army DisplayName]] "7,62х39мм, ПС"),
+						'DisplayNamePlural', T(890000000001046, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Army DisplayNamePlural]] "7,62х39мм, ПС"),
 						'colorStyle', "AmmoArmyColor",
-						'Description', T(527669776671, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Army Description]] "Базовый армейский патрон, по свойствам идеально сбалансирован на все случаи жизни. Это ширпотреб, в хорошем смысле этого слова. Берите не глядя, стреляйте не думая."),
+						'Description', T(890000000000656, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Army Description]] "Базовый армейский патрон, по свойствам идеально сбалансирован на все случаи жизни. Это ширпотреб, в хорошем смысле этого слова. Берите не глядя, стреляйте не думая."),
 						'Cost', 840,
 						'CanAppearInShop', true,
 						'Tier', 3,
@@ -5565,10 +5565,10 @@ return {
 						'object_class', "Ammo",
 						'RepairCost', 400,
 						'Icon', "Mod/e6L4ECj/Ammopics/762x39API.png",
-						'DisplayName', T(333321938927, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_APP DisplayName]] "7,62х39мм, БЗ"),
-						'DisplayNamePlural', T(789710016757, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_APP DisplayNamePlural]] "7,62х39мм, БЗ"),
+						'DisplayName', T(890000000000361, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_APP DisplayName]] "7,62х39мм, БЗ"),
+						'DisplayNamePlural', T(890000000001045, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_APP DisplayNamePlural]] "7,62х39мм, БЗ"),
 						'colorStyle', "AmmoAPPColor",
-						'Description', T(527669776671, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_APP Description]] "Редкий бронебойно зажигательный патрон, мечта всех мужчин, которые держали в руках АКМ, это секс-бомба в мире патронов, ничего лучше вы уже в своей жизни не встретите."),
+						'Description', T(890000000000661, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_APP Description]] "Редкий бронебойно зажигательный патрон, мечта всех мужчин, которые держали в руках АКМ, это секс-бомба в мире патронов, ничего лучше вы уже в своей жизни не встретите."),
 						'Cost', 3000,
 						'CanAppearInShop', true,
 						'Tier', "5",
@@ -5681,10 +5681,10 @@ return {
 						'Id', "JAZZ_AMMO_762x54_Poor",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/762x54RPoor.png",
-						'DisplayName', T(685074706095, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Poor DisplayName]] "7,62x54R мм 188-57 CN Type 53 Substandard"),
-						'DisplayNamePlural', T(544176135141, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Poor DisplayNamePlural]] "7,62x54R мм 188-57 CN Type 53 Substandard"),
+						'DisplayName', T(890000000000895, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Poor DisplayName]] "7,62x54R мм 188-57 CN Type 53 Substandard"),
+						'DisplayNamePlural', T(890000000000687, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Poor DisplayNamePlural]] "7,62x54R мм 188-57 CN Type 53 Substandard"),
 						'colorStyle', "AmmoSubstandardColor",
-						'Description', T(316044940928, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Poor Description]] "Сделано в китае, нет ничего хуже, чем быть патроном, произведенным в китае."),
+						'Description', T(890000000000332, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Poor Description]] "Сделано в китае, нет ничего хуже, чем быть патроном, произведенным в китае."),
 						'Cost', 750,
 						'CanAppearInShop', true,
 						'Tier', 2,
@@ -5733,10 +5733,10 @@ return {
 						'Id', "JAZZ_AMMO_762x54_FMJ",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/762x54RLPS.png",
-						'DisplayName', T(685074706095, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_FMJ DisplayName]] "7,62x54R мм ЛПС (FMJ)"),
-						'DisplayNamePlural', T(544176135141, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_FMJ DisplayNamePlural]] "7,62x54R мм ЛПС (FMJ)"),
+						'DisplayName', T(890000000000896, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_FMJ DisplayName]] "7,62x54R мм ЛПС (FMJ)"),
+						'DisplayNamePlural', T(890000000000688, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_FMJ DisplayNamePlural]] "7,62x54R мм ЛПС (FMJ)"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(316044940928, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_FMJ Description]] "Легкий патрон для пулеметов, где важна не меткость и характеристики, а плотность огня и количество патронов, массовые, дешевые, не выдающиеся боеприпасы."),
+						'Description', T(890000000000330, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_FMJ Description]] "Легкий патрон для пулеметов, где важна не меткость и характеристики, а плотность огня и количество патронов, массовые, дешевые, не выдающиеся боеприпасы."),
 						'Cost', 1200,
 						'CanAppearInShop', true,
 						'Tier', 3,
@@ -5762,10 +5762,10 @@ return {
 						'Id', "JAZZ_AMMO_762x54_Crafted",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/762x54RCrafted.png",
-						'DisplayName', T(685074706095, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Crafted DisplayName]] "7,62x54R мм Кустарный"),
-						'DisplayNamePlural', T(544176135141, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Crafted DisplayNamePlural]] "7,62x54R мм Кустарный"),
+						'DisplayName', T(890000000000897, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Crafted DisplayName]] "7,62x54R мм Кустарный"),
+						'DisplayNamePlural', T(890000000000689, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Crafted DisplayNamePlural]] "7,62x54R мм Кустарный"),
 						'colorStyle', "AmmoCraftedColor",
-						'Description', T(316044940928, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Crafted Description]] "Если уж делать хуже чем китайцы, то делать на коленке, плюс тут ровно один, приличный урон, но поплатитесь вы... Поверьте вы поплатитесь."),
+						'Description', T(890000000000331, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x54_Crafted Description]] "Если уж делать хуже чем китайцы, то делать на коленке, плюс тут ровно один, приличный урон, но поплатитесь вы... Поверьте вы поплатитесь."),
 						'Cost', 240,
 						'Tier', 2,
 						'MaxStock', 5,
@@ -5958,10 +5958,10 @@ return {
 						'Id', "JAZZ_AMMO_762x51_Poor",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/762NATOSub.png",
-						'DisplayName', T(816293484485, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Poor DisplayName]] "7.62х51мм НАТО, FMJ Substandard"),
-						'DisplayNamePlural', T(784212637278, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Poor DisplayNamePlural]] "7.62х51мм НАТО, FMJ Substandard"),
+						'DisplayName', T(890000000001099, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Poor DisplayName]] "7.62х51мм НАТО, FMJ Substandard"),
+						'DisplayNamePlural', T(890000000001035, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Poor DisplayNamePlural]] "7.62х51мм НАТО, FMJ Substandard"),
 						'colorStyle', "AmmoSubstandardColor",
-						'Description', T(868039456416, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Poor Description]] "В эти патроны забыли насыпать порох, так что ваш автомат откатится до состояния винтовки, скажите спасибо британцам. Их кстати никто не любит."),
+						'Description', T(890000000001209, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Poor Description]] "В эти патроны забыли насыпать порох, так что ваш автомат откатится до состояния винтовки, скажите спасибо британцам. Их кстати никто не любит."),
 						'AdditionalHint', "",
 						'Cost', 660,
 						'CanAppearInShop', true,
@@ -6011,10 +6011,10 @@ return {
 						'Id', "JAZZ_AMMO_762x51_FMJ",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/762NATO.png",
-						'DisplayName', T(816293484485, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_FMJ DisplayName]] "7.62х51мм НАТО, FMJ"),
-						'DisplayNamePlural', T(784212637278, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_FMJ DisplayNamePlural]] "7.62х51мм НАТО, FMJ"),
+						'DisplayName', T(890000000001098, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_FMJ DisplayName]] "7.62х51мм НАТО, FMJ"),
+						'DisplayNamePlural', T(890000000001034, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_FMJ DisplayNamePlural]] "7.62х51мм НАТО, FMJ"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(868039456416, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_FMJ Description]] "Какой-то не выдающийся патрон, просто работает, кого-то убивает, зачем-то существует. Скучно, без изюминки."),
+						'Description', T(890000000001210, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_FMJ Description]] "Какой-то не выдающийся патрон, просто работает, кого-то убивает, зачем-то существует. Скучно, без изюминки."),
 						'AdditionalHint', "",
 						'Cost', 1500,
 						'CanAppearInShop', true,
@@ -6045,10 +6045,10 @@ return {
 						'Id', "JAZZ_AMMO_762x51_Crafted",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/762NATOCrafted.png",
-						'DisplayName', T(816293484485, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Crafted DisplayName]] "7.62х51мм НАТО, FMJ"),
-						'DisplayNamePlural', T(784212637278, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Crafted DisplayNamePlural]] "7.62х51мм НАТО, FMJ"),
+						'DisplayName', T(890000000001098, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Crafted DisplayName]] "7.62х51мм НАТО, FMJ"),
+						'DisplayNamePlural', T(890000000001034, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Crafted DisplayNamePlural]] "7.62х51мм НАТО, FMJ"),
 						'colorStyle', "AmmoCraftedColor",
-						'Description', T(868039456416, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Crafted Description]] "Поздравляем, вы собрали на коленке довольно эффективный боеприпас, вас порадует его бюджетность относительно эффективности ровно до того момента, когда он убьет вас, а не цель."),
+						'Description', T(890000000001208, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x51_Crafted Description]] "Поздравляем, вы собрали на коленке довольно эффективный боеприпас, вас порадует его бюджетность относительно эффективности ровно до того момента, когда он убьет вас, а не цель."),
 						'AdditionalHint', "",
 						'Cost', 200,
 						'Tier', 2,
@@ -6298,10 +6298,10 @@ return {
 						'Id', "JAZZ_AMMO_75French_FMJ",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/75.png",
-						'DisplayName', T(195831313662, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_FMJ DisplayName]] "7,5х54 мм, Balle C (FMJ)"),
-						'DisplayNamePlural', T(790852334727, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_FMJ DisplayNamePlural]] "7,5х54 мм, Balle C (FMJ)"),
+						'DisplayName', T(890000000000133, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_FMJ DisplayName]] "7,5х54 мм, Balle C (FMJ)"),
+						'DisplayNamePlural', T(890000000001058, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_FMJ DisplayNamePlural]] "7,5х54 мм, Balle C (FMJ)"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(634152164577, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_FMJ Description]] "Что-то на французском, вроде как базовый патрон, но пенетрирует не хуже некоторых бронебойных, жаль оружие под него вышло в тираж."),
+						'Description', T(890000000000828, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_FMJ Description]] "Что-то на французском, вроде как базовый патрон, но пенетрирует не хуже некоторых бронебойных, жаль оружие под него вышло в тираж."),
 						'Cost', 540,
 						'CanAppearInShop', true,
 						'MaxStock', 5,
@@ -6326,10 +6326,10 @@ return {
 						'Id', "JAZZ_AMMO_75French_AP",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/75AP.png",
-						'DisplayName', T(195831313662, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_AP DisplayName]] "7,5х54 мм, Balle P (AP)"),
-						'DisplayNamePlural', T(790852334727, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_AP DisplayNamePlural]] "7,5х54 мм, Balle P (AP)"),
+						'DisplayName', T(890000000000134, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_AP DisplayName]] "7,5х54 мм, Balle P (AP)"),
+						'DisplayNamePlural', T(890000000001059, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_AP DisplayNamePlural]] "7,5х54 мм, Balle P (AP)"),
 						'colorStyle', "AmmoAPColor",
-						'Description', T(634152164577, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_AP Description]] "Бронебойные патроны, действительно суровые и эффективные, можно не только прошибать броню, но ещё и броню за стенами."),
+						'Description', T(890000000000827, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_AP Description]] "Бронебойные патроны, действительно суровые и эффективные, можно не только прошибать броню, но ещё и броню за стенами."),
 						'Cost', 1080,
 						'CanAppearInShop', true,
 						'MaxStock', 5,
@@ -6382,10 +6382,10 @@ return {
 						'comment', "30-06",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/3006.png",
-						'DisplayName', T(697162729896, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_3006_FMJ DisplayName]] "Патрон 30-06"),
-						'DisplayNamePlural', T(726631612816, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_3006_FMJ DisplayNamePlural]] "Патроны 30-06"),
+						'DisplayName', T(890000000000918, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_3006_FMJ DisplayName]] "Патрон 30-06"),
+						'DisplayNamePlural', T(890000000000966, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_3006_FMJ DisplayNamePlural]] "Патроны 30-06"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(898567748151, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_3006_FMJ Description]] "Это папа калибра .308, патрон хоть и старый, но всё также опасен. Используется по сей день охотниками и ковбоями."),
+						'Description', T(890000000001256, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_3006_FMJ Description]] "Это папа калибра .308, патрон хоть и старый, но всё также опасен. Используется по сей день охотниками и ковбоями."),
 						'Cost', 540,
 						'CanAppearInShop', true,
 						'MaxStock', 30,
@@ -6411,10 +6411,10 @@ return {
 						'comment', "30-06",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/3006AP.png",
-						'DisplayName', T(697162729896, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_3006_AP DisplayName]] "Патрон 30-06 M2 AP"),
-						'DisplayNamePlural', T(726631612816, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_3006_AP DisplayNamePlural]] "Патроны 30-06 M2 AP"),
+						'DisplayName', T(890000000000919, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_3006_AP DisplayName]] "Патрон 30-06 M2 AP"),
+						'DisplayNamePlural', T(890000000000968, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_3006_AP DisplayNamePlural]] "Патроны 30-06 M2 AP"),
 						'colorStyle', "AmmoAPColor",
-						'Description', T(898567748151, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_3006_AP Description]] "Никому не понятно зачем такой мощный патрон делать ещё и бронебойным, но они это сделали, вероятно кто-то хотел пробивать танки."),
+						'Description', T(890000000001254, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_3006_AP Description]] "Никому не понятно зачем такой мощный патрон делать ещё и бронебойным, но они это сделали, вероятно кто-то хотел пробивать танки."),
 						'Cost', 1080,
 						'CanAppearInShop', true,
 						'MaxStock', 30,
@@ -6464,10 +6464,10 @@ return {
 						'comment', "30-06",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/3006Match.png",
-						'DisplayName', T(697162729896, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_3006_Match DisplayName]] "Патрон 30-06 M25 Match"),
-						'DisplayNamePlural', T(726631612816, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_3006_Match DisplayNamePlural]] "Патроны 30-06 M25 Match"),
+						'DisplayName', T(890000000000920, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_3006_Match DisplayName]] "Патрон 30-06 M25 Match"),
+						'DisplayNamePlural', T(890000000000967, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_3006_Match DisplayNamePlural]] "Патроны 30-06 M25 Match"),
 						'colorStyle', "AmmoMatchColor",
-						'Description', T(898567748151, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_3006_Match Description]] "Высокоточный патрон, помимо прочего имеет хорошее пробитие и какую-никакую экспансивность, какой-то новодел, но мы ничего против не имеем, убивать надо эффективно."),
+						'Description', T(890000000001255, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_3006_Match Description]] "Высокоточный патрон, помимо прочего имеет хорошее пробитие и какую-никакую экспансивность, какой-то новодел, но мы ничего против не имеем, убивать надо эффективно."),
 						'Cost', 840,
 						'CanAppearInShop', true,
 						'MaxStock', 30,
@@ -6520,10 +6520,10 @@ return {
 						'Id', "JAZZ_AMMO_792_FMJ",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/792x57.png",
-						'DisplayName', T(195831313662, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_FMJ DisplayName]] "7,92х57 мм, s.S. Patrone (FMJ)"),
-						'DisplayNamePlural', T(790852334727, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_FMJ DisplayNamePlural]] "7,92х57 мм, s.S. Patrone (FMJ)"),
+						'DisplayName', T(890000000000135, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_FMJ DisplayName]] "7,92х57 мм, s.S. Patrone (FMJ)"),
+						'DisplayNamePlural', T(890000000001060, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_FMJ DisplayNamePlural]] "7,92х57 мм, s.S. Patrone (FMJ)"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(634152164577, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_FMJ Description]] "Фашисты хоть и пидоры, но в оружии разбирались, отличные патроны, с отличными свойствами, минус лишь в том,  что патроны старые и оружие соответственно."),
+						'Description', T(890000000000829, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_FMJ Description]] "Фашисты хоть и пидоры, но в оружии разбирались, отличные патроны, с отличными свойствами, минус лишь в том,  что патроны старые и оружие соответственно."),
 						'AdditionalHint', "",
 						'Cost', 540,
 						'CanAppearInShop', true,
@@ -6549,10 +6549,10 @@ return {
 						'Id', "JAZZ_AMMO_792_AP",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/792x57AP.png",
-						'DisplayName', T(195831313662, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_AP DisplayName]] "7,92х57 мм, SmK (ББ)"),
-						'DisplayNamePlural', T(790852334727, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_AP DisplayNamePlural]] "7,92х57 мм, SmK (ББ)"),
+						'DisplayName', T(890000000000136, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_AP DisplayName]] "7,92х57 мм, SmK (ББ)"),
+						'DisplayNamePlural', T(890000000001061, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_AP DisplayNamePlural]] "7,92х57 мм, SmK (ББ)"),
 						'colorStyle', "AmmoAPColor",
-						'Description', T(634152164577, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_AP Description]] "Бронебойная версия армейского патрона, не понятно что потребовало его изобрести, но вероятно вы рады, что у вас есть такая опция."),
+						'Description', T(890000000000826, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_AP Description]] "Бронебойная версия армейского патрона, не понятно что потребовало его изобрести, но вероятно вы рады, что у вас есть такая опция."),
 						'AdditionalHint', "",
 						'Cost', 1080,
 						'CanAppearInShop', true,
@@ -6602,10 +6602,10 @@ return {
 						'Id', "JAZZ_AMMO_792_APIT",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/792x57API.png",
-						'DisplayName', T(195831313662, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_APIT DisplayName]] "7,92х57 мм, SmK L'spur (API-T)"),
-						'DisplayNamePlural', T(790852334727, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_APIT DisplayNamePlural]] "7,92х57 мм, SmK L'spur (API-T)"),
+						'DisplayName', T(890000000000137, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_APIT DisplayName]] "7,92х57 мм, SmK L'spur (API-T)"),
+						'DisplayNamePlural', T(890000000001062, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_APIT DisplayNamePlural]] "7,92х57 мм, SmK L'spur (API-T)"),
 						'colorStyle', "AmmoAPPColor",
-						'Description', T(634152164577, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_APIT Description]] "БЗТ патрон, что ещё тут надо добавлять? Он прекрасен, хоть и стар. Превратите войну в искусство."),
+						'Description', T(890000000000825, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_APIT Description]] "БЗТ патрон, что ещё тут надо добавлять? Он прекрасен, хоть и стар. Превратите войну в искусство."),
 						'AdditionalHint', "",
 						'Cost', 1440,
 						'CanAppearInShop', true,
@@ -6714,10 +6714,10 @@ return {
 						'comment', "СП6",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/939SP6.png",
-						'DisplayName', T(508580108192, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x39_AP DisplayName]] "9x39 мм, СП-6 (бронебойный)"),
-						'DisplayNamePlural', T(724138101974, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x39_AP DisplayNamePlural]] "9x39 мм, СП-6 (бронебойный)"),
+						'DisplayName', T(890000000000642, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x39_AP DisplayName]] "9x39 мм, СП-6 (бронебойный)"),
+						'DisplayNamePlural', T(890000000000962, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x39_AP DisplayNamePlural]] "9x39 мм, СП-6 (бронебойный)"),
 						'colorStyle', "AmmoAPColor",
-						'Description', T(343666682437, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x39_AP Description]] "Специальный бронебойный дозвуковой патрон, убойность, как водится, на высоте, сможете всех мочить в сортире без шума и лишнего внимания."),
+						'Description', T(890000000000381, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x39_AP Description]] "Специальный бронебойный дозвуковой патрон, убойность, как водится, на высоте, сможете всех мочить в сортире без шума и лишнего внимания."),
 						'Cost', 4500,
 						'CanAppearInShop', true,
 						'Tier', "4",
@@ -6760,10 +6760,10 @@ return {
 						'comment', "СП6",
 						'object_class', "Ammo",
 						'Icon', "Mod/e6L4ECj/Ammopics/939Crafted.png",
-						'DisplayName', T(508580108192, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x39_Crafted DisplayName]] "9x39 мм, Кустарный"),
-						'DisplayNamePlural', T(724138101974, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x39_Crafted DisplayNamePlural]] "9x39 мм, Кустарный"),
+						'DisplayName', T(890000000000641, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x39_Crafted DisplayName]] "9x39 мм, Кустарный"),
+						'DisplayNamePlural', T(890000000000961, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x39_Crafted DisplayNamePlural]] "9x39 мм, Кустарный"),
 						'colorStyle', "AmmoCraftedColor",
-						'Description', T(343666682437, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x39_Crafted Description]] "Что-то среднее, между СП-5 и СП-6 собранное на коленке, как водится тут есть все минусы собранных на коленке патронов, возможно он даже не дозвуковой, проверяйте сами."),
+						'Description', T(890000000000380, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x39_Crafted Description]] "Что-то среднее, между СП-5 и СП-6 собранное на коленке, как водится тут есть все минусы собранных на коленке патронов, возможно он даже не дозвуковой, проверяйте сами."),
 						'Cost', 900,
 						'Tier', 3,
 						'MaxStock', 99,
@@ -7083,10 +7083,10 @@ return {
 						'Id', "JAZZ_AMMO_50BMG_Basic",
 						'object_class', "Ammo",
 						'Icon', "UI/Icons/Items/50bmg_basic",
-						'DisplayName', T(224747486019, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic DisplayName]] ".50, обычный"),
-						'DisplayNamePlural', T(272581385016, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic DisplayNamePlural]] ".50, обычные"),
+						'DisplayName', T(890000000000164, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic DisplayName]] ".50, обычный"),
+						'DisplayNamePlural', T(890000000000243, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic DisplayNamePlural]] ".50, обычные"),
 						'colorStyle', "AmmoBasicColor",
-						'Description', T(928449338739, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic Description]] "Обычный натовский палтишок, убивает гарантированно, но не всё, если не убивает, то делает очень больно."),
+						'Description', T(890000000001295, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_50BMG_Basic Description]] "Обычный натовский палтишок, убивает гарантированно, но не всё, если не убивает, то делает очень больно."),
 						'Cost', 9000,
 						'CanAppearInShop', true,
 						'Tier', 3,
@@ -7532,7 +7532,7 @@ return {
 					'DisplayName', T(560400460237, --[[ModItemInventoryItemCompositeDef _9mm_Shock DisplayName]] "9mm ShockОТКЛЮЧЕНО"),
 					'DisplayNamePlural', T(733411942262, --[[ModItemInventoryItemCompositeDef _9mm_Shock DisplayNamePlural]] "9mm ShockОТКЛЮЧЕНО"),
 					'colorStyle', "AmmoMatchColor",
-					'Description', T(330508860958, --[[ModItemInventoryItemCompositeDef _9mm_Shock Description]] "Шоковый боеприпас для пистолетов, револьверов и пистолетов-пулеметов калибра 9 мм."),
+					'Description', T(923881615835, --[[ModItemInventoryItemCompositeDef _9mm_Shock Description]] "9 mm ammo for Handguns and SMGs."),
 					'AdditionalHint', T(595335142998, --[[ModItemInventoryItemCompositeDef _9mm_Shock AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сниженная дальнобойность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Нулевая бронебойность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокий шанс критического попадания\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Пораженные цели получают статус «<color EmStyle>Вне укрытия</color>» и лишаются его преимуществ\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>кровотечение</color>"),
 					'Cost', 90,
 					'Tier', 2,
@@ -7563,7 +7563,7 @@ return {
 					'DisplayName', T(158230824132, --[[ModItemInventoryItemCompositeDef _9mm_Subsonic DisplayName]] "9mmSubsonicОТКЛЮЧЕНО"),
 					'DisplayNamePlural', T(307842862228, --[[ModItemInventoryItemCompositeDef _9mm_Subsonic DisplayNamePlural]] "9mmSubsonicОТКЛЮЧЕНО"),
 					'colorStyle', "AmmoMatchColor",
-					'Description', T(116852283248, --[[ModItemInventoryItemCompositeDef _9mm_Subsonic Description]] "Дозвуковой боеприпас для пистолетов, револьверов и пистолетов-пулеметов калибра 9 мм."),
+					'Description', T(571319448676, --[[ModItemInventoryItemCompositeDef _9mm_Subsonic Description]] "9 mm ammo for Handguns and SMGs."),
 					'AdditionalHint', T(404985734712, --[[ModItemInventoryItemCompositeDef _9mm_Subsonic AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Издает меньше шума"),
 					'Cost', 45,
 					'Tier', 3,
@@ -7590,7 +7590,7 @@ return {
 					'DisplayName', T(572390972773, --[[ModItemInventoryItemCompositeDef _9mm_Tracer DisplayName]] "9mmTracerОТКЛЮЧЕНО"),
 					'DisplayNamePlural', T(489176470960, --[[ModItemInventoryItemCompositeDef _9mm_Tracer DisplayNamePlural]] "9mmTracerОТКЛЮЧЕНО"),
 					'colorStyle', "AmmoTracerColor",
-					'Description', T(932643036817, --[[ModItemInventoryItemCompositeDef _9mm_Tracer Description]] "Трассирующий боеприпас для пистолетов, револьверов и пистолетов-пулеметов калибра 9 мм."),
+					'Description', T(605716564475, --[[ModItemInventoryItemCompositeDef _9mm_Tracer Description]] "9 mm ammo for Handguns and SMGs."),
 					'AdditionalHint', T(647181592030, --[[ModItemInventoryItemCompositeDef _9mm_Tracer AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Пораженные цели получают статус «<color EmStyle>Вне укрытия</color>» и лишаются его преимуществ"),
 					'Cost', 60,
 					'Tier', 2,
@@ -7716,7 +7716,7 @@ return {
 					'DisplayName', T(724757939121, --[[ModItemInventoryItemCompositeDef _44CAL_Shock DisplayName]] ".44, ШОК Отключено"),
 					'DisplayNamePlural', T(526557400231, --[[ModItemInventoryItemCompositeDef _44CAL_Shock DisplayNamePlural]] ".44, ШОК Отключено"),
 					'colorStyle', "AmmoHPColor",
-					'Description', T(374067063962, --[[ModItemInventoryItemCompositeDef _44CAL_Shock Description]] "Шоковый боеприпас для револьверов и винтовок калибра .44."),
+					'Description', T(661797428567, --[[ModItemInventoryItemCompositeDef _44CAL_Shock Description]] ".44 Ammo for Revolvers and Rifles."),
 					'AdditionalHint', T(357179315416, --[[ModItemInventoryItemCompositeDef _44CAL_Shock AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сниженная дальнобойность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокий шанс критического попадания\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Пораженные цели получают статус «<color EmStyle>Вне укрытия</color>» и лишаются его преимуществ\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>кровотечение</color>"),
 					'Cost', 180,
 					'Tier', 2,
@@ -7751,7 +7751,7 @@ return {
 					'DisplayName', T(623029149040, --[[ModItemInventoryItemCompositeDef _44CAL_AP DisplayName]] ".44, ББ Отключено"),
 					'DisplayNamePlural', T(378365287164, --[[ModItemInventoryItemCompositeDef _44CAL_AP DisplayNamePlural]] ".44, ББ Отключено"),
 					'colorStyle', "AmmoAPColor",
-					'Description', T(972668654790, --[[ModItemInventoryItemCompositeDef _44CAL_AP Description]] "Бронебойный боеприпас для револьверов и винтовок калибра .44."),
+					'Description', T(933559598531, --[[ModItemInventoryItemCompositeDef _44CAL_AP Description]] ".44 Ammo for Revolvers and Rifles."),
 					'AdditionalHint', T(501965695809, --[[ModItemInventoryItemCompositeDef _44CAL_AP AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышенная бронебойность"),
 					'Cost', 120,
 					'Tier', 2,
@@ -7910,7 +7910,7 @@ return {
 					'DisplayName', T(122093727509, --[[ModItemInventoryItemCompositeDef _556_Match DisplayName]] "556Match ОТКЛЮЧЕНО"),
 					'DisplayNamePlural', T(209259965707, --[[ModItemInventoryItemCompositeDef _556_Match DisplayNamePlural]] "556Match ОТКЛЮЧЕНО"),
 					'colorStyle', "AmmoMatchColor",
-					'Description', T(227822258303, --[[ModItemInventoryItemCompositeDef _556_Match Description]] "Матчевый боеприпас для автоматов, пистолетов-пулеметов и пулеметов калибра 5,56 мм."),
+					'Description', T(526351062603, --[[ModItemInventoryItemCompositeDef _556_Match Description]] "5.56 Ammo for Assault Rifles, SMGs, and Machine Guns."),
 					'AdditionalHint', T(137980565501, --[[ModItemInventoryItemCompositeDef _556_Match AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенная эффективность прицеливания"),
 					'Cost', 180,
 					'Tier', 3,
@@ -8060,7 +8060,7 @@ return {
 					'DisplayName', T(463284044008, --[[ModItemInventoryItemCompositeDef _762WP_AP DisplayName]] "7,62 мм СССР, Отключено"),
 					'DisplayNamePlural', T(521861768726, --[[ModItemInventoryItemCompositeDef _762WP_AP DisplayNamePlural]] "7,62 мм СССР, Отключено"),
 					'colorStyle', "AmmoAPColor",
-					'Description', T(755579247941, --[[ModItemInventoryItemCompositeDef _762WP_AP Description]] "Бронебойный боеприпас советского образца для автоматов, пистолетов-пулеметов, пулеметов и винтовок калибра 7,62 мм."),
+					'Description', T(910307381187, --[[ModItemInventoryItemCompositeDef _762WP_AP Description]] "7.62 Warsaw Pact ammo for Assault Rifles, SMGs, Machine Guns, and Rifles."),
 					'AdditionalHint', T(995857959547, --[[ModItemInventoryItemCompositeDef _762WP_AP AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышенная бронебойность"),
 					'Cost', 100,
 					'Tier', 2,
@@ -8084,10 +8084,10 @@ return {
 					'comment', "Disabled",
 					'object_class', "Ammo",
 					'Icon', "Mod/e6L4ECj/Ammopics/TEST.png",
-					'DisplayName', T(547619038333, --[[ModItemInventoryItemCompositeDef _762WP_Match DisplayName]] "7,62 мм СССР, МТЧ"),
-					'DisplayNamePlural', T(229974779565, --[[ModItemInventoryItemCompositeDef _762WP_Match DisplayNamePlural]] "7,62 мм СССР, МТЧ"),
+					'DisplayName', T(983548612559, --[[ModItemInventoryItemCompositeDef _762WP_Match DisplayName]] "7.62 mm WP Match"),
+					'DisplayNamePlural', T(565381152146, --[[ModItemInventoryItemCompositeDef _762WP_Match DisplayNamePlural]] "7.62 mm WP Match"),
 					'colorStyle', "AmmoMatchColor",
-					'Description', T(233053065977, --[[ModItemInventoryItemCompositeDef _762WP_Match Description]] "Матчевый боеприпас советского образца для автоматов, пистолетов-пулеметов, пулеметов и винтовок калибра 7,62 мм."),
+					'Description', T(587024333620, --[[ModItemInventoryItemCompositeDef _762WP_Match Description]] "7.62 Warsaw Pact ammo for Assault Rifles, SMGs, Machine Guns, and Rifles."),
 					'AdditionalHint', T(664395917370, --[[ModItemInventoryItemCompositeDef _762WP_Match AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенная эффективность прицеливания"),
 					'Cost', 100,
 					'Tier', 3,
@@ -8111,8 +8111,8 @@ return {
 					'comment', "Как ПС, но трассера",
 					'object_class', "Ammo",
 					'Icon', "Mod/e6L4ECj/Ammopics/TEST.png",
-					'DisplayName', T(349895440527, --[[ModItemInventoryItemCompositeDef _762WP_Tracer DisplayName]] "7,62 мм СССР, ТРАС"),
-					'DisplayNamePlural', T(142212279349, --[[ModItemInventoryItemCompositeDef _762WP_Tracer DisplayNamePlural]] "7,62 мм СССР, ТРАС"),
+					'DisplayName', T(731781267010, --[[ModItemInventoryItemCompositeDef _762WP_Tracer DisplayName]] "7.62 mm WP Tracer"),
+					'DisplayNamePlural', T(277651293338, --[[ModItemInventoryItemCompositeDef _762WP_Tracer DisplayNamePlural]] "7.62 mm WP Tracer"),
 					'colorStyle', "AmmoTracerColor",
 					'Description', T(888848136617, --[[ModItemInventoryItemCompositeDef _762WP_Tracer Description]] "Трасирующий советский армейский патрон Т-45 калибра 7.62х39мм"),
 					'AdditionalHint', T(207401264401, --[[ModItemInventoryItemCompositeDef _762WP_Tracer AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Обеспечивает уверенное поражение целей обладающих 3-м классом брони\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Пораженные цели получают статус «<color EmStyle>Вне укрытия</color>» и лишаются его преимуществ"),
@@ -8282,7 +8282,7 @@ return {
 					'DisplayName', T(634358146978, --[[ModItemInventoryItemCompositeDef _762NATO_Tracer DisplayName]] "7.62х51мм НАТО, M62"),
 					'DisplayNamePlural', T(915862614034, --[[ModItemInventoryItemCompositeDef _762NATO_Tracer DisplayNamePlural]] "7.62х51мм НАТО, M62"),
 					'colorStyle', "AmmoTracerColor",
-					'Description', T(490328209447, --[[ModItemInventoryItemCompositeDef _762NATO_Tracer Description]] "Трассирующий боеприпас натовского образца для автоматов, винтовок и пулеметов калибра 7,62 мм."),
+					'Description', T(223701622960, --[[ModItemInventoryItemCompositeDef _762NATO_Tracer Description]] "7.62 NATO ammo for Assault Rifles, Rifles, and Machine Guns."),
 					'AdditionalHint', T(941135261525, --[[ModItemInventoryItemCompositeDef _762NATO_Tracer AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Пораженные цели получают статус «<color EmStyle>Вне укрытия</color>» и лишаются его преимуществ\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Обеспечивает уверенное поражение целей обладающих 3-м классом брони"),
 					'Cost', 200,
 					'Tier', 2,
@@ -8455,8 +8455,8 @@ return {
 					'comment', "Соль - 20 частиц",
 					'object_class', "Ammo",
 					'Icon', "Mod/e6L4ECj/Ammopics/TEST.png",
-					'DisplayName', T(983947310546, --[[ModItemInventoryItemCompositeDef _12gauge_Saltshot DisplayName]] "12-й калибр, соль"),
-					'DisplayNamePlural', T(411961169602, --[[ModItemInventoryItemCompositeDef _12gauge_Saltshot DisplayNamePlural]] "12-й калибр, соль"),
+					'DisplayName', T(267395126102, --[[ModItemInventoryItemCompositeDef _12gauge_Saltshot DisplayName]] "12-gauge Saltshot"),
+					'DisplayNamePlural', T(598926526992, --[[ModItemInventoryItemCompositeDef _12gauge_Saltshot DisplayNamePlural]] "12-gauge Saltshot"),
 					'colorStyle', "AmmoHPColor",
 					'Description', T(920340970285, --[[ModItemInventoryItemCompositeDef _12gauge_Saltshot Description]] "Боеприпас с солью 12-го калибра."),
 					'AdditionalHint', T(237005758229, --[[ModItemInventoryItemCompositeDef _12gauge_Saltshot AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> очень низкий урон\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сниженная дальнобойность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенный сектор атаки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает у цели <color EmStyle>случайные травмы</color>"),
@@ -8501,10 +8501,10 @@ return {
 					'Id', "_50BMG_Basic",
 					'object_class', "Ammo",
 					'Icon', "Mod/e6L4ECj/Ammopics/TEST.png",
-					'DisplayName', T(605680061115, --[[ModItemInventoryItemCompositeDef _50BMG_Basic DisplayName]] ".50, обычный"),
-					'DisplayNamePlural', T(260375641580, --[[ModItemInventoryItemCompositeDef _50BMG_Basic DisplayNamePlural]] ".50, обычные"),
+					'DisplayName', T(304613136713, --[[ModItemInventoryItemCompositeDef _50BMG_Basic DisplayName]] ".50 Standard"),
+					'DisplayNamePlural', T(930163832052, --[[ModItemInventoryItemCompositeDef _50BMG_Basic DisplayNamePlural]] ".50 Standard"),
 					'colorStyle', "AmmoBasicColor",
-					'Description', T(768671153312, --[[ModItemInventoryItemCompositeDef _50BMG_Basic Description]] "Боеприпас для пулеметов, снайперских винтовок, пистолетов и револьверов калибра .50."),
+					'Description', T(340399158576, --[[ModItemInventoryItemCompositeDef _50BMG_Basic Description]] ".50 Ammo for Machine Guns, Snipers and Handguns."),
 					'Cost', 250,
 					'Tier', 2,
 					'MaxStock', 10,
@@ -8518,10 +8518,10 @@ return {
 					'Id', "_50BMG_HE",
 					'object_class', "Ammo",
 					'Icon', "Mod/e6L4ECj/Ammopics/TEST.png",
-					'DisplayName', T(948891990549, --[[ModItemInventoryItemCompositeDef _50BMG_HE DisplayName]] ".50, РАЗР"),
-					'DisplayNamePlural', T(635565288075, --[[ModItemInventoryItemCompositeDef _50BMG_HE DisplayNamePlural]] ".50, РАЗР"),
+					'DisplayName', T(638878429442, --[[ModItemInventoryItemCompositeDef _50BMG_HE DisplayName]] ".50 Explosive"),
+					'DisplayNamePlural', T(784235316318, --[[ModItemInventoryItemCompositeDef _50BMG_HE DisplayNamePlural]] ".50 Explosive"),
 					'colorStyle', "AmmoHPColor",
-					'Description', T(114582444127, --[[ModItemInventoryItemCompositeDef _50BMG_HE Description]] "Разрывной боеприпас для пулеметов, снайперских винтовок, пистолетов и револьверов калибра .50."),
+					'Description', T(974086720946, --[[ModItemInventoryItemCompositeDef _50BMG_HE Description]] ".50 Ammo for Machine Guns, Snipers and Handguns."),
 					'AdditionalHint', T(132438284195, --[[ModItemInventoryItemCompositeDef _50BMG_HE AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Нулевая бронебойность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокий шанс критического попадания"),
 					'Cost', 500,
 					'Tier', 3,
@@ -8548,10 +8548,10 @@ return {
 					'Id', "_50BMG_Incendiary",
 					'object_class', "Ammo",
 					'Icon', "Mod/e6L4ECj/Ammopics/TEST.png",
-					'DisplayName', T(194196164000, --[[ModItemInventoryItemCompositeDef _50BMG_Incendiary DisplayName]] ".50, ЗЖ"),
-					'DisplayNamePlural', T(223133671389, --[[ModItemInventoryItemCompositeDef _50BMG_Incendiary DisplayNamePlural]] ".50, ЗЖ"),
+					'DisplayName', T(727344246325, --[[ModItemInventoryItemCompositeDef _50BMG_Incendiary DisplayName]] ".50 Frag"),
+					'DisplayNamePlural', T(468293090203, --[[ModItemInventoryItemCompositeDef _50BMG_Incendiary DisplayNamePlural]] ".50 Frag"),
 					'colorStyle', "AmmoTracerColor",
-					'Description', T(881228785592, --[[ModItemInventoryItemCompositeDef _50BMG_Incendiary Description]] "Зажигательный боеприпас для пулеметов, снайперских винтовок, пистолетов и револьверов калибра .50."),
+					'Description', T(196314399167, --[[ModItemInventoryItemCompositeDef _50BMG_Incendiary Description]] ".50 Ammo for Machine Guns, Snipers and Handguns."),
 					'AdditionalHint', T(478819781584, --[[ModItemInventoryItemCompositeDef _50BMG_Incendiary AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Пораженные цели получают статус «<color EmStyle>Вне укрытия</color>» и лишаются его преимуществ\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>горение</color>"),
 					'Cost', 500,
 					'Tier', 3,
@@ -8573,10 +8573,10 @@ return {
 					'Id', "_50BMG_SLAP",
 					'object_class', "Ammo",
 					'Icon', "Mod/e6L4ECj/Ammopics/TEST.png",
-					'DisplayName', T(286919767423, --[[ModItemInventoryItemCompositeDef _50BMG_SLAP DisplayName]] ".50, ПК"),
-					'DisplayNamePlural', T(757638084303, --[[ModItemInventoryItemCompositeDef _50BMG_SLAP DisplayNamePlural]] ".50, ПК"),
+					'DisplayName', T(328537436087, --[[ModItemInventoryItemCompositeDef _50BMG_SLAP DisplayName]] ".50 SLAP"),
+					'DisplayNamePlural', T(152196917983, --[[ModItemInventoryItemCompositeDef _50BMG_SLAP DisplayNamePlural]] ".50 SLAP"),
 					'colorStyle', "AmmoAPColor",
-					'Description', T(392473700789, --[[ModItemInventoryItemCompositeDef _50BMG_SLAP Description]] "Подкалиберный боеприпас для пулеметов, снайперских винтовок, пистолетов и револьверов калибра .50."),
+					'Description', T(189786149121, --[[ModItemInventoryItemCompositeDef _50BMG_SLAP Description]] ".50 Ammo for Machine Guns, Snipers and Handguns."),
 					'AdditionalHint', T(181724059889, --[[ModItemInventoryItemCompositeDef _50BMG_SLAP AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышенная бронебойность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Немного повышенный шанс критического попадания"),
 					'Cost', 500,
 					'Tier', 3,
@@ -8606,9 +8606,9 @@ return {
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Items/mortar_shell_gas",
-					'DisplayName', T(119056817440, --[[ModItemInventoryItemCompositeDef MortarShell_Gas DisplayName]] "Газ. выстрел миномета"),
-					'DisplayNamePlural', T(334171064157, --[[ModItemInventoryItemCompositeDef MortarShell_Gas DisplayNamePlural]] "Газ. выстрелы миномета"),
-					'Description', T(658584275546, --[[ModItemInventoryItemCompositeDef MortarShell_Gas Description]] "Газовый боеприпас для минометов."),
+					'DisplayName', T(695814790332, --[[ModItemInventoryItemCompositeDef MortarShell_Gas DisplayName]] "Mortar Gas Cartridge"),
+					'DisplayNamePlural', T(485162600133, --[[ModItemInventoryItemCompositeDef MortarShell_Gas DisplayNamePlural]] "Mortar Gas Cartridges"),
+					'Description', T(866167485518, --[[ModItemInventoryItemCompositeDef MortarShell_Gas Description]] "Ordnance ammo for Mortars."),
 					'AdditionalHint', T(217868623815, --[[ModItemInventoryItemCompositeDef MortarShell_Gas AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>удушье</color>\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь незначительные попадания\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно"),
 					'Cost', 1800,
 					'Tier', 3,
@@ -8631,10 +8631,10 @@ return {
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Items/mortar_shell_he",
-					'DisplayName', T(353521582405, --[[ModItemInventoryItemCompositeDef MortarShell_HE DisplayName]] "Выстрел для миномета"),
-					'DisplayNamePlural', T(237704902395, --[[ModItemInventoryItemCompositeDef MortarShell_HE DisplayNamePlural]] "Выстрелы для миномета"),
+					'DisplayName', T(155089126370, --[[ModItemInventoryItemCompositeDef MortarShell_HE DisplayName]] "Mortar Cartridge"),
+					'DisplayNamePlural', T(463883298336, --[[ModItemInventoryItemCompositeDef MortarShell_HE DisplayNamePlural]] "Mortar Cartridges"),
 					'colorStyle', "AmmoBasicColor",
-					'Description', T(657474544556, --[[ModItemInventoryItemCompositeDef MortarShell_HE Description]] "Стандартный боеприпас для минометов."),
+					'Description', T(544846349389, --[[ModItemInventoryItemCompositeDef MortarShell_HE Description]] "Explosive Ordnance ammo for Mortars."),
 					'Cost', 1600,
 					'Tier', 2,
 					'MaxStock', 25,
@@ -8659,9 +8659,9 @@ return {
 					'Repairable', false,
 					'Reliability', 100,
 					'Icon', "UI/Icons/Items/mortar_shell_smoke",
-					'DisplayName', T(467881837190, --[[ModItemInventoryItemCompositeDef MortarShell_Smoke DisplayName]] "Дым. выстрел миномета"),
-					'DisplayNamePlural', T(991809690207, --[[ModItemInventoryItemCompositeDef MortarShell_Smoke DisplayNamePlural]] "Дым. выстрелы миномета"),
-					'Description', T(738527962742, --[[ModItemInventoryItemCompositeDef MortarShell_Smoke Description]] "Дымовой боеприпас для минометов."),
+					'DisplayName', T(725759308030, --[[ModItemInventoryItemCompositeDef MortarShell_Smoke DisplayName]] "Mortar Smoke Cartridge"),
+					'DisplayNamePlural', T(438787593786, --[[ModItemInventoryItemCompositeDef MortarShell_Smoke DisplayNamePlural]] "Mortar Smoke Cartridges"),
+					'Description', T(497568730512, --[[ModItemInventoryItemCompositeDef MortarShell_Smoke Description]] "Ordnance ammo for Mortars."),
 					'AdditionalHint', T(651925772567, --[[ModItemInventoryItemCompositeDef MortarShell_Smoke AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно"),
 					'Cost', 750,
 					'Tier', 2,
@@ -8681,9 +8681,9 @@ return {
 					'Id', "_40mmFlashbangGrenade",
 					'object_class', "Ordnance",
 					'Icon', "Mod/e6L4ECj/Ammopics/TEST.png",
-					'DisplayName', T(725404168171, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade DisplayName]] "40-мм с/ш граната"),
-					'DisplayNamePlural', T(197284197871, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade DisplayNamePlural]] "40-мм с/ш гранаты"),
-					'Description', T(288672948029, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade Description]] "Светошумовой боеприпас для гранатометов калибра 40 мм."),
+					'DisplayName', T(805412560134, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade DisplayName]] "40 mm Flashbang"),
+					'DisplayNamePlural', T(753721174279, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade DisplayNamePlural]] "40 mm Flashbangs"),
+					'Description', T(637064167762, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade Description]] "40 mm ordnance ammo for Grenade Launchers."),
 					'AdditionalHint', T(523265065541, --[[ModItemInventoryItemCompositeDef _40mmFlashbangGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В эпицентре взрыва снижает уровень энергии целей (один раз за бой)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> <color EmStyle>Подавляет</color> цели\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Издает меньше шума"),
 					'Cost', 800,
 					'Tier', 2,
@@ -8713,10 +8713,10 @@ return {
 					'Id', "_40mmFragGrenade",
 					'object_class', "Ordnance",
 					'Icon', "UI/Icons/Items/40mm_frag_grenade",
-					'DisplayName', T(615603318057, --[[ModItemInventoryItemCompositeDef _40mmFragGrenade DisplayName]] "40-мм о/ф граната"),
-					'DisplayNamePlural', T(208050145313, --[[ModItemInventoryItemCompositeDef _40mmFragGrenade DisplayNamePlural]] "40-мм о/ф гранаты"),
+					'DisplayName', T(551384656328, --[[ModItemInventoryItemCompositeDef _40mmFragGrenade DisplayName]] "40 mm HE"),
+					'DisplayNamePlural', T(922038247898, --[[ModItemInventoryItemCompositeDef _40mmFragGrenade DisplayNamePlural]] "40 mm HE"),
 					'colorStyle', "AmmoBasicColor",
-					'Description', T(800783522595, --[[ModItemInventoryItemCompositeDef _40mmFragGrenade Description]] "Осколочно-фугасный боеприпас для гранатометов калибра 40 мм."),
+					'Description', T(997055293212, --[[ModItemInventoryItemCompositeDef _40mmFragGrenade Description]] "40 mm ordnance ammo for Grenade Launchers."),
 					'AdditionalHint', T(956592215973, --[[ModItemInventoryItemCompositeDef _40mmFragGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В центре взрыва вызывает у целей <color EmStyle>кровотечение</color>"),
 					'Tier', 2,
 					'MaxStock', 25,
@@ -8750,9 +8750,9 @@ return {
 				'Reliability', 20,
 				'Icon', "UI/Icons/Weapons/FlareGun",
 				'ItemType', "FlareGun",
-				'DisplayName', T(114247712853, --[[ModItemInventoryItemCompositeDef FlareHandgun DisplayName]] "Ракетница"),
-				'DisplayNamePlural', T(465389331930, --[[ModItemInventoryItemCompositeDef FlareHandgun DisplayNamePlural]] "Ракетницы"),
-				'Description', T(424779764491, --[[ModItemInventoryItemCompositeDef FlareHandgun Description]] "Казнозарядный однозарядный пистолет, которым можно освещать территорию."),
+				'DisplayName', T(335515845100, --[[ModItemInventoryItemCompositeDef FlareHandgun DisplayName]] "Flare Gun"),
+				'DisplayNamePlural', T(989166829697, --[[ModItemInventoryItemCompositeDef FlareHandgun DisplayNamePlural]] "Flare Guns"),
+				'Description', T(323491634965, --[[ModItemInventoryItemCompositeDef FlareHandgun Description]] "Single-shot breech-loading pistol you can use to light up the sky. "),
 				'AdditionalHint', T(323285392363, --[[ModItemInventoryItemCompositeDef FlareHandgun AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Освещает большую территорию\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенная дальность действия\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бесшумное"),
 				'UnitStat', "Marksmanship",
 				'Valuable', 1,
@@ -8787,7 +8787,7 @@ return {
 					'Icon', "UI/Icons/Weapons/MP5",
 					'DisplayName', T(306337814252, --[[ModItemInventoryItemCompositeDef MP5 DisplayName]] "ОТКЛЮЧЕНО"),
 					'DisplayNamePlural', T(817935106307, --[[ModItemInventoryItemCompositeDef MP5 DisplayNamePlural]] "ОТКЛЮЧЕНО"),
-					'Description', T(505689462352, --[[ModItemInventoryItemCompositeDef MP5 Description]] "Пистолет-пулемет, которым пользуются контртеррористические подразделения и спецотряды полиции по всему миру. С момента выхода в серию в 60-х годах MP5 успел повидать многое, но широкая доступность бронежилетов и пистолетный 9-мм патрон постепенно снизили его популярность."),
+					'Description', T(940917162625, --[[ModItemInventoryItemCompositeDef MP5 Description]] "The submachine gun used by most police tactical teams and counter terrorist units. It has seen a lot of action since it was introduced in the sixties, but the 9mm cartridge and the widespread availability of body armor gradually decreased the interest in the MP5. "),
 					'AdditionalHint', T(674835694740, --[[ModItemInventoryItemCompositeDef MP5 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенная эффективность прицеливания\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Издает меньше шума"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -8890,7 +8890,7 @@ return {
 					'Icon', "UI/Icons/Weapons/Commando",
 					'DisplayName', T(426920004036, --[[ModItemInventoryItemCompositeDef M4Commando DisplayName]] "ОТКЛЮЧЕНО"),
 					'DisplayNamePlural', T(903389608798, --[[ModItemInventoryItemCompositeDef M4Commando DisplayNamePlural]] "ОТКЛЮЧЕНО"),
-					'Description', T(323992115622, --[[ModItemInventoryItemCompositeDef M4Commando Description]] "Вопрос: как можно сделать короткоствольную М16 оружием, а не карикатурой? Ответ: снизить дульную скорость пули и раздуть до неприличия дульное пламя."),
+					'Description', T(346391822201, --[[ModItemInventoryItemCompositeDef M4Commando Description]] "How would you make a short barrel M16 work? Answer - lower muzzle velocity and huge muzzle flash."),
 					'AdditionalHint', T(682701716433, --[[ModItemInventoryItemCompositeDef M4Commando AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокий шанс критического попадания\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенная эффективность прицеливания"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -8993,7 +8993,7 @@ return {
 					'Icon', "UI/Icons/Weapons/AR15",
 					'DisplayName', T(360984219999, --[[ModItemInventoryItemCompositeDef AR15 DisplayName]] "ОТКЛЮЧЕНО"),
 					'DisplayNamePlural', T(952797707968, --[[ModItemInventoryItemCompositeDef AR15 DisplayNamePlural]] "ОТКЛЮЧЕНО"),
-					'Description', T(400028806719, --[[ModItemInventoryItemCompositeDef AR15 Description]] "Оружие, созданное для обеспечения гарантированного конституцией США права на самооборону, с возможностью максимально быстрой и простой конвертации в автоматическое оружие, потому что каждому законопослушному гражданину нужен автомат, разве нет?"),
+					'Description', T(436294294475, --[[ModItemInventoryItemCompositeDef AR15 Description]] "Created to ensure the highest constitutional rights of self-defense and the possibility to bear a weapon that's easy as hell to convert to a fully-automatic one because a law-abiding citizen always needs one."),
 					'AdditionalHint', T(439737820334, --[[ModItemInventoryItemCompositeDef AR15 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокий шанс критического попадания\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая цена атаки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Большое количество модулей\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> При установке стандартного приклада нет автоматического огня"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -14426,7 +14426,7 @@ return {
 								'angle', range(0, 360),
 								'size_min', 2000,
 								'shader', "Add",
-								'texture', "Mod/SPmVHLE/ParticleTextures/Explosion_emissive.dds",
+								'texture', "Mod/e6L4ECj/ParticleTextures/Explosion_emissive.dds",
 								'frames', point(7, 7),
 								'self_illum', 25,
 								'light_softness', 1000,
@@ -15077,9 +15077,9 @@ return {
 					'ScrapParts', 6,
 					'RepairCost', 2,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/MAC1950.png",
-					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef MAC1950 DisplayName]] "MAC Mle 1950"),
-					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef MAC1950 DisplayNamePlural]] "MAC Mle 1950"),
-					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef MAC1950 Description]] "Послевоенный служебный и боевой пистолет, разработанный во французском Правительственном Арсенале. Представляет собой вполне неплохую конвертацию 1911 под патрон 9мм Люгер. Пистолеты mle 1950 были распространены в силовых структурах франции и колонии вплоть до конца 1980-х."),
+					'DisplayName', T(890000000001150, --[[ModItemInventoryItemCompositeDef MAC1950 DisplayName]] "MAC Mle 1950"),
+					'DisplayNamePlural', T(890000000001290, --[[ModItemInventoryItemCompositeDef MAC1950 DisplayNamePlural]] "MAC Mle 1950"),
+					'Description', T(890000000000008, --[[ModItemInventoryItemCompositeDef MAC1950 Description]] "Послевоенный служебный и боевой пистолет, разработанный во французском Правительственном Арсенале. Представляет собой вполне неплохую конвертацию 1911 под патрон 9мм Люгер. Пистолеты mle 1950 были распространены в силовых структурах франции и колонии вплоть до конца 1980-х."),
 					'AdditionalHint', T(809154413425, --[[ModItemInventoryItemCompositeDef MAC1950 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Малый магазин\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Недальнобойный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Старый\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бесполезный"),
 					'UnitStat', "Marksmanship",
 					'Cost', 1250,
@@ -15229,10 +15229,10 @@ return {
 					'RepairCost', 7,
 					'Reliability', 30,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/SW52.png",
-					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef SWModel52 DisplayName]] "S&W Model 52 .38 Special Pistol"),
-					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef SWModel52 DisplayNamePlural]] "S&W Model 52"),
-					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef SWModel52 Description]] "Пистолет Смита и Вессона, так же известен как 38 Mastered. Представляет собой интересную конверсию вполне себе боевого пистолета модели 39 под патрон .38 S&W Special да еще и со специальными тупоконечными цилиндрическими пулями Wadcutter. В магазине из-за размеров патрона помещается всего 5 патронов, так что особо не разгуляешься."),
-					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef SWModel52 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120>  .38 Special\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120>  Cпасибо, что стреляет"),
+					'DisplayName', T(890000000001153, --[[ModItemInventoryItemCompositeDef SWModel52 DisplayName]] "S&W Model 52 .38 Special Pistol"),
+					'DisplayNamePlural', T(890000000001293, --[[ModItemInventoryItemCompositeDef SWModel52 DisplayNamePlural]] "S&W Model 52"),
+					'Description', T(890000000000007, --[[ModItemInventoryItemCompositeDef SWModel52 Description]] "Пистолет Смита и Вессона, так же известен как 38 Mastered. Представляет собой интересную конверсию вполне себе боевого пистолета модели 39 под патрон .38 S&W Special да еще и со специальными тупоконечными цилиндрическими пулями Wadcutter. В магазине из-за размеров патрона помещается всего 5 патронов, так что особо не разгуляешься."),
+					'AdditionalHint', T(890000000000605, --[[ModItemInventoryItemCompositeDef SWModel52 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120>  .38 Special\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120>  Cпасибо, что стреляет"),
 					'UnitStat', "Marksmanship",
 					'Cost', 1250,
 					'CanAppearInShop', true,
@@ -15375,10 +15375,10 @@ return {
 					'RepairCost', 1,
 					'Reliability', 45,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/CZ52.png",
-					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef CZ52 DisplayName]] "CZ Vz. 52"),
-					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef CZ52 DisplayNamePlural]] "CZ Vz. 52"),
-					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef CZ52 Description]] "Не особо популярный чехословацкий пистолет. На стандартных патронах 7.62х25мм, рассчитанных на повышенное давление в стволе, происходил чрезвычайно быстрый износ, что могло приводить к самопроизвольным выстрелам."),
-					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef CZ52 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Малый магазин\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный"),
+					'DisplayName', T(890000000001148, --[[ModItemInventoryItemCompositeDef CZ52 DisplayName]] "CZ Vz. 52"),
+					'DisplayNamePlural', T(890000000001288, --[[ModItemInventoryItemCompositeDef CZ52 DisplayNamePlural]] "CZ Vz. 52"),
+					'Description', T(890000000000009, --[[ModItemInventoryItemCompositeDef CZ52 Description]] "Не особо популярный чехословацкий пистолет. На стандартных патронах 7.62х25мм, рассчитанных на повышенное давление в стволе, происходил чрезвычайно быстрый износ, что могло приводить к самопроизвольным выстрелам."),
+					'AdditionalHint', T(890000000000609, --[[ModItemInventoryItemCompositeDef CZ52 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Малый магазин\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный"),
 					'UnitStat', "Marksmanship",
 					'Cost', 1250,
 					'CanAppearInShop', true,
@@ -15460,10 +15460,10 @@ return {
 					'RepairCost', 5,
 					'Reliability', 80,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Makarov.png",
-					'DisplayName', T(256183090542, --[[ModItemInventoryItemCompositeDef Makarov DisplayName]] "Пистолет Макарова"),
-					'DisplayNamePlural', T(809762590784, --[[ModItemInventoryItemCompositeDef Makarov DisplayNamePlural]] "Пистолеты Макарова"),
+					'DisplayName', T(890000000000220, --[[ModItemInventoryItemCompositeDef Makarov DisplayName]] "Пистолет Макарова"),
+					'DisplayNamePlural', T(890000000001088, --[[ModItemInventoryItemCompositeDef Makarov DisplayNamePlural]] "Пистолеты Макарова"),
 					'Description', T(413605184956, --[[ModItemInventoryItemCompositeDef Makarov Description]] "Самый известный советский и российский пистолет. В современных реалиях его принято ругать, но чаще всего это делают те, кто стреляет разве что в монстров с экрана монитора."),
-					'AdditionalHint', T(181579765203, --[[ModItemInventoryItemCompositeDef Makarov AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Малый магазин\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Открывает пиво"),
+					'AdditionalHint', T(890000000000100, --[[ModItemInventoryItemCompositeDef Makarov AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Малый магазин\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Открывает пиво"),
 					'UnitStat', "Marksmanship",
 					'Cost', 450,
 					'CanAppearInShop', true,
@@ -15624,10 +15624,10 @@ return {
 					'RepairCost', 3,
 					'Reliability', 50,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/P38.png",
-					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef P38 DisplayName]] "P38"),
-					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef P38 DisplayNamePlural]] "P38"),
-					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef P38 Description]] "«8 предупредительных выстрелов плюс один прицельный бросок» - так говорили об этом пистолете в послевоенном Бундесвере. Однако, на момент своего появления, это было вполне себе неплохое оружие, пусть и частично переусложненное. В конце концов, именно он, а не Люгер или Маузер стал самым массовым немецким пистолетом ВМВ."),
-					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef P38 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Нормальный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Средний\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В целом пойдет"),
+					'DisplayName', T(890000000001151, --[[ModItemInventoryItemCompositeDef P38 DisplayName]] "P38"),
+					'DisplayNamePlural', T(890000000001291, --[[ModItemInventoryItemCompositeDef P38 DisplayNamePlural]] "P38"),
+					'Description', T(890000000000014, --[[ModItemInventoryItemCompositeDef P38 Description]] "«8 предупредительных выстрелов плюс один прицельный бросок» - так говорили об этом пистолете в послевоенном Бундесвере. Однако, на момент своего появления, это было вполне себе неплохое оружие, пусть и частично переусложненное. В конце концов, именно он, а не Люгер или Маузер стал самым массовым немецким пистолетом ВМВ."),
+					'AdditionalHint', T(890000000000608, --[[ModItemInventoryItemCompositeDef P38 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Нормальный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Средний\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В целом пойдет"),
 					'UnitStat', "Marksmanship",
 					'Cost', 1250,
 					'CanAppearInShop', true,
@@ -15704,10 +15704,10 @@ return {
 					'RepairCost', 6,
 					'Reliability', 65,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/1911.png",
-					'DisplayName', T(646219544697, --[[ModItemInventoryItemCompositeDef Colt1911 DisplayName]] "Colt M1911"),
-					'DisplayNamePlural', T(539052887945, --[[ModItemInventoryItemCompositeDef Colt1911 DisplayNamePlural]] "Colt M1911"),
-					'Description', T(239186058142, --[[ModItemInventoryItemCompositeDef Colt1911 Description]] 'Дедушка недавно отметил 100-летний юбилей, но уходить куда-то вовсе не собирается, пока, дословно "не изобретут эти ваши лазеры-шмазеры и световые мечи".'),
-					'AdditionalHint', T(123923849772, --[[ModItemInventoryItemCompositeDef Colt1911 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тысяча\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Девятьсот\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одиннадцатый."),
+					'DisplayName', T(890000000000846, --[[ModItemInventoryItemCompositeDef Colt1911 DisplayName]] "Colt M1911"),
+					'DisplayNamePlural', T(890000000000680, --[[ModItemInventoryItemCompositeDef Colt1911 DisplayNamePlural]] "Colt M1911"),
+					'Description', T(890000000000182, --[[ModItemInventoryItemCompositeDef Colt1911 Description]] 'Дедушка недавно отметил 100-летний юбилей, но уходить куда-то вовсе не собирается, пока, дословно "не изобретут эти ваши лазеры-шмазеры и световые мечи".'),
+					'AdditionalHint', T(890000000000040, --[[ModItemInventoryItemCompositeDef Colt1911 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тысяча\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Девятьсот\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одиннадцатый."),
 					'UnitStat', "Marksmanship",
 					'Cost', 600,
 					'CanAppearInShop', true,
@@ -15780,9 +15780,9 @@ return {
 					'RepairCost', 5,
 					'Reliability', 35,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Welrod.png",
-					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef Welrod DisplayName]] "Welrod"),
-					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef Welrod DisplayNamePlural]] "Welrod"),
-					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef Welrod Description]] "Разработан во Вторую Мировую Войну сотрудниками британской Секретной Службы для диверсионных и разведывательных действий на территории противника. Пистолет имеет ручную перезарядку после каждого выстрела, а срок службы заглушающего устройства не превышает 15 выстрелов. Впрочем, для одной операции этого вполен достаточно."),
+					'DisplayName', T(890000000000529, --[[ModItemInventoryItemCompositeDef Welrod DisplayName]] "Welrod"),
+					'DisplayNamePlural', T(890000000000505, --[[ModItemInventoryItemCompositeDef Welrod DisplayNamePlural]] "Welrod"),
+					'Description', T(890000000001228, --[[ModItemInventoryItemCompositeDef Welrod Description]] "Разработан во Вторую Мировую Войну сотрудниками британской Секретной Службы для диверсионных и разведывательных действий на территории противника. Пистолет имеет ручную перезарядку после каждого выстрела, а срок службы заглушающего устройства не превышает 15 выстрелов. Впрочем, для одной операции этого вполен достаточно."),
 					'AdditionalHint', T(519806997002, --[[ModItemInventoryItemCompositeDef Welrod AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бесшумный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Малый магазин\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Недолговечный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Смертельно опасный."),
 					'UnitStat', "Marksmanship",
 					'Cost', 500,
@@ -15843,10 +15843,10 @@ return {
 					'RepairCost', 5,
 					'Reliability', 70,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/PB.png",
-					'DisplayName', T(256183090542, --[[ModItemInventoryItemCompositeDef PB DisplayName]] "Пистолет ПБ"),
-					'DisplayNamePlural', T(809762590784, --[[ModItemInventoryItemCompositeDef PB DisplayNamePlural]] "Пистолеты ПБ"),
+					'DisplayName', T(890000000000219, --[[ModItemInventoryItemCompositeDef PB DisplayName]] "Пистолет ПБ"),
+					'DisplayNamePlural', T(890000000001089, --[[ModItemInventoryItemCompositeDef PB DisplayNamePlural]] "Пистолеты ПБ"),
 					'Description', T(413605184956, --[[ModItemInventoryItemCompositeDef PB Description]] "Самый известный советский и российский пистолет. В современных реалиях его принято ругать, но чаще всего это делают те, кто стреляет разве что в монстров с экрана монитора."),
-					'AdditionalHint', T(181579765203, --[[ModItemInventoryItemCompositeDef PB AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бесшумный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Длинная рука Кремля."),
+					'AdditionalHint', T(890000000000101, --[[ModItemInventoryItemCompositeDef PB AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бесшумный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Длинная рука Кремля."),
 					'UnitStat', "Marksmanship",
 					'Cost', 450,
 					'CanAppearInShop', true,
@@ -15908,10 +15908,10 @@ return {
 					'RepairCost', 3,
 					'Reliability', 20,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/VectorSP1.png",
-					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef VectorCP1 DisplayName]] "Vektor CP1"),
-					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef VectorCP1 DisplayNamePlural]] "Vektor CP1"),
-					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef VectorCP1 Description]] "Суперкомпактный пистолет для скрытого ношения от компании Vector, базирующейся в ЮАР. Имеет автоматику с газовым торможением отката затвора. Это как с газовым двигателем, только наоборот, с торможением."),
-					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef VectorCP1 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Компактный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Быстрый\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Удобный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Под пальто"),
+					'DisplayName', T(890000000001154, --[[ModItemInventoryItemCompositeDef VectorCP1 DisplayName]] "Vektor CP1"),
+					'DisplayNamePlural', T(890000000001294, --[[ModItemInventoryItemCompositeDef VectorCP1 DisplayNamePlural]] "Vektor CP1"),
+					'Description', T(890000000000012, --[[ModItemInventoryItemCompositeDef VectorCP1 Description]] "Суперкомпактный пистолет для скрытого ношения от компании Vector, базирующейся в ЮАР. Имеет автоматику с газовым торможением отката затвора. Это как с газовым двигателем, только наоборот, с торможением."),
+					'AdditionalHint', T(890000000000607, --[[ModItemInventoryItemCompositeDef VectorCP1 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Компактный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Быстрый\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Удобный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Под пальто"),
 					'UnitStat', "Marksmanship",
 					'Cost', 1250,
 					'CanAppearInShop', true,
@@ -15980,10 +15980,10 @@ return {
 					'RepairCost', 4,
 					'Reliability', 75,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/SW5906.png",
-					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef SWModel5906 DisplayName]] "S&W Model 5906"),
-					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef SWModel5906 DisplayNamePlural]] "S&W Model 5906"),
-					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef SWModel5906 Description]] "Третье поколение пистолетов Смита и Вессона, с рамкой и затвором полностью из нержавеющей стали. Как и другие пистолеты этой линейки - представляет собой развитие системы 1911. Имеет увеличенный магазин на 15 патронов 9 мм Люгер."),
-					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef SWModel5906 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Конкуретный"),
+					'DisplayName', T(890000000001152, --[[ModItemInventoryItemCompositeDef SWModel5906 DisplayName]] "S&W Model 5906"),
+					'DisplayNamePlural', T(890000000001292, --[[ModItemInventoryItemCompositeDef SWModel5906 DisplayNamePlural]] "S&W Model 5906"),
+					'Description', T(890000000000013, --[[ModItemInventoryItemCompositeDef SWModel5906 Description]] "Третье поколение пистолетов Смита и Вессона, с рамкой и затвором полностью из нержавеющей стали. Как и другие пистолеты этой линейки - представляет собой развитие системы 1911. Имеет увеличенный магазин на 15 патронов 9 мм Люгер."),
+					'AdditionalHint', T(890000000000611, --[[ModItemInventoryItemCompositeDef SWModel5906 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Конкуретный"),
 					'UnitStat', "Marksmanship",
 					'Cost', 1250,
 					'CanAppearInShop', true,
@@ -16064,8 +16064,8 @@ return {
 					'RepairCost', 9,
 					'Reliability', 70,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Hipower.png",
-					'DisplayName', T(348898367603, --[[ModItemInventoryItemCompositeDef HiPower DisplayName]] "Hi-Power"),
-					'DisplayNamePlural', T(765614045230, --[[ModItemInventoryItemCompositeDef HiPower DisplayNamePlural]] "Hi-Power"),
+					'DisplayName', T(796605924344, --[[ModItemInventoryItemCompositeDef HiPower DisplayName]] "Hi-Power"),
+					'DisplayNamePlural', T(376748831554, --[[ModItemInventoryItemCompositeDef HiPower DisplayNamePlural]] "Hi-Powers"),
 					'Description', T(644234035738, --[[ModItemInventoryItemCompositeDef HiPower Description]] "Если 1911 - это прадедушка всех пистолетов в мире, то Хай-Пауэр - это их двоюродный дедушка. Считается одним из самых безопасных пистолетов в мире из-за  наличия одинарного УСМ, которое исключает выстрел без предварительного взвода курка."),
 					'AdditionalHint', T(361743792592, --[[ModItemInventoryItemCompositeDef HiPower AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Браунинг\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Это вам не это"),
 					'UnitStat', "Marksmanship",
@@ -16236,10 +16236,10 @@ return {
 					'RepairCost', 7,
 					'Reliability', 75,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/CZ75.png",
-					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef CZ75 DisplayName]] "CZ75"),
-					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef CZ75 DisplayNamePlural]] "CZ75"),
-					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef CZ75 Description]] 'Спортивный, боевой, полицейский, гражданский пистолет из Чехии. Практически, победитель оружейного "Евровидения", но первое место принадлежит тому, кого нельзя называть. Иначе придется его купить.'),
-					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef CZ75 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Удобный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Безопасный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Чемпионский"),
+					'DisplayName', T(890000000001147, --[[ModItemInventoryItemCompositeDef CZ75 DisplayName]] "CZ75"),
+					'DisplayNamePlural', T(890000000001287, --[[ModItemInventoryItemCompositeDef CZ75 DisplayNamePlural]] "CZ75"),
+					'Description', T(890000000000011, --[[ModItemInventoryItemCompositeDef CZ75 Description]] 'Спортивный, боевой, полицейский, гражданский пистолет из Чехии. Практически, победитель оружейного "Евровидения", но первое место принадлежит тому, кого нельзя называть. Иначе придется его купить.'),
+					'AdditionalHint', T(890000000000610, --[[ModItemInventoryItemCompositeDef CZ75 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Удобный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Безопасный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Чемпионский"),
 					'UnitStat', "Marksmanship",
 					'Cost', 1250,
 					'CanAppearInShop', true,
@@ -16309,8 +16309,8 @@ return {
 					'RepairCost', 10,
 					'Reliability', 70,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Beretta92.png",
-					'DisplayName', T(589617789927, --[[ModItemInventoryItemCompositeDef Bereta92 DisplayName]] "Beretta 92F"),
-					'DisplayNamePlural', T(237291598806, --[[ModItemInventoryItemCompositeDef Bereta92 DisplayNamePlural]] "Beretta 92F"),
+					'DisplayName', T(913137394341, --[[ModItemInventoryItemCompositeDef Bereta92 DisplayName]] "Beretta 92F"),
+					'DisplayNamePlural', T(134586456394, --[[ModItemInventoryItemCompositeDef Bereta92 DisplayNamePlural]] "Beretta 92Fs"),
 					'Description', T(424449219883, --[[ModItemInventoryItemCompositeDef Bereta92 Description]] "Беретта - пистолет с ярко выраженным запахом нуара. Плохие полицейские, хорошие полицейские, которые тоже плохие, дорогие женщины, опасные женщины, мертвые женщины. Они все мертвы. Последний выстрел поставил жирную точку в этой истории..."),
 					'AdditionalHint', T(759493287779, --[[ModItemInventoryItemCompositeDef Bereta92 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Максимально болезненный"),
 					'UnitStat', "Marksmanship",
@@ -16405,10 +16405,10 @@ return {
 					'RepairCost', 15,
 					'Reliability', 45,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Deagle.png",
-					'DisplayName', T(121264662868, --[[ModItemInventoryItemCompositeDef DesertEagle DisplayName]] "Desert Eagle"),
-					'DisplayNamePlural', T(906903634947, --[[ModItemInventoryItemCompositeDef DesertEagle DisplayNamePlural]] "Desert Eagle"),
-					'Description', T(855624394430, --[[ModItemInventoryItemCompositeDef DesertEagle Description]] 'А теперь ты сморщиваешься и твои маленькие яйчишки сморщиваются вместе с тобой. Потому что на боку твоего пистолета написано муляж". А на боку моего пистолета написано Desert Eagle калибра .50".'),
-					'AdditionalHint', T(643376234175, --[[ModItemInventoryItemCompositeDef DesertEagle AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Медленный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Чрезвычайно убойный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Слонобойный"),
+					'DisplayName', T(275314808651, --[[ModItemInventoryItemCompositeDef DesertEagle DisplayName]] "Desert Eagle"),
+					'DisplayNamePlural', T(975125699386, --[[ModItemInventoryItemCompositeDef DesertEagle DisplayNamePlural]] "Desert Eagles"),
+					'Description', T(890000000001165, --[[ModItemInventoryItemCompositeDef DesertEagle Description]] 'А теперь ты сморщиваешься и твои маленькие яйчишки сморщиваются вместе с тобой. Потому что на боку твоего пистолета написано муляж". А на боку моего пистолета написано Desert Eagle калибра .50".'),
+					'AdditionalHint', T(890000000000842, --[[ModItemInventoryItemCompositeDef DesertEagle AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Медленный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Чрезвычайно убойный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Слонобойный"),
 					'UnitStat', "Marksmanship",
 					'Valuable', 1,
 					'Cost', 10000,
@@ -16497,10 +16497,10 @@ return {
 					'RepairCost', 6,
 					'Reliability', 65,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Kimber.png",
-					'DisplayName', T(646219544697, --[[ModItemInventoryItemCompositeDef Kimber DisplayName]] "Kimber"),
-					'DisplayNamePlural', T(539052887945, --[[ModItemInventoryItemCompositeDef Kimber DisplayNamePlural]] "Kimber"),
-					'Description', T(239186058142, --[[ModItemInventoryItemCompositeDef Kimber Description]] "Очередной 1911 современного исполнения, отлично подходящий и для охоты и для спортивной стрельбы. Для снижения мощной отдачи патрона применяется компенсатор оригинальной конструкции. Используется с коллиматорным прицелом."),
-					'AdditionalHint', T(123923849772, --[[ModItemInventoryItemCompositeDef Kimber AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> С коллиматором\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Понтовый"),
+					'DisplayName', T(890000000000847, --[[ModItemInventoryItemCompositeDef Kimber DisplayName]] "Kimber"),
+					'DisplayNamePlural', T(890000000000681, --[[ModItemInventoryItemCompositeDef Kimber DisplayNamePlural]] "Kimber"),
+					'Description', T(890000000000181, --[[ModItemInventoryItemCompositeDef Kimber Description]] "Очередной 1911 современного исполнения, отлично подходящий и для охоты и для спортивной стрельбы. Для снижения мощной отдачи патрона применяется компенсатор оригинальной конструкции. Используется с коллиматорным прицелом."),
+					'AdditionalHint', T(890000000000041, --[[ModItemInventoryItemCompositeDef Kimber AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> С коллиматором\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Понтовый"),
 					'UnitStat', "Marksmanship",
 					'Cost', 600,
 					'CanAppearInShop', true,
@@ -16681,8 +16681,8 @@ return {
 					'Icon', "Mod/e6L4ECj/WeaponIcons/GrizzlyLAR.png",
 					'DisplayName', T(121264662868, --[[ModItemInventoryItemCompositeDef GrizzlyLAR DisplayName]] "Grizzly LAR"),
 					'DisplayNamePlural', T(906903634947, --[[ModItemInventoryItemCompositeDef GrizzlyLAR DisplayNamePlural]] "Grizzly LAR"),
-					'Description', T(855624394430, --[[ModItemInventoryItemCompositeDef GrizzlyLAR Description]] "Посмотри на свой 1911. Теперь посмотри на Гризли ЛАР. Да, я тоже 1911, но мой патрон выдает 1100 джоулей дульной энергии. Поверь мне на слово, это в четыре раза больше, чем у тебя. У меня все в четыре раза больше, чем у тебя."),
-					'AdditionalHint', T(643376234175, --[[ModItemInventoryItemCompositeDef GrizzlyLAR AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тысяча девятьсот одиннадцатый\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 50АЕ"),
+					'Description', T(890000000001164, --[[ModItemInventoryItemCompositeDef GrizzlyLAR Description]] "Посмотри на свой 1911. Теперь посмотри на Гризли ЛАР. Да, я тоже 1911, но мой патрон выдает 1100 джоулей дульной энергии. Поверь мне на слово, это в четыре раза больше, чем у тебя. У меня все в четыре раза больше, чем у тебя."),
+					'AdditionalHint', T(890000000000843, --[[ModItemInventoryItemCompositeDef GrizzlyLAR AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тысяча девятьсот одиннадцатый\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 50АЕ"),
 					'UnitStat', "Marksmanship",
 					'Valuable', 1,
 					'Cost', 10000,
@@ -17344,10 +17344,10 @@ return {
 					'RepairCost', 15,
 					'Reliability', 60,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Beretta93r.png",
-					'DisplayName', T(848119151903, --[[ModItemInventoryItemCompositeDef Beretta93r DisplayName]] "Beretta 93r"),
-					'DisplayNamePlural', T(927743133237, --[[ModItemInventoryItemCompositeDef Beretta93r DisplayNamePlural]] "Beretta 93r"),
-					'Description', T(107106412369, --[[ModItemInventoryItemCompositeDef Beretta93r Description]] "Робкие попытки Беретты стать чем-то большим, чем простой пистолет, были задушены в зародыше появление таких суперкомпактных автоматов, как MP5K, MAC-10 и MicroUZI."),
-					'AdditionalHint', T(491343014488, --[[ModItemInventoryItemCompositeDef Beretta93r AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120>  Точный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120>  Стреляет короткими очередями"),
+					'DisplayName', T(890000000001149, --[[ModItemInventoryItemCompositeDef Beretta93r DisplayName]] "Beretta 93r"),
+					'DisplayNamePlural', T(890000000001289, --[[ModItemInventoryItemCompositeDef Beretta93r DisplayNamePlural]] "Beretta 93r"),
+					'Description', T(890000000000010, --[[ModItemInventoryItemCompositeDef Beretta93r Description]] "Робкие попытки Беретты стать чем-то большим, чем простой пистолет, были задушены в зародыше появление таких суперкомпактных автоматов, как MP5K, MAC-10 и MicroUZI."),
+					'AdditionalHint', T(890000000000606, --[[ModItemInventoryItemCompositeDef Beretta93r AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120>  Точный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120>  Стреляет короткими очередями"),
 					'UnitStat', "Marksmanship",
 					'Cost', 1250,
 					'CanAppearInShop', true,
@@ -17498,9 +17498,9 @@ return {
 					'RepairCost', 15,
 					'Reliability', 90,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Glock18.png",
-					'DisplayName', T(876495756178, --[[ModItemInventoryItemCompositeDef Glock18 DisplayName]] "Glock 18"),
-					'DisplayNamePlural', T(478389428053, --[[ModItemInventoryItemCompositeDef Glock18 DisplayNamePlural]] "Glock 18"),
-					'Description', T(594387443300, --[[ModItemInventoryItemCompositeDef Glock18 Description]] "Glock 17 с переключателем в режим безудержного веселья и встроенным компенсатором. Автоматическая игрушка под патрон 9x19мм!"),
+					'DisplayName', T(477797896110, --[[ModItemInventoryItemCompositeDef Glock18 DisplayName]] "Glock 18"),
+					'DisplayNamePlural', T(137749552678, --[[ModItemInventoryItemCompositeDef Glock18 DisplayNamePlural]] "Glock 18s"),
+					'Description', T(108518776488, --[[ModItemInventoryItemCompositeDef Glock18 Description]] "Glock 17 with a fun switch and built in compensator. 9x19mm spray in the palm of your hand. "),
 					'AdditionalHint', T(358502954241, --[[ModItemInventoryItemCompositeDef Glock18 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Быстрый  \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Компактный  \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Удобный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Прочный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Стреляет короткими очередями"),
 					'UnitStat', "Marksmanship",
 					'Cost', 15000,
@@ -17601,10 +17601,10 @@ return {
 					'RepairCost', 1,
 					'Reliability', 95,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/SWModel10.png",
-					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef SWModel10 DisplayName]] "S&W Model10 .38 Special"),
-					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef SWModel10 DisplayNamePlural]] "S&W Model10 .38 Special"),
-					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef SWModel10 Description]] "Один из самых распространенных боевых револьверов в мире. За все время компания S&W выпустила револверы Military and Police объемом более 6 миллионов штук. Начинал служить еще в Первую Мировую, продолжает выпускаться до сих пор. "),
-					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef SWModel10 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер .38 Special\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Компактный Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Лучше Кольта"),
+					'DisplayName', T(890000000000527, --[[ModItemInventoryItemCompositeDef SWModel10 DisplayName]] "S&W Model10 .38 Special"),
+					'DisplayNamePlural', T(890000000000503, --[[ModItemInventoryItemCompositeDef SWModel10 DisplayNamePlural]] "S&W Model10 .38 Special"),
+					'Description', T(890000000001224, --[[ModItemInventoryItemCompositeDef SWModel10 Description]] "Один из самых распространенных боевых револьверов в мире. За все время компания S&W выпустила револверы Military and Police объемом более 6 миллионов штук. Начинал служить еще в Первую Мировую, продолжает выпускаться до сих пор. "),
+					'AdditionalHint', T(890000000000519, --[[ModItemInventoryItemCompositeDef SWModel10 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер .38 Special\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Компактный Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Лучше Кольта"),
 					'UnitStat', "Marksmanship",
 					'Cost', 500,
 					'CanAppearInShop', true,
@@ -17672,8 +17672,8 @@ return {
 					'RepairCost', 1,
 					'Reliability', 95,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/38sp.png",
-					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef Colt38Special DisplayName]] "Colt .38 Special"),
-					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef Colt38Special DisplayNamePlural]] "Colt .38 Special"),
+					'DisplayName', T(890000000000521, --[[ModItemInventoryItemCompositeDef Colt38Special DisplayName]] "Colt .38 Special"),
+					'DisplayNamePlural', T(890000000000497, --[[ModItemInventoryItemCompositeDef Colt38Special DisplayNamePlural]] "Colt .38 Special"),
 					'Description', T(563384549909, --[[ModItemInventoryItemCompositeDef Colt38Special Description]] "Компактный и легкий полицейский револьвер калибра 9мм. Стальная рамка, спуск двойного действия сделали его одним из самых популярных вариантов оружия для самообороны в США."),
 					'AdditionalHint', T(460566737568, --[[ModItemInventoryItemCompositeDef Colt38Special AdditionalHint]] "Револьвер \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> .38 Special Компактный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный"),
 					'UnitStat', "Marksmanship",
@@ -17732,10 +17732,10 @@ return {
 					'RepairCost', 4,
 					'Reliability', 95,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/ColtPeaceMaker.png",
-					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef ColtPeacemaker DisplayName]] "Peacemaker"),
-					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef ColtPeacemaker DisplayNamePlural]] "Peacemaker"),
-					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef ColtPeacemaker Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
-					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef ColtPeacemaker AdditionalHint]] "Револьвер \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Анахронизм"),
+					'DisplayName', T(692081024631, --[[ModItemInventoryItemCompositeDef ColtPeacemaker DisplayName]] "Peacemaker"),
+					'DisplayNamePlural', T(275530346749, --[[ModItemInventoryItemCompositeDef ColtPeacemaker DisplayNamePlural]] "Peacemakers"),
+					'Description', T(890000000001229, --[[ModItemInventoryItemCompositeDef ColtPeacemaker Description]] "Старый, заслуженный револьвер одинарного действия, разработанный для армии США. Главное, носите c пустой каморой под курком, если не хотите лишиться ноги."),
+					'AdditionalHint', T(890000000000512, --[[ModItemInventoryItemCompositeDef ColtPeacemaker AdditionalHint]] "Револьвер \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Анахронизм"),
 					'UnitStat', "Marksmanship",
 					'Cost', 500,
 					'CanAppearInShop', true,
@@ -17793,10 +17793,10 @@ return {
 					'RepairCost', 1,
 					'Reliability', 95,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Colt1917.png",
-					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef ColtM1917 DisplayName]] "Colt M1917 .45 Service Revolver"),
-					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef ColtM1917 DisplayNamePlural]] "Colt M1917 .45 Service Revolver"),
-					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef ColtM1917 Description]] '"Мобилизационный" револьвер, призванный восполнить нахватку личного короткоствольного оружия (пистолетов 1911) в армии США в ПМВ, и даже, как ни странно, в ВМВ. По сути, обычный серийный кольтовский гражданский револьвер, но с расточенной под пистолетный патрон .45 ACP каморой барабана. Чтоб оно вообще там держалось и работало, пришлось заимстовать у S&W их "мунклипы" - полуобоймы, соединяющие несколько патронов в одну конструкцию.'),
-					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef ColtM1917 AdditionalHint]] "Револьвер \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Компактный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сорок пятый"),
+					'DisplayName', T(890000000000522, --[[ModItemInventoryItemCompositeDef ColtM1917 DisplayName]] "Colt M1917 .45 Service Revolver"),
+					'DisplayNamePlural', T(890000000000498, --[[ModItemInventoryItemCompositeDef ColtM1917 DisplayNamePlural]] "Colt M1917 .45 Service Revolver"),
+					'Description', T(890000000001232, --[[ModItemInventoryItemCompositeDef ColtM1917 Description]] '"Мобилизационный" револьвер, призванный восполнить нахватку личного короткоствольного оружия (пистолетов 1911) в армии США в ПМВ, и даже, как ни странно, в ВМВ. По сути, обычный серийный кольтовский гражданский револьвер, но с расточенной под пистолетный патрон .45 ACP каморой барабана. Чтоб оно вообще там держалось и работало, пришлось заимстовать у S&W их "мунклипы" - полуобоймы, соединяющие несколько патронов в одну конструкцию.'),
+					'AdditionalHint', T(890000000000513, --[[ModItemInventoryItemCompositeDef ColtM1917 AdditionalHint]] "Револьвер \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Компактный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сорок пятый"),
 					'UnitStat', "Marksmanship",
 					'Cost', 500,
 					'CanAppearInShop', true,
@@ -17845,10 +17845,10 @@ return {
 					'RepairCost', 2,
 					'Reliability', 95,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/SWModel19.png",
-					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef SWModel19 DisplayName]] "S*W Model19 .357 Combat Magnum"),
-					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef SWModel19 DisplayNamePlural]] "SWModel19"),
-					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef SWModel19 Description]] "Утяжеленная версия револьвера Miltary and Police, с упрочненной рамкой, необходимой для использования мощного патрона .357 Magnum. Выпускается с 1955 года. Это вам не кольтовский шлак, это оружие для настоящего дела.\n"),
-					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef SWModel19 AdditionalHint]] "Револьвер \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Магнум \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный"),
+					'DisplayName', T(890000000000526, --[[ModItemInventoryItemCompositeDef SWModel19 DisplayName]] "S*W Model19 .357 Combat Magnum"),
+					'DisplayNamePlural', T(890000000000501, --[[ModItemInventoryItemCompositeDef SWModel19 DisplayNamePlural]] "SWModel19"),
+					'Description', T(890000000001231, --[[ModItemInventoryItemCompositeDef SWModel19 Description]] "Утяжеленная версия револьвера Miltary and Police, с упрочненной рамкой, необходимой для использования мощного патрона .357 Magnum. Выпускается с 1955 года. Это вам не кольтовский шлак, это оружие для настоящего дела.\n"),
+					'AdditionalHint', T(890000000000514, --[[ModItemInventoryItemCompositeDef SWModel19 AdditionalHint]] "Револьвер \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Магнум \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный"),
 					'UnitStat', "Marksmanship",
 					'Cost', 500,
 					'CanAppearInShop', true,
@@ -17916,10 +17916,10 @@ return {
 					'RepairCost', 3,
 					'Reliability', 95,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Webley.png",
-					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef Webley DisplayName]] "Webley Mk VI"),
-					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef Webley DisplayNamePlural]] "Webley Mk VI"),
-					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef Webley Description]] 'Основной револьвер британских вооруженных сил в период ПМВ и даже ВМВ. Имеет компоновку с "переламывающейся" рамкой, что конечно позволяет быстро и эффектно перезаряжаться, но снижает прочность конструкции. Так, что даже .38 й патрон для Вебли - крепковат.'),
-					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef Webley AdditionalHint]] "Револьвер \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сорок пятый \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Британский"),
+					'DisplayName', T(890000000000528, --[[ModItemInventoryItemCompositeDef Webley DisplayName]] "Webley Mk VI"),
+					'DisplayNamePlural', T(890000000000504, --[[ModItemInventoryItemCompositeDef Webley DisplayNamePlural]] "Webley Mk VI"),
+					'Description', T(890000000001225, --[[ModItemInventoryItemCompositeDef Webley Description]] 'Основной револьвер британских вооруженных сил в период ПМВ и даже ВМВ. Имеет компоновку с "переламывающейся" рамкой, что конечно позволяет быстро и эффектно перезаряжаться, но снижает прочность конструкции. Так, что даже .38 й патрон для Вебли - крепковат.'),
+					'AdditionalHint', T(890000000000515, --[[ModItemInventoryItemCompositeDef Webley AdditionalHint]] "Револьвер \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сорок пятый \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Британский"),
 					'UnitStat', "Marksmanship",
 					'Cost', 500,
 					'CanAppearInShop', true,
@@ -17976,10 +17976,10 @@ return {
 					'RepairCost', 6,
 					'Reliability', 95,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/MR73.png",
-					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef MR73 DisplayName]] "Manurhin MR 73"),
-					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef MR73 DisplayNamePlural]] "Manurhin MR 73"),
-					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef MR73 Description]] "Штатный револьвер французской полиции и даже полицейского спезнаца. Качество изготовления ощутимо выше, чем у ширпотреба вроде револьверов Colt, так что на эту пушку вполен можно положиться в самый трудный момент."),
-					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef MR73 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Магнум \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Удобный"),
+					'DisplayName', T(890000000000524, --[[ModItemInventoryItemCompositeDef MR73 DisplayName]] "Manurhin MR 73"),
+					'DisplayNamePlural', T(890000000000500, --[[ModItemInventoryItemCompositeDef MR73 DisplayNamePlural]] "Manurhin MR 73"),
+					'Description', T(890000000001230, --[[ModItemInventoryItemCompositeDef MR73 Description]] "Штатный револьвер французской полиции и даже полицейского спезнаца. Качество изготовления ощутимо выше, чем у ширпотреба вроде револьверов Colt, так что на эту пушку вполен можно положиться в самый трудный момент."),
+					'AdditionalHint', T(890000000000517, --[[ModItemInventoryItemCompositeDef MR73 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Магнум \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Удобный"),
 					'UnitStat', "Marksmanship",
 					'Cost', 500,
 					'CanAppearInShop', true,
@@ -18044,10 +18044,10 @@ return {
 					'RepairCost', 4,
 					'Reliability', 95,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/SWModel29.png",
-					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef SWModel29 DisplayName]] "SWModel29"),
-					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef SWModel29 DisplayNamePlural]] "SWModel29"),
-					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef SWModel29 Description]] "Мощный револьвер Смита и Вессона под патрон .44 Magnum. Как и другие подобные револьверы повышенной мощности прежде всего применяется для охоты или спортивной стрельбы, но... как же приятно засадить Легу в жбан из сорок четвертого."),
-					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef SWModel29 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сорок четвертый \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный"),
+					'DisplayName', T(890000000000525, --[[ModItemInventoryItemCompositeDef SWModel29 DisplayName]] "SWModel29"),
+					'DisplayNamePlural', T(890000000000502, --[[ModItemInventoryItemCompositeDef SWModel29 DisplayNamePlural]] "SWModel29"),
+					'Description', T(890000000001227, --[[ModItemInventoryItemCompositeDef SWModel29 Description]] "Мощный револьвер Смита и Вессона под патрон .44 Magnum. Как и другие подобные револьверы повышенной мощности прежде всего применяется для охоты или спортивной стрельбы, но... как же приятно засадить Легу в жбан из сорок четвертого."),
+					'AdditionalHint', T(890000000000518, --[[ModItemInventoryItemCompositeDef SWModel29 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сорок четвертый \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный"),
 					'UnitStat', "Marksmanship",
 					'Cost', 500,
 					'CanAppearInShop', true,
@@ -18115,8 +18115,8 @@ return {
 					'RepairCost', 5,
 					'Reliability', 95,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Anaconda.png",
-					'DisplayName', T(600758452029, --[[ModItemInventoryItemCompositeDef ColtAnaconda DisplayName]] "Anaconda"),
-					'DisplayNamePlural', T(576916732572, --[[ModItemInventoryItemCompositeDef ColtAnaconda DisplayNamePlural]] "Anaconda"),
+					'DisplayName', T(769922391034, --[[ModItemInventoryItemCompositeDef ColtAnaconda DisplayName]] "Anaconda"),
+					'DisplayNamePlural', T(505981904083, --[[ModItemInventoryItemCompositeDef ColtAnaconda DisplayNamePlural]] "Anacondas"),
 					'Description', T(518994407073, --[[ModItemInventoryItemCompositeDef ColtAnaconda Description]] "Я знаю, о чём вы сейчас думаете. Есть в нем патроны, или нет. Это «Магнум» 44-го калибра, самый убойный револьвер на свете, и он может решить практически любую проблему в общении с людьми."),
 					'AdditionalHint', T(934305731778, --[[ModItemInventoryItemCompositeDef ColtAnaconda AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сорок четвертый \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Кольт \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> неудобный"),
 					'UnitStat', "Marksmanship",
@@ -18253,10 +18253,10 @@ return {
 					'RepairCost', 25,
 					'Reliability', 95,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Korth.png",
-					'DisplayName', T(436628869426, --[[ModItemInventoryItemCompositeDef Korth DisplayName]] "Korth Revolver"),
-					'DisplayNamePlural', T(427566606201, --[[ModItemInventoryItemCompositeDef Korth DisplayNamePlural]] "Korth Revolver"),
-					'Description', T(878461703337, --[[ModItemInventoryItemCompositeDef Korth Description]] "Если вы закажете револьвер у компании Korth, то через 4-5 месяцев всего за 4000 долларов вы получите один из самых точных и надежных шестизарядников, которые только есть на планете Земля. Или можно за те же деньги купить десяток автоматов Калашникова, но это уж кто на что учился."),
-					'AdditionalHint', T(434107786112, --[[ModItemInventoryItemCompositeDef Korth AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Остальное не ваши проблемы"),
+					'DisplayName', T(890000000000523, --[[ModItemInventoryItemCompositeDef Korth DisplayName]] "Korth Revolver"),
+					'DisplayNamePlural', T(890000000000499, --[[ModItemInventoryItemCompositeDef Korth DisplayNamePlural]] "Korth Revolver"),
+					'Description', T(890000000001226, --[[ModItemInventoryItemCompositeDef Korth Description]] "Если вы закажете револьвер у компании Korth, то через 4-5 месяцев всего за 4000 долларов вы получите один из самых точных и надежных шестизарядников, которые только есть на планете Земля. Или можно за те же деньги купить десяток автоматов Калашникова, но это уж кто на что учился."),
+					'AdditionalHint', T(890000000000516, --[[ModItemInventoryItemCompositeDef Korth AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Остальное не ваши проблемы"),
 					'UnitStat', "Marksmanship",
 					'Cost', 500,
 					'CanAppearInShop', true,
@@ -18322,9 +18322,9 @@ return {
 					'RepairCost', 15,
 					'Reliability', 95,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Tex.png",
-					'DisplayName', T(578697354182, --[[ModItemInventoryItemCompositeDef TexRevolver DisplayName]] "Именной револьвер"),
-					'DisplayNamePlural', T(139286543074, --[[ModItemInventoryItemCompositeDef TexRevolver DisplayNamePlural]] "Именные револьверы"),
-					'Description', T(231593273381, --[[ModItemInventoryItemCompositeDef TexRevolver Description]] "Изготовленный на заказ револьвер с удлинённым стволом, рукояткой из слоновой кости и гравировкой золотыми буквами: «ТЕКС»."),
+					'DisplayName', T(520238058822, --[[ModItemInventoryItemCompositeDef TexRevolver DisplayName]] "Custom Six-Shooter"),
+					'DisplayNamePlural', T(463004632034, --[[ModItemInventoryItemCompositeDef TexRevolver DisplayNamePlural]] "Custom Six-Shooters"),
+					'Description', T(349928663403, --[[ModItemInventoryItemCompositeDef TexRevolver Description]] "A custom-built revolver with a 10-inch barrel and ivory handle featuring TEX engraved in a 14K gold."),
 					'AdditionalHint', T(916092268607, --[[ModItemInventoryItemCompositeDef TexRevolver AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Револьвер\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120>  Самый быстрый на всем Диком Западе"),
 					'UnitStat', "Marksmanship",
 					'Cost', 2000,
@@ -18444,9 +18444,9 @@ return {
 					'RepairCost', 2,
 					'Reliability', 50,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/MP40.png",
-					'DisplayName', T(808281336477, --[[ModItemInventoryItemCompositeDef MP40 DisplayName]] "MP40"),
-					'DisplayNamePlural', T(135534176285, --[[ModItemInventoryItemCompositeDef MP40 DisplayNamePlural]] "MP40"),
-					'Description', T(313702671802, --[[ModItemInventoryItemCompositeDef MP40 Description]] "Изначально разработанный для использования экипажами техники и десантниками, MP40 раскрыл свои лучшие качества надежного пистолета-пулемета в городских боях на Восточном фронте."),
+					'DisplayName', T(623210280984, --[[ModItemInventoryItemCompositeDef MP40 DisplayName]] "MP40"),
+					'DisplayNamePlural', T(925856619983, --[[ModItemInventoryItemCompositeDef MP40 DisplayNamePlural]] "MP40s"),
+					'Description', T(107317552821, --[[ModItemInventoryItemCompositeDef MP40 Description]] "Initially designed for vehicle crews and paratroopers, It really became widely used when the brutal urban combat of the Eastern front showed the value of a reliable submachine gun. "),
 					'AdditionalHint', T(799661559477, --[[ModItemInventoryItemCompositeDef MP40 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Старый Немецкий Шмайссер (нет)"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -19000,7 +19000,7 @@ return {
 					'Icon', "Mod/e6L4ECj/WeaponIcons/UZI.png",
 					'DisplayName', T(919841472744, --[[ModItemInventoryItemCompositeDef UZI DisplayName]] "Узи Полноразмерный"),
 					'DisplayNamePlural', T(837213181188, --[[ModItemInventoryItemCompositeDef UZI DisplayNamePlural]] "Узи Полноразмерные"),
-					'Description', T(228733015650, --[[ModItemInventoryItemCompositeDef UZI Description]] "Пистолет-пулемет, разработанный в Израиле как персональное оружие самообороны для солдат тылового эшелона. Задумывался для ведения стрельбы с упором в плечо, однако нередко используется и просто одной рукой. Обладает высокой скорострельностью, но и удручающе высоким рассеиванием."),
+					'Description', T(923965701752, --[[ModItemInventoryItemCompositeDef UZI Description]] "Designed as a personal defense weapon for rear echelon troops in the Israel Defense Forces. Intended to be used with a buttstock, but regularly wielded one-handed. Can deliver a lot of lead though accuracy may vary. "),
 					'AdditionalHint', T(924238872935, --[[ModItemInventoryItemCompositeDef UZI AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сладкий бобалех"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -19289,9 +19289,9 @@ return {
 					'RepairCost', 12,
 					'Reliability', 85,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/MP5K2.png",
-					'DisplayName', T(294278763005, --[[ModItemInventoryItemCompositeDef MP5K DisplayName]] "MP5K"),
-					'DisplayNamePlural', T(568806073246, --[[ModItemInventoryItemCompositeDef MP5K DisplayNamePlural]] "MP5K"),
-					'Description', T(544608570700, --[[ModItemInventoryItemCompositeDef MP5K Description]] "Максимально укороченная версия MP5, созданная для боя на ближних дистанциях и самообороны. Для него даже есть специальный чехол-чемоданчик со спусковым крючком в ручке - на случай секретных операций."),
+					'DisplayName', T(271982946642, --[[ModItemInventoryItemCompositeDef MP5K DisplayName]] "MP5K"),
+					'DisplayNamePlural', T(879832194807, --[[ModItemInventoryItemCompositeDef MP5K DisplayNamePlural]] "MP5Ks"),
+					'Description', T(254086057863, --[[ModItemInventoryItemCompositeDef MP5K Description]] "Brutally short MP5 designed for close quarters engagements and personal defense. There is even a suitcase with a trigger on the handle for covert escort jobs."),
 					'AdditionalHint', T(713555595193, --[[ModItemInventoryItemCompositeDef MP5K AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Больше не одноручный (по просьбе Ливси)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Без приклада\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> MP5-Короткий"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -20035,10 +20035,10 @@ return {
 					'RepairCost', 3,
 					'Reliability', 70,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Winchester.png",
-					'DisplayName', T(142435704728, --[[ModItemInventoryItemCompositeDef Winchester1894 DisplayName]] "Winchester 1894"),
-					'DisplayNamePlural', T(875798522299, --[[ModItemInventoryItemCompositeDef Winchester1894 DisplayNamePlural]] "Winchester 1894"),
-					'Description', T(534013565696, --[[ModItemInventoryItemCompositeDef Winchester1894 Description]] "Классическая винтовка прямиком из фильмов про ковбоев и индейцев. Подствольный трубчатый магазин вмещает больше патронов, чем в обычной винтовке с продольно-скользящим затвором. Как она очутилась в здешних краях - тайна, покрытая мраком."),
-					'AdditionalHint', T(697050056619, --[[ModItemInventoryItemCompositeDef Winchester1894 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сорок четвертый \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Может стрелять в движении \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный"),
+					'DisplayName', T(107436643972, --[[ModItemInventoryItemCompositeDef Winchester1894 DisplayName]] "Winchester 1894"),
+					'DisplayNamePlural', T(439968849416, --[[ModItemInventoryItemCompositeDef Winchester1894 DisplayNamePlural]] "Winchester 1894s"),
+					'Description', T(890000000000670, --[[ModItemInventoryItemCompositeDef Winchester1894 Description]] "Классическая винтовка прямиком из фильмов про ковбоев и индейцев. Подствольный трубчатый магазин вмещает больше патронов, чем в обычной винтовке с продольно-скользящим затвором. Как она очутилась в здешних краях - тайна, покрытая мраком."),
+					'AdditionalHint', T(890000000000916, --[[ModItemInventoryItemCompositeDef Winchester1894 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сорок четвертый \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Может стрелять в движении \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
 					'Cost', 1750,
@@ -20119,8 +20119,8 @@ return {
 					'Icon', "Mod/e6L4ECj/WeaponIcons/M2Carbine.png",
 					'DisplayName', T(142435704728, --[[ModItemInventoryItemCompositeDef M2Carbine DisplayName]] "Карбайн"),
 					'DisplayNamePlural', T(875798522299, --[[ModItemInventoryItemCompositeDef M2Carbine DisplayNamePlural]] "Карбайн"),
-					'Description', T(534013565696, --[[ModItemInventoryItemCompositeDef M2Carbine Description]] "Еще не настоящий промежуточный патрон, в том понимании, каким он был у СТГ-44 или Калашникова, но по концепции - очень даже настоящий промежуточный карабин. Меньше вес патрона - больше боекомплект. Больше боекомплект - выше плотность огня. Вот вам еще десантный вариант со складным прикладом, штурмовой с автоогнем, и специальный с ночным прицелом."),
-					'AdditionalHint', T(697050056619, --[[ModItemInventoryItemCompositeDef M2Carbine AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Может стрелять в движении \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Можно переделать в автомат \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный"),
+					'Description', T(890000000000671, --[[ModItemInventoryItemCompositeDef M2Carbine Description]] "Еще не настоящий промежуточный патрон, в том понимании, каким он был у СТГ-44 или Калашникова, но по концепции - очень даже настоящий промежуточный карабин. Меньше вес патрона - больше боекомплект. Больше боекомплект - выше плотность огня. Вот вам еще десантный вариант со складным прикладом, штурмовой с автоогнем, и специальный с ночным прицелом."),
+					'AdditionalHint', T(890000000000915, --[[ModItemInventoryItemCompositeDef M2Carbine AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Может стрелять в движении \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Можно переделать в автомат \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
 					'Cost', 1750,
@@ -20204,8 +20204,8 @@ return {
 					'RepairCost', 8,
 					'Reliability', 50,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/DeLisle.png",
-					'DisplayName', T(732531674185, --[[ModItemInventoryItemCompositeDef DeLisle DisplayName]] "De Lisle Carbine"),
-					'DisplayNamePlural', T(707630654921, --[[ModItemInventoryItemCompositeDef DeLisle DisplayNamePlural]] "De Lisle Carbines"),
+					'DisplayName', T(890000000000978, --[[ModItemInventoryItemCompositeDef DeLisle DisplayName]] "De Lisle Carbine"),
+					'DisplayNamePlural', T(890000000000937, --[[ModItemInventoryItemCompositeDef DeLisle DisplayNamePlural]] "De Lisle Carbines"),
 					'Description', T(748776660318, --[[ModItemInventoryItemCompositeDef DeLisle Description]] 'Карабин "Де Лизла" (или Де Лайла, как его читают на своем британском английском) представляет собой первый серийный образец оружия с интегрированным глушителем. В конструкции использовались элементы трех различных серийных видов оружия: затвор от Lee-Enfield Мk III, магазин от пистолета Colt 1911 и  ствол от автомата Томпсона.'),
 					'AdditionalHint', T(809109013984, --[[ModItemInventoryItemCompositeDef DeLisle AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бесшумный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный"),
 					'LargeItem', 1,
@@ -20280,8 +20280,8 @@ return {
 					'RepairCost', 8,
 					'Reliability', 60,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Mini14.png",
-					'DisplayName', T(732531674185, --[[ModItemInventoryItemCompositeDef Mini14 DisplayName]] "Мини-14"),
-					'DisplayNamePlural', T(707630654921, --[[ModItemInventoryItemCompositeDef Mini14 DisplayNamePlural]] "Мини-14"),
+					'DisplayName', T(890000000000977, --[[ModItemInventoryItemCompositeDef Mini14 DisplayName]] "Мини-14"),
+					'DisplayNamePlural', T(890000000000936, --[[ModItemInventoryItemCompositeDef Mini14 DisplayNamePlural]] "Мини-14"),
 					'Description', T(250336798974, --[[ModItemInventoryItemCompositeDef Mini14 Description]] "Облегченный уменьшенный карабин на базе армейской винтовки М14, максимально доступен для гражданского стрелка - от охоты и самообороны, до обучения стрельбе в тире. Валовый карабин требует серьезной доводки напильником."),
 					'AdditionalHint', T(873632115793, --[[ModItemInventoryItemCompositeDef Mini14 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Может стрелять в движении \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Можно переделать в автомат \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный"),
 					'LargeItem', 1,
@@ -21269,9 +21269,9 @@ return {
 					'ScrapParts', 10,
 					'RepairCost', 3,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/STG44.png",
-					'DisplayName', T(250655452748, --[[ModItemInventoryItemCompositeDef STG44 DisplayName]] "StG-44"),
-					'DisplayNamePlural', T(153918269049, --[[ModItemInventoryItemCompositeDef STG44 DisplayNamePlural]] "StG-44"),
-					'Description', T(110936392470, --[[ModItemInventoryItemCompositeDef STG44 Description]] 'Первый в мире серийный автомат, или штурмовая винтовка. Собсно, "Штурмгевер" и означает штурмовая винтовка (говорят, Гитлер лично придумал, но больше похоже на байку). Несмотря на то, что на ход войны вундервафля уже влияния не оказала, именно на ней была опробована и успешно получила развитие идея "промежуточного" патрона.'),
+					'DisplayName', T(890000000000205, --[[ModItemInventoryItemCompositeDef STG44 DisplayName]] "StG-44"),
+					'DisplayNamePlural', T(890000000000073, --[[ModItemInventoryItemCompositeDef STG44 DisplayNamePlural]] "StG-44"),
+					'Description', T(890000000000018, --[[ModItemInventoryItemCompositeDef STG44 Description]] 'Первый в мире серийный автомат, или штурмовая винтовка. Собсно, "Штурмгевер" и означает штурмовая винтовка (говорят, Гитлер лично придумал, но больше похоже на байку). Несмотря на то, что на ход войны вундервафля уже влияния не оказала, именно на ней была опробована и успешно получила развитие идея "промежуточного" патрона.'),
 					'AdditionalHint', T(160551721775, --[[ModItemInventoryItemCompositeDef STG44 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Первый \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Старый \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -21333,9 +21333,9 @@ return {
 					'RepairCost', 3,
 					'Reliability', 70,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Type56.png",
-					'DisplayName', T(250655452748, --[[ModItemInventoryItemCompositeDef Type56 DisplayName]] "Type 56"),
-					'DisplayNamePlural', T(153918269049, --[[ModItemInventoryItemCompositeDef Type56 DisplayNamePlural]] "Type 56"),
-					'Description', T(110936392470, --[[ModItemInventoryItemCompositeDef Type56 Description]] "Пиратская, в смысле, китайская копия советского автомата АКС. Имеет складной вниз, либо фиксированный деревянный приклад и фрезерованную ствольную коробку. Качество разнится от нестреляющей рухляди до вполне приличного автомата. Длинный игольчатый штык призван делать канапе из лаоваев."),
+					'DisplayName', T(890000000000206, --[[ModItemInventoryItemCompositeDef Type56 DisplayName]] "Type 56"),
+					'DisplayNamePlural', T(890000000000074, --[[ModItemInventoryItemCompositeDef Type56 DisplayNamePlural]] "Type 56"),
+					'Description', T(890000000000019, --[[ModItemInventoryItemCompositeDef Type56 Description]] "Пиратская, в смысле, китайская копия советского автомата АКС. Имеет складной вниз, либо фиксированный деревянный приклад и фрезерованную ствольную коробку. Качество разнится от нестреляющей рухляди до вполне приличного автомата. Длинный игольчатый штык призван делать канапе из лаоваев."),
 					'AdditionalHint', T(202927839636, --[[ModItemInventoryItemCompositeDef Type56 AdditionalHint]] '<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> "Опять китайское дерьмо" © Стив Борнелл'),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -21601,9 +21601,9 @@ return {
 					'RepairCost', 12,
 					'Reliability', 55,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Famas.png",
-					'DisplayName', T(730384992135, --[[ModItemInventoryItemCompositeDef FAMAS DisplayName]] "FAMAS"),
-					'DisplayNamePlural', T(514684930452, --[[ModItemInventoryItemCompositeDef FAMAS DisplayNamePlural]] "FAMAS"),
-					'Description', T(141454068995, --[[ModItemInventoryItemCompositeDef FAMAS Description]] "Вся утилитарность и эргономичность буллпап-дизайна. Конструкторы планировали, что магазины для винтовки будут одноразовые и выбрасываться после использования, но даже самый лучший план не в состоянии пережить встречи с реальностью: солдаты начали повторно использовать магазины, что, разумеется, привело к куче разных проблем. Поэтому позже пришлось разрабатывать более прочный магазин."),
+					'DisplayName', T(535915752603, --[[ModItemInventoryItemCompositeDef FAMAS DisplayName]] "FAMAS"),
+					'DisplayNamePlural', T(468242262916, --[[ModItemInventoryItemCompositeDef FAMAS DisplayNamePlural]] "FAMAS's"),
+					'Description', T(782243912175, --[[ModItemInventoryItemCompositeDef FAMAS Description]] "Bullpup design with utility and ergonomics in mind. The magazines were designed to be single-use and disposable. But no design survives contact with reality - soldiers started reusing them and running into all sorts of problems. A durable mag was later introduced. "),
 					'AdditionalHint', T(998151280081, --[[ModItemInventoryItemCompositeDef FAMAS AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Удобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильная отдача \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -21706,9 +21706,9 @@ return {
 					'RepairCost', 11,
 					'Reliability', 60,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/M16A2.png",
-					'DisplayName', T(506098327802, --[[ModItemInventoryItemCompositeDef M16A2 DisplayName]] "M16A2"),
-					'DisplayNamePlural', T(919482370189, --[[ModItemInventoryItemCompositeDef M16A2 DisplayNamePlural]] "M16A2"),
-					'Description', T(206041732514, --[[ModItemInventoryItemCompositeDef M16A2 Description]] "Пожалуй, самый легендарный образец западного огнестрельного оружия. М16 была первой винтовкой под патрон 5,56 НАТО, разработанный специально под ее 20-дюймовый ствол. Высокая скорость полета пули обеспечивает как точность на дальних дистанциях, так и удобство стрельбы очередями, хоть М16 и проигрывает в убойной силе своему основному конкуренту, АК-47. Главное, не обращайте внимания на досылатель патрона..."),
+					'DisplayName', T(943266217115, --[[ModItemInventoryItemCompositeDef M16A2 DisplayName]] "M16A2"),
+					'DisplayNamePlural', T(617921744433, --[[ModItemInventoryItemCompositeDef M16A2 DisplayNamePlural]] "M16A2s"),
+					'Description', T(116000725238, --[[ModItemInventoryItemCompositeDef M16A2 Description]] "The most iconic firearm of the western world, the M16 introduced the 5.56 NATO cartridge which was made for its 20 inch barrel. It's higher bullet velocity improves accuracy at long range and auto-fire handling, though it has less stopping power than its main rival - the AK-47. Don't ask about the forward assist..."),
 					'AdditionalHint', T(967388007174, --[[ModItemInventoryItemCompositeDef M16A2 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Отсечка по три"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -21819,7 +21819,7 @@ return {
 					'Icon', "Mod/e6L4ECj/WeaponIcons/AK47.png",
 					'DisplayName', T(152496614613, --[[ModItemInventoryItemCompositeDef AK47 DisplayName]] "АК47"),
 					'DisplayNamePlural', T(949478428457, --[[ModItemInventoryItemCompositeDef AK47 DisplayNamePlural]] "АК47"),
-					'Description', T(891232355554, --[[ModItemInventoryItemCompositeDef AK47 Description]] "Если где-то в мире случается конфликт, вы точно найдете там АК-47. Это аксиома. Старый-добрый «калаш» неприхотлив, прост в использовании, надежен и стоит гроши. Статистика утверждает, что в мире водится более 75 миллионов экземпляров этого зверя."),
+					'Description', T(588371049645, --[[ModItemInventoryItemCompositeDef AK47 Description]] "You should not be surprised to find an AK-47 anywhere there is conflict around the world. Simple to use, reliable and dirt cheap. Over 75 million are in circulation worldwide."),
 					'AdditionalHint', T(435712410326, --[[ModItemInventoryItemCompositeDef AK47 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Это АК, АК-47"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -22175,7 +22175,7 @@ return {
 					'Icon', "Mod/e6L4ECj/WeaponIcons/AK74.png",
 					'DisplayName', T(489350715496, --[[ModItemInventoryItemCompositeDef AK74 DisplayName]] "АК74"),
 					'DisplayNamePlural', T(261108237192, --[[ModItemInventoryItemCompositeDef AK74 DisplayNamePlural]] "АК74"),
-					'Description', T(903430945152, --[[ModItemInventoryItemCompositeDef AK74 Description]] "В районе 1974 года советские конструкторы обновили классический дизайн «калаша» - так и появился на свет этот красавец. В него внесли много изменений, но сердце механизма - газовый поршень длинного хода - осталось в оригинальном виде."),
+					'Description', T(790591991065, --[[ModItemInventoryItemCompositeDef AK74 Description]] "The Soviets revisited their emblematic design around 1974 and this beauty was born. It has sprouted many variations but keeps the long stroke gas piston system of the original design."),
 					'AdditionalHint', T(216627067101, --[[ModItemInventoryItemCompositeDef AK74 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Слабая отдача \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Быстро стреляет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Лучшее оружие для вашей войны."),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -22283,8 +22283,8 @@ return {
 					'RepairCost', 15,
 					'Reliability', 70,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Aug.png",
-					'DisplayName', T(443884035280, --[[ModItemInventoryItemCompositeDef AUG DisplayName]] "AUG"),
-					'DisplayNamePlural', T(436671177991, --[[ModItemInventoryItemCompositeDef AUG DisplayNamePlural]] "AUG"),
+					'DisplayName', T(803466426440, --[[ModItemInventoryItemCompositeDef AUG DisplayName]] "AUG"),
+					'DisplayNamePlural', T(787775409623, --[[ModItemInventoryItemCompositeDef AUG DisplayNamePlural]] "AUGs"),
 					'Description', T(593752347727, --[[ModItemInventoryItemCompositeDef AUG Description]] "Винтовка в комплектации буллпап, изготовленная из немереного количества пластика (и одна из первых попыток создать винтовку с интегрированной оптикой). Является, можно сказать, воплощением идеи перехода от тяжелых и громоздких боевых винтовок калибра 7.62 к более легким штурмовым винтовкам под патрон 5,56 НАТО."),
 					'AdditionalHint', T(315789426196, --[[ModItemInventoryItemCompositeDef AUG AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Удобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильная отдача \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный"),
 					'LargeItem', 1,
@@ -22519,9 +22519,9 @@ return {
 					'RepairCost', 15,
 					'Reliability', 80,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/G36.png",
-					'DisplayName', T(637644235374, --[[ModItemInventoryItemCompositeDef G36 DisplayName]] "G36"),
-					'DisplayNamePlural', T(493010224161, --[[ModItemInventoryItemCompositeDef G36 DisplayNamePlural]] "G36"),
-					'Description', T(514897379898, --[[ModItemInventoryItemCompositeDef G36 Description]] "Футуристичного вида штурмовая винтовка с интегрированной двойной системой прицеливания. Газовый поршень короткого хода и патрон 5,56 НАТО - что еще нужно для стабильной, прицельной стрельбы?"),
+					'DisplayName', T(675182711489, --[[ModItemInventoryItemCompositeDef G36 DisplayName]] "G36"),
+					'DisplayNamePlural', T(349971410946, --[[ModItemInventoryItemCompositeDef G36 DisplayNamePlural]] "G36s"),
+					'Description', T(511176251955, --[[ModItemInventoryItemCompositeDef G36 Description]] "Futuristic assault rifle with an integrated dual combat sighting system. The 5.56 NATO cartridge combined with the short-stroke gas piston system make this a joy to shoot."),
 					'AdditionalHint', T(590205659814, --[[ModItemInventoryItemCompositeDef G36 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Умеренно точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Умеренно надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Умеренно скорострельный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Das ist gut"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -22975,10 +22975,10 @@ return {
 					'RepairCost', 3,
 					'Reliability', 85,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/MAS36.png",
-					'DisplayName', T(415053102324, --[[ModItemInventoryItemCompositeDef MAS36 DisplayName]] "MAS36"),
-					'DisplayNamePlural', T(826420490062, --[[ModItemInventoryItemCompositeDef MAS36 DisplayNamePlural]] "MAS36"),
-					'Description', T(105734133486, --[[ModItemInventoryItemCompositeDef MAS36 Description]] "Линейная пехотная винтовка производства Франции периода ВМВ, была разработана в 1930-х годах, что делает ее относительной новинкой в сравнении с винтовками Мосина, Маузера, Ли Энфильда и Спрингфилда. Но, как известно, особой конкуренции Маузерам у нее составить не получилось."),
-					'AdditionalHint', T(191648401008, --[[ModItemInventoryItemCompositeDef MAS36 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Винтовка с ручным перезаряжанием \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный Медленно стреляет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дед сдавался"),
+					'DisplayName', T(890000000000482, --[[ModItemInventoryItemCompositeDef MAS36 DisplayName]] "MAS36"),
+					'DisplayNamePlural', T(890000000001116, --[[ModItemInventoryItemCompositeDef MAS36 DisplayNamePlural]] "MAS36"),
+					'Description', T(890000000000005, --[[ModItemInventoryItemCompositeDef MAS36 Description]] "Линейная пехотная винтовка производства Франции периода ВМВ, была разработана в 1930-х годах, что делает ее относительной новинкой в сравнении с винтовками Мосина, Маузера, Ли Энфильда и Спрингфилда. Но, как известно, особой конкуренции Маузерам у нее составить не получилось."),
+					'AdditionalHint', T(890000000000124, --[[ModItemInventoryItemCompositeDef MAS36 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Винтовка с ручным перезаряжанием \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный Медленно стреляет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дед сдавался"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
 					'CategoryPair', "Rifles",
@@ -23069,10 +23069,10 @@ return {
 					'RepairCost', 6,
 					'Reliability', 45,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/G43.png",
-					'DisplayName', T(729447298300, --[[ModItemInventoryItemCompositeDef G43 DisplayName]] "G43"),
-					'DisplayNamePlural', T(830429456946, --[[ModItemInventoryItemCompositeDef G43 DisplayNamePlural]] "G43"),
-					'Description', T(789944142367, --[[ModItemInventoryItemCompositeDef G43 Description]] "Немецкая самозарядная винтовка периода ВМВ. На конструкцию во многом оказала влияние советская СВТ, как с точки зрения концепции, так и в более приземленном смысле заимстования конструкции газового двигателя."),
-					'AdditionalHint', T(546051968989, --[[ModItemInventoryItemCompositeDef G43 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный"),
+					'DisplayName', T(890000000000973, --[[ModItemInventoryItemCompositeDef G43 DisplayName]] "G43"),
+					'DisplayNamePlural', T(890000000001122, --[[ModItemInventoryItemCompositeDef G43 DisplayNamePlural]] "G43"),
+					'Description', T(890000000001051, --[[ModItemInventoryItemCompositeDef G43 Description]] "Немецкая самозарядная винтовка периода ВМВ. На конструкцию во многом оказала влияние советская СВТ, как с точки зрения концепции, так и в более приземленном смысле заимстования конструкции газового двигателя."),
+					'AdditionalHint', T(890000000000693, --[[ModItemInventoryItemCompositeDef G43 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
 					'Cost', 2000,
@@ -23122,10 +23122,10 @@ return {
 					'RepairCost', 6,
 					'Reliability', 55,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/MAS49.png",
-					'DisplayName', T(729447298300, --[[ModItemInventoryItemCompositeDef MAS49 DisplayName]] "MAS-49/56"),
-					'DisplayNamePlural', T(830429456946, --[[ModItemInventoryItemCompositeDef MAS49 DisplayNamePlural]] "MAS-49/56"),
-					'Description', T(789944142367, --[[ModItemInventoryItemCompositeDef MAS49 Description]] "После Второй Мировой Войны деоккупированная Франция нуждалась в новом современном оружии, и еще в 1944 году была разработана и выпущена первая партия этих винтовок с газовым двигателем с прямым отводом пороховых газов (да, как в AR-15 потом). Практически сразу им пришлось повоевать в Индокитае и Вьетнаме, с неплохими отзывами по надежности и кучности боя."),
-					'AdditionalHint', T(546051968989, --[[ModItemInventoryItemCompositeDef MAS49 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Средняя по всем показателям винтовка"),
+					'DisplayName', T(890000000000974, --[[ModItemInventoryItemCompositeDef MAS49 DisplayName]] "MAS-49/56"),
+					'DisplayNamePlural', T(890000000001123, --[[ModItemInventoryItemCompositeDef MAS49 DisplayNamePlural]] "MAS-49/56"),
+					'Description', T(890000000001050, --[[ModItemInventoryItemCompositeDef MAS49 Description]] "После Второй Мировой Войны деоккупированная Франция нуждалась в новом современном оружии, и еще в 1944 году была разработана и выпущена первая партия этих винтовок с газовым двигателем с прямым отводом пороховых газов (да, как в AR-15 потом). Практически сразу им пришлось повоевать в Индокитае и Вьетнаме, с неплохими отзывами по надежности и кучности боя."),
+					'AdditionalHint', T(890000000000692, --[[ModItemInventoryItemCompositeDef MAS49 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Средняя по всем показателям винтовка"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
 					'Cost', 2000,
@@ -23167,10 +23167,10 @@ return {
 					'RepairCost', 6,
 					'Reliability', 60,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/M1Garand.png",
-					'DisplayName', T(729447298300, --[[ModItemInventoryItemCompositeDef M1Garand DisplayName]] "М1 Гаранд"),
-					'DisplayNamePlural', T(830429456946, --[[ModItemInventoryItemCompositeDef M1Garand DisplayNamePlural]] "М1 Гаранд"),
-					'Description', T(789944142367, --[[ModItemInventoryItemCompositeDef M1Garand Description]] "Американская винтовка М1 конструкции канадца Джона Гаранда занимает достойное место в истории стрелкового оружия как первая самозарядная немагазинная винтовка, принятая на вооружение в качестве основного индивидуального оружия пехоты."),
-					'AdditionalHint', T(546051968989, --[[ModItemInventoryItemCompositeDef M1Garand AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Гаранд бзынь!"),
+					'DisplayName', T(890000000000972, --[[ModItemInventoryItemCompositeDef M1Garand DisplayName]] "М1 Гаранд"),
+					'DisplayNamePlural', T(890000000001121, --[[ModItemInventoryItemCompositeDef M1Garand DisplayNamePlural]] "М1 Гаранд"),
+					'Description', T(890000000001052, --[[ModItemInventoryItemCompositeDef M1Garand Description]] "Американская винтовка М1 конструкции канадца Джона Гаранда занимает достойное место в истории стрелкового оружия как первая самозарядная немагазинная винтовка, принятая на вооружение в качестве основного индивидуального оружия пехоты."),
+					'AdditionalHint', T(890000000000694, --[[ModItemInventoryItemCompositeDef M1Garand AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Гаранд бзынь!"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
 					'Cost', 2000,
@@ -23228,10 +23228,10 @@ return {
 					'ScrapParts', 12,
 					'RepairCost', 3,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/FG42.png",
-					'DisplayName', T(265028974011, --[[ModItemInventoryItemCompositeDef FG42 DisplayName]] "FG42"),
-					'DisplayNamePlural', T(414328375447, --[[ModItemInventoryItemCompositeDef FG42 DisplayNamePlural]] "FG42"),
-					'Description', T(588154036612, --[[ModItemInventoryItemCompositeDef FG42 Description]] 'Оружие элиты вооруженных сил Германии в ВМВ - парашютистов Люфтваффе. Винтовка реализует концепцию "все свое ношу с собой" - тут и компоновка с магазином слева для компактности, и длинный ход поршня с поворотным затвором для надежности, и автоматический огонь для плотности, и оптический прицел для точности, и дульная мортирка для гранатометности, и сошки для лежкости, и даже штык для сувания в почку. И много-много рейхсмарок в смете.'),
-					'AdditionalHint', T(657931851868, --[[ModItemInventoryItemCompositeDef FG42 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Винтовка десантника \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный"),
+					'DisplayName', T(890000000000233, --[[ModItemInventoryItemCompositeDef FG42 DisplayName]] "FG42"),
+					'DisplayNamePlural', T(890000000000480, --[[ModItemInventoryItemCompositeDef FG42 DisplayNamePlural]] "FG42"),
+					'Description', T(890000000000764, --[[ModItemInventoryItemCompositeDef FG42 Description]] 'Оружие элиты вооруженных сил Германии в ВМВ - парашютистов Люфтваффе. Винтовка реализует концепцию "все свое ношу с собой" - тут и компоновка с магазином слева для компактности, и длинный ход поршня с поворотным затвором для надежности, и автоматический огонь для плотности, и оптический прицел для точности, и дульная мортирка для гранатометности, и сошки для лежкости, и даже штык для сувания в почку. И много-много рейхсмарок в смете.'),
+					'AdditionalHint', T(890000000000867, --[[ModItemInventoryItemCompositeDef FG42 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Винтовка десантника \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
 					'Cost', 3000,
@@ -23483,8 +23483,8 @@ return {
 					'RepairCost', 10,
 					'Reliability', 50,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/M14.png",
-					'DisplayName', T(383581760129, --[[ModItemInventoryItemCompositeDef M14SAW DisplayName]] "M-14"),
-					'DisplayNamePlural', T(745121894841, --[[ModItemInventoryItemCompositeDef M14SAW DisplayNamePlural]] "M-14"),
+					'DisplayName', T(929580740853, --[[ModItemInventoryItemCompositeDef M14SAW DisplayName]] "M-14"),
+					'DisplayNamePlural', T(270485818300, --[[ModItemInventoryItemCompositeDef M14SAW DisplayNamePlural]] "M-14s"),
 					'Description', T(513913385785, --[[ModItemInventoryItemCompositeDef M14SAW Description]] "Глубоко модифицированная винтовка M1 - измененный газовый двигатель, магазинное питание, новый на тот момент (начало 1950х) патрон 7.62х51мм. Винтовка оказалась крайне бесполезной в условиях войны в джунглях, из-за чего была заменена M16."),
 					'AdditionalHint', T(895635386126, --[[ModItemInventoryItemCompositeDef M14SAW AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Запах напалма по утрам. \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильная отдача"),
 					'LargeItem', 1,
@@ -23608,8 +23608,8 @@ return {
 					'RepairCost', 11,
 					'Reliability', 65,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/FNFAL.png",
-					'DisplayName', T(830855995643, --[[ModItemInventoryItemCompositeDef FNFAL DisplayName]] "FN-FAL"),
-					'DisplayNamePlural', T(524521633497, --[[ModItemInventoryItemCompositeDef FNFAL DisplayNamePlural]] "FN-FAL"),
+					'DisplayName', T(291629379642, --[[ModItemInventoryItemCompositeDef FNFAL DisplayName]] "FN-FAL"),
+					'DisplayNamePlural', T(103102569939, --[[ModItemInventoryItemCompositeDef FNFAL DisplayNamePlural]] "FN-FALs"),
 					'Description', T(341778467277, --[[ModItemInventoryItemCompositeDef FNFAL Description]] 'Винтовка FN FAL (Fusil Autamatique Leger - Легкая Автоматическая Винтовка). Своеобразный символ НАТО - производилась в более чем 20 странах, состояла на вооружении в более чем 70 странах. Среди наемников AIM имеет ласковое прозвище - "фалочка".'),
 					'AdditionalHint', T(420376793354, --[[ModItemInventoryItemCompositeDef FNFAL AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Фалочка Точная \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Фалочка Убойная \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Фалочка Молодец"),
 					'LargeItem', 1,
@@ -23747,9 +23747,9 @@ return {
 					'RepairCost', 11,
 					'Reliability', 75,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Galil.png",
-					'DisplayName', T(268498479614, --[[ModItemInventoryItemCompositeDef Galil DisplayName]] "Galil"),
-					'DisplayNamePlural', T(204404678981, --[[ModItemInventoryItemCompositeDef Galil DisplayNamePlural]] "Galil"),
-					'Description', T(288080233237, --[[ModItemInventoryItemCompositeDef Galil Description]] "Изначально разрабатывался со встроенной открывашкой, чтобы солдаты не гробили магазины в попытках вскрывать ими бутылки. По какой-то неизвестной причине пытается косплеить АК-47."),
+					'DisplayName', T(439478525657, --[[ModItemInventoryItemCompositeDef Galil DisplayName]] "Galil"),
+					'DisplayNamePlural', T(776827059013, --[[ModItemInventoryItemCompositeDef Galil DisplayNamePlural]] "Galils"),
+					'Description', T(333684052691, --[[ModItemInventoryItemCompositeDef Galil Description]] "Designed with a bottle opener so the soldiers don't damage the mags while using the gun to open bottles. Tries to emulate the AK-47 for some reason. "),
 					'AdditionalHint', T(770511551101, --[[ModItemInventoryItemCompositeDef Galil AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Быстро стреляет"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -24064,10 +24064,10 @@ return {
 					'RepairCost', 3,
 					'Reliability', 90,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Mosin.png",
-					'DisplayName', T(415053102324, --[[ModItemInventoryItemCompositeDef Mosin DisplayName]] "Винтовка Мосина"),
-					'DisplayNamePlural', T(826420490062, --[[ModItemInventoryItemCompositeDef Mosin DisplayNamePlural]] "Винтовки Мосина"),
-					'Description', T(105734133486, --[[ModItemInventoryItemCompositeDef Mosin Description]] "Основная винтовка советского солдата РККА во время ВОВ. Максимально стрательно была приведена к вариации СН - снят штык, загнута вниз рукоять затвора, приварено посадочное место для прицела. Однако, отсутствие маркировки на стволе выдает самозванку."),
-					'AdditionalHint', T(191648401008, --[[ModItemInventoryItemCompositeDef Mosin AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Винтовка с ручным перезаряжанием \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Медленно стреляет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дед воевал"),
+					'DisplayName', T(890000000000481, --[[ModItemInventoryItemCompositeDef Mosin DisplayName]] "Винтовка Мосина"),
+					'DisplayNamePlural', T(890000000001115, --[[ModItemInventoryItemCompositeDef Mosin DisplayNamePlural]] "Винтовки Мосина"),
+					'Description', T(890000000000004, --[[ModItemInventoryItemCompositeDef Mosin Description]] "Основная винтовка советского солдата РККА во время ВОВ. Максимально стрательно была приведена к вариации СН - снят штык, загнута вниз рукоять затвора, приварено посадочное место для прицела. Однако, отсутствие маркировки на стволе выдает самозванку."),
+					'AdditionalHint', T(890000000000125, --[[ModItemInventoryItemCompositeDef Mosin AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Винтовка с ручным перезаряжанием \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Медленно стреляет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дед воевал"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
 					'CategoryPair', "Rifles",
@@ -24117,9 +24117,9 @@ return {
 					'RepairCost', 3,
 					'Reliability', 85,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/K98.png",
-					'DisplayName', T(217134868057, --[[ModItemInventoryItemCompositeDef Gewehr98 DisplayName]] "Gewehr 98"),
-					'DisplayNamePlural', T(525213233954, --[[ModItemInventoryItemCompositeDef Gewehr98 DisplayNamePlural]] "Gewehr 98"),
-					'Description', T(910257473110, --[[ModItemInventoryItemCompositeDef Gewehr98 Description]] "Говорят, что этот шедевр Пауля Маузера стал дедушкой всех «болтов» - ружей с продольно-скользящим затвором. От него ведут родословную чуть ли не все современные снайперские и охотничьи винтовки."),
+					'DisplayName', T(622217392257, --[[ModItemInventoryItemCompositeDef Gewehr98 DisplayName]] "Gewehr 98"),
+					'DisplayNamePlural', T(512124485855, --[[ModItemInventoryItemCompositeDef Gewehr98 DisplayNamePlural]] "Gewehr 98s"),
+					'Description', T(688355440301, --[[ModItemInventoryItemCompositeDef Gewehr98 Description]] "It is said that this Mauser design is the grandpa of all bolt action rifles. Even the modern hunting or military sniper rifles started here. "),
 					'AdditionalHint', T(232973799458, --[[ModItemInventoryItemCompositeDef Gewehr98 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Винтовка с ручным перезаряжанием \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Медленно стреляет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дед проиграл"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -24519,9 +24519,9 @@ return {
 					'RepairCost', 10,
 					'Reliability', 75,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/SVD.png",
-					'DisplayName', T(515926068469, --[[ModItemInventoryItemCompositeDef DragunovSVD DisplayName]] "СВД"),
-					'DisplayNamePlural', T(613799960953, --[[ModItemInventoryItemCompositeDef DragunovSVD DisplayNamePlural]] "СВД"),
-					'Description', T(560979101811, --[[ModItemInventoryItemCompositeDef DragunovSVD Description]] "Не то, чем кажется на первый взгляд. Выглядит похожей на «калаш», но внутри у нее - газовый поршень короткого хода, снижающий отдачу и позволяющий точнее выполнять последующие выстрелы. Это даже не снайперская винтовка, это - высокоточное оружие поддержки на средних дистанциях."),
+					'DisplayName', T(204531102680, --[[ModItemInventoryItemCompositeDef DragunovSVD DisplayName]] "Dragunov"),
+					'DisplayNamePlural', T(663701954106, --[[ModItemInventoryItemCompositeDef DragunovSVD DisplayNamePlural]] "Dragunovs"),
+					'Description', T(925638108776, --[[ModItemInventoryItemCompositeDef DragunovSVD Description]] "Not what it seems at first glance. On the outside it looks like an AK but actually uses a short stroke gas piston system that reduces the recoil and allows for better follow up shots. It is more of a close support designated marksman's rifle than a sniper one. "),
 					'AdditionalHint', T(725637424386, --[[ModItemInventoryItemCompositeDef DragunovSVD AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Весло"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -24904,9 +24904,9 @@ return {
 					'RepairCost', 7,
 					'Reliability', 90,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/M24.png",
-					'DisplayName', T(594362204689, --[[ModItemInventoryItemCompositeDef M24Sniper DisplayName]] "M24"),
-					'DisplayNamePlural', T(331702918062, --[[ModItemInventoryItemCompositeDef M24Sniper DisplayNamePlural]] "M24"),
-					'Description', T(756650917281, --[[ModItemInventoryItemCompositeDef M24Sniper Description]] "Снайперская система армии США, заменившая М21 (которая, в свою очередь, базировалась на М14). Похоже, самозарядные винтовки так и не смогли обеспечить надежность и точность, которые дает старый добрый продольно-скользящий затвор."),
+					'DisplayName', T(672666400702, --[[ModItemInventoryItemCompositeDef M24Sniper DisplayName]] "M24"),
+					'DisplayNamePlural', T(703533260621, --[[ModItemInventoryItemCompositeDef M24Sniper DisplayNamePlural]] "M24s"),
+					'Description', T(767131106202, --[[ModItemInventoryItemCompositeDef M24Sniper Description]] "US Army sniper weapon system that replaced the M21 (based on the M14). Apparently semi-auto was still not up to par with what snipers needed in terms of reliability and accuracy that bolt action can provide. "),
 					'AdditionalHint', T(268336330579, --[[ModItemInventoryItemCompositeDef M24Sniper AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Винтовка с ручным перезаряжанием \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Медленно стреляет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -25281,9 +25281,9 @@ return {
 					'RepairCost', 20,
 					'Reliability', 50,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Barret.png",
-					'DisplayName', T(869636891023, --[[ModItemInventoryItemCompositeDef BarretM82 DisplayName]] "M82"),
-					'DisplayNamePlural', T(627822561036, --[[ModItemInventoryItemCompositeDef BarretM82 DisplayNamePlural]] "M82"),
-					'Description', T(689592057012, --[[ModItemInventoryItemCompositeDef BarretM82 Description]] "Патрон .50 BMG используется в тяжелых пулеметах (отсюда и название). Но что будет, если разработать на его основе самозарядное дальнобойное оружие? Правильно, вы получите прекрасную крупнокалиберную винтовку для поражения бронированных целей. Или «пушку для стрельбы сквозь стены». Впрочем, для компенсации отдачи к стволу этой дуры пришлось прикрутить дульный тормоз размером с саперную лопатку."),
+					'DisplayName', T(370732763913, --[[ModItemInventoryItemCompositeDef BarretM82 DisplayName]] "M82"),
+					'DisplayNamePlural', T(682970362005, --[[ModItemInventoryItemCompositeDef BarretM82 DisplayNamePlural]] "M82s"),
+					'Description', T(600238639136, --[[ModItemInventoryItemCompositeDef BarretM82 Description]] 'The .50 BMG is a heavy machine gun cartridge - hence the name. But place it in a semi auto long range gun and you have a great anti-materiel rifle. Or "shoot through walls" gun. It does need a muzzle break the size of a small shovel to counteract that recoil however. '),
 					'AdditionalHint', T(236109853304, --[[ModItemInventoryItemCompositeDef BarretM82 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Легкая пятидесятка \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Медленно стреляет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Огромная убойность \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тяжелый - ограничивает свободу движений"),
 					'LargeItem', 1,
 					'Cumbersome', 1,
@@ -25373,9 +25373,9 @@ return {
 					'RepairCost', 25,
 					'Reliability', 85,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/PSG.png",
-					'DisplayName', T(887059977163, --[[ModItemInventoryItemCompositeDef PSG1 DisplayName]] "PSG1"),
-					'DisplayNamePlural', T(908671276161, --[[ModItemInventoryItemCompositeDef PSG1 DisplayNamePlural]] "PSG1"),
-					'Description', T(920160133295, --[[ModItemInventoryItemCompositeDef PSG1 Description]] "Самозарядная высокоточная винтовка, разработанная специально для полиции после Олимпиады в Мюнхене 1972 года. Конструкторы решили обойтись без механического прицела и сразу поставить оптику. Регулируемые приклад, щека приклада, спусковая группа и многое, многое другое. Всем своим видом эта винтовка кричит «Я могу хоть весь день наблюдать за захватом заложников в ожидании отмашки!»."),
+					'DisplayName', T(648722056158, --[[ModItemInventoryItemCompositeDef PSG1 DisplayName]] "PSG1"),
+					'DisplayNamePlural', T(681840099367, --[[ModItemInventoryItemCompositeDef PSG1 DisplayNamePlural]] "PSG1s"),
+					'Description', T(938045092300, --[[ModItemInventoryItemCompositeDef PSG1 Description]] 'Semi-auto precision rifle initially designed for law enforcement after the 1972 Munich Olympics. They skipped adding any iron sights and went straight to a scope. Adjustable buttstock, cheekpiece, trigger unit, and much more. This gun screams "I can watch this hostage situation all day as I wait for the greenlight". '),
 					'AdditionalHint', T(707852110578, --[[ModItemInventoryItemCompositeDef PSG1 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Самая точная снайперка \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -25651,10 +25651,10 @@ return {
 					'RepairCost', 3,
 					'Reliability', 50,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/BAR.png",
-					'DisplayName', T(265028974011, --[[ModItemInventoryItemCompositeDef BAR DisplayName]] "BAR"),
-					'DisplayNamePlural', T(414328375447, --[[ModItemInventoryItemCompositeDef BAR DisplayNamePlural]] "BAR"),
-					'Description', T(588154036612, --[[ModItemInventoryItemCompositeDef BAR Description]] 'Джон Мозес Браунинг конечно гений, и все такой, но вот с разработкой BAR он явно опоздал. Концепция "ружья-пулемета", как в автомате Федорова или пулемете Гочкисса к началу 30-х годов уже безнадежно устарела, и потому BAR выглядит как неуклюжий косплей ручного пулемета, будучи слишком тяжелым для автоматической винтовки. Говорят, с тех пор американцы делать пулеметы так и не научились.'),
-					'AdditionalHint', T(657931851868, --[[ModItemInventoryItemCompositeDef BAR AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ружье-недопулемет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильная отдача \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный"),
+					'DisplayName', T(890000000000232, --[[ModItemInventoryItemCompositeDef BAR DisplayName]] "BAR"),
+					'DisplayNamePlural', T(890000000000479, --[[ModItemInventoryItemCompositeDef BAR DisplayNamePlural]] "BAR"),
+					'Description', T(890000000000765, --[[ModItemInventoryItemCompositeDef BAR Description]] 'Джон Мозес Браунинг конечно гений, и все такой, но вот с разработкой BAR он явно опоздал. Концепция "ружья-пулемета", как в автомате Федорова или пулемете Гочкисса к началу 30-х годов уже безнадежно устарела, и потому BAR выглядит как неуклюжий косплей ручного пулемета, будучи слишком тяжелым для автоматической винтовки. Говорят, с тех пор американцы делать пулеметы так и не научились.'),
+					'AdditionalHint', T(890000000000866, --[[ModItemInventoryItemCompositeDef BAR AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ружье-недопулемет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильная отдача \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
 					'Cost', 3000,
@@ -26131,9 +26131,9 @@ return {
 					'RepairCost', 10,
 					'Reliability', 75,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/Minimi.png",
-					'DisplayName', T(723941795453, --[[ModItemInventoryItemCompositeDef FNMinimi DisplayName]] "Minimi"),
-					'DisplayNamePlural', T(814341971836, --[[ModItemInventoryItemCompositeDef FNMinimi DisplayNamePlural]] "Minimi"),
-					'Description', T(795167411023, --[[ModItemInventoryItemCompositeDef FNMinimi Description]] "Пулемет Minimi под патрон 5.56 НАТО разрабатывался в качестве оружия поддержки на уровне взвода. Он настолько хорошо исполнял свою роль, что его приняли на вооружение ВС США, и теперь весь мир знает его как М249 SAW. Также существует вариант Minimi под патрон 7,62 НАТО."),
+					'DisplayName', T(967860288607, --[[ModItemInventoryItemCompositeDef FNMinimi DisplayName]] "Minimi"),
+					'DisplayNamePlural', T(559267255380, --[[ModItemInventoryItemCompositeDef FNMinimi DisplayNamePlural]] "Minimis"),
+					'Description', T(460196952811, --[[ModItemInventoryItemCompositeDef FNMinimi Description]] "The 5.56 NATO Minimi is meant to provide squad-level fire support. It does so well that it was adopted by the US military and most people know it as the M249 squad automatic weapon. There is also a Minimi variant firing 7.62 NATO rounds."),
 					'AdditionalHint', T(270977662171, --[[ModItemInventoryItemCompositeDef FNMinimi AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Легкий пулемет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Кладет строчку как поссать сходить"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -26233,9 +26233,9 @@ return {
 					'RepairCost', 15,
 					'Reliability', 80,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/HK21.png",
-					'DisplayName', T(147075122132, --[[ModItemInventoryItemCompositeDef HK21 DisplayName]] "HK21"),
-					'DisplayNamePlural', T(344724446124, --[[ModItemInventoryItemCompositeDef HK21 DisplayNamePlural]] "HK21"),
-					'Description', T(222226843261, --[[ModItemInventoryItemCompositeDef HK21 Description]] "Возьмите штурмовую винтовку и пулемет, соедините их в одно - и на выходе получите HK21. Впрочем, в отличие от многих гибридов, обе свои роли он выполняет на удивление хорошо."),
+					'DisplayName', T(250036048846, --[[ModItemInventoryItemCompositeDef HK21 DisplayName]] "HK21"),
+					'DisplayNamePlural', T(780353222754, --[[ModItemInventoryItemCompositeDef HK21 DisplayNamePlural]] "HK21s"),
+					'Description', T(998703628193, --[[ModItemInventoryItemCompositeDef HK21 Description]] "Combine an assault rifle with a machine gun and you get HK21. Unlike most hybrid guns, it performs each role extremely well."),
 					'AdditionalHint', T(805207426140, --[[ModItemInventoryItemCompositeDef HK21 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Легкий пулемет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильная отдача"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -26459,10 +26459,10 @@ return {
 					'RepairCost', 2,
 					'Reliability', 60,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/DP27.png",
-					'DisplayName', T(973194681593, --[[ModItemInventoryItemCompositeDef DP27 DisplayName]] "ДП-27"),
-					'DisplayNamePlural', T(457155447326, --[[ModItemInventoryItemCompositeDef DP27 DisplayNamePlural]] "ДП-27"),
-					'Description', T(968512989346, --[[ModItemInventoryItemCompositeDef DP27 Description]] "Ручной пулемет ДП был принят на вооружение РККА в 1927 году и стал одним из первых оружейных образцов, созданных с нуля в молодом Советском государстве. С честью прошел всю Великую Отечественную Войну и уже давно отошел от дел, но тут его нашли вы."),
-					'AdditionalHint', T(881416264419, --[[ModItemInventoryItemCompositeDef DP27 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Единый пулемет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильная отдача "),
+					'DisplayName', T(890000000001345, --[[ModItemInventoryItemCompositeDef DP27 DisplayName]] "ДП-27"),
+					'DisplayNamePlural', T(890000000000553, --[[ModItemInventoryItemCompositeDef DP27 DisplayNamePlural]] "ДП-27"),
+					'Description', T(890000000001339, --[[ModItemInventoryItemCompositeDef DP27 Description]] "Ручной пулемет ДП был принят на вооружение РККА в 1927 году и стал одним из первых оружейных образцов, созданных с нуля в молодом Советском государстве. С честью прошел всю Великую Отечественную Войну и уже давно отошел от дел, но тут его нашли вы."),
+					'AdditionalHint', T(890000000001240, --[[ModItemInventoryItemCompositeDef DP27 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Единый пулемет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильная отдача "),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
 					'Cost', 3000,
@@ -26518,9 +26518,9 @@ return {
 					'RepairCost', 3,
 					'Reliability', 55,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/MG42.png",
-					'DisplayName', T(389483103177, --[[ModItemInventoryItemCompositeDef MG42 DisplayName]] "MG42"),
-					'DisplayNamePlural', T(734302797284, --[[ModItemInventoryItemCompositeDef MG42 DisplayNamePlural]] "MG42"),
-					'Description', T(180798552012, --[[ModItemInventoryItemCompositeDef MG42 Description]] "Благодаря невероятному темпу стрельбы MG42 позволяет максимально эффективно вести огонь на подавление. Дедушка старый, но дедушка - немец."),
+					'DisplayName', T(209733078565, --[[ModItemInventoryItemCompositeDef MG42 DisplayName]] "MG42"),
+					'DisplayNamePlural', T(386382289596, --[[ModItemInventoryItemCompositeDef MG42 DisplayNamePlural]] "MG42s"),
+					'Description', T(347491665067, --[[ModItemInventoryItemCompositeDef MG42 Description]] "With its incredible rate of fire, the MG42 provides amazing suppression capacity. She might be old but she's German."),
 					'AdditionalHint', T(128714866748, --[[ModItemInventoryItemCompositeDef MG42 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Единый пулемет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Старый \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Большая отдача \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тяжелый - ограничивает свободу движений"),
 					'LargeItem', 1,
 					'Cumbersome', 1,
@@ -26578,9 +26578,9 @@ return {
 					'RepairCost', 5,
 					'Reliability', 85,
 					'Icon', "UI/Icons/Weapons/MG58.png",
-					'DisplayName', T(915870069225, --[[ModItemInventoryItemCompositeDef MG58 DisplayName]] "MG58"),
-					'DisplayNamePlural', T(728744819234, --[[ModItemInventoryItemCompositeDef MG58 DisplayNamePlural]] "MG58"),
-					'Description', T(207644767915, --[[ModItemInventoryItemCompositeDef MG58 Description]] "Модифицированный MG42 со стволом из композитума-58, улучшенным прицелом и рядом доработок механизма. Встречайте: MG58. "),
+					'DisplayName', T(195540713080, --[[ModItemInventoryItemCompositeDef MG58 DisplayName]] "MG58"),
+					'DisplayNamePlural', T(433453784311, --[[ModItemInventoryItemCompositeDef MG58 DisplayNamePlural]] "MG58s"),
+					'Description', T(740472863486, --[[ModItemInventoryItemCompositeDef MG58 Description]] "Modified MG42, fitted with a Kompositum 58 barrel, improved ironsights and some internal improvements. The MG58 is born. "),
 					'AdditionalHint', T(714045001218, --[[ModItemInventoryItemCompositeDef MG58 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Единый пулемет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Обработан Композитумом для целкости \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тяжелый - ограничивает свободу движений"),
 					'LargeItem', 1,
 					'Cumbersome', 1,
@@ -26638,10 +26638,10 @@ return {
 					'RepairCost', 2,
 					'Reliability', 65,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/AA52.png",
-					'DisplayName', T(973194681593, --[[ModItemInventoryItemCompositeDef AA52 DisplayName]] "AA-52"),
-					'DisplayNamePlural', T(457155447326, --[[ModItemInventoryItemCompositeDef AA52 DisplayNamePlural]] "AA-52"),
-					'Description', T(968512989346, --[[ModItemInventoryItemCompositeDef AA52 Description]] "Французы - люди с выдумкой. Вот есть Мг34/42 - замечательный пулемет, тоже с полусвободным затвором. Ну возьми. Вы же тоже победили, возьми. Не, придумаем свой полусвободный затвор, с преферансом и куртизанками. В итоге получилось... ну такое. В приличном обществе такого единого пулемета бы не поняли."),
-					'AdditionalHint', T(881416264419, --[[ModItemInventoryItemCompositeDef AA52 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Единый пулемет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный"),
+					'DisplayName', T(890000000001346, --[[ModItemInventoryItemCompositeDef AA52 DisplayName]] "AA-52"),
+					'DisplayNamePlural', T(890000000000554, --[[ModItemInventoryItemCompositeDef AA52 DisplayNamePlural]] "AA-52"),
+					'Description', T(890000000001340, --[[ModItemInventoryItemCompositeDef AA52 Description]] "Французы - люди с выдумкой. Вот есть Мг34/42 - замечательный пулемет, тоже с полусвободным затвором. Ну возьми. Вы же тоже победили, возьми. Не, придумаем свой полусвободный затвор, с преферансом и куртизанками. В итоге получилось... ну такое. В приличном обществе такого единого пулемета бы не поняли."),
+					'AdditionalHint', T(890000000001241, --[[ModItemInventoryItemCompositeDef AA52 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Единый пулемет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
 					'Cost', 3000,
@@ -27171,9 +27171,9 @@ return {
 					'ScrapParts', 20,
 					'Reliability', 80,
 					'Icon', "UI/Icons/Weapons/M2Browning",
-					'DisplayName', T(651582932441, --[[ModItemInventoryItemCompositeDef BrowningM2HMG DisplayName]] "M2 Browning"),
-					'DisplayNamePlural', T(827702439674, --[[ModItemInventoryItemCompositeDef BrowningM2HMG DisplayNamePlural]] "M2 Browning"),
-					'Description', T(527861175160, --[[ModItemInventoryItemCompositeDef BrowningM2HMG Description]] "Когда на покупку танка денег нет, но жертвовать огневой мощью не вариант."),
+					'DisplayName', T(178371122439, --[[ModItemInventoryItemCompositeDef BrowningM2HMG DisplayName]] "M2 Browning"),
+					'DisplayNamePlural', T(472976044430, --[[ModItemInventoryItemCompositeDef BrowningM2HMG DisplayNamePlural]] "M2 Brownings"),
+					'Description', T(706172423918, --[[ModItemInventoryItemCompositeDef BrowningM2HMG Description]] "When you're a dime short of buying some tank ordnance but you won't make a compromise with power."),
 					'AdditionalHint', T(521209521132, --[[ModItemInventoryItemCompositeDef BrowningM2HMG AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Стационарное оружие\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Очень высокий урон\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Очень шумное"),
 					'LargeItem', 1,
 					'Cumbersome', 1,
@@ -27220,8 +27220,8 @@ return {
 					'RepairCost', 3,
 					'Reliability', 95,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/DoubleBarrel.png",
-					'DisplayName', T(907424409524, --[[ModItemInventoryItemCompositeDef DoubleBarrelShotgun DisplayName]] "Двустволка"),
-					'DisplayNamePlural', T(810124779127, --[[ModItemInventoryItemCompositeDef DoubleBarrelShotgun DisplayNamePlural]] "Двустволки"),
+					'DisplayName', T(354097123587, --[[ModItemInventoryItemCompositeDef DoubleBarrelShotgun DisplayName]] "Double-Barrel"),
+					'DisplayNamePlural', T(178360690641, --[[ModItemInventoryItemCompositeDef DoubleBarrelShotgun DisplayNamePlural]] "Double-Barrels"),
 					'Description', T(649524596282, --[[ModItemInventoryItemCompositeDef DoubleBarrelShotgun Description]] 'Простое охотничье оружие. Модные боевые дробовики могут быть самозарядными или вообще стрелять очередями, но только эта дедовская двустволка способна выстреливать по два патрона за раз. Как сказал один великий серьезный человек "Из двух стволов стрелять в два раза веселее".'),
 					'AdditionalHint', T(982931592669, --[[ModItemInventoryItemCompositeDef DoubleBarrelShotgun AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Двустволка\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120>  Быстро стреляет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120>  Надежный"),
 					'LargeItem', 1,
@@ -27568,9 +27568,9 @@ return {
 					'RepairCost', 4,
 					'Reliability', 65,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/AUTO5.png",
-					'DisplayName', T(657462590283, --[[ModItemInventoryItemCompositeDef Auto5 DisplayName]] "Auto-5"),
-					'DisplayNamePlural', T(111620956796, --[[ModItemInventoryItemCompositeDef Auto5 DisplayNamePlural]] "Auto-5"),
-					'Description', T(632170676188, --[[ModItemInventoryItemCompositeDef Auto5 Description]] "Первый самозарядный дробовик массового производства в мире. Кто бы мог подумать, что он станет идеальным оружием для стычек в джунглях на короткой дистанции?"),
+					'DisplayName', T(740056065333, --[[ModItemInventoryItemCompositeDef Auto5 DisplayName]] "Auto-5"),
+					'DisplayNamePlural', T(710804607957, --[[ModItemInventoryItemCompositeDef Auto5 DisplayNamePlural]] "Auto-5s"),
+					'Description', T(248177034836, --[[ModItemInventoryItemCompositeDef Auto5 Description]] "First mass produced semi-automatic shotgun in the world. Turned out it was one hell of a good gun for jungle close-quarter firefights. "),
 					'AdditionalHint', T(577644402779, --[[ModItemInventoryItemCompositeDef Auto5 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дробовик \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неточный бой"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -27744,8 +27744,8 @@ return {
 					'RepairCost', 10,
 					'Reliability', 85,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/M41.png",
-					'DisplayName', T(517967410302, --[[ModItemInventoryItemCompositeDef M41Shotgun DisplayName]] "M1014"),
-					'DisplayNamePlural', T(696989087809, --[[ModItemInventoryItemCompositeDef M41Shotgun DisplayNamePlural]] "M1014"),
+					'DisplayName', T(194836117430, --[[ModItemInventoryItemCompositeDef M41Shotgun DisplayName]] "M1014"),
+					'DisplayNamePlural', T(503116404323, --[[ModItemInventoryItemCompositeDef M41Shotgun DisplayNamePlural]] "M1014s"),
 					'Description', T(484141046789, --[[ModItemInventoryItemCompositeDef M41Shotgun Description]] 'Самозарядный газоотводный дробовик 12-го калибра.  Введение в систему газового двигателя было необходимо после критической неудачи системы "инерционной автоматики", дробовика М3, которая просто напросто не работала на патронах со слабой навеской.'),
 					'AdditionalHint', T(616071689879, --[[ModItemInventoryItemCompositeDef M41Shotgun AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дробовик \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный бой \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный"),
 					'LargeItem', 1,
@@ -27921,9 +27921,9 @@ return {
 					'RepairCost', 20,
 					'Reliability', 75,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/AA12.png",
-					'DisplayName', T(656100217021, --[[ModItemInventoryItemCompositeDef AA12 DisplayName]] "AA12"),
-					'DisplayNamePlural', T(574054810515, --[[ModItemInventoryItemCompositeDef AA12 DisplayNamePlural]] "AA12"),
-					'Description', T(690637430437, --[[ModItemInventoryItemCompositeDef AA12 Description]] "АА12 со своим свободным затвором больше похож на пистолет-пулемет, чем на классический дробовик. Ценится за способность вести продолжительную стрельбу благодаря довольно низкой для 12-го калибра отдаче."),
+					'DisplayName', T(845020864842, --[[ModItemInventoryItemCompositeDef AA12 DisplayName]] "AA12"),
+					'DisplayNamePlural', T(738216506503, --[[ModItemInventoryItemCompositeDef AA12 DisplayNamePlural]] "AA12s"),
+					'Description', T(553979887379, --[[ModItemInventoryItemCompositeDef AA12 Description]] "Firing from an open bolt, the AA12 has more similarity with some machine guns than with other shotguns. Boasting reduced recoil for a 12-gauge round, it is made for sustained fire."),
 					'AdditionalHint', T(533009920041, --[[ModItemInventoryItemCompositeDef AA12 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дробовик \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Большой магазин \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный бой \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Быстро стреляет"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -28029,8 +28029,8 @@ return {
 					'Caliber', "JAZZ_Caliber_MortarShell",
 					'Entity', "Weapon_M224",
 					'Icon', "UI/Icons/Weapons/M224",
-					'DisplayName', T(479364677300, --[[ModItemInventoryItemCompositeDef MortarInventoryItem DisplayName]] "Миномет"),
-					'DisplayNamePlural', T(420609454415, --[[ModItemInventoryItemCompositeDef MortarInventoryItem DisplayNamePlural]] "Минометы"),
+					'DisplayName', T(896988248349, --[[ModItemInventoryItemCompositeDef MortarInventoryItem DisplayName]] "Mortar"),
+					'DisplayNamePlural', T(771584366854, --[[ModItemInventoryItemCompositeDef MortarInventoryItem DisplayNamePlural]] "Mortars"),
 					'Description', T(812627409916, --[[ModItemInventoryItemCompositeDef MortarInventoryItem Description]] "60 мм ротный пехотный миномет производства США. Хорошо, когда он на твоей стороне. И плохо, когда не на твоей."),
 					'AdditionalHint', T(532362056983, --[[ModItemInventoryItemCompositeDef MortarInventoryItem AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> После небольшой задержки обстреливает указанную область вдалеке\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения)"),
 					'LargeItem', 1,
@@ -28066,8 +28066,8 @@ return {
 					'MaxMishapRange', 6,
 					'Caliber', "JAZZ_Caliber_40mmGrenade",
 					'Icon', "UI/Icons/Upgrades/m16_grenade_launcher",
-					'DisplayName', T(527844630900, --[[ModItemInventoryItemCompositeDef UnderslungGrenadeLauncher DisplayName]] "Подствол. гранатомет"),
-					'DisplayNamePlural', T(163578052946, --[[ModItemInventoryItemCompositeDef UnderslungGrenadeLauncher DisplayNamePlural]] "Подствол. гранатометы"),
+					'DisplayName', T(204366158384, --[[ModItemInventoryItemCompositeDef UnderslungGrenadeLauncher DisplayName]] "Underslung Launcher"),
+					'DisplayNamePlural', T(668594626073, --[[ModItemInventoryItemCompositeDef UnderslungGrenadeLauncher DisplayNamePlural]] "Underslung Launchers"),
 					'LargeItem', 1,
 					'UnitStat', "Explosives",
 					'Valuable', 1,
@@ -28186,8 +28186,8 @@ return {
 					'ComponentSlots', {},
 					'Entity', "Weapon_MilkorMGL",
 					'Icon', "UI/Icons/Weapons/weapon_MGL",
-					'DisplayName', T(652294375588, --[[ModItemInventoryItemCompositeDef MGL DisplayName]] "MGL"),
-					'DisplayNamePlural', T(111923304462, --[[ModItemInventoryItemCompositeDef MGL DisplayNamePlural]] "MGL"),
+					'DisplayName', T(778467383249, --[[ModItemInventoryItemCompositeDef MGL DisplayName]] "MGL"),
+					'DisplayNamePlural', T(429606722516, --[[ModItemInventoryItemCompositeDef MGL DisplayNamePlural]] "MGLs"),
 					'Description', T(872562014733, --[[ModItemInventoryItemCompositeDef MGL Description]] "Шестизарядный револьверный гранатомет производства ЮАР. Максимально широко распространен по всему миру. Максимально широко распространяет других людей."),
 					'AdditionalHint', T(876312872911, --[[ModItemInventoryItemCompositeDef MGL AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 40-мм гранатомет. \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Шанс промаха увеличивается с расстоянием. \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тяжелый - ограничивает свободу движений"),
 					'LargeItem', 1,
@@ -28228,8 +28228,8 @@ return {
 					'AttackAP', 8000,
 					'Entity', "Weapon_RPG7_Copy",
 					'Icon', "UI/Icons/Weapons/RPG-7",
-					'DisplayName', T(127122189693, --[[ModItemInventoryItemCompositeDef RPG7 DisplayName]] "РПГ-7"),
-					'DisplayNamePlural', T(302681108532, --[[ModItemInventoryItemCompositeDef RPG7 DisplayNamePlural]] "РПГ-7"),
+					'DisplayName', T(117851406940, --[[ModItemInventoryItemCompositeDef RPG7 DisplayName]] "RPG-7"),
+					'DisplayNamePlural', T(336619600237, --[[ModItemInventoryItemCompositeDef RPG7 DisplayNamePlural]] "RPGs-7"),
 					'Description', T(707348010242, --[[ModItemInventoryItemCompositeDef RPG7 Description]] 'Ручной противотанковый гранатомет. Часто, когда говорят "гранатомет", или "РПГ", имеют в виду именно РПГ-7. Снаряжается надкалиберными 40 мм гранатами, с широкой номенклатурой используемых типов боеприпасов. '),
 					'AdditionalHint', T(151639464453, --[[ModItemInventoryItemCompositeDef RPG7 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Реактивный гранатомет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Шанс промаха увеличивается с расстоянием \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Опасная зона за спиной стрелка \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тяжелый - ограничивает свободу движений"),
 					'LargeItem', 1,
@@ -28394,8 +28394,8 @@ return {
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/PipeBomb",
 					'ItemType', "Grenade",
-					'DisplayName', T(584678244008, --[[ModItemInventoryItemCompositeDef PipeBomb DisplayName]] "Самодельная бомба"),
-					'DisplayNamePlural', T(604631052255, --[[ModItemInventoryItemCompositeDef PipeBomb DisplayNamePlural]] "Самодельные бомбы"),
+					'DisplayName', T(642346688869, --[[ModItemInventoryItemCompositeDef PipeBomb DisplayName]] "Pipe Bomb"),
+					'DisplayNamePlural', T(494920208733, --[[ModItemInventoryItemCompositeDef PipeBomb DisplayNamePlural]] "Pipe Bombs"),
 					'AdditionalHint', T(738342557339, --[[ModItemInventoryItemCompositeDef PipeBomb AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается через 1 ход (или 5 секунд не в бою)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает кровотечение"),
 					'UnitStat', "Explosives",
 					'Cost', 100,
@@ -28432,8 +28432,8 @@ return {
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/ConcussiveGrenade",
 					'ItemType', "Grenade",
-					'DisplayName', T(143721324108, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade DisplayName]] "Светошумовая граната"),
-					'DisplayNamePlural', T(464879576172, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade DisplayNamePlural]] "Светошумовые гранаты"),
+					'DisplayName', T(893674710968, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade DisplayName]] "Flashbang"),
+					'DisplayNamePlural', T(904754847701, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade DisplayNamePlural]] "Flashbangs"),
 					'AdditionalHint', T(339045500192, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ослепляет цель\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Отменяет ответный огонь и уменьшает бонусы от укрытия в центре взрыва\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Подавляет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумное"),
 					'UnitStat', "Explosives",
 					'Cost', 400,
@@ -28481,8 +28481,8 @@ return {
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/FlareStick",
 					'ItemType', "Throwables",
-					'DisplayName', T(581195033607, --[[ModItemInventoryItemCompositeDef FlareStick DisplayName]] "Сигнальная шашка"),
-					'DisplayNamePlural', T(431696879632, --[[ModItemInventoryItemCompositeDef FlareStick DisplayNamePlural]] "Сигнальные шашки"),
+					'DisplayName', T(772865751298, --[[ModItemInventoryItemCompositeDef FlareStick DisplayName]] "Flare Stick"),
+					'DisplayNamePlural', T(104150569773, --[[ModItemInventoryItemCompositeDef FlareStick DisplayNamePlural]] "Flare Sticks"),
 					'AdditionalHint', T(560759240469, --[[ModItemInventoryItemCompositeDef FlareStick AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Освещает большую территорию\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бесшумное"),
 					'UnitStat', "Explosives",
 					'Cost', 200,
@@ -28520,8 +28520,8 @@ return {
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/GlowStick",
 					'ItemType', "Throwables",
-					'DisplayName', T(162602825192, --[[ModItemInventoryItemCompositeDef GlowStick DisplayName]] "ХИС"),
-					'DisplayNamePlural', T(734469665900, --[[ModItemInventoryItemCompositeDef GlowStick DisplayNamePlural]] "ХИС"),
+					'DisplayName', T(517885924891, --[[ModItemInventoryItemCompositeDef GlowStick DisplayName]] "Glow Stick"),
+					'DisplayNamePlural', T(808212665145, --[[ModItemInventoryItemCompositeDef GlowStick DisplayNamePlural]] "Glow Sticks"),
 					'AdditionalHint', T(589698013135, --[[ModItemInventoryItemCompositeDef GlowStick AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Освещает небольшую область"),
 					'UnitStat', "Explosives",
 					'Cost', 100,
@@ -28561,8 +28561,8 @@ return {
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/Molotov",
 					'ItemType', "GrenadeFire",
-					'DisplayName', T(859195155732, --[[ModItemInventoryItemCompositeDef Molotov DisplayName]] "Коктейль Молотова"),
-					'DisplayNamePlural', T(112407563606, --[[ModItemInventoryItemCompositeDef Molotov DisplayNamePlural]] "Коктейли Молотова"),
+					'DisplayName', T(665252694789, --[[ModItemInventoryItemCompositeDef Molotov DisplayName]] "Molotov Cocktail"),
+					'DisplayNamePlural', T(110648742476, --[[ModItemInventoryItemCompositeDef Molotov DisplayNamePlural]] "Molotov Cocktails"),
 					'AdditionalHint', T(992551372753, --[[ModItemInventoryItemCompositeDef Molotov AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Воспламеняет место попадания и вызывает у целей <color EmStyle>горение</color>\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи"),
 					'UnitStat', "Explosives",
 					'Cost', 150,
@@ -28600,8 +28600,8 @@ return {
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/SmokeGrenade",
 					'ItemType', "Throwables",
-					'DisplayName', T(529889768393, --[[ModItemInventoryItemCompositeDef SmokeGrenade DisplayName]] "Дымовая граната"),
-					'DisplayNamePlural', T(564232117531, --[[ModItemInventoryItemCompositeDef SmokeGrenade DisplayNamePlural]] "Дымовые гранаты"),
+					'DisplayName', T(672761107292, --[[ModItemInventoryItemCompositeDef SmokeGrenade DisplayName]] "Smoke Grenade"),
+					'DisplayNamePlural', T(783603654199, --[[ModItemInventoryItemCompositeDef SmokeGrenade DisplayNamePlural]] "Smoke Grenades"),
 					'AdditionalHint', T(206588175055, --[[ModItemInventoryItemCompositeDef SmokeGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна"),
 					'UnitStat', "Explosives",
 					'Cost', 300,
@@ -28639,8 +28639,8 @@ return {
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/TearGasGrenade",
 					'ItemType', "GrenadeGas",
-					'DisplayName', T(501199180962, --[[ModItemInventoryItemCompositeDef TearGasGrenade DisplayName]] "Граната со слез. газом"),
-					'DisplayNamePlural', T(729653216317, --[[ModItemInventoryItemCompositeDef TearGasGrenade DisplayNamePlural]] "Гранаты со слез. газом"),
+					'DisplayName', T(591872286262, --[[ModItemInventoryItemCompositeDef TearGasGrenade DisplayName]] "Tear Gas Grenade"),
+					'DisplayNamePlural', T(942175585447, --[[ModItemInventoryItemCompositeDef TearGasGrenade DisplayNamePlural]] "Tear Gas Grenades"),
 					'AdditionalHint', T(212902513488, --[[ModItemInventoryItemCompositeDef TearGasGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>слепоту</color>\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна"),
 					'UnitStat', "Explosives",
 					'Cost', 400,
@@ -28678,8 +28678,8 @@ return {
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/ToxicGrenade",
 					'ItemType', "GrenadeGas",
-					'DisplayName', T(373806901180, --[[ModItemInventoryItemCompositeDef ToxicGasGrenade DisplayName]] "Граната с горч. газом"),
-					'DisplayNamePlural', T(118473499314, --[[ModItemInventoryItemCompositeDef ToxicGasGrenade DisplayNamePlural]] "Гранаты с горч. газом"),
+					'DisplayName', T(964873952747, --[[ModItemInventoryItemCompositeDef ToxicGasGrenade DisplayName]] "Mustard Gas Grenade"),
+					'DisplayNamePlural', T(321416953052, --[[ModItemInventoryItemCompositeDef ToxicGasGrenade DisplayNamePlural]] "Mustard Gas Grenades"),
 					'AdditionalHint', T(810838610815, --[[ModItemInventoryItemCompositeDef ToxicGasGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>удушье</color>\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь незначительные попадания\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна"),
 					'UnitStat', "Explosives",
 					'Tier', 3,
@@ -28714,8 +28714,8 @@ return {
 					'Reliability', 100,
 					'Icon', "UI/Icons/Weapons/ShapedCharge",
 					'ItemType', "Grenade",
-					'DisplayName', T(282820475304, --[[ModItemInventoryItemCompositeDef ShapedCharge DisplayName]] "Кумулятивный заряд"),
-					'DisplayNamePlural', T(749789148569, --[[ModItemInventoryItemCompositeDef ShapedCharge DisplayNamePlural]] "Кумулятивные заряды"),
+					'DisplayName', T(380012367478, --[[ModItemInventoryItemCompositeDef ShapedCharge DisplayName]] "Shaped Charge"),
+					'DisplayNamePlural', T(622567247516, --[[ModItemInventoryItemCompositeDef ShapedCharge DisplayNamePlural]] "Shaped Charges"),
 					'AdditionalHint', T(622419236578, --[[ModItemInventoryItemCompositeDef ShapedCharge AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Наносит урон по сектору\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи при использовании всеми, кроме Барри"),
 					'UnitStat', "Explosives",
 					'Cost', 1500,
@@ -28755,8 +28755,8 @@ return {
 					'Reliability', 100,
 					'Icon', "UI/Icons/Items/proximity_c4",
 					'ItemType', "Grenade",
-					'DisplayName', T(864420169145, --[[ModItemInventoryItemCompositeDef ProximityC4 DisplayName]] "Бесконтактная С4"),
-					'DisplayNamePlural', T(821178275283, --[[ModItemInventoryItemCompositeDef ProximityC4 DisplayNamePlural]] "Бесконтактная С4"),
+					'DisplayName', T(580256972785, --[[ModItemInventoryItemCompositeDef ProximityC4 DisplayName]] "Proximity C4"),
+					'DisplayNamePlural', T(612553480509, --[[ModItemInventoryItemCompositeDef ProximityC4 DisplayNamePlural]] "Proximity C4"),
 					'AdditionalHint', T(493304565684, --[[ModItemInventoryItemCompositeDef ProximityC4 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается, когда враг подходит к заряду на близкое расстояние"),
 					'UnitStat', "Explosives",
 					'Cost', 800,
@@ -28787,8 +28787,8 @@ return {
 					'Reliability', 100,
 					'Icon', "UI/Icons/Items/proximity_petn",
 					'ItemType', "Grenade",
-					'DisplayName', T(917845283476, --[[ModItemInventoryItemCompositeDef ProximityPETN DisplayName]] "Бесконтактная ТЭН"),
-					'DisplayNamePlural', T(360505828879, --[[ModItemInventoryItemCompositeDef ProximityPETN DisplayNamePlural]] "Бесконтактная ТЭН"),
+					'DisplayName', T(474525805854, --[[ModItemInventoryItemCompositeDef ProximityPETN DisplayName]] "Proximity PETN"),
+					'DisplayNamePlural', T(381493659820, --[[ModItemInventoryItemCompositeDef ProximityPETN DisplayNamePlural]] "Proximity PETN"),
 					'AdditionalHint', T(372377025892, --[[ModItemInventoryItemCompositeDef ProximityPETN AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается, когда враг подходит к заряду на близкое расстояние"),
 					'UnitStat', "Explosives",
 					'Cost', 800,
@@ -28818,8 +28818,8 @@ return {
 					'Reliability', 100,
 					'Icon', "UI/Icons/Items/proximity_tnt",
 					'ItemType', "Grenade",
-					'DisplayName', T(199359640589, --[[ModItemInventoryItemCompositeDef ProximityTNT DisplayName]] "Бесконтактный динамит"),
-					'DisplayNamePlural', T(534936218786, --[[ModItemInventoryItemCompositeDef ProximityTNT DisplayNamePlural]] "Бесконтактный динамит"),
+					'DisplayName', T(352304274009, --[[ModItemInventoryItemCompositeDef ProximityTNT DisplayName]] "Proximity TNT"),
+					'DisplayNamePlural', T(750897797734, --[[ModItemInventoryItemCompositeDef ProximityTNT DisplayNamePlural]] "Proximity TNT"),
 					'AdditionalHint', T(380950777375, --[[ModItemInventoryItemCompositeDef ProximityTNT AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается, когда враг подходит к заряду на близкое расстояние\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи"),
 					'UnitStat', "Explosives",
 					'Cost', 600,
@@ -28848,8 +28848,8 @@ return {
 					'Reliability', 100,
 					'Icon', "UI/Icons/Items/remote_c4",
 					'ItemType', "Grenade",
-					'DisplayName', T(973362572578, --[[ModItemInventoryItemCompositeDef RemoteC4 DisplayName]] "Дистанционная С4"),
-					'DisplayNamePlural', T(272349746839, --[[ModItemInventoryItemCompositeDef RemoteC4 DisplayNamePlural]] "Дистанционная С4"),
+					'DisplayName', T(989026888388, --[[ModItemInventoryItemCompositeDef RemoteC4 DisplayName]] "Remote C4"),
+					'DisplayNamePlural', T(373405573691, --[[ModItemInventoryItemCompositeDef RemoteC4 DisplayNamePlural]] "Remote C4"),
 					'AdditionalHint', T(470045243392, --[[ModItemInventoryItemCompositeDef RemoteC4 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Заряд подрывается с помощью пульта ДУ"),
 					'UnitStat', "Explosives",
 					'Cost', 800,
@@ -28880,8 +28880,8 @@ return {
 					'Reliability', 100,
 					'Icon', "UI/Icons/Items/remote_petn",
 					'ItemType', "Grenade",
-					'DisplayName', T(765803616147, --[[ModItemInventoryItemCompositeDef RemotePETN DisplayName]] "Дистанционная ТЭН"),
-					'DisplayNamePlural', T(617943142815, --[[ModItemInventoryItemCompositeDef RemotePETN DisplayNamePlural]] "Дистанционная ТЭН"),
+					'DisplayName', T(979387484103, --[[ModItemInventoryItemCompositeDef RemotePETN DisplayName]] "Remote PETN"),
+					'DisplayNamePlural', T(707430118983, --[[ModItemInventoryItemCompositeDef RemotePETN DisplayNamePlural]] "Remote PETN"),
 					'AdditionalHint', T(886952365002, --[[ModItemInventoryItemCompositeDef RemotePETN AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Заряд подрывается с помощью пульта ДУ"),
 					'UnitStat', "Explosives",
 					'Cost', 800,
@@ -28912,8 +28912,8 @@ return {
 					'Reliability', 100,
 					'Icon', "UI/Icons/Items/remote_tnt",
 					'ItemType', "Grenade",
-					'DisplayName', T(916239488271, --[[ModItemInventoryItemCompositeDef RemoteTNT DisplayName]] "Дистанционный динамит"),
-					'DisplayNamePlural', T(180231082583, --[[ModItemInventoryItemCompositeDef RemoteTNT DisplayNamePlural]] "Дистанционный динамит"),
+					'DisplayName', T(814310721881, --[[ModItemInventoryItemCompositeDef RemoteTNT DisplayName]] "Remote TNT"),
+					'DisplayNamePlural', T(850557903938, --[[ModItemInventoryItemCompositeDef RemoteTNT DisplayNamePlural]] "Remote TNT"),
 					'AdditionalHint', T(436102360957, --[[ModItemInventoryItemCompositeDef RemoteTNT AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Заряд подрывается с помощью пульта ДУ\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи"),
 					'UnitStat', "Explosives",
 					'Cost', 600,
@@ -28942,8 +28942,8 @@ return {
 					'Reliability', 100,
 					'Icon', "UI/Icons/Items/timed_c4",
 					'ItemType', "Grenade",
-					'DisplayName', T(979574564839, --[[ModItemInventoryItemCompositeDef TimedC4 DisplayName]] "C4 с таймером"),
-					'DisplayNamePlural', T(678721366861, --[[ModItemInventoryItemCompositeDef TimedC4 DisplayNamePlural]] "C4 с таймером"),
+					'DisplayName', T(354297860792, --[[ModItemInventoryItemCompositeDef TimedC4 DisplayName]] "Timed C4"),
+					'DisplayNamePlural', T(154016635958, --[[ModItemInventoryItemCompositeDef TimedC4 DisplayNamePlural]] "Timed C4"),
 					'AdditionalHint', T(565078880187, --[[ModItemInventoryItemCompositeDef TimedC4 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается через 1 ход (или 5 секунд не в бою)"),
 					'UnitStat', "Explosives",
 					'Cost', 800,
@@ -28974,8 +28974,8 @@ return {
 					'Reliability', 100,
 					'Icon', "UI/Icons/Items/timed_petn",
 					'ItemType', "Grenade",
-					'DisplayName', T(599762689963, --[[ModItemInventoryItemCompositeDef TimedPETN DisplayName]] "ТЭН с таймером"),
-					'DisplayNamePlural', T(396320092919, --[[ModItemInventoryItemCompositeDef TimedPETN DisplayNamePlural]] "ТЭН с таймером"),
+					'DisplayName', T(743182716778, --[[ModItemInventoryItemCompositeDef TimedPETN DisplayName]] "Timed PETN"),
+					'DisplayNamePlural', T(920764985514, --[[ModItemInventoryItemCompositeDef TimedPETN DisplayNamePlural]] "Timed PETN"),
 					'AdditionalHint', T(365135300124, --[[ModItemInventoryItemCompositeDef TimedPETN AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается через 1 ход (или 5 секунд не в бою)"),
 					'UnitStat', "Explosives",
 					'Cost', 800,
@@ -29005,8 +29005,8 @@ return {
 					'Reliability', 100,
 					'Icon', "UI/Icons/Items/timed_tnt",
 					'ItemType', "Grenade",
-					'DisplayName', T(133799436971, --[[ModItemInventoryItemCompositeDef TimedTNT DisplayName]] "Динамит с таймером"),
-					'DisplayNamePlural', T(789269707920, --[[ModItemInventoryItemCompositeDef TimedTNT DisplayNamePlural]] "Динамит с таймером"),
+					'DisplayName', T(172654624200, --[[ModItemInventoryItemCompositeDef TimedTNT DisplayName]] "Timed TNT"),
+					'DisplayNamePlural', T(452046444287, --[[ModItemInventoryItemCompositeDef TimedTNT DisplayNamePlural]] "Timed TNT"),
 					'AdditionalHint', T(714276674088, --[[ModItemInventoryItemCompositeDef TimedTNT AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается через 1 ход (или 5 секунд не в бою)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи"),
 					'UnitStat', "Explosives",
 					'Cost', 600,
@@ -29033,8 +29033,8 @@ return {
 					'object_class', "ExplosiveSubstanceSquadBagItem",
 					'Repairable', false,
 					'Icon', "UI/Icons/Items/black_powder",
-					'DisplayName', T(253597811751, --[[ModItemInventoryItemCompositeDef BlackPowder DisplayName]] "Порох"),
-					'DisplayNamePlural', T(321461865710, --[[ModItemInventoryItemCompositeDef BlackPowder DisplayNamePlural]] "Порох"),
+					'DisplayName', T(435852653453, --[[ModItemInventoryItemCompositeDef BlackPowder DisplayName]] "Gunpowder"),
+					'DisplayNamePlural', T(459792256454, --[[ModItemInventoryItemCompositeDef BlackPowder DisplayNamePlural]] "Gunpowder"),
 					'AdditionalHint', T(565959045541, --[[ModItemInventoryItemCompositeDef BlackPowder AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется в ходе операций «Изготовление боеприпасов» и «Изготовление взрывчатки»"),
 					'UnitStat', "Explosives",
 					'Cost', 200,
@@ -29066,8 +29066,8 @@ return {
 					'object_class', "ExplosiveSubstance",
 					'Repairable', false,
 					'Icon', "UI/Icons/Items/c4",
-					'DisplayName', T(214451267804, --[[ModItemInventoryItemCompositeDef C4 DisplayName]] "C4"),
-					'DisplayNamePlural', T(219223135799, --[[ModItemInventoryItemCompositeDef C4 DisplayNamePlural]] "C4"),
+					'DisplayName', T(884288319918, --[[ModItemInventoryItemCompositeDef C4 DisplayName]] "C4"),
+					'DisplayNamePlural', T(187809961564, --[[ModItemInventoryItemCompositeDef C4 DisplayNamePlural]] "C4"),
 					'AdditionalHint', T(837276282763, --[[ModItemInventoryItemCompositeDef C4 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Добавьте взрыватель, чтобы создать взрывчатку"),
 					'UnitStat', "Explosives",
 					'Cost', 200,
@@ -29093,9 +29093,9 @@ return {
 					'object_class', "ExplosiveSubstance",
 					'Repairable', false,
 					'Icon', "UI/Icons/Items/petn",
-					'DisplayName', T(869513898364, --[[ModItemInventoryItemCompositeDef PETN DisplayName]] "ТЭН"),
-					'DisplayNamePlural', T(186780614723, --[[ModItemInventoryItemCompositeDef PETN DisplayNamePlural]] "ТЭНы"),
-					'Description', T(269747748923, --[[ModItemInventoryItemCompositeDef PETN Description]] "Мощная пластическая взрывчатка, используется как в подрывных зарядах, так и в военных целях."),
+					'DisplayName', T(840692162750, --[[ModItemInventoryItemCompositeDef PETN DisplayName]] "PETN"),
+					'DisplayNamePlural', T(916343361606, --[[ModItemInventoryItemCompositeDef PETN DisplayNamePlural]] "PETN"),
+					'Description', T(186864246396, --[[ModItemInventoryItemCompositeDef PETN Description]] "A powerful plastic explosive substance used in major demolition and military high-grade explosives."),
 					'AdditionalHint', T(948394818720, --[[ModItemInventoryItemCompositeDef PETN AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Добавьте взрыватель, чтобы создать взрывчатку"),
 					'UnitStat', "Explosives",
 					'Cost', 200,
@@ -29121,9 +29121,9 @@ return {
 					'object_class', "ExplosiveSubstance",
 					'Repairable', false,
 					'Icon', "UI/Icons/Items/tnt",
-					'DisplayName', T(676828264605, --[[ModItemInventoryItemCompositeDef TNT DisplayName]] "Динамит"),
-					'DisplayNamePlural', T(415965676052, --[[ModItemInventoryItemCompositeDef TNT DisplayNamePlural]] "Динамит"),
-					'Description', T(789251709752, --[[ModItemInventoryItemCompositeDef TNT Description]] "Излюбленная палочка-выручалочка американских железнодорожных рабочих и усатых злодеев. С такой шашкой любой выйдет в дамки."),
+					'DisplayName', T(617720797508, --[[ModItemInventoryItemCompositeDef TNT DisplayName]] "TNT"),
+					'DisplayNamePlural', T(598565600988, --[[ModItemInventoryItemCompositeDef TNT DisplayNamePlural]] "TNT"),
+					'Description', T(822428525866, --[[ModItemInventoryItemCompositeDef TNT Description]] "The go-to tool of railroad builders and Wild West moustache villains, the TNT is easy to find, use and abuse."),
 					'AdditionalHint', T(634006657340, --[[ModItemInventoryItemCompositeDef TNT AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Добавьте взрыватель, чтобы создать взрывчатку\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенный радиус взрыва"),
 					'UnitStat', "Explosives",
 					'Cost', 100,
@@ -29157,7 +29157,7 @@ return {
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 20,
-					DisplayName = T(930860252302, --[[ModItemWeaponComponent ImprovisedSuppressor_Anaconda DisplayName]] "Самодельный глушитель"),
+					DisplayName = T(202034549728, --[[ModItemWeaponComponent ImprovisedSuppressor_Anaconda DisplayName]] "Improvised Suppressor"),
 					Icon = "UI/Icons/Upgrades/oil_filter_suppressor_small",
 					ModificationDifficulty = 0,
 					ModificationEffects = {
@@ -29190,7 +29190,7 @@ return {
 						}),
 					},
 					Cost = 10,
-					DisplayName = T(965393594226, --[[ModItemWeaponComponent Suppressor_Anaconda DisplayName]] "Глушитель"),
+					DisplayName = T(655142837568, --[[ModItemWeaponComponent Suppressor_Anaconda DisplayName]] "Suppressor"),
 					Icon = "UI/Icons/Upgrades/beretta_silencer",
 					ModificationDifficulty = 0,
 					ModificationEffects = {
@@ -29224,7 +29224,7 @@ return {
 						}),
 					},
 					Cost = 15,
-					DisplayName = T(973696140242, --[[ModItemWeaponComponent Auto5_Basic_LMag DisplayName]] "Магазин повышенной емкости"),
+					DisplayName = T(727049730564, --[[ModItemWeaponComponent Auto5_Basic_LMag DisplayName]] "High Cap"),
 					Icon = "UI/Icons/Upgrades/auto5_mag_large",
 					ModificationDifficulty = 0,
 					ModificationEffects = {
@@ -29260,7 +29260,7 @@ return {
 							'Type', "FineSteelPipe",
 						}),
 					},
-					DisplayName = T(490962133757, --[[ModItemWeaponComponent Auto5_Basic_NMag DisplayName]] "Базовая конфигурация"),
+					DisplayName = T(379214506928, --[[ModItemWeaponComponent Auto5_Basic_NMag DisplayName]] "Basic Configuration"),
 					Icon = "UI/Icons/Upgrades/default_barrel",
 					ModificationDifficulty = 0,
 					Slot = "Barrel",
@@ -29288,7 +29288,7 @@ return {
 						}),
 					},
 					Cost = 50,
-					DisplayName = T(777122397533, --[[ModItemWeaponComponent Auto5_Long_LMag DisplayName]] "Длинный ствол, магазин повышенной емкости"),
+					DisplayName = T(911126905798, --[[ModItemWeaponComponent Auto5_Long_LMag DisplayName]] "Long Barrel High Cap"),
 					Icon = "UI/Icons/Upgrades/galil_barrel_long",
 					ModificationDifficulty = 0,
 					ModificationEffects = {
@@ -29332,7 +29332,7 @@ return {
 						}),
 					},
 					Cost = 30,
-					DisplayName = T(713820159425, --[[ModItemWeaponComponent Auto5_Long_NMag DisplayName]] "Длинный ствол"),
+					DisplayName = T(853684866664, --[[ModItemWeaponComponent Auto5_Long_NMag DisplayName]] "Long Barrel"),
 					Icon = "UI/Icons/Upgrades/galil_barrel_long",
 					ModificationDifficulty = 0,
 					ModificationEffects = {
@@ -29419,7 +29419,7 @@ return {
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 60,
-					DisplayName = T(741554908727, --[[ModItemWeaponComponent Bipod_Galil DisplayName]] "Сошки"),
+					DisplayName = T(526799550467, --[[ModItemWeaponComponent Bipod_Galil DisplayName]] "Bipod"),
 					Icon = "UI/Icons/Upgrades/ak47_bipod",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
@@ -29458,7 +29458,7 @@ return {
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 2,
-					DisplayName = T(448855501123, --[[ModItemWeaponComponent Galil_Brake_Default DisplayName]] "Стандартный дульный тормоз"),
+					DisplayName = T(182882130897, --[[ModItemWeaponComponent Galil_Brake_Default DisplayName]] "Default Muzzle Brake"),
 					Icon = "UI/Icons/Upgrades/default_muzzle",
 					ModificationDifficulty = -25,
 					ModificationEffects = {
@@ -29490,7 +29490,7 @@ return {
 						}),
 					},
 					Cost = 15,
-					DisplayName = T(307080816395, --[[ModItemWeaponComponent BarrelShortShotgun_Benelli DisplayName]] "Укороченный ствол"),
+					DisplayName = T(563380121914, --[[ModItemWeaponComponent BarrelShortShotgun_Benelli DisplayName]] "Shortened Barrel"),
 					Icon = "UI/Icons/Upgrades/m1014_barrel_short",
 					ModificationDifficulty = 0,
 					ModificationEffects = {
@@ -29547,7 +29547,7 @@ return {
 						}),
 					},
 					Cost = 20,
-					DisplayName = T(884519053701, --[[ModItemWeaponComponent GrenadeLauncher_M14 DisplayName]] "Гранатомет"),
+					DisplayName = T(184493021676, --[[ModItemWeaponComponent GrenadeLauncher_M14 DisplayName]] "Grenade Launcher"),
 					EnableWeapon = "UnderslungGrenadeLauncher",
 					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
 					ModificationDifficulty = 20,
@@ -29574,7 +29574,7 @@ return {
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 2,
-					DisplayName = T(138849241769, --[[ModItemWeaponComponent M14_Default_Muzzle DisplayName]] "Стандартный дульный тормоз"),
+					DisplayName = T(674027417660, --[[ModItemWeaponComponent M14_Default_Muzzle DisplayName]] "Default Muzzle"),
 					Icon = "UI/Icons/Upgrades/default_muzzle",
 					ModificationDifficulty = -25,
 					Slot = "Muzzle",
@@ -29597,7 +29597,7 @@ return {
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 20,
-					DisplayName = T(371717809811, --[[ModItemWeaponComponent TacGrip_M14 DisplayName]] "Тактическая рукоять"),
+					DisplayName = T(431264939689, --[[ModItemWeaponComponent TacGrip_M14 DisplayName]] "Tactical Grip"),
 					Icon = "UI/Icons/Upgrades/tactical_grip",
 					ModificationDifficulty = 10,
 					ModificationEffects = {
@@ -29648,7 +29648,7 @@ return {
 						}),
 					},
 					Cost = 20,
-					DisplayName = T(353453980562, --[[ModItemWeaponComponent GrenadeLauncher_M16A1 DisplayName]] "Гранатомет"),
+					DisplayName = T(492750328780, --[[ModItemWeaponComponent GrenadeLauncher_M16A1 DisplayName]] "Grenade Launcher"),
 					EnableWeapon = "UnderslungGrenadeLauncher",
 					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
 					ModificationDifficulty = 20,
@@ -29675,7 +29675,7 @@ return {
 						}),
 					},
 					Cost = 20,
-					DisplayName = T(131117303795, --[[ModItemWeaponComponent GrenadeLauncher_Commando DisplayName]] "Гранатомет"),
+					DisplayName = T(860554671882, --[[ModItemWeaponComponent GrenadeLauncher_Commando DisplayName]] "Grenade Launcher"),
 					EnableWeapon = "UnderslungGrenadeLauncher",
 					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
 					ModificationDifficulty = 20,
@@ -29696,7 +29696,7 @@ return {
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 40,
-					DisplayName = T(901668338798, --[[ModItemWeaponComponent VerticalGrip_Commando DisplayName]] "Вертикальная рукоять"),
+					DisplayName = T(291801976985, --[[ModItemWeaponComponent VerticalGrip_Commando DisplayName]] "Vertical Grip"),
 					Icon = "UI/Icons/Upgrades/mp5_grip",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
@@ -29728,7 +29728,7 @@ return {
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 60,
-					DisplayName = T(927932879369, --[[ModItemWeaponComponent Bipod_MG42 DisplayName]] "Сошки"),
+					DisplayName = T(651206879953, --[[ModItemWeaponComponent Bipod_MG42 DisplayName]] "Bipod"),
 					Icon = "UI/Icons/Upgrades/HK21_bipod",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
@@ -29761,7 +29761,7 @@ return {
 						}),
 					},
 					Cost = 20,
-					DisplayName = T(259145747311, --[[ModItemWeaponComponent FlashlightDot_PSG_M1 DisplayName]] "Тактическое устройство"),
+					DisplayName = T(875731475724, --[[ModItemWeaponComponent FlashlightDot_PSG_M1 DisplayName]] "Tactical Device"),
 					EnableAimFX = true,
 					Icon = "UI/Icons/Upgrades/side_laserlight",
 					ModificationDifficulty = 10,
@@ -29789,7 +29789,7 @@ return {
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 10,
-					DisplayName = T(927589690402, --[[ModItemWeaponComponent Flashlight_PSG_M1 DisplayName]] "Фонарик"),
+					DisplayName = T(963698128407, --[[ModItemWeaponComponent Flashlight_PSG_M1 DisplayName]] "Flashlight"),
 					EnableAimFX = true,
 					Icon = "UI/Icons/Upgrades/side_light",
 					ModificationDifficulty = -25,
@@ -29815,7 +29815,7 @@ return {
 						}),
 					},
 					Cost = 10,
-					DisplayName = T(340684013855, --[[ModItemWeaponComponent LaserDot_PSG_M1 DisplayName]] "Коллиматор"),
+					DisplayName = T(841174949604, --[[ModItemWeaponComponent LaserDot_PSG_M1 DisplayName]] "Red Dot"),
 					EnableAimFX = true,
 					Icon = "UI/Icons/Upgrades/side_laser",
 					ModificationDifficulty = 10,
@@ -29835,7 +29835,7 @@ return {
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 2,
-					DisplayName = T(370420821601, --[[ModItemWeaponComponent PSG_DefaultScope DisplayName]] "Стандартный оптический прицел"),
+					DisplayName = T(788505505812, --[[ModItemWeaponComponent PSG_DefaultScope DisplayName]] "Default Scope"),
 					Icon = "UI/Icons/Upgrades/custom_PSG1_scope",
 					ModificationDifficulty = -25,
 					ModificationEffects = {
@@ -29868,7 +29868,7 @@ return {
 						}),
 					},
 					Cost = 10,
-					DisplayName = T(250446123772, --[[ModItemWeaponComponent UVDot_PSG_M1 DisplayName]] "УФ-прицел"),
+					DisplayName = T(524417680473, --[[ModItemWeaponComponent UVDot_PSG_M1 DisplayName]] "UV Dot"),
 					EnableAimFX = true,
 					Icon = "UI/Icons/Upgrades/side_laser",
 					ModificationDifficulty = 10,
@@ -29888,7 +29888,7 @@ return {
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 40,
-					DisplayName = T(333007715821, --[[ModItemWeaponComponent RPK74_VerticalGrip DisplayName]] "Вертикальная рукоять"),
+					DisplayName = T(236370866133, --[[ModItemWeaponComponent RPK74_VerticalGrip DisplayName]] "Vertical Grip"),
 					Icon = "UI/Icons/Upgrades/ak47_vertical_grip",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
@@ -29920,7 +29920,7 @@ return {
 					id = "RPK74_VerticalGrip",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(517856044777, --[[ModItemWeaponComponent RPK74_Hanguard_Basic DisplayName]] "Стандартное цевье"),
+					DisplayName = T(198897613871, --[[ModItemWeaponComponent RPK74_Hanguard_Basic DisplayName]] "Default Handguard"),
 					Icon = "UI/Icons/Upgrades/AK47_default_handguard",
 					ModificationDifficulty = -25,
 					Slot = "Handguard",
@@ -29943,7 +29943,7 @@ return {
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 60,
-					DisplayName = T(704598602326, --[[ModItemWeaponComponent Bipod_Under DisplayName]] "Сошки"),
+					DisplayName = T(511013919584, --[[ModItemWeaponComponent Bipod_Under DisplayName]] "Bipod"),
 					Icon = "UI/Icons/Upgrades/ak47_bipod",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
@@ -32090,7 +32090,7 @@ return {
 				}),
 				PlaceObj('ModItemWeaponComponentEffect', {
 					CaliberChange = "JAZZ_Caliber_50AE",
-					Description = T(191386174067, --[[ModItemWeaponComponentEffect ChangeCaliberToBMG Description]] "Changes caliber to .50 BMG"),
+					Description = T(668492662398, --[[ModItemWeaponComponentEffect ChangeCaliberToBMG Description]] "Changes caliber to .50 BMG"),
 					group = "Caliber",
 					id = "ChangeCaliberToBMG",
 				}),
@@ -32112,12 +32112,12 @@ return {
 					id = "MinorAccuracyBonus",
 				}),
 				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(957597806032, --[[ModItemWeaponComponentEffect EnableBurst Description]] "Разблокирует режим <em>Стрельбы очередями</em> "),
+					Description = T(890000000001324, --[[ModItemWeaponComponentEffect EnableBurst Description]] "WIP — механика сигнатурного перка в разработке."),
 					group = "Default",
 					id = "EnableBurst",
 				}),
 				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(957597806032, --[[ModItemWeaponComponentEffect LaserMark Description]] "Лазер: +<LaserCTH> шанс попасть на дистанции до  <LaserDistance> клеток"),
+					Description = T(890000000001323, --[[ModItemWeaponComponentEffect LaserMark Description]] "WIP — механика сигнатурного перка в разработке."),
 					Parameters = {
 						PlaceObj('PresetParamNumber', {
 							'Name', "LaserCTH",
@@ -32139,7 +32139,7 @@ return {
 			}, {
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 60,
-					DisplayName = T(634030765490, --[[ModItemWeaponComponent Bipod DisplayName]] "Сошки"),
+					DisplayName = T(879800342345, --[[ModItemWeaponComponent Bipod DisplayName]] "Bipod"),
 					Icon = "UI/Icons/Upgrades/ak47_bipod",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
@@ -32406,7 +32406,7 @@ return {
 							"Grenadelauncher",
 						},
 						Cost = 15,
-						DisplayName = T(906506173391, --[[ModItemWeaponComponent BarrelShort_AUG DisplayName]] "Короткий ствол"),
+						DisplayName = T(928480071483, --[[ModItemWeaponComponent BarrelShort_AUG DisplayName]] "Short Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_short",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -32451,7 +32451,7 @@ return {
 							"Grenadelauncher",
 						},
 						Cost = 35,
-						DisplayName = T(142200651625, --[[ModItemWeaponComponent BarrelShortImproved_AUG DisplayName]] "Короткий нарезной ствол с возрастающим шагом"),
+						DisplayName = T(289320256080, --[[ModItemWeaponComponent BarrelShortImproved_AUG DisplayName]] "Short Gain-Twist Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_short",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -32493,7 +32493,7 @@ return {
 							}),
 						},
 						Cost = 70,
-						DisplayName = T(799358463039, --[[ModItemWeaponComponent BarrelLong_AUG DisplayName]] "Удлиненный ствол с сошками"),
+						DisplayName = T(809839566679, --[[ModItemWeaponComponent BarrelLong_AUG DisplayName]] "Extended Barrel with Bipod"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -32537,7 +32537,7 @@ return {
 							}),
 						},
 						Cost = 100,
-						DisplayName = T(548320248220, --[[ModItemWeaponComponent BarrelLongImproved_AUG DisplayName]] "Удлиненный нарезной ствол с возрастающим шагом (с сошками)"),
+						DisplayName = T(816796570762, --[[ModItemWeaponComponent BarrelLongImproved_AUG DisplayName]] "Extended Gain-Twist Barrel with Bipod"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -32587,7 +32587,7 @@ return {
 							}),
 						},
 						Cost = 30,
-						DisplayName = T(670232968618, --[[ModItemWeaponComponent BarrelHeavy DisplayName]] "Утяжеленный ствол"),
+						DisplayName = T(691552369727, --[[ModItemWeaponComponent BarrelHeavy DisplayName]] "Heavy Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -32692,7 +32692,7 @@ return {
 							}),
 						},
 						Cost = 75,
-						DisplayName = T(187320859996, --[[ModItemWeaponComponent BarrelLong DisplayName]] "Удлиненный ствол"),
+						DisplayName = T(798912434710, --[[ModItemWeaponComponent BarrelLong DisplayName]] "Extended Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -32879,7 +32879,7 @@ return {
 							}),
 						},
 						Cost = 100,
-						DisplayName = T(768164828061, --[[ModItemWeaponComponent BarrelLongImproved DisplayName]] "Удлиненный нарезной ствол с возрастающим шагом"),
+						DisplayName = T(852176633290, --[[ModItemWeaponComponent BarrelLongImproved DisplayName]] "Extended Gain-Twist Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -33006,7 +33006,7 @@ return {
 							}),
 						},
 						Cost = 75,
-						DisplayName = T(239780483854, --[[ModItemWeaponComponent BarrelLongShotgun DisplayName]] "Удлиненный ствол"),
+						DisplayName = T(807789574452, --[[ModItemWeaponComponent BarrelLongShotgun DisplayName]] "Extended Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -33049,7 +33049,7 @@ return {
 							}),
 						},
 						Cost = 50,
-						DisplayName = T(163468868308, --[[ModItemWeaponComponent BarrelNormal DisplayName]] "Стандартный ствол"),
+						DisplayName = T(620585440891, --[[ModItemWeaponComponent BarrelNormal DisplayName]] "Default Barrel"),
 						Icon = "UI/Icons/Upgrades/default_barrel",
 						ModificationDifficulty = 10,
 						Slot = "Barrel",
@@ -33300,7 +33300,7 @@ return {
 							}),
 						},
 						Cost = 50,
-						DisplayName = T(163468868308, --[[ModItemWeaponComponent BarrelNormal_Sil DisplayName]] "Ствол под глушитель"),
+						DisplayName = T(890000000000085, --[[ModItemWeaponComponent BarrelNormal_Sil DisplayName]] "Ствол под глушитель"),
 						Icon = "UI/Icons/Upgrades/default_barrel",
 						ModificationDifficulty = 10,
 						Slot = "Barrel",
@@ -33326,7 +33326,7 @@ return {
 							"Muzzle",
 						},
 						Cost = 50,
-						DisplayName = T(163468868308, --[[ModItemWeaponComponent BarrelNormal_noSil DisplayName]] "Стандартный ствол"),
+						DisplayName = T(890000000000084, --[[ModItemWeaponComponent BarrelNormal_noSil DisplayName]] "Стандартный ствол"),
 						Icon = "UI/Icons/Upgrades/default_barrel",
 						ModificationDifficulty = 10,
 						Slot = "Barrel",
@@ -33349,7 +33349,7 @@ return {
 							}),
 						},
 						Cost = 15,
-						DisplayName = T(671026254629, --[[ModItemWeaponComponent BarrelNormalImproved DisplayName]] "Нарезной ствол с возрастающим шагом"),
+						DisplayName = T(790308378417, --[[ModItemWeaponComponent BarrelNormalImproved DisplayName]] "Gain-Twist Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -33481,7 +33481,7 @@ return {
 							"Side2",
 						},
 						Cost = 15,
-						DisplayName = T(646798210647, --[[ModItemWeaponComponent BarrelShort DisplayName]] "Короткий ствол"),
+						DisplayName = T(245194528164, --[[ModItemWeaponComponent BarrelShort DisplayName]] "Short Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_short",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -33857,7 +33857,7 @@ return {
 							}),
 						},
 						Cost = 35,
-						DisplayName = T(490773992103, --[[ModItemWeaponComponent BarrelShortImproved DisplayName]] "Короткий нарезной ствол с возрастающим шагом"),
+						DisplayName = T(837372947792, --[[ModItemWeaponComponent BarrelShortImproved DisplayName]] "Short Gain-Twist Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_short",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -33976,7 +33976,7 @@ return {
 							}),
 						},
 						Cost = 15,
-						DisplayName = T(912567871400, --[[ModItemWeaponComponent BarrelShortShotgun DisplayName]] "Укороченный ствол"),
+						DisplayName = T(849289197281, --[[ModItemWeaponComponent BarrelShortShotgun DisplayName]] "Shortened Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_short",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -34039,7 +34039,7 @@ return {
 							}),
 						},
 						Cost = 20,
-						DisplayName = T(136797190497, --[[ModItemWeaponComponent Barrel50BMG_DesertEagle DisplayName]] "Ствол под калибр .50 BMG"),
+						DisplayName = T(785427900359, --[[ModItemWeaponComponent Barrel50BMG_DesertEagle DisplayName]] ".50 BMG Barrel"),
 						Icon = "UI/Icons/Upgrades/default_barrel",
 						ModificationDifficulty = -25,
 						ModificationEffects = {
@@ -34138,7 +34138,7 @@ return {
 				}, {
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 50,
-						DisplayName = T(479016903337, --[[ModItemWeaponComponent StockFolded DisplayName]] "Складывающийся приклад"),
+						DisplayName = T(540055379780, --[[ModItemWeaponComponent StockFolded DisplayName]] "Folded Stock"),
 						Icon = "UI/Icons/Upgrades/MP5_stock_light",
 						ModificationDifficulty = 20,
 						ModificationEffects = {
@@ -34176,7 +34176,7 @@ return {
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 40,
-						DisplayName = T(311689404716, --[[ModItemWeaponComponent StockHeavy DisplayName]] "Тяжелый приклад"),
+						DisplayName = T(970106018912, --[[ModItemWeaponComponent StockHeavy DisplayName]] "Heavy Stock"),
 						Icon = "UI/Icons/Upgrades/ak74_stock_wooden",
 						ModificationDifficulty = 20,
 						ModificationEffects = {
@@ -34319,7 +34319,7 @@ return {
 							}),
 						},
 						Cost = 150,
-						DisplayName = T(603481041540, --[[ModItemWeaponComponent StockLight DisplayName]] "Легкий приклад"),
+						DisplayName = T(850663002598, --[[ModItemWeaponComponent StockLight DisplayName]] "Light Stock"),
 						Icon = "UI/Icons/Upgrades/MP5_stock_light",
 						ModificationDifficulty = 20,
 						ModificationEffects = {
@@ -35058,7 +35058,7 @@ return {
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 15,
-						DisplayName = T(133454711677, --[[ModItemWeaponComponent StockNo DisplayName]] "Нет приклада"),
+						DisplayName = T(775383830180, --[[ModItemWeaponComponent StockNo DisplayName]] "No Stock"),
 						Icon = "UI/Icons/Upgrades/default_stock",
 						ModificationDifficulty = 20,
 						ModificationEffects = {
@@ -35139,7 +35139,7 @@ return {
 							}),
 						},
 						Cost = 50,
-						DisplayName = T(630087015498, --[[ModItemWeaponComponent StockNormal DisplayName]] "Стандартный приклад"),
+						DisplayName = T(631032173069, --[[ModItemWeaponComponent StockNormal DisplayName]] "Default Stock"),
 						Icon = "UI/Icons/Upgrades/default_stock",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -35396,7 +35396,7 @@ return {
 							}),
 						},
 						Cost = 40,
-						DisplayName = T(295745971879, --[[ModItemWeaponComponent VerticalGrip DisplayName]] "Вертикальная рукоять"),
+						DisplayName = T(972598655631, --[[ModItemWeaponComponent VerticalGrip DisplayName]] "Vertical Grip"),
 						Icon = "UI/Icons/Upgrades/mp5_grip",
 						ModificationDifficulty = 20,
 						ModificationEffects = {
@@ -35536,7 +35536,7 @@ return {
 							}),
 						},
 						Cost = 40,
-						DisplayName = T(613111379089, --[[ModItemWeaponComponent VerticalGrip_M14 DisplayName]] "Вертикальная рукоять"),
+						DisplayName = T(390401707495, --[[ModItemWeaponComponent VerticalGrip_M14 DisplayName]] "Vertical Grip"),
 						Icon = "UI/Icons/Upgrades/mp5_grip",
 						ModificationDifficulty = 20,
 						ModificationEffects = {
@@ -35589,7 +35589,7 @@ return {
 							"Grenadelauncher",
 						},
 						Cost = 50,
-						DisplayName = T(615886585591, --[[ModItemWeaponComponent AK47_VerticalGrip DisplayName]] "Вертикальная рукоять"),
+						DisplayName = T(792047899659, --[[ModItemWeaponComponent AK47_VerticalGrip DisplayName]] "Vertical Grip"),
 						Icon = "UI/Icons/Upgrades/ak47_vertical_grip",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -35620,7 +35620,7 @@ return {
 							}),
 						},
 						Cost = 40,
-						DisplayName = T(484260334583, --[[ModItemWeaponComponent AKSU_VerticalGrip DisplayName]] "Вертикальная рукоять"),
+						DisplayName = T(237740217316, --[[ModItemWeaponComponent AKSU_VerticalGrip DisplayName]] "Vertical Grip"),
 						Icon = "UI/Icons/Upgrades/ak47_vertical_grip",
 						ModificationDifficulty = 20,
 						ModificationEffects = {
@@ -35653,7 +35653,7 @@ return {
 							}),
 						},
 						Cost = 40,
-						DisplayName = T(932806387495, --[[ModItemWeaponComponent VerticalGrip_M16 DisplayName]] "Вертикальная рукоять"),
+						DisplayName = T(211149642866, --[[ModItemWeaponComponent VerticalGrip_M16 DisplayName]] "Vertical Grip"),
 						Icon = "UI/Icons/Upgrades/mp5_grip",
 						ModificationDifficulty = 20,
 						ModificationEffects = {
@@ -35692,7 +35692,7 @@ return {
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 20,
-						DisplayName = T(759151732813, --[[ModItemWeaponComponent TacGrip DisplayName]] "Тактическая рукоять"),
+						DisplayName = T(676118610148, --[[ModItemWeaponComponent TacGrip DisplayName]] "Tactical Grip"),
 						Icon = "UI/Icons/Upgrades/tactical_grip",
 						ModificationDifficulty = 10,
 						ModificationEffects = {
@@ -35772,7 +35772,7 @@ return {
 						id = "TacGrip",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
-						DisplayName = T(207111073834, --[[ModItemWeaponComponent SigErgoHandGrip DisplayName]] "Эргономичная рукоять для Sig"),
+						DisplayName = T(890000000000153, --[[ModItemWeaponComponent SigErgoHandGrip DisplayName]] "Эргономичная рукоять для Sig"),
 						ModificationEffects = {
 							"GripHandlingIncrease",
 						},
@@ -35794,7 +35794,7 @@ return {
 						id = "SigErgoHandGrip",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
-						DisplayName = T(747694755276, --[[ModItemWeaponComponent SigDefHandGuard DisplayName]] "Заводская рукоять Sig"),
+						DisplayName = T(890000000000990, --[[ModItemWeaponComponent SigDefHandGuard DisplayName]] "Заводская рукоять Sig"),
 						Slot = "Handguard",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -35813,7 +35813,7 @@ return {
 						id = "SigDefHandGuard",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
-						DisplayName = T(207111073834, --[[ModItemWeaponComponent Handgrip_Ergo DisplayName]] "Эргономичная рукоять"),
+						DisplayName = T(890000000000152, --[[ModItemWeaponComponent Handgrip_Ergo DisplayName]] "Эргономичная рукоять"),
 						ModificationEffects = {
 							"GripHandlingIncrease",
 						},
@@ -35843,7 +35843,7 @@ return {
 						id = "Handgrip_Ergo",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
-						DisplayName = T(747694755276, --[[ModItemWeaponComponent Handgrip_Default DisplayName]] "Стандартная рукоять"),
+						DisplayName = T(890000000000991, --[[ModItemWeaponComponent Handgrip_Default DisplayName]] "Стандартная рукоять"),
 						Slot = "Handgrip",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -36135,7 +36135,7 @@ return {
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 25,
-						DisplayName = T(766565091112, --[[ModItemWeaponComponent Flashlight DisplayName]] "Фонарик"),
+						DisplayName = T(500461275609, --[[ModItemWeaponComponent Flashlight DisplayName]] "Flashlight"),
 						EnableAimFX = true,
 						Icon = "UI/Icons/Upgrades/side_light",
 						ModificationDifficulty = -25,
@@ -36484,7 +36484,7 @@ return {
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 10,
-						DisplayName = T(672602925592, --[[ModItemWeaponComponent Flashlight_Anaconda DisplayName]] "Фонарик"),
+						DisplayName = T(968729166053, --[[ModItemWeaponComponent Flashlight_Anaconda DisplayName]] "Flashlight"),
 						EnableAimFX = true,
 						Icon = "UI/Icons/Upgrades/side_light",
 						ModificationDifficulty = -25,
@@ -36511,7 +36511,7 @@ return {
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 10,
-						DisplayName = T(776595966661, --[[ModItemWeaponComponent Flashlight_aa12 DisplayName]] "Фонарик"),
+						DisplayName = T(676630739482, --[[ModItemWeaponComponent Flashlight_aa12 DisplayName]] "Flashlight"),
 						EnableAimFX = true,
 						Icon = "UI/Icons/Upgrades/side_light",
 						ModificationDifficulty = -25,
@@ -36543,7 +36543,7 @@ return {
 							}),
 						},
 						Cost = 50,
-						DisplayName = T(355088784451, --[[ModItemWeaponComponent FlashlightDot DisplayName]] "Тактическое устройство"),
+						DisplayName = T(599763053072, --[[ModItemWeaponComponent FlashlightDot DisplayName]] "Tactical Device"),
 						EnableAimFX = true,
 						Icon = "UI/Icons/Upgrades/side_laserlight",
 						ModificationDifficulty = 10,
@@ -36810,7 +36810,7 @@ return {
 							}),
 						},
 						Cost = 20,
-						DisplayName = T(631576241500, --[[ModItemWeaponComponent FlashlightDot_aa12 DisplayName]] "Тактическое устройство"),
+						DisplayName = T(638946230736, --[[ModItemWeaponComponent FlashlightDot_aa12 DisplayName]] "Tactical Device"),
 						EnableAimFX = true,
 						Icon = "UI/Icons/Upgrades/side_laserlight",
 						ModificationDifficulty = 10,
@@ -36871,7 +36871,7 @@ return {
 							}),
 						},
 						Cost = 20,
-						DisplayName = T(395964607753, --[[ModItemWeaponComponent FlashlightDot_Anaconda DisplayName]] "Тактическое устройство"),
+						DisplayName = T(646651177477, --[[ModItemWeaponComponent FlashlightDot_Anaconda DisplayName]] "Tactical Device"),
 						EnableAimFX = true,
 						Icon = "UI/Icons/Upgrades/side_laserlight",
 						ModificationDifficulty = 10,
@@ -37219,7 +37219,7 @@ return {
 							}),
 						},
 						Cost = 10,
-						DisplayName = T(802449920546, --[[ModItemWeaponComponent LaserDot_Anaconda DisplayName]] "Коллиматор"),
+						DisplayName = T(405161321170, --[[ModItemWeaponComponent LaserDot_Anaconda DisplayName]] "Red Dot"),
 						EnableAimFX = true,
 						Icon = "UI/Icons/Upgrades/side_laser",
 						ModificationDifficulty = 10,
@@ -37282,7 +37282,7 @@ return {
 							}),
 						},
 						Cost = 10,
-						DisplayName = T(619086135038, --[[ModItemWeaponComponent LaserDot_aa12 DisplayName]] "Коллиматор"),
+						DisplayName = T(427210220552, --[[ModItemWeaponComponent LaserDot_aa12 DisplayName]] "Red Dot"),
 						EnableAimFX = true,
 						Icon = "UI/Icons/Upgrades/side_laser",
 						ModificationDifficulty = 10,
@@ -37344,7 +37344,7 @@ return {
 							}),
 						},
 						Cost = 10,
-						DisplayName = T(315115591756, --[[ModItemWeaponComponent UVDot DisplayName]] "УФ-прицел"),
+						DisplayName = T(199081852714, --[[ModItemWeaponComponent UVDot DisplayName]] "UV Dot"),
 						EnableAimFX = true,
 						Icon = "UI/Icons/Upgrades/side_laser",
 						ModificationDifficulty = 10,
@@ -37587,7 +37587,7 @@ return {
 							}),
 						},
 						Cost = 10,
-						DisplayName = T(289472205391, --[[ModItemWeaponComponent UVDot_Anaconda DisplayName]] "УФ-прицел"),
+						DisplayName = T(506806756026, --[[ModItemWeaponComponent UVDot_Anaconda DisplayName]] "UV Dot"),
 						EnableAimFX = true,
 						Icon = "UI/Icons/Upgrades/side_laser",
 						ModificationDifficulty = 10,
@@ -37620,7 +37620,7 @@ return {
 							}),
 						},
 						Cost = 10,
-						DisplayName = T(115657169826, --[[ModItemWeaponComponent UVDot_aa12 DisplayName]] "УФ-прицел"),
+						DisplayName = T(739522307124, --[[ModItemWeaponComponent UVDot_aa12 DisplayName]] "UV Dot"),
 						EnableAimFX = true,
 						Icon = "UI/Icons/Upgrades/side_laser",
 						ModificationDifficulty = 10,
@@ -37684,7 +37684,7 @@ return {
 								'Type', "Parts",
 							}),
 						},
-						DisplayName = T(772821031426, --[[ModItemWeaponComponent Compensator DisplayName]] "Компенсатор"),
+						DisplayName = T(676342825645, --[[ModItemWeaponComponent Compensator DisplayName]] "Compensator"),
 						Icon = "UI/Icons/Upgrades/m16_muzzle",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -38165,7 +38165,7 @@ return {
 							}),
 						},
 						Cost = 10,
-						DisplayName = T(701275994916, --[[ModItemWeaponComponent Suppressor DisplayName]] "Глушитель"),
+						DisplayName = T(383554280885, --[[ModItemWeaponComponent Suppressor DisplayName]] "Suppressor"),
 						Icon = "UI/Icons/Upgrades/beretta_silencer",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -38752,7 +38752,7 @@ return {
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 20,
-						DisplayName = T(626152921326, --[[ModItemWeaponComponent DuckbillChoke DisplayName]] "Плоский чок"),
+						DisplayName = T(149583333542, --[[ModItemWeaponComponent DuckbillChoke DisplayName]] "Duckbill Choke"),
 						Icon = "UI/Icons/Upgrades/duckbill_choke",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -38778,7 +38778,7 @@ return {
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 20,
-						DisplayName = T(680208853018, --[[ModItemWeaponComponent FullChoke DisplayName]] "Полный чок"),
+						DisplayName = T(534679598165, --[[ModItemWeaponComponent FullChoke DisplayName]] "Full Choke"),
 						Icon = "UI/Icons/Upgrades/shotgun_full_choke",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -38803,7 +38803,7 @@ return {
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 15,
-						DisplayName = T(815367743743, --[[ModItemWeaponComponent MuzzleBooster DisplayName]] "Усилитель отдачи"),
+						DisplayName = T(148253085245, --[[ModItemWeaponComponent MuzzleBooster DisplayName]] "Recoil Booster"),
 						Icon = "UI/Icons/Upgrades/booster_NATO",
 						ModificationDifficulty = 0,
 						Slot = "Muzzle",
@@ -38900,7 +38900,7 @@ return {
 				}, {
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 10,
-						DisplayName = T(307944654902, --[[ModItemWeaponComponent DefaultIronsight_AR15 DisplayName]] "Стандартный механический прицел"),
+						DisplayName = T(885847711847, --[[ModItemWeaponComponent DefaultIronsight_AR15 DisplayName]] "Default Iron Sight"),
 						Icon = "UI/Icons/Upgrades/ironsights",
 						ModificationDifficulty = 0,
 						Slot = "Scope",
@@ -38953,7 +38953,7 @@ return {
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 10,
-						DisplayName = T(840707247407, --[[ModItemWeaponComponent ImprovedIronsight_AR15 DisplayName]] "Ул. механический прицел"),
+						DisplayName = T(697020602032, --[[ModItemWeaponComponent ImprovedIronsight_AR15 DisplayName]] "Improved Iron Sight"),
 						Icon = "UI/Icons/Upgrades/ironsights_hands",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -38980,7 +38980,7 @@ return {
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 10,
-						DisplayName = T(849327292480, --[[ModItemWeaponComponent BaseIronsight_Anaconda DisplayName]] "Базовый механический прицел"),
+						DisplayName = T(649826621253, --[[ModItemWeaponComponent BaseIronsight_Anaconda DisplayName]] "Basic Iron Sight"),
 						Icon = "UI/Icons/Upgrades/ironsights",
 						ModificationDifficulty = 0,
 						Parameters = {
@@ -39010,7 +39010,7 @@ return {
 							}),
 						},
 						Cost = 20,
-						DisplayName = T(434823290751, --[[ModItemWeaponComponent LROptics_DragunovDefault DisplayName]] "Снайперский прицел с 5-кратным увеличением"),
+						DisplayName = T(434214967295, --[[ModItemWeaponComponent LROptics_DragunovDefault DisplayName]] "Sniper Scope x5"),
 						Icon = "UI/Icons/Upgrades/custom_Dragunov_scope",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -39079,7 +39079,7 @@ return {
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 2,
-						DisplayName = T(894276707460, --[[ModItemWeaponComponent GewehrDefaultSight DisplayName]] "Стандартный механический прицел"),
+						DisplayName = T(767525470073, --[[ModItemWeaponComponent GewehrDefaultSight DisplayName]] "Default Iron Sight"),
 						Icon = "UI/Icons/Upgrades/ironsights",
 						ModificationDifficulty = -25,
 						Slot = "Scope",
@@ -39102,7 +39102,7 @@ return {
 							}),
 						},
 						Cost = 35,
-						DisplayName = T(870526084440, --[[ModItemWeaponComponent ReflexSightAdvanced_Glock DisplayName]] "Улучшенный зеркальный прицел"),
+						DisplayName = T(813847402970, --[[ModItemWeaponComponent ReflexSightAdvanced_Glock DisplayName]] "Advanced Reflex Sight"),
 						Icon = "UI/Icons/Upgrades/compact_reflex_sight",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -39136,7 +39136,7 @@ return {
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 10,
-						DisplayName = T(601674193651, --[[ModItemWeaponComponent ImprovedIronsight DisplayName]] "Ул. механический прицел"),
+						DisplayName = T(849796022465, --[[ModItemWeaponComponent ImprovedIronsight DisplayName]] "Improved Iron Sight"),
 						Icon = "UI/Icons/Upgrades/ironsights",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -41181,7 +41181,7 @@ return {
 								}),
 							},
 							Cost = 100,
-							DisplayName = T(238205429247, --[[ModItemWeaponComponent LROpticsAdvanced DisplayName]] "Снайперский прицел с 10-кратным увеличением"),
+							DisplayName = T(756379377948, --[[ModItemWeaponComponent LROpticsAdvanced DisplayName]] "Sniper Scope x10"),
 							Icon = "UI/Icons/Upgrades/sniper_scope_x10",
 							ModificationDifficulty = 10,
 							ModificationEffects = {
@@ -45921,7 +45921,7 @@ return {
 								}),
 							},
 							Cost = 50,
-							DisplayName = T(540881009334, --[[ModItemWeaponComponent JAZZ_Scope_ZRAK DisplayName]] "Оптический Прицел ZRAK (4x)"),
+							DisplayName = T(890000000000685, --[[ModItemWeaponComponent JAZZ_Scope_ZRAK DisplayName]] "Оптический Прицел ZRAK (4x)"),
 							Icon = "Mod/e6L4ECj/WeaponComponents/Optics/ZRAK.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
@@ -45983,7 +45983,7 @@ return {
 								}),
 							},
 							Cost = 50,
-							DisplayName = T(540881009334, --[[ModItemWeaponComponent JAZZ_Scope_ZF4 DisplayName]] "Оптический Прицел ZF4 (4x)"),
+							DisplayName = T(890000000000684, --[[ModItemWeaponComponent JAZZ_Scope_ZF4 DisplayName]] "Оптический Прицел ZF4 (4x)"),
 							Icon = "Mod/e6L4ECj/WeaponComponents/Optics/ZF4.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
@@ -46781,7 +46781,7 @@ return {
 						"Under",
 					},
 					Cost = 20,
-					DisplayName = T(314740679579, --[[ModItemWeaponComponent GrenadeLauncher_AUG DisplayName]] "Гранатомет"),
+					DisplayName = T(257319151734, --[[ModItemWeaponComponent GrenadeLauncher_AUG DisplayName]] "Grenade Launcher"),
 					EnableWeapon = "UnderslungGrenadeLauncher",
 					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
 					ModificationDifficulty = 20,
@@ -46805,7 +46805,7 @@ return {
 						"Grenadelauncher",
 					},
 					Cost = 40,
-					DisplayName = T(155340813032, --[[ModItemWeaponComponent VerticalGrip_AUG DisplayName]] "Вертикальная рукоять"),
+					DisplayName = T(442108004279, --[[ModItemWeaponComponent VerticalGrip_AUG DisplayName]] "Vertical Grip"),
 					Icon = "UI/Icons/Upgrades/mp5_grip",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
@@ -46912,7 +46912,7 @@ return {
 						}),
 					},
 					Cost = 50,
-					DisplayName = T(342462882081, --[[ModItemWeaponComponent GrenadeLauncher DisplayName]] "Гранатомет"),
+					DisplayName = T(797056139531, --[[ModItemWeaponComponent GrenadeLauncher DisplayName]] "Grenade Launcher"),
 					EnableWeapon = "UnderslungGrenadeLauncher",
 					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
 					ModificationDifficulty = 20,
@@ -47007,7 +47007,7 @@ return {
 						}),
 					},
 					Cost = 50,
-					DisplayName = T(465581571504, --[[ModItemWeaponComponent GrenadeLauncher_Galil DisplayName]] "Гранатомет"),
+					DisplayName = T(572893256229, --[[ModItemWeaponComponent GrenadeLauncher_Galil DisplayName]] "Grenade Launcher"),
 					EnableWeapon = "UnderslungGrenadeLauncher",
 					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
 					ModificationDifficulty = 20,
@@ -48551,7 +48551,7 @@ return {
 					}, {
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 15,
-							DisplayName = T(348327159805, --[[ModItemWeaponComponent MagQuick DisplayName]] "Быстросъемный магазин"),
+							DisplayName = T(330952772905, --[[ModItemWeaponComponent MagQuick DisplayName]] "Quick Mag"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_quick",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
@@ -50255,7 +50255,7 @@ return {
 						}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 25,
-						DisplayName = T(364320171979, --[[ModItemWeaponComponent MagLargeFine DisplayName]] "Эргономичный увеличенный магазин"),
+						DisplayName = T(100761815371, --[[ModItemWeaponComponent MagLargeFine DisplayName]] "Ergonomic Expanded Mag"),
 						Icon = "UI/Icons/Upgrades/galil_magazine_large",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -50406,7 +50406,7 @@ return {
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 15,
-						DisplayName = T(950788011232, --[[ModItemWeaponComponent MagNormalFine DisplayName]] "Улучшенный магазин"),
+						DisplayName = T(603956294727, --[[ModItemWeaponComponent MagNormalFine DisplayName]] "Fine-Tuned Mag"),
 						Icon = "UI/Icons/Upgrades/m16_magazine",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
@@ -51412,8 +51412,8 @@ return {
 					'object_class', "MiscItem",
 					'Repairable', false,
 					'Icon', "UI/Icons/Items/fine_steel_pipe",
-					'DisplayName', T(632152926674, --[[ModItemInventoryItemCompositeDef FineSteelPipe DisplayName]] "Стальная труба"),
-					'DisplayNamePlural', T(450608719314, --[[ModItemInventoryItemCompositeDef FineSteelPipe DisplayNamePlural]] "Стальные трубы"),
+					'DisplayName', T(290395795637, --[[ModItemInventoryItemCompositeDef FineSteelPipe DisplayName]] "Steel Pipe"),
+					'DisplayNamePlural', T(384360336628, --[[ModItemInventoryItemCompositeDef FineSteelPipe DisplayNamePlural]] "Steel Pipes"),
 					'AdditionalHint', T(906442723868, --[[ModItemInventoryItemCompositeDef FineSteelPipe AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется при создании улучшенных компонентов для оружия"),
 					'Cost', 2900,
 					'CanAppearInShop', true,
@@ -51428,8 +51428,8 @@ return {
 					'Id', "Meds",
 					'object_class', "ResourceItem",
 					'Icon', "UI/Icons/Items/medicine",
-					'DisplayName', T(658657633995, --[[ModItemInventoryItemCompositeDef Meds DisplayName]] "Медикаменты"),
-					'DisplayNamePlural', T(587879132073, --[[ModItemInventoryItemCompositeDef Meds DisplayNamePlural]] "Медикаменты"),
+					'DisplayName', T(182769023737, --[[ModItemInventoryItemCompositeDef Meds DisplayName]] "Meds"),
+					'DisplayNamePlural', T(186822751180, --[[ModItemInventoryItemCompositeDef Meds DisplayNamePlural]] "Meds"),
 					'AdditionalHint', T(834156151134, --[[ModItemInventoryItemCompositeDef Meds AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используются для операции «Лечение ран» в виде со спутника\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используются для восполнения аптечек и наборов первой помощи"),
 					'Cost', 100,
 					'CanAppearInShop', true,
@@ -51444,8 +51444,8 @@ return {
 					'Id', "Microchip",
 					'object_class', "MiscItem",
 					'Icon', "UI/Icons/Items/microchip",
-					'DisplayName', T(171241193345, --[[ModItemInventoryItemCompositeDef Microchip DisplayName]] "Чип"),
-					'DisplayNamePlural', T(722836023605, --[[ModItemInventoryItemCompositeDef Microchip DisplayNamePlural]] "Чипы"),
+					'DisplayName', T(176640963638, --[[ModItemInventoryItemCompositeDef Microchip DisplayName]] "Chip"),
+					'DisplayNamePlural', T(767899744987, --[[ModItemInventoryItemCompositeDef Microchip DisplayNamePlural]] "Chips"),
 					'AdditionalHint', T(859152016185, --[[ModItemInventoryItemCompositeDef Microchip AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется при создании улучшенных компонентов для оружия"),
 					'Valuable', 1,
 					'Cost', 4900,
@@ -51461,8 +51461,8 @@ return {
 					'Id', "OpticalLens",
 					'object_class', "MiscItem",
 					'Icon', "UI/Icons/Items/optical_lens",
-					'DisplayName', T(234015637580, --[[ModItemInventoryItemCompositeDef OpticalLens DisplayName]] "Линза"),
-					'DisplayNamePlural', T(869642347745, --[[ModItemInventoryItemCompositeDef OpticalLens DisplayNamePlural]] "Линзы"),
+					'DisplayName', T(894385255221, --[[ModItemInventoryItemCompositeDef OpticalLens DisplayName]] "Lens"),
+					'DisplayNamePlural', T(339259119696, --[[ModItemInventoryItemCompositeDef OpticalLens DisplayNamePlural]] "Lenses"),
 					'AdditionalHint', T(421377090006, --[[ModItemInventoryItemCompositeDef OpticalLens AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется при создании улучшенных компонентов для оружия"),
 					'Cost', 3400,
 					'CanAppearInShop', true,
@@ -51477,8 +51477,8 @@ return {
 					'Id', "Parts",
 					'object_class', "ResourceItem",
 					'Icon', "UI/Icons/Items/parts",
-					'DisplayName', T(446617998255, --[[ModItemInventoryItemCompositeDef Parts DisplayName]] "Запчасти"),
-					'DisplayNamePlural', T(527810279336, --[[ModItemInventoryItemCompositeDef Parts DisplayNamePlural]] "Запчасти"),
+					'DisplayName', T(807651722561, --[[ModItemInventoryItemCompositeDef Parts DisplayName]] "Parts"),
+					'DisplayNamePlural', T(476110713802, --[[ModItemInventoryItemCompositeDef Parts DisplayNamePlural]] "Parts"),
 					'AdditionalHint', T(683993796357, --[[ModItemInventoryItemCompositeDef Parts AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используются для модификации оружия\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используются для операции «Ремонт предметов» в виде со спутника."),
 					'Cost', 250,
 					'CanAppearInShop', true,
@@ -51515,8 +51515,8 @@ return {
 				'ScrapParts', 2,
 				'Reliability', 50,
 				'Icon', "UI/Icons/Weapons/Machete",
-				'DisplayName', T(661067714356, --[[ModItemInventoryItemCompositeDef Machete DisplayName]] "Мачете"),
-				'DisplayNamePlural', T(272155767129, --[[ModItemInventoryItemCompositeDef Machete DisplayNamePlural]] "Мачете"),
+				'DisplayName', T(898985781986, --[[ModItemInventoryItemCompositeDef Machete DisplayName]] "Machete"),
+				'DisplayNamePlural', T(315076086987, --[[ModItemInventoryItemCompositeDef Machete DisplayNamePlural]] "Machetes"),
 				'Description', T(530829517031, --[[ModItemInventoryItemCompositeDef Machete Description]] "Хозяйственный инструмент для прокладывания дороги через джунги, рубки тростника или бананов. Или людей."),
 				'AdditionalHint', T(785348621490, --[[ModItemInventoryItemCompositeDef Machete AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенный доп. урон от силы"),
 				'LargeItem', 1,
@@ -51579,8 +51579,8 @@ return {
 				'Reliability', 50,
 				'Icon', "UI/Icons/Weapons/Machete",
 				'SubIcon', "UI/Icons/Weapons/balanced",
-				'DisplayName', T(327581548846, --[[ModItemInventoryItemCompositeDef Machete_Balanced DisplayName]] "Сбалансирован. мачете"),
-				'DisplayNamePlural', T(485784855197, --[[ModItemInventoryItemCompositeDef Machete_Balanced DisplayNamePlural]] "Сбалансирован. мачете"),
+				'DisplayName', T(449180061981, --[[ModItemInventoryItemCompositeDef Machete_Balanced DisplayName]] "Balanced Machete"),
+				'DisplayNamePlural', T(806406909704, --[[ModItemInventoryItemCompositeDef Machete_Balanced DisplayNamePlural]] "Balanced Machetes"),
 				'Description', T(918310176002, --[[ModItemInventoryItemCompositeDef Machete_Balanced Description]] "Хозяйственный инструмент для прокладывания дороги через джунги, рубки тростника или бананов. Или людей."),
 				'AdditionalHint', T(647226077950, --[[ModItemInventoryItemCompositeDef Machete_Balanced AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенный доп. урон от силы \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сбалансированное: увеличенная эффективность прицеливания"),
 				'LargeItem', 1,
@@ -51615,8 +51615,8 @@ return {
 				'Reliability', 50,
 				'Icon', "UI/Icons/Weapons/Machete",
 				'SubIcon', "UI/Icons/Weapons/sharpened",
-				'DisplayName', T(308289656110, --[[ModItemInventoryItemCompositeDef Machete_Sharpened DisplayName]] "Заточенное мачете"),
-				'DisplayNamePlural', T(269336377425, --[[ModItemInventoryItemCompositeDef Machete_Sharpened DisplayNamePlural]] "Заточенные мачете"),
+				'DisplayName', T(304405191155, --[[ModItemInventoryItemCompositeDef Machete_Sharpened DisplayName]] "Sharpened Machete"),
+				'DisplayNamePlural', T(403544043005, --[[ModItemInventoryItemCompositeDef Machete_Sharpened DisplayNamePlural]] "Sharpened Machetes"),
 				'Description', T(559511805609, --[[ModItemInventoryItemCompositeDef Machete_Sharpened Description]] "Хозяйственный инструмент для прокладывания дороги через джунги, рубки тростника или бананов. Или людей."),
 				'AdditionalHint', T(433580785416, --[[ModItemInventoryItemCompositeDef Machete_Sharpened AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенный доп. урон от силы\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Заточенное: высокий урон"),
 				'LargeItem', 1,
@@ -51650,8 +51650,8 @@ return {
 				'Repairable', false,
 				'Reliability', 100,
 				'Icon', "UI/Icons/Weapons/Fist",
-				'DisplayName', T(157754371372, --[[ModItemInventoryItemCompositeDef Unarmed DisplayName]] "Без оружия"),
-				'DisplayNamePlural', T(841542978000, --[[ModItemInventoryItemCompositeDef Unarmed DisplayNamePlural]] "Без оружия"),
+				'DisplayName', T(738226804609, --[[ModItemInventoryItemCompositeDef Unarmed DisplayName]] "Unarmed"),
+				'DisplayNamePlural', T(262841837142, --[[ModItemInventoryItemCompositeDef Unarmed DisplayNamePlural]] "Unarmed"),
 				'AdditionalHint', T(694647651138, --[[ModItemInventoryItemCompositeDef Unarmed AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Небольшой урон\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенный эффект от силы\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Очень высокий шанс критического попадания\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Значительно увеличенная эффективность прицеливания"),
 				'UnitStat', "Dexterity",
 				'Cost', 0,
@@ -51677,9 +51677,9 @@ return {
 				'ScrapParts', 1,
 				'Reliability', 50,
 				'Icon', "UI/Icons/Weapons/Combat Knife Balanced",
-				'DisplayName', T(513530474047, --[[ModItemInventoryItemCompositeDef Knife DisplayName]] "Боевой нож"),
-				'DisplayNamePlural', T(892808638928, --[[ModItemInventoryItemCompositeDef Knife DisplayNamePlural]] "Боевые ножи"),
-				'Description', T(529156987983, --[[ModItemInventoryItemCompositeDef Knife Description]] "Что может быть лучше ближнего боя?"),
+				'DisplayName', T(778293748375, --[[ModItemInventoryItemCompositeDef Knife DisplayName]] "Combat Knife"),
+				'DisplayNamePlural', T(372653348721, --[[ModItemInventoryItemCompositeDef Knife DisplayNamePlural]] "Combat Knives"),
+				'Description', T(116487273014, --[[ModItemInventoryItemCompositeDef Knife Description]] "Nothing like being up close and personal."),
 				'AdditionalHint', T(867511028817, --[[ModItemInventoryItemCompositeDef Knife AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая цена атаки"),
 				'UnitStat', "Dexterity",
 				'Cost', 150,
@@ -51709,9 +51709,9 @@ return {
 				'Reliability', 50,
 				'Icon', "UI/Icons/Weapons/Combat Knife Balanced",
 				'SubIcon', "UI/Icons/Weapons/balanced",
-				'DisplayName', T(558360625902, --[[ModItemInventoryItemCompositeDef Knife_Balanced DisplayName]] "Сбалансированный нож"),
-				'DisplayNamePlural', T(288113994061, --[[ModItemInventoryItemCompositeDef Knife_Balanced DisplayNamePlural]] "Сбалансированные ножи"),
-				'Description', T(816876181011, --[[ModItemInventoryItemCompositeDef Knife_Balanced Description]] "Что может быть лучше ближнего боя?"),
+				'DisplayName', T(443240153343, --[[ModItemInventoryItemCompositeDef Knife_Balanced DisplayName]] "Balanced Knife"),
+				'DisplayNamePlural', T(645556627800, --[[ModItemInventoryItemCompositeDef Knife_Balanced DisplayNamePlural]] "Balanced Knives"),
+				'Description', T(710450771830, --[[ModItemInventoryItemCompositeDef Knife_Balanced Description]] "Nothing like being up close and personal."),
 				'AdditionalHint', T(337666095722, --[[ModItemInventoryItemCompositeDef Knife_Balanced AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сбалансированное: увеличенная дальность броска\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сбалансированное: увеличенная эффективность прицеливания\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая цена атаки"),
 				'UnitStat', "Dexterity",
 				'Cost', 1200,
@@ -51743,9 +51743,9 @@ return {
 				'Reliability', 50,
 				'Icon', "UI/Icons/Weapons/Combat Knife Balanced",
 				'SubIcon', "UI/Icons/Weapons/sharpened",
-				'DisplayName', T(515703351409, --[[ModItemInventoryItemCompositeDef Knife_Sharpened DisplayName]] "Заточенный нож"),
-				'DisplayNamePlural', T(589780714318, --[[ModItemInventoryItemCompositeDef Knife_Sharpened DisplayNamePlural]] "Заточенные ножи"),
-				'Description', T(995060755349, --[[ModItemInventoryItemCompositeDef Knife_Sharpened Description]] "Что может быть лучше ближнего боя?"),
+				'DisplayName', T(103890682555, --[[ModItemInventoryItemCompositeDef Knife_Sharpened DisplayName]] "Sharpened Knife"),
+				'DisplayNamePlural', T(827013008238, --[[ModItemInventoryItemCompositeDef Knife_Sharpened DisplayNamePlural]] "Sharpened Knives"),
+				'Description', T(532298495145, --[[ModItemInventoryItemCompositeDef Knife_Sharpened Description]] "Nothing like being up close and personal."),
 				'AdditionalHint', T(481262160237, --[[ModItemInventoryItemCompositeDef Knife_Sharpened AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Заточенное: высокий урон\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая цена атаки"),
 				'UnitStat', "Dexterity",
 				'Cost', 1200,
@@ -51774,8 +51774,8 @@ return {
 				'object_class', "MeleeWeapon",
 				'Reliability', 50,
 				'Icon', "UI/Icons/Weapons/EndlessKnives",
-				'DisplayName', T(906121938060, --[[ModItemInventoryItemCompositeDef EndlessKnives DisplayName]] "Бесконечные ножи"),
-				'DisplayNamePlural', T(136340260836, --[[ModItemInventoryItemCompositeDef EndlessKnives DisplayNamePlural]] "Бесконечные ножи"),
+				'DisplayName', T(996476550790, --[[ModItemInventoryItemCompositeDef EndlessKnives DisplayName]] "Endless Knives"),
+				'DisplayNamePlural', T(262652558760, --[[ModItemInventoryItemCompositeDef EndlessKnives DisplayNamePlural]] "Endless Knives"),
 				'Description', T(932962724262, --[[ModItemInventoryItemCompositeDef EndlessKnives Description]] "Блад лично выбирал и точил каждый режик и ножик из своего набора. Вот тем, большим, можно рубить хворост, вот этим, широким - делать вырезку. А вот этот для скальпов. И этот. И вон тот."),
 				'AdditionalHint', T(873120430532, --[[ModItemInventoryItemCompositeDef EndlessKnives AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Всегда под рукой!\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая цена атаки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенная эффективность прицеливания"),
 				'UnitStat', "Dexterity",
@@ -51836,8 +51836,8 @@ return {
 				'ScrapParts', 2,
 				'Reliability', 50,
 				'Icon', "UI/Icons/Weapons/GutHookKnife",
-				'DisplayName', T(772969462355, --[[ModItemInventoryItemCompositeDef GutHookKnife DisplayName]] "Охотничий нож"),
-				'DisplayNamePlural', T(253531089699, --[[ModItemInventoryItemCompositeDef GutHookKnife DisplayNamePlural]] "Охотничьи ножи"),
+				'DisplayName', T(271517940366, --[[ModItemInventoryItemCompositeDef GutHookKnife DisplayName]] "Gut Hook Knife"),
+				'DisplayNamePlural', T(947457047925, --[[ModItemInventoryItemCompositeDef GutHookKnife DisplayNamePlural]] "Gut Hook Knives"),
 				'Description', T(322627335890, --[[ModItemInventoryItemCompositeDef GutHookKnife Description]] "Специальным шкуродером такой опытный охотник, как Омрын может освежевать оленя за пятнадцать минут."),
 				'AdditionalHint', T(403761935169, --[[ModItemInventoryItemCompositeDef GutHookKnife AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>кровотечение</color>\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая цена атаки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенная эффективность прицеливания"),
 				'UnitStat', "Dexterity",
@@ -51862,8 +51862,8 @@ return {
 				'ScrapParts', 2,
 				'Reliability', 50,
 				'Icon', "UI/Icons/Weapons/pierre_machete",
-				'DisplayName', T(856581366127, --[[ModItemInventoryItemCompositeDef PierreMachete DisplayName]] "«Гордость Легиона»"),
-				'DisplayNamePlural', T(382530254567, --[[ModItemInventoryItemCompositeDef PierreMachete DisplayNamePlural]] "«Гордость Легиона»"),
+				'DisplayName', T(646705990009, --[[ModItemInventoryItemCompositeDef PierreMachete DisplayName]] "Legion's Pride"),
+				'DisplayNamePlural', T(624754374783, --[[ModItemInventoryItemCompositeDef PierreMachete DisplayNamePlural]] "Legion's Pride"),
 				'Description', T(337230371768, --[[ModItemInventoryItemCompositeDef PierreMachete Description]] '"Гордость Легиона". Пафосное имя, выданное, в общем-то, обычной рядовой железяке, рубящей тростник. Это у Пьера возрастное, пройдет.'),
 				'AdditionalHint', T(149238847516, --[[ModItemInventoryItemCompositeDef PierreMachete AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенный доп. урон от силы\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая цена атаки"),
 				'LargeItem', 1,
@@ -51897,8 +51897,8 @@ return {
 				'ScrapParts', 2,
 				'Degradation', 12,
 				'Icon', "UI/Icons/Items/night_vision",
-				'DisplayName', T(753212837827, --[[ModItemInventoryItemCompositeDef NightVisionGoggles DisplayName]] "ПНВ"),
-				'DisplayNamePlural', T(216190457512, --[[ModItemInventoryItemCompositeDef NightVisionGoggles DisplayNamePlural]] "ПНВ"),
+				'DisplayName', T(263962000489, --[[ModItemInventoryItemCompositeDef NightVisionGoggles DisplayName]] "Night Vision Goggles"),
+				'DisplayNamePlural', T(940518526415, --[[ModItemInventoryItemCompositeDef NightVisionGoggles DisplayNamePlural]] "Night Vision Goggles"),
 				'AdditionalHint', T(213348209507, --[[ModItemInventoryItemCompositeDef NightVisionGoggles AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снижает штрафы к точности ночью и в подземных секторах\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не суммируется с чертой «Ночные операции»\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Нельзя совмещать с обивкой или керамическими пластинами"),
 				'Cost', 3500,
 				'Tier', 2,
@@ -51918,8 +51918,8 @@ return {
 				'object_class', "MiscItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/combat_stim",
-				'DisplayName', T(233252386562, --[[ModItemInventoryItemCompositeDef CombatStim DisplayName]] "Боевой стимулятор"),
-				'DisplayNamePlural', T(838459151033, --[[ModItemInventoryItemCompositeDef CombatStim DisplayNamePlural]] "Боевые стимуляторы"),
+				'DisplayName', T(634691805568, --[[ModItemInventoryItemCompositeDef CombatStim DisplayName]] "Combat Stim"),
+				'DisplayNamePlural', T(713501369682, --[[ModItemInventoryItemCompositeDef CombatStim DisplayNamePlural]] "Combat Stims"),
 				'AdditionalHint', T(952937600404, --[[ModItemInventoryItemCompositeDef CombatStim AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дает доп. ОД до конца след. хода\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снижает запас энергии после окончания действия эффекта"),
 				'Cost', 400,
 				'CanAppearInShop', true,
@@ -51933,7 +51933,7 @@ return {
 						Status = "Stimmed",
 					}),
 				},
-				'action_name', T(593242783730, --[[ModItemInventoryItemCompositeDef CombatStim action_name]] "ИСП."),
+				'action_name', T(767441148476, --[[ModItemInventoryItemCompositeDef CombatStim action_name]] "USE"),
 				'destroy_item', true,
 				'onlyOnMap', true,
 			}),
@@ -51944,8 +51944,8 @@ return {
 				'ScrapParts', 1,
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/first_aid_kit",
-				'DisplayName', T(177286255676, --[[ModItemInventoryItemCompositeDef FirstAidKit DisplayName]] "Набор первой помощи"),
-				'DisplayNamePlural', T(111146552342, --[[ModItemInventoryItemCompositeDef FirstAidKit DisplayNamePlural]] "Наборы первой помощи"),
+				'DisplayName', T(905136649471, --[[ModItemInventoryItemCompositeDef FirstAidKit DisplayName]] "First Aid Kit"),
+				'DisplayNamePlural', T(941665857371, --[[ModItemInventoryItemCompositeDef FirstAidKit DisplayNamePlural]] "First Aid Kits"),
 				'AdditionalHint', T(833018739707, --[[ModItemInventoryItemCompositeDef FirstAidKit AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует состояние умирающих персонажей\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Требуется для использования перевязки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится при каждом употреблении, но запас медикаментов можно восполнить\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, просто находясь в инвентаре"),
 				'UnitStat', "Medical",
 				'Cost', 300,
@@ -51971,8 +51971,8 @@ return {
 				'ScrapParts', 1,
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/medkit",
-				'DisplayName', T(517638397088, --[[ModItemInventoryItemCompositeDef Medkit DisplayName]] "Аптечка"),
-				'DisplayNamePlural', T(532410536439, --[[ModItemInventoryItemCompositeDef Medkit DisplayNamePlural]] "Аптечки"),
+				'DisplayName', T(999601948111, --[[ModItemInventoryItemCompositeDef Medkit DisplayName]] "Med Kit"),
+				'DisplayNamePlural', T(221861569054, --[[ModItemInventoryItemCompositeDef Medkit DisplayNamePlural]] "Med Kits"),
 				'AdditionalHint', T(655535396072, --[[ModItemInventoryItemCompositeDef Medkit AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует состояние умирающих персонажей\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Требуется для использования перевязки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка восстанавливает на 25% ОЗ больше\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится при каждом употреблении, но запас медикаментов можно восполнить\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, просто находясь в инвентаре"),
 				'UnitStat', "Medical",
 				'Cost', 500,
@@ -51988,9 +51988,9 @@ return {
 				'object_class', "MiscItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/metvira_shot",
-				'DisplayName', T(130291829266, --[[ModItemInventoryItemCompositeDef MetaviraShot DisplayName]] "Метавирон"),
-				'DisplayNamePlural', T(284293135018, --[[ModItemInventoryItemCompositeDef MetaviraShot DisplayNamePlural]] "Метавирон"),
-				'Description', T(771071455278, --[[ModItemInventoryItemCompositeDef MetaviraShot Description]] "Чудесное лекарство, добываемое из сока парового дерева, растущего исключительно на острове Метавира."),
+				'DisplayName', T(704109326715, --[[ModItemInventoryItemCompositeDef MetaviraShot DisplayName]] "Metaviron"),
+				'DisplayNamePlural', T(736601384762, --[[ModItemInventoryItemCompositeDef MetaviraShot DisplayNamePlural]] "Metaviron"),
+				'Description', T(288596816028, --[[ModItemInventoryItemCompositeDef MetaviraShot Description]] "Miracle cure derived from the sap of the Fallow trees indigenous to the island of Metavira"),
 				'AdditionalHint', T(415192510445, --[[ModItemInventoryItemCompositeDef MetaviraShot AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Полностью восстанавливает запас ОЗ\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Исцеляет все ранения"),
 				'Valuable', 1,
 				'Cost', 50000,
@@ -52004,7 +52004,7 @@ return {
 					PlaceObj('HealWounds', {}),
 					PlaceObj('RestoreHealth', {}),
 				},
-				'action_name', T(922193570040, --[[ModItemInventoryItemCompositeDef MetaviraShot action_name]] "ИСП."),
+				'action_name', T(509524872124, --[[ModItemInventoryItemCompositeDef MetaviraShot action_name]] "USE"),
 				'destroy_item', true,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52024,8 +52024,8 @@ return {
 				'ScrapParts', 1,
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/reanimationsset.png",
-				'DisplayName', T(656217161939, --[[ModItemInventoryItemCompositeDef Reanimationsset DisplayName]] "Реаниматор"),
-				'DisplayNamePlural', T(779911535238, --[[ModItemInventoryItemCompositeDef Reanimationsset DisplayNamePlural]] "Реаниматоры"),
+				'DisplayName', T(717284834554, --[[ModItemInventoryItemCompositeDef Reanimationsset DisplayName]] "Reanimationsset"),
+				'DisplayNamePlural', T(900536705401, --[[ModItemInventoryItemCompositeDef Reanimationsset DisplayNamePlural]] "Reanimationssets"),
 				'AdditionalHint', T(566246707628, --[[ModItemInventoryItemCompositeDef Reanimationsset AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует состояние умирающих персонажей\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Требуется для использования перевязки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка восстанавливает на 60% ОЗ больше\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится при каждом употреблении, но запас медикаментов можно восполнить\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, просто находясь в инвентаре"),
 				'UnitStat', "Medical",
 				'max_meds_parts', 12,
@@ -52042,8 +52042,8 @@ return {
 				'ScrapParts', 4,
 				'RepairCost', 120,
 				'Icon', "UI/Icons/Items/plasma_gun_crowbar",
-				'DisplayName', T(709303538747, --[[ModItemInventoryItemCompositeDef PlasmaGun_Crowbar DisplayName]] "Плазменная фомка"),
-				'DisplayNamePlural', T(171827806859, --[[ModItemInventoryItemCompositeDef PlasmaGun_Crowbar DisplayNamePlural]] "Плазменные фомки"),
+				'DisplayName', T(507871191066, --[[ModItemInventoryItemCompositeDef PlasmaGun_Crowbar DisplayName]] "Plasma Gun Crowbar"),
+				'DisplayNamePlural', T(593438446878, --[[ModItemInventoryItemCompositeDef PlasmaGun_Crowbar DisplayNamePlural]] "Plasma Gun Crowbars"),
 				'AdditionalHint', T(972121373391, --[[ModItemInventoryItemCompositeDef PlasmaGun_Crowbar AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В идеальном вакууме стреляет смертоносными сгустками плазмы. Во всех остальных случаях работает как фомка\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вскрывает замки на дверях и контейнерах (в зависимости от силы)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дает бонус к проверке навыка при взломе замков\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Может повредить содержимое контейнера\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Изнашивается при каждом употреблении\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поддается ремонту\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, просто находясь в инвентаре"),
 				'Valuable', 1,
 				'RestockWeight', 0,
@@ -52056,8 +52056,8 @@ return {
 				'ScrapParts', 2,
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/crowbar",
-				'DisplayName', T(736175574176, --[[ModItemInventoryItemCompositeDef Crowbar DisplayName]] "Фомка"),
-				'DisplayNamePlural', T(488481985235, --[[ModItemInventoryItemCompositeDef Crowbar DisplayNamePlural]] "Фомки"),
+				'DisplayName', T(851337385387, --[[ModItemInventoryItemCompositeDef Crowbar DisplayName]] "Crowbar"),
+				'DisplayNamePlural', T(855121960280, --[[ModItemInventoryItemCompositeDef Crowbar DisplayNamePlural]] "Crowbars"),
 				'AdditionalHint', T(895419226911, --[[ModItemInventoryItemCompositeDef Crowbar AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вскрывает замки на дверях и контейнерах (в зависимости от силы)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Может повредить содержимое контейнера\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Изнашивается при каждом употреблении\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не поддается ремонту\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, просто находясь в инвентаре"),
 				'UnitStat', "Strength",
 				'Cost', 100,
@@ -52071,8 +52071,8 @@ return {
 				'ScrapParts', 2,
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/lockpick",
-				'DisplayName', T(135853991513, --[[ModItemInventoryItemCompositeDef Lockpick DisplayName]] "Набор отмычек"),
-				'DisplayNamePlural', T(972477228590, --[[ModItemInventoryItemCompositeDef Lockpick DisplayNamePlural]] "Наборы отмычек"),
+				'DisplayName', T(363189070824, --[[ModItemInventoryItemCompositeDef Lockpick DisplayName]] "Locksmith's Kit"),
+				'DisplayNamePlural', T(983215060783, --[[ModItemInventoryItemCompositeDef Lockpick DisplayNamePlural]] "Locksmith's Kits"),
 				'AdditionalHint', T(630066806420, --[[ModItemInventoryItemCompositeDef Lockpick AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вскрывает замки на дверях и контейнерах (зависит от навыка механики)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неквалифицированное применение может безвозвратно повредить замок\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Изнашивается при каждом употреблении\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не поддается ремонту\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, просто находясь в инвентаре"),
 				'UnitStat', "Mechanical",
 				'Cost', 200,
@@ -52086,8 +52086,8 @@ return {
 				'ScrapParts', 2,
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/wire_cutters",
-				'DisplayName', T(557484284417, --[[ModItemInventoryItemCompositeDef Wirecutter DisplayName]] "Кусачки"),
-				'DisplayNamePlural', T(294226695554, --[[ModItemInventoryItemCompositeDef Wirecutter DisplayNamePlural]] "Кусачки"),
+				'DisplayName', T(992794098066, --[[ModItemInventoryItemCompositeDef Wirecutter DisplayName]] "Wire Cutter"),
+				'DisplayNamePlural', T(438312104079, --[[ModItemInventoryItemCompositeDef Wirecutter DisplayNamePlural]] "Wire Cutters"),
 				'AdditionalHint', T(997203634310, --[[ModItemInventoryItemCompositeDef Wirecutter AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перерезают проволочные ограждения\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Изнашиваются при каждом употреблении\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не поддаются ремонту\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используются автоматически, просто находясь в инвентаре"),
 				'Cost', 200,
 				'CanAppearInShop', true,
@@ -52103,9 +52103,9 @@ return {
 				'object_class', "ToolItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/custom_pda",
-				'DisplayName', T(316601378165, --[[ModItemInventoryItemCompositeDef CustomPDA DisplayName]] "КПК Фазы"),
-				'DisplayNamePlural', T(765554203012, --[[ModItemInventoryItemCompositeDef CustomPDA DisplayNamePlural]] "КПК Фазы"),
-				'Description', T(795711851705, --[[ModItemInventoryItemCompositeDef CustomPDA Description]] "Полезная штука для выхода в сеть и взлома военных компьютеров."),
+				'DisplayName', T(396025298894, --[[ModItemInventoryItemCompositeDef CustomPDA DisplayName]] "Livewire's PDA"),
+				'DisplayNamePlural', T(170324531997, --[[ModItemInventoryItemCompositeDef CustomPDA DisplayNamePlural]] "Livewire's PDAs"),
+				'Description', T(405152148318, --[[ModItemInventoryItemCompositeDef CustomPDA Description]] "Useful for accessing the web and hacking military grade computers."),
 				'AdditionalHint', T(910763517564, --[[ModItemInventoryItemCompositeDef CustomPDA AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дает доп. разведданные при взломе\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На нем очень милые наклеечки"),
 				'locked', true,
 				'RestockWeight', 0,
@@ -52116,8 +52116,8 @@ return {
 				'object_class', "Armor",
 				'Degradation', 0,
 				'Icon', "UI/Icons/Items/ivan_ushanka",
-				'DisplayName', T(241698027248, --[[ModItemInventoryItemCompositeDef IvanUshanka DisplayName]] "Ушанка"),
-				'DisplayNamePlural', T(433547368961, --[[ModItemInventoryItemCompositeDef IvanUshanka DisplayNamePlural]] "Ушанки"),
+				'DisplayName', T(577081433689, --[[ModItemInventoryItemCompositeDef IvanUshanka DisplayName]] "Ushanka"),
+				'DisplayNamePlural', T(786597442135, --[[ModItemInventoryItemCompositeDef IvanUshanka DisplayNamePlural]] "Ushanki"),
 				'Description', T(347571635074, --[[ModItemInventoryItemCompositeDef IvanUshanka Description]] "Форменная шапка советского офицера с блестящей полированной кокардой. В подкладке заложено двадцать советских рублей."),
 				'AdditionalHint', T(601017892482, --[[ModItemInventoryItemCompositeDef IvanUshanka AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Защищает от капитализма"),
 				'RestockWeight', 0,
@@ -52134,8 +52134,8 @@ return {
 				'RepairCost', 10,
 				'Degradation', 0,
 				'Icon', "UI/Icons/Items/leather_jacket",
-				'DisplayName', T(401256529188, --[[ModItemInventoryItemCompositeDef NailsLeatherVest DisplayName]] "Кожаный жилет"),
-				'DisplayNamePlural', T(245710665922, --[[ModItemInventoryItemCompositeDef NailsLeatherVest DisplayNamePlural]] "Кожаные жилеты"),
+				'DisplayName', T(641043499637, --[[ModItemInventoryItemCompositeDef NailsLeatherVest DisplayName]] "Leather Vest"),
+				'DisplayNamePlural', T(634761929616, --[[ModItemInventoryItemCompositeDef NailsLeatherVest DisplayNamePlural]] "Leather Vests"),
 				'Description', T(509587299532, --[[ModItemInventoryItemCompositeDef NailsLeatherVest Description]] "Кожаная байкерская жилетка. Гвоздь никогда с ней не расстается, так что рассмотреть вблизи, что она из себя представляет, увы, не получается."),
 				'AdditionalHint', T(640774197340, --[[ModItemInventoryItemCompositeDef NailsLeatherVest AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На спине вышит символ «Всадников смерти»\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Притягивает женщин и драки"),
 				'locked', true,
@@ -52152,8 +52152,8 @@ return {
 				'object_class', "LockpickBase",
 				'RepairCost', 120,
 				'Icon', "UI/Icons/Items/vicki_lockpick",
-				'DisplayName', T(139588576447, --[[ModItemInventoryItemCompositeDef Personal_Vicki_CustomTools DisplayName]] "Набор отмычек Вики"),
-				'DisplayNamePlural', T(766692495920, --[[ModItemInventoryItemCompositeDef Personal_Vicki_CustomTools DisplayNamePlural]] "Набор отмычек Вики"),
+				'DisplayName', T(124312301509, --[[ModItemInventoryItemCompositeDef Personal_Vicki_CustomTools DisplayName]] "Vicki's Locksmith Kit"),
+				'DisplayNamePlural', T(609821932113, --[[ModItemInventoryItemCompositeDef Personal_Vicki_CustomTools DisplayNamePlural]] "Vicki's Locksmith Kit"),
 				'AdditionalHint', T(903095626259, --[[ModItemInventoryItemCompositeDef Personal_Vicki_CustomTools AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вскрывает замки на дверях и контейнерах (зависит от навыка механики)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дает бонус к проверке навыка при вскрытии замков\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Изнашивается при каждом употреблении\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поддается ремонту\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, просто находясь в инвентаре"),
 				'UnitStat', "Mechanical",
 				'locked', true,
@@ -52165,8 +52165,8 @@ return {
 				'Id', "Cookie",
 				'object_class', "MiscItem",
 				'Icon', "UI/Icons/Items/cookie",
-				'DisplayName', T(612941251094, --[[ModItemInventoryItemCompositeDef Cookie DisplayName]] "Печенька"),
-				'DisplayNamePlural', T(202058072711, --[[ModItemInventoryItemCompositeDef Cookie DisplayNamePlural]] "Печеньки"),
+				'DisplayName', T(124351111212, --[[ModItemInventoryItemCompositeDef Cookie DisplayName]] "Biscuit"),
+				'DisplayNamePlural', T(982005397246, --[[ModItemInventoryItemCompositeDef Cookie DisplayNamePlural]] "Biscuits"),
 				'AdditionalHint', T(370231096119, --[[ModItemInventoryItemCompositeDef Cookie AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вкусно и питательно"),
 				'CategoryPair', "Medicine",
 				'MaxStacks', 20,
@@ -52177,7 +52177,7 @@ return {
 						amount = 5,
 					}),
 				},
-				'action_name', T(995955938216, --[[ModItemInventoryItemCompositeDef Cookie action_name]] "СЪЕСТЬ"),
+				'action_name', T(646507120531, --[[ModItemInventoryItemCompositeDef Cookie action_name]] "EAT"),
 				'destroy_item', true,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52185,8 +52185,8 @@ return {
 				'Id', "HerbalMedicine",
 				'object_class', "MiscItem",
 				'Icon', "UI/Icons/Items/herbal_medicine",
-				'DisplayName', T(438786398028, --[[ModItemInventoryItemCompositeDef HerbalMedicine DisplayName]] "Травяной сбор"),
-				'DisplayNamePlural', T(903861071149, --[[ModItemInventoryItemCompositeDef HerbalMedicine DisplayNamePlural]] "Травяной сбор"),
+				'DisplayName', T(603680939283, --[[ModItemInventoryItemCompositeDef HerbalMedicine DisplayName]] "Herbal Medicine"),
+				'DisplayNamePlural', T(722930256983, --[[ModItemInventoryItemCompositeDef HerbalMedicine DisplayNamePlural]] "Herbal Medicine"),
 				'AdditionalHint', T(952277134603, --[[ModItemInventoryItemCompositeDef HerbalMedicine AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Укрепляет силу воли\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Непредсказуемые побочные эффекты\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Без ГМО"),
 				'CategoryPair', "Medicine",
 				'MaxStacks', 20,
@@ -52219,7 +52219,7 @@ return {
 						},
 					}),
 				},
-				'action_name', T(613485992454, --[[ModItemInventoryItemCompositeDef HerbalMedicine action_name]] "ПРИМЕНИТЬ"),
+				'action_name', T(679583097578, --[[ModItemInventoryItemCompositeDef HerbalMedicine action_name]] "APPLY"),
 				'destroy_item', true,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52227,9 +52227,9 @@ return {
 				'Id', "Ted",
 				'object_class', "InventoryItem",
 				'Icon', "UI/Icons/Items/Ted",
-				'DisplayName', T(248517754069, --[[ModItemInventoryItemCompositeDef Ted DisplayName]] "Тед"),
-				'DisplayNamePlural', T(503375009822, --[[ModItemInventoryItemCompositeDef Ted DisplayNamePlural]] "Теды"),
-				'AdditionalHint', T(364544485274, --[[ModItemInventoryItemCompositeDef Ted AdditionalHint]] "Тед мёртв, детка"),
+				'DisplayName', T(278554004196, --[[ModItemInventoryItemCompositeDef Ted DisplayName]] "Ted"),
+				'DisplayNamePlural', T(153775721377, --[[ModItemInventoryItemCompositeDef Ted DisplayNamePlural]] "Teds"),
+				'AdditionalHint', T(317995733561, --[[ModItemInventoryItemCompositeDef Ted AdditionalHint]] "Ted is dead"),
 				'locked', true,
 				'RestockWeight', 0,
 			}),
@@ -52238,9 +52238,9 @@ return {
 				'Id', "Trophy",
 				'object_class', "InventoryStack",
 				'Icon', "UI/Icons/Items/trophy",
-				'DisplayName', T(401946586716, --[[ModItemInventoryItemCompositeDef Trophy DisplayName]] "Трофей"),
-				'DisplayNamePlural', T(281509227035, --[[ModItemInventoryItemCompositeDef Trophy DisplayNamePlural]] "Трофеи"),
-				'AdditionalHint', T(778824641671, --[[ModItemInventoryItemCompositeDef Trophy AdditionalHint]] "Удобно для отчётности."),
+				'DisplayName', T(634440316482, --[[ModItemInventoryItemCompositeDef Trophy DisplayName]] "Trophy"),
+				'DisplayNamePlural', T(570576081589, --[[ModItemInventoryItemCompositeDef Trophy DisplayNamePlural]] "Trophies"),
+				'AdditionalHint', T(520396775412, --[[ModItemInventoryItemCompositeDef Trophy AdditionalHint]] "It's easier to keep count this way."),
 				'locked', true,
 				'RestockWeight', 0,
 				'MaxStacks', 1000,
@@ -52254,8 +52254,8 @@ return {
 				'Id', "Coin",
 				'object_class', "QuestItem",
 				'Icon', "UI/Icons/Items/ancient_coin",
-				'DisplayName', T(277849319772, --[[ModItemInventoryItemCompositeDef Coin DisplayName]] "Жетон Зигфрида"),
-				'Description', T(125597210122, --[[ModItemInventoryItemCompositeDef Coin Description]] "Зигфрид сказал, что эта монета откроет вам двери Понтового клуба."),
+				'DisplayName', T(969825908487, --[[ModItemInventoryItemCompositeDef Coin DisplayName]] "Siegfried's Coin"),
+				'Description', T(741112096594, --[[ModItemInventoryItemCompositeDef Coin Description]] "Siegfried told you that this coin will give you access to the Night Club."),
 				'RestockWeight', 0,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52263,8 +52263,8 @@ return {
 				'Id', "Diesel",
 				'object_class', "QuestItem",
 				'Icon', "UI/Icons/Items/gallons",
-				'DisplayName', T(819590825275, --[[ModItemInventoryItemCompositeDef Diesel DisplayName]] "Канистры с дизелем"),
-				'Description', T(105122152253, --[[ModItemInventoryItemCompositeDef Diesel Description]] "Это - украденный у Зигфрида дизель."),
+				'DisplayName', T(485475051607, --[[ModItemInventoryItemCompositeDef Diesel DisplayName]] "Gallons of Diesel"),
+				'Description', T(705795398886, --[[ModItemInventoryItemCompositeDef Diesel Description]] "This is the Diesel which got stolen from Siegfried."),
 				'RestockWeight', 0,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52272,8 +52272,8 @@ return {
 				'Id', "GoldenWatch",
 				'object_class', "QuestItemValuable",
 				'Icon', "UI/Icons/Items/watch",
-				'DisplayName', T(327212579368, --[[ModItemInventoryItemCompositeDef GoldenWatch DisplayName]] "Золотые часы"),
-				'Description', T(212626116157, --[[ModItemInventoryItemCompositeDef GoldenWatch Description]] "Золотые часы Генриха."),
+				'DisplayName', T(424339741886, --[[ModItemInventoryItemCompositeDef GoldenWatch DisplayName]] "Golden Watch"),
+				'Description', T(815681556557, --[[ModItemInventoryItemCompositeDef GoldenWatch Description]] "Heinrich's golden watch."),
 				'Valuable', 1,
 				'RestockWeight', 0,
 			}),
@@ -52282,8 +52282,8 @@ return {
 				'Id', "MedicalReport",
 				'object_class', "QuestItem",
 				'Icon', "UI/Icons/Items/diary",
-				'DisplayName', T(788666532601, --[[ModItemInventoryItemCompositeDef MedicalReport DisplayName]] "История болезни"),
-				'Description', T(816712869470, --[[ModItemInventoryItemCompositeDef MedicalReport Description]] "«Уилкокс оказался идеальным подопытным. Его организм отреагировал на новый штамм именно так, как я и предполагал. Клетки крови пропустили фазу мутации и перешли сразу в фазу полного хаоса. Надеюсь, мне удастся скрыть мое открытие от доктора Кроненберг»."),
+				'DisplayName', T(992445338639, --[[ModItemInventoryItemCompositeDef MedicalReport DisplayName]] "Medical Report"),
+				'Description', T(747623428299, --[[ModItemInventoryItemCompositeDef MedicalReport Description]] '"Wilcox proved to be a perfect subject for my studies. His body reacted to the new strain just as I suspected. The blood cells completely ignored the mutation phase and went into complete disorder. Let\'s hope that Dr. Kronenberg won\'t find about my discovery."'),
 				'RestockWeight', 0,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52291,8 +52291,8 @@ return {
 				'Id', "PaBaggzWill",
 				'object_class', "QuestItem",
 				'Icon', "UI/Icons/Items/torn_page",
-				'DisplayName', T(977446330010, --[[ModItemInventoryItemCompositeDef PaBaggzWill DisplayName]] "Завещание фермера"),
-				'Description', T(244767806892, --[[ModItemInventoryItemCompositeDef PaBaggzWill Description]] "«Кто б ни нашел эту бамажку, убедитесь, что до нее не дотянут свои грязные пальцы мои тупые роцтвенички! \nА если этот ты роцственичек сейчас читаешь эту бамажку, то вот что я тебе скажу: ПОДАВИСЬ ТЫ ЕЙ И ЗДОХНИ!»"),
+				'DisplayName', T(938802430479, --[[ModItemInventoryItemCompositeDef PaBaggzWill DisplayName]] "Old Farmer's Will"),
+				'Description', T(982979719943, --[[ModItemInventoryItemCompositeDef PaBaggzWill Description]] '"Whoever findes this stuff, make sure me stupid useless relativses don\'t lay their filty hands on it! \nAnd if YOU is my relativest, that\'s what I says to you: DAMN U AND MAY U CHOKE ON IT!"'),
 				'RestockWeight', 0,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52301,9 +52301,9 @@ return {
 				'object_class', "QuestItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/maquis_manifesto_pamphlets",
-				'DisplayName', T(265188213356, --[[ModItemInventoryItemCompositeDef Pamphlets DisplayName]] "Листовки с манифестом"),
-				'DisplayNamePlural', T(581978148761, --[[ModItemInventoryItemCompositeDef Pamphlets DisplayNamePlural]] "Листовки с манифестом"),
-				'Description', T(747364077191, --[[ModItemInventoryItemCompositeDef Pamphlets Description]] "Сборник слоганов и речей товарища Чимуренги, Льва Саванны, главы Народного революционного временного правительства."),
+				'DisplayName', T(120375556773, --[[ModItemInventoryItemCompositeDef Pamphlets DisplayName]] "Maquis Manifesto Pamphlets"),
+				'DisplayNamePlural', T(503446491269, --[[ModItemInventoryItemCompositeDef Pamphlets DisplayNamePlural]] "Maquis Manifesto Pamphlets"),
+				'Description', T(845151278385, --[[ModItemInventoryItemCompositeDef Pamphlets Description]] "Collection of slogans and speeches of Comrade Chimurenga, the Savanna Lion, leader of the People's Provisional Revolutionary Government."),
 				'AdditionalHint', T(267082675739, --[[ModItemInventoryItemCompositeDef Pamphlets AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Объединяет пролетариев всех стран\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> С отвратительными иллюстрациями"),
 				'Cost', 100,
 				'RestockWeight', 0,
@@ -52314,9 +52314,9 @@ return {
 				'object_class', "QuestItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/maquis_manifesto_pamphlets_ads",
-				'DisplayName', T(710724502138, --[[ModItemInventoryItemCompositeDef Pamphlets_LysRouge DisplayName]] "Листовки с манифестом"),
-				'DisplayNamePlural', T(892195193820, --[[ModItemInventoryItemCompositeDef Pamphlets_LysRouge DisplayNamePlural]] "Листовки с манифестом"),
-				'Description', T(641753830791, --[[ModItemInventoryItemCompositeDef Pamphlets_LysRouge Description]] "Сборник слоганов и речей товарища Чимуренги, Льва Саванны, главы Народного революционного временного правительства. Иллюстрирован фотографиями полуодетых представительниц рабочего класса."),
+				'DisplayName', T(572492550920, --[[ModItemInventoryItemCompositeDef Pamphlets_LysRouge DisplayName]] "Maquis Manifesto Pamphlets"),
+				'DisplayNamePlural', T(305260534559, --[[ModItemInventoryItemCompositeDef Pamphlets_LysRouge DisplayNamePlural]] "Maquis Manifesto Pamphlets"),
+				'Description', T(494386205466, --[[ModItemInventoryItemCompositeDef Pamphlets_LysRouge Description]] "Collection of slogans and speeches of Comrade Chimurenga, the Savanna Lion, leader of the People's Provisional Revolutionary Government. Illustrated with pictures of barely dressed female members of the working class."),
 				'AdditionalHint', T(481945327203, --[[ModItemInventoryItemCompositeDef Pamphlets_LysRouge AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Объединяет пролетариев всех стран\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Содержит фотографии девочек из «Ле-Ли-Руж»: уж они-то помогут вам поднять ваш ствол на подвиги!"),
 				'Cost', 100,
 				'RestockWeight', 0,
@@ -52327,9 +52327,9 @@ return {
 				'object_class', "QuestItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/american_passport",
-				'DisplayName', T(764440710259, --[[ModItemInventoryItemCompositeDef US_Passport DisplayName]] "Паспорт США"),
-				'DisplayNamePlural', T(725867878955, --[[ModItemInventoryItemCompositeDef US_Passport DisplayNamePlural]] "Паспорт США"),
-				'Description', T(827657816504, --[[ModItemInventoryItemCompositeDef US_Passport Description]] "Загранпаспорт на имя некой Карен Гослинг"),
+				'DisplayName', T(167265565988, --[[ModItemInventoryItemCompositeDef US_Passport DisplayName]] "US Passport"),
+				'DisplayNamePlural', T(722290946311, --[[ModItemInventoryItemCompositeDef US_Passport DisplayNamePlural]] "US Passport"),
+				'Description', T(877878006530, --[[ModItemInventoryItemCompositeDef US_Passport Description]] "Passport and visa of one Karen Gosling."),
 				'AdditionalHint', T(227052415098, --[[ModItemInventoryItemCompositeDef US_Passport AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Пропуск в страну, где угроза пожаловаться менеджеру решает любые проблемы"),
 				'Cost', 200,
 				'RestockWeight', 0,
@@ -52340,9 +52340,9 @@ return {
 				'object_class', "QuestStackItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/red_rabies_virus_sample",
-				'DisplayName', T(219970007960, --[[ModItemInventoryItemCompositeDef VirusSample DisplayName]] "Образец вируса"),
-				'DisplayNamePlural', T(277474900460, --[[ModItemInventoryItemCompositeDef VirusSample DisplayNamePlural]] "Образцы вируса"),
-				'Description', T(931089747795, --[[ModItemInventoryItemCompositeDef VirusSample Description]] "Биологический материал, необходимый для расшифровки генома вируса красного бешенства. Не кантовать."),
+				'DisplayName', T(200011811428, --[[ModItemInventoryItemCompositeDef VirusSample DisplayName]] "Red Rabies Virus Sample"),
+				'DisplayNamePlural', T(583359488647, --[[ModItemInventoryItemCompositeDef VirusSample DisplayNamePlural]] "Red Rabies Virus Samples"),
+				'Description', T(782277298539, --[[ModItemInventoryItemCompositeDef VirusSample Description]] "Contains vital information needed to break the virus genome. Handle with care."),
 				'AdditionalHint', T(626501302662, --[[ModItemInventoryItemCompositeDef VirusSample AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Во время сбора образца не пострадало ни одной летучей мыши"),
 				'Cost', 100,
 				'RestockWeight', 0,
@@ -52353,9 +52353,9 @@ return {
 				'object_class', "QuestItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/pirate_map",
-				'DisplayName', T(941948052853, --[[ModItemInventoryItemCompositeDef WeirdosMap DisplayName]] "Карта клада в церкви"),
-				'DisplayNamePlural', T(177941052207, --[[ModItemInventoryItemCompositeDef WeirdosMap DisplayNamePlural]] "Карта клада в церкви"),
-				'Description', T(463131468639, --[[ModItemInventoryItemCompositeDef WeirdosMap Description]] "Неаккуратно нарисованная карта сокровищ. Внутренность флитаунской церкви отмечена жирным крестом."),
+				'DisplayName', T(964348464741, --[[ModItemInventoryItemCompositeDef WeirdosMap DisplayName]] "Church Treasure Map"),
+				'DisplayNamePlural', T(394347228122, --[[ModItemInventoryItemCompositeDef WeirdosMap DisplayNamePlural]] "Church Treasure Map"),
+				'Description', T(787937696839, --[[ModItemInventoryItemCompositeDef WeirdosMap Description]] 'A messy map clearly showing an "X" inside the Fleatown church.'),
 				'RestockWeight', 0,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52364,9 +52364,9 @@ return {
 				'object_class', "QuestItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/red_wig",
-				'DisplayName', T(455031779576, --[[ModItemInventoryItemCompositeDef Wig DisplayName]] "Рыжий кудрявый парик"),
-				'DisplayNamePlural', T(590236322434, --[[ModItemInventoryItemCompositeDef Wig DisplayNamePlural]] "Рыжий кудрявый парик"),
-				'Description', T(756232027903, --[[ModItemInventoryItemCompositeDef Wig Description]] "85 - баба ягодка опять."),
+				'DisplayName', T(348364466688, --[[ModItemInventoryItemCompositeDef Wig DisplayName]] "Red curly wig"),
+				'DisplayNamePlural', T(699472559460, --[[ModItemInventoryItemCompositeDef Wig DisplayNamePlural]] "Red curly wig"),
+				'Description', T(196951336122, --[[ModItemInventoryItemCompositeDef Wig Description]] "The haircut of a lady that certainly doesn't look a day over 40."),
 				'Cost', 100,
 				'RestockWeight', 0,
 			}),
@@ -52375,7 +52375,7 @@ return {
 				'Id', "WorkerDiary",
 				'object_class', "QuestItem",
 				'Icon', "UI/Icons/Items/diary",
-				'DisplayName', T(148941152183, --[[ModItemInventoryItemCompositeDef WorkerDiary DisplayName]] "Дневник"),
+				'DisplayName', T(780798323538, --[[ModItemInventoryItemCompositeDef WorkerDiary DisplayName]] "Diary"),
 				'Description', T(819462688754, --[[ModItemInventoryItemCompositeDef WorkerDiary Description]] "«Когда умерла Жозефина, я не знал, что мне с собой делать. Я подался в <color EmStyle>Ландсбах</color>, потому что слышал, тут неплохие заработки.<newline><newline>Вкалывать в шахте оказалось труднее, чем я думал, так что я вступил в этот их <color EmStyle>Понтовый клуб</color>, чтоб было где спустить пар. Оказалось, на ринге за неделю можно заработать столько же, сколько за два месяца в этой чертовой шахте!<newline><newline>Местные меня теперь уважают, потому что я здоровый, ловкий и запросто могу вырубить любого. Даже прозвище мне дали - <color EmStyle>Костолом</color>! Вчера <color EmStyle>Рикошет</color> сказал, <color EmStyle>Зигфрид</color> предлагает мне стать одним из его личных охранников. Иду на повышение, однако!»"),
 				'RestockWeight', 0,
 			}),
@@ -52384,7 +52384,7 @@ return {
 				'Id', "WriterDiary",
 				'object_class', "QuestItem",
 				'Icon', "UI/Icons/Items/diary",
-				'DisplayName', T(457795624772, --[[ModItemInventoryItemCompositeDef WriterDiary DisplayName]] "Дневник Уилкокса"),
+				'DisplayName', T(448298788274, --[[ModItemInventoryItemCompositeDef WriterDiary DisplayName]] "Wilcox's Diary"),
 				'Description', T(490183061882, --[[ModItemInventoryItemCompositeDef WriterDiary Description]] "«Уже некоторое время я наблюдаю за <color EmStyle>Вандой</color> и этой ее необычной сектой. Они практикуют весьма необычную разновидность вуду - поклонение неким <color EmStyle>Древним</color>. Я беседовал с сектантами, участвовал в их трапезах, пил их ритуальный напиток, изучал их архаичный диалект. И хотя это далеко не первая секта на моей практике, изучая их, я начинаю опасаться за собственный <color EmStyle>рассудок</color>!<newline><newline>Ни ритуальный забой куриц, ни прочие их языческие обряды не были для меня в новинку. Удивило (да что скрывать - напугало!) меня другое: вскоре я и сам начал слышать зов. Зов... <color EmStyle>Древних</color>.<newline><newline><color EmStyle>Ванда</color> сказала мне, что тех, кто не внимает ему, ждет верная смерть. И вот оно началось: люди вокруг начали умирать! <color EmStyle>Ванда</color> намерена посадить особые растения у родника, чтобы все в деревне тоже услышали зов <color EmStyle>Древних</color>»."),
 				'RestockWeight', 0,
 			}),
@@ -52393,7 +52393,7 @@ return {
 				'Id', "WriterLetter",
 				'object_class', "QuestItem",
 				'Icon', "UI/Icons/Items/letter",
-				'DisplayName', T(591473007915, --[[ModItemInventoryItemCompositeDef WriterLetter DisplayName]] "Письмо Хавьеру"),
+				'DisplayName', T(388706391943, --[[ModItemInventoryItemCompositeDef WriterLetter DisplayName]] "Letter For Xavier"),
 				'Description', T(575167896350, --[[ModItemInventoryItemCompositeDef WriterLetter Description]] "«Мой дорогой <color EmStyle>Хавьер</color>! Я опасаюсь за свою жизнь. Они начинают догадываться, что я слишком многое узнал. Мои находки, заметки - даже собственные воспаленные фантазии, что приходили мне на ум, когда я слушал их словно бы день и ночь отдававшиеся в моей голове неблагозвучные песнопения - всё это хранится в моем <color EmStyle>дневнике</color>.<newline><newline>Если со мною что-нибудь приключится, прошу тебя: забери его и обнародуй, чтобы власти этой страны узнали, что здесь творится. Ты - единственный, на кого я могу положиться, поэтому я спрятал дневник и оставил тебе подсказки, как его найти. Ищи их в тех местах, где в былые, более счастливые времена мы с тобой беседовали и смеялись.<newline><newline>С любовью,<newline><color EmStyle>Роджер Уилкокс</color>»."),
 				'RestockWeight', 0,
 			}),
@@ -52402,7 +52402,7 @@ return {
 				'Id', "WriterPage",
 				'object_class', "QuestItem",
 				'Icon', "UI/Icons/Items/torn_page",
-				'DisplayName', T(291312988152, --[[ModItemInventoryItemCompositeDef WriterPage DisplayName]] "Вырванная страница"),
+				'DisplayName', T(171245525785, --[[ModItemInventoryItemCompositeDef WriterPage DisplayName]] "Torn page"),
 				'Description', T(130128268296, --[[ModItemInventoryItemCompositeDef WriterPage Description]] "«Я был слеп... Как я не догадался? Нет никакого проклятья! Есть лишь это алчное чудовище, <color EmStyle>док Роберт</color>. Вчера ночью я проследил за ним. Он встречался с какими-то разбойничьего вида типами в их тайном лагере неподалёку отсюда. Я притаился и подслушал, о чём они говорили.<newline><newline><color EmStyle>Доктор</color> намерен заразить часть местных жителей какой-то диковинной болезнью и запугать остальных, заставив беспрекословно себя слушаться. Как только это произойдёт, разбойники смогут без труда захватить деревню и сделать из неё базу контрабандистов!<newline><newline>Должно быть, от ужаса я невольно вскрикнул, потому что они что-то услыхали и принялись кричать: «Кто там?» Я бросился бежать и не останавливался, пока не добрался до своей хижины. Даже сейчас, когда я пишу эти строки, сердце моё всё ещё бешено колотится от бега и от воспоминаний о пережитом ужасе.<newline><newline>Я должен спрятать свой дневник на случай, если со мной произойдёт непоправимое, и проследить, чтобы <color EmStyle>Хавьер</color> его нашёл!»"),
 				'RestockWeight', 0,
 			}),
@@ -52416,8 +52416,8 @@ return {
 				'object_class', "MiscItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/mag_parkour",
-				'DisplayName', T(439895385635, --[[ModItemInventoryItemCompositeDef SkillMag_Agility DisplayName]] "Паркур!"),
-				'DisplayNamePlural', T(388731381215, --[[ModItemInventoryItemCompositeDef SkillMag_Agility DisplayNamePlural]] "Паркур!"),
+				'DisplayName', T(429725650602, --[[ModItemInventoryItemCompositeDef SkillMag_Agility DisplayName]] "Parkour!"),
+				'DisplayNamePlural', T(183969949257, --[[ModItemInventoryItemCompositeDef SkillMag_Agility DisplayNamePlural]] "Parkour!"),
 				'Description', T(151166074388, --[[ModItemInventoryItemCompositeDef SkillMag_Agility Description]] "«Я почти уверен, что кричать <color EmStyle>«Паркур»</color> не обязательно»."),
 				'AdditionalHint', T(653157983531, --[[ModItemInventoryItemCompositeDef SkillMag_Agility AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает проворность"),
 				'UnitStat', "Agility",
@@ -52433,7 +52433,7 @@ return {
 						Stat = "Agility",
 					}),
 				},
-				'action_name', T(691621226290, --[[ModItemInventoryItemCompositeDef SkillMag_Agility action_name]] "ЧИТАТЬ"),
+				'action_name', T(966696056779, --[[ModItemInventoryItemCompositeDef SkillMag_Agility action_name]] "READ"),
 				'destroy_item', true,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52442,9 +52442,9 @@ return {
 				'object_class', "MiscItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/mag_sleight_of_hand",
-				'DisplayName', T(546644843752, --[[ModItemInventoryItemCompositeDef SkillMag_Dexterity DisplayName]] "Легкость рук"),
-				'DisplayNamePlural', T(721718349706, --[[ModItemInventoryItemCompositeDef SkillMag_Dexterity DisplayNamePlural]] "Легкость рук"),
-				'Description', T(783661118476, --[[ModItemInventoryItemCompositeDef SkillMag_Dexterity Description]] "Гораздо интереснее «Ежедневных фокусов»."),
+				'DisplayName', T(742728199089, --[[ModItemInventoryItemCompositeDef SkillMag_Dexterity DisplayName]] "Sleight of Hand"),
+				'DisplayNamePlural', T(201148125710, --[[ModItemInventoryItemCompositeDef SkillMag_Dexterity DisplayNamePlural]] "Sleight of Hand"),
+				'Description', T(469561072760, --[[ModItemInventoryItemCompositeDef SkillMag_Dexterity Description]] "Much better read than Daily Prestidigitation."),
 				'AdditionalHint', T(430709598633, --[[ModItemInventoryItemCompositeDef SkillMag_Dexterity AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает ловкость"),
 				'UnitStat', "Dexterity",
 				'Valuable', 1,
@@ -52459,7 +52459,7 @@ return {
 						Stat = "Dexterity",
 					}),
 				},
-				'action_name', T(501093218367, --[[ModItemInventoryItemCompositeDef SkillMag_Dexterity action_name]] "ЧИТАТЬ"),
+				'action_name', T(161343355015, --[[ModItemInventoryItemCompositeDef SkillMag_Dexterity action_name]] "READ"),
 				'destroy_item', true,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52468,9 +52468,9 @@ return {
 				'object_class', "MiscItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/mag_the_red_wire",
-				'DisplayName', T(989274794141, --[[ModItemInventoryItemCompositeDef SkillMag_Explosives DisplayName]] "Красный провод"),
-				'DisplayNamePlural', T(357987311564, --[[ModItemInventoryItemCompositeDef SkillMag_Explosives DisplayNamePlural]] "Красный провод"),
-				'Description', T(643007081984, --[[ModItemInventoryItemCompositeDef SkillMag_Explosives Description]] "Говорят, издательство недавно сгорело на работе."),
+				'DisplayName', T(200077030182, --[[ModItemInventoryItemCompositeDef SkillMag_Explosives DisplayName]] "The Red Wire"),
+				'DisplayNamePlural', T(698234423645, --[[ModItemInventoryItemCompositeDef SkillMag_Explosives DisplayNamePlural]] "The Red Wire"),
+				'Description', T(267053043531, --[[ModItemInventoryItemCompositeDef SkillMag_Explosives Description]] "Recently blew up after several issues."),
 				'AdditionalHint', T(981774563552, --[[ModItemInventoryItemCompositeDef SkillMag_Explosives AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает навык «Взрывчатка»"),
 				'UnitStat', "Explosives",
 				'Valuable', 1,
@@ -52486,7 +52486,7 @@ return {
 						Stat = "Explosives",
 					}),
 				},
-				'action_name', T(759449615314, --[[ModItemInventoryItemCompositeDef SkillMag_Explosives action_name]] "ЧИТАТЬ"),
+				'action_name', T(259798743067, --[[ModItemInventoryItemCompositeDef SkillMag_Explosives action_name]] "READ"),
 				'destroy_item', true,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52495,9 +52495,9 @@ return {
 				'object_class', "MiscItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/mag_an_apple_a_day",
-				'DisplayName', T(524361455045, --[[ModItemInventoryItemCompositeDef SkillMag_Health DisplayName]] "Здоровое питание"),
-				'DisplayNamePlural', T(865014145428, --[[ModItemInventoryItemCompositeDef SkillMag_Health DisplayNamePlural]] "Здоровое питание"),
-				'Description', T(169052184605, --[[ModItemInventoryItemCompositeDef SkillMag_Health Description]] "На зависть всем врачам."),
+				'DisplayName', T(890000000001482, --[[ModItemInventoryItemCompositeDef SkillMag_Health DisplayName]] "An Apple a Day"),
+				'DisplayNamePlural', T(890000000001502, --[[ModItemInventoryItemCompositeDef SkillMag_Health DisplayNamePlural]] "An Apple a Day"),
+				'Description', T(862144835554, --[[ModItemInventoryItemCompositeDef SkillMag_Health Description]] "Doctors really hate this one simple trick."),
 				'AdditionalHint', T(617196311086, --[[ModItemInventoryItemCompositeDef SkillMag_Health AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает здоровье"),
 				'UnitStat', "Health",
 				'Valuable', 1,
@@ -52512,7 +52512,7 @@ return {
 						Stat = "Health",
 					}),
 				},
-				'action_name', T(459203597656, --[[ModItemInventoryItemCompositeDef SkillMag_Health action_name]] "ЧИТАТЬ"),
+				'action_name', T(499509380474, --[[ModItemInventoryItemCompositeDef SkillMag_Health action_name]] "READ"),
 				'destroy_item', true,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52521,9 +52521,9 @@ return {
 				'object_class', "MiscItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/mag_puntastic_dad_jokes",
-				'DisplayName', T(337969805989, --[[ModItemInventoryItemCompositeDef SkillMag_Leadership DisplayName]] "Шутки-самосмейки"),
-				'DisplayNamePlural', T(761905965424, --[[ModItemInventoryItemCompositeDef SkillMag_Leadership DisplayNamePlural]] "Шутки-самосмейки"),
-				'Description', T(251292542025, --[[ModItemInventoryItemCompositeDef SkillMag_Leadership Description]] "Как стать душой частной военной компании."),
+				'DisplayName', T(624085403180, --[[ModItemInventoryItemCompositeDef SkillMag_Leadership DisplayName]] "Puntastic Dad Jokes"),
+				'DisplayNamePlural', T(542345156012, --[[ModItemInventoryItemCompositeDef SkillMag_Leadership DisplayNamePlural]] "Puntastic Dad Jokes"),
+				'Description', T(437039053771, --[[ModItemInventoryItemCompositeDef SkillMag_Leadership Description]] "Why is issue six afraid of issue seven?"),
 				'AdditionalHint', T(575413455352, --[[ModItemInventoryItemCompositeDef SkillMag_Leadership AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает лидерство"),
 				'UnitStat', "Leadership",
 				'Valuable', 1,
@@ -52539,7 +52539,7 @@ return {
 						Stat = "Leadership",
 					}),
 				},
-				'action_name', T(406257852737, --[[ModItemInventoryItemCompositeDef SkillMag_Leadership action_name]] "ЧИТАТЬ"),
+				'action_name', T(134463686670, --[[ModItemInventoryItemCompositeDef SkillMag_Leadership action_name]] "READ"),
 				'destroy_item', true,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52548,9 +52548,9 @@ return {
 				'object_class', "MiscItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/mag_long_distance_relations",
-				'DisplayName', T(805457297063, --[[ModItemInventoryItemCompositeDef SkillMag_Marksmanship DisplayName]] "Начинать надо издалека"),
-				'DisplayNamePlural', T(905685178126, --[[ModItemInventoryItemCompositeDef SkillMag_Marksmanship DisplayNamePlural]] "Начинать надо издалека"),
-				'Description', T(630599705437, --[[ModItemInventoryItemCompositeDef SkillMag_Marksmanship Description]] "«Братишка, ты лучше сядь»."),
+				'DisplayName', T(890000000001494, --[[ModItemInventoryItemCompositeDef SkillMag_Marksmanship DisplayName]] "Long Distance Relations"),
+				'DisplayNamePlural', T(890000000001465, --[[ModItemInventoryItemCompositeDef SkillMag_Marksmanship DisplayNamePlural]] "Long Distance Relations"),
+				'Description', T(658693817283, --[[ModItemInventoryItemCompositeDef SkillMag_Marksmanship Description]] "The articles really hit the mark."),
 				'AdditionalHint', T(690633844355, --[[ModItemInventoryItemCompositeDef SkillMag_Marksmanship AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает меткость"),
 				'UnitStat', "Marksmanship",
 				'Valuable', 1,
@@ -52566,7 +52566,7 @@ return {
 						Stat = "Marksmanship",
 					}),
 				},
-				'action_name', T(475947315094, --[[ModItemInventoryItemCompositeDef SkillMag_Marksmanship action_name]] "ЧИТАТЬ"),
+				'action_name', T(889536988208, --[[ModItemInventoryItemCompositeDef SkillMag_Marksmanship action_name]] "READ"),
 				'destroy_item', true,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52575,9 +52575,9 @@ return {
 				'object_class', "MiscItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/mag_screw_you",
-				'DisplayName', T(481761492155, --[[ModItemInventoryItemCompositeDef SkillMag_Mechanical DisplayName]] "Поршни и цилиндры"),
-				'DisplayNamePlural', T(937997865248, --[[ModItemInventoryItemCompositeDef SkillMag_Mechanical DisplayNamePlural]] "Поршни и цилиндры"),
-				'Description', T(780424103597, --[[ModItemInventoryItemCompositeDef SkillMag_Mechanical Description]] "Не путать с одноимённым журналом 18+."),
+				'DisplayName', T(593394887790, --[[ModItemInventoryItemCompositeDef SkillMag_Mechanical DisplayName]] "Nuts and Bolts Magazine"),
+				'DisplayNamePlural', T(115283650556, --[[ModItemInventoryItemCompositeDef SkillMag_Mechanical DisplayNamePlural]] "Nuts and Bolts Magazine"),
+				'Description', T(882249328783, --[[ModItemInventoryItemCompositeDef SkillMag_Mechanical Description]] "Not to be confused with the NSFW magazine with the same name."),
 				'AdditionalHint', T(311674409919, --[[ModItemInventoryItemCompositeDef SkillMag_Mechanical AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает навык «Механика»"),
 				'UnitStat', "Mechanical",
 				'Valuable', 1,
@@ -52593,7 +52593,7 @@ return {
 						Stat = "Mechanical",
 					}),
 				},
-				'action_name', T(421574848456, --[[ModItemInventoryItemCompositeDef SkillMag_Mechanical action_name]] "ЧИТАТЬ"),
+				'action_name', T(196171082016, --[[ModItemInventoryItemCompositeDef SkillMag_Mechanical action_name]] "READ"),
 				'destroy_item', true,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52602,9 +52602,9 @@ return {
 				'object_class', "MiscItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/mag_national_paramedic",
-				'DisplayName', T(520828600732, --[[ModItemInventoryItemCompositeDef SkillMag_Medical DisplayName]] "Для тех, кто вяжет"),
-				'DisplayNamePlural', T(981036857917, --[[ModItemInventoryItemCompositeDef SkillMag_Medical DisplayNamePlural]] "Для тех, кто вяжет"),
-				'Description', T(505843277064, --[[ModItemInventoryItemCompositeDef SkillMag_Medical Description]] "Модные схемы для перевязки и узорная работа жгутом."),
+				'DisplayName', T(843836306167, --[[ModItemInventoryItemCompositeDef SkillMag_Medical DisplayName]] "National Paramedic"),
+				'DisplayNamePlural', T(324921685110, --[[ModItemInventoryItemCompositeDef SkillMag_Medical DisplayNamePlural]] "National Paramedic"),
+				'Description', T(526556854684, --[[ModItemInventoryItemCompositeDef SkillMag_Medical Description]] "90+ beats to which you can perform CPR."),
 				'AdditionalHint', T(438853574488, --[[ModItemInventoryItemCompositeDef SkillMag_Medical AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает навык «Медицина»"),
 				'UnitStat', "Medical",
 				'Valuable', 1,
@@ -52620,7 +52620,7 @@ return {
 						Stat = "Medical",
 					}),
 				},
-				'action_name', T(887526961257, --[[ModItemInventoryItemCompositeDef SkillMag_Medical action_name]] "ЧИТАТЬ"),
+				'action_name', T(889884758137, --[[ModItemInventoryItemCompositeDef SkillMag_Medical action_name]] "READ"),
 				'destroy_item', true,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52629,9 +52629,9 @@ return {
 				'object_class', "MiscItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/mag_flex_em",
-				'DisplayName', T(906939250168, --[[ModItemInventoryItemCompositeDef SkillMag_Strength DisplayName]] "Качай железо!"),
-				'DisplayNamePlural', T(561764144197, --[[ModItemInventoryItemCompositeDef SkillMag_Strength DisplayNamePlural]] "Качай железо!"),
-				'Description', T(952959192834, --[[ModItemInventoryItemCompositeDef SkillMag_Strength Description]] "Сила есть - интеллекта не надо."),
+				'DisplayName', T(949216271403, --[[ModItemInventoryItemCompositeDef SkillMag_Strength DisplayName]] "Flex 'em!"),
+				'DisplayNamePlural', T(246425010309, --[[ModItemInventoryItemCompositeDef SkillMag_Strength DisplayNamePlural]] "Flex 'em!"),
+				'Description', T(817037902641, --[[ModItemInventoryItemCompositeDef SkillMag_Strength Description]] "For bros who even lift."),
 				'AdditionalHint', T(970224447052, --[[ModItemInventoryItemCompositeDef SkillMag_Strength AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает силу"),
 				'UnitStat', "Strength",
 				'Valuable', 1,
@@ -52646,7 +52646,7 @@ return {
 						Stat = "Strength",
 					}),
 				},
-				'action_name', T(562074647455, --[[ModItemInventoryItemCompositeDef SkillMag_Strength action_name]] "ЧИТАТЬ"),
+				'action_name', T(919614237926, --[[ModItemInventoryItemCompositeDef SkillMag_Strength action_name]] "READ"),
 				'destroy_item', true,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -52655,9 +52655,9 @@ return {
 				'object_class', "MiscItem",
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/mag_grilled_bears_survival_guide",
-				'DisplayName', T(269425865026, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom DisplayName]] "Руководство Бори Гриля"),
-				'DisplayNamePlural', T(515674122433, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom DisplayNamePlural]] "Руководство Бори Гриля"),
-				'Description', T(526814679764, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom Description]] "Руководство по выживанию. Если вам откусил ногу медведь - пописайте на рану."),
+				'DisplayName', T(890000000001496, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom DisplayName]] "Grilled Bears' Survival Guide"),
+				'DisplayNamePlural', T(890000000001506, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom DisplayNamePlural]] "Grilled Bears' Survival Guide"),
+				'Description', T(672223422197, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom Description]] "The latest pee-based recipes for your outdoor trips."),
 				'AdditionalHint', T(513564123523, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышает интеллект"),
 				'UnitStat', "Wisdom",
 				'Valuable', 1,
@@ -52672,7 +52672,7 @@ return {
 						Stat = "Wisdom",
 					}),
 				},
-				'action_name', T(389102616843, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom action_name]] "ЧИТАТЬ"),
+				'action_name', T(887349045271, --[[ModItemInventoryItemCompositeDef SkillMag_Wisdom action_name]] "READ"),
 				'destroy_item', true,
 			}),
 			}),
@@ -52686,8 +52686,8 @@ return {
 				'ScrapParts', 4,
 				'Degradation', 32,
 				'Icon', "UI/Icons/Items/camo_armor_light",
-				'DisplayName', T(647858133017, --[[ModItemInventoryItemCompositeDef CamoArmor_Light DisplayName]] "Лег. камуфляжная броня"),
-				'DisplayNamePlural', T(459961719023, --[[ModItemInventoryItemCompositeDef CamoArmor_Light DisplayNamePlural]] "Лег. камуфляжная броня"),
+				'DisplayName', T(623928157955, --[[ModItemInventoryItemCompositeDef CamoArmor_Light DisplayName]] "Light Camo Armor"),
+				'DisplayNamePlural', T(728180263372, --[[ModItemInventoryItemCompositeDef CamoArmor_Light DisplayNamePlural]] "Light Camo Armors"),
 				'AdditionalHint', T(492059399247, --[[ModItemInventoryItemCompositeDef CamoArmor_Light AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Усложняет обнаружение противником\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Против камуфлированных целей прицеливание работает хуже\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Нельзя совмещать с обивкой или керамическими пластинами"),
 				'Cost', 4500,
 				'Tier', 2,
@@ -52707,8 +52707,8 @@ return {
 				'Degradation', 16,
 				'Icon', "UI/Icons/Items/camo_armor_light",
 				'SubIcon', "UI/Icons/Items/kompositum58.png",
-				'DisplayName', T(925164820871, --[[ModItemInventoryItemCompositeDef CamoArmor_Light_Kompositum DisplayName]] "Лег. камуфляжная броня с композитумом"),
-				'DisplayNamePlural', T(216023440060, --[[ModItemInventoryItemCompositeDef CamoArmor_Light_Kompositum DisplayNamePlural]] "Лег. камуфляжная броня с композитумом"),
+				'DisplayName', T(787342918557, --[[ModItemInventoryItemCompositeDef CamoArmor_Light_Kompositum DisplayName]] "Kompositum Light Camo Armor"),
+				'DisplayNamePlural', T(730001345113, --[[ModItemInventoryItemCompositeDef CamoArmor_Light_Kompositum DisplayNamePlural]] "Kompositum Light Camo Armors"),
 				'AdditionalHint', T(940302072624, --[[ModItemInventoryItemCompositeDef CamoArmor_Light_Kompositum AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Усложняет обнаружение противником\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Против камуфлированных целей прицеливание работает хуже\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Совмещена с композитумом-58"),
 				'Cost', 4500,
 				'Tier', 2,
@@ -52728,8 +52728,8 @@ return {
 				'ScrapParts', 4,
 				'Degradation', 28,
 				'Icon', "UI/Icons/Items/camo_armor_medium",
-				'DisplayName', T(129566548767, --[[ModItemInventoryItemCompositeDef CamoArmor_Medium DisplayName]] "Ср. камуфляжная броня"),
-				'DisplayNamePlural', T(914089961047, --[[ModItemInventoryItemCompositeDef CamoArmor_Medium DisplayNamePlural]] "Ср. камуфляжная броня"),
+				'DisplayName', T(563558859870, --[[ModItemInventoryItemCompositeDef CamoArmor_Medium DisplayName]] "Medium Camo Armor"),
+				'DisplayNamePlural', T(475212621823, --[[ModItemInventoryItemCompositeDef CamoArmor_Medium DisplayNamePlural]] "Medium Camo Armors"),
 				'AdditionalHint', T(841350375386, --[[ModItemInventoryItemCompositeDef CamoArmor_Medium AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Усложняет обнаружение противником\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Против камуфлированных целей прицеливание работает хуже\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Нельзя совмещать с обивкой или керамическими пластинами"),
 				'Cost', 9000,
 				'Tier', 3,
@@ -52749,8 +52749,8 @@ return {
 				'Degradation', 16,
 				'Icon', "UI/Icons/Items/camo_armor_medium",
 				'SubIcon', "UI/Icons/Items/kompositum58.png",
-				'DisplayName', T(480082810804, --[[ModItemInventoryItemCompositeDef CamoArmor_Medium_Kompositum DisplayName]] "Ср. камуфляжная броня с композитумом"),
-				'DisplayNamePlural', T(379301758740, --[[ModItemInventoryItemCompositeDef CamoArmor_Medium_Kompositum DisplayNamePlural]] "Ср. камуфляжная броня с композитумом"),
+				'DisplayName', T(377755048143, --[[ModItemInventoryItemCompositeDef CamoArmor_Medium_Kompositum DisplayName]] "Kompositum Medium Camo Armor"),
+				'DisplayNamePlural', T(833629193035, --[[ModItemInventoryItemCompositeDef CamoArmor_Medium_Kompositum DisplayNamePlural]] "Kompositum Medium Camo Armors"),
 				'AdditionalHint', T(778372553788, --[[ModItemInventoryItemCompositeDef CamoArmor_Medium_Kompositum AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Усложняет обнаружение противником\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Против камуфлированных целей прицеливание работает хуже\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Совмещена с композитумом-58"),
 				'Cost', 9000,
 				'Tier', 3,
@@ -52770,8 +52770,8 @@ return {
 				'ScrapParts', 4,
 				'Degradation', 32,
 				'Icon', "UI/Icons/Items/flak_armor",
-				'DisplayName', T(361278570973, --[[ModItemInventoryItemCompositeDef FlakArmor DisplayName]] "Противооскол. броня"),
-				'DisplayNamePlural', T(146267206767, --[[ModItemInventoryItemCompositeDef FlakArmor DisplayNamePlural]] "Противооскол. броня"),
+				'DisplayName', T(562131155592, --[[ModItemInventoryItemCompositeDef FlakArmor DisplayName]] "Flak Armor"),
+				'DisplayNamePlural', T(259150406513, --[[ModItemInventoryItemCompositeDef FlakArmor DisplayNamePlural]] "Flak Armors"),
 				'Cost', 1200,
 				'MaxStock', 2,
 				'RestockWeight', 75,
@@ -52787,8 +52787,8 @@ return {
 				'Degradation', 32,
 				'Icon', "UI/Icons/Items/flak_armor",
 				'SubIcon', "UI/Icons/Items/plates",
-				'DisplayName', T(550872646507, --[[ModItemInventoryItemCompositeDef FlakArmor_CeramicPlates DisplayName]] "Противооскол. броня"),
-				'DisplayNamePlural', T(404962662800, --[[ModItemInventoryItemCompositeDef FlakArmor_CeramicPlates DisplayNamePlural]] "Противооскол. броня"),
+				'DisplayName', T(977066896029, --[[ModItemInventoryItemCompositeDef FlakArmor_CeramicPlates DisplayName]] "Flak Armor"),
+				'DisplayNamePlural', T(195720969644, --[[ModItemInventoryItemCompositeDef FlakArmor_CeramicPlates DisplayNamePlural]] "Flak Armors"),
 				'AdditionalHint', T(601923644572, --[[ModItemInventoryItemCompositeDef FlakArmor_CeramicPlates AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено керамическими пластинами) \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Керамические пластины ломаются после <color 124 130 96><RevertConditionCounter></color> попаданий"),
 				'Cost', 2400,
 				'MaxStock', 1,
@@ -52808,8 +52808,8 @@ return {
 				'Degradation', 16,
 				'Icon', "UI/Icons/Items/flak_armor",
 				'SubIcon', "UI/Icons/Items/kompositum58.png",
-				'DisplayName', T(730504534737, --[[ModItemInventoryItemCompositeDef FlakArmor_Kompositum DisplayName]] "Противооскол. броня с композитумом"),
-				'DisplayNamePlural', T(927437298119, --[[ModItemInventoryItemCompositeDef FlakArmor_Kompositum DisplayNamePlural]] "Противооскол. броня с композитумом"),
+				'DisplayName', T(977366157430, --[[ModItemInventoryItemCompositeDef FlakArmor_Kompositum DisplayName]] "Kompositum Flak Armor"),
+				'DisplayNamePlural', T(210530158086, --[[ModItemInventoryItemCompositeDef FlakArmor_Kompositum DisplayNamePlural]] "Kompositum Flak Armors"),
 				'AdditionalHint', T(470237496402, --[[ModItemInventoryItemCompositeDef FlakArmor_Kompositum AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Совмещена с композитумом-58"),
 				'Cost', 1200,
 				'MaxStock', 2,
@@ -52828,8 +52828,8 @@ return {
 				'Degradation', 24,
 				'Icon', "UI/Icons/Items/flak_armor",
 				'SubIcon', "UI/Icons/Items/padded",
-				'DisplayName', T(580434125082, --[[ModItemInventoryItemCompositeDef FlakArmor_WeavePadding DisplayName]] "Противооскол. броня"),
-				'DisplayNamePlural', T(128586439577, --[[ModItemInventoryItemCompositeDef FlakArmor_WeavePadding DisplayNamePlural]] "Противооскол. броня"),
+				'DisplayName', T(336822464699, --[[ModItemInventoryItemCompositeDef FlakArmor_WeavePadding DisplayName]] "Flak Armor"),
+				'DisplayNamePlural', T(250499294314, --[[ModItemInventoryItemCompositeDef FlakArmor_WeavePadding DisplayNamePlural]] "Flak Armors"),
 				'AdditionalHint', T(450301877671, --[[ModItemInventoryItemCompositeDef FlakArmor_WeavePadding AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено обивкой)"),
 				'Cost', 2400,
 				'MaxStock', 1,
@@ -52848,8 +52848,8 @@ return {
 				'ScrapParts', 4,
 				'Degradation', 32,
 				'Icon', "UI/Icons/Items/flak_leggings",
-				'DisplayName', T(588785070133, --[[ModItemInventoryItemCompositeDef FlakLeggings DisplayName]] "Противооскол. поножи"),
-				'DisplayNamePlural', T(351261449640, --[[ModItemInventoryItemCompositeDef FlakLeggings DisplayNamePlural]] "Противооскол. поножи"),
+				'DisplayName', T(491297757952, --[[ModItemInventoryItemCompositeDef FlakLeggings DisplayName]] "Flak Leggings"),
+				'DisplayNamePlural', T(547653505048, --[[ModItemInventoryItemCompositeDef FlakLeggings DisplayNamePlural]] "Flak Leggings"),
 				'Cost', 800,
 				'RestockWeight', 35,
 				'CategoryPair', "Light",
@@ -52866,8 +52866,8 @@ return {
 				'Degradation', 16,
 				'Icon', "UI/Icons/Items/flak_leggings",
 				'SubIcon', "UI/Icons/Items/kompositum58.png",
-				'DisplayName', T(670921772841, --[[ModItemInventoryItemCompositeDef FlakLeggings_Kompositum DisplayName]] "Противооскол. поножи с композитумом"),
-				'DisplayNamePlural', T(695923433132, --[[ModItemInventoryItemCompositeDef FlakLeggings_Kompositum DisplayNamePlural]] "Противооскол. поножи с композитумом"),
+				'DisplayName', T(700961137268, --[[ModItemInventoryItemCompositeDef FlakLeggings_Kompositum DisplayName]] "Kompositum Flak Leggings"),
+				'DisplayNamePlural', T(476332394039, --[[ModItemInventoryItemCompositeDef FlakLeggings_Kompositum DisplayNamePlural]] "Kompositum Flak Leggings"),
 				'AdditionalHint', T(981675853444, --[[ModItemInventoryItemCompositeDef FlakLeggings_Kompositum AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Совмещены с композитумом-58"),
 				'Cost', 800,
 				'RestockWeight', 35,
@@ -52886,8 +52886,8 @@ return {
 				'Degradation', 24,
 				'Icon', "UI/Icons/Items/flak_leggings",
 				'SubIcon', "UI/Icons/Items/padded",
-				'DisplayName', T(996388737700, --[[ModItemInventoryItemCompositeDef FlakLeggings_WeavePadding DisplayName]] "Противооскол. поножи"),
-				'DisplayNamePlural', T(948084724412, --[[ModItemInventoryItemCompositeDef FlakLeggings_WeavePadding DisplayNamePlural]] "Противооскол. поножи"),
+				'DisplayName', T(567301828854, --[[ModItemInventoryItemCompositeDef FlakLeggings_WeavePadding DisplayName]] "Flak Leggings"),
+				'DisplayNamePlural', T(579822006608, --[[ModItemInventoryItemCompositeDef FlakLeggings_WeavePadding DisplayNamePlural]] "Flak Leggings"),
 				'Description', "",
 				'AdditionalHint', T(933954691097, --[[ModItemInventoryItemCompositeDef FlakLeggings_WeavePadding AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено обивкой)"),
 				'Cost', 1600,
@@ -52908,8 +52908,8 @@ return {
 				'ScrapParts', 4,
 				'Degradation', 32,
 				'Icon', "UI/Icons/Items/flak_vest",
-				'DisplayName', T(260264257341, --[[ModItemInventoryItemCompositeDef FlakVest DisplayName]] "Противооскол. жилет"),
-				'DisplayNamePlural', T(881781038796, --[[ModItemInventoryItemCompositeDef FlakVest DisplayNamePlural]] "Противооскол. жилеты"),
+				'DisplayName', T(238942815086, --[[ModItemInventoryItemCompositeDef FlakVest DisplayName]] "Flak Vest"),
+				'DisplayNamePlural', T(383155432380, --[[ModItemInventoryItemCompositeDef FlakVest DisplayNamePlural]] "Flak Vests"),
 				'Cost', 800,
 				'RestockWeight', 75,
 				'CategoryPair', "Light",
@@ -52925,8 +52925,8 @@ return {
 				'Degradation', 32,
 				'Icon', "UI/Icons/Items/flak_vest",
 				'SubIcon', "UI/Icons/Items/plates",
-				'DisplayName', T(688366129736, --[[ModItemInventoryItemCompositeDef FlakVest_CeramicPlates DisplayName]] "Противооскол. жилет"),
-				'DisplayNamePlural', T(690006158155, --[[ModItemInventoryItemCompositeDef FlakVest_CeramicPlates DisplayNamePlural]] "Противооскол. жилеты"),
+				'DisplayName', T(204904790371, --[[ModItemInventoryItemCompositeDef FlakVest_CeramicPlates DisplayName]] "Flak Vest"),
+				'DisplayNamePlural', T(915485818265, --[[ModItemInventoryItemCompositeDef FlakVest_CeramicPlates DisplayNamePlural]] "Flak Vests"),
 				'AdditionalHint', T(907738433164, --[[ModItemInventoryItemCompositeDef FlakVest_CeramicPlates AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено керамическими пластинами) \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Керамические пластины ломаются после <color 124 130 96><RevertConditionCounter></color> попаданий"),
 				'Cost', 1600,
 				'MaxStock', 1,
@@ -52946,8 +52946,8 @@ return {
 				'Degradation', 16,
 				'Icon', "UI/Icons/Items/flak_vest",
 				'SubIcon', "UI/Icons/Items/kompositum58.png",
-				'DisplayName', T(880388662664, --[[ModItemInventoryItemCompositeDef FlakVest_Kompositum DisplayName]] "Противооскол. жилет с композитумом"),
-				'DisplayNamePlural', T(402243986328, --[[ModItemInventoryItemCompositeDef FlakVest_Kompositum DisplayNamePlural]] "Противооскол. жилеты с композитумом"),
+				'DisplayName', T(729199092245, --[[ModItemInventoryItemCompositeDef FlakVest_Kompositum DisplayName]] "Kompositum Flak Vest"),
+				'DisplayNamePlural', T(406499891445, --[[ModItemInventoryItemCompositeDef FlakVest_Kompositum DisplayNamePlural]] "Kompositum Flak Vests"),
 				'AdditionalHint', T(488626459232, --[[ModItemInventoryItemCompositeDef FlakVest_Kompositum AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Совмещен с композитумом-58"),
 				'Cost', 800,
 				'RestockWeight', 75,
@@ -52965,8 +52965,8 @@ return {
 				'Degradation', 24,
 				'Icon', "UI/Icons/Items/flak_vest",
 				'SubIcon', "UI/Icons/Items/padded",
-				'DisplayName', T(853977187037, --[[ModItemInventoryItemCompositeDef FlakVest_WeavePadding DisplayName]] "Противооскол. жилет"),
-				'DisplayNamePlural', T(841226362530, --[[ModItemInventoryItemCompositeDef FlakVest_WeavePadding DisplayNamePlural]] "Противооскол. жилеты"),
+				'DisplayName', T(286438919370, --[[ModItemInventoryItemCompositeDef FlakVest_WeavePadding DisplayName]] "Flak Vest"),
+				'DisplayNamePlural', T(207946126397, --[[ModItemInventoryItemCompositeDef FlakVest_WeavePadding DisplayNamePlural]] "Flak Vests"),
 				'Description', "",
 				'AdditionalHint', T(192038051150, --[[ModItemInventoryItemCompositeDef FlakVest_WeavePadding AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено обивкой)"),
 				'Cost', 1600,
@@ -52986,8 +52986,8 @@ return {
 				'ScrapParts', 2,
 				'Degradation', 32,
 				'Icon', "UI/Icons/Items/light_helmet",
-				'DisplayName', T(524136732156, --[[ModItemInventoryItemCompositeDef LightHelmet DisplayName]] "Легкий шлем"),
-				'DisplayNamePlural', T(362915776105, --[[ModItemInventoryItemCompositeDef LightHelmet DisplayNamePlural]] "Легкие шлемы"),
+				'DisplayName', T(513659519711, --[[ModItemInventoryItemCompositeDef LightHelmet DisplayName]] "Light Helmet"),
+				'DisplayNamePlural', T(319467048749, --[[ModItemInventoryItemCompositeDef LightHelmet DisplayNamePlural]] "Light Helmets"),
 				'RestockWeight', 35,
 				'CategoryPair', "Light",
 				'Slot', "Head",
@@ -53003,8 +53003,8 @@ return {
 				'Degradation', 16,
 				'Icon', "UI/Icons/Items/light_helmet",
 				'SubIcon', "UI/Icons/Items/kompositum58.png",
-				'DisplayName', T(888518990329, --[[ModItemInventoryItemCompositeDef LightHelmet_Kompositum DisplayName]] "Легкий шлем с композитумом"),
-				'DisplayNamePlural', T(552802463500, --[[ModItemInventoryItemCompositeDef LightHelmet_Kompositum DisplayNamePlural]] "Легкие шлемы с композитумом"),
+				'DisplayName', T(538248037457, --[[ModItemInventoryItemCompositeDef LightHelmet_Kompositum DisplayName]] "Kompositum Light Helmet"),
+				'DisplayNamePlural', T(120364784443, --[[ModItemInventoryItemCompositeDef LightHelmet_Kompositum DisplayNamePlural]] "Kompositum Light Helmets"),
 				'AdditionalHint', T(309904103984, --[[ModItemInventoryItemCompositeDef LightHelmet_Kompositum AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Совмещен с композитумом-58"),
 				'RestockWeight', 35,
 				'CategoryPair', "Light",
@@ -53022,8 +53022,8 @@ return {
 				'Degradation', 24,
 				'Icon', "UI/Icons/Items/light_helmet",
 				'SubIcon', "UI/Icons/Items/padded",
-				'DisplayName', T(656393644870, --[[ModItemInventoryItemCompositeDef LightHelmet_WeavePadding DisplayName]] "Легкий шлем"),
-				'DisplayNamePlural', T(867812156182, --[[ModItemInventoryItemCompositeDef LightHelmet_WeavePadding DisplayNamePlural]] "Легкие шлемы"),
+				'DisplayName', T(596025389397, --[[ModItemInventoryItemCompositeDef LightHelmet_WeavePadding DisplayName]] "Light Helmet"),
+				'DisplayNamePlural', T(625172011883, --[[ModItemInventoryItemCompositeDef LightHelmet_WeavePadding DisplayNamePlural]] "Light Helmets"),
 				'AdditionalHint', T(985499968545, --[[ModItemInventoryItemCompositeDef LightHelmet_WeavePadding AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено обивкой)"),
 				'Cost', 2000,
 				'MaxStock', 1,
@@ -53043,8 +53043,8 @@ return {
 				'ScrapParts', 4,
 				'Degradation', 20,
 				'Icon', "UI/Icons/Items/heavy_vest",
-				'DisplayName', T(446527064779, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate DisplayName]] "Тяжелый жилет"),
-				'DisplayNamePlural', T(911916262166, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate DisplayNamePlural]] "Тяжелые жилеты"),
+				'DisplayName', T(410197513169, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate DisplayName]] "Heavy Vest"),
+				'DisplayNamePlural', T(458596493579, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate DisplayNamePlural]] "Heavy Vests"),
 				'AdditionalHint', T(221146537482, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения)"),
 				'Cumbersome', 1,
 				'Valuable', 1,
@@ -53065,8 +53065,8 @@ return {
 				'Degradation', 20,
 				'Icon', "UI/Icons/Items/heavy_vest",
 				'SubIcon', "UI/Icons/Items/plates",
-				'DisplayName', T(753691133305, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate_CeramicPlates DisplayName]] "Тяжелый жилет"),
-				'DisplayNamePlural', T(738672896289, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate_CeramicPlates DisplayNamePlural]] "Тяжелые жилеты"),
+				'DisplayName', T(409839949549, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate_CeramicPlates DisplayName]] "Heavy Vest"),
+				'DisplayNamePlural', T(792099182547, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate_CeramicPlates DisplayNamePlural]] "Heavy Vests"),
 				'AdditionalHint', T(331960463954, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate_CeramicPlates AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено керамическими пластинами)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Керамические пластины ломаются после <color 124 130 96><RevertConditionCounter></color> попаданий\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения)"),
 				'Cumbersome', 1,
 				'Valuable', 1,
@@ -53089,8 +53089,8 @@ return {
 				'Degradation', 12,
 				'Icon', "UI/Icons/Items/heavy_vest",
 				'SubIcon', "UI/Icons/Items/kompositum58.png",
-				'DisplayName', T(629905031350, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate_Kompositum DisplayName]] "Тяжелый жилет с композитумом"),
-				'DisplayNamePlural', T(457665882082, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate_Kompositum DisplayNamePlural]] "Тяжелые жилеты с композитумом"),
+				'DisplayName', T(949961773018, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate_Kompositum DisplayName]] "Kompositum Heavy Vest"),
+				'DisplayNamePlural', T(576829632928, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate_Kompositum DisplayNamePlural]] "Kompositum Heavy Vests"),
 				'AdditionalHint', T(750816289329, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate_Kompositum AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Совмещено с композитумом-58"),
 				'Cumbersome', 1,
 				'Valuable', 1,
@@ -53111,8 +53111,8 @@ return {
 				'Degradation', 14,
 				'Icon', "UI/Icons/Items/heavy_vest",
 				'SubIcon', "UI/Icons/Items/padded",
-				'DisplayName', T(218674625854, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate_WeavePadding DisplayName]] "Тяжелый жилет"),
-				'DisplayNamePlural', T(793170991962, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate_WeavePadding DisplayNamePlural]] "Тяжелые жилеты"),
+				'DisplayName', T(413722923124, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate_WeavePadding DisplayName]] "Heavy Vest"),
+				'DisplayNamePlural', T(403645732222, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate_WeavePadding DisplayNamePlural]] "Heavy Vests"),
 				'AdditionalHint', T(463039026973, --[[ModItemInventoryItemCompositeDef HeavyArmorChestplate_WeavePadding AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено обивкой)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения)"),
 				'Cumbersome', 1,
 				'Valuable', 1,
@@ -53134,8 +53134,8 @@ return {
 				'ScrapParts', 2,
 				'Degradation', 20,
 				'Icon', "UI/Icons/Items/heavy_helmet",
-				'DisplayName', T(804723865897, --[[ModItemInventoryItemCompositeDef HeavyArmorHelmet DisplayName]] "Тяжелый шлем"),
-				'DisplayNamePlural', T(356126401377, --[[ModItemInventoryItemCompositeDef HeavyArmorHelmet DisplayNamePlural]] "Тяжелые шлемы"),
+				'DisplayName', T(674090196987, --[[ModItemInventoryItemCompositeDef HeavyArmorHelmet DisplayName]] "Heavy Armor Helmet"),
+				'DisplayNamePlural', T(934219027606, --[[ModItemInventoryItemCompositeDef HeavyArmorHelmet DisplayNamePlural]] "Heavy Armor Helmets"),
 				'AdditionalHint', T(852703817426, --[[ModItemInventoryItemCompositeDef HeavyArmorHelmet AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения)"),
 				'Cumbersome', 1,
 				'Valuable', 1,
@@ -53157,8 +53157,8 @@ return {
 				'Degradation', 12,
 				'Icon', "UI/Icons/Items/heavy_helmet",
 				'SubIcon', "UI/Icons/Items/kompositum58.png",
-				'DisplayName', T(789934266572, --[[ModItemInventoryItemCompositeDef HeavyArmorHelmet_Kompositum DisplayName]] "Тяжелый шлем с композитумом"),
-				'DisplayNamePlural', T(454707438160, --[[ModItemInventoryItemCompositeDef HeavyArmorHelmet_Kompositum DisplayNamePlural]] "Тяжелые шлемы с композитумом"),
+				'DisplayName', T(996772063237, --[[ModItemInventoryItemCompositeDef HeavyArmorHelmet_Kompositum DisplayName]] "Kompositum Heavy Armor Helmet"),
+				'DisplayNamePlural', T(752226097766, --[[ModItemInventoryItemCompositeDef HeavyArmorHelmet_Kompositum DisplayNamePlural]] "Kompositum Heavy Armor Helmets"),
 				'AdditionalHint', T(312770121832, --[[ModItemInventoryItemCompositeDef HeavyArmorHelmet_Kompositum AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Совмещено с композитумом-58"),
 				'Cumbersome', 1,
 				'Valuable', 1,
@@ -53180,8 +53180,8 @@ return {
 				'Degradation', 14,
 				'Icon', "UI/Icons/Items/heavy_helmet",
 				'SubIcon', "UI/Icons/Items/padded",
-				'DisplayName', T(377519143668, --[[ModItemInventoryItemCompositeDef HeavyArmorHelmet_WeavePadding DisplayName]] "Тяжелый шлем"),
-				'DisplayNamePlural', T(598621879541, --[[ModItemInventoryItemCompositeDef HeavyArmorHelmet_WeavePadding DisplayNamePlural]] "Тяжелые шлемы"),
+				'DisplayName', T(239964731641, --[[ModItemInventoryItemCompositeDef HeavyArmorHelmet_WeavePadding DisplayName]] "Heavy Armor Helmet"),
+				'DisplayNamePlural', T(115190536445, --[[ModItemInventoryItemCompositeDef HeavyArmorHelmet_WeavePadding DisplayNamePlural]] "Heavy Armor Helmets"),
 				'AdditionalHint', T(353912792254, --[[ModItemInventoryItemCompositeDef HeavyArmorHelmet_WeavePadding AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено обивкой)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения)"),
 				'Cumbersome', 1,
 				'Valuable', 1,
@@ -53204,8 +53204,8 @@ return {
 				'ScrapParts', 4,
 				'Degradation', 20,
 				'Icon', "UI/Icons/Items/heavy_leggings",
-				'DisplayName', T(557210228915, --[[ModItemInventoryItemCompositeDef HeavyArmorLeggings DisplayName]] "Тяжелые поножи"),
-				'DisplayNamePlural', T(557122296953, --[[ModItemInventoryItemCompositeDef HeavyArmorLeggings DisplayNamePlural]] "Тяжелые поножи"),
+				'DisplayName', T(958514093547, --[[ModItemInventoryItemCompositeDef HeavyArmorLeggings DisplayName]] "Heavy Armor Leggings"),
+				'DisplayNamePlural', T(661354623638, --[[ModItemInventoryItemCompositeDef HeavyArmorLeggings DisplayNamePlural]] "Heavy Armor Leggings"),
 				'AdditionalHint', T(562949448257, --[[ModItemInventoryItemCompositeDef HeavyArmorLeggings AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения)"),
 				'Cumbersome', 1,
 				'Valuable', 1,
@@ -53227,8 +53227,8 @@ return {
 				'Degradation', 12,
 				'Icon', "UI/Icons/Items/heavy_leggings",
 				'SubIcon', "UI/Icons/Items/kompositum58.png",
-				'DisplayName', T(842175480143, --[[ModItemInventoryItemCompositeDef HeavyArmorLeggings_Kompositum DisplayName]] "Тяжелые поножи с композитумом"),
-				'DisplayNamePlural', T(141587408909, --[[ModItemInventoryItemCompositeDef HeavyArmorLeggings_Kompositum DisplayNamePlural]] "Тяжелые поножи с композитумом"),
+				'DisplayName', T(187687465240, --[[ModItemInventoryItemCompositeDef HeavyArmorLeggings_Kompositum DisplayName]] "Kompositum Heavy Armor Leggings"),
+				'DisplayNamePlural', T(762868363272, --[[ModItemInventoryItemCompositeDef HeavyArmorLeggings_Kompositum DisplayNamePlural]] "Kompositum Heavy Armor Leggings"),
 				'AdditionalHint', T(759827329147, --[[ModItemInventoryItemCompositeDef HeavyArmorLeggings_Kompositum AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Совмещено с композитумом-58"),
 				'Cumbersome', 1,
 				'Valuable', 1,
@@ -53250,8 +53250,8 @@ return {
 				'Degradation', 14,
 				'Icon', "UI/Icons/Items/heavy_leggings",
 				'SubIcon', "UI/Icons/Items/padded",
-				'DisplayName', T(295571472443, --[[ModItemInventoryItemCompositeDef HeavyArmorLeggings_WeavePadding DisplayName]] "Тяжелые поножи"),
-				'DisplayNamePlural', T(707219634679, --[[ModItemInventoryItemCompositeDef HeavyArmorLeggings_WeavePadding DisplayNamePlural]] "Тяжелые поножи"),
+				'DisplayName', T(900851966356, --[[ModItemInventoryItemCompositeDef HeavyArmorLeggings_WeavePadding DisplayName]] "Heavy Armor Leggings"),
+				'DisplayNamePlural', T(383152125619, --[[ModItemInventoryItemCompositeDef HeavyArmorLeggings_WeavePadding DisplayNamePlural]] "Heavy Armor Leggings"),
 				'AdditionalHint', T(667037980727, --[[ModItemInventoryItemCompositeDef HeavyArmorLeggings_WeavePadding AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено обивкой)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения)"),
 				'Cumbersome', 1,
 				'Valuable', 1,
@@ -53274,8 +53274,8 @@ return {
 				'ScrapParts', 4,
 				'Degradation', 20,
 				'Icon', "UI/Icons/Items/heavy_armor",
-				'DisplayName', T(517668263434, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso DisplayName]] "Тяжелая броня"),
-				'DisplayNamePlural', T(558138293834, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso DisplayNamePlural]] "Тяжелая броня"),
+				'DisplayName', T(269180326225, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso DisplayName]] "Heavy Armor"),
+				'DisplayNamePlural', T(167239210459, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso DisplayNamePlural]] "Heavy Armors"),
 				'AdditionalHint', T(219847021710, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения)"),
 				'Cumbersome', 1,
 				'Valuable', 1,
@@ -53297,8 +53297,8 @@ return {
 				'Degradation', 20,
 				'Icon', "UI/Icons/Items/heavy_armor",
 				'SubIcon', "UI/Icons/Items/plates",
-				'DisplayName', T(273015700050, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso_CeramicPlates DisplayName]] "Тяжелая броня"),
-				'DisplayNamePlural', T(316544463324, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso_CeramicPlates DisplayNamePlural]] "Тяжелая броня"),
+				'DisplayName', T(440500563664, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso_CeramicPlates DisplayName]] "Heavy Armor"),
+				'DisplayNamePlural', T(958357023612, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso_CeramicPlates DisplayNamePlural]] "Heavy Armors"),
 				'AdditionalHint', T(603800970086, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso_CeramicPlates AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено керамическими пластинами)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Керамические пластины ломаются после <color 124 130 96><RevertConditionCounter></color> попаданий\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения)"),
 				'Cumbersome', 1,
 				'Valuable', 1,
@@ -53321,8 +53321,8 @@ return {
 				'Degradation', 12,
 				'Icon', "UI/Icons/Items/heavy_armor",
 				'SubIcon', "UI/Icons/Items/kompositum58.png",
-				'DisplayName', T(615129134579, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso_Kompositum DisplayName]] "Тяжелая броня с композитумом"),
-				'DisplayNamePlural', T(126914512957, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso_Kompositum DisplayNamePlural]] "Тяжелая броня с композитумом"),
+				'DisplayName', T(740902259609, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso_Kompositum DisplayName]] "Kompositum Heavy Armor"),
+				'DisplayNamePlural', T(289491793092, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso_Kompositum DisplayNamePlural]] "Kompositum Heavy Armors"),
 				'AdditionalHint', T(347531284201, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso_Kompositum AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Совмещено с композитумом-58"),
 				'Cumbersome', 1,
 				'Valuable', 1,
@@ -53344,8 +53344,8 @@ return {
 				'Degradation', 14,
 				'Icon', "UI/Icons/Items/heavy_armor",
 				'SubIcon', "UI/Icons/Items/padded",
-				'DisplayName', T(515134387293, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso_WeavePadding DisplayName]] "Тяжелая броня"),
-				'DisplayNamePlural', T(731006551250, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso_WeavePadding DisplayNamePlural]] "Тяжелая броня"),
+				'DisplayName', T(947371172255, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso_WeavePadding DisplayName]] "Heavy Armor"),
+				'DisplayNamePlural', T(634699187749, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso_WeavePadding DisplayNamePlural]] "Heavy Armors"),
 				'AdditionalHint', T(190771851393, --[[ModItemInventoryItemCompositeDef HeavyArmorTorso_WeavePadding AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено обивкой)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения)"),
 				'Cumbersome', 1,
 				'Valuable', 1,
@@ -53367,8 +53367,8 @@ return {
 				'ScrapParts', 4,
 				'Degradation', 28,
 				'Icon', "UI/Icons/Items/kevlar_vest",
-				'DisplayName', T(385029395380, --[[ModItemInventoryItemCompositeDef KevlarChestplate DisplayName]] "Кевларовый жилет"),
-				'DisplayNamePlural', T(970450020508, --[[ModItemInventoryItemCompositeDef KevlarChestplate DisplayNamePlural]] "Кевларовые жилеты"),
+				'DisplayName', T(876579930330, --[[ModItemInventoryItemCompositeDef KevlarChestplate DisplayName]] "Kevlar Vest"),
+				'DisplayNamePlural', T(858599622504, --[[ModItemInventoryItemCompositeDef KevlarChestplate DisplayNamePlural]] "Kevlar Vests"),
 				'Cost', 1400,
 				'Tier', 2,
 				'RestockWeight', 50,
@@ -53386,8 +53386,8 @@ return {
 				'Degradation', 28,
 				'Icon', "UI/Icons/Items/kevlar_vest",
 				'SubIcon', "UI/Icons/Items/plates",
-				'DisplayName', T(960351847723, --[[ModItemInventoryItemCompositeDef KevlarChestplate_CeramicPlates DisplayName]] "Кевларовый жилет"),
-				'DisplayNamePlural', T(638224036453, --[[ModItemInventoryItemCompositeDef KevlarChestplate_CeramicPlates DisplayNamePlural]] "Кевларовые жилеты"),
+				'DisplayName', T(449111663620, --[[ModItemInventoryItemCompositeDef KevlarChestplate_CeramicPlates DisplayName]] "Kevlar Vest"),
+				'DisplayNamePlural', T(667447460358, --[[ModItemInventoryItemCompositeDef KevlarChestplate_CeramicPlates DisplayNamePlural]] "Kevlar Vests"),
 				'AdditionalHint', T(926317299683, --[[ModItemInventoryItemCompositeDef KevlarChestplate_CeramicPlates AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено керамическими пластинами) \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Керамические пластины ломаются после <color 124 130 96><RevertConditionCounter></color> попаданий"),
 				'Cost', 2800,
 				'Tier', 2,
@@ -53408,8 +53408,8 @@ return {
 				'Degradation', 12,
 				'Icon', "UI/Icons/Items/kevlar_vest",
 				'SubIcon', "UI/Icons/Items/kompositum58.png",
-				'DisplayName', T(320333519347, --[[ModItemInventoryItemCompositeDef KevlarChestplate_Kompositum DisplayName]] "Кевларовый жилет с композитумом"),
-				'DisplayNamePlural', T(811441401073, --[[ModItemInventoryItemCompositeDef KevlarChestplate_Kompositum DisplayNamePlural]] "Кевларовые жилеты с композитумом"),
+				'DisplayName', T(409511595554, --[[ModItemInventoryItemCompositeDef KevlarChestplate_Kompositum DisplayName]] "Kompositum Kevlar Vest"),
+				'DisplayNamePlural', T(723550039441, --[[ModItemInventoryItemCompositeDef KevlarChestplate_Kompositum DisplayNamePlural]] "Kompositum Kevlar Vests"),
 				'AdditionalHint', T(757854481257, --[[ModItemInventoryItemCompositeDef KevlarChestplate_Kompositum AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Совмещен с композитумом-58"),
 				'Cost', 1400,
 				'Tier', 2,
@@ -53428,8 +53428,8 @@ return {
 				'Degradation', 20,
 				'Icon', "UI/Icons/Items/kevlar_vest",
 				'SubIcon', "UI/Icons/Items/padded",
-				'DisplayName', T(295830966212, --[[ModItemInventoryItemCompositeDef KevlarChestplate_WeavePadding DisplayName]] "Кевларовый жилет"),
-				'DisplayNamePlural', T(428685233635, --[[ModItemInventoryItemCompositeDef KevlarChestplate_WeavePadding DisplayNamePlural]] "Кевларовые жилеты"),
+				'DisplayName', T(672086153382, --[[ModItemInventoryItemCompositeDef KevlarChestplate_WeavePadding DisplayName]] "Kevlar Vest"),
+				'DisplayNamePlural', T(534763739172, --[[ModItemInventoryItemCompositeDef KevlarChestplate_WeavePadding DisplayNamePlural]] "Kevlar Vests"),
 				'AdditionalHint', T(980764623412, --[[ModItemInventoryItemCompositeDef KevlarChestplate_WeavePadding AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено обивкой)"),
 				'Cost', 2800,
 				'Tier', 2,
@@ -53449,8 +53449,8 @@ return {
 				'ScrapParts', 2,
 				'Degradation', 28,
 				'Icon', "UI/Icons/Items/kevlar_helmet",
-				'DisplayName', T(187608707977, --[[ModItemInventoryItemCompositeDef KevlarHelmet DisplayName]] "Кевларовый шлем"),
-				'DisplayNamePlural', T(249372949624, --[[ModItemInventoryItemCompositeDef KevlarHelmet DisplayNamePlural]] "Кевларовые шлемы"),
+				'DisplayName', T(277246694574, --[[ModItemInventoryItemCompositeDef KevlarHelmet DisplayName]] "Kevlar Helmet"),
+				'DisplayNamePlural', T(416398685861, --[[ModItemInventoryItemCompositeDef KevlarHelmet DisplayNamePlural]] "Kevlar Helmets"),
 				'Cost', 1800,
 				'Tier', 2,
 				'RestockWeight', 25,
@@ -53469,8 +53469,8 @@ return {
 				'Degradation', 12,
 				'Icon', "UI/Icons/Items/kevlar_helmet",
 				'SubIcon', "UI/Icons/Items/kompositum58.png",
-				'DisplayName', T(403167708542, --[[ModItemInventoryItemCompositeDef KevlarHelmet_Kompositum DisplayName]] "Кевларовый шлем с композитумом"),
-				'DisplayNamePlural', T(627399279577, --[[ModItemInventoryItemCompositeDef KevlarHelmet_Kompositum DisplayNamePlural]] "Кевларовые шлемы с композитумом"),
+				'DisplayName', T(833539167839, --[[ModItemInventoryItemCompositeDef KevlarHelmet_Kompositum DisplayName]] "Kompositum Kevlar Helmet"),
+				'DisplayNamePlural', T(670933945683, --[[ModItemInventoryItemCompositeDef KevlarHelmet_Kompositum DisplayNamePlural]] "Kompositum Kevlar Helmets"),
 				'AdditionalHint', T(606562258998, --[[ModItemInventoryItemCompositeDef KevlarHelmet_Kompositum AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Совмещен с композитумом-58"),
 				'Cost', 1800,
 				'Tier', 2,
@@ -53490,8 +53490,8 @@ return {
 				'Degradation', 20,
 				'Icon', "UI/Icons/Items/kevlar_helmet",
 				'SubIcon', "UI/Icons/Items/padded",
-				'DisplayName', T(409561352971, --[[ModItemInventoryItemCompositeDef KevlarHelmet_WeavePadding DisplayName]] "Кевларовый шлем"),
-				'DisplayNamePlural', T(767764349157, --[[ModItemInventoryItemCompositeDef KevlarHelmet_WeavePadding DisplayNamePlural]] "Кевларовые шлемы"),
+				'DisplayName', T(801641960244, --[[ModItemInventoryItemCompositeDef KevlarHelmet_WeavePadding DisplayName]] "Kevlar Helmet"),
+				'DisplayNamePlural', T(690130372665, --[[ModItemInventoryItemCompositeDef KevlarHelmet_WeavePadding DisplayNamePlural]] "Kevlar Helmets"),
 				'AdditionalHint', T(507191349868, --[[ModItemInventoryItemCompositeDef KevlarHelmet_WeavePadding AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено обивкой)"),
 				'Cost', 3600,
 				'Tier', 2,
@@ -53512,8 +53512,8 @@ return {
 				'ScrapParts', 4,
 				'Degradation', 28,
 				'Icon', "UI/Icons/Items/kevlar_leggings",
-				'DisplayName', T(875629469039, --[[ModItemInventoryItemCompositeDef KevlarLeggings DisplayName]] "Кевларовые поножи"),
-				'DisplayNamePlural', T(718998931624, --[[ModItemInventoryItemCompositeDef KevlarLeggings DisplayNamePlural]] "Кевларовые поножи"),
+				'DisplayName', T(312058161753, --[[ModItemInventoryItemCompositeDef KevlarLeggings DisplayName]] "Kevlar Leggings"),
+				'DisplayNamePlural', T(365166677475, --[[ModItemInventoryItemCompositeDef KevlarLeggings DisplayNamePlural]] "Kevlar Leggings"),
 				'Cost', 1400,
 				'Tier', 2,
 				'RestockWeight', 25,
@@ -53532,8 +53532,8 @@ return {
 				'Degradation', 12,
 				'Icon', "UI/Icons/Items/kevlar_leggings",
 				'SubIcon', "UI/Icons/Items/kompositum58.png",
-				'DisplayName', T(480008577125, --[[ModItemInventoryItemCompositeDef KevlarLeggings_Kompositum DisplayName]] "Кевларовые поножи с композитумом"),
-				'DisplayNamePlural', T(274085418656, --[[ModItemInventoryItemCompositeDef KevlarLeggings_Kompositum DisplayNamePlural]] "Кевларовые поножи с композитумом"),
+				'DisplayName', T(157610373366, --[[ModItemInventoryItemCompositeDef KevlarLeggings_Kompositum DisplayName]] "Kompositum Kevlar Leggings"),
+				'DisplayNamePlural', T(226479029140, --[[ModItemInventoryItemCompositeDef KevlarLeggings_Kompositum DisplayNamePlural]] "Kompositum Kevlar Leggings"),
 				'AdditionalHint', T(458558922661, --[[ModItemInventoryItemCompositeDef KevlarLeggings_Kompositum AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Совмещен с композитумом-58"),
 				'Cost', 1400,
 				'Tier', 2,
@@ -53553,8 +53553,8 @@ return {
 				'Degradation', 20,
 				'Icon', "UI/Icons/Items/kevlar_leggings",
 				'SubIcon', "UI/Icons/Items/padded",
-				'DisplayName', T(889185234463, --[[ModItemInventoryItemCompositeDef KevlarLeggings_WeavePadding DisplayName]] "Кевларовые поножи"),
-				'DisplayNamePlural', T(361740896558, --[[ModItemInventoryItemCompositeDef KevlarLeggings_WeavePadding DisplayNamePlural]] "Кевларовые поножи"),
+				'DisplayName', T(995619097583, --[[ModItemInventoryItemCompositeDef KevlarLeggings_WeavePadding DisplayName]] "Kevlar Leggings"),
+				'DisplayNamePlural', T(297011337212, --[[ModItemInventoryItemCompositeDef KevlarLeggings_WeavePadding DisplayNamePlural]] "Kevlar Leggings"),
 				'AdditionalHint', T(547092855750, --[[ModItemInventoryItemCompositeDef KevlarLeggings_WeavePadding AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено обивкой)"),
 				'Cost', 2800,
 				'Tier', 2,
@@ -53575,8 +53575,8 @@ return {
 				'ScrapParts', 4,
 				'Degradation', 28,
 				'Icon', "UI/Icons/Items/kevlar_armor",
-				'DisplayName', T(939389846992, --[[ModItemInventoryItemCompositeDef KevlarVest DisplayName]] "Кевларовая броня"),
-				'DisplayNamePlural', T(102906812460, --[[ModItemInventoryItemCompositeDef KevlarVest DisplayNamePlural]] "Кевларовая броня"),
+				'DisplayName', T(681283668250, --[[ModItemInventoryItemCompositeDef KevlarVest DisplayName]] "Kevlar Armor"),
+				'DisplayNamePlural', T(520688450583, --[[ModItemInventoryItemCompositeDef KevlarVest DisplayNamePlural]] "Kevlar Armors"),
 				'Cost', 2800,
 				'Tier', 2,
 				'MaxStock', 2,
@@ -53595,8 +53595,8 @@ return {
 				'Degradation', 28,
 				'Icon', "UI/Icons/Items/kevlar_armor",
 				'SubIcon', "UI/Icons/Items/plates",
-				'DisplayName', T(196362455670, --[[ModItemInventoryItemCompositeDef KevlarVest_CeramicPlates DisplayName]] "Кевларовая броня"),
-				'DisplayNamePlural', T(819102510854, --[[ModItemInventoryItemCompositeDef KevlarVest_CeramicPlates DisplayNamePlural]] "Кевларовая броня"),
+				'DisplayName', T(982997486407, --[[ModItemInventoryItemCompositeDef KevlarVest_CeramicPlates DisplayName]] "Kevlar Armor"),
+				'DisplayNamePlural', T(430963369197, --[[ModItemInventoryItemCompositeDef KevlarVest_CeramicPlates DisplayNamePlural]] "Kevlar Armors"),
 				'AdditionalHint', T(904920821332, --[[ModItemInventoryItemCompositeDef KevlarVest_CeramicPlates AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено керамическими пластинами) \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Керамические пластины ломаются после <color 124 130 96><RevertConditionCounter></color> попаданий"),
 				'Cost', 5000,
 				'Tier', 2,
@@ -53616,8 +53616,8 @@ return {
 				'Degradation', 12,
 				'Icon', "UI/Icons/Items/kevlar_armor",
 				'SubIcon', "UI/Icons/Items/kompositum58.png",
-				'DisplayName', T(620082073861, --[[ModItemInventoryItemCompositeDef KevlarVest_Kompositum DisplayName]] "Кевларовая броня с композитумом"),
-				'DisplayNamePlural', T(444242790574, --[[ModItemInventoryItemCompositeDef KevlarVest_Kompositum DisplayNamePlural]] "Кевларовая броня с композитумом"),
+				'DisplayName', T(224548841891, --[[ModItemInventoryItemCompositeDef KevlarVest_Kompositum DisplayName]] "Kompositum Kevlar Armor"),
+				'DisplayNamePlural', T(278978522121, --[[ModItemInventoryItemCompositeDef KevlarVest_Kompositum DisplayNamePlural]] "Kompositum Kevlar Armors"),
 				'AdditionalHint', T(455311699523, --[[ModItemInventoryItemCompositeDef KevlarVest_Kompositum AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Совмещен с композитумом-58"),
 				'Cost', 2800,
 				'Tier', 2,
@@ -53637,8 +53637,8 @@ return {
 				'Degradation', 20,
 				'Icon', "UI/Icons/Items/kevlar_armor",
 				'SubIcon', "UI/Icons/Items/padded",
-				'DisplayName', T(161772329620, --[[ModItemInventoryItemCompositeDef KevlarVest_WeavePadding DisplayName]] "Кевларовая броня"),
-				'DisplayNamePlural', T(578015891227, --[[ModItemInventoryItemCompositeDef KevlarVest_WeavePadding DisplayNamePlural]] "Кевларовая броня"),
+				'DisplayName', T(143391465564, --[[ModItemInventoryItemCompositeDef KevlarVest_WeavePadding DisplayName]] "Kevlar Armor"),
+				'DisplayNamePlural', T(828774839698, --[[ModItemInventoryItemCompositeDef KevlarVest_WeavePadding DisplayNamePlural]] "Kevlar Armors"),
 				'AdditionalHint', T(497570218481, --[[ModItemInventoryItemCompositeDef KevlarVest_WeavePadding AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено обивкой)"),
 				'Cost', 5000,
 				'Tier', 2,
@@ -53658,8 +53658,8 @@ return {
 				'ScrapParts', 2,
 				'Degradation', 60,
 				'Icon', "UI/Icons/Items/post_apo_helmet",
-				'DisplayName', T(883936367090, --[[ModItemInventoryItemCompositeDef PostApoHelmet DisplayName]] "Блестящий шлем"),
-				'DisplayNamePlural', T(343660006188, --[[ModItemInventoryItemCompositeDef PostApoHelmet DisplayNamePlural]] "Блестящие шлемы"),
+				'DisplayName', T(632051696391, --[[ModItemInventoryItemCompositeDef PostApoHelmet DisplayName]] "Shiny and Chrome Helmet"),
+				'DisplayNamePlural', T(382736672530, --[[ModItemInventoryItemCompositeDef PostApoHelmet DisplayNamePlural]] "Shiny and Chrome Helmets"),
 				'AdditionalHint', T(164667458744, --[[ModItemInventoryItemCompositeDef PostApoHelmet AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ломается ОЧЕНЬ часто\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Плюс 100 к безумию"),
 				'Valuable', 1,
 				'RestockWeight', 0,
@@ -53678,9 +53678,9 @@ return {
 					'object_class', "MiscItem",
 					'Repairable', false,
 					'Icon', "UI/Icons/Items/combination_weave_padding",
-					'DisplayName', T(405940277469, --[[ModItemInventoryItemCompositeDef Combination_WeavePadding DisplayName]] "Weave Padding"),
-					'DisplayNamePlural', T(645759835116, --[[ModItemInventoryItemCompositeDef Combination_WeavePadding DisplayNamePlural]] "Weave Padding"),
-					'AdditionalHint', T(414339740907, --[[ModItemInventoryItemCompositeDef Combination_WeavePadding AdditionalHint]] "<bullet_point> Can be combined with Armor\n<bullet_point> Increases the additional Damage Reduction of the Armor"),
+					'DisplayName', T(408170289965, --[[ModItemInventoryItemCompositeDef Combination_WeavePadding DisplayName]] "Weave Padding"),
+					'DisplayNamePlural', T(186052695353, --[[ModItemInventoryItemCompositeDef Combination_WeavePadding DisplayNamePlural]] "Weave Padding"),
+					'AdditionalHint', T(745822040566, --[[ModItemInventoryItemCompositeDef Combination_WeavePadding AdditionalHint]] "<bullet_point> Can be combined with Armor\n<bullet_point> Increases the additional Damage Reduction of the Armor"),
 					'Cost', 1500,
 					'Tier', 2,
 					'MaxStock', 1,
@@ -53693,9 +53693,9 @@ return {
 					'object_class', "MiscItem",
 					'Repairable', false,
 					'Icon', "UI/Icons/Items/combination_ceramic_plates",
-					'DisplayName', T(265820064303, --[[ModItemInventoryItemCompositeDef Combination_CeramicPlates DisplayName]] "Ceramic Plates"),
-					'DisplayNamePlural', T(945890098345, --[[ModItemInventoryItemCompositeDef Combination_CeramicPlates DisplayNamePlural]] "Ceramic Plates"),
-					'AdditionalHint', T(974504572867, --[[ModItemInventoryItemCompositeDef Combination_CeramicPlates AdditionalHint]] "<bullet_point> Can be combined with Torso Armor\n<bullet_point> Enhanced Armor absorbs more damage until the plates break down"),
+					'DisplayName', T(577066669963, --[[ModItemInventoryItemCompositeDef Combination_CeramicPlates DisplayName]] "Ceramic Plates"),
+					'DisplayNamePlural', T(476480044254, --[[ModItemInventoryItemCompositeDef Combination_CeramicPlates DisplayNamePlural]] "Ceramic Plates"),
+					'AdditionalHint', T(528600006484, --[[ModItemInventoryItemCompositeDef Combination_CeramicPlates AdditionalHint]] "<bullet_point> Can be combined with Torso Armor\n<bullet_point> Enhanced Armor absorbs more damage until the plates break down"),
 					'Cost', 1500,
 					'Tier', 2,
 					'MaxStock', 1,
@@ -53708,9 +53708,9 @@ return {
 					'object_class', "MiscItem",
 					'Repairable', false,
 					'Icon', "UI/Icons/Items/kompositum58_item.png",
-					'DisplayName', T(180468080856, --[[ModItemInventoryItemCompositeDef Combination_Kompositum58 DisplayName]] "Kompositum 58"),
-					'DisplayNamePlural', T(576357924441, --[[ModItemInventoryItemCompositeDef Combination_Kompositum58 DisplayNamePlural]] "Kompositum 58"),
-					'AdditionalHint', T(946897290901, --[[ModItemInventoryItemCompositeDef Combination_Kompositum58 AdditionalHint]] "<bullet_point> Can be combined with Armor\n<bullet_point> Increases all Damage reduction stats of the armor"),
+					'DisplayName', T(178424124413, --[[ModItemInventoryItemCompositeDef Combination_Kompositum58 DisplayName]] "Kompositum 58"),
+					'DisplayNamePlural', T(777697598213, --[[ModItemInventoryItemCompositeDef Combination_Kompositum58 DisplayNamePlural]] "Kompositum 58"),
+					'AdditionalHint', T(419302066547, --[[ModItemInventoryItemCompositeDef Combination_Kompositum58 AdditionalHint]] "<bullet_point> Can be combined with Armor\n<bullet_point> Increases all Damage reduction stats of the armor"),
 				}),
 				}),
 			}),
@@ -54419,8 +54419,8 @@ return {
 					'ScrapParts', 2,
 					'Degradation', 12,
 					'Icon', "Mod/e6L4ECj/ArmorIcons/ArmyGasMask.png",
-					'DisplayName', T(999957869604, --[[ModItemInventoryItemCompositeDef GasMask DisplayName]] "Противогаз"),
-					'DisplayNamePlural', T(607515076320, --[[ModItemInventoryItemCompositeDef GasMask DisplayNamePlural]] "Противогазы"),
+					'DisplayName', T(412060878986, --[[ModItemInventoryItemCompositeDef GasMask DisplayName]] "Gas Mask"),
+					'DisplayNamePlural', T(598211057804, --[[ModItemInventoryItemCompositeDef GasMask DisplayNamePlural]] "Gas Masks"),
 					'Description', T(832036550490, --[[ModItemInventoryItemCompositeDef GasMask Description]] "Классический противогаз с угольными фильтрами и резиновой шлем-маской, призванный защитить носителя от воздействия дыма, отравляющих газов и радиоактивной пыли. Ограничивает поле зрения и слуха, но это необходимая цена, за то, чтобы остаться живым."),
 					'AdditionalHint', T(352447628446, --[[ModItemInventoryItemCompositeDef GasMask AdditionalHint]] "Защищает от воздействия дыма и отравляющих газов"),
 					'CanAppearInShop', true,
@@ -55226,8 +55226,8 @@ return {
 					'ScrapParts', 6,
 					'Degradation', 16,
 					'Icon', "UI/Icons/Items/shaman_helmet",
-					'DisplayName', T(334357176944, --[[ModItemInventoryItemCompositeDef ShamanHelmet DisplayName]] "Шлем «Отряда смерти»"),
-					'DisplayNamePlural', T(619349093375, --[[ModItemInventoryItemCompositeDef ShamanHelmet DisplayNamePlural]] "Шлемы «Отряда смерти»"),
+					'DisplayName', T(710411844643, --[[ModItemInventoryItemCompositeDef ShamanHelmet DisplayName]] "Deathsquad Helmet"),
+					'DisplayNamePlural', T(722747917523, --[[ModItemInventoryItemCompositeDef ShamanHelmet DisplayNamePlural]] "Deathsquad Helmets"),
 					'Description', T(821984487782, --[[ModItemInventoryItemCompositeDef ShamanHelmet Description]] 'Личный шлем шамана Сангомы, принадлежавший ему еще в тот период, когда Сангома был в составе печального известного "Отряда Смерти". К обычному военному шлему добавлена баллистическая маска в агрессивной раскраске в форме черепа, призванная оказывать психологический эффект на противников Сангомы.'),
 					'AdditionalHint', "",
 					'Valuable', 1,
@@ -55280,8 +55280,8 @@ return {
 					'ScrapParts', 2,
 					'Degradation', 12,
 					'Icon', "UI/Icons/Items/gasmaskenhelm.png",
-					'DisplayName', T(222746884728, --[[ModItemInventoryItemCompositeDef Gasmaskenhelm DisplayName]] "Gasmaskenhelm"),
-					'DisplayNamePlural', T(437672891116, --[[ModItemInventoryItemCompositeDef Gasmaskenhelm DisplayNamePlural]] "Gasmaskenhelme"),
+					'DisplayName', T(783952766710, --[[ModItemInventoryItemCompositeDef Gasmaskenhelm DisplayName]] "Gasmaskenhelm"),
+					'DisplayNamePlural', T(300076647590, --[[ModItemInventoryItemCompositeDef Gasmaskenhelm DisplayNamePlural]] "Gasmaskenhelme"),
 					'AdditionalHint', T(414353864856, --[[ModItemInventoryItemCompositeDef Gasmaskenhelm AdditionalHint]] "Противогаз и шлем"),
 					'Tier', 2,
 					'Slot', "Head",
@@ -56136,8 +56136,8 @@ return {
 					'ScrapParts', 6,
 					'Degradation', 16,
 					'Icon', "UI/Icons/Items/shaman_armor",
-					'DisplayName', T(890006818026, --[[ModItemInventoryItemCompositeDef ShamanTorso DisplayName]] "Броня «Отряда смерти»"),
-					'DisplayNamePlural', T(153182052241, --[[ModItemInventoryItemCompositeDef ShamanTorso DisplayNamePlural]] "Броня «Отряда смерти»"),
+					'DisplayName', T(933844003190, --[[ModItemInventoryItemCompositeDef ShamanTorso DisplayName]] "Deathsquad Armor"),
+					'DisplayNamePlural', T(345511615742, --[[ModItemInventoryItemCompositeDef ShamanTorso DisplayNamePlural]] "Deathsquad Armors"),
 					'Description', T(730568971680, --[[ModItemInventoryItemCompositeDef ShamanTorso Description]] 'Тяжелый штурмовой бронежилет шамана Сангомы, который он носил в бытностью свою ликвидатором этого их "Отряда Смерти", что заметно по характерной устрашающей раскраске. Интересно, что на бронежилете нет никаких следов от пуль или осколков, можно сказать - не битый, не крашеный.'),
 					'AdditionalHint', "",
 					'Valuable', 1,
@@ -56830,8 +56830,8 @@ return {
 					'ScrapParts', 6,
 					'Degradation', 16,
 					'Icon', "UI/Icons/Items/shaman_leggings",
-					'DisplayName', T(120730773488, --[[ModItemInventoryItemCompositeDef ShamanLeggings DisplayName]] "Поножи «Отряда смерти»"),
-					'DisplayNamePlural', T(631889042724, --[[ModItemInventoryItemCompositeDef ShamanLeggings DisplayNamePlural]] "Поножи «Отряда смерти»"),
+					'DisplayName', T(186726197901, --[[ModItemInventoryItemCompositeDef ShamanLeggings DisplayName]] "Deathsquad Leggings"),
+					'DisplayNamePlural', T(652262649255, --[[ModItemInventoryItemCompositeDef ShamanLeggings DisplayNamePlural]] "Deathsquad Leggings"),
 					'Description', T(252226201975, --[[ModItemInventoryItemCompositeDef ShamanLeggings Description]] 'Личные бронештаны шамана Сангомы, которые он использовал еще в "Отряде Смерти". Надеюсь, он хотя бы их потом стирал.'),
 					'AdditionalHint', "",
 					'Valuable', 1,
@@ -56891,8 +56891,8 @@ return {
 					'Repairable', false,
 					'Degradation', 0,
 					'Icon', "UI/Icons/Items/kevlar_vest",
-					'DisplayName', T(552085320640, --[[ModItemInventoryItemCompositeDef Infected_HardenedSkin DisplayName]] "Resilience"),
-					'DisplayNamePlural', T(751297662642, --[[ModItemInventoryItemCompositeDef Infected_HardenedSkin DisplayNamePlural]] "Resilience"),
+					'DisplayName', T(963293413235, --[[ModItemInventoryItemCompositeDef Infected_HardenedSkin DisplayName]] "Resilience"),
+					'DisplayNamePlural', T(466287168405, --[[ModItemInventoryItemCompositeDef Infected_HardenedSkin DisplayNamePlural]] "Resilience"),
 					'Description', "",
 					'AdditionalHint', "",
 					'Cost', 700,
@@ -56914,8 +56914,8 @@ return {
 					'Repairable', false,
 					'Degradation', 0,
 					'Icon', "UI/Icons/Items/kevlar_vest",
-					'DisplayName', T(139392735742, --[[ModItemInventoryItemCompositeDef CrocodileHide DisplayName]] "Crocodile Hide"),
-					'DisplayNamePlural', T(337363679674, --[[ModItemInventoryItemCompositeDef CrocodileHide DisplayNamePlural]] "Crocodile Hides"),
+					'DisplayName', T(249222659070, --[[ModItemInventoryItemCompositeDef CrocodileHide DisplayName]] "Crocodile Hide"),
+					'DisplayNamePlural', T(896093586841, --[[ModItemInventoryItemCompositeDef CrocodileHide DisplayNamePlural]] "Crocodile Hides"),
 					'Description', "",
 					'AdditionalHint', "",
 					'Cost', 700,
@@ -57251,7 +57251,7 @@ return {
 				'DisplayName', T(334056626449, --[[ModItemInventoryItemCompositeDef Dollars DisplayName]] "Пачка Долларов"),
 				'DisplayNamePlural', T(378523647884, --[[ModItemInventoryItemCompositeDef Dollars DisplayNamePlural]] "Пачки Долларов"),
 				'Description', T(427448658637, --[[ModItemInventoryItemCompositeDef Dollars Description]] "Пачка размером в 1000$"),
-				'AdditionalHint', T(671464185480, --[[ModItemInventoryItemCompositeDef Dollars AdditionalHint]] "<bullet_point> <GameColorD>Можно продать за деньги</GameColorD>"),
+				'AdditionalHint', T(890000000000877, --[[ModItemInventoryItemCompositeDef Dollars AdditionalHint]] "<bullet_point> <GameColorD>Можно продать за деньги</GameColorD>"),
 				'Valuable', 1,
 				'RestockWeight', 0,
 				'MaxStacks', 100,
@@ -57299,7 +57299,7 @@ return {
 						param_bindings = false,
 					}),
 				},
-				'DisplayName', T(589779671581, --[[ModItemCharacterEffectCompositeDef TrueGrit DisplayName]] "Авангард"),
+				'DisplayName', T(551122384582, --[[ModItemCharacterEffectCompositeDef TrueGrit DisplayName]] "Vanguard"),
 				'Description', T(835802440630, --[[ModItemCharacterEffectCompositeDef TrueGrit Description]] "Вам дается <color EmStyle>Сила воли</color> (<color EmStyle><outOfCoverGrit></color>), если вы заканчиваете ход вне <color EmStyle>укрытия</color>.\n\nВам дается <color EmStyle>Сила воли</color> (<color EmStyle><nextToEnemyGrit></color>), если вы заканчиваете ход <color EmStyle>вплотную</color> к врагу."),
 				'Icon', "UI/Icons/Perks/ContestGround",
 				'Tier', "Silver",
@@ -57322,7 +57322,7 @@ return {
 				AimType = "melee",
 				ConfigurableKeybind = false,
 				Description = T(573799800858, --[[ModItemCombatAction Bandage Description]] "Оказание медицинской помощи раненому союзнику. Требует времени, в течение которого вы не сможете совершать другие действия. Перевязываемый союзник не может перемещаться, но может атаковать.\n\n<color EmStyle>Тяжелое ранение</color>: стабилизация состояния <color EmStyle>союзника</color>. Другие случаи: <color EmStyle>восстановление <hp>% макс. запаса ОЗ раненого</color> (в зависимости от навыка «<color EmStyle><color EmStyle>Медицина</color></color>»). Ваш персонаж переходит в положение <color EmStyle>присев</color>."),
-				DisplayName = T(616312070908, --[[ModItemCombatAction Bandage DisplayName]] "Перевязка"),
+				DisplayName = T(615556944457, --[[ModItemCombatAction Bandage DisplayName]] "Bandage"),
 				EvalTarget = function (self, units, target, args)
 					local unit = units[1]
 					if not target or unit:IsOnEnemySide(target) then return -1 end
@@ -57411,7 +57411,7 @@ return {
 						'Tag', "<MaxConditionHPRestore>",
 					}),
 				},
-				QueuedBadgeText = T(260416147827, --[[ModItemCombatAction Bandage QueuedBadgeText]] "ПЕРЕВЯЗКА"),
+				QueuedBadgeText = T(989605585095, --[[ModItemCombatAction Bandage QueuedBadgeText]] "BANDAGE"),
 				RequireState = "any",
 				RequireWeapon = true,
 				Run = function (self, unit, ap, ...)
@@ -57636,7 +57636,7 @@ return {
 						param_bindings = false,
 					}),
 				},
-				'DisplayName', T(216716472184, --[[ModItemCharacterEffectCompositeDef BleedingOut DisplayName]] "Тяжелое ранение"),
+				'DisplayName', T(833314215129, --[[ModItemCharacterEffectCompositeDef BleedingOut DisplayName]] "Downed"),
 				'Description', T(910957860179, --[[ModItemCharacterEffectCompositeDef BleedingOut Description]] "Этот персонаж находится в <color EmStyle>критическом состоянии</color> и истечет кровью, если его не <color EmStyle>перевязать</color>. Каждый ход персонаж будет терять 8 единиц здоровья."),
 				'OnAdded', function (self, obj)  end,
 				'Icon', "UI/Hud/Status effects/bleedingout",
@@ -57718,10 +57718,10 @@ return {
 							--print(value)
 							----------------------------------------------------
 							
-							local floating_text = T{193053798048, "<num> (кровотечение)", num = value}
+							local floating_text = T{193053798048, "<num> (bleeding)", num = value}
 							local pov_team = GetPoVTeam()
 							local has_visibility = HasVisibilityTo(pov_team, target)
-							local log_msg = T{729241506274, "<name> получает <em>урон в <num> </em> из-за кровотечения", name = target:GetLogName(), num = value}
+							local log_msg = T{890000000000971, "<name> получает <em>урон в <num> </em> из-за кровотечения", name = target:GetLogName(), num = value}
 							target:TakeDirectDamage(value, has_visibility and floating_text or false, "short", log_msg)
 						end,
 						param_bindings = false,
@@ -57782,7 +57782,7 @@ return {
 						param_bindings = false,
 					}),
 				},
-				'DisplayName', T(425969373535, --[[ModItemCharacterEffectCompositeDef Bleeding DisplayName]] "Кровотечение"),
+				'DisplayName', T(779855732255, --[[ModItemCharacterEffectCompositeDef Bleeding DisplayName]] "Bleeding"),
 				'Description', T(326849165819, --[[ModItemCharacterEffectCompositeDef Bleeding Description]] "Этот боец каждый ход будет <color EmStyle>получать урон до <DamagePerTurn> ОЗ</color> за уровень кровотечения до тех пор пока не будет <color EmStyle>перевязан</color>. При третьем уровне кровотечения макс. количество <color EmStyle>ОД будет снижено на <APLoss></color>."),
 				'AddEffectText', T(488938284982, --[[ModItemCharacterEffectCompositeDef Bleeding AddEffectText]] "<color EmStyle><DisplayName></color> истекает кровью"),
 				'OnAdded', function (self, obj)
@@ -58074,7 +58074,7 @@ return {
 						param_bindings = false,
 					}),
 				},
-				'DisplayName', T(116769410151, --[[ModItemCharacterEffectCompositeDef Inaccurate DisplayName]] "Снижение точности"),
+				'DisplayName', T(260481671641, --[[ModItemCharacterEffectCompositeDef Inaccurate DisplayName]] "Inaccurate"),
 				'Description', T(538313284813, --[[ModItemCharacterEffectCompositeDef Inaccurate Description]] "Значительный <color EmStyle>штраф к точности</color> для всех атак. \nИмеет шанс вылечиться со временем после лечения или при высоком здоровье"),
 				'type', "Debuff",
 				'Icon', "UI/Hud/Status effects/arms_pain",
@@ -58156,7 +58156,7 @@ return {
 						param_bindings = false,
 					}),
 				},
-				'DisplayName', T(816046468188, --[[ModItemCharacterEffectCompositeDef Slowed DisplayName]] "Замедление"),
+				'DisplayName', T(801987474984, --[[ModItemCharacterEffectCompositeDef Slowed DisplayName]] "Slowed"),
 				'Description', T(298835539293, --[[ModItemCharacterEffectCompositeDef Slowed Description]] "<color EmStyle>Стоимость перемещения</color> повышена на <color EmStyle><move_ap_modifier>%</color> за уровень.\nИмеет шанс вылечиться со временем после лечения или при высоком здоровье"),
 				'AddEffectText', T(501562259156, --[[ModItemCharacterEffectCompositeDef Slowed AddEffectText]] "<color EmStyle><DisplayName></color> в состоянии замедления"),
 				'OnAdded', function (self, obj)
@@ -58215,8 +58215,8 @@ return {
 						param_bindings = false,
 					}),
 				},
-				'DisplayName', T(609065847626, --[[ModItemCharacterEffectCompositeDef Unconscious DisplayName]] "Потеря сознания"),
-				'Description', T(104028003398, --[[ModItemCharacterEffectCompositeDef Unconscious Description]] "Без сознания и не может ничего делать."),
+				'DisplayName', T(132204403941, --[[ModItemCharacterEffectCompositeDef Unconscious DisplayName]] "Unconscious"),
+				'Description', T(801008446056, --[[ModItemCharacterEffectCompositeDef Unconscious Description]] "Unconscious and unable to take any action. "),
 				'AddEffectText', T(319734703137, --[[ModItemCharacterEffectCompositeDef Unconscious AddEffectText]] "<color EmStyle><DisplayName></color> без сознания"),
 				'RemoveEffectText', T(483912406649, --[[ModItemCharacterEffectCompositeDef Unconscious RemoveEffectText]] "<color EmStyle><DisplayName></color> приходит в себя"),
 				'OnAdded', function (self, obj)
@@ -58312,9 +58312,9 @@ return {
 						param_bindings = false,
 					}),
 				},
-				'DisplayName', T(629298563884, --[[ModItemCharacterEffectCompositeDef Blinded DisplayName]] "Слепота"),
-				'Description', T(595664130748, --[[ModItemCharacterEffectCompositeDef Blinded Description]] "Снижает <em>дальность обзора</em> и <em>точность</em>. Может вызвать <em>панику</em>."),
-				'AddEffectText', T(880622931884, --[[ModItemCharacterEffectCompositeDef Blinded AddEffectText]] "<em><DisplayName></em> ничего не видит"),
+				'DisplayName', T(629298563884, --[[ModItemCharacterEffectCompositeDef Blinded DisplayName]] "Blinded"),
+				'Description', T(595664130748, --[[ModItemCharacterEffectCompositeDef Blinded Description]] "Reduced <em>Sight range</em> and <em>Accuracy</em>. Can cause <em>Panic</em>."),
+				'AddEffectText', T(880622931884, --[[ModItemCharacterEffectCompositeDef Blinded AddEffectText]] "<em><DisplayName></em> is blinded"),
 				'OnAdded', function (self, obj)
 					self:SetParameter("blinded_start_time", GameTime())
 					if IsMerc(obj) then
@@ -58388,9 +58388,9 @@ return {
 						target_prop = "Wisdom",
 					}),
 				},
-				'DisplayName', T(178364189448, --[[ModItemCharacterEffectCompositeDef Burning DisplayName]] "Горение"),
-				'Description', T(661121942943, --[[ModItemCharacterEffectCompositeDef Burning Description]] "Этот персонаж может <em>запаниковать</em> и будет <em>получать <damage> ед. урона</em> в конце каждого хода, пока не выйдет из области горения. <em>Перевязка</em> мгновенно снимает этот эффект."),
-				'AddEffectText', T(251545639918, --[[ModItemCharacterEffectCompositeDef Burning AddEffectText]] "<em><DisplayName></em> горит"),
+				'DisplayName', T(178364189448, --[[ModItemCharacterEffectCompositeDef Burning DisplayName]] "Burning"),
+				'Description', T(661121942943, --[[ModItemCharacterEffectCompositeDef Burning Description]] "This character may <em>Panic</em> and will <em>take <damage> damage</em> at the end of each turn until they exit the flaming area. <em>Bandage</em> can cure the effect immediately."),
+				'AddEffectText', T(251545639918, --[[ModItemCharacterEffectCompositeDef Burning AddEffectText]] "<em><DisplayName></em> is on fire"),
 				'OnAdded', function (self, obj)
 					PlayFX("UnitBurning", "start", obj)
 					self:SetParameter("burning_start_time", GameTime())
@@ -58442,9 +58442,9 @@ return {
 						param_bindings = false,
 					}),
 				},
-				'DisplayName', T(720153419307, --[[ModItemCharacterEffectCompositeDef Choking DisplayName]] "Удушье"),
-				'Description', T(120652127957, --[[ModItemCharacterEffectCompositeDef Choking Description]] "Этот персонаж будет <em>получать <damage> ед. урона</em> в конце своего хода. Также этот персонаж <em>теряет энергию</em>."),
-				'AddEffectText', T(478064574365, --[[ModItemCharacterEffectCompositeDef Choking AddEffectText]] "<em><DisplayName></em> задыхается"),
+				'DisplayName', T(720153419307, --[[ModItemCharacterEffectCompositeDef Choking DisplayName]] "Choking"),
+				'Description', T(120652127957, --[[ModItemCharacterEffectCompositeDef Choking Description]] "This character will <em>take <damage> damage</em> at the end of their turn. The character also <em>loses Energy</em>."),
+				'AddEffectText', T(478064574365, --[[ModItemCharacterEffectCompositeDef Choking AddEffectText]] "<em><DisplayName></em> is choking"),
 				'OnAdded', function (self, obj)
 					self:SetParameter("choking_start_time", GameTime())
 					if obj:IsMerc() then
@@ -58473,12 +58473,12 @@ return {
 				'object_class', "StatusEffect",
 				'msg_reactions', {},
 				'unit_reactions', {},
-				'DisplayName', T(279226942480, --[[ModItemCharacterEffectCompositeDef MarkedTraccers DisplayName]] "Помечен Трассерами"),
+				'DisplayName', T(890000000000261, --[[ModItemCharacterEffectCompositeDef MarkedTraccers DisplayName]] "Помечен Трассерами"),
 				'Description', T(697150397247, --[[ModItemCharacterEffectCompositeDef MarkedTraccers Description]] "Незначительное повышение шанса попадания за каждый уровень эффекта"),
 				'OnAdded', function (self, obj)  end,
 				'type', "Debuff",
 				'lifetime', "Until End of Turn",
-				'Icon', "Mod/e6L4ECj/Icons/MarkedTraccers.png",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/MarkedTraccers.png",
 				'max_stacks', 5,
 				'RemoveOnEndCombat', true,
 				'Shown', true,
@@ -58490,12 +58490,12 @@ return {
 				'object_class', "StatusEffect",
 				'msg_reactions', {},
 				'unit_reactions', {},
-				'DisplayName', T(279226942480, --[[ModItemCharacterEffectCompositeDef DamageReduction DisplayName]] "Падение скорости пули"),
+				'DisplayName', T(890000000000257, --[[ModItemCharacterEffectCompositeDef DamageReduction DisplayName]] "Падение скорости пули"),
 				'Description', "",
 				'OnAdded', function (self, obj)  end,
 				'type', "Debuff",
 				'lifetime', "Until End of Turn",
-				'Icon', "Mod/e6L4ECj/Icons/MarkedTraccers.png",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/MarkedTraccers.png",
 				'max_stacks', 5,
 				'RemoveOnEndCombat', true,
 			}),
@@ -58509,8 +58509,8 @@ return {
 				armorPart = "Head",
 				damage_mod = 80,
 				description = T(555517991144, --[[ModItemTargetBodyPart Default Head description]] "Выстрел в голову: существенное снижение вероятности попадания, огромный урон. Цель имеет шанс <color EmStyle>потерять сознание</color> или <color EmStyle>ослепнуть на 1 ход</color>"),
-				display_name = T(737967253243, --[[ModItemTargetBodyPart Default Head display_name]] "Голова"),
-				display_name_caps = T(769851626768, --[[ModItemTargetBodyPart Default Head display_name_caps]] "ГОЛОВА"),
+				display_name = T(959016258200, --[[ModItemTargetBodyPart Default Head display_name]] "Head"),
+				display_name_caps = T(435044689243, --[[ModItemTargetBodyPart Default Head display_name_caps]] "HEAD"),
 				group = "Default",
 				id = "Head",
 				tohit_mod = -40,
@@ -58521,8 +58521,8 @@ return {
 				applied_effect = "Headshot",
 				damage_mod = 40,
 				description = T(339560834791, --[[ModItemTargetBodyPart Default Neck description]] "Выстрел в шею: снижение вероятности попадания, увеличение урона, негативные эффекты в зависимости от вида оружия. . Цель имеет шанс потерять сознание или ослепнуть на 1 ход"),
-				display_name = T(654610448582, --[[ModItemTargetBodyPart Default Neck display_name]] "Шея"),
-				display_name_caps = T(582267689019, --[[ModItemTargetBodyPart Default Neck display_name_caps]] "ШЕЯ"),
+				display_name = T(370889641523, --[[ModItemTargetBodyPart Default Neck display_name]] "Neck"),
+				display_name_caps = T(203125319009, --[[ModItemTargetBodyPart Default Neck display_name_caps]] "NECK"),
 				group = "Default",
 				id = "Neck",
 				tohit_mod = -40,
@@ -58533,8 +58533,8 @@ return {
 				applied_effect = "Armsshot",
 				damage_mod = -25,
 				description = T(986875063897, --[[ModItemTargetBodyPart Default Arms description]] "Выстрел в руки: снижение вероятности попадания, уменьшение урона, Цель имеет шанс получить <color EmStyle>Снижение точности</color> или <color EmStyle>Оцепенение</color>"),
-				display_name = T(535074255365, --[[ModItemTargetBodyPart Default Arms display_name]] "Руки"),
-				display_name_caps = T(394572905586, --[[ModItemTargetBodyPart Default Arms display_name_caps]] "РУКИ"),
+				display_name = T(753720126320, --[[ModItemTargetBodyPart Default Arms display_name]] "Arms"),
+				display_name_caps = T(375599557125, --[[ModItemTargetBodyPart Default Arms display_name_caps]] "ARMS"),
 				group = "Default",
 				id = "Arms",
 				tohit_mod = -15,
@@ -58546,8 +58546,8 @@ return {
 				armorPart = "Torso",
 				default = true,
 				description = T(648355561615, --[[ModItemTargetBodyPart Default Torso description]] "Выстрел в торс. Цель имеет шанс <color EmStyle>Упасть</color> или <color EmStyle>Получить 1 уровень усталости</color>"),
-				display_name = T(305632554738, --[[ModItemTargetBodyPart Default Torso display_name]] "Торс"),
-				display_name_caps = T(975151454526, --[[ModItemTargetBodyPart Default Torso display_name_caps]] "ТОРС"),
+				display_name = T(493855642525, --[[ModItemTargetBodyPart Default Torso display_name]] "Torso"),
+				display_name_caps = T(316576588963, --[[ModItemTargetBodyPart Default Torso display_name_caps]] "TORSO"),
 				group = "Default",
 				id = "Torso",
 			}),
@@ -58557,8 +58557,8 @@ return {
 				applied_effect = "Groinshot",
 				damage_mod = 25,
 				description = T(464716813289, --[[ModItemTargetBodyPart Default Groin description]] "Выстрел в пах: снижение вероятности попадания, увеличение урона. Цель имеет шанс <color EmStyle>получить до трех кровотечений</color>"),
-				display_name = T(490698876612, --[[ModItemTargetBodyPart Default Groin display_name]] "Пах"),
-				display_name_caps = T(952996108949, --[[ModItemTargetBodyPart Default Groin display_name_caps]] "ПАХ"),
+				display_name = T(228716314895, --[[ModItemTargetBodyPart Default Groin display_name]] "Groin"),
+				display_name_caps = T(530806904895, --[[ModItemTargetBodyPart Default Groin display_name_caps]] "GROIN"),
 				group = "Default",
 				id = "Groin",
 				tohit_mod = -20,
@@ -58570,8 +58570,8 @@ return {
 				armorPart = "Legs",
 				damage_mod = -50,
 				description = T(261228287392, --[[ModItemTargetBodyPart Default Legs description]] "Выстрел в ноги: снижение вероятности попадания, уменьшение урона. Цель имеет шанс <color EmStyle>получить эффект замедления</color> или <color EmStyle>упасть</color>"),
-				display_name = T(262983114174, --[[ModItemTargetBodyPart Default Legs display_name]] "Ноги"),
-				display_name_caps = T(890535722521, --[[ModItemTargetBodyPart Default Legs display_name_caps]] "НОГИ"),
+				display_name = T(129533766456, --[[ModItemTargetBodyPart Default Legs display_name]] "Legs"),
+				display_name_caps = T(618043369333, --[[ModItemTargetBodyPart Default Legs display_name_caps]] "LEGS"),
 				group = "Default",
 				id = "Legs",
 				tohit_mod = -10,
@@ -58811,7 +58811,7 @@ return {
 					IsAimableAttack = false,
 					KeybindingSortId = "2505",
 					MultiSelectBehavior = "first",
-					QueuedBadgeText = T(836234263940, --[[ModItemCombatAction Unjam QueuedBadgeText]] "UNJAM"),
+					QueuedBadgeText = T(224178341316, --[[ModItemCombatAction Unjam QueuedBadgeText]] "UNJAM"),
 					RequireState = "any",
 					Run = function (self, unit, ap, args)
 						unit:SetActionCommand("UnjamWeapon", self.id, ap, args)
@@ -59023,7 +59023,7 @@ return {
 					IdDefault = "Overwatchdefault",
 					KeybindingFromAction = "actionRedirectOverwatch",
 					MultiSelectBehavior = "first",
-					QueuedBadgeText = T(251435029034, --[[ModItemCombatAction Overwatch QueuedBadgeText]] "OVERWATCH"),
+					QueuedBadgeText = T(507392307526, --[[ModItemCombatAction Overwatch QueuedBadgeText]] "OVERWATCH"),
 					RequireState = "any",
 					Run = function (self, unit, ap, ...)
 						local vr = IsMerc(unit) and "Overwatch" or "AIOverwatch"
@@ -59044,9 +59044,9 @@ return {
 					Comment = "-> Attack FiringMode",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(324582142382, --[[ModItemCombatAction SingleShot Description]] "Дешевая атака, позволяющая экономить боеприпасы."),
-					DisplayName = T(128585897488, --[[ModItemCombatAction SingleShot DisplayName]] "Одиночный выстрел"),
-					DisplayNameShort = T(497050188756, --[[ModItemCombatAction SingleShot DisplayNameShort]] "Одиночный"),
+					Description = T(298670513550, --[[ModItemCombatAction SingleShot Description]] "Cheap attack that conserves ammo."),
+					DisplayName = T(355970076448, --[[ModItemCombatAction SingleShot DisplayName]] "Single Shot"),
+					DisplayNameShort = T(392229752968, --[[ModItemCombatAction SingleShot DisplayNameShort]] "Single"),
 					FiringModeMember = "Attack",
 					GetAPCost = function (self, unit, args)
 						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
@@ -59121,9 +59121,9 @@ return {
 					Comment = "-> Attack FiringMode",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(684956692325, --[[ModItemCombatAction BurstFire Description]] "Выстрел <color EmStyle><num> патронами</color> по цели. Точность снижается под влиянием отдачи"),
-					DisplayName = T(701429996300, --[[ModItemCombatAction BurstFire DisplayName]] "Короткая очередь"),
-					DisplayNameShort = T(554267744489, --[[ModItemCombatAction BurstFire DisplayNameShort]] "Очередь"),
+					Description = T(890000000000892, --[[ModItemCombatAction BurstFire Description]] "WIP — механика сигнатурного перка в разработке."),
+					DisplayName = T(885711257338, --[[ModItemCombatAction BurstFire DisplayName]] "Burst Fire"),
+					DisplayNameShort = T(421007639739, --[[ModItemCombatAction BurstFire DisplayNameShort]] "Burst"),
 					Execute = function (self, units, args)
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
@@ -59421,9 +59421,9 @@ return {
 					Comment = "-> Attack FiringMode",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(520867907852, --[[ModItemCombatAction AutoFire Description]] "Стрельба длинной очередью из <color EmStyle><bullets> патронов</color>. Точность снижается под влиянием отдачи"),
-					DisplayName = T(918161184141, --[[ModItemCombatAction AutoFire DisplayName]] "Длинная очередь"),
-					DisplayNameShort = T(699280021986, --[[ModItemCombatAction AutoFire DisplayNameShort]] "Авто"),
+					Description = T(890000000000649, --[[ModItemCombatAction AutoFire Description]] "WIP — механика сигнатурного перка в разработке."),
+					DisplayName = T(890000000001276, --[[ModItemCombatAction AutoFire DisplayName]] "Длинная очередь"),
+					DisplayNameShort = T(810267106493, --[[ModItemCombatAction AutoFire DisplayNameShort]] "Auto"),
 					Execute = function (self, units, args)
 						local unit = units[1]
 						args.multishot = true
@@ -59657,8 +59657,8 @@ return {
 					ActionType = "Ranged Attack",
 					AimType = "mobile",
 					CostBasedOnWeapon = true,
-					Description = T(799980728478, --[[ModItemCombatAction MobileShot Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию и два выстрела по ближайшим целям."),
-					DisplayName = T(615888335880, --[[ModItemCombatAction MobileShot DisplayName]] "Маневр с Пистолетом"),
+					Description = T(890000000001073, --[[ModItemCombatAction MobileShot Description]] "WIP — механика сигнатурного перка в разработке."),
+					DisplayName = T(890000000000791, --[[ModItemCombatAction MobileShot DisplayName]] "Маневр с Пистолетом"),
 					GetActionDamage = function (self, unit, target, args)
 						local rangedAttack = unit:GetDefaultAttackAction("ranged") 
 						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
@@ -59721,7 +59721,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/MobileShot_Pistol.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/MobileShot_Pistol.png",
 					IdDefault = "MobileShotdefault",
 					IsAimableAttack = false,
 					KeybindingSortId = "2371",
@@ -59762,8 +59762,8 @@ return {
 					ActionType = "Ranged Attack",
 					AimType = "mobile",
 					CostBasedOnWeapon = true,
-					Description = T(423077222090, --[[ModItemCombatAction RunAndGun Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию, в процессе которого вы выпускаете до <em><num_shots> коротких очередей</em> по ближайшим целям. "),
-					DisplayName = T(455062954204, --[[ModItemCombatAction RunAndGun DisplayName]] "Стрельба на бегу"),
+					Description = T(890000000000492, --[[ModItemCombatAction RunAndGun Description]] "WIP — механика сигнатурного перка в разработке."),
+					DisplayName = T(890000000000550, --[[ModItemCombatAction RunAndGun DisplayName]] "Стрельба на бегу"),
 					GetActionDamage = function (self, unit, target, args)
 						local weapon = self:GetAttackWeapons(unit, args)
 						if not weapon then return 0 end
@@ -59818,7 +59818,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/RunNGun.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/RunNGun.png",
 					IdDefault = "RunAndGundefault",
 					IsAimableAttack = false,
 					KeybindingSortId = "2372",
@@ -59864,8 +59864,8 @@ return {
 					ActionType = "Ranged Attack",
 					AimType = "mobile",
 					CostBasedOnWeapon = true,
-					Description = T(423077222090, --[[ModItemCombatAction RunAndGun_Carbine Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию, в процессе которого вы аттакуете до <em><num_shots></em> ближайших целей. "),
-					DisplayName = T(455062954204, --[[ModItemCombatAction RunAndGun_Carbine DisplayName]] "Стрельба на бегу (Карабин)"),
+					Description = T(890000000000491, --[[ModItemCombatAction RunAndGun_Carbine Description]] "WIP — механика сигнатурного перка в разработке."),
+					DisplayName = T(890000000000551, --[[ModItemCombatAction RunAndGun_Carbine DisplayName]] "Стрельба на бегу (Карабин)"),
 					GetActionDamage = function (self, unit, target, args)
 						local weapon = self:GetAttackWeapons(unit, args)
 						if not weapon then return 0 end
@@ -59920,7 +59920,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/RunNGun.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/RunNGun.png",
 					IdDefault = "RunAndGun_Carbinedefault",
 					IsAimableAttack = false,
 					KeybindingSortId = "2372",
@@ -59968,9 +59968,9 @@ return {
 					Comment = "-> AttackDual FiringMode",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(118129232840, --[[ModItemCombatAction DualShot Description]] "Атака «Двойной выстрел» включает в себя по одной базовой атаке каждым видом оружия."),
-					DisplayName = T(801751044843, --[[ModItemCombatAction DualShot DisplayName]] "Двойной выстрел"),
-					DisplayNameShort = T(159681644882, --[[ModItemCombatAction DualShot DisplayNameShort]] "Двойной"),
+					Description = T(208869050611, --[[ModItemCombatAction DualShot Description]] "The Dual Shot attack produces a Basic Attack from each gun."),
+					DisplayName = T(712971913349, --[[ModItemCombatAction DualShot DisplayName]] "Dual Shot"),
+					DisplayNameShort = T(811622228569, --[[ModItemCombatAction DualShot DisplayNameShort]] "Dual"),
 					FiringModeMember = "AttackDual",
 					GetAPCost = function (self, unit, args)
 						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
@@ -60093,8 +60093,8 @@ return {
 					ActionType = "Ranged Attack",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(692766746228, --[[ModItemCombatAction MGBurstFire Description]] "Стрельба очередью<coneDescription>. Точность снижается с увеличением расстояния до цели, а также при неприцельной стрельбе.<interrupts_info>"),
-					DisplayName = T(603341101456, --[[ModItemCombatAction MGBurstFire DisplayName]] "Длинная очередь"),
+					Description = T(863161981262, --[[ModItemCombatAction MGBurstFire Description]] "Make a burst attack<coneDescription>. Lower accuracy against distant enemies, and further reduced accuracy if fired without being Set.<interrupts_info>"),
+					DisplayName = T(706547341778, --[[ModItemCombatAction MGBurstFire DisplayName]] "Long Burst"),
 					Execute = function (self, units, args)
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
@@ -60137,7 +60137,7 @@ return {
 						local interrupts_info = ""
 						local overwatch = g_Overwatch[unit]
 						if overwatch and overwatch.permanent then
-							coneDescription = T(480046777812, " within the set cone")
+							coneDescription = T(890000000000594, " within the set cone")
 							interrupts_info = T{757307734445, "<newline><newline>Remaining interrupt attacks: <interrupts>", interrupts = unit:GetNumMGInterruptAttacks()}
 						end
 						
@@ -60241,8 +60241,8 @@ return {
 					ActivePauseBehavior = "queue",
 					AimType = "cone",
 					ConfigurableKeybind = false,
-					Description = T(868121469992, --[[ModItemCombatAction MGSetup Description]] "Вы указываете сектор обстрела. Боец теряет возможность перемещаться, переходит в положение <em>лежа</em> и может стрелять только по целям, находящимся в секторе. Точность огня повышается, а враги, совершающие действия в пределах сектора, провоцируют атаки-<em>прерывания</em> (даже при 0 ОД)."),
-					DisplayName = T(898083486639, --[[ModItemCombatAction MGSetup DisplayName]] "Боевое положение"),
+					Description = T(868121469992, --[[ModItemCombatAction MGSetup Description]] "Focus on a cone-shaped area, immobilizing yourself and going <em>prone</em>. You can only shoot enemies inside that cone. Accuracy is increased and enemies will provoke <em>interrupt</em> attacks with actions inside the cone (even if your AP are spent)."),
+					DisplayName = T(898083486639, --[[ModItemCombatAction MGSetup DisplayName]] "Set Machine Gun"),
 					Execute = function (self, units, args)
 						return CombatActions.Overwatch.Execute(self, units, args)
 					end,
@@ -60342,7 +60342,7 @@ return {
 							'Tag', "<min_str>",
 						}),
 					},
-					QueuedBadgeText = T(515583344616, --[[ModItemCombatAction MGSetup QueuedBadgeText]] "УСТАНОВКА"),
+					QueuedBadgeText = T(515583344616, --[[ModItemCombatAction MGSetup QueuedBadgeText]] "SET"),
 					RequireState = "any",
 					Run = function (self, unit, ap, ...)
 						unit:SetActionCommand("MGSetup", self.id, ap, ...)
@@ -60360,8 +60360,8 @@ return {
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
 					Description = T(410691125032, --[[ModItemCombatAction Buckshot Description]] "Все враждебные цели в укрытиях получают статус «<color EmStyle>Вне укрытия</color>».\nЦели также получают дополнительный статус в зависимости от типа боеприпасов. Все цели, оказавшиеся в зоне атаки, получают дополнительный урон."),
-					DisplayName = T(328631986986, --[[ModItemCombatAction Buckshot DisplayName]] "Выстрел из дробовика"),
-					DisplayNameShort = T(986107589025, --[[ModItemCombatAction Buckshot DisplayNameShort]] "Одиночный"),
+					DisplayName = T(673459341122, --[[ModItemCombatAction Buckshot DisplayName]] "Shotgun Shot"),
+					DisplayNameShort = T(686623207963, --[[ModItemCombatAction Buckshot DisplayNameShort]] "Single"),
 					Execute = function (self, units, args)
 						local unit = units[1]
 						local ap = self:GetAPCost(unit, args)
@@ -60480,8 +60480,8 @@ return {
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
 					Description = T(390490471721, --[[ModItemCombatAction BuckshotBurst Description]] "Все враждебные цели в укрытиях получают статус «<color EmStyle>Вне укрытия</color>».\nВыстрел <color EmStyle><num_shots> патронами</color> по цели. Точность снижается с увеличением расстояния. Все цели, оказавшиеся в зоне атаки, получают дополнительный урон."),
-					DisplayName = T(520069859000, --[[ModItemCombatAction BuckshotBurst DisplayName]] "Очередь из дробовика"),
-					DisplayNameShort = T(512311104558, --[[ModItemCombatAction BuckshotBurst DisplayNameShort]] "Очередь"),
+					DisplayName = T(750178209605, --[[ModItemCombatAction BuckshotBurst DisplayName]] "Buckshot Burst"),
+					DisplayNameShort = T(946188984206, --[[ModItemCombatAction BuckshotBurst DisplayNameShort]] "Burst"),
 					FiringModeMember = "AttackShotgun",
 					GetAPCost = function (self, unit, args)
 						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
@@ -60584,8 +60584,8 @@ return {
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
 					Description = T(896730902875, --[[ModItemCombatAction DoubleBarrel Description]] "Все враждебные цели в укрытиях получают статус «<color EmStyle>Вне укрытия</color>».\nЦели также получают дополнительный статус в зависимости от типа боеприпасов. Все цели, оказавшиеся в зоне атаки, получают дополнительный урон."),
-					DisplayName = T(287878975487, --[[ModItemCombatAction DoubleBarrel DisplayName]] "Выстрел дуплетом"),
-					DisplayNameShort = T(300387820612, --[[ModItemCombatAction DoubleBarrel DisplayNameShort]] "Двойной"),
+					DisplayName = T(745680006620, --[[ModItemCombatAction DoubleBarrel DisplayName]] "Double Barrel"),
+					DisplayNameShort = T(425861398044, --[[ModItemCombatAction DoubleBarrel DisplayNameShort]] "Double"),
 					Execute = function (self, units, args)
 						local unit = units[1]
 						args.multishot = true
@@ -60698,7 +60698,7 @@ return {
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
 					Description = T(755798369736, --[[ModItemCombatAction CancelShotCone Description]] "Не провоцирует <color EmStyle>атаки</color> типа «<color EmStyle>Прерывание</color>».\nСнимает статусы »<color EmStyle>Контроль</color>» и «<color EmStyle>Сосредоточение огня</color>» при попадании."),
-					DisplayName = T(283312068324, --[[ModItemCombatAction CancelShotCone DisplayName]] "Отвлекающий выстрел"),
+					DisplayName = T(415284687953, --[[ModItemCombatAction CancelShotCone DisplayName]] "Distracting Shot"),
 					GetActionDamage = function (self, unit, target, args)
 						local weapon = self:GetAttackWeapons(unit, args)
 						local base = weapon and unit:GetBaseDamage(weapon) or 0
@@ -60779,11 +60779,11 @@ return {
 				}),
 				PlaceObj('ModItemCombatAction', {
 					ActionType = "Ranged Attack",
-					AimType = "cone",
+					AimType = "line",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(953443054160, --[[ModItemCombatAction AttackShotgun Description]] "Атака выбранным оружием. Цели в секторе атаки гарантированно получают урон. Для некоторых видов оружия предусмотрены альтернативные режимы стрельбы."),
-					DisplayName = T(332726479626, --[[ModItemCombatAction AttackShotgun DisplayName]] "Атака с дробовиком"),
+					Description = T(406630009702, --[[ModItemCombatAction AttackShotgun Description]] "Make an attack using your equipped weapon. Targets in the attack cone take guaranteed damage. Some weapons have alternative firing modes."),
+					DisplayName = T(591280140960, --[[ModItemCombatAction AttackShotgun DisplayName]] "Shotgun Attack"),
 					Execute = function (self, units, args)
 						local unit = units[1]
 						local defAction = unit.ui_actions and unit.ui_actions[self.IdDefault] or unit:ResolveDefaultFiringModeAction(self, true)
@@ -60861,7 +60861,7 @@ return {
 					AimType = "line",
 					BaseSuppressionValue = 2,
 					Description = T(277947980799, --[[ModItemCombatAction PinDown Description]] "<em>Тратятся все ОД</em>\nЦель получает статус «<em><GameTerm('Marked')></em>». Если в начале следующего хода цель остается в поле зрения, вы стреляете и наносите ей <em><damage> ед. урона</em>.\n\nЦель должна находиться на линии огня и быть видимой.\n\nШанс попасть по цели увеличен и зависит от меткости наемника"),
-					DisplayName = T(350985720284, --[[ModItemCombatAction PinDown DisplayName]] "Сосредоточение огня"),
+					DisplayName = T(964546937629, --[[ModItemCombatAction PinDown DisplayName]] "Pin Down"),
 					GetAPCost = function (self, unit, args)
 						local weapon = self:GetAttackWeapons(unit, args)
 						if not weapon or (weapon.PreparedAttackType ~= "Pin Down"  and weapon.PreparedAttackType ~= "Both") then
@@ -60926,7 +60926,7 @@ return {
 					IsTargetableAttack = true,
 					KeybindingSortId = "2353",
 					MultiSelectBehavior = "first",
-					QueuedBadgeText = T(699108760037, --[[ModItemCombatAction PinDown QueuedBadgeText]] "СОСРЕДОТОЧЕНИЕ ОГНЯ"),
+					QueuedBadgeText = T(707708840555, --[[ModItemCombatAction PinDown QueuedBadgeText]] "PIN DOWN"),
 					RequireTargets = true,
 					RequireWeapon = true,
 					Run = function (self, unit, ap, ...)
@@ -60957,9 +60957,9 @@ return {
 					Comment = "-> Attack FiringMode",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(684956692325, --[[ModItemCombatAction JAZZ_Fanning Description]] "<color EmStyle>Один раз в ход.</color>.\nВыстрел <color EmStyle><num> патронами</color> по цели. Точность снижается под влиянием отдачи"),
-					DisplayName = T(701429996300, --[[ModItemCombatAction JAZZ_Fanning DisplayName]] "Фэннинг"),
-					DisplayNameShort = T(554267744489, --[[ModItemCombatAction JAZZ_Fanning DisplayNameShort]] "Фэннинг"),
+					Description = T(890000000000893, --[[ModItemCombatAction JAZZ_Fanning Description]] "WIP — механика сигнатурного перка в разработке."),
+					DisplayName = T(890000000000928, --[[ModItemCombatAction JAZZ_Fanning DisplayName]] "Фэннинг"),
+					DisplayNameShort = T(890000000000715, --[[ModItemCombatAction JAZZ_Fanning DisplayNameShort]] "Фэннинг"),
 					Execute = function (self, units, args)
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
@@ -61050,7 +61050,7 @@ return {
 						
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Fanning.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/Fanning.png",
 					IconFiringMode = "UI/Hud/fm_burst_fire",
 					IdDefault = "JAZZ_Fanningdefault",
 					IsAimableAttack = false,
@@ -61093,9 +61093,9 @@ return {
 					AimType = "line",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(864948067398, --[[ModItemCombatAction JAZZ_Bullseye Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nВыстрел в голову с +100% шансом крита\nИгнорирует броню "),
-					DisplayName = T(696629111160, --[[ModItemCombatAction JAZZ_Bullseye DisplayName]] "В Яблочко"),
-					DisplayNameShort = T(466948292860, --[[ModItemCombatAction JAZZ_Bullseye DisplayNameShort]] "В Яблочко"),
+					Description = T(890000000001185, --[[ModItemCombatAction JAZZ_Bullseye Description]] "WIP — механика сигнатурного перка в разработке."),
+					DisplayName = T(890000000000912, --[[ModItemCombatAction JAZZ_Bullseye DisplayName]] "В Яблочко"),
+					DisplayNameShort = T(890000000000569, --[[ModItemCombatAction JAZZ_Bullseye DisplayNameShort]] "В Яблочко"),
 					GetAPCost = function (self, unit, args)
 						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
 						if unit:OutOfAmmo(weapon2) or unit:IsWeaponJammed(weapon2) then
@@ -61149,7 +61149,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Bullseye.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/Bullseye.png",
 					IdDefault = "JAZZ_Bullseyedefault",
 					MultiSelectBehavior = "first",
 					Parameters = {
@@ -61182,9 +61182,9 @@ return {
 					Comment = "-> Attack FiringMode",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(520867907852, --[[ModItemCombatAction JAZZ_SmgStorm Description]] "<color EmStyle>Один раз в ход.</color>.\nСтрельба длинной очередью из <color EmStyle><bullets> патронов</color> с увеличенным подавлением, но более низкой точностью. Точность снижается под влиянием отдачи"),
-					DisplayName = T(918161184141, --[[ModItemCombatAction JAZZ_SmgStorm DisplayName]] "Шквал"),
-					DisplayNameShort = T(699280021986, --[[ModItemCombatAction JAZZ_SmgStorm DisplayNameShort]] "Шквал"),
+					Description = T(890000000000650, --[[ModItemCombatAction JAZZ_SmgStorm Description]] "WIP — механика сигнатурного перка в разработке."),
+					DisplayName = T(890000000001277, --[[ModItemCombatAction JAZZ_SmgStorm DisplayName]] "Шквал"),
+					DisplayNameShort = T(890000000000926, --[[ModItemCombatAction JAZZ_SmgStorm DisplayNameShort]] "Шквал"),
 					Execute = function (self, units, args)
 						local unit = units[1]
 						args.multishot = true
@@ -61266,7 +61266,7 @@ return {
 						
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/SmgStorm.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/SmgStorm.png",
 					IdDefault = "JAZZ_SmgStormdefault",
 					IsAimableAttack = false,
 					IsTargetableAttack = true,
@@ -61309,8 +61309,8 @@ return {
 					ActionType = "Ranged Attack",
 					AimType = "mobile",
 					CostBasedOnWeapon = true,
-					Description = T(154889571623, --[[ModItemCombatAction JAZZ_RunAndSMGStorm Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию, в процессе которого вы выпускаете до <em><num_shots> шквалов</em> по ближайшим целям. "),
-					DisplayName = T(621916692056, --[[ModItemCombatAction JAZZ_RunAndSMGStorm DisplayName]] "Шквал на бегу"),
+					Description = T(890000000000076, --[[ModItemCombatAction JAZZ_RunAndSMGStorm Description]] "WIP — механика сигнатурного перка в разработке."),
+					DisplayName = T(890000000000810, --[[ModItemCombatAction JAZZ_RunAndSMGStorm DisplayName]] "Шквал на бегу"),
 					GetActionDamage = function (self, unit, target, args)
 						local weapon = self:GetAttackWeapons(unit, args)
 						if not weapon then return 0 end
@@ -61364,7 +61364,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/SmgStormRun.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/SmgStormRun.png",
 					IdDefault = "JAZZ_RunAndSMGStormdefault",
 					IsAimableAttack = false,
 					KeybindingSortId = "2372",
@@ -61410,9 +61410,9 @@ return {
 					AimType = "line",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(864948067398, --[[ModItemCombatAction JAZZ_Mozambique Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nДва выстрела в тело, один в голову. "),
-					DisplayName = T(696629111160, --[[ModItemCombatAction JAZZ_Mozambique DisplayName]] "Мозамбик"),
-					DisplayNameShort = T(466948292860, --[[ModItemCombatAction JAZZ_Mozambique DisplayNameShort]] "Мозамбик"),
+					Description = T(890000000001186, --[[ModItemCombatAction JAZZ_Mozambique Description]] "WIP — механика сигнатурного перка в разработке."),
+					DisplayName = T(890000000000914, --[[ModItemCombatAction JAZZ_Mozambique DisplayName]] "Мозамбик"),
+					DisplayNameShort = T(890000000000571, --[[ModItemCombatAction JAZZ_Mozambique DisplayNameShort]] "Мозамбик"),
 					GetAPCost = function (self, unit, args)
 						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
 						if unit:OutOfAmmo(weapon2) or unit:IsWeaponJammed(weapon2) then
@@ -61466,7 +61466,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Mozambique.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/Mozambique.png",
 					IdDefault = "JAZZ_Mozambiquedefault",
 					MultiSelectBehavior = "first",
 					Parameters = {
@@ -61497,9 +61497,9 @@ return {
 					AimType = "line",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(864948067398, --[[ModItemCombatAction JAZZ_Zipper Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nТри коротких очереди Ноги-Пах-Торс"),
-					DisplayName = T(696629111160, --[[ModItemCombatAction JAZZ_Zipper DisplayName]] "Зажимай"),
-					DisplayNameShort = T(466948292860, --[[ModItemCombatAction JAZZ_Zipper DisplayNameShort]] "Зажимай"),
+					Description = T(890000000001187, --[[ModItemCombatAction JAZZ_Zipper Description]] "WIP — механика сигнатурного перка в разработке."),
+					DisplayName = T(890000000000910, --[[ModItemCombatAction JAZZ_Zipper DisplayName]] "Зажимай"),
+					DisplayNameShort = T(890000000000567, --[[ModItemCombatAction JAZZ_Zipper DisplayNameShort]] "Зажимай"),
 					Execute = function (self, units, args)
 						local unit = units[1]
 						local ap = self:GetAPCost(unit, args)
@@ -61569,7 +61569,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Zipper.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/Zipper.png",
 					IdDefault = "JAZZ_Zipperdefault",
 					MultiSelectBehavior = "first",
 					Parameters = {
@@ -61599,9 +61599,9 @@ return {
 					AimType = "line",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(864948067398, --[[ModItemCombatAction JAZZ_DoubleTap Description]] "<color EmStyle>Один раз в ход.</color>.\nДва быстрых выстрела"),
-					DisplayName = T(696629111160, --[[ModItemCombatAction JAZZ_DoubleTap DisplayName]] "Двоечка"),
-					DisplayNameShort = T(466948292860, --[[ModItemCombatAction JAZZ_DoubleTap DisplayNameShort]] "Двоечка"),
+					Description = T(890000000001183, --[[ModItemCombatAction JAZZ_DoubleTap Description]] "WIP — механика сигнатурного перка в разработке."),
+					DisplayName = T(890000000000913, --[[ModItemCombatAction JAZZ_DoubleTap DisplayName]] "Двоечка"),
+					DisplayNameShort = T(890000000000570, --[[ModItemCombatAction JAZZ_DoubleTap DisplayNameShort]] "Двоечка"),
 					GetAPCost = function (self, unit, args)
 						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
 						if unit:OutOfAmmo(weapon2) or unit:IsWeaponJammed(weapon2) then
@@ -61654,7 +61654,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/DoubleTap.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/DoubleTap.png",
 					IdDefault = "JAZZ_DoubleTapdefault",
 					IsAimableAttack = false,
 					IsTargetableAttack = true,
@@ -61686,9 +61686,9 @@ return {
 					AimType = "line",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(864948067398, --[[ModItemCombatAction JAZZ_Salvo Description]] "<color EmStyle>Один раз в ход.</color>.\nДва выстрела в тело"),
-					DisplayName = T(696629111160, --[[ModItemCombatAction JAZZ_Salvo DisplayName]] "Залп"),
-					DisplayNameShort = T(466948292860, --[[ModItemCombatAction JAZZ_Salvo DisplayNameShort]] "Залп"),
+					Description = T(890000000001184, --[[ModItemCombatAction JAZZ_Salvo Description]] "WIP — механика сигнатурного перка в разработке."),
+					DisplayName = T(890000000000911, --[[ModItemCombatAction JAZZ_Salvo DisplayName]] "Залп"),
+					DisplayNameShort = T(890000000000568, --[[ModItemCombatAction JAZZ_Salvo DisplayNameShort]] "Залп"),
 					GetAPCost = function (self, unit, args)
 						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
 						if unit:OutOfAmmo(weapon2) or unit:IsWeaponJammed(weapon2) then
@@ -61738,7 +61738,7 @@ return {
 						local unit = units[1]
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Salvo.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/Salvo.png",
 					IdDefault = "JAZZ_Salvodefault",
 					MultiSelectBehavior = "first",
 					Parameters = {
@@ -61768,8 +61768,8 @@ return {
 					ActionType = "Ranged Attack",
 					AimType = "mobile",
 					CostBasedOnWeapon = true,
-					Description = T(154889571623, --[[ModItemCombatAction JAZZ_ManeuverAR Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию, в процессе которого выпускается двойная длинная очередь по врагу "),
-					DisplayName = T(621916692056, --[[ModItemCombatAction JAZZ_ManeuverAR DisplayName]] "Огонь и манёвр"),
+					Description = T(890000000000075, --[[ModItemCombatAction JAZZ_ManeuverAR Description]] "WIP — механика сигнатурного перка в разработке."),
+					DisplayName = T(890000000000809, --[[ModItemCombatAction JAZZ_ManeuverAR DisplayName]] "Огонь и манёвр"),
 					GetActionDamage = function (self, unit, target, args)
 						local weapon = self:GetAttackWeapons(unit, args)
 						if not weapon then return 0 end
@@ -61783,7 +61783,7 @@ return {
 						if not unit then
 							return self:GetActionDisplayName()
 						end
-
+						
 						local damage, base, bonus = self:GetActionDamage(unit)
 						local num_shots = self:ResolveValue("mobile_num_shots") 
 						local penalty = Presets.ChanceToHitModifier.Default.RunAndGun:ResolveValue("Penalty")
@@ -61823,7 +61823,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/MobileShot_Rifle.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/MobileShot_Rifle.png",
 					IdDefault = "JAZZ_ManeuverARdefault",
 					IsAimableAttack = false,
 					KeybindingSortId = "2372",
@@ -61871,9 +61871,9 @@ return {
 					Comment = "-> Attack FiringMode",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(684956692325, --[[ModItemCombatAction JAZZ_ControllableBurst Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nКороткая очередь из  <color EmStyle><num> патрон</color>\nПервые два выстрела в очереди без отдачи"),
-					DisplayName = T(701429996300, --[[ModItemCombatAction JAZZ_ControllableBurst DisplayName]] "Контролируемая очередь"),
-					DisplayNameShort = T(554267744489, --[[ModItemCombatAction JAZZ_ControllableBurst DisplayNameShort]] "Контролируемая очередь"),
+					Description = T(890000000000894, --[[ModItemCombatAction JAZZ_ControllableBurst Description]] "WIP — механика сигнатурного перка в разработке."),
+					DisplayName = T(890000000000927, --[[ModItemCombatAction JAZZ_ControllableBurst DisplayName]] "Контролируемая очередь"),
+					DisplayNameShort = T(890000000000714, --[[ModItemCombatAction JAZZ_ControllableBurst DisplayNameShort]] "Контролируемая очередь"),
 					Execute = function (self, units, args)
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
@@ -61987,7 +61987,7 @@ return {
 						
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/ControlledBurst.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/ControlledBurst.png",
 					IconFiringMode = "UI/Hud/fm_burst_fire",
 					IdDefault = "JAZZ_ControllableBurstdefault",
 					IsTargetableAttack = true,
@@ -62025,9 +62025,9 @@ return {
 					Comment = "-> Attack FiringMode",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(520867907852, --[[ModItemCombatAction JAZZ_LargeAutoFire Description]] "Неприцельная стрельба двойной длинной очередью из <color EmStyle><bullets> патронов</color>. \nУвеличен эффект подавления."),
-					DisplayName = T(918161184141, --[[ModItemCombatAction JAZZ_LargeAutoFire DisplayName]] "Двойная длинная очередь"),
-					DisplayNameShort = T(699280021986, --[[ModItemCombatAction JAZZ_LargeAutoFire DisplayNameShort]] "Двойная длинная очередь"),
+					Description = T(890000000000648, --[[ModItemCombatAction JAZZ_LargeAutoFire Description]] "WIP — механика сигнатурного перка в разработке."),
+					DisplayName = T(890000000001275, --[[ModItemCombatAction JAZZ_LargeAutoFire DisplayName]] "Двойная длинная очередь"),
+					DisplayNameShort = T(890000000000925, --[[ModItemCombatAction JAZZ_LargeAutoFire DisplayNameShort]] "Двойная длинная очередь"),
 					Execute = function (self, units, args)
 						local unit = units[1]
 						args.multishot = true
@@ -62108,7 +62108,7 @@ return {
 						
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/LongestBurst.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/LongestBurst.png",
 					IconFiringMode = "UI/Hud/fm_autoshot",
 					IdDefault = "JAZZ_LargeAutoFiredefault",
 					IsAimableAttack = false,
@@ -62216,7 +62216,7 @@ return {
 						local state, reason = attack:GetUIState(units, args)
 						return state, reason
 					end,
-					Icon = "Mod/e6L4ECj/Perks/TargetSweep.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/TargetSweep.png",
 					IdDefault = "JAZZ_TargetSweepdefault",
 					KeybindingFromAction = "actionRedirectSignatureAbility",
 					MultiSelectBehavior = "first",
@@ -62299,7 +62299,7 @@ return {
 						if not attackWep then return "hidden" end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/JokerShot.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/JokerShot.png",
 					IconFiringMode = "UI/Hud/fm_single_shot",
 					IdDefault = "JAZZ_JokerShotdefault",
 					IsTargetableAttack = true,
@@ -62332,8 +62332,8 @@ return {
 					ActionType = "Ranged Attack",
 					AimType = "mobile",
 					CostBasedOnWeapon = true,
-					Description = T(799980728478, --[[ModItemCombatAction JAZZ_MobileShotgun Description]] "<color EmStyle>Один раз за ход</color>.\nПереход на новую позицию и выстрел по ближайшей цели."),
-					DisplayName = T(615888335880, --[[ModItemCombatAction JAZZ_MobileShotgun DisplayName]] "Маневр с Дробовиком"),
+					Description = T(890000000001072, --[[ModItemCombatAction JAZZ_MobileShotgun Description]] "WIP — механика сигнатурного перка в разработке."),
+					DisplayName = T(890000000000792, --[[ModItemCombatAction JAZZ_MobileShotgun DisplayName]] "Маневр с Дробовиком"),
 					GetActionDamage = function (self, unit, target, args)
 						local rangedAttack = unit:GetDefaultAttackAction("ranged") 
 						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
@@ -62396,7 +62396,7 @@ return {
 						end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/MobileShot_shotgun.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/MobileShot_shotgun.png",
 					IdDefault = "JAZZ_MobileShotgundefault",
 					IsAimableAttack = false,
 					KeybindingSortId = "2371",
@@ -62437,9 +62437,9 @@ return {
 					AimType = "line",
 					ConfigurableKeybind = false,
 					CostBasedOnWeapon = true,
-					Description = T(864948067398, --[[ModItemCombatAction JAZZ_MGSuppressionFire Description]] "Две длинная очереди с увеличенным подавлением"),
-					DisplayName = T(696629111160, --[[ModItemCombatAction JAZZ_MGSuppressionFire DisplayName]] "Огонь на подавление"),
-					DisplayNameShort = T(466948292860, --[[ModItemCombatAction JAZZ_MGSuppressionFire DisplayNameShort]] "Огонь на подавление"),
+					Description = T(890000000001182, --[[ModItemCombatAction JAZZ_MGSuppressionFire Description]] "WIP — механика сигнатурного перка в разработке."),
+					DisplayName = T(890000000000909, --[[ModItemCombatAction JAZZ_MGSuppressionFire DisplayName]] "Огонь на подавление"),
+					DisplayNameShort = T(890000000000566, --[[ModItemCombatAction JAZZ_MGSuppressionFire DisplayNameShort]] "Огонь на подавление"),
 					Execute = function (self, units, args)
 						local unit = units[1]
 						args.suppressionbonus = 300
@@ -62491,7 +62491,7 @@ return {
 						local unit = units[1]
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/LongestBurst.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/LongestBurst.png",
 					IdDefault = "JAZZ_MGSuppressionFiredefault",
 					MultiSelectBehavior = "first",
 					RequireState = "any",
@@ -62591,7 +62591,7 @@ return {
 						
 						return "enabled"
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Vova.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/Vova.png",
 					IdDefault = "JAZZ_VovaVistdefault",
 					IsAimableAttack = false,
 					KeybindingFromAction = "actionRedirectSignatureAbility",
@@ -63089,8 +63089,8 @@ return {
 				AimType = "melee",
 				ConfigurableKeybind = false,
 				CostBasedOnWeapon = true,
-				Description = T(305356869820, --[[ModItemCombatAction MeleeAttack Description]] "Враг, находящийся в укрытии, получает статус «<GameTerm('Exposed')>»."),
-				DisplayName = T(296828702350, --[[ModItemCombatAction MeleeAttack DisplayName]] "Рукопашная атака"),
+				Description = T(892145930253, --[[ModItemCombatAction MeleeAttack Description]] "If the enemy is in cover, they will become <GameTerm('Exposed')>."),
+				DisplayName = T(318246892071, --[[ModItemCombatAction MeleeAttack DisplayName]] "Melee strike"),
 				EvalTarget = function (self, units, target, args)
 					local unit = units[1]
 					if (not args or not args.goto_pos) and (not IsValid(target) or not unit:GetClosestMeleeRangePos(target)) then
@@ -63303,7 +63303,7 @@ return {
 									'VAlign', "center",
 									'TextStyle', "PDABrowserTitle",
 									'Translate', true,
-									'Text', T(548684733743, --[[ModItemXTemplate PDAAimEvaluation Text]] "АНКЕТА A.I.M."),
+									'Text', T(548684733743, --[[ModItemXTemplate PDAAimEvaluation Text]] "A.I.M. EVALUATION"),
 								}),
 								PlaceObj('XTemplateWindow', {
 									'__class', "XText",
@@ -63369,7 +63369,7 @@ return {
 													'Padding', box(0, 0, 0, 0),
 													'TextStyle', "PDABrowserFlavor",
 													'Translate', true,
-													'Text', T(276501397506, --[[ModItemXTemplate PDAAimEvaluation Text]] "Безопасное подключение"),
+													'Text', T(276501397506, --[[ModItemXTemplate PDAAimEvaluation Text]] "Secured connection"),
 													'TextVAlign', "center",
 												}),
 												PlaceObj('XTemplateWindow', {
@@ -63393,7 +63393,7 @@ return {
 											PlaceObj('XTemplateAction', {
 												'comment', "same as perk different condition",
 												'ActionId', "idLevelUpAction",
-												'ActionName', T(470265902414, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "НОВЫЙ УРОВЕНЬ"),
+												'ActionName', T(470265902414, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "LEVEL UP"),
 												'ActionToolbar', "LevelUpBar",
 												'ActionShortcut', "L",
 												'ActionGamepad', "ButtonX",
@@ -63431,7 +63431,7 @@ return {
 										}, {
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idPerksAction",
-												'ActionName', T(294433237069, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Черты"),
+												'ActionName', T(294433237069, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Perks"),
 												'ActionToolbar', "ActionBar",
 												'ActionShortcut', "P",
 												'ActionGamepad', "ButtonX",
@@ -63452,7 +63452,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idPerksConfirmAction",
-												'ActionName', T(715124601032, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Подтвердить"),
+												'ActionName', T(715124601032, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Confirm"),
 												'ActionToolbar', "ActionBar",
 												'ActionShortcut', "P",
 												'ActionGamepad', "Start",
@@ -63478,7 +63478,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idPreviousMerc",
-												'ActionName', T(550449531084, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Предыдущий"),
+												'ActionName', T(550449531084, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Previous"),
 												'ActionShortcut', "Shift-Tab",
 												'ActionGamepad', "LeftShoulder",
 												'OnAction', function (self, host, source, ...)
@@ -63491,7 +63491,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idNextMerc",
-												'ActionName', T(655064233565, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "След."),
+												'ActionName', T(890000000000862, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "След."),
 												'ActionShortcut', "Tab",
 												'ActionGamepad', "RightShoulder",
 												'OnAction', function (self, host, source, ...)
@@ -63504,7 +63504,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idStatsAction",
-												'ActionName', T(731677990405, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Характеристики"),
+												'ActionName', T(731677990405, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Stats"),
 												'ActionToolbar', "ActionBar",
 												'ActionShortcut', "S",
 												'ActionGamepad', "ButtonX",
@@ -63519,7 +63519,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idMercsAction",
-												'ActionName', T(905658355422, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Наёмники"),
+												'ActionName', T(905658355422, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Mercs"),
 												'ActionToolbar', "ActionBar",
 												'ActionShortcut', "M",
 												'ActionState', function (self, host)
@@ -63537,7 +63537,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idCloseActionPerks",
-												'ActionName', T(187868415093, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Закрыть"),
+												'ActionName', T(187868415093, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Close"),
 												'ActionToolbar', "ActionBar",
 												'ActionShortcut', "Escape",
 												'ActionGamepad', "ButtonB",
@@ -63578,7 +63578,7 @@ return {
 											}),
 											PlaceObj('XTemplateAction', {
 												'ActionId', "idCloseActionRecord",
-												'ActionName', T(187868415093, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Закрыть"),
+												'ActionName', T(187868415093, --[[ModItemXTemplate PDAAimEvaluation ActionName]] "Close"),
 												'ActionToolbar', "ActionBar",
 												'ActionShortcut', "Escape",
 												'ActionGamepad', "ButtonB",
@@ -63756,7 +63756,7 @@ return {
 															'__class', "XText",
 															'TextStyle', "PDABrowserSubtitle",
 															'Translate', true,
-															'Text', T(459016279300, --[[ModItemXTemplate PDAAimEvaluation Text]] "/ суточная з/п"),
+															'Text', T(459016279300, --[[ModItemXTemplate PDAAimEvaluation Text]] "/ Daily Salary"),
 														}),
 														PlaceObj('XTemplateWindow', {
 															'comment', "class info",
@@ -63798,7 +63798,7 @@ return {
 														'VAlign', "center",
 														'TextStyle', "PDABrowserSubtitle",
 														'Translate', true,
-														'Text', T(267299905081, --[[ModItemXTemplate PDAAimEvaluation Text]] "УР."),
+														'Text', T(267299905081, --[[ModItemXTemplate PDAAimEvaluation Text]] "LEVEL"),
 													}),
 													}),
 												PlaceObj('XTemplateTemplate', {
@@ -63880,7 +63880,7 @@ return {
 													
 													if context.Tiredness ~= 0 then
 														local effect = UnitTirednessEffect[context.Tiredness]
-														text = text .. T{620948893123, " <tiredness>.", tiredness = CharacterEffectDefs[effect].DisplayName}
+														text = text .. T{890000000000799, " <tiredness>.", tiredness = CharacterEffectDefs[effect].DisplayName}
 													end
 													
 													self:SetText(text)
@@ -63919,7 +63919,7 @@ return {
 													'Dock', "top",
 													'TextStyle', "PDABrowserHeader",
 													'Translate', true,
-													'Text', T(769722208341, --[[ModItemXTemplate PDAAimEvaluation Text]] "Характеристики"),
+													'Text', T(769722208341, --[[ModItemXTemplate PDAAimEvaluation Text]] "Stats"),
 												}),
 												PlaceObj('XTemplateWindow', {
 													'comment', "attributes",
@@ -63993,7 +63993,7 @@ return {
 														'Margins', box(0, 4, 0, 4),
 														'TextStyle', "PDABrowserNameSmall",
 														'Translate', true,
-														'Text', T(961479643645, --[[ModItemXTemplate PDAAimEvaluation Text]] "Талант"),
+														'Text', T(961479643645, --[[ModItemXTemplate PDAAimEvaluation Text]] "Talent"),
 													}),
 													PlaceObj('XTemplateWindow', {
 														'Margins', box(0, 0, 8, 4),
@@ -64032,7 +64032,7 @@ return {
 														'Margins', box(0, 4, 0, 4),
 														'TextStyle', "PDABrowserNameSmall",
 														'Translate', true,
-														'Text', T(861228350946, --[[ModItemXTemplate PDAAimEvaluation Text]] "Особенности"),
+														'Text', T(861228350946, --[[ModItemXTemplate PDAAimEvaluation Text]] "Traits"),
 													}),
 													PlaceObj('XTemplateWindow', {
 														'LayoutMethod', "HList",
@@ -64069,7 +64069,7 @@ return {
 													'__class', "XText",
 													'TextStyle', "PDABrowserNameSmall",
 													'Translate', true,
-													'Text', T(236089097173, --[[ModItemXTemplate PDAAimEvaluation Text]] "Черты"),
+													'Text', T(236089097173, --[[ModItemXTemplate PDAAimEvaluation Text]] "Perks"),
 												}),
 												PlaceObj('XTemplateWindow', {
 													'LayoutMethod', "HWrap",
@@ -64173,7 +64173,7 @@ return {
 													'FrameBox', box(3, 3, 3, 3),
 													'TextStyle', "PDABrowserTabSelected",
 													'Translate', true,
-													'Text', T(210141140528, --[[ModItemXTemplate PDAAimEvaluation Text]] "История"),
+													'Text', T(210141140528, --[[ModItemXTemplate PDAAimEvaluation Text]] "History"),
 												}),
 												PlaceObj('XTemplateWindow', {
 													'__class', "XTextButton",
@@ -64194,7 +64194,7 @@ return {
 													'FrameBox', box(3, 3, 3, 3),
 													'TextStyle', "PDABrowserTabSelected",
 													'Translate', true,
-													'Text', T(113987221030, --[[ModItemXTemplate PDAAimEvaluation Text]] "Статистика"),
+													'Text', T(113987221030, --[[ModItemXTemplate PDAAimEvaluation Text]] "Statistics"),
 												}),
 												PlaceObj('XTemplateWindow', {
 													'comment', "gamepad hint",
@@ -64250,7 +64250,7 @@ return {
 																	'__class', "XText",
 																	'TextStyle', "PDABrowserText",
 																	'Translate', true,
-																	'Text', T(731522640052, --[[ModItemXTemplate PDAAimEvaluation Text]] "Подключаемся к серверу A.I.M...\nПроверяем безопасность соединения... <em>Подтверждено!</em>\n------------------------------------"),
+																	'Text', T(731522640052, --[[ModItemXTemplate PDAAimEvaluation Text]] "Connecting to A.I.M. servers...\nSecurity check... <em>Confirmed!</em>\n------------------------------------"),
 																}),
 																PlaceObj('XTemplateForEach', {
 																	'comment', "merc history log",
@@ -64321,7 +64321,7 @@ return {
 																	'__class', "XText",
 																	'TextStyle', "PDABrowserText",
 																	'Translate', true,
-																	'Text', T(959513065473, --[[ModItemXTemplate PDAAimEvaluation Text]] "Подключаемся к серверу A.I.M...\nПроверяем безопасность соединения... <em>Подтверждено!</em>\n-----------------------------------------------"),
+																	'Text', T(959513065473, --[[ModItemXTemplate PDAAimEvaluation Text]] "Connecting to A.I.M. servers...\nSecurity check... <em>Confirmed!</em>\n-----------------------------------------------"),
 																}),
 																PlaceObj('XTemplateForEach', {
 																	'array', function (parent, context) return Presets.MercTrackedStat end,
@@ -64445,7 +64445,7 @@ return {
 					PlaceObj('XTemplateWindow', {
 						'__class', "XContextWindow",
 						'RolloverTemplate', "StatusEffectsRollover",
-						'RolloverText', T(327307292756, --[[ModItemXTemplate CombatBadge RolloverText]] "ЭФФЕКТЫ"),
+						'RolloverText', T(327307292756, --[[ModItemXTemplate CombatBadge RolloverText]] "STATUS EFFECTS"),
 						'RolloverOffset', box(10, 0, 10, 0),
 						'Id', "idMain",
 						'VAlign', "top",
@@ -64470,7 +64470,7 @@ return {
 								CombatBadgeAboveNameTextUpdate(self)
 							end,
 							'Translate', true,
-							'Text', T(865071357285, --[[ModItemXTemplate CombatBadge Text]] "НЕТ ПАТРОНОВ"),
+							'Text', T(865071357285, --[[ModItemXTemplate CombatBadge Text]] "OUT OF AMMO"),
 						}),
 						PlaceObj('XTemplateWindow', {
 							'comment', "name and above",
@@ -64754,8 +64754,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(256373672615, --[[ModItemCharacterEffectCompositeDef Psycho DisplayName]] "Психопат"),
-					'Description', T(966163673727, --[[ModItemCharacterEffectCompositeDef Psycho Description]] "Может выполнить более жестокую атаку, чем была выбрана.\n\nОткрывает дополнительные <em>варианты диалогов</em>."),
+					'DisplayName', T(256373672615, --[[ModItemCharacterEffectCompositeDef Psycho DisplayName]] "Psycho"),
+					'Description', T(966163673727, --[[ModItemCharacterEffectCompositeDef Psycho Description]] "Can decide to use a more vicious attack than the one selected.\n\nAdditional <em>conversation options</em>."),
 					'Icon', "UI/Icons/Perks/Psycho",
 					'Tier', "Personality",
 				}),
@@ -64764,8 +64764,8 @@ return {
 					'Id', "Bond",
 					'SortKey', 10,
 					'object_class', "Perk",
-					'DisplayName', T(875337188421, --[[ModItemCharacterEffectCompositeDef Bond DisplayName]] "Особая связь"),
-					'Description', T(459288741024, --[[ModItemCharacterEffectCompositeDef Bond Description]] "Особая связь с другим персонажем (нужно отдельное описание)."),
+					'DisplayName', T(875337188421, --[[ModItemCharacterEffectCompositeDef Bond DisplayName]] "Bond"),
+					'Description', T(459288741024, --[[ModItemCharacterEffectCompositeDef Bond Description]] "Bond with another character (needs special description)."),
 					'Icon', "UI/Icons/Perks/Bond",
 					'Tier', "Personality",
 				}),
@@ -64782,8 +64782,8 @@ return {
 					},
 					'param_bindings', {},
 					'object_class', "Perk",
-					'DisplayName', T(196499775201, --[[ModItemCharacterEffectCompositeDef Negotiator DisplayName]] "Переговорщик"),
-					'Description', T(464552472248, --[[ModItemCharacterEffectCompositeDef Negotiator Description]] "Снижает цены на <em>операции в секторе</em> и <em>перемещение по воде</em>.\n\nОткрывает <em>доп. варианты диалогов</em>."),
+					'DisplayName', T(196499775201, --[[ModItemCharacterEffectCompositeDef Negotiator DisplayName]] "Negotiator"),
+					'Description', T(464552472248, --[[ModItemCharacterEffectCompositeDef Negotiator Description]] "Reduces prices for <em>Sector Operations</em> and <em>Boat Travel</em>.\n\nAdditional <em>conversation options</em>."),
 					'Icon', "UI/Icons/Perks/Negotiator",
 					'Tier', "Personality",
 				}),
@@ -64792,8 +64792,8 @@ return {
 					'Id', "Scoundrel",
 					'SortKey', 10,
 					'object_class', "Perk",
-					'DisplayName', T(687227379969, --[[ModItemCharacterEffectCompositeDef Scoundrel DisplayName]] "Тёртый калач"),
-					'Description', T(252249063178, --[[ModItemCharacterEffectCompositeDef Scoundrel Description]] "Первую <em>смену оружия</em> за ход можно совершить <em>бесплатно</em>.\n\nДобавляет <em>доп. варианты диалогов</em>."),
+					'DisplayName', T(687227379969, --[[ModItemCharacterEffectCompositeDef Scoundrel DisplayName]] "Scoundrel"),
+					'Description', T(252249063178, --[[ModItemCharacterEffectCompositeDef Scoundrel Description]] "First <em>weapon swap</em> for the turn is <em>free</em>.\n\nAdditional <em>conversation options</em>."),
 					'Icon', "UI/Icons/Perks/Scoundrel",
 					'Tier', "Personality",
 				}),
@@ -64825,8 +64825,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(487342591563, --[[ModItemCharacterEffectCompositeDef Loner DisplayName]] "Одиночка"),
-					'Description', T(124325843871, --[[ModItemCharacterEffectCompositeDef Loner Description]] "Дает <GameTerm('Inspired')>, если в начале хода рядом с вами нет бойцов вашего отряда."),
+					'DisplayName', T(487342591563, --[[ModItemCharacterEffectCompositeDef Loner DisplayName]] "Loner"),
+					'Description', T(124325843871, --[[ModItemCharacterEffectCompositeDef Loner Description]] "Become <GameTerm('Inspired')> when there are no teammates <em>in your vicinity</em> at turn start."),
 					'Icon', "UI/Icons/Perks/Loner",
 					'Tier', "Quirk",
 				}),
@@ -64842,8 +64842,8 @@ return {
 						}),
 					},
 					'object_class', "Perk",
-					'DisplayName', T(892300961794, --[[ModItemCharacterEffectCompositeDef Optimist DisplayName]] "Оптимист"),
-					'Description', T(181016182063, --[[ModItemCharacterEffectCompositeDef Optimist Description]] "Небольшой шанс <em>не допустить</em>, чтобы <GameTerm('Morale')> команды понизился."),
+					'DisplayName', T(892300961794, --[[ModItemCharacterEffectCompositeDef Optimist DisplayName]] "Optimist"),
+					'Description', T(181016182063, --[[ModItemCharacterEffectCompositeDef Optimist Description]] "Small chance to <em>prevent</em> a team <GameTerm('Morale')> loss."),
 					'Icon', "UI/Icons/Perks/Optimist",
 					'Tier', "Quirk",
 				}),
@@ -64859,8 +64859,8 @@ return {
 						}),
 					},
 					'object_class', "Perk",
-					'DisplayName', T(755896070667, --[[ModItemCharacterEffectCompositeDef Pessimist DisplayName]] "Пессимист"),
-					'Description', T(932094612672, --[[ModItemCharacterEffectCompositeDef Pessimist Description]] "Небольшой шанс <em>не допустить</em>, чтобы <GameTerm('Morale')> команды повысился."),
+					'DisplayName', T(755896070667, --[[ModItemCharacterEffectCompositeDef Pessimist DisplayName]] "Pessimist"),
+					'Description', T(932094612672, --[[ModItemCharacterEffectCompositeDef Pessimist Description]] "Small chance to <em>prevent</em> team <GameTerm('Morale')> gain."),
 					'Icon', "UI/Icons/Perks/Pessimist",
 					'Tier', "Quirk",
 				}),
@@ -64887,8 +64887,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(906477417382, --[[ModItemCharacterEffectCompositeDef Spiritual DisplayName]] "Духовность"),
-					'Description', T(233455514627, --[[ModItemCharacterEffectCompositeDef Spiritual Description]] "Гарантированная <em>минимальная точность</em> для безнадежных атак."),
+					'DisplayName', T(906477417382, --[[ModItemCharacterEffectCompositeDef Spiritual DisplayName]] "Spiritual"),
+					'Description', T(233455514627, --[[ModItemCharacterEffectCompositeDef Spiritual Description]] "Guaranteed <em>Minimal Accuracy</em> with hopeless attacks."),
 					'Icon', "UI/Icons/Perks/Spiritual",
 					'Tier', "Quirk",
 				}),
@@ -64932,8 +64932,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(619689762390, --[[ModItemCharacterEffectCompositeDef Zoophobic DisplayName]] "Зоофобия"),
-					'Description', T(467565005573, --[[ModItemCharacterEffectCompositeDef Zoophobic Description]] "<GameTerm('Morale')> снижается, если этого персонажа <em>атакует</em> <em>животное</em>."),
+					'DisplayName', T(619689762390, --[[ModItemCharacterEffectCompositeDef Zoophobic DisplayName]] "Zoophobic"),
+					'Description', T(467565005573, --[[ModItemCharacterEffectCompositeDef Zoophobic Description]] "Loses <GameTerm('Morale')> when <em>Attacked</em> by an <em>animal</em>."),
 					'Icon', "UI/Icons/Perks/Zoophobic",
 					'Tier', "Quirk",
 				}),
@@ -64991,8 +64991,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(464805356385, --[[ModItemCharacterEffectCompositeDef Claustrophobic DisplayName]] "Клаустрофобия"),
-					'Description', T(356135028604, --[[ModItemCharacterEffectCompositeDef Claustrophobic Description]] "<GameTerm('Morale')> снижается в начале боя, если он происходит в <em>подземных</em> секторах."),
+					'DisplayName', T(464805356385, --[[ModItemCharacterEffectCompositeDef Claustrophobic DisplayName]] "Claustrophobic"),
+					'Description', T(356135028604, --[[ModItemCharacterEffectCompositeDef Claustrophobic Description]] "<GameTerm('Morale')> decrease when starting combat in <em>underground</em> Sectors."),
 					'Icon', "UI/Icons/Perks/Claustrophobic",
 					'Tier', "Quirk",
 				}),
@@ -65008,8 +65008,8 @@ return {
 						}),
 					},
 					'object_class', "Perk",
-					'DisplayName', T(152237634088, --[[ModItemCharacterEffectCompositeDef Hemophobic DisplayName]] "Гемофобия"),
-					'Description', T(105025202773, --[[ModItemCharacterEffectCompositeDef Hemophobic Description]] "Шанс <em>неудачи</em> при использовании <em>перевязки</em>."),
+					'DisplayName', T(152237634088, --[[ModItemCharacterEffectCompositeDef Hemophobic DisplayName]] "Hemophobic"),
+					'Description', T(105025202773, --[[ModItemCharacterEffectCompositeDef Hemophobic Description]] "Chance of <em>failure</em> when using <em>Bandage</em>."),
 					'Icon', "UI/Icons/Perks/Hemophobic",
 					'Tier', "Quirk",
 				}),
@@ -65036,9 +65036,9 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(279226942480, --[[ModItemCharacterEffectCompositeDef suppressionLight DisplayName]] "Обстрелян"),
-					'Description', T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionLight Description]] "Шанс попасть во врага немного снижен"),
-					'AddEffectText', T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionLight AddEffectText]] "Обстрелян"),
+					'DisplayName', T(890000000000263, --[[ModItemCharacterEffectCompositeDef suppressionLight DisplayName]] "Обстрелян"),
+					'Description', T(890000000001236, --[[ModItemCharacterEffectCompositeDef suppressionLight Description]] "Шанс попасть во врага немного снижен"),
+					'AddEffectText', T(890000000000705, --[[ModItemCharacterEffectCompositeDef suppressionLight AddEffectText]] "Обстрелян"),
 					'OnAdded', function (self, obj)
 						if not obj:IsDead() then
 						                    if obj:IsMerc() then
@@ -65048,7 +65048,7 @@ return {
 						                    end
 						                end
 					end,
-					'Icon', "Mod/e6L4ECj/Icons/suppressionLight.png",
+					'Icon', "Mod/e6L4ECj/Icons/StatusEffects/suppressionLight.png",
 					'RemoveOnEndCombat', true,
 					'Shown', true,
 				}),
@@ -65079,9 +65079,9 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(279226942480, --[[ModItemCharacterEffectCompositeDef suppressionMedium DisplayName]] "Под огнем"),
-					'Description', T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionMedium Description]] "Шанс попасть во врага снижен\n+1 ОД свободного перемещения"),
-					'AddEffectText', T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionMedium AddEffectText]] "Под плотным огнем"),
+					'DisplayName', T(890000000000260, --[[ModItemCharacterEffectCompositeDef suppressionMedium DisplayName]] "Под огнем"),
+					'Description', T(890000000001238, --[[ModItemCharacterEffectCompositeDef suppressionMedium Description]] "Шанс попасть во врага снижен\n+1 ОД свободного перемещения"),
+					'AddEffectText', T(890000000000704, --[[ModItemCharacterEffectCompositeDef suppressionMedium AddEffectText]] "Под плотным огнем"),
 					'OnAdded', function (self, obj)
 						if not obj:IsDead() then
 						                    if obj:IsMerc() then
@@ -65091,7 +65091,7 @@ return {
 						                    end
 						                end
 					end,
-					'Icon', "Mod/e6L4ECj/Icons/suppressionMedium.png",
+					'Icon', "Mod/e6L4ECj/Icons/StatusEffects/suppressionMedium.png",
 					'RemoveOnEndCombat', true,
 					'Shown', true,
 				}),
@@ -65122,9 +65122,9 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(279226942480, --[[ModItemCharacterEffectCompositeDef suppressionHeavy DisplayName]] "Под плотным огнем"),
-					'Description', T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionHeavy Description]] "Шанс попасть во врага снижен\n+2 ОД свободного перемещения"),
-					'AddEffectText', T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionHeavy AddEffectText]] "Под плотным огнем"),
+					'DisplayName', T(890000000000259, --[[ModItemCharacterEffectCompositeDef suppressionHeavy DisplayName]] "Под плотным огнем"),
+					'Description', T(890000000001237, --[[ModItemCharacterEffectCompositeDef suppressionHeavy Description]] "Шанс попасть во врага снижен\n+2 ОД свободного перемещения"),
+					'AddEffectText', T(890000000000704, --[[ModItemCharacterEffectCompositeDef suppressionHeavy AddEffectText]] "Под плотным огнем"),
 					'OnAdded', function (self, obj)
 						--local unitStance = obj.stance
 						--if unitStance == "Standing" then
@@ -65140,7 +65140,7 @@ return {
 						                    end
 						                end
 					end,
-					'Icon', "Mod/e6L4ECj/Icons/suppressionHeavy.png",
+					'Icon', "Mod/e6L4ECj/Icons/StatusEffects/suppressionHeavy.png",
 					'RemoveOnEndCombat', true,
 					'Shown', true,
 				}),
@@ -65178,9 +65178,9 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(279226942480, --[[ModItemCharacterEffectCompositeDef suppressionHeavy2 DisplayName]] "Подавлен"),
-					'Description', T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionHeavy2 Description]] "Передвижение в 2 раза дороже. Точность стрельбы сильно снижена."),
-					'AddEffectText', T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionHeavy2 AddEffectText]] "Под плотным огнем"),
+					'DisplayName', T(890000000000258, --[[ModItemCharacterEffectCompositeDef suppressionHeavy2 DisplayName]] "Подавлен"),
+					'Description', T(890000000001234, --[[ModItemCharacterEffectCompositeDef suppressionHeavy2 Description]] "Передвижение в 2 раза дороже. Точность стрельбы сильно снижена."),
+					'AddEffectText', T(890000000000704, --[[ModItemCharacterEffectCompositeDef suppressionHeavy2 AddEffectText]] "Под плотным огнем"),
 					'OnAdded', function (self, obj)
 						--local unitStance = obj.stance
 						--if unitStance == "Standing" then
@@ -65207,7 +65207,7 @@ return {
 						                    end
 						                end
 					end,
-					'Icon', "Mod/e6L4ECj/Icons/suppressionHeavy2.png",
+					'Icon', "Mod/e6L4ECj/Icons/StatusEffects/suppressionHeavy2.png",
 					'RemoveOnEndCombat', true,
 					'Shown', true,
 				}),
@@ -65247,9 +65247,9 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(279226942480, --[[ModItemCharacterEffectCompositeDef suppressionPinned DisplayName]] "Прижат"),
-					'Description', T(880250024564, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Количество од - не более 4."),
-					'AddEffectText', T(551437047571, --[[ModItemCharacterEffectCompositeDef suppressionPinned AddEffectText]] "Под плотным огнем"),
+					'DisplayName', T(890000000000262, --[[ModItemCharacterEffectCompositeDef suppressionPinned DisplayName]] "Прижат"),
+					'Description', T(890000000001235, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Количество од - не более 4."),
+					'AddEffectText', T(890000000000704, --[[ModItemCharacterEffectCompositeDef suppressionPinned AddEffectText]] "Под плотным огнем"),
 					'OnAdded', function (self, obj)
 						local unitStance = obj.stance
 						if unitStance ~= "Prone" or not (obj:CanTakeCover()) then
@@ -65270,7 +65270,7 @@ return {
 						                    end
 						                end
 					end,
-					'Icon', "Mod/e6L4ECj/Icons/suppressionPinned.png",
+					'Icon', "Mod/e6L4ECj/Icons/StatusEffects/suppressionPinned.png",
 					'RemoveOnEndCombat', true,
 					'Shown', true,
 				}),
@@ -65399,8 +65399,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Секретные данные"),
-					'Description', T(222768539188, --[[ModItemCharacterEffectCompositeDef InnerInfo Description]] "Открывает месторасположение всех <em>врагов</em>, если у вас есть <em>разведданные</em> для этого сектора."),
+					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo DisplayName]] "Inside Dope"),
+					'Description', T(222768539188, --[[ModItemCharacterEffectCompositeDef InnerInfo Description]] "<em>Reveals</em> all <em>Enemies</em> if you have <em>Intel</em> for the Sector."),
 					'Icon', "UI/Icons/Perks/InnerInfo",
 					'Tier', "Personal",
 				}),
@@ -65421,7 +65421,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(380316218017, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ DisplayName]] "Секретные данные"),
+					'DisplayName', T(890000000000446, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ DisplayName]] "Секретные данные"),
 					'Description', T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
 					'Icon', "UI/Icons/Perks/InnerInfo",
 					'Tier', "Personal",
@@ -65457,8 +65457,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Юберрашунг"),
-					'Description', T(742416202176, --[[ModItemCharacterEffectCompositeDef GruntyPerk Description]] "<em>Атакует</em> <em>ближайшего</em> противника из огнестрельного оружия <em>в начале боя</em> (если есть возможность).\n\nНеприменимо к тяжелому оружию."),
+					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Überraschung"),
+					'Description', T(742416202176, --[[ModItemCharacterEffectCompositeDef GruntyPerk Description]] "<em>Attacks</em> the <em>closest</em> enemy with a firearm when <em>combat starts</em>, if possible.\n\nCan't be used with Heavy Weapons."),
 					'Icon', "UI/Icons/Perks/GruntyPerk",
 					'Tier', "Personal",
 				}),
@@ -65483,7 +65483,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ DisplayName]] "Юберрашунг"),
+					'DisplayName', T(890000000000723, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ DisplayName]] "Юберрашунг"),
 					'Description', T(845332100943, --[[ModItemCharacterEffectCompositeDef GruntyPerk_JAZZ Description]] "Дает +50% од на первом ходу"),
 					'Icon', "UI/Icons/Perks/GruntyPerk",
 					'Tier', "Personal",
@@ -65520,7 +65520,7 @@ return {
 						}),
 					},
 					'DisplayName', T(952338905331, --[[ModItemCharacterEffectCompositeDef Grunty_AdditionalAP DisplayName]] "Überraschung"),
-					'Description', T(912592808613, --[[ModItemCharacterEffectCompositeDef Grunty_AdditionalAP Description]] "Дает <em><bonus> ОД</em>."),
+					'Description', T(890000000001266, --[[ModItemCharacterEffectCompositeDef Grunty_AdditionalAP Description]] "Дает <em><bonus> ОД</em>."),
 					'OnAdded', function (self, obj)
 						if g_Teams[g_CurrentTeam] == obj.team then
 							local ap = obj:GetMaxActionPoints()
@@ -65592,8 +65592,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(855415767233, --[[ModItemCharacterEffectCompositeDef SteadyBreathing DisplayName]] "Fast Runner"),
-					'Description', T(785177734706, --[[ModItemCharacterEffectCompositeDef SteadyBreathing Description]] "Increased <GameTerm('FreeMove')> <em>Range</em> when wearing <em>Light Armor</em> or not wearing any Armor."),
+					'DisplayName', T(169594503293, --[[ModItemCharacterEffectCompositeDef SteadyBreathing DisplayName]] "Fast Runner"),
+					'Description', T(727749516634, --[[ModItemCharacterEffectCompositeDef SteadyBreathing Description]] "Increased <GameTerm('FreeMove')> <em>Range</em> when wearing <em>Light Armor</em> or not wearing any Armor."),
 					'Icon', "UI/Icons/Perks/SteadyBreathing",
 					'Tier', "Bronze",
 					'Stat', "Agility",
@@ -65661,8 +65661,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(408025340126, --[[ModItemCharacterEffectCompositeDef Stealthy DisplayName]] "Stealthy"),
-					'Description', T(651312331230, --[[ModItemCharacterEffectCompositeDef Stealthy Description]] "Harder to spot by enemies while <GameTerm('Sneaking')>.\n\nSlightly increased chance for <GameTerm('StealthKills')>."),
+					'DisplayName', T(384624400411, --[[ModItemCharacterEffectCompositeDef Stealthy DisplayName]] "Stealthy"),
+					'Description', T(172679907276, --[[ModItemCharacterEffectCompositeDef Stealthy Description]] "Harder to spot by enemies while <GameTerm('Sneaking')>.\n\nSlightly increased chance for <GameTerm('StealthKills')>."),
 					'Icon', "UI/Icons/Perks/Stealthy",
 					'Tier', "Specialization",
 				}),
@@ -65679,7 +65679,7 @@ return {
 					},
 					'object_class', "Perk",
 					'unit_reactions', {},
-					'DisplayName', T(971350457853, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Автоматическое оружие"),
+					'DisplayName', T(971350457853, --[[ModItemCharacterEffectCompositeDef AutoWeapons DisplayName]] "Auto Weapons"),
 					'Description', T(253479657834, --[[ModItemCharacterEffectCompositeDef AutoWeapons Description]] "При стрельбе длинными очередями или при автоогне убирает влияние отдачи начиная с 5го выстрела"),
 					'Icon', "UI/Icons/Perks/AutoWeapons",
 					'Tier', "Specialization",
@@ -65714,7 +65714,7 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(575851829180, --[[ModItemCharacterEffectCompositeDef HeavyWeaponsTraining DisplayName]] "Тяжелое вооружение"),
+					'DisplayName', T(575851829180, --[[ModItemCharacterEffectCompositeDef HeavyWeaponsTraining DisplayName]] "Heavy Weapons"),
 					'Description', T(415344339832, --[[ModItemCharacterEffectCompositeDef HeavyWeaponsTraining Description]] "Уменьшен расход <em>ОД</em> на атаки из <em>тяжелого вооружения</em> и <em>пулеметов</em> и приведение его в <GameTerm('Setup')>.\nБонус к количеству атак при разложенном пулемете"),
 					'Icon', "UI/Icons/Perks/HeavyWeaponsTraining",
 					'Tier', "Specialization",
@@ -65783,8 +65783,8 @@ return {
 							param_bindings = false,
 						}),
 					},
-					'DisplayName', T(380626033173, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk DisplayName]] "Рэмбо"),
-					'Description', T(272740235755, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk Description]] "<em>Атака с помощью пулемета</em> с пониженным штрафом к <em>точности</em>, которая не страдает от дополнительных штрафов, когда отсутствует <GameTerm('Setup')>."),
+					'DisplayName', T(380626033173, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk DisplayName]] "Off the Hip"),
+					'Description', T(272740235755, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk Description]] "<em>Machine Gun attack</em> with reduced <em>Accuracy</em> penalty that does not suffer increased penalties if firing without <GameTerm('Setup')>."),
 					'Icon', "UI/Icons/Perks/GrizzlyPerk",
 					'Tier', "Personal",
 				}),
@@ -65953,7 +65953,7 @@ return {
 						if not unit:UIHasAP(cost) then return "disabled" end
 						return "enabled"
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Lynx6.png",
+					Icon = "Mod/e6L4ECj/Perks/Personal/Lynx6.png",
 					IdDefault = "Jazz_Perk_Lynxdefault",
 					IsToggledOn = function (self, unit)
 						return unit and unit:GetEffectValue("Jazz_Perk_00") or false
@@ -65976,8 +65976,8 @@ return {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(623665702916, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lynx DisplayName]] "Рысий взгляд"),
-					'Description', T(663250628462, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lynx Description]] "Дальность видимости днем повышена, а штрафы за дальность - понижены"),
-					'Icon', "Mod/e6L4ECj/Perks/Lynx.png",
+					'Description', T(890000000000868, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lynx Description]] "Дальность видимости днем повышена, а штрафы за дальность - понижены"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Lynx.png",
 					'Tier', "Personal",
 				}),
 				}),
@@ -66003,7 +66003,7 @@ return {
 						if not unit:UIHasAP(cost) then return "disabled" end
 						return "enabled"
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Buzz2.png",
+					Icon = "Mod/e6L4ECj/Perks/Personal/Buzz2.png",
 					IdDefault = "Jazz_Perk_Buzzdefault",
 					IsAimableAttack = false,
 					IsToggledOn = function (self, unit)
@@ -66026,9 +66026,9 @@ return {
 					'Id', "Jazz_Perk_Buzz",
 					'object_class', "Perk",
 					'unit_reactions', {},
-					'DisplayName', T(621389468053, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Buzz DisplayName]] "Свинцовый дождь"),
-					'Description', T(663250628462, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Buzz Description]] "Увеличивает длину очереди на 50%"),
-					'Icon', "Mod/e6L4ECj/Perks/Buzz.png",
+					'DisplayName', T(890000000000805, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Buzz DisplayName]] "Свинцовый дождь"),
+					'Description', T(890000000000869, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Buzz Description]] "Увеличивает длину очереди на 50%"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Buzz.png",
 					'Tier', "Personal",
 				}),
 				}),
@@ -66054,7 +66054,7 @@ return {
 						if not unit:UIHasAP(cost) then return "disabled" end
 						return "enabled"
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Spider2.png",
+					Icon = "Mod/e6L4ECj/Perks/Personal/Spider2.png",
 					IdDefault = "Jazz_Perk_Spiderdefault",
 					IsToggledOn = function (self, unit)
 						return unit and unit:GetEffectValue("Jazz_Perk_00") or false
@@ -66076,9 +66076,710 @@ return {
 					'Id', "Jazz_Perk_Spider",
 					'object_class', "Perk",
 					'unit_reactions', {},
-					'DisplayName', T(621389468053, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Spider DisplayName]] "Полевая хирургия"),
-					'Description', T(663250628462, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Spider Description]] "Удваивает значение навыка медицины при лечении на глобальной карте\n"),
-					'Icon', "Mod/e6L4ECj/Perks/Spider.png",
+					'DisplayName', T(890000000000804, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Spider DisplayName]] "Полевая хирургия"),
+					'Description', T(890000000000870, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Spider Description]] "Удваивает значение навыка медицины при лечении на глобальной карте\n"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Spider.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Colby",
+			}, {
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "toggle",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Colby DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Colby.png",
+					IdDefault = "Jazz_Perk_Colbydefault",
+					IsToggledOn = function (self, unit)
+						return unit and unit:GetEffectValue("Jazz_Perk_00") or false
+					end,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						unit:SetEffectValue("Jazz_Perk_00", not unit:GetEffectValue("Jazz_Perk_00"))
+						ObjModified("combat_bar")
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Colby",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Colby",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcDamageAndEffects",
+							Handler = function (self, owner, attacker, target, action, weapon, attack_args, hit, data)
+								-- only Colby's own reaction instance (fired on the attacker) should proc this
+								if owner ~= attacker then
+									return
+								end
+								if not hit or not (hit.aoe or hit.explosion) then
+									return
+								end
+								if not IsKindOf(target, "Unit") or not attacker:IsOnEnemySide(target) then
+									return
+								end
+								if not target:HasStatusEffect("Wounded") then
+									return
+								end
+								if InteractionRand(100, "Jazz_Perk_Colby") < 20 then
+									target:AddStatusEffect("Panicked")
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000001700, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Colby DisplayName]] "Цепная паника"),
+					'Description', T(890000000001701, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Colby Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Colby.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Blade",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Blade",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000001800, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Blade DisplayName]] "Ураган клинков"),
+					'Description', T(890000000001801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Blade Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Blade.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Ira",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Ira",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000001900, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Ira DisplayName]] "Народный командир"),
+					'Description', T(890000000001901, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Ira Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Ira.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Dimitri",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Dimitri",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000002000, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Dimitri DisplayName]] "Точильщик"),
+					'Description', T(890000000002001, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Dimitri Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Dimitri.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Madman",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Madman",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000002100, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Madman DisplayName]] "Штурм в упор"),
+					'Description', T(890000000002101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Madman Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Madman.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Conrad",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Conrad",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000002200, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Conrad DisplayName]] "Строгий инструктор"),
+					'Description', T(890000000002201, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Conrad Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Conrad.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Mike",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Mike",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000002300, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Mike DisplayName]] "Быстрая реакция"),
+					'Description', T(890000000002301, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Mike Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Mike.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Grom",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Grom",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000002400, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Grom DisplayName]] "Артподготовка"),
+					'Description', T(890000000002401, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Grom Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Grom.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Rothman",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Rothman",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Rothman.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Quinten",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Quinten",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Quinten.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Vicious",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Vicious",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Vicious.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Biff",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Biff",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Biff.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Nervous",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Nervous",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Nervous.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Dynamo",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Dynamo",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Dynamo.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Gaston",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Gaston",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Gaston.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Horg",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Horg",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Horg.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Manuel",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Manuel",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Manuel.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Monk",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Monk",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Monk.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Allik",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Allik",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Allik.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Henning",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Henning",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Henning.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Static",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Static",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Static.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Highball",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Highball",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Highball.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Bull",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Bull",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Bull.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Cord",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Cord",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Cord.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Hobbit",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Hobbit",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Hobbit.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Ricochet",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Ricochet",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Ricochet.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Meat",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Meat",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Meat.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Carlos",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Carlos",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Carlos.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Devin",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Devin",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Devin.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Shank",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Shank",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Shank.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Vince",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Vince",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Vince.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Hitman",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Hitman",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Hitman.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Biggens",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Biggens",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Biggens.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Kulba",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Kulba",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Kulba.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Vilde",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Vilde",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Vilde.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Grace",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Grace",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Grace.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Steiger",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Steiger",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Steiger.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Lucky",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Lucky",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Lucky.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Laura",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Laura",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Laura.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Eskimo",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Eskimo",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T("Perk"),
+					'Description', T("WIP"),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Eskimo.png",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "System",
+					'Id', "Jazz_Perk_OfficerAura",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000006100, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAura DisplayName]] "Командная аура"),
+					'Description', T(890000000006101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAura Description]] "Этот командир держит ауру приказа над союзниками в радиусе (сержант 15, лейтенант 25, капитан — вся карта).\n\nВозможные приказы: <em>Держать линию</em>, <em>Давить</em>, <em>Охват</em>, <em>Отход</em>, <em>Сосредоточить огонь</em>, <em>Низкая видимость — держать</em>. Приказ обновляется по обстановке."),
+					'AddEffectText', T(890000000006102, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAura AddEffectText]] "Отдаёт приказы"),
+					'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Jazz_OfficerAura.png",
+					'Tier', "System",
+					'RemoveOnEndCombat', true,
+					'Shown', true,
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "System",
+					'Id', "Jazz_Perk_OfficerAuraInfluence",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000006103, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAuraInfluence DisplayName]] "Под влиянием ауры"),
+					'Description', T(890000000006104, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAuraInfluence Description]] "Боец в радиусе командирской ауры и следует текущему приказу отряда (удержание, натиск, охват и т.д.). Эффект снимается, если командир погиб или боец вышел из радиуса."),
+					'AddEffectText', T(890000000006105, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAuraInfluence AddEffectText]] "Под приказом"),
+					'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Jazz_OfficerAuraInfluence.png",
+					'Tier', "System",
+					'RemoveOnEndCombat', true,
+					'Shown', true,
+				}),
+				}),
+
+			PlaceObj('ModItemFolder', {
+				'name', "Flo",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Flo",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000003000, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Flo DisplayName]] "Барахольщица"),
+					'Description', T(890000000003001, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Flo Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Flo.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Cougar",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Cougar",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000003100, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cougar DisplayName]] "Мягкая лапа"),
+					'Description', T(890000000003101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cougar Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Cougar.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Miguel",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Miguel",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000003200, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Miguel DisplayName]] "Команданте"),
+					'Description', T(890000000003201, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Miguel Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Miguel.png",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Gamos",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Gamos",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000003300, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Gamos DisplayName]] "Тропы джунглей"),
+					'Description', T(890000000003301, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Gamos Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Icon', "Mod/e6L4ECj/Perks/Personal/Gamos.png",
 					'Tier', "Personal",
 				}),
 				}),
@@ -66107,10 +66808,6 @@ return {
 						'Id', "idContainer",
 						'LayoutMethod', "VList",
 						'UseClipBox', false,
-						'OnContextUpdate', function (self, context, ...)
-							
-							XImage.Open(self)
-						end,
 					}, {
 						PlaceObj('XTemplateWindow', {
 							'comment', "combat badge for the crosshair",
@@ -66208,7 +66905,7 @@ return {
 											'__context', function (parent, context) return parent:ResolveId("node").context end,
 											'__class', "XContextWindow",
 											'RolloverTemplate', "StatusEffectsRollover",
-											'RolloverText', T(190650275316, --[[ModItemXTemplate ActionCameraCrosshair RolloverText]] "ЭФФЕКТЫ"),
+											'RolloverText', T(190650275316, --[[ModItemXTemplate ActionCameraCrosshair RolloverText]] "STATUS EFFECTS"),
 											'UseClipBox', false,
 										}, {
 											PlaceObj('XTemplateWindow', {
@@ -66724,7 +67421,7 @@ return {
 										'UseClipBox', false,
 										'TextStyle', "Crosshair_Range",
 										'Translate', true,
-										'Text', T(575734781283, --[[ModItemXTemplate ActionCameraCrosshair Text]] "ДАЛЬНОСТЬ"),
+										'Text', T(575734781283, --[[ModItemXTemplate ActionCameraCrosshair Text]] "RANGE"),
 										'TextHAlign', "right",
 									}),
 									PlaceObj('XTemplateWindow', {
@@ -66918,7 +67615,7 @@ return {
 											'TextStyle', "Crosshair_Hotkey",
 											'ContextUpdateOnOpen', true,
 											'OnContextUpdate', function (self, context, ...)
-												local text = T(862543748542, " Fire")
+												local text = T(890000000001179, " Fire")
 												local crosshair = self:ResolveId("node")
 												if crosshair.show_data_for_action then
 													text = T{504309376214, "<DisplayName> ", crosshair.show_data_for_action}
@@ -66945,7 +67642,7 @@ return {
 											'TextStyle', "Crosshair_Hotkey",
 											'ContextUpdateOnOpen', true,
 											'OnContextUpdate', function (self, context, ...)
-												local text = T(940289117862, " Cancel")
+												local text = T(890000000001308, " Cancel")
 												if GetUIStyleGamepad() then
 													local tag = GetPlatformSpecificImageTag("ButtonB", 650)
 													text = tag .. text
@@ -67053,7 +67750,7 @@ return {
 											end
 										end,
 										'Translate', true,
-										'Text', T(909646377219, --[[ModItemXTemplate ActionCameraCrosshair Text]] "<DPadLeft> Режимы стрельбы"),
+										'Text', T(909646377219, --[[ModItemXTemplate ActionCameraCrosshair Text]] "<DPadLeft> Firing Modes"),
 									}),
 									PlaceObj('XTemplateWindow', {
 										'comment', "controller hint",
@@ -67080,7 +67777,7 @@ return {
 											end
 										end,
 										'Translate', true,
-										'Text', T(510160303784, --[[ModItemXTemplate ActionCameraCrosshair Text]] "<DPadRight> Части тела"),
+										'Text', T(510160303784, --[[ModItemXTemplate ActionCameraCrosshair Text]] "<DPadRight> Body Parts"),
 									}),
 									}),
 								}),
@@ -67875,7 +68572,7 @@ return {
 								'FoldWhenHidden', true,
 								'TextStyle', "PDABrowserNameSmall",
 								'Translate', true,
-								'Text', T(392264332209, --[[ModItemXTemplate CrosshairAttackRollover Text]] "СТАТУС"),
+								'Text', T(392264332209, --[[ModItemXTemplate CrosshairAttackRollover Text]] "STATUS"),
 								'TextVAlign', "center",
 							}),
 							PlaceObj('XTemplateWindow', {
@@ -67965,27 +68662,8 @@ return {
 		}, {
 			PlaceObj('ModItemChanceToHitModifier', {
 				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
-					if attacker and IsKindOf(weapon1, "Firearm") then
-						local dex = attacker.Dexterity or 0
-						local handling = weapon1.Handling or 0
-					
-						-- Dexterity масштабирует влияние эргономики
-						-- 50 dex = 50% эффекта
-						-- 100 dex = 100% эффекта
-						local dex_mult = Clamp(dex, 0, 100)
-					
-						local cth
-					
-						if handling >= 0 then
-							cth = MulDivRound(handling, dex, 100)
-						else
-							local penalty_mult = 100 - Clamp(dex, 0, 100) / 2
-							cth = MulDivRound(handling, penalty_mult, 100)
-						end
-					
-						return true, cth
-						end
-					
+					-- Legacy Handling / Эргономика: property stays serialized for saves,
+					-- but no longer contributes to CTH (JAZZ-WEAPONS-001 / JAZZ-CTH-001).
 					return false, 0
 				end,
 				Parameters = {
@@ -68001,31 +68679,18 @@ return {
 					}),
 				},
 				RequireActionType = "Any Ranged Attack",
-				display_name = T(353057401634, --[[ModItemChanceToHitModifier Default Handling display_name]] "Эргономика (Ловкость/Дистанция)"),
+				display_name = T(890000000000400, --[[ModItemChanceToHitModifier Default Handling display_name]] "Эргономика (Ловкость/Дистанция)"),
 				group = "Default",
 				id = "Handling",
 			}),
 			PlaceObj('ModItemChanceToHitModifier', {
 				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
-					if attacker and IsKindOf(weapon1, "Firearm") then
-					-- ScopeBonus
-					local cth, compDef
-					local metaText = {}
-					
-					local ScopeAimLevel = GetComponentEffectValue(weapon1, "ScopeMagnification", "ScopeAimLevel")
-					if ScopeAimLevel and aim >= ScopeAimLevel then
-						cth, compDef = GetComponentEffectValue(weapon1, "ScopeCTHBonus", "ScopeCTH")
-						--print(cth)
-						if cth then
-							return true, cth, compDef.DisplayName
-						end
-							
-					end
-					end
+					-- Legacy Handling / Эргономика: property stays serialized for saves,
+					-- but no longer contributes to CTH (JAZZ-WEAPONS-001 / JAZZ-CTH-001).
 					return false, 0
 				end,
 				RequireActionType = "Any Ranged Attack",
-				display_name = T(353057401634, --[[ModItemChanceToHitModifier Default Scope display_name]] "Оптика"),
+				display_name = T(890000000000398, --[[ModItemChanceToHitModifier Default Scope display_name]] "Оптика"),
 				group = "Default",
 				id = "Scope",
 			}),
@@ -68099,7 +68764,7 @@ return {
 					}),
 				},
 				RequireTarget = true,
-				display_name = T(689049582614, --[[ModItemChanceToHitModifier Default RangeAttackTargetStanceCover display_name]] "В укрытии"),
+				display_name = T(879243129261, --[[ModItemChanceToHitModifier Default RangeAttackTargetStanceCover display_name]] "Behind Cover"),
 				group = "Default",
 				id = "RangeAttackTargetStanceCover",
 			}),
@@ -68177,7 +68842,7 @@ return {
 						'Tag', "<mg_burst_cumbersome_penalty>%",
 					}),
 				},
-				display_name = T(487905424717, --[[ModItemChanceToHitModifier Default Autofire display_name]] "Автоогонь"),
+				display_name = T(520853928478, --[[ModItemChanceToHitModifier Default Autofire display_name]] "Autofire"),
 				group = "Default",
 				id = "Autofire",
 			}),
@@ -68275,7 +68940,7 @@ return {
 						'Tag', "<DexScale>%",
 					}),
 				},
-				display_name = T(740390022763, --[[ModItemChanceToHitModifier Default Aim display_name]] "Прицеливание"),
+				display_name = T(154175220541, --[[ModItemChanceToHitModifier Default Aim display_name]] "Aiming"),
 				group = "Default",
 				id = "Aim",
 				param_bindings = {},
@@ -68326,7 +68991,7 @@ return {
 						'Tag', "<bonus>%",
 					}),
 				},
-				display_name = T(733589978306, --[[ModItemChanceToHitModifier Default PointBlank display_name]] "Стрельба в упор"),
+				display_name = T(843386513579, --[[ModItemChanceToHitModifier Default PointBlank display_name]] "Point-Blank Range"),
 				group = "Default",
 				id = "PointBlank",
 			}),
@@ -68346,7 +69011,7 @@ return {
 					end
 					return false, 0
 				end,
-				display_name = T(733589978306, --[[ModItemChanceToHitModifier Default Suppression display_name]] "Подавление"),
+				display_name = T(890000000000979, --[[ModItemChanceToHitModifier Default Suppression display_name]] "Подавление"),
 				group = "Default",
 				id = "Suppression",
 			}),
@@ -68466,7 +69131,7 @@ return {
 					}),
 				},
 				RequireActionType = "Any Ranged Attack",
-				display_name = T(353057401634, --[[ModItemChanceToHitModifier Default Grouping display_name]] "Влияние кучности оружия"),
+				display_name = T(890000000000399, --[[ModItemChanceToHitModifier Default Grouping display_name]] "Влияние кучности оружия"),
 				group = "Default",
 				id = "Grouping",
 			}),
@@ -68496,7 +69161,7 @@ return {
 					}),
 				},
 				RequireActionType = "Any Ranged Attack",
-				display_name = T(353057401634, --[[ModItemChanceToHitModifier Default MarkedTraccers display_name]] "Помечен Трассерами"),
+				display_name = T(890000000000397, --[[ModItemChanceToHitModifier Default MarkedTraccers display_name]] "Помечен Трассерами"),
 				group = "Default",
 				id = "MarkedTraccers",
 			}),
@@ -68552,7 +69217,7 @@ return {
 				RequireActionType = "Any Ranged Attack",
 				RequireTarget = true,
 				comment = "было -20/-20. Пенальти если не видно цель (или видно тиммейту)",
-				display_name = T(126273205496, --[[ModItemChanceToHitModifier Default SeenBySpotter display_name]] "Стрельба вслепую"),
+				display_name = T(213459983213, --[[ModItemChanceToHitModifier Default SeenBySpotter display_name]] "Blind fire"),
 				group = "Default",
 				id = "SeenBySpotter",
 			}),
@@ -68576,7 +69241,7 @@ return {
 				},
 				RequireTarget = true,
 				comment = "было -50",
-				display_name = T(604340497539, --[[ModItemChanceToHitModifier Default NoLineOfSight display_name]] "Нет линии огня"),
+				display_name = T(373728214326, --[[ModItemChanceToHitModifier Default NoLineOfSight display_name]] "No Line of Sight"),
 				group = "Default",
 				id = "NoLineOfSight",
 			}),
@@ -68595,7 +69260,7 @@ return {
 				},
 				RequireTarget = true,
 				comment = "Было 15, сделал 40. Не убивать из стелса это рак",
-				display_name = T(621519772188, --[[ModItemChanceToHitModifier Default MeleeStealthStrike display_name]] "Нападение из засады"),
+				display_name = T(272537328286, --[[ModItemChanceToHitModifier Default MeleeStealthStrike display_name]] "Stealth Strike"),
 				group = "Default",
 				id = "MeleeStealthStrike",
 			}),
@@ -68612,7 +69277,7 @@ return {
 						attacker:AddStatusEffect("BipodUnfolded")
 					return not not value, value
 				end,
-				display_name = T(839955828537, --[[ModItemChanceToHitModifier Default Bipod display_name]] "Сошки"),
+				display_name = T(168185551132, --[[ModItemChanceToHitModifier Default Bipod display_name]] "Bipod"),
 				group = "Default",
 				id = "Bipod",
 			}),
@@ -68652,7 +69317,7 @@ return {
 					}),
 				},
 				RequireTarget = true,
-				display_name = T(678867022834, --[[ModItemChanceToHitModifier Default TrainingAdvantage display_name]] "Больше опыта"),
+				display_name = T(713286242287, --[[ModItemChanceToHitModifier Default TrainingAdvantage display_name]] "More experienced"),
 				group = "Default",
 				id = "TrainingAdvantage",
 			}),
@@ -68705,7 +69370,7 @@ return {
 					}),
 				},
 				RequireTarget = true,
-				display_name = T(387682849264, --[[ModItemChanceToHitModifier Default TrainingDisadvantage display_name]] "Меньше опыта"),
+				display_name = T(133256021230, --[[ModItemChanceToHitModifier Default TrainingDisadvantage display_name]] "Less Experienced"),
 				group = "Default",
 				id = "TrainingDisadvantage",
 			}),
@@ -68730,7 +69395,7 @@ return {
 				Comment = "Penalty when it's Night or in Underground; aim UI indication for Thermal Scope",
 				RequireActionType = "Any Ranged Attack",
 				comment = "off",
-				display_name = T(909298976640, --[[ModItemChanceToHitModifier Default Darkness display_name]] "In the dark"),
+				display_name = T(686385477123, --[[ModItemChanceToHitModifier Default Darkness display_name]] "In the dark"),
 				group = "Default",
 				id = "Darkness",
 			}),
@@ -68772,7 +69437,7 @@ return {
 						'Tag', "<MinPenalty>",
 					}),
 				},
-				display_name = T(654410691274, --[[ModItemChanceToHitModifier Default OpportunityAttack display_name]] "Opportunity Attack"),
+				display_name = T(148987105999, --[[ModItemChanceToHitModifier Default OpportunityAttack display_name]] "Opportunity Attack"),
 				group = "Default",
 				id = "OpportunityAttack",
 			}),
@@ -68792,7 +69457,7 @@ return {
 						'Tag', "<Bonus>",
 					}),
 				},
-				display_name = T(204842611158, --[[ModItemChanceToHitModifier Default PinDown display_name]] "Сосредоточение огня"),
+				display_name = T(890000000000148, --[[ModItemChanceToHitModifier Default PinDown display_name]] "Сосредоточение огня"),
 				group = "Default",
 				id = "PinDown",
 			}),
@@ -68809,7 +69474,7 @@ return {
 						'Tag', "<Penalty>",
 					}),
 				},
-				display_name = T(103436126815, --[[ModItemChanceToHitModifier Default RunAndGun display_name]] "Run and Gun"),
+				display_name = T(933407442617, --[[ModItemChanceToHitModifier Default RunAndGun display_name]] "Run and Gun"),
 				group = "Default",
 				id = "RunAndGun",
 			}),
@@ -68820,7 +69485,7 @@ return {
 					local chance = GetWeaponConditionPenalty(min_condition)
 					return chance > 0, -chance
 				end,
-				display_name = T(611934221021, --[[ModItemChanceToHitModifier Default WeaponCondition display_name]] "Состояние оружия"),
+				display_name = T(485217354080, --[[ModItemChanceToHitModifier Default WeaponCondition display_name]] "Weapon Condition"),
 				group = "Default",
 				id = "WeaponCondition",
 			}),
@@ -68842,7 +69507,7 @@ return {
 						'Tag', "<bonus>%",
 					}),
 				},
-				display_name = T(733589978306, --[[ModItemChanceToHitModifier Default WeaponPistol_PointBlank display_name]] "Бонус к точности (Пистолеты)"),
+				display_name = T(890000000000980, --[[ModItemChanceToHitModifier Default WeaponPistol_PointBlank display_name]] "Бонус к точности (Пистолеты)"),
 				group = "Default",
 				id = "WeaponPistol_PointBlank",
 			}),
@@ -68860,7 +69525,7 @@ return {
 						'Tag', "<Bonus>",
 					}),
 				},
-				display_name = T(204842611158, --[[ModItemChanceToHitModifier Default WeaponPistol_Mozambique display_name]] "Мозамбик"),
+				display_name = T(890000000000147, --[[ModItemChanceToHitModifier Default WeaponPistol_Mozambique display_name]] "Мозамбик"),
 				group = "Default",
 				id = "WeaponPistol_Mozambique",
 			}),
@@ -68878,7 +69543,7 @@ return {
 						'Tag', "<Bonus>",
 					}),
 				},
-				display_name = T(204842611158, --[[ModItemChanceToHitModifier Default WeaponPistol_Bullseye display_name]] "В яблочко!"),
+				display_name = T(890000000000145, --[[ModItemChanceToHitModifier Default WeaponPistol_Bullseye display_name]] "В яблочко!"),
 				group = "Default",
 				id = "WeaponPistol_Bullseye",
 			}),
@@ -68896,7 +69561,7 @@ return {
 						'Tag', "<Bonus>",
 					}),
 				},
-				display_name = T(204842611158, --[[ModItemChanceToHitModifier Default WeaponPistol_DoubleTap display_name]] "Двоечка"),
+				display_name = T(890000000000146, --[[ModItemChanceToHitModifier Default WeaponPistol_DoubleTap display_name]] "Двоечка"),
 				group = "Default",
 				id = "WeaponPistol_DoubleTap",
 			}),
@@ -68914,7 +69579,7 @@ return {
 						'Tag', "<Bonus>",
 					}),
 				},
-				display_name = T(204842611158, --[[ModItemChanceToHitModifier Default WeaponAutoPistol_SmgStorm display_name]] "Шквал"),
+				display_name = T(890000000000149, --[[ModItemChanceToHitModifier Default WeaponAutoPistol_SmgStorm display_name]] "Шквал"),
 				group = "Default",
 				id = "WeaponAutoPistol_SmgStorm",
 			}),
@@ -68998,24 +69663,8 @@ return {
 					'CodeFileName', "Code/AIPolicy.lua",
 				}),
 				PlaceObj('ModItemCode', {
-					'name', "Rato_CustomSeekCover",
-					'CodeFileName', "Code/Rato_CustomSeekCover.lua",
-				}),
-				PlaceObj('ModItemCode', {
-					'name', "Rato_TryNotToBeFlanked",
-					'CodeFileName', "Code/Rato_TryNotToBeFlanked.lua",
-				}),
-				PlaceObj('ModItemCode', {
-					'name', "Rato_MGSetupPosScore",
-					'CodeFileName', "Code/Rato_MGSetupPosScore.lua",
-				}),
-				PlaceObj('ModItemCode', {
-					'name', "Rato_MGSetupAP",
-					'CodeFileName', "Code/Rato_MGSetupAP.lua",
-				}),
-				PlaceObj('ModItemCode', {
-					'name', "Rato_GrenadeRange",
-					'CodeFileName', "Code/Rato_GrenadeRange.lua",
+					'name', "AIContextProfiles",
+					'CodeFileName', "Code/AIContextProfiles.lua",
 				}),
 				PlaceObj('ModItemCode', {
 					'name', "PushUnitAlert",
@@ -69045,11 +69694,11 @@ return {
 				end,
 				SortKey = 3,
 				bind_to = "OverwatchAngle",
-				display_name = T(143897686071, --[[ModItemWeaponPropertyDef Default OverwatchAngle display_name]] "Сектор контроля"),
+				display_name = T(608975559432, --[[ModItemWeaponPropertyDef Default OverwatchAngle display_name]] "Overwatch Width"),
 				group = "Default",
 				id = "OverwatchAngle",
 				max_progress = 3000,
-				short_display_name = T(946802477359, --[[ModItemWeaponPropertyDef Default OverwatchAngle short_display_name]] "Сектор контроля"),
+				short_display_name = T(848425852983, --[[ModItemWeaponPropertyDef Default OverwatchAngle short_display_name]] "Overwatch Width"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -69065,7 +69714,6 @@ return {
 				display_name = T(472448154262, --[[ModItemWeaponPropertyDef Default Recoil display_name]] "Отдача"),
 				group = "Default",
 				id = "Recoil",
-				max_progress = 100,
 				reverse_bar = true,
 				short_display_name = T(737969743393, --[[ModItemWeaponPropertyDef Default Recoil short_display_name]] "Отдача"),
 			}),
@@ -69084,7 +69732,7 @@ return {
 				group = "Default",
 				id = "BurstShots",
 				max_progress = 12,
-				short_display_name = T(508072904270, --[[ModItemWeaponPropertyDef Default BurstShots short_display_name]] "Длина очереди"),
+				short_display_name = T(890000000000638, --[[ModItemWeaponPropertyDef Default BurstShots short_display_name]] "Длина очереди"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -69110,10 +69758,10 @@ return {
 				SortKey = 3,
 				bind_to = "WeaponRange",
 				description = T(652024164313, --[[ModItemWeaponPropertyDef Default WeaponRange description]] "Максимальное расстояние, на которое можно прицельно стрелять из оружия."),
-				display_name = T(313710601358, --[[ModItemWeaponPropertyDef Default WeaponRange display_name]] "Дальность"),
+				display_name = T(353401714895, --[[ModItemWeaponPropertyDef Default WeaponRange display_name]] "Range"),
 				group = "Default",
 				id = "WeaponRange",
-				short_display_name = T(448734636097, --[[ModItemWeaponPropertyDef Default WeaponRange short_display_name]] "ДЛНСТ"),
+				short_display_name = T(753241021762, --[[ModItemWeaponPropertyDef Default WeaponRange short_display_name]] "Range"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -69121,7 +69769,7 @@ return {
 				end,
 				SortKey = 5,
 				bind_to = "AimAccuracy",
-				description = T(185987205816, --[[ModItemWeaponPropertyDef Default AimAccuracy description]] "Величина, на которую повышается меткость за каждый уровень прицеливания."),
+				description = T(780886598156, --[[ModItemWeaponPropertyDef Default AimAccuracy description]] "Accuracy gained from each Aim level."),
 				display_name = T(531190657805, --[[ModItemWeaponPropertyDef Default AimAccuracy display_name]] "Прицеливание"),
 				group = "Default",
 				id = "AimAccuracy",
@@ -69172,7 +69820,7 @@ return {
 				display_name = T(253801005854, --[[ModItemWeaponPropertyDef Default Grouping display_name]] "Точность"),
 				group = "Default",
 				id = "Grouping",
-				short_display_name = T(508072904270, --[[ModItemWeaponPropertyDef Default Grouping short_display_name]] "ТОЧНОСТЬ"),
+				short_display_name = T(890000000000639, --[[ModItemWeaponPropertyDef Default Grouping short_display_name]] "ТОЧНОСТЬ"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -69193,11 +69841,11 @@ return {
 				end,
 				SortKey = 1,
 				bind_to = "Damage",
-				description = T(346197075293, --[[ModItemWeaponPropertyDef Default Damage description]] "Количество очков здоровья, которое теряет небронированная цель при попадании по ней."),
-				display_name = T(278882190381, --[[ModItemWeaponPropertyDef Default Damage display_name]] "Урон"),
+				description = T(744064461259, --[[ModItemWeaponPropertyDef Default Damage description]] "The amount of HP an unarmored target loses on hit."),
+				display_name = T(465743413978, --[[ModItemWeaponPropertyDef Default Damage display_name]] "Damage"),
 				group = "Default",
 				id = "Damage",
-				short_display_name = T(431119605493, --[[ModItemWeaponPropertyDef Default Damage short_display_name]] "УРОН"),
+				short_display_name = T(170292350441, --[[ModItemWeaponPropertyDef Default Damage short_display_name]] "DMG"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -69223,11 +69871,11 @@ return {
 				end,
 				SortKey = 1,
 				bind_to = "BaseDamage",
-				description = T(555477546004, --[[ModItemWeaponPropertyDef Default BaseDamage description]] "Количество очков здоровья, которое теряет небронированная цель при попадании по ней."),
-				display_name = T(996972440911, --[[ModItemWeaponPropertyDef Default BaseDamage display_name]] "Урон"),
+				description = T(452423871333, --[[ModItemWeaponPropertyDef Default BaseDamage description]] "The amount of HP an unarmored target loses on hit."),
+				display_name = T(287944595070, --[[ModItemWeaponPropertyDef Default BaseDamage display_name]] "Damage"),
 				group = "Default",
 				id = "BaseDamage",
-				short_display_name = T(772250609996, --[[ModItemWeaponPropertyDef Default BaseDamage short_display_name]] "УРОН"),
+				short_display_name = T(427133642406, --[[ModItemWeaponPropertyDef Default BaseDamage short_display_name]] "DMG"),
 			}),
 			}),
 		PlaceObj('ModItemFolder', {
@@ -69350,7 +69998,7 @@ return {
 				ShadowColor = 4278190080,
 				ShadowSize = 1,
 				TextColor = 4292663497,
-				TextFont = T(646857477608, --[[ModItemTextStyle PDAQuests_HeaderBig TextFont]] "HMGothic Rough A, 24"),
+				TextFont = T(619311408162, --[[ModItemTextStyle PDAQuests_HeaderBig TextFont]] "HMGothic Rough A, 24"),
 				group = "Zulu PDA Quests",
 				id = "PDAQuests_HeaderBig",
 			}),
@@ -69361,7 +70009,7 @@ return {
 				ShadowColor = 4278978568,
 				ShadowSize = 1,
 				TextColor = 4291018156,
-				TextFont = T(698388856753, --[[ModItemTextStyle WeaponModExtraModifications TextFont]] "HMGothic Rough A, 20"),
+				TextFont = T(230331851775, --[[ModItemTextStyle WeaponModExtraModifications TextFont]] "HMGothic Rough A, 20"),
 				group = "Zulu",
 				id = "WeaponModExtraModifications",
 			}),
@@ -69370,7 +70018,7 @@ return {
 				ShadowColor = 4278190080,
 				ShadowSize = 1,
 				TextColor = 4286742648,
-				TextFont = T(418820402486, --[[ModItemTextStyle WeaponModSubHeaderDark TextFont]] "HMGothic Rough A, 30"),
+				TextFont = T(842672460070, --[[ModItemTextStyle WeaponModSubHeaderDark TextFont]] "HMGothic Rough A, 30"),
 				group = "PDA Sector Info",
 				id = "WeaponModSubHeaderDark",
 			}),
@@ -69379,7 +70027,7 @@ return {
 				ShadowColor = 4279308047,
 				ShadowSize = 1,
 				TextColor = 4291018156,
-				TextFont = T(109046041841, --[[ModItemTextStyle WeaponModSubHeaderLight TextFont]] "HMGothic Rough A, 30"),
+				TextFont = T(895996135419, --[[ModItemTextStyle WeaponModSubHeaderLight TextFont]] "HMGothic Rough A, 30"),
 				group = "PDA Sector Info",
 				id = "WeaponModSubHeaderLight",
 			}),
@@ -69682,7 +70330,7 @@ return {
 											'ChildrenHandleMouse', false,
 											'TextStyle', "WeaponModHeader",
 											'Translate', true,
-											'Text', T(652740353462, --[[ModItemXTemplate ModifyWeaponDlg Text]] "<DisplayName>"),
+											'Text', T(269967678534, --[[ModItemXTemplate ModifyWeaponDlg Text]] "<DisplayName>"),
 										}),
 										PlaceObj('XTemplateWindow', {
 											'__class', "XText",
@@ -69691,7 +70339,7 @@ return {
 											'ChildrenHandleMouse', false,
 											'TextStyle', "WeaponModHeader",
 											'Translate', true,
-											'Text', T(330442935061, --[[ModItemXTemplate ModifyWeaponDlg Text]] "ХАРАКТЕРИСТИКИ ОРУЖИЯ"),
+											'Text', T(743904662239, --[[ModItemXTemplate ModifyWeaponDlg Text]] "WEAPON SPECS"),
 										}),
 										}),
 									PlaceObj('XTemplateWindow', {
@@ -69719,7 +70367,7 @@ return {
 												'ChildrenHandleMouse', false,
 												'TextStyle', "PDAQuests_EmailDate",
 												'Translate', true,
-												'Text', T(763838308642, --[[ModItemXTemplate ModifyWeaponDlg Text]] "<Description>"),
+												'Text', T(373313884700, --[[ModItemXTemplate ModifyWeaponDlg Text]] "<Description>"),
 											}),
 											PlaceObj('XTemplateWindow', {
 												'__class', "XText",
@@ -69823,9 +70471,9 @@ return {
 													'__class', "XContextWindow",
 													'RolloverTemplate', "RolloverGeneric",
 													'RolloverAnchor', "left",
-													'RolloverText', T(489906538430, --[[ModItemXTemplate ModifyWeaponDlg RolloverText]] "<description>"),
+													'RolloverText', T(226575141159, --[[ModItemXTemplate ModifyWeaponDlg RolloverText]] "<description>"),
 													'RolloverOffset', box(0, 0, 20, 0),
-													'RolloverTitle', T(301626423422, --[[ModItemXTemplate ModifyWeaponDlg RolloverTitle]] "Бронебойность"),
+													'RolloverTitle', T(901937346437, --[[ModItemXTemplate ModifyWeaponDlg RolloverTitle]] "Armor Penetration"),
 													'IdNode', true,
 													'HAlign', "right",
 												}, {
@@ -69858,7 +70506,7 @@ return {
 														'Margins', box(0, 0, 10, 0),
 														'TextStyle', "PDAQuests_HeaderBig",
 														'Translate', true,
-														'Text', T(264299149532, --[[ModItemXTemplate ModifyWeaponDlg Text]] "Бронебойность"),
+														'Text', T(301024350023, --[[ModItemXTemplate ModifyWeaponDlg Text]] "Armor Penetration"),
 														'TextVAlign', "center",
 													}),
 													PlaceObj('XTemplateWindow', {
@@ -70027,7 +70675,7 @@ return {
 												'__class', "XText",
 												'TextStyle', "WeaponModSubHeader",
 												'Translate', true,
-												'Text', T(933079022251, --[[ModItemXTemplate ModifyWeaponDlg Text]] "СОСТОЯНИЕ"),
+												'Text', T(254900537835, --[[ModItemXTemplate ModifyWeaponDlg Text]] "CONDITION"),
 											}),
 											PlaceObj('XTemplateTemplate', {
 												'__template', "WeaponModProgressLine",
@@ -70078,7 +70726,7 @@ return {
 											'FoldWhenHidden', true,
 											'TextStyle', "WeaponModStatChangeBadShadow",
 											'Translate', true,
-											'Text', T(637799234294, --[[ModItemXTemplate ModifyWeaponDlg Text]] "ОРУЖИЕ СЛОМАНО. НЕВОЗМОЖНО МОДИФИЦИРОВАТЬ"),
+											'Text', T(611665136114, --[[ModItemXTemplate ModifyWeaponDlg Text]] "WEAPON BROKEN. CAN'T MODIFY"),
 										}),
 										PlaceObj('XTemplateWindow', {
 											'__context', function (parent, context) return "WeaponModificationWeaponLookingChanged" end,
@@ -70104,7 +70752,7 @@ return {
 											'FoldWhenHidden', true,
 											'TextStyle', "WeaponModStatChangeBadShadow",
 											'Translate', true,
-											'Text', T(345236880761, --[[ModItemXTemplate ModifyWeaponDlg Text]] "НЕВОЗМОЖНО МОДИФИЦИРОВАТЬ: ОРУЖИЕ НЕ В ИНВЕНТАРЕ НАЁМНИКА"),
+											'Text', T(361569353826, --[[ModItemXTemplate ModifyWeaponDlg Text]] "WEAPON NOT IN MERC INVENTORY. CAN'T MODIFY"),
 										}),
 										}),
 									PlaceObj('XTemplateWindow', {
@@ -70185,7 +70833,7 @@ return {
 								}),
 							PlaceObj('XTemplateAction', {
 								'ActionId', "actionPrev",
-								'ActionName', T(808641812558, --[[ModItemXTemplate ModifyWeaponDlg ActionName]] "ПРЕДЫДУЩЕЕ"),
+								'ActionName', T(391006989139, --[[ModItemXTemplate ModifyWeaponDlg ActionName]] "PREV"),
 								'ActionToolbar', "ActionBar",
 								'ActionShortcut', "P",
 								'ActionGamepad', "LeftShoulder",
@@ -70215,7 +70863,7 @@ return {
 							}),
 							PlaceObj('XTemplateAction', {
 								'ActionId', "actionNext",
-								'ActionName', T(788722705219, --[[ModItemXTemplate ModifyWeaponDlg ActionName]] "СЛЕДУЮЩЕЕ"),
+								'ActionName', T(963186867445, --[[ModItemXTemplate ModifyWeaponDlg ActionName]] "NEXT"),
 								'ActionToolbar', "ActionBar",
 								'ActionShortcut', "N",
 								'ActionGamepad', "RightShoulder",
@@ -70245,7 +70893,7 @@ return {
 							}),
 							PlaceObj('XTemplateAction', {
 								'ActionId', "actionResetRotation",
-								'ActionName', T(186683938298, --[[ModItemXTemplate ModifyWeaponDlg ActionName]] "СБРОСИТЬ ПОЛОЖЕНИЕ"),
+								'ActionName', T(357676895659, --[[ModItemXTemplate ModifyWeaponDlg ActionName]] "RESET ROTATION"),
 								'ActionToolbar', "ActionBar",
 								'ActionShortcut', "R",
 								'ActionGamepad', "RightThumbClick",
@@ -70266,7 +70914,7 @@ return {
 							}),
 							PlaceObj('XTemplateAction', {
 								'ActionId', "actionClosePanel",
-								'ActionName', T(159780746064, --[[ModItemXTemplate ModifyWeaponDlg ActionName]] "ЗАКРЫТЬ"),
+								'ActionName', T(749455770321, --[[ModItemXTemplate ModifyWeaponDlg ActionName]] "CLOSE"),
 								'ActionToolbar', "ActionBar",
 								'ActionShortcut', "Escape",
 								'ActionGamepad', "ButtonB",
@@ -71295,7 +71943,7 @@ return {
 									'__class', "XImage",
 									'RolloverTemplate', "RolloverInventory",
 									'RolloverAnchor', "custom",
-									'RolloverText', T(980711730163, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "затычка"),
+									'RolloverText', T(840234458060, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "placeholder"),
 									'RolloverOffset', box(0, 0, 0, 20),
 									'Id', "idIcon",
 									'Padding', box(5, 0, 5, 0),
@@ -71305,7 +71953,7 @@ return {
 									PlaceObj('XTemplateWindow', {
 										'__condition', function (parent, context) return context:IsWeapon() and context.ComponentSlots and #context.ComponentSlots>0 and CountWeaponUpgrades(context)>0 end,
 										'__class', "XImage",
-										'RolloverText', T(222984534204, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "затычка"),
+										'RolloverText', T(370682405601, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "placeholder"),
 										'Id', "idModIcon",
 										'Margins', box(5, 8, 0, 0),
 										'HAlign', "left",
@@ -71338,7 +71986,7 @@ return {
 												'HAlign', "right",
 												'TextStyle', "HUDHeader",
 												'Translate', true,
-												'Text', T(425029539528, --[[ModItemXTemplate UIWeaponDisplay Text]] "<bullets()>"),
+												'Text', T(151637075934, --[[ModItemXTemplate UIWeaponDisplay Text]] "<bullets()>"),
 											}),
 											}),
 										}),
@@ -71348,7 +71996,7 @@ return {
 										'Padding', box(2, 2, 2, 0),
 										'TextStyle', "HUDHeader",
 										'Translate', true,
-										'Text', T(950060314213, --[[ModItemXTemplate UIWeaponDisplay Text]] "<bullets()>"),
+										'Text', T(151637075934, --[[ModItemXTemplate UIWeaponDisplay Text]] "<bullets()>"),
 									}),
 									}),
 								PlaceObj('XTemplateWindow', {
@@ -71501,7 +72149,7 @@ return {
 													'RolloverAnchor', "bottom-right",
 													'RolloverAnchorId', "idWeaponUI",
 													'RolloverOffset', box(20, 0, 0, 0),
-													'RolloverTitle', T(283921836958, --[[ModItemXTemplate UIWeaponDisplay RolloverTitle]] "Перезарядить"),
+													'RolloverTitle', T(338106303761, --[[ModItemXTemplate UIWeaponDisplay RolloverTitle]] "Reload"),
 													'Id', "idSubReloadButton",
 													'Margins', box(0, -2, 0, 0),
 													'BorderWidth', 2,
@@ -71773,7 +72421,7 @@ return {
 											'__class', "XContextWindow",
 											'RolloverTemplate', "RolloverInventory",
 											'RolloverAnchor', "custom",
-											'RolloverText', T(625499865681, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "затычка"),
+											'RolloverText', T(370682405601, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "placeholder"),
 											'RolloverOffset', box(0, 0, 0, 10),
 											'IdNode', true,
 										}, {
@@ -71830,7 +72478,7 @@ return {
 													'__class', "XImage",
 													'RolloverTemplate', "RolloverInventory",
 													'RolloverAnchor', "center-top",
-													'RolloverText', T(344059506942, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "затычка"),
+													'RolloverText', T(840234458060, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "placeholder"),
 													'RolloverOffset', box(0, 0, 0, 20),
 													'Id', "idIcon",
 													'Padding', box(5, 0, 5, 0),
@@ -71840,7 +72488,7 @@ return {
 													PlaceObj('XTemplateWindow', {
 														'__condition', function (parent, context) return context:IsWeapon() and context.ComponentSlots and #context.ComponentSlots>0 and CountWeaponUpgrades(context)>0 end,
 														'__class', "XImage",
-														'RolloverText', T(635343119975, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "затычка"),
+														'RolloverText', T(370682405601, --[[ModItemXTemplate UIWeaponDisplay RolloverText]] "placeholder"),
 														'Id', "idModIcon",
 														'Margins', box(5, 8, 0, 0),
 														'HAlign', "left",
@@ -71874,7 +72522,7 @@ return {
 															'HAlign', "right",
 															'TextStyle', "HUDHeader",
 															'Translate', true,
-															'Text', T(640228732655, --[[ModItemXTemplate UIWeaponDisplay Text]] "<bullets()>"),
+															'Text', T(151637075934, --[[ModItemXTemplate UIWeaponDisplay Text]] "<bullets()>"),
 														}),
 														}),
 													}),
@@ -71884,7 +72532,7 @@ return {
 													'Padding', box(2, 2, 2, 0),
 													'TextStyle', "HUDHeader",
 													'Translate', true,
-													'Text', T(955143813467, --[[ModItemXTemplate UIWeaponDisplay Text]] "<bullets()>"),
+													'Text', T(151637075934, --[[ModItemXTemplate UIWeaponDisplay Text]] "<bullets()>"),
 													'TextVAlign', "center",
 												}),
 												}),
@@ -71915,7 +72563,7 @@ return {
 												'HandleMouse', false,
 												'TextStyle', "InventoryItemsCount",
 												'Translate', true,
-												'Text', T(812137287750, --[[ModItemXTemplate UIWeaponDisplay Text]] "<percent(Condition)>"),
+												'Text', T(383846607575, --[[ModItemXTemplate UIWeaponDisplay Text]] "<percent(Condition)>"),
 												'TextHAlign', "right",
 											}),
 											}),
@@ -72106,7 +72754,7 @@ return {
 								'FoldWhenHidden', true,
 								'TextStyle', "InventoryRolloverValuableItemName",
 								'Translate', true,
-								'Text', T(271023940577, --[[ModItemXTemplate RolloverInventoryBase Text]] "Value:"),
+								'Text', T(494488574234, --[[ModItemXTemplate RolloverInventoryBase Text]] "Value:"),
 								'TextHAlign', "center",
 								'TextVAlign', "center",
 							}),
@@ -72117,7 +72765,7 @@ return {
 								'FoldWhenHidden', true,
 								'TextStyle', "InventoryRolloverValuableItemValue",
 								'Translate', true,
-								'Text', T(546250812078, --[[ModItemXTemplate RolloverInventoryBase Text]] "<money(Cost)>"),
+								'Text', T(770368132801, --[[ModItemXTemplate RolloverInventoryBase Text]] "<money(Cost)>"),
 								'HideOnEmpty', true,
 								'TextHAlign', "center",
 								'TextVAlign', "center",
@@ -72249,7 +72897,7 @@ return {
 								'ChildrenHandleMouse', false,
 								'TextStyle', "RolloverTextItalicRed",
 								'Translate', true,
-								'Text', T(128792603707, --[[ModItemXTemplate RolloverInventoryBase Text]] "You can't move this item"),
+								'Text', T(911720724899, --[[ModItemXTemplate RolloverInventoryBase Text]] "You can't move this item"),
 							}),
 							}),
 						}),
@@ -72429,7 +73077,7 @@ return {
 							local description = ctx.Description
 							local preset = Presets.WeaponType.Default[weaponType]
 							self.idType:SetText(preset and preset.Name or "")
-							if preset and preset.Icon then
+							if self.idIcon and preset and preset.Icon then
 								self.idIcon:SetImage(preset.Icon)
 							end
 						end,
@@ -72663,7 +73311,7 @@ return {
 									self.idPropVal:SetValueText(T{"<text2>", text2 = text2})
 									end
 									
-									self.idPropVal:SetNameText(T{5623869723891118, "<GameTerm('Grouping')>"})
+									self.idPropVal:SetNameText(T{890000000001395, "<GameTerm('Grouping')>"})
 								end,
 							}),
 							}),
@@ -72718,7 +73366,7 @@ return {
 									self.idPropVal:SetTextStyle("PDABrowserFlavorMedium")
 									self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
 									XPropControl.Open(self,...)
-									self.idPropVal:SetNameText(T(5623869723891118, "<GameTerm('Recoil')>"))
+									self.idPropVal:SetNameText(T(890000000001396, "<GameTerm('Recoil')>"))
 									local cnt = ResolvePropObj(self.context);
 								end,
 							}),
@@ -72800,7 +73448,7 @@ return {
 									
 									
 									penclass = floatfloor(penclass, 0.1) * 0.1 -- округлить до 1 знака
-									self.idPropVal:SetValueText(T{5411390416471128851, "<text1>", text1 = penclass})
+									self.idPropVal:SetValueText(T{890000000001418, "<text1>", text1 = penclass})
 								end,
 							}),
 							}),
@@ -72859,8 +73507,8 @@ return {
 									local cnt = ResolvePropObj(self.context);
 									local text1 = MulDivRound(cnt.NightVision,cnt:GetConditionPercent() * cnt:GetDegradationMultiplier(),100)
 									
-									self.idPropVal:SetNameText(T(562386972389111885, "Ночное зрение"))
-									self.idPropVal:SetValueText(T{541139041647112885, "<text1>%", text1 = text1})
+									self.idPropVal:SetNameText(T(311005929977, "Night Vision"))
+									self.idPropVal:SetValueText(T{890000000001409, "<text1>%", text1 = text1})
 								end,
 							}),
 							}),
@@ -72887,8 +73535,8 @@ return {
 									local cnt = ResolvePropObj(self.context);
 									local text1 = MulDivRound(cnt.Vision,cnt:GetConditionPercent()*cnt:GetDegradationMultiplier(),100)
 									
-									self.idPropVal:SetNameText(T(562386972389111885, "Бонус к дневному зрению"))
-									self.idPropVal:SetValueText(T{541139041647112885, "<text1>%", text1 = text1})
+									self.idPropVal:SetNameText(T(890000000001417, "Бонус к дневному зрению"))
+									self.idPropVal:SetValueText(T{890000000001409, "<text1>%", text1 = text1})
 								end,
 							}),
 							}),
@@ -72915,8 +73563,8 @@ return {
 									local cnt = ResolvePropObj(self.context);
 									local text1 = MulDivRound(cnt.DustStormProtection,cnt:GetConditionPercent()*cnt:GetDegradationMultiplier(),100)
 									
-									self.idPropVal:SetNameText(T(562386972389111885, "Защита от пыли"))
-									self.idPropVal:SetValueText(T{541139041647112885, "<text1>%", text1 = text1})
+									self.idPropVal:SetNameText(T(890000000001416, "Защита от пыли"))
+									self.idPropVal:SetValueText(T{890000000001409, "<text1>%", text1 = text1})
 								end,
 							}),
 							}),
@@ -72949,8 +73597,8 @@ return {
 										local text1 = T{37850827305051, "<parts>", parts = table.concat(parts, ", ")}
 									
 									
-									self.idPropVal:SetNameText(T(56238697238911188, "Части тела"))
-									self.idPropVal:SetValueText(T{54113904164711288, "<text1>", text1 = text1})
+									self.idPropVal:SetNameText(T(407496232658, "Body parts"))
+									self.idPropVal:SetValueText(T{890000000001401, "<text1>", text1 = text1})
 								end,
 							}),
 							}),
@@ -72982,8 +73630,8 @@ return {
 									local text4 = cnt:CalculateArmorRating(4)
 									local text5 = cnt:CalculateArmorRating(5)
 									
-									self.idPropVal:SetNameText(T(56238697238911188, "Защита от пуль\n(1/2/3/4/5 класс)"))
-									self.idPropVal:SetValueText(T{54113904164711288, "<text1>/<text2>/<text3>/<text4>/<text5>", text1 = text1, text2 = text2, text3 = text3, text4 = text4, text5 = text5})
+									self.idPropVal:SetNameText(T(890000000001404, "Защита от пуль\n(1/2/3/4/5 класс)"))
+									self.idPropVal:SetValueText(T{890000000001402, "<text1>/<text2>/<text3>/<text4>/<text5>", text1 = text1, text2 = text2, text3 = text3, text4 = text4, text5 = text5})
 								end,
 							}),
 							}),
@@ -73017,8 +73665,8 @@ return {
 									local text4 = cnt:CalculateArmorRating(4)
 									local text5 = cnt:CalculateArmorRating(5)
 									
-									self.idPropVal:SetNameText(T(562386972389111881, "Эффективный класс брони: "))
-									self.idPropVal:SetValueText(T{541139041647112881, "<eff_class>", eff_class = effective_class})
+									self.idPropVal:SetNameText(T(890000000001412, "Эффективный класс брони: "))
+									self.idPropVal:SetValueText(T{890000000001408, "<eff_class>", eff_class = effective_class})
 								end,
 							}),
 							}),
@@ -73044,8 +73692,8 @@ return {
 									local cnt = ResolvePropObj(self.context);
 									local text1 = cnt.Coverage
 									
-									self.idPropVal:SetNameText(T(5623869723891118851, "Область защиты"))
-									self.idPropVal:SetValueText(T{5411390416471128851, "<text1>%", text1 = text1})
+									self.idPropVal:SetNameText(T(890000000001421, "Область защиты"))
+									self.idPropVal:SetValueText(T{890000000001419, "<text1>%", text1 = text1})
 								end,
 							}),
 							}),
@@ -73071,8 +73719,8 @@ return {
 									local cnt = ResolvePropObj(self.context);
 									local text1 = cnt:CalculateArmorRatingExplosive()
 									
-									self.idPropVal:SetNameText(T(562386972389111881, "Защита от взрывов"))
-									self.idPropVal:SetValueText(T{54113904164711288, "<text1>", text1 = text1})
+									self.idPropVal:SetNameText(T(890000000001410, "Защита от взрывов"))
+									self.idPropVal:SetValueText(T{890000000001401, "<text1>", text1 = text1})
 								end,
 							}),
 							}),
@@ -73098,8 +73746,8 @@ return {
 									local cnt = ResolvePropObj(self.context);
 									local text1 = cnt:CalculateArmorRatingMelee()
 									
-									self.idPropVal:SetNameText(T(562386972389111881, "Защита от холодного оружия"))
-									self.idPropVal:SetValueText(T{54113904164711288, "<text1>", text1 = text1})
+									self.idPropVal:SetNameText(T(890000000001411, "Защита от холодного оружия"))
+									self.idPropVal:SetValueText(T{890000000001401, "<text1>", text1 = text1})
 								end,
 							}),
 							}),
@@ -73126,8 +73774,8 @@ return {
 									local cnt = ResolvePropObj(self.context);
 									local text1 = cnt.CamouflagePercent
 									
-									self.idPropVal:SetNameText(T(562386972389111882, "Камуфляж"))
-									self.idPropVal:SetValueText(T{54113904164711288, "<text1>%", text1 = text1})
+									self.idPropVal:SetNameText(T(890000000001413, "Камуфляж"))
+									self.idPropVal:SetValueText(T{890000000001403, "<text1>%", text1 = text1})
 								end,
 							}),
 							}),
@@ -73154,8 +73802,8 @@ return {
 									local cnt = ResolvePropObj(self.context);
 									local text1 = cnt.StunGrenadeProtection
 									
-									self.idPropVal:SetNameText(T(5623869723891118821, "Защита от СШГ"))
-									self.idPropVal:SetValueText(T{54113904164711288, "<text1>%", text1 = text1})
+									self.idPropVal:SetNameText(T(890000000001420, "Защита от СШГ"))
+									self.idPropVal:SetValueText(T{890000000001403, "<text1>%", text1 = text1})
 								end,
 							}),
 							}),
@@ -73187,7 +73835,7 @@ return {
 									--		self.idPropVal:SetValueText(T{54113904164711288, "Нет"})
 									--end
 									self.idPropVal:SetValueText("")
-									self.idPropVal:SetNameText(T(562386972389111883, "Возможность установки плиты"))
+									self.idPropVal:SetNameText(T(890000000001415, "Возможность установки плиты"))
 								end,
 							}),
 							}),
@@ -73214,7 +73862,7 @@ return {
 									local cnt = ResolvePropObj(self.context);
 									
 									
-									self.idPropVal:SetNameText(T(562386972389111883, "Блокирует слот лица"))
+									self.idPropVal:SetNameText(T(890000000001414, "Блокирует слот лица"))
 									self.idPropVal:SetValueText("")
 								end,
 							}),
@@ -73242,8 +73890,8 @@ return {
 									local text1 = 100 - cnt.Degradation
 									if text1 == 0 then text1 = 1 end
 									
-									self.idPropVal:SetNameText(T(56238697238911188512, "Прочность"))
-									self.idPropVal:SetValueText(T{54113904164711288512, "<text1>%", text1 = text1})
+									self.idPropVal:SetNameText(T(890000000001423, "Прочность"))
+									self.idPropVal:SetValueText(T{890000000001422, "<text1>%", text1 = text1})
 								end,
 							}),
 							}),
@@ -73286,7 +73934,7 @@ return {
 									local current = cnt:GetCurrentResource() or 0
 									local max = cnt:GetMaxResource() or 0
 									local factory = cnt:GetFactoryResource() or 0
-									self.idPropVal:SetValueText(T{54113904164712, "<current>/<max>\n (заводской <factory>)", current = current, max = max, factory = factory})
+									self.idPropVal:SetValueText(T{890000000001383, "<current>/<max>\n (заводской <factory>)", current = current, max = max, factory = factory})
 								end,
 							}),
 							}),
@@ -73303,7 +73951,7 @@ return {
 									XPropControl.Open(self,...)
 									local context = self:GetContext()
 									local cnt = ResolvePropObj(context)
-									self.idPropVal:SetNameText(T(81823607630200123, "Шанс Клина"))
+									self.idPropVal:SetNameText(T(890000000001406, "Шанс Клина"))
 									local base = cnt:GetBaseJamChanceRaw() or 0
 									local base = base > 0 and base * 0.01 or 0
 									 
@@ -73313,15 +73961,15 @@ return {
 									unit = (gv_SatelliteView or not unit) and unit_data or unit
 									if not unit then 
 									
-									self.idPropVal:SetValueText(T{54113904164712, "<base>%", base = floatfloor(base+0.5)})
+									self.idPropVal:SetValueText(T{890000000001381, "<base>%", base = floatfloor(base+0.5)})
 									else
 									local merc = cnt:GetJamChance(unit) or 0
 									local merc = merc > 0 and merc * 0.01 or 0
 									if merc ~= base then
-									self.idPropVal:SetNameText(T{81823607630200123, "Шанс Клина (<name>)", name=unit.Nick})
-									self.idPropVal:SetValueText(T{54113904164712, "<base>% (<merc>%)", base = floatfloor(base+0.5), merc = floatfloor(merc+0.5)})
+									self.idPropVal:SetNameText(T{890000000001407, "Шанс Клина (<name>)", name=unit.Nick})
+									self.idPropVal:SetValueText(T{890000000001382, "<base>% (<merc>%)", base = floatfloor(base+0.5), merc = floatfloor(merc+0.5)})
 									else 
-									self.idPropVal:SetValueText(T{54113904164712, "<base>%", base = floatfloor(base+0.5)})
+									self.idPropVal:SetValueText(T{890000000001381, "<base>%", base = floatfloor(base+0.5)})
 									
 									end
 									 end
@@ -73709,7 +74357,7 @@ return {
 								'ChildrenHandleMouse', false,
 								'TextStyle', "RolloverTextItalicRed",
 								'Translate', true,
-								'Text', T(171964271406, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "Этот предмет невозможно переместить"),
+								'Text', T(617713229226, --[[ModItemXTemplate RolloverInventoryWeaponBase Text]] "You can't move this item"),
 							}),
 							}),
 						}),
@@ -73772,7 +74420,7 @@ return {
 						'FoldWhenHidden', true,
 						'TextStyle', "PDACombatActionHeader",
 						'Translate', true,
-						'Text', T(184043349031, --[[ModItemXTemplate InventoryRolloverInfo Text]] "Info"),
+						'Text', T(748182260365, --[[ModItemXTemplate InventoryRolloverInfo Text]] "Info"),
 						'TextVAlign', "bottom",
 					}),
 					PlaceObj('XTemplateWindow', nil, {
@@ -73783,7 +74431,7 @@ return {
 							'Dock', "left",
 							'TextStyle', "PDACombatActionHeader",
 							'Translate', true,
-							'Text', T(611405286573, --[[ModItemXTemplate InventoryRolloverInfo Text]] "<DisplayName>"),
+							'Text', T(642600109542, --[[ModItemXTemplate InventoryRolloverInfo Text]] "<DisplayName>"),
 							'TextVAlign', "bottom",
 						}),
 						PlaceObj('XTemplateWindow', {
@@ -74024,9 +74672,13 @@ return {
 							PlaceObj('XTemplateForEach', {
 								'__context', function (parent, context, item, i, n) return item end,
 								'run_after', function (child, context, item, i, n, last)
-									local image = item.image or "UI/Icons/SquadLogo/squad_logo_01"
-									child.idSquadIcon:SetImage(image .. "_s")
-									child.drop_reason = false
+                                    local image = item.image or "UI/Icons/SquadLogo/squad_logo_01"
+                                    local icon = image
+                                    if icon:sub(-4):lower() ~= ".png" then
+                                        icon = icon .. "_s"
+                                    end
+                                    child.idSquadIcon:SetImage(icon)
+                                    child.drop_reason = false
 								end,
 							}, {
 								PlaceObj('XTemplateWindow', {
@@ -75615,13 +76267,17 @@ return {
 							PlaceObj('XTemplateForEach', {
 								'__context', function (parent, context, item, i, n) return item end,
 								'run_after', function (child, context, item, i, n, last)
-									local image = item.image or "UI/Icons/SquadLogo/squad_logo_01"
-									child.idSquadIcon:SetImage(image .. "_s")
-									child.drop_reason = false
-								end,
-							}, {
-								PlaceObj('XTemplateWindow', {
-									'__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) ~= GetDialog("FullscreenGameDialogs") end,
+                                    local image = item.image or "UI/Icons/SquadLogo/squad_logo_01"
+                                    local icon = image
+                                    if icon:sub(-4):lower() ~= ".png" then
+                                        icon = icon .. "_s"
+                                    end
+                                    child.idSquadIcon:SetImage(icon)
+                                    child.drop_reason = false
+                                    end,
+                                }, {
+                                PlaceObj('XTemplateWindow', {
+                                    '__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) ~= GetDialog("FullscreenGameDialogs") end,
 									'__class', "XButton",
 									'VAlign', "top",
 									'BorderColor', RGBA(0, 0, 0, 0),
@@ -77125,7 +77781,7 @@ return {
 								'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeCommonUnitControl") or IsKindOf(GetDialog(parent), "IModeDeployment") end,
 								'__class', "XContextWindow",
 								'RolloverTemplate', "RolloverGeneric",
-								'RolloverTitle', T(626890466814, --[[ModItemXTemplate SquadsAndMercs RolloverTitle]] "Morale"),
+								'RolloverTitle', T(695061456619, --[[ModItemXTemplate SquadsAndMercs RolloverTitle]] "Morale"),
 								'Id', "idMorale",
 								'Margins', box(7, 1, 0, 0),
 								'Dock', "left",
@@ -77167,7 +77823,7 @@ return {
 										'__class', "XImage",
 										'RolloverTemplate', "RolloverGeneric",
 										'RolloverOffset', box(10, 0, 0, 0),
-										'RolloverTitle', T(223227921982, --[[ModItemXTemplate SquadsAndMercs RolloverTitle]] "Morale"),
+										'RolloverTitle', T(410859376283, --[[ModItemXTemplate SquadsAndMercs RolloverTitle]] "Morale"),
 										'Id', "idMoraleIcon",
 										'IdNode', false,
 										'HAlign', "center",
@@ -77188,17 +77844,21 @@ return {
 							PlaceObj('XTemplateForEach', {
 								'__context', function (parent, context, item, i, n) return item end,
 								'run_after', function (child, context, item, i, n, last)
-									local image = item.image or "UI/Icons/SquadLogo/squad_logo_01"
-									child.idSquadIcon:SetImage(image .. "_s")
-									child.drop_reason = false
-								end,
-							}, {
-								PlaceObj('XTemplateWindow', {
-									'__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) ~= GetDialog("FullscreenGameDialogs") end,
-									'__class', "XButton",
-									'VAlign', "top",
-									'BorderColor', RGBA(0, 0, 0, 0),
-									'Background', RGBA(0, 0, 0, 0),
+										local image = item.image or "UI/Icons/SquadLogo/squad_logo_01"
+										local icon = image
+										if icon:sub(-4):lower() ~= ".png" then
+											icon = icon .. "_s"
+										end
+										child.idSquadIcon:SetImage(icon)
+										child.drop_reason = false
+									end,
+                            }, {
+									PlaceObj('XTemplateWindow', {
+										'__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) ~= GetDialog("FullscreenGameDialogs") end,
+										'__class', "XButton",
+										'VAlign', "top",
+										'BorderColor', RGBA(0, 0, 0, 0),
+										'Background', RGBA(0, 0, 0, 0),
 									'BackgroundRectGlowColor', RGBA(0, 0, 0, 0),
 									'OnContextUpdate', function (self, context, ...)
 										
@@ -77565,7 +78225,7 @@ return {
 														'RolloverTemplate', "PDAOperationRollover",
 														'RolloverAnchor', "right",
 														'RolloverAnchorId', "idContent",
-														'RolloverText', T(265053006937, --[[ModItemXTemplate SquadsAndMercs RolloverText]] "placeholder"),
+														'RolloverText', T(502410419676, --[[ModItemXTemplate SquadsAndMercs RolloverText]] "placeholder"),
 														'Id', "idOperationContainer",
 														'Margins', box(-5, 4, 0, 0),
 														'Dock', "bottom",
@@ -78190,7 +78850,7 @@ return {
 																XContextControl.OnContextUpdate(self, context)
 															end,
 															'Translate', true,
-															'Text', T(269806592085, --[[ModItemXTemplate SquadsAndMercs Text]] "<apn(GetUIActionPoints())>"),
+															'Text', T(284604819801, --[[ModItemXTemplate SquadsAndMercs Text]] "<apn(GetUIActionPoints())>"),
 														}),
 														}),
 													}),
@@ -78382,7 +79042,7 @@ return {
 														'__class', "XImage",
 														'RolloverTemplate', "RolloverGeneric",
 														'RolloverAnchor', "right",
-														'RolloverText', T(823568393704, --[[ModItemXTemplate SquadsAndMercs RolloverText]] "Wounds are being bandaged."),
+														'RolloverText', T(749503136429, --[[ModItemXTemplate SquadsAndMercs RolloverText]] "Wounds are being bandaged."),
 														'RolloverOffset', box(15, 0, 0, 0),
 														'Id', "idBeingBandagedIndicator",
 														'HAlign', "center",
@@ -78507,7 +79167,7 @@ return {
 															XContextControl.OnContextUpdate(self, context)
 														end,
 														'Translate', true,
-														'Text', T(911599978706, --[[ModItemXTemplate SquadsAndMercs Text]] "<apn(GetUIActionPoints())>"),
+														'Text', T(106414160747, --[[ModItemXTemplate SquadsAndMercs Text]] "<apn(GetUIActionPoints())>"),
 													}),
 													PlaceObj('XTemplateWindow', {
 														'__class', "XImage",
@@ -78521,7 +79181,7 @@ return {
 													'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeDeployment") end,
 													'RolloverTemplate', "SmallRolloverGeneric",
 													'RolloverAnchor', "top",
-													'RolloverText', T(364309207482, --[[ModItemXTemplate SquadsAndMercs RolloverText]] "Аwaiting deployment"),
+													'RolloverText', T(651816911668, --[[ModItemXTemplate SquadsAndMercs RolloverText]] "Аwaiting deployment"),
 													'RolloverOffset', box(-15, 0, 0, -15),
 													'Id', "idDeployed",
 													'Margins', box(-5, 0, 0, -5),
@@ -79957,9 +80617,9 @@ return {
 													PlaceObj('XTemplateFunc', {
 														'name', "IsDropTarget(self, draw_win, pt)",
 														'func', function (self, draw_win, pt)
-															return 	IsKindOf(InventoryDragItem,"MiscItem")
-																	 	and InventoryDragItem.effect_moment=="on_use" 
-																		and not next(InventoryDragItems)
+															return InventoryDragItem
+																and IsKindOf(InventoryDragItem, "Item")
+																and not next(InventoryDragItems or empty_table)
 																		--and (gv_SatelliteView or InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()))
 														end,
 													}),
@@ -80812,7 +81472,7 @@ return {
 													local name = T(495002164195, "BAG")
 													local is_sector_stash = IsKindOf(context, "SectorStash")
 													if is_sector_stash then
-														name = Untranslated("")-- T{288565331426, "SECTOR <sector> STASH", sector = Untranslated(context.sector_id or gv_CurrentSectorId or "")}
+														name = Untranslated("")-- T{890000000000292, "SECTOR <sector> STASH", sector = Untranslated(context.sector_id or gv_CurrentSectorId or "")}
 														child.parent:SetMargins(box(0, 60, 0, 65))
 													elseif IsKindOf(context,"Unit") then
 														name = context:IsMerc() and T(185167895211, "<Nick> BODY") or T(698760915819, "DEAD BODY")
@@ -82828,9 +83488,9 @@ return {
 													PlaceObj('XTemplateFunc', {
 														'name', "IsDropTarget(self, draw_win, pt)",
 														'func', function (self, draw_win, pt)
-															return 	IsKindOf(InventoryDragItem,"MiscItem")
-																	 	and InventoryDragItem.effect_moment=="on_use" 
-																		and not next(InventoryDragItems)
+															return InventoryDragItem
+																and IsKindOf(InventoryDragItem, "Item")
+																and not next(InventoryDragItems or empty_table)
 																		--and (gv_SatelliteView or InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()))
 														end,
 													}),
@@ -83715,7 +84375,7 @@ return {
 													local name = T(495002164195, "BAG")
 													local is_sector_stash = IsKindOf(context, "SectorStash")
 													if is_sector_stash then
-														name = Untranslated("")-- T{288565331426, "SECTOR <sector> STASH", sector = Untranslated(context.sector_id or gv_CurrentSectorId or "")}
+														name = Untranslated("")-- T{890000000000292, "SECTOR <sector> STASH", sector = Untranslated(context.sector_id or gv_CurrentSectorId or "")}
 														child.parent:SetMargins(box(0, 60, 0, 65))
 													elseif IsKindOf(context,"Unit") then
 														name = context:IsMerc() and T(185167895211, "<Nick> BODY") or T(698760915819, "DEAD BODY")
@@ -85732,9 +86392,9 @@ return {
 													PlaceObj('XTemplateFunc', {
 														'name', "IsDropTarget(self, draw_win, pt)",
 														'func', function (self, draw_win, pt)
-															return 	IsKindOf(InventoryDragItem,"MiscItem")
-																	 	and InventoryDragItem.effect_moment=="on_use" 
-																		and not next(InventoryDragItems)
+															return InventoryDragItem
+																and IsKindOf(InventoryDragItem, "Item")
+																and not next(InventoryDragItems or empty_table)
 																		--and (gv_SatelliteView or InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()))
 														end,
 													}),
@@ -86684,7 +87344,7 @@ return {
 													local name = T(495002164195, "BAG")
 													local is_sector_stash = IsKindOf(context, "SectorStash")
 													if is_sector_stash then
-														name = Untranslated("")-- T{288565331426, "SECTOR <sector> STASH", sector = Untranslated(context.sector_id or gv_CurrentSectorId or "")}
+														name = Untranslated("")-- T{890000000000292, "SECTOR <sector> STASH", sector = Untranslated(context.sector_id or gv_CurrentSectorId or "")}
 														child.parent:SetMargins(box(0, 60, 0, 65))
 													elseif IsKindOf(context,"Unit") then
 														name = context:IsMerc() and T(185167895211, "<Nick> BODY") or T(698760915819, "DEAD BODY")
@@ -88586,9 +89246,9 @@ return {
 								PlaceObj('XTemplateFunc', {
 									'name', "IsDropTarget(self, draw_win, pt)",
 									'func', function (self, draw_win, pt)
-										return 	IsKindOf(InventoryDragItem,"MiscItem")
-												 	and InventoryDragItem.effect_moment=="on_use" 
-													and not next(InventoryDragItems)
+										return InventoryDragItem
+											and IsKindOf(InventoryDragItem, "Item")
+											and not next(InventoryDragItems or empty_table)
 													--and (gv_SatelliteView or InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()))
 									end,
 								}),
@@ -89028,7 +89688,7 @@ return {
 													local name = T(495002164195, "BAG")
 													local is_sector_stash = IsKindOf(context, "SectorStash")
 													if is_sector_stash then
-														name = Untranslated("")-- T{288565331426, "SECTOR <sector> STASH", sector = Untranslated(context.sector_id or gv_CurrentSectorId or "")}
+														name = Untranslated("")-- T{890000000000292, "SECTOR <sector> STASH", sector = Untranslated(context.sector_id or gv_CurrentSectorId or "")}
 														child.parent:SetMargins(box(0, 60, 0, 65))
 													elseif IsKindOf(context,"Unit") then
 														name = context:IsMerc() and T(185167895211, "<Nick> BODY") or T(698760915819, "DEAD BODY")
@@ -90680,7 +91340,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "NextUnit",
-					'ActionName', T(949970128832, --[[ModItemXTemplate Inventory ActionName]] "Следующий боец"),
+					'ActionName', T(196270563950, --[[ModItemXTemplate Inventory ActionName]] "Next Unit"),
 					'ActionShortcut', "Tab",
 					'ActionGamepad', "RightShoulder",
 					'ActionBindable', true,
@@ -90714,7 +91374,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "PrevUnit",
-					'ActionName', T(209289987305, --[[ModItemXTemplate Inventory ActionName]] "Предыдущий боец"),
+					'ActionName', T(884862371491, --[[ModItemXTemplate Inventory ActionName]] "Prev Unit"),
 					'ActionGamepad', "LeftShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -90744,7 +91404,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "NextSquad",
-					'ActionName', T(464029690997, --[[ModItemXTemplate Inventory ActionName]] "Следующий отряд"),
+					'ActionName', T(673071428097, --[[ModItemXTemplate Inventory ActionName]] "Next Squad"),
 					'ActionGamepad', "LeftTrigger-RightShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -90766,7 +91426,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "PrevSquad",
-					'ActionName', T(849730730220, --[[ModItemXTemplate Inventory ActionName]] "Предыдущий отряд"),
+					'ActionName', T(752681569250, --[[ModItemXTemplate Inventory ActionName]] "Prev Squad"),
 					'ActionGamepad', "LeftTrigger-LeftShoulder",
 					'ActionBindable', true,
 					'OnAction', function (self, host, source, ...)
@@ -90788,7 +91448,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CurrentWeapon1",
-					'ActionName', T(451260237052, --[[ModItemXTemplate Inventory ActionName]] "Активное оружие I"),
+					'ActionName', T(222512614441, --[[ModItemXTemplate Inventory ActionName]] "Active Weapon I"),
 					'ActionShortcut', "Z",
 					'ActionButtonTemplate', "InventoryActionBarButton",
 					'ActionState', function (self, host)
@@ -90809,7 +91469,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CurrentWeapon2",
-					'ActionName', T(139050187635, --[[ModItemXTemplate Inventory ActionName]] "Активное оружие II"),
+					'ActionName', T(708528887842, --[[ModItemXTemplate Inventory ActionName]] "Active Weapon II"),
 					'ActionShortcut', "X",
 					'ActionButtonTemplate', "InventoryActionBarButton",
 					'ActionState', function (self, host)
@@ -90830,7 +91490,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Primary",
-					'ActionName', T(221259696539, --[[ModItemXTemplate Inventory ActionName]] "Комплект I"),
+					'ActionName', T(369940981994, --[[ModItemXTemplate Inventory ActionName]] "Loadout I"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Z",
 					'ActionShortcut2', "Shift-Z",
@@ -90854,7 +91514,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Secondary",
-					'ActionName', T(332523149938, --[[ModItemXTemplate Inventory ActionName]] "Комплект II"),
+					'ActionName', T(961191695579, --[[ModItemXTemplate Inventory ActionName]] "Loadout II"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "X",
 					'ActionShortcut2', "Shift-X",
@@ -90878,7 +91538,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Actions",
-					'ActionName', T(717792492405, --[[ModItemXTemplate Inventory ActionName]] "Меню предмета"),
+					'ActionName', T(330169171314, --[[ModItemXTemplate Inventory ActionName]] "Item Menu"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "right_click",
 					'ActionGamepad', "ButtonX",
@@ -90893,7 +91553,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "Multiselect",
-					'ActionName', T(517027826385, --[[ModItemXTemplate Inventory ActionName]] "Мультивыбор"),
+					'ActionName', T(706402605218, --[[ModItemXTemplate Inventory ActionName]] "Multiselect"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Ctrl",
 					'ActionGamepad', "LeftTrigger-ButtonA",
@@ -90908,7 +91568,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CompareItems",
-					'ActionName', T(747154387883, --[[ModItemXTemplate Inventory ActionName]] "Сравнить"),
+					'ActionName', T(977052176447, --[[ModItemXTemplate Inventory ActionName]] "Compare"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionShortcut', "Shift",
 					'ActionGamepad', "RightTrigger-ButtonY",
@@ -90951,7 +91611,7 @@ return {
 				}),
 				PlaceObj('XTemplateAction', {
 					'ActionId', "CloseInventory",
-					'ActionName', T(958290929962, --[[ModItemXTemplate Inventory ActionName]] "Закрыть"),
+					'ActionName', T(370922956055, --[[ModItemXTemplate Inventory ActionName]] "Close"),
 					'ActionToolbar', "InventoryActionBar",
 					'ActionGamepad', "ButtonB",
 					'ActionButtonTemplate', "InventoryActionBarButton",
@@ -91100,7 +91760,7 @@ return {
 												'__condition', function (parent, context) return true end,
 												'__class', "XToggleButton",
 												'RolloverTemplate', "ChangeActiveWeaponAPRollover",
-												'RolloverTitle', T(768635415350, --[[ModItemXTemplate Inventory RolloverTitle]] "ОД"),
+												'RolloverTitle', T(480351423675, --[[ModItemXTemplate Inventory RolloverTitle]] "AP"),
 												'Id', "idWeapons1",
 												'Margins', box(5, 0, 0, 0),
 												'HAlign', "left",
@@ -91170,7 +91830,7 @@ return {
 											PlaceObj('XTemplateWindow', {
 												'__class', "XToggleButton",
 												'RolloverTemplate', "ChangeActiveWeaponAPRollover",
-												'RolloverTitle', T(466716414310, --[[ModItemXTemplate Inventory RolloverTitle]] "ОД"),
+												'RolloverTitle', T(362170312988, --[[ModItemXTemplate Inventory RolloverTitle]] "AP"),
 												'Id', "idWeapons2",
 												'Margins', box(5, 0, 0, 0),
 												'HAlign', "left",
@@ -91428,7 +92088,7 @@ return {
 								'Visible', false,
 								'TextStyle', "PDABrowserTextLight",
 								'Translate', true,
-								'Text', T(478240676850, --[[ModItemXTemplate Inventory Text]] "Недостаточно ОД "),
+								'Text', T(673883947178, --[[ModItemXTemplate Inventory Text]] "Not Enough AP "),
 								'TextHAlign', "center",
 							}),
 							}),
@@ -91480,9 +92140,9 @@ return {
 									PlaceObj('XTemplateFunc', {
 										'name', "IsDropTarget(self, draw_win, pt)",
 										'func', function (self, draw_win, pt)
-											return 	IsKindOf(InventoryDragItem,"MiscItem")
-													 	and InventoryDragItem.effect_moment=="on_use" 
-														and not next(InventoryDragItems)
+											return InventoryDragItem
+												and IsKindOf(InventoryDragItem, "Item")
+												and not next(InventoryDragItems or empty_table)
 														--and (gv_SatelliteView or InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()))
 										end,
 									}),
@@ -91989,7 +92649,7 @@ return {
 								'ScaleModifier', point(500, 500),
 								'TextStyle', "InventoryContainerTitle",
 								'Translate', true,
-								'Text', T(155790195023, --[[ModItemXTemplate Inventory Text]] "Рюкзаки отряда"),
+								'Text', T(481179361219, --[[ModItemXTemplate Inventory Text]] "Squad Backpacks"),
 							}),
 							PlaceObj('XTemplateWindow', {
 								'__class', "XImage",
@@ -92044,7 +92704,7 @@ return {
 												'HandleMouse', false,
 												'TextStyle', "InventoryBackpackTitle",
 												'Translate', true,
-												'Text', T(913004608921, --[[ModItemXTemplate Inventory Text]] "РЮКЗАК - <Nick>"),
+												'Text', T(971957775453, --[[ModItemXTemplate Inventory Text]] "<Nick> BACKPACK"),
 												'TextVAlign', "center",
 											}, {
 												PlaceObj('XTemplateFunc', {
@@ -92110,7 +92770,7 @@ return {
 												'HandleMouse', false,
 												'TextStyle', "InventoryBackpackTitle",
 												'Translate', true,
-												'Text', T(640630058269, --[[ModItemXTemplate Inventory Text]] "Имущество отряда"),
+												'Text', T(447637689417, --[[ModItemXTemplate Inventory Text]] "Squad Supplies"),
 												'TextVAlign', "center",
 											}, {
 												PlaceObj('XTemplateFunc', {
@@ -92185,7 +92845,7 @@ return {
 							'Padding', box(0, 0, 0, 0),
 							'TextStyle', "InventoryContainerTitle",
 							'Translate', true,
-							'Text', T(177007106881, --[[ModItemXTemplate Inventory Text]] "Обыскать"),
+							'Text', T(236302281025, --[[ModItemXTemplate Inventory Text]] "Loot"),
 							'TextHAlign', "center",
 							'TextVAlign', "center",
 						}),
@@ -92300,7 +92960,7 @@ return {
 											'MaxHeight', 60,
 											'TextStyle', "InventoryWarning",
 											'Translate', true,
-											'Text', T(414699096395, --[[ModItemXTemplate Inventory Text]] "Выбранный отряд находится в другом секторе"),
+											'Text', T(613199745056, --[[ModItemXTemplate Inventory Text]] "The selected squad is not in the sector"),
 											'TextHAlign', "center",
 											'TextVAlign', "center",
 										}),
@@ -92334,7 +92994,7 @@ return {
 													local name = T(495002164195, "BAG")
 													local is_sector_stash = IsKindOf(context, "SectorStash")
 													if is_sector_stash then
-														name = Untranslated("")-- T{288565331426, "SECTOR <sector> STASH", sector = Untranslated(context.sector_id or gv_CurrentSectorId or "")}
+														name = Untranslated("")-- T{890000000000292, "SECTOR <sector> STASH", sector = Untranslated(context.sector_id or gv_CurrentSectorId or "")}
 														child.parent:SetMargins(box(0, 60, 0, 65))
 													elseif IsKindOf(context,"Unit") then
 														name = context:IsMerc() and T(185167895211, "<Nick> BODY") or T(698760915819, "DEAD BODY")
@@ -92370,7 +93030,7 @@ return {
 															'FoldWhenHidden', true,
 															'TextStyle', "InventoryBackpackTitle",
 															'Translate', true,
-															'Text', T(591752923759, --[[ModItemXTemplate Inventory Text]] "МЕШОК"),
+															'Text', T(227485168633, --[[ModItemXTemplate Inventory Text]] "BAG"),
 															'HideOnEmpty', true,
 															'TextVAlign', "center",
 														}),
@@ -92608,7 +93268,7 @@ return {
 												'FoldWhenHidden', true,
 												'TextStyle', "InventoryActionsTextRedBig",
 												'Translate', true,
-												'Text', T(151605790645, --[[ModItemXTemplate Inventory Text]] "Инвентарь заполнен"),
+												'Text', T(295657023753, --[[ModItemXTemplate Inventory Text]] "Inventory is full"),
 												'HideOnEmpty', true,
 											}),
 											PlaceObj('XTemplateTemplate', {
@@ -92730,7 +93390,7 @@ return {
 										}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "TakeAll",
-										'ActionName', T(247319674992, --[[ModItemXTemplate Inventory ActionName]] "ВЗЯТЬ ВСЁ"),
+										'ActionName', T(756073794149, --[[ModItemXTemplate Inventory ActionName]] "TAKE ALL"),
 										'ActionShortcut', "T",
 										'ActionGamepad', "LeftTrigger-ButtonY",
 										'ActionState', function (self, host)
@@ -92742,7 +93402,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "SelectAll",
-										'ActionName', T(881143667416, --[[ModItemXTemplate Inventory ActionName]] "ВЫБРАТЬ ВСЕ"),
+										'ActionName', T(502338221981, --[[ModItemXTemplate Inventory ActionName]] "SELECT ALL"),
 										'ActionShortcut', "A",
 										'ActionGamepad', "LeftTrigger-ButtonX",
 										'ActionState', function (self, host)
@@ -92854,7 +93514,7 @@ return {
 														'Padding', box(6, 2, 2, 2),
 														'TextStyle', "InventoryBackpackTitle",
 														'Translate', true,
-														'Text', T(502804742595, --[[ModItemXTemplate Inventory Text]] "МЕШОК"),
+														'Text', T(884569480073, --[[ModItemXTemplate Inventory Text]] "BAG"),
 														'TextVAlign', "center",
 													}),
 													}),
@@ -92950,7 +93610,7 @@ return {
 												'FoldWhenHidden', true,
 												'TextStyle', "InventoryActionsTextRedBig",
 												'Translate', true,
-												'Text', T(142138054817, --[[ModItemXTemplate Inventory Text]] "Инвентарь заполнен"),
+												'Text', T(535760316543, --[[ModItemXTemplate Inventory Text]] "Inventory is full"),
 												'HideOnEmpty', true,
 											}),
 											PlaceObj('XTemplateTemplate', {
@@ -92977,7 +93637,7 @@ return {
 										}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "Loot",
-										'ActionName', T(787275330939, --[[ModItemXTemplate Inventory ActionName]] "Показать трофеи"),
+										'ActionName', T(672375550834, --[[ModItemXTemplate Inventory ActionName]] "Show Loot"),
 										'ActionToolbar', "ActionBarCenter",
 										'ActionShortcut', "L",
 										'ActionState', function (self, host)
@@ -92998,7 +93658,7 @@ return {
 									}),
 									PlaceObj('XTemplateAction', {
 										'ActionId', "TakeLoot",
-										'ActionName', T(748373316660, --[[ModItemXTemplate Inventory ActionName]] "Забрать трофеи"),
+										'ActionName', T(166438187352, --[[ModItemXTemplate Inventory ActionName]] "Take Loot"),
 										'ActionToolbar', "ActionBarCenter",
 										'ActionShortcut', "T",
 										'ActionGamepad', "LeftTrigger-ButtonY",
@@ -94293,9 +94953,9 @@ return {
 											PlaceObj('XTemplateFunc', {
 												'name', "IsDropTarget(self, draw_win, pt)",
 												'func', function (self, draw_win, pt)
-													return 	IsKindOf(InventoryDragItem,"MiscItem")
-															 	and InventoryDragItem.effect_moment=="on_use" 
-																and not next(InventoryDragItems)
+													return InventoryDragItem
+														and IsKindOf(InventoryDragItem, "Item")
+														and not next(InventoryDragItems or empty_table)
 																--and (gv_SatelliteView or InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()))
 												end,
 											}),
@@ -95157,9 +95817,9 @@ return {
 														PlaceObj('XTemplateFunc', {
 															'name', "IsDropTarget(self, draw_win, pt)",
 															'func', function (self, draw_win, pt)
-																return 	IsKindOf(InventoryDragItem,"MiscItem")
-																		 	and InventoryDragItem.effect_moment=="on_use" 
-																			and not next(InventoryDragItems)
+																return InventoryDragItem
+																	and IsKindOf(InventoryDragItem, "Item")
+																	and not next(InventoryDragItems or empty_table)
 																			--and (gv_SatelliteView or InventoryIsValidGiveDistance(InventoryStartDragContext, self:GetContext()))
 															end,
 														}),
@@ -96048,7 +96708,7 @@ return {
 													local name = T(495002164195, "BAG")
 													local is_sector_stash = IsKindOf(context, "SectorStash")
 													if is_sector_stash then
-														name = Untranslated("")-- T{288565331426, "SECTOR <sector> STASH", sector = Untranslated(context.sector_id or gv_CurrentSectorId or "")}
+														name = Untranslated("")-- T{890000000000292, "SECTOR <sector> STASH", sector = Untranslated(context.sector_id or gv_CurrentSectorId or "")}
 														child.parent:SetMargins(box(0, 60, 0, 65))
 													elseif IsKindOf(context,"Unit") then
 														name = context:IsMerc() and T(185167895211, "<Nick> BODY") or T(698760915819, "DEAD BODY")
@@ -96814,6 +97474,11 @@ return {
 			'Slot', "Backpack",
 		}),
 		PlaceObj('ModItemCode', {
+			'name', "WeaponIconBake",
+			'comment', "JAZZ-UI-001 side-view baked weapon icons with attachments",
+			'CodeFileName', "Code/WeaponIconBake.lua",
+		}),
+		PlaceObj('ModItemCode', {
 			'name', "InventoryUI",
 			'CodeFileName', "Code/InventoryUI.lua",
 		}),
@@ -97568,9 +98233,9 @@ return {
 			'name', "WeaponTypes",
 		}, {
 			PlaceObj('ModItemWeaponType', {
-				Description = T(468887219553, --[[ModItemWeaponType Default Pistol Description]] "Пистолеты и револьверы позволяют с высокой точностью поражать различные части тела противника выстрелами в упор. Однако максимальная дальность и бронебойность этого оружия оставляет желать лучшего.\n\nОсобая атака: выстрел в движении"),
+				Description = T(890000000000576, --[[ModItemWeaponType Default Pistol Description]] "WIP — механика сигнатурного перка в разработке."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Pistol.png",
-				Name = T(317905531555, --[[ModItemWeaponType Default Pistol Name]] "Пистолет"),
+				Name = T(890000000000333, --[[ModItemWeaponType Default Pistol Name]] "Пистолет"),
 				SortKey = 1,
 				group = "Default",
 				id = "Pistol",
@@ -97578,35 +98243,35 @@ return {
 			PlaceObj('ModItemWeaponType', {
 				Description = T(981045518000, --[[ModItemWeaponType Default Autopistol Description]] "Пистолеты с режимом автоогня. Позволяют эффективно подавлять цели на близких дистанциях."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Autopistol.png",
-				Name = T(245455655146, --[[ModItemWeaponType Default Autopistol Name]] "Автоматический пистолет"),
+				Name = T(890000000000194, --[[ModItemWeaponType Default Autopistol Name]] "Автоматический пистолет"),
 				group = "Default",
 				id = "Autopistol",
 			}),
 			PlaceObj('ModItemWeaponType', {
 				Description = T(506514969558, --[[ModItemWeaponType Default Revolver Description]] "Револьвер - это классическое точное, мощное и надежное оружие.\nИмеют бонус к точности и к шансу крита, если это первое действие за ход"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Revolver.png",
-				Name = T(245455655146, --[[ModItemWeaponType Default Revolver Name]] "Револьвер"),
+				Name = T(890000000000195, --[[ModItemWeaponType Default Revolver Name]] "Револьвер"),
 				group = "Default",
 				id = "Revolver",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(614148544769, --[[ModItemWeaponType Default SMG Description]] "Пистолеты-пулеметы обладают высокой скорострельностью и очень эффективны на дистанциях стрельбы в упор. При этом они пригодны максимум для средних дистанций боя, а их бронебойность оставляет желать лучшего.\n\nОсобая атака: маневренный бой"),
+				Description = T(614148544769, --[[ModItemWeaponType Default SMG Description]] "SMGs are very accurate at point-blank range and can fire a hail of bullets. They are medium ranged and are not effective against Armor.\n\nSpecial attack: Run & Gun"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/SMG.png",
-				Name = T(731752089698, --[[ModItemWeaponType Default SMG Name]] "Пистолет-пулемет"),
+				Name = T(890000000000976, --[[ModItemWeaponType Default SMG Name]] "Пистолет-пулемет"),
 				SortKey = 6,
 				group = "Default",
 				id = "SMG",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(277712105498, --[[ModItemWeaponType Default AssaultRifle Description]] "Штурмовые винтовки - это универсальное оружие без каких-либо выраженных преимуществ. Они обладают неплохим останавливающим действием, дальностью и бронебойностью, а также поддерживают большое количество разнообразных модулей."),
+				Description = T(277712105498, --[[ModItemWeaponType Default AssaultRifle Description]] "Assault Rifles offer high versatility without excelling at any specific thing. They offer decent stopping power, range, and armor penetration. They are highly modifiable."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/AssaultRifle.png",
-				Name = T(987446796163, --[[ModItemWeaponType Default AssaultRifle Name]] "Штурмовая винтовка"),
+				Name = T(890000000001363, --[[ModItemWeaponType Default AssaultRifle Name]] "Штурмовая винтовка"),
 				SortKey = 5,
 				group = "Default",
 				id = "AssaultRifle",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(277712105498, --[[ModItemWeaponType Default Carbine Description]] "Штурмовые винтовки - это универсальное оружие без каких-либо выраженных преимуществ. Они обладают неплохим останавливающим действием, дальностью и бронебойностью, а также поддерживают большое количество разнообразных модулей."),
+				Description = T(890000000000252, --[[ModItemWeaponType Default Carbine Description]] "WIP — механика сигнатурного перка в разработке."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Carbine.png",
 				Name = T(274027037052, --[[ModItemWeaponType Default Carbine Name]] "Карабин"),
 				SortKey = 5,
@@ -97614,7 +98279,7 @@ return {
 				id = "Carbine",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(277712105498, --[[ModItemWeaponType Default BattleRifle Description]] "Штурмовые винтовки - это универсальное оружие без каких-либо выраженных преимуществ. Они обладают неплохим останавливающим действием, дальностью и бронебойностью, а также поддерживают большое количество разнообразных модулей."),
+				Description = T(890000000000252, --[[ModItemWeaponType Default BattleRifle Description]] "WIP — механика сигнатурного перка в разработке."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/BattleRifle.png",
 				Name = T(322415689229, --[[ModItemWeaponType Default BattleRifle Name]] "Боевая Винтовка"),
 				SortKey = 5,
@@ -97622,15 +98287,15 @@ return {
 				id = "BattleRifle",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(675593980719, --[[ModItemWeaponType Default Shotgun Description]] "Дробовики сокрушительны на ближних дистанциях, но неспособны пробить большинство бронежилетов. Зона поражения их выстрелов имеет форму конуса, расширяющегося в направлении атаки, но теряющего в убойной силе по мере увеличения дистанции.\n\nПолучив попадание из дробовика, цель утрачивает преимущества, даваемые укрытием, и приобретает статус «Вне укрытия».\n\nАтаки с дробовиком могут вызывать дополнительные эффекты в зависимости от типа боеприпасов."),
+				Description = T(675593980719, --[[ModItemWeaponType Default Shotgun Description]] "Shotguns are destructive at close range but can be stopped by most body armor. They cause collateral damage in a cone in the direction of the attack, diminishing at long range.\n\nEnemies hit by Shotguns are Exposed and lose the benefits of Cover.\n\nShotgun attacks inflict additional effects based on ammo type. "),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Shotguns.png",
-				Name = T(861547101159, --[[ModItemWeaponType Default Shotgun Name]] "Дробовик"),
+				Name = T(890000000001177, --[[ModItemWeaponType Default Shotgun Name]] "Дробовик"),
 				SortKey = 2,
 				group = "Default",
 				id = "Shotgun",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(420551480759, --[[ModItemWeaponType Default MachineGun Description]] "Пулеметы обладают огромной скорострельностью, но точность их отдельных выстрелов оставляет желать лучшего.\n\nПереведя пулемет в боевое положение, вы сможете эффективно прикрывать определенный участок местности. При стрельбе из установленных в боевое положение или стационарных пулеметов имеется ограниченное количество внеочередных атак-прерываний по перемещающимся в секторе обстрела противникам. Число атак-прерываний зависит от числа оставшихся ОД."),
+				Description = T(420551480759, --[[ModItemWeaponType Default MachineGun Description]] "Machine Guns shoot many bullets but each individual shot is not very accurate.\n\nMachine Guns can be Set up to focus their threat over an area. Set and stationary Machine Guns can execute a limited number of out-of-turn interrupt attacks against enemies moving in the target area. The number of interrupt attacks is based on remaining AP."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/MachineGun.png",
 				Name = T(934155710549, --[[ModItemWeaponType Default MachineGun Name]] "Единый пулемёт"),
 				SortKey = 6,
@@ -97638,7 +98303,7 @@ return {
 				id = "MachineGun",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(420551480759, --[[ModItemWeaponType Default LightMachineGun Description]] "Пулеметы обладают огромной скорострельностью, но точность их отдельных выстрелов оставляет желать лучшего.\n\nПереведя пулемет в боевое положение, вы сможете эффективно прикрывать определенный участок местности. При стрельбе из установленных в боевое положение или стационарных пулеметов имеется ограниченное количество внеочередных атак-прерываний по перемещающимся в секторе обстрела противникам. Число атак-прерываний зависит от числа оставшихся ОД."),
+				Description = T(890000000000488, --[[ModItemWeaponType Default LightMachineGun Description]] "WIP — механика сигнатурного перка в разработке."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/LightMachineGun.png",
 				Name = T(620492797462, --[[ModItemWeaponType Default LightMachineGun Name]] "Ручной пулемёт"),
 				SortKey = 6,
@@ -97646,7 +98311,7 @@ return {
 				id = "LightMachineGun",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(521528587114, --[[ModItemWeaponType Default Sniper Description]] "Винтовки обладают хорошей бронебойностью и позволяют точно поражать определенные части тела. Они достаточно дальнобойны, но их скорострельность оставляет желать лучшего.\n\nОсобая атака: сосредоточение огня"),
+				Description = T(521528587114, --[[ModItemWeaponType Default Sniper Description]] "Rifles have good penetration against Armor and are very accurate when targeting Body Parts. They offer long range but very low rate of fire.\n\nSpecial attack: Pin Down"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Sniper.png",
 				Name = T(546961178289, --[[ModItemWeaponType Default Sniper Name]] "Снайперская винтовка"),
 				SortKey = 6,
@@ -100534,8 +101199,8 @@ return {
 		},
 		SortKey = 90,
 		advanced = true,
-		description = T(420106629203, --[[ModItemGameRuleDef HeavyWounds description]] "Ранения также затрудняют свободное перемещение и снижают точность. Действует на всех персонажей - будь то наемники, союзники или противники."),
-		display_name = T(272512954896, --[[ModItemGameRuleDef HeavyWounds display_name]] "Тяжелые ранения"),
+		description = T(238180343353, --[[ModItemGameRuleDef HeavyWounds description]] "Wounds also hamper Free Move and Accuracy. Affects all characters - mercs, allies and enemies."),
+		display_name = T(148131728167, --[[ModItemGameRuleDef HeavyWounds display_name]] "Heavy Wounds"),
 		group = "Default",
 		id = "HeavyWounds",
 		show_in_new_game = false,
@@ -100547,26 +101212,33 @@ return {
 	PlaceObj('ModItemFolder', {
 		'name', "AiFastforward",
 	}, {
+		PlaceObj('ModItemCode', {
+			'name', "AiFastForward",
+			'CodeFileName', "Code/AiFastForward.lua",
+		}),
 		PlaceObj('ModItemOptionChoice', {
 			'name', "AutoFastForward",
 			'DisplayName', "Автоматическое ускорение хода невидимых врагов",
-			'Help', "Off - выкл\nRunning - Только при беге\nAlways - при беге и во время атак\nВключается если мерки не видят врагов",
-			'OnApply', function (self, value)
-				return
-			end,
-			'DefaultValue', "Running",
+			'Help', "Off - выкл\nRunning - выставить скорость в начале хода юнита\nAlways - ещё раз проверить перед атаками\nУскорение, если PoV-команда не видит юнита",
+			'DefaultValue', "Always",
 			'ChoiceList', {
 				"Off",
 				"Running",
 				"Always",
 			},
 		}),
+		PlaceObj('ModItemOptionToggle', {
+			'name', "EnemyTurnFreeCamera",
+			'DisplayName', "Свободная камера на чужом ходе",
+			'Help', "Разрешить двигать и зумить камеру во время хода врага/союзника (action camera не отключается).",
+			'DefaultValue', true,
+		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "Game speed change in combat during the enemy/ally turn, when the Fast Forward mode is checked.",
 			group = "Combat",
 			id = "FastForwardGameSpeed",
 			scale = "%",
-			value = 200,
+			value = 300,
 		}),
 		PlaceObj('ModItemOptionNumber', {
 			'name', "ShowLastEnemy",
@@ -100579,8 +101251,8 @@ return {
 	PlaceObj('ModItemGameRuleDef', {
 		SortKey = 100,
 		advanced = true,
-		description = T(618984980458, --[[ModItemGameRuleDef AlwaysOnline description]] "Наемники всегда в сети и не откажутся от контракта без веских на то причин."),
-		display_name = T(891476726175, --[[ModItemGameRuleDef AlwaysOnline display_name]] "A.I.M. - всегда в сети!"),
+		description = T(227968522548, --[[ModItemGameRuleDef AlwaysOnline description]] 'Mercs are never "offline" and will not refuse contracts without a good reason.'),
+		display_name = T(642676461544, --[[ModItemGameRuleDef AlwaysOnline display_name]] "A.I.M. Always Online"),
 		group = "Default",
 		id = "AlwaysOnline",
 		show_in_new_game = false,
@@ -100588,8 +101260,8 @@ return {
 	PlaceObj('ModItemGameRuleDef', {
 		SortKey = 120,
 		advanced = true,
-		description = T(544360650563, --[[ModItemGameRuleDef AllStars description]] "Разблокирует доступ к легендарным наемникам на старте игры (за исключением вышедших в отставку наемников)."),
-		display_name = T(367161753497, --[[ModItemGameRuleDef AllStars display_name]] "Платиновый пакет A.I.M."),
+		description = T(817451716775, --[[ModItemGameRuleDef AllStars description]] "Unlocks legendary mercs on start (except retired mercs)."),
+		display_name = T(769005390989, --[[ModItemGameRuleDef AllStars display_name]] "A.I.M. Platinum"),
 		effects = {
 			PlaceObj('ExecuteCode', {
 				FuncCode = 'ChangeAIMPremiumState("active")',
@@ -101714,7 +102386,7 @@ return {
 											'HandleMouse', false,
 											'TextStyle', "PDAActivitiesSubTitleDark",
 											'Translate', true,
-											'Text', T(286935390389, --[[ModItemXTemplate SectorOperationSelectItemsUI Text]] "Предметы в очереди"),
+											'Text', T(714594754425, --[[ModItemXTemplate SectorOperationSelectItemsUI Text]] "Queued Items"),
 											'HideOnEmpty', true,
 											'TextVAlign', "center",
 										}),
@@ -102010,7 +102682,7 @@ return {
 									'Visible', false,
 									'TextStyle', "PDAActivityAssignDlgDescriptionRed",
 									'Translate', true,
-									'Text', T(640523315068, --[[ModItemXTemplate SectorOperationSelectItemsUI Text]] "Недостаточно запчастей для завершения"),
+									'Text', T(660038414565, --[[ModItemXTemplate SectorOperationSelectItemsUI Text]] "Not enough parts to finish"),
 									'TextVAlign', "bottom",
 								}),
 								PlaceObj('XTemplateWindow', {
@@ -102034,7 +102706,7 @@ return {
 											'HandleMouse', false,
 											'TextStyle', "PDAActivitiesSubTitleDark",
 											'Translate', true,
-											'Text', T(201653857225, --[[ModItemXTemplate SectorOperationSelectItemsUI Text]] "Поврежденное снаряжение"),
+											'Text', T(913464112067, --[[ModItemXTemplate SectorOperationSelectItemsUI Text]] "Damaged Gear"),
 											'HideOnEmpty', true,
 											'TextVAlign', "center",
 										}),
@@ -102392,11 +103064,11 @@ return {
 				Professions = {
 					PlaceObj('SectorOperationProfession', {
 						'id', "Repair",
-						'display_name', T(717830910070, --[[ModItemSectorOperation RepairItems display_name]] "Механик"),
-						'description', T(671435530451, --[[ModItemSectorOperation RepairItems description]] "Механик будет ремонтировать выбранные предметы."),
-						'display_name_all_caps', T(886575604370, --[[ModItemSectorOperation RepairItems display_name_all_caps]] "МЕХАНИКИ"),
-						'display_name_plural', T(354713063180, --[[ModItemSectorOperation RepairItems display_name_plural]] "Механик"),
-						'display_name_plural_all_caps', T(162738516067, --[[ModItemSectorOperation RepairItems display_name_plural_all_caps]] "МЕХАНИКИ"),
+						'display_name', T(943887686252, --[[ModItemSectorOperation RepairItems display_name]] "Mechanic"),
+						'description', T(912139557649, --[[ModItemSectorOperation RepairItems description]] "The Mechanic will repair the selected items."),
+						'display_name_all_caps', T(896649403923, --[[ModItemSectorOperation RepairItems display_name_all_caps]] "MECHANICS"),
+						'display_name_plural', T(439077504277, --[[ModItemSectorOperation RepairItems display_name_plural]] "Mechanic"),
+						'display_name_plural_all_caps', T(770353356808, --[[ModItemSectorOperation RepairItems display_name_plural_all_caps]] "MECHANICS"),
 					}),
 				},
 				ProgressCompleteThreshold = function (self, merc, sector, prediction)
@@ -102603,7 +103275,7 @@ return {
 					return
 				end,
 				description = T(896760300833, --[[ModItemSectorOperation RepairItems description]] "Ремонт поврежденного снаряжения с использованием механических запчастей. Участие наемников с высокой характеристикой «<color EmStyle>Механика</color>» ускорит операцию. Оружие с состоянием ниже 90% получает износ при ремонте."),
-				display_name = T(810510705491, --[[ModItemSectorOperation RepairItems display_name]] "Ремонт предметов"),
+				display_name = T(953309329006, --[[ModItemSectorOperation RepairItems display_name]] "Repair Items"),
 				group = "Default",
 				icon = "UI/SectorOperations/T_Icon_Activity_Repair",
 				id = "RepairItems",
@@ -102611,8 +103283,8 @@ return {
 				min_requirement_stat = "Mechanical",
 				min_requirement_stat_value = 20,
 				related_stat = "Mechanical",
-				short_name = T(868231175581, --[[ModItemSectorOperation RepairItems short_name]] "Ремонт"),
-				sub_title = T(150722843550, --[[ModItemSectorOperation RepairItems sub_title]] "Снаряжение нуждается в ремонте"),
+				short_name = T(114668317582, --[[ModItemSectorOperation RepairItems short_name]] "Repair"),
+				sub_title = T(873976932489, --[[ModItemSectorOperation RepairItems sub_title]] "Equipment needs repairs"),
 			}),
 			PlaceObj('ModItemSectorOperation', {
 				group = "Default",
@@ -102647,6 +103319,22 @@ return {
 			'name', "Guardpost_Patrols",
 			'CodeFileName', "Code/Guardpost_Patrols.lua",
 		}),
+		PlaceObj('ModItemCode', {
+			'name', "LegionUnitPrices",
+			'CodeFileName', "Code/LegionUnitPrices.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "LegionSquadComposition",
+			'CodeFileName', "Code/LegionSquadComposition.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "LegionSquadGenerator",
+			'CodeFileName', "Code/LegionSquadGenerator.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "LegionMilitiaRecruits",
+			'CodeFileName', "Code/LegionMilitiaRecruits.lua",
+		}),
 		PlaceObj('ModItemAwareReasons', {
 			display_name = T(911087494081, --[[ModItemAwareReasons Default arSectorAlert display_name]] "<em><enemy></em> поднят по тревоге"),
 			group = "Default",
@@ -102657,7 +103345,15 @@ return {
 		}, {
 			PlaceObj('ModItemRegion', {
 				DisplayName = "Остров Эрни",
-				Heat = 1528,
+				LegionAIEnabled = true,
+				MajorHQSector = "B28",
+				MajorResponseSquads = {
+					"LegionJAZZSquadT3",
+					"LegionHeavyTroops",
+				},
+				ManagedOutposts = {
+					"I7",
+				},
 				Sectors = {
 					"M1",
 					"M2",
@@ -102691,6 +103387,12 @@ return {
 					"I5",
 					"I6",
 					"I7",
+				},
+				ShipmentSquads = {
+					"LegionGlobalAI_Convoy",
+				},
+				SupplySquads = {
+					"LegionGlobalAI_Convoy",
 				},
 				group = "Default",
 				id = "ErnieIsland",
@@ -102888,9 +103590,9 @@ return {
 									'__class', "XNameValueText",
 									'RolloverTemplate', "RolloverGeneric",
 									'RolloverAnchor', "center-top",
-									'RolloverText', T(952592503809, --[[ModItemXTemplate SatelliteViewMapContextMenu RolloverText]] "Уровень лояльности в данном секторе будет влиять на стоимость операций и услуг."),
+									'RolloverText', T(952592503809, --[[ModItemXTemplate SatelliteViewMapContextMenu RolloverText]] "Local Loyalty will affect Operation and service costs in the current Sector."),
 									'RolloverOffset', box(10, 10, 10, 10),
-									'RolloverTitle', T(836506718468, --[[ModItemXTemplate SatelliteViewMapContextMenu RolloverTitle]] "Лояльность"),
+									'RolloverTitle', T(836506718468, --[[ModItemXTemplate SatelliteViewMapContextMenu RolloverTitle]] "Loyalty"),
 									'Id', "idLoyalty",
 									'Margins', box(5, 0, 5, 0),
 									'FoldWhenHidden', true,
@@ -102907,9 +103609,9 @@ return {
 									'__class', "XText",
 									'RolloverTemplate', "RolloverGeneric",
 									'RolloverAnchor', "center-top",
-									'RolloverText', T(952592503809, --[[ModItemXTemplate SatelliteViewMapContextMenu RolloverText]] "Уровень лояльности в данном секторе будет влиять на стоимость операций и услуг."),
+									'RolloverText', T(952592503809, --[[ModItemXTemplate SatelliteViewMapContextMenu RolloverText]] "Local Loyalty will affect Operation and service costs in the current Sector."),
 									'RolloverOffset', box(10, 10, 10, 10),
-									'RolloverTitle', T(836506718468, --[[ModItemXTemplate SatelliteViewMapContextMenu RolloverTitle]] "Лояльность"),
+									'RolloverTitle', T(836506718468, --[[ModItemXTemplate SatelliteViewMapContextMenu RolloverTitle]] "Loyalty"),
 									'Id', "idRegion",
 									'Margins', box(5, 0, 5, 0),
 									'FoldWhenHidden', true,
@@ -103009,22 +103711,18 @@ return {
 								
 								parent.idImage:SetImage(sector.image)
 								
+								local region = GetRegionForSector(sector.Id)
+								local has_region = region and region~="none"
 								local city_id = sector.City
-								parent.idLoyalty:SetVisible(city_id~="none" and Region=="none")
+								parent.idLoyalty:SetVisible(city_id and city_id~="none" and not has_region)
 								if city_id and city_id~="none" then
 									local city = gv_Cities[city_id]
 									parent.idLoyalty:SetNameText(city.DisplayName)
 									parent.idLoyalty:SetValueText(T{911910307915, "<style PDASectorInfo_ValueDark>Loyalty</style> <percent(loyalty)>",loyalty = GetCityLoyalty(city_id)})
 								end
 								
-								local Region = GetRegionForSector(sector.Id)
-								print(Region:GetRolloverHint())
-								parent.idRegion:SetVisible(Region~="none")
-								if Region and Region~="" then
-								parent.idRegion:SetText(Region:GetRolloverHint(sector.Id))
-								--	parent.idLoyalty:SetNameText(city.DisplayName)
-								--	parent.idLoyalty:SetValueText(T{911910307915, "<style PDASectorInfo_ValueDark>Loyalty</style> <percent(loyalty)>",loyalty = GetCityLoyalty(city_id)})
-								end
+								parent.idRegion:SetVisible(not not has_region)
+								parent.idRegion:SetText(has_region and region:GetRolloverHint(sector.Id) or "")
 								
 								local intel = sector.Intel and sector.intel_discovered
 								parent.idIntel:SetVisible(intel)
@@ -103114,9 +103812,9 @@ return {
 		'Reliability', 20,
 		'Icon', "UI/Icons/Weapons/Auto5Quest",
 		'ItemType', "Shotgun",
-		'DisplayName', T(649146508338, --[[ModItemInventoryItemCompositeDef Auto5_quest DisplayName]] "«Усмиритель» Мамаши"),
-		'DisplayNamePlural', T(432332068612, --[[ModItemInventoryItemCompositeDef Auto5_quest DisplayNamePlural]] "«Усмирители» Мамаши"),
-		'Description', T(580584506617, --[[ModItemInventoryItemCompositeDef Auto5_quest Description]] "Легендарная владелица бара в Порт-Какао, Мамаша Бакстер, использовала этот кастомный дробовик Auto-5, чтобы заканчивать кабацкие драки максимально эффективным и ультимативным способом."),
+		'DisplayName', T(104957685912, --[[ModItemInventoryItemCompositeDef Auto5_quest DisplayName]] "Ma Baxter's Argument Invalidator"),
+		'DisplayNamePlural', T(319145443336, --[[ModItemInventoryItemCompositeDef Auto5_quest DisplayNamePlural]] "Ma Baxter's Argument Invalidators"),
+		'Description', T(918826814712, --[[ModItemInventoryItemCompositeDef Auto5_quest Description]] "The legendary owner of the bar in Port Cacao used this custom Auto-5 shotgun to end bar fights in the most final way possible."),
 		'AdditionalHint', T(269691251565, --[[ModItemInventoryItemCompositeDef Auto5_quest AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Быстрое усмирение"),
 		'LargeItem', 1,
 		'Valuable', 1,
@@ -103388,7 +104086,7 @@ return {
 				}),
 			},
 			description = T(852333811131, --[[ModItemGameDifficultyDef Normal description]] "Стандартный уровень сложности. Увеличенное количество стартовых денег на 25%.\n<newline><newline><color FlavorStyle>Уровень сложности можно будет изменить в любой момент.</color>"),
-			display_name = T(707100354718, --[[ModItemGameDifficultyDef Normal display_name]] "Первая кровь"),
+			display_name = T(976285338044, --[[ModItemGameDifficultyDef Normal display_name]] "First Blood"),
 			group = "Default",
 			id = "Normal",
 		}),
@@ -103439,7 +104137,7 @@ return {
 			},
 			SortKey = 1,
 			description = T(698130726969, --[[ModItemGameDifficultyDef Hard description]] "Повышенный уровень сложности.<newline><newline><color FlavorStyle>Уровень сложности можно будет изменить в любой момент.</color>"),
-			display_name = T(725723470683, --[[ModItemGameDifficultyDef Hard display_name]] "Коммандос"),
+			display_name = T(875535882916, --[[ModItemGameDifficultyDef Hard display_name]] "Commando"),
 			group = "Default",
 			id = "Hard",
 		}),
@@ -103492,7 +104190,7 @@ return {
 			},
 			SortKey = 2,
 			description = T(830857112086, --[[ModItemGameDifficultyDef VeryHard description]] "Высокий уровень сложности. Количество стартовых денег уменьшено на 50%<newline><newline><color FlavorStyle>Уровень сложности можно будет изменить в любой момент.</color>\nВраги сильнее и имеют более высокие статы"),
-			display_name = T(245706641868, --[[ModItemGameDifficultyDef VeryHard display_name]] "Миссия невыполнима"),
+			display_name = T(119938091518, --[[ModItemGameDifficultyDef VeryHard display_name]] "Mission Impossible"),
 			group = "Default",
 			id = "VeryHard",
 		}),
