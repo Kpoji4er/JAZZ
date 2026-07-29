@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- Wiki: roster мерков/перков/Эрни/Легион из кода (не design-доков)\n- Автопубликация каталога оружия\n- Тактический AI / bake иконок (WIP)",
+	'last_changes', "- AI: SameTarget/Пристрелка в score цели + sticky fire mode в Dump (JAZZ-AI-003)\n- Wiki: roster мерков/перков/Эрни/Легион из кода (не design-доков)\n- Автопубликация каталога оружия",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 19,
+	'version_minor', 20,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,

@@ -1639,7 +1639,7 @@ function Unit:GetBasicAttackModes()
 	result.auto   = find_mode("AutoFire", weapon.AutoShots or 5)
 	result.buck   = find_mode("Buckshot", 1)
 	result.double = find_mode("DoubleBarrel", 2)
-	result.dual = find_mode("Dualshot", 2)
+	result.dual = find_mode("DualShot", 2) or find_mode("Dualshot", 2)
 
 	result.all = {}
 	for _, mode in pairs({result.single, result.burst, result.auto, result.buck, result.double,result.dual}) do

@@ -18,8 +18,10 @@ JAZZ существенно меняет выбор действий AI, оце�
 
 - `Code/AiActions.lua` — attacks, targeting, aim/reload и action helpers;
 - `Code/AiAction_ThrowFlare.lua` — grenade/flare action;
+- `Code/AiFastForward.lua` — auto fast-forward / PoV visibility на вражеском ходе;
 - `Code/AIBehaviours.lua` — небольшой слой behavior registration;
-- `Code/AIPolicy.lua` — позиционные политики;
+- `Code/AIPolicy.lua` — позиционные политики (cover/threat, ScoreMode, role anchor, anti-peek, ally spacing — POL-001…003 code loaded; specs may still be `approved`);
+- `Code/AIContextProfiles.lua` — context profiles / officer directives / aura lifecycle (CTX/CMD code loaded);
 - `Code/CombatAI.lua` — выбор действия и tactical execution;
 - `Code/UnitAwareness.lua` — suspicion, alerts и переходы awareness;
 - `Code/Rato_CustomSeekCover.lua`, `Rato_GrenadeRange.lua`, `Rato_MGSetupAP.lua`, `Rato_TryNotToBeFlanked.lua` — дополнительные scoring/constraints;
@@ -29,7 +31,7 @@ JAZZ существенно меняет выбор действий AI, оце�
 - `Code/InfiniteLoopFix.lua` — увеличивает защитные thresholds от зависания;
 - `Code/System_OR_Unit.lua`, `CombatActions.lua`, `System_OR_Weapons.lua` — действия/состояние/оружие, используемые AI.
 
-`jazz-units` загружает `Code/AIKeywords.lua` и generated 33 AI archetypes, enemy roles/squads и UnitData. `jazz-maps/Code/AIMechanism.lua` существует, но metadata его не загружает: его stealth/AIM option overrides не участвуют в runtime.
+`jazz-units` загружает `Code/AIKeywords.lua`, `Code/AICombatStance.lua` (medic/regroup/role stance — MED/REG/ROLE-002 code loaded) и generated **40** AI archetypes, enemy roles/squads и UnitData. `jazz-maps/Code/AIMechanism.lua` существует, но metadata его не загружает: его stealth/AIM option overrides не участвуют в runtime.
 
 ## Подтверждённые коллизии CommonLib
 
@@ -56,6 +58,10 @@ JAZZ существенно меняет выбор действий AI, оце�
 
 `GetCTHByAimLevels` вызывает тот же `Unit:CalcChanceToHit`, что UI и фактическая атака. `PredictCTH` больше не вычитает линейный recoil: он строит общий `JAZZ_CTHGetRecoilProfile` и суммирует `JAZZ_CTHGetBulletChance` для той же последовательности пуль. Поэтому отдельная правка AI-точности должна считаться изменением общего CTH-контракта.
 
+`AIPrecalcDamageScore` для повторной цели (`GetLastAttack`) добавляет SameTarget через `AICalcSameTargetScoreBonus`: `CalcValue` + `GatherCTHModifications` (включая перк **Пристрелка** / `TakeAim`) и `AccuracyBonusSameTarget` с компонентов оружия — не только плоский preset Bonus.
+
+В Dump (`AIPlayAttacks`) `PickBestAttack` липкий по режиму огня на той же цели: `context.dump_attack_mode` предпочитается, пока score режима ≥ `AIDecisionThreshold`% от best и режим влезает в AP; смена/потеря цели сбрасывает sticky.
+
 ## Policies и тактические расширения
 
 JAZZ оценивает attack AP, cover, anti-flank, proximity, high ground, enemy Will и безопасность позиции. Rato-модули добавляют custom seek-cover, grenade range, MG setup AP и запрет очевидного подставления под фланг. Machine gun требует согласованности setup position, AP, action availability и visual/entity state.
@@ -66,7 +72,7 @@ JAZZ оценивает attack AP, cover, anti-flank, proximity, high ground, en
 
 AI keywords в units: `Melee`, `CQB`, `Soldier`, `Marksman`, `Sniper`, `Leader`, `MG`, `Control`, `Explosives`, `Ordnance`, `Smoke`, `Flank`, `MobileShot`, `RunAndGun`, `Stim`, `Nova`, `Heal`.
 
-33 archetypes охватывают artillery, berserk/brute/melee, emplacement/turret, grenadier, guard area, heavy/machine gunner, medic, panicked/pinned, scout/skirmisher/soldier/sniper, Major и faction-specific варианты Legion/Rebels. Generated UnitData связывает archetype с инвентарём, stats и actions.
+**40** archetypes охватывают artillery, berserk/brute/melee, emplacement/turret, grenadier, guard area, heavy/machine gunner, medic, panicked/pinned, scout/skirmisher/soldier/sniper, Major и faction-specific варианты Legion/Rebels. Generated UnitData связывает archetype с инвентарём, stats и actions.
 
 ## Awareness и внешние условия
 

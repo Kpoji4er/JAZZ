@@ -81,34 +81,21 @@ function GetCTHByAimLevels(unit, enemy, action, max_aim)
 end
 
 
-function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
-	--print('function PickBestAttack')
-		
+function PickBestAttack(unit, enemy, basic_attacks, dest_ap, preferred_mode)
 	local AP = unit.ActionPoints
-		--print(AP)
 	if dest_ap then AP = dest_ap end
 
-	--print(dest_ap and dest_ap or "false")
-
-	--print("pickbestattack")
-	--print(AP)
-	--print(dest_ap or "none")
-
-
-	local weapon, weapon2 = unit:GetActiveWeapons()
+	local weapon = unit:GetActiveWeapons()
 	if not weapon then
-		--print('not weapon')
-		--print(unit:GetActiveWeapons())
-		return end
+		return
+	end
 
-	if not IsKindOf(weapon,"Firearm") then return false end
+	if not IsKindOf(weapon, "Firearm") then return false end
 
 	local recoil = weapon.Recoil or 0
 	local burst = weapon.BurstShots or 3
 	local auto = weapon.AutoShots or 5
 	local base_damage = unit:GetBaseDamage(weapon) or 20
-
-	--print('pickbestattackdebug')
 
 	local candidates = {}
 	local ammo = weapon.ammo and weapon.ammo.Amount or 0
@@ -119,7 +106,7 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 	local dist = DivRound(unit:GetDist(enemy), const.SlabSizeX)
 	local dist_ratio = Clamp(dist / max_range, 0, 1)
 
-	for _, attack in ipairs(basic_attacks.all) do
+	for _, attack in ipairs(basic_attacks.all or empty_table) do
 		local action = attack.action
 		if not action or attack.id == "Melee Attack" or attack.id == "MeleeAttack" then goto continue end
 
@@ -136,7 +123,7 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 			local mode_type = action.id
 			local dist_penalty = dist_ratio * 0.5
 
-			if mode_type == "BurstFire" then
+			if mode_type == "BurstFire" or mode_type == "MGBurstFire" then
 				shots = burst
 				predicted = PredictCTH(cth, recoil, shots, weapon, unit, unit.stance, action)
 				dist_penalty = dist_ratio * 1.0
@@ -149,7 +136,7 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 				shots = 2
 				dist_penalty = dist_ratio * 1.25
 			end
-			if mode_type == "DualShot" then
+			if mode_type == "DualShot" or mode_type == "Dualshot" then
 				shots = 2
 			end
 
@@ -157,33 +144,21 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 
 			local expected_damage = base_damage * shots * predicted * 0.01
 
-			local score = (expected_damage - ammo_weight * shots - dist_penalty)*1000 / total_cost
-			--print(' penaltyDist..'..dist_penalty..'..penaltyAmmo..'..(ammo_weight * shots)..' expected_damage '..expected_damage..' total_cost '..total_cost)
-			--print(mode_type..score..' '..aim..' '..cth..' '..weapon.WeaponRange..' '..dist..' '..max_range)
-
+			local score = (expected_damage - ammo_weight * shots - dist_penalty) * 1000 / total_cost
 
 			predicted = Clamp(predicted, 0, 100)
 			if predicted <= 0 then goto next_aim end
-			--print(string.format("Try mode %s aim=%d → cost=%d AP=%d", action.id, aim, total_cost, AP))
 
-
-			candidates[#candidates+1] = {
-				mode   = mode_type,
-				aim    = aim,
-				ap     = total_cost,
-				score  = score,
+			candidates[#candidates + 1] = {
+				mode = mode_type,
+				aim = aim,
+				ap = total_cost,
+				score = score,
 				action = action,
-				cth    = predicted,
-				shots  = shots,
+				cth = predicted,
+				shots = shots,
 				target = enemy
-			  }
-				--print('best')
-				--print(best.mode)
-				--print(best.ap)
-				--print(best.cth)
-			
-
-			--print('best_score: '..best.score..' aim: '..best.aim..' cth: '..best.cth)
+			}
 
 			::next_aim::
 		end
@@ -191,29 +166,42 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap)
 		::continue::
 	end
 
-
-	--print(#candidates)
 	if #candidates == 0 then return false end
-	  -- сортируем по убыванию score
-	  table.sort(candidates, function(a,b) return a.score > b.score end)
+	table.sort(candidates, function(a, b) return a.score > b.score end)
 
-	  --лёгкая стохастика из топ-K (deterministic)
-	  local K = Min(3, #candidates)
-	  local sum = 0
-	  for i = 1, K do
+	-- Dump sticky: keep prior mode on same target when still competitive
+	if preferred_mode then
+		local best_score = candidates[1].score
+		local thr = MulDivRound(Max(0, floatfloor(best_score)), const.AIDecisionThreshold, 100)
+		local sticky
+		for _, c in ipairs(candidates) do
+			if c.mode == preferred_mode and c.score >= thr then
+				if not sticky or c.score > sticky.score
+					or (c.score == sticky.score and (c.aim or 0) > (sticky.aim or 0)) then
+					sticky = c
+				end
+			end
+		end
+		if sticky then
+			return sticky
+		end
+	end
+
+	local K = Min(3, #candidates)
+	local sum = 0
+	for i = 1, K do
 		candidates[i].w = Max(1, floatfloor(Max(0.0001, candidates[i].score)))
 		sum = sum + candidates[i].w
-	  end
-	  local r = InteractionRand(sum, "AIDecision", unit)
-	  for i = 1, K do
+	end
+	local r = InteractionRand(sum, "AIDecision", unit)
+	for i = 1, K do
 		if r <= candidates[i].w then
 			return candidates[i]
 		end
 		r = r - candidates[i].w
-	  end
+	end
 
-	  return candidates[1]
-
+	return candidates[1]
 end
 
 function AICalcAttacksAndAimSmart(context, ap, target)

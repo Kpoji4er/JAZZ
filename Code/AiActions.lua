@@ -679,6 +679,8 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
                 end
                 context.dest_ap[dest] = unit.ActionPoints
                 context.target_locked = nil
+                context.dump_attack_mode = nil
+                context.dump_attack_target = nil
             end
         else
             local target = (context.dest_target or empty_table)[dest]
@@ -694,11 +696,18 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
                     IsKindOf(target, "Unit") and target.unitdatadef_id or target.class)
             end
 
-            local best_attack = PickBestAttack(unit, target, context.basic_attacks, unit.ActionPoints)
+            if context.dump_attack_target ~= target then
+                context.dump_attack_mode = nil
+                context.dump_attack_target = target
+            end
+            local best_attack = PickBestAttack(unit, target, context.basic_attacks,
+                unit.ActionPoints, context.dump_attack_mode)
             if best_attack and best_attack.action then
                 context.default_attack = best_attack.action
                 context.default_attack_cost = best_attack.ap or context.default_attack_cost
                 context.attack_target = target
+                context.dump_attack_mode = best_attack.mode or best_attack.action.id
+                context.dump_attack_target = target
             end
 
             if context.default_attack and context.default_attack.id == "Bombard" and AICheckIndoors(dest) then
@@ -764,6 +773,8 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
                 end
                 context.dest_ap[dest] = unit.ActionPoints
                 context.target_locked = nil
+                context.dump_attack_mode = nil
+                context.dump_attack_target = nil
             end
         end
 
@@ -834,6 +845,63 @@ function TryChangeStance(unit)
     return JAZZ_AIBunkerDown(unit, unit and unit.ai_context, false)
 end
 
+-- SameTarget + TakeAim (Пристрелка) + same-target weapon components for approximate AI score.
+function AICalcSameTargetScoreBonus(unit, target, action, weapon, attacker_pos)
+    if not IsValid(unit) or not IsValidTarget(target) then
+        return 0
+    end
+    if unit:GetLastAttack() ~= target then
+        return 0
+    end
+    local mod = Presets.ChanceToHitModifier and Presets.ChanceToHitModifier.Default
+                    and Presets.ChanceToHitModifier.Default.SameTarget
+    if not mod then
+        return 0
+    end
+    local target_pos = IsValid(target) and target:GetPos() or attacker_pos
+    local mod_data = {
+        attacker = unit,
+        target = target,
+        target_spot_group = "Torso",
+        action = action,
+        weapon1 = weapon,
+        weapon2 = false,
+        aim = 0,
+        opportunity_attack = false,
+        attacker_pos = attacker_pos,
+        target_pos = target_pos,
+        min = 0,
+        max = 100,
+        display_name = mod.DisplayName or mod.display_name,
+        meta_text = {},
+        enabled = false,
+        mod_add = 0,
+        mod_mul = 100,
+    }
+    local apply, value = mod:CalcValue(unit, target, "Torso", action, weapon, false,
+        false, 0, false, attacker_pos, target_pos)
+    if not apply then
+        return 0
+    end
+    value = unit:GatherCTHModifications("SameTarget", value or 0, mod_data) or 0
+    if IsKindOf(weapon, "Firearm") and weapon.components then
+        for _, component_id in sorted_pairs(weapon.components) do
+            local def = WeaponComponents[component_id]
+            local effects = def and def.ModificationEffects or empty_table
+            if table.find(effects, "AccuracyBonusSameTarget") then
+                mod_data.weapon1 = weapon
+                mod_data.display_name = def.DisplayName
+                mod_data.meta_text = nil
+                local comp_val = unit:GatherCTHModifications(component_id, 0, mod_data)
+                if comp_val and comp_val ~= 0 then
+                    value = value + comp_val
+                end
+            end
+        end
+    end
+    return value
+end
+
 function AIPrecalcDamageScore(context, destinations, preferred_target,
                               debug_data)
 
@@ -895,7 +963,6 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
     -- cover
     local modCover = hit_modifiers.RangeAttackTargetStanceCover:ResolveValue(
                          "Cover")
-    local modSameTarget = hit_modifiers.SameTarget:ResolveValue("Bonus")
 
     local target_policies = archetype.TargetingPolicies
     if behavior and #(behavior.TargetingPolicies or empty_table) > 0 then
@@ -1022,9 +1089,11 @@ end
                                           modHighGround or uz < tz -
                                           MinGroundDifference and modLowGround or
                                           0)
-                        hit_mod = hit_mod +
-                                      (unit:GetLastAttack() == target and
-                                          modSameTarget or 0)
+                        hit_mod = hit_mod + AICalcSameTargetScoreBonus(unit,
+                                                                       target,
+                                                                       action,
+                                                                       weapon,
+                                                                       attacker_pos)
                     end
                     local target_cover = GetCoverFrom(tpos, upos)
                     if target_cover == const.CoverLow or target_cover ==
