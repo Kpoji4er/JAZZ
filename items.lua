@@ -7425,7 +7425,7 @@ return {
 					'MaxStock', 50,
 					'CategoryPair', "9mm",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 120,
 					'Caliber', "9mm",
 					'Modifications', {},
 				}),
@@ -7444,7 +7444,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "9mm",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 120,
 					'Caliber', "9mm",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -7480,7 +7480,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "9mm",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 120,
 					'Caliber', "9mm",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -7513,7 +7513,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "9mm",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 120,
 					'Caliber', "9mm",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -7625,7 +7625,7 @@ return {
 					'MaxStock', 50,
 					'CategoryPair', "44CAL",
 					'ShopStackSize', 12,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "44CAL",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -7649,7 +7649,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "44CAL",
 					'ShopStackSize', 12,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "44CAL",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -7686,7 +7686,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "44CAL",
 					'ShopStackSize', 12,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "44CAL",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -7784,7 +7784,7 @@ return {
 					'Tier', 3,
 					'CategoryPair', "556",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 90,
 					'Caliber', "556",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -7827,7 +7827,7 @@ return {
 					'RestockWeight', 50,
 					'CategoryPair', "556",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 90,
 					'Caliber', "556",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -7862,7 +7862,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "556",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 90,
 					'Caliber', "556",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -7888,7 +7888,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "556",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 90,
 					'Caliber', "556",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -7943,7 +7943,7 @@ return {
 					'RestockWeight', 150,
 					'CategoryPair', "762WP",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "762WP",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -7989,7 +7989,7 @@ return {
 					'MaxStock', 10,
 					'CategoryPair', "762WP",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "762WP",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -8014,7 +8014,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "762WP",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "762WP",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -8068,7 +8068,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "762WP",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -8095,7 +8095,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "762WP",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -8122,7 +8122,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "762WP",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "762WP",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -8152,7 +8152,7 @@ return {
 					'RestockWeight', 150,
 					'CategoryPair', "762NATO",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "762NATO",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -8194,7 +8194,7 @@ return {
 					'RestockWeight', 50,
 					'CategoryPair', "762NATO",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "762NATO",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -8220,7 +8220,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "762NATO",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "762NATO",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -8247,7 +8247,7 @@ return {
 					'RestockWeight', 10,
 					'CategoryPair', "762NATO",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "762NATO",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -8290,7 +8290,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "762NATO",
 					'ShopStackSize', 30,
-					'MaxStacks', 5000,
+					'MaxStacks', 60,
 					'Caliber', "762NATO",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -8318,7 +8318,7 @@ return {
 					'MaxStock', 50,
 					'RestockWeight', 80,
 					'ShopStackSize', 12,
-					'MaxStacks', 5000,
+					'MaxStacks', 20,
 					'Caliber', "12gauge",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -8345,7 +8345,7 @@ return {
 					'MaxStock', 30,
 					'RestockWeight', 25,
 					'ShopStackSize', 12,
-					'MaxStacks', 5000,
+					'MaxStacks', 20,
 					'Caliber', "12gauge",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -8373,7 +8373,7 @@ return {
 					'MaxStock', 20,
 					'RestockWeight', 80,
 					'ShopStackSize', 12,
-					'MaxStacks', 5000,
+					'MaxStacks', 20,
 					'Caliber', "12gauge",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -8419,7 +8419,7 @@ return {
 					'MaxStock', 5,
 					'RestockWeight', 80,
 					'ShopStackSize', 12,
-					'MaxStacks', 5000,
+					'MaxStacks', 20,
 					'Caliber', "12gauge",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -8464,7 +8464,7 @@ return {
 					'MaxStock', 5,
 					'RestockWeight', 80,
 					'ShopStackSize', 12,
-					'MaxStacks', 5000,
+					'MaxStacks', 20,
 					'Caliber', "12gauge",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -8510,7 +8510,7 @@ return {
 					'MaxStock', 10,
 					'CategoryPair', "50BMG",
 					'ShopStackSize', 10,
-					'MaxStacks', 5000,
+					'MaxStacks', 40,
 					'Caliber', "50BMG",
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -8529,7 +8529,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "50BMG",
 					'ShopStackSize', 10,
-					'MaxStacks', 5000,
+					'MaxStacks', 40,
 					'Caliber', "50BMG",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -8559,7 +8559,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "50BMG",
 					'ShopStackSize', 10,
-					'MaxStacks', 5000,
+					'MaxStacks', 40,
 					'Caliber', "50BMG",
 					'Modifications', {},
 					'AppliedEffects', {
@@ -8584,7 +8584,7 @@ return {
 					'RestockWeight', 25,
 					'CategoryPair', "50BMG",
 					'ShopStackSize', 10,
-					'MaxStacks', 5000,
+					'MaxStacks', 40,
 					'Caliber', "50BMG",
 					'Modifications', {
 						PlaceObj('CaliberModification', {
@@ -29159,6 +29159,7 @@ return {
 					Cost = 20,
 					DisplayName = T(202034549728, --[[ModItemWeaponComponent ImprovisedSuppressor_Anaconda DisplayName]] "Improvised Suppressor"),
 					Icon = "UI/Icons/Upgrades/oil_filter_suppressor_small",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/ImprovisedSuppressor_Anaconda.png",
 					ModificationDifficulty = 0,
 					ModificationEffects = {
 						"SilentShots",
@@ -29192,6 +29193,7 @@ return {
 					Cost = 10,
 					DisplayName = T(655142837568, --[[ModItemWeaponComponent Suppressor_Anaconda DisplayName]] "Suppressor"),
 					Icon = "UI/Icons/Upgrades/beretta_silencer",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Suppressor_Anaconda.png",
 					ModificationDifficulty = 0,
 					ModificationEffects = {
 						"SilentShots",
@@ -29290,6 +29292,7 @@ return {
 					Cost = 50,
 					DisplayName = T(911126905798, --[[ModItemWeaponComponent Auto5_Long_LMag DisplayName]] "Long Barrel High Cap"),
 					Icon = "UI/Icons/Upgrades/galil_barrel_long",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Auto5_Long_LMag.png",
 					ModificationDifficulty = 0,
 					ModificationEffects = {
 						"HalfRangeDmgIncrease",
@@ -29334,6 +29337,7 @@ return {
 					Cost = 30,
 					DisplayName = T(853684866664, --[[ModItemWeaponComponent Auto5_Long_NMag DisplayName]] "Long Barrel"),
 					Icon = "UI/Icons/Upgrades/galil_barrel_long",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Auto5_Long_NMag.png",
 					ModificationDifficulty = 0,
 					ModificationEffects = {
 						"HalfRangeDmgIncrease",
@@ -29372,6 +29376,7 @@ return {
 					Cost = 20,
 					DisplayName = T(804030380788, --[[ModItemWeaponComponent Auto5_Short_NMag DisplayName]] "Короткий ствол"),
 					Icon = "UI/Icons/Upgrades/galil_barrel_short",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Auto5_Short_NMag.png",
 					ModificationDifficulty = 0,
 					ModificationEffects = {
 						"ReduceShootAP",
@@ -29492,6 +29497,7 @@ return {
 					Cost = 15,
 					DisplayName = T(563380121914, --[[ModItemWeaponComponent BarrelShortShotgun_Benelli DisplayName]] "Shortened Barrel"),
 					Icon = "UI/Icons/Upgrades/m1014_barrel_short",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelShortShotgun_Benelli.png",
 					ModificationDifficulty = 0,
 					ModificationEffects = {
 						"ReduceReliability",
@@ -29651,6 +29657,7 @@ return {
 					DisplayName = T(492750328780, --[[ModItemWeaponComponent GrenadeLauncher_M16A1 DisplayName]] "Grenade Launcher"),
 					EnableWeapon = "UnderslungGrenadeLauncher",
 					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/GrenadeLauncher_M16A1.png",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
 						"GrenadeLauncher",
@@ -29678,6 +29685,7 @@ return {
 					DisplayName = T(860554671882, --[[ModItemWeaponComponent GrenadeLauncher_Commando DisplayName]] "Grenade Launcher"),
 					EnableWeapon = "UnderslungGrenadeLauncher",
 					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/GrenadeLauncher_Commando.png",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
 						"GrenadeLauncher",
@@ -29698,6 +29706,7 @@ return {
 					Cost = 40,
 					DisplayName = T(291801976985, --[[ModItemWeaponComponent VerticalGrip_Commando DisplayName]] "Vertical Grip"),
 					Icon = "UI/Icons/Upgrades/mp5_grip",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/VerticalGrip_Commando.png",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
 						"FirstAimBonusModifier",
@@ -29764,6 +29773,7 @@ return {
 					DisplayName = T(875731475724, --[[ModItemWeaponComponent FlashlightDot_PSG_M1 DisplayName]] "Tactical Device"),
 					EnableAimFX = true,
 					Icon = "UI/Icons/Upgrades/side_laserlight",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/FlashlightDot_PSG_M1.png",
 					ModificationDifficulty = 10,
 					ModificationEffects = {
 						"IgnoreInTheDark",
@@ -29792,6 +29802,7 @@ return {
 					DisplayName = T(963698128407, --[[ModItemWeaponComponent Flashlight_PSG_M1 DisplayName]] "Flashlight"),
 					EnableAimFX = true,
 					Icon = "UI/Icons/Upgrades/side_light",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Flashlight_PSG_M1.png",
 					ModificationDifficulty = -25,
 					ModificationEffects = {
 						"IgnoreInTheDark",
@@ -29818,6 +29829,7 @@ return {
 					DisplayName = T(841174949604, --[[ModItemWeaponComponent LaserDot_PSG_M1 DisplayName]] "Red Dot"),
 					EnableAimFX = true,
 					Icon = "UI/Icons/Upgrades/side_laser",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/LaserDot_PSG_M1.png",
 					ModificationDifficulty = 10,
 					ModificationEffects = {
 						"MarkWhenFullyAimed",
@@ -29871,6 +29883,7 @@ return {
 					DisplayName = T(524417680473, --[[ModItemWeaponComponent UVDot_PSG_M1 DisplayName]] "UV Dot"),
 					EnableAimFX = true,
 					Icon = "UI/Icons/Upgrades/side_laser",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/UVDot_PSG_M1.png",
 					ModificationDifficulty = 10,
 					ModificationEffects = {
 						"MinAim",
@@ -29890,6 +29903,7 @@ return {
 					Cost = 40,
 					DisplayName = T(236370866133, --[[ModItemWeaponComponent RPK74_VerticalGrip DisplayName]] "Vertical Grip"),
 					Icon = "UI/Icons/Upgrades/ak47_vertical_grip",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/RPK74_VerticalGrip.png",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
 						"RecoilDecrease",
@@ -29945,6 +29959,7 @@ return {
 					Cost = 60,
 					DisplayName = T(511013919584, --[[ModItemWeaponComponent Bipod_Under DisplayName]] "Bipod"),
 					Icon = "UI/Icons/Upgrades/ak47_bipod",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Bipod_Under.png",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
 						"AccuracyBonusProne",
@@ -30001,6 +30016,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(824406786716, --[[ModItemWeaponComponent Val_VSS_wing2 DisplayName]] "Крепление для ВАЛ/ВСС"),
 					Slot = "Side3",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Val_VSS_wing2.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "AS_Val",
@@ -30022,6 +30038,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(564328344484, --[[ModItemWeaponComponent Val_VSS_wing1 DisplayName]] "Крепление для ВАЛ/ВСС"),
 					Slot = "Side2",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Val_VSS_wing1.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "AS_Val",
@@ -30043,6 +30060,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(490344601575, --[[ModItemWeaponComponent VSSFlashLight DisplayName]] "Мощный Фонарь"),
 					Slot = "Side",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/VSSFlashLight.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "VSS",
@@ -30098,6 +30116,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(205417891756, --[[ModItemWeaponComponent HandguardRail DisplayName]] "Цевьё с рельсой"),
 					Icon = "UI/Icons/Upgrades/default_grenadelauncher",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/HandguardRail.png",
 					Slot = "HandguardRail",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
@@ -30238,6 +30257,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(482774581636, --[[ModItemWeaponComponent StockFull DisplayName]] "Деревянный приклад АК"),
 					Slot = "Stock",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/StockFull.png",
 					comment = "Обычные приклады",
 					group = "Default",
 					id = "StockFull",
@@ -30470,6 +30490,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(656684873329, --[[ModItemWeaponComponent AdvancedHOLO DisplayName]] "Улучшеный коллиматор"),
 					Slot = "Scope",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/AdvancedHOLO.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "G3A3",
@@ -30852,6 +30873,7 @@ return {
 						"GripHandlingIncrease",
 					},
 					Slot = "Handguard",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/SigErgoHandGrip.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							Entity = "SIGErgoHandGrip",
@@ -30890,6 +30912,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(342325910829, --[[ModItemWeaponComponent M16Bayonet DisplayName]] "Штык-нож для М16"),
 					Slot = "Side2",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/M16Bayonet.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							Entity = "M16Bayonet",
@@ -30903,6 +30926,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(898134129078, --[[ModItemWeaponComponent M16BarrelRedDot DisplayName]] "ЛЦУ на уникальном спецкреплении"),
 					Slot = "Side",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/M16BarrelRedDot.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							Entity = "M16BarrelRedDot",
@@ -30918,6 +30942,7 @@ return {
 					DisplayName = T(469543190873, --[[ModItemWeaponComponent M16A1LaunchHandGuard DisplayName]] "Гранатомет"),
 					EnableWeapon = "UnderslungGrenadeLauncher",
 					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/M16A1LaunchHandGuard.png",
 					ModificationDifficulty = -10,
 					ModificationEffects = {
 						"GrenadeLauncher",
@@ -30936,6 +30961,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(866252525731, --[[ModItemWeaponComponent ModernSupressor DisplayName]] "Мультикалиберная банка"),
 					Slot = "Muzzle",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/ModernSupressor.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							Entity = "M4ModernSupressor",
@@ -30949,6 +30975,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(949465429175, --[[ModItemWeaponComponent M4ModernStanag DisplayName]] "Кастомный магазин STANAG"),
 					Slot = "Magazine",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/M4ModernStanag.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							Entity = "M4ModernStanag",
@@ -31033,6 +31060,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(471444565530, --[[ModItemWeaponComponent CollimatorMP7 DisplayName]] "Коллиматор для ближних дистанций"),
 					Slot = "Scope",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/CollimatorMP7.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							Entity = "MP7_Scope",
@@ -31074,6 +31102,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(676243000186, --[[ModItemWeaponComponent MP5A4RedDot DisplayName]] "ЛЦУ для Цевья MP5A4"),
 					Slot = "Side",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MP5A4RedDot.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							Entity = "MP5A4LaserDot",
@@ -31088,6 +31117,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(209877814242, --[[ModItemWeaponComponent MP5A4FlashLight DisplayName]] "Фонарь для MP5A4"),
 					Slot = "Side",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MP5A4FlashLight.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "MP5A4",
@@ -31103,6 +31133,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(789037404504, --[[ModItemWeaponComponent MP5MagV2 DisplayName]] "Магазин для МР5 на 30 патронов"),
 					Slot = "Magazine",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MP5MagV2.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "",
@@ -31118,6 +31149,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(670821753901, --[[ModItemWeaponComponent PKMModStock DisplayName]] "Кастомный приклад ПКМ"),
 					Slot = "Stock",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/PKMModStock.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							Entity = "PKMModStock",
@@ -31131,6 +31163,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(975455619349, --[[ModItemWeaponComponent PKMModHandGrip DisplayName]] "Модифицированная рукоять ПКМ"),
 					Slot = "Handguard",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/PKMModHandGrip.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							Entity = "PKMModHandGrip",
@@ -31170,6 +31203,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(893727332248, --[[ModItemWeaponComponent R870AmmoSide_1 DisplayName]] "Патронтаж для 870го рема"),
 					Slot = "Side",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/R870AmmoSide_1.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "R870",
@@ -31197,6 +31231,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(154402527977, --[[ModItemWeaponComponent G3MuzzleV2 DisplayName]] "Заводской пламегаситель G3 SG"),
 					Slot = "Muzzle",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/G3MuzzleV2.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							Entity = "G3Muzzle",
@@ -32376,6 +32411,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(535138608885, --[[ModItemWeaponComponent Autofire DisplayName]] "Автоматический огонь"),
 					Icon = "Mod/e6L4ECj/WeaponComponents/Carbine/AUTO.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Autofire.png",
 					ModificationEffects = {
 						"EnableFullAuto",
 						"EnableBurst",
@@ -32408,6 +32444,7 @@ return {
 						Cost = 15,
 						DisplayName = T(928480071483, --[[ModItemWeaponComponent BarrelShort_AUG DisplayName]] "Short Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_short",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelShort_AUG.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"ReduceReliability",
@@ -32453,6 +32490,7 @@ return {
 						Cost = 35,
 						DisplayName = T(289320256080, --[[ModItemWeaponComponent BarrelShortImproved_AUG DisplayName]] "Short Gain-Twist Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_short",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelShortImproved_AUG.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"BarrelHandlingIncrease",
@@ -32495,6 +32533,7 @@ return {
 						Cost = 70,
 						DisplayName = T(809839566679, --[[ModItemWeaponComponent BarrelLong_AUG DisplayName]] "Extended Barrel with Bipod"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelLong_AUG.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"AccuracyBonusProne",
@@ -32539,6 +32578,7 @@ return {
 						Cost = 100,
 						DisplayName = T(816796570762, --[[ModItemWeaponComponent BarrelLongImproved_AUG DisplayName]] "Extended Gain-Twist Barrel with Bipod"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelLongImproved_AUG.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"AccuracyBonusProne",
@@ -32589,6 +32629,7 @@ return {
 						Cost = 30,
 						DisplayName = T(691552369727, --[[ModItemWeaponComponent BarrelHeavy DisplayName]] "Heavy Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelHeavy.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"IncreasedSingleShotAccuracy",
@@ -32694,6 +32735,7 @@ return {
 						Cost = 75,
 						DisplayName = T(798912434710, --[[ModItemWeaponComponent BarrelLong DisplayName]] "Extended Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelLong.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"BarrelRangeIncrease",
@@ -32881,6 +32923,7 @@ return {
 						Cost = 100,
 						DisplayName = T(852176633290, --[[ModItemWeaponComponent BarrelLongImproved DisplayName]] "Extended Gain-Twist Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelLongImproved.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"IncreaseReliability",
@@ -33008,6 +33051,7 @@ return {
 						Cost = 75,
 						DisplayName = T(807789574452, --[[ModItemWeaponComponent BarrelLongShotgun DisplayName]] "Extended Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelLongShotgun.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"BarrelRangeIncrease",
@@ -33302,6 +33346,7 @@ return {
 						Cost = 50,
 						DisplayName = T(890000000000085, --[[ModItemWeaponComponent BarrelNormal_Sil DisplayName]] "Ствол под глушитель"),
 						Icon = "UI/Icons/Upgrades/default_barrel",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelNormal_Sil.png",
 						ModificationDifficulty = 10,
 						Slot = "Barrel",
 						Visuals = {
@@ -33351,6 +33396,7 @@ return {
 						Cost = 15,
 						DisplayName = T(790308378417, --[[ModItemWeaponComponent BarrelNormalImproved DisplayName]] "Gain-Twist Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelNormalImproved.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"IncreaseReliability",
@@ -33721,6 +33767,7 @@ return {
 						Cost = 15,
 						DisplayName = T(729393345984, --[[ModItemWeaponComponent BarrelShortRunNGun DisplayName]] "Короткий ствол"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_short",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelShortRunNGun.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"ReduceReliability",
@@ -33859,6 +33906,7 @@ return {
 						Cost = 35,
 						DisplayName = T(837372947792, --[[ModItemWeaponComponent BarrelShortImproved DisplayName]] "Short Gain-Twist Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_short",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelShortImproved.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"BarrelRangeReduce",
@@ -33978,6 +34026,7 @@ return {
 						Cost = 15,
 						DisplayName = T(849289197281, --[[ModItemWeaponComponent BarrelShortShotgun DisplayName]] "Shortened Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_short",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelShortShotgun.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"BarrelRangeReduce",
@@ -34041,6 +34090,7 @@ return {
 						Cost = 20,
 						DisplayName = T(785427900359, --[[ModItemWeaponComponent Barrel50BMG_DesertEagle DisplayName]] ".50 BMG Barrel"),
 						Icon = "UI/Icons/Upgrades/default_barrel",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Barrel50BMG_DesertEagle.png",
 						ModificationDifficulty = -25,
 						ModificationEffects = {
 							"IncreaseDamage",
@@ -34086,6 +34136,7 @@ return {
 						DisplayName = T(664378236433, --[[ModItemWeaponComponent Type56Bayo DisplayName]] "Штык-нож"),
 						EnableWeapon = "Machete",
 						Icon = "UI/Icons/Upgrades/grenade_launcher_WP",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Type56Bayo.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"zzStockEquipped",
@@ -34140,6 +34191,7 @@ return {
 						Cost = 50,
 						DisplayName = T(540055379780, --[[ModItemWeaponComponent StockFolded DisplayName]] "Folded Stock"),
 						Icon = "UI/Icons/Upgrades/MP5_stock_light",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/StockFolded.png",
 						ModificationDifficulty = 20,
 						ModificationEffects = {
 							"ReduceAimAccuracy",
@@ -34321,6 +34373,7 @@ return {
 						Cost = 150,
 						DisplayName = T(850663002598, --[[ModItemWeaponComponent StockLight DisplayName]] "Light Stock"),
 						Icon = "UI/Icons/Upgrades/MP5_stock_light",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/StockLight.png",
 						ModificationDifficulty = 20,
 						ModificationEffects = {
 							"RecoilIncrease",
@@ -35591,6 +35644,7 @@ return {
 						Cost = 50,
 						DisplayName = T(792047899659, --[[ModItemWeaponComponent AK47_VerticalGrip DisplayName]] "Vertical Grip"),
 						Icon = "UI/Icons/Upgrades/ak47_vertical_grip",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/AK47_VerticalGrip.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"RecoilDecrease",
@@ -35622,6 +35676,7 @@ return {
 						Cost = 40,
 						DisplayName = T(237740217316, --[[ModItemWeaponComponent AKSU_VerticalGrip DisplayName]] "Vertical Grip"),
 						Icon = "UI/Icons/Upgrades/ak47_vertical_grip",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/AKSU_VerticalGrip.png",
 						ModificationDifficulty = 20,
 						ModificationEffects = {
 							"RecoilDecrease",
@@ -35777,6 +35832,7 @@ return {
 							"GripHandlingIncrease",
 						},
 						Slot = "Handguard",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/SigErgoHandGrip.png",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "SIGErgoHandGrip",
@@ -35818,6 +35874,7 @@ return {
 							"GripHandlingIncrease",
 						},
 						Slot = "Handgrip",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Handgrip_Ergo.png",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "MR73",
@@ -36408,6 +36465,7 @@ return {
 						DisplayName = T(634387792704, --[[ModItemWeaponComponent Flashlight_Grip DisplayName]] "Рукоятка с фонариком"),
 						EnableAimFX = true,
 						Icon = "UI/Icons/Upgrades/side_light",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Flashlight_Grip.png",
 						ModificationDifficulty = -25,
 						ModificationEffects = {
 							"IgnoreInTheDark",
@@ -36438,6 +36496,7 @@ return {
 						Cost = 25,
 						DisplayName = T(537813709075, --[[ModItemWeaponComponent Flashlight_Grip_Off DisplayName]] "Рукоятка с фонариком"),
 						Icon = "UI/Icons/Upgrades/side_light",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Flashlight_Grip_Off.png",
 						ModificationDifficulty = -25,
 						ModificationEffects = {
 							"RecoilDecrease",
@@ -36467,6 +36526,7 @@ return {
 						DisplayName = T(571634186469, --[[ModItemWeaponComponent Flashlight_R870 DisplayName]] "Фонарик"),
 						EnableAimFX = true,
 						Icon = "UI/Icons/Upgrades/side_light",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Flashlight_R870.png",
 						ModificationDifficulty = -25,
 						ModificationEffects = {
 							"IgnoreInTheDark",
@@ -37648,6 +37708,7 @@ return {
 						Cost = 10,
 						DisplayName = T(684571159127, --[[ModItemWeaponComponent HandlingWrap DisplayName]] "Обмотка на цевье"),
 						Icon = "Mod/e6L4ECj/WeaponComponents/Side/Wrap.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/HandlingWrap.png",
 						ModificationEffects = {
 							"BarrelHandlingIncrease",
 						},
@@ -37937,6 +37998,7 @@ return {
 						Cost = 10,
 						DisplayName = T(566372378498, --[[ModItemWeaponComponent PistolSuppressor DisplayName]] "Глушитель"),
 						Icon = "UI/Icons/Upgrades/beretta_silencer",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/PistolSuppressor.png",
 						ModificationDifficulty = -10,
 						ModificationEffects = {
 							"RecoilDecrease",
@@ -38077,6 +38139,7 @@ return {
 						Cost = 20,
 						DisplayName = T(829507516509, --[[ModItemWeaponComponent ImprovisedSuppressor DisplayName]] "Масляной фильтр"),
 						Icon = "UI/Icons/Upgrades/oil_filter_suppressor_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/ImprovisedSuppressor.png",
 						ModificationDifficulty = -25,
 						ModificationEffects = {
 							"StealthKillBonusPerAim",
@@ -38167,6 +38230,7 @@ return {
 						Cost = 10,
 						DisplayName = T(383554280885, --[[ModItemWeaponComponent Suppressor DisplayName]] "Suppressor"),
 						Icon = "UI/Icons/Upgrades/beretta_silencer",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Suppressor.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"SilentShots",
@@ -38529,6 +38593,7 @@ return {
 						Cost = 10,
 						DisplayName = T(102033365013, --[[ModItemWeaponComponent FlashHider DisplayName]] "Пламегаситель"),
 						Icon = "Mod/e6L4ECj/WeaponComponents/Carbine/CarbineFlashHider.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/FlashHider.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"RecoilDecrease",
@@ -38579,6 +38644,7 @@ return {
 						Cost = 10,
 						DisplayName = T(301018052581, --[[ModItemWeaponComponent SuppressorImproved DisplayName]] "Улучшенный глушитель"),
 						Icon = "UI/Icons/Upgrades/beretta_silencer",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/SuppressorImproved.png",
 						ModificationDifficulty = 10,
 						ModificationEffects = {
 							"SilentShots",
@@ -38694,6 +38760,7 @@ return {
 						Cost = 15,
 						DisplayName = T(441367044411, --[[ModItemWeaponComponent AUGCompensator_3 DisplayName]] "Улучшенный компенсатор"),
 						Icon = "UI/Icons/Upgrades/muzzle_steyr_01",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/AUGCompensator_3.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"AccuracyBonusSameTarget",
@@ -38727,6 +38794,7 @@ return {
 						Cost = 10,
 						DisplayName = T(145217278026, --[[ModItemWeaponComponent AUGCompensator_1 DisplayName]] "Стандартный компенсатор"),
 						Icon = "UI/Icons/Upgrades/muzzle_steyr_02",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/AUGCompensator_1.png",
 						ModificationDifficulty = -25,
 						ModificationEffects = {
 							"AccuracyBonusSameTarget",
@@ -38754,6 +38822,7 @@ return {
 						Cost = 20,
 						DisplayName = T(149583333542, --[[ModItemWeaponComponent DuckbillChoke DisplayName]] "Duckbill Choke"),
 						Icon = "UI/Icons/Upgrades/duckbill_choke",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/DuckbillChoke.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"IncreaseBuckshotAngle",
@@ -38780,6 +38849,7 @@ return {
 						Cost = 20,
 						DisplayName = T(534679598165, --[[ModItemWeaponComponent FullChoke DisplayName]] "Full Choke"),
 						Icon = "UI/Icons/Upgrades/shotgun_full_choke",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/FullChoke.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"DecreaseBuckshotAngle",
@@ -38805,6 +38875,7 @@ return {
 						Cost = 15,
 						DisplayName = T(148253085245, --[[ModItemWeaponComponent MuzzleBooster DisplayName]] "Recoil Booster"),
 						Icon = "UI/Icons/Upgrades/booster_NATO",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MuzzleBooster.png",
 						ModificationDifficulty = 0,
 						Slot = "Muzzle",
 						Visuals = {
@@ -38955,6 +39026,7 @@ return {
 						Cost = 10,
 						DisplayName = T(697020602032, --[[ModItemWeaponComponent ImprovedIronsight_AR15 DisplayName]] "Improved Iron Sight"),
 						Icon = "UI/Icons/Upgrades/ironsights_hands",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/ImprovedIronsight_AR15.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"AccuracyBonusWhenAimed",
@@ -39012,6 +39084,7 @@ return {
 						Cost = 20,
 						DisplayName = T(434214967295, --[[ModItemWeaponComponent LROptics_DragunovDefault DisplayName]] "Sniper Scope x5"),
 						Icon = "UI/Icons/Upgrades/custom_Dragunov_scope",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/LROptics_DragunovDefault.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"IncreaseMaxAimActions",
@@ -39104,6 +39177,7 @@ return {
 						Cost = 35,
 						DisplayName = T(813847402970, --[[ModItemWeaponComponent ReflexSightAdvanced_Glock DisplayName]] "Advanced Reflex Sight"),
 						Icon = "UI/Icons/Upgrades/compact_reflex_sight",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/ReflexSightAdvanced_Glock.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"OpportunityAttackBonusCth",
@@ -39200,6 +39274,7 @@ return {
 							Cost = 50,
 							DisplayName = T(404607274285, --[[ModItemWeaponComponent ReflexSight DisplayName]] "Коллиматор"),
 							Icon = "UI/Icons/Upgrades/compact_reflex_sight",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/ReflexSight.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"DecreaseMaxAimActions",
@@ -40066,6 +40141,7 @@ return {
 							Cost = 50,
 							DisplayName = T(254930997326, --[[ModItemWeaponComponent ScopeCOG DisplayName]] "Прицел малой кратности"),
 							Icon = "UI/Icons/Upgrades/prism_scope",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/ScopeCOG.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"FirstShotIncreasedAim",
@@ -40809,6 +40885,7 @@ return {
 							Cost = 50,
 							DisplayName = T(528735864844, --[[ModItemWeaponComponent LROptics DisplayName]] "Оптический прицел"),
 							Icon = "UI/Icons/Upgrades/scope_longrange",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/LROptics.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"IncreaseMaxAimActions",
@@ -41737,6 +41814,7 @@ return {
 							Cost = 50,
 							DisplayName = T(375055804144, --[[ModItemWeaponComponent JAZZ_Reflex_Garand DisplayName]] "Коллиматор"),
 							Icon = "UI/Icons/Upgrades/compact_reflex_sight",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Reflex_Garand.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"DecreaseMaxAimActions",
@@ -41799,6 +41877,7 @@ return {
 							Cost = 50,
 							DisplayName = T(419665110457, --[[ModItemWeaponComponent JAZZ_Reflex_Cobra DisplayName]] "Коллиматор Кобра"),
 							Icon = "UI/Icons/Upgrades/compact_reflex_sight",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Reflex_Cobra.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"DecreaseMaxAimActions",
@@ -43176,6 +43255,7 @@ return {
 							Cost = 50,
 							DisplayName = T(628416281031, --[[ModItemWeaponComponent JAZZ_Reflex_Pistol DisplayName]] "Коллиматор Пистолетный"),
 							Icon = "UI/Icons/Upgrades/compact_reflex_sight",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Reflex_Pistol.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"DecreaseMaxAimActions",
@@ -43938,6 +44018,7 @@ return {
 							Cost = 100,
 							DisplayName = T(741345842100, --[[ModItemWeaponComponent JAZZ_CombatScope_1P29 DisplayName]] 'Штурмовой прицел "Тюльпан" (4х)'),
 							Icon = "Mod/e6L4ECj/WeaponComponents/Optics/1P29.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_CombatScope_1P29.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"IncreaseShotAP",
@@ -44035,6 +44116,7 @@ return {
 							Cost = 100,
 							DisplayName = T(570150285061, --[[ModItemWeaponComponent JAZZ_CombatScope_FeroZ24 DisplayName]] "Штурмовой прицел Fero Z24 (4х)"),
 							Icon = "Mod/e6L4ECj/WeaponComponents/Optics/1P29.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_CombatScope_FeroZ24.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"IncreaseShotAP",
@@ -44436,6 +44518,7 @@ return {
 						PlaceObj('ModItemWeaponComponent', {
 							DisplayName = T(714899319454, --[[ModItemWeaponComponent Jazz_G36Scope DisplayName]] "Прицел G36 3x"),
 							Icon = "UI/Icons/Upgrades/custom_Steyr_AUG_scope",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Jazz_G36Scope.png",
 							ModificationDifficulty = -25,
 							ModificationEffects = {
 								"IncreaseShotAP",
@@ -45581,6 +45664,7 @@ return {
 							Cost = 50,
 							DisplayName = T(912711132128, --[[ModItemWeaponComponent JAZZ_Scope_Springfield DisplayName]] "Оптический Прицел (2.75x)"),
 							Icon = "Mod/e6L4ECj/WeaponComponents/Optics/SpringfieldScope.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Scope_Springfield.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"ScopeMagnification",
@@ -45648,6 +45732,7 @@ return {
 							Cost = 50,
 							DisplayName = T(237637252887, --[[ModItemWeaponComponent JAZZ_Scope_PU DisplayName]] "Оптический Прицел ПУ (3.5x)"),
 							Icon = "Mod/e6L4ECj/WeaponComponents/Optics/PUScope.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Scope_PU.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"ScopeMagnification",
@@ -45861,6 +45946,7 @@ return {
 							Cost = 50,
 							DisplayName = T(379863023022, --[[ModItemWeaponComponent JAZZ_Scope_Garand DisplayName]] "Оптический Прицел M84 (2.2x)"),
 							Icon = "Mod/e6L4ECj/WeaponComponents/Optics/GarandScope.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Scope_Garand.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"ScopeMagnification",
@@ -45985,6 +46071,7 @@ return {
 							Cost = 50,
 							DisplayName = T(890000000000684, --[[ModItemWeaponComponent JAZZ_Scope_ZF4 DisplayName]] "Оптический Прицел ZF4 (4x)"),
 							Icon = "Mod/e6L4ECj/WeaponComponents/Optics/ZF4.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Scope_ZF4.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"ScopeMagnification",
@@ -46148,6 +46235,7 @@ return {
 							Cost = 100,
 							DisplayName = T(240766540064, --[[ModItemWeaponComponent JAZZ_NightScope_NSPU DisplayName]] "Ночной прицел НСПУ (3.5х)"),
 							Icon = "Mod/e6L4ECj/WeaponComponents/Optics/NSPU.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_NightScope_NSPU.png",
 							ModificationDifficulty = 10,
 							ModificationEffects = {
 								"IncreaseShotAP",
@@ -46659,6 +46747,7 @@ return {
 							}),
 						},
 						Slot = "Scope",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Jazz_IronSight_AIM.png",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "P226SightsAccF",
@@ -46696,6 +46785,7 @@ return {
 							}),
 						},
 						Slot = "Scope",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Jazz_IronSight_FAST.png",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "P226SightsFastF",
@@ -46727,6 +46817,7 @@ return {
 							}),
 						},
 						Slot = "Scope",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Jazz_IronSight_NIGHT.png",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "P226SightsNightF",
@@ -46748,6 +46839,7 @@ return {
 					Cost = 20,
 					DisplayName = T(511443060153, --[[ModItemWeaponComponent HolsterBelt DisplayName]] "Ремень"),
 					Icon = "Mod/e6L4ECj/WeaponComponents/belt.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/HolsterBelt.png",
 					ModificationDifficulty = 10,
 					ModificationEffects = {
 						"FreeWeaponSwap",
@@ -46784,6 +46876,7 @@ return {
 					DisplayName = T(257319151734, --[[ModItemWeaponComponent GrenadeLauncher_AUG DisplayName]] "Grenade Launcher"),
 					EnableWeapon = "UnderslungGrenadeLauncher",
 					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/GrenadeLauncher_AUG.png",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
 						"GrenadeLauncher",
@@ -46807,6 +46900,7 @@ return {
 					Cost = 40,
 					DisplayName = T(442108004279, --[[ModItemWeaponComponent VerticalGrip_AUG DisplayName]] "Vertical Grip"),
 					Icon = "UI/Icons/Upgrades/mp5_grip",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/VerticalGrip_AUG.png",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
 						"FirstAimBonusModifier",
@@ -46847,6 +46941,7 @@ return {
 						Cost = 20,
 						DisplayName = T(555407199353, --[[ModItemWeaponComponent HK33LowerMod DisplayName]] "Улучшенный lower"),
 						Icon = "UI/Icons/Upgrades/tactical_grip",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/HK33LowerMod.png",
 						ModificationDifficulty = 10,
 						Slot = "General",
 						Visuals = {
@@ -46889,6 +46984,7 @@ return {
 						Cost = 20,
 						DisplayName = T(459910372558, --[[ModItemWeaponComponent HK33HandguardMod DisplayName]] "Цевье с планками"),
 						Icon = "UI/Icons/Upgrades/default_handguard",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/HK33HandguardMod.png",
 						ModificationDifficulty = 10,
 						Slot = "Handguard",
 						Visuals = {
@@ -47010,6 +47106,7 @@ return {
 					DisplayName = T(572893256229, --[[ModItemWeaponComponent GrenadeLauncher_Galil DisplayName]] "Grenade Launcher"),
 					EnableWeapon = "UnderslungGrenadeLauncher",
 					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/GrenadeLauncher_Galil.png",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
 						"GrenadeLauncher",
@@ -47125,6 +47222,7 @@ return {
 						Cost = 150,
 						DisplayName = T(266664626516, --[[ModItemWeaponComponent HandguardM1ARail DisplayName]] "Цевьё с рельсой"),
 						Icon = "UI/Icons/Upgrades/default_grenadelauncher",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/HandguardM1ARail.png",
 						ModificationDifficulty = 20,
 						Slot = "Handguard",
 						Visuals = {
@@ -47154,6 +47252,7 @@ return {
 					DisplayName = T(304182346557, --[[ModItemWeaponComponent GP25 DisplayName]] "ГП-25"),
 					EnableWeapon = "M79",
 					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/GP25.png",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
 						"GrenadeLauncher",
@@ -47209,6 +47308,7 @@ return {
 					Cost = 30,
 					DisplayName = T(925428900427, --[[ModItemWeaponComponent SpeedLoader DisplayName]] "Ускорение перезарядки"),
 					Icon = "UI/Icons/Upgrades/beretta_silencer",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/SpeedLoader.png",
 					ModificationDifficulty = 0,
 					ModificationEffects = {
 						"ReduceReloadAP",
@@ -47266,6 +47366,7 @@ return {
 						"GrenadeLauncher",
 					},
 					Slot = "Muzzle",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/M70_Grenade.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "Zastava_M70",
@@ -48553,6 +48654,7 @@ return {
 							Cost = 15,
 							DisplayName = T(330952772905, --[[ModItemWeaponComponent MagQuick DisplayName]] "Quick Mag"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_quick",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagQuick.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"ReduceReloadAP",
@@ -49091,6 +49193,7 @@ return {
 							Cost = 15,
 							DisplayName = T(213094233610, --[[ModItemWeaponComponent MagLarge DisplayName]] "Расширенный магазин"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarge.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"MagazineHandlingDecrease",
@@ -49396,6 +49499,7 @@ return {
 							Cost = 15,
 							DisplayName = T(212189312168, --[[ModItemWeaponComponent MagLarge_17_33 DisplayName]] "Магазин на 33 патрона"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarge_17_33.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"MagazineHandlingDecrease",
@@ -49695,6 +49799,7 @@ return {
 							Cost = 25,
 							DisplayName = T(853495886060, --[[ModItemWeaponComponent MagLarge_5_10 DisplayName]] "Магазин на 10 патрон"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarge_5_10.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"MagazineHandlingDecrease",
@@ -49740,6 +49845,7 @@ return {
 							Cost = 25,
 							DisplayName = T(513947495758, --[[ModItemWeaponComponent MagLarge_8_10 DisplayName]] "Магазин на 10 патрон"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarge_8_10.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"ReduceReliability",
@@ -49773,6 +49879,7 @@ return {
 							Cost = 25,
 							DisplayName = T(513947495758, --[[ModItemWeaponComponent MagLarge_7_10 DisplayName]] "Магазин на 10 патрон"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarge_7_10.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"ReduceReliability",
@@ -49806,6 +49913,7 @@ return {
 							Cost = 25,
 							DisplayName = T(870471539633, --[[ModItemWeaponComponent MagLarge_18_20 DisplayName]] "Магазин на 20 патрон"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarge_18_20.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"ReduceReliability",
@@ -49996,6 +50104,7 @@ return {
 							Cost = 25,
 							DisplayName = T(997099133073, --[[ModItemWeaponComponent MagLarge_30_42 DisplayName]] "Магазин на 42 патрона"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarge_30_42.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"MagazineHandlingDecrease",
@@ -50105,6 +50214,7 @@ return {
 							Cost = 25,
 							DisplayName = T(804714419971, --[[ModItemWeaponComponent MagLarge_20_30 DisplayName]] "Магазин на 30 патрон"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarge_20_30.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"MagazineHandlingDecrease",
@@ -50184,6 +50294,7 @@ return {
 							Cost = 25,
 							DisplayName = T(544080364524, --[[ModItemWeaponComponent MagLarge_25_40 DisplayName]] "Магазин на 40 патрон"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarge_25_40.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"MagazineHandlingDecrease",
@@ -50257,6 +50368,7 @@ return {
 						Cost = 25,
 						DisplayName = T(100761815371, --[[ModItemWeaponComponent MagLargeFine DisplayName]] "Ergonomic Expanded Mag"),
 						Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLargeFine.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"MagazineSizeMultiplier",
@@ -50408,6 +50520,7 @@ return {
 						Cost = 15,
 						DisplayName = T(603956294727, --[[ModItemWeaponComponent MagNormalFine DisplayName]] "Fine-Tuned Mag"),
 						Icon = "UI/Icons/Upgrades/m16_magazine",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagNormalFine.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"IncreaseReliability",
@@ -50580,6 +50693,7 @@ return {
 						Cost = 25,
 						DisplayName = T(580391137625, --[[ModItemWeaponComponent MagLarger DisplayName]] "Бубен"),
 						Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarger.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"ExtraBurstShots",
@@ -50680,6 +50794,7 @@ return {
 							Cost = 50,
 							DisplayName = T(202821670683, --[[ModItemWeaponComponent MagDrum_30-50 DisplayName]] "Бубен"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagDrum_30-50.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"MagazineHandlingDecrease",
@@ -50739,6 +50854,7 @@ return {
 							Cost = 50,
 							DisplayName = T(475365498057, --[[ModItemWeaponComponent MagDrum_35-71 DisplayName]] "Бубен"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagDrum_35-71.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"MagazineHandlingDecrease",
@@ -50791,6 +50907,7 @@ return {
 							Cost = 50,
 							DisplayName = T(571428420057, --[[ModItemWeaponComponent MagDrum_30-75 DisplayName]] "Бубен"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagDrum_30-75.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"MagazineHandlingDecrease",
@@ -50859,6 +50976,7 @@ return {
 							Cost = 50,
 							DisplayName = T(494349827673, --[[ModItemWeaponComponent MagDrum_30-100 DisplayName]] "Бубен"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagDrum_30-100.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"MagazineHandlingDecrease",
@@ -50923,6 +51041,7 @@ return {
 							Cost = 50,
 							DisplayName = T(436643816571, --[[ModItemWeaponComponent MagDrum_30-100_cumbersome DisplayName]] "Бубен"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagDrum_30-100_cumbersome.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"MagazineHandlingDecrease",
@@ -50980,6 +51099,7 @@ return {
 							Cost = 50,
 							DisplayName = T(325946124810, --[[ModItemWeaponComponent MagBelt_40-100 DisplayName]] "Короб"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagBelt_40-100.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"MagazineHandlingDecrease",
@@ -51045,6 +51165,7 @@ return {
 							Cost = 100,
 							DisplayName = T(504310573707, --[[ModItemWeaponComponent MagBelt_100-200 DisplayName]] "Увеличенный короб"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagBelt_100-200.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"MagazineHandlingDecrease",
@@ -51118,6 +51239,7 @@ return {
 						Cost = 15,
 						DisplayName = T(819181213302, --[[ModItemWeaponComponent MagBelt DisplayName]] "Expanded Mag"),
 						Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagBelt.png",
 						ModificationDifficulty = 0,
 						Slot = "Magazine",
 						Visuals = {
@@ -51136,6 +51258,7 @@ return {
 						Cost = 25,
 						DisplayName = T(898177327102, --[[ModItemWeaponComponent MagBeltLarge DisplayName]] "LMG and MG Magazines"),
 						Icon = "UI/Icons/Upgrades/galil_magazine_large",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagBeltLarge.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"ExtraBurstShots",
@@ -51192,6 +51315,7 @@ return {
 					PlaceObj('ModItemWeaponComponent', {
 						DisplayName = T(155197885944, --[[ModItemWeaponComponent BigMag DisplayName]] "Магазин увеличенной емкости"),
 						Slot = "Magazine",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BigMag.png",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "AK74",
@@ -51249,6 +51373,7 @@ return {
 					PlaceObj('ModItemWeaponComponent', {
 						DisplayName = T(785174016047, --[[ModItemWeaponComponent MGmug DisplayName]] "Ещё один бубенец, только пулеметный"),
 						Slot = "Magazine",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MGmug.png",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "U100",
@@ -51264,6 +51389,7 @@ return {
 					PlaceObj('ModItemWeaponComponent', {
 						DisplayName = T(368922403308, --[[ModItemWeaponComponent Bubny DisplayName]] "Бубенец"),
 						Slot = "Magazine",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Bubny.png",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "UZI",
@@ -72173,7 +72299,7 @@ return {
 															end
 														end
 														local full = bullets == weapon.MagazineSize
-														local canReload = not full and wepIdx
+														local canReload = wepIdx -- allow FullClipHaveOther (change ammo type)
 														local enabled = canReload and CombatActions.Reload:GetVisibility(units) == "enabled"
 														self:SetEnabled(enabled)
 													end,
@@ -72258,7 +72384,7 @@ return {
 												local wepIdx, ammo = GetQuickReloadWeaponAndAmmo(self, weapon)
 												local bullets = GetBulletCount(weapon)
 												local full = bullets == weapon.MagazineSize
-												local canReload = not full and wepIdx
+												local canReload = wepIdx -- allow FullClipHaveOther (change ammo type)
 												local enabled = canReload and CombatActions.Reload:GetVisibility({unit}) == "enabled"
 												self:SetEnabled(enabled)
 												self:SetGridY(#self.parent + 1) -- Last
@@ -97463,8 +97589,13 @@ return {
 		}),
 		PlaceObj('ModItemCode', {
 			'name', "WeaponIconBake",
-			'comment', "JAZZ-UI-001 side-view baked weapon icons with attachments",
+			'comment', "JAZZ-UI-001 dormant bake helpers (BakeEnabled=false; path B chips)",
 			'CodeFileName', "Code/WeaponIconBake.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "WeaponAttachChips",
+			'comment', "JAZZ-UI-001 path B attachment chips on inventory/HUD tiles",
+			'CodeFileName', "Code/WeaponAttachChips.lua",
 		}),
 		PlaceObj('ModItemCode', {
 			'name', "InventoryUI",

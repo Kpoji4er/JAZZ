@@ -148,6 +148,9 @@ end
 
 
 function UnitInventory:AddItem(slot_name, item, left, top, local_execution)
+	if JazzApplyStackContext then
+		JazzApplyStackContext(item, self)
+	end
 	local pos, reason = Inventory.AddItem(self, slot_name, item, left, top)
 	if not pos then return pos, reason end
 	
@@ -169,9 +172,12 @@ function AddItemsToInventory(inventoryObj, items, bLog)
 			inventoryObj:ForEachItemDef(item.class, 
 				function(curitm, slot_name, item_left, item_top)
 					if slot_name~="Inventory" then return end
-					
-				   if curitm.Amount < curitm.MaxStacks then
-						local to_add = Min(curitm.MaxStacks - curitm.Amount, item.Amount)
+					local max = JazzGetStackMax and JazzGetStackMax(curitm, inventoryObj) or curitm.MaxStacks
+					if JazzApplyStackContext then
+						JazzApplyStackContext(curitm, inventoryObj)
+					end
+				   if curitm.Amount < max then
+						local to_add = Min(max - curitm.Amount, item.Amount)
 						curitm.Amount =curitm.Amount + to_add
 						curitm.drop_chance = Max(curitm.drop_chance, item.drop_chance)
 						if bLog then
@@ -408,11 +414,17 @@ function UnitInventory:ReloadWeapon(gun, ammo_type, delayed_fx, ai)
 			ammo = self:GetAvailableAmmos(gun, ammo_type)
 		end
 		ammo_items = ammo and table.ifilter(ammo, function(idx, stack) return stack.class == ammo[1].class and stack.Amount > 0 end)
+		if JazzSortAmmoStacksForReload then
+			JazzSortAmmoStacksForReload(ammo_items)
+		end
 		ammo = table.remove(ammo_items, 1)
 	else
 		ammo = ammo_type
 		ammo_items = self:GetAvailableAmmos(gun, ammo_type.class)
 		table.remove_value(ammo_items, ammo)
+		if JazzSortAmmoStacksForReload then
+			JazzSortAmmoStacksForReload(ammo_items)
+		end
 	end
 	
 	local prev, playedFX, change
@@ -442,6 +454,7 @@ function UnitInventory:ReloadWeapon(gun, ammo_type, delayed_fx, ai)
 
 		local ammo_class = IsKindOfClasses(gun, "HeavyWeapon", "FlareGun") and "Ordnance" or "Ammo"
 		if ammo_class == "Ammo" then slot_name = "AmmoInventory" end
+		if ammo_class == "Ordnance" then slot_name = "OrdnanceInventory" end
 
 		if ammo.Amount <= 0 then
 			self:RemoveItem(slot_name, ammo)	
@@ -455,10 +468,11 @@ function UnitInventory:ReloadWeapon(gun, ammo_type, delayed_fx, ai)
 		if prev then
 			if prev.Amount == 0 then
 				DoneObject(prev)
-			else
-				if self:CanAddItem(slot_name, ammo)	then self:TryEquip(slot_name, ammo)
-				else bag:AddAndStackItem(prev) end
-				--
+			elseif JazzReturnEjectedAmmo then
+				-- merge into loadout stacks first; leftover drops at feet (not squad bag)
+				JazzReturnEjectedAmmo(self, prev)
+			elseif bag then
+				bag:AddAndStackItem(prev)
 			end
 		end
 	end

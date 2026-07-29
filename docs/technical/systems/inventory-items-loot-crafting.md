@@ -22,6 +22,7 @@ JAZZ расширяет инвентарь специализированным�
 - `Code/System_Vest.lua` — vest classes при неактивном отдельном Vest slot;
 - `Code/System_OR_ItemContainer.lua` — контейнеры, открытие и NetSync;
 - `Code/System_OR_SquadBag.lua` — squad bag и перенос при изменении состава;
+- `Code/System_InventoryStacks.lua` — dual stack limits (storage vs loadout, JAZZ-INV-001);
 - `Code/System_LootDef.lua` — расширения loot definitions;
 - `Code/System_LootDrops.lua` — runtime выпадения;
 - `Code/GetScrapParts.lua` — разбор оружия;
@@ -40,6 +41,25 @@ Unit inventory schema включает:
 Вместимость части слотов вычисляется из характеристик и perks. Reload берёт патроны только из `AmmoInventory`; наличие ammo в другом допустимом контейнере не гарантирует возможность перезарядки. Четыре `InventoryTab`: `Grenades`, `Meds`, `Melee`, `resources`.
 
 `InventoryVest` существует, однако Vest slot закомментирован. Его нельзя документировать как активную пользовательскую ячейку до изменения metadata/code и save migration.
+
+### Stack limits (JAZZ-INV-001)
+
+| Контейнер | Effective max | UI на тайле |
+|---|---|---|
+| Unit slots / разгрузка | personal `MaxStacks` (InventoryItem def) | `Amount/MaxStacks` |
+| `SquadBag`, `SectorStash` | `const.JazzStorageStackMax` = `10000` | только `Amount` (без `/max`) |
+
+Реализация: `Code/System_InventoryStacks.lua` (`JazzGetStackMax` / `JazzApplyStackContext`) + merge/`CanAddItem`/bag-sort/AddItem hooks. В storage instance `MaxStacks` поднимается до storage cap (чтобы vanilla `MoveItem` считал стек верно); при переносе в unit восстанавливается personal max. Перенос склад→мерк заливает до personal max, остаток остаётся на складе.
+
+Known issue (не data loss): плавающее **визуальное** пропадание тайлов в SquadBag до регенерации UI bag; данные `squad_bag` сохраняются.
+
+### Reload: return ejected ammo
+
+Вынутый магазин: merge в стеки `AmmoInventory`/`OrdnanceInventory` мерка; остаток — `GetDropContainer` под ноги (не squad bag). Satellite без tactical unit — sector inventory. Дозарядка берёт стеки того же класса по убыванию `Amount`.
+
+### Combat HUD: change ammo type
+
+Vanilla `GetQuickReloadWeaponAndAmmo` отключает quick-reload при полном магазине, если есть другой тип (`FullClipHaveOther`). JAZZ (`Code/InventoryUI.lua` + `UIWeaponDisplay`): кнопка Reload активна; клик открывает тот же текстовый `InventoryContextSubMenu`, что и в инвентаре (`<ammo_type>(<count>)`), якорь — над оружием / кнопкой Reload.
 
 ## Предметный каталог
 

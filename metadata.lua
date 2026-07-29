@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- Пробитие UI: десятые через Untranslated (0.9 не режется в 0); skill jazz-penetration-scales\n- Colby: RU AIM/VR texts + Chain Panic perk description (Silero+RVC voices in jazz-units)\n- Пробитие: единый class+0.1×bonus в DR/UI/object armor",
+	'last_changes', "- Инвентарь: dual stack limits (bag/stash 10000 vs loadout MaxStacks); ejected ammo в разгрузку/под ноги\n- Боевой HUD: смена типа патронов текстовым submenu как в инвентаре\n- Пробитие UI: десятые через Untranslated (0.9 не режется в 0)",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 23,
+	'version_minor', 24,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
@@ -849,6 +849,7 @@ return PlaceObj('ModDef', {
 		"Code/AIContextProfiles.lua",
 		"Code/PushUnitAlert.lua",
 		"Code/System_LootDrops.lua",
+		"Code/System_InventoryStacks.lua",
 		"Code/System_OR_SquadBag.lua",
 		"Code/System_OR_ItemContainer.lua",
 		"Code/System_UnitInventory.lua",
@@ -860,6 +861,7 @@ return PlaceObj('ModDef', {
 		"InventoryItem/Vest_test.lua",
 		"InventoryItem/Backpack_test.lua",
 		"Code/WeaponIconBake.lua",
+		"Code/WeaponAttachChips.lua",
 		"Code/InventoryUI.lua",
 		"Code/System_ArmorRating.lua",
 		"Code/System_GasMask.lua",

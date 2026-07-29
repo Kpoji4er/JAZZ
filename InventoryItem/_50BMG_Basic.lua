@@ -15,7 +15,7 @@ DefineClass._50BMG_Basic = {
 	MaxStock = 10,
 	CategoryPair = "50BMG",
 	ShopStackSize = 10,
-	MaxStacks = 5000,
+	MaxStacks = 40,
 	Caliber = "50BMG",
 }
 

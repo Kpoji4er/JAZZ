@@ -18,7 +18,7 @@ DefineClass._556_Basic = {
 	RestockWeight = 50,
 	CategoryPair = "556",
 	ShopStackSize = 30,
-	MaxStacks = 5000,
+	MaxStacks = 90,
 	Caliber = "556",
 	Modifications = {
 		PlaceObj('CaliberModification', {

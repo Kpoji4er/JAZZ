@@ -16,7 +16,7 @@ DefineClass._556_HP = {
 	Tier = 3,
 	CategoryPair = "556",
 	ShopStackSize = 30,
-	MaxStacks = 5000,
+	MaxStacks = 90,
 	Caliber = "556",
 	Modifications = {
 		PlaceObj('CaliberModification', {

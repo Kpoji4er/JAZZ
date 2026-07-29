@@ -17,7 +17,7 @@ DefineClass._762WP_Subsonic = {
 	RestockWeight = 25,
 	CategoryPair = "762WP",
 	ShopStackSize = 30,
-	MaxStacks = 5000,
+	MaxStacks = 60,
 	Caliber = "762WP",
 	Modifications = {
 		PlaceObj('CaliberModification', {

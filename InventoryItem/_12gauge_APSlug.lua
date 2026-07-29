@@ -17,7 +17,7 @@ DefineClass._12gauge_APSlug = {
 	MaxStock = 5,
 	RestockWeight = 80,
 	ShopStackSize = 12,
-	MaxStacks = 5000,
+	MaxStacks = 20,
 	Caliber = "12gauge",
 	Modifications = {
 		PlaceObj('CaliberModification', {

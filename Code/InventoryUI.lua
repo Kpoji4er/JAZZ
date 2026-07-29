@@ -1,17 +1,118 @@
--- JAZZ-UI-001: bind AppData baked weapon icons + suppress w_mod when baked.
+-- JAZZ-UI-001 path B: attachment chips on firearm tiles; template Icon stays vanilla.
+-- Bake bind helpers kept for dormant path E (JazzWeaponIcon_BakeEnabled).
+
+function JazzWeaponIcon_BindItemImage(img, item)
+	if not img or not item then
+		return false
+	end
+	local icon = (item.GetItemUIIcon and item:GetItemUIIcon()) or item.Icon
+	if JazzWeaponIcon_BakeEnabled and JazzWeaponIcon_IsCachePath and JazzWeaponIcon_IsCachePath(icon) then
+		if JazzWeaponIcon_ApplyToXImage then
+			JazzWeaponIcon_ApplyToXImage(img, icon)
+		else
+			img:SetImage(icon, true)
+		end
+		return true
+	end
+	if JazzWeaponIcon_BakeEnabled then
+		local forced = JazzWeaponIcon_Resolve and JazzWeaponIcon_Resolve(item)
+		if forced and JazzWeaponIcon_IsCachePath(forced) then
+			if JazzWeaponIcon_ApplyToXImage then
+				JazzWeaponIcon_ApplyToXImage(img, forced)
+			else
+				img:SetImage(forced, true)
+			end
+			return true
+		end
+	end
+	if icon then
+		img:SetImage(icon)
+	end
+	return false
+end
+
+function JazzWeaponIcon_RefreshWeaponDisplays()
+	local function visit(win)
+		if not win then
+			return
+		end
+		local item = win.GetContext and win:GetContext() or rawget(win, "context")
+		if item and JazzAttachChips_IsFirearm and JazzAttachChips_IsFirearm(item) then
+			local icon = rawget(win, "idIcon") or (win.ResolveId and win:ResolveId("idIcon"))
+			if icon then
+				JazzWeaponIcon_BindItemImage(icon, item)
+				if JazzAttachChips_Apply then
+					JazzAttachChips_Apply(icon, item)
+				end
+			end
+		end
+		if win.ForEachChild then
+			win:ForEachChild(visit)
+		else
+			for _, child in ipairs(win) do
+				visit(child)
+			end
+		end
+	end
+	local roots = {}
+	local igi = GetInGameInterface and GetInGameInterface()
+	if igi then
+		roots[#roots + 1] = igi
+	end
+	local mode = GetInGameInterfaceModeDlg and GetInGameInterfaceModeDlg()
+	if mode and mode ~= igi then
+		roots[#roots + 1] = mode
+	end
+	local inv = GetMercInventoryDlg and GetMercInventoryDlg()
+	if inv then
+		roots[#roots + 1] = inv
+	end
+	for _, root in ipairs(roots) do
+		visit(root)
+	end
+end
+
+function JazzWeaponIcon_ScheduleWeaponDisplayRefresh()
+	if DelayedCall then
+		DelayedCall(0, JazzWeaponIcon_RefreshWeaponDisplays)
+		DelayedCall(120, JazzWeaponIcon_RefreshWeaponDisplays)
+	else
+		JazzWeaponIcon_RefreshWeaponDisplays()
+	end
+end
+
+function OnMsg.SelectionChange()
+	JazzWeaponIcon_ScheduleWeaponDisplayRefresh()
+end
+
+function OnMsg.SelectedObjChange()
+	JazzWeaponIcon_ScheduleWeaponDisplayRefresh()
+end
+
+function OnMsg.CombatActionEnd()
+	JazzWeaponIcon_ScheduleWeaponDisplayRefresh()
+end
+
+function OnMsg.WeaponModifiedSuccessSync()
+	JazzWeaponIcon_ScheduleWeaponDisplayRefresh()
+end
+
 local JazzWeaponIcon_OldOnContextUpdate = XInventoryItem.OnContextUpdate
 function XInventoryItem:OnContextUpdate(item, ...)
 	JazzWeaponIcon_OldOnContextUpdate(self, item, ...)
 	if not item then
 		return
 	end
-	local icon = item:GetItemUIIcon()
-	if JazzWeaponIcon_IsCachePath and JazzWeaponIcon_IsCachePath(icon) then
-		JazzWeaponIcon_ApplyToXImage(self.idItemImg, icon)
+	JazzWeaponIcon_BindItemImage(self.idItemImg, item)
+	if JazzAttachChips_Apply then
+		JazzAttachChips_Apply(self.idItemImg, item)
 	end
-	local mod = self.idItemImg and rawget(self.idItemImg, "idItemModImg")
-	if mod and JazzWeaponIcon_HasBakedIcon then
-		mod:SetVisible(not JazzWeaponIcon_HasBakedIcon(item))
+end
+
+-- Compat for UIWeaponDisplay run_after that still calls SuppressModBadge.
+function JazzWeaponIcon_SuppressModBadge(img, item, _baked)
+	if JazzAttachChips_Apply then
+		JazzAttachChips_Apply(img, item)
 	end
 end
 
@@ -73,6 +174,9 @@ function _InventoryUIRespawn()
         end
     end
     InventoryUIRespawn_shield = nil
+	if JazzWeaponIcon_RefreshWeaponDisplays then
+		JazzWeaponIcon_RefreshWeaponDisplays()
+	end
 end
 
 function InventoryEquipAPText(bShow, text)
@@ -531,4 +635,174 @@ function HighlightEquipSlots(item, bShow)
 			::continue::
 		end
 	end
+end
+
+-- Combat HUD: allow ammo-type change when magazine is full (vanilla blocks FullClipHaveOther).
+function GetQuickReloadWeaponAndAmmo(parent, weapon)
+	local wep = weapon
+	if not wep and parent then
+		local node = parent.ResolveId and parent:ResolveId("node")
+		node = node and node.ResolveId and node:ResolveId("node")
+		wep = node and node.context
+	end
+	if not wep then
+		return false
+	end
+	local unit = SelectedObj
+	if not unit then
+		return false
+	end
+
+	local _, __, wl = unit:GetActiveWeapons()
+	local idx = table.find(wl, wep)
+
+	local ammos = unit:GetAvailableAmmos(wep, nil, "unique")
+	local can, err = IsWeaponAvailableForReload(wep, ammos)
+	if not can then
+		return false, err
+	end
+
+	local currentClass = wep.ammo and wep.ammo.class
+	if err == AttackDisableReasons.FullClipHaveOther then
+		for _, ammo in ipairs(ammos) do
+			if ammo.class ~= currentClass then
+				return idx, ammo
+			end
+		end
+		return false, AttackDisableReasons.FullClip
+	end
+
+	local currentAmmo
+	if currentClass then
+		local haveMoreFromCurrent = table.find(ammos, "class", currentClass)
+		currentAmmo = haveMoreFromCurrent and ammos[haveMoreFromCurrent] or ammos[1]
+	else
+		currentAmmo = ammos[1]
+	end
+
+	return idx, currentAmmo
+end
+
+-- Small lift above the reload control (px). Keep tiny: full weapon-strip anchor overshoots.
+local JazzAmmoMenuGap = 24
+
+local function JazzResolveAmmoChoiceAnchor(mode_dlg, anchor_btn)
+	if IsKindOf(anchor_btn, "XWindow") and anchor_btn.window_state ~= "destroying" then
+		local b = anchor_btn.box
+		if b and b:sizex() > 0 and b:sizey() > 0 then
+			return anchor_btn
+		end
+	end
+	local weaponUI = mode_dlg and mode_dlg:ResolveId("idWeaponUI")
+	if weaponUI then
+		local reload = weaponUI:ResolveId("idReloadButton") or weaponUI:ResolveId("idSubReloadButton")
+		if reload then
+			local b = reload.box
+			if b and b:sizex() > 0 and b:sizey() > 0 then
+				return reload
+			end
+		end
+		local b = weaponUI.box
+		if b and b:sizex() > 0 and b:sizey() > 0 then
+			return weaponUI
+		end
+	end
+	return false
+end
+
+local function JazzAmmoMenuAnchorBox(anchor, gap)
+	local ab = anchor.box
+	if not ab or ab:sizex() <= 0 then
+		return ab
+	end
+	-- Move the anchor rect up so center-top leaves a gap above the button/icon.
+	gap = gap or 0
+	return box(ab:minx(), ab:miny() - gap, ab:maxx(), ab:maxy() - gap)
+end
+
+-- Same text labels as inventory reload submenu: "<ammo_type>(<count>)".
+local function JazzShowCombatAmmoTypeChoice(unit, weapon, wepIdx, delayed_fx, anchor_btn)
+	local mode_dlg = GetInGameInterfaceModeDlg()
+	if not mode_dlg then
+		return false
+	end
+	local options = GetReloadOptionsForWeapon(weapon, unit, "skipSubWeapon")
+	if not options or #options == 0 then
+		return false
+	end
+
+	local anchor = JazzResolveAmmoChoiceAnchor(mode_dlg, anchor_btn)
+	if not anchor then
+		return false
+	end
+
+	-- Toggle closed if already open.
+	local existing = rawget(mode_dlg, "jazzAmmoContextPopup")
+	if existing and existing.window_state ~= "destroying" then
+		existing:Close()
+		mode_dlg.jazzAmmoContextPopup = false
+		return true
+	end
+	if mode_dlg.ClosePopup then
+		mode_dlg:ClosePopup(CombatActions.Reload)
+	end
+
+	local popup
+	local slot_wnd = {
+		slot_name = unit.current_weapon or "Handheld A",
+		ClosePopup = function()
+			if popup and popup.window_state ~= "destroying" then
+				popup:Close()
+			end
+			if mode_dlg then
+				mode_dlg.jazzAmmoContextPopup = false
+			end
+		end,
+	}
+	local context = {
+		action = "reload",
+		item = weapon,
+		context = unit,
+		unit = unit,
+		slot_wnd = slot_wnd,
+	}
+	popup = XTemplateSpawn("InventoryContextSubMenu", terminal.desktop, context)
+	popup:SetMargins(box(0, 0, 0, JazzAmmoMenuGap))
+	popup:SetAnchorType("center-top")
+	popup:SetAnchor(JazzAmmoMenuAnchorBox(anchor, JazzAmmoMenuGap))
+	mode_dlg.jazzAmmoContextPopup = popup
+	popup:Open()
+	if popup.idTitle then
+		popup.idTitle:SetText(T(231508638088, "Ammo"))
+	end
+	return true
+end
+
+function QuickReloadButton(parent, weapon, delayed_fx)
+	local unit = SelectedObj
+	local wepIdx, ammo = GetQuickReloadWeaponAndAmmo(parent, weapon)
+	if not wepIdx then
+		return
+	end
+	local wep = weapon
+	if not wep and parent then
+		local node = parent.ResolveId and parent:ResolveId("node")
+		wep = node and node.context
+	end
+	if wep then
+		local ammos = unit:GetAvailableAmmos(wep, nil, "unique")
+		local can, err = IsWeaponAvailableForReload(wep, ammos)
+		if can and err == AttackDisableReasons.FullClipHaveOther then
+			if JazzShowCombatAmmoTypeChoice(unit, wep, wepIdx, delayed_fx, parent) then
+				return true
+			end
+		end
+	end
+	CombatActions.Reload:Execute({ unit }, {
+		weapon = wepIdx,
+		target = ammo.class,
+		delayed_fx = delayed_fx,
+		item_id = weapon and weapon.id,
+	})
+	return true
 end

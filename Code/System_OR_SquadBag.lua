@@ -103,12 +103,17 @@ end
 
 function _SortItemsInBag(squad_id)
 	local bag_items = GetSquadBag(squad_id)
+	if JazzMarkSquadBagData then
+		JazzMarkSquadBagData(squad_id)
+	end
 	local stacks = {}
+	local storage_max = const.JazzStorageStackMax or 10000
 	for idx, item in ipairs(bag_items) do
 		for i = 1, #stacks do
 			local bag_item = stacks[i]
 			if bag_item.class == item.class then
-				local to_add = Min(bag_item.MaxStacks - bag_item.Amount, item.Amount)
+				local max = storage_max
+				local to_add = Min(max - bag_item.Amount, item.Amount)
 				if to_add>0 then
 					bag_item.Amount = bag_item.Amount + to_add
 					item.Amount = item.Amount - to_add
@@ -121,6 +126,9 @@ function _SortItemsInBag(squad_id)
 			end	
 		end
 		if item and item.Amount and item.Amount>0 then
+			if IsKindOf(item, "InventoryStack") then
+				rawset(item, "MaxStacks", storage_max)
+			end
 			stacks[#stacks + 1] = item
 		end
 	end
@@ -185,19 +193,31 @@ end
 
 function SquadBag:SetSquadId(squad_id)	
 	if self.squad_id==squad_id then
+		if JazzEnsureContainerStackContext then
+			JazzEnsureContainerStackContext(self)
+		end
 		return
 	end	
 	
 	self:Clear()
 	
 	self.squad_id = squad_id
+	if JazzMarkSquadBagData then
+		JazzMarkSquadBagData(squad_id)
+	end
 	local items = self:GetSquadBag() or empty_table	
 	for idx, item in ipairs(items) do
+		if JazzApplyStackContext then
+			JazzApplyStackContext(item, self)
+		end
 		Inventory.AddItem(self,"Inventory", item)
 	end
 end
 
 function SquadBag:AddItem(slot_name, item, left, top, local_execution)
+	if JazzApplyStackContext then
+		JazzApplyStackContext(item, self)
+	end
 	local pos, reason = Inventory.AddItem(self, slot_name, item, left, top, local_execution)
 	if not pos and left and top then
 		--failed to add item @ specific slot, but this container self expands, try without specific pos
@@ -209,6 +229,9 @@ function SquadBag:AddItem(slot_name, item, left, top, local_execution)
 		if cdata then			
 			local left, top = point_unpack(pos)
 			local currentitem = self:GetItemInSlot(slot_name, false, left, top)
+			if JazzApplyStackContext then
+				JazzApplyStackContext(currentitem, self)
+			end
 			local val, idx = table.find_value(cdata,currentitem)
 			if val then
 				cdata[idx]=currentitem -- if something is changed
@@ -224,6 +247,12 @@ function SquadBag:AddItem(slot_name, item, left, top, local_execution)
 end
 
 function SquadBag:AddAndStackItem(item)
+	-- Drag-reload: vanilla sends ejected mag here — redirect to loadout / ground.
+	local prefer = rawget(_G, "JazzEjectedAmmoPreferUnit")
+	if prefer and JazzReturnEjectedAmmo and IsKindOfClasses(item, "Ammo", "Ordnance") then
+		JazzReturnEjectedAmmo(prefer, item)
+		return
+	end
 	MergeStackIntoContainer(self, "Inventory", item)
 	
 	if item.Amount > 0 then
@@ -345,9 +374,11 @@ function AddItemsToSquadBag(squad_id, items)
 		local item =  items[i]
 		if item:IsKindOf("SquadBagItem") then
 			local count = item.Amount
+			local storage_max = const.JazzStorageStackMax or 10000
 			for _, curitm in ipairs(bag) do
-				if curitm and curitm.class==item and IsKindOf(curitm,"InventoryStack") and curitm.Amount < curitm.MaxStacks then
-					local to_add = Min(curitm.MaxStacks - curitm.Amount, count)
+				if curitm and curitm.class==item.class and IsKindOf(curitm,"InventoryStack") and curitm.Amount < storage_max then
+					rawset(curitm, "MaxStacks", storage_max)
+					local to_add = Min(storage_max - curitm.Amount, count)
 					curitm.Amount = curitm.Amount + to_add
 					count = count - to_add			
 					if to_add > 0 then
@@ -361,6 +392,10 @@ function AddItemsToSquadBag(squad_id, items)
 				end
 			end	
 			if count > 0 then
+				if IsKindOf(item, "InventoryStack") then
+					rawset(item, "MaxStacks", storage_max)
+					item.Amount = count
+				end
 				table.insert(bag, item)		
 				Msg("SquadBagAddItem", item, count)
 			end
@@ -386,9 +421,11 @@ function AddItemToSquadBag(squad_id, item_id, count, callback,...)
 	
 	local args = {...}
 	local count = count
+	local storage_max = const.JazzStorageStackMax or 10000
 	for _, curitm in ipairs(bag) do
-		if curitm and curitm.class==item_id and IsKindOf(curitm,"InventoryStack") and curitm.Amount < curitm.MaxStacks then
-			local to_add = Min(curitm.MaxStacks - curitm.Amount, count)
+		if curitm and curitm.class==item_id and IsKindOf(curitm,"InventoryStack") and curitm.Amount < storage_max then
+			rawset(curitm, "MaxStacks", storage_max)
+			local to_add = Min(storage_max - curitm.Amount, count)
 			curitm.Amount = curitm.Amount + to_add
 			count = count - to_add			
 			if to_add > 0 then
@@ -409,8 +446,9 @@ function AddItemToSquadBag(squad_id, item_id, count, callback,...)
 
 		local to_add = 1
 		if IsKindOf(item,"InventoryStack") then
-			to_add = Min(item.MaxStacks, count)
+			to_add = Min(storage_max, count)
 			item.Amount = to_add
+			rawset(item, "MaxStacks", storage_max)
 		end
 		table.insert(bag, item)
 		

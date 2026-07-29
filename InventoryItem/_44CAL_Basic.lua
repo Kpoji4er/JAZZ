@@ -15,7 +15,7 @@ DefineClass._44CAL_Basic = {
 	MaxStock = 50,
 	CategoryPair = "44CAL",
 	ShopStackSize = 12,
-	MaxStacks = 5000,
+	MaxStacks = 60,
 	Caliber = "44CAL",
 	Modifications = {
 		PlaceObj('CaliberModification', {

@@ -16,7 +16,7 @@ DefineClass._12gauge_Breacher = {
 	MaxStock = 30,
 	RestockWeight = 25,
 	ShopStackSize = 12,
-	MaxStacks = 5000,
+	MaxStacks = 20,
 	Caliber = "12gauge",
 	Modifications = {
 		PlaceObj('CaliberModification', {

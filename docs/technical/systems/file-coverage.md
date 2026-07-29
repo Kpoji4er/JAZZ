@@ -1,6 +1,6 @@
 # Покрытие файлов системной документацией
 
-Этот реестр фиксирует статус каждого ручного `Code/*.lua` на срезе 25 июля 2026 года и указывает страницу-владельца. Статус определяется `metadata.lua`, а не фактом существования файла.
+Этот реестр фиксирует статус каждого ручного `Code/*.lua` и указывает страницу-владельца. Статус определяется `metadata.lua`, а не фактом существования файла. Срез обновлён **29 июля 2026**.
 
 Обозначения: **loaded** — загружается; **dormant** — существует, но не указан в metadata; **empty** — нулевая/пустая заготовка; **inert** — загружается, но активная логика отсутствует; **editor** — инструментальная логика.
 
@@ -32,12 +32,14 @@
 | `Inventory.lua` | loaded | [Инвентарь](inventory-items-loot-crafting.md) |
 | `InventoryUI.lua` | loaded | [Инвентарь](inventory-items-loot-crafting.md), [UI](ui-audio-fx.md) |
 | `System_UnitInventory.lua` | loaded | [Инвентарь](inventory-items-loot-crafting.md) |
+| `System_InventoryStacks.lua` | loaded | [Инвентарь](inventory-items-loot-crafting.md) |
 | `System_Vest.lua` | loaded, Vest slot неактивен | [Инвентарь](inventory-items-loot-crafting.md), [броня](armor-damage-wounds-will.md) |
 | `System_OR_ItemContainer.lua` | loaded | [Инвентарь](inventory-items-loot-crafting.md) |
 | `System_OR_SquadBag.lua` | loaded | [Инвентарь](inventory-items-loot-crafting.md) |
 | `System_LootDef.lua` | loaded | [Инвентарь и loot](inventory-items-loot-crafting.md) |
 | `System_LootDrops.lua` | loaded | [Инвентарь и loot](inventory-items-loot-crafting.md) |
 | `AmmoRolloverHint.lua` | loaded | [Оружие](weapons-ammo-components.md), [UI](ui-audio-fx.md) |
+| `WeaponIconBake.lua` | loaded | [Оружие](weapons-ammo-components.md), [UI](ui-audio-fx.md) |
 
 ## `jazz`: AI, видимость и юниты
 
@@ -45,8 +47,10 @@
 |---|---|---|
 | `AiActions.lua` | loaded | [AI](ai-awareness.md) |
 | `AiAction_ThrowFlare.lua` | loaded | [AI](ai-awareness.md), [взрывчатка](explosives-traps-heavy-weapons.md) |
+| `AiFastForward.lua` | loaded | [AI](ai-awareness.md), [UI](ui-audio-fx.md) |
 | `AIBehaviours.lua` | loaded | [AI](ai-awareness.md) |
 | `AIPolicy.lua` | loaded | [AI](ai-awareness.md) |
+| `AIContextProfiles.lua` | loaded | [AI](ai-awareness.md) |
 | `CombatAI.lua` | loaded | [AI](ai-awareness.md) |
 | `UnitAwareness.lua` | loaded | [AI](ai-awareness.md) |
 | `PushUnitAlert.lua` | loaded, empty | [AI](ai-awareness.md) |
@@ -68,6 +72,10 @@
 | `EnemySquad.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
 | `Guardpost.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
 | `Guardpost_Patrols.lua` | loaded, Legion Global AI director | [Стратегия](strategy-squads-sectors.md) |
+| `LegionUnitPrices.lua` | loaded | [Стратегия](strategy-squads-sectors.md), [легион tiers](legion-units-equipment-tiers.md) |
+| `LegionSquadComposition.lua` | loaded | [Стратегия](strategy-squads-sectors.md), [легион tiers](legion-units-equipment-tiers.md) |
+| `LegionSquadGenerator.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
+| `LegionMilitiaRecruits.lua` | loaded (soft gate; 011 partial) | [Стратегия](strategy-squads-sectors.md) |
 | `Regions_Sectors.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
 | `SatelliteSquad.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
 | `SatelliteSquadFixes.lua` | loaded, empty | [Стратегия](strategy-squads-sectors.md) |
@@ -105,6 +113,7 @@
 | Файл | Статус | Документация |
 |---|---|---|
 | `AIKeywords.lua` | loaded | [AI](ai-awareness.md), [юниты](units-progression-specializations.md) |
+| `AICombatStance.lua` | loaded | [AI](ai-awareness.md) |
 | `EliteEnemyNamesFuncs.lua` | loaded | [Юниты](units-progression-specializations.md) |
 | `ExperienceSys.lua` | loaded | [Юниты](units-progression-specializations.md) |
 | `ExperienceTable.lua` | loaded | [Юниты](units-progression-specializations.md) |

@@ -16,7 +16,7 @@ DefineClass._12gauge_Flechette = {
 	MaxStock = 20,
 	RestockWeight = 80,
 	ShopStackSize = 12,
-	MaxStacks = 5000,
+	MaxStacks = 20,
 	Caliber = "12gauge",
 	Modifications = {
 		PlaceObj('CaliberModification', {

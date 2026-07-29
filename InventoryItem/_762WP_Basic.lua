@@ -18,7 +18,7 @@ DefineClass._762WP_Basic = {
 	MaxStock = 10,
 	CategoryPair = "762WP",
 	ShopStackSize = 30,
-	MaxStacks = 5000,
+	MaxStacks = 60,
 	Caliber = "762WP",
 	Modifications = {
 		PlaceObj('CaliberModification', {

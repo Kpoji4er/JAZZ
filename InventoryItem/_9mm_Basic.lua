@@ -14,7 +14,7 @@ DefineClass._9mm_Basic = {
 	MaxStock = 50,
 	CategoryPair = "9mm",
 	ShopStackSize = 30,
-	MaxStacks = 5000,
+	MaxStacks = 120,
 	Caliber = "9mm",
 	Modifications = {},
 }

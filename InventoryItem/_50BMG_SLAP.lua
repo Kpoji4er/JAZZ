@@ -17,7 +17,7 @@ DefineClass._50BMG_SLAP = {
 	RestockWeight = 25,
 	CategoryPair = "50BMG",
 	ShopStackSize = 10,
-	MaxStacks = 5000,
+	MaxStacks = 40,
 	Caliber = "50BMG",
 	Modifications = {
 		PlaceObj('CaliberModification', {

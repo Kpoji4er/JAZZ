@@ -427,6 +427,9 @@ function SectorStash:SetSectorId(sector_id, filter)
 	local sector_id = sector_id or gv_CurrentSectorId	
 	
 	if self.sector_id == sector_id then
+		if JazzEnsureContainerStackContext then
+			JazzEnsureContainerStackContext(self)
+		end
 		return
 	end
 	
@@ -441,6 +444,9 @@ function SectorStash:SetSectorId(sector_id, filter)
 			local items = container[3] or empty_table
 			for idx, item in sorted_pairs(items) do
 				if not filter or filter(item) then
+					if JazzApplyStackContext then
+						JazzApplyStackContext(item, self)
+					end
 					Inventory.AddItem(self,"Inventory", item)
 				end
 			end
@@ -467,6 +473,9 @@ function SectorStash:AddItem(slot_name, item, left, top, local_execution, use_po
 	local x, y
 	if left then
 		x, y = left, top
+	end
+	if JazzApplyStackContext then
+		JazzApplyStackContext(item, self)
 	end
 	return Inventory.AddItem(self,"Inventory", item, x, y)
 end
