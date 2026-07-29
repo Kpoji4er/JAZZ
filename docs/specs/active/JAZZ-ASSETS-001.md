@@ -1,6 +1,6 @@
 ---
 id: JAZZ-ASSETS-001
-status: implemented
+status: approved
 owner: project-owner
 systems:
   - assets-entities
@@ -107,7 +107,7 @@ approved_by: project-owner
 - `JAZZ-ASSETS-001-AC-003`: `PASS` — static self-test: fixture активной Entity с двумя отсутствующими resources и duplicate collision vertex дал 3 blocking errors.
 - `JAZZ-ASSETS-001-AC-004`: `PASS` — static: `js-yaml@4.1.0` разобрал reusable и caller workflows; conditional call присутствует только для `inputs.package == 'jazz_assets'`; package overlay и scoped whitespace прошли.
 - `JAZZ-ASSETS-001-AC-005`: `PASS` — generated/static: sync audit сохранил baseline `errors=0`, `warnings=14`; новых generated graph расхождений нет.
-- `JAZZ-ASSETS-001-AC-006`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-ASSETS-001-AC-006`: `BLOCKED` — требуется новый процесс игры и human/runtime acceptance.
 - `JAZZ-ASSETS-001-AC-007`: `PASS` — static: `check-system-docs.ps1` завершён, `systems=19`, `skills=6`, `markdown=95`, `repos=4`.
 
 ## Documentation delta

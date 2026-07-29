@@ -3,7 +3,6 @@
 ## Связанные specs
 
 - `JAZZ-ASSETS-001` — исправление collision-регрессии `HMMWV` и structural quality gate для Entity.
-- `JAZZ-HOTFIX-001` — восстановление material/texture resource contract по runtime render diagnostics.
 
 ## Назначение и эффект для игрока
 
@@ -23,7 +22,7 @@
 
 - 490 зарегистрированных `ModItemEntity`;
 - 503 `.ent` и 503 entity Lua-файла на диске;
-- 5135 `.dds` textures;
+- 5119 `.dds` textures;
 - 522 `.mtl` materials;
 - 516 `.hgm` meshes;
 - 511 `.mtlbin` compiled materials;
@@ -38,16 +37,6 @@ Structural audit дополнительно фиксирует 19 предупр
 - один коллинеарный collision-треугольник в `Entities/Chevy_S10_SM.ent`.
 
 Шесть незарегистрированных имён при этом используются generated weapon visuals core-пакета: `M60E3BipodUnfld`, `M60E4BipodUnfld`, `M60_OldBipodFld`, `PKMDefMuzzle`, `PKMFoldBipod`, `PKMDefHandGrip`. Их нельзя активировать простым добавлением в metadata: M60-кандидаты ссылаются на отсутствующие material paths, а PKM-кандидаты — на отсутствующие mesh и material. Исправление требует отдельной согласованной транзакции core weapon presets + assets, editor round-trip и проверки оружия в руках/на земле.
-
-## Material и texture contract hotfix
-
-`JAZZ-HOTFIX-001` восстанавливает только подтверждённые runtime resources без изменения entity IDs или load-state:
-
-- `Entities/Materials/cartridge_box_cartridge_box.mtl` приведён к обычному opaque-профилю: `ViewDependentOpacity`, `Translucency`, `Distortion`, `DepthSoftness`, `TerrainDistortedMesh` и `SSS` выключены. До исправления это был единственный из 522 материалов с каждым из этих нестандартных значений, а engine прямо сообщал о depth softness без blending перед render assert;
-- из `Entities/Materials/tyulpan_tyulpan.mtl` удалены ссылки на отсутствующие optional RM-карты `5281002.dds` и `5281006.dds`; существующие base color, normal и special maps сохраняются;
-- IDs `9359000`–`9359003`, `6224005`, `6302004`, `10470000` и `10470002` существуют в `Entities/Textures/` и `Entities/Textures/Fallbacks/`. Копии побайтово совпадают с source-пакетом того же asset-набора.
-
-Связанный core preset `ParticlesThompson` использует собственный `ParticleTextures/Explosion_emissive.dds` и fallback в пакете `jazz`, а не путь к чужому mod ID.
 
 ## Контракт entity
 
