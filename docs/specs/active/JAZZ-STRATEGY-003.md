@@ -118,11 +118,11 @@ Need gates:
 
 ## Evidence
 
-- `JAZZ-STRATEGY-003-AC-001`: `PASS (static)` / `BLOCKED (runtime)`
-- `JAZZ-STRATEGY-003-AC-002`: `PASS (static)` / `BLOCKED (runtime)`
-- `JAZZ-STRATEGY-003-AC-003`: `PASS (static)` / `BLOCKED (runtime)`
-- `JAZZ-STRATEGY-003-AC-004`: `PASS (static)` / `BLOCKED (runtime)`
-- `JAZZ-STRATEGY-003-AC-005`: `PASS (static)` / `BLOCKED (runtime)`
+- `JAZZ-STRATEGY-003-AC-001`: `PASS (static)` / `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-STRATEGY-003-AC-002`: `PASS (static)` / `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-STRATEGY-003-AC-003`: `PASS (static)` / `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-STRATEGY-003-AC-004`: `PASS (static)` / `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-STRATEGY-003-AC-005`: `PASS (static)` / `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 - `JAZZ-STRATEGY-003-AC-006`: `PASS (static)`
 
 ## Documentation delta

@@ -1,5 +1,5 @@
-﻿---
-status: planned
+---
+status: ready
 priority: medium
 origin: ub
 unit_id: Jazz_Manuel
@@ -20,7 +20,7 @@ salary:
   max: 2000
 medical_deposit: standard
 haggling: normal
-executable: false
+executable: true
 ---
 
 # Мануэль — Мануэль
@@ -29,18 +29,18 @@ executable: false
 
 | Field | RU | EN |
 | --- | --- | --- |
-| Name | Мануэль | Мануэль |
+| Name | Мануэль | Manuel |
 | Nick | Мануэль | Manuel |
 | AllCapsNick | МАНУЭЛЬ | MANUEL |
-| Title | Муж Фатимы | Муж Фатимы |
+| Title | Муж Фатимы | Fatima's Husband |
 | Email | Manuel@arulco.reb | Manuel@arulco.reb |
 | snype_nick | manuel | manuel |
 
 ## Bio
 
-**RU:** UB/NO. Husband of Fatima, father of Pacos. Undercover in Arulco army for Miguel, exposed, fled. Met wandering Tracona forest. Stats 70+, Dex 91. Loner.
+**RU:** Urban Brawl / Night Ops. Муж Фатимы, отец Пако. Внедрился в армию Арулько по просьбе Мигеля, был раскрыт и бежал в лес. Отряд встречает его блуждающим в лесах Тракона. Статы 70+, Dexterity 91. Одиночка, привыкший полагаться только на себя после провала операции.
 
-**EN:** EN draft: translate Bio RU at generation.
+**EN:** Urban Brawl / Night Ops. Husband of Fatima, father of Paco. Went undercover in the Arulco army at Miguel's request, was exposed, and fled into the forest. The squad finds him wandering the Tracona woods. Stats 70+, 91 Dexterity. A loner who's learned to rely only on himself since the operation fell apart.
 
 ## Stats
 
@@ -64,8 +64,10 @@ executable: false
 
 ### StartingPerks
 
-- (map JA2 skills to JA3 StartingPerks)
 - `Jazz_Perk_Manuel`
+- `Stealthy`
+- `Loner`
+- `Flanker`
 
 ### Named perk
 
@@ -73,28 +75,30 @@ executable: false
 | --- | --- |
 | id | `Jazz_Perk_Manuel` |
 | type | passive |
-| DisplayName RU/EN | Под прикрытием / Под прикрытием |
-| Description RU/EN | Expert stealth / Expert stealth |
-| Mechanics | Stealthy expert. Partial VO planned (same actor, not full JA3). |
+| DisplayName RU/EN | Под прикрытием / Undercover |
+| Description RU/EN | Опыт разведки под прикрытием даёт бонус к скрытности вблизи вражеских патрулей / Undercover experience grants a stealth bonus near enemy patrols |
+| Mechanics | +15% to Manuel's stealth detection-avoidance chance while within 2 tiles of an enemy unit that has not yet spotted him, reflecting his training at slipping past patrols undetected inside the Arulco army. |
 
 ## Personality
 
-- Quirks: Loner
-- Likes: —
+- Quirks: Loner (StartingPerk)
+- Likes: `Jazz_Miguel` (already generated — Mitigation/ExtraPartingWords wiring live immediately)
 - Dislikes: —
 - National hates: —
-- Refusal / Haggle notes: Local meet
+- Refusal / Haggle notes: standard Locals money/death-toll refusals only; mitigation if Miguel hired (references the operation that got Manuel exposed)
 
 ## Hire
 
-- Access: Encounter in forest / locals
+- Access: Locals — chance encounter in the Tracona forest sector once the player has scouted it; Manuel joins as a wandering local, no formal quest gate
 - MedicalDeposit: standard; Haggling: normal; DaysUntilOnline: 0
 
 ## Inventory
 
-- Equipment loot id: `Loot_JAZZ_Manuel`
-- Presets (weights ~50/35/25/20):
-  - *50: stealth kit, binoculars, light armor
+- Equipment loot id: `Loot_JAZZ_Manuel` → `JAZZ_Manuel50/35/25/20`
+- *50: `JazzArmor_LeatherJacketBrn`, `SKS`, `JAZZ_AMMO_762x39_FMJ`×30 (Double), `Lockpick`
+- *35: `JazzArmor_LeatherJacketBrn`, `SKS`, `JAZZ_AMMO_762x39_FMJ`×20 (Double)
+- *25: `JazzArmor_LeatherPants`, `SKS`, `JAZZ_AMMO_762x39_FMJ`×20 (Double)
+- *20: `JazzArmor_LeatherPants`, `SKS`, `JAZZ_AMMO_762x39_FMJ`×10 (Double)
 
 ## JA2 face reference
 
@@ -108,50 +112,70 @@ executable: false
 
 **Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**.
 
-**CHARACTER_DESCRIPTION:** Match JA2 face reference `manuel.ja2-face.gif` (same face identity). Lean Arulco scout, tired eyes, binoculars and forest camo — NO gun. Cautious.
+**CHARACTER_DESCRIPTION:** Match JA2 face reference `manuel.ja2-face.gif` (same face identity). Lean Arulco scout ~30, tired eyes, binoculars and forest camo — NO gun. Cautious expression.
 
 **Preferred refs:** `MercPortraits/References/` matching gender/role
 
-**Class kit:** Binoculars, forest camo, water skin, stealth wrap
+**Class kit:** Binoculars, forest camo wrap, water skin, stealth cloth
 
 ## Phrases — AIM chat
 
 ### Offline
-- RU: Мануэль... позже.
-- EN: This is Manuel. Leave a message.
+- RU: Мануэль... сейчас нет связи. Позже.
+- EN: Manuel... no signal right now. Later.
 
 ### GreetingAndOffer
-- RU: Это Мануэль.
-- EN: Manuel here.
+- RU: Это Мануэль. Слушаю.
+- EN: This is Manuel. I'm listening.
 
 ### ConversationRestart
-- RU: Вернёмся к делу.
-- EN: Let's get back to it.
+- RU: Связь прервалась. Вернёмся к делу.
+- EN: Line dropped. Let's get back to it.
 
 ### IdleLine
-- RU: Тише.
-- EN: Waiting.
+- RU: Тише. Мануэль слушает лес.
+- EN: Quiet. Manuel's listening to the forest.
 
 ### PartingWords
-- RU: Иду.
-- EN: I'm in.
+- RU: Иду с вами. Фатима поймёт.
+- EN: I'm coming with you. Fatima will understand.
 
 ### RehireIntro
 - RU: Контракт заканчивается. Продлеваем?
 - EN: Contract's ending. Extending?
 
 ### RehireOutro
-- RU: Остаюсь.
-- EN: I'm staying.
+- RU: Остаюсь. Лес подождёт.
+- EN: I'm staying. The forest can wait.
 
-### Refusals / Haggles / Mitigations / ExtraPartingWords
-- Draft relationship refusals/haggles from Personality at generation time.
+### Refusals
+- Death toll RU: Слишком много смертей. Мануэль уже видел, чем это кончается.
+- Death toll EN: Too many deaths. Manuel's already seen how that ends.
+- Money RU: Мало денег. У Мануэля семья — Фатима и Пако.
+- Money EN: Not enough money. Manuel has a family — Fatima and Paco.
+
+### Mitigations
+- Miguel hired RU: Мигель уже здесь? Тогда ладно — он мне ещё должен объяснение.
+- Miguel hired EN: Miguel's already here? Fine then — he still owes me an explanation.
+
+### ExtraPartingWords
+- RU: Если встретите Мигеля — скажите, Мануэль его не забыл.
+- EN: If you run into Miguel — tell him Manuel hasn't forgotten.
 
 ## Phrases — VoiceResponse
 
 - `voice_source: nightops` — reuse legacy VO where available; RU/EN subtitle drafts for minimum slots:
-  - Selection: «Мануэль!» / «Manuel!»
-  - AimAttack / OpponentKilled / DeathGeneral / Downed / CombatStartPlayer / LevelUp / AmmoLow / Idle — standard drafts + relationship slots.
+  - Selection: «Мануэль готов.» / «Manuel's ready.»
+  - AimAttack (1): «Цель вижу.» / «I see the target.»
+  - AimAttack (2): «Тихо и точно.» / «Quiet and precise.»
+  - OpponentKilled: «Готово.» / «Done.»
+  - DeathGeneral: «Фатима... прости...» / «Fatima... forgive me...»
+  - Downed: «Ранен, но не сдамся.» / «Hit, but not giving up.»
+  - CombatStartDetected: «Кто-то рядом. Осторожно.» / «Someone's near. Careful.»
+  - LevelUp: «Учусь на своих ошибках.» / «Learning from my mistakes.»
+  - AmmoLow: «Патроны на исходе.» / «Running low on ammo.»
+  - Idle: «Мануэль ждёт в тени.» / «Manuel waits in the shadows.»
+  - Praises (Miguel present): «С Мигелем спокойнее — несмотря ни на что.» / «It's calmer with Miguel around — despite everything.»
 
 ## Wiring
 
@@ -162,7 +186,7 @@ executable: false
 | pollyvoice | Matthew |
 | Portrait | Mod/Dv3mFVN/MercPortraits/Manuel.png |
 | BigPortrait | Mod/Dv3mFVN/MercPortraits/Manuel_Big.png |
-| CustomEquipGear | TryEquip Handheld A/B as role requires |
+| CustomEquipGear | TryEquip Handheld A Firearm |
 | FallbackMissingVR | Ice |
 | Sources | AIM sheet «Наемники из JA1/2»; origin=ub |
 

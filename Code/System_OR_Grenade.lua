@@ -60,15 +60,25 @@ function Grenade:GetAreaAttackParams(action_id, attacker, target_pos, step_pos)
 	if aoeType == "fire" then
 		max_range = 2
 	end
+	local center_range = self.CenterAreaOfEffect
+	local area_range = self.AreaOfEffect
+	-- Jazz_Perk_Colby: +20% explosion radius when Colby initiates the blast
+	if IsKindOf(attacker, "Unit") and HasPerk(attacker, "Jazz_Perk_Colby") then
+		center_range = MulDivRound(center_range, 120, 100)
+		area_range = MulDivRound(area_range, 120, 100)
+		if aoeType ~= "fire" then
+			max_range = area_range
+		end
+	end
 	local params = {
 		attacker = false,
 		weapon = self,
 		target_pos = target_pos,
 		step_pos = target_pos,
 		stance = "Prone",
-		min_range = self.CenterAreaOfEffect,
-		max_range = self.AreaOfEffect,
-		center_range = self.CenterAreaOfEffect,
+		min_range = center_range,
+		max_range = max_range,
+		center_range = center_range,
 		damage_mod = 100,
 		attribute_bonus = 0,
 		can_be_damaged_by_attack = true,
@@ -77,7 +87,7 @@ function Grenade:GetAreaAttackParams(action_id, attacker, target_pos, step_pos)
 		explosion_fly = self.DeathType == "BlowUp",
 	}
 	if self.coneShaped then
-		params.cone_length = self.AreaOfEffect * const.SlabSizeX
+		params.cone_length = area_range * const.SlabSizeX
 		params.cone_angle = self.coneAngle * 60
 		params.target_pos = RotateRadius(params.cone_length, CalcOrientation(step_pos or attacker, target_pos), target_pos)
 		if not params.target_pos:IsValidZ() or params.target_pos:z() - terrain.GetHeight(params.target_pos) <= 10*guic then

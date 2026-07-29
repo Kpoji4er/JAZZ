@@ -1,5 +1,5 @@
-﻿---
-status: planned
+---
+status: ready
 priority: low
 origin: ja2
 unit_id: Jazz_Bull
@@ -20,7 +20,7 @@ salary:
   max: 1500
 medical_deposit: standard
 haggling: normal
-executable: false
+executable: true
 ---
 
 # Бык — Джон «Бык» Питерс
@@ -29,18 +29,18 @@ executable: false
 
 | Field | RU | EN |
 | --- | --- | --- |
-| Name | Джон «Бык» Питерс | Джон «Бык» Питерс |
+| Name | Джон «Бык» Питерс | John "Bull" Peters |
 | Nick | Бык | Bull |
 | AllCapsNick | БЫК | BULL |
-| Title | Дешёвый танк | Дешёвый танк |
+| Title | Дешёвый танк | The Cheap Tank |
 | Email | Bull@aim.com | Bull@aim.com |
 | snype_nick | bull | bull |
 
 ## Bio
 
-**RU:** Самый дешёвый AIM: Health 96, Strength 98, Agility/Dex ~45–55, Wisdom 64, Marksmanship 72. Aggressive. Likes Nail; dislikes Biff.
+**RU:** Один из самых дешёвых наёмников AIM: Health 96, Strength 98, Agility/Dexterity ~50, Wisdom 64, Marksmanship 72. Агрессивен и бьёт первым. Дружит с Нейлсом; не любит Биффа.
 
-**EN:** EN draft: translate Bio RU.
+**EN:** One of the cheapest mercs on AIM's roster: 96 Health, 98 Strength, roughly 50 Agility/Dexterity, 64 Wisdom, 72 Marksmanship. Aggressive and swings first. Friends with Nails; can't stand Biff.
 
 ## Stats
 
@@ -64,7 +64,10 @@ executable: false
 
 ### StartingPerks
 
-- (map JA2 skills)`n- named perk below
+- `Jazz_Perk_Bull`
+- `MeleeTraining`
+- `CQCTraining`
+- `TrueGrit`
 
 ### Named perk
 
@@ -72,28 +75,30 @@ executable: false
 | --- | --- |
 | id | `Jazz_Perk_Bull` |
 | type | passive |
-| DisplayName RU/EN | Грудная клетка / Грудная клетка |
-| Description RU/EN | Удушье / нокдаун / Удушье / нокдаун |
-| Mechanics | Melee: knockdown + unconscious chance each attack (weaker than Steroid knockback). ALT: unarmed torso hit chance to choke. |
+| DisplayName RU/EN | Грудная клетка / Iron Ribcage |
+| Description RU/EN | Ближний бой Быка может сбить дыхание или вырубить противника / Bull's melee attacks can knock the wind out of a target or knock them out cold |
+| Mechanics | Unarmed and knife melee attacks by Bull against Torso have a 15% chance to inflict Off-Balance (target loses its next reaction) and a separate 5% chance to apply Unconscious for 1 turn. |
 
 ## Personality
 
-- Quirks: Aggressive
-- Likes: Nail
-- Dislikes: Biff
+- Quirks: Aggressive (bio flavor only — no matching JA3 status perk, not wired)
+- Likes: `Nails`
+- Dislikes: `Jazz_Biff` (planned merc — Refusal wiring activates once ready)
 - National hates: —
-- Refusal / Haggle notes: Cheap AIM
+- Refusal / Haggle notes: refuses if Biff hired; standard AIM money refusal; mitigation and recommendation for Nails when hired
 
 ## Hire
 
-- Access: AIM
+- Access: AIM hire
 - MedicalDeposit: standard; Haggling: normal; DaysUntilOnline: 0
 
 ## Inventory
 
-- Equipment loot id: `Loot_JAZZ_Bull`
-- Presets:
-  - *50: brass knuckles, light armor
+- Equipment loot id: `Loot_JAZZ_Bull` → `JAZZ_Bull50/35/25/20`
+- *50: `JazzArmor_LeatherVest`, `Knife`, `M2Carbine`, `JAZZ_AMMO_30_FMJ`×20 (Double)
+- *35: `JazzArmor_LeatherArmor`, `Knife`, `Winchester1894`, `JAZZ_AMMO_30_FMJ`×16 (Double)
+- *25: `Knife`, `Winchester1894`, `JAZZ_AMMO_30_P`×12 (Double)
+- *20: `Knife`, `Unarmed`
 
 ## JA2 face reference
 
@@ -105,9 +110,9 @@ executable: false
 
 ## Portrait prompt
 
-**Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**.
+**Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**. Face must match JA2 reference above.
 
-**CHARACTER_DESCRIPTION:** Match JA2 face reference `bull.ja2-face.gif` (same face identity). Massive cheap AIM bruiser, bald, scarred knuckles wrap — NO gun. Dumb grin.
+**CHARACTER_DESCRIPTION:** Match JA2 face reference `bull.ja2-face.gif` (same face identity). Massive cheap AIM bruiser ~30, bald, scarred knuckle wraps, torn sleeveless shirt — NO gun. Dumb confident grin.
 
 **Preferred refs:** `MercPortraits/References/` matching gender/role
 
@@ -116,26 +121,61 @@ executable: false
 ## Phrases — AIM chat
 
 ### Offline
-- RU: Бык спит.
-- EN: Bull unavailable.
+- RU: Бык спит. Не будить.
+- EN: This is Bull. Leave a message.
 
 ### GreetingAndOffer
-- RU: Бык! Чо бить?
-- EN: Bull here.
+- RU: Бык! Чо, бить будем?
+- EN: Bull here. We fighting or what?
 
-### ConversationRestart / IdleLine / PartingWords / Rehire
-- Restart RU/EN: Вернёмся к делу. / Let's get back to it.
-- Idle RU/EN: Где бить? / Well?
-- Part RU/EN: Угх. Иду. / I'm in.
-- RehireIntro: Контракт заканчивается. Продлеваем? / Contract's ending. Extending?
-- RehireOutro: Остаюсь. / I'm staying.
+### ConversationRestart
+- RU: Связь прервалась. Вернёмся к делу.
+- EN: Line dropped. Let's get back to it.
 
-### Extra
-- Draft relationship lines at generation.
+### IdleLine
+- RU: Где враги? Хочу бить.
+- EN: Where's the enemy? I wanna hit something.
+
+### PartingWords
+- RU: Угх. Иду бить.
+- EN: Ugh. I'm in.
+
+### RehireIntro
+- RU: Контракт заканчивается. Продлеваем?
+- EN: Contract's ending. Extending?
+
+### RehireOutro
+- RU: Остаюсь. Тут есть кого бить.
+- EN: I'm staying. Plenty to hit here.
+
+### Refusals
+- Biff hired RU: Пока Бифф в отряде — я пас. Он мне не нравится.
+- Biff hired EN: Not while Biff's on the team. Don't like the guy.
+- Money RU: Мало. Бык дёшево, но не бесплатно.
+- Money EN: Not enough. Bull's cheap, not free.
+
+### Mitigations
+- Nails hired RU: О, Нейлс уже тут? Тогда порядок.
+- Nails hired EN: Oh, Nails is already in? Then we're good.
+
+### ExtraPartingWords
+- RU: Если нужен ещё крепкий парень — берите Нейлса.
+- EN: If you need another tough guy, grab Nails.
 
 ## Phrases — VoiceResponse
 
-- `voice_source: ja2` — legacy VO reuse + minimum Selection/AimAttack/OpponentKilled/DeathGeneral/Downed/CombatStart/LevelUp/AmmoLow/Idle drafts.
+- `voice_source: ja2` — reuse legacy VO where available; RU/EN subtitle drafts for minimum slots:
+  - Selection: «Бык готов.» / «Bull's ready.»
+  - AimAttack (1): «Иду ломать!» / «Coming in to break stuff!»
+  - AimAttack (2): «Получай!» / «Take this!»
+  - OpponentKilled: «Готов.» / «Down.»
+  - DeathGeneral: «Не... тот бой...» / «Not... this fight...»
+  - Downed: «Меня зацепили!» / «I'm hit!»
+  - CombatStartPlayer: «Наконец-то драка!» / «Finally, a fight!»
+  - LevelUp: «Бык сильнее!» / «Bull's stronger!»
+  - AmmoLow: «Патроны кончаются, буду бить руками.» / «Low on ammo, I'll just punch.»
+  - Idle: «Ну?» / «Well?»
+  - MockDislike (Biff): «Хорошо, что Биффа тут нет.» / «Good thing Biff's not here.»
 
 ## Wiring
 
@@ -144,9 +184,11 @@ executable: false
 | Appearance | Bull |
 | VoiceResponseId | Jazz_Bull |
 | pollyvoice | Matthew |
-| Portrait / BigPortrait | Mod/Dv3mFVN/MercPortraits/Bull.png (+_Big) |
+| Portrait | Mod/Dv3mFVN/MercPortraits/Bull.png |
+| BigPortrait | Mod/Dv3mFVN/MercPortraits/Bull_Big.png |
+| CustomEquipGear | TryEquip Handheld A Melee |
 | FallbackMissingVR | Ice |
-| Sources | AIM sheet JA1/2 block; origin=ja2 |
+| Sources | AIM sheet «Наемники из JA1/2»; origin=ja2 |
 
 ## Open blockers
 

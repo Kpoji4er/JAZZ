@@ -88,7 +88,7 @@ STRATEGY-003 использует abstract `supply`/`reserve`. Roadmap п.0 тр
 - `JAZZ-STRATEGY-006-AC-002` — static: schema migrate path 1→2.
 - `JAZZ-STRATEGY-006-AC-003` — static: task strings use `<money>`; both runtime CSVs.
 - `JAZZ-STRATEGY-006-AC-004` — docs/wiki/roadmap updated.
-- `JAZZ-STRATEGY-006-AC-005` — runtime new-game/rollover: BLOCKED until owner check.
+- `JAZZ-STRATEGY-006-AC-005`: `PASS (runtime/human)` — owner playtest accepted 2026-07-28.
 
 ## Impact и совместимость
 
@@ -112,7 +112,7 @@ STRATEGY-003 использует abstract `supply`/`reserve`. Roadmap п.0 тр
 - `JAZZ-STRATEGY-006-AC-002`: `PASS (static)` — `lMigrateSchemaToMoney` on schema < 2; pools reset to starting `$`.
 - `JAZZ-STRATEGY-006-AC-003`: `PASS (static)` — task IDs 1444/1445 with `<money>`; RU/EN/manual/catalog updated.
 - `JAZZ-STRATEGY-006-AC-004`: `PASS (static)` — technical, wiki, testing, roadmap.
-- `JAZZ-STRATEGY-006-AC-005`: `BLOCKED (runtime)`
+- `JAZZ-STRATEGY-006-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Documentation delta
 

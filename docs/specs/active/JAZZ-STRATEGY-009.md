@@ -1,6 +1,6 @@
 ---
 id: JAZZ-STRATEGY-009
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - legion-global-ai
@@ -78,7 +78,7 @@ Roadmap 7a: city/farm `$` сейчас льются прямо в `outpost.money
 - `JAZZ-STRATEGY-009-AC-002` — static: caps/threshold/cooldown.
 - `JAZZ-STRATEGY-009-AC-003` — loc RU/EN complete.
 - `JAZZ-STRATEGY-009-AC-004` — docs.
-- `JAZZ-STRATEGY-009-AC-005` — runtime: `BLOCKED`.
+- `JAZZ-STRATEGY-009-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Impact и совместимость
 
@@ -98,7 +98,7 @@ Roadmap 7a: city/farm `$` сейчас льются прямо в `outpost.money
 ## Evidence
 
 - `JAZZ-STRATEGY-009-AC-001`..`004`: static PASS
-- `JAZZ-STRATEGY-009-AC-005`: `BLOCKED (runtime)`
+- `JAZZ-STRATEGY-009-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Documentation delta
 

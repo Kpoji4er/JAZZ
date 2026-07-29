@@ -1,6 +1,6 @@
 ---
 id: JAZZ-STRATEGY-007
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - legion-global-ai
@@ -80,7 +80,7 @@ Roadmap п.1–5 после money ledger: patrol не заходит на player
 - `JAZZ-STRATEGY-007-AC-005` — static: RETRIBUTION icon; report-aware major target.
 - `JAZZ-STRATEGY-007-AC-006` — static: recon return text has sector; recipes table present.
 - `JAZZ-STRATEGY-007-AC-007` — docs/roadmap.
-- `JAZZ-STRATEGY-007-AC-008` — runtime: `BLOCKED` until owner wakes.
+- `JAZZ-STRATEGY-007-AC-008`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Impact и совместимость
 
@@ -100,7 +100,7 @@ Roadmap п.1–5 после money ledger: patrol не заходит на player
 ## Evidence
 
 - `JAZZ-STRATEGY-007-AC-001`..`007`: static PASS (boatless; valuables helper; patrol player Side; reinforce; RETRIBUTION; recon sector text; recipes; docs/roadmap/loc)
-- `JAZZ-STRATEGY-007-AC-008`: `BLOCKED (runtime)` — owner after sleep
+- `JAZZ-STRATEGY-007-AC-008`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Documentation delta
 

@@ -1,6 +1,6 @@
 ---
 id: JAZZ-STRATEGY-004
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - legion-global-ai
@@ -163,7 +163,7 @@ Roadmap п.6a требует per-unit `$` для будущей генераци
 - `JAZZ-STRATEGY-004-AC-002` — static: accessors определены; code registered.
 - `JAZZ-STRATEGY-004-AC-003` — docs updated; якорь 10×shipment / capacity 120000 зафиксирован.
 - `JAZZ-STRATEGY-004-AC-004` — static: sample expensive ~40 T3/T4 sum в полосе 100000–130000.
-- `JAZZ-STRATEGY-004-AC-005` — runtime read accessor: BLOCKED until owner checks in-game.
+- `JAZZ-STRATEGY-004-AC-005`: `PASS (runtime/human)` — owner playtest accepted 2026-07-28.
 
 ## Impact и совместимость
 
@@ -189,7 +189,7 @@ Roadmap п.6a требует per-unit `$` для будущей генераци
 - `JAZZ-STRATEGY-004-AC-002`: `PASS (static)` — `LegionUnitPrices.lua` registered in `metadata.code` and `items.lua` ModItemCode; accessors present.
 - `JAZZ-STRATEGY-004-AC-003`: `PASS (static)` — technical docs + roadmap 6a/п.0 anchor (capacity 120000 = 10×$12000).
 - `JAZZ-STRATEGY-004-AC-004`: `PASS (static)` — sample expensive 40-man T3/T4 mix ≈ $105k–$122k band vs capacity $120000; recon/patrol ≪ capacity.
-- `JAZZ-STRATEGY-004-AC-005`: `BLOCKED (runtime)`
+- `JAZZ-STRATEGY-004-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Documentation delta
 

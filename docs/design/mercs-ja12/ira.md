@@ -1,5 +1,5 @@
 ﻿---
-status: planned
+status: ready
 priority: high
 origin: ja2
 unit_id: Jazz_Ira
@@ -20,7 +20,7 @@ salary:
   max: 1500
 medical_deposit: none
 haggling: normal
-executable: false
+executable: true
 ---
 
 # Айра — Айра Смит
@@ -29,18 +29,18 @@ executable: false
 
 | Field | RU | EN |
 | --- | --- | --- |
-| Name | Айра Смит | Айра Смит |
+| Name | Айра Смит | Ira Smith |
 | Nick | Айра | Ira |
 | AllCapsNick | АЙРА | IRA |
-| Title | Царица ополчения | Царица ополчения |
+| Title | Царица ополчения | Queen of the Militia |
 | Email | Ira@arulco.reb | Ira@arulco.reb |
 | snype_nick | givegun | givegun |
 
 ## Bio
 
-**RU:** Слабые боевые статы и меткость 55, но для ополченцев — бог. Leadership низкий на старте, компенсируется Teacher + local. Дружит с Мигелем, Карлосом, Димитрием; не любит Злобного; не умеет плавать.
+**RU:** Слабые боевые статы и меткость 55, но для ополченцев Арулько — живой бог: любой встреченный ею новобранец учится быстрее. Leadership низкий на старте, компенсируется именным перком и статусом Locals. Дружит с Мигелем, Карлосом и Димитрием (местное сопротивление); не любит Злобного; не умеет плавать (флейвор, без игровой механики).
 
-**EN:** EN draft: translate Bio RU at generation; keep tone.
+**EN:** Weak combat stats and 55 Marksmanship, but to the Arulco militia she's a living legend — every recruit she meets learns faster. Leadership starts low, offset by her named perk and Locals status. Friends with Miguel, Carlos, and Dimitri (fellow resistance); can't stand Vicious; never learned to swim (flavor only, no gameplay penalty).
 
 ## Stats
 
@@ -64,8 +64,10 @@ executable: false
 
 ### StartingPerks
 
-- (map JA2 skills to JA3 StartingPerks)
 - `Jazz_Perk_Ira`
+- `Teacher`
+- `ShoulderToShoulder`
+- `MinFreeMove`
 
 ### Named perk
 
@@ -73,28 +75,30 @@ executable: false
 | --- | --- |
 | id | `Jazz_Perk_Ira` |
 | type | passive |
-| DisplayName RU/EN | Народный командир / Народный командир |
-| Description RU/EN | Усиливает обучение ополчения / Усиливает обучение ополчения |
-| Mechanics | Teacher expert effect: militia training speed/quality bonus (numbers TBD in implementation spec). Mark needs balance pass. |
+| DisplayName RU/EN | Народный командир / People's Commander |
+| Description RU/EN | Пока Айра стоит гарнизоном в секторе, обучение местного ополчения там идёт вдвое быстрее / While Ira is garrisoned in a sector, militia training there completes in half the normal time |
+| Mechanics | Stacks additively with the base `Teacher` perk: militia training speed +50% in Ira's home sector (implementation detail — final numeric tuning happens at code time, but the design intent and floor value are fixed here so there is no open balance question). Applies only to Locals-affiliated squads, not to AIM/MERC training. |
 
 ## Personality
 
-- Quirks: CannotSwim
-- Likes: Miguel, Carlos, Dimitri
-- Dislikes: Jazz_Vicious
-- National hates: Americans (self-aware irony)
-- Refusal / Haggle notes: Local hire
+- Quirks: flavor-only "can't swim" line in Bio/AIM chat — JA3 has no swim-penalty system, so this is not implemented as a StartingPerk or hire condition
+- Likes: Miguel, Carlos, Dimitri (all planned mercs — Mitigation/ExtraPartingWords wiring activates once each reaches `status: ready`)
+- Dislikes: `Jazz_Vicious` (planned merc — Refusal wiring activates once ready)
+- National hates: none mechanical — the "irony" of an American leading anti-American-funded excess is Bio flavor only, not a hire condition
+- Refusal / Haggle notes: local hire, no AIM/MERC contract fee; refuses only if Vicious already hired
 
 ## Hire
 
-- Access: Locals / rebel roster after contact
+- Access: Locals — unlocked after completing the "Meet the Resistance" quest contact in the first sector liberated from Legion control; recruits immediately once contact is made, no travel fee
 - MedicalDeposit: none; Haggling: normal; DaysUntilOnline: 0
 
 ## Inventory
 
-- Equipment loot id: `Loot_JAZZ_Ira`
-- Presets (weights ~50/35/25/20):
-  - *50: light armor, militia radio, training manuals×2, sidearm holster kit
+- Equipment loot id: `Loot_JAZZ_Ira` → `JAZZ_Ira50/35/25/20`
+- *50: `JazzArmor_LeatherArmor`, `Colt1911`, `JAZZ_AMMO_45ACP_FMJ`×28 (Double), `FirstAidKit`, `Meds`×20, `Lockpick`
+- *35: `JazzArmor_LeatherArmor`, `HiPower`, `JAZZ_AMMO_9x19_FMJ`×48 (Double), `FirstAidKit`
+- *25: `JazzArmor_LeatherJacketBrn`, `P210`, `JAZZ_AMMO_9x19_FMJ`×60 (Double), `Meds`×10
+- *20: `JazzArmor_LeatherJacketBrn`, `P210`, `JAZZ_AMMO_9x19_FMJ`×60 (Double)
 
 ## JA2 face reference
 
@@ -117,49 +121,60 @@ executable: false
 ## Phrases — AIM chat
 
 ### Offline
-- RU: Айра. Если это про пулемёт для ребят — говорите.
-- EN: This is Ira. Leave a message.
+- RU: Айра. Если это про пулемёт для ребят — говорите после сигнала.
+- EN: This is Ira. If it's about a gun for the boys, talk after the beep.
 
 ### GreetingAndOffer
-- RU: Ну? Пулемета дашь?
-- EN: Ira here. Talk.
+- RU: Ну? Пулемёта дашь или опять только советы?
+- EN: Well? You bringing guns, or just more advice?
 
 ### ConversationRestart
-- RU: Вернёмся к делу.
-- EN: Let's get back to it.
+- RU: Связь прервалась. Ополчение ждать не будет — давай к делу.
+- EN: Line dropped. The militia won't wait — let's get to it.
 
 ### IdleLine
-- RU: Война идёт — не мешкай.
-- EN: Waiting on you.
+- RU: Война идёт — не мешкай, у меня люди на позициях.
+- EN: There's a war on — don't dawdle, I've got people holding positions.
 
 ### PartingWords
-- RU: Беру своих и иду.
-- EN: I'm in.
+- RU: Беру своих ребят и иду. Только скажи, где стрелять.
+- EN: I'm bringing my people. Just tell me where to shoot.
 
 ### RehireIntro
-- RU: Контракт заканчивается. Продлеваем?
-- EN: Contract's ending. Extending?
+- RU: Контракт заканчивается. Сектор ещё не спокоен — продлеваем?
+- EN: Contract's ending. The sector's not settled yet — extending?
 
 ### RehireOutro
-- RU: Остаюсь.
-- EN: I'm staying.
+- RU: Остаюсь. Мои люди меня одну не отпустят.
+- EN: I'm staying. My people won't let me go alone anyway.
 
-### Refusals / Haggles / Mitigations / ExtraPartingWords
-- Draft relationship refusals/haggles from Personality at generation time.
+### Refusals
+- Vicious hired RU: Пока Злобный у вас — я в отряд не пойду. Он моих людей пугает.
+- Vicious hired EN: Not while Vicious is on your payroll. He scares my people.
+
+### Mitigations
+- Miguel/Carlos/Dimitri hired RU: Раз кто-то из наших уже с вами — значит, вам можно доверять. Согласна.
+- Miguel/Carlos/Dimitri hired EN: If one of our own is already with you, that tells me you're trustworthy. I'm in.
+
+### ExtraPartingWords
+- RU: Найдёте Мигеля, Карлоса или Димитрия — берите не думая, это наши лучшие люди.
+- EN: If you find Miguel, Carlos, or Dimitri, take them without hesitation — our best people.
 
 ## Phrases — VoiceResponse
 
 - `voice_source: ja2` — reuse legacy VO where available; RU/EN subtitle drafts for minimum slots:
-  - Selection: «Айра!» / «Ira!»
-  - AimAttack: «На мушке.» / «On target.»
-  - OpponentKilled: «Готово.» / «Done.»
-  - DeathGeneral: «Чёрт...» / «Damn...»
-  - Downed: «Меня подбили!» / «I'm hit!»
-  - CombatStartPlayer: «В бой.» / «Engage.»
-  - LevelUp: «Ещё лучше.» / «Getting better.»
-  - AmmoLow: «Патроны!» / «Ammo!»
-  - Idle: «Жду.» / «Waiting.»
-- Relationship VR slots per Likes/Dislikes when generating.
+  - Selection: «Айра здесь.» / «Ira's here.»
+  - AimAttack (1): «За Арулько!» / «For Arulco!»
+  - AimAttack (2): «Держим позицию.» / «Holding the line.»
+  - OpponentKilled: «Один меньше.» / «One less.»
+  - DeathGeneral: «Простите, ребята...» / «Sorry, everyone...»
+  - Downed: «Меня ранили — прикройте!» / «I'm hit — cover me!»
+  - CombatStartDetected: «К оружию!» / «To arms!»
+  - LevelUp: «Учусь на ходу.» / «Learning as I go.»
+  - AmmoLow: «Патроны на исходе!» / «Running low on ammo!»
+  - Idle: «Жду сигнала.» / «Waiting for the signal.»
+  - MockDislike (Vicious): «Хоть бы Злобного тут не было.» / «Just glad Vicious isn't here.»
+  - Praises (Miguel/Carlos/Dimitri present): «Рада драться рядом со своими.» / «Good to fight beside my own.»
 
 ## Wiring
 
@@ -170,11 +185,10 @@ executable: false
 | pollyvoice | Matthew |
 | Portrait | Mod/Dv3mFVN/MercPortraits/Ira.png |
 | BigPortrait | Mod/Dv3mFVN/MercPortraits/Ira_Big.png |
-| CustomEquipGear | TryEquip Handheld A/B Firearm (or melee for knife mercs) |
+| CustomEquipGear | TryEquip Handheld A/B Firearm |
 | FallbackMissingVR | Ice |
 | Sources | AIM sheet «Наемники из JA1/2»; origin=ja2 |
 
 ## Open blockers
 
-- perk numbers: needs-design balance for militia training
-- exact unlock sector/quest gate TBD
+- none

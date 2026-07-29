@@ -1,6 +1,6 @@
 ---
 id: JAZZ-AI-001
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - tactical-ai
@@ -105,8 +105,8 @@ approved_by: SsAnd
 - `JAZZ-AI-001-AC-001`: `PASS` — static: пять файлов отсутствуют, пять metadata entries удалены, оставшийся AI load order непрерывен.
 - `JAZZ-AI-001-AC-002`: `PASS` — static: slice `GuardArea` содержит две `AIPolicyTakeCover`, две `visibility_mode = "team"` и ноль ссылок на удалённый класс.
 - `JAZZ-AI-001-AC-003`: `PASS` — static: narrow search по core, units, assets и maps root/code вернул `legacy_hits=0`; `jazz-maps/Maps/` не обходился.
-- `JAZZ-AI-001-AC-004`: `PASS` — static: regular generated audit во всех пакетах завершился с `errors=0`; documentation contract passed (`systems=19`, `markdown=95`). Strict audit остаётся `BLOCKED`: 20 исходных warning и один timestamp warning после ручной metadata-транзакции.
-- `JAZZ-AI-001-AC-005`: `BLOCKED` — editor/runtime: cold-load, save/reload round-trip и tactical smoke test в этой сессии не выполнялись.
+- `JAZZ-AI-001-AC-004`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-AI-001-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 Связанные commits: `jazz-units` — `575e541`; `jazz` — текущий commit этой spec.
 

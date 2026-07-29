@@ -1,5 +1,5 @@
-﻿---
-status: planned
+---
+status: ready
 priority: low
 origin: ja2
 unit_id: Jazz_Shank
@@ -20,7 +20,7 @@ salary:
   max: 400
 medical_deposit: none
 haggling: normal
-executable: false
+executable: true
 ---
 
 # Шенк — Брием «Шенк» Друз
@@ -29,18 +29,18 @@ executable: false
 
 | Field | RU | EN |
 | --- | --- | --- |
-| Name | Брием «Шенк» Друз | Брием «Шенк» Друз |
+| Name | Брием «Шенк» Друз | Briem "Shank" Drews |
 | Nick | Шенк | Shank |
 | AllCapsNick | ШЕНК | SHANK |
-| Title | Манчкин | Манчкин |
+| Title | Манчкин | The Munchkin |
 | Email | Shank@merc.com | Shank@merc.com |
 | snype_nick | shank | shank |
 
 ## Bio
 
-**RU:** Stats 30–35, Wisdom 80. Cannot swim, optimist. Likes Dynamo, Ivan. $20/day. Throwing expert.
+**RU:** Статы 30–35, но Wisdom 80. Не умеет плавать, оптимист. Дружит с Динамо и Иваном. Работает за 20 долларов в день — дешевле только даром.
 
-**EN:** EN draft: translate Bio RU.
+**EN:** Stats in the 30-35 range, but 80 Wisdom. Can't swim, incurable optimist. Friends with Dynamo and Ivan. Works for $20 a day — cheaper only if it were free.
 
 ## Stats
 
@@ -64,7 +64,10 @@ executable: false
 
 ### StartingPerks
 
-- (map JA2 skills)`n- named perk below
+- `Jazz_Perk_Shank`
+- `Optimist`
+- `Throwing`
+- `MeleeTraining`
 
 ### Named perk
 
@@ -72,28 +75,30 @@ executable: false
 | --- | --- |
 | id | `Jazz_Perk_Shank` |
 | type | passive |
-| DisplayName RU/EN | Не трогай меня / Не трогай меня |
-| Description RU/EN | −50% CTH в melee по нему / −50% CTH в melee по нему |
-| Mechanics | Enemies attacking Shank in melee take −50% CTH. |
+| DisplayName RU/EN | Не трогай меня / Don't Touch Me |
+| Description RU/EN | Врагам сложнее попасть по Шенку в ближнем бою / Enemies have a harder time landing melee hits on Shank |
+| Mechanics | Enemies making a melee attack against Shank suffer −50% CTH for that attack — he's too scrawny and jumpy to pin down. |
 
 ## Personality
 
-- Quirks: CannotSwim, Optimist
-- Likes: Jazz_Dynamo, Ivan
+- Quirks: CannotSwim, Optimist (Optimist wired; swimming is bio flavor only)
+- Likes: `Jazz_Dynamo` (planned merc — Mitigation/ExtraPartingWords wiring activates once ready), `Ivan`
 - Dislikes: —
 - National hates: —
-- Refusal / Haggle notes: Joke hire
+- Refusal / Haggle notes: no relationship refusals; joke-tier hire, no meaningful money refusal at this pay scale
 
 ## Hire
 
-- Access: Locals → MERC
+- Access: Locals → MERC hire
 - MedicalDeposit: none; Haggling: normal; DaysUntilOnline: 0
 
 ## Inventory
 
-- Equipment loot id: `Loot_JAZZ_Shank`
-- Presets:
-  - *50: throwing knives, junk armor
+- Equipment loot id: `Loot_JAZZ_Shank` → `JAZZ_Shank50/35/25/20`
+- *50: `JazzArmor_UniformPants`, `Knife`×3
+- *35: `Knife`×2
+- *25: `Knife`×1
+- *20: `Unarmed`
 
 ## JA2 face reference
 
@@ -105,9 +110,9 @@ executable: false
 
 ## Portrait prompt
 
-**Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**.
+**Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**. Face must match JA2 reference above.
 
-**CHARACTER_DESCRIPTION:** Match JA2 face reference `shank.ja2-face.gif` (same face identity). Scrawny junkie-looking thrower, oversized jacket, knife pouch — NO gun. Smug.
+**CHARACTER_DESCRIPTION:** Match JA2 face reference `shank.ja2-face.gif` (same face identity). Scrawny young thrower ~20, oversized jacket, knife pouch on belt — NO weapon in hand. Smug grin.
 
 **Preferred refs:** `MercPortraits/References/` matching gender/role
 
@@ -116,26 +121,55 @@ executable: false
 ## Phrases — AIM chat
 
 ### Offline
-- RU: Шенк... спит.
-- EN: Shank unavailable.
+- RU: Шенк... спит. Наверное.
+- EN: This is Shank. Leave a message.
 
 ### GreetingAndOffer
-- RU: Шенк! Не трогай!
-- EN: Shank here.
+- RU: Шенк! Не трогай мою фигню, но я слушаю.
+- EN: Shank here. Don't touch my stuff, but I'm listening.
 
-### ConversationRestart / IdleLine / PartingWords / Rehire
-- Restart RU/EN: Вернёмся к делу. / Let's get back to it.
-- Idle RU/EN: Ха. / Well?
-- Part RU/EN: За двадцатку. / I'm in.
-- RehireIntro: Контракт заканчивается. Продлеваем? / Contract's ending. Extending?
-- RehireOutro: Остаюсь. / I'm staying.
+### ConversationRestart
+- RU: Связь прервалась. Вернёмся к делу.
+- EN: Line dropped. Let's get back to it.
 
-### Extra
-- Draft relationship lines at generation.
+### IdleLine
+- RU: Всё будет отлично, вот увидишь.
+- EN: It'll all work out, just watch.
+
+### PartingWords
+- RU: За двадцатку — я твой.
+- EN: For twenty bucks, I'm yours.
+
+### RehireIntro
+- RU: Контракт заканчивается. Продлеваем?
+- EN: Contract's ending. Extending?
+
+### RehireOutro
+- RU: Остаюсь. Тут весело.
+- EN: I'm staying. It's fun here.
+
+### Mitigations
+- Dynamo/Ivan hired RU: О, Динамо (или Иван) уже тут? Отлично, вместе веселее.
+- Dynamo/Ivan hired EN: Oh, Dynamo (or Ivan) is already in? Great, more fun together.
+
+### ExtraPartingWords
+- RU: Если нужен ещё один весёлый парень — берите Динамо.
+- EN: If you need another fun guy, grab Dynamo.
 
 ## Phrases — VoiceResponse
 
-- `voice_source: ja2` — legacy VO reuse + minimum Selection/AimAttack/OpponentKilled/DeathGeneral/Downed/CombatStart/LevelUp/AmmoLow/Idle drafts.
+- `voice_source: ja2` — reuse legacy VO where available; RU/EN subtitle drafts for minimum slots:
+  - Selection: «Шенк готов!» / «Shank's ready!»
+  - AimAttack (1): «Лови!» / «Catch!»
+  - AimAttack (2): «Не трогай меня!» / «Don't touch me!»
+  - OpponentKilled: «Есть!» / «Got him!»
+  - DeathGeneral: «Ну вот, не повезло...» / «Well, no luck this time...»
+  - Downed: «Меня зацепили! Но всё будет хорошо!» / «I'm hit! But it'll be fine!»
+  - CombatStartPlayer: «Ножи готовы!» / «Knives ready!»
+  - LevelUp: «Я расту!» / «I'm growing!»
+  - AmmoLow: «Ножи кончаются!» / «Running low on knives!»
+  - Idle: «Всё будет отлично!» / «It'll all be great!»
+  - Praises (Dynamo/Ivan present): «Хорошая компания сегодня!» / «Good company today!»
 
 ## Wiring
 
@@ -144,9 +178,11 @@ executable: false
 | Appearance | Shank |
 | VoiceResponseId | Jazz_Shank |
 | pollyvoice | Matthew |
-| Portrait / BigPortrait | Mod/Dv3mFVN/MercPortraits/Shank.png (+_Big) |
+| Portrait | Mod/Dv3mFVN/MercPortraits/Shank.png |
+| BigPortrait | Mod/Dv3mFVN/MercPortraits/Shank_Big.png |
+| CustomEquipGear | TryEquip Handheld A Melee |
 | FallbackMissingVR | Ice |
-| Sources | AIM sheet JA1/2 block; origin=ja2 |
+| Sources | AIM sheet «Наемники из JA1/2»; origin=ja2 |
 
 ## Open blockers
 

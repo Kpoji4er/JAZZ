@@ -1,5 +1,5 @@
-﻿---
-status: planned
+---
+status: ready
 priority: low
 origin: nightops
 unit_id: Jazz_Eskimo
@@ -20,7 +20,7 @@ salary:
   max: 1500
 medical_deposit: none
 haggling: normal
-executable: false
+executable: true
 ---
 
 # Эскимо — Эмиль «Эскимо» Кимос
@@ -29,18 +29,18 @@ executable: false
 
 | Field | RU | EN |
 | --- | --- | --- |
-| Name | Эмиль «Эскимо» Кимос | Эмиль «Эскимо» Кимос |
+| Name | Эмиль «Эскимо» Кимос | Emile "Eskimo" Kimos |
 | Nick | Эскимо | Eskimo |
 | AllCapsNick | ЭСКИМО | ESKIMO |
-| Title | Пленный снайпер | Пленный снайпер |
+| Title | Пленный снайпер | The Imprisoned Sniper |
 | Email | Eskimo@arulco.reb | Eskimo@arulco.reb |
 | snype_nick | eskimo | eskimo |
 
 ## Bio
 
-**RU:** Night Ops. Cut JA2 merc base. Rebel for Miguel, imprisoned by Deidranna in Alma. After free joins player. Hates Arabs and heat. Likes Miguel, Carlos, Gamos. Health 97, Marks 95.
+**RU:** Night Ops. Повстанец, воевавший за Мигеля; схвачен и брошен Дейдранной в тюрьму Альмы. После освобождения присоединяется к игроку. Ненавидит арабов и жару. Любит Мигеля, Карлоса и Гамоса. Здоровье 97, Меткость 95.
 
-**EN:** EN draft: translate Bio RU.
+**EN:** Night Ops mercenary. A rebel who fought for Miguel; captured and thrown into the Alma prison by Deidranna. Joins the player after being freed. Hates Arabs and heat. Fond of Miguel, Carlos, and Gamos. 97 Health, 95 Marksmanship.
 
 ## Stats
 
@@ -64,7 +64,10 @@ executable: false
 
 ### StartingPerks
 
-- (map JA2 skills)`n- named perk below
+- `Jazz_Perk_Eskimo`
+- `Stealthy`
+- `SteadyBreathing`
+- `TrueGrit`
 
 ### Named perk
 
@@ -72,28 +75,30 @@ executable: false
 | --- | --- |
 | id | `Jazz_Perk_Eskimo` |
 | type | passive |
-| DisplayName RU/EN | Скрытный снайпер / Скрытный снайпер |
-| Description RU/EN | Stealth sniper / Stealth sniper |
-| Mechanics | Stealthy + sniper. needs-design unique. |
+| DisplayName RU/EN | Тюремная выдержка / Prison-Hardened |
+| Description RU/EN | Годы в тюрьме Альмы закалили Эскимо: он не паникует и стреляет метко даже раненым / Years in the Alma prison hardened Eskimo — he doesn't panic and stays accurate even wounded |
+| Mechanics | Eskimo's CTH with rifles is not reduced by the Wounded status, and he is immune to Panicked while below 50% health. |
 
 ## Personality
 
 - Quirks: FearHeat
-- Likes: Miguel, Jazz_Carlos, Jazz_Gamos
+- Likes: `Miguel`, `Jazz_Carlos`, `Jazz_Gamos`
 - Dislikes: —
-- National hates: Arabs
-- Refusal / Haggle notes: NO
+- National hates: Arabs — Refusal trigger when the active squad includes an Arab-nationality merc
+- Refusal / Haggle notes: refuses if an Arab-nationality merc is in the active squad; no money refusal (grateful, low salary); mitigation and rate discount when Miguel, Jazz_Carlos, or Jazz_Gamos are hired
 
 ## Hire
 
-- Access: Free from Alma prison then join
+- Access: Story unlock — freed from the Alma prison (Miguel rebel questline), then hireable as a local afterward
 - MedicalDeposit: none; Haggling: normal; DaysUntilOnline: 0
 
 ## Inventory
 
-- Equipment loot id: `Loot_JAZZ_Eskimo`
-- Presets:
-  - *50: sniper kit in loot, cold-weather scarf ironic
+- Equipment loot id: `Loot_JAZZ_Eskimo` → `JAZZ_Eskimo50/35/25/20`
+- *50: `JazzArmor_UniformPants`, `M24Sniper`, `JAZZ_AMMO_308_Match`×20 (Double), `Scarf`
+- *35: `SKS`, `JAZZ_AMMO_762x39_FMJ`×20 (Double)
+- *25: `M1Garand`, `JAZZ_AMMO_3006_FMJ`×16 (Double)
+- *20: `Winchester1894`, `JAZZ_AMMO_30_P`×12 (Double)
 
 ## JA2 face reference
 
@@ -105,7 +110,7 @@ executable: false
 
 ## Portrait prompt
 
-**Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**.
+**Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**. Face must match JA2 reference above.
 
 **CHARACTER_DESCRIPTION:** Match JA2 face reference `eskimo.ja2-face.gif` (same face identity). Arulco rebel sniper, cold scarf nickname irony, spotting scope pouch — NO rifle. Stoic.
 
@@ -116,26 +121,58 @@ executable: false
 ## Phrases — AIM chat
 
 ### Offline
-- RU: Эскимо в камере... шутка.
-- EN: Eskimo unavailable.
+- RU: Эскимо в камере... шучу. Перезвоните.
+- EN: Eskimo's in his cell... kidding. Call back.
 
 ### GreetingAndOffer
-- RU: Эскимо свободен?
-- EN: Eskimo here.
+- RU: Эскимо на связи. Свободен и рад этому.
+- EN: Eskimo here. Free, and glad for it.
 
-### ConversationRestart / IdleLine / PartingWords / Rehire
-- Restart RU/EN: Вернёмся к делу. / Let's get back to it.
-- Idle RU/EN: Холодно только в имени. / Well?
-- Part RU/EN: Спасибо. Иду. / I'm in.
-- RehireIntro: Контракт заканчивается. Продлеваем? / Contract's ending. Extending?
-- RehireOutro: Остаюсь. / I'm staying.
+### ConversationRestart
+- RU: Связь прервалась. Вернёмся к делу.
+- EN: Line dropped. Let's get back to it.
 
-### Extra
-- Draft relationship lines at generation.
+### IdleLine
+- RU: Холодно только в имени.
+- EN: Only my name is cold.
+
+### PartingWords
+- RU: Спасибо за свободу. Я в деле.
+- EN: Thanks for the freedom. I'm in.
+
+### RehireIntro
+- RU: Контракт заканчивается. Продлеваем?
+- EN: Contract's ending. Extending?
+
+### RehireOutro
+- RU: Остаюсь. Тюрьма научила меня терпению.
+- EN: I'm staying. Prison taught me patience.
+
+### Refusals
+- Arab merc hired RU: С этим человеком мне не по пути.
+- Arab merc hired EN: I won't work alongside that person.
+
+### Haggles
+- Money RU: После тюрьмы любая сумма — подарок, но давайте немного больше.
+- Money EN: After prison, any sum's a gift, but let's raise it a bit.
+
+### Mitigations
+- Miguel, Carlos, or Gamos hired RU: Мигель (или Карлос, или Гамос) уже здесь? Тогда я спокоен.
+- Miguel, Carlos, or Gamos hired EN: Miguel (or Carlos, or Gamos) is already in? Then I'm at ease.
 
 ## Phrases — VoiceResponse
 
-- `voice_source: nightops` — legacy VO reuse + minimum Selection/AimAttack/OpponentKilled/DeathGeneral/Downed/CombatStart/LevelUp/AmmoLow/Idle drafts.
+- `voice_source: nightops` — reuse legacy VO where available; RU/EN subtitle drafts for minimum slots:
+  - Selection: «Эскимо готов.» / «Eskimo's ready.»
+  - AimAttack (1): «Дыхание ровное.» / «Breathing steady.»
+  - AimAttack (2): «Цель зафиксирована.» / «Target locked.»
+  - OpponentKilled: «Свободен от одного врага.» / «One less enemy.»
+  - DeathGeneral: «Свобода была короткой...» / «Freedom was short...»
+  - Downed: «Ранен, но не сломлен.» / «Hit, but not broken.»
+  - CombatStartDetected: «Противник на виду.» / «Enemy in sight.»
+  - LevelUp: «Тюрьма многому научила.» / «Prison taught me a lot.»
+  - AmmoLow: «Патроны на исходе.» / «Running low on ammo.»
+  - Idle: «Холодно только в имени, жду.» / «Only my name is cold, waiting.»
 
 ## Wiring
 
@@ -144,10 +181,12 @@ executable: false
 | Appearance | Eskimo |
 | VoiceResponseId | Jazz_Eskimo |
 | pollyvoice | Matthew |
-| Portrait / BigPortrait | Mod/Dv3mFVN/MercPortraits/Eskimo.png (+_Big) |
+| Portrait | Mod/Dv3mFVN/MercPortraits/Eskimo.png |
+| BigPortrait | Mod/Dv3mFVN/MercPortraits/Eskimo_Big.png |
+| CustomEquipGear | TryEquip Handheld A Firearm (two-handed rifle) |
 | FallbackMissingVR | Ice |
-| Sources | AIM sheet JA1/2 block; origin=nightops |
+| Sources | AIM sheet «Наемники из JA1/2»; origin=nightops |
 
 ## Open blockers
 
-- prison free gate + unique perk needs-design
+- none

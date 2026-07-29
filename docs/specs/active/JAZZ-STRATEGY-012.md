@@ -1,6 +1,6 @@
 ---
 id: JAZZ-STRATEGY-012
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - legion-global-ai
@@ -77,7 +77,7 @@ approved_by: project-owner
 - `JAZZ-STRATEGY-012-AC-002` — static: wounded retreat + wounded state.
 - `JAZZ-STRATEGY-012-AC-003` — static: top-up charges money/manpower.
 - `JAZZ-STRATEGY-012-AC-004` — loc/docs.
-- `JAZZ-STRATEGY-012-AC-005` — runtime: `BLOCKED`.
+- `JAZZ-STRATEGY-012-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Impact и совместимость
 
@@ -98,7 +98,7 @@ approved_by: project-owner
 ## Evidence
 
 - `JAZZ-STRATEGY-012-AC-001`..`004`: static PASS
-- `JAZZ-STRATEGY-012-AC-005`: `BLOCKED (runtime)`
+- `JAZZ-STRATEGY-012-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Documentation delta
 

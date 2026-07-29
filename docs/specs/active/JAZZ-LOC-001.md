@@ -139,7 +139,7 @@ approved_by: project-owner
 
 ## Evidence
 
-- `JAZZ-LOC-001-AC-013`: `BLOCKED (runtime)` — требуется запуск игры на английском языке после статической проверки.
+- `JAZZ-LOC-001-AC-013`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 - `JAZZ-LOC-001-AC-001`: `PASS (static)` — `IdAmbiguities.csv`: 0 data rows.
 - `JAZZ-LOC-001-AC-002`: `PASS (static)` — 3 441 manifest rows `restore-vanilla`; 0 отсутствующих ID и 0 несовпадений canonical `Game.csv.Text`.
@@ -148,8 +148,8 @@ approved_by: project-owner
 - `JAZZ-LOC-001-AC-005`: `PASS (static)` — postflight generated sync: 0 errors и те же 20 известных warnings, что на preflight.
 - `JAZZ-LOC-001-AC-006`: `PASS (static)` — `Russian.csv`: 5 632 строки/уникальных ID, ровно множество активных mod-only ID; duplicates 0, missing 0, extra 0, `Game.csv` overlap 0, non-technical blank translation 0.
 - `JAZZ-LOC-001-AC-007`: `PASS (static, documented exception)` — `jazz-maps` и `jazz-units` exit 0. Основной `jazz` exit 2 только для 573 trailing-whitespace записей: 570 — сохранённые пробелы внутри многострочных CSV-полей `Russian.csv`, ещё 3 — существовавшие в HEAD Lua-строки, где миграция изменила только ID. Иных diff-check ошибок нет; `core.autocrlf` сообщает только предупреждения.
-- `JAZZ-LOC-001-AC-008`: `BLOCKED (editor)` — Mod Editor в этой сессии не запускался; требуется load/save/reload трёх пакетов и проверка панели сообщений.
-- `JAZZ-LOC-001-AC-009`: `BLOCKED (runtime)` — игра не запускалась; требуется clean start и существующий save на русском языке.
+- `JAZZ-LOC-001-AC-008`: `PASS (editor) - owner accepted 2026-07-28`
+- `JAZZ-LOC-001-AC-009`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 - `JAZZ-LOC-001-AC-010`: `PASS (static)` — финальный каталог: `needs English=0`.
 - `JAZZ-LOC-001-AC-011`: `PASS (static)` — `English.csv`: 5 632 строки/уникальных ID; duplicates 0, missing 0, extra 0, `Game.csv` overlap 0, non-technical blank translation 0, strict tag/placeholder mismatch 0.
 - `JAZZ-LOC-001-AC-012`: `PASS (static)` — `metadata.lua` загружает существующий `Mod/e6L4ECj/English.csv` для `language = "English"`.
@@ -164,7 +164,7 @@ approved_by: project-owner
 - `JAZZ-LOC-001-AC-004`: `PASS (static)` — финальный аудит: 13 502 активных вызова, 9 625 активных ID, 5 751 строка каталога; active, against `Game.csv`, `Russian.csv` и dormant коллизии равны 0; `needs Russian=0`, `needs English=0`.
 - `JAZZ-LOC-001-AC-005`: `PASS (static)` — postflight generated sync: 0 errors и те же 20 известных warnings.
 - `JAZZ-LOC-001-AC-006` / `JAZZ-LOC-001-AC-011`: `PASS (static)` — `Russian.csv` и `English.csv` содержат по 5 735 уникальных ID с точным совпадением множеств и без дублей; два намеренно пустых технических T (`486989771291111`, `4869897712911115`) совпадают в обоих языках.
-- `JAZZ-LOC-001-AC-008`, `JAZZ-LOC-001-AC-009`, `JAZZ-LOC-001-AC-013`: `BLOCKED (editor/runtime)` — после follow-up всё ещё требуются Mod Editor load/save/reload и smoke-test обоих языков на новой игре и существующем save.
+- `JAZZ-LOC-001-AC-008`, `JAZZ-LOC-001-AC-009`, `JAZZ-LOC-001-AC-013`: `PASS (editor/runtime)` — owner playtest accepted 2026-07-28.
 
 ## Documentation delta
 

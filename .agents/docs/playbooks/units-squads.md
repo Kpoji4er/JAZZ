@@ -13,7 +13,7 @@
 - Учитывать determinism для hiring/randomization/персетов.
 - Не переименовывать unit/ID/class без проверки usage по всем 4 репозиториям.
 - Портреты мерков/NPC: `MercPortraits/` и `NPCPortraits/` в `jazz-units`; генерация — `$create-jazz-merc-portraits`.
-- Полный наёмник из generation-статьи: `docs/design/mercs-ja12/` + `$create-jazz-merc`.
+- Полный наёмник из generation-статьи: `docs/design/mercs-ja12/` + `$create-jazz-merc` + план `.agents/skills/create-jazz-merc/references/generation-plan.md` (один slug за раз: доводка → spec → генерация).
 
 ## После правки
 

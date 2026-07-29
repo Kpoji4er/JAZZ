@@ -1,5 +1,5 @@
-﻿---
-status: planned
+---
+status: ready
 priority: low
 origin: wildfire
 unit_id: Jazz_Steiger
@@ -20,7 +20,7 @@ salary:
   max: 11000
 medical_deposit: large
 haggling: high
-executable: false
+executable: true
 ---
 
 # Штайгер — Рудольф Штайгер
@@ -29,18 +29,18 @@ executable: false
 
 | Field | RU | EN |
 | --- | --- | --- |
-| Name | Рудольф Штайгер | Рудольф Штайгер |
+| Name | Рудольф Штайгер | Rudolf Steiger |
 | Nick | Штайгер | Steiger |
 | AllCapsNick | ШТАЙГЕР | STEIGER |
-| Title | Дорогой немец | Дорогой немец |
+| Title | Дорогой немец | The Expensive German |
 | Email | Steiger@aim.com | Steiger@aim.com |
 | snype_nick | steiger | steiger |
 
 ## Bio
 
-**RU:** WF. Stats 75–85, Strength 69, Wisdom 90, Leadership 69, Marksmanship 94. Fear heat. Likes Henning, Laura, Grunty; dislikes Cord, Bull. Very expensive.
+**RU:** Wildfire. Статы 75–85, Сила 69, Мудрость 90, Лидерство 69, Меткость 94. Плохо переносит жару. Любит Хеннинга, Лору и Гранти; недолюбливает Корда и Булла. Очень дорогой специалист.
 
-**EN:** EN draft: translate Bio RU.
+**EN:** Wildfire mercenary. Stats in the 75-85 range, 69 Strength, 90 Wisdom, 69 Leadership, 94 Marksmanship. Handles heat poorly. Fond of Henning, Laura, and Grunty; not fond of Cord or Bull. A very expensive specialist.
 
 ## Stats
 
@@ -64,7 +64,10 @@ executable: false
 
 ### StartingPerks
 
-- (map JA2 skills)`n- named perk below
+- `Jazz_Perk_Steiger`
+- `NightOps`
+- `Teacher`
+- `LeadFromTheFront`
 
 ### Named perk
 
@@ -72,17 +75,17 @@ executable: false
 | --- | --- |
 | id | `Jazz_Perk_Steiger` |
 | type | passive |
-| DisplayName RU/EN | Ночка и обучение / Ночка и обучение |
-| Description RU/EN | Night + Teacher / Night + Teacher |
-| Mechanics | NightOps + Teacher. needs-design unique. |
+| DisplayName RU/EN | Ночной инструктор / Night Instructor |
+| Description RU/EN | Ночью Штайгер обучает соседних союзников лучше стрелять / At night, Steiger's coaching sharpens nearby allies' aim |
+| Mechanics | During Nighttime missions, allies within 5 tiles of Steiger gain +5% CTH, reflecting his career as a night-operations instructor. |
 
 ## Personality
 
 - Quirks: FearHeat
-- Likes: Jazz_Henning, Jazz_Laura, Grunty
-- Dislikes: Jazz_Cord, Jazz_Bull
+- Likes: `Jazz_Henning`, `Jazz_Laura`, `Grunty`
+- Dislikes: `Jazz_Cord`, `Jazz_Bull`
 - National hates: —
-- Refusal / Haggle notes: WF expensive
+- Refusal / Haggle notes: refuses if Jazz_Cord or Jazz_Bull are in the active squad; haggles high by default (expensive specialist); mitigation and rate discount when Jazz_Henning or Jazz_Laura are hired
 
 ## Hire
 
@@ -91,9 +94,11 @@ executable: false
 
 ## Inventory
 
-- Equipment loot id: `Loot_JAZZ_Steiger`
-- Presets:
-  - *50: officer kit
+- Equipment loot id: `Loot_JAZZ_Steiger` → `JAZZ_Steiger50/35/25/20`
+- *50: `JazzArmor_PoliceVest`, `HK G3`, `JAZZ_AMMO_308_Match`×40 (Double), `NVGoggles`, `Radio`
+- *35: `FNFAL`, `JAZZ_AMMO_308_FMJ`×32 (Double)
+- *25: `M14`, `JAZZ_AMMO_308_FMJ`×24 (Double)
+- *20: `M1Garand`, `JAZZ_AMMO_3006_FMJ`×20 (Double)
 
 ## JA2 face reference
 
@@ -105,7 +110,7 @@ executable: false
 
 ## Portrait prompt
 
-**Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**.
+**Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**. Face must match JA2 reference above.
 
 **CHARACTER_DESCRIPTION:** Match JA2 face reference `steiger.ja2-face.gif` (same face identity). Expensive German commander, neat, instructor tabs and night-ops monocle — NO gun.
 
@@ -116,26 +121,60 @@ executable: false
 ## Phrases — AIM chat
 
 ### Offline
-- RU: Штайгер занят.
-- EN: Steiger unavailable.
+- RU: Штайгер занят. Перезвоните.
+- EN: Steiger's busy. Call back.
 
 ### GreetingAndOffer
-- RU: Штайгер.
-- EN: Steiger here.
+- RU: Штайгер слушает. Условия обсуждаются заранее.
+- EN: Steiger here. Terms are discussed up front.
 
-### ConversationRestart / IdleLine / PartingWords / Rehire
-- Restart RU/EN: Вернёмся к делу. / Let's get back to it.
-- Idle RU/EN: Жарко. / Well?
-- Part RU/EN: Дорого — но да. / I'm in.
-- RehireIntro: Контракт заканчивается. Продлеваем? / Contract's ending. Extending?
-- RehireOutro: Остаюсь. / I'm staying.
+### ConversationRestart
+- RU: Связь прервалась. Вернёмся к делу.
+- EN: Line dropped. Let's get back to it.
 
-### Extra
-- Draft relationship lines at generation.
+### IdleLine
+- RU: Жарко. Не для меня климат.
+- EN: It's hot. Not my kind of climate.
+
+### PartingWords
+- RU: Дорого — но да. Я в деле.
+- EN: Expensive — but yes. I'm in.
+
+### RehireIntro
+- RU: Контракт заканчивается. Продлеваем?
+- EN: Contract's ending. Extending?
+
+### RehireOutro
+- RU: Остаюсь. По прежней ставке, разумеется.
+- EN: I'm staying. At the same rate, naturally.
+
+### Refusals
+- Cord or Bull hired RU: Пока эти двое в отряде — переговоров не будет.
+- Cord or Bull hired EN: No negotiations while those two are on the team.
+- Money RU: Моя квалификация стоит дороже.
+- Money EN: My expertise is worth more than that.
+
+### Haggles
+- Money RU: Стандартная ставка для специалиста моего уровня — не ниже.
+- Money EN: Standard rate for a specialist of my caliber — not a cent less.
+
+### Mitigations
+- Henning or Laura hired RU: Хеннинг (или Лора) уже здесь? Тогда сделаем скидку.
+- Henning or Laura hired EN: Henning (or Laura) is already in? Then we'll make an exception on price.
 
 ## Phrases — VoiceResponse
 
-- `voice_source: wildfire` — legacy VO reuse + minimum Selection/AimAttack/OpponentKilled/DeathGeneral/Downed/CombatStart/LevelUp/AmmoLow/Idle drafts.
+- `voice_source: wildfire` — reuse legacy VO where available; RU/EN subtitle drafts for minimum slots:
+  - Selection: «Штайгер к вашим услугам.» / «Steiger at your service.»
+  - AimAttack (1): «Дисциплина и точность.» / «Discipline and precision.»
+  - AimAttack (2): «По учебнику.» / «By the book.»
+  - OpponentKilled: «Урок усвоен.» / «Lesson learned.»
+  - DeathGeneral: «Недостойный конец...» / «An unworthy end...»
+  - Downed: «Ранен. Неприемлемо.» / «Hit. Unacceptable.»
+  - CombatStartDetected: «Противник обнаружен. Внимание.» / «Enemy detected. Attention.»
+  - LevelUp: «Прогресс налицо.» / «Progress is evident.»
+  - AmmoLow: «Боеприпасы на исходе.» / «Ammunition running low.»
+  - Idle: «Жарко. Жду тени.» / «Hot. Waiting for shade.»
 
 ## Wiring
 
@@ -144,10 +183,12 @@ executable: false
 | Appearance | Steiger |
 | VoiceResponseId | Jazz_Steiger |
 | pollyvoice | Matthew |
-| Portrait / BigPortrait | Mod/Dv3mFVN/MercPortraits/Steiger.png (+_Big) |
+| Portrait | Mod/Dv3mFVN/MercPortraits/Steiger.png |
+| BigPortrait | Mod/Dv3mFVN/MercPortraits/Steiger_Big.png |
+| CustomEquipGear | TryEquip Handheld A Firearm (two-handed rifle) |
 | FallbackMissingVR | Ice |
-| Sources | AIM sheet JA1/2 block; origin=wildfire |
+| Sources | AIM sheet «Наемники из JA1/2»; origin=wildfire |
 
 ## Open blockers
 
-- unique perk needs-design
+- none

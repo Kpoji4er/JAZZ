@@ -1,6 +1,6 @@
 ---
 id: JAZZ-UNITS-001
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - units-progression-specializations
@@ -74,7 +74,7 @@ approved_by: project-owner chat request 2026-07-28
 - `JAZZ-UNITS-001-AC-001` — static: `EliteEnemyNamesFuncs.lua` не вызывает `_InternalTranslate` при PlaceObj name.
 - `JAZZ-UNITS-001-AC-002` — static: `Mercenary.lua` не регистрирует `Foreigners`.
 - `JAZZ-UNITS-001-AC-003` — static: `jazz/English.csv` содержит format ID и все mod-only ID пулов; `jazz-units/English.csv` существует под units loctable.
-- `JAZZ-UNITS-001-AC-004` — runtime: English UI показывает английские elite names; Russian UI — русские (BLOCKED до ручной проверки).
+- `JAZZ-UNITS-001-AC-004`: `PASS (runtime/human)` — owner playtest accepted 2026-07-28; English UI — English elite names; Russian UI — Russian.
 
 ## Impact и совместимость
 
@@ -103,7 +103,7 @@ approved_by: project-owner chat request 2026-07-28
 - `JAZZ-UNITS-001-AC-001`: `PASS (static)` — `EliteEnemyNamesFuncs.lua` stores `name = EnemyName` (T/T{}); no bake in PlaceObj.
 - `JAZZ-UNITS-001-AC-002`: `PASS (static)` — `Mercenary.lua` only registers `Mercenary`.
 - `JAZZ-UNITS-001-AC-003`: `PASS (static)` — jazz English/Russian have format ID + mod-only name pools; 6 latin IDs absent are vanilla-overlap sources (Blood/Phantom/Combat/Ivan/Miner/Luc); units English.csv present for loctable.
-- `JAZZ-UNITS-001-AC-004`: `BLOCKED` — runtime English/Russian elite name display.
+- `JAZZ-UNITS-001-AC-004`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Documentation delta
 

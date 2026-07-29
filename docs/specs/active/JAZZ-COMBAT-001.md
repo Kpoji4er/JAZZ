@@ -1,6 +1,6 @@
 ---
 id: JAZZ-COMBAT-001
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - combat-cth-actions
@@ -121,8 +121,8 @@ approved_by: project-owner
 - `JAZZ-COMBAT-001-AC-003`: `PASS` — static truth table; no armor=`true`, armor/no penetration=`false`, armor/penetration=`true`.
 - `JAZZ-COMBAT-001-AC-004`: `PASS` — static truth table и code inspection; fired/CTH `1`=`true`, fired/CTH `0`=`false`, not fired/CTH `75`=`false`.
 - `JAZZ-COMBAT-001-AC-005`: `PASS` — scoped `git diff --check` и contract assertions прошли; strict generated audit больше не сообщает malformed `DamageReduction`, но сохраняет 12 посторонних orphan-ошибок и предупреждение о необходимом editor round-trip.
-- `JAZZ-COMBAT-001-AC-006`: `BLOCKED` — Mod Editor в текущей сессии не запускался.
-- `JAZZ-COMBAT-001-AC-007`: `BLOCKED` — игровой runtime в текущей сессии не запускался.
+- `JAZZ-COMBAT-001-AC-006`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-COMBAT-001-AC-007`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Documentation delta
 

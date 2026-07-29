@@ -1,5 +1,5 @@
-﻿---
-status: planned
+---
+status: ready
 priority: medium
 origin: ja2
 unit_id: Jazz_Gamos
@@ -20,7 +20,7 @@ salary:
   max: 1000
 medical_deposit: none
 haggling: normal
-executable: false
+executable: true
 ---
 
 # Гамос — Гамос
@@ -29,18 +29,18 @@ executable: false
 
 | Field | RU | EN |
 | --- | --- | --- |
-| Name | Гамос | Гамос |
+| Name | Гамос | Gamos |
 | Nick | Гамос | Gamos |
 | AllCapsNick | ГАМОС | GAMOS |
-| Title | Я много путешествовать | Я много путешествовать |
+| Title | Я много путешествовать | Me Travel Much |
 | Email | Gamos@arulco.reb | Gamos@arulco.reb |
 | snype_nick | travelmuch | travelmuch |
 
 ## Bio
 
-**RU:** Статы 60–70, Wisdom 35, Marksmanship 78. Нормальный, нейтрален к команде. Дешёвый.
+**RU:** Статы 60–70, Wisdom 35, Marksmanship 78. Простой и дружелюбный местный проводник, исходивший джунгли Арулько вдоль и поперёк. Нейтрален к остальному отряду, дёшев в найме.
 
-**EN:** EN draft: translate Bio RU at generation.
+**EN:** Stats in the 60-70 range, 35 Wisdom, 78 Marksmanship. A simple, friendly local guide who's walked every inch of Arulco's jungle. Neutral toward the rest of the roster, cheap to hire.
 
 ## Stats
 
@@ -64,8 +64,10 @@ executable: false
 
 ### StartingPerks
 
-- (map JA2 skills to JA3 StartingPerks)
 - `Jazz_Perk_Gamos`
+- `Stealthy`
+- `Flanker`
+- `TrueGrit`
 
 ### Named perk
 
@@ -73,28 +75,30 @@ executable: false
 | --- | --- |
 | id | `Jazz_Perk_Gamos` |
 | type | passive |
-| DisplayName RU/EN | Тропы джунглей / Тропы джунглей |
-| Description RU/EN | Быстрее вне дорог / Быстрее вне дорог |
-| Mechanics | −30–50% travel time in jungle off-road/non-city (sat view). |
+| DisplayName RU/EN | Тропы джунглей / Jungle Trails |
+| Description RU/EN | Быстрее передвигается вне дорог по джунглям и болотам / Moves faster off-road through jungle and marsh terrain |
+| Mechanics | −40% satellite-map travel time for squads led by Gamos when moving through sectors tagged `Jungle`, `Marshlands`, or `CursedForest` (matches the terrain GameStates already used by vanilla AppearancesList tagging). No effect on road/city travel. |
 
 ## Personality
 
-- Quirks: Normal
+- Quirks: Normal (no strong likes/dislikes; flavor as an easy-going neutral guide)
 - Likes: —
 - Dislikes: —
 - National hates: —
-- Refusal / Haggle notes: Cheap local
+- Refusal / Haggle notes: standard Locals money/death-toll refusals only — no relationship-based branches
 
 ## Hire
 
-- Access: Locals
+- Access: Locals — available from the local guide network once the player has liberated Gamos's home sector
 - MedicalDeposit: none; Haggling: normal; DaysUntilOnline: 0
 
 ## Inventory
 
-- Equipment loot id: `Loot_JAZZ_Gamos`
-- Presets (weights ~50/35/25/20):
-  - *50: light rifle in loot, jungle pack, machete sheathed
+- Equipment loot id: `Loot_JAZZ_Gamos` → `JAZZ_Gamos50/35/25/20`
+- *50: `JazzArmor_LeatherArmor`, `SKS`, `JAZZ_AMMO_762x39_FMJ`×30 (Double), `Machete`, `Lockpick`
+- *35: `JazzArmor_LeatherArmor`, `SKS`, `JAZZ_AMMO_762x39_FMJ`×20 (Double), `Machete`
+- *25: `JazzArmor_LeatherJacketBrn`, `Machete_Sharpened`
+- *20: `JazzArmor_LeatherJacketBrn`, `Machete`
 
 ## JA2 face reference
 
@@ -108,7 +112,7 @@ executable: false
 
 **Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**.
 
-**CHARACTER_DESCRIPTION:** Match JA2 face reference `gamos.ja2-face.gif` (same face identity). Local Arulco traveler, simple clothes, huge jungle backpack and machete sheathed — NO gun. Friendly simple smile.
+**CHARACTER_DESCRIPTION:** Match JA2 face reference `gamos.ja2-face.gif` (same face identity). Local Arulco traveler ~35, simple clothes, huge jungle backpack and sheathed machete on hip — NO gun. Friendly, simple smile.
 
 **Preferred refs:** `MercPortraits/References/` matching gender/role
 
@@ -117,41 +121,52 @@ executable: false
 ## Phrases — AIM chat
 
 ### Offline
-- RU: Гамос много путешествовать — потом.
-- EN: This is Gamos. Leave a message.
+- RU: Гамос много путешествовать — сейчас нет тут. Потом.
+- EN: Gamos travel much — not here now. Later.
 
 ### GreetingAndOffer
-- RU: Гамос тут.
-- EN: Gamos here.
+- RU: Гамос тут. Куда идти надо?
+- EN: Gamos here. Where we go?
 
 ### ConversationRestart
-- RU: Вернёмся к делу.
-- EN: Let's get back to it.
+- RU: Связь пропадать. Вернёмся к делу.
+- EN: Line drop. Let's talk again.
 
 ### IdleLine
-- RU: Идём?
-- EN: Waiting.
+- RU: Идём? Гамос знать дорогу.
+- EN: We go? Gamos know the way.
 
 ### PartingWords
-- RU: Хорошо, идём.
-- EN: I'm in.
+- RU: Хорошо, Гамос идёт. Джунгли не страшны.
+- EN: Okay, Gamos come. Jungle not scary.
 
 ### RehireIntro
 - RU: Контракт заканчивается. Продлеваем?
 - EN: Contract's ending. Extending?
 
 ### RehireOutro
-- RU: Остаюсь.
-- EN: I'm staying.
+- RU: Гамос остаётся. Есть ещё тропы показать.
+- EN: Gamos stay. More trails to show.
 
-### Refusals / Haggles / Mitigations / ExtraPartingWords
-- Draft relationship refusals/haggles from Personality at generation time.
+### Refusals
+- Death toll RU: Много люди умирать с вами. Гамос не хотеть так.
+- Death toll EN: Много люди умирать с вами. Gamos not want that.
+- Money RU: Мало денег. Гамос семью кормить надо.
+- Money EN: Too little money. Gamos have family to feed.
 
 ## Phrases — VoiceResponse
 
 - `voice_source: ja2` — reuse legacy VO where available; RU/EN subtitle drafts for minimum slots:
-  - Selection: «Гамос!» / «Gamos!»
-  - AimAttack / OpponentKilled / DeathGeneral / Downed / CombatStartPlayer / LevelUp / AmmoLow / Idle — standard drafts + relationship slots.
+  - Selection: «Гамос здесь!» / «Gamos here!»
+  - AimAttack (1): «Гамос стрелять!» / «Gamos shoot!»
+  - AimAttack (2): «На мушке.» / «On target.»
+  - OpponentKilled: «Готово.» / «Done.»
+  - DeathGeneral: «Джунгли забирать Гамос...» / «Jungle take Gamos...»
+  - Downed: «Гамос ранен!» / «Gamos hit!»
+  - CombatStartDetected: «Опасность близко!» / «Danger close!»
+  - LevelUp: «Гамос учиться быстро.» / «Gamos learn fast.»
+  - AmmoLow: «Патроны мало!» / «Little ammo left!»
+  - Idle: «Гамос ждать.» / «Gamos wait.»
 
 ## Wiring
 
@@ -162,7 +177,7 @@ executable: false
 | pollyvoice | Matthew |
 | Portrait | Mod/Dv3mFVN/MercPortraits/Gamos.png |
 | BigPortrait | Mod/Dv3mFVN/MercPortraits/Gamos_Big.png |
-| CustomEquipGear | TryEquip Handheld A/B as role requires |
+| CustomEquipGear | TryEquip Handheld A Firearm |
 | FallbackMissingVR | Ice |
 | Sources | AIM sheet «Наемники из JA1/2»; origin=ja2 |
 

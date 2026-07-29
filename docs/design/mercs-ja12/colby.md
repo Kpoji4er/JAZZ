@@ -1,5 +1,5 @@
 ﻿---
-status: planned
+status: ready
 priority: high
 origin: ja2
 unit_id: Jazz_Colby
@@ -20,7 +20,7 @@ salary:
   max: 7000
 medical_deposit: large
 haggling: normal
-executable: false
+executable: true
 ---
 
 # Колби — Тревор Колби
@@ -29,10 +29,10 @@ executable: false
 
 | Field | RU | EN |
 | --- | --- | --- |
-| Name | Тревор Колби | Тревор Колби |
+| Name | Тревор Колби | Trevor Colby |
 | Nick | Колби | Colby |
 | AllCapsNick | КОЛБИ | COLBY |
-| Title | Ловушечник | Ловушечник |
+| Title | Ловушечник | The Tripwire |
 | Email | Colby@aim.com | Colby@aim.com |
 | snype_nick | tripwire | tripwire |
 
@@ -40,7 +40,7 @@ executable: false
 
 **RU:** Боевой подрывник и ловушечник AIM. Лютые физикалы (кроме силы/подвижности), 99 механики, 88 взрывчатки. Дружит с Тором, не дружит с Фиделем; не любит американцев.
 
-**EN:** EN draft: translate Bio RU at generation; keep tone.
+**EN:** AIM combat demolitions and trap specialist. Brutal physicals (except Strength/Agility), 99 Mechanical, 88 Explosives. Friends with Thor, clashes with Fidel; does not like Americans.
 
 ## Stats
 
@@ -64,8 +64,12 @@ executable: false
 
 ### StartingPerks
 
-- (map JA2 skills to JA3 StartingPerks)
 - `Jazz_Perk_Colby`
+- `MrFixit`
+- `Throwing`
+- `BreachAndClear`
+- `HitTheDeck`
+- `DesignerExplosives`
 
 ### Named perk
 
@@ -73,8 +77,8 @@ executable: false
 | --- | --- |
 | id | `Jazz_Perk_Colby` |
 | type | passive |
-| DisplayName RU/EN | Цепная паника / Цепная паника |
-| Description RU/EN | Взрывы Колби сеют панику / Взрывы Колби сеют панику |
+| DisplayName RU/EN | Цепная паника / Chain Panic |
+| Description RU/EN | Взрывы Колби сеют панику: +20% к радиусу и 20% шанс паники у раненых врагов в зоне / Colby's blasts sow panic: +20% blast radius and 20% chance to panic wounded enemies in the blast |
 | Mechanics | Каждый взрыв, инициированный Колби (граната/миномёт/C4/бочка/мина/чужая бомба выстрелом): 20% шанс паники у раненых врагов в радиусе; +20% к радиусу взрывов. |
 
 ## Personality
@@ -82,8 +86,8 @@ executable: false
 - Quirks: —
 - Likes: Thor
 - Dislikes: Fidel
-- National hates: Americans
-- Refusal / Haggle notes: Standard AIM
+- National hates: Americans (Haggle when hired USA-nationality mercs present)
+- Refusal / Haggle notes: Fidel hired; death toll; money; USA-nationality haggle; Thor mitigation
 
 ## Hire
 
@@ -92,10 +96,11 @@ executable: false
 
 ## Inventory
 
-- Equipment loot id: `Loot_JAZZ_Colby`
-- Presets (weights ~50/35/25/20):
-  - *50: demo satchel, shaped charges×2, lockpick set, smoke×2, light armor, secondary SMG family
-  - lower tiers: fewer charges / lighter kit
+- Equipment loot id: `Loot_JAZZ_Colby` → `JAZZ_Colby50/35/25/20` (weights 50k/35k/25k/20k)
+- *50: `ShapedCharge`×2, `C4`×2, `Lockpick`, `SmokeGrenade`×2, `JazzArmor_LeatherVest`, `MP5A4`, `JAZZ_AMMO_9x19_FMJ`×60, `Combination_Detonator_Remote`
+- *35: `ShapedCharge`×1, `C4`×1, `Lockpick`, `SmokeGrenade`×1, `JazzArmor_LeatherVest`, `MPL`, `JAZZ_AMMO_9x19_FMJ`×40, `Combination_Detonator_Time`
+- *25: `C4`×1, `SmokeGrenade`×1, `JazzArmor_PoliceVest`, `UZI`, `JAZZ_AMMO_9x19_FMJ`×30
+- *20: `PipeBomb`×1, `JazzArmor_PoliceVest`, `UZI`, `JAZZ_AMMO_9x19_FMJ`×20
 
 ## JA2 face reference
 
@@ -119,11 +124,11 @@ executable: false
 
 ### Offline
 - RU: Колби. Меня нет. Оставьте сообщение — перезвоню, если не взорвусь.
-- EN: This is Colby. Leave a message.
+- EN: This is Colby. Leave a message. I'll call back if I don't blow myself up.
 
 ### GreetingAndOffer
 - RU: Колби на линии. Что взрываем?
-- EN: Colby here. Talk.
+- EN: Colby here. What are we blowing up?
 
 ### ConversationRestart
 - RU: Вернёмся к делу.
@@ -131,11 +136,11 @@ executable: false
 
 ### IdleLine
 - RU: Время тикает.
-- EN: Waiting on you.
+- EN: Waiting on you. Clock's ticking.
 
 ### PartingWords
 - RU: Беру зарядку и выхожу.
-- EN: I'm in.
+- EN: Grabbing charges. I'm in.
 
 ### RehireIntro
 - RU: Контракт заканчивается. Продлеваем?
@@ -145,12 +150,29 @@ executable: false
 - RU: Остаюсь.
 - EN: I'm staying.
 
-### Refusals / Haggles / Mitigations / ExtraPartingWords
-- Draft relationship refusals/haggles from Personality at generation time.
+### Refusals
+- Fidel hired RU: Нет. Пока Фидель на контракте — я пас. Не хочу делить периметр с психом.
+- Fidel hired EN: No. Not while Fidel's on the payroll. I don't share a perimeter with that psycho.
+- Death toll RU: Слишком много трупов на вашем счету. Наймите кого-то другого.
+- Death toll EN: Too many bodies on your ledger. Hire someone else.
+- Money RU: Кошелёк тонкий. Перезвоните, когда будет бюджет на нормальную зарядку.
+- Money EN: Wallet's light. Call when you can afford a proper charge kit.
+
+### Haggles
+- USA mercs hired RU: Американцы в отряде… Ладно, но надбавка за нервы.
+- USA mercs hired EN: Americans on the squad… Fine, but I want a hazard bump for my nerves.
+
+### Mitigations
+- Thor hired RU: Тор уже с вами? Тогда ок. С ним я работаю.
+- Thor hired EN: Thor's already with you? Then I'm in. I work with him.
+
+### ExtraPartingWords
+- RU: Если нужен ещё один спокойный спец — берите Тора.
+- EN: If you need another steady specialist — grab Thor.
 
 ## Phrases — VoiceResponse
 
-- `voice_source: ja2` — reuse legacy VO where available; RU/EN subtitle drafts for minimum slots:
+- `voice_source: ja2` — reuse legacy VO where available; RU/EN subtitle drafts:
   - Selection: «Колби!» / «Colby!»
   - AimAttack: «На мушке.» / «On target.»
   - OpponentKilled: «Готово.» / «Done.»
@@ -160,7 +182,8 @@ executable: false
   - LevelUp: «Ещё лучше.» / «Getting better.»
   - AmmoLow: «Патроны!» / «Ammo!»
   - Idle: «Жду.» / «Waiting.»
-- Relationship VR slots per Likes/Dislikes when generating.
+  - DeathBuddy (Thor): «Тор!..» / «Thor!..»
+  - MockDislike (Fidel): «Как обычно, Фидель.» / «Typical Fidel.»
 
 ## Wiring
 
@@ -171,10 +194,20 @@ executable: false
 | pollyvoice | Matthew |
 | Portrait | Mod/Dv3mFVN/MercPortraits/Colby.png |
 | BigPortrait | Mod/Dv3mFVN/MercPortraits/Colby_Big.png |
-| CustomEquipGear | TryEquip Handheld A/B Firearm (or melee for knife mercs) |
+| CustomEquipGear | TryEquip Handheld A/B Firearm |
 | FallbackMissingVR | Ice |
 | Sources | AIM sheet «Наемники из JA1/2»; origin=ja2 |
 
 ## Open blockers
 
 - none
+
+## Shipped paths
+
+- UnitData: `jazz-units/UnitData/Jazz_Colby.lua`
+- Named perk: `jazz/CharacterEffect/Jazz_Perk_Colby.lua`
+- Loot: `Loot_JAZZ_Colby` / `JAZZ_Colby50/35/25/20` (`jazz-units/items.lua`)
+- Appearance: `Colby` (`jazz-units/items.lua`)
+- Portraits: `jazz-units/MercPortraits/Colby.png`, `Colby_Big.png`
+- Localization: `890000000001700`–`890000000001732` (`jazz/Russian.csv`, `jazz/English.csv`)
+- Combat hooks: `jazz/Code/System_OR_Grenade.lua` (+20% radius), perk `OnCalcDamageAndEffects` (20% Panicked on wounded enemies in explosion)

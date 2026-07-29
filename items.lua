@@ -66082,6 +66082,232 @@ return {
 					'Tier', "Personal",
 				}),
 				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Colby",
+			}, {
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "toggle",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Colby DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "UI/Icons/Perks/DesignerExplosives",
+					IdDefault = "Jazz_Perk_Colbydefault",
+					IsToggledOn = function (self, unit)
+						return unit and unit:GetEffectValue("Jazz_Perk_00") or false
+					end,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						unit:SetEffectValue("Jazz_Perk_00", not unit:GetEffectValue("Jazz_Perk_00"))
+						ObjModified("combat_bar")
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Colby",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Colby",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcDamageAndEffects",
+							Handler = function (self, owner, attacker, target, action, weapon, attack_args, hit, data)
+								-- only Colby's own reaction instance (fired on the attacker) should proc this
+								if owner ~= attacker then
+									return
+								end
+								if not hit or not (hit.aoe or hit.explosion) then
+									return
+								end
+								if not IsKindOf(target, "Unit") or not attacker:IsOnEnemySide(target) then
+									return
+								end
+								if not target:HasStatusEffect("Wounded") then
+									return
+								end
+								if InteractionRand(100, "Jazz_Perk_Colby") < 20 then
+									target:AddStatusEffect("Panicked")
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000001700, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Colby DisplayName]] "Цепная паника"),
+					'Description', T(890000000001701, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Colby Description]] "Взрывы Колби сеют панику: +20% к радиусу и 20% шанс паники у раненых врагов в зоне"),
+					'Icon', "UI/Icons/Perks/DesignerExplosives",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Blade",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Blade",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000001800, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Blade DisplayName]] "Ураган клинков"),
+					'Description', T(890000000001801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Blade Description]] "Заряд клинком достаёт дальше; атаки бойни получают +20% к шансу попадания, но не могут критовать"),
+					'Icon', "UI/Icons/Perks/Psycho",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Ira",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Ira",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000001900, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Ira DisplayName]] "Народный командир"),
+					'Description', T(890000000001901, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Ira Description]] "Пока Айра стоит гарнизоном в секторе, обучение местного ополчения там идёт вдвое быстрее"),
+					'Icon', "UI/Icons/Perks/Spiritual",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Dimitri",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Dimitri",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000002000, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Dimitri DisplayName]] "Точильщик"),
+					'Description', T(890000000002001, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Dimitri Description]] "Носит с собой запас доведённых до остроты бритвы метательных ножей: +20 к проверке ведущего навыка броска"),
+					'Icon', "UI/Icons/Perks/ContestGround",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Madman",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Madman",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000002100, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Madman DisplayName]] "Штурм в упор"),
+					'Description', T(890000000002101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Madman Description]] "Убийство в упор (оружием ближнего боя или выстрелом почти в упор) даёт Воодушевление"),
+					'Icon', "UI/Icons/Perks/GrizzlyPerk",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Conrad",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Conrad",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000002200, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Conrad DisplayName]] "Строгий инструктор"),
+					'Description', T(890000000002201, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Conrad Description]] "Конрад всегда тренирует на полной скорости и не теряет темп рядом с другими инструкторами"),
+					'Icon', "UI/Icons/Perks/Bond",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Mike",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Mike",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000002300, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Mike DisplayName]] "Быстрая реакция"),
+					'Description', T(890000000002301, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Mike Description]] "Первым замечает угрозу и получает свободное действие при обнаружении врага вне боя"),
+					'Icon', "UI/Icons/Perks/GruntyPerk",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Grom",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Grom",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000002400, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Grom DisplayName]] "Артподготовка"),
+					'Description', T(890000000002401, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Grom Description]] "Первое попадание из тяжёлого оружия или бросок в ходе применяет статус «Подавление» ко всем врагам в радиусе поражения"),
+					'Icon', "UI/Icons/Perks/HeavyWeaponsTraining",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Flo",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Flo",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000003000, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Flo DisplayName]] "Барахольщица"),
+					'Description', T(890000000003001, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Flo Description]] "Скидки у торговцев на покупку и продажу"),
+					'Icon', "UI/Icons/Perks/Negotiator",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Cougar",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Cougar",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000003100, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cougar DisplayName]] "Мягкая лапа"),
+					'Description', T(890000000003101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cougar Description]] "Шум от выстрелов Пумы вдвое тише; выше шанс скрытного убийства"),
+					'Icon', "UI/Icons/Perks/Stealthy",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Miguel",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Miguel",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000003200, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Miguel DisplayName]] "Команданте"),
+					'Description', T(890000000003201, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Miguel Description]] "Пока Мигель гарнизоном стоит в секторе с ополчением, оно получает бонус к прочности и меткости; при бою вместе с ополчением все ополченцы получают дополнительное очко действия в начале боя"),
+					'Icon', "UI/Icons/Perks/LeadFromTheFront",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Gamos",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Gamos",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000003300, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Gamos DisplayName]] "Тропы джунглей"),
+					'Description', T(890000000003301, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Gamos Description]] "Быстрее передвигается вне дорог по джунглям и болотам"),
+					'Icon', "UI/Icons/Perks/Stealthy",
+					'Tier', "Personal",
+				}),
+				}),
 			}),
 		PlaceObj('ModItemXTemplate', {
 			group = "Zulu",

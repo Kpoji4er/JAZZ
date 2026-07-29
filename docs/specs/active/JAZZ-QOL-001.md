@@ -73,7 +73,7 @@ approved_by: project-owner
 - `JAZZ-QOL-001-AC-002` — static: visibility через `HasVisibilityTo(GetPoVTeam(), unit)`.
 - `JAZZ-QOL-001-AC-003` — static: `EnemyTurnFreeCamera` в options + override `LockCameraMovement` / activate unlock.
 - `JAZZ-QOL-001-AC-004` — sync-audit: items/metadata/companion согласованы для нового code + option.
-- `JAZZ-QOL-001-AC-005` — human/runtime: скрытый враг ускоряется по режиму; видимый — Normal; на чужом ходе камера крутится руками. `BLOCKED` до прогона.
+- `JAZZ-QOL-001-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Impact и совместимость
 
@@ -105,7 +105,7 @@ approved_by: project-owner
 - `JAZZ-QOL-001-AC-002`: `PASS` — static: visibility через `HasVisibilityTo(GetPoVTeam(), unit)` в `Code/AiFastForward.lua`.
 - `JAZZ-QOL-001-AC-003`: `PASS` — static: опция `EnemyTurnFreeCamera`; wrap `LockCameraMovement`; unlock на `ExecutionControllerActivate`.
 - `JAZZ-QOL-001-AC-004`: `PASS` — sync: `Code/AiFastForward.lua` в items+metadata.code; options в default_options; pre-existing orphan warnings only.
-- `JAZZ-QOL-001-AC-005`: `BLOCKED` — human/runtime: прогон боя (скрытый ×3, камера на чужом ходе).
+- `JAZZ-QOL-001-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Documentation delta
 

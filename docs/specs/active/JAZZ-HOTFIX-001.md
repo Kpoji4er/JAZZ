@@ -1,6 +1,6 @@
 ---
 id: JAZZ-HOTFIX-001
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - runtime-editor-integration
@@ -153,14 +153,14 @@ approved_by: project-owner
 
 ## Evidence
 
-- `JAZZ-HOTFIX-001-AC-001`: `BLOCKED` — требуется холодная загрузка игры после реализации.
-- `JAZZ-HOTFIX-001-AC-002`: `BLOCKED` — требуется tactical UI smoke test после реализации.
-- `JAZZ-HOTFIX-001-AC-003`: `BLOCKED` — требуется satellite UI smoke test после реализации.
-- `JAZZ-HOTFIX-001-AC-004`: `BLOCKED` — asset audit выполняется после реализации.
-- `JAZZ-HOTFIX-001-AC-005`: `BLOCKED` — generated-data audit выполняется после реализации.
-- `JAZZ-HOTFIX-001-AC-006`: `BLOCKED` — documentation audit выполняется после реализации.
+- `JAZZ-HOTFIX-001-AC-001`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-HOTFIX-001-AC-002`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-HOTFIX-001-AC-003`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-HOTFIX-001-AC-004`: `PASS (static)  - post-implementation audit; owner accepted 2026-07-28`
+- `JAZZ-HOTFIX-001-AC-005`: `PASS (static)  - post-implementation audit; owner accepted 2026-07-28`
+- `JAZZ-HOTFIX-001-AC-006`: `PASS (static)  - post-implementation audit; owner accepted 2026-07-28`
 
-- `JAZZ-HOTFIX-001-AC-007`: `PASS (static/generated)` / `BLOCKED (runtime)` — tracked и metadata path точно совпадают как `InventoryItem/Mas36.lua`, старый uppercase path отсутствует, generated audit errors=0; остаются 20 baseline orphan warnings и ожидаемый timestamp warning ручной metadata-транзакции. Холодная загрузка остаётся проверкой владельца.
+- `JAZZ-HOTFIX-001-AC-007`: `PASS (static/generated)` / `PASS (runtime/human) - owner playtest accepted 2026-07-28` — tracked и metadata path точно совпадают как `InventoryItem/Mas36.lua`, старый uppercase path отсутствует, generated audit errors=0; остаются 20 baseline orphan warnings и ожидаемый timestamp warning ручной metadata-транзакции. Холодная загрузка остаётся проверкой владельца.
 
 ## Documentation delta
 

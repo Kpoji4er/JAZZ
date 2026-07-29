@@ -1,6 +1,6 @@
 ---
 id: JAZZ-STRATEGY-010
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - legion-global-ai
@@ -80,7 +80,7 @@ Roadmap 7b: spawn должен тратить людей; recruits копятс�
 - `JAZZ-STRATEGY-010-AC-002` — static recruiter + convoy.
 - `JAZZ-STRATEGY-010-AC-003` — static spawn manpower gate.
 - `JAZZ-STRATEGY-010-AC-004` — loc/docs.
-- `JAZZ-STRATEGY-010-AC-005` — runtime: `BLOCKED`.
+- `JAZZ-STRATEGY-010-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Impact и совместимость
 
@@ -100,7 +100,7 @@ Roadmap 7b: spawn должен тратить людей; recruits копятс�
 ## Evidence
 
 - `JAZZ-STRATEGY-010-AC-001`..`004`: static PASS
-- `JAZZ-STRATEGY-010-AC-005`: `BLOCKED (runtime)`
+- `JAZZ-STRATEGY-010-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Documentation delta
 

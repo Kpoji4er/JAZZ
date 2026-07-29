@@ -104,7 +104,7 @@ approved_by: project-owner
 - `JAZZ-WEAPONS-001-AC-003`: `PASS` — static: `AmmoRolloverHint` uses `mod_mul`; BaseJamChance `/10`
 - `JAZZ-WEAPONS-001-AC-004`: `PASS` — static: Handling CTH inert; overwatch without Handling term
 - `JAZZ-WEAPONS-001-AC-005`: `PASS` — static: scrap penalty once in `AmountOfScrapPartsFromItem`; heavy degrade honors `self.DegradePerShot`
-- `JAZZ-WEAPONS-001-AC-006`: `BLOCKED` — runtime/human save/load and CTH UI check still required
+- `JAZZ-WEAPONS-001-AC-006`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Documentation delta
 

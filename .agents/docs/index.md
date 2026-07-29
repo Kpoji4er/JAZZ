@@ -16,6 +16,6 @@
 - Assets/UI: `.agents/docs/playbooks/assets-and-ui.md`
 - Squad role icons: `.agents/skills/create-jazz-squad-icons/SKILL.md`, `docs/technical/systems/squad-role-icons.md`
 - Merc/NPC portraits: `.agents/skills/create-jazz-merc-portraits/SKILL.md`, `.cursor/rules/jazz-merc-portraits.mdc`
-- Full merc from design article: `.agents/skills/create-jazz-merc/SKILL.md` + `docs/design/mercs-ja12/`
+- Full merc from design article: `.agents/skills/create-jazz-merc/SKILL.md` + `docs/design/mercs-ja12/` + plan `.agents/skills/create-jazz-merc/references/generation-plan.md`
 
 Для задачи на стыке систем читать только общий контур, точные runtime/generated references и затронутые playbooks. Не загружать весь набор документов.

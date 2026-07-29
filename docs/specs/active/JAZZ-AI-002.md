@@ -253,8 +253,8 @@ SoftDumpCap = **4**.
 - `JAZZ-AI-002-AC-002`: `PASS` — static: `max_attacks` декремент; `MatchUnit`/`reload`/`flare`/`aim_cost`/`visible`+disengage reserve.
 - `JAZZ-AI-002-AC-003`: `PASS` — static: `PickBestAttack` uses `InteractionRand`; `total_cost > AP` gate.
 - `JAZZ-AI-002-AC-004`: `PASS` — static: Flanking/HighGround/IndoorsOutdoors raw×100 без Weight в Eval.
-- `JAZZ-AI-002-AC-005`: `BLOCKED` — runtime/human: дострел без второго Think-move.
-- `JAZZ-AI-002-AC-006`: `BLOCKED` — runtime/human: выбег→укрытие / две цели / prone-open; kill+restart; reload/flare.
+- `JAZZ-AI-002-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-AI-002-AC-006`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 - `JAZZ-AI-002-AC-007`: `PASS` — static: `TryChangeStance` → `JAZZ_AIBunkerDown`; stance via `GetStanceToStanceAP` / combat actions.
 - `JAZZ-AI-002-AC-008`: `PASS` — static: `ai-awareness.md` обновлён под Commit/Dump/Disengage/BunkerDown.
 

@@ -1,5 +1,5 @@
-﻿---
-status: planned
+---
+status: ready
 priority: low
 origin: ja2
 unit_id: Jazz_Devin
@@ -20,7 +20,7 @@ salary:
   max: 5000
 medical_deposit: standard
 haggling: normal
-executable: false
+executable: true
 ---
 
 # Девин — Девин Коннелл
@@ -29,7 +29,7 @@ executable: false
 
 | Field | RU | EN |
 | --- | --- | --- |
-| Name | Девин Коннелл | Девин Коннелл |
+| Name | Девин Коннелл | Devin Connell |
 | Nick | Девин | Devin |
 | AllCapsNick | ДЕВИН | DEVIN |
 | Title | IRA | IRA |
@@ -38,9 +38,9 @@ executable: false
 
 ## Bio
 
-**RU:** Статы 60–70, Dex 88, Explosives 96. Loner. Likes Red; hates British. Expensive day rate lore.
+**RU:** Статы 60–70, Dexterity 88, Explosives 96. Одиночка, бывший боец ИРА. Симпатизирует Реду; недолюбливает британцев.
 
-**EN:** EN draft: translate Bio RU.
+**EN:** Stats in the 60-70 range, 88 Dexterity, 96 Explosives. A loner and former IRA fighter. Gets along with Red; not fond of the British.
 
 ## Stats
 
@@ -64,7 +64,10 @@ executable: false
 
 ### StartingPerks
 
-- (map JA2 skills)`n- named perk below
+- `Jazz_Perk_Devin`
+- `Loner`
+- `DesignerExplosives`
+- `BreachAndClear`
 
 ### Named perk
 
@@ -73,16 +76,16 @@ executable: false
 | id | `Jazz_Perk_Devin` |
 | type | passive |
 | DisplayName RU/EN | IRA / IRA |
-| Description RU/EN | Взрывы крушат структуры / Взрывы крушат структуры |
-| Mechanics | Any explosion +100% structure damage + chance to apply Burning. |
+| Description RU/EN | Взрывы Девина крушат укрытия и поджигают всё вокруг / Devin's explosions wreck cover and set the area on fire |
+| Mechanics | Any explosion triggered by Devin deals +100% damage to structures/cover and has a 25% chance to apply Burning to units caught inside the blast radius. |
 
 ## Personality
 
 - Quirks: Loner
-- Likes: Red
+- Likes: `Red`
 - Dislikes: —
-- National hates: British
-- Refusal / Haggle notes: Local expensive
+- National hates: British — Haggle trigger when the active squad is full of British-nationality mercs
+- Refusal / Haggle notes: haggles when squad is all-British; standard local money refusal; mitigation and recommendation for Red when hired
 
 ## Hire
 
@@ -91,9 +94,11 @@ executable: false
 
 ## Inventory
 
-- Equipment loot id: `Loot_JAZZ_Devin`
-- Presets:
-  - *50: heavy demo, electronics, knife
+- Equipment loot id: `Loot_JAZZ_Devin` → `JAZZ_Devin50/35/25/20`
+- *50: `JazzArmor_LeatherJacketBrn`, `C4`×2, `Detonator`, `Combination_Detonator_Remote`, `Wirecutter`, `Knife_Sharpened`
+- *35: `TNT`×2, `Detonator`, `Wirecutter`, `Knife_Sharpened`
+- *25: `TNT`×1, `Detonator`, `Knife`
+- *20: `PipeBomb`×1, `Knife`
 
 ## JA2 face reference
 
@@ -105,37 +110,72 @@ executable: false
 
 ## Portrait prompt
 
-**Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**.
+**Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**. Face must match JA2 reference above.
 
-**CHARACTER_DESCRIPTION:** Match JA2 face reference `devin.ja2-face.gif` (same face identity). Irish demolitions loner, redhead, detonator and IRA-green scarf — NO gun. Hard eyes.
+**CHARACTER_DESCRIPTION:** Match JA2 face reference `devin.ja2-face.gif` (same face identity). Irish demolitions loner ~40, redhead, detonator in hand, green scarf — NO gun. Hard, quiet eyes.
 
 **Preferred refs:** `MercPortraits/References/` matching gender/role
 
-**Class kit:** Detonator, charge pack, green scarf, electronics
+**Class kit:** Detonator, charge pack, green scarf, electronics kit
 
 ## Phrases — AIM chat
 
 ### Offline
-- RU: Devin busy.
-- EN: Devin unavailable.
+- RU: Девин занят. Позже.
+- EN: This is Devin. Leave a message.
 
 ### GreetingAndOffer
-- RU: Connelli.
+- RU: Коннелл слушает.
 - EN: Devin here.
 
-### ConversationRestart / IdleLine / PartingWords / Rehire
-- Restart RU/EN: Вернёмся к делу. / Let's get back to it.
-- Idle RU/EN: Aye? / Well?
-- Part RU/EN: For a price. / I'm in.
-- RehireIntro: Контракт заканчивается. Продлеваем? / Contract's ending. Extending?
-- RehireOutro: Остаюсь. / I'm staying.
+### ConversationRestart
+- RU: Связь прервалась. Вернёмся к делу.
+- EN: Line dropped. Let's get back to it.
 
-### Extra
-- Draft relationship lines at generation.
+### IdleLine
+- RU: Ну что, есть что взорвать?
+- EN: Well? Got something for me to blow up?
+
+### PartingWords
+- RU: За такую цену — идёт.
+- EN: For that price — deal.
+
+### RehireIntro
+- RU: Контракт заканчивается. Продлеваем?
+- EN: Contract's ending. Extending?
+
+### RehireOutro
+- RU: Остаюсь.
+- EN: I'm staying.
+
+### Haggles
+- British mercs hired RU: Отряд полон британцев... ладно, но с доплатой.
+- British mercs hired EN: Squad's full of Brits... fine, but it'll cost extra.
+- Money RU: Мои заряды не бесплатные.
+- Money EN: My charges aren't free.
+
+### Mitigations
+- Red hired RU: О, Ред уже здесь? Тогда порядок.
+- Red hired EN: Oh, Red's already in? Then we're good.
+
+### ExtraPartingWords
+- RU: Если нужен ещё один спец по взрывчатке — зовите Реда.
+- EN: If you need another demolitions man, call Red.
 
 ## Phrases — VoiceResponse
 
-- `voice_source: ja2` — legacy VO reuse + minimum Selection/AimAttack/OpponentKilled/DeathGeneral/Downed/CombatStart/LevelUp/AmmoLow/Idle drafts.
+- `voice_source: ja2` — reuse legacy VO where available; RU/EN subtitle drafts for minimum slots:
+  - Selection: «Девин на месте.» / «Devin's here.»
+  - AimAttack (1): «Заряд заложен.» / «Charge is set.»
+  - AimAttack (2): «Отходим.» / «Falling back.»
+  - OpponentKilled: «Разнесло в пыль.» / «Blown to dust.»
+  - DeathGeneral: «За Ирландию...» / «For Ireland...»
+  - Downed: «Зацепили. Держусь.» / «I'm hit. Holding on.»
+  - CombatStartDetected: «Внимание, гости.» / «Heads up, company.»
+  - LevelUp: «Опыт не купишь.» / «Can't buy that kind of experience.»
+  - AmmoLow: «Заряды кончаются.» / «Running low on charges.»
+  - Idle: «Жду сигнала.» / «Waiting for the signal.»
+  - Praises (Red present): «Хорошая компания сегодня.» / «Good company today.»
 
 ## Wiring
 
@@ -144,9 +184,11 @@ executable: false
 | Appearance | Devin |
 | VoiceResponseId | Jazz_Devin |
 | pollyvoice | Matthew |
-| Portrait / BigPortrait | Mod/Dv3mFVN/MercPortraits/Devin.png (+_Big) |
+| Portrait | Mod/Dv3mFVN/MercPortraits/Devin.png |
+| BigPortrait | Mod/Dv3mFVN/MercPortraits/Devin_Big.png |
+| CustomEquipGear | TryEquip Handheld A Melee |
 | FallbackMissingVR | Ice |
-| Sources | AIM sheet JA1/2 block; origin=ja2 |
+| Sources | AIM sheet «Наемники из JA1/2»; origin=ja2 |
 
 ## Open blockers
 

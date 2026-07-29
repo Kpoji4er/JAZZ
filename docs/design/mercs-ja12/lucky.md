@@ -1,5 +1,5 @@
-﻿---
-status: planned
+---
+status: ready
 priority: low
 origin: wildfire
 unit_id: Jazz_Lucky
@@ -20,7 +20,7 @@ salary:
   max: 4500
 medical_deposit: standard
 haggling: normal
-executable: false
+executable: true
 ---
 
 # Лаки — Люк «Лаки» Фабр
@@ -29,18 +29,18 @@ executable: false
 
 | Field | RU | EN |
 | --- | --- | --- |
-| Name | Люк «Лаки» Фабр | Люк «Лаки» Фабр |
+| Name | Люк «Лаки» Фабр | Luc "Lucky" Fabre |
 | Nick | Лаки | Lucky |
 | AllCapsNick | ЛАКИ | LUCKY |
-| Title | Бельгиец | Бельгиец |
+| Title | Бельгиец | The Belgian |
 | Email | Lucky@aim.com | Lucky@aim.com |
 | snype_nick | lucky | lucky |
 
 ## Bio
 
-**RU:** WF. Belgian francophone tagged French. Stats 75–80, Leadership 58, Marksmanship 88. Likes Barry; dislikes Vicious, Foxbuns?.
+**RU:** Wildfire. Бельгиец-франкофон, ошибочно записанный французом. Статы 75–80, Лидерство 58, Меткость 88. Любит Барри; недолюбливает Вишеса и Банса.
 
-**EN:** EN draft: translate Bio RU.
+**EN:** Wildfire mercenary. A French-speaking Belgian mistakenly filed as French. Stats in the 75-80 range, 58 Leadership, 88 Marksmanship. Fond of Barry; not fond of Vicious or Buns.
 
 ## Stats
 
@@ -64,7 +64,10 @@ executable: false
 
 ### StartingPerks
 
-- (map JA2 skills)`n- named perk below
+- `Jazz_Perk_Lucky`
+- `AutoWeapons`
+- `MartialArts`
+- `Hotblood`
 
 ### Named perk
 
@@ -72,17 +75,17 @@ executable: false
 | --- | --- |
 | id | `Jazz_Perk_Lucky` |
 | type | passive |
-| DisplayName RU/EN | Авто + рукопашка / Авто + рукопашка |
-| Description RU/EN | Auto + melee / Auto + melee |
-| Mechanics | AutoWeapons + MartialArts. needs-design unique. |
+| DisplayName RU/EN | Второе дыхание / Second Wind |
+| Description RU/EN | Раз за бой промах Лаки превращается в попадание / Once per combat, a Lucky miss becomes a hit |
+| Mechanics | Once per combat, the first time an attack roll made by Lucky would miss, it is instead treated as a hit (rolled at minimum-success damage). Recharges at the start of the next combat. |
 
 ## Personality
 
 - Quirks: —
-- Likes: Barry
-- Dislikes: Jazz_Vicious, Buns
+- Likes: `Barry`
+- Dislikes: `Jazz_Vicious`, `Buns`
 - National hates: —
-- Refusal / Haggle notes: WF
+- Refusal / Haggle notes: refuses if Jazz_Vicious or Buns are in the active squad; mitigation and rate discount when Barry is hired
 
 ## Hire
 
@@ -91,9 +94,11 @@ executable: false
 
 ## Inventory
 
-- Equipment loot id: `Loot_JAZZ_Lucky`
-- Presets:
-  - *50: auto + melee kit
+- Equipment loot id: `Loot_JAZZ_Lucky` → `JAZZ_Lucky50/35/25/20`
+- *50: `JazzArmor_LeatherJacketBrn`, `FAMAS`, `JAZZ_AMMO_556_FMJ`×60 (Double), `Knife`
+- *35: `M2Carbine`, `JAZZ_AMMO_30_FMJ`×40 (Double), `Knife`
+- *25: `AK47`, `JAZZ_AMMO_762x39_FMJ`×32 (Double)
+- *20: `Winchester1894`, `JAZZ_AMMO_30_P`×20 (Double)
 
 ## JA2 face reference
 
@@ -105,7 +110,7 @@ executable: false
 
 ## Portrait prompt
 
-**Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**.
+**Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**. Face must match JA2 reference above.
 
 **CHARACTER_DESCRIPTION:** Match JA2 face reference `lucky.ja2-face.gif` (same face identity). Lucky Belgian-French auto trooper, grin, ammo pouches and knuckle wrap — NO gun.
 
@@ -116,26 +121,60 @@ executable: false
 ## Phrases — AIM chat
 
 ### Offline
-- RU: Лаки недоступен.
-- EN: Lucky unavailable.
+- RU: Лаки недоступен. Перезвоните.
+- EN: Lucky's unavailable. Call back.
 
 ### GreetingAndOffer
-- RU: Lucky here!
-- EN: Lucky here.
+- RU: Лаки на связи!
+- EN: Lucky here!
 
-### ConversationRestart / IdleLine / PartingWords / Rehire
-- Restart RU/EN: Вернёмся к делу. / Let's get back to it.
-- Idle RU/EN: Ha! / Well?
-- Part RU/EN: Allons-y! / I'm in.
-- RehireIntro: Контракт заканчивается. Продлеваем? / Contract's ending. Extending?
-- RehireOutro: Остаюсь. / I'm staying.
+### ConversationRestart
+- RU: Связь прервалась. Вернёмся к делу.
+- EN: Line dropped. Let's get back to it.
 
-### Extra
-- Draft relationship lines at generation.
+### IdleLine
+- RU: Ха! Удача любит смелых.
+- EN: Ha! Fortune favors the bold.
+
+### PartingWords
+- RU: Allons-y! Я в деле.
+- EN: Allons-y! I'm in.
+
+### RehireIntro
+- RU: Контракт заканчивается. Продлеваем?
+- EN: Contract's ending. Extending?
+
+### RehireOutro
+- RU: Остаюсь. Удача со мной.
+- EN: I'm staying. Luck's on my side.
+
+### Refusals
+- Vicious or Buns hired RU: Пока эти двое в отряде — даже не звоните.
+- Vicious or Buns hired EN: Not while those two are on the team.
+- Money RU: За такую мелочь? Non merci.
+- Money EN: For chump change? Non merci.
+
+### Haggles
+- Money RU: Договоримся, но по-честному.
+- Money EN: Let's make a deal, but a fair one.
+
+### Mitigations
+- Barry hired RU: Барри уже в деле? Тогда я тоже, mon ami.
+- Barry hired EN: Barry's already in? Then count me in too, mon ami.
 
 ## Phrases — VoiceResponse
 
-- `voice_source: wildfire` — legacy VO reuse + minimum Selection/AimAttack/OpponentKilled/DeathGeneral/Downed/CombatStart/LevelUp/AmmoLow/Idle drafts.
+- `voice_source: wildfire` — reuse legacy VO where available; RU/EN subtitle drafts for minimum slots:
+  - Selection: «Лаки готов.» / «Lucky's ready.»
+  - AimAttack (1): «Удача со мной!» / «Luck's with me!»
+  - AimAttack (2): «Держись крепче!» / «Hold tight!»
+  - OpponentKilled: «Voila!» / «Voila!»
+  - DeathGeneral: «Удача отвернулась...» / «Luck ran out...»
+  - Downed: «Ранен! Не повезло.» / «Hit! No luck this time.»
+  - CombatStartDetected: «Противник заметил нас.» / «Enemy spotted us.»
+  - LevelUp: «Удача плюс мастерство.» / «Luck plus skill.»
+  - AmmoLow: «Патроны на исходе.» / «Running low on ammo.»
+  - Idle: «Жду удачного момента.» / «Waiting for a lucky break.»
 
 ## Wiring
 
@@ -144,10 +183,12 @@ executable: false
 | Appearance | Lucky |
 | VoiceResponseId | Jazz_Lucky |
 | pollyvoice | Matthew |
-| Portrait / BigPortrait | Mod/Dv3mFVN/MercPortraits/Lucky.png (+_Big) |
+| Portrait | Mod/Dv3mFVN/MercPortraits/Lucky.png |
+| BigPortrait | Mod/Dv3mFVN/MercPortraits/Lucky_Big.png |
+| CustomEquipGear | TryEquip Handheld A Firearm (two-handed auto) |
 | FallbackMissingVR | Ice |
-| Sources | AIM sheet JA1/2 block; origin=wildfire |
+| Sources | AIM sheet «Наемники из JA1/2»; origin=wildfire |
 
 ## Open blockers
 
-- unique perk needs-design
+- none

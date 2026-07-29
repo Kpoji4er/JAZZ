@@ -1,5 +1,5 @@
 ﻿---
-status: planned
+status: ready
 priority: high
 origin: ja2
 unit_id: Jazz_Madman
@@ -20,7 +20,7 @@ salary:
   max: 500
 medical_deposit: none
 haggling: none
-executable: false
+executable: true
 ---
 
 # Бешеный — Кевин «Бешеный» Камерон
@@ -29,18 +29,18 @@ executable: false
 
 | Field | RU | EN |
 | --- | --- | --- |
-| Name | Кевин «Бешеный» Камерон | Кевин «Бешеный» Камерон |
+| Name | Кевин «Бешеный» Камерон | Kevin "Madman" Cameron |
 | Nick | Бешеный | Madman |
 | AllCapsNick | БЕШЕНЫЙ | MADMAN |
-| Title | Ржавый бампер | Ржавый бампер |
+| Title | Ржавый бампер | The Rusty Bumper |
 | Email | Madman@merc.com | Madman@merc.com |
 | snype_nick | bumper | bumper |
 
 ## Bio
 
-**RU:** Алмаз среди местных/MERC: 90+ физикалы, 68 механики, псих. Подкатывает к Лиске. После Арулько может уйти в MERC. Работает бесплатно в JA2 lore.
+**RU:** Алмаз среди местных: физикалы за 90, механика 68, псих без страха. Клеится к Лиске при каждом удобном случае. После кампании в Арулько готов уйти в MERC — работает бесплатно, лишь бы была движуха и техника под рукой.
 
-**EN:** EN draft: translate Bio RU at generation; keep tone.
+**EN:** A diamond among the locals: physicals in the 90s, 68 Mechanical, a fearless psycho. Flirts with Fox at every chance he gets. After the Arulco campaign he's ready to move to MERC — works for free, as long as there's action and something mechanical to wreck or fix.
 
 ## Stats
 
@@ -64,8 +64,12 @@ executable: false
 
 ### StartingPerks
 
-- (map JA2 skills to JA3 StartingPerks)
 - `Jazz_Perk_Madman`
+- `Psycho`
+- `MrFixit`
+- `MeleeTraining`
+- `CQCTraining`
+- `Ironclad`
 
 ### Named perk
 
@@ -73,28 +77,32 @@ executable: false
 | --- | --- |
 | id | `Jazz_Perk_Madman` |
 | type | passive |
-| DisplayName RU/EN | Штурм в упор / Штурм в упор |
-| Description RU/EN | Упор даёт воодушевление / Упор даёт воодушевление |
-| Mechanics | Enhances Assault/melee perks: point-blank ranged kill grants Inspiration (or equivalent morale buff). |
+| DisplayName RU/EN | Штурм в упор / Point-Blank Fury |
+| Description RU/EN | Убийство в упор (оружием ближнего боя или выстрелом почти в упор) даёт Воодушевление / A point-blank kill (melee or near point-blank shot) grants Inspired |
+| Mechanics | On a kill at range ≤1 tile (melee weapon or point-blank firearm shot), Madman gains the `Inspired` status effect for 2 turns (extra AP-equivalent morale buff, matching the existing Inspiration system used elsewhere in JAZZ). Synergizes with `MeleeTraining`/`CQCTraining` on the sheet. |
 
 ## Personality
 
-- Quirks: Psycho
-- Likes: Fox (attempt)
-- Dislikes: —
-- National hates: —
-- Refusal / Haggle notes: Free hire quirks
+- Quirks: `Psycho` (StartingPerk)
+- Likes: Fox (planned attempt at romance in Bio flavor; Fox is a vanilla merc — Mitigation wiring targets vanilla unit id `Fox`)
+- Dislikes: none
+- National hates: none
+- Refusal / Haggle notes: free hire, no medical deposit, no haggling — matches JA2 lore of working for room and board
 
 ## Hire
 
-- Access: Locals → MERC after Arulco campaign gate
+- Access: Locals during the Arulco campaign, transitions to MERC roster afterward (same unit, updated affiliation flavor only — no re-hire needed)
 - MedicalDeposit: none; Haggling: none; DaysUntilOnline: 0
 
 ## Inventory
 
-- Equipment loot id: `Loot_JAZZ_Madman`
-- Presets (weights ~50/35/25/20):
-  - *50: crowbar, lockpicks expert, light armor, bumper scrap charm
+- Equipment loot id: `Loot_JAZZ_Madman` → `JAZZ_Madman50/35/25/20`
+- *50: `JazzArmor_LeatherArmor`, `Crowbar`, `Lockpick`, `CombatStim`×3, `Parts`×20
+- *35: `JazzArmor_LeatherJacketBrn`, `Crowbar`, `Lockpick`, `Parts`×15
+- *25: `JazzArmor_LeatherJacketBrn`, `Crowbar`, `Parts`×10
+- *20: `JazzArmor_LeatherJacketBrn`, `Crowbar`
+
+No firearm in any tier — Madman is strictly a crowbar-and-fists brawler-mechanic.
 
 ## JA2 face reference
 
@@ -117,49 +125,55 @@ executable: false
 ## Phrases — AIM chat
 
 ### Offline
-- RU: Бешеный не берёт трубку — бьёт ею.
-- EN: This is Madman. Leave a message.
+- RU: Бешеный не берёт трубку — он ею бьёт. Перезвони, если не боишься.
+- EN: Madman doesn't answer the phone — he hits things with it. Call back if you're not scared.
 
 ### GreetingAndOffer
-- RU: Да я лучше бампером всех мочить! Ну?
-- EN: Madman here. Talk.
+- RU: Да я лучше бампером всех перемочу! Ну, есть дело или как?
+- EN: I'd rather just clobber everyone with a bumper! So, you got a job or what?
 
 ### ConversationRestart
-- RU: Вернёмся к делу.
-- EN: Let's get back to it.
+- RU: Ты пропал, а я тут заскучал. Продолжай давай.
+- EN: You dropped off, and I got bored. Keep going.
 
 ### IdleLine
-- RU: Ну где драка?
-- EN: Waiting on you.
+- RU: Ну где драка? Мне бы уже кого-то стукнуть.
+- EN: Where's the fight? I need to hit something already.
 
 ### PartingWords
-- RU: Ха! Поехали крушить.
-- EN: I'm in.
+- RU: Ха! Поехали крушить. Бесплатно, лишь бы весело было.
+- EN: Ha! Let's go smash stuff. Free of charge, as long as it's fun.
 
 ### RehireIntro
-- RU: Контракт заканчивается. Продлеваем?
-- EN: Contract's ending. Extending?
+- RU: Контракт заканчивается, но я всё равно бесплатный — продлеваем?
+- EN: Contract's ending, but I'm still free anyway — extending?
 
 ### RehireOutro
-- RU: Остаюсь.
-- EN: I'm staying.
+- RU: Остаюсь. Тут ещё есть что чинить и кого бить.
+- EN: I'm staying. Still stuff to fix and people to hit.
 
-### Refusals / Haggles / Mitigations / ExtraPartingWords
-- Draft relationship refusals/haggles from Personality at generation time.
+### Mitigations
+- Fox hired RU: О, Лиска с вами? Ну тогда я точно остаюсь, хе-хе.
+- Fox hired EN: Oh, Fox is with you? Then I'm definitely staying, heh.
+
+### ExtraPartingWords
+- RU: Если увидите Лиску — скажите, что Бешеный спрашивал.
+- EN: If you see Fox — tell her Madman was asking about her.
 
 ## Phrases — VoiceResponse
 
 - `voice_source: ja2` — reuse legacy VO where available; RU/EN subtitle drafts for minimum slots:
-  - Selection: «Бешеный!» / «Madman!»
-  - AimAttack: «На мушке.» / «On target.»
-  - OpponentKilled: «Готово.» / «Done.»
-  - DeathGeneral: «Чёрт...» / «Damn...»
-  - Downed: «Меня подбили!» / «I'm hit!»
-  - CombatStartPlayer: «В бой.» / «Engage.»
-  - LevelUp: «Ещё лучше.» / «Getting better.»
-  - AmmoLow: «Патроны!» / «Ammo!»
-  - Idle: «Жду.» / «Waiting.»
-- Relationship VR slots per Likes/Dislikes when generating.
+  - Selection: «Бешеный готов крушить!» / «Madman's ready to smash!»
+  - AimAttack (1): «А ну иди сюда!» / «Get over here!»
+  - AimAttack (2): «Бампером по башке!» / «Bumper to the skull!»
+  - OpponentKilled: «Красота!» / «Beautiful!»
+  - DeathGeneral: «Не так я хотел кончить...» / «Not how I wanted to go out...»
+  - Downed: «Меня приложило! Ха, но норм!» / «I got clocked! Ha, but I'm fine!»
+  - CombatStartPlayer: «ДА! Наконец-то!» / «YES! Finally!»
+  - LevelUp: «Ещё крепче стал!» / «Even tougher now!»
+  - NoAmmo: «Патроны? Кому они нужны!» / «Ammo? Who needs it!»
+  - Idle: «Скучно! Дай мне что-нибудь сломать.» / «Boring! Give me something to break.»
+  - Praises (Fox present): «Лиска рядом — день удался.» / «Fox is around — good day.»
 
 ## Wiring
 
@@ -170,7 +184,7 @@ executable: false
 | pollyvoice | Matthew |
 | Portrait | Mod/Dv3mFVN/MercPortraits/Madman.png |
 | BigPortrait | Mod/Dv3mFVN/MercPortraits/Madman_Big.png |
-| CustomEquipGear | TryEquip Handheld A/B Firearm (or melee for knife mercs) |
+| CustomEquipGear | TryEquip Handheld A/B Melee (crowbar-first, no ranged default) |
 | FallbackMissingVR | Ice |
 | Sources | AIM sheet «Наемники из JA1/2»; origin=ja2 |
 

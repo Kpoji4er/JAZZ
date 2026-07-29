@@ -1,6 +1,6 @@
 ---
 id: JAZZ-STRATEGY-008
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - legion-global-ai
@@ -77,7 +77,7 @@ Roadmap 6c: spawn всё ещё берёт фиксированный EnemySquad
 - `JAZZ-STRATEGY-008-AC-002` — static: spawn path charges sum prices for combat roles.
 - `JAZZ-STRATEGY-008-AC-003` — static: MG soft cap enforced in generator.
 - `JAZZ-STRATEGY-008-AC-004` — docs/roadmap.
-- `JAZZ-STRATEGY-008-AC-005` — runtime: `BLOCKED` until owner.
+- `JAZZ-STRATEGY-008-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Impact и совместимость
 
@@ -98,7 +98,7 @@ Roadmap 6c: spawn всё ещё берёт фиксированный EnemySquad
 ## Evidence
 
 - `JAZZ-STRATEGY-008-AC-001`..`004`: static PASS
-- `JAZZ-STRATEGY-008-AC-005`: `BLOCKED (runtime)`
+- `JAZZ-STRATEGY-008-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Documentation delta
 

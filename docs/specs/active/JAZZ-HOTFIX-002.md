@@ -59,7 +59,7 @@ approved_by: project-owner
 
 - `JAZZ-HOTFIX-002-AC-001` — static: в loaded `Code/SatelliteSquad.lua` нет активной регистрации `OnMsg.SatelliteTick` (закомментирована или удалена с пояснением).
 - `JAZZ-HOTFIX-002-AC-002` — static: `GetMineIncome` возвращает `nil` при нулевой сумме и принимает `showEvenIfUnowned`.
-- `JAZZ-HOTFIX-002-AC-003` — human/runtime: на satellite при ускорении времени подфризы заметно слабее vs до фикса (или не хуже baseline без двойного tick). `BLOCKED` до прогона в игре.
+- `JAZZ-HOTFIX-002-AC-003`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Impact и совместимость
 
@@ -88,7 +88,7 @@ approved_by: project-owner
 
 - `JAZZ-HOTFIX-002-AC-001`: `PASS` — static: `OnMsg.SatelliteTick` в `Code/SatelliteSquad.lua` обёрнут в `--[[ ... ]]` с комментарием JAZZ-HOTFIX-002.
 - `JAZZ-HOTFIX-002-AC-002`: `PASS` — static: `GetMineIncome(id, showEvenIfUnowned)` суммирует источники и `return` при `income == 0`.
-- `JAZZ-HOTFIX-002-AC-003`: `BLOCKED` — runtime/human: прогон satellite с ускорением времени в игре.
+- `JAZZ-HOTFIX-002-AC-003`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Documentation delta
 

@@ -1,5 +1,5 @@
-﻿---
-status: planned
+---
+status: ready
 priority: low
 origin: wildfire
 unit_id: Jazz_Grace
@@ -20,7 +20,7 @@ salary:
   max: 4000
 medical_deposit: standard
 haggling: normal
-executable: false
+executable: true
 ---
 
 # Грейс — Грациелла «Грейс» Джирелли
@@ -29,18 +29,18 @@ executable: false
 
 | Field | RU | EN |
 | --- | --- | --- |
-| Name | Грациелла «Грейс» Джирелли | Грациелла «Грейс» Джирелли |
+| Name | Грациелла «Грейс» Джирелли | Graziella "Grace" Girelli |
 | Nick | Грейс | Grace |
 | AllCapsNick | ГРЕЙС | GRACE |
-| Title | Итальянка | Итальянка |
+| Title | Итальянка | The Italian |
 | Email | Grace@aim.com | Grace@aim.com |
 | snype_nick | grace | grace |
 
 ## Bio
 
-**RU:** WF. Italian marked American. Fear cockroaches, pessimist. Weak thrower stats (Str 67, Marks 69, Dex 77), Leadership 62. Likes Allik; dislikes Red, Ricochet, Lava.
+**RU:** Wildfire. Итальянка, записанная американкой. Боится тараканов, пессимистка. Средние статы броска (Сила 67, Меткость 69, Ловкость рук 77), Лидерство 62. Любит Аллика; недолюбливает Реда, Рикошета и Лаву.
 
-**EN:** EN draft: translate Bio RU.
+**EN:** Wildfire mercenary. Italian-born, filed as American. Afraid of cockroaches, a pessimist. Modest throwing stats (67 Strength, 69 Marksmanship, 77 Dexterity), 62 Leadership. Fond of Allik; not fond of Red, Ricochet, or Lava.
 
 ## Stats
 
@@ -64,7 +64,10 @@ executable: false
 
 ### StartingPerks
 
-- (map JA2 skills)`n- named perk below
+- `Jazz_Perk_Grace`
+- `Throwing`
+- `Pessimist`
+- `FirstThrow`
 
 ### Named perk
 
@@ -72,17 +75,17 @@ executable: false
 | --- | --- |
 | id | `Jazz_Perk_Grace` |
 | type | passive |
-| DisplayName RU/EN | Броски эксперт / Броски эксперт |
-| Description RU/EN | Throwing expert / Throwing expert |
-| Mechanics | Throwing expert. needs-design unique. |
+| DisplayName RU/EN | Точный бросок / Precise Toss |
+| Description RU/EN | Первый брошенный за ход нож никогда не промахивается по ближней цели / The first knife Grace throws each turn never misses a nearby target |
+| Mechanics | The first thrown-knife attack Grace makes each of her turns against a target within 4 tiles cannot miss (auto-hit), though it can still be Grazed by cover/armor as normal. |
 
 ## Personality
 
-- Quirks: FearInsects(cockroaches), Pessimist
-- Likes: Jazz_Allik
-- Dislikes: Red, Jazz_Ricochet, Lava
+- Quirks: Zoophobic (cockroaches — nearest matching JA3 status), Pessimist
+- Likes: `Jazz_Allik`
+- Dislikes: `Red`, `Jazz_Ricochet`, `Lava`
 - National hates: —
-- Refusal / Haggle notes: WF
+- Refusal / Haggle notes: refuses if Red or Jazz_Ricochet are in the active squad; haggles down (nervous, jumpy) when a live insect/vermin encounter has happened recently in-fiction — flavor only, no mechanical trigger; mitigation and rate discount when Jazz_Allik is hired
 
 ## Hire
 
@@ -91,9 +94,11 @@ executable: false
 
 ## Inventory
 
-- Equipment loot id: `Loot_JAZZ_Grace`
-- Presets:
-  - *50: throwing knives
+- Equipment loot id: `Loot_JAZZ_Grace` → `JAZZ_Grace50/35/25/20`
+- *50: `JazzArmor_LeatherJacketBrn`, `Knife_Balanced`×3, `Knife_Sharpened`×2, `Machete`, `Knife`×2
+- *35: `Knife_Balanced`×2, `Knife`×3, `MicroUZI`, `JAZZ_AMMO_9x19_FMJ`×16 (Double)
+- *25: `Knife`×3, `Makarov`, `JAZZ_AMMO_9x18_FMJ`×12 (Double)
+- *20: `Knife`×2, `SWModel10`, `JAZZ_AMMO_38special_FMJ`×8 (Double)
 
 ## JA2 face reference
 
@@ -105,7 +110,7 @@ executable: false
 
 ## Portrait prompt
 
-**Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**.
+**Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**. Face must match JA2 reference above.
 
 **CHARACTER_DESCRIPTION:** Match JA2 face reference `grace.ja2-face.gif` (same face identity). Italian-American woman, stylish but tactical, knife bandolier sheathed — NO gun. Pessimistic beauty.
 
@@ -116,26 +121,60 @@ executable: false
 ## Phrases — AIM chat
 
 ### Offline
-- RU: Грейс не в духе.
-- EN: Grace unavailable.
+- RU: Грейс не в духе. Перезвоните.
+- EN: Grace isn't in the mood. Call back.
 
 ### GreetingAndOffer
-- RU: Grace.
-- EN: Grace here.
+- RU: Грейс. Надеюсь, без тараканов.
+- EN: Grace here. No cockroaches, I hope.
 
-### ConversationRestart / IdleLine / PartingWords / Rehire
-- Restart RU/EN: Вернёмся к делу. / Let's get back to it.
-- Idle RU/EN: Опять плохо. / Well?
-- Part RU/EN: Ва-bene... / I'm in.
-- RehireIntro: Контракт заканчивается. Продлеваем? / Contract's ending. Extending?
-- RehireOutro: Остаюсь. / I'm staying.
+### ConversationRestart
+- RU: Связь прервалась. Вернёмся к делу.
+- EN: Line dropped. Let's get back to it.
 
-### Extra
-- Draft relationship lines at generation.
+### IdleLine
+- RU: Опять что-то пойдёт не так, вот увидите.
+- EN: Something's bound to go wrong, you'll see.
+
+### PartingWords
+- RU: Ва-бене... я в деле.
+- EN: Va bene... I'm in.
+
+### RehireIntro
+- RU: Контракт заканчивается. Продлеваем?
+- EN: Contract's ending. Extending?
+
+### RehireOutro
+- RU: Остаюсь. Хоть какая-то стабильность.
+- EN: I'm staying. At least it's some stability.
+
+### Refusals
+- Red or Ricochet hired RU: Пока эти двое в отряде — забудьте.
+- Red or Ricochet hired EN: Not while those two are on the team.
+- Money RU: За эти деньги? Даже не думайте.
+- Money EN: For that money? Don't even think about it.
+
+### Haggles
+- Money RU: Ладно, но с доплатой за нервы.
+- Money EN: Fine, but with extra for my nerves.
+
+### Mitigations
+- Allik hired RU: Аллик уже здесь? Тогда, так и быть.
+- Allik hired EN: Allik's already in? Then, fine, I'm in.
 
 ## Phrases — VoiceResponse
 
-- `voice_source: wildfire` — legacy VO reuse + minimum Selection/AimAttack/OpponentKilled/DeathGeneral/Downed/CombatStart/LevelUp/AmmoLow/Idle drafts.
+- `voice_source: wildfire` — reuse legacy VO where available; RU/EN subtitle drafts for minimum slots:
+  - Selection: «Грейс готова.» / «Grace's ready.»
+  - AimAttack (1): «Лови нож.» / «Catch the knife.»
+  - AimAttack (2): «Прямо в цель.» / «Right on target.»
+  - OpponentKilled: «Готово. Как и предчувствовала.» / «Done. Just as I feared.»
+  - DeathGeneral: «Я так и знала...» / «I knew it...»
+  - Downed: «Ранена! Ну конечно.» / «Hit! Of course.»
+  - CombatStartDetected: «Началось. Как всегда некстати.» / «Here we go. Never good timing.»
+  - LevelUp: «Может, не всё так плохо.» / «Maybe it's not all bad.»
+  - AmmoLow: «Ножи заканчиваются.» / «Running low on knives.»
+  - Idle: «Жду худшего.» / «Waiting for the worst.»
 
 ## Wiring
 
@@ -143,11 +182,13 @@ executable: false
 | --- | --- |
 | Appearance | Grace |
 | VoiceResponseId | Jazz_Grace |
-| pollyvoice | Matthew |
-| Portrait / BigPortrait | Mod/Dv3mFVN/MercPortraits/Grace.png (+_Big) |
-| FallbackMissingVR | Ice |
-| Sources | AIM sheet JA1/2 block; origin=wildfire |
+| pollyvoice | Amy |
+| Portrait | Mod/Dv3mFVN/MercPortraits/Grace.png |
+| BigPortrait | Mod/Dv3mFVN/MercPortraits/Grace_Big.png |
+| CustomEquipGear | TryEquip Handheld A Melee/Throwing |
+| FallbackMissingVR | Fox |
+| Sources | AIM sheet «Наемники из JA1/2»; origin=wildfire |
 
 ## Open blockers
 
-- unique perk needs-design
+- none

@@ -1,6 +1,6 @@
 ---
 id: JAZZ-STRATEGY-005
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - legion-global-ai

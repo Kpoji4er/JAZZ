@@ -1,7 +1,8 @@
 ---
 description: >-
-  Генерация PNG-портретов мерков/NPC JAZZ в стиле JA3 (300+2000, мягкая альфа,
-  классовый kit, наёмник ≠ военный). При запросе мерка/портрета/BigPortrait.
+  Генерация PNG-портретов мерков/NPC JAZZ в стиле JA3 (300+2000, фиолетовый
+  хромакей #FF00FF, color grade как vanilla, мягкая альфа, kit, не военный).
+  При запросе мерка/портрета/BigPortrait.
 alwaysApply: false
 ---
 
@@ -19,28 +20,74 @@ alwaysApply: false
 
 Черновики: `*/_wip/`. Не в `Images/`.
 
-## Наёмник, не солдат
+## Style-референсы (обязательно)
 
-- **Нет** военных лычек / rank chevrons / sergeant stripes / army insignia.
-- Класс — через civilian/PMC kit: medic patches (простой red cross), IFAK, инструменты, сумки.
-- Полевой медик ≠ кабинетный врач (без стетоскопа-доктора).
-- **Оружие в кадре запрещено** (кобура — редко и без акцента).
+Для стиля / color / пропорций / framing — **только**:
 
-## Альфа (важно)
+`jazz-units/MercPortraits/References/` (+ `References/Portraits/`)
+
+**Больше нигде** (не extract UI вне папки, не другие моды, не NPCPortraits, не чужие _wip).  
+Face/pose пользователя и `*.ja2-face.*` — identity only.
+
+## Фон генерации
+
+- **Всегда** solid `#FF00FF` (фиолетовый/magenta chroma).
+- **Не** black / transparent / checkerboard в промпте.
+- На персонаже magenta быть не должно.
+
+## Альфа
 
 Удачный кадр: **не перегенерировать**.  
-Pure-black hard-mask → **blur маски** (soft AA обводка). RGB силуэта сохранить.  
-Не choke / не binary cut без blur.
+Key `#FF00FF` → **blur маски** (soft AA) → лёгкий despill на fringe.  
+Не choke. Не key по чёрному.
 
-DoD: `cornerA=0`, на кромке есть полупрозрачный градиент alpha, силуэт не выгрызен.
+DoD: `cornerA=0`, soft alpha на кромке, силуэт не выгрызен.
 
-## Референсы
+## Наёмник, не солдат
 
-`jazz-units/MercPortraits/References/` и `References/Portraits/` — палитра и стиль JA3.
+- **Нет** лычек / rank chevrons / sergeant stripes.
+- Класс — PMC kit (red cross, IFAK, инструменты). Полевой медик ≠ стетоскоп-доктор.
+- **Оружие в кадре запрещено.**
+
+## Цвет как в vanilla
+
+Канон: **только** `MercPortraits/References/` (+ `Portraits/`).  
+Match JA3 color grade; не muddy chocolate crush.
+
+## Пропорции
+
+Сверять с `References/` до принятия:
+
+- **не карлики** — нормальный взрослый рост, ноги полной длины;
+- **не большеголовые** — голова не доминирует над телом;
+- руки/кисти/стопы как у взрослых JA3 Mercs;
+- Portrait и Big — одно телосложение;
+- pose-ref не оправдывает сломанные пропорции.
+
+## Big framing
+
+На BigPortrait **запрещено обрезать** голову/волосы сверху и ноги/ботинки снизу.  
+Нужны небольшие поля `#FF00FF`. Crop = reject / переген.
+
+В промпте: `PROPORTIONS: ... no dwarf, no oversized head, full-length natural legs` + `FRAMING: head-to-toe fully inside frame`.
+
+## Appearance sheet — 3 варианта
+
+Источник: `docs/design/mercs-ja12/_appearance-sheet.md`
+
+| Папка | Промпт |
+| --- | --- |
+| `wip-regen/v1_appearance_backstory_bio/` | APPEARANCE + BACKSTORY/LOOK + BIO |
+| `wip-regen/v2_appearance_only/` | только APPEARANCE |
+| `wip-regen/v3_bio_backstory/` | BIO + BACKSTORY/LOOK |
+
+Нет строки → не генерить. Огнестрел из sheet не рисовать.
 
 ## Промпт-обязательства
 
 - `aspect_ratio` `1:1`
-- soft transparent background + semi-transparent edge AA
-- JA3 look, muted earth midtones
-- merc not military; class kit visible; no firearms
+- BACKGROUND `#FF00FF`
+- JA3 color grade
+- VARIANT v1/v2/v3 + соответствующие поля sheet
+- PROPORTIONS; Big: голова и стопы в кадре
+- merc not military; no firearms

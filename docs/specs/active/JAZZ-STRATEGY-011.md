@@ -67,7 +67,7 @@ Roadmap 7c: militia training should consume local recruits from the same city/fa
 - `JAZZ-STRATEGY-011-AC-001` — static: player accrual + API.
 - `JAZZ-STRATEGY-011-AC-002` — docs + morning questions.
 - `JAZZ-STRATEGY-011-AC-003` — Operation consume hook: `BLOCKED` (needs morning confirmation of operation id).
-- `JAZZ-STRATEGY-011-AC-004` — runtime: `BLOCKED`.
+- `JAZZ-STRATEGY-011-AC-004`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Impact и совместимость
 
@@ -90,7 +90,8 @@ Roadmap 7c: militia training should consume local recruits from the same city/fa
 ## Evidence
 
 - `JAZZ-STRATEGY-011-AC-001`..`002`: static PASS
-- `JAZZ-STRATEGY-011-AC-003`..`004`: `BLOCKED` (Operation id + runtime)
+- `JAZZ-STRATEGY-011-AC-003`: `BLOCKED` (Operation consume hook still open)
+- `JAZZ-STRATEGY-011-AC-004`: `PASS (runtime/human)` — owner playtest accepted 2026-07-28
 
 ## Documentation delta
 

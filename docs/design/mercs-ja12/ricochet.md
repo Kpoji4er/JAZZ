@@ -1,5 +1,5 @@
-﻿---
-status: planned
+---
+status: ready
 priority: low
 origin: ja2
 unit_id: Jazz_Ricochet
@@ -20,7 +20,7 @@ salary:
   max: 2400
 medical_deposit: standard
 haggling: normal
-executable: false
+executable: true
 ---
 
 # Рикошет — Тим «Рикошет» Саттонн
@@ -29,18 +29,18 @@ executable: false
 
 | Field | RU | EN |
 | --- | --- | --- |
-| Name | Тим «Рикошет» Саттонн | Тим «Рикошет» Саттонн |
+| Name | Тим «Рикошет» Саттонн | Tim "Ricochet" Sutton |
 | Nick | Рикошет | Ricochet |
 | AllCapsNick | РИКОШЕТ | RICOCHET |
-| Title | Ближник | Ближник |
+| Title | Ближник | The Close-Quarters Man |
 | Email | Ricochet@merc.com | Ricochet@merc.com |
 | snype_nick | ricochet | ricochet |
 
 ## Bio
 
-**RU:** Заниженные melee stats (Agility 60, Agility-move 70), Marksmanship 88. Loner. Likes Vicious; dislikes Sydney, Vicki, Scope.
+**RU:** Заниженные для ближнего боя статы (Agility 60, Strength 75), но Marksmanship 88 говорит о хорошей руке для бросков. Одиночка. Уважает Злобного; терпеть не может Сидни, Вики и Скоупа.
 
-**EN:** EN draft: translate Bio RU.
+**EN:** Underwhelming stats for a melee specialist (60 Agility, 75 Strength), but a strong 88 Marksmanship gives his throwing arm real precision. A loner. Respects Vicious; can't stand Sidney, Vicki, or Scope.
 
 ## Stats
 
@@ -64,7 +64,10 @@ executable: false
 
 ### StartingPerks
 
-- (map JA2 skills)`n- named perk below
+- `Jazz_Perk_Ricochet`
+- `Loner`
+- `Throwing`
+- `MeleeTraining`
 
 ### Named perk
 
@@ -72,28 +75,30 @@ executable: false
 | --- | --- |
 | id | `Jazz_Perk_Ricochet` |
 | type | passive |
-| DisplayName RU/EN | TBD / TBD |
-| Description RU/EN | needs-design / needs-design |
-| Mechanics | Sheet empty — needs-design. |
+| DisplayName RU/EN | Рикошет / Ricochet |
+| Description RU/EN | Смертельный бросок ножа может отскочить на второго врага / A lethal thrown-knife kill can bounce to strike a second enemy |
+| Mechanics | When a thrown knife or axe thrown by Ricochet kills its target, there is a 40% chance the blade ricochets to a second random enemy within 3 tiles of the target, dealing 50% of the weapon's normal damage. |
 
 ## Personality
 
 - Quirks: Loner
-- Likes: Jazz_Vicious
-- Dislikes: Sidney, Vicki, Scope
-- National hates: British?
-- Refusal / Haggle notes: MERC
+- Likes: `Jazz_Vicious` (planned merc — Mitigation/ExtraPartingWords wiring activates once ready)
+- Dislikes: `Sidney`, `Vicki`
+- National hates: British — Haggle trigger when the active squad is full of British-nationality mercs (Scope dislike lore flavor)
+- Refusal / Haggle notes: refuses if Sidney or Vicki hired; haggles when squad is all-British; standard MERC money refusal
 
 ## Hire
 
-- Access: MERC
+- Access: MERC hire
 - MedicalDeposit: standard; Haggling: normal; DaysUntilOnline: 0
 
 ## Inventory
 
-- Equipment loot id: `Loot_JAZZ_Ricochet`
-- Presets:
-  - *50: night ops kit, martial arts wraps
+- Equipment loot id: `Loot_JAZZ_Ricochet` → `JAZZ_Ricochet50/35/25/20`
+- *50: `JazzArmor_CamoBalaclava`, `Knife_Balanced`×3, `Knife_Sharpened`×2, `Machete`
+- *35: `Knife_Balanced`×2, `Knife_Sharpened`×2, `Machete`
+- *25: `Knife_Balanced`×2, `Knife_Sharpened`×1
+- *20: `Knife`×2
 
 ## JA2 face reference
 
@@ -105,37 +110,77 @@ executable: false
 
 ## Portrait prompt
 
-**Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**.
+**Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**. Face must match JA2 reference above.
 
-**CHARACTER_DESCRIPTION:** Match JA2 face reference `ricochet.ja2-face.gif` (same face identity). Melee specialist, night ops headband, hand wraps — NO gun.
+**CHARACTER_DESCRIPTION:** Match JA2 face reference `ricochet.ja2-face.gif` (same face identity). Melee/throwing specialist ~30, night-ops headband, hand wraps, bandolier of knife sheaths — NO weapon in hand.
 
 **Preferred refs:** `MercPortraits/References/` matching gender/role
 
-**Class kit:** Hand wraps, night-ops bandana, training pads
+**Class kit:** Hand wraps, night-ops bandana, knife-sheath bandolier
 
 ## Phrases — AIM chat
 
 ### Offline
 - RU: Рикошет вне игры.
-- EN: Ricochet unavailable.
+- EN: This is Ricochet. Leave a message.
 
 ### GreetingAndOffer
-- RU: Рикошет.
-- EN: Ricochet here.
+- RU: Рикошет слушает. Кого метать?
+- EN: Ricochet here. Who am I throwing at?
 
-### ConversationRestart / IdleLine / PartingWords / Rehire
-- Restart RU/EN: Вернёмся к делу. / Let's get back to it.
-- Idle RU/EN: Ну. / Well?
-- Part RU/EN: Ок. / I'm in.
-- RehireIntro: Контракт заканчивается. Продлеваем? / Contract's ending. Extending?
-- RehireOutro: Остаюсь. / I'm staying.
+### ConversationRestart
+- RU: Связь прервалась. Вернёмся к делу.
+- EN: Line dropped. Let's get back to it.
 
-### Extra
-- Draft relationship lines at generation.
+### IdleLine
+- RU: Жду цель.
+- EN: Waiting for a target.
+
+### PartingWords
+- RU: Ножи наточены. Иду.
+- EN: Blades are sharp. I'm in.
+
+### RehireIntro
+- RU: Контракт заканчивается. Продлеваем?
+- EN: Contract's ending. Extending?
+
+### RehireOutro
+- RU: Остаюсь.
+- EN: I'm staying.
+
+### Refusals
+- Sidney/Vicki hired RU: Пока Сидни или Вики в отряде — я пас.
+- Sidney/Vicki hired EN: Not while Sidney or Vicki are on the team.
+- Money RU: Маловато для моих ножей.
+- Money EN: Not enough for my knives.
+
+### Haggles
+- British mercs hired RU: Отряд полон британцев... ладно, но с доплатой.
+- British mercs hired EN: Squad's full of Brits... fine, but it'll cost extra.
+
+### Mitigations
+- Vicious hired RU: О, Злобный уже здесь? Тогда я в деле.
+- Vicious hired EN: Oh, Vicious is already in? Then I'm in.
+
+### ExtraPartingWords
+- RU: Если нужен ещё один клинок — зовите Злобного.
+- EN: If you need another blade, call Vicious.
 
 ## Phrases — VoiceResponse
 
-- `voice_source: ja2` — legacy VO reuse + minimum Selection/AimAttack/OpponentKilled/DeathGeneral/Downed/CombatStart/LevelUp/AmmoLow/Idle drafts.
+- `voice_source: ja2` — reuse legacy VO where available; RU/EN subtitle drafts for minimum slots:
+  - Selection: «Рикошет на месте.» / «Ricochet's here.»
+  - AimAttack (1): «Летит.» / «It's flying.»
+  - AimAttack (2): «В цель.» / «On target.»
+  - OpponentKilled: «Отскочило удачно.» / «Bounced just right.»
+  - DeathGeneral: «Не отскочил в этот раз...» / «Didn't bounce this time...»
+  - Downed: «Зацепили. Держусь.» / «They got me. Holding on.»
+  - CombatStartDetected: «Клинки готовы.» / «Blades ready.»
+  - LevelUp: «Рука твёрже.» / «Steadier hand now.»
+  - AmmoLow: «Ножи заканчиваются.» / «Running low on knives.»
+  - Idle: «Ну.» / «Well?»
+  - MockDislike (Sidney/Vicki): «Хорошо, что их тут нет.» / «Good thing they're not here.»
+  - Praises (Vicious present): «Хорошая компания сегодня.» / «Good company today.»
 
 ## Wiring
 
@@ -144,10 +189,12 @@ executable: false
 | Appearance | Ricochet |
 | VoiceResponseId | Jazz_Ricochet |
 | pollyvoice | Matthew |
-| Portrait / BigPortrait | Mod/Dv3mFVN/MercPortraits/Ricochet.png (+_Big) |
+| Portrait | Mod/Dv3mFVN/MercPortraits/Ricochet.png |
+| BigPortrait | Mod/Dv3mFVN/MercPortraits/Ricochet_Big.png |
+| CustomEquipGear | TryEquip Handheld A Melee |
 | FallbackMissingVR | Ice |
-| Sources | AIM sheet JA1/2 block; origin=ja2 |
+| Sources | AIM sheet «Наемники из JA1/2»; origin=ja2 |
 
 ## Open blockers
 
-- perk: needs-design
+- none

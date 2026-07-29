@@ -1,5 +1,5 @@
-﻿---
-status: planned
+---
+status: ready
 priority: low
 origin: ub
 unit_id: Jazz_Kulba
@@ -20,7 +20,7 @@ salary:
   max: 2200
 medical_deposit: standard
 haggling: normal
-executable: false
+executable: true
 ---
 
 # Кульба — Джон Кульба
@@ -29,18 +29,18 @@ executable: false
 
 | Field | RU | EN |
 | --- | --- | --- |
-| Name | Джон Кульба | Джон Кульба |
+| Name | Джон Кульба | John Kulba |
 | Nick | Кульба | Kulba |
 | AllCapsNick | КУЛЬБА | KULBA |
-| Title | Патриот-дед | Патриот-дед |
+| Title | Патриот-дед | The Patriot Gramps |
 | Email | Kulba@ub.mil | Kulba@ub.mil |
 | snype_nick | kulba | kulba |
 
 ## Bio
 
-**RU:** UB. Stats 55–60, Marksmanship 95, Mechanical 88. Wife died of cancer after Arulco rescue. Likes Gus; dislikes Ivan, Igor, Ricochet. Ultra-patriot.
+**RU:** Ветеран Urban Brawl. Статы 55–60, Marksmanship 95, Mechanical 88. Жена умерла от рака вскоре после спасения из Арулко. Ультра-патриот, любит Гаса, недолюбливает Ивана, Игоря и Рикошета.
 
-**EN:** EN draft: translate Bio RU.
+**EN:** An Urban Brawl veteran. Stats in the 55-60 range, 95 Marksmanship, 88 Mechanical. His wife died of cancer shortly after the Arulco rescue. An ultra-patriot who's fond of Gus but can't stand Ivan, Igor, or Ricochet.
 
 ## Stats
 
@@ -64,7 +64,10 @@ executable: false
 
 ### StartingPerks
 
-- (map JA2 skills)`n- named perk below
+- `Jazz_Perk_Kulba`
+- `AutoWeapons`
+- `MrFixit`
+- `OldDog`
 
 ### Named perk
 
@@ -72,28 +75,30 @@ executable: false
 | --- | --- |
 | id | `Jazz_Perk_Kulba` |
 | type | passive |
-| DisplayName RU/EN | Автоматы эксперт / Автоматы эксперт |
-| Description RU/EN | Auto expert / Auto expert |
-| Mechanics | AutoWeapons expert. needs-design unique. |
+| DisplayName RU/EN | Оружейник старой закалки / Old-School Gunsmith |
+| Description RU/EN | Автоматическое оружие Кульбы стреляет точнее и реже заклинивает / Kulba's automatic weapons hit harder and jam less |
+| Mechanics | Full-Auto and burst attacks fired by Kulba gain +10% CTH on the first bullet of the burst, and any automatic weapon he carries has a 50% reduced chance to jam. |
 
 ## Personality
 
-- Quirks: Patriot
-- Likes: Gus
-- Dislikes: Ivan, Igor, Jazz_Ricochet
+- Quirks: Patriot (flavor; no dedicated JA3 status — expressed via dialogue and mitigation below)
+- Likes: `Gus`
+- Dislikes: `Ivan`, `Igor`, `Jazz_Ricochet`
 - National hates: —
-- Refusal / Haggle notes: UB
+- Refusal / Haggle notes: refuses if Ivan or Igor are in the active squad roster; haggles down when Jazz_Ricochet is present (grudging tolerance, not outright refusal); mitigation and rate discount when Gus is hired
 
 ## Hire
 
-- Access: UB locals
+- Access: Locals (UB veteran network)
 - MedicalDeposit: standard; Haggling: normal; DaysUntilOnline: 0
 
 ## Inventory
 
-- Equipment loot id: `Loot_JAZZ_Kulba`
-- Presets:
-  - *50: auto rifle in loot, tools, US flag patch
+- Equipment loot id: `Loot_JAZZ_Kulba` → `JAZZ_Kulba50/35/25/20`
+- *50: `JazzArmor_UniformPants`, `M60`, `JAZZ_AMMO_762x51_FMJ`×100 (Double), `Parts`×5, `Wirecutter`
+- *35: `RPK`, `JAZZ_AMMO_762x39_FMJ`×80 (Double), `Parts`×3
+- *25: `M2Carbine`, `JAZZ_AMMO_30_FMJ`×40 (Double)
+- *20: `Winchester1894`, `JAZZ_AMMO_30_P`×30 (Double)
 
 ## JA2 face reference
 
@@ -105,7 +110,7 @@ executable: false
 
 ## Portrait prompt
 
-**Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**.
+**Rules:** no weapons in hands/on shoulder (holstered pistol only as last resort). Role via **class kit**. Face must match JA2 reference above.
 
 **CHARACTER_DESCRIPTION:** Match JA2 face reference `kulba.ja2-face.jpg` (same face identity). Elderly American patriot, gray hair, flag patch and gunsmith tools — NO rifle in hands. Sad resolve.
 
@@ -116,26 +121,60 @@ executable: false
 ## Phrases — AIM chat
 
 ### Offline
-- RU: Кульба на службе.
-- EN: Kulba unavailable.
+- RU: Кульба на службе. Перезвоните.
+- EN: Kulba's on duty. Leave a message.
 
 ### GreetingAndOffer
-- RU: Кульба слушает.
-- EN: Kulba here.
+- RU: Кульба слушает. За свободу.
+- EN: Kulba here. For freedom.
 
-### ConversationRestart / IdleLine / PartingWords / Rehire
-- Restart RU/EN: Вернёмся к делу. / Let's get back to it.
-- Idle RU/EN: За свободу. / Well?
-- Part RU/EN: Готов. / I'm in.
-- RehireIntro: Контракт заканчивается. Продлеваем? / Contract's ending. Extending?
-- RehireOutro: Остаюсь. / I'm staying.
+### ConversationRestart
+- RU: Связь прервалась. Вернёмся к делу.
+- EN: Line dropped. Let's get back to it.
 
-### Extra
-- Draft relationship lines at generation.
+### IdleLine
+- RU: Старое оружие ещё послужит.
+- EN: Old guns still have some fight in them.
+
+### PartingWords
+- RU: За свободу. Я в деле.
+- EN: For freedom. I'm in.
+
+### RehireIntro
+- RU: Контракт заканчивается. Продлеваем?
+- EN: Contract's ending. Extending?
+
+### RehireOutro
+- RU: Остаюсь. Есть ещё порох в пороховницах.
+- EN: I'm staying. Still got some fight left.
+
+### Refusals
+- Ivan or Igor hired RU: С этими двумя я не работаю. Точка.
+- Ivan or Igor hired EN: I don't work with those two. Period.
+- Money RU: Маловато для ветерана.
+- Money EN: Not enough for a veteran.
+
+### Haggles
+- Ricochet hired RU: Рикошет? Ладно, но держите его подальше от меня.
+- Ricochet hired EN: Ricochet? Fine, just keep him away from me.
+
+### Mitigations
+- Gus hired RU: Гас в деле? Тогда я тоже — и по старой цене.
+- Gus hired EN: Gus is in? Then count me in too — old rate stands.
 
 ## Phrases — VoiceResponse
 
-- `voice_source: ub` — legacy VO reuse + minimum Selection/AimAttack/OpponentKilled/DeathGeneral/Downed/CombatStart/LevelUp/AmmoLow/Idle drafts.
+- `voice_source: ub` — reuse legacy VO where available; RU/EN subtitle drafts for minimum slots:
+  - Selection: «Кульба готов.» / «Kulba's ready.»
+  - AimAttack (1): «Очередь пошла.» / «Burst away.»
+  - AimAttack (2): «Держи строй.» / «Hold the line.»
+  - OpponentKilled: «За свободу.» / «For freedom.»
+  - DeathGeneral: «Простите, ребята...» / «Sorry, boys...»
+  - Downed: «Ранен, но не сдаюсь.» / «Hit, but not done.»
+  - CombatStartDetected: «Противник на позиции.» / «Enemy in position.»
+  - LevelUp: «Опыт не пропьёшь.» / «Experience doesn't fade.»
+  - AmmoLow: «Патроны на исходе.» / «Running low on ammo.»
+  - Idle: «Жду сигнала.» / «Waiting for the signal.»
 
 ## Wiring
 
@@ -144,10 +183,12 @@ executable: false
 | Appearance | Kulba |
 | VoiceResponseId | Jazz_Kulba |
 | pollyvoice | Matthew |
-| Portrait / BigPortrait | Mod/Dv3mFVN/MercPortraits/Kulba.png (+_Big) |
+| Portrait | Mod/Dv3mFVN/MercPortraits/Kulba.png |
+| BigPortrait | Mod/Dv3mFVN/MercPortraits/Kulba_Big.png |
+| CustomEquipGear | TryEquip Handheld A Firearm (two-handed auto) |
 | FallbackMissingVR | Ice |
-| Sources | AIM sheet JA1/2 block; origin=ub |
+| Sources | AIM sheet «Наемники из JA1/2»; origin=ub |
 
 ## Open blockers
 
-- unique perk needs-design
+- none

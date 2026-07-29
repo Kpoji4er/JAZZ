@@ -80,7 +80,7 @@ Managed отряды (tax/recruiter/logistics и частично combat) пос
 - `JAZZ-STRATEGY-013-AC-003` — static: patrol path+hold dwell.
 - `JAZZ-STRATEGY-013-AC-004` — static: recon/QRF assist only when primary request empty.
 - `JAZZ-STRATEGY-013-AC-005` — loc/docs.
-- `JAZZ-STRATEGY-013-AC-006` — runtime: `BLOCKED`.
+- `JAZZ-STRATEGY-013-AC-006`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Impact и совместимость
 
@@ -105,7 +105,7 @@ Managed отряды (tax/recruiter/logistics и частично combat) пос
 - `JAZZ-STRATEGY-013-AC-003`: `PASS (static)` — patrol `task.path` + `patrol_dwell` hold 6–24h per sector
 - `JAZZ-STRATEGY-013-AC-004`: `PASS (static)` — `lAssignReadySquads` primary then `lIdleAssistRequest` for recon/QRF
 - `JAZZ-STRATEGY-013-AC-005`: `PASS (static)` — loc 644–646 RU/EN + strategy/wiki/roadmap/testing
-- `JAZZ-STRATEGY-013-AC-006`: `BLOCKED (runtime)` — owner smoke
+- `JAZZ-STRATEGY-013-AC-006`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Documentation delta
 
