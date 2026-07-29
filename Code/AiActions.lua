@@ -1291,11 +1291,16 @@ for _, d in ipairs(destinations or empty_table) do
 end
 
 local stay_score = context.dest_target_score[stay] or 0
-local min_gain = context.min_move_gain or 0.10  -- 10% по умолчанию
+-- Integer percent gain (default +10%). Avoid float multiply for MP determinism.
+local min_gain_pct = context.min_move_gain_pct
+if not min_gain_pct and context.min_move_gain then
+  min_gain_pct = floatfloor((context.min_move_gain * 100) + 0.5)
+end
+min_gain_pct = min_gain_pct or 10
 
 -- гистерезис: двигаться только если улучшение заметное
 local picked = stay
-if best_dest and best_dest ~= stay and best_score >= stay_score * (1 + min_gain) then
+if best_dest and best_dest ~= stay and best_score >= MulDivRound(stay_score, 100 + min_gain_pct, 100) then
   picked = best_dest
 end
 

@@ -67,6 +67,6 @@ for _, ammo in ipairs(ammo_pistol) do
     Spot = "Barrel",
     Target = ammo,
     group = "Weapons Ammo Shells VFX",
-    id = tostring(AsyncRand(1e18)), -- чтобы id был уникальным
+    id = "JazzAmmoShell_" .. ammo, -- deterministic; AsyncRand would differ per client load
   })
 end

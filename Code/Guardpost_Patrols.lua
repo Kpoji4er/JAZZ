@@ -1282,16 +1282,12 @@ local function lRetireSquad(root, squad_id)
 		end
 		return
 	end
-	-- Defer RemoveSquad: travel/UI frames still hold the squad reference.
-	CreateRealTimeThread(function()
-		Sleep(1)
-		local alive = gv_Squads[squad_id]
-		if alive then
-			RemoveSquad(alive)
-		elseif type(root) == "table" and root.squads then
-			root.squads[squad_id] = nil
-		end
-	end)
+	-- Immediate remove on the calling sync path. Do NOT defer via RealTimeThread
+	-- (MP desync vs other NetSync) or GameTimeThread (may not tick in satellite).
+	RemoveSquad(squad)
+	if type(root) == "table" and root.squads then
+		root.squads[squad_id] = nil
+	end
 end
 
 local function lSquadLivingUnitInfos(squad)

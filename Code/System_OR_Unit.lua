@@ -45,7 +45,7 @@ function Unit:ResolveDefaultFiringModeAction(firingMode, ui, sync)
 			end
 		end
 	else
-		for id, action in pairs(CombatActions) do
+		for id, action in sorted_pairs(CombatActions) do
 			if action.FiringModeMember == firing_id then
 				actions[#actions + 1] = action
 			end
@@ -2083,7 +2083,8 @@ function GainStat(unit, stat, gainAmount, modId, reason)
 	gainAmount = gainAmount or 1
 	reason = reason or "FieldExperience"
 	
-	modId = modId or string.format("StatGain-%s-%s-%d", stat, unitData.session_id, GetPreciseTicks())
+	-- GetPreciseTicks() is wall-clock → different modIds per client → NetUpdateHash desync.
+	modId = modId or string.format("StatGain-%s-%s-%d-%d", stat, unitData.session_id, GameTime(), InteractionRand(nil, "StatGain"))
 	local mod = unitData:AddModifier(modId, stat, false, gainAmount)
 	if unit then
 		unit:AddModifier(modId, stat, false, gainAmount)

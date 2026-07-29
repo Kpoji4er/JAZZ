@@ -114,7 +114,7 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap, preferred_mode)
 		local aim_levels = GetCTHByAimLevels(unit, enemy, action, weapon.MaxAimActions or 3)
 		if not aim_levels then goto continue end
 
-		for aim, cth in pairs(aim_levels) do
+		for aim, cth in sorted_pairs(aim_levels) do
 			local total_cost = ap_cost + aim * const.Scale.AP
 			if total_cost > AP then goto next_aim end
 

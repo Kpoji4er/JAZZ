@@ -1,10 +1,10 @@
 
 
-local raisedAlarm = false
+MapVar("JazzRaisedAlarm", false)
 
 function OnMsg.ConflictEnd(sector, _, playerAttacked, playerWon, autoResolve, isRetreat, startedFromMap)
   -- Проверяем, есть ли сектор
-  raisedAlarm = false
+  JazzRaisedAlarm = false
   if not sector then return end
 
   -- 1) Если игрок выиграл
@@ -70,7 +70,7 @@ function OnMsg.TurnStart()
 
 	local valid_noises = {}
 	local units = GetCurrentMapUnits("enemy")
-	for _, unit in pairs(units) do
+	for _, unit in ipairs(units) do
 	TriggerUnitAlert("script", unit, "suspicious")
 	if g_NoiseSources and #g_NoiseSources > 0 and not unit.last_known_enemy_pos then
 
@@ -91,14 +91,14 @@ function OnMsg.TurnStart()
 	end
   end
   end
-   -- raisedAlarm = true
+   -- JazzRaisedAlarm = true
   end
 
 end
 
 
 function OnMsg.ExplorationTick()
-  if raisedAlarm then return end
+  if JazzRaisedAlarm then return end
   local sector = gv_Sectors and gv_Sectors[gv_CurrentSectorId]
   if not sector then return end
 
@@ -107,7 +107,7 @@ function OnMsg.ExplorationTick()
 
 	local valid_noises = {}
 	local units = GetCurrentMapUnits("enemy")
-	for _, unit in pairs(units) do
+	for _, unit in ipairs(units) do
 	  TriggerUnitAlert("script", unit, "suspicious")
 	  if g_NoiseSources and #g_NoiseSources > 0 and not unit.last_known_enemy_pos then
 
@@ -128,7 +128,7 @@ function OnMsg.ExplorationTick()
 	  end
 	end
 	end
-	raisedAlarm = true
+	JazzRaisedAlarm = true
   end
 
 end
@@ -461,21 +461,21 @@ function AIUpdateScoutLocation(unit)
 end
 
 
-local  SuspicionThreshold = raisedAlarm and 80 or 160 -- Above this much the unit will become alerted
 local lSuspicionTickRate = 100 -- How often to add the tick amount
 local lSuspicionTickAmount = 10 -- The amount to add when hidden
 local lSuspicionTickAmountProjector = 6 -- The amount to add when hidden
 local ProjectorSuspiciousApplyRange = 10 * const.SlabSizeX -- Enemies within this distance of the projector will be alerted
 local lSuspicionTickAmountProne = 5 -- The amount to add when hidden and in prone
-local lSuspicionTickAmountNotHidden = GameState.Night and 32 or 16 -- The amount to add when not hidden
 local lSuspicionTickDownAmount = 2 -- The amount to remove when no unit is in range
 local lSuspicionTickMinDist = const.SlabSizeX * 2 -- If this close to an enemy then frontness doesn't matter (unless hidden or in the dark)
-local lSuspicionTickDistanceModOuter = const.SlabSizeX * ((raisedAlarm and 0.5 ) or 4)  -- Past this distance in the sight radius the distance modifier is 100%
 local lCubicInIndex = GetEasingIndex("Cubic in")
 
 function UpdateSuspicion(alliedUnits, enemyUnits, intermediate_update)
 	if GameTime() - lastSusUpdate < lSuspicionTickRate then return end
-	--NetUpdateHash("UpdateSuspicion", alliedUnits, enemyUnits, intermediate_update)
+	-- Dynamic thresholds (must not bake JazzRaisedAlarm / Night at load time).
+	local SuspicionThreshold = JazzRaisedAlarm and 80 or 160
+	local lSuspicionTickAmountNotHidden = GameState.Night and 32 or 16
+	local lSuspicionTickDistanceModOuter = JazzRaisedAlarm and (const.SlabSizeX / 2) or (const.SlabSizeX * 4)
 
 	local sneakLights
 	if intermediate_update then

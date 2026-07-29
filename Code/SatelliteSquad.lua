@@ -3493,6 +3493,7 @@ function UpdateJoiningSquad(squad, canSetRoute)
 	else
 		-- If not, update route towards the joining squad.
 		-- This needs to be done in a thread as this might be coming from the travel thread.
+		-- RealTime (vanilla): GameTime may be paused in satellite; both clients defer from the same sync tick.
 		CreateRealTimeThread(UpdateJoiningSquad, squad, "canSetRoute")
 	end
 end

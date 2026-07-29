@@ -78,6 +78,8 @@ AI keywords в units: `Melee`, `CQB`, `Soldier`, `Marksman`, `Sniper`, `Leader`,
 
 `UnitAwareness.lua` заменяет крупную vanilla-систему. На обнаружение влияют LOS, light/darkness, smoke, night/weather, camo, noise и team state. `IsLineInSmoke` дополнительно переопределён JAZZ поверх функции CommonLib в `System_OR_Unit.lua`.
 
+Heat-alarm (`JazzRaisedAlarm` MapVar): при высоком Heat exploration tick поднимает suspicion-пороги (80 vs 160) и сужает distance mod; пороги считаются внутри `UpdateSuspicion`, не при load. Обход врагов для AlarmNoise — `ipairs` (порядок + InteractionRand).
+
 События conflict/turn/exploration переводят units между состояниями. Неправильная очистка suspicion/alerts может пережить бой или сломать переход exploration ↔ combat.
 
 ## Межпакетные зависимости

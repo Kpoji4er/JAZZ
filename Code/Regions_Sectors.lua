@@ -298,14 +298,14 @@ end
     local hours = Game.CampaignTime / const.Scale.h
     local heatdecay = 10;
     if hours % 7 ~= 0 then return end
-    for _, region in pairs(Regions) do
+    for _, region in sorted_pairs(Regions) do
       if region and not region.LegionAIEnabled and region.Heat and region.Heat > 0 then
         region:DecreaseHeat(MulDivRound(heatdecay, 10, 100))
       end
     end
      
   -- Уменьшаем Heat по всем открытым секторам
-  for sector_id, sector in pairs(gv_Sectors) do
+  for sector_id, sector in sorted_pairs(gv_Sectors) do
     local region = GetRegionForSector(sector_id)
     if not (region and region.LegionAIEnabled) and sector.Heat and sector.Heat > 0 then
       sector.Heat = Clamp(sector.Heat - heatdecay, 0, 1000)

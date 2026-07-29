@@ -10,12 +10,12 @@ end
 
 function ___RegenerateLegionLoot()
     --print("regenerate loot")
-    for _, sector in pairs(gv_Sectors) do
+    for _, sector in sorted_pairs(gv_Sectors) do
         local squads = sector.enemy_squads
         --print(#squads)
-           for _, squad in pairs(squads) do
+           for _, squad in ipairs(squads or empty_table) do
             local  units = squad.units
-             for _, unit_id in pairs(units) do
+             for _, unit_id in ipairs(units or empty_table) do
                 local unitdata = gv_UnitData[unit_id]
                 --  print(unit_id)
                 --  print(unit.id)
