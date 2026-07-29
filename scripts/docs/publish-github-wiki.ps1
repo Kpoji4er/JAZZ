@@ -1,10 +1,10 @@
 ﻿#Requires -Version 5.1
 <#
 .SYNOPSIS
-  Собирает GitHub Wiki staging из docs/showcase и опционально публикует в JAZZ.wiki.
+  Собирает GitHub Wiki staging из docs/showcase + docs/wiki/weapons и опционально публикует.
 
 .PARAMETER Publish
-  Клонирует/создаёт wiki-репозиторий и пушит собранные страницы.
+  Клонирует wiki-репозиторий и пушит собранные страницы.
 
 .PARAMETER StagingDir
   Каталог сборки (по умолчанию .tmp/github-wiki).
@@ -29,6 +29,8 @@ $ErrorActionPreference = 'Stop'
 $ScriptDir = $PSScriptRoot
 $RepoRoot = (Resolve-Path (Join-Path $ScriptDir '..\..')).Path
 $ShowcaseRoot = Join-Path $RepoRoot 'docs\showcase'
+$CatalogRoot = Join-Path $RepoRoot 'docs\wiki\weapons'
+$WikiRoot = Join-Path $RepoRoot 'docs\wiki'
 $ManifestPath = Join-Path $ShowcaseRoot 'pages.json'
 
 if (-not $StagingDir) {
@@ -39,11 +41,11 @@ function Get-RepoSlugFromOrigin {
     Push-Location $RepoRoot
     try {
         $url = (git remote get-url origin 2>$null)
-        if (-not $url) { throw 'Не удалось прочитать git remote origin.' }
+        if (-not $url) { throw 'Cannot read git remote origin.' }
         if ($url -match 'github\.com[:/](?<slug>[^/]+/[^/.]+)') {
             return $Matches['slug']
         }
-        throw "origin не похож на GitHub URL: $url"
+        throw "origin is not a GitHub URL: $url"
     }
     finally {
         Pop-Location
@@ -64,12 +66,33 @@ function Get-WikiPageName {
     return ('{0}-{1}' -f $Lang.ToUpperInvariant(), $WikiBase)
 }
 
-function Resolve-ShowcaseLinkTarget {
+function Get-CatalogWikiPageName {
+    param([string]$FileBase)
+    if ($FileBase -eq 'README') { return 'Weapons-Catalog' }
+    $parts = $FileBase -split '-'
+    $title = ($parts | ForEach-Object {
+            if ([string]::IsNullOrEmpty($_)) { return $_ }
+            return $_.Substring(0, 1).ToUpperInvariant() + $_.Substring(1)
+        }) -join '-'
+    return "Weapons-$title"
+}
+
+function Get-MarkdownTitle {
+    param([string]$Text, [string]$Fallback)
+    foreach ($line in [regex]::Split($Text, '\r?\n')) {
+        if ($line -match '^#\s+(.+)$') {
+            return $Matches[1].Trim()
+        }
+    }
+    return $Fallback
+}
+
+function Resolve-PublishedLink {
     param(
         [string]$FromFile,
         [string]$Target,
         [hashtable]$SlugToWikiBase,
-        [string]$Lang
+        [string]$RepoSlug
     )
 
     $clean = ($Target -split '#', 2)[0].Trim()
@@ -77,33 +100,67 @@ function Resolve-ShowcaseLinkTarget {
     if ($clean -match '^(https?://|mailto:)' -or $clean.StartsWith('#')) { return $null }
 
     $resolved = [IO.Path]::GetFullPath((Join-Path ([IO.Path]::GetDirectoryName($FromFile)) $clean))
+    if (-not (Test-Path -LiteralPath $resolved -PathType Leaf)) {
+        return $null
+    }
+
     $ruRoot = [IO.Path]::GetFullPath((Join-Path $ShowcaseRoot 'ru'))
     $enRoot = [IO.Path]::GetFullPath((Join-Path $ShowcaseRoot 'en'))
+    $catalogFull = [IO.Path]::GetFullPath($CatalogRoot)
+    $wikiFull = [IO.Path]::GetFullPath($WikiRoot)
+    $repoFull = [IO.Path]::GetFullPath($RepoRoot)
 
-    $targetLang = $null
-    $relative = $null
     if ($resolved.StartsWith($ruRoot, [StringComparison]::OrdinalIgnoreCase)) {
-        $targetLang = 'ru'
         $relative = $resolved.Substring($ruRoot.Length).TrimStart('\', '/')
+        if (-not $relative.EndsWith('.md', [StringComparison]::OrdinalIgnoreCase)) { return $null }
+        $slug = [IO.Path]::GetFileNameWithoutExtension($relative)
+        if (-not $SlugToWikiBase.ContainsKey($slug)) {
+            throw "Unknown showcase slug link: $Target (from $FromFile)"
+        }
+        return (Get-WikiPageName -Lang 'ru' -WikiBase $SlugToWikiBase[$slug])
     }
-    elseif ($resolved.StartsWith($enRoot, [StringComparison]::OrdinalIgnoreCase)) {
-        $targetLang = 'en'
+
+    if ($resolved.StartsWith($enRoot, [StringComparison]::OrdinalIgnoreCase)) {
         $relative = $resolved.Substring($enRoot.Length).TrimStart('\', '/')
-    }
-    else {
-        return $null
-    }
-
-    if (-not $relative.EndsWith('.md', [StringComparison]::OrdinalIgnoreCase)) {
-        return $null
-    }
-
-    $slug = [IO.Path]::GetFileNameWithoutExtension($relative).Replace('\', '/')
-    if (-not $SlugToWikiBase.ContainsKey($slug)) {
-        throw "Ссылка на неизвестный slug showcase: $Target (из $FromFile)"
+        if (-not $relative.EndsWith('.md', [StringComparison]::OrdinalIgnoreCase)) { return $null }
+        $slug = [IO.Path]::GetFileNameWithoutExtension($relative)
+        if (-not $SlugToWikiBase.ContainsKey($slug)) {
+            throw "Unknown showcase slug link: $Target (from $FromFile)"
+        }
+        return (Get-WikiPageName -Lang 'en' -WikiBase $SlugToWikiBase[$slug])
     }
 
-    return (Get-WikiPageName -Lang $targetLang -WikiBase $SlugToWikiBase[$slug])
+    if ($resolved.StartsWith($catalogFull, [StringComparison]::OrdinalIgnoreCase)) {
+        $relative = $resolved.Substring($catalogFull.Length).TrimStart('\', '/')
+        if (-not $relative.EndsWith('.md', [StringComparison]::OrdinalIgnoreCase)) { return $null }
+        $base = [IO.Path]::GetFileNameWithoutExtension($relative)
+        return (Get-CatalogWikiPageName -FileBase $base)
+    }
+
+    # Root docs/wiki pages map onto showcase RU aspect pages where we already mirror them.
+    $wikiPageMap = @{
+        'weapons-and-ammo.md'     = (Get-WikiPageName -Lang 'ru' -WikiBase $SlugToWikiBase['weapons-and-ammo'])
+        'combat-and-accuracy.md'  = (Get-WikiPageName -Lang 'ru' -WikiBase $SlugToWikiBase['combat-and-accuracy'])
+        'weapon-classes.md'       = (Get-WikiPageName -Lang 'ru' -WikiBase $SlugToWikiBase['weapon-classes'])
+        'combat-actions.md'       = (Get-WikiPageName -Lang 'ru' -WikiBase $SlugToWikiBase['combat-actions'])
+        'legion-global-ai.md'     = (Get-WikiPageName -Lang 'ru' -WikiBase $SlugToWikiBase['legion-strategy'])
+        'README.md'               = (Get-WikiPageName -Lang 'ru' -WikiBase $SlugToWikiBase['home'])
+    }
+    if ($resolved.StartsWith($wikiFull, [StringComparison]::OrdinalIgnoreCase)) {
+        $relative = $resolved.Substring($wikiFull.Length).TrimStart('\', '/').Replace('\', '/')
+        if ($wikiPageMap.ContainsKey($relative)) {
+            return $wikiPageMap[$relative]
+        }
+    }
+
+    if ($resolved.StartsWith($repoFull, [StringComparison]::OrdinalIgnoreCase)) {
+        $relativePath = $resolved.Substring($repoFull.Length).TrimStart('\', '/').Replace('\', '/')
+        if ($relativePath -match '\.(md|csv|lua)$') {
+            return ("https://github.com/{0}/blob/main/{1}" -f $RepoSlug, $relativePath)
+        }
+    }
+
+    return $null
 }
 
 function Rewrite-MarkdownLinks {
@@ -111,29 +168,36 @@ function Rewrite-MarkdownLinks {
         [string]$Text,
         [string]$FromFile,
         [hashtable]$SlugToWikiBase,
-        [string]$Lang
+        [string]$RepoSlug
     )
 
     return [regex]::Replace($Text, '\[(?<label>[^\]]*)\]\((?<target>[^)]+)\)', {
-        param($m)
-        $label = $m.Groups['label'].Value
-        $target = $m.Groups['target'].Value.Trim()
-        $hash = ''
-        if ($target.Contains('#')) {
-            $parts = $target -split '#', 2
-            $target = $parts[0]
-            $hash = '#' + $parts[1]
-        }
-        $wikiPage = Resolve-ShowcaseLinkTarget -FromFile $FromFile -Target $target -SlugToWikiBase $SlugToWikiBase -Lang $Lang
-        if (-not $wikiPage) {
-            return $m.Value
-        }
-        return ('[{0}]({1}{2})' -f $label, $wikiPage, $hash)
-    })
+            param($m)
+            $label = $m.Groups['label'].Value
+            $target = $m.Groups['target'].Value.Trim()
+            $hash = ''
+            if ($target.Contains('#')) {
+                $parts = $target -split '#', 2
+                $target = $parts[0]
+                $hash = '#' + $parts[1]
+            }
+            $wikiPage = Resolve-PublishedLink -FromFile $FromFile -Target $target -SlugToWikiBase $SlugToWikiBase -RepoSlug $RepoSlug
+            if (-not $wikiPage) {
+                return $m.Value
+            }
+            return ('[{0}]({1}{2})' -f $label, $wikiPage, $hash)
+        })
+}
+
+if (-not $RepoSlug) {
+    $RepoSlug = Get-RepoSlugFromOrigin
 }
 
 if (-not (Test-Path -LiteralPath $ManifestPath -PathType Leaf)) {
-    throw "Нет манифеста: $ManifestPath"
+    throw "Missing manifest: $ManifestPath"
+}
+if (-not (Test-Path -LiteralPath $CatalogRoot -PathType Container)) {
+    throw "Missing weapon catalog: $CatalogRoot"
 }
 
 $manifest = ConvertFrom-JsonFile -Path $ManifestPath
@@ -142,7 +206,7 @@ $pages = $manifest.pages
 $slugToWikiBase = @{}
 foreach ($slug in $order) {
     $entry = $pages.$slug
-    if (-not $entry) { throw "pages.json: slug '$slug' есть в order, но нет в pages." }
+    if (-not $entry) { throw "pages.json: slug '$slug' is in order but missing from pages." }
     $slugToWikiBase[$slug] = [string]$entry.wikiBase
 }
 
@@ -151,9 +215,18 @@ foreach ($lang in @('ru', 'en')) {
     foreach ($slug in $order) {
         $path = Join-Path $langDir ($slug + '.md')
         if (-not (Test-Path -LiteralPath $path -PathType Leaf)) {
-            throw "Нет страницы showcase: docs/showcase/$lang/$slug.md"
+            throw "Missing showcase page: docs/showcase/$lang/$slug.md"
         }
     }
+}
+
+$catalogFiles = @(Get-ChildItem -LiteralPath $CatalogRoot -File -Filter '*.md' | Sort-Object {
+        if ($_.BaseName -eq 'README') { '0' }
+        elseif ($_.BaseName -eq 'components') { '1' }
+        else { '2' + $_.BaseName }
+    })
+if ($catalogFiles.Count -lt 1) {
+    throw "No markdown files in $CatalogRoot"
 }
 
 if (Test-Path -LiteralPath $StagingDir) {
@@ -162,20 +235,44 @@ if (Test-Path -LiteralPath $StagingDir) {
 New-Item -ItemType Directory -Path $StagingDir | Out-Null
 
 $generated = New-Object System.Collections.Generic.List[string]
+$catalogSidebar = New-Object System.Collections.Generic.List[object]
 
 foreach ($lang in @('ru', 'en')) {
     $langDir = Join-Path $ShowcaseRoot $lang
     foreach ($slug in $order) {
         $src = Join-Path $langDir ($slug + '.md')
-        $wikiBase = $slugToWikiBase[$slug]
-        $wikiName = Get-WikiPageName -Lang $lang -WikiBase $wikiBase
+        $wikiName = Get-WikiPageName -Lang $lang -WikiBase $slugToWikiBase[$slug]
         $text = [IO.File]::ReadAllText($src, [Text.Encoding]::UTF8)
-        $text = Rewrite-MarkdownLinks -Text $text -FromFile $src -SlugToWikiBase $slugToWikiBase -Lang $lang
+        $text = Rewrite-MarkdownLinks -Text $text -FromFile $src -SlugToWikiBase $slugToWikiBase -RepoSlug $RepoSlug
         if ($text -notmatch '\r?\n$') { $text += "`n" }
         $dest = Join-Path $StagingDir ($wikiName + '.md')
         [IO.File]::WriteAllText($dest, $text, [Text.UTF8Encoding]::new($false))
         $generated.Add($wikiName) | Out-Null
     }
+}
+
+foreach ($file in $catalogFiles) {
+    $wikiName = Get-CatalogWikiPageName -FileBase $file.BaseName
+    $text = [IO.File]::ReadAllText($file.FullName, [Text.Encoding]::UTF8)
+    $title = Get-MarkdownTitle -Text $text -Fallback $file.BaseName
+    $banner = @(
+        '> Published from `docs/wiki/weapons/` (generated catalog). Numbers come from canonical CSV; do not edit this GitHub Wiki page by hand.'
+        '>'
+        "> [Showcase RU]($(Get-WikiPageName -Lang 'ru' -WikiBase $slugToWikiBase['weapons-and-ammo'])) · [Showcase EN]($(Get-WikiPageName -Lang 'en' -WikiBase $slugToWikiBase['weapons-and-ammo'])) · [Full catalog index](Weapons-Catalog)"
+        ''
+    ) -join "`n"
+    if ($text -match '(?s)\A(<!--.*?-->\r?\n)') {
+        $text = $Matches[1] + $banner + $text.Substring($Matches[1].Length)
+    }
+    else {
+        $text = $banner + $text
+    }
+    $text = Rewrite-MarkdownLinks -Text $text -FromFile $file.FullName -SlugToWikiBase $slugToWikiBase -RepoSlug $RepoSlug
+    if ($text -notmatch '\r?\n$') { $text += "`n" }
+    $dest = Join-Path $StagingDir ($wikiName + '.md')
+    [IO.File]::WriteAllText($dest, $text, [Text.UTF8Encoding]::new($false))
+    $generated.Add($wikiName) | Out-Null
+    $catalogSidebar.Add([pscustomobject]@{ Name = $wikiName; Title = $title }) | Out-Null
 }
 
 $homeRu = Get-WikiPageName -Lang 'ru' -WikiBase $slugToWikiBase['home']
@@ -187,8 +284,9 @@ Player-facing showcase for the JAZZ overhaul of Jagged Alliance 3.
 
 - [Русский]($homeRu)
 - [English]($homeEn)
+- [Weapon catalog / Каталог оружия](Weapons-Catalog)
 
-Source of truth: ``docs/showcase/`` in the [JAZZ](https://github.com/Kpoji4er/JAZZ) repository. Do not edit wiki pages by hand — change the repo and republish.
+Source of truth: ``docs/showcase/`` + generated ``docs/wiki/weapons/`` in the [JAZZ](https://github.com/$RepoSlug) repository. Do not edit wiki pages by hand — change the repo and republish.
 "@
 [IO.File]::WriteAllText((Join-Path $StagingDir 'Home.md'), ($rootHome.TrimEnd() + "`n"), [Text.UTF8Encoding]::new($false))
 
@@ -196,6 +294,7 @@ $sidebarLines = New-Object System.Collections.Generic.List[string]
 $sidebarLines.Add('**JAZZ**') | Out-Null
 $sidebarLines.Add('') | Out-Null
 $sidebarLines.Add('- [Home](Home)') | Out-Null
+$sidebarLines.Add('- [Weapon catalog](Weapons-Catalog)') | Out-Null
 $sidebarLines.Add('') | Out-Null
 $sidebarLines.Add('**Русский**') | Out-Null
 foreach ($slug in $order) {
@@ -211,22 +310,23 @@ foreach ($slug in $order) {
     $sidebarLines.Add(('- [{0}]({1})' -f $title, $page)) | Out-Null
 }
 $sidebarLines.Add('') | Out-Null
+$sidebarLines.Add('**Каталог оружия**') | Out-Null
+foreach ($item in $catalogSidebar) {
+    $sidebarLines.Add(('- [{0}]({1})' -f $item.Title, $item.Name)) | Out-Null
+}
+$sidebarLines.Add('') | Out-Null
 [IO.File]::WriteAllText((Join-Path $StagingDir '_Sidebar.md'), (($sidebarLines -join "`n") + "`n"), [Text.UTF8Encoding]::new($false))
 
 $footer = @"
 ---
-Published from ``docs/showcase/`` · [Repository](https://github.com/Kpoji4er/JAZZ) · [ADR-0003](https://github.com/Kpoji4er/JAZZ/blob/main/docs/decisions/ADR-0003-github-wiki-showcase.md)
+Published from ``docs/showcase/`` + ``docs/wiki/weapons/`` · [Repository](https://github.com/$RepoSlug) · [ADR-0003](https://github.com/$RepoSlug/blob/main/docs/decisions/ADR-0003-github-wiki-showcase.md)
 "@
 [IO.File]::WriteAllText((Join-Path $StagingDir '_Footer.md'), ($footer.TrimEnd() + "`n"), [Text.UTF8Encoding]::new($false))
 
-Write-Host ("Showcase wiki staging ready: {0} pages -> {1}" -f $generated.Count, $StagingDir)
+Write-Host ("Wiki staging ready: {0} pages -> {1}" -f $generated.Count, $StagingDir)
 
 if (-not $Publish) {
     exit 0
-}
-
-if (-not $RepoSlug) {
-    $RepoSlug = Get-RepoSlugFromOrigin
 }
 
 $wikiUrl = "https://github.com/${RepoSlug}.wiki.git"
@@ -289,7 +389,7 @@ try {
         Write-Host 'GitHub Wiki already up to date.'
         exit 0
     }
-    git commit -m "sync showcase from docs/showcase" 2>&1 | ForEach-Object { Write-Host $_ }
+    git commit -m "sync showcase + weapon catalog" 2>&1 | ForEach-Object { Write-Host $_ }
     if ($LASTEXITCODE -ne 0) {
         $ErrorActionPreference = $prevEap
         throw 'git commit failed'

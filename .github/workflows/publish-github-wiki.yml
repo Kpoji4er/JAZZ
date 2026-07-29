@@ -6,7 +6,10 @@ on:
       - main
     paths:
       - 'docs/showcase/**'
+      - 'docs/wiki/weapons/**'
+      - 'docs/technical/weapons/data/**'
       - 'scripts/docs/publish-github-wiki.ps1'
+      - 'scripts/docs/weapons-docs.mjs'
       - '.github/workflows/publish-github-wiki.yml'
   workflow_dispatch:
 

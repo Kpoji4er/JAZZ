@@ -19,3 +19,5 @@ JAZZ has **eleven** primary firearm classes. Major tiers compare power *inside* 
 | Machine gun | hold a lane, max density | strongest sustained suppression | setup, weight, poor control without bipod/support |
 
 Combat actions depend on physical weapon support, the character, components, and perks. Perks can unlock or strengthen class techniques without changing the class’s physical role.
+
+Per-family stats: [weapon catalog](../../wiki/weapons/README.md) (Russian tables).

@@ -23,7 +23,7 @@
 - `testing.md` — при изменении общего validation profile.
 - Spec evidence — для каждого `AC-*`.
 - Профильная `docs/wiki/*` — если изменение заметно игроку; generated weapon pages обновляются через `docs/technical/weapons/data/*.csv` и `scripts/docs/weapons-docs.mjs`.
-- Соответствующие `docs/showcase/ru/*` и `docs/showcase/en/*` — если затронут аспект публичной витрины; после merge в `main` GitHub Wiki обновляет workflow.
+- Соответствующие `docs/showcase/ru/*` и `docs/showcase/en/*` — если затронут аспект публичной витрины; `docs/wiki/weapons/` после CSV-регенерации публикуется на GitHub Wiki тем же workflow.
 
 Не требовать изменения сводного документа, если его факт не изменился. Отсутствие documentation delta фиксировать в spec с причиной.
 

@@ -5,10 +5,10 @@
 ## Контракт
 
 - Источник истины витрины: `docs/showcase/ru/` и `docs/showcase/en/`.
-- Детальный игроковый справочник в репозитории: [`docs/wiki/`](../wiki/README.md) (ADR-0002).
+- Каталог статов: generated [`docs/wiki/weapons/`](../wiki/weapons/README.md) (CSV → `scripts/docs/weapons-docs.mjs`).
 - Реализация и формулы: [`docs/technical/`](../technical/README.md).
-- Витрина не спорит с `docs/wiki/` и technical; числа оружия не копируются вручную из generated pages.
-- Каждая страница существует **на обоих языках** с одинаковым `slug` из [`pages.json`](pages.json).
+- GitHub Wiki публикует **оба** слоя; витрина не спорит с wiki/technical; числа оружия не правят руками на GitHub Wiki.
+- Каждая страница аспекта существует **на обоих языках** с одинаковым `slug` из [`pages.json`](pages.json). Каталог оружия пока на русском (как generated wiki).
 
 ## Публикация
 
@@ -20,7 +20,7 @@
 .\scripts\docs\publish-github-wiki.ps1 -Publish
 ```
 
-CI: `.github/workflows/publish-github-wiki.yml` публикует при изменении `docs/showcase/**` на `main`.
+CI: `.github/workflows/publish-github-wiki.yml` публикует при изменении `docs/showcase/**`, `docs/wiki/weapons/**` или `docs/technical/weapons/data/**` на `main`.
 
 ### Первый запуск (один раз)
 
@@ -38,6 +38,9 @@ GitHub создаёт `JAZZ.wiki.git` только после первой ст�
 | --- | --- |
 | `ru/<slug>.md` | `RU-<wikiBase>` |
 | `en/<slug>.md` | `EN-<wikiBase>` |
+| `docs/wiki/weapons/README.md` | `Weapons-Catalog` |
+| `docs/wiki/weapons/<family>.md` | `Weapons-<Family>` |
+| `docs/wiki/weapons/components.md` | `Weapons-Components` |
 | (генерируется) | `Home`, `_Sidebar`, `_Footer` |
 
 `Home` — языковой вход. Боковое меню строится из `pages.json`.

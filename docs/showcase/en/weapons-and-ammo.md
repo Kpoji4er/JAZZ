@@ -35,4 +35,9 @@ A **sub-tier** orders close variants (magazine, RoF, range, reliability, modules
 - **Stocks and grips** — tempo, recoil, modes, mobility.
 - **Magazines** — capacity and sometimes reload cost.
 
-The full per-tier catalog and component list live in the repository (`docs/wiki/weapons/`). Numbers are built from canonical CSVs — do not hand-edit them on this showcase.
+Full tables:
+
+- [Weapon catalog by tier](../../wiki/weapons/README.md) (currently Russian)
+- [All components](../../wiki/weapons/components.md)
+
+Numbers are built from canonical CSVs via `scripts/docs/weapons-docs.mjs` and published to the GitHub Wiki with the showcase — do not hand-edit them on the wiki.
