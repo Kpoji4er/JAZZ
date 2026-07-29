@@ -286,6 +286,19 @@ end
 --- @param initial boolean Whether this is the initial update (true) or a regular update (false).
 ---
 function Guardpost:Update(initial)
+	-- Vanilla InitializeGuardposts calls Update("initial") from InitSatelliteView,
+	-- before GenerateSquadWindows. Sync SpawnEnemySquad then indexes squad_to_wnd=false.
+	-- Defer only the initial path; do not re-register OnMsg.InitSatelliteView (append!).
+	if initial and type(g_SatelliteUI and g_SatelliteUI.squad_to_wnd) ~= "table" then
+		local self_ref = self
+		CreateGameTimeThread(function()
+			WaitMsg("OpenSatelliteView")
+			if self_ref and self_ref.session_obj then
+				self_ref:Update("initial")
+			end
+		end)
+		return
+	end
 	local so = self.session_obj
 	local queued_script_attack = so.queued_script_attack and #so.queued_script_attack > 0
 	if JAZZ_IsLegionAIManagedGuardpost
@@ -383,6 +396,9 @@ function InitializeGuardposts()
 	end
 end
 
+-- Do NOT assign OnMsg.InitSatelliteView here: OnMsg.__newindex appends handlers.
+-- Vanilla already registered InitializeGuardposts; a second assignment doubles PlaceObject.
+-- Initial-spawn UI race is handled inside Guardpost:Update (defer until OpenSatelliteView).
 --[[
 OnMsg.InitSatelliteView = InitializeGuardposts
 ]]

@@ -3061,6 +3061,7 @@ Quatro, Cinquo, Senco, Ses
 731102317560,Ха-ха!,Ха-ха!,,jazz-units:items.lua:69650
 731775310376,"Пришли за Эрни мюсли, походу....","Пришли за Эрни мюсли, походу....",,jazz-units:items.lua:70702
 732130249694,До новых встреч.,До новых встреч.,,jazz-maps:items.lua:30436
+732215446558,Marksman,Снайпер,,MercSpecializations Default Marksmen name
 732289974638,Керамическая плита 3 класса защиты,Керамическая плита 3 класса защиты,,jazz:InventoryItem/JazzArmorPlates_Ceramics3.lua:13 | jazz:items.lua:57217
 732360181829,"7.62х51мм НАТО, M61","7.62х51мм НАТО, M61",,jazz:InventoryItem/JAZZ_AMMO_762x51_AP.lua:10 | jazz:items.lua:6140
 732750682366,Ящики с боеприпасами и гранатами,Ящики с боеприпасами и гранатами,,jazz-maps:InventoryItem/JazzQuestItem_AmmoBox.lua:11 | jazz-maps:items.lua:111153
