@@ -115,18 +115,43 @@ end
 
 function JAZZ_CTHSkillCurve(value)
 	value = Max(0, value or 0)
-	return 20 + value ^ 1.25 * 0.25
+	if value == 0 then
+		return 20
+	end
+	-- 20 + 0.25 * value^1.25 without float pow (MP-safe).
+	-- value^0.25 ≈ isqrt(isqrt(value * 1e8)) / 100; value^1.25 * 100 ≈ value * that.
+	local function isqrt(n)
+		n = Max(0, n)
+		local lo, hi = 0, n
+		while lo < hi do
+			local mid = DivRound(lo + hi + 1, 2)
+			if mid <= 0 then
+				lo = mid
+			elseif mid > n / mid then
+				hi = mid - 1
+			elseif mid * mid <= n then
+				lo = mid
+			else
+				hi = mid - 1
+			end
+		end
+		return lo
+	end
+	local root2 = isqrt(value * 100000000) -- ≈ 1e4 * sqrt(value)
+	local root4 = isqrt(root2) -- ≈ 100 * value^0.25
+	local pow_x100 = value * root4 -- ≈ 100 * value^1.25
+	return 20 + DivRound(pow_x100, 400)
 end
 
 function JAZZ_CTHGetAimMastery(marksmanship)
 	local m = Clamp(marksmanship or 0, 0, 100)
 	local mastery =
-		Min(m, 60) * 20 * 1.0 / 60
-		+ Clamp(m - 60, 0, 20) * 20 * 1.0 / 20
-		+ Clamp(m - 80, 0, 10) * 20 * 1.0 / 10
-		+ Clamp(m - 90, 0, 6) * 20 * 1.0 / 6
-		+ Clamp(m - 96, 0, 4) * 20 * 1.0 / 4
-	return Min(100, JAZZ_CTHRound(mastery))
+		MulDivRound(Min(m, 60), 20, 60)
+		+ MulDivRound(Clamp(m - 60, 0, 20), 20, 20)
+		+ MulDivRound(Clamp(m - 80, 0, 10), 20, 10)
+		+ MulDivRound(Clamp(m - 90, 0, 6), 20, 6)
+		+ MulDivRound(Clamp(m - 96, 0, 4), 20, 4)
+	return Min(100, mastery)
 end
 
 function JAZZ_CTHGetAimProgress(weapon, aim)
@@ -134,7 +159,7 @@ function JAZZ_CTHGetAimProgress(weapon, aim)
 	if max_aim <= 0 then
 		return 0, max_aim
 	end
-	return Clamp((aim or 0) * 1.0 / max_aim, 0, 1), max_aim
+	return Clamp(MulDivRound(aim or 0, 1000, max_aim), 0, 1000) / 1000.0, max_aim
 end
 
 function JAZZ_CTHGetShooterCore(attacker, weapon, aim)

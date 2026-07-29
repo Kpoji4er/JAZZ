@@ -695,8 +695,19 @@ end
 				suppression_enemies[#suppression_enemies + 1] = u
 			end
 		end
-		-- willDamage ≈ (Damage/10) * (0.4 + 0.6 * sqrt(CTH/100)); compute once.
-		local f_x100 = Clamp(floatfloor(((Max(suppression_CTH, 1) + 0.0) / 100) ^ 0.5 * 100 + 0.5), 10, 200)
+		-- willDamage ≈ (Damage/10) * (0.4 + 0.6 * sqrt(CTH/100)); integer isqrt of cth*100 ≈ 10*sqrt(cth).
+		local c = Max(suppression_CTH, 1)
+		local target_sq = 100 * c
+		local lo, hi = 0, 1000
+		while lo < hi do
+			local mid = DivRound(lo + hi + 1, 2)
+			if mid * mid <= target_sq then
+				lo = mid
+			else
+				hi = mid - 1
+			end
+		end
+		local f_x100 = Clamp(lo, 10, 200)
 		target_will_damage = MulDivRound(
 			Max(self.Damage, 1),
 			40 + MulDivRound(60, f_x100, 100),
@@ -1759,21 +1770,20 @@ end
 
 function MishapProperties:GetMishapDeviationVector(unit, target)
 	local explosives = unit.Explosives or 50
-	local dist_tiles = unit:GetDist(target) / const.SlabSizeX
+	local dist_tiles = DivRound(unit:GetDist(target), const.SlabSizeX)
 
-	-- Значения из префаба
 	local min_range = (self.MaxMishapRange or 1) * const.SlabSizeX
 	local max_range = (self.MaxMishapRange or 4) * const.SlabSizeX
 
-	-- Модификатор от дистанции: чем дальше — тем выше разброс
-	local dist_mod = Clamp(dist_tiles / 6, 1, 4.0)
+	-- Integer mods (x100): avoid float bounds into RandRange (MP desync).
+	local dist_mod_x100 = Clamp(MulDivRound(dist_tiles, 100, 6), 100, 400)
+	local skill_mod_x100 = Clamp(100 - explosives, 10, 100)
 
-	-- Модификатор от навыка: плохой скилл = больше разброс
-	local skill_mod = Clamp(1 - explosives / 100, 0.1, 1)
-
-	-- Финальные отклонения
-	local min_dev = min_range * dist_mod * skill_mod
-	local max_dev = max_range * dist_mod * skill_mod
+	local min_dev = MulDivRound(MulDivRound(min_range, dist_mod_x100, 100), skill_mod_x100, 100)
+	local max_dev = MulDivRound(MulDivRound(max_range, dist_mod_x100, 100), skill_mod_x100, 100)
+	if max_dev < min_dev then
+		max_dev = min_dev
+	end
 
 	local deviation = unit:RandRange(min_dev, max_dev)
 	return Rotate(point(deviation, 0, 0), unit:Random(360 * 60))
@@ -1783,21 +1793,19 @@ end
 
 function MishapProperties:GetMishapDeviationVectorMin(unit, target)
 	local explosives = unit.Explosives or 50
-	local dist_tiles = unit:GetDist(target) / const.SlabSizeX
+	local dist_tiles = DivRound(unit:GetDist(target), const.SlabSizeX)
 
-	-- Значения из префаба
 	local min_range = 1 * const.SlabSizeX
 	local max_range = (self.MinMishapRange or 2) * const.SlabSizeX
 
-	-- Модификатор от дистанции: чем дальше — тем выше разброс
-	local dist_mod = Clamp(dist_tiles / 8, 0.5, 3.0)
+	local dist_mod_x100 = Clamp(MulDivRound(dist_tiles, 100, 8), 50, 300)
+	local skill_mod_x100 = Clamp(100 - explosives, 10, 100)
 
-	-- Модификатор от навыка: плохой скилл = больше разброс
-	local skill_mod = Clamp(1 - explosives / 100, 0.1, 1)
-
-	-- Финальные отклонения
-	local min_dev = min_range * dist_mod * skill_mod
-	local max_dev = max_range * dist_mod * skill_mod
+	local min_dev = MulDivRound(MulDivRound(min_range, dist_mod_x100, 100), skill_mod_x100, 100)
+	local max_dev = MulDivRound(MulDivRound(max_range, dist_mod_x100, 100), skill_mod_x100, 100)
+	if max_dev < min_dev then
+		max_dev = min_dev
+	end
 
 	local deviation = unit:RandRange(min_dev, max_dev)
 	return Rotate(point(deviation, 0, 0), unit:Random(360 * 60))
@@ -1805,21 +1813,19 @@ end
 
 function MishapProperties:GetMishapDeviationVectorMax(unit, target)
 	local explosives = unit.Explosives or 50
-	local dist_tiles = unit:GetDist(target) / const.SlabSizeX
+	local dist_tiles = DivRound(unit:GetDist(target), const.SlabSizeX)
 
-	-- Значения из префаба
 	local min_range = (self.MinMishapRange or 1) * const.SlabSizeX
 	local max_range = (self.MaxMishapRange or 4) * const.SlabSizeX
 
-	-- Модификатор от дистанции: чем дальше — тем выше разброс
-	local dist_mod = Clamp(dist_tiles / 8, 1, 4.0)
+	local dist_mod_x100 = Clamp(MulDivRound(dist_tiles, 100, 8), 100, 400)
+	local skill_mod_x100 = Clamp(100 - explosives, 10, 100)
 
-	-- Модификатор от навыка: плохой скилл = больше разброс
-	local skill_mod = Clamp(1 - explosives / 100, 0.1, 1)
-
-	-- Финальные отклонения
-	local min_dev = min_range * dist_mod * skill_mod
-	local max_dev = max_range * dist_mod * skill_mod
+	local min_dev = MulDivRound(MulDivRound(min_range, dist_mod_x100, 100), skill_mod_x100, 100)
+	local max_dev = MulDivRound(MulDivRound(max_range, dist_mod_x100, 100), skill_mod_x100, 100)
+	if max_dev < min_dev then
+		max_dev = min_dev
+	end
 
 	local deviation = unit:RandRange(min_dev, max_dev)
 	return Rotate(point(deviation, 0, 0), unit:Random(360 * 60))

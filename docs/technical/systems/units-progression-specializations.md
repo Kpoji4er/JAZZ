@@ -69,7 +69,7 @@ Offline merc randomization детерминирован. Это означает
 
 Контракт имени совпадает с vanilla: поле `EliteEnemyName.name` имеет `translate = true`, а `GenerateEliteUnitName` копирует его в `unit.Name`. Поэтому name хранится как `T(...)` или составной `T{ 890000000001650, "<first> <last>", first = ..., last = ... }` с вложенными T first/last. Нельзя запекать `_InternalTranslate`/`Untranslated` на этапе регистрации — иначе английский CSV не применяется к элитным именам.
 
-Дедуп идёт по переведённому тексту текущего языка загрузки (только для уникальности пула). Порядок preset id `JazzMerc_<Group>_NNN` детерминирован индексом списка. Уже выданные имена в existing save могут остаться старыми запечёнными строками до нового elite spawn.
+Дедуп пула идёт по localization id / структуре `T{...}` (не по `_InternalTranslate`), чтобы размер пула не зависел от языка загрузки. Порядок preset id `JazzMerc_<Group>_NNN` детерминирован индексом списка. Уже выданные имена в existing save могут остаться старыми запечёнными строками до нового elite spawn.
 
 Канонический runtime-перевод — `jazz/English.csv` и `jazz/Russian.csv` (все active mod-only ID комплекта, включая пулы имён и format ID). `jazz-units/English.csv` — файл, на который указывает units `metadata.loctables`; содержимое согласовано с каталогом основного пакета.
 

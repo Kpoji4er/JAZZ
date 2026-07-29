@@ -566,13 +566,13 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 
 
 	local skill = (wpn_skill * 4 + subskill * 2 + lvl * 5) / 6
-	skill =  20 + (skill ^ 1.2) * 0.25
+	skill = JAZZ_CTHSkillCurve(skill)
 
 		if weapon and IsKindOf(weapon,"MeleeWeapon") then 
 		skill = (wpn_skill * 2 + subskill * 4 + lvl * 5) / 6
 		end
 
-	skill = floatfloor(skill,0.5)
+	-- JAZZ_CTHSkillCurve already returns an integer
 
 
 

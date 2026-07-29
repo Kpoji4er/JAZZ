@@ -242,38 +242,38 @@ function Armor:GetCurrentResource()
 	return self.ArmorResource or self:GetFactoryResource()
 end
 
-function Armor:GetDegradationMultiplier()
-	local factory = self:GetFactoryResource()
+function Armor:GetDegradationMultiplierPermille()
+	local factory = self:GetFactoryResource() or 1
 	local max_res = self:GetMaxResource() or factory
 	local curr_res = self:GetCurrentResource() or max_res
 
 	if max_res <= 0 then max_res = 1 end
 	if factory <= 0 then factory = 1 end
 
-	-- 1) Коэффициент текущего состояния: чем ближе к 0%, тем сильнее деградация
-	local condition_mult = Clamp((curr_res + 0.2) / max_res, 0.0, 1)
+	-- (curr_res + 0.2) / max_res → permille
+	local condition_x1000 = Clamp(DivRound(curr_res * 1000 + 200, max_res), 0, 1000)
+	-- 0.8 + 0.2 * max_res / factory → permille
+	local repair_x1000 = Clamp(800 + MulDivRound(200, max_res, factory), 100, 1000)
+	local degrade = MulDivRound(condition_x1000, repair_x1000, 1000)
 
-	-- 2) Коэффициент деградации ресурса: если max_res сильно меньше factory, значит броня сильно изношена
-	local repair_mult = Clamp(0.8 + 0.2 * max_res / factory, 0.1, 1)
-
-	-- 3) Суммарный множитель
-	local degrade_mult = condition_mult * repair_mult
-
-	-- 4) Пороговая деградация: чтобы были "ломающие" моменты, как в jam chance
-	if condition_mult <= 0.15 then degrade_mult = degrade_mult * 0.2
-	elseif condition_mult <= 0.40 then degrade_mult = degrade_mult * 0.4
-	elseif condition_mult <= 0.60 then degrade_mult = degrade_mult * 0.6
-	elseif condition_mult <= 0.80 then degrade_mult = degrade_mult * 0.8
-	else degrade_mult = degrade_mult * 1.0
+	local step
+	if condition_x1000 <= 150 then
+		step = 200
+	elseif condition_x1000 <= 400 then
+		step = 400
+	elseif condition_x1000 <= 600 then
+		step = 600
+	elseif condition_x1000 <= 800 then
+		step = 800
+	else
+		step = 1000
 	end
+	return MulDivRound(degrade, step, 1000)
+end
 
-	-- 5) Влияние погоды
-	
---	if (GameState.RainHeavy or GameState.RainLight) and not self.indoors then
---		degrade_mult = degrade_mult * (1 - const.EnvEffects.RainArmorDegradeMod/100)
---	end
-
-	return degrade_mult
+function Armor:GetDegradationMultiplier()
+	-- Keep float API for sight helpers; compute from integer permille.
+	return self:GetDegradationMultiplierPermille() / 1000.0
 end
 
 function Armor:GetRolloverHint()
@@ -289,33 +289,35 @@ function Armor:GetRolloverHint()
 end	
 
 function Armor:CalculateArmorRating(weapon_pen_class)  
-    local ArmorRating = self.ArmorRating
-    if IsKindOf(self, "ArmorPlates") then
-		if self.PenetrationClass >= weapon_pen_class then 
-        return floatfloor(self.ArmorRating * self:GetDegradationMultiplier())
-		else return floatfloor(self.ArmorRating * self.PenetrationClass^2/weapon_pen_class^2 * self:GetDegradationMultiplier()) end end
+	local deg = self:GetDegradationMultiplierPermille()
+	weapon_pen_class = Max(1, weapon_pen_class or 1)
+	local pen = Max(1, self.PenetrationClass or 1)
+	if IsKindOf(self, "ArmorPlates") then
+		if pen >= weapon_pen_class then
+			return MulDivRound(self.ArmorRating, deg, 1000)
+		end
+		return MulDivRound(MulDivRound(self.ArmorRating, pen * pen, weapon_pen_class * weapon_pen_class), deg, 1000)
+	end
 
-    if self.PenetrationClass  > weapon_pen_class then
-     ArmorRating = (self.ArmorRating + 3*self.PenetrationClass/weapon_pen_class) * self:GetDegradationMultiplier()
-     else
-     ArmorRating = self.ArmorRating * self.PenetrationClass^2/weapon_pen_class^2 * self:GetDegradationMultiplier() --* (self:GetConditionPercent()-self.Deterioration)^2/100^2
-    end
-   -- print(self.PenetrationClass^2/weapon_pen_class^2)
-    --return Min(ArmorRating,100 * self:GetConditionPercent()/100 * (101-self.Deterioration)/100)
-	return floatfloor(ArmorRating)
+	local ArmorRating
+	if pen > weapon_pen_class then
+		ArmorRating = self.ArmorRating + MulDivRound(3 * pen, 1, weapon_pen_class)
+		return MulDivRound(ArmorRating, deg, 1000)
+	end
+	return MulDivRound(MulDivRound(self.ArmorRating, pen * pen, weapon_pen_class * weapon_pen_class), deg, 1000)
 end
 
 function Armor:CalculateArmorRatingMelee()  
-    return floatfloor(self.MeleeArmorRating * self:GetDegradationMultiplier())
+	return MulDivRound(self.MeleeArmorRating, self:GetDegradationMultiplierPermille(), 1000)
 end
 
 function Armor:CalculateArmorRatingExplosive()  
-    return floatfloor(self.ExplosiveArmorRating * self:GetDegradationMultiplier())
+	return MulDivRound(self.ExplosiveArmorRating, self:GetDegradationMultiplierPermille(), 1000)
 end
 
 function Armor:CalculateStunGrenadeProtection()  
 	local StunGrenadeProtection = (self.StunGrenadeProtection + 0) or 0
-    return floatfloor(StunGrenadeProtection  * self:GetDegradationMultiplier() or 0)
+	return MulDivRound(StunGrenadeProtection, self:GetDegradationMultiplierPermille(), 1000)
 end
 
 function Armor:GetConditionPercent()

@@ -983,7 +983,7 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
     local target_modifiers
     for _, groupname in ipairs(unit.Groups) do
         local group_modifiers = gv_AITargetModifiers[groupname]
-        for target_group, mod in pairs(group_modifiers) do
+        for target_group, mod in sorted_pairs(group_modifiers or empty_table) do
             target_modifiers = target_modifiers or {}
             target_modifiers[target_group] =
                 (target_modifiers[target_group] or 0) + mod

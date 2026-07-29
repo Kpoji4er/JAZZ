@@ -114,7 +114,10 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap, preferred_mode)
 		local aim_levels = GetCTHByAimLevels(unit, enemy, action, weapon.MaxAimActions or 3)
 		if not aim_levels then goto continue end
 
-		for aim, cth in sorted_pairs(aim_levels) do
+		local max_aim = weapon.MaxAimActions or 3
+		for aim = 0, max_aim do
+			local cth = aim_levels[aim]
+			if not cth then goto next_aim end
 			local total_cost = ap_cost + aim * const.Scale.AP
 			if total_cost > AP then goto next_aim end
 
@@ -246,7 +249,7 @@ function AICreateContext(unit, context)
 	
 	for _, groupname in ipairs(unit.Groups) do
 		local group_modifiers = gv_AITargetModifiers[groupname]
-		for target_group, mod in pairs(group_modifiers) do
+		for target_group, mod in sorted_pairs(group_modifiers or empty_table) do
 			for _, obj in ipairs(Groups[target_group]) do
 				if IsKindOf(obj, "Unit") then
 					table.insert_unique(enemies, obj)
