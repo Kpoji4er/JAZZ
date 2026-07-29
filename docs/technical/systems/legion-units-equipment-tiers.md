@@ -1,8 +1,10 @@
 # Легион: схема юнитов и тиры снаряжения
 
+Целевой дизайн лоадаутов (arch/sub, силуэты классов, модули, ammo grade, маппинг на `weapons.csv` `X-Y` ↔ `XY`): [`docs/design/legion-loadouts.md`](../../design/legion-loadouts.md). Эта страница — **current-state** реализации, не target.
+
 ## Назначение и наблюдаемый эффект
 
-Легион реализован как фиксированный каталог из 37 `JAZZ_Legion_*` классов `UnitData`. Классы разделены на шесть боевых семейств: штурмовики, стрелки, фланкеры, пулемётчики, командиры и гранатомётчики. Семейство определяет тактическую роль, AI archetype и линию усиления, а конкретный класс — стартовый уровень, характеристики, perks, appearance и корневой equipment preset.
+Легион реализован как фиксированный каталог из **38** `JAZZ_Legion_*` классов `UnitData` (37 боевых линий + `JAZZ_Legion_Recruit` для recruiter/manpower). Боевые классы разделены на шесть семейств: штурмовики, стрелки, фланкеры, пулемётчики, командиры и гранатомётчики. Семейство определяет тактическую роль, AI archetype и линию усиления, а конкретный класс — стартовый уровень, характеристики, perks, appearance и корневой equipment preset.
 
 Снаряжение прогрессирует независимо от класса юнита. Quest-переменная `JAZZ_LegionTier.JAZZ_Legion_Tier` открывает новые записи в общих weapon/ammo/armor/utility LootDef. Поэтому один и тот же `UnitData` при новой генерации может получить более сильный вариант экипировки, но не превращается в следующий класс своей линии.
 
@@ -28,7 +30,7 @@
 | Установленная vanilla | `UnitData`, `ModItemLootDef`, `LootEntry*`, `QuestIsVariableNum`, `PlayerControlSectors`, TCE/quest state и `CreateStartingEquipment` |
 | CommonLib | Прямого одноимённого override для описанного контракта в подтверждённом snapshot не зафиксировано |
 | `jazz` (`e6L4ECj`) | Quest `JAZZ_LegionTier`, переменная `JAZZ_Legion_Tier`, одиннадцать TCE переходов и deferred-регенерация через `Code/UtilityFunc.lua` |
-| `jazz-units` (`Dv3mFVN`) | 37 классов `JAZZ_Legion_*`, их equipment presets и 739 condition references к `JAZZ_Legion_Tier` в generated LootDef snapshot |
+| `jazz-units` (`Dv3mFVN`) | 38 классов `JAZZ_Legion_*` (incl. Recruit), их equipment presets и 739 condition references к `JAZZ_Legion_Tier` в generated LootDef snapshot |
 
 ## Файлы реализации и load-state
 
@@ -37,12 +39,12 @@
 | `jazz/items.lua` | generated and loaded | `ModItemQuestsDef` с ID `JAZZ_LegionTier`, TCE и quest variables |
 | `jazz/metadata.lua` | generated and loaded | регистрирует quest ModItem и загружает `Code/UtilityFunc.lua` |
 | `jazz/Code/UtilityFunc.lua` | loaded runtime | ставит отложенный флаг и пересоздаёт starting equipment |
-| `jazz-units/UnitData/JAZZ_Legion_*.lua` | generated and loaded | 37 публичных UnitData классов Легиона |
+| `jazz-units/UnitData/JAZZ_Legion_*.lua` | generated and loaded | 38 публичных UnitData классов Легиона (incl. Recruit) |
 | `jazz-units/items.lua` | generated and loaded | equipment, firearm, ammo, armor, valuable и utility LootDef с tier conditions |
-| `jazz-units/metadata.lua` | generated and loaded | явно регистрирует все 37 `JAZZ_Legion_*` файлов |
+| `jazz-units/metadata.lua` | generated and loaded | явно регистрирует все 38 `JAZZ_Legion_*` файлов |
 | `jazz-units/Code/Legion.lua` | loaded runtime | пул имён для `eliteCategory = "Legion"`; не владеет таксономией и equipment tier |
-| `jazz/Code/LegionUnitPrices.lua` | loaded runtime | strategic `$` каталог на 37 `JAZZ_Legion_*` (JAZZ-STRATEGY-004); пока не подключён к spawn |
-| `jazz/Code/LegionSquadComposition.lua` | loaded runtime | officer density + T4 MercCaptain gate (JAZZ-STRATEGY-005); пока не подключён к generator |
+| `jazz/Code/LegionUnitPrices.lua` | loaded runtime | strategic `$` каталог на 38 `JAZZ_Legion_*` (JAZZ-STRATEGY-004); используется generator/spawn (008) |
+| `jazz/Code/LegionSquadComposition.lua` | loaded runtime | officer density + T4 MercCaptain gate (JAZZ-STRATEGY-005); подключён к generator (008) |
 
 ## Два разных значения слова «тир»
 
@@ -205,10 +207,11 @@ Quest `JAZZ_LegionTier` создаётся с `Given = true`, а `JAZZ_Legion_Ti
 - quest ID `JAZZ_LegionTier`;
 - variable ID `JAZZ_Legion_Tier`;
 - функции `RegenerateLegionLoot()`;
-- 37 public `JAZZ_Legion_*` ID;
+- 38 public `JAZZ_Legion_*` ID (incl. Recruit);
+- 6 combat family prefixes + logistics Recruit;
 - `<Unit>_Inventory` и вложенных LootDef ID, на которые ссылаются UnitData.
 
-Пилот Legion Global AI (JAZZ-STRATEGY-002) потребляет тот же 37-unit pool через четыре EnemySquad ID в `jazz-units`: `LegionGlobalAI_Recon` (8–12), `_Patrol` (12–18), `_Convoy` (15–25), `_Garrison` (25–40). Новые UnitData не добавляются; составы содержат только `JAZZ_Legion_*`.
+Пилот Legion Global AI (JAZZ-STRATEGY-002) потребляет тот же Legion pool через четыре EnemySquad ID в `jazz-units`: `LegionGlobalAI_Recon` (8–12), `_Patrol` (12–18), `_Convoy` (15–25), `_Garrison` (25–40). Составы содержат только `JAZZ_Legion_*`; Recruit используется recruiter/manpower, не combat presets.
 
 Изменение любого из этих ID требует синхронного impact audit обоих репозиториев и generated-data проверки.
 
@@ -224,7 +227,7 @@ Quest `JAZZ_LegionTier` создаётся с `Given = true`, а `JAZZ_Legion_Ti
 
 Шкала (class-tier × family): Line T1–T4 = 500/1000/2000/3500; Specialist = 800/1500/2800/4500; Leader = 800/1500/2500/4000. Specialist в каталоге: MG, demo/pyro, medic (`Bonemaker`), arty (`Heavy*`), sniper (`FrontT3_Sniper`, `FrontT4_MercenarySniper`).
 
-Экономический якорь: полный дорогой garrison (~40, T3/T4) ≈ **$120000** ≈ целевой полный пул аванпоста ≈ **10×** Major shipment (`DiamondBriefcase` $12000). Лёгкие recon/patrol ≪ capacity. Spawn (`lSpawnRegularRole` / flat role costs из STRATEGY-003) **пока не читает** эту таблицу; capacity runtime меняется в п.0 money ledger.
+Экономический якорь: полный дорогой garrison (~40, T3/T4) ≈ **$120000** ≈ целевой полный пул аванпоста ≈ **10×** Major shipment (`DiamondBriefcase` $12000). Лёгкие recon/patrol ≪ capacity. Combat spawn / `LegionSquadGenerator` (STRATEGY-008) **читает** per-unit prices из этой таблицы.
 ## Расхождения diagram revision с current UnitData
 
 | Узел | Diagram revision | Загружаемый UnitData |
@@ -240,7 +243,7 @@ Stats, perks и детальный состав инвентаря с диагр
 
 ## Чек-лист проверки
 
-- [ ] Все 37 `JAZZ_Legion_*` зарегистрированы в `jazz-units/metadata.lua` и имеют одноимённый файл UnitData.
+- [ ] Все 38 `JAZZ_Legion_*` зарегистрированы в `jazz-units/metadata.lua` и имеют одноимённый файл UnitData.
 - [ ] Каждый UnitData ссылается на существующий корневой equipment LootDef.
 - [ ] Quest `JAZZ_LegionTier` загружен из `jazz/items.lua`, имеет initial tier 11 и состояния для всех 11 переходов.
 - [ ] При порогах 0/2/3/4/8/9/11 контролируемых секторов наблюдаются tier 11/12/13/21/25/31/33.
