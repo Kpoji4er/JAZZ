@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- Без jazz-maps: StandaloneNoMapsFallback — авто-регионы Legion AI, wiring отрядов, remap squad/loot\n- MP desync follow-up: mishap/armor/CTH integer math, AI sorted RNG\n- MP: детерминизм — GainStat modId, Legion retire sync, awareness MapVar, AI move gain, FX ammo ids",
+	'last_changes', "- MP: vanilla/CLib desync overrides — ending AsyncRand, StatBoost ticks, shot vectors, AI area pick\n- Без jazz-maps: StandaloneNoMapsFallback — авто-регионы Legion AI, wiring отрядов, remap squad/loot\n- MP desync follow-up: mishap/armor/CTH integer math, AI sorted RNG",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 27,
+	'version_minor', 28,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
@@ -44,6 +44,7 @@ return PlaceObj('ModDef', {
 		"Const/Ammo.lua",
 		"Const/Grenade.lua",
 		"Code/UtilityFunc.lua",
+		"Code/VanillaDesyncFixes.lua",
 		"InventoryItem/FlareAmmo.lua",
 		"InventoryItem/JAZZ_AMMO_9x19_Poor.lua",
 		"InventoryItem/JAZZ_AMMO_9x19_FMJ.lua",

@@ -132,6 +132,8 @@ Metadata должен ссылаться на реально существую�
 
 Игровая симуляция JA3 зависит от синхронизируемого состояния. Для случайного результата использовать движковые детерминированные функции и подходящий seed/context. Не применять `math.random` / `AsyncRand` / `GetPreciseTicks` в боевой, AI или стратегической логике, если результат влияет на состояние игры или на NetUpdateHash (например id модификаторов). Мутации `gv_Squads` / inventory / combat не откладывать через `CreateRealTimeThread` без `NetSyncEvent`. Обходы hash-таблиц с RNG — через `sorted_pairs` / `ipairs`.
 
+Ванильные/CLib остатки, которые JAZZ перекрывает точечно: `Code/VanillaDesyncFixes.lua` (`LocalHotDiamonds_SetupEnding`, `UnitStatBoost:__exec`, `GetWeightedRandom`, `Firearm:CalcShotVectors`, `TacticalMap:FindOptimalLocationInAssignedArea`). Armor decay order — в `System_ArmorRating.lua`. FX-only AsyncRand (stains/VR/UI) не трогаем.
+
 ## Git
 
 Заголовок и пояснение каждого нового коммита во всех четырёх репозиториях писать на русском языке. Технические идентификаторы, имена файлов, версии и теги сохранять в исходном виде. Создавать commit только по отдельному разрешению пользователя.

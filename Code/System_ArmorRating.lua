@@ -525,7 +525,7 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 			return 
 		end
 		
-			local willPointsDamage = hit.damage * 0.2
+			local willPointsDamage = MulDivRound(hit.damage, 20, 100)
 --			local willPointsDamage = MulDivRound(100-self:SuppressionProtection(),hit.damage,200) or DivRound(hit.damage,5)
 			self.WillPoints = Max(0,self.WillPoints - willPointsDamage)
 			--print("grenadeWP: "..willPointsDamage)
@@ -538,7 +538,26 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 		
 	if not invulnerable then
 		local change = false
+		-- Snapshot+sort: pairs+mutate (transmute) is order-dependent across clients.
+		local decay_items = {}
 		for item, degrade in pairs(armor_decay) do
+			if degrade then
+				decay_items[#decay_items + 1] = item
+			end
+		end
+		table.sort(decay_items, function(a, b)
+			local ka = string.format("%s:%s", tostring(a.class), tostring(a.id or a.handle or ""))
+			local kb = string.format("%s:%s", tostring(b.class), tostring(b.id or b.handle or ""))
+			return ka < kb
+		end)
+		local qi = 1
+		while qi <= #decay_items do
+			local item = decay_items[qi]
+			local degrade = armor_decay[item]
+			qi = qi + 1
+			if not degrade then
+				goto continue_armor_decay
+			end
 			if IsKindOf(item, "Armor") then
 				-- уменьшаем ресурс брони напрямую
 				item.ArmorResource = Max(0, item.ArmorResource - degrade)
@@ -558,8 +577,10 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 					self:AddItem(slot_name, new)					
 					DoneObject(prev)
 					change = true
+					decay_items[#decay_items + 1] = new
 				end
-			end	
+			end
+			::continue_armor_decay::
 		end
 		if change then
 			self:UpdateOutfit()
