@@ -1,21 +1,25 @@
 # JAZZ player guide
 
-Bilingual showcase for the **JAZZ** overhaul of Jagged Alliance 3: combat, weapons, and the strategic map — concrete player-facing rules, not implementation details.
+Bilingual showcase for the **JAZZ** overhaul of *Jagged Alliance 3*: Ernie demo, combat, arsenal, mercs/perks, Legion units and satellite strategy.
 
 [Русский](../ru/home.md)
 
 ## Sections
 
 - [What is JAZZ](about.md)
+- [Ernie campaign](ernie-campaign.md) — map, quests, key sectors
 - [Combat and accuracy](combat-and-accuracy.md)
 - [Weapon classes](weapon-classes.md)
 - [Combat actions](combat-actions.md)
 - [Weapons and components](weapons-and-ammo.md)
-- [Weapon catalog by tier (stats, RU)](../../wiki/weapons/README.md)
-- [Legion on the strategic map](legion-strategy.md)
+- [Weapon catalog (stats)](../../wiki/weapons/README.md)
+- [Mercenaries](mercenaries.md) — AIM / JA1·2 wave
+- [Perks](perks.md) — named vs class techniques
+- [Legion units](legion-units.md) — T1–T4 and gear tier
+- [Legion on the strategic map](legion-strategy.md) — satellite squad roles
 
 ## How to read this
 
-In the normal JAZZ UI there is **no exact hit chance percent**: effect strength is shown with `+` and `−`. Exact percentages appear only with modding/debug tools enabled.
+Normal UI has **no raw hit %**: effects show as `+` / `−` (percents with debug tools).
 
-Rules and roles live on the showcase pages. Full per-family stat tables are published here from generated `docs/wiki/weapons/` (CSV → generator → wiki). The detailed catalog is currently Russian.
+Where readiness is uneven (some named perks, mainland, EN loc) the pages say so explicitly.

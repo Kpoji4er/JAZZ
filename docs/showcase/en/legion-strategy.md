@@ -1,6 +1,6 @@
 # Legion on the strategic map
 
-[Overview](home.md) · [Русский](../ru/legion-strategy.md)
+[Overview](home.md) · [Legion units](legion-units.md) · [Ernie campaign](ernie-campaign.md) · [Русский](../ru/legion-strategy.md)
 
 On **Ernie**, the Legion runs Fort L'Eau Bleu (sector I7) through a regional HQ. On the satellite map, squads show a **role** icon and a **current task** on hover.
 

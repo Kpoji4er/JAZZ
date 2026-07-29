@@ -2,10 +2,14 @@
   "order": [
     "home",
     "about",
+    "ernie-campaign",
     "combat-and-accuracy",
     "weapon-classes",
     "combat-actions",
     "weapons-and-ammo",
+    "mercenaries",
+    "perks",
+    "legion-units",
     "legion-strategy"
   ],
   "pages": {
@@ -18,6 +22,11 @@
       "wikiBase": "About",
       "ru": "Что такое JAZZ",
       "en": "What is JAZZ"
+    },
+    "ernie-campaign": {
+      "wikiBase": "Ernie-Campaign",
+      "ru": "Кампания на Эрни",
+      "en": "Ernie campaign"
     },
     "combat-and-accuracy": {
       "wikiBase": "Combat-and-Accuracy",
@@ -38,6 +47,21 @@
       "wikiBase": "Weapons-and-Ammo",
       "ru": "Оружие и компоненты",
       "en": "Weapons and components"
+    },
+    "mercenaries": {
+      "wikiBase": "Mercenaries",
+      "ru": "Наёмники",
+      "en": "Mercenaries"
+    },
+    "perks": {
+      "wikiBase": "Perks",
+      "ru": "Перки",
+      "en": "Perks"
+    },
+    "legion-units": {
+      "wikiBase": "Legion-Units",
+      "ru": "Юниты Легиона",
+      "en": "Legion units"
     },
     "legion-strategy": {
       "wikiBase": "Legion-Strategy",

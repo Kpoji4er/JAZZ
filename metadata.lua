@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- GitHub Wiki: витрина RU/EN + автопубликация каталога оружия/статов\n- Тактический AI: роли/политики/контекст (WIP)\n- JAZZ-UI-001: bake иконок оружия с аттачами (промежуточный)",
+	'last_changes', "- GitHub Wiki: Эрни, наёмники, перки, юниты Легиона (RU/EN)\n- Автопубликация каталога оружия\n- Тактический AI / bake иконок (WIP)",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 17,
+	'version_minor', 18,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
