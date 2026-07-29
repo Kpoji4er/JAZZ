@@ -40,7 +40,7 @@
 - UI: `idJAZZ_BoardVehicle` / `idJAZZ_ExitVehicle`; иконка на `SquadWindow`
 - Wrecked → сесть нельзя
 
-Тип v1: `HMMWV`, поле `capacity` в данных есть, продуктовый лимит вместимости **не целевой**; `max_hp` 120, `unit_template = JAZZ_CombatHMMWV`.
+Тип v1: `HMMWV`, `capacity = 6` **enforced** при boarding (`JAZZ_CanBoardVehicle` → disabled, если `JAZZ_SquadMemberCount(squad) > capacity`); `max_hp` 120, `unit_template = JAZZ_CombatHMMWV`.
 
 Спавн токена: M1 `SE_OnEnterMap` → `JAZZ_SpawnSatelliteVehicle` (`UniqueKey = M1_HMMWV`).
 

@@ -33,9 +33,9 @@ approved_by: project-owner
 
 ## Цели
 
-- Starting supply аванпоста = 50 (ниже convoy trigger → supply-конвой легален сразу, без force-spawn).
-- Весь POI/base supply income копится в пуле аванпоста (локальный spend + будущая отгрузка Майору конвоями); hourly tick **не** пишет напрямую в `major.reserve`.
-- `MajorReserveCapacity` на порядок выше outpost (`5000` vs `500`); `MajorStartingReserve` ≥ одного `SupplyConvoyCargo`.
+- Starting money аванпоста ниже supply-convoy trigger → supply-конвой легален сразу, без force-spawn.
+- Base passive и (исторически) POI income копятся в пуле аванпоста; hourly tick **не** пишет напрямую в Major.
+- `MajorReserveCapacity` ≫ outpost; `MajorStartingReserve` ≥ одного `SupplyConvoyCargo`.
 - Спавн regular-ролей только при нужде:
   - patrol — всегда, пока есть цель и слот/supply;
   - recon — Heat ≥ `ReconHeatThreshold`;
@@ -49,16 +49,19 @@ approved_by: project-owner
 - Включение Global AI вне ErnieIsland/I7.
 - Generated data / localization ID changes.
 
-## Утверждённый контракт
+## Утверждённый контракт (current runtime)
+
+Масштаб `$` зафиксирован в [JAZZ-STRATEGY-006](JAZZ-STRATEGY-006.md); city/farm → `poi_money` + tax — в [JAZZ-STRATEGY-009](JAZZ-STRATEGY-009.md). Ниже — актуальные defaults Region:
 
 | Параметр | Значение |
 |---|---:|
-| StartingSupply | 50 |
-| SupplyCapacity (outpost) | 500 |
-| MajorReserveCapacity | 5000 |
-| MajorStartingReserve | 1000 (≥ SupplyConvoyCargo 150) |
-| POI/base supply income | 100% в `outpost.supply` (cap outpost) |
-| Mine diamonds | в `outpost.diamond_stock` → shipment → Major |
+| StartingSupply (outpost start `$`) | 12000 |
+| SupplyCapacity (outpost) | 120000 |
+| MajorReserveCapacity | 1200000 |
+| MajorStartingReserve | 120000 (≥ SupplyConvoyCargo 12000) |
+| Base passive $/h | 0 → `outpost.money` |
+| City/farm `$` | пульс 72h → `poi_money` → tax → `outpost.money` (009) |
+| Mine diamonds | hourly → `outpost.diamond_stock` → shipment → Major |
 
 Need gates:
 
@@ -71,24 +74,24 @@ Need gates:
 
 ## Требования
 
-- `JAZZ-STRATEGY-003-REQ-001` — starting supply аванпоста = 50.
-- `JAZZ-STRATEGY-003-REQ-002` — hourly supply income целиком в outpost pool; Major получает ресурсы только конвоями/shipment.
-- `JAZZ-STRATEGY-003-REQ-003` — Major reserve clamp к `MajorReserveCapacity` (default 5000).
+- `JAZZ-STRATEGY-003-REQ-001` — starting money аванпоста = `StartingSupply` (current default 12000).
+- `JAZZ-STRATEGY-003-REQ-002` — base passive → outpost pool; Major получает `$` только конвоями/shipment (city/farm path после 009 — через `poi_money`/tax).
+- `JAZZ-STRATEGY-003-REQ-003` — Major money clamp к `MajorReserveCapacity` (default 1200000).
 - `JAZZ-STRATEGY-003-REQ-004` — garrison не дублирует уже стоящую оборону.
-- `JAZZ-STRATEGY-003-REQ-005` — recon/qrf/patrol need-gating; без нужды supply не списывается.
+- `JAZZ-STRATEGY-003-REQ-005` — recon/qrf/patrol need-gating; без нужды money не списывается.
 - `JAZZ-STRATEGY-003-REQ-006` — docs/wiki/testing синхронизированы.
 
 ## Инварианты и ограничения
 
 - Не менять GameVar schema keys (только значения/clamp).
 - Не менять public EnemySquad/UnitData IDs.
-- Existing save: `outpost.supply` не режется до 50; major.reserve clamp при EnsureState.
+- Existing save: outpost money не режется до starting; major money clamp при EnsureState.
 
 ## Acceptance criteria
 
-- `JAZZ-STRATEGY-003-AC-001` — новый outpost стартует с supply 50.
-- `JAZZ-STRATEGY-003-AC-002` — hourly city/farm/base income увеличивает только outpost.supply (в пределах capacity).
-- `JAZZ-STRATEGY-003-AC-003` — major.reserve не превышает MajorReserveCapacity.
+- `JAZZ-STRATEGY-003-AC-001` — новый outpost стартует с `StartingSupply` (12000).
+- `JAZZ-STRATEGY-003-AC-002` — base passive увеличивает только `outpost.money` (в пределах capacity); city/farm не пишут hourly в outpost после 009.
+- `JAZZ-STRATEGY-003-AC-003` — `major.money` не превышает MajorReserveCapacity.
 - `JAZZ-STRATEGY-003-AC-004` — key POI с pre-placed Legion squad не получает новый garrison.
 - `JAZZ-STRATEGY-003-AC-005` — без Heat/report/retake recon/qrf не спавнятся.
 - `JAZZ-STRATEGY-003-AC-006` — docs синхронизированы.
@@ -107,23 +110,18 @@ Need gates:
 
 ## Решение владельца
 
-28 июля 2026:
+28 июля 2026 (need-gates + Major≫outpost). Масштаб `$` и start/cap пересмотрены в 006 (`12000` / `120000` / `1200000`); city/farm income path — в 009 (`poi_money` + tax).
 
-1. StartingSupply 50; supply-конвой легален сразу, spawn не форсить.
-2. POI/base → пул аванпоста; Major кормится отгрузкой; Major cap ≫ outpost (×10).
-3. Major на старте имеет reserve на ≥1 supply-конвой.
-4. Need-based spawn; garrison учитывает pre-placed оборону.
-
-Статус: approved → implemented (runtime AC открыты).
+Статус: implemented. Current-state numbers/docs sync 2026-07-29.
 
 ## Evidence
 
-- `JAZZ-STRATEGY-003-AC-001`: `PASS (static)` / `PASS (runtime/human) - owner playtest accepted 2026-07-28`
-- `JAZZ-STRATEGY-003-AC-002`: `PASS (static)` / `PASS (runtime/human) - owner playtest accepted 2026-07-28`
-- `JAZZ-STRATEGY-003-AC-003`: `PASS (static)` / `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-STRATEGY-003-AC-001`: `PASS (static)` — `StartingSupply` default 12000 in `Regions_Sectors.lua` / `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-STRATEGY-003-AC-002`: `PASS (static)` — base passive → `outpost.money`; city/farm → `poi_money` (009) / `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-STRATEGY-003-AC-003`: `PASS (static)` — `MajorReserveCapacity` 1200000 / `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 - `JAZZ-STRATEGY-003-AC-004`: `PASS (static)` / `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 - `JAZZ-STRATEGY-003-AC-005`: `PASS (static)` / `PASS (runtime/human) - owner playtest accepted 2026-07-28`
-- `JAZZ-STRATEGY-003-AC-006`: `PASS (static)`
+- `JAZZ-STRATEGY-003-AC-006`: `PASS (static)` — technical §pilot economy aligned with 006/009; 2026-07-29 doc sync
 
 ## Documentation delta
 

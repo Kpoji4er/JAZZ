@@ -5,7 +5,7 @@ Locked defaults after playtest (militia training out of scope).
 ## Economy / POI
 
 1. **POI pulse** every **3 days** (`POIGenerationInterval=72h`): city/farm `$` + recruits on **economic POI only** (Farm/Mine/Guardpost/Port, or City+Militia/Hospital) — not every City-tagged wilderness tile.
-2. Per pulse defaults: city **$2500**, farm **$800**; city recruits **3**, farm **2**; caps 16/8.
+2. Per pulse defaults: city **$2500**, farm **$800**; city recruits **3**, farm **2**, guardpost **2**, port **1**; caps city/farm/guardpost/port **16/8/12/8**.
 3. Tax cargo max **$12000**, Recruiter cargo max **16**; TaxCap/RecruiterCap **1**.
 4. Mine diamond stock remains hourly → shipment (not tax).
 

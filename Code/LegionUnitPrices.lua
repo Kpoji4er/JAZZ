@@ -1,6 +1,6 @@
 -- Strategic dollar prices for JAZZ Legion UnitData IDs (roadmap 6a / JAZZ-STRATEGY-004).
 -- Anchor: full expensive garrison ≈ outpost capacity ≈ 10× DiamondBriefcase ($12000) = $120000.
--- Not wired into spawn costs yet; flat role costs remain until money ledger + generator.
+-- Consumed by LegionSquadGenerator / combat spawn (STRATEGY-008); Recruit used by recruiter logistics.
 
 JAZZ_LegionUnitPrices = {
 	JAZZ_Legion_AssaultT1_Roughneck = 300,

@@ -35,14 +35,18 @@ Roadmap 6b/6c нуждается в утверждённых лимитах ко
 
 - Зафиксировать density-правила для Sergeant / Lieutenant / Captain и роль MercenaryCaptain.
 - Зафиксировать: class-tiers **дополняют**, а не заменяют друг друга.
-- Дать runtime constants/helpers для будущего generator (без подключения к spawn).
+- Дать runtime constants/helpers для будущего generator (без подключения к spawn **в этом change**).
 
-## Non-goals
+## Non-goals (scope 005)
 
 - Role recipes allow-lists (остаток 6b).
-- Generator poor/full и wiring в `Guardpost_Patrols`.
+- Generator poor/full и wiring в `Guardpost_Patrols` — сделано позже в [JAZZ-STRATEGY-008](JAZZ-STRATEGY-008.md).
 - Изменение UnitData / EnemySquad presets.
 - Campaign equipment tier (`JAZZ_Legion_Tier`) — отдельный контракт.
+
+## Current runtime note (2026-07-29)
+
+`LegionSquadComposition` **подключён** к `LegionSquadGenerator` и combat spawn (008). AC-004 ниже фиксирует исходный scope 005 («no wiring»); для current-state смотреть 008.
 
 ## Утверждённые правила офицеров
 
@@ -113,7 +117,7 @@ Roadmap 6b/6c нуждается в утверждённых лимитах ко
 - `JAZZ-STRATEGY-005-AC-001`: `PASS (static)` — `floor(8/8)=1`, `floor(15/15)=1`, `floor(30/30)=1`; MercCaptain only when tier≥4.
 - `JAZZ-STRATEGY-005-AC-002`: `PASS (static)` — `LegionSquadComposition.lua` in `metadata.code` + `items.lua`.
 - `JAZZ-STRATEGY-005-AC-003`: `PASS (static)` — roadmap 6b + technical tiers note.
-- `JAZZ-STRATEGY-005-AC-004`: `PASS (static)` — spawn не в write set / не изменён.
+- `JAZZ-STRATEGY-005-AC-004`: `PASS (static)` — spawn не в write set 005 / не изменён в том change; **superseded current-state**: wiring в 008 (2026-07-29 note).
 
 ## Documentation delta
 

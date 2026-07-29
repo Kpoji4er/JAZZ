@@ -72,7 +72,7 @@ Runtime-приёмка пилота `JAZZ-STRATEGY-001` выявила два UI
 
 ## Non-goals
 
-- изменение 37 существующих `JAZZ_Legion_*` UnitData, их характеристик или экипировки;
+- изменение существующих `JAZZ_Legion_*` UnitData, их характеристик или экипировки;
 - изменение карт, `jazz-maps/Maps/**`, autoresolve-формул или tactical AI;
 - включение Global AI вне `ErnieIsland`/`I7`;
 - новые QRF и Major-response presets: они продолжают использовать существующие `LegionJAZZSquadT2/T3`, уже состоящие из нового Legion pool;
@@ -103,10 +103,12 @@ Runtime-приёмка пилота `JAZZ-STRATEGY-001` выявила два UI
 | Supply convoy cargo/reserve cost | 150 |
 | Major response cost | 300 |
 | Recon no-contact sector Heat reduction | 50 |
-| Regular squad cap | 6 |
-| Role caps | garrison 2, patrol 2, recon 1, qrf 1 |
+| Regular squad cap | 7 (current; pilot was 6) |
+| Role caps | garrison dynamic (important Legion sectors + 1), patrol 2, recon 1, qrf 1 |
 
-Supply и shipment не входят в regular cap; одновременно разрешено не более одного отряда каждой convoy-role на регион/аванпост. Major response также живёт вне regular cap и ограничен одним active response и cooldown.
+> Экономика `$` / caps после пилота пересмотрены в [JAZZ-STRATEGY-006](JAZZ-STRATEGY-006.md)+; historical pilot values 250/500 и flat role costs выше сохранены только как контекст 002. Current Region defaults: start **12000**, capacity **120000**, role costs в `$` (Recon 8000 / Patrol 18000 / QRF 40000 / Garrison 120000).
+
+Supply / shipment / tax / recruiter / manpower не входят в regular combat cap; logistics используют свои caps/cooldowns. Major response также вне regular cap (один active + cooldown).
 
 Если recon завершает полный observation timeout и не обнаруживает player squad, Heat из `task.observed_sector` уменьшается на `ReconNoContactHeatReduction` ровно один раз с clamp `0..1000`. При обнаружении игрока создаётся report и это снижение не применяется. Region Heat этим событием напрямую не меняется.
 
@@ -139,7 +141,7 @@ Supply и shipment не входят в regular cap; одновременно р
 - `JAZZ-STRATEGY-002-AC-003` — `ReloadLua`, повторное открытие satellite view и save/load не теряют icon/task и не создают recursion/error.
 - `JAZZ-STRATEGY-002-AC-004` — четыре новых presets имеют диапазоны 8–12, 12–18, 15–25 и 25–40 и не содержат UnitData вне `JAZZ_Legion_*`.
 - `JAZZ-STRATEGY-002-AC-005` — I7 создаёт новые garrison/patrol/recon, оба convoy role используют новый convoy, QRF/Major остаются на Legion JAZZ T2/T3.
-- `JAZZ-STRATEGY-002-AC-006` — при regular cap 6 и role caps 2/2/1/1 дополнительный spawn не списывает supply.
+- `JAZZ-STRATEGY-002-AC-006` — при regular cap **7** и role caps (garrison dynamic / patrol 2 / recon 1 / qrf 1) дополнительный spawn не списывает money.
 - `JAZZ-STRATEGY-002-AC-007` — diagnostics возвращает конфигурационные caps и фактические active counts.
 - `JAZZ-STRATEGY-002-AC-008` — strict generated audit не добавляет ошибок/warnings в `jazz-units` и `jazz-maps`; editor round-trip отдельно зафиксирован.
 - `JAZZ-STRATEGY-002-AC-009` — localization audit сообщает `needs Russian=0`, `needs English=0`, без ID collisions и с одинаковыми ID в `Russian.csv`/`English.csv`.
@@ -196,7 +198,7 @@ Runtime-владелец — `jazz`; владелец EnemySquads/UnitData — `
 - `JAZZ-STRATEGY-002-AC-003`: `PASS (static wrapper ownership)` / `PASS (runtime/human) - owner playtest accepted 2026-07-28` — vanilla CreateRollover сохранён один раз через `rawget`, а install всегда ставит один JAZZ wrapper; нужен ReloadLua/save-load.
 - `JAZZ-STRATEGY-002-AC-004`: `PASS (static)` — четыре presets в `jazz-units`, суммы слотов 8–12 / 12–18 / 15–25 / 25–40, только `JAZZ_Legion_*`.
 - `JAZZ-STRATEGY-002-AC-005`: `PASS (static binding)` / `PASS (runtime/human)` — owner playtest accepted 2026-07-28; I7 и ErnieIsland ссылаются на новые ID; QRF/Major не переведены на новые presets.
-- `JAZZ-STRATEGY-002-AC-006`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-STRATEGY-002-AC-006`: `PASS (static)` — `RegularSquadCap` default 7 in `Regions_Sectors.lua`; runtime owner playtest 2026-07-28 (cap was 6 at pilot; current=7) / docs sync 2026-07-29
 - `JAZZ-STRATEGY-002-AC-007`: `PASS (static)` — diagnostics отдаёт caps/costs/active_counts; runtime чтение не подтверждено.
 - `JAZZ-STRATEGY-002-AC-008`: `PASS (static audit jazz-units/jazz-maps)` / `PASS (editor)` — owner accepted 2026-07-28; strict generated sync: units/maps errors=0 warnings=0; 6 pre-existing warnings только в `jazz` (не STRATEGY-002).
 - `JAZZ-STRATEGY-002-AC-009`: `PASS (static for STRATEGY-002 IDs)` / `OPEN (suite debt)` — 28 ID `1424`–`451` в обоих runtime CSV с переводами; suite-wide audit: needs Russian=26, needs English=24, collisions against Game.csv=66 (pre-existing, не эти ID).
@@ -207,7 +209,7 @@ Runtime-владелец — `jazz`; владелец EnemySquads/UnitData — `
 
 - `docs/technical/systems/strategy-squads-sectors.md` — фактический rollover task-блок, caps, цены и recon Heat transition.
 - `docs/technical/systems/units-progression-specializations.md` — четыре role-specific EnemySquad presets.
-- `docs/technical/systems/legion-units-equipment-tiers.md` — использование 37-unit pool новыми составами.
+- `docs/technical/systems/legion-units-equipment-tiers.md` — использование Legion UnitData pool новыми составами (38 IDs incl. Recruit after 004).
 - `docs/technical/compatibility.md` — save/reload и late-wrapper contract.
 - `docs/technical/override-matrix.md` — фактические UI collision surfaces.
 - `docs/technical/testing.md` — runtime smoke profile I7.

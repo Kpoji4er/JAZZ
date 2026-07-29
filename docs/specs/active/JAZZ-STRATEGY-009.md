@@ -39,9 +39,9 @@ Roadmap 7a: city/farm `$` сейчас льются прямо в `outpost.money
 
 ## Цели
 
-- City/farm hourly `$` копятся в `region_state.poi_money[sector_id]` (Legion-owned only).
+- City/farm `$` копятся в `region_state.poi_money[sector_id]` (Legion-owned economic POI only) пульсом `POIGenerationInterval` (default 72h).
 - Mine `$` остаются в `outpost.diamond_stock` (shipment), не через tax.
-- Role `tax`: icon TAX; cap 2; threshold sum ≥ $1000; cooldown 24h; circuit all taxed sectors then unload at outpost.
+- Role `tax`: icon TAX; cap 1; threshold sum ≥ $1000; cooldown 24h; circuit all taxed sectors then unload at outpost.
 - Task UI shows cargo `$`.
 - Recipe allow-list for tax (escort band).
 
@@ -54,7 +54,8 @@ Roadmap 7a: city/farm `$` сейчас льются прямо в `outpost.money
 
 ## Locked defaults
 
-- TaxCap=2, TaxThreshold=1000, TaxCooldown=24h.
+- TaxCap=1, TaxThreshold=1000, TaxCooldown=24h, TaxCargoMax=12000.
+- POI pulse: city $2500 / farm $800; `PoiMoneyCap`=12000; catch-up max 1 cycle.
 - TaxSquads Region list falls back to SupplySquads.
 - Spawn cost: $0 unit charge (logistics); cargo only.
 
@@ -68,7 +69,7 @@ Roadmap 7a: city/farm `$` сейчас льются прямо в `outpost.money
 
 ## Инварианты и ограничения
 
-- Schema stays v2; `poi_money` is additive region_state field.
+- Schema: `poi_money` additive on region_state (introduced under v2; current Legion AI schema is **v3** after 010).
 - Supply/shipment unchanged.
 - Need-gates for combat roles unchanged.
 
@@ -97,7 +98,7 @@ Roadmap 7a: city/farm `$` сейчас льются прямо в `outpost.money
 
 ## Evidence
 
-- `JAZZ-STRATEGY-009-AC-001`..`004`: static PASS
+- `JAZZ-STRATEGY-009-AC-001`..`004`: static PASS — TaxCap default 1; city/farm → `poi_money` pulse; docs sync 2026-07-29
 - `JAZZ-STRATEGY-009-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Documentation delta

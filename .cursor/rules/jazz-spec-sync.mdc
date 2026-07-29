@@ -1,0 +1,33 @@
+---
+description: При дрейфе runtime от active/accepted spec — спросить владельца, обновлять ли spec, до правок.
+alwaysApply: true
+---
+
+# Spec sync: спрашивать перед изменением контракта
+
+`docs/specs/` — утверждённый контракт. Код и current-state docs не должны молча расходиться со spec.
+
+## Когда спросить владельца (до правки)
+
+1. Меняешь поведение, defaults, public ID, schema, caps/costs или acceptance, уже зафиксированные в `docs/specs/active|accepted/*.md`.
+2. Аудит/ревью находит, что `implemented`/`approved` spec **отстаёт от кода** (числа, wiring, status lifecycle).
+3. Хочешь пометить AC как superseded, менять Evidence PASS→FAIL, или переносить scope в другой SPEC-ID.
+4. Код уже загружен, а spec всё ещё `approved` с BLOCKED runtime AC — спросить: поднять status / сузить docs / выгрузить код.
+
+## Как спрашивать
+
+Коротко: что разошлось (SPEC-ID + поле/AC), что предлагает код сейчас, варианты:
+- обновить spec под runtime;
+- откатить/изменить код под spec;
+- оставить как есть с явной пометкой superseded / partial.
+
+Не обновлять locked contract «заодно» без ответа, кроме явного запроса пользователя («правь спеки», «синхронизируй»).
+
+## После согласия
+
+- Править spec в том же change set, что и логическое выравнивание (или отдельным docs-only, если так решили).
+- Current-state писать в `docs/technical/`; не выдавать `approved` без runtime acceptance за fully shipped.
+- Evidence: `PASS`/`FAIL`/`BLOCKED` + уровень (static/editor/runtime/human).
+---
+
+Связано: `docs/specs/README.md`, `.agents/skills/specify-jazz-change/SKILL.md`.

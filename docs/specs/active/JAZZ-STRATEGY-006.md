@@ -61,15 +61,17 @@ STRATEGY-003 использует abstract `supply`/`reserve`. Roadmap п.0 тр
 | Supply cargo | SupplyConvoyCargo | 12000 |
 | Shipment threshold | DiamondShipmentThreshold | 12000 |
 | Base $/h | PassiveSupplyPerHour | 0 |
-| City $/h | CitySupplyBonus | 50 |
-| Farm $/h | FarmSupplyBonus | 10 |
+| City `$` / pulse | CitySupplyBonus | 2500 (→ `poi_money`, 009) |
+| Farm `$` / pulse | FarmSupplyBonus | 800 (→ `poi_money`, 009) |
 | Mine $/h → diamond_stock | MineDiamondPerHour | 250 |
 | Recon/Patrol/QRF/Garrison cost | *Cost | 8000/18000/40000/120000 |
 | MajorResponseCost | MajorResponseCost | 50000 |
 
+City/farm `$` после [JAZZ-STRATEGY-009](JAZZ-STRATEGY-009.md) накапливаются на POI пульсом `POIGenerationInterval` (72h), не hourly в `outpost.money`.
+
 ## Требования
 
-- `JAZZ-STRATEGY-006-REQ-001` — runtime ledger в `$`; income city/farm→money, mine→diamond_stock `$`.
+- `JAZZ-STRATEGY-006-REQ-001` — runtime ledger в `$`; mine→diamond_stock `$`; city/farm `$` после 009 → `poi_money` (не direct outpost).
 - `JAZZ-STRATEGY-006-REQ-002` — schema migrate 1→2 resets pools to starting `$`.
 - `JAZZ-STRATEGY-006-REQ-003` — Region property defaults/names reflect `$`; property IDs unchanged.
 - `JAZZ-STRATEGY-006-REQ-004` — supply/shipment task text includes cargo `$`.

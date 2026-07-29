@@ -1,12 +1,12 @@
-# JAZZ-UI-001: key magenta/black bake backdrop → alpha, compress highlights, crop to content.
+# JAZZ-UI-001: key magenta bake backdrop to alpha; grade; fit into slot.
+# Magenta (not olive): olive #504633 collides with wood/metal and eats the weapon.
 param(
   [Parameter(Mandatory = $true)][string]$Path,
   [string]$OutPath = "",
-  [double]$Compress = 0.55,
+  [double]$Compress = 0.57,
   [int]$OutW = 512,
   [int]$OutH = 256,
   [string]$OkPath = "",
-  # ImportImage appends "-dds10 -24 bc1 ..." after our command — ignore them.
   [Parameter(ValueFromRemainingArguments = $true)][string[]]$Ignored
 )
 
@@ -16,7 +16,7 @@ $drawing = [System.Drawing.Bitmap].Assembly.Location
 
 if (-not $OutPath) { $OutPath = $Path }
 
-if (-not ('JazzWeaponIconKeyV2' -as [type])) {
+if (-not ('JazzWeaponIconKeyV8' -as [type])) {
   Add-Type -ReferencedAssemblies @($drawing) -TypeDefinition @'
 using System;
 using System.Collections.Generic;
@@ -25,7 +25,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 
-public static class JazzWeaponIconKeyV2 {
+public static class JazzWeaponIconKeyV8 {
   static float MagScore(byte r, byte g, byte b) {
     int excess = Math.Min(r, b) - g;
     if (excess <= 0) return 0f;
@@ -34,18 +34,44 @@ public static class JazzWeaponIconKeyV2 {
     return excess + chroma * 40f * magentaBias;
   }
 
+  static bool IsSunHotspot(byte r, byte g, byte b) {
+    int maxc = Math.Max(r, Math.Max(g, b));
+    int minc = Math.Min(r, Math.Min(g, b));
+    if (maxc < 110 || maxc > 235) return false;
+    float sat = maxc == 0 ? 0f : (maxc - minc) / (float)maxc;
+    return sat < 0.10f;
+  }
+
+  // Magenta / alpha only — never key charcoal (super-black weapons were eaten).
   static bool IsBgSeed(byte r, byte g, byte b, byte a) {
     if (a < 8) return true;
-    if (MagScore(r, g, b) >= 18f) return true;
-    if (r <= 18 && g <= 18 && b <= 18) return true;
-    return false;
+    return MagScore(r, g, b) >= 16f;
   }
 
   static bool IsBgSoft(byte r, byte g, byte b, byte a) {
     if (a < 20) return true;
-    if (MagScore(r, g, b) >= 8f) return true;
-    if (r <= 28 && g <= 28 && b <= 28) return true;
+    if (MagScore(r, g, b) >= 7f) return true;
+    if (IsSunHotspot(r, g, b)) return true;
+    // Magenta spill into near-black fringe only (not solid weapon metal).
+    if (r <= 14 && g <= 14 && b <= 14 && MagScore(r, g, b) >= 2f) return true;
     return false;
+  }
+
+  static void Grade(ref int r, ref int g, ref int b, double compress) {
+    // Lift shadows a bit so matte-black guns keep edge detail.
+    double lum = (r + g + b) / 765.0;
+    double f = compress + (1.0 - compress) * (1.0 - lum) * 0.22;
+    r = Math.Min(255, (int)(r * f));
+    g = Math.Min(255, (int)(g * f));
+    b = Math.Min(255, (int)(b * f));
+    int maxc = Math.Max(r, Math.Max(g, b));
+    if (maxc > 190) {
+      double t = (maxc - 190) / 65.0;
+      double hf = 1.0 - 0.28 * Math.Min(1.0, t);
+      r = Math.Min(255, (int)(r * hf));
+      g = Math.Min(255, (int)(g * hf));
+      b = Math.Min(255, (int)(b * hf));
+    }
   }
 
   public static Bitmap Process(Bitmap src, double compress, int outW, int outH) {
@@ -97,7 +123,34 @@ public static class JazzWeaponIconKeyV2 {
         int i = y * w + x;
         if (bg[i]) continue;
         int o = y * stride + x * 4;
-        if (MagScore(px[o + 2], px[o + 1], px[o]) >= 40f) bg[i] = true;
+        byte r = px[o + 2], g = px[o + 1], b = px[o];
+        if (MagScore(r, g, b) >= 36f || IsSunHotspot(r, g, b)) bg[i] = true;
+      }
+    }
+
+    // Interior magenta through frame-stock holes.
+    for (int y = 0; y < h; y++) {
+      for (int x = 0; x < w; x++) {
+        int i = y * w + x;
+        if (bg[i]) continue;
+        int o = y * stride + x * 4;
+        if (MagScore(px[o + 2], px[o + 1], px[o]) < 12f) continue;
+        bg[i] = true;
+        q.Enqueue(i);
+      }
+    }
+    while (q.Count > 0) {
+      int i = q.Dequeue();
+      int x = i % w, y = i / w;
+      for (int k = 0; k < 8; k++) {
+        int nx = x + dx[k], ny = y + dy[k];
+        if (nx < 0 || ny < 0 || nx >= w || ny >= h) continue;
+        int ni = ny * w + nx;
+        if (bg[ni]) continue;
+        int o = ny * stride + nx * 4;
+        if (!IsBgSoft(px[o + 2], px[o + 1], px[o], px[o + 3])) continue;
+        bg[ni] = true;
+        q.Enqueue(ni);
       }
     }
 
@@ -116,17 +169,7 @@ public static class JazzWeaponIconKeyV2 {
           r = Math.Min(r, g + 10);
           b = Math.Min(b, g + 10);
         }
-        r = Math.Min(255, (int)(r * compress));
-        g = Math.Min(255, (int)(g * compress));
-        b = Math.Min(255, (int)(b * compress));
-        int maxc = Math.Max(r, Math.Max(g, b));
-        if (maxc > 200) {
-          double t = (maxc - 200) / 55.0;
-          double f = 1.0 - 0.35 * Math.Min(1.0, t);
-          r = Math.Min(255, (int)(r * f));
-          g = Math.Min(255, (int)(g * f));
-          b = Math.Min(255, (int)(b * f));
-        }
+        Grade(ref r, ref g, ref b, compress);
         px[o + 2] = (byte)r; px[o + 1] = (byte)g; px[o] = (byte)b;
         if (x < minX) minX = x;
         if (y < minY) minY = y;
@@ -144,8 +187,8 @@ public static class JazzWeaponIconKeyV2 {
       return empty;
     }
 
-    int padX = Math.Max(2, (maxX - minX + 1) / 25);
-    int padY = Math.Max(2, (maxY - minY + 1) / 25);
+    int padX = Math.Max(1, (maxX - minX + 1) / 50);
+    int padY = Math.Max(1, (maxY - minY + 1) / 40);
     minX = Math.Max(0, minX - padX);
     minY = Math.Max(0, minY - padY);
     maxX = Math.Min(w - 1, maxX + padX);
@@ -162,7 +205,8 @@ public static class JazzWeaponIconKeyV2 {
       g.CompositingMode = CompositingMode.SourceOver;
       g.InterpolationMode = InterpolationMode.HighQualityBicubic;
       g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-      double scale = Math.Min((double)outW / cw, (double)outH / ch);
+      double fit = 0.88;
+      double scale = Math.Min((double)outW / cw, (double)outH / ch) * fit;
       int dw = Math.Max(1, (int)Math.Round(cw * scale));
       int dh = Math.Max(1, (int)Math.Round(ch * scale));
       int ox = (outW - dw) / 2;
@@ -186,7 +230,7 @@ if (-not (Test-Path -LiteralPath $Path)) { throw "Source not found: $Path" }
 
 $src = [System.Drawing.Bitmap]::FromFile($Path)
 Write-Output ("SRC corner RGB={0},{1},{2} A={3} size={4}x{5}" -f $src.GetPixel(0,0).R, $src.GetPixel(0,0).G, $src.GetPixel(0,0).B, $src.GetPixel(0,0).A, $src.Width, $src.Height)
-$out = [JazzWeaponIconKeyV2]::Process($src, $Compress, $OutW, $OutH)
+$out = [JazzWeaponIconKeyV8]::Process($src, $Compress, $OutW, $OutH)
 $src.Dispose()
 
 $outDir = Split-Path -Parent $OutPath
@@ -196,20 +240,19 @@ if ($outDir -and -not (Test-Path -LiteralPath $outDir)) {
 
 $tmp = $OutPath + '.tmp.png'
 $out.Save($tmp, [System.Drawing.Imaging.ImageFormat]::Png)
-Write-Output ("OUT {0}" -f [JazzWeaponIconKeyV2]::CornerAlpha($out))
+Write-Output ("OUT {0}" -f [JazzWeaponIconKeyV8]::CornerAlpha($out))
 $a00 = $out.GetPixel(0, 0).A
 $out.Dispose()
 Move-Item -LiteralPath $tmp -Destination $OutPath -Force
 
 if ($a00 -gt 40) {
-  throw "chroma key failed: corner still opaque (A=$a00) — background would stay visible in inventory"
+  throw "chroma key failed: corner still opaque (A=$a00)"
 }
 
 if ($OkPath) {
   Set-Content -LiteralPath $OkPath -Value "OK transparent corners" -Encoding ASCII
 }
 
-# Remove raw capture so UI can never pick it up.
 if ($OutPath -ne $Path -and (Test-Path -LiteralPath $Path)) {
   Remove-Item -LiteralPath $Path -Force -ErrorAction SilentlyContinue
 }

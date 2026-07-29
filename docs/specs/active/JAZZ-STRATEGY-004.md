@@ -33,14 +33,14 @@ Roadmap п.6a требует per-unit `$` для будущей генераци
 
 ## Цели
 
-- Data-driven таблица цен на все 37 `JAZZ_Legion_*`.
-- Runtime accessors без изменения spawn/generator в этом change.
+- Data-driven таблица цен на все `JAZZ_Legion_*` combat/logistics UnitData (current: **38**, включая `JAZZ_Legion_Recruit`).
+- Runtime accessors; spawn wiring — в последующих STRATEGY-008+ (не в scope 004).
 - Technical docs + ссылка из roadmap.
 - Шкала привязана к экономики: **полный дорогой отряд ≈ полный пул аванпоста ≈ 10 шипментов Майора**.
 
 ## Non-goals
 
-- Подключение цен к `lSpawnRegularRole` / recipes / balance caps.
+- Подключение цен к recipes / balance caps в этом change (сделано позже в 008).
 - Полная миграция abstract supply → money ledger runtime (roadmap п.0) — только целевые якоря в docs/roadmap.
 - Изменение UnitData companions в `jazz-units`.
 
@@ -70,6 +70,7 @@ Roadmap п.6a требует per-unit `$` для будущей генераци
 
 | ID | $ |
 |---|---:|
+| JAZZ_Legion_Recruit | 200 |
 | JAZZ_Legion_AssaultT1_Roughneck | 300 |
 | JAZZ_Legion_AssaultT1_Grenadier | 800 |
 | JAZZ_Legion_AssaultT1_Crusher | 400 |
@@ -144,7 +145,7 @@ Roadmap п.6a требует per-unit `$` для будущей генераци
 
 ## Требования
 
-- `JAZZ-STRATEGY-004-REQ-001` — таблица содержит ровно 37 ключей, совпадающих с UnitData каталогом.
+- `JAZZ-STRATEGY-004-REQ-001` — таблица содержит все ключи каталога `JAZZ_Legion_*` с ценой (current **38**, включая Recruit); без orphan keys.
 - `JAZZ-STRATEGY-004-REQ-002` — `JAZZ_GetLegionUnitPrice` / `JAZZ_GetLegionSquadUnitPriceSum` доступны runtime.
 - `JAZZ-STRATEGY-004-REQ-003` — файл загружается через `metadata.code` и `items.lua` ModItemCode.
 - `JAZZ-STRATEGY-004-REQ-004` — technical docs и roadmap ссылаются на STRATEGY-004.
@@ -152,14 +153,14 @@ Roadmap п.6a требует per-unit `$` для будущей генераци
 
 ## Инварианты и ограничения
 
-- Не менять spawn costs в `Guardpost_Patrols.lua`.
+- Не менять spawn costs в `Guardpost_Patrols.lua` **в рамках 004** (spawn charging — 008).
 - Не менять `jazz-units` UnitData.
 - Цены — strategic `$`, не InventoryItem.Cost.
 - Runtime outpost capacity/supply в этом change не трогать (только docs/roadmap targets).
 
 ## Acceptance criteria
 
-- `JAZZ-STRATEGY-004-AC-001` — static: 37/37 ID, no orphans.
+- `JAZZ-STRATEGY-004-AC-001` — static: price keys ⊇ combat Legion UnitData + Recruit; no orphan keys (current 38/38).
 - `JAZZ-STRATEGY-004-AC-002` — static: accessors определены; code registered.
 - `JAZZ-STRATEGY-004-AC-003` — docs updated; якорь 10×shipment / capacity 120000 зафиксирован.
 - `JAZZ-STRATEGY-004-AC-004` — static: sample expensive ~40 T3/T4 sum в полосе 100000–130000.
@@ -185,11 +186,11 @@ Roadmap п.6a требует per-unit `$` для будущей генераци
 
 ## Evidence
 
-- `JAZZ-STRATEGY-004-AC-001`: `PASS (static)` — 37 UnitData IDs = 37 price keys, no orphans.
-- `JAZZ-STRATEGY-004-AC-002`: `PASS (static)` — `LegionUnitPrices.lua` registered in `metadata.code` and `items.lua` ModItemCode; accessors present.
-- `JAZZ-STRATEGY-004-AC-003`: `PASS (static)` — technical docs + roadmap 6a/п.0 anchor (capacity 120000 = 10×$12000).
-- `JAZZ-STRATEGY-004-AC-004`: `PASS (static)` — sample expensive 40-man T3/T4 mix ≈ $105k–$122k band vs capacity $120000; recon/patrol ≪ capacity.
-- `JAZZ-STRATEGY-004-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-STRATEGY-004-AC-001`: `PASS (static)` — 38 price keys including `JAZZ_Legion_Recruit` @200; docs sync 2026-07-29
+- `JAZZ-STRATEGY-004-AC-002`: `PASS (static)` — `LegionUnitPrices.lua` registered; accessors present; consumed by generator/spawn after 008
+- `JAZZ-STRATEGY-004-AC-003`: `PASS (static)` — technical docs + roadmap 6a/п.0 anchor (capacity 120000 = 10×$12000)
+- `JAZZ-STRATEGY-004-AC-004`: `PASS (static)` — sample expensive 40-man T3/T4 mix ≈ $105k–$122k band vs capacity $120000
+- `JAZZ-STRATEGY-004-AC-005`: `PASS (runtime/human)` — owner playtest accepted 2026-07-28
 
 ## Documentation delta
 

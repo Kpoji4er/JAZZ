@@ -14,6 +14,8 @@
 
 Изменение поведения, архитектуры, generated data, dependencies, load order, public ID или save/network contract начинается с spec. Technical docs обновляются после реализации и не должны выдавать approved target за current runtime.
 
+Если runtime уже разошёлся с active/accepted spec, или technical страница явно отстаёт от кода — **спросить владельца** до молчаливой правки контракта (см. `.cursor/rules/jazz-spec-sync.mdc`, `.cursor/rules/jazz-technical-docs-sync.mdc`).
+
 ## Что меняется вместе с реализацией
 
 - Профильная `docs/technical/systems/*` — при изменении current-state поведения.

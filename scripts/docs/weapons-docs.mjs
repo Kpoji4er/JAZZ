@@ -13,20 +13,66 @@ const scriptDir = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(scriptDir, "..", "..");
 const dataDir = join(rootDir, "docs", "technical", "weapons", "data");
 const wikiDir = join(rootDir, "docs", "wiki", "weapons");
+const wikiDirEn = join(wikiDir, "en");
 
 const familyDefinitions = {
-  Pistol: { id: "pistol", title: "Пистолеты", order: 10 },
-  Autopistol: { id: "autopistol", title: "Автоматические пистолеты", order: 20 },
-  Revolver: { id: "revolver", title: "Револьверы", order: 30 },
-  SubmachineGun: { id: "submachine-gun", title: "Пистолеты-пулемёты", order: 40 },
-  Carbine: { id: "carbine", title: "Карабины", order: 50 },
-  AssaultRifle: { id: "assault-rifle", title: "Штурмовые винтовки", order: 60 },
-  BattleRifle: { id: "battle-rifle", title: "Боевые винтовки", order: 70 },
-  SniperRifle: { id: "sniper-rifle", title: "Снайперские винтовки", order: 80 },
-  LightMachineGun: { id: "light-machine-gun", title: "Ручные пулемёты", order: 90 },
-  MachineGun: { id: "machine-gun", title: "Пулемёты", order: 100 },
-  Shotgun: { id: "shotgun", title: "Дробовики", order: 110 },
+  Pistol: { id: "pistol", title_ru: "Пистолеты", title_en: "Pistols", order: 10 },
+  Autopistol: {
+    id: "autopistol",
+    title_ru: "Автоматические пистолеты",
+    title_en: "Autopistols",
+    order: 20,
+  },
+  Revolver: { id: "revolver", title_ru: "Револьверы", title_en: "Revolvers", order: 30 },
+  SubmachineGun: {
+    id: "submachine-gun",
+    title_ru: "Пистолеты-пулемёты",
+    title_en: "Submachine guns",
+    order: 40,
+  },
+  Carbine: { id: "carbine", title_ru: "Карабины", title_en: "Carbines", order: 50 },
+  AssaultRifle: {
+    id: "assault-rifle",
+    title_ru: "Штурмовые винтовки",
+    title_en: "Assault rifles",
+    order: 60,
+  },
+  BattleRifle: {
+    id: "battle-rifle",
+    title_ru: "Боевые винтовки",
+    title_en: "Battle rifles",
+    order: 70,
+  },
+  SniperRifle: {
+    id: "sniper-rifle",
+    title_ru: "Снайперские винтовки",
+    title_en: "Sniper rifles",
+    order: 80,
+  },
+  LightMachineGun: {
+    id: "light-machine-gun",
+    title_ru: "Ручные пулемёты",
+    title_en: "Light machine guns",
+    order: 90,
+  },
+  MachineGun: { id: "machine-gun", title_ru: "Пулемёты", title_en: "Machine guns", order: 100 },
+  Shotgun: { id: "shotgun", title_ru: "Дробовики", title_en: "Shotguns", order: 110 },
 };
+
+function familyTitle(family, lang) {
+  return lang === "en" ? family.title_en : family.title_ru;
+}
+
+function hasCyrillic(text) {
+  return /[\u0400-\u04FF]/.test(String(text ?? ""));
+}
+
+function localizedLabel(ruName, id, lang) {
+  if (lang !== "en") return ruName || id;
+  if (!ruName) return id;
+  if (!hasCyrillic(ruName)) return ruName;
+  return id;
+}
 
 const defaults = {
   AimAccuracy: 2,
@@ -616,7 +662,7 @@ function importFromGit() {
       id,
       display_name: translatedField(text, "DisplayName", true) || id,
       family_id: family.id,
-      family_name_ru: family.title,
+      family_name_ru: family.title_ru,
       object_class: objectClass,
       catalog_status: (translatedField(text, "DisplayName", true) || id).trim() === "\u041e\u0422\u041a\u041b\u042e\u0427\u0415\u041d\u041e" ? "excluded_disabled" : "active",
       balance_tier: tier.balanceTier,
@@ -821,77 +867,100 @@ function angle(value) {
   return Number.isInteger(number) ? `${number}°` : `${number.toFixed(1)}°`;
 }
 
-function attackModes(weapon) {
+function attackModes(weapon, lang = "ru") {
   const attacks = weapon.available_attacks.split(";").filter(Boolean);
   const modes = [];
-  if (attacks.includes("SingleShot")) modes.push("одиночный");
-  if (attacks.includes("BurstFire")) modes.push(`очередь ${weapon.burst_shots}`);
-  if (attacks.includes("AutoFire")) modes.push(`авто ${weapon.auto_shots}`);
-  if (attacks.includes("MGBurstFire")) modes.push(`пулемёт ${weapon.burst_shots}`);
-  if (attacks.includes("Buckshot")) modes.push("картечь");
+  if (lang === "en") {
+    if (attacks.includes("SingleShot")) modes.push("single");
+    if (attacks.includes("BurstFire")) modes.push(`burst ${weapon.burst_shots}`);
+    if (attacks.includes("AutoFire")) modes.push(`auto ${weapon.auto_shots}`);
+    if (attacks.includes("MGBurstFire")) modes.push(`MG burst ${weapon.burst_shots}`);
+    if (attacks.includes("Buckshot")) modes.push("buckshot");
+  } else {
+    if (attacks.includes("SingleShot")) modes.push("одиночный");
+    if (attacks.includes("BurstFire")) modes.push(`очередь ${weapon.burst_shots}`);
+    if (attacks.includes("AutoFire")) modes.push(`авто ${weapon.auto_shots}`);
+    if (attacks.includes("MGBurstFire")) modes.push(`пулемёт ${weapon.burst_shots}`);
+    if (attacks.includes("Buckshot")) modes.push("картечь");
+  }
   return modes.length > 0 ? modes.join(", ") : attacks.join(", ");
 }
 
-function slotSummary(weaponId, optionsByWeapon) {
+function slotSummary(weaponId, optionsByWeapon, lang = "ru") {
   const options = optionsByWeapon.get(weaponId) ?? [];
   const slots = new Map();
   for (const option of options) {
     const key = `${option.slot_index}:${option.slot_type}`;
     if (!slots.has(key)) {
       slots.set(key, {
-        name: option.slot_type || `Слот ${option.slot_index}`,
+        name:
+          option.slot_type ||
+          (lang === "en" ? `Slot ${option.slot_index}` : `Слот ${option.slot_index}`),
         canBeEmpty: option.can_be_empty === "true",
         modifiable: option.modifiable !== "false",
         options: [],
       });
     }
     if (option.component_id) {
-      slots.get(key).options.push(
-        `${option.component_name || option.component_id}${option.is_default === "true" ? " ★" : ""}`,
-      );
+      const label = localizedLabel(option.component_name, option.component_id, lang);
+      slots.get(key).options.push(`${label}${option.is_default === "true" ? " ★" : ""}`);
     }
   }
-  if (slots.size === 0) return "Нет компонентных слотов";
+  if (slots.size === 0) {
+    return lang === "en" ? "No component slots" : "Нет компонентных слотов";
+  }
   return [...slots.values()]
     .map((slot) => {
       const flags = [];
-      if (!slot.modifiable) flags.push("фикс.");
-      if (slot.canBeEmpty) flags.push("можно снять");
+      if (!slot.modifiable) flags.push(lang === "en" ? "fixed" : "фикс.");
+      if (slot.canBeEmpty) flags.push(lang === "en" ? "removable" : "можно снять");
       const suffix = flags.length > 0 ? ` (${flags.join(", ")})` : "";
-      return `${slot.name}${suffix}: ${slot.options.join(" / ") || "без вариантов"}`;
+      const empty = lang === "en" ? "no options" : "без вариантов";
+      return `${slot.name}${suffix}: ${slot.options.join(" / ") || empty}`;
     })
     .join("<br>");
 }
 
-function familyPage(family, weapons, optionsByWeapon, snapshotCommit) {
-  const combatHeader = [
-    "Тир",
-    "Оружие",
-    "Калибр",
-    "Урон",
-    "Пробитие",
-    "Маг.",
-    "ОД выстрел/перезарядка",
-    "Прицел",
-    "BDR / дальность",
-    "Кучность",
-    "Отдача",
-    "Режимы",
-  ];
-  const serviceHeader = [
-    "Оружие",
-    "Надёжность",
-    "База клина",
-    "Ресурс / износ",
-    "Шум",
-    "Overwatch",
-    "Цена",
-    "Компоненты",
-  ];
+function familyPage(family, weapons, optionsByWeapon, snapshotCommit, lang = "ru") {
+  const combatHeader =
+    lang === "en"
+      ? [
+          "Tier",
+          "Weapon",
+          "Caliber",
+          "Damage",
+          "Pen.",
+          "Mag",
+          "AP shot/reload",
+          "Aim",
+          "BDR / range",
+          "Hold",
+          "Recoil",
+          "Modes",
+        ]
+      : [
+          "Тир",
+          "Оружие",
+          "Калибр",
+          "Урон",
+          "Пробитие",
+          "Маг.",
+          "ОД выстрел/перезарядка",
+          "Прицел",
+          "BDR / дальность",
+          "Кучность",
+          "Отдача",
+          "Режимы",
+        ];
+  const serviceHeader =
+    lang === "en"
+      ? ["Weapon", "Reliability", "Jam base", "Resource / wear", "Noise", "Overwatch", "Cost", "Components"]
+      : ["Оружие", "Надёжность", "База клина", "Ресурс / износ", "Шум", "Overwatch", "Цена", "Компоненты"];
 
+  const noTier = lang === "en" ? "no tier" : "без тира";
   const combatRows = weapons.map((weapon) => [
-    weapon.tier_label || "без тира",
-    `${weapon.display_name} (\`${weapon.id}\`)`,
+    weapon.tier_label || noTier,
+    `${localizedLabel(weapon.display_name, weapon.id, lang)} (\`${weapon.id}\`)`,
     weapon.caliber,
     weapon.damage,
     `${weapon.penetration_class}${weapon.penetration_bonus && weapon.penetration_bonus !== "0" ? ` (${Number(weapon.penetration_bonus) > 0 ? "+" : ""}${weapon.penetration_bonus})` : ""}`,
@@ -901,18 +970,18 @@ function familyPage(family, weapons, optionsByWeapon, snapshotCommit) {
     `${weapon.bullet_drop_range} / ${weapon.weapon_range}`,
     weapon.grouping,
     weapon.recoil,
-    attackModes(weapon),
+    attackModes(weapon, lang),
   ]);
 
   const serviceRows = weapons.map((weapon) => [
-    `${weapon.display_name} (\`${weapon.id}\`)`,
+    `${localizedLabel(weapon.display_name, weapon.id, lang)} (\`${weapon.id}\`)`,
     weapon.reliability,
     weapon.base_jam_chance,
     `${weapon.weapon_resource} / ${weapon.degrade_per_shot}`,
     weapon.noise,
     angle(weapon.overwatch_angle),
     weapon.cost,
-    slotSummary(weapon.id, optionsByWeapon),
+    slotSummary(weapon.id, optionsByWeapon, lang),
   ]);
 
   const table = (headers, rows) => [
@@ -921,24 +990,44 @@ function familyPage(family, weapons, optionsByWeapon, snapshotCommit) {
     ...rows.map((row) => `| ${row.map(mdCell).join(" | ")} |`),
   ].join("\n");
 
+  const title = familyTitle(family, lang);
+  const nav =
+    lang === "en"
+      ? `[Weapon catalog](README.md) · [How to read stats](../../../showcase/en/weapons-and-ammo.md) · [All components](components.md)`
+      : `[К каталогу оружия](README.md) · [Как читать характеристики](../weapons-and-ammo.md) · [Все компоненты](components.md)`;
+  const intro =
+    lang === "en"
+      ? `This family has ${weapons.length} weapons. Tier is the power band; sub-tier only orders or separates close variants. \`UNIQ\` is a unique variant inside that tier; “no tier” means quest, technical, or not yet classified.`
+      : `В семействе — ${weapons.length} единиц оружия. Тир задаёт силовой диапазон; под-тир только упорядочивает или различает близкие варианты. \`UNIQ\` означает уникальный вариант внутри указанного тира, а «без тира» — технический, квестовый или ещё не классифицированный предмет.`;
+  const combatH = lang === "en" ? "## Combat stats" : "## Боевые характеристики";
+  const serviceH = lang === "en" ? "## Service and components" : "## Эксплуатация и компоненты";
+  const serviceNote =
+    lang === "en"
+      ? `Star \`★\` marks the default component. “fixed” means a non-modifiable slot. AP values are in game units, not internal thousandths.`
+      : `Звезда \`★\` отмечает компонент по умолчанию. «Фикс.» означает немодифицируемый слот. ОД показаны в игровых единицах, а не во внутренних тысячных.`;
+  const footer =
+    lang === "en"
+      ? `Numbers come from canonical CSV snapshot \`${snapshotCommit}\`. Field meanings and sync rules: [technical contract](../../../technical/weapons/README.md).`
+      : `Источник чисел: канонический CSV-снимок \`${snapshotCommit}\`. Описание полей и правила синхронизации находятся в [техническом контракте](../../technical/weapons/README.md).`;
+
   return `<!-- Generated by scripts/docs/weapons-docs.mjs from docs/technical/weapons/data. Do not edit this file directly. -->
-# ${family.title}
+# ${title}
 
-[К каталогу оружия](README.md) · [Как читать характеристики](../weapons-and-ammo.md) · [Все компоненты](components.md)
+${nav}
 
-В семействе — ${weapons.length} единиц оружия. Тир задаёт силовой диапазон; под-тир только упорядочивает или различает близкие варианты. \`UNIQ\` означает уникальный вариант внутри указанного тира, а «без тира» — технический, квестовый или ещё не классифицированный предмет.
+${intro}
 
-## Боевые характеристики
+${combatH}
 
 ${table(combatHeader, combatRows)}
 
-## Эксплуатация и компоненты
+${serviceH}
 
-Звезда \`★\` отмечает компонент по умолчанию. «Фикс.» означает немодифицируемый слот. ОД показаны в игровых единицах, а не во внутренних тысячных.
+${serviceNote}
 
 ${table(serviceHeader, serviceRows)}
 
-Источник чисел: канонический CSV-снимок \`${snapshotCommit}\`. Описание полей и правила синхронизации находятся в [техническом контракте](../../technical/weapons/README.md).
+${footer}
 `;
 }
 

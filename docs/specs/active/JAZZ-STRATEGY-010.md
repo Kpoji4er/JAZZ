@@ -42,29 +42,29 @@ Roadmap 7b: spawn должен тратить людей; recruits копятс�
 
 - Schema **v3**: `outpost.manpower`, `major.manpower`, `region_state.poi_recruits`.
 - City/farm accumulate recruits (mines never); recruiter circuit mirrors tax.
-- Manpower convoy Major→outpost when outpost low and Major has cargo.
+- Manpower convoy Major→outpost **только при outpost.manpower=0** (и Major имеет cargo).
 - Combat spawn already prepared: charges `manpower_cost` when pools exist.
 - Icons RECRUITER + MANPOWER; RU/EN strings; docs.
 
 ## Non-goals
 
 - Player militia Operation hook (011).
-- Reverse manpower convoy outpost→Major.
 - Per-tier manpower weighting.
 
-## Locked defaults (morning Q)
+## Locked defaults (playtest / morning Q)
 
-- Farm +1 recruit / 24h; City +2 / 24h; sector caps farm 8 / city 20.
+- Farm +2 / City +3 recruits per **POI pulse** (72h); sector caps farm 8 / city 16; also guardpost +2 / port +1 (caps 12 / 8).
 - Outpost manpower start 20 / capacity **32**; Major start 80 / capacity 600.
-- RecruiterThreshold=8, RecruiterCap=2, RecruiterCooldown=24h.
-- ManpowerConvoyCargo=16; trigger at 40% of outpost capacity.
+- RecruiterThreshold=8, RecruiterCap=1, RecruiterCargoMax=16, RecruiterCooldown=24h.
+- ManpowerConvoyCargo=16; Major→outpost **только при outpost.manpower=0** (`ManpowerConvoyTriggerPercent` unused/legacy).
+- Overflow recruits after strip → `outbound_manpower` → reverse caravan outpost→Major.
 
 ## Требования
 
 - `JAZZ-STRATEGY-010-REQ-001` — schema migrate 2→3 with manpower defaults.
-- `JAZZ-STRATEGY-010-REQ-002` — recruit accrual city/farm only.
+- `JAZZ-STRATEGY-010-REQ-002` — recruit accrual on economic POI: city/farm + guardpost/port (not mines).
 - `JAZZ-STRATEGY-010-REQ-003` — recruiter circuit → outpost.manpower.
-- `JAZZ-STRATEGY-010-REQ-004` — manpower convoy Major→outpost.
+- `JAZZ-STRATEGY-010-REQ-004` — manpower convoy Major→outpost when outpost manpower is 0.
 - `JAZZ-STRATEGY-010-REQ-005` — combat spawn gated by manpower when pools present.
 - `JAZZ-STRATEGY-010-REQ-006` — loc + docs.
 
@@ -99,7 +99,7 @@ Roadmap 7b: spawn должен тратить людей; recruits копятс�
 
 ## Evidence
 
-- `JAZZ-STRATEGY-010-AC-001`..`004`: static PASS
+- `JAZZ-STRATEGY-010-AC-001`..`004`: static PASS — pulse recruits 2/3, city cap 16, RecruiterCap 1, inbound at manpower=0; docs sync 2026-07-29
 - `JAZZ-STRATEGY-010-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
 
 ## Documentation delta

@@ -1,0 +1,32 @@
+---
+description: При отставании technical docs от кода — спросить и синхронизировать профильные страницы и file-coverage.
+alwaysApply: true
+---
+
+# Technical docs sync: не оставлять устаревший current-state
+
+`docs/technical/` описывает **фактически загруженное** состояние. Если страница явно отстаёт от кода — это дефект документации, не «на потом».
+
+## Когда спросить / синхронизировать
+
+1. Новый, удалённый, dormant↔loaded файл `Code/*.lua` — сразу `file-coverage.md` + профильная systems-страница.
+2. Меняются defaults, caps, capacity, pipeline или public behavior, уже описанные на systems-странице.
+3. Аудит находит ложь в technical (пример: «лимит не целевой», а код enforce; «33 archetypes», а в items 40).
+4. Spec `approved`, а technical уже пишет поведение как settled current — спросить: поправить wording («static-loaded, runtime pending») или дождаться acceptance.
+
+## Минимум при правке
+
+- Одна каноническая systems-страница владельца.
+- `file-coverage.md` при load-state/файловом diff.
+- Wiki — только если эффект заметен игроку (и не спорит с technical).
+- Не описывать будущий/только-approved scope как загруженный runtime без оговорки.
+
+## Как спрашивать
+
+Если пользователь не сказал «правь docs», коротко спросить: обновить какие страницы под код (перечислить пути) или оставить.
+
+Явный запрос («правь», «синхронизируй docs») = можно править без повторного спроса в том же turn.
+
+---
+
+Связано: `.agents/skills/document-jazz-systems/SKILL.md`, `docs/technical/systems/file-coverage.md`.

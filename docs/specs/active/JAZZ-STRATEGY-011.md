@@ -46,32 +46,32 @@ Roadmap 7c: militia training should consume local recruits from the same city/fa
 
 ## Locked defaults
 
-- Consume cost per training session: **4** recruits (morning Q if wrong).
-- Accrual rates same as Legion (farm 1/day, city 2/day).
+- Consume cost per training session: **4** recruits.
+- Accrual rates same as Legion POI pulse (farm **2** / city **3** per 72h; caps 8/16). Soft gate file `LegionMilitiaRecruits.lua` **loaded**.
 
 ## Требования
 
 - `JAZZ-STRATEGY-011-REQ-001` — player city/farm accrue recruits.
 - `JAZZ-STRATEGY-011-REQ-002` — public get/consume API.
-- `JAZZ-STRATEGY-011-REQ-003` — morning questions file lists Operation hook TBD.
-- `JAZZ-STRATEGY-011-REQ-004` — docs note partial status.
+- `JAZZ-STRATEGY-011-REQ-003` — morning questions: militia Operation full contract out of scope until owner reopens.
+- `JAZZ-STRATEGY-011-REQ-004` — docs note partial status (API + optional soft gate loaded; full Operation not accepted).
 
 ## Инварианты и ограничения
 
 - Legion recruiter still only collects Legion-side stocks.
-- Militia UX remains vanilla until Operation hook confirmed in morning questions.
+- Militia UX remains vanilla until Operation hook confirmed.
 - Soft gate activates only if `SectorOperations.MilitiaTraining` or `TrainMilitia` exists at runtime.
 
 ## Acceptance criteria
 
 - `JAZZ-STRATEGY-011-AC-001` — static: player accrual + API.
 - `JAZZ-STRATEGY-011-AC-002` — docs + morning questions.
-- `JAZZ-STRATEGY-011-AC-003` — Operation consume hook: `BLOCKED` (needs morning confirmation of operation id).
-- `JAZZ-STRATEGY-011-AC-004`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-STRATEGY-011-AC-003` — Operation soft gate: static present when op exists; **full Operation contract** still `BLOCKED` / out of scope per morning Q.
+- `JAZZ-STRATEGY-011-AC-004`: `PASS (runtime/human) - owner playtest accepted 2026-07-28` (partial: accrual/API)
 
 ## Impact и совместимость
 
-- Vanilla/CommonLib/JAZZ: optional wrap of MilitiaTraining/TrainMilitia when present.
+- Vanilla/CommonLib/JAZZ: optional wrap of MilitiaTraining/TrainMilitia when present (`LegionMilitiaRecruits.lua` loaded).
 - Saves: uses existing schema v3 `poi_recruits`.
 - Network/determinism: no new RNG.
 - Generated data: none.
@@ -80,18 +80,18 @@ Roadmap 7c: militia training should consume local recruits from the same city/fa
 
 ## План и ownership
 
-1. Overnight partial delivery.
-2. Morning: confirm Operation id and finish hook.
+1. Overnight partial delivery (API + soft gate).
+2. Full Operation contract — when owner reopens militia training.
 
 ## Решение владельца
 
-28 июля 2026 — finish Global AI; 7c may leave Operation hook as morning question.
+28 июля 2026 — finish Global AI; 7c may leave Operation hook as morning question. Playtest: militia training out of scope. Soft gate remains loaded as optional wrap.
 
 ## Evidence
 
 - `JAZZ-STRATEGY-011-AC-001`..`002`: static PASS
-- `JAZZ-STRATEGY-011-AC-003`: `BLOCKED` (Operation consume hook still open)
-- `JAZZ-STRATEGY-011-AC-004`: `PASS (runtime/human)` — owner playtest accepted 2026-07-28
+- `JAZZ-STRATEGY-011-AC-003`: soft gate loaded (`LegionMilitiaRecruits.lua` in metadata); full Operation acceptance `BLOCKED` / out of scope — docs sync 2026-07-29
+- `JAZZ-STRATEGY-011-AC-004`: `PASS (runtime/human)` — owner playtest accepted 2026-07-28 (partial)
 
 ## Documentation delta
 
