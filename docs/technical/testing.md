@@ -23,39 +23,8 @@ git diff --check
 - нет новых абсолютных путей к локальным исходникам;
 - официальный CommonLib `main`/metadata проверен, установленная версия совпадает с последней, матрица CommonLib/JAZZ обновлена.
 
-Для deterministic контракта стрельбы выполнить:
+В окружении аудита не были доступны standalone `lua`, `luac`, `stylua` или `selene`, поэтому синтаксис и runtime необходимо подтверждать самой игрой и Mod Editor.
 
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test-shooting-model.ps1
-```
-
-Тест читает канонический weapon CSV и проверяет 11 классов, исключённые ID, Dexterity/Marksmanship, monotonic aim, floor/cap, range/optic profile, коммутативность факторов, recoil/action windows и отношение СВД к АК-47. Он не запускает движок.
-
-Standalone `lua`/`luac` не является repository dependency. В evidence конкретного change set можно использовать внешний parser для синтаксической проверки, но загрузку, engine globals, реакции и runtime всё равно необходимо подтверждать самой игрой и Mod Editor.
-
-## Локализация
-
-1. Запустить `migrate-localization-ids.ps1 -Mode Plan` с актуальными
-   `Game.csv` и `<JA3_ROOT>\ModTools\Src`; `IdAmbiguities.csv` должен быть пуст.
-2. Проверить manifest: `restore-vanilla` указывает на существующий exact
-   `Game.csv.Text`, а каждый `assign-mod-id` отсутствует в `Game.csv`, меньше
-   `2^53` и не связывает один ID с разными текстами.
-3. После Apply повторить Apply: число замен и изменённых файлов должно быть нулём.
-   Для отдельной проверки повторного Plan передавать временные `ManifestPath` и
-   `AmbiguityPath`, чтобы не перезаписывать сохранённый applied-manifest пустым результатом.
-4. Запустить `audit-localization.ps1 -UpdateCatalog`; требовать ноль активных,
-   game и Russian CSV коллизий, `needs Russian=0` и `needs English=0`. Dormant
-   warnings учитывать отдельно.
-5. Экспортировать `Russian.csv` и `English.csv`, выполнить CSV round-trip и
-   проверить: пять колонок, уникальные numeric ID, одинаковое точное множество
-   активных mod-only ID, отсутствие ID из `Game.csv`, нетехнических пустых
-   `Translation`, повреждённых тегов и placeholder-ов. В английском переводе
-   не должно быть видимой кириллицы. Для каждой новой или изменённой mod-only
-   строки оба runtime CSV должны быть обновлены в одном change set.
-6. Выполнить Mod Editor load/save/reload трёх изменённых пакетов, затем clean
-   start и загрузку существующего save на русском и английском языках.
-   Проверить панель сообщений и отсутствие `<missing translation>`, чужого
-   текста или повреждённой разметки.
 ## Базовый запуск
 
 1. Сверить установленную CommonLib с последней опубликованной версией из официального `main`, затем включить её и все четыре пакета JAZZ. Тест со старой CommonLib не считается поддерживаемым.
@@ -90,7 +59,9 @@ Standalone `lua`/`luac` не является repository dependency. В evidence
 - overwatch, interrupt и смена оружия;
 - melee training visual после отмены и завершения действия.
 
-### Модель стрельбы
+### При реализации целевой модели стрельбы
+
+До runtime-миграции этот раздел является acceptance contract, а не отчётом о пройденных тестах:
 
 - физически возможный выстрел не падает ниже `2`, невозможный получает `0`;
 - опытный стрелок достигает `100%` по открытой цели в полный рост, при полном aim и внутри оптимальной зоны; любой применимый штраф должен уводить этот сценарий ниже `100%`;
@@ -144,14 +115,6 @@ Standalone `lua`/`luac` не является repository dependency. В evidence
 
 Проверить основные сектора Эрни, входы и deployment, квестовые маркеры, setpieces, guardpost, патрули, стратегические отряды, squad logo, POI, доход, World Flip, разговоры, banters и лояльность.
 
-`CampCrocodile_CirclingPatrol`: после старта квеста на M1 в логе не должно быть `System_JAZZ_CrocodilePatrol.lua` / `attempt to index a nil value` (debug) и `'for' limit must be a number` от HotDiamonds; патруль крутит маршрут I18–I19–J19.
-
-### Автотранспорт
-
-**Сейчас (сателлит only):** M1 → сесть в транспорт → ускорение по дороге; вход в сектор **без** тактического Unit машины; токен после exit/сектора на месте.
-
-**Дизайн боевого авто** (канон): [`JAZZ Maps/docs/combat-vehicle-design.md`](../../JAZZ%20Maps/docs/combat-vehicle-design.md); suite-указатель [systems/combat-vehicle-design.md](systems/combat-vehicle-design.md). Код в runtime ещё не внедрён. Фаза 1 → тест-контракты A/B; `tactical_enabled` → контракт C.
-
 ## Assets
 
 Проверить оружие в руках и на земле, состояния компонентов, магазины, сошки, прицелы, материалы и отсутствие `missing entity/state/spot` в логе. После re-export/re-import повторить проверку в новом процессе игры, чтобы исключить устаревшую cached Entity.
@@ -166,24 +129,11 @@ node --check .github/scripts/discord-player-update.test.mjs
 node --test .github/scripts/discord-player-update.test.mjs
 ```
 
-Отдельно разобрать `.github/workflows/discord-player-updates.yml` YAML-парсером и выполнить `workflow_dispatch` с `dry_run=true`. Тесты должны покрывать полный `before..after`, zero-before, Structured Output JSON, invalid JSON, `should_publish=false`, `[discord]`, `[discord implemented]`, приоритет `[skip discord]` внутри одного коммита и исключение только помеченных коммитов в смешанном диапазоне, автоматический fallback без ключа и при ошибке API, redaction, neutralization Discord mentions, embed limits и `allowed_mentions.parse=[]`.
+Отдельно разобрать `.github/workflows/discord-player-updates.yml` YAML-парсером и выполнить `workflow_dispatch` с `dry_run=true`. Тесты должны покрывать полный `before..after`, zero-before, Structured Output JSON, invalid JSON, `should_publish=false`, `[discord]`, `[discord implemented]`, приоритет `[skip discord]`, автоматический fallback без ключа и при ошибке API, redaction, neutralization Discord mentions, embed limits и `allowed_mentions.parse=[]`.
 
 Обязательно проверить четыре документационных сценария: docs-only без маркера пропускается до OpenAI; `[discord]` публикует только обновление документации без вывода о реализации; `[discord implemented]` включает docs diff и explicit implementation flag; смешанный code+docs диапазон использует код как implementation evidence, а обычные docs исключает из diff. Fallback и Discord embed не должны автоматически содержать «в разработке» или секцию «За кулисами».
 
 Реальный Discord webhook не вызывать без тестового канала. Отсутствие ключа или ошибка OpenAI должны автоматически публиковать fallback после prefilter; ошибка Discord после решения публиковать должна завершать workflow ошибкой.
-
-## Runtime smoke: Legion Global AI / I7 (JAZZ-STRATEGY-002…011)
-
-Уровень подтверждения до прогона владельцем: только static. Не закрывать AC runtime этим чеклистом без игры.
-
-1. Все четыре пакета + свежая CommonLib; Reload модов с диска (не Save из устаревшей памяти редактора).
-2. Новая игра `HotDiamonds`, старт на Эрни; diagnostics: schema **3**; outpost `money` **12000**, `manpower` **20**; major `money` **120000**, `manpower` **80**.
-3. На сателлите: combat/logistics роли со своими PNG (REINFORCE/RETRIBUTION/TAX/RECRUITER/MANPOWER); supply/shipment показывают `$`; recruiter/manpower — people.
-4. City/farm `$` копятся в poi_money (tax), не напрямую в outpost; recruits копятся daily; mine → diamond_stock.
-5. Combat spawn: только generator composition; списывает money_cost + manpower_cost (= число тел); без людей/денег на min — не спавнит; нет free EnemySquadDef fallback. После лимита приказов — return → resting 12–36h (не garrison) → reuse; tax/recruiter не despawn. Patrol dwell 6–24h на сектор пути. Recruiter deposit → abstract manpower, эскорт rest (не wipe).
-6. Need gates + border reinforce + patrol into player Side + recon return sector text.
-7. `ReloadLua` / save/load — иконки и задачи на месте.
-8. Militia: `JAZZ_GetSectorRecruits` растёт на player city/farm; Operation gate — проверить после подтверждения ID (morning Q).
 
 ## Критерий завершения
 

@@ -58,7 +58,7 @@ approved_by: project-owner
 - JAZZ-DISCORD-002-REQ-004: Маркер `[discord implemented]` является явным подтверждением владельца:
    документация включается в evidence и может поддерживать утверждение об уже
    реализованном изменении.
-- JAZZ-DISCORD-002-REQ-005: `[skip discord]` сохраняет приоритет над обоими публикующими маркерами внутри одного коммита; в смешанном push исключает только помеченные коммиты, а не весь диапазон.
+- JAZZ-DISCORD-002-REQ-005: `[skip discord]` сохраняет приоритет над обоими публикующими маркерами.
 - JAZZ-DISCORD-002-REQ-006: Контекст модели отдельно передаёт implementation-файлы,
    documentation-файлы, признак docs-only и признак явного подтверждения.
 - JAZZ-DISCORD-002-REQ-007: Prompt, fallback и Discord payload не должны автоматически называть
@@ -72,9 +72,8 @@ approved_by: project-owner
   либо на явный маркер `[discord implemented]`.
 - Commit message и обычная документация без явного маркера не являются
   достаточным доказательством реализации.
-- Существующий `[discord]` продолжает принудительно публиковать сводку.
-- `[skip discord]` отменяет публикацию только для помеченного коммита; если в
-  диапазоне остались непомеченные коммиты, сводка по ним публикуется.
+- Существующий `[discord]` продолжает принудительно публиковать сводку, а
+  `[skip discord]` продолжает отменять публикацию.
 - Формат Discord embed, лимиты Discord, redaction секретов и dry-run остаются
   действующими.
 
@@ -88,7 +87,7 @@ approved_by: project-owner
 - JAZZ-DISCORD-002-AC-004: Docs-only push с `[discord]` допускает только документационную сводку.
 - JAZZ-DISCORD-002-AC-005: Docs-only push с `[discord implemented]` включает документационный diff и
    устанавливает явный implementation-флаг.
-- JAZZ-DISCORD-002-AC-006: `[skip discord]` побеждает при сочетании с любым публикующим маркером в том же коммите; смешанный диапазон публикует только непомеченные коммиты.
+- JAZZ-DISCORD-002-AC-006: `[skip discord]` побеждает при сочетании с любым публикующим маркером.
 - JAZZ-DISCORD-002-AC-007: Fallback и собранный Discord payload не содержат автоматических формулировок
    «в разработке» и секции «За кулисами».
 - JAZZ-DISCORD-002-AC-008: Проходят Node-тесты, YAML parse, `git diff --check`, Ready/Done-валидаторы
@@ -134,8 +133,7 @@ dependencies, public IDs и generated data не меняются.
 - `JAZZ-DISCORD-002-AC-005`: `PASS` — temp-repository тест с
   `[discord implemented]` включает docs diff и устанавливает explicit flag.
 - `JAZZ-DISCORD-002-AC-006`: `PASS` — unit test подтверждает приоритет
-  `[skip discord]` над публикующими маркерами в том же коммите и публикацию
-  непомеченных коммитов в смешанном диапазоне.
+  `[skip discord]` над `[discord]` и `[discord implemented]`.
 - `JAZZ-DISCORD-002-AC-007`: `PASS` — fallback/payload tests подтверждают
   отсутствие автоматического «в разработке» и секции «За кулисами».
 - `JAZZ-DISCORD-002-AC-008`: `PASS` — 21/21 Node tests, оба Node syntax

@@ -165,9 +165,8 @@ webhook URL, внутренние инструкции агентов или с�
 Если force_publish=true, подготовь нейтральную фактическую публикацию даже для пограничных
 изменений и установи should_publish=true. Не обходи требования безопасности и evidence.
 
-Суммарно используй не более 8 пунктов во всех разделах вместе. Если изменений
-больше — оставь самые заметные для игрока и объедини близкие правки. Не добавляй
-пустые разделы. Верни только JSON, строго соответствующий заданной JSON Schema.
+Суммарно используй не более 8 пунктов. Не добавляй пустые разделы. Верни только JSON,
+строго соответствующий заданной JSON Schema.
 `.trim();
 
 function normalizeRepoPath(value) {
@@ -264,75 +263,21 @@ function stripDiscordMarkers(value) {
     .trim();
 }
 
-function commitHasDiscordMarker(message, markerPattern) {
-  const lines = String(message ?? "").split(/\r?\n/);
-  return lines.some((line) => {
-    const trimmed = line.trim();
-    if (!trimmed) {
-      return false;
-    }
-
-    // Active markers are a whole line or sit at the end of a line.
-    // Mid-sentence mentions like "A single [skip discord] docs commit..." are ignored.
-    if (new RegExp(`${markerPattern.source}\\s*$`, markerPattern.flags).test(trimmed)) {
-      return true;
-    }
-
-    return false;
-  });
-}
-
-function commitHasSkipDiscord(message) {
-  return commitHasDiscordMarker(message, /\[skip discord\]/i);
-}
-
-function commitHasDiscordImplemented(message) {
-  return commitHasDiscordMarker(message, /\[discord\s+implemented\]/i);
-}
-
-function commitHasDiscordForce(message) {
-  return (
-    commitHasDiscordImplemented(message) ||
-    commitHasDiscordMarker(message, /\[discord\]/i)
-  );
-}
-
 export function analyzeCommitMarkers(commits) {
-  const publishableCommits = [];
-  const skippedCommits = [];
-
-  for (const commit of commits) {
-    if (commitHasSkipDiscord(commit.message)) {
-      // Within one commit [skip discord] still beats [discord] / [discord implemented].
-      skippedCommits.push(commit);
-    } else {
-      publishableCommits.push(commit);
-    }
-  }
-
-  if (publishableCommits.length === 0) {
-    return {
-      skip: true,
-      force: false,
-      documentationImplementationExplicit: false,
-      publishableCommits,
-      skippedCommits,
-    };
-  }
-
-  const documentationImplementationExplicit = publishableCommits.some((commit) =>
-    commitHasDiscordImplemented(commit.message),
+  const messages = commits.map((commit) => String(commit.message ?? ""));
+  const skip = messages.some((message) => /\[skip discord\]/i.test(message));
+  const documentationImplementationExplicit = messages.some((message) =>
+    /\[discord\s+implemented\]/i.test(message),
   );
-  const force = publishableCommits.some((commit) =>
-    commitHasDiscordForce(commit.message),
-  );
+  const force =
+    documentationImplementationExplicit ||
+    messages.some((message) => /\[discord\]/i.test(message));
 
   return {
-    skip: false,
-    force,
-    documentationImplementationExplicit,
-    publishableCommits,
-    skippedCommits,
+    skip,
+    force: force && !skip,
+    documentationImplementationExplicit:
+      documentationImplementationExplicit && !skip,
   };
 }
 
@@ -1081,8 +1026,9 @@ function validateAiSummary(value) {
     itemCount += section.items.length;
   }
 
-  // Excess bullets are truncated in normalizeSummary; do not reject the whole
-  // response and fall back to commit subjects for large push ranges.
+  if (itemCount > MAX_PUBLIC_ITEMS) {
+    throw new Error("AI response contains too many items.");
+  }
   if (value.should_publish && !value.summary.trim() && itemCount === 0) {
     throw new Error("AI response has no publishable content.");
   }
@@ -1102,7 +1048,7 @@ export function parseAiOutput(outputText) {
     throw new Error("AI response was not valid JSON.");
   }
 
-  return normalizeSummary(validateAiSummary(parsed));
+  return validateAiSummary(parsed);
 }
 
 function normalizeSummary(summary) {
@@ -1172,7 +1118,7 @@ async function requestAiSummary({
     },
   });
 
-  return parseAiOutput(response.output_text);
+  return normalizeSummary(parseAiOutput(response.output_text));
 }
 
 export function buildFallbackSummary(commits, { documentationOnly = false } = {}) {
@@ -1500,11 +1446,6 @@ async function main() {
   }
 
   const markers = analyzeCommitMarkers(changeSet.commits);
-  if (markers.skippedCommits.length > 0) {
-    console.log(
-      `Excluded ${markers.skippedCommits.length} commit(s) marked [skip discord] from the player summary.`,
-    );
-  }
   const manualForce = parseBoolean(process.env.MANUAL_FORCE_PUBLISH);
   const forcePublish = (markers.force || manualForce) && !markers.skip;
   const reason = skipReason(changeSet, markers, forcePublish);
@@ -1513,14 +1454,13 @@ async function main() {
     return;
   }
 
-  const summaryCommits = markers.publishableCommits;
   const apiKey = String(process.env.OPENAI_API_KEY ?? "").trim();
   const aiContext = buildAiContext(changeSet, forcePublish);
   const { summary, usedFallback } = await resolvePlayerSummary({
     apiKey,
     model: process.env.OPENAI_MODEL || DEFAULT_MODEL,
     aiContext,
-    commits: summaryCommits,
+    commits: changeSet.commits,
     forcePublish,
     documentationOnly: aiContext.documentation_only,
   });

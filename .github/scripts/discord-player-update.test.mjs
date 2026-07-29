@@ -101,49 +101,21 @@ function testPushEnvironment(repository = "Kpoji4er/JAZZ") {
   };
 }
 
-test("skip marker excludes only marked commits in a mixed push range", () => {
-  const implemented = { message: "Показать [discord implemented]" };
-  const skipped = { message: "Не публиковать [skip discord]" };
-  const result = analyzeCommitMarkers([implemented, skipped]);
+test("skip marker has priority over force and implementation markers", () => {
+  const result = analyzeCommitMarkers([
+    { message: "Показать [discord implemented]" },
+    { message: "Не публиковать [skip discord]" },
+  ]);
 
   assert.deepEqual(result, {
-    skip: false,
-    force: true,
-    documentationImplementationExplicit: true,
-    publishableCommits: [implemented],
-    skippedCommits: [skipped],
-  });
-});
-
-test("mid-sentence marker mentions do not activate skip or force", () => {
-  const prose = {
-    message:
-      "Fix Discord skip marker canceling mixed jazz push ranges.\n\nA single [skip discord] docs commit no longer suppresses the whole push summary.",
-  };
-  assert.deepEqual(analyzeCommitMarkers([prose]), {
-    skip: false,
-    force: false,
-    documentationImplementationExplicit: false,
-    publishableCommits: [prose],
-    skippedCommits: [],
-  });
-});
-
-test("skip marker has priority on the same commit and skips an all-skip range", () => {
-  const both = { message: "Показать [discord] [skip discord]" };
-  assert.deepEqual(analyzeCommitMarkers([both]), {
     skip: true,
     force: false,
     documentationImplementationExplicit: false,
-    publishableCommits: [],
-    skippedCommits: [both],
   });
   assert.deepEqual(analyzeCommitMarkers([{ message: "Показать [discord]" }]), {
     skip: false,
     force: true,
     documentationImplementationExplicit: false,
-    publishableCommits: [{ message: "Показать [discord]" }],
-    skippedCommits: [],
   });
   assert.deepEqual(
     analyzeCommitMarkers([{ message: "Подтверждено [discord implemented]" }]),
@@ -151,10 +123,6 @@ test("skip marker has priority on the same commit and skips an all-skip range", 
       skip: false,
       force: true,
       documentationImplementationExplicit: true,
-      publishableCommits: [
-        { message: "Подтверждено [discord implemented]" },
-      ],
-      skippedCommits: [],
     },
   );
 });
@@ -333,34 +301,24 @@ test("valid AI JSON is parsed and invalid JSON is rejected", () => {
 
   assert.equal(parseAiOutput(valid).should_publish, false);
   assert.throws(() => parseAiOutput("{broken"), /valid JSON/);
-
-  const truncated = parseAiOutput(
-    JSON.stringify({
-      should_publish: true,
-      title: "Title",
-      summary: "Summary",
-      sections: [
-        {
-          name: "Too many",
-          items: Array.from({ length: 9 }, (_, index) => `Item ${index}`),
-        },
-      ],
-      confidence: "high",
-    }),
+  assert.throws(
+    () =>
+      parseAiOutput(
+        JSON.stringify({
+          should_publish: true,
+          title: "Title",
+          summary: "Summary",
+          sections: [
+            {
+              name: "Too many",
+              items: Array.from({ length: 9 }, (_, index) => `Item ${index}`),
+            },
+          ],
+          confidence: "high",
+        }),
+      ),
+    /too many items/,
   );
-  assert.equal(truncated.sections.length, 1);
-  assert.equal(truncated.sections[0].items.length, 8);
-  assert.deepEqual(truncated.sections[0].items, [
-    "Item 0",
-    "Item 1",
-    "Item 2",
-    "Item 3",
-    "Item 4",
-    "Item 5",
-    "Item 6",
-    "Item 7",
-  ]);
-
   assert.throws(
     () =>
       parseAiOutput(
