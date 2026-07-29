@@ -160,6 +160,17 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
 }
 
 WeaponComponent.properties[#WeaponComponent.properties+1] = {
+    category = "General",
+    id = "ChipIcon",
+    name = "Chip Icon",
+    help = "Миниатюра для inventory/HUD chips (JAZZ-UI-001). Пара к Icon: кабинет моддинга = Icon, тайл = ChipIcon.",
+    editor = "ui_image",
+    template = true,
+    default = "",
+    image_preview_size = 40,
+}
+
+WeaponComponent.properties[#WeaponComponent.properties+1] = {
     category = "Scope Visuals",
     id = "ReticleInner",
     name = "Reticle Inner",

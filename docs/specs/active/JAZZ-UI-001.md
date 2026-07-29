@@ -7,12 +7,14 @@ systems:
   - inventory-ui
 repositories:
   - jazz
-risk: high
+risk: medium
 generated_data: true
 runtime_validation: required
 write_set:
-  - Code/WeaponIconBake.lua
+  - Code/WeaponAttachChips.lua
   - Code/InventoryUI.lua
+  - Code/WeaponIconBake.lua
+  - Icons/Upgrades/
   - items.lua
   - metadata.lua
   - docs/specs/active/JAZZ-UI-001.md
@@ -25,131 +27,97 @@ related_decisions:
 approved_by: project-owner
 ---
 
-# JAZZ-UI-001: side-view weapon icons with attachments
+# JAZZ-UI-001: inventory attachment chips (path B)
 
 ## Проблема
 
-Иконки оружия в инвентаре — статичные template `Icon` PNG. Аттачи видны только в 3D-кабинете `ModifyWeaponDlg` либо как generic badge `UI/Inventory/w_mod`. Игрок не отличает сборки по иконке на тайле, в drag ghost, rollover и stash.
+Иконки оружия в инвентаре — статичные template `Icon` PNG. Аттачи видны только в 3D-кабинете `ModifyWeaponDlg` либо как generic badge `UI/Inventory/w_mod`. Игрок не отличает сборки по иконке на тайле, в HUD и stash.
 
-Доказательства текущего контракта:
-
-- `InventoryItem:GetItemUIIcon()` возвращает `self.Icon` (vanilla `Inventory.lua`);
-- inventory UI рисует `idItemImg` из `GetItemUIIcon`, опциональный `SubIcon`, и `w_mod` при `CountWeaponUpgrades > 0` (`InventoryUI.lua`);
-- `ModifyWeaponDlg` строит живую модель через `CreateVisualObj` / `UpdateVisualObj` с entity аттачей;
-- JAZZ property `WeaponIconMod` на `WeaponComponentVisual` объявлено, но runtime не читает;
-- MiniMap / `WaitCaptureScreenshot` / `IsolatedObjectScreenshot` — fullscreen framebuffer capture, не готовый inventory RT.
+Runtime side-view bake (path E) оказался нестабилен по framing/chroma/пропорциям; owner выбрал path **B** (чипы слотов/компонентов рядом с template-иконкой).
 
 ## Цели
 
-- Side-view bake собранного 3D-оружия (аттачи на силуэте) заменяет эффективную иконку экземпляра.
-- Одинаковый набор модулей → один shared cache entry (fingerprint), не PNG на каждый instance id.
-- Все UI-поверхности, которые резолвят `GetItemUIIcon`, показывают baked path.
-- Stock / default config или сбой bake → template `Icon`.
-- PNG не сериализуются в save/network; rebuild из component data.
-- При активной baked-иконке badge `w_mod` подавляется (моды уже на силуэте).
+- Template `Icon` оружия не подменяется baked PNG.
+- На тайле/HUD — **VWrap** chips top-left (3 в левом столбце, 4-й справа; 24px): `ChipIcon` / convention PNG / slot-fallback. Non-default **или** removable default с effects.
+- `Icon` кабинета моддинга не заменяется миниатюрой; новый компонент = пара `Icon` + `ChipIcon`.
+- Generic `w_mod` скрывается, когда показан хотя бы один chip.
+- Save/network без PNG blob; UI rebuild из component data.
+- Side-view bake path **выключен** (код может остаться dormant, без queue/`GetItemUIIcon` override).
 
 ## Non-goals
 
-- Hand-painted overlay-система через `WeaponIconMod` как primary path (свойство может остаться unused).
-- Prebake всех комбинаций аттачей в пакет мода.
-- Изменение 3D-preview `ModifyWeaponDlg` (кабинет остаётся showcase; может только триггерить bake).
-- Engine offscreen RT / настоящие 3D XImage-виджеты.
-- Идеальный style-match с hand-painted `WeaponIcons/*.png` в MVP (принимаем render look; framing итерируется отдельно).
-- Полный offline prebake всех комбинаций аттачей.
+- Hand-painted overlay на силуэт ствола (`WeaponIconMod`) как primary path.
+- Prebake комбинаций аттачей / runtime 3D capture в inventory icon.
+- Подмена `Icon` файлом Chip-миниатюры.
+- Изменение 3D-preview `ModifyWeaponDlg`.
 
 ## Требования
 
-- `JAZZ-UI-001-REQ-001` — для `Firearm` / `FirearmBase` `GetItemUIIcon` возвращает путь baked PNG при cache hit для текущего fingerprint.
-- `JAZZ-UI-001-REQ-002` — fingerprint = `weapon.class` + детерминированная карта `slot → component id`; идентичные сборки разделяют один cache file.
-- `JAZZ-UI-001-REQ-003` — bake job строит visual через `CreateVisualObj` / `UpdateVisualObj`, фиксированный side framing; аттачи визуально присутствуют на снимке.
-- `JAZZ-UI-001-REQ-004` — после успешного изменения компонентов ставится invalidate/rebake; при cache miss первый UI resolve ставит lazy bake в очередь (не блокирует кадр синхронным fullscreen capture дольше согласованного hitch budget из spike).
-- `JAZZ-UI-001-REQ-005` — cache miss до завершения bake, ошибка bake, или stock/default component set → template `Icon` без ошибки UI.
-- `JAZZ-UI-001-REQ-006` — save/network не содержат PNG blob; только существующая сериализация компонентов оружия определяет возможность rebuild на клиенте.
-- `JAZZ-UI-001-REQ-007` — когда `GetItemUIIcon` отдаёт baked path, inventory tile не показывает `w_mod` badge для этого оружия.
-- `JAZZ-UI-001-REQ-008` — cache files живут под AppData (или эквивалент, подтверждённый spike); ModifyWeaponDlg может триггерить bake на apply/close, но capture viewport — dedicated bake job, не кабинет игрока.
-- `JAZZ-UI-001-REQ-009` — multiplayer: каждый клиент бэйкит локально из synced component state; файлы кэша не синхронизируются по сети.
+- `JAZZ-UI-001-REQ-001` — `Firearm` / `FirearmBase` `GetItemUIIcon` возвращает vanilla template `Icon` (bake override off).
+- `JAZZ-UI-001-REQ-002` — helper собирает non-default `slot → component` с путём chip-картинки (`ChipIcon` → `Icon` → `Icons/Upgrades/slot_<family>.png`).
+- `JAZZ-UI-001-REQ-003` — `XInventoryItem` / `UIWeaponDisplay` показывают chip row (до N иконок) для non-stock сборок.
+- `JAZZ-UI-001-REQ-004` — при chip row > 0 badge `w_mod` / `idModIcon` скрыт.
+- `JAZZ-UI-001-REQ-005` — stock/default config → без chips, vanilla `w_mod` behaviour (обычно скрыт т.к. CountWeaponUpgrades=0).
+- `JAZZ-UI-001-REQ-006` — Chip-миниатюры живут в `Icons/Upgrades/Chips/<ComponentId>.png`; property `ChipIcon`; бэкап по слотам с ревью до wire.
+- `JAZZ-UI-001-REQ-007` — multiplayer: только synced components; chips локальный UI, без сетевых файлов.
+- `JAZZ-UI-001-REQ-008` — новый WeaponComponent: пара через **два** skill — `$create-jazz-component-icons` (`Icon`) и `$create-jazz-chip-icons` (`ChipIcon`); генерация не смешивается в одном skill.
 
 ## Инварианты и ограничения
 
-- Публичные template `Icon` paths в InventoryItem definitions не затираются на диске мода; меняется только runtime resolve.
-- Vanilla `ModifyWeaponDlg` 3D pipeline и component apply semantics сохраняются.
-- Deterministic fingerprint: одинаковый набор слотов даёт одинаковый ключ на всех клиентах/запусках.
-- Не смешивать bake hitch с критическими combat/net ticks; bake в real-time queue.
-- Generated data: регистрация нового `ModItemCode` и любых UI overrides — одна транзакция `items.lua` + `metadata.lua` + companion.
-- Owner go-ahead («Давай», 2026-07-29) разрешает implementation при provisional spike acceptance ниже; human AC-005..008 остаются обязательными до `implemented`/`accepted`.
-
-### Spike gates (provisional → human confirm)
-
-1. **Path load** — provisional PASS: MiniMap pattern `AppData/Editor/<modId>/…png` + `UIL.MeasureImage` / `UIL.DrawXImage`; inventory binds via `JazzWeaponIcon_ApplyToXImage` (src_rect from MeasureImage when ResourceManager miss).
-2. **Side capture** — provisional: dedicated bake job + `WaitCaptureScreenshot` (MiniMap) / IsolatedObject hide pattern; human confirm framing.
-3. **Background** — MVP: black sky (`RenderSky=0`); accept for MVP, iterate chroma later if needed.
-4. **Hitch budget** — strategy locked: async real-time queue, one bake at a time, lazy on UI miss + trigger on `SetWeaponComponent` / `WeaponModifiedSuccess`; no sync capture inside `GetItemUIIcon`.
+- Публичные template `Icon` paths оружия на диске не затираются.
+- Deterministic chip set от component map.
+- Generated data: новые `ModItemCode` / Icon path на WeaponComponent — транзакция `items.lua` + `metadata.lua` (+ companion если есть).
+- Owner go-ahead path B: 2026-07-30 («а дальше идем на B»).
 
 ## Acceptance criteria
 
-- `JAZZ-UI-001-AC-001` — static: override `GetItemUIIcon` для firearm; fingerprint helper детерминирован; нет записи PNG в save helpers.
-- `JAZZ-UI-001-AC-002` — static: bake использует `CreateVisualObj`/`UpdateVisualObj`; trigger на component change + lazy queue на miss.
-- `JAZZ-UI-001-AC-003` — static: `w_mod` suppressed when baked icon active.
-- `JAZZ-UI-001-AC-004` — sync-audit: `WeaponIconBake.lua` (и UI hook files) согласованы в `items.lua` + `metadata.lua`.
-- `JAZZ-UI-001-AC-005` — runtime: два экземпляра одного class с одинаковыми компонентами показывают один и тот же baked path/файл.
-- `JAZZ-UI-001-AC-006` — runtime: смена scope/muzzle/stock в ModifyWeapon → после bake иконка в инвентаре отражает аттачи; stock config или bake fail → template `Icon`.
-- `JAZZ-UI-001-AC-007` — runtime/human: drag ghost, rollover и inventory tile используют baked icon (не расходятся).
-- `JAZZ-UI-001-AC-008` — human: spike gates 1–4 закрыты evidence до approve; после implement — playtest framing приемлем как MVP.
+- `JAZZ-UI-001-AC-001` — static: bake `GetItemUIIcon` override disabled / no bake queue from inventory resolve.
+- `JAZZ-UI-001-AC-002` — static: chip helper + InventoryUI/HUD bind; `w_mod` suppressed when chips visible.
+- `JAZZ-UI-001-AC-003` — sync-audit: `WeaponAttachChips.lua` (+ related) согласованы в `items.lua` + `metadata.lua`.
+- `JAZZ-UI-001-AC-004` — runtime: оружие с scope/muzzle/stock ≠ default показывает соответствующие chips на тайле.
+- `JAZZ-UI-001-AC-005` — runtime: stock config без chips; `w_mod` не остаётся «ложным» индикатором при chips.
+- `JAZZ-UI-001-AC-006` — human: chips читаемы на inventory tile и UIWeaponDisplay.
 
 ## Impact и совместимость
 
-- Vanilla/CommonLib/JAZZ: last-writer override `GetItemUIIcon` и тонкий InventoryUI hook для `w_mod`; capture API — vanilla CommonLua. Нет зависимости от мода MiniMap (только reference pattern).
-- Saves: schema без PNG; после load иконки появляются после cache hit или lazy bake. Старые сейвы совместимы.
-- Network/determinism: component sync без изменений; bake локальный, non-hashed visual cache.
-- Generated data: да — `ModItemCode` (+ optional XTemplate/InventoryUI companion registration).
-- Cross-package: нет (`jazz` only). Assets package не требует prebaked icons.
-- Rollback/recovery: revert write set; удалить AppData cache dir вручную при необходимости.
-- Risks: style clash с painted icons; capture hitch/queue; dynamic path registration; framing pistol vs MG; multiplayer local cache divergence until bake completes (fallback Icon).
+- Vanilla/CommonLib/JAZZ: InventoryUI hook; no `GetItemUIIcon` replace for bake.
+- Saves: без изменений schema.
+- Generated data: да — code registration; Icon fills on empty components; upgrade PNG under `Icons/Upgrades/`.
+- Cross-package: нет.
+- Rollback: revert write set; bake можно вернуть отдельной spec.
+- Risks: мелкий размер chips; нехватка уникального арта → slot-fallback.
 
 ## План и ownership
 
 - Пакет-владелец: jazz
-- Исполнитель: agent (после approved)
+- Исполнитель: agent
 - Reviewer: project-owner
-- Declared write set: см. frontmatter
-- Exclusive resources: `items.lua`, `metadata.lua`
-- Порядок работ после approve:
-  1. Закрыть spike gates evidence в разделе Evidence / owner notes.
-  2. Реализовать `Code/WeaponIconBake.lua` + hooks.
-  3. Sync generated data.
-  4. Runtime AC + technical docs.
-  5. DoD validator.
+- Порядок:
+  1. Skill/prompt attachment icons + slot-fallback PNG.
+  2. Wire empty component Icons → fallback/specific.
+  3. `WeaponAttachChips.lua` + InventoryUI; disable bake.
+  4. Sync + technical docs + runtime AC.
 
 ## Решение владельца
 
-- Статус: approved (код в ветке; `implemented`/`accepted` после runtime AC-005..008)
-- Кто подтвердил: project-owner («Давай»)
-- Дата: 2026-07-29
+- Статус: approved (scope pivot bake → chips)
+- Кто подтвердил: project-owner
+- Дата: 2026-07-30
 - Продуктовые решения:
-  - fidelity = side-view 3D silhouette with attachments;
-  - replace icon everywhere via `GetItemUIIcon`;
-  - cache by module fingerprint (shared across instances).
-- Spike gates: provisional accept on MiniMap AppData/UIL pattern + async queue; human playtest closes AC-005..008.
+  - fidelity = chip badges, not baked silhouette;
+  - reuse `WeaponComponent.Icon` / generate slot fallbacks;
+  - bake dormant.
 
 ## Evidence
 
-- `JAZZ-UI-001-AC-001`: `PASS` — static: `FirearmBase:GetItemUIIcon` + fingerprint/`xxhash` cache; no PNG save helpers in `WeaponIconBake.lua`.
-- `JAZZ-UI-001-AC-002`: `PASS` — static: bake uses `CreateVisualObj`/`UpdateVisualObj`; queue on `SetWeaponComponent` / `WeaponModifiedSuccess` / resolve miss.
-- `JAZZ-UI-001-AC-003`: `PASS` — static: `XInventoryItem:OnContextUpdate` hides `idItemModImg` when `JazzWeaponIcon_HasBakedIcon`.
-- `JAZZ-UI-001-AC-004`: `PASS` — sync: `Code/WeaponIconBake.lua` in `items.lua` ModItemCode + `metadata.code` before `InventoryUI.lua`; audit WARNINGS only (pre-existing orphans).
-- `JAZZ-UI-001-AC-005`: `BLOCKED` — runtime playtest (two instances same fingerprint).
-- `JAZZ-UI-001-AC-006`: `BLOCKED` — runtime playtest (modify → bake → inventory).
-- `JAZZ-UI-001-AC-007`: `BLOCKED` — runtime/human (tile / drag / rollover).
-- `JAZZ-UI-001-AC-008`: `BLOCKED` — human framing / spike confirm on capture quality.
-
-### Spike evidence
-
-- Gate 1 Path load: `PASS (provisional)` — MiniMap `AppData/Editor` + `JazzWeaponIcon_ApplyToXImage`.
-- Gate 2 Side capture: `BLOCKED` — needs human bake screenshot in-game.
-- Gate 3 Background: `PASS (provisional)` — black sky MVP.
-- Gate 4 Hitch budget: `PASS (provisional)` — async single-flight queue in code.
+- `JAZZ-UI-001-AC-001`: `BLOCKED` — pending implement.
+- `JAZZ-UI-001-AC-002`: `BLOCKED` — pending implement.
+- `JAZZ-UI-001-AC-003`: `BLOCKED` — pending sync.
+- `JAZZ-UI-001-AC-004`: `BLOCKED` — runtime.
+- `JAZZ-UI-001-AC-005`: `BLOCKED` — runtime.
+- `JAZZ-UI-001-AC-006`: `BLOCKED` — human.
 
 ## Documentation delta
 
-- `docs/technical/systems/weapons-ammo-components.md` — секция Inventory icons (JAZZ-UI-001).
-- Player wiki: follow-up после accept.
+- `docs/technical/systems/weapons-ammo-components.md` — Inventory icons → chips.
+- Skill `$create-jazz-attachment-icons`; playbook assets-and-ui.

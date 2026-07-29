@@ -70,14 +70,14 @@ JAZZ превращает оружие из набора vanilla-статов в
 
 ## Inventory icons (JAZZ-UI-001)
 
-Path **B** (chips): template `Icon` оружия не подменяется. Chip column (VList, left edge) из `WeaponComponent.ChipIcon` (иначе `Icon`, иначе `Icons/Upgrades/slot_*`).
+Path **B** (chips): template `Icon` оружия не подменяется. Chip column (VList, left edge): `ChipIcon` → иначе `Icons/Upgrades/Chips/<id>.png` если файл есть → иначе `slot_*`. **Не** использовать `WeaponComponent.Icon` как chip (это art кабинета).
 
 - Chip PNG: `Icons/Upgrades/Chips/<ComponentId>.png` → `Mod/e6L4ECj/Icons/Upgrades/Chips/<…>.png`
 - Full кабинет: `Icon` (vanilla `UI/Icons/Upgrades/…` или `Icons/Upgrades/Full/`) — skill `$create-jazz-component-icons`
 - Chip миниатюры — skill `$create-jazz-chip-icons`
 - Runtime: `Code/WeaponAttachChips.lua` + hooks в `InventoryUI.lua`; bake (`WeaponIconBake.lua`) dormant (`JazzWeaponIcon_BakeEnabled = false`)
 - Показ: non-default **или** default + `CanBeEmpty` + `ModificationEffects` (как `CountWeaponUpgrades` — builtin flashlight на MP5A4)
-- Порядок (top→bottom): Scope → Side* → Under → Muzzle → …; `JazzAttachChips_Max = 6`
+- Порядок (priority): Scope → Side* → Under → Muzzle → …; layout **VWrap** (до **3** в левом столбце, 4-й → второй столбец), size **24px**, margin −4, `JazzAttachChips_Max = 4`
 - Mount* слоты не чипуются
 - `w_mod` скрывается, когда показан chip column
 - Scope/Sights: ChipIcon проставлен для 30 компонентов (2026-07-30)
