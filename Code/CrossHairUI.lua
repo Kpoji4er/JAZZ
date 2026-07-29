@@ -415,12 +415,12 @@ function CrosshairUI:UpdateAim()
 		self.ZoomLevelWindow:SetVisible(true)
 		local ScopeLevelText = pContext.ScopeLevelText
 		self.ScopeZoom:SetText(
-			T{444327862984111, "<ScopeLevelText>", ScopeLevelText = Untranslated(ScopeLevelText or "")}
+			T{444327862984111, "<ScopeLevelText>", ScopeLevelText = pContext.ScopeLevelText}
 		)   
 	elseif self.ScopeZoom and pContext.SmallScopeLevelText and pContext.aim >= pContext.SmallAimLevel and pContext.SmallAimLevel > 0 then
 			local ScopeLevelText = pContext.SmallScopeLevelText
 			self.ScopeZoom:SetText(
-				T{444327862984111, "<ScopeLevelText>", ScopeLevelText = Untranslated(ScopeLevelText or "")}
+				T{444327862984111, "<ScopeLevelText>", ScopeLevelText = pContext.SmallScopeLevelText}
 			)  
 		self.ZoomLevelWindow:SetVisible(true) 
 	elseif self.ScopeZoom then
@@ -578,7 +578,7 @@ local function JAZZ_CTHDebugValue(mod)
 	local rounded = value >= 0 and math.floor(value + 0.5) or math.ceil(value - 0.5)
 	local text = string.format("%+d%%", rounded)
 	if mod.factor then
-		text = text .. string.format("  x%.3f", mod.factor * 1.0 / JAZZ_CTH_FACTOR_SCALE)
+		text = text .. string.format("  x%.3f", mod.factor / JAZZ_CTH_FACTOR_SCALE)
 	end
 	if mod.before ~= nil and mod.after ~= nil then
 		text = text .. string.format("  %.1f -> %.1f", mod.before, mod.after)

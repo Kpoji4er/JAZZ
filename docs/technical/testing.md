@@ -23,7 +23,15 @@ git diff --check
 - нет новых абсолютных путей к локальным исходникам;
 - официальный CommonLib `main`/metadata проверен, установленная версия совпадает с последней, матрица CommonLib/JAZZ обновлена.
 
-В окружении аудита не были доступны standalone `lua`, `luac`, `stylua` или `selene`, поэтому синтаксис и runtime необходимо подтверждать самой игрой и Mod Editor.
+Для deterministic контракта стрельбы выполнить:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test-shooting-model.ps1
+```
+
+Тест читает канонический weapon CSV и проверяет 11 классов, исключённые ID, Dexterity/Marksmanship, monotonic aim, floor/cap, range/optic profile, коммутативность факторов, recoil/action windows и отношение СВД к АК-47. Он не запускает движок.
+
+Standalone `lua`/`luac` не является repository dependency. В evidence конкретного change set можно использовать внешний parser для синтаксической проверки, но загрузку, engine globals, реакции и runtime всё равно необходимо подтверждать самой игрой и Mod Editor.
 
 ## Базовый запуск
 
@@ -59,9 +67,7 @@ git diff --check
 - overwatch, interrupt и смена оружия;
 - melee training visual после отмены и завершения действия.
 
-### При реализации целевой модели стрельбы
-
-До runtime-миграции этот раздел является acceptance contract, а не отчётом о пройденных тестах:
+### Модель стрельбы
 
 - физически возможный выстрел не падает ниже `2`, невозможный получает `0`;
 - опытный стрелок достигает `100%` по открытой цели в полный рост, при полном aim и внутри оптимальной зоны; любой применимый штраф должен уводить этот сценарий ниже `100%`;

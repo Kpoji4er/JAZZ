@@ -1,6 +1,6 @@
 ---
 id: JAZZ-CTH-001
-status: implemented
+status: approved
 owner: project-owner
 systems:
   - combat-cth-actions
@@ -17,6 +17,7 @@ write_set:
   - jazz/Code/System_OR_Unit.lua
   - jazz/Code/System_OR_Weapons.lua
   - jazz/Code/CombatAI.lua
+  - jazz/Code/Rato_CustomSeekCover.lua
   - jazz/Code/CrossHairUI.lua
   - jazz/Code/System_Firearm_AddProperties.lua
   - jazz/InventoryItem/*.lua
@@ -173,9 +174,9 @@ approved_by: project-owner
 - `JAZZ-CTH-001-AC-010`: `PASS` - the matrix covers 157 active weapons and all 11 families; aimed SVD exceeds AK-47 at prepared medium/long range.
 - `JAZZ-CTH-001-AC-011`: `PARTIAL` - generated-data audit reports zero jazz errors/warnings and the wiki validates 160 canonical rows; Mod Editor round-trip remains.
 - `JAZZ-CTH-001-AC-012`: `PASS` - Lua parse, static matrix, wiki check, documentation audit, project audit, localization audit, and scoped diff checks pass; strict suite audit exposes only 14 pre-existing jazz_assets warnings.
-- `JAZZ-CTH-001-AC-013`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
-- `JAZZ-CTH-001-AC-014`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
-- `JAZZ-CTH-001-AC-015`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-CTH-001-AC-013`: `BLOCKED` - Mod Editor load/save/reload requires the interactive game editor.
+- `JAZZ-CTH-001-AC-014`: `BLOCKED` - the required in-game playtest has not yet been run.
+- `JAZZ-CTH-001-AC-015`: `BLOCKED` - the network/replay determinism scenario has not yet been run.
 - `JAZZ-CTH-001-AC-016`: `PARTIAL` - self-review, source-contract inspection, static tests, and Lua parsing are complete; independent review remains.
 
 ## Documentation delta
