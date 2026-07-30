@@ -34,99 +34,30 @@
 
 ---
 
-## Непофикшенные проблемы ванили (приоритет)
+## Непофикшенные проблемы ванили (карточки EN)
 
-### P0 — Combat AI turn time
+Каждая проблема ванили, которую **CommonLib не закрывает**, вынесена в отдельный англоязычный файл:
 
-#### V-AI-001 — `AIUpdateDestLosCache`: dest × enemy `CheckLOS` + `Sleep(10)`
-- **Где:** `Lua/Tactical/CombatAI.lua` (~862–970)
-- **Частота:** каждый aware AI unit на старте хода
-- **Почему болит:** сотни dest × враги, батчи по 100, yield каждые 10 ms
-- **JAZZ:** override есть; компакция dests ускорена; сам объём `CheckLOS` остаётся ванильным контрактом
-- **Фикс ванили/engine:** spatial shortlist (в радиусе оружия/sight); bitset visible-dest; меньше yield при spare budget
+**Каталог:** [`performance/vanilla-unfixed-by-commonlib/`](performance/vanilla-unfixed-by-commonlib/README.md)
 
-#### V-AI-002 — `AIPrecalcDamageScore`: `GetLoFData` на все destinations × targets
-- **Где:** `CombatAI.lua` (~1418–1705), callers в `AIBehaviors.lua`
-- **Частота:** каждый AI think + повторно при retarget
-- **JAZZ:** override (`AiActions.lua`); CTH cache снижает вторичную стоимость `PickBestAttack`, но LoF matrix остаётся
-- **Фикс ванили:** shortlist reachable dests; reuse LoF по `(step_pos, stance)`; не пересчитывать полный matrix после move
+| ID | Карточка |
+|---|---|
+| V-AI-001 | [dest LOS cache](performance/vanilla-unfixed-by-commonlib/V-AI-001-dest-los-cache.md) |
+| V-AI-002 | [precalc damage LoF](performance/vanilla-unfixed-by-commonlib/V-AI-002-precalc-damage-lof.md) |
+| V-AI-003 | [dual path + OptLoc](performance/vanilla-unfixed-by-commonlib/V-AI-003-dual-path-optloc.md) |
+| V-AI-004 | [score dest fire/gas](performance/vanilla-unfixed-by-commonlib/V-AI-004-score-dest-fire-gas.md) |
+| V-AI-005 | [emplacement MapGet](performance/vanilla-unfixed-by-commonlib/V-AI-005-emplacement-mapget.md) |
+| V-VIS-001 | [UpdateUnitsLOS O(n²)](performance/vanilla-unfixed-by-commonlib/V-VIS-001-update-units-los.md) |
+| V-VIS-002 | [faded slab MapGet](performance/vanilla-unfixed-by-commonlib/V-VIS-002-faded-slab-mapget.md) |
+| V-SAT-001 | [satellite Dijkstra](performance/vanilla-unfixed-by-commonlib/V-SAT-001-satellite-dijkstra.md) |
+| V-UI-001 | [interactable highlight](performance/vanilla-unfixed-by-commonlib/V-UI-001-interactable-highlight.md) |
+| V-UI-002 | [approach banters](performance/vanilla-unfixed-by-commonlib/V-UI-002-approach-banters.md) |
+| V-UI-003 | [inventory nested ForEach](performance/vanilla-unfixed-by-commonlib/V-UI-003-inventory-nested-foreach.md) |
+| V-AL-001 | [AmbientLife map sweeps](performance/vanilla-unfixed-by-commonlib/V-AL-001-ambient-life-map-sweeps.md) |
+| V-AI-GC-001 | [AI temp allocations](performance/vanilla-unfixed-by-commonlib/V-AI-GC-001-ai-temp-allocations.md) |
+| V-VIS-DBG-001 | [experimental LOS branch](performance/vanilla-unfixed-by-commonlib/V-VIS-DBG-001-experimental-los-branch.md) |
 
-#### V-AI-003 — Двойной `CombatPath:RebuildPaths` + OptLoc по `all_destinations`
-- **Где:** `AIBuildArchetypePaths` / `AIFindOptimalLocation` (~1009–1315)
-- **Частота:** каждый AI unit think
-- **JAZZ:** частично (MoveStance==PrefStance); OptLoc radius — sync/AI-behavior sensitive
-- **Фикс ванили:** один PF run; score только AP-reachable voxels
-
-#### V-AI-004 — `AIScoreDest`: fire/gas `GetVisualVoxels` на каждый dest
-- **Где:** `CombatAI.lua` (~1135–1170)
-- **Частота:** сотни dest × policies
-- **Фикс ванили:** occupancy grid раз на AI phase; skip если на карте нет fire/gas
-
-#### V-AI-005 — Emplacement: `MapGet("map", "MachineGunEmplacement")`
-- **Где:** `CombatAI.lua` (~2501–2558)
-- **Частота:** team AI assignment
-- **Фикс ванили:** кэш списка на load / spatial query
-
-### P0 — Visibility / LOS (FPS + stalls)
-
-#### V-VIS-001 — `UpdateUnitsLOS` строит O(n²) пары для `CheckLOS`
-- **Где:** `Lua/Tactical/Visibility.lua` (~521–565), `ComputeUnitsVisibility`
-- **Частота:** combat invalidation; exploration dirty + 500 ms tick (комментарий ванили: *«Visibility in exploration can be a big performance hit»*)
-- **JAZZ patch?** **Очень рискованно** — `NetUpdateHash`, stealth/combat start
-- **Фикс ванили/engine:** spatial buckets; incremental dirty units; reuse edges если никто не двигался
-
-#### V-VIS-002 — `IsOnFadedSlab` → `MapGetFirst` на юнит в ApplyVisibility
-- **Где:** `Visibility.lua` (~842–862)
-- **Частота:** каждый ApplyUnitVisibility
-- **JAZZ:** только visual path, осторожно
-- **Фикс ванили:** grid faded floors, не MapGet per unit
-
-#### V-VIS-003 — Suspicion: allies × enemies каждые 100 ms
-- **Где:** `UnitAwareness.lua` (~1211–1340); JAZZ/CLib переопределяют
-- **Частота:** stealth exploration
-- **JAZZ:** early-outs (`IsCloser`, skip `GetSightRadius`) уже на месте; sight всё ещё тяжелее ванили по броне/camo
-- **Фикс ванили:** spatial query; только nearby enemies
-
-### P1 — Satellite
-
-#### V-SAT-001 — `GenerateRouteDijkstra` без кэша + O(n²) extract через `sorted_pairs`
-- **Где:** `Satellite/SatelliteSquad.lua` (~2566–2747); UI hover в `XSatelliteMap.lua`
-- **Частота:** rollover сектора при выборе маршрута; travel/join/retreat
-- **Замечание:** `GenerateRouteDijkstraSimplified` (`DiamondBriefcase.lua`) **уже** использует caches — основной путь нет
-- **JAZZ:** файл скопирован; реальный travel sync-sensitive; **UI preview memoize** — безопасный follow-up
-- **Фикс ванили:** те же caches + heap/bucket вместо линейного min-extract; hover не звать Dijkstra дважды
-
-### P1 — UI / exploration
-
-#### V-UI-001 — Interactable highlight: `MapGet("map","Interactable")` + цикл 200 ms
-- **Где:** `UI/IModeCommonUnitControl.lua` (~759–855)
-- **Частота:** пока зажат highlight
-- **JAZZ patch?** **Безопасно** (UI-only): spatial cull / on-screen only
-- **Фикс ванили:** spatial index; кэш списка
-
-#### V-UI-002 — Approach banters на каждом exploration visibility tick
-- **Где:** `Exploration.lua` → `Banter.lua` `UpdateApproachBanters` (~2854–2943)
-- **Частота:** каждые 500 ms, O(units²) distance + filter
-- **Фикс ванили:** 2–5 s throttle; spatial hash
-
-#### V-UI-003 — Nested `ForEachItem` в Inventory Take All / free-space
-- **Где:** `XTemplates/Inventory.lua`, `Inventory.lua`
-- **Частота:** UI actions (не combat FPS)
-- **Фикс ванили:** index stacks; single-pass free-space
-
-### P2 — AmbientLife / GC
-
-#### V-AL-001 — AmbientLife full-map sweeps на spawn/despawn / conflict
-- **Где:** `AmbientLife.lua`
-- **Фикс ванили:** registry маркеров вместо `MapForEach("map", …)`
-
-#### V-AI-GC-001 — Temp `point()` / `CombatPath:new()` / cover tables в AI loops
-- **Где:** `AIPrecalcDamageScore`, `Cover.lua` `GetCoversAt`
-- **Фикс ванили:** packed positions; recycle buffers
-
-#### V-VIS-DBG-001 — `g_ExperimentalModeLOS` ветка в shipped LOS
-- **Где:** `Visibility.lua` (~251–272), TODO remove
-- **Severity:** low
+**Не входит в каталог (CLib уже смягчает):** suspicion ally×enemy early-outs (`FixAI.lua`), overwatch visual hash, empty-smoke `IsLineInSmoke`, editor/mod-load stubs. Структурный O(allies×enemies) suspicion остаётся, но это не «полностью непофикшено CLib».
 
 ---
 
@@ -167,6 +98,7 @@
 
 ## Связанные документы
 
+- [performance/vanilla-unfixed-by-commonlib/](performance/vanilla-unfixed-by-commonlib/README.md) — EN-карточки проблем ванили без фикса CLib
 - [runtime-editor-integration.md](systems/runtime-editor-integration.md) — правила map enumeration
 - [visibility-weather-appearance.md](systems/visibility-weather-appearance.md) — sight hot path
 - [ai-awareness.md](systems/ai-awareness.md) — AI pipeline / CTH

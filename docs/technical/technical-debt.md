@@ -16,7 +16,7 @@
 
 ### Производительность vanilla (не закрыто модом)
 
-Крупные sync-hard узкие места ванили (O(n²) `UpdateUnitsLOS`, полный AI DestLOS/LoF matrix, satellite Dijkstra без кэша) зафиксированы в [performance-vanilla-report.md](performance-vanilla-report.md). JAZZ закрывает только безопасные микро-оптимизации на своих overrides.
+Крупные sync-hard узкие места ванили (O(n²) `UpdateUnitsLOS`, полный AI DestLOS/LoF matrix, satellite Dijkstra без кэша) зафиксированы по одной EN-карточке в [performance/vanilla-unfixed-by-commonlib/](performance/vanilla-unfixed-by-commonlib/README.md); сводка — [performance-vanilla-report.md](performance-vanilla-report.md). JAZZ закрывает только безопасные микро-оптимизации на своих overrides.
 
 ### Крупные копии vanilla
 
