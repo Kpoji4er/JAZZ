@@ -16,6 +16,10 @@ resources:
     repository: jazz-units
     paths: [items.lua, metadata.lua]
     mode: exclusive
+  - id: jazz-nomaps-generated-root
+    repository: jazz-nomaps
+    paths: [items.lua, metadata.lua]
+    mode: exclusive
   - id: mod-editor-state
     repository: suite
     paths: [Mod Editor session]

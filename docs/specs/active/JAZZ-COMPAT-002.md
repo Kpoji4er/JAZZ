@@ -47,8 +47,7 @@ approved_by: project-owner
 `jazz-maps` и `jazz-nomaps` — **альтернативы**, не ставятся вместе как обязательная пара.
 Если оба включены: `jazz-nomaps` обязан быть **полным no-op** (maps wins).
 
-**Реализацию не начинать** до `approved` и окончания соседних агентов. Сейчас write set =
-только эта спека (+ пометка COMPAT-001).
+**Реализация одобрена владельцем 2026-07-30.** Пакет `jazz-nomaps` (`7MsJ2Eq`) в GitHub; COMPAT-001 superseded.
 
 ## Связь с COMPAT-001
 
@@ -293,12 +292,12 @@ Core `jazz` **не** объявляет dependency на nomaps.
 - `JAZZ-COMPAT-002-AC-002`: `BLOCKED (runtime)` — new game без maps.
 - `JAZZ-COMPAT-002-AC-003`: `BLOCKED (runtime)` — maps+nomaps no-op.
 - `JAZZ-COMPAT-002-AC-004`: `PASS (static)` — `StandaloneNoMapsFallback` удалён из jazz metadata/items.
-- `JAZZ-COMPAT-002-AC-005`: `BLOCKED (runtime)` — spawn/loot.
+- `JAZZ-COMPAT-002-AC-005`: `PASS (static)` — LootDef packs `JAZZ_NoMaps_Container_*` + GenerateLoot inject path; runtime BLOCKED.
 - `JAZZ-COMPAT-002-AC-006`: `BLOCKED (editor)` — editor round-trip.
 - `JAZZ-COMPAT-002-AC-007`: `BLOCKED (human)`.
 
 ## Documentation delta
 
-- Technical compatibility / strategy / file-coverage обновлены.
+- Technical compatibility / strategy / file-coverage / AGENTS / project-scope / exclusive-resources обновлены.
 - COMPAT-001 → `docs/specs/superseded/`.
-- Пакет `jazz-nomaps` с `AGENTS.md`.
+- Пакет `jazz-nomaps` с LootDef packs.
