@@ -258,11 +258,11 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 - `JAZZ-GRENADES-001-AC-001`: `PASS` — static: shared `ApplyImpactDeviation`; ByDist free functions removed; Min/Max integer path.
 - `JAZZ-GRENADES-001-AC-002`: `PASS` — static: mishap flag/notification only on Max band in ApplyImpactDeviation.
 - `JAZZ-GRENADES-001-AC-003`: `PASS` — static/editor data: GL MinMishapRange; Demo MaxMishapChance; RU/EN hints updated.
-- `JAZZ-GRENADES-001-AC-004`: `BLOCKED` — runtime human (Dex/MS blends, half-range zero, CapTiles).
-- `JAZZ-GRENADES-001-AC-005`: `BLOCKED` — runtime suppression/Inaccurate.
-- `JAZZ-GRENADES-001-AC-006`: `BLOCKED` — runtime/MP smoke.
+- `JAZZ-GRENADES-001-AC-004`: `BLOCKED` — runtime: общий playtest (Dex/MS blends, half-range zero, CapTiles).
+- `JAZZ-GRENADES-001-AC-005`: `BLOCKED` — runtime: общий playtest (suppression/Inaccurate).
+- `JAZZ-GRENADES-001-AC-006`: `BLOCKED` — runtime/MP: общий playtest smoke.
 - `JAZZ-GRENADES-001-AC-007`: `PASS` — technical + wiki + showcase ru/en updated.
-- `JAZZ-GRENADES-001-AC-008`: `BLOCKED` — human aim tint vs GetCTHColor.
+- `JAZZ-GRENADES-001-AC-008`: `BLOCKED` — human aim tint vs GetCTHColor: общий playtest.
 
 ## Documentation delta
 
