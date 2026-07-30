@@ -19,7 +19,7 @@
 
 - 160 технических записей оружия;
 - 157 активных записей, попадающих в player wiki;
-- `AR15`, `M4Commando` и базовый `MP5` имеют `catalog_status = excluded_disabled` и намеренно исключены из player wiki;
+- `AR15`, `M4Commando` и базовый `MP5` имеют `catalog_status = excluded_disabled` и намеренно исключены из player wiki; полный реестр cut оружия и vanilla ammo (`TEST.png`) — [вырезанный контент](cut-content.md);
 - 156 существующих записей сопоставлены со строками профильных вкладок Google Sheets;
 - 20 строк таблицы пока не имеют runtime weapon ID и сохранены в `tier-migration.csv` со статусом `not_in_runtime`;
 - у 22 активных записей canonical tier отличается от `comment = "Tier …"` в стабильном Lua. До синхронизации runtime верным считается `tier_label`, а старое значение доступно в `code_tier_label` только для аудита.

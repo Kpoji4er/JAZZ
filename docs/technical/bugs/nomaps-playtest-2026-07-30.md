@@ -22,8 +22,8 @@
 
 ## Что это НЕ является
 
-- **Не missing Icon / missing loc string.** Owner: патроны с `Icon = Mod/e6L4ECj/Ammopics/TEST.png` — осознанная пометка **неиспользуемых** vanilla ammo (`_9mm_*`, `_556_*`, `_762WP_*`, `_762NATO_*`, `_44CAL_*`, `_12gauge_*`, `_50BMG_*`, …).
-- **Не баг MP5A2/MP5A4.** Базовый класс `MP5` (и аналогично `AR15`, `M4Commando`) помечен `comment = "Убираем"`, `DisplayName = "ОТКЛЮЧЕНО"`, старый калибр (`9mm` / `556`). Живые варианты — `MP5A2` / `MP5A4` / `MP5K` / `MP5SD`.
+- **Не missing Icon / missing loc string.** Owner: патроны с `Icon = Mod/e6L4ECj/Ammopics/TEST.png` — осознанная пометка **неиспользуемых** vanilla ammo. Полный реестр: [вырезанный контент](../weapons/cut-content.md).
+- **Не баг MP5A2/MP5A4.** Базовый класс `MP5` (и `AR15`, `M4Commando`) — `Убираем` / `ОТКЛЮЧЕНО`. Живые варианты — `MP5A2` / `MP5A4` / `MP5K` / `MP5SD`.
 
 ## Корневые причины (static)
 
