@@ -11,6 +11,7 @@ DefineClass.MGL = {
 	MinMishapChance = -5,
 	MaxMishapChance = 40,
 	MaxMishapRange = 6,
+	MinMishapRange = 1,
 	Caliber = "JAZZ_Caliber_40mmGrenade",
 	AttackAP = 5000,
 	BombardRadius = 3,

@@ -116,43 +116,16 @@ function Grenade:GetAttackResults(action, attack_args)
 
 		-- mishap & stealth kill checks
 		if not attack_args.prediction and IsKindOf(self, "MishapProperties") then
-			local chance = self:GetMishapChance(attacker, target_pos)
-			if CheatEnabled("AlwaysMiss") or attacker:Random(100) < chance then
-				mishap = true
-
-				-- Try a couple of times to get a valid deviated position
-				local validPositionTries = 0
-				local maxPositionTries = 5
-				while validPositionTries < maxPositionTries do
-					local dv = self:GetMishapDeviationVectorMax(attacker, target_pos)
-					local deviatePosition = target_pos + dv
-					local trajectory = self:GetTrajectory(attack_args, attack_pos, deviatePosition, "mishap")
-					local finalPos = #trajectory > 0 and trajectory[#trajectory].pos
-					if finalPos and self:ValidatePos(finalPos, attack_args) then
-						target_pos = deviatePosition
-						break
-					end
-					validPositionTries = validPositionTries + 1
-				end
-				attacker:ShowMishapNotification(action)
-			else
-				mishap = true
-
-				-- Try a couple of times to get a valid deviated position
-				local validPositionTries = 0
-				local maxPositionTries = 5
-				while validPositionTries < maxPositionTries do
-					local dv = self:GetMishapDeviationVectorMin(attacker, target_pos)
-					local deviatePosition = target_pos + dv
-					local trajectory = self:GetTrajectory(attack_args, attack_pos, deviatePosition, "mishap")
-					local finalPos = #trajectory > 0 and trajectory[#trajectory].pos
-					if finalPos and self:ValidatePos(finalPos, attack_args) then
-						target_pos = deviatePosition
-						break
-					end
-					validPositionTries = validPositionTries + 1
-				end
-			end
+			local attack_pos_local = attack_pos
+			target_pos, mishap = self:ApplyImpactDeviation(attacker, target_pos, attack_args, {
+				action = action,
+				max_tries = 5,
+				validate_pos = function(deviatePosition)
+					local traj = self:GetTrajectory(attack_args, attack_pos_local, deviatePosition, "mishap")
+					local finalPos = #traj > 0 and traj[#traj].pos
+					return finalPos and self:ValidatePos(finalPos, attack_args)
+				end,
+			})
 		end
 		
 
@@ -237,17 +210,15 @@ function HeavyWeapon:GetAttackResults(action, attack_args)
 	-- mishap & stealth kill checks
 	local mishap
 	if not prediction and not attack_args.explosion_pos and IsKindOf(self, "MishapProperties") then
-		local chance = self:GetMishapChance(attacker, target_pos)
-		if CheatEnabled("AlwaysMiss") or attacker:Random(100) < chance then
-			local dv = self:GetMishapDeviationVectorMax(attacker, target_pos)
-			mishap = true
-			target_pos = target_pos + dv
-			attacker:ShowMishapNotification(action)
-		else
-			local dv = self:GetMishapDeviationVectorMin(attacker, target_pos)
-			mishap = true
-			target_pos = target_pos + dv
-		end
+		local use_validate = self.trajectory_type == "parabola"
+		target_pos, mishap = self:ApplyImpactDeviation(attacker, target_pos, attack_args, {
+			action = action,
+			max_tries = use_validate and 5 or 1,
+			validate_pos = use_validate and function(deviatePosition)
+				local traj = Grenade:GetTrajectory(attack_args, nil, deviatePosition, "mishap")
+				return traj and #traj > 0
+			end or nil,
+		})
 	end
 
 	if self.trajectory_type == "line" then

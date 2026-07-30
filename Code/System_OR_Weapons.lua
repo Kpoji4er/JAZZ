@@ -1723,140 +1723,170 @@ local suppression_levels = {
 	{debuff = 5, effect = "suppressionLight"},
 }
 
----
---- Calculates the chance of a mishap occurring based on the distance between the attacker and the target.
----
---- @param item table The weapon item being used.
---- @param attacker Unit The unit performing the attack.
---- @param target Unit The target of the attack.
---- @param async boolean Whether the calculation should be performed asynchronously.
---- @return number The chance of a mishap occurring, as a percentage.
----
-function MishapChanceByDist(item, attacker, target, async)
-	local chance = MishapProperties.GetMishapChance(item, attacker, target, async)
-	local range = item.WeaponRange * const.SlabSizeX
+local JazzDemoMishapClasses = {
+	PipeBomb = true,
+	ShapedCharge = true,
+}
 
-	local dist = attacker:GetDist(target)
+function MishapProperties:GetMishapSkillProfile()
+	if JazzDemoMishapClasses[self.class] or IsKindOf(self, "ThrowableTrapItem") then
+		return "Demo", 60
+	end
+	if IsKindOfClasses(self, "HeavyWeapon", "FlareGun", "GrenadeLauncher", "RocketLauncher", "Mortar") then
+		return "AimedHeavy", 30
+	end
+	return "ThrowGrenade", 30
+end
 
+function MishapProperties:GetMishapSkillBlend(attacker)
+	local dex = attacker.Dexterity or 50
+	local expl = attacker.Explosives or 50
+	local ms = attacker.Marksmanship or 50
+	local profile = self:GetMishapSkillProfile()
+	if profile == "Demo" then
+		return DivRound(expl * 3 + dex, 4)
+	elseif profile == "AimedHeavy" then
+		return DivRound(ms * 2 + expl, 3)
+	end
+	return DivRound(dex * 2 + expl, 3)
+end
 
+function MishapProperties:GetMishapFullRange()
+	if IsKindOfClasses(self, "HeavyWeapon", "FlareGun", "GrenadeLauncher", "RocketLauncher", "Mortar") then
+		return (self.WeaponRange or 12) * const.SlabSizeX
+	end
+	local tiles = self.ThrowMaxRange or self.BaseRange or self.WeaponRange or 12
+	return tiles * const.SlabSizeX
+end
+
+function MishapProperties:GetEffectiveMishapDist(attacker, target)
+	local physical = 0
+	if IsPoint(target) then
+		physical = attacker:GetDist(target)
+	elseif IsValid(target) then
+		physical = attacker:GetDist(target)
+	end
+	local ref = self:GetMishapFullRange()
+	local dist = physical
 	for _, data in ipairs(suppression_levels) do
 		if attacker:HasStatusEffect(data.effect) then
-			dist = dist + MulDivRound(range, data.debuff, 100)
+			dist = dist + MulDivRound(ref, data.debuff, 100)
 			break
 		end
 	end
-
-
 	local inaccurate = attacker:GetStatusEffect("Inaccurate")
 	if inaccurate then
 		local stacks = inaccurate.stacks or 1
-		dist = dist + MulDivRound(range, stacks * 20, 100) 
+		dist = dist + MulDivRound(ref, stacks * 20, 100)
+	end
+	return dist
+end
+
+function MishapProperties:GetMishapCapTiles()
+	return Max(2 * (self.MaxMishapRange or 4), 8)
+end
+
+function MishapProperties:GetMishapChance(attacker, target, async)
+	local _, threshold = self:GetMishapSkillProfile()
+	local blend = self:GetMishapSkillBlend(attacker)
+	local competence = Min(100, MulDivRound(blend, 100, Max(threshold, 1)))
+	local mn = self.MinMishapChance or 0
+	local mx = self.MaxMishapChance or 50
+	local base = mx + MulDivRound(competence, mn - mx, 100)
+
+	local dist_eff = self:GetEffectiveMishapDist(attacker, target)
+	local half = DivRound(self:GetMishapFullRange(), 2)
+	if dist_eff <= half then
+		return 0
 	end
 
-	if dist > range / 2 then
-		chance = Min(100, chance + MulDivRound(dist - range/2, 100 - chance, range/2))
-	end
+	local t_x100 = Min(100, MulDivRound(dist_eff - half, 100, Max(half, 1)))
+	local base_c = Clamp(base, 0, 100)
+	local chance = Min(100, MulDivRound(t_x100,
+		base_c + MulDivRound(100 - base_c, t_x100, 100),
+		100))
 	return chance
 end
 
----
---- Calculates the deviation vector for a mishap based on the distance between the attacker and the target.
----
---- @param item table The weapon item being used.
---- @param attacker Unit The unit performing the attack.
---- @param target Unit The target of the attack.
---- @return Vector3 The deviation vector for the mishap.
----
-function MishapDeviationVectorByDist(item, attacker, target)
-	local dv = MishapProperties.GetMishapDeviationVector(item, attacker, target)
-	local range = item.WeaponRange * const.SlabSizeX
-	local dist = attacker:GetDist(target)
+local function JazzMishapDeviationVector(self, unit, target, band)
+	local blend = self:GetMishapSkillBlend(unit)
+	local dist_eff = self:GetEffectiveMishapDist(unit, target)
+	local dist_tiles = DivRound(dist_eff, const.SlabSizeX)
+	local skill_mod_x100 = Clamp(100 - blend, 10, 100)
 
-	for _, data in ipairs(suppression_levels) do
-		if attacker:HasStatusEffect(data.effect) then
-			dist = dist + MulDivRound(range, data.debuff, 100)
+	local min_range, max_range, dist_mod_x100
+	if band == "min" then
+		min_range = 1 * const.SlabSizeX
+		max_range = (self.MinMishapRange or 2) * const.SlabSizeX
+		dist_mod_x100 = Clamp(MulDivRound(dist_tiles, 100, 10), 40, 200)
+	else
+		min_range = (self.MinMishapRange or 1) * const.SlabSizeX
+		max_range = (self.MaxMishapRange or 4) * const.SlabSizeX
+		dist_mod_x100 = Clamp(MulDivRound(dist_tiles, 100, 8), 100, 400)
+	end
+
+	local min_dev = MulDivRound(MulDivRound(min_range, dist_mod_x100, 100), skill_mod_x100, 100)
+	local max_dev = MulDivRound(MulDivRound(max_range, dist_mod_x100, 100), skill_mod_x100, 100)
+	if max_dev < min_dev then
+		max_dev = min_dev
+	end
+
+	local cap = self:GetMishapCapTiles() * const.SlabSizeX
+	min_dev = Min(min_dev, cap)
+	max_dev = Min(max_dev, cap)
+	if max_dev < min_dev then
+		max_dev = min_dev
+	end
+
+	local deviation = unit:RandRange(min_dev, max_dev)
+	return Rotate(point(deviation, 0, 0), unit:Random(360 * 60))
+end
+
+function MishapProperties:GetMishapDeviationVector(unit, target)
+	return JazzMishapDeviationVector(self, unit, target, "max")
+end
+
+function MishapProperties:GetMishapDeviationVectorMin(unit, target)
+	return JazzMishapDeviationVector(self, unit, target, "min")
+end
+
+function MishapProperties:GetMishapDeviationVectorMax(unit, target)
+	return JazzMishapDeviationVector(self, unit, target, "max")
+end
+
+--- Shared scatter/mishap resolver for grenades and heavy weapons.
+--- @return point, boolean mishap_flag
+function MishapProperties:ApplyImpactDeviation(attacker, target_pos, attack_args, opts)
+	opts = opts or empty_table
+	if attack_args.prediction or attack_args.explosion_pos then
+		return target_pos, false
+	end
+
+	local chance = self:GetMishapChance(attacker, target_pos)
+	local is_mishap = CheatEnabled("AlwaysMiss") or attacker:Random(100) < chance
+	local max_tries = opts.max_tries or 1
+	local resolved = target_pos
+
+	for _ = 1, max_tries do
+		local dv = is_mishap and self:GetMishapDeviationVectorMax(attacker, target_pos)
+			or self:GetMishapDeviationVectorMin(attacker, target_pos)
+		local deviate_pos = target_pos + dv
+		if opts.validate_pos then
+			local ok = opts.validate_pos(deviate_pos)
+			if ok then
+				resolved = deviate_pos
+				break
+			end
+		else
+			resolved = deviate_pos
 			break
 		end
 	end
 
-
-	local inaccurate = attacker:GetStatusEffect("Inaccurate")
-	if inaccurate then
-		local stacks = inaccurate.stacks or 1
-		dist = dist + MulDivRound(range, stacks * 20, 100) 
+	if is_mishap and opts.action then
+		attacker:ShowMishapNotification(opts.action)
 	end
-
-	if dist > range / 2 then
-		local mod = Min(100, MulDivRound(dist - range/2, 100, range/2))
-		dv = MulDivRound(dv, 100 + mod, 100)
-	end
-
-	return dv
-end
-
-
-
-function MishapProperties:GetMishapDeviationVector(unit, target)
-	local explosives = unit.Explosives or 50
-	local dist_tiles = DivRound(unit:GetDist(target), const.SlabSizeX)
-
-	local min_range = (self.MaxMishapRange or 1) * const.SlabSizeX
-	local max_range = (self.MaxMishapRange or 4) * const.SlabSizeX
-
-	-- Integer mods (x100): avoid float bounds into RandRange (MP desync).
-	local dist_mod_x100 = Clamp(MulDivRound(dist_tiles, 100, 6), 100, 400)
-	local skill_mod_x100 = Clamp(100 - explosives, 10, 100)
-
-	local min_dev = MulDivRound(MulDivRound(min_range, dist_mod_x100, 100), skill_mod_x100, 100)
-	local max_dev = MulDivRound(MulDivRound(max_range, dist_mod_x100, 100), skill_mod_x100, 100)
-	if max_dev < min_dev then
-		max_dev = min_dev
-	end
-
-	local deviation = unit:RandRange(min_dev, max_dev)
-	return Rotate(point(deviation, 0, 0), unit:Random(360 * 60))
-end
-
-
-
-function MishapProperties:GetMishapDeviationVectorMin(unit, target)
-	local explosives = unit.Explosives or 50
-	local dist_tiles = DivRound(unit:GetDist(target), const.SlabSizeX)
-
-	local min_range = 1 * const.SlabSizeX
-	local max_range = (self.MinMishapRange or 2) * const.SlabSizeX
-
-	local dist_mod_x100 = Clamp(MulDivRound(dist_tiles, 100, 8), 50, 300)
-	local skill_mod_x100 = Clamp(100 - explosives, 10, 100)
-
-	local min_dev = MulDivRound(MulDivRound(min_range, dist_mod_x100, 100), skill_mod_x100, 100)
-	local max_dev = MulDivRound(MulDivRound(max_range, dist_mod_x100, 100), skill_mod_x100, 100)
-	if max_dev < min_dev then
-		max_dev = min_dev
-	end
-
-	local deviation = unit:RandRange(min_dev, max_dev)
-	return Rotate(point(deviation, 0, 0), unit:Random(360 * 60))
-end
-
-function MishapProperties:GetMishapDeviationVectorMax(unit, target)
-	local explosives = unit.Explosives or 50
-	local dist_tiles = DivRound(unit:GetDist(target), const.SlabSizeX)
-
-	local min_range = (self.MinMishapRange or 1) * const.SlabSizeX
-	local max_range = (self.MaxMishapRange or 4) * const.SlabSizeX
-
-	local dist_mod_x100 = Clamp(MulDivRound(dist_tiles, 100, 8), 100, 400)
-	local skill_mod_x100 = Clamp(100 - explosives, 10, 100)
-
-	local min_dev = MulDivRound(MulDivRound(min_range, dist_mod_x100, 100), skill_mod_x100, 100)
-	local max_dev = MulDivRound(MulDivRound(max_range, dist_mod_x100, 100), skill_mod_x100, 100)
-	if max_dev < min_dev then
-		max_dev = min_dev
-	end
-
-	local deviation = unit:RandRange(min_dev, max_dev)
-	return Rotate(point(deviation, 0, 0), unit:Random(360 * 60))
+	return resolved, is_mishap
 end
 
 function Firearm:GetMaxDispersion(dist, mod)

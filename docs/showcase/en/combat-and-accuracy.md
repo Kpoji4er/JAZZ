@@ -47,6 +47,15 @@ The first bullet uses the normal final chance. Each next bullet keeps only part 
 
 Strength, stance, bipods/setup, components, perks, and special actions improve control. Recoil changes hit probability once; bullet spray after a miss is not a second hidden penalty.
 
+## Grenades and launchers
+
+Throws **always** have light scatter — there is no perfect pin-point landing.
+
+- **Up close** (about half throw/launcher range): light scatter only, no big mishap.
+- **Farther out**: mishap chance rises (big deviation + notification). Suppression and Inaccurate worsen both chance and scatter.
+- Skills: hand grenades — **Dexterity + Explosives** (confident around **30**); underslung/GL/rockets — **Marksmanship + Explosives**; pipes/TNT — mostly **Explosives** (~**60**).
+- While aiming: ring **size** = damage area; ring **color** = mishap risk on the same green→red scale as the crosshair hit-chance ring.
+
 ## What the UI shows
 
 Without debug:

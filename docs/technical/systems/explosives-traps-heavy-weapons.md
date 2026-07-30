@@ -31,6 +31,18 @@
 
 AI использует собственную оценку допустимой дальности, targeting options и специальное действие flare. Поскольку `AIGetAttackTargetingOptions` в JAZZ заменяет и vanilla, и CommonLib версию, тест grenade/flare обязателен после обновления dependency.
 
+### Отклонение (scatter / mishap) — JAZZ-GRENADES-001
+
+Канон в `MishapProperties` (`System_OR_Weapons.lua`); `Grenade` и `HeavyWeapon` вызывают `ApplyImpactDeviation`.
+
+- **Всегда** есть лёгкий scatter (Min-band), даже при «удачном» ролле.
+- **Mishap** (Max-band + notification) только при провале ролла / `AlwaysMiss`; `results.mishap` только тогда.
+- На дистанции ≤ половины `ThrowMaxRange` / `WeaponRange` (с учётом suppression/Inaccurate в effective dist) **mishap chance = 0** — только scatter.
+- Дальше шанс растёт к 100% у полной дальности; base от skill blend + competence remap.
+- Профили: ThrowGrenade `(Dex×2+Expl)/3` thr **30**; AimedHeavy `(MS×2+Expl)/3` thr **30**; Demo/пайпы `(Expl×3+Dex)/4` thr **60**.
+- Cap отклонения: `Max(2×MaxMishapRange, 8)` тайлов; Min-band плавнее (`/10`, clamp 40..200).
+- Area-aim: **радиус** колец = зона поражения; **цвет** = `GetCTHColor(100 − mishap%)` как у кольца прицела.
+
 ## Ловушки и мины
 
 `System_OR_Traps.lua` создаёт динамические mine objects и хранит team ownership. При срабатывании система:
@@ -66,6 +78,7 @@ AI использует собственную оценку допустимой
 - ручной и AI-бросок на минимальной/максимальной дальности;
 - obstruction, indoor/outdoor, smoke и friendly-fire оценка;
 - граната в эпицентре и на границе зоны, разные explosive armor ratings;
+- scatter/mishap: half-range zero chance, skill blends, CapTiles, AoE tint (`JAZZ-GRENADES-001`, playtest);
 - установка, обнаружение и подрыв мины союзником/врагом, save/load;
 - perk-вариант времени установки;
 - toxic/tear gas с новой, повреждённой и отсутствующей маской;
