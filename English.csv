@@ -1,4 +1,4 @@
-sep=,
+﻿sep=,
 ID,Text,Translation,VoiceActor,Context
 987654321,<style WeaponModHeader><display_name></style>,<style WeaponModHeader><display_name></style>,,jazz:Code/System_Firearm_AddProperties.lua:477
 100047705770,The <em>Le Domas</em> and <em>Van Tassel</em> families are gathered to hear findings of the <em>murder investigation</em>,The <em>Le Domas</em> and <em>Van Tassel</em> families are gathered to hear findings of the <em>murder investigation</em>,,jazz-maps:items.lua:96149
@@ -7068,3 +7068,119 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 5678579714391111,изношенное,worn out,,jazz:Code/Inventory.lua:114 | jazz:Code/Inventory.lua:177
 8182360763020012,Ресурс,Resource,,jazz:items.lua:73489
 890000000001650,<first> <last>,<first> <last>,,jazz-units:Code/EliteEnemyNamesFuncs.lua
+890000000001700,Цепная паника,Chain Panic,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001701,Взрывы Колби сеют панику: +20% к радиусу и 20% шанс паники у раненых врагов в зоне взрыва.,Colby's blasts sow panic: +20% blast radius and 20% chance to panic wounded enemies in the blast.,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001702,Тревор Колби,Trevor Colby,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001703,Колби,Colby,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001704,КОЛБИ,COLBY,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001705,"Боевой подрывник и ловушечник AIM. Жёсткие физикалы (кроме силы и подвижности), 99 механики, 88 взрывчатки. Дружит с Тором, не ладит с Фиделем; не любит американцев в отряде.","AIM combat demolitions and trap specialist. Brutal physicals (except Strength and Agility), 99 Mechanical, 88 Explosives. Friends with Thor, clashes with Fidel; does not like Americans on the squad.",,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001706,Ловушечник,The Tripwire,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001707,Colby@aim.com,Colby@aim.com,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001708,tripwire,tripwire,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001709,"Извини, пацан, но я лучше буду работать в саду у мамани, чем вместе с этим падлой Фиделем.","Sorry, mate, but I'd rather weed mum's garden than work with that mongrel Fidel.",,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001710,"Угу, может, ещё и гроб заказать? Извини, подвинься!","Yeah, maybe order a coffin while you're at it? Sorry — move along!",,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001711,"Без проблем, позвоните мне, когда разбогатеете. Просто сейчас я вам не по карману.",No worries — call me when you're flush. Right now I'm out of your price range.,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001712,"Американцы в отряде… Ладно, но надбавка за нервы.","Yanks on the squad… Fine, but I want a hazard bump for my nerves.",,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001713,"Я немного сомневаюсь по поводу дельца, тёмное оно… Но раз Тор с вами — я согласен.","I'm a bit suss about this job… But if Thor's with you, I'm in.",,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001714,Если нужен ещё один спокойный спец — берите Тора.,If you need another steady specialist — grab Thor.,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001715,Как дела? Тревор и Шейла не могут подойти к телефону. Они пошли на пляж. Оставьте сообщение.,G'day. Trevor and Sheila can't come to the phone — they're at the beach. Leave a message.,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001716,Говорит Тревор Колби. Как дела?,Trevor Colby speaking. How're you going?,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001717,"Я сказал, что…",Like I was saying…,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001718,"Если вам нужен механик, лучше меня вы не найдёте. Ну я так думаю.","If you need a mechanic, you won't find better. Least that's what I reckon.",,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001719,"Думаю, я попробую — во мне можете быть уверены.",Reckon I'll give it a go. You can count on me.,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001720,Спросить хотел: мы ещё на один срок подписываемся или нет? Я не прочь ещё врага покрошить.,Just asking — we signing on for another stretch or what? I wouldn't mind chewing up a few more crims.,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001721,"Принимаю. Как вы со мной, так и я с вами. Всё по-честному.","Done. You look after me, I look after you. Straight up.",,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001722,Колби!,Colby!,,jazz-units:VoiceResponse Jazz_Colby Selection
+890000000001723,Да?,Yeah?,,jazz-units:VoiceResponse Jazz_Colby Selection
+890000000001724,Слушаю.,Listening.,,jazz-units:VoiceResponse Jazz_Colby Selection
+890000000001725,Тихо…,Quiet…,,jazz-units:VoiceResponse Jazz_Colby SelectionStealth
+890000000001726,"Тише, пацан…","Keep it down, mate…",,jazz-units:VoiceResponse Jazz_Colby SelectionStealth
+890000000001727,На цыпочках.,On the quiet.,,jazz-units:VoiceResponse Jazz_Colby SelectionStealth
+890000000001728,Есть.,Got it.,,jazz-units:VoiceResponse Jazz_Colby Order
+890000000001729,Понял.,Roger.,,jazz-units:VoiceResponse Jazz_Colby Order
+890000000001730,Сделаю.,Will do.,,jazz-units:VoiceResponse Jazz_Colby Order
+890000000001731,"Иду, е-мое.",I'm goin'.,,jazz-units:VoiceResponse Jazz_Colby Order
+890000000001732,Лады.,Righto.,,jazz-units:VoiceResponse Jazz_Colby Order
+890000000001733,Иду.,Moving.,,jazz-units:VoiceResponse Jazz_Colby CombatMovement
+890000000001734,Перемещаюсь.,Shifting.,,jazz-units:VoiceResponse Jazz_Colby CombatMovement
+890000000001735,Двигаюсь.,I'm movin'.,,jazz-units:VoiceResponse Jazz_Colby CombatMovement
+890000000001736,Крадусь.,Sneaking.,,jazz-units:VoiceResponse Jazz_Colby CombatMovementStealth
+890000000001737,Тихо иду.,Quiet move.,,jazz-units:VoiceResponse Jazz_Colby CombatMovementStealth
+890000000001738,"Без шума, е-мое.","No noise, mate.",,jazz-units:VoiceResponse Jazz_Colby CombatMovementStealth
+890000000001739,С вами.,With you.,,jazz-units:VoiceResponse Jazz_Colby GroupOrder
+890000000001740,"Я тоже, е-мое.",Same here.,,jazz-units:VoiceResponse Jazz_Colby GroupOrder
+890000000001741,"С вами, пацаны.","With you, mates.",,jazz-units:VoiceResponse Jazz_Colby GroupOrder
+890000000001742,Держу на мушке.,I've got him.,,jazz-units:VoiceResponse Jazz_Colby AimAttack
+890000000001743,"Сейчас жарко будет, е-мое.",About to get warm.,,jazz-units:VoiceResponse Jazz_Colby AimAttack
+890000000001744,"Держись, падла.","Hold still, ya mongrel.",,jazz-units:VoiceResponse Jazz_Colby AimAttack
+890000000001745,Тихо сниму…,Takin' him quiet…,,jazz-units:VoiceResponse Jazz_Colby AimAttackStealth
+890000000001746,Без шума уберу.,Put him down quiet.,,jazz-units:VoiceResponse Jazz_Colby AimAttackStealth
+890000000001747,"Никаких проблем, только вряд ли я туда попаду отсюда!",No worries — except I won't hit from here!,,jazz-units:VoiceResponse Jazz_Colby AimAttack_Low
+890000000001748,Это полная задница.,This is a complete mess.,,jazz-units:VoiceResponse Jazz_Colby AimAttack_LowStealth
+890000000001749,Вижу их!,I see 'em!,,jazz-units:VoiceResponse Jazz_Colby OpponentFound
+890000000001750,Вон они. Я их вижу!,There they are. I see 'em!,,jazz-units:VoiceResponse Jazz_Colby OpponentFound
+890000000001751,Враги!,Crims!,,jazz-units:VoiceResponse Jazz_Colby OpponentFound
+890000000001752,Задница!,Hells bells!,,jazz-units:VoiceResponse Jazz_Colby ManyEnemiesSelection
+890000000001753,"Попал, попал, е-мое!",Gotcha! Gotcha!,,jazz-units:VoiceResponse Jazz_Colby OpponentKilled
+890000000001754,"Готово, е-мое.",Done.,,jazz-units:VoiceResponse Jazz_Colby OpponentKilled
+890000000001755,"Ещё один, падла.","Another one, mongrel.",,jazz-units:VoiceResponse Jazz_Colby OpponentKilled
+890000000001756,"Вот тебе в задницу, е-мое!",Take that up the arse!,,jazz-units:VoiceResponse Jazz_Colby OpponentKilled
+890000000001757,Попал!,Gotcha!,,jazz-units:VoiceResponse Jazz_Colby OpponentKilled
+890000000001758,"Еклмн, патроны кончились.",Bloody hell — out of ammo.,,jazz-units:VoiceResponse Jazz_Colby NoAmmo
+890000000001759,"Патроны на исходе, е-мое!",Runnin' low on rounds!,,jazz-units:VoiceResponse Jazz_Colby AmmoLow
+890000000001760,"Ничего, ничего… только моя пушка заклинила!",No worries… except the bloody gun jammed!,,jazz-units:VoiceResponse Jazz_Colby WeaponJammed
+890000000001761,"Еклмн… Надо подождать, и эта штука заработает.",Bloody hell… Give it a sec and this thing'll work.,,jazz-units:VoiceResponse Jazz_Colby WeaponBroken
+890000000001762,"Снаряжение, е-мое! Да это кусок дерьма!",Gear's rubbish! Absolute garbage!,,jazz-units:VoiceResponse Jazz_Colby ItemDeteriorates
+890000000001763,(боль),(pain),,jazz-units:VoiceResponse Jazz_Colby Pain
+890000000001764,(боль),(pain),,jazz-units:VoiceResponse Jazz_Colby Pain
+890000000001765,(боль),(pain),,jazz-units:VoiceResponse Jazz_Colby Pain
+890000000001766,В меня попали… е-мое…,I'm hit… bloody hell…,,jazz-units:VoiceResponse Jazz_Colby Wounded
+890000000001767,"Досталось мне, падла.","That stung, ya mongrel.",,jazz-units:VoiceResponse Jazz_Colby Wounded
+890000000001768,"Ну е-мое, перевязать бы меня…","Bloody hell, could use a bandage…",,jazz-units:VoiceResponse Jazz_Colby SeriouslyWounded
+890000000001769,Меня… подбили…,I'm… going down…,,jazz-units:VoiceResponse Jazz_Colby Downed
+890000000001770,"Бьют как, херы!",They're hammering us!,,jazz-units:VoiceResponse Jazz_Colby SurroundedPain
+890000000001771,Херово чего-то мне…,I'm feeling crook…,,jazz-units:VoiceResponse Jazz_Colby HeavilyWoundedSelection
+890000000001772,"Готов к выполнению задания, е-мое.",Ready for the job.,,jazz-units:VoiceResponse Jazz_Colby CombatStartPlayer
+890000000001773,"Меня заметили, е-мое!",They spotted me!,,jazz-units:VoiceResponse Jazz_Colby CombatStartDetected
+890000000001774,"Е-мое! Все, врагов больше нет!",Bloody hell! No more crims!,,jazz-units:VoiceResponse Jazz_Colby CombatEndNoEnemies
+890000000001775,"Там эти кругом… Поостерегись, пацан.","Still crims about… Watch yourself, mate.",,jazz-units:VoiceResponse Jazz_Colby CombatEndEnemiesRemain
+890000000001776,Эти хрены убрались восвояси.,Those mongrels scarpered.,,jazz-units:VoiceResponse Jazz_Colby CombatEndEnemiesRetreated
+890000000001777,"Чёрт, е-мое…",Damn…,,jazz-units:VoiceResponse Jazz_Colby DeathGeneral
+890000000001778,"Ну, е-мое, Тор… Спи спокойно, коротышка.","Bloody hell, Thor… Sleep easy, shorty.",,jazz-units:VoiceResponse Jazz_Colby DeathBuddy1
+890000000001779,"Фидель, е-мое, такая тупая задница.","Fidel, you absolute nong.",,jazz-units:VoiceResponse Jazz_Colby MockDislike1
+890000000001780,"Ну не е-ли-мое-ли? Я же говорил, Тор пацан что надо!",Would you look at that? Told you Thor's a legend!,,jazz-units:VoiceResponse Jazz_Colby PraisesBuddy1
+890000000001781,Оп-па! Не зря я упирался!,Oi! Hard work pays off!,,jazz-units:VoiceResponse Jazz_Colby LevelUp
+890000000001782,"Жду, пацаны.","Waitin', mates.",,jazz-units:VoiceResponse Jazz_Colby Idle
+890000000001783,Американцы. Лохи вялые.,Yanks. Soft as butter.,,jazz-units:VoiceResponse Jazz_Colby Idle
+890000000001784,(смех),(laugh),,jazz-units:VoiceResponse Jazz_Colby Idle
+890000000001785,Прячусь…,Goin' quiet…,,jazz-units:VoiceResponse Jazz_Colby BecomeHidden
+890000000001786,"Меня не видно, е-мое.",I'm out of sight.,,jazz-units:VoiceResponse Jazz_Colby BecomeHidden
+890000000001787,"Эй, пацаны… здесь не ходите.","Oi, mates… don't walk there.",,jazz-units:VoiceResponse Jazz_Colby MineNearbySelection
+890000000001788,Эгеге… похоже здесь опасность!,Whoa… looks dodgy here!,,jazz-units:VoiceResponse Jazz_Colby MineNearbySelection
+890000000001789,Дверь закрыта.,Door's locked.,,jazz-units:VoiceResponse Jazz_Colby DoorLocked
+890000000001790,Это ещё что?,What's that then?,,jazz-units:VoiceResponse Jazz_Colby LootFound
+890000000001791,Это что за..?,Now wuss at?,,jazz-units:VoiceResponse Jazz_Colby LootFound
+890000000001792,Е-мое! Отлично!,Bloody hell! Beaut!,,jazz-units:VoiceResponse Jazz_Colby ValuableItemFound
+890000000001793,Интересно…,Interesting…,,jazz-units:VoiceResponse Jazz_Colby InteractableFound
+890000000001794,"Спать надо, спать.",Need a kip.,,jazz-units:VoiceResponse Jazz_Colby Tired
+890000000001795,Посплю-ка я…,I'm crashing out…,,jazz-units:VoiceResponse Jazz_Colby Exhausted
+890000000001796,(пыхтит),(heavy breathing),,jazz-units:VoiceResponse Jazz_Colby HeavyBreathing
+890000000001797,"Эй, пацан, конец пути.",Oi mate — end of the line.,,jazz-units:VoiceResponse Jazz_Colby SectorArrived
+890000000001798,Задание выполнено! Хочу что-нибудь сделать.,Job done! Fancy something else.,,jazz-units:VoiceResponse Jazz_Colby ActivityFinished
+890000000001799,Я тебе не игрушечный солдатик. Не буду делать!,I'm not a toy soldier. Not doing that!,,jazz-units:VoiceResponse Jazz_Colby NotNow
+890000000002506,"Спасибо, уже лучше, е-мое.",Cheers — feelin' better.,,jazz-units:VoiceResponse Jazz_Colby HealReceived
+890000000002507,"Можете не сомневаться, эти недалеко ушли.",Don't worry — they haven't gone far.,,jazz-units:VoiceResponse Jazz_Colby Overwatch
+890000000002508,"Все-таки дело здесь нечисто, е-мое.",Somethin' dodgy here.,,jazz-units:VoiceResponse Jazz_Colby ThreatSelection
+890000000002509,Сектор под присмотром.,Watching the sector.,,jazz-units:VoiceResponse Jazz_Colby OverwatchSelection
+890000000002510,(кашляет),(coughing),,jazz-units:VoiceResponse Jazz_Colby GasAreaSelection
+890000000002511,"Воздух, е-мое!",Air! Bloody hell!,,jazz-units:VoiceResponse Jazz_Colby TakeCover
+890000000002512,Меня могли за просто так…,That almost got me for free…,,jazz-units:VoiceResponse Jazz_Colby MissedByKillShot
+890000000002513,Дикая кошка!,Wild cat!,,jazz-units:VoiceResponse Jazz_Colby AnimalFound
+890000000002514,"Лови, падла!","Catch this, mongrel!",,jazz-units:VoiceResponse Jazz_Colby ThrowGrenade
+890000000002515,"Очередь, е-мое!",Full auto!,,jazz-units:VoiceResponse Jazz_Colby Autofire
+890000000002516,"Есть идейка, е-мое…",Got a little idea…,,jazz-units:VoiceResponse Jazz_Colby CombatTaskGiven
+890000000002517,"Да… мое чутье меня не обмануло, е-мое.",Told you — my gut's good.,,jazz-units:VoiceResponse Jazz_Colby CombatTaskCompleted
+890000000002518,"Гмм… мне так кажется, что это полная лажа, е-мое.",Hmm… this plan's rubbish.,,jazz-units:VoiceResponse Jazz_Colby CombatTaskFailed
+890000000002519,Лучше бы мне это просто послышалось.,Hope I just imagined that.,,jazz-units:VoiceResponse Jazz_Colby Startled
+890000000002520,(лезет),(climbing),,jazz-units:VoiceResponse Jazz_Colby Climbing
+890000000002521,(прыжок),(jump),,jazz-units:VoiceResponse Jazz_Colby Jumping
