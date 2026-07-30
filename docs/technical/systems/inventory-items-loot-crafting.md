@@ -79,7 +79,7 @@ Snapshot core содержит 558 InventoryItem definitions:
 
 `System_OR_ItemContainer.lua` реагирует на `LockpickableBrokeOpen` и `DamageDone`, а открытие проходит через NetSync event `OpenContainer`. `System_OR_SquadBag.lua` реагирует на `MercHireStatusChanged` и `PreSquadDespawned`, поэтому изменение переноса предметов затрагивает найм, увольнение, смерть/деспавн и сетевую синхронизацию.
 
-`UtilityFunc.lua` при открытии satellite view регенерирует loot Legion; это cross-cutting стратегический side effect и должно проверяться вместе со strategy docs.
+`UtilityFunc.lua` при открытии satellite view регенерирует loot Legion; это cross-cutting стратегический side effect и должно проверяться вместе со strategy docs. Боевые Legion starting LootDef после JAZZ-UNITS-003 владеет generator `jazz/scripts/legion-loadouts/` → `jazz-units/items.lua` (см. [`legion-units-equipment-tiers.md`](legion-units-equipment-tiers.md)).
 
 ## Crafting и разбор
 

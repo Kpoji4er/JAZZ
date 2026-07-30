@@ -1,12 +1,14 @@
 # Легион: схема юнитов и тиры снаряжения
 
-Целевой дизайн лоадаутов (arch/sub, силуэты классов, модули, ammo grade, маппинг на `weapons.csv` `X-Y` ↔ `XY`): [`docs/design/legion-loadouts.md`](../../design/legion-loadouts.md). Эта страница — **current-state** реализации, не target.
+Целевой дизайн лоадаутов (arch/sub, силуэты классов, модули, ammo grade, маппинг на `weapons.csv` `X-Y` ↔ `XY`): [`docs/design/legion-loadouts.md`](../../design/legion-loadouts.md). Spec реализации: [`JAZZ-UNITS-003`](../../specs/active/JAZZ-UNITS-003.md). Эта страница — **current-state** реализации, не target.
 
 ## Назначение и наблюдаемый эффект
 
 Легион реализован как фиксированный каталог из **38** `JAZZ_Legion_*` классов `UnitData` (37 боевых линий + `JAZZ_Legion_Recruit` для recruiter/manpower). Боевые классы разделены на шесть семейств: штурмовики, стрелки, фланкеры, пулемётчики, командиры и гранатомётчики. Семейство определяет тактическую роль, AI archetype и линию усиления, а конкретный класс — стартовый уровень, характеристики, perks, appearance и корневой equipment preset.
 
-Снаряжение прогрессирует независимо от класса юнита. Quest-переменная `JAZZ_LegionTier.JAZZ_Legion_Tier` открывает новые записи в общих weapon/ammo/armor/utility LootDef. Поэтому один и тот же `UnitData` при новой генерации может получить более сильный вариант экипировки, но не превращается в следующий класс своей линии.
+Снаряжение прогрессирует независимо от класса юнита. Quest-переменная `JAZZ_LegionTier.JAZZ_Legion_Tier` открывает новые записи в weapon/ammo/armor/utility LootDef. Поэтому один и тот же `UnitData` при новой генерации может получить более сильный вариант экипировки, но не превращается в следующий класс своей линии.
+
+**JAZZ-UNITS-003 (loaded):** боевые `*_Inventory` / `*_Firearm` для 37 классов **генерируются** из recipes в `jazz/scripts/legion-loadouts/` (не ручной суффикс-зоопарк как основной процесс). Shared pools: `JAZZ_Gen_NightEquipment`, `JAZZ_Gen_Sidearm`, `JAZZ_Gen_FlareGun`, `JAZZ_Gen_MiscGear`, `JAZZ_Gen_Valuables_*`, плюс `JAZZ_GenW_*` (оружие+патроны). Public UnitData Equipment **имена** сохранены. Recruit без combat recipe. Cargo `tax`/`shipment` (`lEnsureMoneyCargo` / `DiamondBriefcase`) **не** эмитится class recipe.
 
 Для игрока это проявляется в двух независимых осях сложности:
 
@@ -45,6 +47,7 @@
 | `jazz-units/Code/Legion.lua` | loaded runtime | пул имён для `eliteCategory = "Legion"`; не владеет таксономией и equipment tier |
 | `jazz/Code/LegionUnitPrices.lua` | loaded runtime | strategic `$` каталог на 38 `JAZZ_Legion_*` (JAZZ-STRATEGY-004); используется generator/spawn (008) |
 | `jazz/Code/LegionSquadComposition.lua` | loaded runtime | officer density + T4 MercCaptain gate (JAZZ-STRATEGY-005); подключён к generator (008) |
+| `jazz/scripts/legion-loadouts/` | build-time tooling | JAZZ-UNITS-003: recipes/catalogs → regenerate Legion LootDef in `jazz-units/items.lua` |
 
 ## Два разных значения слова «тир»
 
@@ -179,11 +182,13 @@ Quest `JAZZ_LegionTier` создаётся с `Given = true`, а `JAZZ_Legion_Ti
 
 ### Как tier фильтрует LootDef
 
-`jazz-units/items.lua` содержит 739 ссылок на `JAZZ_Legion_Tier` в текущем generated snapshot. У `QuestIsVariableNum` comparator по умолчанию равен `>=`, поэтому запись с `Amount = 22` без явного `Condition` доступна начиная с tier 22. Явные `<` и `<=` задают верхнюю границу и выводят раннее снаряжение из пула.
+Боевые class LootDef после JAZZ-UNITS-003 используют **exclusive arch bands** (примерно `[11,19]` / `[21,29]` / `≥31`) плюс веса внутри band. У `QuestIsVariableNum` comparator по умолчанию равен `>=`; явные `<=` задают верхнюю границу. На mid (`20–29`) оружие `balance_tier==1` остаётся редким remnant (~1% веса parent pool, weight `1400`); на late (`≥30`) tier1 primary отсутствует.
 
-Пороги `1`, `2`, `3`, `4` и `10` — legacy/coarse gates: при фактически присваиваемых значениях `11`–`33` они всегда пройдены. Пороги `20` и `30` отделяют вторую и третью группы. Для точного окна используются две проверки одной quest variable.
+Legacy/coarse gates (`1`–`10`) в старых списках при значениях `11`–`33` всегда пройдены; новые generated blocks опираются на arch bands и subtier Amount.
 
-Корневой `<Unit>_Inventory` обычно собирает с `loot = "all"` несколько дочерних LootDef: основное и дополнительное оружие, гранаты, night gear, valuables и броню. Внутри них применяются веса, случайный выбор и tier conditions. Следовательно, tier не выбирает готовый комплект целиком: он меняет множество допустимых записей и веса, из которых `CreateStartingEquipment` создаёт инвентарь.
+Корневой `<Unit>_Inventory` собирает с `loot = "all"` дочерние LootDef: primary firearm (weapon+ammo combo), optional launcher (heavy), sidearm/melee/utility, night, valuables band ≈ `JAZZ_GetLegionUnitPrice`, armor Light/Middle/Heavy. `CreateStartingEquipment` создаёт инвентарь из допустимых записей и весов.
+
+Регенерация: `python scripts/legion-loadouts/generate.py` из корня `jazz/` (см. `scripts/legion-loadouts/README.md`).
 
 ## Runtime flow смены снаряжения
 
@@ -266,5 +271,7 @@ Stats, perks и детальный состав инвентаря с диагр
 ## Контракт сопровождения
 
 При изменении схемы класса сначала определить, меняется ли только design diagram или public UnitData/runtime contract. Изменение класса, ID, root equipment, role, archetype, LootDef, quest threshold или dependency является generated-data/compatibility-sensitive изменением: оно требует approved spec, синхронной транзакции `items.lua` + `metadata.lua` + companion files в пакетах-владельцах и профильного sync-аудита четырёх репозиториев.
+
+**Лоадауты Легиона (UNITS-003):** править `jazz/scripts/legion-loadouts/data/recipes.json` (и catalogs), затем `generate.py` + `sync_metadata.py`. Не сопровождать hand-made суффикс-варианты стволов как основной процесс. Не править помеченные `JAZZ-UNITS-003` блоки в `items.lua` вручную без последующей регенерации.
 
 Диаграмму и эту страницу обновлять в одном change. Если diagram revision и generated UnitData расходятся, current-state таблицы отражают загружаемый код, а расхождение сохраняется явно до отдельного решения по балансу.

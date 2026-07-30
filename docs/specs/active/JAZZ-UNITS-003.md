@@ -1,6 +1,6 @@
 ---
 id: JAZZ-UNITS-003
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - units-progression
@@ -166,7 +166,20 @@ Design canon: [`docs/design/legion-loadouts.md`](../../design/legion-loadouts.md
 
 ## Evidence
 
-- `JAZZ-UNITS-003-AC-001` … `AC-010`: `BLOCKED` — реализация не начата (spec draft).
+- `JAZZ-UNITS-003-AC-001` — `PASS` (static): `jazz/scripts/legion-loadouts/` + README/TESTING; `generate.py --dry-run` runnable.
+- `JAZZ-UNITS-003-AC-002` — `PASS` (static): Roughneck / Shocktrooper / Sniper inventories regenerated from recipes (tags, HE mode, night/valuables/armor).
+- `JAZZ-UNITS-003-AC-003` — `PASS` (static): generator upgrade check vs `weapon-component-options.csv` clean on dry-run/full generate.
+- `JAZZ-UNITS-003-AC-004` — `PASS` (static): exclusive arch bands; Roughneck mid remnant `weight=1400` ≈ **0.999%** of active mid pool; no open-ended tier1 at ≥30.
+- `JAZZ-UNITS-003-AC-005` — `PASS` (static): 37 recipes; `generate.py` patches 37/37; Recruit without combat recipe.
+- `JAZZ-UNITS-003-AC-006` — `PASS` (static): no `DiamondBriefcase` in generated markers; valuables = pocket Tiny/Big bands only.
+- `JAZZ-UNITS-003-AC-007` — `PASS` (static, scoped): `JAZZ_Gen*` added to `jazz-units/metadata.lua` `affected_resources` (727); pre-existing UnitData companion orphans in suite audit are unrelated to this LootDef change.
+- `JAZZ-UNITS-003-AC-008` — `BLOCKED` (runtime/human deferred by owner 2026-07-30): no playtest this session; guide `scripts/legion-loadouts/TESTING.md` §2. Static silhouette checks covered under AC-002.
+- `JAZZ-UNITS-003-AC-009` — `BLOCKED` (runtime/human deferred by owner 2026-07-30): no playtest this session; guide TESTING.md §3. Static: no class-emitted briefcase (AC-006).
+- `JAZZ-UNITS-003-AC-010` — `PASS` (docs): `legion-units-equipment-tiers.md` + inventory note + design link updated.
+
+Static re-run 2026-07-30: `python scripts/legion-loadouts/generate.py --dry-run` (37/37) + `python scripts/legion-loadouts/run_static_tests.py` → PASSED.
+
+Test guide: [`scripts/legion-loadouts/TESTING.md`](../../../scripts/legion-loadouts/TESTING.md).
 
 ## Documentation delta
 

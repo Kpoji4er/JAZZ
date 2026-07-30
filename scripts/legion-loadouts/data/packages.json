@@ -1,0 +1,51 @@
+{
+  "m0": { "keywords": {} },
+  "assault_m1": {
+    "keywords": { "Scope": ["reflex"], "Magazine": ["mag_large", "mag_normal"] }
+  },
+  "assault_m2": {
+    "keywords": { "Scope": ["reflex"], "Magazine": ["mag_large"], "Side": ["laser"] }
+  },
+  "assault_m3": {
+    "keywords": { "Scope": ["reflex", "scope_2x"], "Magazine": ["mag_large"], "Side": ["laser"], "Muzzle": ["suppressor", "compensator"] }
+  },
+  "cqb_m1": {
+    "keywords": { "Side": ["laser"], "Magazine": ["mag_large", "mag_normal"] }
+  },
+  "cqb_m2": {
+    "keywords": { "Scope": ["reflex"], "Side": ["laser"], "Magazine": ["mag_large", "mag_drum"] }
+  },
+  "flanker_m1": {
+    "keywords": { "Scope": ["reflex"], "Muzzle": ["suppressor"] }
+  },
+  "flanker_m2": {
+    "keywords": { "Scope": ["reflex"], "Muzzle": ["suppressor"], "Magazine": ["mag_large"] }
+  },
+  "flanker_m3": {
+    "keywords": { "Scope": ["reflex"], "Muzzle": ["suppressor"], "Magazine": ["mag_large"], "Side": ["laser"] }
+  },
+  "rifle_m1": {
+    "keywords": { "Scope": ["scope_2x", "reflex"] }
+  },
+  "rifle_m2": {
+    "keywords": { "Scope": ["scope_2x", "scope_4x"] }
+  },
+  "sniper_m2": {
+    "keywords": { "Scope": ["scope_4x", "scope_6x", "scope_2x"] }
+  },
+  "sniper_m3": {
+    "keywords": { "Scope": ["scope_6x", "scope_12x", "scope_4x"], "Bipod": ["bipod"] }
+  },
+  "mg_m1": {
+    "keywords": { "Bipod": ["bipod"], "Magazine": ["mag_large", "mag_normal"] }
+  },
+  "mg_m2": {
+    "keywords": { "Bipod": ["bipod"], "Magazine": ["mag_large"] }
+  },
+  "mg_m3": {
+    "keywords": { "Bipod": ["bipod"], "Magazine": ["mag_large"], "Scope": ["reflex", "scope_2x"] }
+  },
+  "merc_m4": {
+    "keywords": { "Scope": ["reflex", "scope_2x", "scope_4x"], "Magazine": ["mag_large"], "Side": ["laser"], "Muzzle": ["suppressor", "compensator"] }
+  }
+}

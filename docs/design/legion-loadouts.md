@@ -2,7 +2,7 @@
 
 Design-only. Код не меняет. Runtime current-state: [`legion-units-equipment-tiers.md`](../technical/systems/legion-units-equipment-tiers.md). Канон тиров оружия: [`weapons.csv`](../technical/weapons/data/weapons.csv) / [`weapons/README.md`](../technical/weapons/README.md).
 
-Статус: зафиксированные решения владельца (30 июля 2026). Реализация — [`JAZZ-UNITS-003`](../specs/active/JAZZ-UNITS-003.md) (**approved**). Exclusive: не параллелить чужой write на `jazz-units/items.lua` / `metadata.lua`.
+Статус: зафиксированные решения владельца (30 июля 2026). Реализация — [`JAZZ-UNITS-003`](../specs/active/JAZZ-UNITS-003.md) (**implemented**; runtime AC-008/009 — human). Exclusive: не параллелить чужой write на `jazz-units/items.lua` / `metadata.lua` во время regenerate.
 
 ---
 
@@ -472,4 +472,4 @@ Scout:
 
 ## 9. Следующие шаги реализации
 
-Контракт: [`JAZZ-UNITS-003`](../specs/active/JAZZ-UNITS-003.md). После `approved`: scaffold generator → пилот Roughneck/Shock/Sniper → раскатка 37 → docs current-state.
+Контракт: [`JAZZ-UNITS-003`](../specs/active/JAZZ-UNITS-003.md). Generator: `jazz/scripts/legion-loadouts/` (README + TESTING). Current-state: [`legion-units-equipment-tiers.md`](../technical/systems/legion-units-equipment-tiers.md).

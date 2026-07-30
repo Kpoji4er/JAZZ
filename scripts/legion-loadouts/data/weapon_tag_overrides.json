@@ -1,0 +1,9 @@
+{
+  "M2Carbine": ["carbine", "assault"],
+  "FG42": ["carbine", "assault", "battle"],
+  "STG44": ["assault"],
+  "AKSU": ["carbine", "assault"],
+  "ZastavaM92": ["carbine", "assault"],
+  "CAR15": ["carbine", "assault"],
+  "Mini14": ["carbine", "rifle"]
+}

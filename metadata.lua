@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- MP: vanilla/CLib desync overrides — ending AsyncRand, StatBoost ticks, shot vectors, AI area pick\n- Без jazz-maps: StandaloneNoMapsFallback — авто-регионы Legion AI, wiring отрядов, remap squad/loot\n- MP desync follow-up: mishap/armor/CTH integer math, AI sorted RNG",
+	'last_changes', "- JAZZ-UNITS-003: Legion loadout generator (recipes → LootDef) + static tests/docs\n- MP: vanilla/CLib desync overrides — ending AsyncRand, StatBoost ticks, shot vectors, AI area pick\n- Без jazz-maps: StandaloneNoMapsFallback — авто-регионы Legion AI, wiring отрядов, remap squad/loot",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 28,
+	'version_minor', 29,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
