@@ -27,7 +27,13 @@ related_decisions:
 approved_by: project-owner
 ---
 
-# JAZZ-COMPAT-001: автономный fallback без jazz-maps
+# JAZZ-COMPAT-001: автономный fallback без jazz-maps (phase-1 / one-file in jazz)
+
+> **Phase-1 only — temporary.** Урезанный one-file в core `jazz` уже в main.
+> Целевой дизайн: отдельный пакет **`jazz-nomaps`** —
+> draft [`JAZZ-COMPAT-002`](JAZZ-COMPAT-002.md).
+> При реализации COMPAT-002 этот код **удаляется** из `jazz` и переносится в новый пакет;
+> COMPAT-001 → `superseded`. **Не расширять** `StandaloneNoMapsFallback.lua` новыми фичами.
 
 ## Проблема
 
