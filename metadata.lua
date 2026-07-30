@@ -5,9 +5,7 @@
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- Grenade aim: tint FillColor/arc; color = mishap% x Min-band scatter (GetMishapAimReliability)
-- AI MGSetup half-cover Crouch+bipod (ACT-003)
-- Legion loot regen scope; CombatAI nil weapon; AICheckIndoors Point",
+	'last_changes', "- Grenade aim: tint FillColor/arc; color = mishap% x Min-band scatter (GetMishapAimReliability)\n- AI MGSetup half-cover Crouch+bipod (ACT-003)\n- Legion loot regen scope; CombatAI nil weapon; AICheckIndoors Point",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
