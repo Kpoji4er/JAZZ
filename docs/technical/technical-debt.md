@@ -32,6 +32,10 @@ Metadata не отражает все фактические ссылки. Сл�
 
 ## Средний приоритет
 
+### NoMaps loot / archetypes (COMPAT-002 playtest)
+
+Пакет `jazz-nomaps` inject'ит неиспользуемые vanilla ammo (`Ammopics/TEST.png`) и отключённый `MP5`; remap отрядов не закрывает все vanilla InitialSquads. Багрепорт и fix set: [bugs/nomaps-playtest-2026-07-30.md](bugs/nomaps-playtest-2026-07-30.md). Фикс — в `jazz-nomaps` (+ при необходимости wiring в units), не «чинить» TEST-иконки в core.
+
 ### Дубли внутри основного пакета
 
 Повторно определяются методы scrap/degrade и патрульная функция. Сначала нужно подтвердить последнюю работающую реализацию, затем оставить один источник истины без изменения результата.

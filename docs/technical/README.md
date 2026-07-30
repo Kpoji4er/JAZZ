@@ -24,6 +24,7 @@
 - [Релизы и версионирование](systems/release-versioning.md) — версия из committed metadata, manifest четырех repos, packaging и GitHub Releases.
 - [Сводки изменений в Discord](systems/discord-player-updates.md) — GitHub Actions, OpenAI Structured Outputs, фильтрация diff и безопасный Discord webhook.
 - [Технический долг](technical-debt.md) — результаты аудита и безопасный план рефакторинга.
+- [Playtest: jazz-nomaps Discord 2026-07-30](bugs/nomaps-playtest-2026-07-30.md) — cut ammo/`MP5`, старые архетипы, калибр Hi-Power.
 
 ## Подробный каталог систем
 
