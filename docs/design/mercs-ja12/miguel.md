@@ -18,7 +18,7 @@ salary:
   increase: 200
   lv1: 400
   max: 3000
-medical_deposit: standard
+medical_deposit: small
 haggling: normal
 executable: true
 ---
@@ -91,7 +91,7 @@ executable: true
 ## Hire
 
 - Access: Locals — unlocked after making contact with the Arulco resistance cell holding Miguel's home sector
-- MedicalDeposit: standard; Haggling: normal; DaysUntilOnline: 0
+- MedicalDeposit: small; Haggling: normal; DaysUntilOnline: 0
 
 ## Inventory
 

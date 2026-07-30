@@ -18,7 +18,7 @@ salary:
   increase: 200
   lv1: 900
   max: 5500
-medical_deposit: standard
+medical_deposit: small
 haggling: normal
 executable: true
 ---
@@ -91,7 +91,7 @@ executable: true
 ## Hire
 
 - Access: AIM hire
-- MedicalDeposit: standard; Haggling: normal; DaysUntilOnline: 0
+- MedicalDeposit: small; Haggling: normal; DaysUntilOnline: 0
 
 ## Inventory
 

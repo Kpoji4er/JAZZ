@@ -62,11 +62,34 @@ def main() -> int:
     else:
         ok("AC-001 markers present")
 
+    # Parse health: buggy replace_or_warn used to stack `}),),),),` and unbalance parens,
+    # which prevents the whole items.lua chunk from loading (mercs + all loot).
+    if "}),)," in text:
+        fail("stacked PlaceObj closers `}),),` present (regen replace bug)")
+    else:
+        ok("AC-001 no stacked `}),),` closers")
+    paren_delta = text.count("(") - text.count(")")
+    brace_delta = text.count("{") - text.count("}")
+    if paren_delta != 0 or brace_delta != 0:
+        fail(f"items.lua delimiter imbalance paren={paren_delta} brace={brace_delta}")
+    else:
+        ok("AC-001 items.lua paren/brace balanced")
+
     gen = text[text.find("JAZZ-UNITS-003-GENERATED-BEGIN") : text.find("JAZZ-UNITS-003-GENERATED-END")]
     if "DiamondBriefcase" in gen:
         fail("AC-006 DiamondBriefcase in generated region")
     else:
         ok("AC-006 no DiamondBriefcase in generated region")
+
+    # Weapon+ammo combos must not nest LegionT*_Shotgun (weapon pool) as "ammo"
+    weapon_pool_as_ammo = re.findall(
+        r'loot_def = "(LegionT[123]_Shotgun)"',
+        gen,
+    )
+    if weapon_pool_as_ammo:
+        fail(f"GenW combo uses weapon pool as ammo: {sorted(set(weapon_pool_as_ammo))}")
+    else:
+        ok("no LegionT*_Shotgun nested as ammo in GenW combos")
 
     for pool in (
         "JAZZ_Gen_NightEquipment",
@@ -243,6 +266,17 @@ def main() -> int:
         fail(f"AC-005 unmarked generated blocks: {unmarked[:5]}")
     else:
         ok("AC-005 all class blocks marked generated")
+
+    # UNITS-004: unconditional firearm fallback
+    missing_fb = []
+    for uid, r in recipes.items():
+        b = block_for(text, r["firearm"])
+        if "JAZZ-UNITS-004 unconditional fallback" not in b:
+            missing_fb.append(r["firearm"])
+    if missing_fb:
+        fail(f"AC-004-fallback missing on {missing_fb[:5]}")
+    else:
+        ok("UNITS-004 unconditional firearm fallback present")
 
     # metadata resources
     meta = (UNITS / "metadata.lua").read_text(encoding="utf-8")

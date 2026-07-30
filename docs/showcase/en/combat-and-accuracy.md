@@ -54,7 +54,7 @@ Throws **always** have light scatter — there is no perfect pin-point landing.
 - **Up close** (about half throw/launcher range): light scatter only, no big mishap.
 - **Farther out**: mishap chance rises (big deviation + notification). Suppression and Inaccurate worsen both chance and scatter.
 - Skills: hand grenades — **Dexterity + Explosives** (confident around **30**); underslung/GL/rockets — **Marksmanship + Explosives**; pipes/TNT — mostly **Explosives** (~**60**).
-- While aiming: ring **size** = damage area; ring **color** = mishap risk on the same green→red scale as the crosshair hit-chance ring.
+- While aiming: ring **size** = damage area; ring and throw-arc **color** = mishap risk on the same green→red scale as the crosshair hit-chance ring.
 
 ## What the UI shows
 

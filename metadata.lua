@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- Global AI Легиона: экономика, отряды, иконки ролей\n- Grazing по CTH, мисхэпы гранат, стелс; Commit/Dump AI\n- Инвентарь/HUD, MP-фиксы, jazz-nomaps; ребаланс оружия",
+	'last_changes', "- Legion loot regen только по Легиону; fallback ствола; 12g ammo не weapon-pool\n- CombatAI nil weapon; AICheckIndoors Point; elite Name save-bake\n- MedicalDeposit enum; grenade mishap AOE tint",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 42,
+	'version_minor', 43,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,

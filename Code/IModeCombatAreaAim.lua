@@ -55,6 +55,29 @@ function GetRingAOETiles(center, stance, min_r, max_r)
     return ring
 end
 
+local function JAZZ_ApplyMishapTintToSphereTiles(mat, tint)
+    if not tint then
+        return
+    end
+    -- CRM_SphereAOETilesMaterial has no `color`; shader reads Fill/Border/Pulse.
+    mat.FillColor = tint
+    mat.BorderColor = tint
+    mat.PulseColor = tint
+end
+
+local function JAZZ_ApplyMishapTintToGrenadeSphere(visuals, data)
+    local tint = data and data.tint
+    local sphere = visuals and visuals.sphere_mesh
+    if not tint or not IsValid(sphere) then
+        return
+    end
+    local sm = CRM_GrenadeSphereMaterial:GetById("DefaultGrenadeSphere"):Clone()
+    sm.FillColor = tint
+    sm.OuterColor = tint
+    sm.dirty = true
+    sphere:SetCRMaterial(sm)
+end
+
 function GrenadeAOEVisuals:RecreateAoeTiles(data)
     self.data = data
     local mesh_pstr = CreateAOETiles(data.step_positions, data.step_objs,
@@ -76,14 +99,10 @@ function GrenadeAOEVisuals:RecreateAoeTiles(data)
     local m = CRM_SphereAOETilesMaterial:GetById("GrenadeTilesCast"):Clone()
     m.center = data.explosion_pos
     m.radius = data.range
-    if data.tint then
-        m.color = data.tint
-    end
-
+    JAZZ_ApplyMishapTintToSphereTiles(m, data.tint)
+    m.dirty = true
     aoe_tiles_mesh:SetCRMaterial(m)
-    if data.tint then
-        aoe_tiles_mesh:SetColorModifier(data.tint)
-    end
+    JAZZ_ApplyMishapTintToGrenadeSphere(self, data)
 
     -- вторая зона — min_range
     if data.min_range then
@@ -107,14 +126,9 @@ function GrenadeAOEVisuals:RecreateAoeTiles(data)
                        :Clone()
         m2.center = data.explosion_pos
         m2.radius = data.min_range
-        if data.tint then
-            m2.color = data.tint
-        end
-
+        JAZZ_ApplyMishapTintToSphereTiles(m2, data.tint)
+        m2.dirty = true
         aoe_tiles_mesh2:SetCRMaterial(m2)
-        if data.tint then
-            aoe_tiles_mesh2:SetColorModifier(data.tint)
-        end
     end
 end
 
@@ -430,6 +444,11 @@ function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
             local mat = CRM_VisionLinePreset:GetById("CastTrajectoryArc")
                             :Clone()
             mat.length = distance
+            -- Same mishap scale as AoE rings / crosshair CTH (JAZZ-GRENADES-001).
+            if blackboard.mishap_tint then
+                mat.fill_color = blackboard.mishap_tint
+                mat.glow_color = blackboard.mishap_tint
+            end
             arc_mesh:SetCRMaterial(mat) -- "CastTrajectoryArc")
         else
             if blackboard.meshes[i] then

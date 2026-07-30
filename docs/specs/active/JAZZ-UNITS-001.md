@@ -49,25 +49,27 @@ approved_by: project-owner chat request 2026-07-28
 ## Non-goals
 
 - Сокращение combinatorial размера пулов (~38k presets).
-- Переписывание `GenerateEliteUnitName`.
+- Полная замена vanilla `GenerateEliteUnitName` (допускается **тонкая обёртка** после вызова — см. REQ-006).
 - Вычитка google-draft английских имён.
 - Отдельный Russian loctable для jazz-units.
 - Алиас Maquis → Rebels.
-- Миграция уже запечённых имён в existing saves.
+- Миграция уже запечённых имён в existing saves (кроме sanitize при GatherSessionData для T-with-args в текущей сессии).
 
 ## Требования
 
-- `JAZZ-UNITS-001-REQ-001` — `EliteEnemyName.name` остаётся T или T{} с вложенными T, без `_InternalTranslate`/`Untranslated` bake.
+- `JAZZ-UNITS-001-REQ-001` — `EliteEnemyName.name` остаётся T или T{} с вложенными T, без `_InternalTranslate`/`Untranslated` bake **на регистрации PlaceObj**.
 - `JAZZ-UNITS-001-REQ-002` — составные имена используют один shared format ID `890000000001650` = `<first> <last>`.
 - `JAZZ-UNITS-001-REQ-003` — nicknames проходят через тот же dedup, что и остальные имена.
 - `JAZZ-UNITS-001-REQ-004` — отдельный пул `Foreigners`/Adonis не вводится в этом change set.
 - `JAZZ-UNITS-001-REQ-005` — канонические `jazz/English.csv` и `jazz/Russian.csv` содержат format ID и все mod-only ID пулов имён; `jazz-units/English.csv` существует как loctable units и согласован с каталогом.
+- `JAZZ-UNITS-001-REQ-006` — после `GenerateEliteUnitName` (и в `GatherSessionData`) `unit.Name` с `THasArgs` запекается в `Untranslated(_InternalTranslate(...))`, потому что `TToLuaCode` / save assert `not THasArgs(T)`. Пресет `EliteEnemyName.name` остаётся T/T{}.
 
 ## Инварианты и ограничения
 
 - Префиксы id `JazzMerc_<Group>_NNN` и группы Legion/Rebels/Mercenary сохраняются.
 - Deterministic порядок preset id по индексу списка сохраняется.
 - Не менять save schema `gv_UsedEliteNames` (по-прежнему id пресета).
+- Save/load: `unit.Name` не должен содержать T with format args.
 
 ## Acceptance criteria
 
@@ -75,11 +77,13 @@ approved_by: project-owner chat request 2026-07-28
 - `JAZZ-UNITS-001-AC-002` — static: `Mercenary.lua` не регистрирует `Foreigners`.
 - `JAZZ-UNITS-001-AC-003` — static: `jazz/English.csv` содержит format ID и все mod-only ID пулов; `jazz-units/English.csv` существует под units loctable.
 - `JAZZ-UNITS-001-AC-004`: `PASS (runtime/human)` — owner playtest accepted 2026-07-28; English UI — English elite names; Russian UI — Russian.
+- `JAZZ-UNITS-001-AC-005` — static: обёртка `GenerateEliteUnitName` + `OnMsg.GatherSessionData` sanitize T-with-args; save path не получает `THasArgs` на `unit.Name`.
+- `JAZZ-UNITS-001-AC-006` — runtime/human: save after elite spawn / hire session does not assert `(not THasArgs(T))` in `TToLuaCode`.
 
 ## Impact и совместимость
 
-- Vanilla/CommonLib/JAZZ: восстанавливает контракт translate-able name как у vanilla EliteEnemyName.
-- Saves: уже выданные `unit.Name` в existing save могут остаться запечёнными строками до respawn/new elite; `gv_UsedEliteNames` по id совместим.
+- Vanilla/CommonLib/JAZZ: восстанавливает контракт translate-able **preset** name как у vanilla EliteEnemyName; **assigned** `unit.Name` для combo T{} становится Untranslated (язык UI на момент выдачи/сейва).
+- Saves: без bake save ломался на combo T{}; после bake — loadable. Already-baked strings remain.
 - Network/determinism: порядок пула и InteractionRand("EliteName") не меняются намеренно.
 - Generated data: нет.
 - Cross-package: format ID и dual-language строки в jazz CSV; units English.csv.
@@ -97,6 +101,7 @@ approved_by: project-owner chat request 2026-07-28
 - Статус: approved
 - Кто подтвердил: project-owner (запрос сделать сразу, вопросы после)
 - Дата: 2026-07-28
+- Amend 2026-07-31: owner — обновить spec под save-bake обёртку (`REQ-006` / `AC-005`/`AC-006`).
 
 ## Evidence
 
@@ -104,8 +109,10 @@ approved_by: project-owner chat request 2026-07-28
 - `JAZZ-UNITS-001-AC-002`: `PASS (static)` — `Mercenary.lua` only registers `Mercenary`.
 - `JAZZ-UNITS-001-AC-003`: `PASS (static)` — jazz English/Russian have format ID + mod-only name pools; 6 latin IDs absent are vanilla-overlap sources (Blood/Phantom/Combat/Ivan/Miner/Luc); units English.csv present for loctable.
 - `JAZZ-UNITS-001-AC-004`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-UNITS-001-AC-005`: `PASS (static)` — `MakeSaveableUnitName` / `SanitizeEliteUnitNamesForSave` / wrap `GenerateEliteUnitName` + `GatherSessionData` in `EliteEnemyNamesFuncs.lua`.
+- `JAZZ-UNITS-001-AC-006`: `BLOCKED (runtime/human)` — owner retest save after reload with elite/hired session.
 
 ## Documentation delta
 
-- `docs/technical/systems/units-progression-specializations.md` — контракт T/T{} и Foreigners.
+- `docs/technical/systems/units-progression-specializations.md` — контракт T/T{} на пресете + bake на `unit.Name` для save.
 - `docs/technical/compatibility.md` — units English.csv больше не missing.

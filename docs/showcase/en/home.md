@@ -20,6 +20,6 @@ Bilingual showcase for the **JAZZ** overhaul of *Jagged Alliance 3*: Ernie demo,
 
 ## How to read this
 
-Normal UI has **no raw hit %**: effects show as `+` / `−` (percents with debug tools). For grenades/GL, blast-ring color and the mishap indicator show failure risk (see [Combat and accuracy](combat-and-accuracy.md)).
+Normal UI has **no raw hit %**: effects show as `+` / `−` (percents with debug tools). For grenades/GL, blast-ring / throw-arc color and the mishap indicator show failure risk (see [Combat and accuracy](combat-and-accuracy.md)).
 
 Where readiness is uneven (some named perks, mainland, EN loc) the pages say so explicitly.

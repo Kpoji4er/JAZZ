@@ -41,7 +41,7 @@ AI использует собственную оценку допустимой
 - Дальше шанс растёт к 100% у полной дальности; base от skill blend + competence remap.
 - Профили: ThrowGrenade `(Dex×2+Expl)/3` thr **30**; AimedHeavy `(MS×2+Expl)/3` thr **30**; Demo/пайпы `(Expl×3+Dex)/4` thr **60**.
 - Cap отклонения: `Max(2×MaxMishapRange, 8)` тайлов; Min-band плавнее (`/10`, clamp 40..200).
-- Area-aim: **радиус** колец = зона поражения; **цвет** = `GetCTHColor(100 − mishap%)` как у кольца прицела.
+- Area-aim: **радиус** колец = зона поражения; **цвет** blast/sphere tiles и дуги траектории = `GetCTHColor(100 − mishap%)` (material `FillColor`/`fill_color`, не `SetColorModifier`/`color`).
 
 ## Ловушки и мины
 

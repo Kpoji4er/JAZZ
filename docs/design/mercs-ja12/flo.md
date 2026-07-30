@@ -18,7 +18,7 @@ salary:
   increase: 200
   lv1: 200
   max: 1800
-medical_deposit: standard
+medical_deposit: small
 haggling: normal
 executable: true
 ---
@@ -90,7 +90,7 @@ executable: true
 ## Hire
 
 - Access: MERC roster
-- MedicalDeposit: standard; Haggling: normal; DaysUntilOnline: 0
+- MedicalDeposit: small; Haggling: normal; DaysUntilOnline: 0
 
 ## Inventory
 

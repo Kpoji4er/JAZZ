@@ -188,6 +188,8 @@ Legacy/coarse gates (`1`–`10`) в старых списках при знач�
 
 Корневой `<Unit>_Inventory` собирает с `loot = "all"` дочерние LootDef: primary firearm (weapon+ammo combo), optional launcher (heavy), sidearm/melee/utility, night, valuables band ≈ `JAZZ_GetLegionUnitPrice`, armor Light/Middle/Heavy. `CreateStartingEquipment` создаёт инвентарь из допустимых записей и весов.
 
+`data/caliber_ammo.json` мапит калибр → **ammo** LootDef (например `Crusher_12g` / `Army_12g` для 12gauge). Нельзя указывать weapon-pool ids вроде `LegionT1_Shotgun`: combo с `loot = "all"` тогда выдаёт второй ствол (симптом: Громила с двумя дробовиками). Jazz `EquipStartingGear` кладёт leftover `Firearm` в пустой Handheld B, поэтому второй ствол оказывается во второй руке.
+
 Регенерация: `python scripts/legion-loadouts/generate.py` из корня `jazz/` (см. `scripts/legion-loadouts/README.md`).
 
 ## Runtime flow смены снаряжения
@@ -255,17 +257,18 @@ Stats, perks и детальный состав инвентаря с диагр
 - [ ] После перехода флаг не меняет инвентарь до открытия satellite view.
 - [ ] После открытия satellite view regenerated equipment соответствует новому tier и флаг больше не вызывает повторный проход.
 - [ ] Проверены tactical object и strategic `gv_UnitData` одного живого юнита Легиона.
-- [ ] Отдельно проверен non-Legion squad: текущая реализация затрагивает его strategic inventory, что должно быть либо принято как контракт, либо исправлено отдельным change.
+- [x] Отдельно проверен non-Legion squad: **JAZZ-UNITS-004** — regen больше не трогает non-Legion strategic inventory (static).
 - [ ] Save/load между tier transition и открытием satellite view проверен отдельно.
 
 ## Известные ограничения и риски
 
-- Название `_RegenerateLegionLoot()` уже имени её фактической области: strategic inventory пересоздаётся для каждого `unit_id` каждого `gv_Squads`, а не только для Легиона. Legion guard ограничивает только ветку tactical object.
-- `unitdata.Items = {}` находится вне проверки `unitdata`; некорректная ссылка squad → unit может привести к runtime error.
-- Регенерация полностью стирает текущий inventory и не различает starting gear, подобранные предметы и ручные изменения.
+- `_RegenerateLegionLoot()` (**JAZZ-UNITS-004**): только `Affiliation == "Legion"` (strategic `gv_UnitData` + tactical `g_Units`). Pre-004 ошибочно wipe'ил все `gv_Squads` (в т.ч. player mercs).
+- Generator replace (`find_moditem_block`): должен consume полный `}),`; иначе stacked closers ломают parse всего `items.lua` (UNITS-004 / static paren guard).
+- Каждый generated `*_Firearm` имеет unconditional fallback entry (UNITS-004), низкий вес относительно gated pools.
+- Регенерация полностью стирает текущий inventory Легиона и не различает starting gear, подобранные предметы и ручные изменения.
 - Deferred-флаг — локальная Lua-переменная, а не `GameVar`; сохранение/перезагрузка между TCE и `OpenSatelliteView` может потерять ожидающую регенерацию.
 - Повторно используется `randomization_seed`. При изменившемся пуле выбор пересчитывается детерминированно относительно того же seed, но итоговый набор может измениться.
-- 739 tier references и optional cross-package dependency делают систему чувствительной к частичной установке, load order и несинхронной регенерации `items.lua`/`metadata.lua`.
+- Generated LootDef и optional cross-package dependency делают систему чувствительной к частичной установке, load order и несинхронной регенерации `items.lua`/`metadata.lua`.
 - Уровни командирской линии в current UnitData не образуют возрастающую последовательность; это задокументированное состояние, не подтверждённое намерение баланса.
 
 ## Контракт сопровождения

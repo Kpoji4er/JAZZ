@@ -18,7 +18,7 @@ salary:
   increase: 150
   lv1: 500
   max: 4000
-medical_deposit: standard
+medical_deposit: small
 haggling: normal
 executable: true
 ---
@@ -90,7 +90,7 @@ executable: true
 ## Hire
 
 - Access: Locals hire
-- MedicalDeposit: standard; Haggling: normal; DaysUntilOnline: 0
+- MedicalDeposit: small; Haggling: normal; DaysUntilOnline: 0
 
 ## Inventory
 

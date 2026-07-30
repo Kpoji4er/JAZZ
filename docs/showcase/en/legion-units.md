@@ -96,7 +96,7 @@ Quest var starts at **11**. From `PlayerControlSectors` (TCE in `JAZZ_LegionTier
 | 4…8 | 21…25 |
 | 9+ | 31…33 |
 
-Regen: flag → `OnMsg.OpenSatelliteView` → rebuild starting equipment (`UtilityFunc.lua`). Hundreds of LootDef conditions on `JAZZ_Legion_Tier`.
+Regen: flag → `OnMsg.OpenSatelliteView` → rebuild starting equipment for **Legion only** (`UtilityFunc.lua`).
 
 ## Strategic prices
 

@@ -18,7 +18,7 @@ salary:
   increase: 200
   lv1: 300
   max: 2000
-medical_deposit: standard
+medical_deposit: small
 haggling: normal
 executable: true
 ---
@@ -90,7 +90,7 @@ executable: true
 ## Hire
 
 - Access: Locals — chance encounter in the Tracona forest sector once the player has scouted it; Manuel joins as a wandering local, no formal quest gate
-- MedicalDeposit: standard; Haggling: normal; DaysUntilOnline: 0
+- MedicalDeposit: small; Haggling: normal; DaysUntilOnline: 0
 
 ## Inventory
 

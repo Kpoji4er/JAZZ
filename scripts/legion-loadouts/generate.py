@@ -381,6 +381,13 @@ def weapon_weight(w: dict, arch: int) -> tuple[int, int] | None:
     return None
 
 
+# Weapon-pool LootDef ids must never appear as ammo in weapon+ammo combos
+# (loot="all" would spawn a second firearm — Crusher dual-shotgun bug).
+AMMO_LOOT_DENYLIST = re.compile(
+    r"^LegionT[123]_(Shotgun|Rifle|SMG|Assault|PistolList|OneHSMG|Revolver|AutoPistol)$"
+)
+
+
 def ammo_loot_id(weapon: dict, caliber_ammo: dict, recipe: dict, arch: int) -> str | None:
     cal = weapon["caliber"]
     mapping = caliber_ammo.get(cal) or caliber_ammo.get(cal.replace("JAZZ_Caliber_", "")) or {}
@@ -399,6 +406,18 @@ def ammo_loot_id(weapon: dict, caliber_ammo: dict, recipe: dict, arch: int) -> s
     if use_ap and mapping.get("ap"):
         return mapping["ap"]
     return mapping.get("base")
+
+
+def validate_caliber_ammo(caliber_ammo: dict) -> None:
+    bad = []
+    for cal, mapping in caliber_ammo.items():
+        for key, loot_id in mapping.items():
+            if loot_id and AMMO_LOOT_DENYLIST.match(str(loot_id)):
+                bad.append(f"{cal}.{key}={loot_id}")
+    if bad:
+        raise SystemExit(
+            "caliber_ammo.json maps to weapon pools (not ammo): " + "; ".join(bad)
+        )
 
 
 def combo_id(weapon_id: str, pkg_name: str, ammo: str | None) -> str:
@@ -490,13 +509,17 @@ def emit_firearm_from_plan(fid: str, entries_meta: list[tuple]) -> str:
             f"\t\t\t\t\t\t\tweight = {weight},\n"
             "\t\t\t\t\t\t}),"
         )
-    if not entries:
-        entries.append(
-            "\t\t\t\t\t\tPlaceObj('LootEntryLootDef', {\n"
-            "\t\t\t\t\t\t\tloot_def = \"LegionT1_SMG\",\n"
-            "\t\t\t\t\t\t\tweight = 10000,\n"
-            "\t\t\t\t\t\t}),"
-        )
+    # Unconditional fallback (pre-003 LegionT1_* style): if quest var missing/0 or no band
+    # matches, still roll a weapon. Low weight vs gated pools when they are active.
+    fallback_cid = entries_meta[0][0] if entries_meta else "LegionT1_SMG"
+    fallback_weight = 1000 if entries_meta else 10000
+    entries.append(
+        "\t\t\t\t\t\tPlaceObj('LootEntryLootDef', {\n"
+        "\t\t\t\t\t\t\tcomment = \"JAZZ-UNITS-004 unconditional fallback\",\n"
+        f"\t\t\t\t\t\t\tloot_def = \"{fallback_cid}\",\n"
+        f"\t\t\t\t\t\t\tweight = {fallback_weight},\n"
+        "\t\t\t\t\t\t}),"
+    )
     return (
         "\t\t\t\t\tPlaceObj('ModItemLootDef', {\n"
         "\t\t\t\t\t\tComment = \"JAZZ-UNITS-003 generated\",\n"
@@ -726,7 +749,12 @@ def find_moditem_block(text: str, loot_id: str) -> tuple[int, int] | None:
                 depth -= 1
                 if depth == 0:
                     end = j + 1
-                    if text[end:end+1] == ",":
+                    # ModItemLootDef closes as `}),` — consume PlaceObj `)` and optional `,`.
+                    # Old code only ate `,` after `}`, leaving `),` tails; re-runs stacked
+                    # `}),),),),` and broke the whole items.lua parse (all inventories).
+                    if end < len(text) and text[end] == ")":
+                        end += 1
+                    if end < len(text) and text[end] == ",":
                         end += 1
                     return start, end
             j += 1
@@ -791,6 +819,7 @@ def main():
     recipes = load_json("recipes.json")
     packages = load_json("packages.json")
     caliber_ammo = load_json("caliber_ammo.json")
+    validate_caliber_ammo(caliber_ammo)
     overrides = load_json("weapon_tag_overrides.json")
     weapons = load_weapons(overrides)
     comps = load_components()

@@ -6,6 +6,9 @@
 
 `status`, `priority`, `origin`, `unit_id`, `portrait_id`, `affiliation`, `role`, `tier`, `specialization`, `gender`, `nationality`, `voice_source`, `starting_level`, `will`, `salary` (starting/increase/lv1/max), `medical_deposit`, `haggling`, `executable`.
 
+`medical_deposit` — только vanilla enum: `none` | `small` | `large` | `extreme` (default движка = `small`; **не** писать `standard` — `CalculateMedical` вернёт nil и AIM hire упадёт).
+`haggling` — `normal` | `low` | `high`.
+
 `executable: true` только если нет Open blockers и заполнены все обязательные секции.
 
 ## Обязательные секции

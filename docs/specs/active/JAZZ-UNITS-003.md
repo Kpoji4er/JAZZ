@@ -98,7 +98,7 @@ Design canon: [`docs/design/legion-loadouts.md`](../../design/legion-loadouts.md
 - `JAZZ-UNITS-003-REQ-009` — Valuables: `P = JAZZ_GetLegionUnitPrice(class)`; drop_chance + mult range; размен Tiny/Big; **`valuables: none` (карман)** на managed logistics roles (`tax`/`shipment`/carriers using mission cargo); не эмитить `DiamondBriefcase` из class recipe. Cargo остаётся лутаемым через Global AI.
 - `JAZZ-UNITS-003-REQ-010` — Пилот: `Roughneck`, `ShockTrooper`, `Sniper` полностью на генераторе и playtest smoke до раскатки остальных.
 - `JAZZ-UNITS-003-REQ-011` — Sync: generated loot + `jazz-units/items.lua` + `metadata.lua` в одной транзакции; documented regenerate command; политика сосуществования с Mod Editor (генератор владеет помеченными Legion loot ids / folder).
-- `JAZZ-UNITS-003-REQ-012` — Не менять `RegenerateLegionLoot` и quest TCE `JAZZ_LegionTier` в этом change.
+- `JAZZ-UNITS-003-REQ-012` — Не менять `RegenerateLegionLoot` и quest TCE `JAZZ_LegionTier` в этом change. **Superseded for regen scope by [JAZZ-UNITS-004](JAZZ-UNITS-004.md)** (Legion-only wipe); quest TCE unchanged.
 
 ## Инварианты и ограничения
 

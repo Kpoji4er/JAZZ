@@ -116,7 +116,7 @@ Hardcoded в override (не ConstDef): smoke **−70**; rain light **−5**, hea
 6. Observer `Protected` / `Blinded`.
 7. Brush (`vsFlagTallGrass`): малый `BrushSightMod` (**−10**), затем camo ×**3** (Hidden) / ×**100%** (видимо); вне кустов Hidden ×1 / видимо ×25%. Prone в траве **без** ×2 (тот же `SightModHiddenProne`, что на открытом) — `JAZZ-AI-006`.
 8. **Prone** режет sight всегда: `−SightModHiddenProne` (в кустах тоже ×1).
-9. Indoors (цель): `IndoorSightMod` (**−5**), независимо от Hidden/camo.
+9. Indoors (цель): `IndoorSightMod` (**−5**), независимо от Hidden/camo. Детект: packed `stance_pos` number → `AICheckIndoors`; `Point` (напр. `RevealUnitBeforeMove` `goto_pos`) → `EnumVolumes`; иначе `other.indoors`. Нельзя кормить Point в `AICheckIndoors` (`stance_pos_unpack` ожидает number).
 10. Smoke на линии: **−70**.
 11. Night / Fog / Dust / FireStorm / rain. Пол modifier = ConstDef `SightModMinValue` (**9** ≈ **4** тайла Aware).
 12. Разница высоты: выше цели → `SightHeightDiffMod`; ниже → `−2×` mod.

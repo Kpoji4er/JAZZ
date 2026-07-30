@@ -96,7 +96,7 @@ Quest var стартует с **11**. По `PlayerControlSectors` (TCE в `JAZZ_
 | 4…8 | 21…25 |
 | 9+ | 31…33 |
 
-Реген: флаг → `OnMsg.OpenSatelliteView` → пересборка starting equipment (`UtilityFunc.lua`).
+Реген: флаг → `OnMsg.OpenSatelliteView` → пересборка starting equipment **только у Легиона** (`UtilityFunc.lua`).
 
 ## Цены стратегии
 

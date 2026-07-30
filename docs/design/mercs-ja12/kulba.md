@@ -18,7 +18,7 @@ salary:
   increase: 150
   lv1: 350
   max: 2200
-medical_deposit: standard
+medical_deposit: small
 haggling: normal
 executable: true
 ---
@@ -90,7 +90,7 @@ executable: true
 ## Hire
 
 - Access: Locals (UB veteran network)
-- MedicalDeposit: standard; Haggling: normal; DaysUntilOnline: 0
+- MedicalDeposit: small; Haggling: normal; DaysUntilOnline: 0
 
 ## Inventory
 

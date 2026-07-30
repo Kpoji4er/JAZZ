@@ -18,7 +18,7 @@ salary:
   increase: 210
   lv1: 750
   max: 5000
-medical_deposit: standard
+medical_deposit: small
 haggling: normal
 executable: true
 ---

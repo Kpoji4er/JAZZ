@@ -249,6 +249,11 @@ function AICreateContext(unit, context)
 		AIPlayCombatAction("ChangeWeapon", unit, 0)
 	end
 	local weapon = unit:GetActiveWeapons()
+	-- Unarmed / empty loadout: jazz indexes weapon ranges below; vanilla hashes with `weapon and`.
+	if not weapon then
+		ResumeInfiniteLoopDetection("AiCalc")
+		return context
+	end
 	local default_attack = unit:GetDefaultAttackAction(nil, "ungrouped", nil, "sync")
 	local enemies = table.icopy(GetEnemies(unit))
 	

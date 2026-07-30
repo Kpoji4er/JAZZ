@@ -153,8 +153,15 @@ local function JAZZ_SightScaledArmorStat(value, condition_percent, degrade_permi
 end
 
 local function JAZZ_IsTargetIndoors(other, step_pos)
-	if step_pos and AICheckIndoors then
-		return not not AICheckIndoors(step_pos)
+	-- AICheckIndoors expects packed stance_pos (number). GetSightRadius often gets a Point
+	-- (e.g. RevealUnitBeforeMove goto_pos) — do not pass that to stance_pos_unpack.
+	if type(step_pos) == "number" then
+		if AICheckIndoors then
+			return not not AICheckIndoors(step_pos)
+		end
+	elseif step_pos and IsPoint(step_pos) then
+		local volume = EnumVolumes(step_pos, "smallest")
+		return not not volume
 	end
 	return IsKindOf(other, "Unit") and not not other.indoors
 end

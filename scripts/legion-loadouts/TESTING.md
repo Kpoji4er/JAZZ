@@ -24,9 +24,11 @@ Spot checks in `jazz-units/items.lua`:
 | Check | How |
 | --- | --- |
 | Markers | one `JAZZ-UNITS-003-GENERATED-BEGIN/END` pair |
+| Parse health | paren/brace balance `0` on `items.lua`; no stacked `}),),` (buggy replace used to leave these and break the whole chunk — mercs included) |
 | Pilot inventory | `Roughneck_Inventory` / `Shocktrooper_Inventory` / `Sniper_Inventory` Comment `JAZZ-UNITS-003 generated` |
 | HE specialist | Shock: `FragGrenade` **without** `generate_chance`, exclusive bands `[11,19]` / `[21,29]` / `≥31` |
 | HE non-spec | Roughneck: `FragGrenade` **with** `generate_chance` |
+| Shotgun ammo not weapon pool | GenW combos must not nest `LegionT*_Shotgun`; `caliber_ammo` 12gauge → `Crusher_12g` / `Army_12g` |
 | No mid carbine-norm | `Roughneck_Firearm`: no assault/carbine combo with `Amount < 31` (assault only via `arch3_extra_tags`) |
 | Tier1 late | no firearm entry with `balance_tier` remnant / early Amount **without** `Condition = "<="` for Amount&lt;30 |
 | Remnant ~1% | on Roughneck at mid: `weight = 1400` entries with Amount 20 + `<=` 29; share ≈1% of active mid weights (±0.5 pp) |
