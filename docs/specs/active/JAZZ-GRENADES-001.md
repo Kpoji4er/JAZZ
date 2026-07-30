@@ -16,6 +16,7 @@ write_set:
   - jazz/Code/System_OR_Grenade.lua
   - jazz/Code/System_OR_Weapons.lua
   - jazz/Code/IModeCombatAreaAim.lua
+  - jazz/Code/CrossHairUI.lua
   - jazz/InventoryItem/*.lua
   - jazz/items.lua
   - jazz/metadata.lua
@@ -44,143 +45,198 @@ approved_by: pending
 - `results.mishap` почти всегда `true`, UI-нотификация только на Max — семантика флага сломана;
 - helpers `MishapChanceByDist` / `MishapDeviationVectorByDist` (дистанция, suppression, Inaccurate) **не подключены**, при этом у M79 hint говорит, что шанс промаха растёт с дистанцией;
 - у части GL/`UnderslungGrenadeLauncher` нет явного `MinMishapRange`; формулы Min/Max разъехались по делителям и clamp;
+- шанс всегда от Explosives, хотя throw ощущается от ловкости, а прицельный GL/ракета — от меткости;
 - float→integer уже починили для MP, но единого контракта и technical/wiki описания нет;
-- нет жёсткого cap на величину отклонения — исторический риск «улетела на другую сторону карты».
+- нет жёсткого cap на величину отклонения — исторический риск «улетела на другую сторону карты»;
+- цвет зоны поражения не отражает риск mishap (в отличие от CTH-кольца прицела).
 
 ## Цели
 
-- одна каноническая integer-модель: **базовый scatter всегда** + **крупный mishap по роллу**;
-- один shared resolver для ручных гранат и `HeavyWeapon` (parabola/line/bombard где применимо);
+- always-scatter + крупный mishap по роллу; scatter **плавнее** текущего (мягче Min-band);
+- один shared resolver для ручных гранат и `HeavyWeapon`;
 - честный `results.mishap` только на провале ролла; notification только тогда;
-- шанс и величина учитывают дистанцию и боевые штрафы по явному контракту;
-- hard cap отклонения; item defaults выровнены; docs/wiki отражают player-facing поведение;
-- в area-aim **цвет существующих колец зоны поражения** читается **как шанс попасть на кольце прицела**: `GetCTHColor(100 − mishap%)`; радиусы по-прежнему = AoE / зона поражения, не отдельный «радиус разброса».
+- на близкой/оптимальной дистанции **только scatter** (mishap% = 0); дальше шанс растёт;
+- governing skill: throw → Dexterity; GL/подствол/ракета/миномёт → Marksmanship;
+- suppression/Inaccurate влияют на **шанс и величину**;
+- CapTiles по расчёту; item defaults/hints; docs/wiki;
+- цвет существующих колец **зоны поражения** = `GetCTHColor(100 − mishap%)`.
 
 ## Non-goals
 
 - полный ребаланс чисел `Min/MaxMishapChance` и радиусов AoE по всему каталогу;
 - изменение bounce/`CanBounce`, Colby AoE perk, gas mask, trap pipeline;
-- отдельный UI-слой «кольцо радиуса разброса» поверх зоны поражения (цвет на существующих AoE-кольцах достаточен);
+- отдельный UI-слой «кольцо радиуса разброса»;
+- смена `UnitStat` XP-атрибута предметов (только runtime mishap skill; UnitStat может остаться Explosives);
 - rewrite CTH огнестрела; CommonLib bump.
 
-## Рекомендуемая модель (к утверждению)
+## Модель (решения владельца зафиксированы)
 
 ### Режимы
 
-1. **Scatter (всегда, не prediction)** — небольшое отклонение через band `Min`.
-2. **Mishap (ролл fail / AlwaysMiss)** — крупное отклонение через band `Max` + `ShowMishapNotification`.
+1. **Scatter (всегда, не prediction)** — band `Min`, плавная кривая (см. ниже).
+2. **Mishap (ролл fail / AlwaysMiss)** — band `Max` + `ShowMishapNotification`.
 
-Prediction / `explosion_pos` задан снаружи — без RNG отклонения.
+Prediction / внешний `explosion_pos` — без RNG отклонения.
 
-### Величина (оба band)
+### Governing skill
+
+| Класс | Атрибут для chance и skill_mod величины |
+|---|---|
+| Thrown `Grenade` / `GrenadeItem` / flare-throw | `Dexterity` |
+| `HeavyWeapon` (GL, Underslung, Rocket, Mortar) и `FlareGun` | `Marksmanship` |
+
+Выбор Marksmanship для тяжёлых (а не Explosives): прицельная доставка, согласовано с CTH-языком UI. `UnitStat` предметов в этом spec не обязательно менять.
+
+### Effective distance
 
 ```text
+full_range = WeaponRange           — HeavyWeapon / FlareGun
+           | ThrowMaxRange         — Grenade (fallback BaseRange, else 12)
+ref = full_range * SlabSizeX
+
 dist_eff = physical_dist
-         + WeaponRange_or_ThrowMax × suppression_debuff%
-         + WeaponRange_or_ThrowMax × Inaccurate.stacks × 20%
+         + ref × suppression_debuff%   (тот же tier table, что был в ByDist)
+         + ref × Inaccurate.stacks × 20%
 
 dist_tiles = DivRound(dist_eff, SlabSizeX)
-skill_x100 = Clamp(100 - Explosives, 10, 100)
-
-Min band: range ∈ [1, MinMishapRange] tiles
-  dist_mod_x100 = Clamp(MulDivRound(dist_tiles, 100, 8), 50, 300)
-
-Max band: range ∈ [MinMishapRange, MaxMishapRange] tiles
-  dist_mod_x100 = Clamp(MulDivRound(dist_tiles, 100, 8), 100, 400)
-
-dev = RandRange(min_dev, max_dev)  — integer MulDivRound
-dev = Min(dev, CapTiles × SlabSizeX)
-направление — равномерный угол (как сейчас)
 ```
 
-`CapTiles` по умолчанию: `Max(MaxMishapRange × 2, 8)` (не больше ~16 тайлов без отдельного item override). Точное число — см. REQ / решение владельца.
+Suppression/Inaccurate входят и в chance, и в величину через `dist_eff`.
 
 ### Шанс mishap
 
-Override `MishapProperties:GetMishapChance`:
+```text
+attr = governing skill (выше)
+base = vanilla-style interp MinMishapChance..MaxMishapChance по attr
+half = ref / 2                         — граница «оптимальной/близкой»
 
-1. базовый vanilla-интерполяционный шанс от Explosives / Min–MaxMishapChance;
-2. если `dist > half_range`: линейно поднимать к 100% к `full_range` (как в dormant `MishapChanceByDist`);
-3. `half_range` / `full_range` = `WeaponRange` для HeavyWeapon/FlareGun, иначе `ThrowMaxRange` (fallback `BaseRange`/`WeaponRange`/`12`);
-4. suppression / Inaccurate увеличивают **effective dist** тем же правилом, что и для величины.
+if dist_eff <= half:
+  chance = 0                           — только scatter
+else:
+  -- от 0 у half к 100% у full (skill задаёт base-пол после half)
+  t_x100 = Min(100, MulDivRound(dist_eff - half, 100, half))
+  chance = Min(100, MulDivRound(Max(base, 1), t_x100, 100)
+                     + MulDivRound(100 - Max(base, 1), Max(0, t_x100 - 50), 50))
+```
 
-UI area-aim продолжает показывать итоговый `%` через тот же метод (`async`).
+Упрощённая эквивалентная форма для реализации (integer-only, та же семантика):
 
-### Визуал area-aim (цвет зоны поражения)
+```text
+if dist_eff <= half: return 0
+-- линейный подъём: у half → 0, у full → 100, сжимаемый skill через base
+raw = Min(100, MulDivRound(dist_eff - half, 100, half))
+-- смешать raw с base: низкий attr → ближе к raw; высокий attr → медленнее растёт
+-- Практическая формула:
+chance = Min(100, MulDivRound(raw, 100 + Max(base, 0), 200) + MulDivRound(raw, Max(base, 0), 200))
+```
 
-**Радиусы = зона поражения** (как сейчас): inner/outer blast через `GrenadeAOEVisuals` / cone tiles — `AreaOfEffect` / `CenterAreaOfEffect` / cone. Они **не** кодируют величину scatter/mishap.
+**Канон для кода (зафиксировать одну формулу без двусмысленности):**
 
-**Цвет = аналог кольца прицела (CTH), индицирует scatter/mishap риск:**
+```text
+if dist_eff <= half then return 0 end
+t_x100 = Min(100, MulDivRound(dist_eff - half, 100, Max(half, 1)))
+-- t=0 у half, t=100 у full_range
+-- при t=100 цель = 100; при малых t шанс мал; base (от attr) задаёт кривизну:
+-- chance = MulDivRound(t_x100, Clamp(base, 0, 100) + MulDivRound(100 - Clamp(base,0,100), t_x100, 100), 100)
+-- → у full всегда 100%; у mid высокий attr даёт ниже шанс, чем низкий attr
+chance = Min(100, MulDivRound(t_x100,
+  Clamp(base, 0, 100) + MulDivRound(100 - Clamp(base, 0, 100), t_x100, 100),
+  100))
+```
 
-- async `mishap_chance = weapon:GetMishapChance(attacker, aim_pt, "async")`;
-- `success_chance = 100 - mishap_chance`;
-- tint blast/aim AoE materials = `GetCTHColor(success_chance)` — **те же пороги и RGB**, что у `idAimTarget` в crosshair;
-- зелёный → надёжный бросок (скорее scatter-band); красный → высокий риск mishap.
+UI async path = тот же `GetMishapChance`.
 
-Правила:
+### Величина
 
-1. Не добавлять отдельные кольца «envelope разброса» — игрок уже читает зону поражения; риск ухода точки взрыва несёт **цвет**.
-2. Trajectory arc может остаться на текущем preset либо лёгкий tint тем же `GetCTHColor` (не обязательно; blast rings обязательны).
-3. Cone-shaped: тот же tint на cone cast material.
-4. Invalid aim / no fire arc — без ложного «зелёного» tint; cleanup как сейчас.
-5. CRM: Clone существующих `GrenadeTilesCast` / `GrenadeConeShapedTilesCast` + color из `GetCTHColor`; пороги не дублировать — вызывать `GetCTHColor` из `CrossHairUI.lua` (shared helper только при load-order нужде).
+```text
+skill_x100 = Clamp(100 - attr, 10, 100)   -- attr = governing skill
 
-`GetDeviationPreviewRadii` для UI **не** нужен, если радиусы остаются чисто AoE.
+Min band (scatter, плавнее):
+  tile_lo, tile_hi = 1, MinMishapRange (default 2)
+  dist_mod_x100 = Clamp(MulDivRound(dist_tiles, 100, 10), 40, 200)   -- было /8 и 50..300
+
+Max band (mishap):
+  tile_lo, tile_hi = MinMishapRange, MaxMishapRange
+  dist_mod_x100 = Clamp(MulDivRound(dist_tiles, 100, 8), 100, 400)
+
+dev = RandRange(min_dev, max_dev)
+dev = Min(dev, CapTiles * SlabSizeX)
+угол равномерный
+```
+
+### CapTiles (расчёт)
+
+Без cap worst-case Max band: `MaxMishapRange × 4 × 1.0` → frag 8×4=**32** тайла, GL 6×4=**24** тайла (через карту).
+
+| Cap | Frag (Max=8) | GL (Max=6) | Эффект |
+|---|---|---|---|
+| `2 × MaxMishapRange` | 16 | 12 | режет worst ×2, mishap всё ещё тяжёлый |
+| `Max + 4` | 12 | 10 | жёстче |
+| fixed 12 | 12 | 12 | единообразно |
+
+**Зафиксировано расчётом:** `CapTiles = Max(2 × MaxMishapRange, 8)`.  
+Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не вводится в этом spec.
+
+### Визуал area-aim
+
+- **Радиус** = зона поражения (текущие blast/cone tiles).
+- **Цвет** = `GetCTHColor(100 − mishap%)` — шкала кольца прицела.
+- Отдельных колец разброса нет.
+- Trajectory arc: optional тот же tint; blast/cone обязательны.
 
 ### Shared API
 
+- `MishapProperties:GetMishapGoverningSkill(attacker)` → число attr  
 - `MishapProperties:GetEffectiveMishapDist(attacker, target)`  
-- `MishapProperties:GetMishapDeviationVectorMin/Max` — только integer, используют effective dist  
-- `MishapProperties:ApplyImpactDeviation(attacker, target_pos, attack_args) → target_pos, mishap_flag`  
-- `Grenade` и `HeavyWeapon` GetAttackResults вызывают Apply*; гранаты сохраняют ValidatePos retry (до 5); HeavyWeapon — тот же retry для parabola, line получает уже смещённый `target_pos` до LoF.
-- `Targeting_AOE_ParabolaAoE` (и cone/line aim path при необходимости) красит **существующие** AoE/зона-поражения materials через `GetCTHColor(100 − mishap%)`.
+- `MishapProperties:GetMishapChance` — override с half-range zero + distance ramp + suppression  
+- `MishapProperties:GetMishapDeviationVectorMin/Max` — integer, governing skill, smoother Min  
+- `MishapProperties:ApplyImpactDeviation(...)` → `target_pos, mishap_flag`  
+- `Grenade` / `HeavyWeapon` GetAttackResults → Apply*; ValidatePos retry для parabola  
+- `Targeting_AOE_ParabolaAoE` (+ cone path) — tint AoE materials через `GetCTHColor`
 
-Удалить свободные `MishapChanceByDist` / `MishapDeviationVectorByDist` после переноса в методы. Неиспользуемый «средний» `GetMishapDeviationVector` либо делегирует в Max (совместимость), либо удаляется, если нет внешних callers.
+Удалить free `MishapChanceByDist` / `MishapDeviationVectorByDist` после переноса.
 
 ### Данные предметов
 
-- у всех `GrenadeLauncher` / `UnderslungGrenadeLauncher` / mortar/rocket с Mishap явно задать `MinMishapRange` и `MaxMishapRange`;
-- hint M79/аналоги привести к факту: «шанс и разброс растут с дистанцией»;
-- без массового ребаланса chance чисел, кроме явных дыр (отсутствие Min range).
+- явные `MinMishapRange` + `MaxMishapRange` у всех GL/Underslung/mortar/rocket с Mishap;
+- hints: шанс и разброс растут с дистанцией; на близкой — только разброс; throw↔ловкость, GL↔меткость (RU/EN).
 
 ## Требования
 
-- `JAZZ-GRENADES-001-REQ-001` — любой non-prediction бросок/выстрел с `MishapProperties` без заданного `explosion_pos` применяет scatter band Min; mishap band Max только при fail ролла / AlwaysMiss.
-- `JAZZ-GRENADES-001-REQ-002` — `results.mishap == true` только для Max band; UI notification только тогда; scatter без notification.
-- `JAZZ-GRENADES-001-REQ-003` — один shared resolver для `Grenade` и `HeavyWeapon`; integer math; RNG только через `attacker`/`unit` Random/RandRange.
-- `JAZZ-GRENADES-001-REQ-004` — `GetMishapChance` учитывает effective dist (throw/weapon range, suppression, Inaccurate) и совпадает с UI async path.
-- `JAZZ-GRENADES-001-REQ-005` — величина отклонения использует effective dist; hard cap не даёт улететь дальше `CapTiles`.
-- `JAZZ-GRENADES-001-REQ-006` — item defaults GL/underslung имеют явные Min/MaxMishapRange; player-facing hints не врут.
-- `JAZZ-GRENADES-001-REQ-007` — technical + showcase/wiki описывают always-scatter / mishap / distance и что **цвет зоны поражения** = риск mishap (`GetCTHColor`), а радиус = AoE.
-- `JAZZ-GRENADES-001-REQ-008` — area-aim **не** добавляет отдельные кольца разброса; tint существующих blast/cone tiles = `GetCTHColor(100 − mishap%)` (шкала crosshair); радиусы остаются зоной поражения.
+- `JAZZ-GRENADES-001-REQ-001` — always-scatter (Min) + mishap (Max) только при fail/AlwaysMiss; prediction без RNG.
+- `JAZZ-GRENADES-001-REQ-002` — `results.mishap` и notification только на Max band.
+- `JAZZ-GRENADES-001-REQ-003` — один shared resolver; integer math; RNG через attacker/unit.
+- `JAZZ-GRENADES-001-REQ-004` — `GetMishapChance`: Dexterity для throw, Marksmanship для HeavyWeapon/FlareGun; `dist_eff ≤ half_range → 0`; далее ramp по канон-формуле; suppression/Inaccurate в `dist_eff`; UI async совпадает.
+- `JAZZ-GRENADES-001-REQ-005` — величина от governing skill + `dist_eff`; Min-band плавнее (`/10`, clamp 40..200); CapTiles = `Max(2×MaxMishapRange, 8)`.
+- `JAZZ-GRENADES-001-REQ-006` — item Min/MaxMishapRange + честные RU/EN hints.
+- `JAZZ-GRENADES-001-REQ-007` — technical + showcase/wiki sync.
+- `JAZZ-GRENADES-001-REQ-008` — tint зоны поражения `GetCTHColor(100 − mishap%)`; радиусы = AoE; без колец разброса.
 
 ## Инварианты и ограничения
 
-- deterministic MP: без float в bounds `RandRange`; порядок RNG grenade vs heavy согласован на хосте;
-- prediction / UI preview не крутит mishap RNG и не показывает ложный mishap toast;
-- UI tint чисто async-safe (каждый кадр targeting);
-- bounce, jam/condition heavy, AoE Colby, gas — без регрессий;
-- семантика радиусов AoE (зона поражения) не меняется;
-- не менять публичные class/ID предметов;
-- generated transaction: companion InventoryItem + `items.lua` + `metadata.lua` вместе.
+- MP: без float в `RandRange` bounds; согласованный порядок RNG;
+- prediction/UI не крутят mishap RNG / toast;
+- семантика радиусов AoE не меняется;
+- публичные class/ID предметов не менять;
+- generated transaction companion + `items.lua` + `metadata.lua`.
 
 ## Acceptance criteria
 
-- `JAZZ-GRENADES-001-AC-001` — static: один Apply/resolver; нет живых callers удалённых ByDist free functions; Min/Max integer-only.
-- `JAZZ-GRENADES-001-AC-002` — static: `results.mishap` выставляется только в Max-ветке; Min-ветка не вызывает `ShowMishapNotification`.
-- `JAZZ-GRENADES-001-AC-003` — static/editor: GL/Underslung имеют Min+Max MishapRange; hint текст RU/EN согласован.
-- `JAZZ-GRENADES-001-AC-004` — runtime: Explosives высокий / близкая дистанция → малый scatter, редкий mishap; низкий / дальняя → чаще mishap и больше разброс, но ≤ CapTiles.
-- `JAZZ-GRENADES-001-AC-005` — runtime: suppression/Inaccurate повышают displayed mishap % и наблюдаемый разброс.
-- `JAZZ-GRENADES-001-AC-006` — runtime/MP smoke: одинаковый seed path не десинхронит на броске гранаты и выстреле underslung.
-- `JAZZ-GRENADES-001-AC-007` — docs technical + showcase/wiki обновлены под фактическое поведение.
-- `JAZZ-GRENADES-001-AC-008` — human/runtime aim: радиусы колец = прежняя зона поражения; цвет совпадает с `GetCTHColor(100−mishap%)`; при росте mishap% цвет уходит зелёный→красный; нет лишних «колец разброса»; cleanup при смене/отмене aim.
+- `JAZZ-GRENADES-001-AC-001` — static: один Apply/resolver; ByDist free functions удалены/без callers; Min/Max integer-only; smoother Min clamps.
+- `JAZZ-GRENADES-001-AC-002` — static: `results.mishap` / notification только Max-ветка.
+- `JAZZ-GRENADES-001-AC-003` — static/editor: GL/Underslung Min+Max ranges; hints RU/EN.
+- `JAZZ-GRENADES-001-AC-004` — runtime: близкая/≤half → mishap% 0, только малый scatter; дальняя → выше % и Max band; отклонение ≤ CapTiles; throw реагирует на Dexterity, GL на Marksmanship.
+- `JAZZ-GRENADES-001-AC-005` — runtime: suppression/Inaccurate поднимают % и разброс (могут вытолкнуть из «только scatter» зоны).
+- `JAZZ-GRENADES-001-AC-006` — runtime/MP smoke без десинха на throw и underslung.
+- `JAZZ-GRENADES-001-AC-007` — docs technical + showcase/wiki.
+- `JAZZ-GRENADES-001-AC-008` — human aim: цвет зоны поражения = `GetCTHColor(100−mishap%)`; радиусы = AoE; нет лишних колец разброса.
 
 ## Impact и совместимость
 
-- Vanilla/CommonLib/JAZZ: JAZZ override `GetAttackResults` / `GetMishapChance` / deviation vectors; CLib коллизий по этим символам в текущем срезе не ожидается — перепроверить snapshot перед merge.
-- Saves: новых persistent fields нет; изменится только будущий roll outcome.
-- Network/determinism: critical — только integer RNG на attacker.
-- Generated data: да, при правке InventoryItem mishap fields / hints.
+- Vanilla/CommonLib/JAZZ: overrides GetAttackResults / GetMishapChance / deviation / area-aim tint; перепроверить CLib snapshot перед merge.
+- Saves: новых persistent fields нет.
+- Network/determinism: critical — integer RNG на attacker.
+- Generated data: InventoryItem mishap fields / hints.
 - Cross-package: нет обязательных units/maps/assets.
 - Rollback: один change set code+items+docs.
 
@@ -194,24 +250,24 @@ UI area-aim продолжает показывать итоговый `%` че�
 
 ## Решение владельца
 
-- Статус: `draft` — ждать approval по развилкам ниже
-- Кто подтвердил: pending
-- Дата: pending
+- Статус: `draft` — решения по развилкам зафиксированы ниже; ждать явного **approve** на реализацию
+- Кто подтвердил (решения): project-owner (chat 2026-07-30)
+- Дата approve реализации: pending
 
-### Развилки (нужен ответ владельца)
+### Развилки
 
-1. **Always-scatter** — оставить (рекомендация) / вернуть vanilla «только при mishap»?
-2. **CapTiles** — `max(2×MaxMishapRange, 8)` (рекомендация) / фиксированные 8 / 12 / своё число?
-3. **Chance×дистанция** — включить в `GetMishapChance` (рекомендация, чинит hint) / только величина, chance skill-only?
-4. **Suppression/Inaccurate** — в chance+величину (рекомендация) / только величину / игнор в этом spec?
-5. **UI** — **зафиксировано владельцем**: радиусы = зона поражения; **цвет** существующих AoE-колец = `GetCTHColor(100 − mishap%)` как у шанса попасть на кольце прицела; отдельных колец разброса нет.
+1. **Always-scatter** — **да**, ощущение ок; Min-band сделать плавнее.
+2. **CapTiles** — **расчёт:** `Max(2 × MaxMishapRange, 8)` (frag≤16, GL≤12).
+3. **Chance×дистанция** — **да**; на ≤half только scatter (chance 0); throw skill = **Dexterity**; GL/ракета/подствол = **Marksmanship**.
+4. **Suppression/Inaccurate** — **и шанс, и разброс**.
+5. **UI** — радиусы = зона поражения; цвет = `GetCTHColor(100 − mishap%)`.
 
 ## Evidence
 
-- `JAZZ-GRENADES-001-AC-001`–`008`: `BLOCKED` — ожидает approval и реализацию.
+- `JAZZ-GRENADES-001-AC-001`–`008`: `BLOCKED` — ожидает approve на реализацию.
 
 ## Documentation delta
 
-- `docs/technical/systems/explosives-traps-heavy-weapons.md` — секция scatter/mishap;
-- player-facing: `docs/wiki/` + `docs/showcase/ru|en` по затронутому аспекту боя/взрывчатки;
+- `docs/technical/systems/explosives-traps-heavy-weapons.md` — scatter/mishap/UI tint;
+- `docs/wiki/` + `docs/showcase/ru|en`;
 - spec этот файл.
