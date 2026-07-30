@@ -22,8 +22,7 @@ DefineClass.M79 = {
 	DisplayName = T(971400395106, --[[ModItemInventoryItemCompositeDef M79 DisplayName]] "M79"),
 	DisplayNamePlural = T(989047236569, --[[ModItemInventoryItemCompositeDef M79 DisplayNamePlural]] "M79"),
 	Description = T(769570824531, --[[ModItemInventoryItemCompositeDef M79 Description]] 'Легендарный американский 40 мм пехотный гранатомет времен войны во Вьетнаме, являющийся пращуром современных "подствольников". На прикладе ножом в спешке вырезано "Джонни, они на деревьях!"'),
-	AdditionalHint = T(397383171067, --[[ModItemInventoryItemCompositeDef M79 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 40-мм гранатомет.
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На близкой дистанции только разброс; шанс провала растёт с дальностью (Меткость + Взрывчатка)."),
+	AdditionalHint = T(397383171067, --[[ModItemInventoryItemCompositeDef M79 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 40-мм гранатомет.\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На близкой дистанции только разброс; шанс провала растёт с дальностью (Меткость + Взрывчатка)."),
 	LargeItem = 1,
 	UnitStat = "Explosives",
 	Valuable = 1,

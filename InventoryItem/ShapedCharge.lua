@@ -11,8 +11,7 @@ DefineClass.ShapedCharge = {
 	ItemType = "Grenade",
 	DisplayName = T(380012367478, --[[ModItemInventoryItemCompositeDef ShapedCharge DisplayName]] "Shaped Charge"),
 	DisplayNamePlural = T(622567247516, --[[ModItemInventoryItemCompositeDef ShapedCharge DisplayNamePlural]] "Shaped Charges"),
-	AdditionalHint = T(622419236578, --[[ModItemInventoryItemCompositeDef ShapedCharge AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Наносит урон по сектору
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильно зависит от Взрывчатки; высокая вероятность неудачи при использовании всеми, кроме Барри"),
+	AdditionalHint = T(622419236578, --[[ModItemInventoryItemCompositeDef ShapedCharge AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Наносит урон по сектору\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильно зависит от Взрывчатки; высокая вероятность неудачи при использовании всеми, кроме Барри"),
 	UnitStat = "Explosives",
 	Cost = 1500,
 	CanAppearInShop = true,

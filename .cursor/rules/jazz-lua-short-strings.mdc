@@ -1,0 +1,31 @@
+---
+description: Lua short strings cannot contain raw newlines (JA3 unfinished string)
+globs: "**/*.lua"
+alwaysApply: false
+---
+
+# Lua short strings: no raw newlines
+
+JA3 loads mod Lua and reports **unfinished string** if a `"..."` or `'...'` short string spans a real line break.
+
+## Required
+
+- Multiline `AdditionalHint` / `Description` / `T(...)` text: use `\n` on **one** physical line, or long brackets `[[...]]` / `[=[...] =]`.
+- Never press Enter inside an open `"..."` / `'...'` when editing `InventoryItem/*.lua`, `items.lua`, or other loaded Lua.
+
+## Good
+
+```lua
+AdditionalHint = T(123, "... first line\n... second line"),
+```
+
+## Bad (mod fails to load)
+
+```lua
+AdditionalHint = T(123, "... first line
+... second line"),
+```
+
+## Gate
+
+`scripts/check-lua-quoted-strings.ps1` (Quality gates CI) fails the build on this pattern.

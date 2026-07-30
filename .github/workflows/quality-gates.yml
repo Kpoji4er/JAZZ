@@ -30,6 +30,10 @@ jobs:
         shell: pwsh
         run: .agents/skills/sync-jazz-generated-data/scripts/check-generated-sync.ps1 -Package jazz
 
+      - name: Reject unfinished Lua short strings
+        shell: pwsh
+        run: scripts/check-lua-quoted-strings.ps1
+
       - name: Check whitespace in changed lines
         shell: pwsh
         run: |

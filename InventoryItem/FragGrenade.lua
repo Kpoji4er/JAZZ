@@ -12,8 +12,7 @@ DefineClass.FragGrenade = {
 	DisplayName = T(172826329217, --[[ModItemInventoryItemCompositeDef FragGrenade DisplayName]] "Граната M24"),
 	DisplayNamePlural = T(167822758999, --[[ModItemInventoryItemCompositeDef FragGrenade DisplayNamePlural]] "Гранаты M24"),
 	Description = "",
-	AdditionalHint = T(243383619902, --[[ModItemInventoryItemCompositeDef FragGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На близкой дистанции только разброс (Ловкость + Взрывчатка; уверенно примерно с 30)"),
+	AdditionalHint = T(243383619902, --[[ModItemInventoryItemCompositeDef FragGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На близкой дистанции только разброс (Ловкость + Взрывчатка; уверенно примерно с 30)"),
 	UnitStat = "Explosives",
 	Cost = 300,
 	CanAppearInShop = true,
