@@ -33,6 +33,16 @@ Skill кадра UI: `.agents/skills/frame-jazz-merc-ui-portrait/`.
 **Больше нигде** (не extract UI вне папки, не другие моды, не NPCPortraits, не чужие _wip).  
 Face/pose пользователя и `*.ja2-face.*` — **identity** (узнаваемость), не замена `References/` по стилю тела/гамы.
 
+### Anti-bleed (обязательно)
+
+Style-refs (Raven/Buns/Shadow/Grizzly/Fox/…) легко дают чужое лицо/kit. В промпте всегда:
+
+`IDENTITY/KIT LOCK` — лицо/волосы/одежда только с ship этого мерка;  
+`STYLE REFS ANTI-BLEED` — чужие refs только color grade / skin / lighting / proportions LEVEL, не копировать hair/face/clothes/signature kit.
+
+Reject: Buns-пучок на других; Shadow-cosplay; одежда Grizzly/Fox на чужом мерке.  
+При style-match regen предпочтительно refs = ship Big + face (grade текстом), без full-body чужих мерков.
+
 ## Лицо (узнаваемое + чуть реалистичнее)
 
 Источник identity: `docs/design/mercs-ja12/<slug>.ja2-face.*` (+ face от пользователя).
@@ -193,7 +203,7 @@ newrules2/<Id>/<Id>_<variant>.png | <Id>_<variant>_Big.png
 
 - `aspect_ratio` `1:1`
 - BACKGROUND `#504633` (opaque; alpha later)
-- **CLIMATE / SETTING:** hot African country (Arulco) — heat-appropriate clothing (rolled sleeves, lighter fabrics, sweat/dust ok); no winter/arctic kit unless sheet says so
+- **CLIMATE / SETTING:** hot African country — **Grand Chien** (JA3) — heat-appropriate clothing (rolled sleeves, lighter fabrics, sweat/dust ok); no winter/arctic kit unless sheet says so
 - JA3 color grade + EXPOSURE match refs
 - VARIANT v1/v2/v3 + соответствующие поля sheet
 - PROPORTIONS: adult ~7.5–8 heads; legs ~half body height; **no short legs / no dwarf** (reject like squat Bull; OK like Lynx/refs)

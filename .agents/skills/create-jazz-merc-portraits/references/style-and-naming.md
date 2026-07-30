@@ -17,7 +17,20 @@
 - face identity: `docs/design/mercs-ja12/<slug>.ja2-face.*` и/или face от пользователя;
 - **appearance sheet** строка мерка: [`_appearance-sheet.md`](../../../../docs/design/mercs-ja12/_appearance-sheet.md) (Google Sheet);
 - pose-ref от пользователя;
-- утверждённый bust этого же мерка для Big identity lock.
+- утверждённый bust этого же мерка для Big identity lock;
+- ship `MercPortraits/<Id>_Big.png` / `<Id>.png` как **единственный** источник лица/волос/одежды/kit при style-match regen.
+
+### Style-ref anti-bleed (CRITICAL)
+
+JA3 `References/` легко «протекают» в генерацию: чужое лицо (Buns-пучок на Spider), чужой kit (Shadow-camo на Monk, одежда Grizzly/Fox).
+
+Правила:
+
+1. **Первым** в `reference_image_paths` — ship Big (и/или face) **этого** мерка.
+2. Style-refs (Raven/Buns/Shadow/Grizzly/Fox/MD…) — только для **color grade / skin undertone / exposure / proportions LEVEL**.
+3. В промпте всегда блок `IDENTITY/KIT LOCK` + `STYLE REFS ANTI-BLEED` (см. шаблоны ниже).
+4. При style-match regen предпочтительно **не** класть full-body чужих мерков в refs — достаточно ship + face; grade описать текстом («fair pink-peach like JA3 Raven», «rich brown like Ice/Magic»).
+5. Reject: cosplay другого именованного мерка; чужая причёска/лицо; чужой signature kit (зелёный шарф Buns, Shadow face-paint+kit, Fox crop-top, Grizzly plaid и т.п.).
 
 ## Appearance sheet в промпте (обязательно)
 
@@ -254,10 +267,12 @@ Reject: другое лицо; flat sticker; over-beautify; потеря узн�
 JA3 mercenary UI PORTRAIT, square close-up.
 FRAMING (CRITICAL): tight headshot like vanilla JA3 MercsPortraits (Blood/Ice) — face fills MOST of the frame (head ~70-80% of height); top of shoulders only; NOT waist-up, NOT chest-up, NOT distant.
 BACKGROUND: solid olive-brown chroma #504633 only (flat chroma). No black, no checkerboard, no transparency request. Avoid flat #504633 fill on character (normal khaki/olive fabric OK).
-SETTING: hot African climate (Arulco) — heat-appropriate clothing (rolled sleeves, lighter fabrics, light sweat/dust OK); NO winter/arctic gear unless sheet says so.
+SETTING: hot African climate — Grand Chien (JA3) — heat-appropriate clothing (rolled sleeves, lighter fabrics, light sweat/dust OK); NO winter/arctic gear unless sheet says so.
 Mercenary contractor (NOT army): PMC/merc patches & chevrons OK; no army rank insignia / sergeant stripes / армейские лычки.
 Class kit visible at collar/shoulders only; holstered pistol OK; no guns in hands / on furniture / rifles.
 FACE: recognizable identity from JA2 face ref (same person) — inspire from source, improve anatomy/volume slightly toward JA3 Mercs realism; NOT flat pixel-sticker paste; NOT beauty-filter / plastic skin.
+IDENTITY/KIT LOCK (CRITICAL): First reference = THIS merc only — keep the SAME face, hair, and clothing/kit. Do NOT replace head or outfit with another JA3 merc.
+STYLE REFS ANTI-BLEED: Other refs (Raven/Buns/Shadow/Grizzly/Fox/MD/…) are ONLY for color grade / skin undertone / lighting — NEVER copy their hair, face, clothes, or signature kit. No Buns blonde bun, no Shadow camo cosplay, no Grizzly/Fox outfit bleed.
 POSE: lively close-up — slight ¾ head tilt like JA3 Mercs refs; not stiff passport-front.
 APPEARANCE: <sheet внешность>
 BACKSTORY/LOOK: <sheet Бекстори/внешка>
@@ -273,8 +288,10 @@ PROPORTIONS: adult human like JA3 Mercs refs — correct head-to-body/shoulder r
 ```text
 Extend the EXACT person from the bust reference to JA3 FULL-BODY.
 FACE must stay the same recognizable person as bust — slightly realistic JA3 anatomy, not aged up, not redrawn into a stranger.
+IDENTITY/KIT LOCK (CRITICAL): First reference = THIS merc's ship Big/bust — SAME face, hair, body type, and clothing/kit. Do NOT swap head or cosplay another merc's outfit.
+STYLE REFS ANTI-BLEED: Raven/Buns/Shadow/Grizzly/Fox/MD/etc. refs are ONLY for color grade, skin undertone, exposure, proportions LEVEL — NEVER copy their hair, face identity, clothes, camo pattern, scarf, crop-top, plaid, or kit. Forbidden: Buns blonde bun on other women; Shadow face-paint/kit cosplay; Grizzly or Fox clothing bleed onto wrong merc.
 BACKGROUND: solid olive-brown chroma #504633 only (flat chroma). No black, no checkerboard. Avoid flat #504633 fill on character (normal khaki/olive fabric OK).
-SETTING: hot African climate (Arulco) — heat-appropriate clothing (rolled sleeves, lighter fabrics, light sweat/dust OK); NO winter/arctic gear unless sheet says so.
+SETTING: hot African climate — Grand Chien (JA3) — heat-appropriate clothing (rolled sleeves, lighter fabrics, light sweat/dust OK); NO winter/arctic gear unless sheet says so.
 FRAMING: full body head-to-toe fully inside frame — head/hair NOT cropped at top, feet/boots NOT cropped at bottom; small #504633 margins.
 POSE: interesting idle like JA3 Mercs refs — body ¾ turn, weight on one leg (contrapposto), asymmetric arms (hand on hip / belt / holding class kit tool); holstered pistol OK; NO gun in hands, NO rifle, NO weapon props on ground; silhouette with attitude matching character; NOT symmetric mannequin with both arms glued to sides. If pose-ref given: match that pose exactly.
 APPEARANCE: <same sheet внешность>
