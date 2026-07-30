@@ -1,10 +1,10 @@
 # Playtest bug report: `jazz-nomaps` (Discord, 2026-07-30)
 
-**Статус:** fix in jazz-nomaps **0.4** (static); runtime re-verify pending  
+**Статус:** fixed in jazz-nomaps **0.5** (merged PR #1); runtime smoke on I2 still recommended  
 **Профиль:** `jazz_assets` + `jazz-units` + **`jazz-nomaps`** (`7MsJ2Eq`) + `jazz` (+ CommonLib), без `jazz-maps`  
 **Источник:** Discord playtest (Sergej 1973 / Kpoji4er), скрины инвентаря сектор **I2**  
 **Спека:** [JAZZ-COMPAT-002](../../specs/active/JAZZ-COMPAT-002.md)  
-**Пакет-владелец фикса:** `jazz-nomaps` (лут/sanitize); cut-реестр — [weapons/cut-content.md](../weapons/cut-content.md)
+**Пакет-владелец фикса:** `jazz-nomaps` (лут/sanitize/remap); cut-реестр — [weapons/cut-content.md](../weapons/cut-content.md)
 
 ## Краткий вердикт
 
@@ -70,18 +70,17 @@ Inject на `ExplorationStart` / `CombatStart` кладёт эти классы 
 | AC-005 spawn/remap + container loot | **FAIL (human):** loot packs отдают cut ammo/`MP5`; remap/archetypes неполные |
 | AC-007 human profile start | профиль стартует (частичный PASS), экономика лута/отрядов — нет |
 
-## Предлагаемый fix set
+## Fix set (merged)
 
-**Сделано в jazz-nomaps 0.4** (`cursor/nomaps-cut-loot-fix-88b8`):
+**jazz-nomaps 0.4–0.5** ([PR #1](https://github.com/Kpoji4er/JAZZ-nomaps/pull/1)):
 
 1. LootDef + `LOOT_POOLS_FALLBACK` → `JAZZ_AMMO_*` / `MP5A2` (без `_9mm_*` / cut `MP5`).
 2. Deny cut/`_*`/`TEST.png` при inject (`lItemAllowed` / `lAddItemsToContainer`).
-3. После `CreateStartingEquipment` — `lSanitizeUnitAmmo` (выкинуть чужой/cut ammo, доложить стек под `weapon.Caliber`, reload).
+3. После `CreateStartingEquipment` — `lSanitizeUnitAmmo` (+ strip cut firearms).
+4. Расширен `SQUAD_REMAP` (`LegionRaidSquad_01/02/03`, hard variants, `LegionFortressDefenders`, …).
+5. `lScrubContainerCutItems` на Exploration/Combat — вычищает cut из vanilla контейнеров до inject.
 
-**Остаётся:**
-
-4. Расширить `SQUAD_REMAP` / wiring `InitialSquads` под vanilla HotDiamonds (архетипы/«старая броня») — отдельный change.
-5. Runtime: I2 — нет `TEST.png` / `MP5` (ОТКЛЮЧЕНО); Hi-Power только с `JAZZ_Caliber_9x19` ammo.
+**Остаётся (human):** smoke I2 — нет `TEST.png` / `MP5` (ОТКЛЮЧЕНО); Hi-Power только с `JAZZ_Caliber_9x19` ammo.
 
 ## Evidence
 

@@ -292,7 +292,7 @@ Core `jazz` **не** объявляет dependency на nomaps.
 - `JAZZ-COMPAT-002-AC-002`: `BLOCKED (runtime)` — new game без maps.
 - `JAZZ-COMPAT-002-AC-003`: `BLOCKED (runtime)` — maps+nomaps no-op.
 - `JAZZ-COMPAT-002-AC-004`: `PASS (static)` — `StandaloneNoMapsFallback` удалён из jazz metadata/items.
-- `JAZZ-COMPAT-002-AC-005`: `FAIL (human)` → fix shipped in **jazz-nomaps 0.4** (LootDef/`LOOT_POOLS_FALLBACK` → `JAZZ_AMMO_*` + `MP5A2`; cut deny on inject; `lSanitizeUnitAmmo` after gear refresh). Runtime re-verify on I2 still needed; see `docs/technical/bugs/nomaps-playtest-2026-07-30.md`.
+- `JAZZ-COMPAT-002-AC-005`: `PASS (static)` after jazz-nomaps **0.5** ([PR #1](https://github.com/Kpoji4er/JAZZ-nomaps/pull/1)): live `JAZZ_AMMO_*`/`MP5A2` packs, cut scrub, expanded HotDiamonds `SQUAD_REMAP`, ammo sanitize. `BLOCKED (runtime)` — human I2 smoke still open; see `docs/technical/bugs/nomaps-playtest-2026-07-30.md`.
 - `JAZZ-COMPAT-002-AC-006`: `BLOCKED (editor)` — editor round-trip.
 - `JAZZ-COMPAT-002-AC-007`: `BLOCKED (human)`.
 
