@@ -38,7 +38,7 @@ Metadata не отражает все фактические ссылки. Сл�
 
 ### NoMaps loot / archetypes (COMPAT-002 playtest)
 
-Пакет `jazz-nomaps` inject'ит неиспользуемые vanilla ammo (`Ammopics/TEST.png`) и отключённый `MP5`; remap отрядов не закрывает все vanilla InitialSquads. Багрепорт и fix set: [bugs/nomaps-playtest-2026-07-30.md](bugs/nomaps-playtest-2026-07-30.md). Фикс — в `jazz-nomaps` (+ при необходимости wiring в units), не «чинить» TEST-иконки в core.
+Исправлено в **jazz-nomaps 0.5** (merged): live ammo/weapons packs, container scrub, расширенный HotDiamonds remap, sanitize ammo. Исторический багрепорт: [bugs/nomaps-playtest-2026-07-30.md](bugs/nomaps-playtest-2026-07-30.md). Остаётся только human smoke I2.
 
 ### Дубли внутри основного пакета
 
