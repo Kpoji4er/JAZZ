@@ -781,7 +781,13 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 
     unit:SequentialActionsEnd()
 
+    -- Vanilla packs only when stationed with no attack target (elseif branch).
+    -- Jazz Dump exits immediately once g_Overwatch is set (JAZZ_AICanDump), so an
+    -- unconditional MGPack here cancelled every fresh MGSetup ("prone OW → pack → stand").
+    -- Intentional pack remains AIActionMGSetup Precalc (no usable zone → MGPack).
+    -- Recovery: stationed but sector missing.
     if unit:HasStatusEffect("StationedMachineGun")
+        and not g_Overwatch[unit]
         and CombatActions.MGPack:GetUIState({unit}) == "enabled" then
         unit:SequentialActionsEnd()
         AIPlayCombatAction("MGPack", unit)

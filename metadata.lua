@@ -5,7 +5,7 @@
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- Grenade aim: tint FillColor/arc; color = mishap% x Min-band scatter (GetMishapAimReliability)\n- AI MGSetup half-cover Crouch+bipod (ACT-003)\n- Legion loot regen scope; CombatAI nil weapon; AICheckIndoors Point",
+	'last_changes', "- Fix AI MGPack after Dump cancelling fresh MGSetup OW\n- Grenade aim: tint FillColor/arc; mishap% x Min-band scatter\n- AI MGSetup half-cover Crouch+bipod (ACT-003)",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 45,
+	'version_minor', 46,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,

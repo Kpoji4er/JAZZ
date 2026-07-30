@@ -66,6 +66,8 @@ JAZZ оценивает attack AP, cover, anti-flank, proximity, high ground, en
 
 **MG half-cover setup (JAZZ-AI-ACT-003):** `AIActionMGSetup` после выбора зоны проверяет тот же предикат, что игрок (`CoverLow`, `coverage > 80` vs `target_pos`, оценка в `Crouch`). При halfcover Execute сначала ставит Crouch, затем `MGSetup` → `BipodUnfolded` без forced Prone; иначе prone-deploy как раньше. `AIScoreDest` даёт скромный bonus (+45) reachable dest с usable low cover для не-stationed MG/LMG. Rotate/Pack ветка без изменения.
 
+**MGPack after Dump:** не паковать сектор, пока жив `g_Overwatch[unit]` (иначе каждый `MGSetup` сразу срывался: Dump стопорится на OW → unconditional `MGPack` → restart/PrefStance «встал»). Intentional pack — через `AIActionMGSetup` Precalc при пустой зоне; recovery pack — если `StationedMachineGun` без OW.
+
 **Smoke (JAZZ-AI-ACT-002):** signature `SmokeGrenade` считает curtain на `g_Overwatch` / fire lane → ally `ai_destination` (угол выхода); прямое накрытие союзника только если он в `JazzAI_TeamActed` (после `AIPlayAttacks`). Дым режет sight (−70 `IsLineInSmoke`) и урон сквозь облако — не шапка на ещё не ходивших. Frag/molotov scoring не затронут.
 
 `InfiniteLoopFix.lua` не выбирает тактику, а меняет protective thresholds. Слишком низкое значение вернёт зависание; слишком высокое может скрыть бесконечный цикл дольше.
