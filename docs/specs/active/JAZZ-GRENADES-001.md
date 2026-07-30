@@ -266,6 +266,8 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 
 ## Documentation delta
 
-- `docs/technical/systems/explosives-traps-heavy-weapons.md` — scatter/mishap/UI tint;
-- `docs/wiki/` + `docs/showcase/ru|en`;
+- `docs/technical/systems/explosives-traps-heavy-weapons.md` — scatter/mishap/UI tint + playtest checks;
+- `docs/technical/testing.md` — playtest bullets for grenade/GL mishap;
+- `docs/wiki/combat-and-accuracy.md` + `docs/wiki/README.md` — player-facing grenade/GL section;
+- `docs/showcase/ru|en/combat-and-accuracy.md` + `home.md` — витрина в паре с wiki;
 - spec этот файл.
