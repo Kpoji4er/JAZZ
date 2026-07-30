@@ -222,22 +222,13 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 		end)
 	end
 
-	-- Stealth kit: meaningful camo and/or Stealthy/Shadow. Clumsy Hidden stay near Aware edge.
-	local stealth_kit = hidden and other_is_unit and (
-		camo >= 20
-		or HasPerk(other, "Stealthy")
-		or other:HasStatusEffect("FleetingShadow")
-	)
-
 	-- Cover applies for any living/dead unit target (same as prior hot path).
 	if other_is_unit then
 		local cover, _, coverage = other:GetCoverPercentage(self)
 		local coverbuff = 0
 		if coverage and coverage > 0 then
 			if hidden then
-				-- Strong Hidden cover only for stealth kit; others keep legacy weak 10% scale.
-				local cover_scale = stealth_kit and JAZZ_HiddenCoverCoverageScale or 10
-				coverage = MulDivRound(coverage, cover_scale, 100)
+				coverage = MulDivRound(coverage, JAZZ_HiddenCoverCoverageScale, 100)
 			end
 			local mul = JAZZ_SightCoverMul[other.stance]
 			mul = mul and mul[cover]
@@ -342,14 +333,6 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 			modifier = modifier + const.EnvEffects.SightHeightDiffMod
 		elseif oz + const.EnvEffects.SightHeightDiffThreshold < z then
 			modifier = modifier - const.EnvEffects.SightHeightDiffMod * 2
-		end
-	end
-
-	-- Non-stealth Hidden: stay near Aware edge (day ~39+, night still far vs specialists).
-	if hidden and other_is_unit and not stealth_kit then
-		local clumsy_mod_floor = night_time and 50 or 85
-		if modifier < clumsy_mod_floor then
-			modifier = clumsy_mod_floor
 		end
 	end
 
