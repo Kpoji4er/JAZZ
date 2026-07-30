@@ -54,14 +54,13 @@ approved_by: pending
 - честный `results.mishap` только на провале ролла; notification только тогда;
 - шанс и величина учитывают дистанцию и боевые штрафы по явному контракту;
 - hard cap отклонения; item defaults выровнены; docs/wiki отражают player-facing поведение;
-- в area-aim **визуальное кольцо отклонения** (тот же tile/CRM пайплайн, что у колец прицеливания/AoE);
-- **цвет кольца** читается **как шанс попасть на кольце прицела**: та же шкала `GetCTHColor` / те же пороги, по «шансу удачного приземления» (`100 − mishap%`); размер/слои при этом показывают scatter vs mishap envelope.
+- в area-aim **цвет существующих колец зоны поражения** читается **как шанс попасть на кольце прицела**: `GetCTHColor(100 − mishap%)`; радиусы по-прежнему = AoE / зона поражения, не отдельный «радиус разброса».
 
 ## Non-goals
 
 - полный ребаланс чисел `Min/MaxMishapChance` и радиусов AoE по всему каталогу;
 - изменение bounce/`CanBounce`, Colby AoE perk, gas mask, trap pipeline;
-- отдельный 3D-asset / новая entity-модель кольца (только procedural tiles + CRM, как aim);
+- отдельный UI-слой «кольцо радиуса разброса» поверх зоны поражения (цвет на существующих AoE-кольцах достаточен);
 - rewrite CTH огнестрела; CommonLib bump.
 
 ## Рекомендуемая модель (к утверждению)
@@ -107,46 +106,34 @@ Override `MishapProperties:GetMishapChance`:
 
 UI area-aim продолжает показывать итоговый `%` через тот же метод (`async`).
 
-### Визуал area-aim (кольцо отклонения)
+### Визуал area-aim (цвет зоны поражения)
 
-Центр — **точка прицеливания** (`aim_pt` / intended impact), не сдвинутая prediction-RNG (prediction по-прежнему без roll).
+**Радиусы = зона поражения** (как сейчас): inner/outer blast через `GrenadeAOEVisuals` / cone tiles — `AreaOfEffect` / `CenterAreaOfEffect` / cone. Они **не** кодируют величину scatter/mishap.
 
-Пайплайн — тот же procedural tile / `GrenadeAOEVisuals` / `CRM_SphereAOETilesMaterial`, что у колец прицеливания AoE.
+**Цвет = аналог кольца прицела (CTH), индицирует scatter/mishap риск:**
 
-**Цвет — аналог кольца прицела (CTH):**
+- async `mishap_chance = weapon:GetMishapChance(attacker, aim_pt, "async")`;
+- `success_chance = 100 - mishap_chance`;
+- tint blast/aim AoE materials = `GetCTHColor(success_chance)` — **те же пороги и RGB**, что у `idAimTarget` в crosshair;
+- зелёный → надёжный бросок (скорее scatter-band); красный → высокий риск mishap.
 
-- источник: async `mishap_chance = weapon:GetMishapChance(attacker, aim_pt, "async")`;
-- `success_chance = 100 - mishap_chance` (шанс «удачного» броска / остаться в scatter-band, не уйти в mishap);
-- tint = `GetCTHColor(success_chance)` — **те же пороги и RGB**, что у `idAimTarget` в crosshair (`≥60` зелёный … `>0` красный);
-- цвет **индицирует риск scatter→mishap** тем же языком, что CTH на кольце прицеливания: зелёный = надёжно, красный = почти наверняка улетит в mishap.
+Правила:
 
-**Размер — два радиуса (детерминированные max band, без RNG):**
+1. Не добавлять отдельные кольца «envelope разброса» — игрок уже читает зону поражения; риск ухода точки взрыва несёт **цвет**.
+2. Trajectory arc может остаться на текущем preset либо лёгкий tint тем же `GetCTHColor` (не обязательно; blast rings обязательны).
+3. Cone-shaped: тот же tint на cone cast material.
+4. Invalid aim / no fire arc — без ложного «зелёного» tint; cleanup как сейчас.
+5. CRM: Clone существующих `GrenadeTilesCast` / `GrenadeConeShapedTilesCast` + color из `GetCTHColor`; пороги не дублировать — вызывать `GetCTHColor` из `CrossHairUI.lua` (shared helper только при load-order нужде).
 
-| Слой | Радиус | Роль |
-|---|---|---|
-| **Scatter** | max Min-band | зона обычного always-scatter |
-| **Mishap** | max Max-band после CapTiles | оболочка провала |
-
-Оба слоя красятся **одним** `GetCTHColor(success_chance)`; отличие scatter/mishap — радиус (и при необходимости alpha/intensity mishap-оболочки), не отдельная «холодная/тёплая» палитра. При `mishap_chance == 0` mishap-слой можно приглушить/скрыть.
-
-Дополнительно:
-
-1. Blast AoE (inner/outer урон) остаётся отдельным слоем и **не** перекрашивается CTH-шкалой отклонения.
-2. Cone-shaped: deviation — круги вокруг aim; cone mesh урона не подменяется.
-3. Cleanup на `delete` / invalid aim — как у `blackboard.meshes`.
-4. CRM: Clone `GrenadeTilesCast` (или эквивалент) + tint из `GetCTHColor`; не плодить отдельную произвольную палитру.
-5. Helper: `MishapProperties:GetDeviationPreviewRadii(attacker, target) → scatter_radius, mishap_radius`.
-
-Публичный контракт цвета: **не дублировать пороги** — вызывать существующий `GetCTHColor` из `CrossHairUI.lua` (или вынести в shared helper только если понадобится load-order; поведение RGB/пороги не менять).
+`GetDeviationPreviewRadii` для UI **не** нужен, если радиусы остаются чисто AoE.
 
 ### Shared API
 
 - `MishapProperties:GetEffectiveMishapDist(attacker, target)`  
 - `MishapProperties:GetMishapDeviationVectorMin/Max` — только integer, используют effective dist  
-- `MishapProperties:GetDeviationPreviewRadii(attacker, target)` — async-safe max радиусы для UI  
 - `MishapProperties:ApplyImpactDeviation(attacker, target_pos, attack_args) → target_pos, mishap_flag`  
 - `Grenade` и `HeavyWeapon` GetAttackResults вызывают Apply*; гранаты сохраняют ValidatePos retry (до 5); HeavyWeapon — тот же retry для parabola, line получает уже смещённый `target_pos` до LoF.
-- `Targeting_AOE_ParabolaAoE` (и при необходимости line/bombard aim path) рисует scatter+mishap кольца с разным цветом.
+- `Targeting_AOE_ParabolaAoE` (и cone/line aim path при необходимости) красит **существующие** AoE/зона-поражения materials через `GetCTHColor(100 − mishap%)`.
 
 Удалить свободные `MishapChanceByDist` / `MishapDeviationVectorByDist` после переноса в методы. Неиспользуемый «средний» `GetMishapDeviationVector` либо делегирует в Max (совместимость), либо удаляется, если нет внешних callers.
 
@@ -164,16 +151,16 @@ UI area-aim продолжает показывать итоговый `%` че�
 - `JAZZ-GRENADES-001-REQ-004` — `GetMishapChance` учитывает effective dist (throw/weapon range, suppression, Inaccurate) и совпадает с UI async path.
 - `JAZZ-GRENADES-001-REQ-005` — величина отклонения использует effective dist; hard cap не даёт улететь дальше `CapTiles`.
 - `JAZZ-GRENADES-001-REQ-006` — item defaults GL/underslung имеют явные Min/MaxMishapRange; player-facing hints не врут.
-- `JAZZ-GRENADES-001-REQ-007` — technical + showcase/wiki (если заметно игроку) описывают always-scatter / mishap / distance / цвет колец.
-- `JAZZ-GRENADES-001-REQ-008` — area-aim показывает кольца отклонения (scatter + mishap envelope radii); **цвет = `GetCTHColor(100 − mishap%)`** — та же шкала, что у кольца прицела; радиусы async max band без RNG; blast AoE не перекрашивается этой шкалой.
+- `JAZZ-GRENADES-001-REQ-007` — technical + showcase/wiki описывают always-scatter / mishap / distance и что **цвет зоны поражения** = риск mishap (`GetCTHColor`), а радиус = AoE.
+- `JAZZ-GRENADES-001-REQ-008` — area-aim **не** добавляет отдельные кольца разброса; tint существующих blast/cone tiles = `GetCTHColor(100 − mishap%)` (шкала crosshair); радиусы остаются зоной поражения.
 
 ## Инварианты и ограничения
 
 - deterministic MP: без float в bounds `RandRange`; порядок RNG grenade vs heavy согласован на хосте;
 - prediction / UI preview не крутит mishap RNG и не показывает ложный mishap toast;
-- UI radius helpers чисто async-safe (можно звать из targeting каждый кадр);
+- UI tint чисто async-safe (каждый кадр targeting);
 - bounce, jam/condition heavy, AoE Colby, gas — без регрессий;
-- blast AoE visuals не ломаются; цвет deviation rings не подменяет цвет blast-колец;
+- семантика радиусов AoE (зона поражения) не меняется;
 - не менять публичные class/ID предметов;
 - generated transaction: companion InventoryItem + `items.lua` + `metadata.lua` вместе.
 
@@ -186,7 +173,7 @@ UI area-aim продолжает показывать итоговый `%` че�
 - `JAZZ-GRENADES-001-AC-005` — runtime: suppression/Inaccurate повышают displayed mishap % и наблюдаемый разброс.
 - `JAZZ-GRENADES-001-AC-006` — runtime/MP smoke: одинаковый seed path не десинхронит на броске гранаты и выстреле underslung.
 - `JAZZ-GRENADES-001-AC-007` — docs technical + showcase/wiki обновлены под фактическое поведение.
-- `JAZZ-GRENADES-001-AC-008` — human/runtime aim: кольца отклонения видны; цвет совпадает с `GetCTHColor(100−mishap%)` на тех же порогах, что crosshair; при росте mishap% цвет уходит зелёный→красный; радиусы растут с дистанцией/штрафами; cleanup при смене/отмене aim.
+- `JAZZ-GRENADES-001-AC-008` — human/runtime aim: радиусы колец = прежняя зона поражения; цвет совпадает с `GetCTHColor(100−mishap%)`; при росте mishap% цвет уходит зелёный→красный; нет лишних «колец разброса»; cleanup при смене/отмене aim.
 
 ## Impact и совместимость
 
@@ -217,7 +204,7 @@ UI area-aim продолжает показывать итоговый `%` че�
 2. **CapTiles** — `max(2×MaxMishapRange, 8)` (рекомендация) / фиксированные 8 / 12 / своё число?
 3. **Chance×дистанция** — включить в `GetMishapChance` (рекомендация, чинит hint) / только величина, chance skill-only?
 4. **Suppression/Inaccurate** — в chance+величину (рекомендация) / только величину / игнор в этом spec?
-5. **UI** — **зафиксировано владельцем**: кольца как aim/AoE tiles; **цвет как у шанса попасть на кольце прицела** (`GetCTHColor(100 − mishap%)`); радиусы показывают scatter vs mishap envelope.
+5. **UI** — **зафиксировано владельцем**: радиусы = зона поражения; **цвет** существующих AoE-колец = `GetCTHColor(100 − mishap%)` как у шанса попасть на кольце прицела; отдельных колец разброса нет.
 
 ## Evidence
 
