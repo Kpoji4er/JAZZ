@@ -119,6 +119,8 @@ Hardcoded в override (не ConstDef): smoke **−70**; rain light **−5**, hea
 
 Камуфляж влияет на detection через modifier, не отключает LOS. Night vision: `HasNightVision()` + стек `NightVision` брони уменьшают `DarknessSightMod` как `MulDivRound(darkness, 100−penaltyReduce, 100)`.
 
+Exploration suspicion (не этот override): со спины наблюдателя realtime-кап **10 тайлов** применяется в `UpdateSuspicion` (`JAZZ-AI-004`), без изменения возвращаемого `GetSightRadius`. Подробности — [AI / awareness](ai-awareness.md).
+
 ### Hot path (perf)
 
 На каждый вызов максимум **два** `ForEachItem("Armor")`: один по наблюдателю (Vision + при необходимости NightVision / DustStormProtection), один по цели (Camouflage). Cover/camo/dust — integer `MulDivRound`; финальный `Clamp` без float. `DustStormProtection` по-прежнему масштабируется через `item.Condition` (не degradation mult).

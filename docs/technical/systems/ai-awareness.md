@@ -80,6 +80,8 @@ AI keywords в units: `Melee`, `CQB`, `Soldier`, `Marksman`, `Sniper`, `Leader`,
 
 Heat-alarm (`JazzRaisedAlarm` MapVar): при высоком Heat exploration tick поднимает suspicion-пороги (80 vs 160) и сужает distance mod; пороги считаются внутри `UpdateSuspicion`, не при load. Обход врагов для AlarmNoise — `ipairs` (порядок + InteractionRand).
 
+Realtime rear detection cap (`JAZZ-AI-004`): в exploration (`not g_Combat`), если союзник в **задней полусфере** наблюдателя (`abs(angle) ≥ 90°`), эффективный радиус для suspicion = `Min(GetSightRadius, 10 × SlabSizeX)`. Спереди и в бою кап не действует; `GetSightRadius` / LOS не меняются — только пузырь накопления suspicion. Константа: `lSuspicionRearSightCap` в `UnitAwareness.lua`.
+
 События conflict/turn/exploration переводят units между состояниями. Неправильная очистка suspicion/alerts может пережить бой или сломать переход exploration ↔ combat.
 
 ## Межпакетные зависимости
@@ -97,6 +99,7 @@ Heat-alarm (`JazzRaisedAlarm` MapVar): при высоком Heat exploration ti
 - low/high AP и необходимость reload/unjam;
 - разные keywords/archetypes и weapon roles;
 - sight/noise/smoke/night/rain/camo suspicion;
+- exploration: подход сзади за пределами 10 тайлов не копит suspicion; спереди дальний пузырь сохраняется;
 - переход exploration → conflict → turn → combat end;
 - отсутствие зацикливания и разумное время AI turn;
 - разрешение текущего upstream CommonLib перед каждой задачей и повторное сравнение всех AI-коллизий при изменении HEAD;

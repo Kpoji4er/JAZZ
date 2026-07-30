@@ -49,6 +49,7 @@ This is one mod suite, not four independent mods. Partial installs are unsupport
 - Tactical AI for position, targets, cover, flanks, and special actions.
 - Clearer enemy roles and loadouts.
 - Light, night, smoke, and weather affect spotting and fire.
+- In real-time, the suspicion bubble behind a sentry is shorter (about 10 tiles): approaching from the rear is easier than walking into their full forward view.
 - Optics, flashlights, and NVG are real choices, not cosmetics.
 
 ### Maps and strategy
