@@ -1,10 +1,10 @@
 # Playtest bug report: `jazz-nomaps` (Discord, 2026-07-30)
 
-**Статус:** open (human playtest)  
+**Статус:** fix in jazz-nomaps **0.4** (static); runtime re-verify pending  
 **Профиль:** `jazz_assets` + `jazz-units` + **`jazz-nomaps`** (`7MsJ2Eq`) + `jazz` (+ CommonLib), без `jazz-maps`  
 **Источник:** Discord playtest (Sergej 1973 / Kpoji4er), скрины инвентаря сектор **I2**  
 **Спека:** [JAZZ-COMPAT-002](../../specs/active/JAZZ-COMPAT-002.md)  
-**Пакет-владелец фикса:** в основном `jazz-nomaps`; cut-контент и калибры — `jazz` / `jazz-units`
+**Пакет-владелец фикса:** `jazz-nomaps` (лут/sanitize); cut-реестр — [weapons/cut-content.md](../weapons/cut-content.md)
 
 ## Краткий вердикт
 
@@ -70,13 +70,18 @@ Inject на `ExplorationStart` / `CombatStart` кладёт эти классы 
 | AC-005 spawn/remap + container loot | **FAIL (human):** loot packs отдают cut ammo/`MP5`; remap/archetypes неполные |
 | AC-007 human profile start | профиль стартует (частичный PASS), экономика лута/отрядов — нет |
 
-## Предлагаемый fix set (не в этом коммите)
+## Предлагаемый fix set
 
-1. **`jazz-nomaps` items + `LOOT_POOLS_FALLBACK`:** заменить все `_9mm_Basic`/… на актуальные `JAZZ_AMMO_*`; `MP5` → `MP5A2` (или убрать); не включать `AR15` / `M4Commando`.
-2. Расширить `SQUAD_REMAP` / wiring `InitialSquads` под vanilla HotDiamonds sector lists → jazz-units defs.
-3. Ужесточить gear refresh: ammo к `weapon.Caliber` через `GetAmmosWithCaliber`, не оставлять ванильный ammo loot.
-4. Опционально: фильтр контейнеров — не добавлять классы с `comment = "Убираем"` / `Icon` → `TEST.png` / `DisplayName` ОТКЛЮЧЕНО.
-5. Runtime: один проход I2 — выписать `item.class` для `test`-тайлов и для Hi-Power ammo.
+**Сделано в jazz-nomaps 0.4** (`cursor/nomaps-cut-loot-fix-88b8`):
+
+1. LootDef + `LOOT_POOLS_FALLBACK` → `JAZZ_AMMO_*` / `MP5A2` (без `_9mm_*` / cut `MP5`).
+2. Deny cut/`_*`/`TEST.png` при inject (`lItemAllowed` / `lAddItemsToContainer`).
+3. После `CreateStartingEquipment` — `lSanitizeUnitAmmo` (выкинуть чужой/cut ammo, доложить стек под `weapon.Caliber`, reload).
+
+**Остаётся:**
+
+4. Расширить `SQUAD_REMAP` / wiring `InitialSquads` под vanilla HotDiamonds (архетипы/«старая броня») — отдельный change.
+5. Runtime: I2 — нет `TEST.png` / `MP5` (ОТКЛЮЧЕНО); Hi-Power только с `JAZZ_Caliber_9x19` ammo.
 
 ## Evidence
 

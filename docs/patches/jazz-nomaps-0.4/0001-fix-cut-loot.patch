@@ -1,0 +1,292 @@
+From 3758a5896f0773cdcb977b35a6d0d641265ba65e Mon Sep 17 00:00:00 2001
+From: Cursor Agent <cursoragent@cursor.com>
+Date: Thu, 30 Jul 2026 16:31:28 +0000
+Subject: [PATCH] Fix NoMaps loot: use JAZZ ammo and live MP5A2.
+
+Replace cut vanilla _* ammo and disabled MP5 in LootDef packs and
+fallback pools; deny TEST.png/cut classes on inject; sanitize enemy
+ammo to match firearm JAZZ calibers after gear refresh.
+---
+ Code/NoMaps_Autonomy.lua | 132 +++++++++++++++++++++++++++++++++++++--
+ items.lua                |  18 +++---
+ metadata.lua             |   4 +-
+ 3 files changed, 139 insertions(+), 15 deletions(-)
+
+diff --git a/Code/NoMaps_Autonomy.lua b/Code/NoMaps_Autonomy.lua
+index 46e1708..7b959b4 100644
+--- a/Code/NoMaps_Autonomy.lua
++++ b/Code/NoMaps_Autonomy.lua
+@@ -144,14 +144,49 @@ local LOOT_PACKS = {
+ 
+ local LOOT_POOLS_FALLBACK = {
+ 	common = { "Meds", "FragGrenade", "SmokeGrenade", "Lockpick", "Wirecutter" },
+-	ammo = { "_9mm_Basic", "_556_Basic", "_762NATO_Basic", "_762WP_Basic", "_12gauge_Buckshot" },
+-	weapons = { "AK47", "MP5", "UZI", "Galil", "FAMAS", "Glock18" },
++	ammo = {
++		"JAZZ_AMMO_9x19_FMJ",
++		"JAZZ_AMMO_556_FMJ",
++		"JAZZ_AMMO_762x51_FMJ",
++		"JAZZ_AMMO_762x39_FMJ",
++		"JAZZ_AMMO_12gauge_Buckshot",
++	},
++	weapons = { "AK47", "MP5A2", "UZI", "Galil", "FAMAS", "Glock18" },
++}
++
++-- Cut stubs kept in jazz for ID compatibility (see jazz/docs/technical/weapons/cut-content.md).
++local CUT_ITEM_DENY = {
++	MP5 = true,
++	AR15 = true,
++	M4Commando = true,
+ }
+ 
+ local function lItemExists(class)
+ 	return class and g_Classes and g_Classes[class] and true or false
+ end
+ 
++local function lIsCutInventoryClass(class)
++	if not class then
++		return true
++	end
++	if CUT_ITEM_DENY[class] then
++		return true
++	end
++	-- vanilla underscore ammo families replaced by JAZZ_AMMO_*
++	if class:sub(1, 1) == "_" then
++		return true
++	end
++	local def = g_Classes and g_Classes[class]
++	if def and def.Icon == "Mod/e6L4ECj/Ammopics/TEST.png" then
++		return true
++	end
++	return false
++end
++
++local function lItemAllowed(class)
++	return lItemExists(class) and not lIsCutInventoryClass(class)
++end
++
+ local function lRegionId(region)
+ 	return region and (region.id or region.Id)
+ end
+@@ -451,7 +486,7 @@ end
+ local function lPickLootClass(pool, seed_key)
+ 	local valid = {}
+ 	for _, class in ipairs(pool or empty_table) do
+-		if lItemExists(class) then
++		if lItemAllowed(class) then
+ 			valid[#valid + 1] = class
+ 		end
+ 	end
+@@ -468,9 +503,11 @@ local function lAddItemsToContainer(container, items)
+ 	end
+ 	local n = 0
+ 	for _, item in ipairs(items) do
+-		if item then
++		if item and not lIsCutInventoryClass(item.class) then
+ 			container:AddItem("Inventory", item)
+ 			n = n + 1
++		elseif item and DoneObject then
++			DoneObject(item)
+ 		end
+ 	end
+ 	return n
+@@ -551,6 +588,92 @@ local function lInjectContainerLoot()
+ 	end
+ end
+ 
++
++local function lPlaceCaliberAmmo(caliber, amount)
++	if not caliber or not rawget(_G, "GetAmmosWithCaliber") then
++		return false
++	end
++	local ammos = GetAmmosWithCaliber(caliber, "sort")
++	if (not ammos or not ammos[1]) and GetAmmosWithCaliber then
++		ammos = GetAmmosWithCaliber(caliber, "sorted")
++	end
++	local def = ammos and ammos[1]
++	local ammo_id = def and (def.id or def.class)
++	if type(ammo_id) ~= "string" or not lItemAllowed(ammo_id) then
++		return false
++	end
++	local item = PlaceInventoryItem(ammo_id)
++	if not item then
++		return false
++	end
++	if IsKindOf(item, "InventoryStack") then
++		local want = amount or 30
++		local max_stacks = item.MaxStacks or want
++		item.Amount = Max(1, Min(want, max_stacks))
++	end
++	return item
++end
++
++-- Drop cut/vanilla ammo; ensure each carried firearm caliber has a live JAZZ stack.
++local function lSanitizeUnitAmmo(unitdata)
++	if not unitdata or not unitdata.ForEachItem then
++		return
++	end
++	local calibers = {}
++	unitdata:ForEachItem(function(item)
++		if IsKindOf(item, "Firearm") and item.Caliber then
++			calibers[item.Caliber] = true
++		end
++	end)
++	local to_remove = {}
++	unitdata:ForEachItem(function(item, slot_name)
++		if not IsKindOf(item, "Ammo") then
++			return
++		end
++		local class = item.class
++		local keep = item.Caliber and calibers[item.Caliber] and not lIsCutInventoryClass(class)
++		if not keep then
++			to_remove[#to_remove + 1] = { item = item, slot = slot_name }
++		end
++	end)
++	for _, entry in ipairs(to_remove) do
++		unitdata:RemoveItem(entry.slot, entry.item)
++	end
++	for caliber in sorted_pairs(calibers) do
++		local has = false
++		unitdata:ForEachItem(function(item)
++			if IsKindOf(item, "Ammo") and item.Caliber == caliber and not lIsCutInventoryClass(item.class) then
++				has = true
++			end
++		end)
++		if not has then
++			local ammo = lPlaceCaliberAmmo(caliber, 30)
++			if ammo then
++				unitdata:AddItem("Inventory", ammo)
++			end
++		end
++	end
++	-- Reload firearms if magazine ammo is missing/wrong caliber.
++	unitdata:ForEachItem(function(item)
++		if not IsKindOf(item, "Firearm") or not item.Caliber or not item.Reload then
++			return
++		end
++		local mag = item.ammo
++		if mag and mag.Caliber == item.Caliber and not lIsCutInventoryClass(mag.class) then
++			return
++		end
++		local stack
++		unitdata:ForEachItem(function(cand)
++			if IsKindOf(cand, "Ammo") and cand.Caliber == item.Caliber then
++				stack = stack or cand
++			end
++		end)
++		if stack then
++			item:Reload(stack, "suspend_fx")
++		end
++	end)
++end
++
+ local function lRefreshEnemyLoadouts()
+ 	if not gv_Squads then
+ 		return
+@@ -577,6 +700,7 @@ local function lRefreshEnemyLoadouts()
+ 				if unitdata.CreateStartingEquipment then
+ 					unitdata:CreateStartingEquipment(unitdata.randomization_seed)
+ 				end
++				lSanitizeUnitAmmo(unitdata)
+ 				root.geared[unit_id] = true
+ 			end
+ 			::next_unit::
+diff --git a/items.lua b/items.lua
+index 85bcb78..0e7b903 100644
+--- a/items.lua
++++ b/items.lua
+@@ -5,7 +5,7 @@ return {
+ 	}),
+ 	PlaceObj('ModItemFolder', {
+ 		'name', "NoMapsLoot",
+-		'comment', "Container inject packs for vanilla HotDiamonds without jazz-maps",
++		'comment', "Container inject packs for vanilla HotDiamonds without jazz-maps (JAZZ_AMMO_* / live weapons only)",
+ 	}, {
+ 		PlaceObj('ModItemLootDef', {
+ 			Comment = "Common consumables for NoMaps container inject",
+@@ -49,48 +49,48 @@ return {
+ 			}),
+ 		}),
+ 		PlaceObj('ModItemLootDef', {
+-			Comment = "Ammo for NoMaps container inject",
++			Comment = "JAZZ ammo for NoMaps container inject (no vanilla _* / TEST.png)",
+ 			group = "JAZZ_NoMaps",
+ 			id = "JAZZ_NoMaps_Container_Ammo",
+ 			loot = "all",
+ 			PlaceObj('LootEntryInventoryItem', {
+ 				generate_chance = 50,
+-				item = "_9mm_Basic",
++				item = "JAZZ_AMMO_9x19_FMJ",
+ 				stack_max = 30,
+ 				stack_min = 10,
+ 				weight = 10000,
+ 			}),
+ 			PlaceObj('LootEntryInventoryItem', {
+ 				generate_chance = 45,
+-				item = "_556_Basic",
++				item = "JAZZ_AMMO_556_FMJ",
+ 				stack_max = 30,
+ 				stack_min = 10,
+ 				weight = 9000,
+ 			}),
+ 			PlaceObj('LootEntryInventoryItem', {
+ 				generate_chance = 40,
+-				item = "_762NATO_Basic",
++				item = "JAZZ_AMMO_762x51_FMJ",
+ 				stack_max = 30,
+ 				stack_min = 10,
+ 				weight = 8000,
+ 			}),
+ 			PlaceObj('LootEntryInventoryItem', {
+ 				generate_chance = 40,
+-				item = "_762WP_Basic",
++				item = "JAZZ_AMMO_762x39_FMJ",
+ 				stack_max = 30,
+ 				stack_min = 10,
+ 				weight = 8000,
+ 			}),
+ 			PlaceObj('LootEntryInventoryItem', {
+ 				generate_chance = 35,
+-				item = "_12gauge_Buckshot",
++				item = "JAZZ_AMMO_12gauge_Buckshot",
+ 				stack_max = 12,
+ 				stack_min = 4,
+ 				weight = 7000,
+ 			}),
+ 		}),
+ 		PlaceObj('ModItemLootDef', {
+-			Comment = "Weapons for NoMaps container inject",
++			Comment = "Live JAZZ weapons for NoMaps inject (no MP5/AR15/M4Commando cut stubs)",
+ 			group = "JAZZ_NoMaps",
+ 			id = "JAZZ_NoMaps_Container_Weapon",
+ 			loot = "all",
+@@ -101,7 +101,7 @@ return {
+ 			}),
+ 			PlaceObj('LootEntryInventoryItem', {
+ 				generate_chance = 20,
+-				item = "MP5",
++				item = "MP5A2",
+ 				weight = 9000,
+ 			}),
+ 			PlaceObj('LootEntryInventoryItem', {
+diff --git a/metadata.lua b/metadata.lua
+index 291ef52..ffd569b 100644
+--- a/metadata.lua
++++ b/metadata.lua
+@@ -1,11 +1,11 @@
+ return PlaceObj('ModDef', {
+ 	'title', "JAZZ NoMaps",
+ 	'description', "Optional JAZZ package: truncated Legion AI, squad wiring and loot inject for vanilla HotDiamonds when jazz-maps is not enabled.\n\nInstall instead of jazz-maps:\n1. JAZZ Assets\n2. JAZZ Units\n3. JAZZ NoMaps\n4. JAZZ\n(+ JA3_CommonLib)\n\nDisable this mod when using jazz-maps. If both are enabled, NoMaps stays inactive.\n\nОпциональный пакет JAZZ: урезанный Legion AI, wiring отрядов и лут для vanilla HotDiamonds без jazz-maps.\nСтавить вместо maps. При включённом jazz-maps — no-op.",
+-	'last_changes', "WorldFlip guard + WorldFlip/Legion squad remap coverage; LootDef packs; COMPAT-002.",
++	'last_changes', "Loot packs: JAZZ_AMMO_* + MP5A2; deny cut/TEST ammo; sanitize enemy ammo to weapon caliber.",
+ 	'id', "7MsJ2Eq",
+ 	'author', "Kpoji4er",
+ 	'version_major', 0,
+-	'version_minor', 3,
++	'version_minor', 4,
+ 	'version', 1,
+ 	'lua_revision', 233360,
+ 	'saved_with_revision', 366685,
+-- 
+2.43.0
+
