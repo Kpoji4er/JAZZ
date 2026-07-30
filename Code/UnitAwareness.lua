@@ -487,6 +487,10 @@ function UpdateSuspicion(alliedUnits, enemyUnits, intermediate_update)
 	local sector = gv_Sectors[gv_CurrentSectorId]
 	local anySusUpdated = false
 	local susIncreasedBy = {}
+	-- Hoist once per tick (CLib FixAI pattern): cheap distance gate before GetSightRadius.
+	local max_sight_radius = MulDivRound(GetMaxSightRadius(), 1200, 1000)
+	local HasVisibilityTo = HasVisibilityTo
+	local IsCloser = IsCloser
 	for i, ally in ipairs(alliedUnits) do
 		ally.suspicion = ally.suspicion or 0
 		
@@ -507,7 +511,6 @@ function UpdateSuspicion(alliedUnits, enemyUnits, intermediate_update)
 
 		local raiseSusLargest = 0
 		local raiseSusEnemy = false
-		local max_sight_radius = MulDivRound(GetMaxSightRadius(), 1200, 1000)
 		for i, enemy in ipairs(enemyUnits) do
 			if enemy.retreating then goto continue end
 			if enemy.command == "ExitCombat" then goto continue end

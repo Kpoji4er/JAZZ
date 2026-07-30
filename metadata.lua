@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- Sight: brush −10 + camo×3, indoor −5, SightModMinValue 9 (Shadow in grass ~4)\n- Stealth sight tables; realtime rear suspicion cap 10 tiles\n- Shell eject: Ammo_Shells atlas frames by JAZZ caliber",
+	'last_changes', "- Sight: brush −10 + camo×3, indoor −5, SightModMinValue 9; stealth tables; rear suspicion cap 10\n- Perf: AI CTH aim-grid cache, dest LOS compact, sight permille, suspicion hoist\n- Shell eject: Ammo_Shells atlas frames by JAZZ caliber",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",

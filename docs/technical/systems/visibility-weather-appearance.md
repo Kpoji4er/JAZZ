@@ -125,7 +125,9 @@ Hardcoded в override (не ConstDef): smoke **−70**; rain light **−5**, hea
 
 ### Hot path (perf)
 
-На каждый вызов максимум **два** `ForEachItem("Armor")`: один по наблюдателю (Vision + при необходимости NightVision / DustStormProtection), один по цели (Camouflage). Cover/camo/dust — integer `MulDivRound`; финальный `Clamp` без float. `DustStormProtection` по-прежнему масштабируется через `item.Condition` (не degradation mult).
+На каждый вызов максимум **два** `ForEachItem("Armor")`: один по наблюдателю (Vision + при необходимости NightVision / DustStormProtection), один по цели (Camouflage). Cover/camo/dust — integer `MulDivRound`; финальный `Clamp` без float. Масштаб брони для Vision/NV/camo идёт через `GetDegradationMultiplierPermille` (без float `GetDegradationMultiplier`). `DustStormProtection` по-прежнему масштабируется через `item.Condition` (не degradation mult). Smoke LOS пропускается, если modifier уже на полу или `g_SmokeObjs` пуст.
+
+Сводка по vanilla/CLib узким местам visibility/AI: [performance-vanilla-report.md](../performance-vanilla-report.md).
 
 ### Таблицы видимости (`GetSightRadius`)
 

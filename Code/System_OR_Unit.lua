@@ -143,12 +143,13 @@ local JAZZ_SightCoverMul = {
 -- 35% + Hidden coverbuff×150% → Shadow full camo + wall ≈ ~9 tiles on Aware46 (JAZZ-AI-005/006).
 local JAZZ_HiddenCoverCoverageScale = 35
 
-local function JAZZ_SightScaledArmorStat(value, condition_percent, degrade_mult)
+local function JAZZ_SightScaledArmorStat(value, condition_percent, degrade_permille)
 	if not value or value == 0 then
 		return 0
 	end
-	-- Preserve prior MulDivRound(value, condition% * degrade_mult, 100).
-	return MulDivRound(value, condition_percent * degrade_mult, 100)
+	-- Integer path: value × condition% × degrade‰ / (100 × 1000).
+	-- Equivalent intent to MulDivRound(value, condition% * (deg/1000), 100) without float.
+	return MulDivRound(value, condition_percent * degrade_permille, 100000)
 end
 
 local function JAZZ_IsTargetIndoors(other, step_pos)
@@ -197,7 +198,7 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 			return
 		end
 		local cond = item:GetConditionPercent()
-		local deg = item:GetDegradationMultiplier()
+		local deg = item:GetDegradationMultiplierPermille()
 		if item.Vision then
 			visionbonus = visionbonus + JAZZ_SightScaledArmorStat(item.Vision, cond, deg)
 		end
@@ -222,7 +223,7 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 				camo = camo + JAZZ_SightScaledArmorStat(
 					item.CamouflagePercent,
 					item:GetConditionPercent(),
-					item:GetDegradationMultiplier())
+					item:GetDegradationMultiplierPermille())
 			end
 		end)
 	end
