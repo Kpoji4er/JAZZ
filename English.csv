@@ -181,10 +181,8 @@ ID,Text,Translation,VoiceActor,Context
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Silent 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> High lethality",,jazz:InventoryItem/AS_Val.lua:16 | jazz:items.lua:21165
 140035693819,Самодельная бригантина из кольчуги и обрезков шин,Homemade brigantine from chain mail and tire scraps,,jazz:InventoryItem/JazzArmor_TireBrigantine.lua:14 | jazz:items.lua:55763
-140416387512,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Shots fired through clouds of gas only produce <color EmStyle>minor hits</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No damage
+140416387512,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No damage
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Almost silent",,jazz:InventoryItem/JAZZ_AMMO_MortarShell_Smoke.lua:15 | jazz:items.lua:7302
 141058614304,"Я слишком сильно утомлена, чтобы продолжать работу.",I'm too tired to continue working.,,jazz-units:items.lua:70223
 141311750958,"Опаньки, тут для меня есть работенка. Лежит, кушать не просит...","Whoops, there's work for me here. He lies there and doesn’t ask to eat...",,jazz-units:items.lua:70829
@@ -430,9 +428,7 @@ At least 30 rounds must be loaded",,jazz:items.lua:62642
 202927839636,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> ""Опять китайское дерьмо"" © Стив Борнелл","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> ""Chinese crap again"" © Steve Bornell",,jazz:InventoryItem/Type56.lua:16 | jazz:items.lua:21339
 203032964857,Матчевый патрон калибра 9х19мм,Match cartridge caliber 9x19mm,,jazz:InventoryItem/_9mm_Match.lua:12 | jazz:items.lua:7476
 203665951773,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>удушье</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь незначительные попадания
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Causes <color EmStyle>Asphyxiation</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Shots fired through clouds of gas only produce minor hits
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Almost silent",,jazz:InventoryItem/JAZZ_AMMO_MortarShell_Gas.lua:15 | jazz:items.lua:7243
 203947535559,Бронежилет SWAT,SWAT body armor,,jazz:InventoryItem/JazzArmor_SWAT.lua:12 | jazz:items.lua:55875
 204691184640,Триноги для пулемёта Браунинг .50,Tripods for the Browning .50 machine gun,,jazz-maps:InventoryItem/Jazz_Browning_Bench.lua:11 | jazz-maps:items.lua:111141
@@ -441,10 +437,8 @@ At least 30 rounds must be loaded",,jazz:items.lua:62642
 205417891756,Цевьё с рельсой,Handguard with rail,,jazz:items.lua:30099
 205977590871,Оборона маяка,Defending the Lighthouse,,jazz-maps:items.lua:58904
 206446981168,Я пустой!,I'm empty!,,jazz-units:items.lua:70861
-206588175055,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Shots fired through gas clouds only produce <color EmStyle>minor hits</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No damage
+206588175055,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No damage
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Almost silent",,jazz:InventoryItem/SmokeGrenade.lua:14 | jazz:items.lua:28605
 206632323405,Специальный боеприпас калибра 5.56x45мм. Разработан для сил специального назначения,Special ammunition of 5.56x45mm caliber. Designed for Special Forces,,jazz:InventoryItem/_556_HP.lua:13 | jazz:items.lua:7781
 206795564935,The crocodile guardians of the <em><SectorName('J18')></em> are dead and now the <em>Witch</em> can be interrogated,The crocodile guardians of the <em><SectorName('J18')></em> are dead and now the <em>Witch</em> can be interrogated,,jazz-maps:items.lua:95476
@@ -470,7 +464,6 @@ At least 30 rounds must be loaded",,jazz:items.lua:62642
 212189312168,Магазин на 33 патрона,33-round magazine,,jazz:items.lua:49521
 212844370874,Шлем PASGT,PASGT helmet,,jazz:InventoryItem/JazzArmor_PASGTHelm.lua:12 | jazz:items.lua:55119
 212902513488,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>слепоту</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Causes <color EmStyle>blindness</color>
@@ -507,9 +500,7 @@ At least 30 rounds must be loaded",,jazz:items.lua:62642
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Fires quickly 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> The best weapon for your war.",,jazz:InventoryItem/AK74.lua:16 | jazz:items.lua:22179
 217868623815,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>удушье</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь незначительные попадания
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Causes <color EmStyle>Asphyxiation</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Shots fired through clouds of gas only produce minor hits
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Almost silent",,jazz:InventoryItem/MortarShell_Gas.lua:15 | jazz:items.lua:8612
 217901684853,Головорез,Roughneck,,jazz-units:items.lua:39174 | jazz-units:UnitData/JAZZ_Legion_AssaultT1_Roughneck.lua:22
 217996558203,Уф-ф сука,Ugh bitch,,jazz-units:items.lua:70922
@@ -2727,10 +2718,8 @@ Apparently they were unloading explosives here to attack the mansion",,jazz-maps
 650582191601,"Всем оставаться на чеку, сектор не зачищен.","Everyone stay on alert, the sector has not been cleared.",,jazz-units:items.lua:70637
 650935403616,Осечка. Надо вытащить патрон.,Misfire. We need to remove the cartridge.,,jazz-units:items.lua:70238
 651620241290,"Ранний вариант Colt Commando, на базе винтовки М16А1, получившийся путем обрезания половины ствола. Компактный автомат с громким звуком и большой вспышкой. Не для использования в помещениях.","An early version of the Colt Commando, based on the M16A1 rifle, obtained by cutting off half the barrel. Compact machine with a loud sound and a big flash. Not for indoor use.",,jazz:InventoryItem/CAR15.lua:15 | jazz:items.lua:20448
-651925772567,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Shots fired through clouds of gas only produce <color EmStyle>minor hits</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No damage
+651925772567,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No damage
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Almost silent",,jazz:InventoryItem/MortarShell_Smoke.lua:15 | jazz:items.lua:8665
 652024164313,"Максимальное расстояние, на которое можно прицельно стрелять из оружия.",The maximum distance at which a weapon can be aimed.,,jazz:items.lua:69318
 652093742599,"<em>Operation</em>: Captain Jacques Pierrot in <em><SectorName('G9')></em> offers naval transport if the ""M.E.R.C.'s Pride"" boat is repaired","<em>Operation</em>: Captain Jacques Pierrot in <em><SectorName('G9')></em> offers naval transport if the ""M.E.R.C.'s Pride"" boat is repaired",,jazz-maps:items.lua:48309
@@ -3485,7 +3474,6 @@ Where you came from, on the shore, right here. Take it. That's all I can give...
 810499546011,Титановая плита 4 класса защиты,Titanium plate 4 protection class,,jazz:InventoryItem/JazzArmorPlates_Titan4.lua:13 | jazz:items.lua:57320
 810656267860,Штурмовой прицел (3x),Assault Scope (3x),,jazz:items.lua:43911
 810838610815,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>удушье</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь незначительные попадания
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Causes <color EmStyle>choking</color>
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Shots fired through clouds of gas produce only minor hits

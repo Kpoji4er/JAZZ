@@ -14,6 +14,7 @@
 | [CTX-001](../specs/active/JAZZ-AI-CTX-001.md) | done | C1–C2 |
 | [CMD-001](../specs/active/JAZZ-AI-CMD-001.md) | done | O1 |
 | [ACT-001](../specs/active/JAZZ-AI-ACT-001.md) | done | S1–S3 |
+| [ACT-002](../specs/active/JAZZ-AI-ACT-002.md) | code | S1–S3 (curtain) |
 
 ## Перед тестом
 
@@ -78,6 +79,12 @@
 - **S1** Smoke на перебежку / LOS-break, не рандом в толпу.
 - **S2** После 2+ peek — чаще OW.
 - **S3** После flare — короткий Press bias.
+
+## ACT-002 — smoke curtain / post-turn self-cover
+
+- **S1** Дым на угол / отрезок OW→exit, куда свой ещё выбегает (закрыть вражеский OW).
+- **S2** Прямо на своих — только после их хода в этом combat turn.
+- **S3** Не ослепляет ещё не ходивших своих без curtain-причины; не кидает «в пустоту».
 
 ---
 

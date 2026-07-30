@@ -181,10 +181,8 @@ ID,Text,Translation,VoiceActor,Context
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бесшумный 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая убойность",,jazz:InventoryItem/AS_Val.lua:16 | jazz:items.lua:21165
 140035693819,Самодельная бригантина из кольчуги и обрезков шин,Самодельная бригантина из кольчуги и обрезков шин,,jazz:InventoryItem/JazzArmor_TireBrigantine.lua:14 | jazz:items.lua:55763
-140416387512,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
+140416387512,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно",,jazz:InventoryItem/JAZZ_AMMO_MortarShell_Smoke.lua:15 | jazz:items.lua:7302
 141058614304,"Я слишком сильно утомлена, чтобы продолжать работу.","Я слишком сильно утомлена, чтобы продолжать работу.",,jazz-units:items.lua:70223
 141311750958,"Опаньки, тут для меня есть работенка. Лежит, кушать не просит...","Опаньки, тут для меня есть работенка. Лежит, кушать не просит...",,jazz-units:items.lua:70829
@@ -430,9 +428,7 @@ ID,Text,Translation,VoiceActor,Context
 202927839636,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> ""Опять китайское дерьмо"" © Стив Борнелл","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> ""Опять китайское дерьмо"" © Стив Борнелл",,jazz:InventoryItem/Type56.lua:16 | jazz:items.lua:21339
 203032964857,Матчевый патрон калибра 9х19мм,Матчевый патрон калибра 9х19мм,,jazz:InventoryItem/_9mm_Match.lua:12 | jazz:items.lua:7476
 203665951773,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>удушье</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь незначительные попадания
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>удушье</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь незначительные попадания
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно",,jazz:InventoryItem/JAZZ_AMMO_MortarShell_Gas.lua:15 | jazz:items.lua:7243
 203947535559,Бронежилет SWAT,Бронежилет SWAT,,jazz:InventoryItem/JazzArmor_SWAT.lua:12 | jazz:items.lua:55875
 204691184640,Триноги для пулемёта Браунинг .50,Триноги для пулемёта Браунинг .50,,jazz-maps:InventoryItem/Jazz_Browning_Bench.lua:11 | jazz-maps:items.lua:111141
@@ -441,10 +437,8 @@ ID,Text,Translation,VoiceActor,Context
 205417891756,Цевьё с рельсой,Цевьё с рельсой,,jazz:items.lua:30099
 205977590871,Оборона маяка,Оборона маяка,,jazz-maps:items.lua:58904
 206446981168,Я пустой!,Я пустой!,,jazz-units:items.lua:70861
-206588175055,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
+206588175055,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна",,jazz:InventoryItem/SmokeGrenade.lua:14 | jazz:items.lua:28605
 206632323405,Специальный боеприпас калибра 5.56x45мм. Разработан для сил специального назначения,Специальный боеприпас калибра 5.56x45мм. Разработан для сил специального назначения,,jazz:InventoryItem/_556_HP.lua:13 | jazz:items.lua:7781
 206795564935,The crocodile guardians of the <em><SectorName('J18')></em> are dead and now the <em>Witch</em> can be interrogated,"Крокодилы-стражи <em><SectorName('J18')></em> мертвы, теперь <em>ведьму</em> можно допросить",,jazz-maps:items.lua:95476
@@ -470,11 +464,9 @@ ID,Text,Translation,VoiceActor,Context
 212189312168,Магазин на 33 патрона,Магазин на 33 патрона,,jazz:items.lua:49521
 212844370874,Шлем PASGT,Шлем PASGT,,jazz:InventoryItem/JazzArmor_PASGTHelm.lua:12 | jazz:items.lua:55119
 212902513488,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>слепоту</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>слепоту</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна",,jazz:InventoryItem/TearGasGrenade.lua:14 | jazz:items.lua:28644
@@ -507,9 +499,7 @@ ID,Text,Translation,VoiceActor,Context
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Быстро стреляет 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Лучшее оружие для вашей войны.",,jazz:InventoryItem/AK74.lua:16 | jazz:items.lua:22179
 217868623815,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>удушье</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь незначительные попадания
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>удушье</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь незначительные попадания
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно",,jazz:InventoryItem/MortarShell_Gas.lua:15 | jazz:items.lua:8612
 217901684853,Головорез,Головорез,,jazz-units:items.lua:39174 | jazz-units:UnitData/JAZZ_Legion_AssaultT1_Roughneck.lua:22
 217996558203,Уф-ф сука,Уф-ф сука,,jazz-units:items.lua:70922
@@ -2722,10 +2712,8 @@ Quatro, Cinquo, Senco, Ses
 650582191601,"Всем оставаться на чеку, сектор не зачищен.","Всем оставаться на чеку, сектор не зачищен.",,jazz-units:items.lua:70637
 650935403616,Осечка. Надо вытащить патрон.,Осечка. Надо вытащить патрон.,,jazz-units:items.lua:70238
 651620241290,"Ранний вариант Colt Commando, на базе винтовки М16А1, получившийся путем обрезания половины ствола. Компактный автомат с громким звуком и большой вспышкой. Не для использования в помещениях.","Ранний вариант Colt Commando, на базе винтовки М16А1, получившийся путем обрезания половины ствола. Компактный автомат с громким звуком и большой вспышкой. Не для использования в помещениях.",,jazz:InventoryItem/CAR15.lua:15 | jazz:items.lua:20448
-651925772567,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
+651925772567,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно",,jazz:InventoryItem/MortarShell_Smoke.lua:15 | jazz:items.lua:8665
 652024164313,"Максимальное расстояние, на которое можно прицельно стрелять из оружия.","Максимальное расстояние, на которое можно прицельно стрелять из оружия.",,jazz:items.lua:69318
 652093742599,"<em>Operation</em>: Captain Jacques Pierrot in <em><SectorName('G9')></em> offers naval transport if the ""M.E.R.C.'s Pride"" boat is repaired","<em>Операция</em>: капитан Жак Пьеро в <em><SectorName('G9')></em> предлагает морские перевозки, если отремонтировать лодку «Гордость M.E.R.C.»",,jazz-maps:items.lua:48309
@@ -3480,10 +3468,8 @@ Quatro, Cinquo, Senco, Ses
 810499546011,Титановая плита 4 класса защиты,Титановая плита 4 класса защиты,,jazz:InventoryItem/JazzArmorPlates_Titan4.lua:13 | jazz:items.lua:57320
 810656267860,Штурмовой прицел (3x),Штурмовой прицел (3x),,jazz:items.lua:43911
 810838610815,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>удушье</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь незначительные попадания
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>удушье</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь незначительные попадания
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна",,jazz:InventoryItem/ToxicGasGrenade.lua:14 | jazz:items.lua:28683
 811544676732,"Ах ты, мля, выкидыш жирафа, так по красоте шли.","Ах ты, мля, выкидыш жирафа, так по красоте шли.",,jazz-units:items.lua:70666

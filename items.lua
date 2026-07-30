@@ -1372,7 +1372,15 @@ return {
 			group = "EnvEffects",
 			id = "BrushSightMod",
 			scale = "%",
-			value = -50,
+			value = -10,
+		}),
+		PlaceObj('ModItemConstDef', {
+			Comment = "sight penalty when the observed unit is indoors (flat, independent of Hidden/camo)",
+			comment = "sight penalty when the observed unit is indoors (flat, independent of Hidden/camo)",
+			group = "EnvEffects",
+			id = "IndoorSightMod",
+			scale = "%",
+			value = -5,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "sight penalty (as % of base value) for seeing units in dark or difficult to see locations",
@@ -1433,18 +1441,18 @@ return {
 			value = -20,
 		}),
 		PlaceObj('ModItemConstDef', {
-			Comment = "sight modifier in fog",
+			Comment = "unused: JAZZ-COMBAT-002 removed dust env graze",
 			group = "EnvEffects",
 			id = "DustStormGrazeChance",
 			scale = "%",
-			value = 5,
+			value = 0,
 		}),
 		PlaceObj('ModItemConstDef', {
-			Comment = "sight modifier in fog",
+			Comment = "unused: JAZZ-COMBAT-002 removed fog env graze",
 			group = "EnvEffects",
 			id = "FogGrazeChance",
 			scale = "%",
-			value = 5,
+			value = 0,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "modifier (additive) to Lethal Attack chance",
@@ -1483,7 +1491,7 @@ return {
 			Comment = "minimum value for the sight modifier",
 			group = "Combat",
 			id = "SightModMinValue",
-			value = 20,
+			value = 9,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "maximum value for the sight modifier",
@@ -65738,7 +65746,7 @@ return {
 					'Parameters', {
 						PlaceObj('PresetParamPercent', {
 							'Name', "stealthy_detection",
-							'Value', 20,
+							'Value', 25,
 							'Tag', "<stealthy_detection>%",
 						}),
 						PlaceObj('PresetParamPercent', {
