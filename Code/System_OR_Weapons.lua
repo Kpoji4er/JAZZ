@@ -56,7 +56,8 @@ function QueueSuppressionApplication(unit, wp_dmg, effect)
                             queue[i] = nil
                         end
                     end
-                    Sleep(10)
+                    -- Idle: wake rarely. Queue inserts do not Wakeup; up to ~200ms lag is fine for WP FX.
+                    Sleep(200)
                 end
             end
         end)

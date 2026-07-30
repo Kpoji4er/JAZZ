@@ -24,6 +24,8 @@
 - [Релизы и версионирование](systems/release-versioning.md) — версия из committed metadata, manifest четырех repos, packaging и GitHub Releases.
 - [Сводки изменений в Discord](systems/discord-player-updates.md) — GitHub Actions, OpenAI Structured Outputs, фильтрация diff и безопасный Discord webhook.
 - [Технический долг](technical-debt.md) — результаты аудита и безопасный план рефакторинга.
+- [Производительность: vanilla / CLib / JAZZ](performance-vanilla-report.md) — hot path’ы и фиксы JAZZ.
+- [Vanilla perf issues unfixed by CommonLib (EN cards)](performance/vanilla-unfixed-by-commonlib/README.md) — одна карточка на проблему.
 
 ## Подробный каталог систем
 

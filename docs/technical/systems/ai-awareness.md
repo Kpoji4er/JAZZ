@@ -56,7 +56,9 @@ JAZZ существенно меняет выбор действий AI, оце�
 6. `AISelectAction` запускает действие; execution проходит общие combat/weapon systems.
 7. Noise, damage, sight и события боя обновляют alerts/suspicion.
 
-`GetCTHByAimLevels` вызывает тот же `Unit:CalcChanceToHit`, что UI и фактическая атака. `PredictCTH` больше не вычитает линейный recoil: он строит общий `JAZZ_CTHGetRecoilProfile` и суммирует `JAZZ_CTHGetBulletChance` для той же последовательности пуль. Поэтому отдельная правка AI-точности должна считаться изменением общего CTH-контракта.
+`GetCTHByAimLevels` вызывает тот же `Unit:CalcChanceToHit`, что UI и фактическая атака. Внутри одного AI think результаты кэшируются в `context.cth_by_aim_cache` по `(enemy.handle, action.id, max_aim)` — повторные `PickBestAttack` / Dump / dest score не пересчитывают полную сетку aim. `PredictCTH` больше не вычитает линейный recoil: он строит общий `JAZZ_CTHGetRecoilProfile` и суммирует `JAZZ_CTHGetBulletChance` для той же последовательности пуль. Поэтому отдельная правка AI-точности должна считаться изменением общего CTH-контракта.
+
+`AIUpdateDestLosCache` компактует уже видимые dest одним проходом (без серии `table.remove`). Полный объём `CheckLOS` dest×enemy остаётся ванильным; см. [performance-vanilla-report.md](../performance-vanilla-report.md).
 
 `AIPrecalcDamageScore` для повторной цели (`GetLastAttack`) добавляет SameTarget через `AICalcSameTargetScoreBonus`: `CalcValue` + `GatherCTHModifications` (включая перк **Пристрелка** / `TakeAim`) и `AccuracyBonusSameTarget` с компонентов оружия — не только плоский preset Bonus.
 
@@ -82,6 +84,10 @@ AI keywords в units: `Melee`, `CQB`, `Soldier`, `Marksman`, `Sniper`, `Leader`,
 
 Heat-alarm (`JazzRaisedAlarm` MapVar): при высоком Heat exploration tick поднимает suspicion-пороги (80 vs 160) и сужает distance mod; пороги считаются внутри `UpdateSuspicion`, не при load. Обход врагов для AlarmNoise — `ipairs` (порядок + InteractionRand).
 
+Realtime rear detection cap (`JAZZ-AI-004`): в exploration (`not g_Combat`), если союзник в **задней полусфере** наблюдателя (`abs(angle) ≥ 90°`), эффективный радиус для suspicion = `Min(GetSightRadius, 10 × SlabSizeX)`. Спереди и в бою кап не действует; `GetSightRadius` / LOS не меняются — только пузырь накопления suspicion. Константа: `lSuspicionRearSightCap` в `UnitAwareness.lua`.
+
+Hidden sight (`JAZZ-AI-005`/`006`): укрытие Hidden ×35%; трава flat −10 + camo×3; indoors −5 всегда; `SightModMinValue` 9 (~4 Aware). Подробности — [видимость](visibility-weather-appearance.md).
+
 События conflict/turn/exploration переводят units между состояниями. Неправильная очистка suspicion/alerts может пережить бой или сломать переход exploration ↔ combat.
 
 ## Межпакетные зависимости
@@ -99,6 +105,7 @@ Heat-alarm (`JazzRaisedAlarm` MapVar): при высоком Heat exploration ti
 - low/high AP и необходимость reload/unjam;
 - разные keywords/archetypes и weapon roles;
 - sight/noise/smoke/night/rain/camo suspicion;
+- exploration: подход сзади за пределами 10 тайлов не копит suspicion; спереди дальний пузырь сохраняется;
 - переход exploration → conflict → turn → combat end;
 - отсутствие зацикливания и разумное время AI turn;
 - разрешение текущего upstream CommonLib перед каждой задачей и повторное сравнение всех AI-коллизий при изменении HEAD;
