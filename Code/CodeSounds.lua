@@ -65,20 +65,7 @@ PlaceObj('ActionFXInherit_Actor', {
 
 
 
---PlaceObj('ActionFXSound', {
---	Action = "WeaponFire",
---	Actor = "M24Sniper",
---	DetailLevel = 100,
---	Moment = "start",
---	Sound = "M24Sniper_shot",
---	Target = "any",
---	group = "Default",
---	id = "fxM24Sniper",
---})
-
-
-
-
+-- M24Sniper fire FX lives in Code/FX_M24Sniper.lua
 
 PlaceObj('ActionFXInherit_Actor', {
 	Actor = "M79",
@@ -120,12 +107,13 @@ PlaceObj('ActionFXSound', {
 	id = "fxM79",
 })
 
+-- No m79_reload preset/samples; finish reload with equipncheck as closest remaining handling cue
 PlaceObj('ActionFXSound', {
 	Action = "WeaponReload",
 	Actor = "M79",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "m79_reload",
+	Sound = "m79_equipncheck",
 	Delay = 4200,
 	Target = "Basic",
 	group = "Default",
@@ -154,63 +142,12 @@ PlaceObj('ActionFXSound', {
 	id = "fxM79",
 })
 
-
-
-
-
+-- China_Lake inherits M79 → UnderslungGrenadeLauncher fire; do not override with equipncheck
 PlaceObj('ActionFXInherit_Actor', {
 	Actor = "China_Lake",
 	Inherit = "M79",
 	group = "Weapons VFX",
 	id = "fxChina_Lake",
-})
-
-PlaceObj('ActionFXSound', {
-	Action = "WeaponFire",
-	Actor = "China_Lake",
-	DetailLevel = 100,
-	Moment = "start",
-	Sound = "gm94_equipncheck",
-	Delay = 500,
-	Target = "any",
-	group = "Default",
-	id = "fxChina_Lake",
-})
-
-PlaceObj('ActionFXSound', {
-	Action = "WeaponFire",
-	Actor = "China_Lake",
-	DetailLevel = 100,
-	Moment = "start",
-	Sound = "gm94_equipncheck",
-	Delay = 500,
-	Target = "Basic",
-	group = "Default",
-	id = "fxChina_Lake",
-})
-
-
-
-
-PlaceObj('ActionFXInherit_Actor', {
-	Actor = "JAZZ_AMMO_MortarShell_HE",
-	Inherit = "MortarShell_HE",
-	group = "Weapons VFX",
-	id = "fxJAZZ_MortarShell_HE",
-})
-
-PlaceObj('ActionFXInherit_Actor', {
-	Actor = "JAZZ_AMMO_MortarShell_Gas",
-	Inherit = "MortarShell_Gas",
-	group = "Weapons VFX",
-	id = "fxJAZZ_MortarShell_Gas",
-})
-
-PlaceObj('ActionFXInherit_Actor', {
-	Actor = "JAZZ_AMMO_MortarShell_Smoke",
-	Inherit = "MortarShell_Smoke",
-	group = "Weapons VFX",
-	id = "fxJAZZ_MortarShell_Smoke",
 })
 
 PlaceObj('ActionFXInherit_Actor', {

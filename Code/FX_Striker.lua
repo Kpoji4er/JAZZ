@@ -90,7 +90,8 @@ PlaceObj('ActionFXSound', {
 	Actor = "Striker",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "AA12_shot_auto",
+	-- AA12_shot_auto preset missing; reuse Single samples (same AA12 dry pack)
+	Sound = "AA12_shot_Single",
 	Target = "Basic",
 	group = "Default",
 	id = "fxStriker8",

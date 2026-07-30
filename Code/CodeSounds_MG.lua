@@ -183,14 +183,6 @@ PlaceObj('ActionFXSound', {
 	id = "fxHK23e",
 })
 
-PlaceObj('ActionFXInherit_Actor', {
-	Actor = "U100",
-	Inherit = "FNMinimi",
-	group = "Weapons VFX",
-	id = "fxU100",
-})
-
-
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
 	Actor = "DP27",

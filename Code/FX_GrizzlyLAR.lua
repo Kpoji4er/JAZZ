@@ -5,7 +5,7 @@ PlaceObj('ActionFXSound', {
 	Actor = "GrizzlyLAR",
 	DetailLevel = 100,
 	Moment = "start",
-	Sound = "DesertEagle_shot",
+	Sound = "50ae_shot",
 	Target = "Basic",
 	group = "Default",
 	id = "fxGrizzlyLAR1",

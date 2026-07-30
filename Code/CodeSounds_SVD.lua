@@ -1,4 +1,23 @@
 
+PlaceObj('ActionFXRemove', {
+	Action = "WeaponFire",
+	Actor = "DragunovSVD",
+	Moment = "start",
+	group = "Weapons VFX",
+	id = "fxDragunovSVD_remove_fire",
+})
+
+PlaceObj('ActionFXSound', {
+	Action = "WeaponFire",
+	Actor = "DragunovSVD",
+	DetailLevel = 100,
+	Moment = "start",
+	Sound = "DragunovSVD_shot",
+	Target = "any",
+	group = "Default",
+	id = "fxDragunovSVD",
+})
+
 PlaceObj('ActionFXInherit_Actor', {
 	Actor = "ZastavaM76",
 	Inherit = "DragunovSVD",

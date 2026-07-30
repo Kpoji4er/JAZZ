@@ -19,6 +19,25 @@ PlaceObj('ActionFXInherit_Actor', {
 	id = "fxMini14",
 })
 
+PlaceObj('ActionFXRemove', {
+	Action = "WeaponFire",
+	Actor = "Mini14",
+	Moment = "start",
+	group = "Weapons VFX",
+	id = "fxMini14_remove_fire",
+})
+
+PlaceObj('ActionFXSound', {
+	Action = "WeaponFire",
+	Actor = "Mini14",
+	DetailLevel = 100,
+	Moment = "start",
+	Sound = "Mini14_shot",
+	Target = "any",
+	group = "Default",
+	id = "fxMini14_shot",
+})
+
 
 PlaceObj('ActionFXInherit_Actor', {
 	Actor = "M4A1",

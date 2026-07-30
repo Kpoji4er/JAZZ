@@ -9,7 +9,7 @@ PlaceObj('ActionFXInherit_Actor', {
 	Actor = "ArcticWarfare",
 	Inherit = "M24Sniper",
 	group = "Weapons VFX",
-	id = "fxScoutSniper",
+	id = "fxArcticWarfare",
 })
 
 PlaceObj('ActionFXInherit_Actor', {
