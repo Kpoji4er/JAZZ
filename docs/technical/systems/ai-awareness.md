@@ -22,12 +22,8 @@ JAZZ существенно меняет выбор действий AI, оце�
 - `Code/AIBehaviours.lua` — небольшой слой behavior registration;
 - `Code/AIPolicy.lua` — позиционные политики (cover/threat, ScoreMode, role anchor, anti-peek, ally spacing — POL-001…003 code loaded; specs may still be `approved`);
 - `Code/AIContextProfiles.lua` — context profiles / officer directives / aura lifecycle (CTX/CMD code loaded);
-- `Code/CombatAI.lua` — выбор действия и tactical execution;
+- `Code/CombatAI.lua` — выбор действия и tactical execution (в т.ч. ACT-003 MG half-cover dest bonus в `AIScoreDest`);
 - `Code/UnitAwareness.lua` — suspicion, alerts и переходы awareness;
-- `Code/Rato_CustomSeekCover.lua`, `Rato_GrenadeRange.lua`, `Rato_MGSetupAP.lua`, `Rato_TryNotToBeFlanked.lua` — дополнительные scoring/constraints;
-- `Code/Rato_MGSetupPosScore.lua` — loaded empty placeholder;
-- `Code/PushUnitAlert.lua` — loaded empty placeholder;
-- `Code/AIPolicyAttackAP.lua` — empty dormant/unlisted;
 - `Code/InfiniteLoopFix.lua` — увеличивает защитные thresholds от зависания;
 - `Code/System_OR_Unit.lua`, `CombatActions.lua`, `System_OR_Weapons.lua` — действия/состояние/оружие, используемые AI.
 
@@ -66,7 +62,9 @@ JAZZ существенно меняет выбор действий AI, оце�
 
 ## Policies и тактические расширения
 
-JAZZ оценивает attack AP, cover, anti-flank, proximity, high ground, enemy Will и безопасность позиции. Rato-модули добавляют custom seek-cover, grenade range, MG setup AP и запрет очевидного подставления под фланг. Machine gun требует согласованности setup position, AP, action availability и visual/entity state.
+JAZZ оценивает attack AP, cover, anti-flank, proximity, high ground, enemy Will и безопасность позиции. Machine gun setup согласован с AP, action availability и visual/entity state.
+
+**MG half-cover setup (JAZZ-AI-ACT-003):** `AIActionMGSetup` после выбора зоны проверяет тот же предикат, что игрок (`CoverLow`, `coverage > 80` vs `target_pos`, оценка в `Crouch`). При halfcover Execute сначала ставит Crouch, затем `MGSetup` → `BipodUnfolded` без forced Prone; иначе prone-deploy как раньше. `AIScoreDest` даёт скромный bonus (+45) reachable dest с usable low cover для не-stationed MG/LMG. Rotate/Pack ветка без изменения.
 
 **Smoke (JAZZ-AI-ACT-002):** signature `SmokeGrenade` считает curtain на `g_Overwatch` / fire lane → ally `ai_destination` (угол выхода); прямое накрытие союзника только если он в `JazzAI_TeamActed` (после `AIPlayAttacks`). Дым режет sight (−70 `IsLineInSmoke`) и урон сквозь облако — не шапка на ещё не ходивших. Frag/molotov scoring не затронут.
 

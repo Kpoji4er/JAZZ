@@ -1185,6 +1185,16 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 		end
 	end
 
+	-- ACT-003: prefer usable half cover for MG setup (does not block open prone lane)
+	local mg_half = JazzAI_MGHalfCoverDestBonus and JazzAI_MGHalfCoverDestBonus(context, dest) or 0
+	if mg_half ~= 0 then
+		score = score + mg_half
+		if score_details then
+			score_details[#score_details + 1] = "MG HALF COVER"
+			score_details[#score_details + 1] = mg_half
+		end
+	end
+
 	for _, policy in ipairs(policies) do
 		local peval = policy:EvalDest(context, dest, grid_voxel)
 		local pscore = MulDivRound(peval or 0, policy.Weight, 100)

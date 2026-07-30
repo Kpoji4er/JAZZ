@@ -1366,23 +1366,80 @@ function AISignatureAction:MatchUnit(unit)
     return true
 end
 
-function AIActionMGSetup:PrecalcAction(context, action_state)
+-- ACT-003: same halfcover predicate as player Unit:MGSetup / Bipod CTH,
+-- evaluated as Crouch so Standing does not zero CoverLow.
+function JazzAI_IsMGHalfCoverDeploy(unit, aim_pos, stance)
+    if not IsValid(unit) or not aim_pos then
+        return false
+    end
+    stance = stance or "Crouch"
+    local cover, _, coverage = unit:GetCoverPercentage(aim_pos, nil, stance)
+    return cover and cover == const.CoverLow and (coverage or 0) > 80
+end
 
+function JazzAI_IsMGHalfCoverAtPos(stand_pos, aim_pos, stance)
+    if not stand_pos or not aim_pos then
+        return false
+    end
+    local cover, _, coverage = GetCoverPercentage(stand_pos, aim_pos, stance or "Crouch")
+    return cover and cover == const.CoverLow and (coverage or 0) > 80
+end
+
+-- Modest EndTurn/OptLoc bias toward usable low cover for MG gunners (ACT-003).
+JazzAI_MGHalfCoverDestBonusValue = 45
+
+function JazzAI_ContextNeedsMGHalfCoverBias(context)
+    local unit = context and context.unit
+    if not unit or unit:HasStatusEffect("StationedMachineGun")
+        or unit:HasStatusEffect("ManningEmplacement") then
+        return false
+    end
+    local weapon = context.weapon
+    return weapon and IsKindOfClasses(weapon, "MachineGun", "LightMachineGun")
+end
+
+function JazzAI_MGHalfCoverDestBonus(context, dest)
+    if not JazzAI_ContextNeedsMGHalfCoverBias(context) then
+        return 0
+    end
+    local x, y, z = stance_pos_unpack(dest)
+    local dest_pt = point(x, y, z)
+    for _, enemy in ipairs(context.enemies or empty_table) do
+        local visible = context.enemy_visible and context.enemy_visible[enemy]
+        if not visible and context.enemy_visible_by_team then
+            visible = context.enemy_visible_by_team[enemy]
+        end
+        if visible then
+            local epos = context.enemy_pack_pos_stance and context.enemy_pack_pos_stance[enemy]
+            if epos then
+                local ex, ey, ez = stance_pos_unpack(epos)
+                if JazzAI_IsMGHalfCoverAtPos(dest_pt, point(ex, ey, ez), "Crouch") then
+                    return JazzAI_MGHalfCoverDestBonusValue
+                end
+            end
+        end
+    end
+    return 0
+end
+
+function AIActionMGSetup:PrecalcAction(context, action_state)
     local curr_target_pt = g_Overwatch[context.unit] and
                                g_Overwatch[context.unit].target_pos
 
-    local target = curr_target_pt or context.unit
-    local cover, any, coverage = context.unit:GetCoverPercentage(target)
-    local halfcover = cover and cover == const.CoverLow and coverage > 80
-
     if not context.unit:HasStatusEffect("StationedMachineGun") then
-        -- setup
-        if halfcover then
+        -- Zone pick first (LoS from current stance). Halfcover only after aim known.
+        action_state.stance = context.unit.stance or "Crouch"
+        action_state.jazz_mg_halfcover = false
+        AIActionBaseConeAttack.PrecalcAction(self, context, action_state)
+        local aim = action_state.args
+            and (action_state.args.target_pos or action_state.args.target)
+        if aim and JazzAI_IsMGHalfCoverDeploy(context.unit, aim, "Crouch") then
             action_state.stance = "Crouch"
+            action_state.jazz_mg_halfcover = true
         else
             action_state.stance = "Prone"
+            action_state.jazz_mg_halfcover = false
         end
-        AIActionBaseConeAttack.PrecalcAction(self, context, action_state)
     else
         local zones = AIPrecalcConeTargetZones(context, self.action_id,
                                                curr_target_pt)
@@ -1410,6 +1467,28 @@ function AIActionMGSetup:PrecalcAction(context, action_state)
             action_state.has_ap = has_ap
             if has_ap then g_LastSelectedZone = zone end
         end
+    end
+end
+
+function AIActionMGSetup:Execute(context, action_state)
+    assert(action_state.has_ap)
+    local args = {}
+    local action_id = action_state.action_id or self.action_id
+    if action_id ~= "MGPack" then
+        assert(action_state.args)
+        args.target = action_state.args.target_pos
+    end
+    -- Always re-check at execute pos (Precalc may have run before Move).
+    -- Crouch first so Unit:MGSetup sees CoverLow (Standing zeroes it).
+    if action_id == "MGSetup" and args.target
+        and JazzAI_IsMGHalfCoverDeploy(context.unit, args.target, "Crouch") then
+        if context.unit.stance ~= "Crouch" then
+            AIPlayChangeStance(context.unit, "Crouch", args.target)
+        end
+    end
+    AIPlayCombatAction(action_id, context.unit, nil, args)
+    if action_state.action_id == "MGPack" then
+        return "restart"
     end
 end
 

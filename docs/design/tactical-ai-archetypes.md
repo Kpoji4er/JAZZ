@@ -574,7 +574,7 @@ StartAI → archetype (+ PickCustom)
 | ConeAttack→Overwatch | cone zones + CTH filter | min_score **300** — высокий барьер; Assaulter Weight 50 + keyword Soldier/Control; Front Weight 20 + Control/Soldier disable |
 | RunAndGun / MobileShot | Bias disable | LowVis↓; Assaulter/Flanker |
 | Charge | Melee keyword | связка F9 |
-| MGSetup | crouch/prone patch | anti-peek cone |
+| MGSetup | ACT-003 halfcover | crouch+bipod behind CoverLow; else Prone; dest +45 |
 | Bandage | Priority | MED-001 |
 | Fallback OW | `AIPlaceFallbackOverwatch` | только no-sight после bunker fail |
 
