@@ -139,6 +139,9 @@ local JAZZ_SightCoverMul = {
 	Crouch = { [const.CoverHigh] = 35, [const.CoverLow] = 20 },
 	Prone = { [const.CoverHigh] = 50, [const.CoverLow] = 35 },
 }
+-- Hidden: scale raw coverage before stance mul (vanilla/JAZZ was 10% — cover nearly noop).
+-- 35% + Hidden coverbuff×150% → Shadow full camo + wall ≈ ~9 tiles on Aware46 (JAZZ-AI-005/006).
+local JAZZ_HiddenCoverCoverageScale = 35
 
 local function JAZZ_SightScaledArmorStat(value, condition_percent, degrade_permille)
 	if not value or value == 0 then
@@ -147,6 +150,13 @@ local function JAZZ_SightScaledArmorStat(value, condition_percent, degrade_permi
 	-- Integer path: value × condition% × degrade‰ / (100 × 1000).
 	-- Equivalent intent to MulDivRound(value, condition% * (deg/1000), 100) without float.
 	return MulDivRound(value, condition_percent * degrade_permille, 100000)
+end
+
+local function JAZZ_IsTargetIndoors(other, step_pos)
+	if step_pos and AICheckIndoors then
+		return not not AICheckIndoors(step_pos)
+	end
+	return IsKindOf(other, "Unit") and not not other.indoors
 end
 
 function Unit:GetSightRadius(other, base_sight, step_pos)
@@ -224,7 +234,7 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 		local coverbuff = 0
 		if coverage and coverage > 0 then
 			if hidden then
-				coverage = MulDivRound(coverage, 10, 100)
+				coverage = MulDivRound(coverage, JAZZ_HiddenCoverCoverageScale, 100)
 			end
 			local mul = JAZZ_SightCoverMul[other.stance]
 			mul = mul and mul[cover]
@@ -255,12 +265,13 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 		if in_brush then
 			modifier = modifier + const.EnvEffects.BrushSightMod
 			if hidden then
+				-- Brush multiplies camo (JAZZ-AI-006); flat brush is small via ConstDef.
 				modifier = modifier - camo * 3
 			else
-				modifier = modifier - MulDivRound(camo, 50, 100)
+				modifier = modifier - camo
 			end
 			if other_prone then
-				modifier = modifier - const.Combat.SightModHiddenProne * 2
+				modifier = modifier - const.Combat.SightModHiddenProne
 			end
 		else
 			if hidden then
@@ -272,10 +283,15 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 				modifier = modifier - const.Combat.SightModHiddenProne
 			end
 		end
+		-- Tiny indoor flat on the observed unit — independent of Hidden/camo (JAZZ-AI-006).
+		if JAZZ_IsTargetIndoors(other, step_pos) then
+			modifier = modifier + (const.EnvEffects.IndoorSightMod or -5)
+		end
 	end
 
-	-- Skip smoke LOS when already at floor or no smoke objects on the map.
+	-- SightModMinValue ConstDef (~4 tiles on Aware46 after AI-006).
 	local sight_min = const.Combat.SightModMinValue
+	-- Skip smoke LOS when already at floor or no smoke objects on the map.
 	if other_is_unit and modifier > sight_min and IsLineInSmoke(self, other) then
 		modifier = modifier - 70
 	end
