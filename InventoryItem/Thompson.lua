@@ -56,7 +56,7 @@ DefineClass.Thompson = {
 	BurstShots = 4,
 	AutoShots = 8,
 	Handling = -8,
-	BulletDropRange = 6,
+	BulletDropRange = 8,
 	Grouping = 75,
 	WeaponResource = 1800,
 }

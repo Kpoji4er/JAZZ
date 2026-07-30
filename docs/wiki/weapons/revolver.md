@@ -9,19 +9,19 @@
 
 | Тир | Оружие | Калибр | Урон | Пробитие | Маг. | ОД выстрел/перезарядка | Прицел | BDR / дальность | Кучность | Отдача | Режимы |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1-1 | S&W Model10 .38 Special (`SWModel10`) | JAZZ_Caliber_38 | 16 | 1 | 6 | 3 / 5 | 3 × 8 | 5 / 15 | 56 | 1 | одиночный |
-| 1-2 | Colt .38 Special (`Colt38Special`) | JAZZ_Caliber_38 | 16 | 1 | 6 | 3 / 5 | 3 × 8 | 5 / 15 | 56 | 1 | одиночный |
-| 1-2 | Colt M1917 .45 Service Revolver (`ColtM1917`) | JAZZ_Caliber_45ACP | 26 | 1 | 6 | 4 / 5 | 3 × 8 | 5 / 16 | 54 | 1 | одиночный |
-| 1-2 | Peacemaker (`ColtPeacemaker`) | JAZZ_Caliber_357 | 34 | 1 | 6 | 4 / 5 | 3 × 6 | 6 / 19 | 52 | 1 | одиночный |
-| 1-3 | S*W Model19 .357 Combat Magnum (`SWModel19`) | JAZZ_Caliber_357 | 28 | 1 | 6 | 4 / 5 | 3 × 10 | 6 / 18 | 54 | 1 | одиночный |
-| 1-UNIQ | Welrod (`Welrod`) | JAZZ_Caliber_9x19 | 23 | 1 | 6 | 4 / 4 | 4 × 7 | 5 / 16 | 53 | 1 | одиночный |
-| 2-1 | Webley Mk VI (`Webley`) | JAZZ_Caliber_45ACP | 27 | 1 | 6 | 4 / 4 | 3 × 9 | 5 / 16 | 68 | 1 | одиночный |
-| 2-3 | Manurhin MR 73 (`MR73`) | JAZZ_Caliber_357 | 29 | 1 | 6 | 5 / 5 | 3 × 12 | 7 / 20 | 51 | 1 | одиночный |
-| 2-4 | SWModel29 (`SWModel29`) | JAZZ_Caliber_44CAL | 42 | 1 | 6 | 4 / 5 | 3 × 10 | 7 / 21 | 48 | 1 | одиночный |
-| 2-5 | Anaconda (`ColtAnaconda`) | JAZZ_Caliber_44CAL | 35 | 1 | 6 | 4 / 5 | 3 × 9 | 8 / 21 | 45 | 1 | одиночный |
-| 2-UNIQ | РШ-12 (`RSH12`) | JAZZ_Caliber_50BMG | 36 | 1 | 6 | 4 / 5 | 3 × 10 | 10 / 20 | 40 | 1 | одиночный |
-| 3-1 | Korth Revolver (`Korth`) | JAZZ_Caliber_357 | 30 | 1 | 6 | 3 / 5 | 3 × 14 | 7 / 24 | 48 | 1 | одиночный |
-| 3-UNIQ | Именной револьвер (`TexRevolver`) | JAZZ_Caliber_44CAL | 36 | 1 | 6 | 4 / 5 | 3 × 8 | 7 / 21 | 44 | 1 | одиночный |
+| 1-1 | S&W Model10 .38 Special (`SWModel10`) | JAZZ_Caliber_38 | 16 | 1 | 6 | 3 / 5 | 3 × 16 | 5 / 16 | 50 | 1 | одиночный |
+| 1-2 | Colt .38 Special (`Colt38Special`) | JAZZ_Caliber_38 | 16 | 1 | 6 | 3 / 5 | 3 × 10 | 5 / 15 | 59 | 1 | одиночный |
+| 1-2 | Colt M1917 .45 Service Revolver (`ColtM1917`) | JAZZ_Caliber_45ACP | 26 | 1 | 6 | 4 / 5 | 3 × 8 | 5 / 15 | 78 | 1 | одиночный |
+| 1-2 | Peacemaker (`ColtPeacemaker`) | JAZZ_Caliber_357 | 34 | 1 | 6 | 4 / 5 | 3 × 12 | 6 / 17 | 28 | 1 | одиночный |
+| 1-3 | S*W Model19 .357 Combat Magnum (`SWModel19`) | JAZZ_Caliber_357 | 28 | 1 | 6 | 4 / 5 | 3 × 16 | 6 / 17 | 36 | 1 | одиночный |
+| 1-UNIQ | Welrod (`Welrod`) | JAZZ_Caliber_9x19 | 23 | 1 | 6 | 4 / 4 | 4 × 8 | 4 / 15 | 82 | 1 | одиночный |
+| 2-1 | Webley Mk VI (`Webley`) | JAZZ_Caliber_45ACP | 27 | 1 | 6 | 4 / 4 | 3 × 9 | 4 / 16 | 88 | 1 | одиночный |
+| 2-3 | Manurhin MR 73 (`MR73`) | JAZZ_Caliber_357 | 29 | 1 | 6 | 5 / 5 | 3 × 18 | 7 / 19 | 45 | 1 | одиночный |
+| 2-4 | SWModel29 (`SWModel29`) | JAZZ_Caliber_44CAL | 42 | 1 | 6 | 4 / 5 | 3 × 10 | 7 / 19 | 68 | 1 | одиночный |
+| 2-5 | Anaconda (`ColtAnaconda`) | JAZZ_Caliber_44CAL | 35 | 1 | 6 | 4 / 5 | 3 × 12 | 8 / 20 | 70 | 1 | одиночный |
+| 2-UNIQ | РШ-12 (`RSH12`) | JAZZ_Caliber_50BMG | 36 | 1 | 6 | 4 / 5 | 3 × 10 | 10 / 20 | 88 | 1 | одиночный |
+| 3-1 | Korth Revolver (`Korth`) | JAZZ_Caliber_357 | 30 | 1 | 6 | 3 / 5 | 4 × 19 | 7 / 24 | 55 | 1 | одиночный |
+| 3-UNIQ | Custom Six-Shooter (`TexRevolver`) | JAZZ_Caliber_44CAL | 36 | 1 | 6 | 4 / 5 | 3 × 8 | 7 / 20 | 70 | 1 | одиночный |
 
 ## Эксплуатация и компоненты
 
@@ -29,18 +29,18 @@
 
 | Оружие | Надёжность | База клина | Ресурс / износ | Шум | Overwatch | Цена | Компоненты |
 |---|---|---|---|---|---|---|---|
-| S&W Model10 .38 Special (`SWModel10`) | 95 | -100 | 1000 / 1 | 15 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Короткий ствол / Стандартный ствол ★<br>Side (можно снять): Фонарик / Лазерный целеуказатель / Тактическое устройство / УФ-прицел |
-| Colt .38 Special (`Colt38Special`) | 95 | -100 | 1000 / 1 | 12 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Стандартный ствол / Короткий ствол ★ |
+| S&W Model10 .38 Special (`SWModel10`) | 95 | -100 | 1000 / 1 | 15 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Короткий ствол / Default Barrel ★<br>Side (можно снять): Flashlight / Лазерный целеуказатель / Tactical Device / UV Dot |
+| Colt .38 Special (`Colt38Special`) | 95 | -100 | 1000 / 1 | 12 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Default Barrel / Короткий ствол ★ |
 | Colt M1917 .45 Service Revolver (`ColtM1917`) | 95 | -100 | 1000 / 1 | 28 | 85° | 500 | Freeswap: Пистолет ★ |
-| Peacemaker (`ColtPeacemaker`) | 95 | -100 | 3000 / 1 | 32 | 85° | 500 | Barrel: Стандартный ствол ★ / Короткий ствол<br>Freeswap: Пистолет ★ |
-| S*W Model19 .357 Combat Magnum (`SWModel19`) | 95 | -100 | 1000 / 1 | 28 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Удлиненный ствол / Стандартный ствол ★ / Короткий ствол<br>Side (можно снять): Фонарик / Лазерный целеуказатель / Тактическое устройство / УФ-прицел |
+| Peacemaker (`ColtPeacemaker`) | 95 | -100 | 3000 / 1 | 32 | 85° | 500 | Barrel: Default Barrel ★ / Short Barrel<br>Freeswap: Пистолет ★ |
+| S*W Model19 .357 Combat Magnum (`SWModel19`) | 95 | -100 | 1000 / 1 | 28 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Extended Barrel / Default Barrel ★ / Короткий ствол<br>Side (можно снять): Flashlight / Лазерный целеуказатель / Tactical Device / UV Dot |
 | Welrod (`Welrod`) | 35 | -100 | 1000 / 1 | 1 | 85° | 500 | Freeswap: Пистолет ★<br>Muzzle (фикс.): Глушитель Интегрированный ★ |
-| Webley Mk VI (`Webley`) | 95 | -100 | 1000 / 1 | 28 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Стандартный ствол ★ / Удлиненный ствол |
-| Manurhin MR 73 (`MR73`) | 95 | -100 | 1000 / 1 | 32 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Удлиненный ствол / Стандартный ствол ★<br>Handgrip: Стандартная рукоять ★ / Эргономичная рукоять |
-| SWModel29 (`SWModel29`) | 95 | -100 | 1000 / 1 | 32 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Короткий ствол / Стандартный ствол ★<br>Side (можно снять): Фонарик / Лазерный целеуказатель / Тактическое устройство / УФ-прицел |
-| Anaconda (`ColtAnaconda`) | 95 | -100 | 3500 / 1 | 32 | 85° | 1200 | Barrel: Стандартный ствол ★ / Короткий ствол<br>Scope: Базовый механический прицел ★ / Ул. механический прицел / Коллиматор / Улучшенный коллиматор / Прицел малой кратности / Штурмовой прицел / Коллиматор / Тактическое устройство / УФ-прицел<br>Freeswap: Пистолет ★ |
-| РШ-12 (`RSH12`) | 95 | -50 | 3500 / 1 | 40 | 90° | 3100 | Side (можно снять): Фонарик / УФ-прицел / Тактическое устройство / Лазерный целеуказатель<br>Freeswap: Пистолет ★ |
-| Korth Revolver (`Korth`) | 95 | -100 | 1000 / 1 | 32 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Удлиненный ствол / Стандартный ствол ★<br>Handgrip: Стандартная рукоять ★ / Эргономичная рукоять |
-| Именной револьвер (`TexRevolver`) | 95 | -100 | 50000 / 1 | 40 | 90° | 2000 | Freeswap: Пистолет ★ |
+| Webley Mk VI (`Webley`) | 95 | -100 | 1000 / 1 | 28 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Default Barrel ★ / Extended Barrel |
+| Manurhin MR 73 (`MR73`) | 95 | -100 | 1000 / 1 | 32 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Extended Barrel / Default Barrel ★<br>Handgrip: Стандартная рукоять ★ / Эргономичная рукоять |
+| SWModel29 (`SWModel29`) | 95 | -100 | 1000 / 1 | 32 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Короткий ствол / Default Barrel ★<br>Side (можно снять): Flashlight / Лазерный целеуказатель / Tactical Device / UV Dot |
+| Anaconda (`ColtAnaconda`) | 95 | -100 | 3500 / 1 | 32 | 85° | 1200 | Barrel: Default Barrel ★ / Short Barrel<br>Scope: Basic Iron Sight ★ / Improved Iron Sight / Коллиматор / Улучшенный коллиматор / Прицел малой кратности / Штурмовой прицел / Red Dot / Tactical Device / UV Dot<br>Freeswap: Пистолет ★ |
+| РШ-12 (`RSH12`) | 95 | -50 | 3500 / 1 | 40 | 90° | 3100 | Side (можно снять): Flashlight / UV Dot / Tactical Device / Лазерный целеуказатель<br>Freeswap: Пистолет ★ |
+| Korth Revolver (`Korth`) | 95 | -100 | 1000 / 1 | 32 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Extended Barrel / Default Barrel ★<br>Handgrip: Стандартная рукоять ★ / Эргономичная рукоять |
+| Custom Six-Shooter (`TexRevolver`) | 95 | -100 | 50000 / 1 | 40 | 90° | 2000 | Freeswap: Пистолет ★ |
 
-Источник чисел: канонический CSV-снимок `5db078dfb2c9206f39e491a1d26b6e7f1f6f1220`. Описание полей и правила синхронизации находятся в [техническом контракте](../../technical/weapons/README.md).
+Источник чисел: канонический CSV-снимок `09673e3a8dd397d662833fb530a3566f6596c4c0`. Описание полей и правила синхронизации находятся в [техническом контракте](../../technical/weapons/README.md).
