@@ -5,9 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- AI smoke: curtain on OW->ally exit; self-cover only after ally acted (ACT-002)
-- Sight: brush -10 + camox3, indoor -5, SightModMinValue 9; stealth tables; rear suspicion cap 10
-- Perf: AI CTH aim-grid cache, dest LOS compact, sight permille",
+	'last_changes', "- Grazing: miss->graze from CTH (cap 50%); cover graze ~ cover CTH bonus (cap 100%); no smoke/fog/dust graze\n- AI smoke: curtain on OW->ally exit; self-cover only after ally acted\n- Sight: brush -10 + camox3, indoor -5, SightModMinValue 9; rear suspicion cap 10",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -35,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 38,
+	'version_minor', 39,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
@@ -836,6 +834,7 @@ return PlaceObj('ModDef', {
 		"Code/System_OR_Traps.lua",
 		"Code/ExecFirearmAttacks.lua",
 		"Code/System_OR_Weapons.lua",
+		"Code/MeleeWeapon.lua",
 		"Code/System_Firearm_AddProperties.lua",
 		"Code/System_OR_Grenade.lua",
 		"Code/IModeCombatAreaAim.lua",

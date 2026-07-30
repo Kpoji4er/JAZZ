@@ -337,7 +337,6 @@ function Unit:PrepareAttackArgs(action_id, args)
 	local target = args.target
 	local prediction = args.prediction or args.prediction == nil
 	local aim_type = action and action.AimType
-	local thermal_aim = IsKindOf(weapon, "Firearm") and IsFullyAimedAttack(args) and weapon:HasComponent("IgnoreGrazingHitsWhenFullyAimed")
 
 	local attack_args = table.copy(args)
 	attack_args.action_id = action_id
@@ -345,7 +344,8 @@ function Unit:PrepareAttackArgs(action_id, args)
 	attack_args.weapon = weapon
 	attack_args.target_pos = attack_args.target_pos or IsPoint(target) and target
 	attack_args.step_pos = attack_args.step_pos or self.return_pos or self:GetOccupiedPos() or GetPassSlab(self) or self:GetPos()
-	attack_args.ignore_smoke = thermal_aim
+	-- JAZZ-COMBAT-002: smoke never forces LoF grazing (sight/−70 still separate).
+	attack_args.ignore_smoke = true
 	if attack_args.fire_relative_point_attack == nil then
 		attack_args.fire_relative_point_attack = self.WeaponType == "Shotgun"
 	end
