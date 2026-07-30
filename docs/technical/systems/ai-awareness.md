@@ -66,6 +66,8 @@ JAZZ существенно меняет выбор действий AI, оце�
 
 JAZZ оценивает attack AP, cover, anti-flank, proximity, high ground, enemy Will и безопасность позиции. Rato-модули добавляют custom seek-cover, grenade range, MG setup AP и запрет очевидного подставления под фланг. Machine gun требует согласованности setup position, AP, action availability и visual/entity state.
 
+**Smoke (JAZZ-AI-ACT-002):** signature `SmokeGrenade` считает curtain на `g_Overwatch` / fire lane → ally `ai_destination` (угол выхода); прямое накрытие союзника только если он в `JazzAI_TeamActed` (после `AIPlayAttacks`). Дым режет sight (−70 `IsLineInSmoke`) и урон сквозь облако — не шапка на ещё не ходивших. Frag/molotov scoring не затронут.
+
 `InfiniteLoopFix.lua` не выбирает тактику, а меняет protective thresholds. Слишком низкое значение вернёт зависание; слишком высокое может скрыть бесконечный цикл дольше.
 
 ## Keywords, archetypes и roles
