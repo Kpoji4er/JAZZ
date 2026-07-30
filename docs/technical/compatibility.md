@@ -37,6 +37,8 @@ JAZZ поддерживает только последнюю опубликов
 
 До исправления metadata документация считает полную коллекцию обязательной для **полного** кампанийного контента. Урезанный профиль без `jazz-maps` — опциональный пакет **`jazz-nomaps`** (`7MsJ2Eq`, JAZZ-COMPAT-002): auto-regions по vanilla Guardpost, Major HQ `A20`, wiring отрядов и loot inject; квесты/карты/диалоги maps недоступны.
 
+Playtest 2026-07-30 (Discord): лут/архетипы NoMaps тянут cut vanilla ammo (`TEST.png`) и отключённый `MP5` — см. [bugs/nomaps-playtest-2026-07-30.md](bugs/nomaps-playtest-2026-07-30.md).
+
 ## Конфликты с другими модами
 
 Особенно высока вероятность конфликта с модами, которые изменяют CTH, оружие, inventory slots, броню, ранения, AI, awareness, UI, satellite squads, сектора, карты, погоду, видимость, те же UnitData, entities, localization IDs, engine messages или declared variables. `OnMsg` накапливается по registration order, а `MsgClear` способен удалить handlers всех слоёв.

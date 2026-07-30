@@ -18,12 +18,14 @@
 - [Тестирование](testing.md) — статические, editor и игровые проверки.
 - [Debug и читы](debug.md) — консоль, satellite-телепорт, боевые и стратегические читы для разработки.
 - [Канонический каталог оружия](weapons/README.md) — тиры, характеристики, компоненты, CSV-схема и правила синхронизации.
+- [Вырезанный контент оружия/патронов](weapons/cut-content.md) — `ОТКЛЮЧЕНО`, `TEST.png`, замены на `JAZZ_AMMO_*`.
 - [Целевая модель стрельбы и точности](weapons/accuracy-model.md) — принятый контракт навыков, дистанции, множителей, отдачи, оптики и UI.
 - [Роли классов оружия](weapons/class-roles.md) — назначение одиннадцати классов, их компромиссы и контракт будущих перковых действий.
 - [Стрелковые Combat Actions](weapons/combat-actions.md) — связь оружия, классов, перков и компонентов с фактическим поведением каждого действия.
 - [Релизы и версионирование](systems/release-versioning.md) — версия из committed metadata, manifest четырех repos, packaging и GitHub Releases.
 - [Сводки изменений в Discord](systems/discord-player-updates.md) — GitHub Actions, OpenAI Structured Outputs, фильтрация diff и безопасный Discord webhook.
 - [Технический долг](technical-debt.md) — результаты аудита и безопасный план рефакторинга.
+- [Playtest: jazz-nomaps Discord 2026-07-30](bugs/nomaps-playtest-2026-07-30.md) — cut ammo/`MP5`, старые архетипы, калибр Hi-Power.
 - [Производительность: vanilla / CLib / JAZZ](performance-vanilla-report.md) — hot path’ы и фиксы JAZZ.
 - [Vanilla perf issues unfixed by CommonLib (EN cards)](performance/vanilla-unfixed-by-commonlib/README.md) — одна карточка на проблему.
 
