@@ -76,8 +76,14 @@ function GrenadeAOEVisuals:RecreateAoeTiles(data)
     local m = CRM_SphereAOETilesMaterial:GetById("GrenadeTilesCast"):Clone()
     m.center = data.explosion_pos
     m.radius = data.range
+    if data.tint then
+        m.color = data.tint
+    end
 
     aoe_tiles_mesh:SetCRMaterial(m)
+    if data.tint then
+        aoe_tiles_mesh:SetColorModifier(data.tint)
+    end
 
     -- вторая зона — min_range
     if data.min_range then
@@ -101,8 +107,14 @@ function GrenadeAOEVisuals:RecreateAoeTiles(data)
                        :Clone()
         m2.center = data.explosion_pos
         m2.radius = data.min_range
+        if data.tint then
+            m2.color = data.tint
+        end
 
         aoe_tiles_mesh2:SetCRMaterial(m2)
+        if data.tint then
+            aoe_tiles_mesh2:SetColorModifier(data.tint)
+        end
     end
 end
 
@@ -250,6 +262,9 @@ function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
             SetAPIndicator(1, "mishap-chance", TFormat.MishapToText(chance),
                            "append", "force update") -- force update because chance may change
         end
+        blackboard.mishap_tint = GetCTHColor(100 - chance)
+    else
+        blackboard.mishap_tint = false
     end
 
     if IsKindOfClasses(weapon, "HeavyWeapon", "Grenade") and
@@ -331,6 +346,9 @@ function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
                                                             cone_length,
                                                             cone_angle,
                                                             "GrenadeConeShapedTilesCast")
+                if blackboard.mishap_tint and blackboard.meshes[i][1] then
+                    blackboard.meshes[i][1]:SetColorModifier(blackboard.mishap_tint)
+                end
             else
                 local step_positions, step_objs, los_values = GetAOETiles(
                                                                   explosion_pos,
@@ -341,6 +359,7 @@ function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
 
                 blackboard.meshes[i] = blackboard.meshes[i] or {}
 
+                local tint = blackboard.mishap_tint
                 local data_inner = {
                     explosion_pos = explosion_pos,
                     stance = stance,
@@ -348,7 +367,8 @@ function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
                     min_range = min_range,
                     step_positions = {},
                     step_objs = {},
-                    los_values = {}
+                    los_values = {},
+                    tint = tint
                 }
                 local data_outer = {
                     explosion_pos = explosion_pos,
@@ -356,7 +376,8 @@ function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
                     range = range,
                     step_positions = step_positions,
                     step_objs = step_objs,
-                    los_values = los_values
+                    los_values = los_values,
+                    tint = tint
                 }
 
                 if not blackboard.meshes[i][1] then

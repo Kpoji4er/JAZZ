@@ -12,6 +12,7 @@ DefineClass.RPG7 = {
 	MinMishapChance = 0,
 	MaxMishapChance = 60,
 	MaxMishapRange = 6,
+	MinMishapRange = 1,
 	Caliber = "JAZZ_Caliber_Warhead",
 	AttackAP = 8000,
 	Entity = "Weapon_RPG7_Copy",

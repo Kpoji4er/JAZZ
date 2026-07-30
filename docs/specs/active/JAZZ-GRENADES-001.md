@@ -1,6 +1,6 @@
 ---
 id: JAZZ-GRENADES-001
-status: draft
+status: implemented
 owner: project-owner
 systems:
   - explosives-traps-heavy-weapons
@@ -32,7 +32,7 @@ exclusive_resources:
   - jazz/metadata.lua
 related_decisions:
   - none
-approved_by: pending
+approved_by: project-owner
 ---
 
 # JAZZ-GRENADES-001: нормализация отклонения гранат и тяжёлых снарядов
@@ -241,9 +241,9 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 
 ## Решение владельца
 
-- Статус: `draft` — решения по развилкам зафиксированы ниже; ждать явного **approve** на реализацию
-- Кто подтвердил (решения): project-owner (chat 2026-07-30)
-- Дата approve реализации: pending
+- Статус: `implemented`
+- Кто подтвердил: project-owner (chat 2026-07-30, «Делай»)
+- Дата: 2026-07-30
 
 ### Развилки
 
@@ -255,7 +255,14 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 
 ## Evidence
 
-- `JAZZ-GRENADES-001-AC-001`–`008`: `BLOCKED` — ожидает approve на реализацию.
+- `JAZZ-GRENADES-001-AC-001`: `PASS` — static: shared `ApplyImpactDeviation`; ByDist free functions removed; Min/Max integer path.
+- `JAZZ-GRENADES-001-AC-002`: `PASS` — static: mishap flag/notification only on Max band in ApplyImpactDeviation.
+- `JAZZ-GRENADES-001-AC-003`: `PASS` — static/editor data: GL MinMishapRange; Demo MaxMishapChance; RU/EN hints updated.
+- `JAZZ-GRENADES-001-AC-004`: `BLOCKED` — runtime human (Dex/MS blends, half-range zero, CapTiles).
+- `JAZZ-GRENADES-001-AC-005`: `BLOCKED` — runtime suppression/Inaccurate.
+- `JAZZ-GRENADES-001-AC-006`: `BLOCKED` — runtime/MP smoke.
+- `JAZZ-GRENADES-001-AC-007`: `PASS` — technical + wiki + showcase ru/en updated.
+- `JAZZ-GRENADES-001-AC-008`: `BLOCKED` — human aim tint vs GetCTHColor.
 
 ## Documentation delta
 

@@ -40,6 +40,10 @@ The first bullet uses the normal final chance. Each next bullet keeps only part 
 
 Strength, stance, bipods/setup, components, perks, and special actions improve control. Recoil changes hit probability once; bullet spray after a miss is not a second hidden penalty.
 
+## Grenades and launchers
+
+Throws always have light scatter. Up close you mostly just scatter; at longer range mishap chance rises. Hand grenades use Dexterity + Explosives (confident around 30). Underslung/GL/rockets use Marksmanship + Explosives. Pipe bombs lean harder on Explosives. Blast-ring color while aiming matches the crosshair hit-chance scale (green→red); ring size is the damage area, not a scatter radius.
+
 ## What the UI shows
 
 Without debug:
