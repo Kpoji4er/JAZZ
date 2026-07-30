@@ -265,7 +265,7 @@ function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
     end
 
     if IsKindOf(weapon, "MishapProperties") then
-        local chance = weapon:GetMishapChance(attacker, aim_pt, "async")
+        local reliability, chance = weapon:GetMishapAimReliability(attacker, aim_pt)
         if CthVisible() then
             SetAPIndicator(1, "mishap-chance", T {
                 426191353094,
@@ -276,7 +276,8 @@ function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
             SetAPIndicator(1, "mishap-chance", TFormat.MishapToText(chance),
                            "append", "force update") -- force update because chance may change
         end
-        blackboard.mishap_tint = GetCTHColor(100 - chance)
+        -- Tint mixes mishap% with Min-band scatter (GetMishapAimReliability).
+        blackboard.mishap_tint = GetCTHColor(reliability)
     else
         blackboard.mishap_tint = false
     end

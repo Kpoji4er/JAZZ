@@ -1809,7 +1809,8 @@ function MishapProperties:GetMishapChance(attacker, target, async)
 	return chance
 end
 
-local function JazzMishapDeviationVector(self, unit, target, band)
+--- Deterministic Min/Max deviation bounds (no RNG). band = "min" | "max".
+function MishapProperties:GetMishapDeviationBounds(unit, target, band)
 	local blend = self:GetMishapSkillBlend(unit)
 	local dist_eff = self:GetEffectiveMishapDist(unit, target)
 	local dist_tiles = DivRound(dist_eff, const.SlabSizeX)
@@ -1838,7 +1839,11 @@ local function JazzMishapDeviationVector(self, unit, target, band)
 	if max_dev < min_dev then
 		max_dev = min_dev
 	end
+	return min_dev, max_dev
+end
 
+local function JazzMishapDeviationVector(self, unit, target, band)
+	local min_dev, max_dev = self:GetMishapDeviationBounds(unit, target, band)
 	local deviation = unit:RandRange(min_dev, max_dev)
 	return Rotate(point(deviation, 0, 0), unit:Random(360 * 60))
 end
@@ -1853,6 +1858,19 @@ end
 
 function MishapProperties:GetMishapDeviationVectorMax(unit, target)
 	return JazzMishapDeviationVector(self, unit, target, "max")
+end
+
+--- Aim UI reliability 0..100 for GetCTHColor: mixes mishap% with Min-band scatter size.
+--- reliability = (100 − mishap%) × (100 − scatter_risk%) / 100
+--- scatter_risk = mid(MinBounds) / CapTiles (0..100). No RNG.
+function MishapProperties:GetMishapAimReliability(attacker, target)
+	local chance = self:GetMishapChance(attacker, target, "async")
+	local min_lo, min_hi = self:GetMishapDeviationBounds(attacker, target, "min")
+	local mid = DivRound(min_lo + min_hi, 2)
+	local cap = Max(self:GetMishapCapTiles() * const.SlabSizeX, 1)
+	local scatter_risk = Clamp(MulDivRound(mid, 100, cap), 0, 100)
+	local reliability = MulDivRound(100 - chance, 100 - scatter_risk, 100)
+	return Clamp(reliability, 0, 100), chance, scatter_risk
 end
 
 --- Shared scatter/mishap resolver for grenades and heavy weapons.

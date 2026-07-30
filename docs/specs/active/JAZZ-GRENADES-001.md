@@ -59,7 +59,7 @@ approved_by: project-owner
 - governing skill: throw → Dexterity+Explosives; GL/ракета/подствол → Marksmanship+Explosives; пайпы/демо → Explosives-heavy; гранаты уверенно уже ~с 30;
 - suppression/Inaccurate влияют на **шанс и величину**;
 - CapTiles по расчёту; item defaults/hints; docs/wiki;
-- цвет существующих колец **зоны поражения** = `GetCTHColor(100 − mishap%)`.
+- цвет существующих колец **зоны поражения** = `GetCTHColor(reliability)`, где `reliability = (100 − mishap%) × (100 − scatter_risk%) / 100`, `scatter_risk` = mid(Min-band) / CapTiles.
 
 ## Non-goals
 
@@ -169,9 +169,12 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 ### Визуал area-aim
 
 - **Радиус** = зона поражения (текущие blast/cone tiles).
-- **Цвет** = `GetCTHColor(100 − mishap%)` — шкала кольца прицела.
+- **Цвет** = `GetCTHColor(reliability)` — шкала кольца прицела.
+  - `reliability = (100 − mishap%) × (100 − scatter_risk%) / 100`
+  - `scatter_risk` = mid(Min-band deviation) / CapTiles (0..100), без RNG
+  - до half-range (`mishap% = 0`) цвет всё равно меняется от величины scatter
 - Отдельных колец разброса нет.
-- Trajectory arc: optional тот же tint; blast/cone обязательны.
+- Trajectory arc: тот же tint; blast/cone обязательны.
 
 ### Shared API
 
@@ -179,10 +182,12 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 - `MishapProperties:GetMishapSkillBlend(attacker)` → integer blend  
 - `MishapProperties:GetEffectiveMishapDist(attacker, target)`  
 - `MishapProperties:GetMishapChance` — override: competence@threshold, half-range zero, distance ramp, suppression  
+- `MishapProperties:GetMishapDeviationBounds(unit, target, band)` → `min_dev, max_dev` (no RNG)
 - `MishapProperties:GetMishapDeviationVectorMin/Max` — integer, raw blend, smoother Min  
+- `MishapProperties:GetMishapAimReliability(attacker, target)` → `reliability, chance, scatter_risk`
 - `MishapProperties:ApplyImpactDeviation(...)` → `target_pos, mishap_flag`  
 - `Grenade` / `HeavyWeapon` GetAttackResults → Apply*; ValidatePos retry для parabola  
-- `Targeting_AOE_ParabolaAoE` (+ cone path) — tint AoE materials через `GetCTHColor`
+- `Targeting_AOE_ParabolaAoE` (+ cone path) — tint через `GetMishapAimReliability` + `GetCTHColor`
 
 Удалить free `MishapChanceByDist` / `MishapDeviationVectorByDist` после переноса.
 
@@ -201,7 +206,7 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 - `JAZZ-GRENADES-001-REQ-005` — величина от raw skill blend + `dist_eff`; Min-band плавнее (`/10`, clamp 40..200); CapTiles = `Max(2×MaxMishapRange, 8)`.
 - `JAZZ-GRENADES-001-REQ-006` — item Min/MaxMishapRange; Demo MaxMishapChance усилен; честные RU/EN hints (в т.ч. уверенность гранат ~с 30).
 - `JAZZ-GRENADES-001-REQ-007` — technical + showcase/wiki sync.
-- `JAZZ-GRENADES-001-REQ-008` — tint зоны поражения `GetCTHColor(100 − mishap%)`; радиусы = AoE; без колец разброса.
+- `JAZZ-GRENADES-001-REQ-008` — tint зоны поражения/дуги `GetCTHColor(GetMishapAimReliability)`; радиусы = AoE; без колец разброса.
 
 ## Инварианты и ограничения
 
@@ -220,7 +225,7 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 - `JAZZ-GRENADES-001-AC-005` — runtime: suppression/Inaccurate поднимают % и разброс (могут вытолкнуть из «только scatter» зоны).
 - `JAZZ-GRENADES-001-AC-006` — runtime/MP smoke без десинха на throw и underslung.
 - `JAZZ-GRENADES-001-AC-007` — docs technical + showcase/wiki.
-- `JAZZ-GRENADES-001-AC-008` — human aim: цвет зоны поражения = `GetCTHColor(100−mishap%)`; радиусы = AoE; нет лишних колец разброса.
+- `JAZZ-GRENADES-001-AC-008` — human aim: цвет зоны/дуги = `GetCTHColor(reliability)` (mishap% × scatter_risk mix); радиусы = AoE; нет лишних колец разброса.
 
 ## Impact и совместимость
 
@@ -251,7 +256,7 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 2. **CapTiles** — **расчёт:** `Max(2 × MaxMishapRange, 8)` (frag≤16, GL≤12).
 3. **Chance×дистанция** — **да**; ≤half только scatter; **Throw** = Dex+Expl (thr 30, уверенно с ~30); **AimedHeavy** = MS+Expl (thr 30); **Demo/пайпы** = Expl-heavy thr 60 + усиленный MaxMishapChance.
 4. **Suppression/Inaccurate** — **и шанс, и разброс**.
-5. **UI** — радиусы = зона поражения; цвет = `GetCTHColor(100 − mishap%)`.
+5. **UI** — радиусы = зона поражения; цвет = mix mishap% + Min-band scatter → `GetCTHColor(reliability)`.
 
 ## Evidence
 
