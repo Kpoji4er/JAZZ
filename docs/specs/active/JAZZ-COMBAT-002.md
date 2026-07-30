@@ -16,6 +16,7 @@ write_set:
   - jazz/Code/System_OR_Weapons.lua
   - jazz/Code/ExecFirearmAttacks.lua
   - jazz/Code/CrossHairUI.lua
+  - jazz/Code/MeleeWeapon.lua
   - jazz/items.lua
   - jazz/metadata.lua
   - jazz/Localization/Russian.csv
@@ -44,152 +45,158 @@ approved_by: pending
 1. **Near-miss band** — плоский порог `+3` / `+6` point-blank над `shot_cth`.
 2. **Fog / DustStorm** — `IsConcealedFrom` / `IsObscuredFrom` + `FogGrazeChance` / `DustStormGrazeChance`.
 3. **Дым / газ на LoF** — C++ LoF помечает `hit.grazing` / `target_grazing_hit` при проходе через `SmokeObj` (`cfSmokeObj`); в Lua только читается результат. Официальные тексты гранат обещают graze через газ.
-4. **Cover / Taking Cover (`Protected`)** — единственный осмысленный тактический источник, но шанс не дотягивает до «бункер = почти всегда царапина».
+4. **Cover / Taking Cover (`Protected`)** — осмысленный тактический источник, но завязан на отдельный `base_chance`, а не на фактический бонус укрытия в CTH.
 
-Итог для игрока: снайпер с высоким CTH всё равно может «поцарапать» из-за погоды/дыма/полосы промаха, а укрытие не даёт предсказуемого потолка защиты.
+Итог для игрока: снайпер с высоким CTH всё равно может «поцарапать» из-за погоды/дыма/полосы промаха, а graze от укрытия плохо читается относительно CTH-штрафа укрытия.
 
 ## Цели
 
 - Убрать все grazing-источники кроме двух явных.
-- **Miss→graze:** шанс превратить промах в grazing растёт **обратно** `shot_cth`, **нелинейно**, **cap 50%** — высокий CTH почти не царапает.
-- **Cover / BunkerDown (`Protected`):** шанс превратить попадание в grazing растёт с coverage **вплоть до 100%** при полном укрытии со стороны атаки.
-- Сохранить текущий эффект grazing: урезанный урон (`GrazingHitDamage`), без crit, без hit-level status effects.
-- Синхронизировать technical / wiki / showcase и тексты smoke/gas, чтобы больше не обещали magically graze.
+- **Miss→graze:** шанс превратить промах в grazing растёт **обратно** `shot_cth`, **нелинейно**, **cap 50%**.
+- **Cover→graze:** шанс превратить попадание в grazing **пропорционален бонусу укрытия** (тому же cover CTH modifier), **вплоть до 100%** при полном укрытии.
+- Дым/газ **всегда** игнорируются для graze (`ignore_smoke` + снятие `target_grazing_hit` у throws/ножей).
+- Сохранить эффект grazing: `GrazingHitDamage`, без crit, без hit-level status effects.
+- Синхронизировать technical / wiki / showcase и тексты smoke/gas.
 
 ## Non-goals
 
 - Менять формулу CTH, recoil, BDR или `GrazingHitDamage` (кроме явного follow-up).
-- Менять AI BunkerDown flow (`JAZZ-AI-002`) — только потребление `Protected` / cover geometry.
-- Переписывать C++ LoF; достаточно нейтрализовать smoke-graze на Lua-границе.
-- Менять melee/AOE урон вне огнестрельного ranged pipeline, кроме явного снятия smoke `target_grazing_hit` у throws если он остаётся.
-- Баланс отдельных перков/компонентов вне `IgnoreGrazingHitsWhenFullyAimed` (см. открытые решения).
+- Менять AI BunkerDown flow (`JAZZ-AI-002`).
+- Переписывать C++ LoF.
+- Баланс перков/компонентов вне `IgnoreGrazingHitsWhenFullyAimed` (см. открытые решения).
 
-## Предлагаемая модель (кандидат на approve)
+## Решения владельца (зафиксировано 2026-07-30)
 
-### A. Miss→graze (единственный non-cover источник)
+| # | Решение | Статус |
+| --- | --- | --- |
+| Cover | Graze **пропорционален бонусу укрытия** (cover CTH modifier), потолок 100% | принято |
+| Дым/газ | **Всегда** `ignore_smoke` для graze-path; ножи/throws тоже снять `target_grazing_hit` | принято |
+| Ножи | Smoke-graze снять так же, как у Firearm | принято |
+| Кривая miss→graze | Цель: при **CTH 20%** graze ≈ **30–40%**; точная степень ещё на столе | **открыто** (рабочий кандидат ниже) |
+| Thermal | `IgnoreGrazingHitsWhenFullyAimed` — scope не зафиксирован | **открыто** |
+
+## Предлагаемая модель
+
+### A. Miss→graze
 
 Условие: валидный выстрел (`shot_cth > 0`), roll промаха (`roll > shot_cth`).
+
+**Рабочий кандидат** (уже попадает в цель «20% CTH → ~32% graze»):
 
 ```text
 miss_graze_chance = min(50, floor( 50 * ((100 - shot_cth) / 100) ^ 2 ))
 ```
 
-Отдельный roll `0..99` (или эквивалент deterministic RNG атаки): при успехе — `sfAllowGrazing` / `hit.grazing` + `grazed_miss` как сейчас.
+Опорные точки:
 
-Опорные точки (^2, cap 50):
+| shot_cth | ^2 (кандидат) | ^1.5 (мягче) | linear `0.5×(100−cth)` |
+| ---: | ---: | ---: | ---: |
+| 100 | 0 | 0 | 0 |
+| 90 | 0 | 1 | 5 |
+| 80 | 2 | 4 | 10 |
+| 70 | 4 | 8 | 15 |
+| 50 | 12 | 17 | 25 |
+| 30 | 24 | 29 | 35 |
+| **20** | **32** | **35** | **40** |
+| 10 | 40 | 42 | 45 |
 
-| shot_cth | miss_graze_chance |
-| ---: | ---: |
-| 100 | 0 |
-| 90 | 0 |
-| 80 | 2 |
-| 70 | 4 |
-| 50 | 12 |
-| 30 | 24 |
-| 10 | 40 |
-| 0 | n/a (выстрел невалиден) |
+Заметка для тюнинга: `^2` уже даёт **32%** на CTH 20 (внутри 30–40). Если «бесит» mid-range (CTH 50–70) — оставить `^2` или жёстче; если на низком CTH мало царапин — смягчить к `^1.5` / linear. Cap **50%** сохраняется.
 
-Плоский порог `+3/+6` и `GetShotGrazeTheshold` / `OnCalcShotGrazeThreshold` для этого path **не используются** (реакции либо удалить из path, либо оставить no-op до отдельного follow-up).
+Плоский `+3/+6` и `GetShotGrazeTheshold` для этого path **не используются**.
 
-### B. Cover / BunkerDown → graze
+### B. Cover → graze (пропорционально бонусу укрытия)
 
-Условие (как сейчас по смыслу): цель `Unit`, aware, не `Exposed`, имеет `Protected` (Taking Cover / BunkerDown), атака не melee/aoe, cover со стороны `attack_pos`.
+Берётся тот же cover CTH modifier, что даёт штраф попадания за укрытие (геометрия + `InterpolateCoverEffect(coverage, Cover, ExposedCover)`, включая dust-storm cover deepening, если оно уже вошло в modifier).
 
 ```text
-cover_graze_chance = InterpolateCoverEffect(coverage, 100, 0)
+cover_cth_value = InterpolateCoverEffect(coverage, full_cover, exposed_cover)  -- обычно отрицательный
+cover_full      = full_cover   -- e.g. -20 (или усиленный dust)
+
+cover_graze_chance = Clamp( MulDivRound( -cover_cth_value, 100, -cover_full ), 0, 100 )
 ```
 
-То есть при полном укрытии со стороны атаки — **100%** grazing hit. Частичное укрытие — пропорционально coverage. Без `Protected` cover **не** даёт graze (только BunkerDown/Take Cover), если владелец не решит иначе.
+Следствия:
 
-Ветки Fog / DustStorm / env graze **удаляются** из `PrecalcDamageAndStatusEffects`.
+- полное укрытие → **100%** graze;
+- половина бонуса → **~50%** graze;
+- только «exposed cover» (−5 при full −20) → **25%** graze;
+- нет cover CTH modifier → **0%** cover-graze.
 
-### C. Нейтрализация дыма/газа (C++ LoF)
+`Protected` / BunkerDown **не** единственный gate: graze следует за фактическим бонусом укрытия. `Protected` по-прежнему влияет на UI InCover / AP / AI, но не подменяет шкалу отдельным `base_chance`, если cover modifier уже посчитан.
 
-На любой ranged атаке, где сейчас возможен engine smoke-graze:
+Ветки Fog / DustStorm **env graze** (`FogGrazeChance` / `DustStormGrazeChance`) **удаляются**. Dust может косвенно поднять cover-graze только если усиливает cover CTH penalty — это следствие «пропорционально бонусу», не отдельный magic graze.
 
-- выставлять `attack_args.ignore_smoke = true` **только для цели «не превращать LoF в graze»**, **если** это не ломает smoke LOS/detection (проверить runtime); **или**
-- после `GetLoFData` снимать `lof.target_grazing_hit` и предустановленный `hit.grazing` у unit-хитов, пришедших из smoke, до `BulletCalcDamage` / Precalc.
+### C. Дым / газ / ножи
 
-Предпочтительный путь выбрать в approve после static+runtime проверки `ignore_smoke` (не должен обходить штраф видимости/CTH дыма, если тот живёт отдельно от LoF-graze).
+- На Firearm (и прочих ranged LoF-атаках): **всегда** `attack_args.ignore_smoke = true` (не только thermal full-aim).
+- На thrown knives / ranged melee path: после `GetLoFData` принудительно `target_grazing_hit = false` (и не ставить `hit.grazing` из дыма).
+- Тексты smoke/teargas/toxicgas больше не обещают grazing через газ.
 
-Тексты smoke/teargas/toxicgas и связанные mod-only строки больше не обещают «атаки через газ становятся grazing».
+Проверка: `ignore_smoke` не должен отключать smoke sight/−70 / CTH visibility side-effects, которые живут вне LoF-graze. Если runtime покажет иное — fallback: strip `target_grazing_hit` / pre-set `hit.grazing` при сохранении обычного smoke collision semantics.
 
 ### D. Эффект grazing (без изменений)
 
 - `hit.critical = nil`
 - `hit.effects = {}`
-- `damage = Max(1, MulDivRound(damage, const.Combat.GrazingHitDamage, 100))` (сейчас JAZZ **40%**)
-- floating text / UI: cover → reason `cover`; miss-graze → без fog/dust labels (обычный Grazed)
+- `damage = Max(1, MulDivRound(damage, const.Combat.GrazingHitDamage, 100))` (JAZZ **40%**)
+- floating text: cover → `cover`; miss-graze → обычный Grazed (без Fog/Dust labels)
 
 ## Требования
 
-- `JAZZ-COMBAT-002-REQ-001` — grazing возникает только из (A) miss→graze по формуле от `shot_cth` с cap **50%** и (B) cover/`Protected` graze с потолком **100%**.
-- `JAZZ-COMBAT-002-REQ-002` — fog, dust storm и дым/газ **не** добавляют grazing (ни Lua env-веткой, ни через C++ LoF `target_grazing_hit` / pre-set `hit.grazing`).
-- `JAZZ-COMBAT-002-REQ-003` — miss→graze использует нелинейную кривую от `shot_cth` (кандидат: квадрат, см. таблицу); плоский `+3/+6` threshold удалён.
-- `JAZZ-COMBAT-002-REQ-004` — при `Protected` + full cover со стороны атаки `cover_graze_chance = 100`; при меньшем coverage — монотонно меньше через `InterpolateCoverEffect`.
-- `JAZZ-COMBAT-002-REQ-005` — эффект grazing (урон/crit/effects) сохраняет текущий JAZZ контракт `GrazingHitDamage`.
-- `JAZZ-COMBAT-002-REQ-006` — player-facing тексты smoke/gas и combat docs больше не утверждают magically graze через газ/погоду.
-- `JAZZ-COMBAT-002-REQ-007` — deterministic RNG / NetUpdateHash для нового miss-graze roll согласован с multiplayer (тот же stream, что shot rolls, либо явный documented stream).
+- `JAZZ-COMBAT-002-REQ-001` — grazing только из (A) miss→graze (cap 50%) и (B) cover-graze пропорционально cover CTH bonus (cap 100%).
+- `JAZZ-COMBAT-002-REQ-002` — fog/dust **env** graze и smoke/gas LoF-graze отсутствуют; `ignore_smoke` всегда; throws/knives без `target_grazing_hit` от дыма.
+- `JAZZ-COMBAT-002-REQ-003` — miss→graze: нелинейная кривая от `shot_cth`; плоский `+3/+6` удалён; при CTH 20 итоговый шанс в диапазоне **30–40** после выбора формулы владельцем.
+- `JAZZ-COMBAT-002-REQ-004` — cover-graze = нормализованный `|cover_cth_value| / |cover_full|` × 100, Clamp 0..100.
+- `JAZZ-COMBAT-002-REQ-005` — эффект grazing сохраняет `GrazingHitDamage`.
+- `JAZZ-COMBAT-002-REQ-006` — player-facing тексты smoke/gas и combat docs без magic graze через газ/погоду.
+- `JAZZ-COMBAT-002-REQ-007` — miss-graze roll sync-safe / deterministic.
 
 ## Инварианты и ограничения
 
 - Публичные ID `Protected`, `GrazingHitDamage` не переименовываются без отдельного spec.
-- Prediction не мутирует status effects цели; UI cover-graze prediction остаётся честной (как сейчас при `chance ~= 0`).
-- `JAZZ-AI-002` BunkerDown по-прежнему выдаёт `Protected`; меняется только graze-математика потребления.
-- Не активировать dormant код; не трогать sibling-пакеты.
-- До approve **не** менять runtime.
+- Prediction не мутирует status effects цели.
+- `JAZZ-AI-002` BunkerDown не ломается.
+- До approve / выбора формулы **не** менять runtime (кроме docs/spec).
 
 ## Acceptance criteria
 
-- `JAZZ-COMBAT-002-AC-001` — static: в `PrecalcDamageAndStatusEffects` нет Fog/DustStorm graze-веток; нет использования плоского `graze_threshold` 3/6 для miss→graze.
-- `JAZZ-COMBAT-002-AC-002` — static/runtime: таблица miss_graze_chance для CTH 100/80/50/30/10 совпадает с утверждённой формулой (±1 из-за floor).
-- `JAZZ-COMBAT-002-AC-003` — runtime: выстрел через smoke/teargas/toxicgas при открытой цели **без** `Protected` не форсирует grazing (при том же CTH/roll, что без дыма, modulo допустимый CTH/LOS side-effect дыма).
-- `JAZZ-COMBAT-002-AC-004` — runtime: цель с `Protected` + full cover со стороны атаки получает grazing на hit с шансом 100% (prediction и бой).
-- `JAZZ-COMBAT-002-AC-005` — runtime: при `shot_cth ≥ 90` miss→graze практически не проявляется (≤1% по формуле); при низком CTH (≈30) miss→graze заметно выше, но ≤50%.
-- `JAZZ-COMBAT-002-AC-006` — docs/wiki/showcase + RU/EN строки smoke/gas обновлены; auditor `needs Russian=0` / `needs English=0` для затронутых ID.
-- `JAZZ-COMBAT-002-AC-007` — human playtest: снайпер на высоком CTH не «бесит царапинами»; бункер в полном укрытии стабильно режет урон до graze.
+- `JAZZ-COMBAT-002-AC-001` — static: нет Fog/DustStorm env graze; нет плоского threshold 3/6; `ignore_smoke` выставляется не только thermal.
+- `JAZZ-COMBAT-002-AC-002` — static/runtime: таблица miss_graze_chance совпадает с утверждённой формулой (±1 floor); при CTH 20 ∈ [30, 40].
+- `JAZZ-COMBAT-002-AC-003` — runtime: выстрел/бросок ножа через smoke/gas не форсирует grazing на открытой цели.
+- `JAZZ-COMBAT-002-AC-004` — runtime: full cover → cover-graze 100%; half cover bonus → ~50%; no cover modifier → 0% cover-graze.
+- `JAZZ-COMBAT-002-AC-005` — runtime: CTH ≥ 90 → miss→graze ≤ 1% по `^2` (или согласованной формуле); CTH 20 → 30–40%.
+- `JAZZ-COMBAT-002-AC-006` — docs/wiki/showcase + RU/EN smoke/gas; auditor needs RU/EN = 0.
+- `JAZZ-COMBAT-002-AC-007` — human: снайпер на высоком CTH не бесит царапинами; укрытие читается через силу cover-бонуса.
 
 ## Impact и совместимость
 
-- Vanilla/CommonLib/JAZZ: override graze path в `System_OR_Weapons.lua` / attack args; C++ LoF не патчится — только нейтрализация флагов/`ignore_smoke`.
-- Saves: новых persistent fields нет.
-- Network/determinism: новый miss-graze roll должен быть sync-safe.
-- Generated data: возможны ConstDef (`FogGrazeChance`/`DustStormGrazeChance` deprecate или value 0), `Protected.base_chance` → 100, правки texts; editor round-trip.
-- Cross-package: нет.
-- Rollback: один change set runtime + docs + loc.
+- Vanilla/CommonLib/JAZZ: override graze path + always `ignore_smoke`; C++ LoF не патчится.
+- Saves: новых fields нет.
+- Network/determinism: новый miss-graze roll sync-safe.
+- Generated data: ConstDef fog/dust graze → 0/remove; texts; возможен отказ от `Protected.base_chance` как graze source; editor round-trip.
+- Rollback: один change set.
 
 ## План и ownership
 
 - Пакет-владелец: `jazz`
-- Исполнитель: agent / project-owner
-- Reviewer: project-owner
-- Declared write set: см. frontmatter
+- Declared write set: см. frontmatter (добавлен `MeleeWeapon.lua` под ножи)
 - Exclusive resources: `items.lua`, `metadata.lua`
 
-## Открытые решения владельца (блокируют approve)
+## Открытые решения (блокируют approve)
 
-1. **Кривая miss→graze:** принять кандидат `50 × ((100−cth)/100)^2`, или другой показатель (`^2.5` / `^3`), или иную яявную формулу.
-2. **Cover без `Protected`:** graze только после BunkerDown/Take Cover, или любая cover geometry тоже?
-3. **Thermal / `IgnoreGrazingHitsWhenFullyAimed`:** игнорировать только cover-graze, или также miss→graze?
-4. **Способ выключить smoke-graze:** всегда `ignore_smoke` vs post-LoF strip флагов (после runtime проверки side-effects).
-5. **Melee thrown knives:** снимать `target_grazing_hit` от дыма так же, как у Firearm?
+1. **Точная кривая miss→graze:** оставить `^2` (32% @ CTH20), смягчить `^1.5` (36%), или linear half (40%)?
+2. **Thermal / `IgnoreGrazingHitsWhenFullyAimed`:** только cover-graze, или ещё miss→graze?
 
 ## Решение владельца
 
-- Статус: `draft`
-- Кто подтвердил: pending
-- Дата: pending
+- Статус: `draft` (частично решено; формула и thermal ещё открыты)
+- Кто подтвердил: project-owner (частично, 2026-07-30)
+- Дата: 2026-07-30
 
 ## Evidence
 
-- `JAZZ-COMBAT-002-AC-001` … `AC-007`: `BLOCKED` — spec draft; runtime не начат.
+- `JAZZ-COMBAT-002-AC-001` … `AC-007`: `BLOCKED` — draft; runtime не начат.
 
 ## Documentation delta
 
-После реализации обновить:
-
-- `docs/technical/systems/combat-cth-actions.md` — источники grazing;
-- `docs/technical/systems/visibility-weather-appearance.md` — дым больше не graze;
-- `docs/technical/weapons/accuracy-model.md` — если описывает graze/cover;
-- `docs/wiki/combat-and-accuracy.md` + showcase RU/EN — player-facing;
-- тексты smoke/gas в localization / InventoryItem hints.
+После реализации: `combat-cth-actions.md`, `visibility-weather-appearance.md`, accuracy-model (если нужно), wiki + showcase RU/EN, тексты smoke/gas.
