@@ -35,7 +35,7 @@ JAZZ поддерживает только последнюю опубликов
   (`Mod/Dv3mFVN/English.csv`) для active mod-only ID пакета, включая пулы элитных имён;
   устаревший `ModTextsJazzUnits.csv` не подключён к loctables.
 
-До исправления metadata документация считает полную коллекцию обязательной для **полного** кампанийного контента. Урезанный режим без `jazz-maps` обслуживает `Code/StandaloneNoMapsFallback.lua` (JAZZ-COMPAT-001): авто-регионы Legion AI, wiring отрядов и inject loot; квесты/карты/диалоги maps при этом недоступны.
+До исправления metadata документация считает полную коллекцию обязательной для **полного** кампанийного контента. Урезанный профиль без `jazz-maps` — опциональный пакет **`jazz-nomaps`** (`7MsJ2Eq`, JAZZ-COMPAT-002): auto-regions по vanilla Guardpost, Major HQ `A20`, wiring отрядов и loot inject; квесты/карты/диалоги maps недоступны.
 
 ## Конфликты с другими модами
 

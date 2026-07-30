@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- FX audit: wire orphaned shot presets (M24/Gewehr/PSG1/Tex/Mini14/FG42/SPAS12/SVD/pistols), refresh ammo shell IDs, fix AA12/China_Lake/m79 bad refs\n- JAZZ-UNITS-003: Legion loadout generator (recipes → LootDef) + static tests/docs\n- MP: vanilla/CLib desync overrides — ending AsyncRand, StatBoost ticks, shot vectors, AI area pick",
+	'last_changes', "- No-maps autonomy moved to optional package jazz-nomaps (7MsJ2Eq); removed in-core StandaloneNoMapsFallback\n- FX audit: wire orphaned shot presets (M24/Gewehr/PSG1/Tex/Mini14/FG42/SPAS12/SVD/pistols), refresh ammo shell IDs, fix AA12/China_Lake/m79 bad refs\n- JAZZ-UNITS-003: Legion loadout generator (recipes → LootDef) + static tests/docs",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 30,
+	'version_minor', 31,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
@@ -880,7 +880,6 @@ return PlaceObj('ModDef', {
 		"Code/EnemySquad.lua",
 		"Code/SatelliteSquad.lua",
 		"Code/Guardpost_Patrols.lua",
-		"Code/StandaloneNoMapsFallback.lua",
 		"Code/LegionUnitPrices.lua",
 		"Code/LegionSquadComposition.lua",
 		"Code/LegionSquadGenerator.lua",

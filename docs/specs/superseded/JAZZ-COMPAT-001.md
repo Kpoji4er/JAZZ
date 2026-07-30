@@ -1,6 +1,6 @@
 ---
 id: JAZZ-COMPAT-001
-status: implemented
+status: superseded
 owner: project-owner
 systems:
   - strategy-squads-sectors

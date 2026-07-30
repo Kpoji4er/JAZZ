@@ -103439,10 +103439,6 @@ return {
 			'CodeFileName', "Code/Guardpost_Patrols.lua",
 		}),
 		PlaceObj('ModItemCode', {
-			'name', "StandaloneNoMapsFallback",
-			'CodeFileName', "Code/StandaloneNoMapsFallback.lua",
-		}),
-		PlaceObj('ModItemCode', {
 			'name', "LegionUnitPrices",
 			'CodeFileName', "Code/LegionUnitPrices.lua",
 		}),

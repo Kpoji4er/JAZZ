@@ -1,6 +1,6 @@
 ---
 id: JAZZ-COMPAT-002
-status: draft
+status: implemented
 owner: project-owner
 systems:
   - strategy-squads-sectors
@@ -15,12 +15,21 @@ generated_data: true
 runtime_validation: required
 write_set:
   - jazz/docs/specs/active/JAZZ-COMPAT-002.md
-  - jazz/docs/specs/active/JAZZ-COMPAT-001.md
+  - jazz/docs/specs/superseded/JAZZ-COMPAT-001.md
+  - jazz/Code/StandaloneNoMapsFallback.lua
+  - jazz/items.lua
+  - jazz/metadata.lua
+  - jazz/docs/technical/compatibility.md
+  - jazz/docs/technical/systems/strategy-squads-sectors.md
+  - jazz/docs/technical/systems/file-coverage.md
+  - jazz-nomaps/**
 exclusive_resources:
-  - none
+  - ModDef:7MsJ2Eq
+  - GameVar:gv_JAZZ_NoMaps
+  - Code:NoMaps_Autonomy.lua
 related_decisions:
   - none
-approved_by: pending
+approved_by: project-owner
 ---
 
 # JAZZ-COMPAT-002: пакет `jazz-nomaps` (автономия без jazz-maps)
@@ -271,29 +280,25 @@ Core `jazz` **не** объявляет dependency на nomaps.
 
 ## Решение владельца
 
-- Статус: **draft** (ожидает formal `approved` перед coding)
-- Направление: пакет `jazz-nomaps` — принято
-- Закрытые решения (2026-07-30):
-  - ModDef `id` = **`7MsJ2Eq`** (Workshop позже)
-  - Сектора = **vanilla** HotDiamonds (`CampaignPreset.lua`); **8** Guardpost; Major HQ = **`A20`**
-    (не `B28` — в vanilla нет); Ernie fortress = **`H4`** (не `I7`)
-  - Authored `ErnieIsland` (I7/B28) = maps-only → в nomaps отключить
-  - `jazz-units` = **required**
-  - Region prefix = **`JAZZ_Auto_`**
-  - Release suite / Discord callers = **не сразу**
-- Hold на coding: да, до formal approval + окончания других агентов
+- Статус: **implemented** (пакет `jazz-nomaps` создан; COMPAT-001 superseded)
+- ModDef `id` = **`7MsJ2Eq`**
+- Сектора = vanilla HotDiamonds; Major HQ = **`A20`**; Ernie fortress = **`H4`**
+- Authored `ErnieIsland` отключается nomaps runtime
+- `jazz-units` required; Region prefix `JAZZ_Auto_`
 - Дата: 2026-07-30
-
-## Открытые вопросы к владельцу
-
-- Нет блокирующих. Formal `approved` — когда можно scaffold/coding.
 
 ## Evidence
 
-- Все `JAZZ-COMPAT-002-AC-*`: `BLOCKED` — draft, реализации нет.
+- `JAZZ-COMPAT-002-AC-001`: `PASS (static)` — `jazz-nomaps` / `Code/NoMaps_Autonomy.lua` / id `7MsJ2Eq`.
+- `JAZZ-COMPAT-002-AC-002`: `BLOCKED (runtime)` — new game без maps.
+- `JAZZ-COMPAT-002-AC-003`: `BLOCKED (runtime)` — maps+nomaps no-op.
+- `JAZZ-COMPAT-002-AC-004`: `PASS (static)` — `StandaloneNoMapsFallback` удалён из jazz metadata/items.
+- `JAZZ-COMPAT-002-AC-005`: `BLOCKED (runtime)` — spawn/loot.
+- `JAZZ-COMPAT-002-AC-006`: `BLOCKED (editor)` — editor round-trip.
+- `JAZZ-COMPAT-002-AC-007`: `BLOCKED (human)`.
 
 ## Documentation delta
 
-- Этот файл (переписан под пакет).
-- COMPAT-001: пометка «будет superseded миграцией в jazz-nomaps».
-- Technical / AGENTS / ownership — только после implementation.
+- Technical compatibility / strategy / file-coverage обновлены.
+- COMPAT-001 → `docs/specs/superseded/`.
+- Пакет `jazz-nomaps` с `AGENTS.md`.

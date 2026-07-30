@@ -148,20 +148,19 @@ Generated `SatelliteViewMapContextMenu` считает отсутствие Regi
 
 Основной metadata объявляет assets обязательным, CommonLib/units — optional, maps не объявлен, хотя прямые ссылки существуют. Поддерживаемая конфигурация требует все четыре пакета и CommonLib.
 
-### Fallback без `jazz-maps` (JAZZ-COMPAT-001)
+### Optional: `jazz-nomaps` (JAZZ-COMPAT-002)
 
-`Code/StandaloneNoMapsFallback.lua` загружается всегда, но **активен только если** мод `FhNNYd` не найден в `ModsLoaded` / `IsModLoaded`. При активном maps — полный no-op.
+Пакет `jazz-nomaps` (`7MsJ2Eq`, каталог `..\jazz-nomaps`) — **вместо** `jazz-maps`. Runtime: `Code/NoMaps_Autonomy.lua`.
 
-Без maps файл:
+Без maps (с nomaps):
 
-- строит runtime Region `JAZZ_Auto_<guardpost>` для каждого unmanaged аванпоста (Voronoi по Chebyshev-дистанции секторов, радиус ≤8);
-- включает урезанный Legion AI (`TaxCap`/`RecruiterCap` = 0, HQ = сам аванпост);
-- заполняет пустые `EnemySquads*List` пресетами `LegionGlobalAI_*` / `LegionJAZZSquad*` при наличии defs из `jazz-units`;
-- remaps spawn `GenerateEnemySquad` и sector squad refs на jazz ID;
-- один раз пересобирает starting gear врагов Legion/Army/Adonis/Rebel;
-- на Exploration/Combat inject'ит jazz loot в `ItemContainer` (детерминированный roll).
+- отключает maps-only Region `ErnieIsland` (I7/B28);
+- строит `JAZZ_Auto_<guardpost>` по vanilla Guardpost (A20, D10, E16, F7, F19, G10, H4, H14);
+- Major HQ = **A20** (The Eagle's Nest);
+- wiring/remap EnemySquad + loot inject + gear refresh;
+- при загруженном `FhNNYd` — полный no-op.
 
-Authored `ErnieIsland` / already managed outposts не дублируются. Это **урезанный** режим, не паритет квестов/карт jazz-maps.
+В core `jazz` встроенного StandaloneNoMapsFallback больше нет.
 
 ## Проверка
 
