@@ -98,10 +98,45 @@ skill(x)      = 20 + x^1.25 × 0.25
 4. firearm executor формирует последовательность выстрелов; для очередей последующие пули получают recoil/разброс.
 5. попадания передаются damage/armor/wound и suppression системам; трассерный маркер ставится отдельно на уровне каждого произведённого выстрела с итоговым CTH больше нуля.
 6. UI обновляет боевой badge, CTH breakdown, ammo/reload, overwatch и очереди действий.
-7. **Grazing (JAZZ-COMBAT-002):** только два источника —
-   - **miss→graze:** при промахе валидного выстрела (`shot_cth > 0`) шанс `min(50, floor(50×((100−cth)/100)²))`, полоса над CTH из того же attack roll;
-   - **cover→graze:** на попадании шанс пропорционален cover CTH bonus (`|cover_cth|/|Cover_full|×100`, cap 100%).
-   Fog/dust env graze и C++ smoke/gas LoF-graze отключены (`ignore_smoke` всегда; thrown knives тоже). Thermal `IgnoreGrazingHitsWhenFullyAimed` игнорирует только cover-graze. Эффект: `GrazingHitDamage` (40%), без crit/status effects.
+
+## Grazing hits (JAZZ-COMBAT-002)
+
+Канон runtime: `Code/System_OR_Weapons.lua` (`JAZZ_CalcMissGrazeChance`, `JAZZ_CalcCoverGrazeChance`, `BaseWeapon:PrecalcDamageAndStatusEffects`), `Code/ExecFirearmAttacks.lua` (`ignore_smoke`), `Code/MeleeWeapon.lua` (thrown knives).
+
+### Только два источника
+
+| Источник | Когда | Формула / правило |
+| --- | --- | --- |
+| **Miss→graze** | валидный выстрел (`shot_cth > 0`) и proмах | `min(50, floor(50 × ((100 − shot_cth) / 100)²))`; полоса над CTH из **того же** attack roll |
+| **Cover→graze** | попадание, цель aware, не Exposed, не aim-shooting, не melee/aoe | `Clamp(MulDivRound(−cover_cth, 100, −Cover_full), 0, 100)` — пропорционально cover CTH bonus (`RangeAttackTargetStanceCover`) |
+
+Опорные точки miss→graze:
+
+| shot_cth | miss_graze % |
+| ---: | ---: |
+| 100 | 0 |
+| 80 | 2 |
+| 50 | 12 |
+| 30 | 24 |
+| 20 | 32 |
+| 10 | 40 |
+
+### Снято (больше не даёт grazing)
+
+- плоский near-miss band `+3` / `+6`;
+- Fog / DustStorm env (`FogGrazeChance` / `DustStormGrazeChance` = 0, ветки удалены);
+- C++ LoF smoke/gas (`ignore_smoke = true` всегда; thrown knives оборачивают `GetLoFData`).
+
+Dust storm может **косвенно** усилить cover-graze только если усиливает cover CTH penalty (`DustStormCoverCTHPenalty`) — это следствие «∝ бонусу укрытия», не отдельный magic graze.
+
+### Эффект и исключения
+
+- урон: `Max(1, damage × GrazingHitDamage / 100)` — JAZZ **40%**;
+- нет crit; `hit.effects` очищаются;
+- `IgnoreGrazingHitsWhenFullyAimed` (thermal full aim) игнорирует **только cover-graze**, не miss→graze;
+- `IgnoreCoverCtHWhenFullyAimed` → cover-graze 0 (нет cover CTH bonus).
+
+Уровень подтверждения формул: **static**; runtime/human playtest — в evidence `JAZZ-COMBAT-002`.
 
 ## Публичные контракты и риски
 

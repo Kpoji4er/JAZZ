@@ -1,0 +1,29 @@
+---
+description: Player-facing и combat-behavior правки — в том же change set обновлять technical + wiki + showcase RU/EN без спроса.
+alwaysApply: true
+---
+
+# Docs + Wiki sync (обязательно)
+
+При изменении **заметного игроку** поведения (бой, CTH, grazing, укрытие, дым/погода, оружие/патроны, статусы, UI числа, роли отрядов и т.п.) документация — часть DoD, не «на потом» и не отдельный optional follow-up.
+
+## В том же change set
+
+1. **`docs/technical/`** — каноническая systems-страница владельца (формулы, caps, источники эффекта, load-state). При новом/удалённом `Code/*.lua` — ещё `file-coverage.md`.
+2. **`docs/wiki/`** — игровая формулировка того же факта (без load order и absolute paths). Оружейные числа — только CSV + `scripts/docs/weapons-docs.mjs`.
+3. **`docs/showcase/ru/` + `docs/showcase/en/`** — обе языковые страницы затронутого аспекта (ADR-0003). GitHub Wiki руками не править.
+
+Явный запрос пользователя «правь docs / веди вики» = обновлять без повторного спроса. Для player-facing combat/accuracy/grazing/cover/smoke **не спрашивать** «обновить ли wiki» — обновлять сразу вместе с кодом.
+
+## Не оставлять расхождений
+
+- Technical не должен описывать старый graze/fog/smoke/cover контракт после смены runtime.
+- Wiki и showcase не должны обещать механику, которую код убрал (пример: «выстрелы через дым = grazing»).
+- Spec `Documentation delta` перечисляет обновлённые пути; отсутствие delta — только с явной причиной в spec.
+
+## Связано
+
+- `.cursor/rules/jazz-technical-docs-sync.mdc`
+- `.cursor/rules/jazz-github-wiki-showcase.mdc`
+- `.agents/docs/reference/documentation-contract.md`
+- `.agents/skills/document-jazz-systems/SKILL.md`

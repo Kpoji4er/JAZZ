@@ -14,12 +14,13 @@ alwaysApply: true
 
 ## Обязательное обновление
 
-Если изменение заметно игроку и требует правки `docs/wiki/` (или меняет факт, уже описанный в showcase):
+Если изменение заметно игроку (в т.ч. бой, CTH, **grazing**, укрытие, дым/погода, роли, UI-числа) или меняет факт, уже описанный в `docs/wiki/` / showcase:
 
 1. Обновить профильную `docs/wiki/`-страницу. Оружейные числа — только через CSV + `scripts/docs/weapons-docs.mjs` (пересобрать `docs/wiki/weapons/`).
 2. В том же change set обновить **обе** языковые страницы затронутого аспекта в `docs/showcase/ru/` и `docs/showcase/en/`.
 3. Новый аспект витрины: добавить slug в `pages.json` `order`/`pages` и файлы `ru/<slug>.md` + `en/<slug>.md`.
 4. Не коммитить собранный `.tmp/github-wiki*`.
+5. Не спрашивать «нужна ли вики» для таких правок — витрина входит в DoD (см. `.cursor/rules/jazz-docs-wiki-sync.mdc`).
 
 После merge в `main` workflow `Publish GitHub Wiki` публикует витрину **и** каталог оружия (триггеры: `docs/showcase/**`, `docs/wiki/weapons/**`, `docs/technical/weapons/data/**`). Локально: `scripts/docs/publish-github-wiki.ps1` или `-Publish`.
 
