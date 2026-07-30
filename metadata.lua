@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 33,
+	'version_minor', 34,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
