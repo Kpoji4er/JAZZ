@@ -185,3 +185,31 @@ PlaceObj('ActionFXInherit_Actor', {
 	id = "fxJAZZ_40mmFlashbangGrenade",
 })
 
+PlaceObj('ActionFXInherit_Actor', {
+	Actor = "Galil_FlagHill",
+	Inherit = "Galil",
+	group = "Weapons VFX",
+	id = "fxGalil_FlagHill",
+})
+
+PlaceObj('ActionFXInherit_Actor', {
+	Actor = "GoldenGun",
+	Inherit = "M14SAW",
+	group = "Weapons VFX",
+	id = "fxGoldenGun",
+})
+
+PlaceObj('ActionFXInherit_Actor', {
+	Actor = "LionRoar",
+	Inherit = "UZI",
+	group = "Weapons VFX",
+	id = "fxLionRoar",
+})
+
+PlaceObj('ActionFXInherit_Actor', {
+	Actor = "Winchester_Quest",
+	Inherit = "Winchester1894",
+	group = "Weapons VFX",
+	id = "fxWinchester_Quest",
+})
+

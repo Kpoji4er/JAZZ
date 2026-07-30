@@ -34,7 +34,12 @@
 ## Оружие без balance-tier
 
 - `BrowningM2HMG` — M2 Browning (Пулемёты); источник: `InventoryItem/BrowningM2HMG.lua`.
-- `Auto5_quest` — «Усмиритель» Мамаши (Дробовики); источник: `InventoryItem/Auto5_quest.lua`.
+- `Auto5_quest` — «Усмиритель» Мамаши (Дробовики); источник: `InventoryItem/vanillunique/Auto5_quest.lua`.
+- `Galil_FlagHill` — The Hired Gun (Штурмовые / battle); источник: `InventoryItem/vanillunique/Galil_FlagHill.lua`.
+- `GoldenGun` — Gold Fever (Снайперские); источник: `InventoryItem/vanillunique/GoldenGun.lua`.
+- `LionRoar` — The Lion's Roar (ПП); источник: `InventoryItem/vanillunique/LionRoar.lua`.
+- `Winchester_Quest` — Confidante (Карабины); источник: `InventoryItem/vanillunique/Winchester_Quest.lua`.
+- `TexRevolver` — Custom Six-Shooter (Револьверы); источник: `InventoryItem/vanillunique/TexRevolver.lua`.
 - `DragunovSVD_Custom` — Шах и Мат (Снайперские винтовки); источник: `InventoryItem/DragunovSVD_Custom.lua`.
 
 ## Известные аномалии данных

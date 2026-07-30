@@ -106,6 +106,17 @@ PlaceObj('ActionFXSound', {
 })
 
 PlaceObj('ActionFXSound', {
+	Action = "WeaponBuckshot",
+	Actor = "Auto5_quest",
+	DetailLevel = 100,
+	Moment = "start",
+	Sound = "Auto5_shot_single",
+	Target = "Basic",
+	group = "Default",
+	id = "fxAuto5_quest_buck",
+})
+
+PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
 	Actor = "Auto5_quest",
 	DetailLevel = 100,

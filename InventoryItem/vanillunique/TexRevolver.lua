@@ -4,7 +4,7 @@ DefineClass.TexRevolver = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "Tier 3-UNIQ",
+	comment = "Vanilla unique — Tex Custom Six-Shooter; JAZZ caliber/attacks",
 	object_class = "Revolver",
 	ScrapParts = 8,
 	RepairCost = 15,
