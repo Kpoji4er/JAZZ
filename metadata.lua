@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- Strip leftover vanilla Scope options; no-scope by design on RPK/M60E3/basic pistols\n- Tier accuracy pass + USP45/Glock/Thompson retune; attachments catalog tools",
+	'last_changes', "- Global AI Легиона: экономика, отряды, иконки ролей\n- Grazing по CTH, мисхэпы гранат, стелс; Commit/Dump AI\n- Инвентарь/HUD, MP-фиксы, jazz-nomaps; ребаланс оружия",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
