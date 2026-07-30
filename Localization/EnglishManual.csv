@@ -180,10 +180,8 @@
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Silent 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> High lethality","google-draft"
 "141","140035693819","Самодельная бригантина из кольчуги и обрезков шин","Homemade brigantine from chain mail and tire scraps","google-draft"
-"142","140416387512","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Shots fired through clouds of gas only produce <color EmStyle>minor hits</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No damage
+"142","140416387512","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No damage
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Almost silent","google-draft"
 "143","141058614304","Я слишком сильно утомлена, чтобы продолжать работу.","I'm too tired to continue working.","google-draft"
 "144","141311750958","Опаньки, тут для меня есть работенка. Лежит, кушать не просит...","Whoops, there's work for me here. He lies there and doesn’t ask to eat...","google-draft"
@@ -429,9 +427,7 @@ At least 30 rounds must be loaded","manual-reviewed-google"
 "334","202927839636","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> ""Опять китайское дерьмо"" © Стив Борнелл","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> ""Chinese crap again"" © Steve Bornell","google-draft"
 "335","203032964857","Матчевый патрон калибра 9х19мм","Match cartridge caliber 9x19mm","google-draft"
 "336","203665951773","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>удушье</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь незначительные попадания
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Causes <color EmStyle>Asphyxiation</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Shots fired through clouds of gas only produce minor hits
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Almost silent","google-draft"
 "337","203947535559","Бронежилет SWAT","SWAT body armor","google-draft"
 "338","204691184640","Триноги для пулемёта Браунинг .50","Tripods for the Browning .50 machine gun","old-bilingual-source"
@@ -441,10 +437,8 @@ At least 30 rounds must be loaded","manual-reviewed-google"
 "342","205417891756","Цевьё с рельсой","Handguard with rail","google-draft"
 "343","205977590871","Оборона маяка","Defending the Lighthouse","old-bilingual-source"
 "344","206446981168","Я пустой!","I'm empty!","google-draft"
-"345","206588175055","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Shots fired through gas clouds only produce <color EmStyle>minor hits</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No damage
+"345","206588175055","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No damage
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Almost silent","google-draft"
 "346","206632323405","Специальный боеприпас калибра 5.56x45мм. Разработан для сил специального назначения","Special ammunition of 5.56x45mm caliber. Designed for Special Forces","google-draft"
 "347","206795564935","The crocodile guardians of the <em><SectorName('J18')></em> are dead and now the <em>Witch</em> can be interrogated","The crocodile guardians of the <em><SectorName('J18')></em> are dead and now the <em>Witch</em> can be interrogated","technical-copy"
@@ -468,7 +462,6 @@ At least 30 rounds must be loaded","manual-reviewed-google"
 "363","212189312168","Магазин на 33 патрона","33-round magazine","google-draft"
 "364","212844370874","Шлем PASGT","PASGT helmet","google-draft"
 "365","212902513488","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>слепоту</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Causes <color EmStyle>blindness</color>
@@ -2994,7 +2987,6 @@ Where you came from, on the shore, right here. Take it. That's all I can give...
 "2203","810492635074","Тэп","Tap","google-draft"
 "2204","810656267860","Штурмовой прицел (3x)","Assault Scope (3x)","google-draft"
 "2205","810838610815","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>удушье</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь незначительные попадания
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Causes <color EmStyle>choking</color>
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Shots fired through clouds of gas produce only minor hits

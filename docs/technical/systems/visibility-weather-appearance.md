@@ -53,6 +53,8 @@ Smoke участвует в:
 - AI targeting и позиции;
 - gas/smoke protective equipment.
 
+**Не** участвует в grazing hits (JAZZ-COMBAT-002): LoF через `SmokeObj` больше не форсирует `hit.grazing` / `target_grazing_hit` (`ignore_smoke` всегда на firearm/thrown knife). Дым по-прежнему режет sight (−70) и влияет на бой через видимость, но не через отдельный magic graze.
+
 После обновления CommonLib проверять сигнатуру, тип результата и используемые call sites. Простое совпадение имени не гарантирует совместимость тел.
 
 ## Радиус обнаружения (`Unit:GetSightRadius`)

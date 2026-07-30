@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- Shell eject: map Ammo_Shells atlas frames by JAZZ caliber (was all 9mm frame)\n- WorldFlip harden: nil sector/squad filters, fortress H4|I7 (nomaps-safe)\n- Vanilla unique weapons → InventoryItem/vanillunique with JAZZ calibers",
+	'last_changes', "- Grazing: miss→graze ^2 from CTH (cap 50%); cover graze ∝ cover CTH bonus (cap 100%); no smoke/fog/dust graze\n- Shell eject: map Ammo_Shells atlas frames by JAZZ caliber (was all 9mm frame)\n- WorldFlip harden: nil sector/squad filters, fortress H4|I7 (nomaps-safe)",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 34,
+	'version_minor', 35,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
@@ -834,6 +834,7 @@ return PlaceObj('ModDef', {
 		"Code/System_OR_Traps.lua",
 		"Code/ExecFirearmAttacks.lua",
 		"Code/System_OR_Weapons.lua",
+		"Code/MeleeWeapon.lua",
 		"Code/System_Firearm_AddProperties.lua",
 		"Code/System_OR_Grenade.lua",
 		"Code/IModeCombatAreaAim.lua",

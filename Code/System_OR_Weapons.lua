@@ -77,7 +77,54 @@ function JAZZ_QueueStatusEffectApplication(unit, effect)
     QueueSuppressionApplication(unit, 0, effect)
 end
 
+-- JAZZ-COMBAT-002: miss→graze chance, cap 50, curve ((100-cth)/100)^2
+function JAZZ_CalcMissGrazeChance(shot_cth)
+	shot_cth = Clamp(tonumber(shot_cth) or 0, 0, 100)
+	if shot_cth <= 0 then
+		return 0
+	end
+	local miss_pct = 100 - shot_cth
+	return Min(50, (50 * miss_pct * miss_pct) / 10000)
+end
 
+-- Cover graze proportional to cover CTH bonus; full cover → 100%.
+function JAZZ_CalcCoverGrazeChance(attacker, target, attack_pos, weapon, attack_args)
+	if not IsKindOf(target, "Unit") or not attack_pos then
+		return 0
+	end
+	if target:HasStatusEffect("Exposed") or not target:IsAware() then
+		return 0
+	end
+	if target.aim_action_id then
+		return 0
+	end
+	if attack_args and (attack_args.melee_attack or (attack_args.action_id and CombatActions[attack_args.action_id] and CombatActions[attack_args.action_id].ActionType == "Melee Attack")) then
+		return 0
+	end
+	if IsKindOf(weapon, "Firearm") and weapon:HasComponent("IgnoreCoverCtHWhenFullyAimed") and IsFullyAimedAttack(attack_args) then
+		return 0
+	end
+	local cover, _, coverage = target:GetCoverPercentage(attack_pos)
+	if not cover then
+		return 0
+	end
+	local cover_mod = Presets.ChanceToHitModifier and Presets.ChanceToHitModifier.Default and Presets.ChanceToHitModifier.Default.RangeAttackTargetStanceCover
+	local exposed_value = cover_mod and cover_mod:ResolveValue("ExposedCover") or -5
+	local full_value = cover_mod and cover_mod:ResolveValue("Cover") or -20
+	if IsKindOf(attacker, "Unit") and CheckSightCondition(attacker, target, const.usObscured) then
+		local dust = const.EnvEffects.DustStormCoverCTHPenalty or 0
+		exposed_value = exposed_value + dust
+		full_value = full_value + dust
+	end
+	if full_value >= 0 then
+		return 0
+	end
+	local cover_cth = InterpolateCoverEffect(coverage, full_value, exposed_value)
+	if cover_cth >= exposed_value then
+		return 0
+	end
+	return Clamp(MulDivRound(-cover_cth, 100, -full_value), 0, 100)
+end
 
 local function compile_ignore_colliders(killed_colliders, colliders)
 	if #(killed_colliders or empty_table) == 0 then
@@ -350,8 +397,6 @@ function Firearm:GetAttackResults(action, attack_args)
 
     --print(lof_data.action_id)
 
-
-
 	local aoe_params = attack_args.aoe_params or (attack_args.aoe_action_id and self:GetAreaAttackParams(attack_args.aoe_action_id, attacker, aoe_target_pos, attack_args.step_pos ))
 	local consumed_ammo = attack_args.consumed_ammo
 	if not consumed_ammo then
@@ -369,6 +414,7 @@ function Firearm:GetAttackResults(action, attack_args)
 	end
 
 	local shot_attack_args = table.copy(attack_args)
+	shot_attack_args.ignore_smoke = true
 	shot_attack_args.num_shots = num_shots
 	shot_attack_args.target_pos = target_pos
 	shot_attack_args.target_spot_group = shot_attack_args.target_spot_group or target_unit and g_DefaultShotBodyPart
@@ -481,7 +527,6 @@ end
 	local distAttackerToTarget = step_pos3D:Dist(target_pos)
 	local dispersion = self:GetMaxDispersion(distAttackerToTarget)
 	local max_range = shot_attack_args.range
-	local point_blank = not prediction and attacker:IsPointBlankRange(target) -- ignore this on prediction to avoid step_pos (CalcShotVectors isn't used on prediction anyway)
 	if not max_range then
 		max_range = Max(MulDivRound(self.WeaponRange, 150, 100), 20) * const.SlabSizeX
 	end
@@ -530,7 +575,6 @@ end
 	local sfRollOffset = 8
 	local num_hits, num_misses, num_grazing = 0, 0, 0
 	local shots_data = {}
-	local graze_threshold = point_blank and 6 or 3
 
 	shot_attack_args.deployed =
 		shot_attack_args.deployed
@@ -576,13 +620,12 @@ end
 		data = bor(data, shot_miss and 0 or sfHit)
 		data = bor(data, shot_crit and sfCrit or 0)
 		data = bor(data, (shot_attack_args.multishot or (i == 1)) and sfLeading or 0)
+		-- JAZZ-COMBAT-002: miss→graze from ^2 curve (cap 50), band derived from attack roll
 		if shot_miss and shot_cth > 0 then
-			local shot_graze_threshold = self:GetShotGrazeTheshold(graze_threshold)
-			shot_graze_threshold = attacker:CallReactions_Modify("OnCalcShotGrazeThreshold", shot_graze_threshold, attacker, target, i, num_shots)
-			if target_unit then
-				shot_graze_threshold = target_unit:CallReactions_Modify("OnCalcShotGrazeThreshold", shot_graze_threshold, attacker, target, i, num_shots)
-			end
-			if roll < shot_cth + shot_graze_threshold then
+			local miss_graze_chance = JAZZ_CalcMissGrazeChance(shot_cth)
+			local miss_span = 100 - shot_cth
+			local graze_band = MulDivRound(miss_span, miss_graze_chance, 100)
+			if graze_band > 0 and roll < shot_cth + graze_band then
 				data = bor(data, sfAllowGrazing)
 				num_grazing = num_grazing + 1
 			end
@@ -926,15 +969,12 @@ end
 			end
 		end
 
-
-		
-
-
-		--print(hit_data.target_spot_group)
-		--print(shot_cth)
-
-
-
+		-- JAZZ-COMBAT-002: strip C++ smoke/gas LoF grazing; keep miss→graze flags
+		for _, hit in ipairs(hit_data.hits) do
+			if hit.grazing and not hit.grazed_miss then
+				hit.grazing = nil
+			end
+		end
 
 		self:BulletCalcDamage(hit_data)
 
@@ -1528,45 +1568,32 @@ function BaseWeapon:PrecalcDamageAndStatusEffects(attacker, target, attack_pos, 
 		local random = BraidRandomCreate(seed)
 
 		local effects = EffectsTable(effect)
-		local ignoreGrazing = IsFullyAimedAttack(attack_args) and self:HasComponent("IgnoreGrazingHitsWhenFullyAimed")
-		local ignore_cover = (hit.aoe or hit.melee_attack or ignoreGrazing) and 100 or self.IgnoreCoverReduction
+		-- Thermal / IgnoreGrazingHitsWhenFullyAimed: cover graze only (JAZZ-COMBAT-002)
+		local ignoreCoverGraze = IsFullyAimedAttack(attack_args) and self:HasComponent("IgnoreGrazingHitsWhenFullyAimed")
 		
-		-- grazing hits
+		-- JAZZ-COMBAT-002: cover graze ∝ cover CTH bonus (cap 100%); no fog/dust/smoke env graze
 		local chance = 0
-		local base_chance = 0
-		-- cover effect based on attack_pos
-		if target:IsAware() and not target:HasStatusEffect("Exposed") and target:HasStatusEffect("Protected") and (not ignore_cover or ignore_cover <= 0) then
-			local cover, any, coverage = target:GetCoverPercentage(attack_pos)
-			base_chance = const.Combat.GrazingChanceInCover
-			if target:HasStatusEffect("Protected") then
-				base_chance = Protected:ResolveValue("base_chance")
+		if not hit.aoe and not hit.melee_attack and not ignoreCoverGraze and not hit.grazed_miss then
+			chance = JAZZ_CalcCoverGrazeChance(attacker, target, attack_pos, self, attack_args)
+			if chance > 0 then
+				hit.grazing_reason = "cover"
 			end
-			chance = InterpolateCoverEffect(coverage, base_chance, 0)
-			hit.grazing_reason = "cover"
 		end
-
-		if not ignoreGrazing and not hit.aoe then
-			if target:IsConcealedFrom(attack_pos or attacker) then
-				chance = chance + const.EnvEffects.FogGrazeChance
-				hit.grazing_reason = "fog"
-			end
-			if target:IsObscuredFrom(attack_pos or attacker) then
-				chance = chance + const.EnvEffects.DustStormGrazeChance
-				hit.grazing_reason = "duststorm"
-			end
-		end		
 		
-		if not prediction then
-			local grazing_roll = random(100)
-			if grazing_roll < chance then
+		if not hit.grazed_miss then
+			if not prediction then
+				local grazing_roll = random(100)
+				if grazing_roll < chance then
+					hit.grazing = true
+				else
+					hit.grazing = nil
+					hit.grazing_reason = false
+				end
+			elseif chance ~= 0 then
 				hit.grazing = true
-			else
-				hit.grazing_reason = false
 			end
-		elseif chance ~= 0 then
-			hit.grazing = true
 		end
-		-- grazing hits (from cover and gas) cant crit
+		-- grazing hits (cover / miss→graze) cant crit
 		if hit.grazing then
 			hit.critical = nil
 		end

@@ -11,6 +11,7 @@
 | `AccuracyRangeCTH.lua` | loaded | [Бой, CTH и действия](combat-cth-actions.md) |
 | `CombatActions.lua` | loaded | [Бой, CTH и действия](combat-cth-actions.md) |
 | `ExecFirearmAttacks.lua` | loaded | [Бой, CTH и действия](combat-cth-actions.md) |
+| `MeleeWeapon.lua` | loaded | [Бой, CTH и действия](combat-cth-actions.md) — thrown knife `ignore_smoke` |
 | `IModeCombatAreaAim.lua` | loaded | [Бой, CTH и действия](combat-cth-actions.md) |
 | `CrossHairUI.lua` | loaded | [Бой](combat-cth-actions.md), [UI](ui-audio-fx.md) |
 | `CombatBadge_DeathRoll.lua` | loaded | [Бой](combat-cth-actions.md), [UI](ui-audio-fx.md) |

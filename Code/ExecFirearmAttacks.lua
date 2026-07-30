@@ -337,6 +337,7 @@ function Unit:PrepareAttackArgs(action_id, args)
 	local target = args.target
 	local prediction = args.prediction or args.prediction == nil
 	local aim_type = action and action.AimType
+	-- Keep thermal detection for other callers; smoke never contributes LoF grazing (JAZZ-COMBAT-002).
 	local thermal_aim = IsKindOf(weapon, "Firearm") and IsFullyAimedAttack(args) and weapon:HasComponent("IgnoreGrazingHitsWhenFullyAimed")
 
 	local attack_args = table.copy(args)
@@ -345,11 +346,12 @@ function Unit:PrepareAttackArgs(action_id, args)
 	attack_args.weapon = weapon
 	attack_args.target_pos = attack_args.target_pos or IsPoint(target) and target
 	attack_args.step_pos = attack_args.step_pos or self.return_pos or self:GetOccupiedPos() or GetPassSlab(self) or self:GetPos()
-	attack_args.ignore_smoke = thermal_aim
+	attack_args.ignore_smoke = true
 	if attack_args.fire_relative_point_attack == nil then
 		attack_args.fire_relative_point_attack = self.WeaponType == "Shotgun"
 	end
 	attack_args.prediction = prediction
+	attack_args.thermal_aim = thermal_aim or nil
 
 	if aim_type ~= "melee" then
 		attack_args.prediction = true

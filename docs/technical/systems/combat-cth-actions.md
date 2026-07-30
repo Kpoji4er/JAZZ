@@ -98,6 +98,10 @@ skill(x)      = 20 + x^1.25 × 0.25
 4. firearm executor формирует последовательность выстрелов; для очередей последующие пули получают recoil/разброс.
 5. попадания передаются damage/armor/wound и suppression системам; трассерный маркер ставится отдельно на уровне каждого произведённого выстрела с итоговым CTH больше нуля.
 6. UI обновляет боевой badge, CTH breakdown, ammo/reload, overwatch и очереди действий.
+7. **Grazing (JAZZ-COMBAT-002):** только два источника —
+   - **miss→graze:** при промахе валидного выстрела (`shot_cth > 0`) шанс `min(50, floor(50×((100−cth)/100)²))`, полоса над CTH из того же attack roll;
+   - **cover→graze:** на попадании шанс пропорционален cover CTH bonus (`|cover_cth|/|Cover_full|×100`, cap 100%).
+   Fog/dust env graze и C++ smoke/gas LoF-graze отключены (`ignore_smoke` всегда; thrown knives тоже). Thermal `IgnoreGrazingHitsWhenFullyAimed` игнорирует только cover-graze. Эффект: `GrazingHitDamage` (40%), без crit/status effects.
 
 ## Публичные контракты и риски
 
