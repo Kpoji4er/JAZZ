@@ -101,4 +101,4 @@ approved_by: project-owner
 
 ## Documentation delta
 
-Обновлены `combat-cth-actions.md`, `visibility-weather-appearance.md`, `file-coverage.md`, wiki + showcase RU/EN.
+Обновлены `combat-cth-actions.md` (секция Grazing), `visibility-weather-appearance.md`, `file-coverage.md`, `testing.md`, `accuracy-model.md`, wiki + showcase RU/EN. Правило синхронизации: `.cursor/rules/jazz-docs-wiki-sync.mdc`.
