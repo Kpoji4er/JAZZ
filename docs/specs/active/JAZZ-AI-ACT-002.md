@@ -1,6 +1,6 @@
 ---
 id: JAZZ-AI-ACT-002
-status: implemented
+status: approved
 owner: project-owner
 systems: [tactical-ai]
 repositories: [jazz]
