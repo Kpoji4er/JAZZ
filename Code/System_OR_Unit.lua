@@ -140,10 +140,8 @@ local JAZZ_SightCoverMul = {
 	Prone = { [const.CoverHigh] = 50, [const.CoverLow] = 35 },
 }
 -- Hidden: scale raw coverage before stance mul (vanilla/JAZZ was 10% — cover nearly noop).
--- 35% + Hidden coverbuff×150% → Shadow full camo + wall ≈ day floor (~9 tiles on Aware46).
+-- 35% + Hidden coverbuff×150% → Shadow full camo + wall ≈ ~9 tiles on Aware46 (JAZZ-AI-005/006).
 local JAZZ_HiddenCoverCoverageScale = 35
--- Night/underground floor when night_time (Aware46×12% ≈ 5.5 tiles). Day keeps ConstDef SightModMinValue (20 ≈ 9).
-local JAZZ_NightSightModMinValue = 12
 
 local function JAZZ_SightScaledArmorStat(value, condition_percent, degrade_mult)
 	if not value or value == 0 then
@@ -151,6 +149,13 @@ local function JAZZ_SightScaledArmorStat(value, condition_percent, degrade_mult)
 	end
 	-- Preserve prior MulDivRound(value, condition% * degrade_mult, 100).
 	return MulDivRound(value, condition_percent * degrade_mult, 100)
+end
+
+local function JAZZ_IsTargetIndoors(other, step_pos)
+	if step_pos and AICheckIndoors then
+		return not not AICheckIndoors(step_pos)
+	end
+	return IsKindOf(other, "Unit") and not not other.indoors
 end
 
 function Unit:GetSightRadius(other, base_sight, step_pos)
@@ -259,12 +264,13 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 		if in_brush then
 			modifier = modifier + const.EnvEffects.BrushSightMod
 			if hidden then
+				-- Brush multiplies camo (JAZZ-AI-006); flat brush is small via ConstDef.
 				modifier = modifier - camo * 3
 			else
-				modifier = modifier - MulDivRound(camo, 50, 100)
+				modifier = modifier - camo
 			end
 			if other_prone then
-				modifier = modifier - const.Combat.SightModHiddenProne * 2
+				modifier = modifier - const.Combat.SightModHiddenProne
 			end
 		else
 			if hidden then
@@ -276,13 +282,14 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 				modifier = modifier - const.Combat.SightModHiddenProne
 			end
 		end
+		-- Tiny indoor flat on the observed unit — independent of Hidden/camo (JAZZ-AI-006).
+		if JAZZ_IsTargetIndoors(other, step_pos) then
+			modifier = modifier + (const.EnvEffects.IndoorSightMod or -5)
+		end
 	end
 
-	-- Day floor ConstDef (~9 tiles on Aware46). Night floor lower (~5.5) so Shadow optimal can close to 5–6.
+	-- SightModMinValue ConstDef (~4 tiles on Aware46 after AI-006).
 	local sight_min = const.Combat.SightModMinValue
-	if night_time then
-		sight_min = Min(sight_min, JAZZ_NightSightModMinValue)
-	end
 	-- Skip smoke LOS when already at floor or no smoke objects on the map.
 	if other_is_unit and modifier > sight_min and IsLineInSmoke(self, other) then
 		modifier = modifier - 70

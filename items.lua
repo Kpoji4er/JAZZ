@@ -1372,7 +1372,15 @@ return {
 			group = "EnvEffects",
 			id = "BrushSightMod",
 			scale = "%",
-			value = -50,
+			value = -10,
+		}),
+		PlaceObj('ModItemConstDef', {
+			Comment = "sight penalty when the observed unit is indoors (flat, independent of Hidden/camo)",
+			comment = "sight penalty when the observed unit is indoors (flat, independent of Hidden/camo)",
+			group = "EnvEffects",
+			id = "IndoorSightMod",
+			scale = "%",
+			value = -5,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "sight penalty (as % of base value) for seeing units in dark or difficult to see locations",
@@ -1483,7 +1491,7 @@ return {
 			Comment = "minimum value for the sight modifier",
 			group = "Combat",
 			id = "SightModMinValue",
-			value = 20,
+			value = 9,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "maximum value for the sight modifier",

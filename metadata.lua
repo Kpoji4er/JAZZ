@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- Stealth sight: Shadow ~8-10 day / ~5-6 night; Stealthy ~15; no-kit near Aware edge\n- Realtime stealth: rear suspicion radius capped at 10 tiles (front/combat unchanged)\n- Shell eject: map Ammo_Shells atlas frames by JAZZ caliber (was all 9mm frame)",
+	'last_changes', "- Sight: brush −10 + camo×3, indoor −5, SightModMinValue 9 (Shadow in grass ~4)\n- Stealth sight tables; realtime rear suspicion cap 10 tiles\n- Shell eject: Ammo_Shells atlas frames by JAZZ caliber",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 36,
+	'version_minor', 37,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
@@ -988,6 +988,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "ConstDef",
 			'Id', "BrushSightMod",
+			'ClassDisplayName', "Constant",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "ConstDef",
+			'Id', "IndoorSightMod",
 			'ClassDisplayName', "Constant",
 		}),
 		PlaceObj('ModResourcePreset', {

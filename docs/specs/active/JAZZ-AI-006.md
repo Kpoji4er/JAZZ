@@ -1,6 +1,6 @@
 ---
 id: JAZZ-AI-006
-status: draft
+status: implemented
 owner: project-owner
 systems:
   - visibility
@@ -14,15 +14,18 @@ write_set:
   - jazz/items.lua
   - jazz/docs/specs/active/JAZZ-AI-006.md
   - jazz/docs/technical/systems/visibility-weather-appearance.md
+  - jazz/docs/technical/systems/ai-awareness.md
+  - jazz/docs/showcase/ru/about.md
+  - jazz/docs/showcase/en/about.md
   - jazz/metadata.lua
 exclusive_resources:
   - jazz/items.lua
 related_decisions:
   - none
-approved_by: pending
+approved_by: project-owner
 ---
 
-# JAZZ-AI-006: Brush + indoors — малый flat, camo-множитель в траве (draft)
+# JAZZ-AI-006: Brush + indoors — малый flat, camo-множитель в траве
 
 ## Проблема
 
@@ -33,7 +36,7 @@ approved_by: pending
 
 Зависит от / уточняет `JAZZ-AI-005` (стена 8–10, Stealthy ~15, open без camo ~Aware edge).
 
-## Предложение владельцу (ещё не approved)
+## Утверждённые параметры
 
 | Параметр | Сейчас | Предложение |
 |---|---|---|
@@ -76,7 +79,7 @@ approved_by: pending
 - Штраф за «наблюдатель indoors» (только цель), пока владелец не попросит иначе.
 - Отдельная синергия room×Hidden или room×camo.
 
-## Требования (draft)
+## Требования
 
 - `JAZZ-AI-006-REQ-001` — `BrushSightMod = -10`.
 - `JAZZ-AI-006-REQ-002` — Hidden в траве: `camo * 3`.
@@ -85,7 +88,7 @@ approved_by: pending
 - `JAZZ-AI-006-REQ-005` — `SightModMinValue = 9`; night floor = 9.
 - `JAZZ-AI-006-REQ-006` — если цель indoors: `modifier -= 5` (ConstDef вроде `IndoorSightMod`), **всегда**, не только Hidden.
 
-## Acceptance criteria (draft)
+## Acceptance criteria
 
 - `JAZZ-AI-006-AC-001` — static: ConstDef/код = REQ (brush, prone, min, indoor flat).
 - `JAZZ-AI-006-AC-002` — static model: no-camo brush ≥40; Shadow full brush ~4; wall ~9; open 46; indoors open ~44 (Hidden или нет — тот же −5).
@@ -94,18 +97,15 @@ approved_by: pending
 
 ## Решение владельца
 
-- Статус: **`draft`** — код не начинать до `approved`.
-- Открытые вопросы:
-  1. Flat травы **−10** или **−15**?
-  2. Hidden camo в траве **×3** или **×2**?
-  3. Пол **9** (~4) и ночью тоже ~4 — ок?
-  4. Stealthy+camo в траве тоже ~4 — ок?
-  5. Помещение **−5** ок, или **−3** / **−10**?
-  6. Только цель indoors, или ещё когда оба в одном помещении?
+- Статус: **`approved`** (владелец: «Апрув», 2026-07-30).
+- Defaults из draft: brush **−10**, Hidden camo ×**3**, visible brush camo **100%**, prone ×**1**, min **9**, indoor **−5** только на цель.
 
 ## Evidence
 
-- Все AC: `BLOCKED` — до approval.
+- `JAZZ-AI-006-AC-001`: `PASS` — static: BrushSightMod −10, IndoorSightMod −5, SightModMinValue 9; prone×1 in brush; visible brush camo 100%.
+- `JAZZ-AI-006-AC-002`: `PASS` — static model: no-camo brush ~41; Shadow full brush ~4; wall ~9; open 46; indoors ~44.
+- `JAZZ-AI-006-AC-003`: `PASS` — visibility tables updated.
+- `JAZZ-AI-006-AC-004`: `BLOCKED` — human playtest.
 
 ## Documentation delta
 
