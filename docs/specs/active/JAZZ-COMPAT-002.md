@@ -127,11 +127,35 @@ if IsModLoaded(MAPS_ID) then return -- every entry point
 Как в COMPAT-001, владелец кода = nomaps:
 
 - unmanaged `Guardpost` → Region id **`JAZZ_Auto_<sector>`** (префикс `JAZZ_Auto_`, совместим с COMPAT-001);
-- географию/ID секторов брать **как в vanilla HotDiamonds** (`gv_Sectors`), без authored jazz-maps patches;
+- географию/ID секторов брать **как в vanilla HotDiamonds** (`CampaignPreset.lua` / `gv_Sectors`), без authored jazz-maps patches;
 - Chebyshev ≤ R (default 8);
-- не double-manage `ErnieIsland` ManagedOutposts;
+- **не включать** authored Region `ErnieIsland` из `jazz/items.lua` в no-maps профиле: он ссылается на maps-географию (`ManagedOutposts=I7`, `MajorHQSector=B28`), которой нет в vanilla;
 - truncated caps; Tax/Recruiter default 0;
-- Major HQ: **vanilla `B28`**, если сектор есть в кампании; иначе fallback на outpost (REQ-005).
+- Major HQ: **vanilla `A20`** (The Eagle's Nest / Major's Camp); если сектора нет — fallback на outpost (REQ-005).
+
+#### Vanilla HotDiamonds evidence (`ModTools/Src/Data/CampaignPreset.lua`)
+
+Источник: установленный JA3 `ModTools/Src` (не jazz-maps).
+
+| Id | display_name | Map | Guardpost |
+| --- | --- | --- | --- |
+| **A20** | The Eagle's Nest | A-20 - The Majors Camp | **yes** (Major / Boss) |
+| D10 | Camp Grand Prix | D-10 - Crossroads Camp | yes |
+| E16 | Camp Chien Sauvage | E-16 - River Camp | yes |
+| F7 | Camp Savane | F-7 - Savanna Camp | yes |
+| F19 | Camp Bien Chien | F-19 - Camp Bien Chan | yes |
+| G10 | Camp La Barrière | G-10 - Island Camp | yes |
+| H4 | Fort L'Eau Bleu | H-4 - The Fortress | yes (Ernie fortress) |
+| H14 | Camp du Crocodile | H-14 - Swamp Camp | yes |
+
+Проверки:
+
+- **`B28` в vanilla отсутствует** (0 вхождений; сетка колонок A–L максимум **20**).
+- **`I7` в vanilla = «Savanna Coast»**, без `Guardpost` (не форт).
+- **Форт Эрни в vanilla = `H4`**, не `I7` (jazz-maps переносит Fort L'Eau Bleu на `I7`).
+- Итого **8** vanilla guardposts → до 8 auto-regions в nomaps.
+
+Ссылка jazz `ErnieIsland` (`I7`/`B28`) валидна **только** с `jazz-maps`.
 
 ### Слой C — Squads / units
 
@@ -184,8 +208,11 @@ Core `jazz` **не** объявляет dependency на nomaps.
 - `JAZZ-COMPAT-002-REQ-002` — при загруженном `FhNNYd` пакет nomaps полностью no-op.
 - `JAZZ-COMPAT-002-REQ-003` — без maps: synthetic regions + truncated Legion AI для unmanaged guardposts.
 - `JAZZ-COMPAT-002-REQ-004` — squad wiring + faction remap matrix; missing def → skip + one-shot log.
-- `JAZZ-COMPAT-002-REQ-005` — `MajorHQSector = "B28"` при наличии сектора в vanilla-кампании;
-  иначе `MajorHQSector = outpost_id`. Сектора/аванпосты — vanilla IDs, не maps-authored.
+- `JAZZ-COMPAT-002-REQ-005` — `MajorHQSector = "A20"` (vanilla Major's Camp); fallback
+  `outpost_id` только если `A20` отсутствует. Сектора/аванпосты — vanilla IDs из
+  `CampaignPreset.lua`, не maps-authored (`I7`/`B28` не использовать как HQ/outpost в nomaps).
+- `JAZZ-COMPAT-002-REQ-005b` — при активном nomaps authored `ErnieIsland` (`LegionAIEnabled`)
+  отключается или не manage'ится (maps-only IDs); управляют только `JAZZ_Auto_*` по vanilla Guardpost.
 - `JAZZ-COMPAT-002-REQ-006` — loot через LootDef packs пакета (не только hardcoded list).
 - `JAZZ-COMPAT-002-REQ-007` — зависимости: `jazz` + `jazz-units` (+ assets) required; maps не указывать.
 - `JAZZ-COMPAT-002-REQ-008` — реализация только после `approved` + idle соседних write sets;
@@ -235,7 +262,8 @@ Core `jazz` **не** объявляет dependency на nomaps.
 
 1. Idle соседних агентов.
 2. Scaffold repo `jazz-nomaps` с ModDef id `7MsJ2Eq`.
-3. Перенос логики + LootDef/remap expansion (сектора vanilla, HQ `B28`, prefix `JAZZ_Auto_`).
+3. Перенос логики + LootDef/remap expansion (vanilla guardposts, HQ **`A20`**, prefix `JAZZ_Auto_`;
+   disable authored `ErnieIsland` без maps).
 4. Удаление COMPAT-001 из `jazz`.
 5. Docs/ownership; release/Discord callers — **позже** (не блокер первой играбельной версии).
 6. Runtime AC → implemented → accepted; supersede COMPAT-001.
@@ -247,7 +275,9 @@ Core `jazz` **не** объявляет dependency на nomaps.
 - Направление: пакет `jazz-nomaps` — принято
 - Закрытые решения (2026-07-30):
   - ModDef `id` = **`7MsJ2Eq`** (Workshop позже)
-  - Сектора = **vanilla** HotDiamonds IDs; Major HQ = **`B28`** если есть
+  - Сектора = **vanilla** HotDiamonds (`CampaignPreset.lua`); **8** Guardpost; Major HQ = **`A20`**
+    (не `B28` — в vanilla нет); Ernie fortress = **`H4`** (не `I7`)
+  - Authored `ErnieIsland` (I7/B28) = maps-only → в nomaps отключить
   - `jazz-units` = **required**
   - Region prefix = **`JAZZ_Auto_`**
   - Release suite / Discord callers = **не сразу**
