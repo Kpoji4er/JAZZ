@@ -24,8 +24,8 @@
 - `compatibility.md` — при изменении dependency, save, network или public contract.
 - `testing.md` — при изменении общего validation profile.
 - Spec evidence — для каждого `AC-*`.
-- Профильная `docs/wiki/*` — если изменение заметно игроку; generated weapon pages обновляются через `docs/technical/weapons/data/*.csv` и `scripts/docs/weapons-docs.mjs`.
-- Соответствующие `docs/showcase/ru/*` и `docs/showcase/en/*` — если затронут аспект публичной витрины; `docs/wiki/weapons/` после CSV-регенерации публикуется на GitHub Wiki тем же workflow.
+- Профильная `docs/wiki/*` — **обязательно**, если изменение заметно игроку (бой, CTH, grazing, укрытие, дым/погода, UI); generated weapon pages — через CSV + `scripts/docs/weapons-docs.mjs`.
+- Соответствующие `docs/showcase/ru/*` и `docs/showcase/en/*` — **обязательно** вместе с wiki для того же аспекта; не спрашивать отдельно (`.cursor/rules/jazz-docs-wiki-sync.mdc`).
 
 Не требовать изменения сводного документа, если его факт не изменился. Отсутствие documentation delta фиксировать в spec с причиной.
 

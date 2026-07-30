@@ -34,11 +34,27 @@ Penalties are multipliers: high skill does not flat-absorb cover.
 
 Chance can be affected by cover and visible target size, stance, visibility/smoke/darkness, suppression and statuses, weapon condition and components, the chosen action, and perks. The same effect should not be applied twice.
 
+## Grazing hits
+
+- **Miss → graze:** lower CTH means a higher chance a miss still clips the target (square curve, max **50%**; about **32%** at 20% CTH, about **2%** at 80% CTH). High CTH barely grazes.
+- **Cover:** cover strength in the hit-chance calc sets the chance a hit becomes a graze — up to **100%** in full cover.
+- Smoke/fog/dust alone no longer force grazing hits (smoke still hurts visibility).
+- A graze deals about **40%** damage, with no crit and no status effects from that hit.
+
 ## Burst recoil
 
 The first bullet uses the normal final chance. Each next bullet keeps only part of the previous accuracy (**recoil retention**).
 
 Strength, stance, bipods/setup, components, perks, and special actions improve control. Recoil changes hit probability once; bullet spray after a miss is not a second hidden penalty.
+
+## Grenades and launchers
+
+Throws **always** have light scatter — there is no perfect pin-point landing.
+
+- **Up close** (about half throw/launcher range): light scatter only, no big mishap.
+- **Farther out**: mishap chance rises (big deviation + notification). Suppression and Inaccurate worsen both chance and scatter.
+- Skills: hand grenades — **Dexterity + Explosives** (confident around **30**); underslung/GL/rockets — **Marksmanship + Explosives**; pipes/TNT — mostly **Explosives** (~**60**).
+- While aiming: ring **size** = damage area; ring **color** = mishap risk on the same green→red scale as the crosshair hit-chance ring.
 
 ## What the UI shows
 

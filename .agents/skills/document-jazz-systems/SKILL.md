@@ -21,8 +21,8 @@ description: Обновлять и проверять техническую д�
    - `technical-debt.md` — подтверждённый долг.
 6. Для изменённого icon, preview, sprite, portrait, entity или sound asset указать repository-relative media path либо явно отметить, что asset contract не менялся.
 7. Сопоставить technical diff с фактическим diff реализации и spec. Не описывать approved, но ещё не реализованное поведение как текущее.
-8. Если изменение заметно игроку, обновить профильную `docs/wiki/`-страницу. Оружейные числа и компоненты менять в канонических CSV и пересобирать `scripts/docs/weapons-docs.mjs`, а не редактировать generated pages вручную.
-9. Если затронут аспект публичной витрины, в том же change set обновить `docs/showcase/ru/` и `docs/showcase/en/` (ADR-0003). Не править GitHub Wiki вручную — публикация через `scripts/docs/publish-github-wiki.ps1` / workflow.
+8. Если изменение заметно игроку, **обязательно** обновить профильную `docs/wiki/`-страницу **и** `docs/showcase/ru`+`en` в том же change set (`.cursor/rules/jazz-docs-wiki-sync.mdc`). Не спрашивать «нужна ли вики» для боя/CTH/grazing/укрытия/дыма. Оружейные числа — CSV + `scripts/docs/weapons-docs.mjs`, не руками в generated pages.
+9. Не править GitHub Wiki вручную — публикация через `scripts/docs/publish-github-wiki.ps1` / workflow.
 10. Запустить `.agents/skills/document-jazz-systems/scripts/check-system-docs.ps1`.
 
 ## Definition of Done

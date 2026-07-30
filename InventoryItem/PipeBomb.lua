@@ -11,7 +11,9 @@ DefineClass.PipeBomb = {
 	ItemType = "Grenade",
 	DisplayName = T(642346688869, --[[ModItemInventoryItemCompositeDef PipeBomb DisplayName]] "Pipe Bomb"),
 	DisplayNamePlural = T(494920208733, --[[ModItemInventoryItemCompositeDef PipeBomb DisplayNamePlural]] "Pipe Bombs"),
-	AdditionalHint = T(738342557339, --[[ModItemInventoryItemCompositeDef PipeBomb AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается через 1 ход (или 5 секунд не в бою)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает кровотечение"),
+	AdditionalHint = T(738342557339, --[[ModItemInventoryItemCompositeDef PipeBomb AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается через 1 ход (или 5 секунд не в бою)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильно зависит от Взрывчатки; высокая вероятность неудачи
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает кровотечение"),
 	UnitStat = "Explosives",
 	Cost = 100,
 	CanAppearInShop = true,
@@ -19,7 +21,7 @@ DefineClass.PipeBomb = {
 	CategoryPair = "Grenade",
 	MaxStacks = 5,
 	MinMishapChance = 0,
-	MaxMishapChance = 60,
+	MaxMishapChance = 80,
 	MinMishapRange = 1,
 	MaxMishapRange = 9,
 	CenterUnitDamageMod = 130,

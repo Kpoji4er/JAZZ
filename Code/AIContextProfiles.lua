@@ -3,6 +3,34 @@
 MapVar("JazzAI_TeamDirectives", {})
 MapVar("JazzAI_PeekStreak", {})
 MapVar("JazzAI_FlarePushUntil", false)
+MapVar("JazzAI_TeamActed", {})
+MapVar("JazzAI_TeamActedTurn", false)
+
+-- ACT-002: who already finished AIPlayAttacks this combat turn (smoke self-cover gate).
+function JazzAI_EnsureTeamActedTable()
+	local turn = g_Combat and g_Combat.current_turn
+	if JazzAI_TeamActedTurn ~= turn then
+		JazzAI_TeamActed = {}
+		JazzAI_TeamActedTurn = turn
+	end
+	JazzAI_TeamActed = JazzAI_TeamActed or {}
+end
+
+function JazzAI_MarkUnitActed(unit)
+	if not IsValid(unit) then
+		return
+	end
+	JazzAI_EnsureTeamActedTable()
+	JazzAI_TeamActed[unit.session_id or unit.handle] = true
+end
+
+function JazzAI_AllyHasActed(ally)
+	if not IsValid(ally) then
+		return false
+	end
+	JazzAI_EnsureTeamActedTable()
+	return not not JazzAI_TeamActed[ally.session_id or ally.handle]
+end
 
 function JazzAI_CountIndoorRatio()
 	-- Lightweight heuristic: sample pass slabs near combat units.
@@ -247,6 +275,8 @@ function OnMsg.CombatStart()
 	JazzAI_TeamDirectives = {}
 	JazzAI_PeekStreak = {}
 	JazzAI_FlarePushUntil = false
+	JazzAI_TeamActed = {}
+	JazzAI_TeamActedTurn = false
 end
 
 function OnMsg.CombatEnd()

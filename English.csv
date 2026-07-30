@@ -181,10 +181,8 @@ ID,Text,Translation,VoiceActor,Context
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Silent 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> High lethality",,jazz:InventoryItem/AS_Val.lua:16 | jazz:items.lua:21165
 140035693819,Самодельная бригантина из кольчуги и обрезков шин,Homemade brigantine from chain mail and tire scraps,,jazz:InventoryItem/JazzArmor_TireBrigantine.lua:14 | jazz:items.lua:55763
-140416387512,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Shots fired through clouds of gas only produce <color EmStyle>minor hits</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No damage
+140416387512,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No damage
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Almost silent",,jazz:InventoryItem/JAZZ_AMMO_MortarShell_Smoke.lua:15 | jazz:items.lua:7302
 141058614304,"Я слишком сильно утомлена, чтобы продолжать работу.",I'm too tired to continue working.,,jazz-units:items.lua:70223
 141311750958,"Опаньки, тут для меня есть работенка. Лежит, кушать не просит...","Whoops, there's work for me here. He lies there and doesn’t ask to eat...",,jazz-units:items.lua:70829
@@ -430,9 +428,7 @@ At least 30 rounds must be loaded",,jazz:items.lua:62642
 202927839636,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> ""Опять китайское дерьмо"" © Стив Борнелл","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> ""Chinese crap again"" © Steve Bornell",,jazz:InventoryItem/Type56.lua:16 | jazz:items.lua:21339
 203032964857,Матчевый патрон калибра 9х19мм,Match cartridge caliber 9x19mm,,jazz:InventoryItem/_9mm_Match.lua:12 | jazz:items.lua:7476
 203665951773,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>удушье</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь незначительные попадания
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Causes <color EmStyle>Asphyxiation</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Shots fired through clouds of gas only produce minor hits
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Almost silent",,jazz:InventoryItem/JAZZ_AMMO_MortarShell_Gas.lua:15 | jazz:items.lua:7243
 203947535559,Бронежилет SWAT,SWAT body armor,,jazz:InventoryItem/JazzArmor_SWAT.lua:12 | jazz:items.lua:55875
 204691184640,Триноги для пулемёта Браунинг .50,Tripods for the Browning .50 machine gun,,jazz-maps:InventoryItem/Jazz_Browning_Bench.lua:11 | jazz-maps:items.lua:111141
@@ -441,10 +437,8 @@ At least 30 rounds must be loaded",,jazz:items.lua:62642
 205417891756,Цевьё с рельсой,Handguard with rail,,jazz:items.lua:30099
 205977590871,Оборона маяка,Defending the Lighthouse,,jazz-maps:items.lua:58904
 206446981168,Я пустой!,I'm empty!,,jazz-units:items.lua:70861
-206588175055,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Shots fired through gas clouds only produce <color EmStyle>minor hits</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No damage
+206588175055,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No damage
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Almost silent",,jazz:InventoryItem/SmokeGrenade.lua:14 | jazz:items.lua:28605
 206632323405,Специальный боеприпас калибра 5.56x45мм. Разработан для сил специального назначения,Special ammunition of 5.56x45mm caliber. Designed for Special Forces,,jazz:InventoryItem/_556_HP.lua:13 | jazz:items.lua:7781
 206795564935,The crocodile guardians of the <em><SectorName('J18')></em> are dead and now the <em>Witch</em> can be interrogated,The crocodile guardians of the <em><SectorName('J18')></em> are dead and now the <em>Witch</em> can be interrogated,,jazz-maps:items.lua:95476
@@ -470,7 +464,6 @@ At least 30 rounds must be loaded",,jazz:items.lua:62642
 212189312168,Магазин на 33 патрона,33-round magazine,,jazz:items.lua:49521
 212844370874,Шлем PASGT,PASGT helmet,,jazz:InventoryItem/JazzArmor_PASGTHelm.lua:12 | jazz:items.lua:55119
 212902513488,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>слепоту</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Causes <color EmStyle>blindness</color>
@@ -507,9 +500,7 @@ At least 30 rounds must be loaded",,jazz:items.lua:62642
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Fires quickly 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> The best weapon for your war.",,jazz:InventoryItem/AK74.lua:16 | jazz:items.lua:22179
 217868623815,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>удушье</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь незначительные попадания
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Causes <color EmStyle>Asphyxiation</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Shots fired through clouds of gas only produce minor hits
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Almost silent",,jazz:InventoryItem/MortarShell_Gas.lua:15 | jazz:items.lua:8612
 217901684853,Головорез,Roughneck,,jazz-units:items.lua:39174 | jazz-units:UnitData/JAZZ_Legion_AssaultT1_Roughneck.lua:22
 217996558203,Уф-ф сука,Ugh bitch,,jazz-units:items.lua:70922
@@ -541,7 +532,7 @@ At least 30 rounds must be loaded",,jazz:items.lua:62642
 225370809188,"Бронежилет, используемый полицейскими структурами чуть не по всему миру. Кевларовая ткань обеспечивает уровень защиты, достаточный против большинства преступников, вооруженных легким оружием и не очень хорошо умеющих стрелять из него.",Body armor used by police forces almost all over the world. Kevlar fabric provides a level of protection sufficient against most criminals armed with light weapons and not very skilled at shooting them.,,jazz:InventoryItem/JazzArmor_PoliceVest.lua:14 | jazz:items.lua:55847
 226108088689,<color EmStyle>Результат:</color> <color EmStyle>Деревня Эрни</color> освобождена,<color EmStyle>Result:</color> <color EmStyle>Ernie Village</color> liberated,,jazz-maps:items.lua:57599
 226223786359,Выбрать предмет,Pick Item,,jazz:items.lua:101490
-226408276853,"Col. Faucheux keeps valuable <em>art pieces</em> hidden at <em><SectorName('L17')></em> inside something that is a <em>work of art</em> itself ","Col. Faucheux keeps valuable <em>art pieces</em> hidden at <em><SectorName('L17')></em> inside something that is a <em>work of art</em> itself ",,jazz-maps:items.lua:104387
+226408276853,Col. Faucheux keeps valuable <em>art pieces</em> hidden at <em><SectorName('L17')></em> inside something that is a <em>work of art</em> itself ,Col. Faucheux keeps valuable <em>art pieces</em> hidden at <em><SectorName('L17')></em> inside something that is a <em>work of art</em> itself ,,jazz-maps:items.lua:104387
 226419811457,Ща б пивка холодненького...,I wish I had a cold beer...,,jazz-units:items.lua:70904
 226438256959,"Кожаные штаны. Не только красиво облегают вашу подтянутую задницу, но еще и способны защитить ее от удара ножом.","Leather pants. Not only do they hug your toned butt nicely, but they can also protect it from being stabbed.",,jazz:InventoryItem/JazzArmor_LeatherPants.lua:14 | jazz:items.lua:56658
 226755462734,Меня прижали!,I was pinned down!,,jazz-units:items.lua:70914
@@ -642,7 +633,9 @@ The number of attacks depends on the amount of AP.",,jazz:items.lua:58957
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Happy son",,jazz:InventoryItem/M16A1.lua:16 | jazz:items.lua:21415
 242652360553,"Братаны. у них же нет этого, как его... свистимандоза? Жрать их можно, спрашиваю?","Bros. They don’t have this, what’s it called... whistlemandosis? Can I eat them, I ask?",,jazz-units:items.lua:70881
 243070819799,"Мадам, мы не знакомы? Разрешите представиться, Фраг!","Madam, we don't know each other? Let me introduce myself, Frag!",,jazz-units:items.lua:70944
-243383619902,<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте,<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Explodes on contact,,jazz:InventoryItem/FragGrenade.lua:15 | jazz:items.lua:28312
+243383619902,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На близкой дистанции только разброс (Ловкость + Взрывчатка; уверенно примерно с 30)","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Explodes on contact
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Close range: scatter only (Dexterity + Explosives; confident around 30)",,jazz:InventoryItem/FragGrenade.lua:15 | jazz:items.lua:28312
 243853420338,Цевьё,Handguard,,jazz:items.lua:30059
 244187543674,Шлем Тварон,Twaron Helmet,,jazz:InventoryItem/JazzArmor_TwaronHelm.lua:12 | jazz:items.lua:55030
 244409151764,"Ладно, скажу правду, были у меня предложения и получше, но в Пауке что-то есть такое, отчего с ней в кайф работать вместе. Согласна, чел!","Okay, I’ll tell the truth, I had better offers, but there’s something about Spider that makes it a pleasure to work with her. I agree, man!",,jazz-units:items.lua:72141 | jazz-units:UnitData/Vicki.lua:113
@@ -691,10 +684,10 @@ The number of attacks depends on the amount of AP.",,jazz:items.lua:58957
 254321093188,а,Huh?,,jazz-units:items.lua:69098
 254556052186,<em>Lucky Veinard</em> said there is a <em>ritual book</em> pointing at a hidden treasure among the <em><SectorName('J18')></em>,<em>Lucky Veinard</em> said there is a <em>ritual book</em> pointing at a hidden treasure among the <em><SectorName('J18')></em>,,jazz-maps:items.lua:74864
 254908977776,Видимость цели,Target Visibility,,jazz:items.lua:68626
-254930997326,Прицел малой кратности,"Prism Scope ",,jazz:items.lua:40067
+254930997326,Прицел малой кратности,Prism Scope ,,jazz:items.lua:40067
 255206300456,Снаряжение - <Nick>,Equipment - <Nick>,,jazz:items.lua:80111
 255285870071,Самодельная кольчуга,Homemade chain mail,,jazz:InventoryItem/JazzArmor_Chainmail.lua:12 | jazz:items.lua:55491
-255478950698,"Очень хорошо! ",Very good!,,jazz-units:items.lua:69946
+255478950698,Очень хорошо! ,Very good!,,jazz-units:items.lua:69946
 256390393730,Патронов нужных больше нет.,There are no more cartridges needed.,,jazz-units:items.lua:70611
 257228948726,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный 
@@ -713,7 +706,7 @@ The number of attacks depends on the amount of AP.",,jazz:items.lua:58957
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Without stock 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Rapid-fire 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Unreliable",,jazz:InventoryItem/Agram2000.lua:16 | jazz:items.lua:18938
-259468933010," "," ",,jazz-maps:items.lua:11912
+259468933010, , ,,jazz-maps:items.lua:11912
 259673733542,R870,R870,,jazz:InventoryItem/R870.lua:14 | jazz:items.lua:27434
 259769536367,"Современный и даже футуристичный бронежилет СПЕКТРА был захвачен в качестве трофея Ассоциацией во время операции в Арулько. Каким-то неизвестным нам образом (Ассоциация абсолютно точно не имеет к этому никакого отношения) он попал на черный рынок, откуда смог распространиться по всему миру. Производитель - неизвестен. Защита - как у танка. Тяжелый штурмовой вариант с защитой шеи, паха и рук.","The modern and even futuristic SPECTER body armor was captured as a trophy by the Association during the operation in Arulco. In some way unknown to us (the Association absolutely has nothing to do with this), it ended up on the black market, from where it was able to spread throughout the world. Manufacturer - unknown. Protection - like a tank. Heavy assault version with neck, groin and arm protection.",,jazz:InventoryItem/JazzArmor_SpectraFull.lua:14 | jazz:items.lua:56471
 260016101225,"О, братан, не керосинь, я там че-то видел такое, залупастое!","Oh, bro, no kerosene, I saw something there, thick-faced!",,jazz-units:items.lua:70763
@@ -1412,7 +1405,7 @@ Item received: <color EmStyle>PB pistol</color>, 1 pcs.",,jazz-maps:items.lua:31
 Выстрел <color EmStyle><num_shots> патронами</color> по цели. Точность снижается с увеличением расстояния. Все цели, оказавшиеся в зоне атаки, получают дополнительный урон.","All hostile targets in cover receive the ""<color EmStyle>Out of Cover</color>"" status.
 Fires <color EmStyle><num_shots> rounds</color> at the target. Accuracy decreases with increasing distance. All targets in the attack zone receive additional damage.",,jazz:items.lua:60606
 390863951465,"Я не могу овладеть ситуацией! Мне надо отсюда вырваться, пока я не потеряла разум!",I can't control the situation! I need to get out of here before I lose my mind!,,jazz-units:items.lua:70016
-390899348731,"Паук... Горжусь я ей. Способная деваха! ",Spider... I'm proud of her. Capable girl!,,jazz-units:items.lua:79243
+390899348731,Паук... Горжусь я ей. Способная деваха! ,Spider... I'm proud of her. Capable girl!,,jazz-units:items.lua:79243
 391588411003,"M60 ""Свиньи""","M60 ""Pigs""",,jazz:InventoryItem/M60.lua:14 | jazz:items.lua:26701
 391748044376,Сравнить,COMPARE,,jazz:items.lua:88631
 391782617851,Оптический Прицел 1-6x,Optical Sight 1-6x,,jazz:items.lua:44836
@@ -1434,11 +1427,11 @@ Opens a money-making operation in the city sector (Not yet available)",,jazz:Cha
 395248477224,30-06,30-06,,jazz:items.lua:2319
 395524774639,Zastava M92,Zastava M92,,jazz:InventoryItem/ZastavaM92.lua:14 | jazz:items.lua:20372
 395636543718,Чего-то до хрена их тут.,There's a hell of a lot of them here.,,jazz-units:items.lua:70808
-395851346053,"Это было просто необходимо. ",It was simply necessary.,,jazz-units:items.lua:68840
+395851346053,Это было просто необходимо. ,It was simply necessary.,,jazz-units:items.lua:68840
 396249040457,ОД,AP,,jazz:items.lua:94624
-397383171067,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 40-мм гранатомет. 
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Шанс промаха увеличивается с расстоянием.","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 40mm grenade launcher. 
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> The chance of a miss increases with distance.",,jazz:InventoryItem/M79.lua:24 | jazz:items.lua:28110
+397383171067,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 40-мм гранатомет.
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На близкой дистанции только разброс; шанс провала растёт с дальностью (Меткость + Взрывчатка).","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 40mm grenade launcher.
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Close range: scatter only; mishap chance rises with distance (Marksmanship + Explosives).",,jazz:InventoryItem/M79.lua:24 | jazz:items.lua:28110
 397662298505,Предыдущий боец,Prev Unit,,jazz:items.lua:94093
 397718810214,"Я знаю, что так думать немодно, но я думаю, что дело женщин - ходить босиком и вынашивать детей. Подождите немного, люди к этому еще вернутся!","I know it's unfashionable to think this way, but I think it's women's job to go barefoot and bear children. Wait a little, people will come back to this!",,jazz-units:items.lua:69076
 397890849828,"Боевики <color EmStyle>Легиона</color> похитили <color EmStyle>отца Эммы</color>, Альфонса Лафонтена, <color EmStyle>президента</color> Гран-Шьена.","<color EmStyle>Legion</color> militants kidnapped <color EmStyle>Emma's father</color>, Alphonse Lafontaine, <color EmStyle>President</color> of Grand Chien.",,jazz-maps:items.lua:52284
@@ -1475,7 +1468,7 @@ Opens a money-making operation in the city sector (Not yet available)",,jazz:Cha
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенная эффективность прицеливания","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Causes <color EmStyle>bleeding</color>
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low attack cost
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Increased aiming efficiency",,jazz:InventoryItem/GutHookKnife.lua:15 | jazz:items.lua:51966
-403959952241,"Надо перезарядить. ",Need to recharge.,,jazz-units:items.lua:69011
+403959952241,Надо перезарядить. ,Need to recharge.,,jazz-units:items.lua:69011
 404111529406,Каска М1,Helmet M1,,jazz:InventoryItem/JazzArmor_M1Helm.lua:13 | jazz:items.lua:54812
 404179068868,Инвентарь заполнен,Inventory is full,,jazz:items.lua:89786
 404607274285,Коллиматор,Red Dot,,jazz:items.lua:39201
@@ -1500,7 +1493,7 @@ Opens a money-making operation in the city sector (Not yet available)",,jazz:Cha
 409531523901,P90,P90,,jazz:InventoryItem/P90.lua:15 | jazz:items.lua:19863
 409615372084,Чилл,Chill,,jazz-units:Code/Mercenary.lua:172
 410074002761,Вес брони (5 Класс),Armor weight (Class 5),,jazz:CharacterEffect/Weight_5Class.lua:10 | jazz:items.lua:97754
-410271431075,"Надо перезарядить. ",Need to recharge.,,jazz-units:items.lua:68830
+410271431075,Надо перезарядить. ,Need to recharge.,,jazz-units:items.lua:68830
 410411022674,Назад! Здесь что-то не так!,Back! Something's wrong here!,,jazz-units:items.lua:68986
 410577681665,"Не востребованный в Советской Армии, тем не менее, весьма любим гражданскими стрелками в России за точность боя. Но это капля в море перед маниакальной страстью к нему стрелков в США. Хорошим тоном считается хотя бы один СКС на коллекцию. Хотя бы и китайский.","Not in demand in the Soviet Army, however, it is very popular among civilian shooters in Russia for its precision combat. But this is a drop in the bucket compared to the manic passion of shooters in the United States for him. It is considered good practice to have at least one SKS per collection. At least Chinese.",,jazz:InventoryItem/SKS.lua:17 | jazz:items.lua:23026
 410640021530,0.5,0.5,,jazz:items.lua:2362
@@ -1883,7 +1876,7 @@ And swallowed dicks in the EU",,jazz-maps:items.lua:58235
 492856048683,"Делаю то, что должен.",I do what I have to do.,,jazz-units:items.lua:68815
 492982908946,Прицел: Уменьшает сектор контроля на 50%,Scope: Reduces control sector by 50%,,jazz:items.lua:31786
 492983145408,"Пистолет ""Тульский-Токарева"" представляет собой очередную вариацию схемы Браунинга на избитую советскую тему ""у нас есть куча патронов на складах, нужно оружие для них"".","The Tulsky-Tokarev pistol is another variation of Browning’s scheme on the hackneyed Soviet theme “we have a lot of cartridges in warehouses, we need weapons for them.”",,jazz:InventoryItem/TT33.lua:15 | jazz:items.lua:15167
-493164139843,"Отсюда надо выбираться! ",We need to get out of here!,,jazz-units:items.lua:69123
+493164139843,Отсюда надо выбираться! ,We need to get out of here!,,jazz-units:items.lua:69123
 493280640968,AR-10,AR-10,,jazz:InventoryItem/AR10.lua:14 | jazz:items.lua:23413
 493304565684,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается, когда враг подходит к заряду на близкое расстояние",<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Explodes when an enemy gets close to the charge,,jazz:InventoryItem/ProximityC4.lua:14 | jazz:items.lua:28760
 493478127524,"5,56 мм, M856 Трассер","5.56 mm, M856 Tracer",,jazz:InventoryItem/JAZZ_AMMO_556_Tracer.lua:10 | jazz:items.lua:4904
@@ -1904,7 +1897,7 @@ And swallowed dicks in the EU",,jazz-maps:items.lua:58235
 497570218481,<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено обивкой),<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Damage reduction (improved by padding),,jazz:InventoryItem/KevlarVest_WeavePadding.lua:14 | jazz:items.lua:53766
 498155992830,Бэнкс,Banks,,jazz-units:Code/Mercenary.lua:47
 498160374265,Рейвен,Raven,,jazz-units:Code/Mercenary.lua:94
-498845146351,"Я сделала свою работу. ",I've done my job.,,jazz-units:items.lua:69443
+498845146351,Я сделала свою работу. ,I've done my job.,,jazz-units:items.lua:69443
 498910270585,Ой!,Oh!,,jazz-units:items.lua:69612
 499008024695,Дым. выстрелы миномета,Mortar Smoke Cartridges,,jazz:InventoryItem/JAZZ_AMMO_MortarShell_Smoke.lua:13 | jazz:items.lua:7300
 499080476726,There are rumors of <em>murders and teddy bears</em> in the Farmlands,There are rumors of <em>murders and teddy bears</em> in the Farmlands,,jazz-maps:items.lua:97289
@@ -2025,7 +2018,7 @@ Have a bonus to accuracy and to crit chance if this is the first action of the t
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Deadly.",,jazz:InventoryItem/Welrod.lua:16 | jazz:items.lua:15786
 519940407801,"12-й калибр, ББ Пуля","12 gauge, BB Bullet",,jazz:InventoryItem/_12gauge_APSlug.lua:10 | jazz:items.lua:8412
 519964585006,Carl Gustaf M/45,Carl Gustaf M/45,,jazz:InventoryItem/M45.lua:13 | jazz:items.lua:18871
-520100285462,Штурмовой прицел,"Quick Prism Scope ",,jazz:items.lua:40466
+520100285462,Штурмовой прицел,Quick Prism Scope ,,jazz:items.lua:40466
 520121604271,ПГ-7В,PG-7V,,jazz:InventoryItem/Warhead_Frag.lua:10 | jazz:items.lua:7322
 521007046314,Мародёр,Marauder,,jazz-units:items.lua:40262 | jazz-units:UnitData/JAZZ_Legion_FrontT1_Marauder.lua:21
 521194187625,Советская штурмовая броня второй мировой войны,Soviet assault armor of World War II,,jazz:InventoryItem/JazzArmor_SovietAssaultArmor.lua:15 | jazz:items.lua:55738
@@ -2569,7 +2562,7 @@ Apparently they were unloading explosives here to attack the mansion",,jazz-maps
 619706015798,Расклинить оружие. Шанс зависит и потеря <em>состояния оружия</em> зависят от навыка <em><mechanical></em>.,Unwedge the weapon. The chance and loss of <em>weapon condition</em> depend on the <em><mechanical></em> skill.,,jazz:items.lua:58885
 619763824975,"Не парься, сестра, я тя и в пушках и в движках прикрою! ","Don’t worry, sister, I’ll cover you in both guns and engines!",,jazz-units:items.lua:79183
 619787402322,Один алмаз? Маловато,One diamond? That’s not much,,jazz-maps:items.lua:58621
-620020470489,"Лучше не бывает! Не часто можно получить такое удовлетворение от нашей работы. ",It couldn't be better! It's not often that we get such satisfaction from our work.,,jazz-units:items.lua:68894
+620020470489,Лучше не бывает! Не часто можно получить такое удовлетворение от нашей работы. ,It couldn't be better! It's not often that we get such satisfaction from our work.,,jazz-units:items.lua:68894
 620492797462,Ручной пулемёт,Light machine gun,,jazz:items.lua:97849
 620648651508,Дозорный,Sentinel,,jazz-units:items.lua:41561 | jazz-units:UnitData/JAZZ_Legion_FlankerT1_Warden.lua:20
 621209369041,Улика: сектор <color EmStyle></color> подвергся обстрелу горчичным газом,Clue: sector <color EmStyle></color> was shelled with mustard gas,,jazz-maps:items.lua:55718
@@ -2586,12 +2579,12 @@ Apparently they were unloading explosives here to attack the mansion",,jazz-maps
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный, как бизон","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Broom 2.0 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Reliable as a bison",,jazz:InventoryItem/PP19Bizon.lua:16 | jazz:items.lua:19223
 622419236578,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Наносит урон по сектору
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи при использовании всеми, кроме Барри","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Deals damage to a sector
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> High chance of failure when used by everyone except Barry",,jazz:InventoryItem/ShapedCharge.lua:14 | jazz:items.lua:28719
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильно зависит от Взрывчатки; высокая вероятность неудачи при использовании всеми, кроме Барри","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Deals sector damage
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Heavily depends on Explosives; high mishap chance for everyone except Barry",,jazz:InventoryItem/ShapedCharge.lua:14 | jazz:items.lua:28719
 622734644944,МЕШОК,BAG,,jazz:items.lua:87407
 622786098405,Клики,Clicks,,jazz:items.lua:69228
 623029149040,".44, ББ Отключено",".44, BB Disabled",,jazz:InventoryItem/_44CAL_AP.lua:10 | jazz:items.lua:7751
-623031245401,"<em>Pierre</em> was spared at <em><SectorName('I7')></em> ","<em>Pierre</em> was spared at <em><SectorName('I7')></em> ",,jazz-maps:items.lua:81273
+623031245401,<em>Pierre</em> was spared at <em><SectorName('I7')></em> ,<em>Pierre</em> was spared at <em><SectorName('I7')></em> ,,jazz-maps:items.lua:81273
 623103654662,Прыжок 2,Jump 2,,jazz-units:items.lua:70775
 623665702916,Рысий взгляд,Lynx look,,jazz:CharacterEffect/Jazz_Perk_Lynx.lua:9 | jazz:items.lua:66166
 623794979175,Осадный отряд,Siege Squad,,jazz-units:items.lua:50538 | jazz-units:items.lua:50687 | jazz-units:items.lua:50851 | jazz-units:items.lua:50960 | jazz-units:items.lua:51082
@@ -2725,10 +2718,8 @@ Apparently they were unloading explosives here to attack the mansion",,jazz-maps
 650582191601,"Всем оставаться на чеку, сектор не зачищен.","Everyone stay on alert, the sector has not been cleared.",,jazz-units:items.lua:70637
 650935403616,Осечка. Надо вытащить патрон.,Misfire. We need to remove the cartridge.,,jazz-units:items.lua:70238
 651620241290,"Ранний вариант Colt Commando, на базе винтовки М16А1, получившийся путем обрезания половины ствола. Компактный автомат с громким звуком и большой вспышкой. Не для использования в помещениях.","An early version of the Colt Commando, based on the M16A1 rifle, obtained by cutting off half the barrel. Compact machine with a loud sound and a big flash. Not for indoor use.",,jazz:InventoryItem/CAR15.lua:15 | jazz:items.lua:20448
-651925772567,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь <color EmStyle>незначительные попадания</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Shots fired through clouds of gas only produce <color EmStyle>minor hits</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No damage
+651925772567,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No damage
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Almost silent",,jazz:InventoryItem/MortarShell_Smoke.lua:15 | jazz:items.lua:8665
 652024164313,"Максимальное расстояние, на которое можно прицельно стрелять из оружия.",The maximum distance at which a weapon can be aimed.,,jazz:items.lua:69318
 652093742599,"<em>Operation</em>: Captain Jacques Pierrot in <em><SectorName('G9')></em> offers naval transport if the ""M.E.R.C.'s Pride"" boat is repaired","<em>Operation</em>: Captain Jacques Pierrot in <em><SectorName('G9')></em> offers naval transport if the ""M.E.R.C.'s Pride"" boat is repaired",,jazz-maps:items.lua:48309
@@ -2765,7 +2756,7 @@ Apparently they were unloading explosives here to attack the mansion",,jazz-maps
 658824394701,"Тяжелая участь солдата, сука...","The hard fate of a soldier, bitch...",,jazz-units:items.lua:70696
 658901200357,ОД,AP,,jazz:items.lua:80356
 659277276887,Тут долго не поуворачиваешься!,You won't be able to turn around here for a long time!,,jazz-units:items.lua:69954
-659363947973,"<em>Pierre</em> was defeated at <em><SectorName('I7')></em> ","<em>Pierre</em> was defeated at <em><SectorName('I7')></em> ",,jazz-maps:items.lua:81249
+659363947973,<em>Pierre</em> was defeated at <em><SectorName('I7')></em> ,<em>Pierre</em> was defeated at <em><SectorName('I7')></em> ,,jazz-maps:items.lua:81249
 659647363192,"Может, удастся прихлопнуть тараканчика.",Maybe you can kill the cockroach.,,jazz-units:items.lua:69379
 659760847936,"Ты чо уши греешь, Рейдер?","Are you warming your ears, Rader?",,jazz-units:items.lua:70411
 659912789786,Самодельная кольчуга из железа из шин. Разработана и введена в эксплуатацию Легионом,Homemade chain mail made from tire iron. Developed and commissioned by the Legion,,jazz:InventoryItem/JazzArmor_Chainmail.lua:15 | jazz:items.lua:55494
@@ -2836,7 +2827,7 @@ Apparently they were unloading explosives here to attack the mansion",,jazz-maps
 679215652471,Morale,Morale,,jazz:items.lua:74212
 679233924596,"Керамическая пластина 3 класса защиты. Керамические пластины менее долговечные, чем стальные, но лучше защищают","Ceramic plate of 3 protection class. Ceramic plates are less durable than steel plates, but provide better protection",,jazz:InventoryItem/JazzArmorPlates_Ceramics3.lua:15 | jazz:items.lua:57219
 679436731928,Аванпост контрабандистов,Smugglers Outpost,,jazz-maps:items.lua:6245 | jazz-maps:items.lua:42274
-680087796963,"Недостаточно ОД ","Not Enough AP ",,jazz:items.lua:85807
+680087796963,Недостаточно ОД ,Not Enough AP ,,jazz:items.lua:85807
 680417461250,"Итак, какая помощь вам нужна","So, what kind of help do you need?",,jazz-maps:items.lua:30501
 680606004654,"Он может считать, что ему повезло...",He may consider himself lucky...,,jazz-units:items.lua:69589
 680641099779,A valuable <em>diamond necklace</em> may be in possession of <em>Lalee</em> from the <em><SectorName('H19')></em>,A valuable <em>diamond necklace</em> may be in possession of <em>Lalee</em> from the <em><SectorName('H19')></em>,,jazz-maps:items.lua:77048
@@ -3091,10 +3082,10 @@ Apparently they were unloading explosives here to attack the mansion",,jazz-maps
 737969743393,Отдача,Recoil,,jazz:items.lua:69258
 738083497715,"Мля! Вот что случается, если мужика пасти в прицеле постоянно! Забыл я, что он наш теперь.",Blah! This is what happens when you constantly hold a man in your sights! I forgot that he is ours now.,,jazz-units:items.lua:70784
 738342557339,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается через 1 ход (или 5 секунд не в бою)
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает кровотечение","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Explodes after 1 turn (or 5 seconds not in combat)
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> High probability of failure
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Causes bleeding",,jazz:InventoryItem/PipeBomb.lua:14 | jazz:items.lua:28399
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильно зависит от Взрывчатки; высокая вероятность неудачи
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает кровотечение","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Explodes after 1 turn (or 5 seconds out of combat)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Heavily depends on Explosives; high mishap chance
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Causes Bleeding",,jazz:InventoryItem/PipeBomb.lua:14 | jazz:items.lua:28399
 738668654416,Ранен,Wounded,,jazz:CharacterEffect/Wounded.lua:84 | jazz:items.lua:58050
 738918293248,Сложить приклад,Fold the stock,,jazz:items.lua:58725
 739021548316,Линкс,Links,,jazz-units:Code/Mercenary.lua:147
@@ -3280,7 +3271,7 @@ Removes the ""<color EmStyle>Control</color>"" and ""<color EmStyle>Concentratin
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Быстро стреляет","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Reliable 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Shoots quickly",,jazz:InventoryItem/Galil.lua:16 | jazz:items.lua:23753
 770676561991,Здравствуйте наёмники.,Hello mercenaries.,,jazz-maps:items.lua:29933
-770790779264,"Выстрел <color EmStyle><num> патронами</color> по цели без отдачи. ",Shoots <color EmStyle><num> cartridges</color> at a target without recoil.,,jazz:items.lua:59404
+770790779264,Выстрел <color EmStyle><num> патронами</color> по цели без отдачи. ,Shoots <color EmStyle><num> cartridges</color> at a target without recoil.,,jazz:items.lua:59404
 770795604613,ФРАГ,Frag,,jazz-units:items.lua:70453 | jazz-units:UnitData/JAZZ_Merc_Spouke.lua:23
 771481547805,Бронежилеты PASGT,PASGT body armor,,jazz:InventoryItem/JazzArmor_PASGT.lua:13 | jazz:items.lua:55937
 771749268124,"При помощи лафетной системы или системы ""смещенного по времени импульса отдачи"" достигается максимальная кучность стрельбы из автомата Никонова очередью в два патрона с темпом 1800 выстрелов/мин, при стрельбе из неустойчивых положений. В голове не укладывается, что Никонов по-настоящему прошел начатый еще в СССР конкурс и был принят на вооружение, чего, прямо скажем, не способен сделать ни один из автоматов НАТО.","Using a fire monitor system or a “time-shifted recoil pulse” system, maximum accuracy of fire from a Nikonov assault rifle is achieved with a burst of two rounds at a rate of 1800 rounds/min, when firing from unstable positions. It’s hard to wrap my head around the fact that Nikonov actually passed the competition that began in the USSR and was adopted for service, which, frankly speaking, none of the NATO assault rifles are capable of doing.",,jazz:InventoryItem/AN94.lua:15 | jazz:items.lua:22888
@@ -3304,7 +3295,7 @@ Cannot be used with shotguns.",,jazz-units:CharacterEffect/TheGrim.lua:32 | jazz
 774674747916,Пуля 12-го калибра.,12 gauge bullet.,,jazz:InventoryItem/_12gauge_Flechette.lua:13 | jazz:items.lua:8370
 774803615619,Zastava M76,Zastava M76,,jazz:InventoryItem/ZastavaM76.lua:14 | jazz:items.lua:24240
 775007485793,M16A1,M16A1,,jazz:InventoryItem/M16A1.lua:13 | jazz:items.lua:21412
-775573284389,"Недостаточно ОД ","Not Enough AP ",,jazz:items.lua:79847
+775573284389,Недостаточно ОД ,Not Enough AP ,,jazz:items.lua:79847
 775919735090,"Ну ты че, Айсберг, как так-то? Верняк же было.","Well, what are you doing, Iceberg, how is it? Surely it was.",,jazz-units:items.lua:70843
 776051309333,Нас бы подлатать,We could use some patching up,,jazz-maps:items.lua:30417
 776162888663,Забрать трофеи,Take Loot,,jazz:items.lua:81679
@@ -3383,7 +3374,7 @@ Where you came from, on the shore, right here. Take it. That's all I can give...
 790197779044,ХАРАКТЕРИСТИКИ ОРУЖИЯ,WEAPON SPECS,,jazz:items.lua:70691
 790667718698,"20ый калибр это не серьёзно говорили они, но тем не менее всё лучше чем ничего, люди всё также дырявятся.","20 gauge, they didn’t say that seriously, but nevertheless, everything is better than nothing, people still make holes.",,jazz:InventoryItem/JAZZ_AMMO_12gauge_Saltshot.lua:13 | jazz:items.lua:7026
 790778374126,"Вижу цель ясно. Зубы у него кривые. Рахит, наверное.","I see the goal clearly. His teeth are crooked. Rickets, probably.",,jazz-units:items.lua:70928
-791079197040,"Что-нибудь еще? ",Anything else?,,jazz-units:items.lua:68922
+791079197040,Что-нибудь еще? ,Anything else?,,jazz-units:items.lua:68922
 791254955343,СБРОСИТЬ ПОЛОЖЕНИЕ,RESET ROTATION,,jazz:items.lua:71245
 791550858652,Пистолеты Стечкина,Stechkin pistols,,jazz:InventoryItem/APS.lua:14 | jazz:items.lua:17422
 791668570095,Предыдущий отряд,Prev Squad,,jazz:items.lua:79639
@@ -3483,7 +3474,6 @@ Where you came from, on the shore, right here. Take it. That's all I can give...
 810499546011,Титановая плита 4 класса защиты,Titanium plate 4 protection class,,jazz:InventoryItem/JazzArmorPlates_Titan4.lua:13 | jazz:items.lua:57320
 810656267860,Штурмовой прицел (3x),Assault Scope (3x),,jazz:items.lua:43911
 810838610815,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>удушье</color>
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстрелы, совершенные сквозь облака газа, дают лишь незначительные попадания
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумна","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Causes <color EmStyle>choking</color>
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Shots fired through clouds of gas produce only minor hits
@@ -3678,7 +3668,7 @@ You are given <color EmStyle>Willpower</color> (<color EmStyle><nextToEnemyGrit>
 852886773372,9x39 мм,9x39 mm,,jazz:items.lua:2436
 852932508226,Снаряжение - <Nick>,Equipment - <Nick>,,jazz:items.lua:94446
 853020507615,<color EmStyle></color>: на базу полковника ведет <color EmStyle>тайный ход</color>,<color EmStyle></color>: a <color EmStyle>secret passage</color> leads to Colonel Faucheux’s base,,jazz-maps:items.lua:54003
-853213611494,"Рысь! ",Lynx!,,jazz-units:items.lua:69085
+853213611494,Рысь! ,Lynx!,,jazz-units:items.lua:69085
 853492691401,Time to have a word with the <em>Ghost Butler</em> from the <em><SectorName('I16')></em>,Time to have a word with the <em>Ghost Butler</em> from the <em><SectorName('I16')></em>,,jazz-maps:items.lua:70145
 853495886060,Магазин на 10 патрон,10 round magazine,,jazz:items.lua:49820
 853661630706,"Бронежилеты СПЕКТРА, Тяжелый","Body armor SPECTRA, Heavy",,jazz:InventoryItem/JazzArmor_SpectraFull.lua:13 | jazz:items.lua:56470
@@ -3715,7 +3705,7 @@ You are given <color EmStyle>Willpower</color> (<color EmStyle><nextToEnemyGrit>
 861111377140,"Секунду так постой, чувак, я щас.","Wait a second, dude, I'll be right there.",,jazz-units:items.lua:70599
 861219355572,<em>Цель:</em> Встретиться с <em>Эммой ЛеФонтен</em> и <em>Корасон Сантьяго</em>,<em>Objective:</em> Meet <em>Emma LeFontaine</em> and <em>Corazon Santiago</em>,,jazz-maps:items.lua:57945
 861692069775,А почему я должна об этом беспокоиться?,Why should I worry about this?,,jazz-units:items.lua:69597
-861725900793,"Кхм. ",Hmm.,,jazz-units:items.lua:68843
+861725900793,Кхм. ,Hmm.,,jazz-units:items.lua:68843
 861803185499,<color EmStyle>Результат:</color> <color EmStyle><CacaoGangDead></color> из «<color EmStyle>Кофейных бобов</color>» присоединились к покойной Мамаше Бакстер,"<color EmStyle>Outcome:</color> <color EmStyle><CacaoGangDead></color> from the ""<color EmStyle>Coffee Beans</color>"" joined the late Mama Baxter",,jazz-maps:items.lua:101732
 861905427160,Пэнтер,Panther,,jazz-units:Code/Mercenary.lua:150
 861927014589,Вольф,Wolf,,jazz-units:Code/Mercenary.lua:95
@@ -3723,7 +3713,7 @@ You are given <color EmStyle>Willpower</color> (<color EmStyle><nextToEnemyGrit>
 861955157003,Браунинги .50,Browning .50s,,jazz-maps:InventoryItem/Jazz_Browning_MuchineGun.lua:12 | jazz-maps:items.lua:111129
 861971172551,"Титановая бронеплита 3 класса защиты. По пулестойкости титан крепче стали, и гораздо легче нее. Есть и минусы. Цена. И заброневое осколочное действие титана. Но в первую очередь цена, да.","Titanium armor plate, protection class 3. In terms of bullet resistance, titanium is stronger than steel, and much lighter. There are also disadvantages. Price. And the armored fragmentation effect of titanium. But first of all, the price, yes.",,jazz:InventoryItem/JazzArmorPlates_Titan3.lua:15 | jazz:items.lua:57296
 862621941813,Медикаменты,Medicines,,jazz:items.lua:69673
-862897735770,"<Name> ","<Name> ",,jazz:items.lua:580
+862897735770,<Name> ,<Name> ,,jazz:items.lua:580
 863009450991,Оооооой,Oooooh,,jazz-units:items.lua:69061
 863567091821,"Тяжелые бронежилеты СПЕКТРА были модифицированы неугомонными руками доктора Грузельхайма путем замены бронеэлементов на аналогичные из Композитума-58. Весьма успешно надо сказать, расковырять неоарийцев в этих бронежилетах задача та еще.","The heavy SPECTER body armor was modified by the restless hands of Dr. Gruselheim by replacing the armor elements with similar ones from Compositum-58. It must be said that it was quite successful, picking apart the neo-Aryans in these body armor is still a task.",,jazz:InventoryItem/JazzArmor_SpectraCompositum.lua:14 | jazz:items.lua:56500
 863658966488,AN/PVS-14,AN/PVS-14,,jazz:InventoryItem/JazzArmor_NVG3.lua:10 | jazz:items.lua:54707
@@ -3835,7 +3825,7 @@ You are given <color EmStyle>Willpower</color> (<color EmStyle><nextToEnemyGrit>
 879381074193,"Что-то, прямо здесь!","Something, right here!",,jazz-units:items.lua:69522
 879717894619,Армейский взвод,Army platoon,,jazz-units:items.lua:56917
 879778704994,Очередь,Burst,,jazz:items.lua:59406
-879795630148,"Недостаточно ОД ","Not Enough AP ",,jazz:items.lua:82904
+879795630148,Недостаточно ОД ,Not Enough AP ,,jazz:items.lua:82904
 880747947165,Защитный шлем из сверхплотного высокомолекулярного полиэтилена,Protective helmet made of ultra-dense high molecular weight polyethylene,,jazz:InventoryItem/JazzArmor_UHMWPEHelm.lua:15 | jazz:items.lua:55327
 880788337220,Штурмовая кираса времен мировой войны,World War Assault Cuirass,,jazz:InventoryItem/JazzArmor_AssaultCuirass.lua:15 | jazz:items.lua:55792
 880961384603,"А вот и ""подарочки"" с той стороны.",And here are the “gifts” from the other side.,,jazz-units:items.lua:70827
@@ -3931,7 +3921,7 @@ Targets also receive additional status depending on the ammo type. All targets i
 898177327102,LMG and MG Magazines,LMG and MG Magazines,,jazz:items.lua:51261
 898527816735,"Доктор Хьюстон. Чем могу служить? Хорошо, поговорим о том, насколько долгий контракт вы собирались мне предложить.","Dr. Houston. How can I serve you? Okay, let's talk about how long a contract you were going to offer me.",,jazz-units:items.lua:69828 | jazz-units:UnitData/Jazz_Spider.lua:123
 898687365396,"5,56 мм, M856","5.56 mm, M856",,jazz:InventoryItem/_556_Tracer.lua:10 | jazz:items.lua:7881
-899558582657,"Тут не соскучишься! ",You won't get bored here!,,jazz-units:items.lua:69020
+899558582657,Тут не соскучишься! ,You won't get bored here!,,jazz-units:items.lua:69020
 899701284012,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Стреляет очередями 
@@ -4522,7 +4512,7 @@ Targets also receive additional status depending on the ammo type. All targets i
 911005041262,Разблокирует <color EmStyle>Маневренный бой</color>.,Unlocks <color EmStyle>Maneuverable Combat</color>.,,jazz:items.lua:31411
 911087494081,<em><enemy></em> поднят по тревоге,<em><enemy></em>alert,,jazz:items.lua:102857
 911301197772,Комплект I,Loadout I,,jazz:items.lua:88553
-911767416640,"Что-нибудь еще? ",Anything else?,,jazz-units:items.lua:68807
+911767416640,Что-нибудь еще? ,Anything else?,,jazz-units:items.lua:68807
 911820358036,"операция <color EmStyle>«Ночь ""Н""»</color> прошла успешно","Operation <color EmStyle>""Night ""N""""</color> was successful",,jazz-maps:items.lua:102121
 911933649700,".45ACP, +P",".45ACP, +P",,jazz:InventoryItem/JAZZ_AMMO_45ACP_P.lua:9 | jazz:items.lua:3284
 912113361221,Самодельные кирасы,Homemade cuirasses,,jazz:InventoryItem/JazzArmor_ImprovisedCuirass.lua:12 | jazz:items.lua:55708
@@ -4532,7 +4522,7 @@ Targets also receive additional status depending on the ammo type. All targets i
 912996860706,Кевларовые наколенники,Kevlar knee pads,,jazz:InventoryItem/JazzArmor_SwatPads.lua:13 | jazz:items.lua:56603
 913471116788,Здорово!,It's awesome!,,jazz-units:items.lua:69578
 914296644319,Так! Я это сделала. Теперь что?,Yes! I did it. Now what?,,jazz-units:items.lua:69634
-914665506642,"Недостаточно ОД ","Not Enough AP ",,jazz:items.lua:95223
+914665506642,Недостаточно ОД ,Not Enough AP ,,jazz:items.lua:95223
 914773986339,FOLDING,FOLDING,,jazz:items.lua:58748
 914914835655,Ящики с боеприпасами и гранатами,Boxes of ammo and grenades,,jazz-maps:InventoryItem/JazzQuestItem_AmmoBox.lua:12 | jazz-maps:items.lua:111154
 915359425469,АВТ-40,AVT-40,,jazz:InventoryItem/AVT40.lua:12 | jazz:items.lua:23357
@@ -4556,7 +4546,7 @@ Targets also receive additional status depending on the ammo type. All targets i
 918482995946,"Падай, мля. ","Fall down, dammit.",,jazz-units:items.lua:71010
 918487270916,Бронежилет СПЕКТРА,SPECTRA body armor,,jazz:InventoryItem/JazzArmor_Spectra.lua:12 | jazz:items.lua:56439
 918715946710,HK33,HK33,,jazz:InventoryItem/HK33.lua:13 | jazz:items.lua:22034
-918989925083,"Легкая броня для ног. ",Lightweight leg armor.,,jazz:InventoryItem/JazzArmor_GuardianLegs.lua:15 | jazz:items.lua:56868
+918989925083,Легкая броня для ног. ,Lightweight leg armor.,,jazz:InventoryItem/JazzArmor_GuardianLegs.lua:15 | jazz:items.lua:56868
 919463735747,"Тихонько, тихонько...","Quietly, quietly...",,jazz-units:items.lua:70657
 919590693662,9x19 мм,9x19 mm,,jazz:items.lua:2222
 919621275120,"Поздневоенный и послевоенный британский автомат. Характерной чертой автомата является примыкаемый сбоку магазин, за который он и удерживается при стрельбе, что удобно в походе, но неудобно в бою. В целом, неплохой автомат. С учетом того, что британский.","Late war and post war British machine gun. A characteristic feature of the machine gun is the magazine attached to the side, by which it is held when firing, which is convenient during a hike, but inconvenient in battle. Overall, a good machine. Considering that it is British.",,jazz:InventoryItem/Sterling.lua:15 | jazz:items.lua:18567
@@ -4784,7 +4774,7 @@ Targets also receive additional status depending on the ammo type. All targets i
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Керамические пластины ломаются после <color 124 130 96><RevertConditionCounter></color> попаданий","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Damage reduction (improved by ceramic plates) 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ceramic plates break after <color 124 130 96><RevertConditionCounter></color> hits",,jazz:InventoryItem/KevlarChestplate_CeramicPlates.lua:14 | jazz:items.lua:53515
 926619480801,Седалищем чую - кто-то на меня глаз положил.,I can smell it in my seat - someone has their eyes on me.,,jazz-units:items.lua:70917
-926842382510,"Посмотри - у меня пульс как с цепи сорвался! Я покрываюсь испариной... ",Look - my pulse has gone crazy! I'm covered in sweat...,,jazz-units:items.lua:70242
+926842382510,Посмотри - у меня пульс как с цепи сорвался! Я покрываюсь испариной... ,Look - my pulse has gone crazy! I'm covered in sweat...,,jazz-units:items.lua:70242
 927098390925,Тут явно нечисто - аж двинуться страшно.,It's clearly unclean here - it's scary to even move.,,jazz-units:items.lua:69056
 927223711798,Советник,Advisor,,jazz-units:items.lua:36311 | jazz-units:UnitData/ThugBoss_Stronger_Elite.lua:20
 927601720702,Sig 550 RIS,Sig 550 RIS,,jazz:InventoryItem/Sig550Custom.lua:14 | jazz:items.lua:22762
@@ -4827,7 +4817,7 @@ Targets also receive additional status depending on the ammo type. All targets i
 934700876331,Перелазанье 2,Climbing 2,,jazz-units:items.lua:70633
 934715860279,Блейд,Blade,,jazz-units:Code/Mercenary.lua:128
 934996152027,Следующая задача?,Next challenge?,,jazz-units:items.lua:70176
-935033359195,"Отсюда надо выбираться! ",We need to get out of here!,,jazz-units:items.lua:69095
+935033359195,Отсюда надо выбираться! ,We need to get out of here!,,jazz-units:items.lua:69095
 935097971760,Дым. выстрел миномета,Mortar Smoke Cartridge,,jazz:InventoryItem/JAZZ_AMMO_MortarShell_Smoke.lua:12 | jazz:items.lua:7299
 935310631119,Доступно медикаментов,Available meds,,jazz:items.lua:100935
 935392577230,All trapped civilians in the <em><SectorName('I19')></em> have been <em>saved</em>,All trapped civilians in the <em><SectorName('I19')></em> have been <em>saved</em>,,jazz-maps:items.lua:97651
@@ -5018,7 +5008,7 @@ Move to a new location and then shoot the closest enemy.",,jazz-units:items.lua:
 971658966988,"Популярный американский защитный военный и гражданский шлем, получивший известность после использования их знаменитым отрядом ""Дельта"". Обеспечивает неплохую защиту от осколков.","A popular American protective military and civilian helmet, which gained fame after being used by the famous Delta Force. Provides good protection against splinters.",,jazz:InventoryItem/JazzArmor_ProTecHelm.lua:14 | jazz:items.lua:55003
 971716367378,"Айс! Блин, братан, чо ж ты так похож на этих одинаковых... Как теперь твоей мамане-то сказать?","Ice! Damn, bro, why do you look so much like these identical ones... How can I tell your mom now?",,jazz-units:items.lua:70778
 971951422708,ТОСКА,TOSCA,,jazz-units:items.lua:69176 | jazz-units:UnitData/Jazz_Buzz.lua:23
-971967791890,"Недостаточно ОД ","Not Enough AP ",,jazz:items.lua:89093
+971967791890,Недостаточно ОД ,Not Enough AP ,,jazz:items.lua:89093
 972063049608,"5,45 мм, БП Бронебойный","5.45 mm, BP Armor-piercing",,jazz:InventoryItem/JAZZ_AMMO_545_AP.lua:10 | jazz:items.lua:5156
 972121373391,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В идеальном вакууме стреляет смертоносными сгустками плазмы. Во всех остальных случаях работает как фомка
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вскрывает замки на дверях и контейнерах (в зависимости от силы)
@@ -5124,7 +5114,7 @@ Move to a new location and then shoot the closest enemy.",,jazz-units:items.lua:
 985270049400,"Только дай мне шанс, и вы все - покойники!","Just give me a chance, and you'll all be dead!",,jazz-units:items.lua:69616
 985474219069,Аааах.,Aaaah.,,jazz-units:items.lua:70152
 985499968545,<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено обивкой),<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Damage reduction (improved by padding),,jazz:InventoryItem/LightHelmet_WeavePadding.lua:14 | jazz:items.lua:53151
-985514983456," "," ",,jazz:items.lua:734
+985514983456, , ,,jazz:items.lua:734
 986868227792,"Удачи наемники, и да пребудет с вами сила.","Good luck, mercenaries — and may the Force be with you.",,jazz-maps:items.lua:30953
 986875063897,"Выстрел в руки: снижение вероятности попадания, уменьшение урона, Цель имеет шанс получить <color EmStyle>Снижение точности</color> или <color EmStyle>Оцепенение</color>","Shot in the hands: reduced chance to hit, reduced damage, the target has a chance to receive <color EmStyle>Reduced Accuracy</color> or <color EmStyle>Daze</color>",,jazz:items.lua:58659
 987419927139,Шлем ProTec,ProTec helmet,,jazz:InventoryItem/JazzArmor_ProTecHelm.lua:12 | jazz:items.lua:55001
@@ -5177,7 +5167,7 @@ Move to a new location and then shoot the closest enemy.",,jazz-units:items.lua:
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically, just by being in the inventory",,jazz:InventoryItem/Wirecutter.lua:13 | jazz:items.lua:52215
 997206919165,ВЗЯТЬ ВСЁ,TAKE ALL,,jazz:items.lua:81417
 997296420646,"ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов","Free movement AP and AP have been reduced. The higher the level, the more debuffs",,jazz:CharacterEffect/Weight_2Class.lua:11 | jazz:items.lua:97704
-997322139649,"<em>Outcome:</em> Lami the <em>Witch</em> will continue to exploit the workers from <em>Wassergrab</em> ","<em>Outcome:</em> Lami the <em>Witch</em> will continue to exploit the workers from <em>Wassergrab</em> ",,jazz-maps:items.lua:95529
+997322139649,<em>Outcome:</em> Lami the <em>Witch</em> will continue to exploit the workers from <em>Wassergrab</em> ,<em>Outcome:</em> Lami the <em>Witch</em> will continue to exploit the workers from <em>Wassergrab</em> ,,jazz-maps:items.lua:95529
 997417029186,Да я еще даже не вспотел!..,I haven't even sweated yet!..,,jazz-units:items.lua:69028
 997521063108,"Надоело, надоело, надоело!","Tired, tired, tired!",,jazz-units:items.lua:69479
 997580439409,"Беги-беги, пока можешь. Шарахнуть бы чем, да нету.","Run and run while you can. I wish I had something to throw away, but no.",,jazz-units:items.lua:70641
@@ -5210,11 +5200,11 @@ Move to a new location and then shoot the closest enemy.",,jazz-units:items.lua:
 1786863112825,В этом секторе добывают древесину,Timber is extracted in this sector,,jazz:Code/POI Extension.lua:11
 2378508273050,<em>Нет данных о секторе</em>,<em>No sector data</em>,,jazz:Code/Regions_Sectors.lua:56
 2378508273052,<em>Город: <city></em>,<em>City: <city></em>,,jazz:Code/Regions_Sectors.lua:62
-2378508273053,"  Лояльность: <loyalty>%","  Loyalty: <loyalty>%",,jazz:Code/Regions_Sectors.lua:63
+2378508273053,  Лояльность: <loyalty>%,  Loyalty: <loyalty>%,,jazz:Code/Regions_Sectors.lua:63
 2378508273054,<em>Регион: <region></em>,<em>Region: <region></em>,,jazz:Code/Regions_Sectors.lua:87
-2378508273055,"  Лояльность: <loyalty>%","  Loyalty: <loyalty>%",,jazz:Code/Regions_Sectors.lua:91
-2378508273056,"  Уровень тревоги: <heat>","  Alarm level: <heat>",,jazz:Code/Regions_Sectors.lua:92
-2378508273057,"  Уровень тревоги: <heat>","  Alarm level: <heat>",,jazz:Code/Regions_Sectors.lua:67
+2378508273055,  Лояльность: <loyalty>%,  Loyalty: <loyalty>%,,jazz:Code/Regions_Sectors.lua:91
+2378508273056,  Уровень тревоги: <heat>,  Alarm level: <heat>,,jazz:Code/Regions_Sectors.lua:92
+2378508273057,  Уровень тревоги: <heat>,  Alarm level: <heat>,,jazz:Code/Regions_Sectors.lua:67
 4621434559001,"Навыки (<name>, <sub>)","Skills (<name>, <sub>)",,jazz:Code/System_OR_Unit.lua:648
 6862025595561,<Deterioration> <percent(condPercent)>,<Deterioration> <percent(condPercent)>,,jazz:Code/Inventory.lua:193
 14056221444311,Сила Воли,Grit,,jazz:Code/UnitPropertiesStats.lua:17
@@ -5364,7 +5354,7 @@ Move to a new position, during which you fire up to <em><num_shots> barrages</em
 890000000000110,LegionTier5,LegionTier5,,jazz:items.lua:1580
 890000000000111,"Покуда эти ненасытные мерзавцы из <em>«Адониса»</em> сидят в <em>форте Ло-Блё</em>, нам не будет покоя. Повторяется история с Легионом: они отбирают у нас всё, что им заблагорассудится.","As long as those greedy <em>Adonis</em> bastards hold <em>Fort L'Eau Bleu</em>, we will not be safe. It is the same as when the Legion was here - what is ours is theirs any time they feel like taking it.",,jazz-maps:items.lua:112091
 890000000000113,"В следующий раз старайся чуть лучше, ага? Я почти не вспотел. Хочешь жить — умей жить.","Try a little better next time, yeah? I hardly broke a sweat. If you want to live, know how to live.",,jazz-maps:items.lua:16267
-890000000000114,"То, что доктор прописал.","That hit the spot. ",,jazz-units:items.lua:78381
+890000000000114,"То, что доктор прописал.",That hit the spot. ,,jazz-units:items.lua:78381
 890000000000115,(heavy breath_2),(heavy breath_2),,jazz-units:items.lua:78388
 890000000000116,Эта пушка кончилась! Дайте другую!,This gun is toast! Get me another!,,jazz-units:items.lua:79675
 890000000000117,Цели поражены. Подтверждаю попадание.,Multiple targets eliminated. Kills confirmed.,,jazz-units:items.lua:78461
@@ -5406,7 +5396,7 @@ Move to a new position, during which you fire up to <em><num_shots> barrages</em
 890000000000140,Я всё сделал. Что дальше?,I'm all done here. What's next?,,jazz-units:items.lua:79326
 890000000000141,"Да пошел ты! Первая же шашка, какую найду, отправится прямиком в ТВОЙ зад!","Go fuck yourself. The first explosive I find, I'm going to stick it up YOUR butt!",,jazz-maps:items.lua:112243
 890000000000142,"Я не страшусь удачи, и потому она нашла меня.","Because I do not fear success, I have found it waiting for me.",,jazz-units:items.lua:78959
-890000000000143,"Обожаю путешествия. ","I love traveling. ",,jazz-units:items.lua:78581
+890000000000143,Обожаю путешествия. ,I love traveling. ,,jazz-units:items.lua:78581
 890000000000144,Берегись!,Heads up!,,jazz-units:items.lua:78575
 890000000000145,В яблочко!,Bullseye!,,jazz:items.lua:69069
 890000000000146,Двоечка,Two,,jazz:items.lua:69087
@@ -5432,7 +5422,7 @@ Move to a new position, during which you fire up to <em><num_shots> barrages</em
 890000000000167,"Слышу, шеф.","We hear you, chief.",,jazz-units:items.lua:79443
 890000000000168,Они меня окружать!,They be comin' around the sides!,,jazz-units:items.lua:79280
 890000000000169,Преступник обезврежен. Запиши ещё одного на мой счёт.,Perp down. Score another one for Raven.,,jazz-units:items.lua:78479
-890000000000170,"Следите за дыханием, когда целитесь.","Keep your breath steady when aiming. ",,jazz-units:items.lua:78560
+890000000000170,"Следите за дыханием, когда целитесь.",Keep your breath steady when aiming. ,,jazz-units:items.lua:78560
 890000000000171,"Не парься, сестра! Мы разобрать эти железки! Все быть пучком!","Don't worry, sister! We'll disassemble these pieces of iron! Everything be a bundle!",,jazz-maps:items.lua:18975
 890000000000172,"Само собой, с задачей они не справились. О них самих с тех пор ничего не слышно, а вот Майор живее всех живых.","Of course, they did not cope with the task. Nothing has been heard about them since then, but Major is the most alive of all the living.",,jazz-maps:items.lua:20207
 890000000000173,Да!,Yes!,,jazz-units:items.lua:78723
@@ -5669,7 +5659,7 @@ Stable operation is not guaranteed, accuracy is not guaranteed, and soggy chewed
 890000000000406,"Пожалуйста, не говорите им! Умоляю!","Please, don't tell them! I'm begging you!",,jazz-maps:items.lua:111340
 890000000000407,"Жизнь полна загадок, чел. Только одним путем можно узнать.","Life is full of mysteries, man. There is only one way to find out.",,jazz-maps:items.lua:17249
 890000000000408,Этот мир всегда готов одарить нас.,There is always more to find in this world.,,jazz-units:items.lua:78779
-890000000000409," <amount> x <em><itemNameT></em> added in the squad bag",<amount> x <em><itemNameT></em> added in the squad bag,,jazz:Code/System_UnitInventory.lua:242
+890000000000409, <amount> x <em><itemNameT></em> added in the squad bag,<amount> x <em><itemNameT></em> added in the squad bag,,jazz:Code/System_UnitInventory.lua:242
 890000000000410,"Эмма? Дочь президента? Она жива? Я так рад! Я хотел уйти из деревни и сказать ей о планах Легиона, что ее хотят захватить, но мой... мой сын <em>Пьер</em> был против.","Emma? The president's daughter? She's alive? I'm so glad! I wanted to leave the village and tell her about the Legion's plans to capture her, but my... my son <em>Pierre</em> was against it.",,jazz-maps:items.lua:23382
 890000000000411,.357 Mag FMJ,.357 Mag FMJ,,jazz:InventoryItem/JAZZ_AMMO_357_FMJ.lua:10 | jazz:items.lua:3947
 890000000000412,.357 Mag JHP,.357 Mag JHP,,jazz:InventoryItem/JAZZ_AMMO_357_JHP.lua:10 | jazz:items.lua:3978
@@ -5709,7 +5699,7 @@ Stable operation is not guaranteed, accuracy is not guaranteed, and soggy chewed
 890000000000447,Обнаружен противник.,Hostiles detected.,,jazz-units:items.lua:78472
 890000000000448,(climbing_2),(climbing_2),,jazz-units:items.lua:78299
 890000000000449,Это стыдно. Нужно попадать! Сейчас!,This be embarrassing! We need to hit them. Now!,,jazz-units:items.lua:79283
-890000000000450,Я не закончила.,"Still not done. ",,jazz-units:items.lua:78295
+890000000000450,Я не закончила.,Still not done. ,,jazz-units:items.lua:78295
 890000000000451,"Ха, а недурно.","Hey, that wasn't half bad.",,jazz-units:items.lua:78529
 890000000000452,"Сработало! Видали? Сработало! О, да, здаров!. Я <em>Бомбическая Диди</em>! Вы ведь пришли за моими хлопушками? Последнюю партию я только что взорвала, но я могу сделать еще!","It worked! Did you see? It worked! Oh yeah, hi! I'm <em>Boombastic Deedee</em>! You came for my firecrackers, right? I just blew up the last batch, but I can make more!",,jazz-maps:items.lua:23981
 890000000000453,"А в <em>Жестянке</em> вы были? Там в бункере полно всяких классных штук, из которых можно делать помпезные взрывы!",Have you been to the <em>Junkyard</em>? There's a bunker full of all kinds of cool stuff you can make spectacular explosions with!,,jazz-maps:items.lua:24373
@@ -5834,7 +5824,7 @@ Move to a new position, during which you fire up to <em><num_shots> short bursts
 890000000000528,Webley Mk VI,Webley Mk VI,,jazz:InventoryItem/Webley.lua:13 | jazz:items.lua:17919
 890000000000529,Welrod,Welrod,,jazz:InventoryItem/Welrod.lua:13 | jazz:items.lua:15783
 890000000000530,"Рон... милый... прости, что покидаю тебя первой...","Ron... I'm sorry, honey... I have to be the one who leaves first...",,jazz-units:items.lua:78356
-890000000000531," <amount> x <em><itemNameT></em> (squad bag)",<amount> x <em><itemNameT></em> (squad bag),,jazz:Code/System_UnitInventory.lua:252
+890000000000531, <amount> x <em><itemNameT></em> (squad bag),<amount> x <em><itemNameT></em> (squad bag),,jazz:Code/System_UnitInventory.lua:252
 890000000000532,"Фиделю нравится. Фидель может убивать его, да? М?","Fidel likes it. Fidel can kill him, right? M?",,jazz-maps:items.lua:15916
 890000000000533,Ха-ха-ха-ха. Фиделю нужны части тела.,Ha ha ha ha. Fidel needs body parts.,,jazz-maps:items.lua:21418
 890000000000534,Предатерей надо вешать!,Traitors should hang!,,jazz-maps:items.lua:29786
@@ -5898,7 +5888,7 @@ Special attack: Mobile Shot",,jazz:items.lua:97777
 890000000000591,"Я... я обязан вам. Возьмите. Это всё, что у меня есть.",I... I owe it to you. Take it. This is all I have.,,jazz-maps:items.lua:58738
 890000000000592,Врагов здесь не быть. Надо дальше.,"No enemies be hiding here. Come, we go.",,jazz-units:items.lua:79304
 890000000000593,"Фокус. Теперь меня не видно, да?","Watch this. Can't see me now, can you?",,jazz-units:items.lua:79360
-890000000000594," within the set cone",within the set cone,,jazz:items.lua:60264
+890000000000594, within the set cone,within the set cone,,jazz:items.lua:60264
 890000000000595,"Да не дрейфь. Спорим, они туда прокрались, а потом решили их всё-таки снять. Или теперь просто добивают. Чтоб наверняка.","Take it easy. They probably sneaked in, then shot them. Then, I guess maybe they shot some more of them, or shot them again, just to be sure.",,jazz-maps:items.lua:112191
 890000000000596,"Не волнуйтесь, однако. Омрын - лучший следопыт. Сейчас поедим, и можно будет и пойти.","Don't worry, though. Omryn is the best tracker. Let's eat now, and then we can go.",,jazz-maps:items.lua:25864
 890000000000597,"Очень серьезный боеприпас, кроме шуток способен пробивать многие базовые бронежилеты, хорошая кучность, точность и настильность. Немного негативно сказывается на износе оружия, но вы же хотите наконец простреливать бронеплиты пистолетным патроном? Это ваш шанс.","A genuinely serious round: can punch through a lot of basic body armor. Good grouping, accuracy, and flat trajectory. Slightly increases weapon wear — but you *do* want to punch plates with a pistol round, right? This is your chance.",,jazz:InventoryItem/JAZZ_AMMO_9x19_APP.lua:12 | jazz:items.lua:2792
@@ -5970,7 +5960,7 @@ Special attack: Mobile Shot",,jazz:items.lua:97777
 890000000000630,Лавина начинается с падения одного камешка.,An avalanche begins with just one pebble.,,jazz-units:items.lua:78670
 890000000000631,"Ой, обожаю шахты! Сплошные норы — прячься, не хочу.","Oh, I love mines! Complete holes - hide, I don’t want to.",,jazz-maps:items.lua:19500
 890000000000632,"Ну, как-то это за уши притянуто.","Well, that's a bit far-fetched.",,jazz-maps:items.lua:26432
-890000000000634," (already known)",(already known),,jazz:Code/SatelliteSquad.lua:3778
+890000000000634, (already known),(already known),,jazz:Code/SatelliteSquad.lua:3778
 890000000000635,Исчо у меня есть мускулы. Много мускулов!,I guess I have muscles. Lots of muscles!,,jazz-maps:items.lua:12605
 890000000000636,"Мы не смогли поставить галочку, но это не должно понижать нашу самооценку.","Just because we didn't complete our to-do list, doesn't mean we're failures.",,jazz-units:items.lua:78676
 890000000000637,Нет. Фидель любит целиться в живот. Так больше крика. М?,No. Fidel likes to aim for the stomach. So more screaming. M?,,jazz-maps:items.lua:17219
@@ -6062,7 +6052,7 @@ Fires a long burst of <color EmStyle><bullets> rounds</color> with increased sup
 890000000000708,"Моего друга <em>Тинхея</em>. Когда Легион пришел нас грабить, он выстрелил в <em>Пьера</em> из снайперского гнезда. И промахнулся. А потом его схватили... и если я узнаю, кто его выдал, этот урод очень сильно пожалеет.","My friend <em>Tinhay</em>. When the Legion came to rob us, he shot at <em>Pierre</em> from a sniper nest. And missed. Then they grabbed him... and if I find out who ratted him out, that bastard will regret it big time.",,jazz-maps:items.lua:28034
 890000000000709,"Ничего... кроме алмаза. Я отдам. Всё, что есть. Только спасите её.",Nothing... except a diamond. I'll give it back. Everything that is. Just save her.,,jazz-maps:items.lua:58552
 890000000000710,"Спасибо, наемники. Я нашел ящик с гранатами на берегу. Вот, возьмите.","Thank you, mercenaries. I found a box of grenades on the shore. Here, take it.",,jazz-maps:items.lua:58656
-890000000000711,"У водопада... в клетке. ",At the waterfall... in a cage.,,jazz-maps:items.lua:58538
+890000000000711,У водопада... в клетке. ,At the waterfall... in a cage.,,jazz-maps:items.lua:58538
 890000000000712,"Пусть твой дух воссоединится со вселенной, а сущность переродится в ином теле.",May your spirit become one with the universe and your essence be reborn into everything.,,jazz-units:items.lua:78691
 890000000000713,Ха-ха-ха! Взрывчатка - это та-а-ак круто! Прямо башню сносит! Ха-ха-ха!,Ha-ha-ha! Explosives are so-oo-oo cool! It just blows your mind! Ha-ha-ha!,,jazz-maps:items.lua:25124
 890000000000714,Контролируемая очередь,Controlled burst,,jazz:items.lua:62000
@@ -6096,9 +6086,9 @@ Fires a long burst of <color EmStyle><bullets> rounds</color> with increased sup
 890000000000745,"7,62х39мм, Кустарный","7.62x39mm, Handicraft",,jazz:InventoryItem/JAZZ_AMMO_762x39_Crafted.lua:10 | jazz:items.lua:5327
 890000000000746,И Диди мы тоже никак не вспоминаем?,And we're still not mentioning Deedee at all?,,jazz-maps:items.lua:23099
 890000000000748,Я гулять.,I be strollin'.,,jazz-units:items.lua:79035 | jazz-units:items.lua:79217
-890000000000749," <amount> x <em><itemNameT></em> (<mercName>)",<amount> x <em><itemNameT></em> (<mercName>),,jazz:Code/System_UnitInventory.lua:249
+890000000000749, <amount> x <em><itemNameT></em> (<mercName>),<amount> x <em><itemNameT></em> (<mercName>),,jazz:Code/System_UnitInventory.lua:249
 890000000000750,"Но зачем отпускать? Фидель не понимает. А! Может, потом его пристрелим? М?",But why let go? Fidel doesn't understand. A! Maybe we can shoot him later? M?,,jazz-maps:items.lua:17512
-890000000000751,Скучно. Хочу что-нибудь поделать.,"I be gettin' antsy! Gotta keep these hands busy. ",,jazz-units:items.lua:79110
+890000000000751,Скучно. Хочу что-нибудь поделать.,I be gettin' antsy! Gotta keep these hands busy. ,,jazz-units:items.lua:79110
 890000000000752,На это стоит посмотреть вблизи.,Might want to take a closer look at this.,,jazz-units:items.lua:79468
 890000000000753,Зачистить сектор K3,Clear Sector K3,,jazz-maps:items.lua:59244
 890000000000754,Зачистить сектор K5,Clear Sector K5,,jazz-maps:items.lua:59269
@@ -6145,7 +6135,7 @@ but with the other sites, I’m sorry, I didn’t take Legs with me. Here you wi
 890000000000796,Я закончил задание. Если понадоблюсь - я медитирую.,I have finished my task. I'll be meditating if you need me.,,jazz-units:items.lua:78602
 890000000000797,"Мы поставили галочку. Я прямо чувствую, как стресс отступает.",We completed our to-do list. I can feel the stress melting away.,,jazz-units:items.lua:78673
 890000000000798,Да! И Фидель всегда удивляет.,Yes! And Fidel always surprises.,,jazz-maps:items.lua:25082
-890000000000799," <tiredness>.",<tiredness>.,,jazz:items.lua:64071
+890000000000799, <tiredness>.,<tiredness>.,,jazz:items.lua:64071
 890000000000800,"Тем не менее, я почему-то уверена, что ты с Легионом… э… «в семье».","However, for some reason I am sure that you and the Legion are... uh... “in the family.”",,jazz-maps:items.lua:16966
 890000000000801,Повстанец-Рейнджер,Rebel Ranger,,jazz-units:items.lua:48584 | jazz-units:UnitData/Rebel_NPC_Ghost_Guards.lua:22
 890000000000802,Рейнджер,Ranger,,jazz-units:items.lua:42233 | jazz-units:UnitData/JAZZ_Legion_FlankerT4_Ranger.lua:22
@@ -6549,7 +6539,7 @@ Move to a new position and fire two shots at nearby targets.",,jazz:items.lua:59
 890000000001155,"Чё, откиснуть захотелось?! Ну что ж, я буду феечкой! Желание исполнено!","What, wanna cool off?! Well, I'll be your fairy! Wish granted!",,jazz-maps:items.lua:25565
 890000000001156,(climbing),(climbing),,jazz-units:items.lua:78641
 890000000001157,"Всё в порядке, милый! Я на подхвате!","Don't worry, hon! I've got you covered!",,jazz-units:items.lua:78455
-890000000001158," <amount> x <em><itemNameT></em> taken by <mercName>",<amount> x <em><itemNameT></em> taken by <mercName>,,jazz:Code/System_UnitInventory.lua:239
+890000000001158, <amount> x <em><itemNameT></em> taken by <mercName>,<amount> x <em><itemNameT></em> taken by <mercName>,,jazz:Code/System_UnitInventory.lua:239
 890000000001159,"Ну да, мальчики из <em>Легиона</em> за это меня очень уважают. Когда они приходят ко мне в гости, они ведут себя очень вежливо и приносят всякие полезные запчасти для бомб!","Well, yes, the boys from <em>Legion</em> respect me very much for this. When they come to visit me, they are very polite and bring all sorts of useful bomb parts!",,jazz-maps:items.lua:24764
 890000000001160,"Ну-ка, все - сделайте вдох и сбалансируйте свои чакры.",Everyone needs to breathe and realign their chakras.,,jazz-units:items.lua:78916
 890000000001161,Затравка неплохая. Перейдем к главному блюду.,The seed is not bad. Let's move on to the main dish.,,jazz-maps:items.lua:21908
@@ -6570,7 +6560,7 @@ Move to a new position and fire two shots at nearby targets.",,jazz:items.lua:59
 890000000001176,Я лежать!,Hittin' the dirt!,,jazz-units:items.lua:79292
 890000000001177,Дробовик,Shotguns,,jazz:items.lua:97833
 890000000001178,(heavy breath_2),(heavy breath_2),,jazz-units:items.lua:79461
-890000000001179," Fire",Fire,,jazz:items.lua:67109
+890000000001179, Fire,Fire,,jazz:items.lua:67109
 890000000001180,Что это? Мусор?,What's this? Junk?,,jazz-units:items.lua:78425
 890000000001181,"Твоя мамка такой зад себе отрастила, что после нее туалет динамитом приходится прочищать.","The harsh truth is, your momma's butt is so big, we need explosives to unclog the toilet after she's dropped a turd.",,jazz-maps:items.lua:112239
 890000000001182,Две длинная очереди с увеличенным подавлением,Two long bursts with increased suppression,,jazz:items.lua:62564
@@ -6725,7 +6715,7 @@ Three short bursts of Legs-Groin-Torso",,jazz:items.lua:61624
 890000000001305,"Ха... Оказывается, я и в самом деле круче, чем думала.",Huh... I guess I *am* better than I thought.,,jazz-units:items.lua:78431
 890000000001306,Задание получено. Приступаю к исполнению.,Orders received. Task started.,,jazz-units:items.lua:78263
 890000000001307,Scheisse! Меня заметили.,Scheisse! The enemy has spotted me.,,jazz-units:items.lua:78667
-890000000001308," Cancel",Cancel,,jazz:items.lua:67136
+890000000001308, Cancel,Cancel,,jazz:items.lua:67136
 890000000001309,Выдвигаюсь.,I'm moving forward.,,jazz-units:items.lua:78316 | jazz-units:items.lua:78378 | jazz-units:items.lua:78494
 890000000001310,"Я вижу, ты уже принял решение, Базиль. Мои слова ничего не изменят.","I see you've already made your decision, Basil. My words won't change anything.",,jazz-maps:items.lua:29217
 890000000001311,"Правда? Не понимаю, в чем ваша выгода, но я только за, разумеется.","Really? I don't understand what's in it for you, but I'm all for it, of course.",,jazz-maps:items.lua:26863
@@ -6741,11 +6731,11 @@ Not far from here, north of <em>Waterfall</em>, there is a <em>Observation Deck<
 Я хотел перехватить этот отряд, но вы успели перебить основную часть. Хорошая работа","I was counting how many people the Legion would still lose before it realized that someone in the jungle really didn’t like them.
 I wanted to intercept this detachment, but you managed to kill the main part. Good job",,jazz-maps:items.lua:31119
 890000000001319,Да!,Yes!,,jazz-units:items.lua:78657 | jazz-units:items.lua:78850
-890000000001320,Прибыл на место и готов к самосовершенствованию.,"I have arrived at the destination and am ready for a new goal. ",,jazz-units:items.lua:78892
+890000000001320,Прибыл на место и готов к самосовершенствованию.,I have arrived at the destination and am ready for a new goal. ,,jazz-units:items.lua:78892
 890000000001321,"Пулемет? Ой-ля-ля, вот это я понимаю!","Machine gun? Ooh-la-la, now that's what I call it!",,jazz-maps:items.lua:28379
 890000000001322,"Ладно, прочешем местность. Если тут что-нибудь есть, мы это найдём.","All right, let's comb this place. If there's something here, we'll find it.",,jazz-units:items.lua:79471
 890000000001323,Лазер: +<LaserCTH> шанс попасть на дистанции до  <LaserDistance> клеток,Laser: +<LaserCTH> chance to hit within <LaserDistance> cells,,jazz:items.lua:32120
-890000000001324,"Разблокирует режим <em>Стрельбы очередями</em> ",Unlocks <em>Burst Shooting</em> mode,,jazz:items.lua:32115
+890000000001324,Разблокирует режим <em>Стрельбы очередями</em> ,Unlocks <em>Burst Shooting</em> mode,,jazz:items.lua:32115
 890000000001325,Ах! Пулемет и Фидель станут лучшими друзья.,Ah! Fidel knew. Should've collected all ten livers to complete the quest. Ah…,,jazz-maps:items.lua:28354
 890000000001326,"Ты стать бы ещё лучше, не смотри ты девушкам под юбки.",You be pretty good when you don't try to look up someone's skirt.,,jazz-units:items.lua:79249
 890000000001327,"Контракт заканчиваться, правда. Хочешь меня - я буду в мастерской.","The contract is up, mon. If you need me again, I be back at my shop. I see you.",,jazz-units:items.lua:79059
@@ -6841,7 +6831,7 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000001409,<text1>%,<text1>%,,jazz:items.lua:73069 | jazz:items.lua:73097 | jazz:items.lua:73125
 890000000001410,Защита от взрывов,Explosion protection,,jazz:items.lua:73280
 890000000001411,Защита от холодного оружия,Protection from bladed weapons,,jazz:items.lua:73307
-890000000001412,"Эффективный класс брони: ",Effective Armor Class:,,jazz:items.lua:73226
+890000000001412,Эффективный класс брони: ,Effective Armor Class:,,jazz:items.lua:73226
 890000000001413,Камуфляж,Camouflage,,jazz:items.lua:73335
 890000000001414,Блокирует слот лица,Blocks face slot,,jazz:items.lua:73423
 890000000001415,Возможность установки плиты,Possibility of installing a plate,,jazz:items.lua:73396
