@@ -119,43 +119,68 @@ Hardcoded в override (не ConstDef): smoke **−70**; rain light **−5**, hea
 
 Камуфляж влияет на detection через modifier, не отключает LOS. Night vision: `HasNightVision()` + стек `NightVision` брони уменьшают `DarknessSightMod` как `MulDivRound(darkness, 100−penaltyReduce, 100)`.
 
-Целевые дистанции Hidden (`JAZZ-AI-005`, Aware 46): Shadow full camo + стена/трава **8–10** день / **5–6** ночь; Stealthy + лёгкий camo open **~15–16**; без перков/camo на открытом **~46**. Трава/prone без camo всё ещё сильно режут sight (общий env), не отдельный kit-cap.
-
-Exploration suspicion (не этот override): со спины наблюдателя realtime-кап **10 тайлов** применяется в `UpdateSuspicion` (`JAZZ-AI-004`), без изменения возвращаемого `GetSightRadius`. Подробности — [AI / awareness](ai-awareness.md).
+Целевые дистанции Hidden (`JAZZ-AI-005`, Aware 46): см. таблицу ниже. Exploration suspicion: realtime rear-кап **10 тайлов** в `UpdateSuspicion` (`JAZZ-AI-004`) — не меняет `GetSightRadius`.
 
 ### Hot path (perf)
 
 На каждый вызов максимум **два** `ForEachItem("Armor")`: один по наблюдателю (Vision + при необходимости NightVision / DustStormProtection), один по цели (Camouflage). Cover/camo/dust — integer `MulDivRound`; финальный `Clamp` без float. `DustStormProtection` по-прежнему масштабируется через `item.Condition` (не degradation mult).
-### Опорные сценарии (Aware base = 46)
 
-Оценка: `tiles ≈ 46 × modifier/100`, clamp modifier **20…150** → пол **~9**, потолок **~69**. Числа ориентировочные для плейтеста (coverage/camo condition могут сдвигать результат).
+### Таблица видимости Hidden (Aware base = 46)
 
-| Сценарий | ≈ modifier | ≈ тайлов |
-|---|---|---|
-| Эталон: день, standing, открыто | 100 | **46** |
-| Prone на открытом (−30) | 70 | **~32** |
+`tiles ≈ 46 × Clamp(modifier) / 100`. Пол modifier: день **20** (~9 тайлов), ночь/`Underground` без illumination **12** (~5.5). Ночь: `DarknessSightMod −65`, без NV у наблюдателя. High cover = coverage 100%, Hidden scale 35% × stance mul ×150%. Camo: носимый стек (форма 20 + штаны 20 + балаклава 5 = **45**); Shadow даёт **+20** к пулу. Stealthy: **−25** к modifier. Уровень: static model по `System_OR_Unit.lua` + ConstDef; coverage/condition в игре могут сдвигать на 1–2 тайла.
+
+#### Профили стелса
+
+| Профиль (цель Hidden) | День, тайлов | Ночь, тайлов |
+|---|---:|---:|
+| Без перков / без camo, открыто standing | **46** | **~16** |
+| Тяжёлая броня camo −15, открыто | **~53** | **~23** |
+| Форма camo 20, открыто | **~37** | **~7** |
+| Форма+штаны camo 40, открыто | **~28** | **~6** |
+| Stealthy, открыто без camo | **~35** | **~6** |
+| Stealthy + форма 20 | **~25** | **~6** |
+| Stealthy + форма+штаны 40 | **~16** | **~6** |
+| Shadow only (+20 camo) | **~37** | **~7** |
+| Shadow + camo 40 (форма+штаны) | **~18** | **~6** |
+| Shadow + полный носимый camo 45 | **~16** | **~6** |
+| **Shadow + camo 45 + high cover standing** | **~9** | **~6** |
+| **Shadow + camo 45 + prone в траве** | **~9** | **~6** |
+| Stealthy + camo 40 + high cover | **~9** | **~6** |
+| Без всего + high cover standing | **~39** | **~9** |
+| Без всего + prone открыто | **~32** | **~6** |
+| Без всего + standing в траве | **~23** | **~6** |
+| Без всего + prone в траве | **~9** | **~6** |
+
+Целевые ориентиры баланса: Shadow full + стена/трава **8–10** день / **5–6** ночь; Stealthy + лёгкий camo open **~15**; неподготовленный на открытом — край Aware (**~46**).
+
+#### Среда / не-Hidden (эталон standing, modifier от 100)
+
+| Сценарий | ≈ modifier | ≈ тайлов (Aware 46) |
+|---|---:|---:|
+| День, открыто | 100 | **46** |
+| Prone открыто (−30) | 70 | **~32** |
 | Кусты (−50) | 50 | **~23** |
 | Prone в кустах (−50 −60) | clamp 20 | **~9** |
 | Fog (−30) | 70 | **~32** |
 | Night без NV (−65) | 35 | **~16** |
 | Smoke (−70) | 30 | **~14** |
 | Fog + smoke | clamp 20 | **~9** |
-| Hidden + camo 20 в кустах (−50 −60) | clamp 20 | **~9** |
-| Lynx (+8 base), эталон | 100 | **54** |
+| Lynx (+8 к base), эталон | 100 | **54** |
 
-Unaware base **22**: те же % дают примерно вдвое короче (эталон **22**, пол **~4**).
+Unaware base **22**: те же % примерно вдвое короче (эталон **22**, день пол **~4**, ночь пол **~3**).
 
 Замечания по тюнингу:
 
-- штрафы вроде дыма/−70 и camo×3 в кустах часто упираются в `SightModMinValue` (20), а не в «ещё сильнее»;
-- cover зависит от фактического `coverage`, не всегда от максимума таблицы;
-- константы тюнить в `items.lua` ConstDef; hardcoded smoke/rain/Lynx — в `System_OR_Unit.lua`.
+- дым/−70, camo×3 в кустах и Shadow+укрытие часто упираются в пол modifier, а не в «ещё сильнее»;
+- cover зависит от фактического `coverage`, не всегда от 100% в таблице;
+- ночной пол **12** — hardcoded `JAZZ_NightSightModMinValue`; дневной пол — ConstDef `SightModMinValue`;
+- константы env/sight тюнить в `items.lua` ConstDef; smoke/rain/Lynx/Hidden cover scale — в `System_OR_Unit.lua`.
 
 ## Камуфляж и защита от среды
 
 Armor properties `CamouflagePercent`, `NightVision`, `Vision`, `DustStormProtection` и `StunGrenadeProtection` меняют tactical условия через `GetSightRadius` и связанные checks. Gas mask отдельно защищает от toxic/tear gas и зависит от состояния ресурса; типичный `Vision` штраф маски режет дневную дальность.
 
-Примеры порядка величин (снапшот InventoryItem): форма ~`CamouflagePercent = 20`, `CrocodileHide = 60`, gas mask `Vision = −20` / `DustStormProtection = 30`.
+Примеры порядка величин (носимый InventoryItem): форма/штаны ~`CamouflagePercent = 20`, балаклава ~5, газ-маска `Vision = −20` / `DustStormProtection = 30`. `CrocodileHide` (60) — camo на крокодилах, не эталон для мерков.
 
 ## Внешний вид и attachments
 
