@@ -13,31 +13,30 @@ function AIActionThrowGrenade:PrecalcAction(context, action_state)
             action_id = id
             local weapon = caction:GetAttackWeapons(context.unit)
             local aoetype = weapon.aoeType or "none"
-            -- print(weapon)
-            -- print(aoetype)
-            -- local triggerType = weapon.TriggerType or "Contact"
             if IsKindOfClasses(weapon, "Grenade", "Ordnance", "Flare",
                                "GrenadeItem", "Molotov") and
                 self.AllowedAoeTypes[aoetype] then
-                -- self.AllowedTriggerTypes[triggerType] then
                 grenade = weapon
                 break
             end
         end
     end
 
-    -- print(action_id)
     if not action_id or not grenade then return end
 
     local max_range = Min(self.MaxDist, grenade:GetMaxAimRange(context.unit) *
                               const.SlabSizeX)
     local blast_radius = grenade.AreaOfEffect * const.SlabSizeX
+    local is_smoke = (grenade.aoeType or "none") == "smoke"
+        and (self.BiasId == "SmokeGrenade"
+            or (self.AllowedAoeTypes and self.AllowedAoeTypes.smoke and not self.AllowedAoeTypes.none))
 
-    -- print("maxrange "..max_range /  const.SlabSizeX)
-    -- print(blast_radius)
     local target_pts
-    if self.TargetLastAttackPos then
-        -- collect enemy last attack positions and pass them as target_pos array to AIPrecalcGrenadeZones
+    if is_smoke and JazzAI_CollectSmokeCurtainTargets then
+        context.jazz_smoke_blast = blast_radius
+        target_pts = JazzAI_CollectSmokeCurtainTargets(context, self.MinDist, max_range,
+            blast_radius)
+    elseif self.TargetLastAttackPos then
         for _, enemy in ipairs(context.enemies) do
             if enemy.last_attack_pos then
                 target_pts = target_pts or {}
@@ -48,18 +47,17 @@ function AIActionThrowGrenade:PrecalcAction(context, action_state)
     local zones = AIPrecalcGrenadeZones(context, action_id, self.MinDist,
                                         max_range, blast_radius,
                                         grenade.aoeType, target_pts)
+    -- Curtain landings may not put any head in the cloud; keep those target points.
+    if is_smoke and JazzAI_EnsureSmokeZones then
+        zones = JazzAI_EnsureSmokeZones(context, action_id, target_pts, zones, grenade.aoeType)
+    end
 
-    -- print(zones)
     local zone, score = self:EvalZones(context, zones)
-    -- print(zone)
-    -- print("score"..score)
     if zone then
         action_state.action_id = action_id
         action_state.target_pos = zone.target_pos
         action_state.score = score
     end
-
-    -- print(action_state.score)
 end
 
 function AIFilterTargetPoints(unit, target_pts, min_range, max_range)
@@ -840,6 +838,18 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
     JAZZ_AIDisengage(unit, context, did_attack)
 end
 
+-- ACT-002: mark unit as acted after attack sequence (smoke self-cover gate).
+do
+	local JazzAI_AIPlayAttacks_Orig = AIPlayAttacks
+	function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
+		local result = JazzAI_AIPlayAttacks_Orig(unit, context, dbg_action, force_or_skip_action)
+		if JazzAI_MarkUnitActed then
+			JazzAI_MarkUnitActed(unit)
+		end
+		return result
+	end
+end
+
 -- Legacy name kept so accidental callers resolve to BunkerDown.
 function TryChangeStance(unit)
     return JAZZ_AIBunkerDown(unit, unit and unit.ai_context, false)
@@ -1404,14 +1414,201 @@ function AIActionMGSetup:PrecalcAction(context, action_state)
 end
 
 function AIActionBaseZoneAttack:EvalZones(context, zones)
-	local smoke = self.AllowedAoeTypes and self.AllowedAoeTypes.smoke
-	if smoke then
+	-- Smoke-only signatures (BiasId SmokeGrenade): curtain doctrine. Do not treat
+	-- Stun/frag entries that merely list smoke among AllowedAoeTypes as smoke eval.
+	local smoke_only = self.AllowedAoeTypes and self.AllowedAoeTypes.smoke
+		and not self.AllowedAoeTypes.none and not self.AllowedAoeTypes.fire
+	if smoke_only or self.BiasId == "SmokeGrenade" then
 		context.jazz_smoke_eval = true
+		context.jazz_smoke_blast = context.jazz_smoke_blast or (const.SlabSizeX * 4)
 	end
 	local best_target, best_score = AIEvalZones(context, zones, self.min_score, self.enemy_score,
 		self.team_score, self.self_score_mod, self.enemy_cover_mod)
 	context.jazz_smoke_eval = nil
 	return best_target, best_score
+end
+
+-- ACT-002 helpers: smoke curtain targets + scoring (OW → ally exit; self-cover after acted).
+local function JazzAI_UnpackAllyExitPos(ally)
+	if not IsValid(ally) then
+		return
+	end
+	local dest = ally.ai_context and ally.ai_context.ai_destination
+	if dest then
+		local x, y, z = stance_pos_unpack(dest)
+		return point(x, y, z), true
+	end
+	return ally:GetPos(), false
+end
+
+local function JazzAI_EnemyOverwatchOrigin(enemy)
+	if not IsValid(enemy) then
+		return
+	end
+	local ow = g_Overwatch and g_Overwatch[enemy]
+	if ow then
+		return ow.target_pos or enemy:GetPos(), true
+	end
+	-- Soft threat: last attack / visible enemy position as stand-in for a fire lane.
+	if enemy.last_attack_pos then
+		return enemy.last_attack_pos, false
+	end
+	return enemy:GetPos(), false
+end
+
+local function JazzAI_DistPointToSegment2D(pt, a, b)
+	if not pt or not a or not b then
+		return const.SlabSizeX * 1000
+	end
+	local ax, ay = a:xy()
+	local bx, by = b:xy()
+	local px, py = pt:xy()
+	local abx, aby = bx - ax, by - ay
+	local apx, apy = px - ax, py - ay
+	local ab2 = abx * abx + aby * aby
+	if ab2 <= 0 then
+		return pt:Dist2D(a)
+	end
+	local t = MulDivRound(apx * abx + apy * aby, 4096, ab2)
+	t = Clamp(t, 0, 4096)
+	local cx = ax + MulDivRound(abx, t, 4096)
+	local cy = ay + MulDivRound(aby, t, 4096)
+	return point(px, py):Dist2D(point(cx, cy))
+end
+
+function JazzAI_CollectSmokeCurtainTargets(context, min_range, max_range, blast_radius)
+	local unit = context.unit
+	local pts = {}
+	local seen = {}
+	local function add_pt(pt)
+		if not pt then
+			return
+		end
+		local key = point_pack(WorldToVoxel(pt))
+		if seen[key] then
+			return
+		end
+		seen[key] = true
+		pts[#pts + 1] = pt
+	end
+
+	for _, ally in ipairs(unit.team and unit.team.units or empty_table) do
+		if IsValid(ally) and not ally:IsDead() and ally ~= unit then
+			local exit_pos, has_dest = JazzAI_UnpackAllyExitPos(ally)
+			local acted = JazzAI_AllyHasActed and JazzAI_AllyHasActed(ally)
+			-- Self-cover candidate: already acted — allow landing on/near them.
+			if acted and exit_pos then
+				add_pt(exit_pos)
+			end
+			for _, enemy in ipairs(context.enemies or empty_table) do
+				local ow_pos, is_ow = JazzAI_EnemyOverwatchOrigin(enemy)
+				if ow_pos and exit_pos then
+					-- Curtain: prefer allies who still plan a dash (dest) under OW / fire lane.
+					if is_ow or has_dest then
+						add_pt((ow_pos + exit_pos) / 2)
+						-- Bias toward the exit corner (angle they want to clear).
+						add_pt(exit_pos)
+						if has_dest then
+							local cur = ally:GetPos()
+							if cur and cur:Dist2D(exit_pos) > const.SlabSizeX then
+								add_pt((cur + exit_pos) / 2)
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+
+	-- Fallback: vanilla AOE candidate pool so smoke still has somewhere to land.
+	local base = AICalcAOETargetPoints(context, min_range, max_range, blast_radius)
+	for _, pt in ipairs(base or empty_table) do
+		add_pt(pt)
+	end
+
+	AIFilterTargetPoints(unit, pts, min_range, max_range)
+	return pts
+end
+
+-- Keep smoke target points even when PropagateSmoke hits no unit heads (pure curtain).
+function JazzAI_EnsureSmokeZones(context, action_id, target_pts, zones, aoeType)
+	zones = zones or {}
+	if not target_pts or #target_pts == 0 then
+		return zones
+	end
+	local have = {}
+	for _, z in ipairs(zones) do
+		if z.target_pos then
+			have[point_pack(WorldToVoxel(z.target_pos))] = true
+		end
+	end
+	for _, pt in ipairs(target_pts) do
+		local key = point_pack(WorldToVoxel(pt))
+		if not have[key] then
+			zones[#zones + 1] = { target_pos = pt, units = {} }
+			have[key] = true
+		end
+	end
+	return zones
+end
+
+function JazzAI_ScoreSmokeZone(context, zone)
+	local score = 0
+	local target_pos = zone and zone.target_pos
+	local blast = context.jazz_smoke_blast or (const.SlabSizeX * 4)
+	local unit = context.unit
+	local curtain_hits = 0
+
+	for _, ally in ipairs(unit.team and unit.team.units or empty_table) do
+		if IsValid(ally) and not ally:IsDead() and ally ~= unit then
+			local exit_pos, has_dest = JazzAI_UnpackAllyExitPos(ally)
+			local acted = JazzAI_AllyHasActed and JazzAI_AllyHasActed(ally)
+			for _, enemy in ipairs(context.enemies or empty_table) do
+				local ow_pos, is_ow = JazzAI_EnemyOverwatchOrigin(enemy)
+				if ow_pos and exit_pos and target_pos then
+					local dist = JazzAI_DistPointToSegment2D(target_pos, ow_pos, exit_pos)
+					if dist <= blast then
+						local bonus = is_ow and 140 or 60
+						if has_dest then
+							bonus = bonus + 40
+						end
+						-- Stronger when ally still has a move planned (curtain for dash).
+						if has_dest and not acted then
+							bonus = bonus + 40
+						end
+						score = score + bonus
+						curtain_hits = curtain_hits + 1
+					end
+				end
+			end
+		end
+	end
+
+	for _, u in ipairs(zone.units or empty_table) do
+		if IsValid(u) and not u:IsDead() and not u:IsDowned() then
+			if u:IsOnEnemySide(unit) then
+				-- Do not smother enemies you still want to shoot.
+				score = score - 50
+			elseif u.team == unit.team then
+				if u == unit then
+					-- Thrower may end in own smoke; mild only.
+					score = score + 15
+				elseif JazzAI_AllyHasActed and JazzAI_AllyHasActed(u) then
+					-- Direct self-cover only after ally already acted.
+					score = score + 70
+				else
+					-- Blinding allies who still need to shoot/move this turn.
+					score = score - 90
+				end
+			end
+		end
+	end
+
+	-- Empty curtain / no acted cover → fail min_score unless curtain landed.
+	if curtain_hits == 0 and score < 100 then
+		score = Min(score, 40)
+	end
+	return score
 end
 
 function AIEvalZones(context, zones, min_score, enemy_score, team_score,
@@ -1420,59 +1617,39 @@ function AIEvalZones(context, zones, min_score, enemy_score, team_score,
 
     for _, zone in ipairs(zones) do
         local score
-        local selfmod = 0
-        for _, unit in ipairs(zone.units) do
-            local uscore = 0
-            if not unit:IsDead() and not unit:IsDowned() then
-                if unit:IsOnEnemySide(context.unit) then
-
-                    uscore = enemy_score or 0
-                    -----------------------------------
-
-                    if enemy_cover_score and enemy_cover_score ~= 0 then
-                        local cover_high, cover_low = GetCoverTypes(unit)
-                        if cover_low or cover_high then
-                            uscore = uscore + enemy_cover_score
-                        end
-                    end
-
-                    -- if heigth_score and heigth_score ~= 0 then
-
-                    -----------------------------------
-
-                elseif unit.team == context.unit.team then
-                    uscore = team_score or 0
-                    if unit == context.unit then
-                        selfmod = self_score_mod or 0
-                    end
-                end
-            end
-            score = (score or 0) + uscore
-        end
-
-		score = score and MulDivRound(score, zone.score_mod or 100, 100)
-		score = score and MulDivRound(score, 100 + selfmod, 100)
-
-		-- ACT-001: smoke LOS-break — bonus when smoke sits on LOS from ally cluster to enemies
-		if score and zones and zone.units and context.jazz_smoke_eval then
-			local los_break = 0
-			for _, u in ipairs(zone.units) do
-				if u.team == context.unit.team and u ~= context.unit then
-					los_break = los_break + 40
-				elseif u:IsOnEnemySide(context.unit) then
-					los_break = los_break + 20
+		if context.jazz_smoke_eval and JazzAI_ScoreSmokeZone then
+			score = JazzAI_ScoreSmokeZone(context, zone)
+		else
+			local selfmod = 0
+			for _, unit in ipairs(zone.units) do
+				local uscore = 0
+				if not unit:IsDead() and not unit:IsDowned() then
+					if unit:IsOnEnemySide(context.unit) then
+						uscore = enemy_score or 0
+						if enemy_cover_score and enemy_cover_score ~= 0 then
+							local cover_high, cover_low = GetCoverTypes(unit)
+							if cover_low or cover_high then
+								uscore = uscore + enemy_cover_score
+							end
+						end
+					elseif unit.team == context.unit.team then
+						uscore = team_score or 0
+						if unit == context.unit then
+							selfmod = self_score_mod or 0
+						end
+					end
 				end
+				score = (score or 0) + uscore
 			end
-			score = score + los_break
+			score = score and MulDivRound(score, zone.score_mod or 100, 100)
+			score = score and MulDivRound(score, 100 + selfmod, 100)
 		end
 
-		-- print("score "..score.."/")
 		if score and score > best_score then
 			best_target, best_score = zone, score
 		end
 		zone.score = score
 	end
-	----print("AIEvalZones"..best_target.." "..best_score)
 	return best_target, best_score
 end
 

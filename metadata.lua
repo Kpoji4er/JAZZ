@@ -5,7 +5,9 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- Sight: brush −10 + camo×3, indoor −5, SightModMinValue 9; stealth tables; rear suspicion cap 10\n- Perf: AI CTH aim-grid cache, dest LOS compact, sight permille, suspicion hoist\n- Shell eject: Ammo_Shells atlas frames by JAZZ caliber",
+	'last_changes', "- AI smoke: curtain on OW->ally exit; self-cover only after ally acted (ACT-002)
+- Sight: brush -10 + camox3, indoor -5, SightModMinValue 9; stealth tables; rear suspicion cap 10
+- Perf: AI CTH aim-grid cache, dest LOS compact, sight permille",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +35,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 37,
+	'version_minor', 38,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
