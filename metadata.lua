@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- No-maps autonomy moved to optional package jazz-nomaps (7MsJ2Eq); removed in-core StandaloneNoMapsFallback\n- FX audit: wire orphaned shot presets (M24/Gewehr/PSG1/Tex/Mini14/FG42/SPAS12/SVD/pistols), refresh ammo shell IDs, fix AA12/China_Lake/m79 bad refs\n- JAZZ-UNITS-003: Legion loadout generator (recipes → LootDef) + static tests/docs",
+	'last_changes', "- WorldFlip harden: nil sector/squad filters, fortress H4|I7 (nomaps-safe)\n- Vanilla unique weapons → InventoryItem/vanillunique (Auto5_quest, Galil_FlagHill, GoldenGun, LionRoar, Winchester_Quest, TexRevolver) with JAZZ calibers\n- No-maps autonomy moved to optional package jazz-nomaps (7MsJ2Eq); removed in-core StandaloneNoMapsFallback",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 31,
+	'version_minor', 33,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
@@ -362,7 +362,7 @@ return PlaceObj('ModDef', {
 		"InventoryItem/ColtAnaconda.lua",
 		"InventoryItem/RSH12.lua",
 		"InventoryItem/Korth.lua",
-		"InventoryItem/TexRevolver.lua",
+		"InventoryItem/vanillunique/TexRevolver.lua",
 		"InventoryItem/MAT49.lua",
 		"InventoryItem/MP40.lua",
 		"InventoryItem/M3GreaseGun.lua",
@@ -886,7 +886,11 @@ return PlaceObj('ModDef', {
 		"Code/LegionMilitiaRecruits.lua",
 		"Code/SatelliteSquadFixes.lua",
 		"Code/POI Extension.lua",
-		"InventoryItem/Auto5_quest.lua",
+		"InventoryItem/vanillunique/Auto5_quest.lua",
+		"InventoryItem/vanillunique/Galil_FlagHill.lua",
+		"InventoryItem/vanillunique/GoldenGun.lua",
+		"InventoryItem/vanillunique/LionRoar.lua",
+		"InventoryItem/vanillunique/Winchester_Quest.lua",
 		"Code/Debug.lua",
 		"Code/WorldFlipSpawnUnits.lua",
 		"Code/ConsoleFont.lua",
@@ -8858,6 +8862,26 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "InventoryItemCompositeDef",
 			'Id', "Auto5_quest",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "Galil_FlagHill",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "GoldenGun",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "LionRoar",
+			'ClassDisplayName', "Inventory item",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "InventoryItemCompositeDef",
+			'Id', "Winchester_Quest",
 			'ClassDisplayName', "Inventory item",
 		}),
 		PlaceObj('ModResourcePreset', {

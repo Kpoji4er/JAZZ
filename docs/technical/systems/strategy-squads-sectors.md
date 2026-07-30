@@ -158,6 +158,7 @@ Generated `SatelliteViewMapContextMenu` считает отсутствие Regi
 - строит `JAZZ_Auto_<guardpost>` по vanilla Guardpost (A20, D10, E16, F7, F19, G10, H4, H14);
 - Major HQ = **A20** (The Eagle's Nest);
 - wiring/remap EnemySquad + loot inject + gear refresh;
+- WorldFlip: `Code/WorldFlipSpawnUnits.lua` использует vanilla sector IDs и jazz-units Adonis/Army defs; nil-safe; fortress `H4` (fallback `I7`); nomaps ставит guard-wrap на `SpawnWorldFlipAttackSquads`;
 - при загруженном `FhNNYd` — полный no-op.
 
 В core `jazz` встроенного StandaloneNoMapsFallback больше нет.
