@@ -84,7 +84,7 @@
 | `System_SectorOperations.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
 | `WorldFlipSpawnUnits.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
 | `UtilityFunc.lua` | loaded | [Стратегия](strategy-squads-sectors.md), [runtime](runtime-editor-integration.md) |
-| `VanillaDesyncFixes.lua` | loaded | [Runtime](runtime-editor-integration.md), [development](../development.md) — vanilla ending/statboost/weighted RNG/shot vectors/AI area |
+| `VanillaDesyncFixes.lua` | loaded | [Runtime](runtime-editor-integration.md), [development](../development.md) — vanilla ending/statboost/RNG/shot vectors/AI area/buckshot/biases/craft |
 | `EmptySquadFix.lua` | dormant | [Стратегия](strategy-squads-sectors.md), [runtime](runtime-editor-integration.md) |
 | `PatrollingFix.lua` | dormant | [Стратегия](strategy-squads-sectors.md), [runtime](runtime-editor-integration.md) |
 | `Savefix.lua` | dormant | [Стратегия](strategy-squads-sectors.md), [runtime](runtime-editor-integration.md) |

@@ -299,3 +299,147 @@ function TacticalMap:FindOptimalLocationInAssignedArea(unit, context)
 		return true
 	end
 end
+-- Cosmetic buckshot FX: vanilla burned attacker:Random on the sync path.
+-- AsyncRand keeps combat braid / NetUpdateHash isolated (FX may differ per client).
+function Firearm:CalcBuckshotScatter(attacker, action, attack_pos, target_pos, num_vectors, aoe_params)
+	aoe_params = aoe_params or self:GetAreaAttackParams(action.id, attacker, target_pos)
+	local range = self.WeaponRange * const.SlabSizeX
+	local dir = SetLen(target_pos - attack_pos, guim)
+
+	local min_offset = 35 * guic
+	local scatter = Max(min_offset, MulDivRound(range, sin(aoe_params.cone_angle / 2), Max(1, cos(aoe_params.cone_angle / 2))))
+
+	local var_offset = Max(0, scatter - min_offset)
+	local targets = {}
+	target_pos = attack_pos + SetLen(dir, range)
+	for i = 1, num_vectors do
+		local offset = RotateAxis(point(0, 0, min_offset + AsyncRand(var_offset)), dir, AsyncRand(360 * 60))
+		local pt = target_pos + offset
+		local test_dir = pt - attack_pos
+		targets[i] = attack_pos + SetLen(test_dir, range + scatter)
+	end
+
+	local lof_params = {
+		attack_pos = attack_pos,
+		obj = attacker,
+		output_collisions = true,
+		range = range + scatter + guim,
+		seed = AsyncRand(),
+	}
+	local attack_data = GetLoFData(attacker, targets, lof_params)
+	local hits = {}
+	for i, data in ipairs(attack_data) do
+		local lof_hits = data.lof and data.lof[1] and data.lof[1].hits
+		for _, hit in ipairs(lof_hits) do
+			if (hit.obj or hit.terrain) and not IsKindOf(hit.obj, "Unit") then
+				hits[#hits + 1] = hit
+				break
+			end
+		end
+	end
+	return hits
+end
+
+local function JazzBiasObjKey(obj)
+	if not obj then
+		return ""
+	end
+	if IsKindOf(obj, "Unit") then
+		return "U:" .. tostring(obj.session_id or obj.handle or "")
+	end
+	if IsKindOf(obj, "CombatTeam") or IsKindOf(obj, "Team") then
+		return "T:" .. tostring(obj.side or obj.handle or "")
+	end
+	return "O:" .. tostring(obj.handle or obj)
+end
+
+-- Nested pairs(g_AIBiases) while mutating; sort for stable cleanup order.
+function AIUpdateBiases()
+	for id, item_mods in sorted_pairs(g_AIBiases) do
+		local objs = {}
+		for obj in pairs(item_mods) do
+			objs[#objs + 1] = obj
+		end
+		table.sort(objs, function(a, b)
+			return JazzBiasObjKey(a) < JazzBiasObjKey(b)
+		end)
+		for _, obj in ipairs(objs) do
+			local mods = item_mods[obj]
+			local total = 0
+			mods.disable = false
+			mods.priority = false
+			for i = #mods, 1, -1 do
+				if mods[i].end_turn < g_Combat.current_turn then
+					table.remove(mods, i)
+				else
+					total = total + mods[i].value
+					mods.disable = mods.disable or mods[i].disable
+					mods.priority = mods.priority or mods[i].priority
+				end
+			end
+			mods.total = total
+		end
+	end
+end
+
+-- Craft list: vanilla pairs + weak sort; CommonLib FixRecipes does full sort.
+-- Keep a local copy so craft order stays deterministic if CLib is absent.
+function SectorOperationFillItemsToCraft(sector_id, operation_id)
+	if not IsCraftOperationId(operation_id) then
+		return
+	end
+
+	local id = "g_Recipes" .. operation_id
+	local all_to_craft = _G[id] or {}
+	_G[id] = all_to_craft
+	table.iclear(all_to_craft)
+	local count = 0
+	local res_items = SectorOperation_CalcCraftResources(sector_id, operation_id)
+	local professionals = GetOperationProfessionals(sector_id, operation_id) or {}
+	local professional = professionals[1]
+	local squad = professional and gv_Squads[professional.Squad]
+	local squad_units = squad and squad.units
+	local checked_amount_cache = {}
+	for recipe_id, recipe in pairs(CraftOperationsRecipes) do
+		if (operation_id == "CraftAmmo" and recipe.group == "Ammo" or
+			operation_id == "CraftExplosives" and recipe.group == "Explosives" or
+			operation_id == recipe.CraftOperationId) and recipe.ResultItem then
+
+			local hidden
+			local crafter = recipe.RequiredCrafter or ""
+			if crafter ~= "" then
+				hidden = not table.find(professionals, "session_id", crafter)
+			end
+			if not hidden and recipe.QuestConditions then
+				hidden = not EvalConditionList(recipe.QuestConditions)
+			end
+
+			local enabled = squad_units and SectorOperation_ValidateRecipeIngredientsAmount(squad_units, recipe, res_items, checked_amount_cache)
+			count = count + 1
+			all_to_craft[count] = {
+				recipe = recipe_id,
+				item_id = recipe.ResultItem.item,
+				amount = recipe.ResultItem.amount,
+				enabled = enabled,
+				hidden = hidden
+			}
+		end
+	end
+
+	table.sort(all_to_craft, function(a, b)
+		if a.enabled ~= b.enabled then
+			return a.enabled and not b.enabled
+		end
+		if a.hidden ~= b.hidden then
+			return not a.hidden and b.hidden
+		end
+		if a.item_id ~= b.item_id then
+			return a.item_id < b.item_id
+		end
+		return a.recipe < b.recipe
+	end)
+
+	return all_to_craft
+end
+
+SectorOperationValidateItemsToCraft = SectorOperationFillItemsToCraft

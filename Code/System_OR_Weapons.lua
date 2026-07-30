@@ -1187,9 +1187,6 @@ end
 			end
 		end
 
-		if not prediction and (shot_attack_args.buckshot_scatter_fx or 0) > 0 then
-			attack_results.cosmetic_hits = self:CalcBuckshotScatter(attacker, action, attack_results.attack_pos, target_pos, shot_attack_args.buckshot_scatter_fx, aoe_params)
-		end
 	end
 
 	attack_results.num_hits = num_hits
@@ -1205,6 +1202,10 @@ end
 		--print("Firearm_GetAttackResults", attack_results.fired, attack_results.miss, attack_results.target_hit, attack_results.num_hits)
 		NetUpdateHash("Firearm_GetAttackResults", attack_results.fired, attack_results.miss, attack_results.target_hit, attack_results.num_hits)
 		g_LastAttackResults = attack_results
+		-- Cosmetic buckshot FX after hash; CalcBuckshotScatter uses AsyncRand (not attacker:Random).
+		if aoe_params and (shot_attack_args.buckshot_scatter_fx or 0) > 0 then
+			attack_results.cosmetic_hits = self:CalcBuckshotScatter(attacker, action, attack_results.attack_pos, target_pos, shot_attack_args.buckshot_scatter_fx, aoe_params)
+		end
 	end
 	ResumeInfiniteLoopDetection("CTHCalc")
 	return attack_results
