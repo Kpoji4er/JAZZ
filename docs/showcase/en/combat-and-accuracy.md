@@ -42,7 +42,12 @@ Strength, stance, bipods/setup, components, perks, and special actions improve c
 
 ## Grenades and launchers
 
-Throws always have light scatter. Up close you mostly just scatter; at longer range mishap chance rises. Hand grenades use Dexterity + Explosives (confident around 30). Underslung/GL/rockets use Marksmanship + Explosives. Pipe bombs lean harder on Explosives. Blast-ring color while aiming matches the crosshair hit-chance scale (green→red); ring size is the damage area, not a scatter radius.
+Throws **always** have light scatter — there is no perfect pin-point landing.
+
+- **Up close** (about half throw/launcher range): light scatter only, no big mishap.
+- **Farther out**: mishap chance rises (big deviation + notification). Suppression and Inaccurate worsen both chance and scatter.
+- Skills: hand grenades — **Dexterity + Explosives** (confident around **30**); underslung/GL/rockets — **Marksmanship + Explosives**; pipes/TNT — mostly **Explosives** (~**60**).
+- While aiming: ring **size** = damage area; ring **color** = mishap risk on the same green→red scale as the crosshair hit-chance ring.
 
 ## What the UI shows
 

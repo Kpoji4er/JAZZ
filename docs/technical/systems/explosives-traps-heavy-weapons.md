@@ -78,6 +78,7 @@ AI использует собственную оценку допустимой
 - ручной и AI-бросок на минимальной/максимальной дальности;
 - obstruction, indoor/outdoor, smoke и friendly-fire оценка;
 - граната в эпицентре и на границе зоны, разные explosive armor ratings;
+- scatter/mishap: half-range zero chance, skill blends, CapTiles, AoE tint (`JAZZ-GRENADES-001`, playtest);
 - установка, обнаружение и подрыв мины союзником/врагом, save/load;
 - perk-вариант времени установки;
 - toxic/tear gas с новой, повреждённой и отсутствующей маской;
