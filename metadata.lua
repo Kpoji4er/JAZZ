@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- Realtime stealth: rear suspicion radius capped at 10 tiles (front/combat unchanged)\n- Shell eject: map Ammo_Shells atlas frames by JAZZ caliber (was all 9mm frame)\n- WorldFlip harden: nil sector/squad filters, fortress H4|I7 (nomaps-safe)",
+	'last_changes', "- Stealth sight: Shadow ~8-10 day / ~5-6 night; Stealthy ~15; no-kit near Aware edge\n- Realtime stealth: rear suspicion radius capped at 10 tiles (front/combat unchanged)\n- Shell eject: map Ammo_Shells atlas frames by JAZZ caliber (was all 9mm frame)",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 35,
+	'version_minor', 36,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,

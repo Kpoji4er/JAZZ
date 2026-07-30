@@ -139,6 +139,11 @@ local JAZZ_SightCoverMul = {
 	Crouch = { [const.CoverHigh] = 35, [const.CoverLow] = 20 },
 	Prone = { [const.CoverHigh] = 50, [const.CoverLow] = 35 },
 }
+-- Hidden: scale raw coverage before stance mul (vanilla/JAZZ was 10% — cover nearly noop).
+-- 35% + Hidden coverbuff×150% → Shadow full camo + wall ≈ day floor (~9 tiles on Aware46).
+local JAZZ_HiddenCoverCoverageScale = 35
+-- Night/underground floor when night_time (Aware46×12% ≈ 5.5 tiles). Day keeps ConstDef SightModMinValue (20 ≈ 9).
+local JAZZ_NightSightModMinValue = 12
 
 local function JAZZ_SightScaledArmorStat(value, condition_percent, degrade_mult)
 	if not value or value == 0 then
@@ -217,13 +222,22 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 		end)
 	end
 
+	-- Stealth kit: meaningful camo and/or Stealthy/Shadow. Clumsy Hidden stay near Aware edge.
+	local stealth_kit = hidden and other_is_unit and (
+		camo >= 20
+		or HasPerk(other, "Stealthy")
+		or other:HasStatusEffect("FleetingShadow")
+	)
+
 	-- Cover applies for any living/dead unit target (same as prior hot path).
 	if other_is_unit then
 		local cover, _, coverage = other:GetCoverPercentage(self)
 		local coverbuff = 0
 		if coverage and coverage > 0 then
 			if hidden then
-				coverage = MulDivRound(coverage, 10, 100)
+				-- Strong Hidden cover only for stealth kit; others keep legacy weak 10% scale.
+				local cover_scale = stealth_kit and JAZZ_HiddenCoverCoverageScale or 10
+				coverage = MulDivRound(coverage, cover_scale, 100)
 			end
 			local mul = JAZZ_SightCoverMul[other.stance]
 			mul = mul and mul[cover]
@@ -273,8 +287,12 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 		end
 	end
 
-	-- Skip smoke LOS when already at floor or no smoke objects on the map.
+	-- Day floor ConstDef (~9 tiles on Aware46). Night floor lower (~5.5) so Shadow optimal can close to 5–6.
 	local sight_min = const.Combat.SightModMinValue
+	if night_time then
+		sight_min = Min(sight_min, JAZZ_NightSightModMinValue)
+	end
+	-- Skip smoke LOS when already at floor or no smoke objects on the map.
 	if other_is_unit and modifier > sight_min and IsLineInSmoke(self, other) then
 		modifier = modifier - 70
 	end
@@ -324,6 +342,14 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 			modifier = modifier + const.EnvEffects.SightHeightDiffMod
 		elseif oz + const.EnvEffects.SightHeightDiffThreshold < z then
 			modifier = modifier - const.EnvEffects.SightHeightDiffMod * 2
+		end
+	end
+
+	-- Non-stealth Hidden: stay near Aware edge (day ~39+, night still far vs specialists).
+	if hidden and other_is_unit and not stealth_kit then
+		local clumsy_mod_floor = night_time and 50 or 85
+		if modifier < clumsy_mod_floor then
+			modifier = clumsy_mod_floor
 		end
 	end
 

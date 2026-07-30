@@ -65732,7 +65732,7 @@ return {
 					'Parameters', {
 						PlaceObj('PresetParamPercent', {
 							'Name', "stealthy_detection",
-							'Value', 20,
+							'Value', 25,
 							'Tag', "<stealthy_detection>%",
 						}),
 						PlaceObj('PresetParamPercent', {

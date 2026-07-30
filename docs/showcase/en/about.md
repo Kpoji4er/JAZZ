@@ -50,6 +50,7 @@ This is one mod suite, not four independent mods. Partial installs are unsupport
 - Clearer enemy roles and loadouts.
 - Light, night, smoke, and weather affect spotting and fire.
 - In real-time, the suspicion bubble behind a sentry is shorter (about 10 tiles): approaching from the rear is easier than walking into their full forward view.
+- Combat stealth: a camo specialist behind cover or in brush can close in (about 8–10 tiles by day, 5–6 at night); without stealth gear you stay visible near full aware sight range.
 - Optics, flashlights, and NVG are real choices, not cosmetics.
 
 ### Maps and strategy

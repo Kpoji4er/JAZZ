@@ -109,15 +109,18 @@ Hardcoded в override (не ConstDef): smoke **−70**; rain light **−5**, hea
    | High | 30% | 35% | 50% |
    | Low | 15% | 20% | 35% |
 
-   Hidden: `coverage × 10%` до расчёта, затем `coverbuff × 150%`; цель с `Protected` → `coverbuff × 125%`.
+   Hidden: `coverage × 10%` до расчёта **без stealth kit**; с kit (`camo≥20` / Stealthy / FleetingShadow) — **×35%**, затем `coverbuff × 150%`; цель с `Protected` → `coverbuff × 125%`.
+   Без kit после всех штрафов: `modifier ≥ 85` днём / `≥ 50` ночью → заметность у края Aware (~39–46), даже в траве.
 6. Observer `Protected` / `Blinded`.
 7. Brush (`vsFlagTallGrass`): `BrushSightMod`, затем camo ×3 (Hidden) / ×50% (видимо) или вне кустов ×1 / ×25%.
 8. **Prone всегда** режет sight: `−SightModHiddenProne` вне кустов, `×2` в кустах. Это намеренно шире vanilla (там prone-штраф только при Hidden).
 9. Smoke на линии: **−70** (пропуск `IsLineInSmoke`, если modifier уже на полу или на карте нет smoke).
-10. Night / Fog / Dust (+`DustStormProtection` брони) / FireStorm / rain.
+10. Night / Fog / Dust (+`DustStormProtection` брони) / FireStorm / rain. Ночной пол modifier **12** (`JAZZ_NightSightModMinValue`) vs дневной ConstDef **20** → Shadow optimal ~5–6 тайлов ночью, ~9 днём.
 11. Разница высоты: выше цели → `SightHeightDiffMod`; ниже → `−2×` mod (в JAZZ всегда, не только exploration).
 
 Камуфляж влияет на detection через modifier, не отключает LOS. Night vision: `HasNightVision()` + стек `NightVision` брони уменьшают `DarknessSightMod` как `MulDivRound(darkness, 100−penaltyReduce, 100)`.
+
+Целевые дистанции Hidden (`JAZZ-AI-005`, Aware 46): Shadow full camo + стена/трава **8–10** день / **5–6** ночь; Stealthy + лёгкий camo open **~15–16**; нестелсовый без camo **~40–46**.
 
 Exploration suspicion (не этот override): со спины наблюдателя realtime-кап **10 тайлов** применяется в `UpdateSuspicion` (`JAZZ-AI-004`), без изменения возвращаемого `GetSightRadius`. Подробности — [AI / awareness](ai-awareness.md).
 

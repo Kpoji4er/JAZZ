@@ -82,6 +82,8 @@ Heat-alarm (`JazzRaisedAlarm` MapVar): при высоком Heat exploration ti
 
 Realtime rear detection cap (`JAZZ-AI-004`): в exploration (`not g_Combat`), если союзник в **задней полусфере** наблюдателя (`abs(angle) ≥ 90°`), эффективный радиус для suspicion = `Min(GetSightRadius, 10 × SlabSizeX)`. Спереди и в бою кап не действует; `GetSightRadius` / LOS не меняются — только пузырь накопления suspicion. Константа: `lSuspicionRearSightCap` в `UnitAwareness.lua`.
 
+Hidden sight balance (`JAZZ-AI-005`): укрытие и floors в `GetSightRadius` — [видимость](visibility-weather-appearance.md). Shadow optimal ~8–10 день / ~5–6 ночь; Stealthy ~15; без stealth kit почти край Aware.
+
 События conflict/turn/exploration переводят units между состояниями. Неправильная очистка suspicion/alerts может пережить бой или сломать переход exploration ↔ combat.
 
 ## Межпакетные зависимости
