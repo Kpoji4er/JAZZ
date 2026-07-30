@@ -468,6 +468,8 @@ local ProjectorSuspiciousApplyRange = 10 * const.SlabSizeX -- Enemies within thi
 local lSuspicionTickAmountProne = 5 -- The amount to add when hidden and in prone
 local lSuspicionTickDownAmount = 2 -- The amount to remove when no unit is in range
 local lSuspicionTickMinDist = const.SlabSizeX * 2 -- If this close to an enemy then frontness doesn't matter (unless hidden or in the dark)
+-- Exploration only: suspicion range when the ally is in the observer's rear hemisphere (JAZZ-AI-004).
+local lSuspicionRearSightCap = const.SlabSizeX * 10
 local lCubicInIndex = GetEasingIndex("Cubic in")
 
 function UpdateSuspicion(alliedUnits, enemyUnits, intermediate_update)
@@ -485,6 +487,10 @@ function UpdateSuspicion(alliedUnits, enemyUnits, intermediate_update)
 	local sector = gv_Sectors[gv_CurrentSectorId]
 	local anySusUpdated = false
 	local susIncreasedBy = {}
+	-- Hoist once per tick (CLib FixAI pattern): cheap distance gate before GetSightRadius.
+	local max_sight_radius = MulDivRound(GetMaxSightRadius(), 1200, 1000)
+	local HasVisibilityTo = HasVisibilityTo
+	local IsCloser = IsCloser
 	for i, ally in ipairs(alliedUnits) do
 		ally.suspicion = ally.suspicion or 0
 		
@@ -505,7 +511,6 @@ function UpdateSuspicion(alliedUnits, enemyUnits, intermediate_update)
 
 		local raiseSusLargest = 0
 		local raiseSusEnemy = false
-		local max_sight_radius = MulDivRound(GetMaxSightRadius(), 1200, 1000)
 		for i, enemy in ipairs(enemyUnits) do
 			if enemy.retreating then goto continue end
 			if enemy.command == "ExitCombat" then goto continue end
@@ -521,13 +526,17 @@ function UpdateSuspicion(alliedUnits, enemyUnits, intermediate_update)
 				end
 			end
 			local sightRad, hidden, darkness = enemy:GetSightRadius(ally)
+			local angle_to_object = AngleDiff(CalcOrientation(enemy, ally), enemy:GetOrientationAngle())
+			-- Realtime: rear hemisphere detection bubble capped at 10 tiles (combat unchanged).
+			if not g_Combat and abs(angle_to_object) >= 90 * 60 then
+				sightRad = Min(sightRad, lSuspicionRearSightCap)
+			end
 			local dist = enemy:GetDist(ally)
 			local inRad = dist <= sightRad
 			if inRad then
 				if seesAlly then
 					-- If in front of any enemy, add a bonus detection %
 					-- If in the behind plane then have a smaller cut off.
-					local angle_to_object = AngleDiff(CalcOrientation(enemy, ally), enemy:GetOrientationAngle())
 					if abs(angle_to_object) < 90*60 then
 						local radiusLess = MulDivRound(sightRad, 80, 100)
 						if dist > radiusLess then

@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- Grazing: miss→graze ^2 from CTH (cap 50%); cover graze ∝ cover CTH bonus (cap 100%); no smoke/fog/dust graze\n- Shell eject: map Ammo_Shells atlas frames by JAZZ caliber (was all 9mm frame)\n- WorldFlip harden: nil sector/squad filters, fortress H4|I7 (nomaps-safe)",
+	'last_changes', "- Grazing: miss->graze from CTH (cap 50%); cover graze ~ cover CTH bonus (cap 100%); no smoke/fog/dust graze\n- AI smoke: curtain on OW->ally exit; self-cover only after ally acted\n- Sight: brush -10 + camox3, indoor -5, SightModMinValue 9; rear suspicion cap 10",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 35,
+	'version_minor', 39,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
@@ -989,6 +989,11 @@ return PlaceObj('ModDef', {
 		PlaceObj('ModResourcePreset', {
 			'Class', "ConstDef",
 			'Id', "BrushSightMod",
+			'ClassDisplayName', "Constant",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "ConstDef",
+			'Id', "IndoorSightMod",
 			'ClassDisplayName', "Constant",
 		}),
 		PlaceObj('ModResourcePreset', {

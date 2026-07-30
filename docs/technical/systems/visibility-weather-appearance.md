@@ -84,12 +84,13 @@ sightAmount = MulDivRound(sight, modifier, 100) × SlabSizeX
 |---|---|---|---|
 | `AwareSightRange` | Combat | **46** | 24 |
 | `UnawareSightRange` | Combat | **22** | 12 |
-| `SightModMinValue` | Combat | **20** | 40 |
+| `SightModMinValue` | Combat | **9** | 40 |
 | `SightModMaxValue` | Combat | **150** | 120 |
 | `SightModHiddenProne` | Combat | **30** | 10 |
 | `SightModStealthStatDiff` | Combat | 50% | 50% |
 | `CamoSightPenalty` | Combat | 60% | (vanilla bool camo path) |
-| `BrushSightMod` | EnvEffects | **−50** | −15 |
+| `BrushSightMod` | EnvEffects | **−10** | −15 |
+| `IndoorSightMod` | EnvEffects | **−5** | — |
 | `DarknessSightMod` | EnvEffects | **−65** | −10 |
 | `DustStormSightMod` | EnvEffects | **−40** | −10 |
 | `FireStormSightMod` | EnvEffects | **−40** | −10 |
@@ -111,49 +112,96 @@ Hardcoded в override (не ConstDef): smoke **−70**; rain light **−5**, hea
    | High | 30% | 35% | 50% |
    | Low | 15% | 20% | 35% |
 
-   Hidden: `coverage × 10%` до расчёта, затем `coverbuff × 150%`; цель с `Protected` → `coverbuff × 125%`.
+   Hidden: `coverage × 35%` до расчёта, затем `coverbuff × 150%`; цель с `Protected` → `coverbuff × 125%`. Без бинарных порогов camo/kit — camo, Stealthy и Shadow складываются в modifier непрерывно.
 6. Observer `Protected` / `Blinded`.
-7. Brush (`vsFlagTallGrass`): `BrushSightMod`, затем camo ×3 (Hidden) / ×50% (видимо) или вне кустов ×1 / ×25%.
-8. **Prone всегда** режет sight: `−SightModHiddenProne` вне кустов, `×2` в кустах. Это намеренно шире vanilla (там prone-штраф только при Hidden).
-9. Smoke на линии: **−70** (пропуск `IsLineInSmoke`, если modifier уже на полу или на карте нет smoke).
-10. Night / Fog / Dust (+`DustStormProtection` брони) / FireStorm / rain.
-11. Разница высоты: выше цели → `SightHeightDiffMod`; ниже → `−2×` mod (в JAZZ всегда, не только exploration).
+7. Brush (`vsFlagTallGrass`): малый `BrushSightMod` (**−10**), затем camo ×**3** (Hidden) / ×**100%** (видимо); вне кустов Hidden ×1 / видимо ×25%. Prone в траве **без** ×2 (тот же `SightModHiddenProne`, что на открытом) — `JAZZ-AI-006`.
+8. **Prone** режет sight всегда: `−SightModHiddenProne` (в кустах тоже ×1).
+9. Indoors (цель): `IndoorSightMod` (**−5**), независимо от Hidden/camo.
+10. Smoke на линии: **−70**.
+11. Night / Fog / Dust / FireStorm / rain. Пол modifier = ConstDef `SightModMinValue` (**9** ≈ **4** тайла Aware).
+12. Разница высоты: выше цели → `SightHeightDiffMod`; ниже → `−2×` mod.
 
-Камуфляж влияет на detection через modifier, не отключает LOS. Night vision: `HasNightVision()` + стек `NightVision` брони уменьшают `DarknessSightMod` как `MulDivRound(darkness, 100−penaltyReduce, 100)`.
+Камуфляж влияет на detection через modifier, не отключает LOS. Night vision: `HasNightVision()` + стек `NightVision` брони уменьшают `DarknessSightMod`.
+
+Таблицы Aware / Unaware / Hidden / без Hidden — ниже (`JAZZ-AI-005`/`006`). Exploration suspicion rear-кап 10 тайлов — `JAZZ-AI-004`.
 
 ### Hot path (perf)
 
-На каждый вызов максимум **два** `ForEachItem("Armor")`: один по наблюдателю (Vision + при необходимости NightVision / DustStormProtection), один по цели (Camouflage). Cover/camo/dust — integer `MulDivRound`; финальный `Clamp` без float. `DustStormProtection` по-прежнему масштабируется через `item.Condition` (не degradation mult).
-### Опорные сценарии (Aware base = 46)
+На каждый вызов максимум **два** `ForEachItem("Armor")`: один по наблюдателю (Vision + при необходимости NightVision / DustStormProtection), один по цели (Camouflage). Cover/camo/dust — integer `MulDivRound`; финальный `Clamp` без float. Масштаб брони для Vision/NV/camo идёт через `GetDegradationMultiplierPermille` (без float `GetDegradationMultiplier`). `DustStormProtection` по-прежнему масштабируется через `item.Condition` (не degradation mult). Smoke LOS пропускается, если modifier уже на полу или `g_SmokeObjs` пуст.
 
-Оценка: `tiles ≈ 46 × modifier/100`, clamp modifier **20…150** → пол **~9**, потолок **~69**. Числа ориентировочные для плейтеста (coverage/camo condition могут сдвигать результат).
+Сводка по vanilla/CLib узким местам visibility/AI: [performance-vanilla-report.md](../performance-vanilla-report.md).
 
-| Сценарий | ≈ modifier | ≈ тайлов |
-|---|---|---|
-| Эталон: день, standing, открыто | 100 | **46** |
-| Prone на открытом (−30) | 70 | **~32** |
-| Кусты (−50) | 50 | **~23** |
-| Prone в кустах (−50 −60) | clamp 20 | **~9** |
-| Fog (−30) | 70 | **~32** |
-| Night без NV (−65) | 35 | **~16** |
-| Smoke (−70) | 30 | **~14** |
-| Fog + smoke | clamp 20 | **~9** |
-| Hidden + camo 20 в кустах (−50 −60) | clamp 20 | **~9** |
-| Lynx (+8 base), эталон | 100 | **54** |
+### Таблицы видимости (`GetSightRadius`)
 
-Unaware base **22**: те же % дают примерно вдвое короче (эталон **22**, пол **~4**).
+`tiles ≈ base × Clamp(modifier, SightModMinValue=9 … Max) / 100`.
 
-Замечания по тюнингу:
+| | Aware | Unaware |
+|---|---:|---:|
+| Base | **46** | **22** |
+| Пол modifier (`SightModMinValue` **9**) | **~4** | **~2** |
 
-- штрафы вроде дыма/−70 и camo×3 в кустах часто упираются в `SightModMinValue` (20), а не в «ещё сильнее»;
-- cover зависит от фактического `coverage`, не всегда от максимума таблицы;
-- константы тюнить в `items.lua` ConstDef; hardcoded smoke/rain/Lynx — в `System_OR_Unit.lua`.
+Ночь: `DarknessSightMod −65`, без NV / illumination. High cover = coverage 100%. Camo-пул полный носимый ≈ **45**; Shadow **+20**. Stealthy **−25** только Hidden. Brush flat **−10**, Hidden camo ×3 / видимо ×100%; prone без ×2 в траве. Indoors цель: **−5** всегда. Static model (`JAZZ-AI-005`/`006`).
+
+#### Hidden — Aware / Unaware
+
+| Профиль (цель Hidden) | Aware день | Aware ночь | Unaware день | Unaware ночь |
+|---|---:|---:|---:|---:|
+| Без перков / без camo, открыто | **46** | **~16** | **22** | **~8** |
+| Тяжёлая броня camo −15 | **~53** | **~23** | **~25** | **~11** |
+| Форма camo 20 | **~37** | **~7** | **~18** | **~3** |
+| Форма+штаны camo 40 | **~28** | **~4** | **~13** | **~2** |
+| Stealthy, без camo | **~35** | **~5** | **~17** | **~2** |
+| Stealthy + форма 20 | **~25** | **~4** | **~12** | **~2** |
+| Stealthy + camo 40 | **~16** | **~4** | **~8** | **~2** |
+| Shadow only | **~37** | **~7** | **~18** | **~3** |
+| Shadow + camo 40 | **~18** | **~4** | **~9** | **~2** |
+| Shadow + camo 45 | **~16** | **~4** | **~8** | **~2** |
+| **Shadow + camo 45 + high cover** | **~9** | **~4** | **~4** | **~2** |
+| **Shadow + camo 45 + трава** | **~4** | **~4** | **~2** | **~2** |
+| Stealthy + camo 40 + high cover | **~9** | **~4** | **~4** | **~2** |
+| Без всего + high cover | **~39** | **~9** | **~19** | **~4** |
+| Без всего + prone открыто | **~32** | **~4** | **~15** | **~2** |
+| Без всего + standing в траве | **~41** | **~12** | **~20** | **~6** |
+| Без всего + prone в траве | **~28** | **~4** | **~13** | **~2** |
+| Без всего, в помещении (−5) | **~44** | **~14** | **~21** | **~7** |
+| Shadow + camo 45, в помещении | **~14** | **~4** | **~7** | **~2** |
+
+Ориентиры: Shadow+стена **~9**; Shadow+трава **~4**; Stealthy+camo open **~16**; голый open **46**; голая трава **~41**.
+
+#### Без Hidden (цель видима)
+
+| Профиль | Aware день | Aware ночь | Unaware день | Unaware ночь |
+|---|---:|---:|---:|---:|
+| Открыто standing | **46** | **~16** | **22** | **~8** |
+| Форма camo 20 | **~44** | **~14** | **~21** | **~7** |
+| Форма+штаны camo 40 | **~41** | **~12** | **~20** | **~6** |
+| Shadow-пул camo 65 (×25% open) | **~39** | **~9** | **~18** | **~4** |
+| High cover standing | **~32** | **~4** | **~15** | **~2** |
+| Prone открыто | **~32** | **~4** | **~15** | **~2** |
+| Standing в траве | **~41** | **~12** | **~20** | **~6** |
+| Prone в траве | **~28** | **~4** | **~13** | **~2** |
+| Camo-пул 65 + high cover | **~25** | **~4** | **~12** | **~2** |
+| Camo-пул 65 + трава (×100%) | **~12** | **~4** | **~6** | **~2** |
+| В помещении (−5) | **~44** | **~14** | **~21** | **~7** |
+
+#### Среда (добавки)
+
+| Сценарий | ≈ modifier | Aware день | Unaware день |
+|---|---:|---:|---:|
+| Fog (−30) | 70 | **~32** | **~15** |
+| Smoke (−70) | 30 | **~14** | **~7** |
+| Fog + smoke | clamp 9 | **~4** | **~2** |
+| Lynx (+8 base), открыто | 100 | **54** | **30** |
+
+Exploration suspicion rear-кап 10 тайлов — `JAZZ-AI-004`.
+
+Замечания: camo×3 в траве и Shadow+укрытие часто упираются в пол **9**; cover от фактического coverage; ConstDef в `items.lua`; smoke/rain/Lynx/cover scale/indoors — `System_OR_Unit.lua`.
 
 ## Камуфляж и защита от среды
 
 Armor properties `CamouflagePercent`, `NightVision`, `Vision`, `DustStormProtection` и `StunGrenadeProtection` меняют tactical условия через `GetSightRadius` и связанные checks. Gas mask отдельно защищает от toxic/tear gas и зависит от состояния ресурса; типичный `Vision` штраф маски режет дневную дальность.
 
-Примеры порядка величин (снапшот InventoryItem): форма ~`CamouflagePercent = 20`, `CrocodileHide = 60`, gas mask `Vision = −20` / `DustStormProtection = 30`.
+Примеры порядка величин (носимый InventoryItem): форма/штаны ~`CamouflagePercent = 20`, балаклава ~5, газ-маска `Vision = −20` / `DustStormProtection = 30`. `CrocodileHide` (60) — camo на крокодилах, не эталон для мерков.
 
 ## Внешний вид и attachments
 

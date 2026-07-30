@@ -307,25 +307,21 @@ Leaders сейчас имеют **пустой** PickCustom — как раз м
 
 ## 8. Дымы (Smoke policy)
 
-Сейчас в Assaulter/Frontliner уже есть отдельный signature `BiasId = "SmokeGrenade"`:
+**Доктрина (JAZZ-AI-ACT-002, owner 2026-07-30):**
 
-- `AllowedAoeTypes = { smoke }`;
-- `enemy_score = -100`, `team_score = 100`, `self_score_mod = 1000` → **поощряет союзников (и себя) в дыму**, штрафует врагов в дыму;
-- после броска Bias disable.
-
-То есть текущий scoring = «накрыть себя/своих», а не «ослепить стрелка на линии LOS». Для перебежки под огнём этого недостаточно: нужен score по **перекрытым LOS-парам** враг→союзник.
-
-Целевая доктрина:
-
-| Ситуация | Куда кидать | Кто |
+| Ситуация | Куда кидать | Условие |
 | --- | --- | --- |
-| Перебежка под огнём | на линию LOS враг→союзник | Smoke keyword / Medic / FallBack |
-| Штурм двери/города | перед Assaulter Press | Assaulter/Grenadier |
-| Отход low-tier / low-vis | между собой и угрозой | Fallback / LowVisHold |
-| Самоприкрытие (текущий score) | на свой кластер при dump/bunker | ok как fallback |
-| Не кидать | пустота без LOS-break; токсик в своих | отдельный score |
+| Выход под OW | **занавес** на угол / отрезок `OW origin → ally exit` | союзник с planned `ai_destination` или fire lane |
+| Самоприкрытие | прямо на / у своих | только если союзник **уже сходил** (`JazzAI_TeamActed`) |
+| Не кидать | шапка на ещё не ходивших; толпа врагов под свой огонь; пустота без LOS/OW | |
 
-Keyword `Smoke` желателен на юнитах, которым доверяем дым (сейчас у Bonemaker есть; у штурма — через signature без keyword gate).
+Механика: выстрелы сквозь дым → незначительные попадания; sight на линии `IsLineInSmoke` **−70**. Дым = curtain, не «шапка на головы» до хода союзника.
+
+Preset signature `BiasId = "SmokeGrenade"` (Assaulter/Frontliner/Flanker/MG): `AllowedAoeTypes = { smoke }`, bias disable после броска. Runtime scoring в `JazzAI_ScoreSmokeZone` / `JazzAI_CollectSmokeCurtainTargets` **перекрывает** preset `enemy −100 / team +100 / self +1000`.
+
+Team context: acted после `AIPlayAttacks`; exit из `ai_destination`; угроза из `g_Overwatch` (+ soft `last_attack_pos`).
+
+Keyword `Smoke` желателен на доверенных носителях (Bonemaker); у штурма entry без keyword gate.
 
 ---
 
