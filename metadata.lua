@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- WorldFlip harden: nil sector/squad filters, fortress H4|I7 (nomaps-safe)\n- Vanilla unique weapons → InventoryItem/vanillunique (Auto5_quest, Galil_FlagHill, GoldenGun, LionRoar, Winchester_Quest, TexRevolver) with JAZZ calibers\n- No-maps autonomy moved to optional package jazz-nomaps (7MsJ2Eq); removed in-core StandaloneNoMapsFallback",
+	'last_changes', "- Shell eject: map Ammo_Shells atlas frames by JAZZ caliber (was all 9mm frame)\n- WorldFlip harden: nil sector/squad filters, fortress H4|I7 (nomaps-safe)\n- Vanilla unique weapons → InventoryItem/vanillunique with JAZZ calibers",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
