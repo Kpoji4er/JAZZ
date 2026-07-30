@@ -54,28 +54,33 @@ function PredictCTH(base_cth, recoil, shots, weapon, unit, stance, action)
 	return sum / shots
 end
 function GetCTHByAimLevels(unit, enemy, action, max_aim)
-	local cth_by_aim = {}
-	local weapon1, weapon2 = unit:GetActiveWeapons()
+	if not unit or not enemy or not action then return end
+	max_aim = max_aim or 0
 
+	-- Reuse CTH grids within one AI think: PickBestAttack / Dump / dest score
+	-- call this for the same (enemy, action) many times with identical results.
+	local context = unit.ai_context
+	local cache = context and context.cth_by_aim_cache
+	local cache_key
+	if cache then
+		cache_key = xxhash(enemy.handle, action.id, max_aim)
+		local cached = cache[cache_key]
+		if cached then
+			return cached
+		end
+	end
+
+	local weapon1 = unit:GetActiveWeapons()
 	if not weapon1 then return end
-	
-	local dist = unit:GetDist(enemy)
---	if dist > (weapon1.WeaponRange * const.SlabSizeX) then
---		-- за пределами нормальной дальности — все CTH будут считаться 0
---		--print('dist > weapon range')
---		--print(dist)
---		--print(weapon1.WeaponRange * const.SlabSizeX)
---		for aim = 0, max_aim do
---			cth_by_aim[aim] = 0
---		end
---		return cth_by_aim
---	end
 
+	local cth_by_aim = {}
+	local args = { target_spot_group = false, aim = 0 }
 	for aim = 0, max_aim do
-		local args = { target_spot_group = false, aim = aim }
-		local cth = unit:CalcChanceToHit(enemy, action, args)
-		--print("CTH"..cth)
-		cth_by_aim[aim] = cth
+		args.aim = aim
+		cth_by_aim[aim] = unit:CalcChanceToHit(enemy, action, args)
+	end
+	if cache then
+		cache[cache_key] = cth_by_aim
 	end
 	return cth_by_aim
 end
@@ -336,7 +341,10 @@ function AICreateContext(unit, context)
 	context.forced_signature_action = false
 	context.apply_bias = true
 	context.disable_actions = {}
-	--context.cth_by_aim_map = {}
+	context.cth_by_aim_cache = {}
+	-- Publish early so GetCTHByAimLevels/PickBestAttack can reuse the cache while
+	-- this CreateContext still enumerates enemies (final assign stays at the end).
+	unit.ai_context = context
 
 	NetUpdateHash("AICreateContext", unit, pos, unit.stance, context.start_ap, context.archetype.id, context.max_attacks, weapon and weapon.class, weapon and weapon.id, default_attack.id)
 	
@@ -875,35 +883,20 @@ function AIUpdateDestLosCache(unit, context)
 						break
 					end
 					if cur_enemy < enemies_count or cur_enemy == enemies_count and next_dest_idx == 1 then
-						-- There will be more LOS checks. Remove visible destinations from dests list to not cast more lines from there
-						if #targets >= #dests then
-							for i = #dests, 1, -1 do
-								if los_cache[dests[i]] then
-									table.remove(dests, i)
-									if i < next_dest_idx then next_dest_idx = next_dest_idx - 1 end
+						-- Compact visible dests in one pass (avoid O(n²) table.remove).
+						local compact, n, removed_before_next = {}, 0, 0
+						for i = 1, #dests do
+							if los_cache[dests[i]] then
+								if i < next_dest_idx then
+									removed_before_next = removed_before_next + 1
 								end
-							end
-						elseif start_dest_idx <= last_dest_idx then
-							for i = last_dest_idx, start_dest_idx, -1 do
-								if los_cache[dests[i]] then
-									table.remove(dests, i)
-									if i < next_dest_idx then next_dest_idx = next_dest_idx - 1 end
-								end
-							end
-						else
-							for i = #dests, start_dest_idx, -1 do
-								if los_cache[dests[i]] then
-									table.remove(dests, i)
-									if i < next_dest_idx then next_dest_idx = next_dest_idx - 1 end
-								end
-							end
-							for i = last_dest_idx, 1, -1 do
-								if los_cache[dests[i]] then
-									table.remove(dests, i)
-									if i < next_dest_idx then next_dest_idx = next_dest_idx - 1 end
-								end
+							else
+								n = n + 1
+								compact[n] = dests[i]
 							end
 						end
+						next_dest_idx = next_dest_idx - removed_before_next
+						dests = compact
 						if #dests == 0 then
 							assert(#dests > 0)
 							break

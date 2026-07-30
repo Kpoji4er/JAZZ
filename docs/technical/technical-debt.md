@@ -14,6 +14,10 @@
 
 Одиннадцать функций и методов определяются и CommonLib, и JAZZ. Наиболее чувствительны AI selection, targeting, suspicion, UI actions и Run and Gun. Перед каждой задачей необходимо разрешить последнюю upstream-версию CLib; после любого изменения HEAD повторять трёхстороннее сравнение. Полный список находится в [override-matrix.md](override-matrix.md).
 
+### Производительность vanilla (не закрыто модом)
+
+Крупные sync-hard узкие места ванили (O(n²) `UpdateUnitsLOS`, полный AI DestLOS/LoF matrix, satellite Dijkstra без кэша) зафиксированы в [performance-vanilla-report.md](performance-vanilla-report.md). JAZZ закрывает только безопасные микро-оптимизации на своих overrides.
+
 ### Крупные копии vanilla
 
 JAZZ содержит существенно изменённые версии больших игровых модулей AI, awareness, inventory, UI и satellite. Они могут незаметно отставать от исправлений новой версии JA3.
