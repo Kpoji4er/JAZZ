@@ -84,20 +84,7 @@ DefineClass.RPK74 = {
 			},
 			'DefaultComponent', "StockNormal",
 		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Scope",
-			'CanBeEmpty', true,
-			'AvailableComponents', {
-				"LROptics",
-				"ReflexSight",
-				"ScopeCOG",
-				"ThermalScope",
-				"LROpticsAdvanced",
-				"ScopeCOGQuick",
-				"ReflexSightAdvanced",
 			},
-		}),
-	},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"MGBurstFire",

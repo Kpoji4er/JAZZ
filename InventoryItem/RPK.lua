@@ -66,20 +66,7 @@ DefineClass.RPK = {
 			},
 			'DefaultComponent', "RPK74_Hanguard_Basic",
 		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Scope",
-			'CanBeEmpty', true,
-			'AvailableComponents', {
-				"LROptics",
-				"ReflexSight",
-				"ScopeCOG",
-				"ThermalScope",
-				"LROpticsAdvanced",
-				"ScopeCOGQuick",
-				"ReflexSightAdvanced",
-			},
-		}),
-		PlaceObj('WeaponComponentSlot', {
+				PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {

@@ -37,15 +37,11 @@ DefineClass.ColtAnaconda = {
 			},
 			'DefaultComponent', "BarrelNormal",
 		}),
-		PlaceObj('WeaponComponentSlot', {
+				PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
 			'AvailableComponents', {
 				"BaseIronsight_Anaconda",
 				"ImprovedIronsight",
-				"ReflexSight",
-				"ReflexSightAdvanced",
-				"ScopeCOG",
-				"ScopeCOGQuick",
 				"LaserDot_Anaconda",
 				"FlashlightDot_Anaconda",
 				"UVDot_Anaconda",

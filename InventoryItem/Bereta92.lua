@@ -29,14 +29,7 @@ DefineClass.Bereta92 = {
 	Noise = 22,
 	Entity = "Weapon_Beretta92F",
 	ComponentSlots = {
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Scope",
-			'CanBeEmpty', true,
-			'AvailableComponents', {
-				"ReflexSight",
-			},
-		}),
-		PlaceObj('WeaponComponentSlot', {
+				PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {

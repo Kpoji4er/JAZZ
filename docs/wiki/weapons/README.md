@@ -20,9 +20,9 @@
 | [undefined](revolver.md) | `Revolver` | 13 | 1, 2, 3 |
 | [undefined](submachine-gun.md) | `SubmachineGun` | 23 | 1, 2, 3 |
 | [undefined](carbine.md) | `Carbine` | 14 | 1, 2, 3 |
-| [undefined](assault-rifle.md) | `AssaultRifle` | 17 | 1, 2, 3 |
+| [undefined](assault-rifle.md) | `AssaultRifle` | 16 | 1, 2, 3 |
 | [undefined](battle-rifle.md) | `BattleRifle` | 15 | 1, 2 |
-| [undefined](sniper-rifle.md) | `SniperRifle` | 18 | 1, 2, 3 |
+| [undefined](sniper-rifle.md) | `SniperRifle` | 19 | 1, 2, 3 |
 | [undefined](light-machine-gun.md) | `LightMachineGun` | 9 | 1, 2, 3 |
 | [undefined](machine-gun.md) | `MachineGun` | 10 | 1, 2, 3 |
 | [undefined](shotgun.md) | `Shotgun` | 12 | 1, 2, 3 |

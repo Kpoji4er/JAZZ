@@ -41,13 +41,18 @@ DefineClass.MP5SD = {
 			},
 			'DefaultComponent', "MagNormal",
 		}),
-		PlaceObj('WeaponComponentSlot', {
+				PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"ReflexSight",
-				"ReflexSightAdvanced",
-				"ScopeCOG",
+				"JAZZ_Reflex_Aimpoint5000",
+				"JAZZ_Reflex_Closed",
+				"JAZZ_Reflex_Open",
+				"JAZZ_Reflex_M68",
+				"JAZZ_Reflex_Eotech",
+				"JAZZ_CombatScope_2x",
+				"JAZZ_CombatScope_FeroZ24",
+				"JAZZ_Scope_DA15_6x",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {

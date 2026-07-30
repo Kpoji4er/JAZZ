@@ -1,11 +1,11 @@
 UndefineClass('AR10DMR')
 DefineClass.AR10DMR = {
-	__parents = { "AssaultRifle" },
+	__parents = { "SniperRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
 	comment = "Tier 2-4",
-	object_class = "AssaultRifle",
+	object_class = "SniperRifle",
 	ScrapParts = 10,
 	RepairCost = 18,
 	Reliability = 65,
@@ -20,7 +20,7 @@ DefineClass.AR10DMR = {
 	Cost = 14750,
 	CanAppearInShop = true,
 	Tier = 2,
-	CategoryPair = "AssaultRifles",
+	CategoryPair = "Rifles",
 	Caliber = "JAZZ_Caliber_762x51",
 	Damage = 32,
 	ObjDamageMod = 80,

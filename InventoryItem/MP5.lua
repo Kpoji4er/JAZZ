@@ -71,19 +71,7 @@ DefineClass.MP5 = {
 				"FlashlightDot",
 			},
 		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Scope",
-			'CanBeEmpty', true,
-			'AvailableComponents', {
-				"LROptics",
-				"ReflexSight",
-				"ReflexSightAdvanced",
-				"ScopeCOG",
-				"ScopeCOGQuick",
-				"ThermalScope",
-			},
-		}),
-		PlaceObj('WeaponComponentSlot', {
+				PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {

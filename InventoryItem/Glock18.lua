@@ -22,6 +22,7 @@ DefineClass.Glock18 = {
 	CategoryPair = "Handguns",
 	Caliber = "JAZZ_Caliber_9x19",
 	Damage = 19,
+	AimAccuracy = 3,
 	ObjDamageMod = 15,
 	MagazineSize = 17,
 	WeaponRange = 18,
@@ -29,14 +30,7 @@ DefineClass.Glock18 = {
 	Noise = 22,
 	Entity = "G18",
 	ComponentSlots = {
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Scope",
-			'CanBeEmpty', true,
-			'AvailableComponents', {
-				"ReflexSight",
-			},
-		}),
-		PlaceObj('WeaponComponentSlot', {
+				PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
@@ -95,8 +89,8 @@ DefineClass.Glock18 = {
 	BurstShots = 4,
 	AutoShots = 12,
 	Handling = 22,
-	BulletDropRange = 5,
-	Grouping = 55,
+	BulletDropRange = 8,
+	Grouping = 72,
 	WeaponResource = 1500,
 	CanAppearUsed = false,
 }

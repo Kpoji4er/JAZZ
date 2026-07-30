@@ -22,7 +22,7 @@ DefineClass.VectorCP1 = {
 	Caliber = "JAZZ_Caliber_9x19",
 	Damage = 20,
 	ObjDamageMod = 20,
-	AimAccuracy = 4,
+	AimAccuracy = 6,
 	CritChanceScaled = 35,
 	MagazineSize = 15,
 	WeaponRange = 18,
@@ -69,7 +69,7 @@ DefineClass.VectorCP1 = {
 	Recoil = 1,
 	AutoShots = 3,
 	Handling = 13,
-	BulletDropRange = 6,
+	BulletDropRange = 7,
 	Grouping = 60,
 	BaseJamChance = -20,
 }

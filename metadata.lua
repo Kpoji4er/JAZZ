@@ -5,7 +5,7 @@ return PlaceObj('ModDef', {
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- MP desync: buckshot FX AsyncRand, AIUpdateBiases sort, craft recipe sort\n- Grenades mishap normalize; grazing from CTH+cover; AI smoke curtain; sight rear cap 10",
+	'last_changes', "- Strip leftover vanilla Scope options; no-scope by design on RPK/M60E3/basic pistols\n- Tier accuracy pass + USP45/Glock/Thompson retune; attachments catalog tools",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@ return PlaceObj('ModDef', {
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 41,
+	'version_minor', 42,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,

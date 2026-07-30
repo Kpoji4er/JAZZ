@@ -1,65 +1,65 @@
 effect_id,display_name,description,parameters,source,snapshot_commit
-BarrelAccuracyIncrease,BarrelAccuracyIncrease,Ствол: Увеличивает точность на <BarrelAccuracyIncrease>,BarrelAccuracyIncrease=2,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-BarrelBulletDropIncrease,BarrelBulletDropIncrease,Ствол: Увеличивает настильность на <BulletDropIncrease>,BulletDropIncrease=2,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-BarrelBulletDropReduce,BarrelBulletDropReduce,Ствол: Уменьшает настильность на <BulletDropReduce>,BulletDropReduce=2,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-BarrelGroupingIncrease,BarrelGroupingIncrease,Ствол: Уменьшает кучность на 30%,SilencerGroupingReduce=110,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-BarrelGroupingReduce,BarrelGroupingReduce,Ствол: Уменьшает кучность на 10%,BarrelGroupingReduce=90,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-BarrelHandlingIncrease,BarrelHandlingIncrease,Ствол: Увеличивает эргономику на <BarrelHandlingIncrease>,BarrelHandlingIncrease=5,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-BarrelHandlingReduce,BarrelHandlingReduce,Ствол: Уменьшает эргономику на <BarrelHandlingReduce>,BarrelHandlingReduce=5,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-BarrelRangeIncrease,BarrelRangeIncrease,Ствол: Увеличивает дальность на <BarrelRangeIncrease>,BarrelRangeIncrease=2,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-BarrelRangeReduce,BarrelRangeReduce,Ствол: Уменьшает дальность на <BarrelRangeReduce>,BarrelRangeReduce=2,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-BarrelRecoilIncrease,BarrelRecoilIncrease,Ствол: Увеличивает отдачу на <BarrelRecoilIncrease>,BarrelRecoilIncrease=1,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-BarrelRecoilRecude,BarrelRecoilRecude,Ствол: Уменьшает отдачу на <BarrelRecoilRecude>,BarrelRecoilRecude=2,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-BipodsHandlingDecrease,BipodsHandlingDecrease,Сошки: Уменьшает эргономику на <BipodsHandlingDecrease>,BipodsHandlingDecrease=5,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ChangeCaliberToBMG,ChangeCaliberToBMG,Changes caliber to .50 BMG,,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-Cumbersome,Cumbersome,Громоздкое,Cumbersome=1,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-DecreaseMaxAimActions,DecreaseMaxAimActions,Уменьшение количества уровней прицеливания на <MaxAimActionsDecrease>,MaxAimActionsDecrease=1,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-EnableBurst,EnableBurst,WIP — механика сигнатурного перка в разработке.,,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-EnableRunNGun,EnableRunNGun,Разблокирует <color EmStyle>Маневренный бой</color>.,,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ExtraAutoShots,ExtraAutoShots,Увеличивает размер <color EmStyle>длинной очереди</color> на 25%.,AutoShots=125,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ExtraBurstShots,ExtraBurstShots,Увеличивает размер <color EmStyle>короткой очереди</color> на 25%.,BurstShots=125,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-FirstShotIncreasedAim,FirstShotIncreasedAim,"Если ваше первое действие - атака, то оно производится, как если бы у вас был <min_aim>-й уровень прицеливания. Не действует на атаки в режиме контроля",min_aim=3,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-GLHandlingDecrease,GLHandlingDecrease,Подствольник: Уменьшает эргономику на <BipodsHandlingDecrease>,BipodsHandlingDecrease=5,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-GripHandlingIncrease,GripHandlingIncrease,Ствол: Увеличивает эргономику на <GripHandlingIncrease>,GripHandlingIncrease=5,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-IncreaseAimAccuracy15Percent,IncreaseAimAccuracy15Percent,Увеличивает эффективность прицеливания на 15%,AimAccuracyPercent=115,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-IncreaseMaxAimActions,IncreaseMaxAimActions,Увеличение количества уровней прицеливания на <IncreaseMaxAimActions>,IncreaseMaxAimActions=1,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-IncreaseShotAP,IncreaseShotAP,Увеличивает цену атаки в ОД на <ShotAP>.,ShotAP=1,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-LaserMark,LaserMark,WIP — механика сигнатурного перка в разработке.,LaserCTH=15;LaserDistance=10,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-MagazineHandlingDecrease,MagazineHandlingDecrease,Магазин: Уменьшает эргономику на <MagazineHandlingDecrease>,MagazineHandlingDecrease=10,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-MagazineHandlingIncrease,MagazineHandlingIncrease,Магазин: Увеличивает эргономику на <MagazineHandlingIncrease>,MagazineHandlingIncrease=5,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-MagazineSizeAdd,MagazineSizeAdd,Увеличенный размер магазина,MagazineSize=,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-MinorAccuracyBonus,MinorAccuracyBonus,Базовый шанс попасть +<bonus_cth>%,bonus_cth=5,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-NightsIronsBonus,NightsIronsBonus,Бонус стрельбы ночью +<NightsIronsBonus>%,,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-PointBlankBonus,PointBlankBonus,Бонус к стрельбе на дистанции до 10 клеток,PointBlankBonus=1,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-RecoilDecrease,RecoilDecrease,Уменьшает отдачу на <Recoil>,Recoil=,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-RecoilIncrease,RecoilIncrease,Увеличивает отдачу на <Recoil>,Recoil=1,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ReduceAimAccuracy15Percent,ReduceAimAccuracy15Percent,Уменьшает эффективность прицеливания на 15%,AimAccuracyPercent=85,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ReduceAimAccuracy20Percent,ReduceAimAccuracy20Percent,Уменьшает эффективность прицеливания на 20%,AimAccuracyPercent=80,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ReduceAimAccuracy50Percent,ReduceAimAccuracy50Percent,Уменьшает эффективность прицеливания на 50%,AimAccuracyPercent=50,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ReduceAimAccuracy80Percent,ReduceAimAccuracy80Percent,Уменьшает эффективность прицеливания на 80%,AimAccuracyPercent=20,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ReduceAimAccuracy90Percent,ReduceAimAccuracy90Percent,Уменьшает эффективность прицеливания на 90%,AimAccuracyPercent=10,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ReduceAuto25Percent,ReduceAuto25Percent,Уменьшает количество выстрелов в автоогне на <color EmStyle>50%</color>,AutoSize=75,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ReduceAuto50Percent,ReduceAuto50Percent,Уменьшает количество выстрелов в автоогне на <color EmStyle>50%</color>,AutoSize=50,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ReduceAuto75Percent,ReduceAuto75Percent,Уменьшает количество выстрелов в автоогне на <color EmStyle>75%</color>,AutoSize=25,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ReduceBurst25Percent,ReduceBurst25Percent,Уменьшает количество выстрелов в очереди на <color EmStyle>25%</color>,BurstSize=75,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ReduceBurst50Percent,ReduceBurst50Percent,Уменьшает количество выстрелов в очереди на <color EmStyle>50%</color>,BurstSize=50,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ReduceRange50Percent,ReduceRange50Percent,Уменьшает дальность наполовину,RangeMultiplier=50,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ScopeAccuracyIncreace,ScopeAccuracyIncreace,Прицел: Увеличивает бонус точности на <ScopeAccuracyIncrease>,ScopeAccuracyIncrease=5,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ScopeAccuracyReduce,ScopeAccuracyReduce,Прицел: Уменьшает бонус точности на <ScopeAccuracyReduce>,ScopeAccuracyReduce=5,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ScopeCTHBonus,ScopeCTHBonus,Прицел: бонус к точности в <ScopeCTH>%   (при использовании прицела),ScopeCTH=1;ScopeAimLevel=3,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ScopeHandlingReduce,ScopeHandlingReduce,Прицел: Уменьшает эргономику на <ScopeHandlingReduce>,ScopeHandlingReduce=10,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ScopeMagnification,ScopeMagnification,Оптика <ScopeMagnification>.<ScopeSubMagnification>× сдвигает эффективную зону дальше после <ScopeAimLevel>-го уровня прицеливания. Сильная оптика менее удобна вблизи.,ScopeMagnification=1;ScopeSubMagnification=;ScopeAimLevel=3,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ScopeOverwatchAngleDecrease,ScopeOverwatchAngleDecrease,Прицел: Уменьшает сектор контроля на 30%,ScopeOverwatchAngle=70,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ScopeOverwatchAngleDecreaseBig,ScopeOverwatchAngleDecreaseBig,Прицел: Уменьшает сектор контроля на 50%,,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ScopeOverwatchAngleIncreace,ScopeOverwatchAngleIncreace,Прицел: Увеличивает сектор контроля на 30%,ScopeOverwatchAngle=130,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ScopeOverwatchAngleIncreaceBig,ScopeOverwatchAngleIncreaceBig,Прицел: Увеличивает сектор контроля на 50%,ScopeOverwatchAngle=150,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-ShotsBeforeRecoilProne,ShotsBeforeRecoilProne,Добавляет 1 выстрел без отдачи в положении лежа,ShotsBeforeRecoilProne=1,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-SilencerGroupingReduce10,SilencerGroupingReduce10,Глушитель: Уменьшает кучность на 10%,SilencerGroupingReduce=90,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-SilencerGroupingReduce30,SilencerGroupingReduce30,Глушитель: Уменьшает кучность на 30%,SilencerGroupingReduce=70,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-SilencerGroupingReduce50,SilencerGroupingReduce50,Глушитель: Уменьшает кучность на 50%,SilencerGroupingReduce=50,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-SilencerHandlingReduce,SilencerHandlingReduce,Глушитель: Уменьшает эргономику на <SilencerHandlingReduce>,SilencerHandlingReduce=5,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-SilencerJamChance,SilencerJamChance,Глушитель: Увеличивает шанс клина,SilencerJamChance=100,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-SilentShots,SilentShots,Уменьшает звук выстрела до <NoiseMultiplier>% от стандартого,NoiseMultiplier=75,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-SmallMagnification,SmallMagnification,Прицел: доп. уровень зума: <SmallMagnification>.<SmallSubMagnification> кратности  (от <SmallAimLevel> уровня прицеливания и выше),SmallMagnification=1;SmallSubMagnification=;SmallAimLevel=,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-StockHandlingIncrease,StockHandlingIncrease,Приклад: Увеличивает эргономику на <StockHandlingIncrease>,BarrelHandlingIncrease=5,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
-TwoHanded,TwoHanded,Нельзя стрелять с одной руки,,jazz,09673e3a8dd397d662833fb530a3566f6596c4c0
+BarrelAccuracyIncrease,BarrelAccuracyIncrease,Ствол: Увеличивает точность на <BarrelAccuracyIncrease>,BarrelAccuracyIncrease=2,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+BarrelBulletDropIncrease,BarrelBulletDropIncrease,Ствол: Увеличивает настильность на <BulletDropIncrease>,BulletDropIncrease=2,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+BarrelBulletDropReduce,BarrelBulletDropReduce,Ствол: Уменьшает настильность на <BulletDropReduce>,BulletDropReduce=2,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+BarrelGroupingIncrease,BarrelGroupingIncrease,Ствол: Уменьшает кучность на 30%,SilencerGroupingReduce=110,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+BarrelGroupingReduce,BarrelGroupingReduce,Ствол: Уменьшает кучность на 10%,BarrelGroupingReduce=90,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+BarrelHandlingIncrease,BarrelHandlingIncrease,Ствол: Увеличивает эргономику на <BarrelHandlingIncrease>,BarrelHandlingIncrease=5,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+BarrelHandlingReduce,BarrelHandlingReduce,Ствол: Уменьшает эргономику на <BarrelHandlingReduce>,BarrelHandlingReduce=5,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+BarrelRangeIncrease,BarrelRangeIncrease,Ствол: Увеличивает дальность на <BarrelRangeIncrease>,BarrelRangeIncrease=2,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+BarrelRangeReduce,BarrelRangeReduce,Ствол: Уменьшает дальность на <BarrelRangeReduce>,BarrelRangeReduce=2,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+BarrelRecoilIncrease,BarrelRecoilIncrease,Ствол: Увеличивает отдачу на <BarrelRecoilIncrease>,BarrelRecoilIncrease=1,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+BarrelRecoilRecude,BarrelRecoilRecude,Ствол: Уменьшает отдачу на <BarrelRecoilRecude>,BarrelRecoilRecude=2,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+BipodsHandlingDecrease,BipodsHandlingDecrease,Сошки: Уменьшает эргономику на <BipodsHandlingDecrease>,BipodsHandlingDecrease=5,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ChangeCaliberToBMG,ChangeCaliberToBMG,Changes caliber to .50 BMG,,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+Cumbersome,Cumbersome,Громоздкое,Cumbersome=1,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+DecreaseMaxAimActions,DecreaseMaxAimActions,Уменьшение количества уровней прицеливания на <MaxAimActionsDecrease>,MaxAimActionsDecrease=1,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+EnableBurst,EnableBurst,WIP — механика сигнатурного перка в разработке.,,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+EnableRunNGun,EnableRunNGun,Разблокирует <color EmStyle>Маневренный бой</color>.,,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ExtraAutoShots,ExtraAutoShots,Увеличивает размер <color EmStyle>длинной очереди</color> на 25%.,AutoShots=125,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ExtraBurstShots,ExtraBurstShots,Увеличивает размер <color EmStyle>короткой очереди</color> на 25%.,BurstShots=125,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+FirstShotIncreasedAim,FirstShotIncreasedAim,"Если ваше первое действие - атака, то оно производится, как если бы у вас был <min_aim>-й уровень прицеливания. Не действует на атаки в режиме контроля",min_aim=3,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+GLHandlingDecrease,GLHandlingDecrease,Подствольник: Уменьшает эргономику на <BipodsHandlingDecrease>,BipodsHandlingDecrease=5,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+GripHandlingIncrease,GripHandlingIncrease,Ствол: Увеличивает эргономику на <GripHandlingIncrease>,GripHandlingIncrease=5,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+IncreaseAimAccuracy15Percent,IncreaseAimAccuracy15Percent,Увеличивает эффективность прицеливания на 15%,AimAccuracyPercent=115,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+IncreaseMaxAimActions,IncreaseMaxAimActions,Увеличение количества уровней прицеливания на <IncreaseMaxAimActions>,IncreaseMaxAimActions=1,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+IncreaseShotAP,IncreaseShotAP,Увеличивает цену атаки в ОД на <ShotAP>.,ShotAP=1,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+LaserMark,LaserMark,WIP — механика сигнатурного перка в разработке.,LaserCTH=15;LaserDistance=10,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+MagazineHandlingDecrease,MagazineHandlingDecrease,Магазин: Уменьшает эргономику на <MagazineHandlingDecrease>,MagazineHandlingDecrease=10,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+MagazineHandlingIncrease,MagazineHandlingIncrease,Магазин: Увеличивает эргономику на <MagazineHandlingIncrease>,MagazineHandlingIncrease=5,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+MagazineSizeAdd,MagazineSizeAdd,Увеличенный размер магазина,MagazineSize=,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+MinorAccuracyBonus,MinorAccuracyBonus,Базовый шанс попасть +<bonus_cth>%,bonus_cth=5,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+NightsIronsBonus,NightsIronsBonus,Бонус стрельбы ночью +<NightsIronsBonus>%,,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+PointBlankBonus,PointBlankBonus,Бонус к стрельбе на дистанции до 10 клеток,PointBlankBonus=1,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+RecoilDecrease,RecoilDecrease,Уменьшает отдачу на <Recoil>,Recoil=,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+RecoilIncrease,RecoilIncrease,Увеличивает отдачу на <Recoil>,Recoil=1,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ReduceAimAccuracy15Percent,ReduceAimAccuracy15Percent,Уменьшает эффективность прицеливания на 15%,AimAccuracyPercent=85,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ReduceAimAccuracy20Percent,ReduceAimAccuracy20Percent,Уменьшает эффективность прицеливания на 20%,AimAccuracyPercent=80,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ReduceAimAccuracy50Percent,ReduceAimAccuracy50Percent,Уменьшает эффективность прицеливания на 50%,AimAccuracyPercent=50,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ReduceAimAccuracy80Percent,ReduceAimAccuracy80Percent,Уменьшает эффективность прицеливания на 80%,AimAccuracyPercent=20,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ReduceAimAccuracy90Percent,ReduceAimAccuracy90Percent,Уменьшает эффективность прицеливания на 90%,AimAccuracyPercent=10,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ReduceAuto25Percent,ReduceAuto25Percent,Уменьшает количество выстрелов в автоогне на <color EmStyle>50%</color>,AutoSize=75,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ReduceAuto50Percent,ReduceAuto50Percent,Уменьшает количество выстрелов в автоогне на <color EmStyle>50%</color>,AutoSize=50,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ReduceAuto75Percent,ReduceAuto75Percent,Уменьшает количество выстрелов в автоогне на <color EmStyle>75%</color>,AutoSize=25,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ReduceBurst25Percent,ReduceBurst25Percent,Уменьшает количество выстрелов в очереди на <color EmStyle>25%</color>,BurstSize=75,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ReduceBurst50Percent,ReduceBurst50Percent,Уменьшает количество выстрелов в очереди на <color EmStyle>50%</color>,BurstSize=50,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ReduceRange50Percent,ReduceRange50Percent,Уменьшает дальность наполовину,RangeMultiplier=50,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ScopeAccuracyIncreace,ScopeAccuracyIncreace,Прицел: Увеличивает бонус точности на <ScopeAccuracyIncrease>,ScopeAccuracyIncrease=5,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ScopeAccuracyReduce,ScopeAccuracyReduce,Прицел: Уменьшает бонус точности на <ScopeAccuracyReduce>,ScopeAccuracyReduce=5,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ScopeCTHBonus,ScopeCTHBonus,Прицел: бонус к точности в <ScopeCTH>%   (при использовании прицела),ScopeCTH=1;ScopeAimLevel=3,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ScopeHandlingReduce,ScopeHandlingReduce,Прицел: Уменьшает эргономику на <ScopeHandlingReduce>,ScopeHandlingReduce=10,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ScopeMagnification,ScopeMagnification,Оптика <ScopeMagnification>.<ScopeSubMagnification>× сдвигает эффективную зону дальше после <ScopeAimLevel>-го уровня прицеливания. Сильная оптика менее удобна вблизи.,ScopeMagnification=1;ScopeSubMagnification=;ScopeAimLevel=3,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ScopeOverwatchAngleDecrease,ScopeOverwatchAngleDecrease,Прицел: Уменьшает сектор контроля на 30%,ScopeOverwatchAngle=70,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ScopeOverwatchAngleDecreaseBig,ScopeOverwatchAngleDecreaseBig,Прицел: Уменьшает сектор контроля на 50%,,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ScopeOverwatchAngleIncreace,ScopeOverwatchAngleIncreace,Прицел: Увеличивает сектор контроля на 30%,ScopeOverwatchAngle=130,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ScopeOverwatchAngleIncreaceBig,ScopeOverwatchAngleIncreaceBig,Прицел: Увеличивает сектор контроля на 50%,ScopeOverwatchAngle=150,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+ShotsBeforeRecoilProne,ShotsBeforeRecoilProne,Добавляет 1 выстрел без отдачи в положении лежа,ShotsBeforeRecoilProne=1,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+SilencerGroupingReduce10,SilencerGroupingReduce10,Глушитель: Уменьшает кучность на 10%,SilencerGroupingReduce=90,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+SilencerGroupingReduce30,SilencerGroupingReduce30,Глушитель: Уменьшает кучность на 30%,SilencerGroupingReduce=70,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+SilencerGroupingReduce50,SilencerGroupingReduce50,Глушитель: Уменьшает кучность на 50%,SilencerGroupingReduce=50,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+SilencerHandlingReduce,SilencerHandlingReduce,Глушитель: Уменьшает эргономику на <SilencerHandlingReduce>,SilencerHandlingReduce=5,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+SilencerJamChance,SilencerJamChance,Глушитель: Увеличивает шанс клина,SilencerJamChance=100,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+SilentShots,SilentShots,Уменьшает звук выстрела до <NoiseMultiplier>% от стандартого,NoiseMultiplier=75,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+SmallMagnification,SmallMagnification,Прицел: доп. уровень зума: <SmallMagnification>.<SmallSubMagnification> кратности  (от <SmallAimLevel> уровня прицеливания и выше),SmallMagnification=1;SmallSubMagnification=;SmallAimLevel=,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+StockHandlingIncrease,StockHandlingIncrease,Приклад: Увеличивает эргономику на <StockHandlingIncrease>,BarrelHandlingIncrease=5,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca
+TwoHanded,TwoHanded,Нельзя стрелять с одной руки,,jazz,6d040e136adcc0c5f1e2dd2832690d9c2a0c6eca

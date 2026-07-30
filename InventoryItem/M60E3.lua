@@ -57,21 +57,7 @@ DefineClass.M60E3 = {
 			},
 			'DefaultComponent', "M60E3HandGrip",
 		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Scope",
-			'Modifiable', false,
-			'CanBeEmpty', true,
-			'AvailableComponents', {
-				"LROptics",
-				"LROpticsAdvanced",
-				"ReflexSight",
-				"ReflexSightAdvanced",
-				"ScopeCOG",
-				"ScopeCOGQuick",
-				"ThermalScope",
 			},
-		}),
-	},
 	HolsterSlot = "Shoulder",
 	PreparedAttackType = "Machine Gun",
 	AvailableAttacks = {

@@ -67,16 +67,15 @@ DefineClass.Galil_FlagHill = {
 			},
 			'DefaultComponent', "Bipod_Galil",
 		}),
-		PlaceObj('WeaponComponentSlot', {
+				PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"ReflexSightAdvanced",
 				"JAZZ_Reflex_Aimpoint5000",
 				"JAZZ_Reflex_Eotech",
 				"JAZZ_CombatScope_ACOG",
 			},
-			'DefaultComponent', "ReflexSightAdvanced",
+			'DefaultComponent', "JAZZ_Reflex_Aimpoint5000",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",

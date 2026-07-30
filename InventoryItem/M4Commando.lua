@@ -69,19 +69,7 @@ DefineClass.M4Commando = {
 				"UVDot",
 			},
 		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Scope",
-			'CanBeEmpty', true,
-			'AvailableComponents', {
-				"LROptics",
-				"ReflexSight",
-				"ScopeCOG",
-				"ThermalScope",
-				"ReflexSightAdvanced",
-				"ScopeCOGQuick",
-			},
-		}),
-		PlaceObj('WeaponComponentSlot', {
+				PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {

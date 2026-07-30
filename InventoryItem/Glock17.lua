@@ -30,14 +30,7 @@ DefineClass.Glock17 = {
 	Noise = 22,
 	Entity = "Glock_17",
 	ComponentSlots = {
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Scope",
-			'CanBeEmpty', true,
-			'AvailableComponents', {
-				"ReflexSight",
-			},
-		}),
-		PlaceObj('WeaponComponentSlot', {
+				PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {

@@ -31,16 +31,7 @@ DefineClass.DesertEagle = {
 	Noise = 36,
 	Entity = "Weapon_DesertEagle",
 	ComponentSlots = {
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Scope",
-			'CanBeEmpty', true,
-			'AvailableComponents', {
-				"ReflexSight",
-				"ReflexSightAdvanced",
-				"ImprovedIronsight",
-			},
-		}),
-		PlaceObj('WeaponComponentSlot', {
+				PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"MagNormal",

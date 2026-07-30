@@ -27,14 +27,9 @@ DefineClass.AR15 = {
 	HandSlot = "TwoHanded",
 	Entity = "Weapon_AR15",
 	ComponentSlots = {
-		PlaceObj('WeaponComponentSlot', {
+				PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
 			'AvailableComponents', {
-				"ScopeCOG",
-				"LROptics",
-				"LROpticsAdvanced",
-				"ThermalScope",
-				"ReflexSight",
 				"DefaultIronsight_AR15",
 				"ImprovedIronsight_AR15",
 			},
