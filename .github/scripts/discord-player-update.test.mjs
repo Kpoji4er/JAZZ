@@ -22,6 +22,17 @@ import {
   safeErrorMessage,
 } from "./discord-player-update.mjs";
 
+test("system prompt treats merc Name/Nick as one person", async () => {
+  const source = await readFile(
+    fileURLToPath(new URL("./discord-player-update.mjs", import.meta.url)),
+    "utf8",
+  );
+  assert.match(source, /Имена наёмников/);
+  assert.match(source, /Trevor Colby/);
+  assert.match(source, /не второй персонаж/);
+  assert.match(source, /Колби и Тревор/);
+});
+
 function git(cwd, args) {
   const result = spawnSync("git", args, {
     cwd,
