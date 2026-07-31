@@ -123,7 +123,7 @@ Feasibility — инженерная оценка «как делать», не 
 
 | Мерк | Перк | Уточнённая механика | Как |
 | --- | --- | --- | --- |
-| Бритва | Ураган клинков | **v1:** Rampage/melee follow-up +20% CTH, crit chance forced 0. Charge +2 плитки — v2 если найдётся единая точка charge range. | `OnCalcChanceToHit` / `OnModifyCTHModifier` + `OnCalcCritChance`; charge — MEDIUM follow-up |
+| Бритва | Ураган клинков | **v1:** Rampage/melee follow-up +20% CTH, crit chance forced 0. Charge +2 плитки — v2 если найдётся единая точка charge range. | `OnCalcChanceToHit` / `OnModifyCTHModifier` + `OnCalcCritChance`; charge — отдельный follow-up |
 | Бешеный | Штурм в упор | Kill на range ≤1 → `Inspired` 2 хода | `OnCalcDamageAndEffects` / kill path + `AddStatusEffect("Inspired")` |
 | Нервный | Суперочередь | Autofire: +2 пули **или** −20% AP (не оба в v1). Рекомендация v1: +2 пули по образцу Buzz | `HasPerk` рядом с Buzz / `GetAutofireShots` |
 | Хеннинг | Кабинетный генерал | Союзники ≤5 плиток: +5 CTH на их следующую атаку в этот ход (статус-маркер 1 ход) | `OnBeginTurn` раздать temp status; статус даёт CTH через `OnCalcChanceToHit` |
@@ -136,7 +136,7 @@ Feasibility — инженерная оценка «как делать», не 
 | Шенк | Не трогай меня | Враги в melee по Шенку: −50% CTH | target-side `OnCalcChanceToHit` |
 | Вильде | Ночной автоматчик | Ночью Full-Auto/Burst +15% CTH | `OnCalcChanceToHit` + Night check |
 
-*(Бешеный в автоклассификации мог попасть в HARD из-за формулировок — по факту EASY.)*
+*В сводной таблице Blade/Madman могут стоять как MEDIUM из‑за составных Mechanics статьи; для Wave A берём только v1 из этой колонки.*
 
 ### 5.2 Волна B — MEDIUM (точечный Code)
 
