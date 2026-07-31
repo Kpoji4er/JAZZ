@@ -4,7 +4,7 @@
 
 On **Ernie**, the Legion runs Fort L'Eau Bleu (sector I7) through a regional HQ. On the satellite map, squads show a **role** icon and a **current task** on hover.
 
-Without the maps package (NoMaps profile) the same Global AI runs vanilla mainland outposts: garrisons, patrols, tax and recruiting. Enemy gear on the mainland scales from mines and sectors — see [Legion units](legion-units.md).
+Without the maps package (NoMaps profile) the same Global AI runs vanilla mainland outposts: garrisons, patrols, tax and recruiting. Enemy gear on the mainland: mines → II, World Flip → III, sectors → subtier — see [Legion units](legion-units.md).
 
 ## Squad roles
 

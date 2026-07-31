@@ -1,8 +1,10 @@
--- JAZZ-COMPAT-003: NoMaps Legion equipment tier from mines (major) + sectors (sub).
+-- JAZZ-COMPAT-003: NoMaps Legion equipment tier —
+-- major from mines (I→II) + WorldFlip (III); sub from sectors.
 -- Maps / Ernie profile keeps quest TCE on PlayerControlSectors (gated off while NoMaps active).
 
 local QUEST_ID = "JAZZ_LegionTier"
 local VAR_ID = "JAZZ_Legion_Tier"
+local BETRAYAL_QUEST = "04_Betrayal"
 
 local function lNoMapsActive()
 	return rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive() or false
@@ -14,6 +16,17 @@ end
 
 local function lIsPlayerSide(side)
 	return side == "player1" or side == "player2"
+end
+
+-- Same signal Bobby Ray uses for shop tier 3: TriggerWorldFlip OR WorldFlipDone.
+function JAZZ_IsWorldFlipProgressionActive()
+	local quest = gv_Quests and gv_Quests[BETRAYAL_QUEST]
+	if not quest then
+		return false
+	end
+	local state = QuestGetState and QuestGetState(BETRAYAL_QUEST)
+	local src = state or quest
+	return not not (src.TriggerWorldFlip or src.WorldFlipDone)
 end
 
 function JAZZ_CountPlayerSurfaceSectorsAndMines()
@@ -30,16 +43,17 @@ function JAZZ_CountPlayerSurfaceSectorsAndMines()
 end
 
 -- Pure formula for tests / diagnostics. Returns encoded tier 11..33 (valid set).
-function JAZZ_ComputeLegionTierNoMaps(mines, sectors)
+-- world_flip: boolean — unlocks major III (same as 04_Betrayal WorldFlip flags).
+function JAZZ_ComputeLegionTierNoMaps(mines, sectors, world_flip)
 	mines = mines or 0
 	sectors = sectors or 0
 	local major
-	if mines <= 0 then
-		major = 1
-	elseif mines <= 2 then
+	if world_flip then
+		major = 3
+	elseif mines >= 1 then
 		major = 2
 	else
-		major = 3
+		major = 1
 	end
 	local sub
 	if major == 1 then
@@ -104,7 +118,8 @@ function JAZZ_UpdateLegionTierForNoMaps()
 		return false
 	end
 	local sectors, mines = JAZZ_CountPlayerSurfaceSectorsAndMines()
-	local computed = JAZZ_ComputeLegionTierNoMaps(mines, sectors)
+	local world_flip = JAZZ_IsWorldFlipProgressionActive()
+	local computed = JAZZ_ComputeLegionTierNoMaps(mines, sectors, world_flip)
 	local current = lGetCurrentTier() or 11
 	if computed <= current then
 		return false
@@ -117,11 +132,12 @@ function JAZZ_UpdateLegionTierForNoMaps()
 	end
 	if CombatLog and Untranslated then
 		CombatLog("debug", Untranslated(string.format(
-			"[JAZZ Legion Tier] NoMaps %d → %d (mines=%d sectors=%d)",
+			"[JAZZ Legion Tier] NoMaps %d → %d (mines=%d sectors=%d worldflip=%s)",
 			current,
 			computed,
 			mines,
-			sectors
+			sectors,
+			tostring(world_flip)
 		)))
 	end
 	return computed

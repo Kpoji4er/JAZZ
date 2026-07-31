@@ -79,9 +79,10 @@ approved_by: project-owner
   `ManagedOutposts={}`, `Sectors={}`.
 - `JAZZ-COMPAT-003-REQ-003` — `GetRegionForSector` возвращает enabled Legion AI region при
   нескольких совпадениях; иначе любой match (legacy).
-- `JAZZ-COMPAT-003-REQ-004` — NoMaps-only progression: major от числа player-owned `Mine`
-  surface sectors; sub от числа player-owned surface sectors; encoding `major*10+sub` в
-  допустимом множестве `{11,12,13,21..25,31,32,33}`; только вверх (не откатывать tier).
+- `JAZZ-COMPAT-003-REQ-004` — NoMaps-only progression: major I→II от player-owned `Mine`
+  (≥1 → II); major III от WorldFlip (`04_Betrayal.TriggerWorldFlip` или `WorldFlipDone`,
+  тот же сигнал что Bobby Ray shop T3); sub от числа player-owned surface sectors;
+  encoding `major*10+sub` в `{11,12,13,21..25,31,32,33}`; только вверх.
 - `JAZZ-COMPAT-003-REQ-005` — TCE `JAZZ_LegionTier` не срабатывают, пока `JAZZ_NoMapsIsActive()`.
 - `JAZZ-COMPAT-003-REQ-006` — смена tier → `RegenerateLegionLoot()` как у TCE.
 - `JAZZ-COMPAT-003-REQ-007` — existing NoMaps save: one-shot economy rev поднимает outpost
@@ -90,11 +91,11 @@ approved_by: project-owner
 
 ### Формула tier (NoMaps)
 
-| Player mines | Major |
-| ---: | ---: |
-| 0 | 1 |
-| 1–2 | 2 |
-| ≥3 | 3 |
+| Условие | Major |
+| --- | ---: |
+| иначе (0 mines, до WorldFlip) | 1 |
+| ≥1 player mine, до WorldFlip | 2 |
+| `04_Betrayal` `TriggerWorldFlip` **или** `WorldFlipDone` | 3 |
 
 | Major | Player sectors → sub |
 | ---: | --- |
@@ -103,7 +104,7 @@ approved_by: project-owner
 | 3 | ≤4→1, ≤7→2, else→3 |
 
 Считаются surface sectors (`not GroundSector`, Passability не Water/Blocked) со `Side` player1/player2.
-Mine = `sector.Mine` и тот же side-фильтр.
+Mine = `sector.Mine` и тот же side-фильтр. WorldFlip перекрывает mines (III даже при 0 шахт).
 
 ## Инварианты и ограничения
 
@@ -147,7 +148,7 @@ Mine = `sector.Mine` и тот же side-фильтр.
 - `JAZZ-COMPAT-003-AC-001`: `PASS (static)` — `NoMaps_Autonomy.lua` StartingManpower=40, TaxCap/RecruiterCap=1, disable clears Sectors; patch kit 0.7.
 - `JAZZ-COMPAT-003-AC-002`: `PASS (static)` — `Regions_Sectors.lua` prefers `LegionAIEnabled`.
 - `JAZZ-COMPAT-003-AC-003`: `PASS (static)` — `LegionTierProgression.lua` + 11 TCE `CheckExpression` gates in `items.lua`.
-- `JAZZ-COMPAT-003-AC-004`: `PASS (static)` — 15 formula cases (mines,sectors)→tier.
+- `JAZZ-COMPAT-003-AC-004`: `PASS (static)` — formula cases (mines,sectors,world_flip)→tier; III only when world_flip.
 - `JAZZ-COMPAT-003-AC-005`: `BLOCKED (runtime/human)` — NoMaps new game / mine capture / maps TCE smoke.
 - `JAZZ-COMPAT-003-AC-006`: `PASS (static)` — ModItemCode + metadata.code wired; editor round-trip still open.
 

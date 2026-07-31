@@ -180,15 +180,15 @@ Quest `JAZZ_LegionTier` создаётся с `Given = true`, а `JAZZ_Legion_Ti
 
 Каждому переходу соответствует `QuestVarTCEState`, поэтому это одноразовые quest events, а не формула, вычисляемая при каждом чтении. У перехода в `12` дополнительно стоит guard `JAZZ_Legion_Tier <= 23`; он не даёт поздно сработавшему раннему событию откатить уже достигнутую третью группу.
 
-### NoMaps: шахты → major, сектора → sub (COMPAT-003)
+### NoMaps: шахты → II, WorldFlip → III, сектора → sub (COMPAT-003)
 
 На профиле `jazz-nomaps` (`JAZZ_NoMapsIsActive`) quest TCE по `PlayerControlSectors` **не срабатывают** (`CheckExpression` gate). Вместо них `Code/LegionTierProgression.lua` считает tier и только **поднимает** `JAZZ_Legion_Tier` (без отката):
 
-| Player mines (surface) | Major |
-| ---: | ---: |
-| 0 | 1 |
-| 1–2 | 2 |
-| ≥3 | 3 |
+| Условие | Major |
+| --- | ---: |
+| 0 mines, до WorldFlip | 1 |
+| ≥1 player mine, до WorldFlip | 2 |
+| `04_Betrayal` `TriggerWorldFlip` или `WorldFlipDone` | 3 |
 
 | Major | Player surface sectors → sub |
 | ---: | --- |
@@ -196,7 +196,7 @@ Quest `JAZZ_LegionTier` создаётся с `Given = true`, а `JAZZ_Legion_Ti
 | 2 | ≤2→1, ≤4→2, ≤6→3, ≤8→4, else→5 |
 | 3 | ≤4→1, ≤7→2, else→3 |
 
-Хуки: `SectorSideChanged`, `SatelliteTick`, `OpenSatelliteView`, Load/NewGame. Смена → `RegenerateLegionLoot()` как у TCE. Ernie/maps профиль без изменений.
+WorldFlip — тот же булев сигнал, что открывает Bobby Ray shop tier 3. Хуки: `SectorSideChanged`, `SatelliteTick`, `OpenSatelliteView`, Load/NewGame. Смена → `RegenerateLegionLoot()` как у TCE. Ernie/maps профиль без изменений.
 
 ### Как tier фильтрует LootDef
 
