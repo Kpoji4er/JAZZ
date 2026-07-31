@@ -180,6 +180,24 @@ Quest `JAZZ_LegionTier` создаётся с `Given = true`, а `JAZZ_Legion_Ti
 
 Каждому переходу соответствует `QuestVarTCEState`, поэтому это одноразовые quest events, а не формула, вычисляемая при каждом чтении. У перехода в `12` дополнительно стоит guard `JAZZ_Legion_Tier <= 23`; он не даёт поздно сработавшему раннему событию откатить уже достигнутую третью группу.
 
+### NoMaps: time progression (COMPAT-003) — только без maps
+
+На профиле `jazz-nomaps` (`JAZZ_NoMapsIsActive`) quest TCE по `PlayerControlSectors` **не срабатывают**. `Code/LegionTierProgression.lua` + `gv_JAZZ_LegionTierNoMaps` двигают `JAZZ_Legion_Tier` **только вверх** по `Game.CampaignTime`:
+
+| Major | Как открывается |
+| ---: | --- |
+| 1 | старт |
+| 2 | первая player-owned шахта + **3 суток** |
+| 3 | WorldFlip (`04_Betrayal` `TriggerWorldFlip` / `WorldFlipDone`, как Bobby Ray T3) |
+
+| Major | Шаг подтира | Потолок |
+| ---: | --- | ---: |
+| 1 | каждые **3** дня | 13 |
+| 2 | каждые **14** дней | 25 |
+| 3 | каждые **14** дней | 33 |
+
+При смене major таймер подтира сбрасывается (старт с `x1`). Сектора на NoMaps tier не влияют. Ernie/maps — прежние TCE.
+
 ### Как tier фильтрует LootDef
 
 Боевые class LootDef после JAZZ-UNITS-003 используют **exclusive arch bands** (примерно `[11,19]` / `[21,29]` / `≥31`) плюс веса внутри band. У `QuestIsVariableNum` comparator по умолчанию равен `>=`; явные `<=` задают верхнюю границу. На mid (`20–29`) оружие `balance_tier==1` остаётся редким remnant (~1% веса parent pool, weight `1400`); на late (`≥30`) tier1 primary отсутствует.

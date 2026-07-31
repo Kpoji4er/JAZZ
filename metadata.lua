@@ -5,7 +5,7 @@
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- Named perks Wave A (JAZZ-UNITS-003): Madman/Blade/Nervous/Henning/Vicious/Dynamo/Eskimo/Lucky/Shank/Vilde/Laura/Vince/Steiger + Lynx Range CTH\n- Hide false Lynx/Buzz/Spider/Colby HUD toggles; remove orphan Jazz_Perk_44840\n- Jazz_OrderCTH ally accuracy buff status",
+	'last_changes', "- Named perks Wave A (JAZZ-UNITS-003): Madman/Blade/Nervous/Henning/Vicious/Dynamo/Eskimo/Lucky/Shank/Vilde/Laura/Vince/Steiger + Lynx Range CTH\n- Hide false Lynx/Buzz/Spider/Colby HUD toggles; remove orphan Jazz_Perk_44840\n- Jazz_OrderCTH ally accuracy buff status\n- COMPAT-003: NoMaps Global AI + timed Legion tiers (mine+3d/WorldFlip; sub 3d/14d)\n- NoMaps review fixes: gear refresh / tier race",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 48,
+	'version_minor', 49,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
@@ -44,6 +44,7 @@
 		"Const/Ammo.lua",
 		"Const/Grenade.lua",
 		"Code/UtilityFunc.lua",
+		"Code/LegionTierProgression.lua",
 		"Code/VanillaDesyncFixes.lua",
 		"InventoryItem/FlareAmmo.lua",
 		"InventoryItem/JAZZ_AMMO_9x19_Poor.lua",

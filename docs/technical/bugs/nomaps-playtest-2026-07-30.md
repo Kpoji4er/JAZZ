@@ -82,6 +82,24 @@ Inject на `ExplorationStart` / `CombatStart` кладёт эти классы 
 
 **Остаётся (human):** smoke I2 — нет `TEST.png` / `MP5` (ОТКЛЮЧЕНО); Hi-Power только с `JAZZ_Caliber_9x19` ammo.
 
+### B7 — Global AI «заморожен» (Discord 2026-07-31)
+
+Симптом: на NoMaps не появляются managed отряды / нет tax–recruiter цикла.
+
+Static root cause (до 0.7):
+
+1. `JAZZ_Auto_*` стартовали с `StartingManpower=12` при garrison `size_min=25` → composition generator отказывает;
+2. `TaxCap=0` / `RecruiterCap=0` → manpower не восстанавливается;
+3. disabled `ErnieIsland` оставлял `Sectors` (I2–I7…), совпадающие с HotDiamonds → `GetRegionForSector` мог вернуть disabled region.
+
+**Fix (nomaps 0.7 + jazz COMPAT-003):** manpower 40 / Tax+Recruiter on / clear Sectors / `ai_economy_rev` migrate; jazz `GetRegionForSector` предпочитает `LegionAIEnabled`. Patch kit: `docs/patches/jazz-nomaps-0.4/`.
+
+### B8 — Gear refresh пропускал отряды (`ipairs` по sparse `gv_Squads`)
+
+`lRefreshEnemyLoadouts` обходил `gv_Squads` через `ipairs`. После despawn появляются дыры в id-map → refresh обрывался, часть врагов без ammo sanitize / armor remap.
+
+**Fix (nomaps 0.8):** `sorted_pairs(gv_Squads)`; refresh также на Exploration/Combat; Affiliation `Thugs`; one-shot log missing EnemySquadDef; expand remap + prefix heuristic; after bootstrap зовёт `JAZZ_UpdateLegionTierForNoMaps` (гонка Load/NewGame с jazz).
+
 ## Evidence
 
 - Discord скрины: инвентарь отряда «Чарли», схрон/трупы/сундук сектор I2.

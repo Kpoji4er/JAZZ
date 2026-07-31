@@ -1552,6 +1552,10 @@ return {
 			'name', "UtilityFunc",
 			'CodeFileName', "Code/UtilityFunc.lua",
 		}),
+		PlaceObj('ModItemCode', {
+			'name', "LegionTierProgression",
+			'CodeFileName', "Code/LegionTierProgression.lua",
+		}),
 		PlaceObj('ModItemEmail', {
 			body = T(890000000001015, --[[ModItemEmail LegionTier1 body]] "Тир1-1\n"),
 			group = "Default",
@@ -1920,6 +1924,9 @@ return {
 			TCEs = {
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
+						PlaceObj('CheckExpression', {
+							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 1,
 							Condition = "<",
@@ -1942,6 +1949,9 @@ return {
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
+						PlaceObj('CheckExpression', {
+							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 1,
 						}),
@@ -1969,6 +1979,9 @@ return {
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
+						PlaceObj('CheckExpression', {
+							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 2,
 						}),
@@ -1990,6 +2003,9 @@ return {
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
+						PlaceObj('CheckExpression', {
+							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 3,
 						}),
@@ -2011,6 +2027,9 @@ return {
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
+						PlaceObj('CheckExpression', {
+							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 4,
 						}),
@@ -2032,6 +2051,9 @@ return {
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
+						PlaceObj('CheckExpression', {
+							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 5,
 						}),
@@ -2053,6 +2075,9 @@ return {
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
+						PlaceObj('CheckExpression', {
+							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 6,
 						}),
@@ -2074,6 +2099,9 @@ return {
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
+						PlaceObj('CheckExpression', {
+							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 7,
 						}),
@@ -2095,6 +2123,9 @@ return {
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
+						PlaceObj('CheckExpression', {
+							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 8,
 						}),
@@ -2116,6 +2147,9 @@ return {
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
+						PlaceObj('CheckExpression', {
+							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 9,
 						}),
@@ -2137,6 +2171,9 @@ return {
 				}),
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
+						PlaceObj('CheckExpression', {
+							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 10,
 						}),

@@ -11,16 +11,22 @@ SatelliteSector.properties[#SatelliteSector.properties + 1] = {
 
 
 function GetRegionForSector(sector_id)
+  -- Prefer LegionAIEnabled match when several regions list the same sector
+  -- (NoMaps: disabled ErnieIsland must not shadow JAZZ_Auto_*).
+  local fallback = nil
   for _, region in sorted_pairs(Regions or empty_table) do
       if region.Sectors then
           for _, s_id in ipairs(region.Sectors) do
               if s_id == sector_id then
-                  return region
+                  if region.LegionAIEnabled then
+                      return region
+                  end
+                  fallback = fallback or region
               end
           end
       end
   end
-  return nil
+  return fallback
 end
 
 
