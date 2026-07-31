@@ -33,4 +33,4 @@ No CommonLib rewrite of `AIPrecalcDamageScore` or LoF reuse across destinations.
 
 ## Mod notes
 
-JAZZ overrides this path and caches CTH aim grids used by `PickBestAttack`. That removes a secondary cost; the LoF matrix itself still follows vanilla structure and must stay net-deterministic (RNG / hashes).
+JAZZ `JAZZ-AI-PERF-001` (`AiActions.lua`): soft target prune only when `#targets > 24` with wide margin (`weapon_range + 8 slabs`); early-out dest when `g_AIDestEnemyLOSCache[dest] == false`; does not expand Think subsets to `all_destinations`. CTH aim-grid cache remains. Gated log: `config.JAZZ_AIPerfLog` → `[JAZZ-AI-PERF] Precalc ...`.

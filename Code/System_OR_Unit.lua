@@ -153,15 +153,20 @@ local function JAZZ_SightScaledArmorStat(value, condition_percent, degrade_permi
 end
 
 local function JAZZ_IsTargetIndoors(other, step_pos)
-	-- AICheckIndoors expects packed stance_pos (number). GetSightRadius often gets a Point
-	-- (e.g. RevealUnitBeforeMove goto_pos) — do not pass that to stance_pos_unpack.
+	-- AICheckIndoors / stance_pos_unpack accept only packed stance_pos (number).
+	-- RevealUnitBeforeMove passes goto_pos as Point into GetSightRadius — never forward that.
+	-- Fingerprint: if a stack still shows AICheckIndoors at this function's first lines,
+	-- the running VM has the pre-fix body (ReloadLua mid-stuck AITurn does not recover).
 	if type(step_pos) == "number" then
-		if AICheckIndoors then
-			return not not AICheckIndoors(step_pos)
+		if not AICheckIndoors then
+			return false
 		end
-	elseif step_pos and IsPoint(step_pos) then
-		local volume = EnumVolumes(step_pos, "smallest")
-		return not not volume
+		local ok, indoors = pcall(AICheckIndoors, step_pos)
+		return ok and indoors and true or false
+	end
+	if step_pos and IsPoint(step_pos) then
+		local ok, volume = pcall(EnumVolumes, step_pos, "smallest")
+		return ok and volume and true or false
 	end
 	return IsKindOf(other, "Unit") and not not other.indoors
 end
@@ -576,7 +581,20 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 	local aim = args and args.aim or 0
 	local opportunity_attack = args and args.opportunity_attack
 	local attacker_pos = args and (args.step_pos or args.goto_pos) or self:GetPos()
-	local target_pos = args and args.target_pos or IsPoint(target) and target or target:GetPos()
+	local target_pos = args and args.target_pos
+	if not target_pos then
+		if IsPoint(target) then
+			target_pos = target
+		elseif IsValid(target) then
+			target_pos = target:GetPos()
+		end
+	end
+	if not IsPoint(attacker_pos) or not IsPoint(target_pos) then
+		if chance_only then
+			return 0
+		end
+		return 0, 0, modifiers
+	end
 
 
 	local base = 0
@@ -784,7 +802,16 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 	end
 	base = Max(0, mod_data.enabled and MulDivRound(base + mod_data.mod_add, mod_data.mod_mul, 100) or 0)
 
-	local dist = Max(1,attacker_pos:Dist(target_pos)/const.SlabSizeX)
+	-- Do not re-fetch target:GetPos() here: AI may call CTH on units whose packed stance
+	-- is already known while GetPos is transiently invalid (melee Think / Precalc).
+	if not IsPoint(attacker_pos) or not IsPoint(target_pos) then
+		if chance_only then
+			return 0
+		end
+		return 0, 0, modifiers
+	end
+
+	local dist = Max(1, attacker_pos:Dist(target_pos) / const.SlabSizeX)
 
 	local MaxCTH = 100
 
@@ -796,7 +823,6 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 --		end
 --	end
 
-	local target_pos = IsPoint(target) and target or target:GetPos()
 	local knife_throw = IsKindOf(weapon, "MeleeWeapon") and (action.ActionType == "Ranged Attack")
 	local penalty = weapon:GetAccuracy(attacker_pos:Dist(target_pos), self, action, knife_throw) - 100
 	--print(penalty)

@@ -36,6 +36,8 @@ Medic freeze на Bandage unreachable; Late-only heal; bleed не приорит
 - `JAZZ-AI-MED-001-REQ-001` — Healer Score: Bleeding → высокий weight; иначе HP&lt;85%.
 - `JAZZ-AI-MED-001-REQ-002` — turn_phase Normal; один Priority Bandage.
 - `JAZZ-AI-MED-001-REQ-003` — OptLocSearchRadius ≤45.
+  - items.lua: Medic / Medic_Low = 45.
+  - **Runtime:** `JazzAI_ApplyMedicOptLocCap` in `Code/AICombatStance.lua` (`ModsReloaded` / `DataLoaded`) clamps preset to 45 so editor autosave cannot restore 80.
 - `JAZZ-AI-MED-001-REQ-004` — Bandage unreachable → no "stop" freeze; optional revert Frontliner.
 
 ## Инварианты и ограничения

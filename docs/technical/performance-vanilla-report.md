@@ -25,9 +25,10 @@
 
 1. **`GetCTHByAimLevels` cache** (`CombatAI.lua`) — сетка CTH по `(enemy, action, max_aim)` внутри одного `AICreateContext` / Dump / dest score. Убирает повторные полные `CalcChanceToHit` на одном и том же враге.
 2. **Ранний `unit.ai_context`** — кэш доступен уже во время первого прохода врагов в `AICreateContext`.
-3. **`AIUpdateDestLosCache` compact** — один проход вместо серии `table.remove` (O(n²) → O(n)).
-4. **Sight armor integer path** — `GetDegradationMultiplierPermille` вместо float `GetDegradationMultiplier` в `GetSightRadius`.
-5. **Suppression idle Sleep(200)** — поток очереди WP не крутится каждые 10 ms на пустой очереди.
+3. **`AIUpdateDestLosCache` compact + far-skip + dest-cap (JAZZ-AI-PERF-001)** — compact O(n); dests farther than sight from all enemies skip `CheckLOS`; at most 320 CheckLOS dests (priority stay/important/behavior, then nearest). Enemy range shortlist rolled back (full enemies).
+4. **`AIPrecalcDamageScore` soft prune + DestLOS early-out (JAZZ-AI-PERF-001)** — range prune only if &gt;24 targets (wide margin); dest with cache `false` без `GetLoFData`.
+5. **Sight armor integer path** — `GetDegradationMultiplierPermille` вместо float `GetDegradationMultiplier` в `GetSightRadius`.
+6. **Suppression idle Sleep(200)** — поток очереди WP не крутится каждые 10 ms на пустой очереди.
 6. **`UpdateSuspicion` hoist** — `max_sight_radius` / локали `HasVisibilityTo` / `IsCloser` один раз на тик (паттерн CLib).
 
 Уже существовавшие (не регрессировать): один observer-pass брони в sight, smoke early-out, suppression enemy list once/attack, `damage_score_precalced`, flank/surrounded caches, AI dest LOS batch+yield, crosshair `cached_results`, auto fast-forward unseen AI.

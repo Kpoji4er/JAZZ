@@ -827,38 +827,186 @@ function AIFindDestinations(unit, context)
 end
 
 
+-- JAZZ-AI-PERF-001: DestLos dest-cap + far-skip; soft Precalc target prune.
+-- Enemy shortlist rolled back: use full enemies (smarter LOS). Cap CheckLOS dests.
+JAZZ_AI_PERF_RANGE_MARGIN = 2 * const.SlabSizeX
+JAZZ_AI_PERF_DESTLOS_CAP = 320
+JAZZ_AI_PERF_PRECALC_TARGET_SOFT = 24 -- only range-prune when more targets than this
+JAZZ_AI_PERF_PRECALC_MARGIN_MULT = 4 -- soft: margin * this (8 slabs default)
+
+function JAZZ_AIPerfLog(fmt, ...)
+	if config.JAZZ_AIPerfLog then
+		printf("[JAZZ-AI-PERF] " .. fmt, ...)
+	end
+end
+
+local function JAZZ_AIStancePosDist2DSqr(a, b)
+	local ax, ay = stance_pos_unpack(a)
+	local bx, by = stance_pos_unpack(b)
+	local dx, dy = ax - bx, ay - by
+	return dx * dx + dy * dy
+end
+
+function JAZZ_AISortUnitsByHandle(units)
+	table.sort(units, function(u1, u2)
+		return (u1.handle or 0) < (u2.handle or 0)
+	end)
+	return units
+end
+
+-- Soft Precalc: targets within range of any dest/stay. Stable by handle.
+function JAZZ_AIShortlistTargetsByRange(targets, destinations, stay, range)
+	local shortlist = {}
+	if not targets or #targets == 0 then
+		return shortlist
+	end
+	if not range then
+		for i = 1, #targets do
+			shortlist[i] = targets[i]
+		end
+		return JAZZ_AISortUnitsByHandle(shortlist)
+	end
+	local dests = destinations
+	if not dests or #dests == 0 then
+		dests = stay and {stay} or empty_table
+	end
+	local range_sqr = range * range
+	for i = 1, #targets do
+		local target = targets[i]
+		local tpos = GetPackedPosAndStance(target)
+		if tpos then
+			for j = 1, #dests do
+				if JAZZ_AIStancePosDist2DSqr(dests[j], tpos) <= range_sqr then
+					shortlist[#shortlist + 1] = target
+					break
+				end
+			end
+		end
+	end
+	return JAZZ_AISortUnitsByHandle(shortlist)
+end
+
+-- Prefer stay / important / behavior dests, then nearest by 2D; stable by packed dest.
+function JAZZ_AICapDestLosCandidates(unit, context, dests, cap)
+	if not dests or #dests <= cap then
+		return dests, 0
+	end
+	local stay = context.unit_stance_pos or GetPackedPosAndStance(unit)
+	local priority = {}
+	local function mark(d)
+		if d then
+			priority[d] = true
+		end
+	end
+	mark(stay)
+	for _, d in ipairs(context.important_dests or empty_table) do
+		mark(d)
+	end
+	for _, d in ipairs(context.destinations or empty_table) do
+		mark(d)
+	end
+
+	local pri, rest = {}, {}
+	for i = 1, #dests do
+		local d = dests[i]
+		if priority[d] then
+			pri[#pri + 1] = d
+		else
+			rest[#rest + 1] = d
+		end
+	end
+	table.sort(pri, function(a, b)
+		return a < b
+	end)
+	table.sort(rest, function(a, b)
+		local da = stay and JAZZ_AIStancePosDist2DSqr(stay, a) or 0
+		local db = stay and JAZZ_AIStancePosDist2DSqr(stay, b) or 0
+		if da ~= db then
+			return da < db
+		end
+		return a < b
+	end)
+
+	local out = {}
+	for i = 1, #pri do
+		if #out >= cap then
+			break
+		end
+		out[#out + 1] = pri[i]
+	end
+	for i = 1, #rest do
+		if #out >= cap then
+			break
+		end
+		out[#out + 1] = rest[i]
+	end
+	return out, #dests - #out
+end
+
 function AIUpdateDestLosCache(unit, context)
     PauseInfiniteLoopDetection("AiCalc")
 	assert(CurrentThread()) -- the function will sleep internally due to the amount of calculations performed
-	--local tStart = GetPreciseTicks()
-	--ic("AIUpdateDestLosCache start", #units)
+	local tStart = config.JAZZ_AIPerfLog and GetPreciseTicks() or nil
 	local sight = unit:GetSightRadius()
 	local all_destinations = context.all_destinations
 	local enemies = context.enemies
 	if #enemies == 0 then 
         ResumeInfiniteLoopDetection("AiCalc")
         return end
-	NetUpdateHash("AIUpdateDestLosCache_Start", GameTime(), sight, #all_destinations, hashParamTable(all_destinations), #enemies, hashParamTable(context.enemy_pack_pos_stance))
 
+	-- Full enemy set (sorted) — smarter than range shortlist; CheckLOS still sight-capped.
+	local enemies_for_los = {}
+	for i = 1, #enemies do
+		enemies_for_los[i] = enemies[i]
+	end
+	JAZZ_AISortUnitsByHandle(enemies_for_los)
+
+	local sight_sqr = sight * sight
 	local dests
 	local los_cache = g_AIDestEnemyLOSCache
+	local skipped_far = 0
 	for _, dest in ipairs(all_destinations) do
 		if los_cache[dest] == nil then
-			if not dests then dests = {} end
-			dests[#dests + 1] = dest
-			los_cache[dest] = false
+			local near_enemy = false
+			for i = 1, #enemies_for_los do
+				local ppos = context.enemy_pack_pos_stance[enemies_for_los[i]]
+				if ppos and JAZZ_AIStancePosDist2DSqr(dest, ppos) <= sight_sqr then
+					near_enemy = true
+					break
+				end
+			end
+			if near_enemy then
+				if not dests then dests = {} end
+				dests[#dests + 1] = dest
+				los_cache[dest] = false
+			else
+				-- Farther than sight from every enemy: no LOS possible at CheckLOS sight.
+				los_cache[dest] = false
+				skipped_far = skipped_far + 1
+			end
 		end
 	end
+
+	local capped_out = 0
 	if dests then
+		local cap = JAZZ_AI_PERF_DESTLOS_CAP or 320
+		dests, capped_out = JAZZ_AICapDestLosCandidates(unit, context, dests, cap)
+	end
+
+	local check_dest_count = dests and #dests or 0
+	NetUpdateHash("AIUpdateDestLosCache_Start", GameTime(), sight, #all_destinations, hashParamTable(all_destinations),
+		#enemies_for_los, hashParamTable(enemies_for_los), check_dest_count, capped_out, JAZZ_AI_PERF_DESTLOS_CAP or 320)
+
+	if dests and #dests > 0 then
 		local max_los_checks = 100
 		local targets = {}
 		local srcs = {}
-		local enemies_count = #enemies
+		local enemies_count = #enemies_for_los
 		local next_dest_idx = 1
 		local start_dest_idx = 1
 		local cur_enemy = 1
 		while true do
-			local ppos = context.enemy_pack_pos_stance[enemies[cur_enemy]]
+			local ppos = context.enemy_pack_pos_stance[enemies_for_los[cur_enemy]]
 			local count = #targets
 			local last_dest_idx = Min(#dests, next_dest_idx + max_los_checks - count - 1)
 			for i = next_dest_idx, last_dest_idx do
@@ -923,7 +1071,11 @@ function AIUpdateDestLosCache(unit, context)
 
 	NetUpdateHash("AIUpdateDestLosCache_End", GameTime())
     ResumeInfiniteLoopDetection("AiCalc")
-	--printf("AIUpdateDestLosCache: %d ms for %s", GetPreciseTicks() - tStart, unit.unitdatadef_id)
+	if tStart then
+		JAZZ_AIPerfLog("DestLos unit=%s ms=%d dests=%d enemies=%d check_dests=%d skipped_far=%d capped=%d",
+			tostring(unit.unitdatadef_id or unit.class), GetPreciseTicks() - tStart,
+			#all_destinations, #enemies, check_dest_count, skipped_far, capped_out)
+	end
 end
 
 function AIBuildArchetypePaths(unit, pos, context)
@@ -1987,4 +2139,16 @@ function AIPickScoutLocation(unit)
 		local x, y, z = point_unpack(voxel)
 		return point(x, y, z)
 	end	
+end
+
+-- JAZZ-AI-PERF-001: gated wall-clock for a full AI side turn.
+local JAZZ_Combat_AITurn = Combat.AITurn
+function Combat:AITurn(team)
+	local t0 = config.JAZZ_AIPerfLog and GetPreciseTicks() or nil
+	JAZZ_Combat_AITurn(self, team)
+	if t0 then
+		JAZZ_AIPerfLog("AITurn side=%s ms=%d units=%d",
+			tostring(team and team.side), GetPreciseTicks() - t0,
+			team and team.units and #team.units or 0)
+	end
 end

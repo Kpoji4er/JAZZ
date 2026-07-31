@@ -33,4 +33,8 @@ CommonLib `FixAI.lua` changes suspicion / action selection / RunAndGun, not dest
 
 ## Mod notes
 
-JAZZ overrides `AIUpdateDestLosCache` and compacted visible dests in one pass. The **volume** of `CheckLOS` work remains a vanilla contract; further cuts are sync-sensitive (`NetUpdateHash`).
+JAZZ `JAZZ-AI-PERF-001` (`CombatAI.lua`):
+- **Enemy list:** full `context.enemies` (sorted by `handle`) — range enemy shortlist rolled back for smarter LOS.
+- **Far-skip:** dest farther than sight (2D) from all enemies → cache `false`, no `CheckLOS`.
+- **Dest-cap:** at most `JAZZ_AI_PERF_DESTLOS_CAP` (320) CheckLOS dests — prefer stay / `important_dests` / `destinations`, then nearest to unit; remainder stay `false`.
+- Batching + `Sleep(10)` kept. Gated log: `config.JAZZ_AIPerfLog` → `[JAZZ-AI-PERF] DestLos ... capped=N`.

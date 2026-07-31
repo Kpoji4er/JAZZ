@@ -5,7 +5,7 @@
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- Fix AI MGPack after Dump cancelling fresh MGSetup OW\n- Grenade aim: tint FillColor/arc; mishap% x Min-band scatter\n- AI MGSetup half-cover Crouch+bipod (ACT-003)",
+	'last_changes', "- AI PERF-001: DestLos dest-cap 320 + far-skip; soft Precalc prune\n- Indoors Point/CTH guards for AI hang/error cascade\n- Enemy shortlist rolled back (full enemies for smarter LOS)",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 46,
+	'version_minor', 47,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,

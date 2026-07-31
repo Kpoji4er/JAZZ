@@ -928,6 +928,9 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
                        context.default_attack
     local archetype = context.archetype
     local behavior = context.behavior
+    local tStart = config.JAZZ_AIPerfLog and GetPreciseTicks() or nil
+    -- Think may pass a dest subset; never expand to all_destinations (JAZZ-AI-PERF-001).
+    local destinations_were_passed = destinations ~= nil
 
     if not weapon or context.reposition or unit:HasStatusEffect("Burning") then
         return
@@ -937,7 +940,7 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
     local action_targets = action:GetTargets({unit})
 
     local targets = table.ifilter(action_targets, function(idx, target)
-        return unit:IsOnEnemySide(target)
+        return unit:IsOnEnemySide(target) and IsValid(target) and GetPackedPosAndStance(target)
     end)
 
 
@@ -1004,7 +1007,8 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
             target_modifiers[target_group] =
                 (target_modifiers[target_group] or 0) + mod
             for _, obj in ipairs(Groups[target_group]) do
-                if IsKindOf(obj, "Unit") and not table.find(targets, obj) then
+                if IsKindOf(obj, "Unit") and IsValid(obj) and GetPackedPosAndStance(obj)
+                    and not table.find(targets, obj) then
                     table.insert(targets, obj) -- make sure the target is considired regardless if it's an enemy or not
                     table.insert(target_score_mod, 100 +
                                      ((tsr > 0) and unit:RandRange(-tsr, tsr) or
@@ -1049,7 +1053,13 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
 		table.insert(g_AIDamageScoreLog, logdata)
 	end
 	logdata.preferred_target = preferred_target and (IsKindOf(preferred_target, "Unit") and _InternalTranslate(preferred_target.Name or "") or preferred_target.class) or tostring(preferred_target)--]]
+    -- Prefer explicit Think subset; do not fall back to all_destinations.
     destinations = destinations or context.destinations
+    if not destinations_were_passed and context.all_destinations
+        and destinations == context.all_destinations then
+        -- Defensive: scoring full OptLoc slab set is pathological; use behavior dests only.
+        destinations = context.destinations
+    end
     -- гарантируем сравнение со "стоя на месте"
 local stay = GetPackedPosAndStance(unit)
 if destinations and not table.find(destinations, stay) then
@@ -1062,8 +1072,45 @@ if destinations and not table.find(destinations, stay) then
   context.dest_ap[stay] = context.dest_ap[stay] or unit.ActionPoints
 end
 
+    -- Soft target prune: only when many targets; wide margin (smarter near edge cases).
+    local base_margin = JAZZ_AI_PERF_RANGE_MARGIN or (2 * const.SlabSizeX)
+    local soft_mult = JAZZ_AI_PERF_PRECALC_MARGIN_MULT or 4
+    local soft_gate = JAZZ_AI_PERF_PRECALC_TARGET_SOFT or 24
+    local shortlist_range = max_check_range
+        and (max_check_range + base_margin * soft_mult)
+        or nil
+    if shortlist_range and #targets > soft_gate and rawget(_G, "JAZZ_AIShortlistTargetsByRange") then
+        local shortlisted = JAZZ_AIShortlistTargetsByRange(targets, destinations, stay, shortlist_range)
+        if preferred_target and IsValid(preferred_target) and not table.find(shortlisted, preferred_target) then
+            if table.find(targets, preferred_target) then
+                shortlisted[#shortlisted + 1] = preferred_target
+                JAZZ_AISortUnitsByHandle(shortlisted)
+            end
+        end
+        if #shortlisted < #targets then
+            local new_mods = {}
+            for i, target in ipairs(shortlisted) do
+                local old_idx = table.find(targets, target)
+                new_mods[i] = old_idx and target_score_mod[old_idx] or (100 + ((tsr > 0) and unit:RandRange(-tsr, tsr) or 0))
+            end
+            targets = shortlisted
+            target_score_mod = new_mods
+            context.target_score_mod = target_score_mod
+        end
+    end
+    if #targets == 0 then
+        if tStart and rawget(_G, "JAZZ_AIPerfLog") then
+            JAZZ_AIPerfLog("Precalc unit=%s ms=%d dests=%d targets=0 (shortlist empty)",
+                tostring(unit.unitdatadef_id or unit.class), GetPreciseTicks() - tStart,
+                destinations and #destinations or 0)
+        end
+        return
+    end
+
     NetUpdateHash("AIPrecalcDamageScore", unit, hashParamTable(destinations),
-                  hashParamTable(targets), preferred_target)
+                  hashParamTable(targets), preferred_target, shortlist_range or 0)
+    local los_cache = g_AIDestEnemyLOSCache
+    local scored_dests, skipped_los = 0, 0
     for j, upos in ipairs(destinations) do
         
         local ux, uy, uz, ustance_idx = stance_pos_unpack(upos)
@@ -1076,7 +1123,13 @@ end
         local potential_targets, target_score, target_cth = {}, {}, {}
         --print('print(mod)'..ap..' '..cost_ap)
         --print(ap.." ap cost_ap"..cost_ap)
-        if weapon and ap >= cost_ap then
+        if los_cache[upos] == false then
+            skipped_los = skipped_los + 1
+            dest_target_score[upos] = 0
+            dest_target[upos] = nil
+            dest_cth[upos] = nil
+        elseif weapon and ap >= cost_ap then
+            scored_dests = scored_dests + 1
             local pos_mod = base_mod
             pos_mod = pos_mod +
                           (ustance_idx == 2 and modCrouchBonus or ustance_idx ==
@@ -1091,6 +1144,9 @@ end
             end
             for k, target in ipairs(targets) do
                 local tpos = GetPackedPosAndStance(target)
+                if not tpos then
+                    -- Invalid / despawning target: skip (melee Knife Think hit this on M1).
+                else
                 local dist = stance_pos_dist(upos, tpos)
                 
                 if dist <= (max_check_range or dist) and
@@ -1252,6 +1308,7 @@ end
 
                     end
                 end
+                end -- tpos valid
             end
         end
 
@@ -1294,9 +1351,17 @@ end
 		end--]]
 
         -- logdata.chosen_target = best_target and (IsKindOf(best_target, "Unit") and _InternalTranslate(best_target.Name or "") or best_target.class) or tostring(best_target)
-        dest_target_score[upos] = best_score
-        dest_target[upos] = best_target
-        dest_cth[upos] = best_cth
+        if los_cache[upos] ~= false then
+            dest_target_score[upos] = best_score
+            dest_target[upos] = best_target
+            dest_cth[upos] = best_cth
+        end
+    end
+
+    if tStart and rawget(_G, "JAZZ_AIPerfLog") then
+        JAZZ_AIPerfLog("Precalc unit=%s ms=%d dests=%d targets=%d scored_dests=%d skipped_los=%d",
+            tostring(unit.unitdatadef_id or unit.class), GetPreciseTicks() - tStart,
+            destinations and #destinations or 0, #targets, scored_dests, skipped_los)
     end
 
     -- выбираем лучший и сравниваем со "стоя на месте"
