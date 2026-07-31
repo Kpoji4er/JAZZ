@@ -1,8 +1,8 @@
 # Playtest bug report: `jazz-nomaps` (Discord, 2026-07-30)
 
-**Статус:** fixed in jazz-nomaps **0.5** (merged PR #1); runtime smoke on I2 still recommended  
+**Статус:** fixed in jazz-nomaps **0.5** (PR #1) + **0.6** armor remap (legacy Flak/Kevlar → JazzArmor); runtime smoke on I2 still recommended  
 **Профиль:** `jazz_assets` + `jazz-units` + **`jazz-nomaps`** (`7MsJ2Eq`) + `jazz` (+ CommonLib), без `jazz-maps`  
-**Источник:** Discord playtest (Sergej 1973 / Kpoji4er), скрины инвентаря сектор **I2**  
+**Источник:** Discord playtest (Sergej 1973 / Kpoji4er), скрины инвентаря сектор **I2**; follow-up Discord 2026-07-31 (броня с оригинала)  
 **Спека:** [JAZZ-COMPAT-002](../../specs/active/JAZZ-COMPAT-002.md)  
 **Пакет-владелец фикса:** `jazz-nomaps` (лут/sanitize/remap); cut-реестр — [weapons/cut-content.md](../weapons/cut-content.md)
 
@@ -80,7 +80,18 @@ Inject на `ExplorationStart` / `CombatStart` кладёт эти классы 
 4. Расширен `SQUAD_REMAP` (`LegionRaidSquad_01/02/03`, hard variants, `LegionFortressDefenders`, …).
 5. `lScrubContainerCutItems` на Exploration/Combat — вычищает cut из vanilla контейнеров до inject.
 
-**Остаётся (human):** smoke I2 — нет `TEST.png` / `MP5` (ОТКЛЮЧЕНО); Hi-Power только с `JAZZ_Caliber_9x19` ammo.
+### B6 — Legacy armor stubs after gear refresh (Discord 2026-07-31)
+
+`CreateStartingEquipment` на ванильных архетипах кладёт `FlakVest` / `KevlarVest` / `HeavyArmor*` / `*Leggings` / `*Helmet`. В JAZZ эти ID — неполные stubs **без `ArmorRating`**, поэтому:
+
+- бой «как без брони»;
+- предметы нельзя нормально найти/снять в JAZZ inventory (нет полноценного JazzArmor-контракта).
+
+Оружие после CSE+ammo sanitize уже живое (вопрос «Оружие норм?» — да, путь оружия ок).
+
+**Fix (nomaps 0.6):** `ARMOR_REMAP` light→`JazzArmor_Flak*`, medium→`JazzArmor_GuardianMedium` / PASGT / GuardianLegs, heavy→Guardian Full/Heavy; `GEAR_REV=2` перегоняет уже `geared` юнитов только на armor sanitize; pack `JAZZ_NoMaps_Container_Armor` + scrub remap в контейнерах.
+
+**Остаётся (human):** smoke I2 — нет `TEST.png` / `MP5` (ОТКЛЮЧЕНО); Hi-Power только с `JAZZ_Caliber_9x19` ammo; враги/сундуки носят `JazzArmor_*`, не `FlakVest`/`KevlarVest`.
 
 ## Evidence
 

@@ -1,7 +1,12 @@
-# Patch: jazz-nomaps 0.4–0.5 (historical)
+# Patch: jazz-nomaps (historical snapshots)
 
-**Применено и смержено:** [JAZZ-nomaps PR #1](https://github.com/Kpoji4er/JAZZ-nomaps/pull/1) → `main` (`06ddba3`, version_minor **5**).
+**Актуальный код:** репозиторий [JAZZ-nomaps](https://github.com/Kpoji4er/JAZZ-nomaps) (`main`).
 
-Снапшоты ниже — архив раннего 0.4 apply-kit (до v0.5 remap/scrub). Актуальный код — в репозитории `JAZZ-nomaps`.
+| Версия | Что |
+| --- | --- |
+| **0.5** | [PR #1](https://github.com/Kpoji4er/JAZZ-nomaps/pull/1) — cut loot scrub, squad remap, ammo sanitize |
+| **0.6** | Legacy Flak/Kevlar/HeavyArmor → `JazzArmor_*` на gear refresh; armor container pack |
+
+Снапшоты в этой папке обновляются агентами для offline-ссылок; канон — git `JAZZ-nomaps`.
 
 См. [nomaps playtest bugreport](../../technical/bugs/nomaps-playtest-2026-07-30.md), [cut-content](../../technical/weapons/cut-content.md).

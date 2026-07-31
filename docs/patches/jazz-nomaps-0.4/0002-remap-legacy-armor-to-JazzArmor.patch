@@ -1,0 +1,325 @@
+From fbe5e44a0202773dc73d62aa6a6335604e917d8a Mon Sep 17 00:00:00 2001
+From: Cursor Agent <cursoragent@cursor.com>
+Date: Fri, 31 Jul 2026 13:39:52 +0000
+Subject: [PATCH] Remap legacy Flak/Kevlar armor to JazzArmor on NoMaps gear
+ refresh.
+
+Vanilla UnitData still equips FlakVest/Kevlar* stubs that lack ArmorRating.
+Replace them (and helmets/legs) with JazzArmor_*, bump GEAR_REV to 2 for
+existing geared units, and inject an armor loot pack into containers.
+---
+ Code/NoMaps_Autonomy.lua | 159 ++++++++++++++++++++++++++++++++++++---
+ items.lua                |  43 ++++++++++-
+ metadata.lua             |   4 +-
+ 3 files changed, 191 insertions(+), 15 deletions(-)
+
+diff --git a/Code/NoMaps_Autonomy.lua b/Code/NoMaps_Autonomy.lua
+index 7bc684c..d97d931 100644
+--- a/Code/NoMaps_Autonomy.lua
++++ b/Code/NoMaps_Autonomy.lua
+@@ -151,6 +151,7 @@ local ROLE_LISTS = {
+ local LOOT_PACKS = {
+ 	{ chance = 35, id = "JAZZ_NoMaps_Container_Ammo" },
+ 	{ chance = 20, id = "JAZZ_NoMaps_Container_Common" },
++	{ chance = 18, id = "JAZZ_NoMaps_Container_Armor" },
+ 	{ chance = 15, id = "JAZZ_NoMaps_Container_Weapon" },
+ }
+ 
+@@ -164,6 +165,73 @@ local LOOT_POOLS_FALLBACK = {
+ 		"JAZZ_AMMO_12gauge_Buckshot",
+ 	},
+ 	weapons = { "AK47", "MP5A2", "UZI", "Galil", "FAMAS", "Glock18" },
++	armor = {
++		"JazzArmor_FlakM69",
++		"JazzArmor_FlakM1955",
++		"JazzArmor_GuardianMedium",
++		"JazzArmor_LeatherPants",
++		"JazzArmor_GuardianLegs",
++		"JazzArmor_M1Helm",
++		"JazzArmor_PASGTHelm",
++	},
++}
++
++-- Gear refresh revision: 1 = strip+CSE+ammo; 2 = +legacy armor → JazzArmor remap.
++local GEAR_REV = 2
++
++-- Vanilla / incomplete JAZZ stubs (no ArmorRating) → playable JazzArmor_* (Sergej: light→flak, medium→kevlar/Guardian, heavy→Guardian heavy; helms/pants same bands).
++local ARMOR_REMAP = {
++	-- Torso light
++	FlakVest = "JazzArmor_FlakM69",
++	FlakVest_Kompositum = "JazzArmor_FlakM69",
++	FlakVest_WeavePadding = "JazzArmor_FlakM69",
++	FlakVest_CeramicPlates = "JazzArmor_FlakM69",
++	FlakArmor = "JazzArmor_FlakM69",
++	FlakArmor_Kompositum = "JazzArmor_FlakM69",
++	FlakArmor_WeavePadding = "JazzArmor_FlakM69",
++	FlakArmor_CeramicPlates = "JazzArmor_FlakM69",
++	CamoArmor_Light = "JazzArmor_FlakM1955",
++	CamoArmor_Light_Kompositum = "JazzArmor_FlakM1955",
++	-- Torso medium
++	KevlarVest = "JazzArmor_GuardianMedium",
++	KevlarVest_Kompositum = "JazzArmor_GuardianMedium",
++	KevlarVest_WeavePadding = "JazzArmor_GuardianMedium",
++	KevlarVest_CeramicPlates = "JazzArmor_GuardianMedium",
++	KevlarChestplate = "JazzArmor_GuardianMedium",
++	KevlarChestplate_Kompositum = "JazzArmor_GuardianMedium",
++	KevlarChestplate_WeavePadding = "JazzArmor_GuardianMedium",
++	KevlarChestplate_CeramicPlates = "JazzArmor_GuardianMedium",
++	CamoArmor_Medium = "JazzArmor_GuardianMedium",
++	CamoArmor_Medium_Kompositum = "JazzArmor_GuardianMedium",
++	-- Torso heavy
++	HeavyArmorTorso = "JazzArmor_GuardianFull",
++	HeavyArmorTorso_Kompositum = "JazzArmor_GuardianFull",
++	HeavyArmorTorso_WeavePadding = "JazzArmor_GuardianFull",
++	HeavyArmorTorso_CeramicPlates = "JazzArmor_GuardianFull",
++	HeavyArmorChestplate = "JazzArmor_GuardianFull",
++	HeavyArmorChestplate_Kompositum = "JazzArmor_GuardianFull",
++	HeavyArmorChestplate_WeavePadding = "JazzArmor_GuardianFull",
++	HeavyArmorChestplate_CeramicPlates = "JazzArmor_GuardianFull",
++	-- Legs
++	FlakLeggings = "JazzArmor_LeatherPants",
++	FlakLeggings_Kompositum = "JazzArmor_LeatherPants",
++	FlakLeggings_WeavePadding = "JazzArmor_LeatherPants",
++	KevlarLeggings = "JazzArmor_GuardianLegs",
++	KevlarLeggings_Kompositum = "JazzArmor_GuardianLegs",
++	KevlarLeggings_WeavePadding = "JazzArmor_GuardianLegs",
++	HeavyArmorLeggings = "JazzArmor_GuardianHeavyLegs",
++	HeavyArmorLeggings_Kompositum = "JazzArmor_GuardianHeavyLegs",
++	HeavyArmorLeggings_WeavePadding = "JazzArmor_GuardianHeavyLegs",
++	-- Head
++	LightHelmet = "JazzArmor_M1Helm",
++	LightHelmet_Kompositum = "JazzArmor_M1Helm",
++	LightHelmet_WeavePadding = "JazzArmor_M1Helm",
++	KevlarHelmet = "JazzArmor_PASGTHelm",
++	KevlarHelmet_Kompositum = "JazzArmor_PASGTHelm",
++	KevlarHelmet_WeavePadding = "JazzArmor_PASGTHelm",
++	HeavyArmorHelmet = "JazzArmor_GuardianHelmHeavy",
++	HeavyArmorHelmet_Kompositum = "JazzArmor_GuardianHelmHeavy",
++	HeavyArmorHelmet_WeavePadding = "JazzArmor_GuardianHelmHeavy",
+ }
+ 
+ -- Cut stubs kept in jazz for ID compatibility (see jazz/docs/technical/weapons/cut-content.md).
+@@ -535,16 +603,67 @@ local function lInjectFromLootDef(container, loot_def_id, seed_key)
+ 	return lAddItemsToContainer(container, items)
+ end
+ 
+--- Remove cut/disabled items already present in vanilla map containers.
++local function lReplaceLegacyArmorItem(owner, slot_name, item)
++	local new_id = item and ARMOR_REMAP[item.class]
++	if not new_id or not lItemAllowed(new_id) or not owner then
++		return false
++	end
++	local cond, maxc = item.Condition, item.MaxCondition
++	owner:RemoveItem(slot_name, item)
++	if DoneObject then
++		DoneObject(item)
++	end
++	local neu = PlaceInventoryItem(new_id)
++	if not neu then
++		return false
++	end
++	if cond and maxc and maxc > 0 and neu.MaxCondition then
++		neu.Condition = MulDivRound(neu.MaxCondition, cond, maxc)
++	end
++	if owner.CanAddItem and owner:CanAddItem(slot_name, neu) then
++		owner:AddItem(slot_name, neu)
++	else
++		owner:AddItem("Inventory", neu)
++	end
++	return true
++end
++
++-- Replace Flak/Kevlar/HeavyArmor stubs (no JAZZ ArmorRating) with JazzArmor_*.
++local function lSanitizeUnitArmor(unitdata)
++	if not unitdata or not unitdata.ForEachItem then
++		return 0
++	end
++	local to_replace = {}
++	unitdata:ForEachItem(function(item, slot_name)
++		if item and ARMOR_REMAP[item.class] then
++			to_replace[#to_replace + 1] = { item = item, slot = slot_name }
++		end
++	end)
++	local n = 0
++	for _, entry in ipairs(to_replace) do
++		if lReplaceLegacyArmorItem(unitdata, entry.slot, entry.item) then
++			n = n + 1
++		end
++	end
++	return n
++end
++
++-- Remove cut/disabled items; remap legacy armor stubs in vanilla map containers.
+ local function lScrubContainerCutItems(container)
+ 	if not container or not container.ForEachItem then
+ 		return 0
+ 	end
+ 	local removed = 0
+ 	local to_remove = {}
++	local to_remap = {}
+ 	container:ForEachItem(function(item, slot_name)
+-		if item and lIsCutInventoryClass(item.class) then
++		if not item then
++			return
++		end
++		if lIsCutInventoryClass(item.class) then
+ 			to_remove[#to_remove + 1] = { item = item, slot = slot_name }
++		elseif ARMOR_REMAP[item.class] then
++			to_remap[#to_remap + 1] = { item = item, slot = slot_name }
+ 		end
+ 	end)
+ 	for _, entry in ipairs(to_remove) do
+@@ -554,6 +673,11 @@ local function lScrubContainerCutItems(container)
+ 			DoneObject(entry.item)
+ 		end
+ 	end
++	for _, entry in ipairs(to_remap) do
++		if lReplaceLegacyArmorItem(container, entry.slot, entry.item) then
++			removed = removed + 1
++		end
++	end
+ 	return removed
+ end
+ 
+@@ -605,10 +729,12 @@ local function lInjectContainerLoot()
+ 			end
+ 		end
+ 		-- Fallback if LootDefs not ready yet
+-		if not used_pack and roll < 70 then
++		if not used_pack and roll < 88 then
+ 			local pool = LOOT_POOLS_FALLBACK.ammo
+-			if roll >= 55 then
++			if roll >= 73 then
+ 				pool = LOOT_POOLS_FALLBACK.weapons
++			elseif roll >= 55 then
++				pool = LOOT_POOLS_FALLBACK.armor
+ 			elseif roll >= 35 then
+ 				pool = LOOT_POOLS_FALLBACK.common
+ 			end
+@@ -732,9 +858,10 @@ local function lRefreshEnemyLoadouts()
+ 		return
+ 	end
+ 	local root = lEnsureState()
++	local remapped = 0
+ 	for _, squad in ipairs(gv_Squads) do
+ 		for _, unit_id in ipairs(squad.units or empty_table) do
+-			if root.geared[unit_id] then
++			if root.geared[unit_id] == GEAR_REV then
+ 				goto next_unit
+ 			end
+ 			local unitdata = gv_UnitData and gv_UnitData[unit_id]
+@@ -747,18 +874,26 @@ local function lRefreshEnemyLoadouts()
+ 					or unitdata.Affiliation == "Adonis"
+ 					or unitdata.Affiliation == "Rebel")
+ 			then
+-				unitdata:ForEachItem(function(item, slot_name)
+-					unitdata:RemoveItem(slot_name, item)
+-				end)
+-				if unitdata.CreateStartingEquipment then
+-					unitdata:CreateStartingEquipment(unitdata.randomization_seed)
++				local already = root.geared[unit_id]
++				if not already then
++					unitdata:ForEachItem(function(item, slot_name)
++						unitdata:RemoveItem(slot_name, item)
++					end)
++					if unitdata.CreateStartingEquipment then
++						unitdata:CreateStartingEquipment(unitdata.randomization_seed)
++					end
++					lSanitizeUnitAmmo(unitdata)
+ 				end
+-				lSanitizeUnitAmmo(unitdata)
+-				root.geared[unit_id] = true
++				-- Always run armor remap (covers rev1 units that still wear Flak/Kevlar stubs).
++				remapped = remapped + lSanitizeUnitArmor(unitdata)
++				root.geared[unit_id] = GEAR_REV
+ 			end
+ 			::next_unit::
+ 		end
+ 	end
++	if remapped > 0 then
++		lLog("remapped legacy armor pieces=" .. remapped)
++	end
+ end
+ 
+ function JAZZ_NoMapsBootstrap(force)
+diff --git a/items.lua b/items.lua
+index 0e7b903..71c2b24 100644
+--- a/items.lua
++++ b/items.lua
+@@ -5,7 +5,7 @@ return {
+ 	}),
+ 	PlaceObj('ModItemFolder', {
+ 		'name', "NoMapsLoot",
+-		'comment', "Container inject packs for vanilla HotDiamonds without jazz-maps (JAZZ_AMMO_* / live weapons only)",
++		'comment', "Container inject packs for vanilla HotDiamonds without jazz-maps (JAZZ_AMMO_* / live weapons / JazzArmor)",
+ 	}, {
+ 		PlaceObj('ModItemLootDef', {
+ 			Comment = "Common consumables for NoMaps container inject",
+@@ -125,5 +125,46 @@ return {
+ 				weight = 8000,
+ 			}),
+ 		}),
++		PlaceObj('ModItemLootDef', {
++			Comment = "JazzArmor pieces for NoMaps inject (replaces unlootable vanilla Flak/Kevlar stubs)",
++			group = "JAZZ_NoMaps",
++			id = "JAZZ_NoMaps_Container_Armor",
++			loot = "all",
++			PlaceObj('LootEntryInventoryItem', {
++				generate_chance = 45,
++				item = "JazzArmor_FlakM69",
++				weight = 10000,
++			}),
++			PlaceObj('LootEntryInventoryItem', {
++				generate_chance = 35,
++				item = "JazzArmor_FlakM1955",
++				weight = 9000,
++			}),
++			PlaceObj('LootEntryInventoryItem', {
++				generate_chance = 30,
++				item = "JazzArmor_GuardianMedium",
++				weight = 8000,
++			}),
++			PlaceObj('LootEntryInventoryItem', {
++				generate_chance = 35,
++				item = "JazzArmor_LeatherPants",
++				weight = 7000,
++			}),
++			PlaceObj('LootEntryInventoryItem', {
++				generate_chance = 25,
++				item = "JazzArmor_GuardianLegs",
++				weight = 6000,
++			}),
++			PlaceObj('LootEntryInventoryItem', {
++				generate_chance = 35,
++				item = "JazzArmor_M1Helm",
++				weight = 7000,
++			}),
++			PlaceObj('LootEntryInventoryItem', {
++				generate_chance = 25,
++				item = "JazzArmor_PASGTHelm",
++				weight = 6000,
++			}),
++		}),
+ 	}),
+ }
+diff --git a/metadata.lua b/metadata.lua
+index fd4602e..83e895a 100644
+--- a/metadata.lua
++++ b/metadata.lua
+@@ -1,11 +1,11 @@
+ return PlaceObj('ModDef', {
+ 	'title', "JAZZ NoMaps",
+ 	'description', "Optional JAZZ package: truncated Legion AI, squad wiring and loot inject for vanilla HotDiamonds when jazz-maps is not enabled.\n\nInstall instead of jazz-maps:\n1. JAZZ Assets\n2. JAZZ Units\n3. JAZZ NoMaps\n4. JAZZ\n(+ JA3_CommonLib)\n\nDisable this mod when using jazz-maps. If both are enabled, NoMaps stays inactive.\n\nОпциональный пакет JAZZ: урезанный Legion AI, wiring отрядов и лут для vanilla HotDiamonds без jazz-maps.\nСтавить вместо maps. При включённом jazz-maps — no-op.",
+-	'last_changes', "v0.5: expand HotDiamonds squad remap; scrub cut loot in containers; cut firearm strip on gear refresh.",
++	'last_changes', "v0.6: remap Flak/Kevlar/HeavyArmor stubs → JazzArmor on gear refresh; armor loot pack for containers.",
+ 	'id', "7MsJ2Eq",
+ 	'author', "Kpoji4er",
+ 	'version_major', 0,
+-	'version_minor', 5,
++	'version_minor', 6,
+ 	'version', 1,
+ 	'lua_revision', 233360,
+ 	'saved_with_revision', 366685,
+-- 
+2.43.0
+
