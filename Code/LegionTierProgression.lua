@@ -225,17 +225,24 @@ function OnMsg.OpenSatelliteView()
 end
 
 function OnMsg.LoadGame()
-	JAZZ_UpdateLegionTierForNoMaps()
+	-- Nomaps bootstrap (same message) may run after this handler because jazz loads
+	-- first. Skip until active; nomaps calls JAZZ_UpdateLegionTierForNoMaps after bootstrap,
+	-- and SatelliteTick / OpenSatelliteView recover otherwise.
+	if lNoMapsActive() then
+		JAZZ_UpdateLegionTierForNoMaps()
+	end
 end
 
 function OnMsg.NewGame()
-	if lNoMapsActive() then
-		gv_JAZZ_LegionTierNoMaps = {
-			schema = STATE_SCHEMA,
-			first_mine_at = false,
-			major = 1,
-			major_started_at = lNow(),
-		}
+	-- Same race as LoadGame: nomaps sets active during its NewGame bootstrap.
+	if not lNoMapsActive() then
+		return
 	end
+	gv_JAZZ_LegionTierNoMaps = {
+		schema = STATE_SCHEMA,
+		first_mine_at = false,
+		major = 1,
+		major_started_at = lNow(),
+	}
 	JAZZ_UpdateLegionTierForNoMaps()
 end

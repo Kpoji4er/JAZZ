@@ -94,6 +94,12 @@ Static root cause (до 0.7):
 
 **Fix (nomaps 0.7 + jazz COMPAT-003):** manpower 40 / Tax+Recruiter on / clear Sectors / `ai_economy_rev` migrate; jazz `GetRegionForSector` предпочитает `LegionAIEnabled`. Patch kit: `docs/patches/jazz-nomaps-0.4/`.
 
+### B8 — Gear refresh пропускал отряды (`ipairs` по sparse `gv_Squads`)
+
+`lRefreshEnemyLoadouts` обходил `gv_Squads` через `ipairs`. После despawn появляются дыры в id-map → refresh обрывался, часть врагов без ammo sanitize / armor remap.
+
+**Fix (nomaps 0.8):** `sorted_pairs(gv_Squads)`; refresh также на Exploration/Combat; Affiliation `Thugs`; one-shot log missing EnemySquadDef; expand remap + prefix heuristic; after bootstrap зовёт `JAZZ_UpdateLegionTierForNoMaps` (гонка Load/NewGame с jazz).
+
 ## Evidence
 
 - Discord скрины: инвентарь отряда «Чарли», схрон/трупы/сундук сектор I2.

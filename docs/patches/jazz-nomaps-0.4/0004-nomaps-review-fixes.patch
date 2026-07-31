@@ -1,0 +1,205 @@
+From baf74ab1e12bfb5fba3bd2195dfe26ed045f442f Mon Sep 17 00:00:00 2001
+From: Cursor Agent <cursoragent@cursor.com>
+Date: Fri, 31 Jul 2026 14:22:37 +0000
+Subject: [PATCH 1/2] Fix NoMaps gear refresh holes and expand squad remap.
+
+Use sorted_pairs on sparse gv_Squads; refresh on exploration/combat;
+log missing EnemySquadDefs once; include Thugs in gear filter; call
+tier update after bootstrap; widen HotDiamonds/Thug remap aliases.
+---
+ Code/NoMaps_Autonomy.lua | 72 ++++++++++++++++++++++++++++++++++++++--
+ metadata.lua             |  4 +--
+ 2 files changed, 71 insertions(+), 5 deletions(-)
+
+diff --git a/Code/NoMaps_Autonomy.lua b/Code/NoMaps_Autonomy.lua
+index abdd24f..4c6b57a 100644
+--- a/Code/NoMaps_Autonomy.lua
++++ b/Code/NoMaps_Autonomy.lua
+@@ -1,6 +1,7 @@
+ -- JAZZ NoMaps (7MsJ2Eq) — autonomy when jazz-maps (FhNNYd) is not loaded.
+ -- Vanilla HotDiamonds geography only. No-op while FhNNYd is active.
+ -- Spec: jazz/docs/specs/active/JAZZ-COMPAT-002.md, JAZZ-COMPAT-003.md
++-- Review fixes: squad ipairs→sorted_pairs; missing-def log; Thugs gear; tier after bootstrap.
+ 
+ JAZZ_NOMAPS_ID = "7MsJ2Eq"
+ JAZZ_MAPS_MOD_ID = "FhNNYd"
+@@ -136,6 +137,37 @@ local SQUAD_REMAP = {
+ 	ArmyAttackers_Balanced_Hard = "ArmyAttackers_Balanced_Hard",
+ 	ArmyAttackers_Balanced_Alt = "ArmyAttackers_Balanced_Alt",
+ 	RebelRaiders = "RebelRaiders",
++	-- Extra HotDiamonds / legacy Legion aliases → jazz-units
++	LegionRaidSquad_Hard = "LegionJAZZSquadT2",
++	LegionRaidSquad_04 = "LegionJAZZSquadT1",
++	LegionRaidSquad_05 = "LegionJAZZSquadT1",
++	LegionDefenders = "LegionGlobalAI_Garrison",
++	LegionDefenders_Hard = "LegionGlobalAI_Garrison",
++	LegionDefenders_Mobile = "LegionGlobalAI_Patrol",
++	LegionDefenders_Mobile_Hard = "LegionGlobalAI_Patrol",
++	LegionDefenders_Shooters = "LegionAttackers_JazzBalanced_Easy_Assault",
++	LegionDefenders_Shooters_Hard = "LegionAttackers_Balanced_Hard",
++	LegionAttackers = "LegionAttackers_JazzBalanced_Easy_Assault",
++	LegionAttackers_Easy = "LegionAttackers_JazzBalanced_Easy_Assault",
++	LegionAttackers_Hard = "LegionAttackers_Balanced_Hard",
++	LegionPatrol = "LegionGlobalAI_Patrol",
++	Legion_Patrol = "LegionGlobalAI_Patrol",
++	OutlookPatrool = "LegionGlobalAI_Patrol",
++	Beach_Patrol = "LegionGlobalAI_Patrol",
++	["3rd_Patrol"] = "LegionGlobalAI_Patrol",
++	LegionOutlook_Easy = "LegionJAZZSquadT1",
++	LegionErnieVillage = "LegionJAZZSquadT1",
++	LegionRustIni = "LegionJAZZSquadT1",
++	LegionExtraSquadFireArms = "LegionExtraSquadFireArms_T2",
++	LegionExtraSquadMelee = "LegionExtraSquadMelee_T2",
++	-- Thug satellite squads (vanilla IDs; no jazz-units Thug EnemySquad → Legion T1 kit)
++	Thugs = "LegionJAZZSquadT1",
++	ThugsSquad = "LegionJAZZSquadT1",
++	ThugSquad = "LegionJAZZSquadT1",
++	Thugs_Attackers = "LegionJAZZSquadT1",
++	ThugsAttackers = "LegionJAZZSquadT1",
++	Thugs_Raid = "LegionJAZZSquadT1",
++	ThugEnforcers = "LegionJAZZSquadT1",
+ }
+ 
+ local ROLE_LISTS = {
+@@ -503,6 +535,8 @@ local function lAssignSectorsToOutposts(outposts)
+ 	return buckets
+ end
+ 
++local g_JAZZ_NoMapsMissingSquadLogged = {}
++
+ local function lRemapSquadId(squad_def_id)
+ 	if not squad_def_id then
+ 		return squad_def_id
+@@ -514,8 +548,29 @@ local function lRemapSquadId(squad_def_id)
+ 	if lHasEnemySquad(squad_def_id) then
+ 		return squad_def_id
+ 	end
++	-- Prefix heuristic for unlisted vanilla Legion/Thug satellite defs.
++	local prefix_map = false
++	if type(squad_def_id) == "string" then
++		if string.find(squad_def_id, "Thug", 1, true) == 1 or string.find(squad_def_id, "Thugs", 1, true) == 1 then
++			prefix_map = "LegionJAZZSquadT1"
++		elseif string.find(squad_def_id, "Legion", 1, true) == 1 then
++			prefix_map = "LegionJAZZSquadT1"
++		end
++	end
++	if prefix_map and lHasEnemySquad(prefix_map) then
++		if not g_JAZZ_NoMapsMissingSquadLogged[squad_def_id] then
++			g_JAZZ_NoMapsMissingSquadLogged[squad_def_id] = true
++			lLog("squad remap prefix " .. tostring(squad_def_id) .. " → " .. prefix_map)
++		end
++		return prefix_map
++	end
+ 	local fallback = lPickExisting(ROLE_LISTS.attack)
+-	return fallback[1] or squad_def_id
++	local fb = fallback[1] or squad_def_id
++	if not g_JAZZ_NoMapsMissingSquadLogged[squad_def_id] then
++		g_JAZZ_NoMapsMissingSquadLogged[squad_def_id] = true
++		lLog("missing EnemySquadDef " .. tostring(squad_def_id) .. "; fallback " .. tostring(fb))
++	end
++	return fb
+ end
+ 
+ local function lRemapSquadList(list)
+@@ -888,7 +943,11 @@ local function lRefreshEnemyLoadouts()
+ 	end
+ 	local root = lEnsureState()
+ 	local remapped = 0
+-	for _, squad in ipairs(gv_Squads) do
++	-- sorted_pairs: gv_Squads is a sparse id-map; ipairs stops at the first hole.
++	for _, squad in sorted_pairs(gv_Squads) do
++		if type(squad) ~= "table" or type(squad.units) ~= "table" then
++			goto next_squad
++		end
+ 		for _, unit_id in ipairs(squad.units or empty_table) do
+ 			if root.geared[unit_id] == GEAR_REV then
+ 				goto next_unit
+@@ -901,7 +960,8 @@ local function lRefreshEnemyLoadouts()
+ 				and (unitdata.Affiliation == "Legion"
+ 					or unitdata.Affiliation == "Army"
+ 					or unitdata.Affiliation == "Adonis"
+-					or unitdata.Affiliation == "Rebel")
++					or unitdata.Affiliation == "Rebel"
++					or unitdata.Affiliation == "Thugs")
+ 			then
+ 				local already = root.geared[unit_id]
+ 				if not already then
+@@ -919,6 +979,7 @@ local function lRefreshEnemyLoadouts()
+ 			end
+ 			::next_unit::
+ 		end
++		::next_squad::
+ 	end
+ 	if remapped > 0 then
+ 		lLog("remapped legacy armor pieces=" .. remapped)
+@@ -1014,6 +1075,9 @@ function JAZZ_NoMapsBootstrap(force)
+ 	end
+ 	lApplyEconomyRev(root)
+ 	lRefreshEnemyLoadouts()
++	if rawget(_G, "JAZZ_UpdateLegionTierForNoMaps") then
++		JAZZ_UpdateLegionTierForNoMaps()
++	end
+ 	return true
+ end
+ 
+@@ -1067,6 +1131,7 @@ function OnMsg.ExplorationStart()
+ 		return
+ 	end
+ 	JAZZ_NoMapsBootstrap(false)
++	lRefreshEnemyLoadouts()
+ 	lInjectContainerLoot()
+ end
+ 
+@@ -1074,5 +1139,6 @@ function OnMsg.CombatStart()
+ 	if not lShouldRun() then
+ 		return
+ 	end
++	lRefreshEnemyLoadouts()
+ 	lInjectContainerLoot()
+ end
+diff --git a/metadata.lua b/metadata.lua
+index d5a29d0..840ace5 100644
+--- a/metadata.lua
++++ b/metadata.lua
+@@ -1,11 +1,11 @@
+ return PlaceObj('ModDef', {
+ 	'title', "JAZZ NoMaps",
+ 	'description', "Optional JAZZ package: truncated Legion AI, squad wiring and loot inject for vanilla HotDiamonds when jazz-maps is not enabled.\n\nInstall instead of jazz-maps:\n1. JAZZ Assets\n2. JAZZ Units\n3. JAZZ NoMaps\n4. JAZZ\n(+ JA3_CommonLib)\n\nDisable this mod when using jazz-maps. If both are enabled, NoMaps stays inactive.\n\nОпциональный пакет JAZZ: урезанный Legion AI, wiring отрядов и лут для vanilla HotDiamonds без jazz-maps.\nСтавить вместо maps. При включённом jazz-maps — no-op.",
+-	'last_changes', "v0.6: remap Flak/Kevlar/HeavyArmor stubs → JazzArmor on gear refresh; armor loot pack for containers.\nv0.7: Global AI playable — manpower 40, Tax/Recruiter on; clear ErnieIsland.Sectors; economy rev migrate.",
++	'last_changes', "v0.6: remap Flak/Kevlar/HeavyArmor stubs → JazzArmor on gear refresh; armor loot pack for containers.\nv0.7: Global AI playable — manpower 40, Tax/Recruiter on; clear ErnieIsland.Sectors; economy rev migrate.\nv0.8: fix sparse gv_Squads gear refresh; missing-def log; Thugs affiliation; tier hook after bootstrap; expand remap.",
+ 	'id', "7MsJ2Eq",
+ 	'author', "Kpoji4er",
+ 	'version_major', 0,
+-	'version_minor', 7,
++	'version_minor', 8,
+ 	'version', 1,
+ 	'lua_revision', 233360,
+ 	'saved_with_revision', 366685,
+-- 
+2.43.0
+
+
+From 59c83a6574e9b34a817c969a8547d31e8440efaf Mon Sep 17 00:00:00 2001
+From: Cursor Agent <cursoragent@cursor.com>
+Date: Fri, 31 Jul 2026 14:22:54 +0000
+Subject: [PATCH 2/2] Drop duplicate LegionExtraSquadFireArms remap entry.
+
+---
+ Code/NoMaps_Autonomy.lua | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/Code/NoMaps_Autonomy.lua b/Code/NoMaps_Autonomy.lua
+index 4c6b57a..66d4027 100644
+--- a/Code/NoMaps_Autonomy.lua
++++ b/Code/NoMaps_Autonomy.lua
+@@ -158,7 +158,6 @@ local SQUAD_REMAP = {
+ 	LegionOutlook_Easy = "LegionJAZZSquadT1",
+ 	LegionErnieVillage = "LegionJAZZSquadT1",
+ 	LegionRustIni = "LegionJAZZSquadT1",
+-	LegionExtraSquadFireArms = "LegionExtraSquadFireArms_T2",
+ 	LegionExtraSquadMelee = "LegionExtraSquadMelee_T2",
+ 	-- Thug satellite squads (vanilla IDs; no jazz-units Thug EnemySquad → Legion T1 kit)
+ 	Thugs = "LegionJAZZSquadT1",
+-- 
+2.43.0
+
