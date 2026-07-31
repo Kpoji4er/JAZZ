@@ -193,4 +193,4 @@ executable: true
 
 ## Open blockers
 
-- none
+- `perk: needs-redesign` — shop buy/sell cut from named-perk scope (owner 2026-07-31); stub until non-shop fantasy
