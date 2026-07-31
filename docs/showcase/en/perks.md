@@ -16,7 +16,7 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 | --- | --- | --- |
 | `Jazz_Perk_00` | Spouke | Toggle: timed explosives detonate at enemy turn start |
 | `Jazz_Perk_Buzz` | Tosca | +50% autofire bullet count |
-| `Jazz_Perk_Lynx` | Lynx | +8 sight; range (Bullet Drop) CTH +10 |
+| `Jazz_Perk_Lynx` | Lynx | +8 daytime sight; that vision softens range accuracy (Range CTH) |
 | `Jazz_Perk_Spider` | Spider | ×2 Medical on sector heal ops |
 | `Jazz_Perk_Colby` | Colby | +20% grenade AoE; 20% panic on wounded in blast |
 | `Jazz_Perk_Madman` | Madman | Point-blank kill → Inspired |

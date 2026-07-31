@@ -16,7 +16,7 @@
 | --- | --- | --- |
 | `Jazz_Perk_00` | Фраг | Toggle: таймерные взрывчатки детонируют в начале хода врага |
 | `Jazz_Perk_Buzz` | Тоска | +50% пуль автоогня |
-| `Jazz_Perk_Lynx` | Рысь | +8 обзор; −штраф дальности (Range +10 CTH) |
+| `Jazz_Perk_Lynx` | Рысь | +8 обзор днём; то же зрение смягчает штраф меткости за дальность (Range) |
 | `Jazz_Perk_Spider` | Паук | ×2 Medical в sector heal |
 | `Jazz_Perk_Colby` | Колби | +20% AoE гранат; 20% паника раненым в зоне |
 | `Jazz_Perk_Madman` | Бешеный | Kill в упор → Inspired |

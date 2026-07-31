@@ -6222,7 +6222,7 @@ but with the other sites, I’m sorry, I didn’t take Legs with me. Here you wi
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Paratrooper rifle 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Unreliable 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Killer",,jazz:InventoryItem/FG42.lua:15 | jazz:items.lua:23234
-890000000000868,Днём увеличен обзор; штраф за дальность (Bullet Drop) снижен на 10.,Daytime sight increased; range (Bullet Drop) penalty reduced by 10.,,jazz:CharacterEffect/Jazz_Perk_Lynx.lua:10 | jazz:items.lua:66167
+890000000000868,Днём увеличен обзор. Это зрение также снижает штрафы меткости за дальность.,Daytime sight increased. That vision also reduces range accuracy penalties.,,jazz:CharacterEffect/Jazz_Perk_Lynx.lua:10 | jazz:items.lua:66167
 890000000000869,Увеличивает длину очереди на 50%,Increases burst length by 50%,,jazz:CharacterEffect/Jazz_Perk_Buzz.lua:10 | jazz:items.lua:66218
 890000000000870,"Удваивает значение навыка медицины при лечении на глобальной карте
 ","Doubles the value of the medicine skill when healing on the global map

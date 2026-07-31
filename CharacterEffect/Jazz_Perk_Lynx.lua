@@ -4,6 +4,8 @@ DefineClass.Jazz_Perk_Lynx = {
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
 
+	-- Sight bonus lives in Code/System_OR_Unit.lua (+Jazz_LynxSightBonus).
+	-- The same value softens Range/Bullet Drop CTH: vision is the accuracy buff.
 	object_class = "Perk",
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
@@ -12,7 +14,8 @@ DefineClass.Jazz_Perk_Lynx = {
 				if target ~= attacker or id ~= "Range" then
 					return
 				end
-				data.mod_add = (data.mod_add or 0) + 10
+				local vision = rawget(_G, "Jazz_LynxSightBonus") or 8
+				data.mod_add = (data.mod_add or 0) + vision
 				if data.meta_text then
 					data.meta_text[#data.meta_text + 1] = T{776394275735, "Perk: <name>", name = self.DisplayName}
 				end
@@ -20,7 +23,7 @@ DefineClass.Jazz_Perk_Lynx = {
 		}),
 	},
 	DisplayName = T(623665702916, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lynx DisplayName]] "Рысий взгляд"),
-	Description = T(890000000000868, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lynx Description]] "Днём увеличен обзор; штраф за дальность (Bullet Drop) снижен на 10."),
+	Description = T(890000000000868, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lynx Description]] "Днём увеличен обзор. Это зрение также снижает штрафы меткости за дальность."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Lynx.png",
 	Tier = "Personal",
 }

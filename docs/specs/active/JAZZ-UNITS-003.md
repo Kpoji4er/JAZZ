@@ -56,7 +56,7 @@ approved_by: project-owner chat 2026-07-31 «Подготовь реализац
 - `JAZZ-UNITS-003-REQ-003` — RU+EN Descriptions обновлены; `needs Russian=0` / `needs English=0` для затронутых строк.
 - `JAZZ-UNITS-003-REQ-004` — CombatAction у Lynx/Buzz/Spider/Colby не показывается как toggle `Jazz_Perk_00` (UIState hidden); `Jazz_Perk_00` остаётся рабочим toggle Фрага.
 - `JAZZ-UNITS-003-REQ-005` — `Jazz_Perk_44840` не загружается (файл удалён / не в metadata).
-- `JAZZ-UNITS-003-REQ-006` — Lynx: + Range CTH через `OnModifyCTHModifier` id=`Range` (+10), плюс существующий sight +8.
+- `JAZZ-UNITS-003-REQ-006` — Lynx: `Jazz_LynxSightBonus` (+8) drives both daytime sight and Range CTH soften (vision → accuracy).
 
 ## Mechanics (locked v1)
 
@@ -75,7 +75,7 @@ approved_by: project-owner chat 2026-07-31 «Подготовь реализац
 | `Jazz_Perk_Laura` | If Hidden when healing ally, remain/reapply Hidden after heal |
 | `Jazz_Perk_Vince` | 1×/combat: first heal/bandage on ally → target `GainAP(4 * const.Scale.AP)` |
 | `Jazz_Perk_Steiger` | Night/Underground OnBeginTurn: allies ≤5 slabs get `Jazz_OrderCTH` |
-| `Jazz_Perk_Lynx` | Existing sight +8; +10 on Range CTH modifier |
+| `Jazz_Perk_Lynx` | `Jazz_LynxSightBonus` (+8) sight + same value on Range CTH (vision is the accuracy buff) |
 | `Jazz_OrderCTH` | Status: +5 CTH on next attack; RemoveOnEndCombat; Shown |
 
 ## Инварианты и ограничения

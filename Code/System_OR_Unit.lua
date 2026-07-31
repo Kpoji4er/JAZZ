@@ -4,6 +4,8 @@ UnitProperties.properties[#UnitProperties.properties+1] = {
     modifiable = true
 }
 
+-- Jazz_Perk_Lynx: one value drives daytime sight and Range CTH soften (vision → accuracy).
+Jazz_LynxSightBonus = 8
 
 local function add_weapon_attacks(actions, unit, weapon)
 	if IsKindOf(weapon, "LightMachineGun") and not unit:HasStatusEffect("StationedMachineGun") then
@@ -187,7 +189,7 @@ function Unit:GetSightRadius(other, base_sight, step_pos)
 	end
 
 	if HasPerk(self, "Jazz_Perk_Lynx") then
-		sight = sight + 8
+		sight = sight + (rawget(_G, "Jazz_LynxSightBonus") or 8)
 	end
 
 	local force_min_sight = self:CallReactions_Or("OnCheckForceMinSight", self, other, step_pos, night_time)
