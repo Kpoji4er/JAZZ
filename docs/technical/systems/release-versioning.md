@@ -48,6 +48,7 @@ Release tooling читает metadata через `git show <core-sha>:metadata.l
 6. Допустимое metadata-only исключение — сохранение core ModDef через Mod Editor как явный release marker, если релиз меняет только assets/maps/units.
 7. Не синхронизировать revisions пакетов и не менять metadata неизменившегося sibling-пакета.
 8. Не включать номер версии в `title` или `description`: версия отображается из полей metadata.
+9. `last_changes`: между заливками в Steam **дописывать** (append); **полностью перезатирать** только при Steam Workshop upload. GitHub tag/release само по себе поле не обнуляет.
 
 Каждый новый центральный release должен получить новый committed core revision относительно предыдущего manifest.
 
