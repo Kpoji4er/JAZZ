@@ -65262,7 +65262,7 @@ return {
 						}),
 					},
 					'DisplayName', T(890000000000262, --[[ModItemCharacterEffectCompositeDef suppressionPinned DisplayName]] "Прижат"),
-					'Description', T(890000000001235, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Количество од - не более 4."),
+					'Description', T(890000000001235, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Количество ОД — не более 4.\nНе может контратаковать."),
 					'AddEffectText', T(890000000000704, --[[ModItemCharacterEffectCompositeDef suppressionPinned AddEffectText]] "Под плотным огнем"),
 					'OnAdded', function (self, obj)
 						local unitStance = obj.stance
@@ -69236,17 +69236,23 @@ return {
 			}),
 			PlaceObj('ModItemChanceToHitModifier', {
 				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
-					if attacker and not IsCloser(target, attacker, 5 * const.SlabSizeX + 1) and IsKindOf(weapon1, "Firearm") then
+					-- JAZZ-COMBAT-003: always apply suppression CTH (incl. close range / retaliation).
+					if attacker and IsKindOf(weapon1, "Firearm") then
 						if attacker:HasStatusEffect("suppressionLight") then
-							return true, -10 end
-								if attacker:HasStatusEffect("suppressionMedium") then
-							return true, -20 end
-								if attacker:HasStatusEffect("suppressionHeavy") then
-							return true, -30 end
-								if attacker:HasStatusEffect("suppressionHeavy2") then
-							return true, -50 end
-								if attacker:HasStatusEffect("suppressionPinned") then
-							return true, -70 end
+							return true, -10
+						end
+						if attacker:HasStatusEffect("suppressionMedium") then
+							return true, -20
+						end
+						if attacker:HasStatusEffect("suppressionHeavy") then
+							return true, -30
+						end
+						if attacker:HasStatusEffect("suppressionHeavy2") then
+							return true, -50
+						end
+						if attacker:HasStatusEffect("suppressionPinned") then
+							return true, -70
+						end
 					end
 					return false, 0
 				end,

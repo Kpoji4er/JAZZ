@@ -58,6 +58,17 @@ description: Планировать, проверять и публиковат�
 - Изменения `code`, dependencies, localization, resources и generated registries в metadata коммитить вместе с соответствующими файлами-владельцами и документацией.
 - Не включать случайный editor noise и не синхронизировать revisions четырёх пакетов.
 
+### `last_changes` (Mod Manager / Steam)
+
+Поле `last_changes` в `metadata.lua` каждого пакета — накопительный changelog для игрока в Mod Manager.
+
+| Когда | Действие |
+| --- | --- |
+| Обычный коммит / feature / hotfix (не Steam upload) | **Дописать** в конец краткий буллет/строку по сути изменения. Существующий текст **не** удалять и **не** заменять целиком. |
+| Заливка пакета в **Steam Workshop** (явный запрос пользователя на upload) | **Полностью перезатереть** `last_changes` свежим текстом только этого upload (что уйдёт игрокам как «последние изменения» Workshop). |
+
+Не путать с GitHub Release notes / `CHANGELOG.md`: те живут отдельно. Не перезаписывать `last_changes` «на всякий случай» при GitHub tag/release, если Steam upload в том же шаге не делается.
+
 ## Зафиксировать состав релиза
 
 1. Выбрать точный SHA из `origin/main` каждого репозитория.

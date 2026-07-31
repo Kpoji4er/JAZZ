@@ -1,3 +1,9 @@
+-- JAZZ-COMBAT-003: stash for LightningReactionCheck during OnFirearmAttackStart
+if FirstLoad then
+	MapVar("g_JAZZ_FirearmAttacker", false)
+	MapVar("g_JAZZ_FirearmAttackArgs", false)
+end
+
 function GetMeleeAttackAPCost(action, unit, args)
 	local cost
 	if action.CostBasedOnWeapon then
@@ -817,10 +823,15 @@ function Unit:FirearmAttack(action_id, cost_ap, args, applied_status) -- SingleS
 		NetUpdateHash("Unit:FirearmAttack", action_id, cost_ap, self, effects, args.target, target_effects)
 	end -- end net debug code
 	local target = args.target
+	-- JAZZ-COMBAT-003: expose attacker/args to LightningReactionCheck (OnFirearmAttackStart is before g_CurrentAttackActions).
+	g_JAZZ_FirearmAttacker = self
+	g_JAZZ_FirearmAttackArgs = args
 	self:CallReactions("OnFirearmAttackStart", self, target, CombatActions[action_id], args)
 	if IsKindOf(target, "Unit") then
 		target:CallReactions("OnFirearmAttackStart", self, target, CombatActions[action_id], args)
 	end
+	g_JAZZ_FirearmAttacker = false
+	g_JAZZ_FirearmAttackArgs = false
 	while not args.opportunity_attack and IsKindOf(target, "Unit") and not target:IsIdleOrRunningBehavior() do
 		WaitMsg("Idle", 50)
 	end

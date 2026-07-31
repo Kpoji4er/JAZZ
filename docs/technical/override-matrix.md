@@ -38,6 +38,8 @@ JAZZ поддерживает только последнюю опубликов
 | `IsLineInSmoke` | Не найдено как глобальный символ в экспортированном source | `Code/_Utils.lua` | `Code/System_OR_Unit.lua` | JAZZ заменяет функцию, введённую CLib |
 | `Unit:RunAndGun` | `Lua/Tactical/UnitActions.lua` | `Code/FixAI.lua` | `Code/CombatActions.lua` | JAZZ; проверить AP, движение, очередь и AI |
 | `Unit:UpdateMeleeTrainingVisual` | `Lua/Tactical/UnitOverwatch.lua` | `Code/FixesFromFys.lua` | `Code/System_OR_Unit.lua` | JAZZ; проверить очистку визуализации |
+| `Unit:Retaliate` | `Lua/Tactical/UnitActions.lua` | — | `Code/System_OR_Unit.lua` (wrap) | JAZZ-COMBAT-003: `suppressionPinned` → no retaliate |
+| `Unit:LightningReactionCheck` | `Lua/Tactical/UnitActions.lua` | — | `Code/System_OR_Unit.lua` | JAZZ-COMBAT-003: default 50%, skip stealth/Hidden |
 | `UpdateSuspicion` | `Lua/Tactical/UnitAwareness.lua` | `Code/FixAI.lua` | `Code/UnitAwareness.lua` | JAZZ; высокий риск для stealth/awareness |
 
 Это реальные коллизии имён, а не автоматически подтверждённые ошибки. Большинство переопределений JAZZ намеренны, поскольку мод меняет соответствующие системы. Риск состоит в том, что обновление CommonLib может исправить исходную реализацию, но JAZZ продолжит заменять её старой или независимой версией.

@@ -82,6 +82,7 @@ Standalone `lua`/`luac` не является repository dependency. В evidence
 - шанс последующих пуль монотонно падает по recoil retention, а отдача учитывается один раз;
 - UI, AI, predictor и фактический выстрел возвращают один результат.
 - **Grazing (JAZZ-COMBAT-002):** при низком CTH (~20%) miss→graze заметен (~32%), при высоком (~80%+) почти нет (~2%); полное укрытие даёт cover-graze ≈100%; выстрел/нож через дым **без** укрытия не форсирует graze; царапина ≈40% урона без crit/status.
+- **Suppression / LR / Psycho (JAZZ-COMBAT-003):** `suppressionPinned` цель с Hotblood/Shatterhand не отвечает Retaliate; частичное подавление режет CTH в упор; stealth kill / Hidden не даёт float «Lightning Reaction»; Psycho после боя имеет полный Will, за ход теряет ~4 а не 8.
 
 ## Броня, инвентарь и лечение
 

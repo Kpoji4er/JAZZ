@@ -1072,9 +1072,9 @@ end
 
 
 function Unit:RecalcWillPoints()
-
+	-- JAZZ-COMBAT-003: Psycho skips leadership regen and drains Will each turn (was -8 → -4).
 	if HasPerk(self, "Psycho") and not self:HasStatusEffect("Berserk") then
-		self.WillPoints = Clamp(self.WillPoints - 8, 0, self.MaxWillPoints)
+		self.WillPoints = Clamp(self.WillPoints - 4, 0, self.MaxWillPoints)
 		self:ApplySuppressionStatus()
 		return end		
 
@@ -3197,4 +3197,55 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 	end
 
 	return final, core, modifiers, range_ui_value
+end
+
+-- ===== JAZZ-COMBAT-003: Retaliate / Lightning Reaction / Will restore =====
+
+local JAZZ_BaseUnitRetaliate = Unit.Retaliate
+function Unit:Retaliate(attacker, attack_reason, fnGetAttackAndWeapon)
+	-- Fully suppressed: no counterattack (Hotblood / Shatterhand / HaveABlast / etc.).
+	if self:HasStatusEffect("suppressionPinned") then
+		return false
+	end
+	return JAZZ_BaseUnitRetaliate(self, attacker, attack_reason, fnGetAttackAndWeapon)
+end
+
+function Unit:LightningReactionCheck(effect)
+	if g_Combat and g_Teams[g_Combat.team_playing] == self.team then return end
+	if self.stance == "Prone" or self:HasStatusEffect("ManningEmplacement") then return end
+
+	-- Silent kill / stealth attack: do not dodge.
+	local attacker = rawget(_G, "g_JAZZ_FirearmAttacker")
+	local attack_args = rawget(_G, "g_JAZZ_FirearmAttackArgs")
+	if IsKindOf(attacker, "Unit") and attacker:HasStatusEffect("Hidden") then
+		return
+	end
+	if attack_args then
+		if attack_args.stealth_attack or (attack_args.stealth_kill_chance or 0) > 0 then
+			return
+		end
+	end
+
+	local chance = effect and effect:ResolveValue("chance")
+	if chance == nil then
+		chance = 50
+	end
+	if self:Random(100) < chance then
+		self:SetActionCommand("ChangeStance", nil, nil, "Prone")
+		CreateFloatingText(self, T(726050447294, "Lightning Reaction"), nil, nil, true)
+		return true
+	end
+end
+
+function OnMsg.CombatEnd()
+	-- Restore Will after combat (Psycho never gets suppression OnCombatEnd restore).
+	for _, unit in ipairs(g_Units or empty_table) do
+		if IsValid(unit) and unit.species == "Human" and not unit:IsDead() and unit.MaxWillPoints then
+			RecalcMaxWillPoints(unit)
+			unit.WillPoints = unit.MaxWillPoints
+			if unit.ApplySuppressionStatus then
+				unit:ApplySuppressionStatus()
+			end
+		end
+	end
 end

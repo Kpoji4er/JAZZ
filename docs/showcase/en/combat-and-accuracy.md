@@ -34,6 +34,13 @@ Penalties are multipliers: high skill does not flat-absorb cover.
 
 Chance can be affected by cover and visible target size, stance, visibility/smoke/darkness, suppression and statuses, weapon condition and components, the chosen action, and perks. The same effect should not be applied twice.
 
+## Suppression, retaliation, and Lightning Reactions
+
+- Suppression cuts the shooter’s accuracy at any range (about −10 to −70 by tier).
+- A **Pinned** unit cannot counterattack; a partially suppressed unit still can, but with the accuracy penalty.
+- **Lightning Reactions:** about **50%**, once per combat; does **not** trigger on a stealth kill / Hidden attack.
+- **Psycho:** Will fully recovers after combat; per-turn Will drain is milder than before.
+
 ## Grazing hits
 
 - **Miss → graze:** lower CTH means a higher chance a miss still clips the target (square curve, max **50%**; about **32%** at 20% CTH, about **2%** at 80% CTH). High CTH barely grazes.

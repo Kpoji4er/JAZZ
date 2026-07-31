@@ -93,6 +93,13 @@ Manifest фиксирует для каждого пакета:
 
 Commit type помогает классифицировать major/minor и release notes, но не является источником номера. Номер всегда читается из committed metadata.
 
+### `last_changes` в metadata пакета
+
+- Между Steam-заливками: **append** — дописывать буллеты к существующему `last_changes`, не затирая историю с прошлого upload.
+- В момент **Steam Workshop upload** (и только тогда): **replace** — полностью перезаписать поле текстом текущего upload.
+- GitHub Release / tag / `CHANGELOG.md` сами по себе `last_changes` не обнуляют.
+- Правило коммитов: `.cursor/rules/jazz-commits-versioning.mdc`; релизный skill: `SKILL.md` § `last_changes`.
+
 ## Неизменяемость
 
 После публикации:
