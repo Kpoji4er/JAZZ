@@ -47,7 +47,7 @@ Feasibility — инженерная оценка «как делать», не 
 | `biff` | Бифф | `Jazz_Biff` | medium | Commander | MERC | `Jazz_Perk_Biff` · Вербовка MERC | operation | HARD | STUB — `unit_reactions={}`, WIP description in CharacterEffect |
 | `cougar` | Пума | `Jazz_Cougar` | medium | Autorifleman | MERC | `Jazz_Perk_Cougar` · Мягкая лапа | passive | MEDIUM | STUB — `unit_reactions={}`, WIP description in CharacterEffect |
 | `dynamo` | Динамо | `Jazz_Dynamo` | medium | Mechanic | MERC | `Jazz_Perk_Dynamo` · Вилкой в глаз | passive | MEDIUM | STUB — `unit_reactions={}`, WIP description in CharacterEffect |
-| `flo` | Фло | `Jazz_Flo` | medium | Support | MERC | `Jazz_Perk_Flo` · Барахольщица | passive | HARD | STUB — `unit_reactions={}`, WIP description in CharacterEffect |
+| `flo` | Фло | `Jazz_Flo` | medium | Support | MERC | `Jazz_Perk_Flo` · Барахольщица | passive | **CUT (shop)** | STUB — shop вне скоупа; ждать non-shop redesign |
 | `gamos` | Гамос | `Jazz_Gamos` | medium | Scout | Locals | `Jazz_Perk_Gamos` · Тропы джунглей | passive | HARD | STUB — `unit_reactions={}`, WIP description in CharacterEffect |
 | `gaston` | Гастон | `Jazz_Gaston` | medium | Sniper | MERC | `Jazz_Perk_Gaston` · Крыша | passive | MEDIUM | STUB — `unit_reactions={}`, WIP description in CharacterEffect |
 | `henning` | Хеннинг | `Jazz_Henning` | medium | Commander | AIM | `Jazz_Perk_Henning` · Кабинетный генерал | passive | EASY | STUB — `unit_reactions={}`, WIP description in CharacterEffect |
@@ -167,6 +167,13 @@ Feasibility — инженерная оценка «как делать», не 
 
 Эти перки **тематически подходят** меркам, но текущая формулировка тянет strategy/economy. Предложение: не блочить волну A/B; для каждого выбрать путь **Simplify** или **Defer**.
 
+**Вырезано из скоупа именных перков (owner 2026-07-31):**
+
+| Тема | Было | Решение |
+| --- | --- | --- |
+| **Магазин** (shop buy/sell) | Фло «Барахольщица» ±12% у торговцев | **CUT** — не Simplify, не Wave C. `Jazz_Perk_Flo` остаётся stub до отдельного **не-shop** редизайна. |
+| **Разгрузки** (personal loadout / unit inventory / stack UI в разгрузке) | любые именные эффекты на слоты разгрузки, personal `MaxStacks`, переносы bag↔разгрузка | **CUT** — это inventory (`JAZZ-INV-*`), не perk-wave. Именованные перки сюда не лезут. |
+
 | Мерк | Статья | Рекомендация |
 | --- | --- | --- |
 | Бифф | MERC recruitment operation | **Simplify:** пока Бифф в секторе с militia training — +1 уровень/скорость militia **или** бесплатный veteran militia раз в N дней. Полный MERC-trooper unit — Defer. |
@@ -174,7 +181,7 @@ Feasibility — инженерная оценка «как делать», не 
 | Айра | Militia training ×2 | **Simplify:** `Teacher` + flat militia training speed в секторе присутствия (hook в `MilitiaTraining`), без отдельного «Locals only» ветвления если дорого. |
 | Конрад | Exempt от Teacher stacking penalty | **Defer** или найти vanilla stacking и точечно патчить — высокий risk/low visibility. **Simplify alt:** Conrad даёт +X% training speed personally. |
 | Мигель | Militia HP/Marksmanship aura + combat AP | **Simplify v1:** в бою с militia — militia +1 AP на старте. Garrison aura — Defer. |
-| Фло | Shop ±12% | **Simplify:** усилить/заменить на больший `Negotiator`-like sector ops discount; shop buy/sell требует price pipeline audit. |
+| Фло | Shop ±12% | **CUT** — магазин вне скоупа именных перков; нужен другой fantasy (не buy/sell). |
 | Гамос | Jungle travel −40% | **Defer** (satellite travel tags) **или Simplify:** в jungle sectors +free move / stealth в бою. |
 | Мануэль | Stealth near unspotted enemies | Близко к MEDIUM: `OnCalcSightModifier` / detection — можно спустить в B после прототипа. |
 | Штайгер | Night ally +5% CTH aura | По сути EASY/MEDIUM aura как Хеннинг, но night-gated — перенести в A. |
@@ -197,7 +204,7 @@ Feasibility — инженерная оценка «как делать», не 
 | Mechanic | Cord, Static, Dynamo, Allik | repair/parts/XP/skill shots | combat nuke |
 | Commander/Lead | Ira, Conrad, Miguel, Henning, Steiger, Biff, Rothman | train/militia/aura CTH | личный sniper perk |
 | Scout/Stealth | Monk, Manuel, Gamos, Cougar, Carlos | first shot / detection / noise | heavy weapons |
-| Support/Trade | Flo, Vicious (flavor AP) | economy **или** squad AP fantasy | combat crit machine |
+| Support/Trade | Vicious (flavor AP); **Flo — CUT shop**, нужен другой fantasy | squad AP / support combat | shop buy/sell, разгрузка/inventory |
 
 ## 7. План поставки (без оценок в днях)
 
@@ -230,7 +237,7 @@ DoD на перк: Description = фактический эффект; `unit_reac
 
 ### Фаза 3 — Wave C (HARD) после отдельного approve
 
-Biff / Rothman / Ira / Miguel / Flo / Gamos / Conrad / Hobbit / Highball — только в Simplify-форме из §5.3 или полным operation-spec.
+Biff / Rothman / Ira / Miguel / Gamos / Conrad / Hobbit / Highball — только в Simplify-форме из §5.3 или полным operation-spec. **Flo (магазин) и любые перки разгрузки/inventory — вне скоупа.**
 
 ### Фаза 4 — shipped polish
 
