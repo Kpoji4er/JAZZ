@@ -44,8 +44,7 @@ approved_by: project-owner chat 2026-07-31 «Подготовь реализац
 
 ## Non-goals
 
-- Wave B/C (Grom, Mike, Ira, Biff, Rothman, mine/militia ops, …).
-- **Магазин:** shop buy/sell цены, BobbyRay/`ShopStackSize`, перк Фло «Барахольщица» — **CUT**, не реализовывать в perk-waves.
+- Wave B/C (Grom, Mike, Ira, Biff, Rothman, shop/mine/militia ops, …) — Flo shop остаётся в Wave C / HARD, не в Wave A.
 - **Разгрузки:** personal loadout / unit inventory slots / stack UI в разгрузке / bag↔разгрузка — inventory (`JAZZ-INV-*`), не named-perk scope.
 - Charge +2 для Blade; Vicious Fox-double / melee-kill AP; Dynamo groin; Cougar noise; Hitman active.
 - Push/release.

@@ -77,7 +77,7 @@ executable: true
 | type | passive |
 | DisplayName RU/EN | Барахольщица / The Bargain Hunter |
 | Description RU/EN | Скидки у торговцев на покупку и продажу / Shop discounts on both buying and selling |
-| Mechanics | **OUT OF SCOPE (owner 2026-07-31):** shop buy/sell discounts cut from named-perk waves. Stub until a non-shop redesign. Do not implement ±12% trader prices. |
+| Mechanics | −12% to buy prices and +12% to sell prices at all shops while Flo is in the active squad (stacks with the base `Negotiator` perk's own bonus, does not multiply with it). |
 
 ## Personality
 
@@ -193,4 +193,4 @@ executable: true
 
 ## Open blockers
 
-- `perk: needs-redesign` — shop buy/sell cut from named-perk scope (owner 2026-07-31); stub until non-shop fantasy
+- none
