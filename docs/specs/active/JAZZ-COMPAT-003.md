@@ -37,6 +37,7 @@ exclusive_resources:
   - Code:NoMaps_Autonomy.lua
   - Quest:JAZZ_LegionTier
   - Code:LegionTierProgression.lua
+  - GameVar:gv_JAZZ_LegionTierNoMaps
 related_decisions:
   - none
 approved_by: project-owner
