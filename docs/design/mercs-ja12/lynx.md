@@ -81,7 +81,7 @@ executable: true
 | type | passive |
 | DisplayName RU/EN | Рысий взгляд / Lynx's Eye |
 | Description RU/EN | Дальность видимости днем повышена, а штрафы за дальность - понижены |
-| Mechanics | As-shipped CharacterEffect; day visibility bonus (see `docs/technical/systems/visibility-weather-appearance.md`) |
+| Mechanics | `Jazz_LynxSightBonus` (+8): daytime sight in `System_OR_Unit`; same value softens Range CTH — vision is the accuracy buff |
 
 ## Personality
 
