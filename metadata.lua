@@ -5,7 +5,7 @@
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- AI PERF-001: DestLos dest-cap 320 + far-skip; soft Precalc prune\n- Indoors Point/CTH guards for AI hang/error cascade\n- Enemy shortlist rolled back (full enemies for smarter LOS)",
+	'last_changes', "- COMBAT-003: Pinned cannot retaliate; suppression CTH at any range\n- Lightning Reaction 50%, no proc on stealth kill\n- Psycho Will drain −4/turn; Will full restore on CombatEnd",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 47,
+	'version_minor', 48,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,

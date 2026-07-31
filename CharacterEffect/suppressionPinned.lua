@@ -35,7 +35,7 @@ DefineClass.suppressionPinned = {
 		}),
 	},
 	DisplayName = T(890000000000262, --[[ModItemCharacterEffectCompositeDef suppressionPinned DisplayName]] "Прижат"),
-	Description = T(890000000001235, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Количество од - не более 4."),
+	Description = T(890000000001235, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Количество ОД — не более 4.\nНе может контратаковать."),
 	AddEffectText = T(890000000000704, --[[ModItemCharacterEffectCompositeDef suppressionPinned AddEffectText]] "Под плотным огнем"),
 	OnAdded = function (self, obj)
 		local unitStance = obj.stance

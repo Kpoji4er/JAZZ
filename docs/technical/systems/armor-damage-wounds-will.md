@@ -160,6 +160,24 @@ DefineClass.DamageReduction = {
 
 JAZZ добавляет unit attribute `Will` и derived `WillPoints`/`MaxWillPoints`. Взрывы и suppressive fire уменьшают Will и переводят цель по уровням подавления вплоть до `Pinned`. `WillPointsBar.lua` обновляет UI на `CombatEnd` и `TurnEnd` и при runtime-изменениях состояния.
 
+### Уровни и контратака (JAZZ-COMBAT-003)
+
+| Эффект | Смысл | CTH атакующего | Контратака (`Unit:Retaliate`) |
+| --- | --- | --- | --- |
+| `suppressionLight` | Обстрелян | −10 | да, со штрафом CTH |
+| `suppressionMedium` | Под огнем | −20 | да, со штрафом CTH |
+| `suppressionHeavy` | Под плотным огнем | −30 | да, со штрафом CTH |
+| `suppressionHeavy2` | Подавлен | −50 | да, со штрафом CTH |
+| `suppressionPinned` | Прижат | −70 | **нет** |
+
+CTH-модификатор `Suppression` применяется на любой дистанции (в т.ч. opportunity / retaliation), не только дальше 5 клеток.
+
+### Psycho и восстановление Will
+
+- `Psycho` не получает Will damage от огневого подавления и не получает suppression tiers; при низком Will может уйти в `Berserk`.
+- Каждый `BeginTurn` без `Berserk`: drain **−4** Will (раньше −8) и ранний выход из обычного leadership-regen.
+- На `CombatEnd` у всех живых human `WillPoints` сбрасываются на `MaxWillPoints` (`OnMsg.CombatEnd` в `System_OR_Unit.lua`), чтобы срыв не переносился в следующий бой.
+
 Will связан одновременно с damage, AI, effects и UI. Любое изменение формулы должно проверять не только число, но и пороги статусов, действия AI и очистку в конце боя.
 
 ## Межпакетные зависимости

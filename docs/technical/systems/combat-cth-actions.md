@@ -99,6 +99,19 @@ skill(x)      = 20 + x^1.25 × 0.25
 5. попадания передаются damage/armor/wound и suppression системам; трассерный маркер ставится отдельно на уровне каждого произведённого выстрела с итоговым CTH больше нуля.
 6. UI обновляет боевой badge, CTH breakdown, ammo/reload, overwatch и очереди действий.
 
+## Подавление в CTH и контратака (JAZZ-COMBAT-003)
+
+- ModItem `Suppression`: штрафы атакующего `−10/−20/−30/−50/−70` по tier (`suppressionLight` … `suppressionPinned`) на **любой** дистанции, включая opportunity/retaliation.
+- `Unit:Retaliate` (Hotblood / Shatterhand / HaveABlast и др.): при `suppressionPinned` сразу `false` — прижатый не контратакует.
+
+## Lightning Reaction (JAZZ-COMBAT-003)
+
+Канон: `Unit:LightningReactionCheck` в `Code/System_OR_Unit.lua`; `Unit:FirearmAttack` в `Code/CombatActions.lua` выставляет `g_JAZZ_FirearmAttacker` / `g_JAZZ_FirearmAttackArgs` на время `OnFirearmAttackStart`.
+
+- Шанс: параметр `chance` перка, иначе **50%** (`self:Random(100) < chance`).
+- Не срабатывает, если атакующий в `Hidden`, или в args есть `stealth_attack` / `stealth_kill_chance > 0` (тихое убийство / stealth attack).
+- Как и в vanilla: не на своём ходе команды, не из Prone, не при `ManningEmplacement`.
+
 ## Grazing hits (JAZZ-COMBAT-002)
 
 Канон runtime: `Code/System_OR_Weapons.lua` (`JAZZ_CalcMissGrazeChance`, `JAZZ_CalcCoverGrazeChance`, `BaseWeapon:PrecalcDamageAndStatusEffects`), `Code/ExecFirearmAttacks.lua` (`ignore_smoke`), `Code/MeleeWeapon.lua` (thrown knives).
