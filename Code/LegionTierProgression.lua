@@ -1,13 +1,49 @@
--- JAZZ-COMPAT-003: NoMaps Legion equipment tier —
--- major from mines (I→II) + WorldFlip (III); sub from sectors.
--- Maps / Ernie profile keeps quest TCE on PlayerControlSectors (gated off while NoMaps active).
+-- JAZZ-COMPAT-003: NoMaps-only Legion equipment tier progression (time-based).
+-- Major: T1 start → T2 after first mine + 3 days → T3 on WorldFlip.
+-- Sub: T1 every 3 days; T2/T3 every 14 days. Maps/Ernie keep quest TCE.
 
 local QUEST_ID = "JAZZ_LegionTier"
 local VAR_ID = "JAZZ_Legion_Tier"
 local BETRAYAL_QUEST = "04_Betrayal"
 
+local DAY = false
+local function lDay()
+	if not DAY then
+		DAY = (const and const.Scale and const.Scale.day) or (24 * ((const and const.Scale and const.Scale.h) or 1))
+	end
+	return DAY
+end
+
+-- T1 sub step; also delay from first mine until T2 unlock.
+local T1_SUB_INTERVAL_DAYS = 3
+local T2_UNLOCK_DELAY_DAYS = 3
+-- T2 / T3 sub step
+local T2_T3_SUB_INTERVAL_DAYS = 14
+
+local MAX_SUB = {
+	[1] = 3,
+	[2] = 5,
+	[3] = 3,
+}
+
+local STATE_SCHEMA = 2
+
+-- Default schema 1 so first load of older saves migrates (backdate mine delay if mine already held).
+GameVar("gv_JAZZ_LegionTierNoMaps", function()
+	return {
+		schema = 1,
+		first_mine_at = false, -- CampaignTime when player first owned a mine
+		major = 1,
+		major_started_at = false, -- CampaignTime when current major began
+	}
+end)
+
 local function lNoMapsActive()
 	return rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive() or false
+end
+
+local function lNow()
+	return Game and Game.CampaignTime or 0
 end
 
 local function lSectorIsSurface(sector)
@@ -29,63 +65,63 @@ function JAZZ_IsWorldFlipProgressionActive()
 	return not not (src.TriggerWorldFlip or src.WorldFlipDone)
 end
 
-function JAZZ_CountPlayerSurfaceSectorsAndMines()
-	local sectors, mines = 0, 0
+function JAZZ_CountPlayerMines()
+	local mines = 0
 	for _, sector in sorted_pairs(gv_Sectors or empty_table) do
-		if lSectorIsSurface(sector) and lIsPlayerSide(sector.Side) then
-			sectors = sectors + 1
-			if sector.Mine then
-				mines = mines + 1
-			end
+		if lSectorIsSurface(sector) and lIsPlayerSide(sector.Side) and sector.Mine then
+			mines = mines + 1
 		end
 	end
-	return sectors, mines
+	return mines
 end
 
--- Pure formula for tests / diagnostics. Returns encoded tier 11..33 (valid set).
--- world_flip: boolean — unlocks major III (same as 04_Betrayal WorldFlip flags).
-function JAZZ_ComputeLegionTierNoMaps(mines, sectors, world_flip)
-	mines = mines or 0
-	sectors = sectors or 0
-	local major
-	if world_flip then
-		major = 3
-	elseif mines >= 1 then
-		major = 2
-	else
-		major = 1
+local function lEnsureTierState()
+	local st = gv_JAZZ_LegionTierNoMaps
+	if type(st) ~= "table" then
+		st = {
+			schema = STATE_SCHEMA,
+			first_mine_at = false,
+			major = 1,
+			major_started_at = false,
+		}
+		gv_JAZZ_LegionTierNoMaps = st
 	end
-	local sub
+	st.major = st.major or 1
+	return st
+end
+
+local function lSubIntervalDays(major)
 	if major == 1 then
-		if sectors <= 1 then
-			sub = 1
-		elseif sectors <= 3 then
-			sub = 2
-		else
-			sub = 3
-		end
-	elseif major == 2 then
-		if sectors <= 2 then
-			sub = 1
-		elseif sectors <= 4 then
-			sub = 2
-		elseif sectors <= 6 then
-			sub = 3
-		elseif sectors <= 8 then
-			sub = 4
-		else
-			sub = 5
-		end
-	else
-		if sectors <= 4 then
-			sub = 1
-		elseif sectors <= 7 then
-			sub = 2
-		else
-			sub = 3
-		end
+		return T1_SUB_INTERVAL_DAYS
 	end
+	return T2_T3_SUB_INTERVAL_DAYS
+end
+
+-- Pure formula for tests / diagnostics.
+-- now, major_started_at: CampaignTime; major: 1..3
+function JAZZ_ComputeLegionTierNoMapsSub(now, major_started_at, major)
+	major = major or 1
+	local max_sub = MAX_SUB[major] or 3
+	local started = major_started_at or now or 0
+	local elapsed = Max(0, (now or 0) - started)
+	local interval = lSubIntervalDays(major) * lDay()
+	if interval <= 0 then
+		return major * 10 + 1
+	end
+	local step = math.floor(elapsed / interval)
+	local sub = Min(max_sub, 1 + step)
 	return major * 10 + sub
+end
+
+-- Target major only (no sub). first_mine_at may be false.
+function JAZZ_ComputeLegionTierNoMapsMajor(now, first_mine_at, world_flip)
+	if world_flip then
+		return 3
+	end
+	if first_mine_at and (now - first_mine_at) >= T2_UNLOCK_DELAY_DAYS * lDay() then
+		return 2
+	end
+	return 1
 end
 
 local function lGetCurrentTier()
@@ -109,6 +145,20 @@ local function lSetTier(value)
 	return true
 end
 
+local function lMigrateState(st, now, mines)
+	if (st.schema or 0) >= STATE_SCHEMA then
+		return
+	end
+	-- Pre-timer / schema1 saves: if a mine is already held, do not re-wait 3 days.
+	if mines >= 1 and not st.first_mine_at then
+		st.first_mine_at = now - T2_UNLOCK_DELAY_DAYS * lDay()
+	end
+	if not st.major_started_at then
+		st.major_started_at = now
+	end
+	st.schema = STATE_SCHEMA
+end
+
 -- Only raises tier (never rolls back). Returns new tier or false if unchanged/inactive.
 function JAZZ_UpdateLegionTierForNoMaps()
 	if not lNoMapsActive() then
@@ -117,9 +167,28 @@ function JAZZ_UpdateLegionTierForNoMaps()
 	if not gv_Quests or not gv_Quests[QUEST_ID] then
 		return false
 	end
-	local sectors, mines = JAZZ_CountPlayerSurfaceSectorsAndMines()
+
+	local now = lNow()
+	local st = lEnsureTierState()
+	local mines = JAZZ_CountPlayerMines()
+	lMigrateState(st, now, mines)
+
+	if mines >= 1 and not st.first_mine_at then
+		st.first_mine_at = now
+	end
+
 	local world_flip = JAZZ_IsWorldFlipProgressionActive()
-	local computed = JAZZ_ComputeLegionTierNoMaps(mines, sectors, world_flip)
+	local target_major = JAZZ_ComputeLegionTierNoMapsMajor(now, st.first_mine_at, world_flip)
+
+	if not st.major_started_at then
+		st.major_started_at = now
+		st.major = target_major
+	elseif target_major > (st.major or 1) then
+		st.major = target_major
+		st.major_started_at = now
+	end
+
+	local computed = JAZZ_ComputeLegionTierNoMapsSub(now, st.major_started_at, st.major)
 	local current = lGetCurrentTier() or 11
 	if computed <= current then
 		return false
@@ -132,11 +201,11 @@ function JAZZ_UpdateLegionTierForNoMaps()
 	end
 	if CombatLog and Untranslated then
 		CombatLog("debug", Untranslated(string.format(
-			"[JAZZ Legion Tier] NoMaps %d → %d (mines=%d sectors=%d worldflip=%s)",
+			"[JAZZ Legion Tier] NoMaps %d → %d (major=%d mine_at=%s worldflip=%s)",
 			current,
 			computed,
-			mines,
-			sectors,
+			st.major or 0,
+			tostring(st.first_mine_at),
 			tostring(world_flip)
 		)))
 	end
@@ -160,5 +229,13 @@ function OnMsg.LoadGame()
 end
 
 function OnMsg.NewGame()
+	if lNoMapsActive() then
+		gv_JAZZ_LegionTierNoMaps = {
+			schema = STATE_SCHEMA,
+			first_mine_at = false,
+			major = 1,
+			major_started_at = lNow(),
+		}
+	end
 	JAZZ_UpdateLegionTierForNoMaps()
 end

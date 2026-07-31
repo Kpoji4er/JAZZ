@@ -180,23 +180,23 @@ Quest `JAZZ_LegionTier` создаётся с `Given = true`, а `JAZZ_Legion_Ti
 
 Каждому переходу соответствует `QuestVarTCEState`, поэтому это одноразовые quest events, а не формула, вычисляемая при каждом чтении. У перехода в `12` дополнительно стоит guard `JAZZ_Legion_Tier <= 23`; он не даёт поздно сработавшему раннему событию откатить уже достигнутую третью группу.
 
-### NoMaps: шахты → II, WorldFlip → III, сектора → sub (COMPAT-003)
+### NoMaps: time progression (COMPAT-003) — только без maps
 
-На профиле `jazz-nomaps` (`JAZZ_NoMapsIsActive`) quest TCE по `PlayerControlSectors` **не срабатывают** (`CheckExpression` gate). Вместо них `Code/LegionTierProgression.lua` считает tier и только **поднимает** `JAZZ_Legion_Tier` (без отката):
+На профиле `jazz-nomaps` (`JAZZ_NoMapsIsActive`) quest TCE по `PlayerControlSectors` **не срабатывают**. `Code/LegionTierProgression.lua` + `gv_JAZZ_LegionTierNoMaps` двигают `JAZZ_Legion_Tier` **только вверх** по `Game.CampaignTime`:
 
-| Условие | Major |
-| --- | ---: |
-| 0 mines, до WorldFlip | 1 |
-| ≥1 player mine, до WorldFlip | 2 |
-| `04_Betrayal` `TriggerWorldFlip` или `WorldFlipDone` | 3 |
-
-| Major | Player surface sectors → sub |
+| Major | Как открывается |
 | ---: | --- |
-| 1 | ≤1→1, ≤3→2, else→3 |
-| 2 | ≤2→1, ≤4→2, ≤6→3, ≤8→4, else→5 |
-| 3 | ≤4→1, ≤7→2, else→3 |
+| 1 | старт |
+| 2 | первая player-owned шахта + **3 суток** |
+| 3 | WorldFlip (`04_Betrayal` `TriggerWorldFlip` / `WorldFlipDone`, как Bobby Ray T3) |
 
-WorldFlip — тот же булев сигнал, что открывает Bobby Ray shop tier 3. Хуки: `SectorSideChanged`, `SatelliteTick`, `OpenSatelliteView`, Load/NewGame. Смена → `RegenerateLegionLoot()` как у TCE. Ernie/maps профиль без изменений.
+| Major | Шаг подтира | Потолок |
+| ---: | --- | ---: |
+| 1 | каждые **3** дня | 13 |
+| 2 | каждые **14** дней | 25 |
+| 3 | каждые **14** дней | 33 |
+
+При смене major таймер подтира сбрасывается (старт с `x1`). Сектора на NoMaps tier не влияют. Ernie/maps — прежние TCE.
 
 ### Как tier фильтрует LootDef
 

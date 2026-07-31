@@ -5,7 +5,7 @@
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- AI PERF-001: DestLos dest-cap 320 + far-skip; soft Precalc prune\n- Indoors Point/CTH guards for AI hang/error cascade\n- Enemy shortlist rolled back (full enemies for smarter LOS)\n- COMPAT-003: NoMaps Global AI economy; Legion tier mines→major / sectors→sub\n- COMPAT-003: NoMaps Legion major III unlocks on WorldFlip (not mine count)",
+	'last_changes', "- AI PERF-001: DestLos dest-cap 320 + far-skip; soft Precalc prune\n- Indoors Point/CTH guards for AI hang/error cascade\n- Enemy shortlist rolled back (full enemies for smarter LOS)\n- COMPAT-003: NoMaps Global AI economy; Legion tier mines→major / sectors→sub\n- COMPAT-003: NoMaps Legion major III unlocks on WorldFlip (not mine count)\n- COMPAT-003: NoMaps tier timers — T2 mine+3d; sub T1/3d T2-T3/14d",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 49,
+	'version_minor', 50,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,

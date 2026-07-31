@@ -39,7 +39,7 @@ JAZZ поддерживает только последнюю опубликов
 
 Playtest 2026-07-30 (Discord): cut loot/`MP5` и неполный remap — **исправлено** в jazz-nomaps **0.5** ([PR #1](https://github.com/Kpoji4er/JAZZ-nomaps/pull/1)); детали — [bugs/nomaps-playtest-2026-07-30.md](bugs/nomaps-playtest-2026-07-30.md).
 
-COMPAT-003 (2026-07-31): NoMaps Global AI economy (nomaps **0.7**) + Legion gear tier на материке: шахты→II, WorldFlip→III, сектора→sub (`Code/LegionTierProgression.lua`); `GetRegionForSector` предпочитает `LegionAIEnabled`.
+COMPAT-003 (2026-07-31): NoMaps Global AI economy (nomaps **0.7**) + Legion gear tier на материке по времени: шахта+3д→II, WorldFlip→III, sub 3д/14д (`Code/LegionTierProgression.lua`); `GetRegionForSector` предпочитает `LegionAIEnabled`.
 
 ## Конфликты с другими модами
 

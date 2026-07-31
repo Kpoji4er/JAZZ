@@ -98,7 +98,7 @@ Quest var starts at **11**.
 | 4…8 | 21…25 |
 | 9+ | 31…33 |
 
-**Mainland without maps (NoMaps):** tier **I→II** from **captured mines** (≥1 mine → II); tier **III** after **World Flip**; subtier from **your sector count**. Tier only rises, never rolls back.
+**Mainland without maps (NoMaps):** tier **II** **3 days** after your first captured mine; tier **III** after **World Flip**. Subtiers: every **3 days** on I, every **two weeks** on II and III. Tier only rises.
 
 Regen: flag → open satellite → rebuild starting equipment for **Legion only**.
 
