@@ -86,7 +86,9 @@ Leader levels are **not** monotonic (as loaded). Strategic T4 squads need Mercen
 
 ## Gear tier
 
-Quest var starts at **11**. From `PlayerControlSectors` (TCE in `JAZZ_LegionTier`):
+Quest var starts at **11**.
+
+**Ernie (with maps):** from your sector count (TCE in `JAZZ_LegionTier`):
 
 | Sectors | Tier |
 | ---: | ---: |
@@ -96,7 +98,9 @@ Quest var starts at **11**. From `PlayerControlSectors` (TCE in `JAZZ_LegionTier
 | 4…8 | 21…25 |
 | 9+ | 31…33 |
 
-Regen: flag → `OnMsg.OpenSatelliteView` → rebuild starting equipment for **Legion only** (`UtilityFunc.lua`).
+**Mainland without maps (NoMaps):** major tier from **captured mines** (0→I, 1–2→II, 3+→III); subtier from **your sector count** within that tier. Tier only rises, never rolls back.
+
+Regen: flag → open satellite → rebuild starting equipment for **Legion only**.
 
 ## Strategic prices
 

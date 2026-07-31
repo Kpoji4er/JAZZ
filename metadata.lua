@@ -5,7 +5,7 @@
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- AI PERF-001: DestLos dest-cap 320 + far-skip; soft Precalc prune\n- Indoors Point/CTH guards for AI hang/error cascade\n- Enemy shortlist rolled back (full enemies for smarter LOS)",
+	'last_changes', "- AI PERF-001: DestLos dest-cap 320 + far-skip; soft Precalc prune\n- Indoors Point/CTH guards for AI hang/error cascade\n- Enemy shortlist rolled back (full enemies for smarter LOS)\n- COMPAT-003: NoMaps Global AI economy; Legion tier mines→major / sectors→sub",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 47,
+	'version_minor', 48,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
@@ -44,6 +44,7 @@
 		"Const/Ammo.lua",
 		"Const/Grenade.lua",
 		"Code/UtilityFunc.lua",
+		"Code/LegionTierProgression.lua",
 		"Code/VanillaDesyncFixes.lua",
 		"InventoryItem/FlareAmmo.lua",
 		"InventoryItem/JAZZ_AMMO_9x19_Poor.lua",

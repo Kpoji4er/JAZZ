@@ -180,6 +180,24 @@ Quest `JAZZ_LegionTier` создаётся с `Given = true`, а `JAZZ_Legion_Ti
 
 Каждому переходу соответствует `QuestVarTCEState`, поэтому это одноразовые quest events, а не формула, вычисляемая при каждом чтении. У перехода в `12` дополнительно стоит guard `JAZZ_Legion_Tier <= 23`; он не даёт поздно сработавшему раннему событию откатить уже достигнутую третью группу.
 
+### NoMaps: шахты → major, сектора → sub (COMPAT-003)
+
+На профиле `jazz-nomaps` (`JAZZ_NoMapsIsActive`) quest TCE по `PlayerControlSectors` **не срабатывают** (`CheckExpression` gate). Вместо них `Code/LegionTierProgression.lua` считает tier и только **поднимает** `JAZZ_Legion_Tier` (без отката):
+
+| Player mines (surface) | Major |
+| ---: | ---: |
+| 0 | 1 |
+| 1–2 | 2 |
+| ≥3 | 3 |
+
+| Major | Player surface sectors → sub |
+| ---: | --- |
+| 1 | ≤1→1, ≤3→2, else→3 |
+| 2 | ≤2→1, ≤4→2, ≤6→3, ≤8→4, else→5 |
+| 3 | ≤4→1, ≤7→2, else→3 |
+
+Хуки: `SectorSideChanged`, `SatelliteTick`, `OpenSatelliteView`, Load/NewGame. Смена → `RegenerateLegionLoot()` как у TCE. Ernie/maps профиль без изменений.
+
 ### Как tier фильтрует LootDef
 
 Боевые class LootDef после JAZZ-UNITS-003 используют **exclusive arch bands** (примерно `[11,19]` / `[21,29]` / `≥31`) плюс веса внутри band. У `QuestIsVariableNum` comparator по умолчанию равен `>=`; явные `<=` задают верхнюю границу. На mid (`20–29`) оружие `balance_tier==1` остаётся редким remnant (~1% веса parent pool, weight `1400`); на late (`≥30`) tier1 primary отсутствует.

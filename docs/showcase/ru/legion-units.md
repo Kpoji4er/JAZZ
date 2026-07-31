@@ -86,7 +86,9 @@
 
 ## Gear tier
 
-Quest var стартует с **11**. По `PlayerControlSectors` (TCE в `JAZZ_LegionTier`):
+Quest var стартует с **11**.
+
+**Остров Эрни (с maps):** по числу ваших секторов (TCE в `JAZZ_LegionTier`):
 
 | Секторов | Tier |
 | ---: | ---: |
@@ -96,7 +98,9 @@ Quest var стартует с **11**. По `PlayerControlSectors` (TCE в `JAZZ_
 | 4…8 | 21…25 |
 | 9+ | 31…33 |
 
-Реген: флаг → `OnMsg.OpenSatelliteView` → пересборка starting equipment **только у Легиона** (`UtilityFunc.lua`).
+**Материк без maps (NoMaps):** крупный тир — от **захваченных шахт** (0→I, 1–2→II, 3+→III); подтир — от **числа ваших секторов** внутри тира. Тир только растёт, не откатывается.
+
+Реген: флаг → открытие satellite → пересборка starting equipment **только у Легиона**.
 
 ## Цены стратегии
 

@@ -1,6 +1,6 @@
 -- JAZZ NoMaps (7MsJ2Eq) — autonomy when jazz-maps (FhNNYd) is not loaded.
 -- Vanilla HotDiamonds geography only. No-op while FhNNYd is active.
--- Spec: jazz/docs/specs/active/JAZZ-COMPAT-002.md
+-- Spec: jazz/docs/specs/active/JAZZ-COMPAT-002.md, JAZZ-COMPAT-003.md
 
 JAZZ_NOMAPS_ID = "7MsJ2Eq"
 JAZZ_MAPS_MOD_ID = "FhNNYd"
@@ -15,6 +15,7 @@ GameVar("gv_JAZZ_NoMaps", function()
 		auto_regions = {},
 		geared = {},
 		disabled_regions = {},
+		ai_economy_rev = 0,
 	}
 end)
 
@@ -97,31 +98,43 @@ end
 
 -- Vanilla / weak IDs → jazz EnemySquadDefs when present (units package).
 local SQUAD_REMAP = {
-	-- Legion
+	-- Legion (vanilla HotDiamonds IDs -> jazz-units)
 	LegionAttackers_Balanced_Easy = "LegionAttackers_JazzBalanced_Easy_Assault",
+	LegionAttackers_Balanced_Easy_Assault = "LegionAttackers_JazzBalanced_Easy_Assault",
 	LegionAttackers_Balanced = "LegionAttackers_JazzBalanced_Easy_Assault",
+	LegionAttackers_Balanced_Hard = "LegionAttackers_Balanced_Hard",
 	LegionRaidSquad = "LegionJAZZSquadT1",
 	LegionRaidSquad_Easy = "LegionJAZZSquadT1",
+	LegionRaidSquad_01 = "LegionJAZZSquadT1",
+	LegionRaidSquad_02 = "LegionJAZZSquadT1",
+	LegionRaidSquad_03 = "LegionJAZZSquadT1",
 	LegionDefenders_Easy = "LegionGlobalAI_Garrison",
 	LegionDefenders_Mobile_Easy = "LegionGlobalAI_Patrol",
-	LegionDefenders_Shooters_Easy = "LegionAttackers_Balanced_Easy_Assault",
-	FortressDefenders = "LegionGlobalAI_Garrison",
+	LegionDefenders_Shooters_Easy = "LegionAttackers_JazzBalanced_Easy_Assault",
+	FortressDefenders = "LegionFortressDefenders",
 	FortressPierre = "LegionJAZZSquadT2",
 	LegionHeavyTroops = "LegionHeavyTroops",
+	LegionHeavy = "LegionHeavyTroops",
 	LegionAttackers_Shock_Easy = "LegionAttackers_Shock_Easy",
+	LegionAttackers_Shock_Hard = "LegionAttackers_Shock_Hard",
 	LegionAttackers_Marksmen_Easy = "LegionAttackers_Marksmen_Easy",
+	LegionAttackers_Marksmen_Hard = "LegionAttackers_Marksmen_Hard",
 	LegionAttackers_Ordnance_Easy = "LegionAttackers_Ordnance_Easy",
-	-- WorldFlip (jazz override lists — ensure present)
+	LegionAttackers_Ordnance_Hard = "LegionAttackers_Ordnance_Hard",
+	LegionExtraSquadFireArms = "LegionExtraSquadFireArms_T2",
+	-- WorldFlip / faction lists (same-id jazz-units overrides preferred)
 	Adonis_Troops_Assault_Light = "Adonis_Troops_Assault_Light",
 	Adonis_Troops_Assault_Heavy = "Adonis_Troops_Assault_Heavy",
+	Adonis_Troops_Defenders_Light = "Adonis_Troops_Defenders_Light",
+	Adonis_Troops_Defenders_Heavy = "Adonis_Troops_Defenders_Heavy",
 	Adonis_Heavy_Troops = "Adonis_Heavy_Troops",
 	Adonis_Heavy_Troops_Alt = "Adonis_Heavy_Troops_Alt",
+	Adonis_SpecOps_Light = "Adonis_SpecOps_Light",
 	Adonis_SpecOps_Heavy = "Adonis_SpecOps_Heavy",
 	ArmySpecOps = "ArmySpecOps",
 	ArmySpecOps_alt = "ArmySpecOps_alt",
 	ArmyAttackers_Balanced_Hard = "ArmyAttackers_Balanced_Hard",
 	ArmyAttackers_Balanced_Alt = "ArmyAttackers_Balanced_Alt",
-	-- Army / Adonis / Rebel: same-id jazz-units overrides preferred; remap only when jazz alt exists
 	RebelRaiders = "RebelRaiders",
 }
 
@@ -139,6 +152,7 @@ local ROLE_LISTS = {
 local LOOT_PACKS = {
 	{ chance = 35, id = "JAZZ_NoMaps_Container_Ammo" },
 	{ chance = 20, id = "JAZZ_NoMaps_Container_Common" },
+	{ chance = 18, id = "JAZZ_NoMaps_Container_Armor" },
 	{ chance = 15, id = "JAZZ_NoMaps_Container_Weapon" },
 }
 
@@ -152,6 +166,76 @@ local LOOT_POOLS_FALLBACK = {
 		"JAZZ_AMMO_12gauge_Buckshot",
 	},
 	weapons = { "AK47", "MP5A2", "UZI", "Galil", "FAMAS", "Glock18" },
+	armor = {
+		"JazzArmor_FlakM69",
+		"JazzArmor_FlakM1955",
+		"JazzArmor_GuardianMedium",
+		"JazzArmor_LeatherPants",
+		"JazzArmor_GuardianLegs",
+		"JazzArmor_M1Helm",
+		"JazzArmor_PASGTHelm",
+	},
+}
+
+-- Gear refresh revision: 1 = strip+CSE+ammo; 2 = +legacy armor → JazzArmor remap.
+local GEAR_REV = 2
+
+-- Economy rev: 1 = Truncated TaxCap=0/manpower=12 freeze; 2 = playable Global AI defaults.
+local AI_ECONOMY_REV = 2
+
+-- Vanilla / incomplete JAZZ stubs (no ArmorRating) → playable JazzArmor_* (Sergej: light→flak, medium→kevlar/Guardian, heavy→Guardian heavy; helms/pants same bands).
+local ARMOR_REMAP = {
+	-- Torso light
+	FlakVest = "JazzArmor_FlakM69",
+	FlakVest_Kompositum = "JazzArmor_FlakM69",
+	FlakVest_WeavePadding = "JazzArmor_FlakM69",
+	FlakVest_CeramicPlates = "JazzArmor_FlakM69",
+	FlakArmor = "JazzArmor_FlakM69",
+	FlakArmor_Kompositum = "JazzArmor_FlakM69",
+	FlakArmor_WeavePadding = "JazzArmor_FlakM69",
+	FlakArmor_CeramicPlates = "JazzArmor_FlakM69",
+	CamoArmor_Light = "JazzArmor_FlakM1955",
+	CamoArmor_Light_Kompositum = "JazzArmor_FlakM1955",
+	-- Torso medium
+	KevlarVest = "JazzArmor_GuardianMedium",
+	KevlarVest_Kompositum = "JazzArmor_GuardianMedium",
+	KevlarVest_WeavePadding = "JazzArmor_GuardianMedium",
+	KevlarVest_CeramicPlates = "JazzArmor_GuardianMedium",
+	KevlarChestplate = "JazzArmor_GuardianMedium",
+	KevlarChestplate_Kompositum = "JazzArmor_GuardianMedium",
+	KevlarChestplate_WeavePadding = "JazzArmor_GuardianMedium",
+	KevlarChestplate_CeramicPlates = "JazzArmor_GuardianMedium",
+	CamoArmor_Medium = "JazzArmor_GuardianMedium",
+	CamoArmor_Medium_Kompositum = "JazzArmor_GuardianMedium",
+	-- Torso heavy
+	HeavyArmorTorso = "JazzArmor_GuardianFull",
+	HeavyArmorTorso_Kompositum = "JazzArmor_GuardianFull",
+	HeavyArmorTorso_WeavePadding = "JazzArmor_GuardianFull",
+	HeavyArmorTorso_CeramicPlates = "JazzArmor_GuardianFull",
+	HeavyArmorChestplate = "JazzArmor_GuardianFull",
+	HeavyArmorChestplate_Kompositum = "JazzArmor_GuardianFull",
+	HeavyArmorChestplate_WeavePadding = "JazzArmor_GuardianFull",
+	HeavyArmorChestplate_CeramicPlates = "JazzArmor_GuardianFull",
+	-- Legs
+	FlakLeggings = "JazzArmor_LeatherPants",
+	FlakLeggings_Kompositum = "JazzArmor_LeatherPants",
+	FlakLeggings_WeavePadding = "JazzArmor_LeatherPants",
+	KevlarLeggings = "JazzArmor_GuardianLegs",
+	KevlarLeggings_Kompositum = "JazzArmor_GuardianLegs",
+	KevlarLeggings_WeavePadding = "JazzArmor_GuardianLegs",
+	HeavyArmorLeggings = "JazzArmor_GuardianHeavyLegs",
+	HeavyArmorLeggings_Kompositum = "JazzArmor_GuardianHeavyLegs",
+	HeavyArmorLeggings_WeavePadding = "JazzArmor_GuardianHeavyLegs",
+	-- Head
+	LightHelmet = "JazzArmor_M1Helm",
+	LightHelmet_Kompositum = "JazzArmor_M1Helm",
+	LightHelmet_WeavePadding = "JazzArmor_M1Helm",
+	KevlarHelmet = "JazzArmor_PASGTHelm",
+	KevlarHelmet_Kompositum = "JazzArmor_PASGTHelm",
+	KevlarHelmet_WeavePadding = "JazzArmor_PASGTHelm",
+	HeavyArmorHelmet = "JazzArmor_GuardianHelmHeavy",
+	HeavyArmorHelmet_Kompositum = "JazzArmor_GuardianHelmHeavy",
+	HeavyArmorHelmet_WeavePadding = "JazzArmor_GuardianHelmHeavy",
 }
 
 -- Cut stubs kept in jazz for ID compatibility (see jazz/docs/technical/weapons/cut-content.md).
@@ -245,10 +329,11 @@ local function lDisableMapsOnlyRegions(root)
 		if bad then
 			region.LegionAIEnabled = false
 			region.ManagedOutposts = {}
+			region.Sectors = {}
 			if rid then
 				root.disabled_regions[rid] = true
 			end
-			lLog("disabled maps-only region " .. tostring(rid))
+			lLog("disabled maps-only region " .. tostring(rid) .. " (cleared Sectors)")
 		end
 		::next_region::
 	end
@@ -328,6 +413,28 @@ local function lCreateAutoRegion(outpost_id, sectors, major_hq)
 		existing.LegionAIEnabled = true
 		existing.ManagedOutposts = { outpost_id }
 		existing.Sectors = sectors
+		existing.TaxCap = 1
+		existing.RecruiterCap = 1
+		existing.StartingManpower = 40
+		existing.ManpowerCapacity = 64
+		existing.MajorStartingManpower = 120
+		existing.StartingSupply = existing.StartingSupply or 20000
+		if (existing.PassiveSupplyPerHour or 0) <= 0 then
+			existing.PassiveSupplyPerHour = 50
+		end
+		local convoy = lPickExisting(ROLE_LISTS.convoy)
+		local function ensure_list(cur)
+			if type(cur) == "table" and #cur > 0 then
+				return cur
+			end
+			return convoy
+		end
+		if convoy and #convoy > 0 then
+			existing.SupplySquads = ensure_list(existing.SupplySquads)
+			existing.TaxSquads = ensure_list(existing.TaxSquads)
+			existing.RecruiterSquads = ensure_list(existing.RecruiterSquads)
+			existing.ManpowerSquads = ensure_list(existing.ManpowerSquads)
+		end
 		return existing
 	end
 	local sector = gv_Sectors[outpost_id]
@@ -349,17 +456,19 @@ local function lCreateAutoRegion(outpost_id, sectors, major_hq)
 		ReconCap = 1,
 		QRFCap = 1,
 		ReinforceCap = 1,
-		TaxCap = 0,
-		RecruiterCap = 0,
+		TaxCap = 1,
+		RecruiterCap = 1,
 		SupplySquads = convoy,
 		ShipmentSquads = convoy,
-		TaxSquads = {},
-		RecruiterSquads = {},
+		TaxSquads = convoy,
+		RecruiterSquads = convoy,
 		ManpowerSquads = convoy,
 		MajorResponseSquads = major,
-		StartingSupply = 8000,
-		StartingManpower = 12,
-		PassiveSupplyPerHour = 0,
+		StartingSupply = 20000,
+		StartingManpower = 40,
+		ManpowerCapacity = 64,
+		MajorStartingManpower = 120,
+		PassiveSupplyPerHour = 50,
 		MajorResponseHeat = 900,
 	})
 	Regions[region_id] = region
@@ -523,18 +632,105 @@ local function lInjectFromLootDef(container, loot_def_id, seed_key)
 	return lAddItemsToContainer(container, items)
 end
 
+local function lReplaceLegacyArmorItem(owner, slot_name, item)
+	local new_id = item and ARMOR_REMAP[item.class]
+	if not new_id or not lItemAllowed(new_id) or not owner then
+		return false
+	end
+	local cond, maxc = item.Condition, item.MaxCondition
+	owner:RemoveItem(slot_name, item)
+	if DoneObject then
+		DoneObject(item)
+	end
+	local neu = PlaceInventoryItem(new_id)
+	if not neu then
+		return false
+	end
+	if cond and maxc and maxc > 0 and neu.MaxCondition then
+		neu.Condition = MulDivRound(neu.MaxCondition, cond, maxc)
+	end
+	if owner.CanAddItem and owner:CanAddItem(slot_name, neu) then
+		owner:AddItem(slot_name, neu)
+	else
+		owner:AddItem("Inventory", neu)
+	end
+	return true
+end
+
+-- Replace Flak/Kevlar/HeavyArmor stubs (no JAZZ ArmorRating) with JazzArmor_*.
+local function lSanitizeUnitArmor(unitdata)
+	if not unitdata or not unitdata.ForEachItem then
+		return 0
+	end
+	local to_replace = {}
+	unitdata:ForEachItem(function(item, slot_name)
+		if item and ARMOR_REMAP[item.class] then
+			to_replace[#to_replace + 1] = { item = item, slot = slot_name }
+		end
+	end)
+	local n = 0
+	for _, entry in ipairs(to_replace) do
+		if lReplaceLegacyArmorItem(unitdata, entry.slot, entry.item) then
+			n = n + 1
+		end
+	end
+	return n
+end
+
+-- Remove cut/disabled items; remap legacy armor stubs in vanilla map containers.
+local function lScrubContainerCutItems(container)
+	if not container or not container.ForEachItem then
+		return 0
+	end
+	local removed = 0
+	local to_remove = {}
+	local to_remap = {}
+	container:ForEachItem(function(item, slot_name)
+		if not item then
+			return
+		end
+		if lIsCutInventoryClass(item.class) then
+			to_remove[#to_remove + 1] = { item = item, slot = slot_name }
+		elseif ARMOR_REMAP[item.class] then
+			to_remap[#to_remap + 1] = { item = item, slot = slot_name }
+		end
+	end)
+	for _, entry in ipairs(to_remove) do
+		container:RemoveItem(entry.slot, entry.item)
+		removed = removed + 1
+		if entry.item and DoneObject then
+			DoneObject(entry.item)
+		end
+	end
+	for _, entry in ipairs(to_remap) do
+		if lReplaceLegacyArmorItem(container, entry.slot, entry.item) then
+			removed = removed + 1
+		end
+	end
+	return removed
+end
+
 local function lInjectContainerLoot()
 	if not lShouldRun() or not gv_CurrentSectorId then
 		return
 	end
 	local root = lEnsureState()
 	local sector_key = gv_CurrentSectorId
+	local containers = MapGet("map", "ItemContainer") or empty_table
+	local scrubbed = 0
+	for _, container in ipairs(containers) do
+		if IsValid(container) then
+			scrubbed = scrubbed + lScrubContainerCutItems(container)
+		end
+	end
+	if scrubbed > 0 then
+		lLog("scrubbed cut loot items=" .. scrubbed .. " in " .. tostring(sector_key))
+	end
 	if root.injected[sector_key] then
 		return
 	end
 	root.injected[sector_key] = true
 
-	local containers = MapGet("map", "ItemContainer") or empty_table
 	local count = 0
 	for i, container in ipairs(containers) do
 		if not IsValid(container) then
@@ -562,10 +758,12 @@ local function lInjectContainerLoot()
 			end
 		end
 		-- Fallback if LootDefs not ready yet
-		if not used_pack and roll < 70 then
+		if not used_pack and roll < 88 then
 			local pool = LOOT_POOLS_FALLBACK.ammo
-			if roll >= 55 then
+			if roll >= 73 then
 				pool = LOOT_POOLS_FALLBACK.weapons
+			elseif roll >= 55 then
+				pool = LOOT_POOLS_FALLBACK.armor
 			elseif roll >= 35 then
 				pool = LOOT_POOLS_FALLBACK.common
 			end
@@ -618,6 +816,16 @@ end
 local function lSanitizeUnitAmmo(unitdata)
 	if not unitdata or not unitdata.ForEachItem then
 		return
+	end
+	-- Drop cut weapons (MP5/AR15/M4Commando stubs) before caliber pass.
+	local cut_weapons = {}
+	unitdata:ForEachItem(function(item, slot_name)
+		if item and lIsCutInventoryClass(item.class) and IsKindOf(item, "Firearm") then
+			cut_weapons[#cut_weapons + 1] = { item = item, slot = slot_name }
+		end
+	end)
+	for _, entry in ipairs(cut_weapons) do
+		unitdata:RemoveItem(entry.slot, entry.item)
 	end
 	local calibers = {}
 	unitdata:ForEachItem(function(item)
@@ -679,9 +887,10 @@ local function lRefreshEnemyLoadouts()
 		return
 	end
 	local root = lEnsureState()
+	local remapped = 0
 	for _, squad in ipairs(gv_Squads) do
 		for _, unit_id in ipairs(squad.units or empty_table) do
-			if root.geared[unit_id] then
+			if root.geared[unit_id] == GEAR_REV then
 				goto next_unit
 			end
 			local unitdata = gv_UnitData and gv_UnitData[unit_id]
@@ -694,18 +903,51 @@ local function lRefreshEnemyLoadouts()
 					or unitdata.Affiliation == "Adonis"
 					or unitdata.Affiliation == "Rebel")
 			then
-				unitdata:ForEachItem(function(item, slot_name)
-					unitdata:RemoveItem(slot_name, item)
-				end)
-				if unitdata.CreateStartingEquipment then
-					unitdata:CreateStartingEquipment(unitdata.randomization_seed)
+				local already = root.geared[unit_id]
+				if not already then
+					unitdata:ForEachItem(function(item, slot_name)
+						unitdata:RemoveItem(slot_name, item)
+					end)
+					if unitdata.CreateStartingEquipment then
+						unitdata:CreateStartingEquipment(unitdata.randomization_seed)
+					end
+					lSanitizeUnitAmmo(unitdata)
 				end
-				lSanitizeUnitAmmo(unitdata)
-				root.geared[unit_id] = true
+				-- Always run armor remap (covers rev1 units that still wear Flak/Kevlar stubs).
+				remapped = remapped + lSanitizeUnitArmor(unitdata)
+				root.geared[unit_id] = GEAR_REV
 			end
 			::next_unit::
 		end
 	end
+	if remapped > 0 then
+		lLog("remapped legacy armor pieces=" .. remapped)
+	end
+end
+
+
+local function lApplyEconomyRev(root)
+	if (root.ai_economy_rev or 0) >= AI_ECONOMY_REV then
+		return
+	end
+	-- Top up outpost/major manpower so garrison (size_min 25) can spawn after old 12-cap saves.
+	if rawget(_G, "gv_JAZZ_LegionAI") and type(gv_JAZZ_LegionAI) == "table" then
+		local ai = gv_JAZZ_LegionAI
+		for sector_id, outpost in sorted_pairs(ai.outposts or empty_table) do
+			if type(outpost) == "table" then
+				local rid = outpost.region_id
+				if rid and type(rid) == "string" and string.find(rid, "JAZZ_Auto_", 1, true) == 1 then
+					outpost.manpower = Max(outpost.manpower or 0, 40)
+					outpost.money = Max(outpost.money or 0, 8000)
+				end
+			end
+		end
+		if ai.major then
+			ai.major.manpower = Max(ai.major.manpower or 0, 120)
+		end
+	end
+	root.ai_economy_rev = AI_ECONOMY_REV
+	lLog("applied AI economy rev " .. tostring(AI_ECONOMY_REV))
 end
 
 function JAZZ_NoMapsBootstrap(force)
@@ -770,6 +1012,7 @@ function JAZZ_NoMapsBootstrap(force)
 	if rawget(_G, "JAZZ_LegionAIEnsureState") then
 		JAZZ_LegionAIEnsureState()
 	end
+	lApplyEconomyRev(root)
 	lRefreshEnemyLoadouts()
 	return true
 end

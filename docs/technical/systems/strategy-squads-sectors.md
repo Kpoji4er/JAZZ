@@ -154,12 +154,15 @@ Generated `SatelliteViewMapContextMenu` считает отсутствие Regi
 
 Без maps (с nomaps):
 
-- отключает maps-only Region `ErnieIsland` (I7/B28);
+- отключает maps-only Region `ErnieIsland` (I7/B28) и **очищает `Sectors`/`ManagedOutposts`**, чтобы I2–I7 не shadow'или `JAZZ_Auto_*` в `GetRegionForSector`;
 - строит `JAZZ_Auto_<guardpost>` по vanilla Guardpost (A20, D10, E16, F7, F19, G10, H4, H14);
 - Major HQ = **A20** (The Eagle's Nest);
+- auto-region economy (COMPAT-003 / nomaps **0.7**): `StartingManpower=40` (≥ garrison `size_min` 25), `TaxCap=1`, `RecruiterCap=1`, `ManpowerCapacity=64`, `MajorStartingManpower=120`, `PassiveSupplyPerHour=50`; saves мигрируют через `gv_JAZZ_NoMaps.ai_economy_rev`;
 - wiring/remap EnemySquad + loot inject + gear refresh;
 - WorldFlip: `Code/WorldFlipSpawnUnits.lua` использует vanilla sector IDs и jazz-units Adonis/Army defs; nil-safe; fortress `H4` (fallback `I7`); nomaps ставит guard-wrap на `SpawnWorldFlipAttackSquads`;
 - при загруженном `FhNNYd` — полный no-op.
+
+`GetRegionForSector` (jazz) при нескольких совпадениях предпочитает region с `LegionAIEnabled`.
 
 В core `jazz` встроенного StandaloneNoMapsFallback больше нет.
 
