@@ -5,7 +5,7 @@
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- AI PERF-001: DestLos dest-cap 320 + far-skip; soft Precalc prune\n- Indoors Point/CTH guards for AI hang/error cascade\n- Enemy shortlist rolled back (full enemies for smarter LOS)",
+	'last_changes', "- Named perks Wave A (JAZZ-UNITS-003): Madman/Blade/Nervous/Henning/Vicious/Dynamo/Eskimo/Lucky/Shank/Vilde/Laura/Vince/Steiger + Lynx Range CTH\n- Hide false Lynx/Buzz/Spider/Colby HUD toggles; remove orphan Jazz_Perk_44840\n- Jazz_OrderCTH ally accuracy buff status",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -33,7 +33,7 @@
 	},
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
-	'version_minor', 47,
+	'version_minor', 48,
 	'version', 5944,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
@@ -806,6 +806,7 @@
 		"CharacterEffect/Jazz_Perk_Manuel.lua",
 		"CharacterEffect/Jazz_Perk_Monk.lua",
 		"CharacterEffect/Jazz_Perk_Allik.lua",
+		"CharacterEffect/Jazz_OrderCTH.lua",
 		"CharacterEffect/Jazz_Perk_Henning.lua",
 		"CharacterEffect/Jazz_Perk_Static.lua",
 		"CharacterEffect/Jazz_Perk_Highball.lua",

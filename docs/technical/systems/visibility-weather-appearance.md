@@ -66,7 +66,7 @@ Smoke участвует в:
 ```text
 sight = base_sight
       or (IsAware → AwareSightRange else UnawareSightRange)
-      + (Jazz_Perk_Lynx ? 8 : 0)
+      + (Jazz_Perk_Lynx ? Jazz_LynxSightBonus : 0)  -- same bonus softens Range CTH
 
 modifier = 100 + Σ(сдвиги), затем Clamp(modifier, SightModMinValue, SightModMaxValue)
 

@@ -16,6 +16,8 @@
 
 Файлы ``*.ja2-face.gif|jpg`` лежат в этой же папке. Карта: [`_ja2-faces-map.txt`](_ja2-faces-map.txt). Нет лица у: `biff`, `spouke` (оригинал JAZZ / нет в архиве).
 
+- Именные перки (каталог + план уточнения): [`_named-perks-plan.md`](_named-perks-plan.md).
+
 ## Ready (as-shipped / wave codegen)
 
 Внешние эталоны: lynx, tosca, spider, spouke.  

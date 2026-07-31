@@ -6210,7 +6210,7 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Винтовка десантника 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный",,jazz:InventoryItem/FG42.lua:15 | jazz:items.lua:23234
-890000000000868,"Дальность видимости днем повышена, а штрафы за дальность - понижены","Дальность видимости днем повышена, а штрафы за дальность - понижены",,jazz:CharacterEffect/Jazz_Perk_Lynx.lua:10 | jazz:items.lua:66167
+890000000000868,Днём увеличен обзор. Это зрение также снижает штрафы меткости за дальность.,Daytime sight increased. That vision also reduces range accuracy penalties.,,jazz:CharacterEffect/Jazz_Perk_Lynx.lua:10 | jazz:items.lua:66167
 890000000000869,Увеличивает длину очереди на 50%,Увеличивает длину очереди на 50%,,jazz:CharacterEffect/Jazz_Perk_Buzz.lua:10 | jazz:items.lua:66218
 890000000000870,"Удваивает значение навыка медицины при лечении на глобальной карте
 ","Удваивает значение навыка медицины при лечении на глобальной карте
@@ -7116,7 +7116,7 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000002449,Контракт заканчивается. Продлеваем?,Контракт заканчивается. Продлеваем?,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
 890000000002450,Остаюсь. Работа ещё не закончена.,Остаюсь. Работа ещё не закончена.,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
 890000000001800,Ураган клинков,Ураган клинков,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
-890000000001801,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001801,"Атаки ближнего боя: +20 к шансу попадания, критические удары невозможны.",Melee attacks: +20 chance to hit; critical hits are disabled.,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
 890000000001802,[WIP] Билл «Бритва» Ламонт,[WIP] Билл «Бритва» Ламонт,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
 890000000001803,Бритва,Бритва,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
 890000000001804,БРИТВА,БРИТВА,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
@@ -7211,7 +7211,7 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000002029,Опять этот Ротман бы поворчал.,Опять этот Ротман бы поворчал.,,jazz-units:items.lua:72165
 890000000002030,"Хорошо, что свои рядом.","Хорошо, что свои рядом.",,jazz-units:items.lua:72174
 890000000002100,Штурм в упор,Штурм в упор,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
-890000000002101,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002101,Убийство в упор (дистанция 1 клетка) даёт Воодушевление.,A point-blank kill (range 1 tile) grants Inspired.,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
 890000000002102,[WIP] Кевин «Бешеный» Камерон,[WIP] Кевин «Бешеный» Камерон,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
 890000000002103,Бешеный,Бешеный,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
 890000000002104,БЕШЕНЫЙ,БЕШЕНЫЙ,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
@@ -7563,9 +7563,9 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000005005,IRA,IRA,,Jazz_Perk_Devin
 890000000005006,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Devin
 890000000005007,Не трогай меня,Не трогай меня,,Jazz_Perk_Shank
-890000000005008,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Shank
+890000000005008,Враги в ближнем бою по Шенку получают −50 к шансу попадания.,Enemies making melee attacks against Shank suffer -50 chance to hit.,,Jazz_Perk_Shank
 890000000005009,Полевой наставник,Полевой наставник,,Jazz_Perk_Vince
-890000000005010,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Vince
+890000000005010,Раз за бой первое лечение или перевязка союзника даёт цели +4 ОД.,"Once per combat, the first heal or bandage on an ally grants them +4 AP.",,Jazz_Perk_Vince
 890000000005011,Вырубить,Вырубить,,Jazz_Perk_Hitman
 890000000005012,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Hitman
 890000000005013,Старая школа,Старая школа,,Jazz_Perk_Biggens
@@ -7573,17 +7573,17 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000005015,Оружейник старой закалки,Оружейник старой закалки,,Jazz_Perk_Kulba
 890000000005016,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Kulba
 890000000005017,Ночной автоматчик,Ночной автоматчик,,Jazz_Perk_Vilde
-890000000005018,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Vilde
+890000000005018,Ночью и под землёй автоогонь/очередь получают +15 к шансу попадания.,"At night or underground, autofire/burst gain +15 chance to hit.",,Jazz_Perk_Vilde
 890000000005019,Точный бросок,Точный бросок,,Jazz_Perk_Grace
 890000000005020,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Grace
 890000000005021,Ночной инструктор,Ночной инструктор,,Jazz_Perk_Steiger
-890000000005022,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Steiger
+890000000005022,Ночью и под землёй в начале хода союзники в радиусе 5 клеток получают +5 к шансу попадания.,"At night or underground, at turn start allies within 5 tiles gain +5 chance to hit.",,Jazz_Perk_Steiger
 890000000005023,Второе дыхание,Второе дыхание,,Jazz_Perk_Lucky
-890000000005024,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Lucky
+890000000005024,Раз за бой первый промах из огнестрела становится попаданием.,"Once per combat, the first firearm miss becomes a hit.",,Jazz_Perk_Lucky
 890000000005025,Скрытный врач,Скрытный врач,,Jazz_Perk_Laura
-890000000005026,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Laura
+890000000005026,Лечение союзника не снимает с Лоры скрытность.,Healing an ally does not break Laura's Hidden status.,,Jazz_Perk_Laura
 890000000005027,Тюремная выдержка,Тюремная выдержка,,Jazz_Perk_Eskimo
-890000000005028,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Eskimo
+890000000005028,Ниже 50% HP не получает Панику; раны не режут его CTH из винтовки.,Below 50% HP he cannot be Panicked; wounds do not cut his rifle CTH.,,Jazz_Perk_Eskimo
 890000000002505,work in progress,work in progress,,Jazz_Bio_WIP
 890000000002605,work in progress,work in progress,,Jazz_Bio_WIP
 890000000002705,work in progress,work in progress,,Jazz_Bio_WIP
@@ -7607,20 +7607,20 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000004505,work in progress,work in progress,,Jazz_Bio_WIP
 890000000002501,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000002601,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
-890000000002701,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000002701,В начале боя: +1 ОД за каждую женщину в отряде (макс. 3).,At combat start: +1 AP per woman in the squad (max 3).,,Jazz_Perk_WIP
 890000000002801,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
-890000000002901,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000002901,Автоогонь и очередь выпускают на 2 пули больше.,Autofire and burst fire 2 extra bullets.,,Jazz_Perk_WIP
 890000000003001,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000003101,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000003201,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000003301,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
-890000000003401,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000003401,Попадание в голову: 25% шанс ослепить цель на 1 ход.,Head hit: 25% chance to Blind the target for 1 turn.,,Jazz_Perk_WIP
 890000000003501,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000003601,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000003701,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000003801,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000003901,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
-890000000004001,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
+890000000004001,В начале хода союзники в радиусе 5 клеток получают +5 к шансу попадания на следующую атаку.,"At turn start, allies within 5 tiles gain +5 chance to hit on their next attack.",,Jazz_Perk_WIP
 890000000004101,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000004201,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000004301,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
@@ -7736,3 +7736,5 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000002519,Лучше бы мне это просто послышалось.,Лучше бы мне это просто послышалось.,,jazz-units:VoiceResponse Jazz_Colby Startled
 890000000002520,(лезет),(лезет),,jazz-units:VoiceResponse Jazz_Colby Climbing
 890000000002521,(прыжок),(прыжок),,jazz-units:VoiceResponse Jazz_Colby Jumping
+890000000006200,Приказ: точность,Order: Accuracy,,Jazz_Perk_WaveA
+890000000006201,+5 к шансу попадания на следующую атаку.,+5 chance to hit on the next attack.,,Jazz_Perk_WaveA
