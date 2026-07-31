@@ -206,6 +206,20 @@ function FirearmBase:GetAutofireShots(action)
 	return shots
 end
 
+-- Jazz_Perk_Nervous / Jazz_Perk_Buzz shot-count helpers (shared by CombatAction GetAutofireShots call sites).
+function Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
+	if not unit or not num_shots then
+		return num_shots
+	end
+	if HasPerk(unit, "Jazz_Perk_Buzz") then
+		num_shots = MulDivRound(num_shots, 150, 100)
+	end
+	if HasPerk(unit, "Jazz_Perk_Nervous") then
+		num_shots = num_shots + 2
+	end
+	return num_shots
+end
+
 
 function FirearmGetGroupingBase(item)
 	return item:GetProperty("Grouping") or item.Grouping or 10
@@ -614,6 +628,16 @@ end
 		else
 			shot_miss = (not stealth_kill or i > 1) and roll > shot_cth
 			shot_crit = crit and (i == 1)
+		end
+		-- Jazz_Perk_Lucky: once per combat, first firearm miss becomes a hit
+		if shot_miss and attacker and HasPerk(attacker, "Jazz_Perk_Lucky") and not attacker:GetEffectValue("Jazz_Perk_Lucky") then
+			shot_miss = false
+			attacker:SetEffectValue("Jazz_Perk_Lucky", true)
+			if shot_attack_args.multishot then
+				miss = miss and shot_miss
+				shot_crit = (not shot_miss) and (attack_results.crit_roll[i] <= attack_results.crit_chance)
+				crit = crit or shot_crit
+			end
 		end
 
 		local data = band(shot_cth, sfCthMask)

@@ -1,8 +1,8 @@
 # Именные перки мерков JA12 — каталог и план уточнения
 
-> Design-only. Код не менялся. Источники: `docs/design/mercs-ja12/*.md`, `CharacterEffect/Jazz_Perk_*.lua`, `Code/System_OR_*.lua`, `Code/System_SectorOperations.lua`, `items.lua`, showcase `docs/showcase/ru/perks.md`, spec `JAZZ-UNITS-002`.
+> Spec реализации Wave A: [`docs/specs/active/JAZZ-UNITS-003.md`](../../specs/active/JAZZ-UNITS-003.md). Источники каталога: `docs/design/mercs-ja12/*.md`, `CharacterEffect/Jazz_Perk_*.lua`, `Code/System_OR_*.lua`, showcase `docs/showcase/ru/perks.md`.
 >
-> Цель документа: выписать уже написанные перки (старые эталоны + волна), зафиксировать runtime-реальность, уточнить механики и предложить реализуемый план волн.
+> Цель документа: выписать уже написанные перки (старые эталоны + волна), зафиксировать runtime-реальность, уточнить механики и предложить реализуемый план волн. **Wave A (EASY) — в коде по JAZZ-UNITS-003.**
 
 ## 1. Снимок состояния
 

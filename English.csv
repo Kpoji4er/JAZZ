@@ -6222,7 +6222,7 @@ but with the other sites, I’m sorry, I didn’t take Legs with me. Here you wi
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Paratrooper rifle 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Unreliable 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Killer",,jazz:InventoryItem/FG42.lua:15 | jazz:items.lua:23234
-890000000000868,"Дальность видимости днем повышена, а штрафы за дальность - понижены","Daytime visibility range has been increased, and range penalties have been reduced",,jazz:CharacterEffect/Jazz_Perk_Lynx.lua:10 | jazz:items.lua:66167
+890000000000868,Днём увеличен обзор; штраф за дальность (Bullet Drop) снижен на 10.,Daytime sight increased; range (Bullet Drop) penalty reduced by 10.,,jazz:CharacterEffect/Jazz_Perk_Lynx.lua:10 | jazz:items.lua:66167
 890000000000869,Увеличивает длину очереди на 50%,Increases burst length by 50%,,jazz:CharacterEffect/Jazz_Perk_Buzz.lua:10 | jazz:items.lua:66218
 890000000000870,"Удваивает значение навыка медицины при лечении на глобальной карте
 ","Doubles the value of the medicine skill when healing on the global map
@@ -7184,3 +7184,18 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000002519,Лучше бы мне это просто послышалось.,Hope I just imagined that.,,jazz-units:VoiceResponse Jazz_Colby Startled
 890000000002520,(лезет),(climbing),,jazz-units:VoiceResponse Jazz_Colby Climbing
 890000000002521,(прыжок),(jump),,jazz-units:VoiceResponse Jazz_Colby Jumping
+890000000002101,Убийство в упор (дистанция 1 клетка) даёт Воодушевление.,A point-blank kill (range 1 tile) grants Inspired.,,Jazz_Perk_WaveA
+890000000001801,"Атаки ближнего боя: +20 к шансу попадания, критические удары невозможны.",Melee attacks: +20 chance to hit; critical hits are disabled.,,Jazz_Perk_WaveA
+890000000002901,Автоогонь и очередь выпускают на 2 пули больше.,Autofire and burst fire 2 extra bullets.,,Jazz_Perk_WaveA
+890000000004001,В начале хода союзники в радиусе 5 клеток получают +5 к шансу попадания на следующую атаку.,"At turn start, allies within 5 tiles gain +5 chance to hit on their next attack.",,Jazz_Perk_WaveA
+890000000002701,В начале боя: +1 ОД за каждую женщину в отряде (макс. 3).,At combat start: +1 AP per woman in the squad (max 3).,,Jazz_Perk_WaveA
+890000000003401,Попадание в голову: 25% шанс ослепить цель на 1 ход.,Head hit: 25% chance to Blind the target for 1 turn.,,Jazz_Perk_WaveA
+890000000005028,Ниже 50% HP не получает Панику; раны не режут его CTH из винтовки.,Below 50% HP he cannot be Panicked; wounds do not cut his rifle CTH.,,Jazz_Perk_WaveA
+890000000005024,Раз за бой первый промах из огнестрела становится попаданием.,"Once per combat, the first firearm miss becomes a hit.",,Jazz_Perk_WaveA
+890000000005008,Враги в ближнем бою по Шенку получают −50 к шансу попадания.,Enemies making melee attacks against Shank suffer -50 chance to hit.,,Jazz_Perk_WaveA
+890000000005018,Ночью и под землёй автоогонь/очередь получают +15 к шансу попадания.,"At night or underground, autofire/burst gain +15 chance to hit.",,Jazz_Perk_WaveA
+890000000005026,Лечение союзника не снимает с Лоры скрытность.,Healing an ally does not break Laura's Hidden status.,,Jazz_Perk_WaveA
+890000000005010,Раз за бой первое лечение или перевязка союзника даёт цели +4 ОД.,"Once per combat, the first heal or bandage on an ally grants them +4 AP.",,Jazz_Perk_WaveA
+890000000005022,Ночью и под землёй в начале хода союзники в радиусе 5 клеток получают +5 к шансу попадания.,"At night or underground, at turn start allies within 5 tiles gain +5 chance to hit.",,Jazz_Perk_WaveA
+890000000006200,Приказ: точность,Order: Accuracy,,Jazz_Perk_WaveA
+890000000006201,+5 к шансу попадания на следующую атаку.,+5 chance to hit on the next attack.,,Jazz_Perk_WaveA

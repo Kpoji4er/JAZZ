@@ -59171,9 +59171,7 @@ return {
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
 						args.num_shots =  weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								args.num_shots = MulDivRound(args.num_shots,150,100)
-							end
+						args.num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, args.num_shots)
 						args.multishot = true
 						local ap = self:GetAPCost(unit, args)
 						NetStartCombatAction(self.id, unit, ap, args)
@@ -59192,9 +59190,7 @@ return {
 						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
 						local penalty = self:ResolveValue("dmg_penalty")
 						local num_shots = weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						base = MulDivRound(base, Max(0, 100 + penalty), 100)
 						local damage = num_shots*base
 						return damage, base, damage - base
@@ -59214,9 +59210,7 @@ return {
 						
 						local damage, base, bonus = self:GetActionDamage(unit)
 						local num_shots = weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						local descr = T{description, num = num_shots, damage = base}
 						return CombatActionsAppendFreeAimDescription(self, unit, descr)
 					end,
@@ -59249,9 +59243,7 @@ return {
 						local args = table.copy(args)
 						args.weapon = self:GetAttackWeapons(unit, args)
 						args.num_shots = args.num_shots or args.weapon and args.weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								args.num_shots = MulDivRound(args.num_shots,150,100)
-							end
+						args.num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, args.num_shots)
 						args.multishot = true
 						args.damage_bonus = self:ResolveValue("dmg_penalty")
 						args.cth_loss_per_shot = args.weapon:GetProperty("Recoil")
@@ -59269,9 +59261,7 @@ return {
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
 						local num_shots = weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						if not weapon.ammo or weapon.ammo.Amount < 1 then
 							return "disabled", AttackDisableReasons.InsufficientAmmo
 						end
@@ -59472,9 +59462,7 @@ return {
 						args.multishot = true
 						local weapon = self:GetAttackWeapons(unit, args)
 						args.num_shots =  weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								args.num_shots = MulDivRound(args.num_shots,150,100)
-							end
+						args.num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, args.num_shots)
 						local ap = self:GetAPCost(unit, args)
 						NetStartCombatAction(self.id, unit, ap, args)
 					end,
@@ -59492,9 +59480,7 @@ return {
 						local base = unit:GetBaseDamage(weapon)
 						local penalty = self:ResolveValue("dmg_penalty")
 						local num_shots = weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						base = MulDivRound(base, Max(0, 100 + penalty), 100)
 						local damage = num_shots*base
 						return damage, base, damage - base
@@ -59519,9 +59505,7 @@ return {
 						local args = table.copy(args)
 						args.weapon = self:GetAttackWeapons(unit, args)
 						args.num_shots = args.num_shots or args.weapon and args.weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								args.num_shots = MulDivRound(args.num_shots,150,100)
-							end
+						args.num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, args.num_shots)
 						args.multishot = true
 						args.damage_bonus = self:ResolveValue("dmg_penalty")
 						args.cth_loss_per_shot = args.weapon:GetProperty("Recoil")
@@ -59539,9 +59523,7 @@ return {
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
 						local num_shots = weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-										num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						if not weapon.ammo or weapon.ammo.Amount < num_shots then
 							return "disabled", AttackDisableReasons.InsufficientAmmo
 						end
@@ -60142,9 +60124,7 @@ return {
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
 						local num_shots =  weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						args.multishot = true
 						local ap = self:GetAPCost(unit, args)
 						NetStartCombatAction(self.id, unit, ap, args)
@@ -60162,9 +60142,7 @@ return {
 						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
 						local penalty = self:ResolveValue("dmg_penalty")
 						local num_shots = weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						base = MulDivRound(base, Max(0, 100 + penalty), 100)
 						local damage = num_shots*base
 						return damage, base, damage - base
@@ -60209,9 +60187,7 @@ return {
 						local args = table.copy(args)
 						args.weapon = args.weapon or self:GetAttackWeapons(unit, args)
 						args.num_shots = args.num_shots or args.weapon and args.weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								args.num_shots = MulDivRound(args.num_shots,150,100)
-							end
+						args.num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, args.num_shots)
 						args.multishot = true
 						args.damage_bonus = self:ResolveValue("dmg_penalty")
 						args.cth_loss_per_shot = args.weapon:GetProperty("Recoil")*0.8
@@ -61007,9 +60983,7 @@ return {
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
 						local num_shots =  self:ResolveValue("num_shots")
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						args.multishot = true
 						local ap = self:GetAPCost(unit, args)
 						NetStartCombatAction(self.id, unit, ap, args)
@@ -61026,9 +61000,7 @@ return {
 						if not weapon then return 0 end
 						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
 						local num_shots = weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						base = MulDivRound(base, Max(0, 100), 100)
 						local damage = num_shots*base
 						return damage, base, damage - base
@@ -61045,9 +61017,7 @@ return {
 						
 						local damage, base, bonus = self:GetActionDamage(unit)
 						local num_shots = weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						local descr = T{description, num = num_shots, damage = base}
 						return CombatActionsAppendFreeAimDescription(self, unit, descr)
 					end,
@@ -61065,9 +61035,7 @@ return {
 						local args = table.copy(args)
 						args.weapon = self:GetAttackWeapons(unit, args)
 						args.num_shots = args.num_shots or args.weapon and args.weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								args.num_shots = MulDivRound(args.num_shots,150,100)
-							end
+						args.num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, args.num_shots)
 						args.multishot = true
 						args.cth_loss_per_shot = self:ResolveValue("cth_loss_per_shot")
 						--if HasPerk(unit, "AutoWeapons") then args.shots_before_recoil = 1 else args.shots_before_recoil = 0 end
@@ -61084,9 +61052,7 @@ return {
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
 						local num_shots = self:ResolveValue("num_shots")
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						if not weapon.ammo or weapon.ammo.Amount < 1 then
 							return "disabled", AttackDisableReasons.InsufficientAmmo
 						end
@@ -61234,9 +61200,7 @@ return {
 						args.suppressionbonus = 300
 						local weapon = self:GetAttackWeapons(unit, args)
 						local num_shots =  weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						local ap = self:GetAPCost(unit, args)
 						NetStartCombatAction(self.id, unit, ap, args)
 					end,
@@ -61253,9 +61217,7 @@ return {
 						local base = unit:GetBaseDamage(weapon)
 						local penalty = self:ResolveValue("dmg_penalty")
 						local num_shots = weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						base = MulDivRound(base, Max(0, 100 + penalty), 100)
 						local damage = num_shots*base
 						return damage, base, damage - base
@@ -61280,9 +61242,7 @@ return {
 						local args = table.copy(args)
 						args.weapon = self:GetAttackWeapons(unit, args)
 						args.num_shots = args.num_shots or args.weapon and args.weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								args.num_shots = MulDivRound(args.num_shots,150,100)
-							end
+						args.num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, args.num_shots)
 						args.multishot = true
 						args.damage_bonus = self:ResolveValue("dmg_penalty")
 						args.cth_loss_per_shot = args.weapon:GetProperty("Recoil")
@@ -61300,9 +61260,7 @@ return {
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
 						local num_shots = weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-										num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						if not weapon.ammo or weapon.ammo.Amount < num_shots then
 							return "disabled", AttackDisableReasons.InsufficientAmmo
 						end
@@ -61548,9 +61506,7 @@ return {
 						local ap = self:GetAPCost(unit, args)
 						local weapon = self:GetAttackWeapons(unit, args)
 						args.num_shots =  weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								args.num_shots = MulDivRound(args.num_shots,150,100)
-							end
+						args.num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, args.num_shots)
 						NetStartCombatAction(self.id, unit, ap, args)
 					end,
 					GetAPCost = function (self, unit, args)
@@ -61569,9 +61525,7 @@ return {
 						if not weapon then return 0 end
 						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
 						local num_shots = weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						local damage = num_shots*base*3
 						return damage, base, damage - base
 					end,
@@ -61604,9 +61558,7 @@ return {
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
 						local num_shots = weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						if not weapon.ammo or weapon.ammo.Amount < num_shots then
 							return "disabled", AttackDisableReasons.InsufficientAmmo
 						end
@@ -61921,9 +61873,7 @@ return {
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
 						local num_shots = weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						args.multishot = true
 						local ap = self:GetAPCost(unit, args)
 						NetStartCombatAction(self.id, unit, ap, args)
@@ -61940,9 +61890,7 @@ return {
 						if not weapon then return 0 end
 						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
 						local num_shots = weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						base = MulDivRound(base, Max(0, 100), 100)
 						local damage = num_shots*base
 						return damage, base, damage - base
@@ -61962,9 +61910,7 @@ return {
 						
 						local damage, base, bonus = self:GetActionDamage(unit)
 						local num_shots = weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						local descr = T{description, num = num_shots, damage = base}
 						return CombatActionsAppendFreeAimDescription(self, unit, descr)
 					end,
@@ -62001,9 +61947,7 @@ return {
 						args.weapon = self:GetAttackWeapons(unit, args)
 						local weapon = self:GetAttackWeapons(unit)
 						args.num_shots = weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								args.num_shots = MulDivRound(args.num_shots,150,100)
-							end
+						args.num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, args.num_shots)
 						args.multishot = true
 						args.cth_loss_per_shot = args.weapon:GetProperty("Recoil")
 						args.shots_before_recoil = 1
@@ -62021,9 +61965,7 @@ return {
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
 						local num_shots = weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						if not weapon.ammo or weapon.ammo.Amount < 1 then
 							return "disabled", AttackDisableReasons.InsufficientAmmo
 						end
@@ -62077,9 +62019,7 @@ return {
 						args.suppressionbonus = 300
 						local weapon = self:GetAttackWeapons(unit, args)
 						local num_shots =  weapon:GetAutofireShots(self) 
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						local ap = self:GetAPCost(unit, args)
 						NetStartCombatAction(self.id, unit, ap, args)
 					end,
@@ -62095,9 +62035,7 @@ return {
 						if not weapon then return 0 end
 						local base = unit:GetBaseDamage(weapon)
 						local num_shots = weapon:GetAutofireShots("AutoFire") * 2
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						base = MulDivRound(base, Max(0, 100), 100)
 						local damage = num_shots*base
 						return damage, base, damage - base
@@ -62122,9 +62060,7 @@ return {
 						local args = table.copy(args)
 						args.weapon = self:GetAttackWeapons(unit, args)
 						args.num_shots = args.num_shots or args.weapon and args.weapon:GetAutofireShots(self)
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-								args.num_shots = MulDivRound(args.num_shots,150,100)
-							end
+						args.num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, args.num_shots)
 						args.multishot = true
 						
 						args.cth_loss_per_shot = args.weapon:GetProperty("Recoil")
@@ -62142,9 +62078,7 @@ return {
 						local unit = units[1]
 						local weapon = self:GetAttackWeapons(unit, args)
 						local num_shots = weapon:GetAutofireShots(self) 
-						if HasPerk(unit, "Jazz_Perk_Buzz") then
-										num_shots = MulDivRound(num_shots,150,100)
-							end
+						num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 						if not weapon.ammo or weapon.ammo.Amount < num_shots then
 							return "disabled", AttackDisableReasons.InsufficientAmmo
 						end
@@ -65990,11 +65924,7 @@ return {
 						return GetSignatureActionDisplayName(self)
 					end,
 					GetUIState = function (self, units, args)
-						local unit = units[1]
-						local cost = self:GetAPCost(unit, args)
-						if cost < 0 then return "hidden" end
-						if not unit:UIHasAP(cost) then return "disabled" end
-						return "enabled"
+						return "hidden"
 					end,
 					Icon = "Mod/e6L4ECj/Perks/Personal/Lynx6.png",
 					IdDefault = "Jazz_Perk_Lynxdefault",
@@ -66017,9 +65947,22 @@ return {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Lynx",
 					'object_class', "Perk",
-					'unit_reactions', {},
+					'unit_reactions', {
+		PlaceObj('UnitReaction', {
+			Event = "OnModifyCTHModifier",
+			Handler = function (self, target, id, attacker, attack_target, action, weapon1, weapon2, data)
+				if target ~= attacker or id ~= "Range" then
+					return
+				end
+				data.mod_add = (data.mod_add or 0) + 10
+				if data.meta_text then
+					data.meta_text[#data.meta_text + 1] = T{776394275735, "Perk: <name>", name = self.DisplayName}
+				end
+			end,
+		}),
+	},
 					'DisplayName', T(623665702916, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lynx DisplayName]] "Рысий взгляд"),
-					'Description', T(890000000000868, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lynx Description]] "Дальность видимости днем повышена, а штрафы за дальность - понижены"),
+					'Description', T(890000000000868, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lynx Description]] "Днём увеличен обзор; штраф за дальность (Bullet Drop) снижен на 10."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Lynx.png",
 					'Tier', "Personal",
 				}),
@@ -66040,11 +65983,7 @@ return {
 						return GetSignatureActionDisplayName(self)
 					end,
 					GetUIState = function (self, units, args)
-						local unit = units[1]
-						local cost = self:GetAPCost(unit, args)
-						if cost < 0 then return "hidden" end
-						if not unit:UIHasAP(cost) then return "disabled" end
-						return "enabled"
+						return "hidden"
 					end,
 					Icon = "Mod/e6L4ECj/Perks/Personal/Buzz2.png",
 					IdDefault = "Jazz_Perk_Buzzdefault",
@@ -66091,11 +66030,7 @@ return {
 						return GetSignatureActionDisplayName(self)
 					end,
 					GetUIState = function (self, units, args)
-						local unit = units[1]
-						local cost = self:GetAPCost(unit, args)
-						if cost < 0 then return "hidden" end
-						if not unit:UIHasAP(cost) then return "disabled" end
-						return "enabled"
+						return "hidden"
 					end,
 					Icon = "Mod/e6L4ECj/Perks/Personal/Spider2.png",
 					IdDefault = "Jazz_Perk_Spiderdefault",
@@ -66141,11 +66076,7 @@ return {
 						return GetSignatureActionDisplayName(self)
 					end,
 					GetUIState = function (self, units, args)
-						local unit = units[1]
-						local cost = self:GetAPCost(unit, args)
-						if cost < 0 then return "hidden" end
-						if not unit:UIHasAP(cost) then return "disabled" end
-						return "enabled"
+						return "hidden"
 					end,
 					Icon = "Mod/e6L4ECj/Perks/Personal/Colby.png",
 					IdDefault = "Jazz_Perk_Colbydefault",
@@ -66204,9 +66135,26 @@ return {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Blade",
 					'object_class', "Perk",
-					'unit_reactions', {},
+					'unit_reactions', {
+		PlaceObj('UnitReaction', {
+			Event = "OnCalcChanceToHit",
+			Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+				if target == attacker and action and action.ActionType == "Melee Attack" then
+					ApplyCthModifier_Add(self, data, 20)
+				end
+			end,
+		}),
+		PlaceObj('UnitReaction', {
+			Event = "OnCalcCritChance",
+			Handler = function (self, target, attacker, attack_target, action, weapon, data)
+				if target == attacker and action and action.ActionType == "Melee Attack" then
+					data.crit_chance = 0
+				end
+			end,
+		}),
+	},
 					'DisplayName', T(890000000001800, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Blade DisplayName]] "Ураган клинков"),
-					'Description', T(890000000001801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Blade Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Description', T(890000000001801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Blade Description]] "Атаки ближнего боя: +20 к шансу попадания, критические удары невозможны."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Blade.png",
 					'Tier', "Personal",
 				}),
@@ -66246,9 +66194,36 @@ return {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Madman",
 					'object_class', "Perk",
-					'unit_reactions', {},
+					'unit_reactions', {
+		PlaceObj('UnitReaction', {
+			Event = "OnUnitAttack",
+			Handler = function (self, target, attacker, action, attack_target, results, attack_args)
+				if target ~= attacker or not results or results.miss then
+					return
+				end
+				if not IsKindOf(attack_target, "Unit") then
+					return
+				end
+				local is_kill = attack_target:IsDead()
+				if not is_kill and results.killed_units then
+					for _, u in ipairs(results.killed_units) do
+						if u == attack_target then
+							is_kill = true
+							break
+						end
+					end
+				end
+				if not is_kill then
+					return
+				end
+				if DivRound(attacker:GetDist(attack_target), const.SlabSizeX) <= 1 then
+					attacker:AddStatusEffect("Inspired")
+				end
+			end,
+		}),
+	},
 					'DisplayName', T(890000000002100, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Madman DisplayName]] "Штурм в упор"),
-					'Description', T(890000000002101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Madman Description]] "WIP — механика сигнатурного перка в разработке."),
+					'Description', T(890000000002101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Madman Description]] "Убийство в упор (дистанция 1 клетка) даёт Воодушевление."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Madman.png",
 					'Tier', "Personal",
 				}),
@@ -66330,9 +66305,28 @@ return {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Vicious",
 					'object_class', "Perk",
-					'unit_reactions', {},
+					'unit_reactions', {
+		PlaceObj('UnitReaction', {
+			Event = "OnCombatStarted",
+			Handler = function (self, target, load_game)
+				if load_game then
+					return
+				end
+				local women = 0
+				for _, u in ipairs(target.team and target.team.units or empty_table) do
+					if u.gender == "Female" then
+						women = women + 1
+					end
+				end
+				women = Min(women, 3)
+				if women > 0 then
+					target:GainAP(women * const.Scale.AP)
+				end
+			end,
+		}),
+	},
 					'DisplayName', T("Perk"),
-					'Description', T("WIP"),
+					'Description', T(890000000002701, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vicious Description]] "В начале боя: +1 ОД за каждую женщину в отряде (макс. 3)."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Vicious.png",
 					'Tier', "Personal",
 				}),
@@ -66360,7 +66354,7 @@ return {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T("Perk"),
-					'Description', T("WIP"),
+					'Description', T(890000000002901, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Nervous Description]] "Автоогонь и очередь выпускают на 2 пули больше."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Nervous.png",
 					'Tier', "Personal",
 				}),
@@ -66372,9 +66366,25 @@ return {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Dynamo",
 					'object_class', "Perk",
-					'unit_reactions', {},
+					'unit_reactions', {
+		PlaceObj('UnitReaction', {
+			Event = "OnCalcDamageAndEffects",
+			Handler = function (self, owner, attacker, target, action, weapon, attack_args, hit, data)
+				if owner ~= attacker or not hit or hit.stray then
+					return
+				end
+				if not IsKindOf(target, "Unit") or not attacker:IsOnEnemySide(target) then
+					return
+				end
+				local spot = hit.spot_group or hit.target_spot_group or (attack_args and attack_args.target_spot_group)
+				if spot == "Head" and InteractionRand(100, "Jazz_Perk_Dynamo") < 25 then
+					target:AddStatusEffect("Blinded")
+				end
+			end,
+		}),
+	},
 					'DisplayName', T("Perk"),
-					'Description', T("WIP"),
+					'Description', T(890000000003401, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Dynamo Description]] "Попадание в голову: 25% шанс ослепить цель на 1 ход."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Dynamo.png",
 					'Tier', "Personal",
 				}),
@@ -66456,12 +66466,53 @@ return {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Henning",
 					'object_class', "Perk",
-					'unit_reactions', {},
+					'unit_reactions', {
+		PlaceObj('UnitReaction', {
+			Event = "OnBeginTurn",
+			Handler = function (self, target)
+				if not g_Combat then
+					return
+				end
+				for _, ally in ipairs(target.team and target.team.units or empty_table) do
+					if ally ~= target and IsValid(ally) and not ally:IsDead() then
+						if DivRound(target:GetDist(ally), const.SlabSizeX) <= 5 then
+							ally:AddStatusEffect("Jazz_OrderCTH")
+						end
+					end
+				end
+			end,
+		}),
+	},
 					'DisplayName', T("Perk"),
-					'Description', T("WIP"),
+					'Description', T(890000000004001, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Henning Description]] "В начале хода союзники в радиусе 5 клеток получают +5 к шансу попадания на следующую атаку."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Henning.png",
 					'Tier', "Personal",
 				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "StatusEffect",
+					'Id', "Jazz_OrderCTH",
+					'object_class', "StatusEffect",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcChanceToHit",
+							Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+								if target ~= attacker then
+									return
+								end
+								ApplyCthModifier_Add(self, data, 5)
+								target:RemoveStatusEffect("Jazz_OrderCTH")
+							end,
+						}),
+					},
+					'DisplayName', T(890000000006200, --[[ModItemCharacterEffectCompositeDef Jazz_OrderCTH DisplayName]] "Приказ: точность"),
+					'Description', T(890000000006201, --[[ModItemCharacterEffectCompositeDef Jazz_OrderCTH Description]] "+5 к шансу попадания на следующую атаку."),
+					'type', "Buff",
+					'lifetime', "Until End of Turn",
+					'Icon', "UI/Hud/Status effects/accuracy",
+					'RemoveOnEndCombat', true,
+					'Shown', true,
+				}),
+
 				}),
 			PlaceObj('ModItemFolder', {
 				'name', "Static",
@@ -66596,9 +66647,18 @@ return {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Shank",
 					'object_class', "Perk",
-					'unit_reactions', {},
+					'unit_reactions', {
+		PlaceObj('UnitReaction', {
+			Event = "OnCalcChanceToHit",
+			Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+				if target == attack_target and action and action.ActionType == "Melee Attack" then
+					ApplyCthModifier_Add(self, data, -50)
+				end
+			end,
+		}),
+	},
 					'DisplayName', T("Perk"),
-					'Description', T("WIP"),
+					'Description', T(890000000005008, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Shank Description]] "Враги в ближнем бою по Шенку получают −50 к шансу попадания."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Shank.png",
 					'Tier', "Personal",
 				}),
@@ -66610,9 +66670,29 @@ return {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Vince",
 					'object_class', "Perk",
-					'unit_reactions', {},
+					'unit_reactions', {
+		PlaceObj('UnitReaction', {
+			Event = "OnUnitBandaged",
+			Handler = function (self, target, healer, patient, hp_restored)
+				if target ~= healer or not patient or patient == healer then
+					return
+				end
+				if healer:GetEffectValue("Jazz_Perk_Vince") then
+					return
+				end
+				healer:SetEffectValue("Jazz_Perk_Vince", true)
+				patient:GainAP(4 * const.Scale.AP)
+			end,
+		}),
+		PlaceObj('UnitReaction', {
+			Event = "OnCombatEnd",
+			Handler = function (self, target)
+				target:SetEffectValue("Jazz_Perk_Vince", nil)
+			end,
+		}),
+	},
 					'DisplayName', T("Perk"),
-					'Description', T("WIP"),
+					'Description', T(890000000005010, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vince Description]] "Раз за бой первое лечение или перевязка союзника даёт цели +4 ОД."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Vince.png",
 					'Tier', "Personal",
 				}),
@@ -66666,9 +66746,25 @@ return {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Vilde",
 					'object_class', "Perk",
-					'unit_reactions', {},
+					'unit_reactions', {
+		PlaceObj('UnitReaction', {
+			Event = "OnCalcChanceToHit",
+			Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+				if target ~= attacker or not action then
+					return
+				end
+				if not (GameState.Night or GameState.Underground) then
+					return
+				end
+				local id = action.id
+				if id == "AutoFire" or id == "BurstFire" or id == "MGBurstFire" or id == "JAZZ_LargeAutoFire" or id == "JAZZ_SmgStorm" or id == "JAZZ_Zipper" then
+					ApplyCthModifier_Add(self, data, 15)
+				end
+			end,
+		}),
+	},
 					'DisplayName', T("Perk"),
-					'Description', T("WIP"),
+					'Description', T(890000000005018, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vilde Description]] "Ночью и под землёй автоогонь/очередь получают +15 к шансу попадания."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Vilde.png",
 					'Tier', "Personal",
 				}),
@@ -66694,9 +66790,25 @@ return {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Steiger",
 					'object_class', "Perk",
-					'unit_reactions', {},
+					'unit_reactions', {
+		PlaceObj('UnitReaction', {
+			Event = "OnBeginTurn",
+			Handler = function (self, target)
+				if not g_Combat or not (GameState.Night or GameState.Underground) then
+					return
+				end
+				for _, ally in ipairs(target.team and target.team.units or empty_table) do
+					if ally ~= target and IsValid(ally) and not ally:IsDead() then
+						if DivRound(target:GetDist(ally), const.SlabSizeX) <= 5 then
+							ally:AddStatusEffect("Jazz_OrderCTH")
+						end
+					end
+				end
+			end,
+		}),
+	},
 					'DisplayName', T("Perk"),
-					'Description', T("WIP"),
+					'Description', T(890000000005022, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Steiger Description]] "Ночью и под землёй в начале хода союзники в радиусе 5 клеток получают +5 к шансу попадания."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Steiger.png",
 					'Tier', "Personal",
 				}),
@@ -66708,9 +66820,16 @@ return {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Lucky",
 					'object_class', "Perk",
-					'unit_reactions', {},
+					'unit_reactions', {
+		PlaceObj('UnitReaction', {
+			Event = "OnCombatEnd",
+			Handler = function (self, target)
+				target:SetEffectValue("Jazz_Perk_Lucky", nil)
+			end,
+		}),
+	},
 					'DisplayName', T("Perk"),
-					'Description', T("WIP"),
+					'Description', T(890000000005024, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lucky Description]] "Раз за бой первый промах из огнестрела становится попаданием."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Lucky.png",
 					'Tier', "Personal",
 				}),
@@ -66722,9 +66841,22 @@ return {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Laura",
 					'object_class', "Perk",
-					'unit_reactions', {},
+					'unit_reactions', {
+		PlaceObj('UnitReaction', {
+			Event = "OnUnitBandaged",
+			Handler = function (self, target, healer, patient, hp_restored)
+				if target ~= healer or not patient or patient == healer then
+					return
+				end
+				healer:AddStatusEffect("Hidden")
+				if healer.UpdateMoveAnim then
+					healer:UpdateMoveAnim()
+				end
+			end,
+		}),
+	},
 					'DisplayName', T("Perk"),
-					'Description', T("WIP"),
+					'Description', T(890000000005026, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Laura Description]] "Лечение союзника не снимает с Лоры скрытность."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Laura.png",
 					'Tier', "Personal",
 				}),
@@ -66736,9 +66868,35 @@ return {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Eskimo",
 					'object_class', "Perk",
-					'unit_reactions', {},
+					'unit_reactions', {
+		PlaceObj('UnitReaction', {
+			Event = "OnModifyCTHModifier",
+			Handler = function (self, target, id, attacker, attack_target, action, weapon1, weapon2, data)
+				if target ~= attacker or id ~= "Wounded" then
+					return
+				end
+				if IsKindOf(weapon1, "Firearm") then
+					data.mod_add = 0
+					data.mod_mul = 100
+				end
+			end,
+		}),
+		PlaceObj('UnitReaction', {
+			Event = "OnStatusEffectAdded",
+			Handler = function (self, target, id, stacks)
+				if id ~= "Panicked" then
+					return
+				end
+				local hp = (target.HitPoints or 0) + (target.TempHitPoints or 0)
+				local maxhp = target.MaxHitPoints or hp or 1
+				if maxhp > 0 and MulDivRound(hp, 100, maxhp) < 50 then
+					target:RemoveStatusEffect("Panicked")
+				end
+			end,
+		}),
+	},
 					'DisplayName', T("Perk"),
-					'Description', T("WIP"),
+					'Description', T(890000000005028, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Eskimo Description]] "Ниже 50% HP не получает Панику; раны не режут его CTH из винтовки."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Eskimo.png",
 					'Tier', "Personal",
 				}),

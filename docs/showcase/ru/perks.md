@@ -7,32 +7,41 @@
 ## Слои
 
 1. Именной перк мерка (`Jazz_Perk_*` в StartingPerks).
-2. Личный combat action (кнопка = id перка / `GrizzlyPerk`).
-3. Статус/аура (`Jazz_Perk_OfficerAura*`) — не AIM-билд.
+2. Личный combat action (кнопка = id перка / `GrizzlyPerk`) — только где нужен toggle/active.
+3. Статус/аура (`Jazz_Perk_OfficerAura*`, `Jazz_OrderCTH`) — маркеры, не AIM-билд.
 
 ## Что реально работает в коде
 
 | Id | Кто | Эффект в runtime |
 | --- | --- | --- |
-| `Jazz_Perk_00` | Фраг (`JAZZ_Merc_Spouke`) | Toggle: таймерные взрывчатки детонируют в начале хода врага |
-| `Jazz_Perk_Buzz` | Тоска (`Jazz_Buzz`) | +50% число пуль автоогня (хуки в WeaponAttacks / items) |
-| `Jazz_Perk_Lynx` | Рысь | +8 к обзору (`System_OR_Unit`); текст про CTH на дистанции **не** подтверждён кодом |
-| `Jazz_Perk_Spider` | Паук | ×2 Medical в sector heal operations |
-| `Jazz_Perk_Colby` | Колби | +20% AoE гранат; 20% паника по раненым в зоне взрыва |
-| `GrizzlyPerk` | Grizzly (vanilla+JAZZ) | Личная MG-атака + CTH/recoil hooks |
-| `GruntyPerk_JAZZ` | Grunty (+ Doctor_Leevsy) | В старте боя → +50% AP на первый ход |
-| `Jazz_Perk_OfficerAura` / `…Influence` | AI-офицеры | Маркеры ауры командира (`AIContextProfiles`) |
+| `Jazz_Perk_00` | Фраг | Toggle: таймерные взрывчатки детонируют в начале хода врага |
+| `Jazz_Perk_Buzz` | Тоска | +50% пуль автоогня |
+| `Jazz_Perk_Lynx` | Рысь | +8 обзор; −штраф дальности (Range +10 CTH) |
+| `Jazz_Perk_Spider` | Паук | ×2 Medical в sector heal |
+| `Jazz_Perk_Colby` | Колби | +20% AoE гранат; 20% паника раненым в зоне |
+| `Jazz_Perk_Madman` | Бешеный | Kill в упор → Inspired |
+| `Jazz_Perk_Blade` | Бритва | Melee +20 CTH, без критов |
+| `Jazz_Perk_Nervous` | Нервный | Autofire/burst +2 пули |
+| `Jazz_Perk_Henning` | Хеннинг | Союзники ≤5: +5 CTH на следующую атаку |
+| `Jazz_Perk_Vicious` | Злобный | +1 ОД за женщину в отряде (cap 3) на старте боя |
+| `Jazz_Perk_Dynamo` | Динамо | Head hit: 25% Blinded |
+| `Jazz_Perk_Eskimo` | Эскимо | <50% HP без Panic; Wounded не режет firearm CTH |
+| `Jazz_Perk_Lucky` | Лаки | 1×/бой: первый firearm miss → hit |
+| `Jazz_Perk_Shank` | Шенк | Melee по нему −50 CTH |
+| `Jazz_Perk_Vilde` | Зануда | Ночью/под землёй auto/burst +15 CTH |
+| `Jazz_Perk_Laura` | Лора | После перевязки союзника снова Hidden |
+| `Jazz_Perk_Vince` | Винс | 1×/бой: первая перевязка союзника → цели +4 ОД |
+| `Jazz_Perk_Steiger` | Штайгер | Ночью: союзники ≤5 получают +5 CTH |
+| `GrizzlyPerk` | Grizzly | Личная MG-атака + CTH/recoil |
+| `GruntyPerk_JAZZ` | Grunty | Старт боя → +50% AP первый ход |
+| `Jazz_Perk_OfficerAura` / `…Influence` | AI-офицеры | Аура командира |
 
-**Важно:** HUD-кнопки у Lynx/Buzz/Spider/Colby сейчас ошибочно копируют toggle `Jazz_Perk_00`. Пассив перка при этом может работать; кнопка — нет.
+Пассивные Lynx/Buzz/Spider/Colby **без** HUD-toggle (кнопки скрыты). Toggle только у Фрага (`Jazz_Perk_00`).
 
-`JAZZ_VovaVist` — полный код атаки есть, **grant-path в UnitData не найден** (кнопка сама себя не выдаёт).
+## Ещё stubs
 
-## Заглушки
-
-Остальные `Jazz_Perk_*` у AIM/MERC волны (Allik, Blade, Ira, Miguel, … — **~40** файлов): `unit_reactions = {}`, WIP-текст, нет gameplay-refs в `Code/`. Слот на мерке есть, эффекта в бою нет.
-
-Орфан: `Jazz_Perk_44840` — файл есть, в `items.lua`/`metadata` не зарегистрирован.
+Остальные именные перки волны (Ira, Miguel, Grom, Biff, …) — Wave B/C, см. `docs/design/mercs-ja12/_named-perks-plan.md` и `JAZZ-UNITS-003`.
 
 ## Итог для игрока
 
-Ждите рабочих именных эффектов у **Фрага, Тоски, Рыси, Паука, Колби** (+ Grizzly/Grunty). Остальные ники волны — наёмны и играбельны, но «фирменный» перк пока пустой.
+Рабочие именные эффекты: **Фраг, Тоска, Рысь, Паук, Колби** + Wave A (**Бешеный, Бритва, Нервный, Хеннинг, Злобный, Динамо, Эскимо, Лаки, Шенк, Зануда, Лора, Винс, Штайгер**) и Grizzly/Grunty.
