@@ -1,6 +1,6 @@
 ---
 id: JAZZ-COMPAT-003
-status: implemented
+status: approved
 owner: project-owner
 systems:
   - strategy-squads-sectors
