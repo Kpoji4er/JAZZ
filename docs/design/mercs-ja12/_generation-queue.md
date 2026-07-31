@@ -36,7 +36,7 @@ Spec волны: [JAZZ-UNITS-002](../specs/active/JAZZ-UNITS-002.md)
 
 ## Известные gaps (post-wave)
 
-1. Medium/Low perks — `unit_reactions = {}` stubs.
+1. Medium/Low perks — `unit_reactions = {}` stubs. Каталог + план уточнения/волн: [`_named-perks-plan.md`](_named-perks-plan.md).
 2. AppearancePreset: Colby/High богаче; Medium/Low часто без полного preset / без ModItem в `items.lua`.
 3. AIM Offline/Greeting часто EN stubs, не полные фразы из статей.
 4. Возможны дубли loot/loc ID после параллельных агентов — нужен loc + sync audit.
