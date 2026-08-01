@@ -1137,7 +1137,7 @@ end
 								local nearDamage = MulDivRound(MulDivRound(damage * clamped * 15, 1, 1000), suppressionbonus, 100)
 								if nearDamage > 0 then
 									if attacker_is_psycho then
-										attacker.WillPoints = Max(attacker.MaxWillPoints, attacker.WillPoints + nearDamage)
+										attacker.WillPoints = Min(attacker.MaxWillPoints, attacker.WillPoints + nearDamage)
 									end
 									if not HasPerk(unit, "Psycho") then
 										QueueSuppressionApplication(unit, nearDamage)

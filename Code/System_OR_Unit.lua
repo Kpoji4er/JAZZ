@@ -1190,7 +1190,7 @@ function Unit:RecalcWillPoints()
 	end
 
 
-	if self:HasStatusEffect("SuppressionPinned") then
+	if self:HasStatusEffect("suppressionPinned") then
 		buff = buff + 5
 	end
 

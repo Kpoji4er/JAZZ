@@ -54065,7 +54065,7 @@ PlaceObj('ModItemWeaponComponentEffect', {
 				'OnAdded', function (self, obj)
 					local willPointsDamage = 40
 					
-					obj.WillPoints = obj.WillPoints - MulDivRound(100-Unit:StunGrenadeProtection(),willPointsDamage,100)
+					obj.WillPoints = obj.WillPoints - MulDivRound(100-obj:StunGrenadeProtection(),willPointsDamage,100)
 					obj:ApplySuppressionStatus()
 				end,
 				'OnRemoved', function (self, obj)  end,
