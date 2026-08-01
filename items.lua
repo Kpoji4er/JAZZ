@@ -45352,6 +45352,20 @@ PlaceObj('WeaponComponentVisual', {
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "Sterling",
+								Entity = "",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/Sterling_Mag34.png",
+								Slot = "Magazine",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "M3GreaseGun",
+								Entity = "",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/M3_Mag30.png",
+								Slot = "Magazine",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "APS",
 								Entity = "",
 								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/APS_Mag18.png",
