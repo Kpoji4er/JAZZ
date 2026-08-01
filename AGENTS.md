@@ -8,7 +8,7 @@ JAZZ состоит из четырёх канонических репозит�
 | `jazz_assets` | `..\jazz_assets` | Сущности, модели, материалы, текстуры |
 | `jazz-maps` | `..\jazz-maps` | Карты, квесты, диалоги, сектора, патчи |
 | `jazz-units` | `..\jazz-units` | UnitData, AI-архетипы, отряды, прогрессия |
-| `jazz-nomaps` | `..\jazz-nomaps` | **Опционально вместо maps**: vanilla HotDiamonds + Legion AI auto-regions (`7MsJ2Eq`) |
+| `jazz-nomaps` | `..\jazz-nomaps` | **Опционально вместо maps** (display: **JAZZ Vanilla Maps**): vanilla HotDiamonds + Legion AI (`7MsJ2Eq`) |
 
 Профили: **канон** = assets+units+maps+jazz; **без maps** = assets+units+nomaps+jazz. Не включать maps и nomaps как обязательную пару.
 

@@ -35,7 +35,7 @@ JAZZ поддерживает только последнюю опубликов
   (`Mod/Dv3mFVN/English.csv`) для active mod-only ID пакета, включая пулы элитных имён;
   устаревший `ModTextsJazzUnits.csv` не подключён к loctables.
 
-До исправления metadata документация считает полную коллекцию обязательной для **полного** кампанийного контента. Урезанный профиль без `jazz-maps` — опциональный пакет **`jazz-nomaps`** (`7MsJ2Eq`, JAZZ-COMPAT-002): auto-regions по vanilla Guardpost, Major HQ `A20`, wiring отрядов и loot inject; квесты/карты/диалоги maps недоступны.
+До исправления metadata документация считает полную коллекцию обязательной для **полного** кампанийного контента. Урезанный профиль без `jazz-maps` — опциональный пакет **`jazz-nomaps`** / display **JAZZ Vanilla Maps** (`7MsJ2Eq`, JAZZ-COMPAT-002): auto-regions по vanilla Guardpost, Major HQ `A20`, wiring отрядов и loot inject; квесты/карты/диалоги maps недоступны.
 
 Playtest 2026-07-30 (Discord): cut loot/`MP5` и неполный remap — **исправлено** в jazz-nomaps **0.5** ([PR #1](https://github.com/Kpoji4er/JAZZ-nomaps/pull/1)); детали — [bugs/nomaps-playtest-2026-07-30.md](bugs/nomaps-playtest-2026-07-30.md).
 

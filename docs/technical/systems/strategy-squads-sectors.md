@@ -148,9 +148,9 @@ Generated `SatelliteViewMapContextMenu` считает отсутствие Regi
 
 Основной metadata объявляет assets обязательным, CommonLib/units — optional, maps не объявлен, хотя прямые ссылки существуют. Поддерживаемая конфигурация требует все четыре пакета и CommonLib.
 
-### Optional: `jazz-nomaps` (JAZZ-COMPAT-002)
+### Optional: `jazz-nomaps` / **JAZZ Vanilla Maps** (JAZZ-COMPAT-002)
 
-Пакет `jazz-nomaps` (`7MsJ2Eq`, каталог `..\jazz-nomaps`) — **вместо** `jazz-maps`. Runtime: `Code/NoMaps_Autonomy.lua`.
+Пакет `jazz-nomaps` (`7MsJ2Eq`, каталог `..\jazz-nomaps`, display title **JAZZ Vanilla Maps**) — **вместо** `jazz-maps`. Runtime: `Code/NoMaps_Autonomy.lua`.
 
 Без maps (с nomaps):
 

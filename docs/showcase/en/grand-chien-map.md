@@ -31,4 +31,4 @@ Ernie sector list: [Ernie campaign](ernie-campaign.md).
 
 ## Without maps
 
-The **NoMaps** profile keeps vanilla HotDiamonds and the old IDs (H4, A20, …). This page is for the **maps** install only.
+The **JAZZ Vanilla Maps** profile keeps vanilla HotDiamonds and the old IDs (H4, A20, …). This page is for the **maps** install only.

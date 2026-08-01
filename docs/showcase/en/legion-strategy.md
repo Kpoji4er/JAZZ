@@ -4,7 +4,7 @@
 
 On **Ernie**, the Legion runs Fort L'Eau Bleu (sector I7) through a regional HQ. On the satellite map, squads show a **role** icon and a **current task** on hover.
 
-Without the maps package (NoMaps profile) the same Global AI runs vanilla mainland outposts: Major HQ at A20, starting defenders adopted as garrison, tax/recruiting from city/farm stockpiles. Enemy gear and container loot scale with Legion tier (mine + 3 days → II, World Flip → III); vanilla map legionaries are swapped for JAZZ roles — see [Legion units](legion-units.md).
+Without the maps package (**JAZZ Vanilla Maps**) the same Global AI runs vanilla mainland outposts: Major HQ at A20, starting defenders adopted as garrison, tax/recruiting from city/farm stockpiles. Enemy gear and container loot scale with Legion tier (mine + 3 days → II, World Flip → III); vanilla map legionaries are swapped for JAZZ roles — see [Legion units](legion-units.md).
 
 ## Squad roles
 
