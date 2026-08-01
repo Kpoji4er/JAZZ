@@ -42,9 +42,9 @@ DefineClass.Glock18 = {
 			'SlotType', "Handguard",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"JAZZ_MuzzleBooster_Glock18",
+				"MuzzleBooster_Glock18",
 			},
-			'DefaultComponent', "JAZZ_MuzzleBooster_Glock18",
+			'DefaultComponent', "MuzzleBooster_Glock18",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",

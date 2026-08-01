@@ -66,7 +66,6 @@ executable: true
 
 - `Jazz_Perk_Biggens`
 - `Optimist`
-- `DesignerExplosives`
 - `NightOps`
 
 ### Named perk

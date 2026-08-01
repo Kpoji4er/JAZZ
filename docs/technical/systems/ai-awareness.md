@@ -27,7 +27,7 @@ JAZZ существенно меняет выбор действий AI, оце�
 - `Code/InfiniteLoopFix.lua` — увеличивает защитные thresholds от зависания;
 - `Code/System_OR_Unit.lua`, `CombatActions.lua`, `System_OR_Weapons.lua` — действия/состояние/оружие, используемые AI.
 
-`jazz-units` загружает `Code/AIKeywords.lua`, `Code/AICombatStance.lua` (medic/regroup/role stance — MED/REG/ROLE-002 code loaded) и generated **40** AI archetypes, enemy roles/squads и UnitData. `jazz-maps/Code/AIMechanism.lua` существует, но metadata его не загружает: его stealth/AIM option overrides не участвуют в runtime.
+`jazz-units` загружает `Code/AIKeywords.lua`, `Code/AICombatStance.lua` (medic/regroup/role stance — MED/REG/ROLE-002 code loaded) и generated AI archetypes (в т.ч. `Legion_Flanker` / `Rebels_Flanker`), enemy roles/squads и UnitData. `JazzAI_PickCombatStance` резолвит faction stance-id через `JazzAI_ResolveKnownArchetype`: отсутствующий preset (исторический gap `Rebels_Flanker`) → `*_Assaulter` / `*_Frontliner`. `jazz-maps/Code/AIMechanism.lua` существует, но metadata его не загружает: его stealth/AIM option overrides не участвуют в runtime.
 
 ## Подтверждённые коллизии CommonLib
 
@@ -52,7 +52,9 @@ JAZZ существенно меняет выбор действий AI, оце�
 6. `AISelectAction` запускает действие; execution проходит общие combat/weapon systems.
 7. Noise, damage, sight и события боя обновляют alerts/suspicion.
 
-`GetCTHByAimLevels` вызывает тот же `Unit:CalcChanceToHit`, что UI и фактическая атака. Внутри одного AI think результаты кэшируются в `context.cth_by_aim_cache` по `(enemy.handle, action.id, max_aim)` — повторные `PickBestAttack` / Dump / dest score не пересчитывают полную сетку aim. `PredictCTH` больше не вычитает линейный recoil: он строит общий `JAZZ_CTHGetRecoilProfile` и суммирует `JAZZ_CTHGetBulletChance` для той же последовательности пуль. Поэтому отдельная правка AI-точности должна считаться изменением общего CTH-контракта.
+`GetCTHByAimLevels` вызывает тот же `Unit:CalcChanceToHit`, что UI и фактическая атака, **но без LOF/stuck** (`NoLineOfFire` ставится только в `GetAttackResults`). Поэтому `PickBestAttack` дополнительно отвергает цель, если `AIGetAttackTargetingOptions` (через `GetActionResults`, CTH>0) пуст; Dump при пустом списке частей тела **не** вызывает `AIPlayCombatAction` и выходит в Disengage (JAZZ-AI-002: no LOF → Disengage) — иначе анимируется выстрел в стену. Внутри одного AI think сетка aim кэшируется в `context.cth_by_aim_cache` по `(enemy.handle, action.id, max_aim)`. `PredictCTH` больше не вычитает линейный recoil: он строит общий `JAZZ_CTHGetRecoilProfile` и суммирует `JAZZ_CTHGetBulletChance` для той же последовательности пуль. Поэтому отдельная правка AI-точности должна считаться изменением общего CTH-контракта.
+
+**Empty active hands:** before context creation and before Dump, `JAZZ_AIEnsureActiveFirearm` switches to a normal firearm in the other Handheld slot, or moves one from Inventory into an empty Handheld slot and reloads it. `HolsterSlot` is visual-only: a weapon shown on a shoulder is still an item in Handheld A/B, not a third equip slot. Heavy weapons and flare guns remain excluded, so a holstered RPG is not drawn as a default firearm. With no eligible firearm, JA3's canonical virtual `UnarmedWeapon` (`unit:GetActiveWeapons("UnarmedWeapon")`) is retained for the bare-hand path; it is not inserted into inventory because `g_UnarmedWeapon` is a shared pseudo-item. Dump returns `done` before target/action or Idle waits, ending that attack sequence cleanly.
 
 `AIUpdateDestLosCache` компактует уже видимые dest одним проходом (без серии `table.remove`). Полный объём `CheckLOS` dest×enemy остаётся ванильным; см. [performance-vanilla-report.md](../performance-vanilla-report.md).
 
@@ -76,7 +78,7 @@ JAZZ оценивает attack AP, cover, anti-flank, proximity, high ground, en
 
 AI keywords в units: `Melee`, `CQB`, `Soldier`, `Marksman`, `Sniper`, `Leader`, `MG`, `Control`, `Explosives`, `Ordnance`, `Smoke`, `Flank`, `MobileShot`, `RunAndGun`, `Stim`, `Nova`, `Heal`.
 
-**40** archetypes охватывают artillery, berserk/brute/melee, emplacement/turret, grenadier, guard area, heavy/machine gunner, medic, panicked/pinned, scout/skirmisher/soldier/sniper, Major и faction-specific варианты Legion/Rebels. Generated UnitData связывает archetype с инвентарём, stats и actions.
+Archetypes охватывают artillery, berserk/brute/melee, emplacement/turret, grenadier, guard area, heavy/machine gunner, medic, panicked/pinned, scout/skirmisher/soldier/sniper, Major и faction-specific варианты Legion/Rebels (`Rebels_Assaulter` / `Rebels_Flanker` / `Rebels_Frontliner` / `Rebels_Machinegunner`; `Rebels_Flanker` — clone `Legion_Flanker` для `RebelFlanker` / Scout stance). Generated UnitData связывает archetype с инвентарём, stats и actions.
 
 ## Awareness и внешние условия
 

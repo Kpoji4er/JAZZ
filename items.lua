@@ -17608,9 +17608,9 @@ return {
 							'SlotType', "Handguard",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"JAZZ_MuzzleBooster_Glock18",
+								"MuzzleBooster_Glock18",
 							},
-							'DefaultComponent', "JAZZ_MuzzleBooster_Glock18",
+							'DefaultComponent', "MuzzleBooster_Glock18",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
@@ -20354,7 +20354,7 @@ return {
 							'AvailableComponents', {
 								"JAZZ_BarrelLong",
 								"JAZZ_BarrelNormal",
-								"JAZZ_BarrelShort_Winchester",
+								"BarrelShort_Winchester",
 							},
 							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
@@ -20919,10 +20919,10 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handguard",
 							'AvailableComponents', {
-								"JAZZ_AKSU_Hanguard_Basic",
+								"AKSU_Hanguard_Basic",
 								"JAZZ_AKSU_VerticalGrip",
 							},
-							'DefaultComponent', "JAZZ_AKSU_Hanguard_Basic",
+							'DefaultComponent', "AKSU_Hanguard_Basic",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
@@ -22815,12 +22815,12 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'AvailableComponents', {
-								"JAZZ_AUGCompensator_01",
-								"JAZZ_AUGCompensator_03",
+								"AUGCompensator_01",
+								"AUGCompensator_03",
 								"JAZZ_Suppressor",
 								"JAZZ_SuppressorImproved",
 							},
-							'DefaultComponent', "JAZZ_AUGCompensator_01",
+							'DefaultComponent', "AUGCompensator_01",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
@@ -24247,9 +24247,9 @@ return {
 							'SlotType', "Handguard",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"JAZZ_FNFAL_Handguard",
+								"FNFAL_Handguard",
 							},
-							'DefaultComponent', "JAZZ_FNFAL_Handguard",
+							'DefaultComponent', "FNFAL_Handguard",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
@@ -24423,7 +24423,7 @@ return {
 							'SlotType', "Under",
 							'AvailableComponents', {
 								"JAZZ_GrenadeLauncher_Galil",
-								"JAZZ_Galil_Handguard_Default",
+								"Galil_Handguard_Default",
 								"JAZZ_Bipod_Galil",
 							},
 							'DefaultComponent', "JAZZ_Bipod_Galil",
@@ -27088,10 +27088,10 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'AvailableComponents', {
-								"JAZZ_DefaultMuzzle_HK21",
+								"DefaultMuzzle_HK21",
 								"JAZZ_Compensator",
 							},
-							'DefaultComponent', "JAZZ_DefaultMuzzle_HK21",
+							'DefaultComponent', "DefaultMuzzle_HK21",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -30126,197 +30126,7 @@ return {
 				PlaceObj('ModItemFolder', {
 					'name', "Muzzle",
 				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(982641740201, --[[ModItemWeaponComponent JAZZ_AKSU_Hanguard_Basic DisplayName]] "Default Handguard"),
-					Icon = "UI/Icons/Upgrades/AK47_default_handguard",
-					ModificationDifficulty = -25,
-					Slot = "Handguard",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "AKSU",
-							Entity = "WeaponAttA_HandgripAKS74U_01",
-							Slot = "Handgrip",
-						}),
-					},
-					group = "AKSU Specific",
-					id = "JAZZ_AKSU_Hanguard_Basic",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					Cost = 10,
-					DisplayName = T(982641740202, --[[ModItemWeaponComponent JAZZ_AUGCompensator_01 DisplayName]] "Default Compensator"),
-					Icon = "UI/Icons/Upgrades/muzzle_steyr_02",
-					ModificationDifficulty = -25,
-					ModificationEffects = {
-						"AccuracyBonusSameTarget",
-					},
-					Slot = "Muzzle",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							Entity = "WeaponAttA_MuzzleSteyr_01",
-							Slot = "Muzzle",
-						}),
-					},
-					group = "AUG Specific",
-					id = "JAZZ_AUGCompensator_01",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					Cost = 15,
-					DisplayName = T(982641740203, --[[ModItemWeaponComponent JAZZ_AUGCompensator_03 DisplayName]] "Advanced Compensator"),
-					Icon = "UI/Icons/Upgrades/muzzle_steyr_01",
-					ModificationDifficulty = 0,
-					ModificationEffects = {
-						"AccuracyBonusSameTarget",
-						"IncreaseReliability",
-					},
-					Parameters = {
-						PlaceObj('PresetParamNumber', {
-							'Name', "ReliabilityIncrease",
-							'Value', 10,
-							'Tag', "<ReliabilityIncrease>",
-						}),
-					},
-					Slot = "Muzzle",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							Entity = "WeaponAttA_MuzzleSteyr_03",
-							Slot = "Muzzle",
-						}),
-					},
-					group = "AUG Specific",
-					id = "JAZZ_AUGCompensator_03",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					AdditionalCosts = {
-						PlaceObj('WeaponComponentCost', {
-							'Amount', 1,
-							'Type', "JAZZ_BarrelParts",
-						}),
-					},
-					Cost = 15,
-					DisplayName = T(982641740204, --[[ModItemWeaponComponent JAZZ_BarrelShort_Winchester DisplayName]] "Short Barrel"),
-					Icon = "UI/Icons/Upgrades/galil_barrel_short",
-					ModificationDifficulty = 0,
-					ModificationEffects = {
-						"ReduceShootAP",
-						"ReduceRange",
-						"ReduceReliability",
-						"ReduceMagazineSize",
-					},
-					Parameters = {
-						PlaceObj('PresetParamNumber', {
-							'Name', "ShootAPDecrease",
-							'Value', 1,
-							'Tag', "<ShootAPDecrease>",
-						}),
-						PlaceObj('PresetParamNumber', {
-							'Name', "RangeDecrease",
-							'Value', 4,
-							'Tag', "<RangeDecrease>",
-						}),
-						PlaceObj('PresetParamNumber', {
-							'Name', "ReliabilityDecrease",
-							'Value', 10,
-							'Tag', "<ReliabilityDecrease>",
-						}),
-						PlaceObj('PresetParamNumber', {
-							'Name', "MagazineSizeDecrease",
-							'Value', 4,
-							'Tag', "<MagazineSizeDecrease>",
-						}),
-					},
-					Slot = "Barrel",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "Winchester1894",
-							Entity = "WeaponAttA_BarrelWinchester_Short",
-							Slot = "Barrel",
-						}),
-					},
-					group = "Winchester Specific",
-					id = "JAZZ_BarrelShort_Winchester",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					Cost = 25,
-					DisplayName = T(982641740205, --[[ModItemWeaponComponent JAZZ_Compensator_cosmetic DisplayName]] "Compensator"),
-					Icon = "UI/Icons/Upgrades/m16_muzzle",
-					ModificationDifficulty = 0,
-					Slot = "Muzzle",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "LionRoar",
-							Entity = "WeaponAttA_MuzzleHK21",
-							Slot = "Muzzle",
-						}),
-					},
-					group = "Muzzle",
-					id = "JAZZ_Compensator_cosmetic",
-					param_bindings = {},
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(982641740206, --[[ModItemWeaponComponent JAZZ_DefaultMuzzle_HK21 DisplayName]] "Default Flash Hider"),
-					Icon = "UI/Icons/Upgrades/m16_muzzle",
-					ModificationDifficulty = -25,
-					Slot = "Muzzle",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "HK21",
-							Entity = "WeaponAttA_MuzzleHK21",
-							Slot = "Muzzle",
-						}),
-					},
-					group = "HK 21 Specific",
-					id = "JAZZ_DefaultMuzzle_HK21",
-					param_bindings = {},
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(982641740207, --[[ModItemWeaponComponent JAZZ_FNFAL_Handguard DisplayName]] "Default Handguard"),
-					ModificationDifficulty = -25,
-					Slot = "Handguard",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "FNFAL",
-							Entity = "WeaponAttA_HandguardFNFal_01",
-							Slot = "Handguard",
-						}),
-					},
-					group = "FNFAL Specific",
-					id = "JAZZ_FNFAL_Handguard",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					Cost = 2,
-					DisplayName = T(982641740208, --[[ModItemWeaponComponent JAZZ_Galil_Handguard_Default DisplayName]] "Default Handguard"),
-					Icon = "UI/Icons/Upgrades/default_handguard",
-					ModificationDifficulty = -25,
-					Slot = "Under",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "Galil",
-							Entity = "WeaponAttA_HandguardGalil_01",
-							Slot = "Handguard",
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "Galil",
-							Entity = "WeaponAttA_GassBlockGalil",
-							Slot = "Gassblock",
-						}),
-					},
-					group = "Galil Specific",
-					id = "JAZZ_Galil_Handguard_Default",
-					param_bindings = {},
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					Cost = 15,
-					DisplayName = T(982641740209, --[[ModItemWeaponComponent JAZZ_MuzzleBooster_Glock18 DisplayName]] "Default Chamber"),
-					Icon = "UI/Icons/Upgrades/booster_NATO",
-					ModificationDifficulty = 0,
-					ModificationEffects = {
-						"ExtraBurstShots",
-					},
-					Slot = "Handguard",
-					group = "Glock18 Specific",
-					id = "JAZZ_MuzzleBooster_Glock18",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
+																																								PlaceObj('ModItemWeaponComponent', {
 					AdditionalCosts = {
 						PlaceObj('WeaponComponentCost', {
 							'Amount', 1,
@@ -104918,35 +104728,37 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			}),
 			}),
 		}),
-	PlaceObj('ModItemGameRuleDef', {
-		Parameters = {
-			PlaceObj('PresetParamPercent', {
-				'Name', "FreeMoveLost",
-				'Value', 20,
-				'Tag', "<FreeMoveLost>%",
-			}),
-			PlaceObj('PresetParamPercent', {
-				'Name', "AccuracyPenalty",
-				'Value', 5,
-				'Tag', "<AccuracyPenalty>%",
-			}),
-			PlaceObj('PresetParamNumber', {
-				'Name', "MaxWoundsEffect",
-				'Value', 5,
-				'Tag', "<MaxWoundsEffect>",
-			}),
-		},
-		SortKey = 90,
-		advanced = true,
-		description = T(238180343353, --[[ModItemGameRuleDef HeavyWounds description]] "Wounds also hamper Free Move and Accuracy. Affects all characters - mercs, allies and enemies."),
-		display_name = T(148131728167, --[[ModItemGameRuleDef HeavyWounds display_name]] "Heavy Wounds"),
-		group = "Default",
-		id = "HeavyWounds",
-		show_in_new_game = false,
-	}),
 	PlaceObj('ModItemCode', {
 		'name', "EditorExtension",
 		'CodeFileName', "Code/EditorExtension.lua",
+	}),
+	PlaceObj('ModItemCode', {
+		'name', "GameRules_HideAdvanced",
+		'CodeFileName', "Code/GameRules_HideAdvanced.lua",
+	}),
+	PlaceObj('ModItemXTemplate', {
+		__is_kind_of = "NewGameCategory",
+		group = "Zulu",
+		id = "NewGameMenuGameRules",
+		PlaceObj('XTemplateTemplate', {
+			'comment', "game rules (JAZZ: Advanced Rules section removed)",
+			'__template', "NewGameCategory",
+			'IdNode', false,
+			'Name', T(468039426572, --[[XTemplate NewGameMenuGameRules Name]] "Game Rules"),
+		}),
+		PlaceObj('XTemplateForEach', {
+			'array', function (parent, context) return Presets.GameRuleDef.Default end,
+			'condition', function (parent, context, item, i) return item.show_in_new_game and not item.advanced end,
+			'__context', function (parent, context, item, i, n) return item end,
+			'run_after', function (child, context, item, i, n, last)
+				child:SetId("id"..item.id)
+			end,
+		}, {
+			PlaceObj('XTemplateTemplate', {
+				'__template', "NewGameBoolEntry",
+				'IdNode', false,
+			}),
+			}),
 	}),
 	PlaceObj('ModItemFolder', {
 		'name', "AiFastforward",
@@ -104987,30 +104799,6 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			'MaxValue', 4,
 		}),
 		}),
-	PlaceObj('ModItemGameRuleDef', {
-		SortKey = 100,
-		advanced = true,
-		description = T(227968522548, --[[ModItemGameRuleDef AlwaysOnline description]] 'Mercs are never "offline" and will not refuse contracts without a good reason.'),
-		display_name = T(642676461544, --[[ModItemGameRuleDef AlwaysOnline display_name]] "A.I.M. Always Online"),
-		group = "Default",
-		id = "AlwaysOnline",
-		show_in_new_game = false,
-	}),
-	PlaceObj('ModItemGameRuleDef', {
-		SortKey = 120,
-		advanced = true,
-		description = T(817451716775, --[[ModItemGameRuleDef AllStars description]] "Unlocks legendary mercs on start (except retired mercs)."),
-		display_name = T(769005390989, --[[ModItemGameRuleDef AllStars display_name]] "A.I.M. Platinum"),
-		effects = {
-			PlaceObj('ExecuteCode', {
-				FuncCode = 'ChangeAIMPremiumState("active")',
-				param_bindings = false,
-			}),
-		},
-		group = "Default",
-		id = "AllStars",
-		show_in_new_game = false,
-	}),
 	PlaceObj('ModItemLocTable', {
 		'comment', "Правки локализации",
 		'language', "Russian",
@@ -107858,11 +107646,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'SlotType', "Muzzle",
 					'Modifiable', false,
 					'AvailableComponents', {
-						"JAZZ_Compensator_cosmetic",
+						"Compensator_cosmetic",
 						"JAZZ_Compensator",
 						"JAZZ_PistolSuppressor",
 					},
-					'DefaultComponent', "JAZZ_Compensator_cosmetic",
+					'DefaultComponent', "Compensator_cosmetic",
 				}),
 				PlaceObj('WeaponComponentSlot', {
 					'SlotType', "Magazine",

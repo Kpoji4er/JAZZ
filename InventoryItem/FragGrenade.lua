@@ -24,7 +24,9 @@ DefineClass.FragGrenade = {
 	MaxMishapRange = 8,
 	CenterObjDamageMod = 50,
 	CenterAppliedEffects = {
-		"HeadshotArmsshotLegsshot",
+		"Headshot",
+		"Armsshot",
+		"Legsshot",
 	},
 	AreaOfEffect = 4,
 	CenterAreaOfEffect = 2,

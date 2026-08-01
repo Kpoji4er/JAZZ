@@ -49,10 +49,10 @@ DefineClass.HK21 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'AvailableComponents', {
-				"JAZZ_DefaultMuzzle_HK21",
+				"DefaultMuzzle_HK21",
 				"JAZZ_Compensator",
 			},
-			'DefaultComponent', "JAZZ_DefaultMuzzle_HK21",
+			'DefaultComponent', "DefaultMuzzle_HK21",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",

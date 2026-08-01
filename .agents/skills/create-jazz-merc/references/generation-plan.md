@@ -95,7 +95,7 @@ Slug: `colby` · `unit_id: Jazz_Colby` · `portrait_id: Colby` · perk `Jazz_Per
 
 | Поле | Значение |
 | --- | --- |
-| StartingPerks | `Jazz_Perk_Colby`, `MrFixit`, `Throwing`, `BreachAndClear`, `HitTheDeck`, `DesignerExplosives` |
+| StartingPerks | `Jazz_Perk_Colby`, `MrFixit`, `Throwing`, `BreachAndClear`, `HitTheDeck` |
 | Named perk EN | Chain Panic — +20% blast radius; 20% panic on wounded enemies in blast |
 | Likes / Dislikes | `Thor` / `Fidel` |
 | National hate | Haggle при ≥1 hired `Nationality == "USA"` |

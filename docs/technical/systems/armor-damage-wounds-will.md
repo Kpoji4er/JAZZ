@@ -25,7 +25,7 @@ JAZZ разделяет физическую защиту по покрытию,
 - `Code/System_Wounds_OperationHeal.lua` — стратегическая операция лечения;
 - `Code/WillPointsBar.lua` — UI шкалы воли;
 - `Code/System_GasMask.lua` — защитный предмет для газовых зон;
-- generated Armor, ArmorPlate, CharacterEffect, TargetBodyPart и GameRule ModItems.
+- generated Armor, ArmorPlate, CharacterEffect и TargetBodyPart ModItems.
 
 ## Модель брони
 

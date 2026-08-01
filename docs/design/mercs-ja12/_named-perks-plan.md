@@ -249,7 +249,7 @@ Lynx CTH text vs code; Colby traps AoE; опциональный рефакто�
 | Vanilla perk | Часто у | Зачем рядом с именным |
 | --- | --- | --- |
 | `Teacher` | Ira, Conrad, Miguel, Rothman, Steiger, Vince | train/militia fantasy |
-| `DesignerExplosives` / `BreachAndClear` / `Throwing` | Colby, Spouke, Grom, Hobbit, Devin… | blast identity |
+| `BreachAndClear` / `Throwing` | Colby, Spouke, Grom, Hobbit, Devin… | blast identity (do NOT copy Barry `DesignerExplosives`) |
 | `AutoWeapons` | Buzz, Nervous, Kulba, Vilde, Cougar… | bullet perks |
 | `Stealthy` / `NightOps` | Spider, Cougar, Monk, Manuel, Eskimo… | stealth/night named |
 | `MeleeTraining` / `CQCTraining` | Blade, Madman, Bull, Vicious… | melee named |
@@ -275,7 +275,7 @@ Lynx CTH text vs code; Colby traps AoE; опциональный рефакто�
 ### Колби (`colby` / `Jazz_Colby`)
 
 - **Priority / role / affiliation:** high · Demolitions · AIM
-- **StartingPerks:** `Jazz_Perk_Colby`, `MrFixit`, `Throwing`, `BreachAndClear`, `HitTheDeck`, `DesignerExplosives`
+- **StartingPerks:** `Jazz_Perk_Colby`, `MrFixit`, `Throwing`, `BreachAndClear`, `HitTheDeck`
 - **Named:** `Jazz_Perk_Colby` — Цепная паника / Chain Panic
 - **Type / feasibility / runtime:** passive · **SHIPPED** · WIRED — panic `OnCalcDamageAndEffects` + grenade +20% AoE; traps AoE gap
 - **Description:** Взрывы Колби сеют панику: +20% к радиусу и 20% шанс паники у раненых врагов в зоне / Colby's blasts sow panic: +20% blast radius and 20% chance to panic wounded enemies in the blast
@@ -374,7 +374,7 @@ Lynx CTH text vs code; Colby traps AoE; опциональный рефакто�
 ### Знаток (`allik` / `Jazz_Allik`)
 
 - **Priority / role / affiliation:** medium · AllRounder · AIM
-- **StartingPerks:** `Jazz_Perk_Allik`, `MrFixit`, `DesignerExplosives`, `TrueGrit`
+- **StartingPerks:** `Jazz_Perk_Allik`, `MrFixit`, `TrueGrit`
 - **Named:** `Jazz_Perk_Allik` — Знаток дела / Jack of All Trades
 - **Type / feasibility / runtime:** passive · **MEDIUM** · STUB — `unit_reactions={}`, WIP description in CharacterEffect
 - **Description:** Быстрее прокачивается благодаря разностороннему опыту / Levels up faster thanks to well-rounded experience
@@ -500,7 +500,7 @@ Lynx CTH text vs code; Colby traps AoE; опциональный рефакто�
 ### Ротман (`rothman` / `Jazz_Rothman`)
 
 - **Priority / role / affiliation:** medium · Commander · AIM
-- **StartingPerks:** `Jazz_Perk_Rothman`, `Teacher`, `ShoulderToShoulder`, `DesignerExplosives`, `HoldPosition`
+- **StartingPerks:** `Jazz_Perk_Rothman`, `Teacher`, `ShoulderToShoulder`, `HoldPosition`
 - **Named:** `Jazz_Perk_Rothman` — Шахтёрский надзор / The Mine Overseer
 - **Type / feasibility / runtime:** operation · **HARD** · STUB — `unit_reactions={}`, WIP description in CharacterEffect
 - **Description:** Пока Ротман гарнизоном стоит в секторе с шахтой, он может провести спецоперацию, ловящую ворующих штейгеров и временно поднимающую доход шахты / While Rothman is garrisoned in a sector with an active mine, he can run a special operation that catches embezzling foremen and temporarily boosts that mine's income
@@ -518,7 +518,7 @@ Lynx CTH text vs code; Colby traps AoE; опциональный рефакто�
 ### Биггенс (`biggens` / `Jazz_Biggens`)
 
 - **Priority / role / affiliation:** low · Demolitions · Locals
-- **StartingPerks:** `Jazz_Perk_Biggens`, `Optimist`, `DesignerExplosives`, `NightOps`
+- **StartingPerks:** `Jazz_Perk_Biggens`, `Optimist`, `NightOps`
 - **Named:** `Jazz_Perk_Biggens` — Старая школа / Old School
 - **Type / feasibility / runtime:** passive · **HARD** · STUB — `unit_reactions={}`, WIP description in CharacterEffect
 - **Description:** Заряды Биггенса труднее обнаружить и они быстрее взводятся / Biggens's charges are harder to spot and arm faster
@@ -554,7 +554,7 @@ Lynx CTH text vs code; Colby traps AoE; опциональный рефакто�
 ### Девин (`devin` / `Jazz_Devin`)
 
 - **Priority / role / affiliation:** low · Demolitions · Locals
-- **StartingPerks:** `Jazz_Perk_Devin`, `Loner`, `DesignerExplosives`, `BreachAndClear`
+- **StartingPerks:** `Jazz_Perk_Devin`, `Loner`, `BreachAndClear`
 - **Named:** `Jazz_Perk_Devin` — IRA / IRA
 - **Type / feasibility / runtime:** passive · **MEDIUM** · STUB — `unit_reactions={}`, WIP description in CharacterEffect
 - **Description:** Взрывы Девина крушат укрытия и поджигают всё вокруг / Devin's explosions wreck cover and set the area on fire
@@ -599,7 +599,7 @@ Lynx CTH text vs code; Colby traps AoE; опциональный рефакто�
 ### Хоббит (`hobbit` / `Jazz_Hobbit`)
 
 - **Priority / role / affiliation:** low · Demolitions · MERC
-- **StartingPerks:** `Jazz_Perk_Hobbit`, `Pessimist`, `DesignerExplosives`, `BreachAndClear`
+- **StartingPerks:** `Jazz_Perk_Hobbit`, `Pessimist`, `BreachAndClear`
 - **Named:** `Jazz_Perk_Hobbit` — Несу вас / I'll Carry You
 - **Type / feasibility / runtime:** passive · **HARD** · STUB — `unit_reactions={}`, WIP description in CharacterEffect
 - **Description:** Товарищи по отряду ставят взрывчатку и мины так же хорошо, как Хоббит / Squadmates plant explosives and mines as well as Hobbit does
@@ -617,7 +617,7 @@ Lynx CTH text vs code; Colby traps AoE; опциональный рефакто�
 ### Лора (`laura` / `Jazz_Laura`)
 
 - **Priority / role / affiliation:** low · Doctor · AIM
-- **StartingPerks:** `Jazz_Perk_Laura`, `Stealthy`, `DesignerExplosives`, `TrueGrit`
+- **StartingPerks:** `Jazz_Perk_Laura`, `Stealthy`, `TrueGrit`
 - **Named:** `Jazz_Perk_Laura` — Скрытный врач / Silent Medic
 - **Type / feasibility / runtime:** passive · **EASY** · STUB — `unit_reactions={}`, WIP description in CharacterEffect
 - **Description:** Лечение и подъём союзников не выдают позицию Лоры / Healing or reviving an ally doesn't break Laura's stealth
@@ -635,7 +635,7 @@ Lynx CTH text vs code; Colby traps AoE; опциональный рефакто�
 ### Мясо (`meat` / `Jazz_Meat`)
 
 - **Priority / role / affiliation:** low · Demolitions · MERC
-- **StartingPerks:** `Jazz_Perk_Meat`, `DesignerExplosives`, `MeleeTraining`, `TrueGrit`
+- **StartingPerks:** `Jazz_Perk_Meat`, `MeleeTraining`, `TrueGrit`
 - **Named:** `Jazz_Perk_Meat` — Толстокожий / Thick-Skinned
 - **Type / feasibility / runtime:** passive · **MEDIUM** · STUB — `unit_reactions={}`, WIP description in CharacterEffect
 - **Description:** Волю Мяса ничем не сломить ниже определённого порога / Meat's Will can't be broken below a certain floor

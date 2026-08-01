@@ -48,6 +48,8 @@ UB_WF_FOLDER = (
     / "Jagged Alliance 2 RUS"
     / "Data-UB"
 )
+# Shady Job unpacked (Downloads/SJ/data) → _sj_cache (066 Simon, 067 Benny, 076 Gromov)
+SJ_FOLDER = JAZZ / "docs/design/mercs-ja12/_voice-source/_sj_cache"
 
 FFMPEG_CANDIDATES = [
     Path(
@@ -68,6 +70,8 @@ QUEUE = [
     "conrad",
     "mike",
     "grom",
+    "benny",
+    "simon",
     "rothman",
     "quinten",
     "vicious",
@@ -246,6 +250,9 @@ def _folder_roots(source: str) -> list[Path]:
     if source == "ub_wildfire_folder":
         # Wildfire RUS arc Data-UB (numeric 058 Gaston, …) — not commercial WF AIM voices
         return [UB_WF_FOLDER] if UB_WF_FOLDER.exists() else []
+    if source == "sj_folder":
+        # Shady Job Khalif: 066 Simon, 067 Benny, 076 Gromov (+ 058 Gaston alt)
+        return [SJ_FOLDER] if SJ_FOLDER.exists() else []
     return []
 
 

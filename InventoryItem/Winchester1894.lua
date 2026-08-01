@@ -37,7 +37,7 @@ DefineClass.Winchester1894 = {
 			'AvailableComponents', {
 				"JAZZ_BarrelLong",
 				"JAZZ_BarrelNormal",
-				"JAZZ_BarrelShort_Winchester",
+				"BarrelShort_Winchester",
 			},
 			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),

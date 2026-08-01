@@ -12,7 +12,7 @@ The goal is to make **decisions** matter more than raw stat growth. Position, ra
 
 ## Status
 
-Demo. **Ernie Island** is the fully supported campaign slice; content beyond Ernie may be unfinished. Start a new game for a first run and after major updates. Leave JA3 advanced difficulty options at defaults.
+Demo. **Ernie Island** is the fully supported campaign slice; content beyond Ernie may be unfinished. Start a new game for a first run and after major updates. JA3 **Advanced Rules** are hidden in New Game (Ammo Scarcity, Body Count, Heavy Wounds, and the rest); only the base Game Rules remain.
 
 Player-facing content is currently stronger in Russian; English localization is not treated as complete yet.
 

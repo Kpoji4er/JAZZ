@@ -66,7 +66,6 @@ executable: true
 
 - `Jazz_Perk_Laura`
 - `Stealthy`
-- `DesignerExplosives`
 - `TrueGrit`
 
 ### Named perk

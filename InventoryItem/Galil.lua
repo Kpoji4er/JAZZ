@@ -64,7 +64,7 @@ DefineClass.Galil = {
 			'SlotType', "Under",
 			'AvailableComponents', {
 				"JAZZ_GrenadeLauncher_Galil",
-				"JAZZ_Galil_Handguard_Default",
+				"Galil_Handguard_Default",
 				"JAZZ_Bipod_Galil",
 			},
 			'DefaultComponent', "JAZZ_Bipod_Galil",

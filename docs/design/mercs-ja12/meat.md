@@ -65,7 +65,6 @@ executable: true
 ### StartingPerks
 
 - `Jazz_Perk_Meat`
-- `DesignerExplosives`
 - `MeleeTraining`
 - `TrueGrit`
 

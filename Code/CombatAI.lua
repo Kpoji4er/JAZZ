@@ -11,6 +11,70 @@ const.AIShootAboveCTH = 0
 const.AIDecisionThreshold = 80 -- targets/locations up to this percent of max scored target/location can be selected
 const.AIPointBlankTargetMod = 50 -- targets in point-blank range get +50% score
 
+local function JAZZ_AIIsCombatFirearm(item)
+	return IsKindOf(item, "Firearm")
+		and not IsKindOfClasses(item, "HeavyWeapon", "FlareGun")
+end
+
+-- The back/leg holster is only a visual attachment: an AI firearm is equipped
+-- when it lives in Handheld A or B and that slot is the current_weapon.  Recover
+-- from an empty active slot before AI context/Dump asks for its attack actions.
+-- Heavy weapons intentionally stay excluded; an RPG on the back must not become
+-- the default firearm attack.
+function JAZZ_AIEnsureActiveFirearm(unit)
+	local firearm = unit:GetActiveWeapons("Firearm")
+	if firearm then
+		return firearm
+	end
+
+	local active_slot = unit.current_weapon == "Handheld B" and "Handheld B" or "Handheld A"
+	local alternate_slot = active_slot == "Handheld A" and "Handheld B" or "Handheld A"
+	local alternate = unit:GetEquippedWeapons(alternate_slot, "Firearm")[1]
+	if JAZZ_AIIsCombatFirearm(alternate) then
+		unit:SwapActiveWeapon("AIEquipWeapon", 0)
+		return unit:GetActiveWeapons("Firearm")
+	end
+
+	-- A spawned unit may have received its firearm in Inventory after its two
+	-- weapon slots were filled/cleared. Move it only into a genuinely empty hand,
+	-- preserving grenades, melee weapons, and intentional launcher loadouts.
+	local equip_slot
+	for _, slot in ipairs({active_slot, alternate_slot}) do
+		if #unit:GetItemsInWeaponSlot(slot) == 0 then
+			equip_slot = slot
+			break
+		end
+	end
+	if equip_slot then
+		local candidate
+		unit:ForEachItemInSlot("Inventory", function(item)
+			if not candidate and JAZZ_AIIsCombatFirearm(item) and (item.Condition or 0) > 0 then
+				candidate = item
+			end
+		end)
+		if candidate then
+			local item = unit:RemoveItem("Inventory", candidate)
+			if item then
+				local pos = unit:AddItem(equip_slot, item, 1, 1)
+				if pos then
+					unit.current_weapon = equip_slot
+					unit:FlushCombatCache()
+					unit:OnSetActiveWeapon("AIEquipWeapon", 0)
+					AIReloadWeapons(unit)
+					return unit:GetActiveWeapons("Firearm")
+				end
+				unit:AddItem("Inventory", item)
+			end
+		end
+	end
+
+	-- JA3 represents bare hands as the unit-local reference to g_UnarmedWeapon,
+	-- not as an inventory item. Never insert that shared fallback object into a
+	-- Handheld slot: it would create a droppable/shared pseudo-item. Callers use
+	-- this virtual weapon to keep the empty-hands path non-nil, then skip Dump.
+	return false, unit:GetActiveWeapons("UnarmedWeapon")
+end
+
 
 local function lClearPredictedExplosions(list)
 	for i, m in ipairs(list) do
@@ -89,6 +153,7 @@ end
 function PickBestAttack(unit, enemy, basic_attacks, dest_ap, preferred_mode)
 	local AP = unit.ActionPoints
 	if dest_ap then AP = dest_ap end
+	basic_attacks = basic_attacks or empty_table
 
 	local weapon = unit:GetActiveWeapons()
 	if not weapon then
@@ -96,6 +161,19 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap, preferred_mode)
 	end
 
 	if not IsKindOf(weapon, "Firearm") then return false end
+
+	-- CalcChanceToHit below does not apply NoLineOfFire (stuck). Reject when every
+	-- body part is obstructed so Dump never locks onto a wall-only shot.
+	if IsKindOf(enemy, "Unit") then
+		local ctx = unit.ai_context or empty_table
+		local probe = (basic_attacks.single and basic_attacks.single.action)
+			or (basic_attacks.all and basic_attacks.all[1] and basic_attacks.all[1].action)
+			or CombatActions.SingleShot
+		local parts = AIGetAttackTargetingOptions(unit, ctx, enemy, probe)
+		if not parts or #parts == 0 then
+			return
+		end
+	end
 
 	local recoil = weapon.Recoil or 0
 	local burst = weapon.BurstShots or 3
@@ -245,12 +323,20 @@ function AICreateContext(unit, context)
     PauseInfiniteLoopDetection("AiCalc")
 	local gx, gy, gz = unit:GetGridCoords()
 
-	if not unit:GetActiveWeapons() then
-		AIPlayCombatAction("ChangeWeapon", unit, 0)
-	end
-	local weapon = unit:GetActiveWeapons()
-	-- Unarmed / empty loadout: jazz indexes weapon ranges below; vanilla hashes with `weapon and`.
+	local weapon, unarmed_weapon = JAZZ_AIEnsureActiveFirearm(unit)
+	-- Do not return a bare proto context here: StartAI expects ai_context to exist
+	-- after this function. The virtual bare-hand weapon is retained for UI/action
+	-- safety while AIPlayAttacks deliberately skips firearm Dump below.
 	if not weapon then
+		context = context or {}
+		context.unit = unit
+		context.unit_pos = GetPassSlab(unit) or unit:GetPos()
+		context.start_ap = unit.ActionPoints
+		context.archetype = unit:GetArchetype()
+		context.weapon = unarmed_weapon
+		context.no_active_firearm = true
+		context.enemies = table.icopy(GetEnemies(unit))
+		unit.ai_context = context
 		ResumeInfiniteLoopDetection("AiCalc")
 		return context
 	end

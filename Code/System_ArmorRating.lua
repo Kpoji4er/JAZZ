@@ -492,7 +492,8 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 		local armor_hit = hit.armor_decay and next(hit.armor_decay) ~= nil
 		local armor_pierced = not armor_hit or hit.armor_pen and next(hit.armor_pen) ~= nil
 		local function apply_hit_effect(effect)
-			if armor_pierced and effect and effect ~= "" and effect ~= "MarkedTraccers" then
+			if armor_pierced and type(effect) == "string" and effect ~= "" and effect ~= "MarkedTraccers"
+				and CharacterEffectDefs[effect] then
 				self:AddStatusEffect(effect)
 			end
 		end

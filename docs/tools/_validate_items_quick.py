@@ -62,16 +62,28 @@ def check(path: Path) -> list[str]:
     return problems
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    argv = list(sys.argv[1:] if argv is None else argv)
+    roots = [Path(a) for a in argv] if argv else [ROOT]
     problems: list[str] = []
-    for name in ("items.lua", "metadata.lua"):
-        problems.extend(check(ROOT / name))
+    for root in roots:
+        root = root.resolve()
+        for name in ("items.lua", "metadata.lua"):
+            path = root / name
+            if not path.exists():
+                problems.append(f"{path}: missing")
+                continue
+            probs = check(path)
+            # prefix with package folder for multi-root runs
+            label = root.name
+            problems.extend(f"[{label}] {p}" if len(roots) > 1 or root != ROOT.resolve() else p for p in probs)
     if problems:
         print("FAIL")
         for p in problems:
             print(" -", p)
         return 1
-    print("OK items.lua + metadata.lua structural checks")
+    checked = ", ".join(str(r) for r in roots)
+    print(f"OK items.lua + metadata.lua structural checks ({checked})")
     return 0
 
 

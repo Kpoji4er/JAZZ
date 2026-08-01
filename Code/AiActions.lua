@@ -584,6 +584,18 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
             unit.unitdatadef_id, unit.handle)
     end
 
+    -- Context creation tries Handheld A/B and then an inventory firearm. If no
+    -- normal firearm exists, it supplies JA3's virtual Unarmed weapon instead;
+    -- do not enter Dump or its Idle wait with a nil active weapon.
+    local firearm = JAZZ_AIEnsureActiveFirearm(unit)
+    if not firearm then
+        if g_AIExecutionController then
+            g_AIExecutionController:Log("  No active firearm; skip Dump (Unarmed fallback)")
+        end
+        unit:SequentialActionsEnd()
+        return "done"
+    end
+
     local remaining_free_ap = unit.free_move_ap
     unit:RemoveStatusEffect("FreeMove")
     AIUpdateContext(context, unit)
@@ -735,7 +747,18 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
             end
 
             local args = {target = target, voiceResponse = voice_response, aim = aim}
-            local body_parts = AIGetAttackTargetingOptions(unit, context, target)
+            -- JAZZ-AI-002 Dump: no LOF → Disengage. CalcChanceToHit / PickBestAttack
+            -- ignore stuck; GetActionResults zeros CTH when obstructed. Firing with an
+            -- empty body-part list animates a wall/miss shot — abort instead.
+            local body_parts = AIGetAttackTargetingOptions(unit, context, target, attack_action)
+            if IsKindOf(target, "Unit") and (not body_parts or #body_parts == 0) then
+                if g_AIExecutionController then
+                    g_AIExecutionController:Log("  No LOF (all body parts CTH=0)")
+                end
+                context.dump_attack_mode = nil
+                context.dump_attack_target = nil
+                break
+            end
             if body_parts and #body_parts > 0 then
                 local pick = table.weighted_rand(body_parts, "chance",
                     InteractionRand(1000000, "Combat"))

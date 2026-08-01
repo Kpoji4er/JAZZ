@@ -66,7 +66,6 @@ executable: true
 
 - `Jazz_Perk_Allik`
 - `MrFixit`
-- `DesignerExplosives`
 - `TrueGrit`
 
 ### Named perk

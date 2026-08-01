@@ -66,7 +66,6 @@ executable: true
 
 - `Jazz_Perk_Devin`
 - `Loner`
-- `DesignerExplosives`
 - `BreachAndClear`
 
 ### Named perk

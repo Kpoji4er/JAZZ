@@ -48,12 +48,12 @@ DefineClass.AUG = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'AvailableComponents', {
-				"JAZZ_AUGCompensator_01",
-				"JAZZ_AUGCompensator_03",
+				"AUGCompensator_01",
+				"AUGCompensator_03",
 				"JAZZ_Suppressor",
 				"JAZZ_SuppressorImproved",
 			},
-			'DefaultComponent', "JAZZ_AUGCompensator_01",
+			'DefaultComponent', "AUGCompensator_01",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Under",

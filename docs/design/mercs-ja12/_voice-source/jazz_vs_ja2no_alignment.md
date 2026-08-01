@@ -12,7 +12,9 @@ Canonical map: `jazz_to_ja2_profile.csv`. Identity from mercedt **text** (greeti
 | madman | Maddog / Бешеный | 072 | shipped |
 | conrad | Conrad Gillett | 070 | shipped |
 | mike | — (JA1/NO battlefield) | — | need_pack |
-| grom | — (Sergey Gromov) | — | need_pack |
+| grom | SJ Sergey Gromov | 076 | shipped (`sj_folder`) |
+| benny | SJ Alexandra Benedict | 067 | shipped (`sj_folder`; WIP UnitData) |
+| simon | SJ Simon Garandier | 066 | shipped (`sj_folder`; WIP UnitData; ≠ Dynamo data_slf 066) |
 | rothman | Stefan Rothman (not Hitman file) | 030 | shipped |
 | quinten | Dr Quinten | 028 | shipped |
 | vicious | La Malice / Злобный («Алле») | 032 | shipped |

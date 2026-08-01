@@ -1,0 +1,76 @@
+## Merc_JerrySinclair
+parent refs: []
+60% MATCH=True
+  current: [('inv', 'ColtPeacemaker', 1), ('inv', 'JAZZ_AMMO_357_FMJ', 6), ('inv', 'Parts', 50), ('inv', 'FineSteelPipe', 1), ('inv', 'OpticalLens', 1)]
+  target:  [('inv', 'ColtPeacemaker', 1), ('inv', 'JAZZ_AMMO_357_FMJ', 6), ('inv', 'Parts', 50), ('inv', 'FineSteelPipe', 1), ('inv', 'OpticalLens', 1)]
+30% MATCH=True
+  current: [('inv', 'Parts', 100), ('inv', 'FineSteelPipe', 2), ('inv', 'OpticalLens', 4)]
+  target:  [('inv', 'Parts', 100), ('inv', 'FineSteelPipe', 2), ('inv', 'OpticalLens', 4)]
+10% MATCH=True
+  current: [('inv', 'Parts', 100), ('inv', 'OpticalLens', 2), ('inv', 'Microchip', 2)]
+  target:  [('inv', 'Parts', 100), ('inv', 'OpticalLens', 2), ('inv', 'Microchip', 2)]
+
+## Merc_MildredPatterson
+parent refs: []
+60% MATCH=True
+  current: [('inv', 'HiPower', 1), ('inv', 'JAZZ_AMMO_9x19_FMJ', 13), ('inv', 'FirstAidKit', 1), ('loot', 'Merc_MildredPatterson_SkillMag')]
+  target:  [('inv', 'HiPower', 1), ('inv', 'JAZZ_AMMO_9x19_FMJ', 13), ('inv', 'FirstAidKit', 1), ('loot', 'Merc_MildredPatterson_SkillMag')]
+30% MATCH=True
+  current: [('inv', 'FirstAidKit', 1), ('loot', 'Merc_MildredPatterson_SkillMag')]
+  target:  [('inv', 'FirstAidKit', 1), ('loot', 'Merc_MildredPatterson_SkillMag')]
+10% MATCH=True
+  current: [('inv', 'Medkit', 1), ('loot', 'Merc_MildredPatterson_SkillMag')]
+  target:  [('inv', 'Medkit', 1), ('loot', 'Merc_MildredPatterson_SkillMag')]
+
+## Merc_SamuelNkosi
+parent refs: []
+60% MATCH=True
+  current: [('inv', 'Galil', 1), ('inv', 'JAZZ_AMMO_762x51_FMJ', 120)]
+  target:  [('inv', 'Galil', 1), ('inv', 'JAZZ_AMMO_762x51_FMJ', 120)]
+30% MATCH=True
+  current: [('inv', 'HiPower', 1), ('inv', 'JAZZ_AMMO_9x19_FMJ', 65)]
+  target:  [('inv', 'HiPower', 1), ('inv', 'JAZZ_AMMO_9x19_FMJ', 65)]
+10% MATCH=True
+  current: [('inv', 'Sterling', 1), ('inv', 'JAZZ_AMMO_9x19_FMJ', 90)]
+  target:  [('inv', 'Sterling', 1), ('inv', 'JAZZ_AMMO_9x19_FMJ', 90)]
+
+## Merc_AnnieDubois
+parent refs: []
+60% MATCH=True
+  current: [('upg', 'M21', ['JAZZ_Scope_6x']), ('inv', 'JAZZ_AMMO_762x51_FMJ', 40)]
+  target:  [('upg', 'M21', ['JAZZ_Scope_6x']), ('inv', 'JAZZ_AMMO_762x51_FMJ', 40)]
+30% MATCH=True
+  current: [('inv', 'HiPower', 1), ('inv', 'JAZZ_AMMO_9x19_FMJ', 26)]
+  target:  [('inv', 'HiPower', 1), ('inv', 'JAZZ_AMMO_9x19_FMJ', 26)]
+10% MATCH=True
+  current: [('upg', 'M21', ['JAZZ_Reflex_Closed']), ('inv', 'JAZZ_AMMO_762x51_FMJ', 20)]
+  target:  [('upg', 'M21', ['JAZZ_Reflex_Closed']), ('inv', 'JAZZ_AMMO_762x51_FMJ', 20)]
+
+## Merc_HectorSanchez
+parent refs: []
+60% MATCH=True
+  current: [('upg', 'PPSH', ['JAZZ_MagDrum_35_71']), ('inv', 'JAZZ_AMMO_762x25_FMJ', 142)]
+  target:  [('upg', 'PPSH', ['JAZZ_MagDrum_35_71']), ('inv', 'JAZZ_AMMO_762x25_FMJ', 142)]
+30% MATCH=True
+  current: [('inv', 'Type56', 1), ('inv', 'JAZZ_AMMO_762x39_FMJ', 60)]
+  target:  [('inv', 'Type56', 1), ('inv', 'JAZZ_AMMO_762x39_FMJ', 60)]
+10% MATCH=True
+  current: [('upg', 'M21', ['JAZZ_Reflex_Closed']), ('inv', 'JAZZ_AMMO_762x51_FMJ', 20)]
+  target:  [('upg', 'M21', ['JAZZ_Reflex_Closed']), ('inv', 'JAZZ_AMMO_762x51_FMJ', 20)]
+
+## Merc_CarolThompson
+parent refs: []
+60% MATCH=True
+  current: [('inv', 'Sterling', 1), ('inv', 'JAZZ_AMMO_9x19_FMJ', 90), ('inv', 'Merc_CarolThompson_Item', 1)]
+  target:  [('inv', 'Sterling', 1), ('inv', 'JAZZ_AMMO_9x19_FMJ', 90), ('inv', 'Merc_CarolThompson_Item', 1)]
+30% MATCH=True
+  current: [('inv', 'Winchester1894', 1), ('inv', 'JAZZ_AMMO_44CAL_FMJ', 28), ('inv', 'Merc_CarolThompson_Item', 1)]
+  target:  [('inv', 'Winchester1894', 1), ('inv', 'JAZZ_AMMO_44CAL_FMJ', 28), ('inv', 'Merc_CarolThompson_Item', 1)]
+10% MATCH=True
+  current: [('inv', 'HiPower', 1), ('inv', 'JAZZ_AMMO_9x19_FMJ', 26), ('inv', 'Merc_CarolThompson_Item', 1)]
+  target:  [('inv', 'HiPower', 1), ('inv', 'JAZZ_AMMO_9x19_FMJ', 26), ('inv', 'Merc_CarolThompson_Item', 1)]
+
+## Missing InventoryItem / component IDs
+(none)
+
+ALL_TIERS_MATCH=True

@@ -1,6 +1,7 @@
 # JA2 / NightOps / UB voice sources
 
-Mapping: `jazz_to_ja2_profile.csv` (profile_id + speech_source + status).
+Mapping: `jazz_to_ja2_profile.csv` (profile_id + speech_source + status).  
+In-game ear-check: `VERIFY.md`.
 
 ## Caches (extracted archives, not committed audio intent — local workdirs)
 
@@ -15,8 +16,13 @@ Mapping: `jazz_to_ja2_profile.csv` (profile_id + speech_source + status).
 ## Ship
 
 ```text
-python docs/tools/_inject_vr_stubs_ja2_voices.py
-python docs/tools/_ship_ja2_merc_voices.py --only slug1,slug2
+python docs/tools/_inject_vr_stubs_ja2_voices.py          # empty → 12-line stub (once)
+python docs/tools/_expand_ja2_merc_vr_full.py             # stub → Colby-like combat slots
+python docs/tools/_ship_ja2_merc_voices.py --queue        # opus for all VR T-ids
+python docs/tools/_fill_ja12_chat_voices.py --apply       # AIM chat from Selection donor
+python docs/tools/_audit_ja12_merc_voices.py              # verify
 ```
+
+Gold pattern: `Jazz_Colby` — no `g_VoiceVariations`; `ModItemTranslatedVoices` → `Mod/Dv3mFVN/voices`; files `jazz-units/voices/<T-id>.opus`.
 
 Never overwrite `spouke` (`done_manual`).

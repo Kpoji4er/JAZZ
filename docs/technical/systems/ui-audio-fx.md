@@ -82,6 +82,14 @@ Core содержит 243 `SoundPreset` и 1283 `.opus`; units — ещё 702 `.
 
 Sound IDs потребляются actions и FX. Отсутствующий `.opus` или preset может не остановить загрузку, но оставит действие без ожидаемого звука.
 
+### FX Target для дула/ствола (`JAZZ_*`)
+
+`FirearmBase` при выстреле берёт `fx_target` из `visual_obj.parts.Muzzle` или `.Barrel` (`Weapon.lua`). У ванильных пресетов выстрела (в т.ч. `AKSU`) `Target = "Basic"` / `"Silencer"`, а `Compensator` / `BarrelNormal` / `Suppressor` наследуют эти классы через `ActionFXInherit_Actor`.
+
+JAZZ-компоненты (`JAZZ_Compensator`, `JAZZ_BarrelNormal`, `JAZZ_Suppressor*`, …) имеют **другие** id, поэтому без inherit выстрел с дефолтным `JAZZ_Compensator` (например АКСУ) идёт без звука. Маппинг живёт в `Code/CodeSounds.lua` (`JAZZ_*` → `Basic` / `Silencer`).
+
+`items.lua` переопределяет `AKSU_shot_single` и `AKSU_shot_single-room` 12 собственными сэмплами из `Sounds/AKSU74/`: шесть dry и шесть room `.opus`, все по путям `Mod/e6L4ECj/Sounds/AKSU74/...`. Предыдущее утверждение об отсутствующих файлах было ошибочным: сэмплы присутствуют в core-пакете и отслеживаются Git. `metadata.lua` регистрирует оба `SoundPreset`; отдельная resource-запись на каждый `.opus` для файлов внутри пакета не нужна. `AKSU_shot_auto` остаётся ванильным.
+
 ## FX
 
 113 `FX_*.lua` покрывают конкретные модели оружия и общий ammo FX. Они загружаются из metadata индивидуально и образуют реестр moments/particles/sounds для shot, reload, casing, muzzle и других событий. В [покрытии файлов](file-coverage.md) они учитываются одной управляемой группой, но каждое добавление/удаление должно сопровождаться metadata и ресурсами.

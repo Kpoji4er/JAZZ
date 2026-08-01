@@ -5,7 +5,7 @@
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- JA2 merc voices: remap/repair/ship tools, VR loc stubs, voice-source cache\n- Colby: JA2-only voice rebuild tool + design note (drop neural)\n- WEAPONS-002: scrap BarrelParts from AdditionalCosts only; remount install as free funcs (ReloadLua-safe); DisplayName in mod UI\n- Mag slots: Type56 remountable; HK23e MagBelt-only; drop G3 drum; SIG default StockLightUnFolded\n- Style B Icons: AUG/FAMAS/AR10/SVT/STG44/HK33/FG42/Garand mags, SIG/G36 stocks, M16A2 HG, M72 LAW\n- NoMaps: rawset Legion tier for loot; FlareGun ≠ combat firearm\n- Legion: M72 LAW in Legion_GL; restore Veteran/Mercenary LegionGL_5pc; Rocketeer RPG/LAW mix (UNITS-004)\n- Docs: NoMaps Stronger_Elite→T4 mercenaries\n- Docs: NoMaps WeakFlagHill→T1 Roughneck; tutorial→T1; Bastien skip\n- Docs: NoMaps named Legion skip (Bastien stays Bastien, not Marauder)\n- Docs/loc: Madman/Grom/Hitman paid hire; AIM chat no longer claims free\n- Named perks Wave A (JAZZ-UNITS-003): Madman/Blade/Nervous/Henning/Vicious/Dynamo/Eskimo/Lucky/Shank/Vilde/Laura/Vince/Steiger + Lynx Range CTH\n- Hide false Lynx/Buzz/Spider/Colby HUD toggles; remove orphan Jazz_Perk_44840\n- Jazz_OrderCTH ally accuracy buff status\n- COMPAT-003: NoMaps Global AI + timed Legion tiers (mine+3d/WorldFlip; sub 3d/14d)\n- NoMaps review fixes: gear refresh / tier race\n- COMBAT-003: Pinned cannot retaliate; suppression CTH at any range\n- Lightning Reaction 50%, no proc on stealth kill\n- Psycho Will drain -4/turn; Will full restore on CombatEnd\n- Policy: append last_changes until Steam upload, then replace\n- ATTACH/UI: JAZZ_ component + ChipIcon rename; restore missing chip PNGs; optic range CTH floors\n- COMPAT-004: NoMaps Major HQ latch guard; adopt defenders / seed POI helpers\n- Camera: restore tac pitch/control after CombatEnd and Max setpieces (vanilla look-at gap)\n- Fix suppression: Psycho near Will clamp Min; pinned regen ID; stun helm protection\n- WEAPONS-002 remountables: inventory title lists compatible guns; hover/drag highlight\n- Attachment UI: APS silencer barrels + baseline mod names (not bare No changes)\n- ATTACH wave: mag families/tiers, remountable catalog, weapon resource maintenance\n- MagNormal Visual for M3 Grease Gun + Sterling (M3_Mag30 / Sterling_Mag34)\n- Style B mag/grip Icons: MP5 family, SMGs, Mini-14, G36, VSS/Val, SIG, AKSU; HolsterBelt fix\n- Packaging: expand .gitignore + metadata ignore_files for Steam upload\n- Docs: move sector atlas/transfer canon into jazz/docs/technical/maps",
+	'last_changes', "- Workshop AIM mercs (Annie/Carol/Hector/Jerry/Mildred/Samuel): perks/combat FX, RU/EN loc + AdditionalHint newline restore, merc tools/design\n- JA2 merc voices: remap/repair/ship tools, VR loc stubs, voice-source cache\n- Colby: JA2-only voice rebuild tool + design note (drop neural)\n- WEAPONS-002: scrap BarrelParts from AdditionalCosts only; remount install as free funcs (ReloadLua-safe); DisplayName in mod UI\n- Mag slots: Type56 remountable; HK23e MagBelt-only; drop G3 drum; SIG default StockLightUnFolded\n- Style B Icons: AUG/FAMAS/AR10/SVT/STG44/HK33/FG42/Garand mags, SIG/G36 stocks, M16A2 HG, M72 LAW\n- NoMaps: rawset Legion tier for loot; FlareGun ≠ combat firearm\n- Legion: M72 LAW in Legion_GL; restore Veteran/Mercenary LegionGL_5pc; Rocketeer RPG/LAW mix (UNITS-004)\n- Docs: NoMaps Stronger_Elite→T4 mercenaries\n- Docs: NoMaps WeakFlagHill→T1 Roughneck; tutorial→T1; Bastien skip\n- Docs: NoMaps named Legion skip (Bastien stays Bastien, not Marauder)\n- Docs/loc: Madman/Grom/Hitman paid hire; AIM chat no longer claims free\n- Named perks Wave A (JAZZ-UNITS-003): Madman/Blade/Nervous/Henning/Vicious/Dynamo/Eskimo/Lucky/Shank/Vilde/Laura/Vince/Steiger + Lynx Range CTH\n- Hide false Lynx/Buzz/Spider/Colby HUD toggles; remove orphan Jazz_Perk_44840\n- Jazz_OrderCTH ally accuracy buff status\n- COMPAT-003: NoMaps Global AI + timed Legion tiers (mine+3d/WorldFlip; sub 3d/14d)\n- NoMaps review fixes: gear refresh / tier race\n- COMBAT-003: Pinned cannot retaliate; suppression CTH at any range\n- Lightning Reaction 50%, no proc on stealth kill\n- Psycho Will drain -4/turn; Will full restore on CombatEnd\n- Policy: append last_changes until Steam upload, then replace\n- ATTACH/UI: JAZZ_ component + ChipIcon rename; restore missing chip PNGs; optic range CTH floors\n- COMPAT-004: NoMaps Major HQ latch guard; adopt defenders / seed POI helpers\n- Camera: restore tac pitch/control after CombatEnd and Max setpieces (vanilla look-at gap)\n- Fix suppression: Psycho near Will clamp Min; pinned regen ID; stun helm protection\n- WEAPONS-002 remountables: inventory title lists compatible guns; hover/drag highlight\n- Attachment UI: APS silencer barrels + baseline mod names (not bare No changes)\n- ATTACH wave: mag families/tiers, remountable catalog, weapon resource maintenance\n- MagNormal Visual for M3 Grease Gun + Sterling (M3_Mag30 / Sterling_Mag34)\n- Style B mag/grip Icons: MP5 family, SMGs, Mini-14, G36, VSS/Val, SIG, AKSU; HolsterBelt fix\n- Packaging: expand .gitignore + metadata ignore_files for Steam upload\n- Docs: move sector atlas/transfer canon into jazz/docs/technical/maps",
 	'ignore_files', {
 		-- VCS / IDE / agent (tracked in git, not for Steam pack)
 		"*.git/*",
@@ -66,11 +66,18 @@
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 15,
-	'version', 5962,
+	'version', 5963,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
 		"Code/Camera.lua",
+		"Code/WorkshopMercs/Merc_SamuelNkosi_CombatAction.lua",
+		"Code/WorkshopMercs/Merc_MildredPatterson_CombatAction.lua",
+		"Code/WorkshopMercs/Merc_JerrySinclair_CombatAction.lua",
+		"Code/WorkshopMercs/Merc_JerrySinclair_ActionFX.lua",
+		"Code/WorkshopMercs/Merc_HectorSanchez_CombatAction.lua",
+		"Code/WorkshopMercs/Merc_CarolThompson_CombatAction.lua",
+		"Code/WorkshopMercs/Merc_AnnieDubois_CombatAction.lua",
 		"Code/SpecializationGiver.lua",
 		"Code/System_AimHiringFilters.lua",
 		"Const/Ammo.lua",
@@ -1015,6 +1022,12 @@
 		"CharacterEffect/Jazz_Perk_Lucky.lua",
 		"CharacterEffect/Jazz_Perk_Laura.lua",
 		"CharacterEffect/Jazz_Perk_Eskimo.lua",
+		"CharacterEffect/Merc_SamuelNkosi_Perk.lua",
+		"CharacterEffect/Merc_MildredPatterson_Bookworm.lua",
+		"CharacterEffect/Merc_JerrySinclair_Perk.lua",
+		"CharacterEffect/Merc_HectorSanchez_Perk.lua",
+		"CharacterEffect/Merc_CarolThompson_Perk.lua",
+		"CharacterEffect/Merc_AnnieDubois_Perk.lua",
 		"CharacterEffect/Jazz_Perk_OfficerAura.lua",
 		"CharacterEffect/Jazz_Perk_OfficerAuraInfluence.lua",
 		"Code/UnitAwareness.lua",
@@ -1064,6 +1077,7 @@
 		"CharacterEffect/Weight_5Class.lua",
 		"Code/WeaponClasses.lua",
 		"Code/EditorExtension.lua",
+		"Code/GameRules_HideAdvanced.lua",
 		"Code/System_SectorOperations.lua",
 		"Code/System_WeaponResourceMaintenance.lua",
 		"Code/System_WeaponRemovableModify.lua",
@@ -4433,52 +4447,7 @@
 			'Id', "TNT",
 			'ClassDisplayName', "Inventory item",
 		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "WeaponComponent",
-			'Id', "JAZZ_MuzzleBooster_Glock18",
-			'ClassDisplayName', "Weapon Component",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "WeaponComponent",
-			'Id', "JAZZ_Galil_Handguard_Default",
-			'ClassDisplayName', "Weapon Component",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "WeaponComponent",
-			'Id', "JAZZ_FNFAL_Handguard",
-			'ClassDisplayName', "Weapon Component",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "WeaponComponent",
-			'Id', "JAZZ_DefaultMuzzle_HK21",
-			'ClassDisplayName', "Weapon Component",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "WeaponComponent",
-			'Id', "JAZZ_Compensator_cosmetic",
-			'ClassDisplayName', "Weapon Component",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "WeaponComponent",
-			'Id', "JAZZ_BarrelShort_Winchester",
-			'ClassDisplayName', "Weapon Component",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "WeaponComponent",
-			'Id', "JAZZ_AUGCompensator_03",
-			'ClassDisplayName', "Weapon Component",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "WeaponComponent",
-			'Id', "JAZZ_AUGCompensator_01",
-			'ClassDisplayName', "Weapon Component",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "WeaponComponent",
-			'Id', "JAZZ_AKSU_Hanguard_Basic",
-			'ClassDisplayName', "Weapon Component",
-		}),
-		PlaceObj('ModResourcePreset', {
+																				PlaceObj('ModResourcePreset', {
 			'Class', "WeaponComponent",
 			'Id', "JAZZ_Auto5_Basic_LMag",
 			'ClassDisplayName', "Weapon Component",
@@ -8444,7 +8413,67 @@ PlaceObj('ModResourcePreset', {
 			'Id', "Jazz_Perk_Laura",
 			'ClassDisplayName', "Character effect",
 		}),
+				PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "Merc_AnnieDubois_Perk",
+			'ClassDisplayName', "Combat Actions",
+		}),
 		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Merc_AnnieDubois_Perk",
+			'ClassDisplayName', "Effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "Merc_CarolThompson_Perk",
+			'ClassDisplayName', "Combat Actions",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Merc_CarolThompson_Perk",
+			'ClassDisplayName', "Effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "Merc_HectorSanchez_Perk",
+			'ClassDisplayName', "Combat Actions",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Merc_HectorSanchez_Perk",
+			'ClassDisplayName', "Effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "Merc_JerrySinclair_Perk",
+			'ClassDisplayName', "Combat Actions",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Merc_JerrySinclair_Perk",
+			'ClassDisplayName', "Effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "Merc_MildredPatterson_Bookworm",
+			'ClassDisplayName', "Combat Actions",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Merc_MildredPatterson_Bookworm",
+			'ClassDisplayName', "Effect",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CombatAction",
+			'Id', "Merc_SamuelNkosi_Perk",
+			'ClassDisplayName', "Combat Actions",
+		}),
+		PlaceObj('ModResourcePreset', {
+			'Class', "CharacterEffectCompositeDef",
+			'Id', "Merc_SamuelNkosi_Perk",
+			'ClassDisplayName', "Effect",
+		}),
+PlaceObj('ModResourcePreset', {
 			'Class', "CharacterEffectCompositeDef",
 			'Id', "Jazz_Perk_Eskimo",
 			'ClassDisplayName', "Character effect",
@@ -9411,24 +9440,14 @@ PlaceObj('ModResourcePreset', {
 			'ClassDisplayName', "Crafting operation recipe",
 		}),
 		PlaceObj('ModResourcePreset', {
-			'Class', "GameRuleDef",
-			'Id', "HeavyWounds",
-			'ClassDisplayName', "GameRuleDefs",
+			'Class', "XTemplate",
+			'Id', "NewGameMenuGameRules",
+			'ClassDisplayName', "UI Template (XTemplate)",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "ConstDef",
 			'Id', "FastForwardGameSpeed",
 			'ClassDisplayName', "Constant",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "GameRuleDef",
-			'Id', "AlwaysOnline",
-			'ClassDisplayName', "GameRuleDefs",
-		}),
-		PlaceObj('ModResourcePreset', {
-			'Class', "GameRuleDef",
-			'Id', "AllStars",
-			'ClassDisplayName', "GameRuleDefs",
 		}),
 		PlaceObj('ModResourcePreset', {
 			'Class', "XTemplate",

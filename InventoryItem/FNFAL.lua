@@ -36,9 +36,9 @@ DefineClass.FNFAL = {
 			'SlotType', "Handguard",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"JAZZ_FNFAL_Handguard",
+				"FNFAL_Handguard",
 			},
-			'DefaultComponent', "JAZZ_FNFAL_Handguard",
+			'DefaultComponent', "FNFAL_Handguard",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",

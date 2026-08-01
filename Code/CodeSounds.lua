@@ -1,67 +1,65 @@
 
+-- WeaponFire/WeaponAutoFire resolve fx_target from visual_obj.parts.Muzzle or .Barrel
+-- (Weapon.lua). Vanilla ActionFX for AKSU/AK74/etc. use Target = "Basic" / "Silencer".
+-- Vanilla Compensator/MuzzleBooster/BarrelNormal inherit Basic; JAZZ_* twins must too,
+-- otherwise default JAZZ_Compensator (AKSU etc.) → silent shots.
 
-PlaceObj('ActionFXInherit_Actor', {
-	Actor = "SuppressorIntegrated",
-	Inherit = "Silencer",
-	group = "Weapons VFX",
-	id = "fxSuppressorIntegrated",
-})
+local function JazzFxInherit(actor, inherit, id)
+	PlaceObj('ActionFXInherit_Actor', {
+		Actor = actor,
+		Inherit = inherit,
+		group = "Weapons VFX",
+		id = id,
+	})
+end
 
-PlaceObj('ActionFXInherit_Actor', {
-	Actor = "PistolSuppressor",
-	Inherit = "Silencer",
-	group = "Weapons VFX",
-	id = "fxPistolSuppressor",
-})
+-- Loud muzzle / barrel FX targets → Basic (shot sound + muzzle flash particles)
+JazzFxInherit("JAZZ_Compensator", "Basic", "fxJAZZ_Compensator")
+JazzFxInherit("JAZZ_FlashHider", "Basic", "fxJAZZ_FlashHider")
+JazzFxInherit("JAZZ_DefMuzzle", "Basic", "fxJAZZ_DefMuzzle")
+JazzFxInherit("JAZZ_M14_Default_Muzzle", "Basic", "fxJAZZ_M14_Default_Muzzle")
+JazzFxInherit("JAZZ_Galil_Brake_Default", "Basic", "fxJAZZ_Galil_Brake_Default")
+JazzFxInherit("JAZZ_DuckbillChoke", "Basic", "fxJAZZ_DuckbillChoke")
+JazzFxInherit("JAZZ_FullChoke", "Basic", "fxJAZZ_FullChoke")
+JazzFxInherit("JAZZ_BarrelNormal", "Basic", "fxJAZZ_BarrelNormal")
+JazzFxInherit("JAZZ_BarrelNormalImproved", "Basic", "fxJAZZ_BarrelNormalImproved")
+JazzFxInherit("JAZZ_BarrelNormal_Sil", "Basic", "fxJAZZ_BarrelNormal_Sil")
+JazzFxInherit("JAZZ_BarrelNormal_noSil", "Basic", "fxJAZZ_BarrelNormal_noSil")
+JazzFxInherit("JAZZ_BarrelShort", "Basic", "fxJAZZ_BarrelShort")
+JazzFxInherit("JAZZ_BarrelShortImproved", "Basic", "fxJAZZ_BarrelShortImproved")
+JazzFxInherit("JAZZ_BarrelShort_Pistol", "Basic", "fxJAZZ_BarrelShort_Pistol")
+JazzFxInherit("JAZZ_BarrelShortRunNGun", "Basic", "fxJAZZ_BarrelShortRunNGun")
+JazzFxInherit("JAZZ_BarrelShortShotgun", "Basic", "fxJAZZ_BarrelShortShotgun")
+JazzFxInherit("JAZZ_BarrelShortShotgun_Benelli", "Basic", "fxJAZZ_BarrelShortShotgun_Benelli")
+JazzFxInherit("JAZZ_BarrelShort_AUG", "Basic", "fxJAZZ_BarrelShort_AUG")
+JazzFxInherit("JAZZ_BarrelShortImproved_AUG", "Basic", "fxJAZZ_BarrelShortImproved_AUG")
+JazzFxInherit("JAZZ_BarrelLong", "Basic", "fxJAZZ_BarrelLong")
+JazzFxInherit("JAZZ_BarrelLongImproved", "Basic", "fxJAZZ_BarrelLongImproved")
+JazzFxInherit("JAZZ_BarrelLongShotgun", "Basic", "fxJAZZ_BarrelLongShotgun")
+JazzFxInherit("JAZZ_BarrelLong_AUG", "Basic", "fxJAZZ_BarrelLong_AUG")
+JazzFxInherit("JAZZ_BarrelLongImproved_AUG", "Basic", "fxJAZZ_BarrelLongImproved_AUG")
+JazzFxInherit("JAZZ_BarrelHeavy", "Basic", "fxJAZZ_BarrelHeavy")
+JazzFxInherit("JAZZ_Barrel50BMG_DesertEagle", "Basic", "fxJAZZ_Barrel50BMG_DesertEagle")
+-- Removable bag twins that may still be equipped after AUG/HK21 slot remount to vanilla IDs
+JazzFxInherit("JAZZ_AUGCompensator_01", "Basic", "fxJAZZ_AUGCompensator_01")
+JazzFxInherit("JAZZ_AUGCompensator_03", "Basic", "fxJAZZ_AUGCompensator_03")
 
-PlaceObj('ActionFXInherit_Actor', {
-	Actor = "SuppressorImproved",
-	Inherit = "Silencer",
-	group = "Weapons VFX",
-	id = "fxSuppressorImproved",
-})
+-- Suppressors → Silencer (quiet shot bank)
+JazzFxInherit("JAZZ_Suppressor", "Silencer", "fxJAZZ_Suppressor")
+JazzFxInherit("JAZZ_SuppressorImproved", "Silencer", "fxJAZZ_SuppressorImproved")
+JazzFxInherit("JAZZ_SuppressorIntegrated", "Silencer", "fxJAZZ_SuppressorIntegrated")
+JazzFxInherit("JAZZ_ImprovisedSuppressor", "Silencer", "fxJAZZ_ImprovisedSuppressor")
 
-PlaceObj('ActionFXInherit_Actor', {
-	Actor = "BarrelShortRunNGun",
-	Inherit = "Basic",
-	group = "Weapons VFX",
-	id = "fxBarrelShortRunNGun",
-})
-
-PlaceObj('ActionFXInherit_Actor', {
-	Actor = "BarrelShort_Pistol",
-	Inherit = "Basic",
-	group = "Weapons VFX",
-	id = "fxBarrelShort_Pistol",
-})
-
-PlaceObj('ActionFXInherit_Actor', {
-	Actor = "BarrelNormal_Sil",
-	Inherit = "Basic",
-	group = "Weapons VFX",
-	id = "fxBarrelNormal_Sil",
-})
-
-PlaceObj('ActionFXInherit_Actor', {
-	Actor = "BarrelNormal_noSil",
-	Inherit = "Basic",
-	group = "Weapons VFX",
-	id = "fxBarrelNormal_noSil",
-})
-
-PlaceObj('ActionFXInherit_Actor', {
-	Actor = "DefMuzzle",
-	Inherit = "Basic",
-	group = "Weapons VFX",
-	id = "fxDefMuzzle",
-})
-
-PlaceObj('ActionFXInherit_Actor', {
-	Actor = "FlashHider",
-	Inherit = "Basic",
-	group = "Weapons VFX",
-	id = "fxFlashHider",
-})
+-- Legacy unprefixed aliases (older CodeSounds / leftover component ids)
+JazzFxInherit("SuppressorIntegrated", "Silencer", "fxSuppressorIntegrated")
+JazzFxInherit("PistolSuppressor", "Silencer", "fxPistolSuppressor")
+JazzFxInherit("SuppressorImproved", "Silencer", "fxSuppressorImproved")
+JazzFxInherit("BarrelShortRunNGun", "Basic", "fxBarrelShortRunNGun")
+JazzFxInherit("BarrelShort_Pistol", "Basic", "fxBarrelShort_Pistol")
+JazzFxInherit("BarrelNormal_Sil", "Basic", "fxBarrelNormal_Sil")
+JazzFxInherit("BarrelNormal_noSil", "Basic", "fxBarrelNormal_noSil")
+JazzFxInherit("DefMuzzle", "Basic", "fxDefMuzzle")
+JazzFxInherit("FlashHider", "Basic", "fxFlashHider")
 
 
 

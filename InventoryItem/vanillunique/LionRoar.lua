@@ -36,11 +36,11 @@ DefineClass.LionRoar = {
 			'SlotType', "Muzzle",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"JAZZ_Compensator_cosmetic",
+				"Compensator_cosmetic",
 				"Compensator",
 				"PistolSuppressor",
 			},
-			'DefaultComponent', "JAZZ_Compensator_cosmetic",
+			'DefaultComponent', "Compensator_cosmetic",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",

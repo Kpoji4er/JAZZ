@@ -66,7 +66,6 @@ executable: true
 
 - `Jazz_Perk_Hobbit`
 - `Pessimist`
-- `DesignerExplosives`
 - `BreachAndClear`
 
 ### Named perk

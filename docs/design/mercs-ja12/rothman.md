@@ -67,7 +67,6 @@ executable: true
 - `Jazz_Perk_Rothman`
 - `Teacher`
 - `ShoulderToShoulder`
-- `DesignerExplosives`
 - `HoldPosition`
 
 ### Named perk

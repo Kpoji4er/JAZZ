@@ -93,6 +93,7 @@
 | `Savefix.lua` | dormant | [Стратегия](strategy-squads-sectors.md), [runtime](runtime-editor-integration.md) |
 | `ConsoleFont.lua` | loaded | [UI](ui-audio-fx.md) |
 | `EditorExtension.lua` | loaded, editor | [Runtime и инструменты](runtime-editor-integration.md) |
+| `GameRules_HideAdvanced.lua` | loaded | [Runtime и инструменты](runtime-editor-integration.md) — скрывает все `advanced` GameRule из New Game / Options |
 | `Debug.lua` | loaded, empty | [Runtime и инструменты](runtime-editor-integration.md) |
 
 ## `jazz`: звук и FX

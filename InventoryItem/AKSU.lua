@@ -44,10 +44,10 @@ DefineClass.AKSU = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Handguard",
 			'AvailableComponents', {
-				"JAZZ_AKSU_Hanguard_Basic",
+				"AKSU_Hanguard_Basic",
 				"JAZZ_AKSU_VerticalGrip",
 			},
-			'DefaultComponent', "JAZZ_AKSU_Hanguard_Basic",
+			'DefaultComponent', "AKSU_Hanguard_Basic",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",

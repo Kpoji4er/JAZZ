@@ -1,4 +1,4 @@
-slug,unit_id,profile_id,speech_source,status,notes
+﻿slug,unit_id,profile_id,speech_source,status,notes
 colby,Jazz_Colby,005,data_slf,done,Trevor; already JA2-archive opus
 lynx,Jazz_Lynx,002,data_slf,shipped,Рысь / Rudy Roberts; greeting 108
 blade,Jazz_Blade,043,data_slf,shipped,Razor/Бритва (Bill Lamont); was wrongly thought missing — EDT nick id043; buddy Fidel/Nervous; anti-Biff/Flo
@@ -7,7 +7,7 @@ dimitri,Jazz_Dimitri,060,data_slf,shipped,RPC; broken hire lines but combat SPEE
 madman,Jazz_Madman,072,data_slf,shipped,Maddog/Бешеный Kevin Cameron; R_072_*; likes Fox; self-ref Бешеного
 conrad,Jazz_Conrad,070,data_slf,shipped,Conrad Gillett; R_070_*; likes Iggy/Stephen; anti-Larry — NOT Scope (036 is Scope text)
 mike,Jazz_Mike,,missing,need_pack,JA1/NO battlefield convert; spoken ABOUT only; also absent as SPEECH bank in Wildfire RUS arc Data/Data-UB
-grom,Jazz_Grom,,missing,need_pack,NO Sergey Gromov; no self SPEECH in NO or Wildfire RUS arc Data/Data-UB
+grom,Jazz_Grom,076,sj_folder,shipped,SJ Sergey Gromov; speech+battle 076_*; Gromov_with.WAV extra
 rothman,Jazz_Rothman,030,data_slf,shipped,Стефан Ротман (greeting 108); filename 030_Hitman lies
 quinten,Jazz_Quinten,028,data_slf,shipped,доктор Квинтен
 vicious,Jazz_Vicious,032,data_slf,shipped,La Malice/Злобный; French-Canadian; likes Fox/Lava; greeting Алле алле — was wrongly shipped as Gaston
@@ -18,32 +18,34 @@ cougar,Jazz_Cougar,048,data_slf,shipped,Jim Wallace Пума; likes Wolf
 miguel,Jazz_Miguel,057,data_slf,shipped,rebel leader lines
 gamos,Jazz_Gamos,063,data_slf,shipped,Hamous/Гамос; R_063_*; vanilla Hamouse
 dynamo,Jazz_Dynamo,066,data_slf,shipped,Greg Duncan; R_066_*; buddy Shank/Blood
-gaston,Jazz_Gaston,058,ub_wildfire_folder,shipped,UB Gaston Cavalier; self-ID «Я, Гастон Кавалье» in Data-UB/MercEdt/058; Speech+BattleSNDS from Wildfire RUS arc Data-UB (NOT WF AIM; NOT Carlos/data_slf 058; NOT Malice 032)
-horg,Jazz_Horg,U_59,ub_cs_folder,shipped,UB Stogie/Сигара «Бычок» Lt. Horg; ЦС pack U_59_* (Speech+BattleSnds); alt: _horg_stogie_cache 166 from Бычок rar
-manuel,Jazz_Manuel,071,nightops_npc,shipped,NO/UB Manuel; NightOps Mercedt/071.edt Fatima+Pacos; npc_speech+Battlesnds 071
-monk,Jazz_Monk,,missing,need_pack,Wildfire AIM only — absent from Wildfire RUS 1.13 arc (maps mod; SPEECH=vanilla RU AIM)
-allik,Jazz_Allik,,missing,need_pack,Wildfire AIM — not in Wildfire RUS arc SPEECH/MercEdt
-henning,Jazz_Henning,,missing,need_pack,Wildfire AIM — not in Wildfire RUS arc SPEECH/MercEdt
-static,Jazz_Static,026,data_slf,shipped,Кирк Стивенсон / Статик
-highball,Jazz_Highball,020,data_slf,shipped,Клиффорд Хайбол
-bull,Jazz_Bull,021,data_slf,shipped,Джон Питерс
-cord,Jazz_Cord,042,data_slf,shipped,Gasket/Кардан Doug Milton; Jazz nick Cord; likes Vicki; anti-Igor
-hobbit,Jazz_Hobbit,045,data_slf,shipped,Gumpy/Хоббит Tim Hillman
-ricochet,Jazz_Ricochet,049,data_slf,shipped,Numb/Рикошет Tim Sutton; likes Malice; anti-Scope/Vicki
-meat,Jazz_Meat,050,data_slf,shipped,self-ID Мясо lines 024/027/062
-carlos,Jazz_Carlos,058,data_slf,shipped,RPC
-devin,Jazz_Devin,061,data_slf,shipped,Devin Connell; R_061_*; likes Red; anti-Buns
-shank,Jazz_Shank,067,data_slf,shipped,Бриэм Друз
-vince,Jazz_Vince,069,data_slf,shipped,Dr Vince; R_069_*; NOT Thor (035 is Thor text)
-hitman,Jazz_Hitman,064,data_slf,shipped,JA2 Slay/Убийца Terry — NOT Hitman/Hennessey 022; likes Magic; anti-Flo; R_064_*; prior wrong ship 022
-biggens,Jazz_Biggens,,missing,need_pack,UB Colonel Biggens — spoken ABOUT in Data-UB Mercedt (055); no dedicated SPEECH self-ID bank in Wildfire RUS arc
-kulba,Jazz_Kulba,U_62,ub_cs_folder,shipped,UB John Kulba; ЦС pack U_62_* (texts absent — voice-only)
-vilde,Jazz_Vilde,,missing,need_pack,Wildfire AIM — not in Wildfire RUS arc SPEECH/MercEdt
-grace,Jazz_Grace,,missing,need_pack,Wildfire AIM — not in Wildfire RUS arc SPEECH/MercEdt
-steiger,Jazz_Steiger,,missing,need_pack,Wildfire AIM — do NOT use 032 (that is Malice «Алле» in this arc)
-lucky,Jazz_Lucky,,missing,need_pack,Wildfire AIM — not in Wildfire RUS arc SPEECH/MercEdt
-laura,Jazz_Laura,,missing,need_pack,Wildfire AIM — do NOT use 005 (Trevor Colby in this arc)
-eskimo,Jazz_Eskimo,065,nightops_speech,shipped,NO overlay SPEECH+Mercedt «Моя/однако»
-tosca,Jazz_Buzz,016,data_slf,shipped,Тарболс
-spider,Jazz_Spider,019,data_slf,shipped,Доктор Хьюстон
-spouke,JAZZ_Merc_Spouke,,,done_manual,manual JA3 voice acting already shipped; do not JA2-fill or overwrite opus
+benny,Jazz_Benny,067,sj_folder,shipped,SJ Alexandra Benedict / Benny; female lockpick+explosives; buddy Simon
+simon,Jazz_Simon,066,sj_folder,shipped,SJ Simon Garandier / Грандье; sniper loner; buddy Benny
+gaston,Jazz_Gaston,058,ub_wildfire_folder,shipped,UB Gaston Cavalier Data-UB/058 — not NO Carlos 058; not Malice 032
+horg,Jazz_Horg,U_59,ub_cs_folder,shipped,UB Stogie / Сигара (ЦС)
+manuel,Jazz_Manuel,071,data_slf,shipped,NO/UB Manuel
+monk,Jazz_Monk,,missing,need_pack,Wildfire AIM only — commercial WF DE pack
+allik,Jazz_Allik,,missing,need_pack,Wildfire AIM
+henning,Jazz_Henning,,missing,need_pack,Wildfire AIM
+static,Jazz_Static,026,data_slf,shipped,Kirk Stevenson
+highball,Jazz_Highball,020,data_slf,shipped,Clifford Highball
+bull,Jazz_Bull,021,data_slf,shipped,John Peters
+cord,Jazz_Cord,042,data_slf,shipped,Gasket / Кардан
+hobbit,Jazz_Hobbit,045,data_slf,shipped,Gumpy / Хоббит
+ricochet,Jazz_Ricochet,049,data_slf,shipped,Numb / Рикошет
+meat,Jazz_Meat,050,data_slf,shipped,Meat
+carlos,Jazz_Carlos,058,data_slf,shipped,Carlos RPC — same pid as Gaston but data_slf not UB
+devin,Jazz_Devin,061,data_slf,shipped,Devin Connell
+shank,Jazz_Shank,067,data_slf,shipped,Briam Druse — same pid as Benny but data_slf not sj_folder
+vince,Jazz_Vince,069,data_slf,shipped,Dr Vince (not Thor)
+hitman,Jazz_Hitman,064,data_slf,shipped,Slay / Убийца Terry (not Hennessey 022)
+biggens,Jazz_Biggens,,missing,need_pack,UB Colonel Biggens — no pack
+kulba,Jazz_Kulba,U_62,ub_cs_folder,shipped,UB John Kulba (ЦС)
+vilde,Jazz_Vilde,,missing,need_pack,Wildfire AIM
+grace,Jazz_Grace,,missing,need_pack,Wildfire AIM
+steiger,Jazz_Steiger,,missing,need_pack,Wildfire AIM
+lucky,Jazz_Lucky,,missing,need_pack,Wildfire AIM
+laura,Jazz_Laura,,missing,need_pack,Wildfire AIM
+eskimo,Jazz_Eskimo,065,data_slf,shipped,NO overlay
+tosca,Jazz_Buzz,016,data_slf,shipped,Buzz / Тарболс (unit Jazz_Buzz)
+spider,Jazz_Spider,019,data_slf,shipped,Dr Houston — full VR already; re-ship ok
+spouke,JAZZ_Merc_Spouke,,missing,done_manual,JA3 manual VO — never overwrite

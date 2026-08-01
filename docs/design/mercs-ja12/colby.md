@@ -69,7 +69,6 @@ executable: true
 - `Throwing`
 - `BreachAndClear`
 - `HitTheDeck`
-- `DesignerExplosives`
 
 ### Named perk
 
