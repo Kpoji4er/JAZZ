@@ -3,7 +3,6 @@ DefineClass.Glock17 = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Tier 2-5",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -42,9 +41,11 @@ DefineClass.Glock17 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"JAZZ_MagLarge",
 				"JAZZ_MagNormal",
 				"JAZZ_MagNormalG18",
+				"JAZZ_MagNormalFine_PISTOL_9",
+				"JAZZ_MagLarge_25_PISTOL_9",
+				"JAZZ_MagLarge_28",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -53,18 +54,13 @@ DefineClass.Glock17 = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_LaserDot",
 				"JAZZ_FlashlightDot",
 				"JAZZ_UVDot",
 			},
 		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Freeswap",
-			'AvailableComponents', {
-				"JAZZ_Freeswap",
-			},
-			'DefaultComponent', "JAZZ_Freeswap",
-		}),
+		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -76,10 +72,14 @@ DefineClass.Glock17 = {
 	},
 	ShootAP = 2000,
 	ReloadAP = 3000,
+	WeaponMass = 10,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
 	MaxAimActions = 2,
-	Recoil = 9,
-	BurstShots = 1,
-	AutoShots = 1,
+	Recoil = 18,
+	BurstShots = 0,
+	AutoShots = 0,
 
 	CloseRange = 0,
 

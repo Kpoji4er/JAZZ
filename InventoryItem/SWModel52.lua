@@ -3,7 +3,6 @@ DefineClass.SWModel52 = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Tier 1-2",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -35,7 +34,8 @@ DefineClass.SWModel52 = {
 			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge",
+				"JAZZ_MagLarge_13_PISTOL_52",
+				"JAZZ_MagLarge_8_PISTOL_52",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -48,23 +48,6 @@ DefineClass.SWModel52 = {
 								"JAZZ_Suppressor",
 							},
 		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Side",
-			'CanBeEmpty', true,
-			'AvailableComponents', {
-				"JAZZ_Flashlight",
-				"JAZZ_LaserDot",
-				"JAZZ_FlashlightDot",
-				"JAZZ_UVDot",
-			},
-		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Freeswap",
-			'AvailableComponents', {
-				"JAZZ_Freeswap",
-			},
-			'DefaultComponent', "JAZZ_Freeswap",
-		}),
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -76,8 +59,13 @@ DefineClass.SWModel52 = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
-	Recoil = 1,
-	AutoShots = 3,
+	WeaponMass = 10,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
+	BurstShots = 0,
+	Recoil = 15,
+	AutoShots = 0,
 	BulletDropRange = 5,
 
 	CloseRange = 0,

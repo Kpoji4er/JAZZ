@@ -6,6 +6,7 @@ DefineClass.DoubleBarrelShotgun = {
 
 	comment = "Tier 1-1",
 	object_class = "Shotgun",
+	ReloadStyle = "Break",
 	ScrapParts = 8,
 	RepairCost = 3,
 	Reliability = 95,
@@ -56,9 +57,14 @@ DefineClass.DoubleBarrelShotgun = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 3000,
+	WeaponMass = 36,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 25,
 	MaxAimActions = 2,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	AutoShots = 0,
 
 	CloseRange = 4,
 

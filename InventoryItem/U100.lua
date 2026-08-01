@@ -36,10 +36,9 @@ DefineClass.U100 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'AvailableComponents', {
-				"JAZZ_FoldBipod",
-				"JAZZ_UnfoldBipod",
+				"JAZZ_Bipod",
 			},
-			'DefaultComponent', "JAZZ_FoldBipod",
+			'DefaultComponent', "JAZZ_Bipod",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
@@ -53,7 +52,8 @@ DefineClass.U100 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagDrum_30-100",
+				"JAZZ_MagDrum_30_100_G3",
+				"JAZZ_MagSmall20_10_G3",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -92,9 +92,13 @@ DefineClass.U100 = {
 	},
 	ShootAP = 8000,
 	ReloadAP = 6000,
-	Recoil = 9,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 18,
 	BurstShots = 4,
-	AutoShots = 6,
+	AutoShots = 7,
 
 	CloseRange = 6,
 

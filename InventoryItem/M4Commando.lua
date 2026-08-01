@@ -44,10 +44,10 @@ DefineClass.M4Commando = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagNormalFine",
-				"JAZZ_MagLarge",
+				"JAZZ_MagNormalFine_AR15",
 				"JAZZ_MagLargeFine",
-				"JAZZ_MagQuick",
+				"JAZZ_MagLarge_50_AR15",
+				"JAZZ_MagQuick_AR15",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -64,6 +64,7 @@ DefineClass.M4Commando = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_LaserDot",
 				"JAZZ_FlashlightDot",
 				"JAZZ_UVDot",
@@ -74,7 +75,7 @@ DefineClass.M4Commando = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Compensator",
-				"JAZZ_MuzzleBooster",
+
 				"JAZZ_Suppressor",
 				"JAZZ_ImprovisedSuppressor",
 			},

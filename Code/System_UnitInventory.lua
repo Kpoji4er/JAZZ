@@ -398,7 +398,7 @@ function UnitInventory:CountAvailableAmmo(ammo_type)
 	return l_count_available_ammo
 end
 
-function UnitInventory:ReloadWeapon(gun, ammo_type, delayed_fx, ai)
+function UnitInventory:ReloadWeapon(gun, ammo_type, delayed_fx, ai, reload_mode)
 	local reloaded
 	local ammo
 	local ammo_items = {}
@@ -474,6 +474,9 @@ function UnitInventory:ReloadWeapon(gun, ammo_type, delayed_fx, ai)
 			elseif bag then
 				bag:AddAndStackItem(prev)
 			end
+		end
+		if reload_mode == "one_round" then
+			break
 		end
 	end
 	

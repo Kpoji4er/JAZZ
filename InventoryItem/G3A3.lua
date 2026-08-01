@@ -44,7 +44,8 @@ DefineClass.G3A3 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagSmall20_10",
+				"JAZZ_MagDrum_30_100_G3",
+				"JAZZ_MagSmall20_10_G3",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -84,9 +85,13 @@ DefineClass.G3A3 = {
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,
-	Recoil = 30,
-	BurstShots = 2,
-	AutoShots = 5,
+	WeaponMass = 36,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 36,
+	BurstShots = 4,
+	AutoShots = 7,
 
 	CloseRange = 8,
 

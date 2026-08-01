@@ -28,7 +28,7 @@ Inside BDR there is no range penalty. Past it, chance falls gently at first and 
 
 Weapons also have a close-range profile: pistols and compact guns are comfortable at point-blank range, while long rifles and long barrels can be weaker across the nearest few tiles. A short barrel shifts that comfort closer; a long barrel shifts it farther away.
 
-Optics do not make the bullet travel farther. They push the effective aiming zone farther **as you spend aim clicks** (enough aim for that magnification). Strong scopes help at medium and long range and **hurt up close just by being mounted** — the optic near penalty applies even on snap shots and stacks with the weapon’s close-range profile.
+Optics do not make the bullet travel farther — they change weapon **specialization**: reflex raises effectiveness vs irons, combat scopes own mid-range, full optics reward max aim. Effective-zone shift and optic AimAccuracy% apply only after that aim threshold. Strong scopes help at medium and long range and **hurt up close just by being mounted** — the optic near penalty applies even on snap shots and stacks with the weapon’s close-range profile.
 
 ## Cover and multipliers
 
@@ -54,7 +54,7 @@ Chance can be affected by cover and visible target size, stance, visibility/smok
 
 The first bullet uses the normal final chance. Each next bullet keeps only part of the previous accuracy (**recoil retention**).
 
-Strength, stance, bipods/setup, components, perks, and special actions improve control. Recoil changes hit probability once; bullet spray after a miss is not a second hidden penalty.
+Strength and Marksmanship equally improve control, alongside stance, bipods/setup, components, perks, and special actions. Compact high-RPM platforms are less controllable than heavier, slower examples in the same caliber. Recoil changes hit probability once; bullet spray after a miss is not a second hidden penalty.
 
 ## Grenades and launchers
 

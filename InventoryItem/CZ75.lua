@@ -3,7 +3,6 @@ DefineClass.CZ75 = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Tier 2-3",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -34,7 +33,8 @@ DefineClass.CZ75 = {
 			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge",
+				"JAZZ_MagLarge_25_PISTOL_9",
+				"JAZZ_MagLarge_27",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -47,13 +47,7 @@ DefineClass.CZ75 = {
 								"JAZZ_Suppressor",
 							},
 		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Freeswap",
-			'AvailableComponents', {
-				"JAZZ_Freeswap",
-			},
-			'DefaultComponent', "JAZZ_Freeswap",
-		}),
+		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -65,8 +59,13 @@ DefineClass.CZ75 = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
-	Recoil = 1,
-	AutoShots = 3,
+	WeaponMass = 10,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
+	BurstShots = 0,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 0,
 

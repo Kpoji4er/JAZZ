@@ -6,6 +6,7 @@ DefineClass.R870 = {
 
 	comment = "Tier 2-2",
 	object_class = "Shotgun",
+	ReloadStyle = "Tube",
 	ScrapParts = 10,
 	RepairCost = 9,
 	Reliability = 85,
@@ -56,6 +57,7 @@ DefineClass.R870 = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_LaserDot",
 			},
 		}),
@@ -76,8 +78,13 @@ DefineClass.R870 = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 7000,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	WeaponMass = 36,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 25,
+	AutoShots = 0,
 
 	CloseRange = 4,
 

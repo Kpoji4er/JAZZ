@@ -51,6 +51,9 @@ DefineClass.M16A1 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
+				"JAZZ_MagNormalFine_AR15",
+				"JAZZ_MagLarge_50_AR15",
+				"JAZZ_MagQuick_AR15",
 				"JAZZ_MagSmall30_20",
 			},
 			'DefaultComponent', "JAZZ_MagSmall30_20",
@@ -91,9 +94,13 @@ DefineClass.M16A1 = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 6000,
-	Recoil = 11,
+	WeaponMass = 36,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 16,
 	BurstShots = 4,
-	AutoShots = 8,
+	AutoShots = 7,
 
 	CloseRange = 6,
 

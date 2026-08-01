@@ -3,7 +3,6 @@ DefineClass.TT33 = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Tier 1-1",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -41,13 +40,7 @@ DefineClass.TT33 = {
 			'SlotType', "Muzzle",
 			'Modifiable', false,
 		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Freeswap",
-			'AvailableComponents', {
-				"JAZZ_Freeswap",
-			},
-			'DefaultComponent', "JAZZ_Freeswap",
-		}),
+		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -59,9 +52,14 @@ DefineClass.TT33 = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
+	WeaponMass = 10,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
+	BurstShots = 0,
 	MaxAimActions = 2,
-	Recoil = 1,
-	AutoShots = 3,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 0,
 

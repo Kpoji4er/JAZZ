@@ -29,18 +29,18 @@
 
 | Оружие | Надёжность | База клина | Ресурс / износ | Шум | Overwatch | Цена | Компоненты |
 |---|---|---|---|---|---|---|---|
-| S&W Model10 .38 Special (`SWModel10`) | 95 | -100 | 1000 / 1 | 15 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Короткий ствол / Default Barrel ★<br>Side (можно снять): Flashlight / Лазерный целеуказатель / Tactical Device / UV Dot |
-| Colt .38 Special (`Colt38Special`) | 95 | -100 | 1000 / 1 | 12 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Default Barrel / Короткий ствол ★ |
-| Colt M1917 .45 Service Revolver (`ColtM1917`) | 95 | -100 | 1000 / 1 | 28 | 85° | 500 | Freeswap: Пистолет ★ |
-| Peacemaker (`ColtPeacemaker`) | 95 | -100 | 3000 / 1 | 32 | 85° | 500 | Barrel: Default Barrel ★ / Short Barrel<br>Freeswap: Пистолет ★ |
-| S*W Model19 .357 Combat Magnum (`SWModel19`) | 95 | -100 | 1000 / 1 | 28 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Extended Barrel / Default Barrel ★ / Короткий ствол<br>Side (можно снять): Flashlight / Лазерный целеуказатель / Tactical Device / UV Dot |
-| Welrod (`Welrod`) | 35 | -100 | 1000 / 1 | 1 | 85° | 500 | Freeswap: Пистолет ★<br>Muzzle (фикс.): Глушитель Интегрированный ★ |
-| Webley Mk VI (`Webley`) | 95 | -100 | 1000 / 1 | 28 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Default Barrel ★ / Extended Barrel |
-| Manurhin MR 73 (`MR73`) | 95 | -100 | 1000 / 1 | 32 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Extended Barrel / Default Barrel ★<br>Handgrip: Стандартная рукоять ★ / Эргономичная рукоять |
-| SWModel29 (`SWModel29`) | 95 | -100 | 1000 / 1 | 32 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Короткий ствол / Default Barrel ★<br>Side (можно снять): Flashlight / Лазерный целеуказатель / Tactical Device / UV Dot |
-| Anaconda (`ColtAnaconda`) | 95 | -100 | 3500 / 1 | 32 | 85° | 1200 | Barrel: Default Barrel ★ / Short Barrel<br>Scope: Basic Iron Sight ★ / Improved Iron Sight / Коллиматор / Улучшенный коллиматор / Прицел малой кратности / Штурмовой прицел / Red Dot / Tactical Device / UV Dot<br>Freeswap: Пистолет ★ |
-| РШ-12 (`RSH12`) | 95 | -50 | 3500 / 1 | 40 | 90° | 3100 | Side (можно снять): Flashlight / UV Dot / Tactical Device / Лазерный целеуказатель<br>Freeswap: Пистолет ★ |
-| Korth Revolver (`Korth`) | 95 | -100 | 1000 / 1 | 32 | 85° | 500 | Freeswap: Пистолет ★<br>Barrel: Extended Barrel / Default Barrel ★<br>Handgrip: Стандартная рукоять ★ / Эргономичная рукоять |
-| Custom Six-Shooter (`TexRevolver`) | 95 | -100 | 50000 / 1 | 40 | 90° | 2000 | Freeswap: Пистолет ★ |
+| S&W Model10 .38 Special (`SWModel10`) | 95 | -100 | 1000 / 1 | 15 | 85° | 500 | Barrel: Короткий ствол / Default Barrel ★<br>Side (можно снять): Flashlight / Лазерный целеуказатель / Tactical Device / UV Dot |
+| Colt .38 Special (`Colt38Special`) | 95 | -100 | 1000 / 1 | 12 | 85° | 500 | Barrel: Default Barrel / Короткий ствол ★ |
+| Colt M1917 .45 Service Revolver (`ColtM1917`) | 95 | -100 | 1000 / 1 | 28 | 85° | 500 | |
+| Peacemaker (`ColtPeacemaker`) | 95 | -100 | 3000 / 1 | 32 | 85° | 500 | Barrel: Default Barrel ★ / Short Barrel|
+| S*W Model19 .357 Combat Magnum (`SWModel19`) | 95 | -100 | 1000 / 1 | 28 | 85° | 500 | Barrel: Extended Barrel / Default Barrel ★ / Короткий ствол<br>Side (можно снять): Flashlight / Лазерный целеуказатель / Tactical Device / UV Dot |
+| Welrod (`Welrod`) | 35 | -100 | 1000 / 1 | 1 | 85° | 500 | Muzzle (фикс.): Глушитель Интегрированный ★ |
+| Webley Mk VI (`Webley`) | 95 | -100 | 1000 / 1 | 28 | 85° | 500 | Barrel: Default Barrel ★ / Extended Barrel |
+| Manurhin MR 73 (`MR73`) | 95 | -100 | 1000 / 1 | 32 | 85° | 500 | Barrel: Extended Barrel / Default Barrel ★<br>Handgrip: Стандартная рукоять ★ / Эргономичная рукоять |
+| SWModel29 (`SWModel29`) | 95 | -100 | 1000 / 1 | 32 | 85° | 500 | Barrel: Короткий ствол / Default Barrel ★<br>Side (можно снять): Flashlight / Лазерный целеуказатель / Tactical Device / UV Dot |
+| Anaconda (`ColtAnaconda`) | 95 | -100 | 3500 / 1 | 32 | 85° | 1200 | Barrel: Default Barrel ★ / Short Barrel<br>Scope: Basic Iron Sight ★ / Improved Iron Sight / Коллиматор / Улучшенный коллиматор / Прицел малой кратности / Штурмовой прицел / Red Dot / Tactical Device / UV Dot|
+| РШ-12 (`RSH12`) | 95 | -50 | 3500 / 1 | 40 | 90° | 3100 | Side (можно снять): Flashlight / UV Dot / Tactical Device / Лазерный целеуказатель|
+| Korth Revolver (`Korth`) | 95 | -100 | 1000 / 1 | 32 | 85° | 500 | Barrel: Extended Barrel / Default Barrel ★<br>Handgrip: Стандартная рукоять ★ / Эргономичная рукоять |
+| Custom Six-Shooter (`TexRevolver`) | 95 | -100 | 50000 / 1 | 40 | 90° | 2000 | |
 
 Источник чисел: канонический CSV-снимок `09673e3a8dd397d662833fb530a3566f6596c4c0`. Описание полей и правила синхронизации находятся в [техническом контракте](../../technical/weapons/README.md).

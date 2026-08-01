@@ -36,6 +36,7 @@ DefineClass.AN94 = {
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
+			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_StockLightFolded",
 				"JAZZ_StockLightUnFolded",
@@ -46,6 +47,7 @@ DefineClass.AN94 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
+				"JAZZ_MagQuick_AK",
 				"JAZZ_MagLarge_30_45",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
@@ -80,9 +82,13 @@ DefineClass.AN94 = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
-	Recoil = 5,
+	WeaponMass = 39,
+	CyclicRPM = 1800,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 2,
+	Recoil = 17,
 	BurstShots = 2,
-	AutoShots = 6,
+	AutoShots = 14,
 
 	CloseRange = 6,
 

@@ -57,9 +57,13 @@ DefineClass.M60E3 = {
 	},
 	ShootAP = 9000,
 	ReloadAP = 9000,
-	Recoil = 16,
-	BurstShots = 5,
-	AutoShots = 5,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 24,
+	BurstShots = 4,
+	AutoShots = 0,
 
 	CloseRange = 6,
 

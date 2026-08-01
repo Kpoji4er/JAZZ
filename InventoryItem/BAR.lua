@@ -53,8 +53,13 @@ DefineClass.BAR = {
 	},
 	ShootAP = 7000,
 	ReloadAP = 8000,
-	Recoil = 35,
-	AutoShots = 5,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	BurstShots = 4,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 6,
 

@@ -50,10 +50,14 @@ DefineClass.SpectreM4 = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 6000,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
 	MaxAimActions = 2,
-	Recoil = 5,
+	Recoil = 18,
 	BurstShots = 4,
-	AutoShots = 9,
+	AutoShots = 7,
 
 	CloseRange = 2,
 

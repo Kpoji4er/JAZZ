@@ -17,7 +17,9 @@
 | `CombatBadge_DeathRoll.lua` | loaded | [Бой](combat-cth-actions.md), [UI](ui-audio-fx.md) |
 | `System_Firearm_AddProperties.lua` | loaded | [Оружие](weapons-ammo-components.md) |
 | `System_OR_Weapons.lua` | loaded | [Оружие](weapons-ammo-components.md) |
+| `System_WeaponResourceMaintenance.lua` | loaded | [Оружие](weapons-ammo-components.md), [инвентарь](inventory-items-loot-crafting.md) — JAZZ-WEAPONS-002 resource triad / jam wear |
 | `WeaponClasses.lua` | loaded | [Оружие](weapons-ammo-components.md) |
+| `System_DisposableLaunchers.lua` | loaded | [Оружие](weapons-ammo-components.md), [взрывчатка](explosives-traps-heavy-weapons.md) |
 | `Systems_Compontents_FoldingStocks.lua` | loaded | [Оружие](weapons-ammo-components.md) |
 | `GetScrapParts.lua` | loaded | [Оружие](weapons-ammo-components.md), [инвентарь](inventory-items-loot-crafting.md) |
 | `System_OR_Grenade.lua` | loaded | [Взрывчатка](explosives-traps-heavy-weapons.md) |

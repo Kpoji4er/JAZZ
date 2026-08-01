@@ -3,7 +3,6 @@ DefineClass.SWModel5906 = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Tier 2-1",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -35,7 +34,8 @@ DefineClass.SWModel5906 = {
 			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge",
+				"JAZZ_MagLarge_25_PISTOL_9",
+				"JAZZ_MagLarge_27",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -53,18 +53,13 @@ DefineClass.SWModel5906 = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_LaserDot",
 				"JAZZ_FlashlightDot",
 				"JAZZ_UVDot",
 			},
 		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Freeswap",
-			'AvailableComponents', {
-				"JAZZ_Freeswap",
-			},
-			'DefaultComponent', "JAZZ_Freeswap",
-		}),
+		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -76,9 +71,14 @@ DefineClass.SWModel5906 = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
+	WeaponMass = 10,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
+	BurstShots = 0,
 	MaxAimActions = 2,
-	Recoil = 1,
-	AutoShots = 3,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 0,
 

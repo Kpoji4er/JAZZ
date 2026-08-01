@@ -56,8 +56,13 @@ DefineClass.M1Garand = {
 	},
 	ShootAP = 7000,
 	ReloadAP = 5000,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	WeaponMass = 36,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 8,
 

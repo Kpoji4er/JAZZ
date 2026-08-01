@@ -54,12 +54,16 @@ DefineClass.M4A1 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
+				"JAZZ_MagNormalFine_AR15",
+				"JAZZ_MagLarge_50_AR15",
+				"JAZZ_MagQuick_AR15",
 				"JAZZ_MagSmall30_20",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
+			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_StockLightUnFolded",
 				"JAZZ_StockLightFolded",
@@ -80,6 +84,7 @@ DefineClass.M4A1 = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_FlashlightDot",
 				"JAZZ_LaserDot",
 				"JAZZ_UVDot",
@@ -106,9 +111,13 @@ DefineClass.M4A1 = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
-	Recoil = 10,
-	BurstShots = 4,
-	AutoShots = 8,
+	WeaponMass = 35,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 18,
+	BurstShots = 0,
+	AutoShots = 0,
 
 	CloseRange = 4,
 

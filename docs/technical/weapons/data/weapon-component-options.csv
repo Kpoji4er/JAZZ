@@ -1,7 +1,7 @@
 weapon_id,slot_index,slot_type,modifiable,can_be_empty,default_component,default_in_options,option_index,component_id,component_name,component_source,is_default,source_file,snapshot_commit
 AA12,1,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLongShotgun,Extended Barrel,jazz,false,InventoryItem/AA12.lua,working-tree
 AA12,1,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/AA12.lua,working-tree
-AA12,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/AA12.lua,working-tree
+AA12,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_25_AA12,Расширенный магазин,jazz,false,InventoryItem/AA12.lua,working-tree
 AA12,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/AA12.lua,working-tree
 AA12,3,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/AA12.lua,working-tree
 AA12,3,Scope,true,true,,false,2,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/AA12.lua,working-tree
@@ -24,9 +24,10 @@ Agram2000,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Завод
 Agram2000,2,Muzzle,true,true,,false,1,JAZZ_PistolSuppressor,Глушитель,jazz,false,InventoryItem/Agram2000.lua,working-tree
 AK47,1,Bipod,true,true,,false,1,JAZZ_Bipod,Bipod,jazz,false,InventoryItem/AK47.lua,working-tree
 AK47,2,Under,true,true,,false,1,JAZZ_GP25,ГП-25,jazz,false,InventoryItem/AK47.lua,working-tree
-AK47,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/AK47.lua,working-tree
-AK47,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/AK47.lua,working-tree
-AK47,3,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagQuick,Quick Mag,jazz,false,InventoryItem/AK47.lua,working-tree
+AK47,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30_75,Бубен,jazz,false,InventoryItem/AK47.lua,working-tree
+AK47,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagLarge_30_40,Магазин на 40 патрон,jazz,false,InventoryItem/AK47.lua,working-tree
+AK47,3,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/AK47.lua,working-tree
+AK47,3,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagQuick_AK,Quick Mag,jazz,false,InventoryItem/AK47.lua,working-tree
 AK47,4,Muzzle,false,true,,false,1,JAZZ_Compensator,Compensator,jazz,false,InventoryItem/AK47.lua,working-tree
 AK47,4,Muzzle,false,true,,false,2,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/AK47.lua,working-tree
 AK74,1,Stock,true,false,JAZZ_StockNormal,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/AK74.lua,working-tree
@@ -35,6 +36,7 @@ AK74,1,Stock,true,false,JAZZ_StockNormal,true,3,JAZZ_StockNormal,Default Stock,j
 AK74,2,Handguard,false,false,JAZZ_Handguard,true,1,JAZZ_Handguard,Цевьё,jazz,true,InventoryItem/AK74.lua,working-tree
 AK74,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_30_45,Магазин на 45 патрон,jazz,false,InventoryItem/AK74.lua,working-tree
 AK74,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/AK74.lua,working-tree
+AK74,3,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagQuick_AK,Quick Mag,jazz,false,InventoryItem/AK74.lua,working-tree
 AK74,4,Under,true,true,,false,1,JAZZ_GP25,ГП-25,jazz,false,InventoryItem/AK74.lua,working-tree
 AK74,5,Muzzle,false,false,,false,1,JAZZ_Compensator,Compensator,jazz,false,InventoryItem/AK74.lua,working-tree
 AK74,6,Bipod,true,true,,false,1,JAZZ_Bipod,Bipod,jazz,false,InventoryItem/AK74.lua,working-tree
@@ -47,9 +49,10 @@ AKM,1,Under,true,true,,false,1,JAZZ_GP25,ГП-25,jazz,false,InventoryItem/AKM.lu
 AKM,2,Stock,true,false,JAZZ_StockNormal,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/AKM.lua,working-tree
 AKM,2,Stock,true,false,JAZZ_StockNormal,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,false,InventoryItem/AKM.lua,working-tree
 AKM,2,Stock,true,false,JAZZ_StockNormal,true,3,JAZZ_StockNormal,Default Stock,jazz,true,InventoryItem/AKM.lua,working-tree
-AKM,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30-75,Бубен,jazz,false,InventoryItem/AKM.lua,working-tree
+AKM,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30_75,Бубен,jazz,false,InventoryItem/AKM.lua,working-tree
 AKM,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagLarge_30_40,Магазин на 40 патрон,jazz,false,InventoryItem/AKM.lua,working-tree
 AKM,3,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/AKM.lua,working-tree
+AKM,3,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagQuick_AK,Quick Mag,jazz,false,InventoryItem/AKM.lua,working-tree
 AKM,4,Handguard,false,false,JAZZ_Handguard,true,1,JAZZ_Handguard,Цевьё,jazz,true,InventoryItem/AKM.lua,working-tree
 AKM,5,Scope,true,true,,false,1,JAZZ_CombatScope_1P29,JAZZ_CombatScope_1P29,jazz,false,InventoryItem/AKM.lua,working-tree
 AKM,5,Scope,true,true,,false,2,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/AKM.lua,working-tree
@@ -72,23 +75,27 @@ AKM,6,Muzzle,true,true,,false,2,JAZZ_Suppressor,Suppressor,jazz,false,InventoryI
 AKM,6,Muzzle,true,true,,false,3,JAZZ_SuppressorImproved,Улучшенный глушитель,jazz,false,InventoryItem/AKM.lua,working-tree
 AKM,7,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/AKM.lua,working-tree
 AKM,7,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/AKM.lua,working-tree
-AKM,7,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/AKM.lua,working-tree
+AKM,7,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/AKM.lua,working-tree
+AKM,7,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/AKM.lua,working-tree
 AKM,8,Bipod,true,true,,false,1,JAZZ_Bipod,Bipod,jazz,false,InventoryItem/AKM.lua,working-tree
 AKSU,1,Barrel,false,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/AKSU.lua,working-tree
 AKSU,2,Handguard,true,false,JAZZ_AKSU_Hanguard_Basic,true,1,JAZZ_AKSU_Hanguard_Basic,Default Handguard,jazz,true,InventoryItem/AKSU.lua,working-tree
 AKSU,2,Handguard,true,false,JAZZ_AKSU_Hanguard_Basic,true,2,JAZZ_AKSU_VerticalGrip,Vertical Grip,jazz,false,InventoryItem/AKSU.lua,working-tree
 AKSU,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_30_45,Магазин на 45 патрон,jazz,false,InventoryItem/AKSU.lua,working-tree
 AKSU,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/AKSU.lua,working-tree
+AKSU,3,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagQuick_AK,Quick Mag,jazz,false,InventoryItem/AKSU.lua,working-tree
 AKSU,4,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/AKSU.lua,working-tree
 AKSU,4,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/AKSU.lua,working-tree
-AKSU,4,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/AKSU.lua,working-tree
-AKSU,4,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/AKSU.lua,working-tree
+AKSU,4,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/AKSU.lua,working-tree
+AKSU,4,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/AKSU.lua,working-tree
+AKSU,4,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/AKSU.lua,working-tree
 AKSU,5,Muzzle,true,true,JAZZ_Compensator,true,1,JAZZ_Compensator,Compensator,jazz,true,InventoryItem/AKSU.lua,working-tree
 AKSU,5,Muzzle,true,true,JAZZ_Compensator,true,2,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/AKSU.lua,working-tree
-AN94,1,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/AN94.lua,working-tree
-AN94,1,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/AN94.lua,working-tree
+AN94,1,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/AN94.lua,working-tree
+AN94,1,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/AN94.lua,working-tree
 AN94,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_30_45,Магазин на 45 патрон,jazz,false,InventoryItem/AN94.lua,working-tree
 AN94,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/AN94.lua,working-tree
+AN94,2,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagQuick_AK,Quick Mag,jazz,false,InventoryItem/AN94.lua,working-tree
 AN94,3,Scope,true,true,,false,1,JAZZ_CombatScope_1P29,JAZZ_CombatScope_1P29,jazz,false,InventoryItem/AN94.lua,working-tree
 AN94,3,Scope,true,true,,false,2,JAZZ_NightScope_NSPU,Ночной прицел НСПУ (3.5х),jazz,false,InventoryItem/AN94.lua,working-tree
 AN94,3,Scope,true,true,,false,3,JAZZ_Reflex_Cobra,Коллиматор Кобра,jazz,false,InventoryItem/AN94.lua,working-tree
@@ -98,9 +105,8 @@ AN94,4,Muzzle,false,false,,false,1,JAZZ_Compensator,Compensator,jazz,false,Inven
 APS,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/APS.lua,working-tree
 APS,2,Muzzle,true,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/APS.lua,working-tree
 APS,2,Muzzle,true,true,,false,2,JAZZ_PistolSuppressor,Глушитель,jazz,false,InventoryItem/APS.lua,working-tree
-APS,3,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/APS.lua,working-tree
-APS,4,Barrel,true,false,JAZZ_BarrelNormal_noSil,true,1,JAZZ_BarrelNormal_Sil,Ствол под глушитель,jazz,false,InventoryItem/APS.lua,working-tree
-APS,4,Barrel,true,false,JAZZ_BarrelNormal_noSil,true,2,JAZZ_BarrelNormal_noSil,Стандартный ствол,jazz,true,InventoryItem/APS.lua,working-tree
+APS,3,Barrel,true,false,JAZZ_BarrelNormal_noSil,true,1,JAZZ_BarrelNormal_Sil,Ствол под глушитель,jazz,false,InventoryItem/APS.lua,working-tree
+APS,3,Barrel,true,false,JAZZ_BarrelNormal_noSil,true,2,JAZZ_BarrelNormal_noSil,Стандартный ствол,jazz,true,InventoryItem/APS.lua,working-tree
 AR10,1,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/AR10.lua,working-tree
 AR10,1,Scope,true,true,,false,2,JAZZ_CombatScope_3x,Штурмовой прицел (3x),jazz,false,InventoryItem/AR10.lua,working-tree
 AR10,1,Scope,true,true,,false,3,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/AR10.lua,working-tree
@@ -127,11 +133,11 @@ AR10DMR,2,Scope,true,true,JAZZ_Scope_6x,true,10,JAZZ_Scope_6x,Оптически
 AR10DMR,2,Scope,true,true,JAZZ_Scope_6x,true,11,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/AR10DMR.lua,working-tree
 AR15,1,Scope,true,false,JAZZ_DefaultIronsight_AR15,true,1,JAZZ_DefaultIronsight_AR15,Default Iron Sight,jazz,true,InventoryItem/AR15.lua,working-tree
 AR15,1,Scope,true,false,JAZZ_DefaultIronsight_AR15,true,2,JAZZ_ImprovedIronsight_AR15,Improved Iron Sight,jazz,false,InventoryItem/AR15.lua,working-tree
-AR15,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/AR15.lua,working-tree
-AR15,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagLargeFine,Ergonomic Expanded Mag,jazz,false,InventoryItem/AR15.lua,working-tree
+AR15,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLargeFine,Ergonomic Expanded Mag,jazz,false,InventoryItem/AR15.lua,working-tree
+AR15,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagLarge_50_AR15,Расширенный магазин,jazz,false,InventoryItem/AR15.lua,working-tree
 AR15,2,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/AR15.lua,working-tree
-AR15,2,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagNormalFine,Fine-Tuned Mag,jazz,false,InventoryItem/AR15.lua,working-tree
-AR15,2,Magazine,true,false,JAZZ_MagNormal,true,5,JAZZ_MagQuick,Quick Mag,jazz,false,InventoryItem/AR15.lua,working-tree
+AR15,2,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagNormalFine_AR15,Fine-Tuned Mag,jazz,false,InventoryItem/AR15.lua,working-tree
+AR15,2,Magazine,true,false,JAZZ_MagNormal,true,5,JAZZ_MagQuick_AR15,Quick Mag,jazz,false,InventoryItem/AR15.lua,working-tree
 AR15,3,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/AR15.lua,working-tree
 AR15,3,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelLongImproved,Extended Gain-Twist Barrel,jazz,false,InventoryItem/AR15.lua,working-tree
 AR15,3,Barrel,true,false,JAZZ_BarrelNormal,true,3,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/AR15.lua,working-tree
@@ -146,12 +152,12 @@ AR15,5,Under,true,true,,false,2,JAZZ_TacGrip,Tactical Grip,jazz,false,InventoryI
 AR15,5,Under,true,true,,false,3,JAZZ_VerticalGrip,Vertical Grip,jazz,false,InventoryItem/AR15.lua,working-tree
 AR15,6,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/AR15.lua,working-tree
 AR15,6,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/AR15.lua,working-tree
-AR15,6,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/AR15.lua,working-tree
-AR15,6,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/AR15.lua,working-tree
+AR15,6,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/AR15.lua,working-tree
+AR15,6,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/AR15.lua,working-tree
+AR15,6,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/AR15.lua,working-tree
 AR15,7,Muzzle,true,true,JAZZ_Compensator,true,1,JAZZ_Compensator,Compensator,jazz,true,InventoryItem/AR15.lua,working-tree
 AR15,7,Muzzle,true,true,JAZZ_Compensator,true,2,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/AR15.lua,working-tree
-AR15,7,Muzzle,true,true,JAZZ_Compensator,true,3,JAZZ_MuzzleBooster,Recoil Booster,jazz,false,InventoryItem/AR15.lua,working-tree
-AR15,7,Muzzle,true,true,JAZZ_Compensator,true,4,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/AR15.lua,working-tree
+AR15,7,Muzzle,true,true,JAZZ_Compensator,true,3,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/AR15.lua,working-tree
 ArcticWarfare,1,Bipod,true,true,,false,1,JAZZ_Bipod,Bipod,jazz,false,InventoryItem/ArcticWarfare.lua,working-tree
 ArcticWarfare,2,Scope,true,true,JAZZ_Scope_Scout,true,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/ArcticWarfare.lua,working-tree
 ArcticWarfare,2,Scope,true,true,JAZZ_Scope_Scout,true,2,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/ArcticWarfare.lua,working-tree
@@ -159,15 +165,16 @@ ArcticWarfare,2,Scope,true,true,JAZZ_Scope_Scout,true,3,JAZZ_NightScope,Ночн
 ArcticWarfare,2,Scope,true,true,JAZZ_Scope_Scout,true,4,JAZZ_Scope_12x,Оптический Прицел Leupold Mark 4 (12x),jazz,false,InventoryItem/ArcticWarfare.lua,working-tree
 ArcticWarfare,2,Scope,true,true,JAZZ_Scope_Scout,true,5,JAZZ_Scope_6x,Оптический Прицел 1-6x,jazz,false,InventoryItem/ArcticWarfare.lua,working-tree
 ArcticWarfare,2,Scope,true,true,JAZZ_Scope_Scout,true,6,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,true,InventoryItem/ArcticWarfare.lua,working-tree
-AS_Val,1,Magazine,true,false,JAZZ_MagLarge_10_20,true,1,JAZZ_MagLarge_10_20,Магазин на 20 патрон,jazz,true,InventoryItem/AS_Val.lua,working-tree
-AS_Val,1,Magazine,true,false,JAZZ_MagLarge_10_20,true,2,JAZZ_MagNormal,Заводской магазин,jazz,false,InventoryItem/AS_Val.lua,working-tree
+AS_Val,1,Magazine,true,false,JAZZ_MagLarge_10_20_VAL,true,1,JAZZ_MagLarge_10_20_VAL,Магазин на 20 патрон,jazz,true,InventoryItem/AS_Val.lua,working-tree
+AS_Val,1,Magazine,true,false,JAZZ_MagLarge_10_20_VAL,true,2,JAZZ_MagNormal,Заводской магазин,jazz,false,InventoryItem/AS_Val.lua,working-tree
 AS_Val,2,Muzzle,false,false,JAZZ_SuppressorIntegrated,true,1,JAZZ_SuppressorIntegrated,Глушитель Интегрированный,jazz,true,InventoryItem/AS_Val.lua,working-tree
-AS_Val,3,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/AS_Val.lua,working-tree
-AS_Val,3,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/AS_Val.lua,working-tree
+AS_Val,3,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/AS_Val.lua,working-tree
+AS_Val,3,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/AS_Val.lua,working-tree
 AS_Val,4,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/AS_Val.lua,working-tree
 AS_Val,4,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/AS_Val.lua,working-tree
-AS_Val,4,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/AS_Val.lua,working-tree
-AS_Val,4,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/AS_Val.lua,working-tree
+AS_Val,4,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/AS_Val.lua,working-tree
+AS_Val,4,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/AS_Val.lua,working-tree
+AS_Val,4,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/AS_Val.lua,working-tree
 AS_Val,5,Scope,true,true,,false,1,JAZZ_CombatScope_1P29,JAZZ_CombatScope_1P29,jazz,false,InventoryItem/AS_Val.lua,working-tree
 AS_Val,5,Scope,true,true,,false,2,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/AS_Val.lua,working-tree
 AS_Val,5,Scope,true,true,,false,3,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/AS_Val.lua,working-tree
@@ -196,10 +203,11 @@ AUG,3,Under,true,false,JAZZ_VerticalGrip,true,1,JAZZ_VerticalGrip,Vertical Grip,
 AUG,4,Grenadelauncher,true,true,,false,1,JAZZ_GrenadeLauncher_AUG,Grenade Launcher,jazz,false,InventoryItem/AUG.lua,working-tree
 AUG,5,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_30_42,Магазин на 42 патрона,jazz,false,InventoryItem/AUG.lua,working-tree
 AUG,5,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/AUG.lua,working-tree
-AUG,5,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagQuick,Quick Mag,jazz,false,InventoryItem/AUG.lua,working-tree
+AUG,5,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagQuick_AUG,Quick Mag,jazz,false,InventoryItem/AUG.lua,working-tree
 AUG,6,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/AUG.lua,working-tree
 AUG,6,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/AUG.lua,working-tree
-AUG,6,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/AUG.lua,working-tree
+AUG,6,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/AUG.lua,working-tree
+AUG,6,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/AUG.lua,working-tree
 AUG,7,Scope,true,false,JAZZ_AUGScope_Default,true,1,JAZZ_AUGScope_Default,Прицел AUG (1.5x),jazz,true,InventoryItem/AUG.lua,working-tree
 AUG,7,Scope,true,false,JAZZ_AUGScope_Default,true,2,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/AUG.lua,working-tree
 AUG,7,Scope,true,false,JAZZ_AUGScope_Default,true,3,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/AUG.lua,working-tree
@@ -222,7 +230,7 @@ Auto5,2,Barrel,true,false,JAZZ_Auto5_Basic_NMag,true,5,JAZZ_Auto5_Short_NMag,К�
 AVT40,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/AVT40.lua,working-tree
 BAR,1,Bipod,false,false,JAZZ_Bipod,true,1,JAZZ_Bipod,Bipod,jazz,true,InventoryItem/BAR.lua,working-tree
 BarretM82,1,Bipod,true,false,JAZZ_Bipod,true,1,JAZZ_Bipod,Bipod,jazz,true,InventoryItem/BarretM82.lua,working-tree
-BarretM82,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/BarretM82.lua,working-tree
+BarretM82,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_8_BARRET,Расширенный магазин,jazz,false,InventoryItem/BarretM82.lua,working-tree
 BarretM82,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/BarretM82.lua,working-tree
 BarretM82,3,Scope,true,true,JAZZ_Scope_6x,true,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/BarretM82.lua,working-tree
 BarretM82,3,Scope,true,true,JAZZ_Scope_6x,true,2,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/BarretM82.lua,working-tree
@@ -239,27 +247,32 @@ BarretM82,4,Muzzle,true,false,JAZZ_Compensator,true,1,JAZZ_Compensator,Compensat
 BarretM82,4,Muzzle,true,false,JAZZ_Compensator,true,2,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/BarretM82.lua,working-tree
 Bereta92,1,Muzzle,true,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/Bereta92.lua,working-tree
 Bereta92,1,Muzzle,true,true,,false,2,JAZZ_PistolSuppressor,Глушитель,jazz,false,InventoryItem/Bereta92.lua,working-tree
-Bereta92,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/Bereta92.lua,working-tree
+Bereta92,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_18_20,Магазин на 20 патрон,jazz,false,InventoryItem/Bereta92.lua,working-tree
 Bereta92,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Bereta92.lua,working-tree
+Bereta92,2,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormalFine_PISTOL_9,Fine-Tuned Mag,jazz,false,InventoryItem/Bereta92.lua,working-tree
 Bereta92,3,Barrel,false,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/Bereta92.lua,working-tree
 Bereta92,3,Barrel,false,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/Bereta92.lua,working-tree
 Bereta92,4,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/Bereta92.lua,working-tree
 Bereta92,4,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/Bereta92.lua,working-tree
-Bereta92,4,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/Bereta92.lua,working-tree
-Bereta92,5,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/Bereta92.lua,working-tree
-Beretta93r,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/Beretta93r.lua,working-tree
-Beretta93r,1,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Beretta93r.lua,working-tree
+Bereta92,4,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/Bereta92.lua,working-tree
+Bereta92,4,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/Bereta92.lua,working-tree
+Beretta93r,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_25_PISTOL_9,Расширенный магазин,jazz,false,InventoryItem/Beretta93r.lua,working-tree
+Beretta93r,1,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagLarge_27,Расширенный магазин,jazz,false,InventoryItem/Beretta93r.lua,working-tree
+Beretta93r,1,Magazine,false,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Beretta93r.lua,working-tree
 Beretta93r,2,Muzzle,false,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/Beretta93r.lua,working-tree
 Beretta93r,2,Muzzle,false,true,,false,2,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/Beretta93r.lua,working-tree
-Beretta93r,3,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/Beretta93r.lua,working-tree
 BerettaM12,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/BerettaM12.lua,working-tree
 BerettaM12,2,Muzzle,true,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/BerettaM12.lua,working-tree
 BerettaM12,2,Muzzle,true,true,,false,2,JAZZ_PistolSuppressor,Глушитель,jazz,false,InventoryItem/BerettaM12.lua,working-tree
-BerettaM12,3,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/BerettaM12.lua,working-tree
-BerettaM12,3,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/BerettaM12.lua,working-tree
-CAR15,1,Magazine,true,false,JAZZ_MagSmall30_20,true,1,JAZZ_MagNormal,Заводской магазин,jazz,false,InventoryItem/CAR15.lua,working-tree
-CAR15,1,Magazine,true,false,JAZZ_MagSmall30_20,true,2,JAZZ_MagSmall30_20,Магазин на 20 патрон,jazz,true,InventoryItem/CAR15.lua,working-tree
+BerettaM12,3,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/BerettaM12.lua,working-tree
+BerettaM12,3,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/BerettaM12.lua,working-tree
+CAR15,1,Magazine,true,false,JAZZ_MagSmall30_20,true,1,JAZZ_MagLarge_50_AR15,Расширенный магазин,jazz,false,InventoryItem/CAR15.lua,working-tree
+CAR15,1,Magazine,true,false,JAZZ_MagSmall30_20,true,2,JAZZ_MagNormal,Заводской магазин,jazz,false,InventoryItem/CAR15.lua,working-tree
+CAR15,1,Magazine,true,false,JAZZ_MagSmall30_20,true,3,JAZZ_MagNormalFine_AR15,Fine-Tuned Mag,jazz,false,InventoryItem/CAR15.lua,working-tree
+CAR15,1,Magazine,true,false,JAZZ_MagSmall30_20,true,4,JAZZ_MagQuick_AR15,Quick Mag,jazz,false,InventoryItem/CAR15.lua,working-tree
+CAR15,1,Magazine,true,false,JAZZ_MagSmall30_20,true,5,JAZZ_MagSmall30_20,Магазин на 20 патрон,jazz,true,InventoryItem/CAR15.lua,working-tree
 CAR15,2,Side,true,false,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/CAR15.lua,working-tree
+CAR15,2,Side,true,false,,false,2,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/CAR15.lua,working-tree
 CAR15,3,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/CAR15.lua,working-tree
 CAR15,3,Scope,true,true,,false,2,JAZZ_CombatScope_3x,Штурмовой прицел (3x),jazz,false,InventoryItem/CAR15.lua,working-tree
 CAR15,3,Scope,true,true,,false,3,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/CAR15.lua,working-tree
@@ -278,11 +291,8 @@ CAR15,5,Muzzle,true,false,JAZZ_DefMuzzle,true,2,JAZZ_Suppressor,Suppressor,jazz,
 CAR15,5,Muzzle,true,false,JAZZ_DefMuzzle,true,3,JAZZ_SuppressorImproved,Улучшенный глушитель,jazz,false,InventoryItem/CAR15.lua,working-tree
 Colt1911,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Colt1911.lua,working-tree
 Colt1911,2,Muzzle,true,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/Colt1911.lua,working-tree
-Colt1911,3,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/Colt1911.lua,working-tree
-Colt1911,4,Side,true,false,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/Colt1911.lua,working-tree
-Colt38Special,1,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/Colt38Special.lua,working-tree
-Colt38Special,2,Barrel,true,false,JAZZ_BarrelShort_Pistol,true,1,JAZZ_BarrelNormal,Default Barrel,jazz,false,InventoryItem/Colt38Special.lua,working-tree
-Colt38Special,2,Barrel,true,false,JAZZ_BarrelShort_Pistol,true,2,JAZZ_BarrelShort_Pistol,Короткий ствол,jazz,true,InventoryItem/Colt38Special.lua,working-tree
+Colt38Special,1,Barrel,true,false,JAZZ_BarrelShort_Pistol,true,1,JAZZ_BarrelNormal,Default Barrel,jazz,false,InventoryItem/Colt38Special.lua,working-tree
+Colt38Special,1,Barrel,true,false,JAZZ_BarrelShort_Pistol,true,2,JAZZ_BarrelShort_Pistol,Короткий ствол,jazz,true,InventoryItem/Colt38Special.lua,working-tree
 ColtAnaconda,1,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/ColtAnaconda.lua,working-tree
 ColtAnaconda,1,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelShort,Short Barrel,jazz,false,InventoryItem/ColtAnaconda.lua,working-tree
 ColtAnaconda,2,Scope,true,false,JAZZ_BaseIronsight_Anaconda,true,1,JAZZ_BaseIronsight_Anaconda,Basic Iron Sight,jazz,true,InventoryItem/ColtAnaconda.lua,working-tree
@@ -290,25 +300,23 @@ ColtAnaconda,2,Scope,true,false,JAZZ_BaseIronsight_Anaconda,true,2,JAZZ_Flashlig
 ColtAnaconda,2,Scope,true,false,JAZZ_BaseIronsight_Anaconda,true,3,JAZZ_ImprovedIronsight,Improved Iron Sight,jazz,false,InventoryItem/ColtAnaconda.lua,working-tree
 ColtAnaconda,2,Scope,true,false,JAZZ_BaseIronsight_Anaconda,true,4,JAZZ_LaserDot_Anaconda,Red Dot,jazz,false,InventoryItem/ColtAnaconda.lua,working-tree
 ColtAnaconda,2,Scope,true,false,JAZZ_BaseIronsight_Anaconda,true,5,JAZZ_UVDot_Anaconda,UV Dot,jazz,false,InventoryItem/ColtAnaconda.lua,working-tree
-ColtAnaconda,3,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/ColtAnaconda.lua,working-tree
-ColtM1917,1,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/ColtM1917.lua,working-tree
 ColtPeacemaker,1,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/ColtPeacemaker.lua,working-tree
 ColtPeacemaker,1,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelShort,Short Barrel,jazz,false,InventoryItem/ColtPeacemaker.lua,working-tree
-ColtPeacemaker,2,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/ColtPeacemaker.lua,working-tree
-CZ52,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/CZ52.lua,working-tree
-CZ52,1,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/CZ52.lua,working-tree
+CZ52,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_13_PISTOL_52,Расширенный магазин,jazz,false,InventoryItem/CZ52.lua,working-tree
+CZ52,1,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagLarge_8_PISTOL_52,Расширенный магазин,jazz,false,InventoryItem/CZ52.lua,working-tree
+CZ52,1,Magazine,false,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/CZ52.lua,working-tree
 CZ52,2,Muzzle,false,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/CZ52.lua,working-tree
 CZ52,2,Muzzle,false,true,,false,2,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/CZ52.lua,working-tree
 CZ52,3,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/CZ52.lua,working-tree
 CZ52,3,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/CZ52.lua,working-tree
-CZ52,3,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/CZ52.lua,working-tree
-CZ52,3,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/CZ52.lua,working-tree
-CZ52,4,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/CZ52.lua,working-tree
-CZ75,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/CZ75.lua,working-tree
-CZ75,1,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/CZ75.lua,working-tree
+CZ52,3,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/CZ52.lua,working-tree
+CZ52,3,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/CZ52.lua,working-tree
+CZ52,3,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/CZ52.lua,working-tree
+CZ75,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_25_PISTOL_9,Расширенный магазин,jazz,false,InventoryItem/CZ75.lua,working-tree
+CZ75,1,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagLarge_27,Расширенный магазин,jazz,false,InventoryItem/CZ75.lua,working-tree
+CZ75,1,Magazine,false,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/CZ75.lua,working-tree
 CZ75,2,Muzzle,false,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/CZ75.lua,working-tree
 CZ75,2,Muzzle,false,true,,false,2,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/CZ75.lua,working-tree
-CZ75,3,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/CZ75.lua,working-tree
 DeLisle,1,Scope,true,false,JAZZ_IronSight,true,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/DeLisle.lua,working-tree
 DeLisle,1,Scope,true,false,JAZZ_IronSight,true,2,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/DeLisle.lua,working-tree
 DeLisle,1,Scope,true,false,JAZZ_IronSight,true,3,JAZZ_IronSight,Стандартный прицел,jazz,true,InventoryItem/DeLisle.lua,working-tree
@@ -321,15 +329,16 @@ DeLisle,1,Scope,true,false,JAZZ_IronSight,true,9,JAZZ_Scope_12x,Оптическ
 DeLisle,1,Scope,true,false,JAZZ_IronSight,true,10,JAZZ_Scope_6x,Оптический Прицел 1-6x,jazz,false,InventoryItem/DeLisle.lua,working-tree
 DeLisle,1,Scope,true,false,JAZZ_IronSight,true,11,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/DeLisle.lua,working-tree
 DeLisle,2,Muzzle,false,false,JAZZ_SuppressorIntegrated,true,1,JAZZ_SuppressorIntegrated,Глушитель Интегрированный,jazz,true,InventoryItem/DeLisle.lua,working-tree
-DesertEagle,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/DesertEagle.lua,working-tree
+DesertEagle,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_13_PISTOL_DE,Расширенный магазин,jazz,false,InventoryItem/DesertEagle.lua,working-tree
 DesertEagle,1,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/DesertEagle.lua,working-tree
 DesertEagle,2,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_Barrel50BMG_DesertEagle,.50 BMG Barrel,jazz,false,InventoryItem/DesertEagle.lua,working-tree
 DesertEagle,2,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/DesertEagle.lua,working-tree
 DesertEagle,3,Muzzle,false,true,,false,1,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/DesertEagle.lua,working-tree
 DesertEagle,4,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/DesertEagle.lua,working-tree
 DesertEagle,4,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/DesertEagle.lua,working-tree
-DesertEagle,4,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/DesertEagle.lua,working-tree
-DesertEagle,4,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/DesertEagle.lua,working-tree
+DesertEagle,4,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/DesertEagle.lua,working-tree
+DesertEagle,4,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/DesertEagle.lua,working-tree
+DesertEagle,4,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/DesertEagle.lua,working-tree
 DoubleBarrelShotgun,1,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLongShotgun,Extended Barrel,jazz,false,InventoryItem/DoubleBarrelShotgun.lua,working-tree
 DoubleBarrelShotgun,1,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/DoubleBarrelShotgun.lua,working-tree
 DoubleBarrelShotgun,1,Barrel,true,false,JAZZ_BarrelNormal,true,3,JAZZ_BarrelShortShotgun,Shortened Barrel,jazz,false,InventoryItem/DoubleBarrelShotgun.lua,working-tree
@@ -337,7 +346,7 @@ DP27,1,Bipod,false,false,JAZZ_Bipod,true,1,JAZZ_Bipod,Bipod,jazz,true,InventoryI
 DragunovSVD,1,Stock,true,false,JAZZ_StockNormal,true,1,JAZZ_StockLight,Light Stock,jazz,false,InventoryItem/DragunovSVD.lua,working-tree
 DragunovSVD,1,Stock,true,false,JAZZ_StockNormal,true,2,JAZZ_StockNormal,Default Stock,jazz,true,InventoryItem/DragunovSVD.lua,working-tree
 DragunovSVD,2,Bipod,true,true,,false,1,JAZZ_Bipod,Bipod,jazz,false,InventoryItem/DragunovSVD.lua,working-tree
-DragunovSVD,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_10_20,Магазин на 20 патрон,jazz,false,InventoryItem/DragunovSVD.lua,working-tree
+DragunovSVD,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_10_20_SVD,Магазин на 20 патрон,jazz,false,InventoryItem/DragunovSVD.lua,working-tree
 DragunovSVD,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/DragunovSVD.lua,working-tree
 DragunovSVD,4,Scope,true,true,JAZZ_Scope_PSO,true,1,JAZZ_CombatScope_1P29,JAZZ_CombatScope_1P29,jazz,false,InventoryItem/DragunovSVD.lua,working-tree
 DragunovSVD,4,Scope,true,true,JAZZ_Scope_PSO,true,2,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/DragunovSVD.lua,working-tree
@@ -351,12 +360,13 @@ DragunovSVD,4,Scope,true,true,JAZZ_Scope_PSO,true,9,JAZZ_Scope_PSO,Оптиче�
 DragunovSVD,4,Scope,true,true,JAZZ_Scope_PSO,true,10,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/DragunovSVD.lua,working-tree
 DragunovSVD,5,Muzzle,true,true,JAZZ_Compensator,true,1,JAZZ_Compensator,Compensator,jazz,true,InventoryItem/DragunovSVD.lua,working-tree
 DragunovSVD_Custom,1,Scope,false,true,JAZZ_Scope_3x_9x,true,1,JAZZ_Scope_3x_9x,Оптический Прицел Redfield (3-9x),jazz,true,InventoryItem/DragunovSVD_Custom.lua,working-tree
-DragunovSVD_Custom,2,Muzzle,true,false,JAZZ_SuppressorIntegrated,true,1,JAZZ_SuppressorIntegrated,Глушитель Интегрированный,jazz,true,InventoryItem/DragunovSVD_Custom.lua,working-tree
+DragunovSVD_Custom,2,Muzzle,false,false,JAZZ_SuppressorIntegrated,true,1,JAZZ_SuppressorIntegrated,Глушитель Интегрированный,jazz,true,InventoryItem/DragunovSVD_Custom.lua,working-tree
 FAMAS,1,Under,true,true,,false,1,JAZZ_VerticalGrip,Vertical Grip,jazz,false,InventoryItem/FAMAS.lua,working-tree
 FAMAS,2,Bipod,true,true,,false,1,JAZZ_Bipod,Bipod,jazz,false,InventoryItem/FAMAS.lua,working-tree
 FAMAS,3,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/FAMAS.lua,working-tree
 FAMAS,3,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/FAMAS.lua,working-tree
-FAMAS,3,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/FAMAS.lua,working-tree
+FAMAS,3,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/FAMAS.lua,working-tree
+FAMAS,3,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/FAMAS.lua,working-tree
 FAMAS,4,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/FAMAS.lua,working-tree
 FAMAS,4,Scope,true,true,,false,2,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/FAMAS.lua,working-tree
 FAMAS,4,Scope,true,true,,false,3,JAZZ_NightScope,Ночной прицел (5х),jazz,false,InventoryItem/FAMAS.lua,working-tree
@@ -378,21 +388,22 @@ FiveSeven,1,Muzzle,true,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной
 FiveSeven,1,Muzzle,true,true,,false,2,JAZZ_PistolSuppressor,Глушитель,jazz,false,InventoryItem/FiveSeven.lua,working-tree
 FiveSeven,2,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/FiveSeven.lua,working-tree
 FiveSeven,2,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/FiveSeven.lua,working-tree
-FiveSeven,2,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/FiveSeven.lua,working-tree
-FiveSeven,2,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/FiveSeven.lua,working-tree
-FiveSeven,3,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/FiveSeven.lua,working-tree
+FiveSeven,2,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/FiveSeven.lua,working-tree
+FiveSeven,2,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/FiveSeven.lua,working-tree
+FiveSeven,2,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/FiveSeven.lua,working-tree
 FNFAL,1,Handguard,false,false,JAZZ_FNFAL_Handguard,true,1,JAZZ_FNFAL_Handguard,Default Handguard,jazz,true,InventoryItem/FNFAL.lua,working-tree
 FNFAL,2,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/FNFAL.lua,working-tree
 FNFAL,2,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/FNFAL.lua,working-tree
-FNFAL,2,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/FNFAL.lua,working-tree
-FNFAL,2,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/FNFAL.lua,working-tree
+FNFAL,2,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/FNFAL.lua,working-tree
+FNFAL,2,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/FNFAL.lua,working-tree
+FNFAL,2,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/FNFAL.lua,working-tree
 FNFAL,3,Muzzle,true,true,,false,1,JAZZ_Compensator,Compensator,jazz,false,InventoryItem/FNFAL.lua,working-tree
 FNFAL,3,Muzzle,true,true,,false,2,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/FNFAL.lua,working-tree
 FNFAL,3,Muzzle,true,true,,false,3,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/FNFAL.lua,working-tree
 FNFAL,3,Muzzle,true,true,,false,4,JAZZ_SuppressorImproved,Улучшенный глушитель,jazz,false,InventoryItem/FNFAL.lua,working-tree
-FNFAL,4,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_20_30,Магазин на 30 патрон,jazz,false,InventoryItem/FNFAL.lua,working-tree
+FNFAL,4,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_20_30_FAL,Магазин на 30 патрон,jazz,false,InventoryItem/FNFAL.lua,working-tree
 FNFAL,4,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/FNFAL.lua,working-tree
-FNFAL,4,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormalFine,Fine-Tuned Mag,jazz,false,InventoryItem/FNFAL.lua,working-tree
+FNFAL,4,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormalFine_FAL,Fine-Tuned Mag,jazz,false,InventoryItem/FNFAL.lua,working-tree
 FNFAL,5,Bipod,true,true,,false,1,JAZZ_Bipod,Bipod,jazz,false,InventoryItem/FNFAL.lua,working-tree
 FNFAL,6,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelHeavy,Heavy Barrel,jazz,false,InventoryItem/FNFAL.lua,working-tree
 FNFAL,6,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/FNFAL.lua,working-tree
@@ -415,7 +426,7 @@ FNFAL,9,Scope,true,true,,false,7,JAZZ_Reflex_M68,Коллиматор Aimpoint M
 FNFAL,9,Scope,true,true,,false,8,JAZZ_Scope_12x,Оптический Прицел Leupold Mark 4 (12x),jazz,false,InventoryItem/FNFAL.lua,working-tree
 FNFAL,9,Scope,true,true,,false,9,JAZZ_Scope_6x,Оптический Прицел 1-6x,jazz,false,InventoryItem/FNFAL.lua,working-tree
 FNFAL,9,Scope,true,true,,false,10,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/FNFAL.lua,working-tree
-FNMAG,1,Bipod,true,false,JAZZ_KSP_BIPOD,true,1,JAZZ_KSP_BIPOD,Сошка от KSP 58,jazz,true,InventoryItem/FNMAG.lua,working-tree
+FNMAG,1,Bipod,true,false,JAZZ_Bipod,true,1,JAZZ_Bipod,Bipod,jazz,true,InventoryItem/FNMAG.lua,working-tree
 FNMAG,2,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/FNMAG.lua,working-tree
 FNMAG,2,Scope,true,true,,false,2,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/FNMAG.lua,working-tree
 FNMAG,2,Scope,true,true,,false,3,JAZZ_NightScope,Ночной прицел (5х),jazz,false,InventoryItem/FNMAG.lua,working-tree
@@ -446,7 +457,7 @@ FNMinimi,4,Scope,true,true,,false,7,JAZZ_Reflex_M68,Коллиматор Aimpoin
 FNMinimi,4,Scope,true,true,,false,8,JAZZ_Scope_12x,Оптический Прицел Leupold Mark 4 (12x),jazz,false,InventoryItem/FNMinimi.lua,working-tree
 FNMinimi,4,Scope,true,true,,false,9,JAZZ_Scope_6x,Оптический Прицел 1-6x,jazz,false,InventoryItem/FNMinimi.lua,working-tree
 FNMinimi,4,Scope,true,true,,false,10,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/FNMinimi.lua,working-tree
-FNMinimi,5,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagBelt_100-200,Увеличенный короб,jazz,false,InventoryItem/FNMinimi.lua,working-tree
+FNMinimi,5,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagBelt_100_200,Увеличенный короб,jazz,false,InventoryItem/FNMinimi.lua,working-tree
 FNMinimi,5,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/FNMinimi.lua,working-tree
 FRF2,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/FRF2.lua,working-tree
 FRF2,2,Scope,false,false,JAZZ_Scope_8x_SCROME,true,1,JAZZ_Scope_8x_SCROME,Оптический Прицел 8x,jazz,true,InventoryItem/FRF2.lua,working-tree
@@ -458,16 +469,17 @@ G36,2,Muzzle,true,false,,false,1,JAZZ_Compensator,Compensator,jazz,false,Invento
 G36,2,Muzzle,true,false,,false,2,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/G36.lua,working-tree
 G36,2,Muzzle,true,false,,false,3,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/G36.lua,working-tree
 G36,2,Muzzle,true,false,,false,4,JAZZ_SuppressorImproved,Улучшенный глушитель,jazz,false,InventoryItem/G36.lua,working-tree
-G36,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30-100_cumbersome,Бубен,jazz,false,InventoryItem/G36.lua,working-tree
+G36,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30_100_cumbersome,Бубен,jazz,false,InventoryItem/G36.lua,working-tree
 G36,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/G36.lua,working-tree
-G36,3,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagQuick,Quick Mag,jazz,false,InventoryItem/G36.lua,working-tree
+G36,3,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagQuick_G36,Quick Mag,jazz,false,InventoryItem/G36.lua,working-tree
 G36,4,Under,true,true,,false,1,JAZZ_GrenadeLauncher,Grenade Launcher,jazz,false,InventoryItem/G36.lua,working-tree
 G36,4,Under,true,true,,false,2,JAZZ_TacGrip,Tactical Grip,jazz,false,InventoryItem/G36.lua,working-tree
 G36,4,Under,true,true,,false,3,JAZZ_VerticalGrip,Vertical Grip,jazz,false,InventoryItem/G36.lua,working-tree
 G36,5,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/G36.lua,working-tree
 G36,5,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/G36.lua,working-tree
-G36,5,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/G36.lua,working-tree
-G36,5,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/G36.lua,working-tree
+G36,5,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/G36.lua,working-tree
+G36,5,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/G36.lua,working-tree
+G36,5,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/G36.lua,working-tree
 G36,6,Stock,true,false,JAZZ_StockNormal,true,1,JAZZ_StockFolded,Folded Stock,jazz,false,InventoryItem/G36.lua,working-tree
 G36,6,Stock,true,false,JAZZ_StockNormal,true,2,JAZZ_StockHeavy,Heavy Stock,jazz,false,InventoryItem/G36.lua,working-tree
 G36,6,Stock,true,false,JAZZ_StockNormal,true,3,JAZZ_StockNormal,Default Stock,jazz,true,InventoryItem/G36.lua,working-tree
@@ -497,18 +509,21 @@ G36c,2,Muzzle,true,false,JAZZ_DefMuzzle,true,1,JAZZ_DefMuzzle,Заводской
 G36c,2,Muzzle,true,false,JAZZ_DefMuzzle,true,2,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/G36c.lua,working-tree
 G36c,2,Muzzle,true,false,JAZZ_DefMuzzle,true,3,JAZZ_SuppressorImproved,Улучшенный глушитель,jazz,false,InventoryItem/G36c.lua,working-tree
 G36c,3,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/G36c.lua,working-tree
+G36c,3,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagQuick_G36,Quick Mag,jazz,false,InventoryItem/G36c.lua,working-tree
 G36c,4,Under,true,true,JAZZ_TacGrip,true,1,JAZZ_GrenadeLauncher_M14,Grenade Launcher,jazz,false,InventoryItem/G36c.lua,working-tree
 G36c,4,Under,true,true,JAZZ_TacGrip,true,2,JAZZ_TacGrip,Tactical Grip,jazz,true,InventoryItem/G36c.lua,working-tree
 G36c,4,Under,true,true,JAZZ_TacGrip,true,3,JAZZ_VerticalGrip,Vertical Grip,jazz,false,InventoryItem/G36c.lua,working-tree
 G36c,5,Side,true,true,JAZZ_LaserDot,true,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/G36c.lua,working-tree
 G36c,5,Side,true,true,JAZZ_LaserDot,true,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/G36c.lua,working-tree
-G36c,5,Side,true,true,JAZZ_LaserDot,true,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,true,InventoryItem/G36c.lua,working-tree
-G36c,5,Side,true,true,JAZZ_LaserDot,true,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/G36c.lua,working-tree
-G36c,6,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/G36c.lua,working-tree
-G36c,6,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/G36c.lua,working-tree
+G36c,5,Side,true,true,JAZZ_LaserDot,true,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/G36c.lua,working-tree
+G36c,5,Side,true,true,JAZZ_LaserDot,true,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,true,InventoryItem/G36c.lua,working-tree
+G36c,5,Side,true,true,JAZZ_LaserDot,true,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/G36c.lua,working-tree
+G36c,6,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/G36c.lua,working-tree
+G36c,6,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/G36c.lua,working-tree
 G3A3,1,Bipod,true,true,,false,1,JAZZ_Bipod,Bipod,jazz,false,InventoryItem/G3A3.lua,working-tree
-G3A3,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/G3A3.lua,working-tree
-G3A3,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagSmall20_10,Магазин на 10 патрон,jazz,false,InventoryItem/G3A3.lua,working-tree
+G3A3,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30_100_G3,Бубен,jazz,false,InventoryItem/G3A3.lua,working-tree
+G3A3,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/G3A3.lua,working-tree
+G3A3,2,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagSmall20_10_G3,Магазин на 10 патрон,jazz,false,InventoryItem/G3A3.lua,working-tree
 G3A3,3,Muzzle,true,true,,false,1,JAZZ_Compensator,Compensator,jazz,false,InventoryItem/G3A3.lua,working-tree
 G3A3,3,Muzzle,true,true,,false,2,JAZZ_SuppressorImproved,Улучшенный глушитель,jazz,false,InventoryItem/G3A3.lua,working-tree
 G3A3,4,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/G3A3.lua,working-tree
@@ -534,13 +549,14 @@ G3A4,2,Scope,true,true,,false,8,JAZZ_Scope_12x,Оптический Прицел
 G3A4,2,Scope,true,true,,false,9,JAZZ_Scope_6x,Оптический Прицел 1-6x,jazz,false,InventoryItem/G3A4.lua,working-tree
 G3A4,2,Scope,true,true,,false,10,JAZZ_Scope_DA15_6x,Оптический Прицел Zeiss Diavari-DA (1.5-6x),jazz,false,InventoryItem/G3A4.lua,working-tree
 G3A4,2,Scope,true,true,,false,11,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/G3A4.lua,working-tree
-G3A4,3,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/G3A4.lua,working-tree
-G3A4,3,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/G3A4.lua,working-tree
+G3A4,3,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/G3A4.lua,working-tree
+G3A4,3,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/G3A4.lua,working-tree
 G3A4,4,Muzzle,true,true,,false,1,JAZZ_Compensator,Compensator,jazz,false,InventoryItem/G3A4.lua,working-tree
 G3A4,4,Muzzle,true,true,,false,2,JAZZ_DefMuzzle,Заводской дульный тормоз,jazz,false,InventoryItem/G3A4.lua,working-tree
 G3A4,4,Muzzle,true,true,,false,3,JAZZ_SuppressorImproved,Улучшенный глушитель,jazz,false,InventoryItem/G3A4.lua,working-tree
-G3A4,5,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/G3A4.lua,working-tree
-G3A4,5,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagSmall20_10,Магазин на 10 патрон,jazz,false,InventoryItem/G3A4.lua,working-tree
+G3A4,5,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30_100_G3,Бубен,jazz,false,InventoryItem/G3A4.lua,working-tree
+G3A4,5,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/G3A4.lua,working-tree
+G3A4,5,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagSmall20_10_G3,Магазин на 10 патрон,jazz,false,InventoryItem/G3A4.lua,working-tree
 G3SniperV1,1,Bipod,true,true,JAZZ_Bipod,true,1,JAZZ_Bipod,Bipod,jazz,true,InventoryItem/G3SniperV1.lua,working-tree
 G3SniperV1,2,Muzzle,true,true,,false,1,JAZZ_Compensator,Compensator,jazz,false,InventoryItem/G3SniperV1.lua,working-tree
 G3SniperV1,2,Muzzle,true,true,,false,2,JAZZ_SuppressorImproved,Улучшенный глушитель,jazz,false,InventoryItem/G3SniperV1.lua,working-tree
@@ -555,8 +571,9 @@ G3SniperV1,3,Scope,true,true,JAZZ_Scope_DA15_6x,true,8,JAZZ_Scope_12x,Оптич
 G3SniperV1,3,Scope,true,true,JAZZ_Scope_DA15_6x,true,9,JAZZ_Scope_6x,Оптический Прицел 1-6x,jazz,false,InventoryItem/G3SniperV1.lua,working-tree
 G3SniperV1,3,Scope,true,true,JAZZ_Scope_DA15_6x,true,10,JAZZ_Scope_DA15_6x,Оптический Прицел Zeiss Diavari-DA (1.5-6x),jazz,true,InventoryItem/G3SniperV1.lua,working-tree
 G3SniperV1,3,Scope,true,true,JAZZ_Scope_DA15_6x,true,11,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/G3SniperV1.lua,working-tree
-G3SniperV1,4,Magazine,true,false,JAZZ_MagSmall20_10,true,1,JAZZ_MagNormal,Заводской магазин,jazz,false,InventoryItem/G3SniperV1.lua,working-tree
-G3SniperV1,4,Magazine,true,false,JAZZ_MagSmall20_10,true,2,JAZZ_MagSmall20_10,Магазин на 10 патрон,jazz,true,InventoryItem/G3SniperV1.lua,working-tree
+G3SniperV1,4,Magazine,true,false,JAZZ_MagSmall20_10_G3,true,1,JAZZ_MagDrum_30_100_G3,Бубен,jazz,false,InventoryItem/G3SniperV1.lua,working-tree
+G3SniperV1,4,Magazine,true,false,JAZZ_MagSmall20_10_G3,true,2,JAZZ_MagNormal,Заводской магазин,jazz,false,InventoryItem/G3SniperV1.lua,working-tree
+G3SniperV1,4,Magazine,true,false,JAZZ_MagSmall20_10_G3,true,3,JAZZ_MagSmall20_10_G3,Магазин на 10 патрон,jazz,true,InventoryItem/G3SniperV1.lua,working-tree
 G43,1,Scope,true,true,,false,1,JAZZ_Scope_ZF4,Оптический Прицел ZF4 (4x),jazz,false,InventoryItem/G43.lua,working-tree
 Galil,1,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/Galil.lua,working-tree
 Galil,1,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/Galil.lua,working-tree
@@ -583,11 +600,12 @@ Galil,5,Scope,true,true,,false,9,JAZZ_Scope_6x,Оптический Прицел
 Galil,5,Scope,true,true,,false,10,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/Galil.lua,working-tree
 Galil,6,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_25_40,Магазин на 40 патрон,jazz,false,InventoryItem/Galil.lua,working-tree
 Galil,6,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Galil.lua,working-tree
-Galil,6,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagQuick,Quick Mag,jazz,false,InventoryItem/Galil.lua,working-tree
+Galil,6,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagQuick_GALIL,Quick Mag,jazz,false,InventoryItem/Galil.lua,working-tree
 Galil,7,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/Galil.lua,working-tree
 Galil,7,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/Galil.lua,working-tree
-Galil,7,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/Galil.lua,working-tree
-Galil,7,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/Galil.lua,working-tree
+Galil,7,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/Galil.lua,working-tree
+Galil,7,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/Galil.lua,working-tree
+Galil,7,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/Galil.lua,working-tree
 Gewehr98,1,Scope,true,false,JAZZ_IronSight,true,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/Gewehr98.lua,working-tree
 Gewehr98,1,Scope,true,false,JAZZ_IronSight,true,2,JAZZ_IronSight,Стандартный прицел,jazz,true,InventoryItem/Gewehr98.lua,working-tree
 Gewehr98,1,Scope,true,false,JAZZ_IronSight,true,3,JAZZ_Scope_DA15_6x,Оптический Прицел Zeiss Diavari-DA (1.5-6x),jazz,false,InventoryItem/Gewehr98.lua,working-tree
@@ -597,14 +615,16 @@ Gewehr98,2,Muzzle,true,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной 
 Glock17,1,Muzzle,true,true,,false,1,JAZZ_Compensator,Compensator,jazz,false,InventoryItem/Glock17.lua,working-tree
 Glock17,1,Muzzle,true,true,,false,2,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/Glock17.lua,working-tree
 Glock17,1,Muzzle,true,true,,false,3,JAZZ_PistolSuppressor,Глушитель,jazz,false,InventoryItem/Glock17.lua,working-tree
-Glock17,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/Glock17.lua,working-tree
-Glock17,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Glock17.lua,working-tree
-Glock17,2,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormalG18,Магазин на 20 патрон,jazz,false,InventoryItem/Glock17.lua,working-tree
+Glock17,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_25_PISTOL_9,Расширенный магазин,jazz,false,InventoryItem/Glock17.lua,working-tree
+Glock17,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagLarge_28,Расширенный магазин,jazz,false,InventoryItem/Glock17.lua,working-tree
+Glock17,2,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Glock17.lua,working-tree
+Glock17,2,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagNormalFine_PISTOL_9,Fine-Tuned Mag,jazz,false,InventoryItem/Glock17.lua,working-tree
+Glock17,2,Magazine,true,false,JAZZ_MagNormal,true,5,JAZZ_MagNormalG18,Магазин на 20 патрон,jazz,false,InventoryItem/Glock17.lua,working-tree
 Glock17,3,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/Glock17.lua,working-tree
 Glock17,3,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/Glock17.lua,working-tree
-Glock17,3,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/Glock17.lua,working-tree
-Glock17,3,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/Glock17.lua,working-tree
-Glock17,4,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/Glock17.lua,working-tree
+Glock17,3,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/Glock17.lua,working-tree
+Glock17,3,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/Glock17.lua,working-tree
+Glock17,3,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/Glock17.lua,working-tree
 Glock18,1,Muzzle,true,true,,false,1,JAZZ_Compensator,Compensator,jazz,false,InventoryItem/Glock18.lua,working-tree
 Glock18,1,Muzzle,true,true,,false,2,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/Glock18.lua,working-tree
 Glock18,1,Muzzle,true,true,,false,3,JAZZ_PistolSuppressor,Глушитель,jazz,false,InventoryItem/Glock18.lua,working-tree
@@ -614,20 +634,19 @@ Glock18,3,Magazine,true,false,JAZZ_MagNormalG18,true,2,JAZZ_MagNormal,Завод
 Glock18,3,Magazine,true,false,JAZZ_MagNormalG18,true,3,JAZZ_MagNormalG18,Магазин на 20 патрон,jazz,true,InventoryItem/Glock18.lua,working-tree
 Glock18,4,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/Glock18.lua,working-tree
 Glock18,4,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/Glock18.lua,working-tree
-Glock18,4,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/Glock18.lua,working-tree
-Glock18,4,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/Glock18.lua,working-tree
-Glock18,5,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/Glock18.lua,working-tree
+Glock18,4,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/Glock18.lua,working-tree
+Glock18,4,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/Glock18.lua,working-tree
+Glock18,4,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/Glock18.lua,working-tree
 HiPower,1,Muzzle,true,true,,false,1,JAZZ_Compensator,Compensator,jazz,false,InventoryItem/HiPower.lua,working-tree
 HiPower,1,Muzzle,true,true,,false,2,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/HiPower.lua,working-tree
-HiPower,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/HiPower.lua,working-tree
-HiPower,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormalFine,Fine-Tuned Mag,jazz,false,InventoryItem/HiPower.lua,working-tree
+HiPower,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_25_PISTOL_9,Расширенный магазин,jazz,false,InventoryItem/HiPower.lua,working-tree
+HiPower,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/HiPower.lua,working-tree
 HiPower,3,Barrel,false,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/HiPower.lua,working-tree
 HiPower,3,Barrel,false,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelLongImproved,Extended Gain-Twist Barrel,jazz,false,InventoryItem/HiPower.lua,working-tree
 HiPower,3,Barrel,false,false,JAZZ_BarrelNormal,true,3,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/HiPower.lua,working-tree
 HiPower,3,Barrel,false,false,JAZZ_BarrelNormal,true,4,JAZZ_BarrelNormalImproved,Gain-Twist Barrel,jazz,false,InventoryItem/HiPower.lua,working-tree
 HiPower,3,Barrel,false,false,JAZZ_BarrelNormal,true,5,JAZZ_BarrelShort,Short Barrel,jazz,false,InventoryItem/HiPower.lua,working-tree
 HiPower,3,Barrel,false,false,JAZZ_BarrelNormal,true,6,JAZZ_BarrelShortImproved,Short Gain-Twist Barrel,jazz,false,InventoryItem/HiPower.lua,working-tree
-HiPower,4,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/HiPower.lua,working-tree
 HK21,1,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/HK21.lua,working-tree
 HK21,1,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelLongImproved,Extended Gain-Twist Barrel,jazz,false,InventoryItem/HK21.lua,working-tree
 HK21,1,Barrel,true,false,JAZZ_BarrelNormal,true,3,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/HK21.lua,working-tree
@@ -648,15 +667,18 @@ HK21,3,Scope,true,true,,false,9,JAZZ_Scope_6x,Оптический Прицел 
 HK21,3,Scope,true,true,,false,10,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/HK21.lua,working-tree
 HK21,4,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/HK21.lua,working-tree
 HK21,4,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/HK21.lua,working-tree
-HK21,4,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/HK21.lua,working-tree
-HK21,4,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/HK21.lua,working-tree
+HK21,4,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/HK21.lua,working-tree
+HK21,4,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/HK21.lua,working-tree
+HK21,4,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/HK21.lua,working-tree
 HK21,5,Stock,true,false,JAZZ_StockNormal,true,1,JAZZ_StockHeavy,Heavy Stock,jazz,false,InventoryItem/HK21.lua,working-tree
 HK21,5,Stock,true,false,JAZZ_StockNormal,true,2,JAZZ_StockNormal,Default Stock,jazz,true,InventoryItem/HK21.lua,working-tree
 HK21,6,Bipod,true,false,JAZZ_Bipod,true,1,JAZZ_Bipod,Bipod,jazz,true,InventoryItem/HK21.lua,working-tree
 HK21,7,Under,true,true,,false,1,JAZZ_TacGrip,Tactical Grip,jazz,false,InventoryItem/HK21.lua,working-tree
 HK21,7,Under,true,true,,false,2,JAZZ_VerticalGrip,Vertical Grip,jazz,false,InventoryItem/HK21.lua,working-tree
-HK21,8,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagBelt_40-100,Короб,jazz,false,InventoryItem/HK21.lua,working-tree
-HK21,8,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/HK21.lua,working-tree
+HK21,8,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagBelt_40_100,Короб,jazz,false,InventoryItem/HK21.lua,working-tree
+HK21,8,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagDrum_30_100_G3,Бубен,jazz,false,InventoryItem/HK21.lua,working-tree
+HK21,8,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/HK21.lua,working-tree
+HK21,8,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagSmall20_10_G3,Магазин на 10 патрон,jazz,false,InventoryItem/HK21.lua,working-tree
 HK23e,1,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/HK23e.lua,working-tree
 HK23e,1,Scope,true,true,,false,2,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/HK23e.lua,working-tree
 HK23e,1,Scope,true,true,,false,3,JAZZ_NightScope,Ночной прицел (5х),jazz,false,InventoryItem/HK23e.lua,working-tree
@@ -667,10 +689,13 @@ HK23e,1,Scope,true,true,,false,7,JAZZ_Reflex_M68,Коллиматор Aimpoint M
 HK23e,1,Scope,true,true,,false,8,JAZZ_Scope_12x,Оптический Прицел Leupold Mark 4 (12x),jazz,false,InventoryItem/HK23e.lua,working-tree
 HK23e,1,Scope,true,true,,false,9,JAZZ_Scope_6x,Оптический Прицел 1-6x,jazz,false,InventoryItem/HK23e.lua,working-tree
 HK23e,1,Scope,true,true,,false,10,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/HK23e.lua,working-tree
-HK23e,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/HK23e.lua,working-tree
+HK23e,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30_100_G3,Бубен,jazz,false,InventoryItem/HK23e.lua,working-tree
+HK23e,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/HK23e.lua,working-tree
+HK23e,2,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagSmall20_10_G3,Магазин на 10 патрон,jazz,false,InventoryItem/HK23e.lua,working-tree
 HK23e,3,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/HK23e.lua,working-tree
 HK23e,3,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/HK23e.lua,working-tree
-HK23e,3,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/HK23e.lua,working-tree
+HK23e,3,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/HK23e.lua,working-tree
+HK23e,3,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/HK23e.lua,working-tree
 HK23e,4,Bipod,true,false,JAZZ_Bipod,true,1,JAZZ_Bipod,Bipod,jazz,true,InventoryItem/HK23e.lua,working-tree
 HK33,1,General,true,false,JAZZ_HK33Lower,true,1,JAZZ_HK33Lower,Lower,jazz,true,InventoryItem/HK33.lua,working-tree
 HK33,1,General,true,false,JAZZ_HK33Lower,true,2,JAZZ_HK33LowerMod,Улучшенный lower,jazz,false,InventoryItem/HK33.lua,working-tree
@@ -684,15 +709,16 @@ HK33,5,Muzzle,true,false,,false,1,JAZZ_Compensator,Compensator,jazz,false,Invent
 HK33,5,Muzzle,true,false,,false,2,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/HK33.lua,working-tree
 HK33,5,Muzzle,true,false,,false,3,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/HK33.lua,working-tree
 HK33,5,Muzzle,true,false,,false,4,JAZZ_SuppressorImproved,Улучшенный глушитель,jazz,false,InventoryItem/HK33.lua,working-tree
-HK33,6,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30-100,Бубен,jazz,false,InventoryItem/HK33.lua,working-tree
+HK33,6,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30_100_HK33,Бубен,jazz,false,InventoryItem/HK33.lua,working-tree
 HK33,6,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/HK33.lua,working-tree
 HK33,7,Under,true,true,,false,1,JAZZ_GrenadeLauncher,Grenade Launcher,jazz,false,InventoryItem/HK33.lua,working-tree
 HK33,7,Under,true,true,,false,2,JAZZ_TacGrip,Tactical Grip,jazz,false,InventoryItem/HK33.lua,working-tree
 HK33,7,Under,true,true,,false,3,JAZZ_VerticalGrip,Vertical Grip,jazz,false,InventoryItem/HK33.lua,working-tree
 HK33,8,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/HK33.lua,working-tree
 HK33,8,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/HK33.lua,working-tree
-HK33,8,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/HK33.lua,working-tree
-HK33,8,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/HK33.lua,working-tree
+HK33,8,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/HK33.lua,working-tree
+HK33,8,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/HK33.lua,working-tree
+HK33,8,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/HK33.lua,working-tree
 HK33,9,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/HK33.lua,working-tree
 HK33,9,Scope,true,true,,false,2,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/HK33.lua,working-tree
 HK33,9,Scope,true,true,,false,3,JAZZ_CombatScope_FeroZ24,Штурмовой прицел Fero Z24 (4х),jazz,false,InventoryItem/HK33.lua,working-tree
@@ -721,22 +747,20 @@ Ithaca,3,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelShortShotgun,Shor
 Ithaca,4,Stock,true,false,JAZZ_StockNormal,true,1,JAZZ_StockNo,No Stock,jazz,false,InventoryItem/Ithaca.lua,working-tree
 Ithaca,4,Stock,true,false,JAZZ_StockNormal,true,2,JAZZ_StockNormal,Default Stock,jazz,true,InventoryItem/Ithaca.lua,working-tree
 Kimber,1,Muzzle,true,true,,false,1,JAZZ_PistolSuppressor,Глушитель,jazz,false,InventoryItem/Kimber.lua,working-tree
-Kimber,2,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/Kimber.lua,working-tree
-Kimber,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_7_10,Магазин на 10 патрон,jazz,false,InventoryItem/Kimber.lua,working-tree
-Kimber,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Kimber.lua,working-tree
-Kimber,4,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/Kimber.lua,working-tree
-Kimber,4,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/Kimber.lua,working-tree
-Kimber,5,Scope,true,false,JAZZ_IronSight,true,1,JAZZ_IronSight,Стандартный прицел,jazz,true,InventoryItem/Kimber.lua,working-tree
-Kimber,5,Scope,true,false,JAZZ_IronSight,true,2,JAZZ_Reflex_Pistol,Коллиматор Пистолетный,jazz,false,InventoryItem/Kimber.lua,working-tree
-Kimber,6,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/Kimber.lua,working-tree
-Kimber,6,Side,true,true,,false,2,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/Kimber.lua,working-tree
-Korth,1,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/Korth.lua,working-tree
-Korth,2,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/Korth.lua,working-tree
-Korth,2,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/Korth.lua,working-tree
-Korth,3,Handgrip,true,false,JAZZ_Handgrip_Default,true,1,JAZZ_Handgrip_Default,Стандартная рукоять,jazz,true,InventoryItem/Korth.lua,working-tree
-Korth,3,Handgrip,true,false,JAZZ_Handgrip_Default,true,2,JAZZ_Handgrip_Ergo,Эргономичная рукоять,jazz,false,InventoryItem/Korth.lua,working-tree
+Kimber,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_7_10,Магазин на 10 патрон,jazz,false,InventoryItem/Kimber.lua,working-tree
+Kimber,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Kimber.lua,working-tree
+Kimber,3,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/Kimber.lua,working-tree
+Kimber,3,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/Kimber.lua,working-tree
+Kimber,4,Scope,true,false,JAZZ_IronSight,true,1,JAZZ_IronSight,Стандартный прицел,jazz,true,InventoryItem/Kimber.lua,working-tree
+Kimber,4,Scope,true,false,JAZZ_IronSight,true,2,JAZZ_Reflex_Pistol,Коллиматор Пистолетный,jazz,false,InventoryItem/Kimber.lua,working-tree
+Kimber,5,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/Kimber.lua,working-tree
+Kimber,5,Side,true,true,,false,2,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/Kimber.lua,working-tree
+Kimber,5,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/Kimber.lua,working-tree
+Korth,1,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/Korth.lua,working-tree
+Korth,1,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/Korth.lua,working-tree
+Korth,2,Handgrip,true,false,JAZZ_Handgrip_Default,true,1,JAZZ_Handgrip_Default,Стандартная рукоять,jazz,true,InventoryItem/Korth.lua,working-tree
+Korth,2,Handgrip,true,false,JAZZ_Handgrip_Default,true,2,JAZZ_Handgrip_Ergo,Эргономичная рукоять,jazz,false,InventoryItem/Korth.lua,working-tree
 Luger,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Luger.lua,working-tree
-Luger,2,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/Luger.lua,working-tree
 M14SAW,1,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelHeavy,Heavy Barrel,jazz,false,InventoryItem/M14SAW.lua,working-tree
 M14SAW,1,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/M14SAW.lua,working-tree
 M14SAW,1,Barrel,true,false,JAZZ_BarrelNormal,true,3,JAZZ_BarrelLongImproved,Extended Gain-Twist Barrel,jazz,false,InventoryItem/M14SAW.lua,working-tree
@@ -748,7 +772,8 @@ M14SAW,2,Stock,false,false,JAZZ_StockNormal,true,1,JAZZ_StockHeavy,Heavy Stock,j
 M14SAW,2,Stock,false,false,JAZZ_StockNormal,true,2,JAZZ_StockLight,Light Stock,jazz,false,InventoryItem/M14SAW.lua,working-tree
 M14SAW,2,Stock,false,false,JAZZ_StockNormal,true,3,JAZZ_StockNormal,Default Stock,jazz,true,InventoryItem/M14SAW.lua,working-tree
 M14SAW,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/M14SAW.lua,working-tree
-M14SAW,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagSmall20_10,Магазин на 10 патрон,jazz,false,InventoryItem/M14SAW.lua,working-tree
+M14SAW,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormalFine_M14,Fine-Tuned Mag,jazz,false,InventoryItem/M14SAW.lua,working-tree
+M14SAW,3,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagSmall20_10_M14,Магазин на 10 патрон,jazz,false,InventoryItem/M14SAW.lua,working-tree
 M14SAW,4,Under,true,true,,false,1,JAZZ_Bipod_Under,Bipod,jazz,false,InventoryItem/M14SAW.lua,working-tree
 M14SAW,4,Under,true,true,,false,2,JAZZ_GrenadeLauncher_M14,Grenade Launcher,jazz,false,InventoryItem/M14SAW.lua,working-tree
 M14SAW,4,Under,true,true,,false,3,JAZZ_TacGrip_M14,Tactical Grip,jazz,false,InventoryItem/M14SAW.lua,working-tree
@@ -759,8 +784,9 @@ M14SAW,5,Muzzle,true,false,JAZZ_M14_Default_Muzzle,true,3,JAZZ_M14_Default_Muzzl
 M14SAW,5,Muzzle,true,false,JAZZ_M14_Default_Muzzle,true,4,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/M14SAW.lua,working-tree
 M14SAW,6,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/M14SAW.lua,working-tree
 M14SAW,6,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/M14SAW.lua,working-tree
-M14SAW,6,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M14SAW.lua,working-tree
-M14SAW,6,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M14SAW.lua,working-tree
+M14SAW,6,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/M14SAW.lua,working-tree
+M14SAW,6,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M14SAW.lua,working-tree
+M14SAW,6,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M14SAW.lua,working-tree
 M14SAW,7,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/M14SAW.lua,working-tree
 M14SAW,7,Scope,true,true,,false,2,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/M14SAW.lua,working-tree
 M14SAW,7,Scope,true,true,,false,3,JAZZ_NightScope,Ночной прицел (5х),jazz,false,InventoryItem/M14SAW.lua,working-tree
@@ -774,8 +800,11 @@ M14SAW,7,Scope,true,true,,false,10,JAZZ_Scope_Scout,Оптический При�
 M16A1,1,Side,true,true,,false,1,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M16A1.lua,working-tree
 M16A1,2,Handguard,true,false,JAZZ_Handguard,true,1,JAZZ_Handguard,Цевьё,jazz,true,InventoryItem/M16A1.lua,working-tree
 M16A1,2,Handguard,true,false,JAZZ_Handguard,true,2,JAZZ_M16A1LaunchHandGuard,Гранатомет,jazz,false,InventoryItem/M16A1.lua,working-tree
-M16A1,3,Magazine,true,false,JAZZ_MagSmall30_20,true,1,JAZZ_MagNormal,Заводской магазин,jazz,false,InventoryItem/M16A1.lua,working-tree
-M16A1,3,Magazine,true,false,JAZZ_MagSmall30_20,true,2,JAZZ_MagSmall30_20,Магазин на 20 патрон,jazz,true,InventoryItem/M16A1.lua,working-tree
+M16A1,3,Magazine,true,false,JAZZ_MagSmall30_20,true,1,JAZZ_MagLarge_50_AR15,Расширенный магазин,jazz,false,InventoryItem/M16A1.lua,working-tree
+M16A1,3,Magazine,true,false,JAZZ_MagSmall30_20,true,2,JAZZ_MagNormal,Заводской магазин,jazz,false,InventoryItem/M16A1.lua,working-tree
+M16A1,3,Magazine,true,false,JAZZ_MagSmall30_20,true,3,JAZZ_MagNormalFine_AR15,Fine-Tuned Mag,jazz,false,InventoryItem/M16A1.lua,working-tree
+M16A1,3,Magazine,true,false,JAZZ_MagSmall30_20,true,4,JAZZ_MagQuick_AR15,Quick Mag,jazz,false,InventoryItem/M16A1.lua,working-tree
+M16A1,3,Magazine,true,false,JAZZ_MagSmall30_20,true,5,JAZZ_MagSmall30_20,Магазин на 20 патрон,jazz,true,InventoryItem/M16A1.lua,working-tree
 M16A1,4,General,true,true,,false,1,JAZZ_HolsterBelt,Ремень,jazz,false,InventoryItem/M16A1.lua,working-tree
 M16A1,5,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/M16A1.lua,working-tree
 M16A1,5,Scope,true,true,,false,2,JAZZ_CombatScope_3x,Штурмовой прицел (3x),jazz,false,InventoryItem/M16A1.lua,working-tree
@@ -792,13 +821,15 @@ M16A2,1,Muzzle,true,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной ф�
 M16A2,1,Muzzle,true,true,,false,2,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/M16A2.lua,working-tree
 M16A2,1,Muzzle,true,true,,false,3,JAZZ_SuppressorImproved,Улучшенный глушитель,jazz,false,InventoryItem/M16A2.lua,working-tree
 M16A2,2,Barrel,false,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/M16A2.lua,working-tree
-M16A2,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/M16A2.lua,working-tree
+M16A2,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_50_AR15,Расширенный магазин,jazz,false,InventoryItem/M16A2.lua,working-tree
 M16A2,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/M16A2.lua,working-tree
-M16A2,3,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagQuick,Quick Mag,jazz,false,InventoryItem/M16A2.lua,working-tree
+M16A2,3,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormalFine_AR15,Fine-Tuned Mag,jazz,false,InventoryItem/M16A2.lua,working-tree
+M16A2,3,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagQuick_AR15,Quick Mag,jazz,false,InventoryItem/M16A2.lua,working-tree
 M16A2,4,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/M16A2.lua,working-tree
 M16A2,4,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/M16A2.lua,working-tree
-M16A2,4,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M16A2.lua,working-tree
-M16A2,4,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M16A2.lua,working-tree
+M16A2,4,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/M16A2.lua,working-tree
+M16A2,4,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M16A2.lua,working-tree
+M16A2,4,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M16A2.lua,working-tree
 M16A2,5,Handguard,true,false,JAZZ_Handguard,true,1,JAZZ_Handguard,Цевьё,jazz,true,InventoryItem/M16A2.lua,working-tree
 M16A2,5,Handguard,true,false,JAZZ_Handguard,true,2,JAZZ_M16A1LaunchHandGuard,Гранатомет,jazz,false,InventoryItem/M16A2.lua,working-tree
 M16A2,6,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/M16A2.lua,working-tree
@@ -812,15 +843,19 @@ M16A2,6,Scope,true,true,,false,8,JAZZ_Reflex_M68,Коллиматор Aimpoint M
 M16A2,6,Scope,true,true,,false,9,JAZZ_Scope_12x,Оптический Прицел Leupold Mark 4 (12x),jazz,false,InventoryItem/M16A2.lua,working-tree
 M16A2,6,Scope,true,true,,false,10,JAZZ_Scope_6x,Оптический Прицел 1-6x,jazz,false,InventoryItem/M16A2.lua,working-tree
 M16A2,6,Scope,true,true,,false,11,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/M16A2.lua,working-tree
-M16A4,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/M16A4.lua,working-tree
-M16A4,1,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagSmall30_20,Магазин на 20 патрон,jazz,false,InventoryItem/M16A4.lua,working-tree
+M16A4,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_50_AR15,Расширенный магазин,jazz,false,InventoryItem/M16A4.lua,working-tree
+M16A4,1,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/M16A4.lua,working-tree
+M16A4,1,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormalFine_AR15,Fine-Tuned Mag,jazz,false,InventoryItem/M16A4.lua,working-tree
+M16A4,1,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagQuick_AR15,Quick Mag,jazz,false,InventoryItem/M16A4.lua,working-tree
+M16A4,1,Magazine,true,false,JAZZ_MagNormal,true,5,JAZZ_MagSmall30_20,Магазин на 20 патрон,jazz,false,InventoryItem/M16A4.lua,working-tree
 M16A4,2,Under,true,true,,false,1,JAZZ_GrenadeLauncher,Grenade Launcher,jazz,false,InventoryItem/M16A4.lua,working-tree
 M16A4,2,Under,true,true,,false,2,JAZZ_TacGrip,Tactical Grip,jazz,false,InventoryItem/M16A4.lua,working-tree
 M16A4,2,Under,true,true,,false,3,JAZZ_VerticalGrip,Vertical Grip,jazz,false,InventoryItem/M16A4.lua,working-tree
 M16A4,3,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/M16A4.lua,working-tree
 M16A4,3,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/M16A4.lua,working-tree
-M16A4,3,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M16A4.lua,working-tree
-M16A4,3,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M16A4.lua,working-tree
+M16A4,3,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/M16A4.lua,working-tree
+M16A4,3,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M16A4.lua,working-tree
+M16A4,3,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M16A4.lua,working-tree
 M16A4,4,Muzzle,true,true,,false,1,JAZZ_Compensator,Compensator,jazz,false,InventoryItem/M16A4.lua,working-tree
 M16A4,4,Muzzle,true,true,,false,2,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/M16A4.lua,working-tree
 M16A4,4,Muzzle,true,true,,false,3,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/M16A4.lua,working-tree
@@ -844,7 +879,8 @@ M1A,2,Stock,false,false,JAZZ_StockHeavy,true,1,JAZZ_StockHeavy,Heavy Stock,jazz,
 M1A,2,Stock,false,false,JAZZ_StockHeavy,true,2,JAZZ_StockLight,Light Stock,jazz,false,InventoryItem/M1A.lua,working-tree
 M1A,2,Stock,false,false,JAZZ_StockHeavy,true,3,JAZZ_StockNormal,Default Stock,jazz,false,InventoryItem/M1A.lua,working-tree
 M1A,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/M1A.lua,working-tree
-M1A,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormalFine,Fine-Tuned Mag,jazz,false,InventoryItem/M1A.lua,working-tree
+M1A,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormalFine_M14,Fine-Tuned Mag,jazz,false,InventoryItem/M1A.lua,working-tree
+M1A,3,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagSmall20_10_M14,Магазин на 10 патрон,jazz,false,InventoryItem/M1A.lua,working-tree
 M1A,4,Under,true,true,,false,1,JAZZ_Bipod_Under,Bipod,jazz,false,InventoryItem/M1A.lua,working-tree
 M1A,4,Under,true,true,,false,2,JAZZ_GrenadeLauncher_M14,Grenade Launcher,jazz,false,InventoryItem/M1A.lua,working-tree
 M1A,4,Under,true,true,,false,3,JAZZ_TacGrip_M14,Tactical Grip,jazz,false,InventoryItem/M1A.lua,working-tree
@@ -856,8 +892,9 @@ M1A,5,Muzzle,true,false,JAZZ_M14_Default_Muzzle,true,4,JAZZ_Suppressor,Suppresso
 M1A,5,Muzzle,true,false,JAZZ_M14_Default_Muzzle,true,5,JAZZ_SuppressorImproved,Улучшенный глушитель,jazz,false,InventoryItem/M1A.lua,working-tree
 M1A,6,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/M1A.lua,working-tree
 M1A,6,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/M1A.lua,working-tree
-M1A,6,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M1A.lua,working-tree
-M1A,6,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M1A.lua,working-tree
+M1A,6,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/M1A.lua,working-tree
+M1A,6,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M1A.lua,working-tree
+M1A,6,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M1A.lua,working-tree
 M1A,7,Handguard,true,false,JAZZ_HandguardM1A,true,1,JAZZ_HandguardM1A,Цевьё,jazz,true,InventoryItem/M1A.lua,working-tree
 M1A,7,Handguard,true,false,JAZZ_HandguardM1A,true,2,JAZZ_HandguardM1ARail,Цевьё с рельсой,jazz,false,InventoryItem/M1A.lua,working-tree
 M1A,8,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/M1A.lua,working-tree
@@ -884,8 +921,9 @@ M21,1,Barrel,true,false,JAZZ_BarrelNormal,true,7,JAZZ_BarrelShortImproved,Short 
 M21,2,Stock,false,false,JAZZ_StockHeavy,true,1,JAZZ_StockHeavy,Heavy Stock,jazz,true,InventoryItem/M21.lua,working-tree
 M21,2,Stock,false,false,JAZZ_StockHeavy,true,2,JAZZ_StockLight,Light Stock,jazz,false,InventoryItem/M21.lua,working-tree
 M21,2,Stock,false,false,JAZZ_StockHeavy,true,3,JAZZ_StockNormal,Default Stock,jazz,false,InventoryItem/M21.lua,working-tree
-M21,3,Magazine,true,false,JAZZ_MagSmall20_10,true,1,JAZZ_MagNormal,Заводской магазин,jazz,false,InventoryItem/M21.lua,working-tree
-M21,3,Magazine,true,false,JAZZ_MagSmall20_10,true,2,JAZZ_MagSmall20_10,Магазин на 10 патрон,jazz,true,InventoryItem/M21.lua,working-tree
+M21,3,Magazine,true,false,JAZZ_MagSmall20_10_M14,true,1,JAZZ_MagNormal,Заводской магазин,jazz,false,InventoryItem/M21.lua,working-tree
+M21,3,Magazine,true,false,JAZZ_MagSmall20_10_M14,true,2,JAZZ_MagNormalFine_M14,Fine-Tuned Mag,jazz,false,InventoryItem/M21.lua,working-tree
+M21,3,Magazine,true,false,JAZZ_MagSmall20_10_M14,true,3,JAZZ_MagSmall20_10_M14,Магазин на 10 патрон,jazz,true,InventoryItem/M21.lua,working-tree
 M21,4,Under,true,true,,false,1,JAZZ_Bipod_Under,Bipod,jazz,false,InventoryItem/M21.lua,working-tree
 M21,4,Under,true,true,,false,2,JAZZ_GrenadeLauncher_M14,Grenade Launcher,jazz,false,InventoryItem/M21.lua,working-tree
 M21,4,Under,true,true,,false,3,JAZZ_TacGrip_M14,Tactical Grip,jazz,false,InventoryItem/M21.lua,working-tree
@@ -897,8 +935,9 @@ M21,5,Muzzle,true,false,JAZZ_M14_Default_Muzzle,true,4,JAZZ_Suppressor,Suppresso
 M21,5,Muzzle,true,false,JAZZ_M14_Default_Muzzle,true,5,JAZZ_SuppressorImproved,Улучшенный глушитель,jazz,false,InventoryItem/M21.lua,working-tree
 M21,6,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/M21.lua,working-tree
 M21,6,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/M21.lua,working-tree
-M21,6,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M21.lua,working-tree
-M21,6,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M21.lua,working-tree
+M21,6,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/M21.lua,working-tree
+M21,6,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M21.lua,working-tree
+M21,6,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M21.lua,working-tree
 M21,7,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/M21.lua,working-tree
 M21,7,Scope,true,true,,false,2,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/M21.lua,working-tree
 M21,7,Scope,true,true,,false,3,JAZZ_NightScope,Ночной прицел (5х),jazz,false,InventoryItem/M21.lua,working-tree
@@ -925,20 +964,21 @@ M24Sniper,5,Muzzle,true,true,,false,1,JAZZ_Suppressor,Suppressor,jazz,false,Inve
 M24Sniper,5,Muzzle,true,true,,false,2,JAZZ_SuppressorImproved,Улучшенный глушитель,jazz,false,InventoryItem/M24Sniper.lua,working-tree
 M24Sniper,6,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/M24Sniper.lua,working-tree
 M24Sniper,6,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/M24Sniper.lua,working-tree
-M24Sniper,6,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M24Sniper.lua,working-tree
-M24Sniper,6,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M24Sniper.lua,working-tree
+M24Sniper,6,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/M24Sniper.lua,working-tree
+M24Sniper,6,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M24Sniper.lua,working-tree
+M24Sniper,6,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M24Sniper.lua,working-tree
 M2Carbine,1,Stock,true,false,JAZZ_StockNormal,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/M2Carbine.lua,working-tree
 M2Carbine,1,Stock,true,false,JAZZ_StockNormal,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,false,InventoryItem/M2Carbine.lua,working-tree
 M2Carbine,1,Stock,true,false,JAZZ_StockNormal,true,3,JAZZ_StockNo,No Stock,jazz,false,InventoryItem/M2Carbine.lua,working-tree
 M2Carbine,1,Stock,true,false,JAZZ_StockNormal,true,4,JAZZ_StockNormal,Default Stock,jazz,true,InventoryItem/M2Carbine.lua,working-tree
-M2Carbine,2,Magazine,true,false,JAZZ_MagSmall30_15,true,1,JAZZ_MagNormal,Заводской магазин,jazz,false,InventoryItem/M2Carbine.lua,working-tree
-M2Carbine,2,Magazine,true,false,JAZZ_MagSmall30_15,true,2,JAZZ_MagSmall30_15,Магазин на 15 патрон,jazz,true,InventoryItem/M2Carbine.lua,working-tree
+M2Carbine,2,Magazine,true,false,JAZZ_MagSmall30_15_M2CARBINE,true,1,JAZZ_MagNormal,Заводской магазин,jazz,false,InventoryItem/M2Carbine.lua,working-tree
+M2Carbine,2,Magazine,true,false,JAZZ_MagSmall30_15_M2CARBINE,true,2,JAZZ_MagSmall30_15_M2CARBINE,Магазин на 15 патрон,jazz,true,InventoryItem/M2Carbine.lua,working-tree
 M2Carbine,3,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/M2Carbine.lua,working-tree
 M2Carbine,3,Scope,true,true,,false,2,JAZZ_NightScope_M3,Ночной прицел (5х),jazz,false,InventoryItem/M2Carbine.lua,working-tree
 M2Carbine,4,Trigger,true,true,,false,1,JAZZ_Autofire,Автоматический огонь,jazz,false,InventoryItem/M2Carbine.lua,working-tree
 M2Carbine,5,Muzzle,true,true,,false,1,JAZZ_FlashHider,Пламегаситель,jazz,false,InventoryItem/M2Carbine.lua,working-tree
-M3GreaseGun,1,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/M3GreaseGun.lua,working-tree
-M3GreaseGun,1,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/M3GreaseGun.lua,working-tree
+M3GreaseGun,1,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/M3GreaseGun.lua,working-tree
+M3GreaseGun,1,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/M3GreaseGun.lua,working-tree
 M41Shotgun,1,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/M41Shotgun.lua,working-tree
 M41Shotgun,1,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelShortShotgun_Benelli,Shortened Barrel,jazz,false,InventoryItem/M41Shotgun.lua,working-tree
 M41Shotgun,2,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/M41Shotgun.lua,working-tree
@@ -954,12 +994,13 @@ M41Shotgun,2,Scope,true,true,,false,10,JAZZ_Scope_6x,Оптический При
 M41Shotgun,2,Scope,true,true,,false,11,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/M41Shotgun.lua,working-tree
 M41Shotgun,3,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/M41Shotgun.lua,working-tree
 M41Shotgun,3,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/M41Shotgun.lua,working-tree
-M41Shotgun,3,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M41Shotgun.lua,working-tree
-M41Shotgun,3,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M41Shotgun.lua,working-tree
+M41Shotgun,3,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/M41Shotgun.lua,working-tree
+M41Shotgun,3,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M41Shotgun.lua,working-tree
+M41Shotgun,3,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M41Shotgun.lua,working-tree
 M41Shotgun,4,Muzzle,true,true,,false,1,JAZZ_Compensator,Compensator,jazz,false,InventoryItem/M41Shotgun.lua,working-tree
 M45,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/M45.lua,working-tree
-M45,2,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/M45.lua,working-tree
-M45,2,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/M45.lua,working-tree
+M45,2,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/M45.lua,working-tree
+M45,2,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/M45.lua,working-tree
 M4A1,1,Scope,true,true,JAZZ_IronSight,true,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/M4A1.lua,working-tree
 M4A1,1,Scope,true,true,JAZZ_IronSight,true,2,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/M4A1.lua,working-tree
 M4A1,1,Scope,true,true,JAZZ_IronSight,true,3,JAZZ_IronSight,Стандартный прицел,jazz,true,InventoryItem/M4A1.lua,working-tree
@@ -971,17 +1012,21 @@ M4A1,1,Scope,true,true,JAZZ_IronSight,true,8,JAZZ_Reflex_M68,Коллимато�
 M4A1,1,Scope,true,true,JAZZ_IronSight,true,9,JAZZ_Scope_12x,Оптический Прицел Leupold Mark 4 (12x),jazz,false,InventoryItem/M4A1.lua,working-tree
 M4A1,1,Scope,true,true,JAZZ_IronSight,true,10,JAZZ_Scope_6x,Оптический Прицел 1-6x,jazz,false,InventoryItem/M4A1.lua,working-tree
 M4A1,1,Scope,true,true,JAZZ_IronSight,true,11,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/M4A1.lua,working-tree
-M4A1,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/M4A1.lua,working-tree
-M4A1,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagSmall30_20,Магазин на 20 патрон,jazz,false,InventoryItem/M4A1.lua,working-tree
-M4A1,3,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/M4A1.lua,working-tree
-M4A1,3,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/M4A1.lua,working-tree
+M4A1,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_50_AR15,Расширенный магазин,jazz,false,InventoryItem/M4A1.lua,working-tree
+M4A1,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/M4A1.lua,working-tree
+M4A1,2,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormalFine_AR15,Fine-Tuned Mag,jazz,false,InventoryItem/M4A1.lua,working-tree
+M4A1,2,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagQuick_AR15,Quick Mag,jazz,false,InventoryItem/M4A1.lua,working-tree
+M4A1,2,Magazine,true,false,JAZZ_MagNormal,true,5,JAZZ_MagSmall30_20,Магазин на 20 патрон,jazz,false,InventoryItem/M4A1.lua,working-tree
+M4A1,3,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/M4A1.lua,working-tree
+M4A1,3,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/M4A1.lua,working-tree
 M4A1,4,Under,true,true,,false,1,JAZZ_GrenadeLauncher,Grenade Launcher,jazz,false,InventoryItem/M4A1.lua,working-tree
 M4A1,4,Under,true,true,,false,2,JAZZ_TacGrip,Tactical Grip,jazz,false,InventoryItem/M4A1.lua,working-tree
 M4A1,4,Under,true,true,,false,3,JAZZ_VerticalGrip,Vertical Grip,jazz,false,InventoryItem/M4A1.lua,working-tree
 M4A1,5,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/M4A1.lua,working-tree
 M4A1,5,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/M4A1.lua,working-tree
-M4A1,5,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M4A1.lua,working-tree
-M4A1,5,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M4A1.lua,working-tree
+M4A1,5,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/M4A1.lua,working-tree
+M4A1,5,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M4A1.lua,working-tree
+M4A1,5,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M4A1.lua,working-tree
 M4A1,6,Muzzle,true,true,,false,1,JAZZ_Compensator,Compensator,jazz,false,InventoryItem/M4A1.lua,working-tree
 M4A1,6,Muzzle,true,true,,false,2,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/M4A1.lua,working-tree
 M4A1,6,Muzzle,true,true,,false,3,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/M4A1.lua,working-tree
@@ -989,21 +1034,21 @@ M4A1,6,Muzzle,true,true,,false,4,JAZZ_SuppressorImproved,Улучшенный г
 M4Commando,1,Under,true,false,Handguard_Commando,true,1,Handguard_Commando,Handguard_Commando,vanilla_ref,true,InventoryItem/M4Commando.lua,working-tree
 M4Commando,1,Under,true,false,Handguard_Commando,true,2,JAZZ_GrenadeLauncher_Commando,Grenade Launcher,jazz,false,InventoryItem/M4Commando.lua,working-tree
 M4Commando,1,Under,true,false,Handguard_Commando,true,3,JAZZ_VerticalGrip_Commando,Vertical Grip,jazz,false,InventoryItem/M4Commando.lua,working-tree
-M4Commando,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/M4Commando.lua,working-tree
-M4Commando,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagLargeFine,Ergonomic Expanded Mag,jazz,false,InventoryItem/M4Commando.lua,working-tree
+M4Commando,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLargeFine,Ergonomic Expanded Mag,jazz,false,InventoryItem/M4Commando.lua,working-tree
+M4Commando,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagLarge_50_AR15,Расширенный магазин,jazz,false,InventoryItem/M4Commando.lua,working-tree
 M4Commando,2,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/M4Commando.lua,working-tree
-M4Commando,2,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagNormalFine,Fine-Tuned Mag,jazz,false,InventoryItem/M4Commando.lua,working-tree
-M4Commando,2,Magazine,true,false,JAZZ_MagNormal,true,5,JAZZ_MagQuick,Quick Mag,jazz,false,InventoryItem/M4Commando.lua,working-tree
+M4Commando,2,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagNormalFine_AR15,Fine-Tuned Mag,jazz,false,InventoryItem/M4Commando.lua,working-tree
+M4Commando,2,Magazine,true,false,JAZZ_MagNormal,true,5,JAZZ_MagQuick_AR15,Quick Mag,jazz,false,InventoryItem/M4Commando.lua,working-tree
 M4Commando,3,Stock,true,false,JAZZ_StockNormal,true,1,JAZZ_StockLight,Light Stock,jazz,false,InventoryItem/M4Commando.lua,working-tree
 M4Commando,3,Stock,true,false,JAZZ_StockNormal,true,2,JAZZ_StockNormal,Default Stock,jazz,true,InventoryItem/M4Commando.lua,working-tree
 M4Commando,4,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/M4Commando.lua,working-tree
 M4Commando,4,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/M4Commando.lua,working-tree
-M4Commando,4,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M4Commando.lua,working-tree
-M4Commando,4,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M4Commando.lua,working-tree
+M4Commando,4,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/M4Commando.lua,working-tree
+M4Commando,4,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M4Commando.lua,working-tree
+M4Commando,4,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M4Commando.lua,working-tree
 M4Commando,5,Muzzle,true,true,JAZZ_Compensator,true,1,JAZZ_Compensator,Compensator,jazz,true,InventoryItem/M4Commando.lua,working-tree
 M4Commando,5,Muzzle,true,true,JAZZ_Compensator,true,2,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/M4Commando.lua,working-tree
-M4Commando,5,Muzzle,true,true,JAZZ_Compensator,true,3,JAZZ_MuzzleBooster,Recoil Booster,jazz,false,InventoryItem/M4Commando.lua,working-tree
-M4Commando,5,Muzzle,true,true,JAZZ_Compensator,true,4,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/M4Commando.lua,working-tree
+M4Commando,5,Muzzle,true,true,JAZZ_Compensator,true,3,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/M4Commando.lua,working-tree
 M60,1,Bipod,true,false,JAZZ_Bipod,true,1,JAZZ_Bipod,Bipod,jazz,true,InventoryItem/M60.lua,working-tree
 M60,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/M60.lua,working-tree
 M60E3,1,Bipod,true,false,JAZZ_Bipod,true,1,JAZZ_Bipod,Bipod,jazz,true,InventoryItem/M60E3.lua,working-tree
@@ -1022,45 +1067,48 @@ M60E4,3,Scope,true,true,,false,9,JAZZ_Scope_6x,Оптический Прицел
 M60E4,3,Scope,true,true,,false,10,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/M60E4.lua,working-tree
 M60E4,4,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/M60E4.lua,working-tree
 M60E4,4,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/M60E4.lua,working-tree
-M60E4,4,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M60E4.lua,working-tree
-M60E4,4,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M60E4.lua,working-tree
+M60E4,4,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/M60E4.lua,working-tree
+M60E4,4,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/M60E4.lua,working-tree
+M60E4,4,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/M60E4.lua,working-tree
 M60E4,5,Under,true,false,,false,1,JAZZ_VerticalGrip,Vertical Grip,jazz,false,InventoryItem/M60E4.lua,working-tree
 M700,1,Scope,false,false,JAZZ_Scope_3x_9x,true,1,JAZZ_Scope_3x_9x,Оптический Прицел Redfield (3-9x),jazz,true,InventoryItem/M700.lua,working-tree
 MAC10,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MAC10.lua,working-tree
 MAC10,2,Muzzle,true,true,,false,1,JAZZ_Compensator,Compensator,jazz,false,InventoryItem/MAC10.lua,working-tree
 MAC10,2,Muzzle,true,true,,false,2,JAZZ_PistolSuppressor,Глушитель,jazz,false,InventoryItem/MAC10.lua,working-tree
-MAC10,3,Stock,true,false,JAZZ_StockLightFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,true,InventoryItem/MAC10.lua,working-tree
-MAC10,3,Stock,true,false,JAZZ_StockLightFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,false,InventoryItem/MAC10.lua,working-tree
-MAC1950,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/MAC1950.lua,working-tree
-MAC1950,1,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MAC1950.lua,working-tree
+MAC10,3,Stock,false,false,JAZZ_StockLightFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,true,InventoryItem/MAC10.lua,working-tree
+MAC10,3,Stock,false,false,JAZZ_StockLightFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,false,InventoryItem/MAC10.lua,working-tree
+MAC1950,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_13_PISTOL_52,Расширенный магазин,jazz,false,InventoryItem/MAC1950.lua,working-tree
+MAC1950,1,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagLarge_8_PISTOL_52,Расширенный магазин,jazz,false,InventoryItem/MAC1950.lua,working-tree
+MAC1950,1,Magazine,false,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MAC1950.lua,working-tree
 MAC1950,2,Muzzle,false,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/MAC1950.lua,working-tree
 MAC1950,2,Muzzle,false,true,,false,2,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/MAC1950.lua,working-tree
 MAC1950,3,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/MAC1950.lua,working-tree
 MAC1950,3,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/MAC1950.lua,working-tree
-MAC1950,3,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/MAC1950.lua,working-tree
-MAC1950,3,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/MAC1950.lua,working-tree
-MAC1950,4,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/MAC1950.lua,working-tree
+MAC1950,3,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/MAC1950.lua,working-tree
+MAC1950,3,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/MAC1950.lua,working-tree
+MAC1950,3,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/MAC1950.lua,working-tree
 MAC2429,1,Bipod,true,false,JAZZ_Bipod,true,1,JAZZ_Bipod,Bipod,jazz,true,InventoryItem/MAC2429.lua,working-tree
 MAC2429,2,Barrel,false,false,JAZZ_BarrelsDefs,true,1,JAZZ_BarrelsDefs,Заводской ствол,jazz,true,InventoryItem/MAC2429.lua,working-tree
 MAC2429,3,Stock,false,false,JAZZ_StockNormal,true,1,JAZZ_StockNormal,Default Stock,jazz,true,InventoryItem/MAC2429.lua,working-tree
 MAC2429,4,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MAC2429.lua,working-tree
 Makarov,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Makarov.lua,working-tree
 Makarov,2,Muzzle,true,false,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/Makarov.lua,working-tree
-Makarov,3,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/Makarov.lua,working-tree
 MAT49,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MAT49.lua,working-tree
 MAT49,2,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/MAT49.lua,working-tree
 MAT49,2,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/MAT49.lua,working-tree
-MG42,1,Bipod,false,false,JAZZ_Bipod_MG42,true,1,JAZZ_Bipod_MG42,Bipod,jazz,true,InventoryItem/MG42.lua,working-tree
-MG58,1,Bipod,false,false,JAZZ_Bipod_MG42,true,1,JAZZ_Bipod_MG42,Bipod,jazz,true,InventoryItem/MG58.lua,working-tree
+MG42,1,Bipod,false,false,JAZZ_Bipod,true,1,JAZZ_Bipod,Bipod,jazz,true,InventoryItem/MG42.lua,working-tree
+MG58,1,Bipod,false,false,JAZZ_Bipod,true,1,JAZZ_Bipod,Bipod,jazz,true,InventoryItem/MG58.lua,working-tree
 MG58,2,Scope,false,false,JAZZ_ImprovedIronsight,true,1,JAZZ_ImprovedIronsight,Improved Iron Sight,jazz,true,InventoryItem/MG58.lua,working-tree
 MicroUZI,1,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/MicroUZI.lua,working-tree
 MicroUZI,1,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormalImproved,Gain-Twist Barrel,jazz,false,InventoryItem/MicroUZI.lua,working-tree
-MicroUZI,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_20_30,Магазин на 30 патрон,jazz,false,InventoryItem/MicroUZI.lua,working-tree
-MicroUZI,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MicroUZI.lua,working-tree
+MicroUZI,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30_50_UZI,Бубен,jazz,false,InventoryItem/MicroUZI.lua,working-tree
+MicroUZI,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagLarge_20_30_UZI,Магазин на 30 патрон,jazz,false,InventoryItem/MicroUZI.lua,working-tree
+MicroUZI,2,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MicroUZI.lua,working-tree
 MicroUZI,3,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/MicroUZI.lua,working-tree
 MicroUZI,3,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/MicroUZI.lua,working-tree
-MicroUZI,3,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/MicroUZI.lua,working-tree
-MicroUZI,3,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/MicroUZI.lua,working-tree
+MicroUZI,3,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/MicroUZI.lua,working-tree
+MicroUZI,3,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/MicroUZI.lua,working-tree
+MicroUZI,3,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/MicroUZI.lua,working-tree
 MicroUZI,4,Scope,true,true,,false,1,JAZZ_Reflex_Closed,Коллиматор Закрытый,jazz,false,InventoryItem/MicroUZI.lua,working-tree
 MicroUZI,4,Scope,true,true,,false,2,JAZZ_Reflex_Eotech,Коллиматор Eotech,jazz,false,InventoryItem/MicroUZI.lua,working-tree
 MicroUZI,4,Scope,true,true,,false,3,JAZZ_Reflex_M68,Коллиматор Aimpoint M68,jazz,false,InventoryItem/MicroUZI.lua,working-tree
@@ -1070,9 +1118,9 @@ MicroUZI,5,Muzzle,true,true,,false,2,JAZZ_PistolSuppressor,Глушитель,ja
 MicroUZI,6,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/MicroUZI.lua,working-tree
 Mini14,1,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/Mini14.lua,working-tree
 Mini14,1,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelShort,Short Barrel,jazz,false,InventoryItem/Mini14.lua,working-tree
-Mini14,2,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/Mini14.lua,working-tree
-Mini14,2,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/Mini14.lua,working-tree
-Mini14,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_20_30,Магазин на 30 патрон,jazz,false,InventoryItem/Mini14.lua,working-tree
+Mini14,2,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/Mini14.lua,working-tree
+Mini14,2,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/Mini14.lua,working-tree
+Mini14,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_20_30_MINI14,Магазин на 30 патрон,jazz,false,InventoryItem/Mini14.lua,working-tree
 Mini14,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Mini14.lua,working-tree
 Mini14,4,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/Mini14.lua,working-tree
 Mini14,4,Scope,true,true,,false,2,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/Mini14.lua,working-tree
@@ -1085,34 +1133,39 @@ Mini14,4,Scope,true,true,,false,8,JAZZ_Scope_12x,Оптический Прице
 Mini14,4,Scope,true,true,,false,9,JAZZ_Scope_6x,Оптический Прицел 1-6x,jazz,false,InventoryItem/Mini14.lua,working-tree
 Mini14,4,Scope,true,true,,false,10,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/Mini14.lua,working-tree
 Mosin,1,Scope,true,true,,false,1,JAZZ_Scope_PU,Оптический Прицел ПУ (3.5x),jazz,false,InventoryItem/Mosin.lua,working-tree
-MP40,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/MP40.lua,working-tree
+MP40,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_50_MP40,Расширенный магазин,jazz,false,InventoryItem/MP40.lua,working-tree
 MP40,1,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MP40.lua,working-tree
 MP446VIKING,1,Barrel,false,false,JAZZ_BarrelsDefs,true,1,JAZZ_BarrelsDefs,Заводской ствол,jazz,true,InventoryItem/MP446VIKING.lua,working-tree
 MP446VIKING,2,Muzzle,true,false,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/MP446VIKING.lua,working-tree
 MP446VIKING,2,Muzzle,true,false,,false,2,JAZZ_PistolSuppressor,Глушитель,jazz,false,InventoryItem/MP446VIKING.lua,working-tree
 MP446VIKING,3,Side,true,false,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/MP446VIKING.lua,working-tree
 MP446VIKING,3,Side,true,false,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/MP446VIKING.lua,working-tree
-MP446VIKING,3,Side,true,false,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/MP446VIKING.lua,working-tree
-MP446VIKING,3,Side,true,false,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/MP446VIKING.lua,working-tree
-MP446VIKING,4,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MP446VIKING.lua,working-tree
-MP446VIKING,5,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/MP446VIKING.lua,working-tree
+MP446VIKING,3,Side,true,false,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/MP446VIKING.lua,working-tree
+MP446VIKING,3,Side,true,false,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/MP446VIKING.lua,working-tree
+MP446VIKING,3,Side,true,false,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/MP446VIKING.lua,working-tree
+MP446VIKING,4,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_25_PISTOL_9,Расширенный магазин,jazz,false,InventoryItem/MP446VIKING.lua,working-tree
+MP446VIKING,4,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MP446VIKING.lua,working-tree
 MP5,1,Under,false,false,MP5_Handguard,true,1,MP5_Handguard,MP5_Handguard,vanilla_ref,true,InventoryItem/MP5.lua,working-tree
 MP5,2,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/MP5.lua,working-tree
 MP5,2,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/MP5.lua,working-tree
-MP5,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/MP5.lua,working-tree
+MP5,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_50_MP5,Расширенный магазин,jazz,false,InventoryItem/MP5.lua,working-tree
 MP5,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MP5.lua,working-tree
-MP5,3,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagQuick,Quick Mag,jazz,false,InventoryItem/MP5.lua,working-tree
+MP5,3,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagQuick_MP5,Quick Mag,jazz,false,InventoryItem/MP5.lua,working-tree
+MP5,3,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagSmall30_15_MP5,Магазин на 15 патрон,jazz,false,InventoryItem/MP5.lua,working-tree
 MP5,4,Stock,true,false,JAZZ_StockNormal,true,1,JAZZ_StockHeavy,Heavy Stock,jazz,false,InventoryItem/MP5.lua,working-tree
 MP5,4,Stock,true,false,JAZZ_StockNormal,true,2,JAZZ_StockNo,No Stock,jazz,false,InventoryItem/MP5.lua,working-tree
 MP5,4,Stock,true,false,JAZZ_StockNormal,true,3,JAZZ_StockNormal,Default Stock,jazz,true,InventoryItem/MP5.lua,working-tree
 MP5,5,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/MP5.lua,working-tree
 MP5,5,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/MP5.lua,working-tree
-MP5,5,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/MP5.lua,working-tree
+MP5,5,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/MP5.lua,working-tree
+MP5,5,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/MP5.lua,working-tree
 MP5,6,Muzzle,true,true,,false,1,JAZZ_Compensator,Compensator,jazz,false,InventoryItem/MP5.lua,working-tree
 MP5,6,Muzzle,true,true,,false,2,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/MP5.lua,working-tree
 MP5,6,Muzzle,true,true,,false,3,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/MP5.lua,working-tree
-MP5A2,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MP5A2.lua,working-tree
-MP5A2,1,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagSmall30_15,Магазин на 15 патрон,jazz,false,InventoryItem/MP5A2.lua,working-tree
+MP5A2,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_50_MP5,Расширенный магазин,jazz,false,InventoryItem/MP5A2.lua,working-tree
+MP5A2,1,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MP5A2.lua,working-tree
+MP5A2,1,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagQuick_MP5,Quick Mag,jazz,false,InventoryItem/MP5A2.lua,working-tree
+MP5A2,1,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagSmall30_15_MP5,Магазин на 15 патрон,jazz,false,InventoryItem/MP5A2.lua,working-tree
 MP5A2,2,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/MP5A2.lua,working-tree
 MP5A2,2,Scope,true,true,,false,2,JAZZ_CombatScope_FeroZ24,Штурмовой прицел Fero Z24 (4х),jazz,false,InventoryItem/MP5A2.lua,working-tree
 MP5A2,2,Scope,true,true,,false,3,JAZZ_Reflex_Aimpoint5000,Коллиматор Aimpoint5000,jazz,false,InventoryItem/MP5A2.lua,working-tree
@@ -1122,8 +1175,10 @@ MP5A2,2,Scope,true,true,,false,6,JAZZ_Reflex_M68,Коллиматор Aimpoint M
 MP5A2,2,Scope,true,true,,false,7,JAZZ_Reflex_Open,Коллиматор Компактный,jazz,false,InventoryItem/MP5A2.lua,working-tree
 MP5A2,2,Scope,true,true,,false,8,JAZZ_Scope_DA15_6x,Оптический Прицел Zeiss Diavari-DA (1.5-6x),jazz,false,InventoryItem/MP5A2.lua,working-tree
 MP5A2,3,Muzzle,true,true,,false,1,JAZZ_PistolSuppressor,Глушитель,jazz,false,InventoryItem/MP5A2.lua,working-tree
-MP5A4,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MP5A4.lua,working-tree
-MP5A4,1,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagSmall30_15,Магазин на 15 патрон,jazz,false,InventoryItem/MP5A4.lua,working-tree
+MP5A4,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_50_MP5,Расширенный магазин,jazz,false,InventoryItem/MP5A4.lua,working-tree
+MP5A4,1,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MP5A4.lua,working-tree
+MP5A4,1,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagQuick_MP5,Quick Mag,jazz,false,InventoryItem/MP5A4.lua,working-tree
+MP5A4,1,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagSmall30_15_MP5,Магазин на 15 патрон,jazz,false,InventoryItem/MP5A4.lua,working-tree
 MP5A4,2,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/MP5A4.lua,working-tree
 MP5A4,2,Scope,true,true,,false,2,JAZZ_CombatScope_FeroZ24,Штурмовой прицел Fero Z24 (4х),jazz,false,InventoryItem/MP5A4.lua,working-tree
 MP5A4,2,Scope,true,true,,false,3,JAZZ_Reflex_Aimpoint5000,Коллиматор Aimpoint5000,jazz,false,InventoryItem/MP5A4.lua,working-tree
@@ -1137,17 +1192,21 @@ MP5A4,4,Stock,true,false,JAZZ_StockNormal,true,1,JAZZ_StockLightFolded,Скла�
 MP5A4,4,Stock,true,false,JAZZ_StockNormal,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,false,InventoryItem/MP5A4.lua,working-tree
 MP5A4,4,Stock,true,false,JAZZ_StockNormal,true,3,JAZZ_StockNormal,Default Stock,jazz,true,InventoryItem/MP5A4.lua,working-tree
 MP5A4,5,Side,true,true,JAZZ_Flashlight,true,1,JAZZ_Flashlight,Flashlight,jazz,true,InventoryItem/MP5A4.lua,working-tree
+MP5A4,5,Side,true,true,JAZZ_Flashlight,true,2,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/MP5A4.lua,working-tree
 MP5K,1,Under,true,false,JAZZ_VerticalGrip,true,1,JAZZ_VerticalGrip,Vertical Grip,jazz,true,InventoryItem/MP5K.lua,working-tree
 MP5K,2,Barrel,true,false,JAZZ_BarrelShort,true,1,JAZZ_BarrelShort,Short Barrel,jazz,true,InventoryItem/MP5K.lua,working-tree
-MP5K,3,Magazine,true,false,JAZZ_MagSmall30_15,true,1,JAZZ_MagNormal,Заводской магазин,jazz,false,InventoryItem/MP5K.lua,working-tree
-MP5K,3,Magazine,true,false,JAZZ_MagSmall30_15,true,2,JAZZ_MagSmall30_15,Магазин на 15 патрон,jazz,true,InventoryItem/MP5K.lua,working-tree
+MP5K,3,Magazine,true,false,JAZZ_MagSmall30_15_MP5,true,1,JAZZ_MagLarge_50_MP5,Расширенный магазин,jazz,false,InventoryItem/MP5K.lua,working-tree
+MP5K,3,Magazine,true,false,JAZZ_MagSmall30_15_MP5,true,2,JAZZ_MagNormal,Заводской магазин,jazz,false,InventoryItem/MP5K.lua,working-tree
+MP5K,3,Magazine,true,false,JAZZ_MagSmall30_15_MP5,true,3,JAZZ_MagQuick_MP5,Quick Mag,jazz,false,InventoryItem/MP5K.lua,working-tree
+MP5K,3,Magazine,true,false,JAZZ_MagSmall30_15_MP5,true,4,JAZZ_MagSmall30_15_MP5,Магазин на 15 патрон,jazz,true,InventoryItem/MP5K.lua,working-tree
 MP5K,4,Stock,true,false,JAZZ_StockNo,true,1,JAZZ_StockHeavy,Heavy Stock,jazz,false,InventoryItem/MP5K.lua,working-tree
 MP5K,4,Stock,true,false,JAZZ_StockNo,true,2,JAZZ_StockNo,No Stock,jazz,true,InventoryItem/MP5K.lua,working-tree
 MP5K,4,Stock,true,false,JAZZ_StockNo,true,3,JAZZ_StockNormal,Default Stock,jazz,false,InventoryItem/MP5K.lua,working-tree
 MP5K,5,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/MP5K.lua,working-tree
 MP5K,5,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/MP5K.lua,working-tree
-MP5K,5,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/MP5K.lua,working-tree
-MP5K,5,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/MP5K.lua,working-tree
+MP5K,5,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/MP5K.lua,working-tree
+MP5K,5,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/MP5K.lua,working-tree
+MP5K,5,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/MP5K.lua,working-tree
 MP5K,6,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/MP5K.lua,working-tree
 MP5K,6,Scope,true,true,,false,2,JAZZ_CombatScope_FeroZ24,Штурмовой прицел Fero Z24 (4х),jazz,false,InventoryItem/MP5K.lua,working-tree
 MP5K,6,Scope,true,true,,false,3,JAZZ_Reflex_Aimpoint5000,Коллиматор Aimpoint5000,jazz,false,InventoryItem/MP5K.lua,working-tree
@@ -1160,8 +1219,10 @@ MP5K,7,Muzzle,true,true,,false,1,JAZZ_Compensator,Compensator,jazz,false,Invento
 MP5K,7,Muzzle,true,true,,false,2,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/MP5K.lua,working-tree
 MP5K,7,Muzzle,true,true,,false,3,JAZZ_PistolSuppressor,Глушитель,jazz,false,InventoryItem/MP5K.lua,working-tree
 MP5K,8,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/MP5K.lua,working-tree
-MP5SD,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MP5SD.lua,working-tree
-MP5SD,1,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagSmall30_15,Магазин на 15 патрон,jazz,false,InventoryItem/MP5SD.lua,working-tree
+MP5SD,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_50_MP5,Расширенный магазин,jazz,false,InventoryItem/MP5SD.lua,working-tree
+MP5SD,1,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MP5SD.lua,working-tree
+MP5SD,1,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagQuick_MP5,Quick Mag,jazz,false,InventoryItem/MP5SD.lua,working-tree
+MP5SD,1,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagSmall30_15_MP5,Магазин на 15 патрон,jazz,false,InventoryItem/MP5SD.lua,working-tree
 MP5SD,2,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/MP5SD.lua,working-tree
 MP5SD,2,Scope,true,true,,false,2,JAZZ_CombatScope_FeroZ24,Штурмовой прицел Fero Z24 (4х),jazz,false,InventoryItem/MP5SD.lua,working-tree
 MP5SD,2,Scope,true,true,,false,3,JAZZ_Reflex_Aimpoint5000,Коллиматор Aimpoint5000,jazz,false,InventoryItem/MP5SD.lua,working-tree
@@ -1176,8 +1237,8 @@ MP5SD,3,Stock,true,false,JAZZ_StockNormal,true,3,JAZZ_StockNormal,Default Stock,
 MP5SD,4,Muzzle,false,false,JAZZ_SuppressorIntegrated,true,1,JAZZ_SuppressorIntegrated,Глушитель Интегрированный,jazz,true,InventoryItem/MP5SD.lua,working-tree
 MP7,1,Under,true,false,JAZZ_VerticalGripFld,true,1,JAZZ_VerticalGrip,Vertical Grip,jazz,false,InventoryItem/MP7.lua,working-tree
 MP7,1,Under,true,false,JAZZ_VerticalGripFld,true,2,JAZZ_VerticalGripFld,Вертикальная рукоять (Сложенная),jazz,true,InventoryItem/MP7.lua,working-tree
-MP7,2,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/MP7.lua,working-tree
-MP7,2,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/MP7.lua,working-tree
+MP7,2,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/MP7.lua,working-tree
+MP7,2,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/MP7.lua,working-tree
 MP7,3,Scope,true,true,JAZZ_DefaultIronsight_AR15,true,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/MP7.lua,working-tree
 MP7,3,Scope,true,true,JAZZ_DefaultIronsight_AR15,true,2,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/MP7.lua,working-tree
 MP7,3,Scope,true,true,JAZZ_DefaultIronsight_AR15,true,3,JAZZ_DefaultIronsight_AR15,Default Iron Sight,jazz,true,InventoryItem/MP7.lua,working-tree
@@ -1188,13 +1249,12 @@ MP7,3,Scope,true,true,JAZZ_DefaultIronsight_AR15,true,7,JAZZ_Reflex_M68,Колл
 MP7,3,Scope,true,true,JAZZ_DefaultIronsight_AR15,true,8,JAZZ_Reflex_Open,Коллиматор Компактный,jazz,false,InventoryItem/MP7.lua,working-tree
 MP7,4,Muzzle,true,true,,false,1,JAZZ_PistolSuppressor,Глушитель,jazz,false,InventoryItem/MP7.lua,working-tree
 MPL,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MPL.lua,working-tree
-MPL,2,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/MPL.lua,working-tree
-MPL,2,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/MPL.lua,working-tree
-MR73,1,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/MR73.lua,working-tree
-MR73,2,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/MR73.lua,working-tree
-MR73,2,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/MR73.lua,working-tree
-MR73,3,Handgrip,true,false,JAZZ_Handgrip_Default,true,1,JAZZ_Handgrip_Default,Стандартная рукоять,jazz,true,InventoryItem/MR73.lua,working-tree
-MR73,3,Handgrip,true,false,JAZZ_Handgrip_Default,true,2,JAZZ_Handgrip_Ergo,Эргономичная рукоять,jazz,false,InventoryItem/MR73.lua,working-tree
+MPL,2,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/MPL.lua,working-tree
+MPL,2,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/MPL.lua,working-tree
+MR73,1,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/MR73.lua,working-tree
+MR73,1,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/MR73.lua,working-tree
+MR73,2,Handgrip,true,false,JAZZ_Handgrip_Default,true,1,JAZZ_Handgrip_Default,Стандартная рукоять,jazz,true,InventoryItem/MR73.lua,working-tree
+MR73,2,Handgrip,true,false,JAZZ_Handgrip_Default,true,2,JAZZ_Handgrip_Ergo,Эргономичная рукоять,jazz,false,InventoryItem/MR73.lua,working-tree
 P210,1,Muzzle,true,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/P210.lua,working-tree
 P210,1,Muzzle,true,true,,false,2,JAZZ_PistolSuppressor,Глушитель,jazz,false,InventoryItem/P210.lua,working-tree
 P210,2,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/P210.lua,working-tree
@@ -1205,20 +1265,20 @@ P210,4,Scope,true,false,JAZZ_IronSight,true,1,JAZZ_IronSight,Стандартн�
 P210,4,Scope,true,false,JAZZ_IronSight,true,2,JAZZ_IronSight_AIM,Точный прицел,jazz,false,InventoryItem/P210.lua,working-tree
 P210,5,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/P210.lua,working-tree
 P210,5,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/P210.lua,working-tree
-P210,5,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/P210.lua,working-tree
-P210,5,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/P210.lua,working-tree
-P210,6,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/P210.lua,working-tree
+P210,5,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/P210.lua,working-tree
+P210,5,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/P210.lua,working-tree
+P210,5,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/P210.lua,working-tree
 P220,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_8_10,Магазин на 10 патрон,jazz,false,InventoryItem/P220.lua,working-tree
 P220,1,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/P220.lua,working-tree
 P220,2,Muzzle,true,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/P220.lua,working-tree
 P220,2,Muzzle,true,true,,false,2,JAZZ_PistolSuppressor,Глушитель,jazz,false,InventoryItem/P220.lua,working-tree
 P220,3,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/P220.lua,working-tree
 P220,3,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/P220.lua,working-tree
-P220,3,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/P220.lua,working-tree
-P220,3,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/P220.lua,working-tree
+P220,3,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/P220.lua,working-tree
+P220,3,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/P220.lua,working-tree
+P220,3,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/P220.lua,working-tree
 P220,4,Scope,true,false,JAZZ_IronSight,true,1,JAZZ_IronSight,Стандартный прицел,jazz,true,InventoryItem/P220.lua,working-tree
 P220,4,Scope,true,false,JAZZ_IronSight,true,2,JAZZ_Reflex_Pistol,Коллиматор Пистолетный,jazz,false,InventoryItem/P220.lua,working-tree
-P220,5,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/P220.lua,working-tree
 P226,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_18_20,Магазин на 20 патрон,jazz,false,InventoryItem/P226.lua,working-tree
 P226,1,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/P226.lua,working-tree
 P226,2,Muzzle,true,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/P226.lua,working-tree
@@ -1235,24 +1295,25 @@ P226,6,Scope,true,false,JAZZ_IronSight,true,4,JAZZ_IronSight_NIGHT,Ночной 
 P226,6,Scope,true,false,JAZZ_IronSight,true,5,JAZZ_Reflex_Pistol,Коллиматор Пистолетный,jazz,false,InventoryItem/P226.lua,working-tree
 P226,7,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/P226.lua,working-tree
 P226,7,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/P226.lua,working-tree
-P226,7,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/P226.lua,working-tree
-P226,7,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/P226.lua,working-tree
-P38,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/P38.lua,working-tree
-P38,1,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/P38.lua,working-tree
+P226,7,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/P226.lua,working-tree
+P226,7,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/P226.lua,working-tree
+P226,7,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/P226.lua,working-tree
+P38,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_13_PISTOL_52,Расширенный магазин,jazz,false,InventoryItem/P38.lua,working-tree
+P38,1,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagLarge_8_PISTOL_52,Расширенный магазин,jazz,false,InventoryItem/P38.lua,working-tree
+P38,1,Magazine,false,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/P38.lua,working-tree
 P38,2,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/P38.lua,working-tree
 P38,2,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelShort_Pistol,Короткий ствол,jazz,false,InventoryItem/P38.lua,working-tree
 P38,3,Muzzle,true,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/P38.lua,working-tree
 P38,3,Muzzle,true,true,,false,2,JAZZ_PistolSuppressor,Глушитель,jazz,false,InventoryItem/P38.lua,working-tree
-P38,4,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/P38.lua,working-tree
 P90,1,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/P90.lua,working-tree
 P90,1,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/P90.lua,working-tree
-P90,1,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/P90.lua,working-tree
-P90,1,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/P90.lua,working-tree
+P90,1,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/P90.lua,working-tree
+P90,1,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/P90.lua,working-tree
+P90,1,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/P90.lua,working-tree
 P90,2,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/P90.lua,working-tree
 P90,3,Muzzle,true,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/P90.lua,working-tree
 P90,3,Muzzle,true,true,,false,2,JAZZ_PistolSuppressor,Глушитель,jazz,false,InventoryItem/P90.lua,working-tree
 PB,1,Muzzle,false,false,JAZZ_SuppressorIntegrated,true,1,JAZZ_SuppressorIntegrated,Глушитель Интегрированный,jazz,true,InventoryItem/PB.lua,working-tree
-PB,2,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/PB.lua,working-tree
 PKM,1,Muzzle,false,false,JAZZ_DefMuzzle,true,1,JAZZ_DefMuzzle,Заводской дульный тормоз,jazz,true,InventoryItem/PKM.lua,working-tree
 PKM,2,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/PKM.lua,working-tree
 PKM,2,Scope,true,true,,false,2,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/PKM.lua,working-tree
@@ -1266,8 +1327,9 @@ PKM,2,Scope,true,true,,false,9,JAZZ_Scope_6x,Оптический Прицел 1
 PKM,2,Scope,true,true,,false,10,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/PKM.lua,working-tree
 PKM,3,Side,false,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/PKM.lua,working-tree
 PKM,3,Side,false,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/PKM.lua,working-tree
-PKM,3,Side,false,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/PKM.lua,working-tree
-PKM,3,Side,false,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/PKM.lua,working-tree
+PKM,3,Side,false,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/PKM.lua,working-tree
+PKM,3,Side,false,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/PKM.lua,working-tree
+PKM,3,Side,false,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/PKM.lua,working-tree
 PKM,4,Stock,false,false,JAZZ_StockNormal,true,1,JAZZ_PKMModStock,Кастомный приклад ПКМ,jazz,false,InventoryItem/PKM.lua,working-tree
 PKM,4,Stock,false,false,JAZZ_StockNormal,true,2,JAZZ_StockNormal,Default Stock,jazz,true,InventoryItem/PKM.lua,working-tree
 PKM,5,Bipod,true,false,JAZZ_Bipod,true,1,JAZZ_Bipod,Bipod,jazz,true,InventoryItem/PKM.lua,working-tree
@@ -1276,8 +1338,8 @@ PKM,6,Under,false,true,,false,2,JAZZ_VerticalGrip,Vertical Grip,jazz,false,Inven
 PKM,7,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/PKM.lua,working-tree
 PKM,8,Handguard,false,false,JAZZ_PKMDefHandGrip,true,1,JAZZ_PKMDefHandGrip,Заводская рукоять ПКМ,jazz,true,InventoryItem/PKM.lua,working-tree
 PKM,8,Handguard,false,false,JAZZ_PKMDefHandGrip,true,2,JAZZ_PKMModHandGrip,Модифицированная рукоять ПКМ,jazz,false,InventoryItem/PKM.lua,working-tree
-PP19Bizon,1,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/PP19Bizon.lua,working-tree
-PP19Bizon,1,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/PP19Bizon.lua,working-tree
+PP19Bizon,1,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/PP19Bizon.lua,working-tree
+PP19Bizon,1,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/PP19Bizon.lua,working-tree
 PP19Bizon,2,Scope,true,true,,false,1,JAZZ_CombatScope_1P29,JAZZ_CombatScope_1P29,jazz,false,InventoryItem/PP19Bizon.lua,working-tree
 PP19Bizon,2,Scope,true,true,,false,2,JAZZ_NightScope_NSPU,Ночной прицел НСПУ (3.5х),jazz,false,InventoryItem/PP19Bizon.lua,working-tree
 PP19Bizon,2,Scope,true,true,,false,3,JAZZ_Reflex_Cobra,Коллиматор Кобра,jazz,false,InventoryItem/PP19Bizon.lua,working-tree
@@ -1285,7 +1347,7 @@ PP19Bizon,2,Scope,true,true,,false,4,JAZZ_Reflex_PKAS,Коллиматор ПК-
 PP19Bizon,2,Scope,true,true,,false,5,JAZZ_Scope_PSO,Оптический Прицел ПСО (4x),jazz,false,InventoryItem/PP19Bizon.lua,working-tree
 PPS43,1,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/PPS43.lua,working-tree
 PPS43,1,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/PPS43.lua,working-tree
-PPSH,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_35-71,Бубен,jazz,false,InventoryItem/PPSH.lua,working-tree
+PPSH,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_35_71,Бубен,jazz,false,InventoryItem/PPSH.lua,working-tree
 PPSH,1,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/PPSH.lua,working-tree
 PSG1,1,Stock,true,false,JAZZ_StockNormal,true,1,JAZZ_StockHeavy,Heavy Stock,jazz,false,InventoryItem/PSG1.lua,working-tree
 PSG1,1,Stock,true,false,JAZZ_StockNormal,true,2,JAZZ_StockNormal,Default Stock,jazz,true,InventoryItem/PSG1.lua,working-tree
@@ -1293,10 +1355,9 @@ PSG1,2,Bipod,true,false,,false,1,JAZZ_Bipod,Bipod,jazz,false,InventoryItem/PSG1.
 PSG1,3,Muzzle,true,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/PSG1.lua,working-tree
 PSG1,3,Muzzle,true,true,,false,2,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/PSG1.lua,working-tree
 PSG1,3,Muzzle,true,true,,false,3,JAZZ_SuppressorImproved,Улучшенный глушитель,jazz,false,InventoryItem/PSG1.lua,working-tree
-PSG1,4,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/PSG1.lua,working-tree
-PSG1,4,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagLargeFine,Ergonomic Expanded Mag,jazz,false,InventoryItem/PSG1.lua,working-tree
-PSG1,4,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/PSG1.lua,working-tree
-PSG1,4,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagNormalFine,Fine-Tuned Mag,jazz,false,InventoryItem/PSG1.lua,working-tree
+PSG1,4,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_8_PSG1,Расширенный магазин,jazz,false,InventoryItem/PSG1.lua,working-tree
+PSG1,4,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/PSG1.lua,working-tree
+PSG1,4,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormalFine_PSG1,Fine-Tuned Mag,jazz,false,InventoryItem/PSG1.lua,working-tree
 PSG1,5,Scope,true,true,JAZZ_Scope_PSG,true,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/PSG1.lua,working-tree
 PSG1,5,Scope,true,true,JAZZ_Scope_PSG,true,2,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/PSG1.lua,working-tree
 PSG1,5,Scope,true,true,JAZZ_Scope_PSG,true,3,JAZZ_NightScope,Ночной прицел (5х),jazz,false,InventoryItem/PSG1.lua,working-tree
@@ -1324,20 +1385,21 @@ R870,1,Scope,true,true,,false,9,JAZZ_Scope_12x,Оптический Прицел
 R870,1,Scope,true,true,,false,10,JAZZ_Scope_6x,Оптический Прицел 1-6x,jazz,false,InventoryItem/R870.lua,working-tree
 R870,1,Scope,true,true,,false,11,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/R870.lua,working-tree
 R870,2,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/R870.lua,working-tree
-R870,2,Side,true,true,,false,2,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/R870.lua,working-tree
+R870,2,Side,true,true,,false,2,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/R870.lua,working-tree
+R870,2,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/R870.lua,working-tree
 R870,3,Side2,true,true,,false,1,JAZZ_SpeedLoader,Ускорение перезарядки,jazz,false,InventoryItem/R870.lua,working-tree
 RPD,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/RPD.lua,working-tree
 RPD,2,Barrel,false,false,JAZZ_BarrelsDefs,true,1,JAZZ_BarrelsDefs,Заводской ствол,jazz,true,InventoryItem/RPD.lua,working-tree
 RPD,3,Stock,false,false,JAZZ_StockNormal,true,1,JAZZ_StockNormal,Default Stock,jazz,true,InventoryItem/RPD.lua,working-tree
-RPD,4,Bipod,true,false,JAZZ_UnfoldBipod,true,1,JAZZ_FoldBipod,Сложенная сошка,jazz,false,InventoryItem/RPD.lua,working-tree
-RPD,4,Bipod,true,false,JAZZ_UnfoldBipod,true,2,JAZZ_UnfoldBipod,Разложенная сошка,jazz,true,InventoryItem/RPD.lua,working-tree
+RPD,4,Bipod,true,false,JAZZ_Bipod,true,1,JAZZ_Bipod,Bipod,jazz,true,InventoryItem/RPD.lua,working-tree
 RPD,5,Scope,false,false,JAZZ_IronSight,true,1,JAZZ_IronSight,Стандартный прицел,jazz,true,InventoryItem/RPD.lua,working-tree
 RPK,1,Bipod,true,true,JAZZ_Bipod,true,1,JAZZ_Bipod,Bipod,jazz,true,InventoryItem/RPK.lua,working-tree
 RPK,2,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/RPK.lua,working-tree
 RPK,2,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormalImproved,Gain-Twist Barrel,jazz,false,InventoryItem/RPK.lua,working-tree
-RPK,3,Magazine,true,false,JAZZ_MagLarge_30_40,true,1,JAZZ_MagDrum_30-75,Бубен,jazz,false,InventoryItem/RPK.lua,working-tree
+RPK,3,Magazine,true,false,JAZZ_MagLarge_30_40,true,1,JAZZ_MagDrum_30_75,Бубен,jazz,false,InventoryItem/RPK.lua,working-tree
 RPK,3,Magazine,true,false,JAZZ_MagLarge_30_40,true,2,JAZZ_MagLarge_30_40,Магазин на 40 патрон,jazz,true,InventoryItem/RPK.lua,working-tree
 RPK,3,Magazine,true,false,JAZZ_MagLarge_30_40,true,3,JAZZ_MagNormal,Заводской магазин,jazz,false,InventoryItem/RPK.lua,working-tree
+RPK,3,Magazine,true,false,JAZZ_MagLarge_30_40,true,4,JAZZ_MagQuick_AK,Quick Mag,jazz,false,InventoryItem/RPK.lua,working-tree
 RPK,4,Handguard,true,false,JAZZ_RPK74_Hanguard_Basic,true,1,JAZZ_RPK74_Hanguard_Basic,Default Handguard,jazz,true,InventoryItem/RPK.lua,working-tree
 RPK,4,Handguard,true,false,JAZZ_RPK74_Hanguard_Basic,true,2,JAZZ_RPK74_VerticalGrip,Vertical Grip,jazz,false,InventoryItem/RPK.lua,working-tree
 RPK,5,Muzzle,true,true,,false,1,JAZZ_Compensator,Compensator,jazz,false,InventoryItem/RPK.lua,working-tree
@@ -1348,6 +1410,7 @@ RPK74,2,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelNormal,Default Bar
 RPK74,2,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormalImproved,Gain-Twist Barrel,jazz,false,InventoryItem/RPK74.lua,working-tree
 RPK74,3,Magazine,true,false,JAZZ_MagLarge_30_45,true,1,JAZZ_MagLarge_30_45,Магазин на 45 патрон,jazz,true,InventoryItem/RPK74.lua,working-tree
 RPK74,3,Magazine,true,false,JAZZ_MagLarge_30_45,true,2,JAZZ_MagNormal,Заводской магазин,jazz,false,InventoryItem/RPK74.lua,working-tree
+RPK74,3,Magazine,true,false,JAZZ_MagLarge_30_45,true,3,JAZZ_MagQuick_AK,Quick Mag,jazz,false,InventoryItem/RPK74.lua,working-tree
 RPK74,4,Handguard,false,false,JAZZ_RPK74_Hanguard_Basic,true,1,JAZZ_RPK74_Hanguard_Basic,Default Handguard,jazz,true,InventoryItem/RPK74.lua,working-tree
 RPK74,4,Handguard,false,false,JAZZ_RPK74_Hanguard_Basic,true,2,JAZZ_RPK74_VerticalGrip,Vertical Grip,jazz,false,InventoryItem/RPK74.lua,working-tree
 RPK74,5,Muzzle,true,true,JAZZ_Compensator,true,1,JAZZ_Compensator,Compensator,jazz,true,InventoryItem/RPK74.lua,working-tree
@@ -1355,12 +1418,12 @@ RPK74,6,Stock,false,false,JAZZ_StockNormal,true,1,JAZZ_StockLight,Light Stock,ja
 RPK74,6,Stock,false,false,JAZZ_StockNormal,true,2,JAZZ_StockNormal,Default Stock,jazz,true,InventoryItem/RPK74.lua,working-tree
 RSH12,1,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/RSH12.lua,working-tree
 RSH12,1,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/RSH12.lua,working-tree
-RSH12,1,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/RSH12.lua,working-tree
-RSH12,1,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/RSH12.lua,working-tree
-RSH12,2,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/RSH12.lua,working-tree
+RSH12,1,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/RSH12.lua,working-tree
+RSH12,1,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/RSH12.lua,working-tree
+RSH12,1,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/RSH12.lua,working-tree
 Scorpion,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Scorpion.lua,working-tree
-Scorpion,2,Stock,true,false,JAZZ_StockLightFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,true,InventoryItem/Scorpion.lua,working-tree
-Scorpion,2,Stock,true,false,JAZZ_StockLightFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,false,InventoryItem/Scorpion.lua,working-tree
+Scorpion,2,Stock,false,false,JAZZ_StockLightFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,true,InventoryItem/Scorpion.lua,working-tree
+Scorpion,2,Stock,false,false,JAZZ_StockLightFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,false,InventoryItem/Scorpion.lua,working-tree
 Scorpion,3,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/Scorpion.lua,working-tree
 ScoutSniper,1,Scope,true,true,JAZZ_Scope_Scout,true,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/ScoutSniper.lua,working-tree
 ScoutSniper,1,Scope,true,true,JAZZ_Scope_Scout,true,2,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/ScoutSniper.lua,working-tree
@@ -1372,7 +1435,7 @@ ScoutSniper,2,Muzzle,true,false,JAZZ_DefMuzzle,true,1,JAZZ_DefMuzzle,Завод�
 ScoutSniper,2,Muzzle,true,false,JAZZ_DefMuzzle,true,2,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/ScoutSniper.lua,working-tree
 ScoutSniper,2,Muzzle,true,false,JAZZ_DefMuzzle,true,3,JAZZ_SuppressorImproved,Улучшенный глушитель,jazz,false,InventoryItem/ScoutSniper.lua,working-tree
 ScoutSniper,3,Barrel,false,false,JAZZ_BarrelsDefs,true,1,JAZZ_BarrelsDefs,Заводской ствол,jazz,true,InventoryItem/ScoutSniper.lua,working-tree
-Sig550,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/Sig550.lua,working-tree
+Sig550,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_50_SIG,Расширенный магазин,jazz,false,InventoryItem/Sig550.lua,working-tree
 Sig550,1,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Sig550.lua,working-tree
 Sig550,2,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockHeavy,Heavy Stock,jazz,false,InventoryItem/Sig550.lua,working-tree
 Sig550,2,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/Sig550.lua,working-tree
@@ -1399,11 +1462,12 @@ Sig550Custom,1,Under,true,true,,false,1,JAZZ_GrenadeLauncher,Grenade Launcher,ja
 Sig550Custom,1,Under,true,true,,false,2,JAZZ_VerticalGrip,Vertical Grip,jazz,false,InventoryItem/Sig550Custom.lua,working-tree
 Sig550Custom,2,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/Sig550Custom.lua,working-tree
 Sig550Custom,2,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/Sig550Custom.lua,working-tree
-Sig550Custom,2,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/Sig550Custom.lua,working-tree
-Sig550Custom,2,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/Sig550Custom.lua,working-tree
+Sig550Custom,2,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/Sig550Custom.lua,working-tree
+Sig550Custom,2,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/Sig550Custom.lua,working-tree
+Sig550Custom,2,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/Sig550Custom.lua,working-tree
 Sig550Custom,3,Handguard,true,false,JAZZ_SigDefHandGuard,true,1,JAZZ_SigDefHandGuard,Заводская рукоять Sig,jazz,true,InventoryItem/Sig550Custom.lua,working-tree
 Sig550Custom,3,Handguard,true,false,JAZZ_SigDefHandGuard,true,2,JAZZ_SigErgoHandGrip,Эргономичная рукоять для Sig,jazz,false,InventoryItem/Sig550Custom.lua,working-tree
-Sig550Custom,4,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/Sig550Custom.lua,working-tree
+Sig550Custom,4,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_50_SIG,Расширенный магазин,jazz,false,InventoryItem/Sig550Custom.lua,working-tree
 Sig550Custom,4,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Sig550Custom.lua,working-tree
 Sig550Custom,5,Stock,true,false,JAZZ_UnfoldStocks,true,1,JAZZ_UnfoldStocks,Разложенный приклад,jazz,true,InventoryItem/Sig550Custom.lua,working-tree
 Sig550Custom,5,Stock,true,false,JAZZ_UnfoldStocks,true,2,JAZZ_StockHeavy,Heavy Stock,jazz,false,InventoryItem/Sig550Custom.lua,working-tree
@@ -1435,11 +1499,11 @@ Sig552,1,Scope,true,true,,false,8,JAZZ_Reflex_Open,Коллиматор Комп
 Sig552,1,Scope,true,true,,false,9,JAZZ_Scope_12x,Оптический Прицел Leupold Mark 4 (12x),jazz,false,InventoryItem/Sig552.lua,working-tree
 Sig552,1,Scope,true,true,,false,10,JAZZ_Scope_6x,Оптический Прицел 1-6x,jazz,false,InventoryItem/Sig552.lua,working-tree
 Sig552,1,Scope,true,true,,false,11,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/Sig552.lua,working-tree
-Sig552,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/Sig552.lua,working-tree
+Sig552,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_50_SIG,Расширенный магазин,jazz,false,InventoryItem/Sig552.lua,working-tree
 Sig552,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Sig552.lua,working-tree
 Sig552,3,Handguard,true,false,JAZZ_SigDefHandGuard,true,1,JAZZ_SigDefHandGuard,Заводская рукоять Sig,jazz,true,InventoryItem/Sig552.lua,working-tree
 Sig552,3,Handguard,true,false,JAZZ_SigDefHandGuard,true,2,JAZZ_SigErgoHandGrip,Эргономичная рукоять для Sig,jazz,false,InventoryItem/Sig552.lua,working-tree
-Sig552,4,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/Sig552.lua,working-tree
+Sig552,4,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_50_SIG,Расширенный магазин,jazz,false,InventoryItem/Sig552.lua,working-tree
 Sig552,4,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Sig552.lua,working-tree
 Sig552,5,Stock,true,false,JAZZ_UnfoldStocks,true,1,JAZZ_UnfoldStocks,Разложенный приклад,jazz,true,InventoryItem/Sig552.lua,working-tree
 Sig552,5,Stock,true,false,JAZZ_UnfoldStocks,true,2,JAZZ_StockHeavy,Heavy Stock,jazz,false,InventoryItem/Sig552.lua,working-tree
@@ -1448,11 +1512,11 @@ Sig552,5,Stock,true,false,JAZZ_UnfoldStocks,true,4,JAZZ_StockLightUnFolded,Ра�
 Sig552,6,Muzzle,true,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/Sig552.lua,working-tree
 Sig552,6,Muzzle,true,true,,false,2,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/Sig552.lua,working-tree
 Sig552,6,Muzzle,true,true,,false,3,JAZZ_SuppressorImproved,Улучшенный глушитель,jazz,false,InventoryItem/Sig552.lua,working-tree
-Sig552SWAT,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/Sig552SWAT.lua,working-tree
+Sig552SWAT,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_50_SIG,Расширенный магазин,jazz,false,InventoryItem/Sig552SWAT.lua,working-tree
 Sig552SWAT,1,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Sig552SWAT.lua,working-tree
 Sig552SWAT,2,Handguard,true,false,JAZZ_SigDefHandGuard,true,1,JAZZ_SigDefHandGuard,Заводская рукоять Sig,jazz,true,InventoryItem/Sig552SWAT.lua,working-tree
 Sig552SWAT,2,Handguard,true,false,JAZZ_SigDefHandGuard,true,2,JAZZ_SigErgoHandGrip,Эргономичная рукоять для Sig,jazz,false,InventoryItem/Sig552SWAT.lua,working-tree
-Sig552SWAT,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/Sig552SWAT.lua,working-tree
+Sig552SWAT,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_50_SIG,Расширенный магазин,jazz,false,InventoryItem/Sig552SWAT.lua,working-tree
 Sig552SWAT,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Sig552SWAT.lua,working-tree
 Sig552SWAT,4,Muzzle,true,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/Sig552SWAT.lua,working-tree
 Sig552SWAT,4,Muzzle,true,true,,false,2,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/Sig552SWAT.lua,working-tree
@@ -1470,80 +1534,78 @@ Sig552SWAT,5,Scope,true,true,,false,10,JAZZ_Scope_6x,Оптический При
 Sig552SWAT,5,Scope,true,true,,false,11,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/Sig552SWAT.lua,working-tree
 SpectreM4,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/SpectreM4.lua,working-tree
 Springfield,1,Scope,true,true,,false,1,JAZZ_Scope_Springfield,Оптический Прицел (2.75x),jazz,false,InventoryItem/Springfield.lua,working-tree
-Sterling,1,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/Sterling.lua,working-tree
-Sterling,1,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/Sterling.lua,working-tree
+Sterling,1,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/Sterling.lua,working-tree
+Sterling,1,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/Sterling.lua,working-tree
 STG44,1,Scope,true,true,,false,1,JAZZ_Scope_ZF4,Оптический Прицел ZF4 (4x),jazz,false,InventoryItem/STG44.lua,working-tree
 STG44,2,Side,true,true,,false,1,JAZZ_HandlingWrap,Обмотка на цевье,jazz,false,InventoryItem/STG44.lua,working-tree
-Striker,1,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/Striker.lua,working-tree
-Striker,1,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/Striker.lua,working-tree
+Striker,1,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/Striker.lua,working-tree
+Striker,1,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/Striker.lua,working-tree
 SVT40,1,Scope,true,true,,false,1,JAZZ_Scope_PU,Оптический Прицел ПУ (3.5x),jazz,false,InventoryItem/SVT40.lua,working-tree
 SVT40,2,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/SVT40.lua,working-tree
-SVU,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/SVU.lua,working-tree
+SVU,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_10_20_SVD,Магазин на 20 патрон,jazz,false,InventoryItem/SVU.lua,working-tree
+SVU,1,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/SVU.lua,working-tree
 SVU,2,Scope,true,true,JAZZ_Scope_PSO,true,1,JAZZ_CombatScope_1P29,JAZZ_CombatScope_1P29,jazz,false,InventoryItem/SVU.lua,working-tree
 SVU,2,Scope,true,true,JAZZ_Scope_PSO,true,2,JAZZ_NightScope_NSPU,Ночной прицел НСПУ (3.5х),jazz,false,InventoryItem/SVU.lua,working-tree
 SVU,2,Scope,true,true,JAZZ_Scope_PSO,true,3,JAZZ_Reflex_Cobra,Коллиматор Кобра,jazz,false,InventoryItem/SVU.lua,working-tree
 SVU,2,Scope,true,true,JAZZ_Scope_PSO,true,4,JAZZ_Reflex_PKAS,Коллиматор ПК-АА,jazz,false,InventoryItem/SVU.lua,working-tree
 SVU,2,Scope,true,true,JAZZ_Scope_PSO,true,5,JAZZ_Scope_PSO,Оптический Прицел ПСО (4x),jazz,true,InventoryItem/SVU.lua,working-tree
 SVU,3,Bipod,true,true,,false,1,JAZZ_Bipod,Bipod,jazz,false,InventoryItem/SVU.lua,working-tree
-SWModel10,1,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/SWModel10.lua,working-tree
-SWModel10,2,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/SWModel10.lua,working-tree
-SWModel10,2,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelShort_Pistol,Короткий ствол,jazz,false,InventoryItem/SWModel10.lua,working-tree
-SWModel10,3,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/SWModel10.lua,working-tree
-SWModel10,3,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/SWModel10.lua,working-tree
-SWModel10,3,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/SWModel10.lua,working-tree
-SWModel10,3,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/SWModel10.lua,working-tree
-SWModel19,1,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/SWModel19.lua,working-tree
-SWModel19,2,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/SWModel19.lua,working-tree
-SWModel19,2,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/SWModel19.lua,working-tree
-SWModel19,2,Barrel,true,false,JAZZ_BarrelNormal,true,3,JAZZ_BarrelShort_Pistol,Короткий ствол,jazz,false,InventoryItem/SWModel19.lua,working-tree
-SWModel19,3,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/SWModel19.lua,working-tree
-SWModel19,3,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/SWModel19.lua,working-tree
-SWModel19,3,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/SWModel19.lua,working-tree
-SWModel19,3,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/SWModel19.lua,working-tree
-SWModel29,1,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/SWModel29.lua,working-tree
-SWModel29,2,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/SWModel29.lua,working-tree
-SWModel29,2,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelShort_Pistol,Короткий ствол,jazz,false,InventoryItem/SWModel29.lua,working-tree
-SWModel29,3,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/SWModel29.lua,working-tree
-SWModel29,3,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/SWModel29.lua,working-tree
-SWModel29,3,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/SWModel29.lua,working-tree
-SWModel29,3,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/SWModel29.lua,working-tree
-SWModel52,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/SWModel52.lua,working-tree
-SWModel52,1,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/SWModel52.lua,working-tree
+SWModel10,1,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/SWModel10.lua,working-tree
+SWModel10,1,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelShort_Pistol,Короткий ствол,jazz,false,InventoryItem/SWModel10.lua,working-tree
+SWModel10,2,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/SWModel10.lua,working-tree
+SWModel10,2,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/SWModel10.lua,working-tree
+SWModel10,2,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/SWModel10.lua,working-tree
+SWModel10,2,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/SWModel10.lua,working-tree
+SWModel10,2,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/SWModel10.lua,working-tree
+SWModel19,1,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/SWModel19.lua,working-tree
+SWModel19,1,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/SWModel19.lua,working-tree
+SWModel19,1,Barrel,true,false,JAZZ_BarrelNormal,true,3,JAZZ_BarrelShort_Pistol,Короткий ствол,jazz,false,InventoryItem/SWModel19.lua,working-tree
+SWModel19,2,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/SWModel19.lua,working-tree
+SWModel19,2,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/SWModel19.lua,working-tree
+SWModel19,2,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/SWModel19.lua,working-tree
+SWModel19,2,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/SWModel19.lua,working-tree
+SWModel19,2,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/SWModel19.lua,working-tree
+SWModel29,1,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/SWModel29.lua,working-tree
+SWModel29,1,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelShort_Pistol,Короткий ствол,jazz,false,InventoryItem/SWModel29.lua,working-tree
+SWModel29,2,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/SWModel29.lua,working-tree
+SWModel29,2,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/SWModel29.lua,working-tree
+SWModel29,2,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/SWModel29.lua,working-tree
+SWModel29,2,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/SWModel29.lua,working-tree
+SWModel29,2,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/SWModel29.lua,working-tree
+SWModel52,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_13_PISTOL_52,Расширенный магазин,jazz,false,InventoryItem/SWModel52.lua,working-tree
+SWModel52,1,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagLarge_8_PISTOL_52,Расширенный магазин,jazz,false,InventoryItem/SWModel52.lua,working-tree
+SWModel52,1,Magazine,false,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/SWModel52.lua,working-tree
 SWModel52,2,Muzzle,false,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/SWModel52.lua,working-tree
 SWModel52,2,Muzzle,false,true,,false,2,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/SWModel52.lua,working-tree
-SWModel52,3,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/SWModel52.lua,working-tree
-SWModel52,3,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/SWModel52.lua,working-tree
-SWModel52,3,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/SWModel52.lua,working-tree
-SWModel52,3,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/SWModel52.lua,working-tree
-SWModel52,4,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/SWModel52.lua,working-tree
-SWModel5906,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/SWModel5906.lua,working-tree
-SWModel5906,1,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/SWModel5906.lua,working-tree
+SWModel5906,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_25_PISTOL_9,Расширенный магазин,jazz,false,InventoryItem/SWModel5906.lua,working-tree
+SWModel5906,1,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagLarge_27,Расширенный магазин,jazz,false,InventoryItem/SWModel5906.lua,working-tree
+SWModel5906,1,Magazine,false,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/SWModel5906.lua,working-tree
 SWModel5906,2,Muzzle,false,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/SWModel5906.lua,working-tree
 SWModel5906,2,Muzzle,false,true,,false,2,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/SWModel5906.lua,working-tree
 SWModel5906,3,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/SWModel5906.lua,working-tree
 SWModel5906,3,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/SWModel5906.lua,working-tree
-SWModel5906,3,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/SWModel5906.lua,working-tree
-SWModel5906,3,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/SWModel5906.lua,working-tree
-SWModel5906,4,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/SWModel5906.lua,working-tree
-Thompson,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30-50,Бубен,jazz,false,InventoryItem/Thompson.lua,working-tree
+SWModel5906,3,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/SWModel5906.lua,working-tree
+SWModel5906,3,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/SWModel5906.lua,working-tree
+SWModel5906,3,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/SWModel5906.lua,working-tree
+Thompson,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30_50_THOMPSON,Бубен,jazz,false,InventoryItem/Thompson.lua,working-tree
 Thompson,1,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Thompson.lua,working-tree
-TMP,1,Magazine,true,false,JAZZ_MagSmall30_15,true,1,JAZZ_MagNormal,Заводской магазин,jazz,false,InventoryItem/TMP.lua,working-tree
-TMP,1,Magazine,true,false,JAZZ_MagSmall30_15,true,2,JAZZ_MagSmall30_15,Магазин на 15 патрон,jazz,true,InventoryItem/TMP.lua,working-tree
+TMP,1,Magazine,true,false,JAZZ_MagSmall30_15_TMP,true,1,JAZZ_MagNormal,Заводской магазин,jazz,false,InventoryItem/TMP.lua,working-tree
+TMP,1,Magazine,true,false,JAZZ_MagSmall30_15_TMP,true,2,JAZZ_MagSmall30_15_TMP,Магазин на 15 патрон,jazz,true,InventoryItem/TMP.lua,working-tree
 TMP,2,General,true,true,,false,1,JAZZ_HolsterBelt,Ремень,jazz,false,InventoryItem/TMP.lua,working-tree
 TMP,3,Muzzle,true,true,,false,1,JAZZ_PistolSuppressor,Глушитель,jazz,false,InventoryItem/TMP.lua,working-tree
 TT33,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/TT33.lua,working-tree
-TT33,3,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/TT33.lua,working-tree
 Type56,1,Muzzle,true,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/Type56.lua,working-tree
-Type56,2,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30-75,Бубен,jazz,false,InventoryItem/Type56.lua,working-tree
+Type56,2,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30_75,Бубен,jazz,false,InventoryItem/Type56.lua,working-tree
 Type56,2,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagLarge_30_40,Магазин на 40 патрон,jazz,false,InventoryItem/Type56.lua,working-tree
 Type56,2,Magazine,false,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Type56.lua,working-tree
+Type56,2,Magazine,false,false,JAZZ_MagNormal,true,4,JAZZ_MagQuick_AK,Quick Mag,jazz,false,InventoryItem/Type56.lua,working-tree
 Type56,3,Under,false,false,JAZZ_Type56BayoF,true,1,JAZZ_Type56Bayo,Штык-нож,jazz,false,InventoryItem/Type56.lua,working-tree
 Type56,3,Under,false,false,JAZZ_Type56BayoF,true,2,JAZZ_Type56BayoF,Штык-нож,jazz,true,InventoryItem/Type56.lua,working-tree
-U100,1,Bipod,true,false,JAZZ_FoldBipod,true,1,JAZZ_FoldBipod,Сложенная сошка,jazz,true,InventoryItem/U100.lua,working-tree
-U100,1,Bipod,true,false,JAZZ_FoldBipod,true,2,JAZZ_UnfoldBipod,Разложенная сошка,jazz,false,InventoryItem/U100.lua,working-tree
+U100,1,Bipod,true,false,JAZZ_Bipod,true,1,JAZZ_Bipod,Bipod,jazz,true,InventoryItem/U100.lua,working-tree
 U100,2,Barrel,false,false,JAZZ_BarrelsDefs,true,1,JAZZ_BarrelsDefs,Заводской ствол,jazz,true,InventoryItem/U100.lua,working-tree
-U100,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30-100,Бубен,jazz,false,InventoryItem/U100.lua,working-tree
+U100,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30_100_G3,Бубен,jazz,false,InventoryItem/U100.lua,working-tree
 U100,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/U100.lua,working-tree
+U100,3,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagSmall20_10_G3,Магазин на 10 патрон,jazz,false,InventoryItem/U100.lua,working-tree
 U100,4,Mountfront,false,false,JAZZ_U100Handle,true,1,JAZZ_U100Handle,Рукоять удержания,jazz,true,InventoryItem/U100.lua,working-tree
 U100,5,Muzzle,false,false,JAZZ_DefMuzzle,true,1,JAZZ_DefMuzzle,Заводской дульный тормоз,jazz,true,InventoryItem/U100.lua,working-tree
 U100,6,Stock,false,false,JAZZ_StockNormal,true,1,JAZZ_StockNormal,Default Stock,jazz,true,InventoryItem/U100.lua,working-tree
@@ -1554,8 +1616,9 @@ UMP45,3,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,�
 UMP45,3,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/UMP45.lua,working-tree
 UMP45,4,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/UMP45.lua,working-tree
 UMP45,4,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/UMP45.lua,working-tree
-UMP45,4,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/UMP45.lua,working-tree
-UMP45,4,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/UMP45.lua,working-tree
+UMP45,4,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/UMP45.lua,working-tree
+UMP45,4,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/UMP45.lua,working-tree
+UMP45,4,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/UMP45.lua,working-tree
 UMP45,5,Scope,true,true,,false,1,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/UMP45.lua,working-tree
 UMP45,5,Scope,true,true,,false,2,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/UMP45.lua,working-tree
 UMP45,5,Scope,true,true,,false,3,JAZZ_Reflex_Closed,Коллиматор Закрытый,jazz,false,InventoryItem/UMP45.lua,working-tree
@@ -1578,7 +1641,7 @@ USAS12,1,Scope,true,true,JAZZ_Scope_6x,true,10,JAZZ_Scope_6x,Оптически�
 USAS12,1,Scope,true,true,JAZZ_Scope_6x,true,11,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/USAS12.lua,working-tree
 USAS12,2,Muzzle,true,true,,false,1,JAZZ_Compensator,Compensator,jazz,false,InventoryItem/USAS12.lua,working-tree
 USAS12,2,Muzzle,true,true,,false,2,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/USAS12.lua,working-tree
-USAS12,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/USAS12.lua,working-tree
+USAS12,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_25_USAS,Расширенный магазин,jazz,false,InventoryItem/USAS12.lua,working-tree
 USAS12,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/USAS12.lua,working-tree
 USP45,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/USP45.lua,working-tree
 USP45,2,Muzzle,true,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/USP45.lua,working-tree
@@ -1586,11 +1649,12 @@ USP45,2,Muzzle,true,true,,false,2,JAZZ_PistolSuppressor,Глушитель,jazz,
 USP45,3,Scope,true,false,,false,1,JAZZ_Reflex_Pistol,Коллиматор Пистолетный,jazz,false,InventoryItem/USP45.lua,working-tree
 USP45,4,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/USP45.lua,working-tree
 USP45,4,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/USP45.lua,working-tree
-USP45,4,Side,true,true,,false,3,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/USP45.lua,working-tree
-USP45,4,Side,true,true,,false,4,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/USP45.lua,working-tree
-USP45,5,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/USP45.lua,working-tree
-UZI,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30-50,Бубен,jazz,false,InventoryItem/UZI.lua,working-tree
-UZI,1,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/UZI.lua,working-tree
+USP45,4,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/USP45.lua,working-tree
+USP45,4,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/USP45.lua,working-tree
+USP45,4,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/USP45.lua,working-tree
+UZI,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30_50_UZI,Бубен,jazz,false,InventoryItem/UZI.lua,working-tree
+UZI,1,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagLarge_20_30_UZI,Магазин на 30 патрон,jazz,false,InventoryItem/UZI.lua,working-tree
+UZI,1,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/UZI.lua,working-tree
 UZI,2,Scope,true,true,,false,1,JAZZ_Reflex_Closed,Коллиматор Закрытый,jazz,false,InventoryItem/UZI.lua,working-tree
 UZI,2,Scope,true,true,,false,2,JAZZ_Reflex_Eotech,Коллиматор Eotech,jazz,false,InventoryItem/UZI.lua,working-tree
 UZI,2,Scope,true,true,,false,3,JAZZ_Reflex_M68,Коллиматор Aimpoint M68,jazz,false,InventoryItem/UZI.lua,working-tree
@@ -1600,12 +1664,11 @@ UZI,3,Muzzle,true,true,,false,2,JAZZ_PistolSuppressor,Глушитель,jazz,fa
 UZI,4,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/UZI.lua,working-tree
 UZI,4,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/UZI.lua,working-tree
 UZI,4,Stock,true,false,JAZZ_StockLightUnFolded,true,3,JAZZ_StockNormal,Default Stock,jazz,false,InventoryItem/UZI.lua,working-tree
-VectorCP1,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge,Расширенный магазин,jazz,false,InventoryItem/VectorCP1.lua,working-tree
+VectorCP1,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_25_PISTOL_9,Расширенный магазин,jazz,false,InventoryItem/VectorCP1.lua,working-tree
 VectorCP1,1,Magazine,false,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/VectorCP1.lua,working-tree
 VectorCP1,2,Muzzle,false,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/VectorCP1.lua,working-tree
 VectorCP1,2,Muzzle,false,true,,false,2,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/VectorCP1.lua,working-tree
-VectorCP1,3,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/VectorCP1.lua,working-tree
-VSS,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_10_20,Магазин на 20 патрон,jazz,false,InventoryItem/VSS.lua,working-tree
+VSS,1,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_10_20_VAL,Магазин на 20 патрон,jazz,false,InventoryItem/VSS.lua,working-tree
 VSS,1,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/VSS.lua,working-tree
 VSS,2,Scope,true,true,,false,1,JAZZ_CombatScope_1P29,JAZZ_CombatScope_1P29,jazz,false,InventoryItem/VSS.lua,working-tree
 VSS,2,Scope,true,true,,false,2,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/VSS.lua,working-tree
@@ -1622,11 +1685,9 @@ VSS,2,Scope,true,true,,false,12,JAZZ_Scope_12x,Оптический Прицел
 VSS,2,Scope,true,true,,false,13,JAZZ_Scope_6x,Оптический Прицел 1-6x,jazz,false,InventoryItem/VSS.lua,working-tree
 VSS,2,Scope,true,true,,false,14,JAZZ_Scope_PSO,Оптический Прицел ПСО (4x),jazz,false,InventoryItem/VSS.lua,working-tree
 VSS,2,Scope,true,true,,false,15,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/VSS.lua,working-tree
-Webley,1,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/Webley.lua,working-tree
-Webley,2,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/Webley.lua,working-tree
-Webley,2,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/Webley.lua,working-tree
-Welrod,1,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,InventoryItem/Welrod.lua,working-tree
-Welrod,2,Muzzle,false,false,JAZZ_SuppressorIntegrated,true,1,JAZZ_SuppressorIntegrated,Глушитель Интегрированный,jazz,true,InventoryItem/Welrod.lua,working-tree
+Webley,1,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/Webley.lua,working-tree
+Webley,1,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/Webley.lua,working-tree
+Welrod,1,Muzzle,false,false,JAZZ_SuppressorIntegrated,true,1,JAZZ_SuppressorIntegrated,Глушитель Интегрированный,jazz,true,InventoryItem/Welrod.lua,working-tree
 Winchester1894,1,Barrel,true,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelLong,Extended Barrel,jazz,false,InventoryItem/Winchester1894.lua,working-tree
 Winchester1894,1,Barrel,true,false,JAZZ_BarrelNormal,true,2,JAZZ_BarrelNormal,Default Barrel,jazz,true,InventoryItem/Winchester1894.lua,working-tree
 Winchester1894,1,Barrel,true,false,JAZZ_BarrelNormal,true,3,JAZZ_BarrelShort_Winchester,Short Barrel,jazz,false,InventoryItem/Winchester1894.lua,working-tree
@@ -1646,21 +1707,24 @@ Zastava_M70,1,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFo
 Zastava_M70,1,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/Zastava_M70.lua,working-tree
 Zastava_M70,2,General,false,false,JAZZ_M70_Fld_GL,true,1,JAZZ_M70_Fld_GL,Сложенный прицел,jazz,true,InventoryItem/Zastava_M70.lua,working-tree
 Zastava_M70,2,General,false,false,JAZZ_M70_Fld_GL,true,2,JAZZ_M70_Unfld_GL,Разложенный прицел,jazz,false,InventoryItem/Zastava_M70.lua,working-tree
-Zastava_M70,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagLarge_30_40,Магазин на 40 патрон,jazz,false,InventoryItem/Zastava_M70.lua,working-tree
-Zastava_M70,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Zastava_M70.lua,working-tree
+Zastava_M70,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30_75,Бубен,jazz,false,InventoryItem/Zastava_M70.lua,working-tree
+Zastava_M70,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagLarge_30_40,Магазин на 40 патрон,jazz,false,InventoryItem/Zastava_M70.lua,working-tree
+Zastava_M70,3,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/Zastava_M70.lua,working-tree
+Zastava_M70,3,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagQuick_AK,Quick Mag,jazz,false,InventoryItem/Zastava_M70.lua,working-tree
 Zastava_M70,4,Bipod,true,true,,false,1,JAZZ_Bipod,Bipod,jazz,false,InventoryItem/Zastava_M70.lua,working-tree
 Zastava_M70,5,Muzzle,false,true,,false,1,JAZZ_M70_Grenade,Наствольная граната для М70,jazz,false,InventoryItem/Zastava_M70.lua,working-tree
 ZastavaM76,1,Stock,false,false,JAZZ_StockNormal,true,1,JAZZ_StockNormal,Default Stock,jazz,true,InventoryItem/ZastavaM76.lua,working-tree
-ZastavaM76,2,Magazine,false,true,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/ZastavaM76.lua,working-tree
+ZastavaM76,2,Magazine,false,true,JAZZ_MagNormal,true,1,JAZZ_MagLarge_10_20_SVD,Магазин на 20 патрон,jazz,false,InventoryItem/ZastavaM76.lua,working-tree
+ZastavaM76,2,Magazine,false,true,JAZZ_MagNormal,true,2,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/ZastavaM76.lua,working-tree
 ZastavaM76,3,Scope,true,true,JAZZ_Scope_ZRAK,true,1,JAZZ_Scope_ZRAK,Оптический Прицел ZRAK (4x),jazz,true,InventoryItem/ZastavaM76.lua,working-tree
 ZastavaM76,4,Barrel,false,true,JAZZ_BarrelsDefs,true,1,JAZZ_BarrelsDefs,Заводской ствол,jazz,true,InventoryItem/ZastavaM76.lua,working-tree
 ZastavaM92,1,Muzzle,true,true,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/ZastavaM92.lua,working-tree
-ZastavaM92,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30-75,Бубен,jazz,false,InventoryItem/ZastavaM92.lua,working-tree
+ZastavaM92,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagDrum_30_75,Бубен,jazz,false,InventoryItem/ZastavaM92.lua,working-tree
 ZastavaM92,2,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagLarge_30_40,Магазин на 40 патрон,jazz,false,InventoryItem/ZastavaM92.lua,working-tree
 ZastavaM92,2,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/ZastavaM92.lua,working-tree
+ZastavaM92,2,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagQuick_AK,Quick Mag,jazz,false,InventoryItem/ZastavaM92.lua,working-tree
 ZastavaM92,3,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/ZastavaM92.lua,working-tree
 ZastavaM92,3,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/ZastavaM92.lua,working-tree
-TexRevolver,1,Freeswap,true,false,JAZZ_Freeswap,true,1,JAZZ_Freeswap,Пистолет,jazz,true,items.lua,working-tree
 Auto5_quest,1,Muzzle,true,true,,false,1,JAZZ_Compensator,Compensator,jazz,false,items.lua,working-tree
 Auto5_quest,1,Muzzle,true,true,,false,2,JAZZ_DuckbillChoke,Duckbill Choke,jazz,false,items.lua,working-tree
 Auto5_quest,1,Muzzle,true,true,,false,3,JAZZ_FullChoke,Full Choke,jazz,false,items.lua,working-tree
@@ -1671,10 +1735,9 @@ Auto5_quest,2,Barrel,true,false,JAZZ_Auto5_Basic_LMag,true,4,JAZZ_Auto5_Long_NMa
 Auto5_quest,2,Barrel,true,false,JAZZ_Auto5_Basic_LMag,true,5,JAZZ_Auto5_Short_NMag,Короткий ствол,jazz,false,items.lua,working-tree
 Galil_FlagHill,1,Barrel,false,false,JAZZ_BarrelNormal,true,1,JAZZ_BarrelNormal,Default Barrel,jazz,true,items.lua,working-tree
 Galil_FlagHill,2,Stock,false,false,JAZZ_StockNormal,true,1,JAZZ_StockNormal,Default Stock,jazz,true,items.lua,working-tree
-Galil_FlagHill,3,Muzzle,false,false,JAZZ_MuzzleBooster,true,1,JAZZ_Compensator,Compensator,jazz,false,items.lua,working-tree
-Galil_FlagHill,3,Muzzle,false,false,JAZZ_MuzzleBooster,true,2,JAZZ_Galil_Brake_Default,Default Muzzle Brake,jazz,false,items.lua,working-tree
-Galil_FlagHill,3,Muzzle,false,false,JAZZ_MuzzleBooster,true,3,JAZZ_MuzzleBooster,Recoil Booster,jazz,true,items.lua,working-tree
-Galil_FlagHill,3,Muzzle,false,false,JAZZ_MuzzleBooster,true,4,JAZZ_Suppressor,Suppressor,jazz,false,items.lua,working-tree
+Galil_FlagHill,3,Muzzle,false,false,JAZZ_Galil_Brake_Default,true,1,JAZZ_Compensator,Compensator,jazz,false,items.lua,working-tree
+Galil_FlagHill,3,Muzzle,false,false,JAZZ_Galil_Brake_Default,true,2,JAZZ_Galil_Brake_Default,Default Muzzle Brake,jazz,true,items.lua,working-tree
+Galil_FlagHill,3,Muzzle,false,false,JAZZ_Galil_Brake_Default,true,3,JAZZ_Suppressor,Suppressor,jazz,false,items.lua,working-tree
 Galil_FlagHill,4,Under,false,false,JAZZ_Bipod_Galil,true,1,JAZZ_Bipod_Galil,Bipod,jazz,true,items.lua,working-tree
 Galil_FlagHill,5,Scope,false,false,JAZZ_Reflex_Aimpoint5000,true,1,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,items.lua,working-tree
 Galil_FlagHill,5,Scope,false,false,JAZZ_Reflex_Aimpoint5000,true,2,JAZZ_Reflex_Aimpoint5000,Коллиматор Aimpoint5000,jazz,true,items.lua,working-tree

@@ -57,7 +57,8 @@ DefineClass.M14SAW = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagSmall20_10",
+				"JAZZ_MagNormalFine_M14",
+				"JAZZ_MagSmall20_10_M14",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -89,6 +90,7 @@ DefineClass.M14SAW = {
 				"JAZZ_FlashlightDot",
 				"JAZZ_UVDot",
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -118,7 +120,11 @@ DefineClass.M14SAW = {
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,
-	Recoil = 40,
+	WeaponMass = 36,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 36,
 	BurstShots = 4,
 	AutoShots = 7,
 

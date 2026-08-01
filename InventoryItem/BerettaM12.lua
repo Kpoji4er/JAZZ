@@ -49,6 +49,7 @@ DefineClass.BerettaM12 = {
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
+			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_StockLightUnFolded",
 				"JAZZ_StockLightFolded",
@@ -66,8 +67,12 @@ DefineClass.BerettaM12 = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 4000,
-	Recoil = 3,
-	BurstShots = 2,
+	WeaponMass = 32,
+	CyclicRPM = 600,
+	WeaponSizeClass = "Carbine",
+	BurstLimiter = 0,
+	Recoil = 18,
+	BurstShots = 3,
 	AutoShots = 6,
 
 	CloseRange = 2,

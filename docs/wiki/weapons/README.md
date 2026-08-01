@@ -20,9 +20,9 @@
 | [undefined](revolver.md) | `Revolver` | 13 | 1, 2, 3 |
 | [undefined](submachine-gun.md) | `SubmachineGun` | 23 | 1, 2, 3 |
 | [undefined](carbine.md) | `Carbine` | 14 | 1, 2, 3 |
-| [undefined](assault-rifle.md) | `AssaultRifle` | 16 | 1, 2, 3 |
+| [undefined](assault-rifle.md) | `AssaultRifle` | 17 | 1, 2, 3 |
 | [undefined](battle-rifle.md) | `BattleRifle` | 15 | 1, 2 |
-| [undefined](sniper-rifle.md) | `SniperRifle` | 19 | 1, 2, 3 |
+| [undefined](sniper-rifle.md) | `SniperRifle` | 18 | 1, 2, 3 |
 | [undefined](light-machine-gun.md) | `LightMachineGun` | 9 | 1, 2, 3 |
 | [undefined](machine-gun.md) | `MachineGun` | 10 | 1, 2, 3 |
 | [undefined](shotgun.md) | `Shotgun` | 12 | 1, 2, 3 |
@@ -43,15 +43,6 @@
 
 ## Известные аномалии данных
 
-- Компонент по умолчанию отсутствует среди вариантов слота: `Beretta93r/Muzzle: su`.
-- Компонент по умолчанию отсутствует среди вариантов слота: `CZ52/Muzzle: su`.
-- Компонент по умолчанию отсутствует среди вариантов слота: `CZ75/Muzzle: su`.
-- Компонент по умолчанию отсутствует среди вариантов слота: `FRF2/Bipod: Bipod`.
-- Компонент по умолчанию отсутствует среди вариантов слота: `MAC1950/Muzzle: su`.
-- Компонент по умолчанию отсутствует среди вариантов слота: `SWModel52/Muzzle: su`.
-- Компонент по умолчанию отсутствует среди вариантов слота: `SWModel5906/Muzzle: su`.
-- Компонент по умолчанию отсутствует среди вариантов слота: `Sig550Custom/Stock: UnfoldStocks`.
-- Компонент по умолчанию отсутствует среди вариантов слота: `Sig552/Stock: UnfoldStocks`.
-- Компонент по умолчанию отсутствует среди вариантов слота: `VectorCP1/Muzzle: su`.
+Проверка не нашла default-компонентов вне списка вариантов.
 
-Снимок первичного импорта: `09673e3a8dd397d662833fb530a3566f6596c4c0`. После импорта источник истины — [CSV-каталог и его схема](../../technical/weapons/README.md); эти wiki-страницы генерируются из него.
+Снимок первичного импорта: `working-tree`. После импорта источник истины — [CSV-каталог и его схема](../../technical/weapons/README.md); эти wiki-страницы генерируются из него.

@@ -3,9 +3,9 @@ DefineClass.ColtPeacemaker = {
 	__parents = { "Revolver" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Tier 1-2",
 	object_class = "Revolver",
+	ReloadStyle = "Revolver",
 	ScrapParts = 6,
 	RepairCost = 4,
 	Reliability = 95,
@@ -37,13 +37,7 @@ DefineClass.ColtPeacemaker = {
 			},
 			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Freeswap",
-			'AvailableComponents', {
-				"JAZZ_Freeswap",
-			},
-			'DefaultComponent', "JAZZ_Freeswap",
-		}),
+		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -54,8 +48,13 @@ DefineClass.ColtPeacemaker = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 5000,
-	Recoil = 1,
-	AutoShots = 3,
+	WeaponMass = 10,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
+	BurstShots = 0,
+	Recoil = 17,
+	AutoShots = 0,
 
 	CloseRange = 0,
 

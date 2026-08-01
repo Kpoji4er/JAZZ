@@ -57,10 +57,14 @@ DefineClass.Agram2000 = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 5000,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
 	MaxAimActions = 2,
-	Recoil = 6,
+	Recoil = 18,
 	BurstShots = 4,
-	AutoShots = 8,
+	AutoShots = 7,
 
 	CloseRange = 2,
 

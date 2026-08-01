@@ -165,6 +165,31 @@ function JAZZ_CTHGetAimProgress(weapon, aim)
 	return Clamp(MulDivRound(aim or 0, 1000, max_aim), 0, 1000) / 1000.0, max_aim
 end
 
+-- Optic AimAccuracyPercent applies only once the optic is "active" (AimLevel met).
+-- Combat/long: params hang on ScopeMagnification (AimAccuracyAimLevel falls back to ScopeAimLevel).
+-- Reflex: params hang on MinAim (default unlock at aim >= 1).
+-- Do not use IncreaseAimAccuracy15Percent on optics — that multiplies the Firearm property always-on.
+function JAZZ_CTHGetOpticAimAccuracyPercent(weapon, aim)
+	local pct = JAZZ_CTHGetComponentValue(weapon, "ScopeMagnification", "AimAccuracyPercent")
+	local unlock = JAZZ_CTHGetComponentValue(weapon, "ScopeMagnification", "AimAccuracyAimLevel")
+	if not unlock then
+		unlock = JAZZ_CTHGetComponentValue(weapon, "ScopeMagnification", "ScopeAimLevel")
+	end
+	if not pct then
+		pct = JAZZ_CTHGetComponentValue(weapon, "MinAim", "AimAccuracyPercent")
+		unlock = JAZZ_CTHGetComponentValue(weapon, "MinAim", "AimAccuracyAimLevel") or 1
+	end
+	if not pct then
+		return 100, false
+	end
+	unlock = unlock or 0
+	local active = (aim or 0) >= unlock
+	if active then
+		return pct, true
+	end
+	return 100, false
+end
+
 function JAZZ_CTHGetShooterCore(attacker, weapon, aim)
 	local dexterity = Clamp(attacker and attacker.Dexterity or 0, 0, 100)
 	local marksmanship = Clamp(attacker and attacker.Marksmanship or 0, 0, 100)
@@ -177,6 +202,10 @@ function JAZZ_CTHGetShooterCore(attacker, weapon, aim)
 	local shot_skill = snap + aim_progress * Max(precision - snap, 0)
 	local aim_mastery = JAZZ_CTHGetAimMastery(marksmanship)
 	local aim_accuracy = Max(0, JAZZ_CTHGetWeaponProperty(weapon, "AimAccuracy", 0))
+	local optic_aa_pct, optic_aa_active = JAZZ_CTHGetOpticAimAccuracyPercent(weapon, aim)
+	if optic_aa_pct and optic_aa_pct ~= 100 then
+		aim_accuracy = aim_accuracy * optic_aa_pct * 1.0 / 100
+	end
 	local aim_gain = Max(0, aim or 0) * aim_accuracy * aim_mastery * 1.0 / 100
 	local core = shot_skill + aim_gain
 
@@ -188,6 +217,8 @@ function JAZZ_CTHGetShooterCore(attacker, weapon, aim)
 		shot_skill = shot_skill,
 		aim_mastery = aim_mastery,
 		aim_accuracy = aim_accuracy,
+		optic_aim_accuracy_percent = optic_aa_pct,
+		optic_aim_accuracy_active = optic_aa_active,
 		aim_gain = aim_gain,
 		aim_progress = aim_progress,
 		max_aim = max_aim,
@@ -417,10 +448,11 @@ function JAZZ_CTHGetRangeProfile(weapon, distance, unit, action, aim)
 
 	-- Weapon close-range inefficiency (barrel-shifted); optic MinRange stacks via separate factor.
 	local close_range = Max(0, JAZZ_CTHGetWeaponProperty(weapon, "CloseRange", 0) or 0)
+	-- Allow >100 so optics (reflex CloseRangeFactorIncrease) can buff CQB above neutral.
 	local close_range_factor_pct = Clamp(
 		JAZZ_CTHGetWeaponProperty(weapon, "CloseRangeFactor", 100) or 100,
 		25,
-		100
+		150
 	)
 	local close_factor = JAZZ_CTH_FACTOR_SCALE
 	if close_range > 0 and tiles < close_range then
@@ -496,6 +528,9 @@ function JAZZ_CTHGetRecoilProfile(weapon, attacker, stance, action, attack_args)
 
 	local strength = Clamp(attacker and attacker.Strength or 50, 0, 100)
 	local strength_factor = Clamp(1.25 - strength * 1.0 / 200, 0.75, 1.25)
+	local marksmanship = Clamp(attacker and attacker.Marksmanship or 50, 0, 100)
+	local marks_factor = Clamp(1.25 - marksmanship * 1.0 / 200, 0.75, 1.25)
+	local shooter_factor = 0.5 * strength_factor + 0.5 * marks_factor
 	local stance_factor = stance == "Prone" and 0.75 or stance == "Crouch" and 0.90 or 1
 	local support_factor = 1
 	local perk_factor = 1
@@ -540,7 +575,7 @@ function JAZZ_CTHGetRecoilProfile(weapon, attacker, stance, action, attack_args)
 
 	local effective_recoil =
 		action_recoil
-		* strength_factor
+		* shooter_factor
 		* stance_factor
 		* support_factor
 		* perk_factor
@@ -555,6 +590,8 @@ function JAZZ_CTHGetRecoilProfile(weapon, attacker, stance, action, attack_args)
 		effective_recoil = effective_recoil,
 		retention = JAZZ_CTHRound(retention * JAZZ_CTH_FACTOR_SCALE),
 		strength_factor = strength_factor,
+		marks_factor = marks_factor,
+		shooter_factor = shooter_factor,
 		stance_factor = stance_factor,
 		support_factor = support_factor,
 		component_factor = component_factor,

@@ -75,9 +75,13 @@ DefineClass.MAC2429 = {
 	},
 	ShootAP = 8000,
 	ReloadAP = 7000,
-	Recoil = 32,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 18,
 	BurstShots = 4,
-	AutoShots = 6,
+	AutoShots = 7,
 
 	CloseRange = 6,
 

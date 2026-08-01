@@ -3,9 +3,9 @@ DefineClass.ColtAnaconda = {
 	__parents = { "Revolver" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Tier 2-5",
 	object_class = "Revolver",
+	ReloadStyle = "Revolver",
 	ScrapParts = 8,
 	RepairCost = 5,
 	Reliability = 95,
@@ -48,13 +48,7 @@ DefineClass.ColtAnaconda = {
 			},
 			'DefaultComponent', "JAZZ_BaseIronsight_Anaconda",
 		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Freeswap",
-			'AvailableComponents', {
-				"JAZZ_Freeswap",
-			},
-			'DefaultComponent', "JAZZ_Freeswap",
-		}),
+		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -65,8 +59,13 @@ DefineClass.ColtAnaconda = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 5000,
-	Recoil = 1,
-	AutoShots = 3,
+	WeaponMass = 10,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
+	BurstShots = 0,
+	Recoil = 18,
+	AutoShots = 0,
 	BulletDropRange = 8,
 
 	CloseRange = 0,

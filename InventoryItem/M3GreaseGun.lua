@@ -35,6 +35,7 @@ DefineClass.M3GreaseGun = {
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
+			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_StockLightFolded",
 				"JAZZ_StockLightUnFolded",
@@ -52,10 +53,14 @@ DefineClass.M3GreaseGun = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
 	MaxAimActions = 2,
-	Recoil = 8,
-	BurstShots = 2,
-	AutoShots = 5,
+	Recoil = 18,
+	BurstShots = 4,
+	AutoShots = 7,
 
 	CloseRange = 2,
 

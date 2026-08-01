@@ -6,6 +6,7 @@ DefineClass.Auto5 = {
 
 	comment = "Tier 1-2",
 	object_class = "Shotgun",
+	ReloadStyle = "Tube",
 	ScrapParts = 10,
 	RepairCost = 4,
 	Reliability = 65,
@@ -63,9 +64,14 @@ DefineClass.Auto5 = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
+	WeaponMass = 36,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 25,
 	MaxAimActions = 2,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	AutoShots = 0,
 
 	CloseRange = 4,
 

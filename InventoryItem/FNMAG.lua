@@ -38,9 +38,9 @@ DefineClass.FNMAG = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'AvailableComponents', {
-				"JAZZ_KSP_BIPOD",
+				"JAZZ_Bipod",
 			},
-			'DefaultComponent', "JAZZ_KSP_BIPOD",
+			'DefaultComponent', "JAZZ_Bipod",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -74,9 +74,13 @@ DefineClass.FNMAG = {
 	},
 	ShootAP = 9000,
 	ReloadAP = 10000,
-	Recoil = 12,
-	BurstShots = 8,
-	AutoShots = 8,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 24,
+	BurstShots = 4,
+	AutoShots = 0,
 
 	CloseRange = 6,
 

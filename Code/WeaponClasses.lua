@@ -32,6 +32,8 @@ DefineClass.RocketLauncher = {
 		{ category = "Combat", id = "BackfireRange", editor = "number", min = 0, default = 3, template = true, },
 		{ category = "Combat", id = "BackfireConeAngle", editor = "number", min = 0, scale = "deg", default = 30*60, template = true, },
 		{ category = "Combat", id = "BackfireDamage", editor = "number", min = 0, default = 10, template = true, },
+		{ category = "Combat", id = "DisposableLauncher", editor = "bool", default = false, template = true, },
+		{ category = "Combat", id = "EmbeddedOrdnance", editor = "text", default = false, template = true, },
 	},
 	trajectory_type = "line", 
 	WeaponType = "MissileLauncher", 

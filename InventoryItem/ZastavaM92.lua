@@ -43,8 +43,9 @@ DefineClass.ZastavaM92 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
+				"JAZZ_MagQuick_AK",
 				"JAZZ_MagLarge_30_40",
-				"JAZZ_MagDrum_30-75",
+				"JAZZ_MagDrum_30_75",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -68,8 +69,13 @@ DefineClass.ZastavaM92 = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 5000,
-	Recoil = 18,
-	AutoShots = 6,
+	WeaponMass = 35,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	BurstShots = 0,
+	Recoil = 20,
+	AutoShots = 0,
 
 	CloseRange = 4,
 

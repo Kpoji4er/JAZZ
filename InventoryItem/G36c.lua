@@ -64,6 +64,7 @@ DefineClass.G36c = {
 			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
+				"JAZZ_MagQuick_G36",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -82,6 +83,7 @@ DefineClass.G36c = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_FlashlightDot",
 				"JAZZ_LaserDot",
 				"JAZZ_UVDot",
@@ -90,6 +92,7 @@ DefineClass.G36c = {
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
+			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_StockLightUnFolded",
 				"JAZZ_StockLightFolded",
@@ -108,8 +111,13 @@ DefineClass.G36c = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 6000,
-	Recoil = 12,
-	AutoShots = 8,
+	WeaponMass = 35,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	BurstShots = 0,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 4,
 

@@ -1,7 +1,7 @@
 # Аттачи: рефакторинг Handling → живые рычаги + ребаланс
 
-Канон контракта: `docs/specs/active/JAZZ-ATTACH-001.md` (**approved; static acceptance green**).  
-Статус 2026-07-31: runtime + generated-data migration + CSV/docs sync выполнены; до `implemented` остались Mod Editor round-trip (AC-004) и игровой smoke трёх китов (AC-006).
+Канон контракта: `docs/specs/active/JAZZ-ATTACH-001.md` (**approved; один большой спек на весь Phase C**).  
+Статус 2026-08-01: Handling/ID/static green; Scope/Barrel/Muzzle/Mag/Stock/Under-grips/**Bipod**/**Side** applied; absolute MagSize (docs-only); Bayonet **distant backlog**; AC-004 editor / AC-006 smoke human.
 
 ## Жёсткие лимиты (от владельца)
 
@@ -155,50 +155,73 @@ Audit сейчас (`docs/tools/_tmp_audit_effects.py`):
 
 ### Прицелы
 
+**Специализация оружия (owner):** колемы → эффективность ↑ vs irons; боевая → mid; полноценная → баф max aim. Канон-страницы ниже. **Scope Phase C — settled 2026-08-01** (числа не трогать без нового pass).
+
 | Тир | Примеры | Хотим | Не хотим |
 | --- | --- | --- | --- |
-| Reflex | Closed, Eotech, M68, Open, Cobra… | −1 MaxAim, +1 OW shot, +OW angle, OA; MinAim; Handling **off** | ShotAP tax, сильный OW narrow |
-| Combat 2–4× | CombatScope_2x/3x/ACOG/1P29… | Mag N×, AimLevel 1–2, ShotAP +1, mild OW↓ | CritFullAim (это для длинной) |
-| Scope 6–12× | 6x, Scout, 12x, PSO… | Mag, AimLevel 3–4, ShotAP +1(+), strong OW↓, CritFullAim; +MaxAim на 9–12× | широкий OW как у коллиматора |
-| Night | NightScope, NSPU, M3 | как combat/mid + dark rule | бесплатный dark без AimLevel |
+| Reflex | см. матрицу ниже | эффективность ↑ vs irons: −1 MaxAim, MinAim, close soft, AA%@aim≥1 / OW; Handling **off** | ShotAP tax, сильный OW narrow, плоский CTH |
+| Combat 2–4× | CombatScope_2x/3x/ACOG/1P29… | **mid**, ранний AimLevel, мягкий near, AA% @ unlock; см. [`combat-scope-tiers.md`](combat-scope-tiers.md) | CritFullAim; снайперский near; payoff только на max aim |
+| Scope (long) | PU…PSO…6x…12x | **баф max aim**: поздний AimLevel, far reach, ShotAP, Crit, harsh near, AA% @ unlock; см. [`long-scope-tiers.md`](long-scope-tiers.md) | широкий OW; mid-payoff раньше Combat |
+| Night | NightScope, NSPU | dark + mild near/OW; см. long-scope-tiers | бесплатный dark без AimLevel |
 
-Проверить после снятия Handling: не стали ли 2× «строго лучше» Reflex на всём — если да, оставить ShotAP на combat и/или чуть сильнее OW↓.
+#### Коллиматоры
+
+Канон тиров/архетипов: **[`docs/design/reflex-collimator-tiers.md`](reflex-collimator-tiers.md)** (Precision / Overwatch / Universal).  
+Apply: `docs/tools/_rebalance_reflex_tiers.py`.
+
+#### Боевые прицелы
+
+Канон: **[`docs/design/combat-scope-tiers.md`](combat-scope-tiers.md)**. Apply: `docs/tools/_rebalance_combat_scopes.py`.
+
 
 ### Стволы
 
+Канон: **[`docs/design/barrel-tiers.md`](barrel-tiers.md)**. Apply: `docs/tools/_rebalance_barrel_tiers.py`.
+
 | Роль | Рычаги |
 | --- | --- |
-| Short | −Range, −BDR, Grouping↓, Recoil↑; CloseRange↓ (пистолет → упор; винтовка → окно ближе); ShootAP− только в budget ±1 |
-| Long | +Range, +BDR, Grouping↑, Recoil↓; CloseRange↑; без ShotAP+ «за тяжесть» |
-| Improved | Reliability↑ ± лёгкий accuracy |
+| Short | **BDR ×70%**, R **−1**, CloseRange↓ / Factor↑, Recoil↑, Grouping↓; Rel− на base short |
+| Long | **BDR ×130%**, R **+1**, CloseRange↑ / Factor↓, Recoil↓, Grouping↑ |
+| Heavy | Recoil**−5** + BDR ×115% + near-tax; **без** flat CTH |
+| Improved | то же + Reliability |
+| Pistol short | BDR ×85% + CQB-зона Close+3 @ Factor+15 |
 
-`WeaponRange`/`BDR` не ставить на Scope/Muzzle/Stock. `CloseRange*` — база на Firearm, ствол только двигает.
+`WeaponRange` почти не двигаем. **BDR только Multiply %** (револьвер BDR5 → short 4, не −6). Нет AA / ShootAP / flat CTH на rifle-стволах.
 
 ### Магазины
 
+Канон: **[`docs/design/magazine-tiers.md`](magazine-tiers.md)**. Apply: `docs/tools/_rebalance_magazine_tiers.py`.
+
 | Роль | Рычаги |
 | --- | --- |
-| Expanded | size↑, ReloadAP↑, Reliability↓, optional AA−15% |
-| Compact | size↓, ReloadAP↓, Reliability↑ |
-| Drum/belt | size↑↑, ReloadAP↑↑, Reliability↓, optional Cumbersome→Reload/Recoil |
+| Маленький (`MagSmall*`) | size↓, ReloadAP−1, Rel+15 |
+| Стандарт | baseline / Fine Rel+ / Quick Reload− |
+| Увеличенный (`MagLarge_*`, Fine) | size↑; Reload **+1** (Fine = 0); без Rel/AA |
+| Большой (`MagLarge`, drum, belt) | size↑↑, Reload **+2**, Rel−15, AA−15% |
 
 ### Дуло
 
+Канон: **[`docs/design/muzzle-tiers.md`](muzzle-tiers.md)**. Apply: `docs/tools/_rebalance_muzzle_tiers.py`.
+
 | Роль | Рычаги |
 | --- | --- |
-| Compensator | Recoil↓, same-target |
-| Suppressor | Silent + StealthKill + jam + Grouping tax; **без** Handling |
-| Flash hider | лёгкий пакет (не копировать полный suppressor) |
+| Compensator / brake | Recoil↓ (3 / 1); same-target на compensator |
+| Flash hider (M2/M3) | Recoil−1 + StealthKill; **без** Silent |
+| Suppressor ladder | Silent Noise% + StealthKill↑ с тиром + Grouping/Rel/Jam; **без Recoil**; **без** R/BDR |
+| Improvised | шире слотов (**by design**); SK mid, не топ |
+| Choke | только BuckshotAngle; FullChoke **без** IncreaseRange |
+
+`JAZZ_MuzzleBooster` — **cut**. Empty defaults — без боя.
 
 ### Under / grip / bipod / stock
 
 | Роль | Рычаги |
 | --- | --- |
-| Vertical/Tac grip | Recoil↓ only |
+| **Grips** | канон [`under-grip-tiers.md`](under-grip-tiers.md): Vertical Recoil−1; Tac/Wrap CloseFactor+5; Ergo AA%105; дешёвые; без FreeWeaponSwap |
 | GL | open mode; optional +1 ShotAP если playtest «бесплатно» |
-| Bipod | prone only |
-| Stock normal/heavy | Recoil↓ / AimAccuracy↑ |
-| Folded / no stock | ShootAP−, Recoil↑, AimAccuracy−−, OW+ |
+| **Bipod** | канон [`bipod-tiers.md`](bipod-tiers.md): один `JAZZ_Bipod` + Under; CTH+10 / +1 shot |
+| **Side** | канон [`side-tiers.md`](side-tiers.md): Flashlight light+toggle; Dot light+OW/Mark; Laser CTH+falloff@5; UV night+SK |
+| **Stock** | канон [`stock-tiers.md`](stock-tiers.md): Normal empty; Heavy Recoil−5+AA%; Light≡Unfolded Recoil+2; Folded/No ShootAP−1+Recoil+5+OW+2 |
 
 ## 4. Порядок работ
 
@@ -212,7 +235,18 @@ C   tier number pass + CloseRange/BDR curve if in scope
     technical sync + AC evidence
 ```
 
-Не смешивать с несвязанным base-weapon retune.
+### Порядок Phase C (всё внутри `JAZZ-ATTACH-001`)
+
+1. **Scope — settled** (Reflex / Combat / Long, 2026-08-01).
+2. **Barrel — applied** (BDR% + CloseRange* + Recoil; R ±1; см. [`barrel-tiers.md`](barrel-tiers.md)).
+3. **Muzzle — applied** (Recoil vs Silent; SK ladder; FlashHider без Silent; MuzzleBooster cut; см. [`muzzle-tiers.md`](muzzle-tiers.md)).
+4. **Magazine — partial** (ReloadAP applied; ёмкость **Set-канон в доке**, runtime later; см. [`magazine-tiers.md`](magazine-tiers.md)).
+5. **Stock — applied** (плечо vs folded; см. [`stock-tiers.md`](stock-tiers.md)).
+6. **Under grips — applied** ([`under-grip-tiers.md`](under-grip-tiers.md)).
+7. **Bipod — applied** ([`bipod-tiers.md`](bipod-tiers.md)).
+8. **Side — applied** ([`side-tiers.md`](side-tiers.md)). Bayonet — distant backlog.
+
+Отдельные SPEC на слоты **не** создавать.
 
 ### Phase D кратко
 
@@ -232,15 +266,11 @@ Saves: rename ломает экипированный id — accepted break.
 - Human doc без «штраф Handling» как будто он в CTH
 - Smoke: Reflex CQB / ACOG mid / 12×+suppressor читаются разными
 
-## 6. Открыто для владельца
+## 6. Открыто / in-spec backlog
 
-1. Pure-ergo: всем Recoil=1 или поштучно / visual?
-2. Phase C глубина: только замена vs полный tier pass?
-3. GL: Handling off only vs +1 ShotAP (съедает весь +1 budget вместе с оптикой)?
-4. Ближняя зона: `CloseRange` + `CloseRangeFactor`; `PointBlankBonus`/`TwoHanded` оставить — **approved**.
-5. Падение после BDR → ~25% на R с ускорением — **approved**; p/floor при реализации.
-6. Phase D: `JAZZ_` + delete unused + Mount→Visual — **approved**.
-7. Золотая ~100% — **вне** ATTACH-001 (отдельный base pass).
-8. Pure-ergo → Recoil=1; Phase C tiered; GL без +ShotAP — **approved**.
+1. Absolute magazine size (`MagazineSizeSet`) — **канон в доке**; Code/data — когда скажет владелец (REQ-016 / AC-010 BLOCKED).
+2. Absolute MagSize (AC-010) when owner greenlights. Bayonet — **distant backlog**.
+3. AC-004 editor round-trip; AC-006 three-kit smoke.
+4. Золотая ~100% CTH — **вне** ATTACH-001 (отдельный base-weapons pass).
 
-Spec status: **approved; implementation in progress** (`JAZZ-ATTACH-001`). Новые идеи — дописывать REQ или новый SPEC.
+Spec status: **approved; Phase C in progress** (`JAZZ-ATTACH-001`). Новые идеи по обвесам — REQ/AC сюда, не новый SPEC.

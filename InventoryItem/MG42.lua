@@ -39,9 +39,9 @@ DefineClass.MG42 = {
 			'SlotType', "Bipod",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"JAZZ_Bipod_MG42",
+				"JAZZ_Bipod",
 			},
-			'DefaultComponent', "JAZZ_Bipod_MG42",
+			'DefaultComponent', "JAZZ_Bipod",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -52,9 +52,13 @@ DefineClass.MG42 = {
 	},
 	ShootAP = 9000,
 	ReloadAP = 8000,
-	Recoil = 20,
-	BurstShots = 12,
-	AutoShots = 12,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 18,
+	BurstShots = 4,
+	AutoShots = 0,
 
 	CloseRange = 6,
 

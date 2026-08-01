@@ -54,8 +54,13 @@ DefineClass.SVT40 = {
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	WeaponMass = 36,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 21,
+	AutoShots = 0,
 
 	CloseRange = 8,
 

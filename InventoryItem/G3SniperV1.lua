@@ -71,10 +71,11 @@ DefineClass.G3SniperV1 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"JAZZ_MagSmall20_10",
 				"JAZZ_MagNormal",
+				"JAZZ_MagDrum_30_100_G3",
+				"JAZZ_MagSmall20_10_G3",
 			},
-			'DefaultComponent', "JAZZ_MagSmall20_10",
+			'DefaultComponent', "JAZZ_MagSmall20_10_G3",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -85,8 +86,13 @@ DefineClass.G3SniperV1 = {
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	WeaponMass = 55,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 22,
+	AutoShots = 0,
 
 	CloseRange = 12,
 

@@ -18,11 +18,16 @@ JAZZ превращает оружие из набора vanilla-статов в
 
 - `Code/System_Firearm_AddProperties.lua` — свойства firearm и расчётные helpers;
 - `Code/System_OR_Weapons.lua` — расширенная runtime-логика оружия, износ и заклинивание;
+- `Code/System_WeaponResourceMaintenance.lua` — JAZZ-WEAPONS-002 late override: resource helpers, max-wear, jam type, weapon rollover, removable `JAZZ_RemovableAttachment` create/API (`JAZZ_ResolveRemovableComponentId` vanilla↔`JAZZ_` twins; `JAZZ_CreateRemovableAttachment` prefers catalog class `Id == component id`), remove-fail break (`P=Clamp(100−resourcePct,0,95)` → ScopeParts salvage / destroy), presentation sync, **rollover title** = compatible weapon DisplayNames + component name (`JAZZ_FormatCompatibleWeaponsForTitle`), install/remove Mech = best-in-squad (`JAZZ_GetSquadMechanical`); repair debits `JAZZ_BarrelParts` + `JAZZ_ScopeParts` when remountable Scope installed; `JAZZ_IsRemovableWeaponComponent` excludes irons / MagNormal / `*SuppressorIntegrated` (integral muzzle stays on scrap);
+- `Code/System_WeaponRemovableModify.lua` — ModifyWeapon/DnD remountables; fold craft filter (`*Folded` без `UnFolded` скрыт в popup); Unfolded↔Folded swap бесплатно; `GetWeaponComponentDescription` всегда показывает DisplayName и для опций без эффектов — «базовый вариант» вместо голого «Без изменений»;
+- `Code/System_InventoryStacks.lua` — `JAZZ_RemovableAttachment` никогда не bag-stack (MaxStacks=1; иначе collimator+compensator → Amount=2);
+- generated `InventoryItem/<JAZZ_*>.lua` remountable catalog (~144) + folder `RemovableAttachments` in `items.lua` (editor spawn); refresh: `docs/tools/_gen_removable_attachment_items.py --apply`; **Bobby Ray temp:** `CanAppearInShop=true` RestockWeight=10 MaxStock=1 Tier=1 via `_enable_remountable_bobby_ray.py` (skip integ suppressor);
+- `InventoryItem/JAZZ_ScopeParts.lua` — детали прицелов (лом / repair surcharge);
 - `Code/WeaponClasses.lua` — grenade/rocket/mortar и другие weapon class extensions;
 - `Code/Systems_Compontents_FoldingStocks.lua` — свойства пары складного приклада;
 - `Code/GetScrapParts.lua` — scrap-значения;
 - `Code/AmmoRolloverHint.lua` — UI эффектов и модификаций патронов;
-- `Code/Inventory.lua` и `Code/InventoryUI.lua` — применение предметов/боеприпасов;
+- `Code/Inventory.lua` и `Code/InventoryUI.lua` — применение предметов/боеприпасов; **`HighlightWeaponsForAmmo`** также подсвечивает совместимое оружие для `JAZZ_RemovableAttachment` (hover + drag, включая магазины);
 - `Code/WeaponIconBake.lua` — JAZZ-UI-001 side-view bake иконок оружия с аттачами (`GetItemUIIcon`, fingerprint cache);
 - generated InventoryItem, Caliber, WeaponType, WeaponComponent, WeaponComponentEffect, WeaponPropertyDef и recipe ModItems.
 
@@ -37,21 +42,23 @@ JAZZ превращает оружие из набора vanilla-статов в
 Публичные weapon properties:
 
 - `Recoil`, `MaxAimActions`;
-- `BurstShots`, `AutoShots`, `OverwatchAngle`, `CloseRange`, `CloseRangeFactor`;
+- `BurstShots`, `AutoShots`, `WeaponMass`, `CyclicRPM`, `WeaponSizeClass`, `BurstLimiter`, `OverwatchAngle`, `CloseRange`, `CloseRangeFactor`;
 - `WeaponRange`, `BulletDropRange`, `Grouping`;
 - `BaseJamChance`, `PenetrationBonus`;
 - `WeaponResource`, `WeaponResourceMax`, `DegradePerShot`;
+- `ReloadStyle`: `Magazine` (default), `Tube`, `Break` or `Revolver`;
+- `DisposableLauncher`, `EmbeddedOrdnance` (только `RocketLauncher`: одноразовая пусковая и её встроенный ordnance);
 - `WeaponName`, `WeaponIconMod`, reticle images и `UnitSubStat`.
 
 В актуальном документальном контракте используются 12 weapon property definitions: `AimAccuracy`, `AutoShots`, `BaseDamage`, `BulletDropRange`, `BurstShots`, `Damage`, `Grouping`, `MaxAimActions`, `Noise`, `OverwatchAngle`, `Recoil`, `WeaponRange` (плюс JAZZ-only `CloseRange` / `CloseRangeFactor` на FirearmProperties).
 
-В [модели стрельбы](../weapons/accuracy-model.md) `Handling` **удалён**. `Recoil` задаёт тяжесть множительного удержания точности последующих пуль. Оптика переносит эффективную прицельную зону через aim progress, не увеличивает физическую дальность и больше не получает старые плоские CTH-effects.
+В [модели стрельбы](../weapons/accuracy-model.md) `Handling` **удалён**. `Recoil` задаёт тяжесть множительного удержания точности последующих пуль и authorится из `WeaponMass` (десятые кг), `CyclicRPM` и `WeaponSizeClass`; они не читаются повторно в CTH runtime. `BurstShots`/`AutoShots` фиксированно выводятся из RPM при authoring (`/200`, `/100`) и `BurstLimiter` ограничивает только burst. Оптика переносит эффективную прицельную зону через aim progress, не увеличивает физическую дальность и больше не получает старые плоские CTH-effects.
 
 Вырезанные, но всё ещё загруженные классы (`MP5`/`AR15`/`M4Commando`, vanilla `_*` ammo с `Ammopics/TEST.png`) перечислены в [вырезанном контенте](../weapons/cut-content.md). Их нельзя использовать в луте/магазине; живые калибры — только `JAZZ_Caliber_*` / `JAZZ_AMMO_*`.
 
 ## Канонический каталог
 
-Полная таблица 160 технических weapon ID, 157 активных игроковых записей, balance-tier, характеристик и слотов находится в [каноническом каталоге оружия](../weapons/README.md). Тиры из профильных Google Sheets были использованы только для первичной миграции и выявили 25 расхождений с Lua-комментариями; после миграции источником истины является CSV. AR15, M4Commando и базовый MP5 отмечены как excluded_disabled и не публикуются в wiki.
+Полная таблица 164 технических weapon ID, 161 активную игроковую запись, balance-tier, характеристик и слотов находится в [каноническом каталоге оружия](../weapons/README.md). Тиры из профильных Google Sheets были использованы только для первичной миграции и выявили 25 расхождений с Lua-комментариями; после миграции источником истины является CSV. AR15, M4Commando и базовый MP5 отмечены как excluded_disabled и не публикуются в wiki.
 
 ## Компоненты
 
@@ -70,9 +77,13 @@ JAZZ превращает оружие из набора vanilla-статов в
 - магазины, scopes, lasers, silencers и muzzle devices;
 - folding stock и two-handed состояние.
 
-`Systems_Compontents_FoldingStocks.lua` добавляет `zzFoldingPair`; runtime использует `zzStockEquipped` и actions `FoldStock`/`UnFoldStock`. Эти имена являются межфайловым контрактом generated components, UI и визуального состояния entity.
+`Systems_Compontents_FoldingStocks.lua` добавляет `zzFoldingPair`; runtime использует `zzStockEquipped` и actions `FoldStock`/`UnFoldStock`. Эти имена являются межфайловым контрактом generated components, UI и визуального состояния entity. В кабинете модификации сложенный half (`*Folded`, не `*UnFolded`) скрыт — крафтится разложенный; Cost Folded = UnFolded (= Light), `StockNormal` чуть дороже (см. `docs/design/stock-tiers.md`).
 
 После JAZZ-ATTACH-001 live components больше не используют `*Handling*` или `Cumbersome` effect presets; Firearm property `Handling` удалён вместе с UI/GameTerm/CTH-modifier presets. Все модифицируемые live component IDs, созданные JAZZ, используют канонический префикс `JAZZ_`; сохранённые `vanilla_ref` stubs отражают ссылки companion-файлов без JAZZ definition и не получают выдуманных effects. Четыре pure-ergo components (`JAZZ_TacGrip`, `JAZZ_Handgrip_Ergo`, `JAZZ_SigErgoHandGrip`, `JAZZ_HandlingWrap`) теперь дают `RecoilDecrease`.
+
+`RocketLauncher.DisposableLauncher` имеет default `false`; `EmbeddedOrdnance` определяет единственный встроенный выстрел одноразового launcher. В v1 JAZZ-WEAPONS-005 этим контрактом пользуется только `M72LAW` (`Warhead_Frag`, magazine 1); RPG-7 не имеет флага и продолжает использовать отдельный ordnance.
+
+Magazine data uses `MagazineSizeSet` with `ModificationType = "Set"` and an absolute `MagazineSize` parameter: named magazines, drums and belts no longer use a live `MagazineSizeMultiplier`. The former generic `JAZZ_MagLarge` was split into `_50`, `_28`, `_27`, `_25`, `_13` and `_8` variants and rewired in `items.lua` plus the weapon companions; PSG1 no longer offers `MagLargeFine`. The barrel-specific `JAZZ_Auto5_*_LMag` multiplier remains a tracked exception. Static data checks pass; editor round-trip and in-game Set behavior remain unverified.
 
 ## Inventory icons (JAZZ-UI-001)
 
@@ -90,7 +101,9 @@ Path **B** (chips): template `Icon` оружия не подменяется. Ch
 
 ## Ресурс, кучность и износ
 
-`WeaponResource` ограничен `WeaponResourceMax`. `DegradePerShot` уменьшает состояние после выстрелов. Текущая `Grouping` масштабируется integer condition/repair permille multipliers, поэтому повреждение сначала ухудшает дальний CTH, а затем повышает вероятность jam/поломки.
+`WeaponResource` (current) ограничен `WeaponResourceMax` (max); `GetFactoryResource()` — неизменяемый factory reference. Обычный ремонт может поднимать только current до max. `DegradePerShot` уменьшает current после выстрелов. Текущая `Grouping` масштабируется integer condition/repair permille multipliers, поэтому повреждение сначала ухудшает дальний CTH, а затем повышает вероятность jam/поломки.
+
+JAZZ-WEAPONS-002 добавляет независимый 0.5% integer-roll на каждый выстрел: при успехе max теряет не более одной единицы. При jam max теряет минимум одну единицу от 0.5% (ordinary) или 3% (critical); `P(critical|jam) = clamp(5 + wear×35/100 + max(0,100−Mechanical)×25/100, 5, 65)`. Неудачный unjam остаётся отдельным источником потери max. Runtime wave остаётся BLOCKED.
 
 Jam использует единую шкалу **JamScore** `0..1000` (те же единицы, что `attacker:Random(1000)` в `ReliabilityCheck`). Приведённый процент для UI/ammo rollover: `DivRound(JamScore, 10)`. Окно модификации оружия показывает **Reliability**, не Jam %.
 
@@ -115,11 +128,16 @@ Mechanical снижает score **пропорционально** (`MulDivRound
 
 `Handling` («Эргономика») удалён из Firearm / WeaponPropertyDef; CTH-модификатор отсутствует, угол overwatch берётся только из `OverwatchAngle` (`JAZZ-WEAPONS-001` / `JAZZ-ATTACH-001`).
 
-Jam/unjam способен необратимо снизить максимальный ресурс или окончательно сломать оружие. Refactor обязан сохранять шкалу 0..1000, порядок проверок, RNG и побочные изменения экземпляра.
+Jam/unjam способен необратимо снизить максимальный ресурс или окончательно сломать оружие. Карточка оружия выводит `GetDisplayJamChancePercent`, а не raw JamScore. Refactor обязан сохранять шкалу 0..1000, порядок проверок, RNG и побочные изменения экземпляра.
 
 ## Боеприпасы и crafting
 
 Ammo ModItems наследуют `Ammo`; rollover выводит модификации и effects (`BaseJamChance` как `%` через `/10`), а reload использует специализированный `AmmoInventory`. Зарегистрированы 49 `CraftOperationsRecipe` для боеприпасов и mortar/ordnance и 33 `RecipeDef`, главным образом преобразования брони. Категории Bobby Ray включают 10 ammo subcategories.
+
+### Поэлементная перезарядка (JAZZ-WEAPONS-004)
+`ReloadStyle=Magazine` сохраняет обычную полную смену магазина. Для `Tube`, `Break` и `Revolver` пустое оружие использует полный Reload; при `0 < ammo < MagazineSize` тот же слот Reload переключается на `Top up` / «Дозарядить» и загружает ровно один совместимый патрон. Полное оружие недоступно для reload.
+
+Стоимость дозарядки вычисляется из уже модифицированного `ReloadAP`: `max(1 AP, DivCeil(ReloadAP, MagazineSize))`. R870 (`7000`, 6) платит `2000` (2 AP); шесть дозарядок не дешевле полного reload. Tube: M1897, Ithaca, R870, Auto5, SPAS12 и Winchester1894; Break: DoubleBarrelShotgun и Stoeger; Revolver: все active revolver presets. AA12 и USAS12 не имеют authored style и остаются `Magazine`.
 
 ### Пробитие патрона (`PenetrationClass` + `PenetrationBonus`)
 

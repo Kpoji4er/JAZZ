@@ -42,6 +42,7 @@ DefineClass.Mini14 = {
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
+			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_StockLightFolded",
 				"JAZZ_StockLightUnFolded",
@@ -52,7 +53,7 @@ DefineClass.Mini14 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge_20_30",
+				"JAZZ_MagLarge_20_30_MINI14",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -81,8 +82,13 @@ DefineClass.Mini14 = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	WeaponMass = 35,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 4,
 

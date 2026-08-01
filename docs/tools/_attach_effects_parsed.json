@@ -1,71 +1,79 @@
 {
   "effect_usage": [
     [
-      "ReduceReliability",
-      27
-    ],
-    [
       "ScopeMagnification",
       24
     ],
     [
-      "IncreaseShotAP",
-      23
+      "CloseRangeFactorIncrease",
+      21
     ],
     [
       "IncreaseReloadAP",
-      16
+      19
+    ],
+    [
+      "ReduceReliability",
+      18
+    ],
+    [
+      "IncreaseShotAP",
+      17
     ],
     [
       "MagazineSizeMultiplier",
-      14
+      15
     ],
     [
       "CritBonusWhenFullyAimed",
       14
     ],
     [
-      "RecoilDecrease",
+      "StealthKillBonusPerAim",
       14
-    ],
-    [
-      "ExtraOverwatchShots",
-      13
-    ],
-    [
-      "MinAim",
-      13
     ],
     [
       "ScopeOverwatchAngleDecreaseBig",
       13
     ],
     [
-      "CloseRangeDecrease",
-      10
-    ],
-    [
-      "CloseRangeFactorIncrease",
-      10
-    ],
-    [
       "ReduceAimAccuracy15Percent",
-      10
+      12
     ],
     [
       "DecreaseMaxAimActions",
       10
     ],
     [
-      "StealthKillBonusPerAim",
-      10
+      "ScopeOverwatchAngleDecrease",
+      9
     ],
     [
-      "OpportunityAttackBonusCth",
+      "MinAim",
+      9
+    ],
+    [
+      "CloseRangeDecrease",
       8
     ],
     [
-      "AccuracyBonusProne",
+      "ExtraOverwatchShots",
+      8
+    ],
+    [
+      "IncreaseOverwatchAngle",
+      8
+    ],
+    [
+      "MarkWhenFullyAimed",
+      8
+    ],
+    [
+      "LaserMark",
+      8
+    ],
+    [
+      "RecoilDecrease",
       8
     ],
     [
@@ -77,15 +85,11 @@
       8
     ],
     [
-      "ScopeOverwatchAngleDecrease",
+      "IgnoreInTheDark",
       7
     ],
     [
       "BarrelBulletDropReduce",
-      7
-    ],
-    [
-      "BarrelRangeReduce",
       7
     ],
     [
@@ -97,23 +101,11 @@
       6
     ],
     [
-      "IgnoreInTheDark",
-      6
-    ],
-    [
-      "IncreaseOverwatchAngle",
-      6
-    ],
-    [
-      "ShotsBeforeRecoilProne",
-      6
-    ],
-    [
       "GrenadeLauncher",
       6
     ],
     [
-      "ReduceShootAP",
+      "CloseRangeIncrease",
       6
     ],
     [
@@ -121,23 +113,31 @@
       6
     ],
     [
-      "BarrelAccuracyIncrease",
-      5
+      "BarrelRangeReduce",
+      6
+    ],
+    [
+      "BarrelRecoilIncrease",
+      6
     ],
     [
       "BarrelRangeIncrease",
       5
     ],
     [
-      "ScopeOverwatchAngleIncreace",
-      5
-    ],
-    [
-      "MarkWhenFullyAimed",
+      "SilentShots",
       5
     ],
     [
       "ReduceReloadAP",
+      5
+    ],
+    [
+      "RecoilIncrease",
+      5
+    ],
+    [
+      "ReduceShootAP",
       5
     ],
     [
@@ -149,14 +149,6 @@
       5
     ],
     [
-      "CloseRangeIncrease",
-      5
-    ],
-    [
-      "BarrelRecoilIncrease",
-      5
-    ],
-    [
       "ReduceMagazineSize",
       5
     ],
@@ -165,7 +157,11 @@
       4
     ],
     [
-      "SilentShots",
+      "IncreaseCritChangeScaled",
+      4
+    ],
+    [
+      "IncreaseBuckshotAngle",
       4
     ],
     [
@@ -173,15 +169,11 @@
       3
     ],
     [
+      "OpportunityAttackBonusCth",
+      3
+    ],
+    [
       "SmallMagnification",
-      3
-    ],
-    [
-      "IncreaseCritChangeScaled",
-      3
-    ],
-    [
-      "LaserMark",
       3
     ],
     [
@@ -189,7 +181,11 @@
       3
     ],
     [
-      "RecoilIncrease",
+      "AccuracyBonusProne",
+      3
+    ],
+    [
+      "ShotsBeforeRecoilProne",
       3
     ],
     [
@@ -197,19 +193,11 @@
       3
     ],
     [
-      "FreeWeaponSwap",
-      3
-    ],
-    [
-      "IncreaseBuckshotAngle",
-      3
-    ],
-    [
-      "IncreaseRange",
-      3
-    ],
-    [
       "ReduceRange",
+      3
+    ],
+    [
+      "IncreaseAimAccuracy15Percent",
       3
     ],
     [
@@ -225,15 +213,11 @@
       2
     ],
     [
-      "ReduceAimAccuracy90Percent",
-      2
-    ],
-    [
-      "IncreaseAimAccuracy15Percent",
-      2
-    ],
-    [
       "ReduceReliabilityPercent",
+      2
+    ],
+    [
+      "FreeWeaponSwap",
       2
     ],
     [
@@ -241,11 +225,11 @@
       2
     ],
     [
-      "MinorAccuracyBonus",
+      "IncreaseRange",
       2
     ],
     [
-      "IncreaseAimAccuracy",
+      "MinorAccuracyBonus",
       2
     ],
     [
@@ -269,11 +253,7 @@
       1
     ],
     [
-      "IncreasedSingleShotAccuracy",
-      1
-    ],
-    [
-      "ReduceAimAccuracy",
+      "ExtraBurstShots",
       1
     ],
     [
@@ -289,6 +269,10 @@
       1
     ],
     [
+      "IncreaseAimAccuracy",
+      1
+    ],
+    [
       "NightsIronsBonus",
       1
     ]
@@ -300,7 +284,6 @@
       "n": 2,
       "ndef": 0,
       "effects": [
-        "BarrelAccuracyIncrease",
         "BarrelBulletDropIncrease",
         "BarrelGroupingIncrease",
         "BarrelRangeIncrease",
@@ -308,11 +291,13 @@
         "CloseRangeFactorIncrease"
       ],
       "params": {
+        "BarrelRangeIncrease": "1",
+        "BulletDropIncrease": "120",
         "CloseRangeDecrease": "1",
         "CloseRangeFactorIncrease": "10",
-        "RangeIncrease": "4"
+        "SilencerGroupingReduce": "110"
       },
-      "human": "дальше WeaponRange (+4); сужает ближнюю неэффективную зону (−1 тайла); смягчает штраф в упор (+10%); дальше комфорт дистанции (BulletDrop); лучше профиль ствола; лучше кучность (Grouping)",
+      "human": "дальше WeaponRange; сужает ближнюю неэффективную зону (−1 тайла); смягчает штраф в упор (+10%); дальше комфорт дистанции (BulletDrop) (+120); лучше кучность (Grouping)",
       "empty": false
     },
     {
@@ -339,9 +324,9 @@
       "params": {
         "MagazineSizeMultiplier": "166",
         "ReliabilityDecrease": "15",
-        "ReloadAPIncrease": "1"
+        "ReloadAPIncrease": "2"
       },
-      "human": "ёмкость ×1.66; перезарядка дороже на 1 AP; хуже надёжность (−15) / чаще клин; чуть хуже AimAccuracy (−15%)",
+      "human": "ёмкость ×1.66; перезарядка дороже на 2 AP; хуже надёжность (−15) / чаще клин; чуть хуже AimAccuracy (−15%)",
       "empty": false
     },
     {
@@ -360,16 +345,19 @@
       "n": 56,
       "ndef": 0,
       "effects": [
-        "IncreaseShotAP",
         "ScopeMagnification",
         "ScopeOverwatchAngleDecrease"
       ],
       "params": {
+        "AimAccuracyAimLevel": "1",
+        "AimAccuracyPercent": "125",
+        "OpticMinRange": "6",
+        "OpticNearFactor": "92",
         "ScopeAimLevel": "1",
         "ScopeMagnification": "2",
-        "ShotAP": "1"
+        "ScopeOverwatchAngle": "85"
       },
-      "human": "сдвигает комфортную дистанцию (~2×), оптика «включается» с 1-го клика aim; каждый выстрел дороже на 1 AP; уже сектор ожидания",
+      "human": "сдвигает комфортную дистанцию (~2×), оптика «включается» с 1-го клика aim; уже сектор ожидания",
       "empty": false
     },
     {
@@ -378,16 +366,19 @@
       "n": 47,
       "ndef": 0,
       "effects": [
-        "IncreaseShotAP",
         "ScopeMagnification",
         "ScopeOverwatchAngleDecrease"
       ],
       "params": {
+        "AimAccuracyAimLevel": "2",
+        "AimAccuracyPercent": "155",
+        "OpticMinRange": "12",
+        "OpticNearFactor": "88",
         "ScopeAimLevel": "2",
         "ScopeMagnification": "4",
-        "ShotAP": "1"
+        "ScopeOverwatchAngle": "70"
       },
-      "human": "сдвигает комфортную дистанцию (~4×), оптика «включается» с 2-го клика aim; каждый выстрел дороже на 1 AP; уже сектор ожидания",
+      "human": "сдвигает комфортную дистанцию (~4×), оптика «включается» с 2-го клика aim; уже сектор ожидания",
       "empty": false
     },
     {
@@ -398,14 +389,18 @@
       "effects": [
         "IgnoreInTheDarkWhenFullyAimed",
         "IncreaseShotAP",
-        "ScopeMagnification"
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecrease"
       ],
       "params": {
+        "OpticMinRange": "9",
+        "OpticNearFactor": "70",
         "ScopeAimLevel": "3",
         "ScopeMagnification": "5",
+        "ScopeOverwatchAngle": "60",
         "ShotAP": "1"
       },
-      "human": "сдвигает комфортную дистанцию (~5×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; в темноте нормально бьёшь только на полном aim",
+      "human": "сдвигает комфортную дистанцию (~5×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; уже сектор ожидания; в темноте нормально бьёшь только на полном aim",
       "empty": false
     },
     {
@@ -414,18 +409,17 @@
       "n": 47,
       "ndef": 1,
       "effects": [
+        "CloseRangeFactorIncrease",
         "DecreaseMaxAimActions",
-        "ExtraOverwatchShots",
-        "MinAim",
-        "OpportunityAttackBonusCth",
-        "ScopeOverwatchAngleIncreace"
+        "MinAim"
       ],
       "params": {
-        "MaxAimActionsDecrease": "1",
-        "OverwatchAngleIncrease": "120",
-        "extra_attacks": "1"
+        "AimAccuracyAimLevel": "1",
+        "AimAccuracyPercent": "120",
+        "CloseRangeFactorIncrease": "15",
+        "MaxAimActionsDecrease": "1"
       },
-      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; шире сектор ожидания (+120); лучше попадание в реакциях / перехвате",
+      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; смягчает штраф в упор (+15%)",
       "empty": false
     },
     {
@@ -434,18 +428,17 @@
       "n": 52,
       "ndef": 0,
       "effects": [
+        "CloseRangeFactorIncrease",
         "DecreaseMaxAimActions",
-        "ExtraOverwatchShots",
-        "MinAim",
-        "OpportunityAttackBonusCth",
-        "ScopeOverwatchAngleIncreace"
+        "MinAim"
       ],
       "params": {
-        "MaxAimActionsDecrease": "1",
-        "OverwatchAngleIncrease": "120",
-        "extra_attacks": "1"
+        "AimAccuracyAimLevel": "1",
+        "AimAccuracyPercent": "135",
+        "CloseRangeFactorIncrease": "20",
+        "MaxAimActionsDecrease": "1"
       },
-      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; шире сектор ожидания (+120); лучше попадание в реакциях / перехвате",
+      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; смягчает штраф в упор (+20%)",
       "empty": false
     },
     {
@@ -454,6 +447,7 @@
       "n": 51,
       "ndef": 0,
       "effects": [
+        "CloseRangeFactorIncrease",
         "DecreaseMaxAimActions",
         "ExtraOverwatchShots",
         "MinAim",
@@ -461,11 +455,15 @@
         "ScopeOverwatchAngleIncreaceBig"
       ],
       "params": {
+        "AimAccuracyAimLevel": "1",
+        "AimAccuracyPercent": "135",
+        "CloseRangeFactorIncrease": "20",
         "MaxAimActionsDecrease": "1",
-        "OverwatchAngleIncrease": "120",
+        "ScopeOverwatchAngle": "145",
+        "bonus_cth": "8",
         "extra_attacks": "1"
       },
-      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; сильно шире сектор ожидания (+120); лучше попадание в реакциях / перехвате",
+      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; сильно шире сектор ожидания; лучше попадание в реакциях / перехвате; смягчает штраф в упор (+20%)",
       "empty": false
     },
     {
@@ -474,18 +472,17 @@
       "n": 51,
       "ndef": 0,
       "effects": [
+        "CloseRangeFactorIncrease",
         "DecreaseMaxAimActions",
-        "ExtraOverwatchShots",
-        "MinAim",
-        "OpportunityAttackBonusCth",
-        "ScopeOverwatchAngleIncreace"
+        "MinAim"
       ],
       "params": {
-        "MaxAimActionsDecrease": "1",
-        "OverwatchAngleIncrease": "120",
-        "extra_attacks": "1"
+        "AimAccuracyAimLevel": "1",
+        "AimAccuracyPercent": "150",
+        "CloseRangeFactorIncrease": "25",
+        "MaxAimActionsDecrease": "1"
       },
-      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; шире сектор ожидания (+120); лучше попадание в реакциях / перехвате",
+      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; смягчает штраф в упор (+25%)",
       "empty": false
     },
     {
@@ -501,9 +498,14 @@
         "ScopeOverwatchAngleDecreaseBig"
       ],
       "params": {
+        "AimAccuracyAimLevel": "4",
+        "AimAccuracyPercent": "125",
         "IncreaseMaxAimActions": "1",
+        "OpticMinRange": "14",
+        "OpticNearFactor": "40",
         "ScopeAimLevel": "4",
         "ScopeMagnification": "10",
+        "ScopeOverwatchAngle": "42",
         "ShotAP": "1"
       },
       "human": "на 1 больше кликов aim до потолка; сдвигает комфортную дистанцию (~10×), оптика «включается» с 4-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
@@ -521,8 +523,13 @@
         "ScopeOverwatchAngleDecreaseBig"
       ],
       "params": {
+        "AimAccuracyAimLevel": "3",
+        "AimAccuracyPercent": "115",
+        "OpticMinRange": "10",
+        "OpticNearFactor": "62",
         "ScopeAimLevel": "3",
         "ScopeMagnification": "6",
+        "ScopeOverwatchAngle": "55",
         "ShotAP": "1"
       },
       "human": "сдвигает комфортную дистанцию (~6×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
@@ -541,8 +548,13 @@
         "SmallMagnification"
       ],
       "params": {
+        "AimAccuracyAimLevel": "3",
+        "AimAccuracyPercent": "120",
+        "OpticMinRange": "12",
+        "OpticNearFactor": "55",
         "ScopeAimLevel": "3",
         "ScopeMagnification": "7",
+        "ScopeOverwatchAngle": "52",
         "ShotAP": "1",
         "SmallAimLevel": "1",
         "SmallMagnification": "2"
@@ -558,16 +570,16 @@
       "effects": [
         "IgnoreInTheDark",
         "IncreaseOverwatchAngle",
+        "MarkWhenFullyAimed",
         "StealthKillBonusPerAim"
       ],
       "params": {
-        "EffectiveRange": "1",
-        "OverwatchAngleIncrease": "140",
+        "OverwatchAngleIncrease": "130",
         "aim_bonus": "1",
         "maxaims": "1",
         "stealth_kill_bonus": "2"
       },
-      "human": "шире сектор ожидания (+140); не штрафует темнота; бонус скрытного убийства за клики aim",
+      "human": "шире сектор ожидания (+130); на полном aim помечает цель; не штрафует темнота; бонус скрытного убийства за клики aim",
       "empty": false
     },
     {
@@ -594,13 +606,13 @@
         "MarkWhenFullyAimed"
       ],
       "params": {
-        "CritChangeScaledIncrease": "15",
-        "EffectiveRange": "2",
+        "CritChangeScaledIncrease": "10",
         "LaserCTH": "15",
         "LaserDistance": "10",
-        "OverwatchAngleIncrease": "140"
+        "LaserFullRange": "5",
+        "OverwatchAngleIncrease": "130"
       },
-      "human": "шире сектор ожидания (+140); на полном aim помечает цель; лазер: плоский CTH накоротке (legacy) (+15 до 10 тайлов); выше шанс крита (scaled)",
+      "human": "шире сектор ожидания (+130); на полном aim помечает цель; лазер: плоский CTH накоротке (legacy) (+15 до 10 тайлов); выше шанс крита (scaled)",
       "empty": false
     },
     {
@@ -609,10 +621,17 @@
       "n": 1,
       "ndef": 0,
       "effects": [
-        "MinAim"
+        "LaserMark",
+        "StealthKillBonusPerAim"
       ],
-      "params": {},
-      "human": "нужен минимум aim",
+      "params": {
+        "LaserCTH": "12",
+        "LaserDistance": "8",
+        "LaserFullRange": "5",
+        "NightOnly": "1",
+        "stealth_kill_bonus": "5"
+      },
+      "human": "бонус скрытного убийства за клики aim; лазер: плоский CTH накоротке (legacy) (+12 до 8 тайлов)",
       "empty": false
     },
     {
@@ -636,7 +655,6 @@
       "n": 27,
       "ndef": 0,
       "effects": [
-        "RecoilDecrease",
         "ReduceReliability",
         "SilencerGroupingReduce30",
         "SilencerJamChance",
@@ -645,25 +663,23 @@
       ],
       "params": {
         "NoiseMultiplier": "33",
-        "RangeDecrease": "8",
-        "Recoil": "1",
         "ReliabilityDecrease": "10",
-        "crit": "25",
-        "stealth_kill_bonus": "50"
+        "stealth_kill_bonus": "55"
       },
-      "human": "легче держать очередь (Recoil −1); хуже надёжность (−10) / чаще клин; тихие выстрелы (меньше шум/детекция); бонус скрытного убийства за клики aim; глушитель заметно портит кучность; выше шанс клина от глушителя",
+      "human": "хуже надёжность (−10) / чаще клин; тихие выстрелы (меньше шум/детекция); бонус скрытного убийства за клики aim; глушитель заметно портит кучность; выше шанс клина от глушителя",
       "empty": false
     },
     {
       "id": "JAZZ_Bipod",
       "name": "Bipod",
-      "n": 33,
-      "ndef": 18,
+      "n": 38,
+      "ndef": 23,
       "effects": [
         "AccuracyBonusProne",
         "ShotsBeforeRecoilProne"
       ],
       "params": {
+        "ShotsBeforeRecoilProne": "1",
         "bonus_cth_bipod": "10"
       },
       "human": "лёжа лучше (+10 CTH legacy); лёжа больше пуль до сильной отдачи",
@@ -675,21 +691,17 @@
       "n": 24,
       "ndef": 0,
       "effects": [
-        "RecoilDecrease",
         "ReduceReliability",
         "SilencerGroupingReduce10",
         "SilentShots",
         "StealthKillBonusPerAim"
       ],
       "params": {
-        "NoiseMultiplier": "15",
-        "RangeDecrease": "3",
-        "Recoil": "1",
+        "NoiseMultiplier": "20",
         "ReliabilityDecrease": "5",
-        "crit": "25",
-        "stealth_kill_bonus": "80"
+        "stealth_kill_bonus": "70"
       },
-      "human": "легче держать очередь (Recoil −1); хуже надёжность (−5) / чаще клин; тихие выстрелы (меньше шум/детекция); бонус скрытного убийства за клики aim; глушитель чуть портит кучность",
+      "human": "хуже надёжность (−5) / чаще клин; тихие выстрелы (меньше шум/детекция); бонус скрытного убийства за клики aim; глушитель чуть портит кучность",
       "empty": false
     },
     {
@@ -727,16 +739,18 @@
         "DecreaseMaxAimActions",
         "ExtraOverwatchShots",
         "RecoilIncrease",
-        "ReduceAimAccuracy90Percent",
+        "ReduceAimAccuracy15Percent",
         "ReduceShootAP",
         "zzStockEquipped"
       ],
       "params": {
+        "AimAccuracyPercent": "85",
         "MaxAimActionsDecrease": "1",
         "Recoil": "5",
-        "ShootAPDecrease": "1"
+        "ShootAPDecrease": "1",
+        "extra_attacks": "2"
       },
-      "human": "на 1 меньше кликов aim до потолка; выстрел дешевле на 1 AP; +1 выстрел в overwatch; очередь размазывает сильнее (Recoil +5); почти ломает AimAccuracy; флаг складного приклада",
+      "human": "на 1 меньше кликов aim до потолка; выстрел дешевле на 1 AP; +2 выстрела в overwatch; очередь размазывает сильнее (Recoil +5); чуть хуже AimAccuracy (−15%); флаг складного приклада",
       "empty": false
     },
     {
@@ -745,10 +759,13 @@
       "n": 31,
       "ndef": 22,
       "effects": [
+        "RecoilIncrease",
         "zzStockEquipped"
       ],
-      "params": {},
-      "human": "флаг складного приклада",
+      "params": {
+        "Recoil": "2"
+      },
+      "human": "очередь размазывает сильнее (Recoil +2); флаг складного приклада",
       "empty": false
     },
     {
@@ -756,15 +773,10 @@
       "name": "Default Stock",
       "n": 25,
       "ndef": 23,
-      "effects": [
-        "IncreaseAimAccuracy15Percent",
-        "RecoilDecrease"
-      ],
-      "params": {
-        "Recoil": "1"
-      },
-      "human": "легче держать очередь (Recoil −1); лучше AimAccuracy",
-      "empty": false
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
     },
     {
       "id": "JAZZ_Handguard",
@@ -783,16 +795,13 @@
       "ndef": 1,
       "effects": [
         "IncreaseReloadAP",
-        "MagazineSizeAdd",
-        "ReduceReliability"
+        "MagazineSizeAdd"
       ],
       "params": {
         "MagazineSize": "15",
-        "ReliabilityDecrease": "5",
-        "ReloadAPIncrease": "1",
-        "extra_shots": "5"
+        "ReloadAPIncrease": "1"
       },
-      "human": "+15 патронов в магазине; перезарядка дороже на 1 AP; хуже надёжность (−5) / чаще клин",
+      "human": "+15 патронов в магазине; перезарядка дороже на 1 AP",
       "empty": false
     },
     {
@@ -801,16 +810,19 @@
       "n": 8,
       "ndef": 0,
       "effects": [
-        "IncreaseShotAP",
         "ScopeMagnification",
         "ScopeOverwatchAngleDecrease"
       ],
       "params": {
+        "AimAccuracyAimLevel": "2",
+        "AimAccuracyPercent": "155",
+        "OpticMinRange": "12",
+        "OpticNearFactor": "88",
         "ScopeAimLevel": "2",
         "ScopeMagnification": "4",
-        "ShotAP": "1"
+        "ScopeOverwatchAngle": "70"
       },
-      "human": "сдвигает комфортную дистанцию (~4×), оптика «включается» с 2-го клика aim; каждый выстрел дороже на 1 AP; уже сектор ожидания",
+      "human": "сдвигает комфортную дистанцию (~4×), оптика «включается» с 2-го клика aim; уже сектор ожидания",
       "empty": false
     },
     {
@@ -821,15 +833,18 @@
       "effects": [
         "IgnoreInTheDarkWhenFullyAimed",
         "IncreaseShotAP",
-        "ScopeMagnification"
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecrease"
       ],
       "params": {
+        "OpticMinRange": "7",
+        "OpticNearFactor": "80",
         "ScopeAimLevel": "3",
         "ScopeMagnification": "3",
-        "ScopeSubMagnification": "5",
+        "ScopeOverwatchAngle": "70",
         "ShotAP": "1"
       },
-      "human": "сдвигает комфортную дистанцию (~3.5×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; в темноте нормально бьёшь только на полном aim",
+      "human": "сдвигает комфортную дистанцию (~3×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; уже сектор ожидания; в темноте нормально бьёшь только на полном aim",
       "empty": false
     },
     {
@@ -838,17 +853,19 @@
       "n": 8,
       "ndef": 0,
       "effects": [
+        "CloseRangeFactorIncrease",
         "DecreaseMaxAimActions",
         "ExtraOverwatchShots",
         "MinAim",
         "ScopeOverwatchAngleIncreaceBig"
       ],
       "params": {
+        "CloseRangeFactorIncrease": "15",
         "MaxAimActionsDecrease": "1",
-        "OverwatchAngleIncrease": "120",
+        "ScopeOverwatchAngle": "140",
         "extra_attacks": "1"
       },
-      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; сильно шире сектор ожидания (+120)",
+      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; сильно шире сектор ожидания; смягчает штраф в упор (+15%)",
       "empty": false
     },
     {
@@ -857,18 +874,17 @@
       "n": 8,
       "ndef": 0,
       "effects": [
+        "CloseRangeFactorIncrease",
         "DecreaseMaxAimActions",
-        "ExtraOverwatchShots",
-        "MinAim",
-        "OpportunityAttackBonusCth",
-        "ScopeOverwatchAngleIncreace"
+        "MinAim"
       ],
       "params": {
-        "MaxAimActionsDecrease": "1",
-        "OverwatchAngleIncrease": "120",
-        "extra_attacks": "1"
+        "AimAccuracyAimLevel": "1",
+        "AimAccuracyPercent": "160",
+        "CloseRangeFactorIncrease": "35",
+        "MaxAimActionsDecrease": "1"
       },
-      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; шире сектор ожидания (+120); лучше попадание в реакциях / перехвате",
+      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; смягчает штраф в упор (+35%)",
       "empty": false
     },
     {
@@ -883,8 +899,13 @@
         "ScopeOverwatchAngleDecreaseBig"
       ],
       "params": {
+        "AimAccuracyAimLevel": "3",
+        "AimAccuracyPercent": "155",
+        "OpticMinRange": "8",
+        "OpticNearFactor": "78",
         "ScopeAimLevel": "3",
         "ScopeMagnification": "4",
+        "ScopeOverwatchAngle": "65",
         "ShotAP": "1"
       },
       "human": "сдвигает комфортную дистанцию (~4×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
@@ -918,16 +939,13 @@
       "ndef": 1,
       "effects": [
         "IncreaseReloadAP",
-        "MagazineSizeAdd",
-        "ReduceReliability"
+        "MagazineSizeAdd"
       ],
       "params": {
         "MagazineSize": "10",
-        "ReliabilityDecrease": "5",
-        "ReloadAPIncrease": "1",
-        "extra_shots": "5"
+        "ReloadAPIncrease": "1"
       },
-      "human": "+10 патронов в магазине; перезарядка дороже на 1 AP; хуже надёжность (−5) / чаще клин",
+      "human": "+10 патронов в магазине; перезарядка дороже на 1 AP",
       "empty": false
     },
     {
@@ -936,6 +954,7 @@
       "n": 17,
       "ndef": 0,
       "effects": [
+        "CloseRangeFactorIncrease",
         "DecreaseMaxAimActions",
         "ExtraOverwatchShots",
         "MinAim",
@@ -943,11 +962,13 @@
         "ScopeOverwatchAngleIncreaceBig"
       ],
       "params": {
+        "CloseRangeFactorIncrease": "15",
         "MaxAimActionsDecrease": "1",
-        "OverwatchAngleIncrease": "120",
-        "extra_attacks": "1"
+        "ScopeOverwatchAngle": "150",
+        "bonus_cth": "8",
+        "extra_attacks": "2"
       },
-      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; сильно шире сектор ожидания (+120); лучше попадание в реакциях / перехвате",
+      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +2 выстрела в overwatch; сильно шире сектор ожидания; лучше попадание в реакциях / перехвате; смягчает штраф в упор (+15%)",
       "empty": false
     },
     {
@@ -956,7 +977,6 @@
       "n": 24,
       "ndef": 0,
       "effects": [
-        "RecoilDecrease",
         "ReduceReliability",
         "SilencerGroupingReduce10",
         "SilentShots",
@@ -964,13 +984,10 @@
       ],
       "params": {
         "NoiseMultiplier": "25",
-        "RangeDecrease": "5",
-        "Recoil": "2",
         "ReliabilityDecrease": "5",
-        "crit": "25",
-        "stealth_kill_bonus": "20"
+        "stealth_kill_bonus": "80"
       },
-      "human": "легче держать очередь (Recoil −2); хуже надёжность (−5) / чаще клин; тихие выстрелы (меньше шум/детекция); бонус скрытного убийства за клики aim; глушитель чуть портит кучность",
+      "human": "хуже надёжность (−5) / чаще клин; тихие выстрелы (меньше шум/детекция); бонус скрытного убийства за клики aim; глушитель чуть портит кучность",
       "empty": false
     },
     {
@@ -991,18 +1008,29 @@
       "n": 44,
       "ndef": 0,
       "effects": [
+        "IgnoreInTheDark",
         "IncreaseOverwatchAngle",
         "MarkWhenFullyAimed",
         "StealthKillBonusPerAim"
       ],
       "params": {
-        "OverwatchAngleIncrease": "140",
+        "OverwatchAngleIncrease": "130",
         "aim_bonus": "1",
         "maxaims": "1",
         "stealth_kill_bonus": "2"
       },
-      "human": "шире сектор ожидания (+140); на полном aim помечает цель; бонус скрытного убийства за клики aim",
+      "human": "шире сектор ожидания (+130); на полном aim помечает цель; не штрафует темнота; бонус скрытного убийства за клики aim",
       "empty": false
+    },
+    {
+      "id": "JAZZ_FlashlightOff",
+      "name": "Flashlight",
+      "n": 49,
+      "ndef": 0,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
     },
     {
       "id": "JAZZ_LaserDot",
@@ -1016,12 +1044,13 @@
         "MarkWhenFullyAimed"
       ],
       "params": {
-        "CritChangeScaledIncrease": "15",
+        "CritChangeScaledIncrease": "10",
         "LaserCTH": "15",
         "LaserDistance": "10",
-        "OverwatchAngleIncrease": "140"
+        "LaserFullRange": "5",
+        "OverwatchAngleIncrease": "130"
       },
-      "human": "шире сектор ожидания (+140); на полном aim помечает цель; лазер: плоский CTH накоротке (legacy) (+15 до 10 тайлов); выше шанс крита (scaled)",
+      "human": "шире сектор ожидания (+130); на полном aim помечает цель; лазер: плоский CTH накоротке (legacy) (+15 до 10 тайлов); выше шанс крита (scaled)",
       "empty": false
     },
     {
@@ -1054,10 +1083,17 @@
       "n": 39,
       "ndef": 0,
       "effects": [
-        "MinAim"
+        "LaserMark",
+        "StealthKillBonusPerAim"
       ],
-      "params": {},
-      "human": "нужен минимум aim",
+      "params": {
+        "LaserCTH": "12",
+        "LaserDistance": "8",
+        "LaserFullRange": "5",
+        "NightOnly": "1",
+        "stealth_kill_bonus": "5"
+      },
+      "human": "бонус скрытного убийства за клики aim; лазер: плоский CTH накоротке (legacy) (+12 до 8 тайлов)",
       "empty": false
     },
     {
@@ -1074,10 +1110,9 @@
         "StealthKillBonusPerAim"
       ],
       "params": {
-        "NoiseMultiplier": "33",
+        "NoiseMultiplier": "40",
         "ReliabilityDecreasePercent": "50",
-        "crit": "25",
-        "stealth_kill_bonus": "100"
+        "stealth_kill_bonus": "40"
       },
       "human": "хуже надёжность / чаще клин; чуть хуже AimAccuracy (−15%); тихие выстрелы (меньше шум/детекция); бонус скрытного убийства за клики aim; глушитель сильно портит кучность; выше шанс клина от глушителя",
       "empty": false
@@ -1120,16 +1155,19 @@
       "n": 5,
       "ndef": 0,
       "effects": [
-        "IncreaseShotAP",
         "ScopeMagnification",
         "ScopeOverwatchAngleDecrease"
       ],
       "params": {
+        "AimAccuracyAimLevel": "2",
+        "AimAccuracyPercent": "140",
+        "OpticMinRange": "9",
+        "OpticNearFactor": "90",
         "ScopeAimLevel": "2",
         "ScopeMagnification": "3",
-        "ShotAP": "1"
+        "ScopeOverwatchAngle": "78"
       },
-      "human": "сдвигает комфортную дистанцию (~3×), оптика «включается» с 2-го клика aim; каждый выстрел дороже на 1 AP; уже сектор ожидания",
+      "human": "сдвигает комфортную дистанцию (~3×), оптика «включается» с 2-го клика aim; уже сектор ожидания",
       "empty": false
     },
     {
@@ -1149,16 +1187,13 @@
       "ndef": 1,
       "effects": [
         "IncreaseReloadAP",
-        "MagazineSizeMultiplier",
-        "ReduceReliability"
+        "MagazineSizeMultiplier"
       ],
       "params": {
         "MagazineSizeMultiplier": "200",
-        "ReliabilityDecrease": "5",
-        "ReloadAPIncrease": "1",
-        "extra_shots": "5"
+        "ReloadAPIncrease": "1"
       },
-      "human": "ёмкость ×2; перезарядка дороже на 1 AP; хуже надёжность (−5) / чаще клин",
+      "human": "ёмкость ×2; перезарядка дороже на 1 AP",
       "empty": false
     },
     {
@@ -1167,12 +1202,14 @@
       "n": 6,
       "ndef": 6,
       "effects": [
+        "SilentShots",
         "StealthKillBonusPerAim"
       ],
       "params": {
-        "stealth_kill_bonus": "30"
+        "NoiseMultiplier": "30",
+        "stealth_kill_bonus": "50"
       },
-      "human": "бонус скрытного убийства за клики aim",
+      "human": "тихие выстрелы (меньше шум/детекция); бонус скрытного убийства за клики aim",
       "empty": false
     },
     {
@@ -1181,8 +1218,6 @@
       "n": 1,
       "ndef": 0,
       "effects": [
-        "AccuracyBonusProne",
-        "BarrelAccuracyIncrease",
         "BarrelBulletDropIncrease",
         "BarrelGroupingIncrease",
         "BarrelRangeIncrease",
@@ -1192,13 +1227,15 @@
         "IncreaseReliability"
       ],
       "params": {
-        "AimAccuracyIncrease": "2",
-        "CloseRangeFactorDecrease": "5",
-        "CloseRangeIncrease": "2",
-        "RangeIncrease": "6",
-        "ReliabilityIncrease": "10"
+        "BarrelRangeIncrease": "1",
+        "BarrelRecoilRecude": "2",
+        "BulletDropIncrease": "130",
+        "CloseRangeFactorDecrease": "8",
+        "CloseRangeIncrease": "3",
+        "ReliabilityIncrease": "10",
+        "SilencerGroupingReduce": "110"
       },
-      "human": "лёжа лучше (часто legacy flat); надёжнее (+10); дальше WeaponRange (+6); расширяет ближнюю неэффективную зону (+2 тайла); усиливает штраф в упор (−5%); дальше комфорт дистанции (BulletDrop); лучше профиль ствола (AimAccuracy +2); лучше кучность (Grouping); меньше отдача от ствола",
+      "human": "надёжнее (+10); дальше WeaponRange; расширяет ближнюю неэффективную зону (+3 тайла); усиливает штраф в упор (−8%); дальше комфорт дистанции (BulletDrop) (+130); лучше кучность (Grouping); меньше отдача от ствола (2)",
       "empty": false
     },
     {
@@ -1207,8 +1244,6 @@
       "n": 1,
       "ndef": 0,
       "effects": [
-        "AccuracyBonusProne",
-        "BarrelAccuracyIncrease",
         "BarrelBulletDropIncrease",
         "BarrelGroupingIncrease",
         "BarrelRangeIncrease",
@@ -1217,12 +1252,14 @@
         "CloseRangeIncrease"
       ],
       "params": {
-        "AimAccuracyIncrease": "2",
-        "CloseRangeFactorDecrease": "5",
-        "CloseRangeIncrease": "2",
-        "RangeIncrease": "6"
+        "BarrelRangeIncrease": "1",
+        "BarrelRecoilRecude": "2",
+        "BulletDropIncrease": "130",
+        "CloseRangeFactorDecrease": "8",
+        "CloseRangeIncrease": "3",
+        "SilencerGroupingReduce": "110"
       },
-      "human": "лёжа лучше (часто legacy flat); дальше WeaponRange (+6); расширяет ближнюю неэффективную зону (+2 тайла); усиливает штраф в упор (−5%); дальше комфорт дистанции (BulletDrop); лучше профиль ствола (AimAccuracy +2); лучше кучность (Grouping); меньше отдача от ствола",
+      "human": "дальше WeaponRange; расширяет ближнюю неэффективную зону (+3 тайла); усиливает штраф в упор (−8%); дальше комфорт дистанции (BulletDrop) (+130); лучше кучность (Grouping); меньше отдача от ствола (2)",
       "empty": false
     },
     {
@@ -1239,12 +1276,14 @@
         "CloseRangeFactorIncrease"
       ],
       "params": {
-        "CloseRangeDecrease": "2",
-        "CloseRangeFactorIncrease": "5",
-        "RangeDecrease": "4",
-        "ShootAPDecrease": "1"
+        "BarrelGroupingReduce": "90",
+        "BarrelRangeReduce": "1",
+        "BarrelRecoilIncrease": "2",
+        "BulletDropReduce": "70",
+        "CloseRangeDecrease": "3",
+        "CloseRangeFactorIncrease": "12"
       },
-      "human": "короче WeaponRange (−4); сужает ближнюю неэффективную зону (−2 тайла); смягчает штраф в упор (+5%); ближе «падает» траектория; чуть хуже кучность (Grouping); ствол усиливает отдачу",
+      "human": "короче WeaponRange; сужает ближнюю неэффективную зону (−3 тайла); смягчает штраф в упор (+12%); ближе «падает» траектория (−70); чуть хуже кучность (Grouping); ствол усиливает отдачу",
       "empty": false
     },
     {
@@ -1262,12 +1301,15 @@
         "ReduceReliability"
       ],
       "params": {
-        "CloseRangeDecrease": "2",
-        "CloseRangeFactorIncrease": "5",
-        "ReliabilityDecrease": "10",
-        "ShootAPDecrease": "1"
+        "BarrelGroupingReduce": "90",
+        "BarrelRangeReduce": "1",
+        "BarrelRecoilIncrease": "2",
+        "BulletDropReduce": "70",
+        "CloseRangeDecrease": "3",
+        "CloseRangeFactorIncrease": "12",
+        "ReliabilityDecrease": "10"
       },
-      "human": "хуже надёжность (−10) / чаще клин; короче WeaponRange; сужает ближнюю неэффективную зону (−2 тайла); смягчает штраф в упор (+5%); ближе «падает» траектория; чуть хуже кучность (Grouping); ствол усиливает отдачу",
+      "human": "хуже надёжность (−10) / чаще клин; короче WeaponRange; сужает ближнюю неэффективную зону (−3 тайла); смягчает штраф в упор (+12%); ближе «падает» траектория (−70); чуть хуже кучность (Grouping); ствол усиливает отдачу",
       "empty": false
     },
     {
@@ -1330,16 +1372,13 @@
       "ndef": 0,
       "effects": [
         "IncreaseReloadAP",
-        "MagazineSizeAdd",
-        "ReduceReliability"
+        "MagazineSizeAdd"
       ],
       "params": {
         "MagazineSize": "12",
-        "ReliabilityDecrease": "5",
-        "ReloadAPIncrease": "1",
-        "extra_shots": "5"
+        "ReloadAPIncrease": "1"
       },
-      "human": "+12 патронов в магазине; перезарядка дороже на 1 AP; хуже надёжность (−5) / чаще клин",
+      "human": "+12 патронов в магазине; перезарядка дороже на 1 AP",
       "empty": false
     },
     {
@@ -1356,6 +1395,7 @@
         "IncreaseMaxAimActions": "1",
         "ScopeAimLevel": "2",
         "ScopeMagnification": "1",
+        "ScopeOverwatchAngle": "88",
         "ScopeSubMagnification": "5",
         "ShotAP": "1"
       },
@@ -1382,14 +1422,12 @@
       "n": 3,
       "ndef": 0,
       "effects": [
-        "DecreaseBuckshotAngle",
-        "IncreaseRange"
+        "DecreaseBuckshotAngle"
       ],
       "params": {
-        "BuckshotAngleDecrease": "80",
-        "RangeIncrease": "4"
+        "BuckshotAngleDecrease": "80"
       },
-      "human": "дальше WeaponRange (+4); уже конус дроби",
+      "human": "уже конус дроби",
       "empty": false
     },
     {
@@ -1516,19 +1554,18 @@
       "effects": [
         "BarrelBulletDropReduce",
         "BarrelGroupingReduce",
-        "BarrelRangeReduce",
-        "CloseRangeDecrease",
+        "BarrelRecoilIncrease",
         "CloseRangeFactorIncrease",
-        "ReduceShootAP"
+        "CloseRangeIncrease"
       ],
       "params": {
-        "CloseRangeDecrease": "1",
-        "CloseRangeFactorIncrease": "10",
-        "EffectiveRange": "4",
-        "RangeDecrease": "4",
-        "ShootAPDecrease": "1"
+        "BarrelGroupingReduce": "90",
+        "BarrelRecoilIncrease": "1",
+        "BulletDropReduce": "85",
+        "CloseRangeFactorIncrease": "15",
+        "CloseRangeIncrease": "3"
       },
-      "human": "выстрел дешевле на 1 AP; короче WeaponRange (−4); сужает ближнюю неэффективную зону (−1 тайла); смягчает штраф в упор (+10%); ближе «падает» траектория; чуть хуже кучность (Grouping)",
+      "human": "расширяет ближнюю неэффективную зону (+3 тайла); смягчает штраф в упор (+15%); ближе «падает» траектория (−85); чуть хуже кучность (Grouping); ствол усиливает отдачу",
       "empty": false
     },
     {
@@ -1546,14 +1583,15 @@
         "ReduceReliability"
       ],
       "params": {
-        "CloseRangeDecrease": "2",
-        "CloseRangeFactorIncrease": "5",
-        "EffectiveRange": "4",
-        "RangeDecrease": "4",
-        "ReliabilityDecrease": "10",
-        "ShootAPDecrease": "1"
+        "BarrelGroupingReduce": "90",
+        "BarrelRangeReduce": "1",
+        "BarrelRecoilIncrease": "2",
+        "BulletDropReduce": "70",
+        "CloseRangeDecrease": "3",
+        "CloseRangeFactorIncrease": "12",
+        "ReliabilityDecrease": "10"
       },
-      "human": "хуже надёжность (−10) / чаще клин; короче WeaponRange (−4); сужает ближнюю неэффективную зону (−2 тайла); смягчает штраф в упор (+5%); ближе «падает» траектория; чуть хуже кучность (Grouping); ствол усиливает отдачу",
+      "human": "хуже надёжность (−10) / чаще клин; короче WeaponRange; сужает ближнюю неэффективную зону (−3 тайла); смягчает штраф в упор (+12%); ближе «падает» траектория (−70); чуть хуже кучность (Grouping); ствол усиливает отдачу",
       "empty": false
     },
     {
@@ -1576,16 +1614,16 @@
       "effects": [
         "IgnoreInTheDark",
         "IncreaseOverwatchAngle",
+        "MarkWhenFullyAimed",
         "StealthKillBonusPerAim"
       ],
       "params": {
-        "EffectiveRange": "1",
-        "OverwatchAngleIncrease": "140",
+        "OverwatchAngleIncrease": "130",
         "aim_bonus": "1",
         "maxaims": "1",
         "stealth_kill_bonus": "2"
       },
-      "human": "шире сектор ожидания (+140); не штрафует темнота; бонус скрытного убийства за клики aim",
+      "human": "шире сектор ожидания (+130); на полном aim помечает цель; не штрафует темнота; бонус скрытного убийства за клики aim",
       "empty": false
     },
     {
@@ -1600,13 +1638,13 @@
         "MarkWhenFullyAimed"
       ],
       "params": {
-        "CritChangeScaledIncrease": "15",
-        "EffectiveRange": "2",
+        "CritChangeScaledIncrease": "10",
         "LaserCTH": "15",
         "LaserDistance": "10",
-        "OverwatchAngleIncrease": "140"
+        "LaserFullRange": "5",
+        "OverwatchAngleIncrease": "130"
       },
-      "human": "шире сектор ожидания (+140); на полном aim помечает цель; лазер: плоский CTH накоротке (legacy) (+15 до 10 тайлов); выше шанс крита (scaled)",
+      "human": "шире сектор ожидания (+130); на полном aim помечает цель; лазер: плоский CTH накоротке (legacy) (+15 до 10 тайлов); выше шанс крита (scaled)",
       "empty": false
     },
     {
@@ -1615,10 +1653,17 @@
       "n": 1,
       "ndef": 0,
       "effects": [
-        "MinAim"
+        "LaserMark",
+        "StealthKillBonusPerAim"
       ],
-      "params": {},
-      "human": "нужен минимум aim",
+      "params": {
+        "LaserCTH": "12",
+        "LaserDistance": "8",
+        "LaserFullRange": "5",
+        "NightOnly": "1",
+        "stealth_kill_bonus": "5"
+      },
+      "human": "бонус скрытного убийства за клики aim; лазер: плоский CTH накоротке (legacy) (+12 до 8 тайлов)",
       "empty": false
     },
     {
@@ -1658,17 +1703,20 @@
         "BarrelGroupingReduce",
         "BarrelRangeReduce",
         "CloseRangeDecrease",
-        "CloseRangeFactorIncrease"
+        "CloseRangeFactorIncrease",
+        "IncreaseBuckshotAngle",
+        "ReduceReliability"
       ],
       "params": {
+        "BarrelGroupingReduce": "90",
+        "BarrelRangeReduce": "1",
         "BuckshotAngleIncrease": "115",
+        "BulletDropReduce": "80",
         "CloseRangeDecrease": "1",
-        "CloseRangeFactorIncrease": "10",
-        "RangeDecrease": "2",
-        "ReliabilityDecrease": "10",
-        "ShootAPDecrease": "1"
+        "CloseRangeFactorIncrease": "12",
+        "ReliabilityDecrease": "10"
       },
-      "human": "короче WeaponRange (−2); сужает ближнюю неэффективную зону (−1 тайла); смягчает штраф в упор (+10%); ближе «падает» траектория; чуть хуже кучность (Grouping)",
+      "human": "хуже надёжность (−10) / чаще клин; короче WeaponRange; сужает ближнюю неэффективную зону (−1 тайла); смягчает штраф в упор (+12%); ближе «падает» траектория (−80); чуть хуже кучность (Grouping); шире конус дроби",
       "empty": false
     },
     {
@@ -1680,9 +1728,9 @@
         "RecoilIncrease"
       ],
       "params": {
-        "Recoil": "1"
+        "Recoil": "2"
       },
-      "human": "очередь размазывает сильнее (Recoil +1)",
+      "human": "очередь размазывает сильнее (Recoil +2)",
       "empty": false
     },
     {
@@ -1699,11 +1747,16 @@
         "SmallMagnification"
       ],
       "params": {
+        "AimAccuracyAimLevel": "4",
+        "AimAccuracyPercent": "120",
         "IncreaseMaxAimActions": "1",
+        "OpticMinRange": "13",
+        "OpticNearFactor": "48",
         "ScopeAimLevel": "4",
         "ScopeMagnification": "9",
+        "ScopeOverwatchAngle": "45",
         "ShotAP": "1",
-        "SmallAimLevel": "2",
+        "SmallAimLevel": "1",
         "SmallMagnification": "3"
       },
       "human": "на 1 больше кликов aim до потолка; сдвигает комфортную дистанцию (~9×), оптика «включается» с 4-го клика aim; есть вторая (меньшая) кратность / переключатель профиля; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
@@ -1721,9 +1774,13 @@
         "ScopeOverwatchAngleDecreaseBig"
       ],
       "params": {
-        "IncreaseMaxAimActions": "1",
+        "AimAccuracyAimLevel": "3",
+        "AimAccuracyPercent": "155",
+        "OpticMinRange": "8",
+        "OpticNearFactor": "78",
         "ScopeAimLevel": "3",
         "ScopeMagnification": "4",
+        "ScopeOverwatchAngle": "65",
         "ShotAP": "1"
       },
       "human": "сдвигает комфортную дистанцию (~4×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
@@ -1746,16 +1803,13 @@
       "ndef": 0,
       "effects": [
         "IncreaseReloadAP",
-        "MagazineSizeAdd",
-        "ReduceReliability"
+        "MagazineSizeAdd"
       ],
       "params": {
         "MagazineSize": "10",
-        "ReliabilityDecrease": "5",
-        "ReloadAPIncrease": "1",
-        "extra_shots": "5"
+        "ReloadAPIncrease": "1"
       },
-      "human": "+10 патронов в магазине; перезарядка дороже на 1 AP; хуже надёжность (−5) / чаще клин",
+      "human": "+10 патронов в магазине; перезарядка дороже на 1 AP",
       "empty": false
     },
     {
@@ -1781,18 +1835,15 @@
         "BarrelBulletDropIncrease",
         "BarrelRecoilRecude",
         "CloseRangeFactorDecrease",
-        "CloseRangeIncrease",
-        "IncreasedSingleShotAccuracy"
+        "CloseRangeIncrease"
       ],
       "params": {
-        "BarrelRecoilRecude": "-3",
-        "CloseRangeFactorDecrease": "5",
-        "CloseRangeIncrease": "2",
-        "bonus_cth": "5",
-        "dmg": "3",
-        "xrng": "2"
+        "BarrelRecoilRecude": "5",
+        "BulletDropIncrease": "115",
+        "CloseRangeFactorDecrease": "8",
+        "CloseRangeIncrease": "2"
       },
-      "human": "расширяет ближнюю неэффективную зону (+2 тайла); усиливает штраф в упор (−5%); дальше комфорт дистанции (BulletDrop); меньше отдача от ствола (-3); лучше одиночный (часто legacy)",
+      "human": "расширяет ближнюю неэффективную зону (+2 тайла); усиливает штраф в упор (−8%); дальше комфорт дистанции (BulletDrop) (+115); меньше отдача от ствола (5)",
       "empty": false
     },
     {
@@ -1823,13 +1874,14 @@
         "CloseRangeFactorIncrease"
       ],
       "params": {
-        "CloseRangeDecrease": "2",
-        "CloseRangeFactorIncrease": "5",
-        "EffectiveRange": "1",
-        "RangeDecrease": "4",
-        "ShootAPDecrease": "1"
+        "BarrelGroupingReduce": "90",
+        "BarrelRangeReduce": "1",
+        "BarrelRecoilIncrease": "2",
+        "BulletDropReduce": "70",
+        "CloseRangeDecrease": "3",
+        "CloseRangeFactorIncrease": "12"
       },
-      "human": "короче WeaponRange (−4); сужает ближнюю неэффективную зону (−2 тайла); смягчает штраф в упор (+5%); ближе «падает» траектория; чуть хуже кучность (Grouping); ствол усиливает отдачу",
+      "human": "короче WeaponRange; сужает ближнюю неэффективную зону (−3 тайла); смягчает штраф в упор (+12%); ближе «падает» траектория (−70); чуть хуже кучность (Grouping); ствол усиливает отдачу",
       "empty": false
     },
     {
@@ -1838,13 +1890,14 @@
       "n": 12,
       "ndef": 2,
       "effects": [
-        "IncreaseAimAccuracy15Percent"
+        "IncreaseAimAccuracy15Percent",
+        "RecoilDecrease"
       ],
       "params": {
-        "bonus_cth": "10",
-        "range": "10"
+        "AimAccuracyPercent": "115",
+        "Recoil": "5"
       },
-      "human": "лучше AimAccuracy",
+      "human": "легче держать очередь (Recoil −5); лучше AimAccuracy",
       "empty": false
     },
     {
@@ -1865,26 +1918,12 @@
       "n": 8,
       "ndef": 1,
       "effects": [
-        "RecoilDecrease"
+        "CloseRangeFactorIncrease"
       ],
       "params": {
-        "Recoil": "1",
-        "accuracy": "5"
+        "CloseRangeFactorIncrease": "5"
       },
-      "human": "легче держать очередь (Recoil −1)",
-      "empty": false
-    },
-    {
-      "id": "JAZZ_KSP_BIPOD",
-      "name": "Сошка от KSP 58",
-      "n": 1,
-      "ndef": 1,
-      "effects": [
-        "AccuracyBonusProne",
-        "ShotsBeforeRecoilProne"
-      ],
-      "params": {},
-      "human": "лёжа лучше (часто legacy flat); лёжа больше пуль до сильной отдачи",
+      "human": "смягчает штраф в упор (+5%)",
       "empty": false
     },
     {
@@ -1893,7 +1932,6 @@
       "n": 14,
       "ndef": 0,
       "effects": [
-        "BarrelAccuracyIncrease",
         "BarrelBulletDropIncrease",
         "BarrelGroupingIncrease",
         "BarrelRangeIncrease",
@@ -1902,13 +1940,14 @@
         "CloseRangeIncrease"
       ],
       "params": {
-        "AimAccuracyIncrease": "2",
-        "CloseRangeFactorDecrease": "5",
-        "CloseRangeIncrease": "2",
-        "EffectiveRange": "2",
-        "RangeIncrease": "6"
+        "BarrelRangeIncrease": "1",
+        "BarrelRecoilRecude": "2",
+        "BulletDropIncrease": "130",
+        "CloseRangeFactorDecrease": "8",
+        "CloseRangeIncrease": "3",
+        "SilencerGroupingReduce": "110"
       },
-      "human": "дальше WeaponRange (+6); расширяет ближнюю неэффективную зону (+2 тайла); усиливает штраф в упор (−5%); дальше комфорт дистанции (BulletDrop) (+2); лучше профиль ствола (AimAccuracy +2); лучше кучность (Grouping); меньше отдача от ствола",
+      "human": "дальше WeaponRange; расширяет ближнюю неэффективную зону (+3 тайла); усиливает штраф в упор (−8%); дальше комфорт дистанции (BulletDrop) (+130); лучше кучность (Grouping); меньше отдача от ствола (2)",
       "empty": false
     },
     {
@@ -1917,7 +1956,6 @@
       "n": 4,
       "ndef": 0,
       "effects": [
-        "BarrelAccuracyIncrease",
         "BarrelBulletDropIncrease",
         "BarrelGroupingIncrease",
         "BarrelRangeIncrease",
@@ -1927,13 +1965,15 @@
         "IncreaseReliability"
       ],
       "params": {
-        "AimAccuracyIncrease": "2",
-        "CloseRangeFactorDecrease": "5",
-        "CloseRangeIncrease": "2",
-        "RangeIncrease": "6",
-        "ReliabilityIncrease": "10"
+        "BarrelRangeIncrease": "1",
+        "BarrelRecoilRecude": "2",
+        "BulletDropIncrease": "130",
+        "CloseRangeFactorDecrease": "8",
+        "CloseRangeIncrease": "3",
+        "ReliabilityIncrease": "10",
+        "SilencerGroupingReduce": "110"
       },
-      "human": "надёжнее (+10); дальше WeaponRange (+6); расширяет ближнюю неэффективную зону (+2 тайла); усиливает штраф в упор (−5%); дальше комфорт дистанции (BulletDrop); лучше профиль ствола (AimAccuracy +2); лучше кучность (Grouping); меньше отдача от ствола",
+      "human": "надёжнее (+10); дальше WeaponRange; расширяет ближнюю неэффективную зону (+3 тайла); усиливает штраф в упор (−8%); дальше комфорт дистанции (BulletDrop) (+130); лучше кучность (Grouping); меньше отдача от ствола (2)",
       "empty": false
     },
     {
@@ -1950,8 +1990,7 @@
       "params": {
         "MagazineSizeMultiplier": "200",
         "ReliabilityDecrease": "15",
-        "ReloadAPIncrease": "2",
-        "extra_shots": "5"
+        "ReloadAPIncrease": "2"
       },
       "human": "ёмкость ×2; перезарядка дороже на 2 AP; хуже надёжность (−15) / чаще клин; чуть хуже AimAccuracy (−15%)",
       "empty": false
@@ -1968,9 +2007,13 @@
         "ScopeOverwatchAngleDecreaseBig"
       ],
       "params": {
-        "IncreaseMaxAimActions": "1",
+        "AimAccuracyAimLevel": "3",
+        "AimAccuracyPercent": "120",
+        "OpticMinRange": "13",
+        "OpticNearFactor": "50",
         "ScopeAimLevel": "3",
         "ScopeMagnification": "8",
+        "ScopeOverwatchAngle": "48",
         "ShotAP": "1"
       },
       "human": "сдвигает комфортную дистанцию (~8×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
@@ -1984,15 +2027,15 @@
       "effects": [
         "IncreaseReloadAP",
         "MagazineSizeMultiplier",
-        "ReduceAimAccuracy15Percent"
+        "ReduceAimAccuracy15Percent",
+        "ReduceReliability"
       ],
       "params": {
         "MagazineSizeMultiplier": "333",
         "ReliabilityDecrease": "15",
-        "ReloadAPIncrease": "2",
-        "extra_shots": "5"
+        "ReloadAPIncrease": "2"
       },
-      "human": "ёмкость ×3.33; перезарядка дороже на 2 AP; чуть хуже AimAccuracy (−15%)",
+      "human": "ёмкость ×3.33; перезарядка дороже на 2 AP; хуже надёжность (−15) / чаще клин; чуть хуже AimAccuracy (−15%)",
       "empty": false
     },
     {
@@ -2002,14 +2045,17 @@
       "ndef": 0,
       "effects": [
         "ExtraOverwatchShots",
-        "ReduceAimAccuracy"
+        "RecoilIncrease",
+        "ReduceAimAccuracy15Percent",
+        "ReduceShootAP"
       ],
       "params": {
-        "accuracy_penalty": "-50",
-        "crit_display": "15",
-        "extra_attacks": "1"
+        "AimAccuracyPercent": "85",
+        "Recoil": "5",
+        "ShootAPDecrease": "1",
+        "extra_attacks": "2"
       },
-      "human": "+1 выстрел в overwatch; хуже AimAccuracy",
+      "human": "выстрел дешевле на 1 AP; +2 выстрела в overwatch; очередь размазывает сильнее (Recoil +5); чуть хуже AimAccuracy (−15%)",
       "empty": false
     },
     {
@@ -2018,16 +2064,19 @@
       "n": 1,
       "ndef": 0,
       "effects": [
-        "IncreaseShotAP",
         "ScopeMagnification",
         "ScopeOverwatchAngleDecrease"
       ],
       "params": {
+        "AimAccuracyAimLevel": "2",
+        "AimAccuracyPercent": "140",
+        "OpticMinRange": "9",
+        "OpticNearFactor": "90",
         "ScopeAimLevel": "2",
         "ScopeMagnification": "3",
-        "ShotAP": "1"
+        "ScopeOverwatchAngle": "78"
       },
-      "human": "сдвигает комфортную дистанцию (~3×), оптика «включается» с 2-го клика aim; каждый выстрел дороже на 1 AP; уже сектор ожидания",
+      "human": "сдвигает комфортную дистанцию (~3×), оптика «включается» с 2-го клика aim; уже сектор ожидания",
       "empty": false
     },
     {
@@ -2082,16 +2131,19 @@
       "n": 8,
       "ndef": 0,
       "effects": [
-        "IncreaseShotAP",
         "ScopeMagnification",
         "ScopeOverwatchAngleDecrease"
       ],
       "params": {
+        "AimAccuracyAimLevel": "2",
+        "AimAccuracyPercent": "155",
+        "OpticMinRange": "12",
+        "OpticNearFactor": "88",
         "ScopeAimLevel": "2",
         "ScopeMagnification": "4",
-        "ShotAP": "1"
+        "ScopeOverwatchAngle": "70"
       },
-      "human": "сдвигает комфортную дистанцию (~4×), оптика «включается» с 2-го клика aim; каждый выстрел дороже на 1 AP; уже сектор ожидания",
+      "human": "сдвигает комфортную дистанцию (~4×), оптика «включается» с 2-го клика aim; уже сектор ожидания",
       "empty": false
     },
     {
@@ -2107,8 +2159,13 @@
         "SmallMagnification"
       ],
       "params": {
+        "AimAccuracyAimLevel": "3",
+        "AimAccuracyPercent": "115",
+        "OpticMinRange": "10",
+        "OpticNearFactor": "62",
         "ScopeAimLevel": "3",
         "ScopeMagnification": "6",
+        "ScopeOverwatchAngle": "55",
         "ShotAP": "1",
         "SmallAimLevel": "1",
         "SmallMagnification": "1",
@@ -2120,15 +2177,15 @@
     {
       "id": "JAZZ_Galil_Brake_Default",
       "name": "Default Muzzle Brake",
-      "n": 1,
-      "ndef": 1,
+      "n": 2,
+      "ndef": 2,
       "effects": [
-        "IncreaseAimAccuracy"
+        "RecoilDecrease"
       ],
       "params": {
-        "AimAccuracyIncrease": "1"
+        "Recoil": "1"
       },
-      "human": "лучше AimAccuracy (+1)",
+      "human": "легче держать очередь (Recoil −1)",
       "empty": false
     },
     {
@@ -2140,8 +2197,11 @@
         "AccuracyBonusProne",
         "ShotsBeforeRecoilProne"
       ],
-      "params": {},
-      "human": "лёжа лучше (часто legacy flat); лёжа больше пуль до сильной отдачи",
+      "params": {
+        "ShotsBeforeRecoilProne": "1",
+        "bonus_cth_bipod": "10"
+      },
+      "human": "лёжа лучше (+10 CTH legacy); лёжа больше пуль до сильной отдачи",
       "empty": false
     },
     {
@@ -2173,16 +2233,13 @@
       "ndef": 0,
       "effects": [
         "IncreaseReloadAP",
-        "MagazineSizeAdd",
-        "ReduceReliability"
+        "MagazineSizeAdd"
       ],
       "params": {
         "MagazineSize": "15",
-        "ReliabilityDecrease": "5",
-        "ReloadAPIncrease": "1",
-        "extra_shots": "5"
+        "ReloadAPIncrease": "1"
       },
-      "human": "+15 патронов в магазине; перезарядка дороже на 1 AP; хуже надёжность (−5) / чаще клин",
+      "human": "+15 патронов в магазине; перезарядка дороже на 1 AP",
       "empty": false
     },
     {
@@ -2190,11 +2247,13 @@
       "name": "Магазин на 20 патрон",
       "n": 2,
       "ndef": 1,
-      "effects": [],
+      "effects": [
+        "MagazineSizeMultiplier"
+      ],
       "params": {
         "MagazineSizeMultiplier": "117"
       },
-      "human": "—",
+      "human": "ёмкость ×1.17",
       "empty": false
     },
     {
@@ -2202,10 +2261,12 @@
       "name": "Default Chamber",
       "n": 1,
       "ndef": 1,
-      "effects": [],
+      "effects": [
+        "ExtraBurstShots"
+      ],
       "params": {},
-      "human": "—",
-      "empty": true
+      "human": "длиннее короткая очередь",
+      "empty": false
     },
     {
       "id": "JAZZ_MagLarge_17_33",
@@ -2214,16 +2275,13 @@
       "ndef": 0,
       "effects": [
         "IncreaseReloadAP",
-        "MagazineSizeAdd",
-        "ReduceAimAccuracy15Percent",
-        "ReduceReliability"
+        "MagazineSizeAdd"
       ],
       "params": {
         "MagazineSize": "16",
-        "ReliabilityDecrease": "15",
         "ReloadAPIncrease": "1"
       },
-      "human": "+16 патронов в магазине; перезарядка дороже на 1 AP; хуже надёжность (−15) / чаще клин; чуть хуже AimAccuracy (−15%)",
+      "human": "+16 патронов в магазине; перезарядка дороже на 1 AP",
       "empty": false
     },
     {
@@ -2250,8 +2308,7 @@
       "params": {
         "MagazineSizeMultiplier": "250",
         "ReliabilityDecrease": "15",
-        "ReloadAPIncrease": "2",
-        "extra_shots": "5"
+        "ReloadAPIncrease": "2"
       },
       "human": "ёмкость ×2.5; перезарядка дороже на 2 AP; хуже надёжность (−15) / чаще клин; чуть хуже AimAccuracy (−15%)",
       "empty": false
@@ -2312,14 +2369,15 @@
         "ReduceReliability"
       ],
       "params": {
-        "CloseRangeDecrease": "2",
-        "CloseRangeFactorIncrease": "5",
-        "EffectiveRange": "4",
-        "RangeDecrease": "4",
+        "BarrelRangeReduce": "1",
+        "BarrelRecoilIncrease": "2",
+        "BulletDropReduce": "70",
+        "CloseRangeDecrease": "3",
+        "CloseRangeFactorIncrease": "12",
         "ReliabilityDecrease": "10",
-        "ShootAPDecrease": "1"
+        "SilencerGroupingReduce": "110"
       },
-      "human": "хуже надёжность (−10) / чаще клин; короче WeaponRange (−4); сужает ближнюю неэффективную зону (−2 тайла); смягчает штраф в упор (+5%); ближе «падает» траектория; лучше кучность (Grouping); ствол усиливает отдачу; открывает маневренный бой (Run&Gun)",
+      "human": "хуже надёжность (−10) / чаще клин; короче WeaponRange; сужает ближнюю неэффективную зону (−3 тайла); смягчает штраф в упор (+12%); ближе «падает» траектория (−70); лучше кучность (Grouping); ствол усиливает отдачу; открывает маневренный бой (Run&Gun)",
       "empty": false
     },
     {
@@ -2336,8 +2394,7 @@
       "params": {
         "MagazineSizeMultiplier": "333",
         "ReliabilityDecrease": "15",
-        "ReloadAPIncrease": "2",
-        "extra_shots": "5"
+        "ReloadAPIncrease": "2"
       },
       "human": "ёмкость ×3.33; перезарядка дороже на 2 AP; хуже надёжность (−15) / чаще клин; чуть хуже AimAccuracy (−15%)",
       "empty": false
@@ -2350,17 +2407,16 @@
       "effects": [
         "ExtraOverwatchShots",
         "RecoilIncrease",
-        "ReduceAimAccuracy90Percent",
+        "ReduceAimAccuracy15Percent",
         "ReduceShootAP"
       ],
       "params": {
+        "AimAccuracyPercent": "85",
         "Recoil": "5",
         "ShootAPDecrease": "1",
-        "accuracy_penalty": "-50",
-        "crit_display": "15",
-        "extra_attacks": "1"
+        "extra_attacks": "2"
       },
-      "human": "выстрел дешевле на 1 AP; +1 выстрел в overwatch; очередь размазывает сильнее (Recoil +5); почти ломает AimAccuracy",
+      "human": "выстрел дешевле на 1 AP; +2 выстрела в overwatch; очередь размазывает сильнее (Recoil +5); чуть хуже AimAccuracy (−15%)",
       "empty": false
     },
     {
@@ -2369,14 +2425,14 @@
       "n": 1,
       "ndef": 0,
       "effects": [
-        "MagazineSizeMultiplier",
-        "ReduceReliability"
+        "IncreaseReloadAP",
+        "MagazineSizeMultiplier"
       ],
       "params": {
         "MagazineSizeMultiplier": "142",
-        "ReliabilityDecrease": "5"
+        "ReloadAPIncrease": "1"
       },
-      "human": "ёмкость ×1.42; хуже надёжность (−5) / чаще клин",
+      "human": "ёмкость ×1.42; перезарядка дороже на 1 AP",
       "empty": false
     },
     {
@@ -2385,6 +2441,7 @@
       "n": 5,
       "ndef": 0,
       "effects": [
+        "CloseRangeFactorIncrease",
         "DecreaseMaxAimActions",
         "ExtraOverwatchShots",
         "MinAim",
@@ -2392,11 +2449,13 @@
         "ScopeOverwatchAngleIncreaceBig"
       ],
       "params": {
+        "CloseRangeFactorIncrease": "15",
         "MaxAimActionsDecrease": "1",
-        "OverwatchAngleIncrease": "120",
-        "extra_attacks": "1"
+        "ScopeOverwatchAngle": "150",
+        "bonus_cth": "8",
+        "extra_attacks": "2"
       },
-      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; сильно шире сектор ожидания (+120); лучше попадание в реакциях / перехвате",
+      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +2 выстрела в overwatch; сильно шире сектор ожидания; лучше попадание в реакциях / перехвате; смягчает штраф в упор (+15%)",
       "empty": false
     },
     {
@@ -2415,12 +2474,12 @@
       "n": 4,
       "ndef": 0,
       "effects": [
-        "RecoilDecrease"
+        "IncreaseAimAccuracy15Percent"
       ],
       "params": {
-        "Recoil": "1"
+        "AimAccuracyPercent": "105"
       },
-      "human": "легче держать очередь (Recoil −1)",
+      "human": "лучше AimAccuracy",
       "empty": false
     },
     {
@@ -2432,8 +2491,11 @@
         "AccuracyBonusProne",
         "ShotsBeforeRecoilProne"
       ],
-      "params": {},
-      "human": "лёжа лучше (часто legacy flat); лёжа больше пуль до сильной отдачи",
+      "params": {
+        "ShotsBeforeRecoilProne": "1",
+        "bonus_cth_bipod": "10"
+      },
+      "human": "лёжа лучше (+10 CTH legacy); лёжа больше пуль до сильной отдачи",
       "empty": false
     },
     {
@@ -2442,12 +2504,12 @@
       "n": 3,
       "ndef": 0,
       "effects": [
-        "FreeWeaponSwap"
+        "CloseRangeFactorIncrease"
       ],
       "params": {
-        "accuracy": "5"
+        "CloseRangeFactorIncrease": "5"
       },
-      "human": "быстрая смена оружия без обычной цены",
+      "human": "смягчает штраф в упор (+5%)",
       "empty": false
     },
     {
@@ -2524,18 +2586,17 @@
       "n": 1,
       "ndef": 0,
       "effects": [
+        "CloseRangeFactorIncrease",
         "DecreaseMaxAimActions",
-        "ExtraOverwatchShots",
-        "MinAim",
-        "OpportunityAttackBonusCth",
-        "ScopeOverwatchAngleIncreace"
+        "MinAim"
       ],
       "params": {
-        "MaxAimActionsDecrease": "1",
-        "OverwatchAngleIncrease": "120",
-        "extra_attacks": "1"
+        "AimAccuracyAimLevel": "1",
+        "AimAccuracyPercent": "120",
+        "CloseRangeFactorIncrease": "15",
+        "MaxAimActionsDecrease": "1"
       },
-      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; шире сектор ожидания (+120); лучше попадание в реакциях / перехвате",
+      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; смягчает штраф в упор (+15%)",
       "empty": false
     },
     {
@@ -2550,12 +2611,16 @@
         "ScopeOverwatchAngleDecreaseBig"
       ],
       "params": {
+        "AimAccuracyAimLevel": "2",
+        "AimAccuracyPercent": "110",
+        "OpticMinRange": "5",
+        "OpticNearFactor": "88",
         "ScopeAimLevel": "2",
         "ScopeMagnification": "2",
-        "ScopeSubMagnification": "2",
+        "ScopeOverwatchAngle": "82",
         "ShotAP": "1"
       },
-      "human": "сдвигает комфортную дистанцию (~2.2×), оптика «включается» с 2-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
+      "human": "сдвигает комфортную дистанцию (~2×), оптика «включается» с 2-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
       "empty": false
     },
     {
@@ -2565,16 +2630,13 @@
       "ndef": 0,
       "effects": [
         "IncreaseReloadAP",
-        "MagazineSizeMultiplier",
-        "ReduceReliability"
+        "MagazineSizeMultiplier"
       ],
       "params": {
         "MagazineSizeMultiplier": "200",
-        "ReliabilityDecrease": "5",
-        "ReloadAPIncrease": "1",
-        "extra_shots": "5"
+        "ReloadAPIncrease": "1"
       },
-      "human": "ёмкость ×2; перезарядка дороже на 1 AP; хуже надёжность (−5) / чаще клин",
+      "human": "ёмкость ×2; перезарядка дороже на 1 AP",
       "empty": false
     },
     {
@@ -2638,8 +2700,7 @@
       ],
       "params": {
         "Recoil": "1",
-        "crit": "10",
-        "stealth_kill_bonus": "20"
+        "stealth_kill_bonus": "25"
       },
       "human": "легче держать очередь (Recoil −1); бонус скрытного убийства за клики aim",
       "empty": false
@@ -2655,19 +2716,17 @@
         "IncreaseBuckshotAngle",
         "ReduceMagazineSize",
         "ReduceRange",
-        "ReduceReliability",
-        "ReduceShootAP"
+        "ReduceReliability"
       ],
       "params": {
         "BuckshotAngleIncrease": "115",
         "CloseRangeDecrease": "1",
-        "CloseRangeFactorIncrease": "10",
+        "CloseRangeFactorIncrease": "12",
         "MagazineSizeDecrease": "2",
-        "RangeDecrease": "2",
-        "ReliabilityDecrease": "10",
-        "ShootAPDecrease": "1"
+        "RangeDecrease": "1",
+        "ReliabilityDecrease": "10"
       },
-      "human": "выстрел дешевле на 1 AP; меньше патронов в магазине; хуже надёжность (−10) / чаще клин; короче WeaponRange (−2); сужает ближнюю неэффективную зону (−1 тайла); смягчает штраф в упор (+10%); шире конус дроби",
+      "human": "меньше патронов в магазине; хуже надёжность (−10) / чаще клин; короче WeaponRange (−1); сужает ближнюю неэффективную зону (−1 тайла); смягчает штраф в упор (+12%); шире конус дроби",
       "empty": false
     },
     {
@@ -2681,19 +2740,6 @@
       "empty": true
     },
     {
-      "id": "JAZZ_Bipod_MG42",
-      "name": "Bipod",
-      "n": 2,
-      "ndef": 2,
-      "effects": [
-        "AccuracyBonusProne",
-        "ShotsBeforeRecoilProne"
-      ],
-      "params": {},
-      "human": "лёжа лучше (часто legacy flat); лёжа больше пуль до сильной отдачи",
-      "empty": false
-    },
-    {
       "id": "JAZZ_Scope_PU",
       "name": "Оптический Прицел ПУ (3.5x)",
       "n": 2,
@@ -2705,13 +2751,16 @@
         "ScopeOverwatchAngleDecreaseBig"
       ],
       "params": {
-        "IncreaseMaxAimActions": "1",
+        "AimAccuracyAimLevel": "2",
+        "AimAccuracyPercent": "112",
+        "OpticMinRange": "6",
+        "OpticNearFactor": "85",
         "ScopeAimLevel": "2",
         "ScopeMagnification": "3",
-        "ScopeSubMagnification": "5",
+        "ScopeOverwatchAngle": "75",
         "ShotAP": "1"
       },
-      "human": "сдвигает комфортную дистанцию (~3.5×), оптика «включается» с 2-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
+      "human": "сдвигает комфортную дистанцию (~3×), оптика «включается» с 2-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
       "empty": false
     },
     {
@@ -2720,11 +2769,9 @@
       "n": 1,
       "ndef": 1,
       "effects": [],
-      "params": {
-        "Recoil": "1"
-      },
+      "params": {},
       "human": "—",
-      "empty": false
+      "empty": true
     },
     {
       "id": "JAZZ_IronSight_AIM",
@@ -2747,14 +2794,14 @@
       "n": 1,
       "ndef": 0,
       "effects": [
-        "MagazineSizeMultiplier",
-        "ReduceReliability"
+        "IncreaseReloadAP",
+        "MagazineSizeMultiplier"
       ],
       "params": {
         "MagazineSizeMultiplier": "125",
-        "ReliabilityDecrease": "5"
+        "ReloadAPIncrease": "1"
       },
-      "human": "ёмкость ×1.25; хуже надёжность (−5) / чаще клин",
+      "human": "ёмкость ×1.25; перезарядка дороже на 1 AP",
       "empty": false
     },
     {
@@ -2763,14 +2810,14 @@
       "n": 1,
       "ndef": 0,
       "effects": [
-        "MagazineSizeMultiplier",
-        "ReduceReliability"
+        "IncreaseReloadAP",
+        "MagazineSizeMultiplier"
       ],
       "params": {
         "MagazineSizeMultiplier": "112",
-        "ReliabilityDecrease": "5"
+        "ReloadAPIncrease": "1"
       },
-      "human": "ёмкость ×1.12; хуже надёжность (−5) / чаще клин",
+      "human": "ёмкость ×1.12; перезарядка дороже на 1 AP",
       "empty": false
     },
     {
@@ -2825,8 +2872,7 @@
       "params": {
         "MagazineSize": "36",
         "ReliabilityDecrease": "15",
-        "ReloadAPIncrease": "2",
-        "extra_shots": "5"
+        "ReloadAPIncrease": "2"
       },
       "human": "+36 патронов в магазине; перезарядка дороже на 2 AP; хуже надёжность (−15) / чаще клин; чуть хуже AimAccuracy (−15%)",
       "empty": false
@@ -2859,6 +2905,7 @@
       "params": {
         "ScopeAimLevel": "3",
         "ScopeMagnification": "6",
+        "ScopeOverwatchAngle": "55",
         "ShotAP": "1"
       },
       "human": "сдвигает комфортную дистанцию (~6×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
@@ -2871,12 +2918,17 @@
       "ndef": 0,
       "effects": [
         "IgnoreInTheDark",
+        "IncreaseOverwatchAngle",
+        "MarkWhenFullyAimed",
         "StealthKillBonusPerAim"
       ],
       "params": {
+        "OverwatchAngleIncrease": "130",
+        "aim_bonus": "1",
+        "maxaims": "1",
         "stealth_kill_bonus": "2"
       },
-      "human": "не штрафует темнота; бонус скрытного убийства за клики aim",
+      "human": "шире сектор ожидания (+130); на полном aim помечает цель; не штрафует темнота; бонус скрытного убийства за клики aim",
       "empty": false
     },
     {
@@ -2897,10 +2949,19 @@
       "n": 1,
       "ndef": 0,
       "effects": [
+        "IncreaseCritChangeScaled",
+        "IncreaseOverwatchAngle",
+        "LaserMark",
         "MarkWhenFullyAimed"
       ],
-      "params": {},
-      "human": "на полном aim помечает цель",
+      "params": {
+        "CritChangeScaledIncrease": "10",
+        "LaserCTH": "15",
+        "LaserDistance": "10",
+        "LaserFullRange": "5",
+        "OverwatchAngleIncrease": "130"
+      },
+      "human": "шире сектор ожидания (+130); на полном aim помечает цель; лазер: плоский CTH накоротке (legacy) (+15 до 10 тайлов); выше шанс крита (scaled)",
       "empty": false
     },
     {
@@ -2909,10 +2970,17 @@
       "n": 1,
       "ndef": 0,
       "effects": [
-        "MinAim"
+        "LaserMark",
+        "StealthKillBonusPerAim"
       ],
-      "params": {},
-      "human": "нужен минимум aim",
+      "params": {
+        "LaserCTH": "12",
+        "LaserDistance": "8",
+        "LaserFullRange": "5",
+        "NightOnly": "1",
+        "stealth_kill_bonus": "5"
+      },
+      "human": "бонус скрытного убийства за клики aim; лазер: плоский CTH накоротке (legacy) (+12 до 8 тайлов)",
       "empty": false
     },
     {
@@ -2927,29 +2995,6 @@
         "ReloadAPDecrease": "2"
       },
       "human": "перезарядка быстрее (−2 AP)",
-      "empty": false
-    },
-    {
-      "id": "JAZZ_FoldBipod",
-      "name": "Сложенная сошка",
-      "n": 2,
-      "ndef": 1,
-      "effects": [],
-      "params": {},
-      "human": "—",
-      "empty": true
-    },
-    {
-      "id": "JAZZ_UnfoldBipod",
-      "name": "Разложенная сошка",
-      "n": 2,
-      "ndef": 1,
-      "effects": [
-        "AccuracyBonusProne",
-        "ShotsBeforeRecoilProne"
-      ],
-      "params": {},
-      "human": "лёжа лучше (часто legacy flat); лёжа больше пуль до сильной отдачи",
       "empty": false
     },
     {
@@ -2992,12 +3037,12 @@
       "n": 4,
       "ndef": 0,
       "effects": [
-        "RecoilDecrease"
+        "IncreaseAimAccuracy15Percent"
       ],
       "params": {
-        "Recoil": "1"
+        "AimAccuracyPercent": "105"
       },
-      "human": "легче держать очередь (Recoil −1)",
+      "human": "лучше AimAccuracy",
       "empty": false
     },
     {
@@ -3022,13 +3067,16 @@
         "ScopeOverwatchAngleDecreaseBig"
       ],
       "params": {
-        "IncreaseMaxAimActions": "1",
-        "ScopeAimLevel": "3",
+        "AimAccuracyAimLevel": "2",
+        "AimAccuracyPercent": "110",
+        "OpticMinRange": "5",
+        "OpticNearFactor": "88",
+        "ScopeAimLevel": "2",
         "ScopeMagnification": "2",
-        "ScopeSubMagnification": "7",
+        "ScopeOverwatchAngle": "80",
         "ShotAP": "1"
       },
-      "human": "сдвигает комфортную дистанцию (~2.7×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
+      "human": "сдвигает комфортную дистанцию (~2×), оптика «включается» с 2-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
       "empty": false
     },
     {
@@ -3037,12 +3085,12 @@
       "n": 1,
       "ndef": 0,
       "effects": [
-        "RecoilDecrease"
+        "CloseRangeFactorIncrease"
       ],
       "params": {
-        "Recoil": "1"
+        "CloseRangeFactorIncrease": "5"
       },
-      "human": "легче держать очередь (Recoil −1)",
+      "human": "смягчает штраф в упор (+5%)",
       "empty": false
     },
     {
@@ -3059,8 +3107,7 @@
       "params": {
         "MagazineSize": "20",
         "ReliabilityDecrease": "15",
-        "ReloadAPIncrease": "2",
-        "extra_shots": "5"
+        "ReloadAPIncrease": "2"
       },
       "human": "+20 патронов в магазине; перезарядка дороже на 2 AP; хуже надёжность (−15) / чаще клин; чуть хуже AimAccuracy (−15%)",
       "empty": false
@@ -3093,22 +3140,18 @@
       "n": 1,
       "ndef": 0,
       "effects": [
-        "CloseRangeDecrease",
-        "CloseRangeFactorIncrease",
         "ReduceMagazineSize",
         "ReduceRange",
         "ReduceReliability",
         "ReduceShootAP"
       ],
       "params": {
-        "CloseRangeDecrease": "1",
-        "CloseRangeFactorIncrease": "10",
         "MagazineSizeDecrease": "4",
         "RangeDecrease": "4",
         "ReliabilityDecrease": "10",
         "ShootAPDecrease": "1"
       },
-      "human": "выстрел дешевле на 1 AP; меньше патронов в магазине; хуже надёжность (−10) / чаще клин; короче WeaponRange (−4); сужает ближнюю неэффективную зону (−1 тайла); смягчает штраф в упор (+10%)",
+      "human": "выстрел дешевле на 1 AP; меньше патронов в магазине; хуже надёжность (−10) / чаще клин; короче WeaponRange (−4)",
       "empty": false
     },
     {
@@ -3136,20 +3179,11 @@
         "IncreaseMaxAimActions": "1",
         "ScopeAimLevel": "3",
         "ScopeMagnification": "4",
+        "ScopeOverwatchAngle": "65",
         "ShotAP": "1"
       },
       "human": "сдвигает комфортную дистанцию (~4×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
       "empty": false
-    },
-    {
-      "id": "JAZZ_MuzzleBooster",
-      "name": "Recoil Booster",
-      "n": 1,
-      "ndef": 1,
-      "effects": [],
-      "params": {},
-      "human": "—",
-      "empty": true
     },
     {
       "id": "JAZZ_Compensator_cosmetic",

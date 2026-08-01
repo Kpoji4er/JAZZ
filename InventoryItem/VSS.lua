@@ -37,7 +37,7 @@ DefineClass.VSS = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge_10_20",
+				"JAZZ_MagLarge_10_20_VAL",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -72,8 +72,13 @@ DefineClass.VSS = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
-	Recoil = 12,
-	AutoShots = 9,
+	WeaponMass = 35,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	BurstShots = 0,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 4,
 

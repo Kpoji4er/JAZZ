@@ -1,26 +1,28 @@
 effect_id,display_name,description,parameters,source,snapshot_commit
 BarrelAccuracyIncrease,BarrelAccuracyIncrease,Ствол: Увеличивает точность на <BarrelAccuracyIncrease>,BarrelAccuracyIncrease=2,jazz,working-tree
-BarrelBulletDropIncrease,BarrelBulletDropIncrease,Ствол: Увеличивает настильность на <BulletDropIncrease>,BulletDropIncrease=2,jazz,working-tree
-BarrelBulletDropReduce,BarrelBulletDropReduce,Ствол: Уменьшает настильность на <BulletDropReduce>,BulletDropReduce=2,jazz,working-tree
+BarrelBulletDropIncrease,BarrelBulletDropIncrease,Ствол: Увеличивает настильность до <BulletDropIncrease>%,BulletDropIncrease=130,jazz,working-tree
+BarrelBulletDropReduce,BarrelBulletDropReduce,Ствол: Уменьшает настильность до <BulletDropReduce>%,BulletDropReduce=70,jazz,working-tree
 BarrelGroupingIncrease,BarrelGroupingIncrease,Ствол: Уменьшает кучность на 30%,SilencerGroupingReduce=110,jazz,working-tree
 BarrelGroupingReduce,BarrelGroupingReduce,Ствол: Уменьшает кучность на 10%,BarrelGroupingReduce=90,jazz,working-tree
 BarrelRangeIncrease,BarrelRangeIncrease,Ствол: Увеличивает дальность на <BarrelRangeIncrease>,BarrelRangeIncrease=2,jazz,working-tree
 BarrelRangeReduce,BarrelRangeReduce,Ствол: Уменьшает дальность на <BarrelRangeReduce>,BarrelRangeReduce=2,jazz,working-tree
 BarrelRecoilIncrease,BarrelRecoilIncrease,Ствол: Увеличивает отдачу на <BarrelRecoilIncrease>,BarrelRecoilIncrease=1,jazz,working-tree
 BarrelRecoilRecude,BarrelRecoilRecude,Ствол: Уменьшает отдачу на <BarrelRecoilRecude>,BarrelRecoilRecude=2,jazz,working-tree
+BlocksMuzzleSlot,BlocksMuzzleSlot,Ствол: блокирует слот дула — глушитель не ставится.,,jazz,working-tree
 ChangeCaliberToBMG,ChangeCaliberToBMG,Changes caliber to .50 BMG,,jazz,working-tree
-CloseRangeDecrease,CloseRangeDecrease,Ствол: Уменьшает ближнюю зону на <CloseRangeDecrease>,CloseRangeDecrease=2,jazz,working-tree
-CloseRangeFactorDecrease,CloseRangeFactorDecrease,Ствол: Ослабляет эффективность на ближней дистанции на <CloseRangeFactorDecrease>,CloseRangeFactorDecrease=5,jazz,working-tree
-CloseRangeFactorIncrease,CloseRangeFactorIncrease,Ствол: Усиливает эффективность на ближней дистанции на <CloseRangeFactorIncrease>,CloseRangeFactorIncrease=5,jazz,working-tree
-CloseRangeIncrease,CloseRangeIncrease,Ствол: Увеличивает ближнюю зону на <CloseRangeIncrease>,CloseRangeIncrease=2,jazz,working-tree
+CloseRangeDecrease,CloseRangeDecrease,Ближняя зона: Уменьшает ближнюю зону на <CloseRangeDecrease>,CloseRangeDecrease=2,jazz,working-tree
+CloseRangeFactorDecrease,CloseRangeFactorDecrease,Ближняя зона: Ослабляет эффективность на ближней дистанции на <CloseRangeFactorDecrease>,CloseRangeFactorDecrease=5,jazz,working-tree
+CloseRangeFactorIncrease,CloseRangeFactorIncrease,Ближняя зона: Усиливает эффективность на ближней дистанции на <CloseRangeFactorIncrease>,CloseRangeFactorIncrease=5,jazz,working-tree
+CloseRangeIncrease,CloseRangeIncrease,Ближняя зона: Увеличивает ближнюю зону на <CloseRangeIncrease>,CloseRangeIncrease=2,jazz,working-tree
 DecreaseMaxAimActions,DecreaseMaxAimActions,Уменьшение количества уровней прицеливания на <MaxAimActionsDecrease>,MaxAimActionsDecrease=1,jazz,working-tree
 EnableBurst,EnableBurst,WIP — механика сигнатурного перка в разработке.,,jazz,working-tree
 EnableRunNGun,EnableRunNGun,Разблокирует <color EmStyle>Маневренный бой</color>.,,jazz,working-tree
 IncreaseAimAccuracy15Percent,IncreaseAimAccuracy15Percent,Увеличивает эффективность прицеливания на 15%,AimAccuracyPercent=115,jazz,working-tree
 IncreaseMaxAimActions,IncreaseMaxAimActions,Увеличение количества уровней прицеливания на <IncreaseMaxAimActions>,IncreaseMaxAimActions=1,jazz,working-tree
 IncreaseShotAP,IncreaseShotAP,Увеличивает цену атаки в ОД на <ShotAP>.,ShotAP=1,jazz,working-tree
-LaserMark,LaserMark,WIP — механика сигнатурного перка в разработке.,LaserCTH=15;LaserDistance=10,jazz,working-tree
+LaserMark,LaserMark,"Лазер: плоский CTH до LaserDistance; полный бонус до LaserFullRange, дальше спад. NightOnly=1 — только ночь/подземелье.",LaserCTH=15;LaserDistance=10;LaserFullRange=5;NightOnly=0,jazz,working-tree
 MagazineSizeAdd,MagazineSizeAdd,Увеличенный размер магазина,,jazz,working-tree
+MagazineSizeSet,MagazineSizeSet,Размер магазина <MagazineSize>,,jazz,working-tree
 MinorAccuracyBonus,MinorAccuracyBonus,Базовый шанс попасть +<bonus_cth>%,bonus_cth=5,jazz,working-tree
 NightsIronsBonus,NightsIronsBonus,Бонус стрельбы ночью +<NightsIronsBonus>%,,jazz,working-tree
 PointBlankBonus,PointBlankBonus,Бонус к стрельбе на дистанции до 10 клеток,PointBlankBonus=1,jazz,working-tree
@@ -30,7 +32,7 @@ ReduceAimAccuracy15Percent,ReduceAimAccuracy15Percent,Уменьшает эфф�
 ReduceAimAccuracy90Percent,ReduceAimAccuracy90Percent,Уменьшает эффективность прицеливания на 90%,AimAccuracyPercent=10,jazz,working-tree
 ScopeMagnification,ScopeMagnification,Оптика <ScopeMagnification>.<ScopeSubMagnification>× сдвигает эффективную зону дальше после <ScopeAimLevel>-го уровня прицеливания. Сильная оптика менее удобна вблизи.,ScopeAimLevel=3;ScopeMagnification=1,jazz,working-tree
 ScopeOverwatchAngleDecrease,ScopeOverwatchAngleDecrease,Прицел: Уменьшает сектор контроля на 30%,ScopeOverwatchAngle=70,jazz,working-tree
-ScopeOverwatchAngleDecreaseBig,ScopeOverwatchAngleDecreaseBig,Прицел: Уменьшает сектор контроля на 50%,,jazz,working-tree
+ScopeOverwatchAngleDecreaseBig,ScopeOverwatchAngleDecreaseBig,Прицел: Уменьшает сектор контроля на 50%,ScopeOverwatchAngle=50,jazz,working-tree
 ScopeOverwatchAngleIncreace,ScopeOverwatchAngleIncreace,Прицел: Увеличивает сектор контроля на 30%,ScopeOverwatchAngle=130,jazz,working-tree
 ScopeOverwatchAngleIncreaceBig,ScopeOverwatchAngleIncreaceBig,Прицел: Увеличивает сектор контроля на 50%,ScopeOverwatchAngle=150,jazz,working-tree
 ShotsBeforeRecoilProne,ShotsBeforeRecoilProne,Добавляет 1 выстрел без отдачи в положении лежа,ShotsBeforeRecoilProne=1,jazz,working-tree
@@ -40,4 +42,5 @@ SilencerGroupingReduce50,SilencerGroupingReduce50,Глушитель: Умень
 SilencerJamChance,SilencerJamChance,Глушитель: Увеличивает шанс клина,SilencerJamChance=100,jazz,working-tree
 SilentShots,SilentShots,Уменьшает звук выстрела до <NoiseMultiplier>% от стандартого,NoiseMultiplier=75,jazz,working-tree
 SmallMagnification,SmallMagnification,Прицел: доп. уровень зума: <SmallMagnification>.<SmallSubMagnification> кратности  (от <SmallAimLevel> уровня прицеливания и выше),SmallMagnification=1,jazz,working-tree
+ThreadedForSuppressor,ThreadedForSuppressor,Ствол: резьба под глушитель — открывает слот дула.,,jazz,working-tree
 TwoHanded,TwoHanded,Нельзя стрелять с одной руки,,jazz,working-tree

@@ -47,7 +47,7 @@ DefineClass.AA12 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge",
+				"JAZZ_MagLarge_25_AA12",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -94,8 +94,13 @@ DefineClass.AA12 = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 6000,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	WeaponMass = 36,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 25,
+	AutoShots = 0,
 
 	CloseRange = 4,
 

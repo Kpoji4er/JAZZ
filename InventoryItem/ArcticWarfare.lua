@@ -61,8 +61,13 @@ DefineClass.ArcticWarfare = {
 	},
 	ShootAP = 8000,
 	ReloadAP = 7000,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	WeaponMass = 55,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 22,
+	AutoShots = 0,
 
 	CloseRange = 12,
 

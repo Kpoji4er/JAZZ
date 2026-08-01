@@ -1,6 +1,6 @@
 ---
 id: JAZZ-WEAPONS-002
-status: draft
+status: approved
 owner: project-owner
 systems:
   - weapons-ammo-components
@@ -33,7 +33,7 @@ related_decisions:
 related_specs:
   - JAZZ-WEAPONS-001
   - JAZZ-ATTACH-001
-approved_by: pending
+approved_by: project-owner
 ---
 
 # JAZZ-WEAPONS-002: ремонт, запчасти, снимаемые обвесы
@@ -53,11 +53,11 @@ approved_by: pending
 2. Сжать номенклатуру расходников до **маленького набора** gunsmith-деталей (число — решение владельца, предложение ниже).
 3. Разделить обвесы на **снимаемые** (возврат InventoryItem без уничтожения) и **неснимаемые** (крафт из деталей / только в моддинге с расходом).
 4. **Снимаемые** ставятся и снимаются в т.ч. **drag-and-drop**; пороги Mechanical: обычные removable **≥30** = guaranteed, **&lt;30** = шанс; **ГП ≥40** = guaranteed, **&lt;40** = шанс.
-5. Стволы требуют **`GunBarrelParts`** (установка + ремонт).
-6. **Не крафтить** оптику и лазеры; крафт — неснимаемые.
+5. Стволы требуют **`JAZZ_BarrelParts`** (установка + ремонт).
+6. **Не крафтить** оптику и лазеры; крафт — неснимаемые (`Parts` / `JAZZ_BarrelParts`). Старые craft-расходники (`FineSteelPipe`, `OpticalLens`, `Microchip`) **убрать** из игры.
 7. Триада ресурса: **current / max / factory**; max **только убывает**, обычный ремонт **не** поднимает max.
-8. Max убывает от: **~1% шанс/выстрел**, **критический jam**, failed unjam, failed mount; обычный jam без сильного −max; аттачам resource не даём.
-9. Два типа клина: обычный / критический; UI jam % эффективный.
+8. Max убывает от: **0.5% шанс/выстрел** (loss ≤1 unit), jam ordinary/crit, failed unjam, failed mount (**−1% max**); аттачам resource не даём.
+9. Два типа клина: обычный / критический; jam % в **rollover карточки оружия** = эффективный score (поправить существующий виджет).
 
 ## Non-goals
 
@@ -73,35 +73,49 @@ approved_by: pending
 
 Рабочая таблица (**2** расходника + снимаемые items отдельно) — после замечаний владельца:
 
-| ID (рабочее) | Роль | Куда идёт |
+| ID (канон) | Display RU / EN | Роль |
 | --- | --- | --- |
-| `Parts` | общий крепёж / мелочь / «мебель» оружия | обычный Repair; cost Stock / Handgrip / Handguard / прочий permanent без ствола |
-| `GunBarrelParts` (или `JAZZ_GunBarrelParts`) | ствольные заготовки/вкладыши | **установка Barrel** + **ремонт** (доля тика или отдельный расход, когда чинят ствольный износ / тяжёлое оружие) |
+| `Parts` | (vanilla / «Запчасти» / Parts) | общий ремонт + крафт мебели/мелочи |
+| `JAZZ_BarrelParts` | **Ствольные запчасти** / **Barrel Parts** | установка Barrel + доля ремонта |
+| `JAZZ_ScopeParts` | **Детали прицелов** / **Scope Parts** | лом Scope при провале снятия; доля ремонта если на стволе remountable Scope |
+
+Канон id: `JAZZ_BarrelParts`, `JAZZ_ScopeParts` (InventoryItem ResourceItem).
 
 **Не вводим по умолчанию:**
 - `JAZZ_GunFurniture` — по сути те же `Parts`, отдельный id не нужен.
 - `JAZZ_SpringSet` — нет конкретной игровой петли (что именно чинит/крафтит uniquely); не плодить item «на всякий случай». Если позже появится явный кейс (только restore `WeaponResourceMax` после jam) — отдельный micro-REQ.
 
-**Убрать из крафта обвесов:** `OpticalLens`, `Microchip` для оптики/лазера; `FineSteelPipe` заменить на `GunBarrelParts` где это ствол, иначе на `Parts`.  
+**Убрать из экономики (items + craft + loot/shop):** `FineSteelPipe`, `OpticalLens`, `Microchip` — **удалить** как расходники.  
+**Оставить в gunsmith-экономике:** `Parts`, `JAZZ_BarrelParts`, `JAZZ_ScopeParts`, плюс **InventoryItem аттачей** (removable).  
+**Сейвы:** стеки старых расходников конвертировать при load (`FineSteelPipe` → `JAZZ_BarrelParts` 1:1; `OpticalLens`/`Microchip` → `Parts` 1:1).  
 **Снимаемые обвесы** — сами InventoryItem, не расходники.
-
-Было альтернативой 3–4 типа — **снято** в пользу двух, пока пружинам нет роли.
 
 ## Политика обвесов
 
 | Класс | Примеры | Снятие | Получение |
 | --- | --- | --- | --- |
-| Removable | Scope; suppressor; Side light/laser; рукоятки; **ГП-item** | drag-and-drop; **Mech ≥30** (ГП **≥40**) — всегда успех; **ниже** — **шанс**; провал → **урон resource** (оружия; см. ниже) | loot/shop; не craft; ГП без атаки вне слота |
-| Permanent | Barrel; Stock (?); Handguard structural; irons | ModifyWeapon + parts | `Parts` / `GunBarrelParts` |
+| Removable | Scope; suppressor; **Compensator**; Side light/laser; рукоятки; **Bipod**; **Mag** (item); **ГП** | DnD; Mech **≥30** (ГП **≥40**); ниже — шанс; провал → −current/−max | loot/shop; не craft |
+| Toggle | **Folding stock** (сложил/разложил) | не item — переключение component/state | на стволе |
+| Permanent | Barrel; non-fold Stock; Handguard structural; irons | ModifyWeapon + parts | `Parts` / `JAZZ_BarrelParts` |
+
+**Mag:** removable в этом spec как модуль; полная модель **магазин = контейнер патронов** — **backlog** (отдельный change после).  
+**ГП:** InventoryItem без атаки вне слота.
 
 ### Mechanical и провал
 
 | Операция | Guaranteed | Ниже порога |
 | --- | --- | --- |
-| Scope / suppressor / laser-light / grip install&remove | Mechanical **≥ 30** | **шанс** (формула калибруется; растет к 30) |
+| Scope / suppressor / compensator / laser-light / grip / bipod / mag install&remove | Mechanical **≥ 30** | **шанс** |
 | Подствольник (GL) install&remove | Mechanical **≥ 40** | **шанс** |
+| Folding stock toggle | без roll монтажа item (или лёгкий check — default **свободный toggle**) | — |
 
-При **провале** шанса монтажа/снятия: операция не проходит **и** режутся **`WeaponResource` (current) и `WeaponResourceMax` (max)** оружия. Величина loss — design table (черновик: как failed unjam, порядка 1–3% от текущего max, плюс current не выше нового max).
+При **провале** шанса монтажа/снятия: операция не проходит **и** режется **`WeaponResourceMax` на 1%** (`MulDivRound(max, 1, 100)`, минимум 1 если max≥1); current clamp ≤ new max.
+
+**Дополнение (remove fail → break attach):** после −1% max на **снятии** бросок  
+`P(break|fail) = Clamp(100 - resourcePct, 0, 95)` (`resourcePct = MulDivRound(current, 100, max)`).  
+- Не break → аттач **остаётся** на оружии.  
+- Break → слот очищается; **Scope** (не Iron*): в сумку **`JAZZ_ScopeParts` × 1** вместо InventoryItem прицела; прочий remountable → уничтожен без предмета.  
+Install fail: только −1% max (без поломки аттача).
 
 ### Убывание max — как сейчас vs цель
 
@@ -122,15 +136,15 @@ approved_by: pending
 
 | Источник | Max | Current | Примечание |
 | --- | --- | --- | --- |
-| Выстрелы / `DegradePerShot` | шанс **~1% или &lt;1%** −max | −current всегда | loss при hit маленький |
+| Выстрелы / `DegradePerShot` | шанс **0.5%** −max | −current всегда | при hit: **не более 1** единицы max |
 | **Обычный jam** | **−0.5% max** | jammed | |
-| **Критический jam** | **−3% max** | jammed + clamp | шанс crit зависит от состояния оружия и Mechanical |
+| **Критический jam** | **−3% max** | jammed + clamp | P(crit\|jam) — формула ниже |
 | Неудачный Unjam | −max (1–3% max) | clamp | оставить |
-| **Провал** install/remove | **−max** | **−current** | |
+| **Провал** install/remove | **−1% max** | clamp ≤ new max | |
 | Обычный ремонт | **не +max** | +current до max | |
 | Factory | неизменен | — | UI reference |
 
-Итог −max: **(1)** низкий шанс на выстрел, **(2)** критический jam, **(3)** failed unjam, **(4)** failed mount.
+Итог −max: **(1)** 0.5%/выстрел (≤1 unit), **(2)** jam ordinary/crit, **(3)** failed unjam, **(4)** failed mount (−1% max).
 
 ### Два типа клина
 
@@ -141,17 +155,30 @@ approved_by: pending
 | **Обычный** | **0.5%** | `jammed`; unjam как сейчас |
 | **Критический** | **3%** | `jammed` + clamp current; отдельный log/FX |
 
-**Шанс, что jam станет критическим** (а не обычным), зависит от:
-- **состояния оружия** (хуже current/max → выше шанс crit);
-- **Mechanical владельца** (выше Mechanical → ниже шанс crit).
+**P(crit|jam)** — integer, %:
 
-Точная формула P(crit|jam) — design table (например lerp от resource% и Mechanical); не путать с общим JamScore и с −max ~1% за выстрел.
+```
+resourcePct = MulDivRound(WeaponResource, 100, WeaponResourceMax)   -- 0..100
+wear = 100 - resourcePct
+mech = Max(0, 100 - Mechanical)                                    -- Mech 0..100+
+P = Clamp(5 + MulDivRound(wear, 35, 100) + MulDivRound(mech, 25, 100), 5, 65)
+```
+
+| Состояние | Mech | P(crit\|jam) |
+| --- | ---: | ---: |
+| 100% current/max | 100 | 5% |
+| 100% | 50 | ~17% |
+| 50% | 50 | ~35% |
+| 20% | 20 | ~53% |
+| 0% | 0 | 65% |
+
+Не путать с JamScore и с −max 0.5% за выстрел.
 
 ### Триада ресурса оружия
 
 | Слой | Поле / смысл | Можно поднять ремонтом? |
 | --- | --- | --- |
-| current | `WeaponResource` | **да**, до max (`Parts` ± `GunBarrelParts`) |
+| current | `WeaponResource` | **да**, до max (`Parts` ± `JAZZ_BarrelParts`) |
 | max | `WeaponResourceMax` | **нет** обычным ремонтом; убывает по матрице выше |
 | factory | `GetFactoryResource()` | неизменяемый reference |
 
@@ -164,29 +191,35 @@ approved_by: pending
 - Tick/UI/scrap: только helpers от resource; не сырой `Condition`.
 - Rollback: откат **`WeaponResource`** (current).
 - Убрать/`перекалибровать` хак `*3`.
-- Обычный ремонт: **`Parts`** + по формуле **`GunBarrelParts`**; только current ≤ max.
-- Max **не** покупается обратно RepairItems.
+- Обычный ремонт: **`Parts`** (как сейчас по формуле tick) **+ `JAZZ_BarrelParts`**:
+  - `restoredPct = MulDivRound(restoredCurrent, 100, GetFactoryResource())`
+  - `BarrelPartsCost = CeilDiv(restoredPct, 10)` — **1 шт. на каждые 10% factory** (1–10% → 1; 11–20% → 2; …).
+  - Если на оружии установлен remountable **Scope** (не Iron*): дополнительно **`JAZZ_ScopeParts`**: `ScopePartsCost = CeilDiv(restoredPct, 20)`.
+  - Только current ≤ max; Max **не** покупается обратно RepairItems.
+- Установка Barrel (permanent craft/install): отдельно `JAZZ_BarrelParts` по cost таблицы компонента.
 
 ## Scrap
 
 - Не масштабировать выплату только от `#components` так, что «весь арсенал Parts».
-- Removable перед scrap: auto-eject в инвентарь, потом scrap корпуса → `Parts` + шанс `GunBarrelParts`.
-- Permanent: доля `Parts` / `GunBarrelParts`, без Lens/Chip.
+- Removable перед scrap: auto-eject в инвентарь, потом scrap корпуса → `Parts` + шанс `JAZZ_BarrelParts`.
+- Permanent: доля `Parts` / `JAZZ_BarrelParts`, без Lens/Chip.
 
 ## Требования
 
 - `JAZZ-WEAPONS-002-REQ-001` — repair/scrap/UI согласованы с триадой **current / max / factory**; обычный ремонт чинит только current ≤ max; max не поднимается RepairItems.
-- `JAZZ-WEAPONS-002-REQ-002` — gunsmith: **`Parts` + `GunBarrelParts`**; furniture → `Parts`; без SpringSet/GunFurniture. Optics/laser не требуют OpticalLens/Microchip.
-- `JAZZ-WEAPONS-002-REQ-003` — removable: Scope, suppressor, light/laser, grip, GL; DnD; Mech **≥30** (GL **≥40**) guaranteed; **ниже — шанс**; провал уменьшает **current и max** resource оружия.
+- `JAZZ-WEAPONS-002-REQ-002` — gunsmith: **`Parts` + `JAZZ_BarrelParts` + `JAZZ_ScopeParts`** + removable attach items; furniture → `Parts`; без SpringSet/GunFurniture.
+- `JAZZ-WEAPONS-002-REQ-003` — removable: Scope, suppressor, compensator, light/laser, grip, bipod, mag, GL; DnD; Mech **≥30** (GL **≥40**); ниже шанс; провал −current/−max. Folding stock = **toggle**, не item.
 - `JAZZ-WEAPONS-002-REQ-003a` — GL InventoryItem без атаки вне слота.
-- `JAZZ-WEAPONS-002-REQ-003b` — снимаемые обвесы **без** resource-триады (**зафиксировано: не делаем**).
-- `JAZZ-WEAPONS-002-REQ-003c` — матрица −max: (a) шанс/выстрел ~1% или меньше; (b) обычный jam **−0.5% max**; (c) критический jam **−3% max**; (d) failed unjam; (e) failed mount. RepairItems не +max.
-- `JAZZ-WEAPONS-002-REQ-008` — UI jam % = эффективный score roll.
-- `JAZZ-WEAPONS-002-REQ-009` — два типа клина: обычный (−0.5% max) / критический (−3% max); P(crit\|jam) от **состояния оружия** и **Mechanical**; различимы в feedback.
-- `JAZZ-WEAPONS-002-REQ-004` — Barrel install + repair тратят `GunBarrelParts` (+ `Parts` по формуле).
-- `JAZZ-WEAPONS-002-REQ-005` — OpticalLens/Microchip не для крафта оптики/лазеров; RU/EN.
-- `JAZZ-WEAPONS-002-REQ-006` — scrap без взрыва номенклатуры; documented drop (`Parts` / `GunBarrelParts`).
-- `JAZZ-WEAPONS-002-REQ-007` — generated sync; evidence repair + DnD uninstall.
+- `JAZZ-WEAPONS-002-REQ-003b` — снимаемые обвесы без resource-триады.
+- `JAZZ-WEAPONS-002-REQ-003c` — матрица −max: **0.5%/выстрел** (loss ≤1 unit); ordinary jam −0.5% max; crit jam −3% max; failed unjam; failed mount **−1% max**. RepairItems не +max.
+- `JAZZ-WEAPONS-002-REQ-003d` — Mag-as-ammo-container — **backlog**; здесь только removable Mag item.
+- `JAZZ-WEAPONS-002-REQ-003e` — remove fail: после −1% max, `P(break|fail)=Clamp(100−resourcePct,0,95)`; break → clear slot; Scope→`JAZZ_ScopeParts`×1; else destroy; no break → attach stays. Install fail: −1% max only.
+- `JAZZ-WEAPONS-002-REQ-004` — Barrel install: cost `JAZZ_BarrelParts`. Repair: `CeilDiv(restoredPct_of_factory, 10)` BarrelParts + Parts; if remountable Scope: + `CeilDiv(restoredPct, 20)` ScopeParts.
+- `JAZZ-WEAPONS-002-REQ-005` — **удалить** `FineSteelPipe`, `OpticalLens`, `Microchip` (defs, craft costs, loot/shop); component costs → только `Parts` / `JAZZ_BarrelParts`; load-migrate стеки (Pipe→BarrelParts, Lens/Chip→Parts); RU/EN для BarrelParts.
+- `JAZZ-WEAPONS-002-REQ-006` — scrap: `Parts` / `JAZZ_BarrelParts`.
+- `JAZZ-WEAPONS-002-REQ-007` — generated sync; evidence repair + DnD.
+- `JAZZ-WEAPONS-002-REQ-008` — jam % в **rollover карточки оружия**: `GetDisplayJamChancePercent` (поправить существующий виджет).
+- `JAZZ-WEAPONS-002-REQ-009` — ordinary/crit jam (−0.5% / −3% max); P(crit|jam) = `Clamp(5 + wear*35/100 + mech*25/100, 5, 65)`.
 
 ## Инварианты и ограничения
 
@@ -199,18 +232,20 @@ approved_by: pending
 ## Acceptance criteria
 
 - `JAZZ-WEAPONS-002-AC-001` — static: UI/scrap/repair на current/max/factory; RepairItems не поднимает max.
-- `JAZZ-WEAPONS-002-AC-002` — runtime: DnD; Mech≥30 / GL≥40 guaranteed; ниже шанс; провал режет **current и max**; ГП без атаки в сумке; аттачи без своего resource.
-- `JAZZ-WEAPONS-002-AC-002b` — human: матрица убывания max + пороги в design.
-- `JAZZ-WEAPONS-002-AC-003` — runtime: ствол + repair жрут `GunBarrelParts`/`Parts`.
+- `JAZZ-WEAPONS-002-AC-002` — runtime: DnD; Mech≥30 / GL≥40; провал → **−1% max** + clamp current; ГП без атаки в сумке; аттачи без resource.
+- `JAZZ-WEAPONS-002-AC-002b` — human: матрица −max + P(crit) + repair BarrelParts в design.
+- `JAZZ-WEAPONS-002-AC-002c` — runtime: remove fail break chance + ScopeParts salvage / non-scope destroy.
+- `JAZZ-WEAPONS-002-AC-003` — runtime: ствол + repair: `CeilDiv(restoredPct/10)` `JAZZ_BarrelParts` + Parts; Scope present → + `CeilDiv(restoredPct/20)` `JAZZ_ScopeParts`.
 - `JAZZ-WEAPONS-002-AC-004` — runtime: нет free-repair; rollback current.
-- `JAZZ-WEAPONS-002-AC-006` — human/runtime: UI jam % = эффективный score roll.
-- `JAZZ-WEAPONS-002-AC-007` — static: шанс −max за выстрел ≤ 1%.
-- `JAZZ-WEAPONS-002-AC-008` — runtime: обычный jam ≈ −0.5% max; критический ≈ −3% max; низкий Mechanical / плохой resource повышают частоту crit; log различает типы.
+- `JAZZ-WEAPONS-002-AC-005` — static: нет live refs на `FineSteelPipe`/`OpticalLens`/`Microchip` в craft/loot; defs удалены или dormant; Mag container backlog отмечен.
+- `JAZZ-WEAPONS-002-AC-006` — runtime: jam % в rollover карточки оружия = `GetDisplayJamChancePercent`.
+- `JAZZ-WEAPONS-002-AC-007` — static/runtime: −max/выстрел шанс **0.5%**, loss **≤1** unit.
+- `JAZZ-WEAPONS-002-AC-008` — runtime: ordinary −0.5% / crit −3%; P(crit) по формуле REQ-009.
 
 ## Impact и совместимость
 
 - Vanilla/CommonLib/JAZZ: overrides scrap/repair + generated components/costs + new items.
-- Saves: resource ok; старые OpticalLens/Microchip в сумках остаются; экипированные optics остаются components до uninstall rules.
+- Saves: resource ok; стеки `FineSteelPipe`/`OpticalLens`/`Microchip` → migrate; экипированные optics остаются components до uninstall rules.
 - Network: sync install/uninstall/repair.
 - Generated data: да.
 - Cross-package: нет.
@@ -226,23 +261,30 @@ approved_by: pending
 
 ## Решение владельца
 
-- Статус: draft
-- Открыто до approve:
-  1. Формула repair: когда жрёт `GunBarrelParts`?
-  2. Mag / Bipod / Compensator — removable?
-  3. Folding stock — toggle или item?
-  4. Display RU/EN для `GunBarrelParts`.
-  5. Формула P(crit|jam) от resource% + Mechanical; шанс −max/выстрел 1.0 vs 0.5; loss на провале монтажа.
-  6. Аудит jam UI.
+- Статус: **approved** (2026-08-01) — реализация **не стартовать** до отдельного запроса владельца.
 - Зафиксировано:
-  - обычный jam **−0.5% max**, критический **−3% max**;
-  - P(crit) ↑ при плохом состоянии, ↓ при высоком Mechanical;
-  - max ещё: ~1%/выстрел + failed unjam + failed mount;
-  - UI jam % эффективный; DnD; Mech 30/GL 40; `Parts`+`GunBarrelParts`.
+  - Mag / Bipod / Compensator — removable; Mag-as-container — backlog; Folding stock — toggle;
+  - `JAZZ_BarrelParts` = «Ствольные запчасти» / «Barrel Parts»;
+  - `JAZZ_ScopeParts` = «Детали прицелов» / «Scope Parts»; remove-fail break + repair surcharge;
+  - Repair BarrelParts: **`CeilDiv(restoredPct_of_factory, 10)`**; ScopeParts: **`CeilDiv(restoredPct, 20)`** if remountable Scope;
+  - P(break|remove fail): **`Clamp(100 − resourcePct, 0, 95)`**;
+  - P(crit|jam): `Clamp(5 + wear×35/100 + mech×25/100, 5, 65)`;
+  - −max/выстрел: **0.5%**, loss **≤1** unit; failed mount: **−1% max**;
+  - jam UI — существующий rollover; ordinary/crit −0.5%/−3%; Mech 30/GL 40;
+  - **удалить** craft-расходники `FineSteelPipe` / `OpticalLens` / `Microchip`; оставить `Parts` + `JAZZ_BarrelParts` + `JAZZ_ScopeParts` + attach items (load-migrate 1:1).
 
 ## Evidence
 
-- Все AC: `BLOCKED` — до реализации.
+- `JAZZ-WEAPONS-002-AC-001`: `PARTIAL / static` — late resource module uses current/max/factory helpers for its repair/rollback/scrap paths; sector-operation payment still lacks Barrel Parts debit.
+- `JAZZ-WEAPONS-002-AC-002`: `BLOCKED / runtime` — no removable InventoryItem catalog or DnD/ModifyWeapon uninstall flow yet.
+- `JAZZ-WEAPONS-002-AC-002b`: `PASS / static` — max-loss constants and critical-jam integer formula are present; `BLOCKED / human` for the requested matrix review.
+- `JAZZ-WEAPONS-002-AC-002c`: `BLOCKED / runtime` — remove-fail break + ScopeParts salvage pending wave test.
+- `JAZZ-WEAPONS-002-AC-003`: `BLOCKED / runtime` — BarrelParts + ScopeParts repair debit need sector-operation / in-game confirmation.
+- `JAZZ-WEAPONS-002-AC-004`: `PARTIAL / static` — repair current-resource mapping is overridden; wave test is still required.
+- `JAZZ-WEAPONS-002-AC-005`: `FAIL / static` — legacy part definitions and load migration remain.
+- `JAZZ-WEAPONS-002-AC-006`: `PASS / static`, `BLOCKED / runtime` — weapon rollover calls `GetDisplayJamChancePercent`.
+- `JAZZ-WEAPONS-002-AC-007`: `PASS / static`, `BLOCKED / runtime` — one `Random(200)` roll per shot and unit-capped loss.
+- `JAZZ-WEAPONS-002-AC-008`: `PASS / static`, `BLOCKED / runtime` — ordinary/critical maximum loss and the specified critical probability.
 
 ## Documentation delta
 
@@ -250,3 +292,5 @@ approved_by: pending
 - `docs/technical/systems/weapons-ammo-components.md` — repair/scrap/resource truth.
 - `docs/technical/systems/inventory-items-loot-crafting.md` — part items + craft policy.
 - Wiki/showcase — если игрок видит новые детали/снятие (спросить).
+- `docs/wiki/weapons-and-ammo.md`, `docs/showcase/ru/weapons-and-ammo.md`, `docs/showcase/en/weapons-and-ammo.md` — added current resource / Barrel Parts / jam-card copy.
+- `docs/technical/systems/file-coverage.md` — added the loaded resource-maintenance module.

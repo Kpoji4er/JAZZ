@@ -36,7 +36,7 @@ DefineClass.Sig550 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge",
+				"JAZZ_MagLarge_50_SIG",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -104,8 +104,13 @@ DefineClass.Sig550 = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 6000,
-	Recoil = 8,
-	AutoShots = 6,
+	WeaponMass = 36,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	BurstShots = 4,
+	Recoil = 16,
+	AutoShots = 7,
 
 	CloseRange = 6,
 

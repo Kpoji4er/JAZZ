@@ -67,9 +67,13 @@ DefineClass.AR10DMR = {
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,
-	Recoil = 32,
-	BurstShots = 1,
-	AutoShots = 1,
+	WeaponMass = 36,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 36,
+	BurstShots = 0,
+	AutoShots = 0,
 
 	CloseRange = 6,
 

@@ -51,9 +51,13 @@ DefineClass.AA52 = {
 	},
 	ShootAP = 9000,
 	ReloadAP = 9000,
-	Recoil = 21,
-	BurstShots = 6,
-	AutoShots = 6,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 18,
+	BurstShots = 4,
+	AutoShots = 0,
 
 	CloseRange = 6,
 

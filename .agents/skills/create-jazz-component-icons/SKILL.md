@@ -1,34 +1,46 @@
 ---
 name: create-jazz-component-icons
 description: >-
-  Создавать и обновлять полные WeaponComponent.Icon JAZZ для кабинета
-  ModifyWeaponDlg (Icons/Upgrades/Full, детальнее чем chip). Не для ChipIcon
+  Создавать и обновлять WeaponComponent.Icon JAZZ для кабинета ModifyWeaponDlg
+  (style B: WeaponComponents 100×100 3D; опционально Full flat). Не для ChipIcon
   миниатюр на тайле. Использовать при component Icon, upgrade icon, иконке
-  обвеса в моддинге оружия.
+  обвеса в моддинге оружия; магазины — ориентация как на боковом профиле винтовки.
 ---
 
 # Создание WeaponComponent.Icon (кабинет)
 
-Пакет: `jazz` → `Icons/Upgrades/Full/`.  
-Промпты: [`Icons/Upgrades/Full/references/PROMPT.md`](../../../Icons/Upgrades/Full/references/PROMPT.md).  
+**Канон сейчас — style B** (тёмный 3D): `WeaponComponents/<Folder>/`.  
+Промпты: [`WeaponComponents/references/PROMPT.md`](../../../WeaponComponents/references/PROMPT.md).  
 Шпаргалка: [references/style-and-naming.md](references/style-and-naming.md).
 
-Миниатюра тайла (`ChipIcon`) — **другой** skill: `$create-jazz-chip-icons`.  
-Новый компонент: пара через оба skill; этим skill пишется только `Icon`.
+Миниатюра тайла (`ChipIcon`) — **другой** skill: `$create-jazz-chip-icons`.
 
-Можно оставить vanilla `UI/Icons/Upgrades/…` если устраивает — генерить Jazz Full только когда нужна своя картинка или Icon пустой.
+Уникальные Entity / уникальный Id у **Scope** и **Magazine** → уникальный `Icon`.  
+**Barrel**: уникальные Icon не требуются (vanilla OK).
 
 Asset-only PNG не требует spec. Wire `Icon` → `items.lua` sync.
 
-## Контракт
+## Контракт (style B)
 
 | | |
 | --- | --- |
 | Поле | `Icon` |
-| Path | `Mod/e6L4ECj/Icons/Upgrades/Full/<ComponentId>.png` |
-| Size | **128×128** RGBA, transparent |
+| Path | `Mod/e6L4ECj/WeaponComponents/<Folder>/<ComponentId>.png` |
+| Size | **100×100** RGBA, transparent |
 | UI | `ModifyWeaponDlg`, списки апгрейдов |
-| Стиль | детальнее chip: узнаваемый обвес, всё ещё flat JA3, без фото |
+| Стиль | dark 3D + **soft Anaconda silhouette AA** (реф `style_B_edge_ref_Anaconda.png`) |
+| Gen BG | magenta `#FF00FF` (не portrait `#504633`) |
+| Cut | rembg → fit ~78% → black outline (`docs/tools/_finalize_icon_style_b.py`) |
+
+## Magazine orientation
+
+Как магазин висит на винтовке **вид сбоку**, дуло вправо:
+
+1. Губки (**feed lips**) — сверху  
+2. Пятка — снизу  
+3. Изгиб AK — вперёд/вправо (к дулу)  
+4. Почти вертикально, лёгкий forward lean  
+5. Только магазин — без receiver / magwell  
 
 ## Вход
 
@@ -39,22 +51,21 @@ Asset-only PNG не требует spec. Wire `Icon` → `items.lua` sync.
 ## Workflow
 
 ```text
-- [ ] 1. Id, конфликты
-- [ ] 2. Рефы: Icons/Upgrades/Full/references/ (+ vanilla style bank если есть)
-- [ ] 3. GenerateImage (PROMPT full)
-- [ ] 4. Finalize → Icons/Upgrades/Full/<ComponentId>.png
-- [ ] 5. Ревью
-- [ ] 6. Wire Icon = "Mod/e6L4ECj/Icons/Upgrades/Full/<ComponentId>.png"
+- [ ] 1. Id, конфликты; Scope/Magazine → unique Icon if unique look
+- [ ] 2. Рефы: **shape** = WC 3D / Visual.Icon / vanilla (chip — last resort); **style** = Anaconda + Optics
+- [ ] 3. GenerateImage на #FF00FF **с точным shape-рефом** (не chip-глиф, если есть CarbineMag/Optics)
+- [ ] 4. Finalize → WeaponComponents/<Folder>/<ComponentId>.png
+- [ ] 5. Ревью (силуэт = chip, край = Anaconda)
+- [ ] 6. Wire Icon = "Mod/e6L4ECj/WeaponComponents/<Folder>/<ComponentId>.png"
 ```
 
-```powershell
-.agents/skills/create-jazz-component-icons/scripts/finalize-component-icon.ps1 `
-  -SourceDraft "<draft.png>" `
-  -ComponentId AdvancedHOLO
+```text
+python docs/tools/_finalize_icon_style_b.py
 ```
 
 ## Запреты
 
-- Не писать Full PNG в `ChipIcon` / `Icons/Upgrades/Chips/`.
-- Не затирать vanilla `UI/Icons/Upgrades` на диске игры.
+- Не писать Icon PNG в `ChipIcon` / `Icons/Upgrades/Chips/`.
+- Не key с `#504633` для тёмного металла (съедает объект) — только magenta / rembg.
 - Не генерить chip-миниатюры этим skill.
+- Не шарить один Icon на разные уникальные Scope/Magazine.

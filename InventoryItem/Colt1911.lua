@@ -3,7 +3,6 @@ DefineClass.Colt1911 = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Tier 1-3",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -44,19 +43,6 @@ DefineClass.Colt1911 = {
 				"JAZZ_ImprovisedSuppressor",
 			},
 		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Freeswap",
-			'AvailableComponents', {
-				"JAZZ_Freeswap",
-			},
-			'DefaultComponent', "JAZZ_Freeswap",
-		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Side",
-			'AvailableComponents', {
-				"JAZZ_Flashlight",
-			},
-		}),
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -68,9 +54,14 @@ DefineClass.Colt1911 = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
+	WeaponMass = 10,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
+	BurstShots = 0,
 	MaxAimActions = 2,
-	Recoil = 1,
-	AutoShots = 3,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 0,
 

@@ -36,15 +36,16 @@ DefineClass.FNFAL = {
 			'SlotType', "Handguard",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"FNFAL_Handguard",
+				"JAZZ_FNFAL_Handguard",
 			},
-			'DefaultComponent', "FNFAL_Handguard",
+			'DefaultComponent', "JAZZ_FNFAL_Handguard",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_FlashlightDot",
 				"JAZZ_LaserDot",
 				"JAZZ_UVDot",
@@ -64,8 +65,8 @@ DefineClass.FNFAL = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagNormalFine",
-				"JAZZ_MagLarge_20_30",
+				"JAZZ_MagNormalFine_FAL",
+				"JAZZ_MagLarge_20_30_FAL",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -132,7 +133,12 @@ DefineClass.FNFAL = {
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,
-	Recoil = 32,
+	WeaponMass = 43,
+	CyclicRPM = 650,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	BurstShots = 3,
+	Recoil = 43,
 	AutoShots = 6,
 
 	CloseRange = 8,

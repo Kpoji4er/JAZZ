@@ -41,6 +41,7 @@ DefineClass.M45 = {
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
+			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_StockLightUnFolded",
 				"JAZZ_StockLightFolded",
@@ -57,8 +58,13 @@ DefineClass.M45 = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 4000,
-	Recoil = 4,
-	AutoShots = 6,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	BurstShots = 4,
+	Recoil = 18,
+	AutoShots = 7,
 
 	CloseRange = 2,
 

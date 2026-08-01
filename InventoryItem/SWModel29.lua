@@ -3,9 +3,9 @@ DefineClass.SWModel29 = {
 	__parents = { "Revolver" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Tier 2-4",
 	object_class = "Revolver",
+	ReloadStyle = "Revolver",
 	ScrapParts = 6,
 	RepairCost = 4,
 	Reliability = 95,
@@ -29,13 +29,7 @@ DefineClass.SWModel29 = {
 	Noise = 32,
 	Entity = "SWModel29",
 	ComponentSlots = {
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Freeswap",
-			'AvailableComponents', {
-				"JAZZ_Freeswap",
-			},
-			'DefaultComponent', "JAZZ_Freeswap",
-		}),
+		
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
@@ -49,6 +43,7 @@ DefineClass.SWModel29 = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_LaserDot",
 				"JAZZ_FlashlightDot",
 				"JAZZ_UVDot",
@@ -65,8 +60,13 @@ DefineClass.SWModel29 = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 5000,
-	Recoil = 1,
-	AutoShots = 3,
+	WeaponMass = 10,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
+	BurstShots = 0,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 0,
 

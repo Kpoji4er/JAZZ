@@ -62,9 +62,8 @@ DefineClass.PSG1 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagNormalFine",
-				"JAZZ_MagLarge",
-				"JAZZ_MagLargeFine",
+				"JAZZ_MagNormalFine_PSG1",
+				"JAZZ_MagLarge_8_PSG1",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -105,8 +104,13 @@ DefineClass.PSG1 = {
 	},
 	ShootAP = 8000,
 	ReloadAP = 7000,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	WeaponMass = 55,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 22,
+	AutoShots = 0,
 
 	CloseRange = 12,
 

@@ -36,10 +36,10 @@ DefineClass.TMP = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"JAZZ_MagSmall30_15",
 				"JAZZ_MagNormal",
+				"JAZZ_MagSmall30_15_TMP",
 			},
-			'DefaultComponent', "JAZZ_MagSmall30_15",
+			'DefaultComponent', "JAZZ_MagSmall30_15_TMP",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "General",
@@ -66,10 +66,14 @@ DefineClass.TMP = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
 	MaxAimActions = 2,
-	Recoil = 6,
-	BurstShots = 5,
-	AutoShots = 9,
+	Recoil = 18,
+	BurstShots = 4,
+	AutoShots = 7,
 
 	CloseRange = 2,
 

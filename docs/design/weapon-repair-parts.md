@@ -1,58 +1,84 @@
 # Ремонт и запчасти оружия (design)
 
-Канон: `docs/specs/active/JAZZ-WEAPONS-002.md` (**draft**).
+Канон: `docs/specs/active/JAZZ-WEAPONS-002.md` (resource/jam/BarrelParts/ScopeParts/ModifyWeapon+DnD; runtime wave pending).
 
-## Триада
+## Расходники
 
-| Слой | Поле | Ремонт |
-| --- | --- | --- |
-| current | `WeaponResource` | да, до max |
-| max | `WeaponResourceMax` | **нельзя** поднять обычным ремонтом |
-| factory | `GetFactoryResource()` | reference |
+| ID | RU | EN | Статус |
+| --- | --- | --- | --- |
+| `Parts` | Запчасти | Parts | **оставить** |
+| `JAZZ_BarrelParts` | **Ствольные запчасти** | **Barrel Parts** | только **Barrel** slot (+ repair); не Stock/Muzzle/Scope |
+| `JAZZ_ScopeParts` | **Детали прицелов** | **Scope Parts** | лом Scope при провале снятия; repair surcharge если на стволе remountable Scope |
+| `FineSteelPipe` / `OpticalLens` / `Microchip` | — | — | **удалены из quoted costs** в `items.lua` (migrate → BarrelParts / Parts; orphan companions могут остаться до editor purge) |
 
-## Как падает max
+Оставить в экономике также InventoryItem **аттачей** (removable). Permanent barrel craft — только `JAZZ_BarrelParts` (+ `Parts`).
 
-| Событие | −max |
+## Removable / toggle
+
+| Класс | Что |
 | --- | --- |
-| Выстрел (низкий шанс ~1% или меньше) | маленький loss при hit |
-| **Обычный jam** | **0.5%** текущего max |
-| **Критический jam** | **3%** текущего max |
-| Failed Unjam | 1–3% max (как сейчас) |
-| Failed install/remove | current + max |
-| RepairItems | нет (+ только current) |
+| Removable (DnD, Mech≥30; GL≥40) | Scope, suppressor, compensator, light/laser, grip, bipod, mag, GL — Mech = **лучший в отряде** (как кабинет моддинга) |
+| Toggle | Folding stock |
+| Permanent | Barrel, non-fold stock, handguard structural, irons, **интегрированный глушитель** (`*SuppressorIntegrated`) |
 
-## Два типа клина
+Mag-as-ammo-container — **backlog**. Failed mount: **−1% max**, current clamp.
 
-При любом jam → roll типа:
+### Remove fail → break
+
+После провала Mech на **снятии** (всегда −1% max):
+
+`P(break|fail) = Clamp(100 - resourcePct, 0, 95)`  
+`resourcePct = MulDivRound(current, 100, max)`
+
+| Исход | Эффект |
+| --- | --- |
+| Не break | Аттач остаётся на оружии |
+| Break + Scope (не Iron*) | Слот очищается; в сумку **`JAZZ_ScopeParts` × 1** |
+| Break + прочий remountable | Слот очищается; предмет не выдаётся |
+
+Install fail: только −1% max (аттач в сумке / на стволе не ломается этим броском).
+
+### v1 InventoryItem scheme
+
+Each removed module is a `JAZZ_RemovableAttachment` (or subclass) InventoryItem with
+`RemovableComponentId = <live WeaponComponent ID>`. **Editor/loot catalog:** one
+`ModItemInventoryItemCompositeDef` per remountable component, `Id == component id`
+(folder `RemovableAttachments` in `items.lua`; companions `InventoryItem/<id>.lua`).
+Generic `JAZZ_RemovableAttachment` remains the fallback base class. Generate/refresh via
+`docs/tools/_gen_removable_attachment_items.py --apply`. Presentation (Icon / DisplayName /
+rollover) syncs from `WeaponComponent` at create and via `GetItemUIIcon` /
+`GetRolloverTitle` / `GetRolloverHint`. Install/DnD resolves vanilla↔`JAZZ_` twins.
+UI drop mirrors ammo reload (`CanDropAt` / equip `_IsDropTarget`). Slots: Scope, Muzzle,
+Side, Under, Bipod, Magazine, GrenadeLauncher; GL Mech **≥40**, others **≥30**.
+`CanAppearInShop = true` (временный pass: Bobby Ray restock; `RestockWeight=10`, `MaxStock=1`, `Tier=1`). Исключения: `*SuppressorIntegrated`, `FlashlightOff`. Полный economy/loot plan — later. API:
+`JAZZ_RemoveRemovableAttachment` / `JAZZ_InstallRemovableAttachment` /
+`JAZZ_CreateRemovableAttachment` (prefers catalog class when present). Enable shop: `docs/tools/_enable_remountable_bobby_ray.py --apply`.
+
+## Repair
+
+`restoredPct = MulDivRound(restoredCurrent, 100, GetFactoryResource())`
+
+| Resource | Cost |
+| --- | --- |
+| `JAZZ_BarrelParts` | `CeilDiv(restoredPct, 10)` — всегда при ремонте current |
+| `JAZZ_ScopeParts` | `CeilDiv(restoredPct, 20)` — только если установлен remountable Scope |
+| `Parts` | как vanilla RepairItems tick |
+
+## Jam
 
 | Тип | −max |
 | --- | ---: |
 | Обычный | 0.5% |
 | Критический | 3% |
 
-**P(критический | jam)** растёт, когда оружие в плохом состоянии (низкий current/max %), и падает с ростом **Mechanical** владельца. Точная кривая — при реализации.
+```
+resourcePct = MulDivRound(current, 100, max)
+P_crit = Clamp(5 + MulDivRound(100-resourcePct, 35, 100) + MulDivRound(Max(0,100-Mech), 25, 100), 5, 65)
+```
 
-## UI jam %
+UI: rollover карточки → `GetDisplayJamChancePercent`.
 
-Эффективный % (`GetDisplayJamChancePercent`).
+## Max / выстрел
 
-## Снимаемые
-
-| Что | Guaranteed Mech | Ниже |
-| --- | ---: | --- |
-| Scope, глушитель, лазер/фонарь, рукоятка | ≥30 | шанс; провал → −current/−max |
-| ГП item | ≥40 | шанс; то же |
-
-Аттачам resource **нет**.
-
-## Расходники
-
-`Parts` + `GunBarrelParts`.
-
-## Открыто
-
-- Когда repair жрёт BarrelParts?
-- Mag/Bipod/compensator?
-- Формула P(crit|jam)?
-- 1.0% vs 0.5% на −max/выстрел; loss при hit?
-- Loss на провале монтажа?
+Шанс **0.5%** −max за выстрел; при hit loss **≤ 1** unit.  
+Также: jam, failed unjam, failed mount (−1% max). Ремонт max не поднимает.

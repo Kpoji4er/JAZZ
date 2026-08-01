@@ -64,6 +64,7 @@ DefineClass.UMP45 = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_LaserDot",
 				"JAZZ_FlashlightDot",
 				"JAZZ_UVDot",
@@ -101,9 +102,13 @@ DefineClass.UMP45 = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 4000,
-	Recoil = 7,
-	BurstShots = 2,
-	AutoShots = 6,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 18,
+	BurstShots = 4,
+	AutoShots = 7,
 
 	CloseRange = 2,
 

@@ -35,6 +35,7 @@ DefineClass.PP19Bizon = {
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
+			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_StockLightFolded",
 				"JAZZ_StockLightUnFolded",
@@ -63,9 +64,13 @@ DefineClass.PP19Bizon = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 7000,
-	Recoil = 2,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 18,
 	BurstShots = 4,
-	AutoShots = 12,
+	AutoShots = 7,
 
 	CloseRange = 2,
 

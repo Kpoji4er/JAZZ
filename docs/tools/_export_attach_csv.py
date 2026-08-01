@@ -165,7 +165,10 @@ def main() -> None:
         reader = csv.DictReader(stream)
         weapon_fields = list(reader.fieldnames or [])
         weapons = list(reader)
-    for field in ("close_range", "close_range_factor"):
+    for field in (
+        "weapon_mass", "cyclic_rpm", "weapon_size_class", "burst_limiter",
+        "close_range", "close_range_factor",
+    ):
         if field not in weapon_fields:
             weapon_fields.append(field)
     for row in weapons:
@@ -183,6 +186,13 @@ def main() -> None:
             )
         row["close_range"] = scalar(text, "CloseRange")
         row["close_range_factor"] = scalar(text, "CloseRangeFactor")
+        row["weapon_mass"] = scalar(text, "WeaponMass")
+        row["cyclic_rpm"] = scalar(text, "CyclicRPM")
+        row["weapon_size_class"] = scalar(text, "WeaponSizeClass")
+        row["burst_limiter"] = scalar(text, "BurstLimiter")
+        row["recoil"] = scalar(text, "Recoil")
+        row["burst_shots"] = scalar(text, "BurstShots")
+        row["auto_shots"] = scalar(text, "AutoShots")
         row["snapshot_commit"] = SNAPSHOT
     write_csv(weapons_path, weapon_fields, weapons)
     print(f"components={len(components)} effects={len(effects)} options={len(options)} weapons={len(weapons)}")

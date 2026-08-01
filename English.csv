@@ -101,7 +101,7 @@ ID,Text,Translation,VoiceActor,Context
 121141697489,Активное оружие I,Active Weapon I,,jazz:items.lua:85531
 121264662868,Grizzly LAR,Grizzly LAR,,jazz:InventoryItem/GrizzlyLAR.lua:13 | jazz:items.lua:16682
 121631884276,Показать трофеи,Show Loot,,jazz:items.lua:89813
-121809489098,Ствол: Увеличивает настильность на <BulletDropIncrease>,Barrel: Increases bullet drop range by <BulletDropIncrease>,,jazz:items.lua:31889
+121809489098,Ствол: Увеличивает настильность до <BulletDropIncrease>%,Barrel: Sets bullet drop range to <BulletDropIncrease>% of base,,jazz:items.lua:31889
 122093727509,556Match ОТКЛЮЧЕНО,556Match DISABLED,,jazz:InventoryItem/_556_Match.lua:10 | jazz:items.lua:7910
 122264591303,Нужен медик...,Need a medic...,,jazz-units:items.lua:70746
 123316525310,MP5A4,MP5A4,,jazz:InventoryItem/MP5A4.lua:13 | jazz:items.lua:19569
@@ -234,7 +234,7 @@ ID,Text,Translation,VoiceActor,Context
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Heavy - limits freedom of movement",,jazz:InventoryItem/RPG7.lua:22 | jazz:items.lua:28234
 151644631553,"Парни, время доставать самые большие пушки!","Guys, time to get out the big guns!",,jazz-units:items.lua:70908
 151665864036,"Мне нужна помощь, неотложно!","I need help, urgently!",,jazz-units:items.lua:70193
-152357941079,"Изначально разработанный как противотанковое оружие, этот реактивный гранатомет сейчас используется против легкой техники, зданий и вообще всего, что не понравится оператору установки.","Initially created as an anti-tank weapon, it's currently being used against vehicles, buildings, and generally anything else the wielders dislike.",,jazz:InventoryItem/M72LAW.lua:15 | jazz:items.lua:28270
+152357941079,Одноразовый реактивный гранатомет с одним встроенным выстрелом. После пуска труба выбрасывается на землю.,"Disposable rocket launcher with one embedded shot. After firing, the tube is discarded on the ground.",,jazz:InventoryItem/M72LAW.lua:17 | jazz:items.lua:29439
 152493018567,Бишоп,Bishop,,jazz-units:Code/Mercenary.lua:103
 152496614613,АК47,AK47,,jazz:InventoryItem/AK47.lua:13 | jazz:items.lua:21820
 152608247986,Понял!,Got it!,,jazz-units:items.lua:69044
@@ -282,7 +282,7 @@ ID,Text,Translation,VoiceActor,Context
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Accurate 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Unreliable",,jazz:InventoryItem/STG44.lua:15 | jazz:items.lua:21275
 162137665594,Комплект II,Loadout II,,jazz:items.lua:88577
-162495707543,M72LAW2,M72LAW2,,jazz:InventoryItem/M72LAW.lua:13 | jazz:items.lua:28268
+162495707543,M72 LAW,M72 LAW,,jazz:InventoryItem/M72LAW.lua:15 | jazz:items.lua:29437
 162678461029,Давайте его кастрируем? Чтоб больше не шлялся.,Let's castrate him? So that he doesn't wander around anymore.,,jazz-units:items.lua:69622
 162767570479,"Есть, начальник! Правда, мне интересно, как это получится.","Yes, boss! True, I'm interested in how this will turn out.",,jazz-units:items.lua:68885
 163607039190,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дробовик 
@@ -674,7 +674,7 @@ The number of attacks depends on the amount of AP.",,jazz:items.lua:58957
 252226201975,"Личные бронештаны шамана Сангомы, которые он использовал еще в ""Отряде Смерти"". Надеюсь, он хотя бы их потом стирал.","Personal armored pants of the Sangoma shaman, which he used back in the “Death Squad”. I hope he at least washed them later.",,jazz:InventoryItem/ShamanLeggings.lua:14 | jazz:items.lua:56959
 252885839574,Немецкий шлем M42,German M42 helmet,,jazz:InventoryItem/JazzArmor_Stahlhelm.lua:13 | jazz:items.lua:54890
 253085579896,"Патроны, немедленно!","Ammo, now!",,jazz-units:items.lua:69914
-253479657834,При стрельбе длинными очередями или при автоогне убирает влияние отдачи начиная с 5го выстрела,"When shooting in long bursts or during automatic fire, it removes the impact of recoil starting from the 5th shot",,jazz:CharacterEffect/AutoWeapons.lua:10 | jazz:items.lua:65871
+253479657834,Автоматическое оружие: очереди и автоогонь легче контролировать (отдача слабее).,Automatic weapons: bursts and autofire are easier to control (reduced recoil severity).,,jazz:CharacterEffect/AutoWeapons.lua:10 | jazz:items.lua:64304
 253735271549,Этот наемник - специалист по скрытным убийствам,This merc is a specialist in stealth kills.,,jazz:items.lua:27
 253801005854,Точность,ACCURACY,,jazz:items.lua:69378
 253932060437,Руди Робертс «Рысь»,"Rudy Roberts ""Lynx""",,jazz-units:items.lua:68621
@@ -860,7 +860,7 @@ The chance of hitting the target is increased and depends on the mercenary’s a
 289609787388,Советский стальной шлем периода Великой Отечественной войны. Защитил немало бойцов РККА от потенциально смертельных ранений в свое время. Теперь вот и вам послужит.,Soviet steel helmet from the Great Patriotic War. He protected many Red Army soldiers from potentially fatal wounds in his time. Now this will serve you too.,,jazz:InventoryItem/JazzArmor_SovietHelm.lua:14 | jazz:items.lua:54864
 289633215369,Хмм,Hmm,,jazz-units:items.lua:69598
 290103631560,Рейнджер,Ranger,,jazz-units:items.lua:37741 | jazz-units:UnitData/ThugSniper_Stronger_Elite.lua:20
-290561693953,M72LAW2,M72LAW2,,jazz:InventoryItem/M72LAW.lua:14 | jazz:items.lua:28269
+290561693953,M72 LAW,M72 LAW,,jazz:InventoryItem/M72LAW.lua:16 | jazz:items.lua:29438
 291276979254,"Ранний вариант винтовки М16 (AR15), принятый на вооружение US Army в далеком 1967 году. Из-за стремления этой самой US Army сэкономить, винтовка получила кучу проблем с надежностью, отмыть от которых репутацию она не может до сих пор.","An early version of the M16 rifle (AR15), adopted by the US Army back in 1967. Due to the desire of this very US Army to save money, the rifle received a bunch of reliability problems, which it still cannot cleanse its reputation from.",,jazz:InventoryItem/M16A1.lua:15 | jazz:items.lua:21414
 291513194954,P-220,P-220,,jazz:InventoryItem/P220.lua:13 | jazz:items.lua:16823
 291706354809,Сэйбл,Sable,,jazz-units:Code/Mercenary.lua:183
@@ -3002,7 +3002,7 @@ Apparently they were unloading explosives here to attack the mansion",,jazz-maps
 714579125139,Чем ты стал так не угоден Легиону?,What did you do to anger the Legion so much?,,jazz-maps:items.lua:30276
 714604792936,Выбранный отряд находится в другом секторе,The selected squad is not in the sector,,jazz:items.lua:89203
 714830943923,<em>Outcome:</em> The outbreak in the <em><SectorName('I19')></em> got out of control,<em>Outcome:</em> The outbreak in the <em><SectorName('I19')></em> got out of control,,jazz-maps:items.lua:97780
-714841794333,Ствол: Уменьшает настильность на <BulletDropReduce>,Barrel: Reduces bullet drop range by <BulletDropReduce>,,jazz:items.lua:31821
+714841794333,Ствол: Уменьшает настильность до <BulletDropReduce>%,Barrel: Sets bullet drop range to <BulletDropReduce>% of base,,jazz:items.lua:31821
 714899319454,Прицел G36 3x,G36 3x scope,,jazz:items.lua:44500
 715959020275,"Фартануло, мля!","Fartanulo, blah!",,jazz-units:items.lua:71032
 716048130364,Grenade,Grenade,,jazz:items.lua:62990
@@ -5055,13 +5055,13 @@ Move to a new location and then shoot the closest enemy.",,jazz-units:items.lua:
 979155326648,Ладно!,Okay!,,jazz-units:items.lua:69944
 979462905932,"Да, не очень-то добрые они были. Копов я до сих пор на дух не переношу...","Yes, they were not very kind. I still can't stand cops...",,jazz-units:items.lua:70396
 979751155093,Замечательно!,Wonderful!,,jazz-units:items.lua:70064
-980300816631,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстреливает снаряд, летящий по прямой до цели
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Наносит небольшой урон стоящим позади стрелка
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вероятность неудачи растет с увеличением расстояния
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения)","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Fires a projectile that travels in a straight line to the target
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Deals minor damage to those standing behind the shooter
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> The probability of failure increases with distance
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bulky (no free movement)",,jazz:InventoryItem/M72LAW.lua:16 | jazz:items.lua:28271
+980300816631,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый: не перезаряжается
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> После выстрела пустая труба падает на землю
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Выстреливает снаряд по прямой; опасная зона за спиной стрелка
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вероятность неудачи растет с увеличением расстояния","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Disposable: cannot be reloaded
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> An empty tube falls to the ground after firing
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Fires straight ahead; dangerous backblast behind the shooter
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Mishap chance increases with distance",,jazz:InventoryItem/M72LAW.lua:18 | jazz:items.lua:29440
 980493657450,"Ты привел сюда этого сукиного сына, Рысь. Хорошо... позволь тогда и мне высказаться. Он потаскун, он жив-то только потому, что я еще не решила, как его убить, чтоб было поприятнее.","You brought that son of a bitch here, Lynx. Okay... let me speak then. He's a slut, he's only alive because I haven't decided yet how to kill him to make it more enjoyable.",,jazz-units:items.lua:69470
 980521024048,Steyr Scout,Steyr Scout,,jazz:InventoryItem/ScoutSniper.lua:14 | jazz:items.lua:25489
 980611805568,Тоска,TOSCA,,jazz-units:items.lua:69175 | jazz-units:UnitData/Jazz_Buzz.lua:22
@@ -5086,10 +5086,10 @@ Move to a new location and then shoot the closest enemy.",,jazz-units:items.lua:
 982641736202,Оптика,Optics,,jazz:Code/System_OR_Unit.lua:3119 | jazz:Code/System_OR_Unit.lua:3134
 982641736203,Пули<right><values>,Bullets<right><values>,,jazz:Code/CrossHairUI.lua:656
 982641736210,Ближняя зона,Close range,,jazz:Code/System_OR_Unit.lua
-982641736301,Ствол: Увеличивает ближнюю зону на <CloseRangeIncrease>,Barrel: Increases close-range zone by <CloseRangeIncrease>,,jazz:items.lua
-982641736302,Ствол: Уменьшает ближнюю зону на <CloseRangeDecrease>,Barrel: Decreases close-range zone by <CloseRangeDecrease>,,jazz:items.lua
-982641736303,Ствол: Усиливает эффективность на ближней дистанции на <CloseRangeFactorIncrease>,Barrel: Improves close-range effectiveness by <CloseRangeFactorIncrease>,,jazz:items.lua
-982641736304,Ствол: Ослабляет эффективность на ближней дистанции на <CloseRangeFactorDecrease>,Barrel: Reduces close-range effectiveness by <CloseRangeFactorDecrease>,,jazz:items.lua
+982641736301,Ближняя зона: Увеличивает ближнюю зону на <CloseRangeIncrease>,Close range: Increases close-range zone by <CloseRangeIncrease>,,jazz:items.lua
+982641736302,Ближняя зона: Уменьшает ближнюю зону на <CloseRangeDecrease>,Close range: Decreases close-range zone by <CloseRangeDecrease>,,jazz:items.lua
+982641736303,Ближняя зона: Усиливает эффективность на ближней дистанции на <CloseRangeFactorIncrease>,Close range: Improves close-range effectiveness by <CloseRangeFactorIncrease>,,jazz:items.lua
+982641736304,Ближняя зона: Ослабляет эффективность на ближней дистанции на <CloseRangeFactorDecrease>,Close range: Reduces close-range effectiveness by <CloseRangeFactorDecrease>,,jazz:items.lua
 982641740101,Default Handguard,Default Handguard,,jazz:items.lua
 982641740102,Default Compensator,Default Compensator,,jazz:items.lua
 982641740103,Advanced Compensator,Advanced Compensator,,jazz:items.lua
@@ -7285,3 +7285,466 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000004630,Hired.,Hired.,,Jazz_Carlos
 890000000004631,Contract ending?,Contract ending?,,Jazz_Carlos
 890000000004632,Staying.,Staying.,,Jazz_Carlos
+543656846802,Размер магазина <MagazineSize>,Magazine size <MagazineSize>,,jazz:items.lua:MagazineSizeSet
+990002001,<bullet_point> Jam chance: <chance>%,<bullet_point> Jam chance: <chance>%,,jazz:Code/System_WeaponResourceMaintenance.lua
+990002002,Ствольные запчасти,Barrel Parts,,jazz:InventoryItem/JAZZ_BarrelParts.lua
+990002003,Ствольные запчасти,Barrel Parts,,jazz:InventoryItem/JAZZ_BarrelParts.lua
+990002004,Используются для установки и ремонта стволов.,Used to install and repair barrels.,,jazz:InventoryItem/JAZZ_BarrelParts.lua
+990002005,Съёмный оружейный модуль,Removable weapon attachment,,jazz:InventoryItem/JAZZ_RemovableAttachment.lua
+990002006,Съёмные оружейные модули,Removable weapon attachments,,jazz:InventoryItem/JAZZ_RemovableAttachment.lua
+990002007,Устанавливается на совместимое оружие в кабинете модификации.,Installed on a compatible weapon in the modification cabinet.,,jazz:InventoryItem/JAZZ_RemovableAttachment.lua
+990002010,Removal failed. Weapon resource max reduced.,Removal failed. Weapon resource max reduced.,,jazz:Code/System_WeaponRemovableModify.lua
+990002011,No removable attachment item in inventory.,No removable attachment item in inventory.,,jazz:Code/System_WeaponRemovableModify.lua
+990002012,Install failed. Weapon resource max reduced.,Install failed. Weapon resource max reduced.,,jazz:Code/System_WeaponRemovableModify.lua
+990002013,Top up,Top up,,jazz:items.lua ModItemCombatAction Reload | jazz:Code/System_ReloadStyle.lua
+990002014,<bullet_point> <text>,<bullet_point> <text>,,jazz:Code/System_WeaponRemovableModify.lua
+990002015,<style WeaponModExtraModificationsTransparent><text></style>,<style WeaponModExtraModificationsTransparent><text></style>,,jazz:items.lua WeaponModExtraModifications
+990002100,Default Compensator
+990002101,Default Compensator
+990002102,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002103,Advanced Compensator
+990002104,Advanced Compensator
+990002105,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002106,Bipod
+990002107,Bipod
+990002108,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002109,Bipod
+990002110,Bipod
+990002111,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002112,Bipod
+990002113,Bipod
+990002114,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002115,JAZZ_CombatScope_1P29
+990002116,JAZZ_CombatScope_1P29
+990002117,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002118,Штурмовой прицел (2x)
+990002119,Штурмовой прицел (2x)
+990002120,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002121,Штурмовой прицел (3x)
+990002122,Штурмовой прицел (3x)
+990002123,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002124,Штурмовой прицел ACOG (4x)
+990002125,Штурмовой прицел ACOG (4x)
+990002126,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002127,Штурмовой прицел Fero Z24 (4х)
+990002128,Штурмовой прицел Fero Z24 (4х)
+990002129,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002130,Compensator
+990002131,Compensator
+990002132,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002133,Duckbill Choke
+990002134,Duckbill Choke
+990002135,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002136,Пламегаситель
+990002137,Пламегаситель
+990002138,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002139,Flashlight
+990002140,Flashlight
+990002141,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002142,Tactical Device
+990002143,Tactical Device
+990002144,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002145,Tactical Device
+990002146,Tactical Device
+990002147,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002148,Tactical Device
+990002149,Tactical Device
+990002150,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002151,Tactical Device
+990002152,Tactical Device
+990002153,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002154,Flashlight
+990002155,Flashlight
+990002156,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002157,Flashlight
+990002158,Flashlight
+990002159,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002160,Full Choke
+990002161,Full Choke
+990002162,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002163,Прицел G36 3x
+990002164,Прицел G36 3x
+990002165,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002166,Прицел G36 1.5x
+990002167,Прицел G36 1.5x
+990002168,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002169,ГП-25
+990002170,ГП-25
+990002171,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002172,Default Muzzle Brake
+990002173,Default Muzzle Brake
+990002174,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002175,Grenade Launcher
+990002176,Grenade Launcher
+990002177,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002178,Grenade Launcher
+990002179,Grenade Launcher
+990002180,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002181,Grenade Launcher
+990002182,Grenade Launcher
+990002183,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002184,Grenade Launcher
+990002185,Grenade Launcher
+990002186,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002187,Grenade Launcher
+990002188,Grenade Launcher
+990002189,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002190,Обмотка на цевье
+990002191,Обмотка на цевье
+990002192,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002193,Масляной фильтр
+990002194,Масляной фильтр
+990002195,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002196,Лазерный целеуказатель
+990002197,Лазерный целеуказатель
+990002198,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002199,Red Dot
+990002200,Red Dot
+990002201,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002202,Red Dot
+990002203,Red Dot
+990002204,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002205,Red Dot
+990002206,Red Dot
+990002207,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002208,Наствольная граната для М70
+990002209,Наствольная граната для М70
+990002210,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002211,Увеличенный короб
+990002212,Увеличенный короб
+990002213,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002214,Короб
+990002215,Короб
+990002216,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002217,Бубен
+990002218,Бубен
+990002219,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002220,Бубен
+990002221,Бубен
+990002222,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002223,Бубен
+990002224,Бубен
+990002225,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002226,Бубен
+990002227,Бубен
+990002228,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002229,Бубен
+990002230,Бубен
+990002231,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002232,Ergonomic Expanded Mag
+990002233,Ergonomic Expanded Mag
+990002234,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002235,Магазин на 20 патрон
+990002236,Магазин на 20 патрон
+990002237,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002238,Расширенный магазин
+990002239,Расширенный магазин
+990002240,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002241,Магазин на 33 патрона
+990002242,Магазин на 33 патрона
+990002243,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002244,Магазин на 20 патрон
+990002245,Магазин на 20 патрон
+990002246,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002247,Магазин на 30 патрон
+990002248,Магазин на 30 патрон
+990002249,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002250,Расширенный магазин
+990002251,Расширенный магазин
+990002252,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002253,Магазин на 40 патрон
+990002254,Магазин на 40 патрон
+990002255,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002256,Расширенный магазин
+990002257,Расширенный магазин
+990002258,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002259,Расширенный магазин
+990002260,Расширенный магазин
+990002261,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002262,Магазин на 40 патрон
+990002263,Магазин на 40 патрон
+990002264,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002265,Магазин на 42 патрона
+990002266,Магазин на 42 патрона
+990002267,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002268,Магазин на 45 патрон
+990002269,Магазин на 45 патрон
+990002270,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002271,Расширенный магазин
+990002272,Расширенный магазин
+990002273,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002274,Магазин на 10 патрон
+990002275,Магазин на 10 патрон
+990002276,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002277,Магазин на 10 патрон
+990002278,Магазин на 10 патрон
+990002279,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002280,Расширенный магазин
+990002281,Расширенный магазин
+990002282,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002283,Магазин на 10 патрон
+990002284,Магазин на 10 патрон
+990002285,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002286,Fine-Tuned Mag
+990002287,Fine-Tuned Mag
+990002288,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002289,Магазин на 20 патрон
+990002290,Магазин на 20 патрон
+990002291,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002292,Quick Mag
+990002293,Quick Mag
+990002294,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002295,Магазин на 10 патрон
+990002296,Магазин на 10 патрон
+990002297,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002298,Магазин на 15 патрон
+990002299,Магазин на 15 патрон
+990002300,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002301,Магазин на 20 патрон
+990002302,Магазин на 20 патрон
+990002303,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002304,Ночной прицел (5х)
+990002305,Ночной прицел (5х)
+990002306,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002307,Ночной прицел (5х)
+990002308,Ночной прицел (5х)
+990002309,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002310,Ночной прицел НСПУ (3.5х)
+990002311,Ночной прицел НСПУ (3.5х)
+990002312,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002313,Глушитель
+990002314,Глушитель
+990002315,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002316,Коллиматор Aimpoint5000
+990002317,Коллиматор Aimpoint5000
+990002318,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002319,Коллиматор Закрытый
+990002320,Коллиматор Закрытый
+990002321,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002322,Коллиматор Кобра
+990002323,Коллиматор Кобра
+990002324,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002325,Коллиматор Eotech
+990002326,Коллиматор Eotech
+990002327,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002328,Коллиматор
+990002329,Коллиматор
+990002330,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002331,Коллиматор Aimpoint M68
+990002332,Коллиматор Aimpoint M68
+990002333,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002334,Коллиматор Компактный
+990002335,Коллиматор Компактный
+990002336,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002337,Коллиматор ПК-АА
+990002338,Коллиматор ПК-АА
+990002339,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002340,Коллиматор Пистолетный
+990002341,Коллиматор Пистолетный
+990002342,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002343,Оптический Прицел Leupold Mark 4 (12x)
+990002344,Оптический Прицел Leupold Mark 4 (12x)
+990002345,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002346,Оптический Прицел Redfield (3-9x)
+990002347,Оптический Прицел Redfield (3-9x)
+990002348,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002349,Оптический Прицел 1-6x
+990002350,Оптический Прицел 1-6x
+990002351,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002352,Оптический Прицел 8x
+990002353,Оптический Прицел 8x
+990002354,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002355,Оптический Прицел Zeiss Diavari-DA (1.5-6x)
+990002356,Оптический Прицел Zeiss Diavari-DA (1.5-6x)
+990002357,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002358,Оптический Прицел M84 (2.2x)
+990002359,Оптический Прицел M84 (2.2x)
+990002360,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002361,Оптический Прицел Hensoldt ZF PSG1 (6x)
+990002362,Оптический Прицел Hensoldt ZF PSG1 (6x)
+990002363,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002364,Оптический Прицел ПСО (4x)
+990002365,Оптический Прицел ПСО (4x)
+990002366,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002367,Оптический Прицел ПУ (3.5x)
+990002368,Оптический Прицел ПУ (3.5x)
+990002369,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002370,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x)
+990002371,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x)
+990002372,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002373,Оптический Прицел (2.75x)
+990002374,Оптический Прицел (2.75x)
+990002375,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002376,Оптический Прицел ZF4 (4x)
+990002377,Оптический Прицел ZF4 (4x)
+990002378,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002379,Оптический Прицел ZRAK (4x)
+990002380,Оптический Прицел ZRAK (4x)
+990002381,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002382,Suppressor
+990002383,Suppressor
+990002384,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002385,Улучшенный глушитель
+990002386,Улучшенный глушитель
+990002387,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002388,Глушитель Интегрированный
+990002389,Глушитель Интегрированный
+990002390,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002391,Tactical Grip
+990002392,Tactical Grip
+990002393,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002394,Tactical Grip
+990002395,Tactical Grip
+990002396,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002397,Штык-нож
+990002398,Штык-нож
+990002399,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002400,Штык-нож
+990002401,Штык-нож
+990002402,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002403,UV Dot
+990002404,UV Dot
+990002405,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002406,UV Dot
+990002407,UV Dot
+990002408,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002409,UV Dot
+990002410,UV Dot
+990002411,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002412,UV Dot
+990002413,UV Dot
+990002414,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002415,Vertical Grip
+990002416,Vertical Grip
+990002417,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002418,Vertical Grip
+990002419,Vertical Grip
+990002420,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002421,Vertical Grip
+990002422,Vertical Grip
+990002423,Removable module. Drag onto a compatible firearm or install in the weapon modification screen.
+990002500,Scope Parts,,,jazz:InventoryItem/JAZZ_ScopeParts.lua
+990002501,Scope Parts,,,jazz:InventoryItem/JAZZ_ScopeParts.lua
+990002502,Used when repairing a firearm that has a scope installed. Also salvaged when a scope breaks on a failed removal.,,,jazz:InventoryItem/JAZZ_ScopeParts.lua
+990002503,Removal failed. Attachment broken.,,,jazz:Code/System_WeaponRemovableModify.lua
+990002504,Removal failed. Weapon resource max reduced.,,,jazz:Code/System_WeaponRemovableModify.lua
+990002505,Attachment broken on removal.,,,jazz:Code/System_WeaponResourceMaintenance.lua
+990002506,Freeswap,,,jazz:items.lua:Freeswap
+990002520,Бубен,,,jazz:InventoryItem/mag-family
+990002521,Бубен,,,jazz:InventoryItem/mag-family
+990002522,Magazine family: G3. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002523,Бубен,,,jazz:InventoryItem/mag-family
+990002524,Бубен,,,jazz:InventoryItem/mag-family
+990002525,Magazine family: HK33. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002526,Бубен,,,jazz:InventoryItem/mag-family
+990002527,Бубен,,,jazz:InventoryItem/mag-family
+990002528,Magazine family: THOMPSON. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002529,Бубен,,,jazz:InventoryItem/mag-family
+990002530,Бубен,,,jazz:InventoryItem/mag-family
+990002531,Magazine family: UZI. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002532,Магазин на 20 патрон,,,jazz:InventoryItem/mag-family
+990002533,Магазин на 20 патрон,,,jazz:InventoryItem/mag-family
+990002534,Magazine family: SVD. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002535,Магазин на 20 патрон,,,jazz:InventoryItem/mag-family
+990002536,Магазин на 20 патрон,,,jazz:InventoryItem/mag-family
+990002537,Magazine family: VAL. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002538,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002539,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002540,Magazine family: PISTOL_52. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002541,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002542,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002543,Magazine family: PISTOL_DE. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002544,Магазин на 30 патрон,,,jazz:InventoryItem/mag-family
+990002545,Магазин на 30 патрон,,,jazz:InventoryItem/mag-family
+990002546,Magazine family: FAL. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002547,Магазин на 30 патрон,,,jazz:InventoryItem/mag-family
+990002548,Магазин на 30 патрон,,,jazz:InventoryItem/mag-family
+990002549,Magazine family: MINI14. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002550,Магазин на 30 патрон,,,jazz:InventoryItem/mag-family
+990002551,Магазин на 30 патрон,,,jazz:InventoryItem/mag-family
+990002552,Magazine family: UZI. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002553,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002554,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002555,Magazine family: AA12. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002556,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002557,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002558,Magazine family: PISTOL_9. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002559,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002560,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002561,Magazine family: USAS. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002562,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002563,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002564,Magazine family: AK. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002565,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002566,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002567,Magazine family: AR15. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002568,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002569,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002570,Magazine family: MP40. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002571,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002572,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002573,Magazine family: MP5. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002574,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002575,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002576,Magazine family: SIG. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002577,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002578,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002579,Magazine family: BARRET. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002580,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002581,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002582,Magazine family: PISTOL_52. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002583,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002584,Расширенный магазин,,,jazz:InventoryItem/mag-family
+990002585,Magazine family: PSG1. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002586,Fine-Tuned Mag,,,jazz:InventoryItem/mag-family
+990002587,Fine-Tuned Mag,,,jazz:InventoryItem/mag-family
+990002588,Magazine family: AR15. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002589,Fine-Tuned Mag,,,jazz:InventoryItem/mag-family
+990002590,Fine-Tuned Mag,,,jazz:InventoryItem/mag-family
+990002591,Magazine family: FAL. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002592,Fine-Tuned Mag,,,jazz:InventoryItem/mag-family
+990002593,Fine-Tuned Mag,,,jazz:InventoryItem/mag-family
+990002594,Magazine family: M14. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002595,Fine-Tuned Mag,,,jazz:InventoryItem/mag-family
+990002596,Fine-Tuned Mag,,,jazz:InventoryItem/mag-family
+990002597,Magazine family: PISTOL_9. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002598,Fine-Tuned Mag,,,jazz:InventoryItem/mag-family
+990002599,Fine-Tuned Mag,,,jazz:InventoryItem/mag-family
+990002600,Magazine family: PSG1. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002601,Quick Mag,,,jazz:InventoryItem/mag-family
+990002602,Quick Mag,,,jazz:InventoryItem/mag-family
+990002603,Magazine family: AK. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002604,Quick Mag,,,jazz:InventoryItem/mag-family
+990002605,Quick Mag,,,jazz:InventoryItem/mag-family
+990002606,Magazine family: AR15. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002607,Quick Mag,,,jazz:InventoryItem/mag-family
+990002608,Quick Mag,,,jazz:InventoryItem/mag-family
+990002609,Magazine family: AUG. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002610,Quick Mag,,,jazz:InventoryItem/mag-family
+990002611,Quick Mag,,,jazz:InventoryItem/mag-family
+990002612,Magazine family: G36. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002613,Quick Mag,,,jazz:InventoryItem/mag-family
+990002614,Quick Mag,,,jazz:InventoryItem/mag-family
+990002615,Magazine family: GALIL. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002616,Quick Mag,,,jazz:InventoryItem/mag-family
+990002617,Quick Mag,,,jazz:InventoryItem/mag-family
+990002618,Magazine family: MP5. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002619,Магазин на 10 патрон,,,jazz:InventoryItem/mag-family
+990002620,Магазин на 10 патрон,,,jazz:InventoryItem/mag-family
+990002621,Magazine family: G3. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002622,Магазин на 10 патрон,,,jazz:InventoryItem/mag-family
+990002623,Магазин на 10 патрон,,,jazz:InventoryItem/mag-family
+990002624,Magazine family: M14. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002625,Магазин на 15 патрон,,,jazz:InventoryItem/mag-family
+990002626,Магазин на 15 патрон,,,jazz:InventoryItem/mag-family
+990002627,Magazine family: M2CARBINE. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002628,Магазин на 15 патрон,,,jazz:InventoryItem/mag-family
+990002629,Магазин на 15 патрон,,,jazz:InventoryItem/mag-family
+990002630,Magazine family: MP5. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+990002631,Магазин на 15 патрон,,,jazz:InventoryItem/mag-family
+990002632,Магазин на 15 патрон,,,jazz:InventoryItem/mag-family
+990002633,Magazine family: TMP. Removable module. Drag onto a compatible firearm or install in the weapon modification screen.,,,jazz:InventoryItem/mag-family
+614829375018,Ствол: резьба под глушитель — открывает слот дула.,Barrel: threaded for a suppressor — unlocks the muzzle slot.,,jazz:items.lua:ThreadedForSuppressor
+614829375019,Ствол: блокирует слот дула — глушитель не ставится.,Barrel: blocks the muzzle slot — no suppressor.,,jazz:items.lua:BlocksMuzzleSlot
+990002450,<weapons>: <name>,<weapons>: <name>,,jazz:Code/System_WeaponResourceMaintenance.lua
+990002451,Базовый вариант. Не меняет характеристики оружия.,Factory option. Does not change weapon stats.,,jazz:Code/System_WeaponRemovableModify.lua

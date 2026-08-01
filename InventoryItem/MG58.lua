@@ -34,9 +34,9 @@ DefineClass.MG58 = {
 			'SlotType', "Bipod",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"JAZZ_Bipod_MG42",
+				"JAZZ_Bipod",
 			},
-			'DefaultComponent', "JAZZ_Bipod_MG42",
+			'DefaultComponent', "JAZZ_Bipod",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -55,7 +55,13 @@ DefineClass.MG58 = {
 	},
 	ShootAP = 9000,
 	ReloadAP = 8000,
-	Recoil = 12,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	BurstShots = 4,
+	AutoShots = 0,
+	Recoil = 18,
 
 	CloseRange = 6,
 

@@ -44,15 +44,16 @@ DefineClass.AKSU = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Handguard",
 			'AvailableComponents', {
-				"AKSU_Hanguard_Basic",
+				"JAZZ_AKSU_Hanguard_Basic",
 				"JAZZ_AKSU_VerticalGrip",
 			},
-			'DefaultComponent', "AKSU_Hanguard_Basic",
+			'DefaultComponent', "JAZZ_AKSU_Hanguard_Basic",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
+				"JAZZ_MagQuick_AK",
 				"JAZZ_MagLarge_30_45",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
@@ -62,6 +63,7 @@ DefineClass.AKSU = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_LaserDot",
 				"JAZZ_FlashlightDot",
 				"JAZZ_UVDot",
@@ -87,8 +89,13 @@ DefineClass.AKSU = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 6000,
-	Recoil = 14,
-	AutoShots = 6,
+	WeaponMass = 35,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	BurstShots = 0,
+	Recoil = 18,
+	AutoShots = 0,
 	BulletDropRange = 13,
 
 	CloseRange = 4,

@@ -48,7 +48,12 @@ DefineClass.AVT40 = {
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,
-	Recoil = 45,
+	WeaponMass = 36,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	BurstShots = 4,
+	Recoil = 21,
 	AutoShots = 7,
 
 	CloseRange = 8,

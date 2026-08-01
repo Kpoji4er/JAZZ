@@ -48,6 +48,7 @@ DefineClass.Sig550Custom = {
 			'AvailableComponents', {
 				"JAZZ_UVDot",
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_FlashlightDot",
 				"JAZZ_LaserDot",
 			},
@@ -64,7 +65,7 @@ DefineClass.Sig550Custom = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge",
+				"JAZZ_MagLarge_50_SIG",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -117,9 +118,13 @@ DefineClass.Sig550Custom = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 6000,
-	Recoil = 6,
-	BurstShots = 1,
-	AutoShots = 8,
+	WeaponMass = 36,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 16,
+	BurstShots = 4,
+	AutoShots = 7,
 
 	CloseRange = 6,
 

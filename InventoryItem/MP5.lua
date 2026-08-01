@@ -48,8 +48,9 @@ DefineClass.MP5 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge",
-				"JAZZ_MagQuick",
+				"JAZZ_MagLarge_50_MP5",
+				"JAZZ_MagQuick_MP5",
+				"JAZZ_MagSmall30_15_MP5",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -67,6 +68,7 @@ DefineClass.MP5 = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_LaserDot",
 				"JAZZ_FlashlightDot",
 			},

@@ -203,6 +203,11 @@ function ScrapItem(inventory, slot_name, item, amount, squadBag, squadId)
 		amount = amount and Min(amount, item.Amount) or item.Amount
 	end	
 	amount = amount or 1
+	-- JAZZ-WEAPONS-002: eject removable modules before scrapping the receiver.
+	if IsKindOf(item, "FirearmBase") and item.JAZZ_EjectRemovableAttachmentsForScrap then
+		local unit = IsKindOfClasses(inventory, "Unit", "UnitData") and inventory
+		item:JAZZ_EjectRemovableAttachmentsForScrap(unit, squadBag)
+	end
 	local partsAmount = item:AmountOfScrapPartsFromItem() * amount
 	local additional 
 	if IsKindOf(item, "Firearm") then

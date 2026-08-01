@@ -35,7 +35,7 @@ DefineClass.MP40 = {
 			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge",
+				"JAZZ_MagLarge_50_MP40",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -49,10 +49,14 @@ DefineClass.MP40 = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
 	MaxAimActions = 2,
-	Recoil = 4,
-	BurstShots = 2,
-	AutoShots = 5,
+	Recoil = 18,
+	BurstShots = 4,
+	AutoShots = 7,
 
 	CloseRange = 2,
 

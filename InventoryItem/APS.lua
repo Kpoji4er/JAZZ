@@ -3,7 +3,6 @@ DefineClass.APS = {
 	__parents = { "Autopistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Tier 2-4",
 	object_class = "Autopistol",
 	ScrapParts = 6,
@@ -46,13 +45,7 @@ DefineClass.APS = {
 				"JAZZ_PistolSuppressor",
 			},
 		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Freeswap",
-			'AvailableComponents', {
-				"JAZZ_Freeswap",
-			},
-			'DefaultComponent', "JAZZ_Freeswap",
-		}),
+		
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
@@ -72,9 +65,13 @@ DefineClass.APS = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
-	Recoil = 5,
-	BurstShots = 6,
-	AutoShots = 6,
+	WeaponMass = 30,
+	CyclicRPM = 750,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
+	Recoil = 12,
+	BurstShots = 4,
+	AutoShots = 0,
 
 	CloseRange = 0,
 

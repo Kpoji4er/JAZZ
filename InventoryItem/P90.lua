@@ -41,6 +41,7 @@ DefineClass.P90 = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_FlashlightDot",
 				"JAZZ_LaserDot",
 				"JAZZ_UVDot",
@@ -73,9 +74,13 @@ DefineClass.P90 = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 7000,
-	Recoil = 7,
-	BurstShots = 5,
-	AutoShots = 12,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 18,
+	BurstShots = 4,
+	AutoShots = 7,
 
 	CloseRange = 2,
 

@@ -52,9 +52,10 @@ DefineClass.M16A2 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"JAZZ_MagLarge",
 				"JAZZ_MagNormal",
-				"JAZZ_MagQuick",
+				"JAZZ_MagNormalFine_AR15",
+				"JAZZ_MagLarge_50_AR15",
+				"JAZZ_MagQuick_AR15",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -63,6 +64,7 @@ DefineClass.M16A2 = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_FlashlightDot",
 				"JAZZ_LaserDot",
 				"JAZZ_UVDot",
@@ -105,8 +107,13 @@ DefineClass.M16A2 = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
-	Recoil = 9,
-	AutoShots = 8,
+	WeaponMass = 34,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 3,
+	BurstShots = 3,
+	Recoil = 17,
+	AutoShots = 7,
 
 	CloseRange = 6,
 

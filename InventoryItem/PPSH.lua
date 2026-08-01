@@ -36,7 +36,7 @@ DefineClass.PPSH = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagDrum_35-71",
+				"JAZZ_MagDrum_35_71",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -52,9 +52,14 @@ DefineClass.PPSH = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 6000,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	AutoShots = 7,
 	MaxAimActions = 2,
-	Recoil = 6,
-	BurstShots = 5,
+	Recoil = 18,
+	BurstShots = 4,
 
 	CloseRange = 2,
 

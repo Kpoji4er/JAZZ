@@ -64,7 +64,7 @@ DefineClass.Galil = {
 			'SlotType', "Under",
 			'AvailableComponents', {
 				"JAZZ_GrenadeLauncher_Galil",
-				"Galil_Handguard_Default",
+				"JAZZ_Galil_Handguard_Default",
 				"JAZZ_Bipod_Galil",
 			},
 			'DefaultComponent', "JAZZ_Bipod_Galil",
@@ -88,9 +88,9 @@ DefineClass.Galil = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"JAZZ_MagLarge_25_40",
 				"JAZZ_MagNormal",
-				"JAZZ_MagQuick",
+				"JAZZ_MagLarge_25_40",
+				"JAZZ_MagQuick_GALIL",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -99,6 +99,7 @@ DefineClass.Galil = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_FlashlightDot",
 				"JAZZ_LaserDot",
 				"JAZZ_UVDot",
@@ -115,8 +116,13 @@ DefineClass.Galil = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 7000,
-	Recoil = 34,
-	AutoShots = 6,
+	WeaponMass = 36,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	BurstShots = 4,
+	Recoil = 36,
+	AutoShots = 7,
 
 	CloseRange = 8,
 

@@ -1,25 +1,39 @@
 ---
-description: После правок items.lua/metadata.lua всегда проверять валидность (parse/баланс скобок), иначе мод не грузится.
+description: После ЛЮБОЙ правки items.lua/metadata.lua (особенно mass apply / families / split) — прогнать _validate_items_quick.py ДО ответа «готово».
 alwaysApply: true
 ---
 
 # Валидность `items.lua` / `metadata.lua`
 
-После **любой** правки или генерации `items.lua` / `metadata.lua` в любом пакете JAZZ (`jazz`, `jazz-units`, `jazz-maps`, `jazz_assets`) **до** ответа «готово» проверить, что файл грузится.
+После **любой** правки или генерации `items.lua` / `metadata.lua` в любом пакете JAZZ (`jazz`, `jazz-units`, `jazz-maps`, `jazz_assets`) **до** ответа «готово» / «applied» / «shipped» проверить, что файл грузится.
+
+**Hard gate:** mass apply, family split, MagSizeSet, Phase B/C/D, orphan purge, insert ModItem, regex/offset rewrite — **сначала** валидация, потом текст пользователю. Нельзя закрывать turn с «data applied», не прогнав check.
+
+## Как проверить (обязательно)
+
+```text
+python docs/tools/_validate_items_quick.py
+```
+
+из корня пакета (`jazz/`, или с путём к скрипту). Exit 0 = OK. При FAIL — чинить в том же turn.
+
+Дополнительно руками/скриптом: баланс `()` / `{}` / `[]` (diff 0), если quick-check расширили не на все delimiters.
 
 ## Минимум (обязательно)
 
 1. Баланс delimiters: `(`≈`)`, `{`≈`}`, `[`≈`]` (diff 0).
 2. Нет stacked closers вроде `}),),` (баг replace LootDef / UNITS-003).
 3. Нет артефактов regex replace (`\1"…"`, обрезанные ключи, сырой `\1`).
-4. Файл начинается с `return PlaceObj` / `return {` как раньше; хвост закрывает корневой вызов.
-5. Для `jazz-units` после legion generate: один pair `JAZZ-UNITS-003-GENERATED-BEGIN/END`; `python scripts/legion-loadouts/run_static_tests.py` из `jazz/`.
+4. Нет lone-comma строк (`,`) и `}),,`.
+5. Файл начинается с `return PlaceObj` / `return {` как раньше; хвост закрывает корневой вызов.
+6. Для `jazz-units` после legion generate: один pair `JAZZ-UNITS-003-GENERATED-BEGIN/END`; `python scripts/legion-loadouts/run_static_tests.py` из `jazz/`.
 
 ## Как ловить
 
-- Лог: `AppData\Roaming\Jagged Alliance 3\logs\*.log` → `Failed to load mod items` + `items.lua:LINE: …`.
-- Не полагаться только на «файл открывается в редакторе».
+- Лог: `AppData\Roaming\Jagged Alliance 3\logs\*.log` → `Failed to load mod items` + `items.lua:LINE: …` (пример: `'}' expected ... near 'PlaceObj'` = нет `,` после `})` перед следующим PlaceObj).
+- Пустое дерево Mod Items в редакторе при loaded metadata = items.lua не спарсился — смотреть лог, не «UI баг».
+- Не полагаться только на «файл открывается в редакторе» или только на баланс `{}` (comma-дырки баланс не ломают).
 
 ## DoD
 
-Изменение `items.lua`/`metadata.lua` **не завершено**, пока проверка не пройдена. При ошибке — чинить в том же turn, не откладывать.
+Изменение `items.lua`/`metadata.lua` **не завершено**, пока `_validate_items_quick.py` (или эквивалент) не `OK`. При ошибке — чинить в том же turn, не откладывать.

@@ -49,6 +49,7 @@ DefineClass.MAC10 = {
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
+			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_StockLightUnFolded",
 				"JAZZ_StockLightFolded",
@@ -67,9 +68,14 @@ DefineClass.MAC10 = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 5000,
+	WeaponMass = 28,
+	CyclicRPM = 1100,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
+	AutoShots = 11,
 	MaxAimActions = 2,
-	Recoil = 9,
-	BurstShots = 5,
+	Recoil = 20,
+	BurstShots = 6,
 
 	CloseRange = 0,
 

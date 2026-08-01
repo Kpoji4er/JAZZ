@@ -53,8 +53,9 @@ DefineClass.RPK = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
+				"JAZZ_MagQuick_AK",
 				"JAZZ_MagLarge_30_40",
-				"JAZZ_MagDrum_30-75",
+				"JAZZ_MagDrum_30_75",
 			},
 			'DefaultComponent', "JAZZ_MagLarge_30_40",
 		}),
@@ -93,7 +94,11 @@ DefineClass.RPK = {
 	},
 	ShootAP = 8000,
 	ReloadAP = 6000,
-	Recoil = 10,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 18,
 	BurstShots = 4,
 	AutoShots = 7,
 

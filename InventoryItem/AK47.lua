@@ -49,8 +49,9 @@ DefineClass.AK47 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge",
-				"JAZZ_MagQuick",
+				"JAZZ_MagQuick_AK",
+				"JAZZ_MagLarge_30_40",
+				"JAZZ_MagDrum_30_75",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -75,8 +76,13 @@ DefineClass.AK47 = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 6000,
-	Recoil = 15,
-	AutoShots = 6,
+	WeaponMass = 36,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	BurstShots = 4,
+	Recoil = 21,
+	AutoShots = 7,
 
 	CloseRange = 6,
 

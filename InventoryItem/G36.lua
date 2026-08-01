@@ -56,8 +56,8 @@ DefineClass.G36 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagDrum_30-100_cumbersome",
-				"JAZZ_MagQuick",
+				"JAZZ_MagDrum_30_100_cumbersome",
+				"JAZZ_MagQuick_G36",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -75,6 +75,7 @@ DefineClass.G36 = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_FlashlightDot",
 				"JAZZ_LaserDot",
 				"JAZZ_UVDot",
@@ -120,9 +121,13 @@ DefineClass.G36 = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
-	Recoil = 10,
+	WeaponMass = 36,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 16,
 	BurstShots = 4,
-	AutoShots = 8,
+	AutoShots = 7,
 
 	CloseRange = 6,
 

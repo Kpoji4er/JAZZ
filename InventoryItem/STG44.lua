@@ -57,8 +57,13 @@ DefineClass.STG44 = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 6000,
-	Recoil = 18,
-	AutoShots = 5,
+	WeaponMass = 36,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	BurstShots = 4,
+	Recoil = 12,
+	AutoShots = 7,
 
 	CloseRange = 6,
 

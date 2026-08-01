@@ -48,12 +48,12 @@ DefineClass.AUG = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'AvailableComponents', {
-				"AUGCompensator_01",
-				"AUGCompensator_03",
+				"JAZZ_AUGCompensator_01",
+				"JAZZ_AUGCompensator_03",
 				"JAZZ_Suppressor",
 				"JAZZ_SuppressorImproved",
 			},
-			'DefaultComponent', "AUGCompensator_01",
+			'DefaultComponent', "JAZZ_AUGCompensator_01",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Under",
@@ -72,9 +72,9 @@ DefineClass.AUG = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"JAZZ_MagLarge_30_42",
 				"JAZZ_MagNormal",
-				"JAZZ_MagQuick",
+				"JAZZ_MagLarge_30_42",
+				"JAZZ_MagQuick_AUG",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -83,6 +83,7 @@ DefineClass.AUG = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_FlashlightDot",
 				"JAZZ_LaserDot",
 			},
@@ -116,7 +117,12 @@ DefineClass.AUG = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 8000,
-	Recoil = 12,
+	WeaponMass = 36,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	AutoShots = 7,
+	Recoil = 16,
 	BurstShots = 4,
 
 	CloseRange = 6,

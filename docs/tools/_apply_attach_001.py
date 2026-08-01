@@ -43,13 +43,13 @@ DELETE_EFFECTS = HANDLING_EFFECTS | {
 }
 CLOSE_EFFECTS = (
     ("CloseRangeIncrease", None, "CloseRange", "CloseRangeIncrease", 2,
-     982641736301, "Ствол: Увеличивает ближнюю зону на <CloseRangeIncrease>"),
+     982641736301, "Ближняя зона: Увеличивает ближнюю зону на <CloseRangeIncrease>"),
     ("CloseRangeDecrease", "Subtract", "CloseRange", "CloseRangeDecrease", 2,
-     982641736302, "Ствол: Уменьшает ближнюю зону на <CloseRangeDecrease>"),
+     982641736302, "Ближняя зона: Уменьшает ближнюю зону на <CloseRangeDecrease>"),
     ("CloseRangeFactorIncrease", None, "CloseRangeFactor", "CloseRangeFactorIncrease", 5,
-     982641736303, "Ствол: Усиливает эффективность на ближней дистанции на <CloseRangeFactorIncrease>"),
+     982641736303, "Ближняя зона: Усиливает эффективность на ближней дистанции на <CloseRangeFactorIncrease>"),
     ("CloseRangeFactorDecrease", "Subtract", "CloseRangeFactor", "CloseRangeFactorDecrease", 5,
-     982641736304, "Ствол: Ослабляет эффективность на ближней дистанции на <CloseRangeFactorDecrease>"),
+     982641736304, "Ближняя зона: Ослабляет эффективность на ближней дистанции на <CloseRangeFactorDecrease>"),
 )
 BASE_CLOSE_RANGE = {
     "pistol": (0, 100), "autopistol": (0, 100), "revolver": (0, 100),

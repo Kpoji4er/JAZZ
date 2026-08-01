@@ -46,7 +46,7 @@ DefineClass.BarretM82 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge",
+				"JAZZ_MagLarge_8_BARRET",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -85,8 +85,13 @@ DefineClass.BarretM82 = {
 	},
 	ShootAP = 10000,
 	ReloadAP = 9000,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	WeaponMass = 55,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 12,
 

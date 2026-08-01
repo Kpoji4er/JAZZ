@@ -62,6 +62,12 @@ AI использует собственную оценку допустимой
 
 `GrenadeLauncher`, `RocketLauncher` и `Mortar` имеют собственный `GetBaseDegradePerShot`. Финальная версия методов определяется порядком `System_OR_Grenade.lua -> WeaponClasses.lua`. Machine gun actions и `JAZZ_MGSuppressionFire` передают попадания/промахи в suppression pipeline. Уровни представлены эффектами `suppressionLight`, `suppressionMedium`, `suppressionHeavy`, `suppressionHeavy2`, `Pinned`; очередь может накапливать Will damage.
 
+### Одноразовые ракетные пусковые — JAZZ-WEAPONS-005
+
+`RocketLauncher.DisposableLauncher` по умолчанию `false`. У `M72LAW` он включён: при добавлении предмета `EmbeddedOrdnance = "Warhead_Frag"` создаёт один встроенный выстрел, а `MagazineSize = 1`. Перезарядка блокируется в UI-проверке, `UnitInventory:ReloadWeapon` и `RocketLauncher:Reload`; RPG-7 остаётся обычной перезаряжаемой пусковой.
+
+После любого расходующего выстрела (включая mishap) `OnMsg.OnAttack` удаляет M72 из слота стрелка, создаёт отдельный `WeaponVisual` с entity `M72LAW2` у его ног и обновляет outfit. Это только world debris: визуальная труба не InventoryItem, не loot, не scrap и не пригодна для нового выстрела. Отмена до расхода и jam не вызывают этот путь. Runtime wave test остаётся обязательным.
+
 ## Данные
 
 - ordnance и grenade items входят в 558 InventoryItem core;
@@ -82,7 +88,7 @@ AI использует собственную оценку допустимой
 - установка, обнаружение и подрыв мины союзником/врагом, save/load;
 - perk-вариант времени установки;
 - toxic/tear gas с новой, повреждённой и отсутствующей маской;
-- grenade launcher/rocket/mortar degradation и reload;
+- grenade launcher/rocket/mortar degradation и reload; M72: один выстрел, Reload blocked, после normal и mishap shot нет в inventory и у стрелка есть непригодная spent tube; RPG-7 не спавнит tube и перезаряжается;
 - MG setup, suppression tiers, Will loss и снятие эффектов;
 - сетевой повтор area attack и trap.
 

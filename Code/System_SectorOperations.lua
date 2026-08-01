@@ -448,8 +448,8 @@ function SectorOperation_ItemsCalcRes(sector_id, operation_id)
 		local parts_per_step = operation:ResolveValue("parts_per_step")
 		for _, item_data in ipairs(queued_items) do
 			local item = SectorOperationRepairItems_GetItemFromData(item_data)
-			if item.WeaponResource then 
-				restore_condition_per_Part = restore_condition_per_Part * 3 else restore_condition_per_Part = operation:ResolveValue("restore_condition_per_Part") end
+			-- JAZZ-WEAPONS-002: do not inflate restore_condition_per_Part (*3 removed).
+			restore_condition_per_Part = operation:ResolveValue("restore_condition_per_Part")
 			local cur_cond = item and (item:GetCurrentResource() or item.Condition) or 0
 			local max_condition = item and item:GetMaxResource() or item:GetMaxCondition() or 0
 			local to_repair = max_condition - cur_cond

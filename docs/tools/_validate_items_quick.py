@@ -9,6 +9,26 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 
 
+def missing_comma_before_placeobj(text: str, name: str) -> list[str]:
+    """Catch `})\\nPlaceObj` without comma — Mod Editor: `'}' expected ... near 'PlaceObj'`."""
+    problems: list[str] = []
+    lines = text.splitlines()
+    for i, ln in enumerate(lines):
+        s = ln.rstrip()
+        if not (s.endswith("})") or (s.endswith("}") and not s.endswith("},"))):
+            continue
+        if s.endswith("}),") or s.endswith("},") or s.endswith("),"):
+            continue
+        j = i + 1
+        while j < len(lines) and lines[j].strip() == "":
+            j += 1
+        if j < len(lines) and lines[j].lstrip().startswith("PlaceObj("):
+            problems.append(
+                f"{name}: L{i+1} closes without comma before PlaceObj at L{j+1}"
+            )
+    return problems
+
+
 def check(path: Path) -> list[str]:
     problems: list[str] = []
     text = path.read_text(encoding="utf-8")
@@ -25,11 +45,20 @@ def check(path: Path) -> list[str]:
         problems.append(f"{path.name}: {len(lone)} lone-comma lines (e.g. {lone[:5]})")
     if "}),)," in text or re.search(r"\}\),\s*\),", text):
         problems.append(f"{path.name}: stacked closers" + " }),),")
+    # Exact `}),,` (MagSizeSet split artifact). Avoid `\s*,` — false-positives on normal `}),\n...`.
+    if "}),," in text:
+        problems.append(f"{path.name}: double-comma after closer" + " }),,")
     if "\\1" in text:
         problems.append(f"{path.name}: regex-replace artifact \\1")
     brace = text.count("{") - text.count("}")
     if brace != 0:
         problems.append(f"{path.name}: brace imbalance {brace}")
+    problems.extend(missing_comma_before_placeobj(text, path.name))
+    # Corrupt id lines from partial MagLarge_50_AK remove / bad insert
+    for i, ln in enumerate(text.splitlines(), 1):
+        s = ln.strip()
+        if re.match(r"^id\s*=\s*\}\),?\s*$", s) or re.match(r"^id\s*=\s*,?\s*$", s):
+            problems.append(f"{path.name}: L{i} corrupt id line: {s!r}")
     return problems
 
 

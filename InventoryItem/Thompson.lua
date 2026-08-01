@@ -37,7 +37,7 @@ DefineClass.Thompson = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagDrum_30-50",
+				"JAZZ_MagDrum_30_50_THOMPSON",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -52,9 +52,13 @@ DefineClass.Thompson = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 5000,
-	Recoil = 8,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 18,
 	BurstShots = 4,
-	AutoShots = 8,
+	AutoShots = 7,
 
 	CloseRange = 2,
 

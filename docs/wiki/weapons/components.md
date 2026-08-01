@@ -12,8 +12,8 @@
 | Barrel | Короткий ствол (`Auto5_Short_NMag`) | 20 | 0 | `ReduceShootAP`<br>`ReduceRange`<br>`ReduceReliability`<br>`IncreaseBuckshotAngle` | ShootAPDecrease=1;ReliabilityDecrease=10;BuckshotAngleIncrease=115;RangeDecrease=2 | FineSteelPipe=1 | 2 |
 | Barrel | Короткий ствол (`BarrelShort_Pistol`) | 15 | 0 | `BarrelRangeReduce`<br>`BarrelBulletDropReduce`<br>`BarrelHandlingIncrease`<br>`BarrelGroupingReduce`<br>`ReduceShootAP` | ShootAPDecrease=1;RangeDecrease=4;EffectiveRange=4 | FineSteelPipe=1 | 6 |
 | Barrel | Короткий ствол (`BarrelShortRunNGun`) | 15 | 0 | `ReduceReliability`<br>`EnableRunNGun`<br>`BarrelRangeReduce`<br>`BarrelBulletDropReduce`<br>`BarrelHandlingIncrease`<br>`BarrelGroupingIncrease`<br>`BarrelRecoilIncrease` | ReliabilityDecrease=10;ShootAPDecrease=1;RangeDecrease=4;EffectiveRange=4 | FineSteelPipe=1 | 1 |
-| Barrel | Стандартный ствол (`BarrelNormal_noSil`) | 50 | 10 | — | — | FineSteelPipe=2 | 1 |
-| Barrel | Ствол под глушитель (`BarrelNormal_Sil`) | 50 | 10 | — | — | FineSteelPipe=2 | 1 |
+| Barrel | Стандартный ствол (`BarrelNormal_noSil`) | 50 | 10 | `BlocksMuzzleSlot` | — | FineSteelPipe=2 | 1 |
+| Barrel | Ствол под глушитель (`BarrelNormal_Sil`) | 50 | 10 | `ThreadedForSuppressor` | — | FineSteelPipe=2 | 1 |
 | Barrel | Basic Configuration (`Auto5_Basic_NMag`) | 0 | 0 | — | — | FineSteelPipe=1 | 2 |
 | Barrel | Default Barrel (`BarrelNormal`) | 50 | 10 | — | — | FineSteelPipe=2 | 39 |
 | Barrel | Extended Barrel (`BarrelLong`) | 75 | 0 | `BarrelRangeIncrease`<br>`BarrelBulletDropIncrease`<br>`BarrelAccuracyIncrease`<br>`BarrelHandlingReduce`<br>`BarrelRecoilRecude`<br>`BarrelGroupingIncrease` | RangeIncrease=6;AimAccuracyIncrease=2;EffectiveRange=2 | FineSteelPipe=3 | 16 |
@@ -38,7 +38,7 @@
 | Bipod | Сошка от KSP 58 (`KSP_BIPOD`) | 0 | 0 | `AccuracyBonusProne`<br>`ShotsBeforeRecoilProne` | — | — | 1 |
 | Bipod | Bipod (`Bipod`) | 60 | 20 | `AccuracyBonusProne`<br>`ShotsBeforeRecoilProne`<br>`BipodsHandlingDecrease` | bonus_cth_bipod=10 | — | 32 |
 | Bipod | Bipod (`Bipod_MG42`) | 60 | 20 | `AccuracyBonusProne`<br>`ShotsBeforeRecoilProne` | — | — | 2 |
-| Freeswap | Пистолет (`Freeswap`) | 10 | 0 | `FreeWeaponSwap` | — | FineSteelPipe=1 | 41 |
+| Freeswap | Пистолет (`JAZZ_Freeswap`) | 10 | 0 | `FreeWeaponSwap` | — | — | 3 |
 | General | Разложенный прицел (`M70_Unfld_GL`) | 0 | 0 | — | — | — | 1 |
 | General | Ремень (`HolsterBelt`) | 20 | 10 | `FreeWeaponSwap` | — | — | 2 |
 | General | Сложенный прицел (`M70_Fld_GL`) | 0 | 0 | — | — | — | 1 |

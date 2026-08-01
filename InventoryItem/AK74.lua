@@ -55,6 +55,7 @@ DefineClass.AK74 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
+				"JAZZ_MagQuick_AK",
 				"JAZZ_MagLarge_30_45",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
@@ -103,7 +104,12 @@ DefineClass.AK74 = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
-	Recoil = 7,
+	WeaponMass = 35,
+	CyclicRPM = 650,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	BurstShots = 3,
+	Recoil = 15,
 	AutoShots = 6,
 
 	CloseRange = 6,

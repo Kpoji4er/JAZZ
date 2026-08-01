@@ -41,6 +41,7 @@ DefineClass.MPL = {
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
+			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_StockLightFolded",
 				"JAZZ_StockLightUnFolded",
@@ -58,9 +59,13 @@ DefineClass.MPL = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
-	Recoil = 4,
-	BurstShots = 2,
-	AutoShots = 6,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 18,
+	BurstShots = 4,
+	AutoShots = 7,
 	BulletDropRange = 10,
 
 	CloseRange = 2,

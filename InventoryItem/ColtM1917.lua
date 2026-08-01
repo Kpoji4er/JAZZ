@@ -3,7 +3,6 @@ DefineClass.ColtM1917 = {
 	__parents = { "Revolver" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Tier 1-2",
 	object_class = "Revolver",
 	ScrapParts = 6,
@@ -29,13 +28,7 @@ DefineClass.ColtM1917 = {
 	Noise = 28,
 	Entity = "Colt1917",
 	ComponentSlots = {
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Freeswap",
-			'AvailableComponents', {
-				"JAZZ_Freeswap",
-			},
-			'DefaultComponent', "JAZZ_Freeswap",
-		}),
+		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -46,8 +39,13 @@ DefineClass.ColtM1917 = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 5000,
-	Recoil = 1,
-	AutoShots = 3,
+	WeaponMass = 10,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
+	BurstShots = 0,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 0,
 

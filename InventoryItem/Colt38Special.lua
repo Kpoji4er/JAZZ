@@ -3,9 +3,9 @@ DefineClass.Colt38Special = {
 	__parents = { "Revolver" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Tier 1-2",
 	object_class = "Revolver",
+	ReloadStyle = "Revolver",
 	ScrapParts = 6,
 	RepairCost = 1,
 	Reliability = 95,
@@ -29,13 +29,7 @@ DefineClass.Colt38Special = {
 	Noise = 12,
 	Entity = "38Special",
 	ComponentSlots = {
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Freeswap",
-			'AvailableComponents', {
-				"JAZZ_Freeswap",
-			},
-			'DefaultComponent', "JAZZ_Freeswap",
-		}),
+		
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
@@ -54,8 +48,13 @@ DefineClass.Colt38Special = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 5000,
-	Recoil = 1,
-	AutoShots = 3,
+	WeaponMass = 10,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
+	BurstShots = 0,
+	Recoil = 15,
+	AutoShots = 0,
 
 	CloseRange = 0,
 

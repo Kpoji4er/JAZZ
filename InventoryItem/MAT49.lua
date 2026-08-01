@@ -57,9 +57,14 @@ DefineClass.MAT49 = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 5000,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	BurstShots = 4,
 	MaxAimActions = 2,
-	Recoil = 5,
-	AutoShots = 6,
+	Recoil = 18,
+	AutoShots = 7,
 
 	CloseRange = 2,
 

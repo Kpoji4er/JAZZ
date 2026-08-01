@@ -6,6 +6,7 @@ DefineClass.Winchester1894 = {
 
 	comment = "Tier 1-1",
 	object_class = "Carbine",
+	ReloadStyle = "Tube",
 	ScrapParts = 8,
 	RepairCost = 3,
 	Reliability = 70,
@@ -36,7 +37,7 @@ DefineClass.Winchester1894 = {
 			'AvailableComponents', {
 				"JAZZ_BarrelLong",
 				"JAZZ_BarrelNormal",
-				"BarrelShort_Winchester",
+				"JAZZ_BarrelShort_Winchester",
 			},
 			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
@@ -75,8 +76,13 @@ DefineClass.Winchester1894 = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 8000,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	WeaponMass = 35,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 4,
 

@@ -1,10 +1,10 @@
 component_id,display_name,slot,cost,modification_difficulty,effects,parameters,additional_costs,group,used_by_count,source,snapshot_commit
 Handguard_Commando,Handguard_Commando,Under,,,,,,,1,vanilla_ref,working-tree
-JAZZ_AKSU_Hanguard_Basic,Default Handguard,Handguard,0,-25,,,,AKSU Specific,1,jazz,working-tree
-JAZZ_AKSU_VerticalGrip,Vertical Grip,Handguard,40,20,RecoilDecrease,Recoil=1,,AKSU Specific,1,jazz,working-tree
+JAZZ_AKSU_Hanguard_Basic,Default Handguard,Handguard,,-25,,,,AKSU Specific,1,jazz,working-tree
+JAZZ_AKSU_VerticalGrip,Vertical Grip,Handguard,15,0,RecoilDecrease,Recoil=1,,AKSU Specific,1,jazz,working-tree
 JAZZ_AUGCompensator_01,Default Compensator,Muzzle,10,-25,AccuracyBonusSameTarget,,,AUG Specific,1,jazz,working-tree
 JAZZ_AUGCompensator_03,Advanced Compensator,Muzzle,15,0,AccuracyBonusSameTarget;IncreaseReliability,ReliabilityIncrease=10,,AUG Specific,1,jazz,working-tree
-JAZZ_AUGScope_Default,Прицел AUG (1.5x),Scope,,-25,IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecrease,IncreaseMaxAimActions=1;ScopeAimLevel=2;ScopeMagnification=1;ScopeSubMagnification=5;ShotAP=1,,AUG Specific,1,jazz,working-tree
+JAZZ_AUGScope_Default,Прицел AUG (1.5x),Scope,,-25,IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecrease,IncreaseMaxAimActions=1;ScopeAimLevel=2;ScopeMagnification=1;ScopeOverwatchAngle=88;ScopeSubMagnification=5;ShotAP=1,,AUG Specific,1,jazz,working-tree
 JAZZ_Auto5_Basic_LMag,High Cap,Barrel,15,0,MagazineSizeMultiplier,MagazineSizeMultiplier=150,,Auto5 Specific,2,jazz,working-tree
 JAZZ_Auto5_Basic_NMag,Basic Configuration,Barrel,,0,,,,Auto5 Specific,2,jazz,working-tree
 JAZZ_Auto5_Long_LMag,Long Barrel High Cap,Barrel,50,0,HalfRangeDmgIncrease;IncreaseRange;MagazineSizeMultiplier,MagazineSizeMultiplier=150;RangeIncrease=4,,Auto5 Specific,2,jazz,working-tree
@@ -12,58 +12,57 @@ JAZZ_Auto5_Long_NMag,Long Barrel,Barrel,30,0,HalfRangeDmgIncrease;IncreaseRange,
 JAZZ_Auto5_Short_NMag,Короткий ствол,Barrel,20,0,IncreaseBuckshotAngle;ReduceRange;ReduceReliability;ReduceShootAP,BuckshotAngleIncrease=115;RangeDecrease=2;ReliabilityDecrease=10;ShootAPDecrease=1,,Auto5 Specific,2,jazz,working-tree
 JAZZ_Autofire,Автоматический огонь,Trigger,,,EnableBurst;EnableFullAuto,,,Underslung,1,jazz,working-tree
 JAZZ_Barrel50BMG_DesertEagle,.50 BMG Barrel,Barrel,20,-25,ChangeCaliberToBMG;IncreaseDamage;ReduceReliabilityPercent,DamageIncrease=10;ReliabilityDecreasePercent=30,,Desert Eagle Specific,1,jazz,working-tree
-JAZZ_BarrelHeavy,Heavy Barrel,Barrel,30,0,BarrelBulletDropIncrease;BarrelRecoilRecude;CloseRangeFactorDecrease;CloseRangeIncrease;IncreasedSingleShotAccuracy,BarrelRecoilRecude=-3;CloseRangeFactorDecrease=5;CloseRangeIncrease=2;bonus_cth=5;dmg=3;xrng=2,,Barrel,3,jazz,working-tree
-JAZZ_BarrelLong,Extended Barrel,Barrel,75,0,BarrelAccuracyIncrease;BarrelBulletDropIncrease;BarrelGroupingIncrease;BarrelRangeIncrease;BarrelRecoilRecude;CloseRangeFactorDecrease;CloseRangeIncrease,AimAccuracyIncrease=2;CloseRangeFactorDecrease=5;CloseRangeIncrease=2;EffectiveRange=2;RangeIncrease=6,,Barrel,18,jazz,working-tree
-JAZZ_BarrelLongImproved,Extended Gain-Twist Barrel,Barrel,100,0,BarrelAccuracyIncrease;BarrelBulletDropIncrease;BarrelGroupingIncrease;BarrelRangeIncrease;BarrelRecoilRecude;CloseRangeFactorDecrease;CloseRangeIncrease;IncreaseReliability,AimAccuracyIncrease=2;CloseRangeFactorDecrease=5;CloseRangeIncrease=2;RangeIncrease=6;ReliabilityIncrease=10,,Barrel,6,jazz,working-tree
-JAZZ_BarrelLongImproved_AUG,Extended Gain-Twist Barrel with Bipod,Barrel,100,0,AccuracyBonusProne;BarrelAccuracyIncrease;BarrelBulletDropIncrease;BarrelGroupingIncrease;BarrelRangeIncrease;BarrelRecoilRecude;CloseRangeFactorDecrease;CloseRangeIncrease;IncreaseReliability,AimAccuracyIncrease=2;CloseRangeFactorDecrease=5;CloseRangeIncrease=2;RangeIncrease=6;ReliabilityIncrease=10,,AUG Specific,1,jazz,working-tree
-JAZZ_BarrelLongShotgun,Extended Barrel,Barrel,75,0,BarrelAccuracyIncrease;BarrelBulletDropIncrease;BarrelGroupingIncrease;BarrelRangeIncrease;CloseRangeDecrease;CloseRangeFactorIncrease,CloseRangeDecrease=1;CloseRangeFactorIncrease=10;RangeIncrease=4,,Barrel,2,jazz,working-tree
-JAZZ_BarrelLong_AUG,Extended Barrel with Bipod,Barrel,70,0,AccuracyBonusProne;BarrelAccuracyIncrease;BarrelBulletDropIncrease;BarrelGroupingIncrease;BarrelRangeIncrease;BarrelRecoilRecude;CloseRangeFactorDecrease;CloseRangeIncrease,AimAccuracyIncrease=2;CloseRangeFactorDecrease=5;CloseRangeIncrease=2;RangeIncrease=6,,AUG Specific,1,jazz,working-tree
+JAZZ_BarrelHeavy,Heavy Barrel,Barrel,30,0,BarrelBulletDropIncrease;BarrelRecoilRecude;CloseRangeFactorDecrease;CloseRangeIncrease,BarrelRecoilRecude=5;BulletDropIncrease=115;CloseRangeFactorDecrease=8;CloseRangeIncrease=2,,Barrel,3,jazz,working-tree
+JAZZ_BarrelLong,Extended Barrel,Barrel,75,0,BarrelBulletDropIncrease;BarrelGroupingIncrease;BarrelRangeIncrease;BarrelRecoilRecude;CloseRangeFactorDecrease;CloseRangeIncrease,BarrelRangeIncrease=1;BarrelRecoilRecude=2;BulletDropIncrease=130;CloseRangeFactorDecrease=8;CloseRangeIncrease=3;SilencerGroupingReduce=110,,Barrel,18,jazz,working-tree
+JAZZ_BarrelLongImproved,Extended Gain-Twist Barrel,Barrel,100,0,BarrelBulletDropIncrease;BarrelGroupingIncrease;BarrelRangeIncrease;BarrelRecoilRecude;CloseRangeFactorDecrease;CloseRangeIncrease;IncreaseReliability,BarrelRangeIncrease=1;BarrelRecoilRecude=2;BulletDropIncrease=130;CloseRangeFactorDecrease=8;CloseRangeIncrease=3;ReliabilityIncrease=10;SilencerGroupingReduce=110,,Barrel,6,jazz,working-tree
+JAZZ_BarrelLongImproved_AUG,Extended Gain-Twist Barrel with Bipod,Barrel,100,0,BarrelBulletDropIncrease;BarrelGroupingIncrease;BarrelRangeIncrease;BarrelRecoilRecude;CloseRangeFactorDecrease;CloseRangeIncrease;IncreaseReliability,BarrelRangeIncrease=1;BarrelRecoilRecude=2;BulletDropIncrease=130;CloseRangeFactorDecrease=8;CloseRangeIncrease=3;ReliabilityIncrease=10;SilencerGroupingReduce=110,,AUG Specific,1,jazz,working-tree
+JAZZ_BarrelLongShotgun,Extended Barrel,Barrel,75,0,BarrelBulletDropIncrease;BarrelGroupingIncrease;BarrelRangeIncrease;CloseRangeDecrease;CloseRangeFactorIncrease,BarrelRangeIncrease=1;BulletDropIncrease=120;CloseRangeDecrease=1;CloseRangeFactorIncrease=10;SilencerGroupingReduce=110,,Barrel,2,jazz,working-tree
+JAZZ_BarrelLong_AUG,Extended Barrel with Bipod,Barrel,70,0,BarrelBulletDropIncrease;BarrelGroupingIncrease;BarrelRangeIncrease;BarrelRecoilRecude;CloseRangeFactorDecrease;CloseRangeIncrease,BarrelRangeIncrease=1;BarrelRecoilRecude=2;BulletDropIncrease=130;CloseRangeFactorDecrease=8;CloseRangeIncrease=3;SilencerGroupingReduce=110,,AUG Specific,1,jazz,working-tree
 JAZZ_BarrelNormal,Default Barrel,Barrel,50,10,,,,Barrel,41,jazz,working-tree
 JAZZ_BarrelNormalImproved,Gain-Twist Barrel,Barrel,15,0,IncreaseReliability,ReliabilityIncrease=10,,Barrel,10,jazz,working-tree
-JAZZ_BarrelNormal_Sil,Ствол под глушитель,Barrel,50,10,,,,Barrel,1,jazz,working-tree
-JAZZ_BarrelNormal_noSil,Стандартный ствол,Barrel,50,10,,,,Barrel,1,jazz,working-tree
-JAZZ_BarrelShort,Short Barrel,Barrel,15,0,BarrelBulletDropReduce;BarrelGroupingReduce;BarrelRangeReduce;BarrelRecoilIncrease;CloseRangeDecrease;CloseRangeFactorIncrease;ReduceReliability,CloseRangeDecrease=2;CloseRangeFactorIncrease=5;EffectiveRange=4;RangeDecrease=4;ReliabilityDecrease=10;ShootAPDecrease=1,,Barrel,12,jazz,working-tree
-JAZZ_BarrelShortImproved,Short Gain-Twist Barrel,Barrel,35,0,BarrelBulletDropReduce;BarrelGroupingReduce;BarrelRangeReduce;BarrelRecoilIncrease;CloseRangeDecrease;CloseRangeFactorIncrease,CloseRangeDecrease=2;CloseRangeFactorIncrease=5;EffectiveRange=1;RangeDecrease=4;ShootAPDecrease=1,,Barrel,8,jazz,working-tree
-JAZZ_BarrelShortImproved_AUG,Short Gain-Twist Barrel,Barrel,35,0,BarrelBulletDropReduce;BarrelGroupingReduce;BarrelRangeReduce;BarrelRecoilIncrease;CloseRangeDecrease;CloseRangeFactorIncrease,CloseRangeDecrease=2;CloseRangeFactorIncrease=5;RangeDecrease=4;ShootAPDecrease=1,,AUG Specific,1,jazz,working-tree
-JAZZ_BarrelShortRunNGun,Короткий ствол,Barrel,15,0,BarrelBulletDropReduce;BarrelGroupingIncrease;BarrelRangeReduce;BarrelRecoilIncrease;CloseRangeDecrease;CloseRangeFactorIncrease;EnableRunNGun;ReduceReliability,CloseRangeDecrease=2;CloseRangeFactorIncrease=5;EffectiveRange=4;RangeDecrease=4;ReliabilityDecrease=10;ShootAPDecrease=1,,Barrel,1,jazz,working-tree
-JAZZ_BarrelShortShotgun,Shortened Barrel,Barrel,15,0,BarrelBulletDropReduce;BarrelGroupingReduce;BarrelRangeReduce;CloseRangeDecrease;CloseRangeFactorIncrease,BuckshotAngleIncrease=115;CloseRangeDecrease=1;CloseRangeFactorIncrease=10;RangeDecrease=2;ReliabilityDecrease=10;ShootAPDecrease=1,,Barrel,2,jazz,working-tree
-JAZZ_BarrelShortShotgun_Benelli,Shortened Barrel,Barrel,15,0,CloseRangeDecrease;CloseRangeFactorIncrease;IncreaseBuckshotAngle;ReduceMagazineSize;ReduceRange;ReduceReliability;ReduceShootAP,BuckshotAngleIncrease=115;CloseRangeDecrease=1;CloseRangeFactorIncrease=10;MagazineSizeDecrease=2;RangeDecrease=2;ReliabilityDecrease=10;ShootAPDecrease=1,,M1014 Specific,1,jazz,working-tree
-JAZZ_BarrelShort_AUG,Short Barrel,Barrel,15,0,BarrelBulletDropReduce;BarrelGroupingReduce;BarrelRangeReduce;BarrelRecoilIncrease;CloseRangeDecrease;CloseRangeFactorIncrease;ReduceReliability,CloseRangeDecrease=2;CloseRangeFactorIncrease=5;ReliabilityDecrease=10;ShootAPDecrease=1,,AUG Specific,1,jazz,working-tree
-JAZZ_BarrelShort_Pistol,Короткий ствол,Barrel,15,0,BarrelBulletDropReduce;BarrelGroupingReduce;BarrelRangeReduce;CloseRangeDecrease;CloseRangeFactorIncrease;ReduceShootAP,CloseRangeDecrease=1;CloseRangeFactorIncrease=10;EffectiveRange=4;RangeDecrease=4;ShootAPDecrease=1,,Barrel,6,jazz,working-tree
-JAZZ_BarrelShort_Winchester,Short Barrel,Barrel,15,0,CloseRangeDecrease;CloseRangeFactorIncrease;ReduceMagazineSize;ReduceRange;ReduceReliability;ReduceShootAP,CloseRangeDecrease=1;CloseRangeFactorIncrease=10;MagazineSizeDecrease=4;RangeDecrease=4;ReliabilityDecrease=10;ShootAPDecrease=1,,Winchester Specific,1,jazz,working-tree
+JAZZ_BarrelNormal_Sil,Ствол под глушитель,Barrel,50,10,ThreadedForSuppressor,,,Barrel,1,jazz,working-tree
+JAZZ_BarrelNormal_noSil,Стандартный ствол,Barrel,50,10,BlocksMuzzleSlot,,,Barrel,1,jazz,working-tree
+JAZZ_BarrelShort,Short Barrel,Barrel,15,0,BarrelBulletDropReduce;BarrelGroupingReduce;BarrelRangeReduce;BarrelRecoilIncrease;CloseRangeDecrease;CloseRangeFactorIncrease;ReduceReliability,BarrelGroupingReduce=90;BarrelRangeReduce=1;BarrelRecoilIncrease=2;BulletDropReduce=70;CloseRangeDecrease=3;CloseRangeFactorIncrease=12;ReliabilityDecrease=10,,Barrel,12,jazz,working-tree
+JAZZ_BarrelShortImproved,Short Gain-Twist Barrel,Barrel,35,0,BarrelBulletDropReduce;BarrelGroupingReduce;BarrelRangeReduce;BarrelRecoilIncrease;CloseRangeDecrease;CloseRangeFactorIncrease,BarrelGroupingReduce=90;BarrelRangeReduce=1;BarrelRecoilIncrease=2;BulletDropReduce=70;CloseRangeDecrease=3;CloseRangeFactorIncrease=12,,Barrel,8,jazz,working-tree
+JAZZ_BarrelShortImproved_AUG,Short Gain-Twist Barrel,Barrel,35,0,BarrelBulletDropReduce;BarrelGroupingReduce;BarrelRangeReduce;BarrelRecoilIncrease;CloseRangeDecrease;CloseRangeFactorIncrease,BarrelGroupingReduce=90;BarrelRangeReduce=1;BarrelRecoilIncrease=2;BulletDropReduce=70;CloseRangeDecrease=3;CloseRangeFactorIncrease=12,,AUG Specific,1,jazz,working-tree
+JAZZ_BarrelShortRunNGun,Короткий ствол,Barrel,15,0,BarrelBulletDropReduce;BarrelGroupingIncrease;BarrelRangeReduce;BarrelRecoilIncrease;CloseRangeDecrease;CloseRangeFactorIncrease;EnableRunNGun;ReduceReliability,BarrelRangeReduce=1;BarrelRecoilIncrease=2;BulletDropReduce=70;CloseRangeDecrease=3;CloseRangeFactorIncrease=12;ReliabilityDecrease=10;SilencerGroupingReduce=110,,Barrel,1,jazz,working-tree
+JAZZ_BarrelShortShotgun,Shortened Barrel,Barrel,15,0,BarrelBulletDropReduce;BarrelGroupingReduce;BarrelRangeReduce;CloseRangeDecrease;CloseRangeFactorIncrease;IncreaseBuckshotAngle;ReduceReliability,BarrelGroupingReduce=90;BarrelRangeReduce=1;BuckshotAngleIncrease=115;BulletDropReduce=80;CloseRangeDecrease=1;CloseRangeFactorIncrease=12;ReliabilityDecrease=10,,Barrel,2,jazz,working-tree
+JAZZ_BarrelShortShotgun_Benelli,Shortened Barrel,Barrel,15,0,CloseRangeDecrease;CloseRangeFactorIncrease;IncreaseBuckshotAngle;ReduceMagazineSize;ReduceRange;ReduceReliability,BuckshotAngleIncrease=115;CloseRangeDecrease=1;CloseRangeFactorIncrease=12;MagazineSizeDecrease=2;RangeDecrease=1;ReliabilityDecrease=10,,M1014 Specific,1,jazz,working-tree
+JAZZ_BarrelShort_AUG,Short Barrel,Barrel,15,0,BarrelBulletDropReduce;BarrelGroupingReduce;BarrelRangeReduce;BarrelRecoilIncrease;CloseRangeDecrease;CloseRangeFactorIncrease;ReduceReliability,BarrelGroupingReduce=90;BarrelRangeReduce=1;BarrelRecoilIncrease=2;BulletDropReduce=70;CloseRangeDecrease=3;CloseRangeFactorIncrease=12;ReliabilityDecrease=10,,AUG Specific,1,jazz,working-tree
+JAZZ_BarrelShort_Pistol,Короткий ствол,Barrel,15,0,BarrelBulletDropReduce;BarrelGroupingReduce;BarrelRecoilIncrease;CloseRangeFactorIncrease;CloseRangeIncrease,BarrelGroupingReduce=90;BarrelRecoilIncrease=1;BulletDropReduce=85;CloseRangeFactorIncrease=15;CloseRangeIncrease=3,,Barrel,6,jazz,working-tree
+JAZZ_BarrelShort_Winchester,Short Barrel,Barrel,15,0,ReduceMagazineSize;ReduceRange;ReduceReliability;ReduceShootAP,MagazineSizeDecrease=4;RangeDecrease=4;ReliabilityDecrease=10;ShootAPDecrease=1,,Winchester Specific,1,jazz,working-tree
 JAZZ_BarrelsDefs,Заводской ствол,Barrel,,,,,,Default,6,jazz,working-tree
 JAZZ_BaseIronsight_Anaconda,Basic Iron Sight,Scope,10,0,,bonus_cth=5,,Anaconda Specific,1,jazz,working-tree
-JAZZ_Bipod,Bipod,Bipod,60,20,AccuracyBonusProne;ShotsBeforeRecoilProne,bonus_cth_bipod=10,,Underslung,33,jazz,working-tree
-JAZZ_Bipod_Galil,Bipod,Under,60,20,AccuracyBonusProne;ShotsBeforeRecoilProne,,,Galil Specific,2,jazz,working-tree
-JAZZ_Bipod_MG42,Bipod,Bipod,60,20,AccuracyBonusProne;ShotsBeforeRecoilProne,,,MG42 Specific,2,jazz,working-tree
-JAZZ_Bipod_Under,Bipod,Under,60,20,AccuracyBonusProne;ShotsBeforeRecoilProne,,,Underslung,3,jazz,working-tree
-JAZZ_CombatScope_1P29,JAZZ_CombatScope_1P29,Scope,100,0,IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecrease,ScopeAimLevel=2;ScopeMagnification=4;ShotAP=1,,Scope,8,jazz,working-tree
-JAZZ_CombatScope_2x,Штурмовой прицел (2x),Scope,50,0,IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecrease,ScopeAimLevel=1;ScopeMagnification=2;ShotAP=1,,Scope,56,jazz,working-tree
-JAZZ_CombatScope_3x,Штурмовой прицел (3x),Scope,50,0,IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecrease,ScopeAimLevel=2;ScopeMagnification=3;ShotAP=1,,Scope,5,jazz,working-tree
-JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),Scope,100,0,IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecrease,ScopeAimLevel=2;ScopeMagnification=4;ShotAP=1,,Scope,48,jazz,working-tree
-JAZZ_CombatScope_FeroZ24,Штурмовой прицел Fero Z24 (4х),Scope,100,0,IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecrease,ScopeAimLevel=2;ScopeMagnification=4;ShotAP=1,,Scope,8,jazz,working-tree
-JAZZ_Compensator,Compensator,Muzzle,,0,AccuracyBonusSameTarget;RecoilDecrease,Recoil=3,,Muzzle,44,jazz,working-tree
+JAZZ_Bipod,Bipod,Bipod,50,10,AccuracyBonusProne;ShotsBeforeRecoilProne,ShotsBeforeRecoilProne=1;bonus_cth_bipod=10,,Underslung,38,jazz,working-tree
+JAZZ_Bipod_Galil,Bipod,Under,50,10,AccuracyBonusProne;ShotsBeforeRecoilProne,ShotsBeforeRecoilProne=1;bonus_cth_bipod=10,,Galil Specific,2,jazz,working-tree
+JAZZ_Bipod_Under,Bipod,Under,50,10,AccuracyBonusProne;ShotsBeforeRecoilProne,ShotsBeforeRecoilProne=1;bonus_cth_bipod=10,,Underslung,3,jazz,working-tree
+JAZZ_CombatScope_1P29,JAZZ_CombatScope_1P29,Scope,100,0,ScopeMagnification;ScopeOverwatchAngleDecrease,AimAccuracyAimLevel=2;AimAccuracyPercent=155;OpticMinRange=12;OpticNearFactor=88;ScopeAimLevel=2;ScopeMagnification=4;ScopeOverwatchAngle=70,,Scope,8,jazz,working-tree
+JAZZ_CombatScope_2x,Штурмовой прицел (2x),Scope,50,0,ScopeMagnification;ScopeOverwatchAngleDecrease,AimAccuracyAimLevel=1;AimAccuracyPercent=125;OpticMinRange=6;OpticNearFactor=92;ScopeAimLevel=1;ScopeMagnification=2;ScopeOverwatchAngle=85,,Scope,56,jazz,working-tree
+JAZZ_CombatScope_3x,Штурмовой прицел (3x),Scope,60,0,ScopeMagnification;ScopeOverwatchAngleDecrease,AimAccuracyAimLevel=2;AimAccuracyPercent=140;OpticMinRange=9;OpticNearFactor=90;ScopeAimLevel=2;ScopeMagnification=3;ScopeOverwatchAngle=78,,Scope,5,jazz,working-tree
+JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),Scope,100,0,ScopeMagnification;ScopeOverwatchAngleDecrease,AimAccuracyAimLevel=2;AimAccuracyPercent=155;OpticMinRange=12;OpticNearFactor=88;ScopeAimLevel=2;ScopeMagnification=4;ScopeOverwatchAngle=70,,Scope,48,jazz,working-tree
+JAZZ_CombatScope_FeroZ24,Штурмовой прицел Fero Z24 (4х),Scope,100,0,ScopeMagnification;ScopeOverwatchAngleDecrease,AimAccuracyAimLevel=2;AimAccuracyPercent=155;OpticMinRange=12;OpticNearFactor=88;ScopeAimLevel=2;ScopeMagnification=4;ScopeOverwatchAngle=70,,Scope,8,jazz,working-tree
+JAZZ_Compensator,Compensator,Muzzle,30,0,AccuracyBonusSameTarget;RecoilDecrease,Recoil=3,,Muzzle,44,jazz,working-tree
 JAZZ_Compensator_cosmetic,Compensator,Muzzle,25,0,,,,Muzzle,1,jazz,working-tree
 JAZZ_DefMuzzle,Заводской дульный тормоз,Muzzle,,,,,,Default,6,jazz,working-tree
 JAZZ_DefaultIronsight_AR15,Default Iron Sight,Scope,10,0,,,,AR15 Specific,7,jazz,working-tree
-JAZZ_DefaultMuzzle_HK21,Default Flash Hider,Muzzle,0,-25,,,,HK 21 Specific,1,jazz,working-tree
+JAZZ_DefaultMuzzle_HK21,Default Flash Hider,Muzzle,,-25,,,,HK 21 Specific,1,jazz,working-tree
 JAZZ_DuckbillChoke,Duckbill Choke,Muzzle,20,0,IncreaseBuckshotAngle,BuckshotAngleIncrease=120,,Muzzle,3,jazz,working-tree
-JAZZ_FNFAL_Handguard,Default Handguard,Handguard,0,-25,,,,FNFAL Specific,1,jazz,working-tree
-JAZZ_FlashHider,Пламегаситель,Muzzle,10,0,RecoilDecrease;StealthKillBonusPerAim,Recoil=1;crit=10;stealth_kill_bonus=20,,Muzzle,1,jazz,working-tree
-JAZZ_Flashlight,Flashlight,Side,25,-25,IgnoreInTheDark,,,Side,53,jazz,working-tree
-JAZZ_FlashlightDot,Tactical Device,Side,50,10,IncreaseOverwatchAngle;MarkWhenFullyAimed;StealthKillBonusPerAim,OverwatchAngleIncrease=140;aim_bonus=1;maxaims=1;stealth_kill_bonus=2,,Side,48,jazz,working-tree
-JAZZ_FlashlightDot_Anaconda,Tactical Device,Scope,20,10,IgnoreInTheDark;IncreaseOverwatchAngle;StealthKillBonusPerAim,EffectiveRange=1;OverwatchAngleIncrease=140;aim_bonus=1;maxaims=1;stealth_kill_bonus=2,,Anaconda Specific,1,jazz,working-tree
-JAZZ_FlashlightDot_PSG_M1,Tactical Device,Side,20,10,IgnoreInTheDark;StealthKillBonusPerAim,stealth_kill_bonus=2,,PSG1-Specific,1,jazz,working-tree
-JAZZ_FlashlightDot_aa12,Tactical Device,Side,20,10,IgnoreInTheDark;IncreaseOverwatchAngle;StealthKillBonusPerAim,EffectiveRange=1;OverwatchAngleIncrease=140;aim_bonus=1;maxaims=1;stealth_kill_bonus=2,,AA12 Specific,1,jazz,working-tree
-JAZZ_Flashlight_PSG_M1,Flashlight,Side,10,-25,IgnoreInTheDark,,,PSG1-Specific,1,jazz,working-tree
-JAZZ_Flashlight_aa12,Flashlight,Side,10,-25,IgnoreInTheDark,,,AA12 Specific,1,jazz,working-tree
-JAZZ_FoldBipod,Сложенная сошка,Bipod,,,,,,Default,2,jazz,working-tree
-JAZZ_Freeswap,Пистолет,Freeswap,10,0,FreeWeaponSwap,,,Muzzle,41,jazz,working-tree
-JAZZ_FullChoke,Full Choke,Muzzle,20,0,DecreaseBuckshotAngle;IncreaseRange,BuckshotAngleDecrease=80;RangeIncrease=4,,Muzzle,3,jazz,working-tree
-JAZZ_G36Scope,Прицел G36 3x,Scope,,-25,IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecrease,ScopeAimLevel=2;ScopeMagnification=3;ShotAP=1,,AUG Specific,1,jazz,working-tree
+JAZZ_FNFAL_Handguard,Default Handguard,Handguard,,-25,,,,FNFAL Specific,1,jazz,working-tree
+JAZZ_FlashHider,Пламегаситель,Muzzle,10,0,RecoilDecrease;StealthKillBonusPerAim,Recoil=1;stealth_kill_bonus=25,,Muzzle,1,jazz,working-tree
+JAZZ_Flashlight,Flashlight,Side,20,-25,IgnoreInTheDark,,,Side,51,jazz,working-tree
+JAZZ_FlashlightDot,Tactical Device,Side,35,0,IgnoreInTheDark;IncreaseOverwatchAngle;MarkWhenFullyAimed;StealthKillBonusPerAim,OverwatchAngleIncrease=130;aim_bonus=1;maxaims=1;stealth_kill_bonus=2,,Side,47,jazz,working-tree
+JAZZ_FlashlightDot_Anaconda,Tactical Device,Scope,35,0,IgnoreInTheDark;IncreaseOverwatchAngle;MarkWhenFullyAimed;StealthKillBonusPerAim,OverwatchAngleIncrease=130;aim_bonus=1;maxaims=1;stealth_kill_bonus=2,,Anaconda Specific,1,jazz,working-tree
+JAZZ_FlashlightDot_PSG_M1,Tactical Device,Side,35,0,IgnoreInTheDark;IncreaseOverwatchAngle;MarkWhenFullyAimed;StealthKillBonusPerAim,OverwatchAngleIncrease=130;aim_bonus=1;maxaims=1;stealth_kill_bonus=2,,PSG1-Specific,1,jazz,working-tree
+JAZZ_FlashlightDot_aa12,Tactical Device,Side,35,0,IgnoreInTheDark;IncreaseOverwatchAngle;MarkWhenFullyAimed;StealthKillBonusPerAim,OverwatchAngleIncrease=130;aim_bonus=1;maxaims=1;stealth_kill_bonus=2,,AA12 Specific,1,jazz,working-tree
+JAZZ_FlashlightOff,Flashlight,Side,5,-25,,,,Side,51,jazz,working-tree
+JAZZ_Flashlight_PSG_M1,Flashlight,Side,20,-25,IgnoreInTheDark,,,PSG1-Specific,1,jazz,working-tree
+JAZZ_Flashlight_aa12,Flashlight,Side,20,-25,IgnoreInTheDark,,,AA12 Specific,1,jazz,working-tree
+JAZZ_Freeswap,Пистолет,Freeswap,10,0,FreeWeaponSwap,,,Muzzle,4,jazz,working-tree
+JAZZ_FullChoke,Full Choke,Muzzle,20,0,DecreaseBuckshotAngle,BuckshotAngleDecrease=80,,Muzzle,3,jazz,working-tree
+JAZZ_G36Scope,Прицел G36 3x,Scope,,-25,ScopeMagnification;ScopeOverwatchAngleDecrease,AimAccuracyAimLevel=2;AimAccuracyPercent=140;OpticMinRange=9;OpticNearFactor=90;ScopeAimLevel=2;ScopeMagnification=3;ScopeOverwatchAngle=78,,AUG Specific,1,jazz,working-tree
 JAZZ_G36Sight,Прицел G36 1.5x,Scope,,-25,ScopeMagnification,ScopeAimLevel=1;ScopeMagnification=1;ScopeSubMagnification=5,,AUG Specific,1,jazz,working-tree
 JAZZ_GP25,ГП-25,Under,50,20,GrenadeLauncher,,,Underslung,3,jazz,working-tree
-JAZZ_Galil_Brake_Default,Default Muzzle Brake,Muzzle,2,-25,IncreaseAimAccuracy,AimAccuracyIncrease=1,,Galil Specific,2,jazz,working-tree
+JAZZ_Galil_Brake_Default,Default Muzzle Brake,Muzzle,2,-25,RecoilDecrease,Recoil=1,,Galil Specific,2,jazz,working-tree
 JAZZ_Galil_Handguard_Default,Default Handguard,Under,2,-25,,,,Galil Specific,1,jazz,working-tree
 JAZZ_GrenadeLauncher,Grenade Launcher,Under,50,20,GrenadeLauncher,,,Underslung,7,jazz,working-tree
 JAZZ_GrenadeLauncher_AUG,Grenade Launcher,Grenadelauncher,20,20,GrenadeLauncher,,,AUG Specific,1,jazz,working-tree
@@ -74,118 +73,157 @@ JAZZ_HK33Handguard,Цевье,Handguard,20,10,,,,Underslung,1,jazz,working-tree
 JAZZ_HK33HandguardMod,Цевье с планками,Handguard,20,10,,,,Underslung,1,jazz,working-tree
 JAZZ_HK33Lower,Lower,General,20,10,,,,Underslung,1,jazz,working-tree
 JAZZ_HK33LowerMod,Улучшенный lower,General,20,10,,,,Underslung,1,jazz,working-tree
-JAZZ_Handgrip_Default,Стандартная рукоять,Handgrip,,,,,,Underslung,4,jazz,working-tree
-JAZZ_Handgrip_Ergo,Эргономичная рукоять,Handgrip,,,RecoilDecrease,Recoil=1,,Underslung,4,jazz,working-tree
+JAZZ_Handgrip_Default,Стандартная рукоять,Handgrip,5,0,,,,Underslung,4,jazz,working-tree
+JAZZ_Handgrip_Ergo,Эргономичная рукоять,Handgrip,15,0,IncreaseAimAccuracy15Percent,AimAccuracyPercent=105,,Underslung,4,jazz,working-tree
 JAZZ_Handguard,Цевьё,Handguard,,,,,,Underslung,4,jazz,working-tree
 JAZZ_HandguardM1A,Цевьё,Handguard,25,10,,,,Underslung,1,jazz,working-tree
 JAZZ_HandguardM1ARail,Цевьё с рельсой,Handguard,150,20,,,,Underslung,1,jazz,working-tree
-JAZZ_HandlingWrap,Обмотка на цевье,Side,10,,RecoilDecrease,Recoil=1,,Side,1,jazz,working-tree
+JAZZ_HandlingWrap,Обмотка на цевье,Side,10,0,CloseRangeFactorIncrease,CloseRangeFactorIncrease=5,,Side,1,jazz,working-tree
 JAZZ_HolsterBelt,Ремень,General,20,10,FreeWeaponSwap,,,Underslung,2,jazz,working-tree
 JAZZ_ImprovedIronsight,Improved Iron Sight,Scope,10,0,MinorAccuracyBonus,,,Scope,5,jazz,working-tree
 JAZZ_ImprovedIronsight_AR15,Improved Iron Sight,Scope,10,0,AccuracyBonusWhenAimed,bonus_cth=5,,AR15 Specific,1,jazz,working-tree
-JAZZ_ImprovisedSuppressor,Масляной фильтр,Muzzle,20,-25,ReduceAimAccuracy15Percent;ReduceReliabilityPercent;SilencerGroupingReduce50;SilencerJamChance;SilentShots;StealthKillBonusPerAim,NoiseMultiplier=33;ReliabilityDecreasePercent=50;crit=25;stealth_kill_bonus=100,,Muzzle,50,jazz,working-tree
+JAZZ_ImprovisedSuppressor,Масляной фильтр,Muzzle,20,-25,ReduceAimAccuracy15Percent;ReduceReliabilityPercent;SilencerGroupingReduce50;SilencerJamChance;SilentShots;StealthKillBonusPerAim,NoiseMultiplier=40;ReliabilityDecreasePercent=50;stealth_kill_bonus=40,,Muzzle,50,jazz,working-tree
 JAZZ_IronSight,Стандартный прицел,Scope,,-10,,,,Default,9,jazz,working-tree
 JAZZ_IronSight_AIM,Точный прицел,Scope,50,10,CritBonusWhenFullyAimed;IncreaseAimAccuracy,AimAccuracyIncrease=5,,Default,2,jazz,working-tree
 JAZZ_IronSight_FAST,Быстрый прицел,Scope,50,10,MinorAccuracyBonus,BonusCTH=3,,Default,1,jazz,working-tree
 JAZZ_IronSight_NIGHT,Ночной прицел,Scope,50,20,NightsIronsBonus,NightsIronsBonus=10,,Default,1,jazz,working-tree
-JAZZ_KSP_BIPOD,Сошка от KSP 58,Bipod,,,AccuracyBonusProne;ShotsBeforeRecoilProne,,,Default,1,jazz,working-tree
-JAZZ_LaserDot,Лазерный целеуказатель,Side,50,10,IncreaseCritChangeScaled;IncreaseOverwatchAngle;LaserMark;MarkWhenFullyAimed,CritChangeScaledIncrease=15;LaserCTH=15;LaserDistance=10;OverwatchAngleIncrease=140,,Side,51,jazz,working-tree
-JAZZ_LaserDot_Anaconda,Red Dot,Scope,10,10,IncreaseCritChangeScaled;IncreaseOverwatchAngle;LaserMark;MarkWhenFullyAimed,CritChangeScaledIncrease=15;EffectiveRange=2;LaserCTH=15;LaserDistance=10;OverwatchAngleIncrease=140,,Anaconda Specific,1,jazz,working-tree
-JAZZ_LaserDot_PSG_M1,Red Dot,Side,10,10,MarkWhenFullyAimed,,,PSG1-Specific,1,jazz,working-tree
-JAZZ_LaserDot_aa12,Red Dot,Side,10,10,IncreaseCritChangeScaled;IncreaseOverwatchAngle;LaserMark;MarkWhenFullyAimed,CritChangeScaledIncrease=15;EffectiveRange=2;LaserCTH=15;LaserDistance=10;OverwatchAngleIncrease=140,,AA12 Specific,1,jazz,working-tree
+JAZZ_LaserDot,Лазерный целеуказатель,Side,40,10,IncreaseCritChangeScaled;IncreaseOverwatchAngle;LaserMark;MarkWhenFullyAimed,CritChangeScaledIncrease=10;LaserCTH=15;LaserDistance=10;LaserFullRange=5;OverwatchAngleIncrease=130,,Side,50,jazz,working-tree
+JAZZ_LaserDot_Anaconda,Red Dot,Scope,40,10,IncreaseCritChangeScaled;IncreaseOverwatchAngle;LaserMark;MarkWhenFullyAimed,CritChangeScaledIncrease=10;LaserCTH=15;LaserDistance=10;LaserFullRange=5;OverwatchAngleIncrease=130,,Anaconda Specific,1,jazz,working-tree
+JAZZ_LaserDot_PSG_M1,Red Dot,Side,40,10,IncreaseCritChangeScaled;IncreaseOverwatchAngle;LaserMark;MarkWhenFullyAimed,CritChangeScaledIncrease=10;LaserCTH=15;LaserDistance=10;LaserFullRange=5;OverwatchAngleIncrease=130,,PSG1-Specific,1,jazz,working-tree
+JAZZ_LaserDot_aa12,Red Dot,Side,40,10,IncreaseCritChangeScaled;IncreaseOverwatchAngle;LaserMark;MarkWhenFullyAimed,CritChangeScaledIncrease=10;LaserCTH=15;LaserDistance=10;LaserFullRange=5;OverwatchAngleIncrease=130,,AA12 Specific,1,jazz,working-tree
 JAZZ_M14_Default_Muzzle,Default Muzzle,Muzzle,2,-25,,,,M14 Specific,4,jazz,working-tree
 JAZZ_M16A1LaunchHandGuard,Гранатомет,Handguard,1,-10,GrenadeLauncher,,,Default,2,jazz,working-tree
 JAZZ_M70_Fld_GL,Сложенный прицел,General,,,,,,Underslung,1,jazz,working-tree
 JAZZ_M70_Grenade,Наствольная граната для М70,Muzzle,,,GrenadeLauncher,,,Underslung,1,jazz,working-tree
 JAZZ_M70_Unfld_GL,Разложенный прицел,General,,,,,,Underslung,1,jazz,working-tree
-JAZZ_MagBelt_100-200,Увеличенный короб,Magazine,100,0,IncreaseReloadAP;MagazineSizeMultiplier;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSizeMultiplier=200;ReliabilityDecrease=15;ReloadAPIncrease=2;extra_shots=5,,Clip,1,jazz,working-tree
-JAZZ_MagBelt_40-100,Короб,Magazine,50,0,IncreaseReloadAP;MagazineSizeMultiplier;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSizeMultiplier=250;ReliabilityDecrease=15;ReloadAPIncrease=2;extra_shots=5,,Clip,1,jazz,working-tree
-JAZZ_MagDrum_30-100,Бубен,Magazine,50,0,IncreaseReloadAP;MagazineSizeMultiplier;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSizeMultiplier=333;ReliabilityDecrease=15;ReloadAPIncrease=2;extra_shots=5,,Clip,2,jazz,working-tree
-JAZZ_MagDrum_30-100_cumbersome,Бубен,Magazine,50,0,IncreaseReloadAP;MagazineSizeMultiplier;ReduceAimAccuracy15Percent,MagazineSizeMultiplier=333;ReliabilityDecrease=15;ReloadAPIncrease=2;extra_shots=5,,Clip,1,jazz,working-tree
-JAZZ_MagDrum_30-50,Бубен,Magazine,50,0,IncreaseReloadAP;MagazineSizeAdd;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=20;ReliabilityDecrease=15;ReloadAPIncrease=2;extra_shots=5,,Clip,2,jazz,working-tree
-JAZZ_MagDrum_30-75,Бубен,Magazine,50,0,ExtraOverwatchShots;IncreaseReloadAP;MagazineSizeMultiplier;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSizeMultiplier=250;ReliabilityDecrease=15;ReloadAPIncrease=2;extra_shots=5,,Clip,4,jazz,working-tree
-JAZZ_MagDrum_35-71,Бубен,Magazine,50,0,IncreaseReloadAP;MagazineSizeAdd;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=36;ReliabilityDecrease=15;ReloadAPIncrease=2;extra_shots=5,,Clip,1,jazz,working-tree
-JAZZ_MagLarge,Расширенный магазин,Magazine,15,0,IncreaseReloadAP;MagazineSizeMultiplier;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSizeMultiplier=166;ReliabilityDecrease=15;ReloadAPIncrease=1,,Clip,27,jazz,working-tree
-JAZZ_MagLargeFine,Ergonomic Expanded Mag,Magazine,25,0,MagazineSizeMultiplier,MagazineSizeMultiplier=150,,Clip,3,jazz,working-tree
-JAZZ_MagLarge_10_20,Магазин на 20 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeMultiplier;ReduceReliability,MagazineSizeMultiplier=200;ReliabilityDecrease=5;ReloadAPIncrease=1;extra_shots=5,,Clip,3,jazz,working-tree
-JAZZ_MagLarge_17_33,Магазин на 33 патрона,Magazine,15,0,IncreaseReloadAP;MagazineSizeAdd;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=16;ReliabilityDecrease=15;ReloadAPIncrease=1,,Clip,1,jazz,working-tree
-JAZZ_MagLarge_18_20,Магазин на 20 патрон,Magazine,25,0,MagazineSizeMultiplier;ReduceReliability,MagazineSizeMultiplier=112;ReliabilityDecrease=5,,Clip,1,jazz,working-tree
-JAZZ_MagLarge_20_30,Магазин на 30 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeAdd;ReduceReliability,MagazineSize=10;ReliabilityDecrease=5;ReloadAPIncrease=1;extra_shots=5,,Clip,3,jazz,working-tree
-JAZZ_MagLarge_25_40,Магазин на 40 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeAdd;ReduceReliability,MagazineSize=15;ReliabilityDecrease=5;ReloadAPIncrease=1;extra_shots=5,,Clip,2,jazz,working-tree
-JAZZ_MagLarge_30_40,Магазин на 40 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeAdd;ReduceReliability,MagazineSize=10;ReliabilityDecrease=5;ReloadAPIncrease=1;extra_shots=5,,Clip,5,jazz,working-tree
-JAZZ_MagLarge_30_42,Магазин на 42 патрона,Magazine,25,0,IncreaseReloadAP;MagazineSizeAdd;ReduceReliability,MagazineSize=12;ReliabilityDecrease=5;ReloadAPIncrease=1;extra_shots=5,,Clip,1,jazz,working-tree
-JAZZ_MagLarge_30_45,Магазин на 45 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeAdd;ReduceReliability,MagazineSize=15;ReliabilityDecrease=5;ReloadAPIncrease=1;extra_shots=5,,Clip,4,jazz,working-tree
-JAZZ_MagLarge_5_10,Магазин на 10 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeMultiplier;ReduceReliability,MagazineSizeMultiplier=200;ReliabilityDecrease=5;ReloadAPIncrease=1;extra_shots=5,,Clip,1,jazz,working-tree
-JAZZ_MagLarge_7_10,Магазин на 10 патрон,Magazine,25,0,MagazineSizeMultiplier;ReduceReliability,MagazineSizeMultiplier=142;ReliabilityDecrease=5,,Clip,1,jazz,working-tree
-JAZZ_MagLarge_8_10,Магазин на 10 патрон,Magazine,25,0,MagazineSizeMultiplier;ReduceReliability,MagazineSizeMultiplier=125;ReliabilityDecrease=5,,Clip,1,jazz,working-tree
+JAZZ_MagBelt_100_200,Увеличенный короб,Magazine,100,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=200;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,1,jazz,working-tree
+JAZZ_MagBelt_40_100,Короб,Magazine,50,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=100;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,1,jazz,working-tree
+JAZZ_MagDrum_30_100,Бубен,Magazine,50,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=100;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,0,jazz,working-tree
+JAZZ_MagDrum_30_100_G3,Бубен,Magazine,50,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=100;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,6,jazz,working-tree
+JAZZ_MagDrum_30_100_HK33,Бубен,Magazine,50,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=100;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,1,jazz,working-tree
+JAZZ_MagDrum_30_100_cumbersome,Бубен,Magazine,50,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=100;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,1,jazz,working-tree
+JAZZ_MagDrum_30_50,Бубен,Magazine,50,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,0,jazz,working-tree
+JAZZ_MagDrum_30_50_THOMPSON,Бубен,Magazine,50,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,1,jazz,working-tree
+JAZZ_MagDrum_30_50_UZI,Бубен,Magazine,50,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,2,jazz,working-tree
+JAZZ_MagDrum_30_75,Бубен,Magazine,50,0,ExtraOverwatchShots;IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=75;ReliabilityDecrease=15;ReloadAPIncrease=2;extra_shots=5,,Clip,6,jazz,working-tree
+JAZZ_MagDrum_35_71,Бубен,Magazine,50,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=71;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,1,jazz,working-tree
+JAZZ_MagLargeFine,Ergonomic Expanded Mag,Magazine,25,0,MagazineSizeSet,MagazineSize=45,,Clip,2,jazz,working-tree
+JAZZ_MagLarge_10_20,Магазин на 20 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeSet,MagazineSize=20;ReloadAPIncrease=1,,Clip,0,jazz,working-tree
+JAZZ_MagLarge_10_20_SVD,Магазин на 20 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeSet,MagazineSize=20;ReloadAPIncrease=1,,Clip,3,jazz,working-tree
+JAZZ_MagLarge_10_20_VAL,Магазин на 20 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeSet,MagazineSize=20;ReloadAPIncrease=1,,Clip,2,jazz,working-tree
+JAZZ_MagLarge_13,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=13;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,0,jazz,working-tree
+JAZZ_MagLarge_13_PISTOL_52,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=13;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,4,jazz,working-tree
+JAZZ_MagLarge_13_PISTOL_DE,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=13;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,1,jazz,working-tree
+JAZZ_MagLarge_17_33,Магазин на 33 патрона,Magazine,25,0,IncreaseReloadAP;MagazineSizeSet,MagazineSize=33;ReloadAPIncrease=1,,Clip,1,jazz,working-tree
+JAZZ_MagLarge_18_20,Магазин на 20 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeSet,MagazineSize=20;ReloadAPIncrease=1,,Clip,2,jazz,working-tree
+JAZZ_MagLarge_20_30,Магазин на 30 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeSet,MagazineSize=30;ReloadAPIncrease=1,,Clip,0,jazz,working-tree
+JAZZ_MagLarge_20_30_FAL,Магазин на 30 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeSet,MagazineSize=30;ReloadAPIncrease=1,,Clip,1,jazz,working-tree
+JAZZ_MagLarge_20_30_MINI14,Магазин на 30 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeSet,MagazineSize=30;ReloadAPIncrease=1,,Clip,1,jazz,working-tree
+JAZZ_MagLarge_20_30_UZI,Магазин на 30 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeSet,MagazineSize=30;ReloadAPIncrease=1,,Clip,2,jazz,working-tree
+JAZZ_MagLarge_25,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=25;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,0,jazz,working-tree
+JAZZ_MagLarge_25_40,Магазин на 40 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeSet,MagazineSize=40;ReloadAPIncrease=1,,Clip,2,jazz,working-tree
+JAZZ_MagLarge_25_AA12,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=25;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,1,jazz,working-tree
+JAZZ_MagLarge_25_PISTOL_9,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=25;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,7,jazz,working-tree
+JAZZ_MagLarge_25_USAS,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=25;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,1,jazz,working-tree
+JAZZ_MagLarge_27,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=27;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,3,jazz,working-tree
+JAZZ_MagLarge_28,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=28;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,1,jazz,working-tree
+JAZZ_MagLarge_30_40,Магазин на 40 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeSet,MagazineSize=40;ReloadAPIncrease=1,,Clip,6,jazz,working-tree
+JAZZ_MagLarge_30_42,Магазин на 42 патрона,Magazine,25,0,IncreaseReloadAP;MagazineSizeSet,MagazineSize=42;ReloadAPIncrease=1,,Clip,1,jazz,working-tree
+JAZZ_MagLarge_30_45,Магазин на 45 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeSet,MagazineSize=45;ReloadAPIncrease=1,,Clip,4,jazz,working-tree
+JAZZ_MagLarge_50,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,0,jazz,working-tree
+JAZZ_MagLarge_50_AR15,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,7,jazz,working-tree
+JAZZ_MagLarge_50_MP40,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,1,jazz,working-tree
+JAZZ_MagLarge_50_MP5,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,5,jazz,working-tree
+JAZZ_MagLarge_50_SIG,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,6,jazz,working-tree
+JAZZ_MagLarge_5_10,Магазин на 10 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeSet,MagazineSize=10;ReloadAPIncrease=1,,Clip,1,jazz,working-tree
+JAZZ_MagLarge_7_10,Магазин на 10 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeSet,MagazineSize=10;ReloadAPIncrease=1,,Clip,1,jazz,working-tree
+JAZZ_MagLarge_8,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=8;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,0,jazz,working-tree
+JAZZ_MagLarge_8_10,Магазин на 10 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeSet,MagazineSize=10;ReloadAPIncrease=1,,Clip,1,jazz,working-tree
+JAZZ_MagLarge_8_BARRET,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=8;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,1,jazz,working-tree
+JAZZ_MagLarge_8_PISTOL_52,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=8;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,4,jazz,working-tree
+JAZZ_MagLarge_8_PSG1,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=8;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,1,jazz,working-tree
 JAZZ_MagNormal,Заводской магазин,Magazine,25,0,,,,Clip,108,jazz,working-tree
-JAZZ_MagNormalFine,Fine-Tuned Mag,Magazine,15,0,IncreaseReliability,ReliabilityIncrease=10,,Clip,6,jazz,working-tree
-JAZZ_MagNormalG18,Магазин на 20 патрон,Magazine,25,0,,MagazineSizeMultiplier=117,,Clip,2,jazz,working-tree
-JAZZ_MagQuick,Quick Mag,Magazine,15,0,ReduceReloadAP,ReloadAPDecrease=1,,Clip,8,jazz,working-tree
-JAZZ_MagSmall20_10,Магазин на 10 патрон,Magazine,15,0,IncreaseReliability;ReduceMagazineSize;ReduceReloadAP,MagazineSizeDecrease=10;ReliabilityIncrease=15;ReloadAPDecrease=1,,Clip,5,jazz,working-tree
-JAZZ_MagSmall30_15,Магазин на 15 патрон,Magazine,15,0,IncreaseReliability;ReduceMagazineSize;ReduceReloadAP,MagazineSizeDecrease=15;ReliabilityIncrease=15;ReloadAPDecrease=1,,Clip,6,jazz,working-tree
-JAZZ_MagSmall30_20,Магазин на 20 патрон,Magazine,15,0,IncreaseReliability;ReduceMagazineSize;ReduceReloadAP,MagazineSizeDecrease=10;ReliabilityIncrease=15;ReloadAPDecrease=1,,Clip,4,jazz,working-tree
-JAZZ_MuzzleBooster,Recoil Booster,Muzzle,15,0,,,,Muzzle,3,jazz,working-tree
-JAZZ_MuzzleBooster_Glock18,Default Chamber,Handguard,15,0,,,,Glock18 Specific,1,jazz,working-tree
-JAZZ_NightScope,Ночной прицел (5х),Scope,100,10,IgnoreInTheDarkWhenFullyAimed;IncreaseShotAP;ScopeMagnification,ScopeAimLevel=3;ScopeMagnification=5;ShotAP=1,,Scope,47,jazz,working-tree
+JAZZ_MagNormalFine,Fine-Tuned Mag,Magazine,15,0,IncreaseReliability,ReliabilityIncrease=10,,Clip,0,jazz,working-tree
+JAZZ_MagNormalFine_AR15,Fine-Tuned Mag,Magazine,15,0,IncreaseReliability,ReliabilityIncrease=10,,Clip,7,jazz,working-tree
+JAZZ_MagNormalFine_FAL,Fine-Tuned Mag,Magazine,15,0,IncreaseReliability,ReliabilityIncrease=10,,Clip,1,jazz,working-tree
+JAZZ_MagNormalFine_M14,Fine-Tuned Mag,Magazine,15,0,IncreaseReliability,ReliabilityIncrease=10,,Clip,3,jazz,working-tree
+JAZZ_MagNormalFine_PISTOL_9,Fine-Tuned Mag,Magazine,15,0,IncreaseReliability,ReliabilityIncrease=10,,Clip,2,jazz,working-tree
+JAZZ_MagNormalFine_PSG1,Fine-Tuned Mag,Magazine,15,0,IncreaseReliability,ReliabilityIncrease=10,,Clip,1,jazz,working-tree
+JAZZ_MagNormalG18,Магазин на 20 патрон,Magazine,25,0,MagazineSizeSet,MagazineSize=20,,Clip,2,jazz,working-tree
+JAZZ_MagQuick,Quick Mag,Magazine,15,0,ReduceReloadAP,ReloadAPDecrease=1,,Clip,0,jazz,working-tree
+JAZZ_MagQuick_AK,Quick Mag,Magazine,15,0,ReduceReloadAP,ReloadAPDecrease=1,,Clip,10,jazz,working-tree
+JAZZ_MagQuick_AR15,Quick Mag,Magazine,15,0,ReduceReloadAP,ReloadAPDecrease=1,,Clip,7,jazz,working-tree
+JAZZ_MagQuick_AUG,Quick Mag,Magazine,15,0,ReduceReloadAP,ReloadAPDecrease=1,,Clip,1,jazz,working-tree
+JAZZ_MagQuick_G36,Quick Mag,Magazine,15,0,ReduceReloadAP,ReloadAPDecrease=1,,Clip,2,jazz,working-tree
+JAZZ_MagQuick_GALIL,Quick Mag,Magazine,15,0,ReduceReloadAP,ReloadAPDecrease=1,,Clip,1,jazz,working-tree
+JAZZ_MagQuick_MP5,Quick Mag,Magazine,15,0,ReduceReloadAP,ReloadAPDecrease=1,,Clip,5,jazz,working-tree
+JAZZ_MagSmall20_10,Магазин на 10 патрон,Magazine,15,0,IncreaseReliability;MagazineSizeSet;ReduceReloadAP,MagazineSize=10;ReliabilityIncrease=15;ReloadAPDecrease=1,,Clip,0,jazz,working-tree
+JAZZ_MagSmall20_10_G3,Магазин на 10 патрон,Magazine,15,0,IncreaseReliability;MagazineSizeSet;ReduceReloadAP,MagazineSize=10;ReliabilityIncrease=15;ReloadAPDecrease=1,,Clip,6,jazz,working-tree
+JAZZ_MagSmall20_10_M14,Магазин на 10 патрон,Magazine,15,0,IncreaseReliability;MagazineSizeSet;ReduceReloadAP,MagazineSize=10;ReliabilityIncrease=15;ReloadAPDecrease=1,,Clip,3,jazz,working-tree
+JAZZ_MagSmall30_15,Магазин на 15 патрон,Magazine,15,0,IncreaseReliability;MagazineSizeSet;ReduceReloadAP,MagazineSize=15;ReliabilityIncrease=15;ReloadAPDecrease=1,,Clip,0,jazz,working-tree
+JAZZ_MagSmall30_15_M2CARBINE,Магазин на 15 патрон,Magazine,15,0,IncreaseReliability;MagazineSizeSet;ReduceReloadAP,MagazineSize=15;ReliabilityIncrease=15;ReloadAPDecrease=1,,Clip,1,jazz,working-tree
+JAZZ_MagSmall30_15_MP5,Магазин на 15 патрон,Magazine,15,0,IncreaseReliability;MagazineSizeSet;ReduceReloadAP,MagazineSize=15;ReliabilityIncrease=15;ReloadAPDecrease=1,,Clip,5,jazz,working-tree
+JAZZ_MagSmall30_15_TMP,Магазин на 15 патрон,Magazine,15,0,IncreaseReliability;MagazineSizeSet;ReduceReloadAP,MagazineSize=15;ReliabilityIncrease=15;ReloadAPDecrease=1,,Clip,1,jazz,working-tree
+JAZZ_MagSmall30_20,Магазин на 20 патрон,Magazine,15,0,IncreaseReliability;MagazineSizeSet;ReduceReloadAP,MagazineSize=20;ReliabilityIncrease=15;ReloadAPDecrease=1,,Clip,4,jazz,working-tree
+JAZZ_MuzzleBooster_Glock18,Default Chamber,Handguard,15,0,ExtraBurstShots,,,Glock18 Specific,1,jazz,working-tree
+JAZZ_NightScope,Ночной прицел (5х),Scope,100,10,IgnoreInTheDarkWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecrease,OpticMinRange=9;OpticNearFactor=70;ScopeAimLevel=3;ScopeMagnification=5;ScopeOverwatchAngle=60;ShotAP=1,,Scope,47,jazz,working-tree
 JAZZ_NightScope_M3,Ночной прицел (5х),Scope,100,10,IgnoreInTheDarkWhenFullyAimed;IncreaseShotAP;ScopeMagnification,ScopeAimLevel=3;ScopeMagnification=1;ScopeSubMagnification=5;ShotAP=1,,Scope,1,jazz,working-tree
-JAZZ_NightScope_NSPU,Ночной прицел НСПУ (3.5х),Scope,100,10,IgnoreInTheDarkWhenFullyAimed;IncreaseShotAP;ScopeMagnification,ScopeAimLevel=3;ScopeMagnification=3;ScopeSubMagnification=5;ShotAP=1,,Scope,8,jazz,working-tree
+JAZZ_NightScope_NSPU,Ночной прицел НСПУ (3.5х),Scope,100,10,IgnoreInTheDarkWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecrease,OpticMinRange=7;OpticNearFactor=80;ScopeAimLevel=3;ScopeMagnification=3;ScopeOverwatchAngle=70;ShotAP=1,,Scope,8,jazz,working-tree
 JAZZ_PKMDefHandGrip,Заводская рукоять ПКМ,Handguard,,,,,,Default,1,jazz,working-tree
 JAZZ_PKMModHandGrip,Модифицированная рукоять ПКМ,Handguard,,,,,,Default,1,jazz,working-tree
 JAZZ_PKMModStock,Кастомный приклад ПКМ,Stock,,,,,,Default,1,jazz,working-tree
-JAZZ_PistolSuppressor,Глушитель,Muzzle,10,-10,RecoilDecrease;ReduceReliability;SilencerGroupingReduce10;SilentShots;StealthKillBonusPerAim,NoiseMultiplier=15;RangeDecrease=3;Recoil=1;ReliabilityDecrease=5;crit=25;stealth_kill_bonus=80,,Muzzle,25,jazz,working-tree
+JAZZ_PistolSuppressor,Глушитель,Muzzle,35,-10,ReduceReliability;SilencerGroupingReduce10;SilentShots;StealthKillBonusPerAim,NoiseMultiplier=20;ReliabilityDecrease=5;stealth_kill_bonus=70,,Muzzle,25,jazz,working-tree
 JAZZ_RPK74_Hanguard_Basic,Default Handguard,Handguard,,-25,,,,RPK 74 Specific,2,jazz,working-tree
-JAZZ_RPK74_VerticalGrip,Vertical Grip,Handguard,40,20,RecoilDecrease,Recoil=1,,RPK 74 Specific,2,jazz,working-tree
-JAZZ_Reflex_Aimpoint5000,Коллиматор Aimpoint5000,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;MinAim;OpportunityAttackBonusCth;ScopeOverwatchAngleIncreace,MaxAimActionsDecrease=1;OverwatchAngleIncrease=120;extra_attacks=1,,Scope,47,jazz,working-tree
-JAZZ_Reflex_Closed,Коллиматор Закрытый,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;MinAim;OpportunityAttackBonusCth;ScopeOverwatchAngleIncreace,MaxAimActionsDecrease=1;OverwatchAngleIncrease=120;extra_attacks=1,,Scope,52,jazz,working-tree
-JAZZ_Reflex_Cobra,Коллиматор Кобра,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;MinAim;ScopeOverwatchAngleIncreaceBig,MaxAimActionsDecrease=1;OverwatchAngleIncrease=120;extra_attacks=1,,Scope,8,jazz,working-tree
-JAZZ_Reflex_Eotech,Коллиматор Eotech,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;MinAim;OpportunityAttackBonusCth;ScopeOverwatchAngleIncreaceBig,MaxAimActionsDecrease=1;OverwatchAngleIncrease=120;extra_attacks=1,,Scope,52,jazz,working-tree
-JAZZ_Reflex_Garand,Коллиматор,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;MinAim;OpportunityAttackBonusCth;ScopeOverwatchAngleIncreace,MaxAimActionsDecrease=1;OverwatchAngleIncrease=120;extra_attacks=1,,Scope,1,jazz,working-tree
-JAZZ_Reflex_M68,Коллиматор Aimpoint M68,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;MinAim;OpportunityAttackBonusCth;ScopeOverwatchAngleIncreace,MaxAimActionsDecrease=1;OverwatchAngleIncrease=120;extra_attacks=1,,Scope,51,jazz,working-tree
-JAZZ_Reflex_Open,Коллиматор Компактный,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;MinAim;OpportunityAttackBonusCth;ScopeOverwatchAngleIncreaceBig,MaxAimActionsDecrease=1;OverwatchAngleIncrease=120;extra_attacks=1,,Scope,17,jazz,working-tree
-JAZZ_Reflex_PKAS,Коллиматор ПК-АА,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;MinAim;OpportunityAttackBonusCth;ScopeOverwatchAngleIncreace,MaxAimActionsDecrease=1;OverwatchAngleIncrease=120;extra_attacks=1,,Scope,8,jazz,working-tree
-JAZZ_Reflex_Pistol,Коллиматор Пистолетный,Scope,50,0,DecreaseMaxAimActions;ExtraOverwatchShots;MinAim;OpportunityAttackBonusCth;ScopeOverwatchAngleIncreaceBig,MaxAimActionsDecrease=1;OverwatchAngleIncrease=120;extra_attacks=1,,Scope,5,jazz,working-tree
-JAZZ_Scope_12x,Оптический Прицел Leupold Mark 4 (12x),Scope,50,0,CritBonusWhenFullyAimed;IncreaseMaxAimActions;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,IncreaseMaxAimActions=1;ScopeAimLevel=4;ScopeMagnification=10;ShotAP=1,,Scope,48,jazz,working-tree
-JAZZ_Scope_3x_9x,Оптический Прицел Redfield (3-9x),Scope,50,0,CritBonusWhenFullyAimed;IncreaseMaxAimActions;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig;SmallMagnification,IncreaseMaxAimActions=1;ScopeAimLevel=4;ScopeMagnification=9;ShotAP=1;SmallAimLevel=2;SmallMagnification=3,,Scope,2,jazz,working-tree
-JAZZ_Scope_6x,Оптический Прицел 1-6x,Scope,50,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,ScopeAimLevel=3;ScopeMagnification=6;ShotAP=1,,Scope,48,jazz,working-tree
-JAZZ_Scope_8x_SCROME,Оптический Прицел 8x,Scope,50,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,IncreaseMaxAimActions=1;ScopeAimLevel=3;ScopeMagnification=8;ShotAP=1,,Scope,1,jazz,working-tree
-JAZZ_Scope_DA15_6x,Оптический Прицел Zeiss Diavari-DA (1.5-6x),Scope,50,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig;SmallMagnification,ScopeAimLevel=3;ScopeMagnification=6;ShotAP=1;SmallAimLevel=1;SmallMagnification=1;SmallSubMagnification=5,,Scope,9,jazz,working-tree
-JAZZ_Scope_Garand,Оптический Прицел M84 (2.2x),Scope,50,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,ScopeAimLevel=2;ScopeMagnification=2;ScopeSubMagnification=2;ShotAP=1,,Scope,1,jazz,working-tree
-JAZZ_Scope_PSG,Оптический Прицел Hensoldt ZF PSG1 (6x),Scope,50,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,ScopeAimLevel=3;ScopeMagnification=6;ShotAP=1,,Scope,1,jazz,working-tree
-JAZZ_Scope_PSO,Оптический Прицел ПСО (4x),Scope,50,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,ScopeAimLevel=3;ScopeMagnification=4;ShotAP=1,,Scope,8,jazz,working-tree
-JAZZ_Scope_PU,Оптический Прицел ПУ (3.5x),Scope,50,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,IncreaseMaxAimActions=1;ScopeAimLevel=2;ScopeMagnification=3;ScopeSubMagnification=5;ShotAP=1,,Scope,2,jazz,working-tree
-JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),Scope,50,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig;SmallMagnification,ScopeAimLevel=3;ScopeMagnification=7;ShotAP=1;SmallAimLevel=1;SmallMagnification=2,,Scope,48,jazz,working-tree
-JAZZ_Scope_Springfield,Оптический Прицел (2.75x),Scope,50,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,IncreaseMaxAimActions=1;ScopeAimLevel=3;ScopeMagnification=2;ScopeSubMagnification=7;ShotAP=1,,Scope,1,jazz,working-tree
-JAZZ_Scope_ZF4,Оптический Прицел ZF4 (4x),Scope,50,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,IncreaseMaxAimActions=1;ScopeAimLevel=3;ScopeMagnification=4;ShotAP=1,,Scope,4,jazz,working-tree
-JAZZ_Scope_ZRAK,Оптический Прицел ZRAK (4x),Scope,50,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,IncreaseMaxAimActions=1;ScopeAimLevel=3;ScopeMagnification=4;ShotAP=1,,Scope,1,jazz,working-tree
+JAZZ_RPK74_VerticalGrip,Vertical Grip,Handguard,15,0,RecoilDecrease,Recoil=1,,RPK 74 Specific,2,jazz,working-tree
+JAZZ_Reflex_Aimpoint5000,Коллиматор Aimpoint5000,Scope,35,-10,CloseRangeFactorIncrease;DecreaseMaxAimActions;MinAim,AimAccuracyAimLevel=1;AimAccuracyPercent=120;CloseRangeFactorIncrease=15;MaxAimActionsDecrease=1,,Scope,47,jazz,working-tree
+JAZZ_Reflex_Closed,Коллиматор Закрытый,Scope,50,0,CloseRangeFactorIncrease;DecreaseMaxAimActions;MinAim,AimAccuracyAimLevel=1;AimAccuracyPercent=135;CloseRangeFactorIncrease=20;MaxAimActionsDecrease=1,,Scope,52,jazz,working-tree
+JAZZ_Reflex_Cobra,Коллиматор Кобра,Scope,35,-10,CloseRangeFactorIncrease;DecreaseMaxAimActions;ExtraOverwatchShots;MinAim;ScopeOverwatchAngleIncreaceBig,CloseRangeFactorIncrease=15;MaxAimActionsDecrease=1;ScopeOverwatchAngle=140;extra_attacks=1,,Scope,8,jazz,working-tree
+JAZZ_Reflex_Eotech,Коллиматор Eotech,Scope,90,10,CloseRangeFactorIncrease;DecreaseMaxAimActions;ExtraOverwatchShots;MinAim;OpportunityAttackBonusCth;ScopeOverwatchAngleIncreaceBig,AimAccuracyAimLevel=1;AimAccuracyPercent=135;CloseRangeFactorIncrease=20;MaxAimActionsDecrease=1;ScopeOverwatchAngle=145;bonus_cth=8;extra_attacks=1,,Scope,52,jazz,working-tree
+JAZZ_Reflex_Garand,Коллиматор,Scope,30,-15,CloseRangeFactorIncrease;DecreaseMaxAimActions;MinAim,AimAccuracyAimLevel=1;AimAccuracyPercent=120;CloseRangeFactorIncrease=15;MaxAimActionsDecrease=1,,Scope,1,jazz,working-tree
+JAZZ_Reflex_M68,Коллиматор Aimpoint M68,Scope,75,10,CloseRangeFactorIncrease;DecreaseMaxAimActions;MinAim,AimAccuracyAimLevel=1;AimAccuracyPercent=150;CloseRangeFactorIncrease=25;MaxAimActionsDecrease=1,,Scope,51,jazz,working-tree
+JAZZ_Reflex_Open,Коллиматор Компактный,Scope,50,0,CloseRangeFactorIncrease;DecreaseMaxAimActions;ExtraOverwatchShots;MinAim;OpportunityAttackBonusCth;ScopeOverwatchAngleIncreaceBig,CloseRangeFactorIncrease=15;MaxAimActionsDecrease=1;ScopeOverwatchAngle=150;bonus_cth=8;extra_attacks=2,,Scope,17,jazz,working-tree
+JAZZ_Reflex_PKAS,Коллиматор ПК-АА,Scope,100,15,CloseRangeFactorIncrease;DecreaseMaxAimActions;MinAim,AimAccuracyAimLevel=1;AimAccuracyPercent=160;CloseRangeFactorIncrease=35;MaxAimActionsDecrease=1,,Scope,8,jazz,working-tree
+JAZZ_Reflex_Pistol,Коллиматор Пистолетный,Scope,45,0,CloseRangeFactorIncrease;DecreaseMaxAimActions;ExtraOverwatchShots;MinAim;OpportunityAttackBonusCth;ScopeOverwatchAngleIncreaceBig,CloseRangeFactorIncrease=15;MaxAimActionsDecrease=1;ScopeOverwatchAngle=150;bonus_cth=8;extra_attacks=2,,Scope,5,jazz,working-tree
+JAZZ_Scope_12x,Оптический Прицел Leupold Mark 4 (12x),Scope,130,10,CritBonusWhenFullyAimed;IncreaseMaxAimActions;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,AimAccuracyAimLevel=4;AimAccuracyPercent=125;IncreaseMaxAimActions=1;OpticMinRange=14;OpticNearFactor=40;ScopeAimLevel=4;ScopeMagnification=10;ScopeOverwatchAngle=42;ShotAP=1,,Scope,48,jazz,working-tree
+JAZZ_Scope_3x_9x,Оптический Прицел Redfield (3-9x),Scope,110,0,CritBonusWhenFullyAimed;IncreaseMaxAimActions;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig;SmallMagnification,AimAccuracyAimLevel=4;AimAccuracyPercent=120;IncreaseMaxAimActions=1;OpticMinRange=13;OpticNearFactor=48;ScopeAimLevel=4;ScopeMagnification=9;ScopeOverwatchAngle=45;ShotAP=1;SmallAimLevel=1;SmallMagnification=3,,Scope,2,jazz,working-tree
+JAZZ_Scope_6x,Оптический Прицел 1-6x,Scope,80,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig;SmallMagnification,AimAccuracyAimLevel=3;AimAccuracyPercent=115;OpticMinRange=10;OpticNearFactor=62;ScopeAimLevel=3;ScopeMagnification=6;ScopeOverwatchAngle=55;ShotAP=1;SmallAimLevel=1;SmallMagnification=1,,Scope,48,jazz,working-tree
+JAZZ_Scope_8x_SCROME,Оптический Прицел 8x,Scope,100,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,AimAccuracyAimLevel=3;AimAccuracyPercent=120;OpticMinRange=13;OpticNearFactor=50;ScopeAimLevel=3;ScopeMagnification=8;ScopeOverwatchAngle=48;ShotAP=1,,Scope,1,jazz,working-tree
+JAZZ_Scope_DA15_6x,Оптический Прицел Zeiss Diavari-DA (1.5-6x),Scope,80,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig;SmallMagnification,AimAccuracyAimLevel=3;AimAccuracyPercent=115;OpticMinRange=10;OpticNearFactor=62;ScopeAimLevel=3;ScopeMagnification=6;ScopeOverwatchAngle=55;ShotAP=1;SmallAimLevel=1;SmallMagnification=1;SmallSubMagnification=5,,Scope,9,jazz,working-tree
+JAZZ_Scope_Garand,Оптический Прицел M84 (2.2x),Scope,40,-15,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,AimAccuracyAimLevel=2;AimAccuracyPercent=110;OpticMinRange=5;OpticNearFactor=88;ScopeAimLevel=2;ScopeMagnification=2;ScopeOverwatchAngle=82;ShotAP=1,,Scope,1,jazz,working-tree
+JAZZ_Scope_PSG,Оптический Прицел Hensoldt ZF PSG1 (6x),Scope,50,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,ScopeAimLevel=3;ScopeMagnification=6;ScopeOverwatchAngle=55;ShotAP=1,,Scope,1,jazz,working-tree
+JAZZ_Scope_PSO,Оптический Прицел ПСО (4x),Scope,60,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,AimAccuracyAimLevel=3;AimAccuracyPercent=155;OpticMinRange=8;OpticNearFactor=78;ScopeAimLevel=3;ScopeMagnification=4;ScopeOverwatchAngle=65;ShotAP=1,,Scope,8,jazz,working-tree
+JAZZ_Scope_PU,Оптический Прицел ПУ (3.5x),Scope,40,-10,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,AimAccuracyAimLevel=2;AimAccuracyPercent=112;OpticMinRange=6;OpticNearFactor=85;ScopeAimLevel=2;ScopeMagnification=3;ScopeOverwatchAngle=75;ShotAP=1,,Scope,2,jazz,working-tree
+JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),Scope,100,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig;SmallMagnification,AimAccuracyAimLevel=3;AimAccuracyPercent=120;OpticMinRange=12;OpticNearFactor=55;ScopeAimLevel=3;ScopeMagnification=7;ScopeOverwatchAngle=52;ShotAP=1;SmallAimLevel=1;SmallMagnification=2,,Scope,48,jazz,working-tree
+JAZZ_Scope_Springfield,Оптический Прицел (2.75x),Scope,45,-10,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,AimAccuracyAimLevel=2;AimAccuracyPercent=110;OpticMinRange=5;OpticNearFactor=88;ScopeAimLevel=2;ScopeMagnification=2;ScopeOverwatchAngle=80;ShotAP=1,,Scope,1,jazz,working-tree
+JAZZ_Scope_ZF4,Оптический Прицел ZF4 (4x),Scope,60,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,AimAccuracyAimLevel=3;AimAccuracyPercent=155;OpticMinRange=8;OpticNearFactor=78;ScopeAimLevel=3;ScopeMagnification=4;ScopeOverwatchAngle=65;ShotAP=1,,Scope,4,jazz,working-tree
+JAZZ_Scope_ZRAK,Оптический Прицел ZRAK (4x),Scope,50,0,CritBonusWhenFullyAimed;IncreaseShotAP;ScopeMagnification;ScopeOverwatchAngleDecreaseBig,IncreaseMaxAimActions=1;ScopeAimLevel=3;ScopeMagnification=4;ScopeOverwatchAngle=65;ShotAP=1,,Scope,1,jazz,working-tree
 JAZZ_SigDefHandGuard,Заводская рукоять Sig,Handguard,,,,,,Underslung,4,jazz,working-tree
-JAZZ_SigErgoHandGrip,Эргономичная рукоять для Sig,Handguard,,,RecoilDecrease,Recoil=1,,Underslung,4,jazz,working-tree
+JAZZ_SigErgoHandGrip,Эргономичная рукоять для Sig,Handguard,15,0,IncreaseAimAccuracy15Percent,AimAccuracyPercent=105,,Underslung,4,jazz,working-tree
 JAZZ_SpeedLoader,Ускорение перезарядки,Side2,30,0,ReduceReloadAP,ReloadAPDecrease=2,,Muzzle,1,jazz,working-tree
-JAZZ_StockFolded,Folded Stock,Stock,50,20,ExtraOverwatchShots;ReduceAimAccuracy,accuracy_penalty=-50;crit_display=15;extra_attacks=1,,Stock,1,jazz,working-tree
-JAZZ_StockHeavy,Heavy Stock,Stock,40,20,IncreaseAimAccuracy15Percent,bonus_cth=10;range=10,,Stock,14,jazz,working-tree
-JAZZ_StockLight,Light Stock,Stock,150,20,RecoilIncrease,Recoil=1,,Stock,9,jazz,working-tree
-JAZZ_StockLightFolded,Складной приклад (Сложенный),Stock,50,20,DecreaseMaxAimActions;ExtraOverwatchShots;RecoilIncrease;ReduceAimAccuracy90Percent;ReduceShootAP;zzStockEquipped,MaxAimActionsDecrease=1;Recoil=5;ShootAPDecrease=1,,Stock,31,jazz,working-tree
-JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),Stock,50,20,zzStockEquipped,,,Stock,31,jazz,working-tree
-JAZZ_StockNo,No Stock,Stock,15,20,ExtraOverwatchShots;RecoilIncrease;ReduceAimAccuracy90Percent;ReduceShootAP,Recoil=5;ShootAPDecrease=1;accuracy_penalty=-50;crit_display=15;extra_attacks=1,,Stock,4,jazz,working-tree
-JAZZ_StockNormal,Default Stock,Stock,50,0,IncreaseAimAccuracy15Percent;RecoilDecrease,Recoil=1,,Stock,29,jazz,working-tree
-JAZZ_Suppressor,Suppressor,Muzzle,10,0,RecoilDecrease;ReduceReliability;SilencerGroupingReduce30;SilencerJamChance;SilentShots;StealthKillBonusPerAim,NoiseMultiplier=33;RangeDecrease=8;Recoil=1;ReliabilityDecrease=10;crit=25;stealth_kill_bonus=50,,Muzzle,40,jazz,working-tree
-JAZZ_SuppressorImproved,Улучшенный глушитель,Muzzle,10,10,RecoilDecrease;ReduceReliability;SilencerGroupingReduce10;SilentShots;StealthKillBonusPerAim,NoiseMultiplier=25;RangeDecrease=5;Recoil=2;ReliabilityDecrease=5;crit=25;stealth_kill_bonus=20,,Muzzle,24,jazz,working-tree
-JAZZ_SuppressorIntegrated,Глушитель Интегрированный,Muzzle,10,0,StealthKillBonusPerAim,stealth_kill_bonus=30,,Muzzle,6,jazz,working-tree
-JAZZ_TacGrip,Tactical Grip,Under,20,10,RecoilDecrease,Recoil=1;accuracy=5,,Underslung,10,jazz,working-tree
-JAZZ_TacGrip_M14,Tactical Grip,Under,20,10,FreeWeaponSwap,accuracy=5,,M14 Specific,3,jazz,working-tree
+JAZZ_StockFolded,Folded Stock,Stock,20,0,ExtraOverwatchShots;RecoilIncrease;ReduceAimAccuracy15Percent;ReduceShootAP,AimAccuracyPercent=85;Recoil=5;ShootAPDecrease=1;extra_attacks=2,,Stock,1,jazz,working-tree
+JAZZ_StockHeavy,Heavy Stock,Stock,40,10,IncreaseAimAccuracy15Percent;RecoilDecrease,AimAccuracyPercent=115;Recoil=5,,Stock,14,jazz,working-tree
+JAZZ_StockLight,Light Stock,Stock,20,0,RecoilIncrease,Recoil=2,,Stock,9,jazz,working-tree
+JAZZ_StockLightFolded,Складной приклад (Сложенный),Stock,20,0,DecreaseMaxAimActions;ExtraOverwatchShots;RecoilIncrease;ReduceAimAccuracy15Percent;ReduceShootAP;zzStockEquipped,AimAccuracyPercent=85;MaxAimActionsDecrease=1;Recoil=5;ShootAPDecrease=1;extra_attacks=2,,Stock,31,jazz,working-tree
+JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),Stock,20,0,RecoilIncrease;zzStockEquipped,Recoil=2,,Stock,31,jazz,working-tree
+JAZZ_StockNo,No Stock,Stock,15,10,ExtraOverwatchShots;RecoilIncrease;ReduceAimAccuracy15Percent;ReduceShootAP,AimAccuracyPercent=85;Recoil=5;ShootAPDecrease=1;extra_attacks=2,,Stock,4,jazz,working-tree
+JAZZ_StockNormal,Default Stock,Stock,25,0,,,,Stock,29,jazz,working-tree
+JAZZ_Suppressor,Suppressor,Muzzle,40,0,ReduceReliability;SilencerGroupingReduce30;SilencerJamChance;SilentShots;StealthKillBonusPerAim,NoiseMultiplier=33;ReliabilityDecrease=10;stealth_kill_bonus=55,,Muzzle,40,jazz,working-tree
+JAZZ_SuppressorImproved,Улучшенный глушитель,Muzzle,75,10,ReduceReliability;SilencerGroupingReduce10;SilentShots;StealthKillBonusPerAim,NoiseMultiplier=25;ReliabilityDecrease=5;stealth_kill_bonus=80,,Muzzle,24,jazz,working-tree
+JAZZ_SuppressorIntegrated,Глушитель Интегрированный,Muzzle,10,0,SilentShots;StealthKillBonusPerAim,NoiseMultiplier=30;stealth_kill_bonus=50,,Muzzle,6,jazz,working-tree
+JAZZ_TacGrip,Tactical Grip,Under,10,0,CloseRangeFactorIncrease,CloseRangeFactorIncrease=5,,Underslung,10,jazz,working-tree
+JAZZ_TacGrip_M14,Tactical Grip,Under,10,0,CloseRangeFactorIncrease,CloseRangeFactorIncrease=5,,M14 Specific,3,jazz,working-tree
 JAZZ_Type56Bayo,Штык-нож,Under,30,0,zzStockEquipped,,,Type56,1,jazz,working-tree
 JAZZ_Type56BayoF,Штык-нож,Under,30,0,zzStockEquipped,,,Type56,1,jazz,working-tree
 JAZZ_U100Handle,Рукоять удержания,Mountfront,,,,,,Default,1,jazz,working-tree
-JAZZ_UVDot,UV Dot,Side,10,10,MinAim,,,Side,42,jazz,working-tree
-JAZZ_UVDot_Anaconda,UV Dot,Scope,10,10,MinAim,,,Anaconda Specific,1,jazz,working-tree
-JAZZ_UVDot_PSG_M1,UV Dot,Side,10,10,MinAim,,,PSG1-Specific,1,jazz,working-tree
-JAZZ_UVDot_aa12,UV Dot,Side,10,10,MinAim,,,AA12 Specific,1,jazz,working-tree
-JAZZ_UnfoldBipod,Разложенная сошка,Bipod,,,AccuracyBonusProne;ShotsBeforeRecoilProne,,,Default,2,jazz,working-tree
+JAZZ_UVDot,UV Dot,Side,25,10,LaserMark;StealthKillBonusPerAim,LaserCTH=12;LaserDistance=8;LaserFullRange=5;NightOnly=1;stealth_kill_bonus=5,,Side,41,jazz,working-tree
+JAZZ_UVDot_Anaconda,UV Dot,Scope,25,10,LaserMark;StealthKillBonusPerAim,LaserCTH=12;LaserDistance=8;LaserFullRange=5;NightOnly=1;stealth_kill_bonus=5,,Anaconda Specific,1,jazz,working-tree
+JAZZ_UVDot_PSG_M1,UV Dot,Side,25,10,LaserMark;StealthKillBonusPerAim,LaserCTH=12;LaserDistance=8;LaserFullRange=5;NightOnly=1;stealth_kill_bonus=5,,PSG1-Specific,1,jazz,working-tree
+JAZZ_UVDot_aa12,UV Dot,Side,25,10,LaserMark;StealthKillBonusPerAim,LaserCTH=12;LaserDistance=8;LaserFullRange=5;NightOnly=1;stealth_kill_bonus=5,,AA12 Specific,1,jazz,working-tree
 JAZZ_UnfoldStocks,Разложенный приклад,Stock,,,,,,Default,2,jazz,working-tree
-JAZZ_VerticalGrip,Vertical Grip,Under,40,20,RecoilDecrease,Recoil=1,,Underslung,16,jazz,working-tree
-JAZZ_VerticalGripFld,Вертикальная рукоять (Сложенная),Under,40,20,,Recoil=1,,Underslung,1,jazz,working-tree
-JAZZ_VerticalGrip_Commando,Vertical Grip,Under,40,20,FirstAimBonusModifier,,,M4 Commando Specific,1,jazz,working-tree
-JAZZ_VerticalGrip_M14,Vertical Grip,Under,40,20,RecoilDecrease,Recoil=1,,M14 Specific,3,jazz,working-tree
+JAZZ_VerticalGrip,Vertical Grip,Under,15,0,RecoilDecrease,Recoil=1,,Underslung,16,jazz,working-tree
+JAZZ_VerticalGripFld,Вертикальная рукоять (Сложенная),Under,10,0,,,,Underslung,1,jazz,working-tree
+JAZZ_VerticalGrip_Commando,Vertical Grip,Under,15,0,RecoilDecrease,Recoil=1,,M4 Commando Specific,1,jazz,working-tree
+JAZZ_VerticalGrip_M14,Vertical Grip,Under,15,0,RecoilDecrease,Recoil=1,,M14 Specific,3,jazz,working-tree
 MP5_Handguard,MP5_Handguard,Under,,,,,,,1,vanilla_ref,working-tree
 StockBump,StockBump,Stock,,,,,,,1,vanilla_ref,working-tree
 StockHeavy_AR_BurstOnly,StockHeavy_AR_BurstOnly,Stock,,,,,,,1,vanilla_ref,working-tree

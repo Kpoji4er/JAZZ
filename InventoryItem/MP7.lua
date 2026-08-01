@@ -44,6 +44,7 @@ DefineClass.MP7 = {
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
+			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_StockLightUnFolded",
 				"JAZZ_StockLightFolded",
@@ -83,9 +84,14 @@ DefineClass.MP7 = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 5000,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	AutoShots = 7,
 	MaxAimActions = 2,
-	Recoil = 6,
-	BurstShots = 5,
+	Recoil = 18,
+	BurstShots = 4,
 
 	CloseRange = 2,
 

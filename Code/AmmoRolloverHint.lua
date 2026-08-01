@@ -16,6 +16,58 @@ translatedModifications = {
     
 }
 
+-- Ammo AppliedEffects often concatenate several status ids into one string
+-- (e.g. "ExposedMarkedTraccers"). Longest-first so BleedingChance > Bleeding.
+local JazzAmmoEffectTokens = {
+	"BleedingChance",
+	"MarkedTraccers",
+	"Exposed",
+	"Burning",
+	"Bleeding",
+}
+
+function JazzExpandAmmoAppliedEffect(compound)
+	if type(compound) ~= "string" or compound == "" then
+		return empty_table
+	end
+	if g_Classes and g_Classes[compound] then
+		return { compound }
+	end
+	local out, s = {}, compound
+	while s ~= "" do
+		local matched
+		for _, tok in ipairs(JazzAmmoEffectTokens) do
+			if string.sub(s, 1, #tok) == tok then
+				out[#out + 1] = tok
+				s = string.sub(s, #tok + 1)
+				matched = true
+				break
+			end
+		end
+		if not matched then
+			break
+		end
+	end
+	return out
+end
+
+function JazzAmmoHasAppliedEffect(ammo, effect_id)
+	if not ammo or not effect_id then
+		return false
+	end
+	for _, compound in ipairs(ammo.AppliedEffects or empty_table) do
+		if compound == effect_id then
+			return true
+		end
+		for _, tok in ipairs(JazzExpandAmmoAppliedEffect(compound)) do
+			if tok == effect_id then
+				return true
+			end
+		end
+	end
+	return false
+end
+
 -- Ammo pen UI: work in integer tenths, never put a Lua float into T{} <number>
 -- (JA3 truncates toward zero → 0.9 shows as 0). See skill jazz-penetration-scales.
 function FormatAmmoPenetrationDisplay(mod_mul, mod_add)
@@ -96,8 +148,18 @@ function Ammo:GetRolloverHint()
 	end
 
 	local effects = {}
-	for _, val in sorted_pairs(self.AppliedEffects) do
-		effects[#effects + 1] = g_Classes[val].DisplayName
+	local seen = {}
+	for _, compound in sorted_pairs(self.AppliedEffects) do
+		for _, effect_id in ipairs(JazzExpandAmmoAppliedEffect(compound)) do
+			if not seen[effect_id] then
+				seen[effect_id] = true
+				local cls = g_Classes and g_Classes[effect_id]
+				local name = cls and cls.DisplayName
+				if name and name ~= "" then
+					effects[#effects + 1] = name
+				end
+			end
+		end
 	end
 	if effects[1] then
 		hint[#hint + 1] = T{

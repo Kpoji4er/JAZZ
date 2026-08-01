@@ -44,8 +44,13 @@ DefineClass.Stoeger = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 3000,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	WeaponMass = 36,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 25,
+	AutoShots = 0,
 
 	CloseRange = 4,
 

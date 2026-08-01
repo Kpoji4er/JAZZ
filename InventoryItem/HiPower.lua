@@ -3,7 +3,6 @@ DefineClass.HiPower = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Tier 2-2",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -41,8 +40,8 @@ DefineClass.HiPower = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"JAZZ_MagNormalFine",
 				"JAZZ_MagNormal",
+				"JAZZ_MagLarge_25_PISTOL_9",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -59,13 +58,7 @@ DefineClass.HiPower = {
 			},
 			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Freeswap",
-			'AvailableComponents', {
-				"JAZZ_Freeswap",
-			},
-			'DefaultComponent', "JAZZ_Freeswap",
-		}),
+		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -77,9 +70,14 @@ DefineClass.HiPower = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
+	WeaponMass = 10,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
+	BurstShots = 0,
 	MaxAimActions = 2,
-	Recoil = 1,
-	AutoShots = 3,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 0,
 

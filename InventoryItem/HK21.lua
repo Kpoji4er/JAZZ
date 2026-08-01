@@ -49,10 +49,10 @@ DefineClass.HK21 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'AvailableComponents', {
-				"DefaultMuzzle_HK21",
+				"JAZZ_DefaultMuzzle_HK21",
 				"JAZZ_Compensator",
 			},
-			'DefaultComponent', "DefaultMuzzle_HK21",
+			'DefaultComponent', "JAZZ_DefaultMuzzle_HK21",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -75,6 +75,7 @@ DefineClass.HK21 = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_LaserDot",
 				"JAZZ_FlashlightDot",
 				"JAZZ_UVDot",
@@ -107,7 +108,9 @@ DefineClass.HK21 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagBelt_40-100",
+				"JAZZ_MagBelt_40_100",
+				"JAZZ_MagDrum_30_100_G3",
+				"JAZZ_MagSmall20_10_G3",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -122,9 +125,13 @@ DefineClass.HK21 = {
 	},
 	ShootAP = 8000,
 	ReloadAP = 7000,
-	Recoil = 25,
-	BurstShots = 5,
-	AutoShots = 9,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 24,
+	BurstShots = 4,
+	AutoShots = 7,
 
 	CloseRange = 6,
 

@@ -3,7 +3,6 @@ DefineClass.P220 = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Tier3-1",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -50,6 +49,7 @@ DefineClass.P220 = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_LaserDot",
 				"JAZZ_UVDot",
 				"JAZZ_FlashlightDot",
@@ -63,13 +63,7 @@ DefineClass.P220 = {
 			},
 			'DefaultComponent', "JAZZ_IronSight",
 		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Freeswap",
-			'AvailableComponents', {
-				"JAZZ_Freeswap",
-			},
-			'DefaultComponent', "JAZZ_Freeswap",
-		}),
+		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -81,9 +75,14 @@ DefineClass.P220 = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 3000,
+	WeaponMass = 10,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
+	BurstShots = 0,
 	MaxAimActions = 2,
-	Recoil = 1,
-	AutoShots = 3,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 0,
 

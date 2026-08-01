@@ -51,7 +51,7 @@ DefineClass.DragunovSVD = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge_10_20",
+				"JAZZ_MagLarge_10_20_SVD",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -89,8 +89,13 @@ DefineClass.DragunovSVD = {
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	WeaponMass = 55,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 12,
 

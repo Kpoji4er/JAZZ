@@ -65,6 +65,7 @@ DefineClass.PKM = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_LaserDot",
 				"JAZZ_FlashlightDot",
 				"JAZZ_UVDot",
@@ -121,9 +122,13 @@ DefineClass.PKM = {
 	},
 	ShootAP = 9000,
 	ReloadAP = 9000,
-	Recoil = 16,
-	BurstShots = 6,
-	AutoShots = 6,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 18,
+	BurstShots = 4,
+	AutoShots = 0,
 
 	CloseRange = 6,
 

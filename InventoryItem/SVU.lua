@@ -38,6 +38,7 @@ DefineClass.SVU = {
 			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
+				"JAZZ_MagLarge_10_20_SVD",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -70,8 +71,13 @@ DefineClass.SVU = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 9000,
-	Recoil = 25,
-	AutoShots = 6,
+	WeaponMass = 55,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	BurstShots = 0,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 12,
 

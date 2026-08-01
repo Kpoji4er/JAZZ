@@ -3,7 +3,6 @@ DefineClass.Makarov = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Tier 1-3",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -44,13 +43,7 @@ DefineClass.Makarov = {
 				"JAZZ_ImprovisedSuppressor",
 			},
 		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Freeswap",
-			'AvailableComponents', {
-				"JAZZ_Freeswap",
-			},
-			'DefaultComponent', "JAZZ_Freeswap",
-		}),
+		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -62,9 +55,14 @@ DefineClass.Makarov = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
+	WeaponMass = 10,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
+	BurstShots = 0,
 	MaxAimActions = 2,
-	Recoil = 1,
-	AutoShots = 3,
+	Recoil = 14,
+	AutoShots = 0,
 
 	CloseRange = 0,
 

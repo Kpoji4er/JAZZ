@@ -48,9 +48,11 @@ DefineClass.MP5K = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagSmall30_15",
+				"JAZZ_MagLarge_50_MP5",
+				"JAZZ_MagQuick_MP5",
+				"JAZZ_MagSmall30_15_MP5",
 			},
-			'DefaultComponent', "JAZZ_MagSmall30_15",
+			'DefaultComponent', "JAZZ_MagSmall30_15_MP5",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
@@ -66,6 +68,7 @@ DefineClass.MP5K = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_LaserDot",
 				"JAZZ_FlashlightDot",
 				"JAZZ_UVDot",
@@ -112,8 +115,12 @@ DefineClass.MP5K = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 4000,
+	WeaponMass = 30,
+	CyclicRPM = 900,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
 	MaxAimActions = 2,
-	Recoil = 7,
+	Recoil = 18,
 	BurstShots = 4,
 	AutoShots = 9,
 

@@ -54,7 +54,8 @@ DefineClass.M1A = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagNormalFine",
+				"JAZZ_MagNormalFine_M14",
+				"JAZZ_MagSmall20_10_M14",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -87,6 +88,7 @@ DefineClass.M1A = {
 				"JAZZ_FlashlightDot",
 				"JAZZ_UVDot",
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -122,8 +124,13 @@ DefineClass.M1A = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 6000,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	WeaponMass = 55,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 22,
+	AutoShots = 0,
 
 	CloseRange = 12,
 

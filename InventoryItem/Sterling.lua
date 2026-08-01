@@ -34,6 +34,7 @@ DefineClass.Sterling = {
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
+			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_StockLightFolded",
 				"JAZZ_StockLightUnFolded",
@@ -51,10 +52,14 @@ DefineClass.Sterling = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
+	WeaponMass = 33,
+	CyclicRPM = 550,
+	WeaponSizeClass = "Carbine",
+	BurstLimiter = 0,
 	MaxAimActions = 2,
-	Recoil = 3,
-	BurstShots = 4,
-	AutoShots = 7,
+	Recoil = 18,
+	BurstShots = 3,
+	AutoShots = 6,
 
 	CloseRange = 2,
 

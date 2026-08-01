@@ -54,6 +54,8 @@ DefineClass.HK23e = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
+				"JAZZ_MagDrum_30_100_G3",
+				"JAZZ_MagSmall20_10_G3",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -62,6 +64,7 @@ DefineClass.HK23e = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_LaserDot",
 				"JAZZ_FlashlightDot",
 			},
@@ -84,7 +87,11 @@ DefineClass.HK23e = {
 	},
 	ShootAP = 8000,
 	ReloadAP = 9000,
-	Recoil = 6,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 18,
 	BurstShots = 4,
 	AutoShots = 7,
 

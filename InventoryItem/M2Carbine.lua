@@ -44,9 +44,9 @@ DefineClass.M2Carbine = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagSmall30_15",
+				"JAZZ_MagSmall30_15_M2CARBINE",
 			},
-			'DefaultComponent', "JAZZ_MagSmall30_15",
+			'DefaultComponent', "JAZZ_MagSmall30_15_M2CARBINE",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -79,9 +79,13 @@ DefineClass.M2Carbine = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
-	Recoil = 10,
-	BurstShots = 2,
-	AutoShots = 7,
+	WeaponMass = 35,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 18,
+	BurstShots = 0,
+	AutoShots = 0,
 
 	CloseRange = 4,
 

@@ -42,7 +42,8 @@ DefineClass.MicroUZI = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge_20_30",
+				"JAZZ_MagDrum_30_50_UZI",
+				"JAZZ_MagLarge_20_30_UZI",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -51,6 +52,7 @@ DefineClass.MicroUZI = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_LaserDot",
 				"JAZZ_FlashlightDot",
 				"JAZZ_UVDot",
@@ -93,8 +95,12 @@ DefineClass.MicroUZI = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 5000,
+	WeaponMass = 27,
+	CyclicRPM = 1200,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
 	MaxAimActions = 2,
-	Recoil = 7,
+	Recoil = 21,
 	BurstShots = 6,
 	AutoShots = 12,
 

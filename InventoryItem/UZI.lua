@@ -36,7 +36,8 @@ DefineClass.UZI = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagDrum_30-50",
+				"JAZZ_MagDrum_30_50_UZI",
+				"JAZZ_MagLarge_20_30_UZI",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -79,8 +80,13 @@ DefineClass.UZI = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 4000,
-	Recoil = 4,
-	AutoShots = 6,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	BurstShots = 4,
+	Recoil = 18,
+	AutoShots = 7,
 
 	CloseRange = 2,
 

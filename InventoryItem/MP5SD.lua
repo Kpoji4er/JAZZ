@@ -37,7 +37,9 @@ DefineClass.MP5SD = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagSmall30_15",
+				"JAZZ_MagLarge_50_MP5",
+				"JAZZ_MagQuick_MP5",
+				"JAZZ_MagSmall30_15_MP5",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -83,8 +85,13 @@ DefineClass.MP5SD = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 4000,
-	Recoil = 3,
-	AutoShots = 8,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	BurstShots = 4,
+	Recoil = 18,
+	AutoShots = 7,
 
 	CloseRange = 2,
 

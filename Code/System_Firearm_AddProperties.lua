@@ -12,6 +12,18 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
 }
 
 FirearmProperties.properties[#FirearmProperties.properties+1] = {
+    category = "New Weapon System - Reload",
+    id = "ReloadStyle",
+    name = "Reload Style",
+    help = "Magazine reloads fully; Tube, Break, and Revolver can top up one round when partially loaded.",
+    editor = "choice",
+    items = { "Magazine", "Tube", "Break", "Revolver" },
+    default = "Magazine",
+    template = true,
+    modifiable = false
+}
+
+FirearmProperties.properties[#FirearmProperties.properties+1] = {
     category = "New Weapon System",
     id = "MaxAimActions",
     name = "Max Aim Actions",
@@ -47,6 +59,57 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
     template = true,
     min = 0,
     max = 25,
+    modifiable = true
+}
+
+FirearmProperties.properties[#FirearmProperties.properties+1] = {
+    category = "New Weapon System - Physical Recoil",
+    id = "WeaponMass",
+    name = "Weapon Mass",
+    help = "Authored unloaded weapon mass in tenths of a kilogram; used to calibrate base recoil.",
+    editor = "number",
+    default = 35,
+    template = true,
+    min = 1,
+    max = 200,
+    modifiable = true
+}
+
+FirearmProperties.properties[#FirearmProperties.properties+1] = {
+    category = "New Weapon System - Physical Recoil",
+    id = "CyclicRPM",
+    name = "Cyclic RPM",
+    help = "Authored cyclic rate of fire; source for burst and autofire shot counts.",
+    editor = "number",
+    default = 0,
+    template = true,
+    min = 0,
+    max = 2000,
+    modifiable = true
+}
+
+FirearmProperties.properties[#FirearmProperties.properties+1] = {
+    category = "New Weapon System - Physical Recoil",
+    id = "WeaponSizeClass",
+    name = "Weapon Size Class",
+    help = "Editor-only physical size proxy used to calibrate base recoil.",
+    editor = "choice",
+    items = { "Compact", "Carbine", "Rifle", "Long" },
+    default = "Rifle",
+    template = true,
+    modifiable = true
+}
+
+FirearmProperties.properties[#FirearmProperties.properties+1] = {
+    category = "New Weapon System - Physical Recoil",
+    id = "BurstLimiter",
+    name = "Burst Limiter",
+    help = "Mechanical burst cutoff; 0 means no cutoff.",
+    editor = "number",
+    default = 0,
+    template = true,
+    min = 0,
+    max = 8,
     modifiable = true
 }
 
@@ -112,12 +175,12 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
     category = "New Weapon System",
     id = "CloseRangeFactor",
     name = "Close Range Factor",
-    help = "CTH multiplier at distance 0 as percent (100 = no penalty). Lerps to 100% at CloseRange tiles.",
+    help = "CTH multiplier at distance 0 as percent (100 = neutral; >100 = CQB buff). Lerps to 100% at CloseRange tiles. Runtime clamp 25..150.",
     editor = "number",
     default = 100,
     template = true,
     min = 25,
-    max = 100,
+    max = 150,
     modifiable = true
 }
 
@@ -298,20 +361,42 @@ SetPropMeta("BobbyRayShopItemProperties", "ShopStackSize", "max", 500)
 
 
 
+local function JazzInventoryDefProperty(class_id, prop, fallback)
+	local def = InventoryItemDefs and class_id and InventoryItemDefs[class_id]
+	if not def then
+		return fallback
+	end
+	local val = rawget(def, prop)
+	if type(val) ~= "number" then
+		local ok, prop_val = pcall(def.GetProperty, def, prop)
+		if ok then
+			val = prop_val
+		end
+	end
+	if type(val) == "number" then
+		return val
+	end
+	return fallback
+end
+
 function InventoryItem:GetMaxResource()
-    return InventoryItemDefs[self.class]:GetProperty("Condition")
+	return JazzInventoryDefProperty(self.class, "Condition", 100)
 end
 
 function InventoryItem:GetMaxCondition()
-	return InventoryItemDefs[self.class]:GetProperty("Condition")
+	return JazzInventoryDefProperty(self.class, "Condition", 100)
 end
 
 function InventoryItem:GetFactoryResource()
-    return InventoryItemDefs[self.class]:GetProperty("Condition")
+	return JazzInventoryDefProperty(self.class, "Condition", 100)
 end
 
 function FirearmBase:GetFactoryResource()
-	return InventoryItemDefs[self.class]:GetProperty("WeaponResource") or 1000
+	local val = JazzInventoryDefProperty(self.class, "WeaponResource", nil)
+	if type(val) == "number" and val > 0 then
+		return val
+	end
+	return 1000
 end
 
 function InventoryItem:GetCurrentResource()

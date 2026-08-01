@@ -43,6 +43,7 @@ DefineClass.DragunovSVD_Custom = {
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
+			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_SuppressorIntegrated",
 			},
@@ -57,8 +58,13 @@ DefineClass.DragunovSVD_Custom = {
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	WeaponMass = 55,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 12,
 

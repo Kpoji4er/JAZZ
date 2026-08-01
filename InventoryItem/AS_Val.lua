@@ -37,9 +37,9 @@ DefineClass.AS_Val = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge_10_20",
+				"JAZZ_MagLarge_10_20_VAL",
 			},
-			'DefaultComponent', "JAZZ_MagLarge_10_20",
+			'DefaultComponent', "JAZZ_MagLarge_10_20_VAL",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
@@ -51,6 +51,7 @@ DefineClass.AS_Val = {
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
+			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_StockLightFolded",
 				"JAZZ_StockLightUnFolded",
@@ -62,6 +63,7 @@ DefineClass.AS_Val = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_FlashlightDot",
 				"JAZZ_LaserDot",
 				"JAZZ_UVDot",
@@ -99,9 +101,13 @@ DefineClass.AS_Val = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 6000,
-	Recoil = 8,
-	BurstShots = 4,
-	AutoShots = 9,
+	WeaponMass = 35,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 18,
+	BurstShots = 0,
+	AutoShots = 0,
 
 	CloseRange = 4,
 

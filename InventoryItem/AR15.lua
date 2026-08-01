@@ -39,10 +39,10 @@ DefineClass.AR15 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagNormalFine",
-				"JAZZ_MagLarge",
+				"JAZZ_MagNormalFine_AR15",
 				"JAZZ_MagLargeFine",
-				"JAZZ_MagQuick",
+				"JAZZ_MagLarge_50_AR15",
+				"JAZZ_MagQuick_AR15",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -81,6 +81,7 @@ DefineClass.AR15 = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_FlashlightDot",
 				"JAZZ_LaserDot",
 				"JAZZ_UVDot",
@@ -93,7 +94,7 @@ DefineClass.AR15 = {
 				"JAZZ_Compensator",
 				"JAZZ_ImprovisedSuppressor",
 				"JAZZ_Suppressor",
-				"JAZZ_MuzzleBooster",
+
 			},
 			'DefaultComponent', "JAZZ_Compensator",
 		}),

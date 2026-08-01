@@ -3,7 +3,6 @@ DefineClass.TexRevolver = {
 	__parents = { "Revolver" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Vanilla unique — Tex Custom Six-Shooter; JAZZ caliber/attacks",
 	object_class = "Revolver",
 	ScrapParts = 8,
@@ -29,13 +28,7 @@ DefineClass.TexRevolver = {
 	Noise = 40,
 	Entity = "Tex_Rev",
 	ComponentSlots = {
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Freeswap",
-			'AvailableComponents', {
-				"Freeswap",
-			},
-			'DefaultComponent', "Freeswap",
-		}),
+		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -46,8 +39,14 @@ DefineClass.TexRevolver = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 5000,
-	Recoil = 1,
-	AutoShots = 3,
+	ReloadStyle = "Revolver",
+	WeaponMass = 10,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
+	BurstShots = 0,
+	Recoil = 18,
+	AutoShots = 0,
 	BulletDropRange = 7,
 	Grouping = 70,
 	BaseJamChance = -100,

@@ -59,9 +59,10 @@ DefineClass.M21 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagSmall20_10",
+				"JAZZ_MagNormalFine_M14",
+				"JAZZ_MagSmall20_10_M14",
 			},
-			'DefaultComponent', "JAZZ_MagSmall20_10",
+			'DefaultComponent', "JAZZ_MagSmall20_10_M14",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Under",
@@ -92,6 +93,7 @@ DefineClass.M21 = {
 				"JAZZ_FlashlightDot",
 				"JAZZ_UVDot",
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -119,8 +121,13 @@ DefineClass.M21 = {
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	WeaponMass = 55,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	Recoil = 22,
+	AutoShots = 0,
 
 	CloseRange = 12,
 

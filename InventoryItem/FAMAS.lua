@@ -50,6 +50,7 @@ DefineClass.FAMAS = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_LaserDot",
 				"JAZZ_FlashlightDot",
 			},
@@ -100,7 +101,13 @@ DefineClass.FAMAS = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 8000,
-	Recoil = 15,
+	WeaponMass = 36,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	BurstShots = 4,
+	AutoShots = 7,
+	Recoil = 16,
 
 	CloseRange = 6,
 

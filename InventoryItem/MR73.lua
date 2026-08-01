@@ -3,7 +3,6 @@ DefineClass.MR73 = {
 	__parents = { "Revolver" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Tier 2-3",
 	object_class = "Revolver",
 	ScrapParts = 6,
@@ -29,13 +28,7 @@ DefineClass.MR73 = {
 	Noise = 32,
 	Entity = "M73Base",
 	ComponentSlots = {
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Freeswap",
-			'AvailableComponents', {
-				"JAZZ_Freeswap",
-			},
-			'DefaultComponent', "JAZZ_Freeswap",
-		}),
+		
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
@@ -62,8 +55,13 @@ DefineClass.MR73 = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 5000,
-	Recoil = 1,
-	AutoShots = 3,
+	WeaponMass = 10,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
+	BurstShots = 0,
+	Recoil = 17,
+	AutoShots = 0,
 
 	CloseRange = 0,
 

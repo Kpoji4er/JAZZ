@@ -44,8 +44,9 @@ DefineClass.Type56 = {
 			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
+				"JAZZ_MagQuick_AK",
 				"JAZZ_MagLarge_30_40",
-				"JAZZ_MagDrum_30-75",
+				"JAZZ_MagDrum_30_75",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -70,8 +71,13 @@ DefineClass.Type56 = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 6000,
-	Recoil = 18,
-	AutoShots = 6,
+	WeaponMass = 36,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	BurstShots = 4,
+	Recoil = 21,
+	AutoShots = 7,
 
 	CloseRange = 6,
 

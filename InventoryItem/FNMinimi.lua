@@ -80,7 +80,7 @@ DefineClass.FNMinimi = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagBelt_100-200",
+				"JAZZ_MagBelt_100_200",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -96,8 +96,13 @@ DefineClass.FNMinimi = {
 	},
 	ShootAP = 8000,
 	ReloadAP = 8000,
-	Recoil = 6,
-	BurstShots = 10,
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
+	BurstLimiter = 0,
+	AutoShots = 7,
+	Recoil = 18,
+	BurstShots = 4,
 
 	CloseRange = 6,
 

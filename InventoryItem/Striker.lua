@@ -35,6 +35,7 @@ DefineClass.Striker = {
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
+			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_StockLightUnFolded",
 				"JAZZ_StockLightFolded",
@@ -50,9 +51,14 @@ DefineClass.Striker = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 5000,
+	WeaponMass = 36,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 25,
 	MaxAimActions = 2,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	AutoShots = 0,
 
 	CloseRange = 4,
 

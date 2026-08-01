@@ -109,6 +109,24 @@ function XInventoryItem:OnContextUpdate(item, ...)
 	end
 end
 
+-- Remountable hover: highlight compatible firearms (same visual as ammo drag).
+-- Skip while a drag is active — HighlightWeaponsForAmmo(InventoryDragItem) owns that pass.
+local JazzInventoryItem_OnSetRollover = XInventoryItem.OnSetRollover
+function XInventoryItem:OnSetRollover(rollover)
+	if JazzInventoryItem_OnSetRollover then
+		JazzInventoryItem_OnSetRollover(self, rollover)
+	elseif XContextControl and XContextControl.OnSetRollover then
+		XContextControl.OnSetRollover(self, rollover)
+	end
+	if InventoryDragItem then
+		return
+	end
+	local item = self.context or (self.GetContext and self:GetContext())
+	if IsKindOf(item, "JAZZ_RemovableAttachment") then
+		HighlightWeaponsForAmmo(item, not not rollover)
+	end
+end
+
 -- Compat for UIWeaponDisplay run_after that still calls SuppressModBadge.
 function JazzWeaponIcon_SuppressModBadge(img, item, _baked)
 	if JazzAttachChips_Apply then
@@ -384,14 +402,16 @@ function HighlightWeaponsForAmmo(ammo, bShow)
     end
     local is_ammo = IsKindOf(ammo, "Ammo")
     local is_ordnance = IsKindOf(ammo, "Ordnance")
-    if not (is_ammo or is_ordnance) and not is_bag_item then
+    local is_removable = IsKindOf(ammo, "JAZZ_RemovableAttachment")
+    if not (is_ammo or is_ordnance or is_removable) and not is_bag_item then
         return
     end
 
     local weapon_class = is_ammo and "Firearm" or "HeavyWeapon"
+    local highlight_icon = "UI/Icons/Rollover/ammo"
     -- Highlight portraits
     local left = dlg:ResolveId("idPartyContainer")
-    local squad_list = left.idParty and left.idParty.idContainer or empty_table
+    local squad_list = left and left.idParty and left.idParty.idContainer or empty_table
     for _, button in ipairs(squad_list) do
         local member = button:GetContext()
         if (is_ammo or is_ordnance) and member then
@@ -406,39 +426,60 @@ function HighlightWeaponsForAmmo(ammo, bShow)
                         end, ammo.Caliber)
                     if result == "break" then
                         -- head
-                        button:SetHighlightedStatOrIcon(bShow and "UI/Icons/Rollover/ammo")
+                        button:SetHighlightedStatOrIcon(bShow and highlight_icon)
                         -- backpack
+                        h_members[member] = true
+                    end
+                end
+            end
+        elseif is_removable and member and JazzIsRemovableInstallTarget then
+            for _, slot_data in ipairs(member.inventory_slots) do
+                local slot_name = slot_data.slot_name
+                if IsEquipSlot(slot_name) then
+                    local result = member:ForEachItemInSlot(slot_name, "FirearmBase", function(witem)
+                        if JazzIsRemovableInstallTarget(ammo, witem) then
+                            return "break"
+                        end
+                    end)
+                    if result == "break" then
+                        button:SetHighlightedStatOrIcon(bShow and highlight_icon)
                         h_members[member] = true
                     end
                 end
             end
         end
 
-        -- Highlight weapons
-        local all_slots = dlg:GetSlotsArray()
-        for slot_wnd in pairs(all_slots) do
-            local slot_name = slot_wnd.slot_name
-            local target = slot_wnd:GetContext()
-            local found = false
-            for wnd, witem in pairs(slot_wnd.item_windows or empty_table) do
-                if (is_ammo or is_ordnance) and IsKindOf(witem, weapon_class) and ammo.Caliber == witem.Caliber then
-                    wnd:OnSetRollover(bShow)
-                    HighlihgtRollover(witem:GetUIWidth(), wnd, bShow)
-                    found = true
-                end
-            end
-            if not IsKindOf(target, "SquadBag") and slot_wnd and not IsEquipSlot(slot_name) and
-                (IsKindOf(target, "Unit") and not target:IsDead()) and (found or not bShow or h_members[target]) then
-                local name = slot_wnd.parent.idName
-                -- print(slot_wnd.parent.idName)
-                if name then
-                    name:SetHightlighted(bShow)
-                end
-            end
-        end
-
         if not bShow then
             button:SetHighlighted(bShow)
+        end
+    end
+
+    -- Highlight weapons (once — independent of party portrait count)
+    local all_slots = dlg:GetSlotsArray()
+    for slot_wnd in pairs(all_slots or empty_table) do
+        local slot_name = slot_wnd.slot_name
+        local target = slot_wnd:GetContext()
+        local found = false
+        for wnd, witem in pairs(slot_wnd.item_windows or empty_table) do
+            local match = false
+            if (is_ammo or is_ordnance) and IsKindOf(witem, weapon_class) and ammo.Caliber == witem.Caliber then
+                match = true
+            elseif is_removable and IsKindOf(witem, "FirearmBase")
+                and JazzIsRemovableInstallTarget and JazzIsRemovableInstallTarget(ammo, witem) then
+                match = true
+            end
+            if match then
+                wnd:OnSetRollover(bShow)
+                HighlihgtRollover(witem:GetUIWidth(), wnd, bShow)
+                found = true
+            end
+        end
+        if not IsKindOf(target, "SquadBag") and slot_wnd and not IsEquipSlot(slot_name) and
+            (IsKindOf(target, "Unit") and not target:IsDead()) and (found or not bShow or h_members[target]) then
+            local name = slot_wnd.parent and slot_wnd.parent.idName
+            if name then
+                name:SetHightlighted(bShow)
+            end
         end
     end
 end

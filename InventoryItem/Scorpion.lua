@@ -38,6 +38,7 @@ DefineClass.Scorpion = {
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
+			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_StockLightFolded",
 				"JAZZ_StockLightUnFolded",
@@ -63,10 +64,14 @@ DefineClass.Scorpion = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
+	WeaponMass = 27,
+	CyclicRPM = 900,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
 	MaxAimActions = 2,
-	Recoil = 4,
+	Recoil = 15,
 	BurstShots = 4,
-	AutoShots = 8,
+	AutoShots = 9,
 
 	CloseRange = 0,
 

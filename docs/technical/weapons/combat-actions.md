@@ -457,6 +457,9 @@ visible_actions =
 
 Эти действия связаны с оружием и влияют на последующую стрельбу, но не являются firing actions:
 
+### `Reload` / `Top up`
+`Reload` остаётся единственным reload-slot action и заменён full `ModItemCombatAction` в `items.lua` (vanilla id). На `Magazine` он всегда выполняет полный ReloadAP. Для authored `Tube`, `Break` и `Revolver`: пустой магазин показывает обычный `Reload` и наполняется стандартным путём; частично заполненный магазин меняет отображаемое имя на `Top up` / «Дозарядить», стоит `max(1 AP, DivCeil(effective ReloadAP, MagazineSize))` и передаёт в `UnitInventory:ReloadWeapon` режим одной итерации. На полной ёмкости action disabled. Helpers/`Unit:ReloadAction` живут в `Code/System_ReloadStyle.lua`; `GetAPCost` и runtime используют один предикат `Firearm:IsPerRoundReload()`, поэтому UI reservation и фактический расход AP совпадают.
+
 ### `FoldStock` / `UnFoldStock`
 
 Переключают состояние складного приклада. Само действие не рассчитывает CTH и не расходует патрон; последующая атака читает активные характеристики/эффекты компонента.

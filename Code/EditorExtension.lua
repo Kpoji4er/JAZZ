@@ -55,3 +55,13 @@ DefineModItemPreset("WeaponUpgradeSlot", { EditorName = "Weapon Upgrade Slot", E
 DefineModItemPreset("WeaponType", { EditorName = "Weapon Type", EditorSubmenu = "Weapons" })
 
 DefineModItemPreset("AnimMetadata", { EditorName = "Anim Metadata", EditorSubmenu = "Animation" })
+
+-- Vanilla GetEditorView assumes SlotType always exists in WeaponUpgradeSlot presets;
+-- missing ids (e.g. historical Freeswap gap) assert in Ged BindObj / T-translate.
+function WeaponComponentSlot:GetEditorView()
+	local mod_text = self.Modifiable and "" or "(non-modifiable)"
+	local slot = self.SlotType
+	local preset = slot and Presets.WeaponUpgradeSlot and Presets.WeaponUpgradeSlot.Default and Presets.WeaponUpgradeSlot.Default[slot]
+	local text = (preset and preset.DisplayName) or slot or "Component"
+	return Untranslated(text) .. " " .. Untranslated(mod_text)
+end

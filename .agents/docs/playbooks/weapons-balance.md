@@ -15,6 +15,8 @@
 - Не выносить «внешнюю» переоценку баланса в чистый refactor без технической заметки.
 - Проверить взаимодействие с AI и visibility/CTH, если формулы затрагивают chance/accuracy.
 - **ATTACH / components / CSV без JA3_ROOT:** канон скриптов в `docs/tools/README.md` (`_apply_attach_001.py`, `_export_attach_csv.py`, `_audit_attach_*.py`, `_remove_handling_stat.py`, …). Не удалять эти скрипты после прогона; см. `.agents/docs/reference/agent-tooling.md`.
+- **Тиры коллиматоров** (Precision / Overwatch / Universal, будущие loot-предметы): `docs/design/reflex-collimator-tiers.md`.
+- **Боевые прицелы** (mid universal + mild near): `docs/design/combat-scope-tiers.md`.
 
 ## Финальная упаковка
 

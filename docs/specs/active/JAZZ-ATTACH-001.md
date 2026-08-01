@@ -24,12 +24,32 @@ write_set:
   - jazz/docs/technical/weapons/data/weapons.csv
   - jazz/docs/design/attachments-by-category.md
   - jazz/docs/design/attachments-rebalance.md
+  - jazz/docs/design/reflex-collimator-tiers.md
+  - jazz/docs/design/combat-scope-tiers.md
+  - jazz/docs/design/long-scope-tiers.md
+  - jazz/docs/design/barrel-tiers.md
+  - jazz/docs/design/muzzle-tiers.md
+  - jazz/docs/design/magazine-tiers.md
+  - jazz/docs/design/stock-tiers.md
   - jazz/docs/tools/_write_attach_design_human.py
   - jazz/docs/tools/_build_attachments_catalog.py
   - jazz/docs/tools/_export_attach_csv.py
   - jazz/docs/tools/_apply_attach_001.py
   - jazz/docs/tools/_promote_vanilla_refs.py
   - jazz/docs/tools/_remove_handling_stat.py
+  - jazz/docs/tools/_rebalance_reflex_tiers.py
+  - jazz/docs/tools/_rebalance_combat_scopes.py
+  - jazz/docs/tools/_rebalance_long_scopes.py
+  - jazz/docs/tools/_rebalance_barrel_tiers.py
+  - jazz/docs/tools/_rebalance_muzzle_tiers.py
+  - jazz/docs/tools/_rebalance_magazine_tiers.py
+  - jazz/docs/tools/_rebalance_stock_tiers.py
+  - jazz/docs/tools/_split_mag_families.py
+  - jazz/docs/tools/_union_mag_family_options.py
+  - jazz/docs/tools/_remove_mag_50_ak.py
+  - jazz/docs/tools/_cut_muzzle_booster.py
+  - jazz/docs/tools/_audit_mag_multiplier.py
+  - jazz/docs/tools/_list_mag_profiles.py
   - jazz/docs/tools/README.md
   - jazz/docs/tools/_audit_attach_effects.py
   - jazz/docs/tools/_audit_attach_ids.py
@@ -38,8 +58,11 @@ write_set:
   - jazz/docs/technical/weapons/accuracy-model.md
   - jazz/docs/wiki/combat-and-accuracy.md
   - jazz/docs/wiki/weapons-and-ammo.md
+  - jazz/docs/wiki/weapons/**
   - jazz/docs/showcase/ru/combat-and-accuracy.md
   - jazz/docs/showcase/en/combat-and-accuracy.md
+  - jazz/docs/showcase/ru/weapons-and-ammo.md
+  - jazz/docs/showcase/en/weapons-and-ammo.md
 exclusive_resources:
   - jazz/items.lua
 related_decisions:
@@ -50,7 +73,9 @@ related_specs:
 approved_by: project-owner
 ---
 
-# JAZZ-ATTACH-001: Handling→живые рычаги, CloseRange, гигиена ID, ребаланс
+# JAZZ-ATTACH-001: Handling→живые рычаги, CloseRange, гигиена ID, ребаланс слотов
+
+**Один большой спек.** Весь pass по обвесам (оптика, стволы, дуло, магазины, stock/under/bipod/side, абсолютные ёмкости) живёт здесь. Отдельные SPEC-ID на слоты Phase C **не** заводить, пока владелец явно не разрежет.
 
 ## Проблема
 
@@ -60,7 +85,7 @@ approved_by: project-owner
 
 1. **Рефакторинг данных/инструментов**: единый реестр «живой рычаг / legacy / visual-only»; каталог и design-doc помечают dead Handling; генератор human-описаний не продаёт Handling как боевой эффект.
 2. **Замена устаревших параметров**: все `*Handling*` / `Cumbersome` на **active** обвесах либо сняты, либо заменены на живые рычаги по матрице ниже; Firearm property `Handling` **удалён** (owner follow-up 2026-08-01).
-3. **Ребаланс аттачей**: внутри слотов выровнять роли и числа так, чтобы выбор читался без фейковой эргономики (тиры Reflex / Combat / Scope; mag size vs reload/jam; muzzle recoil vs silence; grip = recoil; barrel short/long = range/BDR/`CloseRange*`).
+3. **Ребаланс аттачей (Phase C, один pass):** роли и числа по слотам — Scope / Barrel / Muzzle / Magazine / Stock / Under / Bipod / Side — всё в этом SPEC; каноны в `docs/design/*-tiers.md`. Mag size — **абсолютный Set**; mag-well **families** (REQ-017).
 4. **Гигиена ID**: нужным live-обвесам — префикс `JAZZ_` (как у оптики); ненужные/неиспользуемые comps и Mount-слоты (ошибка импорта — mount только в Visuals) — удалить.
 
 ## Non-goals
@@ -135,25 +160,59 @@ approved_by: project-owner
 Оптика отдельно: `OpticMinRange` / `OpticNearFactor` — поверх, не вместо.  
 `PointBlankBonus` пока **не удалять**; после ввода `CloseRange*` — отдельным micro-pass deprecate/скрыть.
 
-### Phase C — ребаланс ролей
+### Phase C — ребаланс ролей (единый pass, один спек)
 
-Целевые роли (числа — в approve table / `docs/design/attachments-rebalance.md`):
+Числа — в `docs/design/*-tiers.md` + `attachments-rebalance.md`. Новые слоты/идеи → дописывать сюда (REQ/AC), **не** плодить `JAZZ-ATTACH-00N` на каждый слот.
+
+| Слот | Статус | Канон |
+| --- | --- | --- |
+| Reflex / Combat / Long / Night | **settled** | `reflex-collimator-tiers.md`, `combat-scope-tiers.md`, `long-scope-tiers.md`; optic AA% только при активной оптике |
+| Barrel | **applied** | `barrel-tiers.md` — BDR **Multiply %**, R ±1, CloseRange*, Recoil |
+| Muzzle | **applied** | `muzzle-tiers.md` — Recoil vs Silent; SK↑ с тиром; FlashHider без Silent; `MuzzleBooster` cut; Improvised wide mount by design |
+| Magazine | **applied** (size + families) | `magazine-tiers.md` — roles + ReloadAP + `MagazineSizeSet`; mag-well **families** (`…_AK` / `…_AR15` / …); АК expanded = **40** (`MagLarge_30_40`) |
+| Stock / Under / Bipod / Side | **applied** | Stock + grips + bipod + side tier docs; Bayonet **distant backlog** |
+
+Целевые роли (рычаги):
 
 | Слот | Роль | Живые рычаги |
 | --- | --- | --- |
-| Reflex | CQB / OW / реакции | −MaxAim, +OW shots/angle, OA CTH, MinAim; **без** mag/AP tax если возможно |
-| CombatScope 2–4× | универсал | Mag + ShotAP + mild OW narrow |
-| Scope 6–12× | дальняя дистанция | Mag + ShotAP + strong OW narrow + CritFullAim + higher AimLevel |
-| Night | то же + dark | IgnoreInTheDark* |
-| Barrel short/long | CQB / дальняя дистанция | Range, BDR, CloseRange*, Grouping, Recoil |
-| Mag | ёмкость vs цена | Size, ReloadAP, Reliability, AimAccuracy% |
-| Muzzle | отдача vs тишина | Recoil vs Silent+jam+Grouping |
-| Under grip | контроль очереди | Recoil only |
-| Under GL | режим | GrenadeLauncher (+ optional ShotAP) |
-| Bipod | prone | prone shots / prone bonus |
-| Stock folded | мобильность | ShootAP−, Recoil+, AimAccuracy−−, OW+ |
+| Reflex | CQB vs irons | MinAim, −MaxAim, CloseRange soft, AimAccuracy% @ aim≥1; OW без AA% |
+| CombatScope 2–4× | mid | AimAccuracy% @ AimLevel, mild near, OW; без ShotAP/crit |
+| Scope 6–12× / long | max aim + даль | AimAccuracy% @ high AimLevel, ShotAP, crit, near-tax |
+| Night | dark | IgnoreInTheDark* + mild tax |
+| Barrel short/long/heavy | дистанция | BDR%, R±1, CloseRange*, Recoil, Grouping |
+| Mag small/std/exp/large | ёмкость vs цена | **абсолютный Set** N; ReloadAP −1/+1/+2; Rel/AA только large; **семья mag well** (REQ-017) |
+| Muzzle | отдача vs тишина | Recoil vs Silent+jam+Grouping; FlashHider = StealthKill без Silent |
+| Under grip | Vertical / Tac·Wrap / Ergo | см. `under-grip-tiers.md` |
+| Under GL | режим | GrenadeLauncher (без ShotAP) |
+| Bipod | prone | см. `bipod-tiers.md`: один `JAZZ_Bipod` + Under; CTH+10 / +1 shot |
+| Side | light / laser / UV | см. `side-tiers.md`: Laser CTH+falloff@5 (исключение); UV night+SK |
+| Stock | плечо vs folded | см. `stock-tiers.md` |
 
 Ребаланс не ломает optic_reach контракт (кратность + AimLevel).
+
+### Mag absolute size (Phase C continuation) — data applied; runtime validation pending
+
+Owner 2026-08-01 initially locked the canon as docs-only. The later MagSizeSet data migration adds the preset/resource and rewires `items.lua` plus companions; it does not claim editor/game acceptance.
+
+- Live magazine comps **не** должны использовать `MagazineSizeMultiplier` (после data-pass).
+- Канон: эффект **`MagazineSizeSet`** — `ModificationType = "Set"` → `AddModifier(id, "MagazineSize", mul=0, add=N)` (vanilla `SetWeaponComponent` знает только Add/Multiply/Subtract; JAZZ патчит ветку `Set`).
+- Display «Магазин на 45» ⇒ параметр **`MagazineSize = 45`** (перезапись), не `+15` и не `×150%`.
+- `MagNormal` — без size-эффекта (база оружия).
+- Shared `JAZZ_MagLarge` (×166) **разрезать** по целевой ёмкости (50 / 28 / …), не один Multiply.
+- Evidence AC-010: static data pass; editor/runtime smoke remains `BLOCKED`.
+
+### Mag families / mag well (Phase C continuation) — owner 2026-08-01
+
+Съёмный магазин — InventoryItem с `Id == component id`. Один shared id на несовместимых платформах (АК + M16) = один предмет ставится на оба — **запрещено**.
+
+- Канон семей: `docs/design/magazine-tiers.md` § «Семьи магазинов».
+- Public id: `JAZZ_Mag*_<Family>` для expanded/large/quick/small/fine/drum, которые иначе шарились бы между семьями (`_AK`, `_AR15`, `_SIG`, `_MP5`, …).
+- Внутри семьи — union options (`_union_mag_family_options.py`): магазин АК ставится на **РПК**, не на AR15.
+- АК expanded ёмкость: **40** (`JAZZ_MagLarge_30_40`); **не** заводить `MagLarge_50_AK`.
+- `JAZZ_MagNormal` остаётся универсальным заводским placeholder (не remountable-каталог семей).
+- Apply: `_split_mag_families.py` (+ InventoryItem companions); accepted save break на rename component id (как Phase D).
+- Tools: `_split_mag_families.py`, `_union_mag_family_options.py`, `_remove_mag_50_ak.py`.
 
 ### Phase D — префикс `JAZZ_`, удаление мусора, Mount → только Visual
 
@@ -175,7 +234,10 @@ approved_by: project-owner
 - `JAZZ-ATTACH-001-REQ-001` — ни один компонент, доступный на `catalog_status=active` оружии (modifiable или default), не содержит effects из множества Handling-legacy после Phase B.
 - `JAZZ-ATTACH-001-REQ-002` — Firearm property `Handling` **удалён** из defs/данных/UI presets; CTH/overwatch без Handling (`JAZZ-WEAPONS-001-REQ-005` / `JAZZ-CTH-001`). Accepted save break: старые сейвы с полем Handling игнорируют неизвестное поле.
 - `JAZZ-ATTACH-001-REQ-003` — замена следует матрице; отклонения только с явной строкой в `attachments-rebalance.md`.
-- `JAZZ-ATTACH-001-REQ-004` — Phase C: каждый слот имеет documented tier table (роль + ключ чисел) до merge в main.
+- `JAZZ-ATTACH-001-REQ-004` — Phase C: каждый слот имеет documented tier table (роль + ключ чисел) в `docs/design/*-tiers.md` / `attachments-rebalance.md` до merge в main. Все слоты Phase C — scope этого SPEC-ID.
+- `JAZZ-ATTACH-001-REQ-015` — Magazine: ReloadAP ladder small **−1** / expanded **+1** / large **+2**; Rel−/AA− только large; Fine expanded может быть без Reload+.
+- `JAZZ-ATTACH-001-REQ-016` — Magazine size: live mag comps без `MagazineSizeMultiplier`; ёмкость — **абсолютный Set** («на 45» ⇒ `MagazineSize=45`); Small тоже Set; shared `%`-MagLarge разрезан по target. Runtime: `MagazineSizeSet` + `ModificationType=Set` → `AddModifier(..., mul=0, add=N)` (`Code/System_WeaponComponent_Set.lua`). Data+Code applied; runtime smoke still in wave test.
+- `JAZZ-ATTACH-001-REQ-017` — Magazine **families** (mag well): remountable/expanded/large/quick/small/fine/drum ids не шарятся между несовместимыми платформами; public id `JAZZ_Mag*_<Family>`; внутри семьи (АК↔РПК) — общие options; АК expanded = **40** (`JAZZ_MagLarge_30_40`, без `MagLarge_50_AK`); InventoryItem `Id == component id` на каждый live family mag; канон в `magazine-tiers.md`. Accepted save break на rename id.
 - `JAZZ-ATTACH-001-REQ-005` — generated sync: companion + `items.lua` + weapons CSV export согласованы; human design doc пересобран.
 - `JAZZ-ATTACH-001-REQ-006` — UI/hints не обещают «Эргономику» как боевой бонус обвеса (если такие строки есть — RU/EN sync).
 - `JAZZ-ATTACH-001-REQ-007` — суммарный ShootAP-модификатор от аттачей ∈ [−1, +1]; ни один live comp не даёт `|ShotAP| > 1`.
@@ -215,6 +277,9 @@ approved_by: project-owner
 - `JAZZ-ATTACH-001-AC-006` — runtime/human: 3 smoke kits (reflex CQB, 4× mid, 8×+suppressor) — выбор читается, нет «пустых» эрго-апов.
 - `JAZZ-ATTACH-001-AC-007` — static: orphan/legacy flat/Handling effect presets removed per REQ-011; property `Handling` **absent**; `PointBlankBonus`/`TwoHanded` kept.
 - `JAZZ-ATTACH-001-AC-008` — static: live non-Mount comps all `JAZZ_*`; no Mount slots on active weapons; unused comps purged per audit.
+- `JAZZ-ATTACH-001-AC-009` — static: Phase C tier canons present for Scope/Barrel/Muzzle/Magazine; Stock/Under/Side documented before their apply merge.
+- `JAZZ-ATTACH-001-AC-010` — static/runtime: live Magazine without `MagazineSizeMultiplier`; `MagazineSizeSet` absolute; smoke «на 45» → `MagazineSize==45`.
+- `JAZZ-ATTACH-001-AC-011` — static/runtime: no cross-family shared remountable mag id (АК expanded ≠ AR15); АК↔РПК share `MagLarge_30_40` / family union; no live `JAZZ_MagLarge_50_AK`; InventoryItem companions exist for family-suffixed mag ids; smoke: `…_AK` item installs on RPK, rejected on M16.
 
 ## Impact и совместимость
 
@@ -239,7 +304,7 @@ approved_by: project-owner
 - Кто подтвердил: project-owner (фиксация в чате 2026-07-31: «пока кажется что хорошо» + явный «зафиксируй спеку»)
 - Дата: 2026-07-31
 - Зафиксированные решения:
-  1. Pure-ergo (`TacGrip`, `Handgrip_Ergo`, `SigErgoHandGrip`, `HandlingWrap`) → **`RecoilDecrease` Recoil=1** (не visual-only).
+  1. Pure-ergo initially → `RecoilDecrease`; **superseded** grip pass (`under-grip-tiers.md`): Vertical=`RecoilDecrease`; Tac/Wrap=`CloseRangeFactor+5`; Ergo=`AimAccuracy%105`; **без** `FreeWeaponSwap`.
   2. Phase C → **tiered pass** по слотам (не только strip Handling).
   3. GL → Handling off **без** `IncreaseShotAP` (бюджет AP ±1 бережём под оптику/ствол).
   4. Ближняя зона: `CloseRange` + `CloseRangeFactor`; `PointBlankBonus` / `TwoHanded` **оставить**.
@@ -247,29 +312,38 @@ approved_by: project-owner
   6. Phase D: live → `JAZZ_`; unused удалить; Mount только Visual; rename = accepted save break.
   7. Цель «золотая ~100% при max skill» → **вне** обязательного scope; отдельный base-weapons pass (не блокирует ATTACH-001).
   8. Firearm property `Handling` (WeaponPropertyDef / GameTerm / CTH modifier preset / weapon data) → **удалить** (owner follow-up 2026-08-01).
-- Новые идеи после approve → новый REQ/AC или отдельный SPEC-ID; не молча расширять write set.
+  9. Phase C = **один большой pass внутри ATTACH-001** (owner 2026-08-01): Scope/Barrel/Muzzle/Magazine/Stock… — не отдельные SPEC.
+  10. Optics: specialization (reflex CQB / combat mid / long max-aim); optic AimAccuracy% только при активной оптике.
+  11. Muzzle: SK ladder↑; sil без Recoil; FlashHider = StealthKill без Silent; MuzzleBooster cut; Improvised wide = by design.
+  12. Magazine: four roles; ReloadAP −1/+1/+2; ёмкость = **абсолютный Set** («на 45» → `MagazineSize=45`) — **data+Code applied** (REQ-016 / AC-010 static PASS; editor/runtime smoke в общем тесте).
+  13. Magazine **families** (owner 2026-08-01): mag-well split public ids (`…_AK` / `…_AR15` / …); АК mag на РПК, не на M16; АК expanded = **40** (`MagLarge_30_40`); REQ-017 / AC-011; tools `_split_mag_families.py` / `_union_mag_family_options.py`.
+- Новые идеи после approve → новый REQ/AC **в этом** SPEC или явный split; не молча расширять write set без строки здесь.
+
+## Evidence
 
 | AC | Result | Evidence |
 | --- | --- | --- |
 | AC-001 | `PASS` (static) | `_audit_attach_effects.py`: Handling-ish still on comps: `[]`. |
-| AC-002 | `PASS` (static) | Pure-ergo live with `RecoilDecrease`: `JAZZ_TacGrip`, `JAZZ_Handgrip_Ergo`, `JAZZ_SigErgoHandGrip`, `JAZZ_HandlingWrap`. |
+| AC-002 | `PASS` (static) | Dead-ergo set live per `under-grip-tiers.md`: Vertical Recoil−1; Tac/Wrap CloseRangeFactor+5; Ergo AA%105; `FreeWeaponSwap` off TacGrip_M14. |
 | AC-003 | `PASS` (static) | No Firearm `Handling` property/data; CTH path has no Handling (`AccuracyRangeCTH` / WEAPONS-001 regression). |
-| AC-004 | `BLOCKED` (editor) | Mod Editor round-trip sample (optic, magazine, grip) not run. |
-| AC-005 | `PASS` (human/static) | `attachments-by-category.md` + `attachments-catalog.html` regenerated; Handling not sold as CTH. |
-| AC-006 | `BLOCKED` (runtime/human) | Three-kit in-game smoke (reflex CQB / 4× mid / 8×+suppressor) not run. |
+| AC-004 | `BLOCKED` (editor) | Mod Editor round-trip sample (optic, magazine, grip) — отложено на общий тест волны. |
+| AC-005 | `PASS` (human/static) | Catalog + tier docs (Scope…Side); Handling not sold as CTH. |
+| AC-006 | `BLOCKED` (runtime/human) | Three-kit in-game smoke — отложено на общий тест волны. |
 | AC-007 | `PASS` (static) | Handling/legacy flat orphans removed; whitelist `PointBlankBonus`/`TwoHanded` kept; Firearm `Handling` property/UI presets **removed** (owner 2026-08-01). |
-| AC-008 | `PASS` (static) | `_audit_attach_ids.py`: live WITHOUT jazz prefix `0`; Mount slots `0`; unused comps `0`. (Excluded-weapon vanilla_ref leftovers on AR15/MP5/M4Commando are outside live-active scope.) |
+| AC-008 | `PASS` (static) | `_audit_attach_ids.py`: live WITHOUT jazz prefix `0`; Mount `0`; unused `0`. Promoted 9 vanilla_ref → `JAZZ_*` with Visuals (`_promote_vanilla_refs_visuals.py`). |
+| AC-009 | `PASS` (static) | Phase C tier canons: Scope/Barrel/Muzzle/Magazine/Stock/Under-grips/Bipod/Side. Bayonet distant backlog (out of AC-009). |
+| AC-010 | `PASS` (static) / `BLOCKED` (runtime) | `_apply_mag_size_set.py`: live `JAZZ_Mag*` → `MagazineSizeSet`; generic MagLarge split `_50/_28/…`; `_30_45=45`; `Code/System_WeaponComponent_Set.lua` registered. Runtime smoke «на 45» → в общем тесте. Auto5 barrel LMag multiplier = tracked exception. |
+| AC-011 | `PASS` (static) / `BLOCKED` (runtime) | `_split_mag_families.py` + `_union_mag_family_options.py`: family-suffixed mag ids; AK options use `MagLarge_30_40` (40), no `MagLarge_50_AK`; RPK lists AK family mags; AR15 uses `…_AR15`. InventoryItem companions for family ids. Runtime DnD smoke (АК item → RPK / not M16) — wave test. |
 
-Status remains `approved` until editor (AC-004) and runtime smoke (AC-006) close. Static acceptance is green.
+Status remains **`approved`** (не `implemented`): закрыть AC-004 / AC-006 + runtime AC-010/AC-011 в общем тесте волны. MagSizeSet + mag families data shipped.
 
 ## Documentation delta
 
-- `docs/design/attachments-rebalance.md` — матрица + tier tables (Phase A/C).
+- `docs/design/attachments-rebalance.md` — матрица + Phase C status.
+- `docs/design/*-tiers.md` — Scope / Barrel / Muzzle / Magazine (incl. **families** + AK=40) / Stock / Under-grip / Bipod / Side + apply scripts.
 - `docs/design/attachments-by-category.md` — пересбор после B/C/D.
-- `docs/technical/systems/weapons-ammo-components.md` — Handling effects removed from live components; CloseRange*; JAZZ_ ids.
-- `docs/technical/weapons/accuracy-model.md` — floor ~25% after BDR/E; CloseRange/CloseRangeFactor; Handling **removed**.
-- `docs/technical/weapons/data/*.csv` — working-tree export (`close_range` / `close_range_factor` on weapons; no `handling` column).
-- `docs/wiki/combat-and-accuracy.md`, `docs/wiki/weapons-and-ammo.md` — player-facing range floor / close profile / attachment tradeoffs; Handling removed.
-- `docs/showcase/ru` + `en` (`combat-and-accuracy`, `weapons-and-ammo`) — synchronized player-facing contract.
-- Tools catalog: `docs/tools/README.md` — `_apply_attach_001.py`, `_export_attach_csv.py`, `_promote_vanilla_refs.py`, `_remove_handling_stat.py`, audits/classifier.
-- Agent tooling policy: `.agents/docs/reference/agent-tooling.md`, `.cursor/rules/jazz-agent-tooling.mdc`.
+- `docs/technical/systems/weapons-ammo-components.md` — Handling removed; CloseRange*; JAZZ_ ids; tier pointers.
+- `docs/technical/weapons/accuracy-model.md` — floor ~25% after BDR/E; CloseRange*; optic AA% gate; Handling **removed**; Laser falloff/`LaserFullRange`.
+- `docs/technical/weapons/data/*.csv` — working-tree export (wiki rebuild: `node scripts/docs/weapons-docs.mjs build` when node on PATH).
+- `docs/wiki/` + `docs/showcase/ru|en` — player-facing attachment tradeoffs.
+- Tools: `docs/tools/README.md` — apply/rebalance/audit + `_split_mag_families.py` / `_union_mag_family_options.py` / `_remove_mag_50_ak.py`.

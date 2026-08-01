@@ -68,9 +68,14 @@ DefineClass.DeLisle = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
+	WeaponMass = 35,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	Recoil = 18,
 	MaxAimActions = 4,
-	BurstShots = 1,
-	AutoShots = 1,
+	BurstShots = 0,
+	AutoShots = 0,
 
 	CloseRange = 4,
 

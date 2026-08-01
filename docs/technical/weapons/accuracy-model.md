@@ -146,15 +146,23 @@ P_core = (shot_skill_cth + aim_gain) × range_factor
 - эффект нарастает вместе с `aim_progress`;
 - сильное увеличение может иметь отдельную ближнюю неэффективную зону и множитель меньше `1`.
 
-Runtime сначала читает явные параметры component effect `OpticReach`, `OpticMinRange` и `OpticNearFactor`. Пока они не заданы конкретному компоненту, профиль детерминированно выводится из `ScopeMagnification`, `ScopeSubMagnification` и `AimLevel`, а для известных прицелов используется таблица совместимых fallback-профилей. Старые плоские optic-effects `ScopeCTHBonus`, `IncreasedSingleShotAccuracy`, `AccuracyBonusWhenAimed` и `ScopeAccuracyIncreace` удалены из активной оптики, чтобы один прицел не учитывался дважды.
+Runtime сначала читает явные параметры component effect `OpticReach`, `OpticMinRange` и `OpticNearFactor`. Пока они не заданы конкретному компоненту, профиль детерминированно выводится из `ScopeMagnification`, `ScopeSubMagnification` и `AimLevel`, а для известных прицелов используется таблица совместимых fallback-профилей. Старые плоские optic-effects `ScopeCTHBonus`, `IncreasedSingleShotAccuracy`, `AccuracyBonusWhenAimed` и `ScopeAccuracyIncreace` удалены из активной длинной/снайперской и боевой оптики, чтобы один прицел не учитывался дважды через optic_reach.
 
-`AimLevel` / `ScopeAimLevel` **разблокирует только `optic_reach`** (сдвиг дальней эффективной зоны). Ближняя неэффективность (`OpticMinRange` / `OpticNearFactor`) действует, пока прицел установлен, даже на snap / низком aim — иначе 6–10× вели себя как открытый прицел в упор. Формула по умолчанию (если нет explicit params): при кратности ≥4 `min_range ≈ mag×0.9`, `near_factor ≈ max(0.35, 1 − (mag−2)×0.09)` (≈4×~82%, 6×~64%, 10×~35% на `d=0`). Значения clamp ≥25%.
+**Семейства оптики меняют специализацию оружия** (не плоский CTH): **коллиматор** — эффективность ↑ относительно irons (CQB / короткий aim); **боевая** — mid с ранним unlock; **полноценная** — payoff на высоком / max aim (поздний unlock, far reach, ShotAP/Crit). Оптический `AimAccuracyPercent` не использует `IncreaseAimAccuracy15Percent` (тот всегда множит Firearm property). Параметр висит на `ScopeMagnification` (Combat/Long) или `MinAim` (Reflex); `JAZZ_CTHGetOpticAimAccuracyPercent` применяет множитель **только когда `aim ≥ AimAccuracyAimLevel`** (fallback: `ScopeAimLevel`; для колемов default `1`). До unlock клики считаются с базовым AA оружия.
+
+**Combat universal** — `AimAccuracyPercent` 125…155 @ AimLevel; mid-цель ~+20–30% на плато. **Коллиматоры** — 120…160 @ aim≥1 + `MinAim`/`DecreaseMaxAimActions` + `CloseRangeFactorIncrease`. Канон: `docs/design/combat-scope-tiers.md`, `docs/design/reflex-collimator-tiers.md`.
+
+`AimLevel` / `ScopeAimLevel` разблокирует **`optic_reach`** и (через `AimAccuracyAimLevel`, обычно тот же порог) **оптический AA%**. Ближняя неэффективность (`OpticMinRange` / `OpticNearFactor`) действует, пока прицел установлен, даже на snap / низком aim — иначе 6–10× вели себя как открытый прицел в упор. Формула по умолчанию (если нет explicit params): при кратности ≥4 `min_range ≈ mag×0.9`, `near_factor ≈ max(0.35, 1 − (mag−2)×0.09)` (≈4×~82%, 6×~64%, 10×~35% на `d=0`). Значения clamp ≥25%.
+
+**Боевые прицелы** задают explicit milder near (`OpticNearFactor` ≈88–92%) и разведённый `OpticMinRange` (≈ Mag×3: 2×→6, 3×→9, 4×→12) — см. `docs/design/combat-scope-tiers.md`. ShotAP на Combat не поднимают.
+
+**Длинная оптика:** **T1** винтаж AA% 110…112 @ AimLevel 2; **T2** ПСО/ZF4 AA% **155** @ AimLevel 3 (на полном aim ≈ Combat ACOG; раньше unlock ACOG сильнее); **T3+** 6×…10× AA% 115→125. ShotAP+1, CritFullAim, harsh near. Канон: `docs/design/long-scope-tiers.md`.
 
 Коллиматор имеет малый `optic_reach` и практически отсутствующую ближнюю неэффективную зону. Снайперский прицел получает большой перенос при достаточном aim, но неудобен против близкой цели уже за счёт установленной кратности. Конкретные значения остаются калибруемыми вместе с оружием.
 
 ### Ближняя зона оружия и ствола
 
-`CloseRange` и `CloseRangeFactor` — базовые свойства Firearm. `CloseRange` задаёт длину ближней неэффективной зоны в тайлах, а `CloseRangeFactor` — CTH-множитель в точке `d=0` (проценты, ограниченные `25…100`). Внутри зоны фактор линейно возвращается от этого значения к `1.0`; вне зоны он нейтрален. Короткие и длинные стволы сдвигают эти свойства через `CloseRange*` component effects: короткий ствол сокращает зону и/или смягчает штраф, длинный делает обратное.
+`CloseRange` и `CloseRangeFactor` — базовые свойства Firearm. `CloseRange` задаёт длину ближней неэффективной зоны в тайлах, а `CloseRangeFactor` — CTH-множитель в точке `d=0` (проценты, clamp runtime `25…150`; >100 = намеренный CQB-бафф, напр. коллиматор). Внутри зоны фактор линейно возвращается от этого значения к `1.0`; вне зоны он нейтрален. Стволы сдвигают **BDR процентом** (`BarrelBulletDrop*` = Multiply) и `CloseRange*`; `WeaponRange` трогают слабо (±1). Short: BDR×70% (пистолет ×85%), near↑, Recoil↑. Long: BDR×130%, near-tax, Recoil↓. Heavy: Recoil↓↓ + BDR×115%. Канон: `docs/design/barrel-tiers.md`. Оптика отдельно через `OpticMinRange` / `OpticNearFactor`.
 
 Это отдельный множитель от ближнего профиля оптики. `OpticMinRange` / `OpticNearFactor` применяются поверх `close_factor`, а не заменяют его. Поэтому сильная оптика и длинный ствол могут одновременно ухудшать очень близкий выстрел.
 
@@ -223,7 +231,7 @@ P_situational =
 ```text
 effective_recoil =
     Recoil
-  × StrengthFactor
+  × (0.5 × StrengthFactor + 0.5 × MarksmanshipFactor)
   × StanceFactor
   × SupportFactor
   × ComponentRecoilFactor
@@ -232,7 +240,7 @@ recoil_retention = clamp(1 - effective_recoil / 100, min_retention, 1)
 P_bullet(i)      = clamp(round(P_first × recoil_retention^(i - 1)), 2, 100)
 ```
 
-Strength, стойка, сошки, развёртывание, компоненты, перки и действие улучшают сохранение точности, а не добавляют независимые CTH-бонусы. Существующие значения `Recoil` теперь трактуются как тяжесть потери удержания; их числовая калибровка относится к плейтестовому balance-pass, а не к возврату линейного вычитания.
+Strength и Marksmanship поровну определяют базовый контроль (`0.5 × StrengthFactor + 0.5 × MarksmanshipFactor`), а стойка, сошки, развёртывание, компоненты, перки и действие улучшают сохранение точности, не добавляя независимые CTH-бонусы. `Recoil` теперь авторится из массы, cyclic RPM и класса длины платформы (`docs/design/recoil-physical-scale.md`); эти входы не умножаются повторно в runtime.
 
 Отдача влияет на шанс ровно один раз. Вектор промаха описывает направление уже состоявшегося промаха и не должен повторно ухудшать вероятность попадания. Исключения режимов очереди оформляются явным `ActionFactor` или изменением recoil retention, а не сбросом CTH после произвольного номера пули.
 

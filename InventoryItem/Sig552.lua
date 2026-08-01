@@ -55,7 +55,7 @@ DefineClass.Sig552 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge",
+				"JAZZ_MagLarge_50_SIG",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -71,7 +71,7 @@ DefineClass.Sig552 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge",
+				"JAZZ_MagLarge_50_SIG",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -105,8 +105,13 @@ DefineClass.Sig552 = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
-	Recoil = 9,
-	AutoShots = 7,
+	WeaponMass = 35,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Rifle",
+	BurstLimiter = 0,
+	BurstShots = 0,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 4,
 

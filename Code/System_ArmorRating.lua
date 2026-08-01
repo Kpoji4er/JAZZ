@@ -225,7 +225,21 @@ function GetArmorWeightUIText(id)
 end
 
 function Armor:GetFactoryResource()
-	return InventoryItemDefs[self.class]:GetProperty("ArmorResource") or 1000
+	local def = InventoryItemDefs and self.class and InventoryItemDefs[self.class]
+	if not def then
+		return 1000
+	end
+	local val = rawget(def, "ArmorResource")
+	if type(val) ~= "number" then
+		local ok, prop = pcall(def.GetProperty, def, "ArmorResource")
+		if ok then
+			val = prop
+		end
+	end
+	if type(val) == "number" and val > 0 then
+		return val
+	end
+	return 1000
 end
 
 function Armor:GetMaxResource()

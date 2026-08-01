@@ -35,7 +35,7 @@ DefineClass.DesertEagle = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge",
+				"JAZZ_MagLarge_13_PISTOL_DE",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -61,6 +61,7 @@ DefineClass.DesertEagle = {
 			'AvailableComponents', {
 				"JAZZ_FlashlightDot",
 				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
 				"JAZZ_LaserDot",
 				"JAZZ_UVDot",
 			},
@@ -76,8 +77,13 @@ DefineClass.DesertEagle = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 4000,
-	Recoil = 1,
-	AutoShots = 3,
+	WeaponMass = 10,
+	CyclicRPM = 0,
+	WeaponSizeClass = "Compact",
+	BurstLimiter = 0,
+	BurstShots = 0,
+	Recoil = 18,
+	AutoShots = 0,
 
 	CloseRange = 0,
 

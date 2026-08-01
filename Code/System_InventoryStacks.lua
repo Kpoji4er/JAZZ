@@ -33,6 +33,10 @@ function JazzGetPersonalMaxStacks(item)
 end
 
 function JazzGetStackMax(item, inv)
+	-- Remountables share one class but distinct RemovableComponentId — never bag-stack.
+	if IsKindOf(item, "JAZZ_RemovableAttachment") then
+		return 1
+	end
 	if JazzIsStorageInventory(inv) then
 		return const.JazzStorageStackMax
 	end
@@ -97,7 +101,12 @@ function JazzMarkSquadBagData(squad_id)
 	end
 	for _, item in ipairs(bag) do
 		if IsKindOf(item, "InventoryStack") then
-			rawset(item, "MaxStacks", const.JazzStorageStackMax)
+			if IsKindOf(item, "JAZZ_RemovableAttachment") then
+				rawset(item, "MaxStacks", 1)
+				item.Amount = 1
+			else
+				rawset(item, "MaxStacks", const.JazzStorageStackMax)
+			end
 		end
 	end
 end
@@ -212,6 +221,11 @@ end
 function MergeStackIntoContainer(dest_container, dest_slot, item, check, up_to_amount, local_changes)
 	local function get_local_changes(i)
 		return local_changes and local_changes[i] or 0
+	end
+
+	-- Same class, different RemovableComponentId — never merge (was: collimator+compensator → Amount=2).
+	if IsKindOf(item, "JAZZ_RemovableAttachment") then
+		return false, item.Amount
 	end
 
 	local a = Min(item.Amount, up_to_amount or item.Amount)
