@@ -12,9 +12,9 @@
 |---|---|
 | Установленная vanilla JA3 | Не участвует: workflow не загружается игрой и не переопределяет символы JA3 |
 | CommonLib | Прямого пересечения нет. Snapshot проверки 26 июля 2026 года: CommonLib 1.11, build 1056, commit `1adf9f232680d3b011248d180fd0ad1e609a8e2c` |
-| JAZZ | Core-репозиторий `jazz` владеет reusable workflow, сбором Git diff, обращением к OpenAI Responses API, fallback и формированием Discord payload; три соседних пакета владеют только своими caller workflows |
+| JAZZ | Core-репозиторий `jazz` владеет reusable workflow, сбором Git diff, обращением к OpenAI Responses API, fallback и формированием Discord payload; соседние пакеты владеют только своими caller workflows |
 
-Контракт подключения четырёх репозиториев зафиксирован в `JAZZ-DISCORD-001`. Каждый push обрабатывается отдельно в контексте репозитория-источника; межрепозиторной агрегации нет.
+Контракт подключения caller-репозиториев зафиксирован в `JAZZ-DISCORD-001`: четыре канонических пакета плюс optional `jazz-nomaps` (`Kpoji4er/JAZZ-nomaps`, COMPAT-002). Каждый push обрабатывается отдельно в контексте репозитория-источника; межрепозиторной агрегации нет.
 
 Контракт разделения implementation evidence и документации зафиксирован в `JAZZ-DISCORD-002`: обычные изменения под `docs/` не доказывают реализацию игрового поведения.
 
@@ -28,6 +28,7 @@
 | `jazz_assets/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | Push/ручной запуск для ресурсов; вызывает reusable workflow из `Kpoji4er/JAZZ@main` |
 | `jazz-maps/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | Push/ручной запуск для карт; вызывает reusable workflow из `Kpoji4er/JAZZ@main` |
 | `jazz-units/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | Push/ручной запуск для юнитов; вызывает reusable workflow из `Kpoji4er/JAZZ@main` |
+| `jazz-nomaps/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | Push/ручной запуск для optional NoMaps-пакета; вызывает reusable workflow из `Kpoji4er/JAZZ@main` |
 
 Файлы не входят в `metadata.lua` и не должны добавляться в игровой load order.
 
@@ -39,7 +40,7 @@
 2. Выбрать **Integrations → Webhooks → New Webhook**.
 3. Назвать webhook, при необходимости задать аватар и скопировать URL.
 4. В GitHub открыть **Settings → Secrets and variables → Actions → Secrets**.
-5. Создать `DISCORD_WEBHOOK_URL` в каждом из четырёх репозиториев либо organization secret с доступом ровно к этим репозиториям.
+5. Создать `DISCORD_WEBHOOK_URL` в каждом caller-репозитории (`jazz`, `jazz_assets`, `jazz-maps`, `jazz-units`, `jazz-nomaps`) либо organization secret с доступом ровно к ним.
 
 Webhook должен принадлежать публичному каналу обновлений. Не сохранять URL в репозитории, документации, issue, Actions variables или логах.
 
@@ -78,7 +79,7 @@ DISCORD_MENTION_UPDATE_ROLE
 ## Поток данных
 
 1. Push в `main` или ручной `workflow_dispatch` запускает workflow репозитория-источника.
-2. В `jazz` выполняется собственный workflow; в `jazz_assets`, `jazz-maps` и `jazz-units` тонкий caller вызывает `Kpoji4er/JAZZ/.github/workflows/discord-player-updates.yml@main`.
+2. В `jazz` выполняется собственный workflow; в `jazz_assets`, `jazz-maps`, `jazz-units` и `jazz-nomaps` тонкий caller вызывает `Kpoji4er/JAZZ/.github/workflows/discord-player-updates.yml@main`.
 3. Reusable workflow получает `github` context caller, а первый `actions/checkout` получает полную историю репозитория-источника (`fetch-depth: 0`). Для соседнего пакета второй checkout с `persist-credentials: false` получает доверенный скрипт из `Kpoji4er/JAZZ@main` в `.jazz-automation/`.
 4. Скрипт запускается из core checkout, но Git-команды выполняются в корне caller workspace; он разрешает `before` и `after`, собирает все коммиты диапазона, авторов, changed files, line stats и compare URL источника.
 5. Все пути под `docs/` отдельно перечисляются как `documentation_changed_files` и по умолчанию исключаются из diff-контекста. Runtime/data/content-файлы отдельно передаются как `implementation_changed_files`.
@@ -195,7 +196,7 @@ git diff --check
 Дополнительно:
 
 - разобрать YAML workflow;
-- разобрать YAML трёх caller workflows и проверить ссылку на `Kpoji4er/JAZZ/.github/workflows/discord-player-updates.yml@main`;
+- разобрать YAML caller workflows (`jazz_assets`, `jazz-maps`, `jazz-units`, `jazz-nomaps`) и проверить ссылку на `Kpoji4er/JAZZ/.github/workflows/discord-player-updates.yml@main`;
 - проверить push range на двух коммитах и zero-before;
 - проверить, что `GITHUB_REPOSITORY=Kpoji4er/JAZZ-units` создаёт compare URL caller и метку `JAZZ-units` в Discord footer;
 - проверить valid/invalid JSON, `should_publish=false`, `[discord]`, `[discord implemented]`, приоритет `[skip discord]` и автоматический fallback без ключа и при ошибке API;

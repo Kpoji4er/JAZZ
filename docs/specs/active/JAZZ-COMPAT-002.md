@@ -200,7 +200,7 @@ Core `jazz` **не** объявляет dependency на nomaps.
 | 2 | Перенести/расширить код из `StandaloneNoMapsFallback.lua` |
 | 3 | Удалить файл и wiring из `jazz`; bump `jazz` minor notes «moved to jazz-nomaps» |
 | 4 | Обновить compatibility / strategy / file-coverage / project-scope (5 пакетов optional) |
-| 5 | Release suite / Discord workflows: добавить 5-й caller **только если** owner включает в release |
+| 5 | Discord workflows: 5-й caller в `jazz-nomaps` — **сделано** 2026-08-01 (owner одобрил; контракт `JAZZ-DISCORD-001`). Release suite — отдельно, если owner включает nomaps в release |
 | 6 | Supersede COMPAT-001 |
 
 ### Слой G — Release / docs (после acceptance)

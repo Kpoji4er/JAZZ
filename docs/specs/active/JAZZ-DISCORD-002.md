@@ -96,9 +96,9 @@ approved_by: project-owner
 ## Impact и совместимость
 
 Изменение затрагивает только reusable automation репозитория `jazz`.
-Тонкие callers `jazz_assets`, `jazz-maps` и `jazz-units` автоматически получают
-исправление через `Kpoji4er/JAZZ@main`. Runtime JA3, saves, multiplayer,
-dependencies, public IDs и generated data не меняются.
+Тонкие callers `jazz_assets`, `jazz-maps`, `jazz-units` и `jazz-nomaps`
+автоматически получают исправление через `Kpoji4er/JAZZ@main`. Runtime JA3,
+saves, multiplayer, dependencies, public IDs и generated data не меняются.
 
 ## План и ownership
 

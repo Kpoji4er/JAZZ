@@ -155,6 +155,7 @@
 | `jazz_assets/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | [Сводки изменений в Discord](discord-player-updates.md) |
 | `jazz-maps/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | [Сводки изменений в Discord](discord-player-updates.md) |
 | `jazz-units/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | [Сводки изменений в Discord](discord-player-updates.md) |
+| `jazz-nomaps/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | [Сводки изменений в Discord](discord-player-updates.md) |
 
 ## Generated data coverage
 
