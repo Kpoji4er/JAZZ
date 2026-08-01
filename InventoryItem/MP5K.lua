@@ -33,42 +33,42 @@ DefineClass.MP5K = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Under",
 			'AvailableComponents', {
-				"VerticalGrip",
+				"JAZZ_VerticalGrip",
 			},
-			'DefaultComponent', "VerticalGrip",
+			'DefaultComponent', "JAZZ_VerticalGrip",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelShort",
+				"JAZZ_BarrelShort",
 			},
-			'DefaultComponent', "BarrelShort",
+			'DefaultComponent', "JAZZ_BarrelShort",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagSmall30_15",
+				"JAZZ_MagNormal",
+				"JAZZ_MagSmall30_15",
 			},
-			'DefaultComponent', "MagSmall30_15",
+			'DefaultComponent', "JAZZ_MagSmall30_15",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockNormal",
-				"StockHeavy",
-				"StockNo",
+				"JAZZ_StockNormal",
+				"JAZZ_StockHeavy",
+				"JAZZ_StockNo",
 			},
-			'DefaultComponent', "StockNo",
+			'DefaultComponent', "JAZZ_StockNo",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"LaserDot",
-				"FlashlightDot",
-				"UVDot",
+				"JAZZ_Flashlight",
+				"JAZZ_LaserDot",
+				"JAZZ_FlashlightDot",
+				"JAZZ_UVDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -89,17 +89,17 @@ DefineClass.MP5K = {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Compensator",
-				"PistolSuppressor",
-				"ImprovisedSuppressor",
+				"JAZZ_Compensator",
+				"JAZZ_PistolSuppressor",
+				"JAZZ_ImprovisedSuppressor",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",
 			'AvailableComponents', {
-				"Freeswap",
+				"JAZZ_Freeswap",
 			},
-			'DefaultComponent', "Freeswap",
+			'DefaultComponent', "JAZZ_Freeswap",
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -116,7 +116,10 @@ DefineClass.MP5K = {
 	Recoil = 7,
 	BurstShots = 4,
 	AutoShots = 9,
-	Handling = 16,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	BulletDropRange = 8,
 	Grouping = 78,
 	BaseJamChance = -30,

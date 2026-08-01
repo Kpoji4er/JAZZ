@@ -33,20 +33,20 @@ DefineClass.M2Carbine = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLightFolded",
-				"StockLightUnFolded",
-				"StockNo",
-				"StockNormal",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockLightUnFolded",
+				"JAZZ_StockNo",
+				"JAZZ_StockNormal",
 			},
-			'DefaultComponent', "StockNormal",
+			'DefaultComponent', "JAZZ_StockNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagSmall30_15",
+				"JAZZ_MagNormal",
+				"JAZZ_MagSmall30_15",
 			},
-			'DefaultComponent', "MagSmall30_15",
+			'DefaultComponent', "JAZZ_MagSmall30_15",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -60,14 +60,14 @@ DefineClass.M2Carbine = {
 			'SlotType', "Trigger",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Autofire",
+				"JAZZ_Autofire",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"FlashHider",
+				"JAZZ_FlashHider",
 			},
 		}),
 	},
@@ -82,7 +82,10 @@ DefineClass.M2Carbine = {
 	Recoil = 10,
 	BurstShots = 2,
 	AutoShots = 7,
-	Handling = -10,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 12,
 	Grouping = 53,
 	BaseJamChance = -100,

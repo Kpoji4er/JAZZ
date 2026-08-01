@@ -64,7 +64,6 @@ DefineClass.LionRoar = {
 	ReloadAP = 4000,
 	Recoil = 5,
 	AutoShots = 6,
-	Handling = 6,
 	BulletDropRange = 9,
 	Grouping = 45,
 	WeaponResource = 5000,

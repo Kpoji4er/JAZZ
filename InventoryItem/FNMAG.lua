@@ -38,9 +38,9 @@ DefineClass.FNMAG = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'AvailableComponents', {
-				"KSP_BIPOD",
+				"JAZZ_KSP_BIPOD",
 			},
-			'DefaultComponent', "KSP_BIPOD",
+			'DefaultComponent', "JAZZ_KSP_BIPOD",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -61,9 +61,9 @@ DefineClass.FNMAG = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -77,7 +77,10 @@ DefineClass.FNMAG = {
 	Recoil = 12,
 	BurstShots = 8,
 	AutoShots = 8,
-	Handling = -30,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 18,
 	Grouping = 37,
 	BaseJamChance = -10,

@@ -40,7 +40,10 @@ DefineClass.MAS36 = {
 	ReloadAP = 5000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -32,
+
+	CloseRange = 8,
+
+	CloseRangeFactor = 80,
 	BulletDropRange = 17,
 	Grouping = 40,
 	WeaponResource = 7000,

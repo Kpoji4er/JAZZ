@@ -25,8 +25,7 @@ DefineClass.BlackPowder = {
 	AreaUnitDamageMod = 10,
 	AreaObjDamageMod = 10,
 	AreaAppliedEffects = {
-		"Bleeding",
-		"Bleeding",
+		"BleedingBleeding",
 	},
 	PenetrationClass = 1,
 	BurnGround = false,

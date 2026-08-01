@@ -33,27 +33,27 @@ DefineClass.MicroUZI = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelNormal",
-				"BarrelNormalImproved",
+				"JAZZ_BarrelNormal",
+				"JAZZ_BarrelNormalImproved",
 			},
-			'DefaultComponent', "BarrelNormal",
+			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge_20_30",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge_20_30",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"LaserDot",
-				"FlashlightDot",
-				"UVDot",
+				"JAZZ_Flashlight",
+				"JAZZ_LaserDot",
+				"JAZZ_FlashlightDot",
+				"JAZZ_UVDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -70,16 +70,16 @@ DefineClass.MicroUZI = {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Compensator",
-				"PistolSuppressor",
+				"JAZZ_Compensator",
+				"JAZZ_PistolSuppressor",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",
 			'AvailableComponents', {
-				"Freeswap",
+				"JAZZ_Freeswap",
 			},
-			'DefaultComponent', "Freeswap",
+			'DefaultComponent', "JAZZ_Freeswap",
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -97,7 +97,10 @@ DefineClass.MicroUZI = {
 	Recoil = 7,
 	BurstShots = 6,
 	AutoShots = 12,
-	Handling = 10,
+
+	CloseRange = 0,
+
+	CloseRangeFactor = 100,
 	BulletDropRange = 6,
 	Grouping = 55,
 	BaseJamChance = -10,

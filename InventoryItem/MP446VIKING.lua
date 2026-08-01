@@ -33,40 +33,40 @@ DefineClass.MP446VIKING = {
 			'SlotType', "Barrel",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"BarrelsDefs",
+				"JAZZ_BarrelsDefs",
 			},
-			'DefaultComponent', "BarrelsDefs",
+			'DefaultComponent', "JAZZ_BarrelsDefs",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'AvailableComponents', {
-				"ImprovisedSuppressor",
-				"PistolSuppressor",
+				"JAZZ_ImprovisedSuppressor",
+				"JAZZ_PistolSuppressor",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'AvailableComponents', {
-				"LaserDot",
-				"Flashlight",
-				"FlashlightDot",
-				"UVDot",
+				"JAZZ_LaserDot",
+				"JAZZ_Flashlight",
+				"JAZZ_FlashlightDot",
+				"JAZZ_UVDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",
 			'AvailableComponents', {
-				"Freeswap",
+				"JAZZ_Freeswap",
 			},
-			'DefaultComponent', "Freeswap",
+			'DefaultComponent', "JAZZ_Freeswap",
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -82,7 +82,10 @@ DefineClass.MP446VIKING = {
 	MaxAimActions = 2,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 8,
+
+	CloseRange = 0,
+
+	CloseRangeFactor = 100,
 	BulletDropRange = 7,
 	Grouping = 68,
 	BaseJamChance = -20,

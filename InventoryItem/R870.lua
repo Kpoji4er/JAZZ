@@ -55,15 +55,15 @@ DefineClass.R870 = {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"LaserDot",
+				"JAZZ_Flashlight",
+				"JAZZ_LaserDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side2",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"SpeedLoader",
+				"JAZZ_SpeedLoader",
 			},
 		}),
 	},
@@ -78,7 +78,10 @@ DefineClass.R870 = {
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -15,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 9,
 	Grouping = 150,
 	BaseJamChance = -10,

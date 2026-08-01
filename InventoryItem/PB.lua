@@ -35,16 +35,16 @@ DefineClass.PB = {
 			'SlotType', "Muzzle",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"SuppressorIntegrated",
+				"JAZZ_SuppressorIntegrated",
 			},
-			'DefaultComponent', "SuppressorIntegrated",
+			'DefaultComponent', "JAZZ_SuppressorIntegrated",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",
 			'AvailableComponents', {
-				"Freeswap",
+				"JAZZ_Freeswap",
 			},
-			'DefaultComponent', "Freeswap",
+			'DefaultComponent', "JAZZ_Freeswap",
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -60,7 +60,10 @@ DefineClass.PB = {
 	MaxAimActions = 4,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = -4,
+
+	CloseRange = 0,
+
+	CloseRangeFactor = 100,
 	BulletDropRange = 6,
 	Grouping = 80,
 	BaseJamChance = -100,

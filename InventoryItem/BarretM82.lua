@@ -38,17 +38,17 @@ DefineClass.BarretM82 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
-			'DefaultComponent', "Bipod",
+			'DefaultComponent', "JAZZ_Bipod",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -64,17 +64,17 @@ DefineClass.BarretM82 = {
 				"JAZZ_Scope_6x",
 				"JAZZ_Scope_12x",
 				"JAZZ_Scope_Scout",
-				"ImprovedIronsight",
+				"JAZZ_ImprovedIronsight",
 			},
 			'DefaultComponent', "JAZZ_Scope_6x",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'AvailableComponents', {
-				"Compensator",
-				"Suppressor",
+				"JAZZ_Compensator",
+				"JAZZ_Suppressor",
 			},
-			'DefaultComponent', "Compensator",
+			'DefaultComponent', "JAZZ_Compensator",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -87,7 +87,10 @@ DefineClass.BarretM82 = {
 	ReloadAP = 9000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -82,
+
+	CloseRange = 12,
+
+	CloseRangeFactor = 70,
 	BulletDropRange = 25,
 	Grouping = 29,
 	BaseJamChance = -20,

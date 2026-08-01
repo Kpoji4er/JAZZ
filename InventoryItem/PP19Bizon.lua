@@ -36,10 +36,10 @@ DefineClass.PP19Bizon = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLightFolded",
-				"StockLightUnFolded",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockLightUnFolded",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -66,7 +66,10 @@ DefineClass.PP19Bizon = {
 	Recoil = 2,
 	BurstShots = 4,
 	AutoShots = 12,
-	Handling = 12,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	BulletDropRange = 9,
 	Grouping = 60,
 	BaseJamChance = -30,

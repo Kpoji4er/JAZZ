@@ -34,10 +34,10 @@ DefineClass.MP40 = {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -53,7 +53,10 @@ DefineClass.MP40 = {
 	Recoil = 4,
 	BurstShots = 2,
 	AutoShots = 5,
-	Handling = -8,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	BulletDropRange = 9,
 	Grouping = 32,
 	BaseJamChance = 30,

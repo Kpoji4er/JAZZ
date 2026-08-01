@@ -31,6 +31,5 @@ DefineClass.UnderslungGrenadeLauncher = {
 	},
 	ShootAP = 8000,
 	ReloadAP = 8000,
-	Handling = 58,
 }
 

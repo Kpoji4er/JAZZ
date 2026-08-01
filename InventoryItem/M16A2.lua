@@ -36,45 +36,45 @@ DefineClass.M16A2 = {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Suppressor",
-				"ImprovisedSuppressor",
-				"SuppressorImproved",
+				"JAZZ_Suppressor",
+				"JAZZ_ImprovisedSuppressor",
+				"JAZZ_SuppressorImproved",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"BarrelNormal",
+				"JAZZ_BarrelNormal",
 			},
-			'DefaultComponent', "BarrelNormal",
+			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagLarge",
-				"MagNormal",
-				"MagQuick",
+				"JAZZ_MagLarge",
+				"JAZZ_MagNormal",
+				"JAZZ_MagQuick",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"FlashlightDot",
-				"LaserDot",
-				"UVDot",
+				"JAZZ_Flashlight",
+				"JAZZ_FlashlightDot",
+				"JAZZ_LaserDot",
+				"JAZZ_UVDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Handguard",
 			'AvailableComponents', {
-				"Handguard",
-				"M16A1LaunchHandGuard",
+				"JAZZ_Handguard",
+				"JAZZ_M16A1LaunchHandGuard",
 			},
-			'DefaultComponent', "Handguard",
+			'DefaultComponent', "JAZZ_Handguard",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -107,7 +107,10 @@ DefineClass.M16A2 = {
 	ReloadAP = 6000,
 	Recoil = 9,
 	AutoShots = 8,
-	Handling = -8,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 16,
 	Grouping = 62,
 	WeaponResource = 5500,

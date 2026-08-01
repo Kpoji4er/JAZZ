@@ -44,9 +44,9 @@ DefineClass.DragunovSVD_Custom = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'AvailableComponents', {
-				"SuppressorIntegrated",
+				"JAZZ_SuppressorIntegrated",
 			},
-			'DefaultComponent', "SuppressorIntegrated",
+			'DefaultComponent', "JAZZ_SuppressorIntegrated",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -59,7 +59,10 @@ DefineClass.DragunovSVD_Custom = {
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -15,
+
+	CloseRange = 12,
+
+	CloseRangeFactor = 70,
 	BulletDropRange = 17,
 	Grouping = 66,
 	BaseJamChance = -30,

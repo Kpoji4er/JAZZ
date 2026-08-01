@@ -37,9 +37,9 @@ DefineClass.SVU = {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -57,7 +57,7 @@ DefineClass.SVU = {
 			'SlotType', "Bipod",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
 		}),
 	},
@@ -72,7 +72,10 @@ DefineClass.SVU = {
 	ReloadAP = 9000,
 	Recoil = 25,
 	AutoShots = 6,
-	Handling = -8,
+
+	CloseRange = 12,
+
+	CloseRangeFactor = 70,
 	BulletDropRange = 19,
 	Grouping = 44,
 	BaseJamChance = -20,

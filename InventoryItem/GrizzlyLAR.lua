@@ -43,7 +43,10 @@ DefineClass.GrizzlyLAR = {
 	ReloadAP = 4000,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = -4,
+
+	CloseRange = 0,
+
+	CloseRangeFactor = 100,
 	BulletDropRange = 7,
 	Grouping = 78,
 	WeaponResource = 800,

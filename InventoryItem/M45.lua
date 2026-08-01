@@ -35,17 +35,17 @@ DefineClass.M45 = {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLightUnFolded",
-				"StockLightFolded",
+				"JAZZ_StockLightUnFolded",
+				"JAZZ_StockLightFolded",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -59,7 +59,10 @@ DefineClass.M45 = {
 	ReloadAP = 4000,
 	Recoil = 4,
 	AutoShots = 6,
-	Handling = 6,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	BulletDropRange = 12,
 	Grouping = 55,
 	BaseJamChance = -20,

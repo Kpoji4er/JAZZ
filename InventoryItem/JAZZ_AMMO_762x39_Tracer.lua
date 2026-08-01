@@ -51,8 +51,7 @@ DefineClass.JAZZ_AMMO_762x39_Tracer = {
 		}),
 	},
 	AppliedEffects = {
-		"Exposed",
-		"MarkedTraccers",
+		"ExposedMarkedTraccers",
 	},
 	ammo_type_icon = "UI/Icons/Items/ta_tracer.png",
 }

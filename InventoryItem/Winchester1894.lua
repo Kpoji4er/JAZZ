@@ -34,17 +34,17 @@ DefineClass.Winchester1894 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelLong",
-				"BarrelNormal",
+				"JAZZ_BarrelLong",
+				"JAZZ_BarrelNormal",
 				"BarrelShort_Winchester",
 			},
-			'DefaultComponent', "BarrelNormal",
+			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"ImprovisedSuppressor",
+				"JAZZ_ImprovisedSuppressor",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -61,9 +61,9 @@ DefineClass.Winchester1894 = {
 				"JAZZ_Scope_6x",
 				"JAZZ_Scope_12x",
 				"JAZZ_Scope_Scout",
-				"ImprovedIronsight",
+				"JAZZ_ImprovedIronsight",
 			},
-			'DefaultComponent', "ImprovedIronsight",
+			'DefaultComponent', "JAZZ_ImprovedIronsight",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -77,7 +77,10 @@ DefineClass.Winchester1894 = {
 	ReloadAP = 8000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -15,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 10,
 	Grouping = 83,
 	BaseJamChance = -100,

@@ -46,7 +46,10 @@ DefineClass.Stoeger = {
 	ReloadAP = 3000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -15,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 8,
 	Grouping = 160,
 	BaseJamChance = -100,

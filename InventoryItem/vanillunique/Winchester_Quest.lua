@@ -62,7 +62,6 @@ DefineClass.Winchester_Quest = {
 	ReloadAP = 6000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -10,
 	BulletDropRange = 9,
 	Grouping = 88,
 	BaseJamChance = -100,

@@ -35,26 +35,26 @@ DefineClass.Mini14 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelShort",
-				"BarrelNormal",
+				"JAZZ_BarrelShort",
+				"JAZZ_BarrelNormal",
 			},
-			'DefaultComponent', "BarrelNormal",
+			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLightFolded",
-				"StockLightUnFolded",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockLightUnFolded",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge_20_30",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge_20_30",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -83,7 +83,10 @@ DefineClass.Mini14 = {
 	ReloadAP = 6000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -5,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 16,
 	Grouping = 61,
 	BaseJamChance = -10,

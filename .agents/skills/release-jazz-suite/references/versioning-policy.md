@@ -23,12 +23,12 @@ version_major.version_minor-version
 | Поле metadata | Правило |
 |---|---|
 | `version_major` | Несовместимое поколение после стабилизации публичного контракта |
-| `version_minor` | Новый совместимый функционал; до `1.0` также явно объявленный breaking change. При коммите крупного/feature изменения пакета — `+1` в том же change set |
-| `version` | Read-only Revision, автоматически обновляемая Mod Editor; третье число tag; при коммите вручную не менять |
+| `version_minor` | Только большая фича: несколько утверждённых спеков в одной волне/релизном срезе. Один спек / одиночный feature-коммит — нет. До `1.0` breaking тоже через minor как волна |
+| `version` | Revision: Mod Editor поднимает при сохранении; при коммите без editor save — `+1` вручную. Третье число tag |
 
-Для мелкого совместимого исправления major/minor можно не менять. Крупный/feature коммит пакета обязан поднять его `version_minor`. Выпуск комплекта получает новый tag из нового committed **core** editor revision. См. `.cursor/rules/jazz-commits-versioning.mdc`.
+Обычный коммит пакета поднимает Revision, не minor. Выпуск комплекта получает новый tag из нового committed **core** revision. См. `.cursor/rules/jazz-commits-versioning.mdc`.
 
-Revision не сбрасывать и не выравнивать вручную при изменении major/minor. Значения metadata имеют приоритет над чистой арифметикой SemVer.
+Revision не сбрасывать и не выравнивать при изменении major/minor. Значения metadata имеют приоритет над чистой арифметикой SemVer.
 
 ## Публичный контракт JAZZ
 
@@ -48,8 +48,8 @@ Revision не сбрасывать и не выравнивать вручную
 `metadata.lua` является generated data:
 
 1. Менять ModDef и сохранять metadata через Mod Editor.
-2. Не редактировать `version`, `saved`, `code_hash` и generated arrays вручную ради версии.
-3. Изменение `version_major` или `version_minor` должно быть обосновано совместимостью и отражено в release notes.
+2. Не редактировать `saved`, `code_hash` и generated arrays вручную ради версии. `version` (Revision) при обычном коммите инкрементировать, если Mod Editor не поднял.
+3. Изменение `version_major` или `version_minor` должно быть обосновано (minor — мульти-spec волна) и отражено в release notes.
 4. Изменение `code`, dependencies, loctables, resources или registrations должно сопровождаться изменением соответствующих файлов-владельцев и технической документации.
 5. После editor save сравнить `metadata.lua`, `items.lua` и отдельные generated definitions; отделить ожидаемую регенерацию от шума.
 6. Не коммитить необъяснённое metadata-only изменение.

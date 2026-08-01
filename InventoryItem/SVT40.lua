@@ -41,9 +41,9 @@ DefineClass.SVT40 = {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -56,7 +56,10 @@ DefineClass.SVT40 = {
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -26,
+
+	CloseRange = 8,
+
+	CloseRangeFactor = 80,
 	BulletDropRange = 17,
 	Grouping = 38,
 	WeaponResource = 2000,

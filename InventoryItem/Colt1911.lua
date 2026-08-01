@@ -33,28 +33,28 @@ DefineClass.Colt1911 = {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"ImprovisedSuppressor",
+				"JAZZ_ImprovisedSuppressor",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",
 			'AvailableComponents', {
-				"Freeswap",
+				"JAZZ_Freeswap",
 			},
-			'DefaultComponent', "Freeswap",
+			'DefaultComponent', "JAZZ_Freeswap",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'AvailableComponents', {
-				"Flashlight",
+				"JAZZ_Flashlight",
 			},
 		}),
 	},
@@ -71,7 +71,10 @@ DefineClass.Colt1911 = {
 	MaxAimActions = 2,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 7,
+
+	CloseRange = 0,
+
+	CloseRangeFactor = 100,
 	BulletDropRange = 4,
 	Grouping = 61,
 	BaseJamChance = -10,

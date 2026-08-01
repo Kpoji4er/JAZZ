@@ -6,6 +6,9 @@
 JAZZ_CTH_FACTOR_SCALE = 1000
 JAZZ_CTH_PRODUCT_SCALE = 1000000000
 JAZZ_CTH_VALID_SHOT_FLOOR = 2
+-- After BDR/E: factor falls with acceleration toward this floor at WeaponRange (not to 0).
+JAZZ_CTH_RANGE_FLOOR_FACTOR = 250 -- 0.25 * FACTOR_SCALE
+-- Minimum curve exponent (>1 → accelerating falloff).
 
 local function JAZZ_CTHRound(value)
 	if value >= 0 then
@@ -199,19 +202,23 @@ local function JAZZ_CTHBuildOpticProfile(weapon, effect_id, magnification_id, su
 
 	local sub_magnification = JAZZ_CTHGetComponentValue(weapon, effect_id, sub_magnification_id) or 0
 	local aim_level = JAZZ_CTHGetComponentValue(weapon, effect_id, aim_level_id) or 0
-	if (aim or 0) < aim_level then
-		return nil
-	end
+	-- Near-penalty is always active while the optic is mounted. AimLevel only unlocks reach
+	-- (long-range benefit). Gating both behind AimLevel made 6–10× scopes feel like irons at snap.
+	local aim_ok = (aim or 0) >= aim_level
 
 	magnification = Max(1, magnification + (sub_magnification or 0) * 1.0 / 10)
 	local explicit_reach = JAZZ_CTHGetComponentValue(weapon, effect_id, "OpticReach")
 	local explicit_min_range = JAZZ_CTHGetComponentValue(weapon, effect_id, "OpticMinRange")
 	local explicit_near_factor = JAZZ_CTHGetComponentValue(weapon, effect_id, "OpticNearFactor")
 
-	local reach = explicit_reach or Max(0, (magnification - 1) * 3)
-	local min_range = explicit_min_range or (magnification >= 4 and JAZZ_CTHRound(magnification * 0.75) or 0)
+	local reach = 0
+	if aim_ok then
+		reach = explicit_reach or Max(0, (magnification - 1) * 3)
+	end
+	-- Stronger tier spread than the old floor@0.55: 4×~82%, 6×~64%, 10×~35% at d=0.
+	local min_range = explicit_min_range or (magnification >= 4 and JAZZ_CTHRound(magnification * 0.9) or 0)
 	local near_factor = explicit_near_factor and explicit_near_factor * 10
-		or (magnification >= 4 and JAZZ_CTHRound(Max(0.55, 1 - (magnification - 3) * 0.08) * JAZZ_CTH_FACTOR_SCALE)
+		or (magnification >= 4 and JAZZ_CTHRound(Max(0.35, 1 - (magnification - 2) * 0.09) * JAZZ_CTH_FACTOR_SCALE)
 		or JAZZ_CTH_FACTOR_SCALE)
 
 	return {
@@ -219,21 +226,22 @@ local function JAZZ_CTHBuildOpticProfile(weapon, effect_id, magnification_id, su
 		component_id = component and component.id or weapon.components and weapon.components.Scope,
 		magnification = magnification,
 		aim_level = aim_level,
+		aim_ok = aim_ok,
 		reach = reach,
 		min_range = min_range,
-		near_factor = Clamp(near_factor, 50, JAZZ_CTH_FACTOR_SCALE),
+		near_factor = Clamp(near_factor, 250, JAZZ_CTH_FACTOR_SCALE),
 	}
 end
 
 local JAZZ_CTHFallbackOpticProfiles = {
 	AdvancedHOLO = {magnification = 1.2, aim_level = 0, reach = 2, min_range = 0, near_factor = 1000},
-	AnotherOptic = {magnification = 4, aim_level = 2, reach = 9, min_range = 3, near_factor = 920},
+	AnotherOptic = {magnification = 4, aim_level = 2, reach = 9, min_range = 4, near_factor = 820},
 	CollimatorMP7 = {magnification = 1.2, aim_level = 0, reach = 2, min_range = 0, near_factor = 1000},
 	LaserDot_Anaconda = {magnification = 1.2, aim_level = 0, reach = 2, min_range = 0, near_factor = 1000},
-	LROptics = {magnification = 5, aim_level = 2, reach = 12, min_range = 4, near_factor = 840},
-	LROpticsAdvanced = {magnification = 10, aim_level = 3, reach = 27, min_range = 8, near_factor = 550},
-	LROptics_DragunovDefault = {magnification = 5, aim_level = 2, reach = 12, min_range = 4, near_factor = 840},
-	PSG_DefaultScope = {magnification = 6, aim_level = 3, reach = 15, min_range = 5, near_factor = 760},
+	LROptics = {magnification = 5, aim_level = 2, reach = 12, min_range = 5, near_factor = 730},
+	LROpticsAdvanced = {magnification = 10, aim_level = 3, reach = 27, min_range = 9, near_factor = 350},
+	LROptics_DragunovDefault = {magnification = 5, aim_level = 2, reach = 12, min_range = 5, near_factor = 730},
+	PSG_DefaultScope = {magnification = 6, aim_level = 3, reach = 15, min_range = 5, near_factor = 640},
 	ReflexSight = {magnification = 1.2, aim_level = 0, reach = 2, min_range = 0, near_factor = 1000},
 	ReflexSightAdvanced = {magnification = 1.3, aim_level = 0, reach = 3, min_range = 0, near_factor = 1000},
 	ReflexSightAdvanced_Glock = {magnification = 1.2, aim_level = 0, reach = 2, min_range = 0, near_factor = 1000},
@@ -253,26 +261,58 @@ local function JAZZ_CTHGetFallbackOpticProfile(weapon, aim)
 		profile = {magnification = 1.2, aim_level = 0, reach = 2, min_range = 0, near_factor = 1000}
 	end
 
-	if profile and (aim or 0) >= profile.aim_level then
+	if not profile then
 		return {
-			effect_id = scope_id,
-			component_id = scope_id,
-			magnification = profile.magnification,
-			aim_level = profile.aim_level,
-			reach = profile.reach,
-			min_range = profile.min_range,
-			near_factor = profile.near_factor,
+			effect_id = false,
+			component_id = false,
+			magnification = 1,
+			aim_level = 0,
+			reach = 0,
+			min_range = 0,
+			near_factor = JAZZ_CTH_FACTOR_SCALE,
 		}
 	end
 
+	local aim_ok = (aim or 0) >= profile.aim_level
 	return {
-		effect_id = false,
-		component_id = false,
-		magnification = 1,
-		aim_level = 0,
-		reach = 0,
-		min_range = 0,
-		near_factor = JAZZ_CTH_FACTOR_SCALE,
+		effect_id = scope_id,
+		component_id = scope_id,
+		magnification = profile.magnification,
+		aim_level = profile.aim_level,
+		aim_ok = aim_ok,
+		-- Near always; reach only when AimLevel met (same contract as ScopeMagnification comps).
+		reach = aim_ok and profile.reach or 0,
+		min_range = profile.min_range,
+		near_factor = profile.near_factor,
+	}
+end
+
+local function JAZZ_CTHMergeOpticProfiles(scope, auxiliary)
+	-- Reach comes from the best unlocked optical mode; near-penalty from the highest mounted mag
+	-- (carrying a 7–10× tube still hurts up close even if you are using the low-mag side).
+	local near_src = scope or auxiliary
+	if scope and auxiliary and auxiliary.magnification > scope.magnification then
+		near_src = auxiliary
+	end
+	local reach = 0
+	local reach_src = near_src
+	if scope and scope.reach > reach then
+		reach = scope.reach
+		reach_src = scope
+	end
+	if auxiliary and auxiliary.reach > reach then
+		reach = auxiliary.reach
+		reach_src = auxiliary
+	end
+	return {
+		effect_id = reach_src.effect_id or near_src.effect_id,
+		component_id = reach_src.component_id or near_src.component_id,
+		magnification = near_src.magnification,
+		aim_level = reach_src.aim_level or near_src.aim_level,
+		aim_ok = reach > 0,
+		reach = reach,
+		min_range = near_src.min_range,
+		near_factor = near_src.near_factor,
 	}
 end
 
@@ -294,10 +334,10 @@ function JAZZ_CTHGetOpticProfile(weapon, aim)
 		aim
 	)
 
-	if scope and auxiliary then
-		return scope.reach >= auxiliary.reach and scope or auxiliary
+	if scope or auxiliary then
+		return JAZZ_CTHMergeOpticProfiles(scope, auxiliary)
 	end
-	return scope or auxiliary or JAZZ_CTHGetFallbackOpticProfile(weapon, aim)
+	return JAZZ_CTHGetFallbackOpticProfile(weapon, aim)
 end
 
 function JAZZ_CTHGetRangeProfile(weapon, distance, unit, action, aim)
@@ -329,7 +369,16 @@ function JAZZ_CTHGetRangeProfile(weapon, distance, unit, action, aim)
 	local epsilon = 0.01
 	local effective_range = Min(weapon_range - epsilon, bullet_drop_range + optic.reach * aim_progress)
 	effective_range = Clamp(effective_range, 0, weapon_range - epsilon)
-	local curve_power = Max(0.25, bullet_drop_range * 0.05 + grouping * 1.0 / 100)
+	-- Accelerating falloff after E/BDR; p>1. Floor ~25% at R (last valid tile).
+	local curve_power = Max(1.25, bullet_drop_range * 0.05 + grouping * 1.0 / 100)
+	local range_floor = JAZZ_CTH_RANGE_FLOOR_FACTOR
+
+	local function falloff_factor(t)
+		-- floor + (1 - floor) * (1 - t^p)  →  at t=0: 1.0, at t=1: floor
+		return JAZZ_CTHRound(
+			range_floor + (JAZZ_CTH_FACTOR_SCALE - range_floor) * (1 - t ^ curve_power)
+		)
+	end
 
 	local possible = tiles < weapon_range
 	local factor
@@ -339,7 +388,7 @@ function JAZZ_CTHGetRangeProfile(weapon, distance, unit, action, aim)
 		factor = JAZZ_CTH_FACTOR_SCALE
 	else
 		local t = Clamp((tiles - effective_range) / (weapon_range - effective_range), 0, 1)
-		factor = JAZZ_CTHRound(Max(1 - t ^ curve_power, 0) * JAZZ_CTH_FACTOR_SCALE)
+		factor = falloff_factor(t)
 	end
 
 	local unassisted_factor = factor
@@ -353,9 +402,7 @@ function JAZZ_CTHGetRangeProfile(weapon, distance, unit, action, aim)
 				0,
 				1
 			)
-			unassisted_factor = JAZZ_CTHRound(
-				Max(1 - unassisted_t ^ curve_power, 0) * JAZZ_CTH_FACTOR_SCALE
-			)
+			unassisted_factor = falloff_factor(unassisted_t)
 		end
 	end
 
@@ -368,6 +415,22 @@ function JAZZ_CTHGetRangeProfile(weapon, distance, unit, action, aim)
 		)
 	end
 
+	-- Weapon close-range inefficiency (barrel-shifted); optic MinRange stacks via separate factor.
+	local close_range = Max(0, JAZZ_CTHGetWeaponProperty(weapon, "CloseRange", 0) or 0)
+	local close_range_factor_pct = Clamp(
+		JAZZ_CTHGetWeaponProperty(weapon, "CloseRangeFactor", 100) or 100,
+		25,
+		100
+	)
+	local close_factor = JAZZ_CTH_FACTOR_SCALE
+	if close_range > 0 and tiles < close_range then
+		local factor0 = JAZZ_CTHRound(close_range_factor_pct * 10) -- percent → FACTOR_SCALE
+		local proximity = Clamp((close_range - tiles) / close_range, 0, 1)
+		close_factor = JAZZ_CTHRound(
+			JAZZ_CTH_FACTOR_SCALE + (factor0 - JAZZ_CTH_FACTOR_SCALE) * proximity
+		)
+	end
+
 	return Clamp(factor, 0, JAZZ_CTH_FACTOR_SCALE), {
 		possible = possible,
 		distance = tiles,
@@ -376,8 +439,12 @@ function JAZZ_CTHGetRangeProfile(weapon, distance, unit, action, aim)
 		grouping = grouping,
 		effective_range = effective_range,
 		curve_power = curve_power,
+		range_floor = range_floor,
 		aim_progress = aim_progress,
 		optic = optic,
+		close_range = close_range,
+		close_range_factor_pct = close_range_factor_pct,
+		close_factor = close_factor,
 		optic_factor = optic_factor,
 		unassisted_factor = Clamp(unassisted_factor, 0, JAZZ_CTH_FACTOR_SCALE),
 	}

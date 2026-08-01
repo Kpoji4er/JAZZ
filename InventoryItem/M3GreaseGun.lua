@@ -36,10 +36,10 @@ DefineClass.M3GreaseGun = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLightFolded",
-				"StockLightUnFolded",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockLightUnFolded",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -56,7 +56,10 @@ DefineClass.M3GreaseGun = {
 	Recoil = 8,
 	BurstShots = 2,
 	AutoShots = 5,
-	Handling = -10,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	BulletDropRange = 8,
 	Grouping = 75,
 	WeaponResource = 4200,

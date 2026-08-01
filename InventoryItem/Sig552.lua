@@ -54,43 +54,43 @@ DefineClass.Sig552 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Handguard",
 			'AvailableComponents', {
-				"SigDefHandGuard",
-				"SigErgoHandGrip",
+				"JAZZ_SigDefHandGuard",
+				"JAZZ_SigErgoHandGrip",
 			},
-			'DefaultComponent', "SigDefHandGuard",
+			'DefaultComponent', "JAZZ_SigDefHandGuard",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLightFolded",
-				"StockLightUnFolded",
-				"StockHeavy",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockLightUnFolded",
+				"JAZZ_StockHeavy",
 			},
-			'DefaultComponent', "UnfoldStocks",
+			'DefaultComponent', "JAZZ_UnfoldStocks",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"ImprovisedSuppressor",
-				"Suppressor",
-				"SuppressorImproved",
+				"JAZZ_ImprovisedSuppressor",
+				"JAZZ_Suppressor",
+				"JAZZ_SuppressorImproved",
 			},
 		}),
 	},
@@ -107,7 +107,10 @@ DefineClass.Sig552 = {
 	ReloadAP = 6000,
 	Recoil = 9,
 	AutoShots = 7,
-	Handling = 8,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 17,
 	Grouping = 63,
 	BaseJamChance = -30,

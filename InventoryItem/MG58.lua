@@ -34,17 +34,17 @@ DefineClass.MG58 = {
 			'SlotType', "Bipod",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"Bipod_MG42",
+				"JAZZ_Bipod_MG42",
 			},
-			'DefaultComponent', "Bipod_MG42",
+			'DefaultComponent', "JAZZ_Bipod_MG42",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"ImprovedIronsight",
+				"JAZZ_ImprovedIronsight",
 			},
-			'DefaultComponent', "ImprovedIronsight",
+			'DefaultComponent', "JAZZ_ImprovedIronsight",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -56,7 +56,10 @@ DefineClass.MG58 = {
 	ShootAP = 9000,
 	ReloadAP = 8000,
 	Recoil = 12,
-	Handling = -30,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 20,
 	Grouping = 35,
 	WeaponResource = 8000,

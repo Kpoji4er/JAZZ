@@ -37,16 +37,16 @@ DefineClass.M60 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
-			'DefaultComponent', "Bipod",
+			'DefaultComponent', "JAZZ_Bipod",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -60,7 +60,10 @@ DefineClass.M60 = {
 	Recoil = 18,
 	BurstShots = 5,
 	AutoShots = 5,
-	Handling = -35,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 17,
 	Grouping = 38,
 	WeaponResource = 8000,

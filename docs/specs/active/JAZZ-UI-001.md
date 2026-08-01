@@ -1,6 +1,6 @@
 ---
 id: JAZZ-UI-001
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - weapons-ammo-components
@@ -110,12 +110,12 @@ Runtime side-view bake (path E) оказался нестабилен по frami
 
 ## Evidence
 
-- `JAZZ-UI-001-AC-001`: `BLOCKED` — pending implement.
-- `JAZZ-UI-001-AC-002`: `BLOCKED` — pending implement.
-- `JAZZ-UI-001-AC-003`: `BLOCKED` — pending sync.
-- `JAZZ-UI-001-AC-004`: `BLOCKED` — runtime.
-- `JAZZ-UI-001-AC-005`: `BLOCKED` — runtime.
-- `JAZZ-UI-001-AC-006`: `BLOCKED` — human.
+- `JAZZ-UI-001-AC-001`: `PASS` (static) — bake dormant: `JazzWeaponIcon_BakeEnabled = false`; `GetItemUIIcon` не подменяет template Icon.
+- `JAZZ-UI-001-AC-002`: `PASS` (static) — `WeaponAttachChips.lua` + InventoryUI/HUD bind; `w_mod` скрывается при chips.
+- `JAZZ-UI-001-AC-003`: `PASS` (static) — `WeaponAttachChips` в `items.lua` / `metadata.lua`.
+- `JAZZ-UI-001-AC-004`: `PASS` (runtime/human) — owner playtest 2026-07-31: non-default scope/muzzle/stock показывают chips на тайле.
+- `JAZZ-UI-001-AC-005`: `PASS` (runtime/human) — owner playtest 2026-07-31: stock без chips; `w_mod` не ложный индикатор при chips.
+- `JAZZ-UI-001-AC-006`: `PASS` (human) — owner: chips читаемы на inventory tile и UIWeaponDisplay.
 
 ## Documentation delta
 

@@ -32,17 +32,17 @@ DefineClass.Webley = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",
 			'AvailableComponents', {
-				"Freeswap",
+				"JAZZ_Freeswap",
 			},
-			'DefaultComponent', "Freeswap",
+			'DefaultComponent', "JAZZ_Freeswap",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelNormal",
-				"BarrelLong",
+				"JAZZ_BarrelNormal",
+				"JAZZ_BarrelLong",
 			},
-			'DefaultComponent', "BarrelNormal",
+			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -56,7 +56,10 @@ DefineClass.Webley = {
 	ReloadAP = 4000,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 6,
+
+	CloseRange = 0,
+
+	CloseRangeFactor = 100,
 	BulletDropRange = 4,
 	Grouping = 88,
 	BaseJamChance = -100,

@@ -33,18 +33,18 @@ DefineClass.RSH12 = {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"UVDot",
-				"FlashlightDot",
-				"LaserDot",
+				"JAZZ_Flashlight",
+				"JAZZ_UVDot",
+				"JAZZ_FlashlightDot",
+				"JAZZ_LaserDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",
 			'AvailableComponents', {
-				"Freeswap",
+				"JAZZ_Freeswap",
 			},
-			'DefaultComponent', "Freeswap",
+			'DefaultComponent', "JAZZ_Freeswap",
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -58,7 +58,10 @@ DefineClass.RSH12 = {
 	ReloadAP = 5000,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = -5,
+
+	CloseRange = 0,
+
+	CloseRangeFactor = 100,
 	BulletDropRange = 10,
 	Grouping = 88,
 	BaseJamChance = -50,

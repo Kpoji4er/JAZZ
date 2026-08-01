@@ -49,7 +49,10 @@ DefineClass.G43 = {
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -23,
+
+	CloseRange = 8,
+
+	CloseRangeFactor = 80,
 	BulletDropRange = 17,
 	Grouping = 40,
 	WeaponResource = 4000,

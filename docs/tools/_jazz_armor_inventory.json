@@ -1,0 +1,952 @@
+[
+  {
+    "id": "JazzArmor_6B13",
+    "name": "Штурмовой бронежилет 6Б13",
+    "icon": "Mod/e6L4ECj/ArmorIcons/6b13.png",
+    "icon_base": "6b13",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\6b13.png",
+    "parts": "Groin,Neck,Torso",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_6B3",
+    "name": "Бронежилет 6Б3",
+    "icon": "Mod/e6L4ECj/ArmorIcons/6b3.png",
+    "icon_base": "6b3",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\6b3.png",
+    "parts": "Torso",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_6b7Helm",
+    "name": "Шлем 6Б7",
+    "icon": "Mod/e6L4ECj/ArmorIcons/6b7.png",
+    "icon_base": "6b7",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\6b7.png",
+    "parts": "Head",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_AdrianHelmet",
+    "name": "Каска Адриана",
+    "icon": "Mod/e6L4ECj/ArmorIcons/AdrianHelm.png",
+    "icon_base": "AdrianHelm",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\AdrianHelm.png",
+    "parts": "Head",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_AltynHelm",
+    "name": "Шлем Алтын",
+    "icon": "Mod/e6L4ECj/ArmorIcons/Altyn.png",
+    "icon_base": "Altyn",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\Altyn.png",
+    "parts": "Head,Neck",
+    "cat": "Heavy",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_AssaultCuirass",
+    "name": "Немецкая штурмовая кираса",
+    "icon": "Mod/e6L4ECj/ArmorIcons/GermanArmor.png",
+    "icon_base": "GermanArmor",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\GermanArmor.png",
+    "parts": "Groin,Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_BallisticMask",
+    "name": "Кевларовая маска",
+    "icon": "Mod/e6L4ECj/ArmorIcons/BallisticMask.png",
+    "icon_base": "BallisticMask",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\BallisticMask.png",
+    "parts": "Head",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_CamoBalaclava",
+    "name": "Камуфляжная балаклава",
+    "icon": "Mod/e6L4ECj/ArmorIcons/CamoMask.png",
+    "icon_base": "CamoMask",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\CamoMask.png",
+    "parts": "Head",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_CamoKneePads",
+    "name": "Военные кевларовые щитки",
+    "icon": "Mod/e6L4ECj/ArmorIcons/CamoKneePads.png",
+    "icon_base": "CamoKneePads",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\CamoKneePads.png",
+    "parts": "Groin,Legs",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_Chainmail",
+    "name": "Самодельная кольчуга",
+    "icon": "Mod/e6L4ECj/ArmorIcons/Chainmail.png",
+    "icon_base": "Chainmail",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\Chainmail.png",
+    "parts": "Arms,Groin,Neck,Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_ConstructionHelmet",
+    "name": "Строительная каска",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ConstructionHelmet.png",
+    "icon_base": "ConstructionHelmet",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\ConstructionHelmet.png",
+    "parts": "Head",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_EOD",
+    "name": "Бронежилет Flak M69",
+    "icon": "Mod/e6L4ECj/ArmorIcons/EOD.png",
+    "icon_base": "EOD",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\EOD.png",
+    "parts": "Neck,Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_ESS",
+    "name": "Баллистические очки",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ESS.png",
+    "icon_base": "ESS",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\ESS.png",
+    "parts": "Head",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_FlakM1955",
+    "name": "Бронежилет Flak M1955",
+    "icon": "Mod/e6L4ECj/ArmorIcons/FlakM1955.png",
+    "icon_base": "FlakM1955",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\FlakM1955.png",
+    "parts": "Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_FlakM69",
+    "name": "Бронежилет Flak M69",
+    "icon": "Mod/e6L4ECj/ArmorIcons/FlakM69.png",
+    "icon_base": "FlakM69",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\FlakM69.png",
+    "parts": "Neck,Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_GuardianFull",
+    "name": "Бронежилет Гвардиан, Тяжелый",
+    "icon": "Mod/e6L4ECj/ArmorIcons/GuardianH.png",
+    "icon_base": "GuardianH",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\GuardianH.png",
+    "parts": "Arms,Groin,Neck,Torso",
+    "cat": "Heavy",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_GuardianHeavyLegs",
+    "name": "Тяжелая броня для ног Гвардиан",
+    "icon": "Mod/e6L4ECj/ArmorIcons/GuardianLegsH.png",
+    "icon_base": "GuardianLegsH",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\GuardianLegsH.png",
+    "parts": "Legs",
+    "cat": "Heavy",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_GuardianHelm",
+    "name": "Шлем Гвардиан",
+    "icon": "Mod/e6L4ECj/ArmorIcons/GuardianHelm.png",
+    "icon_base": "GuardianHelm",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\GuardianHelm.png",
+    "parts": "Head",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_GuardianHelmHeavy",
+    "name": "Шлем Гвардиан, тяжелый",
+    "icon": "Mod/e6L4ECj/ArmorIcons/GuardianHelmH.png",
+    "icon_base": "GuardianHelmH",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\GuardianHelmH.png",
+    "parts": "Head,Neck",
+    "cat": "Heavy",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_GuardianLegs",
+    "name": "Легкая броня для ног Гвардиан",
+    "icon": "Mod/e6L4ECj/ArmorIcons/GuardianLegs.png",
+    "icon_base": "GuardianLegs",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\GuardianLegs.png",
+    "parts": "Legs",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_GuardianLight",
+    "name": "Бронежилет Гвардиан, Легкий",
+    "icon": "Mod/e6L4ECj/ArmorIcons/GuardianL.png",
+    "icon_base": "GuardianL",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\GuardianL.png",
+    "parts": "Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_GuardianMedium",
+    "name": "Бронежилет Гвардиан, Средний",
+    "icon": "Mod/e6L4ECj/ArmorIcons/GuardianM.png",
+    "icon_base": "GuardianM",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\GuardianM.png",
+    "parts": "Groin,Neck,Torso",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_IBA",
+    "name": "Современный американский военный бронежилет. Выполнен по всем стандартам проектирования брони - арамидные пакеты усилены керамическими пластинами. Имеет воротник для защиты шеи и паховую пластину.",
+    "icon": "Mod/e6L4ECj/ArmorIcons/IBA.png",
+    "icon_base": "IBA",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\IBA.png",
+    "parts": "Groin,Neck,Torso",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_IBAFull",
+    "name": "Современный американский военный бронежилет в тяжелом штурмовом исполнении. Выполнен по всем стандартам проектирования брони - арамидные пакеты усилены керамическими пластинами. Имеет дополнительную защиту шеи, рук и паха.",
+    "icon": "Mod/e6L4ECj/ArmorIcons/IBAFull.png",
+    "icon_base": "IBAFull",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\IBAFull.png",
+    "parts": "Arms,Groin,Neck,Torso",
+    "cat": "Heavy",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_IBALight",
+    "name": "Современный американский военный бронежилет. Выполнен по всем стандартам проектирования брони - арамидные пакеты усилены керамическими пластинами.",
+    "icon": "Mod/e6L4ECj/ArmorIcons/IBALight.png",
+    "icon_base": "IBALight",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\IBALight.png",
+    "parts": "Neck,Torso",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_ImprovisedCuirass",
+    "name": "Самодельная кираса",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ImprovisedCuirass.png",
+    "icon_base": "ImprovisedCuirass",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\ImprovisedCuirass.png",
+    "parts": "Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_LeatherArmor",
+    "name": "Кожаная броня",
+    "icon": "Mod/e6L4ECj/ArmorIcons/LeatherArmor.png",
+    "icon_base": "LeatherArmor",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\LeatherArmor.png",
+    "parts": "Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_LeatherJacketBlk",
+    "name": "Кожаная куртка",
+    "icon": "Mod/e6L4ECj/ArmorIcons/LeatherJacket.png",
+    "icon_base": "LeatherJacket",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\LeatherJacket.png",
+    "parts": "Arms,Torso",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_LeatherJacketBrn",
+    "name": "Кожаная куртка",
+    "icon": "Mod/e6L4ECj/ArmorIcons/LeatherJacketbrn.png",
+    "icon_base": "LeatherJacketbrn",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\LeatherJacketbrn.png",
+    "parts": "Arms,Torso",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_LeatherPants",
+    "name": "Плотные кожаные штаны",
+    "icon": "Mod/e6L4ECj/ArmorIcons/LeatherPants.png",
+    "icon_base": "LeatherPants",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\LeatherPants.png",
+    "parts": "Groin,Legs",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_LeatherVest",
+    "name": "Кожаный жилет",
+    "icon": "Mod/e6L4ECj/ArmorIcons/SleevelessJacket.png",
+    "icon_base": "SleevelessJacket",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\SleevelessJacket.png",
+    "parts": "Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_M1Helm",
+    "name": "Каска М1",
+    "icon": "Mod/e6L4ECj/ArmorIcons/M1.png",
+    "icon_base": "M1",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\M1.png",
+    "parts": "Head",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_MetalHelm",
+    "name": "Самодельный шлем",
+    "icon": "Mod/e6L4ECj/ArmorIcons/MetalHelm.png",
+    "icon_base": "MetalHelm",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\MetalHelm.png",
+    "parts": "Head",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_Mich2000",
+    "name": "Шлем MICH 2000",
+    "icon": "Mod/e6L4ECj/ArmorIcons/TC2000.png",
+    "icon_base": "TC2000",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\TC2000.png",
+    "parts": "Head",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_Mich2001",
+    "name": "Шлем MICH 2001",
+    "icon": "Mod/e6L4ECj/ArmorIcons/TC2001.png",
+    "icon_base": "TC2001",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\TC2001.png",
+    "parts": "Head",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_MotoKneePads",
+    "name": "Мотоциклетная защита",
+    "icon": "Mod/e6L4ECj/ArmorIcons/MotoKneePads.png",
+    "icon_base": "MotoKneePads",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\MotoKneePads.png",
+    "parts": "Legs",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_NVG1",
+    "name": "AN/PVS-5",
+    "icon": "Mod/e6L4ECj/ArmorIcons/NVG1.png",
+    "icon_base": "NVG1",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\NVG1.png",
+    "parts": "",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_NVG2",
+    "name": "AN/PVS-7",
+    "icon": "Mod/e6L4ECj/ArmorIcons/NVG2.png",
+    "icon_base": "NVG2",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\NVG2.png",
+    "parts": "",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_NVG3",
+    "name": "AN/PVS-14",
+    "icon": "Mod/e6L4ECj/ArmorIcons/NVG3.png",
+    "icon_base": "NVG3",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\NVG3.png",
+    "parts": "",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_PASGT",
+    "name": "Бронежилет PASGT",
+    "icon": "Mod/e6L4ECj/ArmorIcons/PASGT.png",
+    "icon_base": "PASGT",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\PASGT.png",
+    "parts": "Neck,Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_PASGTHelm",
+    "name": "Шлем PASGT",
+    "icon": "Mod/e6L4ECj/ArmorIcons/PASGTHelm.png",
+    "icon_base": "PASGTHelm",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\PASGTHelm.png",
+    "parts": "Head",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_PoliceVest",
+    "name": "Полицейский бронежилет",
+    "icon": "Mod/e6L4ECj/ArmorIcons/Police.png",
+    "icon_base": "Police",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\Police.png",
+    "parts": "Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_ProTecHelm",
+    "name": "Шлем ProTec",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ProTec.png",
+    "icon_base": "ProTec",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\ProTec.png",
+    "parts": "Head",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_RaiderKneePads",
+    "name": "Рейдерские наколенники",
+    "icon": "Mod/e6L4ECj/ArmorIcons/RaiderPads.png",
+    "icon_base": "RaiderPads",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\RaiderPads.png",
+    "parts": "Legs",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_RaiderMetalLeggins",
+    "name": "Самодельные металлические поножи",
+    "icon": "Mod/e6L4ECj/ArmorIcons/MetalPads.png",
+    "icon_base": "MetalPads",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\MetalPads.png",
+    "parts": "Legs",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_RBA",
+    "name": "Американский бронежилет",
+    "icon": "Mod/e6L4ECj/ArmorIcons/RBA.png",
+    "icon_base": "RBA",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\RBA.png",
+    "parts": "Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_SovietAssaultArmor",
+    "name": "Советский штурмовой нагрудник",
+    "icon": "Mod/e6L4ECj/ArmorIcons/USSRArmor.png",
+    "icon_base": "USSRArmor",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\USSRArmor.png",
+    "parts": "Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_SovietHelm",
+    "name": "Советская каска СШ-40",
+    "icon": "Mod/e6L4ECj/ArmorIcons/Sh40.png",
+    "icon_base": "Sh40",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\Sh40.png",
+    "parts": "Head",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_Spectra",
+    "name": "Бронежилет СПЕКТРА",
+    "icon": "Mod/e6L4ECj/ArmorIcons/SpectraL.png",
+    "icon_base": "SpectraL",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\SpectraL.png",
+    "parts": "Torso",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_SpectraCompositum",
+    "name": "СПЕКТРА из композитума",
+    "icon": "Mod/e6L4ECj/ArmorIcons/IBAFull.png",
+    "icon_base": "IBAFull",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\IBAFull.png",
+    "parts": "Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_SpectraFull",
+    "name": "Бронежилет СПЕКТРА, Тяжелый",
+    "icon": "Mod/e6L4ECj/ArmorIcons/SpectraH.png",
+    "icon_base": "SpectraH",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\SpectraH.png",
+    "parts": "Arms,Neck,Torso",
+    "cat": "Heavy",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_SpectraFullCompositum",
+    "name": "СПЕКТРА из композитума, Тяжелый",
+    "icon": "Mod/e6L4ECj/ArmorIcons/IBAFull.png",
+    "icon_base": "IBAFull",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\IBAFull.png",
+    "parts": "Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_SpectraHelm",
+    "name": "Шлем СПЕКТРА",
+    "icon": "Mod/e6L4ECj/ArmorIcons/SpectraHelm.png",
+    "icon_base": "SpectraHelm",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\SpectraHelm.png",
+    "parts": "Head,Neck",
+    "cat": "Heavy",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_SpectraLegs",
+    "name": "Штаны Спектра",
+    "icon": "Mod/e6L4ECj/ArmorIcons/SpectraLegs.png",
+    "icon_base": "SpectraLegs",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\SpectraLegs.png",
+    "parts": "Groin,Legs",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_Stahlhelm",
+    "name": "Немецкий шлем M42",
+    "icon": "Mod/e6L4ECj/ArmorIcons/Stahlhelm.png",
+    "icon_base": "Stahlhelm",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\Stahlhelm.png",
+    "parts": "Head",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_STSHHelm",
+    "name": "Шлем Сфера",
+    "icon": "Mod/e6L4ECj/ArmorIcons/STSH.png",
+    "icon_base": "STSH",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\STSH.png",
+    "parts": "Head",
+    "cat": "Heavy",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_Sunglasses",
+    "name": "Солнцезащитные очки",
+    "icon": "Mod/e6L4ECj/ArmorIcons/Sunglasses.png",
+    "icon_base": "Sunglasses",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\Sunglasses.png",
+    "parts": "Head",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_SWAT",
+    "name": "Бронежилет SWAT",
+    "icon": "Mod/e6L4ECj/ArmorIcons/SWAT.png",
+    "icon_base": "SWAT",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\SWAT.png",
+    "parts": "Arms,Groin,Neck,Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_SwatPads",
+    "name": "Кевларовые наколенники",
+    "icon": "Mod/e6L4ECj/ArmorIcons/SwatPads.png",
+    "icon_base": "SwatPads",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\SwatPads.png",
+    "parts": "Legs",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_TireArmor",
+    "name": "Самодельная броня из шин",
+    "icon": "Mod/e6L4ECj/ArmorIcons/TireArmor.png",
+    "icon_base": "TireArmor",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\TireArmor.png",
+    "parts": "Arms,Groin,Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_TireBrigantine",
+    "name": "Самодельная бригантина",
+    "icon": "Mod/e6L4ECj/ArmorIcons/TireBrigantine.png",
+    "icon_base": "TireBrigantine",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\TireBrigantine.png",
+    "parts": "Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_TwaronFull",
+    "name": "Бронежилет Тварон, Тяжелый",
+    "icon": "Mod/e6L4ECj/ArmorIcons/TwaronH.png",
+    "icon_base": "TwaronH",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\TwaronH.png",
+    "parts": "Arms,Groin,Neck,Torso",
+    "cat": "Heavy",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_TwaronHeavyLegs",
+    "name": "Тяжелая броня для ног Тварон",
+    "icon": "Mod/e6L4ECj/ArmorIcons/TwaronLegsH.png",
+    "icon_base": "TwaronLegsH",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\TwaronLegsH.png",
+    "parts": "Legs",
+    "cat": "Heavy",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_TwaronHelm",
+    "name": "Шлем Тварон",
+    "icon": "Mod/e6L4ECj/ArmorIcons/TwaronHelm.png",
+    "icon_base": "TwaronHelm",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\TwaronHelm.png",
+    "parts": "Head",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_TwaronHelmHeavy",
+    "name": "Шлем Тварон, Тяжелый",
+    "icon": "Mod/e6L4ECj/ArmorIcons/TwaronHelmH.png",
+    "icon_base": "TwaronHelmH",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\TwaronHelmH.png",
+    "parts": "Head,Neck",
+    "cat": "Heavy",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_TwaronLegs",
+    "name": "Легкая броня для ног Тварон",
+    "icon": "Mod/e6L4ECj/ArmorIcons/TwaronLegs.png",
+    "icon_base": "TwaronLegs",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\TwaronLegs.png",
+    "parts": "Legs",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_TwaronLight",
+    "name": "Бронежилет Тварон, Легкий",
+    "icon": "Mod/e6L4ECj/ArmorIcons/TwaronL.png",
+    "icon_base": "TwaronL",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\TwaronL.png",
+    "parts": "Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_TwaronMedium",
+    "name": "Бронежилет Тварон, Средний",
+    "icon": "Mod/e6L4ECj/ArmorIcons/TwaronM.png",
+    "icon_base": "TwaronM",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\TwaronM.png",
+    "parts": "Groin,Neck,Torso",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_UHMWPE",
+    "name": "Бронежилет СВМПЭ",
+    "icon": "Mod/e6L4ECj/ArmorIcons/UHMWPE.png",
+    "icon_base": "UHMWPE",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\UHMWPE.png",
+    "parts": "Groin,Torso",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_UHMWPEFull",
+    "name": "Бронежилет СВМПЭ, Тяжелый",
+    "icon": "Mod/e6L4ECj/ArmorIcons/UHMWPEFull.png",
+    "icon_base": "UHMWPEFull",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\UHMWPEFull.png",
+    "parts": "Arms,Groin,Torso",
+    "cat": "Heavy",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_UHMWPEHelm",
+    "name": "Шлем СВМПЭ",
+    "icon": "Mod/e6L4ECj/ArmorIcons/UHMWPEHelm.png",
+    "icon_base": "UHMWPEHelm",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\UHMWPEHelm.png",
+    "parts": "Head,Neck",
+    "cat": "Heavy",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_UHMWPELegs",
+    "name": "Штаны СВМПЭ",
+    "icon": "Mod/e6L4ECj/ArmorIcons/UHMWPELegs.png",
+    "icon_base": "UHMWPELegs",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\UHMWPELegs.png",
+    "parts": "Groin,Legs",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_Uniform",
+    "name": "Военная униформа",
+    "icon": "Mod/e6L4ECj/ArmorIcons/Uniform.png",
+    "icon_base": "Uniform",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\Uniform.png",
+    "parts": "Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_UniformCap",
+    "name": "Военная кепка",
+    "icon": "Mod/e6L4ECj/ArmorIcons/UniformCap.png",
+    "icon_base": "UniformCap",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\UniformCap.png",
+    "parts": "Head",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_UniformPants",
+    "name": "Военные штаны",
+    "icon": "Mod/e6L4ECj/ArmorIcons/UniformPants.png",
+    "icon_base": "UniformPants",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\UniformPants.png",
+    "parts": "Groin,Legs",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_WieldingHelm",
+    "name": "Сварочная маска",
+    "icon": "Mod/e6L4ECj/ArmorIcons/WieldingHelm.png",
+    "icon_base": "WieldingHelm",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\WieldingHelm.png",
+    "parts": "Head,Neck",
+    "cat": "",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_ZylonFull",
+    "name": "Бронежилет Зилон, Тяжелый",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ZylonH.png",
+    "icon_base": "ZylonH",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\ZylonH.png",
+    "parts": "Arms,Groin,Neck,Torso",
+    "cat": "Heavy",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_ZylonHeavyLegs",
+    "name": "Тяжелая броня для ног Зилон",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ZylonLegsH.png",
+    "icon_base": "ZylonLegsH",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\ZylonLegsH.png",
+    "parts": "Legs",
+    "cat": "Heavy",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_ZylonHelm",
+    "name": "Шлем Зилон",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ZylonHelm.png",
+    "icon_base": "ZylonHelm",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\ZylonHelm.png",
+    "parts": "Head",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_ZylonHelmHeavy",
+    "name": "Шлем Зилон, Тяжелый",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ZylonHelmH.png",
+    "icon_base": "ZylonHelmH",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\ZylonHelmH.png",
+    "parts": "Head,Neck",
+    "cat": "Heavy",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_ZylonLegs",
+    "name": "Легкая броня для ног Зилон",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ZylonLegs.png",
+    "icon_base": "ZylonLegs",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\ZylonLegs.png",
+    "parts": "Legs",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_ZylonLight",
+    "name": "Бронежилет Зилон, Легкий",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ZylonL.png",
+    "icon_base": "ZylonL",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\ZylonL.png",
+    "parts": "Torso",
+    "cat": "Light",
+    "plate": false
+  },
+  {
+    "id": "JazzArmor_ZylonMedium",
+    "name": "Бронежилет Зилон, Средний",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ZylonM.png",
+    "icon_base": "ZylonM",
+    "icon_path": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\ArmorIcons\\ZylonM.png",
+    "parts": "Groin,Neck,Torso",
+    "cat": "Medium",
+    "plate": false
+  },
+  {
+    "id": "JazzArmorPlates_Ceramics3",
+    "name": "Керамическая плита 3 класса защиты",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ArmorPlates/Ceramics3.png",
+    "icon_base": "Ceramics3",
+    "icon_path": null,
+    "parts": "Torso",
+    "cat": "Medium",
+    "plate": true
+  },
+  {
+    "id": "JazzArmorPlates_Ceramics4",
+    "name": "Керамическая плита 4 класса защиты",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ArmorPlates/Ceramics4.png",
+    "icon_base": "Ceramics4",
+    "icon_path": null,
+    "parts": "Torso",
+    "cat": "Medium",
+    "plate": true
+  },
+  {
+    "id": "JazzArmorPlates_Ceramics5",
+    "name": "Керамическая плита 5 класса защиты",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ArmorPlates/Ceramics5.png",
+    "icon_base": "Ceramics5",
+    "icon_path": null,
+    "parts": "Torso",
+    "cat": "Medium",
+    "plate": true
+  },
+  {
+    "id": "JazzArmorPlates_Kevlar",
+    "name": "Кевларовая бронеплита",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ArmorPlates/Kevlar.png",
+    "icon_base": "Kevlar",
+    "icon_path": null,
+    "parts": "Torso",
+    "cat": "Light",
+    "plate": true
+  },
+  {
+    "id": "JazzArmorPlates_Scrap",
+    "name": "Самодельная бронеплита",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ArmorPlates/Scrap.png",
+    "icon_base": "Scrap",
+    "icon_path": null,
+    "parts": "Torso",
+    "cat": "",
+    "plate": true
+  },
+  {
+    "id": "JazzArmorPlates_Steel3",
+    "name": "Стальная бронеплита 3 класса защиты",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ArmorPlates/Steel3.png",
+    "icon_base": "Steel3",
+    "icon_path": null,
+    "parts": "Torso",
+    "cat": "Medium",
+    "plate": true
+  },
+  {
+    "id": "JazzArmorPlates_Steel4",
+    "name": "Стальная бронеплита 4 класса защиты",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ArmorPlates/Steel4.png",
+    "icon_base": "Steel4",
+    "icon_path": null,
+    "parts": "Torso",
+    "cat": "Heavy",
+    "plate": true
+  },
+  {
+    "id": "JazzArmorPlates_Steel5",
+    "name": "Стальная бронеплита 5 класса защиты",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ArmorPlates/Steel5.png",
+    "icon_base": "Steel5",
+    "icon_path": null,
+    "parts": "Torso",
+    "cat": "Heavy",
+    "plate": true
+  },
+  {
+    "id": "JazzArmorPlates_Titan3",
+    "name": "Титановая плита 3 класса защиты",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ArmorPlates/Titan3.png",
+    "icon_base": "Titan3",
+    "icon_path": null,
+    "parts": "Torso",
+    "cat": "Light",
+    "plate": true
+  },
+  {
+    "id": "JazzArmorPlates_Titan4",
+    "name": "Титановая плита 4 класса защиты",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ArmorPlates/Titan4.png",
+    "icon_base": "Titan4",
+    "icon_path": null,
+    "parts": "Torso",
+    "cat": "Medium",
+    "plate": true
+  },
+  {
+    "id": "JazzArmorPlates_Titan5",
+    "name": "Титановая плита 5 класса защиты",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ArmorPlates/Titan5.png",
+    "icon_base": "Titan5",
+    "icon_path": null,
+    "parts": "Torso",
+    "cat": "Medium",
+    "plate": true
+  },
+  {
+    "id": "JazzArmorPlates_Twaron",
+    "name": "Твароновая бронеплита",
+    "icon": "Mod/e6L4ECj/ArmorIcons/ArmorPlates/Twaron.png",
+    "icon_base": "Twaron",
+    "icon_path": null,
+    "parts": "Torso",
+    "cat": "Light",
+    "plate": true
+  }
+]

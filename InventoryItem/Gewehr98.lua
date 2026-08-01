@@ -37,16 +37,16 @@ DefineClass.Gewehr98 = {
 				"JAZZ_CombatScope_2x",
 				"JAZZ_Scope_Scout",
 				"JAZZ_Scope_DA15_6x",
-				"Jazz_IronSight",
+				"JAZZ_IronSight",
 				"JAZZ_Scope_ZF4",
 			},
-			'DefaultComponent', "Jazz_IronSight",
+			'DefaultComponent', "JAZZ_IronSight",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"ImprovisedSuppressor",
+				"JAZZ_ImprovisedSuppressor",
 			},
 		}),
 	},
@@ -61,7 +61,10 @@ DefineClass.Gewehr98 = {
 	ReloadAP = 5000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -37,
+
+	CloseRange = 12,
+
+	CloseRangeFactor = 70,
 	BulletDropRange = 15,
 	Grouping = 45,
 	WeaponResource = 5000,

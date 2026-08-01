@@ -37,25 +37,16 @@ DefineClass.M60E4 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
-			'DefaultComponent', "Bipod",
+			'DefaultComponent', "JAZZ_Bipod",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
-		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Mount",
-			'Modifiable', false,
-			'AvailableComponents', {
-				"M60E3HandGrip",
-				"M60E4ModernMount",
-			},
-			'DefaultComponent', "M60E4ModernMount",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -77,16 +68,16 @@ DefineClass.M60E4 = {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"FlashlightDot",
-				"LaserDot",
-				"UVDot",
+				"JAZZ_Flashlight",
+				"JAZZ_FlashlightDot",
+				"JAZZ_LaserDot",
+				"JAZZ_UVDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Under",
 			'AvailableComponents', {
-				"VerticalGrip",
+				"JAZZ_VerticalGrip",
 			},
 		}),
 	},
@@ -101,7 +92,10 @@ DefineClass.M60E4 = {
 	Recoil = 14,
 	BurstShots = 5,
 	AutoShots = 5,
-	Handling = -25,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 18,
 	Grouping = 40,
 	WeaponResource = 9000,

@@ -38,18 +38,17 @@ DefineClass.G3SniperV1 = {
 			'SlotType', "Bipod",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
-			'DefaultComponent', "Bipod",
+			'DefaultComponent', "JAZZ_Bipod",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"",
-				"Compensator",
-				"SuppressorImproved",
-			},
+								"JAZZ_Compensator",
+								"JAZZ_SuppressorImproved",
+							},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -72,10 +71,10 @@ DefineClass.G3SniperV1 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagSmall20_10",
-				"MagNormal",
+				"JAZZ_MagSmall20_10",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagSmall20_10",
+			'DefaultComponent', "JAZZ_MagSmall20_10",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -88,7 +87,10 @@ DefineClass.G3SniperV1 = {
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -18,
+
+	CloseRange = 12,
+
+	CloseRangeFactor = 70,
 	BulletDropRange = 20,
 	Grouping = 50,
 	BaseJamChance = -30,

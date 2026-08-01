@@ -24,6 +24,7 @@
 - `compatibility.md` — при изменении dependency, save, network или public contract.
 - `testing.md` — при изменении общего validation profile.
 - Spec evidence — для каждого `AC-*`.
+- Полезные миграционные/audit-скрипты — оставить в `docs/tools/` и описать в `docs/tools/README.md` (`.agents/docs/reference/agent-tooling.md`); не удалять после прогона.
 - Профильная `docs/wiki/*` — **обязательно**, если изменение заметно игроку (бой, CTH, grazing, укрытие, дым/погода, UI); generated weapon pages — через CSV + `scripts/docs/weapons-docs.mjs`.
 - Соответствующие `docs/showcase/ru/*` и `docs/showcase/en/*` — **обязательно** вместе с wiki для того же аспекта; не спрашивать отдельно (`.cursor/rules/jazz-docs-wiki-sync.mdc`).
 

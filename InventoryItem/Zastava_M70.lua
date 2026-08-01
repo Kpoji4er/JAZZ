@@ -37,33 +37,33 @@ DefineClass.Zastava_M70 = {
 			'SlotType', "Stock",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"StockLightFolded",
-				"StockLightUnFolded",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockLightUnFolded",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "General",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"M70_Unfld_GL",
-				"M70_Fld_GL",
+				"JAZZ_M70_Unfld_GL",
+				"JAZZ_M70_Fld_GL",
 			},
-			'DefaultComponent', "M70_Fld_GL",
+			'DefaultComponent', "JAZZ_M70_Fld_GL",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge_30_40",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge_30_40",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -71,7 +71,7 @@ DefineClass.Zastava_M70 = {
 			'Modifiable', false,
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"M70_Grenade",
+				"JAZZ_M70_Grenade",
 			},
 		}),
 	},
@@ -88,7 +88,10 @@ DefineClass.Zastava_M70 = {
 	ReloadAP = 6000,
 	Recoil = 15,
 	AutoShots = 6,
-	Handling = -12,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 14,
 	Grouping = 63,
 	BaseJamChance = -20,

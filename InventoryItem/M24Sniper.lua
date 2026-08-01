@@ -35,26 +35,26 @@ DefineClass.M24Sniper = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockHeavy",
-				"StockLight",
-				"StockNormal",
+				"JAZZ_StockHeavy",
+				"JAZZ_StockLight",
+				"JAZZ_StockNormal",
 			},
-			'DefaultComponent', "StockNormal",
+			'DefaultComponent', "JAZZ_StockNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge_5_10",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge_5_10",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -73,18 +73,18 @@ DefineClass.M24Sniper = {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Suppressor",
-				"SuppressorImproved",
+				"JAZZ_Suppressor",
+				"JAZZ_SuppressorImproved",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"FlashlightDot",
-				"LaserDot",
-				"UVDot",
+				"JAZZ_Flashlight",
+				"JAZZ_FlashlightDot",
+				"JAZZ_LaserDot",
+				"JAZZ_UVDot",
 			},
 		}),
 	},
@@ -98,7 +98,10 @@ DefineClass.M24Sniper = {
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -28,
+
+	CloseRange = 12,
+
+	CloseRangeFactor = 70,
 	BulletDropRange = 21,
 	Grouping = 46,
 	BaseJamChance = -20,

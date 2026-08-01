@@ -35,18 +35,18 @@ DefineClass.ZastavaM76 = {
 			'SlotType', "Stock",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"StockNormal",
+				"JAZZ_StockNormal",
 			},
-			'DefaultComponent', "StockNormal",
+			'DefaultComponent', "JAZZ_StockNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -61,9 +61,9 @@ DefineClass.ZastavaM76 = {
 			'Modifiable', false,
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"BarrelsDefs",
+				"JAZZ_BarrelsDefs",
 			},
-			'DefaultComponent', "BarrelsDefs",
+			'DefaultComponent', "JAZZ_BarrelsDefs",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -76,7 +76,10 @@ DefineClass.ZastavaM76 = {
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -15,
+
+	CloseRange = 12,
+
+	CloseRangeFactor = 70,
 	BulletDropRange = 16,
 	Grouping = 45,
 	BaseJamChance = -10,

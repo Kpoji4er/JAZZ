@@ -35,7 +35,6 @@ DefineClass.M72LAW = {
 	PreparedAttackType = "None",
 	ShootAP = 9000,
 	ReloadAP = 4000,
-	Handling = 75,
 	BackfireRange = 2,
 	BackfireDamage = 8,
 }

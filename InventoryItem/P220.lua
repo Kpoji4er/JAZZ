@@ -32,43 +32,43 @@ DefineClass.P220 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge_8_10",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge_8_10",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"ImprovisedSuppressor",
-				"PistolSuppressor",
+				"JAZZ_ImprovisedSuppressor",
+				"JAZZ_PistolSuppressor",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"LaserDot",
-				"UVDot",
-				"FlashlightDot",
+				"JAZZ_Flashlight",
+				"JAZZ_LaserDot",
+				"JAZZ_UVDot",
+				"JAZZ_FlashlightDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
 			'AvailableComponents', {
-				"Jazz_IronSight",
+				"JAZZ_IronSight",
 				"JAZZ_Reflex_Pistol",
 			},
-			'DefaultComponent', "Jazz_IronSight",
+			'DefaultComponent', "JAZZ_IronSight",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",
 			'AvailableComponents', {
-				"Freeswap",
+				"JAZZ_Freeswap",
 			},
-			'DefaultComponent', "Freeswap",
+			'DefaultComponent', "JAZZ_Freeswap",
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -84,7 +84,10 @@ DefineClass.P220 = {
 	MaxAimActions = 2,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 16,
+
+	CloseRange = 0,
+
+	CloseRangeFactor = 100,
 	BulletDropRange = 6,
 	Grouping = 82,
 	BaseJamChance = -20,

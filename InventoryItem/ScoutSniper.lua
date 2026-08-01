@@ -49,19 +49,19 @@ DefineClass.ScoutSniper = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'AvailableComponents', {
-				"DefMuzzle",
-				"Suppressor",
-				"SuppressorImproved",
+				"JAZZ_DefMuzzle",
+				"JAZZ_Suppressor",
+				"JAZZ_SuppressorImproved",
 			},
-			'DefaultComponent', "DefMuzzle",
+			'DefaultComponent', "JAZZ_DefMuzzle",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"BarrelsDefs",
+				"JAZZ_BarrelsDefs",
 			},
-			'DefaultComponent', "BarrelsDefs",
+			'DefaultComponent', "JAZZ_BarrelsDefs",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -75,7 +75,10 @@ DefineClass.ScoutSniper = {
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -10,
+
+	CloseRange = 12,
+
+	CloseRangeFactor = 70,
 	BulletDropRange = 21,
 	Grouping = 45,
 	BaseJamChance = -30,

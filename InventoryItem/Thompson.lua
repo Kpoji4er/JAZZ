@@ -36,10 +36,10 @@ DefineClass.Thompson = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagDrum_30-50",
+				"JAZZ_MagNormal",
+				"JAZZ_MagDrum_30-50",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -55,7 +55,10 @@ DefineClass.Thompson = {
 	Recoil = 8,
 	BurstShots = 4,
 	AutoShots = 8,
-	Handling = -8,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	BulletDropRange = 8,
 	Grouping = 75,
 	WeaponResource = 1800,

@@ -37,34 +37,34 @@ DefineClass.Sig552SWAT = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Handguard",
 			'AvailableComponents', {
-				"SigDefHandGuard",
-				"SigErgoHandGrip",
+				"JAZZ_SigDefHandGuard",
+				"JAZZ_SigErgoHandGrip",
 			},
-			'DefaultComponent', "SigDefHandGuard",
+			'DefaultComponent', "JAZZ_SigDefHandGuard",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"ImprovisedSuppressor",
-				"Suppressor",
-				"SuppressorImproved",
+				"JAZZ_ImprovisedSuppressor",
+				"JAZZ_Suppressor",
+				"JAZZ_SuppressorImproved",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -98,7 +98,10 @@ DefineClass.Sig552SWAT = {
 	ReloadAP = 6000,
 	Recoil = 10,
 	AutoShots = 7,
-	Handling = 8,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 16,
 	Grouping = 63,
 	BaseJamChance = -30,

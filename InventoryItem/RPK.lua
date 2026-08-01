@@ -37,50 +37,50 @@ DefineClass.RPK = {
 			'SlotType', "Bipod",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
-			'DefaultComponent', "Bipod",
+			'DefaultComponent', "JAZZ_Bipod",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelNormal",
-				"BarrelNormalImproved",
+				"JAZZ_BarrelNormal",
+				"JAZZ_BarrelNormalImproved",
 			},
-			'DefaultComponent', "BarrelNormal",
+			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge_30_40",
-				"MagDrum_30-75",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge_30_40",
+				"JAZZ_MagDrum_30-75",
 			},
-			'DefaultComponent', "MagLarge_30_40",
+			'DefaultComponent', "JAZZ_MagLarge_30_40",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Handguard",
 			'AvailableComponents', {
-				"RPK74_Hanguard_Basic",
-				"RPK74_VerticalGrip",
+				"JAZZ_RPK74_Hanguard_Basic",
+				"JAZZ_RPK74_VerticalGrip",
 			},
-			'DefaultComponent', "RPK74_Hanguard_Basic",
+			'DefaultComponent', "JAZZ_RPK74_Hanguard_Basic",
 		}),
 				PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Compensator",
-				"Suppressor",
+				"JAZZ_Compensator",
+				"JAZZ_Suppressor",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"StockNormal",
+				"JAZZ_StockNormal",
 			},
-			'DefaultComponent', "StockNormal",
+			'DefaultComponent', "JAZZ_StockNormal",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -96,7 +96,10 @@ DefineClass.RPK = {
 	Recoil = 10,
 	BurstShots = 4,
 	AutoShots = 7,
-	Handling = -22,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 15,
 	Grouping = 62,
 	BaseJamChance = -30,

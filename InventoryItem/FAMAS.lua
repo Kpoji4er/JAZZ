@@ -35,23 +35,23 @@ DefineClass.FAMAS = {
 			'SlotType', "Under",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"VerticalGrip",
+				"JAZZ_VerticalGrip",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"LaserDot",
-				"FlashlightDot",
+				"JAZZ_Flashlight",
+				"JAZZ_LaserDot",
+				"JAZZ_FlashlightDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -73,20 +73,20 @@ DefineClass.FAMAS = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'AvailableComponents', {
-				"Compensator",
-				"Suppressor",
-				"ImprovisedSuppressor",
+				"JAZZ_Compensator",
+				"JAZZ_Suppressor",
+				"JAZZ_ImprovisedSuppressor",
 			},
-			'DefaultComponent', "Compensator",
+			'DefaultComponent', "JAZZ_Compensator",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -101,7 +101,10 @@ DefineClass.FAMAS = {
 	ShootAP = 6000,
 	ReloadAP = 8000,
 	Recoil = 15,
-	Handling = 5,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 13,
 	Grouping = 62,
 	WeaponResource = 4500,

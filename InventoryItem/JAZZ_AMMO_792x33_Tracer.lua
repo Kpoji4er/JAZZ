@@ -51,7 +51,6 @@ DefineClass.JAZZ_AMMO_792x33_Tracer = {
 	},
 	AppliedEffects = {
 		"Exposed",
-		"",
 	},
 }
 

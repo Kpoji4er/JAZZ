@@ -36,35 +36,35 @@ DefineClass.AS_Val = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge_10_20",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge_10_20",
 			},
-			'DefaultComponent', "MagLarge_10_20",
+			'DefaultComponent', "JAZZ_MagLarge_10_20",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"SuppressorIntegrated",
+				"JAZZ_SuppressorIntegrated",
 			},
-			'DefaultComponent', "SuppressorIntegrated",
+			'DefaultComponent', "JAZZ_SuppressorIntegrated",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLightFolded",
-				"StockLightUnFolded",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockLightUnFolded",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"FlashlightDot",
-				"LaserDot",
-				"UVDot",
+				"JAZZ_Flashlight",
+				"JAZZ_FlashlightDot",
+				"JAZZ_LaserDot",
+				"JAZZ_UVDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -102,7 +102,10 @@ DefineClass.AS_Val = {
 	Recoil = 8,
 	BurstShots = 4,
 	AutoShots = 9,
-	Handling = -2,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 15,
 	Grouping = 63,
 	BaseJamChance = -30,

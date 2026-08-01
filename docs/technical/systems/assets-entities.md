@@ -22,12 +22,14 @@
 
 - 490 зарегистрированных `ModItemEntity`;
 - 503 `.ent` и 503 entity Lua-файла на диске;
-- 5119 `.dds` textures;
+- **1367** top-level `Entities/Textures/*.dds` + **1356** `Textures/Fallbacks/*.dds` (после JAZZ-ASSETS-002: numeric→`Entity_MapType`, unused purge, content-dedupe **только внутри одного map-suffix**; unused=0);
 - 522 `.mtl` materials;
 - 516 `.hgm` meshes;
-- 511 `.mtlbin` compiled materials;
+- 511 `.mtlbin` compiled materials → после JAZZ-ASSETS-002 **16** оставшихся (без numeric paths); **495** stale `mtlbin` с путями на удалённые numeric DDS сняты, чтобы runtime читал актуальные `.mtl`. Полный rebuild `mtlbin` по-прежнему рекомендуется через Mod Editor SaveWholeMod;
 - 114 folder ModItems;
 - 22 `.bak` файла, требующие отдельной проверки как технический долг.
+
+Контракт имён DDS (JAZZ-ASSETS-002): `<EntityOrPart>_{Base|Norm|RM|AO|SPEC|SI|Color}[_N].dds`. Инструмент: `$rename-jazz-weapon-textures` / `texture-audit-rename.ps1`. Отчёты: `jazz_assets/docs/texture-*.csv|txt`.
 
 Разница 503 entity-файла на диске против 490 зарегистрированных означает 13 unlisted/orphan-candidate definitions. Это не доказательство мусора: они могут быть parent/variant/source remnants или использоваться непрямо. Удалять только после проверки metadata, inheritance и ссылок четырёх пакетов.
 
@@ -102,7 +104,7 @@ Core metadata объявляет assets обязательной dependency (`pD
 - проверить, что новые resources зарегистрированы, а удаляемые не имеют ссылок;
 - отдельно аудировать `.bak` и 13 unlisted definitions без автоматического удаления.
 
-Для `JAZZ-ASSETS-001` статически подтверждено: `HMMWV.ent` сохраняет девять Unit-compatible state IDs, XML разбирается, вырожденных collision-треугольников после восстановления вершины нет. Editor reload и runtime smoke в новом процессе игры остаются обязательными перед release acceptance.
+Для `JAZZ-ASSETS-001` / `JAZZ-ASSETS-002` (`status: implemented`, 2026-07-31): `HMMWV.ent` — девять Unit-compatible state IDs, без вырожденных collision-треугольников; texture rename/purge/dedupe — unused=0, numeric DDS=0; human/runtime acceptance владельца (HMMWV + weapon texture smoke). M60/PKM dormant debt и полный Mod Editor `mtlbin` rebuild остаются отдельным сопровождением.
 
 ## Сопровождение
 

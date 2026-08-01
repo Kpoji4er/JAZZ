@@ -34,9 +34,9 @@ DefineClass.Glock18 = {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"ImprovisedSuppressor",
-				"PistolSuppressor",
-				"Compensator",
+				"JAZZ_ImprovisedSuppressor",
+				"JAZZ_PistolSuppressor",
+				"JAZZ_Compensator",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -50,28 +50,28 @@ DefineClass.Glock18 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagLarge_17_33",
-				"MagNormal",
-				"MagNormalG18",
+				"JAZZ_MagLarge_17_33",
+				"JAZZ_MagNormal",
+				"JAZZ_MagNormalG18",
 			},
-			'DefaultComponent', "MagNormalG18",
+			'DefaultComponent', "JAZZ_MagNormalG18",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"LaserDot",
-				"FlashlightDot",
-				"UVDot",
+				"JAZZ_Flashlight",
+				"JAZZ_LaserDot",
+				"JAZZ_FlashlightDot",
+				"JAZZ_UVDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",
 			'AvailableComponents', {
-				"Freeswap",
+				"JAZZ_Freeswap",
 			},
-			'DefaultComponent', "Freeswap",
+			'DefaultComponent', "JAZZ_Freeswap",
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -88,7 +88,10 @@ DefineClass.Glock18 = {
 	Recoil = 9,
 	BurstShots = 4,
 	AutoShots = 12,
-	Handling = 22,
+
+	CloseRange = 0,
+
+	CloseRangeFactor = 100,
 	BulletDropRange = 8,
 	Grouping = 72,
 	WeaponResource = 1500,

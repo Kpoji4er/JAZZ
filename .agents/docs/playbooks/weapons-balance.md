@@ -14,8 +14,10 @@
 - Пробитие (класс + десятые, ammo tooltip): `.agents/skills/jazz-penetration-scales/SKILL.md` — не класть float в `T{}`.
 - Не выносить «внешнюю» переоценку баланса в чистый refactor без технической заметки.
 - Проверить взаимодействие с AI и visibility/CTH, если формулы затрагивают chance/accuracy.
+- **ATTACH / components / CSV без JA3_ROOT:** канон скриптов в `docs/tools/README.md` (`_apply_attach_001.py`, `_export_attach_csv.py`, `_audit_attach_*.py`, `_remove_handling_stat.py`, …). Не удалять эти скрипты после прогона; см. `.agents/docs/reference/agent-tooling.md`.
 
 ## Финальная упаковка
 
 - Обновить technical-описание изменений механики.
-- Зафиксировать действующий контракт на профильной technical-странице; пользовательский wiki-контур сейчас не ведётся.
+- Зафиксировать действующий контракт на профильной technical-странице; для player-facing — wiki + showcase.
+- Новые docs/tools-скрипты — строка в `docs/tools/README.md` в том же change set.

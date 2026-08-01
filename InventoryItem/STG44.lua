@@ -42,7 +42,7 @@ DefineClass.STG44 = {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"HandlingWrap",
+				"JAZZ_HandlingWrap",
 			},
 		}),
 	},
@@ -59,7 +59,10 @@ DefineClass.STG44 = {
 	ReloadAP = 6000,
 	Recoil = 18,
 	AutoShots = 5,
-	Handling = -15,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 12,
 	Grouping = 66,
 	WeaponResource = 2500,

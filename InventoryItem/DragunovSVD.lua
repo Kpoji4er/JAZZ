@@ -35,25 +35,25 @@ DefineClass.DragunovSVD = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLight",
-				"StockNormal",
+				"JAZZ_StockLight",
+				"JAZZ_StockNormal",
 			},
-			'DefaultComponent', "StockNormal",
+			'DefaultComponent', "JAZZ_StockNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge_10_20",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge_10_20",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -76,9 +76,9 @@ DefineClass.DragunovSVD = {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Compensator",
+				"JAZZ_Compensator",
 			},
-			'DefaultComponent', "Compensator",
+			'DefaultComponent', "JAZZ_Compensator",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -91,7 +91,10 @@ DefineClass.DragunovSVD = {
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -25,
+
+	CloseRange = 12,
+
+	CloseRangeFactor = 70,
 	BulletDropRange = 17,
 	Grouping = 46,
 	BaseJamChance = -30,

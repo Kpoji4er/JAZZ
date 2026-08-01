@@ -37,10 +37,10 @@ DefineClass.M41Shotgun = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelNormal",
-				"BarrelShortShotgun_Benelli",
+				"JAZZ_BarrelNormal",
+				"JAZZ_BarrelShortShotgun_Benelli",
 			},
-			'DefaultComponent', "BarrelNormal",
+			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -63,17 +63,17 @@ DefineClass.M41Shotgun = {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"FlashlightDot",
-				"LaserDot",
-				"UVDot",
+				"JAZZ_Flashlight",
+				"JAZZ_FlashlightDot",
+				"JAZZ_LaserDot",
+				"JAZZ_UVDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Compensator",
+				"JAZZ_Compensator",
 			},
 		}),
 	},
@@ -87,7 +87,10 @@ DefineClass.M41Shotgun = {
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -15,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 9,
 	Grouping = 155,
 	WeaponResource = 2400,

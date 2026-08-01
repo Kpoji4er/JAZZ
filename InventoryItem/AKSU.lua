@@ -37,44 +37,44 @@ DefineClass.AKSU = {
 			'SlotType', "Barrel",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"BarrelNormal",
+				"JAZZ_BarrelNormal",
 			},
-			'DefaultComponent', "BarrelNormal",
+			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Handguard",
 			'AvailableComponents', {
 				"AKSU_Hanguard_Basic",
-				"AKSU_VerticalGrip",
+				"JAZZ_AKSU_VerticalGrip",
 			},
 			'DefaultComponent', "AKSU_Hanguard_Basic",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge_30_45",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge_30_45",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"LaserDot",
-				"FlashlightDot",
-				"UVDot",
+				"JAZZ_Flashlight",
+				"JAZZ_LaserDot",
+				"JAZZ_FlashlightDot",
+				"JAZZ_UVDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Compensator",
-				"ImprovisedSuppressor",
+				"JAZZ_Compensator",
+				"JAZZ_ImprovisedSuppressor",
 			},
-			'DefaultComponent', "Compensator",
+			'DefaultComponent', "JAZZ_Compensator",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -90,6 +90,10 @@ DefineClass.AKSU = {
 	Recoil = 14,
 	AutoShots = 6,
 	BulletDropRange = 13,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	Grouping = 53,
 	BaseJamChance = -50,
 	WeaponResource = 8500,

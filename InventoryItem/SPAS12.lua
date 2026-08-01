@@ -45,7 +45,10 @@ DefineClass.SPAS12 = {
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -10,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 9,
 	Grouping = 140,
 	WeaponResource = 2800,

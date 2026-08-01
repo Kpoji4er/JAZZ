@@ -59,10 +59,7 @@ DefineClass.JAZZ_AMMO_762x54_APIT = {
 		}),
 	},
 	AppliedEffects = {
-		"Burning",
-		"Bleeding",
-		"Exposed",
-		"MarkedTraccers",
+		"BurningBleedingExposedMarkedTraccers",
 	},
 }
 

@@ -32,25 +32,25 @@ DefineClass.MR73 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",
 			'AvailableComponents', {
-				"Freeswap",
+				"JAZZ_Freeswap",
 			},
-			'DefaultComponent', "Freeswap",
+			'DefaultComponent', "JAZZ_Freeswap",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelLong",
-				"BarrelNormal",
+				"JAZZ_BarrelLong",
+				"JAZZ_BarrelNormal",
 			},
-			'DefaultComponent', "BarrelNormal",
+			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Handgrip",
 			'AvailableComponents', {
-				"Handgrip_Default",
-				"Handgrip_Ergo",
+				"JAZZ_Handgrip_Default",
+				"JAZZ_Handgrip_Ergo",
 			},
-			'DefaultComponent', "Handgrip_Default",
+			'DefaultComponent', "JAZZ_Handgrip_Default",
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -64,7 +64,10 @@ DefineClass.MR73 = {
 	ReloadAP = 5000,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = 7,
+
+	CloseRange = 0,
+
+	CloseRangeFactor = 100,
 	BulletDropRange = 7,
 	Grouping = 45,
 	BaseJamChance = -100,

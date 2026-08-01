@@ -35,32 +35,32 @@ DefineClass.AK47 = {
 			'SlotType', "Bipod",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Under",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"GP25",
+				"JAZZ_GP25",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge",
-				"MagQuick",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge",
+				"JAZZ_MagQuick",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'Modifiable', false,
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Compensator",
-				"Suppressor",
+				"JAZZ_Compensator",
+				"JAZZ_Suppressor",
 			},
 		}),
 	},
@@ -77,7 +77,10 @@ DefineClass.AK47 = {
 	ReloadAP = 6000,
 	Recoil = 15,
 	AutoShots = 6,
-	Handling = -10,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 14,
 	Grouping = 63,
 	BaseJamChance = -10,

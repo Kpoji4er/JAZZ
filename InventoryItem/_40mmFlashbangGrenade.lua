@@ -19,8 +19,7 @@ DefineClass._40mmFlashbangGrenade = {
 	CenterUnitDamageMod = 130,
 	CenterObjDamageMod = 10,
 	CenterAppliedEffects = {
-		"IncreaseTiredness",
-		"Suppressed",
+		"IncreaseTirednessSuppressed",
 	},
 	AreaObjDamageMod = 10,
 	AreaAppliedEffects = {

@@ -38,9 +38,9 @@ DefineClass.AA52 = {
 			'SlotType', "Bipod",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
-			'DefaultComponent', "Bipod",
+			'DefaultComponent', "JAZZ_Bipod",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -54,7 +54,10 @@ DefineClass.AA52 = {
 	Recoil = 21,
 	BurstShots = 6,
 	AutoShots = 6,
-	Handling = -30,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 17,
 	Grouping = 38,
 	BaseJamChance = -5,

@@ -35,25 +35,25 @@ DefineClass.BerettaM12 = {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"ImprovisedSuppressor",
-				"PistolSuppressor",
+				"JAZZ_ImprovisedSuppressor",
+				"JAZZ_PistolSuppressor",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLightUnFolded",
-				"StockLightFolded",
+				"JAZZ_StockLightUnFolded",
+				"JAZZ_StockLightFolded",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -69,7 +69,10 @@ DefineClass.BerettaM12 = {
 	Recoil = 3,
 	BurstShots = 2,
 	AutoShots = 6,
-	Handling = -8,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	BulletDropRange = 10,
 	Grouping = 65,
 	BaseJamChance = -30,

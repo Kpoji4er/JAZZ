@@ -38,69 +38,69 @@ DefineClass.HK33 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "General",
 			'AvailableComponents', {
-				"HK33Lower",
-				"HK33LowerMod",
+				"JAZZ_HK33Lower",
+				"JAZZ_HK33LowerMod",
 			},
-			'DefaultComponent', "HK33Lower",
+			'DefaultComponent', "JAZZ_HK33Lower",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Handguard",
 			'AvailableComponents', {
-				"HK33Handguard",
-				"HK33HandguardMod",
+				"JAZZ_HK33Handguard",
+				"JAZZ_HK33HandguardMod",
 			},
-			'DefaultComponent', "HK33Handguard",
+			'DefaultComponent', "JAZZ_HK33Handguard",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelShortRunNGun",
-				"BarrelNormal",
-				"BarrelLong",
+				"JAZZ_BarrelShortRunNGun",
+				"JAZZ_BarrelNormal",
+				"JAZZ_BarrelLong",
 			},
-			'DefaultComponent', "BarrelNormal",
+			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'AvailableComponents', {
-				"Compensator",
-				"Suppressor",
-				"ImprovisedSuppressor",
-				"SuppressorImproved",
+				"JAZZ_Compensator",
+				"JAZZ_Suppressor",
+				"JAZZ_ImprovisedSuppressor",
+				"JAZZ_SuppressorImproved",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagDrum_30-100",
+				"JAZZ_MagNormal",
+				"JAZZ_MagDrum_30-100",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Under",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"TacGrip",
-				"VerticalGrip",
-				"GrenadeLauncher",
+				"JAZZ_TacGrip",
+				"JAZZ_VerticalGrip",
+				"JAZZ_GrenadeLauncher",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"FlashlightDot",
-				"LaserDot",
-				"UVDot",
+				"JAZZ_Flashlight",
+				"JAZZ_FlashlightDot",
+				"JAZZ_LaserDot",
+				"JAZZ_UVDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -139,6 +139,10 @@ DefineClass.HK33 = {
 	BurstShots = 4,
 	AutoShots = 7,
 	BulletDropRange = 14,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	Grouping = 57,
 	BaseJamChance = -30,
 	WeaponResource = 7600,

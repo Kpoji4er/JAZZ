@@ -38,9 +38,9 @@ DefineClass.BAR = {
 			'SlotType', "Bipod",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
-			'DefaultComponent', "Bipod",
+			'DefaultComponent', "JAZZ_Bipod",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -55,7 +55,10 @@ DefineClass.BAR = {
 	ReloadAP = 8000,
 	Recoil = 35,
 	AutoShots = 5,
-	Handling = -35,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 15,
 	Grouping = 38,
 	WeaponResource = 6500,

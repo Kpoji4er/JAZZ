@@ -46,17 +46,17 @@ DefineClass.DeLisle = {
 				"JAZZ_Scope_6x",
 				"JAZZ_Scope_12x",
 				"JAZZ_Scope_Scout",
-				"Jazz_IronSight",
+				"JAZZ_IronSight",
 			},
-			'DefaultComponent', "Jazz_IronSight",
+			'DefaultComponent', "JAZZ_IronSight",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"SuppressorIntegrated",
+				"JAZZ_SuppressorIntegrated",
 			},
-			'DefaultComponent', "SuppressorIntegrated",
+			'DefaultComponent', "JAZZ_SuppressorIntegrated",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -71,7 +71,10 @@ DefineClass.DeLisle = {
 	MaxAimActions = 4,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -18,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 9,
 	Grouping = 61,
 	BaseJamChance = -10,

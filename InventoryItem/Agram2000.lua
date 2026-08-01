@@ -35,15 +35,15 @@ DefineClass.Agram2000 = {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"PistolSuppressor",
+				"JAZZ_PistolSuppressor",
 			},
 		}),
 	},
@@ -61,7 +61,10 @@ DefineClass.Agram2000 = {
 	Recoil = 6,
 	BurstShots = 4,
 	AutoShots = 8,
-	Handling = 18,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	BulletDropRange = 9,
 	Grouping = 70,
 	BaseJamChance = -10,

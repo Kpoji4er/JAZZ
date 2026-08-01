@@ -2795,7 +2795,6 @@ local JAZZ_CTHCoreModifierIds = {
 	Aim = true,
 	Bipod = true,
 	Grouping = true,
-	Handling = true,
 	Scope = true,
 }
 
@@ -3146,6 +3145,17 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 			after = core,
 			optic_profile = range_profile.optic,
 		}
+	end
+
+	if range_profile.close_factor ~= JAZZ_CTH_FACTOR_SCALE then
+		JAZZ_CTHAddFactor(
+			factors,
+			"WeaponCloseRange",
+			T(982641736210, "Ближняя зона"),
+			range_profile.close_factor,
+			nil,
+			"Weapon"
+		)
 	end
 
 	if range_profile.optic_factor ~= JAZZ_CTH_FACTOR_SCALE then

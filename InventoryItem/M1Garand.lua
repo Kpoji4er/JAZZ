@@ -36,15 +36,15 @@ DefineClass.M1Garand = {
 			'AvailableComponents', {
 				"JAZZ_Reflex_Garand",
 				"JAZZ_Scope_Garand",
-				"DefaultIronsight_AR15",
+				"JAZZ_DefaultIronsight_AR15",
 			},
-			'DefaultComponent', "DefaultIronsight_AR15",
+			'DefaultComponent', "JAZZ_DefaultIronsight_AR15",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Suppressor",
+				"JAZZ_Suppressor",
 			},
 		}),
 	},
@@ -58,7 +58,10 @@ DefineClass.M1Garand = {
 	ReloadAP = 5000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -25,
+
+	CloseRange = 8,
+
+	CloseRangeFactor = 80,
 	BulletDropRange = 15,
 	Grouping = 37,
 	WeaponResource = 4000,

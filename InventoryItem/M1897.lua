@@ -39,8 +39,8 @@ DefineClass.M1897 = {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"DuckbillChoke",
-				"FullChoke",
+				"JAZZ_DuckbillChoke",
+				"JAZZ_FullChoke",
 			},
 		}),
 	},
@@ -56,7 +56,10 @@ DefineClass.M1897 = {
 	MaxAimActions = 2,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -15,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 7,
 	Grouping = 110,
 	BaseJamChance = -10,

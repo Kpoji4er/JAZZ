@@ -40,7 +40,6 @@ DefineClass.M79 = {
 	PreparedAttackType = "None",
 	ShootAP = 7000,
 	ReloadAP = 7000,
-	Handling = 70,
 	WeaponResource = 300,
 }
 

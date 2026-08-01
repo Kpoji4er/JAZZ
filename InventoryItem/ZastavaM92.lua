@@ -36,26 +36,26 @@ DefineClass.ZastavaM92 = {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"ImprovisedSuppressor",
+				"JAZZ_ImprovisedSuppressor",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge_30_40",
-				"MagDrum_30-75",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge_30_40",
+				"JAZZ_MagDrum_30-75",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"StockLightUnFolded",
-				"StockLightFolded",
+				"JAZZ_StockLightUnFolded",
+				"JAZZ_StockLightFolded",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -70,7 +70,10 @@ DefineClass.ZastavaM92 = {
 	ReloadAP = 5000,
 	Recoil = 18,
 	AutoShots = 6,
-	Handling = 6,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 12,
 	Grouping = 53,
 	BaseJamChance = -20,

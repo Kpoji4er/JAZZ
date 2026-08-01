@@ -37,36 +37,36 @@ DefineClass.UMP45 = {
 			'SlotType', "Under",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"VerticalGrip",
-				"TacGrip",
+				"JAZZ_VerticalGrip",
+				"JAZZ_TacGrip",
 			},
-			'DefaultComponent', "VerticalGrip",
+			'DefaultComponent', "JAZZ_VerticalGrip",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"StockLightFolded",
-				"StockLightUnFolded",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockLightUnFolded",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"LaserDot",
-				"FlashlightDot",
-				"UVDot",
+				"JAZZ_Flashlight",
+				"JAZZ_LaserDot",
+				"JAZZ_FlashlightDot",
+				"JAZZ_UVDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -85,9 +85,9 @@ DefineClass.UMP45 = {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Compensator",
-				"ImprovisedSuppressor",
-				"PistolSuppressor",
+				"JAZZ_Compensator",
+				"JAZZ_ImprovisedSuppressor",
+				"JAZZ_PistolSuppressor",
 			},
 		}),
 	},
@@ -104,7 +104,10 @@ DefineClass.UMP45 = {
 	Recoil = 7,
 	BurstShots = 2,
 	AutoShots = 6,
-	Handling = 9,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	BulletDropRange = 9,
 	Grouping = 70,
 	BaseJamChance = -30,

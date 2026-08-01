@@ -38,10 +38,10 @@ DefineClass.PPS43 = {
 			'SlotType', "Stock",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"StockLightFolded",
-				"StockLightUnFolded",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockLightUnFolded",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -58,7 +58,10 @@ DefineClass.PPS43 = {
 	MaxAimActions = 2,
 	Recoil = 7,
 	AutoShots = 7,
-	Handling = -5,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	BulletDropRange = 12,
 	Grouping = 29,
 	BaseJamChance = -10,

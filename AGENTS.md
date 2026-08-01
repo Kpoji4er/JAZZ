@@ -24,6 +24,7 @@ JAZZ состоит из четырёх канонических репозит�
 - Generated data: `.agents/docs/reference/generated-data-sync.md`
 - Проверки и release: `.agents/docs/reference/checklists-and-release.md`
 - Current-state документация: `.agents/docs/reference/documentation-contract.md`
+- Agent tooling (скрипты не выкидывать): `.agents/docs/reference/agent-tooling.md`, `docs/tools/README.md`
 
 ## Ролевые playbookы
 
@@ -44,7 +45,7 @@ JAZZ состоит из четырёх канонических репозит�
 7. `docs/technical/` описывает текущее состояние для разработчика, `docs/wiki/` — текущее состояние для игрока, `docs/showcase/` — двуязычная публичная витрина (GitHub Wiki), а `docs/specs/` — утверждённое намерение; затронутые уровни документации входят в DoD. Для player-facing боя/CTH/grazing/укрытия/дыма обновлять technical + wiki + showcase RU/EN **в том же change set** (`.cursor/rules/jazz-docs-wiki-sync.mdc`).
 8. Не выполнять `git push`, force-push, публикацию тегов, релизов или PR без отдельного явного одобрения пользователя на конкретную публикацию. Запрос на commit, merge или перенос в ветку не разрешает push.
 9. При добавлении или изменении mod-only строки локализации в том же change set обновлять обе runtime-таблицы — `Russian.csv` и `English.csv`. Изменение не завершено, пока для активной строки не заполнены оба языка, множества mod-only ID таблиц не совпадают и аудитор сообщает `needs Russian=0` и `needs English=0`.
-10. При коммите изменений пакета в том же change set обновлять его `metadata.lua`: для крупного/feature изменения поднимать `version_minor` на `+1`. Не править вручную `version` (Revision), `saved`, `code_hash`. Sibling-пакеты без изменений не трогать. `last_changes` при коммите **дописывать**, полностью перезатирать только при Steam upload. Подробности: `.cursor/rules/jazz-commits-versioning.mdc`, `docs/technical/systems/release-versioning.md`, `$release-jazz-suite`.
+10. При коммите изменений пакета в том же change set обновлять его `metadata.lua`: обычный коммит поднимает `version` (Revision) на `+1`; `version_minor` — только на большой мульти-spec фиче/волне. Не править вручную `saved`, `code_hash`. Sibling-пакеты без изменений не трогать. `last_changes` при коммите **дописывать**, полностью перезатирать только при Steam upload. Подробности: `.cursor/rules/jazz-commits-versioning.mdc`, `docs/technical/systems/release-versioning.md`, `$release-jazz-suite`.
 
 ## Источники
 

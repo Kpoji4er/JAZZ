@@ -32,9 +32,9 @@ DefineClass.AVT40 = {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -50,7 +50,10 @@ DefineClass.AVT40 = {
 	ReloadAP = 7000,
 	Recoil = 45,
 	AutoShots = 7,
-	Handling = -20,
+
+	CloseRange = 8,
+
+	CloseRangeFactor = 80,
 	BulletDropRange = 17,
 	Grouping = 35,
 	BaseJamChance = 5,

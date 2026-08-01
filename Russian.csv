@@ -5075,6 +5075,20 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 982641736201,Навыки и эффекты,Навыки и эффекты,,jazz:Code/System_OR_Unit.lua:3071 | jazz:Code/System_OR_Unit.lua:3080
 982641736202,Оптика,Оптика,,jazz:Code/System_OR_Unit.lua:3119 | jazz:Code/System_OR_Unit.lua:3134
 982641736203,Пули<right><values>,Пули<right><values>,,jazz:Code/CrossHairUI.lua:656
+982641736210,Ближняя зона,Ближняя зона,,jazz:Code/System_OR_Unit.lua
+982641736301,Ствол: Увеличивает ближнюю зону на <CloseRangeIncrease>,Ствол: Увеличивает ближнюю зону на <CloseRangeIncrease>,,jazz:items.lua
+982641736302,Ствол: Уменьшает ближнюю зону на <CloseRangeDecrease>,Ствол: Уменьшает ближнюю зону на <CloseRangeDecrease>,,jazz:items.lua
+982641736303,Ствол: Усиливает эффективность на ближней дистанции на <CloseRangeFactorIncrease>,Ствол: Усиливает эффективность на ближней дистанции на <CloseRangeFactorIncrease>,,jazz:items.lua
+982641736304,Ствол: Ослабляет эффективность на ближней дистанции на <CloseRangeFactorDecrease>,Ствол: Ослабляет эффективность на ближней дистанции на <CloseRangeFactorDecrease>,,jazz:items.lua
+982641740101,Default Handguard,Default Handguard,,jazz:items.lua
+982641740102,Default Compensator,Default Compensator,,jazz:items.lua
+982641740103,Advanced Compensator,Advanced Compensator,,jazz:items.lua
+982641740104,Short Barrel,Short Barrel,,jazz:items.lua
+982641740105,Default Flash Hider,Default Flash Hider,,jazz:items.lua
+982641740106,Default Handguard,Default Handguard,,jazz:items.lua
+982641740107,Default Handguard,Default Handguard,,jazz:items.lua
+982641740108,Default Chamber,Default Chamber,,jazz:items.lua
+982641740109,Compensator,Compensator,,jazz:items.lua
 982833807873,"Высококлассные военные шлемы СПЕКТРА, как и другие подобные элементы брони получили известность после успешной операции Ассоциации в Арулько. Изначально принадлежавшие вооруженным силам Арулько, эти шлемы и другая боевая броня были захвачены в качестве трофеев и в конечном итоге привели Ассоциацию к успешному завершению операции.","Высококлассные военные шлемы СПЕКТРА, как и другие подобные элементы брони получили известность после успешной операции Ассоциации в Арулько. Изначально принадлежавшие вооруженным силам Арулько, эти шлемы и другая боевая броня были захвачены в качестве трофеев и в конечном итоге привели Ассоциацию к успешному завершению операции.",,jazz:InventoryItem/JazzArmor_SpectraHelm.lua:14 | jazz:items.lua:55379
 982879482211,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Единый пулемет 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный 
@@ -7354,6 +7368,11 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000004618,Ножи наточены. Иду.,Ножи наточены. Иду.,,Jazz_Ricochet
 890000000004619,Контракт заканчивается. Продлеваем?,Контракт заканчивается. Продлеваем?,,Jazz_Ricochet
 890000000004620,Остаюсь.,Остаюсь.,,Jazz_Ricochet
+
+
+890000000006231,Несу вас,Несу вас,,Jazz_Perk_Hobbit
+890000000006217,Карлос,Карлос,,Jazz_Carlos
+890000000006216,[WIP] Карлос Дасуза,[WIP] Карлос Дасуза,,Jazz_Carlos
 890000000004621,КАРЛОС,КАРЛОС,,Jazz_Carlos
 890000000004622,work in progress,work in progress,,Jazz_Carlos
 890000000004623,Пессимист,Пессимист,,Jazz_Carlos
@@ -7617,6 +7636,7 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000003201,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000003301,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000003401,Попадание в голову: 25% шанс ослепить цель на 1 ход.,Head hit: 25% chance to Blind the target for 1 turn.,,Jazz_Perk_WIP
+890000000003500,Крыша,Крыша,,Jazz_Perk_Gaston
 890000000003501,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000003601,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000003701,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
@@ -7627,119 +7647,6 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000004201,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000004301,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000004401,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
-890000000003202,[WIP] Мигель Кордона,[WIP] Мигель Кордона,,Jazz_Name_WIP
-890000000003402,[WIP] Грег «Динамо» Дункан,[WIP] Грег «Динамо» Дункан,,Jazz_Name_WIP
-890000000004502,[WIP] Тим «Хоббит» Хиллман,[WIP] Тим «Хоббит» Хиллман,,Jazz_Name_WIP
-890000000003302,[WIP] Гамос,[WIP] Гамос,,Jazz_Name_WIP
-890000000003502,[WIP] Гастон Кавалье,[WIP] Гастон Кавалье,,Jazz_Name_WIP
-890000000004102,[WIP] Кирк «Статик» Стивенсон,[WIP] Кирк «Статик» Стивенсон,,Jazz_Name_WIP
-890000000004402,[WIP] Даг «Кардан» Милтон,[WIP] Даг «Кардан» Милтон,,Jazz_Name_WIP
-890000000004202,[WIP] Клиффорд «Скала» Хайбол,[WIP] Клиффорд «Скала» Хайбол,,Jazz_Name_WIP
-890000000004302,[WIP] Джон «Бык» Питерс,[WIP] Джон «Бык» Питерс,,Jazz_Name_WIP
-890000000002502,[WIP] Стефан Ротман,[WIP] Стефан Ротман,,Jazz_Name_WIP
-890000000003002,[WIP] Флоренс «Фло» Габриель,[WIP] Флоренс «Фло» Габриель,,Jazz_Name_WIP
-890000000003702,[WIP] Мануэль,[WIP] Мануэль,,Jazz_Name_WIP
-890000000003602,[WIP] Лейтенант Хорг «Сигара»,[WIP] Лейтенант Хорг «Сигара»,,Jazz_Name_WIP
-890000000003902,[WIP] Янно «Знаток» Аллик,[WIP] Янно «Знаток» Аллик,,Jazz_Name_WIP
-890000000003802,[WIP] Виктор «Монк» Колесников,[WIP] Виктор «Монк» Колесников,,Jazz_Name_WIP
-890000000004002,[WIP] Хеннинг фон Браниц,[WIP] Хеннинг фон Браниц,,Jazz_Name_WIP
-890000000003102,[WIP] Джим «Пума» Уоллесс,[WIP] Джим «Пума» Уоллесс,,Jazz_Name_WIP
-890000000002602,[WIP] Доктор Дэниел «Дэнни» Квинтен,[WIP] Доктор Дэниел «Дэнни» Квинтен,,Jazz_Name_WIP
-890000000002702,[WIP] Жан-Пьер «Злобный» Вио,[WIP] Жан-Пьер «Злобный» Вио,,Jazz_Name_WIP
-890000000002802,[WIP] Бифф Апскотт,[WIP] Бифф Апскотт,,Jazz_Name_WIP
-890000000002902,[WIP] Фрэнки «Нервный» Гордон,[WIP] Фрэнки «Нервный» Гордон,,Jazz_Name_WIP
-890000000006100,РљРѕРјР°РЅРґРЅР°СЏ Р°СѓСЂР°,РљРѕРјР°РЅРґРЅР°СЏ Р°СѓСЂР°,,Jazz_Perk_OfficerAura
-890000000006101,"Р­С‚РѕС‚ РєРѕРјР°РЅРґРёСЂ РґРµСЂР¶РёС‚ Р°СѓСЂСѓ РїСЂРёРєР°Р·Р° РЅР°Рґ СЃРѕСЋР·РЅРёРєР°РјРё РІ СЂР°РґРёСѓСЃРµ (СЃРµСЂР¶Р°РЅС‚ 15, Р»РµР№С‚РµРЅР°РЅС‚ 25, РєР°РїРёС‚Р°РЅ вЂ” РІСЃСЏ РєР°СЂС‚Р°).\n\nР’РѕР·РјРѕР¶РЅС‹Рµ РїСЂРёРєР°Р·С‹: <em>Р”РµСЂР¶Р°С‚СЊ Р»РёРЅРёСЋ</em>, <em>Р”Р°РІРёС‚СЊ</em>, <em>РћС…РІР°С‚</em>, <em>РћС‚С…РѕРґ</em>, <em>РЎРѕСЃСЂРµРґРѕС‚РѕС‡РёС‚СЊ РѕРіРѕРЅСЊ</em>, <em>РќРёР·РєР°СЏ РІРёРґРёРјРѕСЃС‚СЊ вЂ” РґРµСЂР¶Р°С‚СЊ</em>. РџСЂРёРєР°Р· РѕР±РЅРѕРІР»СЏРµС‚СЃСЏ РїРѕ РѕР±СЃС‚Р°РЅРѕРІРєРµ.","Р­С‚РѕС‚ РєРѕРјР°РЅРґРёСЂ РґРµСЂР¶РёС‚ Р°СѓСЂСѓ РїСЂРёРєР°Р·Р° РЅР°Рґ СЃРѕСЋР·РЅРёРєР°РјРё РІ СЂР°РґРёСѓСЃРµ (СЃРµСЂР¶Р°РЅС‚ 15, Р»РµР№С‚РµРЅР°РЅС‚ 25, РєР°РїРёС‚Р°РЅ вЂ” РІСЃСЏ РєР°СЂС‚Р°).\n\nР’РѕР·РјРѕР¶РЅС‹Рµ РїСЂРёРєР°Р·С‹: <em>Р”РµСЂР¶Р°С‚СЊ Р»РёРЅРёСЋ</em>, <em>Р”Р°РІРёС‚СЊ</em>, <em>РћС…РІР°С‚</em>, <em>РћС‚С…РѕРґ</em>, <em>РЎРѕСЃСЂРµРґРѕС‚РѕС‡РёС‚СЊ РѕРіРѕРЅСЊ</em>, <em>РќРёР·РєР°СЏ РІРёРґРёРјРѕСЃС‚СЊ вЂ” РґРµСЂР¶Р°С‚СЊ</em>. РџСЂРёРєР°Р· РѕР±РЅРѕРІР»СЏРµС‚СЃСЏ РїРѕ РѕР±СЃС‚Р°РЅРѕРІРєРµ.",,Jazz_Perk_OfficerAura
-890000000006102,РћС‚РґР°С‘С‚ РїСЂРёРєР°Р·С‹,РћС‚РґР°С‘С‚ РїСЂРёРєР°Р·С‹,,Jazz_Perk_OfficerAura
-890000000006103,РџРѕРґ РІР»РёСЏРЅРёРµРј Р°СѓСЂС‹,РџРѕРґ РІР»РёСЏРЅРёРµРј Р°СѓСЂС‹,,Jazz_Perk_OfficerAuraInfluence
-890000000006104,"Р‘РѕРµС† РІ СЂР°РґРёСѓСЃРµ РєРѕРјР°РЅРґРёСЂСЃРєРѕР№ Р°СѓСЂС‹ Рё СЃР»РµРґСѓРµС‚ С‚РµРєСѓС‰РµРјСѓ РїСЂРёРєР°Р·Сѓ РѕС‚СЂСЏРґР° (СѓРґРµСЂР¶Р°РЅРёРµ, РЅР°С‚РёСЃРє, РѕС…РІР°С‚ Рё С‚.Рґ.). Р­С„С„РµРєС‚ СЃРЅРёРјР°РµС‚СЃСЏ, РµСЃР»Рё РєРѕРјР°РЅРґРёСЂ РїРѕРіРёР± РёР»Рё Р±РѕРµС† РІС‹С€РµР» РёР· СЂР°РґРёСѓСЃР°.","Р‘РѕРµС† РІ СЂР°РґРёСѓСЃРµ РєРѕРјР°РЅРґРёСЂСЃРєРѕР№ Р°СѓСЂС‹ Рё СЃР»РµРґСѓРµС‚ С‚РµРєСѓС‰РµРјСѓ РїСЂРёРєР°Р·Сѓ РѕС‚СЂСЏРґР° (СѓРґРµСЂР¶Р°РЅРёРµ, РЅР°С‚РёСЃРє, РѕС…РІР°С‚ Рё С‚.Рґ.). Р­С„С„РµРєС‚ СЃРЅРёРјР°РµС‚СЃСЏ, РµСЃР»Рё РєРѕРјР°РЅРґРёСЂ РїРѕРіРёР± РёР»Рё Р±РѕРµС† РІС‹С€РµР» РёР· СЂР°РґРёСѓСЃР°.",,Jazz_Perk_OfficerAuraInfluence
-890000000006105,РџРѕРґ РїСЂРёРєР°Р·РѕРј,РџРѕРґ РїСЂРёРєР°Р·РѕРј,,Jazz_Perk_OfficerAuraInfluence
-890000000001733,Иду.,Иду.,,jazz-units:VoiceResponse Jazz_Colby CombatMovement
-890000000001734,Перемещаюсь.,Перемещаюсь.,,jazz-units:VoiceResponse Jazz_Colby CombatMovement
-890000000001735,Двигаюсь.,Двигаюсь.,,jazz-units:VoiceResponse Jazz_Colby CombatMovement
-890000000001736,Крадусь.,Крадусь.,,jazz-units:VoiceResponse Jazz_Colby CombatMovementStealth
-890000000001737,Тихо иду.,Тихо иду.,,jazz-units:VoiceResponse Jazz_Colby CombatMovementStealth
-890000000001738,"Без шума, е-мое.","Без шума, е-мое.",,jazz-units:VoiceResponse Jazz_Colby CombatMovementStealth
-890000000001739,С вами.,С вами.,,jazz-units:VoiceResponse Jazz_Colby GroupOrder
-890000000001740,"Я тоже, е-мое.","Я тоже, е-мое.",,jazz-units:VoiceResponse Jazz_Colby GroupOrder
-890000000001741,"С вами, пацаны.","С вами, пацаны.",,jazz-units:VoiceResponse Jazz_Colby GroupOrder
-890000000001742,Держу на мушке.,Держу на мушке.,,jazz-units:VoiceResponse Jazz_Colby AimAttack
-890000000001743,"Сейчас жарко будет, е-мое.","Сейчас жарко будет, е-мое.",,jazz-units:VoiceResponse Jazz_Colby AimAttack
-890000000001744,"Держись, падла.","Держись, падла.",,jazz-units:VoiceResponse Jazz_Colby AimAttack
-890000000001745,Тихо сниму…,Тихо сниму…,,jazz-units:VoiceResponse Jazz_Colby AimAttackStealth
-890000000001746,Без шума уберу.,Без шума уберу.,,jazz-units:VoiceResponse Jazz_Colby AimAttackStealth
-890000000001747,"Никаких проблем, только вряд ли я туда попаду отсюда!","Никаких проблем, только вряд ли я туда попаду отсюда!",,jazz-units:VoiceResponse Jazz_Colby AimAttack_Low
-890000000001748,Это полная задница.,Это полная задница.,,jazz-units:VoiceResponse Jazz_Colby AimAttack_LowStealth
-890000000001749,Вижу их!,Вижу их!,,jazz-units:VoiceResponse Jazz_Colby OpponentFound
-890000000001750,Вон они. Я их вижу!,Вон они. Я их вижу!,,jazz-units:VoiceResponse Jazz_Colby OpponentFound
-890000000001751,Враги!,Враги!,,jazz-units:VoiceResponse Jazz_Colby OpponentFound
-890000000001752,Задница!,Задница!,,jazz-units:VoiceResponse Jazz_Colby ManyEnemiesSelection
-890000000001753,"Попал, попал, е-мое!","Попал, попал, е-мое!",,jazz-units:VoiceResponse Jazz_Colby OpponentKilled
-890000000001754,"Готово, е-мое.","Готово, е-мое.",,jazz-units:VoiceResponse Jazz_Colby OpponentKilled
-890000000001755,"Ещё один, падла.","Ещё один, падла.",,jazz-units:VoiceResponse Jazz_Colby OpponentKilled
-890000000001756,"Вот тебе в задницу, е-мое!","Вот тебе в задницу, е-мое!",,jazz-units:VoiceResponse Jazz_Colby OpponentKilled
-890000000001757,Попал!,Попал!,,jazz-units:VoiceResponse Jazz_Colby OpponentKilled
-890000000001758,"Еклмн, патроны кончились.","Еклмн, патроны кончились.",,jazz-units:VoiceResponse Jazz_Colby NoAmmo
-890000000001759,"Патроны на исходе, е-мое!","Патроны на исходе, е-мое!",,jazz-units:VoiceResponse Jazz_Colby AmmoLow
-890000000001760,"Ничего, ничего… только моя пушка заклинила!","Ничего, ничего… только моя пушка заклинила!",,jazz-units:VoiceResponse Jazz_Colby WeaponJammed
-890000000001761,"Еклмн… Надо подождать, и эта штука заработает.","Еклмн… Надо подождать, и эта штука заработает.",,jazz-units:VoiceResponse Jazz_Colby WeaponBroken
-890000000001762,"Снаряжение, е-мое! Да это кусок дерьма!","Снаряжение, е-мое! Да это кусок дерьма!",,jazz-units:VoiceResponse Jazz_Colby ItemDeteriorates
-890000000001763,(боль),(боль),,jazz-units:VoiceResponse Jazz_Colby Pain
-890000000001764,(боль),(боль),,jazz-units:VoiceResponse Jazz_Colby Pain
-890000000001765,(боль),(боль),,jazz-units:VoiceResponse Jazz_Colby Pain
-890000000001766,В меня попали… е-мое…,В меня попали… е-мое…,,jazz-units:VoiceResponse Jazz_Colby Wounded
-890000000001767,"Досталось мне, падла.","Досталось мне, падла.",,jazz-units:VoiceResponse Jazz_Colby Wounded
-890000000001768,"Ну е-мое, перевязать бы меня…","Ну е-мое, перевязать бы меня…",,jazz-units:VoiceResponse Jazz_Colby SeriouslyWounded
-890000000001769,Меня… подбили…,Меня… подбили…,,jazz-units:VoiceResponse Jazz_Colby Downed
-890000000001770,"Бьют как, херы!","Бьют как, херы!",,jazz-units:VoiceResponse Jazz_Colby SurroundedPain
-890000000001771,Херово чего-то мне…,Херово чего-то мне…,,jazz-units:VoiceResponse Jazz_Colby HeavilyWoundedSelection
-890000000001772,"Готов к выполнению задания, е-мое.","Готов к выполнению задания, е-мое.",,jazz-units:VoiceResponse Jazz_Colby CombatStartPlayer
-890000000001773,"Меня заметили, е-мое!","Меня заметили, е-мое!",,jazz-units:VoiceResponse Jazz_Colby CombatStartDetected
-890000000001774,"Е-мое! Все, врагов больше нет!","Е-мое! Все, врагов больше нет!",,jazz-units:VoiceResponse Jazz_Colby CombatEndNoEnemies
-890000000001775,"Там эти кругом… Поостерегись, пацан.","Там эти кругом… Поостерегись, пацан.",,jazz-units:VoiceResponse Jazz_Colby CombatEndEnemiesRemain
-890000000001776,Эти хрены убрались восвояси.,Эти хрены убрались восвояси.,,jazz-units:VoiceResponse Jazz_Colby CombatEndEnemiesRetreated
-890000000001777,"Чёрт, е-мое…","Чёрт, е-мое…",,jazz-units:VoiceResponse Jazz_Colby DeathGeneral
-890000000001778,"Ну, е-мое, Тор… Спи спокойно, коротышка.","Ну, е-мое, Тор… Спи спокойно, коротышка.",,jazz-units:VoiceResponse Jazz_Colby DeathBuddy1
-890000000001779,"Фидель, е-мое, такая тупая задница.","Фидель, е-мое, такая тупая задница.",,jazz-units:VoiceResponse Jazz_Colby MockDislike1
-890000000001780,"Ну не е-ли-мое-ли? Я же говорил, Тор пацан что надо!","Ну не е-ли-мое-ли? Я же говорил, Тор пацан что надо!",,jazz-units:VoiceResponse Jazz_Colby PraisesBuddy1
-890000000001781,Оп-па! Не зря я упирался!,Оп-па! Не зря я упирался!,,jazz-units:VoiceResponse Jazz_Colby LevelUp
-890000000001782,"Жду, пацаны.","Жду, пацаны.",,jazz-units:VoiceResponse Jazz_Colby Idle
-890000000001783,Американцы. Лохи вялые.,Американцы. Лохи вялые.,,jazz-units:VoiceResponse Jazz_Colby Idle
-890000000001784,(смех),(смех),,jazz-units:VoiceResponse Jazz_Colby Idle
-890000000001785,Прячусь…,Прячусь…,,jazz-units:VoiceResponse Jazz_Colby BecomeHidden
-890000000001786,"Меня не видно, е-мое.","Меня не видно, е-мое.",,jazz-units:VoiceResponse Jazz_Colby BecomeHidden
-890000000001787,"Эй, пацаны… здесь не ходите.","Эй, пацаны… здесь не ходите.",,jazz-units:VoiceResponse Jazz_Colby MineNearbySelection
-890000000001788,Эгеге… похоже здесь опасность!,Эгеге… похоже здесь опасность!,,jazz-units:VoiceResponse Jazz_Colby MineNearbySelection
-890000000001789,Дверь закрыта.,Дверь закрыта.,,jazz-units:VoiceResponse Jazz_Colby DoorLocked
-890000000001790,Это ещё что?,Это ещё что?,,jazz-units:VoiceResponse Jazz_Colby LootFound
-890000000001791,Это что за..?,Это что за..?,,jazz-units:VoiceResponse Jazz_Colby LootFound
-890000000001792,Е-мое! Отлично!,Е-мое! Отлично!,,jazz-units:VoiceResponse Jazz_Colby ValuableItemFound
-890000000001793,Интересно…,Интересно…,,jazz-units:VoiceResponse Jazz_Colby InteractableFound
-890000000001794,"Спать надо, спать.","Спать надо, спать.",,jazz-units:VoiceResponse Jazz_Colby Tired
-890000000001795,Посплю-ка я…,Посплю-ка я…,,jazz-units:VoiceResponse Jazz_Colby Exhausted
-890000000001796,(пыхтит),(пыхтит),,jazz-units:VoiceResponse Jazz_Colby HeavyBreathing
-890000000001797,"Эй, пацан, конец пути.","Эй, пацан, конец пути.",,jazz-units:VoiceResponse Jazz_Colby SectorArrived
-890000000001798,Задание выполнено! Хочу что-нибудь сделать.,Задание выполнено! Хочу что-нибудь сделать.,,jazz-units:VoiceResponse Jazz_Colby ActivityFinished
-890000000001799,Я тебе не игрушечный солдатик. Не буду делать!,Я тебе не игрушечный солдатик. Не буду делать!,,jazz-units:VoiceResponse Jazz_Colby NotNow
-890000000002506,"Спасибо, уже лучше, е-мое.","Спасибо, уже лучше, е-мое.",,jazz-units:VoiceResponse Jazz_Colby HealReceived
-890000000002507,"Можете не сомневаться, эти недалеко ушли.","Можете не сомневаться, эти недалеко ушли.",,jazz-units:VoiceResponse Jazz_Colby Overwatch
-890000000002508,"Все-таки дело здесь нечисто, е-мое.","Все-таки дело здесь нечисто, е-мое.",,jazz-units:VoiceResponse Jazz_Colby ThreatSelection
-890000000002509,Сектор под присмотром.,Сектор под присмотром.,,jazz-units:VoiceResponse Jazz_Colby OverwatchSelection
-890000000002510,(кашляет),(кашляет),,jazz-units:VoiceResponse Jazz_Colby GasAreaSelection
-890000000002511,"Воздух, е-мое!","Воздух, е-мое!",,jazz-units:VoiceResponse Jazz_Colby TakeCover
-890000000002512,Меня могли за просто так…,Меня могли за просто так…,,jazz-units:VoiceResponse Jazz_Colby MissedByKillShot
-890000000002513,Дикая кошка!,Дикая кошка!,,jazz-units:VoiceResponse Jazz_Colby AnimalFound
-890000000002514,"Лови, падла!","Лови, падла!",,jazz-units:VoiceResponse Jazz_Colby ThrowGrenade
-890000000002515,"Очередь, е-мое!","Очередь, е-мое!",,jazz-units:VoiceResponse Jazz_Colby Autofire
-890000000002516,"Есть идейка, е-мое…","Есть идейка, е-мое…",,jazz-units:VoiceResponse Jazz_Colby CombatTaskGiven
-890000000002517,"Да… мое чутье меня не обмануло, е-мое.","Да… мое чутье меня не обмануло, е-мое.",,jazz-units:VoiceResponse Jazz_Colby CombatTaskCompleted
-890000000002518,"Гмм… мне так кажется, что это полная лажа, е-мое.","Гмм… мне так кажется, что это полная лажа, е-мое.",,jazz-units:VoiceResponse Jazz_Colby CombatTaskFailed
-890000000002519,Лучше бы мне это просто послышалось.,Лучше бы мне это просто послышалось.,,jazz-units:VoiceResponse Jazz_Colby Startled
-890000000002520,(лезет),(лезет),,jazz-units:VoiceResponse Jazz_Colby Climbing
-890000000002521,(прыжок),(прыжок),,jazz-units:VoiceResponse Jazz_Colby Jumping
-890000000006200,Приказ: точность,Order: Accuracy,,Jazz_Perk_WaveA
-890000000006201,+5 к шансу попадания на следующую атаку.,+5 chance to hit on the next attack.,,Jazz_Perk_WaveA
-890000000003500,Крыша,Крыша,,Jazz_Perk_Gaston
 890000000006202,[WIP] Тортон «Мясо» Джонс,[WIP] Тортон «Мясо» Джонс,,Jazz_Meat
 890000000006203,Мясо,Мясо,,Jazz_Meat
 890000000006204,МЯСО,МЯСО,,Jazz_Meat
@@ -7754,6 +7661,3 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000006213,Hired.,Hired.,,Jazz_Meat
 890000000006214,Contract ending?,Contract ending?,,Jazz_Meat
 890000000006215,Staying.,Staying.,,Jazz_Meat
-890000000006216,[WIP] Карлос Дасуза,[WIP] Карлос Дасуза,,Jazz_Carlos
-890000000006217,Карлос,Карлос,,Jazz_Carlos
-890000000006231,Несу вас,Несу вас,,Jazz_Perk_Hobbit

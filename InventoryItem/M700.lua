@@ -52,7 +52,10 @@ DefineClass.M700 = {
 	ReloadAP = 8000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -28,
+
+	CloseRange = 12,
+
+	CloseRangeFactor = 70,
 	BulletDropRange = 19,
 	Grouping = 48,
 	BaseJamChance = -20,

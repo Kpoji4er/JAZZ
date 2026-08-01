@@ -38,9 +38,9 @@ DefineClass.DP27 = {
 			'SlotType', "Bipod",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
-			'DefaultComponent', "Bipod",
+			'DefaultComponent', "JAZZ_Bipod",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -54,7 +54,10 @@ DefineClass.DP27 = {
 	Recoil = 22,
 	BurstShots = 6,
 	AutoShots = 6,
-	Handling = -45,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 15,
 	Grouping = 35,
 	BaseJamChance = -5,

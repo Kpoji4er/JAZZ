@@ -36,7 +36,7 @@ DefineClass.ArcticWarfare = {
 			'SlotType', "Bipod",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -63,7 +63,10 @@ DefineClass.ArcticWarfare = {
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -35,
+
+	CloseRange = 12,
+
+	CloseRangeFactor = 70,
 	BulletDropRange = 21,
 	Grouping = 42,
 	BaseJamChance = -30,

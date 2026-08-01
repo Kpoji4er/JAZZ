@@ -37,18 +37,18 @@ DefineClass.AN94 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLightFolded",
-				"StockLightUnFolded",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockLightUnFolded",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge_30_45",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge_30_45",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -65,7 +65,7 @@ DefineClass.AN94 = {
 			'SlotType', "Muzzle",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"Compensator",
+				"JAZZ_Compensator",
 			},
 		}),
 	},
@@ -83,7 +83,10 @@ DefineClass.AN94 = {
 	Recoil = 5,
 	BurstShots = 2,
 	AutoShots = 6,
-	Handling = -5,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 18,
 	Grouping = 56,
 	BaseJamChance = -20,

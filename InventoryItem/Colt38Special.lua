@@ -32,17 +32,17 @@ DefineClass.Colt38Special = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",
 			'AvailableComponents', {
-				"Freeswap",
+				"JAZZ_Freeswap",
 			},
-			'DefaultComponent', "Freeswap",
+			'DefaultComponent', "JAZZ_Freeswap",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelNormal",
-				"BarrelShort_Pistol",
+				"JAZZ_BarrelNormal",
+				"JAZZ_BarrelShort_Pistol",
 			},
-			'DefaultComponent', "BarrelShort_Pistol",
+			'DefaultComponent', "JAZZ_BarrelShort_Pistol",
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -56,7 +56,10 @@ DefineClass.Colt38Special = {
 	ReloadAP = 5000,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = -4,
+
+	CloseRange = 0,
+
+	CloseRangeFactor = 100,
 	BulletDropRange = 5,
 	Grouping = 59,
 	BaseJamChance = -100,

@@ -38,18 +38,18 @@ DefineClass.AA12 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelNormal",
-				"BarrelLongShotgun",
+				"JAZZ_BarrelNormal",
+				"JAZZ_BarrelLongShotgun",
 			},
-			'DefaultComponent', "BarrelNormal",
+			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -71,18 +71,18 @@ DefineClass.AA12 = {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight_aa12",
-				"LaserDot_aa12",
-				"FlashlightDot_aa12",
-				"UVDot_aa12",
+				"JAZZ_Flashlight_aa12",
+				"JAZZ_LaserDot_aa12",
+				"JAZZ_FlashlightDot_aa12",
+				"JAZZ_UVDot_aa12",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Suppressor",
-				"Compensator",
+				"JAZZ_Suppressor",
+				"JAZZ_Compensator",
 			},
 		}),
 	},
@@ -96,7 +96,10 @@ DefineClass.AA12 = {
 	ReloadAP = 6000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -12,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 8,
 	Grouping = 150,
 	WeaponResource = 2200,

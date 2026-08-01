@@ -39,14 +39,9 @@ DefineClass.PKM = {
 			'SlotType', "Muzzle",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"DefMuzzle",
+				"JAZZ_DefMuzzle",
 			},
-			'DefaultComponent', "DefMuzzle",
-		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Mount",
-			'Modifiable', false,
-			'CanBeEmpty', true,
+			'DefaultComponent', "JAZZ_DefMuzzle",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -69,53 +64,53 @@ DefineClass.PKM = {
 			'Modifiable', false,
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"LaserDot",
-				"FlashlightDot",
-				"UVDot",
+				"JAZZ_Flashlight",
+				"JAZZ_LaserDot",
+				"JAZZ_FlashlightDot",
+				"JAZZ_UVDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"StockNormal",
-				"PKMModStock",
+				"JAZZ_StockNormal",
+				"JAZZ_PKMModStock",
 			},
-			'DefaultComponent', "StockNormal",
+			'DefaultComponent', "JAZZ_StockNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
-			'DefaultComponent', "Bipod",
+			'DefaultComponent', "JAZZ_Bipod",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Under",
 			'Modifiable', false,
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"TacGrip",
-				"VerticalGrip",
+				"JAZZ_TacGrip",
+				"JAZZ_VerticalGrip",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Handguard",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"PKMDefHandGrip",
-				"PKMModHandGrip",
+				"JAZZ_PKMDefHandGrip",
+				"JAZZ_PKMModHandGrip",
 			},
-			'DefaultComponent', "PKMDefHandGrip",
+			'DefaultComponent', "JAZZ_PKMDefHandGrip",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -129,7 +124,10 @@ DefineClass.PKM = {
 	Recoil = 16,
 	BurstShots = 6,
 	AutoShots = 6,
-	Handling = -32,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 18,
 	Grouping = 38,
 	BaseJamChance = -50,

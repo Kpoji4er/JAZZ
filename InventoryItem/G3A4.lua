@@ -36,7 +36,7 @@ DefineClass.G3A4 = {
 			'SlotType', "Bipod",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -59,27 +59,27 @@ DefineClass.G3A4 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLightFolded",
-				"StockLightUnFolded",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockLightUnFolded",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"DefMuzzle",
-				"Compensator",
-				"SuppressorImproved",
+				"JAZZ_DefMuzzle",
+				"JAZZ_Compensator",
+				"JAZZ_SuppressorImproved",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagSmall20_10",
+				"JAZZ_MagNormal",
+				"JAZZ_MagSmall20_10",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -95,7 +95,10 @@ DefineClass.G3A4 = {
 	Recoil = 30,
 	BurstShots = 2,
 	AutoShots = 5,
-	Handling = -10,
+
+	CloseRange = 8,
+
+	CloseRangeFactor = 80,
 	BulletDropRange = 20,
 	Grouping = 51,
 	BaseJamChance = -30,

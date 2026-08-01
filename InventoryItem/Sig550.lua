@@ -35,43 +35,43 @@ DefineClass.Sig550 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLightFolded",
-				"StockLightUnFolded",
-				"StockHeavy",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockLightUnFolded",
+				"JAZZ_StockHeavy",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"ImprovisedSuppressor",
-				"Suppressor",
-				"SuppressorImproved",
+				"JAZZ_ImprovisedSuppressor",
+				"JAZZ_Suppressor",
+				"JAZZ_SuppressorImproved",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Handguard",
 			'AvailableComponents', {
-				"SigDefHandGuard",
-				"SigErgoHandGrip",
+				"JAZZ_SigDefHandGuard",
+				"JAZZ_SigErgoHandGrip",
 			},
-			'DefaultComponent', "SigDefHandGuard",
+			'DefaultComponent', "JAZZ_SigDefHandGuard",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -88,9 +88,9 @@ DefineClass.Sig550 = {
 				"JAZZ_Scope_6x",
 				"JAZZ_Scope_12x",
 				"JAZZ_Scope_Scout",
-				"DefaultIronsight_AR15",
+				"JAZZ_DefaultIronsight_AR15",
 			},
-			'DefaultComponent', "DefaultIronsight_AR15",
+			'DefaultComponent', "JAZZ_DefaultIronsight_AR15",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -106,7 +106,10 @@ DefineClass.Sig550 = {
 	ReloadAP = 6000,
 	Recoil = 8,
 	AutoShots = 6,
-	Handling = -1,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 17,
 	Grouping = 63,
 	BaseJamChance = -30,

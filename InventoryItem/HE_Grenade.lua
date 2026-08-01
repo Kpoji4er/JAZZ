@@ -24,9 +24,7 @@ DefineClass.HE_Grenade = {
 	MaxMishapRange = 8,
 	CenterObjDamageMod = 50,
 	CenterAppliedEffects = {
-		"Armsshot",
-		"Headshot",
-		"Legsshot",
+		"ArmsshotHeadshotLegsshot",
 	},
 	AreaOfEffect = 5,
 	CenterAreaOfEffect = 2,

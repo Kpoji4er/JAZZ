@@ -45,7 +45,10 @@ DefineClass.SKS = {
 	ReloadAP = 5000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -10,
+
+	CloseRange = 8,
+
+	CloseRangeFactor = 80,
 	BulletDropRange = 16,
 	Grouping = 60,
 	BaseJamChance = -30,

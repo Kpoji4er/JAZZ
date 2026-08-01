@@ -35,9 +35,9 @@ DefineClass.SpectreM4 = {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -54,7 +54,10 @@ DefineClass.SpectreM4 = {
 	Recoil = 5,
 	BurstShots = 4,
 	AutoShots = 9,
-	Handling = 16,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	BulletDropRange = 10,
 	Grouping = 68,
 	BaseJamChance = -20,

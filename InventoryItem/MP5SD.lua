@@ -36,10 +36,10 @@ DefineClass.MP5SD = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagSmall30_15",
+				"JAZZ_MagNormal",
+				"JAZZ_MagSmall30_15",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 				PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -58,19 +58,19 @@ DefineClass.MP5SD = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockNormal",
-				"StockLightFolded",
-				"StockLightUnFolded",
+				"JAZZ_StockNormal",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockLightUnFolded",
 			},
-			'DefaultComponent', "StockNormal",
+			'DefaultComponent', "JAZZ_StockNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"SuppressorIntegrated",
+				"JAZZ_SuppressorIntegrated",
 			},
-			'DefaultComponent', "SuppressorIntegrated",
+			'DefaultComponent', "JAZZ_SuppressorIntegrated",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -85,7 +85,10 @@ DefineClass.MP5SD = {
 	ReloadAP = 4000,
 	Recoil = 3,
 	AutoShots = 8,
-	Handling = -2,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	BulletDropRange = 11,
 	Grouping = 70,
 	BaseJamChance = -30,

@@ -36,23 +36,23 @@ DefineClass.TMP = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagSmall30_15",
-				"MagNormal",
+				"JAZZ_MagSmall30_15",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagSmall30_15",
+			'DefaultComponent', "JAZZ_MagSmall30_15",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "General",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"HolsterBelt",
+				"JAZZ_HolsterBelt",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"PistolSuppressor",
+				"JAZZ_PistolSuppressor",
 			},
 		}),
 	},
@@ -70,7 +70,10 @@ DefineClass.TMP = {
 	Recoil = 6,
 	BurstShots = 5,
 	AutoShots = 9,
-	Handling = 18,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	BulletDropRange = 10,
 	Grouping = 85,
 	BaseJamChance = -30,

@@ -57,17 +57,17 @@ DefineClass.USAS12 = {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Suppressor",
-				"Compensator",
+				"JAZZ_Suppressor",
+				"JAZZ_Compensator",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -80,7 +80,10 @@ DefineClass.USAS12 = {
 	ReloadAP = 6000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -20,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 8,
 	Grouping = 145,
 	WeaponResource = 2500,

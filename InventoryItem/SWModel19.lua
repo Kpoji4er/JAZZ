@@ -32,27 +32,27 @@ DefineClass.SWModel19 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",
 			'AvailableComponents', {
-				"Freeswap",
+				"JAZZ_Freeswap",
 			},
-			'DefaultComponent', "Freeswap",
+			'DefaultComponent', "JAZZ_Freeswap",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelLong",
-				"BarrelNormal",
-				"BarrelShort_Pistol",
+				"JAZZ_BarrelLong",
+				"JAZZ_BarrelNormal",
+				"JAZZ_BarrelShort_Pistol",
 			},
-			'DefaultComponent', "BarrelNormal",
+			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"LaserDot",
-				"FlashlightDot",
-				"UVDot",
+				"JAZZ_Flashlight",
+				"JAZZ_LaserDot",
+				"JAZZ_FlashlightDot",
+				"JAZZ_UVDot",
 			},
 		}),
 	},
@@ -69,6 +69,10 @@ DefineClass.SWModel19 = {
 	Recoil = 1,
 	AutoShots = 3,
 	BulletDropRange = 6,
+
+	CloseRange = 0,
+
+	CloseRangeFactor = 100,
 	Grouping = 36,
 	BaseJamChance = -100,
 }

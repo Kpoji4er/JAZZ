@@ -35,25 +35,25 @@ DefineClass.MAC10 = {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"PistolSuppressor",
-				"Compensator",
+				"JAZZ_PistolSuppressor",
+				"JAZZ_Compensator",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLightUnFolded",
-				"StockLightFolded",
+				"JAZZ_StockLightUnFolded",
+				"JAZZ_StockLightFolded",
 			},
-			'DefaultComponent', "StockLightFolded",
+			'DefaultComponent', "JAZZ_StockLightFolded",
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -70,7 +70,10 @@ DefineClass.MAC10 = {
 	MaxAimActions = 2,
 	Recoil = 9,
 	BurstShots = 5,
-	Handling = 9,
+
+	CloseRange = 0,
+
+	CloseRangeFactor = 100,
 	BulletDropRange = 6,
 	Grouping = 72,
 	BaseJamChance = -20,

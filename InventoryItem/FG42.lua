@@ -37,17 +37,17 @@ DefineClass.FG42 = {
 			'SlotType', "Bipod",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
-			'DefaultComponent', "Bipod",
+			'DefaultComponent', "JAZZ_Bipod",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
 			'AvailableComponents', {
 				"JAZZ_Scope_ZF4",
-				"Jazz_IronSight",
+				"JAZZ_IronSight",
 			},
-			'DefaultComponent', "Jazz_IronSight",
+			'DefaultComponent', "JAZZ_IronSight",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -62,7 +62,10 @@ DefineClass.FG42 = {
 	ReloadAP = 7000,
 	Recoil = 30,
 	AutoShots = 7,
-	Handling = -10,
+
+	CloseRange = 8,
+
+	CloseRangeFactor = 80,
 	BulletDropRange = 15,
 	Grouping = 42,
 	WeaponResource = 6500,

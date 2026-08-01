@@ -36,50 +36,50 @@ DefineClass.U100 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'AvailableComponents', {
-				"FoldBipod",
-				"UnfoldBipod",
+				"JAZZ_FoldBipod",
+				"JAZZ_UnfoldBipod",
 			},
-			'DefaultComponent', "FoldBipod",
+			'DefaultComponent', "JAZZ_FoldBipod",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"BarrelsDefs",
+				"JAZZ_BarrelsDefs",
 			},
-			'DefaultComponent', "BarrelsDefs",
+			'DefaultComponent', "JAZZ_BarrelsDefs",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagDrum_30-100",
+				"JAZZ_MagNormal",
+				"JAZZ_MagDrum_30-100",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Mountfront",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"U100Handle",
+				"JAZZ_U100Handle",
 			},
-			'DefaultComponent', "U100Handle",
+			'DefaultComponent', "JAZZ_U100Handle",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"DefMuzzle",
+				"JAZZ_DefMuzzle",
 			},
-			'DefaultComponent', "DefMuzzle",
+			'DefaultComponent', "JAZZ_DefMuzzle",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"StockNormal",
+				"JAZZ_StockNormal",
 			},
-			'DefaultComponent', "StockNormal",
+			'DefaultComponent', "JAZZ_StockNormal",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -95,7 +95,10 @@ DefineClass.U100 = {
 	Recoil = 9,
 	BurstShots = 4,
 	AutoShots = 6,
-	Handling = -20,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 14,
 	Grouping = 42,
 	WeaponResource = 5500,

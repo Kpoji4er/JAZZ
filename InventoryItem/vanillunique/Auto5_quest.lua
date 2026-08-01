@@ -68,7 +68,6 @@ DefineClass.Auto5_quest = {
 	MaxAimActions = 2,
 	BurstShots = 3,
 	AutoShots = 1,
-	Handling = -10,
 	BulletDropRange = 6,
 	Grouping = 90,
 	WeaponResource = 2500,

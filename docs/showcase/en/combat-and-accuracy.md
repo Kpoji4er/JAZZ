@@ -17,16 +17,18 @@ Each aim click gradually unlocks **Marksmanship**. An extra click never makes th
 
 The weapon sets how many aim clicks you get, how much each click is worth, where range falloff begins, how accuracy holds past the effective zone, and how bursts lose accuracy to recoil.
 
-The legacy `Handling` field is not used in hit chance.
+The legacy `Handling` stat has been removed and is not used in hit chance.
 
 ## Range and optics
 
 - **BDR** — end of the base effective zone.
 - **Range** — hard limit of a normal shot.
 
-Inside BDR there is no range penalty. Past it, chance falls smoothly; near the hard limit a still-possible shot keeps a minimum chance.
+Inside BDR there is no range penalty. Past it, chance falls gently at first and then faster, but a still-possible shot near the hard limit retains about a quarter of its range profile instead of dropping to zero.
 
-Optics do not make the bullet travel farther. They push the effective aiming zone farther as you aim. Strong scopes help at medium and long range and can hurt up close.
+Weapons also have a close-range profile: pistols and compact guns are comfortable at point-blank range, while long rifles and long barrels can be weaker across the nearest few tiles. A short barrel shifts that comfort closer; a long barrel shifts it farther away.
+
+Optics do not make the bullet travel farther. They push the effective aiming zone farther **as you spend aim clicks** (enough aim for that magnification). Strong scopes help at medium and long range and **hurt up close just by being mounted** — the optic near penalty applies even on snap shots and stacks with the weapon’s close-range profile.
 
 ## Cover and multipliers
 

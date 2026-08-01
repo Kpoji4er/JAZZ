@@ -32,50 +32,50 @@ DefineClass.P210 = {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"ImprovisedSuppressor",
-				"PistolSuppressor",
+				"JAZZ_ImprovisedSuppressor",
+				"JAZZ_PistolSuppressor",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelLong",
-				"BarrelNormal",
+				"JAZZ_BarrelLong",
+				"JAZZ_BarrelNormal",
 			},
-			'DefaultComponent', "BarrelNormal",
+			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Handgrip",
 			'AvailableComponents', {
-				"Handgrip_Default",
-				"Handgrip_Ergo",
+				"JAZZ_Handgrip_Default",
+				"JAZZ_Handgrip_Ergo",
 			},
-			'DefaultComponent', "Handgrip_Default",
+			'DefaultComponent', "JAZZ_Handgrip_Default",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
 			'AvailableComponents', {
-				"Jazz_IronSight",
-				"Jazz_IronSight_AIM",
+				"JAZZ_IronSight",
+				"JAZZ_IronSight_AIM",
 			},
-			'DefaultComponent', "Jazz_IronSight",
+			'DefaultComponent', "JAZZ_IronSight",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"LaserDot",
-				"FlashlightDot",
-				"UVDot",
+				"JAZZ_Flashlight",
+				"JAZZ_LaserDot",
+				"JAZZ_FlashlightDot",
+				"JAZZ_UVDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",
 			'AvailableComponents', {
-				"Freeswap",
+				"JAZZ_Freeswap",
 			},
-			'DefaultComponent', "Freeswap",
+			'DefaultComponent', "JAZZ_Freeswap",
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -91,6 +91,10 @@ DefineClass.P210 = {
 	Recoil = 1,
 	AutoShots = 3,
 	BulletDropRange = 6,
+
+	CloseRange = 0,
+
+	CloseRangeFactor = 100,
 	Grouping = 62,
 	BaseJamChance = -50,
 	WeaponResource = 1200,

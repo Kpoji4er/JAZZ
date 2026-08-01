@@ -37,15 +37,15 @@ JAZZ превращает оружие из набора vanilla-статов в
 Публичные weapon properties:
 
 - `Recoil`, `MaxAimActions`;
-- `BurstShots`, `AutoShots`, `OverwatchAngle`, `Handling`;
+- `BurstShots`, `AutoShots`, `OverwatchAngle`, `CloseRange`, `CloseRangeFactor`;
 - `WeaponRange`, `BulletDropRange`, `Grouping`;
 - `BaseJamChance`, `PenetrationBonus`;
 - `WeaponResource`, `WeaponResourceMax`, `DegradePerShot`;
 - `WeaponName`, `WeaponIconMod`, reticle images и `UnitSubStat`.
 
-В актуальном документальном контракте используются 13 weapon property definitions: `AimAccuracy`, `AutoShots`, `BaseDamage`, `BulletDropRange`, `BurstShots`, `Damage`, `Grouping`, `Handling`, `MaxAimActions`, `Noise`, `OverwatchAngle`, `Recoil`, `WeaponRange`.
+В актуальном документальном контракте используются 12 weapon property definitions: `AimAccuracy`, `AutoShots`, `BaseDamage`, `BulletDropRange`, `BurstShots`, `Damage`, `Grouping`, `MaxAimActions`, `Noise`, `OverwatchAngle`, `Recoil`, `WeaponRange` (плюс JAZZ-only `CloseRange` / `CloseRangeFactor` на FirearmProperties).
 
-В [модели стрельбы](../weapons/accuracy-model.md) `Handling` является скрытым сериализованным legacy-полем и не участвует в CTH. `Recoil` задаёт тяжесть множительного удержания точности последующих пуль. Оптика переносит эффективную прицельную зону через aim progress, не увеличивает физическую дальность и больше не получает старые плоские CTH-effects.
+В [модели стрельбы](../weapons/accuracy-model.md) `Handling` **удалён**. `Recoil` задаёт тяжесть множительного удержания точности последующих пуль. Оптика переносит эффективную прицельную зону через aim progress, не увеличивает физическую дальность и больше не получает старые плоские CTH-effects.
 
 Вырезанные, но всё ещё загруженные классы (`MP5`/`AR15`/`M4Commando`, vanilla `_*` ammo с `Ammopics/TEST.png`) перечислены в [вырезанном контенте](../weapons/cut-content.md). Их нельзя использовать в луте/магазине; живые калибры — только `JAZZ_Caliber_*` / `JAZZ_AMMO_*`.
 
@@ -57,9 +57,11 @@ JAZZ превращает оружие из набора vanilla-статов в
 
 Канонические связи компонентов и эффектов находятся в `docs/technical/weapons/data/weapon-components.csv` и `weapon-component-effects.csv`. Runtime сначала использует resolved свойства оружия, поэтому component modifier `Recoil` не умножается второй раз при построении recoil profile.
 
-64 effects покрывают:
+Текущий working-tree snapshot содержит 50 mod-owned `WeaponComponentEffect` и 190 component records (включая 13 `vanilla_ref` stubs, нужных для join каталога). Живые JAZZ components и effects выгружаются из `items.lua`, а их option wiring — из `InventoryItem/*.lua`.
 
-- barrel/range/grouping/handling/recoil и base damage;
+Эффекты покрывают:
+
+- barrel/range/grouping/recoil, базовый урон и `CloseRange*`;
 - bipod setup и позиционную эффективность;
 - BMG/caliber и penetration;
 - burst/automatic/run-and-gun варианты;
@@ -69,6 +71,8 @@ JAZZ превращает оружие из набора vanilla-статов в
 - folding stock и two-handed состояние.
 
 `Systems_Compontents_FoldingStocks.lua` добавляет `zzFoldingPair`; runtime использует `zzStockEquipped` и actions `FoldStock`/`UnFoldStock`. Эти имена являются межфайловым контрактом generated components, UI и визуального состояния entity.
+
+После JAZZ-ATTACH-001 live components больше не используют `*Handling*` или `Cumbersome` effect presets; Firearm property `Handling` удалён вместе с UI/GameTerm/CTH-modifier presets. Все модифицируемые live component IDs, созданные JAZZ, используют канонический префикс `JAZZ_`; сохранённые `vanilla_ref` stubs отражают ссылки companion-файлов без JAZZ definition и не получают выдуманных effects. Четыре pure-ergo components (`JAZZ_TacGrip`, `JAZZ_Handgrip_Ergo`, `JAZZ_SigErgoHandGrip`, `JAZZ_HandlingWrap`) теперь дают `RecoilDecrease`.
 
 ## Inventory icons (JAZZ-UI-001)
 
@@ -109,7 +113,7 @@ JamScore = clamp(base × degrade_multiplier [× rain], 0, 1000)
 
 Mechanical снижает score **пропорционально** (`MulDivRound(score, Mechanical, 120)` у мерков + малый secondary Marks/Wisdom/Level; у AI знаменатель 150). Одиночный выстрел делит score пополам через `DivRound`. `FirearmBase:GetDisplayJamChancePercent(attacker?)` отдаёт приведённый %.
 
-`Handling` («Эргономика») остаётся сериализованным legacy-полем для сейвов/generated data, но CTH-модификатор инертный, а угол overwatch берётся только из `OverwatchAngle` (`JAZZ-WEAPONS-001`).
+`Handling` («Эргономика») удалён из Firearm / WeaponPropertyDef; CTH-модификатор отсутствует, угол overwatch берётся только из `OverwatchAngle` (`JAZZ-WEAPONS-001` / `JAZZ-ATTACH-001`).
 
 Jam/unjam способен необратимо снизить максимальный ресурс или окончательно сломать оружие. Refactor обязан сохранять шкалу 0..1000, порядок проверок, RNG и побочные изменения экземпляра.
 

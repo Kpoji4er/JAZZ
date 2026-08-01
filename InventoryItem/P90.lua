@@ -40,26 +40,26 @@ DefineClass.P90 = {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
-				"FlashlightDot",
-				"LaserDot",
-				"UVDot",
+				"JAZZ_Flashlight",
+				"JAZZ_FlashlightDot",
+				"JAZZ_LaserDot",
+				"JAZZ_UVDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"PistolSuppressor",
-				"ImprovisedSuppressor",
+				"JAZZ_PistolSuppressor",
+				"JAZZ_ImprovisedSuppressor",
 			},
 		}),
 	},
@@ -76,7 +76,10 @@ DefineClass.P90 = {
 	Recoil = 7,
 	BurstShots = 5,
 	AutoShots = 12,
-	Handling = 5,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	BulletDropRange = 14,
 	Grouping = 50,
 	BaseJamChance = -30,

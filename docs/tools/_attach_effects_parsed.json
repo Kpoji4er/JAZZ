@@ -1,0 +1,3265 @@
+{
+  "effect_usage": [
+    [
+      "ReduceReliability",
+      27
+    ],
+    [
+      "ScopeMagnification",
+      24
+    ],
+    [
+      "IncreaseShotAP",
+      23
+    ],
+    [
+      "IncreaseReloadAP",
+      16
+    ],
+    [
+      "MagazineSizeMultiplier",
+      14
+    ],
+    [
+      "CritBonusWhenFullyAimed",
+      14
+    ],
+    [
+      "RecoilDecrease",
+      14
+    ],
+    [
+      "ExtraOverwatchShots",
+      13
+    ],
+    [
+      "MinAim",
+      13
+    ],
+    [
+      "ScopeOverwatchAngleDecreaseBig",
+      13
+    ],
+    [
+      "CloseRangeDecrease",
+      10
+    ],
+    [
+      "CloseRangeFactorIncrease",
+      10
+    ],
+    [
+      "ReduceAimAccuracy15Percent",
+      10
+    ],
+    [
+      "DecreaseMaxAimActions",
+      10
+    ],
+    [
+      "StealthKillBonusPerAim",
+      10
+    ],
+    [
+      "OpportunityAttackBonusCth",
+      8
+    ],
+    [
+      "AccuracyBonusProne",
+      8
+    ],
+    [
+      "MagazineSizeAdd",
+      8
+    ],
+    [
+      "IncreaseReliability",
+      8
+    ],
+    [
+      "ScopeOverwatchAngleDecrease",
+      7
+    ],
+    [
+      "BarrelBulletDropReduce",
+      7
+    ],
+    [
+      "BarrelRangeReduce",
+      7
+    ],
+    [
+      "BarrelBulletDropIncrease",
+      6
+    ],
+    [
+      "BarrelGroupingIncrease",
+      6
+    ],
+    [
+      "IgnoreInTheDark",
+      6
+    ],
+    [
+      "IncreaseOverwatchAngle",
+      6
+    ],
+    [
+      "ShotsBeforeRecoilProne",
+      6
+    ],
+    [
+      "GrenadeLauncher",
+      6
+    ],
+    [
+      "ReduceShootAP",
+      6
+    ],
+    [
+      "BarrelGroupingReduce",
+      6
+    ],
+    [
+      "BarrelAccuracyIncrease",
+      5
+    ],
+    [
+      "BarrelRangeIncrease",
+      5
+    ],
+    [
+      "ScopeOverwatchAngleIncreace",
+      5
+    ],
+    [
+      "MarkWhenFullyAimed",
+      5
+    ],
+    [
+      "ReduceReloadAP",
+      5
+    ],
+    [
+      "BarrelRecoilRecude",
+      5
+    ],
+    [
+      "CloseRangeFactorDecrease",
+      5
+    ],
+    [
+      "CloseRangeIncrease",
+      5
+    ],
+    [
+      "BarrelRecoilIncrease",
+      5
+    ],
+    [
+      "ReduceMagazineSize",
+      5
+    ],
+    [
+      "ScopeOverwatchAngleIncreaceBig",
+      4
+    ],
+    [
+      "SilentShots",
+      4
+    ],
+    [
+      "IgnoreInTheDarkWhenFullyAimed",
+      3
+    ],
+    [
+      "SmallMagnification",
+      3
+    ],
+    [
+      "IncreaseCritChangeScaled",
+      3
+    ],
+    [
+      "LaserMark",
+      3
+    ],
+    [
+      "AccuracyBonusSameTarget",
+      3
+    ],
+    [
+      "RecoilIncrease",
+      3
+    ],
+    [
+      "zzStockEquipped",
+      3
+    ],
+    [
+      "FreeWeaponSwap",
+      3
+    ],
+    [
+      "IncreaseBuckshotAngle",
+      3
+    ],
+    [
+      "IncreaseRange",
+      3
+    ],
+    [
+      "ReduceRange",
+      3
+    ],
+    [
+      "IncreaseMaxAimActions",
+      2
+    ],
+    [
+      "SilencerJamChance",
+      2
+    ],
+    [
+      "SilencerGroupingReduce10",
+      2
+    ],
+    [
+      "ReduceAimAccuracy90Percent",
+      2
+    ],
+    [
+      "IncreaseAimAccuracy15Percent",
+      2
+    ],
+    [
+      "ReduceReliabilityPercent",
+      2
+    ],
+    [
+      "HalfRangeDmgIncrease",
+      2
+    ],
+    [
+      "MinorAccuracyBonus",
+      2
+    ],
+    [
+      "IncreaseAimAccuracy",
+      2
+    ],
+    [
+      "SilencerGroupingReduce30",
+      1
+    ],
+    [
+      "SilencerGroupingReduce50",
+      1
+    ],
+    [
+      "DecreaseBuckshotAngle",
+      1
+    ],
+    [
+      "ChangeCaliberToBMG",
+      1
+    ],
+    [
+      "IncreaseDamage",
+      1
+    ],
+    [
+      "IncreasedSingleShotAccuracy",
+      1
+    ],
+    [
+      "ReduceAimAccuracy",
+      1
+    ],
+    [
+      "EnableRunNGun",
+      1
+    ],
+    [
+      "EnableBurst",
+      1
+    ],
+    [
+      "EnableFullAuto",
+      1
+    ],
+    [
+      "NightsIronsBonus",
+      1
+    ]
+  ],
+  "components": [
+    {
+      "id": "JAZZ_BarrelLongShotgun",
+      "name": "Extended Barrel",
+      "n": 2,
+      "ndef": 0,
+      "effects": [
+        "BarrelAccuracyIncrease",
+        "BarrelBulletDropIncrease",
+        "BarrelGroupingIncrease",
+        "BarrelRangeIncrease",
+        "CloseRangeDecrease",
+        "CloseRangeFactorIncrease"
+      ],
+      "params": {
+        "CloseRangeDecrease": "1",
+        "CloseRangeFactorIncrease": "10",
+        "RangeIncrease": "4"
+      },
+      "human": "дальше WeaponRange (+4); сужает ближнюю неэффективную зону (−1 тайла); смягчает штраф в упор (+10%); дальше комфорт дистанции (BulletDrop); лучше профиль ствола; лучше кучность (Grouping)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_BarrelNormal",
+      "name": "Default Barrel",
+      "n": 39,
+      "ndef": 38,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_MagLarge",
+      "name": "Расширенный магазин",
+      "n": 13,
+      "ndef": 0,
+      "effects": [
+        "IncreaseReloadAP",
+        "MagazineSizeMultiplier",
+        "ReduceAimAccuracy15Percent",
+        "ReduceReliability"
+      ],
+      "params": {
+        "MagazineSizeMultiplier": "166",
+        "ReliabilityDecrease": "15",
+        "ReloadAPIncrease": "1"
+      },
+      "human": "ёмкость ×1.66; перезарядка дороже на 1 AP; хуже надёжность (−15) / чаще клин; чуть хуже AimAccuracy (−15%)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagNormal",
+      "name": "Заводской магазин",
+      "n": 103,
+      "ndef": 92,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_CombatScope_2x",
+      "name": "Штурмовой прицел (2x)",
+      "n": 56,
+      "ndef": 0,
+      "effects": [
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecrease"
+      ],
+      "params": {
+        "ScopeAimLevel": "1",
+        "ScopeMagnification": "2",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~2×), оптика «включается» с 1-го клика aim; каждый выстрел дороже на 1 AP; уже сектор ожидания",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_CombatScope_ACOG",
+      "name": "Штурмовой прицел ACOG (4x)",
+      "n": 47,
+      "ndef": 0,
+      "effects": [
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecrease"
+      ],
+      "params": {
+        "ScopeAimLevel": "2",
+        "ScopeMagnification": "4",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~4×), оптика «включается» с 2-го клика aim; каждый выстрел дороже на 1 AP; уже сектор ожидания",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_NightScope",
+      "name": "Ночной прицел (5х)",
+      "n": 47,
+      "ndef": 0,
+      "effects": [
+        "IgnoreInTheDarkWhenFullyAimed",
+        "IncreaseShotAP",
+        "ScopeMagnification"
+      ],
+      "params": {
+        "ScopeAimLevel": "3",
+        "ScopeMagnification": "5",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~5×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; в темноте нормально бьёшь только на полном aim",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Reflex_Aimpoint5000",
+      "name": "Коллиматор Aimpoint5000",
+      "n": 47,
+      "ndef": 1,
+      "effects": [
+        "DecreaseMaxAimActions",
+        "ExtraOverwatchShots",
+        "MinAim",
+        "OpportunityAttackBonusCth",
+        "ScopeOverwatchAngleIncreace"
+      ],
+      "params": {
+        "MaxAimActionsDecrease": "1",
+        "OverwatchAngleIncrease": "120",
+        "extra_attacks": "1"
+      },
+      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; шире сектор ожидания (+120); лучше попадание в реакциях / перехвате",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Reflex_Closed",
+      "name": "Коллиматор Закрытый",
+      "n": 52,
+      "ndef": 0,
+      "effects": [
+        "DecreaseMaxAimActions",
+        "ExtraOverwatchShots",
+        "MinAim",
+        "OpportunityAttackBonusCth",
+        "ScopeOverwatchAngleIncreace"
+      ],
+      "params": {
+        "MaxAimActionsDecrease": "1",
+        "OverwatchAngleIncrease": "120",
+        "extra_attacks": "1"
+      },
+      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; шире сектор ожидания (+120); лучше попадание в реакциях / перехвате",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Reflex_Eotech",
+      "name": "Коллиматор Eotech",
+      "n": 51,
+      "ndef": 0,
+      "effects": [
+        "DecreaseMaxAimActions",
+        "ExtraOverwatchShots",
+        "MinAim",
+        "OpportunityAttackBonusCth",
+        "ScopeOverwatchAngleIncreaceBig"
+      ],
+      "params": {
+        "MaxAimActionsDecrease": "1",
+        "OverwatchAngleIncrease": "120",
+        "extra_attacks": "1"
+      },
+      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; сильно шире сектор ожидания (+120); лучше попадание в реакциях / перехвате",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Reflex_M68",
+      "name": "Коллиматор Aimpoint M68",
+      "n": 51,
+      "ndef": 0,
+      "effects": [
+        "DecreaseMaxAimActions",
+        "ExtraOverwatchShots",
+        "MinAim",
+        "OpportunityAttackBonusCth",
+        "ScopeOverwatchAngleIncreace"
+      ],
+      "params": {
+        "MaxAimActionsDecrease": "1",
+        "OverwatchAngleIncrease": "120",
+        "extra_attacks": "1"
+      },
+      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; шире сектор ожидания (+120); лучше попадание в реакциях / перехвате",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Scope_12x",
+      "name": "Оптический Прицел Leupold Mark 4 (12x)",
+      "n": 48,
+      "ndef": 0,
+      "effects": [
+        "CritBonusWhenFullyAimed",
+        "IncreaseMaxAimActions",
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecreaseBig"
+      ],
+      "params": {
+        "IncreaseMaxAimActions": "1",
+        "ScopeAimLevel": "4",
+        "ScopeMagnification": "10",
+        "ShotAP": "1"
+      },
+      "human": "на 1 больше кликов aim до потолка; сдвигает комфортную дистанцию (~10×), оптика «включается» с 4-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Scope_6x",
+      "name": "Оптический Прицел 1-6x",
+      "n": 48,
+      "ndef": 4,
+      "effects": [
+        "CritBonusWhenFullyAimed",
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecreaseBig"
+      ],
+      "params": {
+        "ScopeAimLevel": "3",
+        "ScopeMagnification": "6",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~6×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Scope_Scout",
+      "name": "Оптический Прицел Vortex Crossfire II Scout Scope (2-7x)",
+      "n": 48,
+      "ndef": 2,
+      "effects": [
+        "CritBonusWhenFullyAimed",
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecreaseBig",
+        "SmallMagnification"
+      ],
+      "params": {
+        "ScopeAimLevel": "3",
+        "ScopeMagnification": "7",
+        "ShotAP": "1",
+        "SmallAimLevel": "1",
+        "SmallMagnification": "2"
+      },
+      "human": "сдвигает комфортную дистанцию (~7×), оптика «включается» с 3-го клика aim; есть вторая (меньшая) кратность / переключатель профиля; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_FlashlightDot_aa12",
+      "name": "Tactical Device",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "IgnoreInTheDark",
+        "IncreaseOverwatchAngle",
+        "StealthKillBonusPerAim"
+      ],
+      "params": {
+        "EffectiveRange": "1",
+        "OverwatchAngleIncrease": "140",
+        "aim_bonus": "1",
+        "maxaims": "1",
+        "stealth_kill_bonus": "2"
+      },
+      "human": "шире сектор ожидания (+140); не штрафует темнота; бонус скрытного убийства за клики aim",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Flashlight_aa12",
+      "name": "Flashlight",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "IgnoreInTheDark"
+      ],
+      "params": {},
+      "human": "не штрафует темнота",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_LaserDot_aa12",
+      "name": "Red Dot",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "IncreaseCritChangeScaled",
+        "IncreaseOverwatchAngle",
+        "LaserMark",
+        "MarkWhenFullyAimed"
+      ],
+      "params": {
+        "CritChangeScaledIncrease": "15",
+        "EffectiveRange": "2",
+        "LaserCTH": "15",
+        "LaserDistance": "10",
+        "OverwatchAngleIncrease": "140"
+      },
+      "human": "шире сектор ожидания (+140); на полном aim помечает цель; лазер: плоский CTH накоротке (legacy) (+15 до 10 тайлов); выше шанс крита (scaled)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_UVDot_aa12",
+      "name": "UV Dot",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "MinAim"
+      ],
+      "params": {},
+      "human": "нужен минимум aim",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Compensator",
+      "name": "Compensator",
+      "n": 36,
+      "ndef": 5,
+      "effects": [
+        "AccuracyBonusSameTarget",
+        "RecoilDecrease"
+      ],
+      "params": {
+        "Recoil": "3"
+      },
+      "human": "легче держать очередь (Recoil −3); повтор по той же цели чуть проще",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Suppressor",
+      "name": "Suppressor",
+      "n": 27,
+      "ndef": 0,
+      "effects": [
+        "RecoilDecrease",
+        "ReduceReliability",
+        "SilencerGroupingReduce30",
+        "SilencerJamChance",
+        "SilentShots",
+        "StealthKillBonusPerAim"
+      ],
+      "params": {
+        "NoiseMultiplier": "33",
+        "RangeDecrease": "8",
+        "Recoil": "1",
+        "ReliabilityDecrease": "10",
+        "crit": "25",
+        "stealth_kill_bonus": "50"
+      },
+      "human": "легче держать очередь (Recoil −1); хуже надёжность (−10) / чаще клин; тихие выстрелы (меньше шум/детекция); бонус скрытного убийства за клики aim; глушитель заметно портит кучность; выше шанс клина от глушителя",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Bipod",
+      "name": "Bipod",
+      "n": 33,
+      "ndef": 18,
+      "effects": [
+        "AccuracyBonusProne",
+        "ShotsBeforeRecoilProne"
+      ],
+      "params": {
+        "bonus_cth_bipod": "10"
+      },
+      "human": "лёжа лучше (+10 CTH legacy); лёжа больше пуль до сильной отдачи",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_PistolSuppressor",
+      "name": "Глушитель",
+      "n": 24,
+      "ndef": 0,
+      "effects": [
+        "RecoilDecrease",
+        "ReduceReliability",
+        "SilencerGroupingReduce10",
+        "SilentShots",
+        "StealthKillBonusPerAim"
+      ],
+      "params": {
+        "NoiseMultiplier": "15",
+        "RangeDecrease": "3",
+        "Recoil": "1",
+        "ReliabilityDecrease": "5",
+        "crit": "25",
+        "stealth_kill_bonus": "80"
+      },
+      "human": "легче держать очередь (Recoil −1); хуже надёжность (−5) / чаще клин; тихие выстрелы (меньше шум/детекция); бонус скрытного убийства за клики aim; глушитель чуть портит кучность",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_GP25",
+      "name": "ГП-25",
+      "n": 3,
+      "ndef": 0,
+      "effects": [
+        "GrenadeLauncher"
+      ],
+      "params": {},
+      "human": "открывает подствольный гранатомёт",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagQuick",
+      "name": "Quick Mag",
+      "n": 5,
+      "ndef": 0,
+      "effects": [
+        "ReduceReloadAP"
+      ],
+      "params": {
+        "ReloadAPDecrease": "1"
+      },
+      "human": "перезарядка быстрее (−1 AP)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_StockLightFolded",
+      "name": "Складной приклад (Сложенный)",
+      "n": 25,
+      "ndef": 2,
+      "effects": [
+        "DecreaseMaxAimActions",
+        "ExtraOverwatchShots",
+        "RecoilIncrease",
+        "ReduceAimAccuracy90Percent",
+        "ReduceShootAP",
+        "zzStockEquipped"
+      ],
+      "params": {
+        "MaxAimActionsDecrease": "1",
+        "Recoil": "5",
+        "ShootAPDecrease": "1"
+      },
+      "human": "на 1 меньше кликов aim до потолка; выстрел дешевле на 1 AP; +1 выстрел в overwatch; очередь размазывает сильнее (Recoil +5); почти ломает AimAccuracy; флаг складного приклада",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_StockLightUnFolded",
+      "name": "Рамочный приклад (Разложенный)",
+      "n": 31,
+      "ndef": 22,
+      "effects": [
+        "zzStockEquipped"
+      ],
+      "params": {},
+      "human": "флаг складного приклада",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_StockNormal",
+      "name": "Default Stock",
+      "n": 25,
+      "ndef": 23,
+      "effects": [
+        "IncreaseAimAccuracy15Percent",
+        "RecoilDecrease"
+      ],
+      "params": {
+        "Recoil": "1"
+      },
+      "human": "легче держать очередь (Recoil −1); лучше AimAccuracy",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Handguard",
+      "name": "Цевьё",
+      "n": 4,
+      "ndef": 4,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_MagLarge_30_45",
+      "name": "Магазин на 45 патрон",
+      "n": 4,
+      "ndef": 1,
+      "effects": [
+        "IncreaseReloadAP",
+        "MagazineSizeAdd",
+        "ReduceReliability"
+      ],
+      "params": {
+        "MagazineSize": "15",
+        "ReliabilityDecrease": "5",
+        "ReloadAPIncrease": "1",
+        "extra_shots": "5"
+      },
+      "human": "+15 патронов в магазине; перезарядка дороже на 1 AP; хуже надёжность (−5) / чаще клин",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_CombatScope_1P29",
+      "name": "JAZZ_CombatScope_1P29",
+      "n": 8,
+      "ndef": 0,
+      "effects": [
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecrease"
+      ],
+      "params": {
+        "ScopeAimLevel": "2",
+        "ScopeMagnification": "4",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~4×), оптика «включается» с 2-го клика aim; каждый выстрел дороже на 1 AP; уже сектор ожидания",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_NightScope_NSPU",
+      "name": "Ночной прицел НСПУ (3.5х)",
+      "n": 8,
+      "ndef": 0,
+      "effects": [
+        "IgnoreInTheDarkWhenFullyAimed",
+        "IncreaseShotAP",
+        "ScopeMagnification"
+      ],
+      "params": {
+        "ScopeAimLevel": "3",
+        "ScopeMagnification": "3",
+        "ScopeSubMagnification": "5",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~3.5×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; в темноте нормально бьёшь только на полном aim",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Reflex_Cobra",
+      "name": "Коллиматор Кобра",
+      "n": 8,
+      "ndef": 0,
+      "effects": [
+        "DecreaseMaxAimActions",
+        "ExtraOverwatchShots",
+        "MinAim",
+        "ScopeOverwatchAngleIncreaceBig"
+      ],
+      "params": {
+        "MaxAimActionsDecrease": "1",
+        "OverwatchAngleIncrease": "120",
+        "extra_attacks": "1"
+      },
+      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; сильно шире сектор ожидания (+120)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Reflex_PKAS",
+      "name": "Коллиматор ПК-АА",
+      "n": 8,
+      "ndef": 0,
+      "effects": [
+        "DecreaseMaxAimActions",
+        "ExtraOverwatchShots",
+        "MinAim",
+        "OpportunityAttackBonusCth",
+        "ScopeOverwatchAngleIncreace"
+      ],
+      "params": {
+        "MaxAimActionsDecrease": "1",
+        "OverwatchAngleIncrease": "120",
+        "extra_attacks": "1"
+      },
+      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; шире сектор ожидания (+120); лучше попадание в реакциях / перехвате",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Scope_PSO",
+      "name": "Оптический Прицел ПСО (4x)",
+      "n": 8,
+      "ndef": 2,
+      "effects": [
+        "CritBonusWhenFullyAimed",
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecreaseBig"
+      ],
+      "params": {
+        "ScopeAimLevel": "3",
+        "ScopeMagnification": "4",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~4×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagDrum_30-75",
+      "name": "Бубен",
+      "n": 3,
+      "ndef": 0,
+      "effects": [
+        "ExtraOverwatchShots",
+        "IncreaseReloadAP",
+        "MagazineSizeMultiplier",
+        "ReduceAimAccuracy15Percent",
+        "ReduceReliability"
+      ],
+      "params": {
+        "MagazineSizeMultiplier": "250",
+        "ReliabilityDecrease": "15",
+        "ReloadAPIncrease": "2",
+        "extra_shots": "5"
+      },
+      "human": "+1 выстрел в overwatch; ёмкость ×2.5; перезарядка дороже на 2 AP; хуже надёжность (−15) / чаще клин; чуть хуже AimAccuracy (−15%)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagLarge_30_40",
+      "name": "Магазин на 40 патрон",
+      "n": 4,
+      "ndef": 1,
+      "effects": [
+        "IncreaseReloadAP",
+        "MagazineSizeAdd",
+        "ReduceReliability"
+      ],
+      "params": {
+        "MagazineSize": "10",
+        "ReliabilityDecrease": "5",
+        "ReloadAPIncrease": "1",
+        "extra_shots": "5"
+      },
+      "human": "+10 патронов в магазине; перезарядка дороже на 1 AP; хуже надёжность (−5) / чаще клин",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Reflex_Open",
+      "name": "Коллиматор Компактный",
+      "n": 17,
+      "ndef": 0,
+      "effects": [
+        "DecreaseMaxAimActions",
+        "ExtraOverwatchShots",
+        "MinAim",
+        "OpportunityAttackBonusCth",
+        "ScopeOverwatchAngleIncreaceBig"
+      ],
+      "params": {
+        "MaxAimActionsDecrease": "1",
+        "OverwatchAngleIncrease": "120",
+        "extra_attacks": "1"
+      },
+      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; сильно шире сектор ожидания (+120); лучше попадание в реакциях / перехвате",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_SuppressorImproved",
+      "name": "Улучшенный глушитель",
+      "n": 24,
+      "ndef": 0,
+      "effects": [
+        "RecoilDecrease",
+        "ReduceReliability",
+        "SilencerGroupingReduce10",
+        "SilentShots",
+        "StealthKillBonusPerAim"
+      ],
+      "params": {
+        "NoiseMultiplier": "25",
+        "RangeDecrease": "5",
+        "Recoil": "2",
+        "ReliabilityDecrease": "5",
+        "crit": "25",
+        "stealth_kill_bonus": "20"
+      },
+      "human": "легче держать очередь (Recoil −2); хуже надёжность (−5) / чаще клин; тихие выстрелы (меньше шум/детекция); бонус скрытного убийства за клики aim; глушитель чуть портит кучность",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Flashlight",
+      "name": "Flashlight",
+      "n": 49,
+      "ndef": 1,
+      "effects": [
+        "IgnoreInTheDark"
+      ],
+      "params": {},
+      "human": "не штрафует темнота",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_FlashlightDot",
+      "name": "Tactical Device",
+      "n": 44,
+      "ndef": 0,
+      "effects": [
+        "IncreaseOverwatchAngle",
+        "MarkWhenFullyAimed",
+        "StealthKillBonusPerAim"
+      ],
+      "params": {
+        "OverwatchAngleIncrease": "140",
+        "aim_bonus": "1",
+        "maxaims": "1",
+        "stealth_kill_bonus": "2"
+      },
+      "human": "шире сектор ожидания (+140); на полном aim помечает цель; бонус скрытного убийства за клики aim",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_LaserDot",
+      "name": "Лазерный целеуказатель",
+      "n": 47,
+      "ndef": 1,
+      "effects": [
+        "IncreaseCritChangeScaled",
+        "IncreaseOverwatchAngle",
+        "LaserMark",
+        "MarkWhenFullyAimed"
+      ],
+      "params": {
+        "CritChangeScaledIncrease": "15",
+        "LaserCTH": "15",
+        "LaserDistance": "10",
+        "OverwatchAngleIncrease": "140"
+      },
+      "human": "шире сектор ожидания (+140); на полном aim помечает цель; лазер: плоский CTH накоротке (legacy) (+15 до 10 тайлов); выше шанс крита (scaled)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_AKSU_Hanguard_Basic",
+      "name": "Default Handguard",
+      "n": 1,
+      "ndef": 1,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_AKSU_VerticalGrip",
+      "name": "Vertical Grip",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "RecoilDecrease"
+      ],
+      "params": {
+        "Recoil": "1"
+      },
+      "human": "легче держать очередь (Recoil −1)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_UVDot",
+      "name": "UV Dot",
+      "n": 39,
+      "ndef": 0,
+      "effects": [
+        "MinAim"
+      ],
+      "params": {},
+      "human": "нужен минимум aim",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_ImprovisedSuppressor",
+      "name": "Масляной фильтр",
+      "n": 40,
+      "ndef": 0,
+      "effects": [
+        "ReduceAimAccuracy15Percent",
+        "ReduceReliabilityPercent",
+        "SilencerGroupingReduce50",
+        "SilencerJamChance",
+        "SilentShots",
+        "StealthKillBonusPerAim"
+      ],
+      "params": {
+        "NoiseMultiplier": "33",
+        "ReliabilityDecreasePercent": "50",
+        "crit": "25",
+        "stealth_kill_bonus": "100"
+      },
+      "human": "хуже надёжность / чаще клин; чуть хуже AimAccuracy (−15%); тихие выстрелы (меньше шум/детекция); бонус скрытного убийства за клики aim; глушитель сильно портит кучность; выше шанс клина от глушителя",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Freeswap",
+      "name": "Пистолет",
+      "n": 41,
+      "ndef": 41,
+      "effects": [
+        "FreeWeaponSwap"
+      ],
+      "params": {},
+      "human": "быстрая смена оружия без обычной цены",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_BarrelNormal_Sil",
+      "name": "Ствол под глушитель",
+      "n": 1,
+      "ndef": 0,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_BarrelNormal_noSil",
+      "name": "Стандартный ствол",
+      "n": 1,
+      "ndef": 1,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_CombatScope_3x",
+      "name": "Штурмовой прицел (3x)",
+      "n": 5,
+      "ndef": 0,
+      "effects": [
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecrease"
+      ],
+      "params": {
+        "ScopeAimLevel": "2",
+        "ScopeMagnification": "3",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~3×), оптика «включается» с 2-го клика aim; каждый выстрел дороже на 1 AP; уже сектор ожидания",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_DefaultIronsight_AR15",
+      "name": "Default Iron Sight",
+      "n": 6,
+      "ndef": 5,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_MagLarge_10_20",
+      "name": "Магазин на 20 патрон",
+      "n": 3,
+      "ndef": 1,
+      "effects": [
+        "IncreaseReloadAP",
+        "MagazineSizeMultiplier",
+        "ReduceReliability"
+      ],
+      "params": {
+        "MagazineSizeMultiplier": "200",
+        "ReliabilityDecrease": "5",
+        "ReloadAPIncrease": "1",
+        "extra_shots": "5"
+      },
+      "human": "ёмкость ×2; перезарядка дороже на 1 AP; хуже надёжность (−5) / чаще клин",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_SuppressorIntegrated",
+      "name": "Глушитель Интегрированный",
+      "n": 6,
+      "ndef": 6,
+      "effects": [
+        "StealthKillBonusPerAim"
+      ],
+      "params": {
+        "stealth_kill_bonus": "30"
+      },
+      "human": "бонус скрытного убийства за клики aim",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_BarrelLongImproved_AUG",
+      "name": "Extended Gain-Twist Barrel with Bipod",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "AccuracyBonusProne",
+        "BarrelAccuracyIncrease",
+        "BarrelBulletDropIncrease",
+        "BarrelGroupingIncrease",
+        "BarrelRangeIncrease",
+        "BarrelRecoilRecude",
+        "CloseRangeFactorDecrease",
+        "CloseRangeIncrease",
+        "IncreaseReliability"
+      ],
+      "params": {
+        "AimAccuracyIncrease": "2",
+        "CloseRangeFactorDecrease": "5",
+        "CloseRangeIncrease": "2",
+        "RangeIncrease": "6",
+        "ReliabilityIncrease": "10"
+      },
+      "human": "лёжа лучше (часто legacy flat); надёжнее (+10); дальше WeaponRange (+6); расширяет ближнюю неэффективную зону (+2 тайла); усиливает штраф в упор (−5%); дальше комфорт дистанции (BulletDrop); лучше профиль ствола (AimAccuracy +2); лучше кучность (Grouping); меньше отдача от ствола",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_BarrelLong_AUG",
+      "name": "Extended Barrel with Bipod",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "AccuracyBonusProne",
+        "BarrelAccuracyIncrease",
+        "BarrelBulletDropIncrease",
+        "BarrelGroupingIncrease",
+        "BarrelRangeIncrease",
+        "BarrelRecoilRecude",
+        "CloseRangeFactorDecrease",
+        "CloseRangeIncrease"
+      ],
+      "params": {
+        "AimAccuracyIncrease": "2",
+        "CloseRangeFactorDecrease": "5",
+        "CloseRangeIncrease": "2",
+        "RangeIncrease": "6"
+      },
+      "human": "лёжа лучше (часто legacy flat); дальше WeaponRange (+6); расширяет ближнюю неэффективную зону (+2 тайла); усиливает штраф в упор (−5%); дальше комфорт дистанции (BulletDrop); лучше профиль ствола (AimAccuracy +2); лучше кучность (Grouping); меньше отдача от ствола",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_BarrelShortImproved_AUG",
+      "name": "Short Gain-Twist Barrel",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "BarrelBulletDropReduce",
+        "BarrelGroupingReduce",
+        "BarrelRangeReduce",
+        "BarrelRecoilIncrease",
+        "CloseRangeDecrease",
+        "CloseRangeFactorIncrease"
+      ],
+      "params": {
+        "CloseRangeDecrease": "2",
+        "CloseRangeFactorIncrease": "5",
+        "RangeDecrease": "4",
+        "ShootAPDecrease": "1"
+      },
+      "human": "короче WeaponRange (−4); сужает ближнюю неэффективную зону (−2 тайла); смягчает штраф в упор (+5%); ближе «падает» траектория; чуть хуже кучность (Grouping); ствол усиливает отдачу",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_BarrelShort_AUG",
+      "name": "Short Barrel",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "BarrelBulletDropReduce",
+        "BarrelGroupingReduce",
+        "BarrelRangeReduce",
+        "BarrelRecoilIncrease",
+        "CloseRangeDecrease",
+        "CloseRangeFactorIncrease",
+        "ReduceReliability"
+      ],
+      "params": {
+        "CloseRangeDecrease": "2",
+        "CloseRangeFactorIncrease": "5",
+        "ReliabilityDecrease": "10",
+        "ShootAPDecrease": "1"
+      },
+      "human": "хуже надёжность (−10) / чаще клин; короче WeaponRange; сужает ближнюю неэффективную зону (−2 тайла); смягчает штраф в упор (+5%); ближе «падает» траектория; чуть хуже кучность (Grouping); ствол усиливает отдачу",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_AUGCompensator_01",
+      "name": "Default Compensator",
+      "n": 1,
+      "ndef": 1,
+      "effects": [
+        "AccuracyBonusSameTarget"
+      ],
+      "params": {},
+      "human": "повтор по той же цели чуть проще",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_AUGCompensator_03",
+      "name": "Advanced Compensator",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "AccuracyBonusSameTarget",
+        "IncreaseReliability"
+      ],
+      "params": {
+        "ReliabilityIncrease": "10"
+      },
+      "human": "повтор по той же цели чуть проще; надёжнее (+10)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_VerticalGrip",
+      "name": "Vertical Grip",
+      "n": 14,
+      "ndef": 3,
+      "effects": [
+        "RecoilDecrease"
+      ],
+      "params": {
+        "Recoil": "1"
+      },
+      "human": "легче держать очередь (Recoil −1)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_GrenadeLauncher_AUG",
+      "name": "Grenade Launcher",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "GrenadeLauncher"
+      ],
+      "params": {},
+      "human": "открывает подствольный гранатомёт",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagLarge_30_42",
+      "name": "Магазин на 42 патрона",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "IncreaseReloadAP",
+        "MagazineSizeAdd",
+        "ReduceReliability"
+      ],
+      "params": {
+        "MagazineSize": "12",
+        "ReliabilityDecrease": "5",
+        "ReloadAPIncrease": "1",
+        "extra_shots": "5"
+      },
+      "human": "+12 патронов в магазине; перезарядка дороже на 1 AP; хуже надёжность (−5) / чаще клин",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_AUGScope_Default",
+      "name": "Прицел AUG (1.5x)",
+      "n": 1,
+      "ndef": 1,
+      "effects": [
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecrease"
+      ],
+      "params": {
+        "IncreaseMaxAimActions": "1",
+        "ScopeAimLevel": "2",
+        "ScopeMagnification": "1",
+        "ScopeSubMagnification": "5",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~1.5×), оптика «включается» с 2-го клика aim; каждый выстрел дороже на 1 AP; уже сектор ожидания",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_DuckbillChoke",
+      "name": "Duckbill Choke",
+      "n": 3,
+      "ndef": 0,
+      "effects": [
+        "IncreaseBuckshotAngle"
+      ],
+      "params": {
+        "BuckshotAngleIncrease": "120"
+      },
+      "human": "шире конус дроби",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_FullChoke",
+      "name": "Full Choke",
+      "n": 3,
+      "ndef": 0,
+      "effects": [
+        "DecreaseBuckshotAngle",
+        "IncreaseRange"
+      ],
+      "params": {
+        "BuckshotAngleDecrease": "80",
+        "RangeIncrease": "4"
+      },
+      "human": "дальше WeaponRange (+4); уже конус дроби",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Auto5_Basic_LMag",
+      "name": "High Cap",
+      "n": 2,
+      "ndef": 1,
+      "effects": [
+        "MagazineSizeMultiplier"
+      ],
+      "params": {
+        "MagazineSizeMultiplier": "150"
+      },
+      "human": "ёмкость ×1.5",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Auto5_Basic_NMag",
+      "name": "Basic Configuration",
+      "n": 2,
+      "ndef": 1,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_Auto5_Long_LMag",
+      "name": "Long Barrel High Cap",
+      "n": 2,
+      "ndef": 0,
+      "effects": [
+        "HalfRangeDmgIncrease",
+        "IncreaseRange",
+        "MagazineSizeMultiplier"
+      ],
+      "params": {
+        "MagazineSizeMultiplier": "150",
+        "RangeIncrease": "4"
+      },
+      "human": "ёмкость ×1.5; дальше WeaponRange (+4); больше урон на половине дистанции (дробовик)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Auto5_Long_NMag",
+      "name": "Long Barrel",
+      "n": 2,
+      "ndef": 0,
+      "effects": [
+        "HalfRangeDmgIncrease",
+        "IncreaseRange"
+      ],
+      "params": {
+        "RangeIncrease": "4"
+      },
+      "human": "дальше WeaponRange (+4); больше урон на половине дистанции (дробовик)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Auto5_Short_NMag",
+      "name": "Короткий ствол",
+      "n": 2,
+      "ndef": 0,
+      "effects": [
+        "IncreaseBuckshotAngle",
+        "ReduceRange",
+        "ReduceReliability",
+        "ReduceShootAP"
+      ],
+      "params": {
+        "BuckshotAngleIncrease": "115",
+        "RangeDecrease": "2",
+        "ReliabilityDecrease": "10",
+        "ShootAPDecrease": "1"
+      },
+      "human": "выстрел дешевле на 1 AP; хуже надёжность (−10) / чаще клин; короче WeaponRange (−2); шире конус дроби",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_ImprovedIronsight",
+      "name": "Improved Iron Sight",
+      "n": 5,
+      "ndef": 3,
+      "effects": [
+        "MinorAccuracyBonus"
+      ],
+      "params": {},
+      "human": "мелкий плоский CTH (legacy)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagSmall30_20",
+      "name": "Магазин на 20 патрон",
+      "n": 4,
+      "ndef": 2,
+      "effects": [
+        "IncreaseReliability",
+        "ReduceMagazineSize",
+        "ReduceReloadAP"
+      ],
+      "params": {
+        "MagazineSizeDecrease": "10",
+        "ReliabilityIncrease": "15",
+        "ReloadAPDecrease": "1"
+      },
+      "human": "меньше патронов в магазине; перезарядка быстрее (−1 AP); надёжнее (+15)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_DefMuzzle",
+      "name": "Заводской дульный тормоз",
+      "n": 6,
+      "ndef": 5,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_BarrelShort_Pistol",
+      "name": "Короткий ствол",
+      "n": 6,
+      "ndef": 1,
+      "effects": [
+        "BarrelBulletDropReduce",
+        "BarrelGroupingReduce",
+        "BarrelRangeReduce",
+        "CloseRangeDecrease",
+        "CloseRangeFactorIncrease",
+        "ReduceShootAP"
+      ],
+      "params": {
+        "CloseRangeDecrease": "1",
+        "CloseRangeFactorIncrease": "10",
+        "EffectiveRange": "4",
+        "RangeDecrease": "4",
+        "ShootAPDecrease": "1"
+      },
+      "human": "выстрел дешевле на 1 AP; короче WeaponRange (−4); сужает ближнюю неэффективную зону (−1 тайла); смягчает штраф в упор (+10%); ближе «падает» траектория; чуть хуже кучность (Grouping)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_BarrelShort",
+      "name": "Short Barrel",
+      "n": 10,
+      "ndef": 1,
+      "effects": [
+        "BarrelBulletDropReduce",
+        "BarrelGroupingReduce",
+        "BarrelRangeReduce",
+        "BarrelRecoilIncrease",
+        "CloseRangeDecrease",
+        "CloseRangeFactorIncrease",
+        "ReduceReliability"
+      ],
+      "params": {
+        "CloseRangeDecrease": "2",
+        "CloseRangeFactorIncrease": "5",
+        "EffectiveRange": "4",
+        "RangeDecrease": "4",
+        "ReliabilityDecrease": "10",
+        "ShootAPDecrease": "1"
+      },
+      "human": "хуже надёжность (−10) / чаще клин; короче WeaponRange (−4); сужает ближнюю неэффективную зону (−2 тайла); смягчает штраф в упор (+5%); ближе «падает» траектория; чуть хуже кучность (Grouping); ствол усиливает отдачу",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_BaseIronsight_Anaconda",
+      "name": "Basic Iron Sight",
+      "n": 1,
+      "ndef": 1,
+      "effects": [],
+      "params": {
+        "bonus_cth": "5"
+      },
+      "human": "—",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_FlashlightDot_Anaconda",
+      "name": "Tactical Device",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "IgnoreInTheDark",
+        "IncreaseOverwatchAngle",
+        "StealthKillBonusPerAim"
+      ],
+      "params": {
+        "EffectiveRange": "1",
+        "OverwatchAngleIncrease": "140",
+        "aim_bonus": "1",
+        "maxaims": "1",
+        "stealth_kill_bonus": "2"
+      },
+      "human": "шире сектор ожидания (+140); не штрафует темнота; бонус скрытного убийства за клики aim",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_LaserDot_Anaconda",
+      "name": "Red Dot",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "IncreaseCritChangeScaled",
+        "IncreaseOverwatchAngle",
+        "LaserMark",
+        "MarkWhenFullyAimed"
+      ],
+      "params": {
+        "CritChangeScaledIncrease": "15",
+        "EffectiveRange": "2",
+        "LaserCTH": "15",
+        "LaserDistance": "10",
+        "OverwatchAngleIncrease": "140"
+      },
+      "human": "шире сектор ожидания (+140); на полном aim помечает цель; лазер: плоский CTH накоротке (legacy) (+15 до 10 тайлов); выше шанс крита (scaled)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_UVDot_Anaconda",
+      "name": "UV Dot",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "MinAim"
+      ],
+      "params": {},
+      "human": "нужен минимум aim",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_IronSight",
+      "name": "Стандартный прицел",
+      "n": 9,
+      "ndef": 9,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_Barrel50BMG_DesertEagle",
+      "name": ".50 BMG Barrel",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "ChangeCaliberToBMG",
+        "IncreaseDamage",
+        "ReduceReliabilityPercent"
+      ],
+      "params": {
+        "DamageIncrease": "10",
+        "ReliabilityDecreasePercent": "30"
+      },
+      "human": "хуже надёжность / чаще клин; меняет калибр на .50 BMG; больше базовый урон (+10)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_BarrelShortShotgun",
+      "name": "Shortened Barrel",
+      "n": 2,
+      "ndef": 0,
+      "effects": [
+        "BarrelBulletDropReduce",
+        "BarrelGroupingReduce",
+        "BarrelRangeReduce",
+        "CloseRangeDecrease",
+        "CloseRangeFactorIncrease"
+      ],
+      "params": {
+        "BuckshotAngleIncrease": "115",
+        "CloseRangeDecrease": "1",
+        "CloseRangeFactorIncrease": "10",
+        "RangeDecrease": "2",
+        "ReliabilityDecrease": "10",
+        "ShootAPDecrease": "1"
+      },
+      "human": "короче WeaponRange (−2); сужает ближнюю неэффективную зону (−1 тайла); смягчает штраф в упор (+10%); ближе «падает» траектория; чуть хуже кучность (Grouping)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_StockLight",
+      "name": "Light Stock",
+      "n": 4,
+      "ndef": 0,
+      "effects": [
+        "RecoilIncrease"
+      ],
+      "params": {
+        "Recoil": "1"
+      },
+      "human": "очередь размазывает сильнее (Recoil +1)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Scope_3x_9x",
+      "name": "Оптический Прицел Redfield (3-9x)",
+      "n": 2,
+      "ndef": 2,
+      "effects": [
+        "CritBonusWhenFullyAimed",
+        "IncreaseMaxAimActions",
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecreaseBig",
+        "SmallMagnification"
+      ],
+      "params": {
+        "IncreaseMaxAimActions": "1",
+        "ScopeAimLevel": "4",
+        "ScopeMagnification": "9",
+        "ShotAP": "1",
+        "SmallAimLevel": "2",
+        "SmallMagnification": "3"
+      },
+      "human": "на 1 больше кликов aim до потолка; сдвигает комфортную дистанцию (~9×), оптика «включается» с 4-го клика aim; есть вторая (меньшая) кратность / переключатель профиля; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Scope_ZF4",
+      "name": "Оптический Прицел ZF4 (4x)",
+      "n": 4,
+      "ndef": 0,
+      "effects": [
+        "CritBonusWhenFullyAimed",
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecreaseBig"
+      ],
+      "params": {
+        "IncreaseMaxAimActions": "1",
+        "ScopeAimLevel": "3",
+        "ScopeMagnification": "4",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~4×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_FNFAL_Handguard",
+      "name": "Default Handguard",
+      "n": 1,
+      "ndef": 1,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_MagLarge_20_30",
+      "name": "Магазин на 30 патрон",
+      "n": 3,
+      "ndef": 0,
+      "effects": [
+        "IncreaseReloadAP",
+        "MagazineSizeAdd",
+        "ReduceReliability"
+      ],
+      "params": {
+        "MagazineSize": "10",
+        "ReliabilityDecrease": "5",
+        "ReloadAPIncrease": "1",
+        "extra_shots": "5"
+      },
+      "human": "+10 патронов в магазине; перезарядка дороже на 1 AP; хуже надёжность (−5) / чаще клин",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagNormalFine",
+      "name": "Fine-Tuned Mag",
+      "n": 4,
+      "ndef": 0,
+      "effects": [
+        "IncreaseReliability"
+      ],
+      "params": {
+        "ReliabilityIncrease": "10"
+      },
+      "human": "надёжнее (+10)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_BarrelHeavy",
+      "name": "Heavy Barrel",
+      "n": 3,
+      "ndef": 0,
+      "effects": [
+        "BarrelBulletDropIncrease",
+        "BarrelRecoilRecude",
+        "CloseRangeFactorDecrease",
+        "CloseRangeIncrease",
+        "IncreasedSingleShotAccuracy"
+      ],
+      "params": {
+        "BarrelRecoilRecude": "-3",
+        "CloseRangeFactorDecrease": "5",
+        "CloseRangeIncrease": "2",
+        "bonus_cth": "5",
+        "dmg": "3",
+        "xrng": "2"
+      },
+      "human": "расширяет ближнюю неэффективную зону (+2 тайла); усиливает штраф в упор (−5%); дальше комфорт дистанции (BulletDrop); меньше отдача от ствола (-3); лучше одиночный (часто legacy)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_BarrelNormalImproved",
+      "name": "Gain-Twist Barrel",
+      "n": 8,
+      "ndef": 0,
+      "effects": [
+        "IncreaseReliability"
+      ],
+      "params": {
+        "ReliabilityIncrease": "10"
+      },
+      "human": "надёжнее (+10)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_BarrelShortImproved",
+      "name": "Short Gain-Twist Barrel",
+      "n": 6,
+      "ndef": 0,
+      "effects": [
+        "BarrelBulletDropReduce",
+        "BarrelGroupingReduce",
+        "BarrelRangeReduce",
+        "BarrelRecoilIncrease",
+        "CloseRangeDecrease",
+        "CloseRangeFactorIncrease"
+      ],
+      "params": {
+        "CloseRangeDecrease": "2",
+        "CloseRangeFactorIncrease": "5",
+        "EffectiveRange": "1",
+        "RangeDecrease": "4",
+        "ShootAPDecrease": "1"
+      },
+      "human": "короче WeaponRange (−4); сужает ближнюю неэффективную зону (−2 тайла); смягчает штраф в упор (+5%); ближе «падает» траектория; чуть хуже кучность (Grouping); ствол усиливает отдачу",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_StockHeavy",
+      "name": "Heavy Stock",
+      "n": 12,
+      "ndef": 2,
+      "effects": [
+        "IncreaseAimAccuracy15Percent"
+      ],
+      "params": {
+        "bonus_cth": "10",
+        "range": "10"
+      },
+      "human": "лучше AimAccuracy",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_GrenadeLauncher",
+      "name": "Grenade Launcher",
+      "n": 6,
+      "ndef": 0,
+      "effects": [
+        "GrenadeLauncher"
+      ],
+      "params": {},
+      "human": "открывает подствольный гранатомёт",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_TacGrip",
+      "name": "Tactical Grip",
+      "n": 8,
+      "ndef": 1,
+      "effects": [
+        "RecoilDecrease"
+      ],
+      "params": {
+        "Recoil": "1",
+        "accuracy": "5"
+      },
+      "human": "легче держать очередь (Recoil −1)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_KSP_BIPOD",
+      "name": "Сошка от KSP 58",
+      "n": 1,
+      "ndef": 1,
+      "effects": [
+        "AccuracyBonusProne",
+        "ShotsBeforeRecoilProne"
+      ],
+      "params": {},
+      "human": "лёжа лучше (часто legacy flat); лёжа больше пуль до сильной отдачи",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_BarrelLong",
+      "name": "Extended Barrel",
+      "n": 14,
+      "ndef": 0,
+      "effects": [
+        "BarrelAccuracyIncrease",
+        "BarrelBulletDropIncrease",
+        "BarrelGroupingIncrease",
+        "BarrelRangeIncrease",
+        "BarrelRecoilRecude",
+        "CloseRangeFactorDecrease",
+        "CloseRangeIncrease"
+      ],
+      "params": {
+        "AimAccuracyIncrease": "2",
+        "CloseRangeFactorDecrease": "5",
+        "CloseRangeIncrease": "2",
+        "EffectiveRange": "2",
+        "RangeIncrease": "6"
+      },
+      "human": "дальше WeaponRange (+6); расширяет ближнюю неэффективную зону (+2 тайла); усиливает штраф в упор (−5%); дальше комфорт дистанции (BulletDrop) (+2); лучше профиль ствола (AimAccuracy +2); лучше кучность (Grouping); меньше отдача от ствола",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_BarrelLongImproved",
+      "name": "Extended Gain-Twist Barrel",
+      "n": 4,
+      "ndef": 0,
+      "effects": [
+        "BarrelAccuracyIncrease",
+        "BarrelBulletDropIncrease",
+        "BarrelGroupingIncrease",
+        "BarrelRangeIncrease",
+        "BarrelRecoilRecude",
+        "CloseRangeFactorDecrease",
+        "CloseRangeIncrease",
+        "IncreaseReliability"
+      ],
+      "params": {
+        "AimAccuracyIncrease": "2",
+        "CloseRangeFactorDecrease": "5",
+        "CloseRangeIncrease": "2",
+        "RangeIncrease": "6",
+        "ReliabilityIncrease": "10"
+      },
+      "human": "надёжнее (+10); дальше WeaponRange (+6); расширяет ближнюю неэффективную зону (+2 тайла); усиливает штраф в упор (−5%); дальше комфорт дистанции (BulletDrop); лучше профиль ствола (AimAccuracy +2); лучше кучность (Grouping); меньше отдача от ствола",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagBelt_100-200",
+      "name": "Увеличенный короб",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "IncreaseReloadAP",
+        "MagazineSizeMultiplier",
+        "ReduceAimAccuracy15Percent",
+        "ReduceReliability"
+      ],
+      "params": {
+        "MagazineSizeMultiplier": "200",
+        "ReliabilityDecrease": "15",
+        "ReloadAPIncrease": "2",
+        "extra_shots": "5"
+      },
+      "human": "ёмкость ×2; перезарядка дороже на 2 AP; хуже надёжность (−15) / чаще клин; чуть хуже AimAccuracy (−15%)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Scope_8x_SCROME",
+      "name": "Оптический Прицел 8x",
+      "n": 1,
+      "ndef": 1,
+      "effects": [
+        "CritBonusWhenFullyAimed",
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecreaseBig"
+      ],
+      "params": {
+        "IncreaseMaxAimActions": "1",
+        "ScopeAimLevel": "3",
+        "ScopeMagnification": "8",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~8×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagDrum_30-100_cumbersome",
+      "name": "Бубен",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "IncreaseReloadAP",
+        "MagazineSizeMultiplier",
+        "ReduceAimAccuracy15Percent"
+      ],
+      "params": {
+        "MagazineSizeMultiplier": "333",
+        "ReliabilityDecrease": "15",
+        "ReloadAPIncrease": "2",
+        "extra_shots": "5"
+      },
+      "human": "ёмкость ×3.33; перезарядка дороже на 2 AP; чуть хуже AimAccuracy (−15%)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_StockFolded",
+      "name": "Folded Stock",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "ExtraOverwatchShots",
+        "ReduceAimAccuracy"
+      ],
+      "params": {
+        "accuracy_penalty": "-50",
+        "crit_display": "15",
+        "extra_attacks": "1"
+      },
+      "human": "+1 выстрел в overwatch; хуже AimAccuracy",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_G36Scope",
+      "name": "Прицел G36 3x",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecrease"
+      ],
+      "params": {
+        "ScopeAimLevel": "2",
+        "ScopeMagnification": "3",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~3×), оптика «включается» с 2-го клика aim; каждый выстрел дороже на 1 AP; уже сектор ожидания",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_G36Sight",
+      "name": "Прицел G36 1.5x",
+      "n": 1,
+      "ndef": 1,
+      "effects": [
+        "ScopeMagnification"
+      ],
+      "params": {
+        "ScopeAimLevel": "1",
+        "ScopeMagnification": "1",
+        "ScopeSubMagnification": "5"
+      },
+      "human": "сдвигает комфортную дистанцию (~1.5×), оптика «включается» с 1-го клика aim",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_GrenadeLauncher_M14",
+      "name": "Grenade Launcher",
+      "n": 4,
+      "ndef": 0,
+      "effects": [
+        "GrenadeLauncher"
+      ],
+      "params": {},
+      "human": "открывает подствольный гранатомёт",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagSmall20_10",
+      "name": "Магазин на 10 патрон",
+      "n": 5,
+      "ndef": 2,
+      "effects": [
+        "IncreaseReliability",
+        "ReduceMagazineSize",
+        "ReduceReloadAP"
+      ],
+      "params": {
+        "MagazineSizeDecrease": "10",
+        "ReliabilityIncrease": "15",
+        "ReloadAPDecrease": "1"
+      },
+      "human": "меньше патронов в магазине; перезарядка быстрее (−1 AP); надёжнее (+15)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_CombatScope_FeroZ24",
+      "name": "Штурмовой прицел Fero Z24 (4х)",
+      "n": 8,
+      "ndef": 0,
+      "effects": [
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecrease"
+      ],
+      "params": {
+        "ScopeAimLevel": "2",
+        "ScopeMagnification": "4",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~4×), оптика «включается» с 2-го клика aim; каждый выстрел дороже на 1 AP; уже сектор ожидания",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Scope_DA15_6x",
+      "name": "Оптический Прицел Zeiss Diavari-DA (1.5-6x)",
+      "n": 9,
+      "ndef": 1,
+      "effects": [
+        "CritBonusWhenFullyAimed",
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecreaseBig",
+        "SmallMagnification"
+      ],
+      "params": {
+        "ScopeAimLevel": "3",
+        "ScopeMagnification": "6",
+        "ShotAP": "1",
+        "SmallAimLevel": "1",
+        "SmallMagnification": "1",
+        "SmallSubMagnification": "5"
+      },
+      "human": "сдвигает комфортную дистанцию (~6×), оптика «включается» с 3-го клика aim; есть вторая (меньшая) кратность / переключатель профиля; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Galil_Brake_Default",
+      "name": "Default Muzzle Brake",
+      "n": 1,
+      "ndef": 1,
+      "effects": [
+        "IncreaseAimAccuracy"
+      ],
+      "params": {
+        "AimAccuracyIncrease": "1"
+      },
+      "human": "лучше AimAccuracy (+1)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Bipod_Galil",
+      "name": "Bipod",
+      "n": 2,
+      "ndef": 2,
+      "effects": [
+        "AccuracyBonusProne",
+        "ShotsBeforeRecoilProne"
+      ],
+      "params": {},
+      "human": "лёжа лучше (часто legacy flat); лёжа больше пуль до сильной отдачи",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Galil_Handguard_Default",
+      "name": "Default Handguard",
+      "n": 1,
+      "ndef": 0,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_GrenadeLauncher_Galil",
+      "name": "Grenade Launcher",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "GrenadeLauncher"
+      ],
+      "params": {},
+      "human": "открывает подствольный гранатомёт",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagLarge_25_40",
+      "name": "Магазин на 40 патрон",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "IncreaseReloadAP",
+        "MagazineSizeAdd",
+        "ReduceReliability"
+      ],
+      "params": {
+        "MagazineSize": "15",
+        "ReliabilityDecrease": "5",
+        "ReloadAPIncrease": "1",
+        "extra_shots": "5"
+      },
+      "human": "+15 патронов в магазине; перезарядка дороже на 1 AP; хуже надёжность (−5) / чаще клин",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagNormalG18",
+      "name": "Магазин на 20 патрон",
+      "n": 2,
+      "ndef": 1,
+      "effects": [],
+      "params": {
+        "MagazineSizeMultiplier": "117"
+      },
+      "human": "—",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MuzzleBooster_Glock18",
+      "name": "Default Chamber",
+      "n": 1,
+      "ndef": 1,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_MagLarge_17_33",
+      "name": "Магазин на 33 патрона",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "IncreaseReloadAP",
+        "MagazineSizeAdd",
+        "ReduceAimAccuracy15Percent",
+        "ReduceReliability"
+      ],
+      "params": {
+        "MagazineSize": "16",
+        "ReliabilityDecrease": "15",
+        "ReloadAPIncrease": "1"
+      },
+      "human": "+16 патронов в магазине; перезарядка дороже на 1 AP; хуже надёжность (−15) / чаще клин; чуть хуже AimAccuracy (−15%)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_DefaultMuzzle_HK21",
+      "name": "Default Flash Hider",
+      "n": 1,
+      "ndef": 1,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_MagBelt_40-100",
+      "name": "Короб",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "IncreaseReloadAP",
+        "MagazineSizeMultiplier",
+        "ReduceAimAccuracy15Percent",
+        "ReduceReliability"
+      ],
+      "params": {
+        "MagazineSizeMultiplier": "250",
+        "ReliabilityDecrease": "15",
+        "ReloadAPIncrease": "2",
+        "extra_shots": "5"
+      },
+      "human": "ёмкость ×2.5; перезарядка дороже на 2 AP; хуже надёжность (−15) / чаще клин; чуть хуже AimAccuracy (−15%)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_HK33Lower",
+      "name": "Lower",
+      "n": 1,
+      "ndef": 1,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_HK33LowerMod",
+      "name": "Улучшенный lower",
+      "n": 1,
+      "ndef": 0,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_HK33Handguard",
+      "name": "Цевье",
+      "n": 1,
+      "ndef": 1,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_HK33HandguardMod",
+      "name": "Цевье с планками",
+      "n": 1,
+      "ndef": 0,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_BarrelShortRunNGun",
+      "name": "Короткий ствол",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "BarrelBulletDropReduce",
+        "BarrelGroupingIncrease",
+        "BarrelRangeReduce",
+        "BarrelRecoilIncrease",
+        "CloseRangeDecrease",
+        "CloseRangeFactorIncrease",
+        "EnableRunNGun",
+        "ReduceReliability"
+      ],
+      "params": {
+        "CloseRangeDecrease": "2",
+        "CloseRangeFactorIncrease": "5",
+        "EffectiveRange": "4",
+        "RangeDecrease": "4",
+        "ReliabilityDecrease": "10",
+        "ShootAPDecrease": "1"
+      },
+      "human": "хуже надёжность (−10) / чаще клин; короче WeaponRange (−4); сужает ближнюю неэффективную зону (−2 тайла); смягчает штраф в упор (+5%); ближе «падает» траектория; лучше кучность (Grouping); ствол усиливает отдачу; открывает маневренный бой (Run&Gun)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagDrum_30-100",
+      "name": "Бубен",
+      "n": 2,
+      "ndef": 0,
+      "effects": [
+        "IncreaseReloadAP",
+        "MagazineSizeMultiplier",
+        "ReduceAimAccuracy15Percent",
+        "ReduceReliability"
+      ],
+      "params": {
+        "MagazineSizeMultiplier": "333",
+        "ReliabilityDecrease": "15",
+        "ReloadAPIncrease": "2",
+        "extra_shots": "5"
+      },
+      "human": "ёмкость ×3.33; перезарядка дороже на 2 AP; хуже надёжность (−15) / чаще клин; чуть хуже AimAccuracy (−15%)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_StockNo",
+      "name": "No Stock",
+      "n": 3,
+      "ndef": 1,
+      "effects": [
+        "ExtraOverwatchShots",
+        "RecoilIncrease",
+        "ReduceAimAccuracy90Percent",
+        "ReduceShootAP"
+      ],
+      "params": {
+        "Recoil": "5",
+        "ShootAPDecrease": "1",
+        "accuracy_penalty": "-50",
+        "crit_display": "15",
+        "extra_attacks": "1"
+      },
+      "human": "выстрел дешевле на 1 AP; +1 выстрел в overwatch; очередь размазывает сильнее (Recoil +5); почти ломает AimAccuracy",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagLarge_7_10",
+      "name": "Магазин на 10 патрон",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "MagazineSizeMultiplier",
+        "ReduceReliability"
+      ],
+      "params": {
+        "MagazineSizeMultiplier": "142",
+        "ReliabilityDecrease": "5"
+      },
+      "human": "ёмкость ×1.42; хуже надёжность (−5) / чаще клин",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Reflex_Pistol",
+      "name": "Коллиматор Пистолетный",
+      "n": 5,
+      "ndef": 0,
+      "effects": [
+        "DecreaseMaxAimActions",
+        "ExtraOverwatchShots",
+        "MinAim",
+        "OpportunityAttackBonusCth",
+        "ScopeOverwatchAngleIncreaceBig"
+      ],
+      "params": {
+        "MaxAimActionsDecrease": "1",
+        "OverwatchAngleIncrease": "120",
+        "extra_attacks": "1"
+      },
+      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; сильно шире сектор ожидания (+120); лучше попадание в реакциях / перехвате",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Handgrip_Default",
+      "name": "Стандартная рукоять",
+      "n": 4,
+      "ndef": 4,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_Handgrip_Ergo",
+      "name": "Эргономичная рукоять",
+      "n": 4,
+      "ndef": 0,
+      "effects": [
+        "RecoilDecrease"
+      ],
+      "params": {
+        "Recoil": "1"
+      },
+      "human": "легче держать очередь (Recoil −1)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Bipod_Under",
+      "name": "Bipod",
+      "n": 3,
+      "ndef": 0,
+      "effects": [
+        "AccuracyBonusProne",
+        "ShotsBeforeRecoilProne"
+      ],
+      "params": {},
+      "human": "лёжа лучше (часто legacy flat); лёжа больше пуль до сильной отдачи",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_TacGrip_M14",
+      "name": "Tactical Grip",
+      "n": 3,
+      "ndef": 0,
+      "effects": [
+        "FreeWeaponSwap"
+      ],
+      "params": {
+        "accuracy": "5"
+      },
+      "human": "быстрая смена оружия без обычной цены",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_VerticalGrip_M14",
+      "name": "Vertical Grip",
+      "n": 3,
+      "ndef": 0,
+      "effects": [
+        "RecoilDecrease"
+      ],
+      "params": {
+        "Recoil": "1"
+      },
+      "human": "легче держать очередь (Recoil −1)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_M14_Default_Muzzle",
+      "name": "Default Muzzle",
+      "n": 4,
+      "ndef": 4,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_M16A1LaunchHandGuard",
+      "name": "Гранатомет",
+      "n": 2,
+      "ndef": 0,
+      "effects": [
+        "GrenadeLauncher"
+      ],
+      "params": {},
+      "human": "открывает подствольный гранатомёт",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_HolsterBelt",
+      "name": "Ремень",
+      "n": 2,
+      "ndef": 0,
+      "effects": [
+        "FreeWeaponSwap"
+      ],
+      "params": {},
+      "human": "быстрая смена оружия без обычной цены",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_HandguardM1A",
+      "name": "Цевьё",
+      "n": 1,
+      "ndef": 1,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_HandguardM1ARail",
+      "name": "Цевьё с рельсой",
+      "n": 1,
+      "ndef": 0,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_Reflex_Garand",
+      "name": "Коллиматор",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "DecreaseMaxAimActions",
+        "ExtraOverwatchShots",
+        "MinAim",
+        "OpportunityAttackBonusCth",
+        "ScopeOverwatchAngleIncreace"
+      ],
+      "params": {
+        "MaxAimActionsDecrease": "1",
+        "OverwatchAngleIncrease": "120",
+        "extra_attacks": "1"
+      },
+      "human": "на 1 меньше кликов aim до потолка; нужен минимум aim; +1 выстрел в overwatch; шире сектор ожидания (+120); лучше попадание в реакциях / перехвате",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Scope_Garand",
+      "name": "Оптический Прицел M84 (2.2x)",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "CritBonusWhenFullyAimed",
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecreaseBig"
+      ],
+      "params": {
+        "ScopeAimLevel": "2",
+        "ScopeMagnification": "2",
+        "ScopeSubMagnification": "2",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~2.2×), оптика «включается» с 2-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagLarge_5_10",
+      "name": "Магазин на 10 патрон",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "IncreaseReloadAP",
+        "MagazineSizeMultiplier",
+        "ReduceReliability"
+      ],
+      "params": {
+        "MagazineSizeMultiplier": "200",
+        "ReliabilityDecrease": "5",
+        "ReloadAPIncrease": "1",
+        "extra_shots": "5"
+      },
+      "human": "ёмкость ×2; перезарядка дороже на 1 AP; хуже надёжность (−5) / чаще клин",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagSmall30_15",
+      "name": "Магазин на 15 патрон",
+      "n": 6,
+      "ndef": 3,
+      "effects": [
+        "IncreaseReliability",
+        "ReduceMagazineSize",
+        "ReduceReloadAP"
+      ],
+      "params": {
+        "MagazineSizeDecrease": "15",
+        "ReliabilityIncrease": "15",
+        "ReloadAPDecrease": "1"
+      },
+      "human": "меньше патронов в магазине; перезарядка быстрее (−1 AP); надёжнее (+15)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_NightScope_M3",
+      "name": "Ночной прицел (5х)",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "IgnoreInTheDarkWhenFullyAimed",
+        "IncreaseShotAP",
+        "ScopeMagnification"
+      ],
+      "params": {
+        "ScopeAimLevel": "3",
+        "ScopeMagnification": "1",
+        "ScopeSubMagnification": "5",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~1.5×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; в темноте нормально бьёшь только на полном aim",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Autofire",
+      "name": "Автоматический огонь",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "EnableBurst",
+        "EnableFullAuto"
+      ],
+      "params": {},
+      "human": "включает автоматический огонь; включает очередь",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_FlashHider",
+      "name": "Пламегаситель",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "RecoilDecrease",
+        "StealthKillBonusPerAim"
+      ],
+      "params": {
+        "Recoil": "1",
+        "crit": "10",
+        "stealth_kill_bonus": "20"
+      },
+      "human": "легче держать очередь (Recoil −1); бонус скрытного убийства за клики aim",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_BarrelShortShotgun_Benelli",
+      "name": "Shortened Barrel",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "CloseRangeDecrease",
+        "CloseRangeFactorIncrease",
+        "IncreaseBuckshotAngle",
+        "ReduceMagazineSize",
+        "ReduceRange",
+        "ReduceReliability",
+        "ReduceShootAP"
+      ],
+      "params": {
+        "BuckshotAngleIncrease": "115",
+        "CloseRangeDecrease": "1",
+        "CloseRangeFactorIncrease": "10",
+        "MagazineSizeDecrease": "2",
+        "RangeDecrease": "2",
+        "ReliabilityDecrease": "10",
+        "ShootAPDecrease": "1"
+      },
+      "human": "выстрел дешевле на 1 AP; меньше патронов в магазине; хуже надёжность (−10) / чаще клин; короче WeaponRange (−2); сужает ближнюю неэффективную зону (−1 тайла); смягчает штраф в упор (+10%); шире конус дроби",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_BarrelsDefs",
+      "name": "Заводской ствол",
+      "n": 6,
+      "ndef": 6,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_Bipod_MG42",
+      "name": "Bipod",
+      "n": 2,
+      "ndef": 2,
+      "effects": [
+        "AccuracyBonusProne",
+        "ShotsBeforeRecoilProne"
+      ],
+      "params": {},
+      "human": "лёжа лучше (часто legacy flat); лёжа больше пуль до сильной отдачи",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Scope_PU",
+      "name": "Оптический Прицел ПУ (3.5x)",
+      "n": 2,
+      "ndef": 0,
+      "effects": [
+        "CritBonusWhenFullyAimed",
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecreaseBig"
+      ],
+      "params": {
+        "IncreaseMaxAimActions": "1",
+        "ScopeAimLevel": "2",
+        "ScopeMagnification": "3",
+        "ScopeSubMagnification": "5",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~3.5×), оптика «включается» с 2-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_VerticalGripFld",
+      "name": "Вертикальная рукоять (Сложенная)",
+      "n": 1,
+      "ndef": 1,
+      "effects": [],
+      "params": {
+        "Recoil": "1"
+      },
+      "human": "—",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_IronSight_AIM",
+      "name": "Точный прицел",
+      "n": 2,
+      "ndef": 0,
+      "effects": [
+        "CritBonusWhenFullyAimed",
+        "IncreaseAimAccuracy"
+      ],
+      "params": {
+        "AimAccuracyIncrease": "5"
+      },
+      "human": "больше крит, когда полностью прицелился; лучше AimAccuracy (+5)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagLarge_8_10",
+      "name": "Магазин на 10 патрон",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "MagazineSizeMultiplier",
+        "ReduceReliability"
+      ],
+      "params": {
+        "MagazineSizeMultiplier": "125",
+        "ReliabilityDecrease": "5"
+      },
+      "human": "ёмкость ×1.25; хуже надёжность (−5) / чаще клин",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagLarge_18_20",
+      "name": "Магазин на 20 патрон",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "MagazineSizeMultiplier",
+        "ReduceReliability"
+      ],
+      "params": {
+        "MagazineSizeMultiplier": "112",
+        "ReliabilityDecrease": "5"
+      },
+      "human": "ёмкость ×1.12; хуже надёжность (−5) / чаще клин",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_IronSight_FAST",
+      "name": "Быстрый прицел",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "MinorAccuracyBonus"
+      ],
+      "params": {
+        "BonusCTH": "3"
+      },
+      "human": "мелкий плоский CTH (legacy) +3",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_IronSight_NIGHT",
+      "name": "Ночной прицел",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "NightsIronsBonus"
+      ],
+      "params": {
+        "NightsIronsBonus": "10"
+      },
+      "human": "ночные открытые прицелы (legacy)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_PKMDefHandGrip",
+      "name": "Заводская рукоять ПКМ",
+      "n": 1,
+      "ndef": 1,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_MagDrum_35-71",
+      "name": "Бубен",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "IncreaseReloadAP",
+        "MagazineSizeAdd",
+        "ReduceAimAccuracy15Percent",
+        "ReduceReliability"
+      ],
+      "params": {
+        "MagazineSize": "36",
+        "ReliabilityDecrease": "15",
+        "ReloadAPIncrease": "2",
+        "extra_shots": "5"
+      },
+      "human": "+36 патронов в магазине; перезарядка дороже на 2 AP; хуже надёжность (−15) / чаще клин; чуть хуже AimAccuracy (−15%)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagLargeFine",
+      "name": "Ergonomic Expanded Mag",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "MagazineSizeMultiplier"
+      ],
+      "params": {
+        "MagazineSizeMultiplier": "150"
+      },
+      "human": "ёмкость ×1.5",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Scope_PSG",
+      "name": "Оптический Прицел Hensoldt ZF PSG1 (6x)",
+      "n": 1,
+      "ndef": 1,
+      "effects": [
+        "CritBonusWhenFullyAimed",
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecreaseBig"
+      ],
+      "params": {
+        "ScopeAimLevel": "3",
+        "ScopeMagnification": "6",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~6×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_FlashlightDot_PSG_M1",
+      "name": "Tactical Device",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "IgnoreInTheDark",
+        "StealthKillBonusPerAim"
+      ],
+      "params": {
+        "stealth_kill_bonus": "2"
+      },
+      "human": "не штрафует темнота; бонус скрытного убийства за клики aim",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Flashlight_PSG_M1",
+      "name": "Flashlight",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "IgnoreInTheDark"
+      ],
+      "params": {},
+      "human": "не штрафует темнота",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_LaserDot_PSG_M1",
+      "name": "Red Dot",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "MarkWhenFullyAimed"
+      ],
+      "params": {},
+      "human": "на полном aim помечает цель",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_UVDot_PSG_M1",
+      "name": "UV Dot",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "MinAim"
+      ],
+      "params": {},
+      "human": "нужен минимум aim",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_SpeedLoader",
+      "name": "Ускорение перезарядки",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "ReduceReloadAP"
+      ],
+      "params": {
+        "ReloadAPDecrease": "2"
+      },
+      "human": "перезарядка быстрее (−2 AP)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_FoldBipod",
+      "name": "Сложенная сошка",
+      "n": 2,
+      "ndef": 1,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_UnfoldBipod",
+      "name": "Разложенная сошка",
+      "n": 2,
+      "ndef": 1,
+      "effects": [
+        "AccuracyBonusProne",
+        "ShotsBeforeRecoilProne"
+      ],
+      "params": {},
+      "human": "лёжа лучше (часто legacy flat); лёжа больше пуль до сильной отдачи",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_RPK74_Hanguard_Basic",
+      "name": "Default Handguard",
+      "n": 2,
+      "ndef": 2,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_RPK74_VerticalGrip",
+      "name": "Vertical Grip",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "RecoilDecrease"
+      ],
+      "params": {
+        "Recoil": "1"
+      },
+      "human": "легче держать очередь (Recoil −1)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_SigDefHandGuard",
+      "name": "Заводская рукоять Sig",
+      "n": 4,
+      "ndef": 4,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_SigErgoHandGrip",
+      "name": "Эргономичная рукоять для Sig",
+      "n": 4,
+      "ndef": 0,
+      "effects": [
+        "RecoilDecrease"
+      ],
+      "params": {
+        "Recoil": "1"
+      },
+      "human": "легче держать очередь (Recoil −1)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_UnfoldStocks",
+      "name": "Разложенный приклад",
+      "n": 2,
+      "ndef": 2,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_Scope_Springfield",
+      "name": "Оптический Прицел (2.75x)",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "CritBonusWhenFullyAimed",
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecreaseBig"
+      ],
+      "params": {
+        "IncreaseMaxAimActions": "1",
+        "ScopeAimLevel": "3",
+        "ScopeMagnification": "2",
+        "ScopeSubMagnification": "7",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~2.7×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_HandlingWrap",
+      "name": "Обмотка на цевье",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "RecoilDecrease"
+      ],
+      "params": {
+        "Recoil": "1"
+      },
+      "human": "легче держать очередь (Recoil −1)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MagDrum_30-50",
+      "name": "Бубен",
+      "n": 2,
+      "ndef": 0,
+      "effects": [
+        "IncreaseReloadAP",
+        "MagazineSizeAdd",
+        "ReduceAimAccuracy15Percent",
+        "ReduceReliability"
+      ],
+      "params": {
+        "MagazineSize": "20",
+        "ReliabilityDecrease": "15",
+        "ReloadAPIncrease": "2",
+        "extra_shots": "5"
+      },
+      "human": "+20 патронов в магазине; перезарядка дороже на 2 AP; хуже надёжность (−15) / чаще клин; чуть хуже AimAccuracy (−15%)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_Type56BayoF",
+      "name": "Штык-нож",
+      "n": 1,
+      "ndef": 1,
+      "effects": [
+        "zzStockEquipped"
+      ],
+      "params": {},
+      "human": "флаг складного приклада",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_U100Handle",
+      "name": "Рукоять удержания",
+      "n": 1,
+      "ndef": 1,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_BarrelShort_Winchester",
+      "name": "Short Barrel",
+      "n": 1,
+      "ndef": 0,
+      "effects": [
+        "CloseRangeDecrease",
+        "CloseRangeFactorIncrease",
+        "ReduceMagazineSize",
+        "ReduceRange",
+        "ReduceReliability",
+        "ReduceShootAP"
+      ],
+      "params": {
+        "CloseRangeDecrease": "1",
+        "CloseRangeFactorIncrease": "10",
+        "MagazineSizeDecrease": "4",
+        "RangeDecrease": "4",
+        "ReliabilityDecrease": "10",
+        "ShootAPDecrease": "1"
+      },
+      "human": "выстрел дешевле на 1 AP; меньше патронов в магазине; хуже надёжность (−10) / чаще клин; короче WeaponRange (−4); сужает ближнюю неэффективную зону (−1 тайла); смягчает штраф в упор (+10%)",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_M70_Fld_GL",
+      "name": "Сложенный прицел",
+      "n": 1,
+      "ndef": 1,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_Scope_ZRAK",
+      "name": "Оптический Прицел ZRAK (4x)",
+      "n": 1,
+      "ndef": 1,
+      "effects": [
+        "CritBonusWhenFullyAimed",
+        "IncreaseShotAP",
+        "ScopeMagnification",
+        "ScopeOverwatchAngleDecreaseBig"
+      ],
+      "params": {
+        "IncreaseMaxAimActions": "1",
+        "ScopeAimLevel": "3",
+        "ScopeMagnification": "4",
+        "ShotAP": "1"
+      },
+      "human": "сдвигает комфортную дистанцию (~4×), оптика «включается» с 3-го клика aim; каждый выстрел дороже на 1 AP; сильно уже сектор ожидания (длинная оптика); больше крит, когда полностью прицелился",
+      "empty": false
+    },
+    {
+      "id": "JAZZ_MuzzleBooster",
+      "name": "Recoil Booster",
+      "n": 1,
+      "ndef": 1,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    },
+    {
+      "id": "JAZZ_Compensator_cosmetic",
+      "name": "Compensator",
+      "n": 1,
+      "ndef": 1,
+      "effects": [],
+      "params": {},
+      "human": "—",
+      "empty": true
+    }
+  ],
+  "gloss": {
+    "DecreaseMaxAimActions": "меньше кликов прицеливания до потолка",
+    "IncreaseMaxAimActions": "больше кликов прицеливания до потолка",
+    "ExtraOverwatchShots": "больше выстрелов в overwatch",
+    "ScopeOverwatchAngleIncreace": "шире сектор ожидания",
+    "ScopeOverwatchAngleIncreaceBig": "сильно шире сектор ожидания",
+    "ScopeOverwatchAngleDecrease": "уже сектор ожидания",
+    "ScopeOverwatchAngleDecreaseBig": "сильно уже сектор ожидания",
+    "IncreaseOverwatchAngle": "шире сектор ожидания",
+    "MagazineSizeAdd": "больше патронов (+N)",
+    "MagazineSizeIncrease": "больше патронов",
+    "MagazineSizeMultiplier": "ёмкость × множитель",
+    "ReduceMagazineSize": "меньше патронов",
+    "SilencerHandlingReduce": "глушитель хуже Handling (legacy)",
+    "SilencerHandlingDecrease": "глушитель хуже «лёгкости»",
+    "SilencerJamChance": "выше шанс клина от глушителя",
+    "BarrelRecoilIncrease": "ствол усиливает отдачу",
+    "BarrelGroupingReduce": "ствол чуть портит кучность",
+    "BarrelGroupingIncrease": "лучше кучность (Grouping)",
+    "FreeWeaponSwap": "быстрая смена оружия",
+    "EnableFullAuto": "включает автоогонь",
+    "EnableBurst": "включает очередь",
+    "ExtraBurstShots": "длиннее короткая очередь",
+    "ExtraAutoShots": "длиннее автоочередь",
+    "zzStockEquipped": "флаг складного приклада",
+    "StockHandlingIncrease": "приклад легче (legacy)",
+    "Cumbersome": "оружие громоздкое",
+    "FirstShotIncreasedAim": "первая атака хода уже с min_aim",
+    "PointBlankBonus": "бонус на упор",
+    "LaserMark": "лазерная пометка / legacy лазер",
+    "EnableRunNGun": "открывает Run&Gun",
+    "ChangeCaliberToBMG": "калибр → .50 BMG",
+    "IncreaseDamage": "больше базовый урон",
+    "ReduceAimAccuracy20Percent": "заметно хуже AimAccuracy",
+    "ReduceAimAccuracy50Percent": "сильно хуже AimAccuracy",
+    "ReduceAimAccuracy80Percent": "почти ломает AimAccuracy",
+    "ReduceAimAccuracy90Percent": "почти ломает AimAccuracy",
+    "ReduceAimAccuracy15Percent": "чуть хуже AimAccuracy (−15%)",
+    "IncreaseAimAccuracy15Percent": "чуть лучше AimAccuracy",
+    "MinAim": "нужен минимум кликов aim",
+    "OpportunityAttackBonusCth": "лучше реакции / перехват",
+    "ScopeHandlingReduce": "штраф Handling (legacy, не в CTH)",
+    "ScopeMagnification": "сдвигает комфортную дистанцию (кратность)",
+    "SmallMagnification": "вторая (меньшая) кратность",
+    "IncreaseShotAP": "выстрел дороже по AP",
+    "ReduceShootAP": "выстрел дешевле по AP",
+    "CritBonusWhenFullyAimed": "больше крит на полном aim",
+    "IgnoreInTheDark": "не штрафует темнота",
+    "IgnoreInTheDarkWhenFullyAimed": "в темноте ок только на полном aim",
+    "ReduceAuto75Percent": "сильно режет авто",
+    "ReduceBurst50Percent": "режет очередь",
+    "IncreaseAimAccuracy": "лучше AimAccuracy",
+    "ReduceAimAccuracy": "хуже AimAccuracy",
+    "RecoilDecrease": "меньше отдача в очереди",
+    "RecoilIncrease": "очередь размазывает сильнее",
+    "ShotsBeforeRecoilProne": "лёжа больше пуль до сильной отдачи",
+    "AccuracyBonusProne": "лёжа лучше (часто legacy flat)",
+    "AccuracyBonusSameTarget": "повтор по той же цели проще",
+    "BipodsHandlingDecrease": "сошки тяжелее в профиле",
+    "GripHandlingIncrease": "рукоятка удобнее (legacy)",
+    "GLHandlingDecrease": "гранатомёт утяжеляет",
+    "GrenadeLauncher": "открывает подствольный ГП",
+    "SilentShots": "тихие выстрелы",
+    "StealthKillBonusPerAim": "бонус скрытного убийства за aim",
+    "ReduceReliability": "хуже надёжность / чаще клин",
+    "ReduceReliabilityPercent": "режет надёжность %",
+    "IncreaseReliability": "надёжнее",
+    "SilencerGroupingReduce10": "глушитель чуть портит кучность",
+    "SilencerGroupingReduce30": "глушитель заметно портит кучность",
+    "SilencerGroupingReduce50": "глушитель сильно портит кучность",
+    "IncreaseReloadAP": "перезарядка дороже",
+    "ReduceReloadAP": "перезарядка быстрее",
+    "MagazineHandlingDecrease": "магазин тяжелее в обращении",
+    "MagazineHandlingIncrease": "магазин легче",
+    "BarrelRangeIncrease": "дальше WeaponRange",
+    "BarrelRangeReduce": "короче WeaponRange",
+    "CloseRangeIncrease": "расширяет ближнюю неэффективную зону",
+    "CloseRangeDecrease": "сужает ближнюю неэффективную зону",
+    "CloseRangeFactorIncrease": "смягчает штраф в упор",
+    "CloseRangeFactorDecrease": "усиливает штраф в упор",
+    "BarrelBulletDropIncrease": "дальше BulletDropRange",
+    "BarrelBulletDropReduce": "ближе «падает» траектория",
+    "BarrelAccuracyIncrease": "лучше профиль ствола",
+    "BarrelHandlingIncrease": "ствол удобнее (legacy)",
+    "BarrelHandlingReduce": "ствол тяжелее (legacy)",
+    "BarrelRecoilRecude": "меньше отдача от ствола",
+    "IncreasedSingleShotAccuracy": "лучше одиночный (часто legacy)",
+    "HalfRangeDmgIncrease": "больше урон на ½ дистанции (дробовик)",
+    "IncreaseRange": "дальше",
+    "ReduceRange": "ближе",
+    "IncreaseBuckshotAngle": "шире конус дроби",
+    "DecreaseBuckshotAngle": "уже конус дроби",
+    "MarkWhenFullyAimed": "на полном aim помечает цель",
+    "IncreaseCritChangeScaled": "выше шанс крита (scaled)",
+    "LaserCTH": "плоский CTH лазера накоротке (legacy)",
+    "ChangeWeaponTypeToAssaultRifle": "меняет класс оружия",
+    "NightsIronsBonus": "ночные открытые прицелы (legacy)",
+    "MinorAccuracyBonus": "мелкий плоский CTH (legacy)",
+    "AccuracyBonusWhenAimed": "плоский CTH при aim (legacy)"
+  }
+}

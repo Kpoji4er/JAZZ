@@ -19,8 +19,7 @@ DefineClass.Warhead_Frag = {
 	MaxStacks = 1,
 	CenterObjDamageMod = 500,
 	CenterAppliedEffects = {
-		"Burning",
-		"Exposed",
+		"BurningExposed",
 	},
 	AreaOfEffect = 2,
 	AreaUnitDamageMod = 70,

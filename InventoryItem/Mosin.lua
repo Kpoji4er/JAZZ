@@ -49,7 +49,10 @@ DefineClass.Mosin = {
 	ReloadAP = 5000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -35,
+
+	CloseRange = 12,
+
+	CloseRangeFactor = 70,
 	BulletDropRange = 16,
 	Grouping = 41,
 	WeaponResource = 7000,

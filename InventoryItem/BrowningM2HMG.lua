@@ -41,6 +41,10 @@ DefineClass.BrowningM2HMG = {
 	BurstShots = 6,
 	AutoShots = 6,
 	BulletDropRange = 28,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	Grouping = 21,
 	WeaponResource = 50000,
 }

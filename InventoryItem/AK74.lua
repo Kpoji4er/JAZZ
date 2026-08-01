@@ -37,47 +37,47 @@ DefineClass.AK74 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockNormal",
-				"StockLightFolded",
-				"StockLightUnFolded",
+				"JAZZ_StockNormal",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockLightUnFolded",
 			},
-			'DefaultComponent', "StockNormal",
+			'DefaultComponent', "JAZZ_StockNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Handguard",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"Handguard",
+				"JAZZ_Handguard",
 			},
-			'DefaultComponent', "Handguard",
+			'DefaultComponent', "JAZZ_Handguard",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge_30_45",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge_30_45",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Under",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"GP25",
+				"JAZZ_GP25",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"Compensator",
+				"JAZZ_Compensator",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -105,7 +105,10 @@ DefineClass.AK74 = {
 	ReloadAP = 6000,
 	Recoil = 7,
 	AutoShots = 6,
-	Handling = -4,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 16,
 	Grouping = 56,
 	BaseJamChance = -50,

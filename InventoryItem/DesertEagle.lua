@@ -34,35 +34,35 @@ DefineClass.DesertEagle = {
 				PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelNormal",
-				"Barrel50BMG_DesertEagle",
+				"JAZZ_BarrelNormal",
+				"JAZZ_Barrel50BMG_DesertEagle",
 			},
-			'DefaultComponent', "BarrelNormal",
+			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'Modifiable', false,
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Suppressor",
+				"JAZZ_Suppressor",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"FlashlightDot",
-				"Flashlight",
-				"LaserDot",
-				"UVDot",
+				"JAZZ_FlashlightDot",
+				"JAZZ_Flashlight",
+				"JAZZ_LaserDot",
+				"JAZZ_UVDot",
 			},
 		}),
 	},
@@ -78,7 +78,10 @@ DefineClass.DesertEagle = {
 	ReloadAP = 4000,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = -12,
+
+	CloseRange = 0,
+
+	CloseRangeFactor = 100,
 	BulletDropRange = 8,
 	Grouping = 74,
 	WeaponResource = 700,

@@ -42,7 +42,6 @@ DefineClass.MGL = {
 	PreparedAttackType = "None",
 	ShootAP = 5000,
 	ReloadAP = 10000,
-	Handling = 75,
 	WeaponResource = 250,
 }
 

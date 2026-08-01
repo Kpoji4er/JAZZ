@@ -36,10 +36,10 @@ DefineClass.Striker = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLightUnFolded",
-				"StockLightFolded",
+				"JAZZ_StockLightUnFolded",
+				"JAZZ_StockLightFolded",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -53,7 +53,10 @@ DefineClass.Striker = {
 	MaxAimActions = 2,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -22,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 8,
 	Grouping = 130,
 	BaseJamChance = -20,

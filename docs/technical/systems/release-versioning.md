@@ -29,10 +29,10 @@ Release tooling читает metadata через `git show <core-sha>:metadata.l
 | Поле | Когда меняется |
 |---|---|
 | `version_major` | Несовместимое поколение после стабилизации публичного контракта |
-| `version_minor` | Новый совместимый функционал; до `1.0` также breaking change. При **коммите** крупного/feature изменения пакета поднимать `version_minor` этого пакета на `+1` в том же change set |
-| `version` | Автоматический revision Mod Editor; новое третье число release tag; вручную при коммите не править |
+| `version_minor` | Только **большая фича**: несколько утверждённых спеков в одной волне/релизном срезе. Один спек / одиночный feature-коммит minor не двигает. До `1.0` breaking тоже через minor, но как волна, не каждый коммит |
+| `version` | Revision: Mod Editor поднимает при сохранении; при коммите без editor save — инкремент `+1` вручную. Третье число release tag |
 
-Для мелкого совместимого исправления major/minor пакета могут остаться прежними. Conventional Commits помогают классифицировать изменение и сформировать changelog, но не заменяют явный bump `version_minor` на крупном коммите. Агентское правило: `.cursor/rules/jazz-commits-versioning.mdc`.
+Обычный коммит пакета двигает Revision, не minor. Conventional Commits помогают changelog, но не заменяют правило bump. Агентское правило: `.cursor/rules/jazz-commits-versioning.mdc`.
 
 Поверхность совместимости включает saves, package IDs, dependencies/load order, Lua/API/IDs, generated data, межпакетные paths и структуру установки.
 
@@ -40,8 +40,8 @@ Release tooling читает metadata через `git show <core-sha>:metadata.l
 
 `metadata.lua` является generated data и изменяется через Mod Editor.
 
-1. `version_major`/`version_minor` менять только по классификации совместимости.
-2. `version`, `saved`, `code_hash` и generated arrays не редактировать вручную.
+1. `version_major`/`version_minor` менять только по классификации совместимости (minor — только мульти-spec волна).
+2. `saved`, `code_hash` и generated arrays не редактировать вручную ради версии; `version` (Revision) при коммите инкрементировать, если editor не поднял.
 3. Изменения `code`, dependencies, loctables, resources и registrations коммитить вместе с соответствующими файлами-владельцами.
 4. После сохранения сравнить `metadata.lua`, `items.lua` и отдельные generated definitions и удалить случайный editor noise.
 5. Не создавать необъяснённый metadata-only commit.

@@ -8860,45 +8860,45 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelLong",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelLong",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
-								"MagQuick",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
+								"JAZZ_MagQuick",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockNormal",
-								"StockHeavy",
-								"StockNo",
+								"JAZZ_StockNormal",
+								"JAZZ_StockHeavy",
+								"JAZZ_StockNo",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
 							},
 						}),
 												PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Compensator",
-								"Suppressor",
-								"ImprovisedSuppressor",
+								"JAZZ_Compensator",
+								"JAZZ_Suppressor",
+								"JAZZ_ImprovisedSuppressor",
 							},
 						}),
 					},
@@ -8947,50 +8947,50 @@ return {
 							'SlotType', "Under",
 							'AvailableComponents', {
 								"Handguard_Commando",
-								"VerticalGrip_Commando",
-								"GrenadeLauncher_Commando",
+								"JAZZ_VerticalGrip_Commando",
+								"JAZZ_GrenadeLauncher_Commando",
 							},
 							'DefaultComponent', "Handguard_Commando",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagNormalFine",
-								"MagLarge",
-								"MagLargeFine",
-								"MagQuick",
+								"JAZZ_MagNormal",
+								"JAZZ_MagNormalFine",
+								"JAZZ_MagLarge",
+								"JAZZ_MagLargeFine",
+								"JAZZ_MagQuick",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockNormal",
-								"StockLight",
+								"JAZZ_StockNormal",
+								"JAZZ_StockLight",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
 							},
 						}),
 												PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Compensator",
-								"MuzzleBooster",
-								"Suppressor",
-								"ImprovisedSuppressor",
+								"JAZZ_Compensator",
+								"JAZZ_MuzzleBooster",
+								"JAZZ_Suppressor",
+								"JAZZ_ImprovisedSuppressor",
 							},
-							'DefaultComponent', "Compensator",
+							'DefaultComponent', "JAZZ_Compensator",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -9033,33 +9033,33 @@ return {
 												PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
 							'AvailableComponents', {
-								"DefaultIronsight_AR15",
-								"ImprovedIronsight_AR15",
+								"JAZZ_DefaultIronsight_AR15",
+								"JAZZ_ImprovedIronsight_AR15",
 							},
-							'DefaultComponent', "DefaultIronsight_AR15",
+							'DefaultComponent', "JAZZ_DefaultIronsight_AR15",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagNormalFine",
-								"MagLarge",
-								"MagLargeFine",
-								"MagQuick",
+								"JAZZ_MagNormal",
+								"JAZZ_MagNormalFine",
+								"JAZZ_MagLarge",
+								"JAZZ_MagLargeFine",
+								"JAZZ_MagQuick",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelNormalImproved",
-								"BarrelShort",
-								"BarrelShortImproved",
-								"BarrelLong",
-								"BarrelLongImproved",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelNormalImproved",
+								"JAZZ_BarrelShort",
+								"JAZZ_BarrelShortImproved",
+								"JAZZ_BarrelLong",
+								"JAZZ_BarrelLongImproved",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
@@ -9074,31 +9074,31 @@ return {
 							'SlotType', "Under",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"GrenadeLauncher",
-								"VerticalGrip",
-								"TacGrip",
+								"JAZZ_GrenadeLauncher",
+								"JAZZ_VerticalGrip",
+								"JAZZ_TacGrip",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"FlashlightDot",
-								"LaserDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Compensator",
-								"ImprovisedSuppressor",
-								"Suppressor",
-								"MuzzleBooster",
+								"JAZZ_Compensator",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Suppressor",
+								"JAZZ_MuzzleBooster",
 							},
-							'DefaultComponent', "Compensator",
+							'DefaultComponent', "JAZZ_Compensator",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -15117,37 +15117,36 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"Suppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Suppressor",
 							},
-							'DefaultComponent', "su",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -15163,8 +15162,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', -2,
 					'BulletDropRange', 5,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 40,
 					'BaseJamChance', -20,
 					'WeaponResource', 350,
@@ -15201,9 +15203,9 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
@@ -15212,9 +15214,9 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -15230,8 +15232,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', -4,
 					'BulletDropRange', 8,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 55,
 					'BaseJamChance', -10,
 					'WeaponResource', 750,
@@ -15269,37 +15274,36 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"Suppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Suppressor",
 							},
-							'DefaultComponent', "su",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -15315,6 +15319,10 @@ return {
 					'Recoil', 1,
 					'AutoShots', 3,
 					'BulletDropRange', 5,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 88,
 					'BaseJamChance', -20,
 					'WeaponResource', 700,
@@ -15351,16 +15359,16 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -15376,8 +15384,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 10,
 					'BulletDropRange', 6,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 52,
 					'BaseJamChance', 10,
 					'WeaponResource', 400,
@@ -15415,37 +15426,36 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"Suppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Suppressor",
 							},
-							'DefaultComponent', "su",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -15461,8 +15471,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 4,
 					'BulletDropRange', 8,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 56,
 					'BaseJamChance', -20,
 					'WeaponResource', 650,
@@ -15500,22 +15513,22 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
+								"JAZZ_ImprovisedSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -15531,8 +15544,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 12,
 					'BulletDropRange', 6,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 72,
 					'BaseJamChance', -100,
 					'WeaponResource', 3000,
@@ -15568,50 +15584,50 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"PistolSuppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_PistolSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelLong",
-								"BarrelNormal",
+								"JAZZ_BarrelLong",
+								"JAZZ_BarrelNormal",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handgrip",
 							'AvailableComponents', {
-								"Handgrip_Default",
-								"Handgrip_Ergo",
+								"JAZZ_Handgrip_Default",
+								"JAZZ_Handgrip_Ergo",
 							},
-							'DefaultComponent', "Handgrip_Default",
+							'DefaultComponent', "JAZZ_Handgrip_Default",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
 							'AvailableComponents', {
-								"Jazz_IronSight",
-								"Jazz_IronSight_AIM",
+								"JAZZ_IronSight",
+								"JAZZ_IronSight_AIM",
 							},
-							'DefaultComponent', "Jazz_IronSight",
+							'DefaultComponent', "JAZZ_IronSight",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -15627,6 +15643,10 @@ return {
 					'Recoil', 1,
 					'AutoShots', 3,
 					'BulletDropRange', 6,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 62,
 					'BaseJamChance', -50,
 					'WeaponResource', 1200,
@@ -15664,33 +15684,33 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelShort_Pistol",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelShort_Pistol",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"PistolSuppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_PistolSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -15706,8 +15726,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 12,
 					'BulletDropRange', 6,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 56,
 					'BaseJamChance', -20,
 				}),
@@ -15743,28 +15766,28 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
+								"JAZZ_ImprovisedSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'AvailableComponents', {
-								"Flashlight",
+								"JAZZ_Flashlight",
 							},
 						}),
 					},
@@ -15781,8 +15804,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 7,
 					'BulletDropRange', 4,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 61,
 					'BaseJamChance', -10,
 					'WeaponResource', 1400,
@@ -15819,17 +15845,17 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"SuppressorIntegrated",
+								"JAZZ_SuppressorIntegrated",
 							},
-							'DefaultComponent', "SuppressorIntegrated",
+							'DefaultComponent', "JAZZ_SuppressorIntegrated",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -15845,8 +15871,11 @@ return {
 					'MaxAimActions', 4,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', -8,
 					'BulletDropRange', 4,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 82,
 					'BaseJamChance', -100,
 				}),
@@ -15884,16 +15913,16 @@ return {
 							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"SuppressorIntegrated",
+								"JAZZ_SuppressorIntegrated",
 							},
-							'DefaultComponent', "SuppressorIntegrated",
+							'DefaultComponent', "JAZZ_SuppressorIntegrated",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -15909,8 +15938,11 @@ return {
 					'MaxAimActions', 4,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', -4,
 					'BulletDropRange', 6,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 80,
 					'BaseJamChance', -100,
 					'WeaponResource', 3000,
@@ -15947,27 +15979,26 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"Suppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Suppressor",
 							},
-							'DefaultComponent', "su",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -15982,8 +16013,11 @@ return {
 					'ReloadAP', 3000,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 13,
 					'BulletDropRange', 7,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 60,
 					'BaseJamChance', -20,
 				}),
@@ -16020,37 +16054,36 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"Suppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Suppressor",
 							},
-							'DefaultComponent', "su",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -16066,8 +16099,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 2,
 					'BulletDropRange', 6,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 74,
 					'BaseJamChance', -20,
 				}),
@@ -16104,37 +16140,37 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"Compensator",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Compensator",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormalFine",
-								"MagNormal",
+								"JAZZ_MagNormalFine",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelNormalImproved",
-								"BarrelShort",
-								"BarrelShortImproved",
-								"BarrelLong",
-								"BarrelLongImproved",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelNormalImproved",
+								"JAZZ_BarrelShort",
+								"JAZZ_BarrelShortImproved",
+								"JAZZ_BarrelLong",
+								"JAZZ_BarrelLongImproved",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -16150,8 +16186,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 10,
 					'BulletDropRange', 7,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 70,
 					'BaseJamChance', -10,
 					'WeaponResource', 1400,
@@ -16188,40 +16227,40 @@ return {
 							'SlotType', "Barrel",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"BarrelsDefs",
+								"JAZZ_BarrelsDefs",
 							},
-							'DefaultComponent', "BarrelsDefs",
+							'DefaultComponent', "JAZZ_BarrelsDefs",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"PistolSuppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_PistolSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'AvailableComponents', {
-								"LaserDot",
-								"Flashlight",
-								"FlashlightDot",
-								"UVDot",
+								"JAZZ_LaserDot",
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -16237,8 +16276,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 8,
 					'BulletDropRange', 7,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 68,
 					'BaseJamChance', -20,
 					'WeaponResource', 1800,
@@ -16275,27 +16317,26 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"Suppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Suppressor",
 							},
-							'DefaultComponent', "su",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -16310,8 +16351,11 @@ return {
 					'ReloadAP', 4000,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 6,
 					'BulletDropRange', 7,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 72,
 					'BaseJamChance', -20,
 					'WeaponResource', 1500,
@@ -16348,42 +16392,42 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"PistolSuppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_PistolSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagLarge",
-								"MagNormal",
+								"JAZZ_MagLarge",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"BarrelLong",
-								"BarrelNormal",
+								"JAZZ_BarrelLong",
+								"JAZZ_BarrelNormal",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -16399,8 +16443,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 12,
 					'BulletDropRange', 7,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 70,
 					'BaseJamChance', -10,
 					'WeaponResource', 1300,
@@ -16438,35 +16485,35 @@ return {
 												PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelNormal",
-								"Barrel50BMG_DesertEagle",
+								"JAZZ_BarrelNormal",
+								"JAZZ_Barrel50BMG_DesertEagle",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Suppressor",
+								"JAZZ_Suppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"FlashlightDot",
-								"Flashlight",
-								"LaserDot",
-								"UVDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
 							},
 						}),
 					},
@@ -16482,8 +16529,11 @@ return {
 					'ReloadAP', 4000,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', -12,
 					'BulletDropRange', 8,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 74,
 					'WeaponResource', 700,
 					'CanAppearUsed', false,
@@ -16520,46 +16570,46 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"PistolSuppressor",
+								"JAZZ_PistolSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_7_10",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge_7_10",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelLong",
-								"BarrelNormal",
+								"JAZZ_BarrelLong",
+								"JAZZ_BarrelNormal",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
 							'AvailableComponents', {
-								"Jazz_IronSight",
+								"JAZZ_IronSight",
 								"JAZZ_Reflex_Pistol",
 							},
-							'DefaultComponent', "Jazz_IronSight",
+							'DefaultComponent', "JAZZ_IronSight",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
 							},
 						}),
 					},
@@ -16576,8 +16626,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 8,
 					'BulletDropRange', 6,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 80,
 					'BaseJamChance', -10,
 					'WeaponResource', 1400,
@@ -16615,16 +16668,16 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"PistolSuppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_PistolSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -16637,18 +16690,18 @@ return {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"UVDot",
-								"FlashlightDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
+								"JAZZ_FlashlightDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -16663,8 +16716,11 @@ return {
 					'ReloadAP', 4000,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 20,
 					'BulletDropRange', 8,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 88,
 					'BaseJamChance', -20,
 					'WeaponResource', 2000,
@@ -16712,8 +16768,11 @@ return {
 					'ReloadAP', 4000,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', -4,
 					'BulletDropRange', 7,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 78,
 					'WeaponResource', 800,
 					'CanAppearUsed', false,
@@ -16751,36 +16810,36 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"PistolSuppressor",
-								"Compensator",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_PistolSuppressor",
+								"JAZZ_Compensator",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagLarge",
-								"MagNormal",
-								"MagNormalG18",
+								"JAZZ_MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagNormalG18",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -16797,8 +16856,11 @@ return {
 					'Recoil', 9,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', 22,
 					'BulletDropRange', 8,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 75,
 					'BaseJamChance', -20,
 					'WeaponResource', 2400,
@@ -16835,43 +16897,43 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_8_10",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge_8_10",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"PistolSuppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_PistolSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"UVDot",
-								"FlashlightDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
+								"JAZZ_FlashlightDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
 							'AvailableComponents', {
-								"Jazz_IronSight",
+								"JAZZ_IronSight",
 								"JAZZ_Reflex_Pistol",
 							},
-							'DefaultComponent', "Jazz_IronSight",
+							'DefaultComponent', "JAZZ_IronSight",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -16887,8 +16949,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 16,
 					'BulletDropRange', 6,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 82,
 					'BaseJamChance', -20,
 					'WeaponResource', 1800,
@@ -16924,61 +16989,61 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_18_20",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge_18_20",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"PistolSuppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_PistolSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelShort_Pistol",
-								"BarrelNormal",
+								"JAZZ_BarrelShort_Pistol",
+								"JAZZ_BarrelNormal",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handgrip",
 							'AvailableComponents', {
-								"Handgrip_Default",
-								"Handgrip_Ergo",
+								"JAZZ_Handgrip_Default",
+								"JAZZ_Handgrip_Ergo",
 							},
-							'DefaultComponent', "Handgrip_Default",
+							'DefaultComponent', "JAZZ_Handgrip_Default",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
 							'AvailableComponents', {
-								"Jazz_IronSight",
-								"Jazz_IronSight_AIM",
-								"Jazz_IronSight_FAST",
-								"Jazz_IronSight_NIGHT",
+								"JAZZ_IronSight",
+								"JAZZ_IronSight_AIM",
+								"JAZZ_IronSight_FAST",
+								"JAZZ_IronSight_NIGHT",
 								"JAZZ_Reflex_Pistol",
 							},
-							'DefaultComponent', "Jazz_IronSight",
+							'DefaultComponent', "JAZZ_IronSight",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"UVDot",
-								"FlashlightDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
+								"JAZZ_FlashlightDot",
 							},
 						}),
 					},
@@ -16995,8 +17060,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 12,
 					'BulletDropRange', 7,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 70,
 					'BaseJamChance', -100,
 					'WeaponResource', 3200,
@@ -17035,26 +17103,26 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"PistolSuppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_PistolSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"UVDot",
-								"FlashlightDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
+								"JAZZ_FlashlightDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -17069,8 +17137,11 @@ return {
 					'ReloadAP', 3000,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 8,
 					'BulletDropRange', 10,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 45,
 					'BaseJamChance', -20,
 					'WeaponResource', 1800,
@@ -17111,24 +17182,24 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
 							},
-							'DefaultComponent', "StockLightFolded",
+							'DefaultComponent', "JAZZ_StockLightFolded",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -17146,8 +17217,11 @@ return {
 					'Recoil', 4,
 					'BurstShots', 4,
 					'AutoShots', 8,
-					'Handling', 15,
 					'BulletDropRange', 6,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 50,
 					'WeaponResource', 2000,
 				}),
@@ -17183,27 +17257,27 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelNormalImproved",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelNormalImproved",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_20_30",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge_20_30",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -17220,16 +17294,16 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Compensator",
-								"PistolSuppressor",
+								"JAZZ_Compensator",
+								"JAZZ_PistolSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -17247,8 +17321,11 @@ return {
 					'Recoil', 7,
 					'BurstShots', 6,
 					'AutoShots', 12,
-					'Handling', 10,
 					'BulletDropRange', 6,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 55,
 					'BaseJamChance', -10,
 					'WeaponResource', 2500,
@@ -17287,25 +17364,25 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"PistolSuppressor",
-								"Compensator",
+								"JAZZ_PistolSuppressor",
+								"JAZZ_Compensator",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightUnFolded",
-								"StockLightFolded",
+								"JAZZ_StockLightUnFolded",
+								"JAZZ_StockLightFolded",
 							},
-							'DefaultComponent', "StockLightFolded",
+							'DefaultComponent', "JAZZ_StockLightFolded",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -17322,8 +17399,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 9,
 					'BurstShots', 5,
-					'Handling', 9,
 					'BulletDropRange', 6,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 72,
 					'BaseJamChance', -20,
 					'WeaponResource', 2700,
@@ -17361,27 +17441,26 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"Suppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Suppressor",
 							},
-							'DefaultComponent', "su",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -17397,8 +17476,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 1,
 					'AutoShots', 9,
-					'Handling', 14,
 					'BulletDropRange', 6,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 65,
 					'BaseJamChance', -20,
 				}),
@@ -17435,32 +17517,32 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"PistolSuppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_PistolSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelNormal_Sil",
-								"BarrelNormal_noSil",
+								"JAZZ_BarrelNormal_Sil",
+								"JAZZ_BarrelNormal_noSil",
 							},
-							'DefaultComponent', "BarrelNormal_noSil",
+							'DefaultComponent', "JAZZ_BarrelNormal_noSil",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -17476,8 +17558,11 @@ return {
 					'Recoil', 5,
 					'BurstShots', 6,
 					'AutoShots', 6,
-					'Handling', 8,
 					'BulletDropRange', 6,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 72,
 					'BaseJamChance', -20,
 					'WeaponResource', 2500,
@@ -17515,9 +17600,9 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"PistolSuppressor",
-								"Compensator",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_PistolSuppressor",
+								"JAZZ_Compensator",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -17531,28 +17616,28 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagLarge_17_33",
-								"MagNormal",
-								"MagNormalG18",
+								"JAZZ_MagLarge_17_33",
+								"JAZZ_MagNormal",
+								"JAZZ_MagNormalG18",
 							},
-							'DefaultComponent', "MagNormalG18",
+							'DefaultComponent', "JAZZ_MagNormalG18",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -17569,8 +17654,11 @@ return {
 					'Recoil', 9,
 					'BurstShots', 4,
 					'AutoShots', 12,
-					'Handling', 22,
 					'BulletDropRange', 8,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 72,
 					'WeaponResource', 1500,
 					'CanAppearUsed', false,
@@ -17610,26 +17698,26 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelShort_Pistol",
-								"BarrelNormal",
+								"JAZZ_BarrelShort_Pistol",
+								"JAZZ_BarrelNormal",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
 							},
 						}),
 					},
@@ -17645,8 +17733,11 @@ return {
 					'ReloadAP', 5000,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', -12,
 					'BulletDropRange', 5,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 50,
 					'BaseJamChance', -100,
 				}),
@@ -17681,17 +17772,17 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelShort_Pistol",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelShort_Pistol",
 							},
-							'DefaultComponent', "BarrelShort_Pistol",
+							'DefaultComponent', "JAZZ_BarrelShort_Pistol",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -17705,8 +17796,11 @@ return {
 					'ReloadAP', 5000,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', -4,
 					'BulletDropRange', 5,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 59,
 					'BaseJamChance', -100,
 				}),
@@ -17741,17 +17835,17 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelShort",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelShort",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -17765,8 +17859,11 @@ return {
 					'ReloadAP', 5000,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', -5,
 					'BulletDropRange', 6,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 28,
 					'BaseJamChance', -100,
 					'WeaponResource', 3000,
@@ -17802,9 +17899,9 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -17818,8 +17915,11 @@ return {
 					'ReloadAP', 5000,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', -3,
 					'BulletDropRange', 5,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 78,
 					'BaseJamChance', -100,
 				}),
@@ -17854,27 +17954,27 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelLong",
-								"BarrelNormal",
-								"BarrelShort_Pistol",
+								"JAZZ_BarrelLong",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelShort_Pistol",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
 							},
 						}),
 					},
@@ -17891,6 +17991,10 @@ return {
 					'Recoil', 1,
 					'AutoShots', 3,
 					'BulletDropRange', 6,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 36,
 					'BaseJamChance', -100,
 				}),
@@ -17925,17 +18029,17 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelLong",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelLong",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -17949,8 +18053,11 @@ return {
 					'ReloadAP', 4000,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 6,
 					'BulletDropRange', 4,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 88,
 					'BaseJamChance', -100,
 				}),
@@ -17985,25 +18092,25 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelLong",
-								"BarrelNormal",
+								"JAZZ_BarrelLong",
+								"JAZZ_BarrelNormal",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handgrip",
 							'AvailableComponents', {
-								"Handgrip_Default",
-								"Handgrip_Ergo",
+								"JAZZ_Handgrip_Default",
+								"JAZZ_Handgrip_Ergo",
 							},
-							'DefaultComponent', "Handgrip_Default",
+							'DefaultComponent', "JAZZ_Handgrip_Default",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -18017,8 +18124,11 @@ return {
 					'ReloadAP', 5000,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 7,
 					'BulletDropRange', 7,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 45,
 					'BaseJamChance', -100,
 				}),
@@ -18053,26 +18163,26 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelShort_Pistol",
-								"BarrelNormal",
+								"JAZZ_BarrelShort_Pistol",
+								"JAZZ_BarrelNormal",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
 							},
 						}),
 					},
@@ -18088,8 +18198,11 @@ return {
 					'ReloadAP', 5000,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 5,
 					'BulletDropRange', 7,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 68,
 					'BaseJamChance', -100,
 				}),
@@ -18124,28 +18237,28 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelShort",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelShort",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 												PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
 							'AvailableComponents', {
-								"BaseIronsight_Anaconda",
-								"ImprovedIronsight",
-								"LaserDot_Anaconda",
-								"FlashlightDot_Anaconda",
-								"UVDot_Anaconda",
+								"JAZZ_BaseIronsight_Anaconda",
+								"JAZZ_ImprovedIronsight",
+								"JAZZ_LaserDot_Anaconda",
+								"JAZZ_FlashlightDot_Anaconda",
+								"JAZZ_UVDot_Anaconda",
 							},
-							'DefaultComponent', "BaseIronsight_Anaconda",
+							'DefaultComponent', "JAZZ_BaseIronsight_Anaconda",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -18160,6 +18273,10 @@ return {
 					'Recoil', 1,
 					'AutoShots', 3,
 					'BulletDropRange', 8,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 70,
 					'BaseJamChance', -100,
 					'WeaponResource', 3500,
@@ -18196,18 +18313,18 @@ return {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"UVDot",
-								"FlashlightDot",
-								"LaserDot",
+								"JAZZ_Flashlight",
+								"JAZZ_UVDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -18221,8 +18338,11 @@ return {
 					'ReloadAP', 5000,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', -5,
 					'BulletDropRange', 10,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 88,
 					'BaseJamChance', -50,
 					'WeaponResource', 3500,
@@ -18258,25 +18378,25 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelLong",
-								"BarrelNormal",
+								"JAZZ_BarrelLong",
+								"JAZZ_BarrelNormal",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handgrip",
 							'AvailableComponents', {
-								"Handgrip_Default",
-								"Handgrip_Ergo",
+								"JAZZ_Handgrip_Default",
+								"JAZZ_Handgrip_Ergo",
 							},
-							'DefaultComponent', "Handgrip_Default",
+							'DefaultComponent', "JAZZ_Handgrip_Default",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -18291,8 +18411,11 @@ return {
 					'MaxAimActions', 4,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 12,
 					'BulletDropRange', 7,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 55,
 					'BaseJamChance', -100,
 				}),
@@ -18327,9 +18450,9 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -18343,8 +18466,11 @@ return {
 					'ReloadAP', 5000,
 					'Recoil', 1,
 					'AutoShots', 3,
-					'Handling', 12,
 					'BulletDropRange', 7,
+
+					'CloseRange', 0,
+
+					'CloseRangeFactor', 100,
 					'Grouping', 70,
 					'BaseJamChance', -100,
 					'WeaponResource', 50000,
@@ -18386,18 +18512,18 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -18412,8 +18538,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 5,
 					'AutoShots', 6,
-					'Handling', -5,
 					'BulletDropRange', 8,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 28,
 					'BaseJamChance', 50,
 					'WeaponResource', 1200,
@@ -18451,10 +18580,10 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -18470,8 +18599,11 @@ return {
 					'Recoil', 4,
 					'BurstShots', 2,
 					'AutoShots', 5,
-					'Handling', -8,
 					'BulletDropRange', 9,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 32,
 					'BaseJamChance', 30,
 					'WeaponResource', 1600,
@@ -18511,10 +18643,10 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -18531,8 +18663,11 @@ return {
 					'Recoil', 8,
 					'BurstShots', 2,
 					'AutoShots', 5,
-					'Handling', -10,
 					'BulletDropRange', 8,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 75,
 					'WeaponResource', 4200,
 				}),
@@ -18570,10 +18705,10 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -18590,8 +18725,11 @@ return {
 					'Recoil', 3,
 					'BurstShots', 4,
 					'AutoShots', 7,
-					'Handling', -2,
 					'BulletDropRange', 9,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 34,
 					'BaseJamChance', -20,
 					'WeaponResource', 3200,
@@ -18631,10 +18769,10 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagDrum_30-50",
+								"JAZZ_MagNormal",
+								"JAZZ_MagDrum_30-50",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -18650,8 +18788,11 @@ return {
 					'Recoil', 8,
 					'BurstShots', 4,
 					'AutoShots', 8,
-					'Handling', -8,
 					'BulletDropRange', 8,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 75,
 					'WeaponResource', 1800,
 				}),
@@ -18692,10 +18833,10 @@ return {
 							'SlotType', "Stock",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -18712,8 +18853,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 7,
 					'AutoShots', 7,
-					'Handling', -5,
 					'BulletDropRange', 12,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 29,
 					'BaseJamChance', -10,
 					'WeaponResource', 4800,
@@ -18752,10 +18896,10 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagDrum_35-71",
+								"JAZZ_MagNormal",
+								"JAZZ_MagDrum_35-71",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -18772,8 +18916,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 6,
 					'BurstShots', 5,
-					'Handling', -7,
 					'BulletDropRange', 11,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 26,
 					'WeaponResource', 6200,
 				}),
@@ -18811,17 +18958,17 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -18838,6 +18985,10 @@ return {
 					'BurstShots', 2,
 					'AutoShots', 6,
 					'BulletDropRange', 10,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 40,
 					'BaseJamChance', -10,
 					'WeaponResource', 4000,
@@ -18876,17 +19027,17 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightUnFolded",
-								"StockLightFolded",
+								"JAZZ_StockLightUnFolded",
+								"JAZZ_StockLightFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -18900,8 +19051,11 @@ return {
 					'ReloadAP', 4000,
 					'Recoil', 4,
 					'AutoShots', 6,
-					'Handling', 6,
 					'BulletDropRange', 12,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 55,
 					'BaseJamChance', -20,
 					'WeaponResource', 3800,
@@ -18940,15 +19094,15 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"PistolSuppressor",
+								"JAZZ_PistolSuppressor",
 							},
 						}),
 					},
@@ -18966,8 +19120,11 @@ return {
 					'Recoil', 6,
 					'BurstShots', 4,
 					'AutoShots', 8,
-					'Handling', 18,
 					'BulletDropRange', 9,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 70,
 					'BaseJamChance', -10,
 					'WeaponResource', 1500,
@@ -19006,10 +19163,10 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagDrum_30-50",
+								"JAZZ_MagNormal",
+								"JAZZ_MagDrum_30-50",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -19025,18 +19182,18 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"PistolSuppressor",
-								"Compensator",
+								"JAZZ_PistolSuppressor",
+								"JAZZ_Compensator",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightUnFolded",
-								"StockLightFolded",
-								"StockNormal",
+								"JAZZ_StockLightUnFolded",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockNormal",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 					},
 					'Color', "Black",
@@ -19052,8 +19209,11 @@ return {
 					'ReloadAP', 4000,
 					'Recoil', 4,
 					'AutoShots', 6,
-					'Handling', 9,
 					'BulletDropRange', 10,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 50,
 					'BaseJamChance', -20,
 					'WeaponResource', 3600,
@@ -19092,25 +19252,25 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"PistolSuppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_PistolSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightUnFolded",
-								"StockLightFolded",
+								"JAZZ_StockLightUnFolded",
+								"JAZZ_StockLightFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -19126,8 +19286,11 @@ return {
 					'Recoil', 3,
 					'BurstShots', 2,
 					'AutoShots', 6,
-					'Handling', -8,
 					'BulletDropRange', 10,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 65,
 					'BaseJamChance', -30,
 					'WeaponResource', 4500,
@@ -19166,9 +19329,9 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -19185,8 +19348,11 @@ return {
 					'Recoil', 5,
 					'BurstShots', 4,
 					'AutoShots', 9,
-					'Handling', 16,
 					'BulletDropRange', 10,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 68,
 					'BaseJamChance', -20,
 					'WeaponResource', 3000,
@@ -19226,10 +19392,10 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -19256,8 +19422,11 @@ return {
 					'Recoil', 2,
 					'BurstShots', 4,
 					'AutoShots', 12,
-					'Handling', 12,
 					'BulletDropRange', 9,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 60,
 					'BaseJamChance', -30,
 					'WeaponResource', 6000,
@@ -19295,42 +19464,42 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'AvailableComponents', {
-								"VerticalGrip",
+								"JAZZ_VerticalGrip",
 							},
-							'DefaultComponent', "VerticalGrip",
+							'DefaultComponent', "JAZZ_VerticalGrip",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelShort",
+								"JAZZ_BarrelShort",
 							},
-							'DefaultComponent', "BarrelShort",
+							'DefaultComponent', "JAZZ_BarrelShort",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagSmall30_15",
+								"JAZZ_MagNormal",
+								"JAZZ_MagSmall30_15",
 							},
-							'DefaultComponent', "MagSmall30_15",
+							'DefaultComponent', "JAZZ_MagSmall30_15",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockNormal",
-								"StockHeavy",
-								"StockNo",
+								"JAZZ_StockNormal",
+								"JAZZ_StockHeavy",
+								"JAZZ_StockNo",
 							},
-							'DefaultComponent', "StockNo",
+							'DefaultComponent', "JAZZ_StockNo",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -19351,17 +19520,17 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Compensator",
-								"PistolSuppressor",
-								"ImprovisedSuppressor",
+								"JAZZ_Compensator",
+								"JAZZ_PistolSuppressor",
+								"JAZZ_ImprovisedSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Freeswap",
 							'AvailableComponents', {
-								"Freeswap",
+								"JAZZ_Freeswap",
 							},
-							'DefaultComponent', "Freeswap",
+							'DefaultComponent', "JAZZ_Freeswap",
 						}),
 					},
 					'HolsterSlot', "Leg",
@@ -19378,8 +19547,11 @@ return {
 					'Recoil', 7,
 					'BurstShots', 4,
 					'AutoShots', 9,
-					'Handling', 16,
 					'BulletDropRange', 8,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 78,
 					'BaseJamChance', -30,
 					'WeaponResource', 4500,
@@ -19419,10 +19591,10 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagSmall30_15",
+								"JAZZ_MagNormal",
+								"JAZZ_MagSmall30_15",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -19442,7 +19614,7 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"PistolSuppressor",
+								"JAZZ_PistolSuppressor",
 							},
 						}),
 					},
@@ -19460,6 +19632,10 @@ return {
 					'BurstShots', 4,
 					'AutoShots', 8,
 					'BulletDropRange', 10,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 62,
 					'BaseJamChance', -30,
 					'WeaponResource', 5000,
@@ -19500,23 +19676,23 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagSmall30_15",
-								"MagNormal",
+								"JAZZ_MagSmall30_15",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagSmall30_15",
+							'DefaultComponent', "JAZZ_MagSmall30_15",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "General",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"HolsterBelt",
+								"JAZZ_HolsterBelt",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"PistolSuppressor",
+								"JAZZ_PistolSuppressor",
 							},
 						}),
 					},
@@ -19534,8 +19710,11 @@ return {
 					'Recoil', 6,
 					'BurstShots', 5,
 					'AutoShots', 9,
-					'Handling', 18,
 					'BulletDropRange', 10,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 85,
 					'BaseJamChance', -30,
 					'WeaponResource', 8500,
@@ -19574,10 +19753,10 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagSmall30_15",
+								"JAZZ_MagNormal",
+								"JAZZ_MagSmall30_15",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -19597,25 +19776,25 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"PistolSuppressor",
+								"JAZZ_PistolSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
-								"StockNormal",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
+								"JAZZ_StockNormal",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
+								"JAZZ_Flashlight",
 							},
-							'DefaultComponent', "Flashlight",
+							'DefaultComponent', "JAZZ_Flashlight",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -19631,6 +19810,10 @@ return {
 					'Recoil', 3,
 					'AutoShots', 8,
 					'BulletDropRange', 10,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 72,
 					'BaseJamChance', -30,
 					'WeaponResource', 5500,
@@ -19672,36 +19855,36 @@ return {
 							'SlotType', "Under",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"VerticalGrip",
-								"TacGrip",
+								"JAZZ_VerticalGrip",
+								"JAZZ_TacGrip",
 							},
-							'DefaultComponent', "VerticalGrip",
+							'DefaultComponent', "JAZZ_VerticalGrip",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -19720,9 +19903,9 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Compensator",
-								"ImprovisedSuppressor",
-								"PistolSuppressor",
+								"JAZZ_Compensator",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_PistolSuppressor",
 							},
 						}),
 					},
@@ -19739,8 +19922,11 @@ return {
 					'Recoil', 7,
 					'BurstShots', 2,
 					'AutoShots', 6,
-					'Handling', 9,
 					'BulletDropRange', 9,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 70,
 					'BaseJamChance', -30,
 					'WeaponResource', 6000,
@@ -19781,10 +19967,10 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagSmall30_15",
+								"JAZZ_MagNormal",
+								"JAZZ_MagSmall30_15",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 												PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -19803,19 +19989,19 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockNormal",
-								"StockLightFolded",
-								"StockLightUnFolded",
+								"JAZZ_StockNormal",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"SuppressorIntegrated",
+								"JAZZ_SuppressorIntegrated",
 							},
-							'DefaultComponent', "SuppressorIntegrated",
+							'DefaultComponent', "JAZZ_SuppressorIntegrated",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -19830,8 +20016,11 @@ return {
 					'ReloadAP', 4000,
 					'Recoil', 3,
 					'AutoShots', 8,
-					'Handling', -2,
 					'BulletDropRange', 11,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 70,
 					'BaseJamChance', -30,
 					'WeaponResource', 4500,
@@ -19876,26 +20065,26 @@ return {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"FlashlightDot",
-								"LaserDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"PistolSuppressor",
-								"ImprovisedSuppressor",
+								"JAZZ_PistolSuppressor",
+								"JAZZ_ImprovisedSuppressor",
 							},
 						}),
 					},
@@ -19912,8 +20101,11 @@ return {
 					'Recoil', 7,
 					'BurstShots', 5,
 					'AutoShots', 12,
-					'Handling', 5,
 					'BulletDropRange', 14,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 50,
 					'BaseJamChance', -30,
 					'WeaponResource', 9500,
@@ -19955,18 +20147,18 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'AvailableComponents', {
-								"VerticalGrip",
-								"VerticalGripFld",
+								"JAZZ_VerticalGrip",
+								"JAZZ_VerticalGripFld",
 							},
-							'DefaultComponent', "VerticalGripFld",
+							'DefaultComponent', "JAZZ_VerticalGripFld",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightUnFolded",
-								"StockLightFolded",
+								"JAZZ_StockLightUnFolded",
+								"JAZZ_StockLightFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -19979,15 +20171,15 @@ return {
 								"JAZZ_Reflex_Open",
 								"JAZZ_CombatScope_2x",
 								"JAZZ_CombatScope_ACOG",
-								"DefaultIronsight_AR15",
+								"JAZZ_DefaultIronsight_AR15",
 							},
-							'DefaultComponent', "DefaultIronsight_AR15",
+							'DefaultComponent', "JAZZ_DefaultIronsight_AR15",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"PistolSuppressor",
+								"JAZZ_PistolSuppressor",
 							},
 						}),
 					},
@@ -20004,8 +20196,11 @@ return {
 					'MaxAimActions', 2,
 					'Recoil', 6,
 					'BurstShots', 5,
-					'Handling', 12,
 					'BulletDropRange', 12,
+
+					'CloseRange', 2,
+
+					'CloseRangeFactor', 95,
 					'Grouping', 72,
 					'BaseJamChance', -30,
 					'WeaponResource', 8000,
@@ -20047,17 +20242,17 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelLong",
-								"BarrelNormal",
+								"JAZZ_BarrelLong",
+								"JAZZ_BarrelNormal",
 								"BarrelShort_Winchester",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
+								"JAZZ_ImprovisedSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -20074,9 +20269,9 @@ return {
 								"JAZZ_Scope_6x",
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
-								"ImprovedIronsight",
+								"JAZZ_ImprovedIronsight",
 							},
-							'DefaultComponent', "ImprovedIronsight",
+							'DefaultComponent', "JAZZ_ImprovedIronsight",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -20090,8 +20285,11 @@ return {
 					'ReloadAP', 8000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -15,
 					'BulletDropRange', 10,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 83,
 					'BaseJamChance', -100,
 					'WeaponResource', 3000,
@@ -20128,20 +20326,20 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
-								"StockNo",
-								"StockNormal",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
+								"JAZZ_StockNo",
+								"JAZZ_StockNormal",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagSmall30_15",
+								"JAZZ_MagNormal",
+								"JAZZ_MagSmall30_15",
 							},
-							'DefaultComponent', "MagSmall30_15",
+							'DefaultComponent', "JAZZ_MagSmall30_15",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -20155,14 +20353,14 @@ return {
 							'SlotType', "Trigger",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Autofire",
+								"JAZZ_Autofire",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"FlashHider",
+								"JAZZ_FlashHider",
 							},
 						}),
 					},
@@ -20177,8 +20375,11 @@ return {
 					'Recoil', 10,
 					'BurstShots', 2,
 					'AutoShots', 7,
-					'Handling', -10,
 					'BulletDropRange', 12,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 53,
 					'BaseJamChance', -100,
 					'WeaponResource', 3000,
@@ -20228,17 +20429,17 @@ return {
 								"JAZZ_Scope_6x",
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
-								"Jazz_IronSight",
+								"JAZZ_IronSight",
 							},
-							'DefaultComponent', "Jazz_IronSight",
+							'DefaultComponent', "JAZZ_IronSight",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"SuppressorIntegrated",
+								"JAZZ_SuppressorIntegrated",
 							},
-							'DefaultComponent', "SuppressorIntegrated",
+							'DefaultComponent', "JAZZ_SuppressorIntegrated",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -20253,8 +20454,11 @@ return {
 					'MaxAimActions', 4,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -18,
 					'BulletDropRange', 9,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 61,
 					'BaseJamChance', -10,
 					'WeaponResource', 6000,
@@ -20293,26 +20497,26 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelShort",
-								"BarrelNormal",
+								"JAZZ_BarrelShort",
+								"JAZZ_BarrelNormal",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_20_30",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge_20_30",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -20341,8 +20545,11 @@ return {
 					'ReloadAP', 6000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -5,
 					'BulletDropRange', 16,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 61,
 					'BaseJamChance', -10,
 					'WeaponResource', 6000,
@@ -20382,26 +20589,26 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
+								"JAZZ_ImprovisedSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_30_40",
-								"MagDrum_30-75",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge_30_40",
+								"JAZZ_MagDrum_30-75",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"StockLightUnFolded",
-								"StockLightFolded",
+								"JAZZ_StockLightUnFolded",
+								"JAZZ_StockLightFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -20416,8 +20623,11 @@ return {
 					'ReloadAP', 5000,
 					'Recoil', 18,
 					'AutoShots', 6,
-					'Handling', 6,
 					'BulletDropRange', 12,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 53,
 					'BaseJamChance', -20,
 					'WeaponResource', 5000,
@@ -20457,15 +20667,15 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagSmall30_20",
+								"JAZZ_MagNormal",
+								"JAZZ_MagSmall30_20",
 							},
-							'DefaultComponent', "MagSmall30_20",
+							'DefaultComponent', "JAZZ_MagSmall30_20",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'AvailableComponents', {
-								"Flashlight",
+								"JAZZ_Flashlight",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -20489,19 +20699,19 @@ return {
 							'SlotType', "Stock",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"StockLightUnFolded",
-								"StockLightFolded",
+								"JAZZ_StockLightUnFolded",
+								"JAZZ_StockLightFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'AvailableComponents', {
-								"DefMuzzle",
-								"Suppressor",
-								"SuppressorImproved",
+								"JAZZ_DefMuzzle",
+								"JAZZ_Suppressor",
+								"JAZZ_SuppressorImproved",
 							},
-							'DefaultComponent', "DefMuzzle",
+							'DefaultComponent', "JAZZ_DefMuzzle",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -20517,8 +20727,11 @@ return {
 					'Recoil', 12,
 					'BurstShots', 4,
 					'AutoShots', 8,
-					'Handling', 4,
 					'BulletDropRange', 14,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 55,
 					'WeaponResource', 4000,
 				}),
@@ -20558,44 +20771,44 @@ return {
 							'SlotType', "Barrel",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"BarrelNormal",
+								"JAZZ_BarrelNormal",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handguard",
 							'AvailableComponents', {
 								"AKSU_Hanguard_Basic",
-								"AKSU_VerticalGrip",
+								"JAZZ_AKSU_VerticalGrip",
 							},
 							'DefaultComponent', "AKSU_Hanguard_Basic",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_30_45",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge_30_45",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Compensator",
-								"ImprovisedSuppressor",
+								"JAZZ_Compensator",
+								"JAZZ_ImprovisedSuppressor",
 							},
-							'DefaultComponent', "Compensator",
+							'DefaultComponent', "JAZZ_Compensator",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -20611,6 +20824,10 @@ return {
 					'Recoil', 14,
 					'AutoShots', 6,
 					'BulletDropRange', 13,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 53,
 					'BaseJamChance', -50,
 					'WeaponResource', 8500,
@@ -20651,7 +20868,7 @@ return {
 							'CanBeEmpty', true,
 							'AvailableComponents', {
 								"JAZZ_Reflex_Aimpoint5000",
-								"Jazz_IronSight",
+								"JAZZ_IronSight",
 								"JAZZ_Reflex_Closed",
 								"JAZZ_Reflex_Eotech",
 								"JAZZ_Reflex_M68",
@@ -20662,51 +20879,51 @@ return {
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
 							},
-							'DefaultComponent', "Jazz_IronSight",
+							'DefaultComponent', "JAZZ_IronSight",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagSmall30_20",
+								"JAZZ_MagNormal",
+								"JAZZ_MagSmall30_20",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightUnFolded",
-								"StockLightFolded",
+								"JAZZ_StockLightUnFolded",
+								"JAZZ_StockLightFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"GrenadeLauncher",
-								"VerticalGrip",
-								"TacGrip",
+								"JAZZ_GrenadeLauncher",
+								"JAZZ_VerticalGrip",
+								"JAZZ_TacGrip",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"FlashlightDot",
-								"LaserDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Compensator",
-								"ImprovisedSuppressor",
-								"Suppressor",
-								"SuppressorImproved",
+								"JAZZ_Compensator",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Suppressor",
+								"JAZZ_SuppressorImproved",
 							},
 						}),
 					},
@@ -20723,8 +20940,11 @@ return {
 					'Recoil', 10,
 					'BurstShots', 4,
 					'AutoShots', 8,
-					'Handling', 2,
 					'BulletDropRange', 15,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 57,
 					'BaseJamChance', -10,
 					'WeaponResource', 8000,
@@ -20781,48 +21001,48 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'AvailableComponents', {
-								"DefMuzzle",
-								"ImprovisedSuppressor",
-								"SuppressorImproved",
+								"JAZZ_DefMuzzle",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_SuppressorImproved",
 							},
-							'DefaultComponent', "DefMuzzle",
+							'DefaultComponent', "JAZZ_DefMuzzle",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"TacGrip",
-								"VerticalGrip",
-								"GrenadeLauncher_M14",
+								"JAZZ_TacGrip",
+								"JAZZ_VerticalGrip",
+								"JAZZ_GrenadeLauncher_M14",
 							},
-							'DefaultComponent', "TacGrip",
+							'DefaultComponent', "JAZZ_TacGrip",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"FlashlightDot",
-								"LaserDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
 							},
-							'DefaultComponent', "LaserDot",
+							'DefaultComponent', "JAZZ_LaserDot",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightUnFolded",
-								"StockLightFolded",
+								"JAZZ_StockLightUnFolded",
+								"JAZZ_StockLightFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 					},
 					'Color', "Black",
@@ -20838,8 +21058,11 @@ return {
 					'ReloadAP', 6000,
 					'Recoil', 12,
 					'AutoShots', 8,
-					'Handling', 6,
 					'BulletDropRange', 14,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 63,
 					'BaseJamChance', -15,
 					'WeaponResource', 6500,
@@ -20879,10 +21102,10 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_10_20",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge_10_20",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -20917,8 +21140,11 @@ return {
 					'ReloadAP', 6000,
 					'Recoil', 12,
 					'AutoShots', 9,
-					'Handling', -5,
 					'BulletDropRange', 13,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 62,
 					'BaseJamChance', -30,
 					'WeaponResource', 3000,
@@ -20976,43 +21202,43 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handguard",
 							'AvailableComponents', {
-								"SigDefHandGuard",
-								"SigErgoHandGrip",
+								"JAZZ_SigDefHandGuard",
+								"JAZZ_SigErgoHandGrip",
 							},
-							'DefaultComponent', "SigDefHandGuard",
+							'DefaultComponent', "JAZZ_SigDefHandGuard",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
-								"StockHeavy",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
+								"JAZZ_StockHeavy",
 							},
-							'DefaultComponent', "UnfoldStocks",
+							'DefaultComponent', "JAZZ_UnfoldStocks",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"Suppressor",
-								"SuppressorImproved",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Suppressor",
+								"JAZZ_SuppressorImproved",
 							},
 						}),
 					},
@@ -21029,8 +21255,11 @@ return {
 					'ReloadAP', 6000,
 					'Recoil', 9,
 					'AutoShots', 7,
-					'Handling', 8,
 					'BulletDropRange', 17,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 63,
 					'BaseJamChance', -30,
 					'WeaponResource', 9000,
@@ -21071,34 +21300,34 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handguard",
 							'AvailableComponents', {
-								"SigDefHandGuard",
-								"SigErgoHandGrip",
+								"JAZZ_SigDefHandGuard",
+								"JAZZ_SigErgoHandGrip",
 							},
-							'DefaultComponent', "SigDefHandGuard",
+							'DefaultComponent', "JAZZ_SigDefHandGuard",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"Suppressor",
-								"SuppressorImproved",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Suppressor",
+								"JAZZ_SuppressorImproved",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -21132,8 +21361,11 @@ return {
 					'ReloadAP', 6000,
 					'Recoil', 10,
 					'AutoShots', 7,
-					'Handling', 8,
 					'BulletDropRange', 16,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 63,
 					'BaseJamChance', -30,
 					'WeaponResource', 9000,
@@ -21173,35 +21405,35 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_10_20",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge_10_20",
 							},
-							'DefaultComponent', "MagLarge_10_20",
+							'DefaultComponent', "JAZZ_MagLarge_10_20",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"SuppressorIntegrated",
+								"JAZZ_SuppressorIntegrated",
 							},
-							'DefaultComponent', "SuppressorIntegrated",
+							'DefaultComponent', "JAZZ_SuppressorIntegrated",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"FlashlightDot",
-								"LaserDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -21239,8 +21471,11 @@ return {
 					'Recoil', 8,
 					'BurstShots', 4,
 					'AutoShots', 9,
-					'Handling', -2,
 					'BulletDropRange', 15,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 63,
 					'BaseJamChance', -30,
 					'WeaponResource', 3000,
@@ -21290,7 +21525,7 @@ return {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"HandlingWrap",
+								"JAZZ_HandlingWrap",
 							},
 						}),
 					},
@@ -21307,8 +21542,11 @@ return {
 					'ReloadAP', 6000,
 					'Recoil', 18,
 					'AutoShots', 5,
-					'Handling', -15,
 					'BulletDropRange', 12,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 66,
 					'WeaponResource', 2500,
 				}),
@@ -21347,27 +21585,27 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
+								"JAZZ_ImprovisedSuppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_30_40",
-								"MagDrum_30-75",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge_30_40",
+								"JAZZ_MagDrum_30-75",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"Type56Bayo",
-								"Type56BayoF",
+								"JAZZ_Type56Bayo",
+								"JAZZ_Type56BayoF",
 							},
-							'DefaultComponent', "Type56BayoF",
+							'DefaultComponent', "JAZZ_Type56BayoF",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -21383,8 +21621,11 @@ return {
 					'ReloadAP', 6000,
 					'Recoil', 18,
 					'AutoShots', 6,
-					'Handling', -10,
 					'BulletDropRange', 13,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 47,
 					'WeaponResource', 2500,
 				}),
@@ -21423,30 +21664,30 @@ return {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"LaserDot",
+								"JAZZ_LaserDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handguard",
 							'AvailableComponents', {
-								"Handguard",
-								"M16A1LaunchHandGuard",
+								"JAZZ_Handguard",
+								"JAZZ_M16A1LaunchHandGuard",
 							},
-							'DefaultComponent', "Handguard",
+							'DefaultComponent', "JAZZ_Handguard",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagSmall30_20",
+								"JAZZ_MagNormal",
+								"JAZZ_MagSmall30_20",
 							},
-							'DefaultComponent', "MagSmall30_20",
+							'DefaultComponent', "JAZZ_MagSmall30_20",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "General",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"HolsterBelt",
+								"JAZZ_HolsterBelt",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -21481,8 +21722,11 @@ return {
 					'Recoil', 11,
 					'BurstShots', 4,
 					'AutoShots', 8,
-					'Handling', -10,
 					'BulletDropRange', 15,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 61,
 					'BaseJamChance', 5,
 					'WeaponResource', 4000,
@@ -21523,33 +21767,33 @@ return {
 							'SlotType', "Stock",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "General",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"M70_Unfld_GL",
-								"M70_Fld_GL",
+								"JAZZ_M70_Unfld_GL",
+								"JAZZ_M70_Fld_GL",
 							},
-							'DefaultComponent', "M70_Fld_GL",
+							'DefaultComponent', "JAZZ_M70_Fld_GL",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_30_40",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge_30_40",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -21557,7 +21801,7 @@ return {
 							'Modifiable', false,
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"M70_Grenade",
+								"JAZZ_M70_Grenade",
 							},
 						}),
 					},
@@ -21574,8 +21818,11 @@ return {
 					'ReloadAP', 6000,
 					'Recoil', 15,
 					'AutoShots', 6,
-					'Handling', -12,
 					'BulletDropRange', 14,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 63,
 					'BaseJamChance', -20,
 					'WeaponResource', 4500,
@@ -21614,23 +21861,23 @@ return {
 							'SlotType', "Under",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"VerticalGrip",
+								"JAZZ_VerticalGrip",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -21652,20 +21899,20 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'AvailableComponents', {
-								"Compensator",
-								"Suppressor",
-								"ImprovisedSuppressor",
+								"JAZZ_Compensator",
+								"JAZZ_Suppressor",
+								"JAZZ_ImprovisedSuppressor",
 							},
-							'DefaultComponent', "Compensator",
+							'DefaultComponent', "JAZZ_Compensator",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -21680,8 +21927,11 @@ return {
 					'ShootAP', 6000,
 					'ReloadAP', 8000,
 					'Recoil', 15,
-					'Handling', 5,
 					'BulletDropRange', 13,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 62,
 					'WeaponResource', 4500,
 				}),
@@ -21720,45 +21970,45 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Suppressor",
-								"ImprovisedSuppressor",
-								"SuppressorImproved",
+								"JAZZ_Suppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_SuppressorImproved",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"BarrelNormal",
+								"JAZZ_BarrelNormal",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagLarge",
-								"MagNormal",
-								"MagQuick",
+								"JAZZ_MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagQuick",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"FlashlightDot",
-								"LaserDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handguard",
 							'AvailableComponents', {
-								"Handguard",
-								"M16A1LaunchHandGuard",
+								"JAZZ_Handguard",
+								"JAZZ_M16A1LaunchHandGuard",
 							},
-							'DefaultComponent', "Handguard",
+							'DefaultComponent', "JAZZ_Handguard",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -21791,8 +22041,11 @@ return {
 					'ReloadAP', 6000,
 					'Recoil', 9,
 					'AutoShots', 8,
-					'Handling', -8,
 					'BulletDropRange', 16,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 62,
 					'WeaponResource', 5500,
 				}),
@@ -21830,32 +22083,32 @@ return {
 							'SlotType', "Bipod",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"GP25",
+								"JAZZ_GP25",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
-								"MagQuick",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
+								"JAZZ_MagQuick",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Compensator",
-								"Suppressor",
+								"JAZZ_Compensator",
+								"JAZZ_Suppressor",
 							},
 						}),
 					},
@@ -21872,8 +22125,11 @@ return {
 					'ReloadAP', 6000,
 					'Recoil', 15,
 					'AutoShots', 6,
-					'Handling', -10,
 					'BulletDropRange', 14,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 63,
 					'BaseJamChance', -10,
 					'WeaponResource', 12000,
@@ -21914,34 +22170,34 @@ return {
 							'SlotType', "Under",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"GP25",
+								"JAZZ_GP25",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
-								"StockNormal",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
+								"JAZZ_StockNormal",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_30_40",
-								"MagDrum_30-75",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge_30_40",
+								"JAZZ_MagDrum_30-75",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handguard",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"Handguard",
+								"JAZZ_Handguard",
 							},
-							'DefaultComponent', "Handguard",
+							'DefaultComponent', "JAZZ_Handguard",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -21969,25 +22225,25 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Compensator",
-								"Suppressor",
-								"SuppressorImproved",
+								"JAZZ_Compensator",
+								"JAZZ_Suppressor",
+								"JAZZ_SuppressorImproved",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"FlashlightDot",
-								"LaserDot",
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
 						}),
 					},
@@ -22004,8 +22260,11 @@ return {
 					'ReloadAP', 6000,
 					'Recoil', 12,
 					'AutoShots', 6,
-					'Handling', -8,
 					'BulletDropRange', 15,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 64,
 					'BaseJamChance', -50,
 					'WeaponResource', 10000,
@@ -22047,69 +22306,69 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "General",
 							'AvailableComponents', {
-								"HK33Lower",
-								"HK33LowerMod",
+								"JAZZ_HK33Lower",
+								"JAZZ_HK33LowerMod",
 							},
-							'DefaultComponent', "HK33Lower",
+							'DefaultComponent', "JAZZ_HK33Lower",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handguard",
 							'AvailableComponents', {
-								"HK33Handguard",
-								"HK33HandguardMod",
+								"JAZZ_HK33Handguard",
+								"JAZZ_HK33HandguardMod",
 							},
-							'DefaultComponent', "HK33Handguard",
+							'DefaultComponent', "JAZZ_HK33Handguard",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelShortRunNGun",
-								"BarrelNormal",
-								"BarrelLong",
+								"JAZZ_BarrelShortRunNGun",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelLong",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'AvailableComponents', {
-								"Compensator",
-								"Suppressor",
-								"ImprovisedSuppressor",
-								"SuppressorImproved",
+								"JAZZ_Compensator",
+								"JAZZ_Suppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_SuppressorImproved",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagDrum_30-100",
+								"JAZZ_MagNormal",
+								"JAZZ_MagDrum_30-100",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"TacGrip",
-								"VerticalGrip",
-								"GrenadeLauncher",
+								"JAZZ_TacGrip",
+								"JAZZ_VerticalGrip",
+								"JAZZ_GrenadeLauncher",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"FlashlightDot",
-								"LaserDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -22148,6 +22407,10 @@ return {
 					'BurstShots', 4,
 					'AutoShots', 7,
 					'BulletDropRange', 14,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 57,
 					'BaseJamChance', -30,
 					'WeaponResource', 7600,
@@ -22188,47 +22451,47 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockNormal",
-								"StockLightFolded",
-								"StockLightUnFolded",
+								"JAZZ_StockNormal",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handguard",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"Handguard",
+								"JAZZ_Handguard",
 							},
-							'DefaultComponent', "Handguard",
+							'DefaultComponent', "JAZZ_Handguard",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_30_45",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge_30_45",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"GP25",
+								"JAZZ_GP25",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"Compensator",
+								"JAZZ_Compensator",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -22256,8 +22519,11 @@ return {
 					'ReloadAP', 6000,
 					'Recoil', 7,
 					'AutoShots', 6,
-					'Handling', -4,
 					'BulletDropRange', 16,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 56,
 					'BaseJamChance', -50,
 					'WeaponResource', 9800,
@@ -22298,62 +22564,54 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelShort_AUG",
-								"BarrelShortImproved_AUG",
-								"BarrelLong_AUG",
-								"BarrelLongImproved_AUG",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelShort_AUG",
+								"JAZZ_BarrelShortImproved_AUG",
+								"JAZZ_BarrelLong_AUG",
+								"JAZZ_BarrelLongImproved_AUG",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'AvailableComponents', {
 								"AUGCompensator_01",
 								"AUGCompensator_03",
-								"Suppressor",
-								"SuppressorImproved",
+								"JAZZ_Suppressor",
+								"JAZZ_SuppressorImproved",
 							},
 							'DefaultComponent', "AUGCompensator_01",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'AvailableComponents', {
-								"VerticalGrip",
+								"JAZZ_VerticalGrip",
 							},
-							'DefaultComponent', "VerticalGrip",
+							'DefaultComponent', "JAZZ_VerticalGrip",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Grenadelauncher",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"GrenadeLauncher_AUG",
+								"JAZZ_GrenadeLauncher_AUG",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagLarge_30_42",
-								"MagNormal",
-								"MagQuick",
+								"JAZZ_MagLarge_30_42",
+								"JAZZ_MagNormal",
+								"JAZZ_MagQuick",
 							},
-							'DefaultComponent', "MagNormal",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Mount",
-							'Modifiable', false,
-							'CanBeEmpty', true,
-							'AvailableComponents', {
-								"AUGMount",
-							},
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"FlashlightDot",
-								"LaserDot",
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -22364,14 +22622,14 @@ return {
 								"JAZZ_Reflex_Eotech",
 								"JAZZ_Reflex_M68",
 								"JAZZ_CombatScope_2x",
-								"AUGScope_Default",
+								"JAZZ_AUGScope_Default",
 								"JAZZ_CombatScope_ACOG",
 								"JAZZ_NightScope",
 								"JAZZ_Scope_6x",
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
 							},
-							'DefaultComponent', "AUGScope_Default",
+							'DefaultComponent', "JAZZ_AUGScope_Default",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -22387,8 +22645,11 @@ return {
 					'ReloadAP', 8000,
 					'Recoil', 12,
 					'BurstShots', 4,
-					'Handling', 5,
 					'BulletDropRange', 15,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 63,
 					'BaseJamChance', -20,
 					'WeaponResource', 7500,
@@ -22427,38 +22688,38 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagSmall30_20",
+								"JAZZ_MagNormal",
+								"JAZZ_MagSmall30_20",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"GrenadeLauncher",
-								"VerticalGrip",
-								"TacGrip",
+								"JAZZ_GrenadeLauncher",
+								"JAZZ_VerticalGrip",
+								"JAZZ_TacGrip",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"FlashlightDot",
-								"LaserDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Compensator",
-								"ImprovisedSuppressor",
-								"Suppressor",
-								"SuppressorImproved",
+								"JAZZ_Compensator",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Suppressor",
+								"JAZZ_SuppressorImproved",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -22475,9 +22736,9 @@ return {
 								"JAZZ_Scope_6x",
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
-								"DefaultIronsight_AR15",
+								"JAZZ_DefaultIronsight_AR15",
 							},
-							'DefaultComponent', "DefaultIronsight_AR15",
+							'DefaultComponent', "JAZZ_DefaultIronsight_AR15",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -22492,8 +22753,11 @@ return {
 					'ReloadAP', 6000,
 					'Recoil', 8,
 					'AutoShots', 8,
-					'Handling', -5,
 					'BulletDropRange', 17,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 62,
 					'BaseJamChance', -20,
 					'WeaponResource', 8500,
@@ -22535,56 +22799,56 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelLong",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelLong",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'AvailableComponents', {
-								"Compensator",
-								"Suppressor",
-								"ImprovisedSuppressor",
-								"SuppressorImproved",
+								"JAZZ_Compensator",
+								"JAZZ_Suppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_SuppressorImproved",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagDrum_30-100_cumbersome",
-								"MagQuick",
+								"JAZZ_MagNormal",
+								"JAZZ_MagDrum_30-100_cumbersome",
+								"JAZZ_MagQuick",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"TacGrip",
-								"VerticalGrip",
-								"GrenadeLauncher",
+								"JAZZ_TacGrip",
+								"JAZZ_VerticalGrip",
+								"JAZZ_GrenadeLauncher",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"FlashlightDot",
-								"LaserDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockNormal",
-								"StockFolded",
-								"StockHeavy",
+								"JAZZ_StockNormal",
+								"JAZZ_StockFolded",
+								"JAZZ_StockHeavy",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -22599,10 +22863,10 @@ return {
 								"JAZZ_Scope_6x",
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
-								"Jazz_G36Sight",
-								"Jazz_G36Scope",
+								"JAZZ_G36Sight",
+								"JAZZ_G36Scope",
 							},
-							'DefaultComponent', "Jazz_G36Sight",
+							'DefaultComponent', "JAZZ_G36Sight",
 						}),
 					},
 					'Color', "Black",
@@ -22620,8 +22884,11 @@ return {
 					'Recoil', 10,
 					'BurstShots', 4,
 					'AutoShots', 8,
-					'Handling', 2,
 					'BulletDropRange', 16,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 63,
 					'BaseJamChance', -10,
 					'WeaponResource', 7800,
@@ -22660,43 +22927,43 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
-								"StockHeavy",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
+								"JAZZ_StockHeavy",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"Suppressor",
-								"SuppressorImproved",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Suppressor",
+								"JAZZ_SuppressorImproved",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handguard",
 							'AvailableComponents', {
-								"SigDefHandGuard",
-								"SigErgoHandGrip",
+								"JAZZ_SigDefHandGuard",
+								"JAZZ_SigErgoHandGrip",
 							},
-							'DefaultComponent', "SigDefHandGuard",
+							'DefaultComponent', "JAZZ_SigDefHandGuard",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -22713,9 +22980,9 @@ return {
 								"JAZZ_Scope_6x",
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
-								"DefaultIronsight_AR15",
+								"JAZZ_DefaultIronsight_AR15",
 							},
-							'DefaultComponent', "DefaultIronsight_AR15",
+							'DefaultComponent', "JAZZ_DefaultIronsight_AR15",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -22731,8 +22998,11 @@ return {
 					'ReloadAP', 6000,
 					'Recoil', 8,
 					'AutoShots', 6,
-					'Handling', -1,
 					'BulletDropRange', 17,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 63,
 					'BaseJamChance', -30,
 					'WeaponResource', 9500,
@@ -22774,52 +23044,52 @@ return {
 							'SlotType', "Under",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"VerticalGrip",
-								"GrenadeLauncher",
+								"JAZZ_VerticalGrip",
+								"JAZZ_GrenadeLauncher",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"UVDot",
-								"Flashlight",
-								"FlashlightDot",
-								"LaserDot",
+								"JAZZ_UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handguard",
 							'AvailableComponents', {
-								"SigErgoHandGrip",
-								"SigDefHandGuard",
+								"JAZZ_SigErgoHandGrip",
+								"JAZZ_SigDefHandGuard",
 							},
-							'DefaultComponent', "SigDefHandGuard",
+							'DefaultComponent', "JAZZ_SigDefHandGuard",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
-								"StockHeavy",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
+								"JAZZ_StockHeavy",
 							},
-							'DefaultComponent', "UnfoldStocks",
+							'DefaultComponent', "JAZZ_UnfoldStocks",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"Suppressor",
-								"SuppressorImproved",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Suppressor",
+								"JAZZ_SuppressorImproved",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -22837,9 +23107,9 @@ return {
 								"JAZZ_Scope_6x",
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
-								"DefaultIronsight_AR15",
+								"JAZZ_DefaultIronsight_AR15",
 							},
-							'DefaultComponent', "DefaultIronsight_AR15",
+							'DefaultComponent', "JAZZ_DefaultIronsight_AR15",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -22856,8 +23126,11 @@ return {
 					'Recoil', 6,
 					'BurstShots', 1,
 					'AutoShots', 8,
-					'Handling', 1,
 					'BulletDropRange', 18,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 63,
 					'BaseJamChance', -30,
 					'WeaponResource', 9500,
@@ -22898,18 +23171,18 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_30_45",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge_30_45",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -22926,7 +23199,7 @@ return {
 							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"Compensator",
+								"JAZZ_Compensator",
 							},
 						}),
 					},
@@ -22944,8 +23217,11 @@ return {
 					'Recoil', 5,
 					'BurstShots', 2,
 					'AutoShots', 6,
-					'Handling', -5,
 					'BulletDropRange', 18,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 56,
 					'BaseJamChance', -20,
 					'WeaponResource', 8800,
@@ -22993,7 +23269,6 @@ return {
 					'ReloadAP', 5000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -32,
 					'BulletDropRange', 17,
 					'Grouping', 40,
 					'WeaponResource', 7000,
@@ -23042,8 +23317,11 @@ return {
 					'ReloadAP', 5000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -10,
 					'BulletDropRange', 16,
+
+					'CloseRange', 8,
+
+					'CloseRangeFactor', 80,
 					'Grouping', 60,
 					'BaseJamChance', -30,
 					'WeaponResource', 6000,
@@ -23096,8 +23374,11 @@ return {
 					'ReloadAP', 7000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -23,
 					'BulletDropRange', 17,
+
+					'CloseRange', 8,
+
+					'CloseRangeFactor', 80,
 					'Grouping', 40,
 					'WeaponResource', 4000,
 				}),
@@ -23141,8 +23422,11 @@ return {
 					'ReloadAP', 7000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -20,
 					'BulletDropRange', 16,
+
+					'CloseRange', 8,
+
+					'CloseRangeFactor', 80,
 					'Grouping', 44,
 					'WeaponResource', 4000,
 				}),
@@ -23181,15 +23465,15 @@ return {
 							'AvailableComponents', {
 								"JAZZ_Reflex_Garand",
 								"JAZZ_Scope_Garand",
-								"DefaultIronsight_AR15",
+								"JAZZ_DefaultIronsight_AR15",
 							},
-							'DefaultComponent', "DefaultIronsight_AR15",
+							'DefaultComponent', "JAZZ_DefaultIronsight_AR15",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Suppressor",
+								"JAZZ_Suppressor",
 							},
 						}),
 					},
@@ -23203,8 +23487,11 @@ return {
 					'ReloadAP', 5000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -25,
 					'BulletDropRange', 15,
+
+					'CloseRange', 8,
+
+					'CloseRangeFactor', 80,
 					'Grouping', 37,
 					'WeaponResource', 4000,
 				}),
@@ -23244,17 +23531,17 @@ return {
 							'SlotType', "Bipod",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
-							'DefaultComponent', "Bipod",
+							'DefaultComponent', "JAZZ_Bipod",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
 							'AvailableComponents', {
 								"JAZZ_Scope_ZF4",
-								"Jazz_IronSight",
+								"JAZZ_IronSight",
 							},
-							'DefaultComponent', "Jazz_IronSight",
+							'DefaultComponent', "JAZZ_IronSight",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -23269,8 +23556,11 @@ return {
 					'ReloadAP', 7000,
 					'Recoil', 30,
 					'AutoShots', 7,
-					'Handling', -10,
 					'BulletDropRange', 15,
+
+					'CloseRange', 8,
+
+					'CloseRangeFactor', 80,
 					'Grouping', 42,
 					'WeaponResource', 6500,
 				}),
@@ -23314,9 +23604,9 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -23329,8 +23619,11 @@ return {
 					'ReloadAP', 7000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -26,
 					'BulletDropRange', 17,
+
+					'CloseRange', 8,
+
+					'CloseRangeFactor', 80,
 					'Grouping', 38,
 					'WeaponResource', 2000,
 				}),
@@ -23365,9 +23658,9 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -23383,8 +23676,11 @@ return {
 					'ReloadAP', 7000,
 					'Recoil', 45,
 					'AutoShots', 7,
-					'Handling', -20,
 					'BulletDropRange', 17,
+
+					'CloseRange', 8,
+
+					'CloseRangeFactor', 80,
 					'Grouping', 35,
 					'BaseJamChance', 5,
 				}),
@@ -23440,7 +23736,7 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Compensator",
+								"JAZZ_Compensator",
 							},
 						}),
 					},
@@ -23456,8 +23752,11 @@ return {
 					'ReloadAP', 7000,
 					'Recoil', 26,
 					'AutoShots', 7,
-					'Handling', -15,
 					'BulletDropRange', 18,
+
+					'CloseRange', 8,
+
+					'CloseRangeFactor', 80,
 					'Grouping', 45,
 					'BaseJamChance', -10,
 					'WeaponResource', 6000,
@@ -23494,62 +23793,62 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelHeavy",
-								"BarrelLong",
-								"BarrelLongImproved",
-								"BarrelNormal",
-								"BarrelNormalImproved",
-								"BarrelShort",
-								"BarrelShortImproved",
+								"JAZZ_BarrelHeavy",
+								"JAZZ_BarrelLong",
+								"JAZZ_BarrelLongImproved",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelNormalImproved",
+								"JAZZ_BarrelShort",
+								"JAZZ_BarrelShortImproved",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"StockHeavy",
-								"StockNormal",
-								"StockLight",
+								"JAZZ_StockHeavy",
+								"JAZZ_StockNormal",
+								"JAZZ_StockLight",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagSmall20_10",
+								"JAZZ_MagNormal",
+								"JAZZ_MagSmall20_10",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"GrenadeLauncher_M14",
-								"TacGrip_M14",
-								"VerticalGrip_M14",
-								"Bipod_Under",
+								"JAZZ_GrenadeLauncher_M14",
+								"JAZZ_TacGrip_M14",
+								"JAZZ_VerticalGrip_M14",
+								"JAZZ_Bipod_Under",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'AvailableComponents', {
-								"M14_Default_Muzzle",
-								"Compensator",
-								"ImprovisedSuppressor",
-								"Suppressor",
+								"JAZZ_M14_Default_Muzzle",
+								"JAZZ_Compensator",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Suppressor",
 							},
-							'DefaultComponent', "M14_Default_Muzzle",
+							'DefaultComponent', "JAZZ_M14_Default_Muzzle",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
-								"Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
+								"JAZZ_Flashlight",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -23582,8 +23881,11 @@ return {
 					'Recoil', 40,
 					'BurstShots', 4,
 					'AutoShots', 7,
-					'Handling', -18,
 					'BulletDropRange', 17,
+
+					'CloseRange', 8,
+
+					'CloseRangeFactor', 80,
 					'Grouping', 41,
 					'WeaponResource', 4500,
 				}),
@@ -23630,65 +23932,65 @@ return {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"FlashlightDot",
-								"LaserDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Compensator",
-								"Suppressor",
-								"ImprovisedSuppressor",
-								"SuppressorImproved",
+								"JAZZ_Compensator",
+								"JAZZ_Suppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_SuppressorImproved",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagNormalFine",
-								"MagLarge_20_30",
+								"JAZZ_MagNormal",
+								"JAZZ_MagNormalFine",
+								"JAZZ_MagLarge_20_30",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelNormalImproved",
-								"BarrelHeavy",
-								"BarrelShort",
-								"BarrelShortImproved",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelNormalImproved",
+								"JAZZ_BarrelHeavy",
+								"JAZZ_BarrelShort",
+								"JAZZ_BarrelShortImproved",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockNormal",
-								"StockHeavy",
-								"StockLight",
+								"JAZZ_StockNormal",
+								"JAZZ_StockHeavy",
+								"JAZZ_StockLight",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"GrenadeLauncher",
-								"TacGrip",
-								"VerticalGrip",
+								"JAZZ_GrenadeLauncher",
+								"JAZZ_TacGrip",
+								"JAZZ_VerticalGrip",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -23720,8 +24022,11 @@ return {
 					'ReloadAP', 7000,
 					'Recoil', 32,
 					'AutoShots', 6,
-					'Handling', -15,
 					'BulletDropRange', 19,
+
+					'CloseRange', 8,
+
+					'CloseRangeFactor', 80,
 					'Grouping', 51,
 					'BaseJamChance', -10,
 					'WeaponResource', 7500,
@@ -23760,39 +24065,39 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelLong",
-								"BarrelNormal",
-								"BarrelShort",
+								"JAZZ_BarrelLong",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelShort",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLight",
-								"StockNormal",
+								"JAZZ_StockLight",
+								"JAZZ_StockNormal",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'AvailableComponents', {
-								"Galil_Brake_Default",
-								"Compensator",
-								"Suppressor",
-								"ImprovisedSuppressor",
-								"SuppressorImproved",
+								"JAZZ_Galil_Brake_Default",
+								"JAZZ_Compensator",
+								"JAZZ_Suppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_SuppressorImproved",
 							},
-							'DefaultComponent', "Galil_Brake_Default",
+							'DefaultComponent', "JAZZ_Galil_Brake_Default",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'AvailableComponents', {
-								"GrenadeLauncher_Galil",
+								"JAZZ_GrenadeLauncher_Galil",
 								"Galil_Handguard_Default",
-								"Bipod_Galil",
+								"JAZZ_Bipod_Galil",
 							},
-							'DefaultComponent', "Bipod_Galil",
+							'DefaultComponent', "JAZZ_Bipod_Galil",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -23813,20 +24118,20 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagLarge_25_40",
-								"MagNormal",
-								"MagQuick",
+								"JAZZ_MagLarge_25_40",
+								"JAZZ_MagNormal",
+								"JAZZ_MagQuick",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"FlashlightDot",
-								"LaserDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
 							},
 						}),
 					},
@@ -23842,8 +24147,11 @@ return {
 					'ReloadAP', 7000,
 					'Recoil', 34,
 					'AutoShots', 6,
-					'Handling', -23,
 					'BulletDropRange', 17,
+
+					'CloseRange', 8,
+
+					'CloseRangeFactor', 80,
 					'Grouping', 52,
 					'WeaponResource', 7000,
 				}),
@@ -23883,23 +24191,23 @@ return {
 							'SlotType', "Bipod",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagSmall20_10",
+								"JAZZ_MagNormal",
+								"JAZZ_MagSmall20_10",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"SuppressorImproved",
-								"Compensator",
+								"JAZZ_SuppressorImproved",
+								"JAZZ_Compensator",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -23933,8 +24241,11 @@ return {
 					'Recoil', 30,
 					'BurstShots', 2,
 					'AutoShots', 5,
-					'Handling', -15,
 					'BulletDropRange', 20,
+
+					'CloseRange', 8,
+
+					'CloseRangeFactor', 80,
 					'Grouping', 51,
 					'BaseJamChance', -30,
 					'WeaponResource', 9000,
@@ -23974,7 +24285,7 @@ return {
 							'SlotType', "Bipod",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -23997,27 +24308,27 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightFolded",
-								"StockLightUnFolded",
+								"JAZZ_StockLightFolded",
+								"JAZZ_StockLightUnFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"DefMuzzle",
-								"Compensator",
-								"SuppressorImproved",
+								"JAZZ_DefMuzzle",
+								"JAZZ_Compensator",
+								"JAZZ_SuppressorImproved",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagSmall20_10",
+								"JAZZ_MagNormal",
+								"JAZZ_MagSmall20_10",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -24033,8 +24344,11 @@ return {
 					'Recoil', 30,
 					'BurstShots', 2,
 					'AutoShots', 5,
-					'Handling', -10,
 					'BulletDropRange', 20,
+
+					'CloseRange', 8,
+
+					'CloseRangeFactor', 80,
 					'Grouping', 51,
 					'BaseJamChance', -30,
 					'WeaponResource', 9000,
@@ -24091,8 +24405,11 @@ return {
 					'ReloadAP', 5000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -35,
 					'BulletDropRange', 16,
+
+					'CloseRange', 12,
+
+					'CloseRangeFactor', 70,
 					'Grouping', 41,
 					'WeaponResource', 7000,
 				}),
@@ -24132,16 +24449,16 @@ return {
 								"JAZZ_CombatScope_2x",
 								"JAZZ_Scope_Scout",
 								"JAZZ_Scope_DA15_6x",
-								"Jazz_IronSight",
+								"JAZZ_IronSight",
 								"JAZZ_Scope_ZF4",
 							},
-							'DefaultComponent', "Jazz_IronSight",
+							'DefaultComponent', "JAZZ_IronSight",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
+								"JAZZ_ImprovisedSuppressor",
 							},
 						}),
 					},
@@ -24156,8 +24473,11 @@ return {
 					'ReloadAP', 5000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -37,
 					'BulletDropRange', 15,
+
+					'CloseRange', 12,
+
+					'CloseRangeFactor', 70,
 					'Grouping', 45,
 					'WeaponResource', 5000,
 				}),
@@ -24210,8 +24530,11 @@ return {
 					'ReloadAP', 5000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -36,
 					'BulletDropRange', 15,
+
+					'CloseRange', 12,
+
+					'CloseRangeFactor', 70,
 					'Grouping', 50,
 					'WeaponResource', 4500,
 				}),
@@ -24249,18 +24572,18 @@ return {
 							'SlotType', "Stock",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"StockNormal",
+								"JAZZ_StockNormal",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -24275,9 +24598,9 @@ return {
 							'Modifiable', false,
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"BarrelsDefs",
+								"JAZZ_BarrelsDefs",
 							},
-							'DefaultComponent', "BarrelsDefs",
+							'DefaultComponent', "JAZZ_BarrelsDefs",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -24290,8 +24613,11 @@ return {
 					'ReloadAP', 7000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -15,
 					'BulletDropRange', 16,
+
+					'CloseRange', 12,
+
+					'CloseRangeFactor', 70,
 					'Grouping', 45,
 					'BaseJamChance', -10,
 					'WeaponResource', 7000,
@@ -24331,9 +24657,9 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -24347,13 +24673,13 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"SuppressorImproved",
+								"JAZZ_SuppressorImproved",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'Modifiable', false,
-							'DefaultComponent', "Bipod",
+							'DefaultComponent', "JAZZ_Bipod",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -24366,8 +24692,11 @@ return {
 					'ReloadAP', 7000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -25,
 					'BulletDropRange', 17,
+
+					'CloseRange', 12,
+
+					'CloseRangeFactor', 70,
 					'Grouping', 48,
 					'BaseJamChance', -10,
 					'WeaponResource', 6000,
@@ -24406,63 +24735,63 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelHeavy",
-								"BarrelLong",
-								"BarrelLongImproved",
-								"BarrelNormal",
-								"BarrelNormalImproved",
-								"BarrelShort",
-								"BarrelShortImproved",
+								"JAZZ_BarrelHeavy",
+								"JAZZ_BarrelLong",
+								"JAZZ_BarrelLongImproved",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelNormalImproved",
+								"JAZZ_BarrelShort",
+								"JAZZ_BarrelShortImproved",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"StockHeavy",
-								"StockNormal",
-								"StockLight",
+								"JAZZ_StockHeavy",
+								"JAZZ_StockNormal",
+								"JAZZ_StockLight",
 							},
-							'DefaultComponent', "StockHeavy",
+							'DefaultComponent', "JAZZ_StockHeavy",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagSmall20_10",
+								"JAZZ_MagNormal",
+								"JAZZ_MagSmall20_10",
 							},
-							'DefaultComponent', "MagSmall20_10",
+							'DefaultComponent', "JAZZ_MagSmall20_10",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"GrenadeLauncher_M14",
-								"TacGrip_M14",
-								"VerticalGrip_M14",
-								"Bipod_Under",
+								"JAZZ_GrenadeLauncher_M14",
+								"JAZZ_TacGrip_M14",
+								"JAZZ_VerticalGrip_M14",
+								"JAZZ_Bipod_Under",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'AvailableComponents', {
-								"M14_Default_Muzzle",
-								"Compensator",
-								"ImprovisedSuppressor",
-								"Suppressor",
-								"SuppressorImproved",
+								"JAZZ_M14_Default_Muzzle",
+								"JAZZ_Compensator",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Suppressor",
+								"JAZZ_SuppressorImproved",
 							},
-							'DefaultComponent', "M14_Default_Muzzle",
+							'DefaultComponent', "JAZZ_M14_Default_Muzzle",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
-								"Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
+								"JAZZ_Flashlight",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -24492,8 +24821,11 @@ return {
 					'ReloadAP', 7000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -20,
 					'BulletDropRange', 17,
+
+					'CloseRange', 12,
+
+					'CloseRangeFactor', 70,
 					'Grouping', 45,
 					'BaseJamChance', -10,
 					'WeaponResource', 4000,
@@ -24532,25 +24864,25 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLight",
-								"StockNormal",
+								"JAZZ_StockLight",
+								"JAZZ_StockNormal",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_10_20",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge_10_20",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -24573,9 +24905,9 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Compensator",
+								"JAZZ_Compensator",
 							},
-							'DefaultComponent', "Compensator",
+							'DefaultComponent', "JAZZ_Compensator",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -24588,8 +24920,11 @@ return {
 					'ReloadAP', 7000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -25,
 					'BulletDropRange', 17,
+
+					'CloseRange', 12,
+
+					'CloseRangeFactor', 70,
 					'Grouping', 46,
 					'BaseJamChance', -30,
 					'WeaponResource', 8500,
@@ -24637,9 +24972,9 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'AvailableComponents', {
-								"SuppressorIntegrated",
+								"JAZZ_SuppressorIntegrated",
 							},
-							'DefaultComponent', "SuppressorIntegrated",
+							'DefaultComponent', "JAZZ_SuppressorIntegrated",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -24652,8 +24987,11 @@ return {
 					'ReloadAP', 7000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -15,
 					'BulletDropRange', 17,
+
+					'CloseRange', 12,
+
+					'CloseRangeFactor', 70,
 					'Grouping', 66,
 					'BaseJamChance', -30,
 					'WeaponResource', 8500,
@@ -24709,8 +25047,11 @@ return {
 					'ReloadAP', 8000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -28,
 					'BulletDropRange', 19,
+
+					'CloseRange', 12,
+
+					'CloseRangeFactor', 70,
 					'Grouping', 48,
 					'BaseJamChance', -20,
 					'WeaponResource', 4500,
@@ -24751,7 +25092,7 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Compensator",
+								"JAZZ_Compensator",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -24768,7 +25109,7 @@ return {
 								"JAZZ_Scope_6x",
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
-								"DefaultIronsight_AR15",
+								"JAZZ_DefaultIronsight_AR15",
 							},
 							'DefaultComponent', "JAZZ_Scope_6x",
 						}),
@@ -24784,8 +25125,11 @@ return {
 					'Recoil', 32,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -18,
 					'BulletDropRange', 18,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 59,
 					'BaseJamChance', -10,
 					'WeaponResource', 5000,
@@ -24827,17 +25171,16 @@ return {
 							'SlotType', "Bipod",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
-							'DefaultComponent', "Bipod",
+							'DefaultComponent', "JAZZ_Bipod",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"",
-								"Compensator",
-								"SuppressorImproved",
+								"JAZZ_Compensator",
+								"JAZZ_SuppressorImproved",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -24861,10 +25204,10 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagSmall20_10",
-								"MagNormal",
+								"JAZZ_MagSmall20_10",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagSmall20_10",
+							'DefaultComponent', "JAZZ_MagSmall20_10",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -24877,8 +25220,11 @@ return {
 					'ReloadAP', 7000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -18,
 					'BulletDropRange', 20,
+
+					'CloseRange', 12,
+
+					'CloseRangeFactor', 70,
 					'Grouping', 50,
 					'BaseJamChance', -30,
 					'WeaponResource', 7000,
@@ -24917,26 +25263,26 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockHeavy",
-								"StockLight",
-								"StockNormal",
+								"JAZZ_StockHeavy",
+								"JAZZ_StockLight",
+								"JAZZ_StockNormal",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_5_10",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge_5_10",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -24955,18 +25301,18 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Suppressor",
-								"SuppressorImproved",
+								"JAZZ_Suppressor",
+								"JAZZ_SuppressorImproved",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"FlashlightDot",
-								"LaserDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
 							},
 						}),
 					},
@@ -24980,8 +25326,11 @@ return {
 					'ReloadAP', 7000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -28,
 					'BulletDropRange', 21,
+
+					'CloseRange', 12,
+
+					'CloseRangeFactor', 70,
 					'Grouping', 46,
 					'BaseJamChance', -20,
 					'WeaponResource', 5500,
@@ -25020,67 +25369,67 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelShortImproved",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelShortImproved",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"StockHeavy",
-								"StockNormal",
-								"StockLight",
+								"JAZZ_StockHeavy",
+								"JAZZ_StockNormal",
+								"JAZZ_StockLight",
 							},
-							'DefaultComponent', "StockHeavy",
+							'DefaultComponent', "JAZZ_StockHeavy",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagNormalFine",
+								"JAZZ_MagNormal",
+								"JAZZ_MagNormalFine",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"GrenadeLauncher_M14",
-								"TacGrip_M14",
-								"VerticalGrip_M14",
-								"Bipod_Under",
+								"JAZZ_GrenadeLauncher_M14",
+								"JAZZ_TacGrip_M14",
+								"JAZZ_VerticalGrip_M14",
+								"JAZZ_Bipod_Under",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'AvailableComponents', {
-								"M14_Default_Muzzle",
-								"Compensator",
-								"ImprovisedSuppressor",
-								"Suppressor",
-								"SuppressorImproved",
+								"JAZZ_M14_Default_Muzzle",
+								"JAZZ_Compensator",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Suppressor",
+								"JAZZ_SuppressorImproved",
 							},
-							'DefaultComponent', "M14_Default_Muzzle",
+							'DefaultComponent', "JAZZ_M14_Default_Muzzle",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
-								"Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
+								"JAZZ_Flashlight",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handguard",
 							'AvailableComponents', {
-								"HandguardM1ARail",
-								"HandguardM1A",
+								"JAZZ_HandguardM1ARail",
+								"JAZZ_HandguardM1A",
 							},
-							'DefaultComponent', "HandguardM1A",
+							'DefaultComponent', "JAZZ_HandguardM1A",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -25109,8 +25458,11 @@ return {
 					'ReloadAP', 6000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -19,
 					'BulletDropRange', 19,
+
+					'CloseRange', 12,
+
+					'CloseRangeFactor', 70,
 					'Grouping', 59,
 					'BaseJamChance', -30,
 					'WeaponResource', 4500,
@@ -25151,9 +25503,9 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -25171,7 +25523,7 @@ return {
 							'SlotType', "Bipod",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
 						}),
 					},
@@ -25186,8 +25538,11 @@ return {
 					'ReloadAP', 9000,
 					'Recoil', 25,
 					'AutoShots', 6,
-					'Handling', -8,
 					'BulletDropRange', 19,
+
+					'CloseRange', 12,
+
+					'CloseRangeFactor', 70,
 					'Grouping', 44,
 					'BaseJamChance', -20,
 					'WeaponResource', 6500,
@@ -25227,7 +25582,7 @@ return {
 							'SlotType', "Bipod",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
@@ -25254,8 +25609,11 @@ return {
 					'ReloadAP', 7000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -35,
 					'BulletDropRange', 21,
+
+					'CloseRange', 12,
+
+					'CloseRangeFactor', 70,
 					'Grouping', 42,
 					'BaseJamChance', -30,
 					'WeaponResource', 7000,
@@ -25297,17 +25655,17 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
-							'DefaultComponent', "Bipod",
+							'DefaultComponent', "JAZZ_Bipod",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -25323,17 +25681,17 @@ return {
 								"JAZZ_Scope_6x",
 								"JAZZ_Scope_12x",
 								"JAZZ_Scope_Scout",
-								"ImprovedIronsight",
+								"JAZZ_ImprovedIronsight",
 							},
 							'DefaultComponent', "JAZZ_Scope_6x",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'AvailableComponents', {
-								"Compensator",
-								"Suppressor",
+								"JAZZ_Compensator",
+								"JAZZ_Suppressor",
 							},
-							'DefaultComponent', "Compensator",
+							'DefaultComponent', "JAZZ_Compensator",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -25346,8 +25704,11 @@ return {
 					'ReloadAP', 9000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -82,
 					'BulletDropRange', 25,
+
+					'CloseRange', 12,
+
+					'CloseRangeFactor', 70,
 					'Grouping', 29,
 					'BaseJamChance', -20,
 					'WeaponResource', 3000,
@@ -25389,35 +25750,35 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockNormal",
-								"StockHeavy",
+								"JAZZ_StockNormal",
+								"JAZZ_StockHeavy",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"ImprovisedSuppressor",
-								"Suppressor",
-								"SuppressorImproved",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_Suppressor",
+								"JAZZ_SuppressorImproved",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagNormalFine",
-								"MagLarge",
-								"MagLargeFine",
+								"JAZZ_MagNormal",
+								"JAZZ_MagNormalFine",
+								"JAZZ_MagLarge",
+								"JAZZ_MagLargeFine",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -25441,10 +25802,10 @@ return {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"FlashlightDot_PSG_M1",
-								"Flashlight_PSG_M1",
-								"LaserDot_PSG_M1",
-								"UVDot_PSG_M1",
+								"JAZZ_FlashlightDot_PSG_M1",
+								"JAZZ_Flashlight_PSG_M1",
+								"JAZZ_LaserDot_PSG_M1",
+								"JAZZ_UVDot_PSG_M1",
 							},
 						}),
 					},
@@ -25458,8 +25819,11 @@ return {
 					'ReloadAP', 7000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -25,
 					'BulletDropRange', 20,
+
+					'CloseRange', 12,
+
+					'CloseRangeFactor', 70,
 					'Grouping', 45,
 					'BaseJamChance', -20,
 					'WeaponResource', 9000,
@@ -25512,19 +25876,19 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'AvailableComponents', {
-								"DefMuzzle",
-								"Suppressor",
-								"SuppressorImproved",
+								"JAZZ_DefMuzzle",
+								"JAZZ_Suppressor",
+								"JAZZ_SuppressorImproved",
 							},
-							'DefaultComponent', "DefMuzzle",
+							'DefaultComponent', "JAZZ_DefMuzzle",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"BarrelsDefs",
+								"JAZZ_BarrelsDefs",
 							},
-							'DefaultComponent', "BarrelsDefs",
+							'DefaultComponent', "JAZZ_BarrelsDefs",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -25538,8 +25902,11 @@ return {
 					'ReloadAP', 7000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -10,
 					'BulletDropRange', 21,
+
+					'CloseRange', 12,
+
+					'CloseRangeFactor', 70,
 					'Grouping', 45,
 					'BaseJamChance', -30,
 					'WeaponResource', 7000,
@@ -25583,33 +25950,33 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
-							'DefaultComponent', "Bipod",
+							'DefaultComponent', "JAZZ_Bipod",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"BarrelsDefs",
+								"JAZZ_BarrelsDefs",
 							},
-							'DefaultComponent', "BarrelsDefs",
+							'DefaultComponent', "JAZZ_BarrelsDefs",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"StockNormal",
+								"JAZZ_StockNormal",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -25625,8 +25992,11 @@ return {
 					'Recoil', 32,
 					'BurstShots', 4,
 					'AutoShots', 6,
-					'Handling', -30,
 					'BulletDropRange', 14,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 32,
 					'WeaponResource', 2400,
 				}),
@@ -25667,9 +26037,9 @@ return {
 							'SlotType', "Bipod",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
-							'DefaultComponent', "Bipod",
+							'DefaultComponent', "JAZZ_Bipod",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -25684,8 +26054,11 @@ return {
 					'ReloadAP', 8000,
 					'Recoil', 35,
 					'AutoShots', 5,
-					'Handling', -35,
 					'BulletDropRange', 15,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 38,
 					'WeaponResource', 6500,
 				}),
@@ -25724,50 +26097,50 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'AvailableComponents', {
-								"FoldBipod",
-								"UnfoldBipod",
+								"JAZZ_FoldBipod",
+								"JAZZ_UnfoldBipod",
 							},
-							'DefaultComponent', "FoldBipod",
+							'DefaultComponent', "JAZZ_FoldBipod",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"BarrelsDefs",
+								"JAZZ_BarrelsDefs",
 							},
-							'DefaultComponent', "BarrelsDefs",
+							'DefaultComponent', "JAZZ_BarrelsDefs",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagDrum_30-100",
+								"JAZZ_MagNormal",
+								"JAZZ_MagDrum_30-100",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Mountfront",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"U100Handle",
+								"JAZZ_U100Handle",
 							},
-							'DefaultComponent', "U100Handle",
+							'DefaultComponent', "JAZZ_U100Handle",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"DefMuzzle",
+								"JAZZ_DefMuzzle",
 							},
-							'DefaultComponent', "DefMuzzle",
+							'DefaultComponent', "JAZZ_DefMuzzle",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"StockNormal",
+								"JAZZ_StockNormal",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -25783,8 +26156,11 @@ return {
 					'Recoil', 9,
 					'BurstShots', 4,
 					'AutoShots', 6,
-					'Handling', -20,
 					'BulletDropRange', 14,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 42,
 					'WeaponResource', 5500,
 				}),
@@ -25824,50 +26200,50 @@ return {
 							'SlotType', "Bipod",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
-							'DefaultComponent', "Bipod",
+							'DefaultComponent', "JAZZ_Bipod",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelNormalImproved",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelNormalImproved",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_30_40",
-								"MagDrum_30-75",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge_30_40",
+								"JAZZ_MagDrum_30-75",
 							},
-							'DefaultComponent', "MagLarge_30_40",
+							'DefaultComponent', "JAZZ_MagLarge_30_40",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handguard",
 							'AvailableComponents', {
-								"RPK74_Hanguard_Basic",
-								"RPK74_VerticalGrip",
+								"JAZZ_RPK74_Hanguard_Basic",
+								"JAZZ_RPK74_VerticalGrip",
 							},
-							'DefaultComponent', "RPK74_Hanguard_Basic",
+							'DefaultComponent', "JAZZ_RPK74_Hanguard_Basic",
 						}),
 												PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Compensator",
-								"Suppressor",
+								"JAZZ_Compensator",
+								"JAZZ_Suppressor",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"StockNormal",
+								"JAZZ_StockNormal",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -25883,8 +26259,11 @@ return {
 					'Recoil', 10,
 					'BurstShots', 4,
 					'AutoShots', 7,
-					'Handling', -22,
 					'BulletDropRange', 15,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 62,
 					'BaseJamChance', -30,
 					'WeaponResource', 12000,
@@ -25926,51 +26305,51 @@ return {
 							'SlotType', "Bipod",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
-							'DefaultComponent', "Bipod",
+							'DefaultComponent', "JAZZ_Bipod",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelNormalImproved",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelNormalImproved",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge_30_45",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge_30_45",
 							},
-							'DefaultComponent', "MagLarge_30_45",
+							'DefaultComponent', "JAZZ_MagLarge_30_45",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handguard",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"RPK74_Hanguard_Basic",
-								"RPK74_VerticalGrip",
+								"JAZZ_RPK74_Hanguard_Basic",
+								"JAZZ_RPK74_VerticalGrip",
 							},
-							'DefaultComponent', "RPK74_Hanguard_Basic",
+							'DefaultComponent', "JAZZ_RPK74_Hanguard_Basic",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Compensator",
+								"JAZZ_Compensator",
 							},
-							'DefaultComponent', "Compensator",
+							'DefaultComponent', "JAZZ_Compensator",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"StockNormal",
-								"StockLight",
+								"JAZZ_StockNormal",
+								"JAZZ_StockLight",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 											},
 					'HolsterSlot', "Shoulder",
@@ -25986,8 +26365,11 @@ return {
 					'Recoil', 8,
 					'BurstShots', 4,
 					'AutoShots', 7,
-					'Handling', -20,
 					'BulletDropRange', 18,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 56,
 					'BaseJamChance', -30,
 					'WeaponResource', 11500,
@@ -26028,41 +26410,41 @@ return {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"BarrelsDefs",
+								"JAZZ_BarrelsDefs",
 							},
-							'DefaultComponent', "BarrelsDefs",
+							'DefaultComponent', "JAZZ_BarrelsDefs",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"StockNormal",
+								"JAZZ_StockNormal",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'AvailableComponents', {
-								"FoldBipod",
-								"UnfoldBipod",
+								"JAZZ_FoldBipod",
+								"JAZZ_UnfoldBipod",
 							},
-							'DefaultComponent', "UnfoldBipod",
+							'DefaultComponent', "JAZZ_UnfoldBipod",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"Jazz_IronSight",
+								"JAZZ_IronSight",
 							},
-							'DefaultComponent', "Jazz_IronSight",
+							'DefaultComponent', "JAZZ_IronSight",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -26078,8 +26460,11 @@ return {
 					'Recoil', 9,
 					'BurstShots', 6,
 					'AutoShots', 6,
-					'Handling', -25,
 					'BulletDropRange', 14,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 65,
 					'BaseJamChance', -10,
 					'WeaponResource', 9000,
@@ -26119,29 +26504,29 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelLong",
-								"BarrelLongImproved",
-								"BarrelNormal",
-								"BarrelNormalImproved",
-								"BarrelShort",
-								"BarrelShortImproved",
+								"JAZZ_BarrelLong",
+								"JAZZ_BarrelLongImproved",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelNormalImproved",
+								"JAZZ_BarrelShort",
+								"JAZZ_BarrelShortImproved",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
-							'DefaultComponent', "Bipod",
+							'DefaultComponent', "JAZZ_Bipod",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockHeavy",
-								"StockNormal",
+								"JAZZ_StockHeavy",
+								"JAZZ_StockNormal",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -26162,10 +26547,10 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagBelt_100-200",
+								"JAZZ_MagNormal",
+								"JAZZ_MagBelt_100-200",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -26181,8 +26566,11 @@ return {
 					'ReloadAP', 8000,
 					'Recoil', 6,
 					'BurstShots', 10,
-					'Handling', -15,
 					'BulletDropRange', 17,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 57,
 					'WeaponResource', 7500,
 				}),
@@ -26222,20 +26610,20 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelLong",
-								"BarrelLongImproved",
-								"BarrelNormal",
-								"BarrelNormalImproved",
-								"BarrelShort",
-								"BarrelShortImproved",
+								"JAZZ_BarrelLong",
+								"JAZZ_BarrelLongImproved",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelNormalImproved",
+								"JAZZ_BarrelShort",
+								"JAZZ_BarrelShortImproved",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'AvailableComponents', {
 								"DefaultMuzzle_HK21",
-								"Compensator",
+								"JAZZ_Compensator",
 							},
 							'DefaultComponent', "DefaultMuzzle_HK21",
 						}),
@@ -26259,42 +26647,42 @@ return {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockHeavy",
-								"StockNormal",
+								"JAZZ_StockHeavy",
+								"JAZZ_StockNormal",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
-							'DefaultComponent', "Bipod",
+							'DefaultComponent', "JAZZ_Bipod",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"TacGrip",
-								"VerticalGrip",
+								"JAZZ_TacGrip",
+								"JAZZ_VerticalGrip",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagBelt_40-100",
+								"JAZZ_MagNormal",
+								"JAZZ_MagBelt_40-100",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -26310,8 +26698,11 @@ return {
 					'Recoil', 25,
 					'BurstShots', 5,
 					'AutoShots', 9,
-					'Handling', -35,
 					'BulletDropRange', 20,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 53,
 					'BaseJamChance', -30,
 					'WeaponResource', 10000,
@@ -26368,25 +26759,25 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
-							'DefaultComponent', "Bipod",
+							'DefaultComponent', "JAZZ_Bipod",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -26402,8 +26793,11 @@ return {
 					'Recoil', 6,
 					'BurstShots', 4,
 					'AutoShots', 7,
-					'Handling', -25,
 					'BulletDropRange', 18,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 60,
 					'BaseJamChance', -30,
 					'WeaponResource', 10000,
@@ -26449,9 +26843,9 @@ return {
 							'SlotType', "Bipod",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
-							'DefaultComponent', "Bipod",
+							'DefaultComponent', "JAZZ_Bipod",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -26465,8 +26859,11 @@ return {
 					'Recoil', 22,
 					'BurstShots', 6,
 					'AutoShots', 6,
-					'Handling', -45,
 					'BulletDropRange', 15,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 35,
 					'BaseJamChance', -5,
 					'WeaponResource', 15000,
@@ -26509,9 +26906,9 @@ return {
 							'SlotType', "Bipod",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"Bipod_MG42",
+								"JAZZ_Bipod_MG42",
 							},
-							'DefaultComponent', "Bipod_MG42",
+							'DefaultComponent', "JAZZ_Bipod_MG42",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -26525,8 +26922,11 @@ return {
 					'Recoil', 20,
 					'BurstShots', 12,
 					'AutoShots', 12,
-					'Handling', -35,
 					'BulletDropRange', 16,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 34,
 					'BaseJamChance', 3,
 					'WeaponResource', 6000,
@@ -26564,17 +26964,17 @@ return {
 							'SlotType', "Bipod",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"Bipod_MG42",
+								"JAZZ_Bipod_MG42",
 							},
-							'DefaultComponent', "Bipod_MG42",
+							'DefaultComponent', "JAZZ_Bipod_MG42",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"ImprovedIronsight",
+								"JAZZ_ImprovedIronsight",
 							},
-							'DefaultComponent', "ImprovedIronsight",
+							'DefaultComponent', "JAZZ_ImprovedIronsight",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -26586,8 +26986,11 @@ return {
 					'ShootAP', 9000,
 					'ReloadAP', 8000,
 					'Recoil', 12,
-					'Handling', -30,
 					'BulletDropRange', 20,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 35,
 					'WeaponResource', 8000,
 				}),
@@ -26628,9 +27031,9 @@ return {
 							'SlotType', "Bipod",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
-							'DefaultComponent', "Bipod",
+							'DefaultComponent', "JAZZ_Bipod",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -26644,8 +27047,11 @@ return {
 					'Recoil', 21,
 					'BurstShots', 6,
 					'AutoShots', 6,
-					'Handling', -30,
 					'BulletDropRange', 17,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 38,
 					'BaseJamChance', -5,
 					'WeaponResource', 15000,
@@ -26686,16 +27092,16 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
-							'DefaultComponent', "Bipod",
+							'DefaultComponent', "JAZZ_Bipod",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -26709,8 +27115,11 @@ return {
 					'Recoil', 18,
 					'BurstShots', 5,
 					'AutoShots', 5,
-					'Handling', -35,
 					'BulletDropRange', 17,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 38,
 					'WeaponResource', 8000,
 				}),
@@ -26750,25 +27159,16 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
-							'DefaultComponent', "Bipod",
+							'DefaultComponent', "JAZZ_Bipod",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Mount",
-							'Modifiable', false,
-							'AvailableComponents', {
-								"M60E3HandGrip",
-								"M60E4ModernMount",
-							},
-							'DefaultComponent', "M60E3HandGrip",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 											},
 					'HolsterSlot', "Shoulder",
@@ -26782,8 +27182,11 @@ return {
 					'Recoil', 16,
 					'BurstShots', 5,
 					'AutoShots', 5,
-					'Handling', -30,
 					'BulletDropRange', 17,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 38,
 					'WeaponResource', 8500,
 				}),
@@ -26824,9 +27227,9 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'AvailableComponents', {
-								"KSP_BIPOD",
+								"JAZZ_KSP_BIPOD",
 							},
-							'DefaultComponent', "KSP_BIPOD",
+							'DefaultComponent', "JAZZ_KSP_BIPOD",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -26847,9 +27250,9 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -26863,8 +27266,11 @@ return {
 					'Recoil', 12,
 					'BurstShots', 8,
 					'AutoShots', 8,
-					'Handling', -30,
 					'BulletDropRange', 18,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 37,
 					'BaseJamChance', -10,
 					'WeaponResource', 10000,
@@ -26907,14 +27313,9 @@ return {
 							'SlotType', "Muzzle",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"DefMuzzle",
+								"JAZZ_DefMuzzle",
 							},
-							'DefaultComponent', "DefMuzzle",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Mount",
-							'Modifiable', false,
-							'CanBeEmpty', true,
+							'DefaultComponent', "JAZZ_DefMuzzle",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -26937,53 +27338,53 @@ return {
 							'Modifiable', false,
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
-								"FlashlightDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
+								"JAZZ_FlashlightDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"StockNormal",
-								"PKMModStock",
+								"JAZZ_StockNormal",
+								"JAZZ_PKMModStock",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
-							'DefaultComponent', "Bipod",
+							'DefaultComponent', "JAZZ_Bipod",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'Modifiable', false,
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"TacGrip",
-								"VerticalGrip",
+								"JAZZ_TacGrip",
+								"JAZZ_VerticalGrip",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handguard",
 							'Modifiable', false,
 							'AvailableComponents', {
-								"PKMDefHandGrip",
-								"PKMModHandGrip",
+								"JAZZ_PKMDefHandGrip",
+								"JAZZ_PKMModHandGrip",
 							},
-							'DefaultComponent', "PKMDefHandGrip",
+							'DefaultComponent', "JAZZ_PKMDefHandGrip",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -26997,8 +27398,11 @@ return {
 					'Recoil', 16,
 					'BurstShots', 6,
 					'AutoShots', 6,
-					'Handling', -32,
 					'BulletDropRange', 18,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 38,
 					'BaseJamChance', -50,
 					'WeaponResource', 12000,
@@ -27039,25 +27443,16 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Bipod",
 							'AvailableComponents', {
-								"Bipod",
+								"JAZZ_Bipod",
 							},
-							'DefaultComponent', "Bipod",
+							'DefaultComponent', "JAZZ_Bipod",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
+								"JAZZ_MagNormal",
 							},
-							'DefaultComponent', "MagNormal",
-						}),
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Mount",
-							'Modifiable', false,
-							'AvailableComponents', {
-								"M60E3HandGrip",
-								"M60E4ModernMount",
-							},
-							'DefaultComponent', "M60E4ModernMount",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -27079,16 +27474,16 @@ return {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"FlashlightDot",
-								"LaserDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
 							'AvailableComponents', {
-								"VerticalGrip",
+								"JAZZ_VerticalGrip",
 							},
 						}),
 					},
@@ -27103,8 +27498,11 @@ return {
 					'Recoil', 14,
 					'BurstShots', 5,
 					'AutoShots', 5,
-					'Handling', -25,
 					'BulletDropRange', 18,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 40,
 					'WeaponResource', 9000,
 				}),
@@ -27152,6 +27550,10 @@ return {
 					'BurstShots', 6,
 					'AutoShots', 6,
 					'BulletDropRange', 28,
+
+					'CloseRange', 6,
+
+					'CloseRangeFactor', 85,
 					'Grouping', 21,
 					'WeaponResource', 50000,
 				}),
@@ -27197,11 +27599,11 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelLongShotgun",
-								"BarrelNormal",
-								"BarrelShortShotgun",
+								"JAZZ_BarrelLongShotgun",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelShortShotgun",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -27217,8 +27619,11 @@ return {
 					'MaxAimActions', 2,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -10,
 					'BulletDropRange', 8,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 140,
 					'BaseJamChance', -100,
 					'WeaponResource', 3000,
@@ -27261,8 +27666,8 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"DuckbillChoke",
-								"FullChoke",
+								"JAZZ_DuckbillChoke",
+								"JAZZ_FullChoke",
 							},
 						}),
 					},
@@ -27278,8 +27683,11 @@ return {
 					'MaxAimActions', 2,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -15,
 					'BulletDropRange', 7,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 110,
 					'BaseJamChance', -10,
 					'WeaponResource', 600,
@@ -27338,18 +27746,18 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelShortShotgun",
-								"BarrelNormal",
+								"JAZZ_BarrelShortShotgun",
+								"JAZZ_BarrelNormal",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockNormal",
-								"StockNo",
+								"JAZZ_StockNormal",
+								"JAZZ_StockNo",
 							},
-							'DefaultComponent', "StockNormal",
+							'DefaultComponent', "JAZZ_StockNormal",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -27364,8 +27772,11 @@ return {
 					'MaxAimActions', 2,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -15,
 					'BulletDropRange', 8,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 145,
 					'WeaponResource', 1800,
 				}),
@@ -27423,15 +27834,15 @@ return {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"LaserDot",
+								"JAZZ_Flashlight",
+								"JAZZ_LaserDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Side2",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"SpeedLoader",
+								"JAZZ_SpeedLoader",
 							},
 						}),
 					},
@@ -27446,8 +27857,11 @@ return {
 					'ReloadAP', 7000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -15,
 					'BulletDropRange', 9,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 150,
 					'BaseJamChance', -10,
 					'WeaponResource', 1400,
@@ -27497,8 +27911,11 @@ return {
 					'ReloadAP', 3000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -15,
 					'BulletDropRange', 8,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 160,
 					'BaseJamChance', -100,
 					'WeaponResource', 3000,
@@ -27543,21 +27960,21 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"DuckbillChoke",
-								"FullChoke",
-								"Compensator",
+								"JAZZ_DuckbillChoke",
+								"JAZZ_FullChoke",
+								"JAZZ_Compensator",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"Auto5_Basic_LMag",
-								"Auto5_Basic_NMag",
-								"Auto5_Long_LMag",
-								"Auto5_Long_NMag",
-								"Auto5_Short_NMag",
+								"JAZZ_Auto5_Basic_LMag",
+								"JAZZ_Auto5_Basic_NMag",
+								"JAZZ_Auto5_Long_LMag",
+								"JAZZ_Auto5_Long_NMag",
+								"JAZZ_Auto5_Short_NMag",
 							},
-							'DefaultComponent', "Auto5_Basic_NMag",
+							'DefaultComponent', "JAZZ_Auto5_Basic_NMag",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -27572,8 +27989,11 @@ return {
 					'MaxAimActions', 2,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -15,
 					'BulletDropRange', 6,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 100,
 					'WeaponResource', 500,
 				}),
@@ -27611,10 +28031,10 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
-								"StockLightUnFolded",
-								"StockLightFolded",
+								"JAZZ_StockLightUnFolded",
+								"JAZZ_StockLightFolded",
 							},
-							'DefaultComponent', "StockLightUnFolded",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -27628,8 +28048,11 @@ return {
 					'MaxAimActions', 2,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -22,
 					'BulletDropRange', 8,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 130,
 					'BaseJamChance', -20,
 				}),
@@ -27677,8 +28100,11 @@ return {
 					'ReloadAP', 7000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -10,
 					'BulletDropRange', 9,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 140,
 					'WeaponResource', 2800,
 					'CanAppearUsed', false,
@@ -27719,10 +28145,10 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelShortShotgun_Benelli",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelShortShotgun_Benelli",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -27745,17 +28171,17 @@ return {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight",
-								"FlashlightDot",
-								"LaserDot",
-								"UVDot",
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Compensator",
+								"JAZZ_Compensator",
 							},
 						}),
 					},
@@ -27769,8 +28195,11 @@ return {
 					'ReloadAP', 7000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -15,
 					'BulletDropRange', 9,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 155,
 					'WeaponResource', 2400,
 					'CanAppearUsed', false,
@@ -27831,17 +28260,17 @@ return {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Suppressor",
-								"Compensator",
+								"JAZZ_Suppressor",
+								"JAZZ_Compensator",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 					},
 					'HolsterSlot', "Shoulder",
@@ -27854,8 +28283,11 @@ return {
 					'ReloadAP', 6000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -20,
 					'BulletDropRange', 8,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 145,
 					'WeaponResource', 2500,
 					'CanAppearUsed', false,
@@ -27897,18 +28329,18 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Barrel",
 							'AvailableComponents', {
-								"BarrelNormal",
-								"BarrelLongShotgun",
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelLongShotgun",
 							},
-							'DefaultComponent', "BarrelNormal",
+							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"MagNormal",
-								"MagLarge",
+								"JAZZ_MagNormal",
+								"JAZZ_MagLarge",
 							},
-							'DefaultComponent', "MagNormal",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -27930,18 +28362,18 @@ return {
 							'SlotType', "Side",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Flashlight_aa12",
-								"LaserDot_aa12",
-								"FlashlightDot_aa12",
-								"UVDot_aa12",
+								"JAZZ_Flashlight_aa12",
+								"JAZZ_LaserDot_aa12",
+								"JAZZ_FlashlightDot_aa12",
+								"JAZZ_UVDot_aa12",
 							},
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Muzzle",
 							'CanBeEmpty', true,
 							'AvailableComponents', {
-								"Suppressor",
-								"Compensator",
+								"JAZZ_Suppressor",
+								"JAZZ_Compensator",
 							},
 						}),
 					},
@@ -27955,8 +28387,11 @@ return {
 					'ReloadAP', 6000,
 					'BurstShots', 1,
 					'AutoShots', 1,
-					'Handling', -12,
 					'BulletDropRange', 8,
+
+					'CloseRange', 4,
+
+					'CloseRangeFactor', 90,
 					'Grouping', 150,
 					'WeaponResource', 2200,
 					'CanAppearUsed', false,
@@ -28003,7 +28438,6 @@ return {
 					'PreparedAttackType', "None",
 					'ShootAP', 7000,
 					'ReloadAP', 4000,
-					'Handling', 40,
 					'WeaponResource', 80,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -28036,7 +28470,6 @@ return {
 					},
 					'ShootAP', 8000,
 					'ReloadAP', 8000,
-					'Handling', 58,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - Heavy",
@@ -28077,7 +28510,6 @@ return {
 					'PreparedAttackType', "None",
 					'ShootAP', 7000,
 					'ReloadAP', 7000,
-					'Handling', 70,
 					'WeaponResource', 300,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -28119,7 +28551,6 @@ return {
 					'PreparedAttackType', "None",
 					'ShootAP', 6000,
 					'ReloadAP', 9000,
-					'Handling', 65,
 					'WeaponResource', 100,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -28163,7 +28594,6 @@ return {
 					'PreparedAttackType', "None",
 					'ShootAP', 5000,
 					'ReloadAP', 10000,
-					'Handling', 75,
 					'WeaponResource', 250,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -28205,7 +28635,6 @@ return {
 					'PreparedAttackType', "None",
 					'ShootAP', 9000,
 					'ReloadAP', 7000,
-					'Handling', 60,
 					'WeaponResource', 100,
 					'BackfireRange', 2,
 					'BackfireDamage', 8,
@@ -28244,7 +28673,6 @@ return {
 					'PreparedAttackType', "None",
 					'ShootAP', 9000,
 					'ReloadAP', 4000,
-					'Handling', 75,
 					'BackfireRange', 2,
 					'BackfireDamage', 8,
 				}),
@@ -29109,70 +29537,7 @@ return {
 				PlaceObj('ModItemFolder', {
 					'name', "Muzzle",
 				}),
-				PlaceObj('ModItemWeaponComponent', {
-					Cost = 20,
-					DisplayName = T(202034549728, --[[ModItemWeaponComponent ImprovisedSuppressor_Anaconda DisplayName]] "Improvised Suppressor"),
-					Icon = "UI/Icons/Upgrades/oil_filter_suppressor_small",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/ImprovisedSuppressor_Anaconda.png",
-					ModificationDifficulty = 0,
-					ModificationEffects = {
-						"SilentShots",
-					},
-					Parameters = {
-						PlaceObj('PresetParamPercent', {
-							'Name', "crit",
-							'Value', 25,
-							'Tag', "<crit>%",
-						}),
-					},
-					Slot = "Muzzle",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "ColtAnaconda",
-							Entity = "WeaponAttA_SilencerDesertEagle",
-							Slot = "Muzzle",
-							param_bindings = false,
-						}),
-					},
-					group = "Anaconda Specific",
-					id = "ImprovisedSuppressor_Anaconda",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					AdditionalCosts = {
-						PlaceObj('WeaponComponentCost', {
-							'Amount', 1,
-							'Type', "FineSteelPipe",
-						}),
-					},
-					Cost = 10,
-					DisplayName = T(655142837568, --[[ModItemWeaponComponent Suppressor_Anaconda DisplayName]] "Suppressor"),
-					Icon = "UI/Icons/Upgrades/beretta_silencer",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Suppressor_Anaconda.png",
-					ModificationDifficulty = 0,
-					ModificationEffects = {
-						"SilentShots",
-						"CritBonusSameTarget",
-					},
-					Parameters = {
-						PlaceObj('PresetParamPercent', {
-							'Name', "crit",
-							'Value', 25,
-							'Tag', "<crit>%",
-						}),
-					},
-					Slot = "Muzzle",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "ColtAnaconda",
-							Entity = "WeaponAttA_SilencerBeretta",
-							Slot = "Muzzle",
-							param_bindings = false,
-						}),
-					},
-					group = "Anaconda Specific",
-					id = "Suppressor_Anaconda",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
+																																								PlaceObj('ModItemWeaponComponent', {
 					AdditionalCosts = {
 						PlaceObj('WeaponComponentCost', {
 							'Amount', 1,
@@ -29207,7 +29572,7 @@ return {
 						}),
 					},
 					group = "Auto5 Specific",
-					id = "Auto5_Basic_LMag",
+					id = "JAZZ_Auto5_Basic_LMag",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					AdditionalCosts = {
@@ -29234,7 +29599,7 @@ return {
 						}),
 					},
 					group = "Auto5 Specific",
-					id = "Auto5_Basic_NMag",
+					id = "JAZZ_Auto5_Basic_NMag",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					AdditionalCosts = {
@@ -29246,7 +29611,7 @@ return {
 					Cost = 50,
 					DisplayName = T(911126905798, --[[ModItemWeaponComponent Auto5_Long_LMag DisplayName]] "Long Barrel High Cap"),
 					Icon = "UI/Icons/Upgrades/galil_barrel_long",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Auto5_Long_LMag.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Auto5_Long_LMag.png",
 					ModificationDifficulty = 0,
 					ModificationEffects = {
 						"HalfRangeDmgIncrease",
@@ -29279,7 +29644,7 @@ return {
 						}),
 					},
 					group = "Auto5 Specific",
-					id = "Auto5_Long_LMag",
+					id = "JAZZ_Auto5_Long_LMag",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					AdditionalCosts = {
@@ -29291,7 +29656,7 @@ return {
 					Cost = 30,
 					DisplayName = T(853684866664, --[[ModItemWeaponComponent Auto5_Long_NMag DisplayName]] "Long Barrel"),
 					Icon = "UI/Icons/Upgrades/galil_barrel_long",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Auto5_Long_NMag.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Auto5_Long_NMag.png",
 					ModificationDifficulty = 0,
 					ModificationEffects = {
 						"HalfRangeDmgIncrease",
@@ -29318,7 +29683,7 @@ return {
 						}),
 					},
 					group = "Auto5 Specific",
-					id = "Auto5_Long_NMag",
+					id = "JAZZ_Auto5_Long_NMag",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					AdditionalCosts = {
@@ -29330,7 +29695,7 @@ return {
 					Cost = 20,
 					DisplayName = T(804030380788, --[[ModItemWeaponComponent Auto5_Short_NMag DisplayName]] "Короткий ствол"),
 					Icon = "UI/Icons/Upgrades/galil_barrel_short",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Auto5_Short_NMag.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Auto5_Short_NMag.png",
 					ModificationDifficulty = 0,
 					ModificationEffects = {
 						"ReduceShootAP",
@@ -29374,7 +29739,7 @@ return {
 						}),
 					},
 					group = "Auto5 Specific",
-					id = "Auto5_Short_NMag",
+					id = "JAZZ_Auto5_Short_NMag",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 60,
@@ -29413,7 +29778,7 @@ return {
 						}),
 					},
 					group = "Galil Specific",
-					id = "Bipod_Galil",
+					id = "JAZZ_Bipod_Galil",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 2,
@@ -29439,7 +29804,7 @@ return {
 						}),
 					},
 					group = "Galil Specific",
-					id = "Galil_Brake_Default",
+					id = "JAZZ_Galil_Brake_Default",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					AdditionalCosts = {
@@ -29451,7 +29816,7 @@ return {
 					Cost = 15,
 					DisplayName = T(563380121914, --[[ModItemWeaponComponent BarrelShortShotgun_Benelli DisplayName]] "Shortened Barrel"),
 					Icon = "UI/Icons/Upgrades/m1014_barrel_short",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelShortShotgun_Benelli.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_BarrelShortShotgun_Benelli.png",
 					ModificationDifficulty = 0,
 					ModificationEffects = {
 						"ReduceReliability",
@@ -29459,6 +29824,10 @@ return {
 						"IncreaseBuckshotAngle",
 						"ReduceRange",
 						"ReduceShootAP",
+					
+						"CloseRangeDecrease",
+					
+						"CloseRangeFactorIncrease",
 					},
 					Parameters = {
 						PlaceObj('PresetParamNumber', {
@@ -29486,7 +29855,19 @@ return {
 							'Value', 1,
 							'Tag', "<ShootAPDecrease>",
 						}),
-					},
+					
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeDecrease",
+					'Value', 1,
+					'Tag', "<CloseRangeDecrease>",
+				}),
+			
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeFactorIncrease",
+					'Value', 10,
+					'Tag', "<CloseRangeFactorIncrease>",
+				}),
+			},
 					Slot = "Barrel",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
@@ -29497,7 +29878,7 @@ return {
 						}),
 					},
 					group = "M1014 Specific",
-					id = "BarrelShortShotgun_Benelli",
+					id = "JAZZ_BarrelShortShotgun_Benelli",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					AdditionalCosts = {
@@ -29530,7 +29911,7 @@ return {
 						}),
 					},
 					group = "M14 Specific",
-					id = "GrenadeLauncher_M14",
+					id = "JAZZ_GrenadeLauncher_M14",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 2,
@@ -29553,7 +29934,7 @@ return {
 						}),
 					},
 					group = "M14 Specific",
-					id = "M14_Default_Muzzle",
+					id = "JAZZ_M14_Default_Muzzle",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 20,
@@ -29598,35 +29979,7 @@ return {
 						}),
 					},
 					group = "M14 Specific",
-					id = "TacGrip_M14",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					AdditionalCosts = {
-						PlaceObj('WeaponComponentCost', {
-							'Amount', 1,
-							'Type', "FineSteelPipe",
-						}),
-					},
-					Cost = 20,
-					DisplayName = T(492750328780, --[[ModItemWeaponComponent GrenadeLauncher_M16A1 DisplayName]] "Grenade Launcher"),
-					EnableWeapon = "UnderslungGrenadeLauncher",
-					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/GrenadeLauncher_M16A1.png",
-					ModificationDifficulty = 20,
-					ModificationEffects = {
-						"GrenadeLauncher",
-					},
-					Slot = "Under",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "M16A2",
-							Entity = "WeaponAttA_LauncherM203",
-							Slot = "Under",
-							param_bindings = false,
-						}),
-					},
-					group = "M16A2 Specific",
-					id = "GrenadeLauncher_M16A1",
+					id = "JAZZ_TacGrip_M14",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					AdditionalCosts = {
@@ -29639,7 +29992,7 @@ return {
 					DisplayName = T(860554671882, --[[ModItemWeaponComponent GrenadeLauncher_Commando DisplayName]] "Grenade Launcher"),
 					EnableWeapon = "UnderslungGrenadeLauncher",
 					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/GrenadeLauncher_Commando.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_GrenadeLauncher_Commando.png",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
 						"GrenadeLauncher",
@@ -29654,13 +30007,13 @@ return {
 						}),
 					},
 					group = "M4 Commando Specific",
-					id = "GrenadeLauncher_Commando",
+					id = "JAZZ_GrenadeLauncher_Commando",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 40,
 					DisplayName = T(291801976985, --[[ModItemWeaponComponent VerticalGrip_Commando DisplayName]] "Vertical Grip"),
 					Icon = "UI/Icons/Upgrades/mp5_grip",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/VerticalGrip_Commando.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_VerticalGrip_Commando.png",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
 						"FirstAimBonusModifier",
@@ -29687,7 +30040,7 @@ return {
 						}),
 					},
 					group = "M4 Commando Specific",
-					id = "VerticalGrip_Commando",
+					id = "JAZZ_VerticalGrip_Commando",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 60,
@@ -29714,7 +30067,7 @@ return {
 						}),
 					},
 					group = "MG42 Specific",
-					id = "Bipod_MG42",
+					id = "JAZZ_Bipod_MG42",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					AdditionalCosts = {
@@ -29727,7 +30080,7 @@ return {
 					DisplayName = T(875731475724, --[[ModItemWeaponComponent FlashlightDot_PSG_M1 DisplayName]] "Tactical Device"),
 					EnableAimFX = true,
 					Icon = "UI/Icons/Upgrades/side_laserlight",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/FlashlightDot_PSG_M1.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_FlashlightDot_PSG_M1.png",
 					ModificationDifficulty = 10,
 					ModificationEffects = {
 						"IgnoreInTheDark",
@@ -29749,14 +30102,14 @@ return {
 						}),
 					},
 					group = "PSG1-Specific",
-					id = "FlashlightDot_PSG_M1",
+					id = "JAZZ_FlashlightDot_PSG_M1",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 10,
 					DisplayName = T(963698128407, --[[ModItemWeaponComponent Flashlight_PSG_M1 DisplayName]] "Flashlight"),
 					EnableAimFX = true,
 					Icon = "UI/Icons/Upgrades/side_light",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Flashlight_PSG_M1.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Flashlight_PSG_M1.png",
 					ModificationDifficulty = -25,
 					ModificationEffects = {
 						"IgnoreInTheDark",
@@ -29770,7 +30123,7 @@ return {
 						}),
 					},
 					group = "PSG1-Specific",
-					id = "Flashlight_PSG_M1",
+					id = "JAZZ_Flashlight_PSG_M1",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					AdditionalCosts = {
@@ -29783,7 +30136,7 @@ return {
 					DisplayName = T(841174949604, --[[ModItemWeaponComponent LaserDot_PSG_M1 DisplayName]] "Red Dot"),
 					EnableAimFX = true,
 					Icon = "UI/Icons/Upgrades/side_laser",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/LaserDot_PSG_M1.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_LaserDot_PSG_M1.png",
 					ModificationDifficulty = 10,
 					ModificationEffects = {
 						"MarkWhenFullyAimed",
@@ -29797,34 +30150,7 @@ return {
 						}),
 					},
 					group = "PSG1-Specific",
-					id = "LaserDot_PSG_M1",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					Cost = 2,
-					DisplayName = T(788505505812, --[[ModItemWeaponComponent PSG_DefaultScope DisplayName]] "Default Scope"),
-					Icon = "UI/Icons/Upgrades/custom_PSG1_scope",
-					ModificationDifficulty = -25,
-					ModificationEffects = {
-						"IncreaseMaxAimActions",
-					},
-					Parameters = {
-						PlaceObj('PresetParamNumber', {
-							'Name', "IncreaseMaxAimActions",
-							'Value', 1,
-							'Tag', "<IncreaseMaxAimActions>",
-						}),
-					},
-					Slot = "Scope",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "PSG1",
-							Entity = "WeaponAttA_ScopePSG",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-					},
-					group = "PSG1-Specific",
-					id = "PSG_DefaultScope",
+					id = "JAZZ_LaserDot_PSG_M1",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					AdditionalCosts = {
@@ -29837,7 +30163,7 @@ return {
 					DisplayName = T(524417680473, --[[ModItemWeaponComponent UVDot_PSG_M1 DisplayName]] "UV Dot"),
 					EnableAimFX = true,
 					Icon = "UI/Icons/Upgrades/side_laser",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/UVDot_PSG_M1.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_UVDot_PSG_M1.png",
 					ModificationDifficulty = 10,
 					ModificationEffects = {
 						"MinAim",
@@ -29851,13 +30177,13 @@ return {
 						}),
 					},
 					group = "PSG1-Specific",
-					id = "UVDot_PSG_M1",
+					id = "JAZZ_UVDot_PSG_M1",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 40,
 					DisplayName = T(236370866133, --[[ModItemWeaponComponent RPK74_VerticalGrip DisplayName]] "Vertical Grip"),
 					Icon = "UI/Icons/Upgrades/ak47_vertical_grip",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/RPK74_VerticalGrip.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_RPK74_VerticalGrip.png",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
 						"RecoilDecrease",
@@ -29885,7 +30211,7 @@ return {
 						}),
 					},
 					group = "RPK 74 Specific",
-					id = "RPK74_VerticalGrip",
+					id = "JAZZ_RPK74_VerticalGrip",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(198897613871, --[[ModItemWeaponComponent RPK74_Hanguard_Basic DisplayName]] "Default Handguard"),
@@ -29907,13 +30233,13 @@ return {
 						}),
 					},
 					group = "RPK 74 Specific",
-					id = "RPK74_Hanguard_Basic",
+					id = "JAZZ_RPK74_Hanguard_Basic",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 60,
 					DisplayName = T(511013919584, --[[ModItemWeaponComponent Bipod_Under DisplayName]] "Bipod"),
 					Icon = "UI/Icons/Upgrades/ak47_bipod",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Bipod_Under.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Bipod_Under.png",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
 						"AccuracyBonusProne",
@@ -29965,131 +30291,7 @@ return {
 						}),
 					},
 					group = "Underslung",
-					id = "Bipod_Under",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(824406786716, --[[ModItemWeaponComponent Val_VSS_wing2 DisplayName]] "Крепление для ВАЛ/ВСС"),
-					Slot = "Side3",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Val_VSS_wing2.png",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "AS_Val",
-							Entity = "VSSWing2",
-							Slot = "Side3",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "VSS",
-							Entity = "VSSWing2",
-							Slot = "Side3",
-							param_bindings = false,
-						}),
-					},
-					comment = "-- кольцо для крепления аксессуаров под фонари",
-					group = "Default",
-					id = "Val_VSS_wing2",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(564328344484, --[[ModItemWeaponComponent Val_VSS_wing1 DisplayName]] "Крепление для ВАЛ/ВСС"),
-					Slot = "Side2",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Val_VSS_wing1.png",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "AS_Val",
-							Entity = "VSSWing1",
-							Slot = "Side2",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "VSS",
-							Entity = "VSSWing1",
-							Slot = "Side2",
-							param_bindings = false,
-						}),
-					},
-					comment = "-- Кольцо для рукоятей",
-					group = "Default",
-					id = "Val_VSS_wing1",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(490344601575, --[[ModItemWeaponComponent VSSFlashLight DisplayName]] "Мощный Фонарь"),
-					Slot = "Side",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/VSSFlashLight.png",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "VSS",
-							Entity = "VSSFlash",
-							Slot = "Side",
-							param_bindings = false,
-						}),
-					},
-					comment = "--Фонарь для ВСС, к валу не подходит, у него моделька отморфлена хуево",
-					group = "Underslung",
-					id = "VSSFlashLight",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(243853420338, --[[ModItemWeaponComponent Handguard DisplayName]] "Цевьё"),
-					Icon = "UI/Icons/Upgrades/default_grenadelauncher",
-					Slot = "Handguard",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "AKM",
-							Entity = "AKMHandguard",
-							Slot = "Handguard",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "AK74",
-							Entity = "AK74HandGuard",
-							Slot = "Handguard",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "M16A1",
-							Entity = "M16A1DefHandG",
-							Slot = "Handguard",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "M16A2",
-							Entity = "M16A2HandGuard",
-							Slot = "Handguard",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "M1A",
-							Entity = "M1a_Handguard",
-							Slot = "Handguard",
-							param_bindings = false,
-						}),
-					},
-					comment = "--Цевья",
-					group = "Default",
-					id = "Handguard",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(205417891756, --[[ModItemWeaponComponent HandguardRail DisplayName]] "Цевьё с рельсой"),
-					Icon = "UI/Icons/Upgrades/default_grenadelauncher",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/HandguardRail.png",
-					Slot = "HandguardRail",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "M1A",
-							Entity = "M1a_HandguardRail",
-							Slot = "Handguard",
-							param_bindings = false,
-						}),
-					},
-					comment = "--Цевья",
-					group = "Default",
-					id = "HandguardRail",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(231237371538, --[[ModItemWeaponComponent FoldStocks DisplayName]] "Сложенный приклад"),
-					Slot = "Stock",
-					comment = "Сложенные приклады",
-					group = "Default",
-					id = "FoldStocks",
+					id = "JAZZ_Bipod_Under",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(316173123440, --[[ModItemWeaponComponent UnfoldStocks DisplayName]] "Разложенный приклад"),
@@ -30206,15 +30408,7 @@ return {
 					},
 					comment = "Разложенные приклады",
 					group = "Default",
-					id = "UnfoldStocks",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(482774581636, --[[ModItemWeaponComponent StockFull DisplayName]] "Деревянный приклад АК"),
-					Slot = "Stock",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/StockFull.png",
-					comment = "Обычные приклады",
-					group = "Default",
-					id = "StockFull",
+					id = "JAZZ_UnfoldStocks",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(467118505377, --[[ModItemWeaponComponent BarrelsDefs DisplayName]] "Заводской ствол"),
@@ -30265,7 +30459,7 @@ return {
 					},
 					comment = "Стволы",
 					group = "Default",
-					id = "BarrelsDefs",
+					id = "JAZZ_BarrelsDefs",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(748633742130, --[[ModItemWeaponComponent DefMuzzle DisplayName]] "Заводской дульный тормоз"),
@@ -30334,314 +30528,7 @@ return {
 					},
 					comment = "--Заводские пламегасы, где есть",
 					group = "Default",
-					id = "DefMuzzle",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(781788333892, --[[ModItemWeaponComponent AnotherOptic DisplayName]] "Оптический прицел"),
-					Slot = "Scope",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "HK23e",
-							Entity = "G3SniperScope",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "HK23e",
-							Entity = "Hk23eFurniture",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "Sig550",
-							Entity = "G3SniperScope",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "Sig550Custom",
-							Entity = "G3SniperScope",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "Sig552",
-							Entity = "G3SniperScope",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "Sig552SWAT",
-							Entity = "G3SniperScope",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "M4A1",
-							Entity = "G3SniperScope",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "M16A1",
-							Entity = "G3SniperScope",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "M16A1",
-							Entity = "CAR15Mount",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "M16A2",
-							Entity = "CAR15Mount",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "M16A4",
-							Entity = "G3SniperScope",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "PKM",
-							Entity = "G3SniperScope",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "PKM",
-							Entity = "PKMModern",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "Mosin",
-							Entity = "PUOptic",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "CAR15",
-							Entity = "G3SniperScope",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "CAR15",
-							Entity = "CAR15Mount",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-					},
-					comment = "Остальная оптика, болтовки и т.д.",
-					group = "Default",
-					id = "AnotherOptic",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(656684873329, --[[ModItemWeaponComponent AdvancedHOLO DisplayName]] "Улучшеный коллиматор"),
-					Slot = "Scope",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/AdvancedHOLO.png",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "G3A3",
-							Entity = "G3SimpleScope",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "G3A4",
-							Entity = "G3SimpleScope",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "G3SniperV1",
-							Entity = "G3SimpleScope",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "MP5A2",
-							Entity = "WeaponAttA_ScopeReflex",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "MP5A2",
-							Entity = "MP5Plank",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "MP5A4",
-							Entity = "WeaponAttA_ScopeReflex",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "MP5A4",
-							Entity = "MP5Plank",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "MP5SD",
-							Entity = "WeaponAttA_ScopeReflex",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "MP5SD",
-							Entity = "MP5Plank",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "HK23e",
-							Entity = "WeaponAttA_ScopeReflex",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "HK23e",
-							Entity = "Hk23eFurniture",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "AK74",
-							Entity = "PKAA",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "AK74",
-							Entity = "AKSeriaMount",
-							Slot = "General",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "AKM",
-							Entity = "PKAA",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "AKM",
-							Entity = "AKSeriaMount",
-							Slot = "General",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "VSS",
-							Entity = "PKAA",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "AS_Val",
-							Entity = "PKAA",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "SVU",
-							Entity = "PKAA",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "CAR15",
-							Entity = "Aimpoint5000",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "CAR15",
-							Entity = "CAR15Mount",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "M16A1",
-							Entity = "Aimpoint5000",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "M16A1",
-							Entity = "CAR15Mount",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "M16A2",
-							Entity = "Aimpoint5000",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "M16A2",
-							Entity = "CAR15Mount",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "M60E4",
-							Entity = "WeaponAttA_ScopeReflex",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "M60E4",
-							Entity = "M60E4ModernMount",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "UZI",
-							Entity = "WeaponAttA_ScopeReflex",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "UZI",
-							Entity = "UziPlank",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "Sig550",
-							Entity = "WeaponAttA_ScopeReflex",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "Sig550Custom",
-							Entity = "WeaponAttA_ScopeReflex",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "Sig552",
-							Entity = "WeaponAttA_ScopeReflex",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "Sig552SWAT",
-							Entity = "WeaponAttA_ScopeReflex",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-					},
-					comment = "Голографы повыше качеством",
-					group = "Default",
-					id = "AdvancedHOLO",
+					id = "JAZZ_DefMuzzle",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(701601710506, --[[ModItemWeaponComponent UnfoldBipod DisplayName]] "Разложенная сошка"),
@@ -30732,7 +30619,7 @@ return {
 					},
 					comment = "--Разложенная сошка",
 					group = "Default",
-					id = "UnfoldBipod",
+					id = "JAZZ_UnfoldBipod",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(865888227538, --[[ModItemWeaponComponent FoldBipod DisplayName]] "Сложенная сошка"),
@@ -30819,84 +30706,14 @@ return {
 					},
 					comment = "--Сложенная сошка",
 					group = "Default",
-					id = "FoldBipod",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(388764551610, --[[ModItemWeaponComponent SigErgoHandGrip DisplayName]] "Эргономичная рукоять для Sig"),
-					ModificationEffects = {
-						"GripHandlingIncrease",
-					},
-					Slot = "Handguard",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/SigErgoHandGrip.png",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							Entity = "SIGErgoHandGrip",
-							Slot = "Handguard",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							Entity = "SIGErgoHandGrip",
-							Slot = "Handgrip",
-							param_bindings = false,
-						}),
-					},
-					comment = "Эргономичная",
-					group = "Default",
-					id = "SigErgoHandGrip",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(273154591605, --[[ModItemWeaponComponent SigDefHandGuard DisplayName]] "Заводская рукоять Sig"),
-					Slot = "Handguard",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							Entity = "SIGHandGripDef",
-							Slot = "Handguard",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
-							Entity = "SIGHandGripDef",
-							Slot = "Handgrip",
-							param_bindings = false,
-						}),
-					},
-					comment = "Пистолетная рукоять от сигов",
-					group = "Default",
-					id = "SigDefHandGuard",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(342325910829, --[[ModItemWeaponComponent M16Bayonet DisplayName]] "Штык-нож для М16"),
-					Slot = "Side2",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/M16Bayonet.png",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							Entity = "M16Bayonet",
-							Slot = "Side2",
-							param_bindings = false,
-						}),
-					},
-					group = "Default",
-					id = "M16Bayonet",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(898134129078, --[[ModItemWeaponComponent M16BarrelRedDot DisplayName]] "ЛЦУ на уникальном спецкреплении"),
-					Slot = "Side",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/M16BarrelRedDot.png",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							Entity = "M16BarrelRedDot",
-							Slot = "Side",
-							param_bindings = false,
-						}),
-					},
-					group = "Default",
-					id = "M16BarrelRedDot",
+					id = "JAZZ_FoldBipod",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 1,
 					DisplayName = T(469543190873, --[[ModItemWeaponComponent M16A1LaunchHandGuard DisplayName]] "Гранатомет"),
 					EnableWeapon = "UnderslungGrenadeLauncher",
 					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/M16A1LaunchHandGuard.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_M16A1LaunchHandGuard.png",
 					ModificationDifficulty = -10,
 					ModificationEffects = {
 						"GrenadeLauncher",
@@ -30910,35 +30727,7 @@ return {
 						}),
 					},
 					group = "Default",
-					id = "M16A1LaunchHandGuard",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(866252525731, --[[ModItemWeaponComponent ModernSupressor DisplayName]] "Мультикалиберная банка"),
-					Slot = "Muzzle",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/ModernSupressor.png",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							Entity = "M4ModernSupressor",
-							Slot = "Muzzle",
-							param_bindings = false,
-						}),
-					},
-					group = "Default",
-					id = "ModernSupressor",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(949465429175, --[[ModItemWeaponComponent M4ModernStanag DisplayName]] "Кастомный магазин STANAG"),
-					Slot = "Magazine",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/M4ModernStanag.png",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							Entity = "M4ModernStanag",
-							Slot = "Magazine",
-							param_bindings = false,
-						}),
-					},
-					group = "Default",
-					id = "M4ModernStanag",
+					id = "JAZZ_M16A1LaunchHandGuard",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(371387506492, --[[ModItemWeaponComponent KSP_BIPOD DisplayName]] "Сошка от KSP 58"),
@@ -30956,34 +30745,7 @@ return {
 						}),
 					},
 					group = "Default",
-					id = "KSP_BIPOD",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(158709422277, --[[ModItemWeaponComponent M60E4ModernMount DisplayName]] "Современные крепления с планками для М60"),
-					Slot = "Mount",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							Entity = "M60E4ModernMount",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-					},
-					group = "Default",
-					id = "M60E4ModernMount",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(171335790069, --[[ModItemWeaponComponent M60E3HandGrip DisplayName]] "Цевье с рукоятью для cовременных М60"),
-					Slot = "Mount",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "",
-							Entity = "M60E3HandGrip",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-					},
-					group = "Default",
-					id = "M60E3HandGrip",
+					id = "JAZZ_KSP_BIPOD",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(456436016949, --[[ModItemWeaponComponent U100Handle DisplayName]] "Рукоять удержания"),
@@ -30996,114 +30758,12 @@ return {
 						}),
 					},
 					group = "Default",
-					id = "U100Handle",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(968655433535, --[[ModItemWeaponComponent MP7_SideRail DisplayName]] "Боковые направляющие"),
-					Slot = "Mountside",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							Entity = "MP7_siderails",
-							Slot = "Mountside",
-							param_bindings = false,
-						}),
-					},
-					group = "Default",
-					id = "MP7_SideRail",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(471444565530, --[[ModItemWeaponComponent CollimatorMP7 DisplayName]] "Коллиматор для ближних дистанций"),
-					Slot = "Scope",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/CollimatorMP7.png",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							Entity = "MP7_Scope",
-							Slot = "Scope",
-							param_bindings = false,
-						}),
-					},
-					group = "Default",
-					id = "CollimatorMP7",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(778383301791, --[[ModItemWeaponComponent MP7_Unfld_Grip DisplayName]] "Разложенная рукоять"),
-					Slot = "Under",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "MP7",
-							Entity = "MP7_Grip_unfld",
-							Slot = "Under",
-							param_bindings = false,
-						}),
-					},
-					group = "Default",
-					id = "MP7_Unfld_Grip",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(943291029951, --[[ModItemWeaponComponent Mp7_Fld_Grip DisplayName]] "Сложенная рукоять"),
-					Slot = "Under",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "MP7",
-							Entity = "MP7_Grip_fld",
-							Slot = "Under",
-							param_bindings = false,
-						}),
-					},
-					group = "Default",
-					id = "Mp7_Fld_Grip",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(676243000186, --[[ModItemWeaponComponent MP5A4RedDot DisplayName]] "ЛЦУ для Цевья MP5A4"),
-					Slot = "Side",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MP5A4RedDot.png",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							Entity = "MP5A4LaserDot",
-							Slot = "Side",
-							param_bindings = false,
-						}),
-					},
-					comment = "-- вставляется в цевье",
-					group = "Default",
-					id = "MP5A4RedDot",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(209877814242, --[[ModItemWeaponComponent MP5A4FlashLight DisplayName]] "Фонарь для MP5A4"),
-					Slot = "Side",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MP5A4FlashLight.png",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "MP5A4",
-							Entity = "MP5A4Flashlight",
-							Slot = "Side",
-							param_bindings = false,
-						}),
-					},
-					comment = "-- вставляется в цевье",
-					group = "Default",
-					id = "MP5A4FlashLight",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(789037404504, --[[ModItemWeaponComponent MP5MagV2 DisplayName]] "Магазин для МР5 на 30 патронов"),
-					Slot = "Magazine",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MP5MagV2.png",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "",
-							Entity = "MP5MagV2",
-							Slot = "Magazine",
-							param_bindings = false,
-						}),
-					},
-					comment = "-- 30ка для мп5",
-					group = "Default",
-					id = "MP5MagV2",
+					id = "JAZZ_U100Handle",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(670821753901, --[[ModItemWeaponComponent PKMModStock DisplayName]] "Кастомный приклад ПКМ"),
 					Slot = "Stock",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/PKMModStock.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_PKMModStock.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							Entity = "PKMModStock",
@@ -31112,12 +30772,12 @@ return {
 						}),
 					},
 					group = "Default",
-					id = "PKMModStock",
+					id = "JAZZ_PKMModStock",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(975455619349, --[[ModItemWeaponComponent PKMModHandGrip DisplayName]] "Модифицированная рукоять ПКМ"),
 					Slot = "Handguard",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/PKMModHandGrip.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_PKMModHandGrip.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							Entity = "PKMModHandGrip",
@@ -31126,20 +30786,7 @@ return {
 						}),
 					},
 					group = "Default",
-					id = "PKMModHandGrip",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(539980594891, --[[ModItemWeaponComponent PKMModern DisplayName]] "Комплект кастомных планок для ПКМ"),
-					Slot = "Mount",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							Entity = "PKMModern",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-					},
-					group = "Default",
-					id = "PKMModern",
+					id = "JAZZ_PKMModHandGrip",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(484768360157, --[[ModItemWeaponComponent PKMDefHandGrip DisplayName]] "Заводская рукоять ПКМ"),
@@ -31152,64 +30799,7 @@ return {
 						}),
 					},
 					group = "Default",
-					id = "PKMDefHandGrip",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(893727332248, --[[ModItemWeaponComponent R870AmmoSide_1 DisplayName]] "Патронтаж для 870го рема"),
-					Slot = "Side",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/R870AmmoSide_1.png",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "R870",
-							Entity = "Side",
-							Slot = "Side",
-							param_bindings = false,
-						}),
-					},
-					group = "Default",
-					id = "R870AmmoSide_1",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(563097144788, --[[ModItemWeaponComponent G3Mount DisplayName]] "Крепление с универсальной планкой для G3"),
-					Slot = "Mount",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							Entity = "G3Mount",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-					},
-					group = "Default",
-					id = "G3Mount",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(154402527977, --[[ModItemWeaponComponent G3MuzzleV2 DisplayName]] "Заводской пламегаситель G3 SG"),
-					Slot = "Muzzle",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/G3MuzzleV2.png",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							Entity = "G3Muzzle",
-							Slot = "Muzzle",
-							param_bindings = false,
-						}),
-					},
-					group = "Default",
-					id = "G3MuzzleV2",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					DisplayName = T(110728886874, --[[ModItemWeaponComponent CAR15Mount DisplayName]] "Крепление для рукоятки переноски от CAR15"),
-					EnableWeapon = "CAR15",
-					Slot = "Mount",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "CAR15",
-							Entity = "CAR15Mount",
-							Slot = "Mount",
-							param_bindings = false,
-						}),
-					},
-					group = "Default",
-					id = "CAR15Mount",
+					id = "JAZZ_PKMDefHandGrip",
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -31292,21 +30882,6 @@ return {
 					id = "SilentShots",
 				}),
 				PlaceObj('ModItemWeaponComponentEffect', {
-					Comment = "Used by FX to switch to silenced fx, and multiplies Noise by 0",
-					Description = T(274659597928, --[[ModItemWeaponComponentEffect ReduceRange50Percent Description]] "Уменьшает дальность наполовину"),
-					ModificationType = "Multiply",
-					Parameters = {
-						PlaceObj('PresetParamPercent', {
-							'Name', "RangeMultiplier",
-							'Value', 50,
-							'Tag', "<RangeMultiplier>%",
-						}),
-					},
-					StatToModify = "WeaponRange",
-					group = "FX Placeholders",
-					id = "ReduceRange50Percent",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
 					Comment = "Increases the bonus of the Aiming cth modifier. Scales per aim level. ReduceAimAccuracy reduces the same stat, but is implemented through the cth modifier.",
 					Description = T(441447149584, --[[ModItemWeaponComponentEffect ReduceAimAccuracy15Percent Description]] "Уменьшает эффективность прицеливания на 15%"),
 					ModificationType = "Multiply",
@@ -31335,51 +30910,6 @@ return {
 					StatToModify = "AimAccuracy",
 					group = "Stats",
 					id = "IncreaseAimAccuracy15Percent",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Comment = "Increases the bonus of the Aiming cth modifier. Scales per aim level. ReduceAimAccuracy reduces the same stat, but is implemented through the cth modifier.",
-					Description = T(102035448421, --[[ModItemWeaponComponentEffect ReduceAimAccuracy20Percent Description]] "Уменьшает эффективность прицеливания на 20%"),
-					ModificationType = "Multiply",
-					Parameters = {
-						PlaceObj('PresetParamPercent', {
-							'Name', "AimAccuracyPercent",
-							'Value', 80,
-							'Tag', "<AimAccuracyPercent>%",
-						}),
-					},
-					StatToModify = "AimAccuracy",
-					group = "Stats",
-					id = "ReduceAimAccuracy20Percent",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Comment = "Increases the bonus of the Aiming cth modifier. Scales per aim level. ReduceAimAccuracy reduces the same stat, but is implemented through the cth modifier.",
-					Description = T(178427675821, --[[ModItemWeaponComponentEffect ReduceAimAccuracy50Percent Description]] "Уменьшает эффективность прицеливания на 50%"),
-					ModificationType = "Multiply",
-					Parameters = {
-						PlaceObj('PresetParamPercent', {
-							'Name', "AimAccuracyPercent",
-							'Value', 50,
-							'Tag', "<AimAccuracyPercent>%",
-						}),
-					},
-					StatToModify = "AimAccuracy",
-					group = "Stats",
-					id = "ReduceAimAccuracy50Percent",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Comment = "Increases the bonus of the Aiming cth modifier. Scales per aim level. ReduceAimAccuracy reduces the same stat, but is implemented through the cth modifier.",
-					Description = T(423904687354, --[[ModItemWeaponComponentEffect ReduceAimAccuracy80Percent Description]] "Уменьшает эффективность прицеливания на 80%"),
-					ModificationType = "Multiply",
-					Parameters = {
-						PlaceObj('PresetParamPercent', {
-							'Name', "AimAccuracyPercent",
-							'Value', 20,
-							'Tag', "<AimAccuracyPercent>%",
-						}),
-					},
-					StatToModify = "AimAccuracy",
-					group = "Stats",
-					id = "ReduceAimAccuracy80Percent",
 				}),
 				PlaceObj('ModItemWeaponComponentEffect', {
 					Comment = "Increases the bonus of the Aiming cth modifier. Scales per aim level. ReduceAimAccuracy reduces the same stat, but is implemented through the cth modifier.",
@@ -31440,147 +30970,6 @@ return {
 					id = "IncreaseMaxAimActions",
 				}),
 				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(936769022289, --[[ModItemWeaponComponentEffect FirstShotIncreasedAim Description]] "Если ваше первое действие - атака, то оно производится, как если бы у вас был <min_aim>-й уровень прицеливания. Не действует на атаки в режиме контроля"),
-					Parameters = {
-						PlaceObj('PresetParamNumber', {
-							'Name', "min_aim",
-							'Value', 3,
-							'Tag', "<min_aim>",
-						}),
-					},
-					group = "Other",
-					id = "FirstShotIncreasedAim",
-					unit_reactions = {
-						PlaceObj('UnitReaction', {
-							Event = "OnCalcMinAimActions",
-							Handler = function (self, target, value, attacker, attack_target, action, weapon)
-								if attacker.performed_action_this_turn then
-									return
-								end
-								
-								if self == weapon and not IsOverwatchAction(action.id) then
-									return Max(value, WeaponComponentEffects.FirstShotIncreasedAim:ResolveValue("min_aim"))
-								end
-							end,
-							param_bindings = false,
-						}),
-					},
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(924103287543, --[[ModItemWeaponComponentEffect ReduceBurst25Percent Description]] "Уменьшает количество выстрелов в очереди на <color EmStyle>25%</color>"),
-					ModificationType = "Multiply",
-					Parameters = {
-						PlaceObj('PresetParamPercent', {
-							'Name', "BurstSize",
-							'Value', 75,
-							'Tag', "<BurstSize>%",
-						}),
-					},
-					StatToModify = "BurstShots",
-					group = "Stats",
-					id = "ReduceBurst25Percent",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(830704969885, --[[ModItemWeaponComponentEffect ReduceAuto50Percent Description]] "Уменьшает количество выстрелов в автоогне на <color EmStyle>50%</color>"),
-					ModificationType = "Multiply",
-					Parameters = {
-						PlaceObj('PresetParamPercent', {
-							'Name', "AutoSize",
-							'Value', 50,
-							'Tag', "<AutoSize>%",
-						}),
-					},
-					StatToModify = "AutoShots",
-					group = "Stats",
-					id = "ReduceAuto50Percent",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(194360401707, --[[ModItemWeaponComponentEffect ReduceAuto25Percent Description]] "Уменьшает количество выстрелов в автоогне на <color EmStyle>50%</color>"),
-					ModificationType = "Multiply",
-					Parameters = {
-						PlaceObj('PresetParamPercent', {
-							'Name', "AutoSize",
-							'Value', 75,
-							'Tag', "<AutoSize>%",
-						}),
-					},
-					StatToModify = "AutoShots",
-					group = "Stats",
-					id = "ReduceAuto25Percent",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(335389907109, --[[ModItemWeaponComponentEffect ReduceBurst50Percent Description]] "Уменьшает количество выстрелов в очереди на <color EmStyle>50%</color>"),
-					ModificationType = "Multiply",
-					Parameters = {
-						PlaceObj('PresetParamPercent', {
-							'Name', "BurstSize",
-							'Value', 50,
-							'Tag', "<BurstSize>%",
-						}),
-					},
-					StatToModify = "BurstShots",
-					group = "Stats",
-					id = "ReduceBurst50Percent",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(424438166870, --[[ModItemWeaponComponentEffect ReduceAuto75Percent Description]] "Уменьшает количество выстрелов в автоогне на <color EmStyle>75%</color>"),
-					ModificationType = "Multiply",
-					Parameters = {
-						PlaceObj('PresetParamPercent', {
-							'Name', "AutoSize",
-							'Value', 25,
-							'Tag', "<AutoSize>%",
-						}),
-					},
-					StatToModify = "AutoShots",
-					group = "Stats",
-					id = "ReduceAuto75Percent",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Comment = "In GetAutofireShots",
-					Description = T(619299124194, --[[ModItemWeaponComponentEffect ExtraBurstShots Description]] "Увеличивает размер <color EmStyle>короткой очереди</color> на 25%."),
-					ModificationType = "Multiply",
-					Parameters = {
-						PlaceObj('PresetParamPercent', {
-							'Name', "BurstShots",
-							'Value', 125,
-							'Tag', "<BurstShots>%",
-						}),
-					},
-					StatToModify = "BurstShots",
-					group = "Other",
-					id = "ExtraBurstShots",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Comment = "In GetAutofireShots",
-					Description = T(499436938138, --[[ModItemWeaponComponentEffect ExtraAutoShots Description]] "Увеличивает размер <color EmStyle>длинной очереди</color> на 25%."),
-					ModificationType = "Multiply",
-					Parameters = {
-						PlaceObj('PresetParamPercent', {
-							'Name', "AutoShots",
-							'Value', 125,
-							'Tag', "<AutoShots>%",
-						}),
-					},
-					StatToModify = "AutoShots",
-					group = "Other",
-					id = "ExtraAutoShots",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Comment = "In GetAutofireShots",
-					Description = T(834587790495, --[[ModItemWeaponComponentEffect Cumbersome Description]] "Громоздкое"),
-					Parameters = {
-						PlaceObj('PresetParamNumber', {
-							'Name', "Cumbersome",
-							'Value', 1,
-							'Tag', "<Cumbersome>",
-						}),
-					},
-					StatToModify = "Cumbersome",
-					group = "Other",
-					id = "Cumbersome",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
 					Comment = "In GetAutofireShots",
 					Description = T(399210369134, --[[ModItemWeaponComponentEffect PointBlankBonus Description]] "Бонус к стрельбе на дистанции до 10 клеток"),
 					Parameters = {
@@ -31635,27 +31024,6 @@ return {
 					id = "ScopeMagnification",
 				}),
 				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(777711636745, --[[ModItemWeaponComponentEffect ScopeCTHBonus Description]] "Прицел: бонус к точности в <ScopeCTH>%   (при использовании прицела)"),
-					Parameters = {
-						PlaceObj('PresetParamNumber', {
-							'Name', "ScopeCTH",
-							'Value', 1,
-							'Tag', "<ScopeCTH>",
-						}),
-						PlaceObj('PresetParamNumber', {
-							'Name', "ScopeAimLevel",
-							'Value', 3,
-							'Tag', "<ScopeAimLevel>",
-						}),
-					},
-					RequiredParams = {
-						"ScopeMagnification",
-						"ScopeAimLevel",
-					},
-					group = "Stats",
-					id = "ScopeCTHBonus",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
 					Description = T(125920377910, --[[ModItemWeaponComponentEffect SmallMagnification Description]] "Прицел: доп. уровень зума: <SmallMagnification>.<SmallSubMagnification> кратности  (от <SmallAimLevel> уровня прицеливания и выше)"),
 					Parameters = {
 						PlaceObj('PresetParamNumber', {
@@ -31678,56 +31046,6 @@ return {
 					},
 					group = "Stats",
 					id = "SmallMagnification",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(293887523606, --[[ModItemWeaponComponentEffect ScopeHandlingReduce Description]] "Прицел: Уменьшает эргономику на <ScopeHandlingReduce>"),
-					ModificationType = "Subtract",
-					Parameters = {
-						PlaceObj('PresetParamNumber', {
-							'Name', "ScopeHandlingReduce",
-							'Value', 10,
-							'Tag', "<ScopeHandlingReduce>",
-						}),
-					},
-					RequiredParams = {
-						"ScopeHandlingReduce",
-					},
-					StatToModify = "Handling",
-					group = "Stats",
-					id = "ScopeHandlingReduce",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(150485188267, --[[ModItemWeaponComponentEffect ScopeAccuracyReduce Description]] "Прицел: Уменьшает бонус точности на <ScopeAccuracyReduce>"),
-					ModificationType = "Subtract",
-					Parameters = {
-						PlaceObj('PresetParamNumber', {
-							'Name', "ScopeAccuracyReduce",
-							'Value', 5,
-							'Tag', "<ScopeAccuracyReduce>",
-						}),
-					},
-					RequiredParams = {
-						"ScopeAccuracyReduce",
-					},
-					StatToModify = "AimAccuracy",
-					group = "Stats",
-					id = "ScopeAccuracyReduce",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(239259037634, --[[ModItemWeaponComponentEffect ScopeAccuracyIncreace Description]] "Прицел: Увеличивает бонус точности на <ScopeAccuracyIncrease>"),
-					Parameters = {
-						PlaceObj('PresetParamNumber', {
-							'Name', "ScopeAccuracyIncrease",
-							'Value', 5,
-							'Tag', "<ScopeAccuracyIncrease>",
-						}),
-					},
-					RequiredParams = {
-						"ScopeAccuracyIncreace",
-					},
-					StatToModify = "AimAccuracy",
-					group = "Stats",
-					id = "ScopeAccuracyIncreace",
 				}),
 				PlaceObj('ModItemWeaponComponentEffect', {
 					Description = T(359842435692, --[[ModItemWeaponComponentEffect ScopeOverwatchAngleIncreace Description]] "Прицел: Увеличивает сектор контроля на 30%"),
@@ -31777,20 +31095,6 @@ return {
 					StatToModify = "OverwatchAngle",
 					group = "Stats",
 					id = "ScopeOverwatchAngleDecreaseBig",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(878160381370, --[[ModItemWeaponComponentEffect BarrelHandlingReduce Description]] "Ствол: Уменьшает эргономику на <BarrelHandlingReduce>"),
-					ModificationType = "Subtract",
-					Parameters = {
-						PlaceObj('PresetParamNumber', {
-							'Name', "BarrelHandlingReduce",
-							'Value', 5,
-							'Tag', "<BarrelHandlingReduce>",
-						}),
-					},
-					StatToModify = "Handling",
-					group = "Stats",
-					id = "BarrelHandlingReduce",
 				}),
 				PlaceObj('ModItemWeaponComponentEffect', {
 					Description = T(938142494998, --[[ModItemWeaponComponentEffect BarrelRangeReduce Description]] "Ствол: Уменьшает дальность на <BarrelRangeReduce>"),
@@ -31848,20 +31152,61 @@ return {
 					group = "Stats",
 					id = "BarrelGroupingIncrease",
 				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(302936843429, --[[ModItemWeaponComponentEffect BarrelHandlingIncrease Description]] "Ствол: Увеличивает эргономику на <BarrelHandlingIncrease>"),
+								PlaceObj('ModItemWeaponComponentEffect', {
+					Description = T(982641736301, --[[ModItemWeaponComponentEffect CloseRangeIncrease Description]] "Ствол: Увеличивает ближнюю зону на <CloseRangeIncrease>"),
 					Parameters = {
 						PlaceObj('PresetParamNumber', {
-							'Name', "BarrelHandlingIncrease",
-							'Value', 5,
-							'Tag', "<BarrelHandlingIncrease>",
+							'Name', "CloseRangeIncrease",
+							'Value', 2,
+							'Tag', "<CloseRangeIncrease>",
 						}),
 					},
-					StatToModify = "Handling",
+					StatToModify = "CloseRange",
 					group = "Stats",
-					id = "BarrelHandlingIncrease",
+					id = "CloseRangeIncrease",
 				}),
 				PlaceObj('ModItemWeaponComponentEffect', {
+					Description = T(982641736302, --[[ModItemWeaponComponentEffect CloseRangeDecrease Description]] "Ствол: Уменьшает ближнюю зону на <CloseRangeDecrease>"),
+					ModificationType = "Subtract",
+					Parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "CloseRangeDecrease",
+							'Value', 2,
+							'Tag', "<CloseRangeDecrease>",
+						}),
+					},
+					StatToModify = "CloseRange",
+					group = "Stats",
+					id = "CloseRangeDecrease",
+				}),
+				PlaceObj('ModItemWeaponComponentEffect', {
+					Description = T(982641736303, --[[ModItemWeaponComponentEffect CloseRangeFactorIncrease Description]] "Ствол: Усиливает эффективность на ближней дистанции на <CloseRangeFactorIncrease>"),
+					Parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "CloseRangeFactorIncrease",
+							'Value', 5,
+							'Tag', "<CloseRangeFactorIncrease>",
+						}),
+					},
+					StatToModify = "CloseRangeFactor",
+					group = "Stats",
+					id = "CloseRangeFactorIncrease",
+				}),
+				PlaceObj('ModItemWeaponComponentEffect', {
+					Description = T(982641736304, --[[ModItemWeaponComponentEffect CloseRangeFactorDecrease Description]] "Ствол: Ослабляет эффективность на ближней дистанции на <CloseRangeFactorDecrease>"),
+					ModificationType = "Subtract",
+					Parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "CloseRangeFactorDecrease",
+							'Value', 5,
+							'Tag', "<CloseRangeFactorDecrease>",
+						}),
+					},
+					StatToModify = "CloseRangeFactor",
+					group = "Stats",
+					id = "CloseRangeFactorDecrease",
+				}),
+PlaceObj('ModItemWeaponComponentEffect', {
 					Description = T(549259538075, --[[ModItemWeaponComponentEffect BarrelRangeIncrease Description]] "Ствол: Увеличивает дальность на <BarrelRangeIncrease>"),
 					Parameters = {
 						PlaceObj('PresetParamNumber', {
@@ -31983,101 +31328,6 @@ return {
 					id = "SilencerJamChance",
 				}),
 				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(367518219469, --[[ModItemWeaponComponentEffect SilencerHandlingReduce Description]] "Глушитель: Уменьшает эргономику на <SilencerHandlingReduce>"),
-					ModificationType = "Subtract",
-					Parameters = {
-						PlaceObj('PresetParamNumber', {
-							'Name', "SilencerHandlingReduce",
-							'Value', 5,
-							'Tag', "<SilencerHandlingReduce>",
-						}),
-					},
-					StatToModify = "Handling",
-					group = "Stats",
-					id = "SilencerHandlingReduce",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(560577297344, --[[ModItemWeaponComponentEffect StockHandlingIncrease Description]] "Приклад: Увеличивает эргономику на <StockHandlingIncrease>"),
-					Parameters = {
-						PlaceObj('PresetParamNumber', {
-							'Name', "BarrelHandlingIncrease",
-							'Value', 5,
-							'Tag', "<BarrelHandlingIncrease>",
-						}),
-					},
-					StatToModify = "Handling",
-					group = "Stats",
-					id = "StockHandlingIncrease",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(773808813567, --[[ModItemWeaponComponentEffect GripHandlingIncrease Description]] "Ствол: Увеличивает эргономику на <GripHandlingIncrease>"),
-					Parameters = {
-						PlaceObj('PresetParamNumber', {
-							'Name', "GripHandlingIncrease",
-							'Value', 5,
-							'Tag', "<GripHandlingIncrease>",
-						}),
-					},
-					StatToModify = "Handling",
-					group = "Stats",
-					id = "GripHandlingIncrease",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(545388769456, --[[ModItemWeaponComponentEffect MagazineHandlingIncrease Description]] "Магазин: Увеличивает эргономику на <MagazineHandlingIncrease>"),
-					Parameters = {
-						PlaceObj('PresetParamNumber', {
-							'Name', "MagazineHandlingIncrease",
-							'Value', 5,
-							'Tag', "<MagazineHandlingIncrease>",
-						}),
-					},
-					StatToModify = "Handling",
-					group = "Stats",
-					id = "MagazineHandlingIncrease",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(637133143035, --[[ModItemWeaponComponentEffect MagazineHandlingDecrease Description]] "Магазин: Уменьшает эргономику на <MagazineHandlingDecrease>"),
-					ModificationType = "Subtract",
-					Parameters = {
-						PlaceObj('PresetParamNumber', {
-							'Name', "MagazineHandlingDecrease",
-							'Value', 10,
-							'Tag', "<MagazineHandlingDecrease>",
-						}),
-					},
-					StatToModify = "Handling",
-					group = "Stats",
-					id = "MagazineHandlingDecrease",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(937608187955, --[[ModItemWeaponComponentEffect BipodsHandlingDecrease Description]] "Сошки: Уменьшает эргономику на <BipodsHandlingDecrease>"),
-					ModificationType = "Subtract",
-					Parameters = {
-						PlaceObj('PresetParamNumber', {
-							'Name', "BipodsHandlingDecrease",
-							'Value', 5,
-							'Tag', "<BipodsHandlingDecrease>",
-						}),
-					},
-					StatToModify = "Handling",
-					group = "Stats",
-					id = "BipodsHandlingDecrease",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
-					Description = T(777106227129, --[[ModItemWeaponComponentEffect GLHandlingDecrease Description]] "Подствольник: Уменьшает эргономику на <BipodsHandlingDecrease>"),
-					ModificationType = "Subtract",
-					Parameters = {
-						PlaceObj('PresetParamNumber', {
-							'Name', "BipodsHandlingDecrease",
-							'Value', 5,
-							'Tag', "<BipodsHandlingDecrease>",
-						}),
-					},
-					StatToModify = "Handling",
-					group = "Stats",
-					id = "GLHandlingDecrease",
-				}),
-				PlaceObj('ModItemWeaponComponentEffect', {
 					CaliberChange = "JAZZ_Caliber_50AE",
 					Description = T(668492662398, --[[ModItemWeaponComponentEffect ChangeCaliberToBMG Description]] "Changes caliber to .50 BMG"),
 					group = "Caliber",
@@ -32134,7 +31384,6 @@ return {
 					ModificationEffects = {
 						"AccuracyBonusProne",
 						"ShotsBeforeRecoilProne",
-						"BipodsHandlingDecrease",
 					},
 					Parameters = {
 						PlaceObj('PresetParamNumber', {
@@ -32357,7 +31606,7 @@ return {
 						}),
 					},
 					group = "Underslung",
-					id = "Bipod",
+					id = "JAZZ_Bipod",
 					zzFoldingPair = {
 						"",
 					},
@@ -32365,7 +31614,7 @@ return {
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(535138608885, --[[ModItemWeaponComponent Autofire DisplayName]] "Автоматический огонь"),
 					Icon = "Mod/e6L4ECj/WeaponComponents/Carbine/AUTO.png",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Autofire.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Autofire.png",
 					ModificationEffects = {
 						"EnableFullAuto",
 						"EnableBurst",
@@ -32380,7 +31629,7 @@ return {
 						}),
 					},
 					group = "Underslung",
-					id = "Autofire",
+					id = "JAZZ_Autofire",
 				}),
 				PlaceObj('ModItemFolder', {
 					'name', "Barrels",
@@ -32398,7 +31647,7 @@ return {
 						Cost = 15,
 						DisplayName = T(928480071483, --[[ModItemWeaponComponent BarrelShort_AUG DisplayName]] "Short Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_short",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelShort_AUG.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_BarrelShort_AUG.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"ReduceReliability",
@@ -32406,6 +31655,10 @@ return {
 							"BarrelBulletDropReduce",
 							"BarrelGroupingReduce",
 							"BarrelRecoilIncrease",
+						
+							"CloseRangeDecrease",
+						
+							"CloseRangeFactorIncrease",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
@@ -32418,7 +31671,19 @@ return {
 								'Value', 10,
 								'Tag', "<ReliabilityDecrease>",
 							}),
-						},
+						
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeDecrease",
+					'Value', 2,
+					'Tag', "<CloseRangeDecrease>",
+				}),
+			
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeFactorIncrease",
+					'Value', 5,
+					'Tag', "<CloseRangeFactorIncrease>",
+				}),
+			},
 						Slot = "Barrel",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -32429,7 +31694,7 @@ return {
 							}),
 						},
 						group = "AUG Specific",
-						id = "BarrelShort_AUG",
+						id = "JAZZ_BarrelShort_AUG",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -32444,14 +31709,17 @@ return {
 						Cost = 35,
 						DisplayName = T(289320256080, --[[ModItemWeaponComponent BarrelShortImproved_AUG DisplayName]] "Short Gain-Twist Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_short",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelShortImproved_AUG.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_BarrelShortImproved_AUG.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
-							"BarrelHandlingIncrease",
 							"BarrelBulletDropReduce",
 							"BarrelGroupingReduce",
 							"BarrelRecoilIncrease",
 							"BarrelRangeReduce",
+						
+							"CloseRangeDecrease",
+						
+							"CloseRangeFactorIncrease",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
@@ -32464,7 +31732,19 @@ return {
 								'Value', 1,
 								'Tag', "<ShootAPDecrease>",
 							}),
-						},
+						
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeDecrease",
+					'Value', 2,
+					'Tag', "<CloseRangeDecrease>",
+				}),
+			
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeFactorIncrease",
+					'Value', 5,
+					'Tag', "<CloseRangeFactorIncrease>",
+				}),
+			},
 						Slot = "Barrel",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -32475,7 +31755,7 @@ return {
 							}),
 						},
 						group = "AUG Specific",
-						id = "BarrelShortImproved_AUG",
+						id = "JAZZ_BarrelShortImproved_AUG",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -32487,16 +31767,19 @@ return {
 						Cost = 70,
 						DisplayName = T(809839566679, --[[ModItemWeaponComponent BarrelLong_AUG DisplayName]] "Extended Barrel with Bipod"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelLong_AUG.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_BarrelLong_AUG.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"AccuracyBonusProne",
-							"BarrelHandlingReduce",
 							"BarrelBulletDropIncrease",
 							"BarrelGroupingIncrease",
 							"BarrelRecoilRecude",
 							"BarrelRangeIncrease",
 							"BarrelAccuracyIncrease",
+						
+							"CloseRangeIncrease",
+						
+							"CloseRangeFactorDecrease",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
@@ -32509,7 +31792,19 @@ return {
 								'Value', 2,
 								'Tag', "<AimAccuracyIncrease>",
 							}),
-						},
+						
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeIncrease",
+					'Value', 2,
+					'Tag', "<CloseRangeIncrease>",
+				}),
+			
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeFactorDecrease",
+					'Value', 5,
+					'Tag', "<CloseRangeFactorDecrease>",
+				}),
+			},
 						Slot = "Barrel",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -32520,7 +31815,7 @@ return {
 							}),
 						},
 						group = "AUG Specific",
-						id = "BarrelLong_AUG",
+						id = "JAZZ_BarrelLong_AUG",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -32532,17 +31827,20 @@ return {
 						Cost = 100,
 						DisplayName = T(816796570762, --[[ModItemWeaponComponent BarrelLongImproved_AUG DisplayName]] "Extended Gain-Twist Barrel with Bipod"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelLongImproved_AUG.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_BarrelLongImproved_AUG.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"AccuracyBonusProne",
 							"IncreaseReliability",
 							"BarrelBulletDropIncrease",
 							"BarrelGroupingIncrease",
-							"BarrelHandlingReduce",
 							"BarrelRecoilRecude",
 							"BarrelAccuracyIncrease",
 							"BarrelRangeIncrease",
+						
+							"CloseRangeIncrease",
+						
+							"CloseRangeFactorDecrease",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
@@ -32560,7 +31858,19 @@ return {
 								'Value', 10,
 								'Tag', "<ReliabilityIncrease>",
 							}),
-						},
+						
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeIncrease",
+					'Value', 2,
+					'Tag', "<CloseRangeIncrease>",
+				}),
+			
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeFactorDecrease",
+					'Value', 5,
+					'Tag', "<CloseRangeFactorDecrease>",
+				}),
+			},
 						Slot = "Barrel",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -32571,7 +31881,7 @@ return {
 							}),
 						},
 						group = "AUG Specific",
-						id = "BarrelLongImproved_AUG",
+						id = "JAZZ_BarrelLongImproved_AUG",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -32583,13 +31893,16 @@ return {
 						Cost = 30,
 						DisplayName = T(691552369727, --[[ModItemWeaponComponent BarrelHeavy DisplayName]] "Heavy Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelHeavy.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_BarrelHeavy.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"IncreasedSingleShotAccuracy",
-							"BarrelHandlingReduce",
 							"BarrelRecoilRecude",
 							"BarrelBulletDropIncrease",
+						
+							"CloseRangeIncrease",
+						
+							"CloseRangeFactorDecrease",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
@@ -32612,7 +31925,19 @@ return {
 								'Value', -3,
 								'Tag', "<BarrelRecoilRecude>%",
 							}),
-						},
+						
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeIncrease",
+					'Value', 2,
+					'Tag', "<CloseRangeIncrease>",
+				}),
+			
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeFactorDecrease",
+					'Value', 5,
+					'Tag', "<CloseRangeFactorDecrease>",
+				}),
+			},
 						Slot = "Barrel",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -32677,7 +32002,7 @@ return {
 							}),
 						},
 						group = "Barrel",
-						id = "BarrelHeavy",
+						id = "JAZZ_BarrelHeavy",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -32689,15 +32014,18 @@ return {
 						Cost = 75,
 						DisplayName = T(798912434710, --[[ModItemWeaponComponent BarrelLong DisplayName]] "Extended Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelLong.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_BarrelLong.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"BarrelRangeIncrease",
 							"BarrelBulletDropIncrease",
 							"BarrelAccuracyIncrease",
-							"BarrelHandlingReduce",
 							"BarrelRecoilRecude",
 							"BarrelGroupingIncrease",
+						
+							"CloseRangeIncrease",
+						
+							"CloseRangeFactorDecrease",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
@@ -32715,7 +32043,19 @@ return {
 								'Value', 2,
 								'Tag', "<EffectiveRange>",
 							}),
-						},
+						
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeIncrease",
+					'Value', 2,
+					'Tag', "<CloseRangeIncrease>",
+				}),
+			
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeFactorDecrease",
+					'Value', 5,
+					'Tag', "<CloseRangeFactorDecrease>",
+				}),
+			},
 						Slot = "Barrel",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -32865,7 +32205,7 @@ return {
 							}),
 						},
 						group = "Barrel",
-						id = "BarrelLong",
+						id = "JAZZ_BarrelLong",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -32877,16 +32217,19 @@ return {
 						Cost = 100,
 						DisplayName = T(852176633290, --[[ModItemWeaponComponent BarrelLongImproved DisplayName]] "Extended Gain-Twist Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelLongImproved.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_BarrelLongImproved.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"IncreaseReliability",
 							"BarrelRangeIncrease",
 							"BarrelBulletDropIncrease",
 							"BarrelAccuracyIncrease",
-							"BarrelHandlingReduce",
 							"BarrelGroupingIncrease",
 							"BarrelRecoilRecude",
+						
+							"CloseRangeIncrease",
+						
+							"CloseRangeFactorDecrease",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
@@ -32904,7 +32247,19 @@ return {
 								'Value', 6,
 								'Tag', "<RangeIncrease>",
 							}),
-						},
+						
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeIncrease",
+					'Value', 2,
+					'Tag', "<CloseRangeIncrease>",
+				}),
+			
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeFactorDecrease",
+					'Value', 5,
+					'Tag', "<CloseRangeFactorDecrease>",
+				}),
+			},
 						Slot = "Barrel",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -32993,7 +32348,7 @@ return {
 							}),
 						},
 						group = "Barrel",
-						id = "BarrelLongImproved",
+						id = "JAZZ_BarrelLongImproved",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -33005,14 +32360,17 @@ return {
 						Cost = 75,
 						DisplayName = T(807789574452, --[[ModItemWeaponComponent BarrelLongShotgun DisplayName]] "Extended Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelLongShotgun.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_BarrelLongShotgun.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"BarrelRangeIncrease",
 							"BarrelBulletDropIncrease",
 							"BarrelAccuracyIncrease",
-							"BarrelHandlingReduce",
 							"BarrelGroupingIncrease",
+						
+							"CloseRangeDecrease",
+						
+							"CloseRangeFactorIncrease",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
@@ -33020,7 +32378,19 @@ return {
 								'Value', 4,
 								'Tag', "<RangeIncrease>",
 							}),
-						},
+						
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeDecrease",
+					'Value', 1,
+					'Tag', "<CloseRangeDecrease>",
+				}),
+			
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeFactorIncrease",
+					'Value', 10,
+					'Tag', "<CloseRangeFactorIncrease>",
+				}),
+			},
 						Slot = "Barrel",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -33037,7 +32407,7 @@ return {
 							}),
 						},
 						group = "Barrel",
-						id = "BarrelLongShotgun",
+						id = "JAZZ_BarrelLongShotgun",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -33288,7 +32658,7 @@ return {
 							}),
 						},
 						group = "Barrel",
-						id = "BarrelNormal",
+						id = "JAZZ_BarrelNormal",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -33300,7 +32670,7 @@ return {
 						Cost = 50,
 						DisplayName = T(890000000000085, --[[ModItemWeaponComponent BarrelNormal_Sil DisplayName]] "Ствол под глушитель"),
 						Icon = "UI/Icons/Upgrades/default_barrel",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelNormal_Sil.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_BarrelNormal_Sil.png",
 						ModificationDifficulty = 10,
 						Slot = "Barrel",
 						Visuals = {
@@ -33312,7 +32682,7 @@ return {
 							}),
 						},
 						group = "Barrel",
-						id = "BarrelNormal_Sil",
+						id = "JAZZ_BarrelNormal_Sil",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -33338,7 +32708,7 @@ return {
 							}),
 						},
 						group = "Barrel",
-						id = "BarrelNormal_noSil",
+						id = "JAZZ_BarrelNormal_noSil",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -33350,7 +32720,7 @@ return {
 						Cost = 15,
 						DisplayName = T(790308378417, --[[ModItemWeaponComponent BarrelNormalImproved DisplayName]] "Gain-Twist Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_long",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelNormalImproved.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_BarrelNormalImproved.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"IncreaseReliability",
@@ -33468,7 +32838,7 @@ return {
 							}),
 						},
 						group = "Barrel",
-						id = "BarrelNormalImproved",
+						id = "JAZZ_BarrelNormalImproved",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -33488,9 +32858,12 @@ return {
 							"ReduceReliability",
 							"BarrelRangeReduce",
 							"BarrelBulletDropReduce",
-							"BarrelHandlingIncrease",
 							"BarrelGroupingReduce",
 							"BarrelRecoilIncrease",
+						
+							"CloseRangeDecrease",
+						
+							"CloseRangeFactorIncrease",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
@@ -33513,7 +32886,19 @@ return {
 								'Value', 4,
 								'Tag', "<EffectiveRange>",
 							}),
-						},
+						
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeDecrease",
+					'Value', 2,
+					'Tag', "<CloseRangeDecrease>",
+				}),
+			
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeFactorIncrease",
+					'Value', 5,
+					'Tag', "<CloseRangeFactorIncrease>",
+				}),
+			},
 						Slot = "Barrel",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -33608,7 +32993,7 @@ return {
 							}),
 						},
 						group = "Barrel",
-						id = "BarrelShort",
+						id = "JAZZ_BarrelShort",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -33624,9 +33009,12 @@ return {
 						ModificationEffects = {
 							"BarrelRangeReduce",
 							"BarrelBulletDropReduce",
-							"BarrelHandlingIncrease",
 							"BarrelGroupingReduce",
 							"ReduceShootAP",
+						
+							"CloseRangeDecrease",
+						
+							"CloseRangeFactorIncrease",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
@@ -33644,7 +33032,19 @@ return {
 								'Value', 4,
 								'Tag', "<EffectiveRange>",
 							}),
-						},
+						
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeDecrease",
+					'Value', 1,
+					'Tag', "<CloseRangeDecrease>",
+				}),
+			
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeFactorIncrease",
+					'Value', 10,
+					'Tag', "<CloseRangeFactorIncrease>",
+				}),
+			},
 						Slot = "Barrel",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -33709,7 +33109,7 @@ return {
 							}),
 						},
 						group = "Barrel",
-						id = "BarrelShort_Pistol",
+						id = "JAZZ_BarrelShort_Pistol",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -33721,16 +33121,19 @@ return {
 						Cost = 15,
 						DisplayName = T(729393345984, --[[ModItemWeaponComponent BarrelShortRunNGun DisplayName]] "Короткий ствол"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_short",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelShortRunNGun.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_BarrelShortRunNGun.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"ReduceReliability",
 							"EnableRunNGun",
 							"BarrelRangeReduce",
 							"BarrelBulletDropReduce",
-							"BarrelHandlingIncrease",
 							"BarrelGroupingIncrease",
 							"BarrelRecoilIncrease",
+						
+							"CloseRangeDecrease",
+						
+							"CloseRangeFactorIncrease",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
@@ -33753,7 +33156,19 @@ return {
 								'Value', 4,
 								'Tag', "<EffectiveRange>",
 							}),
-						},
+						
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeDecrease",
+					'Value', 2,
+					'Tag', "<CloseRangeDecrease>",
+				}),
+			
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeFactorIncrease",
+					'Value', 5,
+					'Tag', "<CloseRangeFactorIncrease>",
+				}),
+			},
 						Slot = "Barrel",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -33848,7 +33263,7 @@ return {
 							}),
 						},
 						group = "Barrel",
-						id = "BarrelShortRunNGun",
+						id = "JAZZ_BarrelShortRunNGun",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -33860,14 +33275,17 @@ return {
 						Cost = 35,
 						DisplayName = T(837372947792, --[[ModItemWeaponComponent BarrelShortImproved DisplayName]] "Short Gain-Twist Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_short",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelShortImproved.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_BarrelShortImproved.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"BarrelRangeReduce",
 							"BarrelBulletDropReduce",
-							"BarrelHandlingIncrease",
 							"BarrelGroupingReduce",
 							"BarrelRecoilIncrease",
+						
+							"CloseRangeDecrease",
+						
+							"CloseRangeFactorIncrease",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
@@ -33885,7 +33303,19 @@ return {
 								'Value', 1,
 								'Tag', "<EffectiveRange>",
 							}),
-						},
+						
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeDecrease",
+					'Value', 2,
+					'Tag', "<CloseRangeDecrease>",
+				}),
+			
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeFactorIncrease",
+					'Value', 5,
+					'Tag', "<CloseRangeFactorIncrease>",
+				}),
+			},
 						Slot = "Barrel",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -33968,7 +33398,7 @@ return {
 							}),
 						},
 						group = "Barrel",
-						id = "BarrelShortImproved",
+						id = "JAZZ_BarrelShortImproved",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -33980,13 +33410,16 @@ return {
 						Cost = 15,
 						DisplayName = T(849289197281, --[[ModItemWeaponComponent BarrelShortShotgun DisplayName]] "Shortened Barrel"),
 						Icon = "UI/Icons/Upgrades/galil_barrel_short",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BarrelShortShotgun.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_BarrelShortShotgun.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"BarrelRangeReduce",
 							"BarrelBulletDropReduce",
 							"BarrelGroupingReduce",
-							"BarrelHandlingIncrease",
+						
+							"CloseRangeDecrease",
+						
+							"CloseRangeFactorIncrease",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
@@ -34009,7 +33442,19 @@ return {
 								'Value', 115,
 								'Tag', "<BuckshotAngleIncrease>",
 							}),
-						},
+						
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeDecrease",
+					'Value', 1,
+					'Tag', "<CloseRangeDecrease>",
+				}),
+			
+				PlaceObj('PresetParamNumber', {
+					'Name', "CloseRangeFactorIncrease",
+					'Value', 10,
+					'Tag', "<CloseRangeFactorIncrease>",
+				}),
+			},
 						Slot = "Barrel",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -34032,7 +33477,7 @@ return {
 							}),
 						},
 						group = "Barrel",
-						id = "BarrelShortShotgun",
+						id = "JAZZ_BarrelShortShotgun",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -34044,7 +33489,7 @@ return {
 						Cost = 20,
 						DisplayName = T(785427900359, --[[ModItemWeaponComponent Barrel50BMG_DesertEagle DisplayName]] ".50 BMG Barrel"),
 						Icon = "UI/Icons/Upgrades/default_barrel",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Barrel50BMG_DesertEagle.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Barrel50BMG_DesertEagle.png",
 						ModificationDifficulty = -25,
 						ModificationEffects = {
 							"IncreaseDamage",
@@ -34073,7 +33518,7 @@ return {
 							}),
 						},
 						group = "Desert Eagle Specific",
-						id = "Barrel50BMG_DesertEagle",
+						id = "JAZZ_Barrel50BMG_DesertEagle",
 					}),
 					}),
 				PlaceObj('ModItemFolder', {
@@ -34090,7 +33535,7 @@ return {
 						DisplayName = T(664378236433, --[[ModItemWeaponComponent Type56Bayo DisplayName]] "Штык-нож"),
 						EnableWeapon = "Machete",
 						Icon = "UI/Icons/Upgrades/grenade_launcher_WP",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Type56Bayo.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Type56Bayo.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"zzStockEquipped",
@@ -34104,7 +33549,7 @@ return {
 							}),
 						},
 						group = "Type56",
-						id = "Type56Bayo",
+						id = "JAZZ_Type56Bayo",
 						zzFoldingPair = {
 							"Type56BayoF",
 						},
@@ -34132,7 +33577,7 @@ return {
 							}),
 						},
 						group = "Type56",
-						id = "Type56BayoF",
+						id = "JAZZ_Type56BayoF",
 						zzFoldingPair = {
 							"Type56Bayo",
 						},
@@ -34145,7 +33590,7 @@ return {
 						Cost = 50,
 						DisplayName = T(540055379780, --[[ModItemWeaponComponent StockFolded DisplayName]] "Folded Stock"),
 						Icon = "UI/Icons/Upgrades/MP5_stock_light",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/StockFolded.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_StockFolded.png",
 						ModificationDifficulty = 20,
 						ModificationEffects = {
 							"ReduceAimAccuracy",
@@ -34178,7 +33623,7 @@ return {
 							}),
 						},
 						group = "Stock",
-						id = "StockFolded",
+						id = "JAZZ_StockFolded",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 40,
@@ -34315,7 +33760,7 @@ return {
 							}),
 						},
 						group = "Stock",
-						id = "StockHeavy",
+						id = "JAZZ_StockHeavy",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -34327,22 +33772,16 @@ return {
 						Cost = 150,
 						DisplayName = T(850663002598, --[[ModItemWeaponComponent StockLight DisplayName]] "Light Stock"),
 						Icon = "UI/Icons/Upgrades/MP5_stock_light",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/StockLight.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_StockLight.png",
 						ModificationDifficulty = 20,
 						ModificationEffects = {
 							"RecoilIncrease",
-							"StockHandlingIncrease",
 						},
 						Parameters = {
 							PlaceObj('PresetParamNumber', {
 								'Name', "Recoil",
 								'Value', 1,
 								'Tag', "<Recoil>",
-							}),
-							PlaceObj('PresetParamNumber', {
-								'Name', "StockHandlingIncrease",
-								'Value', 5,
-								'Tag', "<StockHandlingIncrease>",
 							}),
 						},
 						Slot = "Stock",
@@ -34458,7 +33897,7 @@ return {
 							}),
 						},
 						group = "Stock",
-						id = "StockLight",
+						id = "JAZZ_StockLight",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -34477,7 +33916,6 @@ return {
 							"RecoilIncrease",
 							"zzStockEquipped",
 							"ExtraOverwatchShots",
-							"StockHandlingIncrease",
 							"DecreaseMaxAimActions",
 						},
 						Parameters = {
@@ -34772,7 +34210,7 @@ return {
 							}),
 						},
 						group = "Stock",
-						id = "StockLightFolded",
+						id = "JAZZ_StockLightFolded",
 						zzFoldingPair = {
 							"StockLightUnFolded",
 						},
@@ -35058,7 +34496,7 @@ return {
 							}),
 						},
 						group = "Stock",
-						id = "StockLightUnFolded",
+						id = "JAZZ_StockLightUnFolded",
 						zzFoldingPair = {
 							"StockLightFolded",
 						},
@@ -35073,7 +34511,6 @@ return {
 							"ReduceAimAccuracy90Percent",
 							"RecoilIncrease",
 							"ExtraOverwatchShots",
-							"StockHandlingIncrease",
 						},
 						Parameters = {
 							PlaceObj('PresetParamPercent', {
@@ -35100,11 +34537,6 @@ return {
 								'Name', "Recoil",
 								'Value', 5,
 								'Tag', "<Recoil>",
-							}),
-							PlaceObj('PresetParamNumber', {
-								'Name', "StockHandlingIncrease",
-								'Value', 15,
-								'Tag', "<StockHandlingIncrease>",
 							}),
 						},
 						Slot = "Stock",
@@ -35136,7 +34568,7 @@ return {
 							}),
 						},
 						group = "Stock",
-						id = "StockNo",
+						id = "JAZZ_StockNo",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -35389,7 +34821,7 @@ return {
 							}),
 						},
 						group = "Stock",
-						id = "StockNormal",
+						id = "JAZZ_StockNormal",
 					}),
 					}),
 				PlaceObj('ModItemFolder', {
@@ -35503,7 +34935,7 @@ return {
 							}),
 						},
 						group = "Underslung",
-						id = "VerticalGrip",
+						id = "JAZZ_VerticalGrip",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -35533,7 +34965,7 @@ return {
 							}),
 						},
 						group = "Underslung",
-						id = "VerticalGripFld",
+						id = "JAZZ_VerticalGripFld",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -35584,42 +35016,7 @@ return {
 							}),
 						},
 						group = "M14 Specific",
-						id = "VerticalGrip_M14",
-					}),
-					PlaceObj('ModItemWeaponComponent', {
-						AdditionalCosts = {
-							PlaceObj('WeaponComponentCost', {
-								'Type', "FineSteelPipe",
-							}),
-						},
-						BlockSlots = {
-							"Grenadelauncher",
-						},
-						Cost = 50,
-						DisplayName = T(792047899659, --[[ModItemWeaponComponent AK47_VerticalGrip DisplayName]] "Vertical Grip"),
-						Icon = "UI/Icons/Upgrades/ak47_vertical_grip",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/AK47_VerticalGrip.png",
-						ModificationDifficulty = 0,
-						ModificationEffects = {
-							"RecoilDecrease",
-						},
-						Parameters = {
-							PlaceObj('PresetParamNumber', {
-								'Name', "Recoil",
-								'Value', 1,
-								'Tag', "<Recoil>",
-							}),
-						},
-						Slot = "Handguard",
-						Visuals = {
-							PlaceObj('WeaponComponentVisual', {
-								Entity = "WeaponAttA_VerticalGripAK47",
-								Slot = "Handguard",
-								param_bindings = false,
-							}),
-						},
-						group = "AK47 Specific",
-						id = "AK47_VerticalGrip",
+						id = "JAZZ_VerticalGrip_M14",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -35630,7 +35027,7 @@ return {
 						Cost = 40,
 						DisplayName = T(237740217316, --[[ModItemWeaponComponent AKSU_VerticalGrip DisplayName]] "Vertical Grip"),
 						Icon = "UI/Icons/Upgrades/ak47_vertical_grip",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/AKSU_VerticalGrip.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_AKSU_VerticalGrip.png",
 						ModificationDifficulty = 20,
 						ModificationEffects = {
 							"RecoilDecrease",
@@ -35652,52 +35049,7 @@ return {
 							}),
 						},
 						group = "AKSU Specific",
-						id = "AKSU_VerticalGrip",
-					}),
-					PlaceObj('ModItemWeaponComponent', {
-						AdditionalCosts = {
-							PlaceObj('WeaponComponentCost', {
-								'Amount', 1,
-								'Type', "FineSteelPipe",
-							}),
-						},
-						Cost = 40,
-						DisplayName = T(211149642866, --[[ModItemWeaponComponent VerticalGrip_M16 DisplayName]] "Vertical Grip"),
-						Icon = "UI/Icons/Upgrades/mp5_grip",
-						ModificationDifficulty = 20,
-						ModificationEffects = {
-							"RecoilDecrease",
-						},
-						Parameters = {
-							PlaceObj('PresetParamNumber', {
-								'Name', "Recoil",
-								'Value', 1,
-								'Tag', "<Recoil>",
-							}),
-						},
-						Slot = "Under",
-						Visuals = {
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M16A2",
-								Entity = "WeaponAttA_VerticalGripM16",
-								Slot = "Grip",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M16A2",
-								Entity = "WeaponAttA_HanguardM16A1",
-								Slot = "Handguard",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M16A2",
-								Entity = "WeaponAttA_MountM16_02",
-								Slot = "Mount2",
-								param_bindings = false,
-							}),
-						},
-						group = "M16A2 Specific",
-						id = "VerticalGrip_M16",
+						id = "JAZZ_AKSU_VerticalGrip",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 20,
@@ -35705,15 +35057,22 @@ return {
 						Icon = "UI/Icons/Upgrades/tactical_grip",
 						ModificationDifficulty = 10,
 						ModificationEffects = {
-							"GripHandlingIncrease",
-						},
+						
+						"RecoilDecrease",
+					},
 						Parameters = {
 							PlaceObj('PresetParamPercent', {
 								'Name', "accuracy",
 								'Value', 5,
 								'Tag', "<accuracy>%",
 							}),
-						},
+						
+				PlaceObj('PresetParamNumber', {
+					'Name', "Recoil",
+					'Value', 1,
+					'Tag', "<Recoil>",
+				}),
+			},
 						Slot = "Under",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -35778,15 +35137,35 @@ return {
 							}),
 						},
 						group = "Underslung",
-						id = "TacGrip",
+						id = "JAZZ_TacGrip",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						DisplayName = T(890000000000153, --[[ModItemWeaponComponent SigErgoHandGrip DisplayName]] "Эргономичная рукоять для Sig"),
 						ModificationEffects = {
-							"GripHandlingIncrease",
+						
+						"RecoilDecrease",
+					},
+						Parameters = {
+
+
+										PlaceObj('PresetParamNumber', {
+
+
+											'Name', "Recoil",
+
+
+											'Value', 1,
+
+
+											'Tag', "<Recoil>",
+
+
+										}),
+
 						},
+
 						Slot = "Handguard",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/SigErgoHandGrip.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_SigErgoHandGrip.png",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "SIGErgoHandGrip",
@@ -35801,7 +35180,7 @@ return {
 						},
 						comment = "Эргономичная",
 						group = "Underslung",
-						id = "SigErgoHandGrip",
+						id = "JAZZ_SigErgoHandGrip",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						DisplayName = T(890000000000990, --[[ModItemWeaponComponent SigDefHandGuard DisplayName]] "Заводская рукоять Sig"),
@@ -35820,15 +35199,35 @@ return {
 						},
 						comment = "Пистолетная рукоять от сигов",
 						group = "Underslung",
-						id = "SigDefHandGuard",
+						id = "JAZZ_SigDefHandGuard",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						DisplayName = T(890000000000152, --[[ModItemWeaponComponent Handgrip_Ergo DisplayName]] "Эргономичная рукоять"),
 						ModificationEffects = {
-							"GripHandlingIncrease",
+						
+						"RecoilDecrease",
+					},
+						Parameters = {
+
+
+										PlaceObj('PresetParamNumber', {
+
+
+											'Name', "Recoil",
+
+
+											'Value', 1,
+
+
+											'Tag', "<Recoil>",
+
+
+										}),
+
 						},
+
 						Slot = "Handgrip",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Handgrip_Ergo.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Handgrip_Ergo.png",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "MR73",
@@ -35851,7 +35250,7 @@ return {
 						},
 						comment = "Эргономичная",
 						group = "Underslung",
-						id = "Handgrip_Ergo",
+						id = "JAZZ_Handgrip_Ergo",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						DisplayName = T(890000000000991, --[[ModItemWeaponComponent Handgrip_Default DisplayName]] "Стандартная рукоять"),
@@ -35878,272 +35277,12 @@ return {
 						},
 						comment = "Стандартная рукоять",
 						group = "Underslung",
-						id = "Handgrip_Default",
+						id = "JAZZ_Handgrip_Default",
 					}),
 					}),
 				PlaceObj('ModItemFolder', {
 					'name', "Side",
 				}, {
-					PlaceObj('ModItemWeaponComponent', {
-						Cost = 25,
-						DisplayName = T(661913822789, --[[ModItemWeaponComponent FlashlightOff DisplayName]] "Фонарик"),
-						Icon = "UI/Icons/Upgrades/side_light",
-						ModificationDifficulty = -25,
-						Slot = "Side",
-						Visuals = {
-							PlaceObj('WeaponComponentVisual', {
-								Entity = "WeaponAttA_SideLight",
-								Slot = "Side",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Galil",
-								Entity = "WeaponAttA_FrontMountAK47",
-								Slot = "Mount3",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "MP5",
-								Entity = "WeaponAttA_SideLight",
-								Slot = "Side2",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "MP5K",
-								Entity = "WeaponAttA_SideLight",
-								Slot = "Side2",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "UZI",
-								Entity = "WeaponAttA_MountUzi_02",
-								Slot = "Mount2",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AK47",
-								Entity = "WeaponAttA_FrontMountAK47",
-								Slot = "Mountfront",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AKSU",
-								Entity = "WeaponAttA_MountAKS74U_02",
-								Slot = "Mount2",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AK74",
-								Entity = "WeaponAttA_FrontMountAK47",
-								Slot = "Mountfront",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AUG",
-								Entity = "WeaponAttA_SideMountSteyr",
-								Slot = "Mountside",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Bereta92",
-								Entity = "WeaponAttA_MountBeretta",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "HiPower",
-								Entity = "WeaponAttA_MountBHP",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "FAMAS",
-								Entity = "WeaponAttA_MountAnaconda",
-								Slot = "Mount1",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M41Shotgun",
-								Entity = "WeaponAttA_SideLight",
-								Slot = "Side2",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AA12",
-								Entity = "WeaponAttA_MountAA12_02",
-								Slot = "Mount2",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M24Sniper",
-								Entity = "WeaponAttA_FrontMountM24",
-								Slot = "Mountfront",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M24Sniper",
-								Entity = "WeaponAttA_SideLight",
-								Slot = "Side2",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Gewehr98",
-								Entity = "WeaponAttA_FrontMountM24",
-								Slot = "Mountfront",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "PSG1",
-								Entity = "WeaponAttA_FrontMountM24",
-								Slot = "Mountfront",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Winchester1894",
-								Entity = "WeaponAttA_SideLight",
-								Slot = "Side2",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "FNFAL",
-								Entity = "WeaponAttA_MountFNFal_03",
-								Slot = "Mount3",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "HK21",
-								Entity = "WeaponAttA_MountHK21_02",
-								Slot = "Mount2",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M14SAW",
-								Entity = "WeaponAttA_SideMountM14",
-								Slot = "Mountside",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M14SAW",
-								Entity = "WeaponAttA_SideLight",
-								Slot = "Side1",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M21",
-								Entity = "WeaponAttA_SideLight",
-								Slot = "Side1",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AR15",
-								Entity = "WeaponAttA_SideLight",
-								Slot = "Side3",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M4Commando",
-								Entity = "WeaponAttA_MountFrontCAR15",
-								Slot = "Mountfront",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M4Commando",
-								Entity = "WeaponAttA_SideLight",
-								Slot = "Side2",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M16A2",
-								Entity = "WeaponAttA_MountFrontCAR15",
-								Slot = "Mount3",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M16A2",
-								Entity = "WeaponAttA_SideLight",
-								Slot = "Side1",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "G36",
-								Entity = "WeaponAttA_MountHKG36_03",
-								Slot = "Mount3",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "G36",
-								Entity = "WeaponAttA_SideLight",
-								Slot = "Side1",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "P90",
-								Entity = "P90Planks",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "CAR15",
-								Entity = "CAR15Light",
-								Slot = "Side",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "MP5A4",
-								Entity = "MP5A4Flashlight",
-								Slot = "Side",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "VSS",
-								Entity = "VSSFlash",
-								Slot = "Side",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "VSS",
-								Entity = "VSSWing2",
-								Slot = "Side3",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "HK23e",
-								Entity = "Hk23eFurniture",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AS_Val",
-								Entity = "VSSWing2",
-								Slot = "Side3",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "CZ52",
-								Entity = "P90Planks",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "P220",
-								Entity = "P220RailUnder",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "MAC1950",
-								Entity = "WeaponAttA_MountBottomCAR15",
-								Offset = point(0, 0, 5),
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-						},
-						group = "Side",
-						id = "FlashlightOff",
-						zzFoldingPair = {
-							"Flashlight",
-						},
-					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 25,
 						DisplayName = T(500461275609, --[[ModItemWeaponComponent Flashlight DisplayName]] "Flashlight"),
@@ -36409,119 +35548,10 @@ return {
 							}),
 						},
 						group = "Side",
-						id = "Flashlight",
+						id = "JAZZ_Flashlight",
 						zzFoldingPair = {
 							"FlashlightOff",
 						},
-					}),
-					PlaceObj('ModItemWeaponComponent', {
-						Cost = 25,
-						DisplayName = T(634387792704, --[[ModItemWeaponComponent Flashlight_Grip DisplayName]] "Рукоятка с фонариком"),
-						EnableAimFX = true,
-						Icon = "UI/Icons/Upgrades/side_light",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Flashlight_Grip.png",
-						ModificationDifficulty = -25,
-						ModificationEffects = {
-							"IgnoreInTheDark",
-							"RecoilDecrease",
-						},
-						Parameters = {
-							PlaceObj('PresetParamNumber', {
-								'Name', "Recoil",
-								'Value', 1,
-								'Tag', "<Recoil>",
-							}),
-						},
-						Slot = "Side",
-						Visuals = {
-							PlaceObj('WeaponComponentVisual', {
-								Entity = "M1aGrip_Light",
-								Slot = "Side",
-								param_bindings = false,
-							}),
-						},
-						group = "Side",
-						id = "Flashlight_Grip",
-						zzFoldingPair = {
-							"Flashlight_Grip_Off",
-						},
-					}),
-					PlaceObj('ModItemWeaponComponent', {
-						Cost = 25,
-						DisplayName = T(537813709075, --[[ModItemWeaponComponent Flashlight_Grip_Off DisplayName]] "Рукоятка с фонариком"),
-						Icon = "UI/Icons/Upgrades/side_light",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Flashlight_Grip_Off.png",
-						ModificationDifficulty = -25,
-						ModificationEffects = {
-							"RecoilDecrease",
-						},
-						Parameters = {
-							PlaceObj('PresetParamNumber', {
-								'Name', "Recoil",
-								'Value', 1,
-								'Tag', "<Recoil>",
-							}),
-						},
-						Slot = "Side",
-						Visuals = {
-							PlaceObj('WeaponComponentVisual', {
-								Entity = "M1aGrip_Light",
-								Slot = "Side",
-								param_bindings = false,
-							}),
-						},
-						group = "Side",
-						id = "Flashlight_Grip_Off",
-						zzFoldingPair = {
-							"Flashlight_Grip",
-						},
-					}),
-					PlaceObj('ModItemWeaponComponent', {
-						DisplayName = T(571634186469, --[[ModItemWeaponComponent Flashlight_R870 DisplayName]] "Фонарик"),
-						EnableAimFX = true,
-						Icon = "UI/Icons/Upgrades/side_light",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Flashlight_R870.png",
-						ModificationDifficulty = -25,
-						ModificationEffects = {
-							"IgnoreInTheDark",
-						},
-						Slot = "Side",
-						Visuals = {
-							PlaceObj('WeaponComponentVisual', {
-								Entity = "R870_Flash",
-								Slot = "Side2",
-								param_bindings = false,
-							}),
-						},
-						group = "Side",
-						id = "Flashlight_R870",
-					}),
-					PlaceObj('ModItemWeaponComponent', {
-						Cost = 10,
-						DisplayName = T(968729166053, --[[ModItemWeaponComponent Flashlight_Anaconda DisplayName]] "Flashlight"),
-						EnableAimFX = true,
-						Icon = "UI/Icons/Upgrades/side_light",
-						ModificationDifficulty = -25,
-						ModificationEffects = {
-							"IgnoreInTheDark",
-						},
-						Slot = "Scope",
-						Visuals = {
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "ColtAnaconda",
-								Entity = "WeaponAttA_SideLight",
-								Slot = "Scope",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "ColtAnaconda",
-								Entity = "WeaponAttA_MountAnaconda",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-						},
-						group = "Anaconda Specific",
-						id = "Flashlight_Anaconda",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 10,
@@ -36547,7 +35577,7 @@ return {
 							}),
 						},
 						group = "AA12 Specific",
-						id = "Flashlight_aa12",
+						id = "JAZZ_Flashlight_aa12",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -36814,7 +35844,7 @@ return {
 							}),
 						},
 						group = "Side",
-						id = "FlashlightDot",
+						id = "JAZZ_FlashlightDot",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -36875,7 +35905,7 @@ return {
 							}),
 						},
 						group = "AA12 Specific",
-						id = "FlashlightDot_aa12",
+						id = "JAZZ_FlashlightDot_aa12",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -36937,7 +35967,7 @@ return {
 							}),
 						},
 						group = "Anaconda Specific",
-						id = "FlashlightDot_Anaconda",
+						id = "JAZZ_FlashlightDot_Anaconda",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -37223,7 +36253,7 @@ return {
 							}),
 						},
 						group = "Side",
-						id = "LaserDot",
+						id = "JAZZ_LaserDot",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -37286,7 +36316,7 @@ return {
 							}),
 						},
 						group = "Anaconda Specific",
-						id = "LaserDot_Anaconda",
+						id = "JAZZ_LaserDot_Anaconda",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -37348,7 +36378,7 @@ return {
 							}),
 						},
 						group = "AA12 Specific",
-						id = "LaserDot_aa12",
+						id = "JAZZ_LaserDot_aa12",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -37591,7 +36621,7 @@ return {
 							}),
 						},
 						group = "Side",
-						id = "UVDot",
+						id = "JAZZ_UVDot",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -37624,7 +36654,7 @@ return {
 							}),
 						},
 						group = "Anaconda Specific",
-						id = "UVDot_Anaconda",
+						id = "JAZZ_UVDot_Anaconda",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -37656,23 +36686,24 @@ return {
 							}),
 						},
 						group = "AA12 Specific",
-						id = "UVDot_aa12",
+						id = "JAZZ_UVDot_aa12",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 10,
 						DisplayName = T(684571159127, --[[ModItemWeaponComponent HandlingWrap DisplayName]] "Обмотка на цевье"),
 						Icon = "Mod/e6L4ECj/WeaponComponents/Side/Wrap.png",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/HandlingWrap.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_HandlingWrap.png",
 						ModificationEffects = {
-							"BarrelHandlingIncrease",
-						},
+						
+						"RecoilDecrease",
+					},
 						Parameters = {
-							PlaceObj('PresetParamNumber', {
-								'Name', "BarrelHandlingIncrease",
-								'Value', 1,
-								'Tag', "<BarrelHandlingIncrease>",
-							}),
-						},
+				PlaceObj('PresetParamNumber', {
+					'Name', "Recoil",
+					'Value', 1,
+					'Tag', "<Recoil>",
+				}),
+			},
 						Slot = "Side",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -37682,7 +36713,7 @@ return {
 							}),
 						},
 						group = "Side",
-						id = "HandlingWrap",
+						id = "JAZZ_HandlingWrap",
 					}),
 					}),
 				PlaceObj('ModItemFolder', {
@@ -37936,7 +36967,7 @@ return {
 							}),
 						},
 						group = "Muzzle",
-						id = "Compensator",
+						id = "JAZZ_Compensator",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -37952,13 +36983,12 @@ return {
 						Cost = 10,
 						DisplayName = T(566372378498, --[[ModItemWeaponComponent PistolSuppressor DisplayName]] "Глушитель"),
 						Icon = "UI/Icons/Upgrades/beretta_silencer",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/PistolSuppressor.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_PistolSuppressor.png",
 						ModificationDifficulty = -10,
 						ModificationEffects = {
 							"RecoilDecrease",
 							"ReduceReliability",
 							"SilencerGroupingReduce10",
-							"SilencerHandlingReduce",
 							"StealthKillBonusPerAim",
 							"SilentShots",
 						},
@@ -37992,11 +37022,6 @@ return {
 								'Name', "ReliabilityDecrease",
 								'Value', 5,
 								'Tag', "<ReliabilityDecrease>",
-							}),
-							PlaceObj('PresetParamNumber', {
-								'Name', "SilencerHandlingReduce",
-								'Value', 5,
-								'Tag', "<SilencerHandlingReduce>",
 							}),
 						},
 						Slot = "Muzzle",
@@ -38087,19 +37112,18 @@ return {
 							}),
 						},
 						group = "Muzzle",
-						id = "PistolSuppressor",
+						id = "JAZZ_PistolSuppressor",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 20,
 						DisplayName = T(829507516509, --[[ModItemWeaponComponent ImprovisedSuppressor DisplayName]] "Масляной фильтр"),
 						Icon = "UI/Icons/Upgrades/oil_filter_suppressor_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/ImprovisedSuppressor.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_ImprovisedSuppressor.png",
 						ModificationDifficulty = -25,
 						ModificationEffects = {
 							"StealthKillBonusPerAim",
 							"ReduceReliabilityPercent",
 							"SilencerGroupingReduce50",
-							"SilencerHandlingReduce",
 							"SilencerJamChance",
 							"ReduceAimAccuracy15Percent",
 							"SilentShots",
@@ -38124,11 +37148,6 @@ return {
 								'Name', "ReliabilityDecreasePercent",
 								'Value', 50,
 								'Tag', "<ReliabilityDecreasePercent>",
-							}),
-							PlaceObj('PresetParamNumber', {
-								'Name', "SilencerHandlingReduce",
-								'Value', 10,
-								'Tag', "<SilencerHandlingReduce>",
 							}),
 						},
 						Slot = "Muzzle",
@@ -38168,7 +37187,7 @@ return {
 							}),
 						},
 						group = "Muzzle",
-						id = "ImprovisedSuppressor",
+						id = "JAZZ_ImprovisedSuppressor",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -38184,14 +37203,13 @@ return {
 						Cost = 10,
 						DisplayName = T(383554280885, --[[ModItemWeaponComponent Suppressor DisplayName]] "Suppressor"),
 						Icon = "UI/Icons/Upgrades/beretta_silencer",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Suppressor.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Suppressor.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"SilentShots",
 							"SilencerGroupingReduce30",
 							"RecoilDecrease",
 							"StealthKillBonusPerAim",
-							"SilencerHandlingReduce",
 							"SilencerJamChance",
 							"ReduceReliability",
 						},
@@ -38225,11 +37243,6 @@ return {
 								'Name', "ReliabilityDecrease",
 								'Value', 10,
 								'Tag', "<ReliabilityDecrease>",
-							}),
-							PlaceObj('PresetParamNumber', {
-								'Name', "SilencerHandlingReduce",
-								'Value', 5,
-								'Tag', "<SilencerHandlingReduce>",
 							}),
 						},
 						Slot = "Muzzle",
@@ -38531,7 +37544,7 @@ return {
 							}),
 						},
 						group = "Muzzle",
-						id = "Suppressor",
+						id = "JAZZ_Suppressor",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -38547,12 +37560,11 @@ return {
 						Cost = 10,
 						DisplayName = T(102033365013, --[[ModItemWeaponComponent FlashHider DisplayName]] "Пламегаситель"),
 						Icon = "Mod/e6L4ECj/WeaponComponents/Carbine/CarbineFlashHider.png",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/FlashHider.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_FlashHider.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"RecoilDecrease",
 							"StealthKillBonusPerAim",
-							"SilencerHandlingReduce",
 						},
 						Parameters = {
 							PlaceObj('PresetParamPercent', {
@@ -38582,7 +37594,7 @@ return {
 							}),
 						},
 						group = "Muzzle",
-						id = "FlashHider",
+						id = "JAZZ_FlashHider",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -38598,7 +37610,7 @@ return {
 						Cost = 10,
 						DisplayName = T(301018052581, --[[ModItemWeaponComponent SuppressorImproved DisplayName]] "Улучшенный глушитель"),
 						Icon = "UI/Icons/Upgrades/beretta_silencer",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/SuppressorImproved.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_SuppressorImproved.png",
 						ModificationDifficulty = 10,
 						ModificationEffects = {
 							"SilentShots",
@@ -38638,11 +37650,6 @@ return {
 								'Value', 5,
 								'Tag', "<ReliabilityDecrease>",
 							}),
-							PlaceObj('PresetParamNumber', {
-								'Name', "SilencerHandlingReduce",
-								'Value', 2,
-								'Tag', "<SilencerHandlingReduce>",
-							}),
 						},
 						Slot = "Muzzle",
 						Visuals = {
@@ -38675,7 +37682,7 @@ return {
 							}),
 						},
 						group = "Muzzle",
-						id = "SuppressorImproved",
+						id = "JAZZ_SuppressorImproved",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						AdditionalCosts = {
@@ -38708,75 +37715,13 @@ return {
 							}),
 						},
 						group = "Muzzle",
-						id = "SuppressorIntegrated",
-					}),
-					PlaceObj('ModItemWeaponComponent', {
-						Cost = 15,
-						DisplayName = T(441367044411, --[[ModItemWeaponComponent AUGCompensator_3 DisplayName]] "Улучшенный компенсатор"),
-						Icon = "UI/Icons/Upgrades/muzzle_steyr_01",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/AUGCompensator_3.png",
-						ModificationDifficulty = 0,
-						ModificationEffects = {
-							"AccuracyBonusSameTarget",
-							"IncreaseReliability",
-							"RecoilDecrease",
-						},
-						Parameters = {
-							PlaceObj('PresetParamNumber', {
-								'Name', "ReliabilityIncrease",
-								'Value', 10,
-								'Tag', "<ReliabilityIncrease>",
-							}),
-							PlaceObj('PresetParamNumber', {
-								'Name', "Recoil",
-								'Value', 4,
-								'Tag', "<Recoil>",
-							}),
-						},
-						Slot = "Muzzle",
-						Visuals = {
-							PlaceObj('WeaponComponentVisual', {
-								Entity = "WeaponAttA_MuzzleSteyr_03",
-								Slot = "Muzzle",
-								param_bindings = false,
-							}),
-						},
-						group = "AUG Specific",
-						id = "AUGCompensator_3",
-					}),
-					PlaceObj('ModItemWeaponComponent', {
-						Cost = 10,
-						DisplayName = T(145217278026, --[[ModItemWeaponComponent AUGCompensator_1 DisplayName]] "Стандартный компенсатор"),
-						Icon = "UI/Icons/Upgrades/muzzle_steyr_02",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/AUGCompensator_1.png",
-						ModificationDifficulty = -25,
-						ModificationEffects = {
-							"AccuracyBonusSameTarget",
-							"RecoilDecrease",
-						},
-						Parameters = {
-							PlaceObj('PresetParamNumber', {
-								'Name', "Recoil",
-								'Value', 3,
-								'Tag', "<Recoil>",
-							}),
-						},
-						Slot = "Muzzle",
-						Visuals = {
-							PlaceObj('WeaponComponentVisual', {
-								Entity = "WeaponAttA_MuzzleSteyr_01",
-								Slot = "Muzzle",
-								param_bindings = false,
-							}),
-						},
-						group = "AUG Specific",
-						id = "AUGCompensator_1",
+						id = "JAZZ_SuppressorIntegrated",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 20,
 						DisplayName = T(149583333542, --[[ModItemWeaponComponent DuckbillChoke DisplayName]] "Duckbill Choke"),
 						Icon = "UI/Icons/Upgrades/duckbill_choke",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/DuckbillChoke.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_DuckbillChoke.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"IncreaseBuckshotAngle",
@@ -38797,13 +37742,13 @@ return {
 							}),
 						},
 						group = "Muzzle",
-						id = "DuckbillChoke",
+						id = "JAZZ_DuckbillChoke",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 20,
 						DisplayName = T(534679598165, --[[ModItemWeaponComponent FullChoke DisplayName]] "Full Choke"),
 						Icon = "UI/Icons/Upgrades/shotgun_full_choke",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/FullChoke.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_FullChoke.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"DecreaseBuckshotAngle",
@@ -38823,13 +37768,13 @@ return {
 						},
 						Slot = "Muzzle",
 						group = "Muzzle",
-						id = "FullChoke",
+						id = "JAZZ_FullChoke",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 15,
 						DisplayName = T(148253085245, --[[ModItemWeaponComponent MuzzleBooster DisplayName]] "Recoil Booster"),
 						Icon = "UI/Icons/Upgrades/booster_NATO",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MuzzleBooster.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MuzzleBooster.png",
 						ModificationDifficulty = 0,
 						Slot = "Muzzle",
 						Visuals = {
@@ -38917,7 +37862,7 @@ return {
 						},
 						comment = "Делаем бесполезным",
 						group = "Muzzle",
-						id = "MuzzleBooster",
+						id = "JAZZ_MuzzleBooster",
 					}),
 					}),
 				PlaceObj('ModItemFolder', {
@@ -38974,13 +37919,13 @@ return {
 							}),
 						},
 						group = "AR15 Specific",
-						id = "DefaultIronsight_AR15",
+						id = "JAZZ_DefaultIronsight_AR15",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 10,
 						DisplayName = T(697020602032, --[[ModItemWeaponComponent ImprovedIronsight_AR15 DisplayName]] "Improved Iron Sight"),
 						Icon = "UI/Icons/Upgrades/ironsights_hands",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/ImprovedIronsight_AR15.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_ImprovedIronsight_AR15.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"AccuracyBonusWhenAimed",
@@ -39002,7 +37947,7 @@ return {
 							}),
 						},
 						group = "AR15 Specific",
-						id = "ImprovedIronsight_AR15",
+						id = "JAZZ_ImprovedIronsight_AR15",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 10,
@@ -39026,141 +37971,7 @@ return {
 							}),
 						},
 						group = "Anaconda Specific",
-						id = "BaseIronsight_Anaconda",
-					}),
-					PlaceObj('ModItemWeaponComponent', {
-						AdditionalCosts = {
-							PlaceObj('WeaponComponentCost', {
-								'Amount', 1,
-								'Type', "OpticalLens",
-							}),
-						},
-						Cost = 20,
-						DisplayName = T(434214967295, --[[ModItemWeaponComponent LROptics_DragunovDefault DisplayName]] "Sniper Scope x5"),
-						Icon = "UI/Icons/Upgrades/custom_Dragunov_scope",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/LROptics_DragunovDefault.png",
-						ModificationDifficulty = 0,
-						ModificationEffects = {
-							"IncreaseMaxAimActions",
-						},
-						Parameters = {
-							PlaceObj('PresetParamNumber', {
-								'Name', "IncreaseMaxAimActions",
-								'Value', 1,
-								'Tag', "<IncreaseMaxAimActions>",
-							}),
-						},
-						Slot = "Scope",
-						Visuals = {
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "VSS",
-								Entity = "WeaponAttA_ScopeDragunov_01",
-								Slot = "Scope",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AS_Val",
-								Entity = "WeaponAttA_ScopeDragunov_01",
-								Slot = "Scope",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "DragunovSVD",
-								Entity = "WeaponAttA_ScopeDragunov_01",
-								Slot = "Scope",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "SVU",
-								Entity = "WeaponAttA_ScopeDragunov_01",
-								Slot = "Scope",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AK74",
-								Entity = "PsoForAK",
-								Slot = "Scope",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AK74",
-								Entity = "AKSeriaMount",
-								Slot = "General",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AKM",
-								Entity = "AKSeriaMount",
-								Slot = "General",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AKM",
-								Entity = "PsoForAK",
-								Slot = "Scope",
-								param_bindings = false,
-							}),
-						},
-						group = "Dragunov-Specific",
-						id = "LROptics_DragunovDefault",
-					}),
-					PlaceObj('ModItemWeaponComponent', {
-						Cost = 2,
-						DisplayName = T(767525470073, --[[ModItemWeaponComponent GewehrDefaultSight DisplayName]] "Default Iron Sight"),
-						Icon = "UI/Icons/Upgrades/ironsights",
-						ModificationDifficulty = -25,
-						Slot = "Scope",
-						Visuals = {
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Gewehr98",
-								Entity = "WeaponAttA_IronSightGewehr",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-						},
-						group = "Gewehr-specific",
-						id = "GewehrDefaultSight",
-					}),
-					PlaceObj('ModItemWeaponComponent', {
-						AdditionalCosts = {
-							PlaceObj('WeaponComponentCost', {
-								'Amount', 1,
-								'Type', "Microchip",
-							}),
-						},
-						Cost = 35,
-						DisplayName = T(813847402970, --[[ModItemWeaponComponent ReflexSightAdvanced_Glock DisplayName]] "Advanced Reflex Sight"),
-						Icon = "UI/Icons/Upgrades/compact_reflex_sight",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/ReflexSightAdvanced_Glock.png",
-						ModificationDifficulty = 0,
-						ModificationEffects = {
-							"OpportunityAttackBonusCth",
-							"IncreaseAimAccuracy",
-							"IncreaseOverwatchAngle",
-						},
-						Parameters = {
-							PlaceObj('PresetParamNumber', {
-								'Name', "AimAccuracyIncrease",
-								'Value', 1,
-								'Tag', "<AimAccuracyIncrease>",
-							}),
-							PlaceObj('PresetParamNumber', {
-								'Name', "OverwatchAngleIncrease",
-								'Value', 140,
-								'Tag', "<OverwatchAngleIncrease>",
-							}),
-						},
-						Slot = "Scope",
-						Visuals = {
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Glock18",
-								Entity = "WeaponAttA_ScopeGlock18",
-								Slot = "Scope",
-								param_bindings = false,
-							}),
-						},
-						group = "Glock18 Specific",
-						id = "ReflexSightAdvanced_Glock",
+						id = "JAZZ_BaseIronsight_Anaconda",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 10,
@@ -39205,7 +38016,7 @@ return {
 							}),
 						},
 						group = "Scope",
-						id = "ImprovedIronsight",
+						id = "JAZZ_ImprovedIronsight",
 					}),
 					}),
 				PlaceObj('ModItemFolder', {
@@ -39214,2542 +38025,6 @@ return {
 					PlaceObj('ModItemFolder', {
 						'name', "Old",
 					}, {
-						PlaceObj('ModItemWeaponComponent', {
-							AdditionalCosts = {
-								PlaceObj('WeaponComponentCost', {
-									'Amount', 1,
-									'Type', "Microchip",
-								}),
-								PlaceObj('WeaponComponentCost', {
-									'Amount', 1,
-									'Type', "OpticalLens",
-								}),
-							},
-							Cost = 50,
-							DisplayName = T(404607274285, --[[ModItemWeaponComponent ReflexSight DisplayName]] "Коллиматор"),
-							Icon = "UI/Icons/Upgrades/compact_reflex_sight",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/ReflexSight.png",
-							ModificationDifficulty = 0,
-							ModificationEffects = {
-								"DecreaseMaxAimActions",
-								"ExtraOverwatchShots",
-								"IncreaseOverwatchAngle",
-								"MinAim",
-							},
-							Parameters = {
-								PlaceObj('PresetParamNumber', {
-									'Name', "OverwatchAngleIncrease",
-									'Value', 140,
-									'Tag', "<OverwatchAngleIncrease>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "MaxAimActionsDecrease",
-									'Value', 1,
-									'Tag', "<MaxAimActionsDecrease>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "extra_attacks",
-									'Value', 1,
-									'Tag', "<extra_attacks>",
-								}),
-							},
-							Slot = "Scope",
-							Visuals = {
-								PlaceObj('WeaponComponentVisual', {
-									Entity = "Ithaca_AimPoint",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "PKM",
-									Entity = "PKM_Zenit",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AA12",
-									Entity = "WeaponAttA_MountAA12_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AA12",
-									Entity = "WeaponAttA_CompactReflexSightLifted",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Glock17",
-									Entity = "WeaponAttA_ScopeGlock18",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Glock18",
-									Entity = "WeaponAttA_ScopeGlock18",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK47",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKSU",
-									Entity = "WeaponAttA_MountAKS74U_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "RPK74",
-									Entity = "WeaponAttA_MountRPK74",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "RPK",
-									Entity = "WeaponAttA_MountRPK74",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "RPK74",
-									Entity = "Kobra",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "RPK",
-									Entity = "Kobra",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR15",
-									Entity = "WeaponAttA_CompactReflexSightLifted",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Bereta92",
-									Entity = "WeaponAttA_MountBeretta",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HiPower",
-									Entity = "WeaponAttA_MountBHP",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "DragunovSVD",
-									Entity = "WeaponAttA_MountDragunov_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "UZI",
-									Entity = "UziPlank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "UZI",
-									Entity = "PKM_Scope",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MicroUZI",
-									Entity = "WeaponAttA_CompactReflexSightLifted",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5K",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MicroUZI",
-									Entity = "WeaponAttA_MountUzi_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M14SAW",
-									Entity = "WeaponAttA_MountM14",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Gewehr98",
-									Entity = "WeaponAttA_MountGewehr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "ColtAnaconda",
-									Entity = "WeaponAttA_MountAnaconda",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_CompactReflexSightLifted",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_CompactReflexSightLifted",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M4Commando",
-									Entity = "WeaponAttA_MountCAR15",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "WeaponAttA_MountM16_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNMinimi",
-									Entity = "WeaponAttA_CompactReflexSightLifted",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5A2",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5A2",
-									Entity = "Aimpoint5000",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5A4",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5A4",
-									Entity = "Aimpoint5000",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "UMP45",
-									Entity = "WeaponAttA_CompactReflexSightLifted",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "UMP45",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5SD",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5SD",
-									Entity = "Aimpoint5000",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR10",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "Aimpoint5000",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "Aimpoint5000",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "Aimpoint5000",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR10",
-									Entity = "Aimpoint5000",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "Kobra",
-									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/Kobra.png",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "Kobra",
-									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/Kobra.png",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AN94",
-									Entity = "Kobra",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "DragunovSVD",
-									Entity = "Kobra",
-									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/Kobra.png",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "SVU",
-									Entity = "Kobra",
-									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/Kobra.png",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "VSS",
-									Entity = "Kobra",
-									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/Kobra.png",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AS_Val",
-									Entity = "Kobra",
-									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/Kobra.png",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "Aimpoint5000",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "Aimpoint5000",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "Aimpoint5000",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "Aimpoint5000",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Sig550",
-									Entity = "PKM_Scope",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Sig550Custom",
-									Entity = "PKM_Scope",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Sig552",
-									Entity = "PKM_Scope",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Sig552SWAT",
-									Entity = "PKM_Scope",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK23e",
-									Entity = "Hk23eFurniture",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "R870",
-									Entity = "Aimpoint5000",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "R870",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Ithaca",
-									Entity = "Ithaca_Rail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M1Garand",
-									Entity = "Garand_Exp_Scope",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-							},
-							group = "Scope",
-							id = "ReflexSight",
-						}),
-						PlaceObj('ModItemWeaponComponent', {
-							AdditionalCosts = {
-								PlaceObj('WeaponComponentCost', {
-									'Amount', 3,
-									'Type', "Microchip",
-								}),
-								PlaceObj('WeaponComponentCost', {
-									'Amount', 2,
-									'Type', "OpticalLens",
-								}),
-							},
-							Cost = 100,
-							DisplayName = T(461754354229, --[[ModItemWeaponComponent ReflexSightAdvanced DisplayName]] "Улучшенный коллиматор"),
-							Icon = "UI/Icons/Upgrades/scope_reflex",
-							ModificationDifficulty = 10,
-							ModificationEffects = {
-								"DecreaseMaxAimActions",
-								"OpportunityAttackBonusCth",
-								"IncreaseOverwatchAngle",
-								"MinAim",
-							},
-							Parameters = {
-								PlaceObj('PresetParamNumber', {
-									'Name', "OverwatchAngleIncrease",
-									'Value', 140,
-									'Tag', "<OverwatchAngleIncrease>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "MaxAimActionsDecrease",
-									'Value', 1,
-									'Tag', "<MaxAimActionsDecrease>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "extra_attacks",
-									'Value', 1,
-									'Tag', "<extra_attacks>",
-								}),
-							},
-							Slot = "Scope",
-							Visuals = {
-								PlaceObj('WeaponComponentVisual', {
-									Entity = "WeaponAttA_ScopeReflex",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "PKM",
-									Entity = "PKM_Zenit",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK47",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKSU",
-									Entity = "WeaponAttA_MountAKS74U_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "RPK",
-									Entity = "PKAA",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "RPK74",
-									Entity = "PKAA",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Bereta92",
-									Entity = "WeaponAttA_MountBeretta",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HiPower",
-									Entity = "WeaponAttA_MountBHP",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil_FlagHill",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "DragunovSVD",
-									Entity = "WeaponAttA_MountDragunov_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5K",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MicroUZI",
-									Entity = "WeaponAttA_MountUzi_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "UZI",
-									Entity = "UziPlank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M14SAW",
-									Entity = "WeaponAttA_MountM14",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M21",
-									Entity = "WeaponAttA_MountM14",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Gewehr98",
-									Entity = "WeaponAttA_MountGewehr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "ColtAnaconda",
-									Entity = "WeaponAttA_MountAnaconda",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AA12",
-									Entity = "WeaponAttA_MountAA12_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M4Commando",
-									Entity = "WeaponAttA_MountCAR15",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "WeaponAttA_MountM16_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G36",
-									Entity = "WeaponAttA_MountHKG36_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5A2",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5A4",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5SD",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "PKAA",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "PKAA",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AN94",
-									Entity = "PKAA",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "VSS",
-									Entity = "PKAA",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AS_Val",
-									Entity = "PKAA",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "SVU",
-									Entity = "PKAA",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "UMP45",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK23e",
-									Entity = "Hk23eFurniture",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "R870",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Ithaca",
-									Entity = "Ithaca_Rail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-							},
-							group = "Scope",
-							id = "ReflexSightAdvanced",
-						}),
-						PlaceObj('ModItemWeaponComponent', {
-							AdditionalCosts = {
-								PlaceObj('WeaponComponentCost', {
-									'Amount', 1,
-									'Type', "OpticalLens",
-								}),
-								PlaceObj('WeaponComponentCost', {
-									'Amount', 1,
-									'Type', "FineSteelPipe",
-								}),
-							},
-							Cost = 50,
-							DisplayName = T(254930997326, --[[ModItemWeaponComponent ScopeCOG DisplayName]] "Прицел малой кратности"),
-							Icon = "UI/Icons/Upgrades/prism_scope",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/ScopeCOG.png",
-							ModificationDifficulty = 0,
-							ModificationEffects = {
-								"FirstShotIncreasedAim",
-								"ReduceAuto25Percent",
-								"ReduceBurst25Percent",
-								"IncreaseShotAP",
-							},
-							Parameters = {
-								PlaceObj('PresetParamNumber', {
-									'Name', "min_aim",
-									'Value', 2,
-									'Tag', "<min_aim>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ShotAP",
-									'Value', 1,
-									'Tag', "<ShotAP>",
-								}),
-							},
-							Slot = "Scope",
-							Visuals = {
-								PlaceObj('WeaponComponentVisual', {
-									Entity = "M16ScopeX3",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "PKM",
-									Entity = "PKM_Zenit",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "RPK74",
-									Entity = "WeaponAttA_MountRPK74",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AN94",
-									Entity = "WeaponAttA_MountRPK74",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "RPK",
-									Entity = "WeaponAttA_MountRPK74",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKSU",
-									Entity = "WeaponAttA_MountAKS74U_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Bereta92",
-									Entity = "WeaponAttA_MountBeretta",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HiPower",
-									Entity = "WeaponAttA_MountBHP",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "DragunovSVD",
-									Entity = "WeaponAttA_MountDragunov_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5K",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MicroUZI",
-									Entity = "WeaponAttA_MountUzi_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M14SAW",
-									Entity = "WeaponAttA_MountM14",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M21",
-									Entity = "WeaponAttA_MountM14",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Gewehr98",
-									Entity = "WeaponAttA_MountGewehr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "ColtAnaconda",
-									Entity = "WeaponAttA_MountAnaconda",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AA12",
-									Entity = "WeaponAttA_MountAA12_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M4Commando",
-									Entity = "WeaponAttA_MountCAR15",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "WeaponAttA_MountM16_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G36",
-									Entity = "WeaponAttA_ScopeHKG36_01",
-									Icon = "UI/Icons/Upgrades/g36_scope_01",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "BarretM82",
-									Entity = "WeaponAttA_IronSightBarrettM82_Folded",
-									Slot = "Ironsight",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5A2",
-									Entity = "WeaponAttA_ScopeCOG",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "UZI",
-									Entity = "WeaponAttA_ScopeCOG",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "UZI",
-									Entity = "UziPlank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5A4",
-									Entity = "WeaponAttA_ScopeCOG",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5SD",
-									Entity = "WeaponAttA_ScopeCOG",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5A4",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5A2",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5SD",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR10",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "UMP45",
-									Entity = "WeaponAttA_ScopeCOG",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "UMP45",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3SimpleScope",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3SimpleScope",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3SimpleScope",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Gewehr98",
-									Entity = "G3SimpleScope",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Mosin",
-									Entity = "PUOptic",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Sig550",
-									Entity = "WeaponAttA_ScopeCOG",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR10",
-									Entity = "WeaponAttA_ScopeCOG",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Sig550Custom",
-									Entity = "WeaponAttA_ScopeCOG",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Sig552",
-									Entity = "WeaponAttA_ScopeCOG",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR10DMR",
-									Entity = "WeaponAttA_ScopeCOG",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Sig552SWAT",
-									Entity = "WeaponAttA_ScopeCOG",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "WeaponAttA_ScopeCOG",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK23e",
-									Entity = "Hk23eFurniture",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "R870",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Ithaca",
-									Entity = "Ithaca_Rail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M1Garand",
-									Entity = "Garand__Optic",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-							},
-							group = "Scope",
-							id = "ScopeCOG",
-						}),
-						PlaceObj('ModItemWeaponComponent', {
-							AdditionalCosts = {
-								PlaceObj('WeaponComponentCost', {
-									'Amount', 3,
-									'Type', "OpticalLens",
-								}),
-								PlaceObj('WeaponComponentCost', {
-									'Amount', 3,
-									'Type', "FineSteelPipe",
-								}),
-							},
-							Cost = 100,
-							DisplayName = T(520100285462, --[[ModItemWeaponComponent ScopeCOGQuick DisplayName]] "Штурмовой прицел"),
-							Icon = "UI/Icons/Upgrades/scope_thermal",
-							ModificationDifficulty = 0,
-							ModificationEffects = {
-								"FirstShotIncreasedAim",
-								"ReduceAuto25Percent",
-								"ReduceBurst25Percent",
-								"IncreaseAimAccuracy",
-								"IncreaseShotAP",
-							},
-							Parameters = {
-								PlaceObj('PresetParamNumber', {
-									'Name', "AimAccuracyIncrease",
-									'Value', 10,
-									'Tag', "<AimAccuracyIncrease>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "min_aim",
-									'Value', 2,
-									'Tag', "<min_aim>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ShotAP",
-									'Value', 1,
-									'Tag', "<ShotAP>",
-								}),
-							},
-							Slot = "Scope",
-							Visuals = {
-								PlaceObj('WeaponComponentVisual', {
-									Entity = "ACOGV2",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "PKM",
-									Entity = "PKM_Zenit",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK47",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AN94",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKSU",
-									Entity = "WeaponAttA_MountAKS74U_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Bereta92",
-									Entity = "WeaponAttA_MountBeretta",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HiPower",
-									Entity = "WeaponAttA_MountBHP",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "DragunovSVD",
-									Entity = "WeaponAttA_MountDragunov_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5K",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MicroUZI",
-									Entity = "WeaponAttA_MountUzi_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M14SAW",
-									Entity = "WeaponAttA_MountM14",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M21",
-									Entity = "WeaponAttA_MountM14",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Gewehr98",
-									Entity = "WeaponAttA_MountGewehr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "ColtAnaconda",
-									Entity = "WeaponAttA_MountAnaconda",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AA12",
-									Entity = "WeaponAttA_MountAA12_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M4Commando",
-									Entity = "WeaponAttA_MountCAR15",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "WeaponAttA_MountM16_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "BarretM82",
-									Entity = "WeaponAttA_IronSightBarrettM82_Folded",
-									Slot = "Ironsight",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5A2",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5A4",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5SD",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "tyulpan",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "tyulpan",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AN94",
-									Entity = "tyulpan",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AS_Val",
-									Entity = "tyulpan",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "RPK",
-									Entity = "tyulpan",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "RPK74",
-									Entity = "tyulpan",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Scope_Rail",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Scope_Rail",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Scope_Rail",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK23e",
-									Entity = "Hk23eFurniture",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "R870",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Ithaca",
-									Entity = "Ithaca_Rail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-							},
-							group = "Scope",
-							id = "ScopeCOGQuick",
-						}),
-						PlaceObj('ModItemWeaponComponent', {
-							AdditionalCosts = {
-								PlaceObj('WeaponComponentCost', {
-									'Amount', 2,
-									'Type', "OpticalLens",
-								}),
-								PlaceObj('WeaponComponentCost', {
-									'Amount', 1,
-									'Type', "FineSteelPipe",
-								}),
-							},
-							Cost = 50,
-							DisplayName = T(528735864844, --[[ModItemWeaponComponent LROptics DisplayName]] "Оптический прицел"),
-							Icon = "UI/Icons/Upgrades/scope_longrange",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/LROptics.png",
-							ModificationDifficulty = 0,
-							ModificationEffects = {
-								"IncreaseMaxAimActions",
-								"IncreaseShotAP",
-								"CritBonusWhenFullyAimed",
-								"ReduceAuto75Percent",
-								"ReduceBurst50Percent",
-							},
-							Parameters = {
-								PlaceObj('PresetParamNumber', {
-									'Name', "IncreaseMaxAimActions",
-									'Value', 1,
-									'Tag', "<IncreaseMaxAimActions>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ShotAP",
-									'Value', 2,
-									'Tag', "<ShotAP>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "min_aim",
-									'Value', 2,
-									'Tag', "<min_aim>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "AimAccuracyIncrease",
-									'Value', 5,
-									'Tag', "<AimAccuracyIncrease>",
-								}),
-							},
-							Slot = "Scope",
-							Visuals = {
-								PlaceObj('WeaponComponentVisual', {
-									Entity = "WeaponAttA_ScopeLongRange",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "PKM",
-									Entity = "PKM_Zenit",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK47",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKSU",
-									Entity = "WeaponAttA_MountAKS74U_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "RPK",
-									Entity = "PsoForAK",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "RPK74",
-									Entity = "PsoForAK",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "PsoForAK",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "RPK",
-									Entity = "WeaponAttA_MountRPK74",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5K",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MicroUZI",
-									Entity = "WeaponAttA_MountUzi_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M14SAW",
-									Entity = "WeaponAttA_MountM14",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M21",
-									Entity = "WeaponAttA_MountM14",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Gewehr98",
-									Entity = "WeaponAttA_MountGewehr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "ColtAnaconda",
-									Entity = "WeaponAttA_MountAnaconda",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M4Commando",
-									Entity = "WeaponAttA_MountCAR15",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "WeaponAttA_MountM16_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G36",
-									Entity = "WeaponAttA_ScopeHKG36_02",
-									Icon = "UI/Icons/Upgrades/g36_scope_02",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "BarretM82",
-									Entity = "WeaponAttA_IronSightBarrettM82_Folded",
-									Slot = "Ironsight",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5A2",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5A4",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5SD",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "VSS",
-									Entity = "WeaponAttA_ScopeDragunov_01",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AS_Val",
-									Entity = "WeaponAttA_ScopeDragunov_01",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "DragunovSVD",
-									Entity = "WeaponAttA_ScopeDragunov_01",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "SVU",
-									Entity = "WeaponAttA_ScopeDragunov_01",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "PsoForAK",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "PsoForAK",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AN94",
-									Entity = "PsoForAK",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FRF2",
-									Entity = "FRF2Scope",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "ScoutSniper",
-									Entity = "SteyrS_Scope",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M700",
-									Entity = "M700Optic",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "ZastavaM76",
-									Entity = "m76_scope",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK23e",
-									Entity = "Hk23eFurniture",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Mosin",
-									Entity = "PUOptic",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "SVT40",
-									Entity = "SVT_Scope",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Springfield",
-									Entity = "M1903_Optic",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M1Garand",
-									Entity = "Garand__Optic",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-							},
-							group = "Scope",
-							id = "LROptics",
-						}),
-						PlaceObj('ModItemWeaponComponent', {
-							AdditionalCosts = {
-								PlaceObj('WeaponComponentCost', {
-									'Amount', 4,
-									'Type', "OpticalLens",
-								}),
-								PlaceObj('WeaponComponentCost', {
-									'Amount', 4,
-									'Type', "FineSteelPipe",
-								}),
-							},
-							Cost = 100,
-							DisplayName = T(756379377948, --[[ModItemWeaponComponent LROpticsAdvanced DisplayName]] "Sniper Scope x10"),
-							Icon = "UI/Icons/Upgrades/sniper_scope_x10",
-							ModificationDifficulty = 10,
-							ModificationEffects = {
-								"IncreaseMaxAimActions",
-								"IncreaseShotAP",
-								"CritBonusWhenFullyAimed",
-								"ReduceAuto75Percent",
-								"ReduceBurst50Percent",
-							},
-							Parameters = {
-								PlaceObj('PresetParamNumber', {
-									'Name', "AimAccuracyIncrease",
-									'Value', 7,
-									'Tag', "<AimAccuracyIncrease>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "IncreaseMaxAimActions",
-									'Value', 2,
-									'Tag', "<IncreaseMaxAimActions>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "min_aim",
-									'Value', 3,
-									'Tag', "<min_aim>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ShotAP",
-									'Value', 3,
-									'Tag', "<ShotAP>",
-								}),
-							},
-							Slot = "Scope",
-							Visuals = {
-								PlaceObj('WeaponComponentVisual', {
-									Entity = "WeaponAttA_ScopeSniperX10",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "PKM",
-									Entity = "PKM_Zenit",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "RPK74",
-									Entity = "WeaponAttA_MountRPK74",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "RPK",
-									Entity = "WeaponAttA_MountRPK74",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK47",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AN94",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKSU",
-									Entity = "WeaponAttA_MountAKS74U_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "RPK",
-									Entity = "WeaponAttA_MountRPK74",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "DragunovSVD",
-									Entity = "WeaponAttA_MountDragunov_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M14SAW",
-									Entity = "WeaponAttA_MountM14",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M21",
-									Entity = "WeaponAttA_MountM14",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Gewehr98",
-									Entity = "WeaponAttA_MountGewehr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "ColtAnaconda",
-									Entity = "WeaponAttA_MountAnaconda",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M4Commando",
-									Entity = "WeaponAttA_MountCAR15",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "WeaponAttA_MountM16_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "BarretM82",
-									Entity = "WeaponAttA_IronSightBarrettM82_Folded",
-									Slot = "Ironsight",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5A2",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5A4",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5SD",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Sniper_Scope",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Sniper_Scope",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Sniper_Scope",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK23e",
-									Entity = "Hk23eFurniture",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-							},
-							group = "Scope",
-							id = "LROpticsAdvanced",
-						}),
-						PlaceObj('ModItemWeaponComponent', {
-							AdditionalCosts = {
-								PlaceObj('WeaponComponentCost', {
-									'Amount', 4,
-									'Type', "Microchip",
-								}),
-								PlaceObj('WeaponComponentCost', {
-									'Amount', 4,
-									'Type', "OpticalLens",
-								}),
-								PlaceObj('WeaponComponentCost', {
-									'Amount', 4,
-									'Type', "FineSteelPipe",
-								}),
-							},
-							Cost = 100,
-							DisplayName = T(687554410745, --[[ModItemWeaponComponent ThermalScope DisplayName]] "Ночной прицел"),
-							Icon = "UI/Icons/Upgrades/scope_ACOG",
-							ModificationDifficulty = 10,
-							ModificationEffects = {
-								"IncreaseShotAP",
-								"IgnoreInTheDarkWhenFullyAimed",
-								"IgnoreLightOfSightWhenFullyAimed",
-								"ReduceAimAccuracy20Percent",
-								"ReduceAuto75Percent",
-								"ReduceBurst50Percent",
-							},
-							Parameters = {
-								PlaceObj('PresetParamNumber', {
-									'Name', "ShotAP",
-									'Value', 2,
-									'Tag', "<ShotAP>",
-								}),
-							},
-							Slot = "Scope",
-							Visuals = {
-								PlaceObj('WeaponComponentVisual', {
-									Entity = "WeaponAttA_ScopeThermal",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "PKM",
-									Entity = "PKM_Zenit",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "RPK74",
-									Entity = "NSPU",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "RPK",
-									Entity = "NSPU",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5K",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MicroUZI",
-									Entity = "WeaponAttA_MountUzi_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M14SAW",
-									Entity = "WeaponAttA_MountM14",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M21",
-									Entity = "WeaponAttA_MountM14",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Gewehr98",
-									Entity = "WeaponAttA_MountGewehr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "ColtAnaconda",
-									Entity = "WeaponAttA_MountAnaconda",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M4Commando",
-									Entity = "WeaponAttA_MountCAR15",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "WeaponAttA_MountM16_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G36",
-									Entity = "WeaponAttA_MountHKG36_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "BarretM82",
-									Entity = "WeaponAttA_IronSightBarrettM82_Folded",
-									Slot = "Ironsight",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5A2",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5A4",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5SD",
-									Entity = "MP5Plank",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "VSS",
-									Entity = "NSPU",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AS_Val",
-									Entity = "NSPU",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "DragunovSVD",
-									Entity = "NSPU",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "SVU",
-									Entity = "NSPU",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "NSPU",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AN94",
-									Entity = "NSPU",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "NSPU",
-									Slot = "Scope",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK23e",
-									Entity = "Hk23eFurniture",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-							},
-							group = "Scope",
-							id = "ThermalScope",
-						}),
 						}),
 					PlaceObj('ModItemFolder', {
 						'name', "Reflex",
@@ -41775,7 +38050,6 @@ return {
 								"ExtraOverwatchShots",
 								"MinAim",
 								"OpportunityAttackBonusCth",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleIncreace",
 							},
 							Parameters = {
@@ -41793,11 +38067,6 @@ return {
 									'Name', "extra_attacks",
 									'Value', 1,
 									'Tag', "<extra_attacks>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 5,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/C79.png",
@@ -41935,7 +38204,6 @@ return {
 								"ScopeOverwatchAngleIncreace",
 								"MinAim",
 								"OpportunityAttackBonusCth",
-								"ScopeHandlingReduce",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -41952,11 +38220,6 @@ return {
 									'Name', "extra_attacks",
 									'Value', 1,
 									'Tag', "<extra_attacks>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 3,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/Aimpoint_reticle.png",
@@ -42220,7 +38483,6 @@ return {
 								"ScopeOverwatchAngleIncreace",
 								"MinAim",
 								"OpportunityAttackBonusCth",
-								"ScopeHandlingReduce",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -42237,11 +38499,6 @@ return {
 									'Name', "extra_attacks",
 									'Value', 1,
 									'Tag', "<extra_attacks>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 1,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/Aimpoint_reticle.png",
@@ -42510,7 +38767,6 @@ return {
 								"ScopeOverwatchAngleIncreace",
 								"MinAim",
 								"OpportunityAttackBonusCth",
-								"ScopeHandlingReduce",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -42527,11 +38783,6 @@ return {
 									'Name', "extra_attacks",
 									'Value', 1,
 									'Tag', "<extra_attacks>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 3,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/PKAS_reticle.png",
@@ -42642,7 +38893,6 @@ return {
 								"ScopeOverwatchAngleIncreace",
 								"MinAim",
 								"OpportunityAttackBonusCth",
-								"ScopeHandlingReduce",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -42659,11 +38909,6 @@ return {
 									'Name', "extra_attacks",
 									'Value', 1,
 									'Tag', "<extra_attacks>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 2,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/Aimpoint_reticle.png",
@@ -43653,7 +39898,6 @@ return {
 							ModificationEffects = {
 								"IncreaseShotAP",
 								"ScopeMagnification",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecrease",
 							},
 							Parameters = {
@@ -43675,11 +39919,6 @@ return {
 									'Name', "ScopeAimLevel",
 									'Value', 1,
 									'Tag', "<ScopeAimLevel>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 6,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/Cross_reticle.png",
@@ -43909,7 +40148,6 @@ return {
 							ModificationEffects = {
 								"IncreaseShotAP",
 								"ScopeMagnification",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecrease",
 							},
 							Parameters = {
@@ -43931,11 +40169,6 @@ return {
 									'Name', "ScopeAimLevel",
 									'Value', 2,
 									'Tag', "<ScopeAimLevel>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 6,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/Cross_reticle.png",
@@ -43977,7 +40210,6 @@ return {
 							ModificationEffects = {
 								"IncreaseShotAP",
 								"ScopeMagnification",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecrease",
 							},
 							Parameters = {
@@ -43999,11 +40231,6 @@ return {
 									'Name', "ScopeAimLevel",
 									'Value', 2,
 									'Tag', "<ScopeAimLevel>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 10,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/1P29_reticle.png",
@@ -44075,7 +40302,6 @@ return {
 							ModificationEffects = {
 								"IncreaseShotAP",
 								"ScopeMagnification",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecrease",
 							},
 							Parameters = {
@@ -44097,11 +40323,6 @@ return {
 									'Name', "ScopeAimLevel",
 									'Value', 2,
 									'Tag', "<ScopeAimLevel>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 10,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/FeroZ24_reticle.png",
@@ -44170,7 +40391,6 @@ return {
 							ModificationEffects = {
 								"IncreaseShotAP",
 								"ScopeMagnification",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecrease",
 							},
 							Parameters = {
@@ -44192,11 +40412,6 @@ return {
 									'Name', "ScopeAimLevel",
 									'Value', 2,
 									'Tag', "<ScopeAimLevel>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 6,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/ACOG_reticle.png",
@@ -44382,7 +40597,6 @@ return {
 							ModificationEffects = {
 								"IncreaseShotAP",
 								"ScopeMagnification",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecrease",
 							},
 							Parameters = {
@@ -44411,11 +40625,6 @@ return {
 									'Value', 2,
 									'Tag', "<ScopeAimLevel>",
 								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 1,
-									'Tag', "<ScopeHandlingReduce>",
-								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/AUG_reticle.png",
 							ReticleInnerSub = "Mod/e6L4ECj/Icons/scope/AUG_reticle.png",
@@ -44429,7 +40638,7 @@ return {
 								}),
 							},
 							group = "AUG Specific",
-							id = "AUGScope_Default",
+							id = "JAZZ_AUGScope_Default",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							DisplayName = T(458046741551, --[[ModItemWeaponComponent Jazz_G36Sight DisplayName]] "Прицел G36 1.5x"),
@@ -44467,12 +40676,12 @@ return {
 								}),
 							},
 							group = "AUG Specific",
-							id = "Jazz_G36Sight",
+							id = "JAZZ_G36Sight",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							DisplayName = T(714899319454, --[[ModItemWeaponComponent Jazz_G36Scope DisplayName]] "Прицел G36 3x"),
 							Icon = "UI/Icons/Upgrades/custom_Steyr_AUG_scope",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Jazz_G36Scope.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_G36Scope.png",
 							ModificationDifficulty = -25,
 							ModificationEffects = {
 								"IncreaseShotAP",
@@ -44512,7 +40721,7 @@ return {
 								}),
 							},
 							group = "AUG Specific",
-							id = "Jazz_G36Scope",
+							id = "JAZZ_G36Scope",
 						}),
 						}),
 					PlaceObj('ModItemFolder', {
@@ -44537,7 +40746,6 @@ return {
 								"ScopeMagnification",
 								"IncreaseShotAP",
 								"CritBonusWhenFullyAimed",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
 							},
 							Parameters = {
@@ -44555,11 +40763,6 @@ return {
 									'Name', "ScopeAimLevel",
 									'Value', 3,
 									'Tag', "<ScopeAimLevel>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 16,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/PSO1_Reticle.png",
@@ -44595,7 +40798,6 @@ return {
 								"ScopeMagnification",
 								"IncreaseShotAP",
 								"CritBonusWhenFullyAimed",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
 							},
 							Parameters = {
@@ -44618,11 +40820,6 @@ return {
 									'Name', "ScopeAimLevel",
 									'Value', 4,
 									'Tag', "<ScopeAimLevel>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 30,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/Mildotx20_reticle.png",
@@ -44802,7 +40999,6 @@ return {
 								"ScopeMagnification",
 								"IncreaseShotAP",
 								"CritBonusWhenFullyAimed",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
 							},
 							Parameters = {
@@ -44820,11 +41016,6 @@ return {
 									'Name', "ScopeAimLevel",
 									'Value', 3,
 									'Tag', "<ScopeAimLevel>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 20,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/Cross_reticle.png",
@@ -44997,7 +41188,6 @@ return {
 								"ScopeMagnification",
 								"IncreaseShotAP",
 								"CritBonusWhenFullyAimed",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
 							},
 							Parameters = {
@@ -45008,7 +41198,7 @@ return {
 								}),
 								PlaceObj('PresetParamNumber', {
 									'Name', "ShotAP",
-									'Value', 2,
+									'Value', 1,
 									'Tag', "<ShotAP>",
 								}),
 								PlaceObj('PresetParamNumber', {
@@ -45020,11 +41210,6 @@ return {
 									'Name', "ScopeAimLevel",
 									'Value', 3,
 									'Tag', "<ScopeAimLevel>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 16,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/FrenchFR1_reticle.png",
@@ -45186,7 +41371,6 @@ return {
 								"SmallMagnification",
 								"IncreaseShotAP",
 								"CritBonusWhenFullyAimed",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
 							},
 							Parameters = {
@@ -45222,11 +41406,6 @@ return {
 								PlaceObj('PresetParamNumber', {
 									'Name', "SmallSubMagnification",
 									'Tag', "<SmallSubMagnification>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 12,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/ScopeCrossZoom2.png",
@@ -45402,7 +41581,6 @@ return {
 								"ScopeMagnification",
 								"IncreaseShotAP",
 								"CritBonusWhenFullyAimed",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
 								"SmallMagnification",
 							},
@@ -45444,11 +41622,6 @@ return {
 								PlaceObj('PresetParamNumber', {
 									'Name', "SmallSubMagnification",
 									'Tag', "<SmallSubMagnification>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 16,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/Mildotx20_reticle.png",
@@ -45624,7 +41797,6 @@ return {
 								"ScopeMagnification",
 								"IncreaseShotAP",
 								"CritBonusWhenFullyAimed",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
 							},
 							Parameters = {
@@ -45652,11 +41824,6 @@ return {
 									'Name', "ScopeAimLevel",
 									'Value', 3,
 									'Tag', "<ScopeAimLevel>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 20,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/ZF39_reticle.png",
@@ -45692,7 +41859,6 @@ return {
 								"ScopeMagnification",
 								"IncreaseShotAP",
 								"CritBonusWhenFullyAimed",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
 							},
 							Parameters = {
@@ -45720,11 +41886,6 @@ return {
 									'Name', "ScopeAimLevel",
 									'Value', 2,
 									'Tag', "<ScopeAimLevel>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 16,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/PU_reticle.png",
@@ -45766,7 +41927,6 @@ return {
 								"SmallMagnification",
 								"IncreaseShotAP",
 								"CritBonusWhenFullyAimed",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
 							},
 							Parameters = {
@@ -45799,11 +41959,6 @@ return {
 									'Name', "SmallSubMagnification",
 									'Value', 5,
 									'Tag', "<SmallSubMagnification>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 12,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/DA6_reticle.png",
@@ -45906,7 +42061,6 @@ return {
 								"ScopeMagnification",
 								"IncreaseShotAP",
 								"CritBonusWhenFullyAimed",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
 							},
 							Parameters = {
@@ -45929,11 +42083,6 @@ return {
 									'Name', "ScopeAimLevel",
 									'Value', 2,
 									'Tag', "<ScopeAimLevel>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 12,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/GarandScope_reticle.png",
@@ -45968,7 +42117,6 @@ return {
 								"ScopeMagnification",
 								"IncreaseShotAP",
 								"CritBonusWhenFullyAimed",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
 							},
 							Parameters = {
@@ -45991,11 +42139,6 @@ return {
 									'Name', "ScopeAimLevel",
 									'Value', 3,
 									'Tag', "<ScopeAimLevel>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 16,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/PSO1_Reticle.png",
@@ -46031,7 +42174,6 @@ return {
 								"ScopeMagnification",
 								"IncreaseShotAP",
 								"CritBonusWhenFullyAimed",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
 							},
 							Parameters = {
@@ -46054,11 +42196,6 @@ return {
 									'Name', "ScopeAimLevel",
 									'Value', 3,
 									'Tag', "<ScopeAimLevel>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 12,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/PU_reticle.png",
@@ -46125,7 +42262,6 @@ return {
 								"ScopeMagnification",
 								"IncreaseShotAP",
 								"CritBonusWhenFullyAimed",
-								"ScopeHandlingReduce",
 								"ScopeOverwatchAngleDecreaseBig",
 							},
 							Parameters = {
@@ -46147,11 +42283,6 @@ return {
 									'Name', "ScopeAimLevel",
 									'Value', 3,
 									'Tag', "<ScopeAimLevel>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 16,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/ScopeCrossZoom2.png",
@@ -46195,7 +42326,6 @@ return {
 								"IncreaseShotAP",
 								"IgnoreInTheDarkWhenFullyAimed",
 								"ScopeMagnification",
-								"ScopeHandlingReduce",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -46217,11 +42347,6 @@ return {
 									'Name', "ScopeAimLevel",
 									'Value', 3,
 									'Tag', "<ScopeAimLevel>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 32,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/NSPU_reticle.png",
@@ -46297,7 +42422,6 @@ return {
 								"IncreaseShotAP",
 								"ScopeMagnification",
 								"IgnoreInTheDarkWhenFullyAimed",
-								"ScopeHandlingReduce",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -46318,11 +42442,6 @@ return {
 									'Name', "ScopeAimLevel",
 									'Value', 3,
 									'Tag', "<ScopeAimLevel>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 24,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/Mildotx10_reticle.png",
@@ -46542,7 +42661,6 @@ return {
 								"IncreaseShotAP",
 								"ScopeMagnification",
 								"IgnoreInTheDarkWhenFullyAimed",
-								"ScopeHandlingReduce",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -46564,11 +42682,6 @@ return {
 									'Name', "ScopeAimLevel",
 									'Value', 3,
 									'Tag', "<ScopeAimLevel>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ScopeHandlingReduce",
-									'Value', 2,
-									'Tag', "<ScopeHandlingReduce>",
 								}),
 							},
 							ReticleInner = "Mod/e6L4ECj/Icons/scope/PU_reticle.png",
@@ -46679,7 +42792,7 @@ return {
 						},
 						comment = "---Механические прицельные",
 						group = "Default",
-						id = "Jazz_IronSight",
+						id = "JAZZ_IronSight",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 50,
@@ -46701,7 +42814,7 @@ return {
 							}),
 						},
 						Slot = "Scope",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Jazz_IronSight_AIM.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_IronSight_AIM.png",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "P226SightsAccF",
@@ -46722,7 +42835,7 @@ return {
 						},
 						comment = "---Механические прицельные",
 						group = "Default",
-						id = "Jazz_IronSight_AIM",
+						id = "JAZZ_IronSight_AIM",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 50,
@@ -46739,7 +42852,7 @@ return {
 							}),
 						},
 						Slot = "Scope",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Jazz_IronSight_FAST.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_IronSight_FAST.png",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "P226SightsFastF",
@@ -46754,7 +42867,7 @@ return {
 						},
 						comment = "---Механические прицельные",
 						group = "Default",
-						id = "Jazz_IronSight_FAST",
+						id = "JAZZ_IronSight_FAST",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 50,
@@ -46771,7 +42884,7 @@ return {
 							}),
 						},
 						Slot = "Scope",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Jazz_IronSight_NIGHT.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_IronSight_NIGHT.png",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "P226SightsNightF",
@@ -46786,14 +42899,14 @@ return {
 						},
 						comment = "---Механические прицельные",
 						group = "Default",
-						id = "Jazz_IronSight_NIGHT",
+						id = "JAZZ_IronSight_NIGHT",
 					}),
 					}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 20,
 					DisplayName = T(511443060153, --[[ModItemWeaponComponent HolsterBelt DisplayName]] "Ремень"),
 					Icon = "Mod/e6L4ECj/WeaponComponents/belt.png",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/HolsterBelt.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_HolsterBelt.png",
 					ModificationDifficulty = 10,
 					ModificationEffects = {
 						"FreeWeaponSwap",
@@ -46814,7 +42927,7 @@ return {
 						}),
 					},
 					group = "Underslung",
-					id = "HolsterBelt",
+					id = "JAZZ_HolsterBelt",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					AdditionalCosts = {
@@ -46830,7 +42943,7 @@ return {
 					DisplayName = T(257319151734, --[[ModItemWeaponComponent GrenadeLauncher_AUG DisplayName]] "Grenade Launcher"),
 					EnableWeapon = "UnderslungGrenadeLauncher",
 					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/GrenadeLauncher_AUG.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_GrenadeLauncher_AUG.png",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
 						"GrenadeLauncher",
@@ -46845,31 +42958,7 @@ return {
 						}),
 					},
 					group = "AUG Specific",
-					id = "GrenadeLauncher_AUG",
-				}),
-				PlaceObj('ModItemWeaponComponent', {
-					BlockSlots = {
-						"Grenadelauncher",
-					},
-					Cost = 40,
-					DisplayName = T(442108004279, --[[ModItemWeaponComponent VerticalGrip_AUG DisplayName]] "Vertical Grip"),
-					Icon = "UI/Icons/Upgrades/mp5_grip",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/VerticalGrip_AUG.png",
-					ModificationDifficulty = 20,
-					ModificationEffects = {
-						"FirstAimBonusModifier",
-					},
-					Slot = "Under",
-					Visuals = {
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "AUG",
-							Entity = "WeaponAttA_VerticalGripSteyr",
-							Slot = "Under",
-							param_bindings = false,
-						}),
-					},
-					group = "AUG Specific",
-					id = "VerticalGrip_AUG",
+					id = "JAZZ_GrenadeLauncher_AUG",
 				}),
 				PlaceObj('ModItemFolder', {
 					'name', "HK33Specific",
@@ -46889,13 +42978,13 @@ return {
 							}),
 						},
 						group = "Underslung",
-						id = "HK33Lower",
+						id = "JAZZ_HK33Lower",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 20,
 						DisplayName = T(555407199353, --[[ModItemWeaponComponent HK33LowerMod DisplayName]] "Улучшенный lower"),
 						Icon = "UI/Icons/Upgrades/tactical_grip",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/HK33LowerMod.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_HK33LowerMod.png",
 						ModificationDifficulty = 10,
 						Slot = "General",
 						Visuals = {
@@ -46907,7 +42996,7 @@ return {
 							}),
 						},
 						group = "Underslung",
-						id = "HK33LowerMod",
+						id = "JAZZ_HK33LowerMod",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						BlockSlots = {
@@ -46929,7 +43018,7 @@ return {
 							}),
 						},
 						group = "Underslung",
-						id = "HK33Handguard",
+						id = "JAZZ_HK33Handguard",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						BlockSlots = {
@@ -46938,7 +43027,7 @@ return {
 						Cost = 20,
 						DisplayName = T(459910372558, --[[ModItemWeaponComponent HK33HandguardMod DisplayName]] "Цевье с планками"),
 						Icon = "UI/Icons/Upgrades/default_handguard",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/HK33HandguardMod.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_HK33HandguardMod.png",
 						ModificationDifficulty = 10,
 						Slot = "Handguard",
 						Visuals = {
@@ -46951,7 +43040,7 @@ return {
 							}),
 						},
 						group = "Underslung",
-						id = "HK33HandguardMod",
+						id = "JAZZ_HK33HandguardMod",
 					}),
 					}),
 				PlaceObj('ModItemWeaponComponent', {
@@ -46968,7 +43057,6 @@ return {
 					ModificationDifficulty = 20,
 					ModificationEffects = {
 						"GrenadeLauncher",
-						"GLHandlingDecrease",
 					},
 					Slot = "Under",
 					Visuals = {
@@ -47047,7 +43135,7 @@ return {
 						}),
 					},
 					group = "Underslung",
-					id = "GrenadeLauncher",
+					id = "JAZZ_GrenadeLauncher",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					AdditionalCosts = {
@@ -47060,11 +43148,10 @@ return {
 					DisplayName = T(572893256229, --[[ModItemWeaponComponent GrenadeLauncher_Galil DisplayName]] "Grenade Launcher"),
 					EnableWeapon = "UnderslungGrenadeLauncher",
 					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/GrenadeLauncher_Galil.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_GrenadeLauncher_Galil.png",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
 						"GrenadeLauncher",
-						"GLHandlingDecrease",
 					},
 					Slot = "Under",
 					Visuals = {
@@ -47082,7 +43169,7 @@ return {
 						}),
 					},
 					group = "Galil Specific",
-					id = "GrenadeLauncher_Galil",
+					id = "JAZZ_GrenadeLauncher_Galil",
 				}),
 				PlaceObj('ModItemFolder', {
 					'name', "HandGuard",
@@ -47125,7 +43212,7 @@ return {
 						},
 						comment = "--Цевья",
 						group = "Underslung",
-						id = "Handguard",
+						id = "JAZZ_Handguard",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						BlockSlots = {
@@ -47170,13 +43257,13 @@ return {
 						},
 						comment = "--Цевья",
 						group = "Underslung",
-						id = "HandguardM1A",
+						id = "JAZZ_HandguardM1A",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 150,
 						DisplayName = T(266664626516, --[[ModItemWeaponComponent HandguardM1ARail DisplayName]] "Цевьё с рельсой"),
 						Icon = "UI/Icons/Upgrades/default_grenadelauncher",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/HandguardM1ARail.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_HandguardM1ARail.png",
 						ModificationDifficulty = 20,
 						Slot = "Handguard",
 						Visuals = {
@@ -47189,7 +43276,7 @@ return {
 						},
 						comment = "--Цевья",
 						group = "Underslung",
-						id = "HandguardM1ARail",
+						id = "JAZZ_HandguardM1ARail",
 					}),
 					}),
 				PlaceObj('ModItemWeaponComponent', {
@@ -47206,11 +43293,10 @@ return {
 					DisplayName = T(304182346557, --[[ModItemWeaponComponent GP25 DisplayName]] "ГП-25"),
 					EnableWeapon = "M79",
 					Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/GP25.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_GP25.png",
 					ModificationDifficulty = 20,
 					ModificationEffects = {
 						"GrenadeLauncher",
-						"GLHandlingDecrease",
 					},
 					Slot = "Under",
 					Visuals = {
@@ -47238,7 +43324,7 @@ return {
 					},
 					comment = "--ГП 25 для понятно для чего",
 					group = "Underslung",
-					id = "GP25",
+					id = "JAZZ_GP25",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					AdditionalCosts = {
@@ -47256,13 +43342,13 @@ return {
 					},
 					Slot = "Freeswap",
 					group = "Muzzle",
-					id = "Freeswap",
+					id = "JAZZ_Freeswap",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 30,
 					DisplayName = T(925428900427, --[[ModItemWeaponComponent SpeedLoader DisplayName]] "Ускорение перезарядки"),
 					Icon = "UI/Icons/Upgrades/beretta_silencer",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/SpeedLoader.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_SpeedLoader.png",
 					ModificationDifficulty = 0,
 					ModificationEffects = {
 						"ReduceReloadAP",
@@ -47284,7 +43370,7 @@ return {
 						}),
 					},
 					group = "Muzzle",
-					id = "SpeedLoader",
+					id = "JAZZ_SpeedLoader",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(709270944750, --[[ModItemWeaponComponent M70_Fld_GL DisplayName]] "Сложенный прицел"),
@@ -47298,7 +43384,7 @@ return {
 						}),
 					},
 					group = "Underslung",
-					id = "M70_Fld_GL",
+					id = "JAZZ_M70_Fld_GL",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(996245688952, --[[ModItemWeaponComponent M70_Unfld_GL DisplayName]] "Разложенный прицел"),
@@ -47312,7 +43398,7 @@ return {
 						}),
 					},
 					group = "Underslung",
-					id = "M70_Unfld_GL",
+					id = "JAZZ_M70_Unfld_GL",
 				}),
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(378753629101, --[[ModItemWeaponComponent M70_Grenade DisplayName]] "Наствольная граната для М70"),
@@ -47320,7 +43406,7 @@ return {
 						"GrenadeLauncher",
 					},
 					Slot = "Muzzle",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/M70_Grenade.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_M70_Grenade.png",
 					Visuals = {
 						PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "Zastava_M70",
@@ -47330,7 +43416,7 @@ return {
 						}),
 					},
 					group = "Underslung",
-					id = "M70_Grenade",
+					id = "JAZZ_M70_Grenade",
 				}),
 				PlaceObj('ModItemFolder', {
 					'name', "Magazines",
@@ -47975,7 +44061,7 @@ return {
 							}),
 						},
 						group = "Clip",
-						id = "MagNormal",
+						id = "JAZZ_MagNormal",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 25,
@@ -48599,7 +44685,7 @@ return {
 							}),
 						},
 						group = "Clip",
-						id = "MagNormalG18",
+						id = "JAZZ_MagNormalG18",
 					}),
 					PlaceObj('ModItemFolder', {
 						'name', "MagSmall",
@@ -48608,7 +44694,7 @@ return {
 							Cost = 15,
 							DisplayName = T(330952772905, --[[ModItemWeaponComponent MagQuick DisplayName]] "Quick Mag"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_quick",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagQuick.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagQuick.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"ReduceReloadAP",
@@ -48788,7 +44874,7 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagQuick",
+							id = "JAZZ_MagQuick",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 15,
@@ -48799,7 +44885,6 @@ return {
 								"ReduceReloadAP",
 								"IncreaseReliability",
 								"ReduceMagazineSize",
-								"MagazineHandlingIncrease",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -48909,7 +44994,7 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagSmall30_20",
+							id = "JAZZ_MagSmall30_20",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 15,
@@ -48920,7 +45005,6 @@ return {
 								"ReduceReloadAP",
 								"IncreaseReliability",
 								"ReduceMagazineSize",
-								"MagazineHandlingIncrease",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -48988,7 +45072,7 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagSmall30_15",
+							id = "JAZZ_MagSmall30_15",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 15,
@@ -48999,7 +45083,6 @@ return {
 								"ReduceReloadAP",
 								"IncreaseReliability",
 								"ReduceMagazineSize",
-								"MagazineHandlingIncrease",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -49137,7 +45220,7 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagSmall20_10",
+							id = "JAZZ_MagSmall20_10",
 						}),
 						}),
 					PlaceObj('ModItemFolder', {
@@ -49147,10 +45230,9 @@ return {
 							Cost = 15,
 							DisplayName = T(213094233610, --[[ModItemWeaponComponent MagLarge DisplayName]] "Расширенный магазин"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarge.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagLarge.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
-								"MagazineHandlingDecrease",
 								"ReduceReliability",
 								"ReduceAimAccuracy15Percent",
 								"MagazineSizeMultiplier",
@@ -49447,16 +45529,15 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagLarge",
+							id = "JAZZ_MagLarge",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 15,
 							DisplayName = T(212189312168, --[[ModItemWeaponComponent MagLarge_17_33 DisplayName]] "Магазин на 33 патрона"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarge_17_33.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagLarge_17_33.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
-								"MagazineHandlingDecrease",
 								"ReduceReliability",
 								"ReduceAimAccuracy15Percent",
 								"MagazineSizeAdd",
@@ -49747,16 +45828,15 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagLarge_17_33",
+							id = "JAZZ_MagLarge_17_33",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 25,
 							DisplayName = T(853495886060, --[[ModItemWeaponComponent MagLarge_5_10 DisplayName]] "Магазин на 10 патрон"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarge_5_10.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagLarge_5_10.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
-								"MagazineHandlingDecrease",
 								"ReduceReliability",
 								"IncreaseReloadAP",
 								"MagazineSizeMultiplier",
@@ -49793,13 +45873,13 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagLarge_5_10",
+							id = "JAZZ_MagLarge_5_10",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 25,
 							DisplayName = T(513947495758, --[[ModItemWeaponComponent MagLarge_8_10 DisplayName]] "Магазин на 10 патрон"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarge_8_10.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagLarge_8_10.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"ReduceReliability",
@@ -49827,13 +45907,13 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagLarge_8_10",
+							id = "JAZZ_MagLarge_8_10",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 25,
 							DisplayName = T(513947495758, --[[ModItemWeaponComponent MagLarge_7_10 DisplayName]] "Магазин на 10 патрон"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarge_7_10.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagLarge_7_10.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"ReduceReliability",
@@ -49861,13 +45941,13 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagLarge_7_10",
+							id = "JAZZ_MagLarge_7_10",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 25,
 							DisplayName = T(870471539633, --[[ModItemWeaponComponent MagLarge_18_20 DisplayName]] "Магазин на 20 патрон"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarge_18_20.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagLarge_18_20.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"ReduceReliability",
@@ -49895,7 +45975,7 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagLarge_18_20",
+							id = "JAZZ_MagLarge_18_20",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 25,
@@ -49903,7 +45983,6 @@ return {
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
-								"MagazineHandlingDecrease",
 								"ReduceReliability",
 								"IncreaseReloadAP",
 								"MagazineSizeAdd",
@@ -49928,11 +46007,6 @@ return {
 									'Name', "MagazineSize",
 									'Value', 10,
 									'Tag', "<MagazineSize>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "MagazineHandlingDecrease",
-									'Value', 5,
-									'Tag', "<MagazineHandlingDecrease>",
 								}),
 							},
 							Slot = "Magazine",
@@ -49980,7 +46054,7 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagLarge_30_40",
+							id = "JAZZ_MagLarge_30_40",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 25,
@@ -49988,7 +46062,6 @@ return {
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
-								"MagazineHandlingDecrease",
 								"ReduceReliability",
 								"IncreaseReloadAP",
 								"MagazineSizeAdd",
@@ -50052,16 +46125,15 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagLarge_30_45",
+							id = "JAZZ_MagLarge_30_45",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 25,
 							DisplayName = T(997099133073, --[[ModItemWeaponComponent MagLarge_30_42 DisplayName]] "Магазин на 42 патрона"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarge_30_42.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagLarge_30_42.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
-								"MagazineHandlingDecrease",
 								"ReduceReliability",
 								"IncreaseReloadAP",
 								"MagazineSizeAdd",
@@ -50099,7 +46171,7 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagLarge_30_42",
+							id = "JAZZ_MagLarge_30_42",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 25,
@@ -50107,7 +46179,6 @@ return {
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
-								"MagazineHandlingDecrease",
 								"ReduceReliability",
 								"IncreaseReloadAP",
 								"MagazineSizeMultiplier",
@@ -50162,16 +46233,15 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagLarge_10_20",
+							id = "JAZZ_MagLarge_10_20",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 25,
 							DisplayName = T(804714419971, --[[ModItemWeaponComponent MagLarge_20_30 DisplayName]] "Магазин на 30 патрон"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarge_20_30.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagLarge_20_30.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
-								"MagazineHandlingDecrease",
 								"ReduceReliability",
 								"IncreaseReloadAP",
 								"MagazineSizeAdd",
@@ -50242,16 +46312,15 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagLarge_20_30",
+							id = "JAZZ_MagLarge_20_30",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 25,
 							DisplayName = T(544080364524, --[[ModItemWeaponComponent MagLarge_25_40 DisplayName]] "Магазин на 40 патрон"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarge_25_40.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagLarge_25_40.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
-								"MagazineHandlingDecrease",
 								"ReduceReliability",
 								"IncreaseReloadAP",
 								"MagazineSizeAdd",
@@ -50315,14 +46384,14 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagLarge_25_40",
+							id = "JAZZ_MagLarge_25_40",
 						}),
 						}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 25,
 						DisplayName = T(100761815371, --[[ModItemWeaponComponent MagLargeFine DisplayName]] "Ergonomic Expanded Mag"),
 						Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLargeFine.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagLargeFine.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"MagazineSizeMultiplier",
@@ -50468,13 +46537,13 @@ return {
 							}),
 						},
 						group = "Clip",
-						id = "MagLargeFine",
+						id = "JAZZ_MagLargeFine",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						Cost = 15,
 						DisplayName = T(603956294727, --[[ModItemWeaponComponent MagNormalFine DisplayName]] "Fine-Tuned Mag"),
 						Icon = "UI/Icons/Upgrades/m16_magazine",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagNormalFine.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagNormalFine.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 							"IncreaseReliability",
@@ -50641,105 +46710,7 @@ return {
 							}),
 						},
 						group = "Clip",
-						id = "MagNormalFine",
-					}),
-					PlaceObj('ModItemWeaponComponent', {
-						Cost = 25,
-						DisplayName = T(580391137625, --[[ModItemWeaponComponent MagLarger DisplayName]] "Бубен"),
-						Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagLarger.png",
-						ModificationDifficulty = 0,
-						ModificationEffects = {
-							"ExtraBurstShots",
-							"ExtraAutoShots",
-							"ExtraOverwatchShots",
-							"ReduceReliability",
-							"IncreaseReloadAP",
-							"ReduceAimAccuracy15Percent",
-						},
-						Parameters = {
-							PlaceObj('PresetParamNumber', {
-								'Name', "extra_shots",
-								'Value', 5,
-								'Tag', "<extra_shots>",
-							}),
-							PlaceObj('PresetParamNumber', {
-								'Name', "ReliabilityDecrease",
-								'Value', 15,
-								'Tag', "<ReliabilityDecrease>",
-							}),
-							PlaceObj('PresetParamNumber', {
-								'Name', "ReloadAPIncrease",
-								'Value', 2,
-								'Tag', "<ReloadAPIncrease>",
-							}),
-						},
-						Slot = "Magazine",
-						Visuals = {
-							PlaceObj('WeaponComponentVisual', {
-								Entity = "WeaponAttA_Magazine_01",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AK47",
-								Entity = "WeaponAttA_MagazineRPK74_03",
-								Icon = "UI/Icons/Upgrades/RPK74_drum_magazine",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AKM",
-								Entity = "WeaponAttA_MagazineRPK74_03",
-								Icon = "UI/Icons/Upgrades/RPK74_drum_magazine",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "G36",
-								Entity = "WeaponAttA_MagazineHKG36_02",
-								Icon = "UI/Icons/Upgrades/expanded_drum_G36_magazine",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "HK21",
-								Entity = "WeaponAttA_MagazineHK21_02",
-								Icon = "UI/Icons/Upgrades/hk21_mag_large",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "PSG1",
-								Entity = "WeaponAttA_MagazineHK21_02",
-								Icon = "UI/Icons/Upgrades/hk21_mag_large",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "FNMinimi",
-								Entity = "WeaponAttA_MagazineFNMinimi_02",
-								Icon = "UI/Icons/Upgrades/fnminimi_mag_large",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Thompson",
-								Entity = "ThompsonDrum",
-								Icon = "Mod/e6L4ECj/magpictures/Thompsondrum.png",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "PPSH",
-								Entity = "PPSHDrum",
-								Icon = "Mod/e6L4ECj/magpictures/Thompsondrum.png",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-						},
-						group = "Clip",
-						id = "MagLarger",
+						id = "JAZZ_MagNormalFine",
 					}),
 					PlaceObj('ModItemFolder', {
 						'name', "MagDrum and belt",
@@ -50748,10 +46719,9 @@ return {
 							Cost = 50,
 							DisplayName = T(202821670683, --[[ModItemWeaponComponent MagDrum_30-50 DisplayName]] "Бубен"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagDrum_30-50.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagDrum_30-50.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
-								"MagazineHandlingDecrease",
 								"ReduceReliability",
 								"IncreaseReloadAP",
 								"MagazineSizeAdd",
@@ -50802,16 +46772,15 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagDrum_30-50",
+							id = "JAZZ_MagDrum_30-50",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 50,
 							DisplayName = T(475365498057, --[[ModItemWeaponComponent MagDrum_35-71 DisplayName]] "Бубен"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagDrum_35-71.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagDrum_35-71.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
-								"MagazineHandlingDecrease",
 								"ReduceReliability",
 								"IncreaseReloadAP",
 								"ReduceAimAccuracy15Percent",
@@ -50855,22 +46824,20 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagDrum_35-71",
+							id = "JAZZ_MagDrum_35-71",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 50,
 							DisplayName = T(571428420057, --[[ModItemWeaponComponent MagDrum_30-75 DisplayName]] "Бубен"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagDrum_30-75.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagDrum_30-75.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
-								"MagazineHandlingDecrease",
 								"ExtraOverwatchShots",
 								"ReduceReliability",
 								"IncreaseReloadAP",
 								"ReduceAimAccuracy15Percent",
 								"MagazineSizeMultiplier",
-								"Cumbersome",
 							},
 							Parameters = {
 								PlaceObj('PresetParamNumber', {
@@ -50924,16 +46891,15 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagDrum_30-75",
+							id = "JAZZ_MagDrum_30-75",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 50,
 							DisplayName = T(494349827673, --[[ModItemWeaponComponent MagDrum_30-100 DisplayName]] "Бубен"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagDrum_30-100.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagDrum_30-100.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
-								"MagazineHandlingDecrease",
 								"ReduceReliability",
 								"IncreaseReloadAP",
 								"ReduceAimAccuracy15Percent",
@@ -50989,16 +46955,15 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagDrum_30-100",
+							id = "JAZZ_MagDrum_30-100",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 50,
 							DisplayName = T(436643816571, --[[ModItemWeaponComponent MagDrum_30-100_cumbersome DisplayName]] "Бубен"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagDrum_30-100_cumbersome.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagDrum_30-100_cumbersome.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
-								"MagazineHandlingDecrease",
 								"IncreaseReloadAP",
 								"ReduceAimAccuracy15Percent",
 								"MagazineSizeMultiplier",
@@ -51047,16 +47012,15 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagDrum_30-100_cumbersome",
+							id = "JAZZ_MagDrum_30-100_cumbersome",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 50,
 							DisplayName = T(325946124810, --[[ModItemWeaponComponent MagBelt_40-100 DisplayName]] "Короб"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagBelt_40-100.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagBelt_40-100.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
-								"MagazineHandlingDecrease",
 								"ReduceReliability",
 								"IncreaseReloadAP",
 								"ReduceAimAccuracy15Percent",
@@ -51113,16 +47077,15 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagBelt_40-100",
+							id = "JAZZ_MagBelt_40-100",
 						}),
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 100,
 							DisplayName = T(504310573707, --[[ModItemWeaponComponent MagBelt_100-200 DisplayName]] "Увеличенный короб"),
 							Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagBelt_100-200.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagBelt_100-200.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
-								"MagazineHandlingDecrease",
 								"ReduceReliability",
 								"IncreaseReloadAP",
 								"ReduceAimAccuracy15Percent",
@@ -51186,236 +47149,9 @@ return {
 								}),
 							},
 							group = "Clip",
-							id = "MagBelt_100-200",
+							id = "JAZZ_MagBelt_100-200",
 						}),
 						}),
-					PlaceObj('ModItemWeaponComponent', {
-						Cost = 15,
-						DisplayName = T(819181213302, --[[ModItemWeaponComponent MagBelt DisplayName]] "Expanded Mag"),
-						Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagBelt.png",
-						ModificationDifficulty = 0,
-						Slot = "Magazine",
-						Visuals = {
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "FNMinimi",
-								Entity = "WeaponAttA_MagazineFNMinimi_01",
-								Icon = "UI/Icons/Upgrades/machine_gun_box_magazine",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-						},
-						group = "Clip",
-						id = "MagBelt",
-					}),
-					PlaceObj('ModItemWeaponComponent', {
-						Cost = 25,
-						DisplayName = T(898177327102, --[[ModItemWeaponComponent MagBeltLarge DisplayName]] "LMG and MG Magazines"),
-						Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MagBeltLarge.png",
-						ModificationDifficulty = 0,
-						ModificationEffects = {
-							"ExtraBurstShots",
-							"ExtraOverwatchShots",
-							"ReduceReliabilityPercent",
-						},
-						Parameters = {
-							PlaceObj('PresetParamNumber', {
-								'Name', "AimAccuracyDecrease",
-								'Value', 1,
-								'Tag', "<AimAccuracyDecrease>",
-							}),
-							PlaceObj('PresetParamPercent', {
-								'Name', "ReliabilityDecreasePercent",
-								'Value', 33,
-								'Tag', "<ReliabilityDecreasePercent>%",
-							}),
-							PlaceObj('PresetParamNumber', {
-								'Name', "extra_shots",
-								'Value', 5,
-								'Tag', "<extra_shots>",
-							}),
-							PlaceObj('PresetParamNumber', {
-								'Name', "APincrease",
-								'Value', 2,
-								'Tag', "<APincrease>",
-							}),
-						},
-						Slot = "Magazine",
-						Visuals = {
-							PlaceObj('WeaponComponentVisual', {
-								Entity = "WeaponAttA_Magazine_01",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "HK21",
-								Entity = "WeaponAttA_MagazineHK21_02",
-								Icon = "UI/Icons/Upgrades/hk21_mag_large",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "FNMinimi",
-								Entity = "WeaponAttA_MagazineFNMinimi_02",
-								Icon = "UI/Icons/Upgrades/fnminimi_mag_large",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-						},
-						group = "Clip",
-						id = "MagBeltLarge",
-					}),
-					PlaceObj('ModItemWeaponComponent', {
-						DisplayName = T(155197885944, --[[ModItemWeaponComponent BigMag DisplayName]] "Магазин увеличенной емкости"),
-						Slot = "Magazine",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/BigMag.png",
-						Visuals = {
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AK74",
-								Entity = "RPK74Mag",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "MP7",
-								Entity = "MP7_Mag_ext",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AS_Val",
-								Entity = "ValMag20",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "VSS",
-								Entity = "VSSMagLarge",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Sig550",
-								Entity = "SIGDoubleMag",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Sig552",
-								Entity = "SIGDoubleMag",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Sig552SWAT",
-								Entity = "SIGDoubleMag",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Sig550Custom",
-								Entity = "SIGDoubleMag",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-						},
-						comment = "--Большие магазины",
-						group = "Default",
-						id = "BigMag",
-					}),
-					PlaceObj('ModItemWeaponComponent', {
-						DisplayName = T(785174016047, --[[ModItemWeaponComponent MGmug DisplayName]] "Ещё один бубенец, только пулеметный"),
-						Slot = "Magazine",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/MGmug.png",
-						Visuals = {
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "U100",
-								Entity = "U100_magazine_ext",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-						},
-						comment = "--Бубенцы пулеметные",
-						group = "Default",
-						id = "MGmug",
-					}),
-					PlaceObj('ModItemWeaponComponent', {
-						DisplayName = T(368922403308, --[[ModItemWeaponComponent Bubny DisplayName]] "Бубенец"),
-						Slot = "Magazine",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/Bubny.png",
-						Visuals = {
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "UZI",
-								Entity = "UziDrum",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "MP7",
-								Entity = "MP7_Mag_extQ",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "CAR15",
-								Entity = "DoubleStanag",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M4A1",
-								Entity = "M16DoubleStanag",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M16A1",
-								Entity = "M16DoubleStanag",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M16A2",
-								Entity = "M16DoubleStanag",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M16A4",
-								Entity = "M16DoubleStanag",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Sig550",
-								Entity = "SIGDoubleMag",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Sig550Custom",
-								Entity = "SIGDoubleMag",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Sig552",
-								Entity = "SIGDoubleMag",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Sig552SWAT",
-								Entity = "SIGDoubleMag",
-								Slot = "Magazine",
-								param_bindings = false,
-							}),
-						},
-						comment = "--Бубенцы и спарки не пулеметные",
-						group = "Default",
-						id = "Bubny",
-					}),
 					}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -68885,12 +64621,6 @@ return {
 			id = "BulletDropRange",
 		}),
 		PlaceObj('ModItemGameTerm', {
-			Description = T(132504479324, --[[ModItemGameTerm Default Handling Description]] "Начальная меткость оружия (без прицеливания) зависит от эргономики оружия, ловкости, меткости и уровня наемника"),
-			Name = T(488984189913, --[[ModItemGameTerm Default Handling Name]] "Эргономика"),
-			group = "Default",
-			id = "Handling",
-		}),
-		PlaceObj('ModItemGameTerm', {
 			Description = T(540297819036, --[[ModItemGameTerm Default Grouping Description]] "Точность оружия. Влияет на кривую падения шанса попадания от расстояния."),
 			Name = T(488426500978, --[[ModItemGameTerm Default Grouping Name]] "Точность"),
 			group = "Default",
@@ -68899,29 +64629,6 @@ return {
 		PlaceObj('ModItemFolder', {
 			'name', "CTHMod",
 		}, {
-			PlaceObj('ModItemChanceToHitModifier', {
-				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
-					-- Legacy Handling / Эргономика: property stays serialized for saves,
-					-- but no longer contributes to CTH (JAZZ-WEAPONS-001 / JAZZ-CTH-001).
-					return false, 0
-				end,
-				Parameters = {
-					PlaceObj('PresetParamNumber', {
-						'Name', "MinDistance",
-						'Value', 5,
-						'Tag', "<MinDistance>",
-					}),
-					PlaceObj('PresetParamNumber', {
-						'Name', "MaxDistance",
-						'Value', 20,
-						'Tag', "<MaxDistance>",
-					}),
-				},
-				RequireActionType = "Any Ranged Attack",
-				display_name = T(890000000000400, --[[ModItemChanceToHitModifier Default Handling display_name]] "Эргономика (Ловкость/Дистанция)"),
-				group = "Default",
-				id = "Handling",
-			}),
 			PlaceObj('ModItemChanceToHitModifier', {
 				CalcValue = function (self, attacker, target, body_part_def, action, weapon1, weapon2, lof, aim, opportunity_attack, attacker_pos, target_pos)
 					-- Legacy Handling / Эргономика: property stays serialized for saves,
@@ -70036,21 +65743,6 @@ return {
 				id = "BulletDropRange",
 				max_progress = 50,
 				short_display_name = T(549476191424, --[[ModItemWeaponPropertyDef Default BulletDropRange short_display_name]] "НСТЛ"),
-			}),
-			PlaceObj('ModItemWeaponPropertyDef', {
-				DisplayForContext = function (self, context)
-					return false
-				end,
-				GetProp = function (self, item, unit_id)
-					return item:GetProperty(self.bind_to)
-				end,
-				SortKey = 4,
-				bind_to = "Handling",
-				description = T(602841133219, --[[ModItemWeaponPropertyDef Default Handling description]] "Начальная меткость оружия (без прицеливания) зависит от эргономики оружия, ловкости, меткости и уровня наемника"),
-				display_name = T(740699694210, --[[ModItemWeaponPropertyDef Default Handling display_name]] "Эргономика"),
-				group = "Default",
-				id = "Handling",
-				short_display_name = T(662923526727, --[[ModItemWeaponPropertyDef Default Handling short_display_name]] "ЭРНГ"),
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
@@ -104081,21 +99773,21 @@ return {
 					'SlotType', "Muzzle",
 					'CanBeEmpty', true,
 					'AvailableComponents', {
-						"DuckbillChoke",
-						"FullChoke",
-						"Compensator",
+						"JAZZ_DuckbillChoke",
+						"JAZZ_FullChoke",
+						"JAZZ_Compensator",
 					},
 				}),
 				PlaceObj('WeaponComponentSlot', {
 					'SlotType', "Barrel",
 					'AvailableComponents', {
-						"Auto5_Basic_LMag",
-						"Auto5_Basic_NMag",
-						"Auto5_Long_LMag",
-						"Auto5_Long_NMag",
-						"Auto5_Short_NMag",
+						"JAZZ_Auto5_Basic_LMag",
+						"JAZZ_Auto5_Basic_NMag",
+						"JAZZ_Auto5_Long_LMag",
+						"JAZZ_Auto5_Long_NMag",
+						"JAZZ_Auto5_Short_NMag",
 					},
-					'DefaultComponent', "Auto5_Basic_LMag",
+					'DefaultComponent', "JAZZ_Auto5_Basic_LMag",
 				}),
 			},
 			'HolsterSlot', "Shoulder",
@@ -104111,8 +99803,11 @@ return {
 			'MaxAimActions', 2,
 			'BurstShots', 3,
 			'AutoShots', 1,
-			'Handling', -10,
 			'BulletDropRange', 6,
+
+			'CloseRange', 4,
+
+			'CloseRangeFactor', 90,
 			'Grouping', 90,
 			'WeaponResource', 2500,
 		}),
@@ -104151,36 +99846,36 @@ return {
 					'SlotType', "Barrel",
 					'Modifiable', false,
 					'AvailableComponents', {
-						"BarrelNormal",
+						"JAZZ_BarrelNormal",
 					},
-					'DefaultComponent', "BarrelNormal",
+					'DefaultComponent', "JAZZ_BarrelNormal",
 				}),
 				PlaceObj('WeaponComponentSlot', {
 					'SlotType', "Stock",
 					'Modifiable', false,
 					'AvailableComponents', {
-						"StockNormal",
+						"JAZZ_StockNormal",
 					},
-					'DefaultComponent', "StockNormal",
+					'DefaultComponent', "JAZZ_StockNormal",
 				}),
 				PlaceObj('WeaponComponentSlot', {
 					'SlotType', "Muzzle",
 					'Modifiable', false,
 					'AvailableComponents', {
-						"MuzzleBooster",
-						"Galil_Brake_Default",
-						"Compensator",
-						"Suppressor",
+						"JAZZ_MuzzleBooster",
+						"JAZZ_Galil_Brake_Default",
+						"JAZZ_Compensator",
+						"JAZZ_Suppressor",
 					},
-					'DefaultComponent', "MuzzleBooster",
+					'DefaultComponent', "JAZZ_MuzzleBooster",
 				}),
 				PlaceObj('WeaponComponentSlot', {
 					'SlotType', "Under",
 					'Modifiable', false,
 					'AvailableComponents', {
-						"Bipod_Galil",
+						"JAZZ_Bipod_Galil",
 					},
-					'DefaultComponent', "Bipod_Galil",
+					'DefaultComponent', "JAZZ_Bipod_Galil",
 				}),
 										PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Scope",
@@ -104196,10 +99891,10 @@ return {
 					'SlotType', "Magazine",
 					'Modifiable', false,
 					'AvailableComponents', {
-						"MagNormal",
-						"MagLarge_25_40",
+						"JAZZ_MagNormal",
+						"JAZZ_MagLarge_25_40",
 					},
-					'DefaultComponent', "MagNormal",
+					'DefaultComponent', "JAZZ_MagNormal",
 				}),
 			},
 			'HolsterSlot', "Shoulder",
@@ -104214,8 +99909,11 @@ return {
 			'ReloadAP', 7000,
 			'Recoil', 30,
 			'AutoShots', 6,
-			'Handling', -18,
 			'BulletDropRange', 18,
+
+			'CloseRange', 8,
+
+			'CloseRangeFactor', 80,
 			'Grouping', 58,
 			'WeaponResource', 9000,
 		}),
@@ -104256,19 +99954,19 @@ return {
 					'SlotType', "Bipod",
 					'Modifiable', false,
 					'AvailableComponents', {
-						"Bipod",
+						"JAZZ_Bipod",
 					},
-					'DefaultComponent', "Bipod",
+					'DefaultComponent', "JAZZ_Bipod",
 				}),
 				PlaceObj('WeaponComponentSlot', {
 					'SlotType', "Muzzle",
 					'CanBeEmpty', true,
 					'AvailableComponents', {
-						"M14_Default_Muzzle",
-						"Compensator",
-						"Suppressor",
+						"JAZZ_M14_Default_Muzzle",
+						"JAZZ_Compensator",
+						"JAZZ_Suppressor",
 					},
-					'DefaultComponent', "M14_Default_Muzzle",
+					'DefaultComponent', "JAZZ_M14_Default_Muzzle",
 				}),
 				PlaceObj('WeaponComponentSlot', {
 					'SlotType', "Scope",
@@ -104293,8 +99991,11 @@ return {
 			'ReloadAP', 7000,
 			'BurstShots', 1,
 			'AutoShots', 1,
-			'Handling', -25,
 			'BulletDropRange', 17,
+
+			'CloseRange', 12,
+
+			'CloseRangeFactor', 70,
 			'Grouping', 55,
 			'WeaponResource', 10000,
 		}),
@@ -104334,17 +100035,17 @@ return {
 					'Modifiable', false,
 					'AvailableComponents', {
 						"Compensator_cosmetic",
-						"Compensator",
-						"PistolSuppressor",
+						"JAZZ_Compensator",
+						"JAZZ_PistolSuppressor",
 					},
 					'DefaultComponent', "Compensator_cosmetic",
 				}),
 				PlaceObj('WeaponComponentSlot', {
 					'SlotType', "Magazine",
 					'AvailableComponents', {
-						"MagNormal",
+						"JAZZ_MagNormal",
 					},
-					'DefaultComponent', "MagNormal",
+					'DefaultComponent', "JAZZ_MagNormal",
 				}),
 			},
 			'Color', "Black",
@@ -104361,8 +100062,11 @@ return {
 			'ReloadAP', 4000,
 			'Recoil', 5,
 			'AutoShots', 6,
-			'Handling', 6,
 			'BulletDropRange', 9,
+
+			'CloseRange', 2,
+
+			'CloseRangeFactor', 95,
 			'Grouping', 45,
 			'WeaponResource', 5000,
 		}),
@@ -104401,18 +100105,18 @@ return {
 					'SlotType', "Barrel",
 					'Modifiable', false,
 					'AvailableComponents', {
-						"BarrelNormal",
+						"JAZZ_BarrelNormal",
 					},
-					'DefaultComponent', "BarrelNormal",
+					'DefaultComponent', "JAZZ_BarrelNormal",
 				}),
 				PlaceObj('WeaponComponentSlot', {
 					'SlotType', "Scope",
 					'AvailableComponents', {
-						"ImprovedIronsight",
+						"JAZZ_ImprovedIronsight",
 						"JAZZ_Reflex_Closed",
 						"JAZZ_CombatScope_2x",
 					},
-					'DefaultComponent', "ImprovedIronsight",
+					'DefaultComponent', "JAZZ_ImprovedIronsight",
 				}),
 			},
 			'HolsterSlot', "Shoulder",
@@ -104427,8 +100131,11 @@ return {
 			'ReloadAP', 6000,
 			'BurstShots', 1,
 			'AutoShots', 1,
-			'Handling', -10,
 			'BulletDropRange', 9,
+
+			'CloseRange', 4,
+
+			'CloseRangeFactor', 90,
 			'Grouping', 88,
 			'BaseJamChance', -100,
 			'WeaponResource', 4500,

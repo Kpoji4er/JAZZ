@@ -50,9 +50,9 @@ description: Планировать, проверять и публиковат�
 
 - Считать `metadata.lua` generated data и менять его через Mod Editor.
 - `version_major` менять только для несовместимого поколения после стабилизации публичного контракта.
-- `version_minor` менять для нового совместимого функционала; до `1.0` также для breaking changes.
-- Read-only `version` не редактировать вручную: Mod Editor увеличивает revision при сохранении.
-- Для исправления оставить major/minor прежними; новый editor revision становится третьим числом release tag.
+- `version_minor` менять только на большой мульти-spec фиче/волне; до `1.0` breaking тоже через minor как волна, не каждый коммит.
+- `version` (Revision): Mod Editor поднимает при сохранении; при коммите без editor save — `+1` вручную. Обычный fix/feature/спека двигает revision, не minor.
+- Для исправления и одиночных спеков оставить major/minor прежними; новый revision становится третьим числом release tag.
 - Если релиз меняет только assets/maps/units, сохранить core ModDef через Mod Editor как явный release marker, чтобы committed core metadata дала новый уникальный номер.
 - Не создавать metadata-only commit ради произвольного числа. Допустим только объяснённый release marker или намеренное изменение ModDef.
 - Изменения `code`, dependencies, localization, resources и generated registries в metadata коммитить вместе с соответствующими файлами-владельцами и документацией.
@@ -119,6 +119,6 @@ description: Планировать, проверять и публиковат�
 - Если пользователь отдельно разрешил release commit, писать его заголовок и пояснение на русском языке; Git-теги, версии, SHA и технические идентификаторы не переводить.
 - Не выполнять `git clean`, `git reset`, автоматический stash или массовую нормализацию строк.
 - Не форсировать теги и не заменять assets уже опубликованной версии.
-- Не править read-only metadata revision вручную.
+- Не сбрасывать и не выравнивать revisions пакетов; инкремент `version` (Revision) — только по политике коммитов (`.cursor/rules/jazz-commits-versioning.mdc`).
 - Не публиковать архив с blob больше лимита GitHub или с невыгруженным Git LFS.
 - Не считать release успешным, пока GitHub workflow и checksums не подтверждены.

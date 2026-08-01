@@ -57,8 +57,7 @@ DefineClass.JAZZ_AMMO_50BMG_APIT = {
 		}),
 	},
 	AppliedEffects = {
-		"Exposed",
-		"Burning",
+		"ExposedBurning",
 	},
 	ammo_type_icon = "UI/Icons/Items/ta_shock.png",
 }

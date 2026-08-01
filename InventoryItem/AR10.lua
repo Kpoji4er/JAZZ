@@ -53,7 +53,7 @@ DefineClass.AR10 = {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Compensator",
+				"JAZZ_Compensator",
 			},
 		}),
 	},
@@ -69,7 +69,10 @@ DefineClass.AR10 = {
 	ReloadAP = 7000,
 	Recoil = 26,
 	AutoShots = 7,
-	Handling = -15,
+
+	CloseRange = 8,
+
+	CloseRangeFactor = 80,
 	BulletDropRange = 18,
 	Grouping = 45,
 	BaseJamChance = -10,

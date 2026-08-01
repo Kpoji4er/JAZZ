@@ -35,10 +35,10 @@ DefineClass.Sterling = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLightFolded",
-				"StockLightUnFolded",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockLightUnFolded",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -55,7 +55,10 @@ DefineClass.Sterling = {
 	Recoil = 3,
 	BurstShots = 4,
 	AutoShots = 7,
-	Handling = -2,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	BulletDropRange = 9,
 	Grouping = 34,
 	BaseJamChance = -20,

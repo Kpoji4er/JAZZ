@@ -36,15 +36,15 @@ DefineClass.CAR15 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagSmall30_20",
+				"JAZZ_MagNormal",
+				"JAZZ_MagSmall30_20",
 			},
-			'DefaultComponent', "MagSmall30_20",
+			'DefaultComponent', "JAZZ_MagSmall30_20",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'AvailableComponents', {
-				"Flashlight",
+				"JAZZ_Flashlight",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -68,19 +68,19 @@ DefineClass.CAR15 = {
 			'SlotType', "Stock",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"StockLightUnFolded",
-				"StockLightFolded",
+				"JAZZ_StockLightUnFolded",
+				"JAZZ_StockLightFolded",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'AvailableComponents', {
-				"DefMuzzle",
-				"Suppressor",
-				"SuppressorImproved",
+				"JAZZ_DefMuzzle",
+				"JAZZ_Suppressor",
+				"JAZZ_SuppressorImproved",
 			},
-			'DefaultComponent', "DefMuzzle",
+			'DefaultComponent', "JAZZ_DefMuzzle",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -96,7 +96,10 @@ DefineClass.CAR15 = {
 	Recoil = 12,
 	BurstShots = 4,
 	AutoShots = 8,
-	Handling = 4,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 14,
 	Grouping = 55,
 	WeaponResource = 4000,

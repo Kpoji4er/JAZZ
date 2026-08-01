@@ -25,6 +25,48 @@ VANILLA_OPTIC_LEFTOVERS = frozenset(
 
 IRON_ID_HINTS = ("Ironsight", "IronSight", "Irons")
 
+# Effects that JAZZ-ATTACH-001 removes from component presets.  They are kept
+# separate from visual and current gameplay effects for migration audits.
+LEGACY_HANDLING = frozenset(
+    {
+        "ScopeHandlingReduce",
+        "MagazineHandlingDecrease",
+        "MagazineHandlingIncrease",
+        "BarrelHandlingIncrease",
+        "BarrelHandlingReduce",
+        "SilencerHandlingReduce",
+        "SilencerHandlingDecrease",
+        "GripHandlingIncrease",
+        "StockHandlingIncrease",
+        "GLHandlingDecrease",
+        "BipodsHandlingDecrease",
+        "Cumbersome",
+    }
+)
+LEGACY_FLAT = frozenset(
+    {
+        "ScopeCTHBonus",
+        "ScopeAccuracyIncreace",
+        "ScopeAccuracyReduce",
+        "ReduceRange50Percent",
+        "ReduceAuto50Percent",
+        "ReduceAimAccuracy50Percent",
+        "ReduceAimAccuracy80Percent",
+    }
+)
+VISUAL_EFFECTS = frozenset({"PointBlankBonus", "TwoHanded"})
+
+
+def classify_effect(effect_id: str) -> str:
+    """Classify component effects for JAZZ-ATTACH-001 migration reports."""
+    if effect_id in LEGACY_HANDLING:
+        return "legacy_handling"
+    if effect_id in LEGACY_FLAT:
+        return "legacy_flat"
+    if effect_id in VISUAL_EFFECTS:
+        return "visual"
+    return "live"
+
 
 def is_jazz_id(cid: str) -> bool:
     return cid.startswith("JAZZ_") or cid.startswith("Jazz_")

@@ -39,11 +39,11 @@ DefineClass.DoubleBarrelShotgun = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelLongShotgun",
-				"BarrelNormal",
-				"BarrelShortShotgun",
+				"JAZZ_BarrelLongShotgun",
+				"JAZZ_BarrelNormal",
+				"JAZZ_BarrelShortShotgun",
 			},
-			'DefaultComponent', "BarrelNormal",
+			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -59,7 +59,10 @@ DefineClass.DoubleBarrelShotgun = {
 	MaxAimActions = 2,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -10,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 8,
 	Grouping = 140,
 	BaseJamChance = -100,

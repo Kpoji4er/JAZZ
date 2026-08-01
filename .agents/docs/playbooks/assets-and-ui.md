@@ -18,6 +18,7 @@
   - `$create-jazz-chip-icons` → `ChipIcon` миниатюра (`Icons/Upgrades/Chips/`, inventory/HUD chips)
 - Иконки именных и сигнатурных перков (`Perks/Personal/*.png`, `Perks/SignatureAbilities/*.png`, 68×68 RGBA) — skill `$create-jazz-perk-icons`; фон обязательно прозрачный, символ выводить из Description/Mechanics.
 - Портреты мерков/NPC (PNG 300×300 + 2000×2000, стиль JA3) — пакет `jazz-units`, каталоги `MercPortraits/` и `NPCPortraits/`; генерация по `$create-jazz-merc-portraits`. `Images/` только для логотипа мода.
+- После editor import оружия с numeric DDS — `$rename-jazz-weapon-textures` (`Entity_MapType.dds`, Fallbacks-пара, `.mtl`/`items.lua`; затем Mod Editor mtlbin rebuild).
 
 ## После правки
 

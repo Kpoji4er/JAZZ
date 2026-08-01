@@ -24,11 +24,11 @@ A **sub-tier** orders close variants (magazine, RoF, range, reliability, modules
 | Recoil | How hard follow-up bullets lose accuracy; lower is easier to control. |
 | Modes | Single, burst, auto, and special actions. |
 
-`Handling` is not used in current hit chance.
+The `Handling` weapon stat has been removed from weapons and UI.
 
 ## Components
 
-- **Optics** — aim clicks, effective-zone shift, overwatch; strong scopes can hurt up close; there is no flat CTH bonus just for having optics.
+- **Optics** — aim clicks, effective-zone shift (only after enough aim), overwatch; strong scopes hurt up close even on snap; no flat CTH bonus. Tiers differ by mag/aim, OW, ShotAP, full-aim crit, and near penalty — not Handling.
 - **Barrels** — range, BDR, hold, damage, tempo, reliability.
 - **Muzzle devices** — noise, recoil, reliability, stealthy fire.
 - **Bipods / support** — burst control in stance or after setup.

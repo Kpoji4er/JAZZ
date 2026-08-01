@@ -36,30 +36,30 @@ DefineClass.M16A1 = {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"LaserDot",
+				"JAZZ_LaserDot",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Handguard",
 			'AvailableComponents', {
-				"Handguard",
-				"M16A1LaunchHandGuard",
+				"JAZZ_Handguard",
+				"JAZZ_M16A1LaunchHandGuard",
 			},
-			'DefaultComponent', "Handguard",
+			'DefaultComponent', "JAZZ_Handguard",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagSmall30_20",
+				"JAZZ_MagNormal",
+				"JAZZ_MagSmall30_20",
 			},
-			'DefaultComponent', "MagSmall30_20",
+			'DefaultComponent', "JAZZ_MagSmall30_20",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "General",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"HolsterBelt",
+				"JAZZ_HolsterBelt",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -94,7 +94,10 @@ DefineClass.M16A1 = {
 	Recoil = 11,
 	BurstShots = 4,
 	AutoShots = 8,
-	Handling = -10,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 15,
 	Grouping = 61,
 	BaseJamChance = 5,

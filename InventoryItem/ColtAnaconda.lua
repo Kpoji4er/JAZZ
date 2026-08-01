@@ -32,28 +32,28 @@ DefineClass.ColtAnaconda = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelNormal",
-				"BarrelShort",
+				"JAZZ_BarrelNormal",
+				"JAZZ_BarrelShort",
 			},
-			'DefaultComponent', "BarrelNormal",
+			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
 				PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
 			'AvailableComponents', {
-				"BaseIronsight_Anaconda",
-				"ImprovedIronsight",
-				"LaserDot_Anaconda",
-				"FlashlightDot_Anaconda",
-				"UVDot_Anaconda",
+				"JAZZ_BaseIronsight_Anaconda",
+				"JAZZ_ImprovedIronsight",
+				"JAZZ_LaserDot_Anaconda",
+				"JAZZ_FlashlightDot_Anaconda",
+				"JAZZ_UVDot_Anaconda",
 			},
-			'DefaultComponent', "BaseIronsight_Anaconda",
+			'DefaultComponent', "JAZZ_BaseIronsight_Anaconda",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",
 			'AvailableComponents', {
-				"Freeswap",
+				"JAZZ_Freeswap",
 			},
-			'DefaultComponent', "Freeswap",
+			'DefaultComponent', "JAZZ_Freeswap",
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -68,6 +68,10 @@ DefineClass.ColtAnaconda = {
 	Recoil = 1,
 	AutoShots = 3,
 	BulletDropRange = 8,
+
+	CloseRange = 0,
+
+	CloseRangeFactor = 100,
 	Grouping = 70,
 	BaseJamChance = -100,
 	WeaponResource = 3500,

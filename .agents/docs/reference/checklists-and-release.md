@@ -16,8 +16,9 @@
 4. Выполнить `git diff --check` в каждом изменённом репозитории.
 5. Выполнить профильные static/generated/editor/runtime проверки.
 6. Синхронизировать technical current-state docs; для заметного игроку поведения — `docs/wiki/` и при затронутом аспекте витрины — `docs/showcase` RU+EN.
-7. Запустить spec validator с `-Phase Done`.
-8. Провести независимое conformance review и human acceptance для субъективного/runtime результата.
+7. Полезные скрипты миграции/аудита оставить в `docs/tools/` и обновить `docs/tools/README.md` (см. `.agents/docs/reference/agent-tooling.md`).
+8. Запустить spec validator с `-Phase Done`.
+9. Провести независимое conformance review и human acceptance для субъективного/runtime результата.
 
 ## Git-границы
 
@@ -26,7 +27,7 @@
 - Один агент владеет declared write set; `items.lua`, `metadata.lua`, editor state и release manifest являются exclusive resources.
 - Межрепозиторное изменение перечисляет связанные SHA или явно фиксирует незакоммиченное состояние.
 - Коммит создавать только по запросу пользователя; заголовок и пояснение — на русском, технические IDs не переводить.
-- В коммите изменений пакета обновлять его `metadata.lua`: крупное/feature изменение поднимает `version_minor` на `+1`; `version` (Revision) вручную не трогать. См. `.cursor/rules/jazz-commits-versioning.mdc`.
+- В коммите изменений пакета обновлять его `metadata.lua`: обычный коммит поднимает `version` (Revision) на `+1`; `version_minor` — только на большой мульти-spec фиче/волне. См. `.cursor/rules/jazz-commits-versioning.mdc`.
 - Любой `git push`, force-push, публикацию тега, GitHub Release или PR выполнять только после отдельного явного одобрения пользователя на конкретную публикацию. Разрешение на commit, merge или перенос изменений между ветками не считается разрешением на push.
 
 ## Неполная проверка

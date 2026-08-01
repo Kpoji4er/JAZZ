@@ -35,10 +35,10 @@ DefineClass.MP5A4 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagSmall30_15",
+				"JAZZ_MagNormal",
+				"JAZZ_MagSmall30_15",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -58,25 +58,25 @@ DefineClass.MP5A4 = {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"PistolSuppressor",
+				"JAZZ_PistolSuppressor",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLightFolded",
-				"StockLightUnFolded",
-				"StockNormal",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockLightUnFolded",
+				"JAZZ_StockNormal",
 			},
-			'DefaultComponent', "StockNormal",
+			'DefaultComponent', "JAZZ_StockNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Flashlight",
+				"JAZZ_Flashlight",
 			},
-			'DefaultComponent', "Flashlight",
+			'DefaultComponent', "JAZZ_Flashlight",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -92,6 +92,10 @@ DefineClass.MP5A4 = {
 	Recoil = 3,
 	AutoShots = 8,
 	BulletDropRange = 10,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	Grouping = 72,
 	BaseJamChance = -30,
 	WeaponResource = 5500,

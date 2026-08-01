@@ -40,7 +40,6 @@ DefineClass.RPG7 = {
 	PreparedAttackType = "None",
 	ShootAP = 9000,
 	ReloadAP = 7000,
-	Handling = 60,
 	WeaponResource = 100,
 	BackfireRange = 2,
 	BackfireDamage = 8,

@@ -33,17 +33,17 @@ DefineClass.Welrod = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Freeswap",
 			'AvailableComponents', {
-				"Freeswap",
+				"JAZZ_Freeswap",
 			},
-			'DefaultComponent', "Freeswap",
+			'DefaultComponent', "JAZZ_Freeswap",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"SuppressorIntegrated",
+				"JAZZ_SuppressorIntegrated",
 			},
-			'DefaultComponent', "SuppressorIntegrated",
+			'DefaultComponent', "JAZZ_SuppressorIntegrated",
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -59,7 +59,10 @@ DefineClass.Welrod = {
 	MaxAimActions = 4,
 	Recoil = 1,
 	AutoShots = 3,
-	Handling = -8,
+
+	CloseRange = 0,
+
+	CloseRangeFactor = 100,
 	BulletDropRange = 4,
 	Grouping = 82,
 	BaseJamChance = -100,

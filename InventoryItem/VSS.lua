@@ -36,10 +36,10 @@ DefineClass.VSS = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge_10_20",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge_10_20",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -74,7 +74,10 @@ DefineClass.VSS = {
 	ReloadAP = 6000,
 	Recoil = 12,
 	AutoShots = 9,
-	Handling = -5,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 13,
 	Grouping = 62,
 	BaseJamChance = -30,

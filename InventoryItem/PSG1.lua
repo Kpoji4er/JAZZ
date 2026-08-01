@@ -38,35 +38,35 @@ DefineClass.PSG1 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockNormal",
-				"StockHeavy",
+				"JAZZ_StockNormal",
+				"JAZZ_StockHeavy",
 			},
-			'DefaultComponent', "StockNormal",
+			'DefaultComponent', "JAZZ_StockNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"ImprovisedSuppressor",
-				"Suppressor",
-				"SuppressorImproved",
+				"JAZZ_ImprovisedSuppressor",
+				"JAZZ_Suppressor",
+				"JAZZ_SuppressorImproved",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagNormalFine",
-				"MagLarge",
-				"MagLargeFine",
+				"JAZZ_MagNormal",
+				"JAZZ_MagNormalFine",
+				"JAZZ_MagLarge",
+				"JAZZ_MagLargeFine",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -90,10 +90,10 @@ DefineClass.PSG1 = {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"FlashlightDot_PSG_M1",
-				"Flashlight_PSG_M1",
-				"LaserDot_PSG_M1",
-				"UVDot_PSG_M1",
+				"JAZZ_FlashlightDot_PSG_M1",
+				"JAZZ_Flashlight_PSG_M1",
+				"JAZZ_LaserDot_PSG_M1",
+				"JAZZ_UVDot_PSG_M1",
 			},
 		}),
 	},
@@ -107,7 +107,10 @@ DefineClass.PSG1 = {
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -25,
+
+	CloseRange = 12,
+
+	CloseRangeFactor = 70,
 	BulletDropRange = 20,
 	Grouping = 45,
 	BaseJamChance = -20,

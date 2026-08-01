@@ -26,16 +26,13 @@ DefineClass.ConcussiveGrenade = {
 	CenterUnitDamageMod = 0,
 	CenterObjDamageMod = 0,
 	CenterAppliedEffects = {
-		"Exposed",
-		"Blinded",
-		"SuppressStunGrenade",
+		"ExposedBlindedSuppressStunGrenade",
 	},
 	CenterAreaOfEffect = 2,
 	AreaUnitDamageMod = 0,
 	AreaObjDamageMod = 0,
 	AreaAppliedEffects = {
-		"CancelShot",
-		"Blinded",
+		"CancelShotBlinded",
 	},
 	PenetrationClass = 1,
 	BurnGround = false,

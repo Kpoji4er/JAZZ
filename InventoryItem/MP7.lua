@@ -37,18 +37,18 @@ DefineClass.MP7 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Under",
 			'AvailableComponents', {
-				"VerticalGrip",
-				"VerticalGripFld",
+				"JAZZ_VerticalGrip",
+				"JAZZ_VerticalGripFld",
 			},
-			'DefaultComponent', "VerticalGripFld",
+			'DefaultComponent', "JAZZ_VerticalGripFld",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLightUnFolded",
-				"StockLightFolded",
+				"JAZZ_StockLightUnFolded",
+				"JAZZ_StockLightFolded",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -61,15 +61,15 @@ DefineClass.MP7 = {
 				"JAZZ_Reflex_Open",
 				"JAZZ_CombatScope_2x",
 				"JAZZ_CombatScope_ACOG",
-				"DefaultIronsight_AR15",
+				"JAZZ_DefaultIronsight_AR15",
 			},
-			'DefaultComponent', "DefaultIronsight_AR15",
+			'DefaultComponent', "JAZZ_DefaultIronsight_AR15",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"PistolSuppressor",
+				"JAZZ_PistolSuppressor",
 			},
 		}),
 	},
@@ -86,7 +86,10 @@ DefineClass.MP7 = {
 	MaxAimActions = 2,
 	Recoil = 6,
 	BurstShots = 5,
-	Handling = 12,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	BulletDropRange = 12,
 	Grouping = 72,
 	BaseJamChance = -30,

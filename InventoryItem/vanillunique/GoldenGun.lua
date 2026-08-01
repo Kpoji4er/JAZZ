@@ -75,7 +75,6 @@ DefineClass.GoldenGun = {
 	ReloadAP = 7000,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -25,
 	BulletDropRange = 17,
 	Grouping = 55,
 	WeaponResource = 10000,

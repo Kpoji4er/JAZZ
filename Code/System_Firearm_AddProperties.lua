@@ -94,15 +94,29 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
     modifiable = true
 }
 
+
 FirearmProperties.properties[#FirearmProperties.properties+1] = {
     category = "New Weapon System",
-    id = "Handling",
-    name = "Handling",
-    help = "Legacy serialized value; does not affect chance to hit",
+    id = "CloseRange",
+    name = "Close Range",
+    help = "Tiles of near inefficiency (0 = none). Barrel components shift this; optic MinRange stacks on top.",
     editor = "number",
     default = 0,
     template = true,
-    min = -100,
+    min = 0,
+    max = 40,
+    modifiable = true
+}
+
+FirearmProperties.properties[#FirearmProperties.properties+1] = {
+    category = "New Weapon System",
+    id = "CloseRangeFactor",
+    name = "Close Range Factor",
+    help = "CTH multiplier at distance 0 as percent (100 = no penalty). Lerps to 100% at CloseRange tiles.",
+    editor = "number",
+    default = 100,
+    template = true,
+    min = 25,
     max = 100,
     modifiable = true
 }

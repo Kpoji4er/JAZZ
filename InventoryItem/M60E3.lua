@@ -37,25 +37,16 @@ DefineClass.M60E3 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
-			'DefaultComponent', "Bipod",
+			'DefaultComponent', "JAZZ_Bipod",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
-		}),
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Mount",
-			'Modifiable', false,
-			'AvailableComponents', {
-				"M60E3HandGrip",
-				"M60E4ModernMount",
-			},
-			'DefaultComponent', "M60E3HandGrip",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 			},
 	HolsterSlot = "Shoulder",
@@ -69,7 +60,10 @@ DefineClass.M60E3 = {
 	Recoil = 16,
 	BurstShots = 5,
 	AutoShots = 5,
-	Handling = -30,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 17,
 	Grouping = 38,
 	WeaponResource = 8500,

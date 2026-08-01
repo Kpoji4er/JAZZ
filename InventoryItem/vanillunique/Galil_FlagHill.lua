@@ -99,7 +99,6 @@ DefineClass.Galil_FlagHill = {
 	ReloadAP = 7000,
 	Recoil = 30,
 	AutoShots = 6,
-	Handling = -18,
 	BulletDropRange = 18,
 	Grouping = 58,
 	WeaponResource = 9000,

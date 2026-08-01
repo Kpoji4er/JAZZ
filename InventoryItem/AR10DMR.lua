@@ -37,7 +37,7 @@ DefineClass.AR10DMR = {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"Compensator",
+				"JAZZ_Compensator",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
@@ -54,7 +54,7 @@ DefineClass.AR10DMR = {
 				"JAZZ_Scope_6x",
 				"JAZZ_Scope_12x",
 				"JAZZ_Scope_Scout",
-				"DefaultIronsight_AR15",
+				"JAZZ_DefaultIronsight_AR15",
 			},
 			'DefaultComponent', "JAZZ_Scope_6x",
 		}),
@@ -70,7 +70,10 @@ DefineClass.AR10DMR = {
 	Recoil = 32,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -18,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 18,
 	Grouping = 59,
 	BaseJamChance = -10,

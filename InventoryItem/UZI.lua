@@ -35,10 +35,10 @@ DefineClass.UZI = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagDrum_30-50",
+				"JAZZ_MagNormal",
+				"JAZZ_MagDrum_30-50",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -54,18 +54,18 @@ DefineClass.UZI = {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"PistolSuppressor",
-				"Compensator",
+				"JAZZ_PistolSuppressor",
+				"JAZZ_Compensator",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLightUnFolded",
-				"StockLightFolded",
-				"StockNormal",
+				"JAZZ_StockLightUnFolded",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockNormal",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 	},
 	Color = "Black",
@@ -81,7 +81,10 @@ DefineClass.UZI = {
 	ReloadAP = 4000,
 	Recoil = 4,
 	AutoShots = 6,
-	Handling = 9,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	BulletDropRange = 10,
 	Grouping = 50,
 	BaseJamChance = -20,

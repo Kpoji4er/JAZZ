@@ -35,17 +35,17 @@ DefineClass.MPL = {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockLightFolded",
-				"StockLightUnFolded",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockLightUnFolded",
 			},
-			'DefaultComponent', "StockLightUnFolded",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -62,6 +62,10 @@ DefineClass.MPL = {
 	BurstShots = 2,
 	AutoShots = 6,
 	BulletDropRange = 10,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	Grouping = 40,
 	BaseJamChance = -10,
 	WeaponResource = 4000,

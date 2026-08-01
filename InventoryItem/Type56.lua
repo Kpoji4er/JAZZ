@@ -36,27 +36,27 @@ DefineClass.Type56 = {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"ImprovisedSuppressor",
+				"JAZZ_ImprovisedSuppressor",
 			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"MagNormal",
-				"MagLarge_30_40",
-				"MagDrum_30-75",
+				"JAZZ_MagNormal",
+				"JAZZ_MagLarge_30_40",
+				"JAZZ_MagDrum_30-75",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Under",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"Type56Bayo",
-				"Type56BayoF",
+				"JAZZ_Type56Bayo",
+				"JAZZ_Type56BayoF",
 			},
-			'DefaultComponent', "Type56BayoF",
+			'DefaultComponent', "JAZZ_Type56BayoF",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -72,7 +72,10 @@ DefineClass.Type56 = {
 	ReloadAP = 6000,
 	Recoil = 18,
 	AutoShots = 6,
-	Handling = -10,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 13,
 	Grouping = 47,
 	WeaponResource = 2500,

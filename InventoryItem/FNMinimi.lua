@@ -36,29 +36,29 @@ DefineClass.FNMinimi = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelLong",
-				"BarrelLongImproved",
-				"BarrelNormal",
-				"BarrelNormalImproved",
-				"BarrelShort",
-				"BarrelShortImproved",
+				"JAZZ_BarrelLong",
+				"JAZZ_BarrelLongImproved",
+				"JAZZ_BarrelNormal",
+				"JAZZ_BarrelNormalImproved",
+				"JAZZ_BarrelShort",
+				"JAZZ_BarrelShortImproved",
 			},
-			'DefaultComponent', "BarrelNormal",
+			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'AvailableComponents', {
-				"Bipod",
+				"JAZZ_Bipod",
 			},
-			'DefaultComponent', "Bipod",
+			'DefaultComponent', "JAZZ_Bipod",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockHeavy",
-				"StockNormal",
+				"JAZZ_StockHeavy",
+				"JAZZ_StockNormal",
 			},
-			'DefaultComponent', "StockNormal",
+			'DefaultComponent', "JAZZ_StockNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -79,10 +79,10 @@ DefineClass.FNMinimi = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagBelt_100-200",
+				"JAZZ_MagNormal",
+				"JAZZ_MagBelt_100-200",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -98,7 +98,10 @@ DefineClass.FNMinimi = {
 	ReloadAP = 8000,
 	Recoil = 6,
 	BurstShots = 10,
-	Handling = -15,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 17,
 	Grouping = 57,
 	WeaponResource = 7500,

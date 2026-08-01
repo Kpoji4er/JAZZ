@@ -37,41 +37,41 @@ DefineClass.RPD = {
 			'SlotType', "Magazine",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"MagNormal",
+				"JAZZ_MagNormal",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"BarrelsDefs",
+				"JAZZ_BarrelsDefs",
 			},
-			'DefaultComponent', "BarrelsDefs",
+			'DefaultComponent', "JAZZ_BarrelsDefs",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"StockNormal",
+				"JAZZ_StockNormal",
 			},
-			'DefaultComponent', "StockNormal",
+			'DefaultComponent', "JAZZ_StockNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'AvailableComponents', {
-				"FoldBipod",
-				"UnfoldBipod",
+				"JAZZ_FoldBipod",
+				"JAZZ_UnfoldBipod",
 			},
-			'DefaultComponent', "UnfoldBipod",
+			'DefaultComponent', "JAZZ_UnfoldBipod",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
 			'Modifiable', false,
 			'AvailableComponents', {
-				"Jazz_IronSight",
+				"JAZZ_IronSight",
 			},
-			'DefaultComponent', "Jazz_IronSight",
+			'DefaultComponent', "JAZZ_IronSight",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -87,7 +87,10 @@ DefineClass.RPD = {
 	Recoil = 9,
 	BurstShots = 6,
 	AutoShots = 6,
-	Handling = -25,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 85,
 	BulletDropRange = 14,
 	Grouping = 65,
 	BaseJamChance = -10,

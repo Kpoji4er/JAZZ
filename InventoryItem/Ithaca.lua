@@ -55,18 +55,18 @@ DefineClass.Ithaca = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
-				"BarrelShortShotgun",
-				"BarrelNormal",
+				"JAZZ_BarrelShortShotgun",
+				"JAZZ_BarrelNormal",
 			},
-			'DefaultComponent', "BarrelNormal",
+			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'AvailableComponents', {
-				"StockNormal",
-				"StockNo",
+				"JAZZ_StockNormal",
+				"JAZZ_StockNo",
 			},
-			'DefaultComponent', "StockNormal",
+			'DefaultComponent', "JAZZ_StockNormal",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -81,7 +81,10 @@ DefineClass.Ithaca = {
 	MaxAimActions = 2,
 	BurstShots = 1,
 	AutoShots = 1,
-	Handling = -15,
+
+	CloseRange = 4,
+
+	CloseRangeFactor = 90,
 	BulletDropRange = 8,
 	Grouping = 145,
 	WeaponResource = 1800,

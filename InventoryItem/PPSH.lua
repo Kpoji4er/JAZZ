@@ -35,10 +35,10 @@ DefineClass.PPSH = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"MagNormal",
-				"MagDrum_35-71",
+				"JAZZ_MagNormal",
+				"JAZZ_MagDrum_35-71",
 			},
-			'DefaultComponent', "MagNormal",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -55,7 +55,10 @@ DefineClass.PPSH = {
 	MaxAimActions = 2,
 	Recoil = 6,
 	BurstShots = 5,
-	Handling = -7,
+
+	CloseRange = 2,
+
+	CloseRangeFactor = 95,
 	BulletDropRange = 11,
 	Grouping = 26,
 	WeaponResource = 6200,
