@@ -136,6 +136,12 @@ local function lGetCurrentTier()
 	return tonumber(quest[VAR_ID]) or false
 end
 
+-- Console helper: bare `JAZZ_Legion_Tier` is a quest var, not a global (prints nothing).
+-- Use: JAZZ_GetLegionTier()  or  GetQuestVar("JAZZ_LegionTier", "JAZZ_Legion_Tier")
+function JAZZ_GetLegionTier()
+	return lGetCurrentTier() or (GetQuestVar and GetQuestVar(QUEST_ID, VAR_ID)) or false
+end
+
 local function lSetTier(value)
 	local quest = QuestGetState and QuestGetState(QUEST_ID)
 	if not quest then

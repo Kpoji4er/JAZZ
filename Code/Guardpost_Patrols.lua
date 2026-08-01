@@ -352,6 +352,8 @@ local function lEnsureOutpost(root, region, region_state, sector_id)
 	if outpost.manpower == false or outpost.manpower == nil then
 		outpost.manpower = lConfig(region, "StartingManpower", 20)
 	end
+	-- Refresh each ensure: stale enabled=false after paralyzed/empty-region sessions.
+	outpost.enabled = controlled
 	outpost.region_id = lRegionId(region)
 	region_state.outposts[sector_id] = true
 	return outpost
@@ -716,6 +718,11 @@ function JAZZ_LegionAIAdoptOutpostDefenders()
 	return adopted
 end
 
+-- Surface helper must be declared before SeedPoiEconomy (Lua locals are not visible above).
+local function lSectorIsSurface(sector)
+	return sector and not sector.GroundSector and sector.Passability ~= "Water" and sector.Passability ~= "Blocked"
+end
+
 --- Seed POI money/recruits so tax/recruiter can fire early (NoMaps COMPAT-004).
 function JAZZ_LegionAISeedPoiEconomy(opts)
 	local root = JAZZ_LegionAIEnsureState()
@@ -726,6 +733,10 @@ function JAZZ_LegionAISeedPoiEconomy(opts)
 	local money_seed = opts.money or 1500
 	local recruit_seed = opts.recruits or 10
 	local seeded = 0
+	-- Inline surface test: do not call chunk-local lSectorIsSurface (strict _G / load-order).
+	local function sector_is_surface(sector)
+		return sector and not sector.GroundSector and sector.Passability ~= "Water" and sector.Passability ~= "Blocked"
+	end
 	for region_id, region_state in sorted_pairs(root.regions or empty_table) do
 		local region = lGetRegionPreset(region_id)
 		if not region or not region.LegionAIEnabled then
@@ -737,7 +748,7 @@ function JAZZ_LegionAISeedPoiEconomy(opts)
 		local recruit_cap = lConfig(region, "PoiRecruitCap", 24)
 		for _, sector_id in ipairs(region.Sectors or empty_table) do
 			local sector = gv_Sectors and gv_Sectors[sector_id]
-			if not sector or not lSectorIsSurface(sector) then
+			if not sector or not sector_is_surface(sector) then
 				goto next_sector
 			end
 			-- Prefer Farm / City POIs (same signals as tax/recruiter circuits).
@@ -779,10 +790,6 @@ function JAZZ_GetLegionAIRegionState(region_id, create)
 		state = region and lEnsureRegion(root, region)
 	end
 	return state
-end
-
-local function lSectorIsSurface(sector)
-	return sector and not sector.GroundSector and sector.Passability ~= "Water" and sector.Passability ~= "Blocked"
 end
 
 -- Key sites for patrol/garrison/retake (includes city-tagged wilderness hubs).

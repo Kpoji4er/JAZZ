@@ -71,6 +71,21 @@ def parse_prices() -> dict[str, int]:
     return {m.group(1): int(m.group(2)) for m in re.finditer(r"(JAZZ_Legion_\w+)\s*=\s*(\d+)", text)}
 
 
+def inventory_class_id(csv_id: str, source_file: str | None) -> str:
+    """CSV id may be a docs slug (Mas36); loot/weapon fields need DefineClass id (MAS36)."""
+    rel = (source_file or "").strip() or f"InventoryItem/{csv_id}.lua"
+    path = ROOT / rel
+    if path.is_file():
+        text = path.read_text(encoding="utf-8", errors="replace")
+        m = re.search(r"UndefineClass\('([^']+)'\)", text)
+        if m:
+            return m.group(1)
+        m = re.search(r"DefineClass\.([A-Za-z0-9_]+)", text)
+        if m:
+            return m.group(1)
+    return csv_id
+
+
 def load_weapons(overrides: dict):
     rows = []
     with WEAPONS_CSV.open(encoding="utf-8", newline="") as f:
@@ -84,9 +99,11 @@ def load_weapons(overrides: dict):
                 continue  # skip UNIQ / non-ladder weapons from tiered pools
             tags = list(CLASS_TO_TAG.get(r["object_class"], []))
             tags += overrides.get(r["id"], [])
+            class_id = inventory_class_id(r["id"], r.get("source_file"))
             rows.append(
                 {
                     "id": r["id"],
+                    "class_id": class_id,
                     "object_class": r["object_class"],
                     "caliber": r["caliber"],
                     "balance_tier": int(r["balance_tier"]),
@@ -426,7 +443,14 @@ def combo_id(weapon_id: str, pkg_name: str, ammo: str | None) -> str:
     return f"JAZZ_GenW_{weapon_id}_{safe_pkg}_{safe_ammo}"
 
 
-def emit_weapon_combo(combo_loot_id: str, weapon_id: str, upgrades: list[str], ammo: str | None) -> str:
+def emit_weapon_combo(
+    combo_loot_id: str,
+    weapon_id: str,
+    upgrades: list[str],
+    ammo: str | None,
+    class_id: str | None = None,
+) -> str:
+    inv_id = class_id or weapon_id
     lines = [
         "\t\t\t\t\tPlaceObj('ModItemLootDef', {",
         "\t\t\t\t\t\tComment = \"JAZZ-UNITS-003 weapon+ammo\",",
@@ -440,13 +464,13 @@ def emit_weapon_combo(combo_loot_id: str, weapon_id: str, upgrades: list[str], a
             "\t\t\t\t\t\t\tupgrades = {",
             *[f"\t\t\t\t\t\t\t\t\"{u}\"," for u in upgrades],
             "\t\t\t\t\t\t\t},",
-            f"\t\t\t\t\t\t\tweapon = \"{weapon_id}\",",
+            f"\t\t\t\t\t\t\tweapon = \"{inv_id}\",",
             "\t\t\t\t\t\t}),",
         ]
     else:
         lines += [
             "\t\t\t\t\t\tPlaceObj('LootEntryInventoryItem', {",
-            f"\t\t\t\t\t\t\titem = \"{weapon_id}\",",
+            f"\t\t\t\t\t\t\titem = \"{inv_id}\",",
             "\t\t\t\t\t\t\tstack_max = 1,",
             "\t\t\t\t\t\t\tstack_min = 1,",
             "\t\t\t\t\t\t}),",
@@ -485,7 +509,9 @@ def collect_firearm_plan(
             ammo = ammo_loot_id(w, caliber_ammo, recipe, arch)
             cid = combo_id(w["id"], pkg_name, ammo)
             if cid not in combos:
-                combos[cid] = emit_weapon_combo(cid, w["id"], upgrades, ammo)
+                combos[cid] = emit_weapon_combo(
+                    cid, w["id"], upgrades, ammo, class_id=w.get("class_id")
+                )
             # Exclusive arch bands: arch1 ≤19, arch2 ≤29, arch3 open.
             # Remnant tier1 on arch2 already uses amin=20 weight≈1%.
             if arch == 2 and w["balance_tier"] == 1:

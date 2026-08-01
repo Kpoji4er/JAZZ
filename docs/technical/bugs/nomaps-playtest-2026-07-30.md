@@ -167,6 +167,14 @@ Static root cause (до 0.7):
 
 **Fix (nomaps 0.9.9 + jazz LegionTierProgression):** top-level predeclare + `rawset` для wrap flags; `lQuestVarSafeSet` / safe `lSetTier`. Skill: `.agents/skills/jazz-lua-globals/SKILL.md`.
 
+### B16 — SeedPoiEconomy: undefined `lSectorIsSurface` (2026-08-02)
+
+Симптом: после globals-fix bootstrap всё ещё мог оставить `HQ=false` / пустые auto-regions; в логе `Attempt to use an undefined global 'lSectorIsSurface'` (`Guardpost_Patrols.lua` ~740). Параллельно: `InventoryItem class Mas36 not found` при спавне loot.
+
+**Root cause:** `JAZZ_LegionAISeedPoiEconomy` вызывал local `lSectorIsSurface` *выше* объявления (Lua → global lookup → Assert); ошибка рвала хвост NoMaps bootstrap. Loot UNITS-003 писал CSV slug `Mas36`, а класс оружия — `MAS36`.
+
+**Fix:** inline surface check в Seed; `bootstrapped=true` только после healthy `JAZZ_Auto_*`; loot `item="MAS36"`; generator резолвит DefineClass из companion. Soft-bootstrap при пустых auto-regions больше не early-return (регресс HQ=false / только I7). Audit: `docs/tools/_audit_loot_item_case.py`.
+
 ### B14 — Жестянка day-1 «другая весовая» (Discord 2026-08-02)
 
 Симптом: NoMaps, день 1, I6 Жестянка — враги уже другой весовой категории. Подозревали ускоренный gear tier; на дне 1 major I должен оставаться.

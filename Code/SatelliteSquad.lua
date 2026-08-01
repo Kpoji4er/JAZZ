@@ -1096,6 +1096,13 @@ function SetSquadTravellingActivity(squad)
 		end
 		
 		local unit_data = gv_UnitData[unit_id]
+		if not unit_data then
+			goto next_unit
+		end
+		-- Orphan UnitData.Squad=false breaks Traveling OnSetOperation (IsSquadWaterTravelling).
+		if squad and squad.UniqueId and (not unit_data.Squad or not gv_Squads[unit_data.Squad]) then
+			unit_data.Squad = squad.UniqueId
+		end
 		
 		local prev_operation = unit_data.Operation	
 		unit_data:SetCurrentOperation("Traveling")
@@ -1108,7 +1115,8 @@ function SetSquadTravellingActivity(squad)
 		-- Sync new changes with unit
 		if mapUnit then
 			mapUnit:SyncWithSession("session")
-		end		
+		end
+		::next_unit::
 	end
 end
 
