@@ -198,6 +198,8 @@ Quest `JAZZ_LegionTier` создаётся с `Given = true`, а `JAZZ_Legion_Ti
 
 При смене major таймер подтира сбрасывается (старт с `x1`). Сектора на NoMaps tier не влияют. Ernie/maps — прежние TCE.
 
+**Class weight (COMPAT-005):** отдельно от gear loot. NoMaps default EnemySquad remap использует `LegionJAZZSquadT1_Early` (только UnitData `*T1_*`) на major I; alias резолвится в `LegionJAZZSquadT2`/`T3` при major II/III. UnitData remap на major I всегда class T1 (`Stronger_Elite`→T4 только major III+).
+
 ### Как tier фильтрует LootDef
 
 Боевые class LootDef после JAZZ-UNITS-003 используют **exclusive arch bands** (примерно `[11,19]` / `[21,29]` / `≥31`) плюс веса внутри band. У `QuestIsVariableNum` comparator по умолчанию равен `>=`; явные `<=` задают верхнюю границу. На mid (`20–29`) оружие `balance_tier==1` остаётся редким remnant (~1% веса parent pool, weight `1400`); на late (`≥30`) tier1 primary отсутствует.

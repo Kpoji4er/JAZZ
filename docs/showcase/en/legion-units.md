@@ -98,7 +98,7 @@ Quest var starts at **11**.
 | 4…8 | 21…25 |
 | 9+ | 31…33 |
 
-**Mainland with JAZZ Vanilla Maps (no jazz-maps):** tier **II** **3 days** after your first captured mine; tier **III** after **World Flip**. Subtiers: every **3 days** on I, every **two weeks** on II and III. Tier only rises.
+**Mainland with JAZZ Vanilla Maps (no jazz-maps):** tier **II** **3 days** after your first captured mine; tier **III** after **World Flip**. Subtiers: every **3 days** on I, every **two weeks** on II and III. Tier only rises. While tier is still **I**, map spawns use **class T1 only** (`LegionJAZZSquadT1_Early`); heavier classes unlock with major II/III.
 
 Regen: flag → open satellite → rebuild starting equipment for **Legion only**.
 

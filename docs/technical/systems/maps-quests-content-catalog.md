@@ -126,6 +126,7 @@
 | `JAZZ_Legion_VillaAttackers_K5` / `_L5` | Атакующие у виллы | Captain/Headsman + pillagers/raiders + gunner; L5 тяжелее (mortarman) |
 | `FortressDefenders` | I7 | Sniper, gunners, pillager, grenadier, captain, rocketeer |
 | `LegionJAZZSquadT1` / `T2` | Патруль/strong I7 и L1 | Смешанные JAZZ_Legion tiers + bombard на T1 |
+| `LegionJAZZSquadT1_Early` | NoMaps default remap (COMPAT-005) | **Только** class T1; alias → T2/T3 при gear major II/III |
 | `LegionExtraSquadFireArms` / `_T2` | Доборы | Front/flanker/assault firearms packs |
 | `LegionDefenders_Shooters_Easy` | J5 | Крупная стрелковая оборона + snipers + gunners |
 | `LegionDefenders_Mobile_Easy` | I2 | Front/assault/flankers + hyenas |

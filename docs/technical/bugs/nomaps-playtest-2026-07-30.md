@@ -159,6 +159,14 @@ Static root cause (до 0.7):
 
 **Fix (jazz-units):** ScrapPlate → `JazzArmorPlates_Scrap`, KevlarPlate → `JazzArmorPlates_Kevlar`.
 
+### B14 — Жестянка day-1 «другая весовая» (Discord 2026-08-02)
+
+Симптом: NoMaps, день 1, I6 Жестянка — враги уже другой весовой категории. Подозревали ускоренный gear tier; на дне 1 major I должен оставаться.
+
+**Root cause:** `SQUAD_REMAP` вёл в `LegionJAZZSquadT1` (mixed T2–T4); UnitData remap поднимал Stronger/Elite / `Stronger_Elite`→T4 даже при gear major I.
+
+**Fix (COMPAT-005):** `LegionJAZZSquadT1_Early` (только T1); NoMaps alias + tiered resolve; class-tier cap на major I. Static: `docs/tools/_verify_nomaps_early_squad.py`.
+
 ## Evidence
 
 - Discord скрины: инвентарь отряда «Чарли», схрон/трупы/сундук сектор I2.

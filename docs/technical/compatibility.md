@@ -43,6 +43,8 @@ COMPAT-003 (2026-07-31): NoMaps Global AI economy (nomaps **0.7–0.8**) + Legio
 
 COMPAT-004 (2026-08-01): NoMaps Global AI revive + UnitData remap + tiered container loot (nomaps **0.9** + jazz `Guardpost_Patrols` helpers). Major HQ force `A20`; adopt InitialSquads; seed POI; generic vanilla Legion → `JAZZ_Legion_*` pools; inject by `JAZZ_Legion_Tier`. Named/Hyena skip; `WeakFlagHill`→assault T1; `Stronger_Elite`→T4; stem match with generic suffixes. Gear refresh GEAR_REV=3: tier rawset before CSE, ensure firearm, sync live Unit. Spec: [JAZZ-COMPAT-004](../specs/active/JAZZ-COMPAT-004.md).
 
+COMPAT-005 (2026-08-02): NoMaps day-1 weight class — `LegionJAZZSquadT1_Early` (true T1-only) as default remap alias; expands to T2/T3 squads when gear major rises; UnitData remap caps class at T1 on gear major I (`Stronger_Elite`→T4 only major III+). Spec: [JAZZ-COMPAT-005](../specs/active/JAZZ-COMPAT-005.md).
+
 ## Конфликты с другими модами
 
 Особенно высока вероятность конфликта с модами, которые изменяют CTH, оружие, inventory slots, броню, ранения, AI, awareness, UI, satellite squads, сектора, карты, погоду, видимость, те же UnitData, entities, localization IDs, engine messages или declared variables. `OnMsg` накапливается по registration order, а `MsgClear` способен удалить handlers всех слоёв.
