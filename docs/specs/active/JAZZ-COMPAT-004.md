@@ -110,9 +110,9 @@ approved_by: project-owner
 
 ## Evidence
 
-- `JAZZ-COMPAT-004-AC-001`: `PASS` — static: `JAZZ_LegionAIForceMajorHQ` / Ernie skip / `AdoptOutpostDefenders` / `SeedPoiEconomy` in `Guardpost_Patrols.lua`; nomaps bootstrap calls them; UnitData remap + tiered `LOOT_PACKS_BY_MAJOR` + LootDefs `_T1|_T2|_T3`.
+- `JAZZ-COMPAT-004-AC-001`: `PASS` — static: `JAZZ_LegionAIForceMajorHQ` / Ernie skip / `AdoptOutpostDefenders` / `SeedPoiEconomy` in `Guardpost_Patrols.lua`; nomaps bootstrap calls them; UnitData remap + tiered `LOOT_PACKS_BY_MAJOR` + LootDefs `_T1|_T2|_T3`; named skip via `UNIT_GENERIC_SUFFIX` (`LegionRaider_Jose` not remapped; `docs/tools/_verify_nomaps_unit_remap_named_skip.py` OK).
 - `JAZZ-COMPAT-004-AC-002`: `BLOCKED` — runtime NewGame NoMaps (Major HQ=A20; managed garrison).
-- `JAZZ-COMPAT-004-AC-003`: `BLOCKED` — runtime/human I1/I2 `JAZZ_Legion_*`.
+- `JAZZ-COMPAT-004-AC-003`: `BLOCKED` — runtime/human I1/I2 `JAZZ_Legion_*` (generic); Bastien stays `LegionRaider_Jose`.
 - `JAZZ-COMPAT-004-AC-004`: `BLOCKED` — runtime/human tier-11 containers.
 - `JAZZ-COMPAT-004-AC-005`: `BLOCKED` — runtime maps+nomaps no-op.
 

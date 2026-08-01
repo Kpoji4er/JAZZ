@@ -158,7 +158,7 @@ Generated `SatelliteViewMapContextMenu` считает отсутствие Regi
 - строит `JAZZ_Auto_<guardpost>` по vanilla Guardpost (A20, D10, E16, F7, F19, G10, H4, H14);
 - Major HQ = **A20** (The Eagle's Nest);
 - auto-region economy (COMPAT-003 / nomaps **0.7+**): `StartingManpower=40` (≥ garrison `size_min` 25), `TaxCap=1`, `RecruiterCap=1`, `ManpowerCapacity=64`, `MajorStartingManpower=120`, `PassiveSupplyPerHour=50`; saves мигрируют через `gv_JAZZ_NoMaps.ai_economy_rev`;
-- COMPAT-004 (nomaps **0.9**): после bootstrap **force** `major.hq_sector=A20` (jazz `JAZZ_LegionAIForceMajorHQ`; EnsureState не latch'ит Ernie `B28` при NoMaps-профиле); adopt InitialSquads на managed outpost как garrison (`JAZZ_LegionAIAdoptOutpostDefenders`); seed `poi_money`/`poi_recruits` (`JAZZ_LegionAISeedPoiEconomy`); vanilla Legion UnitData → random `JAZZ_Legion_*` пул; container loot packs по major `JAZZ_Legion_Tier`;
+- COMPAT-004 (nomaps **0.9**): после bootstrap **force** `major.hq_sector=A20` (jazz `JAZZ_LegionAIForceMajorHQ`; EnsureState не latch'ит Ernie `B28` при NoMaps-профиле); adopt InitialSquads на managed outpost как garrison (`JAZZ_LegionAIAdoptOutpostDefenders`); seed `poi_money`/`poi_recruits` (`JAZZ_LegionAISeedPoiEconomy`); generic vanilla Legion UnitData → random `JAZZ_Legion_*` пул (named/Hyena skip: только stem + `_Stronger`/`_Elite`/…; не `LegionRaider_Jose`); container loot packs по major `JAZZ_Legion_Tier`;
 - wiring/remap EnemySquad + loot inject + gear refresh;
 - WorldFlip: `Code/WorldFlipSpawnUnits.lua` использует vanilla sector IDs и jazz-units Adonis/Army defs; nil-safe; fortress `H4` (fallback `I7`); nomaps ставит guard-wrap на `SpawnWorldFlipAttackSquads`;
 - при загруженном `FhNNYd` — полный no-op.

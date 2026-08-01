@@ -1,6 +1,6 @@
 # Playtest bug report: `jazz-nomaps` (Discord, 2026-07-30)
 
-**Статус:** fixed in jazz-nomaps **0.5** (PR #1) + **0.6** armor remap (legacy Flak/Kevlar → JazzArmor); runtime smoke on I2 still recommended  
+**Статус:** fixed in jazz-nomaps **0.5** (PR #1) + **0.6** armor remap + **0.7–0.9** Global AI; **B9 Bastien remap** fixed in nomaps code (named suffix skip); runtime smoke on I1 Bastien / I2 loot still recommended  
 **Профиль:** `jazz_assets` + `jazz-units` + **`jazz-nomaps`** (`7MsJ2Eq`) + `jazz` (+ CommonLib), без `jazz-maps`  
 **Источник:** Discord playtest (Sergej 1973 / Kpoji4er), скрины инвентаря сектор **I2**; follow-up Discord 2026-07-31 (броня с оригинала)  
 **Спека:** [JAZZ-COMPAT-002](../../specs/active/JAZZ-COMPAT-002.md)  
@@ -118,6 +118,16 @@ Static root cause (до 0.7):
 `lRefreshEnemyLoadouts` обходил `gv_Squads` через `ipairs`. После despawn появляются дыры в id-map → refresh обрывался, часть врагов без ammo sanitize / armor remap.
 
 **Fix (nomaps 0.8):** `sorted_pairs(gv_Squads)`; refresh также на Exploration/Combat; Affiliation `Thugs`; one-shot log missing EnemySquadDef; expand remap + prefix heuristic; after bootstrap зовёт `JAZZ_UpdateLegionTierForNoMaps` (гонка Load/NewGame с jazz).
+
+### B9 — Bastien → «Мародёр» на пляже I1 (Discord 2026-08-01)
+
+Симптом: на стартовом пляже вместо Бастьена (`LegionRaider_Jose`) ходит юнит с именем **Мародёр** (`JAZZ_Legion_FrontT1_Marauder`). Квест «Встреча с клиентом» / I1.
+
+**Root cause:** COMPAT-004 UnitData remap (`lMatchUnitFamily`) матчил по префиксу stem (`LegionRaider` ⊆ `LegionRaider_Jose`) → пул `front` T1. Spec REQ-004 уже требовал named/Hyena skip, но суффикс не проверялся.
+
+**Fix (nomaps code):** `UNIT_GENERIC_SUFFIX` allowlist (`""`, `_Stronger`, `_Elite`, `_WeakFlagHill`, …); `LegionRaider_Jose` / Hyena / Kidnapper не ремапятся. Static: `docs/tools/_verify_nomaps_unit_remap_named_skip.py`.
+
+**Runtime:** NewGame NoMaps → пляж I1: имя Bastien / Бастьен, диалог Jose_1.
 
 ## Evidence
 
