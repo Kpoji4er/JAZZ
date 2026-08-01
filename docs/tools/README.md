@@ -193,6 +193,12 @@ python docs/tools/build-sector-atlas-docs.py
 | `_sync_grom_rehire_chat.py` | Гром RehireIntro: убрать «бесплатный» из `items.lua` + `Russian.csv`. |
 | `_sync_madman_chat_salary_strings.py` | Синк AIM-фраз Бешеного (не «бесплатный») в `items.lua` + `Russian.csv`/`English.csv`. |
 | `_ship_colby_voices_ja2_only.py` | Jazz_Colby: пересобрать `jazz-units/voices/<T-id>.opus` **только** из JA2 Trevor WAV (`trevor.rar` / `trevor_extract/trevor`); пробелы — дубли родственных реплик. `--dry-run` / apply. |
+| `_ship_ja2_merc_voices.py` | Batch: JA2/NightOps `SPEECH.SLF`+`BATTLESNDS.SLF` (+`NightOps/SPEECH`/`npc_speech`) и внешние папки (`ub_cs_folder` ЦС/`U_59` Horg/`U_62` Kulba, `horg_stogie_folder` Бычок/`166`, `ub_wildfire_folder` Data-UB/`058` Gaston) → `jazz-units/voices/<T-id>.opus` по `jazz_to_ja2_profile.csv`. Поддержка `R_NNN_*.WAV`. `--queue` / `--only slug` / `--dry-run`. Без neural. |
+| `_inject_vr_stubs_ja2_voices.py` | Для ready-мерков с пустым `ModItemVoiceResponse` — Ira-like stub (12 линий) из mercedt/NO EDT + T-ids `8900…6300+` в `jazz-units/items.lua` и RU/EN CSV. UB/ЦС без текстов — fallback-строки. |
+| `_repair_ja2_voice_remaps.py` | Repair remaps: снять wrong Malice opus с `Jazz_Gaston` (FallbackMissingVR); обновить VR-тексты + re-ship `nervous`→041 / `hitman`→064 (Slay). `--dry-run` / `--skip-ship`. |
+| `_audit_nightops_speech_coverage.py` | Аудит SPEECH/BATTLESNDS/NO overlays + внешние `_ub_cs_cache` (ЦС) / `_horg_stogie_cache` (Бычок). Identity по RU greeting/self-ID в mercedt, **не** по EDT filename (они часто врут). |
+| `_extract_ja2_mercedt.py` | Распаковать/расшифровать `MERCEDT.SLF` (JA2 / NightOps) → UTF-8 CSV субтитров `000`..`116` в `docs/design/mercs-ja12/_voice-source/ja2no-mercedt/`. |
+| `_extract_wildfire_rus_arc.py` | FreeArc extract `Jagged_Alliance_2_1_13_Wildfire_RUS.arc` (7z не открывает) через PeaZip `Arc.exe` → `_voice-source/_wildfire_cache/` (SPEECH/MercEdt + Data-UB). Это 1.13 RUS+WF maps, не commercial WF AIM VO; Gaston = Data-UB/058. |
 
 ## Артефакты
 

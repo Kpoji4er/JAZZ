@@ -7748,3 +7748,327 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 614829375019,Ствол: блокирует слот дула — глушитель не ставится.,Barrel: blocks the muzzle slot — no suppressor.,,jazz:items.lua:BlocksMuzzleSlot
 990002450,<weapons>: <name>,<weapons>: <name>,,jazz:Code/System_WeaponResourceMaintenance.lua
 990002451,Базовый вариант. Не меняет характеристики оружия.,Factory option. Does not change weapon stats.,,jazz:Code/System_WeaponRemovableModify.lua
+890000000006300,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006301,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006302,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006303,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006304,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006305,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006306,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006307,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006308,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006309,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006310,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006311,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006312,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006313,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006314,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006315,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006316,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006317,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006318,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006319,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006320,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006321,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006322,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006323,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006324,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006325,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006326,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006327,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006328,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006329,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006330,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006331,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006332,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006333,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006334,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006335,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006336,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006337,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006338,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006339,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006340,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006341,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006342,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006343,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006344,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006345,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006346,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006347,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006348,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006349,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006350,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006351,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006352,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006353,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006354,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006355,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006356,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006357,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006358,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006359,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006360,Gaston here.,Gaston here.,,jazz-units:items.lua:VoiceResponse
+890000000006361,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006362,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006363,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006364,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006365,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006366,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006367,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006368,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006369,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006370,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006371,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006372,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006373,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006374,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006375,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006376,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006377,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006378,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006379,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006380,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006381,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006382,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006383,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006384,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006385,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006386,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006387,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006388,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006389,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006390,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006391,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006392,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006393,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006394,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006395,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006396,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006397,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006398,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006399,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006400,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006401,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006402,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006403,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006404,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006405,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006406,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006407,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006408,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006409,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006410,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006411,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006412,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006413,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006414,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006415,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006416,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006417,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006418,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006419,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006420,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006421,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006422,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006423,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006424,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006425,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006426,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006427,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006428,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006429,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006430,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006431,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006432,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006433,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006434,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006435,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006436,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006437,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006438,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006439,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006440,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006441,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006442,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006443,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006444,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006445,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006446,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006447,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006448,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006449,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006450,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006451,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006452,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006453,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006454,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006455,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006456,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006457,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006458,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006459,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006460,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006461,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006462,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006463,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006464,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006465,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006466,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006467,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006468,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006469,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006470,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006471,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006472,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006473,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006474,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006475,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006476,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006477,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006478,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006479,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006480,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006481,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006482,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006483,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006484,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006485,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006486,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006487,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006488,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006489,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006490,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006491,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006492,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006493,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006494,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006495,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006496,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006497,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006498,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006499,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006500,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006501,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006502,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006503,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006504,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006505,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006506,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006507,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006508,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006509,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006510,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006511,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006512,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006513,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006514,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006515,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006516,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006517,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006518,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006519,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006520,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006521,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006522,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006523,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006524,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006525,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006526,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006527,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006528,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006529,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006530,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006531,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006532,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006533,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006534,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006535,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006536,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006537,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006538,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006539,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006540,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006541,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006542,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006543,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006544,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006545,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006546,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006547,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006548,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006549,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006550,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006551,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006552,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006553,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006554,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006555,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006556,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006557,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006558,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006559,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006560,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006561,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006562,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006563,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006564,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006565,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006566,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006567,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006568,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006569,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006570,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006571,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006572,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006573,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006574,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006575,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006576,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006577,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006578,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006579,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006580,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006581,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006582,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006583,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006584,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006585,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006586,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006587,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006588,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006589,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006590,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006591,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006592,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006593,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006594,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006595,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006596,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006597,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006598,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006599,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006600,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006601,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006602,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006603,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006604,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006605,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006606,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006607,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006608,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006609,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006610,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006611,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000006612,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000006613,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000006614,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000006615,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000006616,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000006617,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000006618,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000006619,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000006620,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000006621,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000006622,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000006623,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse

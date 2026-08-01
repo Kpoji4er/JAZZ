@@ -1,0 +1,8 @@
+# Local extract caches / tools (re-extract via docs/tools/_extract_*.py)
+_wildfire_cache/
+_ub_cs_cache/
+_horg_stogie_cache/
+_wav_cache/
+_tools/
+ja2no-mercedt/
+_ship_queue_log.txt
