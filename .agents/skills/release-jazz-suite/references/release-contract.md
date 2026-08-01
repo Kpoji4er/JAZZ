@@ -79,6 +79,8 @@ Core `metadata.lua` в tagged commit является единственным �
 - локальные editor/export/temp-файлы;
 - исходники графики, явно помеченные development-only.
 
+**Steam Workshop upload** (Mod Editor pack) читает `ModDef.ignore_files` в `metadata.lua` пакета и фильтрует через `MatchWildcard` (`GedModEditor.CreatePackageForUpload`). GitHub release archives собираются отдельно из clean checkout и своим exclude-list; для Steam канон — `ignore_files`. Локальный мусор (`.bak`, `__pycache__`, `_review`, `.tmp`, …) держать и в `.gitignore`, и в `ignore_files`. Каталоги вроде `docs/`, `.agents/`, `.github/`, `.cursor/`, `scripts/` в git остаются, но в Steam pack не входят.
+
 Для LFS загрузить objects, проверить отсутствие pointer-файлов в runtime archive и сверить SHA-256.
 
 `Images/GrandChienMap.psd` в maps является development source и должен быть перенесён в Git LFS до миграции GitHub, но не должен попадать в runtime archive.

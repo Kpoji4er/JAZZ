@@ -1,5 +1,25 @@
+# Local / agent scratch (keep Steam ignore_files in metadata.lua in sync for overlapping patterns)
 .agents/cache/
-.tmp_*.md
 .tmp/
+.tmp_*
 codex_worktrees/
 .ja3-root.local
+
+# Backups & Python
+*.bak
+*.bak_*
+__pycache__/
+*.pyc
+*.pyo
+
+# Editor / OS
+*.psd
+Thumbs.db
+.DS_Store
+# Dev-only icon review intermediates (not runtime)
+Icons/Upgrades/_review/
+
+# Scratch tool outputs
+docs/tools/_tmp_*
+docs/tools/*_report.txt
+docs/tools/_last_validate_wave.txt
