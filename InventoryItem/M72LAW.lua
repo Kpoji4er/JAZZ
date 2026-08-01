@@ -12,6 +12,7 @@ DefineClass.M72LAW = {
 	Reliability = 98,
 	Caliber = "JAZZ_Caliber_Warhead",
 	Entity = "M72LAW2",
+	Icon = "Mod/e6L4ECj/WeaponIcons/M72LAW.png",
 	DisplayName = T(162495707543, --[[ModItemInventoryItemCompositeDef M72LAW DisplayName]] "M72 LAW"),
 	DisplayNamePlural = T(290561693953, --[[ModItemInventoryItemCompositeDef M72LAW DisplayNamePlural]] "M72 LAW"),
 	Description = T(152357941079, --[[ModItemInventoryItemCompositeDef M72LAW Description]] "Одноразовый реактивный гранатомет с одним встроенным выстрелом. После пуска труба выбрасывается на землю."),

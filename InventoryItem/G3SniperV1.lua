@@ -3,7 +3,6 @@ DefineClass.G3SniperV1 = {
 	__parents = { "SniperRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Tier 2-5",
 	object_class = "SniperRifle",
 	ScrapParts = 14,
@@ -72,7 +71,6 @@ DefineClass.G3SniperV1 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagDrum_30_100_G3",
 				"JAZZ_MagSmall20_10_G3",
 			},
 			'DefaultComponent', "JAZZ_MagSmall20_10_G3",

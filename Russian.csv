@@ -1,6 +1,6 @@
 sep=,
 ID,Text,Translation,VoiceActor,Context
-987654321,<style WeaponModHeader><display_name></style>,<style WeaponModHeader><display_name></style>,,jazz:Code/System_Firearm_AddProperties.lua:477
+987654321,<style WeaponModHeader><DisplayName></style>,<style WeaponModHeader><DisplayName></style>,,jazz:Code/System_Firearm_AddProperties.lua:477
 100047705770,The <em>Le Domas</em> and <em>Van Tassel</em> families are gathered to hear findings of the <em>murder investigation</em>,"Семьи <em>Ле Домасов</em> и <em>Ван Тасселей</em> собрались, чтобы выслушать результаты <em>расследования убийств</em>",,jazz-maps:items.lua:96149
 100080397822,Ракетчик,Ракетчик,,jazz-units:items.lua:43368 | jazz-units:UnitData/JAZZ_Legion_HeavyT1_Rocketeer.lua:21
 100773939801,Обыскать,Обыскать,,jazz:items.lua:96127

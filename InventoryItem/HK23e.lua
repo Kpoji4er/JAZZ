@@ -52,12 +52,11 @@ DefineClass.HK23e = {
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
+			'Modifiable', false,
 			'AvailableComponents', {
-				"JAZZ_MagNormal",
-				"JAZZ_MagDrum_30_100_G3",
-				"JAZZ_MagSmall20_10_G3",
+				"JAZZ_MagBelt_40_100",
 			},
-			'DefaultComponent', "JAZZ_MagNormal",
+			'DefaultComponent', "JAZZ_MagBelt_40_100",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",

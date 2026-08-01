@@ -560,7 +560,7 @@ function GetWeaponComponentDescription(componentPreset)
 	local lines = {}
 
     local headerText = _InternalTranslate(
-        T{987654321, "<style WeaponModHeader><display_name></style>", componentPreset}
+        T{987654321, "<style WeaponModHeader><DisplayName></style>", componentPreset}
       )
       table.insert(lines, { display = Untranslated(headerText) })
 

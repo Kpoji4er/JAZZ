@@ -15,6 +15,10 @@ if FirstLoad then
 	JAZZ_GetRemovableBreakChance = false
 	JAZZ_WeaponHasRemovableScope = false
 	JAZZ_DepositScopeParts = false
+	JAZZ_InstallRemovableAttachment = false
+	JAZZ_RemoveRemovableAttachment = false
+	JAZZ_FindSlotForRemovableComponent = false
+	JAZZ_EjectRemovableAttachmentsForScrap = false
 end
 
 local function JazzCeilDiv(value, divisor)
@@ -124,19 +128,32 @@ function ItemWithCondition:AmountOfScrapPartsFromItem()
 end
 
 function FirearmBase:GetSpecialScrapItems()
-	local barrel_parts = 0
-	for slot, component_id in sorted_pairs(self.components or empty_table) do
-		local component = WeaponComponents[component_id]
-		if component and slot == "Barrel" then
-			barrel_parts = barrel_parts + Max(1, component.Cost or 0)
-			for _, cost in ipairs(component.AdditionalCosts or empty_table) do
-				if cost.Type == "JAZZ_BarrelParts" then
-					barrel_parts = barrel_parts + (cost.Amount or 0)
+	-- Vanilla sums AdditionalCosts only. Do NOT add component.Cost — that field is the
+	-- modification Parts/money cost (e.g. JAZZ_BarrelNormal Cost=50) and produced
+	-- absurd JAZZ_BarrelParts payouts (50+2=52) with 0 meaningful Parts feel.
+	local special = {}
+	for _, component_id in sorted_pairs(self.components or empty_table) do
+		local comp = WeaponComponents[component_id]
+		if not comp then
+			goto continue
+		end
+		for _, cost in ipairs(comp.AdditionalCosts or empty_table) do
+			local cost_type = cost.Type
+			if cost_type == "JAZZ_BarrelParts" or cost_type == "JAZZ_ScopeParts" then
+				local amount = cost.Amount or 0
+				if amount > 0 then
+					local idx = table.find(special, "restype", cost_type)
+					if idx then
+						special[idx].amount = (special[idx].amount or 0) + amount
+					else
+						special[#special + 1] = { restype = cost_type, amount = amount }
+					end
 				end
 			end
 		end
+		::continue::
 	end
-	return barrel_parts > 0 and { { restype = "JAZZ_BarrelParts", amount = barrel_parts } } or empty_table
+	return special
 end
 
 -- Repair operation still passes percentage deltas to ItemModifyCondition.  Convert
@@ -911,16 +928,18 @@ local function JazzAttachmentOperationPasses(unit, component_id, slot)
 	return InteractionRand(100, "JAZZ_RemovableAttach") < chance
 end
 
-if FirstLoad then
-
-function FirearmBase:JAZZ_RemoveRemovableAttachment(unit, slot, destination_bag)
-	local component_id = self.components and self.components[slot]
+-- Free functions (not sealed FirearmBase methods) so ReloadLua / editor dofile stay strict-safe.
+function JAZZ_RemoveRemovableAttachment(weapon, unit, slot, destination_bag)
+	if not weapon then
+		return false, "no-weapon"
+	end
+	local component_id = weapon.components and weapon.components[slot]
 	if not JAZZ_IsRemovableWeaponComponent(component_id, slot) then
 		return false, "not-removable"
 	end
 	if not JazzAttachmentOperationPasses(unit, component_id, slot) then
-		self:DamageWeaponResourceMaxPercent(1)
-		local break_chance = JAZZ_GetRemovableBreakChance(self)
+		weapon:DamageWeaponResourceMaxPercent(1)
+		local break_chance = JAZZ_GetRemovableBreakChance(weapon)
 		local roller = unit
 		if type(unit) == "table" and not unit.Random and unit.session_id then
 			roller = g_Units and g_Units[unit.session_id] or unit
@@ -932,12 +951,12 @@ function FirearmBase:JAZZ_RemoveRemovableAttachment(unit, slot, destination_bag)
 			roll = InteractionRand(100, "JAZZ_RemovableBreak")
 		end
 		if roll < break_chance then
-			self:SetWeaponComponent(slot, false)
+			weapon:SetWeaponComponent(slot, false)
 			if slot == "Scope" and not (component_id:find("Iron", 1, true) or component_id:find("Ironsight", 1, true)) then
 				local bag = destination_bag or (unit and unit.Squad and GetSquadBagInventory(unit.Squad))
 				JAZZ_DepositScopeParts(bag, unit, 1)
 			end
-			ObjModified(self)
+			ObjModified(weapon)
 			ObjModified(unit)
 			return false, "broken"
 		end
@@ -947,14 +966,12 @@ function FirearmBase:JAZZ_RemoveRemovableAttachment(unit, slot, destination_bag)
 	if not attachment then
 		return false, "attachment-create-failed"
 	end
-	self:SetWeaponComponent(slot, false)
+	weapon:SetWeaponComponent(slot, false)
 	if not JAZZ_DepositRemovableAttachment(attachment, destination_bag, unit) then
 		return false, "no-destination"
 	end
 	return true, attachment
 end
-
-end -- FirstLoad: FirearmBase:JAZZ_RemoveRemovableAttachment
 
 -- Vanilla leftovers (Compensator) vs JAZZ twins (JAZZ_Compensator): bag items may carry
 -- either id; install must pick the id listed in this weapon's AvailableComponents.
@@ -1000,8 +1017,29 @@ end
 if FirstLoad then
 
 function FirearmBase:JAZZ_InstallRemovableAttachment(unit, slot, attachment, source_inventory)
+	return JAZZ_InstallRemovableAttachment(self, unit, slot, attachment, source_inventory)
+end
+
+function FirearmBase:JAZZ_RemoveRemovableAttachment(unit, slot, destination_bag)
+	return JAZZ_RemoveRemovableAttachment(self, unit, slot, destination_bag)
+end
+
+function FirearmBase:JAZZ_FindSlotForRemovableComponent(component_id)
+	return JAZZ_FindSlotForRemovableComponent(self, component_id)
+end
+
+function FirearmBase:JAZZ_EjectRemovableAttachmentsForScrap(unit, destination_bag)
+	return JAZZ_EjectRemovableAttachmentsForScrap(self, unit, destination_bag)
+end
+
+end -- FirstLoad: thin FirearmBase wrappers → free functions
+
+function JAZZ_InstallRemovableAttachment(weapon, unit, slot, attachment, source_inventory)
+	if not weapon then
+		return false, "no-weapon"
+	end
 	local raw_id = attachment and attachment.RemovableComponentId
-	local component_id, resolved_slot = JAZZ_ResolveRemovableComponentId(self, raw_id)
+	local component_id, resolved_slot = JAZZ_ResolveRemovableComponentId(weapon, raw_id)
 	if not component_id then
 		component_id = raw_id
 	end
@@ -1014,11 +1052,11 @@ function FirearmBase:JAZZ_InstallRemovableAttachment(unit, slot, attachment, sou
 	if not slot then
 		return false, "no-slot"
 	end
-	if not JAZZ_HasRemovableComponentOption(self, component_id) then
+	if not JAZZ_HasRemovableComponentOption(weapon, component_id) then
 		return false, "incompatible"
 	end
 	if not JazzAttachmentOperationPasses(unit, component_id, slot) then
-		self:DamageWeaponResourceMaxPercent(1)
+		weapon:DamageWeaponResourceMaxPercent(1)
 		return false, "failed"
 	end
 	if source_inventory then
@@ -1028,7 +1066,7 @@ function FirearmBase:JAZZ_InstallRemovableAttachment(unit, slot, attachment, sou
 			return false, "attachment-not-owned"
 		end
 	end
-	local previous = self.components and self.components[slot]
+	local previous = weapon.components and weapon.components[slot]
 	if previous and previous ~= "" and JAZZ_IsRemovableWeaponComponent(previous, slot) then
 		local bag = unit and unit.Squad and GetSquadBagInventory(unit.Squad)
 		local ejected = JAZZ_CreateRemovableAttachment(previous)
@@ -1036,24 +1074,27 @@ function FirearmBase:JAZZ_InstallRemovableAttachment(unit, slot, attachment, sou
 			DoneObject(ejected)
 		end
 	end
-	self:SetWeaponComponent(slot, component_id)
+	weapon:SetWeaponComponent(slot, component_id)
 	DoneObject(attachment)
 	return true
 end
 
-function FirearmBase:JAZZ_FindSlotForRemovableComponent(component_id)
-	local _, slot = JAZZ_ResolveRemovableComponentId(self, component_id)
+function JAZZ_FindSlotForRemovableComponent(weapon, component_id)
+	local _, slot = JAZZ_ResolveRemovableComponentId(weapon, component_id)
 	return slot
 end
 
-function FirearmBase:JAZZ_EjectRemovableAttachmentsForScrap(unit, destination_bag)
+function JAZZ_EjectRemovableAttachmentsForScrap(weapon, unit, destination_bag)
+	if not weapon then
+		return
+	end
 	destination_bag = destination_bag or (unit and unit.Squad and GetSquadBagInventory(unit.Squad))
 	if not destination_bag then
 		return
 	end
-	-- Snapshot first: SetWeaponComponent mutates self.components while iterating.
+	-- Snapshot first: SetWeaponComponent mutates components while iterating.
 	local to_eject = {}
-	for slot, component_id in sorted_pairs(self.components or empty_table) do
+	for slot, component_id in sorted_pairs(weapon.components or empty_table) do
 		if JAZZ_IsRemovableWeaponComponent(component_id, slot) then
 			to_eject[#to_eject + 1] = { slot = slot, component_id = component_id }
 		end
@@ -1061,12 +1102,10 @@ function FirearmBase:JAZZ_EjectRemovableAttachmentsForScrap(unit, destination_ba
 	for _, entry in ipairs(to_eject) do
 		-- Scrap eject is free (no Mech roll): player already loses the receiver.
 		local attachment = JAZZ_CreateRemovableAttachment(entry.component_id)
-		self:SetWeaponComponent(entry.slot, false)
+		weapon:SetWeaponComponent(entry.slot, false)
 		if attachment then
 			JAZZ_DepositRemovableAttachment(attachment, destination_bag, unit)
 		end
 	end
 end
-
-end -- FirstLoad: FirearmBase remountable install/find/eject
 

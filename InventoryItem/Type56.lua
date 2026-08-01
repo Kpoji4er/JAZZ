@@ -41,7 +41,6 @@ DefineClass.Type56 = {
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
-			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
 				"JAZZ_MagQuick_AK",

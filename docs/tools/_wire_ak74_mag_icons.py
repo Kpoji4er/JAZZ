@@ -1,4 +1,4 @@
-"""Wire AK74_Mag30/45 Icons onto MagNormal + MagLarge_30_45 for AK74 / RPK74 / AKSU."""
+"""Wire AK74_Mag30/45 Icons onto MagNormal + MagLarge_30_45 (+ MagQuick_AK) for AK74 family + AN94."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -34,13 +34,11 @@ def patch_visual_icons(text: str, comp_id: str, apply_to: str, icon: str) -> tup
                     break
                 j += 1
             has_icon = False
-            entity_indent = "\t\t\t\t\t\t\t\t"
             for k, bl in enumerate(block):
-                if "Entity =" in bl:
-                    entity_indent = bl[: len(bl) - len(bl.lstrip("\t"))]
                 if bl.lstrip().startswith("Icon ="):
                     has_icon = True
-                    block[k] = f'{entity_indent}Icon = "{icon}",\n'
+                    ind = bl[: len(bl) - len(bl.lstrip("\t"))]
+                    block[k] = f'{ind}Icon = "{icon}",\n'
                     count += 1
             if not has_icon:
                 for k, bl in enumerate(block):
@@ -67,16 +65,19 @@ def main() -> None:
         ("JAZZ_MagNormal", "AK74", ICON30),
         ("JAZZ_MagNormal", "RPK74", ICON30),
         ("JAZZ_MagNormal", "AKSU", ICON30),
+        ("JAZZ_MagNormal", "AN94", ICON30),
         ("JAZZ_MagLarge_30_45", "AK74", ICON45),
         ("JAZZ_MagLarge_30_45", "RPK74", ICON45),
         ("JAZZ_MagLarge_30_45", "AKSU", ICON45),
+        ("JAZZ_MagLarge_30_45", "AN94", ICON45),
+        ("JAZZ_MagQuick_AK", "AN94", ICON30),
     )
     for comp, apply, icon in jobs:
         text, n = patch_visual_icons(text, comp, apply, icon)
         print(f"{comp}/{apply}: {n}")
         total += n
-    if total < 6:
-        raise SystemExit(f"expected >=6 patches, got {total}")
+    if total < 9:
+        raise SystemExit(f"expected >=9 patches, got {total}")
     ITEMS.write_text(text, encoding="utf-8", newline="\n")
     print("ok", total)
 

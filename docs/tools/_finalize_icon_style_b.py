@@ -77,6 +77,11 @@ def magenta_key(im: Image.Image) -> Image.Image:
     for y in range(h):
         seed(0, y)
         seed(w - 1, y)
+    # Closed skeleton cutouts: seed ALL interior magenta, not only edge flood.
+    for i in range(w * h):
+        if not bg[i] and dist_mag(*rgb(i)) <= BG_SEED:
+            bg[i] = True
+            q.append(i)
 
     nbr = ((1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (1, -1), (-1, 1), (-1, -1))
     while q:

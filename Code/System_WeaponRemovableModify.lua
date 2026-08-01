@@ -19,7 +19,7 @@ function JazzIsRemovableInstallTarget(attachment, weapon)
 	if type(component_id) ~= "string" or component_id == "" then
 		return false
 	end
-	return not not (weapon.JAZZ_FindSlotForRemovableComponent and weapon:JAZZ_FindSlotForRemovableComponent(component_id))
+	return not not JAZZ_FindSlotForRemovableComponent(weapon, component_id)
 end
 
 local function JazzRemovableComponentIdsMatch(a, b)
@@ -76,7 +76,7 @@ local function JazzTryDnDInstallRemovable(args)
 		return
 	end
 	local component_id = attachment.RemovableComponentId
-	local slot = weapon:JAZZ_FindSlotForRemovableComponent(component_id)
+	local slot = JAZZ_FindSlotForRemovableComponent(weapon, component_id)
 	if not slot then
 		return "incompatible"
 	end
@@ -86,7 +86,7 @@ local function JazzTryDnDInstallRemovable(args)
 	local unit = IsKindOfClasses(args.dest_container, "Unit", "UnitData") and args.dest_container
 		or IsKindOfClasses(args.src_container, "Unit", "UnitData") and args.src_container
 	local src = args.src_container
-	local ok, result = weapon:JAZZ_InstallRemovableAttachment(unit, slot, attachment, src)
+	local ok, result = JAZZ_InstallRemovableAttachment(weapon, unit, slot, attachment, src)
 	if not ok then
 		return result or "failed"
 	end
@@ -121,7 +121,7 @@ local function JazzTryDnDRemoveRemovable(args)
 	local unit = IsKindOfClasses(args.src_container, "Unit", "UnitData") and args.src_container
 		or IsKindOfClasses(args.dest_container, "Unit", "UnitData") and args.dest_container
 	local bag = (unit and unit.Squad and GetSquadBagInventory(unit.Squad)) or args.dest_container
-	local ok, result = weapon:JAZZ_RemoveRemovableAttachment(unit, slot, bag)
+	local ok, result = JAZZ_RemoveRemovableAttachment(weapon, unit, slot, bag)
 	if not ok then
 		return result or "failed"
 	end
@@ -524,7 +524,8 @@ function GetWeaponComponentDescription(componentPreset)
 	-- Always lead with the component name — empty-effect baselines otherwise collapse
 	-- to vanilla "Без изменений" with no hint what the option is (P210 factory barrel).
 	if componentPreset and componentPreset.DisplayName then
-		lead[#lead + 1] = T{987654321, "<style WeaponModHeader><display_name></style>", componentPreset}
+		-- Pass the preset as T-context so <DisplayName> resolves (named kwargs alone can leave <DISPLAY_NAME>).
+		lead[#lead + 1] = T{987654321, "<style WeaponModHeader><DisplayName></style>", componentPreset}
 	end
 	if componentPreset and componentPreset.Description then
 		lead[#lead + 1] = T{componentPreset.Description, componentPreset}
@@ -577,7 +578,7 @@ function ModifyWeaponDlg:ApplyChangesSlot(modSlot, skipChance)
 	-- Removing a removable module → return InventoryItem (Mech check inside API).
 	if (newId == "" or newId == false) and JAZZ_IsRemovableWeaponComponent(oldId, modSlot) then
 		CreateMapRealTimeThread(function()
-			local ok, result = actualWeapon:JAZZ_RemoveRemovableAttachment(owner, modSlot, bag)
+			local ok, result = JAZZ_RemoveRemovableAttachment(actualWeapon, owner, modSlot, bag)
 			if not ok then
 				PlayFX("WeaponModificationFail", "start")
 				if result == "broken" then
@@ -616,7 +617,7 @@ function ModifyWeaponDlg:ApplyChangesSlot(modSlot, skipChance)
 				return
 			end
 			-- Swap installs eject the previous module inside Install (no second Mech roll).
-			local ok, result = actualWeapon:JAZZ_InstallRemovableAttachment(owner, modSlot, item, inv)
+			local ok, result = JAZZ_InstallRemovableAttachment(actualWeapon, owner, modSlot, item, inv)
 			if not ok then
 				PlayFX("WeaponModificationFail", "start")
 				if result == "failed" then

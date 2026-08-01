@@ -70,12 +70,17 @@
 | `_audit_attachment_icons.py` | Audit `Icon`/`ChipIcon` vs disk: wired / need-wire / need-generate; пишет `_audit_attachment_icons_report.txt`. |
 | `_audit_component_icon.py` | Audit только `WeaponComponent.Icon` (кабинет ModifyWeaponDlg): missing / vanilla / `WeaponComponents/` / Full; `_audit_component_icon_report.txt`. |
 | `_audit_unique_entity_icons.py` | Unique Entity-set vs shared Icon backlog (style B). Scope/Magazine priority; barrels optional. |
-| `_finalize_icon_style_b.py` | Style B Icon: magenta/rembg cut → heal → Anaconda soft edge → 100×100. Canon: `WeaponComponents/references/PROMPT.md`. |
+| `_finalize_icon_style_b.py` | Style B Icon: magenta/rembg cut (incl. enclosed cutouts) → heal → Anaconda soft edge → 100×100. Canon: `WeaponComponents/references/PROMPT.md`. |
+| `_punch_enclosed_dark_holes.py` | Punch closed near-black fills inside skeleton stocks (triangle/trapezoid cutouts). |
+| `_apply_fix_batch_icons.py` | Fix-batch: FAMAS/SIG/G36/SVT/AUG42/AR10 finalize + M72 WeaponIcon. |
+| `_audit_icon_crosswire.py` | Проверка: content-dup PNG, cross-family ApplyTo, orphan Sig UnFolded, SVT/AVT map. |
 | `_qa_icon_style_b.py` | QA preview Icon: size/opaque/soft-AA/corners/bright-fringe. Fail → regen. |
-| `_wire_ak74_mag_icons.py` | MagNormal/MagLarge_30_45 ApplyTo AK74+RPK74+AKSU → `AK74_Mag30` / `AK74_Mag45_long`. |
+| `_wire_ak74_mag_icons.py` | MagNormal/MagLarge_30_45 ApplyTo AK74+RPK74+AKSU+AN94 → `AK74_Mag30` / `AK74_Mag45_long`; MagQuick_AK AN94 → Mag30. |
 | `_wire_g36_mag_icons.py` | MagNormal ApplyTo G36 + G36c → `Magazine/G36_Mag30.png`. |
+| `_wire_g36_stock_icons.py` | StockNormal ApplyTo G36 → `Stock/G36_Stock_Normal.png` (базовый скелетный). |
 | `_wire_vss_val_mag_icons.py` | MagNormal VSS/AS_Val → VSS_Mag10; MagLarge_10_20_VAL → VSS_Mag20. |
 | `_wire_sig_icons.py` | MagNormal Sig550/Custom/552/SWAT → Sig_Mag30; SigDefHandGuard + SigErgoHandGrip Icons. |
+| `_wire_sig_stock_icons.py` | SIG Stock Folded/UnFolded/Heavy Style B; fix Sig550Custom/Sig552 DefaultComponent → StockLightUnFolded. |
 | `_fix_ak_mag_caliber_options.py` | AK 7.62 vs 5.45: `MagLarge_30_40`/drum только на АКМ/АК47/…; `MagLarge_30_45` только на АК74/…. Companions+items. `--apply`. |
 | `_hide_fold_only_stock_slots.py` | `Modifiable=false` на Stock, если options только `StockLightFolded`+`StockLightUnFolded`. Companions + `items.lua`. `--apply`. |
 | `_strip_freeswap_wiki.py` | После strip: убрать Freeswap из `docs/wiki/weapons/*` по CSV options; оставить MP5K/MicroUZI/Scorpion; обновить count в `components.md`. |
@@ -106,16 +111,27 @@
 | `_wire_mp40_mag_icons.py` | MagNormal ApplyTo MP40 → `Magazine/MP40_Mag32.png` (was magpictures). |
 | `_wire_m3_mag_icons.py` | MagNormal ApplyTo M3GreaseGun → `Magazine/M3_Mag30.png` (no Mag slot yet). |
 | `_wire_sterling_mag_icons.py` | MagNormal ApplyTo Sterling → `Magazine/Sterling_Mag34.png` (no Mag slot yet). |
+| `_wire_stg44_mag_icons.py` | MagNormal ApplyTo STG44 → `Magazine/STG44_Mag30.png` (no Mag slot; mag in mesh). |
 | `_wire_thompson_mag_icons.py` | MagNormal Thompson → Mag30; MagDrum_30_50_THOMPSON → MagDrum. |
 | `_wire_pps43_mag_icons.py` | MagNormal ApplyTo PPS43 → `Magazine/PPS43_Mag35.png` (no Mag slot yet). |
 | `_wire_mpl_mag_icons.py` | MagNormal ApplyTo MPL → `Magazine/MPL_Mag30.png`. |
 | `_wire_m45_mag_icons.py` | MagNormal ApplyTo M45 (Carl Gustaf) → `Magazine/M45_Mag32.png`. |
 | `_wire_agram_mag_icons.py` | MagNormal ApplyTo Agram2000 → `Magazine/Agram_Mag32.png`. |
+| `_wire_famas_mag_icons.py` | MagNormal ApplyTo FAMAS → `Magazine/FAMAS_Mag25.png` (прямой F1). |
+| `_wire_fg42_mag_icons.py` | MagNormal ApplyTo FG42 → `Magazine/FG42_Mag20.png` (no Mag slot; mag in mesh). |
+| `_wire_svt_mag_icons.py` | MagNormal: SVT40→`SVT_Mag10`; AVT40→`SVT_MagLarge`. |
+| `_wire_ar10_mag_icons.py` | MagNormal Visual AR10+AR10DMR → `Magazine/AR10_Mag20.png` (no Mag slot). |
+| `_wire_m72law_icon.py` | M72LAW InventoryItem Icon → `WeaponIcons/M72LAW.png`. |
+| `_wire_aug_mag_icons.py` | AUG MagNormal→Mag30; MagLarge_30_42→Mag42; MagQuick_AUG→MagQuick (+ remountable Inv Icons). |
+| `_wire_hk33_icons.py` | HK33 Mag30/MagDrum + Handguards Style B; fix default HG Entity `HK33_HandGuardStock` (был `HK_33_Lower`). |
+| `_wire_m16a2_handguard_icons.py` | JAZZ_Handguard ApplyTo M16A2 → `Handguard/M16A2_Handguard.png` (A2 ribbed). |
+| `_wire_m1garand_enbloc_icons.py` | MagNormal ApplyTo M1Garand → `Magazine/M1Garand_Enbloc.png` (обойма; no Mag slot). |
 | `_wire_uzi_icons.py` | MagDrum_30_50_UZI → UZI_MagDrum; StockLight Folded/UnFolded UZI → UZI_Stock. |
 | `_wire_mp5_mag_icons.py` | MagNormal → MP5_Mag30; MagSmall30_15_MP5 → MP5_Mag15 на MP5/MP5K/MP5A2/MP5A4/MP5SD (+ ApplyTo MP5). |
 | `_wire_berettam12_mag_icons.py` | MagNormal ApplyTo BerettaM12 → `Magazine/BerettaM12_Mag32.png`. |
 | `_wire_spectrem4_mag_icons.py` | MagNormal ApplyTo SpectreM4 → `Magazine/SpectreM4_Mag50.png`. |
 | `_wire_tmp_icons.py` | MagNormal/MagSmall30_15_TMP → TMP Mag30/Mag15; HolsterBelt Icon (был битый `belt.png`) + TMP Visual. |
+| `_wire_holsterbelt_m16_icon.py` | HolsterBelt ApplyTo M16A1 Visual Icon (пустое General без ghost, если Icon только на компоненте). |
 | `_wire_ump45_mag_icons.py` | MagNormal ApplyTo UMP45 → `Magazine/UMP45_Mag25.png` (insert Visual). |
 | `_wire_p90_mag_icons.py` | MagNormal ApplyTo P90 → `Magazine/P90_Mag50.png`. |
 | `_wire_mp7_mag_icons.py` | MagNormal ApplyTo MP7 → `Magazine/MP7_Mag30.png`. |

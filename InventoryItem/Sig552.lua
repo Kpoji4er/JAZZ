@@ -82,7 +82,7 @@ DefineClass.Sig552 = {
 				"JAZZ_StockLightUnFolded",
 				"JAZZ_StockHeavy",
 			},
-			'DefaultComponent', "JAZZ_UnfoldStocks",
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",

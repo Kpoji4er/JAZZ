@@ -3,7 +3,6 @@ DefineClass.G3A4 = {
 	__parents = { "BattleRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
-
 	comment = "Tier 2-5",
 	object_class = "BattleRifle",
 	ScrapParts = 10,
@@ -78,7 +77,6 @@ DefineClass.G3A4 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagDrum_30_100_G3",
 				"JAZZ_MagSmall20_10_G3",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
