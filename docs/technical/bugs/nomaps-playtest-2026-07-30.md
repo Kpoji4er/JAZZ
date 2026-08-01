@@ -105,6 +105,14 @@ Static root cause (до 0.7):
 
 **Fix (nomaps 0.7 + jazz COMPAT-003):** manpower 40 / Tax+Recruiter on / clear Sectors / `ai_economy_rev` migrate; jazz `GetRegionForSector` предпочитает `LegionAIEnabled`. Patch kit: `docs/patches/jazz-nomaps-0.4/`.
 
+**Reopen (COMPAT-004):** economy defaults были в 0.8, но AI всё ещё выглядел мёртвым:
+
+1. jazz `NewGame` EnsureState latch'ил `major.hq_sector=B28` (Ernie) до nomaps disable → logistics на воду;
+2. HotDiamonds InitialSquads блокировали `lGarrisonTarget` (defense already present), а managed outpost глушил vanilla spawn;
+3. пустой POI stock / долгий pulse → tax/recruiter не стартовали.
+
+**Fix (nomaps 0.9 + jazz COMPAT-004):** `JAZZ_LegionAIForceMajorHQ(A20)`; Ernie HQ skip при NoMaps-профиле; `JAZZ_LegionAIAdoptOutpostDefenders`; `JAZZ_LegionAISeedPoiEconomy`; UnitData remap + tiered container loot. Runtime AC всё ещё нужны (`JAZZ_LegionAIPrintEconomy` → HQ=A20; managed squad в sat-view).
+
 ### B8 — Gear refresh пропускал отряды (`ipairs` по sparse `gv_Squads`)
 
 `lRefreshEnemyLoadouts` обходил `gv_Squads` через `ipairs`. После despawn появляются дыры в id-map → refresh обрывался, часть врагов без ammo sanitize / armor remap.

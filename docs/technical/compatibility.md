@@ -41,6 +41,8 @@ Playtest 2026-07-30 (Discord): cut loot/`MP5` и неполный remap — **и
 
 COMPAT-003 (2026-07-31): NoMaps Global AI economy (nomaps **0.7–0.8**) + Legion gear tier на материке по времени: шахта+3д→II, WorldFlip→III, sub 3д/14д (`Code/LegionTierProgression.lua`); `GetRegionForSector` предпочитает `LegionAIEnabled`. **0.8:** sparse `gv_Squads` gear refresh, missing-def log, Thugs affiliation, tier hook after bootstrap.
 
+COMPAT-004 (2026-08-01): NoMaps Global AI revive + UnitData remap + tiered container loot (nomaps **0.9** + jazz `Guardpost_Patrols` helpers). Major HQ force `A20`; adopt InitialSquads; seed POI; generic vanilla Legion → `JAZZ_Legion_*` pools; inject by `JAZZ_Legion_Tier`. Spec: [JAZZ-COMPAT-004](../specs/active/JAZZ-COMPAT-004.md).
+
 ## Конфликты с другими модами
 
 Особенно высока вероятность конфликта с модами, которые изменяют CTH, оружие, inventory slots, броню, ранения, AI, awareness, UI, satellite squads, сектора, карты, погоду, видимость, те же UnitData, entities, localization IDs, engine messages или declared variables. `OnMsg` накапливается по registration order, а `MsgClear` способен удалить handlers всех слоёв.

@@ -357,6 +357,46 @@ local function lEnsureOutpost(root, region, region_state, sector_id)
 	return outpost
 end
 
+-- NoMaps (COMPAT-004): never latch Major HQ from maps-only ErnieIsland / disabled regions.
+local function lJazzMapsModLoaded()
+	if rawget(_G, "IsModLoaded") then
+		return not not IsModLoaded("FhNNYd")
+	end
+	if rawget(_G, "GetModLoaded") then
+		return not not GetModLoaded("FhNNYd")
+	end
+	return ModsLoaded and table.find(ModsLoaded, "id", "FhNNYd") and true or false
+end
+
+local function lNoMapsProfileLikely()
+	local active = rawget(_G, "JAZZ_NoMapsIsActive")
+	if active and active() then
+		return true
+	end
+	-- jazz NewGame runs before nomaps bootstrap: detect package without maps.
+	if lJazzMapsModLoaded() then
+		return false
+	end
+	if rawget(_G, "IsModLoaded") then
+		return not not IsModLoaded("7MsJ2Eq")
+	end
+	if rawget(_G, "GetModLoaded") then
+		return not not GetModLoaded("7MsJ2Eq")
+	end
+	return ModsLoaded and table.find(ModsLoaded, "id", "7MsJ2Eq") and true or false
+end
+
+local function lMayAdoptMajorHQ(region)
+	if not region or not region.LegionAIEnabled then
+		return false
+	end
+	local rid = lRegionId(region)
+	if rid == "ErnieIsland" and lNoMapsProfileLikely() then
+		return false
+	end
+	return true
+end
+
 local function lEnsureRegion(root, region)
 	if not region or not region.LegionAIEnabled then
 		return false
@@ -410,7 +450,7 @@ local function lEnsureRegion(root, region)
 	end
 
 	local hq_sector = region.MajorHQSector
-	if hq_sector and hq_sector ~= "" then
+	if hq_sector and hq_sector ~= "" and lMayAdoptMajorHQ(region) then
 		root.major.hq_sector = root.major.hq_sector or hq_sector
 		if root.major.money == false or root.major.money == nil then
 			root.major.money = lClampMajorMoney(
@@ -589,6 +629,143 @@ function JAZZ_LegionAIEnsureState()
 	lAdoptLegacyPrimedSquads(root)
 	lReconcileSquads(root)
 	return root
+end
+
+--- Force Major HQ sector (NoMaps COMPAT-004). Overwrites any prior latch (e.g. Ernie B28).
+function JAZZ_LegionAIForceMajorHQ(sector_id)
+	local root = JAZZ_LegionAIEnsureState()
+	if type(root) ~= "table" or type(root.major) ~= "table" then
+		return false
+	end
+	if type(sector_id) ~= "string" or sector_id == "" then
+		return false
+	end
+	if not (gv_Sectors and gv_Sectors[sector_id]) then
+		return false
+	end
+	root.major.hq_sector = sector_id
+	return true
+end
+
+--- Adopt existing Legion enemy squads on managed outposts as garrison (HotDiamonds InitialSquads).
+function JAZZ_LegionAIAdoptOutpostDefenders()
+	local root = JAZZ_LegionAIEnsureState()
+	if type(root) ~= "table" then
+		return 0
+	end
+	local adopted = 0
+	for sector_id, outpost in sorted_pairs(root.outposts or empty_table) do
+		if type(outpost) ~= "table" then
+			goto next_outpost
+		end
+		-- Already have a managed garrison for this home → skip to avoid doubles.
+		local has_garrison = false
+		for _, squad_state in sorted_pairs(root.squads or empty_table) do
+			if squad_state.home_sector == sector_id
+				and squad_state.role == "garrison"
+				and squad_state.state ~= "retired"
+			then
+				has_garrison = true
+				break
+			end
+		end
+		if has_garrison then
+			goto next_outpost
+		end
+		local best_id, best_n = false, -1
+		for _, squad in sorted_pairs(gv_Squads or empty_table) do
+			if squad
+				and not squad.arrival_squad
+				and squad.CurrentSector == sector_id
+				and JAZZ_IsLegionSide(squad.Side)
+				and not root.squads[squad.UniqueId]
+			then
+				local n = #(squad.units or empty_table)
+				if n > best_n then
+					best_n = n
+					best_id = squad.UniqueId
+				end
+			end
+		end
+		if best_id then
+			local region = lGetRegionPreset(outpost.region_id)
+			root.squads[best_id] = {
+				squad_id = best_id,
+				region_id = outpost.region_id,
+				home_sector = sector_id,
+				role = "garrison",
+				state = "ready_for_orders",
+				missions_left = lConfig(region, "GarrisonMissions", 3),
+				payload = {},
+				task = false,
+			}
+			local squad = gv_Squads[best_id]
+			if squad then
+				lApplySquadRoleIcon(squad, "garrison")
+				ObjModified(squad)
+			end
+			local sector = gv_Sectors[sector_id]
+			if sector then
+				ObjModified(sector)
+			end
+			Msg("JAZZ_LegionAISquadManaged", best_id, "garrison", sector_id)
+			adopted = adopted + 1
+		end
+		::next_outpost::
+	end
+	return adopted
+end
+
+--- Seed POI money/recruits so tax/recruiter can fire early (NoMaps COMPAT-004).
+function JAZZ_LegionAISeedPoiEconomy(opts)
+	local root = JAZZ_LegionAIEnsureState()
+	if type(root) ~= "table" then
+		return 0
+	end
+	opts = opts or empty_table
+	local money_seed = opts.money or 1500
+	local recruit_seed = opts.recruits or 10
+	local seeded = 0
+	for region_id, region_state in sorted_pairs(root.regions or empty_table) do
+		local region = lGetRegionPreset(region_id)
+		if not region or not region.LegionAIEnabled then
+			goto next_region
+		end
+		region_state.poi_money = region_state.poi_money or {}
+		region_state.poi_recruits = region_state.poi_recruits or {}
+		local money_cap = lConfig(region, "PoiMoneyCap", 12000)
+		local recruit_cap = lConfig(region, "PoiRecruitCap", 24)
+		for _, sector_id in ipairs(region.Sectors or empty_table) do
+			local sector = gv_Sectors and gv_Sectors[sector_id]
+			if not sector or not lSectorIsSurface(sector) then
+				goto next_sector
+			end
+			-- Prefer Farm / City POIs (same signals as tax/recruiter circuits).
+			local is_poi = sector.Mine
+				or (sector.City and sector.City ~= "none")
+				or sector.Guardpost
+			if not is_poi then
+				goto next_sector
+			end
+			local cur_m = region_state.poi_money[sector_id] or 0
+			if cur_m < money_seed then
+				region_state.poi_money[sector_id] = Min(money_cap, money_seed)
+				seeded = seeded + 1
+			end
+			local cur_r = region_state.poi_recruits[sector_id] or 0
+			if cur_r < recruit_seed then
+				region_state.poi_recruits[sector_id] = Min(recruit_cap, recruit_seed)
+				seeded = seeded + 1
+			end
+			::next_sector::
+		end
+		-- Allow first pulse soon so seed is usable.
+		if (region_state.next_poi_pulse_time or 0) > lNow() + 6 * lHourScale() then
+			region_state.next_poi_pulse_time = lNow() + lHourScale()
+		end
+		::next_region::
+	end
+	return seeded
 end
 
 function JAZZ_GetLegionAIRegionState(region_id, create)
