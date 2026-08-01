@@ -1,4 +1,4 @@
-"""Wire AK74_Mag30/45 Icons onto MagNormal + MagLarge_30_45 for AK74 and RPK74."""
+"""Wire AK74_Mag30/45 Icons onto MagNormal + MagLarge_30_45 for AK74 / RPK74 / AKSU."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -43,15 +43,13 @@ def patch_visual_icons(text: str, comp_id: str, apply_to: str, icon: str) -> tup
                     block[k] = f'{entity_indent}Icon = "{icon}",\n'
                     count += 1
             if not has_icon:
-                inserted = False
                 for k, bl in enumerate(block):
                     if "Entity =" in bl:
                         ind = bl[: len(bl) - len(bl.lstrip("\t"))]
                         block.insert(k + 1, f'{ind}Icon = "{icon}",\n')
                         count += 1
-                        inserted = True
                         break
-                if not inserted:
+                else:
                     raise SystemExit(f"no Entity in block {comp_id}/{apply_to}")
             new_lines.extend(block)
             i = j + 1
@@ -65,17 +63,20 @@ def patch_visual_icons(text: str, comp_id: str, apply_to: str, icon: str) -> tup
 def main() -> None:
     text = ITEMS.read_text(encoding="utf-8")
     total = 0
-    for comp, apply, icon in (
+    jobs = (
         ("JAZZ_MagNormal", "AK74", ICON30),
         ("JAZZ_MagNormal", "RPK74", ICON30),
+        ("JAZZ_MagNormal", "AKSU", ICON30),
         ("JAZZ_MagLarge_30_45", "AK74", ICON45),
         ("JAZZ_MagLarge_30_45", "RPK74", ICON45),
-    ):
+        ("JAZZ_MagLarge_30_45", "AKSU", ICON45),
+    )
+    for comp, apply, icon in jobs:
         text, n = patch_visual_icons(text, comp, apply, icon)
         print(f"{comp}/{apply}: {n}")
         total += n
-    if total < 4:
-        raise SystemExit(f"expected >=4 patches, got {total}")
+    if total < 6:
+        raise SystemExit(f"expected >=6 patches, got {total}")
     ITEMS.write_text(text, encoding="utf-8", newline="\n")
     print("ok", total)
 

@@ -34923,6 +34923,7 @@ PlaceObj('ModItemWeaponComponentEffect', {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "UZI",
 								Entity = "UzifldStock",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Stock/UZI_Stock.png",
 								Slot = "Stock",
 								param_bindings = false,
 							}),
@@ -35221,6 +35222,7 @@ PlaceObj('ModItemWeaponComponentEffect', {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "UZI",
 								Entity = "UziUnflStock",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Stock/UZI_Stock.png",
 								Slot = "Stock",
 								param_bindings = false,
 							}),
@@ -35923,6 +35925,7 @@ PlaceObj('ModItemWeaponComponentEffect', {
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						DisplayName = T(890000000000153, --[[ModItemWeaponComponent SigErgoHandGrip DisplayName]] "Эргономичная рукоять для Sig"),
+							Icon = "Mod/e6L4ECj/WeaponComponents/Handgrip/Sig_Handgrip_Ergo.png",
 							ModificationDifficulty = 0,
 							Cost = 15,
 						ModificationEffects = {
@@ -35946,6 +35949,7 @@ PlaceObj('ModItemWeaponComponentEffect', {
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "SIGErgoHandGrip",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Handgrip/Sig_Handgrip_Ergo.png",
 								Slot = "Handgrip",
 								param_bindings = false,
 							}),
@@ -35956,6 +35960,7 @@ PlaceObj('ModItemWeaponComponentEffect', {
 					}),
 					PlaceObj('ModItemWeaponComponent', {
 						DisplayName = T(890000000000990, --[[ModItemWeaponComponent SigDefHandGuard DisplayName]] "Заводская рукоять Sig"),
+						Icon = "Mod/e6L4ECj/WeaponComponents/Handgrip/Sig_Handgrip_Default.png",
 						Slot = "Handguard",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -35965,6 +35970,7 @@ PlaceObj('ModItemWeaponComponentEffect', {
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "SIGHandGripDef",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Handgrip/Sig_Handgrip_Default.png",
 								Slot = "Handgrip",
 								param_bindings = false,
 							}),
@@ -44200,7 +44206,7 @@ PlaceObj('WeaponComponentVisual', {
 				PlaceObj('ModItemWeaponComponent', {
 					Cost = 20,
 					DisplayName = T(511443060153, --[[ModItemWeaponComponent HolsterBelt DisplayName]] "Ремень"),
-					Icon = "Mod/e6L4ECj/WeaponComponents/belt.png",
+					Icon = "Mod/e6L4ECj/WeaponComponents/Misc/JAZZ_HolsterBelt.png",
 					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_HolsterBelt.png",
 					ModificationDifficulty = 10,
 					ModificationEffects = {
@@ -44217,6 +44223,7 @@ PlaceObj('WeaponComponentVisual', {
 						PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "TMP",
 							Entity = "TMP_Holster",
+							Icon = "Mod/e6L4ECj/WeaponComponents/Misc/JAZZ_HolsterBelt.png",
 							Slot = "General",
 							param_bindings = false,
 						}),
@@ -44737,6 +44744,7 @@ PlaceObj('WeaponComponentVisual', {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "Thompson",
 								Entity = "THOMPSON_MAG",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/Thompson_Mag30.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -44785,21 +44793,21 @@ PlaceObj('WeaponComponentVisual', {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "AKSU",
 								Entity = "WeaponAttA_MagazineAKS74U_01",
-								Icon = "UI/Icons/Upgrades/AK74_Bakelite_magazine",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/AK74_Mag30.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "MP5",
 								Entity = "WeaponAttA_MagazineMP5_01",
-								Icon = "UI/Icons/Upgrades/mp5_mag_normal",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/MP5_Mag30.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "MP5K",
 								Entity = "WeaponAttA_MagazineMP5_02",
-								Icon = "UI/Icons/Upgrades/mp5_mag_large",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/MP5_Mag30.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -44827,7 +44835,7 @@ PlaceObj('WeaponComponentVisual', {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M4Commando",
 								Entity = "WeaponAttA_MagazineCAR15_02",
-								Icon = "Mod/e6L4ECj/magpictures/m4_mag_normal.png",
+								Icon = "UI/Icons/Upgrades/m16_magazine",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -44841,7 +44849,7 @@ PlaceObj('WeaponComponentVisual', {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "AR15",
 								Entity = "WeaponAttA_MagazineCAR15_02",
-								Icon = "Mod/e6L4ECj/magpictures/m4_mag_normal.png",
+								Icon = "UI/Icons/Upgrades/m16_magazine",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -44876,7 +44884,7 @@ PlaceObj('WeaponComponentVisual', {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "G36",
 								Entity = "WeaponAttA_MagazineHKG36_01",
-								Icon = "UI/Icons/Upgrades/G36_magazine",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/G36_Mag30.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -44993,6 +45001,7 @@ PlaceObj('WeaponComponentVisual', {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "MP7",
 								Entity = "MP7_Mag_def",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/MP7_Mag30.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -45030,6 +45039,7 @@ PlaceObj('WeaponComponentVisual', {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "G36c",
 								Entity = "G36cMag",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/G36_Mag30.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -45042,36 +45052,42 @@ PlaceObj('WeaponComponentVisual', {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "Sig550Custom",
 								Entity = "SigMagDef",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/Sig_Mag30.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "Sig552",
 								Entity = "SigMagDef",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/Sig_Mag30.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "Sig552SWAT",
 								Entity = "Sig552Mag",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/Sig_Mag30.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "VSS",
 								Entity = "VSSMagSmall",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/VSS_Mag10.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "AS_Val",
 								Entity = "VSSMagSmall",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/VSS_Mag10.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "BerettaM12",
 								Entity = "BerettaM12Mag",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/BerettaM12_Mag32.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -45111,6 +45127,7 @@ PlaceObj('WeaponComponentVisual', {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "Agram2000",
 								Entity = "Agram2000Mag",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/Agram_Mag32.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -45118,6 +45135,13 @@ PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "MAC10",
 								Entity = "MAC10mag",
 								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/MAC10_Mag30.png",
+								Slot = "Magazine",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "UMP45",
+								Entity = "",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/UMP45_Mag25.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -45130,6 +45154,7 @@ PlaceObj('WeaponComponentVisual', {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "Sig550",
 								Entity = "SigMagDef",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/Sig_Mag30.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -45148,6 +45173,7 @@ PlaceObj('WeaponComponentVisual', {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "P90",
 								Entity = "P90MAg",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/P90_Mag50.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -45178,57 +45204,63 @@ PlaceObj('WeaponComponentVisual', {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "CAR15",
 								Entity = "Stanag",
+								Icon = "UI/Icons/Upgrades/m16_magazine",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "MP5A2",
 								Entity = "MP5Mag",
-								Icon = "UI/Icons/Upgrades/mp5_mag_normal",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/MP5_Mag30.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "MP5A4",
 								Entity = "MP5MagV2",
-								Icon = "UI/Icons/Upgrades/mp5_mag_normal",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/MP5_Mag30.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "MP5SD",
 								Entity = "MP5MagV2",
-								Icon = "UI/Icons/Upgrades/mp5_mag_normal",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/MP5_Mag30.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M16A1",
 								Entity = "Stanag30V2",
+								Icon = "UI/Icons/Upgrades/m16_magazine",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M16A2",
 								Entity = "Stanag30V2",
+								Icon = "UI/Icons/Upgrades/m16_magazine",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M16A4",
 								Entity = "Stanag30V2",
+								Icon = "UI/Icons/Upgrades/m16_magazine",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M4A1",
 								Entity = "M4A1StanagV3",
+								Icon = "UI/Icons/Upgrades/m16_magazine",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "Agram2000",
 								Entity = "Agram2000Mag",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/Agram_Mag32.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -45277,33 +45309,35 @@ PlaceObj('WeaponComponentVisual', {
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "ZastavaM92",
 								Entity = "M92_Mag",
-								Icon = "UI/Icons/Upgrades/expanded_M14_magazine",
+								Icon = "UI/Icons/Upgrades/AK47_magazine",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "Mini14",
 								Entity = "Mini14_Small_Mag",
-								Icon = "UI/Icons/Upgrades/M14_magazine",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/Mini14_Mag20.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "TMP",
 								Entity = "TMP_Normal_Mag",
-								Icon = "UI/Icons/Upgrades/M14_magazine",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/TMP_Mag30.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "Zastava_M70",
 								Entity = "Zast_M70_Mag",
+								Icon = "UI/Icons/Upgrades/AK47_magazine",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "SpectreM4",
 								Entity = "Spectr_M4_Mag",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/SpectreM4_Mag50.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -45348,6 +45382,27 @@ PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "P226",
 								Entity = "P226MagD",
 								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/P226_Mag15.png",
+								Slot = "Magazine",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "M45",
+								Entity = "",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/M45_Mag32.png",
+								Slot = "Magazine",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "MPL",
+								Entity = "",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/MPL_Mag30.png",
+								Slot = "Magazine",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "PPS43",
+								Entity = "",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/PPS43_Mag35.png",
 								Slot = "Magazine",
 								param_bindings = false,
 							}),
@@ -46231,7 +46286,7 @@ PlaceObj('WeaponComponentVisual', {
 						PlaceObj('ModItemWeaponComponent', {
 							Cost = 15,
 							DisplayName = T(927657862290, --[[ModItemWeaponComponent MagSmall30_20 DisplayName]] "Магазин на 20 патрон"),
-							Icon = "UI/Icons/Upgrades/mp5_mag_normal",
+							Icon = "UI/Icons/Upgrades/m16_magazine",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"ReduceReloadAP",
@@ -46298,6 +46353,7 @@ PlaceObj('WeaponComponentVisual', {
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "CAR15",
 									Entity = "M16A1Stanag20",
+									Icon = "UI/Icons/Upgrades/m16_magazine",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
@@ -46324,24 +46380,28 @@ PlaceObj('WeaponComponentVisual', {
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M16A1",
 									Entity = "M16A1Stanag20",
+									Icon = "UI/Icons/Upgrades/m16_magazine",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M16A2",
 									Entity = "M16A1Stanag20",
+									Icon = "UI/Icons/Upgrades/m16_magazine",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M16A4",
 									Entity = "M16A1Stanag20",
+									Icon = "UI/Icons/Upgrades/m16_magazine",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M4A1",
 									Entity = "M16A1Stanag20",
+									Icon = "UI/Icons/Upgrades/m16_magazine",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
@@ -48245,7 +48305,7 @@ PlaceObj('WeaponComponentVisual', {
 PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "Thompson",
 									Entity = "ThompsonDrum",
-									Icon = "Mod/e6L4ECj/magpictures/thompsondrum.png",
+									Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/Thompson_MagDrum.png",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
@@ -48293,14 +48353,14 @@ PlaceObj('WeaponComponentVisual', {
 PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "UZI",
 									Entity = "UziDrum",
-									Icon = "Mod/e6L4ECj/magpictures/Thompsondrum.png",
+									Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/UZI_MagDrum.png",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
 PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "MicroUZI",
 									Entity = "UziDrum",
-									Icon = "Mod/e6L4ECj/magpictures/Thompsondrum.png",
+									Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/UZI_MagDrum.png",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
@@ -48345,7 +48405,7 @@ PlaceObj('WeaponComponentVisual', {
 PlaceObj('ModItemWeaponComponent', {
 							Cost = 25,
 							DisplayName = T(389079656552, --[[ModItemWeaponComponent MagLarge_10_20 DisplayName]] "Магазин на 20 патрон"),
-							Icon = "UI/Icons/Upgrades/galil_magazine_large",
+							Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/VSS_Mag20.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"MagazineSizeSet",
@@ -48369,12 +48429,14 @@ PlaceObj('ModItemWeaponComponent', {
 PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "AS_Val",
 									Entity = "ValMag20",
+									Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/VSS_Mag20.png",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
 PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "VSS",
 									Entity = "VSSMagLarge",
+									Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/VSS_Mag20.png",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
@@ -48510,7 +48572,7 @@ PlaceObj('WeaponComponentVisual', {
 PlaceObj('ModItemWeaponComponent', {
 							Cost = 25,
 							DisplayName = T(804714419971, --[[ModItemWeaponComponent MagLarge_20_30 DisplayName]] "Магазин на 30 патрон"),
-							Icon = "UI/Icons/Upgrades/galil_magazine_large",
+							Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/Mini14_Mag30.png",
 					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagLarge_20_30.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
@@ -48535,7 +48597,7 @@ PlaceObj('ModItemWeaponComponent', {
 PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "Mini14",
 									Entity = "Mini14_Large_Mag",
-									Icon = "UI/Icons/Upgrades/expanded_M14_magazine",
+									Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/Mini14_Mag30.png",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
@@ -49434,12 +49496,14 @@ PlaceObj('WeaponComponentVisual', {
 PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "CAR15",
 									Entity = "M16A1Stanag20",
+									Icon = "UI/Icons/Upgrades/quick_STANAG_magazine",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
 PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M16A1",
 									Entity = "M16A1Stanag20",
+									Icon = "UI/Icons/Upgrades/quick_STANAG_magazine",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
@@ -49452,12 +49516,14 @@ PlaceObj('WeaponComponentVisual', {
 PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M16A4",
 									Entity = "M16A1Stanag20",
+									Icon = "UI/Icons/Upgrades/quick_STANAG_magazine",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
 PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M4A1",
 									Entity = "M16A1Stanag20",
+									Icon = "UI/Icons/Upgrades/quick_STANAG_magazine",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
@@ -49801,7 +49867,7 @@ PlaceObj('WeaponComponentVisual', {
 PlaceObj('ModItemWeaponComponent', {
 							Cost = 15,
 							DisplayName = T(146732068615, --[[ModItemWeaponComponent MagSmall30_15 DisplayName]] "Магазин на 15 патрон"),
-							Icon = "UI/Icons/Upgrades/mp5_mag_normal",
+							Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/MP5_Mag15.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"ReduceReloadAP",
@@ -49834,29 +49900,37 @@ PlaceObj('WeaponComponentVisual', {
 									param_bindings = false,
 								}),
 PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "MP5",
+									Entity = "WeaponAttA_MagazineMP5_03",
+									Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/MP5_Mag15.png",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "MP5K",
 									Entity = "WeaponAttA_MagazineMP5_01",
-									Icon = "UI/Icons/Upgrades/mp5_mag_normal",
+									Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/MP5_Mag15.png",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
 PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "MP5A2",
 									Entity = "MP5SmallMag",
-									Icon = "UI/Icons/Upgrades/mp5_mag_quick",
+									Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/MP5_Mag15.png",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
 PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "MP5A4",
 									Entity = "MP5SmallMag",
-									Icon = "UI/Icons/Upgrades/mp5_mag_quick",
+									Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/MP5_Mag15.png",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
 PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "MP5SD",
 									Entity = "MP5SmallMag",
+									Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/MP5_Mag15.png",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
@@ -49867,7 +49941,7 @@ PlaceObj('WeaponComponentVisual', {
 PlaceObj('ModItemWeaponComponent', {
 							Cost = 15,
 							DisplayName = T(146732068615, --[[ModItemWeaponComponent MagSmall30_15 DisplayName]] "Магазин на 15 патрон"),
-							Icon = "UI/Icons/Upgrades/mp5_mag_normal",
+							Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/TMP_Mag15.png",
 							ModificationDifficulty = 0,
 							ModificationEffects = {
 								"ReduceReloadAP",
@@ -49902,6 +49976,7 @@ PlaceObj('WeaponComponentVisual', {
 PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "TMP",
 									Entity = "TMP_Small_Mag",
+									Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/TMP_Mag15.png",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
@@ -50747,7 +50822,7 @@ PlaceObj('ModItemWeaponComponent', {
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "AKSU",
 									Entity = "AK74_Backelite_45",
-									Icon = "UI/Icons/Upgrades/expanded_AK74_bakelite_magazine",
+									Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/AK74_Mag45_long.png",
 									Slot = "Magazine",
 									param_bindings = false,
 								}),
@@ -54110,7 +54185,7 @@ PlaceObj('ModItemWeaponComponent', {
 					'comment', "WEAPONS-002 remountable → component JAZZ_MagLarge_10_20_VAL",
 					'object_class', "JAZZ_RemovableAttachment",
 					'Repairable', false,
-					'Icon', "UI/Icons/Upgrades/galil_magazine_large",
+					'Icon', "Mod/e6L4ECj/WeaponComponents/Magazine/VSS_Mag20.png",
 					'DisplayName', T(990002535, --[[ModItemInventoryItemCompositeDef JAZZ_MagLarge_10_20_VAL DisplayName]] "Магазин на 20 патрон"),
 					'DisplayNamePlural', T(990002536, --[[ModItemInventoryItemCompositeDef JAZZ_MagLarge_10_20_VAL DisplayNamePlural]] "Магазин на 20 патрон"),
 					'AdditionalHint', T(990002537, --[[ModItemInventoryItemCompositeDef JAZZ_MagLarge_10_20_VAL AdditionalHint]] "Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
@@ -54190,7 +54265,7 @@ PlaceObj('ModItemWeaponComponent', {
 					'comment', "WEAPONS-002 remountable → component JAZZ_MagLarge_20_30_MINI14",
 					'object_class', "JAZZ_RemovableAttachment",
 					'Repairable', false,
-					'Icon', "UI/Icons/Upgrades/galil_magazine_large",
+					'Icon', "Mod/e6L4ECj/WeaponComponents/Magazine/Mini14_Mag30.png",
 					'DisplayName', T(990002547, --[[ModItemInventoryItemCompositeDef JAZZ_MagLarge_20_30_MINI14 DisplayName]] "Магазин на 30 патрон"),
 					'DisplayNamePlural', T(990002548, --[[ModItemInventoryItemCompositeDef JAZZ_MagLarge_20_30_MINI14 DisplayNamePlural]] "Магазин на 30 патрон"),
 					'AdditionalHint', T(990002549, --[[ModItemInventoryItemCompositeDef JAZZ_MagLarge_20_30_MINI14 AdditionalHint]] "Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
@@ -54710,7 +54785,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'comment', "WEAPONS-002 remountable → component JAZZ_MagSmall30_15_MP5",
 					'object_class', "JAZZ_RemovableAttachment",
 					'Repairable', false,
-					'Icon', "UI/Icons/Upgrades/mp5_mag_normal",
+					'Icon', "Mod/e6L4ECj/WeaponComponents/Magazine/MP5_Mag15.png",
 					'DisplayName', T(990002628, --[[ModItemInventoryItemCompositeDef JAZZ_MagSmall30_15_MP5 DisplayName]] "Магазин на 15 патрон"),
 					'DisplayNamePlural', T(990002629, --[[ModItemInventoryItemCompositeDef JAZZ_MagSmall30_15_MP5 DisplayNamePlural]] "Магазин на 15 патрон"),
 					'AdditionalHint', T(990002630, --[[ModItemInventoryItemCompositeDef JAZZ_MagSmall30_15_MP5 AdditionalHint]] "Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
@@ -54730,7 +54805,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'comment', "WEAPONS-002 remountable → component JAZZ_MagSmall30_15_TMP",
 					'object_class', "JAZZ_RemovableAttachment",
 					'Repairable', false,
-					'Icon', "UI/Icons/Upgrades/mp5_mag_normal",
+					'Icon', "Mod/e6L4ECj/WeaponComponents/Magazine/TMP_Mag15.png",
 					'DisplayName', T(990002631, --[[ModItemInventoryItemCompositeDef JAZZ_MagSmall30_15_TMP DisplayName]] "Магазин на 15 патрон"),
 					'DisplayNamePlural', T(990002632, --[[ModItemInventoryItemCompositeDef JAZZ_MagSmall30_15_TMP DisplayNamePlural]] "Магазин на 15 патрон"),
 					'AdditionalHint', T(990002633, --[[ModItemInventoryItemCompositeDef JAZZ_MagSmall30_15_TMP AdditionalHint]] "Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),

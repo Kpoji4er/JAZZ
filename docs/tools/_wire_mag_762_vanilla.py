@@ -13,6 +13,8 @@ TARGETS = [
     ('AKM', 'Entity = "AKMWaffleMag"'),
     ('RPK', 'Entity = "WeaponAttA_MagazineAK47_01"'),
     ('Type56', 'Entity = "Type56Mag"'),
+    ('Zastava_M70', 'Entity = "Zast_M70_Mag"'),
+    ('ZastavaM92', 'Entity = "M92_Mag"'),
 ]
 
 
