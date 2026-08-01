@@ -151,6 +151,14 @@ Static root cause (до 0.7):
 
 **Fix (GEAR_REV=4):** sniper T1 → только Rifleman; `lIsCombatFirearm` excludes FlareGun/HeavyWeapon.
 
+### B13 — Ранние пластины 3 класса у стрелка/мародёра (Discord 2026-08-01)
+
+Симптом: в деревне у Rifleman / Marauder уже **стальные пластины 3 класса** — слишком рано.
+
+**Root cause:** Middle-пакеты `TireArmor_ScrapPlate` / `TireArmor_KevlarPlate` (tier ≥12 / ≥13) по ошибке клали `JazzArmorPlates_Steel3` вместо Scrap / Kevlar. Light (`LeatherArmor_*`) был корректен. Steel3 по дизайну — major T2 (`TireArmor_SteelPlate`, ≥21).
+
+**Fix (jazz-units):** ScrapPlate → `JazzArmorPlates_Scrap`, KevlarPlate → `JazzArmorPlates_Kevlar`.
+
 ## Evidence
 
 - Discord скрины: инвентарь отряда «Чарли», схрон/трупы/сундук сектор I2.
