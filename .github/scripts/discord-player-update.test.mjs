@@ -13,11 +13,14 @@ import {
   buildFallbackSummary,
   collectPushChanges,
   combineDiffPieces,
+  detectNewGameNeededMarker,
+  formatNewGameNeededLabel,
   getSummarySkipReason,
   isClearlyNoiseOnly,
   neutralizeDiscordMentions,
   parseAiOutput,
   redactSecrets,
+  resolveNewGameNeeded,
   resolvePlayerSummary,
   safeErrorMessage,
 } from "./discord-player-update.mjs";
@@ -122,11 +125,13 @@ test("skip marker has priority over force and implementation markers", () => {
     skip: true,
     force: false,
     documentationImplementationExplicit: false,
+    newGameNeeded: null,
   });
   assert.deepEqual(analyzeCommitMarkers([{ message: "Показать [discord]" }]), {
     skip: false,
     force: true,
     documentationImplementationExplicit: false,
+    newGameNeeded: null,
   });
   assert.deepEqual(
     analyzeCommitMarkers([{ message: "Подтверждено [discord implemented]" }]),
@@ -134,8 +139,37 @@ test("skip marker has priority over force and implementation markers", () => {
       skip: false,
       force: true,
       documentationImplementationExplicit: true,
+      newGameNeeded: null,
     },
   );
+});
+
+test("new game markers resolve with strongest value in the push range", () => {
+  assert.equal(detectNewGameNeededMarker("fix [new game]"), "required");
+  assert.equal(
+    detectNewGameNeededMarker("loot [needs new game]"),
+    "required",
+  );
+  assert.equal(
+    detectNewGameNeededMarker("content [new game recommended]"),
+    "recommended",
+  );
+  assert.equal(detectNewGameNeededMarker("ui [no new game]"), "not_needed");
+  assert.equal(detectNewGameNeededMarker("combat [save ok]"), "not_needed");
+  assert.equal(detectNewGameNeededMarker("обычный коммит"), null);
+
+  assert.equal(
+    analyzeCommitMarkers([
+      { message: "UI [no new game]" },
+      { message: "Кампания [new game recommended]" },
+      { message: "Спавн [new game]" },
+    ]).newGameNeeded,
+    "required",
+  );
+  assert.equal(resolveNewGameNeeded("required", "not_needed"), "required");
+  assert.equal(resolveNewGameNeeded(null, "recommended"), "recommended");
+  assert.equal(resolveNewGameNeeded(null, "bogus"), "unknown");
+  assert.match(formatNewGameNeededLabel("required"), /Нужна новая игра/);
 });
 
 test("service-only paths are recognized as noise", () => {
@@ -297,6 +331,7 @@ test("prompt treats documentation as non-implementation evidence", async () => {
   assert.match(source, /сами по себе не\s+доказывают/);
   assert.match(source, /видимый игроку эффект/);
   assert.match(source, /оружие с обвесом/);
+  assert.match(source, /Всегда заполняй new_game_needed/);
   assert.doesNotMatch(
     source,
     /Изменения в основной ветке называй работой в разработке/,
@@ -309,11 +344,26 @@ test("valid AI JSON is parsed and invalid JSON is rejected", () => {
     title: "JAZZ — изменения",
     summary: "",
     sections: [],
+    new_game_needed: "not_needed",
     confidence: "high",
   });
 
   assert.equal(parseAiOutput(valid).should_publish, false);
+  assert.equal(parseAiOutput(valid).new_game_needed, "not_needed");
   assert.throws(() => parseAiOutput("{broken"), /valid JSON/);
+  assert.throws(
+    () =>
+      parseAiOutput(
+        JSON.stringify({
+          should_publish: false,
+          title: "JAZZ — изменения",
+          summary: "",
+          sections: [],
+          confidence: "high",
+        }),
+      ),
+    /new_game_needed/,
+  );
 
   const truncated = parseAiOutput(
     JSON.stringify({
@@ -326,6 +376,7 @@ test("valid AI JSON is parsed and invalid JSON is rejected", () => {
           items: Array.from({ length: 9 }, (_, index) => `Item ${index}`),
         },
       ],
+      new_game_needed: "recommended",
       confidence: "high",
     }),
   );
@@ -341,6 +392,7 @@ test("valid AI JSON is parsed and invalid JSON is rejected", () => {
     "Item 6",
     "Item 7",
   ]);
+  assert.equal(truncated.new_game_needed, "recommended");
 
   assert.throws(
     () =>
@@ -351,6 +403,7 @@ test("valid AI JSON is parsed and invalid JSON is rejected", () => {
           summary: "",
           sections: [],
           development_note: null,
+          new_game_needed: "unknown",
           confidence: "high",
         }),
       ),
@@ -443,6 +496,13 @@ test("fallback uses commit subjects and removes control markers", () => {
   assert.equal(fallback.should_publish, true);
   assert.deepEqual(fallback.sections[0].items, ["Исправлена ошибка"]);
   assert.doesNotMatch(fallback.title, /в разработке/);
+  assert.equal(fallback.new_game_needed, "unknown");
+
+  const markedFallback = buildFallbackSummary([
+    { message: "Спавн [new game]" },
+  ]);
+  assert.equal(markedFallback.new_game_needed, "required");
+  assert.deepEqual(markedFallback.sections[0].items, ["Спавн"]);
 
   const docsFallback = buildFallbackSummary(
     [{ message: "Обновлено руководство [discord]" }],
@@ -450,6 +510,7 @@ test("fallback uses commit subjects and removes control markers", () => {
   );
   assert.equal(docsFallback.title, "JAZZ — обновление документации");
   assert.match(docsFallback.summary, /без выводов о реализации/);
+  assert.equal(docsFallback.new_game_needed, "not_needed");
 });
 
 test("missing OpenAI key automatically uses fallback without override", async () => {
@@ -551,6 +612,7 @@ test("Discord payload disables mentions and respects explicit role opt-in", () =
     title: "Новости @everyone",
     summary: "Проверка @here",
     sections: [{ name: "Что изменилось", items: ["Первый пункт"] }],
+    new_game_needed: "not_needed",
     confidence: "high",
   };
   const changeSet = {
@@ -568,6 +630,16 @@ test("Discord payload disables mentions and respects explicit role opt-in", () =
   assert.deepEqual(safePayload.allowed_mentions.parse, []);
   assert.equal("content" in safePayload, false);
   assert.doesNotMatch(safePayload.embeds[0].title, /@everyone/);
+  assert.match(safePayload.embeds[0].description, /\*\*Новая игра:\*\*/);
+  assert.match(
+    safePayload.embeds[0].description,
+    /можно продолжить текущий сейв/,
+  );
+  assert.equal(safePayload.embeds[0].fields[0].name, "Новая игра");
+  assert.match(
+    safePayload.embeds[0].fields[0].value,
+    /можно продолжить текущий сейв/,
+  );
   assert.match(
     safePayload.embeds[0].footer.text,
     /JAZZ-maps · 2 коммита · 1 файл/,
@@ -597,6 +669,7 @@ test("Discord embed remains inside field and total size limits", () => {
       },
     ],
     development_note: "D".repeat(2_000),
+    new_game_needed: "unknown",
     confidence: "high",
   };
   const changeSet = {
@@ -629,6 +702,29 @@ test("Discord embed remains inside field and total size limits", () => {
     embed.fields.some((field) => field.name === "За кулисами"),
     false,
   );
+  assert.equal(embed.fields[0].name, "Новая игра");
+});
+
+test("commit new-game marker overrides AI value in resolvePlayerSummary", async () => {
+  const result = await resolvePlayerSummary({
+    apiKey: "test-api-key",
+    model: "test-model",
+    aiContext: {},
+    commits: [{ message: "Спавн [new game]" }],
+    newGameNeeded: "required",
+    requestSummary: async () => ({
+      should_publish: true,
+      title: "Title",
+      summary: "Summary",
+      sections: [{ name: "Что изменилось", items: ["Спавн"] }],
+      new_game_needed: "not_needed",
+      confidence: "high",
+    }),
+    log: () => {},
+  });
+
+  assert.equal(result.usedFallback, false);
+  assert.equal(result.summary.new_game_needed, "required");
 });
 
 test("full before..after range includes every commit in a multi-commit push", async () => {

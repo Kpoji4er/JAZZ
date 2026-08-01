@@ -20,6 +20,25 @@ const MAX_DISCORD_FOOTER = 2_048;
 const MAX_DISCORD_EMBED_TOTAL = 6_000;
 const MAX_DISCORD_TITLE = 256;
 const MAX_PUBLIC_ITEMS = 8;
+const NEW_GAME_NEEDED_VALUES = [
+  "required",
+  "recommended",
+  "not_needed",
+  "unknown",
+];
+const NEW_GAME_NEEDED_PRIORITY = {
+  required: 3,
+  recommended: 2,
+  not_needed: 1,
+  unknown: 0,
+};
+const NEW_GAME_NEEDED_LABELS = {
+  required: "Нужна новая игра — текущий сейв для этой правки не подходит.",
+  recommended:
+    "Рекомендуется новая игра — старый сейв может работать неполно.",
+  not_needed: "Новая игра не нужна — можно продолжить текущий сейв.",
+  unknown: "Не определено — при сомнении начните новую игру.",
+};
 
 const BINARY_EXTENSIONS = new Set([
   ".7z",
@@ -113,6 +132,10 @@ const SUMMARY_SCHEMA = {
         additionalProperties: false,
       },
     },
+    new_game_needed: {
+      type: "string",
+      enum: NEW_GAME_NEEDED_VALUES,
+    },
     confidence: {
       type: "string",
       enum: ["high", "medium", "low"],
@@ -123,6 +146,7 @@ const SUMMARY_SCHEMA = {
     "title",
     "summary",
     "sections",
+    "new_game_needed",
     "confidence",
   ],
   additionalProperties: false,
@@ -182,6 +206,19 @@ VoiceResponse id. Если в файлах один Jazz_Colby / Loot_JAZZ_Colby
 тесты. Установи should_publish=false, если изменения неинтересны игрокам, evidence
 недостаточно либо последствия нельзя объяснить уверенно. При confidence=low формулируй
 особенно осторожно и обычно не публикуй.
+
+Всегда заполняй new_game_needed одним из значений:
+- required — без новой игры правка заведомо не применится к текущему сейву
+  (кампания/квесты/спавн/юнит-данные/лут/карты, ломающие уже начатую кампанию);
+- recommended — сейв может открыться, но прогресс/контент лучше проверить с новой игры;
+- not_needed — изменение действует на текущий сейв (бой, CTH, UI, баланс без
+  перестройки кампании);
+- unknown — evidence недостаточно, чтобы уверенно сказать игроку.
+
+Не пиши про новую игру в title/summary/sections: для этого есть отдельное поле
+new_game_needed. Если в контексте new_game_needed_marker задан (не null), всё равно
+верни согласованное значение; маркер владельца имеет приоритет при публикации.
+Для documentation_only без явного implementation evidence обычно not_needed или unknown.
 
 Если force_publish=true, подготовь нейтральную фактическую публикацию даже для пограничных
 изменений и установи should_publish=true. Не обходи требования безопасности и evidence.
@@ -280,9 +317,56 @@ function stripDiscordMarkers(value) {
     .replace(/\[discord\s+implemented\]/gi, "")
     .replace(/\[skip discord\]/gi, "")
     .replace(/\[discord\]/gi, "")
+    .replace(/\[needs?\s+new\s+game\]/gi, "")
+    .replace(/\[new\s+game\s+recommended\]/gi, "")
+    .replace(/\[new\s+game\]/gi, "")
+    .replace(/\[no\s+new\s+game\]/gi, "")
+    .replace(/\[save\s+ok\]/gi, "")
     .replace(/[ \t]+/g, " ")
     .replace(/ *\r?\n */g, "\n")
     .trim();
+}
+
+function pickStrongerNewGameNeeded(current, candidate) {
+  if (!NEW_GAME_NEEDED_VALUES.includes(candidate)) {
+    return current;
+  }
+  if (!current) {
+    return candidate;
+  }
+  return NEW_GAME_NEEDED_PRIORITY[candidate] > NEW_GAME_NEEDED_PRIORITY[current]
+    ? candidate
+    : current;
+}
+
+export function detectNewGameNeededMarker(message) {
+  const text = String(message ?? "");
+  // Check recommended before bare [new game]: the latter is a substring of the former.
+  if (/\[new\s+game\s+recommended\]/i.test(text)) {
+    return "recommended";
+  }
+  if (/\[needs?\s+new\s+game\]/i.test(text) || /\[new\s+game\]/i.test(text)) {
+    return "required";
+  }
+  if (/\[no\s+new\s+game\]/i.test(text) || /\[save\s+ok\]/i.test(text)) {
+    return "not_needed";
+  }
+  return null;
+}
+
+export function resolveNewGameNeeded(markerValue, aiValue) {
+  if (NEW_GAME_NEEDED_VALUES.includes(markerValue)) {
+    return markerValue;
+  }
+  if (NEW_GAME_NEEDED_VALUES.includes(aiValue)) {
+    return aiValue;
+  }
+  return "unknown";
+}
+
+export function formatNewGameNeededLabel(value) {
+  const resolved = resolveNewGameNeeded(null, value);
+  return NEW_GAME_NEEDED_LABELS[resolved];
 }
 
 export function analyzeCommitMarkers(commits) {
@@ -294,12 +378,20 @@ export function analyzeCommitMarkers(commits) {
   const force =
     documentationImplementationExplicit ||
     messages.some((message) => /\[discord\]/i.test(message));
+  let newGameNeeded = null;
+  for (const message of messages) {
+    newGameNeeded = pickStrongerNewGameNeeded(
+      newGameNeeded,
+      detectNewGameNeededMarker(message),
+    );
+  }
 
   return {
     skip,
     force: force && !skip,
     documentationImplementationExplicit:
       documentationImplementationExplicit && !skip,
+    newGameNeeded,
   };
 }
 
@@ -951,6 +1043,7 @@ export function buildAiContext(changeSet, forcePublish = false) {
     changeSet.commits,
     MAX_COMMIT_CONTEXT_CHARS,
   );
+  const markers = analyzeCommitMarkers(changeSet.commits ?? []);
   const excludedCounts = {};
   for (const entry of changeSet.excluded) {
     excludedCounts[entry.reason] = (excludedCounts[entry.reason] ?? 0) + 1;
@@ -963,6 +1056,7 @@ export function buildAiContext(changeSet, forcePublish = false) {
     documentation_implementation_explicit: Boolean(
       changeSet.documentationImplementationExplicit,
     ),
+    new_game_needed_marker: markers.newGameNeeded,
     repository: changeSet.repository,
     branch: changeSet.branch,
     pusher: changeSet.pusher,
@@ -1029,6 +1123,9 @@ function validateAiSummary(value) {
   }
   if (!["high", "medium", "low"].includes(value.confidence)) {
     throw new Error("AI response confidence is invalid.");
+  }
+  if (!NEW_GAME_NEEDED_VALUES.includes(value.new_game_needed)) {
+    throw new Error("AI response new_game_needed is invalid.");
   }
 
   if ("development_note" in value) {
@@ -1098,6 +1195,7 @@ function normalizeSummary(summary) {
     title: redactSecrets(summary.title).trim(),
     summary: redactSecrets(summary.summary).trim(),
     sections,
+    new_game_needed: resolveNewGameNeeded(null, summary.new_game_needed),
     confidence: summary.confidence,
   };
 }
@@ -1142,7 +1240,10 @@ async function requestAiSummary({
   return parseAiOutput(response.output_text);
 }
 
-export function buildFallbackSummary(commits, { documentationOnly = false } = {}) {
+export function buildFallbackSummary(
+  commits,
+  { documentationOnly = false, newGameNeeded = null } = {},
+) {
   const items = commits
     .map((commit) => stripDiscordMarkers(commit.message).split(/\r?\n/, 1)[0])
     .map((message) => redactSecrets(message).trim())
@@ -1153,6 +1254,7 @@ export function buildFallbackSummary(commits, { documentationOnly = false } = {}
     return null;
   }
 
+  const markers = analyzeCommitMarkers(commits);
   return {
     should_publish: true,
     title: documentationOnly
@@ -1167,6 +1269,10 @@ export function buildFallbackSummary(commits, { documentationOnly = false } = {}
         items,
       },
     ],
+    new_game_needed: resolveNewGameNeeded(
+      newGameNeeded ?? markers.newGameNeeded,
+      documentationOnly ? "not_needed" : "unknown",
+    ),
     confidence: "low",
   };
 }
@@ -1178,13 +1284,29 @@ export async function resolvePlayerSummary({
   commits,
   forcePublish = false,
   documentationOnly = false,
+  newGameNeeded = null,
   requestSummary = requestAiSummary,
   log = console.log,
 }) {
+  const applyNewGameNeeded = (summary) => {
+    if (!summary) {
+      return summary;
+    }
+    return {
+      ...summary,
+      new_game_needed: resolveNewGameNeeded(
+        newGameNeeded,
+        summary.new_game_needed,
+      ),
+    };
+  };
+
   if (!apiKey) {
     log("OpenAI fallback: OPENAI_API_KEY is not configured.");
     return {
-      summary: buildFallbackSummary(commits, { documentationOnly }),
+      summary: applyNewGameNeeded(
+        buildFallbackSummary(commits, { documentationOnly, newGameNeeded }),
+      ),
       usedFallback: true,
     };
   }
@@ -1199,13 +1321,15 @@ export async function resolvePlayerSummary({
       throw new Error("AI did not produce the requested forced publication.");
     }
     return {
-      summary,
+      summary: applyNewGameNeeded(summary),
       usedFallback: false,
     };
   } catch (error) {
     log(`OpenAI fallback: ${safeErrorMessage(error)}`);
     return {
-      summary: buildFallbackSummary(commits, { documentationOnly }),
+      summary: applyNewGameNeeded(
+        buildFallbackSummary(commits, { documentationOnly, newGameNeeded }),
+      ),
       usedFallback: true,
     };
   }
@@ -1280,24 +1404,32 @@ export function buildDiscordPayload({
     sanitizeForDiscord(summary.title, MAX_DISCORD_TITLE) ||
     "JAZZ — изменения в основной ветке";
   const compareLink = `[Открыть изменения](${changeSet.compareUrl})`;
+  const newGameLabel = formatNewGameNeededLabel(summary.new_game_needed);
   const summaryText =
     sanitizeForDiscord(summary.summary, 3_200) ||
     "Изменения добавлены в основную ветку JAZZ.";
   const description = truncateText(
-    `${summaryText}\n\n${compareLink}`,
+    `**Новая игра:** ${sanitizeForDiscord(newGameLabel, 400)}\n\n${summaryText}\n\n${compareLink}`,
     MAX_DISCORD_DESCRIPTION,
   );
-  const fields = summary.sections
-    .filter((section) => section.items.length > 0)
-    .map((section) => ({
-      name: sanitizeForDiscord(section.name, MAX_DISCORD_FIELD_NAME),
-      value: truncateText(
-        buildSectionValue(section.items),
-        MAX_DISCORD_FIELD_VALUE,
-      ),
+  const fields = [
+    {
+      name: "Новая игра",
+      value: sanitizeForDiscord(newGameLabel, MAX_DISCORD_FIELD_VALUE),
       inline: false,
-    }))
-    .filter((field) => field.name && field.value);
+    },
+    ...summary.sections
+      .filter((section) => section.items.length > 0)
+      .map((section) => ({
+        name: sanitizeForDiscord(section.name, MAX_DISCORD_FIELD_NAME),
+        value: truncateText(
+          buildSectionValue(section.items),
+          MAX_DISCORD_FIELD_VALUE,
+        ),
+        inline: false,
+      }))
+      .filter((field) => field.name && field.value),
+  ];
 
 
   const commitWord = russianCountWord(changeSet.commitCount, [
@@ -1484,6 +1616,7 @@ async function main() {
     commits: changeSet.commits,
     forcePublish,
     documentationOnly: aiContext.documentation_only,
+    newGameNeeded: markers.newGameNeeded,
   });
 
   if (!summary) {

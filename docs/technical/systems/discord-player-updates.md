@@ -87,9 +87,10 @@ DISCORD_MENTION_UPDATE_ROLE
 7. Бинарные, generated, localization, lock, build/vendor, agent и CI-файлы остаются в списке имён, но их содержимое не передаётся модели.
 8. Implementation diff приоритизирует `Code/` и Lua, ограничивается на файл и суммарно примерно 50 тысячами символов. Для `jazz-maps` используется только Git diff: рекурсивного обхода `Maps/` нет. Обрезка явно передаётся модели.
 9. Динамические данные проходят базовую редакцию токенов, ключей, паролей, private keys и webhook URL.
-10. При доступном OpenAI Responses API возвращается строгий JSON по JSON Schema: `should_publish`, заголовок, вступление, разделы и confidence. Без ключа или при ошибке API формируется fallback из subject-строк коммитов.
+10. При доступном OpenAI Responses API возвращается строгий JSON по JSON Schema: `should_publish`, заголовок, вступление, разделы, `new_game_needed` и confidence. Без ключа или при ошибке API формируется fallback из subject-строк коммитов.
 11. AI-результат или fallback повторно валидируется, редактируется и укладывается в ограничения одного Discord embed. Если модель вернула больше 8 пунктов, лишние обрезаются без перехода на fallback. Отдельного `development_note` и секции «За кулисами» нет.
-12. Discord webhook получает embed с именем репозитория-источника, compare link, short SHA, количеством коммитов и файлов, line stats и timestamp.
+12. Поле `new_game_needed` всегда присутствует в публикации: маркер коммита владельца имеет приоритет над AI; без маркера и без уверенного evidence используется `unknown`. В Discord оно показывается в начале description и отдельным полем «Новая игра».
+13. Discord webhook получает embed с именем репозитория-источника, compare link, short SHA, количеством коммитов и файлов, line stats и timestamp.
 
 Commit messages, имена файлов и diff считаются недоверенным вводом. Они передаются как данные, не выполняются shell и не могут изменить системную инструкцию. Git вызывается через массив аргументов без shell interpolation.
 
@@ -117,9 +118,14 @@ Commit messages, имена файлов и diff считаются недове
 - `[discord]` — запросить публикацию даже для пограничного изменения; для docs-only это публикация об обновлении документации без утверждения реализации;
 - `[discord implemented]` — явное подтверждение владельца, что документация описывает уже реализованное состояние; разрешает использовать docs diff как supporting evidence;
 - `[skip discord]` — ничего не публиковать;
-- `[skip discord]` всегда имеет приоритет над обоими публикующими маркерами.
+- `[skip discord]` всегда имеет приоритет над обоими публикующими маркерами;
+- `[new game]` / `[needs new game]` — явно: **нужна новая игра**;
+- `[new game recommended]` — явно: **рекомендуется новая игра**;
+- `[no new game]` / `[save ok]` — явно: **новая игра не нужна**, сейв можно продолжить.
 
-Маркеры регистронезависимы. В AI-контекст отдельно передаются docs-only и explicit implementation flags; в fallback маркеры удаляются из публичного текста.
+Если в диапазоне push несколько маркеров новой игры, берётся самый строгий (`required` > `recommended` > `not_needed`). Маркер владельца перекрывает AI-оценку.
+
+Маркеры регистронезависимы. В AI-контекст отдельно передаются docs-only, explicit implementation flags и `new_game_needed_marker`; в fallback маркеры удаляются из публичного текста.
 
 ## Fallback без AI
 
@@ -152,12 +158,28 @@ Commit messages, имена файлов и diff считаются недове
 
 Имена наёмников: `Name` вроде «Trevor Colby» / «Тревор Колби» — один человек; `Nick` «Colby» — тот же мерк. «Colby / Trevor» в commit message не значит двух людей. Не писать «Колби и Тревор», пока в diff нет двух разных UnitData/VoiceResponse id.
 
+## Поле «Новая игра»
+
+| Значение `new_game_needed` | Текст для игрока |
+|---|---|
+| `required` | Нужна новая игра — текущий сейв для этой правки не подходит. |
+| `recommended` | Рекомендуется новая игра — старый сейв может работать неполно. |
+| `not_needed` | Новая игра не нужна — можно продолжить текущий сейв. |
+| `unknown` | Не определено — при сомнении начните новую игру. |
+
+Источник значения: маркер коммита → иначе AI по implementation evidence → иначе `unknown` (для docs-only fallback без маркера — `not_needed`).
+
 ## Пример ожидаемого сообщения
 
 ```text
 Обновлено поведение патрулей и подкреплений JAZZ
 
+**Новая игра:** Новая игра не нужна — можно продолжить текущий сейв.
+
 В основную ветку добавлены изменения поведения противников на глобальной карте.
+
+Новая игра
+Новая игра не нужна — можно продолжить текущий сейв.
 
 Что изменилось
 • Вражеские патрули точнее учитывают последствия недавних боёв.
@@ -199,7 +221,8 @@ git diff --check
 - разобрать YAML caller workflows (`jazz_assets`, `jazz-maps`, `jazz-units`, `jazz-nomaps`) и проверить ссылку на `Kpoji4er/JAZZ/.github/workflows/discord-player-updates.yml@main`;
 - проверить push range на двух коммитах и zero-before;
 - проверить, что `GITHUB_REPOSITORY=Kpoji4er/JAZZ-units` создаёт compare URL caller и метку `JAZZ-units` в Discord footer;
-- проверить valid/invalid JSON, `should_publish=false`, `[discord]`, `[discord implemented]`, приоритет `[skip discord]` и автоматический fallback без ключа и при ошибке API;
+- проверить valid/invalid JSON, `should_publish=false`, `[discord]`, `[discord implemented]`, приоритет `[skip discord]`, маркеры `[new game]` / `[no new game]` и автоматический fallback без ключа и при ошибке API;
+- проверить, что Discord embed всегда содержит поле «Новая игра»;
 - проверить Discord limits, empty `allowed_mentions.parse`, redaction и mention neutralization;
 - выполнить `workflow_dispatch` с `dry_run=true`;
 - не отправлять реальный webhook без доступного тестового канала.

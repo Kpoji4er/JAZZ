@@ -63,6 +63,7 @@ approved_by: project-owner
 - `JAZZ-DISCORD-001-REQ-005`: `DISCORD_WEBHOOK_URL` остаётся обязательным только для реальной публикации; отсутствие или ошибка `OPENAI_API_KEY` включает автоматический fallback.
 - `JAZZ-DISCORD-001-REQ-006`: callers передают только именованные secrets/variables и работают с минимальным разрешением `contents: read`.
 - `JAZZ-DISCORD-001-REQ-007`: core reusable workflow должен быть слит в `main` раньше caller workflows; callers используют `Kpoji4er/JAZZ/.github/workflows/discord-player-updates.yml@main`.
+- `JAZZ-DISCORD-001-REQ-008`: каждая публикация явно указывает, нужна ли новая игра (`new_game_needed`: `required` / `recommended` / `not_needed` / `unknown`); маркеры `[new game]`, `[new game recommended]`, `[no new game]` / `[save ok]` перекрывают AI.
 
 ## Инварианты и ограничения
 
@@ -83,6 +84,7 @@ approved_by: project-owner
 - `JAZZ-DISCORD-001-AC-004`: callers ссылаются на core reusable workflow, передают именованные secrets/variables и имеют только `contents: read`.
 - `JAZZ-DISCORD-001-AC-005`: `git diff --check` проходит отдельно в затронутых репозиториях change set, а staged scope соответствует `write_set`.
 - `JAZZ-DISCORD-001-AC-006`: Ready/Done валидатор этой спецификации и применимые documentation checks проходят.
+- `JAZZ-DISCORD-001-AC-007`: unit tests подтверждают поле «Новая игра» в Discord payload, приоритет маркеров `[new game]` / `[no new game]` над AI и обязательность `new_game_needed` в schema.
 
 ## Impact и совместимость
 
@@ -115,10 +117,11 @@ approved_by: project-owner
 - `JAZZ-DISCORD-001-AC-004`: `PASS` — static: callers содержат только `contents: read`, ссылку на `Kpoji4er/JAZZ/.github/workflows/discord-player-updates.yml@main` и именованные secrets; commits `dc2e95d` (assets), `3d76ac5` (maps), `384c35a` (units); nomaps caller добавлен локально 2026-08-01 (тот же YAML-контракт).
 - `JAZZ-DISCORD-001-AC-005`: `PASS` — static: `git diff --check` прошёл для core declared write set и caller worktrees исходного rollout; для расширения 2026-08-01 — YAML/docs scope в `jazz` и `jazz-nomaps/.github/workflows/discord-player-updates.yml`.
 - `JAZZ-DISCORD-001-AC-006`: `PASS` — static: Ready validator, `check-system-docs.ps1` и Done validator прошли на исходном rollout. Расширение 2026-08-01: technical docs и эта spec синхронизированы с пятым caller; wiki не требуется.
+- `JAZZ-DISCORD-001-AC-007`: `PASS` — static: `node --test .github/scripts/discord-player-update.test.mjs` 24/24 (2026-08-02); payload всегда содержит «Новая игра», маркеры перекрывают AI.
 
 ## Documentation delta
 
-- Обновить `docs/technical/systems/discord-player-updates.md`: ownership, источники событий (4 канон + optional nomaps), reusable/caller execution, secrets и порядок развёртывания.
+- Обновить `docs/technical/systems/discord-player-updates.md`: ownership, источники событий (4 канон + optional nomaps), reusable/caller execution, secrets и порядок развёртывания; поле `new_game_needed` и маркеры новой игры.
 - Обновить `docs/technical/systems/file-coverage.md`: отметить core reusable workflow и caller workflows соседних пакетов, включая `jazz-nomaps`.
 - `docs/technical/testing.md` менять только если существующий тестовый контракт не покрывает новые cross-repository проверки.
 - Wiki не меняется: пользовательская игровая механика и выпущенный контент не затронуты.
