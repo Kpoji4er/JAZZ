@@ -281,7 +281,6 @@ InventoryItemProperties.properties[#InventoryItemProperties.properties+1] = {
 
 SetPropMeta("BobbyRayShopItemProperties", "Tier", "max", 10)
 SetPropMeta("BobbyRayShopItemProperties", "ShopStackSize", "max", 500)
-SetPropMeta("BobbyRayShopItemProperties", "MaxStacks", "max", 500)
 
 
 

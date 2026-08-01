@@ -1,4 +1,4 @@
-﻿sep=,
+sep=,
 ID,Text,Translation,VoiceActor,Context
 987654321,<style WeaponModHeader><display_name></style>,<style WeaponModHeader><display_name></style>,,jazz:Code/System_Firearm_AddProperties.lua:477
 100047705770,The <em>Le Domas</em> and <em>Van Tassel</em> families are gathered to hear findings of the <em>murder investigation</em>,The <em>Le Domas</em> and <em>Van Tassel</em> families are gathered to hear findings of the <em>murder investigation</em>,,jazz-maps:items.lua:96149
@@ -7201,3 +7201,73 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000005022,Ночью и под землёй в начале хода союзники в радиусе 5 клеток получают +5 к шансу попадания.,"At night or underground, at turn start allies within 5 tiles gain +5 chance to hit.",,Jazz_Perk_WaveA
 890000000006200,Приказ: точность,Order: Accuracy,,Jazz_Perk_WaveA
 890000000006201,+5 к шансу попадания на следующую атаку.,+5 chance to hit on the next attack.,,Jazz_Perk_WaveA
+890000000002431,Шахтёрский надзор,Mine Overseer,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002432,"Пока Ротман гарнизоном стоит в секторе с шахтой, он может провести спецоперацию, ловящую ворующих штейгеров и временно поднимающую доход шахты","While Rothman garrisons a sector with a mine, he can run a special operation that catches thieving steigers and temporarily boosts mine income",,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002433,Стефан Ротман,Stefan Rothman,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002434,Ротман,Rothman,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002435,РОТМАН,ROTHMAN,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002436,"Бывший начальник службы безопасности алмазных рудников ЮАР — умеет и охранять шахту, и подрывать её, если понадобится. Дружит с Лавой; не любит Статика и Гвоздя, презирает вечно обдолбанного Ларри; недолюбливает американцев.","Former chief of security for South African diamond mines — can guard a mine or blow it if needed. Friends with Lava; dislikes Static and Nails, despises always-high Larry; not fond of Americans.",,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002437,Шахтёрский безопасник,Mine Security,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002438,Rothman@aim.com,Rothman@aim.com,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002439,mineboss,mineboss,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002440,"Пока Статик, Гвоздь или обдолбанный Ларри у вас — я не подписываюсь. Не тот уровень дисциплины.","Not while Static, Nails, or always-high Larry are with you. Wrong level of discipline.",,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002441,Слишком много трупов на вашем счету для нормального контракта.,Too many corpses on your ledger for a normal contract.,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002442,"Отряд из одних американцев... Ладно, но с доплатой.","An all-American squad... Fine, but with a surcharge.",,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002443,"Если нужен ещё один надёжный специалист по шахтам — ищите Лаву, я о нём наслышан.",If you need another reliable mine specialist — look up Lava. I've heard of him.,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002444,Ротман. Занят на объекте. Перезвоните.,Rothman. Busy on site. Call back.,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002445,Ротман слушает. Контракт по делу?,Rothman here. Contract business?,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002446,Связь прервалась. Вернёмся к делу.,Connection dropped. Back to business.,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002447,"Время — деньги, а у меня их и так немного.","Time is money, and I don't have much of either.",,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002448,Договорились. Беру людей и выхожу.,Deal. Gathering my people and moving out.,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002449,Контракт заканчивается. Продлеваем?,Contract ending. Extend?,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002450,Остаюсь. Работа ещё не закончена.,I'm staying. The job isn't finished.,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000003500,Крыша,Roof,,Jazz_Perk_Gaston
+890000000003501,WIP — механика сигнатурного перка в разработке.,WIP — signature perk mechanics in progress.,,Jazz_Perk_WIP
+890000000004602,[WIP] Тим «Рикошет» Саттонн,"[WIP] Tim ""Ricochet"" Sutton",,Jazz_Ricochet
+890000000004603,Рикошет,Ricochet,,Jazz_Ricochet
+890000000004604,РИКОШЕТ,RICOCHET,,Jazz_Ricochet
+890000000004605,work in progress,work in progress,,Jazz_Ricochet
+890000000004606,Ближник,Close Combat,,Jazz_Ricochet
+890000000004607,Ricochet@merc.com,Ricochet@merc.com,,Jazz_Ricochet
+890000000004608,ricochet,ricochet,,Jazz_Ricochet
+890000000004609,Пока Сидни или Вики в отряде — я пас.,Not while Sidney or Vicki are on the team.,,Jazz_Ricochet
+890000000004610,Маловато для моих ножей.,Too thin for my knives.,,Jazz_Ricochet
+890000000004611,"Отряд полон британцев... ладно, но с доплатой.","Whole squad of Brits... fine, but with a surcharge.",,Jazz_Ricochet
+890000000004612,"О, Злобный уже здесь? Тогда я в деле.","Oh, Vicious is already here? Then I'm in.",,Jazz_Ricochet
+890000000004613,Если нужен ещё один клинок — зовите Злобного.,If you need another blade — call Vicious.,,Jazz_Ricochet
+890000000004614,Рикошет вне игры.,Ricochet offline.,,Jazz_Ricochet
+890000000004615,Рикошет слушает. Кого метать?,Ricochet here. Who are we throwing?,,Jazz_Ricochet
+890000000004616,Связь прервалась. Вернёмся к делу.,Connection dropped. Back to business.,,Jazz_Ricochet
+890000000004617,Жду цель.,Waiting on a target.,,Jazz_Ricochet
+890000000004618,Ножи наточены. Иду.,Knives are sharp. Moving.,,Jazz_Ricochet
+890000000004619,Контракт заканчивается. Продлеваем?,Contract ending. Extend?,,Jazz_Ricochet
+890000000004620,Остаюсь.,I'm staying.,,Jazz_Ricochet
+890000000004621,КАРЛОС,CARLOS,,Jazz_Carlos
+890000000004622,work in progress,work in progress,,Jazz_Carlos
+890000000004623,Пессимист,Pessimist,,Jazz_Carlos
+890000000004624,Carlos@arulco.reb,Carlos@arulco.reb,,Jazz_Carlos
+890000000004625,carlos,carlos,,Jazz_Carlos
+890000000004626,Carlos offline.,Carlos offline.,,Jazz_Carlos
+890000000004627,Carlos here.,Carlos here.,,Jazz_Carlos
+890000000004628,Continue.,Continue.,,Jazz_Carlos
+890000000004629,Waiting.,Waiting.,,Jazz_Carlos
+890000000004630,Hired.,Hired.,,Jazz_Carlos
+890000000004631,Contract ending?,Contract ending?,,Jazz_Carlos
+890000000004632,Staying.,Staying.,,Jazz_Carlos
+890000000006202,[WIP] Тортон «Мясо» Джонс,"[WIP] Torren ""Meat"" Jones",,Jazz_Meat
+890000000006203,Мясо,Meat,,Jazz_Meat
+890000000006204,МЯСО,MEAT,,Jazz_Meat
+890000000006205,work in progress,work in progress,,Jazz_Meat
+890000000006206,Гора,The Mountain,,Jazz_Meat
+890000000006207,Meat@merc.com,Meat@merc.com,,Jazz_Meat
+890000000006208,meat,meat,,Jazz_Meat
+890000000006209,Meat offline.,Meat offline.,,Jazz_Meat
+890000000006210,Meat here.,Meat here.,,Jazz_Meat
+890000000006211,Continue.,Continue.,,Jazz_Meat
+890000000006212,Waiting.,Waiting.,,Jazz_Meat
+890000000006213,Hired.,Hired.,,Jazz_Meat
+890000000006214,Contract ending?,Contract ending?,,Jazz_Meat
+890000000006215,Staying.,Staying.,,Jazz_Meat
+890000000006216,[WIP] Карлос Дасуза,[WIP] Carlos Dasuza,,Jazz_Carlos
+890000000006217,Карлос,Carlos,,Jazz_Carlos
+890000000006231,Несу вас,I Carry You,,Jazz_Perk_Hobbit

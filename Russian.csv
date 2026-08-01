@@ -1,4 +1,4 @@
-﻿sep=,
+sep=,
 ID,Text,Translation,VoiceActor,Context
 987654321,<style WeaponModHeader><display_name></style>,<style WeaponModHeader><display_name></style>,,jazz:Code/System_Firearm_AddProperties.lua:477
 100047705770,The <em>Le Domas</em> and <em>Van Tassel</em> families are gathered to hear findings of the <em>murder investigation</em>,"Семьи <em>Ле Домасов</em> и <em>Ван Тасселей</em> собрались, чтобы выслушать результаты <em>расследования убийств</em>",,jazz-maps:items.lua:96149
@@ -7335,25 +7335,25 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000002429,"Скоуп бы тут что-то поправил, наверное.","Скоуп бы тут что-то поправил, наверное.",,jazz-units:items.lua:72941
 890000000002430,Хорошо служить со своими.,Хорошо служить со своими.,,jazz-units:items.lua:72947
 890000000004601,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Meat
-890000000004602,[WIP] Тим «Рикошет» Саттонн,[WIP] Тим «Рикошет» Саттонн,,Jazz_Meat
-890000000004603,[WIP] Тортон «Мясо» Джонс,[WIP] Тортон «Мясо» Джонс,,Jazz_Meat
-890000000004604,Мясо,Мясо,,Jazz_Meat
-890000000004605,work in progress,work in progress,,Jazz_Meat
-890000000004606,work in progress,work in progress,,Jazz_Meat
-890000000004607,Гора,Гора,,Jazz_Meat
-890000000004608,Meat@merc.com,Meat@merc.com,,Jazz_Meat
-890000000004609,meat,meat,,Jazz_Meat
-890000000004610,Meat offline.,Meat offline.,,Jazz_Meat
-890000000004611,Meat here.,Meat here.,,Jazz_Meat
-890000000004612,Continue.,Continue.,,Jazz_Meat
-890000000004613,Waiting.,Waiting.,,Jazz_Meat
-890000000004614,Hired.,Hired.,,Jazz_Meat
-890000000004615,Contract ending?,Contract ending?,,Jazz_Meat
-890000000004616,Staying.,Staying.,,Jazz_Meat
-890000000004617,Тихая тень,Тихая тень,,Jazz_Carlos
-890000000004618,Скрытное убийство ножом не выдаёт позицию и возвращает потраченные ОД,Скрытное убийство ножом не выдаёт позицию и возвращает потраченные ОД,,Jazz_Carlos
-890000000004619,[WIP] Карлос Дасуза,[WIP] Карлос Дасуза,,Jazz_Carlos
-890000000004620,Карлос,Карлос,,Jazz_Carlos
+890000000004602,[WIP] Тим «Рикошет» Саттонн,[WIP] Тим «Рикошет» Саттонн,,Jazz_Ricochet
+890000000004603,Рикошет,Рикошет,,Jazz_Ricochet
+890000000004604,РИКОШЕТ,РИКОШЕТ,,Jazz_Ricochet
+890000000004605,work in progress,work in progress,,Jazz_Ricochet
+890000000004606,Ближник,Ближник,,Jazz_Ricochet
+890000000004607,Ricochet@merc.com,Ricochet@merc.com,,Jazz_Ricochet
+890000000004608,ricochet,ricochet,,Jazz_Ricochet
+890000000004609,Пока Сидни или Вики в отряде — я пас.,Пока Сидни или Вики в отряде — я пас.,,Jazz_Ricochet
+890000000004610,Маловато для моих ножей.,Маловато для моих ножей.,,Jazz_Ricochet
+890000000004611,"Отряд полон британцев... ладно, но с доплатой.","Отряд полон британцев... ладно, но с доплатой.",,Jazz_Ricochet
+890000000004612,"О, Злобный уже здесь? Тогда я в деле.","О, Злобный уже здесь? Тогда я в деле.",,Jazz_Ricochet
+890000000004613,Если нужен ещё один клинок — зовите Злобного.,Если нужен ещё один клинок — зовите Злобного.,,Jazz_Ricochet
+890000000004614,Рикошет вне игры.,Рикошет вне игры.,,Jazz_Ricochet
+890000000004615,Рикошет слушает. Кого метать?,Рикошет слушает. Кого метать?,,Jazz_Ricochet
+890000000004616,Связь прервалась. Вернёмся к делу.,Связь прервалась. Вернёмся к делу.,,Jazz_Ricochet
+890000000004617,Жду цель.,Жду цель.,,Jazz_Ricochet
+890000000004618,Ножи наточены. Иду.,Ножи наточены. Иду.,,Jazz_Ricochet
+890000000004619,Контракт заканчивается. Продлеваем?,Контракт заканчивается. Продлеваем?,,Jazz_Ricochet
+890000000004620,Остаюсь.,Остаюсь.,,Jazz_Ricochet
 890000000004621,КАРЛОС,КАРЛОС,,Jazz_Carlos
 890000000004622,work in progress,work in progress,,Jazz_Carlos
 890000000004623,Пессимист,Пессимист,,Jazz_Carlos
@@ -7627,7 +7627,6 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000004201,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000004301,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000004401,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
-890000000003501,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_WIP
 890000000003202,[WIP] Мигель Кордона,[WIP] Мигель Кордона,,Jazz_Name_WIP
 890000000003402,[WIP] Грег «Динамо» Дункан,[WIP] Грег «Динамо» Дункан,,Jazz_Name_WIP
 890000000004502,[WIP] Тим «Хоббит» Хиллман,[WIP] Тим «Хоббит» Хиллман,,Jazz_Name_WIP
@@ -7740,3 +7739,21 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000002521,(прыжок),(прыжок),,jazz-units:VoiceResponse Jazz_Colby Jumping
 890000000006200,Приказ: точность,Order: Accuracy,,Jazz_Perk_WaveA
 890000000006201,+5 к шансу попадания на следующую атаку.,+5 chance to hit on the next attack.,,Jazz_Perk_WaveA
+890000000003500,Крыша,Крыша,,Jazz_Perk_Gaston
+890000000006202,[WIP] Тортон «Мясо» Джонс,[WIP] Тортон «Мясо» Джонс,,Jazz_Meat
+890000000006203,Мясо,Мясо,,Jazz_Meat
+890000000006204,МЯСО,МЯСО,,Jazz_Meat
+890000000006205,work in progress,work in progress,,Jazz_Meat
+890000000006206,Гора,Гора,,Jazz_Meat
+890000000006207,Meat@merc.com,Meat@merc.com,,Jazz_Meat
+890000000006208,meat,meat,,Jazz_Meat
+890000000006209,Meat offline.,Meat offline.,,Jazz_Meat
+890000000006210,Meat here.,Meat here.,,Jazz_Meat
+890000000006211,Continue.,Continue.,,Jazz_Meat
+890000000006212,Waiting.,Waiting.,,Jazz_Meat
+890000000006213,Hired.,Hired.,,Jazz_Meat
+890000000006214,Contract ending?,Contract ending?,,Jazz_Meat
+890000000006215,Staying.,Staying.,,Jazz_Meat
+890000000006216,[WIP] Карлос Дасуза,[WIP] Карлос Дасуза,,Jazz_Carlos
+890000000006217,Карлос,Карлос,,Jazz_Carlos
+890000000006231,Несу вас,Несу вас,,Jazz_Perk_Hobbit
