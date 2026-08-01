@@ -14,7 +14,7 @@
 
 ## География / атлас секторов
 
-- Канон атласа и трансфера: `jazz-maps/docs/content/sector-atlas.md`, `sector-transfer.md`, сверка `sector-sheet-vs-runtime.md`.
+- Канон атласа и трансфера: `docs/technical/maps/sector-atlas.md`, `sector-transfer.md`, сверка `sector-sheet-vs-runtime.md`.
 - Regen из `items.lua` (не из `Maps/`): `docs/tools/export-jazz-maps-sectors.py` + `docs/tools/build-sector-atlas-docs.py`.
 - Player: `docs/wiki/grand-chien-map.md` + showcase `grand-chien-map` (RU/EN).
 - Сателлит: `jazz-maps/Images/GrandChien2.png` (`sector_bottomright = P32`, старт `M1`).

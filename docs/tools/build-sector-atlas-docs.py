@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """Build sector atlas / transfer / sheet-vs-runtime docs from:
-  - jazz-maps/docs/content/data/sectors-runtime.json (from export-jazz-maps-sectors.py)
+  - docs/technical/maps/data/sectors-runtime.json (from export-jazz-maps-sectors.py)
   - embedded Google Sheet «Карта» snapshot (gid 863693534, captured 2026-08-01)
 
 Usage (from jazz/):
   python docs/tools/export-jazz-maps-sectors.py
   python docs/tools/build-sector-atlas-docs.py
 
-Writes under jazz-maps/docs/content/ (+ data/*.csv).
+Writes under docs/technical/maps/ (+ data/*.csv).
 """
 
 from __future__ import annotations
@@ -446,11 +446,19 @@ def main() -> int:
         "--maps-root",
         type=Path,
         default=Path(__file__).resolve().parents[3] / "jazz-maps",
+        help="Unused for IO; kept for CLI compat. Runtime JSON is under jazz docs.",
+    )
+    ap.add_argument(
+        "--out",
+        type=Path,
+        default=None,
+        help="Content dir (default: jazz/docs/technical/maps)",
     )
     args = ap.parse_args()
-    maps_root = args.maps_root.resolve()
-    data_dir = maps_root / "docs" / "content" / "data"
-    content_dir = maps_root / "docs" / "content"
+    jazz_root = Path(__file__).resolve().parents[2]
+    content_dir = (args.out or (jazz_root / "docs" / "technical" / "maps")).resolve()
+    data_dir = content_dir / "data"
+    data_dir.mkdir(parents=True, exist_ok=True)
     runtime_path = data_dir / "sectors-runtime.json"
     if not runtime_path.is_file():
         print(f"ERROR: run export-jazz-maps-sectors.py first ({runtime_path})", file=sys.stderr)
@@ -609,7 +617,7 @@ def main() -> int:
         "",
         "- [Атлас секторов](sector-atlas.md)",
         "- [Сверка sheet ↔ runtime](sector-sheet-vs-runtime.md)",
-        "- Suite: `jazz/docs/technical/systems/maps-quests-content-catalog.md`",
+        "- Suite: [`maps-quests-content-catalog.md`](../systems/maps-quests-content-catalog.md)",
         "",
     ]
     transfer_md.write_text("\n".join(lines), encoding="utf-8")
@@ -626,7 +634,7 @@ def main() -> int:
         "# Атлас секторов Grand Chien (jazz-maps)",
         "",
         "Расширенная кампания `HotDiamonds`: сетка **A–P × 1–32** (`sector_bottomright = P32`), "
-        "старт **`M1`**, сателлит [`Images/GrandChien2.png`](../../Images/GrandChien2.png) "
+        "старт **`M1`**, сателлит [`GrandChien2.png`](../../../../jazz-maps/Images/GrandChien2.png) "
         "(`map_file = Mod/FhNNYd/Images/GrandChien2.png`). Underground: `Images/BigMap_Under_1.png`.",
         "",
         f"Снимок runtime: **{runtime['count']}** `ModItemSector` "
@@ -698,7 +706,7 @@ def main() -> int:
         "",
         "- [Трансфер](sector-transfer.md)",
         "- [Сверка sheet ↔ runtime](sector-sheet-vs-runtime.md)",
-        "- [Квесты / локации / враги](quests-locations-enemies.md)",
+        "- [Квесты / локации / враги](../../../../jazz-maps/docs/content/quests-locations-enemies.md)",
         "",
     ]
     atlas_md.write_text("\n".join(alines), encoding="utf-8")

@@ -6,11 +6,11 @@ Does NOT recurse Maps/. Reads only items.lua / metadata.lua.
 
 Usage (from jazz/):
   python docs/tools/export-jazz-maps-sectors.py
-  python docs/tools/export-jazz-maps-sectors.py --maps-root ../jazz-maps --out ../jazz-maps/docs/content/data
+  python docs/tools/export-jazz-maps-sectors.py --maps-root ../jazz-maps --out docs/technical/maps/data
 
-Outputs:
-  sectors-runtime.json
-  sectors-runtime.csv
+Outputs (default):
+  docs/technical/maps/data/sectors-runtime.json
+  docs/technical/maps/data/sectors-runtime.csv
 """
 
 from __future__ import annotations
@@ -111,11 +111,12 @@ def main() -> int:
         "--out",
         type=Path,
         default=None,
-        help="Output directory (default: <maps-root>/docs/content/data)",
+        help="Output directory (default: jazz/docs/technical/maps/data)",
     )
     args = ap.parse_args()
     maps_root: Path = args.maps_root.resolve()
-    out_dir: Path = (args.out or (maps_root / "docs" / "content" / "data")).resolve()
+    jazz_root = Path(__file__).resolve().parents[2]
+    out_dir: Path = (args.out or (jazz_root / "docs" / "technical" / "maps" / "data")).resolve()
     items = maps_root / "items.lua"
     meta = maps_root / "metadata.lua"
     if not items.is_file():

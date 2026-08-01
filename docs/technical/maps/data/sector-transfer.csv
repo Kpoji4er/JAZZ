@@ -1,0 +1,23 @@
+vanilla_id,maps_id,name_ru,notes,source,runtime_status
+A2,A4,Даймонд Рэд,,sheet,ok
+A11,B15,Ферма Нигде (Nowhere),,sheet,ok
+A20,B28,Орлиное гнездо,Major HQ,sheet,ok
+B2,C6,Порт (рядом с Даймонд Рэд),sheet писал С6 (кириллица С),sheet,ok
+B12,A25,Шахта Драхенберг,sheet: Драхтенберг,sheet,ok
+B13,A26,Ландсбах / Лансбах,,sheet,ok
+B16,D22,Разлом (Аванпост),,sheet,missing_moditem
+C5,D9,Лагерь Браконьеров,,sheet,ok
+C7,E15,Окраина Понтагрюэля (Мастерская),sheet target E15; D7 тоже → E15,sheet,ok
+D7,E15,Понтагрюэль,sheet: D7→E15 (трущобы/хаб — уточнять с runtime names),sheet,ok
+D8,E16,Понтагрюэль Больница,,sheet,ok
+D10,F23,Аванпост Гран-При,,sheet,missing_moditem
+E9,F13,Лагерь Беженцев,,sheet,ok
+F5,G9,Код-Дазур (берег со сломанным кораблём),,sheet,ok
+H2,I5,Деревня Эрни,,sheet,ok
+H3,I6,Жестянка,sheet: H3 - I6,sheet,ok
+H4,I7,Форт Ло-Блё (Аванпост),Ernie outpost / Global AI,sheet,ok
+H7,H14,Шахта (около Флитауна),,sheet,ok
+I1,K4,Флаговый холм,,sheet,ok
+I2,M4,Смотровая площадка,vanilla I2 ≠ maps I2 (доктор),sheet,ok
+I3,M7,Изумрудный берег (пляж с минами),sheet → M7 (заглушка); runtime Emerald Coast = J7,sheet,missing_moditem
+I1,M1,Старт кампании (зона высадки),"suite: InitialSector M1; sheet I1→K4 is Flag Hill. This row is start remap, not Flag Hill.",suite-docs,ok

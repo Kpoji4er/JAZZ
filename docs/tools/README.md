@@ -153,7 +153,7 @@ node scripts/docs/weapons-docs.mjs import --force
 
 | Скрипт | Назначение |
 | --- | --- |
-| `export-jazz-maps-sectors.py` | Парсит `ModItemSector` из `../jazz-maps/items.lua` (+ index `metadata.lua`); пишет `sectors-runtime.json/.csv` в `jazz-maps/docs/content/data/`. **Не** обходит `Maps/`. |
+| `export-jazz-maps-sectors.py` | Парсит `ModItemSector` из `../jazz-maps/items.lua` (+ index `metadata.lua`); пишет `sectors-runtime.json/.csv` в `docs/technical/maps/data/`. **Не** обходит `Maps/`. |
 | `build-sector-atlas-docs.py` | Собирает атлас / трансфер / сверку sheet↔runtime (MD+CSV) из runtime JSON + снимка Google Sheet «Карта». |
 
 ```text
@@ -161,7 +161,7 @@ python docs/tools/export-jazz-maps-sectors.py
 python docs/tools/build-sector-atlas-docs.py
 ```
 
-Выход: `jazz-maps/docs/content/sector-atlas.md`, `sector-transfer.md`, `sector-sheet-vs-runtime.md` и CSV в `content/data/`.
+Выход: `docs/technical/maps/sector-atlas.md`, `sector-transfer.md`, `sector-sheet-vs-runtime.md` и CSV в `docs/technical/maps/data/`.
 
 ## Прочие утилиты баланса / accuracy
 

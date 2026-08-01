@@ -22,6 +22,7 @@
 | [Боевой автомобиль — указатель](combat-vehicle-design.md) | Канон спеки в **JAZZ Maps** `docs/combat-vehicle-design.md`; код ещё не в runtime | Не ведётся |
 | [Карты, квесты и диалоги](maps-quests-dialogue.md) | 317 каталогов карт, 245 секторов, 110 квестов, разговоры, banters и setpiece | Не ведётся |
 | [Каталог квестов, локаций и врагов](maps-quests-content-catalog.md) | Снимок quest/sector/squad IDs из jazz-maps; детально остров Эрни | Не ведётся |
+| [Атлас / трансфер секторов](../maps/sector-atlas.md) | Сетка A–P×32, transfer vanilla→maps, сверка sheet↔runtime + CSV | Не ведётся |
 | [Интерфейс, звук и FX](ui-audio-fx.md) | Crosshair, combat badge, inventory UI, Will bar, sound presets и оружейные FX | Не ведётся |
 | [Entities и ресурсы](assets-entities.md) | 490 зарегистрированных Entity ModItems, meshes, materials, textures и контракты имён | Не ведётся |
 | [Runtime, загрузка и инструменты](runtime-editor-integration.md) | metadata, Mod Editor, generated data, hooks, placeholders, dormant-код и диагностика | Не ведётся |

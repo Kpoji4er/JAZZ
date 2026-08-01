@@ -1,0 +1,531 @@
+sectorId,sheet_note,display_name,comment,mapName,Label1,City,WeatherZone,kind,has_moditem
+A1,Саванна (Берег),,Саванна берег,rmmxFC,,,,authored,yes
+A2,Саванна (Берег),,Саванна берег,PLg5q3T,,,,authored,yes
+A3,Саванна (Берег),,Саванна берег,PYphSvk,,,,authored,yes
+A4,Даймонд-Рэд,Diamond Red,Даймонд-Ред,UVhtJTG,Mine,,SavannahNorth,authored,yes
+A5,,,,,,,,empty,no
+A6,,,,,,,,empty,no
+A7,,,,,,,,empty,no
+A8,,,,,,,,empty,no
+A9,А9 тоже горы и тоже без деталей,Highlands,Горы,KKzpYnk,,,,authored,yes
+A10,,,,,,,,empty,no
+A11,,,,,,,,empty,no
+A12,А12 Горы (Пока без деталей),Highlands,Горы,UfXn5Ky,,,Highlands,authored,yes
+A13,А13 Военный аванпост - Горный,Военный аванпост - Горный,,GWkvH6,,,,authored,yes
+A14,,,,,,,,empty,no
+A15,А15 Лагерь на холме (Тут пенитрируют Бифа),Hill Station,Тут дрючат бифа,onJGJze,,,Highlands,authored,yes
+A16,,,,,,,,empty,no
+A17,,,,,,,,empty,no
+A18,,,,,,,,empty,no
+A19,,,,,,,,empty,no
+A20,,,,,,,,empty,no
+A21,,,,,,,,empty,no
+A22,,,,,,,,empty,no
+A23,,,,,,,,empty,no
+A24,А24 Горная дорога (Конь не валялся),,Горная дорога,f7ufzi,,,,authored,yes
+A25,A25 Шахта Драхенберг,Drachenberg Mine,Шахта «Драхенберг»,fRXhJjS,Mine,Landsbach,Highlands,authored,yes
+A26,А26 Лансбах Порт,Landsbach,Ландсбах,aVwVweE,City,Landsbach,Highlands,authored,yes
+A27,Река (Обрыв Запад),,,,,,,sea_or_filler,no
+A28,,,,,,,,empty,no
+A29,,,,,,,,empty,no
+A30,,,,,,,,empty,no
+A31,,,,,,,,empty,no
+A32,,,,,,,,empty,no
+B1,Море,,,,,,,sea_or_filler,no
+B2,Море,,,,,,,sea_or_filler,no
+B3,Море,,,,,,,sea_or_filler,no
+B4,Саванна (Берег),,Саванна берег,kQEvRTX,,,,authored,yes
+B5,Саванна (Берег),,Саванна берег,HPLC7p,,,,authored,yes
+B6,B6 Запланирован аванпост,,Аванпост_Пока нету,dic4Pz,,,,authored,yes
+B7,B7 Пещера в Саванне,Savanna Cave,Пещера в саванне,idDivnV,,,SavannahNorth,authored,yes
+B8,,,,,,,,empty,no
+B9,,,,,,,,empty,no
+B10,,,,,,,,empty,no
+B11,B11 Горы (Бездетальные),Highlands,Горы,sVQSE5,,,Highlands,authored,yes
+B12,,,,,,,,empty,no
+B13,,,,,,,,empty,no
+B14,,,,,,,,empty,no
+B15,B15 Ферма Нигде,Middle of Nowhere,Нигде,kATGgxm,,,Highlands,authored,yes
+B16,,,,,,,,empty,no
+B17,B17 Санаторий,,Санаторий Лазурь,PKLpuCd,,,Highlands,authored,yes
+B18,,,,,,,,empty,no
+B19,,,,,,,,empty,no
+B20,,,,,,,,empty,no
+B21,,,,,,,,empty,no
+B22,,,,,,,,empty,no
+B23,,,,,,,,empty,no
+B24,B24 Горная дорога (Конь не валялся),,Горная дорога,jHVi6rd,,,,authored,yes
+B25,Река,,,,,,,sea_or_filler,no
+B26,Река,,,,,,,sea_or_filler,no
+B27,,,,,,,,empty,no
+B28,B28 Орлиное гнездо,The Eagle's Nest,Орлиное гнездо,dsAs3ux,Outpost,,Barrens,authored,yes
+B29,,,,,,,,empty,no
+B30,,,,,,,,empty,no
+B31,,,,,,,,empty,no
+B32,,,,,,,,empty,no
+C1,Море,,,,,,,sea_or_filler,no
+C2,Море,,,,,,,sea_or_filler,no
+C3,Чаячий остров,,Чаячий остров,pLjyyq5,,,,authored,yes
+C4,"Острова, маленькие",Seagull Island,Чаячий остров,X4v4S7,,,,authored,yes
+C5,,,,,,,,empty,no
+C6,Саванна (Берег),Savanna Coast,Контрабандисты(Ниже даймонд рэд),pEfrj37,,,SavannahNorth,authored,yes
+C7,С7 Саванна (Нужно уточнение!!!!),Savanna,Саванна,aoNitXa,,,SavannahNorth,authored,yes
+C8,С8 Саванна (Нужно уточнение!!!!!!),Savanna,Саванна,PjNRUc7,,,SavannahNorth,authored,yes
+C9,,,,,,,,empty,no
+C10,,,,,,,,empty,no
+C11,,,,,,,,empty,no
+C12,С12 Пит-Стоп,The PitStop,Пит-стоп,uSeN6U,,,Highlands,authored,yes
+C13,С13 Горы,Highlands,Горы,cSypFKz,,,Highlands,authored,yes
+C14,С14 Старая бензоколонка,Old Gas Station,Старая бензоколонка,fM3uffW,,,Highlands,authored,yes
+C15,"Филер, или нет, пока маленькое нихуя",,Филер,XeGztvo,,,,authored,yes
+C16,,,,,,,,empty,no
+C17,,,,,,,,empty,no
+C18,,,,,,,,empty,no
+C19,,,,,,,,empty,no
+C20,,,,,,,,empty,no
+C21,,,,,,,,empty,no
+C22,С22 Пустоши,Barrens,Пустоши,uP4JNpT,,,Barrens,authored,yes
+C23,С23 Пустоши,Barrens,Пустоши,mdV5qwe,,,Barrens,authored,yes
+C24,С24 Перекресток дохлых зверей,Dead Animal Crossing,Перекресток Дохлых Зверей,ew4nkhg,,,Barrens,authored,yes
+C25,С25 Пустоши,,,,,,,sheet_only,no
+C26,Река,Clifftop Overlook,Вершина скалы,3vhEUg,,,Barrens,authored,yes
+C27,Вершина скалы (лифт; в sheet помечено как C26),Highlands,,nyAYoYY,,,,authored,yes
+C28,,,,buta66w,,,,runtime_only,yes
+C29,,Barrens,Пустоши,SexCTTP,,,Barrens,runtime_only,yes
+C30,,,,,,,,empty,no
+C31,,,,,,,,empty,no
+C32,,,,,,,,empty,no
+D1,Море,,,,,,,sea_or_filler,no
+D2,Море,,,,,,,sea_or_filler,no
+D3,,,,,,,,empty,no
+D4,,,,,,,,empty,no
+D5,,,,,,,,empty,no
+D6,Море,,,,,,,sea_or_filler,no
+D7,Саванна (Берег),Savanna,Саванна,hjqPcAS,,,SavannahNorth,authored,yes
+D8,,Savanna,Саванна,GUmGV5h,,,SavannahNorth,runtime_only,yes
+D9,D9 Лагерь Браконьеров,Poacher Camp,Лагерь браконьеров,ezcKxQR,,,SavannahNorth,authored,yes
+D10,,Savanna,Саванна,GsWvMvH,,,SavannahSouth,runtime_only,yes
+D11,,Savanna,Саванна,Mex7A3j,,,SavannahNorth,runtime_only,yes
+D12,,Highlands,Горы,kHpz3Le,,,Highlands,runtime_only,yes
+D13,,Highlands,Горы,LisTWbY,,,Highlands,runtime_only,yes
+D14,,Highlands,Горы,R7UehFq,,,Highlands,runtime_only,yes
+D15,D15 Шахта Фосс-Нуар,Fosse Noire,Фосс-Нуар,hqyuu3T,Mine,Pantagruel,SavannahNorth,authored,yes
+D16,,,,,,,,empty,no
+D17,,,,,,,,empty,no
+D18,,Camp Grand Prix,БлокПост_ГранПри,Uu5oJqo,Outpost,,Highlands,runtime_only,yes
+D19,,,,,,,,empty,no
+D20,,,Филер,YVhr4j4,,,,runtime_only,yes
+D21,,,,,,,,empty,no
+D22,D22 Разлом (Аванпост),,,,,,,sheet_only,no
+D23,D23 Оазис,Oasis,Оазис,YFjugXX,,,Barrens,authored,yes
+D24,,,,,,,,empty,no
+D25,Река,,,,,,,sea_or_filler,no
+D26,D26 каменные ступени,Stone Stairs,Каменные ступени,KMykuzc,,,CursedForest,authored,yes
+D27,D27 Штурмвассерский каньон,Sturmwasser Canyon,Штурмвассерский каньон,saFGCtu,,,Barrens,authored,yes
+D28,,The Fracture,Разлом,cmpNcmh,Special,,Barrens,runtime_only,yes
+D29,D29 Остров ШтурмВассер,Sturmwasser Island,Остров Штурмвассер,ruSomEb,,,Barrens,authored,yes
+D30,,,,,,,,empty,no
+D31,,,,,,,,empty,no
+D32,,,,,,,,empty,no
+E1,Море,,,,,,,sea_or_filler,no
+E2,Море,,,,,,,sea_or_filler,no
+E3,,,,,,,,empty,no
+E4,E4 Чаячий остров,,Чаячий остров,WEVSiAR,,,,authored,yes
+E5,,,,,,,,empty,no
+E6,Море,,,,,,,sea_or_filler,no
+E7,Море,,,,,,,sea_or_filler,no
+E8,E8 Кладбище брокеннхилл,Broken Hill Cemetery,Саванна,tjjoSpt,,,SavannahNorth,authored,yes
+E9,E9 Саванна (Нужно уточнение),Savanna,Саванна_Бывший С4,jRJJaFV,,,SavannahNorth,authored,yes
+E10,E10 Аванпост Кам-саван,Camp Savane,Кам-Саван,upzf6Nc,Outpost,,SavannahSouth,authored,yes
+E11,E11 Саванна (Устроить пожар),Savanna,Саванна,RkvfWJw,,,SavannahSouth,authored,yes
+E12,E12 Саванна (Заложница по квесту из лагеря беженцев),Savanna,Лагерь с пленной беженкой,e6ePEPQ,,,SavannahNorth,authored,yes
+E13,Саванна переходная в зеленку,Savanna,"Саванна ( Переходная, с зеленкой)",rR7xdLC,,,SavannahSouth,authored,yes
+E14,Е14 Окраины Понтагрюэля,Pantagruel Outskirts,Окраины Пантагрюэля,LHwubHb,City,Pantagruel,SavannahNorth,authored,yes
+E15,Е15 Трущебы Понтагрюэля,Pantagruel Slums,Трущебы Пантагрюэля,cdKvM4,City,Pantagruel,SavannahNorth,authored,yes
+E16,Е16 Центр Понтагрюэля,Pantagruel Downtown,Центр Пантагрюэля,bkXfKAA,City,Pantagruel,SavannahNorth,authored,yes
+E17,,Savanna River Bank,Берег реки в саванне,kPkuKih,,,Highlands,runtime_only,yes
+E18,,,,,,,,empty,no
+E19,,Хижина в лесу,Хижина в лесу,M4NRp4F,Special,,CursedForest,runtime_only,yes
+E20,,,,,,,,empty,no
+E21,,Middle of Anywhere,Гдегдегде,mkcVqjD,,,CursedForest,runtime_only,yes
+E22,,,,,,,,empty,no
+E23,,,,,,,,empty,no
+E24,,,,,,,,empty,no
+E25,Река,,,,,,,sea_or_filler,no
+E26,E26 Берег реки в джунглях,,,,,,,sheet_only,no
+E27,,,,,,,,empty,no
+E28,,,,,,,,empty,no
+E29,,,,,,,,empty,no
+E30,,,,,,,,empty,no
+E31,,,,,,,,empty,no
+E32,,,,,,,,empty,no
+F1,Море,,,,,,,sea_or_filler,no
+F2,Море,,,,,,,sea_or_filler,no
+F3,Море,,,,,,,sea_or_filler,no
+F4,Море,,,,,,,sea_or_filler,no
+F5,Море,,,,,,,sea_or_filler,no
+F6,Море,,,,,,,sea_or_filler,no
+F7,Море,,,,,,,sea_or_filler,no
+F8,F8 Побережье саванны,Savanna Coast,Побережье саванны,Wz4ej,,,SavannahSouth,authored,yes
+F9,"F9 Саванна (Рюкзаки, следы присутствия MERC)",Savanna,Саванна,cV4TTQL,,,SavannahNorth,authored,yes
+F10,F10 Саванна (Устроить пожар),Savanna,Саванна(пожар),uzPscJH,,,SavannahSouth,authored,yes
+F11,F11 Саванна (Устроить пожар),Savanna,Саванна ( Пожар),XkdorHn,,,SavannahSouth,authored,yes
+F12,F12 Саванна,Savanna,Саванна,mkLLdVK,,,SavannahSouth,authored,yes
+F13,F13 Лагерь Беженцев,Refugee Camp,Лагерь беженцев,EtnVji3,,RefugeeCamp,SavannahSouth,authored,yes
+F14,,,,,,,,empty,no
+F15,,,,,,,,empty,no
+F16,,,,,,,,empty,no
+F17,F17 Берег реки в джунглях,Jungle River Bank,Берег реки в джунглях,TNJpJYg,,,GreatForest,authored,yes
+F18,,,,,,,,empty,no
+F19,F19 Берег в джунглях,Берег в джунглях,Берег в джунглях,NvhJeex,,,CursedForest,authored,yes
+F20,F20 Укрытие Гиен (Нужно уточнение),Cursed Forest,Проклятый лес,Qy5dqDn,,,CursedForest,authored,yes
+F21,F21 Укрытие Гиен,Укрытие Гиен,Укрытие Гиен,TspWMsb,,,CursedForest,authored,yes
+F22,F22 Проклятый лес (Хижина ведьмы),Cursed Forest,Проклятый лес (Хижина ведьмы),XnEjf6n,,,CursedForest,authored,yes
+F23,F23 Кам-Гран-При (Аванпост),,,,,,,sheet_only,no
+F24,F24 В планах ещё бензоколонка,,,,,,,sheet_only,no
+F25,F25 Берег реки в джунглях (водный путь),Jungle River Bank,Берег реки в джунглях,QAner5P,,,CursedForest,authored,yes
+F26,Река,,,,,,,sea_or_filler,no
+F27,,Топи,Топи,YRs3GH,,,Wetlands,runtime_only,yes
+F28,F28 Иль-Мора,Ille Morat,Иль-Мора,paiiCHH,City,IlleMorat,CursedForest,authored,yes
+F29,,,,,,,,empty,no
+F30,,,,,,,,empty,no
+F31,,,,,,,,empty,no
+F32,,,,,,,,empty,no
+G1,Море,,,,,,,sea_or_filler,no
+G2,Море,,,,,,,sea_or_filler,no
+G3,Море,,,,,,,sea_or_filler,no
+G4,Море,,,,,,,sea_or_filler,no
+G5,Море,,,,,,,sea_or_filler,no
+G6,Море,,,,,,,sea_or_filler,no
+G7,Море,,,,,,,sea_or_filler,no
+G8,Море,,,,,,,sea_or_filler,no
+G9,G9 Код д азур (Порт),Côte d'Azur,Кот дАзур,GhT3nho,,,SavannahSouth,authored,yes
+G10,G10 Поселение Ла-Палисад,Ла-Палисад,,DHemvj6,,,SavannahSouth,authored,yes
+G11,G11 Саванна (Два трупа из квеста охота на охотника),Savanna,Саванна,Cxu5w7,,,SavannahSouth,authored,yes
+G12,,,,,,,,empty,no
+G13,G13 Колодец,Savanna,Савана рядом с шахтой Мфуму,jfUUwFo,,,SavannahSouth,authored,yes
+G14,,Savanna,Саванна,evrj7Dq,,,SavannahSouth,runtime_only,yes
+G15,G15 Берег реки в джунглях,,,,,,,sheet_only,no
+G16,G16 Минное поле,Minefield,Минное поле,aApUtcM,,,GreatForest,authored,yes
+G17,G17 Великий лес (Вудуисты),Great Forest,Великий лес(Вудуисты),GgmzYs,,,GreatForest,authored,yes
+G18,G18 Берег реки в джунглях,Jungle River Bank,Берег реки в джунглях,cqxkQM,,,GreatForest,authored,yes
+G19,,,,,,,,empty,no
+G20,,,,,,,,empty,no
+G21,,,,,,,,empty,no
+G22,G22 Кам-Съен_Саваж (Аванпост с гиенами),Camp Chien Sauvage,Кам-Шьен-Саваж,UjyKLp,Outpost,,CursedForest,authored,yes
+G23,G23 Проклятый лес,Cursed Forest,Проклятый лес,eEi4fwE,,,CursedForest,authored,yes
+G24,,,,,,,,empty,no
+G25,G25,Chalet de la Paix,Шале-де-ла-Пе(Деревня вудуистов),cUsGPkp,City,Chalet,GreatForest,authored,yes
+G26,Река,,,,,,,sea_or_filler,no
+G27,G27 Шале-Де-ла-Пе (Деревня вудуистов),,,,,,,sheet_only,no
+G28,G28 Филер (Пока пусто),,Филер,csb3PSJ,,,,authored,yes
+G29,,,,,,,,empty,no
+G30,G30 Эль-Мора,Эль Мора,Эль Мора,gRtnwGb,Mine,IlleMorat,CursedForest,authored,yes
+G31,G31 Болота,Wetlands,Болота,sCDAnt,,,Wetlands,authored,yes
+G32,,,,,,,,empty,no
+H1,Море,,,,,,,sea_or_filler,no
+H2,Море,,,,,,,sea_or_filler,no
+H3,Море,,,,,,,sea_or_filler,no
+H4,Море,,,,,,,sea_or_filler,no
+H5,Море,,,,,,,sea_or_filler,no
+H6,Море,,,,,,,sea_or_filler,no
+H7,Море,,,,,,,sea_or_filler,no
+H8,Море,,,,,,,sea_or_filler,no
+H9,Море,,,,,,,sea_or_filler,no
+H10,Саванна (Берег),Savanna Coast,Побережье саванны,qDthgQR,,,SavannahSouth,authored,yes
+H11,,Savanna,Саванна,GwWr43D,,,SavannahSouth,runtime_only,yes
+H12,,Перекресток,"Перекресток, филерная лока",bidUisy,,,,runtime_only,yes
+H13,,Savanna,Саванна_Два дома в центре,tJYzTJq,,,SavannahSouth,runtime_only,yes
+H14,H14 Шахта Мфуму,Mfumu's Mine,Шахта Мфуму,gULjNxW,Mine,Fleatown,SavannahSouth,authored,yes
+H15,H15 начало зеленки (Джунглей) (переделать в мелкое поселение),Jungle,Джунгли,gnTmhJs,,,GreatForest,authored,yes
+H16,,,,,,,,empty,no
+H17,Н17 Захоронения,Захоронения,Захоронения,AYUbWe,,,SouthJungle,authored,yes
+H18,Н18 Флитаун рынок,Fleatown La Boue,Флитаунский район Ла-Буэ,qn6PH7x,City,Fleatown,GreatForest,authored,yes
+H19,H19 Флитаун (Порт),Fleatown Flea Market,Флитаунский блошиный рынок,jCUGgPT,City,Fleatown,GreatForest,authored,yes
+H20,,,,,,,,empty,no
+H21,Н21 Берег Реки,Берег реки,Берег реки,Pife3VC,,,SouthJungle,authored,yes
+H22,Н22 Старые укрепления с бункером,Old Fortifications,Старые укрепления,a6LhfeS,,,GreatForest,authored,yes
+H23,H23 Пещера с фашней / опер штаб наземный,Great Forest,"Великий лес, фашики тусят в пещере",caEYxx7,,,GreatForest,authored,yes
+H24,H24 Берег реки в джунглях,,,,,,,sheet_only,no
+H25,Н25 река,,,,,,,sea_or_filler,no
+H26,Река,,,,,,,sea_or_filler,no
+H27,"Н27 ТЗ Болота, нет локации",Jungle River Bank,Берег реки в джунглях,r5AcnGP,,,CursedForest,authored,yes
+H28,,,Филер,UTHJgsX,,,,runtime_only,yes
+H29,,Bien Chien Island,Остров Бьян-Шьен,GwkPAyF,,,EastSwamp,runtime_only,yes
+H30,,Wetlands,Болота,fSajNbs,,,Wetlands,runtime_only,yes
+H31,H31 Вассерграб (Шахта),Wassergrab Mining Area,Шахта Вассерграб,tEbUqLn,Mine,Payak,Farmland,authored,yes
+H32,H32 Вассерграб (Мрачная деревня),Мрачная деревня,Мрачная деревня,qViPqrM,City,Payak,Farmland,authored,yes
+I1,Море,,,,,,,sea_or_filler,no
+I2,"I2 Жилье доктора, Бывшие военные укрепления",Лечебница в маяке,Маяк доктора,qTn3d4w,,ErnieVillage,Erny,authored,yes
+I3,I3 Мост в нижней части карты (Дорога) над рекой,Дорога к маяку,Мост в Эрни,hMW4vMd,,,,authored,yes
+I4,I4 Филер (Дорога Эрни-Мост) над обрывом,Дорога на маяк,Дорога на острове эрни,JgXTaSC,,,,authored,yes
+I5,I5 Деревня Эрни (Берег),Village of Ernie,Деревня Эрни,ubRwFgf,Ernie,ErnieVillage,Erny,authored,yes
+I6,I6 Жестянка,The Rust,Жестянка,MQKjj5A,Ernie,,Erny,authored,yes
+I7,I7 Форт Ло-Блё,Fort L'Eau Bleu,Форт Ло_Блё,fY7Kwxk,Ernie,ErnieVillage,Erny,authored,yes
+I8,Море,,,,,,,sea_or_filler,no
+I9,Море,,,,,,,sea_or_filler,no
+I10,Море,,,,,,,sea_or_filler,no
+I11,Саванна (Берег),Savanna Coast,Побережье саванны,DojDrmH,,,SavannahSouth,authored,yes
+I12,,Savanna,Саванна с пожаром,PdvkRLV,,,SavannahSouth,runtime_only,yes
+I13,,,,,,,,empty,no
+I14,,,,,,,,empty,no
+I15,,Jungle,Автобусная остановка,PLy7PuR,,,GreatForest,runtime_only,yes
+I16,I16 Заброшенный особняк (призрак),Abandoned Mansion,Особняк с призраком,KDcPRa7,,,SavannahSouth,authored,yes
+I17,,Дорожный мост,Дорожный мост,GxhfbCM,,,GreatForest,runtime_only,yes
+I18,,Great Forest,Великий лес,E3WFaEy,,,GreatForest,runtime_only,yes
+I19,,Wetlands,Болота с бункером,aqcRXzW,,,Wetlands,runtime_only,yes
+I20,,,,,,,,empty,no
+I21,,Болотистый берег,Болотистый берег,faUJ5WN,,,Wetlands,runtime_only,yes
+I22,"I22 Дом на холме, секретный вход в метро",Great Forest,Великий лес,hnJFd4t,,,GreatForest,authored,yes
+I23,I23 Великий лес,Great Forest,Великий лес,cYPzytW,,,GreatForest,authored,yes
+I24,Река,Great Forest,Великий лес,UYYHCow,,,GreatForest,authored,yes
+I25,I25 Грязноводный мост (Город),Mudwater Bridge,Грязноводный мост,PzmTQGD,,,GreatForest,authored,yes
+I26,,,,,,,,empty,no
+I27,,,,,,,,empty,no
+I28,,Археологические раскопки,Археологические раскопки,RRYxmQL,,,CursedForest,runtime_only,yes
+I29,,,,,,,,empty,no
+I30,,,,,,,,empty,no
+I31,I31 Хижина ведьмы,,,,,,,sheet_only,no
+I32,,,,,,,,empty,no
+J1,Море,,,,,,,sea_or_filler,no
+J2,Море,,,,,,,sea_or_filler,no
+J3,Море,,,,,,,sea_or_filler,no
+J4,J4 Дорога из J5 в I4,Дорога в Эрни,Дорога,FEMnhRu,,,,authored,yes
+J5,J5 Деревня эрни без берега (Фермы),Фермы Эрни,Фермы Эрни,adviFCb,,ErnieVillage,Erny,authored,yes
+J6,J6 Дорога контрабандистов,Аванпост контрабандистов,Аванпост туда ходи,NrofrcM,,,SouthJungle,authored,yes
+J7,J7 Изумрудный берег,Emerald Coast,Изумрудный берег,qJApdx,Ernie,,Erny,authored,yes
+J8,Море,,,,,,,sea_or_filler,no
+J9,Море,,,,,,,sea_or_filler,no
+J10,Море,,,,,,,sea_or_filler,no
+J11,Море,,,,,,,sea_or_filler,no
+J12,J12 Саванна (Берег-Порт) (Укреп район),Savanna Coast,Доки на побережье саванны,mVm5mPU,,,SavannahSouth,authored,yes
+J13,"J13 Деревня с золотодобычей, дома на сваях",Поселение кладоискателей,Поселение кладоискателей,esV6vTc,,,,authored,yes
+J14,J14 Римвиль (Особняк бандосов),Rimville,Римвиль(Бандосы),tzMhrVp,Special,Fleatown,GreatForest,authored,yes
+J15,J15 Берег реки,Savanna River Bank,Берег реки в саванне,Q3CabXD,,,Highlands,authored,yes
+J16,Зеленка,Great Forest,Великий лес,qdha3hm,,,GreatForest,authored,yes
+J17,Зеленка (Маленькая река),Jungle River Bank,Берег реки в джунглях,GkWADM6,,,SouthJungle,authored,yes
+J18,Зеленка,Burial Grounds,Земли мертвых,ipL6Vk4,,,SouthJungle,authored,yes
+J19,Зеленка (Берег реки на углу),Болотные топи,Болотные топи,nsxnjMR,,,Wetlands,authored,yes
+J20,,Wetlands,Болота,ihuFJkn,,,Wetlands,runtime_only,yes
+J21,,Minefield,Минное поле,TMAVkEL,,,GreatForest,runtime_only,yes
+J22,,,,,,,,empty,no
+J23,J23 Старое кладбище,Old Graveyard,Старое кладбище,aDTrzgY,,,Farmland,authored,yes
+J24,Река,,,,,,,sea_or_filler,no
+J25,Река,Jungle River Bank,Берег реки в джунглях,WEhxnMU,,,SouthJungle,authored,yes
+J26,,,Филер,HKU4Wye,,,,runtime_only,yes
+J27,,,,,,,,empty,no
+J28,J28 Болота с входом в метро,Wetlands,Болота со входом в метро,SQASJXH,,,Wetlands,authored,yes
+J29,J29 Лагерь надежды,Лагерь надежды,Лагерь надежды,dRrFReT,,,GreatForest,authored,yes
+J30,,,,,,,,empty,no
+J31,,,Филер,updJS3E,,,,runtime_only,yes
+J32,,,,,,,,empty,no
+K1,Море,,,,,,,sea_or_filler,no
+K2,Море,,,GoDqhMQ,,,,authored,yes
+K3,K3 Походный Лагерь Легиона 1,Походный лагерь Легиона,Походный лагерь Легиона 1,Vgwwieh,,,,authored,yes
+K4,K4 Флаговый холм,Flag Hill,Флаговый холм,gsSMikN,Ernie,,Erny,authored,yes
+K5,K5 Походный Лагерь Легиона 5,Походный лагерь Легиона,Походный лагерь Легиона 5,YWtYj6q,,,Erny,authored,yes
+K6,K6 Резервный лагерь Контрабандистов,Запасной лагерь Контрабандистов,Запасной лагерь Контрабандистов,bVp47D,,ErnieVillage,,authored,yes
+K7,"K7 Заброшенный скалистый берег, сожженная деревня",Заброшенный скалистый берег,Заброшенный скалистый берег,XgdUCn7,,,,authored,yes
+K8,Море,,,,,,,sea_or_filler,no
+K9,Море,,,,,,,sea_or_filler,no
+K10,Море,,,,,,,sea_or_filler,no
+K11,Река,,,,,,,sea_or_filler,no
+K12,Река,,,,,,,sea_or_filler,no
+K13,Река,,,,,,,sea_or_filler,no
+K14,Река,,,,,,,sea_or_filler,no
+K15,K15 T Река ниже берег джунглей,Берег джунглей,Берег джунглей,jiQqxTN,,,GreatForest,authored,yes
+K16,,,,,,,,empty,no
+K17,,,,,,,,empty,no
+K18,,,,,,,,empty,no
+K19,K19 Аванпост Развалины фабрики,Factory Ruins,Заброшенная фабрика с зомбями,fdktTtg,Special,,SouthJungle,authored,yes
+K20,Река,,,,,,,sea_or_filler,no
+K21,К21 Кам Бьян Шьен,Camp Bien Chien,Кам-Бьян-Шьен,ULaRXec,Outpost,,EastSwamp,authored,yes
+K22,,Bien Chien Island,Остров Бьян-Шьен,P45egwt,,,EastSwamp,runtime_only,yes
+K23,,Bien Chien Island,Остров Бьян-Шьен,aVwkXoE,,,EastSwamp,runtime_only,yes
+K24,"К24 Берег, пустая лока",Берег реки,"Берег реки вода с юг запад, поворот реки",jJLrsG,,,,authored,yes
+K25,Река уходит вверх,,,,,,,sea_or_filler,no
+K26,,Middle of Somewhere,Гтетотам,HxKeAVE,,,Farmland,runtime_only,yes
+K27,,,Филер,ALC3Vax,,,,runtime_only,yes
+K28,,,,,,,,empty,no
+K29,К29 Санаторий,Санаторий,Санаторий,obtSegF,Special,,GreatForest,authored,yes
+K30,,,,,,,,empty,no
+K31,,Филер,Филер,CR4Rgvg,,,,runtime_only,yes
+K32,К32 Усадьбы близнецы,Twin Manors,Усадьбы-близнецы,YFuRKj,,Payak,Farmland,authored,yes
+L1,L1 Лагерь повстанцев,База партизан на острове Эрни,База партизан на острове,a4wbe6N,,Rebels_Ernie,SouthJungle,authored,yes
+L2,L2 Гора с водопадом и оттоками,Непроходимая местность,"Река, дебри",PYgh6US,,Rebels_Ernie,CursedForest,authored,yes
+L3,L3 Походный Лагерь Легиона 2,Походный лагерь Легиона,Походный лагерь Легиона 2,pdCpnL,,,,authored,yes
+L4,L4 Походный Лагерь Легиона 3,Походный лагерь Легиона,Походный лагерь Легиона 3,q5EJDsP,,,,authored,yes
+L5,L5 Походный Лагерь Легиона 4,Походный Лагерь Легиона,Походный Лагерь Легиона 4,ATJYR57,,ErnieVillage,Erny,authored,yes
+L6,L6 Бункер,Заброшенный вход в бункер,"Вход в бункер, соединенный с L1",KhrydjM,,Rebels_Ernie,Erny,authored,yes
+L7,"L7 Деревня на берегу, не большая",Рыбацкая деревня,Небольшая рыбацкая деревня,UxRaASA,,ErnieVillage,,authored,yes
+L8,Море,,,,,,,sea_or_filler,no
+L9,Море,,,,,,,sea_or_filler,no
+L10,Море,,,,,,,sea_or_filler,no
+L11,L11 Остров с укреплениями,,Укрепленный остров с орудиями,V4PtNEt,,,,authored,yes
+L12,L12 Река,,,,,,,sea_or_filler,no
+L13,L13 Ещё один остров с укреплением,Безликий,Остров контрабандистов,EuSA4VN,,,,authored,yes
+L14,L14 Река,,,,,,,sea_or_filler,no
+L15,L15 Кам-Ла-Барьер,Camp La Barrière,Кам-Ла-Барьер,d6nSHQ,Outpost,,GreatForest,authored,yes
+L16,L16 Великий лес,Great Forest,Великий лес,Cpootzp,,,SouthJungle,authored,yes
+L17,L17 Разбойничий форт,Fort Brigand,Разбойничий форт,dciGExr,Outpost,,Wetlands,authored,yes
+L18,,,,,,,,empty,no
+L19,L19 Т речные островки (Локации нет),Нет локации,Речные Островки,Quohbrz,,,,authored,yes
+L20,Река,,,,,,,sea_or_filler,no
+L21,Река,,,,,,,sea_or_filler,no
+L22,Река,,,,,,,sea_or_filler,no
+L23,Река,,,,,,,sea_or_filler,no
+L24,L24 Река,,,,,,,sea_or_filler,no
+L25,Река,,,,,,,sea_or_filler,no
+L26,,Farmland,Фермы,jEeRz5a,,,Farmland,runtime_only,yes
+L27,,Great Forest,Великий лес,YbeGv36,,,SouthJungle,runtime_only,yes
+L28,,,,,,,,empty,no
+L29,,,,,,,,empty,no
+L30,,,,,,,,empty,no
+L31,L31 Фермы,Farmland,Фермы,GSWNb,,,Farmland,authored,yes
+L32,,,,,,,,empty,no
+M1,M1 Зона высадки,Зона высадки,Стартовый берег,EPA7FVN,,,Erny,authored,yes
+M2,М2 Водопад,Скалистый берег,Филер_2я локация,qRiCMTo,,,Erny,authored,yes
+M3,М3 Побережье,Водопад,Водопад,isJdmPy,,,,authored,yes
+M4,М4 Смотровая площадка,The Outlook,Смотровая площадка,cd6xgVh,Ernie,,Erny,authored,yes
+M5,"М5 Заброс, скалы",Береговая линия,Филер по пути к пляжу,pSwGPnp,,,Erny,authored,yes
+M6,"М6 Заброс, скалы",Старый порт,Филер_2 по пути к пляжу,qzVESk5,,,Erny,authored,yes
+M7,Заглушка,,,,,,,sea_or_filler,no
+M8,Море,,,,,,,sea_or_filler,no
+M9,Море,,,,,,,sea_or_filler,no
+M10,Море,,,,,,,sea_or_filler,no
+M11,Река,,,,,,,sea_or_filler,no
+M12,Река,,,,,,,sea_or_filler,no
+M13,Река,,,,,,,sea_or_filler,no
+M14,Река,,,,,,,sea_or_filler,no
+M15,Река,,,,,,,sea_or_filler,no
+M16,Река,,,,,,,sea_or_filler,no
+M17,Река,,,,,,,sea_or_filler,no
+M18,Река,,,,,,,sea_or_filler,no
+M19,Река,,,,,,,sea_or_filler,no
+M20,Река,,,,,,,sea_or_filler,no
+M21,Река,,,,,,,sea_or_filler,no
+M22,Река,,,,,,,sea_or_filler,no
+M23,Река,,,,,,,sea_or_filler,no
+M24,M24 Тут должен быть какой-то порт - дамба,,,,,,,sheet_only,no
+M25,,,,,,,,empty,no
+M26,,Farmland,Фермы,PNDrqcf,,,Farmland,runtime_only,yes
+M27,,,,,,,,empty,no
+M28,,,,,,,,empty,no
+M29,,,,,,,,empty,no
+M30,,,,,,,,empty,no
+M31,M31 Фермы,Farmland,Фермы,tP7vqmh,,,Farmland,authored,yes
+M32,,,,,,,,empty,no
+N1,Море,,,,,,,sea_or_filler,no
+N2,Море,,,,,,,sea_or_filler,no
+N3,Море,,,,,,,sea_or_filler,no
+N4,Море,,,,,,,sea_or_filler,no
+N5,Море,,,,,,,sea_or_filler,no
+N6,Море,,,,,,,sea_or_filler,no
+N7,Море,,,,,,,sea_or_filler,no
+N8,Море,,,,,,,sea_or_filler,no
+N9,Море,,,,,,,sea_or_filler,no
+N10,Море,,,,,,,sea_or_filler,no
+N11,N11 укреп смотрящий за входом в реку,Укреп район Какао,Укреп в N11,nMmefSY,,,SouthJungle,authored,yes
+N12,N12 Порт Какао город,Port Cacao City,Какао город,camztWx,City,PortDiancie,SouthJungle,authored,yes
+N13,N13 Доки порт Какао,Port Cacao Docks,Доки порт_Какао,FpCgakp,City,PortDiancie,SouthJungle,authored,yes
+N14,N14 ТС,,,,,,,sheet_only,no
+N15,N15 ТС,,,,,,,sheet_only,no
+N16,N16 (ТС) Упавший самолет (Лаз в разбойничий форт),Wetlands,Размотанный самолет,DvDj7va,,,Wetlands,authored,yes
+N17,N17 Река,,,,,,,sea_or_filler,no
+N18,N18 Река,,,,,,,sea_or_filler,no
+N19,N19 Река,,,,,,,sea_or_filler,no
+N20,Река,,,,,,,sea_or_filler,no
+N21,Река,,,,,,,sea_or_filler,no
+N22,N22 Причал,Great Forest,Великий лес,HpXRoyW,,,SouthJungle,authored,yes
+N23,N23 Старое кладбище,Old Graveyard,Старое кладбище,Qz4yGQr,,,Farmland,authored,yes
+N24,N24 Фермы,Farmland,Фермы,MuKKhYV,,,Farmland,authored,yes
+N25,,,Филер,nEhGetV,,,,runtime_only,yes
+N26,,,Филер,PCYMGn4,,,,runtime_only,yes
+N27,N27 Фермы,Farmland,Фермы,HvHnpEm,,,Farmland,authored,yes
+N28,N28 Фермы,Ферма,Ферма,ii6Yeod,,,Farmland,authored,yes
+N29,N29 Фермы,Middle of Somewhere,Гдетотам,Rofukov,,,Farmland,authored,yes
+N30,N30 Фермы,Farmland,Фермы,kKvrCA6,,,Farmland,authored,yes
+N31,N31 Фермы,Farmland,Фермы,Den4PN,,,Farmland,authored,yes
+N32,,,,,,,,empty,no
+O1,Море,,,,,,,sea_or_filler,no
+O2,Море,,,,,,,sea_or_filler,no
+O3,Море,,,,,,,sea_or_filler,no
+O4,Море,,,,,,,sea_or_filler,no
+O5,Море,,,,,,,sea_or_filler,no
+O6,Море,,,,,,,sea_or_filler,no
+O7,Море,,,,,,,sea_or_filler,no
+O8,Море,,,,,,,sea_or_filler,no
+O9,Море,,,,,,,sea_or_filler,no
+O10,О10 Филер,,Филер,fMWHxtM,,,,authored,yes
+O11,О11 Великий лес берег (Фермы),Пригород Какао,Пригород Какао,3qduS,,,,authored,yes
+O12,,,,,,,,empty,no
+O13,O13 Свалка,The Dump,Свалка Какао,KkR53xA,,PortDiancie,SouthJungle,authored,yes
+O14,О14 Филер (Лес),,Аванпост Какао (Пока нет),tnnLoc,,,,authored,yes
+O15,,Сектор О15 видел? тоже самое,Сектор О15 видел? тоже самое,saxrae7,,,,runtime_only,yes
+O16,О16 Олд-Даймонд,Old Diamond,Олд-Даймонд(Шахта возле какао),XVJfNwf,Mine,PortDiancie,SouthJungle,authored,yes
+O17,О17 Филер (Лес),,Великий лес(Дорога),YTiXWVh,,,,authored,yes
+O18,O18 Часть моста левая,,Мост на Какао,RDVTgah,,,,authored,yes
+O19,,Филер,Филер,FrxvGHX,,,,runtime_only,yes
+O20,,Jungle River Bank,Берег реки в джунглях,NYrtAxS,,,SouthJungle,runtime_only,yes
+O21,О21 Великий лес (Берег),Great Forest,Великий лес,RVMSRbW,,,SouthJungle,authored,yes
+O22,,Филер,Филер,WzdVaNV,,,,runtime_only,yes
+O23,,Филер,Филер,LDXkV6z,,,,runtime_only,yes
+O24,,,,,,,,empty,no
+O25,,,,,,,,empty,no
+O26,,,,,,,,empty,no
+O27,,,,,,,,empty,no
+O28,,,,,,,,empty,no
+O29,,,,,,,,empty,no
+O30,,,,,,,,empty,no
+O31,,,,,,,,empty,no
+O32,,,,,,,,empty,no
+P1,Море,,,,,,,sea_or_filler,no
+P2,Море,,,,,,,sea_or_filler,no
+P3,Море,,,,,,,sea_or_filler,no
+P4,Море,,,,,,,sea_or_filler,no
+P5,Море,,,,,,,sea_or_filler,no
+P6,Море,,,,,,,sea_or_filler,no
+P7,Море,,,,,,,sea_or_filler,no
+P8,P8 Хорошее место,The Good Place,Хорошее место,aszyR5Y,Dungeon,,SouthJungle,authored,yes
+P9,Р9 Берег рядом с тюрьмой,Jungle River Bank,Берег реки рядом с тюрьмой,PciM4k,,,SouthJungle,authored,yes
+P10,,,Великий лес (Будет),qppXxPw,,,,runtime_only,yes
+P11,Р11 Великий лес (Убежище богача из заброшенного особняка),Great Forest,Великий лес,cSFjTT,,,SouthJungle,authored,yes
+P12,,,,,,,,empty,no
+P13,,,,,,,,empty,no
+P14,,,,,,,,empty,no
+P15,Р15 Лес,Лес,Лес,JAUWMKo,,,SouthJungle,authored,yes
+P16,Р16 гдегдевезде,ГдеГдеВезде,ГдеГдеВезде,DYKyfjt,,,Wetlands,authored,yes
+P17,Р17 Камп-де-крокодиль (Аванпост),Камп Де Крокодиль,Камп Де Крокодиль,JFxNeEb,Outpost,,Wetlands,authored,yes
+P18,,,,,,,,empty,no
+P19,Р19 Заброшенный аэродром,Заброшенный Аэродром,Заброшенный аэродром,my6UMM,,,GreatForest,authored,yes
+P20,,,,,,,,empty,no
+P21,,,,,,,,empty,no
+P22,,,,,,,,empty,no
+P23,,,,,,,,empty,no
+P24,,,,,,,,empty,no
+P25,,,,,,,,empty,no
+P26,P26 Военная База - ЮГ,Военная база ЮГ,Военная база,AcNCfY4,,,,authored,yes
+P27,,,,,,,,empty,no
+P28,,,,,,,,empty,no
+P29,,,,,,,,empty,no
+P30,,,,,,,,empty,no
+P31,,,,,,,,empty,no
+P32,,,,,,,,empty,no
+A24_Underground,(underground — not on sheet surface grid),U-Bahn Station A,"Станция УхБах, Бывший B11U",bDG4HgR,,,,underground,yes
+A25_Underground,(underground — not on sheet surface grid),Diesel Klinik,«Дизельклиника»,m3YqaH,,,,underground,yes
+D26_Underground,(underground — not on sheet surface grid),Freeloader's Cavern,Пещера Халявщика,nTzHv5F,Dungeon,,,underground,yes
+H22_Underground,(underground — not on sheet surface grid),Бункер,Бункер,AXQt4bs,Dungeon,,,underground,yes
+H23_Underground,(underground — not on sheet surface grid),U-Bahn Station B,"Станций метро У-Бах, Бывший F12U",iCThAm,,,,underground,yes
+I6_Underground,(underground — not on sheet surface grid),Bunker FB45-68,Бункер_Жестянки,EbAhNkL,Ernie,,,underground,yes
+I7_Underground,(underground — not on sheet surface grid),Армейский Бункер,Бункер Коразон,AxdjC3b,Boss,,,underground,yes
+I16_Underground,(underground — not on sheet surface grid),Mansion Cellar,Подвал особняка с призраком,HuMwLSL,,,,underground,yes
+I22_Underground,(underground — not on sheet surface grid),Secret Tunnel,,WPsAbPx,,,,underground,yes
+I23_Underground,(underground — not on sheet surface grid),Underground Lab,,CQgaUwd,,,,underground,yes
+J15_Underground,(underground — not on sheet surface grid),Underground Lab,Подземка немцев без входа с земли,AhdSa4,,,,underground,yes
+J28_Underground,(underground — not on sheet surface grid),U-Bahn Station C,Станция метро,fsivunj,,,,underground,yes
+K29_Underground,(underground — not on sheet surface grid),Подвал санатория,Подвал санатория,7WHvtx,Boss,,,underground,yes
+L6_Underground,(underground — not on sheet surface grid),Бункер партизан,Бункер партизан,XnkxuED,,,,underground,yes
+L16_Underground,(underground — not on sheet surface grid),U-Bahn Station D,Подземелье со входом из подземелья ФоШо,d7NYwWJ,,,,underground,yes
+L17_Underground,(underground — not on sheet surface grid),Underground Tunnel,,cGP5RH3,,,,underground,yes
+P8_Underground,(underground — not on sheet surface grid),The Good Place (Underground),,UgSe5Pc,Dungeon,,,underground,yes
+P15_Underground,(underground — not on sheet surface grid),Underground Lab,,fVAahMG,,,,underground,yes

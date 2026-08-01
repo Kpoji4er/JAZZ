@@ -10,12 +10,12 @@
 
 | Документ | Содержание |
 |---|---|
-| `jazz-maps/docs/content/sector-atlas.md` | Сетка A–P×32, authored sectors, ссылка на `GrandChien2.png` |
-| `jazz-maps/docs/content/sector-transfer.md` | Трансфер vanilla HotDiamonds → maps ID |
-| `jazz-maps/docs/content/sector-sheet-vs-runtime.md` | Diff Google Sheet «Карта» ↔ `ModItemSector` |
+| [sector-atlas.md](../maps/sector-atlas.md) | Сетка A–P×32, authored sectors, ссылка на `GrandChien2.png` |
+| [sector-transfer.md](../maps/sector-transfer.md) | Трансфер vanilla HotDiamonds → maps ID |
+| [sector-sheet-vs-runtime.md](../maps/sector-sheet-vs-runtime.md) | Diff Google Sheet «Карта» ↔ `ModItemSector` |
 | Player wiki / showcase | [Карта Grand Chien](../../wiki/grand-chien-map.md), showcase slug `grand-chien-map` |
 
-Пересборка данных: `python docs/tools/export-jazz-maps-sectors.py` затем `python docs/tools/build-sector-atlas-docs.py` из корня `jazz/`.
+Пересборка данных: `python docs/tools/export-jazz-maps-sectors.py` затем `python docs/tools/build-sector-atlas-docs.py` из корня `jazz/` (выход: `docs/technical/maps/`).
 
 ## Владелец и runtime-слои
 

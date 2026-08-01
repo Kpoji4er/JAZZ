@@ -1,0 +1,246 @@
+sectorId,mapName,display_name,comment,Label1,City,WeatherZone,underground,in_metadata,campaignId
+A1,rmmxFC,,Саванна берег,,,,False,True,HotDiamonds
+A2,PLg5q3T,,Саванна берег,,,,False,True,HotDiamonds
+A3,PYphSvk,,Саванна берег,,,,False,True,HotDiamonds
+A4,UVhtJTG,Diamond Red,Даймонд-Ред,Mine,,SavannahNorth,False,True,HotDiamonds
+A9,KKzpYnk,Highlands,Горы,,,,False,True,HotDiamonds
+A12,UfXn5Ky,Highlands,Горы,,,Highlands,False,True,HotDiamonds
+A13,GWkvH6,Военный аванпост - Горный,,,,,False,True,HotDiamonds
+A15,onJGJze,Hill Station,Тут дрючат бифа,,,Highlands,False,True,HotDiamonds
+A24,f7ufzi,,Горная дорога,,,,False,True,HotDiamonds
+A24_Underground,bDG4HgR,U-Bahn Station A,"Станция УхБах, Бывший B11U",,,,True,True,HotDiamonds
+A25,fRXhJjS,Drachenberg Mine,Шахта «Драхенберг»,Mine,Landsbach,Highlands,False,True,HotDiamonds
+A25_Underground,m3YqaH,Diesel Klinik,«Дизельклиника»,,,,True,True,HotDiamonds
+A26,aVwVweE,Landsbach,Ландсбах,City,Landsbach,Highlands,False,True,HotDiamonds
+B4,kQEvRTX,,Саванна берег,,,,False,True,HotDiamonds
+B5,HPLC7p,,Саванна берег,,,,False,True,HotDiamonds
+B6,dic4Pz,,Аванпост_Пока нету,,,,False,True,HotDiamonds
+B7,idDivnV,Savanna Cave,Пещера в саванне,,,SavannahNorth,False,True,HotDiamonds
+B11,sVQSE5,Highlands,Горы,,,Highlands,False,True,HotDiamonds
+B15,kATGgxm,Middle of Nowhere,Нигде,,,Highlands,False,True,HotDiamonds
+B17,PKLpuCd,,Санаторий Лазурь,,,Highlands,False,True,HotDiamonds
+B24,jHVi6rd,,Горная дорога,,,,False,True,HotDiamonds
+B28,dsAs3ux,The Eagle's Nest,Орлиное гнездо,Outpost,,Barrens,False,True,HotDiamonds
+C3,pLjyyq5,,Чаячий остров,,,,False,True,HotDiamonds
+C4,X4v4S7,Seagull Island,Чаячий остров,,,,False,True,HotDiamonds
+C6,pEfrj37,Savanna Coast,Контрабандисты(Ниже даймонд рэд),,,SavannahNorth,False,True,HotDiamonds
+C7,aoNitXa,Savanna,Саванна,,,SavannahNorth,False,True,HotDiamonds
+C8,PjNRUc7,Savanna,Саванна,,,SavannahNorth,False,True,HotDiamonds
+C12,uSeN6U,The PitStop,Пит-стоп,,,Highlands,False,True,HotDiamonds
+C13,cSypFKz,Highlands,Горы,,,Highlands,False,True,HotDiamonds
+C14,fM3uffW,Old Gas Station,Старая бензоколонка,,,Highlands,False,True,HotDiamonds
+C15,XeGztvo,,Филер,,,,False,True,HotDiamonds
+C22,uP4JNpT,Barrens,Пустоши,,,Barrens,False,True,HotDiamonds
+C23,mdV5qwe,Barrens,Пустоши,,,Barrens,False,True,HotDiamonds
+C24,ew4nkhg,Dead Animal Crossing,Перекресток Дохлых Зверей,,,Barrens,False,True,HotDiamonds
+C26,3vhEUg,Clifftop Overlook,Вершина скалы,,,Barrens,False,True,HotDiamonds
+C27,nyAYoYY,Highlands,,,,,False,True,HotDiamonds
+C28,buta66w,,,,,,False,True,HotDiamonds
+C29,SexCTTP,Barrens,Пустоши,,,Barrens,False,True,HotDiamonds
+D7,hjqPcAS,Savanna,Саванна,,,SavannahNorth,False,True,HotDiamonds
+D8,GUmGV5h,Savanna,Саванна,,,SavannahNorth,False,True,HotDiamonds
+D9,ezcKxQR,Poacher Camp,Лагерь браконьеров,,,SavannahNorth,False,True,HotDiamonds
+D10,GsWvMvH,Savanna,Саванна,,,SavannahSouth,False,True,HotDiamonds
+D11,Mex7A3j,Savanna,Саванна,,,SavannahNorth,False,True,HotDiamonds
+D12,kHpz3Le,Highlands,Горы,,,Highlands,False,True,HotDiamonds
+D13,LisTWbY,Highlands,Горы,,,Highlands,False,True,HotDiamonds
+D14,R7UehFq,Highlands,Горы,,,Highlands,False,True,HotDiamonds
+D15,hqyuu3T,Fosse Noire,Фосс-Нуар,Mine,Pantagruel,SavannahNorth,False,True,HotDiamonds
+D18,Uu5oJqo,Camp Grand Prix,БлокПост_ГранПри,Outpost,,Highlands,False,True,HotDiamonds
+D20,YVhr4j4,,Филер,,,,False,True,HotDiamonds
+D23,YFjugXX,Oasis,Оазис,,,Barrens,False,True,HotDiamonds
+D26,KMykuzc,Stone Stairs,Каменные ступени,,,CursedForest,False,True,HotDiamonds
+D26_Underground,nTzHv5F,Freeloader's Cavern,Пещера Халявщика,Dungeon,,,True,True,HotDiamonds
+D27,saFGCtu,Sturmwasser Canyon,Штурмвассерский каньон,,,Barrens,False,True,HotDiamonds
+D28,cmpNcmh,The Fracture,Разлом,Special,,Barrens,False,True,HotDiamonds
+D29,ruSomEb,Sturmwasser Island,Остров Штурмвассер,,,Barrens,False,True,HotDiamonds
+E4,WEVSiAR,,Чаячий остров,,,,False,True,HotDiamonds
+E8,tjjoSpt,Broken Hill Cemetery,Саванна,,,SavannahNorth,False,True,HotDiamonds
+E9,jRJJaFV,Savanna,Саванна_Бывший С4,,,SavannahNorth,False,True,HotDiamonds
+E10,upzf6Nc,Camp Savane,Кам-Саван,Outpost,,SavannahSouth,False,True,HotDiamonds
+E11,RkvfWJw,Savanna,Саванна,,,SavannahSouth,False,True,HotDiamonds
+E12,e6ePEPQ,Savanna,Лагерь с пленной беженкой,,,SavannahNorth,False,True,HotDiamonds
+E13,rR7xdLC,Savanna,"Саванна ( Переходная, с зеленкой)",,,SavannahSouth,False,True,HotDiamonds
+E14,LHwubHb,Pantagruel Outskirts,Окраины Пантагрюэля,City,Pantagruel,SavannahNorth,False,True,HotDiamonds
+E15,cdKvM4,Pantagruel Slums,Трущебы Пантагрюэля,City,Pantagruel,SavannahNorth,False,True,HotDiamonds
+E16,bkXfKAA,Pantagruel Downtown,Центр Пантагрюэля,City,Pantagruel,SavannahNorth,False,True,HotDiamonds
+E17,kPkuKih,Savanna River Bank,Берег реки в саванне,,,Highlands,False,True,HotDiamonds
+E19,M4NRp4F,Хижина в лесу,Хижина в лесу,Special,,CursedForest,False,True,HotDiamonds
+E21,mkcVqjD,Middle of Anywhere,Гдегдегде,,,CursedForest,False,True,HotDiamonds
+F8,Wz4ej,Savanna Coast,Побережье саванны,,,SavannahSouth,False,True,HotDiamonds
+F9,cV4TTQL,Savanna,Саванна,,,SavannahNorth,False,True,HotDiamonds
+F10,uzPscJH,Savanna,Саванна(пожар),,,SavannahSouth,False,True,HotDiamonds
+F11,XkdorHn,Savanna,Саванна ( Пожар),,,SavannahSouth,False,True,HotDiamonds
+F12,mkLLdVK,Savanna,Саванна,,,SavannahSouth,False,True,HotDiamonds
+F13,EtnVji3,Refugee Camp,Лагерь беженцев,,RefugeeCamp,SavannahSouth,False,True,HotDiamonds
+F17,TNJpJYg,Jungle River Bank,Берег реки в джунглях,,,GreatForest,False,True,HotDiamonds
+F19,NvhJeex,Берег в джунглях,Берег в джунглях,,,CursedForest,False,True,HotDiamonds
+F20,Qy5dqDn,Cursed Forest,Проклятый лес,,,CursedForest,False,True,HotDiamonds
+F21,TspWMsb,Укрытие Гиен,Укрытие Гиен,,,CursedForest,False,True,HotDiamonds
+F22,XnEjf6n,Cursed Forest,Проклятый лес (Хижина ведьмы),,,CursedForest,False,True,HotDiamonds
+F25,QAner5P,Jungle River Bank,Берег реки в джунглях,,,CursedForest,False,True,HotDiamonds
+F27,YRs3GH,Топи,Топи,,,Wetlands,False,True,HotDiamonds
+F28,paiiCHH,Ille Morat,Иль-Мора,City,IlleMorat,CursedForest,False,True,HotDiamonds
+G9,GhT3nho,Côte d'Azur,Кот дАзур,,,SavannahSouth,False,True,HotDiamonds
+G10,DHemvj6,Ла-Палисад,,,,SavannahSouth,False,True,HotDiamonds
+G11,Cxu5w7,Savanna,Саванна,,,SavannahSouth,False,True,HotDiamonds
+G13,jfUUwFo,Savanna,Савана рядом с шахтой Мфуму,,,SavannahSouth,False,True,HotDiamonds
+G14,evrj7Dq,Savanna,Саванна,,,SavannahSouth,False,True,HotDiamonds
+G16,aApUtcM,Minefield,Минное поле,,,GreatForest,False,True,HotDiamonds
+G17,GgmzYs,Great Forest,Великий лес(Вудуисты),,,GreatForest,False,True,HotDiamonds
+G18,cqxkQM,Jungle River Bank,Берег реки в джунглях,,,GreatForest,False,True,HotDiamonds
+G22,UjyKLp,Camp Chien Sauvage,Кам-Шьен-Саваж,Outpost,,CursedForest,False,True,HotDiamonds
+G23,eEi4fwE,Cursed Forest,Проклятый лес,,,CursedForest,False,True,HotDiamonds
+G25,cUsGPkp,Chalet de la Paix,Шале-де-ла-Пе(Деревня вудуистов),City,Chalet,GreatForest,False,True,HotDiamonds
+G28,csb3PSJ,,Филер,,,,False,True,HotDiamonds
+G30,gRtnwGb,Эль Мора,Эль Мора,Mine,IlleMorat,CursedForest,False,True,HotDiamonds
+G31,sCDAnt,Wetlands,Болота,,,Wetlands,False,True,HotDiamonds
+H10,qDthgQR,Savanna Coast,Побережье саванны,,,SavannahSouth,False,True,HotDiamonds
+H11,GwWr43D,Savanna,Саванна,,,SavannahSouth,False,True,HotDiamonds
+H12,bidUisy,Перекресток,"Перекресток, филерная лока",,,,False,True,HotDiamonds
+H13,tJYzTJq,Savanna,Саванна_Два дома в центре,,,SavannahSouth,False,True,HotDiamonds
+H14,gULjNxW,Mfumu's Mine,Шахта Мфуму,Mine,Fleatown,SavannahSouth,False,True,HotDiamonds
+H15,gnTmhJs,Jungle,Джунгли,,,GreatForest,False,True,HotDiamonds
+H17,AYUbWe,Захоронения,Захоронения,,,SouthJungle,False,True,HotDiamonds
+H18,qn6PH7x,Fleatown La Boue,Флитаунский район Ла-Буэ,City,Fleatown,GreatForest,False,True,HotDiamonds
+H19,jCUGgPT,Fleatown Flea Market,Флитаунский блошиный рынок,City,Fleatown,GreatForest,False,True,HotDiamonds
+H21,Pife3VC,Берег реки,Берег реки,,,SouthJungle,False,True,HotDiamonds
+H22,a6LhfeS,Old Fortifications,Старые укрепления,,,GreatForest,False,True,HotDiamonds
+H22_Underground,AXQt4bs,Бункер,Бункер,Dungeon,,,True,True,HotDiamonds
+H23,caEYxx7,Great Forest,"Великий лес, фашики тусят в пещере",,,GreatForest,False,True,HotDiamonds
+H23_Underground,iCThAm,U-Bahn Station B,"Станций метро У-Бах, Бывший F12U",,,,True,True,HotDiamonds
+H27,r5AcnGP,Jungle River Bank,Берег реки в джунглях,,,CursedForest,False,True,HotDiamonds
+H28,UTHJgsX,,Филер,,,,False,True,HotDiamonds
+H29,GwkPAyF,Bien Chien Island,Остров Бьян-Шьен,,,EastSwamp,False,True,HotDiamonds
+H30,fSajNbs,Wetlands,Болота,,,Wetlands,False,True,HotDiamonds
+H31,tEbUqLn,Wassergrab Mining Area,Шахта Вассерграб,Mine,Payak,Farmland,False,True,HotDiamonds
+H32,qViPqrM,Мрачная деревня,Мрачная деревня,City,Payak,Farmland,False,True,HotDiamonds
+I2,qTn3d4w,Лечебница в маяке,Маяк доктора,,ErnieVillage,Erny,False,True,HotDiamonds
+I3,hMW4vMd,Дорога к маяку,Мост в Эрни,,,,False,True,HotDiamonds
+I4,JgXTaSC,Дорога на маяк,Дорога на острове эрни,,,,False,True,HotDiamonds
+I5,ubRwFgf,Village of Ernie,Деревня Эрни,Ernie,ErnieVillage,Erny,False,True,HotDiamonds
+I6,MQKjj5A,The Rust,Жестянка,Ernie,,Erny,False,True,HotDiamonds
+I6_Underground,EbAhNkL,Bunker FB45-68,Бункер_Жестянки,Ernie,,,True,True,HotDiamonds
+I7,fY7Kwxk,Fort L'Eau Bleu,Форт Ло_Блё,Ernie,ErnieVillage,Erny,False,True,HotDiamonds
+I7_Underground,AxdjC3b,Армейский Бункер,Бункер Коразон,Boss,,,True,True,HotDiamonds
+I11,DojDrmH,Savanna Coast,Побережье саванны,,,SavannahSouth,False,True,HotDiamonds
+I12,PdvkRLV,Savanna,Саванна с пожаром,,,SavannahSouth,False,True,HotDiamonds
+I15,PLy7PuR,Jungle,Автобусная остановка,,,GreatForest,False,True,HotDiamonds
+I16,KDcPRa7,Abandoned Mansion,Особняк с призраком,,,SavannahSouth,False,True,HotDiamonds
+I16_Underground,HuMwLSL,Mansion Cellar,Подвал особняка с призраком,,,,True,True,HotDiamonds
+I17,GxhfbCM,Дорожный мост,Дорожный мост,,,GreatForest,False,True,HotDiamonds
+I18,E3WFaEy,Great Forest,Великий лес,,,GreatForest,False,True,HotDiamonds
+I19,aqcRXzW,Wetlands,Болота с бункером,,,Wetlands,False,True,HotDiamonds
+I21,faUJ5WN,Болотистый берег,Болотистый берег,,,Wetlands,False,True,HotDiamonds
+I22,hnJFd4t,Great Forest,Великий лес,,,GreatForest,False,True,HotDiamonds
+I22_Underground,WPsAbPx,Secret Tunnel,,,,,True,True,HotDiamonds
+I23,cYPzytW,Great Forest,Великий лес,,,GreatForest,False,True,HotDiamonds
+I23_Underground,CQgaUwd,Underground Lab,,,,,True,True,HotDiamonds
+I24,UYYHCow,Great Forest,Великий лес,,,GreatForest,False,True,HotDiamonds
+I25,PzmTQGD,Mudwater Bridge,Грязноводный мост,,,GreatForest,False,True,HotDiamonds
+I28,RRYxmQL,Археологические раскопки,Археологические раскопки,,,CursedForest,False,True,HotDiamonds
+J4,FEMnhRu,Дорога в Эрни,Дорога,,,,False,True,HotDiamonds
+J5,adviFCb,Фермы Эрни,Фермы Эрни,,ErnieVillage,Erny,False,True,HotDiamonds
+J6,NrofrcM,Аванпост контрабандистов,Аванпост туда ходи,,,SouthJungle,False,True,HotDiamonds
+J7,qJApdx,Emerald Coast,Изумрудный берег,Ernie,,Erny,False,True,HotDiamonds
+J12,mVm5mPU,Savanna Coast,Доки на побережье саванны,,,SavannahSouth,False,True,HotDiamonds
+J13,esV6vTc,Поселение кладоискателей,Поселение кладоискателей,,,,False,True,HotDiamonds
+J14,tzMhrVp,Rimville,Римвиль(Бандосы),Special,Fleatown,GreatForest,False,True,HotDiamonds
+J15,Q3CabXD,Savanna River Bank,Берег реки в саванне,,,Highlands,False,True,HotDiamonds
+J15_Underground,AhdSa4,Underground Lab,Подземка немцев без входа с земли,,,,True,True,HotDiamonds
+J16,qdha3hm,Great Forest,Великий лес,,,GreatForest,False,True,HotDiamonds
+J17,GkWADM6,Jungle River Bank,Берег реки в джунглях,,,SouthJungle,False,True,HotDiamonds
+J18,ipL6Vk4,Burial Grounds,Земли мертвых,,,SouthJungle,False,True,HotDiamonds
+J19,nsxnjMR,Болотные топи,Болотные топи,,,Wetlands,False,True,HotDiamonds
+J20,ihuFJkn,Wetlands,Болота,,,Wetlands,False,True,HotDiamonds
+J21,TMAVkEL,Minefield,Минное поле,,,GreatForest,False,True,HotDiamonds
+J23,aDTrzgY,Old Graveyard,Старое кладбище,,,Farmland,False,True,HotDiamonds
+J25,WEhxnMU,Jungle River Bank,Берег реки в джунглях,,,SouthJungle,False,True,HotDiamonds
+J26,HKU4Wye,,Филер,,,,False,True,HotDiamonds
+J28,SQASJXH,Wetlands,Болота со входом в метро,,,Wetlands,False,True,HotDiamonds
+J28_Underground,fsivunj,U-Bahn Station C,Станция метро,,,,True,True,HotDiamonds
+J29,dRrFReT,Лагерь надежды,Лагерь надежды,,,GreatForest,False,True,HotDiamonds
+J31,updJS3E,,Филер,,,,False,True,HotDiamonds
+K2,GoDqhMQ,,,,,,False,True,HotDiamonds
+K3,Vgwwieh,Походный лагерь Легиона,Походный лагерь Легиона 1,,,,False,True,HotDiamonds
+K4,gsSMikN,Flag Hill,Флаговый холм,Ernie,,Erny,False,True,HotDiamonds
+K5,YWtYj6q,Походный лагерь Легиона,Походный лагерь Легиона 5,,,Erny,False,True,HotDiamonds
+K6,bVp47D,Запасной лагерь Контрабандистов,Запасной лагерь Контрабандистов,,ErnieVillage,,False,True,HotDiamonds
+K7,XgdUCn7,Заброшенный скалистый берег,Заброшенный скалистый берег,,,,False,True,HotDiamonds
+K15,jiQqxTN,Берег джунглей,Берег джунглей,,,GreatForest,False,True,HotDiamonds
+K19,fdktTtg,Factory Ruins,Заброшенная фабрика с зомбями,Special,,SouthJungle,False,True,HotDiamonds
+K21,ULaRXec,Camp Bien Chien,Кам-Бьян-Шьен,Outpost,,EastSwamp,False,True,HotDiamonds
+K22,P45egwt,Bien Chien Island,Остров Бьян-Шьен,,,EastSwamp,False,True,HotDiamonds
+K23,aVwkXoE,Bien Chien Island,Остров Бьян-Шьен,,,EastSwamp,False,True,HotDiamonds
+K24,jJLrsG,Берег реки,"Берег реки вода с юг запад, поворот реки",,,,False,True,HotDiamonds
+K26,HxKeAVE,Middle of Somewhere,Гтетотам,,,Farmland,False,True,HotDiamonds
+K27,ALC3Vax,,Филер,,,,False,True,HotDiamonds
+K29,obtSegF,Санаторий,Санаторий,Special,,GreatForest,False,True,HotDiamonds
+K29_Underground,7WHvtx,Подвал санатория,Подвал санатория,Boss,,,True,True,HotDiamonds
+K31,CR4Rgvg,Филер,Филер,,,,False,True,HotDiamonds
+K32,YFuRKj,Twin Manors,Усадьбы-близнецы,,Payak,Farmland,False,True,HotDiamonds
+L1,a4wbe6N,База партизан на острове Эрни,База партизан на острове,,Rebels_Ernie,SouthJungle,False,True,HotDiamonds
+L2,PYgh6US,Непроходимая местность,"Река, дебри",,Rebels_Ernie,CursedForest,False,True,HotDiamonds
+L3,pdCpnL,Походный лагерь Легиона,Походный лагерь Легиона 2,,,,False,True,HotDiamonds
+L4,q5EJDsP,Походный лагерь Легиона,Походный лагерь Легиона 3,,,,False,True,HotDiamonds
+L5,ATJYR57,Походный Лагерь Легиона,Походный Лагерь Легиона 4,,ErnieVillage,Erny,False,True,HotDiamonds
+L6,KhrydjM,Заброшенный вход в бункер,"Вход в бункер, соединенный с L1",,Rebels_Ernie,Erny,False,True,HotDiamonds
+L6_Underground,XnkxuED,Бункер партизан,Бункер партизан,,,,True,True,HotDiamonds
+L7,UxRaASA,Рыбацкая деревня,Небольшая рыбацкая деревня,,ErnieVillage,,False,True,HotDiamonds
+L11,V4PtNEt,,Укрепленный остров с орудиями,,,,False,True,HotDiamonds
+L13,EuSA4VN,Безликий,Остров контрабандистов,,,,False,True,HotDiamonds
+L15,d6nSHQ,Camp La Barrière,Кам-Ла-Барьер,Outpost,,GreatForest,False,True,HotDiamonds
+L16,Cpootzp,Great Forest,Великий лес,,,SouthJungle,False,True,HotDiamonds
+L16_Underground,d7NYwWJ,U-Bahn Station D,Подземелье со входом из подземелья ФоШо,,,,True,True,HotDiamonds
+L17,dciGExr,Fort Brigand,Разбойничий форт,Outpost,,Wetlands,False,True,HotDiamonds
+L17_Underground,cGP5RH3,Underground Tunnel,,,,,True,True,HotDiamonds
+L19,Quohbrz,Нет локации,Речные Островки,,,,False,True,HotDiamonds
+L26,jEeRz5a,Farmland,Фермы,,,Farmland,False,True,HotDiamonds
+L27,YbeGv36,Great Forest,Великий лес,,,SouthJungle,False,True,HotDiamonds
+L31,GSWNb,Farmland,Фермы,,,Farmland,False,True,HotDiamonds
+M1,EPA7FVN,Зона высадки,Стартовый берег,,,Erny,False,True,HotDiamonds
+M2,qRiCMTo,Скалистый берег,Филер_2я локация,,,Erny,False,True,HotDiamonds
+M3,isJdmPy,Водопад,Водопад,,,,False,True,HotDiamonds
+M4,cd6xgVh,The Outlook,Смотровая площадка,Ernie,,Erny,False,True,HotDiamonds
+M5,pSwGPnp,Береговая линия,Филер по пути к пляжу,,,Erny,False,True,HotDiamonds
+M6,qzVESk5,Старый порт,Филер_2 по пути к пляжу,,,Erny,False,True,HotDiamonds
+M26,PNDrqcf,Farmland,Фермы,,,Farmland,False,True,HotDiamonds
+M31,tP7vqmh,Farmland,Фермы,,,Farmland,False,True,HotDiamonds
+N11,nMmefSY,Укреп район Какао,Укреп в N11,,,SouthJungle,False,True,HotDiamonds
+N12,camztWx,Port Cacao City,Какао город,City,PortDiancie,SouthJungle,False,True,HotDiamonds
+N13,FpCgakp,Port Cacao Docks,Доки порт_Какао,City,PortDiancie,SouthJungle,False,True,HotDiamonds
+N16,DvDj7va,Wetlands,Размотанный самолет,,,Wetlands,False,True,HotDiamonds
+N22,HpXRoyW,Great Forest,Великий лес,,,SouthJungle,False,True,HotDiamonds
+N23,Qz4yGQr,Old Graveyard,Старое кладбище,,,Farmland,False,True,HotDiamonds
+N24,MuKKhYV,Farmland,Фермы,,,Farmland,False,True,HotDiamonds
+N25,nEhGetV,,Филер,,,,False,True,HotDiamonds
+N26,PCYMGn4,,Филер,,,,False,True,HotDiamonds
+N27,HvHnpEm,Farmland,Фермы,,,Farmland,False,True,HotDiamonds
+N28,ii6Yeod,Ферма,Ферма,,,Farmland,False,True,HotDiamonds
+N29,Rofukov,Middle of Somewhere,Гдетотам,,,Farmland,False,True,HotDiamonds
+N30,kKvrCA6,Farmland,Фермы,,,Farmland,False,True,HotDiamonds
+N31,Den4PN,Farmland,Фермы,,,Farmland,False,True,HotDiamonds
+O10,fMWHxtM,,Филер,,,,False,True,HotDiamonds
+O11,3qduS,Пригород Какао,Пригород Какао,,,,False,True,HotDiamonds
+O13,KkR53xA,The Dump,Свалка Какао,,PortDiancie,SouthJungle,False,True,HotDiamonds
+O14,tnnLoc,,Аванпост Какао (Пока нет),,,,False,True,HotDiamonds
+O15,saxrae7,Сектор О15 видел? тоже самое,Сектор О15 видел? тоже самое,,,,False,True,HotDiamonds
+O16,XVJfNwf,Old Diamond,Олд-Даймонд(Шахта возле какао),Mine,PortDiancie,SouthJungle,False,True,HotDiamonds
+O17,YTiXWVh,,Великий лес(Дорога),,,,False,True,HotDiamonds
+O18,RDVTgah,,Мост на Какао,,,,False,True,HotDiamonds
+O19,FrxvGHX,Филер,Филер,,,,False,True,HotDiamonds
+O20,NYrtAxS,Jungle River Bank,Берег реки в джунглях,,,SouthJungle,False,True,HotDiamonds
+O21,RVMSRbW,Great Forest,Великий лес,,,SouthJungle,False,True,HotDiamonds
+O22,WzdVaNV,Филер,Филер,,,,False,True,HotDiamonds
+O23,LDXkV6z,Филер,Филер,,,,False,True,HotDiamonds
+P8,aszyR5Y,The Good Place,Хорошее место,Dungeon,,SouthJungle,False,True,HotDiamonds
+P8_Underground,UgSe5Pc,The Good Place (Underground),,Dungeon,,,True,True,HotDiamonds
+P9,PciM4k,Jungle River Bank,Берег реки рядом с тюрьмой,,,SouthJungle,False,True,HotDiamonds
+P10,qppXxPw,,Великий лес (Будет),,,,False,True,HotDiamonds
+P11,cSFjTT,Great Forest,Великий лес,,,SouthJungle,False,True,HotDiamonds
+P15,JAUWMKo,Лес,Лес,,,SouthJungle,False,True,HotDiamonds
+P15_Underground,fVAahMG,Underground Lab,,,,,True,True,HotDiamonds
+P16,DYKyfjt,ГдеГдеВезде,ГдеГдеВезде,,,Wetlands,False,True,HotDiamonds
+P17,JFxNeEb,Камп Де Крокодиль,Камп Де Крокодиль,Outpost,,Wetlands,False,True,HotDiamonds
+P19,my6UMM,Заброшенный Аэродром,Заброшенный аэродром,,,GreatForest,False,True,HotDiamonds
+P26,AcNCfY4,Военная база ЮГ,Военная база,,,,False,True,HotDiamonds
