@@ -47,10 +47,10 @@ Salary = `StartingSalary`. `0` means zero in data.
 | Jazz_Gamos | Гамос | Stealth | 3 | Regular | AIM | Jazz_Perk_Gamos | 250 |
 | Jazz_Gaston | Гастон | Marksmen | 5 | Elite | MERC | Jazz_Perk_Gaston | 2500 |
 | Jazz_Grace | Грейс | Melee | 3 | Regular | AIM | Jazz_Perk_Grace | 1600 |
-| Jazz_Grom | Гром | HeavyWeapons | 5 | Veteran | — | Jazz_Perk_Grom | 0 |
+| Jazz_Grom | Гром | HeavyWeapons | 5 | Veteran | — | Jazz_Perk_Grom | 2500 |
 | Jazz_Henning | Хеннинг | Leader | 5 | Elite | AIM | Jazz_Perk_Henning | 5000 |
 | Jazz_Highball | Скала | Doctor | 3 | Regular | AIM | Jazz_Perk_Highball | 900 |
-| Jazz_Hitman | Убийца | Marksmen | 4 | Veteran | AIM | Jazz_Perk_Hitman | 0 |
+| Jazz_Hitman | Убийца | Marksmen | 4 | Veteran | AIM | Jazz_Perk_Hitman | 1500 |
 | Jazz_Hobbit | Хоббит | ExplosiveExpert | 3 | Regular | MERC | Jazz_Perk_Hobbit | 700 |
 | Jazz_Horg | Сигара | HeavyWeapons | 4 | Veteran | MERC | Jazz_Perk_Horg | 2700 |
 | Jazz_Ira | Айра | Leader | 2 | Regular | — | Jazz_Perk_Ira | 400 |
@@ -58,7 +58,7 @@ Salary = `StartingSalary`. `0` means zero in data.
 | Jazz_Laura | Лора | Doctor | 3 | Regular | AIM | Jazz_Perk_Laura | 1700 |
 | Jazz_Lucky | Лаки | Autoriflemen | 4 | Veteran | AIM | Jazz_Perk_Lucky | 1900 |
 | Jazz_Lynx | Рысь | Marksmen | 4 | Elite | — | Jazz_Perk_Lynx ✓ | 2650 |
-| Jazz_Madman | Бешеный | Mechanic | 4 | Veteran | — | Jazz_Perk_Madman | 0 |
+| Jazz_Madman | Бешеный | Mechanic | 4 | Veteran | — | Jazz_Perk_Madman | 900 |
 | Jazz_Manuel | Мануэль | Stealth | 3 | Regular | AIM | Jazz_Perk_Manuel | 600 |
 | Jazz_Meat | Мясо | ExplosiveExpert | 3 | Regular | MERC | Jazz_Perk_Meat | 750 |
 | JAZZ_Merc_Spouke | Фраг | ExplosiveExpert | 4 | Veteran | — | Jazz_Perk_00 ✓ | 2000 |

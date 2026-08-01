@@ -7241,8 +7241,8 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000002112,"Да я лучше бампером всех перемочу! Ну, есть дело или как?","Да я лучше бампером всех перемочу! Ну, есть дело или как?",,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
 890000000002113,"Ты пропал, а я тут заскучал. Продолжай давай.","Ты пропал, а я тут заскучал. Продолжай давай.",,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
 890000000002114,Ну где драка? Мне бы уже кого-то стукнуть.,Ну где драка? Мне бы уже кого-то стукнуть.,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
-890000000002115,"Ха! Поехали крушить. Бесплатно, лишь бы весело было.","Ха! Поехали крушить. Бесплатно, лишь бы весело было.",,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
-890000000002116,"Контракт заканчивается, но я всё равно бесплатный — продлеваем?","Контракт заканчивается, но я всё равно бесплатный — продлеваем?",,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002115,"Ха! Поехали крушить. Дёшево и сердито — лишь бы весело было.","Ха! Поехали крушить. Дёшево и сердито — лишь бы весело было.",,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002116,"Контракт заканчивается — продлеваем, или сам пойду кого-нибудь чинить?","Контракт заканчивается — продлеваем, или сам пойду кого-нибудь чинить?",,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
 890000000002117,Остаюсь. Тут ещё есть что чинить и кого бить.,Остаюсь. Тут ещё есть что чинить и кого бить.,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
 890000000002118,Бешеный готов крушить!,Бешеный готов крушить!,,jazz-units:items.lua:72351
 890000000002119,А ну иди сюда!,А ну иди сюда!,,jazz-units:items.lua:72323
@@ -7334,7 +7334,7 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000002414,"Связь прервалась. Продолжайте, товарищ.","Связь прервалась. Продолжайте, товарищ.",,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
 890000000002415,Жду приказа. Гранатомёт заряжен.,Жду приказа. Гранатомёт заряжен.,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
 890000000002416,Гранатомёт с собой. Идём.,Гранатомёт с собой. Идём.,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
-890000000002417,Контракт заканчивается. Я всё равно бесплатный — продолжаем службу?,Контракт заканчивается. Я всё равно бесплатный — продолжаем службу?,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002417,Контракт заканчивается. Продлеваем службу, или мне искать другой аэродром?,Контракт заканчивается. Продлеваем службу, или мне искать другой аэродром?,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
 890000000002418,Остаюсь. Служба есть служба.,Остаюсь. Служба есть служба.,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
 890000000002419,Майор Громов на позиции.,Майор Громов на позиции.,,jazz-units:items.lua:72950
 890000000002420,Огонь по цели!,Огонь по цели!,,jazz-units:items.lua:72919

@@ -14,9 +14,9 @@ voice_source: ja2
 starting_level: 4
 will: 55
 salary:
-  starting: 0
+  starting: 1500
   increase: 150
-  lv1: 0
+  lv1: 600
   max: 3000
 medical_deposit: none
 haggling: none
@@ -38,9 +38,9 @@ executable: true
 
 ## Bio
 
-**RU:** Статы 75–80, Wisdom 59, Marksmanship 93. Разыскиваемый террорист-наёмник — берёт контракт бесплатно, чтобы отсидеться неделю, а затем скрывается. Не умеет плавать. Уважает Мэджика; терпеть не может Фло; недолюбливает американцев.
+**RU:** Статы 75–80, Wisdom 59, Marksmanship 93. Разыскиваемый террорист-наёмник — берёт контракт, чтобы отсидеться, а затем скрывается. Не умеет плавать. Уважает Мэджика; терпеть не может Фло; недолюбливает американцев.
 
-**EN:** Stats in the 75-80 range, 59 Wisdom, 93 Marksmanship. A wanted mercenary terrorist who takes the contract for free just to lie low for a week before disappearing again. Can't swim. Respects Magic; can't stand Flo; not fond of Americans.
+**EN:** Stats in the 75-80 range, 59 Wisdom, 93 Marksmanship. A wanted mercenary terrorist who takes the contract to lie low before disappearing again. Can't swim. Respects Magic; can't stand Flo; not fond of Americans.
 
 ## Stats
 
@@ -85,11 +85,11 @@ executable: true
 - Likes: `Magic`
 - Dislikes: `Jazz_Flo` (planned merc — Refusal wiring activates once ready)
 - National hates: Americans — Haggle trigger when the active squad is full of American-nationality mercs
-- Refusal / Haggle notes: refuses if Flo hired; haggles when squad is all-American; no money refusal (works for free during his week of exposure); mitigation and recommendation for Magic when hired
+- Refusal / Haggle notes: refuses if Flo hired; haggles when squad is all-American; paid hire (`StartingSalary` 1500); mitigation and recommendation for Magic when hired
 
 ## Hire
 
-- Access: Special — exposed as a wanted man, works one free week to lie low, then leaves; hireable through the same story trigger that surfaces this event
+- Access: Special — exposed as a wanted man; hireable through the story trigger that surfaces this event
 - MedicalDeposit: none; Haggling: none; DaysUntilOnline: 0
 
 ## Inventory

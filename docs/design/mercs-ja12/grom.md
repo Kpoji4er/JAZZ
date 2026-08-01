@@ -14,10 +14,10 @@ voice_source: nightops
 starting_level: 5
 will: 80
 salary:
-  starting: 0
+  starting: 2500
   increase: 200
-  lv1: 0
-  max: 0
+  lv1: 1000
+  max: 6000
 medical_deposit: none
 haggling: none
 executable: true
@@ -38,9 +38,9 @@ executable: true
 
 ## Bio
 
-**RU:** Сослуживец Ивана по Afghan war. Shady Job переводит его в Night Ops. Найм: захват аэропорта и подавление местной ПВО — после этого он сам ждёт вербовщиков на лётном поле. Служит бесплатно, приходит с собственным гранатомётом. Дружит с Иваном, Игорем и Игги; недолюбливает Скоупа за манеру критиковать чужую наводку.
+**RU:** Сослуживец Ивана по Afghan war. Shady Job переводит его в Night Ops. Найм: захват аэропорта и подавление местной ПВО — после этого он сам ждёт вербовщиков на лётном поле. Приходит с собственным гранатомётом. Дружит с Иваном, Игорем и Игги; недолюбливает Скоупа за манеру критиковать чужую наводку.
 
-**EN:** A fellow Afghan-war veteran alongside Ivan. Shady Job routes him into Night Ops. Recruitment: capture the airport and knock out the nearby AA, and he'll be waiting on the tarmac for the recruiters himself. Serves for free, and brings his own rocket launcher. Friends with Ivan, Igor, and Iggy; not fond of Scope's habit of critiquing other people's aim.
+**EN:** A fellow Afghan-war veteran alongside Ivan. Shady Job routes him into Night Ops. Recruitment: capture the airport and knock out the nearby AA, and he'll be waiting on the tarmac for the recruiters himself. Brings his own rocket launcher. Friends with Ivan, Igor, and Iggy; not fond of Scope's habit of critiquing other people's aim.
 
 ## Stats
 
@@ -85,11 +85,11 @@ executable: true
 - Likes: Ivan, Igor (both vanilla merc ids, already shipped — Mitigation/ExtraPartingWords wiring is live immediately), Iggy (planned merc, article pending — wiring activates once ready)
 - Dislikes: `Scope` (vanilla merc id, already shipped — Refusal wiring live immediately)
 - National hates: none
-- Refusal / Haggle notes: free hire behind a sector-capture gate; refuses only if Scope already hired
+- Refusal / Haggle notes: paid hire (`StartingSalary` 2500) behind a sector-capture gate; refuses only if Scope already hired
 
 ## Hire
 
-- Access: Locals — unlocks once the player captures the airport sector and neutralizes the attached AA site; Grom then appears as a free recruit waiting at the airport
+- Access: Locals — unlocks once the player captures the airport sector and neutralizes the attached AA site; Grom then appears waiting at the airport
 - MedicalDeposit: none; Haggling: none; DaysUntilOnline: 0
 
 ## Inventory
@@ -141,8 +141,8 @@ executable: true
 - EN: Rocket launcher's with me. Let's move.
 
 ### RehireIntro
-- RU: Контракт заканчивается. Я всё равно бесплатный — продолжаем службу?
-- EN: Contract's ending. I'm free of charge regardless — continuing service?
+- RU: Контракт заканчивается. Продлеваем службу, или мне искать другой аэродром?
+- EN: Contract's ending. Extending service, or should I find another airfield?
 
 ### RehireOutro
 - RU: Остаюсь. Служба есть служба.

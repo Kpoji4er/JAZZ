@@ -14,10 +14,10 @@ voice_source: ja2
 starting_level: 4
 will: 50
 salary:
-  starting: 0
+  starting: 900
   increase: 200
-  lv1: 0
-  max: 500
+  lv1: 400
+  max: 2500
 medical_deposit: none
 haggling: none
 executable: true
@@ -38,9 +38,9 @@ executable: true
 
 ## Bio
 
-**RU:** Алмаз среди местных: физикалы за 90, механика 68, псих без страха. Клеится к Лиске при каждом удобном случае. После кампании в Арулько готов уйти в MERC — работает бесплатно, лишь бы была движуха и техника под рукой.
+**RU:** Алмаз среди местных: физикалы за 90, механика 68, псих без страха. Клеится к Лиске при каждом удобном случае. После кампании в Арулько готов уйти в MERC — дёшево, лишь бы была движуха и техника под рукой.
 
-**EN:** A diamond among the locals: physicals in the 90s, 68 Mechanical, a fearless psycho. Flirts with Fox at every chance he gets. After the Arulco campaign he's ready to move to MERC — works for free, as long as there's action and something mechanical to wreck or fix.
+**EN:** A diamond among the locals: physicals in the 90s, 68 Mechanical, a fearless psycho. Flirts with Fox at every chance he gets. After the Arulco campaign he's ready to move to MERC — cheap hire, as long as there's action and something mechanical to wreck or fix.
 
 ## Stats
 
@@ -87,7 +87,7 @@ executable: true
 - Likes: Fox (planned attempt at romance in Bio flavor; Fox is a vanilla merc — Mitigation wiring targets vanilla unit id `Fox`)
 - Dislikes: none
 - National hates: none
-- Refusal / Haggle notes: free hire, no medical deposit, no haggling — matches JA2 lore of working for room and board
+- Refusal / Haggle notes: cheap Veteran hire (`StartingSalary` 900), no medical deposit, no haggling
 
 ## Hire
 
@@ -141,12 +141,12 @@ No firearm in any tier — Madman is strictly a crowbar-and-fists brawler-mechan
 - EN: Where's the fight? I need to hit something already.
 
 ### PartingWords
-- RU: Ха! Поехали крушить. Бесплатно, лишь бы весело было.
-- EN: Ha! Let's go smash stuff. Free of charge, as long as it's fun.
+- RU: Ха! Поехали крушить. Дёшево и сердито — лишь бы весело было.
+- EN: Ha! Let's go smash stuff. Cheap and nasty — as long as it's fun.
 
 ### RehireIntro
-- RU: Контракт заканчивается, но я всё равно бесплатный — продлеваем?
-- EN: Contract's ending, but I'm still free anyway — extending?
+- RU: Контракт заканчивается — продлеваем, или сам пойду кого-нибудь чинить?
+- EN: Contract's up — renewing, or do I wander off and fix somebody else's junk?
 
 ### RehireOutro
 - RU: Остаюсь. Тут ещё есть что чинить и кого бить.
