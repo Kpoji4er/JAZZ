@@ -135,6 +135,22 @@ Static root cause (до 0.7):
 
 **Fix:** `UNIT_FAMILY_OVERRIDE[LegionRaider_WeakFlagHill]=assault` → T1 Roughneck (Головорез); `*_Tutorial` / WeakFlagHill всегда **tier 1**; stem `LegionMarauder` для `LegionMarauder_Tutorial` → front T1. Bastien (`_Jose`) по-прежнему skip.
 
+### B11 — Стрелок без оружия (Discord 2026-08-01)
+
+Симптом: `JAZZ_Legion_FrontT1_Rifleman` (ник «Безграмотный стрелок») живой без ствола; труп — шлем/штаны/маска, без firearm.
+
+**Root cause:** `QuestIsVariableNum` читает `rawget(quest, JAZZ_Legion_Tier)` — metatable default `11` не виден до `SetQuestVar`. Bootstrap делал `lRefreshEnemyLoadouts` **до** tier update; CSE мог собрать броню/misc без primary; `GEAR_REV` лочил состояние; live `g_Units` не синхронизировался с `gv_UnitData`.
+
+**Fix (nomaps GEAR_REV=3 + jazz LegionTierProgression):** rawset tier перед refresh; strip+CSE+`lEnsureFirearm(SKS)` на unitdata **и** live Unit; UpdateLegionTier rawset'ит даже при `computed==current` если raw nil.
+
+### B12 — Засадник только с сигнальным пистолетом (Discord 2026-08-01)
+
+Симптом: `JAZZ_Legion_FrontT2_Ambusher` без боевого ствола; в руках FlareHandgun.
+
+**Root cause:** sniper T1 pool включал Ambusher; при miss primary night-loot `JAZZ_Gen_FlareGun` остаётся единственным Firearm; `lEnsureFirearm` считал FlareGun «стволом».
+
+**Fix (GEAR_REV=4):** sniper T1 → только Rifleman; `lIsCombatFirearm` excludes FlareGun/HeavyWeapon.
+
 ## Evidence
 
 - Discord скрины: инвентарь отряда «Чарли», схрон/трупы/сундук сектор I2.

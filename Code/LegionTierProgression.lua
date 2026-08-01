@@ -190,10 +190,16 @@ function JAZZ_UpdateLegionTierForNoMaps()
 
 	local computed = JAZZ_ComputeLegionTierNoMapsSub(now, st.major_started_at, st.major)
 	local current = lGetCurrentTier() or 11
-	if computed <= current then
+	-- Always rawset when loot conditions cannot see metatable default (rawget nil).
+	local quest_state = QuestGetState and QuestGetState(QUEST_ID)
+	local needs_rawset = quest_state and rawget(quest_state, VAR_ID) == nil
+	if computed <= current and not needs_rawset then
 		return false
 	end
-	if not lSetTier(computed) then
+	if not lSetTier(computed > current and computed or current) then
+		return false
+	end
+	if computed <= current then
 		return false
 	end
 	if rawget(_G, "RegenerateLegionLoot") then
