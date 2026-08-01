@@ -206,6 +206,8 @@ Legacy/coarse gates (`1`–`10`) в старых списках при знач�
 
 Корневой `<Unit>_Inventory` собирает с `loot = "all"` дочерние LootDef: primary firearm (weapon+ammo combo), optional launcher (heavy), sidearm/melee/utility, night, valuables band ≈ `JAZZ_GetLegionUnitPrice`, armor Light/Middle/Heavy. `CreateStartingEquipment` создаёт инвентарь из допустимых записей и весов.
 
+`Veteran` / `Mercenary` дополнительно крутят `LegionGL_5pc` (~15% веса → `Legion_GL`): пул **M79**, **M72 LAW** (одноразовый, LootDef `M72LAW`) и late **ChinaLake**. UnitData `CustomEquipGear` для этих классов ставит Handheld B: `GrenadeLauncher`, затем `HeavyWeapon` (LAW), затем melee. `Rocketeer_Launcher` взвешивает RPG-7 (~70%) и M72 LAW (~30%).
+
 `data/caliber_ammo.json` мапит калибр → **ammo** LootDef (например `Crusher_12g` / `Army_12g` для 12gauge). Нельзя указывать weapon-pool ids вроде `LegionT1_Shotgun`: combo с `loot = "all"` тогда выдаёт второй ствол (симптом: Громила с двумя дробовиками). Jazz `EquipStartingGear` кладёт leftover `Firearm` в пустой Handheld B, поэтому второй ствол оказывается во второй руке.
 
 Регенерация: `python scripts/legion-loadouts/generate.py` из корня `jazz/` (см. `scripts/legion-loadouts/README.md`).

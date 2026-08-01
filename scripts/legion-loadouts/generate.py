@@ -669,6 +669,15 @@ def emit_inventory(unit_id: str, recipe: dict, prices: dict) -> str:
             "\t\t\t\t\t\t}),",
         ]
 
+    # Pre-003 frontliner secondary launcher roll (M79 / ChinaLake / M72 LAW).
+    # LootDef LegionGL_5pc embeds ~15% weight vs NoLoot despite the "5pc" name.
+    if util.get("gl_5pc"):
+        lines += [
+            "\t\t\t\t\t\tPlaceObj('LootEntryLootDef', {",
+            "\t\t\t\t\t\t\tloot_def = \"LegionGL_5pc\",",
+            "\t\t\t\t\t\t}),",
+        ]
+
     lines += [
         "\t\t\t\t\t\tPlaceObj('LootEntryLootDef', {",
         "\t\t\t\t\t\t\tloot_def = \"JAZZ_Gen_NightEquipment\",",

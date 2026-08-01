@@ -148,7 +148,7 @@
     "inventory": "Veteran_Inventory", "firearm": "Veteran_Firearm", "class_tier": 3,
     "primary_tags": ["carbine", "assault"], "packages_by_arch": ["assault_m2", "assault_m2", "assault_m3"],
     "sidearm": { "unlock": 11, "chance": 50 }, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "guaranteed", "count_by_arch": [2, 3, 4] } },
+    "utility": { "he": { "mode": "guaranteed", "count_by_arch": [2, 3, 4] }, "gl_5pc": true },
     "ammo_cap": "AP", "flaregun": 5, "misc_chance": 8,
     "valuables": { "drop_chance": 55, "mult": [0.5, 1.5] }
   },
@@ -156,7 +156,7 @@
     "inventory": "Mercenary_Inventory", "firearm": "Mercenary_Firearm", "class_tier": 4,
     "primary_tags": ["assault", "carbine"], "packages_by_arch": ["assault_m3", "merc_m4", "merc_m4"],
     "sidearm": { "unlock": 11, "chance": 60 }, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "guaranteed", "count_by_arch": [3, 4, 5] } },
+    "utility": { "he": { "mode": "guaranteed", "count_by_arch": [3, 4, 5] }, "gl_5pc": true },
     "ammo_cap": "AP", "flaregun": 0, "misc_chance": 12,
     "valuables": { "drop_chance": 65, "mult": [0.6, 1.5] }
   },

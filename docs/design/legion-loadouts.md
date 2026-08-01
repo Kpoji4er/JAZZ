@@ -171,8 +171,8 @@ Sub внутри arch — веса в пользу своего `balance_subtier
 | Raider T2 | SMG→**carbine** | sidearm% | knife% | Middle | HE% | M1–M3 | **carbine** | AR/carbine |
 | Marksman T2 | semi/DMR | — | — | Middle | нет | M1–M3 optic | DMR↑ | DMR + scope |
 | Sniper T3 | sniper only | нет / very rare | **нет** | Light/Middle | нет HE | M2–M3 scope | 2x/4x | elite + bipod%; Match ammo |
-| Veteran T3 | carbine→AR | sidearm | — | Middle/Heavy | HE% | M2–M3 | AR/carbine | AR+mods; ammo↑ |
-| Mercenary T4 | узкий AR | sidearm | — | Middle+ | HE% | **M3–M4** | high floor | contract kits |
+| Veteran T3 | carbine→AR | sidearm | — | Middle/Heavy | HE% + **GL/LAW ~15%** | M2–M3 | AR/carbine | AR+mods; ammo↑ |
+| Mercenary T4 | узкий AR | sidearm | — | Middle+ | HE% + **GL/LAW ~15%** | **M3–M4** | high floor | contract kits |
 | MercenarySniper T4 | узкий sniper | нет | нет | Middle | нет | **M3–M4** | high floor | elite scoped |
 
 ### Фланкеры
@@ -209,7 +209,7 @@ Sub внутри arch — веса в пользу своего `balance_subtier
 
 | Класс | Primary | Sidearm | Melee | Armor | Utility | Mods | Arch2 | Arch3 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Rocketeer T1 | launcher + sidearm | **да** | нет | Middle | rockets | launcher bare; sidearm M0–M1 | launcher↑ | late launcher + better sidearm |
+| Rocketeer T1 | launcher + sidearm | **да** | нет | Middle | rockets | launcher bare; sidearm M0–M1 | launcher↑ (RPG-7 / **M72 LAW**) | late launcher + better sidearm |
 | HeavyGrenadier T2 | GL + sidearm/SMG | да | нет | Middle | GL rounds | M0–M2 на firearm | GL↑ | GL + SMG/АК short |
 | Mortarman T3 | mortar + sidearm | да | нет | Middle | mortar ammo | sidearm M0–M2 | mortar kit↑ | late mortar + sidearm |
 

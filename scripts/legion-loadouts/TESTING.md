@@ -28,6 +28,7 @@ Spot checks in `jazz-units/items.lua`:
 | Pilot inventory | `Roughneck_Inventory` / `Shocktrooper_Inventory` / `Sniper_Inventory` Comment `JAZZ-UNITS-003 generated` |
 | HE specialist | Shock: `FragGrenade` **without** `generate_chance`, exclusive bands `[11,19]` / `[21,29]` / `≥31` |
 | HE non-spec | Roughneck: `FragGrenade` **with** `generate_chance` |
+| Frontliner GL | `Veteran_Inventory` / `Mercenary_Inventory` include `LegionGL_5pc`; `Legion_GL` lists `M72LAW` |
 | Shotgun ammo not weapon pool | GenW combos must not nest `LegionT*_Shotgun`; `caliber_ammo` 12gauge → `Crusher_12g` / `Army_12g` |
 | No mid carbine-norm | `Roughneck_Firearm`: no assault/carbine combo with `Amount < 31` (assault only via `arch3_extra_tags`) |
 | Tier1 late | no firearm entry with `balance_tier` remnant / early Amount **without** `Condition = "<="` for Amount&lt;30 |

@@ -2,7 +2,7 @@
 
 Build-time: **class recipes + catalogs → `jazz-units/items.lua` LootDef**.
 
-Design: `docs/design/legion-loadouts.md` (L1–L23). Spec: `docs/specs/active/JAZZ-UNITS-003.md`.
+Design: `docs/design/legion-loadouts.md` (L1–L23). Spec: `docs/specs/active/JAZZ-UNITS-004.md` (loadout/regen; historical generated markers still say `JAZZ-UNITS-003-GENERATED-*`). Named-perks Wave A lives under a different `JAZZ-UNITS-003` SPEC-ID.
 
 ## Layout
 
