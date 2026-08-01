@@ -23,5 +23,6 @@
 - Merc/NPC portraits: `.agents/skills/create-jazz-merc-portraits/SKILL.md`, `.cursor/rules/jazz-merc-portraits.mdc`
 - Full merc from design article: `.agents/skills/create-jazz-merc/SKILL.md` + `docs/design/mercs-ja12/` + plan `.agents/skills/create-jazz-merc/references/generation-plan.md`
 - Penetration scales (class + tenths, ammo UI): `.agents/skills/jazz-penetration-scales/SKILL.md`
+- Lua globals / wrap flags (no «Attempt to create a new global»): `.agents/skills/jazz-lua-globals/SKILL.md`
 
 Для задачи на стыке систем читать только общий контур, точные runtime/generated references и затронутые playbooks. Не загружать весь набор документов.

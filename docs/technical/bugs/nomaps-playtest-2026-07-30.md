@@ -159,6 +159,14 @@ Static root cause (до 0.7):
 
 **Fix (jazz-units):** ScrapPlate → `JazzArmorPlates_Scrap`, KevlarPlate → `JazzArmorPlates_Kevlar`.
 
+### B15 — Assert «Attempt to create a new global» + HQ=B28 (2026-08-02)
+
+Симптом: при закрытии Mod Manager / NewGame / LoadGame — Assert на `g_JAZZ_NoMapsGenerateEnemySquadWrapped`, `…WorldFlipGuarded`, `JAZZ_NoMaps_CreateUnitDataWrapped`, `…UnitMarkerWrapped`; затем `Groups` boolean при `SetQuestVar` из tier rawset. В консоли `JAZZ_NoMapsIsActive()=true`, но `Major HQ=B28`, outpost только `I7` disabled — глобалка «мертва».
+
+**Root cause:** wrap flags писались в `_G` из `OnMsg` без предварительного объявления (strict globals). Bootstrap обрывался до `ForceMajorHQ(A20)` / auto-regions. `SetQuestVar` на early NewGame гонял TCE при `Groups` ещё boolean.
+
+**Fix (nomaps 0.9.9 + jazz LegionTierProgression):** top-level predeclare + `rawset` для wrap flags; `lQuestVarSafeSet` / safe `lSetTier`. Skill: `.agents/skills/jazz-lua-globals/SKILL.md`.
+
 ### B14 — Жестянка day-1 «другая весовая» (Discord 2026-08-02)
 
 Симптом: NoMaps, день 1, I6 Жестянка — враги уже другой весовой категории. Подозревали ускоренный gear tier; на дне 1 major I должен оставаться.

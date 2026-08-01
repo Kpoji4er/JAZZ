@@ -138,10 +138,15 @@ end
 
 local function lSetTier(value)
 	local quest = QuestGetState and QuestGetState(QUEST_ID)
-	if not quest or not SetQuestVar then
+	if not quest then
 		return false
 	end
-	SetQuestVar(quest, VAR_ID, value)
+	-- SetQuestVar → QuestTCEEvaluation needs Groups as a table; early NewGame may still have boolean.
+	if type(rawget(_G, "Groups")) == "table" and SetQuestVar then
+		SetQuestVar(quest, VAR_ID, value)
+		return true
+	end
+	rawset(quest, VAR_ID, value)
 	return true
 end
 

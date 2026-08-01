@@ -23,6 +23,7 @@ description: Маршрутизировать безопасную разраб�
   - `$create-jazz-merc` — полный наёмник из `docs/design/mercs-ja12/<slug>.md` (UnitData, perk, loot, portraits, loc, VR);
   - `$rename-jazz-weapon-textures` — numeric DDS → `Entity_MapType`, unused purge/dedupe в `jazz_assets` (после editor import ствола);
   - `$jazz-penetration-scales` — дробное пробитие (класс + десятые), ammo UI / `GetAttackPenetrationClass`;
+  - `$jazz-lua-globals` — объявление/`rawset` глобалов, wrap flags, early `SetQuestVar` vs `Groups`;
   - `$release-jazz-suite` — release candidate, version, manifest, tag или публикация.
 6. Не выполнять recursive scan `jazz-maps/Maps/` без прямого картографического scope.
 
