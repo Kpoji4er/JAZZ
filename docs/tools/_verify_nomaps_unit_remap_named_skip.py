@@ -1,6 +1,7 @@
-"""Static check: nomaps UnitData remap skips named Legion (Bastien / LegionRaider_Jose).
+"""Static check: nomaps UnitData remap families (named skip + WeakFlagHill→assault).
 
-Mirrors jazz-nomaps Code/NoMaps_Autonomy.lua lMatchUnitFamily + UNIT_GENERIC_SUFFIX.
+Mirrors jazz-nomaps Code/NoMaps_Autonomy.lua:
+  UNIT_FAMILY_OVERRIDE, UNIT_GENERIC_SUFFIX, UNIT_FAMILY_BY_STEM, lMatchUnitFamily.
 Exit 0 = OK.
 """
 from __future__ import annotations
@@ -17,12 +18,17 @@ SUFFIXES = {
     "_PresidentGuard",
 }
 
+OVERRIDES = {
+    "LegionRaider_WeakFlagHill": "assault",
+}
+
 STEMS = {
     "LegionGoon": "assault",
     "LegionManiac": "crusher",
     "LegionGrenadir": "grenadier",
     "LegionGrenadier": "grenadier",
     "LegionRaider": "front",
+    "LegionMarauder": "front",
     "LegionGunner": "gunner",
     "LegionSniper": "sniper",
     "LegionSharpShooter": "marksman",
@@ -48,6 +54,8 @@ STEMS = {
 def match_unit_family(unit_id: str):
     if not unit_id or unit_id.startswith("JAZZ_Legion"):
         return False
+    if unit_id in OVERRIDES:
+        return OVERRIDES[unit_id]
     best, best_len = False, 0
     for stem, family in STEMS.items():
         if unit_id.startswith(stem) and len(stem) > best_len:
@@ -64,13 +72,16 @@ CASES = [
     ("LegionRaider", "front"),
     ("LegionRaider_Stronger", "front"),
     ("LegionRaider_Stronger_Elite", "front"),
-    ("LegionRaider_WeakFlagHill", "front"),
+    ("LegionRaider_WeakFlagHill", "assault"),  # Goon-named → T1 Roughneck
     ("LegionRaider_Jose", False),  # Bastien
+    ("LegionGrenadier_Tutorial", "grenadier"),
+    ("LegionSniper_Tutorial", "sniper"),
+    ("LegionMarauder_Tutorial", "front"),
     ("LegionHyena", False),
     ("LegionHyenaHandler", False),
     ("LegionKidnapper_1", False),
+    ("LegionGoon", "assault"),
     ("LegionGoon_Stronger_Elite", "assault"),
-    ("LegionGrenadier_Tutorial", "grenadier"),
     ("JAZZ_Legion_FrontT1_Marauder", False),
 ]
 

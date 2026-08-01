@@ -125,9 +125,15 @@ Static root cause (до 0.7):
 
 **Root cause:** COMPAT-004 UnitData remap (`lMatchUnitFamily`) матчил по префиксу stem (`LegionRaider` ⊆ `LegionRaider_Jose`) → пул `front` T1. Spec REQ-004 уже требовал named/Hyena skip, но суффикс не проверялся.
 
-**Fix (nomaps code):** `UNIT_GENERIC_SUFFIX` allowlist (`""`, `_Stronger`, `_Elite`, `_WeakFlagHill`, …); `LegionRaider_Jose` / Hyena / Kidnapper не ремапятся. Static: `docs/tools/_verify_nomaps_unit_remap_named_skip.py`.
+**Fix (nomaps code):** `UNIT_GENERIC_SUFFIX` allowlist (`""`, `_Stronger`, `_Elite`, …); `LegionRaider_Jose` / Hyena / Kidnapper не ремапятся. Static: `docs/tools/_verify_nomaps_unit_remap_named_skip.py`.
 
-**Runtime:** NewGame NoMaps → пляж I1: имя Bastien / Бастьен, диалог Jose_1.
+### B10 — Tutorial Flag Hill «Головорезы» → «Мародёры» (Discord 2026-08-01)
+
+Симптом: стартовые ослабленные леги на Flag Hill / tutorial выглядят как **Мародёр**.
+
+**Root cause:** ванильный `LegionRaider_WeakFlagHill` имеет display Name **Goon/Головорез**, но ID на stem `LegionRaider` → пул `front` → `JAZZ_Legion_FrontT1_Marauder`.
+
+**Fix:** `UNIT_FAMILY_OVERRIDE[LegionRaider_WeakFlagHill]=assault` → T1 Roughneck (Головорез); `*_Tutorial` / WeakFlagHill всегда **tier 1**; stem `LegionMarauder` для `LegionMarauder_Tutorial` → front T1. Bastien (`_Jose`) по-прежнему skip.
 
 ## Evidence
 
