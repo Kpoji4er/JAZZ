@@ -142,14 +142,13 @@ As-shipped in UnitData (JA2-flavored):
 
 ## Phrases — VoiceResponse
 
-`voice_source: ja2` — shipped expanded set (~94 lines / 63 slots):
+`voice_source: ja2` — shipped expanded set (~94 VR lines + AIM chat); **audio = JA2 Trevor archive only** (neural Silero/RVC discarded):
 
-- Texts: JA2 Trevor lines where mapped; remaining slots filled with **Trevor-analog** RU/EN (Aussie merc voice)
-- Spoken lines: **silero-stress + `stress_overrides.json` → Silero `v5_5_ru`/`aidar` → RVC Trevor → loudnorm** → opus (JA2 tempo match optional via `--tempo`, off by default)
-- Non-verbal emotes (Pain/Laugh/DIE/HIT): original JA2 WAV→opus
-- Emotes Climbing/Jumping/GasAreaSelection without audio → `FallbackMissingVR = Ice`
-- Loc IDs: `890000000001722`–`1799` + spill `2506`–`2521`
-- Tooling: `D:\py-voice\gen_silero_ru.py`, `gen_silero_rvc.py`, `stress_overrides.json`; A/B `compare_no_tempo/`
+- Texts: JA2 Trevor lines where mapped; remaining slots keep Trevor-analog RU/EN subtitles
+- Spoken audio: original JA2 WAV → loudnorm → opus from `trevor.rar` / `trevor_extract/trevor`
+- Gaps without archive WAV: **duplicate** a related archive line (same opus hash) — see `docs/tools/_ship_colby_voices_ja2_only.py` (`SLOT_DONOR_POOL` + AIM map)
+- Loc IDs: AIM `1709`–`1721`, VR `1722`–`1799` + spill `2506`–`2521`
+- Rebuild: `python docs/tools/_ship_colby_voices_ja2_only.py` (from `jazz/`)
 
 ## Wiring
 
@@ -176,5 +175,5 @@ As-shipped in UnitData (JA2-flavored):
 - Appearance: `Colby` (`jazz-units/items.lua`)
 - Portraits: `jazz-units/MercPortraits/Colby.png`, `Colby_Big.png`
 - Localization: `890000000001700`–`1799` + VR spill `2506`–`2521` (`jazz/Russian.csv`, `jazz/English.csv`)
-- Voices: `jazz-units/voices/<T-id>.opus` via `ModItemTranslatedVoices` — Silero+RVC RU clone of JA2 Trevor (+ JA2 emotes)
+- Voices: `jazz-units/voices/<T-id>.opus` via `ModItemTranslatedVoices` — JA2 Trevor archive (+ semantic duplicates for JA3-only slots)
 - Combat hooks: `jazz/Code/System_OR_Grenade.lua` (+20% radius), perk `OnCalcDamageAndEffects` (20% Panicked on wounded enemies in explosion)
