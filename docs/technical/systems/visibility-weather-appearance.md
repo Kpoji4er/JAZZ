@@ -21,7 +21,7 @@
 - `Code/UnitAwareness.lua` — применение видимости к suspicion/alerts;
 - `Code/System_UnitAppearance.lua` — attachments, gas mask и weapon component states;
 - `Code/System_ArmorRating.lua` и `System_GasMask.lua` — camo/защита;
-- `Code/Camera.lua` — camera zoom/config;
+- `Code/Camera.lua` — camera zoom/config; post-combat / post-setpiece tac angle restore (`JAZZ_RestoreTacCameraControl`);
 - `Code/NoSoundsInRooms.lua` — загружается, но вся содержательная логика закомментирована; сейчас inert;
 - generated LightmodelPreset, ObjMaterial, ParticleSystemPreset, armor/items и EntityData.
 

@@ -5,7 +5,7 @@
 	'external_links', {
 		"https://discord.gg/XBc498AFdj",
 	},
-	'last_changes', "- Named perks Wave A (JAZZ-UNITS-003): Madman/Blade/Nervous/Henning/Vicious/Dynamo/Eskimo/Lucky/Shank/Vilde/Laura/Vince/Steiger + Lynx Range CTH\n- Hide false Lynx/Buzz/Spider/Colby HUD toggles; remove orphan Jazz_Perk_44840\n- Jazz_OrderCTH ally accuracy buff status\n- COMPAT-003: NoMaps Global AI + timed Legion tiers (mine+3d/WorldFlip; sub 3d/14d)\n- NoMaps review fixes: gear refresh / tier race\n- COMBAT-003: Pinned cannot retaliate; suppression CTH at any range\n- Lightning Reaction 50%, no proc on stealth kill\n- Psycho Will drain -4/turn; Will full restore on CombatEnd\n- Policy: append last_changes until Steam upload, then replace\n- ATTACH/UI: JAZZ_ component + ChipIcon rename; restore missing chip PNGs; optic range CTH floors\n- COMPAT-004: NoMaps Major HQ latch guard; adopt defenders / seed POI helpers",
+	'last_changes', "- Named perks Wave A (JAZZ-UNITS-003): Madman/Blade/Nervous/Henning/Vicious/Dynamo/Eskimo/Lucky/Shank/Vilde/Laura/Vince/Steiger + Lynx Range CTH\n- Hide false Lynx/Buzz/Spider/Colby HUD toggles; remove orphan Jazz_Perk_44840\n- Jazz_OrderCTH ally accuracy buff status\n- COMPAT-003: NoMaps Global AI + timed Legion tiers (mine+3d/WorldFlip; sub 3d/14d)\n- NoMaps review fixes: gear refresh / tier race\n- COMBAT-003: Pinned cannot retaliate; suppression CTH at any range\n- Lightning Reaction 50%, no proc on stealth kill\n- Psycho Will drain -4/turn; Will full restore on CombatEnd\n- Policy: append last_changes until Steam upload, then replace\n- ATTACH/UI: JAZZ_ component + ChipIcon rename; restore missing chip PNGs; optic range CTH floors\n- COMPAT-004: NoMaps Major HQ latch guard; adopt defenders / seed POI helpers\n- Camera: restore tac pitch/control after CombatEnd and Max setpieces (vanilla look-at gap)",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
@@ -34,7 +34,7 @@
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 15,
-	'version', 5947,
+	'version', 5948,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {

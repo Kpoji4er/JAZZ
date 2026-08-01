@@ -22,7 +22,7 @@
 | UI | `WillPointsBar.lua`, `AmmoRolloverHint.lua`, `CombatBadge_DeathRoll.lua` | Дополнительное отображение состояния |
 | Звуки и FX | `CodeSounds*.lua`, `FX_*.lua` | ActionFX и звуковые привязки оружия |
 
-`Camera.lua` меняет только пределы масштабирования тактической камеры.
+`Camera.lua` задаёт пределы zoom тактической камеры и после `CombatEnd` / `SetpieceDialogClosed` синхронизирует live pitch (`SetupLookAtAngle`) + снимает залипшие enemy-turn `hr` overrides / movement locks (ванильный gap: `AdjustCombatCamera("reset")` не вызывает `SetLookAtAngle`).
 
 ## Пакет units
 

@@ -29,7 +29,7 @@ JAZZ заменяет основной цикл расчёта попадани�
 - `Code/CrossHairUI.lua` — crosshair, разбивка модификаторов и отображение CTH;
 - `Code/CombatBadge_DeathRoll.lua` — состояние цели, LOS/LOF, боевые предупреждения и счётчики;
 - `Code/UnitPropertiesStats.lua` — дополнительные характеристики, используемые боевыми расчётами;
-- `Code/Camera.lua` — небольшая настройка камеры, влияющая на представление боя;
+- `Code/Camera.lua` — zoom + restore tac pitch/control после боя и ванильных Max-setpiece (иначе угол может «залипнуть» до save/load);
 - generated `CombatAction` и `CTHModifier` ModItems — данные действий и модификаторов.
 
 ## Формула попадания в текущем runtime
