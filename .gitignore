@@ -23,3 +23,6 @@ Icons/Upgrades/_review/
 docs/tools/_tmp_*
 docs/tools/*_report.txt
 docs/tools/_last_validate_wave.txt
+
+# Local voice extract cache (never ship)
+docs/design/mercs-ja12/_voice-source/_sj_cache/

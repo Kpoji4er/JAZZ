@@ -49,7 +49,7 @@ approved_by: project-owner chat 2026-07-31 implement AI 100-unit scale plan
 - `JAZZ-AI-PERF-001-REQ-001` — `AIUpdateDestLosCache`: use full `context.enemies` (sorted by `handle`); far-skip dests beyond sight (2D) from all enemies. *(Range enemy shortlist rolled back 2026-07-31 — smarter LOS; owner request.)*
 - `JAZZ-AI-PERF-001-REQ-002` — DestLos: dest farther than sight (2D) from all enemies → cache `false`, skip `CheckLOS`.
 - `JAZZ-AI-PERF-001-REQ-003` — Keep batching + `Sleep(10)` yield + compact-visible; `NetUpdateHash` includes enemy count/handles, check-dest count, capped-out count, dest-cap.
-- `JAZZ-AI-PERF-001-REQ-004` — `AIPrecalcDamageScore`: soft target prune only when `#targets > 24` (weapon range + wide margin); early-out dest when `g_AIDestEnemyLOSCache[dest] == false`; do not expand to `all_destinations` when Think passed a subset.
+- `JAZZ-AI-PERF-001-REQ-004` — `AIPrecalcDamageScore`: soft target prune only when `#targets > 12` (weapon range + wide margin; was 24, tightened 2026-08-02 for dense ally/rebel turns); early-out dest when `g_AIDestEnemyLOSCache[dest] == false`; do not expand to `all_destinations` when Think passed a subset.
 - `JAZZ-AI-PERF-001-REQ-005` — Gated timing: `config.JAZZ_AIPerfLog` → per-unit DestLos/Precalc ms + side AITurn ms.
 - `JAZZ-AI-PERF-001-REQ-006` — DestLos CheckLOS dest-cap (`JAZZ_AI_PERF_DESTLOS_CAP`, default 320): prefer stay / important_dests / destinations, then nearest to unit; remainder stay cache `false`.
 
@@ -89,7 +89,7 @@ approved_by: project-owner chat 2026-07-31 implement AI 100-unit scale plan
 
 ## Evidence
 
-- `JAZZ-AI-PERF-001-AC-001`: `PASS` (static) — DestLos full enemies + far-skip + dest-cap 320; soft Precalc prune; `config.JAZZ_AIPerfLog` timing; Medic/Medic_Low OptLoc 45 + runtime clamp.
+- `JAZZ-AI-PERF-001-AC-001`: `PASS` (static) — DestLos full enemies + far-skip + dest-cap 320; soft Precalc prune gate **12**; `config.JAZZ_AIPerfLog` timing; Medic/Medic_Low OptLoc 45 + runtime clamp; Flanker OptLoc 55 (units package, companion to soft gate).
 - `JAZZ-AI-PERF-001-AC-002`: `PASS` (runtime/human) — M1 large fight (JA3Debug + AIPerfLog): after dest-cap AI side completed to player turn; DestLos e.g. RebelFlanker dests≈2781 check_dests≈7 ms≈8; Precalc typically 1–50 ms (Rifleman peaks ~0.5 s). Prior uncapped DestLos hung ~30 min.
 - `JAZZ-AI-PERF-001-AC-003`: `BLOCKED` (runtime/human) — owner ~100 stress.
 - `JAZZ-AI-PERF-001-AC-004`: `PASS` (docs) — performance-vanilla-report + V-AI-001/002 mod notes.

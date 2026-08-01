@@ -917,7 +917,7 @@ end
 -- Enemy shortlist rolled back: use full enemies (smarter LOS). Cap CheckLOS dests.
 JAZZ_AI_PERF_RANGE_MARGIN = 2 * const.SlabSizeX
 JAZZ_AI_PERF_DESTLOS_CAP = 320
-JAZZ_AI_PERF_PRECALC_TARGET_SOFT = 24 -- only range-prune when more targets than this
+JAZZ_AI_PERF_PRECALC_TARGET_SOFT = 12 -- only range-prune when more targets than this
 JAZZ_AI_PERF_PRECALC_MARGIN_MULT = 4 -- soft: margin * this (8 slabs default)
 
 function JAZZ_AIPerfLog(fmt, ...)

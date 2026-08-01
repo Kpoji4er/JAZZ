@@ -1098,7 +1098,7 @@ end
     -- Soft target prune: only when many targets; wide margin (smarter near edge cases).
     local base_margin = JAZZ_AI_PERF_RANGE_MARGIN or (2 * const.SlabSizeX)
     local soft_mult = JAZZ_AI_PERF_PRECALC_MARGIN_MULT or 4
-    local soft_gate = JAZZ_AI_PERF_PRECALC_TARGET_SOFT or 24
+    local soft_gate = JAZZ_AI_PERF_PRECALC_TARGET_SOFT or 12
     local shortlist_range = max_check_range
         and (max_check_range + base_margin * soft_mult)
         or nil
