@@ -8,6 +8,7 @@
 - [Как читать оружие и компоненты](weapons-and-ammo.md)
 - [Полный каталог оружия по тирам](weapons/README.md)
 - [Все компоненты](weapons/components.md)
+- [Карта Grand Chien](grand-chien-map.md)
 
 ## Как читать этот справочник
 

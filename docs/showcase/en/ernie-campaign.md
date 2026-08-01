@@ -1,8 +1,8 @@
 # Ernie campaign
 
-[Overview](home.md) · [Legion units](legion-units.md) · [Legion strategy](legion-strategy.md) · [Русский](../ru/ernie-campaign.md)
+[Overview](home.md) · [Grand Chien map](grand-chien-map.md) · [Legion units](legion-units.md) · [Legion strategy](legion-strategy.md) · [Русский](../ru/ernie-campaign.md)
 
-Source: `jazz-maps/items.lua` (sectors, quests, setpieces). Demo scope is Ernie Island; mainland data exists, full playthrough is not promised.
+Source: `jazz-maps/items.lua` (sectors, quests, setpieces). Demo scope is Ernie Island; mainland data exists, full playthrough is not promised. Expanded grid and landmark remaps: [Grand Chien map](grand-chien-map.md).
 
 ## Start
 

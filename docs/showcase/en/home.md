@@ -7,7 +7,8 @@ Bilingual showcase for the **JAZZ** overhaul of *Jagged Alliance 3*: Ernie demo,
 ## Sections
 
 - [What is JAZZ](about.md)
-- [Ernie campaign](ernie-campaign.md) — map, quests, key sectors
+- [Ernie campaign](ernie-campaign.md) — island quests and key sectors
+- [Grand Chien map](grand-chien-map.md) — expanded grid, start M1, landmarks
 - [Combat and accuracy](combat-and-accuracy.md)
 - [Weapon classes](weapon-classes.md)
 - [Combat actions](combat-actions.md)

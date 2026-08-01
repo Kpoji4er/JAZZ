@@ -3,6 +3,7 @@
     "home",
     "about",
     "ernie-campaign",
+    "grand-chien-map",
     "combat-and-accuracy",
     "weapon-classes",
     "combat-actions",
@@ -27,6 +28,11 @@
       "wikiBase": "Ernie-Campaign",
       "ru": "Кампания на Эрни",
       "en": "Ernie campaign"
+    },
+    "grand-chien-map": {
+      "wikiBase": "Grand-Chien-Map",
+      "ru": "Карта Grand Chien",
+      "en": "Grand Chien map"
     },
     "combat-and-accuracy": {
       "wikiBase": "Combat-and-Accuracy",

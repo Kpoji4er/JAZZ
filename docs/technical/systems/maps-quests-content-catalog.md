@@ -6,6 +6,17 @@
 
 Локальная копия и прочая документация пакета maps: `../jazz-maps/docs/` (на диске каталог `JAZZ Maps/docs/`), оглавление `docs/README.md`, каталог контента `docs/content/quests-locations-enemies.md`.
 
+География / атлас (без обхода `Maps/`):
+
+| Документ | Содержание |
+|---|---|
+| `jazz-maps/docs/content/sector-atlas.md` | Сетка A–P×32, authored sectors, ссылка на `GrandChien2.png` |
+| `jazz-maps/docs/content/sector-transfer.md` | Трансфер vanilla HotDiamonds → maps ID |
+| `jazz-maps/docs/content/sector-sheet-vs-runtime.md` | Diff Google Sheet «Карта» ↔ `ModItemSector` |
+| Player wiki / showcase | [Карта Grand Chien](../../wiki/grand-chien-map.md), showcase slug `grand-chien-map` |
+
+Пересборка данных: `python docs/tools/export-jazz-maps-sectors.py` затем `python docs/tools/build-sector-atlas-docs.py` из корня `jazz/`.
+
 ## Владелец и runtime-слои
 
 | Слой | Вклад |
@@ -35,8 +46,8 @@
 
 | Объект | Количество |
 |---|---|
-| Campaign | `HotDiamonds`, `InitialSector = M1` |
-| ModItemSector | 245 |
+| Campaign | `HotDiamonds`, `InitialSector = M1`, `sector_bottomright = P32`, `map_file = GrandChien2.png` |
+| ModItemSector | 245 (surface 227 + underground 18; regen: `docs/tools/export-jazz-maps-sectors.py`) |
 | Сектора с любыми enemy squad refs (`InitialSquads` / patrol / strong / extra) | 74 |
 | Guardpost-сектора | 9 |
 | Сектора Эрни (label/city/`WeatherZone=Erny` / Rebels_Ernie) | 23 (J7: `Label1=Ernie`, 26 июля 2026) |

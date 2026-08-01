@@ -7,7 +7,8 @@
 ## Разделы
 
 - [Что такое JAZZ](about.md)
-- [Кампания на Эрни](ernie-campaign.md) — карта, квесты, ключевые сектора
+- [Кампания на Эрни](ernie-campaign.md) — квесты и ключевые сектора острова
+- [Карта Grand Chien](grand-chien-map.md) — расширенная сетка, старт M1, ориентиры
 - [Бой и точность](combat-and-accuracy.md)
 - [Классы оружия](weapon-classes.md)
 - [Боевые действия](combat-actions.md)

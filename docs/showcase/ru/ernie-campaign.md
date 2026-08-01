@@ -1,8 +1,8 @@
 # Кампания на Эрни
 
-[К обзору](home.md) · [Юниты Легиона](legion-units.md) · [Легион на стратегии](legion-strategy.md) · [English](../en/ernie-campaign.md)
+[К обзору](home.md) · [Карта Grand Chien](grand-chien-map.md) · [Юниты Легиона](legion-units.md) · [Легион на стратегии](legion-strategy.md) · [English](../en/ernie-campaign.md)
 
-Источник: `jazz-maps/items.lua` (сектора, квесты, setpieces). Демо-скоуп — остров Эрни; mainland в данных есть, полный playthrough не обещан.
+Источник: `jazz-maps/items.lua` (сектора, квесты, setpieces). Демо-скоуп — остров Эрни; mainland в данных есть, полный playthrough не обещан. Расширенная сетка и переносы знакомых локаций — [карта Grand Chien](grand-chien-map.md).
 
 ## Старт
 
