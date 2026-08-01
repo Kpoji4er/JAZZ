@@ -41,7 +41,7 @@ Playtest 2026-07-30 (Discord): cut loot/`MP5` и неполный remap — **и
 
 COMPAT-003 (2026-07-31): NoMaps Global AI economy (nomaps **0.7–0.8**) + Legion gear tier на материке по времени: шахта+3д→II, WorldFlip→III, sub 3д/14д (`Code/LegionTierProgression.lua`); `GetRegionForSector` предпочитает `LegionAIEnabled`. **0.8:** sparse `gv_Squads` gear refresh, missing-def log, Thugs affiliation, tier hook after bootstrap.
 
-COMPAT-004 (2026-08-01): NoMaps Global AI revive + UnitData remap + tiered container loot (nomaps **0.9** + jazz `Guardpost_Patrols` helpers). Major HQ force `A20`; adopt InitialSquads; seed POI; generic vanilla Legion → `JAZZ_Legion_*` pools; inject by `JAZZ_Legion_Tier`. Named/Hyena skip: stem match only with generic suffixes (`_Stronger` / `_Elite` / …), not `LegionRaider_Jose` (Bastien). Spec: [JAZZ-COMPAT-004](../specs/active/JAZZ-COMPAT-004.md).
+COMPAT-004 (2026-08-01): NoMaps Global AI revive + UnitData remap + tiered container loot (nomaps **0.9** + jazz `Guardpost_Patrols` helpers). Major HQ force `A20`; adopt InitialSquads; seed POI; generic vanilla Legion → `JAZZ_Legion_*` pools; inject by `JAZZ_Legion_Tier`. Named/Hyena skip; `WeakFlagHill`→assault T1; `Stronger_Elite`→T4; stem match with generic suffixes. Spec: [JAZZ-COMPAT-004](../specs/active/JAZZ-COMPAT-004.md).
 
 ## Конфликты с другими модами
 

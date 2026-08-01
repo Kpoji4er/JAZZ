@@ -65,7 +65,8 @@ approved_by: project-owner
 - `JAZZ-COMPAT-004-REQ-003` — auto-regions получают seed `poi_money` / `poi_recruits`
   выше tax/recruiter thresholds.
 - `JAZZ-COMPAT-004-REQ-004` — generic vanilla Legion UnitData remapped to `JAZZ_Legion_*`
-  pool (campaign major tier + Stronger/Elite bump); named/Hyena skip; same session_id.
+  pool (campaign major tier + Stronger/+1 Elite/+2 bump; **`Stronger_Elite` always T4**);
+  `WeakFlagHill`→assault T1; `*_Tutorial`→T1; named/Hyena skip; same session_id.
 - `JAZZ-COMPAT-004-REQ-005` — container inject packs/chances by `JAZZ_Legion_Tier` major
   band; T1 без mid armor / assault rifles as common drops.
 - `JAZZ-COMPAT-004-REQ-006` — no-op when `FhNNYd` loaded; maps profile unaffected.
