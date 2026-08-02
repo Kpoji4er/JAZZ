@@ -2,20 +2,17 @@ UndefineClass('FirstAidKit')
 DefineClass.FirstAidKit = {
 	__parents = { "Medicine" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
-
-
 	object_class = "Medicine",
 	ScrapParts = 1,
 	Repairable = false,
-	Icon = "UI/Icons/Items/first_aid_kit",
-	DisplayName = T(905136649471, --[[ModItemInventoryItemCompositeDef FirstAidKit DisplayName]] "First Aid Kit"),
-	DisplayNamePlural = T(941665857371, --[[ModItemInventoryItemCompositeDef FirstAidKit DisplayNamePlural]] "First Aid Kits"),
-	AdditionalHint = T(833018739707, --[[ModItemInventoryItemCompositeDef FirstAidKit AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует состояние умирающих персонажей\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Требуется для использования перевязки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится при каждом употреблении, но запас медикаментов можно восполнить\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, просто находясь в инвентаре"),
+	Icon = "Mod/e6L4ECj/Icons/Items/JAZZ_IFAK.png",
+	DisplayName = T(890000000009217, "IFAK"),
+	DisplayNamePlural = T(890000000009218, "IFAKs"),
+	AdditionalHint = T(890000000009219, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage action removes one worst bleeding stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory"),
 	UnitStat = "Medical",
 	Cost = 300,
 	CanAppearInShop = true,
 	RestockWeight = 150,
 	CategoryPair = "Medicine",
-	max_meds_parts = 8,
+	max_meds_parts = 10,
 }
-

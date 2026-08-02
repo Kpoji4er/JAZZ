@@ -16,6 +16,9 @@ function HealWounds:__exec(obj, context)
 	obj:RemoveStatusEffect("Inaccurate", "all")
 	obj:RemoveStatusEffect("Slowed", "all")
 	obj:RemoveStatusEffect("Bleeding", "all")
+	obj:RemoveStatusEffect("BleedingMedium", "all")
+	obj:RemoveStatusEffect("BleedingHeavy", "all")
+	obj:RemoveStatusEffect("Pain", "all")
 end
 
 PlaceObj('EffectDef', {
@@ -46,7 +49,10 @@ PlaceObj('EffectDef', {
 			obj:RemoveStatusEffect("Wounded", "all")
 			obj:RemoveStatusEffect("Inaccurate", "all")
 			obj:RemoveStatusEffect("Slowed", "all")
-			obj:RemoveStatusEffect("Bleeding", "all")		
+			obj:RemoveStatusEffect("Bleeding", "all")
+			obj:RemoveStatusEffect("BleedingMedium", "all")
+			obj:RemoveStatusEffect("BleedingHeavy", "all")
+			obj:RemoveStatusEffect("Pain", "all")
 		end,
 	}),
 	PlaceObj('ClassConstDef', {

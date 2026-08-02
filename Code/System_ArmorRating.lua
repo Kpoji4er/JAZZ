@@ -494,7 +494,7 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 		local function apply_hit_effect(effect)
 			if armor_pierced and type(effect) == "string" and effect ~= "" and effect ~= "MarkedTraccers"
 				and CharacterEffectDefs[effect] then
-				self:AddStatusEffect(effect)
+				self:AddStatusEffect(JazzRemapHitBleedEffect(effect, hit, attacker))
 			end
 		end
 		if type(effects) == "string" then
@@ -503,6 +503,9 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 			for _, effect in ipairs(effects or empty_table) do
 				apply_hit_effect(effect)
 			end
+		end
+		if armor_pierced then
+			JazzTryRollBleedFromHit(self, hit, attacker)
 		end
 	end
     --end

@@ -11,6 +11,8 @@ function PatientAddHealWoundProgress(merc, progress, max_progress, dont_log)
 		merc:RemoveStatusEffect("Inaccurate", 1, merc.Operation)
 		merc:RemoveStatusEffect("Slowed", 1, merc.Operation)
 		merc:RemoveStatusEffect("Bleeding", 1, merc.Operation)
+		merc:RemoveStatusEffect("BleedingMedium", 1, merc.Operation)
+		merc:RemoveStatusEffect("BleedingHeavy", 1, merc.Operation)
 		merc.wounds_being_treated = merc.wounds_being_treated - 1
 		if merc.wounds_being_treated>0 then
 			local effect = merc:GetStatusEffect("Wounded") 

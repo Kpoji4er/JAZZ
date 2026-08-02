@@ -20,7 +20,8 @@ JAZZ разделяет физическую защиту по покрытию,
 - `Code/UnitPropertiesStats.lua` — свойства юнита, Will и связанные derived values;
 - `Code/System_OR_Unit.lua` — damage/status/unit runtime;
 - `Code/System_Vest.lua` — классы/поведение vest, хотя отдельный Vest slot в текущем inventory-коде закомментирован;
-- `Code/GritOnStart.lua` — временное здоровье на старте боя;
+- `Code/GritOnStart.lua` — только `GetInitialMaxHitPoints` (75% Health / villain / BeefedUp); **Temp HP grit на CombatStart отключён** (JAZZ-MED-001);
+- `Code/Systems_Medicine.lua` — тиры крови, Pain/Analgesia helpers, зональные травмы API, бинт/морфий;
 - `Code/Systems_Wounds_HealWounds.lua` — лечение ран;
 - `Code/System_Wounds_OperationHeal.lua` — стратегическая операция лечения;
 - `Code/WillPointsBar.lua` — UI шкалы воли;
@@ -119,9 +120,11 @@ Asset contract не менялся.
 
 Шесть target body parts: `Arms`, `Groin`, `Head`, `Legs`, `Neck`, `Torso`. Среди 56 CharacterEffect definitions находятся:
 
-- локальные последствия `Armsshot`, `Headshot`, `Legsshot`, `Torsoshot`, `Groinshot`;
-- `Bleeding`, `Wounded`, `Inaccurate`, `Slowed`;
-- `Blinded`, `Burning`, `Choking`;
+- локальные роллеры `Armsshot`, `Headshot`, `Legsshot`, `Torsoshot`, `Groinshot` (скрытые; → `JazzTryRollTraumaFromBodyPart`);
+- зональные травмы `Trauma{Arms|Legs|Ribs|Head|Burn}{Light|Medium|Heavy}` (Eye folded into Head; Burn: `Burning` OnRemoved → Light stub);
+- `Bleeding` / `BleedingMedium` / `BleedingHeavy` (3/6/12 ОЗ за стак/ход, кап суммы ~30; бинт −1 тир худшему стаку; JHP→тяжёлое; травмы ↑ шанс крови);
+- `Pain` / `Analgesia`; `Wounded` от HP practically off (`HpLossToAddStack` sentinel); `Inaccurate`, `Slowed`;
+- `Blinded`, `Burning`, `Choking`; knockout merc → `JazzApplyKnockoutTraumaPackage` (heavy + Pain);
 - уровни suppression и weight class;
 - perks и прочие status effects.
 
@@ -148,13 +151,25 @@ DefineClass.DamageReduction = {
 
 ## Ранения и лечение
 
-Тактическое и стратегическое лечение объединяет набор связанных состояний. Текущая operation heal снимает `Wounded`, `Inaccurate`, `Slowed` и `Bleeding` вместе. Это значимое правило, а не косметический cleanup: разделение вызовов может изменить стоимость/время операции и сохранённые статусы.
+Тактическое и стратегическое лечение объединяет набор связанных состояний. Текущая operation heal снимает `Wounded`, `Inaccurate`, `Slowed` и bleed tiers вместе. Зональные `Trauma*` **не** снимаются полевой перевязкой/бинтом (MED-002: госпиталь / заживление).
 
 `Bandage` остаётся CombatAction, а стратегические sector operations используют отдельный runtime. Проверять оба пути и переход между ними.
 
+### Зональные травмы (MED-001)
+
+Публичные ID: `Trauma{Arms|Legs|Ribs|Head|Burn}{Light|Medium|Heavy}`.
+
+| Тир | Специфик | Боль |
+| --- | --- | --- |
+| Light | нет | при юзе зоны (`JazzTraumaPainOnZoneUse`) |
+| Medium | zone debuff | при юзе зоны |
+| Heavy | жёсткий zone debuff | +1 Pain/ход к капу (`JazzTraumaHeavyPainRamp`) |
+
+Zone specifics (Medium / Heavy params): Arms −20/−50 CTH; Legs +50%/+150% move, no Free Move; Ribs −2/−5 start AP, no Free Move, **no Tired**; Head −15/−40 CTH and −20/−50 sight. Eye folded into Head. Hit wiring: `*shot` OnAdded → `JazzTryRollTraumaFromBodyPart` (Head biased to Medium/Heavy). Knockout merc: `JazzApplyKnockoutTraumaPackage`. Burn: `Burning` OnRemoved → `TraumaBurnLight` (Medium/Heavy IDs exist, apply stubbed). Icons: `Icons/StatusEffects/Trauma*.png`.
+
 ## Grit и временное здоровье
 
-На старте боя `GritOnStart.lua` выдаёт временное здоровье в размере 25% Health. Базовая часть HP построена вокруг 75% здоровья; для villains применяется отдельный constant modifier. Временное здоровье не должно незаметно сериализоваться как постоянный MaxHitPoints или переживать неверную фазу завершения боя.
+**JAZZ-MED-001:** на старте боя Temp HP grit (~25% Health) **не выдаётся**. Базовая часть HP по-прежнему вокруг 75% Health (`GetInitialMaxHitPoints`); для villains — отдельный constant modifier. Перк `TrueGrit` не связан с отключённым CombatStart grit.
 
 ## Will Points и подавление
 

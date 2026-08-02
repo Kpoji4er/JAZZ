@@ -2,14 +2,6 @@
 
 		
 
--- Temporary HitPoints are added at the start of combat
-function OnMsg.CombatStart()
-	for i, unit in ipairs(g_Units) do
-		unit.TempHitPoints = MulDivRound(unit.Health,25,100)
-		ObjModified(unit)
-	end
-end
-
 ---
 --- Gets the initial maximum hit points for the unit.
 ---

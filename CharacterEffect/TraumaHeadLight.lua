@@ -1,0 +1,23 @@
+UndefineClass('TraumaHeadLight')
+DefineClass.TraumaHeadLight = {
+	__parents = { "StatusEffect" },
+	__generated_by_class = "ModItemCharacterEffectCompositeDef",
+	object_class = "StatusEffect",
+	unit_reactions = {
+		PlaceObj('UnitReaction', {
+			Event = "OnFirearmAttackStart",
+			Handler = function(self, target, attacker, attack_target, action, attack_args)
+				if target == attacker then
+					JazzTraumaPainOnZoneUse(attacker, "Head")
+				end
+			end,
+		}),
+	},
+	DisplayName = T(890000000009244, "Head Trauma (Light)"),
+	Description = T(890000000009245, "Pain when aiming or firing. Eye trauma folded into head for v1."),
+	type = "Debuff",
+	Icon = "Mod/e6L4ECj/Icons/StatusEffects/TraumaHeadLight.png",
+	Shown = true,
+	ShownSatelliteView = true,
+	HasFloatingText = true,
+}

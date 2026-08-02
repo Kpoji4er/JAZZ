@@ -11,11 +11,12 @@ DefineClass.Headshot = {
 	Description = "",
 	OnAdded = function (self, obj)
 		if obj.TempHitPoints > 0 then return end
+		JazzTryRollTraumaFromBodyPart(obj, "Head")
 		local hp = obj.TempHitPoints + obj.HitPoints
-		if obj:Random(hp) < 5  then
-		obj:AddStatusEffect("Unconscious")
-		elseif obj:Random(hp) < 20   then
-		obj:AddStatusEffect("Blinded")
+		if obj:Random(hp) < 5 then
+			obj:AddStatusEffect("Unconscious")
+		elseif obj:Random(hp) < 20 then
+			obj:AddStatusEffect("Blinded")
 		end
 	end,
 	OnRemoved = function (self, obj)  end,

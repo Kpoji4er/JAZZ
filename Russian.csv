@@ -11652,3 +11652,730 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000009192,Не вышло.,Не вышло.,,jazz-units:items.lua:VoiceResponse
 890000000009193,Только не это.,Только не это.,,jazz-units:items.lua:VoiceResponse
 890000000009194,Отличная работа.,Отличная работа.,,jazz-units:items.lua:VoiceResponse
+890000000009195,"Лёгкое кровотечение: <color EmStyle><DamagePerTurn> ОЗ</color> за стак каждый ход. Бинт снимает лёгкий стак (или снижает худший на один тир).","Лёгкое кровотечение: <color EmStyle><DamagePerTurn> ОЗ</color> за стак каждый ход. Бинт снимает лёгкий стак (или снижает худший на один тир).",,jazz:CharacterEffect/Bleeding.lua
+890000000009196,Умеренное кровотечение,Умеренное кровотечение,,jazz:CharacterEffect/BleedingMedium.lua
+890000000009197,"Умеренное кровотечение: <color EmStyle>6 ОЗ</color> за стак каждый ход. Бинт снижает один стак до лёгкого.","Умеренное кровотечение: <color EmStyle>6 ОЗ</color> за стак каждый ход. Бинт снижает один стак до лёгкого.",,jazz:CharacterEffect/BleedingMedium.lua
+890000000009198,"<color EmStyle><DisplayName></color>","<color EmStyle><DisplayName></color>",,jazz:CharacterEffect/BleedingMedium.lua
+890000000009199,Тяжёлое кровотечение,Тяжёлое кровотечение,,jazz:CharacterEffect/BleedingHeavy.lua
+890000000009200,"Тяжёлое кровотечение: <color EmStyle>12 ОЗ</color> за стак каждый ход. От экспансива или ухудшения умеренного. Бинт снижает до умеренного.","Тяжёлое кровотечение: <color EmStyle>12 ОЗ</color> за стак каждый ход. От экспансива или ухудшения умеренного. Бинт снижает до умеренного.",,jazz:CharacterEffect/BleedingHeavy.lua
+890000000009201,"<color EmStyle><DisplayName></color>","<color EmStyle><DisplayName></color>",,jazz:CharacterEffect/BleedingHeavy.lua
+890000000009202,Боль,Боль,,jazz:CharacterEffect/Pain.lua
+890000000009203,"Каждый стак: <color EmStyle><APLoss> ОД</color> и <color EmStyle><cth_penalty>% к точности</color>. −1 стак/ход. Обезболивание глушит штрафы.","Каждый стак: <color EmStyle><APLoss> ОД</color> и <color EmStyle><cth_penalty>% к точности</color>. −1 стак/ход. Обезболивание глушит штрафы.",,jazz:CharacterEffect/Pain.lua
+890000000009204,Обезболивание,Обезболивание,,jazz:CharacterEffect/Analgesia.lua
+890000000009205,"Глушит штрафы Боли (−ОД/−точность). Не останавливает кровь и не лечит травмы.","Глушит штрафы Боли (−ОД/−точность). Не останавливает кровь и не лечит травмы.",,jazz:CharacterEffect/Analgesia.lua
+890000000009206,Бинт,Бинт,,jazz:InventoryItem/JAZZ_Bandage.lua
+890000000009207,Бинты,Бинты,,jazz:InventoryItem/JAZZ_Bandage.lua
+890000000009208,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Хотбар: Бинт — худшее кровотечение −1 тир\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Навык Медицина не нужен\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Мало ОД\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На себя или союзника","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Хотбар: Бинт — худшее кровотечение −1 тир\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Навык Медицина не нужен\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Мало ОД\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На себя или союзника",,jazz:InventoryItem/JAZZ_Bandage.lua
+890000000009209,Морфий,Морфий,,jazz:InventoryItem/JAZZ_Morphine.lua
+890000000009210,Морфий,Морфий,,jazz:InventoryItem/JAZZ_Morphine.lua
+890000000009211,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Хотбар: Морфий — глушит штрафы Боли\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не останавливает кровь и не лечит травму\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Навык Медицина не нужен\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На себя или союзника","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Хотбар: Морфий — глушит штрафы Боли\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не останавливает кровь и не лечит травму\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Навык Медицина не нужен\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На себя или союзника",,jazz:InventoryItem/JAZZ_Morphine.lua
+890000000009212,Хирургический набор,Хирургический набор,,jazz:InventoryItem/JAZZ_SurgicalKit.lua
+890000000009213,Хирургические наборы,Хирургические наборы,,jazz:InventoryItem/JAZZ_SurgicalKit.lua
+890000000009214,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Длительное обезболивание (v1)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Редкий; позже — полевая хирургия для врачей","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Длительное обезболивание (v1)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Редкий; позже — полевая хирургия для врачей",,jazz:InventoryItem/JAZZ_SurgicalKit.lua
+890000000009215,ИСПОЛЬЗОВАТЬ,ИСПОЛЬЗОВАТЬ,,jazz:InventoryItem/JAZZ_SurgicalKit.lua
+890000000009216,"<target> кровотечение снижено бинтом","<target> кровотечение снижено бинтом",,jazz:Code/System_UnitInventory.lua
+890000000009217,ИФАК,ИФАК,,jazz:InventoryItem/FirstAidKit.lua
+890000000009218,ИФАК,ИФАК,,jazz:InventoryItem/FirstAidKit.lua
+890000000009219,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает ОЗ и стабилизирует умирающих\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка снимает один худший стак крови\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится; рефил из Meds\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Работает из инвентаря","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает ОЗ и стабилизирует умирающих\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка снимает один худший стак крови\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится; рефил из Meds\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Работает из инвентаря",,jazz:InventoryItem/FirstAidKit.lua
+890000000009220,Аптечка,Аптечка,,jazz:InventoryItem/Medkit.lua
+890000000009221,Аптечки,Аптечки,,jazz:InventoryItem/Medkit.lua
+890000000009222,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает ОЗ и стабилизирует умирающих\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка +25% ОЗ\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает до двух худших стаков крови\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится; рефил из Meds","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает ОЗ и стабилизирует умирающих\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка +25% ОЗ\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает до двух худших стаков крови\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится; рефил из Meds",,jazz:InventoryItem/Medkit.lua
+890000000009223,"Вколоть морфий: глушит штрафы Боли у себя или союзника. Кровь не останавливает.","Вколоть морфий: глушит штрафы Боли у себя или союзника. Кровь не останавливает.",,jazz:items.lua:JazzMorphine
+890000000009224,Морфий,Морфий,,jazz:items.lua:JazzMorphine
+890000000009225,МОРФИЙ,МОРФИЙ,,jazz:items.lua:JazzMorphine
+890000000009195,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009196,Есть цель!,Есть цель!,,jazz-units:items.lua:VoiceResponse
+890000000009197,В бой!,В бой!,,jazz-units:items.lua:VoiceResponse
+890000000009198,Готов.,Готов.,,jazz-units:items.lua:VoiceResponse
+890000000009199,Конец...,Конец...,,jazz-units:items.lua:VoiceResponse
+890000000009200,Ранен!,Ранен!,,jazz-units:items.lua:VoiceResponse
+890000000009201,Патроны!,Патроны!,,jazz-units:items.lua:VoiceResponse
+890000000009202,Контакт!,Контакт!,,jazz-units:items.lua:VoiceResponse
+890000000009203,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009204,Учусь.,Учусь.,,jazz-units:items.lua:VoiceResponse
+890000000009205,Только не это.,Только не это.,,jazz-units:items.lua:VoiceResponse
+890000000009206,Отличная работа.,Отличная работа.,,jazz-units:items.lua:VoiceResponse
+890000000009207,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009208,Есть цель!,Есть цель!,,jazz-units:items.lua:VoiceResponse
+890000000009209,В бой!,В бой!,,jazz-units:items.lua:VoiceResponse
+890000000009210,Готов.,Готов.,,jazz-units:items.lua:VoiceResponse
+890000000009211,Конец...,Конец...,,jazz-units:items.lua:VoiceResponse
+890000000009212,Ранен!,Ранен!,,jazz-units:items.lua:VoiceResponse
+890000000009213,Патроны!,Патроны!,,jazz-units:items.lua:VoiceResponse
+890000000009214,Контакт!,Контакт!,,jazz-units:items.lua:VoiceResponse
+890000000009215,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009216,Учусь.,Учусь.,,jazz-units:items.lua:VoiceResponse
+890000000009217,Только не это.,Только не это.,,jazz-units:items.lua:VoiceResponse
+890000000009218,Отличная работа.,Отличная работа.,,jazz-units:items.lua:VoiceResponse
+890000000009219,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009220,Есть цель!,Есть цель!,,jazz-units:items.lua:VoiceResponse
+890000000009221,В бой!,В бой!,,jazz-units:items.lua:VoiceResponse
+890000000009222,Готов.,Готов.,,jazz-units:items.lua:VoiceResponse
+890000000009223,Конец...,Конец...,,jazz-units:items.lua:VoiceResponse
+890000000009224,Ранен!,Ранен!,,jazz-units:items.lua:VoiceResponse
+890000000009225,Патроны!,Патроны!,,jazz-units:items.lua:VoiceResponse
+890000000009226,Контакт!,Контакт!,,jazz-units:items.lua:VoiceResponse
+890000000009227,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009228,Учусь.,Учусь.,,jazz-units:items.lua:VoiceResponse
+890000000009229,Только не это.,Только не это.,,jazz-units:items.lua:VoiceResponse
+890000000009230,Отличная работа.,Отличная работа.,,jazz-units:items.lua:VoiceResponse
+890000000009231,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009232,Есть цель!,Есть цель!,,jazz-units:items.lua:VoiceResponse
+890000000009233,В бой!,В бой!,,jazz-units:items.lua:VoiceResponse
+890000000009234,Готов.,Готов.,,jazz-units:items.lua:VoiceResponse
+890000000009235,Конец...,Конец...,,jazz-units:items.lua:VoiceResponse
+890000000009236,Ранен!,Ранен!,,jazz-units:items.lua:VoiceResponse
+890000000009237,Патроны!,Патроны!,,jazz-units:items.lua:VoiceResponse
+890000000009238,Контакт!,Контакт!,,jazz-units:items.lua:VoiceResponse
+890000000009239,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009240,Учусь.,Учусь.,,jazz-units:items.lua:VoiceResponse
+890000000009241,Только не это.,Только не это.,,jazz-units:items.lua:VoiceResponse
+890000000009242,Отличная работа.,Отличная работа.,,jazz-units:items.lua:VoiceResponse
+890000000009243,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009244,Есть цель!,Есть цель!,,jazz-units:items.lua:VoiceResponse
+890000000009245,В бой!,В бой!,,jazz-units:items.lua:VoiceResponse
+890000000009246,Готов.,Готов.,,jazz-units:items.lua:VoiceResponse
+890000000009247,Конец...,Конец...,,jazz-units:items.lua:VoiceResponse
+890000000009248,Ранен!,Ранен!,,jazz-units:items.lua:VoiceResponse
+890000000009249,Патроны!,Патроны!,,jazz-units:items.lua:VoiceResponse
+890000000009250,Контакт!,Контакт!,,jazz-units:items.lua:VoiceResponse
+890000000009251,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009252,Учусь.,Учусь.,,jazz-units:items.lua:VoiceResponse
+890000000009253,Только не это.,Только не это.,,jazz-units:items.lua:VoiceResponse
+890000000009254,Отличная работа.,Отличная работа.,,jazz-units:items.lua:VoiceResponse
+890000000009255,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009256,Есть цель!,Есть цель!,,jazz-units:items.lua:VoiceResponse
+890000000009257,В бой!,В бой!,,jazz-units:items.lua:VoiceResponse
+890000000009258,Готов.,Готов.,,jazz-units:items.lua:VoiceResponse
+890000000009259,Конец...,Конец...,,jazz-units:items.lua:VoiceResponse
+890000000009260,Ранен!,Ранен!,,jazz-units:items.lua:VoiceResponse
+890000000009261,Патроны!,Патроны!,,jazz-units:items.lua:VoiceResponse
+890000000009262,Контакт!,Контакт!,,jazz-units:items.lua:VoiceResponse
+890000000009263,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009264,Учусь.,Учусь.,,jazz-units:items.lua:VoiceResponse
+890000000009265,Только не это.,Только не это.,,jazz-units:items.lua:VoiceResponse
+890000000009266,Отличная работа.,Отличная работа.,,jazz-units:items.lua:VoiceResponse
+890000000009267,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009268,Есть цель!,Есть цель!,,jazz-units:items.lua:VoiceResponse
+890000000009269,В бой!,В бой!,,jazz-units:items.lua:VoiceResponse
+890000000009270,Готов.,Готов.,,jazz-units:items.lua:VoiceResponse
+890000000009271,Конец...,Конец...,,jazz-units:items.lua:VoiceResponse
+890000000009272,Ранен!,Ранен!,,jazz-units:items.lua:VoiceResponse
+890000000009273,Патроны!,Патроны!,,jazz-units:items.lua:VoiceResponse
+890000000009274,Контакт!,Контакт!,,jazz-units:items.lua:VoiceResponse
+890000000009275,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009276,Учусь.,Учусь.,,jazz-units:items.lua:VoiceResponse
+890000000009277,Только не это.,Только не это.,,jazz-units:items.lua:VoiceResponse
+890000000009278,Отличная работа.,Отличная работа.,,jazz-units:items.lua:VoiceResponse
+890000000009279,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009280,Есть цель!,Есть цель!,,jazz-units:items.lua:VoiceResponse
+890000000009281,В бой!,В бой!,,jazz-units:items.lua:VoiceResponse
+890000000009282,Готов.,Готов.,,jazz-units:items.lua:VoiceResponse
+890000000009283,Конец...,Конец...,,jazz-units:items.lua:VoiceResponse
+890000000009284,Ранен!,Ранен!,,jazz-units:items.lua:VoiceResponse
+890000000009285,Патроны!,Патроны!,,jazz-units:items.lua:VoiceResponse
+890000000009286,Контакт!,Контакт!,,jazz-units:items.lua:VoiceResponse
+890000000009287,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009288,Учусь.,Учусь.,,jazz-units:items.lua:VoiceResponse
+890000000009289,Только не это.,Только не это.,,jazz-units:items.lua:VoiceResponse
+890000000009290,Отличная работа.,Отличная работа.,,jazz-units:items.lua:VoiceResponse
+890000000009291,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009292,Есть цель!,Есть цель!,,jazz-units:items.lua:VoiceResponse
+890000000009293,В бой!,В бой!,,jazz-units:items.lua:VoiceResponse
+890000000009294,Готов.,Готов.,,jazz-units:items.lua:VoiceResponse
+890000000009295,Конец...,Конец...,,jazz-units:items.lua:VoiceResponse
+890000000009296,Ранен!,Ранен!,,jazz-units:items.lua:VoiceResponse
+890000000009297,Патроны!,Патроны!,,jazz-units:items.lua:VoiceResponse
+890000000009298,Контакт!,Контакт!,,jazz-units:items.lua:VoiceResponse
+890000000009299,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009300,Учусь.,Учусь.,,jazz-units:items.lua:VoiceResponse
+890000000009301,Только не это.,Только не это.,,jazz-units:items.lua:VoiceResponse
+890000000009302,Отличная работа.,Отличная работа.,,jazz-units:items.lua:VoiceResponse
+890000000009303,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009304,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009305,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009306,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009307,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009308,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009309,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009310,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009311,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009312,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009313,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009314,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009315,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009316,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009317,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009318,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009319,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009320,Есть цель!,Есть цель!,,jazz-units:items.lua:VoiceResponse
+890000000009321,Тихо сниму.,Тихо сниму.,,jazz-units:items.lua:VoiceResponse
+890000000009322,Тихо сниму.,Тихо сниму.,,jazz-units:items.lua:VoiceResponse
+890000000009323,Сложный выстрел.,Сложный выстрел.,,jazz-units:items.lua:VoiceResponse
+890000000009324,Плохой угол.,Плохой угол.,,jazz-units:items.lua:VoiceResponse
+890000000009325,Вижу их!,Вижу их!,,jazz-units:items.lua:VoiceResponse
+890000000009326,Вижу их!,Вижу их!,,jazz-units:items.lua:VoiceResponse
+890000000009327,Их много!,Их много!,,jazz-units:items.lua:VoiceResponse
+890000000009328,Готов.,Готов.,,jazz-units:items.lua:VoiceResponse
+890000000009329,Патроны кончились.,Патроны кончились.,,jazz-units:items.lua:VoiceResponse
+890000000009330,Клин!,Клин!,,jazz-units:items.lua:VoiceResponse
+890000000009331,Аргх!,Аргх!,,jazz-units:items.lua:VoiceResponse
+890000000009332,Аргх!,Аргх!,,jazz-units:items.lua:VoiceResponse
+890000000009333,Ранен!,Ранен!,,jazz-units:items.lua:VoiceResponse
+890000000009334,Плохо…,Плохо…,,jazz-units:items.lua:VoiceResponse
+890000000009335,К бою!,К бою!,,jazz-units:items.lua:VoiceResponse
+890000000009336,Чисто.,Чисто.,,jazz-units:items.lua:VoiceResponse
+890000000009337,Ещё остались.,Ещё остались.,,jazz-units:items.lua:VoiceResponse
+890000000009338,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009339,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009340,Прячусь.,Прячусь.,,jazz-units:items.lua:VoiceResponse
+890000000009341,Прячусь.,Прячусь.,,jazz-units:items.lua:VoiceResponse
+890000000009342,Интересно…,Интересно…,,jazz-units:items.lua:VoiceResponse
+890000000009343,Интересно…,Интересно…,,jazz-units:items.lua:VoiceResponse
+890000000009344,Закрыто.,Закрыто.,,jazz-units:items.lua:VoiceResponse
+890000000009345,Устал…,Устал…,,jazz-units:items.lua:VoiceResponse
+890000000009346,(пыхтит),(пыхтит),,jazz-units:items.lua:VoiceResponse
+890000000009347,Спасибо.,Спасибо.,,jazz-units:items.lua:VoiceResponse
+890000000009348,Не сейчас.,Не сейчас.,,jazz-units:items.lua:VoiceResponse
+890000000009349,Готово.,Готово.,,jazz-units:items.lua:VoiceResponse
+890000000009350,В укрытие!,В укрытие!,,jazz-units:items.lua:VoiceResponse
+890000000009351,Граната!,Граната!,,jazz-units:items.lua:VoiceResponse
+890000000009352,Очередь!,Очередь!,,jazz-units:items.lua:VoiceResponse
+890000000009353,(лезет),(лезет),,jazz-units:items.lua:VoiceResponse
+890000000009354,(прыжок),(прыжок),,jazz-units:items.lua:VoiceResponse
+890000000009355,Что?!,Что?!,,jazz-units:items.lua:VoiceResponse
+890000000009356,Опасно!,Опасно!,,jazz-units:items.lua:VoiceResponse
+890000000009357,Держу сектор.,Держу сектор.,,jazz-units:items.lua:VoiceResponse
+890000000009358,Наготове.,Наготове.,,jazz-units:items.lua:VoiceResponse
+890000000009359,(кашляет),(кашляет),,jazz-units:items.lua:VoiceResponse
+890000000009360,Почти…,Почти…,,jazz-units:items.lua:VoiceResponse
+890000000009361,Зверь!,Зверь!,,jazz-units:items.lua:VoiceResponse
+890000000009362,Есть идея.,Есть идея.,,jazz-units:items.lua:VoiceResponse
+890000000009363,Сделано.,Сделано.,,jazz-units:items.lua:VoiceResponse
+890000000009364,Не вышло.,Не вышло.,,jazz-units:items.lua:VoiceResponse
+890000000009365,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009366,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009367,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009368,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009369,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009370,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009371,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009372,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009373,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009374,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009375,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009376,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009377,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009378,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009379,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009380,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009381,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009382,Есть цель!,Есть цель!,,jazz-units:items.lua:VoiceResponse
+890000000009383,Тихо сниму.,Тихо сниму.,,jazz-units:items.lua:VoiceResponse
+890000000009384,Тихо сниму.,Тихо сниму.,,jazz-units:items.lua:VoiceResponse
+890000000009385,Сложный выстрел.,Сложный выстрел.,,jazz-units:items.lua:VoiceResponse
+890000000009386,Плохой угол.,Плохой угол.,,jazz-units:items.lua:VoiceResponse
+890000000009387,Вижу их!,Вижу их!,,jazz-units:items.lua:VoiceResponse
+890000000009388,Вижу их!,Вижу их!,,jazz-units:items.lua:VoiceResponse
+890000000009389,Их много!,Их много!,,jazz-units:items.lua:VoiceResponse
+890000000009390,Готов.,Готов.,,jazz-units:items.lua:VoiceResponse
+890000000009391,Патроны кончились.,Патроны кончились.,,jazz-units:items.lua:VoiceResponse
+890000000009392,Клин!,Клин!,,jazz-units:items.lua:VoiceResponse
+890000000009393,Аргх!,Аргх!,,jazz-units:items.lua:VoiceResponse
+890000000009394,Аргх!,Аргх!,,jazz-units:items.lua:VoiceResponse
+890000000009395,Ранен!,Ранен!,,jazz-units:items.lua:VoiceResponse
+890000000009396,Плохо…,Плохо…,,jazz-units:items.lua:VoiceResponse
+890000000009397,К бою!,К бою!,,jazz-units:items.lua:VoiceResponse
+890000000009398,Чисто.,Чисто.,,jazz-units:items.lua:VoiceResponse
+890000000009399,Ещё остались.,Ещё остались.,,jazz-units:items.lua:VoiceResponse
+890000000009400,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009401,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009402,Прячусь.,Прячусь.,,jazz-units:items.lua:VoiceResponse
+890000000009403,Прячусь.,Прячусь.,,jazz-units:items.lua:VoiceResponse
+890000000009404,Интересно…,Интересно…,,jazz-units:items.lua:VoiceResponse
+890000000009405,Интересно…,Интересно…,,jazz-units:items.lua:VoiceResponse
+890000000009406,Закрыто.,Закрыто.,,jazz-units:items.lua:VoiceResponse
+890000000009407,Устал…,Устал…,,jazz-units:items.lua:VoiceResponse
+890000000009408,(пыхтит),(пыхтит),,jazz-units:items.lua:VoiceResponse
+890000000009409,Спасибо.,Спасибо.,,jazz-units:items.lua:VoiceResponse
+890000000009410,Не сейчас.,Не сейчас.,,jazz-units:items.lua:VoiceResponse
+890000000009411,Готово.,Готово.,,jazz-units:items.lua:VoiceResponse
+890000000009412,В укрытие!,В укрытие!,,jazz-units:items.lua:VoiceResponse
+890000000009413,Граната!,Граната!,,jazz-units:items.lua:VoiceResponse
+890000000009414,Очередь!,Очередь!,,jazz-units:items.lua:VoiceResponse
+890000000009415,(лезет),(лезет),,jazz-units:items.lua:VoiceResponse
+890000000009416,(прыжок),(прыжок),,jazz-units:items.lua:VoiceResponse
+890000000009417,Что?!,Что?!,,jazz-units:items.lua:VoiceResponse
+890000000009418,Опасно!,Опасно!,,jazz-units:items.lua:VoiceResponse
+890000000009419,Держу сектор.,Держу сектор.,,jazz-units:items.lua:VoiceResponse
+890000000009420,Наготове.,Наготове.,,jazz-units:items.lua:VoiceResponse
+890000000009421,(кашляет),(кашляет),,jazz-units:items.lua:VoiceResponse
+890000000009422,Почти…,Почти…,,jazz-units:items.lua:VoiceResponse
+890000000009423,Зверь!,Зверь!,,jazz-units:items.lua:VoiceResponse
+890000000009424,Есть идея.,Есть идея.,,jazz-units:items.lua:VoiceResponse
+890000000009425,Сделано.,Сделано.,,jazz-units:items.lua:VoiceResponse
+890000000009426,Не вышло.,Не вышло.,,jazz-units:items.lua:VoiceResponse
+890000000009427,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009428,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009429,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009430,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009431,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009432,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009433,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009434,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009435,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009436,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009437,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009438,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009439,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009440,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009441,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009442,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009443,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009444,Есть цель!,Есть цель!,,jazz-units:items.lua:VoiceResponse
+890000000009445,Тихо сниму.,Тихо сниму.,,jazz-units:items.lua:VoiceResponse
+890000000009446,Тихо сниму.,Тихо сниму.,,jazz-units:items.lua:VoiceResponse
+890000000009447,Сложный выстрел.,Сложный выстрел.,,jazz-units:items.lua:VoiceResponse
+890000000009448,Плохой угол.,Плохой угол.,,jazz-units:items.lua:VoiceResponse
+890000000009449,Вижу их!,Вижу их!,,jazz-units:items.lua:VoiceResponse
+890000000009450,Вижу их!,Вижу их!,,jazz-units:items.lua:VoiceResponse
+890000000009451,Их много!,Их много!,,jazz-units:items.lua:VoiceResponse
+890000000009452,Готов.,Готов.,,jazz-units:items.lua:VoiceResponse
+890000000009453,Патроны кончились.,Патроны кончились.,,jazz-units:items.lua:VoiceResponse
+890000000009454,Клин!,Клин!,,jazz-units:items.lua:VoiceResponse
+890000000009455,Аргх!,Аргх!,,jazz-units:items.lua:VoiceResponse
+890000000009456,Аргх!,Аргх!,,jazz-units:items.lua:VoiceResponse
+890000000009457,Ранен!,Ранен!,,jazz-units:items.lua:VoiceResponse
+890000000009458,Плохо…,Плохо…,,jazz-units:items.lua:VoiceResponse
+890000000009459,К бою!,К бою!,,jazz-units:items.lua:VoiceResponse
+890000000009460,Чисто.,Чисто.,,jazz-units:items.lua:VoiceResponse
+890000000009461,Ещё остались.,Ещё остались.,,jazz-units:items.lua:VoiceResponse
+890000000009462,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009463,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009464,Прячусь.,Прячусь.,,jazz-units:items.lua:VoiceResponse
+890000000009465,Прячусь.,Прячусь.,,jazz-units:items.lua:VoiceResponse
+890000000009466,Интересно…,Интересно…,,jazz-units:items.lua:VoiceResponse
+890000000009467,Интересно…,Интересно…,,jazz-units:items.lua:VoiceResponse
+890000000009468,Закрыто.,Закрыто.,,jazz-units:items.lua:VoiceResponse
+890000000009469,Устал…,Устал…,,jazz-units:items.lua:VoiceResponse
+890000000009470,(пыхтит),(пыхтит),,jazz-units:items.lua:VoiceResponse
+890000000009471,Спасибо.,Спасибо.,,jazz-units:items.lua:VoiceResponse
+890000000009472,Не сейчас.,Не сейчас.,,jazz-units:items.lua:VoiceResponse
+890000000009473,Готово.,Готово.,,jazz-units:items.lua:VoiceResponse
+890000000009474,В укрытие!,В укрытие!,,jazz-units:items.lua:VoiceResponse
+890000000009475,Граната!,Граната!,,jazz-units:items.lua:VoiceResponse
+890000000009476,Очередь!,Очередь!,,jazz-units:items.lua:VoiceResponse
+890000000009477,(лезет),(лезет),,jazz-units:items.lua:VoiceResponse
+890000000009478,(прыжок),(прыжок),,jazz-units:items.lua:VoiceResponse
+890000000009479,Что?!,Что?!,,jazz-units:items.lua:VoiceResponse
+890000000009480,Опасно!,Опасно!,,jazz-units:items.lua:VoiceResponse
+890000000009481,Держу сектор.,Держу сектор.,,jazz-units:items.lua:VoiceResponse
+890000000009482,Наготове.,Наготове.,,jazz-units:items.lua:VoiceResponse
+890000000009483,(кашляет),(кашляет),,jazz-units:items.lua:VoiceResponse
+890000000009484,Почти…,Почти…,,jazz-units:items.lua:VoiceResponse
+890000000009485,Зверь!,Зверь!,,jazz-units:items.lua:VoiceResponse
+890000000009486,Есть идея.,Есть идея.,,jazz-units:items.lua:VoiceResponse
+890000000009487,Сделано.,Сделано.,,jazz-units:items.lua:VoiceResponse
+890000000009488,Не вышло.,Не вышло.,,jazz-units:items.lua:VoiceResponse
+890000000009489,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009490,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009491,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009492,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009493,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009494,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009495,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009496,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009497,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009498,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009499,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009500,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009501,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009502,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009503,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009504,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009505,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009506,Есть цель!,Есть цель!,,jazz-units:items.lua:VoiceResponse
+890000000009507,Тихо сниму.,Тихо сниму.,,jazz-units:items.lua:VoiceResponse
+890000000009508,Тихо сниму.,Тихо сниму.,,jazz-units:items.lua:VoiceResponse
+890000000009509,Сложный выстрел.,Сложный выстрел.,,jazz-units:items.lua:VoiceResponse
+890000000009510,Плохой угол.,Плохой угол.,,jazz-units:items.lua:VoiceResponse
+890000000009511,Вижу их!,Вижу их!,,jazz-units:items.lua:VoiceResponse
+890000000009512,Вижу их!,Вижу их!,,jazz-units:items.lua:VoiceResponse
+890000000009513,Их много!,Их много!,,jazz-units:items.lua:VoiceResponse
+890000000009514,Готов.,Готов.,,jazz-units:items.lua:VoiceResponse
+890000000009515,Патроны кончились.,Патроны кончились.,,jazz-units:items.lua:VoiceResponse
+890000000009516,Клин!,Клин!,,jazz-units:items.lua:VoiceResponse
+890000000009517,Аргх!,Аргх!,,jazz-units:items.lua:VoiceResponse
+890000000009518,Аргх!,Аргх!,,jazz-units:items.lua:VoiceResponse
+890000000009519,Ранен!,Ранен!,,jazz-units:items.lua:VoiceResponse
+890000000009520,Плохо…,Плохо…,,jazz-units:items.lua:VoiceResponse
+890000000009521,К бою!,К бою!,,jazz-units:items.lua:VoiceResponse
+890000000009522,Чисто.,Чисто.,,jazz-units:items.lua:VoiceResponse
+890000000009523,Ещё остались.,Ещё остались.,,jazz-units:items.lua:VoiceResponse
+890000000009524,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009525,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009526,Прячусь.,Прячусь.,,jazz-units:items.lua:VoiceResponse
+890000000009527,Прячусь.,Прячусь.,,jazz-units:items.lua:VoiceResponse
+890000000009528,Интересно…,Интересно…,,jazz-units:items.lua:VoiceResponse
+890000000009529,Интересно…,Интересно…,,jazz-units:items.lua:VoiceResponse
+890000000009530,Закрыто.,Закрыто.,,jazz-units:items.lua:VoiceResponse
+890000000009531,Устал…,Устал…,,jazz-units:items.lua:VoiceResponse
+890000000009532,(пыхтит),(пыхтит),,jazz-units:items.lua:VoiceResponse
+890000000009533,Спасибо.,Спасибо.,,jazz-units:items.lua:VoiceResponse
+890000000009534,Не сейчас.,Не сейчас.,,jazz-units:items.lua:VoiceResponse
+890000000009535,Готово.,Готово.,,jazz-units:items.lua:VoiceResponse
+890000000009536,В укрытие!,В укрытие!,,jazz-units:items.lua:VoiceResponse
+890000000009537,Граната!,Граната!,,jazz-units:items.lua:VoiceResponse
+890000000009538,Очередь!,Очередь!,,jazz-units:items.lua:VoiceResponse
+890000000009539,(лезет),(лезет),,jazz-units:items.lua:VoiceResponse
+890000000009540,(прыжок),(прыжок),,jazz-units:items.lua:VoiceResponse
+890000000009541,Что?!,Что?!,,jazz-units:items.lua:VoiceResponse
+890000000009542,Опасно!,Опасно!,,jazz-units:items.lua:VoiceResponse
+890000000009543,Держу сектор.,Держу сектор.,,jazz-units:items.lua:VoiceResponse
+890000000009544,Наготове.,Наготове.,,jazz-units:items.lua:VoiceResponse
+890000000009545,(кашляет),(кашляет),,jazz-units:items.lua:VoiceResponse
+890000000009546,Почти…,Почти…,,jazz-units:items.lua:VoiceResponse
+890000000009547,Зверь!,Зверь!,,jazz-units:items.lua:VoiceResponse
+890000000009548,Есть идея.,Есть идея.,,jazz-units:items.lua:VoiceResponse
+890000000009549,Сделано.,Сделано.,,jazz-units:items.lua:VoiceResponse
+890000000009550,Не вышло.,Не вышло.,,jazz-units:items.lua:VoiceResponse
+890000000009551,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009552,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009553,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009554,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009555,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009556,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009557,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009558,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009559,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009560,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009561,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009562,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009563,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009564,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009565,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009566,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009567,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009568,Есть цель!,Есть цель!,,jazz-units:items.lua:VoiceResponse
+890000000009569,Тихо сниму.,Тихо сниму.,,jazz-units:items.lua:VoiceResponse
+890000000009570,Тихо сниму.,Тихо сниму.,,jazz-units:items.lua:VoiceResponse
+890000000009571,Сложный выстрел.,Сложный выстрел.,,jazz-units:items.lua:VoiceResponse
+890000000009572,Плохой угол.,Плохой угол.,,jazz-units:items.lua:VoiceResponse
+890000000009573,Вижу их!,Вижу их!,,jazz-units:items.lua:VoiceResponse
+890000000009574,Вижу их!,Вижу их!,,jazz-units:items.lua:VoiceResponse
+890000000009575,Их много!,Их много!,,jazz-units:items.lua:VoiceResponse
+890000000009576,Готов.,Готов.,,jazz-units:items.lua:VoiceResponse
+890000000009577,Патроны кончились.,Патроны кончились.,,jazz-units:items.lua:VoiceResponse
+890000000009578,Клин!,Клин!,,jazz-units:items.lua:VoiceResponse
+890000000009579,Аргх!,Аргх!,,jazz-units:items.lua:VoiceResponse
+890000000009580,Аргх!,Аргх!,,jazz-units:items.lua:VoiceResponse
+890000000009581,Ранен!,Ранен!,,jazz-units:items.lua:VoiceResponse
+890000000009582,Плохо…,Плохо…,,jazz-units:items.lua:VoiceResponse
+890000000009583,К бою!,К бою!,,jazz-units:items.lua:VoiceResponse
+890000000009584,Чисто.,Чисто.,,jazz-units:items.lua:VoiceResponse
+890000000009585,Ещё остались.,Ещё остались.,,jazz-units:items.lua:VoiceResponse
+890000000009586,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009587,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009588,Прячусь.,Прячусь.,,jazz-units:items.lua:VoiceResponse
+890000000009589,Прячусь.,Прячусь.,,jazz-units:items.lua:VoiceResponse
+890000000009590,Интересно…,Интересно…,,jazz-units:items.lua:VoiceResponse
+890000000009591,Интересно…,Интересно…,,jazz-units:items.lua:VoiceResponse
+890000000009592,Закрыто.,Закрыто.,,jazz-units:items.lua:VoiceResponse
+890000000009593,Устал…,Устал…,,jazz-units:items.lua:VoiceResponse
+890000000009594,(пыхтит),(пыхтит),,jazz-units:items.lua:VoiceResponse
+890000000009595,Спасибо.,Спасибо.,,jazz-units:items.lua:VoiceResponse
+890000000009596,Не сейчас.,Не сейчас.,,jazz-units:items.lua:VoiceResponse
+890000000009597,Готово.,Готово.,,jazz-units:items.lua:VoiceResponse
+890000000009598,В укрытие!,В укрытие!,,jazz-units:items.lua:VoiceResponse
+890000000009599,Граната!,Граната!,,jazz-units:items.lua:VoiceResponse
+890000000009600,Очередь!,Очередь!,,jazz-units:items.lua:VoiceResponse
+890000000009601,(лезет),(лезет),,jazz-units:items.lua:VoiceResponse
+890000000009602,(прыжок),(прыжок),,jazz-units:items.lua:VoiceResponse
+890000000009603,Что?!,Что?!,,jazz-units:items.lua:VoiceResponse
+890000000009604,Опасно!,Опасно!,,jazz-units:items.lua:VoiceResponse
+890000000009605,Держу сектор.,Держу сектор.,,jazz-units:items.lua:VoiceResponse
+890000000009606,Наготове.,Наготове.,,jazz-units:items.lua:VoiceResponse
+890000000009607,(кашляет),(кашляет),,jazz-units:items.lua:VoiceResponse
+890000000009608,Почти…,Почти…,,jazz-units:items.lua:VoiceResponse
+890000000009609,Зверь!,Зверь!,,jazz-units:items.lua:VoiceResponse
+890000000009610,Есть идея.,Есть идея.,,jazz-units:items.lua:VoiceResponse
+890000000009611,Сделано.,Сделано.,,jazz-units:items.lua:VoiceResponse
+890000000009612,Не вышло.,Не вышло.,,jazz-units:items.lua:VoiceResponse
+890000000009613,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009614,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009615,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009616,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009617,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009618,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009619,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009620,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009621,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009622,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009623,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009624,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009625,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009626,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009627,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009628,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009629,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009630,Есть цель!,Есть цель!,,jazz-units:items.lua:VoiceResponse
+890000000009631,Тихо сниму.,Тихо сниму.,,jazz-units:items.lua:VoiceResponse
+890000000009632,Тихо сниму.,Тихо сниму.,,jazz-units:items.lua:VoiceResponse
+890000000009633,Сложный выстрел.,Сложный выстрел.,,jazz-units:items.lua:VoiceResponse
+890000000009634,Плохой угол.,Плохой угол.,,jazz-units:items.lua:VoiceResponse
+890000000009635,Вижу их!,Вижу их!,,jazz-units:items.lua:VoiceResponse
+890000000009636,Вижу их!,Вижу их!,,jazz-units:items.lua:VoiceResponse
+890000000009637,Их много!,Их много!,,jazz-units:items.lua:VoiceResponse
+890000000009638,Готов.,Готов.,,jazz-units:items.lua:VoiceResponse
+890000000009639,Патроны кончились.,Патроны кончились.,,jazz-units:items.lua:VoiceResponse
+890000000009640,Клин!,Клин!,,jazz-units:items.lua:VoiceResponse
+890000000009641,Аргх!,Аргх!,,jazz-units:items.lua:VoiceResponse
+890000000009642,Аргх!,Аргх!,,jazz-units:items.lua:VoiceResponse
+890000000009643,Ранен!,Ранен!,,jazz-units:items.lua:VoiceResponse
+890000000009644,Плохо…,Плохо…,,jazz-units:items.lua:VoiceResponse
+890000000009645,К бою!,К бою!,,jazz-units:items.lua:VoiceResponse
+890000000009646,Чисто.,Чисто.,,jazz-units:items.lua:VoiceResponse
+890000000009647,Ещё остались.,Ещё остались.,,jazz-units:items.lua:VoiceResponse
+890000000009648,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009649,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009650,Прячусь.,Прячусь.,,jazz-units:items.lua:VoiceResponse
+890000000009651,Прячусь.,Прячусь.,,jazz-units:items.lua:VoiceResponse
+890000000009652,Интересно…,Интересно…,,jazz-units:items.lua:VoiceResponse
+890000000009653,Интересно…,Интересно…,,jazz-units:items.lua:VoiceResponse
+890000000009654,Закрыто.,Закрыто.,,jazz-units:items.lua:VoiceResponse
+890000000009655,Устал…,Устал…,,jazz-units:items.lua:VoiceResponse
+890000000009656,(пыхтит),(пыхтит),,jazz-units:items.lua:VoiceResponse
+890000000009657,Спасибо.,Спасибо.,,jazz-units:items.lua:VoiceResponse
+890000000009658,Не сейчас.,Не сейчас.,,jazz-units:items.lua:VoiceResponse
+890000000009659,Готово.,Готово.,,jazz-units:items.lua:VoiceResponse
+890000000009660,В укрытие!,В укрытие!,,jazz-units:items.lua:VoiceResponse
+890000000009661,Граната!,Граната!,,jazz-units:items.lua:VoiceResponse
+890000000009662,Очередь!,Очередь!,,jazz-units:items.lua:VoiceResponse
+890000000009663,(лезет),(лезет),,jazz-units:items.lua:VoiceResponse
+890000000009664,(прыжок),(прыжок),,jazz-units:items.lua:VoiceResponse
+890000000009665,Что?!,Что?!,,jazz-units:items.lua:VoiceResponse
+890000000009666,Опасно!,Опасно!,,jazz-units:items.lua:VoiceResponse
+890000000009667,Держу сектор.,Держу сектор.,,jazz-units:items.lua:VoiceResponse
+890000000009668,Наготове.,Наготове.,,jazz-units:items.lua:VoiceResponse
+890000000009669,(кашляет),(кашляет),,jazz-units:items.lua:VoiceResponse
+890000000009670,Почти…,Почти…,,jazz-units:items.lua:VoiceResponse
+890000000009671,Зверь!,Зверь!,,jazz-units:items.lua:VoiceResponse
+890000000009672,Есть идея.,Есть идея.,,jazz-units:items.lua:VoiceResponse
+890000000009673,Сделано.,Сделано.,,jazz-units:items.lua:VoiceResponse
+890000000009674,Не вышло.,Не вышло.,,jazz-units:items.lua:VoiceResponse
+890000000009675,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009676,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009677,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009678,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009679,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009680,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009681,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009682,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009683,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009684,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009685,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009686,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009687,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009688,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009689,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009690,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009691,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009692,Есть цель!,Есть цель!,,jazz-units:items.lua:VoiceResponse
+890000000009693,Тихо сниму.,Тихо сниму.,,jazz-units:items.lua:VoiceResponse
+890000000009694,Тихо сниму.,Тихо сниму.,,jazz-units:items.lua:VoiceResponse
+890000000009695,Сложный выстрел.,Сложный выстрел.,,jazz-units:items.lua:VoiceResponse
+890000000009696,Плохой угол.,Плохой угол.,,jazz-units:items.lua:VoiceResponse
+890000000009697,Вижу их!,Вижу их!,,jazz-units:items.lua:VoiceResponse
+890000000009698,Вижу их!,Вижу их!,,jazz-units:items.lua:VoiceResponse
+890000000009699,Их много!,Их много!,,jazz-units:items.lua:VoiceResponse
+890000000009700,Готов.,Готов.,,jazz-units:items.lua:VoiceResponse
+890000000009701,Патроны кончились.,Патроны кончились.,,jazz-units:items.lua:VoiceResponse
+890000000009702,Клин!,Клин!,,jazz-units:items.lua:VoiceResponse
+890000000009703,Аргх!,Аргх!,,jazz-units:items.lua:VoiceResponse
+890000000009704,Аргх!,Аргх!,,jazz-units:items.lua:VoiceResponse
+890000000009705,Ранен!,Ранен!,,jazz-units:items.lua:VoiceResponse
+890000000009706,Плохо…,Плохо…,,jazz-units:items.lua:VoiceResponse
+890000000009707,К бою!,К бою!,,jazz-units:items.lua:VoiceResponse
+890000000009708,Чисто.,Чисто.,,jazz-units:items.lua:VoiceResponse
+890000000009709,Ещё остались.,Ещё остались.,,jazz-units:items.lua:VoiceResponse
+890000000009710,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009711,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009712,Прячусь.,Прячусь.,,jazz-units:items.lua:VoiceResponse
+890000000009713,Прячусь.,Прячусь.,,jazz-units:items.lua:VoiceResponse
+890000000009714,Интересно…,Интересно…,,jazz-units:items.lua:VoiceResponse
+890000000009715,Интересно…,Интересно…,,jazz-units:items.lua:VoiceResponse
+890000000009716,Закрыто.,Закрыто.,,jazz-units:items.lua:VoiceResponse
+890000000009717,Устал…,Устал…,,jazz-units:items.lua:VoiceResponse
+890000000009718,(пыхтит),(пыхтит),,jazz-units:items.lua:VoiceResponse
+890000000009719,Спасибо.,Спасибо.,,jazz-units:items.lua:VoiceResponse
+890000000009720,Не сейчас.,Не сейчас.,,jazz-units:items.lua:VoiceResponse
+890000000009721,Готово.,Готово.,,jazz-units:items.lua:VoiceResponse
+890000000009722,В укрытие!,В укрытие!,,jazz-units:items.lua:VoiceResponse
+890000000009723,Граната!,Граната!,,jazz-units:items.lua:VoiceResponse
+890000000009724,Очередь!,Очередь!,,jazz-units:items.lua:VoiceResponse
+890000000009725,(лезет),(лезет),,jazz-units:items.lua:VoiceResponse
+890000000009726,(прыжок),(прыжок),,jazz-units:items.lua:VoiceResponse
+890000000009727,Что?!,Что?!,,jazz-units:items.lua:VoiceResponse
+890000000009728,Опасно!,Опасно!,,jazz-units:items.lua:VoiceResponse
+890000000009729,Держу сектор.,Держу сектор.,,jazz-units:items.lua:VoiceResponse
+890000000009730,Наготове.,Наготове.,,jazz-units:items.lua:VoiceResponse
+890000000009731,(кашляет),(кашляет),,jazz-units:items.lua:VoiceResponse
+890000000009732,Почти…,Почти…,,jazz-units:items.lua:VoiceResponse
+890000000009733,Зверь!,Зверь!,,jazz-units:items.lua:VoiceResponse
+890000000009734,Есть идея.,Есть идея.,,jazz-units:items.lua:VoiceResponse
+890000000009735,Сделано.,Сделано.,,jazz-units:items.lua:VoiceResponse
+890000000009736,Не вышло.,Не вышло.,,jazz-units:items.lua:VoiceResponse
+890000000009737,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009738,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009739,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009740,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009741,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009742,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009743,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009744,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009745,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009746,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009747,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009748,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009749,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009750,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009751,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009752,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009753,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009754,Есть цель!,Есть цель!,,jazz-units:items.lua:VoiceResponse
+890000000009755,Тихо сниму.,Тихо сниму.,,jazz-units:items.lua:VoiceResponse
+890000000009756,Тихо сниму.,Тихо сниму.,,jazz-units:items.lua:VoiceResponse
+890000000009757,Сложный выстрел.,Сложный выстрел.,,jazz-units:items.lua:VoiceResponse
+890000000009758,Плохой угол.,Плохой угол.,,jazz-units:items.lua:VoiceResponse
+890000000009759,Вижу их!,Вижу их!,,jazz-units:items.lua:VoiceResponse
+890000000009760,Вижу их!,Вижу их!,,jazz-units:items.lua:VoiceResponse
+890000000009761,Их много!,Их много!,,jazz-units:items.lua:VoiceResponse
+890000000009762,Готов.,Готов.,,jazz-units:items.lua:VoiceResponse
+890000000009763,Патроны кончились.,Патроны кончились.,,jazz-units:items.lua:VoiceResponse
+890000000009764,Клин!,Клин!,,jazz-units:items.lua:VoiceResponse
+890000000009765,Аргх!,Аргх!,,jazz-units:items.lua:VoiceResponse
+890000000009766,Аргх!,Аргх!,,jazz-units:items.lua:VoiceResponse
+890000000009767,Ранен!,Ранен!,,jazz-units:items.lua:VoiceResponse
+890000000009768,Плохо…,Плохо…,,jazz-units:items.lua:VoiceResponse
+890000000009769,К бою!,К бою!,,jazz-units:items.lua:VoiceResponse
+890000000009770,Чисто.,Чисто.,,jazz-units:items.lua:VoiceResponse
+890000000009771,Ещё остались.,Ещё остались.,,jazz-units:items.lua:VoiceResponse
+890000000009772,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009773,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009774,Прячусь.,Прячусь.,,jazz-units:items.lua:VoiceResponse
+890000000009775,Прячусь.,Прячусь.,,jazz-units:items.lua:VoiceResponse
+890000000009776,Интересно…,Интересно…,,jazz-units:items.lua:VoiceResponse
+890000000009777,Интересно…,Интересно…,,jazz-units:items.lua:VoiceResponse
+890000000009778,Закрыто.,Закрыто.,,jazz-units:items.lua:VoiceResponse
+890000000009779,Устал…,Устал…,,jazz-units:items.lua:VoiceResponse
+890000000009780,(пыхтит),(пыхтит),,jazz-units:items.lua:VoiceResponse
+890000000009781,Спасибо.,Спасибо.,,jazz-units:items.lua:VoiceResponse
+890000000009782,Не сейчас.,Не сейчас.,,jazz-units:items.lua:VoiceResponse
+890000000009783,Готово.,Готово.,,jazz-units:items.lua:VoiceResponse
+890000000009784,В укрытие!,В укрытие!,,jazz-units:items.lua:VoiceResponse
+890000000009785,Граната!,Граната!,,jazz-units:items.lua:VoiceResponse
+890000000009786,Очередь!,Очередь!,,jazz-units:items.lua:VoiceResponse
+890000000009787,(лезет),(лезет),,jazz-units:items.lua:VoiceResponse
+890000000009788,(прыжок),(прыжок),,jazz-units:items.lua:VoiceResponse
+890000000009789,Что?!,Что?!,,jazz-units:items.lua:VoiceResponse
+890000000009790,Опасно!,Опасно!,,jazz-units:items.lua:VoiceResponse
+890000000009791,Держу сектор.,Держу сектор.,,jazz-units:items.lua:VoiceResponse
+890000000009792,Наготове.,Наготове.,,jazz-units:items.lua:VoiceResponse
+890000000009793,(кашляет),(кашляет),,jazz-units:items.lua:VoiceResponse
+890000000009794,Почти…,Почти…,,jazz-units:items.lua:VoiceResponse
+890000000009795,Зверь!,Зверь!,,jazz-units:items.lua:VoiceResponse
+890000000009796,Есть идея.,Есть идея.,,jazz-units:items.lua:VoiceResponse
+890000000009797,Сделано.,Сделано.,,jazz-units:items.lua:VoiceResponse
+890000000009798,Не вышло.,Не вышло.,,jazz-units:items.lua:VoiceResponse
+890000000009799,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009800,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
+890000000009801,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009802,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009803,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
+890000000009804,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009805,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009806,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
+890000000009807,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009808,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009809,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000009810,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009811,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009812,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
+890000000009813,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009814,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009815,С вами.,С вами.,,jazz-units:items.lua:VoiceResponse
+890000000009816,Есть цель!,Есть цель!,,jazz-units:items.lua:VoiceResponse
+890000000009817,Тихо сниму.,Тихо сниму.,,jazz-units:items.lua:VoiceResponse
+890000000009818,Тихо сниму.,Тихо сниму.,,jazz-units:items.lua:VoiceResponse
+890000000009819,Сложный выстрел.,Сложный выстрел.,,jazz-units:items.lua:VoiceResponse
+890000000009820,Плохой угол.,Плохой угол.,,jazz-units:items.lua:VoiceResponse
+890000000009821,Вижу их!,Вижу их!,,jazz-units:items.lua:VoiceResponse
+890000000009822,Вижу их!,Вижу их!,,jazz-units:items.lua:VoiceResponse
+890000000009823,Их много!,Их много!,,jazz-units:items.lua:VoiceResponse
+890000000009824,Готов.,Готов.,,jazz-units:items.lua:VoiceResponse
+890000000009825,Патроны кончились.,Патроны кончились.,,jazz-units:items.lua:VoiceResponse
+890000000009826,Клин!,Клин!,,jazz-units:items.lua:VoiceResponse
+890000000009827,Аргх!,Аргх!,,jazz-units:items.lua:VoiceResponse
+890000000009828,Аргх!,Аргх!,,jazz-units:items.lua:VoiceResponse
+890000000009829,Ранен!,Ранен!,,jazz-units:items.lua:VoiceResponse
+890000000009830,Плохо…,Плохо…,,jazz-units:items.lua:VoiceResponse
+890000000009831,К бою!,К бою!,,jazz-units:items.lua:VoiceResponse
+890000000009832,Чисто.,Чисто.,,jazz-units:items.lua:VoiceResponse
+890000000009833,Ещё остались.,Ещё остались.,,jazz-units:items.lua:VoiceResponse
+890000000009834,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009835,Жду.,Жду.,,jazz-units:items.lua:VoiceResponse
+890000000009836,Прячусь.,Прячусь.,,jazz-units:items.lua:VoiceResponse
+890000000009837,Прячусь.,Прячусь.,,jazz-units:items.lua:VoiceResponse
+890000000009838,Интересно…,Интересно…,,jazz-units:items.lua:VoiceResponse
+890000000009839,Интересно…,Интересно…,,jazz-units:items.lua:VoiceResponse
+890000000009840,Закрыто.,Закрыто.,,jazz-units:items.lua:VoiceResponse
+890000000009841,Устал…,Устал…,,jazz-units:items.lua:VoiceResponse
+890000000009842,(пыхтит),(пыхтит),,jazz-units:items.lua:VoiceResponse
+890000000009843,Спасибо.,Спасибо.,,jazz-units:items.lua:VoiceResponse
+890000000009844,Не сейчас.,Не сейчас.,,jazz-units:items.lua:VoiceResponse
+890000000009845,Готово.,Готово.,,jazz-units:items.lua:VoiceResponse
+890000000009846,В укрытие!,В укрытие!,,jazz-units:items.lua:VoiceResponse
+890000000009847,Граната!,Граната!,,jazz-units:items.lua:VoiceResponse
+890000000009848,Очередь!,Очередь!,,jazz-units:items.lua:VoiceResponse
+890000000009849,(лезет),(лезет),,jazz-units:items.lua:VoiceResponse
+890000000009850,(прыжок),(прыжок),,jazz-units:items.lua:VoiceResponse
+890000000009851,Что?!,Что?!,,jazz-units:items.lua:VoiceResponse
+890000000009852,Опасно!,Опасно!,,jazz-units:items.lua:VoiceResponse
+890000000009853,Держу сектор.,Держу сектор.,,jazz-units:items.lua:VoiceResponse
+890000000009854,Наготове.,Наготове.,,jazz-units:items.lua:VoiceResponse
+890000000009855,(кашляет),(кашляет),,jazz-units:items.lua:VoiceResponse
+890000000009856,Почти…,Почти…,,jazz-units:items.lua:VoiceResponse
+890000000009857,Зверь!,Зверь!,,jazz-units:items.lua:VoiceResponse
+890000000009858,Есть идея.,Есть идея.,,jazz-units:items.lua:VoiceResponse
+890000000009859,Сделано.,Сделано.,,jazz-units:items.lua:VoiceResponse
+890000000009860,Не вышло.,Не вышло.,,jazz-units:items.lua:VoiceResponse
+890000000009226,Травма рук (лёгкая),Травма рук (лёгкая),,jazz:CharacterEffect/TraumaArmsLight.lua
+890000000009227,Боль при стрельбе или нагрузке на руки. Без прямого штрафа к точности.,Боль при стрельбе или нагрузке на руки. Без прямого штрафа к точности.,,jazz:CharacterEffect/TraumaArmsLight.lua
+890000000009228,Травма рук (средняя),Травма рук (средняя),,jazz:CharacterEffect/TraumaArmsMedium.lua
+890000000009229,Штраф точности <color EmStyle><cth_penalty>%</color>. Боль при нагрузке на руки.,Штраф точности <color EmStyle><cth_penalty>%</color>. Боль при нагрузке на руки.,,jazz:CharacterEffect/TraumaArmsMedium.lua
+890000000009230,Травма рук (тяжёлая),Травма рук (тяжёлая),,jazz:CharacterEffect/TraumaArmsHeavy.lua
+890000000009231,Жёсткий штраф точности <color EmStyle><cth_penalty>%</color>. Почти небоеспособен. Боль растёт каждый ход.,Жёсткий штраф точности <color EmStyle><cth_penalty>%</color>. Почти небоеспособен. Боль растёт каждый ход.,,jazz:CharacterEffect/TraumaArmsHeavy.lua
+890000000009232,Травма ног (лёгкая),Травма ног (лёгкая),,jazz:CharacterEffect/TraumaLegsLight.lua
+890000000009233,Боль при движении. Без прямого штрафа к стоимости хода.,Боль при движении. Без прямого штрафа к стоимости хода.,,jazz:CharacterEffect/TraumaLegsLight.lua
+890000000009234,Травма ног (средняя),Травма ног (средняя),,jazz:CharacterEffect/TraumaLegsMedium.lua
+890000000009235,Стоимость движения <color EmStyle>+<move_ap_modifier>%</color>. Нет Free Move / спринта. Боль при движении.,Стоимость движения <color EmStyle>+<move_ap_modifier>%</color>. Нет Free Move / спринта. Боль при движении.,,jazz:CharacterEffect/TraumaLegsMedium.lua
+890000000009236,Травма ног (тяжёлая),Травма ног (тяжёлая),,jazz:CharacterEffect/TraumaLegsHeavy.lua
+890000000009237,Стоимость движения <color EmStyle>+<move_ap_modifier>%</color>. Почти не ходит. Боль растёт каждый ход.,Стоимость движения <color EmStyle>+<move_ap_modifier>%</color>. Почти не ходит. Боль растёт каждый ход.,,jazz:CharacterEffect/TraumaLegsHeavy.lua
+890000000009238,Травма рёбер (лёгкая),Травма рёбер (лёгкая),,jazz:CharacterEffect/TraumaRibsLight.lua
+890000000009239,Боль при нагрузке. Без Tired от рёбер. Без прямого −ОД.,Боль при нагрузке. Без Tired от рёбер. Без прямого −ОД.,,jazz:CharacterEffect/TraumaRibsLight.lua
+890000000009240,Травма рёбер (средняя),Травма рёбер (средняя),,jazz:CharacterEffect/TraumaRibsMedium.lua
+890000000009241,ОД на старте хода <color EmStyle>-<APLoss></color>. Нет Free Move. Боль при нагрузке. Без Tired.,ОД на старте хода <color EmStyle>-<APLoss></color>. Нет Free Move. Боль при нагрузке. Без Tired.,,jazz:CharacterEffect/TraumaRibsMedium.lua
+890000000009242,Травма рёбер (тяжёлая),Травма рёбер (тяжёлая),,jazz:CharacterEffect/TraumaRibsHeavy.lua
+890000000009243,ОД на старте хода <color EmStyle>-<APLoss></color>. Небоеспособен. Боль растёт каждый ход. Без Tired.,ОД на старте хода <color EmStyle>-<APLoss></color>. Небоеспособен. Боль растёт каждый ход. Без Tired.,,jazz:CharacterEffect/TraumaRibsHeavy.lua
+890000000009244,Травма головы (лёгкая),Травма головы (лёгкая),,jazz:CharacterEffect/TraumaHeadLight.lua
+890000000009245,Боль при прицеливании/стрельбе. Травма глаза в v1 включена в голову.,Боль при прицеливании/стрельбе. Травма глаза в v1 включена в голову.,,jazz:CharacterEffect/TraumaHeadLight.lua
+890000000009246,Травма головы (средняя),Травма головы (средняя),,jazz:CharacterEffect/TraumaHeadMedium.lua
+890000000009247,Штрафы зрения и точности. Боль при прицеливании/стрельбе.,Штрафы зрения и точности. Боль при прицеливании/стрельбе.,,jazz:CharacterEffect/TraumaHeadMedium.lua
+890000000009248,Травма головы (тяжёлая),Травма головы (тяжёлая),,jazz:CharacterEffect/TraumaHeadHeavy.lua
+890000000009249,Сильная потеря зрения/точности. Почти небоеспособен. Боль растёт каждый ход.,Сильная потеря зрения/точности. Почти небоеспособен. Боль растёт каждый ход.,,jazz:CharacterEffect/TraumaHeadHeavy.lua
+890000000009250,Ожоговая травма (лёгкая),Ожоговая травма (лёгкая),,jazz:CharacterEffect/TraumaBurnLight.lua
+890000000009251,Долг после огня. Боль при нагрузке. Бинт ожог не снимает.,Долг после огня. Боль при нагрузке. Бинт ожог не снимает.,,jazz:CharacterEffect/TraumaBurnLight.lua
+890000000009252,Ожоговая травма (средняя),Ожоговая травма (средняя),,jazz:CharacterEffect/TraumaBurnMedium.lua
+890000000009253,Средний ожоговый долг. Боль при нагрузке. Инфекция — позже.,Средний ожоговый долг. Боль при нагрузке. Инфекция — позже.,,jazz:CharacterEffect/TraumaBurnMedium.lua
+890000000009254,Ожоговая травма (тяжёлая),Ожоговая травма (тяжёлая),,jazz:CharacterEffect/TraumaBurnHeavy.lua
+890000000009255,Тяжёлый ожоговый долг. Боль растёт каждый ход. Инфекция/госпиталь — позже.,Тяжёлый ожоговый долг. Боль растёт каждый ход. Инфекция/госпиталь — позже.,,jazz:CharacterEffect/TraumaBurnHeavy.lua

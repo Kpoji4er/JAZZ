@@ -17,9 +17,10 @@
 - Assets/UI: `.agents/docs/playbooks/assets-and-ui.md`
 - Squad role icons: `.agents/skills/create-jazz-squad-icons/SKILL.md`, `docs/technical/systems/squad-role-icons.md`
 - Status effect icons: `.agents/skills/create-jazz-status-icons/SKILL.md`, `Icons/StatusEffects/references/PROMPT.md`
+- HUD / hotbar action icons (CombatAction, SignatureAbilities, Med): `.agents/skills/create-jazz-action-icons/SKILL.md`, `Icons/Hud/references/PROMPT.md`
 - WeaponComponent full Icon: `.agents/skills/create-jazz-component-icons/SKILL.md`, `Icons/Upgrades/Full/references/PROMPT.md`
 - WeaponComponent ChipIcon: `.agents/skills/create-jazz-chip-icons/SKILL.md`, `Icons/Upgrades/Chips/references/PROMPT.md`
-- Personal/signature perk icons: `.agents/skills/create-jazz-perk-icons/SKILL.md`, `Perks/references/vanilla/`
+- Personal named perk icons (68×68 `Perks/Personal/`): `.agents/skills/create-jazz-perk-icons/SKILL.md`, `Perks/references/vanilla/`
 - Merc/NPC portraits: `.agents/skills/create-jazz-merc-portraits/SKILL.md`, `.cursor/rules/jazz-merc-portraits.mdc`
 - Full merc from design article: `.agents/skills/create-jazz-merc/SKILL.md` + `docs/design/mercs-ja12/` + plan `.agents/skills/create-jazz-merc/references/generation-plan.md`
 - Penetration scales (class + tenths, ammo UI): `.agents/skills/jazz-penetration-scales/SKILL.md`

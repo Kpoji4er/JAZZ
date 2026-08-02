@@ -55188,20 +55188,76 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Other - Meds",
+				'Id', "JAZZ_Bandage",
+				'object_class', "MiscItem",
+				'Repairable', false,
+				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_Bandage.png",
+				'DisplayName', T(890000000009206, "Bandage"),
+				'DisplayNamePlural', T(890000000009207, "Bandages"),
+				'AdditionalHint', T(890000000009208, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Bandage action — reduce worst bleeding by one tier\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally"),
+				'Cost', 25,
+				'CanAppearInShop', true,
+				'RestockWeight', 150,
+				'MaxStock', 12,
+				'CategoryPair', "Medicine",
+				'MaxStacks', 30,
+			}),
+			PlaceObj('ModItemInventoryItemCompositeDef', {
+				'Group', "Other - Meds",
+				'Id', "JAZZ_Morphine",
+				'object_class', "MiscItem",
+				'Repairable', false,
+				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_Morphine.png",
+				'DisplayName', T(890000000009209, "Morphine"),
+				'DisplayNamePlural', T(890000000009210, "Morphine"),
+				'AdditionalHint', T(890000000009211, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Morphine action — suppress Pain penalties\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding or heal trauma\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally"),
+				'Cost', 75,
+				'CanAppearInShop', true,
+				'RestockWeight', 75,
+				'MaxStock', 8,
+				'CategoryPair', "Medicine",
+				'MaxStacks', 10,
+			}),
+			PlaceObj('ModItemInventoryItemCompositeDef', {
+				'Group', "Other - Meds",
+				'Id', "JAZZ_SurgicalKit",
+				'object_class', "MiscItem",
+				'Repairable', false,
+				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_SurgicalKit.png",
+				'DisplayName', T(890000000009212, "Surgical Kit"),
+				'DisplayNamePlural', T(890000000009213, "Surgical Kits"),
+				'AdditionalHint', T(890000000009214, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used via item menu\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Grants long analgesia (v1)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Rare; doctors use this for field surgery later"),
+				'Cost', 800,
+				'CanAppearInShop', true,
+				'Tier', 3,
+				'MaxStock', 2,
+				'RestockWeight', 5,
+				'CategoryPair', "Medicine",
+				'effect_moment', "on_use",
+				'Effects', {
+					PlaceObj('UnitAddStatusEffect', {
+						Status = "Analgesia",
+					}),
+				},
+				'action_name', T(890000000009215, "USE"),
+				'destroy_item', true,
+			}),
+			PlaceObj('ModItemInventoryItemCompositeDef', {
+				'Group', "Other - Meds",
 				'Id', "FirstAidKit",
 				'object_class', "Medicine",
 				'ScrapParts', 1,
 				'Repairable', false,
-				'Icon', "UI/Icons/Items/first_aid_kit",
-				'DisplayName', T(905136649471, --[[ModItemInventoryItemCompositeDef FirstAidKit DisplayName]] "First Aid Kit"),
-				'DisplayNamePlural', T(941665857371, --[[ModItemInventoryItemCompositeDef FirstAidKit DisplayNamePlural]] "First Aid Kits"),
-				'AdditionalHint', T(833018739707, --[[ModItemInventoryItemCompositeDef FirstAidKit AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует состояние умирающих персонажей\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Требуется для использования перевязки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится при каждом употреблении, но запас медикаментов можно восполнить\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, просто находясь в инвентаре"),
+				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_IFAK.png",
+				'DisplayName', T(890000000009217, "IFAK"),
+				'DisplayNamePlural', T(890000000009218, "IFAKs"),
+				'AdditionalHint', T(890000000009219, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage action removes one worst bleeding stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory"),
 				'UnitStat', "Medical",
 				'Cost', 300,
 				'CanAppearInShop', true,
 				'RestockWeight', 150,
 				'CategoryPair', "Medicine",
-				'max_meds_parts', 8,
+				'max_meds_parts', 10,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Other - Meds",
@@ -55214,15 +55270,15 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 							if self == medkit then
 								data.heal_modifier = data.heal_modifier + 25
 							end
-						end,
+					end,
 					}),
 				},
 				'ScrapParts', 1,
 				'Repairable', false,
-				'Icon', "UI/Icons/Items/medkit",
-				'DisplayName', T(999601948111, --[[ModItemInventoryItemCompositeDef Medkit DisplayName]] "Med Kit"),
-				'DisplayNamePlural', T(221861569054, --[[ModItemInventoryItemCompositeDef Medkit DisplayNamePlural]] "Med Kits"),
-				'AdditionalHint', T(655535396072, --[[ModItemInventoryItemCompositeDef Medkit AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует состояние умирающих персонажей\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Требуется для использования перевязки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка восстанавливает на 25% ОЗ больше\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится при каждом употреблении, но запас медикаментов можно восполнить\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, просто находясь в инвентаре"),
+				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_Medkit.png",
+				'DisplayName', T(890000000009220, "Med Kit"),
+				'DisplayNamePlural', T(890000000009221, "Med Kits"),
+				'AdditionalHint', T(890000000009222, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds"),
 				'UnitStat', "Medical",
 				'Cost', 500,
 				'CanAppearInShop', true,
@@ -60575,16 +60631,16 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				EvalTarget = function (self, units, target, args)
 					local unit = units[1]
 					if not target or unit:IsOnEnemySide(target) then return -1 end
-					if not target:HasStatusEffect("Bleeding") and (target.HitPoints >= target.MaxHitPoints)
+					if not JazzHasAnyBleed(target) and (target.HitPoints >= target.MaxHitPoints)
 					and not target:HasStatusEffect("Inaccurate")
-					and not target:HasStatusEffect("Slowed") 
+					and not target:HasStatusEffect("Slowed")
 					then return -1 end
-					
-					return (200 - target.HitPoints) or 0
+					return (200 - target.HitPoints) + (JazzHasAnyBleed(target) and 50 or 0)
 				end,
 				GetAPCost = function (self, unit, args)
 					local medicine = self:GetAttackWeapons(unit, args)
 					if not medicine then return -1 end -- can be valid in AI PrecalcAction
+					if medicine.class == "JAZZ_Bandage" then return 1000 end
 					return self.ActionPoints
 				end,
 				GetActionDescription = function (self, units)
@@ -60602,7 +60658,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					return GetBandageTargets(units[1], "any", "ignore")
 				end,
 				GetAttackWeapons = function (self, unit, args)
-					return GetUnitEquippedMedicine(unit)
+					return JazzGetBandageItem(unit) or GetUnitEquippedMedicine(unit)
 				end,
 				GetDefaultTarget = function (self, unit)
 					local units = {unit}
@@ -60627,7 +60683,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					
 					return "enabled"
 				end,
-				Icon = "UI/Icons/Hud/stop_bleeding",
+				Icon = "Mod/e6L4ECj/Icons/Med/bandage.png",
 				IdDefault = "Bandagedefault",
 				IsAimableAttack = false,
 				KeybindingFromAction = "actionRedirectBandage",
@@ -60680,6 +60736,71 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				group = "Consumables",
 				id = "Bandage",
 			}),
+			PlaceObj('ModItemCombatAction', {
+				ActionPoints = 1000,
+				ActivePauseBehavior = "queue",
+				AimType = "melee",
+				ConfigurableKeybind = false,
+				Description = T(890000000009223, "Inject morphine to suppress Pain penalties on self or ally. Does not stop bleeding."),
+				DisplayName = T(890000000009224, "Morphine"),
+				EvalTarget = function (self, units, target, args)
+					local unit = units[1]
+					if not target or unit:IsOnEnemySide(target) then return -1 end
+					if not target:HasStatusEffect("Pain") then return -1 end
+					local pain = target:GetStatusEffect("Pain")
+					return 100 + (pain and pain.stacks or 0)
+				end,
+				GetAPCost = function (self, unit, args)
+					if not JazzGetMorphineItem(unit) then return -1 end
+					return self.ActionPoints
+				end,
+				GetAnyTarget = function (self, units)
+					return GetBandageTargets(units[1], "any", "ignore")
+				end,
+				GetAttackWeapons = function (self, unit, args)
+					return JazzGetMorphineItem(unit)
+				end,
+				GetDefaultTarget = function (self, unit)
+					if self:EvalTarget({unit}, unit) > 0 then return unit end
+					return CombatAction.GetDefaultTarget(self, unit)
+				end,
+				GetTargets = function (self, units)
+					return GetBandageTargets(units[1], "all", "ignore")
+				end,
+				GetUIState = function (self, units, args)
+					local unit = units[1]
+					if not JazzGetMorphineItem(unit) then
+						return "hidden"
+					end
+					if g_Combat and not unit:HasAP(self.ActionPoints) then
+						return "disabled", GetUnitNoApReason(unit)
+					end
+					return "enabled"
+				end,
+				Icon = "Mod/e6L4ECj/Icons/Med/injector.png",
+				IdDefault = "JazzMorphinedefault",
+				IsAimableAttack = false,
+				MoveStep = true,
+				MultiSelectBehavior = "first",
+				QueuedBadgeText = T(890000000009225, "MORPHINE"),
+				RequireState = "any",
+				RequireWeapon = true,
+				Run = function (self, unit, ap, ...)
+					local args = ...
+					local target = args and args.target or unit
+					if JazzApplyMorphineAction(unit, target) then
+						unit:ConsumeAP(ap)
+					end
+				end,
+				SortKey = 11,
+				UIBegin = function (self, units, args)
+					if self:GetAnyTarget(units) then
+						CombatActionAttackStart(self, units, args, "IModeCombatMelee")
+					end
+				end,
+				group = "Consumables",
+				id = "JazzMorphine",
+			}),
 			PlaceObj('ModItemCode', {
 				'name', "Systems_Wounds_HealWounds",
 				'CodeFileName', "Code/Systems_Wounds_HealWounds.lua",
@@ -60688,6 +60809,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'name', "System_Wounds_OperationHeal",
 				'CodeFileName', "Code/System_Wounds_OperationHeal.lua",
 			}),
+			PlaceObj('ModItemCode', {
+				'name', "Systems_Medicine",
+				'CodeFileName', "Code/Systems_Medicine.lua",
+			}),
+
 			}),
 		PlaceObj('ModItemFolder', {
 			'name', "Character effects",
@@ -60703,11 +60829,12 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Description', "",
 				'OnAdded', function (self, obj)
 					if obj.TempHitPoints > 0 then return end
+					JazzTryRollTraumaFromBodyPart(obj, "Head")
 					local hp = obj.TempHitPoints + obj.HitPoints
-					if obj:Random(hp) < 5  then
-					obj:AddStatusEffect("Unconscious")
-					elseif obj:Random(hp) < 20   then
-					obj:AddStatusEffect("Blinded")
+					if obj:Random(hp) < 5 then
+						obj:AddStatusEffect("Unconscious")
+					elseif obj:Random(hp) < 20 then
+						obj:AddStatusEffect("Blinded")
 					end
 				end,
 				'OnRemoved', function (self, obj)  end,
@@ -60729,12 +60856,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'DisplayName', T(147224231156, --[[ModItemCharacterEffectCompositeDef Torsoshot DisplayName]] "Ранение в торс"),
 				'Description', "",
 				'OnAdded', function (self, obj)
-					--print(obj.TempHitPoints)
 					if obj.TempHitPoints > 0 then return end
-					local hp = obj.TempHitPoints + obj.HitPoints
-					if obj:Random(hp) < 1 then
-					obj:AddStatusEffect("IncreaseTiredness") 
-					end
+					JazzTryRollTraumaFromBodyPart(obj, "Ribs")
 				end,
 				'OnRemoved', function (self, obj)  end,
 				'type', "Debuff",
@@ -60756,12 +60879,14 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Description', "",
 				'OnAdded', function (self, obj)
 					if obj.TempHitPoints > 0 then return end
+					JazzTryRollTraumaFromBodyPart(obj, "Arms")
 					local hp = obj.TempHitPoints + obj.HitPoints
-					--print(hp)
 					if obj:Random(hp) < 30 then
-					obj:AddStatusEffect("Numbness") end
+						obj:AddStatusEffect("Numbness")
+					end
 					if obj:Random(hp) < 25 then
-					obj:AddStatusEffect("Inaccurate") end
+						obj:AddStatusEffect("Inaccurate")
+					end
 				end,
 				'OnRemoved', function (self, obj)  end,
 				'type', "Debuff",
@@ -60784,14 +60909,16 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Description', "",
 				'OnAdded', function (self, obj)
 					if obj.TempHitPoints > 0 then return end
+					JazzTryRollTraumaFromBodyPart(obj, "Ribs")
 					local hp = obj.TempHitPoints + obj.HitPoints
-					if obj:Random(hp) < 20  then
-					obj:AddStatusEffect("Bleeding") end
-					if obj:Random(hp) < 40   then
-					obj:AddStatusEffect("Bleeding")
+					if obj:Random(hp) < 20 then
+						obj:AddStatusEffect("Bleeding")
 					end
-					if obj:Random(hp) < 5   then
-					obj:AddStatusEffect("Bleeding")
+					if obj:Random(hp) < 40 then
+						obj:AddStatusEffect("Bleeding")
+					end
+					if obj:Random(hp) < 5 then
+						obj:AddStatusEffect("Bleeding")
 					end
 				end,
 				'OnRemoved', function (self, obj)  end,
@@ -60838,9 +60965,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Description', "",
 				'OnAdded', function (self, obj)
 					if obj.TempHitPoints > 0 then return end
+					JazzTryRollTraumaFromBodyPart(obj, "Legs")
 					local hp = obj.TempHitPoints + obj.HitPoints
-					if obj:Random(hp) < 20  then
-					obj:AddStatusEffect("Slowed")
+					if obj:Random(hp) < 20 then
+						obj:AddStatusEffect("Slowed")
 					end
 				end,
 				'OnRemoved', function (self, obj)  end,
@@ -60896,7 +61024,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Parameters', {
 					PlaceObj('PresetParamNumber', {
 						'Name', "DamagePerTurn",
-						'Value', 5,
+						'Value', 3,
 						'Tag', "<DamagePerTurn>",
 					}),
 					PlaceObj('PresetParamNumber', {
@@ -60950,28 +61078,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					PlaceObj('UnitReaction', {
 						Event = "OnEndTurn",
 						Handler = function (self, target)
-							--if not IsInCombat() then return end
-							if target:HasStatusEffect("BeingBandaged") then
-								target:RemoveStatusEffect("Bleeding", "all")
-								return
-							end
-							-----------------------------------
-							local effect = target:GetStatusEffect("Bleeding", "all")
-							local count = 0
-							if effect then
-							 	count = effect.stacks 
-								--print(effect)
-							end
-							local value = self:ResolveValue("DamagePerTurn") * count
-							--value = target:Random(value)
-							--print(value)
-							----------------------------------------------------
-							
-							local floating_text = T{193053798048, "<num> (bleeding)", num = value}
-							local pov_team = GetPoVTeam()
-							local has_visibility = HasVisibilityTo(pov_team, target)
-							local log_msg = T{890000000000971, "<name> получает <em>урон в <num> </em> из-за кровотечения", name = target:GetLogName(), num = value}
-							target:TakeDirectDamage(value, has_visibility and floating_text or false, "short", log_msg)
+							JazzBleedOnUnitEndTurn(target)
 						end,
 						param_bindings = false,
 					}),
@@ -61001,52 +61108,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 						param_bindings = false,
 					}),
-					PlaceObj('UnitReaction', {
-						Event = "OnUnitBandaged",
-						Handler = function (self, target, healer, patient, hp_restored)
-							if target == patient then
-								target:RemoveStatusEffect(self.class)
-							end
-						end,
-						param_bindings = false,
-					}),
-					PlaceObj('UnitReaction', {
-						Event = "OnCalcStartTurnAP",
-						Handler = function (self, target, value)
-							----------------------------
-							local effect = target:GetStatusEffect("Bleeding", "all")
-							local count = 0
-							if effect then
-							 	count = effect.stacks 
-								--print(effect.stacks)
-							end
-							if count == 3 then
-							
-								local ap_loss = (-self:ResolveValue("APLoss") * const.Scale.AP)
-								value = value - ap_loss
-								
-							end
-							--------------------------------
-						end,
-						param_bindings = false,
-					}),
 				},
 				'DisplayName', T(779855732255, --[[ModItemCharacterEffectCompositeDef Bleeding DisplayName]] "Bleeding"),
-				'Description', T(326849165819, --[[ModItemCharacterEffectCompositeDef Bleeding Description]] "Этот боец каждый ход будет <color EmStyle>получать урон до <DamagePerTurn> ОЗ</color> за уровень кровотечения до тех пор пока не будет <color EmStyle>перевязан</color>. При третьем уровне кровотечения макс. количество <color EmStyle>ОД будет снижено на <APLoss></color>."),
+				'Description', T(890000000009195, --[[ModItemCharacterEffectCompositeDef Bleeding Description]] "Light bleeding: <color EmStyle><DamagePerTurn> HP</color> per stack each turn. Bandage removes one light stack (or reduces a worse stack by one tier)."),
 				'AddEffectText', T(488938284982, --[[ModItemCharacterEffectCompositeDef Bleeding AddEffectText]] "<color EmStyle><DisplayName></color> истекает кровью"),
 				'OnAdded', function (self, obj)
-					if g_Teams[g_CurrentTeam] == obj.team and not obj:HasStatusEffect("BeingBandaged") then
-					-------------------
-					   local effect = obj:GetStatusEffect("Bleeding", "all")
-						local count = 0
-						if effect then
-						 	count = effect.stacks 
-						end
-					    if count == 3 then
-					--------------------------------------''
-							obj:ConsumeAP(-self:ResolveValue("APLoss") * const.Scale.AP)
-						end
-					end
 				end,
 				'OnRemoved', function (self, obj)
 					--if g_Combat and not obj:HasStatusEffect("BeingBandaged") then
@@ -61054,8 +61120,645 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					--end
 				end,
 				'type', "Debuff",
-				'Icon', "UI/Hud/Status effects/bleeding",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Bleeding.png",
 				'max_stacks', 8,
+				'Shown', true,
+				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "BleedingMedium",
+				'Parameters', {
+					PlaceObj('PresetParamNumber', {
+						'Name', "DamagePerTurn",
+						'Value', 6,
+						'Tag', "<DamagePerTurn>",
+					}),
+				},
+				'object_class', "StatusEffect",
+				'unit_reactions', {
+					PlaceObj('UnitReaction', {
+						Event = "OnEndTurn",
+						Handler = function (self, target)
+							JazzBleedOnUnitEndTurn(target)
+						end,
+					}),
+				},
+				'DisplayName', T(890000000009196, "Moderate Bleeding"),
+				'Description', T(890000000009197, "Moderate bleeding: <color EmStyle>6 HP</color> per stack each turn. Bandage reduces one stack to light bleeding."),
+				'AddEffectText', T(890000000009198, "<color EmStyle><DisplayName></color>"),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/BleedingMedium.png",
+				'max_stacks', 8,
+				'Shown', true,
+				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "BleedingHeavy",
+				'Parameters', {
+					PlaceObj('PresetParamNumber', {
+						'Name', "DamagePerTurn",
+						'Value', 12,
+						'Tag', "<DamagePerTurn>",
+					}),
+				},
+				'object_class', "StatusEffect",
+				'unit_reactions', {
+					PlaceObj('UnitReaction', {
+						Event = "OnEndTurn",
+						Handler = function (self, target)
+							JazzBleedOnUnitEndTurn(target)
+						end,
+					}),
+				},
+				'DisplayName', T(890000000009199, "Heavy Bleeding"),
+				'Description', T(890000000009200, "Heavy bleeding: <color EmStyle>12 HP</color> per stack each turn. From expanding ammo or worsened moderate bleeding. Bandage reduces one stack to moderate."),
+				'AddEffectText', T(890000000009201, "<color EmStyle><DisplayName></color>"),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/BleedingHeavy.png",
+				'max_stacks', 8,
+				'Shown', true,
+				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "Pain",
+				'Parameters', {
+					PlaceObj('PresetParamNumber', {
+						'Name', "APLoss",
+						'Value', 1,
+						'Tag', "<APLoss>",
+					}),
+					PlaceObj('PresetParamPercent', {
+						'Name', "cth_penalty",
+						'Value', 5,
+						'Tag', "<cth_penalty>%",
+					}),
+				},
+				'object_class', "StatusEffect",
+				'unit_reactions', {
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcStartTurnAP",
+						Handler = function (self, target, value)
+							if not target:HasStatusEffect("Analgesia") then
+								return value - self.stacks * self:ResolveValue("APLoss") * const.Scale.AP
+							end
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcChanceToHit",
+						Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+							if target == attacker and not attacker:HasStatusEffect("Analgesia") then
+								ApplyCthModifier_Add(self, data, -self.stacks * self:ResolveValue("cth_penalty"))
+							end
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnEndTurn",
+						Handler = function (self, target)
+							target:RemoveStatusEffect("Pain", 1)
+						end,
+					}),
+				},
+				'DisplayName', T(890000000009202, "Pain"),
+				'Description', T(890000000009203, "Each stack costs <color EmStyle><APLoss> AP</color> and <color EmStyle><cth_penalty>% chance to hit</color>. Decreases by one stack each turn. Analgesia suppresses the penalties."),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Pain.png",
+				'max_stacks', 8,
+				'Shown', true,
+				'ShownSatelliteView', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "Analgesia",
+				'object_class', "StatusEffect",
+				'DisplayName', T(890000000009204, "Analgesia"),
+				'Description', T(890000000009205, "Suppresses AP and chance-to-hit penalties from Pain. Does not stop bleeding or heal injuries."),
+				'type', "Buff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Analgesia.png",
+				'RemoveOnEndCombat', true,
+				'Shown', true,
+				'ShownSatelliteView', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "TraumaArmsLight",
+				'object_class', "StatusEffect",
+				unit_reactions = {
+					PlaceObj('UnitReaction', {
+						Event = "OnFirearmAttackStart",
+						Handler = function(self, target, attacker, attack_target, action, attack_args)
+							if target == attacker then
+								JazzTraumaPainOnZoneUse(attacker, "Arms")
+							end
+						end,
+					}),
+				},
+				'DisplayName', T(890000000009226, "Arm Trauma (Light)"),
+				'Description', T(890000000009227, "Pain when shooting or using arms. No direct accuracy penalty."),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaArmsLight.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "TraumaArmsMedium",
+				'Parameters', {
+					PlaceObj('PresetParamPercent', {
+						'Name', "cth_penalty",
+						'Value', 20,
+						'Tag', "<cth_penalty>%",
+					}),
+				},
+				'object_class', "StatusEffect",
+				unit_reactions = {
+					PlaceObj('UnitReaction', {
+						Event = "OnFirearmAttackStart",
+						Handler = function(self, target, attacker, attack_target, action, attack_args)
+							if target == attacker then
+								JazzTraumaPainOnZoneUse(attacker, "Arms")
+							end
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcChanceToHit",
+						Handler = function(self, target, attacker, action, attack_target, weapon1, weapon2, data)
+							if target == attacker then
+								ApplyCthModifier_Add(self, data, -self:ResolveValue("cth_penalty"))
+							end
+						end,
+					}),
+				},
+				'DisplayName', T(890000000009228, "Arm Trauma (Medium)"),
+				'Description', T(890000000009229, "Accuracy penalty <color EmStyle><cth_penalty>%</color>. Pain when using arms."),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaArmsMedium.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "TraumaArmsHeavy",
+				'Parameters', {
+					PlaceObj('PresetParamPercent', {
+						'Name', "cth_penalty",
+						'Value', 50,
+						'Tag', "<cth_penalty>%",
+					}),
+				},
+				'object_class', "StatusEffect",
+				unit_reactions = {
+					PlaceObj('UnitReaction', {
+						Event = "OnEndTurn",
+						Handler = function(self, target)
+							JazzTraumaHeavyPainRamp(target)
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcChanceToHit",
+						Handler = function(self, target, attacker, action, attack_target, weapon1, weapon2, data)
+							if target == attacker then
+								ApplyCthModifier_Add(self, data, -self:ResolveValue("cth_penalty"))
+							end
+						end,
+					}),
+				},
+				'DisplayName', T(890000000009230, "Arm Trauma (Heavy)"),
+				'Description', T(890000000009231, "Severe accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly unable to fight. Pain rises each turn."),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaArmsHeavy.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "TraumaLegsLight",
+				'object_class', "StatusEffect",
+				unit_reactions = {
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcMoveModifier",
+						Handler = function(self, target, value, action)
+							JazzTraumaPainOnZoneUse(target, "Legs")
+							return value
+						end,
+					}),
+				},
+				'DisplayName', T(890000000009232, "Leg Trauma (Light)"),
+				'Description', T(890000000009233, "Pain when moving. No direct move-cost penalty."),
+				'OnAdded', function (self, obj)
+					Msg("UnitAPChanged", obj)
+				end,
+				'OnRemoved', function (self, obj)
+					Msg("UnitAPChanged", obj)
+				end,
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaLegsLight.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "TraumaLegsMedium",
+				'Parameters', {
+					PlaceObj('PresetParamNumber', {
+						'Name', "move_ap_modifier",
+						'Value', 50,
+						'Tag', "<move_ap_modifier>",
+					}),
+				},
+				'object_class', "StatusEffect",
+				unit_reactions = {
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcMoveModifier",
+						Handler = function(self, target, value, action)
+							if self.class == "TraumaLegsMedium" then
+								JazzTraumaPainOnZoneUse(target, "Legs")
+							end
+							return value + self:ResolveValue("move_ap_modifier")
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcFreeMove",
+						Handler = function(self, target, data)
+							data.add = 0
+							data.mul = 0
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnBeginTurn",
+						Handler = function(self, target)
+							target:RemoveStatusEffect("FreeMove")
+						end,
+					}),
+				},
+				'DisplayName', T(890000000009234, "Leg Trauma (Medium)"),
+				'Description', T(890000000009235, "Move cost <color EmStyle>+<move_ap_modifier>%</color>. No Free Move / sprint. Pain when moving."),
+				'OnAdded', function (self, obj)
+					Msg("UnitAPChanged", obj)
+				end,
+				'OnRemoved', function (self, obj)
+					Msg("UnitAPChanged", obj)
+				end,
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaLegsMedium.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "TraumaLegsHeavy",
+				'Parameters', {
+					PlaceObj('PresetParamNumber', {
+						'Name', "move_ap_modifier",
+						'Value', 150,
+						'Tag', "<move_ap_modifier>",
+					}),
+				},
+				'object_class', "StatusEffect",
+				unit_reactions = {
+					PlaceObj('UnitReaction', {
+						Event = "OnEndTurn",
+						Handler = function(self, target)
+							JazzTraumaHeavyPainRamp(target)
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcMoveModifier",
+						Handler = function(self, target, value, action)
+							if self.class == "TraumaLegsMedium" then
+								JazzTraumaPainOnZoneUse(target, "Legs")
+							end
+							return value + self:ResolveValue("move_ap_modifier")
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcFreeMove",
+						Handler = function(self, target, data)
+							data.add = 0
+							data.mul = 0
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnBeginTurn",
+						Handler = function(self, target)
+							target:RemoveStatusEffect("FreeMove")
+						end,
+					}),
+				},
+				'DisplayName', T(890000000009236, "Leg Trauma (Heavy)"),
+				'Description', T(890000000009237, "Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn."),
+				'OnAdded', function (self, obj)
+					Msg("UnitAPChanged", obj)
+				end,
+				'OnRemoved', function (self, obj)
+					Msg("UnitAPChanged", obj)
+				end,
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaLegsHeavy.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "TraumaRibsLight",
+				'object_class', "StatusEffect",
+				unit_reactions = {
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcStartTurnAP",
+						Handler = function(self, target, value)
+							JazzTraumaPainOnZoneUse(target, "Ribs")
+							return value
+						end,
+					}),
+				},
+				'DisplayName', T(890000000009238, "Rib Trauma (Light)"),
+				'Description', T(890000000009239, "Pain when exerting. No Tiredness from ribs. No direct AP penalty."),
+				'OnAdded', function (self, obj)
+					Msg("UnitAPChanged", obj)
+				end,
+				'OnRemoved', function (self, obj)
+					Msg("UnitAPChanged", obj)
+				end,
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaRibsLight.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "TraumaRibsMedium",
+				'Parameters', {
+					PlaceObj('PresetParamNumber', {
+						'Name', "APLoss",
+						'Value', 2,
+						'Tag', "<APLoss>",
+					}),
+				},
+				'object_class', "StatusEffect",
+				unit_reactions = {
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcStartTurnAP",
+						Handler = function(self, target, value)
+							if self.class == "TraumaRibsMedium" then
+								JazzTraumaPainOnZoneUse(target, "Ribs")
+							end
+							return value - self:ResolveValue("APLoss") * const.Scale.AP
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcFreeMove",
+						Handler = function(self, target, data)
+							data.add = 0
+							data.mul = 0
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnBeginTurn",
+						Handler = function(self, target)
+							target:RemoveStatusEffect("FreeMove")
+						end,
+					}),
+				},
+				'DisplayName', T(890000000009240, "Rib Trauma (Medium)"),
+				'Description', T(890000000009241, "Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain on exertion. No Tiredness."),
+				'OnAdded', function (self, obj)
+					Msg("UnitAPChanged", obj)
+				end,
+				'OnRemoved', function (self, obj)
+					Msg("UnitAPChanged", obj)
+				end,
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaRibsMedium.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "TraumaRibsHeavy",
+				'Parameters', {
+					PlaceObj('PresetParamNumber', {
+						'Name', "APLoss",
+						'Value', 5,
+						'Tag', "<APLoss>",
+					}),
+				},
+				'object_class', "StatusEffect",
+				unit_reactions = {
+					PlaceObj('UnitReaction', {
+						Event = "OnEndTurn",
+						Handler = function(self, target)
+							JazzTraumaHeavyPainRamp(target)
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcStartTurnAP",
+						Handler = function(self, target, value)
+							if self.class == "TraumaRibsMedium" then
+								JazzTraumaPainOnZoneUse(target, "Ribs")
+							end
+							return value - self:ResolveValue("APLoss") * const.Scale.AP
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcFreeMove",
+						Handler = function(self, target, data)
+							data.add = 0
+							data.mul = 0
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnBeginTurn",
+						Handler = function(self, target)
+							target:RemoveStatusEffect("FreeMove")
+						end,
+					}),
+				},
+				'DisplayName', T(890000000009242, "Rib Trauma (Heavy)"),
+				'Description', T(890000000009243, "Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. Pain rises each turn. No Tiredness."),
+				'OnAdded', function (self, obj)
+					Msg("UnitAPChanged", obj)
+				end,
+				'OnRemoved', function (self, obj)
+					Msg("UnitAPChanged", obj)
+				end,
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaRibsHeavy.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "TraumaHeadLight",
+				'object_class', "StatusEffect",
+				unit_reactions = {
+					PlaceObj('UnitReaction', {
+						Event = "OnFirearmAttackStart",
+						Handler = function(self, target, attacker, attack_target, action, attack_args)
+							if target == attacker then
+								JazzTraumaPainOnZoneUse(attacker, "Head")
+							end
+						end,
+					}),
+				},
+				'DisplayName', T(890000000009244, "Head Trauma (Light)"),
+				'Description', T(890000000009245, "Pain when aiming or firing. Eye trauma folded into head for v1."),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaHeadLight.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "TraumaHeadMedium",
+				'Parameters', {
+					PlaceObj('PresetParamPercent', {
+						'Name', "cth_penalty",
+						'Value', 15,
+						'Tag', "<cth_penalty>%",
+					}),
+					PlaceObj('PresetParamNumber', {
+						'Name', "sight_modifier",
+						'Value', -20,
+						'Tag', "<sight_modifier>",
+					}),
+				},
+				'object_class', "StatusEffect",
+				unit_reactions = {
+					PlaceObj('UnitReaction', {
+						Event = "OnFirearmAttackStart",
+						Handler = function(self, target, attacker, attack_target, action, attack_args)
+							if target == attacker then
+								JazzTraumaPainOnZoneUse(attacker, "Head")
+							end
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcChanceToHit",
+						Handler = function(self, target, attacker, action, attack_target, weapon1, weapon2, data)
+							if target == attacker then
+								ApplyCthModifier_Add(self, data, -self:ResolveValue("cth_penalty"))
+							end
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcSightModifier",
+						Handler = function(self, target, value, observer, other, step_pos, darkness)
+							if target == observer then
+								return value + self:ResolveValue("sight_modifier")
+							end
+						end,
+					}),
+				},
+				'DisplayName', T(890000000009246, "Head Trauma (Medium)"),
+				'Description', T(890000000009247, "Sight and accuracy penalties. Pain when aiming or firing."),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaHeadMedium.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "TraumaHeadHeavy",
+				'Parameters', {
+					PlaceObj('PresetParamPercent', {
+						'Name', "cth_penalty",
+						'Value', 40,
+						'Tag', "<cth_penalty>%",
+					}),
+					PlaceObj('PresetParamNumber', {
+						'Name', "sight_modifier",
+						'Value', -50,
+						'Tag', "<sight_modifier>",
+					}),
+				},
+				'object_class', "StatusEffect",
+				unit_reactions = {
+					PlaceObj('UnitReaction', {
+						Event = "OnEndTurn",
+						Handler = function(self, target)
+							JazzTraumaHeavyPainRamp(target)
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcChanceToHit",
+						Handler = function(self, target, attacker, action, attack_target, weapon1, weapon2, data)
+							if target == attacker then
+								ApplyCthModifier_Add(self, data, -self:ResolveValue("cth_penalty"))
+							end
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcSightModifier",
+						Handler = function(self, target, value, observer, other, step_pos, darkness)
+							if target == observer then
+								return value + self:ResolveValue("sight_modifier")
+							end
+						end,
+					}),
+				},
+				'DisplayName', T(890000000009248, "Head Trauma (Heavy)"),
+				'Description', T(890000000009249, "Severe sight/accuracy loss. Nearly combat-ineffective. Pain rises each turn."),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaHeadHeavy.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "TraumaBurnLight",
+				'object_class', "StatusEffect",
+				unit_reactions = {
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcStartTurnAP",
+						Handler = function(self, target, value)
+							JazzTraumaPainOnZoneUse(target, "Burn")
+							return value
+						end,
+					}),
+				},
+				'DisplayName', T(890000000009250, "Burn Trauma (Light)"),
+				'Description', T(890000000009251, "Lingering burn after fire. Pain on exertion. Bandage does not clear burns."),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaBurnLight.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "TraumaBurnMedium",
+				'object_class', "StatusEffect",
+				unit_reactions = {
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcStartTurnAP",
+						Handler = function(self, target, value)
+							JazzTraumaPainOnZoneUse(target, "Burn")
+							return value
+						end,
+					}),
+				},
+				'DisplayName', T(890000000009252, "Burn Trauma (Medium)"),
+				'Description', T(890000000009253, "Moderate burn debt. Pain on exertion. Infection risk deferred."),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaBurnMedium.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "TraumaBurnHeavy",
+				'object_class', "StatusEffect",
+				unit_reactions = {
+					PlaceObj('UnitReaction', {
+						Event = "OnEndTurn",
+						Handler = function(self, target)
+							JazzTraumaHeavyPainRamp(target)
+						end,
+					}),
+				},
+				'DisplayName', T(890000000009254, "Burn Trauma (Heavy)"),
+				'Description', T(890000000009255, "Severe burn debt. Pain rises each turn. Infection/hospital clear deferred."),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaBurnHeavy.png",
 				'Shown', true,
 				'ShownSatelliteView', true,
 				'HasFloatingText', true,
@@ -61075,7 +61778,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 					PlaceObj('PresetParamNumber', {
 						'Name', "HpLossToAddStack",
-						'Value', 20,
+						'Value', 999999,
 						'Tag', "<HpLossToAddStack>",
 					}),
 					PlaceObj('PresetParamPercent', {
@@ -61472,6 +62175,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					self:SetParameter("recovery_turn", (g_Combat and g_Combat.current_turn or 1) + self:ResolveValue("recovery_delay_turns"))
 					self:SetParameter("recovery_time", GameTime() + self:ResolveValue("recovery_delay_seconds") * 1000)
 					obj:AddStatusEffectImmunity("Surprised", self.class)
+					if IsMerc(obj) then
+						JazzApplyKnockoutTraumaPackage(obj)
+					end
 					CreateGameTimeThread(obj.SetCommandIfNotDead, obj, obj.command == "GetDowned" and "Downed" or "KnockDown")
 				end,
 				'OnRemoved', function (self, obj)
@@ -61649,6 +62355,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					if IsKindOf(obj, "Unit") then
 						PlayFX("UnitBurning", "end", obj)
 						obj:ClearStains("Burning")
+						JazzApplyBurnTraumaFromBurning(obj)
 					end
 				end,
 				'type', "Debuff",

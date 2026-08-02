@@ -10,12 +10,8 @@ DefineClass.Torsoshot = {
 	DisplayName = T(147224231156, --[[ModItemCharacterEffectCompositeDef Torsoshot DisplayName]] "Ранение в торс"),
 	Description = "",
 	OnAdded = function (self, obj)
-		--print(obj.TempHitPoints)
 		if obj.TempHitPoints > 0 then return end
-		local hp = obj.TempHitPoints + obj.HitPoints
-		if obj:Random(hp) < 1 then
-		obj:AddStatusEffect("IncreaseTiredness") 
-		end
+		JazzTryRollTraumaFromBodyPart(obj, "Ribs")
 	end,
 	OnRemoved = function (self, obj)  end,
 	type = "Debuff",

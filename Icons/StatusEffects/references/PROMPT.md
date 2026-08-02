@@ -99,6 +99,11 @@ Style-референсы: **только** PNG в этой папке + runtime 
 | `Jazz_OfficerAura.png` | olive + amber | `Jazz_Perk_OfficerAura` | source: badge, chevron + arcs |
 | `Jazz_OfficerAuraInfluence.png` | steel + weak amber | `Jazz_Perk_OfficerAuraInfluence` | receiver: ring + mini soldier |
 | `MarkedTraccers.png` | — | `MarkedTraccers` (+ shared `DamageReduction`) | помечен трассерами |
+| `Bleeding.png` | `#E03838` | `Bleeding` | MED-001 light bleed: 1 drop |
+| `BleedingMedium.png` | `#C82828` | `BleedingMedium` | MED-001 moderate: 2 drops |
+| `BleedingHeavy.png` | `#A02020` | `BleedingHeavy` | MED-001 heavy: cascade + spray |
+| `Pain.png` | `#A02020` | `Pain` | MED-001 ache burst + zigzags (not bleed drop) |
+| `Analgesia.png` | `#B8B880` | `Analgesia` | MED-001 buff: autoinjector + calm waves |
 
 Officer pair (final art brief):
 

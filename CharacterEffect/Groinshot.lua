@@ -11,14 +11,16 @@ DefineClass.Groinshot = {
 	Description = "",
 	OnAdded = function (self, obj)
 		if obj.TempHitPoints > 0 then return end
+		JazzTryRollTraumaFromBodyPart(obj, "Ribs")
 		local hp = obj.TempHitPoints + obj.HitPoints
-		if obj:Random(hp) < 20  then
-		obj:AddStatusEffect("Bleeding") end
-		if obj:Random(hp) < 40   then
-		obj:AddStatusEffect("Bleeding")
+		if obj:Random(hp) < 20 then
+			obj:AddStatusEffect("Bleeding")
 		end
-		if obj:Random(hp) < 5   then
-		obj:AddStatusEffect("Bleeding")
+		if obj:Random(hp) < 40 then
+			obj:AddStatusEffect("Bleeding")
+		end
+		if obj:Random(hp) < 5 then
+			obj:AddStatusEffect("Bleeding")
 		end
 	end,
 	OnRemoved = function (self, obj)  end,

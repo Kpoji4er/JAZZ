@@ -11,9 +11,10 @@ DefineClass.Legsshot = {
 	Description = "",
 	OnAdded = function (self, obj)
 		if obj.TempHitPoints > 0 then return end
+		JazzTryRollTraumaFromBodyPart(obj, "Legs")
 		local hp = obj.TempHitPoints + obj.HitPoints
-		if obj:Random(hp) < 20  then
-		obj:AddStatusEffect("Slowed")
+		if obj:Random(hp) < 20 then
+			obj:AddStatusEffect("Slowed")
 		end
 	end,
 	OnRemoved = function (self, obj)  end,

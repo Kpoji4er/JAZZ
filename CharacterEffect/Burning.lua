@@ -60,6 +60,7 @@ DefineClass.Burning = {
 		if IsKindOf(obj, "Unit") then
 			PlayFX("UnitBurning", "end", obj)
 			obj:ClearStains("Burning")
+			JazzApplyBurnTraumaFromBurning(obj)
 		end
 	end,
 	type = "Debuff",

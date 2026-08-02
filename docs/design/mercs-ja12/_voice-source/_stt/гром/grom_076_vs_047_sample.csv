@@ -1,0 +1,23 @@
+﻿pid,stem,file,ref_text,stt_text,note
+076,000,076_000.wav,Опп-а! Вижу цель.,,stt_skipped
+076,001,076_001.wav,Начнем что ли?,,stt_skipped
+076,002,076_002.wav,"Тю-ю! В очередь, сукины дети!",,stt_skipped
+076,011,076_011.wav,Че-т нашел.,,stt_skipped
+076,012,076_012.wav,"Чужое. Халява. Взять-взять! Хы! Фильм ""ДМБ"" смотрел?",,stt_skipped
+076,015,076_015.wav,Ваня! Ч-черт возьми! Это был лучший боец в отряде!,,stt_skipped
+076,023,076_023.wav,Ты в уме?,,stt_skipped
+076,033,,"М-да. Зрелище то еще. А знаешь, с вертолета этого дерьма не видно.",,missing_audio
+076,040,,Да-а! С таким командиром навоюешь пожалуй!,,missing_audio
+076,ATTN,,,,missing_audio
+076,OK1,,,,missing_audio
+047,000,047_000.wav,,,stt_skipped
+047,001,047_001.wav,,,stt_skipped
+047,002,047_002.wav,,,stt_skipped
+047,011,047_011.wav,,,stt_skipped
+047,012,047_012.wav,,,stt_skipped
+047,015,047_015.wav,,,stt_skipped
+047,023,047_023.wav,,,stt_skipped
+047,033,047_033.wav,,,stt_skipped
+047,040,047_040.wav,,,stt_skipped
+047,ATTN,047_ATTN.WAV,,,stt_skipped
+047,OK1,047_OK1.WAV,,,stt_skipped

@@ -2,13 +2,23 @@
 """Ship JA2/NightOps archive voices onto Jazz merc VoiceResponse T-ids.
 
 Reads mapping: docs/design/mercs-ja12/_voice-source/jazz_to_ja2_profile.csv
-Extracts WAV from Data/SPEECH.SLF + BATTLESNDS.SLF (and NightOps/SPEECH overlays).
-Fills each ModItemVoiceResponse T-id: archive line when known, else donor duplicate.
+Extracts WAV from Data/SPEECH.SLF + BATTLESNDS.SLF (and NightOps/SPEECH overlays),
+or ingests ja2mercs folder banks (WAV ADPCM / OGG → opus).
+
+speech_source forms:
+  data_slf | nightops_speech | nightops_npc | sj_folder | ub_cs_folder |
+  ub_wildfire_folder | horg_stogie_folder | folder:<path> |
+  ja2mercs:<cat>/<merc>[|battle=<pid>][|merge_speech]
+
+ja2mercs path override: prefer Downloads/ja2mercs/ja2mercs; filter by profile_id
+(+ optional battle pid for ЦС dual-bank mercs). Do not mix co-folder pids
+unless `|merge_speech` (same-merc dual file prefixes, e.g. Grom 076+047).
 
 Usage (jazz/):
   python docs/tools/_ship_ja2_merc_voices.py --dry-run
   python docs/tools/_ship_ja2_merc_voices.py --only ira,dimitri
   python docs/tools/_ship_ja2_merc_voices.py --queue
+  python docs/tools/_ship_ja2_merc_voices.py --ja2mercs-remesh
 """
 from __future__ import annotations
 
@@ -30,6 +40,7 @@ MAP_CSV = JAZZ / "docs/design/mercs-ja12/_voice-source/jazz_to_ja2_profile.csv"
 ITEMS = JU / "items.lua"
 VOICES = JU / "voices"
 CACHE = JAZZ / "docs/design/mercs-ja12/_voice-source/_wav_cache"
+JA2MERCS_ROOT = Path(r"C:\Users\SsAnd\Downloads\ja2mercs\ja2mercs")
 NO_ROOT = Path(r"C:\Users\SsAnd\Downloads\NightOps_v1.50.14\ja2no150")
 SPEECH_SLF = NO_ROOT / "Data" / "SPEECH.SLF"
 BATTLE_SLF = NO_ROOT / "Data" / "BATTLESNDS.SLF"
@@ -50,6 +61,7 @@ UB_WF_FOLDER = (
 )
 # Shady Job unpacked (Downloads/SJ/data) → _sj_cache (066 Simon, 067 Benny, 076 Gromov)
 SJ_FOLDER = JAZZ / "docs/design/mercs-ja12/_voice-source/_sj_cache"
+AUDIO_EXTS = (".wav", ".ogg", ".mp3")
 
 FFMPEG_CANDIDATES = [
     Path(
@@ -231,7 +243,33 @@ def _stem_aliases(stem: str) -> list[str]:
         out.append("DYING")
     if stem == "ENEMY":
         out.extend(["ENEM", "ENEMY2"])
+    if stem == "ENEM":
+        out.extend(["ENEMY", "ENEMY2"])
     return out
+
+
+# folder → {(pid_upper, stem_upper) → Path}
+_JA2MERCS_INDEX: dict[str, dict[tuple[str, str], Path]] = {}
+
+
+def parse_ja2mercs_source(source: str) -> tuple[Path, str, bool] | None:
+    """Parse ja2mercs:<rel>[|battle=<pid>][|merge_speech] → (folder, battle, merge_speech)."""
+    if not source.startswith("ja2mercs:"):
+        return None
+    raw = source.split(":", 1)[1].strip()
+    merge_speech = False
+    battle = ""
+    parts = [p.strip() for p in raw.split("|") if p.strip()]
+    if not parts:
+        return None
+    rel = parts[0].replace("\\", "/")
+    for flag in parts[1:]:
+        if flag == "merge_speech":
+            merge_speech = True
+        elif flag.startswith("battle="):
+            battle = flag.split("=", 1)[1].strip()
+    folder = JA2MERCS_ROOT.joinpath(*rel.split("/"))
+    return folder, battle, merge_speech
 
 
 def _folder_roots(source: str) -> list[Path]:
@@ -245,15 +283,208 @@ def _folder_roots(source: str) -> list[Path]:
     if source == "horg_stogie_folder":
         return [HORG_FOLDER] if HORG_FOLDER.exists() else []
     if source == "ub_cs_folder":
-        # Цена Свободы / UB: U_59 Horg, U_62 Kulba, …
         return [UB_CS_FOLDER] if UB_CS_FOLDER.exists() else []
     if source == "ub_wildfire_folder":
-        # Wildfire RUS arc Data-UB (numeric 058 Gaston, …) — not commercial WF AIM voices
         return [UB_WF_FOLDER] if UB_WF_FOLDER.exists() else []
     if source == "sj_folder":
-        # Shady Job Khalif: 066 Simon, 067 Benny, 076 Gromov (+ 058 Gaston alt)
         return [SJ_FOLDER] if SJ_FOLDER.exists() else []
+    parsed = parse_ja2mercs_source(source)
+    if parsed:
+        folder, _battle, _merge = parsed
+        return [folder] if folder.is_dir() else []
     return []
+
+
+def _pid_variants(pid: str) -> list[str]:
+    """Filename prefixes allowed for this profile (exact match only)."""
+    pid = (pid or "").strip()
+    if not pid:
+        return []
+    out = [pid]
+    if pid.upper().startswith("U_"):
+        num = pid.split("_", 1)[-1]
+        out.extend([f"U_{num}", f"u_{num}"])
+    elif pid.isdigit():
+        z = pid.zfill(3)
+        out.extend([z, pid.lstrip("0") or "0"])
+    seen: set[str] = set()
+    uniq: list[str] = []
+    for x in out:
+        if x not in seen:
+            seen.add(x)
+            uniq.append(x)
+    return uniq
+
+
+def index_ja2mercs_folder(folder: Path) -> dict[tuple[str, str], Path]:
+    key = str(folder.resolve())
+    if key in _JA2MERCS_INDEX:
+        return _JA2MERCS_INDEX[key]
+    idx: dict[tuple[str, str], Path] = {}
+    if not folder.is_dir():
+        _JA2MERCS_INDEX[key] = idx
+        return idx
+    for f in folder.rglob("*"):
+        if not f.is_file() or f.suffix.lower() not in AUDIO_EXTS:
+            continue
+        if f.stat().st_size < 100:
+            continue
+        parts = f.stem.split("_")
+        if len(parts) < 2:
+            continue
+        if parts[0].upper() in ("R", "D") and len(parts) >= 3:
+            pid = parts[1]
+            stem = "_".join(parts[2:])
+        elif parts[0].upper() == "U" and len(parts) >= 3:
+            pid = f"U_{parts[1]}"
+            stem = "_".join(parts[2:])
+        else:
+            pid = parts[0]
+            stem = "_".join(parts[1:])
+        k = (pid.upper(), stem.upper())
+        # Prefer wav over ogg if both exist
+        prev = idx.get(k)
+        if prev is None or (
+            f.suffix.lower() == ".wav" and prev.suffix.lower() != ".wav"
+        ):
+            idx[k] = f
+    _JA2MERCS_INDEX[key] = idx
+    return idx
+
+
+# Numeric speech stub: prefer alt pid when primary is tiny and alt is clearly fuller.
+_MERGE_SPEECH_STUB_BYTES = 8000
+
+
+def _pick_longer_audio(
+    primary: Path | None,
+    alt: Path | None,
+    *,
+    prefer_primary_on_tie: bool = True,
+) -> Path | None:
+    """Same-merc dual-prefix: fullest bank; prefer primary when comparable."""
+    if primary is None:
+        return alt
+    if alt is None:
+        return primary
+    sa = primary.stat().st_size
+    sb = alt.stat().st_size
+    if sa <= 0:
+        return alt if sb > 0 else primary
+    if sb <= 0:
+        return primary
+    if sa < _MERGE_SPEECH_STUB_BYTES and sb > sa * 1.5:
+        return alt
+    if sb > sa * 1.2:
+        return alt
+    if sb > sa and not prefer_primary_on_tie:
+        return alt
+    return primary
+
+
+def resolve_ja2mercs_audio(
+    folder: Path,
+    pid: str,
+    battle_pid: str,
+    stem: str,
+    *,
+    merge_speech: bool = False,
+) -> Path | None:
+    """Find WAV/OGG/MP3 for stem under ja2mercs merc folder; pid-filter only.
+
+    Named battle stems prefer battle_pid when set (ЦС dual-bank / Grom 047 battle).
+    With merge_speech, numeric stems pick the longer of speech pid vs battle_pid
+    (prefer speech pid when sizes are close) — for same-merc dual prefixes only.
+    """
+    if not folder.is_dir():
+        return None
+    idx = index_ja2mercs_folder(folder)
+    aliases = _stem_aliases(stem)
+    named_battle = stem.upper() in {
+        "ATTN",
+        "COOL",
+        "HUMM",
+        "OK1",
+        "OK2",
+        "GOTIT",
+        "HIT1",
+        "HIT2",
+        "CURSE",
+        "DIE",
+        "DYING",
+        "ENEMY",
+        "ENEM",
+        "ENEMY2",
+        "LMATTN",
+        "LMOK1",
+        "LMOK2",
+        "LOCKED",
+        "NOTH",
+        "LAUGH",
+    }
+
+    def _norm_pids(raw: str) -> list[str]:
+        out: list[str] = []
+        seen: set[str] = set()
+        for p in _pid_variants(raw):
+            pu = p.upper()
+            if pu not in seen:
+                seen.add(pu)
+                out.append(pu)
+            if pu.startswith(("R_", "D_")):
+                bare = pu.split("_", 1)[1]
+                if bare not in seen:
+                    seen.add(bare)
+                    out.append(bare)
+        return out
+
+    if merge_speech and battle_pid and not named_battle:
+        # Dual same-merc numeric lines: gather both banks, pick fullest.
+        for alias in aliases:
+            au = alias.upper()
+            primary = None
+            alt = None
+            for p in _norm_pids(pid):
+                hit = idx.get((p, au))
+                if hit:
+                    primary = hit
+                    break
+            for p in _norm_pids(battle_pid):
+                hit = idx.get((p, au))
+                if hit:
+                    alt = hit
+                    break
+            picked = _pick_longer_audio(primary, alt)
+            if picked:
+                return picked
+        return None
+
+    pid_order: list[str] = []
+    if named_battle and battle_pid:
+        pid_order.extend(_pid_variants(battle_pid))
+    pid_order.extend(_pid_variants(pid))
+    if battle_pid:
+        pid_order.extend(_pid_variants(battle_pid))
+    seen: set[str] = set()
+    pids: list[str] = []
+    for p in pid_order:
+        pu = p.upper()
+        if pu not in seen:
+            seen.add(pu)
+            pids.append(pu)
+        if pu.startswith(("R_", "D_")):
+            bare = pu.split("_", 1)[1]
+            if bare not in seen:
+                seen.add(bare)
+                pids.append(bare)
+
+    for alias in aliases:
+        au = alias.upper()
+        for p in pids:
+            hit = idx.get((p, au))
+            if hit:
+                return hit
+    return None
 
 
 def resolve_wav(
@@ -263,9 +494,24 @@ def resolve_wav(
     battle_idx: dict,
     source: str,
 ) -> Path | None:
-    """Return path to cached WAV for profile+stem."""
+    """Return path to cached audio for profile+stem (wav/ogg/mp3)."""
     CACHE.mkdir(parents=True, exist_ok=True)
     aliases = _stem_aliases(stem)
+
+    # ja2mercs: preferred path override with strict pid filter
+    parsed = parse_ja2mercs_source(source)
+    if parsed:
+        folder, battle, merge_speech = parsed
+        hit = resolve_ja2mercs_audio(
+            folder, pid, battle, stem, merge_speech=merge_speech
+        )
+        if hit:
+            # Cache by chosen file stem so dual-prefix swaps refresh correctly.
+            dest = CACHE / f"ja2mercs_{hit.stem}{hit.suffix.lower()}"
+            if not dest.exists() or dest.stat().st_size != hit.stat().st_size:
+                shutil.copy2(hit, dest)
+            return dest
+        return None
 
     # External folder pack (Horg 166 «Бычок», etc.)
     for root in _folder_roots(source):
@@ -273,12 +519,18 @@ def resolve_wav(
             for name in (
                 f"{pid}_{alias}.WAV",
                 f"{pid}_{alias}.wav",
+                f"{pid}_{alias}.ogg",
                 f"R_{pid}_{alias}.WAV",
                 f"r_{pid}_{alias}.wav",
+                f"U_{pid.split('_')[-1]}_{alias}.WAV"
+                if pid.upper().startswith("U_")
+                else "",
             ):
+                if not name:
+                    continue
                 for p in root.rglob(name):
                     if p.is_file() and p.stat().st_size > 100:
-                        dest = CACHE / f"{pid}_{alias}.wav"
+                        dest = CACHE / f"{pid}_{alias}{p.suffix.lower()}"
                         if not dest.exists() or dest.stat().st_size != p.stat().st_size:
                             shutil.copy2(p, dest)
                         return dest
@@ -312,9 +564,7 @@ def resolve_wav(
         candidates.append(f"r_{pid}_{alias}.wav")
 
     for name in candidates:
-        dest = CACHE / Path(name).name.replace("R_", "").replace("r_", "")
         # normalize cache key to pid_stem.wav
-        stem_part = name.split("_", 1)[-1] if name.upper().startswith("R_") else name
         if name.upper().startswith("R_"):
             # R_061_000.WAV → cache 061_000.WAV
             parts = Path(name).stem.split("_")
@@ -347,6 +597,7 @@ def resolve_wav(
 
 
 def wav_to_opus(ffmpeg: Path, wav: Path, opus: Path) -> bool:
+    """Convert wav/ogg/mp3 → opus (Colby loudnorm pipeline)."""
     opus.parent.mkdir(parents=True, exist_ok=True)
     cmd = [
         str(ffmpeg),
@@ -413,25 +664,52 @@ def main() -> int:
     ap.add_argument("--only", type=str, default="")
     ap.add_argument("--queue", action="store_true", help="Process QUEUE order")
     ap.add_argument("--include-done", action="store_true")
+    ap.add_argument(
+        "--ja2mercs-remesh",
+        action="store_true",
+        help="Process all CSV rows with speech_source=ja2mercs:* (incl done/shipped)",
+    )
+    ap.add_argument("--ja2mercs-root", type=Path, default=None)
     ap.add_argument("--force-missing-skip", action="store_true", default=True)
     args = ap.parse_args()
 
+    global JA2MERCS_ROOT
+    if args.ja2mercs_root:
+        JA2MERCS_ROOT = args.ja2mercs_root
+
     rows = load_map()
     by_slug = {r["slug"]: r for r in rows}
-    order = QUEUE if args.queue or not args.only else []
-    if args.only:
+    if args.ja2mercs_remesh and not args.only:
+        order = [
+            r["slug"]
+            for r in rows
+            if (r.get("speech_source") or "").startswith("ja2mercs:")
+        ]
+    elif args.only:
         order = [s.strip() for s in args.only.split(",") if s.strip()]
-    elif not order:
-        order = QUEUE
+    elif args.queue:
+        order = list(QUEUE)
+    else:
+        order = list(QUEUE)
 
     items_text = ITEMS.read_text(encoding="utf-8")
     vr = parse_vr_blocks(items_text)
     print(f"VR units parsed: {len(vr)}")
 
     ffmpeg = find_ffmpeg()
-    speech_idx = list_slf(SPEECH_SLF)
-    battle_idx = list_slf(BATTLE_SLF)
-    print(f"SLF speech={len(speech_idx)} battle={len(battle_idx)} ffmpeg={ffmpeg.name}")
+    needs_slf = any(
+        not (by_slug.get(s, {}).get("speech_source") or "").startswith("ja2mercs:")
+        for s in order
+        if s in by_slug
+    )
+    speech_idx: dict = {}
+    battle_idx: dict = {}
+    if needs_slf and SPEECH_SLF.exists() and BATTLE_SLF.exists():
+        speech_idx = list_slf(SPEECH_SLF)
+        battle_idx = list_slf(BATTLE_SLF)
+        print(f"SLF speech={len(speech_idx)} battle={len(battle_idx)} ffmpeg={ffmpeg.name}")
+    else:
+        print(f"SLF skipped (ja2mercs-only batch) ffmpeg={ffmpeg.name} root={JA2MERCS_ROOT}")
 
     summary = []
     for slug in order:
@@ -448,18 +726,33 @@ def main() -> int:
             print(f"SKIP {slug}: done_manual — keep existing opus")
             summary.append((slug, "skip-done-manual", 0, 0))
             continue
-        if status == "done" and not args.include_done and slug == "colby":
+        if (
+            status == "done"
+            and not args.include_done
+            and not args.ja2mercs_remesh
+            and not source.startswith("ja2mercs:")
+            and slug == "colby"
+        ):
             print(f"SKIP {slug}: already done")
             summary.append((slug, "skip-done", 0, 0))
             continue
-        # ready/shipped/done — allow re-ship for remaps (e.g. Hitman→Slay, Nervous→041)
-        shippable = status in ("ready", "ready_tentative", "done", "shipped")
+        # ready/shipped/done + need_pack with assigned pid (ja2mercs fill)
+        shippable = status in (
+            "ready",
+            "ready_tentative",
+            "done",
+            "shipped",
+            "need_pack",
+        )
         if not pid or not shippable or status in ("new_voice", "done_manual", "missing"):
             print(f"SKIP {slug}: no profile in pack ({status})")
             summary.append((slug, "skip-missing", 0, 0))
             continue
+        if args.ja2mercs_remesh and not source.startswith("ja2mercs:"):
+            print(f"SKIP {slug}: not ja2mercs source")
+            summary.append((slug, "skip-not-ja2mercs", 0, 0))
+            continue
         if unit not in vr and unit.replace("JAZZ_", "Jazz_") not in vr:
-            # try Jazz_ form
             alt = unit.replace("JAZZ_Merc_", "Jazz_").replace("JAZZ_", "Jazz_")
             if alt in vr:
                 unit = alt
@@ -469,6 +762,10 @@ def main() -> int:
                 continue
 
         entries = vr[unit]
+        if not entries:
+            print(f"SKIP {slug}: empty VR (inject/expand first)")
+            summary.append((slug, "skip-empty-vr", 0, 0))
+            continue
         slot_i: dict[str, int] = defaultdict(int)
         ok = fail = 0
         print(f"=== {slug} {unit} pid={pid} lines={len(entries)} source={source}")
@@ -489,7 +786,11 @@ def main() -> int:
                 fail += 1
                 continue
             dest = VOICES / f"{tid}.opus"
-            print(f"  {tid} {slot} <- {pid}_{used}")
+            # Show actual source file stem (e.g. 047_ATTN vs 076_000) for dual-prefix.
+            src_label = wav.stem
+            if src_label.startswith("ja2mercs_"):
+                src_label = src_label[len("ja2mercs_") :]
+            print(f"  {tid} {slot} <- {src_label} (want {used})")
             if args.dry_run:
                 ok += 1
                 continue

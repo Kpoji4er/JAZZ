@@ -2,13 +2,11 @@ UndefineClass('Medkit')
 DefineClass.Medkit = {
 	__parents = { "Medicine" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
-
-
 	object_class = "Medicine",
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcHealAmount",
-			Handler = function (self, target, patient, medic, medkit, data)
+			Handler = function(self, target, patient, medic, medkit, data)
 				if self == medkit then
 					data.heal_modifier = data.heal_modifier + 25
 				end
@@ -17,10 +15,10 @@ DefineClass.Medkit = {
 	},
 	ScrapParts = 1,
 	Repairable = false,
-	Icon = "UI/Icons/Items/medkit",
-	DisplayName = T(999601948111, --[[ModItemInventoryItemCompositeDef Medkit DisplayName]] "Med Kit"),
-	DisplayNamePlural = T(221861569054, --[[ModItemInventoryItemCompositeDef Medkit DisplayNamePlural]] "Med Kits"),
-	AdditionalHint = T(655535396072, --[[ModItemInventoryItemCompositeDef Medkit AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует состояние умирающих персонажей\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Требуется для использования перевязки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка восстанавливает на 25% ОЗ больше\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится при каждом употреблении, но запас медикаментов можно восполнить\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, просто находясь в инвентаре"),
+	Icon = "Mod/e6L4ECj/Icons/Items/JAZZ_Medkit.png",
+	DisplayName = T(890000000009220, "Med Kit"),
+	DisplayNamePlural = T(890000000009221, "Med Kits"),
+	AdditionalHint = T(890000000009222, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds"),
 	UnitStat = "Medical",
 	Cost = 500,
 	CanAppearInShop = true,
@@ -29,4 +27,3 @@ DefineClass.Medkit = {
 	max_meds_parts = 12,
 	UsePriority = 1,
 }
-

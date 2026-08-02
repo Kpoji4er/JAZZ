@@ -13,10 +13,11 @@
 - При работе с FX/UI избегать скрытых глобальных side effects, которые не очищаются при `reload`.
 - Новые сателлитные role icons (`SquadsIcons/Enemy/<faction>_<ROLE>_squad.png`) — по skill `$create-jazz-squad-icons`; каталог: `docs/technical/systems/squad-role-icons.md`.
 - Status effect icons (`Icons/StatusEffects/*.png`, 40×40) — skill `$create-jazz-status-icons`; style/prompts — `Icons/StatusEffects/references/PROMPT.md`.
+- HUD / hotbar **action** icons (`Perks/SignatureAbilities/*.png` 108×54 dual strip; medical subset `Icons/Med/`) — skill `$create-jazz-action-icons`; style bank `Icons/Hud/references/PROMPT.md`. Не путать с Personal perk tiles.
 - Attachment icons — **два разных skill**:
   - `$create-jazz-component-icons` → полная `WeaponComponent.Icon` (`Icons/Upgrades/Full/`, кабинет моддинга)
   - `$create-jazz-chip-icons` → `ChipIcon` миниатюра (`Icons/Upgrades/Chips/`, inventory/HUD chips)
-- Иконки именных и сигнатурных перков (`Perks/Personal/*.png`, `Perks/SignatureAbilities/*.png`, 68×68 RGBA) — skill `$create-jazz-perk-icons`; фон обязательно прозрачный, символ выводить из Description/Mechanics.
+- Иконки именных перков (`Perks/Personal/*.png`, 68×68 RGBA) — skill `$create-jazz-perk-icons`; фон обязательно прозрачный, символ выводить из Description/Mechanics. Hotbar SignatureAbilities → `$create-jazz-action-icons`.
 - Портреты мерков/NPC (PNG 300×300 + 2000×2000, стиль JA3) — пакет `jazz-units`, каталоги `MercPortraits/` и `NPCPortraits/`; генерация по `$create-jazz-merc-portraits`. `Images/` только для логотипа мода.
 - После editor import оружия с numeric DDS — `$rename-jazz-weapon-textures` (`Entity_MapType.dds`, Fallbacks-пара, `.mtl`/`items.lua`; затем Mod Editor mtlbin rebuild).
 

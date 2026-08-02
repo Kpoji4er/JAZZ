@@ -41,4 +41,21 @@
 
 ## High-visibility spot (ожидание)
 
-Ira 059 · Hobbit/Gumpy 045 · Hitman/Slay 064 · Spider/Houston 019 · Lynx 002 · Buzz 016 · Grom SJ 076 · Colby/Trevor 005.
+Ira 059 · Hobbit/Gumpy 045 · Hitman/Slay 064 · Spider/Houston 019 · Lynx 002 · Buzz 016 · Grom ja2mercs 076+047 · Colby/Trevor 005.
+
+## ja2mercs remesh (2026-08)
+
+Most shipped Jazz_* banks re-ingested from `Downloads/ja2mercs/ja2mercs` (`speech_source=ja2mercs:…`).  
+Ear-check **Gaston** (UB French, not Carlos) · **Benny** (female SJ) vs **Shank** · **Simon** vs **Dynamo** · **Vicious** (Malice «Алле») · WF AIM (Monk/Allik/…).  
+Leftovers for owner: Mike 074?, Manuel folder=060≠071, no-folder Biff/Lynx/Buzz/Spider.
+
+### Grom / `но-шж/гром` (remesh dual-prefix — both Grom)
+
+Owner override for this pack: **both `076_*` and `047_*` are Grom** (audio replaced / reused IDs). Prior vanilla/NO EDT text labeling 047 as Larry does **not** apply here.
+
+| Prefix | Role in remesh |
+| --- | --- |
+| `076_*` | Speech 000–024 preferred when longer/non-stub |
+| `047_*` | Full battle (ATTN/OK/HIT/DIE/…) + speech 025+; overlapping lines when fuller than 076 |
+
+`speech_source=ja2mercs:но-шж/гром|battle=047|merge_speech`

@@ -27,7 +27,8 @@
 | `System_GasMask.lua` | loaded | [Взрывчатка](explosives-traps-heavy-weapons.md), [броня](armor-damage-wounds-will.md) |
 | `System_ArmorRating.lua` | loaded | [Броня и повреждения](armor-damage-wounds-will.md) |
 | `UnitPropertiesStats.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md) |
-| `GritOnStart.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md) |
+| `GritOnStart.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md) — grit CombatStart off (MED-001) |
+| `Systems_Medicine.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — bleed tiers / Pain / zonal traumas / bandage API (MED-001) |
 | `Systems_Wounds_HealWounds.lua` | loaded | [Ранения](armor-damage-wounds-will.md) |
 | `System_Wounds_OperationHeal.lua` | loaded | [Ранения](armor-damage-wounds-will.md) |
 | `WillPointsBar.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md), [UI](ui-audio-fx.md) |

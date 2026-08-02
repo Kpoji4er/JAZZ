@@ -554,10 +554,10 @@ function UnitInventory:InventoryBandage()
 end
 
 function UnitInventory:GetBandaged(medkit, healer)
-	if not self:HasStatusEffect("Bleeding") and self.HitPoints >= self.MaxHitPoints then
+	if not JazzHasAnyBleed(self) and self.HitPoints >= self.MaxHitPoints then
 		return
 	end
-	
+
 	-- Hemophobic quirk
 	local chance = CharacterEffectDefs.Hemophobic:ResolveValue("procChance")
 	if HasPerk(self, "Hemophobic") then
@@ -572,18 +572,48 @@ function UnitInventory:GetBandaged(medkit, healer)
 			return
 		end
 	end
-	
-	local heal_amount, condition_rate = healer:CalcHealAmount(medkit, self)	
-	if (heal_amount or 0) <= 0 then
+
+	-- Stackable bandage item: -1 bleed tier, no HP heal, no Medical.
+	if medkit and (IsKindOf(medkit, "JAZZ_Bandage") or medkit.class == "JAZZ_Bandage") then
+		if not JazzReduceBleedOneTier(self) then
+			return
+		end
+		JazzConsumeInventoryItem(healer, "JAZZ_Bandage", 1)
+		CombatLog("short", T{890000000009216, "<target> bleeding reduced by bandage",
+			target = self.Nick or self.Name,
+		})
+		ObjModified(self)
+		Msg("OnBandage", healer, self, 0)
+		Msg("OnBandaged", healer, self, 0)
+		if IsValid(healer) then
+			Msg("InventoryChange", healer)
+		end
 		return
 	end
-		
-	-- restore hp up to (current) max hp
-	local old_hp = self.HitPoints
-	self.HitPoints = Min(self.MaxHitPoints, self.HitPoints + heal_amount)
-	local restored = self.HitPoints - old_hp
-	self:OnHeal(restored, medkit, healer)
-	
+
+	local heal_amount, condition_rate = healer:CalcHealAmount(medkit, self)
+	local can_clear_bleed = JazzHasAnyBleed(self)
+	if (heal_amount or 0) <= 0 and not can_clear_bleed then
+		return
+	end
+
+	local restored = 0
+	if (heal_amount or 0) > 0 then
+		local old_hp = self.HitPoints
+		self.HitPoints = Min(self.MaxHitPoints, self.HitPoints + heal_amount)
+		restored = self.HitPoints - old_hp
+		self:OnHeal(restored, medkit, healer)
+	end
+	if can_clear_bleed and medkit then
+		local stacks = 1
+		if medkit.class == "Medkit" then
+			stacks = 2
+		elseif medkit.class == "Reanimationsset" then
+			stacks = 2
+		end
+		JazzClearBleedStrong(self, stacks)
+	end
+
 	if healer == self then
 		CombatLog("short", T{934288978076, "<target> <em>bandaged</em> their wounds (<em><amount> HP</em> restored)",
 			target = self.Nick or self.Name,
@@ -597,17 +627,20 @@ function UnitInventory:GetBandaged(medkit, healer)
 		})
 		PlayVoiceResponse(self, "HealReceived")
 	end
-	
-	local condition_loss = Max(1, MulDivRound(restored, 100, CombatActions.Bandage:ResolveValue("MaxConditionHPRestore")))
-	condition_loss = Max(1, MulDivRound(condition_loss, condition_rate, 100))
-	medkit.Condition = Clamp(medkit.Condition - condition_loss, 0, 100)
-	local slot = healer:GetItemSlot(medkit)
-	if slot and medkit.Condition <= 0 then
-		CombatLog("short", T{831717454393, "<merc>'s <item> has been depleted", merc = healer.Nick, item = medkit.DisplayName})
-		--healer:RemoveItem(slot, medkit)
-		--DoneObject(medkit)
+
+	if medkit and restored > 0 then
+		local condition_loss = Max(1, MulDivRound(restored, 100, CombatActions.Bandage:ResolveValue("MaxConditionHPRestore")))
+		condition_loss = Max(1, MulDivRound(condition_loss, condition_rate or 100, 100))
+		medkit.Condition = Clamp(medkit.Condition - condition_loss, 0, 100)
+		local slot = healer:GetItemSlot(medkit)
+		if slot and medkit.Condition <= 0 then
+			CombatLog("short", T{831717454393, "<merc>'s <item> has been depleted", merc = healer.Nick, item = medkit.DisplayName})
+		end
+	elseif medkit and can_clear_bleed then
+		-- Bleed-only kit use still spends a little condition.
+		medkit.Condition = Clamp((medkit.Condition or 100) - 5, 0, 100)
 	end
-		
+
 	ObjModified(self)
 	Msg("OnBandage", healer, self, restored)
 	Msg("OnBandaged", healer, self, restored)

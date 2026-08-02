@@ -1,0 +1,23 @@
+UndefineClass('TraumaArmsLight')
+DefineClass.TraumaArmsLight = {
+	__parents = { "StatusEffect" },
+	__generated_by_class = "ModItemCharacterEffectCompositeDef",
+	object_class = "StatusEffect",
+	unit_reactions = {
+		PlaceObj('UnitReaction', {
+			Event = "OnFirearmAttackStart",
+			Handler = function(self, target, attacker, attack_target, action, attack_args)
+				if target == attacker then
+					JazzTraumaPainOnZoneUse(attacker, "Arms")
+				end
+			end,
+		}),
+	},
+	DisplayName = T(890000000009226, "Arm Trauma (Light)"),
+	Description = T(890000000009227, "Pain when shooting or using arms. No direct accuracy penalty."),
+	type = "Debuff",
+	Icon = "Mod/e6L4ECj/Icons/StatusEffects/TraumaArmsLight.png",
+	Shown = true,
+	ShownSatelliteView = true,
+	HasFloatingText = true,
+}

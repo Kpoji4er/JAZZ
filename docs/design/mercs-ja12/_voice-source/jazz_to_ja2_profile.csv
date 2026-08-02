@@ -1,51 +1,51 @@
 ﻿slug,unit_id,profile_id,speech_source,status,notes
-colby,Jazz_Colby,005,data_slf,done,Trevor; already JA2-archive opus
-lynx,Jazz_Lynx,002,data_slf,shipped,Рысь / Rudy Roberts; greeting 108
-blade,Jazz_Blade,043,data_slf,shipped,Razor/Бритва (Bill Lamont); was wrongly thought missing — EDT nick id043; buddy Fidel/Nervous; anti-Biff/Flo
-ira,Jazz_Ira,059,data_slf,shipped,RPC AIM woman; American in Arulco
-dimitri,Jazz_Dimitri,060,data_slf,shipped,RPC; broken hire lines but combat SPEECH present
-madman,Jazz_Madman,072,data_slf,shipped,Maddog/Бешеный Kevin Cameron; R_072_*; likes Fox; self-ref Бешеного
-conrad,Jazz_Conrad,070,data_slf,shipped,Conrad Gillett; R_070_*; likes Iggy/Stephen; anti-Larry — NOT Scope (036 is Scope text)
-mike,Jazz_Mike,,missing,need_pack,JA1/NO battlefield convert; spoken ABOUT only; also absent as SPEECH bank in Wildfire RUS arc Data/Data-UB
-grom,Jazz_Grom,076,sj_folder,shipped,SJ Sergey Gromov; speech+battle 076_*; Gromov_with.WAV extra
-rothman,Jazz_Rothman,030,data_slf,shipped,Стефан Ротман (greeting 108); filename 030_Hitman lies
-quinten,Jazz_Quinten,028,data_slf,shipped,доктор Квинтен
-vicious,Jazz_Vicious,032,data_slf,shipped,La Malice/Злобный; French-Canadian; likes Fox/Lava; greeting Алле алле — was wrongly shipped as Gaston
-biff,Jazz_Biff,040,data_slf,shipped,Biff Upscott; likes Larry/Flo; filename 040_Stogie lies
-nervous,Jazz_Nervous,041,data_slf,shipped,Haywire/Нервный; was WRONG as 043 (that is Razor); 041 praises Blade/Ricochet
-flo,Jazz_Flo,044,data_slf,shipped,Mon Dieu / Биф / Лава — Flo confirmed
-cougar,Jazz_Cougar,048,data_slf,shipped,Jim Wallace Пума; likes Wolf
-miguel,Jazz_Miguel,057,data_slf,shipped,rebel leader lines
-gamos,Jazz_Gamos,063,data_slf,shipped,Hamous/Гамос; R_063_*; vanilla Hamouse
-dynamo,Jazz_Dynamo,066,data_slf,shipped,Greg Duncan; R_066_*; buddy Shank/Blood
-benny,Jazz_Benny,067,sj_folder,shipped,SJ Alexandra Benedict / Benny; female lockpick+explosives; buddy Simon
-simon,Jazz_Simon,066,sj_folder,shipped,SJ Simon Garandier / Грандье; sniper loner; buddy Benny
-gaston,Jazz_Gaston,058,ub_wildfire_folder,shipped,UB Gaston Cavalier Data-UB/058 — not NO Carlos 058; not Malice 032
-horg,Jazz_Horg,U_59,ub_cs_folder,shipped,UB Stogie / Сигара (ЦС)
-manuel,Jazz_Manuel,071,data_slf,shipped,NO/UB Manuel
-monk,Jazz_Monk,,missing,need_pack,Wildfire AIM only — commercial WF DE pack
-allik,Jazz_Allik,,missing,need_pack,Wildfire AIM
-henning,Jazz_Henning,,missing,need_pack,Wildfire AIM
-static,Jazz_Static,026,data_slf,shipped,Kirk Stevenson
-highball,Jazz_Highball,020,data_slf,shipped,Clifford Highball
-bull,Jazz_Bull,021,data_slf,shipped,John Peters
-cord,Jazz_Cord,042,data_slf,shipped,Gasket / Кардан
-hobbit,Jazz_Hobbit,045,data_slf,shipped,Gumpy / Хоббит
-ricochet,Jazz_Ricochet,049,data_slf,shipped,Numb / Рикошет
-meat,Jazz_Meat,050,data_slf,shipped,Meat
-carlos,Jazz_Carlos,058,data_slf,shipped,Carlos RPC — same pid as Gaston but data_slf not UB
-devin,Jazz_Devin,061,data_slf,shipped,Devin Connell
-shank,Jazz_Shank,067,data_slf,shipped,Briam Druse — same pid as Benny but data_slf not sj_folder
-vince,Jazz_Vince,069,data_slf,shipped,Dr Vince (not Thor)
-hitman,Jazz_Hitman,064,data_slf,shipped,Slay / Убийца Terry (not Hennessey 022)
-biggens,Jazz_Biggens,,missing,need_pack,UB Colonel Biggens — no pack
-kulba,Jazz_Kulba,U_62,ub_cs_folder,shipped,UB John Kulba (ЦС)
-vilde,Jazz_Vilde,,missing,need_pack,Wildfire AIM
-grace,Jazz_Grace,,missing,need_pack,Wildfire AIM
-steiger,Jazz_Steiger,,missing,need_pack,Wildfire AIM
-lucky,Jazz_Lucky,,missing,need_pack,Wildfire AIM
-laura,Jazz_Laura,,missing,need_pack,Wildfire AIM
-eskimo,Jazz_Eskimo,065,data_slf,shipped,NO overlay
-tosca,Jazz_Buzz,016,data_slf,shipped,Buzz / Тарболс (unit Jazz_Buzz)
-spider,Jazz_Spider,019,data_slf,shipped,Dr Houston — full VR already; re-ship ok
-spouke,JAZZ_Merc_Spouke,,missing,done_manual,JA3 manual VO — never overwrite
+colby,Jazz_Colby,005,ja2mercs:аимовцы/trevor,done,Trevor; already JA2-archive opus; ja2mercs:аимовцы/trevor; Trevor; was done from trevor.rar
+lynx,Jazz_Lynx,002,data_slf,shipped,Рысь / Rudy Roberts; greeting 108; [ja2mercs:skip_no_folder] no ja2mercs folder; keep data_slf
+blade,Jazz_Blade,043,ja2mercs:мерки/razor,shipped,Razor/Бритва (Bill Lamont); was wrongly thought missing — EDT nick id043; buddy Fidel/Nervous; anti-Biff/Flo; ja2mercs:мерки/razor; Razor
+ira,Jazz_Ira,059,ja2mercs:локался/ira,shipped,RPC AIM woman; American in Arulco; ja2mercs:локался/ira
+dimitri,Jazz_Dimitri,060,ja2mercs:локался/dimitry,shipped,RPC; broken hire lines but combat SPEECH present; ja2mercs:локался/dimitry; NOT цс/manuel (also 060)
+madman,Jazz_Madman,072,ja2mercs:локался/maddog,shipped,Maddog/Бешеный Kevin Cameron; R_072_*; likes Fox; self-ref Бешеного; ja2mercs:локался/maddog
+conrad,Jazz_Conrad,070,ja2mercs:локался/conrad,shipped,Conrad Gillett; R_070_*; likes Iggy/Stephen; anti-Larry — NOT Scope (036 is Scope text); ja2mercs:локался/conrad
+mike,Jazz_Mike,,missing,need_pack,JA1/NO battlefield convert; spoken ABOUT only; also absent as SPEECH bank in Wildfire RUS arc Data/Data-UB; [ja2mercs:skip_ambiguous] Mike 074? identity unclear vs JA1/NO notes
+grom,Jazz_Grom,076,ja2mercs:но-шж/гром|battle=047|merge_speech,shipped,"ja2mercs но-шж/гром: user-confirmed BOTH 076_* and 047_* are Grom (replaced/reused IDs; prior Larry skip wrong for this pack); battle ATTN/OK/HIT/DIE from 047; speech 000–024 merge_speech prefer 076 if longer else 047; 025+ from 047"
+rothman,Jazz_Rothman,030,ja2mercs:аимовцы/stephen,shipped,Стефан Ротман (greeting 108); filename 030_Hitman lies; ja2mercs:аимовцы/stephen; Stefan; filename Hitman lies
+quinten,Jazz_Quinten,028,ja2mercs:аимовцы/danny,shipped,доктор Квинтен; ja2mercs:аимовцы/danny
+vicious,Jazz_Vicious,032,ja2mercs:аимовцы/lamalice,shipped,La Malice/Злобный; French-Canadian; likes Fox/Lava; greeting Алле алле — was wrongly shipped as Gaston; ja2mercs:аимовцы/lamalice; La Malice
+biff,Jazz_Biff,040,data_slf,shipped,Biff Upscott; likes Larry/Flo; filename 040_Stogie lies; [ja2mercs:skip_no_folder] no ja2mercs folder; keep data_slf
+nervous,Jazz_Nervous,041,ja2mercs:мерки/haywire,shipped,Haywire/Нервный; was WRONG as 043 (that is Razor); 041 praises Blade/Ricochet; ja2mercs:мерки/haywire; Haywire; not Razor 043
+flo,Jazz_Flo,044,ja2mercs:мерки/flo,shipped,Mon Dieu / Биф / Лава — Flo confirmed; ja2mercs:мерки/flo
+cougar,Jazz_Cougar,048,ja2mercs:мерки/cougar,shipped,Jim Wallace Пума; likes Wolf; ja2mercs:мерки/cougar
+miguel,Jazz_Miguel,057,ja2mercs:локался/miguel,shipped,rebel leader lines; ja2mercs:локался/miguel; NOT импы/imp4
+gamos,Jazz_Gamos,063,ja2mercs:локался/Hamous,shipped,Hamous/Гамос; R_063_*; vanilla Hamouse; ja2mercs:локался/Hamous
+dynamo,Jazz_Dynamo,066,ja2mercs:локался/Dinamo,shipped,Greg Duncan; R_066_*; buddy Shank/Blood; ja2mercs:локался/Dinamo; SLF Dynamo; NOT но-шж/simon
+benny,Jazz_Benny,067,ja2mercs:но-шж/benni,shipped,SJ Alexandra Benedict / Benny; female lockpick+explosives; buddy Simon; ja2mercs:но-шж/benni; SJ Benny; NOT локался/shank
+simon,Jazz_Simon,066,ja2mercs:но-шж/simon,shipped,SJ Simon Garandier / Грандье; sniper loner; buddy Benny; ja2mercs:но-шж/simon; SJ Simon; NOT локался/Dinamo
+gaston,Jazz_Gaston,U_58,ja2mercs:цс/gaston|battle=165,shipped,UB Gaston Cavalier Data-UB/058 — not NO Carlos 058; not Malice 032; ja2mercs:цс/gaston+battle=165; UB Gaston; speech U_58 + battle 165; NOT локался/carlos
+horg,Jazz_Horg,U_59,ja2mercs:цс/bychok|battle=166,shipped,UB Stogie / Сигара (ЦС); ja2mercs:цс/bychok+battle=166; UB Stogie; speech U_59 + battle 166
+manuel,Jazz_Manuel,071,data_slf,shipped,NO/UB Manuel; [ja2mercs:skip_ambiguous] folder pid 060 = Dimitri; profile Manuel is 071 — do not mix
+monk,Jazz_Monk,170,ja2mercs:вилдфаер/monk,shipped,Wildfire AIM only — commercial WF DE pack; ja2mercs:вилдфаер/monk; WF Monk
+allik,Jazz_Allik,171,ja2mercs:вилдфаер/brains,shipped,Wildfire AIM; ja2mercs:вилдфаер/brains; WF Brains / Allik
+henning,Jazz_Henning,173,ja2mercs:вилдфаер/henning,shipped,Wildfire AIM; ja2mercs:вилдфаер/henning; WF Henning
+static,Jazz_Static,026,ja2mercs:аимовцы/static,shipped,Kirk Stevenson; ja2mercs:аимовцы/static
+highball,Jazz_Highball,020,ja2mercs:аимовцы/kliff,shipped,Clifford Highball; ja2mercs:аимовцы/kliff
+bull,Jazz_Bull,021,ja2mercs:аимовцы/Bull,shipped,John Peters; ja2mercs:аимовцы/Bull
+cord,Jazz_Cord,042,ja2mercs:мерки/gusket,shipped,Gasket / Кардан; ja2mercs:мерки/gusket; Gasket
+hobbit,Jazz_Hobbit,045,ja2mercs:мерки/gumpy,shipped,Gumpy / Хоббит; ja2mercs:мерки/gumpy
+ricochet,Jazz_Ricochet,049,ja2mercs:мерки/numb,shipped,Numb / Рикошет; ja2mercs:мерки/numb
+meat,Jazz_Meat,050,ja2mercs:мерки/bubba,shipped,Meat; ja2mercs:мерки/bubba
+carlos,Jazz_Carlos,058,ja2mercs:локался/carlos,shipped,Carlos RPC — same pid as Gaston but data_slf not UB; ja2mercs:локался/carlos; Carlos RPC; NOT цс/gaston
+devin,Jazz_Devin,061,ja2mercs:локался/devin,shipped,Devin Connell; ja2mercs:локался/devin
+shank,Jazz_Shank,067,ja2mercs:локался/shank,shipped,Briam Druse — same pid as Benny but data_slf not sj_folder; ja2mercs:локался/shank; SLF Shank; NOT но-шж/benni
+vince,Jazz_Vince,069,ja2mercs:локался/vince,shipped,Dr Vince (not Thor); ja2mercs:локался/vince
+hitman,Jazz_Hitman,064,ja2mercs:локался/slay,shipped,Slay / Убийца Terry (not Hennessey 022); ja2mercs:локался/slay; Slay; not Hennessey
+biggens,Jazz_Biggens,U_61,ja2mercs:цс/biggens|battle=168,shipped,UB Colonel Biggens — no pack; ja2mercs:цс/biggens+battle=168; UB Biggens; speech U_61 + battle 168
+kulba,Jazz_Kulba,062,ja2mercs:цс/kulba,shipped,UB John Kulba (ЦС); ja2mercs:цс/kulba; filter 062 only; ignore co-folder 118
+vilde,Jazz_Vilde,172,ja2mercs:вилдфаер/scream,shipped,Wildfire AIM; ja2mercs:вилдфаер/scream; WF Scream / Vilde
+grace,Jazz_Grace,176,ja2mercs:вилдфаер/grace,shipped,Wildfire AIM; ja2mercs:вилдфаер/grace; WF Grace
+steiger,Jazz_Steiger,177,ja2mercs:вилдфаер/rudolf,shipped,Wildfire AIM; ja2mercs:вилдфаер/rudolf; WF Rudolf / Steiger
+lucky,Jazz_Lucky,174,ja2mercs:вилдфаер/lucky,shipped,Wildfire AIM; ja2mercs:вилдфаер/lucky; WF Lucky
+laura,Jazz_Laura,175,ja2mercs:вилдфаер/laura,shipped,Wildfire AIM; ja2mercs:вилдфаер/laura; WF Laura
+eskimo,Jazz_Eskimo,065,ja2mercs:но-шж/escimo,shipped,NO overlay; ja2mercs:но-шж/escimo; filter 065 / D_065 / r_065; ignore stray 067
+tosca,Jazz_Buzz,016,data_slf,shipped,Buzz / Тарболс (unit Jazz_Buzz); [ja2mercs:skip_no_folder] Buzz 016 absent; keep data_slf
+spider,Jazz_Spider,019,data_slf,shipped,Dr Houston — full VR already; re-ship ok; [ja2mercs:skip_no_folder] Houston 019 absent; keep data_slf
+spouke,JAZZ_Merc_Spouke,,missing,done_manual,JA3 manual VO — never overwrite; [ja2mercs:skip_manual] done_manual — never overwrite

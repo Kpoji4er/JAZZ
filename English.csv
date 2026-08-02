@@ -11308,3 +11308,730 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000009192,Failed.,Failed.,,jazz-units:items.lua:VoiceResponse
 890000000009193,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
 890000000009194,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000009195,"Light bleeding: <color EmStyle><DamagePerTurn> HP</color> per stack each turn. Bandage removes one light stack (or reduces a worse stack by one tier).","Light bleeding: <color EmStyle><DamagePerTurn> HP</color> per stack each turn. Bandage removes one light stack (or reduces a worse stack by one tier).",,jazz:CharacterEffect/Bleeding.lua
+890000000009196,Moderate Bleeding,Moderate Bleeding,,jazz:CharacterEffect/BleedingMedium.lua
+890000000009197,"Moderate bleeding: <color EmStyle>6 HP</color> per stack each turn. Bandage reduces one stack to light bleeding.","Moderate bleeding: <color EmStyle>6 HP</color> per stack each turn. Bandage reduces one stack to light bleeding.",,jazz:CharacterEffect/BleedingMedium.lua
+890000000009198,"<color EmStyle><DisplayName></color>","<color EmStyle><DisplayName></color>",,jazz:CharacterEffect/BleedingMedium.lua
+890000000009199,Heavy Bleeding,Heavy Bleeding,,jazz:CharacterEffect/BleedingHeavy.lua
+890000000009200,"Heavy bleeding: <color EmStyle>12 HP</color> per stack each turn. From expanding ammo or worsened moderate bleeding. Bandage reduces one stack to moderate.","Heavy bleeding: <color EmStyle>12 HP</color> per stack each turn. From expanding ammo or worsened moderate bleeding. Bandage reduces one stack to moderate.",,jazz:CharacterEffect/BleedingHeavy.lua
+890000000009201,"<color EmStyle><DisplayName></color>","<color EmStyle><DisplayName></color>",,jazz:CharacterEffect/BleedingHeavy.lua
+890000000009202,Pain,Pain,,jazz:CharacterEffect/Pain.lua
+890000000009203,"Each stack costs <color EmStyle><APLoss> AP</color> and <color EmStyle><cth_penalty>% chance to hit</color>. Decreases by one stack each turn. Analgesia suppresses the penalties.","Each stack costs <color EmStyle><APLoss> AP</color> and <color EmStyle><cth_penalty>% chance to hit</color>. Decreases by one stack each turn. Analgesia suppresses the penalties.",,jazz:CharacterEffect/Pain.lua
+890000000009204,Analgesia,Analgesia,,jazz:CharacterEffect/Analgesia.lua
+890000000009205,"Suppresses AP and chance-to-hit penalties from Pain. Does not stop bleeding or heal injuries.","Suppresses AP and chance-to-hit penalties from Pain. Does not stop bleeding or heal injuries.",,jazz:CharacterEffect/Analgesia.lua
+890000000009206,Bandage,Bandage,,jazz:InventoryItem/JAZZ_Bandage.lua
+890000000009207,Bandages,Bandages,,jazz:InventoryItem/JAZZ_Bandage.lua
+890000000009208,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Bandage action — reduce worst bleeding by one tier\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Bandage action — reduce worst bleeding by one tier\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally",,jazz:InventoryItem/JAZZ_Bandage.lua
+890000000009209,Morphine,Morphine,,jazz:InventoryItem/JAZZ_Morphine.lua
+890000000009210,Morphine,Morphine,,jazz:InventoryItem/JAZZ_Morphine.lua
+890000000009211,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Morphine action — suppress Pain penalties\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding or heal trauma\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Morphine action — suppress Pain penalties\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding or heal trauma\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally",,jazz:InventoryItem/JAZZ_Morphine.lua
+890000000009212,Surgical Kit,Surgical Kit,,jazz:InventoryItem/JAZZ_SurgicalKit.lua
+890000000009213,Surgical Kits,Surgical Kits,,jazz:InventoryItem/JAZZ_SurgicalKit.lua
+890000000009214,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used via item menu\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Grants long analgesia (v1)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Rare; doctors use this for field surgery later","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used via item menu\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Grants long analgesia (v1)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Rare; doctors use this for field surgery later",,jazz:InventoryItem/JAZZ_SurgicalKit.lua
+890000000009215,USE,USE,,jazz:InventoryItem/JAZZ_SurgicalKit.lua
+890000000009216,"<target> bleeding reduced by bandage","<target> bleeding reduced by bandage",,jazz:Code/System_UnitInventory.lua
+890000000009217,IFAK,IFAK,,jazz:InventoryItem/FirstAidKit.lua
+890000000009218,IFAKs,IFAKs,,jazz:InventoryItem/FirstAidKit.lua
+890000000009219,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage action removes one worst bleeding stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage action removes one worst bleeding stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory",,jazz:InventoryItem/FirstAidKit.lua
+890000000009220,Med Kit,Med Kit,,jazz:InventoryItem/Medkit.lua
+890000000009221,Med Kits,Med Kits,,jazz:InventoryItem/Medkit.lua
+890000000009222,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds",,jazz:InventoryItem/Medkit.lua
+890000000009223,"Inject morphine to suppress Pain penalties on self or ally. Does not stop bleeding.","Inject morphine to suppress Pain penalties on self or ally. Does not stop bleeding.",,jazz:items.lua:JazzMorphine
+890000000009224,Morphine,Morphine,,jazz:items.lua:JazzMorphine
+890000000009225,MORPHINE,MORPHINE,,jazz:items.lua:JazzMorphine
+890000000009195,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009196,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000009197,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000009198,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000009199,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000009200,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000009201,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000009202,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000009203,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009204,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000009205,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000009206,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000009207,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009208,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000009209,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000009210,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000009211,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000009212,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000009213,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000009214,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000009215,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009216,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000009217,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000009218,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000009219,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009220,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000009221,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000009222,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000009223,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000009224,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000009225,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000009226,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000009227,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009228,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000009229,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000009230,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000009231,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009232,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000009233,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000009234,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000009235,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000009236,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000009237,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000009238,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000009239,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009240,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000009241,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000009242,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000009243,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009244,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000009245,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000009246,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000009247,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000009248,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000009249,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000009250,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000009251,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009252,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000009253,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000009254,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000009255,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009256,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000009257,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000009258,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000009259,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000009260,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000009261,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000009262,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000009263,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009264,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000009265,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000009266,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000009267,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009268,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000009269,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000009270,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000009271,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000009272,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000009273,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000009274,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000009275,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009276,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000009277,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000009278,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000009279,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009280,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000009281,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000009282,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000009283,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000009284,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000009285,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000009286,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000009287,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009288,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000009289,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000009290,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000009291,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009292,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000009293,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000009294,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000009295,That's it...,That's it...,,jazz-units:items.lua:VoiceResponse
+890000000009296,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000009297,Low ammo!,Low ammo!,,jazz-units:items.lua:VoiceResponse
+890000000009298,Contact!,Contact!,,jazz-units:items.lua:VoiceResponse
+890000000009299,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009300,Learning.,Learning.,,jazz-units:items.lua:VoiceResponse
+890000000009301,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000009302,Nice work.,Nice work.,,jazz-units:items.lua:VoiceResponse
+890000000009303,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009304,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009305,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009306,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009307,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009308,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009309,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009310,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009311,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009312,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009313,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009314,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009315,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009316,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009317,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009318,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009319,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009320,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000009321,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000009322,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000009323,Tough shot.,Tough shot.,,jazz-units:items.lua:VoiceResponse
+890000000009324,Bad angle.,Bad angle.,,jazz-units:items.lua:VoiceResponse
+890000000009325,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000009326,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000009327,Too many!,Too many!,,jazz-units:items.lua:VoiceResponse
+890000000009328,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000009329,I'm out!,I'm out!,,jazz-units:items.lua:VoiceResponse
+890000000009330,Jam!,Jam!,,jazz-units:items.lua:VoiceResponse
+890000000009331,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000009332,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000009333,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000009334,Hurting…,Hurting…,,jazz-units:items.lua:VoiceResponse
+890000000009335,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000009336,Clear.,Clear.,,jazz-units:items.lua:VoiceResponse
+890000000009337,Still hostiles.,Still hostiles.,,jazz-units:items.lua:VoiceResponse
+890000000009338,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009339,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009340,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000009341,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000009342,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000009343,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000009344,Locked.,Locked.,,jazz-units:items.lua:VoiceResponse
+890000000009345,Tired…,Tired…,,jazz-units:items.lua:VoiceResponse
+890000000009346,(panting),(panting),,jazz-units:items.lua:VoiceResponse
+890000000009347,Thanks.,Thanks.,,jazz-units:items.lua:VoiceResponse
+890000000009348,Not now.,Not now.,,jazz-units:items.lua:VoiceResponse
+890000000009349,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000009350,Cover!,Cover!,,jazz-units:items.lua:VoiceResponse
+890000000009351,Grenade!,Grenade!,,jazz-units:items.lua:VoiceResponse
+890000000009352,Full auto!,Full auto!,,jazz-units:items.lua:VoiceResponse
+890000000009353,(climbing),(climbing),,jazz-units:items.lua:VoiceResponse
+890000000009354,(jump),(jump),,jazz-units:items.lua:VoiceResponse
+890000000009355,What?!,What?!,,jazz-units:items.lua:VoiceResponse
+890000000009356,Threat!,Threat!,,jazz-units:items.lua:VoiceResponse
+890000000009357,Watching.,Watching.,,jazz-units:items.lua:VoiceResponse
+890000000009358,Ready.,Ready.,,jazz-units:items.lua:VoiceResponse
+890000000009359,(coughs),(coughs),,jazz-units:items.lua:VoiceResponse
+890000000009360,Close…,Close…,,jazz-units:items.lua:VoiceResponse
+890000000009361,Animal!,Animal!,,jazz-units:items.lua:VoiceResponse
+890000000009362,Got an idea.,Got an idea.,,jazz-units:items.lua:VoiceResponse
+890000000009363,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000009364,Failed.,Failed.,,jazz-units:items.lua:VoiceResponse
+890000000009365,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009366,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009367,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009368,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009369,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009370,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009371,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009372,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009373,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009374,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009375,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009376,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009377,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009378,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009379,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009380,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009381,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009382,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000009383,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000009384,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000009385,Tough shot.,Tough shot.,,jazz-units:items.lua:VoiceResponse
+890000000009386,Bad angle.,Bad angle.,,jazz-units:items.lua:VoiceResponse
+890000000009387,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000009388,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000009389,Too many!,Too many!,,jazz-units:items.lua:VoiceResponse
+890000000009390,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000009391,I'm out!,I'm out!,,jazz-units:items.lua:VoiceResponse
+890000000009392,Jam!,Jam!,,jazz-units:items.lua:VoiceResponse
+890000000009393,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000009394,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000009395,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000009396,Hurting…,Hurting…,,jazz-units:items.lua:VoiceResponse
+890000000009397,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000009398,Clear.,Clear.,,jazz-units:items.lua:VoiceResponse
+890000000009399,Still hostiles.,Still hostiles.,,jazz-units:items.lua:VoiceResponse
+890000000009400,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009401,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009402,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000009403,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000009404,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000009405,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000009406,Locked.,Locked.,,jazz-units:items.lua:VoiceResponse
+890000000009407,Tired…,Tired…,,jazz-units:items.lua:VoiceResponse
+890000000009408,(panting),(panting),,jazz-units:items.lua:VoiceResponse
+890000000009409,Thanks.,Thanks.,,jazz-units:items.lua:VoiceResponse
+890000000009410,Not now.,Not now.,,jazz-units:items.lua:VoiceResponse
+890000000009411,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000009412,Cover!,Cover!,,jazz-units:items.lua:VoiceResponse
+890000000009413,Grenade!,Grenade!,,jazz-units:items.lua:VoiceResponse
+890000000009414,Full auto!,Full auto!,,jazz-units:items.lua:VoiceResponse
+890000000009415,(climbing),(climbing),,jazz-units:items.lua:VoiceResponse
+890000000009416,(jump),(jump),,jazz-units:items.lua:VoiceResponse
+890000000009417,What?!,What?!,,jazz-units:items.lua:VoiceResponse
+890000000009418,Threat!,Threat!,,jazz-units:items.lua:VoiceResponse
+890000000009419,Watching.,Watching.,,jazz-units:items.lua:VoiceResponse
+890000000009420,Ready.,Ready.,,jazz-units:items.lua:VoiceResponse
+890000000009421,(coughs),(coughs),,jazz-units:items.lua:VoiceResponse
+890000000009422,Close…,Close…,,jazz-units:items.lua:VoiceResponse
+890000000009423,Animal!,Animal!,,jazz-units:items.lua:VoiceResponse
+890000000009424,Got an idea.,Got an idea.,,jazz-units:items.lua:VoiceResponse
+890000000009425,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000009426,Failed.,Failed.,,jazz-units:items.lua:VoiceResponse
+890000000009427,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009428,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009429,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009430,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009431,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009432,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009433,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009434,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009435,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009436,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009437,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009438,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009439,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009440,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009441,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009442,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009443,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009444,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000009445,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000009446,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000009447,Tough shot.,Tough shot.,,jazz-units:items.lua:VoiceResponse
+890000000009448,Bad angle.,Bad angle.,,jazz-units:items.lua:VoiceResponse
+890000000009449,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000009450,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000009451,Too many!,Too many!,,jazz-units:items.lua:VoiceResponse
+890000000009452,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000009453,I'm out!,I'm out!,,jazz-units:items.lua:VoiceResponse
+890000000009454,Jam!,Jam!,,jazz-units:items.lua:VoiceResponse
+890000000009455,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000009456,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000009457,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000009458,Hurting…,Hurting…,,jazz-units:items.lua:VoiceResponse
+890000000009459,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000009460,Clear.,Clear.,,jazz-units:items.lua:VoiceResponse
+890000000009461,Still hostiles.,Still hostiles.,,jazz-units:items.lua:VoiceResponse
+890000000009462,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009463,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009464,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000009465,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000009466,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000009467,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000009468,Locked.,Locked.,,jazz-units:items.lua:VoiceResponse
+890000000009469,Tired…,Tired…,,jazz-units:items.lua:VoiceResponse
+890000000009470,(panting),(panting),,jazz-units:items.lua:VoiceResponse
+890000000009471,Thanks.,Thanks.,,jazz-units:items.lua:VoiceResponse
+890000000009472,Not now.,Not now.,,jazz-units:items.lua:VoiceResponse
+890000000009473,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000009474,Cover!,Cover!,,jazz-units:items.lua:VoiceResponse
+890000000009475,Grenade!,Grenade!,,jazz-units:items.lua:VoiceResponse
+890000000009476,Full auto!,Full auto!,,jazz-units:items.lua:VoiceResponse
+890000000009477,(climbing),(climbing),,jazz-units:items.lua:VoiceResponse
+890000000009478,(jump),(jump),,jazz-units:items.lua:VoiceResponse
+890000000009479,What?!,What?!,,jazz-units:items.lua:VoiceResponse
+890000000009480,Threat!,Threat!,,jazz-units:items.lua:VoiceResponse
+890000000009481,Watching.,Watching.,,jazz-units:items.lua:VoiceResponse
+890000000009482,Ready.,Ready.,,jazz-units:items.lua:VoiceResponse
+890000000009483,(coughs),(coughs),,jazz-units:items.lua:VoiceResponse
+890000000009484,Close…,Close…,,jazz-units:items.lua:VoiceResponse
+890000000009485,Animal!,Animal!,,jazz-units:items.lua:VoiceResponse
+890000000009486,Got an idea.,Got an idea.,,jazz-units:items.lua:VoiceResponse
+890000000009487,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000009488,Failed.,Failed.,,jazz-units:items.lua:VoiceResponse
+890000000009489,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009490,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009491,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009492,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009493,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009494,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009495,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009496,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009497,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009498,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009499,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009500,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009501,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009502,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009503,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009504,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009505,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009506,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000009507,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000009508,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000009509,Tough shot.,Tough shot.,,jazz-units:items.lua:VoiceResponse
+890000000009510,Bad angle.,Bad angle.,,jazz-units:items.lua:VoiceResponse
+890000000009511,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000009512,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000009513,Too many!,Too many!,,jazz-units:items.lua:VoiceResponse
+890000000009514,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000009515,I'm out!,I'm out!,,jazz-units:items.lua:VoiceResponse
+890000000009516,Jam!,Jam!,,jazz-units:items.lua:VoiceResponse
+890000000009517,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000009518,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000009519,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000009520,Hurting…,Hurting…,,jazz-units:items.lua:VoiceResponse
+890000000009521,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000009522,Clear.,Clear.,,jazz-units:items.lua:VoiceResponse
+890000000009523,Still hostiles.,Still hostiles.,,jazz-units:items.lua:VoiceResponse
+890000000009524,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009525,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009526,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000009527,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000009528,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000009529,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000009530,Locked.,Locked.,,jazz-units:items.lua:VoiceResponse
+890000000009531,Tired…,Tired…,,jazz-units:items.lua:VoiceResponse
+890000000009532,(panting),(panting),,jazz-units:items.lua:VoiceResponse
+890000000009533,Thanks.,Thanks.,,jazz-units:items.lua:VoiceResponse
+890000000009534,Not now.,Not now.,,jazz-units:items.lua:VoiceResponse
+890000000009535,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000009536,Cover!,Cover!,,jazz-units:items.lua:VoiceResponse
+890000000009537,Grenade!,Grenade!,,jazz-units:items.lua:VoiceResponse
+890000000009538,Full auto!,Full auto!,,jazz-units:items.lua:VoiceResponse
+890000000009539,(climbing),(climbing),,jazz-units:items.lua:VoiceResponse
+890000000009540,(jump),(jump),,jazz-units:items.lua:VoiceResponse
+890000000009541,What?!,What?!,,jazz-units:items.lua:VoiceResponse
+890000000009542,Threat!,Threat!,,jazz-units:items.lua:VoiceResponse
+890000000009543,Watching.,Watching.,,jazz-units:items.lua:VoiceResponse
+890000000009544,Ready.,Ready.,,jazz-units:items.lua:VoiceResponse
+890000000009545,(coughs),(coughs),,jazz-units:items.lua:VoiceResponse
+890000000009546,Close…,Close…,,jazz-units:items.lua:VoiceResponse
+890000000009547,Animal!,Animal!,,jazz-units:items.lua:VoiceResponse
+890000000009548,Got an idea.,Got an idea.,,jazz-units:items.lua:VoiceResponse
+890000000009549,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000009550,Failed.,Failed.,,jazz-units:items.lua:VoiceResponse
+890000000009551,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009552,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009553,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009554,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009555,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009556,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009557,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009558,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009559,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009560,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009561,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009562,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009563,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009564,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009565,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009566,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009567,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009568,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000009569,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000009570,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000009571,Tough shot.,Tough shot.,,jazz-units:items.lua:VoiceResponse
+890000000009572,Bad angle.,Bad angle.,,jazz-units:items.lua:VoiceResponse
+890000000009573,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000009574,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000009575,Too many!,Too many!,,jazz-units:items.lua:VoiceResponse
+890000000009576,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000009577,I'm out!,I'm out!,,jazz-units:items.lua:VoiceResponse
+890000000009578,Jam!,Jam!,,jazz-units:items.lua:VoiceResponse
+890000000009579,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000009580,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000009581,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000009582,Hurting…,Hurting…,,jazz-units:items.lua:VoiceResponse
+890000000009583,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000009584,Clear.,Clear.,,jazz-units:items.lua:VoiceResponse
+890000000009585,Still hostiles.,Still hostiles.,,jazz-units:items.lua:VoiceResponse
+890000000009586,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009587,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009588,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000009589,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000009590,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000009591,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000009592,Locked.,Locked.,,jazz-units:items.lua:VoiceResponse
+890000000009593,Tired…,Tired…,,jazz-units:items.lua:VoiceResponse
+890000000009594,(panting),(panting),,jazz-units:items.lua:VoiceResponse
+890000000009595,Thanks.,Thanks.,,jazz-units:items.lua:VoiceResponse
+890000000009596,Not now.,Not now.,,jazz-units:items.lua:VoiceResponse
+890000000009597,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000009598,Cover!,Cover!,,jazz-units:items.lua:VoiceResponse
+890000000009599,Grenade!,Grenade!,,jazz-units:items.lua:VoiceResponse
+890000000009600,Full auto!,Full auto!,,jazz-units:items.lua:VoiceResponse
+890000000009601,(climbing),(climbing),,jazz-units:items.lua:VoiceResponse
+890000000009602,(jump),(jump),,jazz-units:items.lua:VoiceResponse
+890000000009603,What?!,What?!,,jazz-units:items.lua:VoiceResponse
+890000000009604,Threat!,Threat!,,jazz-units:items.lua:VoiceResponse
+890000000009605,Watching.,Watching.,,jazz-units:items.lua:VoiceResponse
+890000000009606,Ready.,Ready.,,jazz-units:items.lua:VoiceResponse
+890000000009607,(coughs),(coughs),,jazz-units:items.lua:VoiceResponse
+890000000009608,Close…,Close…,,jazz-units:items.lua:VoiceResponse
+890000000009609,Animal!,Animal!,,jazz-units:items.lua:VoiceResponse
+890000000009610,Got an idea.,Got an idea.,,jazz-units:items.lua:VoiceResponse
+890000000009611,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000009612,Failed.,Failed.,,jazz-units:items.lua:VoiceResponse
+890000000009613,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009614,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009615,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009616,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009617,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009618,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009619,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009620,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009621,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009622,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009623,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009624,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009625,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009626,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009627,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009628,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009629,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009630,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000009631,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000009632,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000009633,Tough shot.,Tough shot.,,jazz-units:items.lua:VoiceResponse
+890000000009634,Bad angle.,Bad angle.,,jazz-units:items.lua:VoiceResponse
+890000000009635,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000009636,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000009637,Too many!,Too many!,,jazz-units:items.lua:VoiceResponse
+890000000009638,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000009639,I'm out!,I'm out!,,jazz-units:items.lua:VoiceResponse
+890000000009640,Jam!,Jam!,,jazz-units:items.lua:VoiceResponse
+890000000009641,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000009642,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000009643,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000009644,Hurting…,Hurting…,,jazz-units:items.lua:VoiceResponse
+890000000009645,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000009646,Clear.,Clear.,,jazz-units:items.lua:VoiceResponse
+890000000009647,Still hostiles.,Still hostiles.,,jazz-units:items.lua:VoiceResponse
+890000000009648,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009649,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009650,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000009651,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000009652,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000009653,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000009654,Locked.,Locked.,,jazz-units:items.lua:VoiceResponse
+890000000009655,Tired…,Tired…,,jazz-units:items.lua:VoiceResponse
+890000000009656,(panting),(panting),,jazz-units:items.lua:VoiceResponse
+890000000009657,Thanks.,Thanks.,,jazz-units:items.lua:VoiceResponse
+890000000009658,Not now.,Not now.,,jazz-units:items.lua:VoiceResponse
+890000000009659,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000009660,Cover!,Cover!,,jazz-units:items.lua:VoiceResponse
+890000000009661,Grenade!,Grenade!,,jazz-units:items.lua:VoiceResponse
+890000000009662,Full auto!,Full auto!,,jazz-units:items.lua:VoiceResponse
+890000000009663,(climbing),(climbing),,jazz-units:items.lua:VoiceResponse
+890000000009664,(jump),(jump),,jazz-units:items.lua:VoiceResponse
+890000000009665,What?!,What?!,,jazz-units:items.lua:VoiceResponse
+890000000009666,Threat!,Threat!,,jazz-units:items.lua:VoiceResponse
+890000000009667,Watching.,Watching.,,jazz-units:items.lua:VoiceResponse
+890000000009668,Ready.,Ready.,,jazz-units:items.lua:VoiceResponse
+890000000009669,(coughs),(coughs),,jazz-units:items.lua:VoiceResponse
+890000000009670,Close…,Close…,,jazz-units:items.lua:VoiceResponse
+890000000009671,Animal!,Animal!,,jazz-units:items.lua:VoiceResponse
+890000000009672,Got an idea.,Got an idea.,,jazz-units:items.lua:VoiceResponse
+890000000009673,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000009674,Failed.,Failed.,,jazz-units:items.lua:VoiceResponse
+890000000009675,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009676,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009677,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009678,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009679,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009680,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009681,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009682,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009683,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009684,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009685,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009686,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009687,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009688,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009689,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009690,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009691,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009692,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000009693,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000009694,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000009695,Tough shot.,Tough shot.,,jazz-units:items.lua:VoiceResponse
+890000000009696,Bad angle.,Bad angle.,,jazz-units:items.lua:VoiceResponse
+890000000009697,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000009698,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000009699,Too many!,Too many!,,jazz-units:items.lua:VoiceResponse
+890000000009700,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000009701,I'm out!,I'm out!,,jazz-units:items.lua:VoiceResponse
+890000000009702,Jam!,Jam!,,jazz-units:items.lua:VoiceResponse
+890000000009703,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000009704,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000009705,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000009706,Hurting…,Hurting…,,jazz-units:items.lua:VoiceResponse
+890000000009707,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000009708,Clear.,Clear.,,jazz-units:items.lua:VoiceResponse
+890000000009709,Still hostiles.,Still hostiles.,,jazz-units:items.lua:VoiceResponse
+890000000009710,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009711,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009712,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000009713,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000009714,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000009715,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000009716,Locked.,Locked.,,jazz-units:items.lua:VoiceResponse
+890000000009717,Tired…,Tired…,,jazz-units:items.lua:VoiceResponse
+890000000009718,(panting),(panting),,jazz-units:items.lua:VoiceResponse
+890000000009719,Thanks.,Thanks.,,jazz-units:items.lua:VoiceResponse
+890000000009720,Not now.,Not now.,,jazz-units:items.lua:VoiceResponse
+890000000009721,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000009722,Cover!,Cover!,,jazz-units:items.lua:VoiceResponse
+890000000009723,Grenade!,Grenade!,,jazz-units:items.lua:VoiceResponse
+890000000009724,Full auto!,Full auto!,,jazz-units:items.lua:VoiceResponse
+890000000009725,(climbing),(climbing),,jazz-units:items.lua:VoiceResponse
+890000000009726,(jump),(jump),,jazz-units:items.lua:VoiceResponse
+890000000009727,What?!,What?!,,jazz-units:items.lua:VoiceResponse
+890000000009728,Threat!,Threat!,,jazz-units:items.lua:VoiceResponse
+890000000009729,Watching.,Watching.,,jazz-units:items.lua:VoiceResponse
+890000000009730,Ready.,Ready.,,jazz-units:items.lua:VoiceResponse
+890000000009731,(coughs),(coughs),,jazz-units:items.lua:VoiceResponse
+890000000009732,Close…,Close…,,jazz-units:items.lua:VoiceResponse
+890000000009733,Animal!,Animal!,,jazz-units:items.lua:VoiceResponse
+890000000009734,Got an idea.,Got an idea.,,jazz-units:items.lua:VoiceResponse
+890000000009735,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000009736,Failed.,Failed.,,jazz-units:items.lua:VoiceResponse
+890000000009737,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009738,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009739,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009740,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009741,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009742,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009743,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009744,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009745,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009746,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009747,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009748,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009749,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009750,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009751,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009752,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009753,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009754,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000009755,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000009756,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000009757,Tough shot.,Tough shot.,,jazz-units:items.lua:VoiceResponse
+890000000009758,Bad angle.,Bad angle.,,jazz-units:items.lua:VoiceResponse
+890000000009759,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000009760,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000009761,Too many!,Too many!,,jazz-units:items.lua:VoiceResponse
+890000000009762,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000009763,I'm out!,I'm out!,,jazz-units:items.lua:VoiceResponse
+890000000009764,Jam!,Jam!,,jazz-units:items.lua:VoiceResponse
+890000000009765,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000009766,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000009767,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000009768,Hurting…,Hurting…,,jazz-units:items.lua:VoiceResponse
+890000000009769,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000009770,Clear.,Clear.,,jazz-units:items.lua:VoiceResponse
+890000000009771,Still hostiles.,Still hostiles.,,jazz-units:items.lua:VoiceResponse
+890000000009772,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009773,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009774,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000009775,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000009776,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000009777,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000009778,Locked.,Locked.,,jazz-units:items.lua:VoiceResponse
+890000000009779,Tired…,Tired…,,jazz-units:items.lua:VoiceResponse
+890000000009780,(panting),(panting),,jazz-units:items.lua:VoiceResponse
+890000000009781,Thanks.,Thanks.,,jazz-units:items.lua:VoiceResponse
+890000000009782,Not now.,Not now.,,jazz-units:items.lua:VoiceResponse
+890000000009783,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000009784,Cover!,Cover!,,jazz-units:items.lua:VoiceResponse
+890000000009785,Grenade!,Grenade!,,jazz-units:items.lua:VoiceResponse
+890000000009786,Full auto!,Full auto!,,jazz-units:items.lua:VoiceResponse
+890000000009787,(climbing),(climbing),,jazz-units:items.lua:VoiceResponse
+890000000009788,(jump),(jump),,jazz-units:items.lua:VoiceResponse
+890000000009789,What?!,What?!,,jazz-units:items.lua:VoiceResponse
+890000000009790,Threat!,Threat!,,jazz-units:items.lua:VoiceResponse
+890000000009791,Watching.,Watching.,,jazz-units:items.lua:VoiceResponse
+890000000009792,Ready.,Ready.,,jazz-units:items.lua:VoiceResponse
+890000000009793,(coughs),(coughs),,jazz-units:items.lua:VoiceResponse
+890000000009794,Close…,Close…,,jazz-units:items.lua:VoiceResponse
+890000000009795,Animal!,Animal!,,jazz-units:items.lua:VoiceResponse
+890000000009796,Got an idea.,Got an idea.,,jazz-units:items.lua:VoiceResponse
+890000000009797,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000009798,Failed.,Failed.,,jazz-units:items.lua:VoiceResponse
+890000000009799,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009800,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000009801,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009802,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009803,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000009804,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009805,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009806,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000009807,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009808,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009809,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000009810,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009811,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009812,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000009813,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009814,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009815,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000009816,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000009817,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000009818,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000009819,Tough shot.,Tough shot.,,jazz-units:items.lua:VoiceResponse
+890000000009820,Bad angle.,Bad angle.,,jazz-units:items.lua:VoiceResponse
+890000000009821,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000009822,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000009823,Too many!,Too many!,,jazz-units:items.lua:VoiceResponse
+890000000009824,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000009825,I'm out!,I'm out!,,jazz-units:items.lua:VoiceResponse
+890000000009826,Jam!,Jam!,,jazz-units:items.lua:VoiceResponse
+890000000009827,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000009828,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000009829,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000009830,Hurting…,Hurting…,,jazz-units:items.lua:VoiceResponse
+890000000009831,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000009832,Clear.,Clear.,,jazz-units:items.lua:VoiceResponse
+890000000009833,Still hostiles.,Still hostiles.,,jazz-units:items.lua:VoiceResponse
+890000000009834,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009835,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000009836,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000009837,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000009838,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000009839,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000009840,Locked.,Locked.,,jazz-units:items.lua:VoiceResponse
+890000000009841,Tired…,Tired…,,jazz-units:items.lua:VoiceResponse
+890000000009842,(panting),(panting),,jazz-units:items.lua:VoiceResponse
+890000000009843,Thanks.,Thanks.,,jazz-units:items.lua:VoiceResponse
+890000000009844,Not now.,Not now.,,jazz-units:items.lua:VoiceResponse
+890000000009845,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000009846,Cover!,Cover!,,jazz-units:items.lua:VoiceResponse
+890000000009847,Grenade!,Grenade!,,jazz-units:items.lua:VoiceResponse
+890000000009848,Full auto!,Full auto!,,jazz-units:items.lua:VoiceResponse
+890000000009849,(climbing),(climbing),,jazz-units:items.lua:VoiceResponse
+890000000009850,(jump),(jump),,jazz-units:items.lua:VoiceResponse
+890000000009851,What?!,What?!,,jazz-units:items.lua:VoiceResponse
+890000000009852,Threat!,Threat!,,jazz-units:items.lua:VoiceResponse
+890000000009853,Watching.,Watching.,,jazz-units:items.lua:VoiceResponse
+890000000009854,Ready.,Ready.,,jazz-units:items.lua:VoiceResponse
+890000000009855,(coughs),(coughs),,jazz-units:items.lua:VoiceResponse
+890000000009856,Close…,Close…,,jazz-units:items.lua:VoiceResponse
+890000000009857,Animal!,Animal!,,jazz-units:items.lua:VoiceResponse
+890000000009858,Got an idea.,Got an idea.,,jazz-units:items.lua:VoiceResponse
+890000000009859,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000009860,Failed.,Failed.,,jazz-units:items.lua:VoiceResponse
+890000000009226,Arm Trauma (Light),Arm Trauma (Light),,jazz:CharacterEffect/TraumaArmsLight.lua
+890000000009227,Pain when shooting or using arms. No direct accuracy penalty.,Pain when shooting or using arms. No direct accuracy penalty.,,jazz:CharacterEffect/TraumaArmsLight.lua
+890000000009228,Arm Trauma (Medium),Arm Trauma (Medium),,jazz:CharacterEffect/TraumaArmsMedium.lua
+890000000009229,Accuracy penalty <color EmStyle><cth_penalty>%</color>. Pain when using arms.,Accuracy penalty <color EmStyle><cth_penalty>%</color>. Pain when using arms.,,jazz:CharacterEffect/TraumaArmsMedium.lua
+890000000009230,Arm Trauma (Heavy),Arm Trauma (Heavy),,jazz:CharacterEffect/TraumaArmsHeavy.lua
+890000000009231,Severe accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly unable to fight. Pain rises each turn.,Severe accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly unable to fight. Pain rises each turn.,,jazz:CharacterEffect/TraumaArmsHeavy.lua
+890000000009232,Leg Trauma (Light),Leg Trauma (Light),,jazz:CharacterEffect/TraumaLegsLight.lua
+890000000009233,Pain when moving. No direct move-cost penalty.,Pain when moving. No direct move-cost penalty.,,jazz:CharacterEffect/TraumaLegsLight.lua
+890000000009234,Leg Trauma (Medium),Leg Trauma (Medium),,jazz:CharacterEffect/TraumaLegsMedium.lua
+890000000009235,Move cost <color EmStyle>+<move_ap_modifier>%</color>. No Free Move / sprint. Pain when moving.,Move cost <color EmStyle>+<move_ap_modifier>%</color>. No Free Move / sprint. Pain when moving.,,jazz:CharacterEffect/TraumaLegsMedium.lua
+890000000009236,Leg Trauma (Heavy),Leg Trauma (Heavy),,jazz:CharacterEffect/TraumaLegsHeavy.lua
+890000000009237,Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn.,Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn.,,jazz:CharacterEffect/TraumaLegsHeavy.lua
+890000000009238,Rib Trauma (Light),Rib Trauma (Light),,jazz:CharacterEffect/TraumaRibsLight.lua
+890000000009239,Pain when exerting. No Tiredness from ribs. No direct AP penalty.,Pain when exerting. No Tiredness from ribs. No direct AP penalty.,,jazz:CharacterEffect/TraumaRibsLight.lua
+890000000009240,Rib Trauma (Medium),Rib Trauma (Medium),,jazz:CharacterEffect/TraumaRibsMedium.lua
+890000000009241,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain on exertion. No Tiredness.,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain on exertion. No Tiredness.,,jazz:CharacterEffect/TraumaRibsMedium.lua
+890000000009242,Rib Trauma (Heavy),Rib Trauma (Heavy),,jazz:CharacterEffect/TraumaRibsHeavy.lua
+890000000009243,Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. Pain rises each turn. No Tiredness.,Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. Pain rises each turn. No Tiredness.,,jazz:CharacterEffect/TraumaRibsHeavy.lua
+890000000009244,Head Trauma (Light),Head Trauma (Light),,jazz:CharacterEffect/TraumaHeadLight.lua
+890000000009245,Pain when aiming or firing. Eye trauma folded into head for v1.,Pain when aiming or firing. Eye trauma folded into head for v1.,,jazz:CharacterEffect/TraumaHeadLight.lua
+890000000009246,Head Trauma (Medium),Head Trauma (Medium),,jazz:CharacterEffect/TraumaHeadMedium.lua
+890000000009247,Sight and accuracy penalties. Pain when aiming or firing.,Sight and accuracy penalties. Pain when aiming or firing.,,jazz:CharacterEffect/TraumaHeadMedium.lua
+890000000009248,Head Trauma (Heavy),Head Trauma (Heavy),,jazz:CharacterEffect/TraumaHeadHeavy.lua
+890000000009249,Severe sight/accuracy loss. Nearly combat-ineffective. Pain rises each turn.,Severe sight/accuracy loss. Nearly combat-ineffective. Pain rises each turn.,,jazz:CharacterEffect/TraumaHeadHeavy.lua
+890000000009250,Burn Trauma (Light),Burn Trauma (Light),,jazz:CharacterEffect/TraumaBurnLight.lua
+890000000009251,Lingering burn after fire. Pain on exertion. Bandage does not clear burns.,Lingering burn after fire. Pain on exertion. Bandage does not clear burns.,,jazz:CharacterEffect/TraumaBurnLight.lua
+890000000009252,Burn Trauma (Medium),Burn Trauma (Medium),,jazz:CharacterEffect/TraumaBurnMedium.lua
+890000000009253,Moderate burn debt. Pain on exertion. Infection risk deferred.,Moderate burn debt. Pain on exertion. Infection risk deferred.,,jazz:CharacterEffect/TraumaBurnMedium.lua
+890000000009254,Burn Trauma (Heavy),Burn Trauma (Heavy),,jazz:CharacterEffect/TraumaBurnHeavy.lua
+890000000009255,Severe burn debt. Pain rises each turn. Infection/hospital clear deferred.,Severe burn debt. Pain rises each turn. Infection/hospital clear deferred.,,jazz:CharacterEffect/TraumaBurnHeavy.lua

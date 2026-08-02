@@ -1,0 +1,27 @@
+# STT/ref pilot: но-шж/гром (Grom-folder banks — both pids are Grom)
+# model=base language=ru no_stt=True
+# xlsx_keys=0 sj_076_keys=79
+# Prefer mercedt/XLSX ref_text; stt_text empty until working torch+faster-whisper.
+
+076_000	ref=Опп-а! Вижу цель.	stt=	stt_skipped
+076_001	ref=Начнем что ли?	stt=	stt_skipped
+076_002	ref=Тю-ю! В очередь, сукины дети!	stt=	stt_skipped
+076_011	ref=Че-т нашел.	stt=	stt_skipped
+076_012	ref=Чужое. Халява. Взять-взять! Хы! Фильм "ДМБ" смотрел?	stt=	stt_skipped
+076_015	ref=Ваня! Ч-черт возьми! Это был лучший боец в отряде!	stt=	stt_skipped
+076_023	ref=Ты в уме?	stt=	stt_skipped
+076_033	ref=М-да. Зрелище то еще. А знаешь, с вертолета этого дерьма не видно.	stt=	missing_audio
+076_040	ref=Да-а! С таким командиром навоюешь пожалуй!	stt=	missing_audio
+076_ATTN	ref=	stt=	missing_audio
+076_OK1	ref=	stt=	missing_audio
+047_000	ref=	stt=	stt_skipped
+047_001	ref=	stt=	stt_skipped
+047_002	ref=	stt=	stt_skipped
+047_011	ref=	stt=	stt_skipped
+047_012	ref=	stt=	stt_skipped
+047_015	ref=	stt=	stt_skipped
+047_023	ref=	stt=	stt_skipped
+047_033	ref=	stt=	stt_skipped
+047_040	ref=	stt=	stt_skipped
+047_ATTN	ref=	stt=	stt_skipped
+047_OK1	ref=	stt=	stt_skipped

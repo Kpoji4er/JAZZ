@@ -11,12 +11,14 @@ DefineClass.Armsshot = {
 	Description = "",
 	OnAdded = function (self, obj)
 		if obj.TempHitPoints > 0 then return end
+		JazzTryRollTraumaFromBodyPart(obj, "Arms")
 		local hp = obj.TempHitPoints + obj.HitPoints
-		--print(hp)
 		if obj:Random(hp) < 30 then
-		obj:AddStatusEffect("Numbness") end
+			obj:AddStatusEffect("Numbness")
+		end
 		if obj:Random(hp) < 25 then
-		obj:AddStatusEffect("Inaccurate") end
+			obj:AddStatusEffect("Inaccurate")
+		end
 	end,
 	OnRemoved = function (self, obj)  end,
 	type = "Debuff",

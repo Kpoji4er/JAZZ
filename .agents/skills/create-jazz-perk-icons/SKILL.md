@@ -1,11 +1,16 @@
 ---
 name: create-jazz-perk-icons
-description: Создавать и обновлять 68×68 PNG-иконки именных и сигнатурных перков JAZZ в стиле JA3. Использовать при запросе perk icon, Perks/Personal, SignatureAbilities или иконок JA1/JA2-мерков.
+description: >-
+  Создавать и обновлять 68×68 PNG-иконки именных перков JAZZ (Perks/Personal)
+  в стиле JA3. Использовать при запросе perk icon, Perks/Personal, Personal perk
+  или иконок JA1/JA2-мерков. Не для hotbar SignatureAbilities / CombatAction
+  (это $create-jazz-action-icons, 108×54).
 ---
 
 # Создание иконок перков JAZZ
 
-Пакет: `jazz`. Runtime: `Perks/Personal/` и `Perks/SignatureAbilities/`.  
+Пакет: `jazz`. Runtime: **`Perks/Personal/`** only (68×68 named perk tiles).  
+Hotbar CombatAction / `Perks/SignatureAbilities/` (108×54 dual strip) → **`$create-jazz-action-icons`**.  
 Референсы vanilla: `Perks/references/vanilla/`.
 
 Asset-only PNG не требует spec. Изменение `Icon` path требует синхронизации companion и `items.lua`.
@@ -45,4 +50,5 @@ Asset-only PNG не требует spec. Изменение `Icon` path треб
 - Не сохранять непрозрачный чёрный фон.
 - Не использовать портрет мерка вместо механического символа.
 - Не затирать vanilla refs.
+- Не писать hotbar action icons в `Perks/SignatureAbilities/` этим skill.
 - Не считать draft готовым без запуска финализатора и alpha-аудита.

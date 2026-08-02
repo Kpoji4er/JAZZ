@@ -5,6 +5,14 @@
 
 Запуск из корня пакета `jazz/` (если не указано иное).
 
+## JAZZ-MED-001 / медицина
+
+| Скрипт | Назначение |
+| --- | --- |
+| `_apply_med001_loot_jazz_units.py` | В `jazz-units/items.lua` к LootDef с `FirstAidKit`/`Medkit`/`Meds`/`MedsDrop` добавляет `JAZZ_Bandage` / `JAZZ_Morphine` / редко `JAZZ_SurgicalKit`. Идемпотентен (сначала снимает старые JAZZ med entries). |
+| `_fix_med001_loot_braces.py` | Чинит `}}),` → `}),` на строках JAZZ med loot (баг f-string). |
+| `_wire_med001_traumas.py` / `_append_med001_trauma_loc.py` | Wiring/loc зональных Trauma* эффектов. |
+
 ## JAZZ-ATTACH-001 / оружие–обвесы
 
 | Скрипт | Назначение |
@@ -69,6 +77,8 @@
 | `_calib_optic_targets.py` | Старая калибровка рычагов ×1.2 (исторически АКМ). |
 | `_rebalance_long_scope_ow.py` | Длинная оптика: `ScopeOverwatchAngle`% уже по кратности (больше зум → уже OW). |
 | `_validate_items_quick.py` | Быстрый структурный check `items.lua`/`metadata.lua` (lone commas, braces, stacked closers, **missing comma before PlaceObj**, corrupt `id = }),`) без JA3. **Обязателен после mass apply / family split**. Опционально: `python docs/tools/_validate_items_quick.py [pkg…]` (напр. `.` и `../jazz-units`). |
+| `_wire_med001_traumas.py` | MED-001: генерирует `Trauma*` CharacterEffect companions + inserts ModItems/metadata; патчит `*shot` / `Unconscious` / `Burning` → trauma API. |
+| `_append_med001_trauma_loc.py` | MED-001: дописывает RU/EN строки `890000000009226`–`009255` для Trauma* DisplayName/Description. |
 | `_lupa_load_items.py` | Реальный Lua parse `items.lua`/`metadata.lua` через lupa (stubs PlaceObj/T). Ловит syntax как игра. |
 | `_audit_items_structure.py` | Аудит: `})` без `,` перед `PlaceObj`, PlaceObj@col0, brace depth. |
 | `_fix_maglarge_50_ak_remnant.py` | Удалить битый remnant `MagLarge_50_AK` (`id = }),`). `--apply`. |
@@ -204,7 +214,9 @@ python docs/tools/build-sector-atlas-docs.py
 | `_sync_grom_rehire_chat.py` | Гром RehireIntro: убрать «бесплатный» из `items.lua` + `Russian.csv`. |
 | `_sync_madman_chat_salary_strings.py` | Синк AIM-фраз Бешеного (не «бесплатный») в `items.lua` + `Russian.csv`/`English.csv`. |
 | `_ship_colby_voices_ja2_only.py` | Jazz_Colby: пересобрать `jazz-units/voices/<T-id>.opus` **только** из JA2 Trevor WAV (`trevor.rar` / `trevor_extract/trevor`); пробелы — дубли родственных реплик. `--dry-run` / apply. |
-| `_ship_ja2_merc_voices.py` | Batch: JA2/NightOps `SPEECH.SLF`+`BATTLESNDS.SLF` (+`NightOps/SPEECH`/`npc_speech`) и внешние папки (`ub_cs_folder` ЦС/`U_59` Horg/`U_62` Kulba, `horg_stogie_folder` Бычок/`166`, `ub_wildfire_folder` Data-UB/`058` Gaston, `sj_folder` Shady Job `_sj_cache`/`066` Simon/`067` Benny/`076` Grom) → `jazz-units/voices/<T-id>.opus` по `jazz_to_ja2_profile.csv`. Поддержка `R_NNN_*.WAV`. `--queue` / `--only slug` / `--dry-run`. Без neural. |
+| `_ship_ja2_merc_voices.py` | Batch: JA2/NightOps SLF + folder packs **или** `speech_source=ja2mercs:<cat>/<merc>[|battle=<pid>][|merge_speech]` (WAV ADPCM/OGG → opus, strict pid filter; `merge_speech` = same-merc dual prefixes e.g. Grom 076+047). Map: `jazz_to_ja2_profile.csv` + `jazz_to_ja2mercs_folders.csv`. `--ja2mercs-remesh` / `--queue` / `--only` / `--dry-run` / `--include-done`. Без neural. |
+| `_ja2mercs_folder_map.py` | Canonical Jazz→`Downloads/ja2mercs/ja2mercs` folder map (remesh / need_pack / skip_ambiguous). Writes `jazz_to_ja2mercs_folders.csv`. |
+| `_apply_ja2mercs_profile_map.py` | Apply folder map onto `jazz_to_ja2_profile.csv` (`speech_source`/`profile_id`/`status`). `--dry-run`. |
 | `_integrate_sj_khalif_mercs.py` | Shady Job `Downloads/SJ/data`: кэш → `_sj_cache`, mercedt CSV, UnitData/VR stubs Benny+Simon, ship Grom/Benny/Simon opus. WF AIM в SJ SPEECH нет. |
 | `_extract_sj_sti_faces.py` | Decode SJ `faces/bigfaces/{66,67}.sti` (+ `b66`/`b67`) → `docs/design/mercs-ja12/{simon,benny}.ja2-face.png` + `_face-source/sj/`. Indexed STCI ETRLE. |
 | `_process_sj_merc_portraits.py` | rembg BiRefNet + resize Big 2000 / UI 300 for Benny/Simon (independent of workshop script). |
@@ -227,7 +239,8 @@ python docs/tools/build-sector-atlas-docs.py
 | `_audit_nightops_speech_coverage.py` | Аудит SPEECH/BATTLESNDS/NO overlays + внешние `_ub_cs_cache` (ЦС) / `_horg_stogie_cache` (Бычок). Identity по RU greeting/self-ID в mercedt, **не** по EDT filename (они часто врут). |
 | `_extract_ja2_mercedt.py` | Распаковать/расшифровать `MERCEDT.SLF` (JA2 / NightOps) → UTF-8 CSV субтитров `000`..`116` в `docs/design/mercs-ja12/_voice-source/ja2no-mercedt/`. |
 | `_extract_wildfire_rus_arc.py` | FreeArc extract `Jagged_Alliance_2_1_13_Wildfire_RUS.arc` (7z не открывает) через PeaZip `Arc.exe` → `_voice-source/_wildfire_cache/` (SPEECH/MercEdt + Data-UB). Это 1.13 RUS+WF maps, не commercial WF AIM VO; Gaston = Data-UB/058. |
-| `_inventory_ja2mercs.py` | Read-only inventory `Downloads/ja2mercs/ja2mercs`: layout (flat/nested), audio counts/formats, profile-id guess, crosswalk к `jazz_to_ja2_profile.csv`. Не ship/convert. `--root` optional. |
+| `_inventory_ja2mercs.py` | Read-only inventory `Downloads/ja2mercs/ja2mercs`: layout (flat/nested), audio counts/formats, profile-id guess, crosswalk к `jazz_to_ja2_profile.csv`. Не ship/convert. `--root` optional. Remesh: `_apply_ja2mercs_profile_map.py` + `_ship_ja2_merc_voices.py --ja2mercs-remesh`. |
+| `_stt_ja2mercs_sample.py` | Pilot subtitles for ja2mercs: export XLSX/mercedt ref text + optional faster-whisper RU STT (ADPCM→PCM via ffmpeg). Default pilot `но-шж/гром` pids 076+047 (both Grom). `--no-stt` = refs only. Out: `_voice-source/_stt/`. |
 
 ## Артефакты
 

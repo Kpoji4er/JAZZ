@@ -39,6 +39,9 @@ DefineClass.Unconscious = {
 		self:SetParameter("recovery_turn", (g_Combat and g_Combat.current_turn or 1) + self:ResolveValue("recovery_delay_turns"))
 		self:SetParameter("recovery_time", GameTime() + self:ResolveValue("recovery_delay_seconds") * 1000)
 		obj:AddStatusEffectImmunity("Surprised", self.class)
+		if IsMerc(obj) then
+			JazzApplyKnockoutTraumaPackage(obj)
+		end
 		CreateGameTimeThread(obj.SetCommandIfNotDead, obj, obj.command == "GetDowned" and "Downed" or "KnockDown")
 	end,
 	OnRemoved = function (self, obj)

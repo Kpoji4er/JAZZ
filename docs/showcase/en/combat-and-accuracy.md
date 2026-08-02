@@ -43,6 +43,14 @@ Chance can be affected by cover and visible target size, stance, visibility/smok
 - **Lightning Reactions:** about **50%**, once per combat; does **not** trigger on a stealth kill / Hidden attack.
 - **Psycho:** Will fully recovers after combat; per-turn Will drain is milder than before.
 
+## Bleeding, pain, trauma, and medicine
+
+- Bleeding has three tiers (**3 / 6 / 12** HP per stack per turn). Hotbar **Bandage** drops the worst stack by **one tier** (no Medical skill). IFAK/Medkit clear stronger on kit bandage.
+- **Heavy** bleed from hits comes from **expanding** ammo (JHP).
+- **Pain** cuts AP and accuracy (−1 stack/turn); **Morphine** suppresses pain penalties and does not stop bleeding or trauma.
+- **Zone trauma** (arms / legs / ribs / head): light / medium / heavy. Light = pain when you use that zone; medium+ adds zone penalties (−accuracy, move cost, start AP, sight). Going down applies a **heavy** trauma package. Bandages do not heal trauma.
+- Combat-start grit (~25% Temp HP) is **removed**.
+
 ## Grazing hits
 
 - **Miss → graze:** lower CTH means a higher chance a miss still clips the target (square curve, max **50%**; about **32%** at 20% CTH, about **2%** at 80% CTH). High CTH barely grazes.
