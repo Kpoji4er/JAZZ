@@ -55315,7 +55315,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Other - Meds",
 				'Id', "Reanimationsset",
-				'object_class', "Medicine",
+				'object_class', "JazzStackableMedicine",
 				'unit_reactions', {
 					PlaceObj('UnitReaction', {
 						Event = "OnCalcHealAmount",
@@ -55331,9 +55331,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Icon', "UI/Icons/Items/reanimationsset.png",
 				'DisplayName', T(717284834554, --[[ModItemInventoryItemCompositeDef Reanimationsset DisplayName]] "Reanimationsset"),
 				'DisplayNamePlural', T(900536705401, --[[ModItemInventoryItemCompositeDef Reanimationsset DisplayNamePlural]] "Reanimationssets"),
-				'AdditionalHint', T(566246707628, --[[ModItemInventoryItemCompositeDef Reanimationsset AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует состояние умирающих персонажей\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Требуется для использования перевязки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка восстанавливает на 60% ОЗ больше\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится при каждом употреблении, но запас медикаментов можно восполнить\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, просто находясь в инвентаре"),
+				'AdditionalHint', T(890000000010030, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Required for Bandage\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 60% more HP\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory"),
 				'UnitStat', "Medical",
-				'max_meds_parts', 12,
+				'MaxStacks', 2,
 				'UsePriority', 2,
 			}),
 			}),
@@ -78298,28 +78298,25 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 									XPropControl.Open(self,...)
 									local context = self:GetContext()
 									local cnt = ResolvePropObj(context)
+									-- JamScore 0..1000 → display % via GetDisplayJamChancePercent (DivRound /10).
+									-- Do not scale raw score by 0.01 (that was 10× too small).
 									self.idPropVal:SetNameText(T(890000000001406, "Шанс Клина"))
-									local base = cnt:GetBaseJamChanceRaw() or 0
-									local base = base > 0 and base * 0.01 or 0
-									 
-									local unit_id = self:GetContext().owner
-									local unit = g_Units[unit_id]
-									local unit_data = gv_UnitData[unit_id]
+									local base = cnt:GetDisplayJamChancePercent() or 0
+									local unit_id = cnt.owner
+									local unit = unit_id and g_Units[unit_id]
+									local unit_data = unit_id and gv_UnitData[unit_id]
 									unit = (gv_SatelliteView or not unit) and unit_data or unit
-									if not unit then 
-									
-									self.idPropVal:SetValueText(T{890000000001381, "<base>%", base = floatfloor(base+0.5)})
+									if not unit then
+										self.idPropVal:SetValueText(T{890000000001381, "<base>%", base = base})
 									else
-									local merc = cnt:GetJamChance(unit) or 0
-									local merc = merc > 0 and merc * 0.01 or 0
-									if merc ~= base then
-									self.idPropVal:SetNameText(T{890000000001407, "Шанс Клина (<name>)", name=unit.Nick})
-									self.idPropVal:SetValueText(T{890000000001382, "<base>% (<merc>%)", base = floatfloor(base+0.5), merc = floatfloor(merc+0.5)})
-									else 
-									self.idPropVal:SetValueText(T{890000000001381, "<base>%", base = floatfloor(base+0.5)})
-									
+										local merc = cnt:GetDisplayJamChancePercent(unit) or 0
+										if merc ~= base then
+											self.idPropVal:SetNameText(T{890000000001407, "Шанс Клина (<name>)", name = unit.Nick})
+											self.idPropVal:SetValueText(T{890000000001382, "<base>% (<merc>%)", base = base, merc = merc})
+										else
+											self.idPropVal:SetValueText(T{890000000001381, "<base>%", base = base})
+										end
 									end
-									 end
 								end,
 							}),
 							}),

@@ -253,15 +253,8 @@ function FirearmBase:ReliabilityCheck(attacker, num_shots)
 	return jammed, item:GetWeaponResourcePercent()
 end
 
--- The stock weapon hint never exposes JAZZ's effective JamScore.  Preserve its
--- normal text and append the display helper instead of duplicating the formula.
-local VanillaFirearmRolloverHint = Firearm.GetRolloverHint
-function Firearm:GetRolloverHint()
-	local hint = VanillaFirearmRolloverHint(self)
-	local jam = self:GetDisplayJamChancePercent(self.owner and (g_Units[self.owner] or gv_UnitData[self.owner]))
-	local jam_hint = T{990002001, "<bullet_point> Jam chance: <chance>%", chance = jam}
-	return hint ~= "" and hint .. "\n" .. jam_hint or jam_hint
-end
+-- Jam % lives only in inventory card rollover (RolloverInventoryWeaponBase XTemplate
+-- → GetDisplayJamChancePercent). Do not append a second line via GetRolloverHint.
 
 end -- FirstLoad: sealed FirearmBase / Inventory / Firearm method defs
 

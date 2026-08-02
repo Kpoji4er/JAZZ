@@ -282,7 +282,7 @@ P = Clamp(5 + MulDivRound(wear, 35, 100) + MulDivRound(mech, 25, 100), 5, 65)
 - `JAZZ-WEAPONS-002-AC-003`: `BLOCKED / runtime` — BarrelParts + ScopeParts repair debit need sector-operation / in-game confirmation.
 - `JAZZ-WEAPONS-002-AC-004`: `PARTIAL / static` — repair current-resource mapping is overridden; wave test is still required.
 - `JAZZ-WEAPONS-002-AC-005`: `FAIL / static` — legacy part definitions and load migration remain.
-- `JAZZ-WEAPONS-002-AC-006`: `PASS / static`, `BLOCKED / runtime` — weapon rollover calls `GetDisplayJamChancePercent`.
+- `JAZZ-WEAPONS-002-AC-006`: `PASS / static`, `BLOCKED / runtime` — `RolloverInventoryWeaponBase` jam row calls `GetDisplayJamChancePercent` (hint append removed; no raw `*0.01` scale).
 - `JAZZ-WEAPONS-002-AC-007`: `PASS / static`, `BLOCKED / runtime` — one `Random(200)` roll per shot and unit-capped loss.
 - `JAZZ-WEAPONS-002-AC-008`: `PASS / static`, `BLOCKED / runtime` — ordinary/critical maximum loss and the specified critical probability.
 
