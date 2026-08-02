@@ -5,20 +5,27 @@ Reads mapping: docs/design/mercs-ja12/_voice-source/jazz_to_ja2_profile.csv
 Extracts WAV from Data/SPEECH.SLF + BATTLESNDS.SLF (and NightOps/SPEECH overlays),
 or ingests ja2mercs folder banks (WAV ADPCM / OGG → opus).
 
+Bayun speech bands (see docs/design/mercs-ja12/_voice-source/JA2_SPEECH_ID_RANGES.md
+and schemas/AIM-stem-roles.md from схема реплик AIM.xlsx):
+  SLOT_WAV  — combat/map SPEECH 000–080 + BATTLESNDS
+  AIM_CHAT_WAV — hire/AIM 081–120 (UnitData chat; --aim-chat)
+
 speech_source forms:
   data_slf | nightops_speech | nightops_npc | sj_folder | ub_cs_folder |
   ub_wildfire_folder | horg_stogie_folder | folder:<path> |
   ja2mercs:<cat>/<merc>[|battle=<pid>][|merge_speech]
 
-ja2mercs path override: prefer Downloads/ja2mercs/ja2mercs; filter by profile_id
-(+ optional battle pid for ЦС dual-bank mercs). Do not mix co-folder pids
-unless `|merge_speech` (same-merc dual file prefixes, e.g. Grom 076+047).
+ja2mercs root: prefer Downloads/ja2mercs (1)/ja2mercs (pid-prefixed folders),
+else Downloads/ja2mercs/ja2mercs. Filter by profile_id (+ optional battle pid /
+merge_speech for same-merc dual prefixes, e.g. Grom 047+R_047).
 
 Usage (jazz/):
   python docs/tools/_ship_ja2_merc_voices.py --dry-run
   python docs/tools/_ship_ja2_merc_voices.py --only ira,dimitri
   python docs/tools/_ship_ja2_merc_voices.py --queue
-  python docs/tools/_ship_ja2_merc_voices.py --ja2mercs-remesh
+  python docs/tools/_ship_ja2_merc_voices.py --ja2mercs-remesh --include-done
+  python docs/tools/_ship_ja2_merc_voices.py --aim-chat --ja2mercs-remesh
+  python docs/tools/_ship_ja2_merc_voices.py --aim-chat-only --only colby,vicious
 """
 from __future__ import annotations
 
@@ -40,10 +47,35 @@ MAP_CSV = JAZZ / "docs/design/mercs-ja12/_voice-source/jazz_to_ja2_profile.csv"
 ITEMS = JU / "items.lua"
 VOICES = JU / "voices"
 CACHE = JAZZ / "docs/design/mercs-ja12/_voice-source/_wav_cache"
-JA2MERCS_ROOT = Path(r"C:\Users\SsAnd\Downloads\ja2mercs\ja2mercs")
+JA2MERCS_CANDIDATES = [
+    Path(r"C:\Users\SsAnd\Downloads\ja2mercs (1)\ja2mercs"),
+    Path(r"C:\Users\SsAnd\Downloads\ja2mercs\ja2mercs"),
+]
+JA2MERCS_ROOT = next((p for p in JA2MERCS_CANDIDATES if p.is_dir()), JA2MERCS_CANDIDATES[0])
 NO_ROOT = Path(r"C:\Users\SsAnd\Downloads\NightOps_v1.50.14\ja2no150")
-SPEECH_SLF = NO_ROOT / "Data" / "SPEECH.SLF"
-BATTLE_SLF = NO_ROOT / "Data" / "BATTLESNDS.SLF"
+UNITDATA = JU / "UnitData"
+# UnitData field / PlaceObj → AIM_CHAT_WAV key
+CHAT_FIELD_TO_SLOT = {
+    "Offline": "Offline",
+    "GreetingAndOffer": "GreetingAndOffer",
+    "ConversationRestart": "ConversationRestart",
+    "IdleLine": "IdleLine",
+    "PartingWords": "PartingWords",
+    "RehireIntro": "RehireIntro",
+    "RehireOutro": "RehireOutro",
+}
+_SPEECH_SLF_CANDIDATES = [
+    NO_ROOT / "Data" / "SPEECH.SLF",
+    Path(r"D:\SteamLib\steamapps\common\Jagged Alliance 2 Gold\Data\Speech.slf"),
+    Path(r"D:\SteamLib\steamapps\common\Jagged Alliance 2 Gold\Data\SPEECH.SLF"),
+]
+_BATTLE_SLF_CANDIDATES = [
+    NO_ROOT / "Data" / "BATTLESNDS.SLF",
+    Path(r"D:\SteamLib\steamapps\common\Jagged Alliance 2 Gold\Data\BattleSNDS.slf"),
+    Path(r"D:\SteamLib\steamapps\common\Jagged Alliance 2 Gold\Data\BATTLESNDS.SLF"),
+]
+SPEECH_SLF = next((p for p in _SPEECH_SLF_CANDIDATES if p.is_file()), _SPEECH_SLF_CANDIDATES[0])
+BATTLE_SLF = next((p for p in _BATTLE_SLF_CANDIDATES if p.is_file()), _BATTLE_SLF_CANDIDATES[0])
 NO_SPEECH = NO_ROOT / "NightOps" / "SPEECH"
 NO_NPC_SPEECH = NO_ROOT / "NightOps" / "npc_speech"
 NO_BATTLE = NO_ROOT / "NightOps" / "Battlesnds"
@@ -125,8 +157,10 @@ QUEUE = [
     "spider",
 ]
 
+# Bayun canon: SPEECH 000–080 = combat/map (no hire); 081–120 = hire/AIM chat.
+# Named stems = BATTLESNDS. Do NOT put 081–120 into Selection/AimAttack/Order.
+# Full tables: docs/design/mercs-ja12/_voice-source/JA2_SPEECH_ID_RANGES.md
 # Slot → preferred JA2 stems (without profile prefix). First existing nonempty wins.
-# Numeric = SPEECH; named = BATTLESNDS.
 SLOT_WAV: dict[str, list[str]] = {
     "Selection": ["ATTN", "COOL", "HUMM", "OK1"],
     "SelectionStealth": ["LMATTN", "LMOK1", "LMOK2"],
@@ -191,13 +225,90 @@ SLOT_WAV: dict[str, list[str]] = {
     "Startled": ["006"],
     "Climbing": ["026", "HIT1"],
     "Jumping": ["026", "HIT2"],
-    # AIM / chat-ish if present on VR
+    # Rare VR mirrors of hire stems (UnitData AIM chat uses AIM_CHAT_WAV instead)
     "Offline": ["084"],
     "Greeting": ["108"],
     "FriendlyFire": ["CURSE"],
 }
 
+# UnitData / AIM-Snype chat → SPEECH 081–120 (Colby gold + схема реплик AIM.xlsx).
+# MERK / локался without hire: use HIRE_FALLBACK_WAV (combat 000–080), never ATTN.
+AIM_CHAT_WAV: dict[str, list[str]] = {
+    "Offline": ["084"],
+    "GreetingAndOffer": ["108"],
+    "ConversationRestart": ["096", "106"],
+    "IdleLine": ["109", "110"],
+    "PartingWords": ["091"],
+    "RehireIntro": ["089"],
+    "RehireOutro": ["090"],
+    "RefusalDeathToll": ["081", "082", "083", "099"],
+    "RefusalDisliked": ["086", "087", "088", "100"],
+    "RefusalMoney": ["097", "107"],
+    "Haggle": ["116", "111"],
+    "HaggleRehire": ["116", "111"],
+    "Mitigation": ["094", "092", "093", "091"],
+    # 053 = buddy praise (0–80); fallbacks if bank thin
+    "ExtraPartingWords": ["053", "051", "052", "091"],
+}
+
+# Combat-band proxies when folder has no real AIM hire 081–120 (MERK / RPC).
+# Prefer readiness / report / short lines — never Selection ATTN.
+HIRE_FALLBACK_WAV: dict[str, list[str]] = {
+    "Offline": ["045", "044", "041"],
+    "GreetingAndOffer": ["072", "060", "035", "000"],
+    "ConversationRestart": ["054", "035", "048"],
+    "IdleLine": ["055", "041", "060"],
+    "PartingWords": ["035", "065", "048"],
+    "RehireIntro": ["054", "035", "072"],
+    "RehireOutro": ["048", "035", "065"],
+    "RefusalDeathToll": ["047", "057", "022"],
+    "RefusalDisliked": ["047", "057", "CURSE"],
+    "RefusalMoney": ["047", "057"],
+    "Haggle": ["054", "035"],
+    "HaggleRehire": ["054", "035"],
+    "Mitigation": ["053", "051", "052", "035", "048"],
+    "ExtraPartingWords": ["053", "051", "052", "035", "048"],
+}
+
+# UB ЦС banks put campaign lines in 081–120 — Colby AIM map is wrong for hire UI.
+# Prefer self-ID / readiness (0–80) then least-bad campaign stems.
+UB_HIRE_PROXY_WAV: dict[str, list[str]] = {
+    "Offline": ["045", "044", "041", "084"],
+    "GreetingAndOffer": ["060", "072", "035", "000"],
+    "ConversationRestart": ["054", "035", "096"],
+    "IdleLine": ["055", "041", "060", "109"],
+    "PartingWords": ["035", "065", "048", "091"],
+    "RehireIntro": ["054", "072", "035", "089"],
+    "RehireOutro": ["048", "035", "065", "090"],
+    "RefusalDeathToll": ["047", "057", "081"],
+    "RefusalDisliked": ["047", "057", "086"],
+    "RefusalMoney": ["047", "057", "097"],
+    "Haggle": ["054", "035", "116"],
+    "HaggleRehire": ["054", "035", "116"],
+    "Mitigation": ["053", "051", "052", "035", "048", "094"],
+    "ExtraPartingWords": ["053", "051", "052", "035", "048"],
+}
+
+UB_HIRE_PROXY_SLUGS = frozenset(
+    {"gaston", "manuel", "biggens", "kulba", "horg"}
+)
+
+# Archive SPEECH has combat only (no 081–120) — e.g. vanilla Biff 040.
+NO_ARCHIVE_HIRE_SLUGS = frozenset({"biff"})
+
+# When NEW pack folder lacks hire 081–120, also search these roots/rels (Mike OLD).
+# slug → list of (ja2mercs_root Path, relative folder under root)
+HIRE_ALT_BANKS: dict[str, list[tuple[Path, str]]] = {
+    "mike": [
+        (Path(r"C:\Users\SsAnd\Downloads\ja2mercs\ja2mercs"), "локался/mike"),
+    ],
+}
+
+# Folders under ja2mercs that are MERK (no hire bank expected).
+MERK_JA2MERCS_CAT = "мерки"
+
 FALLBACK = ["OK1", "OK2", "GOTIT", "ATTN", "COOL", "000", "027"]
+FALLBACK_COMBAT = FALLBACK  # never append hire 081–120 here
 
 
 def find_ffmpeg() -> Path:
@@ -252,6 +363,41 @@ def _stem_aliases(stem: str) -> list[str]:
 _JA2MERCS_INDEX: dict[str, dict[tuple[str, str], Path]] = {}
 
 
+def resolve_ja2mercs_folder(rel: str) -> Path | None:
+    """Resolve cat/merc under JA2MERCS_ROOT; accept pid-prefixed folder names."""
+    rel = rel.replace("\\", "/").strip("/")
+    if not rel or not JA2MERCS_ROOT.is_dir():
+        return None
+    exact = JA2MERCS_ROOT.joinpath(*rel.split("/"))
+    if exact.is_dir():
+        return exact
+    bits = rel.split("/")
+    if len(bits) != 2:
+        return None
+    cat, merc = bits
+    cat_dir = JA2MERCS_ROOT / cat
+    if not cat_dir.is_dir():
+        # category itself may be missing under this root
+        return None
+    merc_l = merc.casefold()
+    # Exact merc name, or "{pid} merc", or suffix match.
+    for child in cat_dir.iterdir():
+        if not child.is_dir():
+            continue
+        name = child.name
+        name_l = name.casefold()
+        if name_l == merc_l:
+            return child
+        # "005 trevor" ↔ "trevor"; "165 gaston" ↔ "gaston"
+        if name_l.endswith(f" {merc_l}") or name_l.endswith(f"_{merc_l}"):
+            return child
+        # "аимовцы/trevor" requested but pack has "005 trevor"
+        parts = name.split(None, 1)
+        if len(parts) == 2 and parts[1].casefold() == merc_l:
+            return child
+    return None
+
+
 def parse_ja2mercs_source(source: str) -> tuple[Path, str, bool] | None:
     """Parse ja2mercs:<rel>[|battle=<pid>][|merge_speech] → (folder, battle, merge_speech)."""
     if not source.startswith("ja2mercs:"):
@@ -268,7 +414,10 @@ def parse_ja2mercs_source(source: str) -> tuple[Path, str, bool] | None:
             merge_speech = True
         elif flag.startswith("battle="):
             battle = flag.split("=", 1)[1].strip()
-    folder = JA2MERCS_ROOT.joinpath(*rel.split("/"))
+    folder = resolve_ja2mercs_folder(rel)
+    if folder is None:
+        # Keep Path for callers that check .is_dir(); may be missing.
+        folder = JA2MERCS_ROOT.joinpath(*rel.split("/"))
     return folder, battle, merge_speech
 
 
@@ -332,8 +481,9 @@ def index_ja2mercs_folder(folder: Path) -> dict[tuple[str, str], Path]:
         parts = f.stem.split("_")
         if len(parts) < 2:
             continue
+        # Keep R_/D_ in pid so Grom 047_* vs R_047_* (ex-076) do not collide.
         if parts[0].upper() in ("R", "D") and len(parts) >= 3:
-            pid = parts[1]
+            pid = f"{parts[0].upper()}_{parts[1]}"
             stem = "_".join(parts[2:])
         elif parts[0].upper() == "U" and len(parts) >= 3:
             pid = f"U_{parts[1]}"
@@ -423,19 +573,29 @@ def resolve_ja2mercs_audio(
         "LAUGH",
     }
 
-    def _norm_pids(raw: str) -> list[str]:
+    def _norm_pids(raw: str, *, radio_fallback: bool = False) -> list[str]:
+        """Ordered pid keys to probe in the folder index."""
         out: list[str] = []
         seen: set[str] = set()
-        for p in _pid_variants(raw):
-            pu = p.upper()
-            if pu not in seen:
+
+        def _add(p: str) -> None:
+            pu = (p or "").upper()
+            if pu and pu not in seen:
                 seen.add(pu)
                 out.append(pu)
-            if pu.startswith(("R_", "D_")):
-                bare = pu.split("_", 1)[1]
-                if bare not in seen:
-                    seen.add(bare)
-                    out.append(bare)
+
+        for p in _pid_variants(raw):
+            _add(p)
+        # Explicit R_047 / D_065 keys stay as-is; also allow bare form.
+        for p in list(out):
+            if p.startswith(("R_", "D_")):
+                _add(p.split("_", 1)[1])
+        if radio_fallback:
+            for p in list(out):
+                if p.isdigit():
+                    z = p.zfill(3)
+                    _add(f"R_{z}")
+                    _add(f"D_{z}")
         return out
 
     if merge_speech and battle_pid and not named_battle:
@@ -459,31 +619,39 @@ def resolve_ja2mercs_audio(
                 return picked
         return None
 
+    # Named battle stems: first hit in pid order (ATTN/OK/HIT rarely have useful R_).
+    # Numeric SPEECH stems: ja2mercs (1) often puts full lines on R_* and stubs on
+    # bare pid (Vince/Kulba/Biggens) — or the reverse (old packs). Always pick
+    # the longest among bare / R_ / D_ / optional battle pid.
     pid_order: list[str] = []
     if named_battle and battle_pid:
-        pid_order.extend(_pid_variants(battle_pid))
-    pid_order.extend(_pid_variants(pid))
+        pid_order.extend(_norm_pids(battle_pid, radio_fallback=True))
+    pid_order.extend(_norm_pids(pid, radio_fallback=True))
     if battle_pid:
-        pid_order.extend(_pid_variants(battle_pid))
+        pid_order.extend(_norm_pids(battle_pid, radio_fallback=True))
     seen: set[str] = set()
     pids: list[str] = []
     for p in pid_order:
-        pu = p.upper()
-        if pu not in seen:
-            seen.add(pu)
-            pids.append(pu)
-        if pu.startswith(("R_", "D_")):
-            bare = pu.split("_", 1)[1]
-            if bare not in seen:
-                seen.add(bare)
-                pids.append(bare)
+        if p not in seen:
+            seen.add(p)
+            pids.append(p)
 
     for alias in aliases:
         au = alias.upper()
+        if named_battle:
+            for p in pids:
+                hit = idx.get((p, au))
+                if hit:
+                    return hit
+            continue
+        # Numeric / other stems: gather candidates, prefer fullest file.
+        best: Path | None = None
         for p in pids:
             hit = idx.get((p, au))
             if hit:
-                return hit
+                best = _pick_longer_audio(best, hit, prefer_primary_on_tie=True)
+        if best:
+            return best
     return None
 
 
@@ -653,9 +821,234 @@ def parse_vr_blocks(items_text: str) -> dict[str, list[tuple[str, int]]]:
 
 
 def pick_stems(slot: str, index_in_slot: int) -> list[str]:
-    pool = SLOT_WAV.get(slot) or FALLBACK
+    pool = SLOT_WAV.get(slot) or FALLBACK_COMBAT
     # rotate
-    return pool[index_in_slot % len(pool) :] + pool[: index_in_slot % len(pool)] + FALLBACK
+    return (
+        pool[index_in_slot % len(pool) :]
+        + pool[: index_in_slot % len(pool)]
+        + FALLBACK_COMBAT
+    )
+
+
+def pick_aim_chat_stems(
+    slot: str,
+    index_in_slot: int = 0,
+    *,
+    mode: str = "classic",
+) -> list[str]:
+    """Hire/AIM stems. mode: classic | fallback | ub-proxy. Never returns ATTN."""
+    if mode == "fallback":
+        pool = HIRE_FALLBACK_WAV.get(slot) or HIRE_FALLBACK_WAV.get("GreetingAndOffer")
+    elif mode == "ub-proxy":
+        pool = UB_HIRE_PROXY_WAV.get(slot) or UB_HIRE_PROXY_WAV.get("GreetingAndOffer")
+    else:
+        pool = AIM_CHAT_WAV.get(slot)
+    if not pool:
+        return []
+    return pool[index_in_slot % len(pool) :] + pool[: index_in_slot % len(pool)]
+
+
+def aim_chat_mode_for(slug: str, source: str, pid: str) -> str:
+    """Pick hire remesh mode for this merc."""
+    if slug in UB_HIRE_PROXY_SLUGS:
+        return "ub-proxy"
+    if slug in NO_ARCHIVE_HIRE_SLUGS:
+        return "fallback"
+    if source.startswith("ja2mercs:"):
+        if is_merk_ja2mercs_source(source):
+            return "fallback"
+        if folder_has_hire_stems(source, pid):
+            return "classic"
+        if slug in HIRE_ALT_BANKS:
+            # Alt bank may still provide classic hire (Mike OLD).
+            return "classic"
+        return "fallback"
+    # data_slf / NightOps — try classic hire stems from archive
+    return "classic"
+
+
+def is_merk_ja2mercs_source(speech_source: str) -> bool:
+    """True if ja2mercs path is under мерки/ (Bayun: no hire phrases)."""
+    src = speech_source or ""
+    if not src.startswith("ja2mercs:"):
+        return False
+    body = src.split(":", 1)[1].split("|", 1)[0]
+    return body.startswith(f"{MERK_JA2MERCS_CAT}/") or f"/{MERK_JA2MERCS_CAT}/" in f"/{body}"
+
+
+def resolve_hire_alt_wav(slug: str, pid: str, stem: str) -> Path | None:
+    """Search HIRE_ALT_BANKS (e.g. Mike OLD R_074_081+) when primary folder has no hire."""
+    alts = HIRE_ALT_BANKS.get(slug) or []
+    for root, rel in alts:
+        if not root.is_dir():
+            continue
+        folder = root.joinpath(*rel.replace("\\", "/").split("/"))
+        if not folder.is_dir():
+            # fuzzy under cat
+            bits = rel.replace("\\", "/").split("/")
+            if len(bits) == 2:
+                cat_dir = root / bits[0]
+                if cat_dir.is_dir():
+                    merc_l = bits[1].casefold()
+                    for child in cat_dir.iterdir():
+                        if child.is_dir() and (
+                            child.name.casefold() == merc_l
+                            or child.name.casefold().endswith(f" {merc_l}")
+                        ):
+                            folder = child
+                            break
+        if not folder.is_dir():
+            continue
+        hit = resolve_ja2mercs_audio(folder, pid, f"R_{pid}", stem, merge_speech=True)
+        if hit:
+            dest = CACHE / f"ja2mercs_{hit.stem}{hit.suffix.lower()}"
+            if not dest.exists() or dest.stat().st_size != hit.stat().st_size:
+                CACHE.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(hit, dest)
+            return dest
+        hit = resolve_ja2mercs_audio(folder, pid, "", stem, merge_speech=True)
+        if hit:
+            dest = CACHE / f"ja2mercs_{hit.stem}{hit.suffix.lower()}"
+            if not dest.exists() or dest.stat().st_size != hit.stat().st_size:
+                CACHE.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(hit, dest)
+            return dest
+    return None
+
+def _chat_tid_from_block(body: str, unit: str = "") -> list[int]:
+    """T-ids in a chat block. Prefer voice:Unit lines; else any T(id in ChatMessage."""
+    if unit:
+        tagged = [
+            int(t)
+            for t in re.findall(
+                rf"T\((\d+),\s*--\[\[.*?voice:{re.escape(unit)}\]\]",
+                body,
+                re.S,
+            )
+        ]
+        if tagged:
+            return tagged
+    # WIP stubs: T(id, "text") inside ChatMessage without voice: comment
+    return [int(t) for t in re.findall(r"T\((\d+)\s*,", body)]
+
+
+def _extract_unitdata_text(unit: str) -> str:
+    """Companion UnitData/*.lua, else ModItemUnitDataCompositeDef block from items.lua."""
+    path = UNITDATA / f"{unit}.lua"
+    if path.exists():
+        return path.read_text(encoding="utf-8", errors="replace")
+    items = ITEMS.read_text(encoding="utf-8", errors="replace")
+    m = re.search(
+        rf"PlaceObj\('ModItemUnitDataCompositeDef',\s*\{{(.*?)\bid\s*=\s*\"{re.escape(unit)}\"",
+        items,
+        re.S,
+    )
+    if not m:
+        # Id = "Jazz_X" form
+        m = re.search(
+            rf"PlaceObj\('ModItemUnitDataCompositeDef',\s*\{{(.*?)'Id',\s*\"{re.escape(unit)}\"",
+            items,
+            re.S,
+        )
+    return m.group(1) if m else ""
+
+
+def parse_unitdata_chat(unit: str) -> list[tuple[str, int]]:
+    """Parse UnitData AIM/Snype chat → (AIM_CHAT_WAV slot, tid)."""
+    text = _extract_unitdata_text(unit)
+    if not text:
+        return []
+    out: list[tuple[str, int]] = []
+
+    # Refusals: classify by Conditions inside each MercChatRefusal.
+    for m in re.finditer(
+        r"PlaceObj\('MercChatRefusal',\s*\{(.*?)(?=PlaceObj\('MercChatRefusal'|Haggles\s*=|HaggleRehire\s*=|Mitigations\s*=|ExtraPartingWords\s*=|Offline\s*=)",
+        text,
+        re.S,
+    ):
+        body = m.group(1)
+        tids = _chat_tid_from_block(body, unit)
+        if not tids:
+            continue
+        if "MercChatConditionDeathToll" in body:
+            slot = "RefusalDeathToll"
+        elif "MercChatConditionMoney" in body:
+            slot = "RefusalMoney"
+        else:
+            slot = "RefusalDisliked"
+        for tid in tids:
+            out.append((slot, tid))
+
+    # Haggles / HaggleRehire
+    for field, slot in (("Haggles", "Haggle"), ("HaggleRehire", "HaggleRehire")):
+        fm = re.search(
+            rf"{field}\s*=\s*\{{(.*?)(?=^\t[A-Za-z_]+|HaggleRehire\s*=|Mitigations\s*=|ExtraPartingWords\s*=|Offline\s*=)",
+            text,
+            re.M | re.S,
+        )
+        if not fm:
+            continue
+        for tid in _chat_tid_from_block(fm.group(1), unit):
+            out.append((slot, tid))
+
+    # Mitigations
+    fm = re.search(
+        r"Mitigations\s*=\s*\{(.*?)(?=ExtraPartingWords\s*=|Offline\s*=|MedicalDeposit\s*=)",
+        text,
+        re.S,
+    )
+    if fm:
+        for tid in _chat_tid_from_block(fm.group(1), unit):
+            out.append(("Mitigation", tid))
+
+    # ExtraPartingWords (MercChatBranch)
+    fm = re.search(
+        r"ExtraPartingWords\s*=\s*\{(.*?)(?=Offline\s*=|MedicalDeposit\s*=|GreetingAndOffer\s*=)",
+        text,
+        re.S,
+    )
+    if fm:
+        for tid in _chat_tid_from_block(fm.group(1), unit):
+            out.append(("ExtraPartingWords", tid))
+
+    # Top-level chat fields (compact WIP one-liners or full blocks).
+    # PartingWords must not match ExtraPartingWords (suffix collision).
+    for field, slot in CHAT_FIELD_TO_SLOT.items():
+        fname = r"(?<!Extra)PartingWords" if field == "PartingWords" else field
+        fm = re.search(
+            rf"['\"]?{fname}['\"]?\s*,?\s*=\s*\{{(.*?)}}\s*,",
+            text,
+            re.S,
+        )
+        if not fm:
+            continue
+        for tid in _chat_tid_from_block(fm.group(1), unit):
+            # Skip Name/Nick/Bio-sized ids accidentally caught — chat fields only
+            out.append((slot, tid))
+
+    # Dedup preserving order
+    seen: set[int] = set()
+    uniq: list[tuple[str, int]] = []
+    for slot, tid in out:
+        if tid in seen:
+            continue
+        seen.add(tid)
+        uniq.append((slot, tid))
+    return uniq
+
+
+def folder_has_hire_stems(source: str, pid: str) -> bool:
+    """True if ja2mercs folder has any SPEECH 081–120 for this pid."""
+    parsed = parse_ja2mercs_source(source)
+    if not parsed:
+        return False
+    folder, battle, merge = parsed
+    if not folder.is_dir():
+        return False
+    for stem in ("108", "084", "091", "089", "081", "097", "116"):
+        if resolve_ja2mercs_audio(folder, pid, battle, stem, merge_speech=merge):
+            return True
+    return False
 
 
 def main() -> int:
@@ -669,13 +1062,26 @@ def main() -> int:
         action="store_true",
         help="Process all CSV rows with speech_source=ja2mercs:* (incl done/shipped)",
     )
+    ap.add_argument(
+        "--aim-chat",
+        action="store_true",
+        help="Also ship UnitData AIM/Snype chat from hire stems 081–120 (never ATTN)",
+    )
+    ap.add_argument(
+        "--aim-chat-only",
+        action="store_true",
+        help="Ship only UnitData AIM chat (skip combat VR)",
+    )
     ap.add_argument("--ja2mercs-root", type=Path, default=None)
     ap.add_argument("--force-missing-skip", action="store_true", default=True)
     args = ap.parse_args()
+    if args.aim_chat_only:
+        args.aim_chat = True
 
     global JA2MERCS_ROOT
     if args.ja2mercs_root:
         JA2MERCS_ROOT = args.ja2mercs_root
+    print(f"ja2mercs root: {JA2MERCS_ROOT} exists={JA2MERCS_ROOT.is_dir()}")
 
     rows = load_map()
     by_slug = {r["slug"]: r for r in rows}
@@ -748,7 +1154,11 @@ def main() -> int:
             print(f"SKIP {slug}: no profile in pack ({status})")
             summary.append((slug, "skip-missing", 0, 0))
             continue
-        if args.ja2mercs_remesh and not source.startswith("ja2mercs:"):
+        if (
+            args.ja2mercs_remesh
+            and not source.startswith("ja2mercs:")
+            and not args.aim_chat_only
+        ):
             print(f"SKIP {slug}: not ja2mercs source")
             summary.append((slug, "skip-not-ja2mercs", 0, 0))
             continue
@@ -756,54 +1166,86 @@ def main() -> int:
             alt = unit.replace("JAZZ_Merc_", "Jazz_").replace("JAZZ_", "Jazz_")
             if alt in vr:
                 unit = alt
-            else:
+            elif not args.aim_chat_only:
                 print(f"SKIP {slug}: no VR block for {row['unit_id']}")
                 summary.append((slug, "skip-no-vr", 0, 0))
                 continue
 
-        entries = vr[unit]
-        if not entries:
+        entries = vr.get(unit) or []
+        if not entries and not args.aim_chat_only:
             print(f"SKIP {slug}: empty VR (inject/expand first)")
             summary.append((slug, "skip-empty-vr", 0, 0))
             continue
-        slot_i: dict[str, int] = defaultdict(int)
         ok = fail = 0
-        print(f"=== {slug} {unit} pid={pid} lines={len(entries)} source={source}")
+        chat_mode = aim_chat_mode_for(slug, source, pid) if args.aim_chat else ""
+        print(
+            f"=== {slug} {unit} pid={pid} vr={len(entries)} source={source}"
+            + (f" aim_mode={chat_mode}" if chat_mode else "")
+        )
         opus_cache: dict[str, Path] = {}
+        slot_i: dict[str, int] = defaultdict(int)
 
-        for slot, tid in entries:
-            stems = pick_stems(slot, slot_i[slot])
-            slot_i[slot] += 1
+        def _ship_one(slot: str, tid: int, stems: list[str], *, band: str) -> None:
+            nonlocal ok, fail
             wav = None
             used = None
             for stem in stems:
                 wav = resolve_wav(pid, stem, speech_idx, battle_idx, source)
+                if (
+                    not wav
+                    and band == "aim"
+                    and slug in HIRE_ALT_BANKS
+                    and stem.isdigit()
+                    and 81 <= int(stem) <= 120
+                ):
+                    wav = resolve_hire_alt_wav(slug, pid, stem)
                 if wav:
                     used = stem
                     break
             if not wav:
-                print(f"  FAIL {tid} {slot}: no wav")
+                print(f"  FAIL {tid} {slot} [{band}]: no wav")
                 fail += 1
-                continue
+                return
             dest = VOICES / f"{tid}.opus"
-            # Show actual source file stem (e.g. 047_ATTN vs 076_000) for dual-prefix.
             src_label = wav.stem
             if src_label.startswith("ja2mercs_"):
                 src_label = src_label[len("ja2mercs_") :]
-            print(f"  {tid} {slot} <- {src_label} (want {used})")
+            print(f"  {tid} {slot} [{band}] <- {src_label} (want {used})")
             if args.dry_run:
                 ok += 1
-                continue
+                return
             key = str(wav.resolve())
             if key not in opus_cache:
                 tmp = CACHE / f"_opus_{wav.stem}.opus"
                 if not wav_to_opus(ffmpeg, wav, tmp):
                     print(f"  ffmpeg fail {wav.name}")
                     fail += 1
-                    continue
+                    return
                 opus_cache[key] = tmp
             shutil.copy2(opus_cache[key], dest)
             ok += 1
+
+        if not args.aim_chat_only:
+            for slot, tid in entries:
+                stems = pick_stems(slot, slot_i[slot])
+                slot_i[slot] += 1
+                _ship_one(slot, tid, stems, band="combat")
+
+        if args.aim_chat:
+            chat_entries = parse_unitdata_chat(unit)
+            chat_i: dict[str, int] = defaultdict(int)
+            if not chat_entries:
+                print(f"  AIM-chat SKIP {slug}: no UnitData chat voice lines")
+            else:
+                print(f"  AIM-chat mode={chat_mode} lines={len(chat_entries)}")
+            for slot, tid in chat_entries:
+                stems = pick_aim_chat_stems(slot, chat_i[slot], mode=chat_mode)
+                chat_i[slot] += 1
+                if not stems:
+                    print(f"  FAIL {tid} {slot} [aim]: unknown chat slot")
+                    fail += 1
+                    continue
+                _ship_one(slot, tid, stems, band="aim")
 
         summary.append((slug, "shipped" if not args.dry_run else "dry", ok, fail))
         print(f"  -> ok={ok} fail={fail}")

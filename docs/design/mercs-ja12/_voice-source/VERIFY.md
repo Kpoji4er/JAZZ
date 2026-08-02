@@ -1,9 +1,14 @@
 # Как проверить голоса JA12 (Jazz ↔ JA2)
 
 Канон-карта: `jazz_to_ja2_profile.csv` (+ пояснения в `jazz_vs_ja2no_alignment.md`).  
+Диапазоны JA2 speech ID (Баюн): [`JA2_SPEECH_ID_RANGES.md`](JA2_SPEECH_ID_RANGES.md) — **000–080** бой/карта, **081–120** найм/AIM; MERK без hire; коллизии pid = по содержимому.  
 Статический аудит файлов: `python docs/tools/_audit_ja12_merc_voices.py` (из корня `jazz/`).
 
-**Важно:** аудит проверяет «opus на месте», а не «это голос нужного персонажа». Несовпадение персонажа ловится только на слух.
+**Важно:** аудит проверяет «opus на месте», а не «это голос нужного персонажа». Несовпадение персонажа ловится только на слух. AIM/Snype **hire chat**:
+- classic `081–120` когда в папке есть hire-банк;
+- MERK/RPC/Biff без hire → combat-proxy (`HIRE_FALLBACK_WAV`, не ATTN);
+- UB ЦС (Gaston/Manuel/Biggens/Kulba/Horg) → `UB_HIRE_PROXY_WAV` (self-ID/readiness; в `081–120` там кампания, не найм);
+- Mike hire: OLD pack `локался/mike` `R_074_08x` (`HIRE_ALT_BANKS`).
 
 ## В игре (быстрый чеклист)
 
@@ -45,17 +50,14 @@ Ira 059 · Hobbit/Gumpy 045 · Hitman/Slay 064 · Spider/Houston 019 · Lynx 002
 
 ## ja2mercs remesh (2026-08)
 
-Most shipped Jazz_* banks re-ingested from `Downloads/ja2mercs/ja2mercs` (`speech_source=ja2mercs:…`).  
-Ear-check **Gaston** (UB French, not Carlos) · **Benny** (female SJ) vs **Shank** · **Simon** vs **Dynamo** · **Vicious** (Malice «Алле») · WF AIM (Monk/Allik/…).  
-Leftovers for owner: Mike 074?, Manuel folder=060≠071, no-folder Biff/Lynx/Buzz/Spider.
+Preferred pack: `Downloads/ja2mercs (1)/ja2mercs` (pid-prefixed folders + `схема реплик`).  
+Combat + AIM chat: `_ship_ja2_merc_voices.py --ja2mercs-remesh --aim-chat`.  
+Ear-check **Gaston** (UB French, not Carlos) · **Benny** (female SJ, pack pid 040) vs **Shank** · **Simon** (pack 062) vs **Dynamo** · **Vicious** (Malice «Алле») · WF AIM hire (`108` greeting ≠ Selection).  
+Leftovers: no-folder Lynx/Buzz/Spider (Biff = `data_slf` combat-proxy hire).  
+**Hire UI ear-check (2026-08):** silent MERK/RPC list + UB wrong-replica + Danny/Highball text↔audio.  
+Tools: `_pour_ja12_design_hire_chat.py` (design phrases) · `_stt_hire_chat_lines.py` (Quinten/Highball) · `_fill_ja12_chat_voices.py --apply --only …`.  
+**Re-check after R_-fullest remesh:** Mike `074`+OLD hire · Vince `R_069` · Kulba `R_164` · Biggens `R_168` (Rothman control).
 
-### Grom / `но-шж/гром` (remesh dual-prefix — both Grom)
+### Grom / `но-шж/047 gromov`
 
-Owner override for this pack: **both `076_*` and `047_*` are Grom** (audio replaced / reused IDs). Prior vanilla/NO EDT text labeling 047 as Larry does **not** apply here.
-
-| Prefix | Role in remesh |
-| --- | --- |
-| `076_*` | Speech 000–024 preferred when longer/non-stub |
-| `047_*` | Full battle (ATTN/OK/HIT/DIE/…) + speech 025+; overlapping lines when fuller than 076 |
-
-`speech_source=ja2mercs:но-шж/гром|battle=047|merge_speech`
+Both `047_*` and `R_047_*` (ex-`076_*`) are Grom. `speech_source=ja2mercs:но-шж/047 gromov|battle=R_047|merge_speech`.

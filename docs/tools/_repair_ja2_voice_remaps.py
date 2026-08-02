@@ -50,7 +50,7 @@ GASTON_TEXTS: list[tuple[str, str, str]] = [
 
 # slot -> mercedt line prefs, en fallback (same as inject stubs)
 SLOT_LINES: list[tuple[str, list[str], str]] = [
-    ("Selection", ["108", "084", "072"], "Online."),
+    ("Selection", ["072", "000", "027"], "Online."),  # Bayun: not hire 108/084
     ("AimAttack", ["000", "001", "027"], "Target!"),
     ("AimAttack", ["001", "000", "027"], "Engage!"),
     ("OpponentKilled", ["027", "028", "032"], "Down."),

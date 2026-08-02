@@ -28,10 +28,11 @@ RU = JAZZ / "Russian.csv"
 EN = JAZZ / "English.csv"
 TID_START = 890000000006300
 
-# slot -> preferred mercedt line numbers
+# slot -> preferred mercedt line numbers (Bayun: Selection = combat/map 000–080 / battle,
+# NOT hire 081–120 — see JA2_SPEECH_ID_RANGES.md; old Trevor prefs 108/084 were wrong here)
 SLOT_LINES: list[tuple[str, list[str], str, str]] = [
     # slot, mercedt line prefs, ru_fallback, en_fallback
-    ("Selection", ["108", "084", "072"], "На связи.", "Online."),
+    ("Selection", ["072", "000", "027"], "На связи.", "Online."),
     ("AimAttack", ["000", "001", "027"], "Есть цель!", "Target!"),
     ("AimAttack", ["001", "000", "027"], "В бой!", "Engage!"),
     ("OpponentKilled", ["027", "028", "032"], "Готов.", "Down."),

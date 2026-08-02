@@ -12,9 +12,9 @@ Canonical map: `jazz_to_ja2_profile.csv`. Identity from mercedt **text** (greeti
 | madman | Maddog / Бешеный | 072 | shipped |
 | conrad | Conrad Gillett | 070 | shipped |
 | mike | — (JA1/NO battlefield) | — | need_pack |
-| grom | SJ Sergey Gromov | 076 | shipped (`sj_folder`) |
-| benny | SJ Alexandra Benedict | 067 | shipped (`sj_folder`; WIP UnitData) |
-| simon | SJ Simon Garandier | 066 | shipped (`sj_folder`; WIP UnitData; ≠ Dynamo data_slf 066) |
+| grom | SJ Sergey Gromov | 047 (+R_047 ex-076) | shipped (ja2mercs `047 gromov`) |
+| benny | SJ Alexandra Benedict | 040 (pack remap; ≠ Biff) | shipped (ja2mercs `040 benni`) |
+| simon | SJ Simon Garandier | 062 (pack remap; ≠ Dynamo) | shipped (ja2mercs `062 simon`) |
 | rothman | Stefan Rothman (not Hitman file) | 030 | shipped |
 | quinten | Dr Quinten | 028 | shipped |
 | vicious | La Malice / Злобный («Алле») | 032 | shipped |
@@ -25,12 +25,12 @@ Canonical map: `jazz_to_ja2_profile.csv`. Identity from mercedt **text** (greeti
 | miguel | Miguel | 057 | shipped |
 | gamos | Hamous / Гамос | 063 | shipped |
 | dynamo | Greg Duncan | 066 | shipped |
-| gaston | UB Gaston Cavalier | 058 | shipped |
-| horg | UB Stogie / Сигара (ЦС) | U_59 | shipped |
-| manuel | NO/UB Manuel | 071 | shipped |
-| monk | Wildfire AIM only | — | need_pack |
-| allik | Wildfire AIM | — | need_pack |
-| henning | Wildfire AIM | — | need_pack |
+| gaston | UB Gaston Cavalier | 165 (was U_58+165) | shipped |
+| horg | UB Stogie / Сигара (ЦС) | 166 (was U_59+166) | shipped |
+| manuel | NO/UB Manuel | 167 | shipped (ja2mercs `167 manuel`) |
+| monk | Wildfire AIM | 170 | shipped |
+| allik | Wildfire AIM | 171 | shipped |
+| henning | Wildfire AIM | 173 | shipped |
 | static | Kirk Stevenson | 026 | shipped |
 | highball | Clifford Highball | 020 | shipped |
 | bull | John Peters | 021 | shipped |
@@ -43,13 +43,13 @@ Canonical map: `jazz_to_ja2_profile.csv`. Identity from mercedt **text** (greeti
 | shank | Briam Druse | 067 | shipped |
 | vince | Dr Vince (not Thor) | 069 | shipped |
 | hitman | Slay / Убийца Terry (not Hennessey 022) | 064 | shipped |
-| biggens | UB Colonel Biggens | — | need_pack |
-| kulba | UB John Kulba (ЦС) | U_62 | shipped |
-| vilde | Wildfire AIM | — | need_pack |
-| grace | Wildfire AIM | — | need_pack |
-| steiger | Wildfire AIM | — | need_pack |
-| lucky | Wildfire AIM | — | need_pack |
-| laura | Wildfire AIM | — | need_pack |
+| biggens | UB Colonel Biggens | 168 | shipped |
+| kulba | UB John Kulba (ЦС) | 164 (was 062) | shipped |
+| vilde | Wildfire AIM | 172 | shipped |
+| grace | Wildfire AIM | 176 | shipped |
+| steiger | Wildfire AIM | 177 | shipped |
+| lucky | Wildfire AIM | 174 | shipped |
+| laura | Wildfire AIM | 175 | shipped |
 | eskimo | NO overlay | 065 | shipped |
 | tosca | Buzz / Тарболс | 016 | shipped |
 | spider | Dr Houston | 019 | shipped |

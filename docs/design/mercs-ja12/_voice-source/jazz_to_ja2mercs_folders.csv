@@ -1,50 +1,50 @@
 slug,folder,profile_id,battle_pid,decision,reason,speech_source
-colby,аимовцы/trevor,005,,remesh,Trevor; was done from trevor.rar,ja2mercs:аимовцы/trevor
-blade,мерки/razor,043,,remesh,Razor,ja2mercs:мерки/razor
-ira,локался/ira,059,,remesh,,ja2mercs:локался/ira
-dimitri,локался/dimitry,060,,remesh,NOT цс/manuel (also 060),ja2mercs:локался/dimitry
-madman,локался/maddog,072,,remesh,,ja2mercs:локался/maddog
-conrad,локался/conrad,070,,remesh,,ja2mercs:локался/conrad
-rothman,аимовцы/stephen,030,,remesh,Stefan; filename Hitman lies,ja2mercs:аимовцы/stephen
-quinten,аимовцы/danny,028,,remesh,,ja2mercs:аимовцы/danny
-vicious,аимовцы/lamalice,032,,remesh,La Malice,ja2mercs:аимовцы/lamalice
-nervous,мерки/haywire,041,,remesh,Haywire; not Razor 043,ja2mercs:мерки/haywire
-flo,мерки/flo,044,,remesh,,ja2mercs:мерки/flo
-cougar,мерки/cougar,048,,remesh,,ja2mercs:мерки/cougar
-miguel,локался/miguel,057,,remesh,NOT импы/imp4,ja2mercs:локался/miguel
-gamos,локался/Hamous,063,,remesh,,ja2mercs:локался/Hamous
-dynamo,локался/Dinamo,066,,remesh,SLF Dynamo; NOT но-шж/simon,ja2mercs:локался/Dinamo
-benny,но-шж/benni,067,,remesh,SJ Benny; NOT локался/shank,ja2mercs:но-шж/benni
-simon,но-шж/simon,066,,remesh,SJ Simon; NOT локался/Dinamo,ja2mercs:но-шж/simon
-gaston,цс/gaston,U_58,165,remesh,UB Gaston; speech U_58 + battle 165; NOT локался/carlos,ja2mercs:цс/gaston|battle=165
-horg,цс/bychok,U_59,166,remesh,UB Stogie; speech U_59 + battle 166,ja2mercs:цс/bychok|battle=166
-static,аимовцы/static,026,,remesh,,ja2mercs:аимовцы/static
-highball,аимовцы/kliff,020,,remesh,,ja2mercs:аимовцы/kliff
-bull,аимовцы/Bull,021,,remesh,,ja2mercs:аимовцы/Bull
-cord,мерки/gusket,042,,remesh,Gasket,ja2mercs:мерки/gusket
-hobbit,мерки/gumpy,045,,remesh,,ja2mercs:мерки/gumpy
-ricochet,мерки/numb,049,,remesh,,ja2mercs:мерки/numb
-meat,мерки/bubba,050,,remesh,,ja2mercs:мерки/bubba
-carlos,локался/carlos,058,,remesh,Carlos RPC; NOT цс/gaston,ja2mercs:локался/carlos
-devin,локался/devin,061,,remesh,,ja2mercs:локался/devin
-shank,локался/shank,067,,remesh,SLF Shank; NOT но-шж/benni,ja2mercs:локался/shank
-vince,локался/vince,069,,remesh,,ja2mercs:локался/vince
-hitman,локался/slay,064,,remesh,Slay; not Hennessey,ja2mercs:локался/slay
-kulba,цс/kulba,062,,remesh,filter 062 only; ignore co-folder 118,ja2mercs:цс/kulba
-eskimo,но-шж/escimo,065,,remesh,filter 065 / D_065 / r_065; ignore stray 067,ja2mercs:но-шж/escimo
-monk,вилдфаер/monk,170,,need_pack,WF Monk,ja2mercs:вилдфаер/monk
-allik,вилдфаер/brains,171,,need_pack,WF Brains / Allik,ja2mercs:вилдфаер/brains
-henning,вилдфаер/henning,173,,need_pack,WF Henning,ja2mercs:вилдфаер/henning
-vilde,вилдфаер/scream,172,,need_pack,WF Scream / Vilde,ja2mercs:вилдфаер/scream
-grace,вилдфаер/grace,176,,need_pack,WF Grace,ja2mercs:вилдфаер/grace
-steiger,вилдфаер/rudolf,177,,need_pack,WF Rudolf / Steiger,ja2mercs:вилдфаер/rudolf
-lucky,вилдфаер/lucky,174,,need_pack,WF Lucky,ja2mercs:вилдфаер/lucky
-laura,вилдфаер/laura,175,,need_pack,WF Laura,ja2mercs:вилдфаер/laura
-biggens,цс/biggens,U_61,168,need_pack,UB Biggens; speech U_61 + battle 168,ja2mercs:цс/biggens|battle=168
-grom,но-шж/гром,076,047,remesh,user: both 076_*+047_* are Grom (replaced/reused IDs); battle from 047; speech merge_speech fullest; NOT Larry for this pack,ja2mercs:но-шж/гром|battle=047|merge_speech
-mike,локался/mike,074,,skip_ambiguous,Mike 074? identity unclear vs JA1/NO notes,
-manuel,цс/manuel,060,,skip_ambiguous,folder pid 060 = Dimitri; profile Manuel is 071 — do not mix,
-biff,,040,,skip_no_folder,no ja2mercs folder; keep data_slf,
+colby,аимовцы/005 trevor,005,,remesh,Trevor; pid-prefixed pack,ja2mercs:аимовцы/005 trevor
+blade,мерки/043 razor,043,,remesh,Razor; MERK no hire 081–120,ja2mercs:мерки/043 razor
+ira,локался/059 ira,059,,remesh,RPC; hire bank usually absent,ja2mercs:локался/059 ira
+dimitri,локался/060 dimitry,060,,remesh,NOT цс/167 manuel,ja2mercs:локался/060 dimitry
+madman,локался/072 maddog,072,,remesh,,ja2mercs:локался/072 maddog
+conrad,локался/070 conrad,070,,remesh,,ja2mercs:локался/070 conrad
+rothman,аимовцы/030 stephen,030,,remesh,Stefan; filename Hitman lies,ja2mercs:аимовцы/030 stephen
+quinten,аимовцы/028 danny,028,,remesh,,ja2mercs:аимовцы/028 danny
+vicious,аимовцы/032 lamalice,032,,remesh,La Malice,ja2mercs:аимовцы/032 lamalice
+nervous,мерки/041 haywire,041,,remesh,Haywire; MERK no hire,ja2mercs:мерки/041 haywire
+flo,мерки/044 flo,044,,remesh,MERK no hire,ja2mercs:мерки/044 flo
+cougar,мерки/048 cougar,048,,remesh,MERK no hire,ja2mercs:мерки/048 cougar
+miguel,локался/057 miguel,057,,remesh,NOT импы/imp4,ja2mercs:локался/057 miguel
+gamos,локался/063 Hamous,063,,remesh,,ja2mercs:локался/063 Hamous
+dynamo,локался/066 Dynamo,066,,remesh,SLF Dynamo; NOT но-шж/062 simon,ja2mercs:локался/066 Dynamo
+benny,но-шж/040 benni,040,,remesh,SJ Benny files remapped 067→040; NOT Biff data_slf 040; NOT локался/shank,ja2mercs:но-шж/040 benni
+simon,но-шж/062 simon,062,,remesh,SJ Simon remapped 066→062; NOT Dynamo; NOT old Kulba 062,ja2mercs:но-шж/062 simon
+gaston,цс/165 gaston,165,,remesh,UB Gaston; pack consolidated on 165 (was U_58+165); NOT локался/carlos,ja2mercs:цс/165 gaston
+horg,цс/166 stogie,166,,remesh,UB Stogie; consolidated on 166 (was U_59+166); prefer not 166 stogie UB,ja2mercs:цс/166 stogie
+static,аимовцы/026 static,026,,remesh,,ja2mercs:аимовцы/026 static
+highball,аимовцы/020 kliff,020,,remesh,,ja2mercs:аимовцы/020 kliff
+bull,аимовцы/021 Bull,021,,remesh,,ja2mercs:аимовцы/021 Bull
+cord,мерки/042 gusket,042,,remesh,Gasket; MERK no hire,ja2mercs:мерки/042 gusket
+hobbit,мерки/045 gumpy,045,,remesh,MERK no hire,ja2mercs:мерки/045 gumpy
+ricochet,мерки/049 numb,049,,remesh,MERK no hire,ja2mercs:мерки/049 numb
+meat,мерки/050 bubba,050,,remesh,MERK no hire,ja2mercs:мерки/050 bubba
+carlos,локался/058 carlos,058,,remesh,Carlos RPC; NOT цс/165 gaston,ja2mercs:локался/058 carlos
+devin,локался/061 devin,061,,remesh,,ja2mercs:локался/061 devin
+shank,локался/067 shank,067,,remesh,SLF Shank; NOT но-шж/040 benni,ja2mercs:локался/067 shank
+vince,локался/069 vince,069,R_069,remesh,NEW pack often stubs on 069_*; full lines on R_069 — merge_speech longest,ja2mercs:локался/069 vince|battle=R_069|merge_speech
+hitman,локался/064 slay,064,,remesh,Slay; not Hennessey,ja2mercs:локался/064 slay
+kulba,цс/164 kulba,164,R_164,remesh,UB Kulba 062→164; full lines often R_164; IGNORE co-folder 118,ja2mercs:цс/164 kulba|battle=R_164|merge_speech
+eskimo,но-шж/065 escimo,065,,remesh,filter 065 / D_065 / R_065,ja2mercs:но-шж/065 escimo
+monk,вилдфаер/170 monk,170,,remesh,WF Monk,ja2mercs:вилдфаер/170 monk
+allik,вилдфаер/171 brains,171,,remesh,WF Brains / Allik,ja2mercs:вилдфаер/171 brains
+henning,вилдфаер/173 henning,173,,remesh,WF Henning,ja2mercs:вилдфаер/173 henning
+vilde,вилдфаер/172 scream,172,,remesh,WF Scream / Vilde,ja2mercs:вилдфаер/172 scream
+grace,вилдфаер/176 grace,176,,remesh,WF Grace,ja2mercs:вилдфаер/176 grace
+steiger,вилдфаер/177 rudolf,177,,remesh,WF Rudolf / Steiger,ja2mercs:вилдфаер/177 rudolf
+lucky,вилдфаер/174 lucky,174,,remesh,WF Lucky,ja2mercs:вилдфаер/174 lucky
+laura,вилдфаер/175 laura,175,,remesh,WF Laura,ja2mercs:вилдфаер/175 laura
+biggens,цс/168 biggens,168,R_168,remesh,UB Biggens 168 (=old U_61 speech); full lines often R_168 — merge_speech,ja2mercs:цс/168 biggens|battle=R_168|merge_speech
+manuel,цс/167 manuel,167,R_167,remesh,UB Manuel pack pid 167; merge R_167 when longer,ja2mercs:цс/167 manuel|battle=R_167|merge_speech
+grom,но-шж/047 gromov,047,R_047,remesh,both 047_* + R_047_* (ex-076) are Grom; merge_speech fullest; NOT Larry,ja2mercs:но-шж/047 gromov|battle=R_047|merge_speech
+mike,локался/074 mike,074,R_074,remesh,combat 074+R_074 NEW; hire 081–120 from OLD локался/mike R_074 (HIRE_ALT_BANKS),ja2mercs:локался/074 mike|battle=R_074|merge_speech
+biff,,040,,skip_no_folder,no ja2mercs Biff folder; data_slf combat-proxy hire (no archive 081–120; do not use но-шж/040 benni),
 lynx,,002,,skip_no_folder,no ja2mercs folder; keep data_slf,
 tosca,,016,,skip_no_folder,Buzz 016 absent; keep data_slf,
 spider,,019,,skip_no_folder,Houston 019 absent; keep data_slf,
