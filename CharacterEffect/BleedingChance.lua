@@ -10,10 +10,8 @@ DefineClass.BleedingChance = {
 	DisplayName = T(757391949802, --[[ModItemCharacterEffectCompositeDef BleedingChance DisplayName]] "Шанс получить кровотечение"),
 	Description = "",
 	OnAdded = function (self, obj)
-		if obj.TempHitPoints > 0 then return end
-		local hp = obj.TempHitPoints + obj.HitPoints
-		if obj:Random(hp) < 20  then
-		obj:AddStatusEffect("Bleeding") end
+		-- MED-001: pierce bleed is rolled centrally in JazzTryRollBleedFromHit.
+		-- Keep ID so ammo AppliedEffects lists stay valid without double-rolling.
 	end,
 	OnRemoved = function (self, obj)  end,
 	type = "Debuff",
@@ -24,4 +22,3 @@ DefineClass.BleedingChance = {
 	RemoveOnCampaignTimeAdvance = true,
 	HideOnBadge = true,
 }
-

@@ -172,6 +172,61 @@ function JazzTryRollBleedFromHit(target, hit, attacker)
 	return false
 end
 
+-- TargetBodyPart → trauma zone for behind-armor blunt.
+function JazzHitBodyPartToTraumaZone(part)
+	if part == "Arms" then
+		return "Arms"
+	elseif part == "Legs" then
+		return "Legs"
+	elseif part == "Head" or part == "Neck" then
+		return "Head"
+	elseif part == "Torso" or part == "Groin" then
+		return "Ribs"
+	end
+	return false
+end
+
+-- Behind-armor trauma (BAT): armor stopped the round (armor_decay, no armor_pen).
+-- No bleeding / no *shot effects; chance of Light (rarely Medium) trauma + Pain.
+-- Chance scales with impact energy (armor_prevented + residual damage).
+function JazzTryBehindArmorTrauma(unit, hit, attacker)
+	if not unit or not hit or hit.setpiece then
+		return false
+	end
+	local armor_hit = hit.armor_decay and next(hit.armor_decay) ~= nil
+	if not armor_hit then
+		return false
+	end
+	if hit.armor_pen and next(hit.armor_pen) ~= nil then
+		return false
+	end
+	local zone = JazzHitBodyPartToTraumaZone(hit.spot_group or hit.target_spot_group or g_DefaultShotBodyPart)
+	if not zone then
+		return false
+	end
+	local prevented = hit.armor_prevented or 0
+	local residual = hit.damage or 0
+	local energy = prevented + residual
+	if energy < 8 then
+		return false
+	end
+	-- ~15% + energy/2, cap 65%. Soft hits often glance; heavy impacts often bruise.
+	local chance = Min(65, 15 + DivRound(energy, 2))
+	if unit:Random(100) >= chance then
+		return false
+	end
+	local tier = "Light"
+	if zone == "Head" and energy >= 35 and unit:Random(100) < 30 then
+		tier = "Medium"
+	elseif energy >= 50 and unit:Random(100) < 18 then
+		tier = "Medium"
+	end
+	JazzApplyTrauma(unit, zone, tier)
+	unit:AddStatusEffect("Pain")
+	Msg("JAZZ_BehindArmorTrauma", unit, zone, tier, hit, attacker)
+	return true
+end
+
 function JazzRemapHitBleedEffect(effect, hit, attacker)
 	if effect ~= "Bleeding" then
 		return effect

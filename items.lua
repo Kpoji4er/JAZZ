@@ -60830,12 +60830,6 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'OnAdded', function (self, obj)
 					if obj.TempHitPoints > 0 then return end
 					JazzTryRollTraumaFromBodyPart(obj, "Head")
-					local hp = obj.TempHitPoints + obj.HitPoints
-					if obj:Random(hp) < 5 then
-						obj:AddStatusEffect("Unconscious")
-					elseif obj:Random(hp) < 20 then
-						obj:AddStatusEffect("Blinded")
-					end
 				end,
 				'OnRemoved', function (self, obj)  end,
 				'type', "Debuff",
@@ -60880,13 +60874,6 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'OnAdded', function (self, obj)
 					if obj.TempHitPoints > 0 then return end
 					JazzTryRollTraumaFromBodyPart(obj, "Arms")
-					local hp = obj.TempHitPoints + obj.HitPoints
-					if obj:Random(hp) < 30 then
-						obj:AddStatusEffect("Numbness")
-					end
-					if obj:Random(hp) < 25 then
-						obj:AddStatusEffect("Inaccurate")
-					end
 				end,
 				'OnRemoved', function (self, obj)  end,
 				'type', "Debuff",
@@ -60910,16 +60897,6 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'OnAdded', function (self, obj)
 					if obj.TempHitPoints > 0 then return end
 					JazzTryRollTraumaFromBodyPart(obj, "Ribs")
-					local hp = obj.TempHitPoints + obj.HitPoints
-					if obj:Random(hp) < 20 then
-						obj:AddStatusEffect("Bleeding")
-					end
-					if obj:Random(hp) < 40 then
-						obj:AddStatusEffect("Bleeding")
-					end
-					if obj:Random(hp) < 5 then
-						obj:AddStatusEffect("Bleeding")
-					end
 				end,
 				'OnRemoved', function (self, obj)  end,
 				'type', "Debuff",
@@ -60940,10 +60917,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'DisplayName', T(757391949802, --[[ModItemCharacterEffectCompositeDef BleedingChance DisplayName]] "Шанс получить кровотечение"),
 				'Description', "",
 				'OnAdded', function (self, obj)
-					if obj.TempHitPoints > 0 then return end
-					local hp = obj.TempHitPoints + obj.HitPoints
-					if obj:Random(hp) < 20  then
-					obj:AddStatusEffect("Bleeding") end
+					-- MED-001: pierce bleed is rolled centrally in JazzTryRollBleedFromHit.
+					-- Keep ID so ammo AppliedEffects lists stay valid without double-rolling.
 				end,
 				'OnRemoved', function (self, obj)  end,
 				'type', "Debuff",
@@ -60966,10 +60941,6 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'OnAdded', function (self, obj)
 					if obj.TempHitPoints > 0 then return end
 					JazzTryRollTraumaFromBodyPart(obj, "Legs")
-					local hp = obj.TempHitPoints + obj.HitPoints
-					if obj:Random(hp) < 20 then
-						obj:AddStatusEffect("Slowed")
-					end
 				end,
 				'OnRemoved', function (self, obj)  end,
 				'type', "Debuff",

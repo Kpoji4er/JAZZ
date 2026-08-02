@@ -506,6 +506,9 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 		end
 		if armor_pierced then
 			JazzTryRollBleedFromHit(self, hit, attacker)
+		elseif armor_hit then
+			-- Stopped by armor: behind-armor blunt trauma (no bleed / no *shot).
+			JazzTryBehindArmorTrauma(self, hit, attacker)
 		end
 	end
     --end

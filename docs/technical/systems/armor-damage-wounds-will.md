@@ -120,17 +120,19 @@ Asset contract не менялся.
 
 Шесть target body parts: `Arms`, `Groin`, `Head`, `Legs`, `Neck`, `Torso`. Среди 56 CharacterEffect definitions находятся:
 
-- локальные роллеры `Armsshot`, `Headshot`, `Legsshot`, `Torsoshot`, `Groinshot` (скрытые; → `JazzTryRollTraumaFromBodyPart`);
+- локальные роллеры `Armsshot`, `Headshot`, `Legsshot`, `Torsoshot`, `Groinshot` (скрытые; **только** `JazzTryRollTraumaFromBodyPart` — без legacy Numbness/Inaccurate/Slowed/Blinded/Unconscious/`Bleeding` из `*shot`);
 - зональные травмы `Trauma{Arms|Legs|Ribs|Head|Burn}{Light|Medium|Heavy}` (Eye folded into Head; Burn: `Burning` OnRemoved → Light stub);
-- `Bleeding` / `BleedingMedium` / `BleedingHeavy` (3/6/12 ОЗ за стак/ход, кап суммы ~30; бинт −1 тир худшему стаку; JHP→тяжёлое; травмы ↑ шанс крови);
-- `Pain` / `Analgesia`; `Wounded` от HP practically off (`HpLossToAddStack` sentinel); `Inaccurate`, `Slowed`;
-- `Blinded`, `Burning`, `Choking`; knockout merc → `JazzApplyKnockoutTraumaPackage` (heavy + Pain);
+- `Bleeding` / `BleedingMedium` / `BleedingHeavy` (3/6/12 ОЗ за стак/ход, кап суммы ~30; бинт −1 тир худшему стаку; JHP→тяжёлое; травмы ↑ шанс крови; центральный `JazzTryRollBleedFromHit`; legacy `BleedingChance` OnAdded = no-op);
+- `Pain` / `Analgesia`; `Wounded` от HP practically off (`HpLossToAddStack` sentinel);
+- `Blinded`, `Burning`, `Choking` (среда/газ; не от `*shot`); knockout merc → `JazzApplyKnockoutTraumaPackage` (heavy + Pain);
 - уровни suppression и weight class;
 - perks и прочие status effects.
 
 27 effects наследуют `Perk`, 22 — `StatusEffect`, остальные — базовый `CharacterEffect` или специализированные родители. IDs являются публичным контрактом actions, UI, unit presets и лечения.
 
-`hit.effects` содержит только непустые строковые ID CharacterEffect. Обычный эффект попадания применяется, если закрывающая точку броня не участвовала в расчёте либо хотя бы один участвовавший предмет присутствует в `hit.armor_pen`. Поэтому непробитая броня блокирует `Bleeding`, body-part effects и другие физические статусы, даже когда минимальный урон попадания остался ненулевым.
+`hit.effects` содержит только непустые строковые ID CharacterEffect. Обычный эффект попадания применяется, если закрывающая точку броня не участвовала в расчёте либо хотя бы один участвовавший предмет присутствует в `hit.armor_pen`. Поэтому непробитая броня блокирует `Bleeding`, body-part `*shot` и другие физические статусы из `hit.effects`, даже когда минимальный урон попадания остался ненулевым.
+
+**Заброневое (BAT):** если был `armor_decay` и **нет** `armor_pen`, `ApplyDamageAndEffects` вызывает `JazzTryBehindArmorTrauma` — шанс Light (редко Medium) травмы зоны попадания + `Pain`, без крови. Шанс ~`15 + energy/2` (cap 65), `energy = armor_prevented + residual damage`; порог energy ≥ 8.
 
 `MarkedTraccers` является исключением из damage pipeline: он не применяется из `hit.effects`, а ставится на выбранную цель один раз за каждый фактически произведённый выстрел трассерным боеприпасом с итоговым `shot_cth > 0`. Фактическое попадание и пробитие брони для маркера не требуются; при `shot_cth == 0` эффект не ставится.
 
@@ -165,7 +167,7 @@ DefineClass.DamageReduction = {
 | Medium | zone debuff | при юзе зоны |
 | Heavy | жёсткий zone debuff | +1 Pain/ход к капу (`JazzTraumaHeavyPainRamp`) |
 
-Zone specifics (Medium / Heavy params): Arms −20/−50 CTH; Legs +50%/+150% move, no Free Move; Ribs −2/−5 start AP, no Free Move, **no Tired**; Head −15/−40 CTH and −20/−50 sight. Eye folded into Head. Hit wiring: `*shot` OnAdded → `JazzTryRollTraumaFromBodyPart` (Head biased to Medium/Heavy). **Armor trauma soft-mitigation:** `JazzGetTraumaArmorChanceFactor` — worn `Armor` with `ProtectedBodyParts` for the zone (Arms; Legs; Ribs←Torso/Groin; Head←Head/Neck), Condition > 0, scales roll thresholds by `100 − Coverage×Condition%/100 × 60` (floor factor **40**). Unpierced armor still blocks `*shot` via hit effects; this factor softens pierced/residual rolls. Burn + knockout package ignore it. Knockout merc: `JazzApplyKnockoutTraumaPackage`. Burn: `Burning` OnRemoved → `TraumaBurnLight` (Medium/Heavy IDs exist, apply stubbed). Icons: `Icons/StatusEffects/Trauma*.png`.
+Zone specifics (Medium / Heavy params): Arms −20/−50 CTH; Legs +50%/+150% move, no Free Move; Ribs −2/−5 start AP, no Free Move, **no Tired**; Head −15/−40 CTH and −20/−50 sight. Eye folded into Head. Hit wiring: `*shot` OnAdded → `JazzTryRollTraumaFromBodyPart` (Head biased to Medium/Heavy). **Armor trauma soft-mitigation (pierced path):** `JazzGetTraumaArmorChanceFactor` — worn `Armor` with `ProtectedBodyParts` for the zone, Condition > 0, scales roll thresholds (floor factor **40**). **BAT (unpierced):** `JazzTryBehindArmorTrauma` from `ApplyDamageAndEffects` — Light/rarely Medium + Pain, no bleed. Knockout merc: `JazzApplyKnockoutTraumaPackage`. Burn: `Burning` OnRemoved → `TraumaBurnLight`. Icons: `Icons/StatusEffects/Trauma*.png`.
 
 ## Grit и временное здоровье
 

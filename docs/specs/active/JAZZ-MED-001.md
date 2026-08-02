@@ -116,6 +116,7 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - `JAZZ-MED-001-REQ-011` — hit→trauma через `*shot` rollers (`Armsshot`/`Legsshot`/`Headshot`/`Torsoshot`/`Groinshot` → `JazzTryRollTraumaFromBodyPart`); knockout merc → `JazzApplyKnockoutTraumaPackage` (heavy + Pain), не Wounded stacks.
 - `JAZZ-MED-001-REQ-012` — status icons `Icons/StatusEffects/Trauma*.png` wired on effects.
 - `JAZZ-MED-001-REQ-013` — worn armor covering the hit zone (`ProtectedBodyParts`: Arms / Legs / Torso|Groin→Ribs / Head|Neck→Head) reduces trauma roll chance via `JazzGetTraumaArmorChanceFactor` (Coverage×Condition, max ~60% cut, floor factor 40). Does not apply to Burn or knockout package. Unpierced armor still blocks `*shot` separately.
+- `JAZZ-MED-001-REQ-014` — behind-armor trauma (BAT): when hit has `armor_decay` and no `armor_pen`, `JazzTryBehindArmorTrauma` may apply Light (rarely Medium) zone trauma + Pain; no bleed. Chance scales with `armor_prevented + residual` damage.
 
 ## Инварианты и ограничения
 
@@ -136,6 +137,7 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - `JAZZ-MED-001-AC-007` — static: 15 trauma CharacterEffects + *shot/Unconscious/Burning wiring + icons + loc RU/EN.
 - `JAZZ-MED-001-AC-008` — runtime/human: body hit rolls trauma; knockout applies heavy package; zone debuffs match design formula.
 - `JAZZ-MED-001-AC-009` — static: `JazzGetTraumaArmorChanceFactor` scales thresholds when covering armor Condition>0; Burn/knockout untouched.
+- `JAZZ-MED-001-AC-010` — static: unpierced armor path calls `JazzTryBehindArmorTrauma`; no bleed on BAT.
 
 ## Impact и совместимость
 
@@ -171,8 +173,9 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - `JAZZ-MED-001-AC-007`: `PASS` — static: Trauma* companions/items/metadata/icons/loc; *shot → `JazzTryRollTraumaFromBodyPart`; Unconscious → knockout package; Burning → `TraumaBurnLight`.
 - `JAZZ-MED-001-AC-008`: `BLOCKED` — runtime/human trauma playtest pending.
 - `JAZZ-MED-001-AC-009`: `PASS` — static: armor zone→factor wired in `Systems_Medicine.lua`.
+- `JAZZ-MED-001-AC-010`: `PASS` — static: BAT wired from `ApplyDamageAndEffects` unpierced branch.
 
-status note: code wired including zonal traumas + armor trauma mitigation; mark `implemented` after smoke in editor/game.
+status note: code wired including zonal traumas + armor trauma mitigation + BAT; mark `implemented` after smoke in editor/game.
 
 ## Documentation delta
 

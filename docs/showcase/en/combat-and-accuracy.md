@@ -48,7 +48,7 @@ Chance can be affected by cover and visible target size, stance, visibility/smok
 - Bleeding has three tiers (**3 / 6 / 12** HP per stack per turn). Hotbar **Bandage** drops the worst stack by **one tier** (no Medical skill). IFAK/Medkit clear stronger on kit bandage.
 - **Heavy** bleed from hits comes from **expanding** ammo (JHP).
 - **Pain** cuts AP and accuracy (−1 stack/turn); **Morphine** suppresses pain penalties and does not stop bleeding or trauma.
-- **Zone trauma** (arms / legs / ribs / head): light / medium / heavy. Light = pain when you use that zone; medium+ adds zone penalties (−accuracy, move cost, start AP, sight). **Armor covering the hit zone lowers trauma chance.** Going down applies a **heavy** trauma package. Bandages do not heal trauma.
+- **Zone trauma** (arms / legs / ribs / head): light / medium / heavy. Light = pain when you use that zone; medium+ adds zone penalties (−accuracy, move cost, start AP, sight). **Armor on the hit zone lowers trauma chance when pierced; if armor stops the round**, you can still take **behind-armor trauma** (light trauma + pain, no bleeding). Going down applies a **heavy** trauma package. Bandages do not heal trauma.
 - Combat-start grit (~25% Temp HP) is **removed**.
 
 ## Grazing hits
