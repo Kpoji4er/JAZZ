@@ -17,6 +17,7 @@
 | `_fix_med001_loot_braces.py` | Чинит `}}),` → `}),` на строках JAZZ med loot (баг f-string). |
 | `_bump_units_med_loot_meta.py` | Bump `jazz-units/metadata.lua` Revision + `last_changes` после loot apply. |
 | `_wire_med001_traumas.py` / `_append_med001_trauma_loc.py` | Wiring/loc зональных Trauma* эффектов. |
+| `_patch_combat_status_ui.py` | Party combat `idWounded` → `JazzGetPartyPortraitStatusEffects` (parity с satellite); снимает nick-icons у CombatBadge. |
 
 ## JAZZ-ATTACH-001 / оружие–обвесы
 
@@ -225,21 +226,12 @@ python docs/tools/build-sector-atlas-docs.py
 | `_apply_ja2mercs_profile_map.py` | Apply folder map onto `jazz_to_ja2_profile.csv` (`speech_source`/`profile_id`/`status`). `--dry-run`. |
 | `_integrate_sj_khalif_mercs.py` | Shady Job `Downloads/SJ/data`: кэш → `_sj_cache`, mercedt CSV, UnitData/VR stubs Benny+Simon, ship Grom/Benny/Simon opus. WF AIM в SJ SPEECH нет. |
 | `_extract_sj_sti_faces.py` | Decode SJ `faces/bigfaces/{66,67}.sti` (+ `b66`/`b67`) → `docs/design/mercs-ja12/{simon,benny}.ja2-face.png` + `_face-source/sj/`. Indexed STCI ETRLE. |
-| `_process_sj_merc_portraits.py` | rembg BiRefNet + resize Big 2000 / UI 300 for Benny/Simon (independent of workshop script). |
-| `_import_workshop_aim_mercs.py` | Импорт 6 workshop AIM-мерков (`Merc_ Annie/Carol/Hector/Jerry/Mildred/Samuel`) в jazz-units + perk Code/CharacterEffect в jazz; Portrait → `MercPortraits/<Id>.png`. PlaceObj-экстрактор учитывает Lua `--[[ ]]` комментарии. |
-| `_finish_workshop_aim_mercs.py` | Доводка импорта (idempotent): CombatAction/perk Icon → `Mod/e6L4ECj/Images/WorkshopMercs/*`, Carol UnitData companion, inject `ModItemVoiceResponse` из source mods, убрать ju `ModItemCode` CombatAction (код в jazz), CombatAction `ModResourcePreset`. |
-| `_import_workshop_merc_vr_and_loc.py` | VR inject + seed RU/EN T-ids из source mods (`--dry-run` / `--apply`; `--skip-sj` без Benny/Simon/Grom opus fill). Prefer Cyrillic from `Merc_*` + `JAZZ_Otherguy`; patch EN-copy RU when source has real RU. CombatAction Icon → `e6L4ECj` WorkshopMercs passives. |
-| `_audit_workshop_sj_merc_voices_loc.py` | Read-only E2E audit: UnitData/VR meta, `voices/<tid>.opus`, leftover workshop mod IDs, RU/EN coverage for 6 AIM workshop + Benny/Simon/Grom. Also flags `g_VoiceVariations` overrides / capital `Voices/` paths (bypass `ModItemTranslatedVoices`) and AIM `Affiliation` / `StartingSalary=0`. |
-| `_seed_workshop_merc_loc.py` / `_patch_workshop_merc_loc.py` | Seed/patch `jazz` `Russian.csv`+`English.csv` for workshop merc T-ids; Carol hire EN invents; SJ Grom EN invents; RU technical-copy for EN-only lines. |
-| `_fix_workshop_merc_ru_from_sources.py` | Replace EN-copy invents in `Russian.csv` for 6 AIM workshop mercs with real RU from `Merc_*` mods, fallback `JAZZ_Otherguy`; patch Carol `CAROL_EN` in `English.csv`. `--dry-run` / `--apply`. |
-| `_fix_workshop_merc_en_from_sources.py` | Replace Cyrillic leaks in `English.csv` for 6 AIM workshop mercs; Carol EN from cached Steam Workshop donor TSV (`_donors/workshop_merc_en/`, HPK `3023246026`) because AppData `Merc_ Carol Thompson` has RU-baked T(). `--dry-run` / `--apply` / `--cache-extract DIR`. |
 | `_fill_sj_chat_voices.py` | Copy Selection opus onto missing Benny/Simon/Grom AIM-chat T-ids (`--apply`). |
 | `_fill_ja12_chat_voices.py` | Same donor policy for **all** Jazz_* with VR Selection → missing `voice:Jazz_*` chat T-ids (`--apply` / `--dry-run`). |
 | `_expand_ja2_merc_vr_full.py` | Expand stub (~12-slot) Jazz_* VoiceResponse to Colby-like combat coverage (~52 slots / 74 lines); allocates T-ids + RU/EN. Skips Colby/Spouke/need_pack/full VR. Then run `_ship_ja2_merc_voices.py`. |
 | `_audit_ja12_merc_voices.py` | Read-only audit: Jazz_* VR T-ids vs `voices/<tid>.opus`, CSV ship status, TranslatedVoices mount, `g_VoiceVariations`. `--critical` for Selection/Aim/Movement. |
 | `_inject_sj_benny_simon_vr.py` | Inject missing Benny/Simon `ModItemVoiceResponse` folders into `jazz-units/items.lua` (UnitData already via companion). |
 | `_fix_benny_simon_tid_collision.py` | Remap Benny/Simon T-ids if they collided with an expand batch (safe re-run). |
-| `_process_workshop_merc_portraits.py` / `_process_workshop_ui_portraits.py` | rembg BiRefNet + Big 2000; UI 300: Annie wider from Big (`head_frac=0.32`), остальные — UI cutout letterbox / frac 0.28. |
 | `_inject_vr_stubs_ja2_voices.py` | Для ready-мерков с пустым `ModItemVoiceResponse` — Ira-like stub (12 линий) из mercedt/NO EDT + T-ids `8900…6300+` в `jazz-units/items.lua` и RU/EN CSV. UB/ЦС без текстов — fallback-строки. |
 | `_repair_ja2_voice_remaps.py` | Repair remaps: снять wrong Malice opus с `Jazz_Gaston` (FallbackMissingVR); обновить VR-тексты + re-ship `nervous`→041 / `hitman`→064 (Slay). `--dry-run` / `--skip-ship`. |
 | `_audit_nightops_speech_coverage.py` | Аудит SPEECH/BATTLESNDS/NO overlays + внешние `_ub_cs_cache` (ЦС) / `_horg_stogie_cache` (Бычок). Identity по RU greeting/self-ID в mercedt, **не** по EDT filename (они часто врут). |
@@ -261,10 +253,7 @@ python docs/tools/build-sector-atlas-docs.py
 3. Строка в этой таблице.
 4. При системной процедуре — ссылка в `.agents/docs/playbooks/…` и при необходимости в `.agents/docs/index.md`.
 
-| `_apply_workshop_aim_sheet.py` | Apply Otherguy workshop AIM sheet targets (stats/perks/60-30-10 loot) into `jazz-units` UnitData+items+metadata. `--dry-run` supported. Snapshot: `docs/design/mercs-ja12/_workshop_otherguy_sheet_targets.md`. |
-| `_diff_workshop_loot.py` | Diff `jazz-units` LootDefs for the 6 Otherguy AIM mercs vs MERCS targets in `_apply_workshop_aim_sheet.py`. Writes `docs/design/mercs-ja12/_workshop_loot_diff.txt`; also flags missing InventoryItem/component IDs. |
-| `_audit_workshop_snype_en_ru.py` | Read-only: AIM hire/SNYPE chat T-ids for 6 workshop mercs; flags EN-in-RU (`Russian.csv` Translation Latin-only) + reports `StartingLevel`. |
-| `_apply_workshop_snype_ru.py` | Patch `Russian.csv` Translation (+ `Localization/RussianManual.csv`) for Hector/Jerry/Mildred/Samuel hire/SNYPE lines and Samuel Nick typo; `English.csv` unchanged. |
-| `_loc_csv_io.py` | Safe read/write for `Russian.csv`/`English.csv`: **never** `splitlines()` before `csv.DictReader` (that flattens multiline AdditionalHint / perk text). Used by workshop loc scripts. |
+| `_loc_csv_io.py` | Safe read/write for `Russian.csv`/`English.csv`: **never** `splitlines()` before `csv.DictReader` (that flattens multiline AdditionalHint / perk text). |
 | `_audit_additionalhint_newlines.py` | Audit/restore weapon `AdditionalHint` bullets: compare `InventoryItem/**/*.lua` `\n` vs CSV; `--apply` inserts newlines before bullet markers. |
 | `_restore_csv_newlines_from_head.py` | Restore any CSV cell newlines lost vs `HEAD` when wording still matches (whitespace-insensitive). `--apply`. |
+| `_purge_workshop_aim_mercs.py` | One-shot purge of six Steam Workshop AIM mercs from jazz + jazz-units (ModItems, companions, voices, loc, design). |

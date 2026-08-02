@@ -371,7 +371,7 @@ function Unit:OnGearChanged(isLoad)
 	NetUpdateHash("CumbersomeReset", self)
 	self:ForEachItem(false, function(item, slot)
 		
-		if slot ~= "Inventory" and item:IsCumbersome() and not (item:IsKindOf("MachineGun") and HasPerk(self, "Merc_SamuelNkosi_Perk")) then
+		if slot ~= "Inventory" and item:IsCumbersome() then
 			self.using_cumbersome = true
 			NetUpdateHash("CumbersomeSet", self)
 		end

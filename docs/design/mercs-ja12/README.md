@@ -75,21 +75,6 @@
 | [laura](laura.md) | Лора | `Jazz_Laura` |
 | [eskimo](eskimo.md) | Эскимо | `Jazz_Eskimo` |
 
-## Workshop AIM (imported, stubs)
-
-- Workshop Otherguy sheet apply: [`_workshop_otherguy_sheet_targets.md`](_workshop_otherguy_sheet_targets.md) + `docs/tools/_apply_workshop_aim_sheet.py`.
-
-Steam Workshop AIM mercs kept under `Merc_*` IDs. Articles are short index stubs (`executable: false`); runtime lives in `jazz-units` + perk code in `jazz`.
-
-| Slug | Nick | UnitData Id |
-| --- | --- | --- |
-| [annie-dubois](annie-dubois.md) | Annie | `Merc_AnnieDubois` |
-| [carol-thompson](carol-thompson.md) | Nuts | `Merc_CarolThompson` |
-| [hector-sanchez](hector-sanchez.md) | Hector | `Merc_HectorSanchez` |
-| [jerry-sinclair](jerry-sinclair.md) | Jerry | `Merc_JerrySinclair` |
-| [mildred-patterson](mildred-patterson.md) | Mildred | `Merc_MildredPatterson` |
-| [samuel-nkosi](samuel-nkosi.md) | Samuel | `Merc_SamuelNkosi` |
-
 ## High / Medium / Low
 
 *(пусто — волна в Ready; приоритеты в frontmatter статей и в `_generation-queue.md`)*
