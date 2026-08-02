@@ -69,8 +69,10 @@ insert = m.group(1) + """\t\t\t\tPlaceObj('ModItemCharacterEffectCompositeDef', 
 \t\t\t\t\t'unit_reactions', {
 \t\t\t\t\t\tPlaceObj('UnitReaction', {
 \t\t\t\t\t\t\tEvent = \"OnCalcMaxAimActions\",
-\t\t\t\t\t\t\tHandler = function(self, value, attacker, target, action, weapon)
-\t\t\t\t\t\t\t\treturn value + 1
+\t\t\t\t\t\t\tHandler = function(self, target, value, attacker, attack_target, action, weapon)
+\t\t\t\t\t\t\t\tif target == attacker then
+\t\t\t\t\t\t\t\t\treturn value + 1
+\t\t\t\t\t\t\t\tend
 \t\t\t\t\t\t\tend,
 \t\t\t\t\t\t}),
 \t\t\t\t\t},

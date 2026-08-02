@@ -7,8 +7,11 @@ DefineClass.Jazz_Perk_Sniper = {
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcMaxAimActions",
-			Handler = function(self, value, attacker, target, action, weapon)
-				return value + 1
+			-- CallReactions_Modify: (effect, owner, value, attacker, attack_target, action, weapon)
+			Handler = function(self, target, value, attacker, attack_target, action, weapon)
+				if target == attacker then
+					return value + 1
+				end
 			end,
 		}),
 	},

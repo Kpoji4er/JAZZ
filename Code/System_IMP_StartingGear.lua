@@ -109,12 +109,14 @@ function JazzBuildImpStartingGear(unit)
 	local hasMelee = JazzImpHas(unit, "MeleeTraining")
 	local lmgPath = hasHeavy and hasAuto and str >= 80
 
-	-- Primary
+	-- Primary (Stealthy > LMG Mark≥60 > AutoWeapons ladder > Mark ladder)
 	local primaryId = false
 	if hasStealthy then
 		primaryId = "MP5SD"
-	elseif lmgPath then
-		primaryId = (mark >= 80) and "RPD" or "BAR"
+	elseif lmgPath and mark >= 80 then
+		primaryId = "RPD"
+	elseif lmgPath and mark >= 60 then
+		primaryId = "BAR"
 	elseif hasAuto then
 		primaryId = JazzImpPickMarkLadder(mark, "MPL", "TMP", "CAR15")
 	else
@@ -257,9 +259,15 @@ function JazzClearUnitInventory(unit)
 	if not unit then
 		return
 	end
+	-- Collect first — RemoveItem during ForEachItem can skip slots.
+	local doomed = {}
 	unit:ForEachItem(function(item, slot_name)
-		unit:RemoveItem(slot_name, item)
+		doomed[#doomed + 1] = { item = item, slot = slot_name }
 	end)
+	for _, entry in ipairs(doomed) do
+		unit:RemoveItem(entry.slot, entry.item)
+		DoneObject(entry.item)
+	end
 end
 
 function JazzApplyImpStartingGear(unit)

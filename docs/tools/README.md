@@ -94,6 +94,8 @@
 | `_ensure_imp001_metadata.py` | Гарантирует code/CharacterEffect/ModResourcePreset записи IMP-001 в `metadata.lua` + revision bump. |
 | `_bump_units_imp001_meta.py` | Bump `jazz-units/metadata.lua` Revision после placeholder `IMP_equipment_basic`. |
 | `_list_perk_icons.py` | Список vanilla CharacterEffect Icon paths (для подбора IMP perk icons). |
+| `_audit_imp001_ids.py` | JAZZ-IMP-001: static audit class IDs (оружие/перки/расходники) в jazz+jazz-units. |
+| `_bump_imp001_fix_meta.py` | Revision bump + last_changes bullet после hotfix Sniper/LMG. |
 | `_wire_med001_traumas.py` | MED-001: генерирует `Trauma*` CharacterEffect companions + inserts ModItems/metadata; патчит `*shot` / `Unconscious` / `Burning` → trauma API. |
 | `_append_med001_trauma_loc.py` | MED-001: дописывает RU/EN строки `890000000009226`–`009255` для Trauma* DisplayName/Description. |
 | `_lupa_load_items.py` | Реальный Lua parse `items.lua`/`metadata.lua` через lupa (stubs PlaceObj/T). Ловит syntax как игра. |
