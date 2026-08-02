@@ -30,6 +30,7 @@ DefineClass.USAS12 = {
 	PointBlankBonus = 1,
 	OverwatchAngle = 960,
 	BuckshotConeAngle = 300,
+	BuckshotProjectiles = 1,
 	BuckshotFalloffDamage = 5,
 	Noise = 30,
 	HandSlot = "TwoHanded",

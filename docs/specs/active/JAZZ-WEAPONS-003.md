@@ -133,7 +133,10 @@ BurstShots = clamp(round(CyclicRPM / 200), BurstMin, BurstMax)   # default clamp
 если оружия нет BurstFire в available attacks → BurstShots может остаться 0 / неиспользуемым
 если нет AutoFire / full-auto → AutoShots = 0
 MG / belt: допускается AutoShots == BurstShots или семейный cap (не раздувать MG42 до 24)
+
+Дробовики: число дробин **не** через AutoShots — см. `JAZZ-WEAPONS-006` (`BuckshotProjectiles` + ammo mods).
 ```
+
 
 Примеры-ориентиры (до семейных cap):
 

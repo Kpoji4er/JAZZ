@@ -29,6 +29,7 @@ DefineClass.Auto5 = {
 	PointBlankBonus = 1,
 	OverwatchAngle = 1800,
 	BuckshotConeAngle = 300,
+	BuckshotProjectiles = 1,
 	BuckshotFalloffDamage = 15,
 	Noise = 35,
 	HandSlot = "TwoHanded",

@@ -459,13 +459,13 @@ function Firearm:GetAttackResults(action, attack_args)
 		end
 --	end
 
-if IsKindOf(self,"Shotgun") then
-	num_shots = self.AutoShots
+-- JAZZ-WEAPONS-006: pellet count from BuckshotProjectiles (ammo-modifiable), not AutoShots.
+if IsKindOf(self, "Shotgun") then
+	num_shots = self.BuckshotProjectiles or 1
 end
 
-
-if action.id == "DoubleBarrel" then 
-	num_shots = self.AutoShots * 2
+if action.id == "DoubleBarrel" then
+	num_shots = (self.BuckshotProjectiles or 1) * 2
 end
 
 
@@ -594,17 +594,23 @@ end
 	shot_attack_args.deployed =
 		shot_attack_args.deployed
 		or g_Overwatch and g_Overwatch[attacker] and g_Overwatch[attacker].permanent
+	-- JAZZ-WEAPONS-006: buckshot pellets are a simultaneous packet, not a recoil queue.
+	-- Every pellet uses the same first-bullet CTH (no retention^(i-1)).
+	local pellet_pack = action.id == "Buckshot"
+		or action.id == "DoubleBarrel"
+		or action.id == "CancelShotCone"
+		or action.id == "BuckshotBurst"
 	local recoil_profile =
 		JAZZ_CTHGetRecoilProfile(self, attacker, shot_attack_args.stance, action, shot_attack_args)
-	attack_results.recoil_profile = recoil_profile
+	attack_results.recoil_profile = pellet_pack and false or recoil_profile
 	attack_results.shot_cth = {}
 
 	for i = 1, num_shots do
 		local shot_miss, shot_crit
 		local shot_cth = JAZZ_CTHGetBulletChance(
 			attack_results.chance_to_hit,
-			i,
-			recoil_profile,
+			pellet_pack and 1 or i,
+			pellet_pack and nil or recoil_profile,
 			attack_results.chance_to_hit > 0
 		)
 
@@ -805,10 +811,9 @@ end
 
 		--print(shot_attack_args.target_spot_group)
 
-		if (action.id == "Buckshot" and shot_cth > 90 and i > 1) then shot_cth = 90 end
-										--chance to shot in random body part
+		--chance to shot in random body part (spread within the same CTH; not recoil)
 		--print(shot_cth)
-		if (shot_cth < 90 or (action.id == "Buckshot")) and not prediction then 
+		if (shot_cth < 90 or pellet_pack) and not prediction then 
 			local rand = random(shot_cth)
 			if shot_attack_args.target_spot_group == "Head" then 
 				if rand < 10 then 

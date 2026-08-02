@@ -21,7 +21,7 @@ DefineClass._12gauge_Breacher = {
 	Modifications = {
 		PlaceObj('CaliberModification', {
 			mod_mul = 9000,
-			target_prop = "AutoShots",
+			target_prop = "BuckshotProjectiles",
 		}),
 		PlaceObj('CaliberModification', {
 			mod_mul = 4000,

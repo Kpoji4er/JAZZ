@@ -30,6 +30,7 @@ DefineClass.R870 = {
 	PointBlankBonus = 1,
 	OverwatchAngle = 1440,
 	BuckshotConeAngle = 120,
+	BuckshotProjectiles = 1,
 	BuckshotFalloffDamage = 15,
 	Noise = 37,
 	HandSlot = "TwoHanded",

@@ -29,6 +29,7 @@ DefineClass.Auto5_quest = {
 	PointBlankBonus = 1,
 	OverwatchAngle = 1600,
 	BuckshotConeAngle = 360,
+	BuckshotProjectiles = 1,
 	BuckshotFalloffDamage = 40,
 	Noise = 40,
 	HandSlot = "TwoHanded",

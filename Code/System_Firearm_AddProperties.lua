@@ -62,6 +62,21 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
     modifiable = true
 }
 
+-- JAZZ-WEAPONS-006: pellet base for Shotgun multishot (ammo CaliberModification target).
+-- Not AutoShots — that stays WEAPONS-003 autofire length.
+FirearmProperties.properties[#FirearmProperties.properties+1] = {
+    category = "Caliber",
+    id = "BuckshotProjectiles",
+    name = "Buckshot Projectiles",
+    help = "Base pellet count per shell; 12g ammo multiplies this (Buckshot ×9, Birdshot ×20).",
+    editor = "number",
+    default = 1,
+    template = true,
+    min = 0,
+    max = 40,
+    modifiable = true
+}
+
 FirearmProperties.properties[#FirearmProperties.properties+1] = {
     category = "New Weapon System - Physical Recoil",
     id = "WeaponMass",

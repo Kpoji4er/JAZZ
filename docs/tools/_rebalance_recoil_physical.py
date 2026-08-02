@@ -111,6 +111,7 @@ def authored_profile(row: dict[str, str]) -> Profile:
     floor = 5 if ("pistol" in cls or "revolver" in cls) else 12 if "assault" in cls else 18
     recoil = max(floor, min(70, recoil_override if recoil_override is not None else recoil))
     attacks = row["available_attacks"]
+    # Shotgun pellet count is BuckshotProjectiles (JAZZ-WEAPONS-006), not AutoShots.
     burst = max(2, min(8, round(rpm / 200))) if rpm and ("BurstFire" in attacks or limiter) else 0
     if limiter:
         burst = min(burst, limiter) if burst else 0

@@ -31,6 +31,7 @@ DefineClass.Ithaca = {
 	PointBlankBonus = 1,
 	OverwatchAngle = 1980,
 	BuckshotConeAngle = 180,
+	BuckshotProjectiles = 1,
 	BuckshotFalloffDamage = 10,
 	Noise = 38,
 	HandSlot = "TwoHanded",

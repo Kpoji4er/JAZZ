@@ -30,6 +30,7 @@ DefineClass.AA12 = {
 	PointBlankBonus = 1,
 	OverwatchAngle = 960,
 	BuckshotConeAngle = 240,
+	BuckshotProjectiles = 1,
 	BuckshotFalloffDamage = 5,
 	Noise = 29,
 	HandSlot = "TwoHanded",

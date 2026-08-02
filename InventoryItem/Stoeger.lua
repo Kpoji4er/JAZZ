@@ -29,6 +29,7 @@ DefineClass.Stoeger = {
 	PointBlankBonus = 1,
 	OverwatchAngle = 1680,
 	BuckshotConeAngle = 180,
+	BuckshotProjectiles = 1,
 	BuckshotFalloffDamage = 10,
 	Noise = 34,
 	HandSlot = "TwoHanded",

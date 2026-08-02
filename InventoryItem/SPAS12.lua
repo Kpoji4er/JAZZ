@@ -30,6 +30,7 @@ DefineClass.SPAS12 = {
 	PointBlankBonus = 1,
 	OverwatchAngle = 1080,
 	BuckshotConeAngle = 180,
+	BuckshotProjectiles = 1,
 	BuckshotFalloffDamage = 15,
 	Noise = 32,
 	HandSlot = "TwoHanded",

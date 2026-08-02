@@ -22,7 +22,7 @@ DefineClass.JAZZ_AMMO_12gauge_Birdshot = {
 	Modifications = {
 		PlaceObj('CaliberModification', {
 			mod_mul = 20000,
-			target_prop = "AutoShots",
+			target_prop = "BuckshotProjectiles",
 		}),
 		PlaceObj('CaliberModification', {
 			mod_mul = 1250,

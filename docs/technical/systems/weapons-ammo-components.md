@@ -44,6 +44,7 @@ JAZZ превращает оружие из набора vanilla-статов в
 
 - `Recoil`, `MaxAimActions`;
 - `BurstShots`, `AutoShots`, `WeaponMass`, `CyclicRPM`, `WeaponSizeClass`, `BurstLimiter`, `OverwatchAngle`, `CloseRange`, `CloseRangeFactor`;
+- `BuckshotProjectiles` — база числа дробин на патрон для `Shotgun` (JAZZ-WEAPONS-006; ammo `CaliberModification`, не путать с `AutoShots`);
 - `WeaponRange`, `BulletDropRange`, `Grouping`;
 - `BaseJamChance`, `PenetrationBonus`;
 - `WeaponResource`, `WeaponResourceMax`, `DegradePerShot`;
@@ -51,9 +52,9 @@ JAZZ превращает оружие из набора vanilla-статов в
 - `DisposableLauncher`, `EmbeddedOrdnance` (только `RocketLauncher`: одноразовая пусковая и её встроенный ordnance);
 - `WeaponName`, `WeaponIconMod`, reticle images и `UnitSubStat`.
 
-В актуальном документальном контракте используются 12 weapon property definitions: `AimAccuracy`, `AutoShots`, `BaseDamage`, `BulletDropRange`, `BurstShots`, `Damage`, `Grouping`, `MaxAimActions`, `Noise`, `OverwatchAngle`, `Recoil`, `WeaponRange` (плюс JAZZ-only `CloseRange` / `CloseRangeFactor` на FirearmProperties).
+В актуальном документальном контракте используются 12 weapon property definitions: `AimAccuracy`, `AutoShots`, `BaseDamage`, `BulletDropRange`, `BurstShots`, `Damage`, `Grouping`, `MaxAimActions`, `Noise`, `OverwatchAngle`, `Recoil`, `WeaponRange` (плюс JAZZ-only `CloseRange` / `CloseRangeFactor` / `BuckshotProjectiles` на FirearmProperties).
 
-В [модели стрельбы](../weapons/accuracy-model.md) `Handling` **удалён**. `Recoil` задаёт тяжесть множительного удержания точности последующих пуль и authorится из `WeaponMass` (десятые кг), `CyclicRPM` и `WeaponSizeClass`; они не читаются повторно в CTH runtime. `BurstShots`/`AutoShots` фиксированно выводятся из RPM при authoring (`/200`, `/100`) и `BurstLimiter` ограничивает только burst. Оптика переносит эффективную прицельную зону через aim progress, не увеличивает физическую дальность и больше не получает старые плоские CTH-effects.
+В [модели стрельбы](../weapons/accuracy-model.md) `Handling` **удалён**. `Recoil` задаёт тяжесть множительного удержания точности последующих пуль и authorится из `WeaponMass` (десятые кг), `CyclicRPM` и `WeaponSizeClass`; они не читаются повторно в CTH runtime. `BurstShots`/`AutoShots` фиксированно выводятся из RPM при authoring (`/200`, `/100`) и `BurstLimiter` ограничивает только burst. Число дробин — `BuckshotProjectiles` (база 1 на стволе; картечь ×9, birdshot/salt ×20). Оптика переносит эффективную прицельную зону через aim progress, не увеличивает физическую дальность и больше не получает старые плоские CTH-effects.
 
 Вырезанные, но всё ещё загруженные классы (`MP5`/`AR15`/`M4Commando`, vanilla `_*` ammo с `Ammopics/TEST.png`) перечислены в [вырезанном контенте](../weapons/cut-content.md). Их нельзя использовать в луте/магазине; живые калибры — только `JAZZ_Caliber_*` / `JAZZ_AMMO_*`.
 

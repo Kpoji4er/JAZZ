@@ -24,7 +24,7 @@ Tube-fed shotguns, break-actions, and revolvers keep one reload button that chan
 | Burst | Short burst; first bullet normal, then retention. |
 | Auto | Long burst: denser fire for ammo and stacked recoil. |
 | MG burst | Lower base action recoil weight; bipod/support still critical. |
-| Buckshot / buckshot burst / double barrel | Area calculation, not one rifled bullet. |
+| Buckshot / buckshot burst / double barrel | Pellet packet (buckshot ≈9); same hit chance per pellet, no in-packet recoil. |
 | Overwatch | Cone control; each interrupt resolves from the real position. |
 | Pin Down | Keeps a target under reaction threat (not a hit guarantee). |
 | Mobile Shot / Run and Gun | Shot or packets during/after movement. |

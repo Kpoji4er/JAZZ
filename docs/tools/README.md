@@ -14,9 +14,12 @@
 | `_apply_med001_loot_equipment_kits.py` | Phase 2: бинт/морфий (± IFAK у мерков) в Equipment-киты без медицины (`loot=all` враги + Mercs leaf tiers). Не трогает ammo/Drop_/Armor. |
 | `_fix_med001_loot_drop_lists.py` | Снимает ошибочные JAZZ med entries с `Drop_*` / Comment=list ammo pools; патчит `PierreGuard_Ordnance`. |
 | `_audit_med001_loot_jazz_units.py` / `_audit_med001_unit_kits.py` | Аудит покрытия Bandage по medical LootDef и UnitData Equipment. |
+| `_audit_loot_missing_items.py` | `jazz-units` `item=` vs known InventoryItem IDs (jazz `InventoryItem/` + vanilla ModTools defs). Exit 1 если есть MissingItem-кандидаты. |
+| `_patch_med_stack_kit_loc.py` | MED stack kits: RU/EN hint «refill with Meds» → «one use = one item»; append `890000000010030` (Reanimationsset). |
 | `_fix_med001_loot_braces.py` | Чинит `}}),` → `}),` на строках JAZZ med loot (баг f-string). |
 | `_bump_units_med_loot_meta.py` | Bump `jazz-units/metadata.lua` Revision + `last_changes` после loot apply. |
 | `_wire_med001_traumas.py` / `_append_med001_trauma_loc.py` | Wiring/loc зональных Trauma* эффектов. |
+| `_apply_jazz_trauma_effect_parent.py` | Trauma* → parent/`object_class` `JazzTraumaEffect` (companions + `items.lua`); paired with early `Code/System_JazzTraumaEffect.lua`. |
 | `_fix_med001_runtime_csv.py` | MED-001: чинит `Russian.csv` Text/Translation (EN source / RU translation) + literal `\\n` → реальные переносы в AdditionalHint. |
 | `_fix_med001_loc_append.py` | Перезаписывает RU/EN строки `890000000010200+` (JazzBandage / trauma timing / kit Bandage desc); Text=EN, Translation=язык. |
 | `_patch_combat_status_ui.py` | CombatBadge: 2–3 critical icons у ника; party combat `idWounded` → `JazzGetPartyPortraitStatusEffects` (parity с satellite). |
@@ -226,20 +229,32 @@ python docs/tools/build-sector-atlas-docs.py
 | `_soft_nerf_smg_aa.py` | Точечный nerf SMG AimAccuracy |
 | `_apply_tier_acc_buffs.py` | Tier accuracy buffs |
 | `_build_accuracy_html.py` | HTML по accuracy-модели |
-| `_rebalance_recoil_physical.py` | JAZZ-WEAPONS-003: authoring mass/RPM/size/limiter и physical Recoil/Burst/Auto в companions + `items.lua`; `--apply` пишет `.bak`. |
+| `_apply_buckshot_projectiles.py` | JAZZ-WEAPONS-006: `BuckshotProjectiles=1` на SG, ammo `target_prop` → `BuckshotProjectiles`, CombatAction/CSV; Auto/Burst снова 0. `--apply`. |
+| `_verify_buckshot_projectiles.py` | Static AC-001..003 для WEAPONS-006. Exit 1 при FAIL. |
+| `_fix_shotgun_pellet_autoshots.py` | **Superseded by 006** — старый hotfix AutoShots=1; не использовать. |
+| `_rebalance_recoil_physical.py` | JAZZ-WEAPONS-003: authoring mass/RPM/size/limiter и physical Recoil/Burst/Auto; не трогает `BuckshotProjectiles`. `--apply` пишет `.bak`. |
 | `_audit_recoil_dist.py` | Static AC audit полей active firearms, recoil anchors, 9×19 differentiation и M16A2/AN94 limiters. |
 | `_fix_madman_salary.py` | Jazz_Madman: `StartingSalary`/`SalaryLv1`/`SalaryMaxLv` в `jazz-units/items.lua` (companion править отдельно). |
 | `_fix_free_merc_salaries.py` | Jazz_Grom / Jazz_Hitman: paid hire salaries в companion + `jazz-units/items.lua`. |
 | `_sync_grom_rehire_chat.py` | Гром RehireIntro: убрать «бесплатный» из `items.lua` + `Russian.csv`. |
 | `_sync_madman_chat_salary_strings.py` | Синк AIM-фраз Бешеного (не «бесплатный») в `items.lua` + `Russian.csv`/`English.csv`. |
 | `_ship_colby_voices_ja2_only.py` | Jazz_Colby: пересобрать `jazz-units/voices/<T-id>.opus` **только** из JA2 Trevor WAV (`trevor.rar` / `trevor_extract/trevor`); пробелы — дубли родственных реплик. `--dry-run` / apply. |
-| `_ship_ja2_merc_voices.py` | Batch: JA2/NightOps SLF + folder packs **или** `speech_source=ja2mercs:<cat>/<merc>[|battle=<pid>][|merge_speech]` (WAV ADPCM/OGG → opus, strict pid filter; `merge_speech` = same-merc dual prefixes e.g. Grom 076+047). Map: `jazz_to_ja2_profile.csv` + `jazz_to_ja2mercs_folders.csv`. `--ja2mercs-remesh` / `--queue` / `--only` / `--dry-run` / `--include-done`. Без neural. |
-| `_ja2mercs_folder_map.py` | Canonical Jazz→`Downloads/ja2mercs/ja2mercs` folder map (remesh / need_pack / skip_ambiguous). Writes `jazz_to_ja2mercs_folders.csv`. |
+| `_ship_ja2_merc_voices.py` | Batch: JA2/NightOps/JA2 Gold SLF + folder packs **или** `ja2mercs:…`. Combat=`SLOT_WAV`; AIM chat via `--aim-chat` / `--aim-chat-only`: classic `081–120`, MERK/RPC/Biff=`HIRE_FALLBACK_WAV`, UB ЦС=`UB_HIRE_PROXY_WAV`, Mike hire alt OLD pack. Never ATTN as hire. Map: `jazz_to_ja2_profile.csv` + folders CSV. |
+| `_import_legion_raider_alt_voices.py` | Импорт альтернативных takes Legion Raider: `Downloads/1.rar` → `jazz-units/voices/<T-id>-1.opus` (те же фразы/T-id, постфикс `-1`). `--rar` / `--dry-run`. |
+| `_gen_ame_roster_60.py` | Генерация design-карточек AME: `docs/design/ame-roster-60.md` (60 имён/био/статов/fixed inventory по категориям). |
+| `_audit_ame_kit_tiers.py` | Аудит китов `ame-roster-60.md` vs потолки `tier_label`: Irr ≤1-2, Fight ≤1-3, Hard/Spec ≤2-1 (`weapons.csv`). |
+| `_ja2mercs_folder_map.py` | Canonical Jazz→ja2mercs (1) pid-prefixed folder map (remesh / skip_*). Writes `jazz_to_ja2mercs_folders.csv`. |
 | `_apply_ja2mercs_profile_map.py` | Apply folder map onto `jazz_to_ja2_profile.csv` (`speech_source`/`profile_id`/`status`). `--dry-run`. |
+| `_wire_ja12_chat_voice_tags.py` | WIP UnitData/items compact chat `T(id,"…")` → `voice:Jazz_*` comments. `--apply` / `--dry-run` / `--only`. |
+| `_clear_ja12_selection_chat_donors.py` | Delete AIM-chat opus that is Selection-copy or merc has no hire 081–120 (silent > ATTN). `--apply` / `--dry-run`. |
+| `_import_ja2mercs_subtitle_bank.py` | Import ja2mercs `*.txt` → `_voice-source/subtitles/<slug>.csv` (line index = SPEECH stem; encoding utf-8/cp1251). |
+| `_apply_ja12_subtitles.py` | Apply subtitle CSV → UnitData/items `T()` + `Russian.csv` via `AIM_CHAT_WAV`/`SLOT_WAV`. `--only` / `--slots chat,combat` / `--apply`. |
 | `_integrate_sj_khalif_mercs.py` | Shady Job `Downloads/SJ/data`: кэш → `_sj_cache`, mercedt CSV, UnitData/VR stubs Benny+Simon, ship Grom/Benny/Simon opus. WF AIM в SJ SPEECH нет. |
 | `_extract_sj_sti_faces.py` | Decode SJ `faces/bigfaces/{66,67}.sti` (+ `b66`/`b67`) → `docs/design/mercs-ja12/{simon,benny}.ja2-face.png` + `_face-source/sj/`. Indexed STCI ETRLE. |
 | `_fill_sj_chat_voices.py` | Copy Selection opus onto missing Benny/Simon/Grom AIM-chat T-ids (`--apply`). |
-| `_fill_ja12_chat_voices.py` | Same donor policy for **all** Jazz_* with VR Selection → missing `voice:Jazz_*` chat T-ids (`--apply` / `--dry-run`). |
+| `_fill_ja12_chat_voices.py` | Wrapper: `_ship_ja2_merc_voices.py --aim-chat-only` (classic/fallback/ub-proxy; not Selection). `--apply` / `--dry-run` / `--only`. |
+| `_pour_ja12_design_hire_chat.py` | Pour AIM-chat RU/EN from `docs/design/mercs-ja12/<slug>.md` → UnitData + `items.lua` + RU/EN CSV; sync missing PartingWords. `--apply` / `--only`. |
+| `_stt_hire_chat_lines.py` | faster-whisper STT of hire stems → UnitData chat text (Quinten/Highball). `--apply` / `--only` / `--model`. |
 | `_expand_ja2_merc_vr_full.py` | Expand stub (~12-slot) Jazz_* VoiceResponse to Colby-like combat coverage (~52 slots / 74 lines); allocates T-ids + RU/EN. Skips Colby/Spouke/need_pack/full VR. Then run `_ship_ja2_merc_voices.py`. |
 | `_audit_ja12_merc_voices.py` | Read-only audit: Jazz_* VR T-ids vs `voices/<tid>.opus`, CSV ship status, TranslatedVoices mount, `g_VoiceVariations`. `--critical` for Selection/Aim/Movement. |
 | `_inject_sj_benny_simon_vr.py` | Inject missing Benny/Simon `ModItemVoiceResponse` folders into `jazz-units/items.lua` (UnitData already via companion). |

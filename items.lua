@@ -6869,7 +6869,7 @@ return {
 						'Modifications', {
 							PlaceObj('CaliberModification', {
 								mod_mul = 20000,
-								target_prop = "AutoShots",
+								target_prop = "BuckshotProjectiles",
 							}),
 							PlaceObj('CaliberModification', {
 								mod_mul = 1250,
@@ -6912,7 +6912,7 @@ return {
 						'Modifications', {
 							PlaceObj('CaliberModification', {
 								mod_mul = 9000,
-								target_prop = "AutoShots",
+								target_prop = "BuckshotProjectiles",
 							}),
 							PlaceObj('CaliberModification', {
 								mod_mul = 4000,
@@ -7092,7 +7092,7 @@ return {
 							}),
 							PlaceObj('CaliberModification', {
 								mod_mul = 20000,
-								target_prop = "AutoShots",
+								target_prop = "BuckshotProjectiles",
 							}),
 							PlaceObj('CaliberModification', {
 								mod_mul = 1300,
@@ -8368,7 +8368,7 @@ return {
 					'Modifications', {
 						PlaceObj('CaliberModification', {
 							mod_mul = 20000,
-							target_prop = "AutoShots",
+							target_prop = "BuckshotProjectiles",
 						}),
 					},
 					'AppliedEffects', {
@@ -8395,7 +8395,7 @@ return {
 					'Modifications', {
 						PlaceObj('CaliberModification', {
 							mod_mul = 9000,
-							target_prop = "AutoShots",
+							target_prop = "BuckshotProjectiles",
 						}),
 						PlaceObj('CaliberModification', {
 							mod_mul = 4000,
@@ -8530,7 +8530,7 @@ return {
 						}),
 						PlaceObj('CaliberModification', {
 							mod_mul = 20000,
-							target_prop = "AutoShots",
+							target_prop = "BuckshotProjectiles",
 						}),
 					},
 					'AppliedEffects', {
@@ -28145,6 +28145,7 @@ return {
 					'Recoil', 25,
 					'MaxAimActions', 2,
 					'BurstShots', 0,
+					'BuckshotProjectiles', 1,
 					'AutoShots', 0,
 					'BulletDropRange', 8,
 
@@ -28215,6 +28216,7 @@ return {
 					'Recoil', 25,
 					'MaxAimActions', 2,
 					'BurstShots', 0,
+					'BuckshotProjectiles', 1,
 					'AutoShots', 0,
 					'BulletDropRange', 7,
 
@@ -28310,6 +28312,7 @@ return {
 					'Recoil', 25,
 					'MaxAimActions', 2,
 					'BurstShots', 0,
+					'BuckshotProjectiles', 1,
 					'AutoShots', 0,
 					'BulletDropRange', 8,
 
@@ -28402,6 +28405,7 @@ return {
 					'WeaponSizeClass', "Rifle",
 					'BurstLimiter', 0,
 					'Recoil', 25,
+					'BuckshotProjectiles', 1,
 					'AutoShots', 0,
 					'BulletDropRange', 9,
 
@@ -28462,6 +28466,7 @@ return {
 					'WeaponSizeClass', "Rifle",
 					'BurstLimiter', 0,
 					'Recoil', 25,
+					'BuckshotProjectiles', 1,
 					'AutoShots', 0,
 					'BulletDropRange', 8,
 
@@ -28546,6 +28551,7 @@ return {
 					'Recoil', 25,
 					'MaxAimActions', 2,
 					'BurstShots', 0,
+					'BuckshotProjectiles', 1,
 					'AutoShots', 0,
 					'BulletDropRange', 6,
 
@@ -28611,6 +28617,7 @@ return {
 					'Recoil', 25,
 					'MaxAimActions', 2,
 					'BurstShots', 0,
+					'BuckshotProjectiles', 1,
 					'AutoShots', 0,
 					'BulletDropRange', 8,
 
@@ -28669,6 +28676,7 @@ return {
 					'WeaponSizeClass', "Rifle",
 					'BurstLimiter', 0,
 					'Recoil', 25,
+					'BuckshotProjectiles', 1,
 					'AutoShots', 0,
 					'BulletDropRange', 9,
 
@@ -28770,6 +28778,7 @@ return {
 					'WeaponSizeClass', "Rifle",
 					'BurstLimiter', 0,
 					'Recoil', 25,
+					'BuckshotProjectiles', 1,
 					'AutoShots', 0,
 					'BulletDropRange', 9,
 
@@ -28863,6 +28872,7 @@ return {
 					'WeaponSizeClass', "Rifle",
 					'BurstLimiter', 0,
 					'Recoil', 25,
+					'BuckshotProjectiles', 1,
 					'AutoShots', 0,
 					'BulletDropRange', 8,
 
@@ -28972,6 +28982,7 @@ return {
 					'WeaponSizeClass', "Rifle",
 					'BurstLimiter', 0,
 					'Recoil', 25,
+					'BuckshotProjectiles', 1,
 					'AutoShots', 0,
 					'BulletDropRange', 8,
 
@@ -64358,7 +64369,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
 						--local aoeDamage = MulDivRound(base, const.Weapons.ShotgunCollateralDamage, 100)
 						
-						local num_shots = weapon.AutoShots
+						local num_shots = weapon.BuckshotProjectiles
 						local damage = num_shots*base
 						return damage, base, damage - base
 					end,
@@ -64374,7 +64385,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						
 						
 						local damage, base, bonus = self:GetActionDamage(unit)
-						local num_shots = weapon.AutoShots
+						local num_shots = weapon.BuckshotProjectiles
 						local descr = T{description, num = num_shots, damage = base}
 						return CombatActionsAppendFreeAimDescription(self, unit, descr)
 					end,
@@ -64390,7 +64401,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						local args = table.copy(args)
 						
 						args.weapon = self:GetAttackWeapons(unit, args)
-						args.num_shots = args.weapon and args.weapon.AutoShots or 12
+						args.num_shots = args.weapon and args.weapon.BuckshotProjectiles or 1
 						
 						--args.aoe_action_id = self.id
 						args.fx_action = "WeaponBuckshot"
@@ -64472,11 +64483,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						local weapon = self:GetAttackWeapons(unit, args)
 						if not weapon then return 0 end
 						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
-						--local aoeDamage = MulDivRound(base, const.Weapons.ShotgunCollateralDamage, 100)
-						
-						local num_shots = weapon.AutoShots
-						local num_bursts = weapon.BurstShots
-						local damage = num_bursts*num_shots*base
+						-- pellets per shell x shells in burst (action param; not BurstShots/AutoShots)
+						local pellets = weapon.BuckshotProjectiles or 1
+						local shells = self:ResolveValue("num_shots") or 3
+						local damage = shells * pellets * base
 						return damage, base, damage - base
 					end,
 					GetActionDescription = function (self, units)
@@ -64484,7 +64494,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						local weapon = self:GetAttackWeapons(unit)
 						local base = unit:GetBaseDamage(weapon)
 						--local aoedamage = MulDivRound(base, const.Weapons.ShotgunCollateralDamage, 100)
-						local num_shots = IsKindOf(weapon, "Firearm") and weapon:GetAutofireShots(self) or 1
+						local num_shots = self:ResolveValue("num_shots") or 3
 						local descr = T{self.Description, num_shots = num_shots, damage = base, aoedamage = MulDivRound(base, const.Weapons.ShotgunCollateralDamage, 100)}
 						descr = CombatActionsAppendFreeAimDescription(self, unit, descr)
 						return descr
@@ -64567,8 +64577,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						local unit = units[1]
 						args.multishot = true
 						local weapon = self:GetAttackWeapons(unit, args)
-						args.num_shots = args.weapon and args.weapon.AutoShots or 1
-						args.num_shots = args.num_shots * 2
+						args.weapon = weapon
+						args.num_shots = (weapon and weapon.BuckshotProjectiles or 1) * 2
 						local ap = self:GetAPCost(unit, args)
 						NetStartCombatAction(self.id, unit, ap, args)
 					end,
@@ -64588,7 +64598,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
 						--local aoeDamage = MulDivRound(base, const.Weapons.ShotgunCollateralDamage, 100)
 						
-						local num_shots = weapon.AutoShots
+						local num_shots = weapon.BuckshotProjectiles
 						local damage = num_shots*base
 						return damage, base, damage - base
 					end,
@@ -64604,14 +64614,14 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						
 						
 						local damage, base, bonus = self:GetActionDamage(unit)
-						local num_shots = weapon.AutoShots * 2
+						local num_shots = weapon.BuckshotProjectiles * 2
 						local descr = T{description, num = num_shots, damage = base}
 						return CombatActionsAppendFreeAimDescription(self, unit, descr)
 					end,
 					GetActionResults = function (self, unit, args)
 						local args = table.copy(args)
 						args.weapon = self:GetAttackWeapons(unit, args)
-						args.num_shots = (args.weapon and args.weapon.AutoShots or 12) * 2
+						args.num_shots = (args.weapon and args.weapon.BuckshotProjectiles or 1) * 2
 						--args.aoe_action_id = self.id
 						args.fx_action = "WeaponBuckshot"
 						--args.aoe_fx_action = "WeaponBuckshot"
@@ -64702,7 +64712,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						local args = table.copy(args)
 						
 						args.weapon = self:GetAttackWeapons(unit, args)
-						args.num_shots = args.weapon and args.weapon.AutoShots or 12
+						args.num_shots = args.weapon and args.weapon.BuckshotProjectiles or 1
 						
 						--args.aoe_action_id = self.id
 						args.fx_action = "WeaponBuckshot"
@@ -108196,6 +108206,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			'Recoil', 25,
 			'MaxAimActions', 2,
 			'BurstShots', 0,
+			'BuckshotProjectiles', 1,
 			'AutoShots', 0,
 			'BulletDropRange', 6,
 

@@ -29,6 +29,7 @@ DefineClass.M41Shotgun = {
 	PointBlankBonus = 1,
 	OverwatchAngle = 1200,
 	BuckshotConeAngle = 120,
+	BuckshotProjectiles = 1,
 	BuckshotFalloffDamage = 20,
 	Noise = 32,
 	HandSlot = "TwoHanded",

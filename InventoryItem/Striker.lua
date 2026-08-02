@@ -28,6 +28,7 @@ DefineClass.Striker = {
 	PointBlankBonus = 1,
 	OverwatchAngle = 2160,
 	BuckshotConeAngle = 300,
+	BuckshotProjectiles = 1,
 	BuckshotFalloffDamage = 10,
 	Noise = 39,
 	HandSlot = "TwoHanded",

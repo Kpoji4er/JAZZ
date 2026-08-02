@@ -32,6 +32,7 @@ DefineClass.DoubleBarrelShotgun = {
 	PointBlankBonus = 1,
 	OverwatchAngle = 2280,
 	BuckshotConeAngle = 240,
+	BuckshotProjectiles = 1,
 	BuckshotFalloffDamage = 10,
 	Noise = 40,
 	HandSlot = "TwoHanded",

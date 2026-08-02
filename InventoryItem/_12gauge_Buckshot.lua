@@ -21,7 +21,7 @@ DefineClass._12gauge_Buckshot = {
 	Modifications = {
 		PlaceObj('CaliberModification', {
 			mod_mul = 20000,
-			target_prop = "AutoShots",
+			target_prop = "BuckshotProjectiles",
 		}),
 	},
 	AppliedEffects = {

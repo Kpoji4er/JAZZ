@@ -32,6 +32,8 @@ Regular repair restores current resource only; it does not restore lost reliabil
 ## Per-round top-up
 Tube-fed shotguns, break-actions, and revolvers use normal Reload when empty. Once they hold at least one round, that same slot becomes **Top up** and loads exactly one round for a rounded-up share of the full reload cost (minimum 1 AP). AA12 and USAS-12 retain full reloads because they use detachable magazines.
 
+**12-gauge shells:** ammo type sets the pellet packet — buckshot ≈9, birdshot/salt ≈20; slug is a single projectile.
+
 ## Disposable launchers
 **M72 LAW** has one embedded shot: it cannot be reloaded or repaired. After any shot that is fired, including a mishap, the launcher leaves the inventory and a visible empty tube remains on the ground. The **RPG-7** remains reusable and reloads separate rounds.
 

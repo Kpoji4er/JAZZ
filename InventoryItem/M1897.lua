@@ -30,6 +30,7 @@ DefineClass.M1897 = {
 	PointBlankBonus = 1,
 	OverwatchAngle = 2160,
 	BuckshotConeAngle = 180,
+	BuckshotProjectiles = 1,
 	BuckshotFalloffDamage = 10,
 	Noise = 36,
 	HandSlot = "TwoHanded",
