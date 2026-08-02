@@ -46,7 +46,7 @@
 | `jazz-units/metadata.lua` | generated and loaded | явно регистрирует все 38 `JAZZ_Legion_*` файлов |
 | `jazz-units/Code/Legion.lua` | loaded runtime | пул имён для `eliteCategory = "Legion"`; не владеет таксономией и equipment tier |
 | `jazz/Code/LegionUnitPrices.lua` | loaded runtime | strategic `$` каталог на 38 `JAZZ_Legion_*` (JAZZ-STRATEGY-004); используется generator/spawn (008) |
-| `jazz/Code/LegionSquadComposition.lua` | loaded runtime | officer density + T4 MercCaptain gate (JAZZ-STRATEGY-005); подключён к generator (008) |
+| `jazz/Code/LegionSquadComposition.lua` | loaded runtime | officer density + T4 MercCaptain gate (JAZZ-STRATEGY-005); medic density Bonemaker (JAZZ-STRATEGY-015); подключён к generator (008) |
 | `jazz/scripts/legion-loadouts/` | build-time tooling | JAZZ-UNITS-003: recipes/catalogs → regenerate Legion LootDef in `jazz-units/items.lua` |
 
 ## Два разных значения слова «тир»
@@ -58,7 +58,7 @@
 
 Стрелка на диаграмме означает линию дизайна/эскалации состава. В runtime нет функции, которая заменяет объект `JAZZ_Legion_*T1*` объектом `*T2*`. Конкретный public UnitData ID выбирается squad/map/spawn data.
 
-Strategic generator (STRATEGY-005): class-tiers **дополняют** друг друга (T3/T4 добавляются к line, не вычищают T1/T2). Офицеры по density: Sergeant `/8`, Lieutenant `/15–20`, Captain `/30`; `MercenaryCaptain` обязателен для T4-отрядов.
+Strategic generator (STRATEGY-005 / 015): class-tiers **дополняют** друг друга (T3/T4 добавляются к line, не вычищают T1/T2). Офицеры по density: Sergeant `/8`, Lieutenant `/15–20`, Captain `/30`; `MercenaryCaptain` обязателен для T4-отрядов. Медики: `Bonemaker` — при размере отряда `n≥10` минимум 1, далее `floor(n/15)` (≈1 на 10–20).
 
 ## Таксономия UnitData
 
@@ -105,7 +105,7 @@ Strategic generator (STRATEGY-005): class-tiers **дополняют** друг 
 - `Rifleman → Marksman`;
 - `Marauder → Raider → Veteran → Mercenary`;
 - `Ambusher → Sniper → MercenarySniper`;
-- `Bonemaker` — отдельная медицинская роль без стрелки повышения.
+- `Bonemaker` — отдельная медицинская роль без стрелки повышения; combat generator резервирует слоты по STRATEGY-015 (не только random line).
 
 ### Фланкеры
 

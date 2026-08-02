@@ -16,6 +16,9 @@ function JAZZ_GetLegionUnitClassBucket(unit_id)
 	if type(unit_id) ~= "string" then
 		return "line"
 	end
+	if JAZZ_IsLegionMedicUnit and JAZZ_IsLegionMedicUnit(unit_id) then
+		return "medic"
+	end
 	if string.find(unit_id, "Leader", 1, true) then
 		return "officer"
 	end
@@ -60,7 +63,8 @@ end
 
 local function lWouldBreakSoftCap(units, candidate, target_size)
 	local bucket = JAZZ_GetLegionUnitClassBucket(candidate)
-	if bucket == "line" or bucket == "officer" then
+	-- Officers/medics are reserved by density plans; line has no soft cap.
+	if bucket == "line" or bucket == "officer" or bucket == "medic" then
 		return false
 	end
 	local caps = lSoftCaps(math.max(target_size, #units + 1))
@@ -69,6 +73,26 @@ local function lWouldBreakSoftCap(units, candidate, target_size)
 		return false
 	end
 	return lCountBucket(units, bucket) >= cap
+end
+
+local function lMedicPlan(target_size)
+	local plan = {}
+	local count = JAZZ_GetLegionMaxMedics and JAZZ_GetLegionMaxMedics(target_size) or 0
+	local medic_id = JAZZ_GetLegionMedicUnitId and JAZZ_GetLegionMedicUnitId() or "JAZZ_Legion_FrontT1_Bonemaker"
+	for _ = 1, count do
+		plan[#plan + 1] = medic_id
+	end
+	return plan
+end
+
+local function lCountMedics(units)
+	local count = 0
+	for _, id in ipairs(units or empty_table) do
+		if JAZZ_IsLegionMedicUnit and JAZZ_IsLegionMedicUnit(id) then
+			count = count + 1
+		end
+	end
+	return count
 end
 
 local function lEligibleUnits(role)
@@ -173,6 +197,7 @@ local function lTryBuild(role, recipe, budget_money, budget_manpower, mode, cont
 
 	local want_t4 = mode == "full" and (recipe.tier_bias == "heavy" or recipe.tier_bias == "strike" or recipe.tier_bias == "t2_plus")
 	local officers = lOfficerPlan(target, want_t4)
+	local medics = lMedicPlan(target)
 	local units = {}
 	local spent = 0
 
@@ -192,12 +217,33 @@ local function lTryBuild(role, recipe, budget_money, budget_manpower, mode, cont
 		::continue_officer::
 	end
 
+	-- Medic density is soft on budget: skip unaffordable slots rather than fail the squad.
+	for _, medic_id in ipairs(medics) do
+		if not JAZZ_LegionUnitAllowedForRole(medic_id, role) then
+			goto continue_medic
+		end
+		local price = JAZZ_GetLegionUnitPrice(medic_id)
+		if not price or spent + price > budget_money then
+			goto continue_medic
+		end
+		if budget_manpower and #units + 1 > budget_manpower then
+			goto continue_medic
+		end
+		if #units >= target then
+			break
+		end
+		units[#units + 1] = medic_id
+		spent = spent + price
+		::continue_medic::
+	end
+
 	local slot = 0
 	while #units < target do
 		slot = slot + 1
 		local candidates = {}
 		for _, entry in ipairs(eligible) do
 			if entry.bucket ~= "officer"
+				and entry.bucket ~= "medic"
 				and spent + entry.price <= budget_money
 				and not lWouldBreakSoftCap(units, entry.id, target)
 			then
@@ -253,15 +299,17 @@ local function lTryBuild(role, recipe, budget_money, budget_manpower, mode, cont
 	}
 end
 
---- Generate a combat composition for a strategic role.
+--- Generate a combat/logistics composition for a strategic role.
 -- @param role string recipe key (major uses "retribution")
 -- @param budget_money number
 -- @param budget_manpower number|nil nil = unlimited people
 -- @param mode "auto"|"full"|"poor"
 -- @param rand_context string InteractionRand suffix
-function JAZZ_GenerateLegionSquadComposition(role, budget_money, budget_manpower, mode, rand_context)
+-- @param growth_progress number|nil 0..1000 STRATEGY-016 size curve
+function JAZZ_GenerateLegionSquadComposition(role, budget_money, budget_manpower, mode, rand_context, growth_progress)
 	local recipe_role = role == "major" and "retribution" or role
-	local recipe = JAZZ_GetLegionRoleRecipe(recipe_role)
+	local recipe = JAZZ_ResolveLegionRoleRecipe and JAZZ_ResolveLegionRoleRecipe(recipe_role, growth_progress)
+		or JAZZ_GetLegionRoleRecipe(recipe_role)
 	if not recipe then
 		return false
 	end
@@ -293,14 +341,28 @@ function JAZZ_LegionRoleUsesCompositionGenerator(role)
 		or role == "qrf"
 		or role == "reinforce"
 		or role == "major"
+		or role == "tax"
+		or role == "shipment"
+		or role == "supply"
+		or role == "recruiter"
+		or role == "manpower"
+end
+
+function JAZZ_LegionRoleIsLogisticsEscort(role)
+	return role == "tax"
+		or role == "shipment"
+		or role == "supply"
+		or role == "recruiter"
+		or role == "manpower"
 end
 
 --- Build a list of UnitData template IDs to add onto an existing squad.
 -- existing_template_ids: current living unit class/template ids (for soft-cap accounting).
 -- Returns { units = {...}, money_cost, manpower_cost } or false if nothing affordable.
-function JAZZ_GenerateLegionSquadTopUp(existing_template_ids, role, budget_money, budget_manpower, rand_context)
+function JAZZ_GenerateLegionSquadTopUp(existing_template_ids, role, budget_money, budget_manpower, rand_context, growth_progress)
 	local recipe_role = role == "major" and "retribution" or role
-	local recipe = JAZZ_GetLegionRoleRecipe(recipe_role)
+	local recipe = JAZZ_ResolveLegionRoleRecipe and JAZZ_ResolveLegionRoleRecipe(recipe_role, growth_progress)
+		or JAZZ_GetLegionRoleRecipe(recipe_role)
 	if not recipe then
 		return false
 	end
@@ -325,11 +387,28 @@ function JAZZ_GenerateLegionSquadTopUp(existing_template_ids, role, budget_money
 	local added = {}
 	local spent = 0
 	local slot = 0
+	local medic_id = JAZZ_GetLegionMedicUnitId and JAZZ_GetLegionMedicUnitId() or "JAZZ_Legion_FrontT1_Bonemaker"
+	local medic_need = (JAZZ_GetLegionMaxMedics and JAZZ_GetLegionMaxMedics(target) or 0) - lCountMedics(current)
+	while medic_need > 0 and #current < target do
+		local price = JAZZ_GetLegionUnitPrice(medic_id)
+		if not price
+			or spent + price > budget_money
+			or (budget_manpower and (#added + 1) > budget_manpower)
+			or not JAZZ_LegionUnitAllowedForRole(medic_id, recipe_role)
+		then
+			break
+		end
+		current[#current + 1] = medic_id
+		added[#added + 1] = medic_id
+		spent = spent + price
+		medic_need = medic_need - 1
+	end
 	while #current < target do
 		slot = slot + 1
 		local candidates = {}
 		for _, entry in ipairs(eligible) do
 			if entry.bucket ~= "officer"
+				and entry.bucket ~= "medic"
 				and spent + entry.price <= budget_money
 				and (not budget_manpower or (#added + 1) <= budget_manpower)
 				and not lWouldBreakSoftCap(current, entry.id, target)
@@ -367,12 +446,14 @@ function JAZZ_GenerateLegionSquadTopUp(existing_template_ids, role, budget_money
 	}
 end
 
-function JAZZ_GetLegionRoleOptimalSize(role)
-	local recipe = JAZZ_GetLegionRoleRecipe(role == "major" and "retribution" or role)
+function JAZZ_GetLegionRoleOptimalSize(role, growth_progress)
+	local recipe = JAZZ_ResolveLegionRoleRecipe and JAZZ_ResolveLegionRoleRecipe(role == "major" and "retribution" or role, growth_progress)
+		or JAZZ_GetLegionRoleRecipe(role == "major" and "retribution" or role)
 	return recipe and recipe.size_max or false
 end
 
-function JAZZ_GetLegionRoleMinSize(role)
-	local recipe = JAZZ_GetLegionRoleRecipe(role == "major" and "retribution" or role)
+function JAZZ_GetLegionRoleMinSize(role, growth_progress)
+	local recipe = JAZZ_ResolveLegionRoleRecipe and JAZZ_ResolveLegionRoleRecipe(role == "major" and "retribution" or role, growth_progress)
+		or JAZZ_GetLegionRoleRecipe(role == "major" and "retribution" or role)
 	return recipe and recipe.size_min or false
 end

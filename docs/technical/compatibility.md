@@ -45,6 +45,10 @@ COMPAT-004 (2026-08-01): NoMaps Global AI revive + UnitData remap + tiered conta
 
 COMPAT-005 (2026-08-02): NoMaps day-1 weight class — `LegionJAZZSquadT1_Early` (true T1-only) as default remap alias; expands to T2/T3 squads when gear major rises; UnitData remap caps class at T1 on gear major I (`Stronger_Elite`→T4 only major III+). Spec: [JAZZ-COMPAT-005](../specs/active/JAZZ-COMPAT-005.md).
 
+COMPAT-006 (2026-08-02): NoMaps auto-region catchment shrink (nomaps **0.9.11**) — Chebyshev **R=3** (was 8); soft refresh Voronoi across all tracked outposts; `gv_JAZZ_NoMaps.ai_region_rev` rebuilds `Sectors` on existing saves. Spec: [JAZZ-COMPAT-006](../specs/active/JAZZ-COMPAT-006.md). **Radius superseded by COMPAT-007** (orphans).
+
+COMPAT-007 (2026-08-02): NoMaps full surface coverage (nomaps **0.9.12**) — unbounded nearest-outpost Voronoi (`AUTO_REGION_RADIUS=false`); mop≤1 / foreign_gp=0 retained; `ai_region_rev=2` rebuild. Spec: [JAZZ-COMPAT-007](../specs/active/JAZZ-COMPAT-007.md).
+
 ## Конфликты с другими модами
 
 Особенно высока вероятность конфликта с модами, которые изменяют CTH, оружие, inventory slots, броню, ранения, AI, awareness, UI, satellite squads, сектора, карты, погоду, видимость, те же UnitData, entities, localization IDs, engine messages или declared variables. `OnMsg` накапливается по registration order, а `MsgClear` способен удалить handlers всех слоёв.

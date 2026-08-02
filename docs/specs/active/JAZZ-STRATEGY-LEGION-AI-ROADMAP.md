@@ -43,6 +43,9 @@ approved_by: project-owner
 | JAZZ-STRATEGY-011 | Player recruit accrual + militia API (Operation hook morning Q) |
 | JAZZ-STRATEGY-012 | Base refit / wounded retreat / idle top-up for regular combat roles |
 | JAZZ-STRATEGY-013 | Persistent squads (no despawn); mission-budget rest 12–36h; patrol sector dwell; recon/QRF idle garrison assist |
+| JAZZ-STRATEGY-015 | Medic density: Bonemaker reserved ~1 / 10–20 (min 1 at n≥10, `floor(n/15)`) in combat generator |
+| JAZZ-STRATEGY-016 | Early→mature squad sizes (B+C); diamond/`$` income ×0.25 (÷4); slower cadence |
+| JAZZ-STRATEGY-017 | Tagged money cargo in inventory for tax/shipment/supply; survives loot regen; live resync |
 
 ## Валюта (утверждено)
 
@@ -115,6 +118,8 @@ Vanilla якоря:
 
 Уровни офицеров **сосуществуют** в пределах caps (не «только один командир»).
 
+**Медики (утверждено, STRATEGY-015):** `JAZZ_Legion_FrontT1_Bonemaker` — при `n≥10` минимум 1, иначе/`далее` `floor(n/15)` (≈1 на 10–20). Reserved slots в combat generator; не random line-spam.
+
 **Class-tier complementarity:** T1…T4 **дополняют** состав; старший tier сильнее, но не вытесняет младших. Poor = больше T1/T2; full/elite **добавляет** T3/T4.
 
 #### 6c. Политика генерации → [JAZZ-STRATEGY-008](JAZZ-STRATEGY-008.md)
@@ -149,6 +154,19 @@ Major держит свои пулы (`major.money`, `major.manpower`) с capaci
 #### 7c. Player militia ↔ recruits → [JAZZ-STRATEGY-011](JAZZ-STRATEGY-011.md)
 
 Частично: player city/farm копят тот же `poi_recruits`; API get/consume; optional soft gate если найден `MilitiaTraining`/`TrainMilitia`. Полный Operation contract — [morning questions](JAZZ-GLOBAL-AI-MORNING-QUESTIONS.md).
+
+### 8. Faction overlay (будущее) → draft [JAZZ-STRATEGY-014](JAZZ-STRATEGY-014.md)
+
+JA3 не имеет матрицы фракций и faction-vs-faction войны. Целевой контракт (owner 2026-08-02, **draft**):
+
+- Фракции: Legion / Adonis / Army / Rebels (+ player); **Smugglers** — минифракция (иконка есть, director later).
+- Темы/цвета щитов: `SquadsIcons/Enemy/{legion,army,adonis,rebels,smugglers}.png` — таблица hex в STRATEGY-014.
+- Rebels — союз игроку; **всегда** враг остальным AI-фракциям.
+- Adonis ↔ Army — мир; оба **враг Легиону**.
+- Adonis/Army → player: **нейтрал до World Flip**, враг после.
+- Аванпост: **кто захватил — тот владеет**; Flip не возвращает форт Легиону автоматически.
+- **Одна матрица sat+tactical:** hostile на стратегии ⇒ воюют на тактической карте / autoresolve; ally/neutral — нет (не «все красные = одна сторона»).
+- Реализация = overlay + ownership + sat capture + tactical hostility wiring — с нуля, не «включить vanilla factions».
 
 ## Иконки (ассеты)
 

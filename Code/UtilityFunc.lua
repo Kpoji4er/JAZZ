@@ -4,6 +4,10 @@ function RegenerateLegionLoot() RegenerateLegionLootVar = true end
 function OnMsg.OpenSatelliteView()
 	if RegenerateLegionLootVar then
 		_RegenerateLegionLoot()
+		-- STRATEGY-017: loot regen strips DiamondBriefcase cargo; restore from payload.
+		if JAZZ_LegionAIResyncMoneyCargo then
+			JAZZ_LegionAIResyncMoneyCargo()
+		end
 	end
 end
 
@@ -55,4 +59,7 @@ function _RegenerateLegionLoot()
 		end
 	end
 	RegenerateLegionLootVar = false
+	if JAZZ_LegionAIResyncMoneyCargo then
+		JAZZ_LegionAIResyncMoneyCargo()
+	end
 end

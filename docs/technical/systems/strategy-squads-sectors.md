@@ -70,23 +70,25 @@ Maps добавляет четыре `GuardpostObjective` ModItems. Units пре
 
 Пилот включён только для Region `ErnieIsland`, управляемого аванпоста `I7` и штаба Майора `B28`; остальные guardposts продолжают legacy-путь. Статическая конфигурация находится в Region/SatelliteSector presets, а изменяемый source of truth — versioned `GameVar("gv_JAZZ_LegionAI", ...)` со schema **`3`** ($ + manpower). Existing save со schema `1` мигрирует на `$` (v2), затем на manpower pools (v3). Начальный Heat региона — максимум Heat секторов с clamp `0..1000`; director сверяет существующие и исчезнувшие отряды.
 
-Почасовой tick: base passive `$` (default **0**) пишется в `outpost.money` (capacity **120000**); mine `$` копятся в `diamond_stock` и едут shipment’ом. City/farm `$` **не** льются hourly в аванпост — копятся в `region_state.poi_money` пульсом раз в 3 суток (`POIGenerationInterval`; city **$2500** / farm **$800**; stock cap `PoiMoneyCap` **12000**) и доезжают ролью `tax`. Hourly tick в `major.money` не пишет. Major capacity **1200000**, starting **120000** (≥ одного supply cargo **12000**). Outpost starting **12000** (&lt; 40% supply-trigger) — supply-конвой легален сразу, spawn не форсируется. TaxCap **1**, TaxThreshold **1000**, TaxCargoMax **12000**, cooldown 24h. Раз в 6 часов командное окно завершает работы, обновляет retake-цели, назначает задачи и спавнит regular-отряды **только при нужде** и наличии `$`/manpower. Роли пилота:
+Почасовой tick: base passive `$` (default **0**) пишется в `outpost.money` (capacity **120000**); mine `$` копятся в `diamond_stock` и едут shipment’ом. City/farm `$` **не** льются hourly в аванпост — копятся в `region_state.poi_money` пульсом раз в **4** суток (`POIGenerationInterval` **96h**; authored city **$2500** / farm **$800**; stock cap authored `PoiMoneyCap` **12000**) и доезжают ролью `tax`. **STRATEGY-016:** runtime `JAZZ_LegionEconomyScalePct=25` (÷4) умножает `$`/алмазные rates + starting pools + shipment/tax cargo thresholds при `lConfig` (manpower floors 8/16). Hourly tick в `major.money` не пишет. Major capacity **1200000**, starting authored **120000**. TaxCap **1**, TaxThreshold **1000** (не scaled), TaxCargoMax scaled, cooldown **48h**. Командное окно **12h**. Роли пилота:
 
 - `garrison` — занимает key/POI (Outpost → City → Mine → Farm), только если сектор Легиона без обороны: нет managed garrison-задачи и нет уже стоящего Legion/enemy отряда (включая pre-placed);
 - `patrol` — ходит по key/POI **включая player Side**; dwell **6–24h** в каждом секторе маршрута (`PatrolSectorDwellMin/Max`); предпочитает пустые сектора (нет player squad);
 - `recon` — только при sector Heat ≥ `ReconHeatThreshold` («шум»); выходит к нагретому сектору, наблюдает; при обнаружении merc squad возвращает report (task UI называет сектор); при observation timeout без контакта один раз снижает Heat наблюдаемого сектора на `ReconNoContactHeatReduction` (default 50, clamp `0..1000`); **если своей задачи нет** — может взять assist `garrison`/`reinforce` (роль остаётся recon);
 - `qrf` — только при угрозе: retake player key-сектора или свежий recon report; **если своей задачи нет** — тот же garrison assist;
 - `reinforce` — пограничное усиление: Legion key/POI, соседний с player Side или player squad; иконка REINFORCE;
-- `supply` — доставляет из `B28` `$` (`payload.money`); task UI показывает сумму; маршрут **может воду** (`land_water_boatless`, исключение для Major↔outpost); после сдачи → return HQ → rest; idle reuse;
-- `tax` — обходит Legion economic POI с `region_state.poi_money` (не каждый City-tagged wilderness), собирает `$` до cargo max, сдаёт на аванпост (cap 1, threshold 1000, cooldown 24h); **не despawn** — rest на базе и reuse; city/farm `$` и recruits накапливаются пульсом раз в 3 суток (`POIGenerationInterval`); stock на POI capped (`PoiMoneyCap` 12000); missed pulses catch-up max 1 cycle;
-- `recruiter` — спавнит `JAZZ_Legion_Recruit`; на базе strip всех Recruit → `outpost.manpower` (cap 32), излишек → `outbound_manpower`; **эскорт не retire** — rest + reuse; **не** делит суточный combat spawn-slot аванпоста (свой `RecruiterCooldown` / cap);
-- `manpower` — Major→outpost **только при manpower=0**; обратный караван outpost→Major забирает `outbound_manpower`; после сдачи → rest, не RemoveSquad; тоже без combat spawn-slot;
-- Combat spawn (`garrison`/`patrol`/`recon`/`qrf`/`reinforce`/`major`): только composition generator; без affordable состава — не спавнит; всегда списывает `$` + manpower по числу тел (без free EnemySquadDef fallback).
-- garrison cap runtime = число важных Legion-секторов + 1; ослабленный гарнизон (≤10 living) возвращается на базу;
-- максимум 1 managed spawn / сутки / аванпост;
-- unlocked Hospital бафает managed Legion squads (`Inspired`, 24h; без HP-heal на satellite);
-- `shipment` — везёт `$` shipment-stock из `I7` в `B28`; inventory = `lEnsureMoneyCargo`; после сдачи → return outpost → rest/reuse;
-- `major` (Retribution) — при Heat региона 800+ создаёт/reuse ответ с HQ `B28`; после hold → return → rest; cooldown 72 часа.
+- `supply` — доставляет из HQ `$` (`payload.money`); task UI показывает сумму; inventory = tagged `lSyncMoneyCargo`; маршрут **может воду** (`land_water_boatless`); после сдачи → clear cargo → return HQ → rest; idle reuse;
+- `tax` — обходит Legion economic POI с `region_state.poi_money`, собирает `$` до cargo max, **синхронизирует** Tiny/DB в inventory, сдаёт на аванпост (cap 1, threshold 1000, cooldown **48h**); **не despawn** — rest + reuse;
+- `recruiter` — спавнит `JAZZ_Legion_Recruit`; на базе strip всех Recruit → `outpost.manpower` (cap 32), излишек → `outbound_manpower`; **эскорт не retire** — rest + reuse; свой `RecruiterCooldown` **48h**;
+- `manpower` — Major→outpost **только при manpower=0**; обратный караван outpost→Major забирает `outbound_manpower`; после сдачи → rest, не RemoveSquad;
+- Combat spawn (`garrison`/`patrol`/`recon`/`qrf`/`reinforce`/`major`): composition generator с **STRATEGY-016** early→mature sizes (time/heat/tier); всегда `$` + manpower;
+- Logistics escorts (`tax`/`shipment`/`supply`/`recruiter`/`manpower`): composition templates at effective escort size (не сырой EnemySquadDef 15–25);
+- **Medic density (JAZZ-STRATEGY-015):** combat generator резервирует Bonemaker на effective `n`;
+- garrison cap runtime = число важных Legion-секторов + 1; ослабленный гарнизон возвращается на базу;
+- максимум 1 managed combat spawn / **48h** / аванпост;
+- unlocked Hospital бафает managed Legion squads (`Inspired`, 24h);
+- `shipment` — везёт `$` shipment-stock в HQ; inventory = tagged cargo (survives loot regen via hourly/`ConflictStart`/`JAZZ_LegionAIResyncMoneyCargo`); после сдачи clear + rest;
+- `major` (Retribution) — Heat 800+; cooldown 72 часа.
 
 **Lifecycle (JAZZ-STRATEGY-013):** happy-path **без RemoveSquad** (retire только living==0). После исчерпания `missions_left` отряд возвращается на home → state `resting` **12–36h** (`BaseRestMin/Max`, heal+top-up; **garrison без обязательного rest**) → refresh budget → `ready_for_orders`. Idle на базе только если после отдыха **нечего делать**. Recon/QRF без primary request могут assist гарнизон. Field understrength/wounded → retreat (012) → rest/wounded без despawn. Routing: land-first; water fallback; Major convoys exempt. `lRetireSquad` снимает отряд **сразу** на sync-пути планировщика (без `CreateRealTimeThread` / deferred RemoveSquad).
 - Idle ready squads at home top-up toward optimal when resources allow, then take new orders.
@@ -156,6 +158,8 @@ Generated `SatelliteViewMapContextMenu` считает отсутствие Regi
 
 - отключает maps-only Region `ErnieIsland` (I7/B28) и **очищает `Sectors`/`ManagedOutposts`**, чтобы I2–I7 не shadow'или `JAZZ_Auto_*` в `GetRegionForSector`;
 - строит `JAZZ_Auto_<guardpost>` по vanilla Guardpost (A20, D10, E16, F7, F19, G10, H4, H14);
+- **COMPAT-006** (nomaps **0.9.11**): multi-outpost Voronoi + `#ManagedOutposts≤1` + `ai_region_rev`; hard Chebyshev **R=3** убрал чужие Guardpost, но оставил периферийные orphans;
+- **COMPAT-007** (nomaps **0.9.12**): **unbounded** nearest-outpost Voronoi — каждый surface-сектор (не Water/Blocked/GroundSector) ровно в одном `JAZZ_Auto_*`; `foreign_gp=0`; `AI_REGION_REV=2` пересобирает `Sectors` на existing saves;
 - Major HQ = **A20** (The Eagle's Nest);
 - auto-region economy (COMPAT-003 / nomaps **0.7+**): `StartingManpower=40` (≥ garrison `size_min` 25), `TaxCap=1`, `RecruiterCap=1`, `ManpowerCapacity=64`, `MajorStartingManpower=120`, `PassiveSupplyPerHour=50`; saves мигрируют через `gv_JAZZ_NoMaps.ai_economy_rev`;
 - COMPAT-004 (nomaps **0.9**): после bootstrap **force** `major.hq_sector=A20` (jazz `JAZZ_LegionAIForceMajorHQ`; EnsureState не latch'ит Ernie `B28` при NoMaps-профиле); adopt InitialSquads на managed outpost как garrison (`JAZZ_LegionAIAdoptOutpostDefenders`); seed `poi_money`/`poi_recruits` (`JAZZ_LegionAISeedPoiEconomy`); generic vanilla Legion UnitData → random `JAZZ_Legion_*` пул (named skip `_Jose`; `LegionRaider_WeakFlagHill`→assault T1 Roughneck; `*_Tutorial`→T1; `*_Stronger_Elite`→T4 на gear major III+); container loot packs по major `JAZZ_Legion_Tier`;

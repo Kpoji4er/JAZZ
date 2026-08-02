@@ -183,8 +183,43 @@ Static root cause (до 0.7):
 
 **Fix (COMPAT-005):** `LegionJAZZSquadT1_Early` (только T1); NoMaps alias + tiered resolve; class-tier cap на major I. Static: `docs/tools/_verify_nomaps_early_squad.py`.
 
+### B17 — Auto-regions огромные / чужие Guardpost в Sectors (playtest 2026-08-02)
+
+Симптом: save `31(3)`, NoMaps — на сат-карте округа выглядят как «мега-регионы»; DAP: 8× `JAZZ_Auto_*`, `mop=1`, но `#Sectors` 53…132 и `foreign_gp` 3…6.
+
+**Root cause:** Chebyshev R=8 + soft `lRefreshTrackedAutoRegions` вызывал assign **по одному** outpost (без Voronoi-конкуренции).
+
+**Fix (COMPAT-006):** `AUTO_REGION_RADIUS=3`; multi-outpost Voronoi refresh; `ai_region_rev` rebuild. Static: `docs/tools/_verify_nomaps_region_radius.py`.
+
+### B18 — Auto-regions orphans after COMPAT-006 R=3 (playtest 2026-08-02)
+
+Симптом: после shrink на сат-карте сектора без округа; DAP: surface=151, covered=125, orphans=26 (периферия `A*`/`B*`/`J*`/`K*`/`L*`), foreign_gp=0.
+
+**Root cause:** hard Chebyshev `best_dist ≤ 3` не покрывает клетки дальше R от любого Guardpost.
+
+**Fix (COMPAT-007):** unbounded nearest-outpost Voronoi (`AUTO_REGION_RADIUS=false`); `AI_REGION_REV=2`. Static: `docs/tools/_verify_nomaps_region_radius.py`.
+
+### B19 — Shipment/tax UI `$` without lootable diamonds (2026-08-02)
+
+Симптом: «АЛМАЗНЫЙ КОНВОЙ — ВЕЗЁТ $12000» / tax `$` в задаче, но после боя нет `DiamondBriefcase`/`TinyDiamonds`. DAP: `payload.money` + `diamond_briefcase=true`, inventory DB=0.
+
+Root: (1) tax collect не звал cargo ensure; (2) `lEnsureMoneyCargo` мог выставить flag без успешного `AddItem`; (3) `_RegenerateLegionLoot` / gear refresh **стирает** весь Legion inventory → cargo пропадает, UI `$` остаётся.
+
+**Fix (STRATEGY-017):** tagged `jazz_legion_ai_cargo` sync (`lSyncMoneyCargo`); multi-carrier; tax collect + supply/shipment spawn; clear on delivery; resync hourly / `ConflictStart` / after loot regen; console `JAZZ_LegionAIResyncMoneyCargo()`. Live save retrofitted via DAP evaluate (18 squads).
+
+### B20 — Early mobile density too high / diamond income flood (2026-08-02)
+
+Симптом: logistics escorts **[19]** day-1; `$`/mine income слишком быстрый.
+
+**Fix (STRATEGY-016):** early→mature size curve (time/heat/tier); logistics composition escorts; `JAZZ_LegionEconomyScalePct=25` (÷4); cadence 12h command / 48h tax·recruiter·combat spawn / 96h POI. Existing fat squads not shrunk; new spawns only.
+
+### Quality / named-veteran early (Sergej) — deferred
+
+Owner 2026-08-02: «выходит из 2» — **no separate heavy-gate track**. Cargo/logistics clarity (B19) is enough for now; quality complaints may mix transporter vs combat.
+
 ## Evidence
 
 - Discord скрины: инвентарь отряда «Чарли», схрон/трупы/сундук сектор I2.
 - Static: `jazz-nomaps` LootDef/fallback; `InventoryItem/_9mm_Basic.lua` → `TEST.png`; `MP5.lua` / `AR15.lua` → «Убираем».
 - Static: `HiPower.Caliber = JAZZ_Caliber_9x19`.
+- DAP 2026-08-02: shipment id=96 `$12000` DB=0→DB=1 after inline resync; tax `$2500` → 5×TinyDiamonds.

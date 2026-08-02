@@ -4,25 +4,27 @@
 
 On **Ernie**, the Legion runs Fort L'Eau Bleu (sector I7) through a regional HQ. On the satellite map, squads show a **role** icon and a **current task** on hover.
 
-Without the maps package (**JAZZ Vanilla Maps**) the same Global AI runs vanilla mainland outposts: Major HQ at A20, starting defenders adopted as garrison, tax/recruiting from city/farm stockpiles. Enemy gear and container loot scale with Legion tier (mine + 3 days → II, World Flip → III). Before tier II, map legionaries stay **class T1 only** (no day-one jump to veterans/mercenaries); Stronger_Elite → T4 only after World Flip — see [Legion units](legion-units.md).
+Without the maps package (**JAZZ Vanilla Maps**) the same Global AI runs vanilla mainland outposts: Major HQ at A20, **one region per Guardpost by nearest outpost** (full land coverage, no orphan sectors, no half-map mega-regions with foreign camps), starting defenders adopted as garrison, tax/recruiting from city/farm stockpiles. Enemy gear and container loot scale with Legion tier (mine + 3 days → II, World Flip → III). Before tier II, map legionaries stay **class T1 only** (no day-one jump to veterans/mercenaries); Stronger_Elite → T4 only after World Flip — see [Legion units](legion-units.md).
 
 ## Squad roles
 
 | Role | What it does | Typical size |
 | --- | --- | ---: |
 | Garrison | Holds key points | 25–40 |
-| Patrol | Moves between key points, **including yours**; prefers empty ones | 12–18 |
-| Recon | Deploys on noticeable “noise”; return names the sector where you were spotted | 8–12 |
-| QRF | Only under threat: recon report or a key point you took | heavier than patrol |
-| Reinforcement | Holds border key points near you | 15–25 |
-| Tax collector | Tours towns/farms and brings `$` to the fort | small escort |
+| Patrol | Moves between key points, **including yours**; prefers empty ones | small early (~5–8), grows to 12–18 |
+| Recon | Deploys on noticeable “noise”; return names the sector where you were spotted | ~4–6 → 8–12 |
+| QRF | Only under threat: recon report or a key point you took | grows with time/Heat |
+| Reinforcement | Holds border key points near you | grows with time/Heat |
+| Tax collector | Tours towns/farms and brings `$` to the fort; loot matches the run’s `$` | small escort early |
 | Recruiter | Tours towns/farms and brings recruits to the fort | small escort |
 | Reinforcement convoy | People from HQ to the fort | small escort |
-| Supply convoy | Money ($) from HQ to the fort; amount visible in the task | 15–25 |
-| Diamond / cash convoy | `$` from fort to HQ; loot reflects the run’s value | 15–25 |
+| Supply convoy | Money ($) from HQ to the fort; amount visible in the task; loot matches `$` | small escort |
+| Diamond / cash convoy | `$` from fort to HQ; loot is briefcase/diamonds for that sum | small escort (not a day-one platoon) |
 | Retaliation | Heavy strike from the Major’s HQ at very high regional Heat | large dedicated force |
 
 Bloodied squads may fall back to the fort and wait for replacements. After a run of orders a squad **returns to base to rest and refill**, then goes out again. Patrols **linger** in route sectors and travel **over land** when a land path exists.
+
+Legion mine/town/farm income and starting cash pools are about **4× lower** than before, and new squads spawn less often — the map should not fill with heavy convoys immediately.
 
 ## Recon and Heat
 

@@ -104,6 +104,8 @@ Regen: flag → open satellite → rebuild starting equipment for **Legion only*
 
 **Veteran** and **Mercenary** have a small chance of a secondary launcher (M79 / disposable **M72 LAW** / late China Lake). **Rocketeer** launchers roll RPG-7 or M72 LAW.
 
+Combat Legion squads (patrol, garrison, recon, QRF, etc.) field roughly **one Bonemaker (medic) per 10–20 fighters** (at least one once the squad is 10+). He carries a Med Kit in loot.
+
 ## Strategic prices
 
 `LegionUnitPrices.lua`: line **500/1000/2000/3500**, specialist **800/1500/2800/4500**, leader **800/1500/2500/4000** (T1→T4).

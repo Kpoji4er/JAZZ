@@ -1,11 +1,40 @@
--- Officer density + tier complementarity policy (roadmap 6b/6c / JAZZ-STRATEGY-005).
--- Not wired into spawn/generator yet.
+-- Officer density + tier complementarity (roadmap 6b/6c / JAZZ-STRATEGY-005).
+-- Medic density (JAZZ-STRATEGY-015). Consumed by LegionSquadGenerator.
 
 JAZZ_LegionOfficerDensity = {
 	SergeantPerMen = 8,
 	LieutenantPerMen = 15, -- densest allowed; preferred band 15–20
 	CaptainPerMen = 30,
 }
+
+-- Owner band ~1 medic / 10–20 men (2026-08-02). Mid = 15; min 1 once n >= 10.
+JAZZ_LegionMedicDensity = {
+	MedicPerMen = 15,
+	MedicMinSquadSize = 10,
+	UnitId = "JAZZ_Legion_FrontT1_Bonemaker",
+}
+
+function JAZZ_GetLegionMedicUnitId()
+	return JAZZ_LegionMedicDensity.UnitId
+end
+
+function JAZZ_IsLegionMedicUnit(unit_id)
+	return type(unit_id) == "string" and unit_id == JAZZ_LegionMedicDensity.UnitId
+end
+
+--- Max Bonemaker slots for squad size n (STRATEGY-015).
+function JAZZ_GetLegionMaxMedics(squad_size)
+	local n = tonumber(squad_size) or 0
+	if n < 1 then
+		return 0
+	end
+	local dens = JAZZ_LegionMedicDensity
+	local by_ratio = math.floor(n / dens.MedicPerMen)
+	if n >= dens.MedicMinSquadSize then
+		return math.max(1, by_ratio)
+	end
+	return by_ratio
+end
 
 --- Max LeaderT1_Sergeant slots for squad size n.
 function JAZZ_GetLegionMaxSergeants(squad_size)
@@ -41,20 +70,24 @@ function JAZZ_LegionSquadRequiresMercenaryCaptain(squad_tier)
 end
 
 --- Officer caps summary for generator / debug.
--- Returns table { sergeants, lieutenants, captains, merc_captain_required }.
+-- Returns table { sergeants, lieutenants, captains, merc_captain_required, medics }.
 function JAZZ_GetLegionOfficerCaps(squad_size, squad_tier)
 	return {
 		sergeants = JAZZ_GetLegionMaxSergeants(squad_size),
 		lieutenants = JAZZ_GetLegionMaxLieutenants(squad_size),
 		captains = JAZZ_GetLegionMaxCaptains(squad_size),
 		merc_captain_required = JAZZ_LegionSquadRequiresMercenaryCaptain(squad_tier) and 1 or 0,
+		medics = JAZZ_GetLegionMaxMedics(squad_size),
 	}
 end
 
 -- Role composition allow-lists (roadmap 6b). Consumed by LegionSquadGenerator (STRATEGY-008).
+-- `size_*` = mature. `size_early_*` = day-1 band; growth lerps early→mature (STRATEGY-016).
 -- `allow_prefixes` match UnitData IDs; officers always use Leader* within density caps.
 JAZZ_LegionRoleRecipes = {
 	recon = {
+		size_early_min = 4,
+		size_early_max = 6,
 		size_min = 8,
 		size_max = 12,
 		tier_bias = "light",
@@ -66,6 +99,8 @@ JAZZ_LegionRoleRecipes = {
 		},
 	},
 	patrol = {
+		size_early_min = 5,
+		size_early_max = 8,
 		size_min = 12,
 		size_max = 18,
 		tier_bias = "mixed",
@@ -79,6 +114,9 @@ JAZZ_LegionRoleRecipes = {
 		},
 	},
 	garrison = {
+		-- Static defense: no early shrink (STRATEGY-016).
+		size_early_min = 25,
+		size_early_max = 40,
 		size_min = 25,
 		size_max = 40,
 		tier_bias = "heavy",
@@ -91,6 +129,8 @@ JAZZ_LegionRoleRecipes = {
 		},
 	},
 	qrf = {
+		size_early_min = 6,
+		size_early_max = 10,
 		size_min = 12,
 		size_max = 20,
 		tier_bias = "t2_plus",
@@ -110,6 +150,8 @@ JAZZ_LegionRoleRecipes = {
 		},
 	},
 	reinforce = {
+		size_early_min = 6,
+		size_early_max = 10,
 		size_min = 15,
 		size_max = 25,
 		tier_bias = "garrison_lite",
@@ -124,6 +166,8 @@ JAZZ_LegionRoleRecipes = {
 		},
 	},
 	retribution = {
+		size_early_min = 10,
+		size_early_max = 14,
 		size_min = 18,
 		size_max = 30,
 		tier_bias = "strike",
@@ -142,6 +186,8 @@ JAZZ_LegionRoleRecipes = {
 		},
 	},
 	supply = {
+		size_early_min = 4,
+		size_early_max = 6,
 		size_min = 8,
 		size_max = 15,
 		tier_bias = "escort",
@@ -155,6 +201,8 @@ JAZZ_LegionRoleRecipes = {
 		},
 	},
 	shipment = {
+		size_early_min = 4,
+		size_early_max = 6,
 		size_min = 8,
 		size_max = 15,
 		tier_bias = "escort",
@@ -168,6 +216,8 @@ JAZZ_LegionRoleRecipes = {
 		},
 	},
 	tax = {
+		size_early_min = 4,
+		size_early_max = 6,
 		size_min = 6,
 		size_max = 12,
 		tier_bias = "escort",
@@ -181,6 +231,8 @@ JAZZ_LegionRoleRecipes = {
 		},
 	},
 	recruiter = {
+		size_early_min = 4,
+		size_early_max = 6,
 		size_min = 6,
 		size_max = 12,
 		tier_bias = "escort",
@@ -192,6 +244,8 @@ JAZZ_LegionRoleRecipes = {
 		},
 	},
 	manpower = {
+		size_early_min = 4,
+		size_early_max = 6,
 		size_min = 6,
 		size_max = 12,
 		tier_bias = "escort",
@@ -204,14 +258,91 @@ JAZZ_LegionRoleRecipes = {
 	},
 }
 
+-- STRATEGY-016 growth curve.
+JAZZ_LegionSquadGrowth = {
+	DaysToMature = 21,
+	HeatToMature = 500,
+}
+
+local function lLerpInt(a, b, p)
+	a = tonumber(a) or 0
+	b = tonumber(b) or a
+	p = Clamp(tonumber(p) or 0, 0, 1000)
+	return a + DivRound((b - a) * p, 1000)
+end
+
+--- Growth progress 0..1000 from time / heat / gear major (max of signals).
+function JAZZ_GetLegionSquadGrowthProgress(region_heat)
+	local day_scale = (const and const.Scale and const.Scale.day)
+		or (24 * ((const and const.Scale and const.Scale.h) or 1))
+	local days = 0
+	if Game and Game.CampaignTime and day_scale > 0 then
+		days = Game.CampaignTime / day_scale
+	end
+	local cfg = JAZZ_LegionSquadGrowth
+	local p_time = Clamp(DivRound(days * 1000, cfg.DaysToMature), 0, 1000)
+	local p_heat = Clamp(DivRound((tonumber(region_heat) or 0) * 1000, cfg.HeatToMature), 0, 1000)
+	local tier = (JAZZ_GetLegionTier and JAZZ_GetLegionTier()) or 11
+	tier = tonumber(tier) or 11
+	local major = Max(1, DivRound(tier, 10)) -- 11→1, 21→2, 31→3
+	local p_tier = 0
+	if major >= 3 then
+		p_tier = 1000
+	elseif major >= 2 then
+		p_tier = 500
+	end
+	return Max(p_time, p_heat, p_tier)
+end
+
 function JAZZ_GetLegionRoleRecipe(role)
 	return role and JAZZ_LegionRoleRecipes[role] or false
+end
+
+--- Shallow recipe with size_min/max lerped early→mature for progress 0..1000.
+function JAZZ_ResolveLegionRoleRecipe(role, growth_progress)
+	local base = JAZZ_GetLegionRoleRecipe(role == "major" and "retribution" or role)
+	if not base then
+		return false
+	end
+	local p = Clamp(tonumber(growth_progress) or 0, 0, 1000)
+	local early_min = base.size_early_min or base.size_min
+	local early_max = base.size_early_max or base.size_max
+	local size_min = lLerpInt(early_min, base.size_min, p)
+	local size_max = lLerpInt(early_max, base.size_max, p)
+	if size_max < size_min then
+		size_max = size_min
+	end
+	return {
+		size_min = size_min,
+		size_max = size_max,
+		size_early_min = early_min,
+		size_early_max = early_max,
+		size_mature_min = base.size_min,
+		size_mature_max = base.size_max,
+		tier_bias = base.tier_bias,
+		allow_prefixes = base.allow_prefixes,
+		growth_progress = p,
+	}
 end
 
 function JAZZ_LegionUnitAllowedForRole(unit_id, role)
 	local recipe = JAZZ_GetLegionRoleRecipe(role)
 	if not recipe or type(unit_id) ~= "string" then
 		return false
+	end
+	-- Reserved medic slots for combat generator roles (STRATEGY-015), even if allow-list is T2+.
+	-- `major` spawn uses recipe key `retribution` inside the generator.
+	if JAZZ_IsLegionMedicUnit(unit_id) then
+		if role == "garrison"
+			or role == "patrol"
+			or role == "recon"
+			or role == "qrf"
+			or role == "reinforce"
+			or role == "retribution"
+			or role == "major"
+		then
+			return true
+		end
 	end
 	for _, prefix in ipairs(recipe.allow_prefixes or {}) do
 		if string.sub(unit_id, 1, #prefix) == prefix then

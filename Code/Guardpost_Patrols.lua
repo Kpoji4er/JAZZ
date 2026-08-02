@@ -186,10 +186,54 @@ local function lClampHeat(value)
 	return Clamp(value or 0, 0, 1000)
 end
 
+-- STRATEGY-016: diamond/$ generation ×0.25 (owner ÷4). Manpower floors keep early escorts spawnable.
+JAZZ_LegionEconomyScalePct = rawget(_G, "JAZZ_LegionEconomyScalePct") or 25
+
+local lEconomyScaleKeys = {
+	StartingSupply = true,
+	MajorStartingReserve = true,
+	StartingManpower = true,
+	MajorStartingManpower = true,
+	PassiveSupplyPerHour = true,
+	CitySupplyBonus = true,
+	FarmSupplyBonus = true,
+	MineDiamondPerHour = true,
+	PoiMoneyCap = true,
+	DiamondShipmentThreshold = true,
+	SupplyConvoyCargo = true,
+	TaxCargoMax = true,
+	FarmRecruitsPerDay = true,
+	CityRecruitsPerDay = true,
+	GuardpostRecruitsPerDay = true,
+	PortRecruitsPerDay = true,
+}
+
+local lEconomyScaleFloors = {
+	StartingManpower = 8,
+	MajorStartingManpower = 16,
+	FarmRecruitsPerDay = 1,
+	CityRecruitsPerDay = 1,
+	GuardpostRecruitsPerDay = 1,
+	PortRecruitsPerDay = 1,
+	DiamondShipmentThreshold = 1000,
+	SupplyConvoyCargo = 1000,
+	TaxCargoMax = 1000,
+	StartingSupply = 500,
+	PoiMoneyCap = 1000,
+}
+
 local function lConfig(region, field, fallback)
 	local value = region and region[field]
 	if value == nil or value == false then
-		return fallback
+		value = fallback
+	end
+	if lEconomyScaleKeys[field] and type(value) == "number" then
+		local pct = tonumber(rawget(_G, "JAZZ_LegionEconomyScalePct")) or 25
+		value = DivRound(value * pct, 100)
+		local floor = lEconomyScaleFloors[field]
+		if floor and value > 0 then
+			value = Max(floor, value)
+		end
 	end
 	return value
 end
@@ -334,7 +378,7 @@ local function lEnsureOutpost(root, region, region_state, sector_id)
 			money = lConfig(region, "StartingSupply", 12000),
 			manpower = lConfig(region, "StartingManpower", 20),
 			diamond_stock = 0,
-			next_command_time = lNow() + lInterval(region, "CommandInterval", 6 * lHourScale()),
+			next_command_time = lNow() + lInterval(region, "CommandInterval", 12 * lHourScale()),
 			reboot_until = 0,
 			retake_targets = {},
 			last_tax_time = 0,
@@ -435,7 +479,7 @@ local function lEnsureRegion(root, region)
 		region_state.next_poi_pulse_time = region_state.next_recruit_time
 			and region_state.next_recruit_time > 0
 			and region_state.next_recruit_time
-			or (lNow() + lInterval(region, "POIGenerationInterval", 72 * lHourScale()))
+			or (lNow() + lInterval(region, "POIGenerationInterval", 96 * lHourScale()))
 	end
 	local money_cap = lConfig(region, "PoiMoneyCap", 12000)
 	for sector_id, money in pairs(region_state.poi_money) do
@@ -914,11 +958,11 @@ local function lCountRegionRole(root, region_id, role)
 end
 
 local function lOutpostCanSpawn(outpost)
-	-- Combat fill only: one new regular spawn per outpost per day.
+	-- Combat fill only: one new regular spawn per outpost per 48h (STRATEGY-016 cadence).
 	-- Logistics (tax/recruiter/supply/shipment/manpower) use their own cooldowns
 	-- and must not be starved by garrison/patrol while-loops in the same window.
-	local day = 24 * lHourScale()
-	return (outpost.last_spawn_time or 0) + day <= lNow()
+	local gate = 48 * lHourScale()
+	return (outpost.last_spawn_time or 0) + gate <= lNow()
 end
 
 local function lMarkOutpostSpawn(outpost)
@@ -1252,44 +1296,191 @@ local function lPickSquadDef(list, context)
 	return valid[index]
 end
 
-local function lEnsureMoneyCargo(squad, dollars)
+-- STRATEGY-017: tagged mission cargo survives loot regen; pocket TinyDiamonds stay untagged.
+local function lIsMoneyCargoItem(item)
+	return item
+		and (item.class == "DiamondBriefcase" or item.class == "TinyDiamonds")
+		and item.jazz_legion_ai_cargo
+end
+
+local function lMoneyCargoItemValue(item)
+	if not item then
+		return 0
+	end
+	if item.class == "DiamondBriefcase" then
+		return 12000
+	end
+	if item.class == "TinyDiamonds" then
+		return 500 * (item.Amount or 1)
+	end
+	return 0
+end
+
+local function lClearTaggedMoneyCargo(squad)
+	if not squad then
+		return
+	end
+	for _, session_id in ipairs(squad.units or empty_table) do
+		local ud = gv_UnitData[session_id]
+		if ud and ud.ForEachItemInSlot then
+			local doomed = {}
+			ud:ForEachItemInSlot("Inventory", function(item)
+				if lIsMoneyCargoItem(item) then
+					doomed[#doomed + 1] = item
+				end
+			end)
+			for _, item in ipairs(doomed) do
+				ud:RemoveItem("Inventory", item)
+				if IsValid(item) then
+					DoneObject(item)
+				end
+			end
+		end
+		local live = g_Units and g_Units[session_id]
+		if live and live.ForEachItemInSlot then
+			local doomed = {}
+			live:ForEachItemInSlot("Inventory", function(item)
+				if lIsMoneyCargoItem(item) then
+					doomed[#doomed + 1] = item
+				end
+			end)
+			for _, item in ipairs(doomed) do
+				live:RemoveItem("Inventory", item)
+				if IsValid(item) then
+					DoneObject(item)
+				end
+			end
+		end
+	end
+	squad.diamond_briefcase = nil
+end
+
+local function lSquadTaggedMoneyCargoValue(squad)
+	local total = 0
+	if not squad then
+		return 0
+	end
+	for _, session_id in ipairs(squad.units or empty_table) do
+		local ud = gv_UnitData[session_id]
+		if ud and ud.ForEachItem then
+			ud:ForEachItem(function(item)
+				if lIsMoneyCargoItem(item) then
+					total = total + lMoneyCargoItemValue(item)
+				end
+			end)
+		end
+	end
+	return total
+end
+
+local function lTryAddCargoItem(squad, item)
+	if not squad or not item then
+		return false
+	end
+	item.drop_chance = 100
+	item.jazz_legion_ai_cargo = true
+	for _, session_id in ipairs(squad.units or empty_table) do
+		local ud = gv_UnitData[session_id]
+		if ud then
+			local pos = ud:AddItem("Inventory", item)
+			if pos then
+				local live = g_Units and g_Units[session_id]
+				if live and live ~= ud and live.AddItem then
+					-- Keep tactical unit inventory aligned when already spawned into conflict.
+					local copy = PlaceInventoryItem(item.class)
+					if copy then
+						copy.drop_chance = 100
+						copy.jazz_legion_ai_cargo = true
+						if item.class == "TinyDiamonds" then
+							copy.Amount = item.Amount or 1
+						end
+						live:AddItem("Inventory", copy)
+					end
+				end
+				return true
+			end
+		end
+	end
+	if IsValid(item) then
+		DoneObject(item)
+	end
+	return false
+end
+
+--- Place valuables matching dollars (DB @$12000 + TinyDiamonds @$500 ceil).
+-- Clears previous tagged cargo first. Returns false if any chunk failed to place.
+local function lSyncMoneyCargo(squad, dollars)
 	if not squad then
 		return false
 	end
-	local carrier_id = squad.units and squad.units[1]
-	local carrier = carrier_id and gv_UnitData[carrier_id]
-	if not carrier then
-		return false
-	end
 	dollars = math.max(0, math.floor(tonumber(dollars) or 0))
+	lClearTaggedMoneyCargo(squad)
 	if dollars <= 0 then
 		return true
 	end
-	while dollars >= 12000 do
+	if not (squad.units and squad.units[1] and gv_UnitData[squad.units[1]]) then
+		return false
+	end
+	local remaining = dollars
+	while remaining >= 12000 do
 		local briefcase = PlaceInventoryItem("DiamondBriefcase")
-		if not briefcase then
+		if not briefcase or not lTryAddCargoItem(squad, briefcase) then
+			lClearTaggedMoneyCargo(squad)
 			return false
 		end
-		briefcase.drop_chance = 100
-		carrier:AddItem("Inventory", briefcase)
-		dollars = dollars - 12000
+		remaining = remaining - 12000
 	end
-	-- TinyDiamonds are $500 each; round remainder up to next coin.
-	local coins = math.ceil(dollars / 500)
+	local coins = remaining > 0 and math.ceil(remaining / 500) or 0
 	for _ = 1, coins do
 		local chip = PlaceInventoryItem("TinyDiamonds")
-		if not chip then
+		if not chip or not lTryAddCargoItem(squad, chip) then
+			lClearTaggedMoneyCargo(squad)
 			return false
 		end
-		chip.drop_chance = 100
-		carrier:AddItem("Inventory", chip)
 	end
-	squad.diamond_briefcase = true
+	squad.diamond_briefcase = dollars >= 12000 or nil
 	return true
+end
+
+local function lEnsureMoneyCargo(squad, dollars)
+	return lSyncMoneyCargo(squad, dollars)
 end
 
 local function lEnsureDiamondCargo(squad)
 	return lEnsureMoneyCargo(squad, 12000)
+end
+
+local function lResyncManagedMoneyCargo(root)
+	root = root or gv_JAZZ_LegionAI
+	if type(root) ~= "table" or not root.squads then
+		return 0
+	end
+	local fixed = 0
+	for squad_id, squad_state in sorted_pairs(root.squads) do
+		local role = squad_state and squad_state.role
+		if role == "tax" or role == "shipment" or role == "supply" then
+			local dollars = lPayloadMoney(squad_state.payload)
+			local squad = gv_Squads[squad_id]
+			if squad and dollars > 0 then
+				local have = lSquadTaggedMoneyCargoValue(squad)
+				-- Allow Tiny ceil slack (±500): resync when missing cargo or flag-only leftovers.
+				if have + 500 < dollars or (have == 0 and dollars > 0) then
+					if lSyncMoneyCargo(squad, dollars) then
+						fixed = fixed + 1
+					else
+						lLog(string.format("money cargo resync failed for %s squad %s ($%d)", tostring(role), tostring(squad_id), dollars))
+					end
+				end
+			elseif squad and dollars <= 0 and lSquadTaggedMoneyCargoValue(squad) > 0 then
+				lClearTaggedMoneyCargo(squad)
+			end
+		end
+	end
+	return fixed
+end
+
+function JAZZ_LegionAIResyncMoneyCargo()
+	return lResyncManagedMoneyCargo(JAZZ_LegionAIEnsureState and JAZZ_LegionAIEnsureState() or gv_JAZZ_LegionAI)
 end
 
 local function lRecruitUnitTemplate(region)
@@ -1433,10 +1624,12 @@ local function lSpawnManaged(root, region, home_sector, role, origin_sector, mis
 	if not squad then
 		return false
 	end
-	if role == "shipment" and not lEnsureMoneyCargo(squad, lPayloadMoney(payload)) then
-		lLog("shipment spawned without valuables matching payload $; squad retired")
-		RemoveSquad(squad)
-		return false
+	if (role == "shipment" or role == "supply") and lPayloadMoney(payload) > 0 then
+		if not lEnsureMoneyCargo(squad, lPayloadMoney(payload)) then
+			lLog(string.format("%s spawned without valuables matching payload $; squad retired", role))
+			RemoveSquad(squad)
+			return false
+		end
 	end
 
 	root.squads[squad_id] = {
@@ -1560,7 +1753,10 @@ local function lTryTopUpSquad(root, region, outpost, squad, squad_state)
 		squad_state.role,
 		outpost.money or 0,
 		outpost.manpower,
-		squad_state.role .. "_refit_" .. tostring(squad.UniqueId) .. "_" .. tostring(root.spawn_serial)
+		squad_state.role .. "_refit_" .. tostring(squad.UniqueId) .. "_" .. tostring(root.spawn_serial),
+		JAZZ_GetLegionSquadGrowthProgress and JAZZ_GetLegionSquadGrowthProgress(
+			root.regions[squad_state.region_id] and root.regions[squad_state.region_id].heat
+		) or 0
 	)
 	if not topup or #(topup.units or empty_table) == 0 then
 		return false
@@ -1853,6 +2049,7 @@ local function lOnSquadArrived(root, squad, squad_state)
 		if squad_state.role == "supply" and cargo > 0 then
 			lAddMajorMoney(root, lGetRegionPreset(squad_state.region_id), cargo)
 			squad_state.payload.money = 0
+			lClearTaggedMoneyCargo(squad)
 		end
 		if squad_state.role == "manpower" then
 			local region = lGetRegionPreset(squad_state.region_id)
@@ -1878,10 +2075,10 @@ local function lOnSquadArrived(root, squad, squad_state)
 		lStartPatrolSectorDwell(root, squad, squad_state)
 	elseif squad_state.role == "recon" and (task.task_type == "garrison" or task.task_type == "reinforce") then
 		squad_state.state = "working"
-		task.hold_until = lNow() + lInterval(lGetRegionPreset(squad_state.region_id), "CommandInterval", 6 * lHourScale())
+		task.hold_until = lNow() + lInterval(lGetRegionPreset(squad_state.region_id), "CommandInterval", 12 * lHourScale())
 	elseif squad_state.role == "qrf" and (task.task_type == "garrison" or task.task_type == "reinforce") then
 		squad_state.state = "working"
-		task.hold_until = lNow() + lInterval(lGetRegionPreset(squad_state.region_id), "CommandInterval", 6 * lHourScale())
+		task.hold_until = lNow() + lInterval(lGetRegionPreset(squad_state.region_id), "CommandInterval", 12 * lHourScale())
 	elseif squad_state.role == "recon" then
 		squad_state.state = "working"
 		task.observe_until = lNow() + lConfig(lGetRegionPreset(squad_state.region_id), "ReconObservationTime", 3 * lHourScale())
@@ -1899,6 +2096,7 @@ local function lOnSquadArrived(root, squad, squad_state)
 				lOutpostMoneyCapacity(region)
 			)
 			squad_state.payload.money = 0
+			lClearTaggedMoneyCargo(squad)
 		end
 		-- Park/rest at Major HQ after delivery (home becomes HQ).
 		squad_state.home_sector = root.major.hq_sector
@@ -1908,6 +2106,7 @@ local function lOnSquadArrived(root, squad, squad_state)
 		if hq and JAZZ_IsLegionSide(hq.Side) then
 			lAddMajorMoney(root, lGetRegionPreset(squad_state.region_id), lPayloadMoney(squad_state.payload))
 			squad_state.payload.money = 0
+			lClearTaggedMoneyCargo(squad)
 			lBeginReturn(root, squad, squad_state, "rest")
 		else
 			squad_state.state = "working"
@@ -1927,6 +2126,11 @@ local function lOnSquadArrived(root, squad, squad_state)
 			region_state.poi_money[circuit[index]] = stock - collected
 			squad_state.payload = squad_state.payload or {}
 			squad_state.payload.money = have + collected
+			if collected > 0 or (have + collected) > 0 then
+				if not lSyncMoneyCargo(squad, squad_state.payload.money) then
+					lLog(string.format("tax cargo sync failed at %s ($%d)", tostring(circuit[index]), squad_state.payload.money))
+				end
+			end
 			task.circuit_index = index + 1
 			-- Stop circuit early when cargo is full.
 			local full = (have + collected) >= cargo_max
@@ -1959,6 +2163,7 @@ local function lOnSquadArrived(root, squad, squad_state)
 					lOutpostMoneyCapacity(region)
 				)
 				squad_state.payload.money = 0
+				lClearTaggedMoneyCargo(squad)
 			end
 			squad_state.missions_left = 0
 			lBeginBaseRest(root, squad, squad_state)
@@ -2121,10 +2326,10 @@ local function lOnSquadArrived(root, squad, squad_state)
 		or task.task_type == "garrison" or task.task_type == "reinforce"
 	then
 		squad_state.state = "working"
-		task.hold_until = lNow() + lInterval(lGetRegionPreset(squad_state.region_id), "CommandInterval", 6 * lHourScale())
+		task.hold_until = lNow() + lInterval(lGetRegionPreset(squad_state.region_id), "CommandInterval", 12 * lHourScale())
 	elseif squad_state.role == "qrf" or squad_state.role == "major" then
 		squad_state.state = "working"
-		task.hold_until = lNow() + lInterval(lGetRegionPreset(squad_state.region_id), "CommandInterval", 6 * lHourScale())
+		task.hold_until = lNow() + lInterval(lGetRegionPreset(squad_state.region_id), "CommandInterval", 12 * lHourScale())
 	end
 	if squad_state.state == "working" then
 		ObjModified(squad)
@@ -2234,7 +2439,10 @@ local function lAssignReadySquads(root, region, region_state, outpost)
 						lPurgeDeadAndHealSquad(squad)
 						lTryTopUpSquad(root, region, outpost, squad, squad_state)
 						local living = lSquadLivingUnitInfos(squad)
-						local optimal = JAZZ_GetLegionRoleOptimalSize and JAZZ_GetLegionRoleOptimalSize(squad_state.role) or living
+						local growth = JAZZ_GetLegionSquadGrowthProgress and JAZZ_GetLegionSquadGrowthProgress(
+							root.regions[squad_state.region_id] and root.regions[squad_state.region_id].heat
+						) or 0
+						local optimal = JAZZ_GetLegionRoleOptimalSize and JAZZ_GetLegionRoleOptimalSize(squad_state.role, growth) or living
 						if living <= 0 then
 							lRetireSquad(root, squad_id)
 						elseif living < optimal then
@@ -2289,13 +2497,17 @@ local function lSpawnRegularRole(root, region, region_state, outpost, role)
 	local unit_templates = false
 	local money_cost = lConfig(region, lRoleCosts[role], 0)
 	local manpower_cost = 0
-	if JAZZ_LegionRoleUsesCompositionGenerator and JAZZ_LegionRoleUsesCompositionGenerator(role) then
+	local growth = JAZZ_GetLegionSquadGrowthProgress and JAZZ_GetLegionSquadGrowthProgress(region_state.heat) or 0
+	if JAZZ_LegionRoleUsesCompositionGenerator and JAZZ_LegionRoleUsesCompositionGenerator(role)
+		and not (JAZZ_LegionRoleIsLogisticsEscort and JAZZ_LegionRoleIsLogisticsEscort(role))
+	then
 		local composition = JAZZ_GenerateLegionSquadComposition(
 			role,
 			outpost.money or 0,
 			outpost.manpower or 0,
 			"auto",
-			role .. "_" .. outpost.sector_id .. "_" .. tostring(root.spawn_serial)
+			role .. "_" .. outpost.sector_id .. "_" .. tostring(root.spawn_serial),
+			growth
 		)
 		-- No free EnemySquadDef fallback: combat roles always spend $ + manpower.
 		if not composition then
@@ -2366,6 +2578,30 @@ local function lSpawnRegularRole(root, region, region_state, outpost, role)
 	return true
 end
 
+local function lGrowthProgress(region_state)
+	if JAZZ_GetLegionSquadGrowthProgress then
+		return JAZZ_GetLegionSquadGrowthProgress(region_state and region_state.heat)
+	end
+	return 0
+end
+
+-- STRATEGY-016: logistics escorts use composition sizes (not full EnemySquadDef 15–25).
+-- Soft $ budget — escorts are not charged money; templates only.
+local function lEscortUnitTemplates(role, region_state, context)
+	if not JAZZ_GenerateLegionSquadComposition then
+		return false
+	end
+	local composition = JAZZ_GenerateLegionSquadComposition(
+		role,
+		100000,
+		nil,
+		"poor",
+		context or role,
+		lGrowthProgress(region_state)
+	)
+	return composition and composition.units or false
+end
+
 local function lTrySupplyConvoy(root, region, region_state, outpost)
 	local capacity = lOutpostMoneyCapacity(region)
 	local trigger = MulDivRound(capacity, lConfig(region, "SupplyConvoyTriggerPercent", 40), 100)
@@ -2412,7 +2648,8 @@ local function lTrySupplyConvoy(root, region, region_state, outpost)
 		return false
 	end
 	local squad_id, squad_state = lSpawnManaged(
-		root, region, outpost.sector_id, "supply", hq_sector, 1, { money = cargo }
+		root, region, outpost.sector_id, "supply", hq_sector, 1, { money = cargo },
+		lEscortUnitTemplates("supply", region_state, "supply_" .. outpost.sector_id)
 	)
 	local squad = squad_id and gv_Squads[squad_id]
 	if not squad then return false end
@@ -2469,7 +2706,8 @@ local function lTryDiamondShipment(root, region, region_state, outpost)
 		return false
 	end
 	local squad_id, squad_state = lSpawnManaged(
-		root, region, outpost.sector_id, "shipment", outpost.sector_id, 1, { money = threshold }
+		root, region, outpost.sector_id, "shipment", outpost.sector_id, 1, { money = threshold },
+		lEscortUnitTemplates("shipment", region_state, "shipment_" .. outpost.sector_id)
 	)
 	local squad = squad_id and gv_Squads[squad_id]
 	if not squad then return false end
@@ -2517,7 +2755,7 @@ local function lTaxCircuitSectors(region, region_state)
 end
 
 local function lTryTaxCollector(root, region, region_state, outpost)
-	local cooldown = lConfig(region, "TaxCooldown", 24 * lHourScale())
+	local cooldown = lConfig(region, "TaxCooldown", 48 * lHourScale())
 	if (outpost.last_tax_time or 0) + cooldown > lNow() then
 		return false
 	end
@@ -2557,7 +2795,8 @@ local function lTryTaxCollector(root, region, region_state, outpost)
 		return false
 	end
 	local squad_id, squad_state = lSpawnManaged(
-		root, region, outpost.sector_id, "tax", outpost.sector_id, 1, { money = 0 }
+		root, region, outpost.sector_id, "tax", outpost.sector_id, 1, { money = 0 },
+		lEscortUnitTemplates("tax", region_state, "tax_" .. outpost.sector_id)
 	)
 	local squad = squad_id and gv_Squads[squad_id]
 	if not squad then
@@ -2588,7 +2827,7 @@ local function lRecruitCircuitSectors(region, region_state)
 end
 
 local function lTryRecruiter(root, region, region_state, outpost)
-	local cooldown = lConfig(region, "RecruiterCooldown", 24 * lHourScale())
+	local cooldown = lConfig(region, "RecruiterCooldown", 48 * lHourScale())
 	if (outpost.last_recruiter_time or 0) + cooldown > lNow() then
 		return false
 	end
@@ -2629,7 +2868,8 @@ local function lTryRecruiter(root, region, region_state, outpost)
 		return false
 	end
 	local squad_id, squad_state = lSpawnManaged(
-		root, region, outpost.sector_id, "recruiter", outpost.sector_id, 1, { manpower = 0, recruited_ids = {} }
+		root, region, outpost.sector_id, "recruiter", outpost.sector_id, 1, { manpower = 0, recruited_ids = {} },
+		lEscortUnitTemplates("recruiter", region_state, "recruiter_" .. outpost.sector_id)
 	)
 	local squad = squad_id and gv_Squads[squad_id]
 	if not squad then
@@ -2660,7 +2900,8 @@ local function lTryManpowerConvoy(root, region, region_state, outpost)
 		return false
 	end
 	local squad_id, squad_state = lSpawnManaged(
-		root, region, outpost.sector_id, "manpower", hq_sector, 1, { manpower = 0, recruited_ids = {} }
+		root, region, outpost.sector_id, "manpower", hq_sector, 1, { manpower = 0, recruited_ids = {} },
+		lEscortUnitTemplates("manpower", region_state, "manpower_in_" .. outpost.sector_id)
 	)
 	local squad = squad_id and gv_Squads[squad_id]
 	if not squad then
@@ -2709,7 +2950,8 @@ local function lTryManpowerOutbound(root, region, region_state, outpost)
 		return false
 	end
 	local squad_id, squad_state = lSpawnManaged(
-		root, region, outpost.sector_id, "manpower", outpost.sector_id, 1, { manpower = 0, recruited_ids = {} }
+		root, region, outpost.sector_id, "manpower", outpost.sector_id, 1, { manpower = 0, recruited_ids = {} },
+		lEscortUnitTemplates("manpower", region_state, "manpower_out_" .. outpost.sector_id)
 	)
 	local squad = squad_id and gv_Squads[squad_id]
 	if not squad then
@@ -2764,7 +3006,7 @@ local function lCompleteWorkingTasks(root, region, region_state, outpost)
 				elseif squad_state.role == "qrf" then
 					if target and not lIsPlayerSide(target.Side) and not lPlayerSquadInSector(target.Id) then
 						lCompleteRegularTask(root, squad, squad_state)
-					elseif task.hold_until + lInterval(region, "CommandInterval", 6 * lHourScale()) <= lNow() then
+					elseif task.hold_until + lInterval(region, "CommandInterval", 12 * lHourScale()) <= lNow() then
 						lCompleteRegularTask(root, squad, squad_state)
 					end
 				end
@@ -2958,7 +3200,7 @@ local function lTickEconomyAndHeat(root, region, region_state)
 	-- City/farm $ and recruits accrue on economic POIs every N days (default 3).
 	local pulse_due = region_state.next_poi_pulse_time or region_state.next_recruit_time or 0
 	if pulse_due > 0 and pulse_due <= lNow() then
-		local interval = lInterval(region, "POIGenerationInterval", 72 * lHourScale())
+		local interval = lInterval(region, "POIGenerationInterval", 96 * lHourScale())
 		local raw_cycles = 1 + math.floor((lNow() - pulse_due) / interval)
 		local max_catchup = lConfig(region, "POIGenerationMaxCatchup", 1)
 		local cycles = Min(raw_cycles, max_catchup)
@@ -3026,7 +3268,7 @@ local function lTickEconomyAndHeat(root, region, region_state)
 		region_state.next_recruit_time = region_state.next_poi_pulse_time
 	elseif pulse_due <= 0 then
 		region_state.next_poi_pulse_time = lNow()
-			+ lInterval(region, "POIGenerationInterval", 72 * lHourScale())
+			+ lInterval(region, "POIGenerationInterval", 96 * lHourScale())
 		region_state.next_recruit_time = region_state.next_poi_pulse_time
 	end
 
@@ -3139,7 +3381,8 @@ local function lTryMajorResponse(root, region, region_state)
 			root.major.money or 0,
 			root.major.manpower or 0,
 			"auto",
-			"major_" .. tostring(root.spawn_serial)
+			"major_" .. tostring(root.spawn_serial),
+			lGrowthProgress(region_state)
 		)
 		if not composition then
 			return false
@@ -3239,7 +3482,7 @@ local function lProcessOutpostWindow(root, region, region_state, outpost)
 	if not outpost.enabled or outpost.reboot_until > lNow() then
 		return
 	end
-	local interval = lInterval(region, "CommandInterval", 6 * lHourScale())
+	local interval = lInterval(region, "CommandInterval", 12 * lHourScale())
 	if not outpost.next_command_time then
 		outpost.next_command_time = lNow() + interval
 		return
@@ -3340,6 +3583,9 @@ function JAZZ_LegionAIProcessHour()
 		return false
 	end
 	root.last_processed_hour = current_hour
+
+	-- STRATEGY-017: restore valuables wiped by loot regen / gear refresh.
+	lResyncManagedMoneyCargo(root)
 
 	lTickRecon(root)
 	lTickMajor(root)
@@ -3933,6 +4179,13 @@ function OnMsg.SectorSideChanged(sector_id, old_side, new_side)
 	end
 end
 
+function OnMsg.ConflictStart(sector_id)
+	-- STRATEGY-017: ensure diamond cargo exists before tactical loot.
+	if JAZZ_LegionAIResyncMoneyCargo then
+		JAZZ_LegionAIResyncMoneyCargo()
+	end
+end
+
 function OnMsg.ConflictEnd(sector)
 	local sector_id = type(sector) == "table" and (sector.Id or sector.id) or sector
 	if not sector_id then
@@ -3955,6 +4208,7 @@ function OnMsg.ConflictEnd(sector)
 				if sector_id == root.major.hq_sector and hq and JAZZ_IsLegionSide(hq.Side) then
 					lAddMajorMoney(root, lGetRegionPreset(squad_state.region_id), lPayloadMoney(squad_state.payload))
 					squad_state.payload.money = 0
+					lClearTaggedMoneyCargo(squad)
 					lBeginReturn(root, squad, squad_state, "rest")
 				end
 			end
