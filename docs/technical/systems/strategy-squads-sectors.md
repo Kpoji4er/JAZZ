@@ -24,6 +24,7 @@ JAZZ заменяет значительную часть satellite-логики
 - `Code/SatelliteSquad.lua` — крупный центральный runtime отрядов;
 - `Code/Guardpost.lua` — guardpost attacks, objectives, aggression и patrols;
 - `Code/Guardpost_Patrols.lua` — региональный director Legion Global AI, persistent state, экономика, задачи, маршруты, role icons и squad rollover;
+- `Code/FactionOverlay.lua` — faction hostility matrix + outpost/squad ownership (`gv_JAZZ_FactionOverlay`, STRATEGY-014);
 - `Code/SatelliteSquadFixes.lua` — loaded empty placeholder;
 - `Code/EnemySquad.lua` — enemy squad definitions/power/autoresolve integration;
 - `Code/Regions_Sectors.lua` — heat, panic, loyalty и hourly updates;
@@ -92,6 +93,14 @@ Maps добавляет четыре `GuardpostObjective` ModItems. Units пре
 
 **Lifecycle (JAZZ-STRATEGY-013):** happy-path **без RemoveSquad** (retire только living==0). После исчерпания `missions_left` отряд возвращается на home → state `resting` **12–36h** (`BaseRestMin/Max`, heal+top-up; **garrison без обязательного rest**) → refresh budget → `ready_for_orders`. Idle на базе только если после отдыха **нечего делать**. Recon/QRF без primary request могут assist гарнизон. Field understrength/wounded → retreat (012) → rest/wounded без despawn. Routing: land-first; water fallback; Major convoys exempt. `lRetireSquad` снимает отряд **сразу** на sync-пути планировщика (без `CreateRealTimeThread` / deferred RemoveSquad).
 - Idle ready squads at home top-up toward optimal when resources allow, then take new orders.
+
+### Faction overlay (JAZZ-STRATEGY-014)
+
+`Code/FactionOverlay.lua` + `GameVar("gv_JAZZ_FactionOverlay")`: публичный `JAZZ_GetFactionRelation(a,b)` → `ally`/`neutral`/`hostile` (одна матрица для sat и tactical). Locked: Rebels↔player ally; Rebels↔AI hostile; Adonis↔Army neutral; Legion↔Adonis/Army hostile; Legion↔player hostile; Adonis/Army↔player **neutral until** `JAZZ_IsWorldFlipProgressionActive`, then hostile. Outpost `owner_faction` на managed state + `owners[sector]`; Legion director `enabled` только при `owner_faction==legion`. World Flip lanes stamp Adonis/Army ownership (не reset на Legion) и `jazz_faction` на отрядах. Sat: враждебные enemy squads в одном секторе могут открыть conflict; Adonis/Army не открывают sat conflict на player до Flip. Tactical: wrap `Team:IsEnemySide` через матрицу (нужен runtime evidence). Faction-vs-faction **director** capture Legion↔Adonis (кроме Flip stamp) — partial / follow-up.
+
+### Pathing vs player territory (JAZZ-STRATEGY-018)
+
+Logistics roles (`shipment`/`supply`/`tax`/`manpower`/`recruiter`/`reinforce`) планируют маршрут с `g_JAZZ_RouteAvoidPlayer` → `SectorTravelBlocked` режет player1/2 сектора. Нет обходного пути → **не спавнить** (кроме `reinforce`: спавн + hold без travel). `patrol`/`recon`/`major` (retribution) — без avoid. Mid-route: уже идущий конвой **не** abort’ится при захвате сектора на пути (доезжает).
 
 У регулярных ролей есть mission budget; после исчерпания — return + rest (не удаление). Потеря `I7` переводит связанные регулярные отряды в `orphaned`, прекращает экономику и выдачу приказов; после возвращения контроля действует reboot delay 12 часов. Quest-forced attacks остаются в legacy `Guardpost.lua`, а обычный legacy spawn/patrol для managed `I7` блокируется, чтобы не было двойных отрядов.
 

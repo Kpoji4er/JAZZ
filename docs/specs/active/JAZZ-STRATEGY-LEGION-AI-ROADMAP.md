@@ -155,9 +155,9 @@ Major держит свои пулы (`major.money`, `major.manpower`) с capaci
 
 Частично: player city/farm копят тот же `poi_recruits`; API get/consume; optional soft gate если найден `MilitiaTraining`/`TrainMilitia`. Полный Operation contract — [morning questions](JAZZ-GLOBAL-AI-MORNING-QUESTIONS.md).
 
-### 8. Faction overlay (будущее) → draft [JAZZ-STRATEGY-014](JAZZ-STRATEGY-014.md)
+### 8. Faction overlay → implemented [JAZZ-STRATEGY-014](JAZZ-STRATEGY-014.md)
 
-JA3 не имеет матрицы фракций и faction-vs-faction войны. Целевой контракт (owner 2026-08-02, **draft**):
+JA3 не имеет матрицы фракций и faction-vs-faction войны. Контракт (owner 2026-08-02, **implemented** static; runtime AC open):
 
 - Фракции: Legion / Adonis / Army / Rebels (+ player); **Smugglers** — минифракция (иконка есть, director later).
 - Темы/цвета щитов: `SquadsIcons/Enemy/{legion,army,adonis,rebels,smugglers}.png` — таблица hex в STRATEGY-014.
@@ -167,6 +167,15 @@ JA3 не имеет матрицы фракций и faction-vs-faction войн
 - Аванпост: **кто захватил — тот владеет**; Flip не возвращает форт Легиону автоматически.
 - **Одна матрица sat+tactical:** hostile на стратегии ⇒ воюют на тактической карте / autoresolve; ally/neutral — нет (не «все красные = одна сторона»).
 - Реализация = overlay + ownership + sat capture + tactical hostility wiring — с нуля, не «включить vanilla factions».
+
+### 9. Pathing vs player territory → implemented [JAZZ-STRATEGY-018](JAZZ-STRATEGY-018.md)
+
+Discord (Sergej) / owner 2026-08-02 (**implemented** static; runtime AC open):
+
+- `recon` / scout / `patrol` — можно по player-controlled секторам.
+- `retribution` — можно, **приоритет** на player territory.
+- `shipment` / `supply` / `tax` / `manpower` / `recruiter` — обход; нет пути → **не спавнить**; существующие оставить; mid-route → **доехать**.
+- `reinforce` — обход; нет пути → **спавнить, но не идти** (hold).
 
 ## Иконки (ассеты)
 

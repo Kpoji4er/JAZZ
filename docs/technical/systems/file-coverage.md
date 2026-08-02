@@ -75,6 +75,7 @@
 | `EnemySquad.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
 | `Guardpost.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
 | `Guardpost_Patrols.lua` | loaded, Legion Global AI director | [Стратегия](strategy-squads-sectors.md) |
+| `FactionOverlay.lua` | loaded, faction matrix + ownership (014) | [Стратегия](strategy-squads-sectors.md) |
 | `LegionUnitPrices.lua` | loaded | [Стратегия](strategy-squads-sectors.md), [легион tiers](legion-units-equipment-tiers.md) |
 | `LegionSquadComposition.lua` | loaded | [Стратегия](strategy-squads-sectors.md), [легион tiers](legion-units-equipment-tiers.md) |
 | `LegionSquadGenerator.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |

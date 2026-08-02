@@ -459,8 +459,35 @@ function SatelliteReachSectorCenter(squad_id, sector_id, prev_sector_id, dontUpd
 	
 	if dontCheckConflict then return end
 	local sector = gv_Sectors[sector_id]
+	-- Vanilla: enemy entering enemy-owned sector skips conflict.
+	-- JAZZ-STRATEGY-014: if another enemy squad here is hostile by faction matrix, still conflict.
 	if IsEnemySquad(squad_id) and (sector.Side == "enemy1" or sector.Side == "enemy2") then
-		return
+		local force_faction_war = false
+		if rawget(_G, "JAZZ_SquadsAreHostile") then
+			local arriving = gv_Squads[squad_id]
+			for _, other in ipairs(GetSectorSquads(sector_id) or empty_table) do
+				if other and other.UniqueId ~= squad_id and IsEnemySquad(other.UniqueId)
+					and JAZZ_SquadsAreHostile(arriving, other)
+				then
+					force_faction_war = true
+					break
+				end
+			end
+		end
+		if not force_faction_war then
+			return
+		end
+	end
+
+	-- Adonis/Army vs player: no sat conflict until World Flip (014).
+	if rawget(_G, "JAZZ_FactionMayAttackPlayerOnSat") and rawget(_G, "JAZZ_GetSquadFaction") then
+		local arriving = gv_Squads[squad_id]
+		local af = arriving and JAZZ_GetSquadFaction(arriving)
+		if (sector.Side == "player1" or sector.Side == "player2")
+			and not JAZZ_FactionMayAttackPlayerOnSat(af)
+		then
+			return
+		end
 	end
 	
 	-- check for conflict
@@ -1557,6 +1584,9 @@ local opposite_directions =
 --- @param cache_neighbors boolean If true, use cached neighbor information.
 --- @return boolean True if travel is blocked between the sectors, false otherwise.
 ---
+-- STRATEGY-018: when Legion logistics plans a route, treat player Side sectors as blocked.
+g_JAZZ_RouteAvoidPlayer = rawget(_G, "g_JAZZ_RouteAvoidPlayer") or false
+
 function SectorTravelBlocked(from_sector_id, to_sector_id, _, pass_mode, __, dir, cache_neighbors)
 	local from_sector = gv_Sectors[from_sector_id]
 	local to_sector = gv_Sectors[to_sector_id]
@@ -1566,6 +1596,14 @@ function SectorTravelBlocked(from_sector_id, to_sector_id, _, pass_mode, __, dir
 		pass_mode == "land_only" and to_sector.Passability == "Water"
 	then
 		return true
+	end
+
+	-- JAZZ-STRATEGY-018: avoid player-controlled sectors for logistics pathing.
+	if rawget(_G, "g_JAZZ_RouteAvoidPlayer") and to_sector then
+		local side = to_sector.Side
+		if side == "player1" or side == "player2" then
+			return true
+		end
 	end
 	
 	if pass_mode ~= "land_water_river" and

@@ -106843,6 +106843,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			'CodeFileName', "Code/SatelliteSquad.lua",
 		}),
 		PlaceObj('ModItemCode', {
+			'name', "FactionOverlay",
+			'CodeFileName', "Code/FactionOverlay.lua",
+		}),
+		PlaceObj('ModItemCode', {
 			'name', "Guardpost_Patrols",
 			'CodeFileName', "Code/Guardpost_Patrols.lua",
 		}),

@@ -23,6 +23,49 @@ function SpawnWorldFlipAttackSquads()
 		return out
 	end
 
+	local function laneFaction(squadDefs)
+		if squadDefs == adonisSquads then
+			return "adonis"
+		end
+		if squadDefs == armySquads then
+			return "army"
+		end
+		-- After filterDefs, lists are new tables — match by first known id.
+		local sample = squadDefs and squadDefs[1]
+		if sample and string.find(sample, "Adonis", 1, true) then
+			return "adonis"
+		end
+		if sample and string.find(sample, "Army", 1, true) then
+			return "army"
+		end
+		return "adonis"
+	end
+
+	local function stampOwner(sector_id, faction)
+		if rawget(_G, "JAZZ_SetSectorOwnerFaction") then
+			JAZZ_SetSectorOwnerFaction(sector_id, faction, "world_flip")
+		end
+		local root = rawget(_G, "gv_JAZZ_LegionAI")
+		if type(root) == "table" and root.outposts and root.outposts[sector_id] then
+			root.outposts[sector_id].owner_faction = faction
+			-- Legion director must stop spawning from this fort (014).
+			if root.outposts[sector_id].enabled and faction ~= "legion" then
+				root.outposts[sector_id].enabled = false
+			end
+		end
+	end
+
+	local function tagSquadsInSector(sector_id, faction)
+		if not rawget(_G, "JAZZ_SetSquadFaction") then
+			return
+		end
+		for _, squad in ipairs(GetSectorSquads(sector_id) or empty_table) do
+			if squad and IsEnemySquad(squad.UniqueId) then
+				JAZZ_SetSquadFaction(squad, faction)
+			end
+		end
+	end
+
 	adonisSquads = filterDefs(adonisSquads)
 	armySquads = filterDefs(armySquads)
 	if #adonisSquads == 0 and #armySquads == 0 then
@@ -88,6 +131,7 @@ function SpawnWorldFlipAttackSquads()
 			print("[JAZZ WorldFlip] missing source sector " .. tostring(lane.source))
 			goto next_lane
 		end
+		local faction = laneFaction(lane.squadDefs)
 		local attackSquad = 0
 		for _, destSectorId in ipairs(lane.destSectorIds) do
 			local sector = gv_Sectors[destSectorId]
@@ -107,8 +151,12 @@ function SpawnWorldFlipAttackSquads()
 					custom_quest_id = false,
 				})
 				if attackSquadId then
+					local attackSquadObj = gv_Squads[attackSquadId]
+					if attackSquadObj and rawget(_G, "JAZZ_SetSquadFaction") then
+						JAZZ_SetSquadFaction(attackSquadObj, faction)
+					end
 					SatelliteSquadWaitInSector(
-						gv_Squads[attackSquadId],
+						attackSquadObj,
 						Game.CampaignTime + Min(consequentSquadDelay * attackSquad, maxDelay)
 					)
 					attackSquad = attackSquad + 1
@@ -124,6 +172,9 @@ function SpawnWorldFlipAttackSquads()
 					squad_def_id = squadDefId,
 					side = "enemy1",
 				})
+				-- STRATEGY-014: capturer owns the fort — do not reset to Legion.
+				stampOwner(destSectorId, faction)
+				tagSquadsInSector(destSectorId, faction)
 			end
 			::next_dest::
 		end

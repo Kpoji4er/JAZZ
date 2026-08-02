@@ -375,6 +375,7 @@ local function lEnsureOutpost(root, region, region_state, sector_id)
 			sector_id = sector_id,
 			region_id = lRegionId(region),
 			enabled = controlled,
+			owner_faction = "legion",
 			money = lConfig(region, "StartingSupply", 12000),
 			manpower = lConfig(region, "StartingManpower", 20),
 			diamond_stock = 0,
@@ -396,8 +397,27 @@ local function lEnsureOutpost(root, region, region_state, sector_id)
 	if outpost.manpower == false or outpost.manpower == nil then
 		outpost.manpower = lConfig(region, "StartingManpower", 20)
 	end
+	-- STRATEGY-014: owner_faction — Legion director only when legion owns.
+	if not outpost.owner_faction then
+		if controlled then
+			outpost.owner_faction = "legion"
+		elseif sector and lIsPlayerSide(sector.Side) then
+			outpost.owner_faction = "player"
+		else
+			outpost.owner_faction = "unknown"
+		end
+		if rawget(_G, "JAZZ_SetSectorOwnerFaction") then
+			JAZZ_SetSectorOwnerFaction(sector_id, outpost.owner_faction, "ensure")
+		end
+	elseif rawget(_G, "JAZZ_GetSectorOwnerFaction") then
+		local overlay = JAZZ_GetSectorOwnerFaction(sector_id)
+		if overlay and overlay ~= "unknown" then
+			outpost.owner_faction = overlay
+		end
+	end
+	local legion_owns = outpost.owner_faction == "legion"
 	-- Refresh each ensure: stale enabled=false after paralyzed/empty-region sessions.
-	outpost.enabled = controlled
+	outpost.enabled = controlled and legion_owns
 	outpost.region_id = lRegionId(region)
 	region_state.outposts[sector_id] = true
 	return outpost
@@ -653,6 +673,19 @@ function JAZZ_LegionAIEnsureState()
 			outpost.manpower = lConfig(region, "StartingManpower", 20)
 		end
 		outpost.manpower = Clamp(outpost.manpower or 0, 0, lConfig(region, "ManpowerCapacity", 32))
+		if not outpost.owner_faction then
+			local sector = gv_Sectors and gv_Sectors[outpost.sector_id]
+			if sector and lIsPlayerSide(sector.Side) then
+				outpost.owner_faction = "player"
+			elseif sector and JAZZ_IsLegionSide(sector.Side) then
+				outpost.owner_faction = "legion"
+			else
+				outpost.owner_faction = "unknown"
+			end
+		end
+	end
+	if rawget(_G, "JAZZ_FactionOverlayRepairOwners") then
+		JAZZ_FactionOverlayRepairOwners()
 	end
 	if root.major.manpower == false or root.major.manpower == nil then
 		local any_region = false
@@ -1191,45 +1224,79 @@ local lMajorSeaConvoyRoles = {
 	manpower = true,
 }
 
+-- JAZZ-STRATEGY-018: these roles must avoid player-controlled sectors.
+local lAvoidPlayerRoles = {
+	shipment = true,
+	supply = true,
+	tax = true,
+	manpower = true,
+	recruiter = true,
+	reinforce = true,
+}
+
 local function lManagedSquadRole(squad)
 	local root = gv_JAZZ_LegionAI
 	local squad_state = root and root.squads and squad and root.squads[squad.UniqueId]
 	return squad_state and squad_state.role or false
 end
 
+local function lRoutePathForRole(from_sector, to_sector, role, side, units)
+	if not from_sector or not to_sector then
+		return false
+	end
+	if from_sector == to_sector then
+		return {}
+	end
+	local allow_water_first = role and lMajorSeaConvoyRoles[role]
+	local avoid_player = role and lAvoidPlayerRoles[role]
+	if avoid_player then
+		rawset(_G, "g_JAZZ_RouteAvoidPlayer", true)
+	end
+	local route = false
+	if not allow_water_first then
+		route = GenerateRouteDijkstra(
+			from_sector,
+			to_sector,
+			false,
+			units,
+			"land_only",
+			nil,
+			side or "enemy1"
+		)
+	end
+	if not route then
+		-- Enemy/Legion boatless water edges; "land_water" needs player port + boat money.
+		route = GenerateRouteDijkstra(
+			from_sector,
+			to_sector,
+			false,
+			units,
+			"land_water_boatless",
+			nil,
+			side or "enemy1"
+		)
+	end
+	if avoid_player then
+		rawset(_G, "g_JAZZ_RouteAvoidPlayer", false)
+	end
+	return route
+end
+
 local function lRoutePath(squad, target_sector)
 	if not squad or not squad.CurrentSector or not target_sector then
 		return false
 	end
-	if squad.CurrentSector == target_sector then
-		return {}
-	end
 	local role = lManagedSquadRole(squad)
-	local allow_water_first = role and lMajorSeaConvoyRoles[role]
-	if not allow_water_first then
-		local land = GenerateRouteDijkstra(
-			squad.CurrentSector,
-			target_sector,
-			false,
-			squad.units,
-			"land_only",
-			nil,
-			squad.Side
-		)
-		if land then
-			return land
-		end
+	return lRoutePathForRole(squad.CurrentSector, target_sector, role, squad.Side, squad.units)
+end
+
+---True if role can reach destination without entering player Side (018 spawn gate).
+local function lHasAvoidPlayerRoute(from_sector, to_sector, role, side, units)
+	if not lAvoidPlayerRoles[role] then
+		return true
 	end
-	-- Enemy/Legion boatless water edges; "land_water" needs player port + boat money.
-	return GenerateRouteDijkstra(
-		squad.CurrentSector,
-		target_sector,
-		false,
-		squad.units,
-		"land_water_boatless",
-		nil,
-		squad.Side
-	)
+	local route = lRoutePathForRole(from_sector, to_sector, role, side, units)
+	return route and true or false
 end
 
 local function lSetRoute(squad, target_sector)
@@ -1642,6 +1709,9 @@ local function lSpawnManaged(root, region, home_sector, role, origin_sector, mis
 		payload = payload or {},
 		task = false,
 	}
+	if rawget(_G, "JAZZ_SetSquadFaction") then
+		JAZZ_SetSquadFaction(squad, "legion")
+	end
 	lApplySquadRoleIcon(squad, role)
 	Msg("JAZZ_LegionAISquadManaged", squad_id, role, home_sector)
 	return squad_id, root.squads[squad_id]
@@ -2538,9 +2608,23 @@ local function lSpawnRegularRole(root, region, region_state, outpost, role)
 		unit_templates
 	)
 	local squad = squad_id and gv_Squads[squad_id]
-	if not squad or not lAssignTask(root, region, region_state, outpost, squad, squad_state, request) then
-		if squad then lRetireSquad(root, squad_id) end
+	if not squad then
 		return false
+	end
+	-- STRATEGY-018: reinforce may spawn without a valid avoid-player route (hold).
+	local assigned = lAssignTask(root, region, region_state, outpost, squad, squad_state, request)
+	if not assigned then
+		if role == "reinforce" then
+			squad_state.state = "ready_for_orders"
+			squad_state.task = false
+			squad_state.hold_for_path = true
+			lLog(string.format("reinforce at %s holding: no avoid-player path to target", tostring(outpost.sector_id)))
+		else
+			lRetireSquad(root, squad_id)
+			return false
+		end
+	else
+		squad_state.hold_for_path = nil
 	end
 	-- Charge actual living bodies if generator under-counted.
 	local spawned = #(squad.units or empty_table)
@@ -2647,6 +2731,10 @@ local function lTrySupplyConvoy(root, region, region_state, outpost)
 	then
 		return false
 	end
+	-- STRATEGY-018: do not spawn supply without avoid-player path HQ→outpost.
+	if not lHasAvoidPlayerRoute(hq_sector, outpost.sector_id, "supply", "enemy1", empty_table) then
+		return false
+	end
 	local squad_id, squad_state = lSpawnManaged(
 		root, region, outpost.sector_id, "supply", hq_sector, 1, { money = cargo },
 		lEscortUnitTemplates("supply", region_state, "supply_" .. outpost.sector_id)
@@ -2703,6 +2791,10 @@ local function lTryDiamondShipment(root, region, region_state, outpost)
 		return lDispatchShipment(idle_squad, idle_state)
 	end
 	if lActiveRole(root, region_state.region_id, outpost.sector_id, "shipment") then
+		return false
+	end
+	-- STRATEGY-018: do not spawn shipment without avoid-player path outpost→HQ.
+	if not lHasAvoidPlayerRoute(outpost.sector_id, hq_sector, "shipment", "enemy1", empty_table) then
 		return false
 	end
 	local squad_id, squad_state = lSpawnManaged(
@@ -2794,6 +2886,9 @@ local function lTryTaxCollector(root, region, region_state, outpost)
 	if lCountHomeRole(root, outpost.sector_id, "tax") >= cap then
 		return false
 	end
+	if not lHasAvoidPlayerRoute(outpost.sector_id, circuit[1], "tax", "enemy1", empty_table) then
+		return false
+	end
 	local squad_id, squad_state = lSpawnManaged(
 		root, region, outpost.sector_id, "tax", outpost.sector_id, 1, { money = 0 },
 		lEscortUnitTemplates("tax", region_state, "tax_" .. outpost.sector_id)
@@ -2867,6 +2962,9 @@ local function lTryRecruiter(root, region, region_state, outpost)
 	if lCountHomeRole(root, outpost.sector_id, "recruiter") >= cap then
 		return false
 	end
+	if not lHasAvoidPlayerRoute(outpost.sector_id, circuit[1], "recruiter", "enemy1", empty_table) then
+		return false
+	end
 	local squad_id, squad_state = lSpawnManaged(
 		root, region, outpost.sector_id, "recruiter", outpost.sector_id, 1, { manpower = 0, recruited_ids = {} },
 		lEscortUnitTemplates("recruiter", region_state, "recruiter_" .. outpost.sector_id)
@@ -2897,6 +2995,9 @@ local function lTryManpowerConvoy(root, region, region_state, outpost)
 	local hq_sector = root.major.hq_sector
 	local hq = hq_sector and gv_Sectors[hq_sector]
 	if not hq or not JAZZ_IsLegionSide(hq.Side) then
+		return false
+	end
+	if not lHasAvoidPlayerRoute(hq_sector, outpost.sector_id, "manpower", "enemy1", empty_table) then
 		return false
 	end
 	local squad_id, squad_state = lSpawnManaged(
@@ -2947,6 +3048,9 @@ local function lTryManpowerOutbound(root, region, region_state, outpost)
 	local hq_sector = root.major.hq_sector
 	local hq = hq_sector and gv_Sectors[hq_sector]
 	if not hq or not JAZZ_IsLegionSide(hq.Side) then
+		return false
+	end
+	if not lHasAvoidPlayerRoute(outpost.sector_id, hq_sector, "manpower", "enemy1", empty_table) then
 		return false
 	end
 	local squad_id, squad_state = lSpawnManaged(
@@ -3462,10 +3566,29 @@ end
 local function lSetOutpostControlState(root, region, outpost)
 	local sector = gv_Sectors[outpost.sector_id]
 	local controlled = sector and JAZZ_IsLegionSide(sector.Side) or false
-	if controlled == outpost.enabled then
+	-- STRATEGY-014: who captured owns — sync owner_faction.
+	if sector then
+		local owner = outpost.owner_faction or "unknown"
+		if lIsPlayerSide(sector.Side) then
+			owner = "player"
+		elseif JAZZ_IsLegionSide(sector.Side) then
+			local stamped = rawget(_G, "JAZZ_GetSectorOwnerFaction") and JAZZ_GetSectorOwnerFaction(outpost.sector_id)
+			if stamped == "adonis" or stamped == "army" or stamped == "rebels" then
+				owner = stamped
+			else
+				owner = "legion"
+			end
+		end
+		outpost.owner_faction = owner
+		if rawget(_G, "JAZZ_SetSectorOwnerFaction") then
+			JAZZ_SetSectorOwnerFaction(outpost.sector_id, owner, "side_changed")
+		end
+	end
+	local want_enabled = controlled and outpost.owner_faction == "legion"
+	if want_enabled == outpost.enabled then
 		return
 	end
-	if controlled then
+	if want_enabled then
 		outpost.enabled = true
 		outpost.reboot_until = lNow()
 			+ lConfig(region, "OutpostRebootDelay", 12 * lHourScale())

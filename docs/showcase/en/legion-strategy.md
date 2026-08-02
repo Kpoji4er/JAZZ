@@ -26,6 +26,12 @@ Bloodied squads may fall back to the fort and wait for replacements. After a run
 
 Legion mine/town/farm income and starting cash pools are about **4× lower** than before, and new squads spawn less often — the map should not fill with heavy convoys immediately.
 
+## Factions and logistics
+
+- Whoever captures a fort owns it; after World Flip, Adonis/Army lanes can keep ownership.
+- Before Flip, Adonis/Army do not open sat conflict on your sectors; after Flip they are hostile on sat and in combat.
+- Convoys route around your sectors; if there is no bypass, a new convoy does not spawn (one already en route finishes). Patrol / recon / retaliation can still enter your territory.
+
 ## Recon and Heat
 
 If recon does not find your squad, sector Heat drops a little. If it spots you, it leaves with a report (“player in sector XXX”) and the empty-sector Heat drop does not apply. QRF and retaliation can read those reports.
