@@ -38,7 +38,7 @@ def main() -> None:
         'pair("legion", "player")',
         'pair("adonis", "player")',
         "lWorldFlip()",
-        "Team:IsEnemySide",
+        'rawget(_G, "Team")',
     )
     for tok in required_tokens:
         if tok not in text:

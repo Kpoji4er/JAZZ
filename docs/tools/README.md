@@ -52,7 +52,8 @@
 | `_audit_loot_item_case.py` | `jazz-units` LootEntry `item=` vs `InventoryItem` DefineClass (ловит `Mas36`≠`MAS36`). Exit 1 при mismatch. |
 | `_audit_faction_overlay_static.py` | Static AC hooks for STRATEGY-014/018: matrix API, ownership, avoid-player routing, load registration. |
 | `_test_legion_medic_density.py` | STRATEGY-015: static mirror `JAZZ_GetLegionMaxMedics` + generator wiring markers. |
-| `_test_legion_squad_growth.py` | STRATEGY-016: early→mature sizes, economy ×0.25 markers, cadence defaults. |
+| `_test_legion_spawn_pool.py` | Static STRATEGY-019: global spawn pool + tax/recruiter 72h gate + tax/recruiter → combat → supply order. |
+| `_test_legion_squad_growth.py` | STRATEGY-016: early→mature sizes, economy ×0.25 markers, cadence defaults; NoMaps size override. |
 | `_test_legion_money_cargo.py` | STRATEGY-017: tagged cargo sync / tax collect / regen resync markers. |
 | `_insert_reload_combat_action.py` | WEAPONS-004: вставляет full `ModItemCombatAction` `Reload` в `items.lua` + `ModResourcePreset` в `metadata.lua`. |
 | `_insert_rebels_flanker.py` | ROLE-001 repair: clone `Legion_Flanker` → `Rebels_Flanker` in `jazz-units/items.lua` (metadata Id already present). Idempotent. |

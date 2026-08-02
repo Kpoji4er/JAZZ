@@ -121,6 +121,21 @@ Growth progress `p ∈ [0,1]` = max of:
 
 Logistics roles that today use only `EnemySquadDef` (**15–25** bodies) **must** pass `unit_template_ids` from composition at effective size so escorts are not day-1 `[19]`.
 
+### NoMaps size override (owner 2026-08-02)
+
+When `JAZZ_NoMapsIsActive()` — mainland has many more outposts; use **smaller** bands via `JAZZ_LegionRoleSizeOverrideNoMaps` (Ernie/maps unchanged):
+
+| Role | NoMaps early | NoMaps mature |
+| --- | ---: | ---: |
+| recon | **3–5** | **6–9** |
+| patrol | **4–6** | **8–12** |
+| qrf | **4–7** | **8–14** |
+| reinforce | **4–7** | **10–16** |
+| retribution / major | **8–12** | **14–22** |
+| garrison | **12–20** | **12–20** |
+| tax / recruiter / manpower | **3–5** | **5–8** |
+| supply / shipment | **3–5** | **5–10** |
+
 ## Требования
 
 - `JAZZ-STRATEGY-016-REQ-001` — growth helpers + early/mature tables as locked above.
@@ -128,6 +143,7 @@ Logistics roles that today use only `EnemySquadDef` (**15–25** bodies) **must*
 - `JAZZ-STRATEGY-016-REQ-003` — logistics spawn uses composition templates at effective escort size (not raw full EnemySquadDef count).
 - `JAZZ-STRATEGY-016-REQ-004` — economy / diamond income scale **×0.25** + cadence defaults locked above.
 - `JAZZ-STRATEGY-016-REQ-005` — docs/wiki/showcase + roadmap updated; issue #3 explicitly deferred.
+- `JAZZ-STRATEGY-016-REQ-006` — NoMaps uses `JAZZ_LegionRoleSizeOverrideNoMaps` locked table above; Ernie/maps keep base recipes.
 
 ## Инварианты и ограничения
 
@@ -142,6 +158,7 @@ Logistics roles that today use only `EnemySquadDef` (**15–25** bodies) **must*
 - `JAZZ-STRATEGY-016-AC-002` — static: economy scale helper ×0.25 with manpower floors.
 - `JAZZ-STRATEGY-016-AC-003` — static: logistics roles wired to composition size path markers.
 - `JAZZ-STRATEGY-016-AC-004` — early campaign shipment/tax use composition escort sizes (not raw EnemySquadDef ~19); existing fat squads unchanged.
+- `JAZZ-STRATEGY-016-AC-005` — static: NoMaps override table present; patrol early 4–6 / mature 8–12 when override applied.
 
 ## Impact и совместимость
 
@@ -162,7 +179,7 @@ Logistics roles that today use only `EnemySquadDef` (**15–25** bodies) **must*
 
 ## Решение владельца
 
-- Статус: **approved** (B+C + diamond/$ ×0.25 ÷4, 2026-08-02)
+- Статус: **implemented** (B+C + diamond/$ ×0.25 ÷4; NoMaps smaller size table 2026-08-02)
 - Кто подтвердил: project-owner
 - Дата: 2026-08-02
 
@@ -172,7 +189,8 @@ Logistics roles that today use only `EnemySquadDef` (**15–25** bodies) **must*
 - `JAZZ-STRATEGY-016-AC-002`: `PASS (static)` — `JAZZ_LegionEconomyScalePct` default 25 + floors.
 - `JAZZ-STRATEGY-016-AC-003`: `PASS (static)` — `lEscortUnitTemplates` + logistics composition gate.
 - `JAZZ-STRATEGY-016-AC-004`: `PASS (static)` — no shrink of existing squads; new logistics/combat spawn paths use `lEscortUnitTemplates` / growth-resolved sizes. Human: after Lua reload, new tax/shipment should be ~4–6 early (not ~19).
+- `JAZZ-STRATEGY-016-AC-005`: `PASS (static)` — `JAZZ_LegionRoleSizeOverrideNoMaps` + resolve gate; patrol NoMaps 4–6 / 8–12.
 
 ## Documentation delta
 
-- technical strategy page, playtest B20, wiki, showcase RU/EN, roadmap, tools README.
+- technical strategy page, wiki, showcase RU/EN, tools growth test; NoMaps size table.

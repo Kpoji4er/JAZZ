@@ -258,6 +258,22 @@ JAZZ_LegionRoleRecipes = {
 	},
 }
 
+-- NoMaps (mainland) size bands — owner lock 2026-08-02 (smaller than Ernie STRATEGY-016).
+-- Applied only when JAZZ_NoMapsIsActive(); Ernie/maps keep JAZZ_LegionRoleRecipes sizes.
+JAZZ_LegionRoleSizeOverrideNoMaps = {
+	recon = { size_early_min = 3, size_early_max = 5, size_min = 6, size_max = 9 },
+	patrol = { size_early_min = 4, size_early_max = 6, size_min = 8, size_max = 12 },
+	qrf = { size_early_min = 4, size_early_max = 7, size_min = 8, size_max = 14 },
+	reinforce = { size_early_min = 4, size_early_max = 7, size_min = 10, size_max = 16 },
+	retribution = { size_early_min = 8, size_early_max = 12, size_min = 14, size_max = 22 },
+	garrison = { size_early_min = 12, size_early_max = 20, size_min = 12, size_max = 20 },
+	tax = { size_early_min = 3, size_early_max = 5, size_min = 5, size_max = 8 },
+	recruiter = { size_early_min = 3, size_early_max = 5, size_min = 5, size_max = 8 },
+	manpower = { size_early_min = 3, size_early_max = 5, size_min = 5, size_max = 8 },
+	supply = { size_early_min = 3, size_early_max = 5, size_min = 5, size_max = 10 },
+	shipment = { size_early_min = 3, size_early_max = 5, size_min = 5, size_max = 10 },
+}
+
 -- STRATEGY-016 growth curve.
 JAZZ_LegionSquadGrowth = {
 	DaysToMature = 21,
@@ -269,6 +285,10 @@ local function lLerpInt(a, b, p)
 	b = tonumber(b) or a
 	p = Clamp(tonumber(p) or 0, 0, 1000)
 	return a + DivRound((b - a) * p, 1000)
+end
+
+local function lNoMapsSizeProfile()
+	return rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive() or false
 end
 
 --- Growth progress 0..1000 from time / heat / gear major (max of signals).
@@ -300,15 +320,27 @@ end
 
 --- Shallow recipe with size_min/max lerped early→mature for progress 0..1000.
 function JAZZ_ResolveLegionRoleRecipe(role, growth_progress)
-	local base = JAZZ_GetLegionRoleRecipe(role == "major" and "retribution" or role)
+	local recipe_key = role == "major" and "retribution" or role
+	local base = JAZZ_GetLegionRoleRecipe(recipe_key)
 	if not base then
 		return false
 	end
-	local p = Clamp(tonumber(growth_progress) or 0, 0, 1000)
 	local early_min = base.size_early_min or base.size_min
 	local early_max = base.size_early_max or base.size_max
-	local size_min = lLerpInt(early_min, base.size_min, p)
-	local size_max = lLerpInt(early_max, base.size_max, p)
+	local mature_min = base.size_min
+	local mature_max = base.size_max
+	if lNoMapsSizeProfile() then
+		local ov = JAZZ_LegionRoleSizeOverrideNoMaps[recipe_key]
+		if ov then
+			early_min = ov.size_early_min or early_min
+			early_max = ov.size_early_max or early_max
+			mature_min = ov.size_min or mature_min
+			mature_max = ov.size_max or mature_max
+		end
+	end
+	local p = Clamp(tonumber(growth_progress) or 0, 0, 1000)
+	local size_min = lLerpInt(early_min, mature_min, p)
+	local size_max = lLerpInt(early_max, mature_max, p)
 	if size_max < size_min then
 		size_max = size_min
 	end
@@ -317,11 +349,12 @@ function JAZZ_ResolveLegionRoleRecipe(role, growth_progress)
 		size_max = size_max,
 		size_early_min = early_min,
 		size_early_max = early_max,
-		size_mature_min = base.size_min,
-		size_mature_max = base.size_max,
+		size_mature_min = mature_min,
+		size_mature_max = mature_max,
 		tier_bias = base.tier_bias,
 		allow_prefixes = base.allow_prefixes,
 		growth_progress = p,
+		nomaps_sizes = lNoMapsSizeProfile() and true or false,
 	}
 end
 

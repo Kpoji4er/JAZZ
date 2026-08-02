@@ -31,5 +31,12 @@ assert lerp(5, 12, 0) == 5
 assert lerp(8, 18, 0) == 8
 assert lerp(5, 12, 1000) == 12
 assert lerp(8, 18, 1000) == 18
+assert lerp(4, 8, 0) == 4
+assert lerp(6, 12, 1000) == 12
 
-print("OK STRATEGY-016 squad growth + economy scale static checks")
+assert "JAZZ_LegionRoleSizeOverrideNoMaps" in comp, "NoMaps size override missing"
+assert "patrol = { size_early_min = 4, size_early_max = 6, size_min = 8, size_max = 12 }" in comp, "NoMaps patrol band"
+assert "garrison = { size_early_min = 12, size_early_max = 20, size_min = 12, size_max = 20 }" in comp, "NoMaps garrison band"
+assert "lNoMapsSizeProfile" in comp or "JAZZ_NoMapsIsActive" in comp, "NoMaps gate in resolve"
+
+print("OK STRATEGY-016 squad growth + economy scale + NoMaps size override static checks")

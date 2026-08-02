@@ -83,8 +83,10 @@ Maps добавляет четыре `GuardpostObjective` ModItems. Units пре
 - `recruiter` — спавнит `JAZZ_Legion_Recruit`; на базе strip всех Recruit → `outpost.manpower` (cap 32), излишек → `outbound_manpower`; **эскорт не retire** — rest + reuse; свой `RecruiterCooldown` **48h**;
 - `manpower` — Major→outpost **только при manpower=0**; обратный караван outpost→Major забирает `outbound_manpower`; после сдачи → rest, не RemoveSquad;
 - Combat spawn (`garrison`/`patrol`/`recon`/`qrf`/`reinforce`/`major`): composition generator с **STRATEGY-016** early→mature sizes (time/heat/tier); всегда `$` + manpower;
+- **NoMaps size override:** `JAZZ_LegionRoleSizeOverrideNoMaps` — меньшие bands (patrol early 4–6 / mature 8–12; garrison **12–20**); Ernie/maps без override;
 - Logistics escorts (`tax`/`shipment`/`supply`/`recruiter`/`manpower`): composition templates at effective escort size (не сырой EnemySquadDef 15–25);
 - **Medic density (JAZZ-STRATEGY-015):** combat generator резервирует Bonemaker на effective `n`;
+- **Spawn cadence (JAZZ-STRATEGY-019):** tax/recruiter только после `logistics_open_at` (новые аванпосты +**72h**); глобальный пул новых `lSpawnManaged` / **24h** = **1/2/3** при Legion major tier I/II/III; в окне: tax → recruiter → combat → supply/shipment/manpower;
 - garrison cap runtime = число важных Legion-секторов + 1; ослабленный гарнизон возвращается на базу;
 - максимум 1 managed combat spawn / **48h** / аванпост;
 - unlocked Hospital бафает managed Legion squads (`Inspired`, 24h);

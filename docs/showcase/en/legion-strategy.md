@@ -4,15 +4,15 @@
 
 On **Ernie**, the Legion runs Fort L'Eau Bleu (sector I7) through a regional HQ. On the satellite map, squads show a **role** icon and a **current task** on hover.
 
-Without the maps package (**JAZZ Vanilla Maps**) the same Global AI runs vanilla mainland outposts: Major HQ at A20, **one region per Guardpost by nearest outpost** (full land coverage, no orphan sectors, no half-map mega-regions with foreign camps), starting defenders adopted as garrison, tax/recruiting from city/farm stockpiles. Enemy gear and container loot scale with Legion tier (mine + 3 days → II, World Flip → III). Before tier II, map legionaries stay **class T1 only** (no day-one jump to veterans/mercenaries); Stronger_Elite → T4 only after World Flip — see [Legion units](legion-units.md).
+Without the maps package (**JAZZ Vanilla Maps**) the same Global AI runs vanilla mainland outposts: Major HQ at A20, **one region per Guardpost by nearest outpost** (full land coverage, no orphan sectors, no half-map mega-regions with foreign camps), starting defenders adopted as garrison, tax/recruiting from city/farm stockpiles. **Managed squads are smaller on the mainland** than on Ernie. Enemy gear and container loot scale with Legion tier (mine + 3 days → II, World Flip → III). Before tier II, map legionaries stay **class T1 only** (no day-one jump to veterans/mercenaries); Stronger_Elite → T4 only after World Flip — see [Legion units](legion-units.md).
 
 ## Squad roles
 
 | Role | What it does | Typical size |
 | --- | --- | ---: |
-| Garrison | Holds key points | 25–40 |
-| Patrol | Moves between key points, **including yours**; prefers empty ones | small early (~5–8), grows to 12–18 |
-| Recon | Deploys on noticeable “noise”; return names the sector where you were spotted | ~4–6 → 8–12 |
+| Garrison | Holds key points | 25–40 (NoMaps: **12–20**) |
+| Patrol | Moves between key points, **including yours**; prefers empty ones | small early (~5–8), grows to 12–18; **NoMaps ~4–6 → 8–12** |
+| Recon | Deploys on noticeable “noise”; return names the sector where you were spotted | ~4–6 → 8–12; **NoMaps ~3–5 → 6–9** |
 | QRF | Only under threat: recon report or a key point you took | grows with time/Heat |
 | Reinforcement | Holds border key points near you | grows with time/Heat |
 | Tax collector | Tours towns/farms and brings `$` to the fort; loot matches the run’s `$` | small escort early |
@@ -24,7 +24,7 @@ Without the maps package (**JAZZ Vanilla Maps**) the same Global AI runs vanilla
 
 Bloodied squads may fall back to the fort and wait for replacements. After a run of orders a squad **returns to base to rest and refill**, then goes out again. Patrols **linger** in route sectors and travel **over land** when a land path exists.
 
-Legion mine/town/farm income and starting cash pools are about **4× lower** than before, and new squads spawn less often — the map should not fill with heavy convoys immediately.
+Legion mine/town/farm income and starting cash pools are about **4× lower** than before, and new squads spawn less often — the map should not fill with heavy convoys immediately. On the mainland, tax/recruiters from a new fort wait ~3 days, and the daily cap on **new** Legion squads map-wide scales with tier (1 → 2 → 3).
 
 ## Factions and logistics
 

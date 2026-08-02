@@ -44,7 +44,7 @@ approved_by: project-owner
 | JAZZ-STRATEGY-012 | Base refit / wounded retreat / idle top-up for regular combat roles |
 | JAZZ-STRATEGY-013 | Persistent squads (no despawn); mission-budget rest 12–36h; patrol sector dwell; recon/QRF idle garrison assist |
 | JAZZ-STRATEGY-015 | Medic density: Bonemaker reserved ~1 / 10–20 (min 1 at n≥10, `floor(n/15)`) in combat generator |
-| JAZZ-STRATEGY-016 | Early→mature squad sizes (B+C); diamond/`$` income ×0.25 (÷4); slower cadence |
+| JAZZ-STRATEGY-016 | Early→mature squad sizes (B+C); diamond/`$` income ×0.25 (÷4); slower cadence; **NoMaps smaller size table** |
 | JAZZ-STRATEGY-017 | Tagged money cargo in inventory for tax/shipment/supply; survives loot regen; live resync |
 
 ## Валюта (утверждено)
@@ -176,6 +176,14 @@ Discord (Sergej) / owner 2026-08-02 (**implemented** static; runtime AC open):
 - `retribution` — можно, **приоритет** на player territory.
 - `shipment` / `supply` / `tax` / `manpower` / `recruiter` — обход; нет пути → **не спавнить**; существующие оставить; mid-route → **доехать**.
 - `reinforce` — обход; нет пути → **спавнить, но не идти** (hold).
+
+### 10. Gradual logistics + global spawn pool → implemented [JAZZ-STRATEGY-019](JAZZ-STRATEGY-019.md)
+
+Owner 2026-08-02 (**implemented** static; runtime AC open):
+
+- Tax/recruiter: новые аванпосты ждут **72h** перед первым выездом.
+- Глобальный пул новых managed-спавнов / **24h**: tier I/II/III → **1/2/3**.
+- Командное окно: tax → recruiter → combat → потом supply/shipment/manpower.
 
 ## Иконки (ассеты)
 

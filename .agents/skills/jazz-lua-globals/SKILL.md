@@ -87,11 +87,39 @@ attempt to index a boolean value (global 'Groups')
 
 `function GenerateEnemySquad(...)` / `CreateUnitData = function...` — OK, если символ **уже** существует. Сначала `rawget` + type check. Новый public API (`function JAZZ_Foo()`) объявлять на top-level файла.
 
+## 7. Чтение возможно отсутствующих engine globals
+
+Assert также бывает:
+
+```text
+Attempt to use an undefined global 'Team'
+```
+
+**Любое** bare-имя (`Team`, `g_Units`, `Groups`, …) при отсутствии ключа в `_G` → Assert, не только запись. На `ModsReloaded` класс `Team` ещё может не существовать.
+
+```lua
+-- BAD
+if type(Team) ~= "table" then return end
+function Team:IsEnemySide(other) ... end
+
+-- GOOD
+local team_class = rawget(_G, "Team")
+if type(team_class) ~= "table" then return end
+local base = team_class.IsEnemySide
+if type(base) ~= "function" then return end
+team_class.IsEnemySide = function(self, other)
+	return base(self, other)
+end
+```
+
+То же для `g_Units` / `gv_UnitData` в ранних handlers: `local u = rawget(_G, "g_Units")`.
+
 ## Чеклист перед commit
 
 - [ ] Все `g_JAZZ_*` / wrap flags, которые пишутся из `OnMsg`, есть на top-level как `= false` (или `rawget or false`).
 - [ ] Runtime-записи в `_G` новых/перезаписываемых служебных ключей — через `rawset(_G, "Name", value)`.
 - [ ] Нет первого присвоения `NewName = …` внутри `OnMsg` / local function без предварительного top-level.
+- [ ] Нет bare-read engine globals, которые могут отсутствовать на reload (`Team`, …) — только `rawget(_G, …)`.
 - [ ] Early NewGame не зовёт `SetQuestVar`, если нужен только raw value для loot.
 - [ ] После фикса NoMaps: закрытие Mod Manager + NewGame без Assert; `JAZZ_LegionAIPrintEconomy()` → HQ=`A20` (не `B28`).
 

@@ -386,6 +386,7 @@ local function lEnsureOutpost(root, region, region_state, sector_id)
 			last_recruiter_time = 0,
 			last_spawn_time = 0,
 			outbound_manpower = 0,
+			logistics_open_at = lNow() + 72 * lHourScale(),
 		}
 		root.outposts[sector_id] = outpost
 	end
@@ -394,6 +395,10 @@ local function lEnsureOutpost(root, region, region_state, sector_id)
 	outpost.last_recruiter_time = outpost.last_recruiter_time or 0
 	outpost.last_spawn_time = outpost.last_spawn_time or 0
 	outpost.outbound_manpower = outpost.outbound_manpower or 0
+	-- STRATEGY-019: new outposts set logistics_open_at at create; existing saves open now.
+	if outpost.logistics_open_at == nil then
+		outpost.logistics_open_at = 0
+	end
 	if outpost.manpower == false or outpost.manpower == nil then
 		outpost.manpower = lConfig(region, "StartingManpower", 20)
 	end
@@ -640,6 +645,7 @@ function JAZZ_LegionAIEnsureState()
 	root.outposts = root.outposts or {}
 	root.squads = root.squads or {}
 	root.missing_defs_logged = root.missing_defs_logged or {}
+	root.global_spawn = root.global_spawn or { window_start = 0, used = 0 }
 
 	if root.schema_version > lSchemaVersion then
 		lLog(string.format("unsupported save schema %s; feature disabled", tostring(root.schema_version)))
@@ -1000,6 +1006,57 @@ end
 
 local function lMarkOutpostSpawn(outpost)
 	outpost.last_spawn_time = lNow()
+end
+
+-- STRATEGY-019: global new-spawn pool (map-wide), sized by Legion major tier.
+local function lLegionMajorTier()
+	local tier = (JAZZ_GetLegionTier and JAZZ_GetLegionTier()) or 11
+	tier = tonumber(tier) or 11
+	return Max(1, DivRound(tier, 10))
+end
+
+local function lGlobalSpawnSlotCap()
+	local major = lLegionMajorTier()
+	if major >= 3 then
+		return 3
+	end
+	if major >= 2 then
+		return 2
+	end
+	return 1
+end
+
+local function lEnsureGlobalSpawnState(root)
+	root.global_spawn = root.global_spawn or { window_start = 0, used = 0 }
+	local window = 24 * lHourScale()
+	local gs = root.global_spawn
+	if (gs.window_start or 0) + window <= lNow() then
+		gs.window_start = lNow()
+		gs.used = 0
+	end
+	return gs
+end
+
+local function lCanConsumeGlobalSpawn(root)
+	if type(root) ~= "table" then
+		return false
+	end
+	local gs = lEnsureGlobalSpawnState(root)
+	return (gs.used or 0) < lGlobalSpawnSlotCap()
+end
+
+local function lConsumeGlobalSpawn(root)
+	local gs = lEnsureGlobalSpawnState(root)
+	gs.used = (gs.used or 0) + 1
+end
+
+--- Tax/recruiter: wait logistics_open_at (72h after outpost enable) before first spawn.
+local function lLogisticsOpen(outpost)
+	if not outpost then
+		return false
+	end
+	local open_at = outpost.logistics_open_at or 0
+	return open_at <= lNow()
 end
 
 local function lCountRegular(root, home_sector, role)
@@ -1665,6 +1722,10 @@ local function lGatherRecruitCargoIds(squad, tracked_ids, unit_template)
 end
 
 local function lSpawnManaged(root, region, home_sector, role, origin_sector, missions_left, payload, unit_template_ids)
+	-- STRATEGY-019: map-wide new-spawn budget (idle reuse does not call this).
+	if not lCanConsumeGlobalSpawn(root) then
+		return false
+	end
 	local source_sector = gv_Sectors[home_sector]
 	local list = lRoleSquadList(region, source_sector, role)
 	local squad_def_id = lPickSquadDef(list, role .. "_" .. home_sector)
@@ -1691,6 +1752,7 @@ local function lSpawnManaged(root, region, home_sector, role, origin_sector, mis
 	if not squad then
 		return false
 	end
+	lConsumeGlobalSpawn(root)
 	if (role == "shipment" or role == "supply") and lPayloadMoney(payload) > 0 then
 		if not lEnsureMoneyCargo(squad, lPayloadMoney(payload)) then
 			lLog(string.format("%s spawned without valuables matching payload $; squad retired", role))
@@ -2847,6 +2909,9 @@ local function lTaxCircuitSectors(region, region_state)
 end
 
 local function lTryTaxCollector(root, region, region_state, outpost)
+	if not lLogisticsOpen(outpost) then
+		return false
+	end
 	local cooldown = lConfig(region, "TaxCooldown", 48 * lHourScale())
 	if (outpost.last_tax_time or 0) + cooldown > lNow() then
 		return false
@@ -2922,6 +2987,9 @@ local function lRecruitCircuitSectors(region, region_state)
 end
 
 local function lTryRecruiter(root, region, region_state, outpost)
+	if not lLogisticsOpen(outpost) then
+		return false
+	end
 	local cooldown = lConfig(region, "RecruiterCooldown", 48 * lHourScale())
 	if (outpost.last_recruiter_time or 0) + cooldown > lNow() then
 		return false
@@ -3145,10 +3213,14 @@ local function lRunCommandWindow(root, region, region_state, outpost)
 	lCompleteWorkingTasks(root, region, region_state, outpost)
 	lAssignReadySquads(root, region, region_state, outpost)
 
+	-- STRATEGY-019: tax/recruiter first, then combat fill, then supply logistics.
+	-- Global spawn pool (tier 1/2/3 → 1/2/3 new lSpawnManaged / 24h) gates all new creates.
+	lTryTaxCollector(root, region, region_state, outpost)
+	lTryRecruiter(root, region, region_state, outpost)
+
 	-- Need-gated fill: qrf/recon only with threat/noise; garrison only undefended
 	-- key/POI; reinforce on player-adjacent borders; patrol if a target exists.
-	-- Combat uses a shared 1/day outpost spawn slot. Logistics (supply/shipment/
-	-- tax/recruiter/manpower) use role cooldowns/caps and may spawn same window.
+	-- Combat uses a shared 1/48h outpost spawn slot (STRATEGY-016).
 	lSpawnRegularRole(root, region, region_state, outpost, "qrf")
 	while lSpawnRegularRole(root, region, region_state, outpost, "garrison") do end
 	lSpawnRegularRole(root, region, region_state, outpost, "reinforce")
@@ -3157,9 +3229,6 @@ local function lRunCommandWindow(root, region, region_state, outpost)
 
 	lTrySupplyConvoy(root, region, region_state, outpost)
 	lTryDiamondShipment(root, region, region_state, outpost)
-	lTryTaxCollector(root, region, region_state, outpost)
-	lTryRecruiter(root, region, region_state, outpost)
-	-- Outbound surplus first; inbound only when outpost manpower is empty.
 	lTryManpowerOutbound(root, region, region_state, outpost)
 	lTryManpowerConvoy(root, region, region_state, outpost)
 end

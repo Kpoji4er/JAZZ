@@ -2,6 +2,9 @@
 -- Public matrix API is shared by sat + tactical (one source of truth).
 
 g_JAZZ_FactionOverlayReady = rawget(_G, "g_JAZZ_FactionOverlayReady") or false
+-- Wrap flags: top-level only (never first-touch in OnMsg).
+g_JAZZ_TeamIsEnemySideWrapped = rawget(_G, "g_JAZZ_TeamIsEnemySideWrapped") or false
+g_JAZZ_TeamIsEnemySideBase = rawget(_G, "g_JAZZ_TeamIsEnemySideBase") or false
 
 local SCHEMA = 1
 
@@ -319,9 +322,7 @@ end
 rawset(_G, "g_JAZZ_FactionOverlayReady", true)
 
 -- Tactical hostility: one matrix with sat (STRATEGY-014 REQ-006).
-g_JAZZ_TeamIsEnemySideWrapped = rawget(_G, "g_JAZZ_TeamIsEnemySideWrapped") or false
-g_JAZZ_TeamIsEnemySideBase = rawget(_G, "g_JAZZ_TeamIsEnemySideBase") or false
-
+-- Never bare-read engine globals (Team / g_Units) — use rawget (undefined → Assert).
 local function lTeamFaction(team)
 	if not team then
 		return false
@@ -329,11 +330,13 @@ local function lTeamFaction(team)
 	if team.jazz_faction then
 		return JAZZ_NormalizeFactionId(team.jazz_faction)
 	end
+	local g_units = rawget(_G, "g_Units")
+	local gv_ud = rawget(_G, "gv_UnitData")
 	-- Prefer unit/squad tags over vanilla Side (all Flip factions may share enemy1).
 	for _, unit in ipairs(team.units or empty_table) do
 		local ud = unit
 		if type(unit) ~= "table" then
-			ud = g_Units and g_Units[unit] or gv_UnitData and gv_UnitData[unit]
+			ud = (g_units and g_units[unit]) or (gv_ud and gv_ud[unit]) or false
 		end
 		if ud then
 			if ud.jazz_faction then
@@ -355,12 +358,17 @@ local function lInstallTeamEnemyWrap()
 	if rawget(_G, "g_JAZZ_TeamIsEnemySideWrapped") then
 		return
 	end
-	if type(Team) ~= "table" or type(Team.IsEnemySide) ~= "function" then
+	local team_class = rawget(_G, "Team")
+	if type(team_class) ~= "table" then
 		return
 	end
-	rawset(_G, "g_JAZZ_TeamIsEnemySideBase", Team.IsEnemySide)
+	local base = team_class.IsEnemySide
+	if type(base) ~= "function" then
+		return
+	end
+	rawset(_G, "g_JAZZ_TeamIsEnemySideBase", base)
 	rawset(_G, "g_JAZZ_TeamIsEnemySideWrapped", true)
-	function Team:IsEnemySide(other)
+	team_class.IsEnemySide = function(self, other)
 		local fa = lTeamFaction(self)
 		local fb = lTeamFaction(other)
 		if fa and fb and fa ~= "unknown" and fb ~= "unknown" then
