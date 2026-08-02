@@ -463,47 +463,56 @@ function UnitProperties:EquipStartingGear(items)
 		end
 	end
 	
-	-- make sure all equipped firearms have ammo
+	-- Load magazines from a disposable clone — never drain inventory spare stacks
+	-- (MagSize-sized packs otherwise become 0/MaxStacks ghosts in AmmoInventory).
 	local function reload_weapon(weapon)
-		if  (not weapon.ammo or weapon.ammo.Amount <= 0) then
-
-			local ammoObj = self:GetAvailableAmmos(weapon)[1]
-			if not ammoObj then
-				local ammoDef = GetAmmosWithCaliber(weapon.Caliber, "sort")[1]
-				if ammoDef and ammoDef.id then
-					ammoObj = PlaceInventoryItem(ammoDef.id)
-				end
-			end
-
-			if ammoObj then
-				--local tempAmmo = PlaceInventoryItem(ammo.id)
-				--print(ammo)
-				local tempAmmo = self:GetAvailableAmmos(weapon)[1]
-				--print(g_Classes[ammo.id] or "error")
-				if not tempAmmo or tempAmmo.Amount < weapon.MagazineSize then
-				  tempAmmo = PlaceInventoryItem(ammoObj.class)   -- создаём клон, если стека нет
-				  tempAmmo.Amount = weapon.MagazineSize
-				  weapon:Reload(tempAmmo, "suspend_fx")
-				 -- DoneObject(tempAmmo)                     -- удалить можно: это клон
-				else
-				  weapon:Reload(tempAmmo, "suspend_fx")
-				  -- НИКАКОГО DoneObject здесь!  Стек останется в items → позже
-				  -- AddItem("Inventory", item) положит его в карман правильно.
-				end
-			end
+		if weapon.ammo and weapon.ammo.Amount and weapon.ammo.Amount > 0 then
+			return
 		end
+		local available = self:GetAvailableAmmos(weapon)
+		local class = available and available[1] and available[1].class
+		if not class then
+			local ammoDef = GetAmmosWithCaliber(weapon.Caliber, "sort")
+			ammoDef = ammoDef and ammoDef[1]
+			class = ammoDef and ammoDef.id
+		end
+		if not class then
+			return
+		end
+		local tempAmmo = PlaceInventoryItem(class)
+		if not tempAmmo then
+			return
+		end
+		tempAmmo.Amount = weapon.MagazineSize or tempAmmo.Amount or 1
+		weapon:Reload(tempAmmo, "suspend_fx")
+		DoneObject(tempAmmo)
 	end
-	--print('reloading')
 	self:ForEachItemInSlot("Handheld A", "Firearm", reload_weapon)
 	self:ForEachItemInSlot("Handheld B", "Firearm", reload_weapon)
+
+	-- Purge empty stacks already sitting in AmmoInventory / pockets
+	local empty_stacks = {}
+	self:ForEachItem(function(item, slot_name)
+		if IsKindOf(item, "InventoryStack") and (item.Amount or 0) <= 0 then
+			empty_stacks[#empty_stacks + 1] = { item = item, slot = slot_name }
+		end
+	end)
+	for _, entry in ipairs(empty_stacks) do
+		self:RemoveItem(entry.slot, entry.item)
+		DoneObject(entry.item)
+	end
 	
 	-- place the rest in Inventory slot
 	for i, item in ipairs(items) do
 		if not equipped[i] then
-			local pos, reason = self:AddItem("Inventory", item)
-			if not pos then
-				print("Couldn't add starting item \'", item.class, "\' to unit", self.class, "because", reason, "max slots", self:GetMaxTilesInSlot("Inventory"))
-			end		
+			if IsKindOf(item, "InventoryStack") and (item.Amount or 0) <= 0 then
+				DoneObject(item)
+			else
+				local pos, reason = self:AddItem("Inventory", item)
+				if not pos then
+					print("Couldn't add starting item \'", item.class, "\' to unit", self.class, "because", reason, "max slots", self:GetMaxTilesInSlot("Inventory"))
+				end
+			end
 		end
 	end
 end

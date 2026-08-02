@@ -35,8 +35,15 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 | `GrizzlyPerk` | Grizzly | Personal MG attack + CTH/recoil |
 | `GruntyPerk_JAZZ` | Grunty | Combat start → +50% AP first turn |
 | `Jazz_Perk_OfficerAura` / `…Influence` | AI officers | Commander aura |
+| `Jazz_Perk_Mimicry` | IMP | Conversation options for Negotiator/Scoundrel/Psycho without their combat/economy effects |
+| `Jazz_Perk_Veteran` | IMP | +10 to all skill/stat checks |
+| `Jazz_Perk_Sniper` | IMP | +1 max aim level (any weapon) |
 
 Passive Lynx/Buzz/Spider/Colby have **no** HUD toggle (buttons hidden). Toggle remains Spouke-only (`Jazz_Perk_00`).
+
+## IMP starting gear
+
+After the IMP test, loadout is built from stats and perks (JA2-style): primary from AutoWeapons/Heavy/Stealthy/Marksmanship, armor from Health, tools from Mechanical/Medical, etc. Details in design `imp-starting-gear.md`.
 
 ## Still stubs
 

@@ -66,6 +66,8 @@
 | `Camera.lua` | loaded | [Видимость](visibility-weather-appearance.md), [бой](combat-cth-actions.md) |
 | `SpecializationGiver.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) |
 | `System_AimHiringFilters.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) |
+| `System_IMP_StartingGear.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — IMP hire kit (IMP-001) |
+| `System_IMP_Perks.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — Mimicry/Veteran/Sniper (IMP-001) |
 | `AimHiringScreen_Template.lua` | dormant | [Юниты](units-progression-specializations.md), [runtime](runtime-editor-integration.md) |
 
 ## `jazz`: стратегия, UI и integration
@@ -82,7 +84,7 @@
 | `LegionSquadGenerator.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
 | `LegionMilitiaRecruits.lua` | loaded (soft gate; 011 partial) | [Стратегия](strategy-squads-sectors.md) |
 | `Regions_Sectors.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
-| `SatelliteSquad.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
+| `SatelliteSquad.lua` | loaded | [Стратегия](strategy-squads-sectors.md), [юниты](units-progression-specializations.md) — IMP hire gear rebuild (IMP-001) |
 | `SatelliteSquadFixes.lua` | loaded, empty | [Стратегия](strategy-squads-sectors.md) |
 | `POI Extension.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
 | `System_SectorOperations.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |

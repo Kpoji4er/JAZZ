@@ -22,6 +22,10 @@ Core AIM filters: **Autoriflemen**, **HeavyWeapons**, **Stealth**. XP to **level
 
 All 48 have a named perk in StartingPerks; **working hooks** are only a subset — see [perks](perks.md).
 
+## IMP
+
+IMP starting gear depends on test stats and perks (weapon, armor, meds, tools). Personality pool adds **Mimicry**, **Veteran**, **Sniper** — see [perks](perks.md).
+
 ## Full roster (UnitData)
 
 Salary = `StartingSalary`. `0` means zero in data.

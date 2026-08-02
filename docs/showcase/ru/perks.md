@@ -35,8 +35,15 @@
 | `GrizzlyPerk` | Grizzly | Личная MG-атака + CTH/recoil |
 | `GruntyPerk_JAZZ` | Grunty | Старт боя → +50% AP первый ход |
 | `Jazz_Perk_OfficerAura` / `…Influence` | AI-офицеры | Аура командира |
+| `Jazz_Perk_Mimicry` | IMP | Диалоговые опции Negotiator/Scoundrel/Psycho без их боевых/эконом. эффектов |
+| `Jazz_Perk_Veteran` | IMP | +10 ко всем skill/stat checks |
+| `Jazz_Perk_Sniper` | IMP | +1 макс. уровень прицеливания (любое оружие) |
 
 Пассивные Lynx/Buzz/Spider/Colby **без** HUD-toggle (кнопки скрыты). Toggle только у Фрага (`Jazz_Perk_00`).
+
+## IMP: стартовый экип
+
+После IMP-теста кит собирается по статам и перкам (как в JA2): ствол по AutoWeapons/Heavy/Stealthy/Marksmanship, броня по Health, инструменты по Mechanical/Medical и т.д. Подробности — в design `imp-starting-gear.md`.
 
 ## Ещё stubs
 

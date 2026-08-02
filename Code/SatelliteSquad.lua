@@ -2216,6 +2216,10 @@ function CreateImpMercData(impTest, sync)
 				end
 			end
 		end
+		-- JAZZ-IMP-001: rebuild starting gear from final stats/perks (placeholder loot was campaign-init).
+		if JazzApplyImpStartingGear then
+			JazzApplyImpStartingGear(unitData)
+		end
 	end
 	return unitData
 end

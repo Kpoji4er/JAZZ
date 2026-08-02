@@ -68893,7 +68893,45 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Icon', "UI/Icons/Perks/Scoundrel",
 					'Tier', "Personality",
 				}),
-													PlaceObj('ModItemCharacterEffectCompositeDef', {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personality",
+					'Id', "Jazz_Perk_Mimicry",
+					'SortKey', 20,
+					'object_class', "Perk",
+					'DisplayName', T(890000000001931, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Mimicry DisplayName]] "Мимикрия"),
+					'Description', T(890000000001932, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Mimicry Description]] "Проходит проверки на разговорные перки <em>Переговорщик</em>, <em>Тёртый калач</em> и <em>Псих</em> без их боевых и экономических эффектов."),
+					'Icon', "UI/Icons/Perks/Bond",
+					'Tier', "Personality",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personality",
+					'Id', "Jazz_Perk_Veteran",
+					'SortKey', 21,
+					'object_class', "Perk",
+					'DisplayName', T(890000000001933, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Veteran DisplayName]] "Ветеран"),
+					'Description', T(890000000001934, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Veteran Description]] "Бонус <em>+10</em> ко всем проверкам навыков и характеристик (диалоги, исследование, skill checks)."),
+					'Icon', "UI/Icons/Perks/Teacher",
+					'Tier', "Personality",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personality",
+					'Id', "Jazz_Perk_Sniper",
+					'SortKey', 22,
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcMaxAimActions",
+							Handler = function(self, value, attacker, target, action, weapon)
+								return value + 1
+							end,
+						}),
+					},
+					'DisplayName', T(890000000001935, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Sniper DisplayName]] "Снайпер"),
+					'Description', T(890000000001936, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Sniper Description]] "Максимальный уровень прицеливания <em>+1</em> при стрельбе из любого оружия."),
+					'Icon', "UI/Icons/Perks/Deadeye",
+					'Tier', "Personality",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Quirk",
 					'Id', "Loner",
 					'SortKey', 1000,
