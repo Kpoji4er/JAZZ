@@ -416,10 +416,19 @@ function UnitProperties:EquipStartingGear(items)
 	self:TryEquip(items, "AmmoInventory", "Ammo")
 	self:TryEquip(items, "AmmoInventory", "Ammo")
 	self:TryEquip(items, "GrenadesInventory", "GrenadeItem")
+	self:TryEquip(items, "GrenadesInventory", "GrenadeItem")
 	self:TryEquip(items, "GrenadesInventory", "Flare")
 	self:TryEquip(items, "OrdnanceInventory", "ThrowableTrapItem")
+	self:TryEquip(items, "OrdnanceInventory", "ThrowableTrapItem")
+	-- MED-001: Bandage/Morphine/FAK — fill medical row (was 1× TryEquip → rest spilled to Inventory).
+	self:TryEquip(items, "MedicalInventory", "Medicine")
+	self:TryEquip(items, "MedicalInventory", "Medicine")
 	self:TryEquip(items, "MedicalInventory", "Medicine")
 	self:TryEquip(items, "PocketInventory", "ToolItem")
+	self:TryEquip(items, "PocketInventory", "ToolItem")
+	self:TryEquip(items, "PocketInventory", "ToolItem")
+	self:TryEquip(items, "KnifeInventory", "StackableMeleeWeapon")
+	self:TryEquip(items, "KnifeInventory", "StackableMeleeWeapon")
 	self:TryEquip(items, "KnifeInventory", "StackableMeleeWeapon")
 
 	-- locked items that are not weapons add to the first inventory slot
@@ -1634,8 +1643,14 @@ function Unit:EnumUIActions()
 		if self:GetItemInSlot("OrdnanceInventory", "Grenade", 1, 1) then actions[#actions + 1] = "ThrowGrenadeAO" end
 		if self:GetItemInSlot("OrdnanceInventory", "Grenade", 2, 1) then actions[#actions + 1] = "ThrowGrenadeBO" end
 
-		if GetUnitEquippedMedicine(self) then
+		if JazzGetEquippedKitMedicine and JazzGetEquippedKitMedicine(self) then
 			actions[#actions + 1] = "Bandage"
+		end
+		if JazzGetBandageItem and JazzGetBandageItem(self) then
+			actions[#actions + 1] = "JazzBandage"
+		end
+		if JazzGetMorphineItem and JazzGetMorphineItem(self) then
+			actions[#actions + 1] = "JazzMorphine"
 		end
 		
 		if GetUnitEquippedDetonator(self) then
@@ -2472,6 +2487,10 @@ function RollSkillCheck(unit, skill, modifier, add)
 	
 	modifier = modifier or 100
 	add = add or 0
+	-- JAZZ-IMP-001: Veteran +10 effective skill on rolls
+	if HasPerk(unit, "Jazz_Perk_Veteran") then
+		add = add + 10
+	end
 	
 	local roll = 1 + unit:Random(100)
 	--adjust roll based on diff
@@ -2514,6 +2533,10 @@ end
 function SkillCheck(unit, skill, threshold,dont_report_fails)
 	if not unit or not IsKindOf(unit, "UnitPropertiesStats") then return "error" end
 	local stat = unit[skill] + 5 * unit:GetPersonalMorale()
+	-- JAZZ-IMP-001: Veteran +10 effective skill on checks
+	if HasPerk(unit, "Jazz_Perk_Veteran") then
+		stat = stat + 10
+	end
 	if not stat then return "error" end
 	if threshold <= stat or CheatEnabled("SkillCheck") then
 		CombatLog("debug", "(success) " .. unit.session_id .. " " .. skill.. " check (" .. stat.. " / " ..threshold .. ")")

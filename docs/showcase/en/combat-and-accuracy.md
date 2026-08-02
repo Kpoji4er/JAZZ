@@ -15,6 +15,8 @@ Shots with no aim clicks lean primarily on **Agility**.
 
 Each aim click gradually unlocks **Marksmanship**. An extra click never makes the chance worse. Full aiming matters most for snipers and prepared long-range fire.
 
+The IMP **Sniper** perk grants +1 maximum aim clicks with any weapon.
+
 The weapon sets how many aim clicks you get, how much each click is worth, where range falloff begins, how accuracy holds past the effective zone, and how bursts lose accuracy to recoil.
 
 The legacy `Handling` stat has been removed and is not used in hit chance.
@@ -45,10 +47,12 @@ Chance can be affected by cover and visible target size, stance, visibility/smok
 
 ## Bleeding, pain, trauma, and medicine
 
-- Bleeding has three tiers (**3 / 6 / 12** HP per stack per turn). Hotbar **Bandage** drops the worst stack by **one tier** (no Medical skill). IFAK/Medkit clear stronger on kit bandage.
+- Bleeding has three tiers (**3 / 6 / 12** HP per stack per turn). Hotbar has two treat actions: **Field Bandage** (`JazzBandage`, ~1 AP) drops the worst stack by **one tier** (no Medical); **Bandage** uses IFAK/Medkit/surgical kit (HP heal + stronger bleed clear).
 - **Heavy** bleed from hits comes from **expanding** ammo (JHP).
 - **Pain** cuts AP and accuracy (−1 stack/turn); **Morphine** suppresses pain penalties and does not stop bleeding or trauma.
-- **Zone trauma** (arms / legs / ribs / head): light / medium / heavy. Light = pain when you use that zone; medium+ adds zone penalties (−accuracy, move cost, start AP, sight). **Armor on the hit zone lowers trauma chance when pierced; if armor stops the round**, you can still take **behind-armor trauma** (light trauma + pain, no bleeding). Going down applies a **heavy** trauma package. Bandages do not heal trauma.
+- **Zone trauma** (arms / legs / ribs / head): light / medium / heavy. Light = pain when you use that zone; medium+ adds zone penalties (−accuracy, move cost, start AP, sight). **Armor on the hit zone lowers trauma chance when pierced; if armor stops the round**, you can still take **behind-armor trauma** (light trauma + pain, no bleeding). Going down applies a **heavy** trauma package; combat **Wounded** stacks from HP loss stay off. Bandages do not heal trauma. Status Information shows **hours until the next progress check** (may improve or worsen on the campaign clock).
+- In combat, party portraits show the same statuses as satellite (not only Wounded).
+- Leg hits apply zone trauma (`Legsshot`), not the old **Slowed** status.
 - Combat-start grit (~25% Temp HP) is **removed**.
 
 ## Grazing hits
@@ -56,7 +60,7 @@ Chance can be affected by cover and visible target size, stance, visibility/smok
 - **Miss → graze:** lower CTH means a higher chance a miss still clips the target (square curve, max **50%**; about **32%** at 20% CTH, about **2%** at 80% CTH). High CTH barely grazes.
 - **Cover:** cover strength in the hit-chance calc sets the chance a hit becomes a graze — up to **100%** in full cover.
 - Smoke/fog/dust alone no longer force grazing hits (smoke still hurts visibility).
-- A graze deals about **40%** damage, with no crit and no status effects from that hit.
+- A graze deals about **40%** damage, with no crit and no trauma / `Wounded`; about **15%** chance of **light** bleed only.
 
 ## Burst recoil
 

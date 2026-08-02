@@ -34,8 +34,8 @@ DefineClass.TraumaRibsMedium = {
 			end,
 		}),
 	},
-	DisplayName = T(890000000009240, "Rib Trauma (Medium)"),
-	Description = T(890000000009241, "Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain on exertion. No Tiredness."),
+	DisplayName = T(890000000010114, "Rib Trauma (Medium)"),
+	Description = T(890000000010115, "Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain at the start of the turn. No Tiredness."),
 	OnAdded = function(self, obj)
 		Msg("UnitAPChanged", obj)
 	end,

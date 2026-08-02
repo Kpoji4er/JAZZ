@@ -175,7 +175,9 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - `JAZZ-MED-001-AC-009`: `PASS` — static: armor zone→factor wired in `Systems_Medicine.lua`.
 - `JAZZ-MED-001-AC-010`: `PASS` — static: BAT wired from `ApplyDamageAndEffects` unpierced branch.
 
-status note: code wired including zonal traumas + armor trauma mitigation + BAT; mark `implemented` after smoke in editor/game.
+status note: code wired including zonal traumas + armor trauma mitigation + BAT + split hotbar medicine (`JazzBandage` / kit `Bandage` / `JazzMorphine`) + trauma progress timers/UI; mark `implemented` after smoke in editor/game.
+
+**Contract note (owner):** MED-001 non-goal deferred «заживление средней+тяжёлой на глобалке» to MED-002. Runtime now has soft satellite progress checks for all tiers (Light can clear; Medium/Heavy low improve odds; no hospital clear). Confirm whether to amend non-goals / add AC for progress timers, or keep hospital-quality healing as MED-002 only.
 
 ## Documentation delta
 

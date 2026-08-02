@@ -115,7 +115,8 @@ function UnitProperties:GetInventoryMaxSlots(slot_name)
 		return IsMerc(self) and Max(0, (self.Explosives - 70)/10) or 4
 	end
 	if slot_name == "MedicalInventory" then
-		return IsMerc(self) and Max(0, (self.Medical - 20)/20) or 1
+		-- Floor 2: MED-001 baseline Bandage + Morphine must fit even at Medical 20.
+		return IsMerc(self) and Max(2, (self.Medical - 20)/20) or 1
 	end
 	if slot_name == "PocketInventory" then
 		return IsMerc(self) and Max(0, (self.Mechanical-30)/20) or 0
@@ -579,7 +580,7 @@ function UnitInventory:GetBandaged(medkit, healer)
 			return
 		end
 		JazzConsumeInventoryItem(healer, "JAZZ_Bandage", 1)
-		CombatLog("short", T{890000000009216, "<target> bleeding reduced by bandage",
+		CombatLog("short", T{890000000010021, "<target> bleeding reduced by bandage",
 			target = self.Nick or self.Name,
 		})
 		ObjModified(self)

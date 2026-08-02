@@ -34,8 +34,8 @@ DefineClass.TraumaLegsMedium = {
 			end,
 		}),
 	},
-	DisplayName = T(890000000009234, "Leg Trauma (Medium)"),
-	Description = T(890000000009235, "Move cost <color EmStyle>+<move_ap_modifier>%</color>. No Free Move / sprint. Pain when moving."),
+	DisplayName = T(890000000010108, "Leg Trauma (Medium)"),
+	Description = T(890000000010109, "Move cost <color EmStyle>+<move_ap_modifier>%</color>. No Free Move / sprint. Pain when moving."),
 	OnAdded = function(self, obj)
 		Msg("UnitAPChanged", obj)
 	end,

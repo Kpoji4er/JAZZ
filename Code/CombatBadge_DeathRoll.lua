@@ -163,3 +163,16 @@ function CombatBadgeAboveNameTextUpdate(win)
 	win:SetText(text)
 	win:SetTextStyle(style)
 end
+
+-- Party portrait: combat used to show only Wounded/Tired; match satellite ShownSatelliteView list.
+-- Always keep Tired/Exhausted (vanilla combat party showed them even without satellite flag).
+function JazzGetPartyPortraitStatusEffects(status_effects)
+	local list = table.ifilter(status_effects or empty_table, "ShownSatelliteView")
+	for _, id in ipairs({ "Tired", "Exhausted" }) do
+		local effect = table.find_value(status_effects or empty_table, "class", id)
+		if effect and not table.find(list, effect) then
+			list[#list + 1] = effect
+		end
+	end
+	return list
+end

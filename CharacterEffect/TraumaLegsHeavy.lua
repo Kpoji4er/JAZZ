@@ -40,8 +40,8 @@ DefineClass.TraumaLegsHeavy = {
 			end,
 		}),
 	},
-	DisplayName = T(890000000009236, "Leg Trauma (Heavy)"),
-	Description = T(890000000009237, "Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn."),
+	DisplayName = T(890000000010110, "Leg Trauma (Heavy)"),
+	Description = T(890000000010111, "Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn."),
 	OnAdded = function(self, obj)
 		Msg("UnitAPChanged", obj)
 	end,

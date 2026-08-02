@@ -12,8 +12,8 @@ DefineClass.TraumaLegsLight = {
 			end,
 		}),
 	},
-	DisplayName = T(890000000009232, "Leg Trauma (Light)"),
-	Description = T(890000000009233, "Pain when moving. No direct move-cost penalty."),
+	DisplayName = T(890000000010106, "Leg Trauma (Light)"),
+	Description = T(890000000010107, "Pain when moving. No direct move-cost penalty."),
 	OnAdded = function(self, obj)
 		Msg("UnitAPChanged", obj)
 	end,

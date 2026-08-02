@@ -7629,6 +7629,12 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000001928,Жду сигнала.,Жду сигнала.,,jazz-units:items.lua:71964
 890000000001929,Хоть бы Злобного тут не было.,Хоть бы Злобного тут не было.,,jazz-units:items.lua:71970
 890000000001930,Рада драться рядом со своими.,Рада драться рядом со своими.,,jazz-units:items.lua:71976
+890000000001931,Мимикрия,Mimicry,,jazz:CharacterEffect/Jazz_Perk_Mimicry.lua
+890000000001932,"Проходит проверки на разговорные перки <em>Переговорщик</em>, <em>Тёртый калач</em> и <em>Псих</em> без их боевых и экономических эффектов.","Passes <em>Negotiator</em>, <em>Scoundrel</em>, and <em>Psycho</em> conversation perk checks without their combat or economy effects.",,jazz:CharacterEffect/Jazz_Perk_Mimicry.lua
+890000000001933,Ветеран,Veteran,,jazz:CharacterEffect/Jazz_Perk_Veteran.lua
+890000000001934,"Бонус <em>+10</em> ко всем проверкам навыков и характеристик (диалоги, исследование, skill checks).","<em>+10</em> bonus to all skill and attribute checks (dialogue, exploration, skill checks).",,jazz:CharacterEffect/Jazz_Perk_Veteran.lua
+890000000001935,Снайпер,Sniper,,jazz:CharacterEffect/Jazz_Perk_Sniper.lua
+890000000001936,Максимальный уровень прицеливания <em>+1</em> при стрельбе из любого оружия.,Maximum aiming level <em>+1</em> when firing any weapon.,,jazz:CharacterEffect/Jazz_Perk_Sniper.lua
 890000000002000,Точильщик,Точильщик,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
 890000000002001,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
 890000000002002,[WIP] Димитрий Газзо,[WIP] Димитрий Газзо,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
@@ -10728,9 +10734,9 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000009236,Травма ног (тяжёлая),Травма ног (тяжёлая),,jazz:CharacterEffect/TraumaLegsHeavy.lua
 890000000009237,Стоимость движения <color EmStyle>+<move_ap_modifier>%</color>. Почти не ходит. Боль растёт каждый ход.,Стоимость движения <color EmStyle>+<move_ap_modifier>%</color>. Почти не ходит. Боль растёт каждый ход.,,jazz:CharacterEffect/TraumaLegsHeavy.lua
 890000000009238,Травма рёбер (лёгкая),Травма рёбер (лёгкая),,jazz:CharacterEffect/TraumaRibsLight.lua
-890000000009239,Боль при нагрузке. Без Tired от рёбер. Без прямого −ОД.,Боль при нагрузке. Без Tired от рёбер. Без прямого −ОД.,,jazz:CharacterEffect/TraumaRibsLight.lua
+890000000009239,Боль в начале хода. Без Tired от рёбер. Без прямого −ОД.,Боль в начале хода. Без Tired от рёбер. Без прямого −ОД.,,jazz:CharacterEffect/TraumaRibsLight.lua
 890000000009240,Травма рёбер (средняя),Травма рёбер (средняя),,jazz:CharacterEffect/TraumaRibsMedium.lua
-890000000009241,ОД на старте хода <color EmStyle>-<APLoss></color>. Нет Free Move. Боль при нагрузке. Без Tired.,ОД на старте хода <color EmStyle>-<APLoss></color>. Нет Free Move. Боль при нагрузке. Без Tired.,,jazz:CharacterEffect/TraumaRibsMedium.lua
+890000000009241,ОД на старте хода <color EmStyle>-<APLoss></color>. Нет Free Move. Боль в начале хода. Без Tired.,ОД на старте хода <color EmStyle>-<APLoss></color>. Нет Free Move. Боль в начале хода. Без Tired.,,jazz:CharacterEffect/TraumaRibsMedium.lua
 890000000009242,Травма рёбер (тяжёлая),Травма рёбер (тяжёлая),,jazz:CharacterEffect/TraumaRibsHeavy.lua
 890000000009243,ОД на старте хода <color EmStyle>-<APLoss></color>. Небоеспособен. Боль растёт каждый ход. Без Tired.,ОД на старте хода <color EmStyle>-<APLoss></color>. Небоеспособен. Боль растёт каждый ход. Без Tired.,,jazz:CharacterEffect/TraumaRibsHeavy.lua
 890000000009244,Травма головы (лёгкая),Травма головы (лёгкая),,jazz:CharacterEffect/TraumaHeadLight.lua
@@ -11350,6 +11356,108 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000009858,Есть идея.,Есть идея.,,jazz-units:items.lua:VoiceResponse
 890000000009859,Сделано.,Сделано.,,jazz-units:items.lua:VoiceResponse
 890000000009860,Не вышло.,Не вышло.,,jazz-units:items.lua:VoiceResponse
+890000000010000,Light bleeding: <color EmStyle><DamagePerTurn> HP</color> per stack each turn. Bandage removes one light stack (or reduces a worse stack by one tier).,Лёгкое кровотечение: <color EmStyle><DamagePerTurn> ОЗ</color> за стак каждый ход. Бинт снимает лёгкий стак (или снижает худший на один тир).,,jazz:MED-001-remap-from-890000000009195
+890000000010001,Moderate Bleeding,Умеренное кровотечение,,jazz:MED-001-remap-from-890000000009196
+890000000010002,Moderate bleeding: <color EmStyle>6 HP</color> per stack each turn. Bandage reduces one stack to light bleeding.,Умеренное кровотечение: <color EmStyle>6 ОЗ</color> за стак каждый ход. Бинт снижает один стак до лёгкого.,,jazz:MED-001-remap-from-890000000009197
+890000000010003,<color EmStyle><DisplayName></color>,<color EmStyle><DisplayName></color>,,jazz:MED-001-remap-from-890000000009198
+890000000010004,Heavy Bleeding,Тяжёлое кровотечение,,jazz:MED-001-remap-from-890000000009199
+890000000010005,Heavy bleeding: <color EmStyle>12 HP</color> per stack each turn. From expanding ammo or worsened moderate bleeding. Bandage reduces one stack to moderate.,Тяжёлое кровотечение: <color EmStyle>12 ОЗ</color> за стак каждый ход. От экспансива или ухудшения умеренного. Бинт снижает до умеренного.,,jazz:MED-001-remap-from-890000000009200
+890000000010006,<color EmStyle><DisplayName></color>,<color EmStyle><DisplayName></color>,,jazz:MED-001-remap-from-890000000009201
+890000000010007,Pain,Боль,,jazz:MED-001-remap-from-890000000009202
+890000000010008,Each stack costs <color EmStyle><APLoss> AP</color> and <color EmStyle><cth_penalty>% chance to hit</color>. Decreases by one stack each turn. Analgesia suppresses the penalties.,Каждый стак: <color EmStyle><APLoss> ОД</color> и <color EmStyle><cth_penalty>% к точности</color>. −1 стак/ход. Обезболивание глушит штрафы.,,jazz:MED-001-remap-from-890000000009203
+890000000010009,Analgesia,Обезболивание,,jazz:MED-001-remap-from-890000000009204
+890000000010010,Suppresses AP and chance-to-hit penalties from Pain. Does not stop bleeding or heal injuries.,Глушит штрафы Боли (−ОД/−точность). Не останавливает кровь и не лечит травмы.,,jazz:MED-001-remap-from-890000000009205
+890000000010011,Bandage,Бинт,,jazz:MED-001-remap-from-890000000009206
+890000000010012,Bandages,Бинты,,jazz:MED-001-remap-from-890000000009207
+890000000010013,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Bandage action — reduce worst bleeding by one tier
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Хотбар: Бинт — худшее кровотечение −1 тир
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Навык Медицина не нужен
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Мало ОД
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На себя или союзника",,jazz:MED-001-remap-from-890000000009208
+890000000010014,Morphine,Морфий,,jazz:MED-001-remap-from-890000000009209
+890000000010015,Morphine,Морфий,,jazz:MED-001-remap-from-890000000009210
+890000000010016,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Morphine action — suppress Pain penalties
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding or heal trauma
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Хотбар: Морфий — глушит штрафы Боли
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не останавливает кровь и не лечит травму
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Навык Медицина не нужен
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На себя или союзника",,jazz:MED-001-remap-from-890000000009211
+890000000010017,Surgical Kit,Хирургический набор,,jazz:MED-001-remap-from-890000000009212
+890000000010018,Surgical Kits,Хирургические наборы,,jazz:MED-001-remap-from-890000000009213
+890000000010019,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used via item menu
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Grants long analgesia (v1)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Rare; doctors use this for field surgery later","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Через меню предмета
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Длительное обезболивание (v1)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Редкий; позже — полевая хирургия для врачей",,jazz:MED-001-remap-from-890000000009214
+890000000010020,USE,ИСПОЛЬЗОВАТЬ,,jazz:MED-001-remap-from-890000000009215
+890000000010021,<target> bleeding reduced by bandage,<target> кровотечение снижено бинтом,,jazz:MED-001-remap-from-890000000009216
+890000000010022,IFAK,ИФАК,,jazz:MED-001-remap-from-890000000009217
+890000000010023,IFAKs,ИФАК,,jazz:MED-001-remap-from-890000000009218
+890000000010024,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage action removes one worst bleeding stack
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает ОЗ и стабилизирует умирающих
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка снимает один худший стак крови
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится; рефил из Meds
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Работает из инвентаря",,jazz:MED-001-remap-from-890000000009219
+890000000010025,Med Kit,Аптечка,,jazz:MED-001-remap-from-890000000009220
+890000000010026,Med Kits,Аптечки,,jazz:MED-001-remap-from-890000000009221
+890000000010027,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает ОЗ и стабилизирует умирающих
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка +25% ОЗ
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает до двух худших стаков крови
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится; рефил из Meds",,jazz:MED-001-remap-from-890000000009222
+890000000010028,Inject morphine to suppress Pain penalties on self or ally. Does not stop bleeding.,Вколоть морфий: глушит штрафы Боли у себя или союзника. Кровь не останавливает.,,jazz:MED-001-remap-from-890000000009223
+890000000010029,Morphine,Морфий,,jazz:MED-001-remap-from-890000000009224
+890000000010030,MORPHINE,МОРФИЙ,,jazz:MED-001-remap-from-890000000009225
+890000000010100,Arm Trauma (Light),Травма рук (лёгкая),,jazz:MED-001-trauma-remap-from-890000000009226
+890000000010101,Pain when shooting or using arms. No direct accuracy penalty.,Боль при стрельбе или нагрузке на руки. Без прямого штрафа к точности.,,jazz:MED-001-trauma-remap-from-890000000009227
+890000000010102,Arm Trauma (Medium),Травма рук (средняя),,jazz:MED-001-trauma-remap-from-890000000009228
+890000000010103,Accuracy penalty <color EmStyle><cth_penalty>%</color>. Pain when using arms.,Штраф точности <color EmStyle><cth_penalty>%</color>. Боль при нагрузке на руки.,,jazz:MED-001-trauma-remap-from-890000000009229
+890000000010104,Arm Trauma (Heavy),Травма рук (тяжёлая),,jazz:MED-001-trauma-remap-from-890000000009230
+890000000010105,Severe accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly unable to fight. Pain rises each turn.,Жёсткий штраф точности <color EmStyle><cth_penalty>%</color>. Почти небоеспособен. Боль растёт каждый ход.,,jazz:MED-001-trauma-remap-from-890000000009231
+890000000010106,Leg Trauma (Light),Травма ног (лёгкая),,jazz:MED-001-trauma-remap-from-890000000009232
+890000000010107,Pain when moving. No direct move-cost penalty.,Боль при движении. Без прямого штрафа к стоимости хода.,,jazz:MED-001-trauma-remap-from-890000000009233
+890000000010108,Leg Trauma (Medium),Травма ног (средняя),,jazz:MED-001-trauma-remap-from-890000000009234
+890000000010109,Move cost <color EmStyle>+<move_ap_modifier>%</color>. No Free Move / sprint. Pain when moving.,Стоимость движения <color EmStyle>+<move_ap_modifier>%</color>. Нет Free Move / спринта. Боль при движении.,,jazz:MED-001-trauma-remap-from-890000000009235
+890000000010110,Leg Trauma (Heavy),Травма ног (тяжёлая),,jazz:MED-001-trauma-remap-from-890000000009236
+890000000010111,Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn.,Стоимость движения <color EmStyle>+<move_ap_modifier>%</color>. Почти не ходит. Боль растёт каждый ход.,,jazz:MED-001-trauma-remap-from-890000000009237
+890000000010112,Rib Trauma (Light),Травма рёбер (лёгкая),,jazz:MED-001-trauma-remap-from-890000000009238
+890000000010113,Pain at the start of the turn. No Tiredness from ribs. No direct AP penalty.,Боль в начале хода. Без Tired от рёбер. Без прямого −ОД.,,jazz:MED-001-trauma-remap-from-890000000009239
+890000000010114,Rib Trauma (Medium),Травма рёбер (средняя),,jazz:MED-001-trauma-remap-from-890000000009240
+890000000010115,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain at the start of the turn. No Tiredness.,ОД на старте хода <color EmStyle>-<APLoss></color>. Нет Free Move. Боль в начале хода. Без Tired.,,jazz:MED-001-trauma-remap-from-890000000009241
+890000000010116,Rib Trauma (Heavy),Травма рёбер (тяжёлая),,jazz:MED-001-trauma-remap-from-890000000009242
+890000000010117,Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. Pain rises each turn. No Tiredness.,ОД на старте хода <color EmStyle>-<APLoss></color>. Небоеспособен. Боль растёт каждый ход. Без Tired.,,jazz:MED-001-trauma-remap-from-890000000009243
+890000000010118,Head Trauma (Light),Травма головы (лёгкая),,jazz:MED-001-trauma-remap-from-890000000009244
+890000000010119,Pain when aiming or firing. Eye trauma folded into head for v1.,Боль при прицеливании/стрельбе. Травма глаза в v1 включена в голову.,,jazz:MED-001-trauma-remap-from-890000000009245
+890000000010120,Head Trauma (Medium),Травма головы (средняя),,jazz:MED-001-trauma-remap-from-890000000009246
+890000000010121,Sight and accuracy penalties. Pain when aiming or firing.,Штрафы зрения и точности. Боль при прицеливании/стрельбе.,,jazz:MED-001-trauma-remap-from-890000000009247
+890000000010122,Head Trauma (Heavy),Травма головы (тяжёлая),,jazz:MED-001-trauma-remap-from-890000000009248
+890000000010123,Severe sight/accuracy loss. Nearly combat-ineffective. Pain rises each turn.,Сильная потеря зрения/точности. Почти небоеспособен. Боль растёт каждый ход.,,jazz:MED-001-trauma-remap-from-890000000009249
+890000000010124,Burn Trauma (Light),Ожоговая травма (лёгкая),,jazz:MED-001-trauma-remap-from-890000000009250
+890000000010125,Lingering burn after fire. Pain on exertion. Bandage does not clear burns.,Долг после огня. Боль при нагрузке. Бинт ожог не снимает.,,jazz:MED-001-trauma-remap-from-890000000009251
+890000000010126,Burn Trauma (Medium),Ожоговая травма (средняя),,jazz:MED-001-trauma-remap-from-890000000009252
+890000000010127,Moderate burn debt. Pain on exertion. Infection risk deferred.,Средний ожоговый долг. Боль при нагрузке. Инфекция — позже.,,jazz:MED-001-trauma-remap-from-890000000009253
+890000000010128,Burn Trauma (Heavy),Ожоговая травма (тяжёлая),,jazz:MED-001-trauma-remap-from-890000000009254
+890000000010129,Severe burn debt. Pain rises each turn. Infection/hospital clear deferred.,Тяжёлый ожоговый долг. Боль растёт каждый ход. Инфекция/госпиталь — позже.,,jazz:MED-001-trauma-remap-from-890000000009255
+890000000010200,Field Bandage,Бинт,,jazz:MED-001-JazzBandage
+890000000010201,Apply a field bandage to stop bleeding by one tier on self or ally. No Medical skill. Does not restore HP or heal trauma.,Наложить бинт: снижает кровотечение на один тир у себя или союзника. Без Медицины. Не восстанавливает ОЗ и не лечит травмы.,,jazz:MED-001-JazzBandage
+890000000010202,BANDAGE,БИНТ,,jazz:MED-001-JazzBandage
+890000000010203,Next progress check: pending.,Следующая проверка прогресса: ожидание.,,jazz:MED-001-trauma-timing
+890000000010204,Next progress check: <em>due now</em> (may improve or worsen).,Следующая проверка прогресса: <em>сейчас</em> (может улучшиться или ухудшиться).,,jazz:MED-001-trauma-timing
+890000000010205,Next progress check in <em><hours> h</em> (may improve or worsen).,Следующая проверка прогресса через <em><hours> ч</em> (может улучшиться или ухудшиться).,,jazz:MED-001-trauma-timing
+890000000010206,Light trauma can clear on its own over time.,Лёгкая травма может сойти сама со временем.,,jazz:MED-001-trauma-timing
+890000000010207,Without treatment this may improve or worsen.,Без лечения может улучшиться или ухудшиться.,,jazz:MED-001-trauma-timing
+890000000010208,Heavy trauma rarely improves without hospital / field surgery.,Тяжёлая травма почти не улучшается без госпиталя / полевой хирургии.,,jazz:MED-001-trauma-timing
+890000000010210,<merc> trauma improved (cleared),<merc>: травма улучшилась (снята),,jazz:MED-001-trauma-timing
+890000000010211,<merc> trauma improved to a lighter tier,<merc>: травма улучшилась до более лёгкого тира,,jazz:MED-001-trauma-timing
+890000000010212,<merc> trauma worsened,<merc>: травма ухудшилась,,jazz:MED-001-trauma-timing
+890000000010213,"Treat an ally with an IFAK, Medkit, or surgical kit. Restores HP (Medical skill) and clears bleeding stacks. Does not use stack bandages.",Лечение ИФАК/аптечкой/хирургическим набором. Восстанавливает ОЗ (Медицина) и снимает стаки крови. Не использует стопку бинтов.,,jazz:MED-001-Bandage-kit
 939310080350111,ржавое,ржавое,,jazz:Code/Inventory.lua:117 | jazz:Code/Inventory.lua:180
 968409848233111,сломанное,сломанное,,jazz:Code/Inventory.lua:120 | jazz:Code/Inventory.lua:183
 1786863112811235,Укрепления,Укрепления,,jazz:Code/POI Extension.lua:9

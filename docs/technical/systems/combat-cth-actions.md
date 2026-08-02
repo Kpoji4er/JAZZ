@@ -27,7 +27,7 @@ JAZZ заменяет основной цикл расчёта попадани�
 - `Code/ExecFirearmAttacks.lua` — выполнение firearm attack и последовательность выстрелов;
 - `Code/IModeCombatAreaAim.lua` — UI-режим зонального прицеливания;
 - `Code/CrossHairUI.lua` — crosshair, разбивка модификаторов и отображение CTH;
-- `Code/CombatBadge_DeathRoll.lua` — состояние цели, LOS/LOF, боевые предупреждения и счётчики;
+- `Code/CombatBadge_DeathRoll.lua` — состояние цели, LOS/LOF, боевые предупреждения, счётчики; critical icons у ника + party status parity helpers;
 - `Code/UnitPropertiesStats.lua` — дополнительные характеристики, используемые боевыми расчётами;
 - `Code/Camera.lua` — zoom + restore tac pitch/control после боя и ванильных Max-setpiece (иначе угол может «залипнуть» до save/load);
 - generated `CombatAction` и `CTHModifier` ModItems — данные действий и модификаторов.
@@ -69,7 +69,7 @@ skill(x)      = 20 + x^1.25 × 0.25
 
 ## Данные действий
 
-В snapshot зарегистрировано 53 `CombatAction`. Базовые семейства переопределены или расширены: `SingleShot`, `BurstFire`, `AutoFire`, `MGBurstFire`, `Buckshot`, `BuckshotBurst`, `AttackShotgun`, `Overwatch`, `PinDown`, `RunAndGun`, `RunAndGun_Carbine`, `MobileShot`, `MeleeAttack`, `Bandage`, `Unjam`, `MGSetup`, несколько `ThrowGrenade`.
+В snapshot зарегистрировано 53 `CombatAction` (+ medicine split). Базовые семейства переопределены или расширены: `SingleShot`, `BurstFire`, `AutoFire`, `MGBurstFire`, `Buckshot`, `BuckshotBurst`, `AttackShotgun`, `Overwatch`, `PinDown`, `RunAndGun`, `RunAndGun_Carbine`, `MobileShot`, `MeleeAttack`, `Bandage`, `JazzBandage`, `JazzMorphine`, `Unjam`, `MGSetup`, несколько `ThrowGrenade`.
 
 `AttackShotgun` остаётся мета-действием, но использует `AimType = "line"`: его `GetAimParams` делегирует фактическому firing member (`Buckshot`, `BuckshotBurst` или `DoubleBarrel`), и эти действия возвращают line-compatible параметры. Мета-действие открывает `IModeCombatAttack`; передавать его скалярный результат в cone area-aim как таблицу нельзя.
 
@@ -145,7 +145,8 @@ Dust storm может **косвенно** усилить cover-graze тольк
 ### Эффект и исключения
 
 - урон: `Max(1, damage × GrazingHitDamage / 100)` — JAZZ **40%**;
-- нет crit; `hit.effects` очищаются;
+- нет crit; `hit.effects` очищаются; trauma / BAT / Medium+ bleed не накладываются;
+- **лёгкая кровь:** `JazzTryRollBleedFromGraze` — шанс `JazzGrazeLightBleedChance` (**15%**) → только `Bleeding`;
 - `IgnoreGrazingHitsWhenFullyAimed` (thermal full aim) игнорирует **только cover-graze**, не miss→graze;
 - `IgnoreCoverCtHWhenFullyAimed` → cover-graze 0 (нет cover CTH bonus).
 

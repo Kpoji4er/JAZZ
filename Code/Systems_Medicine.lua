@@ -151,6 +151,114 @@ function JazzHasAnyBleed(unit)
 	return false
 end
 
+-- Ally/self targeting for field bandage / kit bandage (all Jazz bleed tiers + HP debt).
+function JazzUnitNeedsFieldOrKitBandage(unit)
+	if not unit or unit:IsDead() then
+		return false
+	end
+	if JazzHasAnyBleed(unit) then
+		return true
+	end
+	if (unit.HitPoints or 0) < (unit.MaxHitPoints or 0) then
+		return true
+	end
+	if unit.IsDowned and unit:IsDowned() then
+		return true
+	end
+	if unit:HasStatusEffect("Unconscious") then
+		return true
+	end
+	return false
+end
+
+-- Stack bandage action: only bleeding (any Jazz tier), not HP debt alone.
+function JazzUnitNeedsFieldBandage(unit)
+	return unit and not unit:IsDead() and JazzHasAnyBleed(unit)
+end
+
+function JazzUnitNeedsMorphine(unit)
+	return unit and not unit:IsDead() and unit:HasStatusEffect("Pain")
+end
+
+-- Mirror vanilla GetBandageTargets, but with a custom need predicate + AP action id.
+function JazzGetAllyMedicineTargets(unit, mode, range_mode, need_fn, action_id)
+	if not unit or type(need_fn) ~= "function" then
+		return (mode ~= "any") and {} or false
+	end
+	local targets = (mode ~= "any") and {}
+	if need_fn(unit) then
+		if mode == "any" then
+			return unit
+		end
+		targets[1] = unit
+	end
+	local allies = GetAllAlliedUnits(unit)
+	if unit.team and unit.team.player_team then
+		allies = table.icopy(allies)
+		for _, team in ipairs(g_Teams or empty_table) do
+			if team.neutral then
+				table.iappend(allies, team.units)
+			end
+		end
+	end
+	local action = action_id and CombatActions[action_id]
+	local base_cost = action and action:GetAPCost(unit) or 0
+	for _, ally in ipairs(allies) do
+		if need_fn(ally) then
+			local range_ok = range_mode == "ignore" or IsMeleeRangeTarget(unit, nil, nil, ally)
+			if range_mode == "reachable" and base_cost and base_cost > 0 then
+				if g_Combat then
+					local pos = unit:GetClosestMeleeRangePos(ally)
+					if pos then
+						local path = GetCombatPath(unit)
+						local ap = path and path:GetAP(pos)
+						if ap then
+							local cost = base_cost + Max(0, ap - (unit.free_move_ap or 0))
+							range_ok = unit:HasAP(cost)
+						else
+							range_ok = false
+						end
+					else
+						range_ok = false
+					end
+				else
+					range_ok = true
+				end
+			end
+			if range_ok then
+				if mode == "any" then
+					return ally
+				end
+				targets[#targets + 1] = ally
+			end
+		end
+	end
+	return targets
+end
+
+function JazzGetFieldBandageTargets(unit, mode, range_mode)
+	return JazzGetAllyMedicineTargets(unit, mode, range_mode, JazzUnitNeedsFieldBandage, "JazzBandage")
+end
+
+function JazzGetMorphineTargets(unit, mode, range_mode)
+	return JazzGetAllyMedicineTargets(unit, mode, range_mode, JazzUnitNeedsMorphine, "JazzMorphine")
+end
+
+-- Vanilla GetBandageTargets only checks status id "Bleeding" — miss Medium/Heavy.
+-- Keep kit Bandage targeting consistent with Jazz bleed tiers.
+local function lInstallBandageTargetsHook()
+	if rawget(_G, "JazzGetBandageTargets_Vanilla") then
+		return
+	end
+	if type(rawget(_G, "GetBandageTargets")) ~= "function" then
+		return
+	end
+	rawset(_G, "JazzGetBandageTargets_Vanilla", GetBandageTargets)
+	function GetBandageTargets(unit, mode, range_mode)
+		return JazzGetAllyMedicineTargets(unit, mode, range_mode, JazzUnitNeedsFieldOrKitBandage, "Bandage")
+	end
+end
+
 function JazzTryRollBleedFromHit(target, hit, attacker)
 	if not target or not hit or hit.setpiece then
 		return false
@@ -170,6 +278,20 @@ function JazzTryRollBleedFromHit(target, hit, attacker)
 		return true
 	end
 	return false
+end
+
+-- Grazing / scratch: low chance of light bleed only (no Medium/Heavy, no trauma / BAT / *shot).
+JazzGrazeLightBleedChance = 15
+
+function JazzTryRollBleedFromGraze(target, hit, attacker)
+	if not target or not hit or hit.setpiece then
+		return false
+	end
+	if target:Random(100) >= (JazzGrazeLightBleedChance or 15) then
+		return false
+	end
+	target:AddStatusEffect("Bleeding")
+	return true
 end
 
 -- TargetBodyPart → trauma zone for behind-armor blunt.
@@ -274,6 +396,24 @@ function JazzGetMorphineItem(unit)
 	return JazzFindInventoryItem(unit, "JAZZ_Morphine")
 end
 
+-- IFAK / Medkit / surgical-adjacent kits for the Bandage combat action (not stack bandages).
+function JazzGetEquippedKitMedicine(unit)
+	if not unit then
+		return false
+	end
+	local result
+	unit:ForEachItem(function(item)
+		if result then
+			return
+		end
+		local c = item.class
+		if c == "FirstAidKit" or c == "Medkit" or c == "Reanimationsset" then
+			result = item
+		end
+	end)
+	return result
+end
+
 function JazzApplyBandageAction(healer, patient)
 	if not healer or not patient or not JazzGetBandageItem(healer) then
 		return false
@@ -374,7 +514,12 @@ function JazzApplyTrauma(unit, zone, tier)
 		return false
 	end
 	JazzClearZoneTrauma(unit, zone)
-	unit:AddStatusEffect(lTraumaId(zone, tier))
+	local id = lTraumaId(zone, tier)
+	unit:AddStatusEffect(id)
+	local effect = unit:GetStatusEffect(id)
+	if effect then
+		JazzInitTraumaProgressTimer(effect, zone, tier)
+	end
 	Msg("JAZZ_TraumaApplied", unit, zone, tier)
 	return true
 end
@@ -439,30 +584,29 @@ function JazzGetTraumaArmorChanceFactor(unit, zone)
 	return Max(40, 100 - reduction)
 end
 
--- Body-part *shot rollers → trauma. Grit (Temp HP) still softens like legacy *shot.
--- Head biases toward Medium/Heavy; other zones mostly Light.
+-- Body-part *shot rollers → trauma. Grit (Temp HP) still blocks like legacy *shot.
+-- Fixed d100 base (not Random(HP)): low HP no longer collapses almost all rolls into Medium+.
+-- Limbs favor Light; Head still biased toward Medium/Heavy.
 -- Armor covering the zone scales thresholds down (JazzGetTraumaArmorChanceFactor).
 function JazzTryRollTraumaFromBodyPart(unit, zone)
 	if not unit or not zone or (unit.TempHitPoints or 0) > 0 then
 		return false
 	end
-	local hp = (unit.TempHitPoints or 0) + (unit.HitPoints or 0)
-	if hp <= 0 then
-		hp = 1
-	end
 	local factor = JazzGetTraumaArmorChanceFactor(unit, zone)
 	local thr_heavy, thr_medium, thr_light
 	if zone == "Head" then
-		thr_heavy, thr_medium, thr_light = 8, 28, 50
+		-- Head: Light harder; Medium/Heavy more common than limbs.
+		thr_heavy, thr_medium, thr_light = 8, 28, 48
 	else
-		thr_heavy, thr_medium, thr_light = 4, 18, 45
+		-- Limbs/Ribs/Burn: mostly Light when trauma procs; Medium uncommon; Heavy rare.
+		thr_heavy, thr_medium, thr_light = 3, 12, 55
 	end
 	if factor < 100 then
 		thr_heavy = Max(1, MulDivRound(thr_heavy, factor, 100))
 		thr_medium = Max(thr_heavy + 1, MulDivRound(thr_medium, factor, 100))
 		thr_light = Max(thr_medium + 1, MulDivRound(thr_light, factor, 100))
 	end
-	local roll = unit:Random(hp)
+	local roll = unit:Random(100)
 	local tier
 	if roll < thr_heavy then
 		tier = "Heavy"
@@ -478,10 +622,18 @@ function JazzTryRollTraumaFromBodyPart(unit, zone)
 end
 
 -- Knockout / Unconscious: one heavy trauma + Pain spike (not Wounded stacks).
+function JazzStripCombatWounded(unit)
+	if unit and unit.HasStatusEffect and unit:HasStatusEffect("Wounded") then
+		unit:RemoveStatusEffect("Wounded", "all")
+	end
+end
+
 function JazzApplyKnockoutTraumaPackage(unit)
 	if not unit then
 		return false
 	end
+	-- MED-001: never leave HP-stack Wounded on knockout; trauma package replaces it.
+	JazzStripCombatWounded(unit)
 	local zones = { "Arms", "Legs", "Ribs", "Head" }
 	local zone = zones[1 + unit:Random(#zones)]
 	JazzApplyTrauma(unit, zone, "Heavy")
@@ -554,4 +706,288 @@ function JazzApplyBurnTraumaFromBurning(unit)
 		return false
 	end
 	return JazzApplyTrauma(unit, "Burn", "Light")
+end
+
+-- ---------------------------------------------------------------------------
+-- Trauma progress timers (satellite hours): improve / worsen checks + UI text.
+-- ---------------------------------------------------------------------------
+g_JAZZ_TraumaUiHooksInstalled = nil -- legacy flag; hooks use class JazzTraumaBaseGetDescription
+
+function JazzParseTraumaEffectId(effect_id)
+	if type(effect_id) ~= "string" or not string.find(effect_id, "^Trauma", 1, true) then
+		return false, false
+	end
+	local rest = string.sub(effect_id, 7)
+	for _, tier in ipairs(JazzTraumaTiers) do
+		local suffix = tier
+		if string.sub(rest, -#suffix) == suffix then
+			local zone = string.sub(rest, 1, #rest - #suffix)
+			if zone ~= "" then
+				return zone, tier
+			end
+		end
+	end
+	return false, false
+end
+
+function JazzTraumaCheckIntervalHours(zone, tier)
+	if zone == "Burn" then
+		if tier == "Light" then
+			return 12
+		elseif tier == "Medium" then
+			return 36
+		end
+		return 72
+	end
+	if tier == "Light" then
+		return 8
+	elseif tier == "Medium" then
+		return 24
+	end
+	return 48
+end
+
+-- Chance table: roll 1..100 → improve / worsen / stay.
+function JazzTraumaProgressChances(zone, tier)
+	if tier == "Light" then
+		return 55, 10
+	elseif tier == "Medium" then
+		return 20, 25
+	end
+	-- Heavy: rarely improves without hospital (MED-002); no worsen (infection deferred).
+	return 8, 0
+end
+
+function JazzInitTraumaProgressTimer(effect, zone, tier)
+	if not effect or not Game or not Game.CampaignTime then
+		return false
+	end
+	if not zone or not tier then
+		zone, tier = JazzParseTraumaEffectId(effect.class)
+	end
+	if not zone or not tier then
+		return false
+	end
+	local hours = JazzTraumaCheckIntervalHours(zone, tier)
+	local scale_h = (const.Scale and const.Scale.h) or 1
+	effect:SetParameter("next_check_time", Game.CampaignTime + hours * scale_h)
+	effect:SetParameter("check_interval_h", hours)
+	return true
+end
+
+function JazzTraumaHoursUntilNextCheck(effect)
+	if not effect or not Game or not Game.CampaignTime then
+		return false
+	end
+	local next_t = effect:ResolveValue("next_check_time")
+	if not next_t or next_t == 0 then
+		local zone, tier = JazzParseTraumaEffectId(effect.class)
+		JazzInitTraumaProgressTimer(effect, zone, tier)
+		next_t = effect:ResolveValue("next_check_time")
+	end
+	if not next_t then
+		return false
+	end
+	local scale_h = (const.Scale and const.Scale.h) or 1
+	return Max(0, DivRound(next_t - Game.CampaignTime, scale_h))
+end
+
+function JazzFormatTraumaStatusDescription(effect, base_desc)
+	local zone, tier = JazzParseTraumaEffectId(effect and effect.class)
+	local hours = JazzTraumaHoursUntilNextCheck(effect)
+	local timing
+	if hours == false then
+		timing = T(890000000010203, "Next progress check: pending.")
+	elseif hours <= 0 then
+		timing = T(890000000010204, "Next progress check: <em>due now</em> (may improve or worsen).")
+	else
+		timing = T{890000000010205, "Next progress check in <em><hours> h</em> (may improve or worsen).", hours = hours}
+	end
+	local flavor
+	if tier == "Light" then
+		flavor = T(890000000010206, "Light trauma can clear on its own over time.")
+	elseif tier == "Medium" then
+		flavor = T(890000000010207, "Without treatment this may improve or worsen.")
+	elseif tier == "Heavy" then
+		flavor = T(890000000010208, "Heavy trauma rarely improves without hospital / field surgery.")
+	else
+		flavor = ""
+	end
+	base_desc = base_desc or (effect and effect.Description) or ""
+	-- If a stacked GetDescription hook already appended timing, keep only the first paragraph.
+	if type(base_desc) == "string" then
+		local cut = string.find(base_desc, "Next progress check", 1, true)
+		if cut and cut > 1 then
+			base_desc = string.match(base_desc, "^(.-)%s*\n") or string.sub(base_desc, 1, cut - 1)
+			base_desc = string.gsub(base_desc, "%s+$", "")
+		end
+	end
+	if flavor and flavor ~= "" then
+		return table.concat({ base_desc, timing, flavor }, "\n\n")
+	end
+	return table.concat({ base_desc, timing }, "\n\n")
+end
+
+function JazzDowngradeTrauma(unit, zone)
+	if not unit or not zone then
+		return false
+	end
+	local current = JazzGetTraumaTier(unit, zone)
+	if not current then
+		return false
+	end
+	local rank = JazzTraumaTierRank[current]
+	JazzClearZoneTrauma(unit, zone)
+	if rank <= 1 then
+		Msg("JAZZ_TraumaCleared", unit, zone)
+		return "cleared"
+	end
+	local new_tier = JazzTraumaTiers[rank - 1]
+	unit:AddStatusEffect(lTraumaId(zone, new_tier))
+	local effect = unit:GetStatusEffect(lTraumaId(zone, new_tier))
+	if effect then
+		JazzInitTraumaProgressTimer(effect, zone, new_tier)
+	end
+	Msg("JAZZ_TraumaApplied", unit, zone, new_tier)
+	return new_tier
+end
+
+function JazzTraumaResolveProgressCheck(unit, zone, tier, effect)
+	if not unit or not zone or not tier then
+		return false
+	end
+	local improve_chance, worsen_chance = JazzTraumaProgressChances(zone, tier)
+	local roll = (unit.Random and unit:Random(100)) or InteractionRand(100, "JazzTraumaProgress")
+	roll = roll + 1 -- 1..100
+	local nick = unit.Nick or unit.Name or ""
+	if roll <= improve_chance then
+		local result = JazzDowngradeTrauma(unit, zone)
+		if result == "cleared" then
+			CombatLog("short", T{890000000010210, "<merc> trauma improved (cleared)", merc = nick})
+		elseif result then
+			CombatLog("short", T{890000000010211, "<merc> trauma improved to a lighter tier", merc = nick})
+		end
+		return "improve"
+	elseif roll <= improve_chance + worsen_chance then
+		local next_tier
+		if tier == "Light" then
+			next_tier = "Medium"
+		elseif tier == "Medium" then
+			next_tier = "Heavy"
+		end
+		if next_tier and JazzApplyTrauma(unit, zone, next_tier) then
+			CombatLog("short", T{890000000010212, "<merc> trauma worsened", merc = nick})
+			return "worsen"
+		end
+	end
+	-- Stay: refresh timer.
+	if effect then
+		JazzInitTraumaProgressTimer(effect, zone, tier)
+	else
+		local id = lTraumaId(zone, tier)
+		local e = unit:GetStatusEffect(id)
+		if e then
+			JazzInitTraumaProgressTimer(e, zone, tier)
+		end
+	end
+	return "stay"
+end
+
+function JazzTraumaProgressOnNewHour(unit)
+	if not unit or (unit.IsDead and unit:IsDead()) then
+		return
+	end
+	if not JazzHasAnyTrauma(unit) then
+		return
+	end
+	for _, zone in ipairs(JazzTraumaZones) do
+		local tier = JazzGetTraumaTier(unit, zone)
+		if tier then
+			local id = lTraumaId(zone, tier)
+			local effect = unit:GetStatusEffect(id)
+			if effect then
+				local next_t = effect:ResolveValue("next_check_time")
+				if not next_t or next_t == 0 then
+					JazzInitTraumaProgressTimer(effect, zone, tier)
+					next_t = effect:ResolveValue("next_check_time")
+				end
+				if next_t and Game and Game.CampaignTime and Game.CampaignTime >= next_t then
+					JazzTraumaResolveProgressCheck(unit, zone, tier, effect)
+				end
+			end
+		end
+	end
+end
+
+local function lInstallTraumaUiHooks()
+	if not g_Classes then
+		return
+	end
+	for _, zone in ipairs(JazzTraumaZones) do
+		for _, tier in ipairs(JazzTraumaTiers) do
+			local id = "Trauma" .. zone .. tier
+			local cls = g_Classes[id]
+			if cls then
+				-- Keep the first (unwrapped) GetDescription — ReloadLua/ModsReloaded must not stack.
+				if not rawget(cls, "JazzTraumaBaseGetDescription") then
+					rawset(cls, "JazzTraumaBaseGetDescription", cls.GetDescription)
+				end
+				local base_fn = cls.JazzTraumaBaseGetDescription
+				cls.GetDescription = function(self)
+					local base
+					if base_fn then
+						base = base_fn(self)
+					else
+						base = rawget(self, "Description") or self.Description
+					end
+					return JazzFormatTraumaStatusDescription(self, base)
+				end
+			end
+		end
+	end
+end
+
+function OnMsg.DataLoaded()
+	lInstallBandageTargetsHook()
+	lInstallTraumaUiHooks()
+end
+
+function OnMsg.ModsReloaded()
+	-- Classes may be redefined; clear base markers only when missing (fresh class).
+	lInstallBandageTargetsHook()
+	lInstallTraumaUiHooks()
+end
+
+-- MED-001: disable vanilla HP→Wounded stack conversion (trauma/bleed replace it).
+-- HpLossToAddStack=999999 alone is not enough if CharacterEffectDefs lag companion sync.
+function UnitProperties:AccumulateDamageTaken(amount)
+end
+
+function UnitProperties:AddWounds(wounds)
+end
+
+function OnMsg.UnitDowned(unit)
+	JazzStripCombatWounded(unit)
+end
+
+function OnMsg.NewHour()
+	local seen = {}
+	if g_Units then
+		for _, unit in ipairs(g_Units) do
+			if IsValid(unit) and JazzHasAnyTrauma(unit) then
+				local sid = unit.session_id
+				if sid then
+					seen[sid] = true
+				end
+				JazzTraumaProgressOnNewHour(unit)
+			end
+		end
+	end
+	if gv_UnitData then
+		for sid, ud in pairs(gv_UnitData) do
+			if ud and not seen[sid] and JazzHasAnyTrauma(ud) then
+				JazzTraumaProgressOnNewHour(ud)
+			end
+		end
+	end
 end

@@ -7639,6 +7639,12 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000001798,Задание выполнено! Хочу что-нибудь сделать.,Job done! Fancy something else.,,jazz-units:VoiceResponse Jazz_Colby ActivityFinished
 890000000001799,Я тебе не игрушечный солдатик. Не буду делать!,I'm not a toy soldier. Not doing that!,,jazz-units:VoiceResponse Jazz_Colby NotNow
 890000000001801,"Атаки ближнего боя: +20 к шансу попадания, критические удары невозможны.",Melee attacks: +20 chance to hit; critical hits are disabled.,,Jazz_Perk_WaveA
+890000000001931,Мимикрия,Mimicry,,jazz:CharacterEffect/Jazz_Perk_Mimicry.lua
+890000000001932,"Проходит проверки на разговорные перки <em>Переговорщик</em>, <em>Тёртый калач</em> и <em>Псих</em> без их боевых и экономических эффектов.","Passes <em>Negotiator</em>, <em>Scoundrel</em>, and <em>Psycho</em> conversation perk checks without their combat or economy effects.",,jazz:CharacterEffect/Jazz_Perk_Mimicry.lua
+890000000001933,Ветеран,Veteran,,jazz:CharacterEffect/Jazz_Perk_Veteran.lua
+890000000001934,"Бонус <em>+10</em> ко всем проверкам навыков и характеристик (диалоги, исследование, skill checks).","<em>+10</em> bonus to all skill and attribute checks (dialogue, exploration, skill checks).",,jazz:CharacterEffect/Jazz_Perk_Veteran.lua
+890000000001935,Снайпер,Sniper,,jazz:CharacterEffect/Jazz_Perk_Sniper.lua
+890000000001936,Максимальный уровень прицеливания <em>+1</em> при стрельбе из любого оружия.,Maximum aiming level <em>+1</em> when firing any weapon.,,jazz:CharacterEffect/Jazz_Perk_Sniper.lua
 890000000002101,Убийство в упор (дистанция 1 клетка) даёт Воодушевление.,A point-blank kill (range 1 tile) grants Inspired.,,Jazz_Perk_WaveA
 890000000002431,Шахтёрский надзор,Mine Overseer,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
 890000000002432,"Пока Ротман гарнизоном стоит в секторе с шахтой, он может провести спецоперацию, ловящую ворующих штейгеров и временно поднимающую доход шахты","While Rothman garrisons a sector with a mine, he can run a special operation that catches thieving steigers and temporarily boosts mine income",,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
@@ -10354,9 +10360,9 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000009236,Leg Trauma (Heavy),Leg Trauma (Heavy),,jazz:CharacterEffect/TraumaLegsHeavy.lua
 890000000009237,Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn.,Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn.,,jazz:CharacterEffect/TraumaLegsHeavy.lua
 890000000009238,Rib Trauma (Light),Rib Trauma (Light),,jazz:CharacterEffect/TraumaRibsLight.lua
-890000000009239,Pain when exerting. No Tiredness from ribs. No direct AP penalty.,Pain when exerting. No Tiredness from ribs. No direct AP penalty.,,jazz:CharacterEffect/TraumaRibsLight.lua
+890000000009239,Pain at the start of the turn. No Tiredness from ribs. No direct AP penalty.,Pain at the start of the turn. No Tiredness from ribs. No direct AP penalty.,,jazz:CharacterEffect/TraumaRibsLight.lua
 890000000009240,Rib Trauma (Medium),Rib Trauma (Medium),,jazz:CharacterEffect/TraumaRibsMedium.lua
-890000000009241,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain on exertion. No Tiredness.,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain on exertion. No Tiredness.,,jazz:CharacterEffect/TraumaRibsMedium.lua
+890000000009241,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain at the start of the turn. No Tiredness.,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain at the start of the turn. No Tiredness.,,jazz:CharacterEffect/TraumaRibsMedium.lua
 890000000009242,Rib Trauma (Heavy),Rib Trauma (Heavy),,jazz:CharacterEffect/TraumaRibsHeavy.lua
 890000000009243,Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. Pain rises each turn. No Tiredness.,Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. Pain rises each turn. No Tiredness.,,jazz:CharacterEffect/TraumaRibsHeavy.lua
 890000000009244,Head Trauma (Light),Head Trauma (Light),,jazz:CharacterEffect/TraumaHeadLight.lua
@@ -10976,6 +10982,108 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000009858,Got an idea.,Got an idea.,,jazz-units:items.lua:VoiceResponse
 890000000009859,Done.,Done.,,jazz-units:items.lua:VoiceResponse
 890000000009860,Failed.,Failed.,,jazz-units:items.lua:VoiceResponse
+890000000010000,Light bleeding: <color EmStyle><DamagePerTurn> HP</color> per stack each turn. Bandage removes one light stack (or reduces a worse stack by one tier).,Light bleeding: <color EmStyle><DamagePerTurn> HP</color> per stack each turn. Bandage removes one light stack (or reduces a worse stack by one tier).,,jazz:MED-001-remap-from-890000000009195
+890000000010001,Moderate Bleeding,Moderate Bleeding,,jazz:MED-001-remap-from-890000000009196
+890000000010002,Moderate bleeding: <color EmStyle>6 HP</color> per stack each turn. Bandage reduces one stack to light bleeding.,Moderate bleeding: <color EmStyle>6 HP</color> per stack each turn. Bandage reduces one stack to light bleeding.,,jazz:MED-001-remap-from-890000000009197
+890000000010003,<color EmStyle><DisplayName></color>,<color EmStyle><DisplayName></color>,,jazz:MED-001-remap-from-890000000009198
+890000000010004,Heavy Bleeding,Heavy Bleeding,,jazz:MED-001-remap-from-890000000009199
+890000000010005,Heavy bleeding: <color EmStyle>12 HP</color> per stack each turn. From expanding ammo or worsened moderate bleeding. Bandage reduces one stack to moderate.,Heavy bleeding: <color EmStyle>12 HP</color> per stack each turn. From expanding ammo or worsened moderate bleeding. Bandage reduces one stack to moderate.,,jazz:MED-001-remap-from-890000000009200
+890000000010006,<color EmStyle><DisplayName></color>,<color EmStyle><DisplayName></color>,,jazz:MED-001-remap-from-890000000009201
+890000000010007,Pain,Pain,,jazz:MED-001-remap-from-890000000009202
+890000000010008,Each stack costs <color EmStyle><APLoss> AP</color> and <color EmStyle><cth_penalty>% chance to hit</color>. Decreases by one stack each turn. Analgesia suppresses the penalties.,Each stack costs <color EmStyle><APLoss> AP</color> and <color EmStyle><cth_penalty>% chance to hit</color>. Decreases by one stack each turn. Analgesia suppresses the penalties.,,jazz:MED-001-remap-from-890000000009203
+890000000010009,Analgesia,Analgesia,,jazz:MED-001-remap-from-890000000009204
+890000000010010,Suppresses AP and chance-to-hit penalties from Pain. Does not stop bleeding or heal injuries.,Suppresses AP and chance-to-hit penalties from Pain. Does not stop bleeding or heal injuries.,,jazz:MED-001-remap-from-890000000009205
+890000000010011,Bandage,Bandage,,jazz:MED-001-remap-from-890000000009206
+890000000010012,Bandages,Bandages,,jazz:MED-001-remap-from-890000000009207
+890000000010013,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Bandage action — reduce worst bleeding by one tier
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Bandage action — reduce worst bleeding by one tier
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally",,jazz:MED-001-remap-from-890000000009208
+890000000010014,Morphine,Morphine,,jazz:MED-001-remap-from-890000000009209
+890000000010015,Morphine,Morphine,,jazz:MED-001-remap-from-890000000009210
+890000000010016,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Morphine action — suppress Pain penalties
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding or heal trauma
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Morphine action — suppress Pain penalties
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding or heal trauma
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally",,jazz:MED-001-remap-from-890000000009211
+890000000010017,Surgical Kit,Surgical Kit,,jazz:MED-001-remap-from-890000000009212
+890000000010018,Surgical Kits,Surgical Kits,,jazz:MED-001-remap-from-890000000009213
+890000000010019,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used via item menu
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Grants long analgesia (v1)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Rare; doctors use this for field surgery later","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used via item menu
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Grants long analgesia (v1)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Rare; doctors use this for field surgery later",,jazz:MED-001-remap-from-890000000009214
+890000000010020,USE,USE,,jazz:MED-001-remap-from-890000000009215
+890000000010021,<target> bleeding reduced by bandage,<target> bleeding reduced by bandage,,jazz:MED-001-remap-from-890000000009216
+890000000010022,IFAK,IFAK,,jazz:MED-001-remap-from-890000000009217
+890000000010023,IFAKs,IFAKs,,jazz:MED-001-remap-from-890000000009218
+890000000010024,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage action removes one worst bleeding stack
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage action removes one worst bleeding stack
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory",,jazz:MED-001-remap-from-890000000009219
+890000000010025,Med Kit,Med Kit,,jazz:MED-001-remap-from-890000000009220
+890000000010026,Med Kits,Med Kits,,jazz:MED-001-remap-from-890000000009221
+890000000010027,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds",,jazz:MED-001-remap-from-890000000009222
+890000000010028,Inject morphine to suppress Pain penalties on self or ally. Does not stop bleeding.,Inject morphine to suppress Pain penalties on self or ally. Does not stop bleeding.,,jazz:MED-001-remap-from-890000000009223
+890000000010029,Morphine,Morphine,,jazz:MED-001-remap-from-890000000009224
+890000000010030,MORPHINE,MORPHINE,,jazz:MED-001-remap-from-890000000009225
+890000000010100,Arm Trauma (Light),Arm Trauma (Light),,jazz:MED-001-trauma-remap-from-890000000009226
+890000000010101,Pain when shooting or using arms. No direct accuracy penalty.,Pain when shooting or using arms. No direct accuracy penalty.,,jazz:MED-001-trauma-remap-from-890000000009227
+890000000010102,Arm Trauma (Medium),Arm Trauma (Medium),,jazz:MED-001-trauma-remap-from-890000000009228
+890000000010103,Accuracy penalty <color EmStyle><cth_penalty>%</color>. Pain when using arms.,Accuracy penalty <color EmStyle><cth_penalty>%</color>. Pain when using arms.,,jazz:MED-001-trauma-remap-from-890000000009229
+890000000010104,Arm Trauma (Heavy),Arm Trauma (Heavy),,jazz:MED-001-trauma-remap-from-890000000009230
+890000000010105,Severe accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly unable to fight. Pain rises each turn.,Severe accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly unable to fight. Pain rises each turn.,,jazz:MED-001-trauma-remap-from-890000000009231
+890000000010106,Leg Trauma (Light),Leg Trauma (Light),,jazz:MED-001-trauma-remap-from-890000000009232
+890000000010107,Pain when moving. No direct move-cost penalty.,Pain when moving. No direct move-cost penalty.,,jazz:MED-001-trauma-remap-from-890000000009233
+890000000010108,Leg Trauma (Medium),Leg Trauma (Medium),,jazz:MED-001-trauma-remap-from-890000000009234
+890000000010109,Move cost <color EmStyle>+<move_ap_modifier>%</color>. No Free Move / sprint. Pain when moving.,Move cost <color EmStyle>+<move_ap_modifier>%</color>. No Free Move / sprint. Pain when moving.,,jazz:MED-001-trauma-remap-from-890000000009235
+890000000010110,Leg Trauma (Heavy),Leg Trauma (Heavy),,jazz:MED-001-trauma-remap-from-890000000009236
+890000000010111,Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn.,Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn.,,jazz:MED-001-trauma-remap-from-890000000009237
+890000000010112,Rib Trauma (Light),Rib Trauma (Light),,jazz:MED-001-trauma-remap-from-890000000009238
+890000000010113,Pain at the start of the turn. No Tiredness from ribs. No direct AP penalty.,Pain at the start of the turn. No Tiredness from ribs. No direct AP penalty.,,jazz:MED-001-trauma-remap-from-890000000009239
+890000000010114,Rib Trauma (Medium),Rib Trauma (Medium),,jazz:MED-001-trauma-remap-from-890000000009240
+890000000010115,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain at the start of the turn. No Tiredness.,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain at the start of the turn. No Tiredness.,,jazz:MED-001-trauma-remap-from-890000000009241
+890000000010116,Rib Trauma (Heavy),Rib Trauma (Heavy),,jazz:MED-001-trauma-remap-from-890000000009242
+890000000010117,Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. Pain rises each turn. No Tiredness.,Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. Pain rises each turn. No Tiredness.,,jazz:MED-001-trauma-remap-from-890000000009243
+890000000010118,Head Trauma (Light),Head Trauma (Light),,jazz:MED-001-trauma-remap-from-890000000009244
+890000000010119,Pain when aiming or firing. Eye trauma folded into head for v1.,Pain when aiming or firing. Eye trauma folded into head for v1.,,jazz:MED-001-trauma-remap-from-890000000009245
+890000000010120,Head Trauma (Medium),Head Trauma (Medium),,jazz:MED-001-trauma-remap-from-890000000009246
+890000000010121,Sight and accuracy penalties. Pain when aiming or firing.,Sight and accuracy penalties. Pain when aiming or firing.,,jazz:MED-001-trauma-remap-from-890000000009247
+890000000010122,Head Trauma (Heavy),Head Trauma (Heavy),,jazz:MED-001-trauma-remap-from-890000000009248
+890000000010123,Severe sight/accuracy loss. Nearly combat-ineffective. Pain rises each turn.,Severe sight/accuracy loss. Nearly combat-ineffective. Pain rises each turn.,,jazz:MED-001-trauma-remap-from-890000000009249
+890000000010124,Burn Trauma (Light),Burn Trauma (Light),,jazz:MED-001-trauma-remap-from-890000000009250
+890000000010125,Lingering burn after fire. Pain on exertion. Bandage does not clear burns.,Lingering burn after fire. Pain on exertion. Bandage does not clear burns.,,jazz:MED-001-trauma-remap-from-890000000009251
+890000000010126,Burn Trauma (Medium),Burn Trauma (Medium),,jazz:MED-001-trauma-remap-from-890000000009252
+890000000010127,Moderate burn debt. Pain on exertion. Infection risk deferred.,Moderate burn debt. Pain on exertion. Infection risk deferred.,,jazz:MED-001-trauma-remap-from-890000000009253
+890000000010128,Burn Trauma (Heavy),Burn Trauma (Heavy),,jazz:MED-001-trauma-remap-from-890000000009254
+890000000010129,Severe burn debt. Pain rises each turn. Infection/hospital clear deferred.,Severe burn debt. Pain rises each turn. Infection/hospital clear deferred.,,jazz:MED-001-trauma-remap-from-890000000009255
+890000000010200,Field Bandage,Field Bandage,,jazz:MED-001-JazzBandage
+890000000010201,Apply a field bandage to stop bleeding by one tier on self or ally. No Medical skill. Does not restore HP or heal trauma.,Apply a field bandage to stop bleeding by one tier on self or ally. No Medical skill. Does not restore HP or heal trauma.,,jazz:MED-001-JazzBandage
+890000000010202,BANDAGE,BANDAGE,,jazz:MED-001-JazzBandage
+890000000010203,Next progress check: pending.,Next progress check: pending.,,jazz:MED-001-trauma-timing
+890000000010204,Next progress check: <em>due now</em> (may improve or worsen).,Next progress check: <em>due now</em> (may improve or worsen).,,jazz:MED-001-trauma-timing
+890000000010205,Next progress check in <em><hours> h</em> (may improve or worsen).,Next progress check in <em><hours> h</em> (may improve or worsen).,,jazz:MED-001-trauma-timing
+890000000010206,Light trauma can clear on its own over time.,Light trauma can clear on its own over time.,,jazz:MED-001-trauma-timing
+890000000010207,Without treatment this may improve or worsen.,Without treatment this may improve or worsen.,,jazz:MED-001-trauma-timing
+890000000010208,Heavy trauma rarely improves without hospital / field surgery.,Heavy trauma rarely improves without hospital / field surgery.,,jazz:MED-001-trauma-timing
+890000000010210,<merc> trauma improved (cleared),<merc> trauma improved (cleared),,jazz:MED-001-trauma-timing
+890000000010211,<merc> trauma improved to a lighter tier,<merc> trauma improved to a lighter tier,,jazz:MED-001-trauma-timing
+890000000010212,<merc> trauma worsened,<merc> trauma worsened,,jazz:MED-001-trauma-timing
+890000000010213,"Treat an ally with an IFAK, Medkit, or surgical kit. Restores HP (Medical skill) and clears bleeding stacks. Does not use stack bandages.","Treat an ally with an IFAK, Medkit, or surgical kit. Restores HP (Medical skill) and clears bleeding stacks. Does not use stack bandages.",,jazz:MED-001-Bandage-kit
 939310080350111,ржавое,rusty,,jazz:Code/Inventory.lua:117 | jazz:Code/Inventory.lua:180
 968409848233111,сломанное,broken,,jazz:Code/Inventory.lua:120 | jazz:Code/Inventory.lua:183
 1786863112811235,Укрепления,Fortifications,,jazz:Code/POI Extension.lua:9

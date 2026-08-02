@@ -486,29 +486,33 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 		self:TakeDamage(damage and floatfloor(damage) or 0, attacker, hit)	
 	end
     local invulnerable = self:IsInvulnerable()
-    --if damage and damage > 0 or hit.setpiece then
-	if not invulnerable then --and damage > 3 then
-		local effects = hit.effects
-		local armor_hit = hit.armor_decay and next(hit.armor_decay) ~= nil
-		local armor_pierced = not armor_hit or hit.armor_pen and next(hit.armor_pen) ~= nil
-		local function apply_hit_effect(effect)
-			if armor_pierced and type(effect) == "string" and effect ~= "" and effect ~= "MarkedTraccers"
-				and CharacterEffectDefs[effect] then
-				self:AddStatusEffect(JazzRemapHitBleedEffect(effect, hit, attacker))
-			end
-		end
-		if type(effects) == "string" then
-			apply_hit_effect(effects)
+    -- Grazing / scratch: HP + rare light bleed only — no *shot trauma, Medium/Heavy bleed, BAT, or hit effects.
+	if not invulnerable then
+		if hit and hit.grazing then
+			JazzTryRollBleedFromGraze(self, hit, attacker)
 		else
-			for _, effect in ipairs(effects or empty_table) do
-				apply_hit_effect(effect)
+			local effects = hit.effects
+			local armor_hit = hit.armor_decay and next(hit.armor_decay) ~= nil
+			local armor_pierced = not armor_hit or hit.armor_pen and next(hit.armor_pen) ~= nil
+			local function apply_hit_effect(effect)
+				if armor_pierced and type(effect) == "string" and effect ~= "" and effect ~= "MarkedTraccers"
+					and CharacterEffectDefs[effect] then
+					self:AddStatusEffect(JazzRemapHitBleedEffect(effect, hit, attacker))
+				end
 			end
-		end
-		if armor_pierced then
-			JazzTryRollBleedFromHit(self, hit, attacker)
-		elseif armor_hit then
-			-- Stopped by armor: behind-armor blunt trauma (no bleed / no *shot).
-			JazzTryBehindArmorTrauma(self, hit, attacker)
+			if type(effects) == "string" then
+				apply_hit_effect(effects)
+			else
+				for _, effect in ipairs(effects or empty_table) do
+					apply_hit_effect(effect)
+				end
+			end
+			if armor_pierced then
+				JazzTryRollBleedFromHit(self, hit, attacker)
+			elseif armor_hit then
+				-- Stopped by armor: behind-armor blunt trauma (no bleed / no *shot).
+				JazzTryBehindArmorTrauma(self, hit, attacker)
+			end
 		end
 	end
     --end

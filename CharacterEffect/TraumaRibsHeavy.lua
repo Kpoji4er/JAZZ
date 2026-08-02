@@ -40,8 +40,8 @@ DefineClass.TraumaRibsHeavy = {
 			end,
 		}),
 	},
-	DisplayName = T(890000000009242, "Rib Trauma (Heavy)"),
-	Description = T(890000000009243, "Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. Pain rises each turn. No Tiredness."),
+	DisplayName = T(890000000010116, "Rib Trauma (Heavy)"),
+	Description = T(890000000010117, "Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. Pain rises each turn. No Tiredness."),
 	OnAdded = function(self, obj)
 		Msg("UnitAPChanged", obj)
 	end,

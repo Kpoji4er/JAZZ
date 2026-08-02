@@ -123,7 +123,7 @@ Asset contract не менялся.
 - локальные роллеры `Armsshot`, `Headshot`, `Legsshot`, `Torsoshot`, `Groinshot` (скрытые; **только** `JazzTryRollTraumaFromBodyPart` — без legacy Numbness/Inaccurate/Slowed/Blinded/Unconscious/`Bleeding` из `*shot`);
 - зональные травмы `Trauma{Arms|Legs|Ribs|Head|Burn}{Light|Medium|Heavy}` (Eye folded into Head; Burn: `Burning` OnRemoved → Light stub);
 - `Bleeding` / `BleedingMedium` / `BleedingHeavy` (3/6/12 ОЗ за стак/ход, кап суммы ~30; бинт −1 тир худшему стаку; JHP→тяжёлое; травмы ↑ шанс крови; центральный `JazzTryRollBleedFromHit`; legacy `BleedingChance` OnAdded = no-op);
-- `Pain` / `Analgesia`; `Wounded` от HP practically off (`HpLossToAddStack` sentinel);
+- `Pain` / `Analgesia`; `Wounded` от HP **off** (`HpLossToAddStack` sentinel + `UnitProperties:AccumulateDamageTaken`/`AddWounds` no-op; strip on knockout/`UnitDowned`);
 - `Blinded`, `Burning`, `Choking` (среда/газ; не от `*shot`); knockout merc → `JazzApplyKnockoutTraumaPackage` (heavy + Pain);
 - уровни suppression и weight class;
 - perks и прочие status effects.
@@ -167,7 +167,11 @@ DefineClass.DamageReduction = {
 | Medium | zone debuff | при юзе зоны |
 | Heavy | жёсткий zone debuff | +1 Pain/ход к капу (`JazzTraumaHeavyPainRamp`) |
 
-Zone specifics (Medium / Heavy params): Arms −20/−50 CTH; Legs +50%/+150% move, no Free Move; Ribs −2/−5 start AP, no Free Move, **no Tired**; Head −15/−40 CTH and −20/−50 sight. Eye folded into Head. Hit wiring: `*shot` OnAdded → `JazzTryRollTraumaFromBodyPart` (Head biased to Medium/Heavy). **Armor trauma soft-mitigation (pierced path):** `JazzGetTraumaArmorChanceFactor` — worn `Armor` with `ProtectedBodyParts` for the zone, Condition > 0, scales roll thresholds (floor factor **40**). **BAT (unpierced):** `JazzTryBehindArmorTrauma` from `ApplyDamageAndEffects` — Light/rarely Medium + Pain, no bleed. Knockout merc: `JazzApplyKnockoutTraumaPackage`. Burn: `Burning` OnRemoved → `TraumaBurnLight`. Icons: `Icons/StatusEffects/Trauma*.png`.
+Zone specifics (Medium / Heavy params): Arms −20/−50 CTH; Legs +50%/+150% move, no Free Move; Ribs −2/−5 start AP, no Free Move, **no Tired**; Head −15/−40 CTH and −20/−50 sight. Eye folded into Head. Hit wiring: `*shot` OnAdded → `JazzTryRollTraumaFromBodyPart` on **d100** (не `Random(HP)` — иначе при низком HP почти всегда Medium+). Limb/Ribs/Burn thresholds: Heavy **&lt;3**, Medium **&lt;12**, Light **&lt;55**; Head **8 / 28 / 48**. **Armor trauma soft-mitigation (pierced path):** `JazzGetTraumaArmorChanceFactor` — worn `Armor` with `ProtectedBodyParts` for the zone, Condition > 0, scales roll thresholds (floor factor **40**). **BAT (unpierced):** `JazzTryBehindArmorTrauma` from `ApplyDamageAndEffects` — Light/rarely Medium + Pain, no bleed. **Grazing / царапина:** no trauma / BAT / `*shot` / Medium+ bleed; `JazzTryRollBleedFromGraze` — **15%** → только `Bleeding`. Knockout merc: `JazzApplyKnockoutTraumaPackage`. Burn: `Burning` OnRemoved → `TraumaBurnLight`. Icons: `Icons/StatusEffects/Trauma*.png`.
+
+**Прогресс / UI:** при apply ставится `next_check_time` (CampaignTime). Интервалы: Light **8** ч (Burn **12**), Medium **24** (Burn **36**), Heavy **48** (Burn **72**). `OnMsg.NewHour` → `JazzTraumaProgressOnNewHour` роллит improve/worsen/stay (`JazzTraumaProgressChances`). `GetDescription` на `Trauma*` через hook (base `JazzTraumaBaseGetDescription`, без stack при ReloadLua) дописывает один блок «Next progress check…» + tier flavor. Полный hospital clear / ускорение лечением — MED-002.
+
+**Hotbar medicine:** `JazzBandage` (stack `JAZZ_Bandage`, −1 bleed tier, AP 1000); `Bandage` (kits via `JazzGetEquippedKitMedicine` only); `JazzMorphine` (`RequireWeapon=false`). Targeting: `JazzGetFieldBandageTargets` / `JazzGetMorphineTargets` (all Jazz bleed tiers / Pain); vanilla `GetBandageTargets` wrapped to include Medium/Heavy bleed. Legs `TargetBodyPart.applied_effect` = `Legsshot` (не `Slowed`). `Wounded` companion: `HpLossToAddStack=999999` (sentinel synced with items.lua).
 
 ## Grit и временное здоровье
 

@@ -20,7 +20,7 @@ DefineClass.Bleeding = {
 		}),
 	},
 	DisplayName = T(779855732255, "Bleeding"),
-	Description = T(890000000009195, "Light bleeding: <color EmStyle><DamagePerTurn> HP</color> per stack each turn. Bandage removes one light stack (or reduces a worse stack by one tier)."),
+	Description = T(890000000010000, "Light bleeding: <color EmStyle><DamagePerTurn> HP</color> per stack each turn. Bandage removes one light stack (or reduces a worse stack by one tier)."),
 	AddEffectText = T(488938284982, "<color EmStyle><DisplayName></color> is bleeding"),
 	type = "Debuff",
 	Icon = "Mod/e6L4ECj/Icons/StatusEffects/Bleeding.png",

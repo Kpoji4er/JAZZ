@@ -55189,12 +55189,12 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Other - Meds",
 				'Id', "JAZZ_Bandage",
-				'object_class', "MiscItem",
+				'object_class', "Medicine",
 				'Repairable', false,
 				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_Bandage.png",
-				'DisplayName', T(890000000009206, "Bandage"),
-				'DisplayNamePlural', T(890000000009207, "Bandages"),
-				'AdditionalHint', T(890000000009208, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Bandage action — reduce worst bleeding by one tier\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally"),
+				'DisplayName', T(890000000010011, "Bandage"),
+				'DisplayNamePlural', T(890000000010012, "Bandages"),
+				'AdditionalHint', T(890000000010013, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Bandage action — reduce worst bleeding by one tier\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally"),
 				'Cost', 25,
 				'CanAppearInShop', true,
 				'RestockWeight', 150,
@@ -55205,12 +55205,12 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Other - Meds",
 				'Id', "JAZZ_Morphine",
-				'object_class', "MiscItem",
+				'object_class', "Medicine",
 				'Repairable', false,
 				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_Morphine.png",
-				'DisplayName', T(890000000009209, "Morphine"),
-				'DisplayNamePlural', T(890000000009210, "Morphine"),
-				'AdditionalHint', T(890000000009211, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Morphine action — suppress Pain penalties\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding or heal trauma\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally"),
+				'DisplayName', T(890000000010014, "Morphine"),
+				'DisplayNamePlural', T(890000000010015, "Morphine"),
+				'AdditionalHint', T(890000000010016, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Morphine action — suppress Pain penalties\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding or heal trauma\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally"),
 				'Cost', 75,
 				'CanAppearInShop', true,
 				'RestockWeight', 75,
@@ -55224,9 +55224,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'object_class', "MiscItem",
 				'Repairable', false,
 				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_SurgicalKit.png",
-				'DisplayName', T(890000000009212, "Surgical Kit"),
-				'DisplayNamePlural', T(890000000009213, "Surgical Kits"),
-				'AdditionalHint', T(890000000009214, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used via item menu\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Grants long analgesia (v1)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Rare; doctors use this for field surgery later"),
+				'DisplayName', T(890000000010017, "Surgical Kit"),
+				'DisplayNamePlural', T(890000000010018, "Surgical Kits"),
+				'AdditionalHint', T(890000000010019, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used via item menu\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Grants long analgesia (v1)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Rare; doctors use this for field surgery later"),
 				'Cost', 800,
 				'CanAppearInShop', true,
 				'Tier', 3,
@@ -55239,7 +55239,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						Status = "Analgesia",
 					}),
 				},
-				'action_name', T(890000000009215, "USE"),
+				'action_name', T(890000000010020, "USE"),
 				'destroy_item', true,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -55249,9 +55249,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'ScrapParts', 1,
 				'Repairable', false,
 				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_IFAK.png",
-				'DisplayName', T(890000000009217, "IFAK"),
-				'DisplayNamePlural', T(890000000009218, "IFAKs"),
-				'AdditionalHint', T(890000000009219, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage action removes one worst bleeding stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory"),
+				'DisplayName', T(890000000010022, "IFAK"),
+				'DisplayNamePlural', T(890000000010023, "IFAKs"),
+				'AdditionalHint', T(890000000010024, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage action removes one worst bleeding stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory"),
 				'UnitStat', "Medical",
 				'Cost', 300,
 				'CanAppearInShop', true,
@@ -55276,9 +55276,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'ScrapParts', 1,
 				'Repairable', false,
 				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_Medkit.png",
-				'DisplayName', T(890000000009220, "Med Kit"),
-				'DisplayNamePlural', T(890000000009221, "Med Kits"),
-				'AdditionalHint', T(890000000009222, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds"),
+				'DisplayName', T(890000000010025, "Med Kit"),
+				'DisplayNamePlural', T(890000000010026, "Med Kits"),
+				'AdditionalHint', T(890000000010027, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds"),
 				'UnitStat', "Medical",
 				'Cost', 500,
 				'CanAppearInShop', true,
@@ -60626,7 +60626,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				ActivePauseBehavior = "queue",
 				AimType = "melee",
 				ConfigurableKeybind = false,
-				Description = T(573799800858, --[[ModItemCombatAction Bandage Description]] "Оказание медицинской помощи раненому союзнику. Требует времени, в течение которого вы не сможете совершать другие действия. Перевязываемый союзник не может перемещаться, но может атаковать.\n\n<color EmStyle>Тяжелое ранение</color>: стабилизация состояния <color EmStyle>союзника</color>. Другие случаи: <color EmStyle>восстановление <hp>% макс. запаса ОЗ раненого</color> (в зависимости от навыка «<color EmStyle><color EmStyle>Медицина</color></color>»). Ваш персонаж переходит в положение <color EmStyle>присев</color>."),
+				Description = T(890000000010213, "Treat an ally with an IFAK, Medkit, or surgical kit. Restores HP (Medical skill) and clears bleeding stacks. Does not use stack bandages."),
 				DisplayName = T(615556944457, --[[ModItemCombatAction Bandage DisplayName]] "Bandage"),
 				EvalTarget = function (self, units, target, args)
 					local unit = units[1]
@@ -60640,7 +60640,6 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				GetAPCost = function (self, unit, args)
 					local medicine = self:GetAttackWeapons(unit, args)
 					if not medicine then return -1 end -- can be valid in AI PrecalcAction
-					if medicine.class == "JAZZ_Bandage" then return 1000 end
 					return self.ActionPoints
 				end,
 				GetActionDescription = function (self, units)
@@ -60658,7 +60657,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					return GetBandageTargets(units[1], "any", "ignore")
 				end,
 				GetAttackWeapons = function (self, unit, args)
-					return JazzGetBandageItem(unit) or GetUnitEquippedMedicine(unit)
+					return JazzGetEquippedKitMedicine(unit)
 				end,
 				GetDefaultTarget = function (self, unit)
 					local units = {unit}
@@ -60672,6 +60671,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				end,
 				GetUIState = function (self, units, args)
 					local unit = units[1]
+					if not JazzGetEquippedKitMedicine(unit) then
+						return "hidden"
+					end
 					
 					if g_Combat and not unit:HasAP(self.ActionPoints) then 
 						return "disabled", GetUnitNoApReason(unit) 
@@ -60683,7 +60685,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					
 					return "enabled"
 				end,
-				Icon = "Mod/e6L4ECj/Icons/Med/bandage.png",
+				Icon = "Mod/e6L4ECj/Icons/Med/kit.png",
 				IdDefault = "Bandagedefault",
 				IsAimableAttack = false,
 				KeybindingFromAction = "actionRedirectBandage",
@@ -60718,7 +60720,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				},
 				QueuedBadgeText = T(989605585095, --[[ModItemCombatAction Bandage QueuedBadgeText]] "BANDAGE"),
 				RequireState = "any",
-				RequireWeapon = true,
+				RequireWeapon = false,
 				Run = function (self, unit, ap, ...)
 					unit:SetActionCommand("Bandage", self.id, ap, ...)
 				end,
@@ -60741,8 +60743,75 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				ActivePauseBehavior = "queue",
 				AimType = "melee",
 				ConfigurableKeybind = false,
-				Description = T(890000000009223, "Inject morphine to suppress Pain penalties on self or ally. Does not stop bleeding."),
-				DisplayName = T(890000000009224, "Morphine"),
+				Description = T(890000000010201, "Apply a field bandage to stop bleeding by one tier on self or ally. No Medical skill. Does not restore HP or heal trauma."),
+				DisplayName = T(890000000010200, "Field Bandage"),
+				EvalTarget = function (self, units, target, args)
+					local unit = units[1]
+					if not target or unit:IsOnEnemySide(target) then return -1 end
+					if not JazzHasAnyBleed(target) then return -1 end
+					return 100 + (JazzHasAnyBleed(target) and 50 or 0)
+				end,
+				GetAPCost = function (self, unit, args)
+					if not JazzGetBandageItem(unit) then return -1 end
+					return self.ActionPoints
+				end,
+				GetAnyTarget = function (self, units)
+					return JazzGetFieldBandageTargets(units[1], "any", "ignore")
+				end,
+				GetAttackWeapons = function (self, unit, args)
+					return JazzGetBandageItem(unit)
+				end,
+				GetDefaultTarget = function (self, unit)
+					if self:EvalTarget({unit}, unit) > 0 then return unit end
+					return CombatAction.GetDefaultTarget(self, unit)
+				end,
+				GetTargets = function (self, units)
+					return JazzGetFieldBandageTargets(units[1], "all", "ignore")
+				end,
+				GetUIState = function (self, units, args)
+					local unit = units[1]
+					if not JazzGetBandageItem(unit) then
+						return "hidden"
+					end
+					if g_Combat and not unit:HasAP(self.ActionPoints) then
+						return "disabled", GetUnitNoApReason(unit)
+					end
+					if not JazzGetFieldBandageTargets(unit, "any", "reachable") then
+						return "disabled", AttackDisableReasons.NoBandageTarget
+					end
+					return "enabled"
+				end,
+				Icon = "Mod/e6L4ECj/Icons/Med/bandage.png",
+				IdDefault = "JazzBandagedefault",
+				IsAimableAttack = false,
+				MoveStep = true,
+				MultiSelectBehavior = "first",
+				QueuedBadgeText = T(890000000010202, "BANDAGE"),
+				RequireState = "any",
+				RequireWeapon = false,
+				Run = function (self, unit, ap, ...)
+					local args = ...
+					local target = args and args.target or unit
+					if JazzApplyBandageAction(unit, target) then
+						unit:ConsumeAP(ap)
+					end
+				end,
+				SortKey = 9,
+				UIBegin = function (self, units, args)
+					if self:GetAnyTarget(units) then
+						CombatActionAttackStart(self, units, args, "IModeCombatMelee")
+					end
+				end,
+				group = "Consumables",
+				id = "JazzBandage",
+			}),
+			PlaceObj('ModItemCombatAction', {
+				ActionPoints = 1000,
+				ActivePauseBehavior = "queue",
+				AimType = "melee",
+				ConfigurableKeybind = false,
+				Description = T(890000000010028, "Inject morphine to suppress Pain penalties on self or ally. Does not stop bleeding."),
+				DisplayName = T(890000000010029, "Morphine"),
 				EvalTarget = function (self, units, target, args)
 					local unit = units[1]
 					if not target or unit:IsOnEnemySide(target) then return -1 end
@@ -60755,7 +60824,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					return self.ActionPoints
 				end,
 				GetAnyTarget = function (self, units)
-					return GetBandageTargets(units[1], "any", "ignore")
+					return JazzGetMorphineTargets(units[1], "any", "ignore")
 				end,
 				GetAttackWeapons = function (self, unit, args)
 					return JazzGetMorphineItem(unit)
@@ -60765,7 +60834,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					return CombatAction.GetDefaultTarget(self, unit)
 				end,
 				GetTargets = function (self, units)
-					return GetBandageTargets(units[1], "all", "ignore")
+					return JazzGetMorphineTargets(units[1], "all", "ignore")
 				end,
 				GetUIState = function (self, units, args)
 					local unit = units[1]
@@ -60775,6 +60844,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					if g_Combat and not unit:HasAP(self.ActionPoints) then
 						return "disabled", GetUnitNoApReason(unit)
 					end
+					if not JazzGetMorphineTargets(unit, "any", "reachable") then
+						return "disabled", AttackDisableReasons.NoBandageTarget
+					end
 					return "enabled"
 				end,
 				Icon = "Mod/e6L4ECj/Icons/Med/injector.png",
@@ -60782,9 +60854,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				IsAimableAttack = false,
 				MoveStep = true,
 				MultiSelectBehavior = "first",
-				QueuedBadgeText = T(890000000009225, "MORPHINE"),
+				QueuedBadgeText = T(890000000010030, "MORPHINE"),
 				RequireState = "any",
-				RequireWeapon = true,
+				RequireWeapon = false,
 				Run = function (self, unit, ap, ...)
 					local args = ...
 					local target = args and args.target or unit
@@ -61081,7 +61153,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(779855732255, --[[ModItemCharacterEffectCompositeDef Bleeding DisplayName]] "Bleeding"),
-				'Description', T(890000000009195, --[[ModItemCharacterEffectCompositeDef Bleeding Description]] "Light bleeding: <color EmStyle><DamagePerTurn> HP</color> per stack each turn. Bandage removes one light stack (or reduces a worse stack by one tier)."),
+				'Description', T(890000000010000, --[[ModItemCharacterEffectCompositeDef Bleeding Description]] "Light bleeding: <color EmStyle><DamagePerTurn> HP</color> per stack each turn. Bandage removes one light stack (or reduces a worse stack by one tier)."),
 				'AddEffectText', T(488938284982, --[[ModItemCharacterEffectCompositeDef Bleeding AddEffectText]] "<color EmStyle><DisplayName></color> истекает кровью"),
 				'OnAdded', function (self, obj)
 				end,
@@ -61115,9 +61187,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 				},
-				'DisplayName', T(890000000009196, "Moderate Bleeding"),
-				'Description', T(890000000009197, "Moderate bleeding: <color EmStyle>6 HP</color> per stack each turn. Bandage reduces one stack to light bleeding."),
-				'AddEffectText', T(890000000009198, "<color EmStyle><DisplayName></color>"),
+				'DisplayName', T(890000000010001, "Moderate Bleeding"),
+				'Description', T(890000000010002, "Moderate bleeding: <color EmStyle>6 HP</color> per stack each turn. Bandage reduces one stack to light bleeding."),
+				'AddEffectText', T(890000000010003, "<color EmStyle><DisplayName></color>"),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/BleedingMedium.png",
 				'max_stacks', 8,
@@ -61143,9 +61215,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 				},
-				'DisplayName', T(890000000009199, "Heavy Bleeding"),
-				'Description', T(890000000009200, "Heavy bleeding: <color EmStyle>12 HP</color> per stack each turn. From expanding ammo or worsened moderate bleeding. Bandage reduces one stack to moderate."),
-				'AddEffectText', T(890000000009201, "<color EmStyle><DisplayName></color>"),
+				'DisplayName', T(890000000010004, "Heavy Bleeding"),
+				'Description', T(890000000010005, "Heavy bleeding: <color EmStyle>12 HP</color> per stack each turn. From expanding ammo or worsened moderate bleeding. Bandage reduces one stack to moderate."),
+				'AddEffectText', T(890000000010006, "<color EmStyle><DisplayName></color>"),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/BleedingHeavy.png",
 				'max_stacks', 8,
@@ -61192,8 +61264,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 				},
-				'DisplayName', T(890000000009202, "Pain"),
-				'Description', T(890000000009203, "Each stack costs <color EmStyle><APLoss> AP</color> and <color EmStyle><cth_penalty>% chance to hit</color>. Decreases by one stack each turn. Analgesia suppresses the penalties."),
+				'DisplayName', T(890000000010007, "Pain"),
+				'Description', T(890000000010008, "Each stack costs <color EmStyle><APLoss> AP</color> and <color EmStyle><cth_penalty>% chance to hit</color>. Decreases by one stack each turn. Analgesia suppresses the penalties."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Pain.png",
 				'max_stacks', 8,
@@ -61203,8 +61275,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemCharacterEffectCompositeDef', {
 				'Id', "Analgesia",
 				'object_class', "StatusEffect",
-				'DisplayName', T(890000000009204, "Analgesia"),
-				'Description', T(890000000009205, "Suppresses AP and chance-to-hit penalties from Pain. Does not stop bleeding or heal injuries."),
+				'DisplayName', T(890000000010009, "Analgesia"),
+				'Description', T(890000000010010, "Suppresses AP and chance-to-hit penalties from Pain. Does not stop bleeding or heal injuries."),
 				'type', "Buff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Analgesia.png",
 				'RemoveOnEndCombat', true,
@@ -61224,8 +61296,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 				},
-				'DisplayName', T(890000000009226, "Arm Trauma (Light)"),
-				'Description', T(890000000009227, "Pain when shooting or using arms. No direct accuracy penalty."),
+				'DisplayName', T(890000000010100, "Arm Trauma (Light)"),
+				'Description', T(890000000010101, "Pain when shooting or using arms. No direct accuracy penalty."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaArmsLight.png",
 				'Shown', true,
@@ -61260,8 +61332,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 				},
-				'DisplayName', T(890000000009228, "Arm Trauma (Medium)"),
-				'Description', T(890000000009229, "Accuracy penalty <color EmStyle><cth_penalty>%</color>. Pain when using arms."),
+				'DisplayName', T(890000000010102, "Arm Trauma (Medium)"),
+				'Description', T(890000000010103, "Accuracy penalty <color EmStyle><cth_penalty>%</color>. Pain when using arms."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaArmsMedium.png",
 				'Shown', true,
@@ -61294,8 +61366,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 				},
-				'DisplayName', T(890000000009230, "Arm Trauma (Heavy)"),
-				'Description', T(890000000009231, "Severe accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly unable to fight. Pain rises each turn."),
+				'DisplayName', T(890000000010104, "Arm Trauma (Heavy)"),
+				'Description', T(890000000010105, "Severe accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly unable to fight. Pain rises each turn."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaArmsHeavy.png",
 				'Shown', true,
@@ -61314,8 +61386,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 				},
-				'DisplayName', T(890000000009232, "Leg Trauma (Light)"),
-				'Description', T(890000000009233, "Pain when moving. No direct move-cost penalty."),
+				'DisplayName', T(890000000010106, "Leg Trauma (Light)"),
+				'Description', T(890000000010107, "Pain when moving. No direct move-cost penalty."),
 				'OnAdded', function (self, obj)
 					Msg("UnitAPChanged", obj)
 				end,
@@ -61362,8 +61434,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 				},
-				'DisplayName', T(890000000009234, "Leg Trauma (Medium)"),
-				'Description', T(890000000009235, "Move cost <color EmStyle>+<move_ap_modifier>%</color>. No Free Move / sprint. Pain when moving."),
+				'DisplayName', T(890000000010108, "Leg Trauma (Medium)"),
+				'Description', T(890000000010109, "Move cost <color EmStyle>+<move_ap_modifier>%</color>. No Free Move / sprint. Pain when moving."),
 				'OnAdded', function (self, obj)
 					Msg("UnitAPChanged", obj)
 				end,
@@ -61416,8 +61488,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 				},
-				'DisplayName', T(890000000009236, "Leg Trauma (Heavy)"),
-				'Description', T(890000000009237, "Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn."),
+				'DisplayName', T(890000000010110, "Leg Trauma (Heavy)"),
+				'Description', T(890000000010111, "Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn."),
 				'OnAdded', function (self, obj)
 					Msg("UnitAPChanged", obj)
 				end,
@@ -61442,8 +61514,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 				},
-				'DisplayName', T(890000000009238, "Rib Trauma (Light)"),
-				'Description', T(890000000009239, "Pain when exerting. No Tiredness from ribs. No direct AP penalty."),
+				'DisplayName', T(890000000010112, "Rib Trauma (Light)"),
+				'Description', T(890000000010113, "Pain at the start of the turn. No Tiredness from ribs. No direct AP penalty."),
 				'OnAdded', function (self, obj)
 					Msg("UnitAPChanged", obj)
 				end,
@@ -61490,8 +61562,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 				},
-				'DisplayName', T(890000000009240, "Rib Trauma (Medium)"),
-				'Description', T(890000000009241, "Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain on exertion. No Tiredness."),
+				'DisplayName', T(890000000010114, "Rib Trauma (Medium)"),
+				'Description', T(890000000010115, "Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain at the start of the turn. No Tiredness."),
 				'OnAdded', function (self, obj)
 					Msg("UnitAPChanged", obj)
 				end,
@@ -61544,8 +61616,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 				},
-				'DisplayName', T(890000000009242, "Rib Trauma (Heavy)"),
-				'Description', T(890000000009243, "Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. Pain rises each turn. No Tiredness."),
+				'DisplayName', T(890000000010116, "Rib Trauma (Heavy)"),
+				'Description', T(890000000010117, "Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. Pain rises each turn. No Tiredness."),
 				'OnAdded', function (self, obj)
 					Msg("UnitAPChanged", obj)
 				end,
@@ -61571,8 +61643,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 				},
-				'DisplayName', T(890000000009244, "Head Trauma (Light)"),
-				'Description', T(890000000009245, "Pain when aiming or firing. Eye trauma folded into head for v1."),
+				'DisplayName', T(890000000010118, "Head Trauma (Light)"),
+				'Description', T(890000000010119, "Pain when aiming or firing. Eye trauma folded into head for v1."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaHeadLight.png",
 				'Shown', true,
@@ -61620,8 +61692,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 				},
-				'DisplayName', T(890000000009246, "Head Trauma (Medium)"),
-				'Description', T(890000000009247, "Sight and accuracy penalties. Pain when aiming or firing."),
+				'DisplayName', T(890000000010120, "Head Trauma (Medium)"),
+				'Description', T(890000000010121, "Sight and accuracy penalties. Pain when aiming or firing."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaHeadMedium.png",
 				'Shown', true,
@@ -61667,8 +61739,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 				},
-				'DisplayName', T(890000000009248, "Head Trauma (Heavy)"),
-				'Description', T(890000000009249, "Severe sight/accuracy loss. Nearly combat-ineffective. Pain rises each turn."),
+				'DisplayName', T(890000000010122, "Head Trauma (Heavy)"),
+				'Description', T(890000000010123, "Severe sight/accuracy loss. Nearly combat-ineffective. Pain rises each turn."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaHeadHeavy.png",
 				'Shown', true,
@@ -61687,8 +61759,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 				},
-				'DisplayName', T(890000000009250, "Burn Trauma (Light)"),
-				'Description', T(890000000009251, "Lingering burn after fire. Pain on exertion. Bandage does not clear burns."),
+				'DisplayName', T(890000000010124, "Burn Trauma (Light)"),
+				'Description', T(890000000010125, "Lingering burn after fire. Pain on exertion. Bandage does not clear burns."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaBurnLight.png",
 				'Shown', true,
@@ -61707,8 +61779,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 				},
-				'DisplayName', T(890000000009252, "Burn Trauma (Medium)"),
-				'Description', T(890000000009253, "Moderate burn debt. Pain on exertion. Infection risk deferred."),
+				'DisplayName', T(890000000010126, "Burn Trauma (Medium)"),
+				'Description', T(890000000010127, "Moderate burn debt. Pain on exertion. Infection risk deferred."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaBurnMedium.png",
 				'Shown', true,
@@ -61726,8 +61798,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 				},
-				'DisplayName', T(890000000009254, "Burn Trauma (Heavy)"),
-				'Description', T(890000000009255, "Severe burn debt. Pain rises each turn. Infection/hospital clear deferred."),
+				'DisplayName', T(890000000010128, "Burn Trauma (Heavy)"),
+				'Description', T(890000000010129, "Severe burn debt. Pain rises each turn. Infection/hospital clear deferred."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaBurnHeavy.png",
 				'Shown', true,
@@ -62459,7 +62531,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				SortKey = 1,
 				applied_effect = "Armsshot",
 				damage_mod = -25,
-				description = T(986875063897, --[[ModItemTargetBodyPart Default Arms description]] "Выстрел в руки: снижение вероятности попадания, уменьшение урона, Цель имеет шанс получить <color EmStyle>Снижение точности</color> или <color EmStyle>Оцепенение</color>"),
+				description = T(986875063897, --[[ModItemTargetBodyPart Default Arms description]] "Выстрел в руки: снижение вероятности попадания, уменьшение урона. Шанс зональной травмы рук (MED-001)."),
 				display_name = T(753720126320, --[[ModItemTargetBodyPart Default Arms display_name]] "Arms"),
 				display_name_caps = T(375599557125, --[[ModItemTargetBodyPart Default Arms display_name_caps]] "ARMS"),
 				group = "Default",
@@ -62493,10 +62565,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemTargetBodyPart', {
 				Icon = "UI/Hud/target_icon_leg",
 				SortKey = 4,
-				applied_effect = "Slowed",
+				applied_effect = "Legsshot",
 				armorPart = "Legs",
 				damage_mod = -50,
-				description = T(261228287392, --[[ModItemTargetBodyPart Default Legs description]] "Выстрел в ноги: снижение вероятности попадания, уменьшение урона. Цель имеет шанс <color EmStyle>получить эффект замедления</color> или <color EmStyle>упасть</color>"),
+				description = T(261228287392, --[[ModItemTargetBodyPart Default Legs description]] "Выстрел в ноги: снижение вероятности попадания, уменьшение урона. Шанс зональной травмы ног (MED-001)."),
 				display_name = T(129533766456, --[[ModItemTargetBodyPart Default Legs display_name]] "Legs"),
 				display_name_caps = T(618043369333, --[[ModItemTargetBodyPart Default Legs display_name_caps]] "LEGS"),
 				group = "Default",
@@ -68821,7 +68893,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Icon', "UI/Icons/Perks/Scoundrel",
 					'Tier', "Personality",
 				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
+													PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Quirk",
 					'Id', "Loner",
 					'SortKey', 1000,
@@ -79833,7 +79905,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 												'FoldWhenHidden', true,
 											}, {
 												PlaceObj('XTemplateWindow', {
-													'comment', "only shows wounded effect",
+													'comment', "ShownSatelliteView statuses (was wounded-only)",
 													'__context', function (parent, context) return context.StatusEffects end,
 													'__class', "XContentTemplate",
 													'Id', "idStatusEffectsContainer",
@@ -79847,7 +79919,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 												}, {
 													PlaceObj('XTemplateForEach', {
 														'comment', "status effect",
-														'array', function (parent, context) return context.Wounded and { context[context.Wounded] } or empty_table end,
+														'array', function (parent, context) return JazzGetPartyPortraitStatusEffects(context) end,
 														'condition', function (parent, context, item, i) return item end,
 														'__context', function (parent, context, item, i, n) return item end,
 													}, {
@@ -80109,16 +80181,16 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 													'HandleMouse', true,
 													'MouseCursor', "UI/Cursors/Cursor.tga",
 												}, {
-													PlaceObj('XTemplateTemplate', {
-														'__context', function (parent, context) return table.find_value(context, "class", "Wounded") end,
-														'__condition', function (parent, context) return not not context end,
-														'__template', "StatusEffectIcon",
-													}),
-													PlaceObj('XTemplateTemplate', {
-														'__context', function (parent, context) return table.find_value(context, "class", "Tired") or table.find_value(context, "class", "Exhausted") end,
-														'__condition', function (parent, context) return not not context end,
-														'__template', "StatusEffectIcon",
-													}),
+													PlaceObj('XTemplateForEach', {
+														'comment', "ShownSatelliteView statuses (combat party parity with satellite)",
+														'array', function (parent, context) return JazzGetPartyPortraitStatusEffects(context) end,
+														'__context', function (parent, context, item, i, n) return item end,
+													}, {
+														PlaceObj('XTemplateTemplate', {
+															'__condition', function (parent, context) return not not context end,
+															'__template', "StatusEffectIcon",
+														}),
+														}),
 													PlaceObj('XTemplateFunc', {
 														'name', "OnMouseButtonDown(self, pos, button)",
 														'func', function (self, pos, button)
@@ -81419,7 +81491,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 												'FoldWhenHidden', true,
 											}, {
 												PlaceObj('XTemplateWindow', {
-													'comment', "only shows wounded effect",
+													'comment', "ShownSatelliteView statuses (was wounded-only)",
 													'__context', function (parent, context) return context.StatusEffects end,
 													'__class', "XContentTemplate",
 													'Id', "idStatusEffectsContainer",
@@ -81433,7 +81505,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 												}, {
 													PlaceObj('XTemplateForEach', {
 														'comment', "status effect",
-														'array', function (parent, context) return context.Wounded and { context[context.Wounded] } or empty_table end,
+														'array', function (parent, context) return JazzGetPartyPortraitStatusEffects(context) end,
 														'condition', function (parent, context, item, i) return item end,
 														'__context', function (parent, context, item, i, n) return item end,
 													}, {
@@ -81686,16 +81758,16 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 													'HandleMouse', true,
 													'MouseCursor', "UI/Cursors/Cursor.tga",
 												}, {
-													PlaceObj('XTemplateTemplate', {
-														'__context', function (parent, context) return table.find_value(context, "class", "Wounded") end,
-														'__condition', function (parent, context) return not not context end,
-														'__template', "StatusEffectIcon",
-													}),
-													PlaceObj('XTemplateTemplate', {
-														'__context', function (parent, context) return table.find_value(context, "class", "Tired") or table.find_value(context, "class", "Exhausted") end,
-														'__condition', function (parent, context) return not not context end,
-														'__template', "StatusEffectIcon",
-													}),
+													PlaceObj('XTemplateForEach', {
+														'comment', "ShownSatelliteView statuses (combat party parity with satellite)",
+														'array', function (parent, context) return JazzGetPartyPortraitStatusEffects(context) end,
+														'__context', function (parent, context, item, i, n) return item end,
+													}, {
+														PlaceObj('XTemplateTemplate', {
+															'__condition', function (parent, context) return not not context end,
+															'__template', "StatusEffectIcon",
+														}),
+														}),
 													PlaceObj('XTemplateFunc', {
 														'name', "OnMouseButtonDown(self, pos, button)",
 														'func', function (self, pos, button)
@@ -83012,7 +83084,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 													'FoldWhenHidden', true,
 												}, {
 													PlaceObj('XTemplateWindow', {
-														'comment', "only shows wounded effect",
+														'comment', "ShownSatelliteView statuses (was wounded-only)",
 														'__context', function (parent, context) return context.StatusEffects end,
 														'__class', "XContentTemplate",
 														'Id', "idStatusEffectsContainer",
@@ -83026,7 +83098,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 													}, {
 														PlaceObj('XTemplateForEach', {
 															'comment', "status effect",
-															'array', function (parent, context) return context.Wounded and { context[context.Wounded] } or empty_table end,
+															'array', function (parent, context) return JazzGetPartyPortraitStatusEffects(context) end,
 															'condition', function (parent, context, item, i) return item end,
 															'__context', function (parent, context, item, i, n) return item end,
 														}, {
@@ -83288,16 +83360,16 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 														'HandleMouse', true,
 														'MouseCursor', "UI/Cursors/Cursor.tga",
 													}, {
-														PlaceObj('XTemplateTemplate', {
-															'__context', function (parent, context) return table.find_value(context, "class", "Wounded") end,
-															'__condition', function (parent, context) return not not context end,
-															'__template', "StatusEffectIcon",
-														}),
-														PlaceObj('XTemplateTemplate', {
-															'__context', function (parent, context) return table.find_value(context, "class", "Tired") or table.find_value(context, "class", "Exhausted") end,
-															'__condition', function (parent, context) return not not context end,
-															'__template', "StatusEffectIcon",
-														}),
+														PlaceObj('XTemplateForEach', {
+															'comment', "ShownSatelliteView statuses (combat party parity with satellite)",
+															'array', function (parent, context) return JazzGetPartyPortraitStatusEffects(context) end,
+															'__context', function (parent, context, item, i, n) return item end,
+														}, {
+															PlaceObj('XTemplateTemplate', {
+																'__condition', function (parent, context) return not not context end,
+																'__template', "StatusEffectIcon",
+															}),
+															}),
 														PlaceObj('XTemplateFunc', {
 															'name', "OnMouseButtonDown(self, pos, button)",
 															'func', function (self, pos, button)

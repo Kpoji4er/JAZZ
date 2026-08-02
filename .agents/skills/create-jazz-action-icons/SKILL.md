@@ -53,9 +53,9 @@ Asset-only PNG **не** требует spec. Новый CombatAction / смен�
 
 ### Icons/Med (medical-action subset)
 
-`Icons/Med/*.png` — те же HUD action icons для medical CombatActions (bandage, injector, …).  
-Текущие файлы часто **108×110** (чуть выше); **не** мигрировать папку в этом skill без явного запроса.  
-При новой medical hotbar-иконке: предпочитать **108×54** dual strip в `Icons/Med/` + wire туда; legacy 108×110 допустим только при «заменить пиксели, path не трогать».  
+`Icons/Med/*.png` — те же HUD action icons для medical CombatActions (bandage, injector, …): **108×54** dual strip.  
+Глиф в каждой половине 54×54: целевой fill ≈**34–38px** (`pad≈8–10`), по центру половины — не edge-to-edge (иначе на хотбаре «жирно»). Починка: `python docs/tools/_recenter_med_action_icons.py --pad 9`.  
+Inventory цветные `Icons/Items/JAZZ_{Bandage,Morphine,IFAK,Medkit,SurgicalKit}.png` — оставлять ~15% поля вокруг предмета (не заполнять 110×110 под край).  
 Status-эффекты Bleeding/Pain/Analgesia — **не** этот skill (`$create-jazz-status-icons`).
 
 ## Вход от пользователя

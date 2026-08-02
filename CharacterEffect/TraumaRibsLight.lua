@@ -12,8 +12,8 @@ DefineClass.TraumaRibsLight = {
 			end,
 		}),
 	},
-	DisplayName = T(890000000009238, "Rib Trauma (Light)"),
-	Description = T(890000000009239, "Pain when exerting. No Tiredness from ribs. No direct AP penalty."),
+	DisplayName = T(890000000010112, "Rib Trauma (Light)"),
+	Description = T(890000000010113, "Pain at the start of the turn. No Tiredness from ribs. No direct AP penalty."),
 	OnAdded = function(self, obj)
 		Msg("UnitAPChanged", obj)
 	end,

@@ -5,6 +5,34 @@ DefineClass.Wounded = {
 
 
 	object_class = "StatusEffect",
+	Parameters = {
+		PlaceObj('PresetParamNumber', {
+			'Name', "MaxHpReductionPerStack",
+			'Value', 8,
+			'Tag', "<MaxHpReductionPerStack>",
+		}),
+		PlaceObj('PresetParamPercent', {
+			'Name', "MinMaxHp",
+			'Value', 10,
+			'Tag', "<MinMaxHp>%",
+		}),
+		-- MED-001: sentinel — combat HP loss must not grant Wounded stacks.
+		PlaceObj('PresetParamNumber', {
+			'Name', "HpLossToAddStack",
+			'Value', 999999,
+			'Tag', "<HpLossToAddStack>",
+		}),
+		PlaceObj('PresetParamPercent', {
+			'Name', "WoundsImmunityThreshold",
+			'Value', 80,
+			'Tag', "<WoundsImmunityThreshold>%",
+		}),
+		PlaceObj('PresetParamPercent', {
+			'Name', "cth_penalty",
+			'Value', -5,
+			'Tag', "<cth_penalty>%",
+		}),
+	},
 	msg_reactions = {
 		PlaceObj('MsgActorReaction', {
 			ActorParam = "attacker",
