@@ -9,8 +9,53 @@ local JazzBleedDamage = {
 }
 
 local function lBleedStacks(unit, id)
-	local effect = unit and unit:GetStatusEffect(id)
+	-- MoveStep/melee can put a Point in args.target; never call methods on it.
+	if not unit or type(unit.GetStatusEffect) ~= "function" then
+		return 0
+	end
+	local effect = unit:GetStatusEffect(id)
 	return effect and effect.stacks or 0
+end
+
+-- CombatAction args.target is usually a Unit, but melee MoveStep may pass a voxel Point.
+function JazzResolveMedicinePatient(healer, target)
+	if IsKindOf(target, "Unit") then
+		return (IsValid(target) and not target:IsDead()) and target or false
+	end
+	if type(target) == "string" then
+		local unit = g_Units and g_Units[target]
+		if IsKindOf(unit, "Unit") and IsValid(unit) and not unit:IsDead() then
+			return unit
+		end
+		return false
+	end
+	if not IsPoint(target) or not healer then
+		return false
+	end
+	local occupant = GetOccupiedBy and GetOccupiedBy(target, healer)
+	if IsKindOf(occupant, "Unit") and IsValid(occupant) and not occupant:IsDead()
+		and not healer:IsOnEnemySide(occupant) then
+		return occupant
+	end
+	local best, best_dist
+	local max_dist = (const.SlabSizeX or guim) * 2
+	local function consider(unit)
+		if not IsKindOf(unit, "Unit") or not IsValid(unit) or unit:IsDead() then
+			return
+		end
+		if healer:IsOnEnemySide(unit) then
+			return
+		end
+		local dist = unit:GetDist(target)
+		if dist <= max_dist and (not best or dist < best_dist) then
+			best, best_dist = unit, dist
+		end
+	end
+	consider(healer)
+	for _, ally in ipairs(GetAllAlliedUnits(healer) or empty_table) do
+		consider(ally)
+	end
+	return best or false
 end
 
 local function lHasSquadMedic(unit)
@@ -101,7 +146,7 @@ function JazzBleedTransitionRoll(unit)
 end
 
 function JazzReduceBleedOneTier(patient)
-	if not patient then
+	if not patient or type(patient.GetStatusEffect) ~= "function" then
 		return false
 	end
 	for _, id in ipairs(JazzBleedTierOrder) do
@@ -376,16 +421,37 @@ function JazzConsumeInventoryItem(unit, class_id, amount)
 		return false
 	end
 	amount = amount or 1
-	if item.Amount and item.Amount > amount then
+	if IsKindOf(item, "InventoryStack") and (item.Amount or 0) > amount then
 		item.Amount = item.Amount - amount
 	else
 		local slot = unit:GetItemSlot(item)
 		if slot then
 			unit:RemoveItem(slot, item)
 		end
+		DoneObject(item)
 	end
 	Msg("InventoryChange", unit)
 	return true
+end
+
+function GetUnitEquippedMedicine(unit)
+	if not unit then
+		return false
+	end
+	local item
+	unit:ForEachItem("Medicine", function(itm)
+		local class_id = itm.class
+		if JazzMedicineIsFieldStack and JazzMedicineIsFieldStack(class_id) then
+			return
+		end
+		if not JazzMedicineIsUsable(itm) then
+			return
+		end
+		if not item or (item.UsePriority or 0) < (itm.UsePriority or 0) then
+			item = itm
+		end
+	end)
+	return item
 end
 
 function JazzGetBandageItem(unit)
@@ -396,7 +462,7 @@ function JazzGetMorphineItem(unit)
 	return JazzFindInventoryItem(unit, "JAZZ_Morphine")
 end
 
--- IFAK / Medkit / surgical-adjacent kits for the Bandage combat action (not stack bandages).
+-- IFAK / Medkit / Reanimationsset for the Bandage combat action (not field bandage stacks).
 function JazzGetEquippedKitMedicine(unit)
 	if not unit then
 		return false
@@ -406,8 +472,7 @@ function JazzGetEquippedKitMedicine(unit)
 		if result then
 			return
 		end
-		local c = item.class
-		if c == "FirstAidKit" or c == "Medkit" or c == "Reanimationsset" then
+		if JazzMedicineIsKitClass(item.class) and JazzMedicineIsUsable(item) then
 			result = item
 		end
 	end)
@@ -415,6 +480,7 @@ function JazzGetEquippedKitMedicine(unit)
 end
 
 function JazzApplyBandageAction(healer, patient)
+	patient = JazzResolveMedicinePatient(healer, patient)
 	if not healer or not patient or not JazzGetBandageItem(healer) then
 		return false
 	end
@@ -427,7 +493,11 @@ function JazzApplyBandageAction(healer, patient)
 end
 
 function JazzApplyMorphineAction(healer, patient)
+	patient = JazzResolveMedicinePatient(healer, patient)
 	if not healer or not patient or not JazzGetMorphineItem(healer) then
+		return false
+	end
+	if type(patient.AddStatusEffect) ~= "function" then
 		return false
 	end
 	patient:AddStatusEffect("Analgesia")
@@ -710,8 +780,8 @@ end
 
 -- ---------------------------------------------------------------------------
 -- Trauma progress timers (satellite hours): improve / worsen checks + UI text.
+-- Tooltip append lives on JazzTraumaEffect:GetDescription (System_JazzTraumaEffect.lua).
 -- ---------------------------------------------------------------------------
-g_JAZZ_TraumaUiHooksInstalled = nil -- legacy flag; hooks use class JazzTraumaBaseGetDescription
 
 function JazzParseTraumaEffectId(effect_id)
 	if type(effect_id) ~= "string" or not string.find(effect_id, "^Trauma", 1, true) then
@@ -814,14 +884,6 @@ function JazzFormatTraumaStatusDescription(effect, base_desc)
 		flavor = ""
 	end
 	base_desc = base_desc or (effect and effect.Description) or ""
-	-- If a stacked GetDescription hook already appended timing, keep only the first paragraph.
-	if type(base_desc) == "string" then
-		local cut = string.find(base_desc, "Next progress check", 1, true)
-		if cut and cut > 1 then
-			base_desc = string.match(base_desc, "^(.-)%s*\n") or string.sub(base_desc, 1, cut - 1)
-			base_desc = string.gsub(base_desc, "%s+$", "")
-		end
-	end
 	if flavor and flavor ~= "" then
 		return table.concat({ base_desc, timing, flavor }, "\n\n")
 	end
@@ -919,43 +981,8 @@ function JazzTraumaProgressOnNewHour(unit)
 	end
 end
 
-local function lInstallTraumaUiHooks()
-	if not g_Classes then
-		return
-	end
-	for _, zone in ipairs(JazzTraumaZones) do
-		for _, tier in ipairs(JazzTraumaTiers) do
-			local id = "Trauma" .. zone .. tier
-			local cls = g_Classes[id]
-			if cls then
-				-- Keep the first (unwrapped) GetDescription — ReloadLua/ModsReloaded must not stack.
-				if not rawget(cls, "JazzTraumaBaseGetDescription") then
-					rawset(cls, "JazzTraumaBaseGetDescription", cls.GetDescription)
-				end
-				local base_fn = cls.JazzTraumaBaseGetDescription
-				cls.GetDescription = function(self)
-					local base
-					if base_fn then
-						base = base_fn(self)
-					else
-						base = rawget(self, "Description") or self.Description
-					end
-					return JazzFormatTraumaStatusDescription(self, base)
-				end
-			end
-		end
-	end
-end
-
 function OnMsg.DataLoaded()
 	lInstallBandageTargetsHook()
-	lInstallTraumaUiHooks()
-end
-
-function OnMsg.ModsReloaded()
-	-- Classes may be redefined; clear base markers only when missing (fresh class).
-	lInstallBandageTargetsHook()
-	lInstallTraumaUiHooks()
 end
 
 -- MED-001: disable vanilla HP→Wounded stack conversion (trauma/bleed replace it).
@@ -991,3 +1018,328 @@ function OnMsg.NewHour()
 		end
 	end
 end
+
+-- Exploration/sat Bandage loops used medicine.Condition > 0; stack kits need Amount.
+-- Bind against g_Classes.Unit (instances use that table). A sticky "base saved" flag
+-- alone is not enough: ReloadLua / class rebuild restores vanilla methods while the
+-- flag stays set, so JazzBandage/JazzMorphine silently fall through to vanilla
+-- Unit:Bandage (no field item → early return, or kit path without our one-shot anim).
+g_JAZZ_CombatBandageBase = rawget(_G, "g_JAZZ_CombatBandageBase") or false
+g_JAZZ_DownedRallyBase = rawget(_G, "g_JAZZ_DownedRallyBase") or false
+g_JAZZ_UnitBandageBase = rawget(_G, "g_JAZZ_UnitBandageBase") or false
+g_JAZZ_MedicineStackHooks = rawget(_G, "g_JAZZ_MedicineStackHooks") or false
+
+local jazz_combat_bandage_fn
+local jazz_unit_bandage_fn
+local jazz_downed_rally_fn
+local jazz_combat_bandage_base
+local jazz_downed_rally_base
+
+local function lJazzUnitClass()
+	local classes = rawget(_G, "g_Classes")
+	local cls = classes and classes.Unit
+	if type(cls) == "table" and type(cls.Bandage) == "function" then
+		return cls
+	end
+	return false
+end
+
+-- Prefer vanilla UnitActions.lua; never chain a previous Systems_Medicine wrap as base.
+-- IMPORTANT: bare `debug` is often nil in JA3 (_G sandbox). A previous install crashed on
+-- debug.getinfo and aborted before Unit.Bandage was rebound → field actions had no anim.
+local function lCaptureNonMedicineBase(current, our_fn, existing_base)
+	if type(current) ~= "function" or current == our_fn then
+		return false
+	end
+	local dbg = rawget(_G, "debug")
+	local getinfo = dbg and dbg.getinfo
+	if getinfo then
+		local di = getinfo(current, "S")
+		local src = di and di.source or ""
+		if string.find(src, "Systems_Medicine", 1, true) then
+			return false
+		end
+		return current
+	end
+	-- No debug library: only accept on cold first bind for this method.
+	if existing_base then
+		return false
+	end
+	return current
+end
+
+local function lInstallMedicineStackBandageHooks()
+	local unit_cls = lJazzUnitClass()
+	if not unit_cls then
+		return
+	end
+
+	-- Bandage first: full reimplementation (does not need vanilla base). Must not depend on
+	-- CombatBandage capture succeeding — that used to abort this whole installer.
+	if unit_cls.Bandage ~= jazz_unit_bandage_fn then
+		local captured = lCaptureNonMedicineBase(unit_cls.Bandage, jazz_unit_bandage_fn, rawget(_G, "g_JAZZ_UnitBandageBase"))
+		if captured then
+			rawset(_G, "g_JAZZ_UnitBandageBase", captured)
+		end
+		if not jazz_unit_bandage_fn then
+			jazz_unit_bandage_fn = function(self, action_id, cost_ap, args)
+				-- Mirror UnitActions.lua Unit:Bandage; field actions diverge only after Idle.
+				args = type(args) == "table" and args or {}
+				local goto_ap = args.goto_ap or 0
+				local action_cost = (cost_ap or 0) - goto_ap
+				local pos = args.goto_pos
+				local target = JazzResolveMedicinePatient(self, args.target)
+				if target then
+					args.target = target
+				end
+				local sat_view = args.sat_view or false
+				local target_self = target == self
+				local is_field = action_id == "JazzBandage" or action_id == "JazzMorphine"
+				local function clear_bandage_behavior()
+					if self.behavior == "Bandage" then
+						self:SetBehavior()
+					end
+					if self.combat_behavior == "Bandage" then
+						self:SetCombatBehavior()
+					end
+				end
+				if not target then
+					clear_bandage_behavior()
+					self:GainAP(action_cost)
+					return
+				end
+				if g_Combat then
+					if goto_ap > 0 then
+						self:PushDestructor(function(self)
+							self:GainAP(action_cost)
+						end)
+						local result = self:CombatGoto(action_id, goto_ap, args.goto_pos)
+						self:PopDestructor()
+						if not result then
+							self:GainAP(action_cost)
+							return
+						end
+					end
+				elseif not target_self then
+					self:GotoSlab(pos)
+				end
+				local myVoxel = SnapToPassSlab(self:GetPos())
+				if pos and myVoxel:Dist(pos) ~= 0 then
+					clear_bandage_behavior()
+					self:GainAP(action_cost)
+					return
+				end
+				local action = CombatActions[action_id]
+				local medicine
+				if action_id == "JazzBandage" then
+					medicine = JazzGetBandageItem(self)
+				elseif action_id == "JazzMorphine" then
+					medicine = JazzGetMorphineItem(self)
+				else
+					medicine = GetUnitEquippedMedicine(self)
+				end
+				if not medicine then
+					clear_bandage_behavior()
+					self:GainAP(action_cost)
+					return
+				end
+				self:SetBehavior("Bandage", { action_id, cost_ap, args })
+				self:SetCombatBehavior("Bandage", { action_id, cost_ap, args })
+				if not target_self then
+					self:Face(target, 200)
+					Sleep(200)
+				end
+				if not sat_view then
+					-- Exact vanilla Unit:Bandage stance/anim calls (UnitActions.lua).
+					if self.stance ~= "Crouch" then
+						self:ChangeStance(false, 0, "Crouch")
+					end
+					self:SetState(target_self and "nw_Bandaging_Self_Start" or "nw_Bandaging_Start")
+					Sleep(self:TimeToAnimEnd() or 100)
+					if not args.provoked then
+						self:ProvokeOpportunityAttacks(action, "attack interrupt")
+						args.provoked = true
+						self:SetBehavior("Bandage", { action_id, cost_ap, args })
+						self:SetCombatBehavior("Bandage", { action_id, cost_ap, args })
+					end
+					self:SetState(target_self and "nw_Bandaging_Self_Idle" or "nw_Bandaging_Idle")
+					if not g_Combat and not GetMercInventoryDlg() then
+						SetInGameInterfaceMode("IModeExploration")
+					end
+				elseif not g_Combat and not is_field then
+					while IsValid(target) and not target:IsDead()
+						and (target.HitPoints < target.MaxHitPoints or JazzHasAnyBleed(target)) do
+						medicine = GetUnitEquippedMedicine(self)
+						if not JazzMedicineIsUsable(medicine) then
+							break
+						end
+						target:GetBandaged(medicine, self)
+					end
+				end
+				if is_field then
+					-- After Idle: same entry as CombatBandage (combat), one-shot apply, then
+					-- EndCombatBandage-style exit (no Halt / kit channeling).
+					if not sat_view then
+						if IsValid(target) then
+							target:AddStatusEffect("BeingBandaged")
+							ObjModified(target)
+							self:Face(target, 0)
+						end
+						local heal_anim = target_self and "nw_Bandaging_Self_Idle" or "nw_Bandaging_Idle"
+						self:SetState(heal_anim, const.eKeepComponentTargets)
+						if not target_self then
+							PlayVoiceResponse(self, "BandageDownedUnit")
+						end
+						self:AddStatusEffect("BandageInCombat")
+						Sleep(1200)
+					end
+					local ok = false
+					if action_id == "JazzBandage" then
+						ok = JazzApplyBandageAction(self, target)
+					else
+						ok = JazzApplyMorphineAction(self, target)
+					end
+					self:RemoveStatusEffect("BandageInCombat")
+					ObjModified(self)
+					if IsValid(target) then
+						target:RemoveStatusEffect("BeingBandaged")
+						ObjModified(target)
+					end
+					if not sat_view then
+						local normal_anim = self:TryGetActionAnim("Idle", self.stance)
+						if normal_anim then
+							self:PlayTransitionAnims(normal_anim)
+						end
+					end
+					clear_bandage_behavior()
+					if not ok then
+						self:GainAP(action_cost)
+					end
+					return
+				end
+				self:SetCommand("CombatBandage", target, medicine)
+			end
+		end
+		unit_cls.Bandage = jazz_unit_bandage_fn
+	end
+
+	if unit_cls.CombatBandage ~= jazz_combat_bandage_fn then
+		local captured = lCaptureNonMedicineBase(
+			unit_cls.CombatBandage,
+			jazz_combat_bandage_fn,
+			jazz_combat_bandage_base or rawget(_G, "g_JAZZ_CombatBandageBase")
+		)
+		if captured then
+			jazz_combat_bandage_base = captured
+			rawset(_G, "g_JAZZ_CombatBandageBase", captured)
+		elseif not jazz_combat_bandage_base then
+			jazz_combat_bandage_base = rawget(_G, "g_JAZZ_CombatBandageBase") or false
+		end
+		-- g_Combat branch needs vanilla base; skip rebind until one is known.
+		if jazz_combat_bandage_base then
+			if not jazz_combat_bandage_fn then
+				jazz_combat_bandage_fn = function(self, target, medicine)
+					local base = jazz_combat_bandage_base or rawget(_G, "g_JAZZ_CombatBandageBase")
+					if g_Combat then
+						return base(self, target, medicine)
+					end
+					target:AddStatusEffect("BeingBandaged")
+					ObjModified(target)
+					if IsValid(target) then
+						self:Face(target, 0)
+					end
+					self:PushDestructor(function()
+						self:SetCombatBehavior()
+						self:SetBehavior()
+						self:RemoveStatusEffect("BandageInCombat")
+						target:RemoveStatusEffect("BeingBandaged")
+						ObjModified(target)
+						ObjModified(self)
+					end)
+					self:AddStatusEffect("BandageInCombat")
+					while IsValid(target) and not target:IsDead()
+						and (target.HitPoints < target.MaxHitPoints or JazzHasAnyBleed(target)) do
+						medicine = GetUnitEquippedMedicine(self)
+						if not JazzMedicineIsUsable(medicine) then
+							break
+						end
+						Sleep(5000)
+						target:GetBandaged(medicine, self)
+					end
+					self:SetState(self == target and "nw_Bandaging_Self_End" or "nw_Bandaging_End")
+					Sleep(self:TimeToAnimEnd() or 100)
+					self:PopAndCallDestructor()
+				end
+			end
+			unit_cls.CombatBandage = jazz_combat_bandage_fn
+		end
+	end
+
+	if unit_cls.DownedRally ~= jazz_downed_rally_fn then
+		local captured = lCaptureNonMedicineBase(
+			unit_cls.DownedRally,
+			jazz_downed_rally_fn,
+			jazz_downed_rally_base or rawget(_G, "g_JAZZ_DownedRallyBase")
+		)
+		if captured then
+			jazz_downed_rally_base = captured
+			rawset(_G, "g_JAZZ_DownedRallyBase", captured)
+		elseif not jazz_downed_rally_base then
+			jazz_downed_rally_base = rawget(_G, "g_JAZZ_DownedRallyBase") or false
+		end
+		if jazz_downed_rally_base then
+			if not jazz_downed_rally_fn then
+				jazz_downed_rally_fn = function(self, medic, medicine)
+					local base = jazz_downed_rally_base or rawget(_G, "g_JAZZ_DownedRallyBase")
+					if medic and medicine and IsKindOf(medicine, "InventoryStack") then
+						self:SetCombatBehavior()
+						self:RemoveStatusEffect("Stabilized")
+						self:RemoveStatusEffect("BleedingOut")
+						self:RemoveStatusEffect("Unconscious")
+						self:RemoveStatusEffect("Downed")
+						self:SetTired(Min(self.Tiredness, 2))
+						self.downed_check_penalty = 0
+						self:GetBandaged(medicine, medic)
+						medic:SetCommand("EndCombatBandage")
+						local stance = self.immortal and "Standing" or self.stance
+						self.stance = stance
+						local normal_anim = self:TryGetActionAnim("Idle", self.stance)
+						self:PlayTransitionAnims(normal_anim)
+						if g_Combat then
+							self:GainAP(self:GetMaxActionPoints() - self.ActionPoints)
+						end
+						self.TempHitPoints = 0
+						ObjModified(self)
+						ObjModified(self.team)
+						ForceUpdateCommonUnitControlUI("recreate")
+						CreateFloatingText(self, T(979333850225, "Recovered"))
+						PlayFX("UnitDownedRally", "start", self)
+						Msg("OnDownedRally", medic, self)
+						self:CallReactions("OnUnitRallied", medic, self)
+						if medic ~= self and IsKindOf(medic, "Unit") then
+							medic:CallReactions("OnUnitRallied", medic, self)
+						end
+						return
+					end
+					return base(self, medic, medicine)
+				end
+			end
+			unit_cls.DownedRally = jazz_downed_rally_fn
+		end
+	end
+
+	rawset(_G, "g_JAZZ_MedicineStackHooks", true)
+end
+
+function OnMsg.ClassesBuilt()
+	lInstallMedicineStackBandageHooks()
+end
+
+function OnMsg.ModsReloaded()
+	-- Classes may be redefined; reinstall targeting + Bandage wraps.
+	lInstallBandageTargetsHook()
+	-- Identity rebind in lInstall* handles wiped Unit methods; no sticky-flag skip.
+	lInstallMedicineStackBandageHooks()
+end
+
+lInstallMedicineStackBandageHooks()

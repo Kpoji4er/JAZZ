@@ -1,8 +1,8 @@
 UndefineClass('Medkit')
 DefineClass.Medkit = {
-	__parents = { "Medicine" },
+	__parents = { "JazzStackableMedicine" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
-	object_class = "Medicine",
+	object_class = "JazzStackableMedicine",
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcHealAmount",
@@ -18,12 +18,12 @@ DefineClass.Medkit = {
 	Icon = "Mod/e6L4ECj/Icons/Items/JAZZ_Medkit.png",
 	DisplayName = T(890000000010025, "Med Kit"),
 	DisplayNamePlural = T(890000000010026, "Med Kits"),
-	AdditionalHint = T(890000000010027, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds"),
+	AdditionalHint = T(890000000010027, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack"),
 	UnitStat = "Medical",
 	Cost = 500,
 	CanAppearInShop = true,
 	Tier = 2,
 	CategoryPair = "Medicine",
-	max_meds_parts = 12,
+	MaxStacks = 3,
 	UsePriority = 1,
 }

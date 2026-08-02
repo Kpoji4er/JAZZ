@@ -1,8 +1,8 @@
 UndefineClass('TraumaRibsHeavy')
 DefineClass.TraumaRibsHeavy = {
-	__parents = { "StatusEffect" },
+	__parents = { "JazzTraumaEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
-	object_class = "StatusEffect",
+	object_class = "JazzTraumaEffect",
 	Parameters = {
 		PlaceObj('PresetParamNumber', {
 			'Name', "APLoss",

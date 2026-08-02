@@ -420,7 +420,7 @@ function UnitProperties:EquipStartingGear(items)
 	self:TryEquip(items, "GrenadesInventory", "Flare")
 	self:TryEquip(items, "OrdnanceInventory", "ThrowableTrapItem")
 	self:TryEquip(items, "OrdnanceInventory", "ThrowableTrapItem")
-	-- MED-001: Bandage/Morphine/FAK — fill medical row (was 1× TryEquip → rest spilled to Inventory).
+	-- Fill skill-gated rows only (GetInventoryMaxSlots); surplus stays in Inventory.
 	self:TryEquip(items, "MedicalInventory", "Medicine")
 	self:TryEquip(items, "MedicalInventory", "Medicine")
 	self:TryEquip(items, "MedicalInventory", "Medicine")

@@ -1,4 +1,4 @@
-sep=,
+﻿sep=,
 987654321,<style WeaponModHeader><DisplayName></style>,<style WeaponModHeader><DisplayName></style>,,jazz:Code/System_Firearm_AddProperties.lua:477
 990002001,<bullet_point> Jam chance: <chance>%,<bullet_point> Jam chance: <chance>%,,jazz:Code/System_WeaponResourceMaintenance.lua
 990002002,Ствольные запчасти,Barrel Parts,,jazz:InventoryItem/JAZZ_BarrelParts.lua
@@ -7712,13 +7712,13 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000004623,Пессимист,Pessimist,,Jazz_Carlos
 890000000004624,Carlos@arulco.reb,Carlos@arulco.reb,,Jazz_Carlos
 890000000004625,carlos,carlos,,Jazz_Carlos
-890000000004626,Carlos offline.,Carlos offline.,,Jazz_Carlos
-890000000004627,Carlos here.,Carlos here.,,Jazz_Carlos
-890000000004628,Continue.,Continue.,,Jazz_Carlos
-890000000004629,Waiting.,Waiting.,,Jazz_Carlos
-890000000004630,Hired.,Hired.,,Jazz_Carlos
-890000000004631,Contract ending?,Contract ending?,,Jazz_Carlos
-890000000004632,Staying.,Staying.,,Jazz_Carlos
+890000000004626,This is Carlos. Leave a message.,Carlos offline.,,Jazz_Carlos
+890000000004627,Carlos here. Bad news?,Carlos here.,,Jazz_Carlos
+890000000004628,Line dropped. Let's get back to it.,Continue.,,Jazz_Carlos
+890000000004629,Same as always — bad.,Waiting.,,Jazz_Carlos
+890000000004630,Fine. I'm in. Probably a mistake.,Hired.,,Jazz_Carlos
+890000000004631,Contract's ending. Extending?,Contract ending?,,Jazz_Carlos
+890000000004632,I'm staying. Can't get worse.,Staying.,,Jazz_Carlos
 890000000005008,Враги в ближнем бою по Шенку получают −50 к шансу попадания.,Enemies making melee attacks against Shank suffer -50 chance to hit.,,Jazz_Perk_WaveA
 890000000005010,Раз за бой первое лечение или перевязка союзника даёт цели +4 ОД.,"Once per combat, the first heal or bandage on an ally grants them +4 AP.",,Jazz_Perk_WaveA
 890000000005018,Ночью и под землёй автоогонь/очередь получают +15 к шансу попадания.,"At night or underground, autofire/burst gain +15 chance to hit.",,Jazz_Perk_WaveA
@@ -10360,7 +10360,7 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000009236,Leg Trauma (Heavy),Leg Trauma (Heavy),,jazz:CharacterEffect/TraumaLegsHeavy.lua
 890000000009237,Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn.,Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn.,,jazz:CharacterEffect/TraumaLegsHeavy.lua
 890000000009238,Rib Trauma (Light),Rib Trauma (Light),,jazz:CharacterEffect/TraumaRibsLight.lua
-890000000009239,Pain at the start of the turn. No Tiredness from ribs. No direct AP penalty.,Pain at the start of the turn. No Tiredness from ribs. No direct AP penalty.,,jazz:CharacterEffect/TraumaRibsLight.lua
+890000000009239,Pain at the start of the turn.,Pain at the start of the turn.,,jazz:CharacterEffect/TraumaRibsLight.lua
 890000000009240,Rib Trauma (Medium),Rib Trauma (Medium),,jazz:CharacterEffect/TraumaRibsMedium.lua
 890000000009241,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain at the start of the turn. No Tiredness.,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain at the start of the turn. No Tiredness.,,jazz:CharacterEffect/TraumaRibsMedium.lua
 890000000009242,Rib Trauma (Heavy),Rib Trauma (Heavy),,jazz:CharacterEffect/TraumaRibsHeavy.lua
@@ -10995,19 +10995,19 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000010010,Suppresses AP and chance-to-hit penalties from Pain. Does not stop bleeding or heal injuries.,Suppresses AP and chance-to-hit penalties from Pain. Does not stop bleeding or heal injuries.,,jazz:MED-001-remap-from-890000000009205
 890000000010011,Bandage,Bandage,,jazz:MED-001-remap-from-890000000009206
 890000000010012,Bandages,Bandages,,jazz:MED-001-remap-from-890000000009207
-890000000010013,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Bandage action — reduce worst bleeding by one tier
+890000000010013,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — reduce worst bleeding by one tier
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Bandage action — reduce worst bleeding by one tier
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — reduce worst bleeding by one tier
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally",,jazz:MED-001-remap-from-890000000009208
 890000000010014,Morphine,Morphine,,jazz:MED-001-remap-from-890000000009209
 890000000010015,Morphine,Morphine,,jazz:MED-001-remap-from-890000000009210
-890000000010016,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Morphine action — suppress Pain penalties
+890000000010016,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Morphine — suppresses Pain penalties
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding or heal trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Morphine action — suppress Pain penalties
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Morphine — suppresses Pain penalties
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding or heal trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally",,jazz:MED-001-remap-from-890000000009211
@@ -11024,20 +11024,20 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000010023,IFAKs,IFAKs,,jazz:MED-001-remap-from-890000000009218
 890000000010024,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage action removes one worst bleeding stack
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage action removes one worst bleeding stack
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory",,jazz:MED-001-remap-from-890000000009219
 890000000010025,Med Kit,Med Kit,,jazz:MED-001-remap-from-890000000009220
 890000000010026,Med Kits,Med Kits,,jazz:MED-001-remap-from-890000000009221
 890000000010027,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds",,jazz:MED-001-remap-from-890000000009222
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack",,jazz:MED-001-remap-from-890000000009222
 890000000010028,Inject morphine to suppress Pain penalties on self or ally. Does not stop bleeding.,Inject morphine to suppress Pain penalties on self or ally. Does not stop bleeding.,,jazz:MED-001-remap-from-890000000009223
 890000000010029,Morphine,Morphine,,jazz:MED-001-remap-from-890000000009224
 890000000010030,MORPHINE,MORPHINE,,jazz:MED-001-remap-from-890000000009225
@@ -11054,7 +11054,7 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000010110,Leg Trauma (Heavy),Leg Trauma (Heavy),,jazz:MED-001-trauma-remap-from-890000000009236
 890000000010111,Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn.,Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn.,,jazz:MED-001-trauma-remap-from-890000000009237
 890000000010112,Rib Trauma (Light),Rib Trauma (Light),,jazz:MED-001-trauma-remap-from-890000000009238
-890000000010113,Pain at the start of the turn. No Tiredness from ribs. No direct AP penalty.,Pain at the start of the turn. No Tiredness from ribs. No direct AP penalty.,,jazz:MED-001-trauma-remap-from-890000000009239
+890000000010113,Pain at the start of the turn.,Pain at the start of the turn.,,jazz:MED-001-trauma-remap-from-890000000009239
 890000000010114,Rib Trauma (Medium),Rib Trauma (Medium),,jazz:MED-001-trauma-remap-from-890000000009240
 890000000010115,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain at the start of the turn. No Tiredness.,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain at the start of the turn. No Tiredness.,,jazz:MED-001-trauma-remap-from-890000000009241
 890000000010116,Rib Trauma (Heavy),Rib Trauma (Heavy),,jazz:MED-001-trauma-remap-from-890000000009242
@@ -11093,3 +11093,322 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 5678579714391111,изношенное,worn out,,jazz:Code/Inventory.lua:114 | jazz:Code/Inventory.lua:177
 8182360763020012,Ресурс,Resource,,jazz:items.lua:73489
 ID,Text,Translation,VoiceActor,Context
+890000000010214,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000010215,Online.,Online.,,jazz-units:items.lua:VoiceResponse
+890000000010216,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000010217,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000010218,Quiet.,Quiet.,,jazz-units:items.lua:VoiceResponse
+890000000010219,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000010220,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000010221,Roger.,Roger.,,jazz-units:items.lua:VoiceResponse
+890000000010222,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000010223,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000010224,Moving.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000010225,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000010226,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000010227,Sneaking.,Sneaking.,,jazz-units:items.lua:VoiceResponse
+890000000010228,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000010229,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000010230,With you.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000010231,Target!,Target!,,jazz-units:items.lua:VoiceResponse
+890000000010232,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000010233,Quiet take-down.,Quiet take-down.,,jazz-units:items.lua:VoiceResponse
+890000000010234,Tough shot.,Tough shot.,,jazz-units:items.lua:VoiceResponse
+890000000010235,Bad angle.,Bad angle.,,jazz-units:items.lua:VoiceResponse
+890000000010236,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000010237,I see them!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000010238,Too many!,Too many!,,jazz-units:items.lua:VoiceResponse
+890000000010239,Down.,Down.,,jazz-units:items.lua:VoiceResponse
+890000000010240,I'm out!,I'm out!,,jazz-units:items.lua:VoiceResponse
+890000000010241,Jam!,Jam!,,jazz-units:items.lua:VoiceResponse
+890000000010242,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000010243,Argh!,Argh!,,jazz-units:items.lua:VoiceResponse
+890000000010244,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse
+890000000010245,Hurting…,Hurting…,,jazz-units:items.lua:VoiceResponse
+890000000010246,Engage!,Engage!,,jazz-units:items.lua:VoiceResponse
+890000000010247,Clear.,Clear.,,jazz-units:items.lua:VoiceResponse
+890000000010248,Still hostiles.,Still hostiles.,,jazz-units:items.lua:VoiceResponse
+890000000010249,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000010250,Waiting.,Waiting.,,jazz-units:items.lua:VoiceResponse
+890000000010251,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000010252,Hiding.,Hiding.,,jazz-units:items.lua:VoiceResponse
+890000000010253,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000010254,Hmm…,Hmm…,,jazz-units:items.lua:VoiceResponse
+890000000010255,Locked.,Locked.,,jazz-units:items.lua:VoiceResponse
+890000000010256,Tired…,Tired…,,jazz-units:items.lua:VoiceResponse
+890000000010257,(panting),(panting),,jazz-units:items.lua:VoiceResponse
+890000000010258,Thanks.,Thanks.,,jazz-units:items.lua:VoiceResponse
+890000000010259,Not now.,Not now.,,jazz-units:items.lua:VoiceResponse
+890000000010260,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000010261,Cover!,Cover!,,jazz-units:items.lua:VoiceResponse
+890000000010262,Grenade!,Grenade!,,jazz-units:items.lua:VoiceResponse
+890000000010263,Full auto!,Full auto!,,jazz-units:items.lua:VoiceResponse
+890000000010264,(climbing),(climbing),,jazz-units:items.lua:VoiceResponse
+890000000010265,(jump),(jump),,jazz-units:items.lua:VoiceResponse
+890000000010266,What?!,What?!,,jazz-units:items.lua:VoiceResponse
+890000000010267,Threat!,Threat!,,jazz-units:items.lua:VoiceResponse
+890000000010268,Watching.,Watching.,,jazz-units:items.lua:VoiceResponse
+890000000010269,Ready.,Ready.,,jazz-units:items.lua:VoiceResponse
+890000000010270,(coughs),(coughs),,jazz-units:items.lua:VoiceResponse
+890000000010271,Close…,Close…,,jazz-units:items.lua:VoiceResponse
+890000000010272,Animal!,Animal!,,jazz-units:items.lua:VoiceResponse
+890000000010273,Got an idea.,Got an idea.,,jazz-units:items.lua:VoiceResponse
+890000000010274,Done.,Done.,,jazz-units:items.lua:VoiceResponse
+890000000010275,Failed.,Failed.,,jazz-units:items.lua:VoiceResponse
+890000000010276,Not this.,Not this.,,jazz-units:items.lua:VoiceResponse
+890000000004706,This is Biggens. Leave a message.,Biggens offline.,,Jazz_Biggens
+890000000004707,Colonel Biggens here.,Biggens here.,,Jazz_Biggens
+890000000004708,Line dropped. Let's get back to it.,Continue.,,Jazz_Biggens
+890000000004709,"A bit hot today, but I'm not complaining.",Waiting.,,Jazz_Biggens
+890000000004710,One more charge won't hurt. I'm in.,Hired.,,Jazz_Biggens
+890000000004711,Contract's ending. Extending?,Contract ending?,,Jazz_Biggens
+890000000004712,I'm staying. I know my trade.,Staying.,,Jazz_Biggens
+890000000003509,"Похоже, мы нашли источник всех бед. Пора завернуть кран.","Похоже, мы нашли источник всех бед. Пора завернуть кран.",,Jazz_Gaston
+890000000003510,"Похоже, ты уже делал это раньше.","Похоже, ты уже делал это раньше.",,Jazz_Gaston
+890000000003511,Я своими руками убью этого человека.,Я своими руками убью этого человека.,,Jazz_Gaston
+890000000003512,If you're looking for another lovely lady — call Buzz.,"Тоска, ты полна затаенной страсти.",,Jazz_Gaston
+890000000003513,"Gaston's with a lady. Leave a message, I'll answer when I'm free.",Я не могу так уйти. Нас ведут одним путем по туннелю войны.,,Jazz_Gaston
+890000000003514,Gaston à l'appareil. I'm listening to your offer.,Как забавно! Этот идиот сам разнес себя на кусочки.,,Jazz_Gaston
+890000000003515,Line dropped. Let's get back to it.,"Добро пожаловать, Мануэль. Ты не обидишься, если я предложу тебе свой одеколон? Можешь попользоваться им, словно он твой.",,Jazz_Gaston
+890000000003516,"Come on, time's precious — just like my charm.","К несчастью, все, что у него было, тоже превратилось в обломки.",,Jazz_Gaston
+890000000003518,"Contract's ending. Extending, mon ami?",Гастон прошел сквозь ловушку. Мы еще выпьем шампанского.,,Jazz_Gaston
+890000000003519,I'm staying. The rooftops here are superb.,"Я знаю, они нас ждут. Я уверен, этот шум был слышен даже в Алжире!",,Jazz_Gaston
+890000000003609,Есть! Вот и источник зла. Пора засадить им как следует!,Есть! Вот и источник зла. Пора засадить им как следует!,,Jazz_Horg
+890000000003610,"Скажи спасибо, что я тебя не убил.","Скажи спасибо, что я тебя не убил.",,Jazz_Horg
+890000000003611,"Это может оказаться интереснее, чем я думал!","Это может оказаться интереснее, чем я думал!",,Jazz_Horg
+890000000003612,Этот парень может любого вояку за пояс заткнуть.,Этот парень может любого вояку за пояс заткнуть.,,Jazz_Horg
+890000000003613,"Ага... так! Есть только один способ выбраться, и мы пойдем все вместе.","Ага... так! Есть только один способ выбраться, и мы пойдем все вместе.",,Jazz_Horg
+890000000003614,"А я-то думал, что все в жизни повидал. Наверно, взрывчатка - не его специальность.","А я-то думал, что все в жизни повидал. Наверно, взрывчатка - не его специальность.",,Jazz_Horg
+890000000003615,"Я никогда не был в Арулько, Мануэль, но постараюсь сделать все, чтобы ты туда вернулся.","Я никогда не был в Арулько, Мануэль, но постараюсь сделать все, чтобы ты туда вернулся.",,Jazz_Horg
+890000000003616,"Огорчает лишь то, что Рауль унес все, что у него было.","Огорчает лишь то, что Рауль унес все, что у него было.",,Jazz_Horg
+890000000003618,"Похоже, пройти удалось не всем! Увы...","Похоже, пройти удалось не всем! Увы...",,Jazz_Horg
+890000000003619,"Мы наделали много шума, но мне это нравится. У них есть время подумать о том, что их ждет.","Мы наделали много шума, но мне это нравится. У них есть время подумать о том, что их ждет.",,Jazz_Horg
+890000000004722,Kulba's on duty. Leave a message.,Kulba offline.,,Jazz_Kulba
+890000000004723,Kulba here. For freedom.,Kulba here.,,Jazz_Kulba
+890000000004724,Line dropped. Let's get back to it.,Continue.,,Jazz_Kulba
+890000000004725,Old guns still have some fight in them.,Waiting.,,Jazz_Kulba
+890000000004726,For freedom. I'm in.,Hired.,,Jazz_Kulba
+890000000004727,Contract's ending. Extending?,Contract ending?,,Jazz_Kulba
+890000000004728,I'm staying. Still got some fight left.,Staying.,,Jazz_Kulba
+890000000003909,"Лучше поищи другого наемника. Такого, которому понравится работать со свиньей-англичанином!","Лучше поищи другого наемника. Такого, которому понравится работать со свиньей-англичанином!",,Jazz_Allik
+890000000003910,"Я наемник, потому что я так решил, но это еще не значит, что я люблю смерть.","Я наемник, потому что я так решил, но это еще не значит, что я люблю смерть.",,Jazz_Allik
+890000000003911,"У меня тревожные предчувствия, но если с вами Грейс Джирелли... Я согласен.","У меня тревожные предчувствия, но если с вами Грейс Джирелли... Я согласен.",,Jazz_Allik
+890000000003912,"Она мне нравится. Обычно американки такие... Ну... Но только не Грейс. В ней чувствуется итальянская кровь, а итальянцы знают толк в хорошей еде.","Она мне нравится. Обычно американки такие... Ну... Но только не Грейс. В ней чувствуется итальянская кровь, а итальянцы знают толк в хорошей еде.",,Jazz_Allik
+890000000003913,"Янно Аллик на связи. Если у вас есть для меня важные новости, пожалуйста, говорите.","Янно Аллик на связи. Если у вас есть для меня важные новости, пожалуйста, говорите.",,Jazz_Allik
+890000000003914,Привет...,Привет...,,Jazz_Allik
+890000000003915,Я сказал...,Я сказал...,,Jazz_Allik
+890000000003916,Я бы не отказался сейчас от сочного бифштекса с картофелем и подливкой. Ха!,Я бы не отказался сейчас от сочного бифштекса с картофелем и подливкой. Ха!,,Jazz_Allik
+890000000003918,"Я бы не отказался поработать на вас еще, если это входит в ваши планы.","Я бы не отказался поработать на вас еще, если это входит в ваши планы.",,Jazz_Allik
+890000000003919,"Gut. Должно быть, вам понравились мои успехи.","Gut. Должно быть, вам понравились мои успехи.",,Jazz_Allik
+890000000004754,Grace offline.,Grace offline.,,Jazz_Grace
+890000000004755,Grace here.,Grace here.,,Jazz_Grace
+890000000004756,Continue.,Continue.,,Jazz_Grace
+890000000004757,Waiting.,Waiting.,,Jazz_Grace
+890000000004758,Hired.,Hired.,,Jazz_Grace
+890000000004759,Contract ending?,Contract ending?,,Jazz_Grace
+890000000004760,Staying.,Staying.,,Jazz_Grace
+890000000002411,"If you find Ivan or Igor — take them without hesitation, proven soldiers.","Найдёте Ивана или Игоря — берите без раздумий, проверенные бойцы.",,Jazz_Grom
+890000000002420,Огонь по цели!,Огонь по цели!,,Jazz_Grom
+890000000002421,Гранатомёт готов.,Гранатомёт готов.,,Jazz_Grom
+890000000002422,Цель уничтожена.,Цель уничтожена.,,Jazz_Grom
+890000000002427,Заряды на исходе!,Заряды на исходе!,,Jazz_Grom
+890000000002425,"Противник на подходе, к бою!","Противник на подходе, к бою!",,Jazz_Grom
+890000000002428,"Жду приказа, майор наготове.","Жду приказа, майор наготове.",,Jazz_Grom
+890000000002426,Опыт Афгана не забывается.,Опыт Афгана не забывается.,,Jazz_Grom
+890000000002430,Хорошо служить со своими.,Хорошо служить со своими.,,Jazz_Grom
+890000000004009,"Тор тоже с тобой? В таком случае я отклоняю твое предложение. Ты скоро узнаешь, почему. Желаю удачи... Она тебе понадобится.","Тор тоже с тобой? В таком случае я отклоняю твое предложение. Ты скоро узнаешь, почему. Желаю удачи... Она тебе понадобится.",,Jazz_Henning
+890000000004010,Ты теряешь слишком много хороших людей. Мне это неинтересно.,Ты теряешь слишком много хороших людей. Мне это неинтересно.,,Jazz_Henning
+890000000004011,"Возможно, я совершаю ошибку, но я не упущу шанса оказаться в одном отряде с Фиделем.","Возможно, я совершаю ошибку, но я не упущу шанса оказаться в одном отряде с Фиделем.",,Jazz_Henning
+890000000004012,Фидель - это сокровище! Ты ВИДЕЛ?,Фидель - это сокровище! Ты ВИДЕЛ?,,Jazz_Henning
+890000000004013,"Это Хеннинг фон Браниц. В настоящий момент я не могу ответить на ваш звонок. Пожалуйста, оставьте сообщение после сигнала.","Это Хеннинг фон Браниц. В настоящий момент я не могу ответить на ваш звонок. Пожалуйста, оставьте сообщение после сигнала.",,Jazz_Henning
+890000000004014,Алло!,Алло!,,Jazz_Henning
+890000000004015,Я сказал...,Я сказал...,,Jazz_Henning
+890000000004016,У меня мало времени...,У меня мало времени...,,Jazz_Henning
+890000000004018,Я предлагаю продлить мой контракт. Что ты об этом думаешь?,Я предлагаю продлить мой контракт. Что ты об этом думаешь?,,Jazz_Henning
+890000000004019,Согласен!,Согласен!,,Jazz_Henning
+890000000004802,Laura offline.,Laura offline.,,Jazz_Laura
+890000000004803,Laura here.,Laura here.,,Jazz_Laura
+890000000004804,Continue.,Continue.,,Jazz_Laura
+890000000004805,Waiting.,Waiting.,,Jazz_Laura
+890000000004806,Hired.,Hired.,,Jazz_Laura
+890000000004807,Contract ending?,Contract ending?,,Jazz_Laura
+890000000004808,Staying.,Staying.,,Jazz_Laura
+890000000004786,Lucky offline.,Lucky offline.,,Jazz_Lucky
+890000000004787,Lucky here.,Lucky here.,,Jazz_Lucky
+890000000004788,Continue.,Continue.,,Jazz_Lucky
+890000000004789,Waiting.,Waiting.,,Jazz_Lucky
+890000000004790,Hired.,Hired.,,Jazz_Lucky
+890000000004791,Contract ending?,Contract ending?,,Jazz_Lucky
+890000000004792,Staying.,Staying.,,Jazz_Lucky
+890000000003809,"Я слышал, вы наняли Ивана... Да чтобы я с ним работал? Нет. Ищите кого-нибудь другого...","Я слышал, вы наняли Ивана... Да чтобы я с ним работал? Нет. Ищите кого-нибудь другого...",,Jazz_Monk
+890000000003810,Слишком уж смертность у тебя высокая... Это неправильно.,Слишком уж смертность у тебя высокая... Это неправильно.,,Jazz_Monk
+890000000003811,"Эта операция не очень хорошая, но если в команде доктор Лора... то Виктор тоже в команде.","Эта операция не очень хорошая, но если в команде доктор Лора... то Виктор тоже в команде.",,Jazz_Monk
+890000000003812,Доктор Лора - сильная женщина. Сильная... и симпатичная.,Доктор Лора - сильная женщина. Сильная... и симпатичная.,,Jazz_Monk
+890000000003813,Это Виктор Колесников. Оставьте сообщение на автоответчике. Я свяжусь с вами.,Это Виктор Колесников. Оставьте сообщение на автоответчике. Я свяжусь с вами.,,Jazz_Monk
+890000000003814,Виктор Колесников.,Виктор Колесников.,,Jazz_Monk
+890000000003815,Еще раз.,Еще раз.,,Jazz_Monk
+890000000003816,Я наемник от Бога.,Я наемник от Бога.,,Jazz_Monk
+890000000003818,Контракт скоро заканчивается... Виктор тебе еще нужен?,Контракт скоро заканчивается... Виктор тебе еще нужен?,,Jazz_Monk
+890000000003819,Хорошо... Очень хорошо.,Хорошо... Очень хорошо.,,Jazz_Monk
+890000000004770,Steiger offline.,Steiger offline.,,Jazz_Steiger
+890000000004771,Steiger here.,Steiger here.,,Jazz_Steiger
+890000000004772,Continue.,Continue.,,Jazz_Steiger
+890000000004773,Waiting.,Waiting.,,Jazz_Steiger
+890000000004774,Hired.,Hired.,,Jazz_Steiger
+890000000004775,Contract ending?,Contract ending?,,Jazz_Steiger
+890000000004776,Staying.,Staying.,,Jazz_Steiger
+890000000004738,Vilde offline.,Vilde offline.,,Jazz_Vilde
+890000000004739,Vilde here.,Vilde here.,,Jazz_Vilde
+890000000004740,Continue.,Continue.,,Jazz_Vilde
+890000000004741,Waiting.,Waiting.,,Jazz_Vilde
+890000000004742,Hired.,Hired.,,Jazz_Vilde
+890000000004743,Contract ending?,Contract ending?,,Jazz_Vilde
+890000000004744,Staying.,Staying.,,Jazz_Vilde
+890000000003713,Manuel... no signal right now. Later.
+890000000003714,This is Manuel. I'm listening.
+890000000003715,Line dropped. Let's get back to it.
+890000000003716,Quiet. Manuel's listening to the forest.
+890000000003712,If you run into Miguel — tell him Manuel hasn't forgotten.
+890000000003718,Contract's ending. Extending?
+890000000003719,I'm staying. The forest can wait.
+890000000004674,This is Doctor Vince. Leave a message.
+890000000004675,Vincent here. Who needs patching up?
+890000000004676,Line dropped. Let's get back to it.
+890000000004677,Always happy to teach something new.
+890000000004678,Ready to teach and to heal. I'm in.
+890000000004679,Contract's ending. Extending?
+890000000004680,I'm staying. Still plenty to teach.
+890000000004642,This is Devin. Leave a message.
+890000000004643,Devin here.
+890000000004644,Line dropped. Let's get back to it.
+890000000004645,Well? Got something for me to blow up?
+890000000004646,For that price — deal.
+890000000004647,Contract's ending. Extending?
+890000000004648,I'm staying.
+890000000004691,Talk fast.
+890000000004692,Line dropped. Let's get back to it.
+890000000004693,Time's moving.
+890000000004694,One week. No more.
+890000000004695,Contract's ending. Extending?
+890000000004696,I'll stay a bit longer.
+890000000004818,Eskimo's in his cell... kidding. Call back.
+890000000004819,"Eskimo here. Free, and glad for it."
+890000000004820,Line dropped. Let's get back to it.
+890000000004821,Only my name is cold.
+890000000004822,Thanks for the freedom. I'm in.
+890000000004823,Contract's ending. Extending?
+890000000004824,I'm staying. Prison taught me patience.
+890000000002912,"Nervous... busy... leave a message, maybe I'll call back."
+890000000002913,W-what do you need? We shooting something?!
+890000000002914,Line dropped. Let's get back to it.
+890000000002915,"Where's the enemy, where's the enemy..."
+890000000002916,"I'm coming, I'm coming! Got ammo, it's fine!"
+890000000002917,Contract's ending. Extending?
+890000000002918,I'm staying! Still got ammo left!
+890000000004511,This is Hobbit. Leave a message.
+890000000004512,"Hobbit here. I'm not Frodo, by the way."
+890000000004513,Line dropped. Let's get back to it.
+890000000004514,It's hot. This won't end well anyway.
+890000000004515,"Fine, I can carry you if it comes to that."
+890000000004516,Contract's ending. Extending?
+890000000004517,I'm staying. Can't get much worse anyway.
+890000000004412,This is Cord. Leave a message.
+890000000004413,Cord here. What needs fixing?
+890000000004414,Line dropped. Let's get back to it.
+890000000004415,What were we doing again?
+890000000004416,I think I agreed. I'm in.
+890000000004417,Contract's ending. Extending?
+890000000004418,I'm staying. I think.
+890000000003410,This is Dynamo. Probably fixing something. Leave a message.
+890000000003411,Dynamo here. What do you need?
+890000000003412,Line dropped. Let's get back to it.
+890000000003413,"Come on, time's not infinite."
+890000000003414,I'll go for the cause — or for fifty bucks. Makes no difference.
+890000000003415,Contract's ending. Extending?
+890000000003416,I'm staying. Still stuff to fix and people to scare.
+890000000003311,Gamos travel much — not here now. Later.
+890000000003312,Gamos here. Where we go?
+890000000003313,Line drop. Let's talk again.
+890000000003314,We go? Gamos know the way.
+890000000003315,"Okay, Gamos come. Jungle not scary."
+890000000003316,Contract's ending. Extending?
+890000000003317,Gamos stay. More trails to show.
+890000000002612,"This is Doctor Daniel Quinten. Please leave a message. If you need urgent medical help, call again."
+890000000002613,"Yes, this is Doctor Quinten."
+890000000002614,Please pay attention — as I was saying...
+890000000002615,"As you probably know, my specialty is providing medical care in the field."
+890000000002616,I'd be very glad to sign this contract. Thank you.
+890000000002617,Are you going to renew my contract? Let me know soon if you want me free by then.
+890000000002618,That's perfectly acceptable. Thank you.
+890000000004211,This is Doctor Clifford Highball — thanks for calling. I can't talk right now; leave your name and number.
+890000000004212,Doctor Clifford Highball.
+890000000004213,"Please, attention — as I said."
+890000000004214,Few fighters can inflict — or ease — pain the way I can.
+890000000004215,Next time we'll be talking in Arulco.
+890000000004216,My contract's almost up. Should I take your silence to mean there won't be an extension?
+890000000004217,Excellent! This place is growing on me!
+890000000002311,"This is Mike. Call back — if it's urgent, I'll call you first."
+890000000002312,"Old friend on the line. So, what's the job?"
+890000000002313,"Line dropped. Fine, let's continue — I'm not in a hurry."
+890000000002314,"Talk. I'm listening, but not for long."
+890000000002310,If you need another dependable gun — call Steroid.
+890000000002316,Contract's ending. Normally I'd just slip away — but I'll ask: extending?
+890000000002317,"I'm staying. Solo's more fun, but this'll do."
+890000000001912,"This is Ira. If it's about a gun for the boys, talk after the beep."
+890000000001913,"Well? You bringing guns, or just more advice?"
+890000000001914,Line dropped. The militia won't wait — let's get to it.
+890000000001915,"There's a war on — don't dawdle, I've got people holding positions."
+890000000001911,"If you find Miguel, Carlos, or Dimitri, take them without hesitation — our best people."
+890000000001917,Contract's ending. The sector's not settled yet — extending?
+890000000001918,I'm staying. My people won't let me go alone anyway.
+890000000002012,Dima... uh... call back later. I forgot why I have this phone.
+890000000002013,Huh? It's me. Dimitri. I think. You got work?
+890000000002014,"Wait, what were we talking about? Right — let's get back to it."
+890000000002015,"Hold on... where was I going? Right, helping you."
+890000000002011,If you find Miguel or Carlos — take them. I work better with them around.
+890000000002017,"Contract's ending. Extending, or do I go misplace my knives again?"
+890000000002018,I'm staying. Sharpening knives is more fun with a target.
+890000000002111,Madman doesn't answer the phone — he hits things with it. Call back if you're not scared.
+890000000002112,"I'd rather just clobber everyone with a bumper! So, you got a job or what?"
+890000000002113,"You dropped off, and I got bored. Keep going."
+890000000002114,Where's the fight? I need to hit something already.
+890000000002110,If you see Fox — tell her Madman was asking about her.
+890000000002116,"Contract's up — renewing, or do I wander off and fix somebody else's junk?"
+890000000002117,I'm staying. Still stuff to fix and people to hit.
+890000000002214,Lieutenant Gillett. Leave a message — I'll respond if the terms are worth it.
+890000000002215,Gillett listening. State your terms — and don't be cheap.
+890000000002216,"Line dropped. Let's continue — time is money, same as me."
+890000000002217,Time is money. Mine especially.
+890000000002213,Hire Iggy as well — discipline holds itself with a competent partner around.
+890000000002219,Contract's ending. I have other offers on the table — decide.
+890000000002220,I'm staying. Your discipline almost impressed me.
+890000000002813,"This is Biff. Uh, please call back?"
+890000000002814,Uh... Biff here. You're serious about a combat job?
+890000000002815,Line dropped. Let's get back to it.
+890000000002816,Can we... skip the shooting part?
+890000000002812,"If you find Flo, take her — somehow we're calmer together."
+890000000002818,Contract's ending. Extending?
+890000000002819,I'm staying. Probably.
+890000000003113,Cougar's out of range. Leave a message.
+890000000003114,Cougar here. Talk quiet if you can.
+890000000003115,Line dropped. Let's get back to it.
+890000000003116,Waiting.
+890000000003112,Hire Len as well — working with him is quiet and reliable.
+890000000003118,Contract's ending. Extending?
+890000000003119,"I'm staying. Quietly, but staying."
+890000000002412,Gromov. Contact later — busy checking the ammo load right now.
+890000000002413,Major Gromov. The airfield's yours — so am I.
+890000000002414,"Line dropped. Continue, comrade."
+890000000002415,Awaiting orders. Launcher's loaded.
+890000000002417,"Contract's ending. Extending service, or should I find another airfield?"
+890000000002418,I'm staying. Duty is duty.
+890000000003517,Pour vous — always ready. Grabbing my rifle.
+890000000003717,I'm coming with you. Fatima will understand.
+890000000002315,Just like the old days. I'm in.
+890000000001916,I'm bringing my people. Just tell me where to shoot.
+890000000002016,"Okay, knives packed... think that's all of them. I'm coming."
+890000000002115,Ha! Let's go smash stuff. Cheap and nasty — as long as it's fun.
+890000000002218,Contract accepted. Line your people up — we start with discipline.
+890000000002817,Okay... I'll try. Just make sure someone's got my back.
+890000000003117,Already in the shadows. I'm in.
+890000000002416,Rocket launcher's with me. Let's move.

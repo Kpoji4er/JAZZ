@@ -62,7 +62,7 @@ Script: `.agents/scripts/fill-ja12-merc-loot-tiers.ps1` (Medium/Low refresh).
 | Shank | `Loot_JAZZ_Shank` | UniformPants, Knife x3 (melee) |
 | Vince | `Loot_JAZZ_Vince` | PoliceVest, med kit, HiPower x2, 9x19 x32 (Double) |
 | Hitman | `Loot_JAZZ_Hitman` | CamoBalaclava, DragunovSVD, 7.62x54 Match x20 (Double) |
-| Biggens | `Loot_JAZZ_Biggens` | UniformPants, demo + M1Garand, .30-06 x20 (Double) |
+| Biggens | `Loot_JAZZ_Biggens` | UniformPants, demo + M1Garand, .30-06 x20 (Double); 1× detonator (no dup); Mechanical 50 for pocket tools |
 | Kulba | `Loot_JAZZ_Kulba` | UniformPants, M60, 7.62x51 x100 (Double), Parts, Wirecutter |
 | Vilde | `Loot_JAZZ_Vilde` | LeatherJacketBlk, RPK, 7.62x39 x80 (Double) |
 | Grace | `Loot_JAZZ_Grace` | LeatherJacketBrn, knives + machete (melee *50; guns on lower tiers) |

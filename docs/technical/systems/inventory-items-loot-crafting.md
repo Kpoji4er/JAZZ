@@ -38,7 +38,21 @@ Unit inventory schema включает:
 - экипировку: `Head`, `HeadGear`, `ArmorPlate`, `Torso`, `Legs`, `SetpieceWeapon`;
 - специализированные: `AmmoInventory`, `GrenadesInventory`, `OrdnanceInventory`, `MedicalInventory`, `PocketInventory`, `KnifeInventory`.
 
-Вместимость части слотов вычисляется из характеристик и perks. Reload берёт патроны только из `AmmoInventory`; наличие ammo в другом допустимом контейнере не гарантирует возможность перезарядки. Четыре `InventoryTab`: `Grenades`, `Meds`, `Melee`, `resources`.
+Вместимость специализированных слотов мерка (`UnitProperties:GetInventoryMaxSlots` в `Code/System_UnitInventory.lua`) — от характеристик/perks, без blanket floor:
+
+| Slot | Merc formula |
+|---|---|
+| `Inventory` | `Max(4, (Strength-30)/5)` |
+| `AmmoInventory` | `Max(1, (Marksmanship+Strength-60)/30)` +2 AutoWeapons / +2 HeavyWeaponsTraining |
+| `GrenadesInventory` | `Max(0, (Explosives-10)/20)` |
+| `OrdnanceInventory` | `Max(0, (Explosives-70)/10)` |
+| `MedicalInventory` | `Max(0, (Medical-20)/20)` — медик-роль; 0 у низкого Medical |
+| `PocketInventory` | `Max(0, (Mechanical-30)/20)` |
+| `KnifeInventory` | +1 NightOps/Stealthy, +1 Throwing |
+
+`EquipStartingGear` делает несколько `TryEquip` в эти ряды, но **не** расширяет вместимость: лишние Medicine/ToolItem уходят в общий `Inventory`. Стеки `JazzStackableMedicine`: Bandage **30**, Morphine **10**, IFAK **5**, Medkit **3**, Reanimationsset **2** (1 юз = 1 штука).
+
+Reload берёт патроны только из `AmmoInventory`; наличие ammo в другом допустимом контейнере не гарантирует возможность перезарядки. Четыре `InventoryTab`: `Grenades`, `Meds`, `Melee`, `resources`.
 
 `InventoryVest` существует, однако Vest slot закомментирован. Его нельзя документировать как активную пользовательскую ячейку до изменения metadata/code и save migration.
 

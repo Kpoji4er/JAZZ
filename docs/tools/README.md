@@ -91,6 +91,7 @@
 | `_calib_optic_targets.py` | Старая калибровка рычагов ×1.2 (исторически АКМ). |
 | `_rebalance_long_scope_ow.py` | Длинная оптика: `ScopeOverwatchAngle`% уже по кратности (больше зум → уже OW). |
 | `_validate_items_quick.py` | Быстрый структурный check `items.lua`/`metadata.lua` (lone commas, braces, stacked closers, **missing comma before PlaceObj**, corrupt `id = }),`) без JA3. **Обязателен после mass apply / family split**. Опционально: `python docs/tools/_validate_items_quick.py [pkg…]` (напр. `.` и `../jazz-units`). |
+| `_fix_metadata_last_changes_and_audit_code.py` | HOTFIX-001: чинит raw newline в `metadata.lua` `last_changes` (иначе local mod не грузится → Steam packed); аудитит все `metadata.code` пути vs disk/git (missing/case). |
 | `_append_imp001_loc.py` | JAZZ-IMP-001: дописывает RU/EN строки `890000000001931–936` для Mimicry/Veteran/Sniper (формат id,RU,EN). |
 | `_insert_imp_personality_perks.py` | JAZZ-IMP-001: вставляет `Jazz_Perk_{Mimicry,Veteran,Sniper}` в Personality-папку `items.lua`. |
 | `_check_imp_perk_items.py` | Проверяет наличие трёх IMP Personality ModItems и Icon. |

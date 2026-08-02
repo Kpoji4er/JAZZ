@@ -1,8 +1,8 @@
 UndefineClass('TraumaRibsLight')
 DefineClass.TraumaRibsLight = {
-	__parents = { "StatusEffect" },
+	__parents = { "JazzTraumaEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
-	object_class = "StatusEffect",
+	object_class = "JazzTraumaEffect",
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcStartTurnAP",
@@ -13,7 +13,7 @@ DefineClass.TraumaRibsLight = {
 		}),
 	},
 	DisplayName = T(890000000010112, "Rib Trauma (Light)"),
-	Description = T(890000000010113, "Pain at the start of the turn. No Tiredness from ribs. No direct AP penalty."),
+	Description = T(890000000010113, "Pain at the start of the turn."),
 	OnAdded = function(self, obj)
 		Msg("UnitAPChanged", obj)
 	end,

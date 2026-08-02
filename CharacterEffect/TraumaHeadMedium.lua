@@ -1,8 +1,8 @@
 UndefineClass('TraumaHeadMedium')
 DefineClass.TraumaHeadMedium = {
-	__parents = { "StatusEffect" },
+	__parents = { "JazzTraumaEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
-	object_class = "StatusEffect",
+	object_class = "JazzTraumaEffect",
 	Parameters = {
 		PlaceObj('PresetParamPercent', {
 			'Name', "cth_penalty",

@@ -1,8 +1,8 @@
 UndefineClass('TraumaBurnMedium')
 DefineClass.TraumaBurnMedium = {
-	__parents = { "StatusEffect" },
+	__parents = { "JazzTraumaEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
-	object_class = "StatusEffect",
+	object_class = "JazzTraumaEffect",
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcStartTurnAP",

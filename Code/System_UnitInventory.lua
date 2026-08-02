@@ -74,8 +74,6 @@ DefineClass.GrenadeItem = {
 	__parents = { "Grenade" },
 }
 
-
-
 function UnitInventory:GetMaxTilesInSlot(slot_name)
 	if slot_name=="Inventory" or slot_name=="AmmoInventory" or 
 	slot_name=="GrenadesInventory" or slot_name=="OrdnanceInventory" or 
@@ -115,8 +113,9 @@ function UnitProperties:GetInventoryMaxSlots(slot_name)
 		return IsMerc(self) and Max(0, (self.Explosives - 70)/10) or 4
 	end
 	if slot_name == "MedicalInventory" then
-		-- Floor 2: MED-001 baseline Bandage + Morphine must fit even at Medical 20.
-		return IsMerc(self) and Max(2, (self.Medical - 20)/20) or 1
+		-- Skill-based row (no blanket floor): Medical 40→1, 60→2, 80→3, …
+		-- MED-001 must not grant free slots to every merc; surplus Medicine stays in Inventory.
+		return IsMerc(self) and Max(0, (self.Medical - 20)/20) or 1
 	end
 	if slot_name == "PocketInventory" then
 		return IsMerc(self) and Max(0, (self.Mechanical-30)/20) or 0
@@ -592,7 +591,7 @@ function UnitInventory:GetBandaged(medkit, healer)
 		return
 	end
 
-	local heal_amount, condition_rate = healer:CalcHealAmount(medkit, self)
+	local heal_amount = healer:CalcHealAmount(medkit, self)
 	local can_clear_bleed = JazzHasAnyBleed(self)
 	if (heal_amount or 0) <= 0 and not can_clear_bleed then
 		return
@@ -629,17 +628,14 @@ function UnitInventory:GetBandaged(medkit, healer)
 		PlayVoiceResponse(self, "HealReceived")
 	end
 
-	if medkit and restored > 0 then
-		local condition_loss = Max(1, MulDivRound(restored, 100, CombatActions.Bandage:ResolveValue("MaxConditionHPRestore")))
-		condition_loss = Max(1, MulDivRound(condition_loss, condition_rate or 100, 100))
-		medkit.Condition = Clamp(medkit.Condition - condition_loss, 0, 100)
-		local slot = healer:GetItemSlot(medkit)
-		if slot and medkit.Condition <= 0 then
-			CombatLog("short", T{831717454393, "<merc>'s <item> has been depleted", merc = healer.Nick, item = medkit.DisplayName})
+	-- MED-001: kits are stack items — one successful treat spends one.
+	if medkit and healer and (restored > 0 or can_clear_bleed) then
+		local before = medkit.Amount
+		if JazzConsumeInventoryItem(healer, medkit.class, 1) then
+			if (before or 1) <= 1 then
+				CombatLog("short", T{831717454393, "<merc>'s <item> has been depleted", merc = healer.Nick, item = medkit.DisplayName})
+			end
 		end
-	elseif medkit and can_clear_bleed then
-		-- Bleed-only kit use still spends a little condition.
-		medkit.Condition = Clamp((medkit.Condition or 100) - 5, 0, 100)
 	end
 
 	ObjModified(self)

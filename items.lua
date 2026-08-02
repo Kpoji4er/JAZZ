@@ -1553,6 +1553,14 @@ return {
 			'CodeFileName', "Code/UtilityFunc.lua",
 		}),
 		PlaceObj('ModItemCode', {
+			'name', "System_JazzStackableMedicine",
+			'CodeFileName', "Code/System_JazzStackableMedicine.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "System_JazzTraumaEffect",
+			'CodeFileName', "Code/System_JazzTraumaEffect.lua",
+		}),
+		PlaceObj('ModItemCode', {
 			'name', "LegionTierProgression",
 			'CodeFileName', "Code/LegionTierProgression.lua",
 		}),
@@ -55200,12 +55208,12 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Other - Meds",
 				'Id', "JAZZ_Bandage",
-				'object_class', "Medicine",
+				'object_class', "JazzStackableMedicine",
 				'Repairable', false,
 				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_Bandage.png",
 				'DisplayName', T(890000000010011, "Bandage"),
 				'DisplayNamePlural', T(890000000010012, "Bandages"),
-				'AdditionalHint', T(890000000010013, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Bandage action — reduce worst bleeding by one tier\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally"),
+				'AdditionalHint', T(890000000010013, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — reduce worst bleeding by one tier\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally"),
 				'Cost', 25,
 				'CanAppearInShop', true,
 				'RestockWeight', 150,
@@ -55216,12 +55224,12 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Other - Meds",
 				'Id', "JAZZ_Morphine",
-				'object_class', "Medicine",
+				'object_class', "JazzStackableMedicine",
 				'Repairable', false,
 				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_Morphine.png",
 				'DisplayName', T(890000000010014, "Morphine"),
 				'DisplayNamePlural', T(890000000010015, "Morphine"),
-				'AdditionalHint', T(890000000010016, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Hotbar: Morphine action — suppress Pain penalties\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding or heal trauma\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally"),
+				'AdditionalHint', T(890000000010016, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Morphine — suppresses Pain penalties\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding or heal trauma\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally"),
 				'Cost', 75,
 				'CanAppearInShop', true,
 				'RestockWeight', 75,
@@ -55256,24 +55264,25 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Other - Meds",
 				'Id', "FirstAidKit",
-				'object_class', "Medicine",
+				'object_class', "JazzStackableMedicine",
 				'ScrapParts', 1,
 				'Repairable', false,
 				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_IFAK.png",
 				'DisplayName', T(890000000010022, "IFAK"),
 				'DisplayNamePlural', T(890000000010023, "IFAKs"),
-				'AdditionalHint', T(890000000010024, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage action removes one worst bleeding stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory"),
+				'AdditionalHint', T(890000000010024, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage action removes one worst bleeding stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory"),
 				'UnitStat', "Medical",
 				'Cost', 300,
 				'CanAppearInShop', true,
 				'RestockWeight', 150,
 				'CategoryPair', "Medicine",
-				'max_meds_parts', 10,
+				'MaxStacks', 5,
+				'UsePriority', 0,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Other - Meds",
 				'Id', "Medkit",
-				'object_class', "Medicine",
+				'object_class', "JazzStackableMedicine",
 				'unit_reactions', {
 					PlaceObj('UnitReaction', {
 						Event = "OnCalcHealAmount",
@@ -55289,13 +55298,13 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_Medkit.png",
 				'DisplayName', T(890000000010025, "Med Kit"),
 				'DisplayNamePlural', T(890000000010026, "Med Kits"),
-				'AdditionalHint', T(890000000010027, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Consumed on use; refill with Meds"),
+				'AdditionalHint', T(890000000010027, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack"),
 				'UnitStat', "Medical",
 				'Cost', 500,
 				'CanAppearInShop', true,
 				'Tier', 2,
 				'CategoryPair', "Medicine",
-				'max_meds_parts', 12,
+				'MaxStacks', 3,
 				'UsePriority', 1,
 			}),
 			PlaceObj('ModItemInventoryItemCompositeDef', {
@@ -55326,7 +55335,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Other - Meds",
 				'Id', "Reanimationsset",
-				'object_class', "JazzStackableMedicine",
+				'object_class', "Medicine",
 				'unit_reactions', {
 					PlaceObj('UnitReaction', {
 						Event = "OnCalcHealAmount",
@@ -55342,9 +55351,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Icon', "UI/Icons/Items/reanimationsset.png",
 				'DisplayName', T(717284834554, --[[ModItemInventoryItemCompositeDef Reanimationsset DisplayName]] "Reanimationsset"),
 				'DisplayNamePlural', T(900536705401, --[[ModItemInventoryItemCompositeDef Reanimationsset DisplayNamePlural]] "Reanimationssets"),
-				'AdditionalHint', T(890000000010030, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Required for Bandage\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 60% more HP\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory"),
+				'AdditionalHint', T(566246707628, --[[ModItemInventoryItemCompositeDef Reanimationsset AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует состояние умирающих персонажей\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Требуется для использования перевязки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка восстанавливает на 60% ОЗ больше\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится при каждом употреблении, но запас медикаментов можно восполнить\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, просто находясь в инвентаре"),
 				'UnitStat', "Medical",
-				'MaxStacks', 2,
+				'max_meds_parts', 12,
 				'UsePriority', 2,
 			}),
 			}),
@@ -60758,7 +60767,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				DisplayName = T(890000000010200, "Field Bandage"),
 				EvalTarget = function (self, units, target, args)
 					local unit = units[1]
-					if not target or unit:IsOnEnemySide(target) then return -1 end
+					if not IsKindOf(target, "Unit") or unit:IsOnEnemySide(target) then return -1 end
 					if not JazzHasAnyBleed(target) then return -1 end
 					return 100 + (JazzHasAnyBleed(target) and 50 or 0)
 				end,
@@ -60801,11 +60810,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				RequireState = "any",
 				RequireWeapon = false,
 				Run = function (self, unit, ap, ...)
-					local args = ...
-					local target = args and args.target or unit
-					if JazzApplyBandageAction(unit, target) then
-						unit:ConsumeAP(ap)
-					end
+					-- Same Unit:Bandage anim path as kit Bandage; field effect is
+					-- applied once inside Unit:Bandage (not BandageInCombat channel).
+					unit:SetActionCommand("Bandage", self.id, ap, ...)
 				end,
 				SortKey = 9,
 				UIBegin = function (self, units, args)
@@ -60825,7 +60832,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				DisplayName = T(890000000010029, "Morphine"),
 				EvalTarget = function (self, units, target, args)
 					local unit = units[1]
-					if not target or unit:IsOnEnemySide(target) then return -1 end
+					if not IsKindOf(target, "Unit") or unit:IsOnEnemySide(target) then return -1 end
 					if not target:HasStatusEffect("Pain") then return -1 end
 					local pain = target:GetStatusEffect("Pain")
 					return 100 + (pain and pain.stacks or 0)
@@ -60869,11 +60876,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				RequireState = "any",
 				RequireWeapon = false,
 				Run = function (self, unit, ap, ...)
-					local args = ...
-					local target = args and args.target or unit
-					if JazzApplyMorphineAction(unit, target) then
-						unit:ConsumeAP(ap)
-					end
+					-- Same Unit:Bandage anim path; morphine apply is one-shot in Unit:Bandage.
+					unit:SetActionCommand("Bandage", self.id, ap, ...)
 				end,
 				SortKey = 11,
 				UIBegin = function (self, units, args)
@@ -61296,7 +61300,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			}),
 			PlaceObj('ModItemCharacterEffectCompositeDef', {
 				'Id', "TraumaArmsLight",
-				'object_class', "StatusEffect",
+				'object_class', "JazzTraumaEffect",
 				unit_reactions = {
 					PlaceObj('UnitReaction', {
 						Event = "OnFirearmAttackStart",
@@ -61324,7 +61328,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						'Tag', "<cth_penalty>%",
 					}),
 				},
-				'object_class', "StatusEffect",
+				'object_class', "JazzTraumaEffect",
 				unit_reactions = {
 					PlaceObj('UnitReaction', {
 						Event = "OnFirearmAttackStart",
@@ -61360,7 +61364,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						'Tag', "<cth_penalty>%",
 					}),
 				},
-				'object_class', "StatusEffect",
+				'object_class', "JazzTraumaEffect",
 				unit_reactions = {
 					PlaceObj('UnitReaction', {
 						Event = "OnEndTurn",
@@ -61387,7 +61391,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			}),
 			PlaceObj('ModItemCharacterEffectCompositeDef', {
 				'Id', "TraumaLegsLight",
-				'object_class', "StatusEffect",
+				'object_class', "JazzTraumaEffect",
 				unit_reactions = {
 					PlaceObj('UnitReaction', {
 						Event = "OnCalcMoveModifier",
@@ -61420,7 +61424,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						'Tag', "<move_ap_modifier>",
 					}),
 				},
-				'object_class', "StatusEffect",
+				'object_class', "JazzTraumaEffect",
 				unit_reactions = {
 					PlaceObj('UnitReaction', {
 						Event = "OnCalcMoveModifier",
@@ -61468,7 +61472,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						'Tag', "<move_ap_modifier>",
 					}),
 				},
-				'object_class', "StatusEffect",
+				'object_class', "JazzTraumaEffect",
 				unit_reactions = {
 					PlaceObj('UnitReaction', {
 						Event = "OnEndTurn",
@@ -61515,7 +61519,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			}),
 			PlaceObj('ModItemCharacterEffectCompositeDef', {
 				'Id', "TraumaRibsLight",
-				'object_class', "StatusEffect",
+				'object_class', "JazzTraumaEffect",
 				unit_reactions = {
 					PlaceObj('UnitReaction', {
 						Event = "OnCalcStartTurnAP",
@@ -61526,7 +61530,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(890000000010112, "Rib Trauma (Light)"),
-				'Description', T(890000000010113, "Pain at the start of the turn. No Tiredness from ribs. No direct AP penalty."),
+				'Description', T(890000000010113, "Pain at the start of the turn."),
 				'OnAdded', function (self, obj)
 					Msg("UnitAPChanged", obj)
 				end,
@@ -61548,7 +61552,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						'Tag', "<APLoss>",
 					}),
 				},
-				'object_class', "StatusEffect",
+				'object_class', "JazzTraumaEffect",
 				unit_reactions = {
 					PlaceObj('UnitReaction', {
 						Event = "OnCalcStartTurnAP",
@@ -61596,7 +61600,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						'Tag', "<APLoss>",
 					}),
 				},
-				'object_class', "StatusEffect",
+				'object_class', "JazzTraumaEffect",
 				unit_reactions = {
 					PlaceObj('UnitReaction', {
 						Event = "OnEndTurn",
@@ -61643,7 +61647,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			}),
 			PlaceObj('ModItemCharacterEffectCompositeDef', {
 				'Id', "TraumaHeadLight",
-				'object_class', "StatusEffect",
+				'object_class', "JazzTraumaEffect",
 				unit_reactions = {
 					PlaceObj('UnitReaction', {
 						Event = "OnFirearmAttackStart",
@@ -61676,7 +61680,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						'Tag', "<sight_modifier>",
 					}),
 				},
-				'object_class', "StatusEffect",
+				'object_class', "JazzTraumaEffect",
 				unit_reactions = {
 					PlaceObj('UnitReaction', {
 						Event = "OnFirearmAttackStart",
@@ -61725,7 +61729,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						'Tag', "<sight_modifier>",
 					}),
 				},
-				'object_class', "StatusEffect",
+				'object_class', "JazzTraumaEffect",
 				unit_reactions = {
 					PlaceObj('UnitReaction', {
 						Event = "OnEndTurn",
@@ -61760,7 +61764,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			}),
 			PlaceObj('ModItemCharacterEffectCompositeDef', {
 				'Id', "TraumaBurnLight",
-				'object_class', "StatusEffect",
+				'object_class', "JazzTraumaEffect",
 				unit_reactions = {
 					PlaceObj('UnitReaction', {
 						Event = "OnCalcStartTurnAP",
@@ -61780,7 +61784,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			}),
 			PlaceObj('ModItemCharacterEffectCompositeDef', {
 				'Id', "TraumaBurnMedium",
-				'object_class', "StatusEffect",
+				'object_class', "JazzTraumaEffect",
 				unit_reactions = {
 					PlaceObj('UnitReaction', {
 						Event = "OnCalcStartTurnAP",
@@ -61800,7 +61804,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			}),
 			PlaceObj('ModItemCharacterEffectCompositeDef', {
 				'Id', "TraumaBurnHeavy",
-				'object_class', "StatusEffect",
+				'object_class', "JazzTraumaEffect",
 				unit_reactions = {
 					PlaceObj('UnitReaction', {
 						Event = "OnEndTurn",
@@ -64483,7 +64487,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						local weapon = self:GetAttackWeapons(unit, args)
 						if not weapon then return 0 end
 						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
-						-- pellets per shell x shells in burst (action param; not BurstShots/AutoShots)
+						-- pellets per shell × shells in burst (action param; not BurstShots/AutoShots)
 						local pellets = weapon.BuckshotProjectiles or 1
 						local shells = self:ResolveValue("num_shots") or 3
 						local damage = shells * pellets * base

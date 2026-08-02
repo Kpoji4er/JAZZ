@@ -35,7 +35,7 @@ EFFECTS = [
      "Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn.",
      "legs_heavy"),
     ("Ribs", "Light", "Rib Trauma (Light)",
-     "Pain at the start of the turn. No Tiredness from ribs. No direct AP penalty.",
+     "Pain at the start of the turn.",
      "ribs_light"),
     ("Ribs", "Medium", "Rib Trauma (Medium)",
      "Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain at the start of the turn. No Tiredness.",

@@ -29,6 +29,8 @@
 | `UnitPropertiesStats.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md) |
 | `GritOnStart.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md) — grit CombatStart off (MED-001) |
 | `Systems_Medicine.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — bleed tiers / Pain / zonal traumas / bandage API (MED-001) |
+| `System_JazzStackableMedicine.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — `JazzStackableMedicine` (Bandage/Morphine stacks) + kit charge UI helper |
+| `System_JazzTraumaEffect.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — parent `JazzTraumaEffect` for Trauma* tooltips (`GetDescription` progress line) |
 | `Systems_Wounds_HealWounds.lua` | loaded | [Ранения](armor-damage-wounds-will.md) |
 | `System_Wounds_OperationHeal.lua` | loaded | [Ранения](armor-damage-wounds-will.md) |
 | `WillPointsBar.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md), [UI](ui-audio-fx.md) |

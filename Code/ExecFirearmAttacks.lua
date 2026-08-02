@@ -153,11 +153,16 @@ function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 		if action.id == "BulletHell"  then
 			BulletHellOverwriteShots(attack)
 		end
-		local shots_per_animation = results.weapon.AutoShots / 2
+		-- Pace fire-anim segments. Vanilla uses Min(3, #shots) / #shots for burst.
+		-- JAZZ keeps AutoShots/2 for full-auto, but AutoShots==0 on semi-autos (WEAPONS-003)
+		-- must not become a zero divisor (DualShot / multi-attack → line below Sleep).
+		local n_shots = attack.shots and #attack.shots or 0
+		local auto_shots = results.weapon.AutoShots or 0
+		local shots_per_animation = (auto_shots > 0) and Max(1, auto_shots / 2) or Min(3, Max(1, n_shots))
 		if action.id == "BurstFire" or action.id == "MGBurstFire" then
-			shots_per_animation = results.weapon.AutoShots / 2
+			shots_per_animation = Max(1, n_shots)
 		end
-        if IsKindOf(results.weapon, "Shotgun") then
+		if IsKindOf(results.weapon, "Shotgun") then
 			shots_per_animation = 500
 		end
 
@@ -172,7 +177,10 @@ function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 
 
 			if action.id == "AbakanAutoFire" and i < 2 then shots_per_animation = 10 end
-			if action.id == "AbakanAutoFire" and i >= 2 then	shots_per_animation = results.weapon.AutoShots / 2 end
+			if action.id == "AbakanAutoFire" and i >= 2 then
+				auto_shots = results.weapon.AutoShots or 0
+				shots_per_animation = (auto_shots > 0) and Max(1, auto_shots / 2) or Max(1, shots_per_animation)
+			end
 
 			-- shot visuals
 			attack.weapon:FireBullet(self, shot, shot_threads, results, attackArg)
