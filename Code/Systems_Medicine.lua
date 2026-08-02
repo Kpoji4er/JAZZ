@@ -324,8 +324,69 @@ function JazzApplyTrauma(unit, zone, tier)
 	return true
 end
 
+-- Trauma zone → TargetBodyPart keys that armor may cover.
+function JazzTraumaZoneBodyParts(zone)
+	if zone == "Arms" then
+		return { "Arms" }
+	elseif zone == "Legs" then
+		return { "Legs" }
+	elseif zone == "Ribs" then
+		-- Torsoshot + Groinshot both roll Ribs trauma.
+		return { "Torso", "Groin" }
+	elseif zone == "Head" then
+		return { "Head", "Neck" }
+	end
+	return empty_table
+end
+
+-- Chance factor for trauma thresholds: 100 = full chance, lower = armor softens.
+-- Unpierced armor already blocks *shot effects; this softens pierced / residual hits
+-- when worn armor still lists ProtectedBodyParts for that zone.
+-- Best covering piece: mitigation ~= Coverage × Condition%, max ~60% chance cut (floor 40%).
+function JazzGetTraumaArmorChanceFactor(unit, zone)
+	if not unit or not zone or zone == "Burn" then
+		return 100
+	end
+	local parts = JazzTraumaZoneBodyParts(zone)
+	if not next(parts) then
+		return 100
+	end
+	local best = 0
+	unit:ForEachItem("Armor", function(item, slot)
+		if slot == "Inventory" or (item.Condition or 0) <= 0 then
+			return
+		end
+		local protected = item.ProtectedBodyParts
+		if not protected then
+			return
+		end
+		local covers = false
+		for _, part in ipairs(parts) do
+			if protected[part] then
+				covers = true
+				break
+			end
+		end
+		if not covers then
+			return
+		end
+		local cov = item.Coverage or 80
+		local cond = item.GetConditionPercent and item:GetConditionPercent() or (item.Condition or 100)
+		local score = MulDivRound(cov, cond, 100)
+		if score > best then
+			best = score
+		end
+	end)
+	if best <= 0 then
+		return 100
+	end
+	local reduction = MulDivRound(best, 60, 100)
+	return Max(40, 100 - reduction)
+end
+
 -- Body-part *shot rollers → trauma. Grit (Temp HP) still softens like legacy *shot.
 -- Head biases toward Medium/Heavy; other zones mostly Light.
+-- Armor covering the zone scales thresholds down (JazzGetTraumaArmorChanceFactor).
 function JazzTryRollTraumaFromBodyPart(unit, zone)
 	if not unit or not zone or (unit.TempHitPoints or 0) > 0 then
 		return false
@@ -334,24 +395,26 @@ function JazzTryRollTraumaFromBodyPart(unit, zone)
 	if hp <= 0 then
 		hp = 1
 	end
+	local factor = JazzGetTraumaArmorChanceFactor(unit, zone)
+	local thr_heavy, thr_medium, thr_light
+	if zone == "Head" then
+		thr_heavy, thr_medium, thr_light = 8, 28, 50
+	else
+		thr_heavy, thr_medium, thr_light = 4, 18, 45
+	end
+	if factor < 100 then
+		thr_heavy = Max(1, MulDivRound(thr_heavy, factor, 100))
+		thr_medium = Max(thr_heavy + 1, MulDivRound(thr_medium, factor, 100))
+		thr_light = Max(thr_medium + 1, MulDivRound(thr_light, factor, 100))
+	end
 	local roll = unit:Random(hp)
 	local tier
-	if zone == "Head" then
-		if roll < 8 then
-			tier = "Heavy"
-		elseif roll < 28 then
-			tier = "Medium"
-		elseif roll < 50 then
-			tier = "Light"
-		end
-	else
-		if roll < 4 then
-			tier = "Heavy"
-		elseif roll < 18 then
-			tier = "Medium"
-		elseif roll < 45 then
-			tier = "Light"
-		end
+	if roll < thr_heavy then
+		tier = "Heavy"
+	elseif roll < thr_medium then
+		tier = "Medium"
+	elseif roll < thr_light then
+		tier = "Light"
 	end
 	if not tier then
 		return false

@@ -165,7 +165,7 @@ DefineClass.DamageReduction = {
 | Medium | zone debuff | при юзе зоны |
 | Heavy | жёсткий zone debuff | +1 Pain/ход к капу (`JazzTraumaHeavyPainRamp`) |
 
-Zone specifics (Medium / Heavy params): Arms −20/−50 CTH; Legs +50%/+150% move, no Free Move; Ribs −2/−5 start AP, no Free Move, **no Tired**; Head −15/−40 CTH and −20/−50 sight. Eye folded into Head. Hit wiring: `*shot` OnAdded → `JazzTryRollTraumaFromBodyPart` (Head biased to Medium/Heavy). Knockout merc: `JazzApplyKnockoutTraumaPackage`. Burn: `Burning` OnRemoved → `TraumaBurnLight` (Medium/Heavy IDs exist, apply stubbed). Icons: `Icons/StatusEffects/Trauma*.png`.
+Zone specifics (Medium / Heavy params): Arms −20/−50 CTH; Legs +50%/+150% move, no Free Move; Ribs −2/−5 start AP, no Free Move, **no Tired**; Head −15/−40 CTH and −20/−50 sight. Eye folded into Head. Hit wiring: `*shot` OnAdded → `JazzTryRollTraumaFromBodyPart` (Head biased to Medium/Heavy). **Armor trauma soft-mitigation:** `JazzGetTraumaArmorChanceFactor` — worn `Armor` with `ProtectedBodyParts` for the zone (Arms; Legs; Ribs←Torso/Groin; Head←Head/Neck), Condition > 0, scales roll thresholds by `100 − Coverage×Condition%/100 × 60` (floor factor **40**). Unpierced armor still blocks `*shot` via hit effects; this factor softens pierced/residual rolls. Burn + knockout package ignore it. Knockout merc: `JazzApplyKnockoutTraumaPackage`. Burn: `Burning` OnRemoved → `TraumaBurnLight` (Medium/Heavy IDs exist, apply stubbed). Icons: `Icons/StatusEffects/Trauma*.png`.
 
 ## Grit и временное здоровье
 
