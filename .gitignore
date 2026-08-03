@@ -1,5 +1,7 @@
 # Local / agent scratch (keep Steam ignore_files in metadata.lua in sync for overlapping patterns)
 .agents/cache/
+.agents/tmp*
+.agents/tmp-*/
 .tmp/
 .tmp_*
 codex_worktrees/
@@ -16,8 +18,13 @@ __pycache__/
 *.psd
 Thumbs.db
 .DS_Store
-# Dev-only icon review intermediates (not runtime)
+# Dev-only icon / armor scrap intermediates (not runtime)
 Icons/Upgrades/_review/
+ArmorIcons/Raw/
+SquadsIcons/Player/raw.png
+SquadsIcons/Player/raw2.png
+# Local vanilla dump used by localization tooling (not mod content)
+Localization/CurrentLanguage/
 
 # Scratch tool outputs
 docs/tools/_tmp_*
