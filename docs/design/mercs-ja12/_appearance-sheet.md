@@ -2,6 +2,10 @@
 
 Source: https://docs.google.com/spreadsheets/d/1h6Q_NXa3M1W8nQ59KQAJZIn58SNbDcR7_6IvdfpPuLY/edit?gid=0#gid=0
 
+Runtime combine map (Body/Head donors, same-gender only): [`ja12-appearance-map.json`](ja12-appearance-map.json). Generator: `docs/tools/_gen_ja12_appearances.py`.
+
+**Совместимость:** киты AIM плохо стыкуются друг с другом (пропорции/шея). Лучше тело Rebels/Militia/Army/Thugs/Civ + одна голова, либо полный клон одного AIM; не мешать два разных AIM Equipment*.
+
 ## Руди "Рысь" Робертс
 - priority: высокий
 - APPEARANCE: мужчина, белый, 35 лет,, мезоморф средне развит физически.

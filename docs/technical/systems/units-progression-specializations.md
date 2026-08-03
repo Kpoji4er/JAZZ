@@ -45,7 +45,7 @@ Personality pool extras: `Jazz_Perk_Mimicry` (dialogue Negotiator/Scoundrel/Psyc
 `jazz-units`:
 
 - ~239 `UnitData` (включая `JAZZ_AME_01`…`60`);
-- 158 appearance presets;
+- ~261 appearance presets (Legion/handcrafted + **41** generated `JAZZ_JA12` + 60 AME; snapshot);
 - 73 enemy squad definitions (включая четыре `LegionGlobalAI_*` role presets пилота Global AI);
 - 40 AI archetypes;
 - 1257 `LootDef`;
@@ -93,6 +93,22 @@ Offline merc randomization детерминирован. Это означает
 | Generator | `docs/tools/_gen_ame_unitdata.py` (+ roster/flags/portrait tools) |
 
 Design roster: [ame-roster-60.md](../../design/ame-roster-60.md), companion [ame-mercenary-exchange.md](../../design/ame-mercenary-exchange.md). AIM mode `aim` не заменяется AME-скином.
+
+## JA12 merc appearances (JAZZ-UNITS-002 gap fill)
+
+Hireable `Jazz_*` UnitData уже ссылались на preset ids (`Colby`, `Blade`, `Ira`, …), многие из которых не были shipped. Current-state:
+
+| Контракт | Current-state |
+|---|---|
+| Folder | `JA12_Appearances` в `jazz-units/items.lua` (`JAZZ-UNITS-002-JA12-APP-*`) |
+| Group | `JAZZ_JA12` |
+| Count | **41** generated + handcrafted (`Lynx`, `Buzz`, `Spider`, `Mike`, `Horg`, `Ivanov`, `JAZZ_Spouke`) + vanilla reuse (`Biff`, `Hitman`, `Shadow` for Simon) |
+| Method | Prefer **faction/NPC/Thug/Civ body** + head swap, or pure AIM clone. **Avoid AIM×AIM** body/head mixes (poor mesh/neck compat). Same-gender only. |
+| Hard gate | ♂/♀ Body/Head meshes never mixed |
+| Map | [ja12-appearance-map.json](../../design/mercs-ja12/ja12-appearance-map.json) |
+| Generator | `docs/tools/_gen_ja12_appearances.py` (+ `_audit_ja12_appearance_links.py`) |
+
+`Jazz_Benny` → preset `Benny` (Fox female; previously wrongly pointed at `Lynx`).
 
 ## Имена элитных противников
 

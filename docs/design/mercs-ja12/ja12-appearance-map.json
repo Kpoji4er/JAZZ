@@ -1,0 +1,416 @@
+{
+  "Allik": {
+    "gender": "Male",
+    "body_donor": "Militia_Soldier",
+    "head_donor": "Igor",
+    "hair_donor": "Igor",
+    "hat_donor": "",
+    "note": "Estonian AR — Militia + Igor",
+    "handcrafted_kept": false
+  },
+  "Benny": {
+    "gender": "Female",
+    "body_donor": "WorkingGirl01",
+    "head_donor": "Fox",
+    "hair_donor": "Fox",
+    "hat_donor": "",
+    "note": "female fixer — WorkingGirl + Fox",
+    "handcrafted_kept": false
+  },
+  "Biggens": {
+    "gender": "Male",
+    "body_donor": "DirtyHenri",
+    "head_donor": "Gus",
+    "hair_donor": "Gus",
+    "hat_donor": "Gus",
+    "note": "old colonel beret — DirtyHenri militia shirt + Gus",
+    "handcrafted_kept": false
+  },
+  "Blade": {
+    "gender": "Male",
+    "body_donor": "ThugMelee",
+    "head_donor": "Reaper",
+    "hair_donor": "Reaper",
+    "hat_donor": "",
+    "note": "knife psycho — ThugMelee + Reaper",
+    "handcrafted_kept": false
+  },
+  "Bull": {
+    "gender": "Male",
+    "body_donor": "Bonecrusher",
+    "head_donor": "Steroid",
+    "hair_donor": "",
+    "hat_donor": "",
+    "note": "bald bruiser — Bonecrusher + Steroid bald",
+    "handcrafted_kept": false
+  },
+  "Carlos": {
+    "gender": "Male",
+    "body_donor": "Soldier_Rebels_02",
+    "head_donor": "Flay",
+    "hair_donor": "Flay",
+    "hat_donor": "",
+    "note": "Latino rebel — Rebels + Flay",
+    "handcrafted_kept": false
+  },
+  "Colby": {
+    "gender": "Male",
+    "body_donor": "WorkingGuy01",
+    "head_donor": "Sidney",
+    "hair_donor": "Sidney",
+    "hat_donor": "",
+    "note": "inventor clutter — WorkingGuy + Sidney",
+    "handcrafted_kept": false
+  },
+  "Conrad": {
+    "gender": "Male",
+    "body_donor": "GrandChien_Soldier",
+    "head_donor": "Len",
+    "hair_donor": "Len",
+    "hat_donor": "",
+    "note": "Arulco LT — GC Soldier + Len",
+    "handcrafted_kept": false
+  },
+  "Cord": {
+    "gender": "Male",
+    "body_donor": "WorkingGuy01",
+    "head_donor": "Tex",
+    "hair_donor": "Tex",
+    "hat_donor": "",
+    "note": "grease monkey — WorkingGuy + Tex",
+    "handcrafted_kept": false
+  },
+  "Cougar": {
+    "gender": "Male",
+    "body_donor": "Militia_Recon",
+    "head_donor": "Shadow",
+    "hair_donor": "Shadow",
+    "hat_donor": "",
+    "note": "stealth MERC — Militia Recon + Shadow",
+    "handcrafted_kept": false
+  },
+  "Devin": {
+    "gender": "Male",
+    "body_donor": "BillyBoy",
+    "head_donor": "Red",
+    "hair_donor": "Red",
+    "hat_donor": "",
+    "note": "Irish explosives trader — BillyBoy shirt + Red",
+    "handcrafted_kept": false
+  },
+  "Dimitri": {
+    "gender": "Male",
+    "body_donor": "Soldier_Rebels",
+    "head_donor": "Flay",
+    "hair_donor": "Flay",
+    "hat_donor": "",
+    "note": "Greek rebel / machete — Rebels Soldier + Flay",
+    "handcrafted_kept": false
+  },
+  "Dynamo": {
+    "gender": "Male",
+    "body_donor": "Militia_Soldier",
+    "head_donor": "Blood",
+    "hair_donor": "Blood",
+    "hat_donor": "",
+    "note": "beaten mechanic — Militia + Blood",
+    "handcrafted_kept": false
+  },
+  "Eskimo": {
+    "gender": "Male",
+    "body_donor": "Marksman_Rebels",
+    "head_donor": "Omryn",
+    "hair_donor": "Omryn",
+    "hat_donor": "",
+    "note": "northern scout — Rebels Marksman + Omryn",
+    "handcrafted_kept": false
+  },
+  "Flo": {
+    "gender": "Female",
+    "body_donor": "VillagerFemale_08",
+    "head_donor": "Buns",
+    "hair_donor": "Buns",
+    "hat_donor": "",
+    "note": "negotiator civilian — Villager blouse + Buns",
+    "handcrafted_kept": false
+  },
+  "Gamos": {
+    "gender": "Male",
+    "body_donor": "Poacher_01",
+    "head_donor": "Flay",
+    "hair_donor": "Flay",
+    "hat_donor": "",
+    "note": "stealth hunter — Poacher + Flay",
+    "handcrafted_kept": false
+  },
+  "Gaston": {
+    "gender": "Male",
+    "body_donor": "Adonis_Marksman",
+    "head_donor": "Sidney",
+    "hair_donor": "Sidney",
+    "hat_donor": "",
+    "note": "FMC sniper — Adonis Marksman + Sidney",
+    "handcrafted_kept": false
+  },
+  "Grace": {
+    "gender": "Female",
+    "body_donor": "WorkingGirl01",
+    "head_donor": "Livewire",
+    "hair_donor": "Livewire",
+    "hat_donor": "",
+    "note": "jeans / knives — WorkingGirl + Livewire",
+    "handcrafted_kept": false
+  },
+  "Grom": {
+    "gender": "Male",
+    "body_donor": "GrandChien_Officer",
+    "head_donor": "Igor",
+    "hair_donor": "Igor",
+    "hat_donor": "",
+    "note": "Soviet major — GC Officer + Igor",
+    "handcrafted_kept": false
+  },
+  "Henning": {
+    "gender": "Male",
+    "body_donor": "GrandChien_Officer",
+    "head_donor": "Gus",
+    "hair_donor": "Gus",
+    "hat_donor": "",
+    "note": "German officer — GC Officer + Gus",
+    "handcrafted_kept": false
+  },
+  "Highball": {
+    "gender": "Male",
+    "body_donor": "Doctor_01",
+    "head_donor": "Gus",
+    "hair_donor": "Gus",
+    "hat_donor": "",
+    "note": "alcoholic doctor — Doctor NPC + Gus",
+    "handcrafted_kept": false
+  },
+  "Hobbit": {
+    "gender": "Male",
+    "body_donor": "VillagerMale_05",
+    "head_donor": "Barry",
+    "hair_donor": "Barry",
+    "hat_donor": "",
+    "note": "pudgy messy — Villager + Barry",
+    "handcrafted_kept": false
+  },
+  "Ira": {
+    "gender": "Female",
+    "body_donor": "RebelFemaleSniper",
+    "head_donor": "Kalyna",
+    "hair_donor": "Kalyna",
+    "hat_donor": "",
+    "note": "young medic rebel — RebelFemale + Kalyna",
+    "handcrafted_kept": false
+  },
+  "Kulba": {
+    "gender": "Male",
+    "body_donor": "BillyBoy",
+    "head_donor": "Len",
+    "hair_donor": "Len",
+    "hat_donor": "",
+    "note": "old American civilian — BillyBoy shirt + Len",
+    "handcrafted_kept": false
+  },
+  "Laura": {
+    "gender": "Female",
+    "body_donor": "Nurse_01",
+    "head_donor": "Scope",
+    "hair_donor": "Scope",
+    "hat_donor": "",
+    "note": "coat / med bag — Nurse + Scope",
+    "handcrafted_kept": false
+  },
+  "Lucky": {
+    "gender": "Male",
+    "body_donor": "Militia_Stormer",
+    "head_donor": "Blood",
+    "hair_donor": "Blood",
+    "hat_donor": "",
+    "note": "muscle AR — Militia Stormer + Blood",
+    "handcrafted_kept": false
+  },
+  "Madman": {
+    "gender": "Male",
+    "body_donor": "ThugAssault",
+    "head_donor": "Nails",
+    "hair_donor": "Nails",
+    "hat_donor": "",
+    "note": "torn punk — ThugAssault + Nails",
+    "handcrafted_kept": false
+  },
+  "Manuel": {
+    "gender": "Male",
+    "body_donor": "Recon_Rebels_02",
+    "head_donor": "Tex",
+    "hair_donor": "Tex",
+    "hat_donor": "",
+    "note": "dirty rebel cover — Rebels Recon + Tex",
+    "handcrafted_kept": false
+  },
+  "Meat": {
+    "gender": "Male",
+    "body_donor": "Bulldozer",
+    "head_donor": "Grizzly",
+    "hair_donor": "Grizzly",
+    "hat_donor": "",
+    "note": "huge / dumb — Bulldozer + Grizzly",
+    "handcrafted_kept": false
+  },
+  "Miguel": {
+    "gender": "Male",
+    "body_donor": "Commander_Rebels",
+    "head_donor": "Chimurenga",
+    "hair_donor": "Chimurenga",
+    "hat_donor": "Chimurenga",
+    "note": "rebel leader beret — Commander + Chimurenga",
+    "handcrafted_kept": false
+  },
+  "Monk": {
+    "gender": "Male",
+    "body_donor": "Recon_Rebels",
+    "head_donor": "DrQ",
+    "hair_donor": "DrQ",
+    "hat_donor": "",
+    "note": "camo mystic — Rebels Recon + DrQ",
+    "handcrafted_kept": false
+  },
+  "Nervous": {
+    "gender": "Male",
+    "body_donor": "ThugAssault",
+    "head_donor": "MD",
+    "hair_donor": "MD",
+    "hat_donor": "",
+    "note": "redneck autorifle — Thug + MD",
+    "handcrafted_kept": false
+  },
+  "Quinten": {
+    "gender": "Male",
+    "body_donor": "Adonis_Medic",
+    "head_donor": "Blood",
+    "hair_donor": "Blood",
+    "hat_donor": "",
+    "note": "ripped medic — Adonis Medic + Blood",
+    "handcrafted_kept": false
+  },
+  "Ricochet": {
+    "gender": "Male",
+    "body_donor": "Gangster_01",
+    "head_donor": "Nails",
+    "hair_donor": "Nails",
+    "hat_donor": "",
+    "note": "punk — Gangster + Nails",
+    "handcrafted_kept": false
+  },
+  "Rothman": {
+    "gender": "Male",
+    "body_donor": "Adonis_Officer",
+    "head_donor": "Magic",
+    "hair_donor": "Magic",
+    "hat_donor": "",
+    "note": "security commander — Adonis Officer + Magic",
+    "handcrafted_kept": false
+  },
+  "Shank": {
+    "gender": "Male",
+    "body_donor": "Gangster_01",
+    "head_donor": "Ice",
+    "hair_donor": "Ice",
+    "hat_donor": "",
+    "note": "exhausted rich kid — Gangster hoodie + Ice",
+    "handcrafted_kept": false
+  },
+  "Static": {
+    "gender": "Male",
+    "body_donor": "WorkingGuy02",
+    "head_donor": "Thor",
+    "hair_donor": "Thor",
+    "hat_donor": "Thor",
+    "note": "hippie mechanic — WorkingGuy + Thor band",
+    "handcrafted_kept": false
+  },
+  "Steiger": {
+    "gender": "Male",
+    "body_donor": "Adonis_Soldier",
+    "head_donor": "Shadow",
+    "hair_donor": "Shadow",
+    "hat_donor": "",
+    "note": "GSG-9 — Adonis kit + Shadow",
+    "handcrafted_kept": false
+  },
+  "Vicious": {
+    "gender": "Male",
+    "body_donor": "ThugMelee",
+    "head_donor": "Reaper",
+    "hair_donor": "Reaper",
+    "hat_donor": "",
+    "note": "melee mean — ThugMelee + Reaper",
+    "handcrafted_kept": false
+  },
+  "Vilde": {
+    "gender": "Male",
+    "body_donor": "Militia_Officer",
+    "head_donor": "Igor",
+    "hair_donor": "Igor",
+    "hat_donor": "",
+    "note": "militarized leader — Militia Officer + Igor",
+    "handcrafted_kept": false
+  },
+  "Vince": {
+    "gender": "Male",
+    "body_donor": "Doctor_02",
+    "head_donor": "Sidney",
+    "hair_donor": "Sidney",
+    "hat_donor": "",
+    "note": "neat civilian doctor — Doctor NPC + Sidney",
+    "handcrafted_kept": false
+  },
+  "Buzz": {
+    "gender": "Female",
+    "handcrafted_kept": true,
+    "note": "LMG — Fauda + Fox (handcrafted)"
+  },
+  "Hitman": {
+    "gender": "Male",
+    "handcrafted_kept": true,
+    "note": "vanilla Hitman (keep if present)"
+  },
+  "Horg": {
+    "gender": "Male",
+    "handcrafted_kept": true,
+    "note": "heavy — Steroid (handcrafted)"
+  },
+  "Ivanov": {
+    "gender": "Male",
+    "handcrafted_kept": true,
+    "note": "NPC — Ivan"
+  },
+  "JAZZ_Spouke": {
+    "gender": "Male",
+    "handcrafted_kept": true,
+    "note": "keep handcrafted if present"
+  },
+  "Lynx": {
+    "gender": "Male",
+    "handcrafted_kept": true,
+    "note": "sniper — Fidel + pale Ice (handcrafted)"
+  },
+  "Mike": {
+    "gender": "Male",
+    "handcrafted_kept": true,
+    "note": "dark tac — Ice (handcrafted)"
+  },
+  "Simon": {
+    "gender": "Male",
+    "handcrafted_kept": true,
+    "note": "stealth — use vanilla Shadow via UnitData"
+  },
+  "Spider": {
+    "gender": "Female",
+    "handcrafted_kept": true,
+    "note": "medic — Mouse + Buns (handcrafted)"
+  }
+}
