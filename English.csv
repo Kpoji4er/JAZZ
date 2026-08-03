@@ -11412,3 +11412,6 @@ ID,Text,Translation,VoiceActor,Context
 890000000002817,Okay... I'll try. Just make sure someone's got my back.
 890000000003117,Already in the shadows. I'm in.
 890000000002416,Rocket launcher's with me. Let's move.
+890000000010197,Treated: healing. Progress checks are faster; each check improves the trauma (will not worsen).,Treated: healing. Progress checks are faster; each check improves the trauma (will not worsen).,,jazz:MED-001-trauma-healing
+890000000010198,Next progress check: <em>due now</em> (healing — will improve).,Next progress check: <em>due now</em> (healing — will improve).,,jazz:MED-001-trauma-healing
+890000000010199,Next progress check in <em><hours> h</em> (healing — will improve).,Next progress check in <em><hours> h</em> (healing — will improve).,,jazz:MED-001-trauma-healing

@@ -93,11 +93,12 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 
 ## Non-goals (→ MED-002+)
 
-- Satellite hospital clear / полная полевая хирургия / заживление средней+тяжёлой на глобалке.
+- Satellite hospital clear / полная стационарная хирургия (мгновенное снятие Trauma* по концу Hospital).
 - Инфекция / choking rework / pneumothorax / concussion package (D-layer).
 - Отдельные `TraumaEye*` ID (folded into Head for v1).
 - Burn medium/heavy apply pipeline beyond `Burning` → `TraumaBurnLight` stub.
 - Medic profile tags (санитар/врач) как жёсткий gate (v1: Medical thresholds soft).
+- Medical-quality tiers для скорости `jazz_healing` (v1: фиксированный буст после TreatWounds).
 - Переписать весь loot distribution.
 - Удаление ID `Wounded` / `FirstAidKit` (rebrand/disable behavior only).
 
@@ -117,13 +118,14 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - `JAZZ-MED-001-REQ-012` — status icons `Icons/StatusEffects/Trauma*.png` wired on effects.
 - `JAZZ-MED-001-REQ-013` — worn armor covering the hit zone (`ProtectedBodyParts`: Arms / Legs / Torso|Groin→Ribs / Head|Neck→Head) reduces trauma roll chance via `JazzGetTraumaArmorChanceFactor` (Coverage×Condition, max ~60% cut, floor factor 40). Does not apply to Burn or knockout package. Unpierced armor still blocks `*shot` separately.
 - `JAZZ-MED-001-REQ-014` — behind-armor trauma (BAT): when hit has `armor_decay` and no `armor_pen`, `JazzTryBehindArmorTrauma` may apply Light (rarely Medium) zone trauma + Pain; no bleed. Chance scales with `armor_prevented + residual` damage.
+- `JAZZ-MED-001-REQ-015` — field TreatWounds / `PatientAddHealWoundProgress` marks each patient `Trauma*` with `jazz_healing`: progress checks use halved interval (floor 2h), improve **100%** (guaranteed tier step-down via improve branch), worsen **0**; flag survives tier downgrade. Does **not** instant-clear Trauma*. `HealWounds` Effect does **not** set healing.
 
 ## Инварианты и ограничения
 
 - Публичный ID `FirstAidKit` сохраняется (IFAK rebrand).
 - `TrueGrit` perk не трогаем.
 - Deterministic RNG: `unit:Random` / InteractionRand как соседние medicine hooks.
-- HealWounds / operation heal обновляются под новые bleed ID (не оставлять только `Bleeding`); trauma clear на госпитале — MED-002.
+- HealWounds / operation heal обновляются под новые bleed ID (не оставлять только `Bleeding`); trauma **clear** на госпитале — MED-002; trauma **healing flag** после полевой операции — MED-001 (см. REQ-015).
 - Bandage не лечит травмы.
 
 ## Acceptance criteria
@@ -138,6 +140,7 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - `JAZZ-MED-001-AC-008` — runtime/human: body hit rolls trauma; knockout applies heavy package; zone debuffs match design formula.
 - `JAZZ-MED-001-AC-009` — static: `JazzGetTraumaArmorChanceFactor` scales thresholds when covering armor Condition>0; Burn/knockout untouched.
 - `JAZZ-MED-001-AC-010` — static: unpierced armor path calls `JazzTryBehindArmorTrauma`; no bleed on BAT.
+- `JAZZ-MED-001-AC-011` — static: `PatientAddHealWoundProgress` calls `JazzMarkUnitTraumasHealing`; healing chances/interval match REQ-015; `HealWounds` does not mark healing.
 
 ## Impact и совместимость
 
@@ -174,14 +177,15 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - `JAZZ-MED-001-AC-008`: `BLOCKED` — runtime/human trauma playtest pending.
 - `JAZZ-MED-001-AC-009`: `PASS` — static: armor zone→factor wired in `Systems_Medicine.lua`.
 - `JAZZ-MED-001-AC-010`: `PASS` — static: BAT wired from `ApplyDamageAndEffects` unpierced branch.
+- `JAZZ-MED-001-AC-011`: `PASS` — static: OperationHeal marks `jazz_healing`; progress **100%** improve / **0** worsen / half interval; HealWounds unchanged for trauma.
 
-status note: code wired including zonal traumas + armor trauma mitigation + BAT + split hotbar medicine (`JazzBandage` / kit `Bandage` / `JazzMorphine`) + trauma progress timers/UI; mark `implemented` after smoke in editor/game.
+status note: code wired including zonal traumas + armor trauma mitigation + BAT + split hotbar medicine (`JazzBandage` / kit `Bandage` / `JazzMorphine`) + trauma progress timers/UI + OperationHeal→healing flag; mark `implemented` after smoke in editor/game.
 
-**Contract note (owner):** MED-001 non-goal deferred «заживление средней+тяжёлой на глобалке» to MED-002. Runtime now has soft satellite progress checks for all tiers (Light can clear; Medium/Heavy low improve odds; no hospital clear). Confirm whether to amend non-goals / add AC for progress timers, or keep hospital-quality healing as MED-002 only.
+**Contract note (owner):** Hospital clear remains MED-002. Soft satellite progress + **field TreatWounds → `jazz_healing`** (guaranteed improve each check, block worsen) are MED-001 per design agreement («полевое лечение запускает медленное заживление»). Medical-quality speed tiers still deferred.
 
 ## Documentation delta
 
 - `docs/design/medicine.md` — status → approved / v1 implementing (traumas in scope)
-- `docs/technical/systems/armor-damage-wounds-will.md` — grit off, bleed tiers, Pain, zonal traumas, items
+- `docs/technical/systems/armor-damage-wounds-will.md` — grit off, bleed tiers, Pain, zonal traumas, items, OperationHeal healing flag
 - `docs/technical/systems/file-coverage.md` — Systems_Medicine.lua + Trauma* effects
-- `docs/wiki/combat-and-accuracy.md` + showcase RU/EN — player-facing wounds/medicine/trauma notes
+- `docs/wiki/combat-and-accuracy.md` + showcase RU/EN — player-facing wounds/medicine/trauma notes (+ field healing)

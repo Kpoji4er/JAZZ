@@ -817,15 +817,110 @@ function JazzTraumaCheckIntervalHours(zone, tier)
 	return 48
 end
 
--- Chance table: roll 1..100 → improve / worsen / stay.
-function JazzTraumaProgressChances(zone, tier)
-	if tier == "Light" then
-		return 55, 10
-	elseif tier == "Medium" then
-		return 20, 25
+-- Field TreatWounds / OperationHeal marks Trauma* as healing (parameter jazz_healing=1).
+-- Healing: worsen 0, improve 100% each check (guaranteed tier step-down over time),
+-- check interval halved (floor 2h). HealWounds effect does NOT set this.
+function JazzTraumaIsHealing(effect)
+	return effect and (effect:ResolveValue("jazz_healing") or 0) ~= 0
+end
+
+function JazzSetTraumaHealing(effect, healing)
+	if not effect then
+		return false
 	end
-	-- Heavy: rarely improves without hospital (MED-002); no worsen (infection deferred).
-	return 8, 0
+	effect:SetParameter("jazz_healing", healing and 1 or 0)
+	return true
+end
+
+function JazzMarkUnitTraumasHealing(unit)
+	if not unit then
+		return false
+	end
+	local any = false
+	for _, zone in ipairs(JazzTraumaZones) do
+		local tier = JazzGetTraumaTier(unit, zone)
+		if tier then
+			local effect = unit:GetStatusEffect(lTraumaId(zone, tier))
+			if effect then
+				JazzSetTraumaHealing(effect, true)
+				JazzInitTraumaProgressTimer(effect, zone, tier)
+				any = true
+			end
+		end
+	end
+	return any
+end
+
+-- Chance table: roll 1..100 → improve / worsen / stay.
+-- healing=true (after OperationHeal): worsen blocked; improve guaranteed (100).
+-- Successful improve still uses JazzDowngradeTrauma (Light clear / Medium→Light / Heavy→Medium).
+function JazzTraumaProgressChances(zone, tier, healing)
+	if healing then
+		return 100, 0
+	end
+	local improve, worsen
+	if tier == "Light" then
+		improve, worsen = 55, 10
+	elseif tier == "Medium" then
+		improve, worsen = 20, 25
+	else
+		-- Heavy: rarely improves untreated; no worsen (infection deferred).
+		improve, worsen = 8, 0
+	end
+	return improve, worsen
+end
+
+-- ---------------------------------------------------------------------------
+-- Satellite HP regen: vanilla UnitData:Tick adds NaturalHealPerTick /
+-- PatientHealPerTick every Satellite.Tick (15 min) → Natural 4 HP/h, Patient 20 HP/h.
+-- JAZZ reinterprets those ConstDef values as HP per campaign hour via accumulator
+-- (same numbers → Natural ~1 HP/h, Patient ~5 HP/h; R&R still × RandRActivityHealingMultiplier).
+-- ---------------------------------------------------------------------------
+local function lJazzSatelliteHealHpThisTick(unit, rate_per_hour)
+	rate_per_hour = rate_per_hour or 0
+	if rate_per_hour <= 0 then
+		return 0
+	end
+	local scale_h = (const.Scale and const.Scale.h) or 3600
+	local tick = (const.Satellite and const.Satellite.Tick) or scale_h
+	-- Accumulate thousandths of an HP so Patient 5/h yields steady steps on 15-min ticks.
+	local progress = (unit.jazz_sat_hp_heal_progress or 0) + MulDivRound(rate_per_hour * 1000, tick, scale_h)
+	local whole = progress / 1000
+	whole = whole - whole % 1
+	if whole < 1 then
+		unit.jazz_sat_hp_heal_progress = progress
+		return 0
+	end
+	unit.jazz_sat_hp_heal_progress = progress - whole * 1000
+	return whole
+end
+
+function UnitData:Tick()
+	if self.HiredUntil and Game.CampaignTime + const.Scale.h * 60 > self.HiredUntil then
+		TutorialHintsState.ContractExpireHint = true
+	end
+
+	if self.HiredUntil and Game.CampaignTime >= self.HiredUntil then
+		MercContractExpired(self)
+	end
+
+	-- heal player mercs; heal militia/enemy when not traveling
+	if IsMerc(self) or self.Operation ~= "Traveling" then
+		local rate = IsPatient(self) and const.Satellite.PatientHealPerTick or const.Satellite.NaturalHealPerTick
+		if self.Operation == "RAndR" then
+			rate = const.Satellite.RandRActivityHealingMultiplier * rate
+		end
+		local add = lJazzSatelliteHealHpThisTick(self, rate)
+		if add > 0 then
+			local old_hp = self.HitPoints
+			self.HitPoints = Min(self.HitPoints + add, self.MaxHitPoints)
+			local healed = self.HitPoints - old_hp
+			if healed > 0 then
+				self:OnHeal(healed)
+			end
+		end
+	end
+	Msg("UnitDataTick", self)
 end
 
 function JazzInitTraumaProgressTimer(effect, zone, tier)
@@ -839,6 +934,9 @@ function JazzInitTraumaProgressTimer(effect, zone, tier)
 		return false
 	end
 	local hours = JazzTraumaCheckIntervalHours(zone, tier)
+	if JazzTraumaIsHealing(effect) then
+		hours = Max(2, DivRound(hours, 2))
+	end
 	local scale_h = (const.Scale and const.Scale.h) or 1
 	effect:SetParameter("next_check_time", Game.CampaignTime + hours * scale_h)
 	effect:SetParameter("check_interval_h", hours)
@@ -865,16 +963,25 @@ end
 function JazzFormatTraumaStatusDescription(effect, base_desc)
 	local zone, tier = JazzParseTraumaEffectId(effect and effect.class)
 	local hours = JazzTraumaHoursUntilNextCheck(effect)
+	local healing = JazzTraumaIsHealing(effect)
 	local timing
 	if hours == false then
 		timing = T(890000000010203, "Next progress check: pending.")
+	elseif healing then
+		if hours <= 0 then
+			timing = T(890000000010198, "Next progress check: <em>due now</em> (healing — will improve).")
+		else
+			timing = T{890000000010199, "Next progress check in <em><hours> h</em> (healing — will improve).", hours = hours}
+		end
 	elseif hours <= 0 then
 		timing = T(890000000010204, "Next progress check: <em>due now</em> (may improve or worsen).")
 	else
 		timing = T{890000000010205, "Next progress check in <em><hours> h</em> (may improve or worsen).", hours = hours}
 	end
 	local flavor
-	if tier == "Light" then
+	if healing then
+		flavor = T(890000000010197, "Treated: healing. Progress checks are faster; each check improves the trauma (will not worsen).")
+	elseif tier == "Light" then
 		flavor = T(890000000010206, "Light trauma can clear on its own over time.")
 	elseif tier == "Medium" then
 		flavor = T(890000000010207, "Without treatment this may improve or worsen.")
@@ -898,6 +1005,8 @@ function JazzDowngradeTrauma(unit, zone)
 	if not current then
 		return false
 	end
+	local old_effect = unit:GetStatusEffect(lTraumaId(zone, current))
+	local was_healing = JazzTraumaIsHealing(old_effect)
 	local rank = JazzTraumaTierRank[current]
 	JazzClearZoneTrauma(unit, zone)
 	if rank <= 1 then
@@ -908,6 +1017,9 @@ function JazzDowngradeTrauma(unit, zone)
 	unit:AddStatusEffect(lTraumaId(zone, new_tier))
 	local effect = unit:GetStatusEffect(lTraumaId(zone, new_tier))
 	if effect then
+		if was_healing then
+			JazzSetTraumaHealing(effect, true)
+		end
 		JazzInitTraumaProgressTimer(effect, zone, new_tier)
 	end
 	Msg("JAZZ_TraumaApplied", unit, zone, new_tier)
@@ -918,7 +1030,8 @@ function JazzTraumaResolveProgressCheck(unit, zone, tier, effect)
 	if not unit or not zone or not tier then
 		return false
 	end
-	local improve_chance, worsen_chance = JazzTraumaProgressChances(zone, tier)
+	local healing = JazzTraumaIsHealing(effect)
+	local improve_chance, worsen_chance = JazzTraumaProgressChances(zone, tier, healing)
 	local roll = (unit.Random and unit:Random(100)) or InteractionRand(100, "JazzTraumaProgress")
 	roll = roll + 1 -- 1..100
 	local nick = unit.Nick or unit.Name or ""

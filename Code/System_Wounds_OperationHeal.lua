@@ -21,6 +21,12 @@ function PatientAddHealWoundProgress(merc, progress, max_progress, dont_log)
 		merc.heal_wound_progress = merc.heal_wound_progress - max_progress
 		wounds_healed = true
 	end
+	-- MED-001: field operation starts trauma healing (does not clear Trauma*).
+	-- HealWounds script effect does not mark healing — only OperationHeal / TreatWounds.
+	local mark_healing = rawget(_G, "JazzMarkUnitTraumasHealing")
+	if wounds_healed and type(mark_healing) == "function" then
+		mark_healing(merc)
+	end
 	if wounds_healed and not dont_log then
 		if merc.OperationProfession ~= "Doctor" then
 			local context = {merc = merc}
@@ -36,6 +42,9 @@ function PatientAddHealWoundProgress(merc, progress, max_progress, dont_log)
 		end
 		merc.heal_wound_progress = 0
 		merc.wounds_being_treated = 0
+		if type(mark_healing) == "function" then
+			mark_healing(merc)
+		end
 	elseif wounds_healed and not dont_log then
 		CombatLog("short", T{394097034872, "<merc_name> was <em>cured of a wound</em>.", merc_name = merc.Nick})
 	end

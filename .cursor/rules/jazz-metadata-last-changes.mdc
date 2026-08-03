@@ -1,0 +1,46 @@
+---
+description: Как безопасно дописывать metadata.lua last_changes (только \\n, без raw newline).
+alwaysApply: true
+---
+
+# `metadata.lua` → `last_changes`
+
+Поле — **одна Lua-строка**. Переносы между буллетами — только escape-последовательность `\n` в исходнике файла, **не** реальный символ перевода строки (LF/CRLF).
+
+## Зачем
+
+Сырой newline внутри `'last_changes', "..."` рвёт парсинг ModDef → мод может не грузиться. Уже был HOTFIX и `docs/tools/_fix_metadata_last_changes_and_audit_code.py`.
+
+## Правильный append
+
+Было:
+
+```lua
+'last_changes', "- Older bullet\n- Even older",
+```
+
+Стать должно (одна физическая строка файла или с `\n` только как два символа `\` + `n`):
+
+```lua
+'last_changes', "- New bullet\n- Older bullet\n- Even older",
+```
+
+В Python/скриптах:
+
+```python
+# ПРАВИЛЬНО — в файл пишутся символы \ и n
+ins = f"- {bullet}\\n"
+
+# НЕПРАВИЛЬНО — в файл попадает настоящий LF
+ins = f"- {bullet}\n"
+```
+
+В ручном edit / StrReplace — вставлять текст `- …\\n` (backslash-n), не Enter внутри кавычек.
+
+## Правила поведения агента
+
+1. **Append** краткий буллет в начало значения; не перезаписывать всё поле (кроме Steam upload — `$release-jazz-suite`).
+2. После правки проверить: между открывающей кавычкой `last_changes` и закрывающей **нет raw LF** (только последовательности `\n`).
+3. Генераторы/аудит-скрипты (`docs/tools/_gen_*`) **не** трогают `last_changes` сами — только при явном коммите / по запросу владельца.
+4. Не склеивать буллеты через ` - ` без `\n`; один буллет = одна логическая строка, разделённая `\n`.
+5. Связано: `.cursor/rules/jazz-commits-versioning.mdc`, `docs/technical/systems/release-versioning.md`.

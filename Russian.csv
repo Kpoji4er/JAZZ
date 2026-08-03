@@ -11654,3 +11654,6 @@ ID,Text,Translation,VoiceActor,Context
 890000000003717,Иду с вами. Фатима поймёт.
 890000000002817,Ладно... я попробую. Только пусть кто-нибудь прикроет.
 890000000003117,Уже в тени. Иду.
+890000000010197,Treated: healing. Progress checks are faster; each check improves the trauma (will not worsen).,Лечение: заживает. Проверки чаще; каждая проверка улучшает травму (не ухудшится).,,jazz:MED-001-trauma-healing
+890000000010198,Next progress check: <em>due now</em> (healing — will improve).,Следующая проверка прогресса: <em>сейчас</em> (заживает — улучшится).,,jazz:MED-001-trauma-healing
+890000000010199,Next progress check in <em><hours> h</em> (healing — will improve).,Следующая проверка прогресса через <em><hours> ч</em> (заживает — улучшится).,,jazz:MED-001-trauma-healing
