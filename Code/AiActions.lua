@@ -1095,6 +1095,25 @@ if destinations and not table.find(destinations, stay) then
   context.dest_ap[stay] = context.dest_ap[stay] or unit.ActionPoints
 end
 
+    -- Cap GetLoFData dest matrix (M1 path dests can be 200–400 → multi-second Precalc).
+    -- Do not rawget(_G,…): JAZZ_* live in the mod env, not always on _G.
+    local precalc_cap = (rawget(_G, "JAZZ_AI_PERF_PRECALC_DEST_CAP") or JAZZ_AI_PERF_PRECALC_DEST_CAP) or 80
+    local precalc_capped = 0
+    local cap_fn = rawget(_G, "JAZZ_AICapDestLosCandidates") or JAZZ_AICapDestLosCandidates
+    if destinations and #destinations > precalc_cap and type(cap_fn) == "function" then
+        local capped
+        capped, precalc_capped = cap_fn(unit, context, destinations, precalc_cap)
+        destinations = capped
+        if stay and not table.find(destinations, stay) then
+            -- Cap must never drop stay (attack-from-here baseline).
+            if #destinations >= precalc_cap then
+                destinations[precalc_cap] = stay
+            else
+                destinations[#destinations + 1] = stay
+            end
+        end
+    end
+
     -- Soft target prune: only when many targets; wide margin (smarter near edge cases).
     local base_margin = JAZZ_AI_PERF_RANGE_MARGIN or (2 * const.SlabSizeX)
     local soft_mult = JAZZ_AI_PERF_PRECALC_MARGIN_MULT or 4
@@ -1123,15 +1142,15 @@ end
     end
     if #targets == 0 then
         if tStart and rawget(_G, "JAZZ_AIPerfLog") then
-            JAZZ_AIPerfLog("Precalc unit=%s ms=%d dests=%d targets=0 (shortlist empty)",
+            JAZZ_AIPerfLog("Precalc unit=%s ms=%d dests=%d targets=0 (shortlist empty) capped=%d",
                 tostring(unit.unitdatadef_id or unit.class), GetPreciseTicks() - tStart,
-                destinations and #destinations or 0)
+                destinations and #destinations or 0, precalc_capped)
         end
         return
     end
 
     NetUpdateHash("AIPrecalcDamageScore", unit, hashParamTable(destinations),
-                  hashParamTable(targets), preferred_target, shortlist_range or 0)
+                  hashParamTable(targets), preferred_target, shortlist_range or 0, precalc_capped, precalc_cap)
     local los_cache = g_AIDestEnemyLOSCache
     local scored_dests, skipped_los = 0, 0
     for j, upos in ipairs(destinations) do
@@ -1382,9 +1401,9 @@ end
     end
 
     if tStart and rawget(_G, "JAZZ_AIPerfLog") then
-        JAZZ_AIPerfLog("Precalc unit=%s ms=%d dests=%d targets=%d scored_dests=%d skipped_los=%d",
+        JAZZ_AIPerfLog("Precalc unit=%s ms=%d dests=%d targets=%d scored_dests=%d skipped_los=%d capped=%d",
             tostring(unit.unitdatadef_id or unit.class), GetPreciseTicks() - tStart,
-            destinations and #destinations or 0, #targets, scored_dests, skipped_los)
+            destinations and #destinations or 0, #targets, scored_dests, skipped_los, precalc_capped or 0)
     end
 
     -- выбираем лучший и сравниваем со "стоя на месте"

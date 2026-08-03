@@ -31,4 +31,8 @@ CommonLib does not collapse path rebuilds or shrink OptLoc enumeration.
 
 ## Mod notes
 
-JAZZ touches destination / behavior scoring; changing OptLoc radius or path counts is sync- and behavior-sensitive.
+JAZZ `JAZZ-AI-PERF-001` follow-up (`CombatAI.lua` / `AIPolicy.lua`):
+- **`AIEnumValidDests`:** after CollapsePoints, cap to `JAZZ_AI_PERF_OPTLOC_DEST_CAP` (400) — prefer stay / `important_dests` / `destinations`, then **nearest threat**; hash `AIEnumValidDests_Cap`.
+- TakeCover far-skip of `GetCoverPercentage` was tried and **reverted** (wrong-side cover hug).
+- Gated log: `config.JAZZ_AIPerfLog` → `[JAZZ-AI-PERF] EnumDests ...` / `OptLoc ...`.
+- Changing OptLoc **radius** presets or EndTurn policies remains sync-/behavior-sensitive and is out of this cap.

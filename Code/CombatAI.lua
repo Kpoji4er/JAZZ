@@ -917,8 +917,13 @@ end
 -- Enemy shortlist rolled back: use full enemies (smarter LOS). Cap CheckLOS dests.
 JAZZ_AI_PERF_RANGE_MARGIN = 2 * const.SlabSizeX
 JAZZ_AI_PERF_DESTLOS_CAP = 320
+-- OptLoc/all_destinations scoring cap (TakeCover×enemies over open M1 slabs).
+-- Prefer stay / important / behavior dests, then nearest threat; rest dropped.
+JAZZ_AI_PERF_OPTLOC_DEST_CAP = 400
 JAZZ_AI_PERF_PRECALC_TARGET_SOFT = 12 -- only range-prune when more targets than this
 JAZZ_AI_PERF_PRECALC_MARGIN_MULT = 4 -- soft: margin * this (8 slabs default)
+-- AIPrecalcDamageScore: GetLoFData per dest; cap scored dests (stay/important first).
+JAZZ_AI_PERF_PRECALC_DEST_CAP = 80
 
 function JAZZ_AIPerfLog(fmt, ...)
 	if config.JAZZ_AIPerfLog then
@@ -972,7 +977,9 @@ function JAZZ_AIShortlistTargetsByRange(targets, destinations, stay, range)
 	return JAZZ_AISortUnitsByHandle(shortlist)
 end
 
--- Prefer stay / important / behavior dests, then nearest by 2D; stable by packed dest.
+-- Prefer stay / important / behavior dests, then nearest to threats (else to stay); stable by packed dest.
+-- Used by DestLos CheckLOS cap and OptLoc all_destinations cap.
+-- Sorting rest toward enemies keeps threat-facing cover in the capped set (not only self-adjacent walls).
 function JAZZ_AICapDestLosCandidates(unit, context, dests, cap)
 	if not dests or #dests <= cap then
 		return dests, 0
@@ -992,6 +999,14 @@ function JAZZ_AICapDestLosCandidates(unit, context, dests, cap)
 		mark(d)
 	end
 
+	local enemy_pos = {}
+	for _, e in ipairs(context.enemies or empty_table) do
+		local p = context.enemy_pack_pos_stance and context.enemy_pack_pos_stance[e]
+		if p then
+			enemy_pos[#enemy_pos + 1] = p
+		end
+	end
+
 	local pri, rest = {}, {}
 	for i = 1, #dests do
 		local d = dests[i]
@@ -1004,9 +1019,32 @@ function JAZZ_AICapDestLosCandidates(unit, context, dests, cap)
 	table.sort(pri, function(a, b)
 		return a < b
 	end)
+
+	local dist_cache = {}
+	local function nearest_threat_dist_sqr(d)
+		local cached = dist_cache[d]
+		if cached then
+			return cached
+		end
+		local best
+		if #enemy_pos == 0 then
+			best = stay and JAZZ_AIStancePosDist2DSqr(stay, d) or 0
+		else
+			best = JAZZ_AIStancePosDist2DSqr(d, enemy_pos[1])
+			for i = 2, #enemy_pos do
+				local dist = JAZZ_AIStancePosDist2DSqr(d, enemy_pos[i])
+				if dist < best then
+					best = dist
+				end
+			end
+		end
+		dist_cache[d] = best
+		return best
+	end
+
 	table.sort(rest, function(a, b)
-		local da = stay and JAZZ_AIStancePosDist2DSqr(stay, a) or 0
-		local db = stay and JAZZ_AIStancePosDist2DSqr(stay, b) or 0
+		local da = nearest_threat_dist_sqr(a)
+		local db = nearest_threat_dist_sqr(b)
 		if da ~= db then
 			return da < db
 		end
@@ -1486,6 +1524,7 @@ end
 
 function AIEnumValidDests(context)
     PauseInfiniteLoopDetection("AiCalc")
+	local tStart = config.JAZZ_AIPerfLog and GetPreciseTicks() or nil
 	local unit = context.unit
 	local r = context.archetype.OptLocSearchRadius * const.SlabSizeX
 	local ux, uy, uz = point_unpack(context.unit_grid_voxel)
@@ -1497,11 +1536,9 @@ function AIEnumValidDests(context)
 		local gx, gy, gz = WorldToVoxel(x, y, z)
 		
 		if not IsCloser(gx, gy, gz, ux, uy, uz, context.archetype.OptLocSearchRadius) then
-            ResumeInfiniteLoopDetection("AiCalc")
 			return
 		end
 		if not CanOccupy(unit, x, y, z) then
-            ResumeInfiniteLoopDetection("AiCalc")
 			return
 		end
 
@@ -1538,12 +1575,29 @@ function AIEnumValidDests(context)
 	for _, dest in ipairs(context.important_dests) do
 		table.insert_unique(dests, dest)
 	end
+
+	-- M1 open slabs: OptLoc radius 55–100 can yield 2k–3k dests; TakeCover scores each × enemies.
+	local uncapped = #dests
+	local capped_out = 0
+	local cap = JAZZ_AI_PERF_OPTLOC_DEST_CAP or 400
+	local cap_fn = rawget(_G, "JAZZ_AICapDestLosCandidates") or JAZZ_AICapDestLosCandidates
+	if uncapped > cap and type(cap_fn) == "function" then
+		dests, capped_out = cap_fn(unit, context, dests, cap)
+	end
+	NetUpdateHash("AIEnumValidDests_Cap", GameTime(), uncapped, #dests, capped_out, cap)
+
     ResumeInfiniteLoopDetection("AiCalc")
+	if tStart then
+		JAZZ_AIPerfLog("EnumDests unit=%s ms=%d dests=%d uncapped=%d capped=%d radius=%s",
+			tostring(unit.unitdatadef_id or unit.class), GetPreciseTicks() - tStart,
+			#dests, uncapped, capped_out, tostring(context.archetype.OptLocSearchRadius))
+	end
 	return dests
 end
 
 function AIFindOptimalLocation(context, dest_score_details)
     PauseInfiniteLoopDetection("AiCalc")
+	local tStart = config.JAZZ_AIPerfLog and GetPreciseTicks() or nil
 	if context.best_dest then
 		-- optimal location doesn't change across behaviors, no need to recalc it
         ResumeInfiniteLoopDetection("AiCalc")
@@ -1562,8 +1616,10 @@ function AIFindOptimalLocation(context, dest_score_details)
 	local dest_scores = {}
 	
 	local policies = table.ifilter(context.archetype.OptLocPolicies, function(idx, policy) return policy:MatchUnit(unit) end)
+	local scored = 0
 	
 	for _, dest in ipairs(context.all_destinations) do
+		scored = scored + 1
 		local x, y, z = stance_pos_unpack(dest)
 		local gx, gy, gz = WorldToVoxel(x, y, z)
 		local world_voxel = point_pack(x, y, z)
@@ -1641,6 +1697,11 @@ function AIFindOptimalLocation(context, dest_score_details)
 		table.insert_unique(context.destinations, context.best_dest)
 	end
     ResumeInfiniteLoopDetection("AiCalc")
+	if tStart then
+		JAZZ_AIPerfLog("OptLoc unit=%s ms=%d scored=%d best_score=%s policies=%d",
+			tostring(unit.unitdatadef_id or unit.class), GetPreciseTicks() - tStart,
+			scored, tostring(context.best_score or 0), #(policies or empty_table))
+	end
 	return context.best_dest
 end
 
