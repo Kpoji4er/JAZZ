@@ -65,20 +65,70 @@ def add(**kw):
     ROSTER.append(kw)
 
 
+def _roster_slot(m: dict) -> int:
+    try:
+        return ROSTER.index(m) + 1
+    except ValueError:
+        return 1
+
+
+# Vanilla ships 6 IMP UnitData (3♂+3♀). Only 2 VoiceResponse banks exist
+# (IMP_male_01 / IMP_female_01); 02/03 UnitData also point at those banks.
+IMP_MALE_POOL = ("IMP_male_01", "IMP_male_02", "IMP_male_03")
+IMP_FEMALE_POOL = ("IMP_female_01", "IMP_female_02", "IMP_female_03")
+
+
+def resolve_imp_voice(unit_id: str) -> str:
+    """Map IMP UnitData id → existing VoiceResponse preset id."""
+    if unit_id.startswith("IMP_female"):
+        return "IMP_female_01"
+    if unit_id.startswith("IMP_male"):
+        return "IMP_male_01"
+    return unit_id
+
+
 def voice_for(m: dict) -> str:
+    """Jazz remesh banks + all 6 IMP UnitData ids (resolve to working VR).
+
+    ~3/4 of roster uses IMP pool (cycling male_01..03 / female_01..03);
+    remaining keep Jazz remesh for local flavour.
+    """
+    slot = _roster_slot(m)
     if m.get("female"):
-        return "Jazz_AME_Female"
-    if m["cat"] in ("Hardened", "Specialists"):
-        return "Jazz_AME_Male_Hard"
-    return "Jazz_AME_Male_Low"
+        if slot % 4 == 0:
+            return "Jazz_AME_Female"
+        return resolve_imp_voice(IMP_FEMALE_POOL[(slot - 1) % 3])
+    if slot % 4 == 0:
+        if m["cat"] in ("Hardened", "Specialists"):
+            return "Jazz_AME_Male_Hard"
+        return "Jazz_AME_Male_Low"
+    return resolve_imp_voice(IMP_MALE_POOL[(slot - 1) % 3])
+
+
+def voice_pool_label(m: dict) -> str:
+    """Design-roster label: which of the 6 IMP UnitData (or Jazz bank) was picked."""
+    slot = _roster_slot(m)
+    if m.get("female"):
+        if slot % 4 == 0:
+            return "Jazz_AME_Female"
+        return IMP_FEMALE_POOL[(slot - 1) % 3]
+    if slot % 4 == 0:
+        if m["cat"] in ("Hardened", "Specialists"):
+            return "Jazz_AME_Male_Hard"
+        return "Jazz_AME_Male_Low"
+    return IMP_MALE_POOL[(slot - 1) % 3]
 
 
 def voice_fallback(m: dict) -> str:
     """Pain/AiDeath only (Banter.lua) — never Ice/Fox (vanilla merc identity).
 
-    Point at the same enemy UnitData/VR the Jazz bank remeshed from.
-    Calm slots (Selection/Move) stay silent when omitted — no FallbackMissingVR.
+    IMP assignees fall back to the shared hireable bank (male_01 / female_01).
+    Jazz remesh banks point at the enemy UnitData/VR they remeshed from.
+    Calm slots (Selection/Move) stay silent when omitted on remesh banks.
     """
+    voice = voice_for(m)
+    if voice in ("IMP_male_01", "IMP_female_01"):
+        return voice
     if m.get("female"):
         return "AnneLeMitrailleur"
     if m["cat"] in ("Hardened", "Specialists"):
@@ -549,7 +599,7 @@ def render() -> str:
     lines.append("- **Кит:** Irr ≤ **1-2**; Fight ≤ **1-3**; Hard/Spec ≤ **2-1**. **`Type56` — потолок AR, только Hardened.** `SKS`/bolt — только Sniper.")
     lines.append("- **ПП:** винтаж T1 — `Thompson` / `M3GreaseGun` / `PPS43` / `PPSH` / `MP40` / `MAT49` / `Sterling`. **`UZI` и прочий T2 ПП в стартовых китах нет.**")
     lines.append("- **Бинты:** Fighters ~40%; Hardened всегда. **Sapper:** часть с `PipeBomb`.")
-    lines.append("- Voice: Irregulars/Fighters → `Jazz_AME_Male_Low` (Legion phrases + alt `*-1.opus`); Hardened/Specialists → `Jazz_AME_Male_Hard`; female → `Jazz_AME_Female`.")
+    lines.append("- Voice pool: Jazz remesh (~1/4) + all 6 IMP UnitData `IMP_male_01..03` / `IMP_female_01..03` (~3/4; VR resolves to `IMP_male_01` / `IMP_female_01`).")
     lines.append("- **Bio:** полная игровая проза карточки найма (RU); без мета-цифр статов/тиров.")
     lines.append("- Nick: в основном Hardened. Grand Chien: заметная доля.")
     lines.append("")
@@ -572,7 +622,7 @@ def render() -> str:
             lines.append(f"- **Potential (Wisdom):** {pot(m['stats']['Wisdom'])}")
             traits = ", ".join(f"`{t}`" for t in m["traits"]) if m["traits"] else "—"
             lines.append(f"- **Traits (common):** {traits}")
-            lines.append(f"- **Voice:** `{voice_for(m)}`")
+            lines.append(f"- **Voice:** `{voice_pool_label(m)}` → VR `{voice_for(m)}`")
             app = appearance_for(m, i)
             donor = appearance_donor_for(m, i)
             sex = "female" if m.get("female") else "male"

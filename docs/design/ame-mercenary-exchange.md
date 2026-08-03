@@ -132,13 +132,14 @@ Potential UI label from Wisdom: Low (below 45), Medium (45–64), High (65+).
 
 ## Voice / look
 
-Shared Jazz VR banks (hireable slot coverage; not raw enemy presets):
+Voice pool (Jazz remesh + all 6 IMP UnitData):
 
-- Male Irregulars / Fighters → `Jazz_AME_Male_Low` — **LegionRaider phrases**, audio from alt takes `*-1.opus` (other voice than vanilla Legion enemies)
-- Male Hardened / Specialists → `Jazz_AME_Male_Hard` — ArmySoldier remesh
-- Female → `Jazz_AME_Female` — AnneLeMitrailleur remesh
-- `FallbackMissingVR`: donor banks `LegionRaider` / `ArmySoldier` / `AnneLeMitrailleur` (Pain/AiDeath only — **not** Ice/Fox). Empty Selection/Move → silence.
-- Tooling: `docs/tools/_import_legion_raider_alt_voices.py` + `_gen_ame_voice_responses.py`
+- ~3/4 slots → IMP pool cycling `IMP_male_01..03` / `IMP_female_01..03`
+- ~1/4 → Jazz remesh (`Jazz_AME_Male_Low` / `Male_Hard` / `Female`)
+- **VoiceResponseId** resolves to working VR: male → `IMP_male_01`, female → `IMP_female_01` (vanilla only ships those two banks; UnitData 02/03 also use them)
+- `FallbackMissingVR`: IMP → same VR; remesh → `LegionRaider` / `ArmySoldier` / `AnneLeMitrailleur` (**not** Ice/Fox). Empty Selection/Move on remesh → silence.
+- Heads: **no** `Faction_Legion_Head_*` war-paint; named Af / `Head_F_Af_NPC_*` / `Head_M_IMP_01`
+- Tooling: `_import_legion_raider_alt_voices.py` + `_gen_ame_voice_responses.py` + `_gen_ame_appearances.py`; assignment in `_gen_ame_roster_60.py`
 - Appearance sources: **unique clone per slot** `JAZZ_AME_NN` from **Rebels** / **Militia** / **Legion** (Hardened/Specialists may use **GrandChien**); map [`ame-appearance-map.json`](ame-appearance-map.json)
 - Recolor: **red cloth → blue** (`ColorizationPropSet`); **skin forced dark** African bank (near-black); do not edit source faction presets
 - Female looks: thin faction female bank (`RebelFemaleSniper`×2, `GrandChien_CommanderFemale`, MilitiaRookie female×2) — unique ModItems even when donor mesh repeats

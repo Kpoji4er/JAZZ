@@ -6,7 +6,7 @@
     "name": "Kwame Mensah",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Artillery_01"
+    "head_swap": "Head_Chimurenga"
   },
   {
     "slot": 2,
@@ -15,7 +15,7 @@
     "name": "Jean-Baptiste Okoro",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Demolition_02"
+    "head_swap": "Head_Pierre"
   },
   {
     "slot": 3,
@@ -24,7 +24,7 @@
     "name": "Ibrahim Touré",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Heavy_05"
+    "head_swap": "Head_Fidel"
   },
   {
     "slot": 4,
@@ -33,7 +33,7 @@
     "name": "Sani Abubakar",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Marksman_03"
+    "head_swap": "Head_Fauda"
   },
   {
     "slot": 5,
@@ -42,7 +42,7 @@
     "name": "Pierre Ndongo",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Recon_06"
+    "head_swap": "Head_Magic"
   },
   {
     "slot": 6,
@@ -51,7 +51,7 @@
     "name": "Moussa Diop",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Shaman_09"
+    "head_swap": "Head_Blood"
   },
   {
     "slot": 7,
@@ -69,7 +69,7 @@
     "name": "Thabo Molefe",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Stormer_04"
+    "head_swap": "Head_Flay"
   },
   {
     "slot": 9,
@@ -78,7 +78,7 @@
     "name": "Daniel Kiprop",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Faction_Legion_Head_WitchDoctor_08"
+    "head_swap": "Head_Jackhammer"
   },
   {
     "slot": 10,
@@ -87,7 +87,7 @@
     "name": "Emmanuel Kabongo",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Artillery_01"
+    "head_swap": "Head_Lami"
   },
   {
     "slot": 11,
@@ -105,7 +105,7 @@
     "name": "Amadou Keita",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Heavy_05"
+    "head_swap": "Head_M_IMP_01"
   },
   {
     "slot": 13,
@@ -114,7 +114,7 @@
     "name": "Chidi Okonkwo",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Marksman_03"
+    "head_swap": "Head_Chimurenga"
   },
   {
     "slot": 14,
@@ -123,7 +123,7 @@
     "name": "Lucien Mbarga",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Recon_06"
+    "head_swap": "Head_Pierre"
   },
   {
     "slot": 15,
@@ -132,7 +132,7 @@
     "name": "Kofi Asante",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Shaman_09"
+    "head_swap": "Head_Fidel"
   },
   {
     "slot": 16,
@@ -141,7 +141,7 @@
     "name": "João Domingos",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Soldier_07"
+    "head_swap": "Head_Fauda"
   },
   {
     "slot": 17,
@@ -159,7 +159,7 @@
     "name": "Serge Kouassi",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Faction_Legion_Head_WitchDoctor_08"
+    "head_swap": "Head_Blood"
   },
   {
     "slot": 19,
@@ -168,7 +168,7 @@
     "name": "Bongani Dlamini",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Artillery_01"
+    "head_swap": "Head_Omryn"
   },
   {
     "slot": 20,
@@ -177,7 +177,7 @@
     "name": "Idrissa Bah",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Demolition_02"
+    "head_swap": "Head_Flay"
   },
   {
     "slot": 21,
@@ -186,7 +186,7 @@
     "name": "Omar Diallo",
     "cat": "Fighters",
     "female": false,
-    "head_swap": null
+    "head_swap": "Head_Jackhammer"
   },
   {
     "slot": 22,
@@ -195,7 +195,7 @@
     "name": "Bastien Lafontaine",
     "cat": "Fighters",
     "female": false,
-    "head_swap": null
+    "head_swap": "Head_Lami"
   },
   {
     "slot": 23,
@@ -204,7 +204,7 @@
     "name": "Chukwuemeka Obi",
     "cat": "Fighters",
     "female": false,
-    "head_swap": null
+    "head_swap": "Faction_Rebels_M_HeadMedic"
   },
   {
     "slot": 24,
@@ -213,7 +213,7 @@
     "name": "Michel Kabeya",
     "cat": "Fighters",
     "female": false,
-    "head_swap": null
+    "head_swap": "Head_M_IMP_01"
   },
   {
     "slot": 25,
@@ -222,7 +222,7 @@
     "name": "Juma Otieno",
     "cat": "Fighters",
     "female": false,
-    "head_swap": null
+    "head_swap": "Head_Chimurenga"
   },
   {
     "slot": 26,
@@ -231,7 +231,7 @@
     "name": "Andile Nkosi",
     "cat": "Fighters",
     "female": false,
-    "head_swap": null
+    "head_swap": "Head_Pierre"
   },
   {
     "slot": 27,
@@ -240,7 +240,7 @@
     "name": "Sekou Camara",
     "cat": "Fighters",
     "female": false,
-    "head_swap": null
+    "head_swap": "Head_Fidel"
   },
   {
     "slot": 28,
@@ -249,7 +249,7 @@
     "name": "Pascal Ngoma",
     "cat": "Fighters",
     "female": false,
-    "head_swap": null
+    "head_swap": "Head_Fauda"
   },
   {
     "slot": 29,
@@ -258,7 +258,7 @@
     "name": "Kwesi Boateng",
     "cat": "Fighters",
     "female": false,
-    "head_swap": null
+    "head_swap": "Head_Magic"
   },
   {
     "slot": 30,
@@ -267,7 +267,7 @@
     "name": "Tesfaye Alemu",
     "cat": "Fighters",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Heavy_05"
+    "head_swap": "Head_Blood"
   },
   {
     "slot": 31,
@@ -276,7 +276,7 @@
     "name": "Rafael dos Santos",
     "cat": "Fighters",
     "female": false,
-    "head_swap": null
+    "head_swap": "Head_Omryn"
   },
   {
     "slot": 32,
@@ -294,7 +294,7 @@
     "name": "Claude Mvemba",
     "cat": "Fighters",
     "female": false,
-    "head_swap": null
+    "head_swap": "Head_Jackhammer"
   },
   {
     "slot": 34,
@@ -303,7 +303,7 @@
     "name": "Emeka Nwosu",
     "cat": "Fighters",
     "female": false,
-    "head_swap": null
+    "head_swap": "Head_Lami"
   },
   {
     "slot": 35,
@@ -312,7 +312,7 @@
     "name": "Samuel Cheruiyot",
     "cat": "Fighters",
     "female": false,
-    "head_swap": null
+    "head_swap": "Faction_Rebels_M_HeadMedic"
   },
   {
     "slot": 36,
@@ -321,7 +321,7 @@
     "name": "Mamadou Traoré",
     "cat": "Fighters",
     "female": false,
-    "head_swap": null
+    "head_swap": "Head_M_IMP_01"
   },
   {
     "slot": 37,
@@ -330,7 +330,7 @@
     "name": "Felix Tshisekedi",
     "cat": "Fighters",
     "female": false,
-    "head_swap": null
+    "head_swap": "Head_Chimurenga"
   },
   {
     "slot": 38,
@@ -339,7 +339,7 @@
     "name": "Noah van Wyk",
     "cat": "Fighters",
     "female": false,
-    "head_swap": null
+    "head_swap": "Head_Pierre"
   },
   {
     "slot": 39,
@@ -348,7 +348,7 @@
     "name": "Joseph Mukendi",
     "cat": "Hardened",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Heavy_05"
+    "head_swap": "Head_Fidel"
   },
   {
     "slot": 40,
@@ -357,7 +357,7 @@
     "name": "Abraham Tekle",
     "cat": "Hardened",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Marksman_03"
+    "head_swap": "Head_Fauda"
   },
   {
     "slot": 41,
@@ -366,7 +366,7 @@
     "name": "Sipho Khumalo",
     "cat": "Hardened",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Recon_06"
+    "head_swap": "Head_Magic"
   },
   {
     "slot": 42,
@@ -375,7 +375,7 @@
     "name": "Boubacar Kane",
     "cat": "Hardened",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Shaman_09"
+    "head_swap": "Head_Blood"
   },
   {
     "slot": 43,
@@ -402,7 +402,7 @@
     "name": "Léopold Sassou",
     "cat": "Hardened",
     "female": false,
-    "head_swap": "Faction_Legion_Head_WitchDoctor_08"
+    "head_swap": "Head_Jackhammer"
   },
   {
     "slot": 46,
@@ -411,7 +411,7 @@
     "name": "Kofi Mensah",
     "cat": "Hardened",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Artillery_01"
+    "head_swap": "Head_Lami"
   },
   {
     "slot": 47,
@@ -420,7 +420,7 @@
     "name": "Hassan Ibrahim",
     "cat": "Hardened",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Demolition_02"
+    "head_swap": "Faction_Rebels_M_HeadMedic"
   },
   {
     "slot": 48,
@@ -429,7 +429,7 @@
     "name": "Patrick Omondi",
     "cat": "Hardened",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Heavy_05"
+    "head_swap": "Head_M_IMP_01"
   },
   {
     "slot": 49,
@@ -456,7 +456,7 @@
     "name": "Dr. Emile Kabongo",
     "cat": "Specialists",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Shaman_09"
+    "head_swap": "Head_Fidel"
   },
   {
     "slot": 52,
@@ -483,7 +483,7 @@
     "name": "Maj. Théodore Ngalula",
     "cat": "Specialists",
     "female": false,
-    "head_swap": "Faction_Legion_Head_WitchDoctor_08"
+    "head_swap": "Head_Blood"
   },
   {
     "slot": 55,
@@ -492,7 +492,7 @@
     "name": "Issa Camara",
     "cat": "Specialists",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Artillery_01"
+    "head_swap": "Head_Omryn"
   },
   {
     "slot": 56,
@@ -510,7 +510,7 @@
     "name": "Bakary Diarra",
     "cat": "Specialists",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Heavy_05"
+    "head_swap": "Head_Jackhammer"
   },
   {
     "slot": 58,
@@ -528,7 +528,7 @@
     "name": "Ousmane Fall",
     "cat": "Specialists",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Recon_06"
+    "head_swap": "Faction_Rebels_M_HeadMedic"
   },
   {
     "slot": 60,
@@ -537,6 +537,6 @@
     "name": "Jean-Pierre Kalala",
     "cat": "Specialists",
     "female": false,
-    "head_swap": "Faction_Legion_Head_Shaman_09"
+    "head_swap": "Head_M_IMP_01"
   }
 ]

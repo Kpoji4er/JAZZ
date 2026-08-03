@@ -7,7 +7,7 @@ JAZZ-UNITS-005-REQ-019:
   - donor from faction pools (unique males; females may reuse donor mesh)
   - exactly ONE AME-blue accent (Hat > Hat2 > Shirt > BodyC2); never Pants/boots
   - other Legion red → muted slate (not blue); Body Color1 dark African; HeadColor (0,0,0)
-  - Caucasian/Asian/AIM/Male_Head → Legion Af / Head_F_Af_NPC bank
+  - Caucasian/Asian/AIM/Male_Head/Legion painted → named Af / Head_F_Af_NPC (no Legion war-paint)
   - source presets never edited
 
 Usage (jazz/):
@@ -73,17 +73,21 @@ SKIN_BANK = [
 
 # Ethnicity lives in the Head *mesh* + HeadColor (0,0,0) like vanilla.
 # Do NOT tint HeadColor to skin RGB — that washes Male_Head faces to chalk-white.
-# Caucasian/Asian/AIM / generic Male_Head → Legion Af / Head_F_Af_NPC bank.
+# Do NOT use Faction_Legion_Head_* — war-paint / painted Legion faces.
+# Male Af bank: named African merc heads + Rebel medic + IMP (no war paint).
 MALE_AF_HEADS = [
-    "Faction_Legion_Head_Artillery_01",
-    "Faction_Legion_Head_Demolition_02",
-    "Faction_Legion_Head_Heavy_05",
-    "Faction_Legion_Head_Marksman_03",
-    "Faction_Legion_Head_Recon_06",
-    "Faction_Legion_Head_Shaman_09",
-    "Faction_Legion_Head_Soldier_07",
-    "Faction_Legion_Head_Stormer_04",
-    "Faction_Legion_Head_WitchDoctor_08",
+    "Head_Chimurenga",
+    "Head_Pierre",
+    "Head_Fidel",
+    "Head_Fauda",
+    "Head_Magic",
+    "Head_Blood",
+    "Head_Omryn",
+    "Head_Flay",
+    "Head_Jackhammer",
+    "Head_Lami",
+    "Faction_Rebels_M_HeadMedic",
+    "Head_M_IMP_01",
 ]
 FEMALE_AF_HEADS = [f"Head_F_Af_NPC_{i:02d}" for i in range(1, 11)]
 
@@ -108,13 +112,17 @@ def skin_for_slot(slot: int) -> tuple[int, int, int]:
 def head_needs_africanize(head: str) -> bool:
     if not head:
         return True
-    if head.startswith("Head_F_Af_NPC_") or head.startswith("Faction_Legion_Head_"):
+    # Painted Legion war-paint heads — always replace.
+    if head.startswith("Faction_Legion_Head_"):
+        return True
+    if head.startswith("Head_F_Af_NPC_"):
         return False
     if head in MALE_AF_HEADS:
         return False
     if _HEAD_FORCE_REPLACE.match(head):
         return True
     if head.startswith("Faction_") and "Head" in head:
+        # Other faction heads (gas masks, Rebel medic, …) — keep unless painted Legion.
         return False
     return True
 

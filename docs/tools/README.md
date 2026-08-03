@@ -241,13 +241,12 @@ python docs/tools/build-sector-atlas-docs.py
 | `_sync_madman_chat_salary_strings.py` | Синк AIM-фраз Бешеного (не «бесплатный») в `items.lua` + `Russian.csv`/`English.csv`. |
 | `_ship_colby_voices_ja2_only.py` | Jazz_Colby: пересобрать `jazz-units/voices/<T-id>.opus` **только** из JA2 Trevor WAV (`trevor.rar` / `trevor_extract/trevor`); пробелы — дубли родственных реплик. `--dry-run` / apply. |
 | `_ship_ja2_merc_voices.py` | Batch: JA2/NightOps/JA2 Gold SLF + folder packs **или** `ja2mercs:…`. Combat=`SLOT_WAV`; AIM chat via `--aim-chat` / `--aim-chat-only`: classic `081–120`, MERK/RPC/Biff=`HIRE_FALLBACK_WAV`, UB ЦС=`UB_HIRE_PROXY_WAV`, Mike hire alt OLD pack. Never ATTN as hire. Map: `jazz_to_ja2_profile.csv` + folders CSV. |
-| `_import_legion_raider_alt_voices.py` | Импорт альтернативных takes Legion Raider: `Downloads/1.rar` → `jazz-units/voices/<T-id>-1.opus` (те же фразы/T-id, постфикс `-1`). `--rar` / `--dry-run`. |
-| `_gen_ame_roster_60.py` | Генерация design-карточек AME: `docs/design/ame-roster-60.md` (60 имён/био/статов/fixed inventory по категориям). |
+| `_gen_ame_roster_60.py` | Генерация design-карточек AME: `docs/design/ame-roster-60.md`. Voice pool: Jazz remesh + all 6 IMP UnitData (`IMP_*_01..03` → VR `IMP_*_01`). |
 | `_ame_names_ru.py` | RU Name/Nick для AME (кириллица); используется `_gen_ame_unitdata.py` в RU/EN loc. |
 | `_gen_ame_unitdata.py` | JAZZ-UNITS-005: из roster → `jazz-units/UnitData/JAZZ_AME_01..60.lua`, fixed `Loot_*`, items/metadata markers, nationality presets, RU/EN loc (имена RU из `_ame_names_ru.py`), placeholder portraits. Idempotent (`JAZZ-UNITS-005-AME-*`). |
 | `_import_legion_raider_alt_voices.py` | Импорт Legion Raider alt takes `*-1.opus` (rar или `--dir Downloads/1`) → `jazz-units/voices/` (донор голоса для AME Male_Low). |
 | `_gen_ame_voice_responses.py` | Три shared VR: `Jazz_AME_Male_Low` (Legion alt `*-1.opus`, без Legion/Major takes), `Jazz_AME_Male_Hard`, `Jazz_AME_Female`. Remesh только подходящие слоты; Selection/Order/CombatMovement **omit** → тишина. UnitData `FallbackMissingVR` = Legion/Army/Anne (Pain only, не Ice/Fox). |
-| `_gen_ame_appearances.py` | 60 `JAZZ_AME_NN`; **1** синий акцент (Hat/Hat2/Shirt/BodyC2, не Pants); red/extra-blue→slate; Body skin dark; HeadColor 0; Ca/As/AIM/Male_Head→Legion/`Head_F_Af_NPC`; map `ame-appearance-map.json`. |
+| `_gen_ame_appearances.py` | 60 `JAZZ_AME_NN`; **1** синий акцент (Hat/Hat2/Shirt/BodyC2, не Pants); **без** Legion war-paint heads; red/extra-blue→slate; Body skin dark; HeadColor 0; map `ame-appearance-map.json`. |
 | `_gen_ame_flags.py` | PNG флаги 128×80 для новых AME Nationality (`Icons/Flags/f_*.png`). |
 | `_gen_ame_portrait_prompts.py` | JSONL prompt-bank 60 слотов → `jazz-units/MercPortraits/_ame_face_refs/prompts.jsonl`. |
 | `_process_ame_portraits.py` | rembg BiRefNet + resize 2000 + bust_crop 300 из `*_Big_raw.png` (assets/_raw). |

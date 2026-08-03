@@ -85,7 +85,8 @@ Offline merc randomization детерминирован. Это означает
 | Витрина | ~15 `Available` на старте; `NotListed` скрыты; terminal (`JoinedLegion`/`Killed`/…) — серые карточки |
 | Tick | 30 дней кампании; specialist soft-guarantee |
 | Hire | reuse `MercCanContact` → chat → `HireMerc` / `LocalHireMerc`; AME вне AIM contact-cap |
-| VR | `Jazz_AME_Male_Low` (Legion phrases + `*-1.opus` alt voice), `Jazz_AME_Male_Hard`, `Jazz_AME_Female`; Fallback `Ice`/`Fox` |
+| VR | Pool: Jazz remesh (~1/4) + all 6 IMP UnitData (VR→`IMP_male_01`/`IMP_female_01`); Fallback remesh→Legion/Army/Anne, IMP→self (not Ice/Fox) |
+| Heads | No `Faction_Legion_Head_*` war-paint; named Af / `Head_F_Af_NPC_*` / `Head_M_IMP_01` |
 | Appearance | per-slot clone `JAZZ_AME_NN` ← Rebels/Militia/Legion (+ GrandChien Hardened/Spec); red→blue cloth; dark African skin forced ([ame-appearance-map.json](../../design/ame-appearance-map.json)) |
 | Nationality | reuse `GrandChien`/`SouthAfrica` + new `Nigeria`…`Ethiopia` (`System_AME_Nationalities.lua`, flags `Icons/Flags/f_*.png`) |
 | Portraits | unique `MercPortraits/JAZZ_AME_NN.png` + `_Big` (300/2000) |
